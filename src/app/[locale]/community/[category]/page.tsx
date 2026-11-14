@@ -45,7 +45,10 @@ export async function generateMetadata({ params, searchParams }: Params): Promis
   const name = t(`pages.community.categories.${category}.name`);
   const meta = metaPage(locale, {
     title: t("pages.community.seo.categoryTitle", { name }),
-    description: t(`pages.community.categories.${category}.description`),
+    description: t("pages.community.seo.categoryDescription", {
+      description: t(`pages.community.categories.${category}.description`),
+      name,
+    }),
     path: `/community/${category}`,
   });
   const variant = readSort(query.sort) !== "latest" || readPageNumber(query.page) > 1;

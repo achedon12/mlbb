@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const latest = advanceVersions(locale)[0];
   return metaPage(locale, {
     title: latest
-      ? t("pages.advanceServer.seo.title", { v: latest.version })
+      ? t("pages.advanceServer.seo.titleHub", { v: latest.version })
       : t("pages.advanceServer.seo.titleGeneric"),
     // The latest version, its date and its hero counts open the description.
     description: latest

@@ -32,7 +32,7 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
   const { locale } = await params;
   const t = createT(locale);
   const session = await sessionPlayer();
-  if (session.state === "missing") redirect("/login");
+  if (session.state === "missing") redirect(`/${locale}/login`);
 
   if (session.state === "expired") {
     // Token revoked before it expires: a new code is needed.

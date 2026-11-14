@@ -12,6 +12,7 @@ import { LOCALES, DEFAULT_LOCALE, LOCALE_HTML, isLocale } from "@/i18n/config";
 import { createT, messagesClient } from "@/i18n/translations";
 import { metaLocales, OG_LOCALE } from "@/i18n/seo";
 import { site } from "@/lib/site";
+import { allHeroes } from "@/lib/data";
 
 /**
  * Self-hosted fonts: `next/font` downloads them at build time and serves them
@@ -72,10 +73,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!isLocale(locale)) return {};
   const t = createT(locale);
   const title = `${site.name} — ${t("common.subtitle")}`;
+  const description = t("common.homeDescription", { heroes: allHeroes.length });
 
   return {
     title: { default: title, template: `%s — ${site.name}` },
-    description: t("common.homeDescription"),
+    description,
     alternates: {
       // Language root: canonical and hreflang of the home page. Child pages
       // declare their own alternates via `metaLocales`.
@@ -89,13 +91,13 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       url: `${site.url}/${locale}`,
       siteName: site.name,
       title,
-      description: t("common.homeDescription"),
+      description,
       images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
     },
     twitter: {
       card: "summary_large_image",
       title,
-      description: t("common.homeDescription"),
+      description,
       images: ["/opengraph-image"],
     },
   };

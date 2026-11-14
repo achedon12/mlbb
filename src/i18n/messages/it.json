@@ -11,7 +11,7 @@
     "breadcrumb": "Percorso di navigazione",
     "sections": "Sezioni della scheda",
     "close": "Chiudi",
-    "homeDescription": "Base di conoscenza di Mobile Legends: Bang Bang: i 133 eroi, i loro counter e le build per rango, la tier list, gli oggetti, gli emblemi e le patch notes.",
+    "homeDescription": "Base di conoscenza di Mobile Legends: Bang Bang: i {heroes} eroi, i loro counter e le build per rango, la tier list, gli oggetti, gli emblemi e le patch notes.",
     "siblings": "Altre pagine allo stesso livello di {name}",
     "filter": "Filtra…",
     "contents": "Sommario",
@@ -824,7 +824,7 @@
       "statPending": "In attesa di un'analisi",
       "principleTitle": "Cosa scrivi",
       "principle1": "Ruoli, corsie, abilità, skin, statistiche e build giocate arrivano dalla sincronizzazione automatica con la wiki e l'API della community. Un'analisi aggiunge solo ciò che nessuna estrazione produce: cosa fa davvero l'eroe, i suoi punti di forza e le sue debolezze, i counter e build spiegate.",
-      "principle2": "Le analisi si scrivono in francese, la lingua originale del sito. Ognuna è una voce TypeScript, aggiunta al file del ruolo dell'eroe in `src/data/heros/`.",
+      "principle2": "Le analisi si scrivono in francese, la lingua originale del sito. Ognuna è una voce TypeScript, aggiunta al file del ruolo dell'eroe in `src/data/heroes/`.",
       "fieldsTitle": "I campi",
       "fieldsIntro": "Un'analisi segue il tipo `AnalyseHeros` di `src/lib/types.ts`. Abilità e build hanno ciascuna la propria forma.",
       "group": {
@@ -2621,6 +2621,7 @@
       "allVersions": "Tutte le versioni dell'Advance Server",
       "seo": {
         "title": "Patch notes Advance Server MLBB {v}: buff, nerf e modifiche",
+        "titleHub": "Patch notes Advance Server MLBB: tutte le versioni (ultima {v})",
         "titleGeneric": "Patch notes Advance Server MLBB: buff, nerf e modifiche",
         "description": "Note dell'Advance Server, il server di prova di Mobile Legends: ultima versione documentata {version}, con {buffs} buff, {nerfs} nerf e {adjust} ritocchi agli eroi. Modifiche in prova, che possono cambiare prima del server ufficiale.",
         "descriptionVersion": "Advance Server MLBB {version}: {buffs} eroi potenziati, {nerfs} indeboliti e {adjust} ritoccati, tra cui {heroes}. Modifiche in prova, che possono cambiare prima del server ufficiale.",
@@ -4272,6 +4273,7 @@
         "title": "Forum di Mobile Legends e ricerca compagni di squadra",
         "description": "Il forum della community di MLBBDex: eroi e build, aiuto in classificata, esport, guide dei giocatori e giocatori di Mobile Legends con cui fare squadra per regione, rango e lane.",
         "categoryTitle": "{name} – forum di Mobile Legends",
+        "categoryDescription": "{description} Le discussioni «{name}» del forum Mobile Legends di MLBBDex, aperte a tutti i giocatori.",
         "threadTitle": "{title} – forum MLBB"
       },
       "categories": {
