@@ -125,6 +125,10 @@
       "label": "Valore della collezione",
       "desc": "I tuoi eroi e le tue skin in diamanti"
     },
+    "matchups": {
+      "label": "Matrice del Duello",
+      "desc": "I tuoi eroi contro i loro, duello dopo duello"
+    },
     "main": "Navigazione principale",
     "groups": {
       "heroes": "Eroi",
@@ -663,6 +667,45 @@
       "method1": "Con n partite e v vittorie, raggiungere un win rate t richiede x vittorie di fila tali che (v + x) ÷ (n + x) ≥ t, cioè x = (t × n − v) ÷ (1 − t), arrotondato per eccesso. Il numero di vittorie si ricava dal win rate mostrato dal gioco, arrotondato a due decimali: una partita si vince o si perde, quindi è un numero intero.",
       "method2": "A un ritmo r superiore all'obiettivo servono circa (t × n − v) ÷ (r − t) partite. Se l'obiettivo è già raggiunto, il calcolatore mostra il tuo margine: quante sconfitte di fila puoi incassare restando sopra."
     },
+    "matchups": {
+      "title": "Matrice del Duello",
+      "lead": "I tuoi eroi in righe, quelli opposti in colonne: ogni casella riporta la differenza nel tasso di vittoria misurata tra i due, al grado scelto. Una casella vuota non è un duello equilibrato: è un duello che il gioco non pubblica.",
+      "compareLink": "Confronta due eroi in dettaglio",
+      "draftLink": "Preparare una bozza completa",
+      "methodTitle": "Da dove vengono i numeri?",
+      "method1": "Per ogni eroe e ogni grado, il gioco pubblica i sei avversari contro i quali la sua percentuale di vittoria aumenta di più, e i sei contro i quali diminuisce di più, con la differenza di punti rispetto alla sua percentuale abituale. Un riquadro mostra questa differenza, vista dall'eroe della linea: +3.0 significa che guadagna tre punti in più del solito contro questo eroe.",
+      "method2": "Un duello si misura non appena uno dei due eroi nomina l'altro; quando lo fanno entrambi, è lo stesso numero, con segno opposto. Tutti gli altri duelli restano vuoti: il loro divario è indubbiamente minore, ma non è pubblicato, e la matrice non lo indovina. L'elenco sotto la griglia legge solo i duelli misurati.",
+      "method3": "Ad ogni grado vengono misurati tra {min} e {max} di {total} possibili duelli, o {share} al massimo: aspettatevi caselle vuote.",
+      "measuredOn": "Misure di {date}, patch {v}."
+    },
+    "matchupsUI": {
+      "rows": "I tuoi eroi",
+      "rowsDesc": "{n} su {max}, in righe.",
+      "columns": "Avversari",
+      "columnsDesc": "{n} per {max}, in colonne.",
+      "add": "Aggiungi un eroe",
+      "chooseRow": "Scegli uno dei tuoi eroi",
+      "chooseColumn": "Scegli un avversario",
+      "example": "Vedi un esempio",
+      "swap": "Cambiare lato",
+      "copy": "Copia il link",
+      "linkCopied": "Link copiato.",
+      "copyFailed": "Copia non riuscita: copia l'indirizzo della pagina.",
+      "intro": "Aggiungi almeno un eroe su ciascun lato per visualizzare la matrice. L'indirizzo della pagina mantiene le tue scelte e il ranking: basta condividerlo.",
+      "loading": "Caricamento duelli di grado...",
+      "error": "Non è stato possibile caricare duelli di questo grado. Riprova modificando il grado.",
+      "matrixTitle": "Duelli · {rank}",
+      "measured": "Duelli misurati: {n} su {total}.",
+      "caption": "Differenza nel tasso di vittoria dei tuoi eroi (righe) contro avversari (colonne), {rank}",
+      "cell": "{hero} contro {opponent}: {gap}",
+      "cellEmpty": "{hero} contro {opponent}: non misurato",
+      "legend": "Legend",
+      "legendUp": "L'eroe della linea vince più spesso",
+      "legendDown": "L'eroe della linea perde più spesso",
+      "legendEmpty": "Duello senza misura",
+      "listTitle": "Dal duello più sbilanciato a quello più serrato",
+      "duel": "{hero} contro {opponent}"
+    },
     "contribute": {
       "metaTitle": "Contribuisci: scrivi l'analisi di un eroe",
       "title": "Scrivere l'analisi di un eroe",
@@ -932,6 +975,10 @@
       "winRate": {
         "title": "Calcolatore win rate MLBB: vittorie per il tuo obiettivo",
         "description": "Inserisci partite giocate e tasso di vittoria attuale: scopri quante vittorie di fila servono per raggiungere il tuo obiettivo in Mobile Legends: Bang Bang, o quante partite a un certo ritmo. Gratis, immediato, senza registrazione."
+      },
+      "matchups": {
+        "title": "Matrice di matchup MLBB: differenze di vittoria misurate in base al grado",
+        "description": "Scegli fino a cinque eroi per ogni fazione e leggi, per ogni duello, la differenza nella percentuale di vittorie misurata dal gioco, grado per grado. {n} eroi, nessun valore inventato: i duelli non misurati restano vuoti."
       },
       "tierLane": {
         "title": "Migliori eroi {lane} MLBB: tier list {lane} {month} (patch {v})",

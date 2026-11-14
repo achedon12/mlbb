@@ -10,6 +10,7 @@ import {
   FlaskConical,
   Gamepad2,
   Gem,
+  Grid3x3,
   Hammer,
   Library,
   ListOrdered,
@@ -150,6 +151,7 @@ export const GROUPS: Group[] = [
     nodes: [
       { href: "/draft", key: "draft", icon: Swords },
       { href: "/compare", key: "compare", icon: Scale },
+      { href: "/tools/matchups", key: "matchups", icon: Grid3x3 },
       { href: "/tools/team", key: "team", icon: UsersRound },
       { href: "/tools/tier-list-maker", key: "tierListMaker", icon: ListOrdered },
       { href: "/tools/win-rate", key: "winRate", icon: Calculator },

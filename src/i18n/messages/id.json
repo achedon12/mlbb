@@ -125,6 +125,10 @@
       "label": "Nilai koleksi",
       "desc": "Hero dan skin Anda dalam diamond"
     },
+    "matchups": {
+      "label": "Matriks Duel",
+      "desc": "Pahlawanmu melawan hero mereka, duel demi duel"
+    },
     "main": "Navigasi utama",
     "groups": {
       "heroes": "Hero",
@@ -663,6 +667,45 @@
       "method1": "Dengan n permainan dan v kemenangan, untuk mencapai angka t diperlukan x kemenangan berturut-turut sehingga (v + x) ÷ (n + x) ≥ t, atau x = (t × n − v) ÷ (1 − t), dibulatkan ke atas. Jumlah kemenangan dikurangkan dari angka yang ditampilkan permainan, dibulatkan menjadi dua angka desimal: permainan dimenangkan atau dikalahkan, oleh karena itu bilangan bulat.",
       "method2": "Pada tingkat r di atas target, dibutuhkan kira-kira (t × n − v) (r − t) bagian. Jika tujuannya telah tercapai, kalkulator akan memberikan margin Anda: jumlah kekalahan berturut-turut yang dapat Anda tanggung sambil tetap berada di atasnya."
     },
+    "matchups": {
+      "title": "Matriks Duel",
+      "lead": "Hero Anda dalam baris, yang berlawanan dalam kolom: setiap kotak memberikan perbedaan win rate yang diukur antara keduanya, pada peringkat yang dipilih. Kotak kosong bukanlah duel yang seimbang: ini adalah duel yang tidak dipublikasikan oleh game.",
+      "compareLink": "Bandingkan dua hero secara detail",
+      "draftLink": "Siapkan draft lengkap",
+      "methodTitle": "Dari mana angka-angka tersebut berasal?",
+      "method1": "Untuk setiap hero dan setiap peringkat, game ini menerbitkan enam lawan yang win ratenya paling tinggi, dan enam lawan yang paling banyak turunnya, dengan perbedaan poin dibandingkan dengan tingkat biasanya. Sebuah kotak menampilkan perbedaan ini, dilihat dari hero garis: +3.0 berarti dia memperoleh tiga poin lebih banyak dari biasanya melawan hero ini.",
+      "method2": "Duel diukur segera setelah salah satu dari dua hero menyebutkan nama lainnya; bila keduanya melakukannya, angkanya sama, dengan tanda berlawanan. Semua duel lainnya tetap kosong: kesenjangan mereka tidak diragukan lagi lebih kecil, tetapi tidak dipublikasikan, dan matriks tidak dapat menebaknya. Daftar di bawah grid hanya membaca duel terukur.",
+      "method3": "Di setiap peringkat, antara {min} dan {max} dari {total} kemungkinan duel diukur, atau paling banyak {share}: perkirakan kotak kosong.",
+      "measuredOn": "Pengukuran {date}, patch {v}."
+    },
+    "matchupsUI": {
+      "rows": "Pahlawanmu",
+      "rowsDesc": "{n} di atas {max}, dalam baris.",
+      "columns": "Lawan",
+      "columnsDesc": "{n} oleh {max}, dalam kolom.",
+      "add": "Tambahkan hero",
+      "chooseRow": "Pilih salah satu hero Anda",
+      "chooseColumn": "Pilih lawan",
+      "example": "Lihat contohnya",
+      "swap": "Ganti sisi",
+      "copy": "Salin tautan",
+      "linkCopied": "Tautan disalin.",
+      "copyFailed": "Tidak dapat menyalin: salin alamat halaman.",
+      "intro": "Tambahkan setidaknya satu hero ke setiap sisi untuk menampilkan matriks. Alamat halaman menyimpan pilihan dan peringkat Anda: bagikan saja.",
+      "loading": "Memuat duel peringkat...",
+      "error": "Duel dengan peringkat ini tidak dapat dimuat. Coba lagi dengan mengubah peringkat.",
+      "matrixTitle": "Duel · {rank}",
+      "measured": "Duel diukur: {n} dari {total}.",
+      "caption": "Perbedaan win rate hero Anda (baris) melawan lawan (kolom), {rank}",
+      "cell": "{hero} versus {opponent}: {gap}",
+      "cellEmpty": "{hero} versus {opponent}: tidak diukur",
+      "legend": "Legenda",
+      "legendUp": "Hero garis lebih sering menang",
+      "legendDown": "Hero line lebih sering kalah",
+      "legendEmpty": "Duel yang tidak terukur",
+      "listTitle": "Dari duel yang paling tidak seimbang hingga yang paling ketat",
+      "duel": "{hero} versus {opponent}"
+    },
     "contribute": {
       "metaTitle": "Berkontribusi: Tulis Analisis Hero",
       "title": "Tulis analisis hero",
@@ -932,6 +975,10 @@
       "winRate": {
         "title": "Kalkulator Win Rate MLBB: Berapa Kemenangan untuk Target Anda",
         "description": "Tunjukkan permainan yang Anda mainkan dan win rate Anda: lihat berapa banyak kemenangan berturut-turut yang diperlukan untuk mencapai tujuan Anda di Mobile Legends: Bang Bang, atau berapa banyak permainan dengan kecepatan tertentu. Gratis, instan, tanpa registrasi."
+      },
+      "matchups": {
+        "title": "Matriks pertarungan MLBB: perbedaan kemenangan diukur berdasarkan peringkat",
+        "description": "Pilih hingga lima hero dari masing-masing pihak dan baca, untuk setiap duel, perbedaan win rate diukur berdasarkan permainan, peringkat demi peringkat. {n} hero, tidak ada nilai yang diciptakan: duel yang tidak terukur tetap kosong."
       },
       "tierLane": {
         "title": "Hero {lane} Terbaik di MLBB — Tier List {lane} {month} (Patch {v})",
