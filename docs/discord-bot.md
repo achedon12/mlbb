@@ -93,8 +93,18 @@ Everything is free: no plans, no paywall, no payment code.
 - Bot invite permissions, least privilege: View Channels, Send Messages,
   Send Messages in Threads, Embed Links, Attach Files, Read Message History,
   Use External Emojis, Add Reactions. Scopes `bot applications.commands`.
-  No Administrator, no privileged intents (no MessageContent, no
-  GuildMembers): only the `Guilds` intent.
+  No Administrator.
+- Intents: `Guilds`, plus one privileged intent, `GuildMembers`, for a
+  single purpose: the `guildMemberAdd` / `guildMemberRemove` events behind
+  the welcome and goodbye messages. The bot never lists or fetches members
+  with it and stores nothing about them; the member cache stays empty.
+  Never `MessageContent`, never presences. It needs **Server Members
+  Intent** switched on in the developer portal (Bot > Privileged Gateway
+  Intents; Discord's review once the bot is past 100 servers). Each shard
+  reads the application's flags before connecting: without the switch it
+  connects with `Guilds` alone and logs a warning, and only those two
+  messages are off. A 4014 close (intent refused anyway) makes the shard
+  log the same warning and exit; its respawn connects without it.
 - No personal data beyond Discord ids/names needed for features; documented
   on `/bot/privacy`; `/bot` data deleted when the bot leaves a server
   (after 30 days, so a re-invite keeps its settings).
@@ -107,7 +117,11 @@ Everything is free: no plans, no paywall, no payment code.
 - `GuildSettings` (1:1 Guild): for each announcement type —
   `patches`, `skins`, `events`, `advanceServer`, `esports` — a channel id
   (nullable = off) and an optional role id to mention; `dailyMlbbdleChannelId`,
-  `dailyQuizChannelId`, `dailyHourUtc` (0–23, default 12).
+  `dailyQuizChannelId`, `dailyHourUtc` (0–23, default 12); for the
+  welcome and goodbye messages, `welcomeChannelId` / `goodbyeChannelId`
+  (nullable = off, the default), `welcomeMessage` / `goodbyeMessage`
+  (nullable = the default text, at most 500 characters) and
+  `welcomeFailing` / `goodbyeFailing`.
 - `Announcement`: id, type, key (e.g. patch version, skin id), payload
   (JSON), createdAt. Unique (type, key).
 - `Delivery`: announcementId + guildId (composite PK), status, messageId,
@@ -124,7 +138,11 @@ Everything is free: no plans, no paywall, no payment code.
 - `POST /api/bot/guilds/sync` — `{ full: boolean, guilds: [{id,name,icon,memberCount,locale}] }`.
   Full sync on bot ready marks absent guilds as left.
 - `POST /api/bot/guilds/:id/join`, `POST /api/bot/guilds/:id/leave`.
-- `GET  /api/bot/guilds/:id/settings` → settings (defaults if none).
+- `GET  /api/bot/guilds/:id/settings` → settings (defaults if none),
+  `welcome` and `goodbye` included as `{channelId, message, failing}`.
+- `POST /api/bot/guilds/:id/greeting-failure` — `{kind: "welcome"|"goodbye"}`:
+  the bot could not post that message (channel gone, permission lost); it
+  is marked failing, and the bot skips it until the settings are saved.
 - `GET  /api/bot/announcements/pending` → announcements with the guilds and
   channels still to deliver (the site creates announcements from its own
   data: new patch in `patches.json`, new skins in `skins.json`, events,
@@ -156,8 +174,11 @@ Everything is free: no plans, no paywall, no payment code.
   can post in, and roles (for the dashboard pickers).
 - `POST /internal/announcements/flush` → deliver pending now (called by the
   site after it creates announcements).
-- `POST /internal/test-post` `{guildId, channelId}` → posts a test embed
-  (the dashboard "send a test" button).
+- `POST /internal/test-post` `{guildId, channelId, locale}` → posts a test
+  embed (the dashboard "send a test" button). With `kind: "welcome"|"goodbye"`,
+  `message` (the text being edited, or null), `member` `{id, username, avatar}`
+  (the dashboard user), `guildName` and `memberCount` (from the site's
+  database), it posts that message instead, pinging nobody.
 - `GET  /internal/stats` → shards, ping, guild count, uptime, memory.
 
 ## Commands
@@ -202,6 +223,33 @@ retried with backoff, and a channel that lost permissions marks the setting
 as failing (shown in the dashboard) instead of retrying forever. The daily
 MLBBdle/quiz post goes out at `dailyHourUtc` with a "Play" button.
 
+## Welcome and goodbye messages
+
+Posted by the shard that receives the member event (a server's events
+always reach the same shard), to the channel the server chose, as a small
+gold embed (the newcomer's avatar as thumbnail on a welcome).
+
+- Text: the owner's (up to 500 characters) or the default one in the
+  server's language (`ui.greetings` in the bot's i18n). Placeholders:
+  `{user}` (a mention on a welcome, the plain name on a goodbye: someone
+  who left is never pinged), `{username}`, `{server}`, `{count}` (member
+  count, formatted for the language).
+- Safety: in the owner's text @everyone and @here are broken and role and
+  user mentions removed; the names filled in are escaped; the welcome
+  carries the newcomer's mention in `content` with `allowed_mentions` set
+  to that user alone, a goodbye allows nothing. Bots joining are not
+  greeted.
+- Raids: the first member of a burst is greeted at once, the next ones
+  within 10 s are held; at the end of the window, 5 or fewer get one
+  message each, more get a single summary ("Welcome to the N new
+  members!"), and while it goes on, one summary per 10 s window at most.
+  Goodbyes follow the same rule. Only the first few held members are kept
+  in memory, for those seconds.
+- Delivery: settings through `GET /api/bot/guilds/:id/settings` and its
+  2-minute cache. A channel that is unset is skipped silently; one that is
+  gone or no longer lets the bot post is skipped, logged at warn and
+  reported to `POST /api/bot/guilds/:id/greeting-failure`.
+
 ## Site pages
 
 - `/[locale]/bot` — landing: what it does, live server count, command list
@@ -211,7 +259,9 @@ MLBBdle/quiz post goes out at `dailyHourUtc` with a "Play" button.
 - `/[locale]/bot/dashboard` — login with Discord, list of the user's
   manageable servers (and "add the bot" for the others), per-server form:
   language, announcement channels + role per type, daily games channel and
-  hour, "send a test" buttons, delivery health.
+  hour, welcome and goodbye messages (on/off, channel, optional text with
+  the placeholders and a live preview), "send a test" buttons, delivery
+  health.
 - `/[locale]/bot/admin` — super admins: servers (count, joins/leaves per
   day, biggest servers, locales), commands (top commands, error rate,
   p95 duration, per day 24h/7d/30d), announcements (delivered/failed),
@@ -266,8 +316,12 @@ deployment without the bot.
   idempotence, daily puzzle parity with the site, leaderboard ranking.
 - Bot: unit tests for command option parsing, localization completeness
   (every command has every locale, every i18n key in every file),
-  embed builders, signing, delivery retry/backoff, listing poster.
+  embed builders, signing, delivery retry/backoff, listing poster, and the
+  welcome and goodbye messages (placeholders, sanitising, allowed
+  mentions, raid coalescing with fake timers, failing channels, intents).
 - Site, against a real Postgres (`tests/functional/bot-database.test.ts`,
   skipped without `TEST_DATABASE_URL`): bulk guild sync and deliveries,
-  pending targets, daily servers by hour, leaderboard and admin aggregates.
+  pending targets, daily servers by hour, leaderboard and admin aggregates,
+  the welcome and goodbye settings (migration defaults, signed read,
+  failing flag).
 - Both: `npm run typecheck`, `npm run lint`, `npm test`, build.

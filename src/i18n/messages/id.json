@@ -3357,7 +3357,7 @@
         "about": "Tautan ke situs, server dukungan, suara, dan privasi."
       },
       "permissionsTitle": "Izin diminta",
-      "permissionsText": "Minimal untuk merespons dan mempublikasikan: tidak pernah menjadi Administrator, dan tidak ada akses ke konten pesan atau ke daftar anggota.",
+      "permissionsText": "Hanya yang dibutuhkan untuk membalas dan memposting: tidak pernah Administrator, dan tanpa akses ke isi pesan. Intent Server Members hanya dipakai untuk pesan sambutan dan perpisahan: tidak ada data anggota yang disimpan.",
       "permissions": {
         "view": "Lihat pertunjukannya",
         "send": "Kirim pesan",
@@ -3387,12 +3387,12 @@
       "metaDescription": "Apa yang disimpan oleh bot MLBBEx Discord, mengapa, berapa lama, dan bagaimana cara menghapusnya.",
       "lead": "Apa yang disimpan bot, alasannya, dan untuk berapa lama.",
       "storedTitle": "Apa yang dilestarikan",
-      "storedServer": "Untuk setiap server: pengenalnya, namanya, ikonnya, jumlah anggotanya, bahasanya, pengaturannya (ruangan, peran, waktu permainan) dan daftar pengumuman yang sudah dipublikasikan.",
+      "storedServer": "Untuk setiap server: id, nama, ikon, jumlah anggota, bahasa, pengaturan (saluran, peran, jam game harian, teks pesan sambutan dan perpisahan) dan daftar pengumuman yang sudah diposting.",
       "storedResults": "Untuk peringkat game hari ini: ID Discord pemain dan nama panggilannya, hari, permainan, dan skor.",
       "storedCommands": "Untuk statistik: nama setiap perintah yang digunakan, server, bahasa, durasi dan keberhasilan. Tidak ada ID pengguna.",
       "storedVotes": "Untuk statistik: ID Perselisihan orang yang memilih bot di daftar bot.",
       "notStoredTitle": "Apa yang tidak dilestarikan",
-      "notStored": "Bot tidak membaca isi pesan dan tidak memiliki akses ke daftar anggota. Tidak ada token Discord yang disimpan: masuk ke dasbor hanya untuk membaca ID Anda, lalu token tersebut dibuang.",
+      "notStored": "Bot tidak membaca isi pesan dan tidak mengunduh daftar anggota. Saat seseorang bergabung atau keluar dari server, Discord memberi tahu bot (intent Server Members): peristiwa itu hanya dipakai untuk memposting pesan sambutan atau perpisahan, jika server mengaktifkannya, dan tidak ada data anggota tersebut yang disimpan. Tidak ada token Discord yang disimpan: masuk ke dasbor hanya membaca id-mu, lalu token dibuang.",
       "cookieTitle": "Masuk ke dasbor",
       "cookie": "Masuk dengan Discord menyetel cookie sesi terenkripsi (`mlbbdex_discord`, httpOnly, 7 hari) yang berisi ID Discord, nama, dan avatar Anda, serta cookie sementara (`mlbbdex_discord_oauth`, 10 menit) saat masuk. Cookie tersebut sangat diperlukan untuk layanan yang diminta.",
       "retentionTitle": "Umur simpan",
@@ -3409,7 +3409,8 @@
       "p2": "Data (statistik, build, tier list, patch note) disediakan sebagaimana adanya, tanpa jaminan keakuratan atau ketersediaan. Mereka berasal dari wiki Mobile Legends (CC BY-SA) dan statistik permainan peringkat.",
       "p3": "Jangan membajak bot: tidak ada otomatisasi perintah yang menyalahgunakan, tidak ada upaya untuk mengakses pengaturan server yang tidak Anda kelola. Layanan mungkin dibatasi atau dihapus dari server yang menyalahgunakannya.",
       "p4": "Layanan dapat berubah, terganggu, atau dihentikan kapan saja. Aturan Discord (ketentuan penggunaan dan aturan komunitas) berlaku untuk penggunaannya.",
-      "p5": "Data yang disimpan dijelaskan di halaman privasi bot. Untuk pertanyaan apa pun: [{contact}](mailto:{contact})."
+      "p5": "Data yang disimpan dijelaskan di halaman privasi bot. Untuk pertanyaan apa pun: [{contact}](mailto:{contact}).",
+      "p6": "Pesan sambutan dan perpisahan ditulis oleh pengelola server, yang bertanggung jawab atas isinya; bot menetralkan mention massal dan mention peran di dalamnya. Anggota yang bergabung dan keluar hanya dipakai untuk memposting pesan-pesan ini."
     },
     "botDashboard": {
       "title": "Dasbor Bot",
@@ -3847,7 +3848,8 @@
       "cookie": "cookie sesi terenkripsi, `mlbbdex_discord` (httpOnly, 7 hari), jika Anda masuk ke dasbor dengan Discord: ID Discord Anda, nama dan avatar, tidak ada yang lain; tidak ada token Discord yang dipertahankan;",
       "servers": "untuk setiap server tempat bot berada: nama, bahasa, dan pengaturannya;",
       "results": "untuk peringkat game hari ini yang dimainkan di Discord: ID Discord para pemain dan nama panggilan serta skor mereka.",
-      "details": "Detail, periode penyimpanan, dan penghapusan dijelaskan di halaman privasi bot."
+      "details": "Detail, periode penyimpanan, dan penghapusan dijelaskan di halaman privasi bot.",
+      "members": "Tidak ada data anggota server yang disimpan: bergabung dan keluarnya mereka, yang diberitahukan Discord ke bot, hanya dipakai untuk memposting pesan sambutan dan perpisahan yang diaktifkan server."
     }
   },
   "compareUI": {

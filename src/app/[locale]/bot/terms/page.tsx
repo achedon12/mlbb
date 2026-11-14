@@ -35,7 +35,7 @@ export default async function BotTermsPage({ params }: Params) {
         crumbs={[{ name: t("pages.bot.breadcrumb"), href: "/bot" }, { name: t("pages.bot.terms") }]}
       />
       <div className="prose-mlbb mx-auto max-w-3xl px-4 py-14">
-        {(["p1", "p2", "p3", "p4", "p5"] as const).map((key) => (
+        {(["p1", "p2", "p3", "p4", "p6", "p5"] as const).map((key) => (
           <p key={key}>{inlineProse(t(`pages.botTerms.${key}`), { contact: legal.contact }, key)}</p>
         ))}
         <p>

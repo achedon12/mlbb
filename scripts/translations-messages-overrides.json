@@ -363,6 +363,26 @@
     "pages.botUI.goodbyeDefault": {
       "fr": "**{username}** a quitté le serveur.",
       "text": "**{username}** has left the server."
+    },
+    "pages.botPrivacy.storedServer": {
+      "fr": "Pour chaque serveur : son identifiant, son nom, son icône, son nombre de membres, sa langue, ses réglages (salons, rôles, heure des jeux du jour, textes des messages de bienvenue et de départ) et la liste des annonces déjà publiées.",
+      "text": "For each server: its id, name, icon, member count, language, settings (channels, roles, daily games hour, welcome and goodbye message texts) and the list of announcements already posted."
+    },
+    "pages.botPrivacy.notStored": {
+      "fr": "Le bot ne lit pas le contenu des messages et ne télécharge pas la liste des membres. Quand quelqu'un rejoint ou quitte un serveur, Discord le signale au bot (intent « Server Members ») : cet événement sert uniquement à publier le message de bienvenue ou de départ, si le serveur l'a activé, et rien n'est conservé sur ce membre. Aucun jeton Discord n'est conservé : la connexion au tableau de bord sert uniquement à lire votre identifiant, puis le jeton est abandonné.",
+      "text": "The bot does not read message content and does not download the member list. When someone joins or leaves a server, Discord tells the bot (the Server Members intent): that event is only used to post the welcome or goodbye message, if the server turned it on, and nothing about that member is stored. No Discord token is kept: logging in to the dashboard only reads your id, then the token is dropped."
+    },
+    "pages.botTerms.p6": {
+      "fr": "Les messages de bienvenue et de départ sont rédigés par les gestionnaires du serveur, qui répondent de leur contenu ; le bot y neutralise les mentions de masse et de rôles. Les arrivées et départs de membres ne servent qu'à publier ces messages.",
+      "text": "Welcome and goodbye messages are written by the server's managers, who are responsible for their content; the bot neutralises mass and role mentions in them. Members joining and leaving are only used to post these messages."
+    },
+    "pages.bot.permissionsText": {
+      "fr": "Le strict nécessaire pour répondre et publier : jamais Administrateur, et aucun accès au contenu des messages. L'intent « Server Members » sert seulement aux messages de bienvenue et de départ : rien n'est conservé sur les membres.",
+      "text": "Only what replying and posting need: never Administrator, and no access to message content. The Server Members intent only serves the welcome and goodbye messages: nothing about members is stored."
+    },
+    "prose.bot.members": {
+      "fr": "Rien n'est conservé sur les membres d'un serveur : leurs arrivées et départs, que Discord signale au bot, servent seulement à publier les messages de bienvenue et de départ que le serveur a activés.",
+      "text": "Nothing is kept about a server's members: their joins and leaves, which Discord reports to the bot, are only used to post the welcome and goodbye messages the server turned on."
     }
   },
   "es": {
@@ -705,6 +725,26 @@
     "pages.botUI.goodbyeDefault": {
       "fr": "**{username}** a quitté le serveur.",
       "text": "**{username}** ha salido del servidor."
+    },
+    "pages.botPrivacy.storedServer": {
+      "fr": "Pour chaque serveur : son identifiant, son nom, son icône, son nombre de membres, sa langue, ses réglages (salons, rôles, heure des jeux du jour, textes des messages de bienvenue et de départ) et la liste des annonces déjà publiées.",
+      "text": "Para cada servidor: su id, nombre, icono, número de miembros, idioma, ajustes (canales, roles, hora de los juegos del día, textos de los mensajes de bienvenida y despedida) y la lista de anuncios ya publicados."
+    },
+    "pages.botPrivacy.notStored": {
+      "fr": "Le bot ne lit pas le contenu des messages et ne télécharge pas la liste des membres. Quand quelqu'un rejoint ou quitte un serveur, Discord le signale au bot (intent « Server Members ») : cet événement sert uniquement à publier le message de bienvenue ou de départ, si le serveur l'a activé, et rien n'est conservé sur ce membre. Aucun jeton Discord n'est conservé : la connexion au tableau de bord sert uniquement à lire votre identifiant, puis le jeton est abandonné.",
+      "text": "El bot no lee el contenido de los mensajes y no descarga la lista de miembros. Cuando alguien entra en un servidor o sale de él, Discord se lo comunica al bot (el intent Server Members): ese evento solo sirve para publicar el mensaje de bienvenida o de despedida, si el servidor lo activó, y no se guarda nada de ese miembro. No se guarda ningún token de Discord: iniciar sesión en el panel solo lee tu id, y luego el token se descarta."
+    },
+    "pages.botTerms.p6": {
+      "fr": "Les messages de bienvenue et de départ sont rédigés par les gestionnaires du serveur, qui répondent de leur contenu ; le bot y neutralise les mentions de masse et de rôles. Les arrivées et départs de membres ne servent qu'à publier ces messages.",
+      "text": "Los mensajes de bienvenida y despedida los escriben los gestores del servidor, que responden de su contenido; el bot neutraliza en ellos las menciones masivas y de roles. Las entradas y salidas de miembros solo sirven para publicar estos mensajes."
+    },
+    "pages.bot.permissionsText": {
+      "fr": "Le strict nécessaire pour répondre et publier : jamais Administrateur, et aucun accès au contenu des messages. L'intent « Server Members » sert seulement aux messages de bienvenue et de départ : rien n'est conservé sur les membres.",
+      "text": "Solo lo necesario para responder y publicar: nunca Administrador, y ningún acceso al contenido de los mensajes. El intent Server Members solo sirve para los mensajes de bienvenida y despedida: no se guarda nada de los miembros."
+    },
+    "prose.bot.members": {
+      "fr": "Rien n'est conservé sur les membres d'un serveur : leurs arrivées et départs, que Discord signale au bot, servent seulement à publier les messages de bienvenue et de départ que le serveur a activés.",
+      "text": "No se guarda nada de los miembros de un servidor: sus entradas y salidas, que Discord comunica al bot, solo sirven para publicar los mensajes de bienvenida y despedida que el servidor activó."
     }
   },
   "id": {
@@ -3003,6 +3043,26 @@
     "pages.botUI.goodbyeDefault": {
       "fr": "**{username}** a quitté le serveur.",
       "text": "**{username}** telah keluar dari server."
+    },
+    "pages.botPrivacy.storedServer": {
+      "fr": "Pour chaque serveur : son identifiant, son nom, son icône, son nombre de membres, sa langue, ses réglages (salons, rôles, heure des jeux du jour, textes des messages de bienvenue et de départ) et la liste des annonces déjà publiées.",
+      "text": "Untuk setiap server: id, nama, ikon, jumlah anggota, bahasa, pengaturan (saluran, peran, jam game harian, teks pesan sambutan dan perpisahan) dan daftar pengumuman yang sudah diposting."
+    },
+    "pages.botPrivacy.notStored": {
+      "fr": "Le bot ne lit pas le contenu des messages et ne télécharge pas la liste des membres. Quand quelqu'un rejoint ou quitte un serveur, Discord le signale au bot (intent « Server Members ») : cet événement sert uniquement à publier le message de bienvenue ou de départ, si le serveur l'a activé, et rien n'est conservé sur ce membre. Aucun jeton Discord n'est conservé : la connexion au tableau de bord sert uniquement à lire votre identifiant, puis le jeton est abandonné.",
+      "text": "Bot tidak membaca isi pesan dan tidak mengunduh daftar anggota. Saat seseorang bergabung atau keluar dari server, Discord memberi tahu bot (intent Server Members): peristiwa itu hanya dipakai untuk memposting pesan sambutan atau perpisahan, jika server mengaktifkannya, dan tidak ada data anggota tersebut yang disimpan. Tidak ada token Discord yang disimpan: masuk ke dasbor hanya membaca id-mu, lalu token dibuang."
+    },
+    "pages.botTerms.p6": {
+      "fr": "Les messages de bienvenue et de départ sont rédigés par les gestionnaires du serveur, qui répondent de leur contenu ; le bot y neutralise les mentions de masse et de rôles. Les arrivées et départs de membres ne servent qu'à publier ces messages.",
+      "text": "Pesan sambutan dan perpisahan ditulis oleh pengelola server, yang bertanggung jawab atas isinya; bot menetralkan mention massal dan mention peran di dalamnya. Anggota yang bergabung dan keluar hanya dipakai untuk memposting pesan-pesan ini."
+    },
+    "pages.bot.permissionsText": {
+      "fr": "Le strict nécessaire pour répondre et publier : jamais Administrateur, et aucun accès au contenu des messages. L'intent « Server Members » sert seulement aux messages de bienvenue et de départ : rien n'est conservé sur les membres.",
+      "text": "Hanya yang dibutuhkan untuk membalas dan memposting: tidak pernah Administrator, dan tanpa akses ke isi pesan. Intent Server Members hanya dipakai untuk pesan sambutan dan perpisahan: tidak ada data anggota yang disimpan."
+    },
+    "prose.bot.members": {
+      "fr": "Rien n'est conservé sur les membres d'un serveur : leurs arrivées et départs, que Discord signale au bot, servent seulement à publier les messages de bienvenue et de départ que le serveur a activés.",
+      "text": "Tidak ada data anggota server yang disimpan: bergabung dan keluarnya mereka, yang diberitahukan Discord ke bot, hanya dipakai untuk memposting pesan sambutan dan perpisahan yang diaktifkan server."
     }
   },
   "it": {
@@ -3397,6 +3457,26 @@
     "pages.botUI.goodbyeDefault": {
       "fr": "**{username}** a quitté le serveur.",
       "text": "**{username}** ha lasciato il server."
+    },
+    "pages.botPrivacy.storedServer": {
+      "fr": "Pour chaque serveur : son identifiant, son nom, son icône, son nombre de membres, sa langue, ses réglages (salons, rôles, heure des jeux du jour, textes des messages de bienvenue et de départ) et la liste des annonces déjà publiées.",
+      "text": "Per ogni server: il suo id, nome, icona, numero di membri, lingua, impostazioni (canali, ruoli, ora dei giochi del giorno, testi dei messaggi di benvenuto e di addio) e l'elenco degli annunci già pubblicati."
+    },
+    "pages.botPrivacy.notStored": {
+      "fr": "Le bot ne lit pas le contenu des messages et ne télécharge pas la liste des membres. Quand quelqu'un rejoint ou quitte un serveur, Discord le signale au bot (intent « Server Members ») : cet événement sert uniquement à publier le message de bienvenue ou de départ, si le serveur l'a activé, et rien n'est conservé sur ce membre. Aucun jeton Discord n'est conservé : la connexion au tableau de bord sert uniquement à lire votre identifiant, puis le jeton est abandonné.",
+      "text": "Il bot non legge il contenuto dei messaggi e non scarica l'elenco dei membri. Quando qualcuno entra in un server o lo lascia, Discord lo comunica al bot (l'intent Server Members): l'evento serve solo a pubblicare il messaggio di benvenuto o di addio, se il server l'ha attivato, e nulla di quel membro viene conservato. Nessun token Discord viene conservato: l'accesso alla dashboard legge solo il tuo id, poi il token viene scartato."
+    },
+    "pages.botTerms.p6": {
+      "fr": "Les messages de bienvenue et de départ sont rédigés par les gestionnaires du serveur, qui répondent de leur contenu ; le bot y neutralise les mentions de masse et de rôles. Les arrivées et départs de membres ne servent qu'à publier ces messages.",
+      "text": "I messaggi di benvenuto e di addio sono scritti dai gestori del server, che rispondono del loro contenuto; il bot vi neutralizza le menzioni di massa e dei ruoli. Gli ingressi e le uscite dei membri servono solo a pubblicare questi messaggi."
+    },
+    "pages.bot.permissionsText": {
+      "fr": "Le strict nécessaire pour répondre et publier : jamais Administrateur, et aucun accès au contenu des messages. L'intent « Server Members » sert seulement aux messages de bienvenue et de départ : rien n'est conservé sur les membres.",
+      "text": "Solo ciò che serve per rispondere e pubblicare: mai Amministratore, e nessun accesso al contenuto dei messaggi. L'intent Server Members serve solo ai messaggi di benvenuto e di addio: nulla dei membri viene conservato."
+    },
+    "prose.bot.members": {
+      "fr": "Rien n'est conservé sur les membres d'un serveur : leurs arrivées et départs, que Discord signale au bot, servent seulement à publier les messages de bienvenue et de départ que le serveur a activés.",
+      "text": "Nulla viene conservato sui membri di un server: i loro ingressi e uscite, che Discord comunica al bot, servono solo a pubblicare i messaggi di benvenuto e di addio attivati dal server."
     }
   }
 }
