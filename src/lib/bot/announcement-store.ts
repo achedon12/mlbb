@@ -7,7 +7,8 @@ import { recentPatches } from "@/lib/patch-tracking";
 import { releasedSkins } from "@/lib/skin-catalog-server";
 import { dayUtc } from "@/lib/quiz";
 import { Prisma } from "@/generated/prisma/client";
-import { detect, pendingTargets, plan, PENDING_DAYS, type Sources } from "./announcements";
+import { detect, pendingTargets, plan, PENDING_DAYS, type GuildTarget, type Sources } from "./announcements";
+import { ANNOUNCEMENT_TYPES, type AnnouncementType } from "./kinds";
 
 /**
  * Announcements against the database: the sources read from the site's data
@@ -68,29 +69,50 @@ export async function recordAnnouncements(now = new Date()): Promise<number> {
   return after - before;
 }
 
-/** What `GET /api/bot/announcements/pending` answers. */
+/** Settings columns `pendingTargets` reads: channel, role and failing flag of each type. */
+const TARGET_COLUMNS = Object.fromEntries(
+  ANNOUNCEMENT_TYPES.flatMap((t) => [`${t}ChannelId`, `${t}RoleId`, `${t}Failing`].map((c) => [c, true])),
+) as Prisma.GuildSettingsSelect;
+
+/**
+ * What `GET /api/bot/announcements/pending` answers.
+ *
+ * Only the servers that can receive one of these announcements are read:
+ * present, already there when the newest one was made, and with a working
+ * channel for at least one of their types; only the columns the targets
+ * need. The recorded deliveries are read for those servers only.
+ */
 export async function pendingAnnouncements(now = new Date()) {
   const since = new Date(now.getTime() - PENDING_DAYS * 86_400_000);
   const announcements = await db().announcement.findMany({
     where: { silent: false, createdAt: { gte: since } },
     orderBy: { createdAt: "asc" },
     take: 50,
+    select: { id: true, type: true, key: true, payload: true, createdAt: true },
   });
   if (!announcements.length) return [];
-  const [guilds, deliveries] = await Promise.all([
-    db().guild.findMany({
-      where: { leftAt: null, settings: { isNot: null } },
-      select: { id: true, locale: true, joinedAt: true, settings: true },
-    }),
-    db().delivery.findMany({
-      where: { announcementId: { in: announcements.map((a) => a.id) } },
-      select: { announcementId: true, guildId: true },
-    }),
-  ]);
+  const types = [...new Set(announcements.map((a) => a.type))].filter((t): t is AnnouncementType =>
+    (ANNOUNCEMENT_TYPES as readonly string[]).includes(t),
+  );
+  if (!types.length) return [];
+  const newest = announcements[announcements.length - 1].createdAt;
+  const guilds = await db().guild.findMany({
+    where: {
+      leftAt: null,
+      joinedAt: { lte: newest },
+      settings: { is: { OR: types.map((t) => ({ [`${t}ChannelId`]: { not: null }, [`${t}Failing`]: false })) } },
+    },
+    select: { id: true, locale: true, joinedAt: true, settings: { select: TARGET_COLUMNS } },
+  });
+  if (!guilds.length) return [];
+  const deliveries = await db().delivery.findMany({
+    where: { announcementId: { in: announcements.map((a) => a.id) }, guildId: { in: guilds.map((g) => g.id) } },
+    select: { announcementId: true, guildId: true },
+  });
   const delivered = new Set(deliveries.map((d) => `${d.announcementId}|${d.guildId}`));
   return pendingTargets(
     announcements,
-    guilds.map((g) => ({ guildId: g.id, locale: g.locale, joinedAt: g.joinedAt, settings: g.settings ?? {} })),
+    guilds.map((g) => ({ guildId: g.id, locale: g.locale, joinedAt: g.joinedAt, settings: (g.settings ?? {}) as GuildTarget["settings"] })),
     delivered,
   ).map(({ announcement: a, targets }) => ({
     id: a.id,

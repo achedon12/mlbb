@@ -31,6 +31,8 @@ model Guild {
   deliveries Delivery[]
 
   @@index([leftAt])
+  /// Joins per day, in the admin panel.
+  @@index([joinedAt])
 }
 
 /// Per-server settings. A null channel turns the announcement type off;
@@ -62,6 +64,9 @@ model GuildSettings {
   dailyHourUtc          Int     @default(12)
 
   updatedAt DateTime @updatedAt
+
+  /// The hourly daily-post round reads one hour's servers only.
+  @@index([dailyHourUtc])
 }
 
 /// Something worth posting, detected in the site's own data. Unique by
@@ -95,7 +100,8 @@ model Delivery {
   sentAt         DateTime     @default(now())
 
   @@id([announcementId, guildId])
-  @@index([guildId])
+  /// A server's last deliveries, newest first (its dashboard).
+  @@index([guildId, sentAt])
   @@index([sentAt])
 }
 
@@ -109,8 +115,9 @@ model CommandLog {
   ok         Boolean
   createdAt  DateTime @default(now())
 
+  /// Every admin figure reads a window of time; nothing filters on the
+  /// command alone, so it has no index of its own (a hot insert path).
   @@index([createdAt])
-  @@index([command])
 }
 
 /// A player's result at a daily game in a server, for its leaderboards.
@@ -127,7 +134,9 @@ model DailyResult {
   createdAt       DateTime @default(now())
 
   @@id([guildId, day, game, discordUserId])
+  /// Leaderboards: one server, one game, a range of days.
   @@index([guildId, game, day])
+  /// Players per day, in the admin panel.
   @@index([day])
 }
 
