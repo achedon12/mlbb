@@ -12,7 +12,9 @@ import { log } from "./log.js";
 import { CommandLogger } from "./managers/command-logger.js";
 import { Greeter, type MemberEvent } from "./managers/greeter.js";
 import { restPoster } from "./managers/poster.js";
-import { GameData } from "./site/game-data.js";
+import { GameData, WARM_INTERVAL_MS } from "./site/game-data.js";
+import { serverCount } from "./commands/about.js";
+import { presenceAt, PresenceRotator } from "./discord/presence.js";
 import { SiteClient } from "./site/internal-api.js";
 
 /**
@@ -68,6 +70,8 @@ const client = new Client({
     StageInstanceManager: 0,
   }),
   allowedMentions: { parse: [] },
+  // Sent with the identify: the status shows from the first second.
+  presence: { activities: [presenceAt(0, null)], status: "online" },
 });
 client.mlbbdex = createShardApi(client);
 
@@ -109,9 +113,20 @@ function memberEvent(member: GuildMember | PartialGuildMember): MemberEvent {
 const commands = commandMap();
 log.info("commands loaded", { count: COMMANDS.length });
 
+const presence = new PresenceRotator(client, () => serverCount(client));
+
+async function warmGameData(): Promise<void> {
+  const failed = await services.data.warm();
+  if (failed) log.warn("game data warm-up incomplete", { failed });
+}
+// Started before the gateway is up: the first commands find the lists loaded.
+void warmGameData();
+setInterval(() => void warmGameData(), WARM_INTERVAL_MS).unref();
+
 client.once(Events.ClientReady, async (ready) => {
   log.info("shard ready", { user: ready.user.tag, guilds: ready.guilds.cache.size });
   services.logger.start();
+  presence.start();
   // A partial sync refreshes names and member counts; the full one, which
   // also detects servers left while offline, is the manager's job.
   if (site) {
@@ -147,6 +162,10 @@ client.on(Events.GuildMemberRemove, (member) => {
   if (greeter && !member.user?.bot) void greeter.handle("goodbye", memberEvent(member));
 });
 
+// A new session (after a reconnect) starts without the status: set it again.
+client.on(Events.ShardReady, () => void presence.refresh());
+client.on(Events.ShardResume, () => void presence.refresh());
+
 client.on(Events.ShardDisconnect, (event) => {
   // Only reachable when the portal check could not run: say why, and let the
   // manager respawn this shard, whose check will then see the intent is off.
@@ -161,6 +180,7 @@ client.on(Events.Warn, (message) => log.warn("client warning", { message }));
 async function shutdown(signal: string): Promise<void> {
   log.info("shard stopping", { signal });
   greeter?.stop();
+  presence.stop();
   await services.logger.stop().catch(() => undefined);
   await client.destroy();
   process.exit(0);

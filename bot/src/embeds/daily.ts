@@ -2,7 +2,7 @@ import { ActionRowBuilder, ButtonBuilder, ButtonStyle, escapeMarkdown, type Embe
 import { emojiRow, nextClue, unlockedClues, yearHint, type Mode } from "../games/mlbbdle.js";
 import type { Step } from "../games/quiz.js";
 import type { Game, Leaderboard, MlbbdleHero, Period, SkillPuzzle } from "../site/schemas.js";
-import { baseEmbed, clip, COLORS, linkButton, listOr, plain, roleLabels, type View } from "./common.js";
+import { baseEmbed, clip, COLORS, FAMILY_COLORS, linkButton, listOr, plain, roleLabels, type View } from "./common.js";
 
 /** Embeds of the daily games: MLBBdle, quiz, leaderboards, and the daily post. */
 
@@ -10,7 +10,7 @@ import { baseEmbed, clip, COLORS, linkButton, listOr, plain, roleLabels, type Vi
 const MAX_ROWS = 15;
 
 export function mlbbdleClassicEmbed(view: View, number: number, guesses: MlbbdleHero[], secret: MlbbdleHero, solved: boolean): EmbedBuilder {
-  const embed = baseEmbed(view, solved ? COLORS.green : COLORS.brand)
+  const embed = baseEmbed(view, solved ? COLORS.green : FAMILY_COLORS.games)
     .setTitle(`${view.t("ui.mlbbdle.title", { number })} · ${view.t("ui.mlbbdle.classic")}`)
     .setURL(view.link("/mlbbdle"));
   const rows = guesses.slice(-MAX_ROWS).map((g) => {
@@ -23,8 +23,8 @@ export function mlbbdleClassicEmbed(view: View, number: number, guesses: Mlbbdle
     `-# ${view.t("ui.mlbbdle.columns")}`,
     ...rows,
   ];
+  // The count once, under the grid: the solve line already says it when found.
   if (guesses.length && !solved) lines.push(`-# ${view.t("ui.mlbbdle.guesses", { n: guesses.length })}`);
-  if (guesses.length) embed.addFields({ name: view.t("ui.mlbbdle.guesses", { n: guesses.length }), value: "​", inline: true });
   return embed.setDescription(clip(lines.join("\n"), 4096));
 }
 
@@ -36,7 +36,7 @@ export function mlbbdleSkillEmbed(
   wrong: string[],
   solved: boolean,
 ): EmbedBuilder {
-  const embed = baseEmbed(view, solved ? COLORS.green : COLORS.azure)
+  const embed = baseEmbed(view, solved ? COLORS.green : FAMILY_COLORS.games)
     .setTitle(`${view.t("ui.mlbbdle.title", { number })} · ${view.t("ui.mlbbdle.skill")}`)
     .setURL(view.link("/mlbbdle"));
   const icon = view.asset(puzzle.icon);
@@ -59,7 +59,7 @@ export function mlbbdleSolvedPublic(view: View, user: string, mode: Mode, number
 }
 
 export function quizStepEmbed(view: View, number: number, step: Step, index: number, total: number, feedback: string | null): EmbedBuilder {
-  const embed = baseEmbed(view, COLORS.azure)
+  const embed = baseEmbed(view, FAMILY_COLORS.games)
     .setTitle(view.t("ui.quiz.title", { number }))
     .setURL(view.link("/quiz"))
     .setAuthor({ name: view.t("ui.quiz.round", { n: index + 1, total }) });
@@ -106,7 +106,7 @@ export function quizFinishedEmbed(view: View, number: number, points: number, ma
 }
 
 export function leaderboardEmbed(view: View, game: Game, period: Period, board: Leaderboard): EmbedBuilder {
-  const embed = baseEmbed(view)
+  const embed = baseEmbed(view, FAMILY_COLORS.games)
     .setTitle(view.t("ui.leaderboard.title", { game: view.t(`choices.game.${game}`), period: view.t(`choices.period.${period}`) }))
     .setURL(view.link(game === "quiz" ? "/quiz" : "/mlbbdle"));
   if (!board.entries.length) return embed.setDescription(view.t("ui.leaderboard.empty"));
@@ -125,7 +125,7 @@ export function leaderboardEmbed(view: View, game: Game, period: Period, board: 
 
 /** The daily post: what the game is, a Play button, and the page on the site. */
 export function dailyPost(view: View, game: "mlbbdle" | "quiz", day: string, number: number) {
-  const embed = baseEmbed(view, game === "quiz" ? COLORS.azure : COLORS.brand)
+  const embed = baseEmbed(view, FAMILY_COLORS.games)
     .setTitle(view.t(`ui.${game}.dailyTitle`, { number }))
     .setDescription(view.t(`ui.${game}.dailyBody`))
     .setURL(view.link(`/${game}`));

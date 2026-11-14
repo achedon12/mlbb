@@ -25,7 +25,7 @@ export const leaderboard: Command = {
       interaction.options.getString(optionName("leaderboard", "period")),
     );
     if (!interaction.guildId || !ctx.services.site) {
-      await interaction.editReply({ embeds: [baseEmbed(ctx, COLORS.night).setDescription(ctx.t("ui.common.siteDown"))] });
+      await interaction.editReply({ embeds: [baseEmbed(ctx, COLORS.slate).setDescription(ctx.t("ui.common.siteDown"))] });
       return;
     }
     const board = await ctx.services.site.leaderboard(interaction.guildId, game, period);

@@ -1,9 +1,9 @@
 import { choiceOption, optionName, slash, stringOption } from "../discord/builders.js";
 import type { Command } from "../discord/types.js";
-import { openRow } from "../embeds/common.js";
+import { replyRow } from "../embeds/common.js";
 import { buildEmbed } from "../embeds/game.js";
 import { RANKS } from "../site/game-data.js";
-import { buildsOf, heroChoices, heroOrReply, parseRank } from "./shared.js";
+import { buildsOf, heroChoices, heroOrReply, inviteFor, parseRank } from "./shared.js";
 
 export const build: Command = {
   key: "build",
@@ -17,6 +17,6 @@ export const build: Command = {
     const found = await heroOrReply(interaction, ctx, interaction.options.getString(optionName("build", "hero"), true));
     if (!found) return;
     const { builds, rank } = await buildsOf(ctx, found, parseRank(interaction.options.getString(optionName("build", "rank"))));
-    await interaction.editReply({ embeds: [buildEmbed(ctx, found, builds, rank)], components: [openRow(ctx, `/builds/${found.slug}`)] });
+    await interaction.editReply({ embeds: [buildEmbed(ctx, found, builds, rank)], components: [replyRow(ctx, `/builds/${found.slug}`, inviteFor(ctx, interaction.guildId))] });
   },
 };

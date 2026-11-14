@@ -15,11 +15,10 @@ export const item: Command = {
     const query = interaction.options.getString(optionName("item", "name"), true);
     // The localized list first, the English one second: players often type
     // the English name they see in guides.
-    const found =
-      resolveByName(await ctx.services.data.items(ctx.locale), query) ??
-      (ctx.locale === "en" ? null : resolveByName(await ctx.services.data.items("en"), query));
-    if (!found) return replyNotFound(interaction, ctx, query);
-    const localized = (await ctx.services.data.items(ctx.locale)).find((i) => i.slug === found.slug) ?? found;
+    const items = await ctx.services.data.items(ctx.locale);
+    const found = resolveByName(items, query) ?? (ctx.locale === "en" ? null : resolveByName(await ctx.services.data.items("en"), query));
+    if (!found) return replyNotFound(interaction, ctx, query, items);
+    const localized = items.find((i) => i.slug === found.slug) ?? found;
     await interaction.editReply({ embeds: [itemEmbed(ctx, localized)], components: [openRow(ctx, `/items/${found.slug}`)] });
   },
 };

@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { TtlCache } from "../cache.js";
-import type { Locale } from "../i18n/index.js";
+import { LOCALES, type Locale } from "../i18n/index.js";
 import { NotFoundError, requestJson, type FetchLike } from "./http.js";
 
 /**
@@ -63,6 +63,8 @@ const heroDetail = heroSummary.extend({
   images: z
     .object({ portrait: nullableString, icon: nullableString, skins: z.record(z.string(), z.string()).catch({}) })
     .catch({ portrait: null, icon: null, skins: {} }),
+  /** Full-size artwork (1280×720) per skin name, the original skin first, as the site orders it. */
+  illustrations: z.record(z.string(), z.string()).catch({}).optional(),
   analysis: z
     .object({
       summary: z.string().catch(""),
@@ -251,4 +253,19 @@ export class GameData {
   events(locale: Locale): Promise<EventEntry[] | null> {
     return this.optional(this.lists, `/events?locale=${locale}`, z.array(eventEntry));
   }
+
+  /**
+   * Loads the lists most commands read (heroes, rankings, patches, items in
+   * every language), so the first commands after a start, or after an
+   * entry expired, do not wait on the site. Returns how many loads failed;
+   * a failure is not fatal: the command that needs it loads it again.
+   */
+  async warm(): Promise<number> {
+    const loads: Promise<unknown>[] = [this.heroes(), this.rankings(), this.patches(), ...LOCALES.map((l) => this.items(l))];
+    const results = await Promise.allSettled(loads);
+    return results.filter((r) => r.status === "rejected").length;
+  }
 }
+
+/** Cache warm-ups: often enough that an expired list is reloaded before a command asks for it. */
+export const WARM_INTERVAL_MS = 10 * 60 * 1000;

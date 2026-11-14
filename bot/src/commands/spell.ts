@@ -19,7 +19,7 @@ export const spell: Command = {
     const query = interaction.options.getString(optionName("spell", "name"), true);
     const { entries, details } = await spells(ctx);
     const found = resolveByName(entries, query) ?? resolveByName(SPELLS, query);
-    if (!found) return replyNotFound(interaction, ctx, query);
+    if (!found) return replyNotFound(interaction, ctx, query, entries);
     await interaction.editReply({
       embeds: [spellEmbed(ctx, found, details.get(found.slug) ?? null)],
       components: [openRow(ctx, `/spells/${found.slug}`)],

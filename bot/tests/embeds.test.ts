@@ -68,7 +68,7 @@ describe("hero embeds", () => {
     const field = (name: string) => json.fields?.find((f) => f.name === name)?.value;
     expect(field("Rôle")).toBe("Tireur");
     expect(field("Lanes")).toBe("Or");
-    expect(field("Tier")).toBe("S");
+    expect(field("Tier")).toBe("**S**");
     expect(field("Taux de victoire")).toMatch(/53,2\s?%/);
     expect(field("Meilleur build")).toBe("Bottes · Lame");
     expect(field("Compétences")).toBe("Malefic Gun · Void Projectile");
@@ -97,13 +97,13 @@ describe("hero embeds", () => {
     expect(buildEmbed(en, layla, [], null).toJSON().description).toBe("No build measured for this hero yet.");
     expect(counterEmbed(en, layla, { strong: [], weak: [] }).toJSON().description).toBe("No measured counters for this hero yet.");
     const counters = counterEmbed(en, layla, { strong: [{ name: "Chou", advantage: 2.5 }], weak: [{ name: "Saber", advantage: -3 }] }).toJSON();
-    expect(counters.fields?.[0]?.value).toBe("Saber (-3.0)");
-    expect(counters.fields?.[1]?.value).toBe("Chou (+2.5)");
+    expect(counters.fields?.[0]?.value).toBe("Saber `-3.0`");
+    expect(counters.fields?.[1]?.value).toBe("Chou `+2.5`");
   });
 
   it("tier list groups the top tiers and item embeds skip empty fields", () => {
     const tl = tierlistEmbed(en, [ranking, { ...ranking, slug: "chou", name: "Chou", tier: "S+" }, { ...ranking, tier: "C", name: "Zed" }], null, "/tier-list", null).toJSON();
-    expect(tl.fields?.map((f) => `${f.name}:${f.value}`)).toEqual(["S+:Chou", "S:Layla"]);
+    expect(tl.fields?.map((f) => `${f.name}:${f.value}`)).toEqual(["S+ · 1:Chou", "S · 1:Layla"]);
     const item = itemEmbed(en, { slug: "blade", name: "Blade", summary: null, category: "Attack", price: 2000, bonus: "+60 Physical Attack", unique: null, passive: null, active: null, recipe: [] }).toJSON();
     expect(item.fields?.map((f) => f.name)).toEqual(["Category", "Price", "Stats"]);
   });

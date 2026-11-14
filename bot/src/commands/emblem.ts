@@ -29,7 +29,7 @@ export const emblem: Command = {
     const query = interaction.options.getString(optionName("emblem", "name"), true);
     const { entries, details } = await emblems(ctx);
     const found = resolveByName(entries, query) ?? resolveByName(EMBLEMS, query);
-    if (!found) return replyNotFound(interaction, ctx, query);
+    if (!found) return replyNotFound(interaction, ctx, query, entries);
     await interaction.editReply({
       embeds: [emblemEmbed(ctx, found, details.get(found.slug) ?? null)],
       components: [openRow(ctx, `/emblems/${found.slug}`)],

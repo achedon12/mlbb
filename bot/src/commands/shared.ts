@@ -1,9 +1,11 @@
 import type { AutocompleteInteraction, ChatInputCommandInteraction } from "discord.js";
 import type { Context } from "../discord/types.js";
-import { notFoundEmbed } from "../embeds/common.js";
+import { notFoundEmbed, offersInvite } from "../embeds/common.js";
 import { bestBuild, type BuildView, type CounterView } from "../embeds/game.js";
+import { inviteUrl } from "../links.js";
 import { RANKS, type HeroDetail, type HeroSummary, type Rank, type RankingEntry } from "../site/game-data.js";
-import { resolveByName, searchByName, toChoices } from "../search.js";
+import { EMBLEMS } from "../catalog.js";
+import { normalize, resolveByName, searchByName, suggest, toChoices, type Named } from "../search.js";
 
 /** Lookups shared by several commands: heroes, rankings, builds, counters. */
 
@@ -16,17 +18,29 @@ export async function findHero(ctx: Context, value: string): Promise<HeroSummary
   return resolveByName(await ctx.services.data.heroes(), value);
 }
 
-/** A hero's full record from an option value, or null after telling the user. */
+/** A hero's full record from an option value, or null after telling the user, with the closest names. */
 export async function heroOrReply(interaction: ChatInputCommandInteraction, ctx: Context, value: string): Promise<HeroDetail | null> {
-  const summary = await findHero(ctx, value);
+  const heroes = await ctx.services.data.heroes();
+  const summary = resolveByName(heroes, value);
   const hero = summary ? await ctx.services.data.hero(summary.slug) : null;
-  if (!hero) await replyNotFound(interaction, ctx, value);
+  if (!hero) await replyNotFound(interaction, ctx, value, heroes);
   return hero;
 }
 
-export async function replyNotFound(interaction: ChatInputCommandInteraction, ctx: Context, query: string): Promise<void> {
+/** "Nothing found for …", with the names of `candidates` closest to what was typed. */
+export async function replyNotFound(
+  interaction: ChatInputCommandInteraction,
+  ctx: Context,
+  query: string,
+  candidates: readonly Named[] = [],
+): Promise<void> {
   // Public for most commands: what was typed is quoted escaped (see `plain`).
-  await interaction.editReply({ embeds: [notFoundEmbed(ctx, query)] });
+  await interaction.editReply({ embeds: [notFoundEmbed(ctx, query, suggest(candidates, query).map((c) => c.name))] });
+}
+
+/** The invite offered under a reply, or null in the community server (see `offersInvite`). */
+export function inviteFor(ctx: Context, guildId: string | null): string | null {
+  return offersInvite(guildId, ctx.services.config.SUPPORT_GUILD_ID) ? inviteUrl(ctx.services.clientId) : null;
 }
 
 export function parseRank(value: string | null): Rank {
@@ -74,9 +88,7 @@ export async function buildsOf(ctx: Context, hero: HeroDetail, rank: Rank): Prom
     }
   }
   const written = hero.analysis?.builds ?? [];
-  const builds = await Promise.all(
-    written.map(async (b) => ({ items: await localizeItems(ctx, b.items), emblem: b.emblem || null, spell: b.spell || null })),
-  );
+  const builds = await Promise.all(written.map((b) => writtenBuild(ctx, b)));
   return { builds, rank: null };
 }
 
@@ -85,7 +97,38 @@ export async function topBuildOf(ctx: Context, hero: HeroDetail): Promise<BuildV
   const measured = bestBuild(await ctx.services.data.builds(hero.slug).catch(() => null));
   if (measured) return { ...measured, items: await localizeItems(ctx, measured.items) };
   const written = hero.analysis?.builds[0];
-  return written ? { items: await localizeItems(ctx, written.items), emblem: written.emblem || null, spell: written.spell || null } : null;
+  return written ? writtenBuild(ctx, written) : null;
+}
+
+type WrittenBuild = NonNullable<HeroDetail["analysis"]>["builds"][number];
+
+async function writtenBuild(ctx: Context, b: WrittenBuild): Promise<BuildView> {
+  return { items: await localizeItems(ctx, b.items), emblem: await localizeEmblem(ctx, b.emblem), spell: b.spell || null };
+}
+
+/**
+ * The analyses are written in French, the site's first language, emblems
+ * included ("Emblème de soutien") while items keep their English names. The
+ * emblem is recognised in either language and named in the reply's.
+ */
+const EMBLEM_WORDS: Record<string, string> = {
+  tank: "tank", fighter: "combattant", assassin: "assassin", mage: "mage", marksman: "tireur", support: "soutien",
+};
+
+export function emblemSlug(name: string): string | null {
+  const n = normalize(name);
+  for (const e of EMBLEMS) {
+    if (n === normalize(e.name) || n === normalize(`Emblème de ${EMBLEM_WORDS[e.slug]}`) || n === normalize(`Emblème d'${EMBLEM_WORDS[e.slug]}`)) return e.slug;
+  }
+  return null;
+}
+
+export async function localizeEmblem(ctx: Context, name: string): Promise<string | null> {
+  if (!name) return null;
+  const slug = emblemSlug(name);
+  if (!slug) return name;
+  const localized = (await ctx.services.data.emblems(ctx.locale).catch(() => null))?.find((e) => e.slug === slug)?.name;
+  return localized ?? EMBLEMS.find((e) => e.slug === slug)!.name;
 }
 
 export async function countersOf(ctx: Context, hero: HeroDetail, rank: Rank): Promise<CounterView> {

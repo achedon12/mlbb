@@ -1,7 +1,29 @@
 # MLBBDex: bot list copy
 
-Copy for top.gg, discordbotlist.com and discord.bots.gg, in English. Keep it
-in step with the commands (`src/commands/`) and the site's `/bot` page.
+Copy and visuals for top.gg, discordbotlist.com and discord.bots.gg, in
+English. Keep it in step with the commands (`src/commands/`) and the site's
+`/bot` page.
+
+## Visuals
+
+In [`listing/`](listing/), generated from the bot's own embed builders and
+the live public API (`npm run build && node listing/render.mjs`, which also
+writes the WebP copies the site serves under `/bot/`). Each file is under
+1 MB.
+
+| File | Size | Use |
+| --- | --- | --- |
+| `listing/banner.png` | 1200×630 | top.gg banner / background, social card |
+| `listing/screenshot-hero.png` | 1440 wide | `/hero`: sheet, artwork, buttons |
+| `listing/screenshot-build.png` | 1440 wide | `/build` |
+| `listing/screenshot-counter.png` | 1440 wide | `/counter` |
+| `listing/screenshot-tierlist.png` | 1440 wide | `/tierlist` |
+| `listing/screenshot-mlbbdle.png` | 1440 wide | `/mlbbdle`, a solved grid |
+| `listing/screenshot-patch.png` | 1440 wide | `/patch`, the latest patch |
+
+The descriptions below link the WebP copies on the site
+(`https://mlbbdex.com/bot/<name>.webp`), live once the site is deployed:
+bot lists only show images by URL.
 
 ## Name
 
@@ -9,96 +31,167 @@ MLBBDex
 
 ## Short description
 
-> Mobile Legends: Bang Bang in your server: hero sheets, measured builds and counters, tier lists, patch alerts, and the daily MLBBdle and quiz. Free, in 5 languages.
+One version for every list (top.gg caps it at 200 characters,
+discordbotlist.com and discord.bots.gg at less in their cards: the second
+one is for those).
 
-(164 characters.)
+> The Mobile Legends (MLBB) Discord bot: hero builds and counters from ranked games, live tier list, patch notes, skin alerts and a daily MLBBdle. 100% free, 5 languages.
 
-## Long description
+(168 characters.)
+
+> Mobile Legends bot: MLBB builds, counters, tier list, patch notes and daily MLBBdle. Free, 5 languages.
+
+(103 characters.)
+
+## Long description: top.gg
+
+top.gg renders Markdown (and some HTML). Paste as is:
 
 ```markdown
-# MLBBDex
+# MLBBDex — the Mobile Legends Discord bot
 
-**Mobile Legends: Bang Bang knowledge, right in your Discord server.**
-MLBBDex is the companion bot of [mlbbdex.com](https://mlbbdex.com), a free
-MLBB knowledge base. Every answer comes from the site's data, refreshed every
-night from the game's statistics and the Mobile Legends Wiki, and links back
-to the full page.
+**Everything a Mobile Legends: Bang Bang player looks up, answered in your server.**
+Hero builds, counters, the tier list and patch notes, measured on real ranked games
+and refreshed every day by [mlbbdex.com](https://mlbbdex.com/en/bot?utm_source=topgg),
+plus a daily hero-guessing game for your community.
 
-## What it does
+![A hero sheet in Discord](https://mlbbdex.com/bot/screenshot-hero.webp)
 
-- **Hero sheets**: role, lanes, tier, win, pick and ban rates, best build,
-  skills, with buttons for builds, counters and skins.
-- **Measured builds and counters**: what players actually win with, and who
-  beats whom, by rank bracket, from real match statistics.
-- **Tier lists** by rank, lane or role, computed from win and ban rates.
-- **Items, emblems and battle spells** at a glance, with autocomplete.
-- **Patch notes**: the latest patch, or any version, with its buffs and nerfs.
-- **Announcements in your channels**: new patches, new skins, events,
-  advance server and esports results, with an optional role ping. You choose
-  the channel and the role per type on the dashboard.
-- **Daily games**: today's **MLBBdle** (guess the hero, classic or skill
-  mode) and the **daily quiz**, the very same puzzles as on mlbbdex.com, with
-  a server leaderboard and an optional daily post at the hour you pick.
-- **Welcome and goodbye messages**: greet newcomers in the channel you
-  pick, with your own text or ours, and a single message when a raid
-  arrives instead of a flood.
-- **Nickname generator**: write your in-game name in 21 stylish fonts.
-- **Server time**: game server clock and countdowns to the daily and weekly
-  resets.
+## ✨ Features
 
-## Commands
+- 🛡️ **Hero sheets**: role, lanes, tier, win, pick and ban rates, best build, emblem,
+  spell and skills, with the hero's artwork and Build · Counters · Skins buttons.
+- ⚔️ **Builds and counters**: the items players win with, and who beats whom.
+- 📊 **Live tier list** by rank (Epic to Mythical Glory), lane or role.
+- 📰 **Patch notes**: buffs, nerfs and changed heroes of the latest patch, or any version.
+- 🔔 **Automatic announcements** in the channels you choose: new patches, new skins,
+  events, Advance Server, esports results, with an optional role ping.
+- 🎮 **Daily MLBBdle and quiz**: guess today's hero (classic or skill mode), the same
+  puzzle as on mlbbdex.com, with a server leaderboard and an optional daily post.
+- 👋 **Welcome and goodbye messages**, raid-safe (one message for a burst, not a flood).
+- 🧰 **Tools**: stylish nickname generator (21 fonts), server time and reset countdowns.
+- 🔎 **Autocomplete everywhere** and "did you mean…?" when a name has a typo.
+
+![Tier list](https://mlbbdex.com/bot/screenshot-tierlist.webp)
+
+## 📋 Commands
 
 | Command | What it does |
 | --- | --- |
-| `/hero <name>` | A hero's sheet, with Build · Counters · Skins buttons |
-| `/build <hero> [rank]` | The builds players win with |
-| `/counter <hero> [rank]` | Who beats the hero, and whom it beats |
-| `/tierlist [rank] [lane] [role]` | The current tier list |
-| `/compare <hero> <hero>` | Two heroes head to head |
+| `/hero name:Layla` | Hero sheet: role, lanes, tier, rates, best build, skills |
+| `/build hero:Chou` | The builds players win with, by rank |
+| `/counter hero:Ling` | Who beats the hero, and whom it beats |
+| `/tierlist rank:Mythic` | The current meta, by rank, lane or role |
+| `/compare first:Chou second:Paquito` | Two heroes head to head |
 | `/item`, `/emblem`, `/spell` | Item, emblem and battle spell details |
-| `/patch [version]` | Patch summary |
-| `/skins [hero]` | Newest skins, or a hero's skins |
-| `/events` | Current and upcoming events |
-| `/nickname <text> [style]` | Stylish nickname |
-| `/mlbbdle [guess] [mode]` | Today's MLBBdle |
-| `/quiz` | Today's quiz |
-| `/leaderboard [game] [period]` | This server's rankings |
-| `/servertime` | Server time and resets |
+| `/patch` | Latest patch notes, or any version |
+| `/skins`, `/events` | Newest skins, a hero's skins, current events |
+| `/mlbbdle`, `/quiz`, `/leaderboard` | Daily games and this server's rankings |
+| `/nickname`, `/servertime` | Stylish nickname, server time and resets |
 | `/setup` | This server's dashboard (Manage Server only) |
-| `/help`, `/invite`, `/about` | Help, invite link, about |
+| `/help`, `/invite`, `/about` | Help by category, invite link, about |
 
-## Completely free
+![Counters](https://mlbbdex.com/bot/screenshot-counter.webp)
+![Daily MLBBdle](https://mlbbdex.com/bot/screenshot-mlbbdle.webp)
+![Patch notes](https://mlbbdex.com/bot/screenshot-patch.webp)
 
-No premium tier, no vote lock, no paywall: every command and every feature is
-free for every server.
+## 💸 100% free
 
-## Five languages
+No premium tier, no vote lock, no paywall: every command and every feature is free for
+every server.
 
-English, French, Italian, Spanish and Indonesian. Commands appear in your
-Discord language; replies follow the language chosen for the server, or each
-member's own.
+## 🌍 Five languages
 
-## Privacy and permissions
+English, French, Italian, Spanish and Indonesian. Commands appear in your Discord
+language; replies follow the language set for the server, or each member's own.
 
-- Only the permissions it uses: view channels, send messages (and in
-  threads), embed links, attach files, read message history, use external
-  emojis, add reactions. **No Administrator.**
-- **One privileged intent, for one thing**: Server Members, only to know
-  when someone joins or leaves, for the welcome and goodbye messages. The
-  bot does not read your messages, does not download your member list, and
-  stores nothing about your members.
-- It stores your server's settings and, for the leaderboards, the Discord id
-  and name of players of the daily games. Command statistics are counts only,
-  with no user id. Details: [mlbbdex.com/en/bot/privacy](https://mlbbdex.com/en/bot/privacy).
-- Open source: [github.com/achedon12/mlbb](https://github.com/achedon12/mlbb).
+## 🔒 Privacy and permissions
+
+- Only the permissions it uses. **No Administrator**, never reads your messages.
+- One privileged intent (Server Members), only for the welcome and goodbye messages;
+  nothing about your members is stored.
+- Details: [mlbbdex.com/en/bot/privacy](https://mlbbdex.com/en/bot/privacy).
+  Open source: [github.com/achedon12/mlbb](https://github.com/achedon12/mlbb).
+
+## 🤝 Support
+
+Questions, ideas, bugs: [join the MLBBDex server](https://discord.gg/mw5RzvkkU3).
+Website and dashboard: [mlbbdex.com/en/bot](https://mlbbdex.com/en/bot).
 ```
 
-## Suggested tags
+## Long description: discordbotlist.com
 
-Mobile Legends, MLBB, Gaming, MOBA, Tier List, Game Stats, Utility, Fun,
-Leaderboard, Multilingual
+discordbotlist.com renders Markdown but shows a narrower column: shorter,
+images kept to two.
 
-(top.gg allows a limited number of tags: keep the first five.)
+```markdown
+## MLBBDex — the Mobile Legends Discord bot
+
+Hero **builds**, **counters**, the **tier list** and **patch notes** for Mobile Legends:
+Bang Bang, measured on ranked games and refreshed every day by
+[mlbbdex.com](https://mlbbdex.com/en/bot?utm_source=dbl). Plus the daily **MLBBdle**
+and quiz, with a leaderboard for your server.
+
+![Hero sheet](https://mlbbdex.com/bot/screenshot-hero.webp)
+
+**What you get**
+
+- `/hero`, `/build`, `/counter`, `/compare`: everything about a hero, with autocomplete.
+- `/tierlist`: the meta by rank, lane or role.
+- `/patch`, `/skins`, `/events`: the news, and automatic announcements in your channels.
+- `/mlbbdle`, `/quiz`, `/leaderboard`: daily games for your community.
+- Welcome and goodbye messages, nickname generator, server time.
+
+![Tier list](https://mlbbdex.com/bot/screenshot-tierlist.webp)
+
+**100% free** (no premium, no vote lock) · **5 languages** (EN, FR, IT, ES, ID) ·
+**No Administrator permission** · [Support server](https://discord.gg/mw5RzvkkU3) ·
+[Privacy](https://mlbbdex.com/en/bot/privacy)
+```
+
+The command list itself is sent by the bot (see `postCommandsToDbl` in
+`src/managers/listing.ts`): no need to type it in the form.
+
+## Long description: discord.bots.gg
+
+discord.bots.gg renders Markdown, without tables in some themes: lists only.
+
+```markdown
+# MLBBDex — Mobile Legends Discord bot
+
+The free Mobile Legends: Bang Bang knowledge bot, companion of
+[mlbbdex.com](https://mlbbdex.com/en/bot?utm_source=dbotsgg).
+
+**Heroes & builds** — `/hero`, `/build`, `/skins`, `/item`, `/emblem`, `/spell`
+**Meta** — `/tierlist`, `/counter`, `/compare`
+**Patch & news** — `/patch`, `/events`, plus automatic announcements of patches, skins,
+events, Advance Server and esports results
+**Games** — `/mlbbdle` (guess today's hero), `/quiz`, `/leaderboard`
+**Tools** — `/nickname` (21 fonts), `/servertime`
+**Server setup** — `/setup` (dashboard on mlbbdex.com), `/help`, `/invite`, `/about`
+
+![Hero sheet](https://mlbbdex.com/bot/screenshot-hero.webp)
+
+- Builds and counters measured on ranked games, refreshed daily
+- 100% free, in English, French, Italian, Spanish and Indonesian
+- No Administrator permission, never reads messages
+- Support: https://discord.gg/mw5RzvkkU3 · Privacy: https://mlbbdex.com/en/bot/privacy
+```
+
+## Tags
+
+Each list has its own fixed list of tags: pick from it. "(verify)" marks a
+tag not confirmed to exist on that list; check the form before saving.
+
+| List | Tags, in order |
+| --- | --- |
+| top.gg (up to 20, the first ones weigh most) | Game, Fun, Utility, Social, Mobile Legends (verify), MLBB (verify), MOBA (verify), Esports (verify), Leaderboard (verify), Multilingual (verify), Stats (verify), Tier List (verify), Gaming (verify) |
+| discordbotlist.com | games, fun, utility, social, leaderboard (verify), stats (verify), multilingual (verify) |
+| discord.bots.gg | no tags: the category is "Games" (verify) |
+
+Keywords to keep in the copy, since lists search the text too: Mobile
+Legends, MLBB, Bang Bang, build, counter, tier list, meta, patch notes,
+MLBBdle, Moonton.
 
 ## Invite
 
@@ -119,7 +212,7 @@ Permissions, least privilege:
 | **Total** | | **274878286912** |
 
 ```
-https://discord.com/oauth2/authorize?client_id=<DISCORD_CLIENT_ID>&permissions=274878286912&scope=bot+applications.commands
+https://discord.com/oauth2/authorize?client_id=1571083624789581834&permissions=274878286912&scope=bot+applications.commands
 ```
 
 `tests/embeds.test.ts` checks that `INVITE_PERMISSIONS` (in `src/links.ts`)
@@ -142,7 +235,8 @@ verification form, once the bot passes 100 servers:
 ## Links for the listing forms
 
 - Website: https://mlbbdex.com/en/bot
+- Vote: https://top.gg/bot/1571083624789581834/vote
 - Privacy policy: https://mlbbdex.com/en/bot/privacy
 - Terms of service: https://mlbbdex.com/en/bot/terms
-- Support server: the `SUPPORT_SERVER_URL` invite
+- Support server: https://discord.gg/mw5RzvkkU3
 - Source code: https://github.com/achedon12/mlbb

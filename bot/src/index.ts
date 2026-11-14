@@ -10,7 +10,8 @@ import { log } from "./log.js";
 import { DailyPoster } from "./managers/daily-poster.js";
 import { DeliveryService } from "./managers/delivery.js";
 import { Fleet } from "./managers/fleet.js";
-import { ListingPoster } from "./managers/listing.js";
+import { ListingPoster, postCommandsToDbl } from "./managers/listing.js";
+import { COMMANDS } from "./commands/index.js";
 import { classifyError, errorLabel, restPoster } from "./managers/poster.js";
 import { SiteClient } from "./site/internal-api.js";
 
@@ -182,3 +183,6 @@ fullSyncTimer.unref();
 delivery?.start();
 daily?.start();
 listing.start();
+// Once per start: discordbotlist.com lists the commands from what it was
+// last sent, so a deploy that changed them shows there too.
+if (config.DBL_TOKEN) void postCommandsToDbl(clientId, config.DBL_TOKEN, COMMANDS.map((c) => c.data()));

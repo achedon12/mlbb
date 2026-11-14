@@ -1,5 +1,5 @@
 import { MessageFlags, type Interaction, type RepliableInteraction } from "discord.js";
-import { makeView } from "../embeds/common.js";
+import { errorEmbed, makeView } from "../embeds/common.js";
 import { resolveLocale, translator, type Locale } from "../i18n/index.js";
 import { log } from "../log.js";
 import { SiteUnavailableError } from "../site/http.js";
@@ -30,10 +30,10 @@ export function contextFor(services: Services, locale: Locale, campaign: string)
 }
 
 async function replyError(interaction: RepliableInteraction, ctx: Context, error: unknown): Promise<void> {
-  const text = ctx.t(error instanceof SiteUnavailableError ? "ui.common.siteDown" : "ui.common.error");
+  const embed = errorEmbed(ctx, error instanceof SiteUnavailableError);
   try {
-    if (interaction.deferred || interaction.replied) await interaction.editReply({ content: text, embeds: [], components: [] });
-    else await interaction.reply({ content: text, flags: MessageFlags.Ephemeral });
+    if (interaction.deferred || interaction.replied) await interaction.editReply({ content: "", embeds: [embed], components: [] });
+    else await interaction.reply({ embeds: [embed], flags: MessageFlags.Ephemeral });
   } catch {
     // The interaction expired: nothing left to tell the user.
   }

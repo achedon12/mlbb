@@ -3,7 +3,7 @@ import { optionName, slash, stringOption } from "../discord/builders.js";
 import type { Command, ComponentHandler } from "../discord/types.js";
 import { openRow } from "../embeds/common.js";
 import { buildEmbed, counterEmbed, heroButtons, heroEmbed, heroSkinsEmbed } from "../embeds/game.js";
-import { buildsOf, countersOf, heroChoices, heroOrReply, rankingOf, topBuildOf } from "./shared.js";
+import { buildsOf, countersOf, heroChoices, heroOrReply, inviteFor, rankingOf, topBuildOf } from "./shared.js";
 
 export const hero: Command = {
   key: "hero",
@@ -13,7 +13,7 @@ export const hero: Command = {
     const found = await heroOrReply(interaction, ctx, interaction.options.getString(optionName("hero", "name"), true));
     if (!found) return;
     const [ranking, build] = await Promise.all([rankingOf(ctx, found.slug), topBuildOf(ctx, found)]);
-    await interaction.editReply({ embeds: [heroEmbed(ctx, found, ranking, build)], components: [heroButtons(ctx, found.slug)] });
+    await interaction.editReply({ embeds: [heroEmbed(ctx, found, ranking, build)], components: [heroButtons(ctx, found.slug, inviteFor(ctx, interaction.guildId))] });
   },
 };
 

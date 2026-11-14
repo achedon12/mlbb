@@ -209,11 +209,27 @@ links back to the matching mlbbdex.com page (with the locale prefix and a
 - `/leaderboard [game] [period]` — server rankings.
 - `/servertime` — game server time and daily reset countdown.
 - `/setup` — link to this server's dashboard page (ManageGuild only).
-- `/help`, `/invite`, `/about` (links: site, support server, vote, privacy).
+- `/help` — an overview, then one page per family (Heroes & builds, Meta,
+  Patch & news, Games, Tools, Server setup) switched with a select menu,
+  each command with a localized example; links: add to server, support
+  server, website, vote on top.gg.
+- `/invite`, `/about` (version, servers, online since; links: invite, site,
+  support server, vote, privacy).
 
 Autocomplete everywhere a hero/item/emblem/spell is asked, localized names.
-All replies within 3 s (defer when calling the site). Errors are a friendly
-ephemeral message, never a stack trace.
+All replies within 3 s (defer when calling the site; the main lists are
+warmed at start and every 10 minutes). Errors are a friendly embed, never a
+stack trace: a name that matches nothing gets "did you mean …?" with the
+closest names (the autocomplete matcher, then a few typos away), a site
+that does not answer gets a retry hint.
+
+Style: one colour per family (heroes gold, meta red, news green, games
+blue, tools violet, setup blurple; a hero sheet takes its tier's colour),
+the footer "mlbbdex.com · Data: …" with the site's icon. The hero sheet
+has the square icon as thumbnail and the original skin's artwork as image.
+Under `/hero`, `/build`, `/counter`, `/tierlist` and `/patch`: one row of
+link buttons, "Open on MLBBDex" and, outside the community server
+(`SUPPORT_GUILD_ID`), "Add to your server". No DM, no extra message.
 
 ## Announcements
 
@@ -277,6 +293,13 @@ gold embed (the newcomer's avatar as thumbnail on a welcome).
 - `bot/` posts its server count (and shard count) every 30 minutes to
   top.gg (`TOPGG_TOKEN`), discordbotlist.com (`DBL_TOKEN`) and
   discord.bots.gg (`DBOTSGG_TOKEN`); each is optional — no token, no post.
+- The command list goes to discordbotlist.com (`POST
+  /api/v1/bots/<id>/commands`, `Authorization: Bot <DBL_TOKEN>`, the very
+  array registered with Discord), which shows it on the bot's page: after
+  each global `npm run deploy-commands` (skipped with an info line without
+  `DBL_TOKEN` or with `DEV_GUILD_ID`; a refusal never fails the Discord
+  registration), and once at every start of the manager, with a 10 s
+  timeout. The token is never logged.
 - Vote webhooks (top.gg, DBL) at `/api/bot/votes/<list>` verified with their
   secret (`TOPGG_WEBHOOK_SECRET`, `DBL_WEBHOOK_SECRET`), as each list
   documents it: top.gg v1 signs `${t}.${rawBody}` (HMAC-SHA256, header
@@ -301,7 +324,8 @@ Site: `DATABASE_URL`, `BOT_API_SECRET`, `BOT_INTERNAL_URL`
 Bot: `DISCORD_TOKEN`, `DISCORD_CLIENT_ID`, `BOT_API_SECRET`,
 `SITE_URL` (public API) and `SITE_INTERNAL_URL` (`http://mlbb:3001`),
 `BOT_HTTP_HOST`, `BOT_HTTP_PORT`, `TOPGG_TOKEN`, `DBL_TOKEN`, `DBOTSGG_TOKEN`,
-`SUPPORT_SERVER_URL`.
+`SUPPORT_SERVER_URL`, `SUPPORT_GUILD_ID` (the community server's id: no
+"Add to your server" button there).
 
 Postgres: `POSTGRES_PASSWORD` (compose only).
 
