@@ -159,6 +159,17 @@ export class SiteClient {
     return this.request("POST", `/api/bot/guilds/${guildId}/greeting-failure`, anyBody, { kind });
   }
 
+  /**
+   * The bot could not give this server's auto-roles: the site marks them
+   * failing until the owner saves again, and the cached copy is flagged at
+   * once so the members queued behind are not tried while it is fresh.
+   */
+  markAutoRoleFailing(guildId: string): Promise<unknown> {
+    const cached = this.settingsCache.get(guildId);
+    if (cached) this.settingsCache.set(guildId, { ...cached, autoRoles: { ...cached.autoRoles, failing: true } });
+    return this.request("POST", `/api/bot/guilds/${guildId}/auto-role-failure`, anyBody, {});
+  }
+
   /** Locale setting of a server, or null; never throws (replies must not depend on it). */
   async guildLocale(guildId: string | null): Promise<string | null> {
     if (!guildId) return null;

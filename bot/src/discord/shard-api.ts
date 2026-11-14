@@ -1,5 +1,6 @@
 import { ChannelType, PermissionFlagsBits, RESTJSONErrorCodes, type Client, type Guild } from "discord.js";
 import { fromDiscordLocale } from "../i18n/index.js";
+import { roleFacts, roleRefusal, type RoleRefusal } from "./auto-roles.js";
 import type { GuildSummary } from "../site/internal-api.js";
 
 /**
@@ -15,6 +16,21 @@ export interface ChannelChoice {
   type: "text" | "announcement";
 }
 
+/** A role for the dashboard: `assignable` as an auto-role, or why not. */
+export interface RoleChoice {
+  id: string;
+  name: string;
+  assignable: boolean;
+  refusal: RoleRefusal | null;
+}
+
+/** The pickers' lists, and whether the bot holds Manage Roles (auto-roles need it). */
+export interface GuildLists {
+  channels: ChannelChoice[];
+  roles: RoleChoice[];
+  manageRoles: boolean;
+}
+
 export interface ShardStats {
   id: number;
   status: number;
@@ -26,7 +42,7 @@ export interface ShardApi {
   guildSummaries(): GuildSummary[];
   manageableGuilds(userId: string): Promise<{ id: string; name: string; icon: string | null }[]>;
   isManageable(guildId: string, userId: string): Promise<boolean>;
-  channels(guildId: string): Promise<{ channels: ChannelChoice[]; roles: { id: string; name: string }[] } | null>;
+  channels(guildId: string): Promise<GuildLists | null>;
   stats(): ShardStats;
 }
 
@@ -103,13 +119,19 @@ export function createShardApi(client: Client): ShardApi {
         .filter((c) => c.permissionsFor(me)?.has(needed) ?? false)
         .sort((a, b) => ("position" in a && "position" in b ? a.position - b.position : 0))
         .map((c) => ({ id: c.id, name: c.name, type: c.type === ChannelType.GuildAnnouncement ? ("announcement" as const) : ("text" as const) }));
-      // Managed roles (bots, boosts) cannot be pinged usefully; @everyone is never offered.
+      // @everyone is never offered. Managed roles (bots, boosts) are listed
+      // for the auto-role picker, refused there; the site never offers them
+      // as a mention. `assignable` follows the very rules applied before
+      // every assignment (discord/auto-roles.ts).
       const roles = guild.roles.cache
-        .filter((r) => r.id !== guild.id && !r.managed)
+        .filter((r) => r.id !== guild.id)
         .sort((a, b) => b.position - a.position)
-        .map((r) => ({ id: r.id, name: r.name }))
+        .map((r) => {
+          const refusal = roleRefusal(roleFacts(r, me));
+          return { id: r.id, name: r.name, assignable: refusal === null, refusal };
+        })
         .slice(0, 250);
-      return { channels: channels.slice(0, 500), roles };
+      return { channels: channels.slice(0, 500), roles, manageRoles: me.permissions.has(PermissionFlagsBits.ManageRoles) };
     },
 
     stats: () => ({

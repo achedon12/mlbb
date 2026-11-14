@@ -1,5 +1,5 @@
 import { ShardClientUtil, type ShardingManager } from "discord.js";
-import type { ChannelChoice, ShardStats } from "../discord/shard-api.js";
+import type { GuildLists, ShardStats } from "../discord/shard-api.js";
 import type { GuildSummary } from "../site/internal-api.js";
 
 /**
@@ -43,11 +43,11 @@ export class Fleet {
     );
   }
 
-  async channels(guildId: string): Promise<{ channels: ChannelChoice[]; roles: { id: string; name: string }[] } | null> {
+  async channels(guildId: string): Promise<GuildLists | null> {
     return (await this.manager.broadcastEval((client, ctx) => client.mlbbdex?.channels(ctx.guildId) ?? null, {
       shard: this.shardOf(guildId),
       context: { guildId },
-    })) as { channels: ChannelChoice[]; roles: { id: string; name: string }[] } | null;
+    })) as GuildLists | null;
   }
 
   async hasGuild(guildId: string): Promise<boolean> {
