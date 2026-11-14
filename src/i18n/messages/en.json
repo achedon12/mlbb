@@ -232,7 +232,8 @@
     "intro": "Mobile Legends: Bang Bang heroes, builds and counters by rank, a tier list calculated from ranked win rates, items, emblems and patch notes, in English, French, Italian, Spanish and Indonesian. An independent project, open to contributions.",
     "sources": "Game data from the Mobile Legends wiki (CC BY-SA). Win, ban and pick rates, counters and most played builds come from the game's ranked match statistics, through the arena.rone.dev community API.",
     "discord": "Join the Discord",
-    "bot": "Discord bot"
+    "bot": "Discord bot",
+    "community": "Community"
   },
   "language": {
     "choose": "Language",
@@ -4149,6 +4150,279 @@
         "social": "Social network only",
         "none": "Guest, unbound"
       }
+    },
+    "community": {
+      "title": "Community",
+      "lead": "The MLBBDex players' forum: questions, builds, ranked help, esports and guides, plus a board to find teammates. Free to read; sign in with your game account to write.",
+      "seo": {
+        "title": "Mobile Legends forum and teammate finder",
+        "description": "The MLBBDex community forum: heroes and builds, ranked help, esports, player guides, and Mobile Legends players to team up with by region, rank and lane.",
+        "categoryTitle": "{name} – Mobile Legends forum",
+        "threadTitle": "{title} – MLBB forum"
+      },
+      "categories": {
+        "general": {
+          "name": "General",
+          "description": "Anything about the game that fits nowhere else."
+        },
+        "heroes-builds": {
+          "name": "Heroes & builds",
+          "description": "Items, emblems, combos and matchups, hero by hero."
+        },
+        "ranked-help": {
+          "name": "Ranked help",
+          "description": "Climbing the ranks: draft, roles, rotations, mindset."
+        },
+        "esports": {
+          "name": "Esports",
+          "description": "MPL, MSC, Worlds: matches, teams and pro picks."
+        },
+        "guides": {
+          "name": "Player guides",
+          "description": "Your in-depth guides: a hero, a lane, a mechanic."
+        },
+        "site-feedback": {
+          "name": "Site bugs & feedback",
+          "description": "A bug, wrong data, an idea for MLBBDex: tell us here."
+        }
+      },
+      "categoriesTitle": "Categories",
+      "latestTitle": "Latest discussions",
+      "emptyAll": "No discussion yet: start the first one.",
+      "emptyCategory": "No discussion in this category yet.",
+      "threadCount": "{n} discussion(s)",
+      "replies": "{n} reply(ies)",
+      "pinned": "Pinned",
+      "locked": "Locked",
+      "edited": "edited",
+      "sortLabel": "Order of the discussions",
+      "sort": {
+        "latest": "Latest",
+        "top": "Top voted"
+      },
+      "signIn": "Sign in",
+      "signInToPost": "with your game account to start a discussion.",
+      "signInToReply": "with your game account to reply.",
+      "postingAs": "You are writing as {name}.",
+      "threadLead": "Started by {name} in {category}.",
+      "openingPost": "Opening post",
+      "noReplies": "No reply yet.",
+      "replyTitle": "Reply",
+      "replyDeleted": "Message deleted by its author.",
+      "replyHidden": "Message hidden pending moderation.",
+      "lockedNotice": "This discussion is locked: it no longer takes replies.",
+      "backToCategory": "Back to {name}",
+      "moderationBar": "Moderation",
+      "moderate": "Moderate",
+      "hiddenForModerators": "Hidden: visible to moderators only.",
+      "unavailable": "The community is unavailable for the moment. Try again in a moment.",
+      "discordText": "Rather chat live? The MLBBDex Discord server has help and looking-for-group channels too.",
+      "discordJoin": "Join the Discord",
+      "teammatesTitle": "Find teammates",
+      "teammatesLead": "Post a \"looking for\" card with your region, rank, lanes and heroes, and browse the other players' cards.",
+      "teammatesCta": "Browse players",
+      "search": "Search",
+      "searchLabel": "Search the forum",
+      "searchPlaceholder": "Search the forum…",
+      "searchTitle": "Forum search",
+      "searchLead": "Discussions whose title, text or a reply contain your words. Quotes for an exact phrase, a dash to leave a word out.",
+      "searchLeadCategory": "Searching the {name} category.",
+      "searchResults": "{n} discussion(s) for \"{query}\"",
+      "searchEmpty": "No discussion matches. Try other words, or fewer.",
+      "searchHint": "Type one or more words: a hero, an item, a question.",
+      "rules": {
+        "title": "Forum rules",
+        "respect": "Stay civil: no insults, harassment or hate speech.",
+        "noSpam": "No ads, account selling or \"free diamonds\": they are scams.",
+        "privacy": "Do not post other people's personal information.",
+        "newAccounts": "Accounts new to the forum have lower limits and cannot post links for three days.",
+        "report": "A post is a problem? Report it: moderators will see it, and several reports hide it in the meantime."
+      },
+      "teammates": {
+        "title": "Find teammates",
+        "lead": "Players looking for a duo, a trio or a team, by region, rank, lane and language. Each card stays up for seven days; one per account.",
+        "seoTitle": "Find Mobile Legends teammates",
+        "seoDescription": "Mobile Legends players looking for a duo or a team: filter by region, rank, lane and language, and post your own card.",
+        "ownTitle": "Your card",
+        "signInToPost": "with your game account to post your card and see the contacts.",
+        "listTitle": "{n} player(s) available",
+        "any": "Any",
+        "lane": "Lane",
+        "language": "Language",
+        "filter": "Filter",
+        "reset": "Show all",
+        "empty": "No card matches for now. Widen the filters, or post yours.",
+        "speaks": "Languages",
+        "plays": "Plays",
+        "gameId": "Game ID",
+        "signInForContact": "to see the contact.",
+        "noContact": "No contact shared: reach them on the forum or the Discord.",
+        "discordText": "On the MLBBDex Discord server, the looking-for-group channel never stops."
+      },
+      "moderation": {
+        "title": "Community moderation",
+        "lead": "Open reports, banned accounts and the log of decisions. Every action closes its target's reports and is recorded.",
+        "queue": "To review ({n})",
+        "queueEmpty": "No open report.",
+        "kinds": {
+          "thread": "Thread",
+          "post": "Reply",
+          "card": "Teammate card"
+        },
+        "banned": "author banned",
+        "hidden": "hidden",
+        "open": "View on the site",
+        "bannedTitle": "Banned accounts ({n})",
+        "bannedEmpty": "No banned account.",
+        "until": "until {date}",
+        "forever": "for good",
+        "logTitle": "Moderation log",
+        "logEmpty": "No decision yet.",
+        "when": "When",
+        "who": "Moderator",
+        "what": "Action",
+        "note": "Note",
+        "actions": {
+          "hide": "Hide",
+          "unhide": "Show again",
+          "delete": "Delete",
+          "lock": "Lock",
+          "unlock": "Unlock",
+          "pin": "Pin",
+          "unpin": "Unpin",
+          "ban": "Ban",
+          "unban": "Lift the ban",
+          "dismiss": "Dismiss"
+        }
+      }
+    },
+    "communityUI": {
+      "votes": "{n} vote(s)",
+      "upvote": "Upvote this post",
+      "unvote": "Remove my vote",
+      "signInToVote": "Sign in to vote",
+      "signIn": "Sign in",
+      "edit": "Edit",
+      "editing": "Editing the post",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "save": "Save",
+      "sending": "Sending…",
+      "confirmDeleteThread": "Delete this discussion? Its replies will no longer be shown.",
+      "confirmDeleteReply": "Delete this reply?",
+      "newThread": "New discussion",
+      "titleLabel": "Title",
+      "bodyLabel": "Message",
+      "replyLabel": "Your reply",
+      "markdownHint": "Markdown: **bold**, *italic*, `code`, > quote, - list, [link](https://…). No HTML or images.",
+      "heroesLabel": "Heroes concerned",
+      "heroesHint": "Up to {n} heroes, shown as tags linking to their page.",
+      "heroPlaceholder": "Hero name…",
+      "removeHero": "Remove {name}",
+      "publishThread": "Post the discussion",
+      "publishReply": "Reply",
+      "report": {
+        "open": "Report",
+        "title": "Why report this content?",
+        "reasons": {
+          "spam": "Spam or scam",
+          "abuse": "Insults, harassment, hate",
+          "offtopic": "Off topic",
+          "personal": "Personal information",
+          "other": "Other"
+        },
+        "note": "Details (optional)",
+        "send": "Send the report",
+        "sent": "Report sent, thank you."
+      },
+      "errors": {
+        "signIn": "Your session has expired: sign in again.",
+        "tooFast": "Too many posts at once: wait a minute.",
+        "day": "Daily limit reached: come back tomorrow.",
+        "duplicate": "You just posted this same text.",
+        "blocked": "This text contains a term the forum refuses.",
+        "spam": "This text looks like spam (short link, invite, diamond scam).",
+        "links": "Too many links: {n} per post at most.",
+        "newAccountLinks": "Accounts new to the forum cannot post links yet.",
+        "banned": "Your account can no longer take part in the community.",
+        "window": "The time to edit or delete this post has passed.",
+        "locked": "This discussion is locked.",
+        "hidden": "This content is hidden by moderation.",
+        "unknown": "This content no longer exists.",
+        "title": "The title must be between {min} and {max} characters.",
+        "body": "The message must be between {min} and {max} characters.",
+        "invalid": "Refused: check the fields.",
+        "unavailable": "Service unavailable for the moment. Try again in a moment."
+      },
+      "regions": {
+        "id": "Indonesia",
+        "ph": "Philippines",
+        "mysg": "Malaysia & Singapore",
+        "sea": "Other Southeast Asia",
+        "asia": "Other Asia",
+        "mena": "Middle East & North Africa",
+        "eu": "Europe",
+        "na": "North America",
+        "latam": "Latin America",
+        "other": "Other"
+      },
+      "playTimes": {
+        "morning": "Mornings",
+        "afternoon": "Afternoons",
+        "evening": "Evenings",
+        "night": "Late nights",
+        "weekdays": "Weekdays",
+        "weekends": "Weekends"
+      },
+      "teammates": {
+        "newCard": "Post my card",
+        "editCard": "Edit or renew my card",
+        "deleteCard": "Take my card down",
+        "confirmDelete": "Take your card down?",
+        "cardListed": "Your card is up until {date}. Saving it again extends it by seven days.",
+        "cardHidden": "Your card was hidden by moderation.",
+        "region": "Region",
+        "rank": "Rank",
+        "choose": "Choose…",
+        "lanes": "Lanes played",
+        "heroes": "Hero pool",
+        "heroesHint": "Up to {n} heroes.",
+        "languages": "Languages spoken ({n} at most)",
+        "playTimes": "When you play",
+        "note": "What you are looking for (optional, no links)",
+        "contact": "Contact (optional)",
+        "gameId": "Game ID and server",
+        "discord": "Discord username",
+        "contactNote": "Shown to signed-in players only, never to visitors or search engines. Take your card down to erase them.",
+        "publish": "Post for seven days",
+        "saved": "Card posted.",
+        "needLanesAndLanguages": "Choose at least one lane and one language.",
+        "errors": {
+          "gameId": "Game ID expected as 12345678 (1234).",
+          "discord": "Invalid Discord username.",
+          "note": "The text must be {max} characters at most, without links.",
+          "hidden": "Your card was hidden by moderation: it cannot be posted again."
+        }
+      },
+      "moderation": {
+        "hide": "Hide",
+        "unhide": "Show again",
+        "delete": "Delete",
+        "lock": "Lock",
+        "unlock": "Unlock",
+        "pin": "Pin",
+        "unpin": "Unpin",
+        "ban": "Ban the author",
+        "unban": "Lift the ban",
+        "dismiss": "Dismiss the reports",
+        "duration": "Duration",
+        "days": "{n} day(s)",
+        "forever": "Permanent",
+        "reason": "Reason (log)",
+        "confirmBan": "Confirm the ban",
+        "confirmDelete": "Delete this content for good?",
+        "failed": "The action failed: reload the page."
+      }
     }
   },
   "modeSheet": {
@@ -4458,7 +4732,7 @@
     "privacy": {
       "blocks": [
         {
-          "p": "This site is designed to work without storing personal data on a server: it has no account database. This page describes the little that is processed, and where."
+          "p": "This site is designed to keep as little data as possible. Most pages work without storing anything on a server; only the features you choose to use (game account login, community, notifications, Discord bot) keep what they describe below. This page details what is processed, and where."
         },
         {
           "h": "Cookies"
@@ -4505,7 +4779,7 @@
           "h": "Your rights"
         },
         {
-          "p": "Since the site keeps no personal data file, there is nothing to access, correct or delete on the server side. You stay in control of what lives in your browser (favorites, session) by logging out or clearing the site data. For any question, write to [{contact}](mailto:{contact})."
+          "p": "You stay in control of what lives in your browser (favorites, session) by logging out or clearing the site data. To see or delete what the server keeps about you (community, notifications, Discord bot), or for any question, write to [{contact}](mailto:{contact})."
         }
       ]
     },
@@ -4526,6 +4800,15 @@
       "results": "for the leaderboards of the daily games played in Discord: the players' Discord id and name and their scores.",
       "details": "The details, the retention period and deletion are on the bot's privacy page.",
       "members": "Nothing is kept about a server's members: their joins and leaves, which Discord reports to the bot, are only used to post the welcome and goodbye messages the server turned on."
+    },
+    "community": {
+      "title": "Community: forum and teammate finder",
+      "intro": "If you take part in the community (forum, votes, reports, teammate card), the site's server keeps, in its database:",
+      "account": "a derived account id (a hash of your game ID and server, never the ID itself), your in-game name, and the date you first took part;",
+      "posts": "your discussions and replies, which are public, with their date; your votes and reports, shown to no one but the moderators (the reports);",
+      "card": "your teammate card and, if you add them, your game ID and Discord username: they are shown to signed-in players only, and the card is erased seven days after it was last saved.",
+      "moderation": "Moderators see the reports and can hide, delete or ban; each of their decisions is written to a log. The rate limits use your IP address, in memory only, for a few minutes.",
+      "deletion": "You can edit a post for an hour and delete it for a day, and take your card down at any time. Beyond that, or to erase all your participation, write to {contact}."
     }
   },
   "compareUI": {

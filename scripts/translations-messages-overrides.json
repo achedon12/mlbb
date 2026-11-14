@@ -2627,6 +2627,946 @@
     "pages.accountValueUI.bindingValue.none": {
       "fr": "Invité, sans liaison",
       "text": "Guest, unbound"
+    },
+    "footer.community": {
+      "fr": "Communauté",
+      "text": "Community"
+    },
+    "pages.community.title": {
+      "fr": "Communauté",
+      "text": "Community"
+    },
+    "pages.community.lead": {
+      "fr": "Le forum des joueurs de MLBBDex : questions, builds, aide en classé, esport et guides, plus un tableau pour trouver des coéquipiers. Lecture libre, connexion avec votre compte de jeu pour écrire.",
+      "text": "The MLBBDex players' forum: questions, builds, ranked help, esports and guides, plus a board to find teammates. Free to read; sign in with your game account to write."
+    },
+    "pages.community.seo.title": {
+      "fr": "Forum Mobile Legends et recherche de coéquipiers",
+      "text": "Mobile Legends forum and teammate finder"
+    },
+    "pages.community.seo.description": {
+      "fr": "Le forum de la communauté MLBBDex : héros et builds, aide en classé, esport, guides de joueurs, et des joueurs de Mobile Legends à rejoindre par région, rang et lane.",
+      "text": "The MLBBDex community forum: heroes and builds, ranked help, esports, player guides, and Mobile Legends players to team up with by region, rank and lane."
+    },
+    "pages.community.seo.categoryTitle": {
+      "fr": "{name} – forum Mobile Legends",
+      "text": "{name} – Mobile Legends forum"
+    },
+    "pages.community.seo.threadTitle": {
+      "fr": "{title} – forum MLBB",
+      "text": "{title} – MLBB forum"
+    },
+    "pages.community.categories.general.name": {
+      "fr": "Général",
+      "text": "General"
+    },
+    "pages.community.categories.general.description": {
+      "fr": "Tout ce qui touche au jeu et ne rentre pas ailleurs.",
+      "text": "Anything about the game that fits nowhere else."
+    },
+    "pages.community.categories.heroes-builds.name": {
+      "fr": "Héros et builds",
+      "text": "Heroes & builds"
+    },
+    "pages.community.categories.heroes-builds.description": {
+      "fr": "Objets, emblèmes, combos et matchs à la loupe, héros par héros.",
+      "text": "Items, emblems, combos and matchups, hero by hero."
+    },
+    "pages.community.categories.ranked-help.name": {
+      "fr": "Aide en classé",
+      "text": "Ranked help"
+    },
+    "pages.community.categories.ranked-help.description": {
+      "fr": "Monter de rang : draft, rôles, rotations, mental.",
+      "text": "Climbing the ranks: draft, roles, rotations, mindset."
+    },
+    "pages.community.categories.esports.name": {
+      "fr": "Esport",
+      "text": "Esports"
+    },
+    "pages.community.categories.esports.description": {
+      "fr": "MPL, MSC, Mondiaux : matchs, équipes et picks des pros.",
+      "text": "MPL, MSC, Worlds: matches, teams and pro picks."
+    },
+    "pages.community.categories.guides.name": {
+      "fr": "Guides de joueurs",
+      "text": "Player guides"
+    },
+    "pages.community.categories.guides.description": {
+      "fr": "Vos guides détaillés : un héros, une lane, une mécanique.",
+      "text": "Your in-depth guides: a hero, a lane, a mechanic."
+    },
+    "pages.community.categories.site-feedback.name": {
+      "fr": "Bugs et avis sur le site",
+      "text": "Site bugs & feedback"
+    },
+    "pages.community.categories.site-feedback.description": {
+      "fr": "Un bug, une donnée fausse, une idée pour MLBBDex : dites-le ici.",
+      "text": "A bug, wrong data, an idea for MLBBDex: tell us here."
+    },
+    "pages.community.categoriesTitle": {
+      "fr": "Catégories",
+      "text": "Categories"
+    },
+    "pages.community.latestTitle": {
+      "fr": "Dernières discussions",
+      "text": "Latest discussions"
+    },
+    "pages.community.emptyAll": {
+      "fr": "Aucune discussion pour l'instant : lancez la première.",
+      "text": "No discussion yet: start the first one."
+    },
+    "pages.community.emptyCategory": {
+      "fr": "Aucune discussion dans cette catégorie pour l'instant.",
+      "text": "No discussion in this category yet."
+    },
+    "pages.community.threadCount": {
+      "fr": "{n} discussion(s)",
+      "text": "{n} discussion(s)"
+    },
+    "pages.community.replies": {
+      "fr": "{n} réponse(s)",
+      "text": "{n} reply(ies)"
+    },
+    "pages.community.pinned": {
+      "fr": "Épinglée",
+      "text": "Pinned"
+    },
+    "pages.community.locked": {
+      "fr": "Verrouillée",
+      "text": "Locked"
+    },
+    "pages.community.edited": {
+      "fr": "modifié",
+      "text": "edited"
+    },
+    "pages.community.sortLabel": {
+      "fr": "Ordre des discussions",
+      "text": "Order of the discussions"
+    },
+    "pages.community.sort.latest": {
+      "fr": "Récentes",
+      "text": "Latest"
+    },
+    "pages.community.sort.top": {
+      "fr": "Les plus votées",
+      "text": "Top voted"
+    },
+    "pages.community.signIn": {
+      "fr": "Connectez-vous",
+      "text": "Sign in"
+    },
+    "pages.community.signInToPost": {
+      "fr": "avec votre compte de jeu pour lancer une discussion.",
+      "text": "with your game account to start a discussion."
+    },
+    "pages.community.signInToReply": {
+      "fr": "avec votre compte de jeu pour répondre.",
+      "text": "with your game account to reply."
+    },
+    "pages.community.postingAs": {
+      "fr": "Vous écrivez en tant que {name}.",
+      "text": "You are writing as {name}."
+    },
+    "pages.community.threadLead": {
+      "fr": "Lancée par {name} dans {category}.",
+      "text": "Started by {name} in {category}."
+    },
+    "pages.community.openingPost": {
+      "fr": "Message d'ouverture",
+      "text": "Opening post"
+    },
+    "pages.community.noReplies": {
+      "fr": "Pas encore de réponse.",
+      "text": "No reply yet."
+    },
+    "pages.community.replyTitle": {
+      "fr": "Répondre",
+      "text": "Reply"
+    },
+    "pages.community.replyDeleted": {
+      "fr": "Message supprimé par son auteur.",
+      "text": "Message deleted by its author."
+    },
+    "pages.community.replyHidden": {
+      "fr": "Message masqué en attendant la modération.",
+      "text": "Message hidden pending moderation."
+    },
+    "pages.community.lockedNotice": {
+      "fr": "Cette discussion est verrouillée : on ne peut plus y répondre.",
+      "text": "This discussion is locked: it no longer takes replies."
+    },
+    "pages.community.backToCategory": {
+      "fr": "Retour à {name}",
+      "text": "Back to {name}"
+    },
+    "pages.community.moderationBar": {
+      "fr": "Modération",
+      "text": "Moderation"
+    },
+    "pages.community.moderate": {
+      "fr": "Modérer",
+      "text": "Moderate"
+    },
+    "pages.community.hiddenForModerators": {
+      "fr": "Masqué : visible des seuls modérateurs.",
+      "text": "Hidden: visible to moderators only."
+    },
+    "pages.community.unavailable": {
+      "fr": "La communauté est momentanément indisponible. Réessayez dans un instant.",
+      "text": "The community is unavailable for the moment. Try again in a moment."
+    },
+    "pages.community.discordText": {
+      "fr": "Vous préférez discuter en direct ? Le serveur Discord MLBBDex a aussi ses salons d'entraide et de recherche de coéquipiers.",
+      "text": "Rather chat live? The MLBBDex Discord server has help and looking-for-group channels too."
+    },
+    "pages.community.discordJoin": {
+      "fr": "Rejoindre le Discord",
+      "text": "Join the Discord"
+    },
+    "pages.community.teammatesTitle": {
+      "fr": "Trouver des coéquipiers",
+      "text": "Find teammates"
+    },
+    "pages.community.teammatesLead": {
+      "fr": "Publiez une carte « je cherche » avec votre région, votre rang, vos lanes et vos héros, et parcourez celles des autres joueurs.",
+      "text": "Post a \"looking for\" card with your region, rank, lanes and heroes, and browse the other players' cards."
+    },
+    "pages.community.teammatesCta": {
+      "fr": "Voir les joueurs",
+      "text": "Browse players"
+    },
+    "pages.community.search": {
+      "fr": "Rechercher",
+      "text": "Search"
+    },
+    "pages.community.searchLabel": {
+      "fr": "Rechercher dans le forum",
+      "text": "Search the forum"
+    },
+    "pages.community.searchPlaceholder": {
+      "fr": "Rechercher dans le forum…",
+      "text": "Search the forum…"
+    },
+    "pages.community.searchTitle": {
+      "fr": "Recherche dans le forum",
+      "text": "Forum search"
+    },
+    "pages.community.searchLead": {
+      "fr": "Les discussions dont le titre, le texte ou une réponse contiennent vos mots. Des guillemets pour une expression exacte, un tiret pour exclure un mot.",
+      "text": "Discussions whose title, text or a reply contain your words. Quotes for an exact phrase, a dash to leave a word out."
+    },
+    "pages.community.searchLeadCategory": {
+      "fr": "Recherche dans la catégorie {name}.",
+      "text": "Searching the {name} category."
+    },
+    "pages.community.searchResults": {
+      "fr": "{n} discussion(s) pour « {query} »",
+      "text": "{n} discussion(s) for \"{query}\""
+    },
+    "pages.community.searchEmpty": {
+      "fr": "Aucune discussion ne correspond. Essayez d'autres mots, ou moins de mots.",
+      "text": "No discussion matches. Try other words, or fewer."
+    },
+    "pages.community.searchHint": {
+      "fr": "Tapez un ou plusieurs mots : un héros, un objet, une question.",
+      "text": "Type one or more words: a hero, an item, a question."
+    },
+    "pages.community.rules.title": {
+      "fr": "Règles du forum",
+      "text": "Forum rules"
+    },
+    "pages.community.rules.respect": {
+      "fr": "Restez courtois : pas d'insulte, de harcèlement ni de propos haineux.",
+      "text": "Stay civil: no insults, harassment or hate speech."
+    },
+    "pages.community.rules.noSpam": {
+      "fr": "Pas de publicité, de vente de comptes ni de « diamants gratuits » : ce sont des arnaques.",
+      "text": "No ads, account selling or \"free diamonds\": they are scams."
+    },
+    "pages.community.rules.privacy": {
+      "fr": "Ne publiez pas les informations personnelles d'autrui.",
+      "text": "Do not post other people's personal information."
+    },
+    "pages.community.rules.newAccounts": {
+      "fr": "Les comptes nouveaux sur le forum ont des limites plus basses et ne peuvent pas publier de liens pendant trois jours.",
+      "text": "Accounts new to the forum have lower limits and cannot post links for three days."
+    },
+    "pages.community.rules.report": {
+      "fr": "Un message pose problème ? Signalez-le : les modérateurs le verront, et plusieurs signalements le masquent en attendant.",
+      "text": "A post is a problem? Report it: moderators will see it, and several reports hide it in the meantime."
+    },
+    "pages.community.teammates.title": {
+      "fr": "Trouver des coéquipiers",
+      "text": "Find teammates"
+    },
+    "pages.community.teammates.lead": {
+      "fr": "Des joueurs qui cherchent un duo, un trio ou une équipe, par région, rang, lane et langue. Chaque carte reste en ligne sept jours ; une seule par compte.",
+      "text": "Players looking for a duo, a trio or a team, by region, rank, lane and language. Each card stays up for seven days; one per account."
+    },
+    "pages.community.teammates.seoTitle": {
+      "fr": "Trouver des coéquipiers Mobile Legends",
+      "text": "Find Mobile Legends teammates"
+    },
+    "pages.community.teammates.seoDescription": {
+      "fr": "Joueurs de Mobile Legends à la recherche d'un duo ou d'une équipe : filtrez par région, rang, lane et langue, et publiez votre propre carte.",
+      "text": "Mobile Legends players looking for a duo or a team: filter by region, rank, lane and language, and post your own card."
+    },
+    "pages.community.teammates.ownTitle": {
+      "fr": "Votre carte",
+      "text": "Your card"
+    },
+    "pages.community.teammates.signInToPost": {
+      "fr": "avec votre compte de jeu pour publier votre carte et voir les contacts.",
+      "text": "with your game account to post your card and see the contacts."
+    },
+    "pages.community.teammates.listTitle": {
+      "fr": "{n} joueur(s) disponible(s)",
+      "text": "{n} player(s) available"
+    },
+    "pages.community.teammates.any": {
+      "fr": "Tous",
+      "text": "Any"
+    },
+    "pages.community.teammates.lane": {
+      "fr": "Lane",
+      "text": "Lane"
+    },
+    "pages.community.teammates.language": {
+      "fr": "Langue",
+      "text": "Language"
+    },
+    "pages.community.teammates.filter": {
+      "fr": "Filtrer",
+      "text": "Filter"
+    },
+    "pages.community.teammates.reset": {
+      "fr": "Tout afficher",
+      "text": "Show all"
+    },
+    "pages.community.teammates.empty": {
+      "fr": "Aucune carte ne correspond pour l'instant. Élargissez les filtres, ou publiez la vôtre.",
+      "text": "No card matches for now. Widen the filters, or post yours."
+    },
+    "pages.community.teammates.speaks": {
+      "fr": "Langues",
+      "text": "Languages"
+    },
+    "pages.community.teammates.plays": {
+      "fr": "Joue",
+      "text": "Plays"
+    },
+    "pages.community.teammates.gameId": {
+      "fr": "ID de jeu",
+      "text": "Game ID"
+    },
+    "pages.community.teammates.signInForContact": {
+      "fr": "pour voir le contact.",
+      "text": "to see the contact."
+    },
+    "pages.community.teammates.noContact": {
+      "fr": "Pas de contact partagé : répondez-lui sur le forum ou le Discord.",
+      "text": "No contact shared: reach them on the forum or the Discord."
+    },
+    "pages.community.teammates.discordText": {
+      "fr": "Sur le serveur Discord MLBBDex, le salon de recherche de coéquipiers tourne en continu.",
+      "text": "On the MLBBDex Discord server, the looking-for-group channel never stops."
+    },
+    "pages.community.moderation.title": {
+      "fr": "Modération de la communauté",
+      "text": "Community moderation"
+    },
+    "pages.community.moderation.lead": {
+      "fr": "Les signalements ouverts, les comptes bannis et le journal des décisions. Chaque action ferme les signalements de sa cible et est enregistrée.",
+      "text": "Open reports, banned accounts and the log of decisions. Every action closes its target's reports and is recorded."
+    },
+    "pages.community.moderation.queue": {
+      "fr": "À traiter ({n})",
+      "text": "To review ({n})"
+    },
+    "pages.community.moderation.queueEmpty": {
+      "fr": "Aucun signalement ouvert.",
+      "text": "No open report."
+    },
+    "pages.community.moderation.kinds.thread": {
+      "fr": "Discussion",
+      "text": "Thread"
+    },
+    "pages.community.moderation.kinds.post": {
+      "fr": "Réponse",
+      "text": "Reply"
+    },
+    "pages.community.moderation.kinds.card": {
+      "fr": "Carte coéquipier",
+      "text": "Teammate card"
+    },
+    "pages.community.moderation.banned": {
+      "fr": "auteur banni",
+      "text": "author banned"
+    },
+    "pages.community.moderation.hidden": {
+      "fr": "masqué",
+      "text": "hidden"
+    },
+    "pages.community.moderation.open": {
+      "fr": "Voir sur le site",
+      "text": "View on the site"
+    },
+    "pages.community.moderation.bannedTitle": {
+      "fr": "Comptes bannis ({n})",
+      "text": "Banned accounts ({n})"
+    },
+    "pages.community.moderation.bannedEmpty": {
+      "fr": "Aucun compte banni.",
+      "text": "No banned account."
+    },
+    "pages.community.moderation.until": {
+      "fr": "jusqu'au {date}",
+      "text": "until {date}"
+    },
+    "pages.community.moderation.forever": {
+      "fr": "définitivement",
+      "text": "for good"
+    },
+    "pages.community.moderation.logTitle": {
+      "fr": "Journal de modération",
+      "text": "Moderation log"
+    },
+    "pages.community.moderation.logEmpty": {
+      "fr": "Aucune décision pour l'instant.",
+      "text": "No decision yet."
+    },
+    "pages.community.moderation.when": {
+      "fr": "Quand",
+      "text": "When"
+    },
+    "pages.community.moderation.who": {
+      "fr": "Modérateur",
+      "text": "Moderator"
+    },
+    "pages.community.moderation.what": {
+      "fr": "Action",
+      "text": "Action"
+    },
+    "pages.community.moderation.note": {
+      "fr": "Note",
+      "text": "Note"
+    },
+    "pages.community.moderation.actions.hide": {
+      "fr": "Masquer",
+      "text": "Hide"
+    },
+    "pages.community.moderation.actions.unhide": {
+      "fr": "Réafficher",
+      "text": "Show again"
+    },
+    "pages.community.moderation.actions.delete": {
+      "fr": "Supprimer",
+      "text": "Delete"
+    },
+    "pages.community.moderation.actions.lock": {
+      "fr": "Verrouiller",
+      "text": "Lock"
+    },
+    "pages.community.moderation.actions.unlock": {
+      "fr": "Déverrouiller",
+      "text": "Unlock"
+    },
+    "pages.community.moderation.actions.pin": {
+      "fr": "Épingler",
+      "text": "Pin"
+    },
+    "pages.community.moderation.actions.unpin": {
+      "fr": "Désépingler",
+      "text": "Unpin"
+    },
+    "pages.community.moderation.actions.ban": {
+      "fr": "Bannir",
+      "text": "Ban"
+    },
+    "pages.community.moderation.actions.unban": {
+      "fr": "Lever le bannissement",
+      "text": "Lift the ban"
+    },
+    "pages.community.moderation.actions.dismiss": {
+      "fr": "Classer sans suite",
+      "text": "Dismiss"
+    },
+    "pages.communityUI.votes": {
+      "fr": "{n} vote(s)",
+      "text": "{n} vote(s)"
+    },
+    "pages.communityUI.upvote": {
+      "fr": "Voter pour ce message",
+      "text": "Upvote this post"
+    },
+    "pages.communityUI.unvote": {
+      "fr": "Retirer mon vote",
+      "text": "Remove my vote"
+    },
+    "pages.communityUI.signInToVote": {
+      "fr": "Connectez-vous pour voter",
+      "text": "Sign in to vote"
+    },
+    "pages.communityUI.signIn": {
+      "fr": "Se connecter",
+      "text": "Sign in"
+    },
+    "pages.communityUI.edit": {
+      "fr": "Modifier",
+      "text": "Edit"
+    },
+    "pages.communityUI.editing": {
+      "fr": "Modification du message",
+      "text": "Editing the post"
+    },
+    "pages.communityUI.delete": {
+      "fr": "Supprimer",
+      "text": "Delete"
+    },
+    "pages.communityUI.cancel": {
+      "fr": "Annuler",
+      "text": "Cancel"
+    },
+    "pages.communityUI.save": {
+      "fr": "Enregistrer",
+      "text": "Save"
+    },
+    "pages.communityUI.sending": {
+      "fr": "Envoi…",
+      "text": "Sending…"
+    },
+    "pages.communityUI.confirmDeleteThread": {
+      "fr": "Supprimer cette discussion ? Ses réponses ne seront plus affichées.",
+      "text": "Delete this discussion? Its replies will no longer be shown."
+    },
+    "pages.communityUI.confirmDeleteReply": {
+      "fr": "Supprimer cette réponse ?",
+      "text": "Delete this reply?"
+    },
+    "pages.communityUI.newThread": {
+      "fr": "Nouvelle discussion",
+      "text": "New discussion"
+    },
+    "pages.communityUI.titleLabel": {
+      "fr": "Titre",
+      "text": "Title"
+    },
+    "pages.communityUI.bodyLabel": {
+      "fr": "Message",
+      "text": "Message"
+    },
+    "pages.communityUI.replyLabel": {
+      "fr": "Votre réponse",
+      "text": "Your reply"
+    },
+    "pages.communityUI.markdownHint": {
+      "fr": "Markdown : **gras**, *italique*, `code`, > citation, - liste, [lien](https://…). Pas de HTML ni d'image.",
+      "text": "Markdown: **bold**, *italic*, `code`, > quote, - list, [link](https://…). No HTML or images."
+    },
+    "pages.communityUI.heroesLabel": {
+      "fr": "Héros concernés",
+      "text": "Heroes concerned"
+    },
+    "pages.communityUI.heroesHint": {
+      "fr": "Jusqu'à {n} héros, affichés en étiquettes vers leur fiche.",
+      "text": "Up to {n} heroes, shown as tags linking to their page."
+    },
+    "pages.communityUI.heroPlaceholder": {
+      "fr": "Nom d'un héros…",
+      "text": "Hero name…"
+    },
+    "pages.communityUI.removeHero": {
+      "fr": "Retirer {name}",
+      "text": "Remove {name}"
+    },
+    "pages.communityUI.publishThread": {
+      "fr": "Publier la discussion",
+      "text": "Post the discussion"
+    },
+    "pages.communityUI.publishReply": {
+      "fr": "Répondre",
+      "text": "Reply"
+    },
+    "pages.communityUI.report.open": {
+      "fr": "Signaler",
+      "text": "Report"
+    },
+    "pages.communityUI.report.title": {
+      "fr": "Pourquoi signaler ce contenu ?",
+      "text": "Why report this content?"
+    },
+    "pages.communityUI.report.reasons.spam": {
+      "fr": "Spam ou arnaque",
+      "text": "Spam or scam"
+    },
+    "pages.communityUI.report.reasons.abuse": {
+      "fr": "Insulte, harcèlement, haine",
+      "text": "Insults, harassment, hate"
+    },
+    "pages.communityUI.report.reasons.offtopic": {
+      "fr": "Hors sujet",
+      "text": "Off topic"
+    },
+    "pages.communityUI.report.reasons.personal": {
+      "fr": "Informations personnelles",
+      "text": "Personal information"
+    },
+    "pages.communityUI.report.reasons.other": {
+      "fr": "Autre",
+      "text": "Other"
+    },
+    "pages.communityUI.report.note": {
+      "fr": "Précision (facultatif)",
+      "text": "Details (optional)"
+    },
+    "pages.communityUI.report.send": {
+      "fr": "Envoyer le signalement",
+      "text": "Send the report"
+    },
+    "pages.communityUI.report.sent": {
+      "fr": "Signalement envoyé, merci.",
+      "text": "Report sent, thank you."
+    },
+    "pages.communityUI.errors.signIn": {
+      "fr": "Votre session a expiré : reconnectez-vous.",
+      "text": "Your session has expired: sign in again."
+    },
+    "pages.communityUI.errors.tooFast": {
+      "fr": "Trop de messages d'un coup : patientez une minute.",
+      "text": "Too many posts at once: wait a minute."
+    },
+    "pages.communityUI.errors.day": {
+      "fr": "Limite quotidienne atteinte : revenez demain.",
+      "text": "Daily limit reached: come back tomorrow."
+    },
+    "pages.communityUI.errors.duplicate": {
+      "fr": "Vous venez de publier ce même texte.",
+      "text": "You just posted this same text."
+    },
+    "pages.communityUI.errors.blocked": {
+      "fr": "Ce texte contient un terme refusé sur le forum.",
+      "text": "This text contains a term the forum refuses."
+    },
+    "pages.communityUI.errors.spam": {
+      "fr": "Ce texte ressemble à du spam (lien raccourci, invitation, arnaque aux diamants).",
+      "text": "This text looks like spam (short link, invite, diamond scam)."
+    },
+    "pages.communityUI.errors.links": {
+      "fr": "Trop de liens : {n} au plus par message.",
+      "text": "Too many links: {n} per post at most."
+    },
+    "pages.communityUI.errors.newAccountLinks": {
+      "fr": "Les comptes nouveaux sur le forum ne peuvent pas encore publier de liens.",
+      "text": "Accounts new to the forum cannot post links yet."
+    },
+    "pages.communityUI.errors.banned": {
+      "fr": "Votre compte ne peut plus participer à la communauté.",
+      "text": "Your account can no longer take part in the community."
+    },
+    "pages.communityUI.errors.window": {
+      "fr": "Le délai pour modifier ou supprimer ce message est passé.",
+      "text": "The time to edit or delete this post has passed."
+    },
+    "pages.communityUI.errors.locked": {
+      "fr": "Cette discussion est verrouillée.",
+      "text": "This discussion is locked."
+    },
+    "pages.communityUI.errors.hidden": {
+      "fr": "Ce contenu est masqué par la modération.",
+      "text": "This content is hidden by moderation."
+    },
+    "pages.communityUI.errors.unknown": {
+      "fr": "Ce contenu n'existe plus.",
+      "text": "This content no longer exists."
+    },
+    "pages.communityUI.errors.title": {
+      "fr": "Le titre doit faire entre {min} et {max} caractères.",
+      "text": "The title must be between {min} and {max} characters."
+    },
+    "pages.communityUI.errors.body": {
+      "fr": "Le message doit faire entre {min} et {max} caractères.",
+      "text": "The message must be between {min} and {max} characters."
+    },
+    "pages.communityUI.errors.invalid": {
+      "fr": "Envoi refusé : vérifiez les champs.",
+      "text": "Refused: check the fields."
+    },
+    "pages.communityUI.errors.unavailable": {
+      "fr": "Service momentanément indisponible. Réessayez dans un instant.",
+      "text": "Service unavailable for the moment. Try again in a moment."
+    },
+    "pages.communityUI.regions.id": {
+      "fr": "Indonésie",
+      "text": "Indonesia"
+    },
+    "pages.communityUI.regions.ph": {
+      "fr": "Philippines",
+      "text": "Philippines"
+    },
+    "pages.communityUI.regions.mysg": {
+      "fr": "Malaisie et Singapour",
+      "text": "Malaysia & Singapore"
+    },
+    "pages.communityUI.regions.sea": {
+      "fr": "Autre Asie du Sud-Est",
+      "text": "Other Southeast Asia"
+    },
+    "pages.communityUI.regions.asia": {
+      "fr": "Autre Asie",
+      "text": "Other Asia"
+    },
+    "pages.communityUI.regions.mena": {
+      "fr": "Moyen-Orient et Afrique du Nord",
+      "text": "Middle East & North Africa"
+    },
+    "pages.communityUI.regions.eu": {
+      "fr": "Europe",
+      "text": "Europe"
+    },
+    "pages.communityUI.regions.na": {
+      "fr": "Amérique du Nord",
+      "text": "North America"
+    },
+    "pages.communityUI.regions.latam": {
+      "fr": "Amérique latine",
+      "text": "Latin America"
+    },
+    "pages.communityUI.regions.other": {
+      "fr": "Autre",
+      "text": "Other"
+    },
+    "pages.communityUI.playTimes.morning": {
+      "fr": "Le matin",
+      "text": "Mornings"
+    },
+    "pages.communityUI.playTimes.afternoon": {
+      "fr": "L'après-midi",
+      "text": "Afternoons"
+    },
+    "pages.communityUI.playTimes.evening": {
+      "fr": "Le soir",
+      "text": "Evenings"
+    },
+    "pages.communityUI.playTimes.night": {
+      "fr": "La nuit",
+      "text": "Late nights"
+    },
+    "pages.communityUI.playTimes.weekdays": {
+      "fr": "En semaine",
+      "text": "Weekdays"
+    },
+    "pages.communityUI.playTimes.weekends": {
+      "fr": "Le week-end",
+      "text": "Weekends"
+    },
+    "pages.communityUI.teammates.newCard": {
+      "fr": "Publier ma carte",
+      "text": "Post my card"
+    },
+    "pages.communityUI.teammates.editCard": {
+      "fr": "Modifier ou renouveler ma carte",
+      "text": "Edit or renew my card"
+    },
+    "pages.communityUI.teammates.deleteCard": {
+      "fr": "Retirer ma carte",
+      "text": "Take my card down"
+    },
+    "pages.communityUI.teammates.confirmDelete": {
+      "fr": "Retirer votre carte ?",
+      "text": "Take your card down?"
+    },
+    "pages.communityUI.teammates.cardListed": {
+      "fr": "Votre carte est en ligne jusqu'au {date}. L'enregistrer à nouveau la prolonge de sept jours.",
+      "text": "Your card is up until {date}. Saving it again extends it by seven days."
+    },
+    "pages.communityUI.teammates.cardHidden": {
+      "fr": "Votre carte a été masquée par la modération.",
+      "text": "Your card was hidden by moderation."
+    },
+    "pages.communityUI.teammates.region": {
+      "fr": "Région",
+      "text": "Region"
+    },
+    "pages.communityUI.teammates.rank": {
+      "fr": "Rang",
+      "text": "Rank"
+    },
+    "pages.communityUI.teammates.choose": {
+      "fr": "Choisir…",
+      "text": "Choose…"
+    },
+    "pages.communityUI.teammates.lanes": {
+      "fr": "Lanes jouées",
+      "text": "Lanes played"
+    },
+    "pages.communityUI.teammates.heroes": {
+      "fr": "Héros favoris",
+      "text": "Hero pool"
+    },
+    "pages.communityUI.teammates.heroesHint": {
+      "fr": "Jusqu'à {n} héros.",
+      "text": "Up to {n} heroes."
+    },
+    "pages.communityUI.teammates.languages": {
+      "fr": "Langues parlées ({n} au plus)",
+      "text": "Languages spoken ({n} at most)"
+    },
+    "pages.communityUI.teammates.playTimes": {
+      "fr": "Quand vous jouez",
+      "text": "When you play"
+    },
+    "pages.communityUI.teammates.note": {
+      "fr": "Ce que vous cherchez (facultatif, sans lien)",
+      "text": "What you are looking for (optional, no links)"
+    },
+    "pages.communityUI.teammates.contact": {
+      "fr": "Contact (facultatif)",
+      "text": "Contact (optional)"
+    },
+    "pages.communityUI.teammates.gameId": {
+      "fr": "ID de jeu et serveur",
+      "text": "Game ID and server"
+    },
+    "pages.communityUI.teammates.discord": {
+      "fr": "Pseudo Discord",
+      "text": "Discord username"
+    },
+    "pages.communityUI.teammates.contactNote": {
+      "fr": "Montrés aux seuls joueurs connectés, jamais aux visiteurs ni aux moteurs de recherche. Retirez votre carte pour les effacer.",
+      "text": "Shown to signed-in players only, never to visitors or search engines. Take your card down to erase them."
+    },
+    "pages.communityUI.teammates.publish": {
+      "fr": "Publier pour sept jours",
+      "text": "Post for seven days"
+    },
+    "pages.communityUI.teammates.saved": {
+      "fr": "Carte publiée.",
+      "text": "Card posted."
+    },
+    "pages.communityUI.teammates.needLanesAndLanguages": {
+      "fr": "Choisissez au moins une lane et une langue.",
+      "text": "Choose at least one lane and one language."
+    },
+    "pages.communityUI.teammates.errors.gameId": {
+      "fr": "ID de jeu attendu sous la forme 12345678 (1234).",
+      "text": "Game ID expected as 12345678 (1234)."
+    },
+    "pages.communityUI.teammates.errors.discord": {
+      "fr": "Pseudo Discord invalide.",
+      "text": "Invalid Discord username."
+    },
+    "pages.communityUI.teammates.errors.note": {
+      "fr": "Le texte doit faire {max} caractères au plus, sans lien.",
+      "text": "The text must be {max} characters at most, without links."
+    },
+    "pages.communityUI.teammates.errors.hidden": {
+      "fr": "Votre carte a été masquée par la modération : elle ne peut pas être republiée.",
+      "text": "Your card was hidden by moderation: it cannot be posted again."
+    },
+    "pages.communityUI.moderation.hide": {
+      "fr": "Masquer",
+      "text": "Hide"
+    },
+    "pages.communityUI.moderation.unhide": {
+      "fr": "Réafficher",
+      "text": "Show again"
+    },
+    "pages.communityUI.moderation.delete": {
+      "fr": "Supprimer",
+      "text": "Delete"
+    },
+    "pages.communityUI.moderation.lock": {
+      "fr": "Verrouiller",
+      "text": "Lock"
+    },
+    "pages.communityUI.moderation.unlock": {
+      "fr": "Déverrouiller",
+      "text": "Unlock"
+    },
+    "pages.communityUI.moderation.pin": {
+      "fr": "Épingler",
+      "text": "Pin"
+    },
+    "pages.communityUI.moderation.unpin": {
+      "fr": "Désépingler",
+      "text": "Unpin"
+    },
+    "pages.communityUI.moderation.ban": {
+      "fr": "Bannir l'auteur",
+      "text": "Ban the author"
+    },
+    "pages.communityUI.moderation.unban": {
+      "fr": "Lever le bannissement",
+      "text": "Lift the ban"
+    },
+    "pages.communityUI.moderation.dismiss": {
+      "fr": "Classer sans suite",
+      "text": "Dismiss the reports"
+    },
+    "pages.communityUI.moderation.duration": {
+      "fr": "Durée",
+      "text": "Duration"
+    },
+    "pages.communityUI.moderation.days": {
+      "fr": "{n} jour(s)",
+      "text": "{n} day(s)"
+    },
+    "pages.communityUI.moderation.forever": {
+      "fr": "Définitif",
+      "text": "Permanent"
+    },
+    "pages.communityUI.moderation.reason": {
+      "fr": "Motif (journal)",
+      "text": "Reason (log)"
+    },
+    "pages.communityUI.moderation.confirmBan": {
+      "fr": "Confirmer le bannissement",
+      "text": "Confirm the ban"
+    },
+    "pages.communityUI.moderation.confirmDelete": {
+      "fr": "Supprimer définitivement ce contenu ?",
+      "text": "Delete this content for good?"
+    },
+    "pages.communityUI.moderation.failed": {
+      "fr": "L'action a échoué : rechargez la page.",
+      "text": "The action failed: reload the page."
+    },
+    "prose.community.title": {
+      "fr": "Communauté : forum et recherche de coéquipiers",
+      "text": "Community: forum and teammate finder"
+    },
+    "prose.community.intro": {
+      "fr": "Si vous écrivez dans la communauté (forum, votes, signalements, carte de recherche de coéquipiers), le serveur du site conserve, dans sa base de données :",
+      "text": "If you take part in the community (forum, votes, reports, teammate card), the site's server keeps, in its database:"
+    },
+    "prose.community.account": {
+      "fr": "un identifiant de compte dérivé (une empreinte de votre ID de jeu et de votre serveur, jamais l'ID lui-même), votre pseudo de jeu, et la date de votre première participation ;",
+      "text": "a derived account id (a hash of your game ID and server, never the ID itself), your in-game name, and the date you first took part;"
+    },
+    "prose.community.posts": {
+      "fr": "vos discussions et réponses, publiques, avec leur date ; vos votes et vos signalements, qui ne sont montrés à personne d'autre que les modérateurs (les signalements) ;",
+      "text": "your discussions and replies, which are public, with their date; your votes and reports, shown to no one but the moderators (the reports);"
+    },
+    "prose.community.card": {
+      "fr": "votre carte de recherche de coéquipiers, et, si vous les ajoutez, votre ID de jeu et votre pseudo Discord : ils ne sont montrés qu'aux joueurs connectés, et la carte est effacée sept jours après son dernier enregistrement.",
+      "text": "your teammate card and, if you add them, your game ID and Discord username: they are shown to signed-in players only, and the card is erased seven days after it was last saved."
+    },
+    "prose.community.moderation": {
+      "fr": "Les modérateurs voient les signalements et peuvent masquer, supprimer ou bannir ; chacune de leurs décisions est consignée dans un journal. Les limites de débit utilisent votre adresse IP, en mémoire seulement, quelques minutes.",
+      "text": "Moderators see the reports and can hide, delete or ban; each of their decisions is written to a log. The rate limits use your IP address, in memory only, for a few minutes."
+    },
+    "prose.community.deletion": {
+      "fr": "Vous pouvez modifier un message pendant une heure et le supprimer pendant une journée, retirer votre carte à tout moment. Au-delà, ou pour effacer toute votre participation, écrivez à {contact}.",
+      "text": "You can edit a post for an hour and delete it for a day, and take your card down at any time. Beyond that, or to erase all your participation, write to {contact}."
+    },
+    "prose.privacy.blocks.0.p": {
+      "fr": "Ce site est conçu pour conserver le moins de données possible. La plupart des pages fonctionnent sans rien enregistrer sur un serveur ; seules les fonctions que vous choisissez d'utiliser (connexion au compte de jeu, communauté, notifications, bot Discord) gardent ce qu'elles décrivent plus bas. Cette page détaille ce qui est traité, et où.",
+      "text": "This site is designed to keep as little data as possible. Most pages work without storing anything on a server; only the features you choose to use (game account login, community, notifications, Discord bot) keep what they describe below. This page details what is processed, and where."
+    },
+    "prose.privacy.blocks.15.p": {
+      "fr": "Vous gardez la main sur ce qui vit dans votre navigateur (favoris, session) en vous déconnectant ou en effaçant les données du site. Pour consulter ou supprimer ce que le serveur conserve sur vous (communauté, notifications, bot Discord), ou pour toute question, écrivez à [{contact}](mailto:{contact}).",
+      "text": "You stay in control of what lives in your browser (favorites, session) by logging out or clearing the site data. To see or delete what the server keeps about you (community, notifications, Discord bot), or for any question, write to [{contact}](mailto:{contact})."
     }
   },
   "es": {
@@ -5077,6 +6017,946 @@
     "pages.accountValueUI.bindingValue.none": {
       "fr": "Invité, sans liaison",
       "text": "Invitado, sin vincular"
+    },
+    "footer.community": {
+      "fr": "Communauté",
+      "text": "Comunidad"
+    },
+    "pages.community.title": {
+      "fr": "Communauté",
+      "text": "Comunidad"
+    },
+    "pages.community.lead": {
+      "fr": "Le forum des joueurs de MLBBDex : questions, builds, aide en classé, esport et guides, plus un tableau pour trouver des coéquipiers. Lecture libre, connexion avec votre compte de jeu pour écrire.",
+      "text": "El foro de los jugadores de MLBBDex: preguntas, builds, ayuda en clasificatoria, esports y guías, y un tablón para encontrar compañeros de equipo. Lectura libre; inicia sesión con tu cuenta del juego para escribir."
+    },
+    "pages.community.seo.title": {
+      "fr": "Forum Mobile Legends et recherche de coéquipiers",
+      "text": "Foro de Mobile Legends y buscador de compañeros"
+    },
+    "pages.community.seo.description": {
+      "fr": "Le forum de la communauté MLBBDex : héros et builds, aide en classé, esport, guides de joueurs, et des joueurs de Mobile Legends à rejoindre par région, rang et lane.",
+      "text": "El foro de la comunidad MLBBDex: héroes y builds, ayuda en clasificatoria, esports, guías de jugadores y jugadores de Mobile Legends con quienes formar equipo por región, rango y línea."
+    },
+    "pages.community.seo.categoryTitle": {
+      "fr": "{name} – forum Mobile Legends",
+      "text": "{name} – foro de Mobile Legends"
+    },
+    "pages.community.seo.threadTitle": {
+      "fr": "{title} – forum MLBB",
+      "text": "{title} – foro MLBB"
+    },
+    "pages.community.categories.general.name": {
+      "fr": "Général",
+      "text": "General"
+    },
+    "pages.community.categories.general.description": {
+      "fr": "Tout ce qui touche au jeu et ne rentre pas ailleurs.",
+      "text": "Todo lo que tiene que ver con el juego y no encaja en otra parte."
+    },
+    "pages.community.categories.heroes-builds.name": {
+      "fr": "Héros et builds",
+      "text": "Héroes y builds"
+    },
+    "pages.community.categories.heroes-builds.description": {
+      "fr": "Objets, emblèmes, combos et matchs à la loupe, héros par héros.",
+      "text": "Objetos, emblemas, combos y enfrentamientos, héroe por héroe."
+    },
+    "pages.community.categories.ranked-help.name": {
+      "fr": "Aide en classé",
+      "text": "Ayuda en clasificatoria"
+    },
+    "pages.community.categories.ranked-help.description": {
+      "fr": "Monter de rang : draft, rôles, rotations, mental.",
+      "text": "Subir de rango: draft, roles, rotaciones, mentalidad."
+    },
+    "pages.community.categories.esports.name": {
+      "fr": "Esport",
+      "text": "Esports"
+    },
+    "pages.community.categories.esports.description": {
+      "fr": "MPL, MSC, Mondiaux : matchs, équipes et picks des pros.",
+      "text": "MPL, MSC, Mundiales: partidas, equipos y picks de los pros."
+    },
+    "pages.community.categories.guides.name": {
+      "fr": "Guides de joueurs",
+      "text": "Guías de jugadores"
+    },
+    "pages.community.categories.guides.description": {
+      "fr": "Vos guides détaillés : un héros, une lane, une mécanique.",
+      "text": "Vuestras guías detalladas: un héroe, una línea, una mecánica."
+    },
+    "pages.community.categories.site-feedback.name": {
+      "fr": "Bugs et avis sur le site",
+      "text": "Errores y opiniones sobre el sitio"
+    },
+    "pages.community.categories.site-feedback.description": {
+      "fr": "Un bug, une donnée fausse, une idée pour MLBBDex : dites-le ici.",
+      "text": "Un error, un dato incorrecto, una idea para MLBBDex: cuéntanoslo aquí."
+    },
+    "pages.community.categoriesTitle": {
+      "fr": "Catégories",
+      "text": "Categorías"
+    },
+    "pages.community.latestTitle": {
+      "fr": "Dernières discussions",
+      "text": "Últimas conversaciones"
+    },
+    "pages.community.emptyAll": {
+      "fr": "Aucune discussion pour l'instant : lancez la première.",
+      "text": "Todavía no hay conversaciones: empieza la primera."
+    },
+    "pages.community.emptyCategory": {
+      "fr": "Aucune discussion dans cette catégorie pour l'instant.",
+      "text": "Todavía no hay conversaciones en esta categoría."
+    },
+    "pages.community.threadCount": {
+      "fr": "{n} discussion(s)",
+      "text": "{n} conversación(es)"
+    },
+    "pages.community.replies": {
+      "fr": "{n} réponse(s)",
+      "text": "{n} respuesta(s)"
+    },
+    "pages.community.pinned": {
+      "fr": "Épinglée",
+      "text": "Fijada"
+    },
+    "pages.community.locked": {
+      "fr": "Verrouillée",
+      "text": "Cerrada"
+    },
+    "pages.community.edited": {
+      "fr": "modifié",
+      "text": "editado"
+    },
+    "pages.community.sortLabel": {
+      "fr": "Ordre des discussions",
+      "text": "Orden de las conversaciones"
+    },
+    "pages.community.sort.latest": {
+      "fr": "Récentes",
+      "text": "Recientes"
+    },
+    "pages.community.sort.top": {
+      "fr": "Les plus votées",
+      "text": "Más votadas"
+    },
+    "pages.community.signIn": {
+      "fr": "Connectez-vous",
+      "text": "Inicia sesión"
+    },
+    "pages.community.signInToPost": {
+      "fr": "avec votre compte de jeu pour lancer une discussion.",
+      "text": "con tu cuenta del juego para empezar una conversación."
+    },
+    "pages.community.signInToReply": {
+      "fr": "avec votre compte de jeu pour répondre.",
+      "text": "con tu cuenta del juego para responder."
+    },
+    "pages.community.postingAs": {
+      "fr": "Vous écrivez en tant que {name}.",
+      "text": "Escribes como {name}."
+    },
+    "pages.community.threadLead": {
+      "fr": "Lancée par {name} dans {category}.",
+      "text": "Iniciada por {name} en {category}."
+    },
+    "pages.community.openingPost": {
+      "fr": "Message d'ouverture",
+      "text": "Mensaje inicial"
+    },
+    "pages.community.noReplies": {
+      "fr": "Pas encore de réponse.",
+      "text": "Todavía no hay respuestas."
+    },
+    "pages.community.replyTitle": {
+      "fr": "Répondre",
+      "text": "Responder"
+    },
+    "pages.community.replyDeleted": {
+      "fr": "Message supprimé par son auteur.",
+      "text": "Mensaje eliminado por su autor."
+    },
+    "pages.community.replyHidden": {
+      "fr": "Message masqué en attendant la modération.",
+      "text": "Mensaje oculto a la espera de moderación."
+    },
+    "pages.community.lockedNotice": {
+      "fr": "Cette discussion est verrouillée : on ne peut plus y répondre.",
+      "text": "Esta conversación está cerrada: ya no admite respuestas."
+    },
+    "pages.community.backToCategory": {
+      "fr": "Retour à {name}",
+      "text": "Volver a {name}"
+    },
+    "pages.community.moderationBar": {
+      "fr": "Modération",
+      "text": "Moderación"
+    },
+    "pages.community.moderate": {
+      "fr": "Modérer",
+      "text": "Moderar"
+    },
+    "pages.community.hiddenForModerators": {
+      "fr": "Masqué : visible des seuls modérateurs.",
+      "text": "Oculto: solo lo ven los moderadores."
+    },
+    "pages.community.unavailable": {
+      "fr": "La communauté est momentanément indisponible. Réessayez dans un instant.",
+      "text": "La comunidad no está disponible por el momento. Vuelve a intentarlo en un momento."
+    },
+    "pages.community.discordText": {
+      "fr": "Vous préférez discuter en direct ? Le serveur Discord MLBBDex a aussi ses salons d'entraide et de recherche de coéquipiers.",
+      "text": "¿Prefieres hablar en directo? El servidor de Discord de MLBBDex también tiene canales de ayuda y de búsqueda de equipo."
+    },
+    "pages.community.discordJoin": {
+      "fr": "Rejoindre le Discord",
+      "text": "Unirse al Discord"
+    },
+    "pages.community.teammatesTitle": {
+      "fr": "Trouver des coéquipiers",
+      "text": "Encontrar compañeros"
+    },
+    "pages.community.teammatesLead": {
+      "fr": "Publiez une carte « je cherche » avec votre région, votre rang, vos lanes et vos héros, et parcourez celles des autres joueurs.",
+      "text": "Publica una tarjeta «busco» con tu región, tu rango, tus líneas y tus héroes, y mira las de los demás jugadores."
+    },
+    "pages.community.teammatesCta": {
+      "fr": "Voir les joueurs",
+      "text": "Ver jugadores"
+    },
+    "pages.community.search": {
+      "fr": "Rechercher",
+      "text": "Buscar"
+    },
+    "pages.community.searchLabel": {
+      "fr": "Rechercher dans le forum",
+      "text": "Buscar en el foro"
+    },
+    "pages.community.searchPlaceholder": {
+      "fr": "Rechercher dans le forum…",
+      "text": "Buscar en el foro…"
+    },
+    "pages.community.searchTitle": {
+      "fr": "Recherche dans le forum",
+      "text": "Búsqueda en el foro"
+    },
+    "pages.community.searchLead": {
+      "fr": "Les discussions dont le titre, le texte ou une réponse contiennent vos mots. Des guillemets pour une expression exacte, un tiret pour exclure un mot.",
+      "text": "Las conversaciones cuyo título, texto o alguna respuesta contienen tus palabras. Comillas para una frase exacta, un guion para excluir una palabra."
+    },
+    "pages.community.searchLeadCategory": {
+      "fr": "Recherche dans la catégorie {name}.",
+      "text": "Búsqueda en la categoría {name}."
+    },
+    "pages.community.searchResults": {
+      "fr": "{n} discussion(s) pour « {query} »",
+      "text": "{n} conversación(es) para «{query}»"
+    },
+    "pages.community.searchEmpty": {
+      "fr": "Aucune discussion ne correspond. Essayez d'autres mots, ou moins de mots.",
+      "text": "Ninguna conversación coincide. Prueba otras palabras, o menos."
+    },
+    "pages.community.searchHint": {
+      "fr": "Tapez un ou plusieurs mots : un héros, un objet, une question.",
+      "text": "Escribe una o varias palabras: un héroe, un objeto, una pregunta."
+    },
+    "pages.community.rules.title": {
+      "fr": "Règles du forum",
+      "text": "Normas del foro"
+    },
+    "pages.community.rules.respect": {
+      "fr": "Restez courtois : pas d'insulte, de harcèlement ni de propos haineux.",
+      "text": "Sé respetuoso: nada de insultos, acoso ni discursos de odio."
+    },
+    "pages.community.rules.noSpam": {
+      "fr": "Pas de publicité, de vente de comptes ni de « diamants gratuits » : ce sont des arnaques.",
+      "text": "Nada de publicidad, venta de cuentas ni «diamantes gratis»: son estafas."
+    },
+    "pages.community.rules.privacy": {
+      "fr": "Ne publiez pas les informations personnelles d'autrui.",
+      "text": "No publiques información personal de otras personas."
+    },
+    "pages.community.rules.newAccounts": {
+      "fr": "Les comptes nouveaux sur le forum ont des limites plus basses et ne peuvent pas publier de liens pendant trois jours.",
+      "text": "Las cuentas nuevas en el foro tienen límites más bajos y no pueden publicar enlaces durante tres días."
+    },
+    "pages.community.rules.report": {
+      "fr": "Un message pose problème ? Signalez-le : les modérateurs le verront, et plusieurs signalements le masquent en attendant.",
+      "text": "¿Un mensaje es un problema? Repórtalo: los moderadores lo verán, y varios reportes lo ocultan mientras tanto."
+    },
+    "pages.community.teammates.title": {
+      "fr": "Trouver des coéquipiers",
+      "text": "Encontrar compañeros"
+    },
+    "pages.community.teammates.lead": {
+      "fr": "Des joueurs qui cherchent un duo, un trio ou une équipe, par région, rang, lane et langue. Chaque carte reste en ligne sept jours ; une seule par compte.",
+      "text": "Jugadores que buscan dúo, trío o equipo, por región, rango, línea e idioma. Cada tarjeta se mantiene siete días; una por cuenta."
+    },
+    "pages.community.teammates.seoTitle": {
+      "fr": "Trouver des coéquipiers Mobile Legends",
+      "text": "Encuentra compañeros de Mobile Legends"
+    },
+    "pages.community.teammates.seoDescription": {
+      "fr": "Joueurs de Mobile Legends à la recherche d'un duo ou d'une équipe : filtrez par région, rang, lane et langue, et publiez votre propre carte.",
+      "text": "Jugadores de Mobile Legends que buscan dúo o equipo: filtra por región, rango, línea e idioma, y publica tu propia tarjeta."
+    },
+    "pages.community.teammates.ownTitle": {
+      "fr": "Votre carte",
+      "text": "Tu tarjeta"
+    },
+    "pages.community.teammates.signInToPost": {
+      "fr": "avec votre compte de jeu pour publier votre carte et voir les contacts.",
+      "text": "con tu cuenta del juego para publicar tu tarjeta y ver los contactos."
+    },
+    "pages.community.teammates.listTitle": {
+      "fr": "{n} joueur(s) disponible(s)",
+      "text": "{n} jugador(es) disponible(s)"
+    },
+    "pages.community.teammates.any": {
+      "fr": "Tous",
+      "text": "Todos"
+    },
+    "pages.community.teammates.lane": {
+      "fr": "Lane",
+      "text": "Línea"
+    },
+    "pages.community.teammates.language": {
+      "fr": "Langue",
+      "text": "Idioma"
+    },
+    "pages.community.teammates.filter": {
+      "fr": "Filtrer",
+      "text": "Filtrar"
+    },
+    "pages.community.teammates.reset": {
+      "fr": "Tout afficher",
+      "text": "Mostrar todo"
+    },
+    "pages.community.teammates.empty": {
+      "fr": "Aucune carte ne correspond pour l'instant. Élargissez les filtres, ou publiez la vôtre.",
+      "text": "Ninguna tarjeta coincide por ahora. Amplía los filtros o publica la tuya."
+    },
+    "pages.community.teammates.speaks": {
+      "fr": "Langues",
+      "text": "Idiomas"
+    },
+    "pages.community.teammates.plays": {
+      "fr": "Joue",
+      "text": "Juega"
+    },
+    "pages.community.teammates.gameId": {
+      "fr": "ID de jeu",
+      "text": "ID del juego"
+    },
+    "pages.community.teammates.signInForContact": {
+      "fr": "pour voir le contact.",
+      "text": "para ver el contacto."
+    },
+    "pages.community.teammates.noContact": {
+      "fr": "Pas de contact partagé : répondez-lui sur le forum ou le Discord.",
+      "text": "Sin contacto compartido: escríbele en el foro o en Discord."
+    },
+    "pages.community.teammates.discordText": {
+      "fr": "Sur le serveur Discord MLBBDex, le salon de recherche de coéquipiers tourne en continu.",
+      "text": "En el servidor de Discord de MLBBDex, el canal de búsqueda de equipo no para nunca."
+    },
+    "pages.community.moderation.title": {
+      "fr": "Modération de la communauté",
+      "text": "Moderación de la comunidad"
+    },
+    "pages.community.moderation.lead": {
+      "fr": "Les signalements ouverts, les comptes bannis et le journal des décisions. Chaque action ferme les signalements de sa cible et est enregistrée.",
+      "text": "Los reportes abiertos, las cuentas baneadas y el registro de decisiones. Cada acción cierra los reportes de su objetivo y queda registrada."
+    },
+    "pages.community.moderation.queue": {
+      "fr": "À traiter ({n})",
+      "text": "Por revisar ({n})"
+    },
+    "pages.community.moderation.queueEmpty": {
+      "fr": "Aucun signalement ouvert.",
+      "text": "No hay reportes abiertos."
+    },
+    "pages.community.moderation.kinds.thread": {
+      "fr": "Discussion",
+      "text": "Conversación"
+    },
+    "pages.community.moderation.kinds.post": {
+      "fr": "Réponse",
+      "text": "Respuesta"
+    },
+    "pages.community.moderation.kinds.card": {
+      "fr": "Carte coéquipier",
+      "text": "Tarjeta de compañero"
+    },
+    "pages.community.moderation.banned": {
+      "fr": "auteur banni",
+      "text": "autor baneado"
+    },
+    "pages.community.moderation.hidden": {
+      "fr": "masqué",
+      "text": "oculto"
+    },
+    "pages.community.moderation.open": {
+      "fr": "Voir sur le site",
+      "text": "Ver en el sitio"
+    },
+    "pages.community.moderation.bannedTitle": {
+      "fr": "Comptes bannis ({n})",
+      "text": "Cuentas baneadas ({n})"
+    },
+    "pages.community.moderation.bannedEmpty": {
+      "fr": "Aucun compte banni.",
+      "text": "No hay cuentas baneadas."
+    },
+    "pages.community.moderation.until": {
+      "fr": "jusqu'au {date}",
+      "text": "hasta el {date}"
+    },
+    "pages.community.moderation.forever": {
+      "fr": "définitivement",
+      "text": "de forma permanente"
+    },
+    "pages.community.moderation.logTitle": {
+      "fr": "Journal de modération",
+      "text": "Registro de moderación"
+    },
+    "pages.community.moderation.logEmpty": {
+      "fr": "Aucune décision pour l'instant.",
+      "text": "Todavía no hay decisiones."
+    },
+    "pages.community.moderation.when": {
+      "fr": "Quand",
+      "text": "Cuándo"
+    },
+    "pages.community.moderation.who": {
+      "fr": "Modérateur",
+      "text": "Moderador"
+    },
+    "pages.community.moderation.what": {
+      "fr": "Action",
+      "text": "Acción"
+    },
+    "pages.community.moderation.note": {
+      "fr": "Note",
+      "text": "Nota"
+    },
+    "pages.community.moderation.actions.hide": {
+      "fr": "Masquer",
+      "text": "Ocultar"
+    },
+    "pages.community.moderation.actions.unhide": {
+      "fr": "Réafficher",
+      "text": "Volver a mostrar"
+    },
+    "pages.community.moderation.actions.delete": {
+      "fr": "Supprimer",
+      "text": "Eliminar"
+    },
+    "pages.community.moderation.actions.lock": {
+      "fr": "Verrouiller",
+      "text": "Cerrar"
+    },
+    "pages.community.moderation.actions.unlock": {
+      "fr": "Déverrouiller",
+      "text": "Reabrir"
+    },
+    "pages.community.moderation.actions.pin": {
+      "fr": "Épingler",
+      "text": "Fijar"
+    },
+    "pages.community.moderation.actions.unpin": {
+      "fr": "Désépingler",
+      "text": "Desfijar"
+    },
+    "pages.community.moderation.actions.ban": {
+      "fr": "Bannir",
+      "text": "Banear"
+    },
+    "pages.community.moderation.actions.unban": {
+      "fr": "Lever le bannissement",
+      "text": "Levantar el baneo"
+    },
+    "pages.community.moderation.actions.dismiss": {
+      "fr": "Classer sans suite",
+      "text": "Descartar"
+    },
+    "pages.communityUI.votes": {
+      "fr": "{n} vote(s)",
+      "text": "{n} voto(s)"
+    },
+    "pages.communityUI.upvote": {
+      "fr": "Voter pour ce message",
+      "text": "Votar este mensaje"
+    },
+    "pages.communityUI.unvote": {
+      "fr": "Retirer mon vote",
+      "text": "Retirar mi voto"
+    },
+    "pages.communityUI.signInToVote": {
+      "fr": "Connectez-vous pour voter",
+      "text": "Inicia sesión para votar"
+    },
+    "pages.communityUI.signIn": {
+      "fr": "Se connecter",
+      "text": "Iniciar sesión"
+    },
+    "pages.communityUI.edit": {
+      "fr": "Modifier",
+      "text": "Editar"
+    },
+    "pages.communityUI.editing": {
+      "fr": "Modification du message",
+      "text": "Editando el mensaje"
+    },
+    "pages.communityUI.delete": {
+      "fr": "Supprimer",
+      "text": "Eliminar"
+    },
+    "pages.communityUI.cancel": {
+      "fr": "Annuler",
+      "text": "Cancelar"
+    },
+    "pages.communityUI.save": {
+      "fr": "Enregistrer",
+      "text": "Guardar"
+    },
+    "pages.communityUI.sending": {
+      "fr": "Envoi…",
+      "text": "Enviando…"
+    },
+    "pages.communityUI.confirmDeleteThread": {
+      "fr": "Supprimer cette discussion ? Ses réponses ne seront plus affichées.",
+      "text": "¿Eliminar esta conversación? Sus respuestas dejarán de mostrarse."
+    },
+    "pages.communityUI.confirmDeleteReply": {
+      "fr": "Supprimer cette réponse ?",
+      "text": "¿Eliminar esta respuesta?"
+    },
+    "pages.communityUI.newThread": {
+      "fr": "Nouvelle discussion",
+      "text": "Nueva conversación"
+    },
+    "pages.communityUI.titleLabel": {
+      "fr": "Titre",
+      "text": "Título"
+    },
+    "pages.communityUI.bodyLabel": {
+      "fr": "Message",
+      "text": "Mensaje"
+    },
+    "pages.communityUI.replyLabel": {
+      "fr": "Votre réponse",
+      "text": "Tu respuesta"
+    },
+    "pages.communityUI.markdownHint": {
+      "fr": "Markdown : **gras**, *italique*, `code`, > citation, - liste, [lien](https://…). Pas de HTML ni d'image.",
+      "text": "Markdown: **negrita**, *cursiva*, `code`, > cita, - lista, [enlace](https://…). Sin HTML ni imágenes."
+    },
+    "pages.communityUI.heroesLabel": {
+      "fr": "Héros concernés",
+      "text": "Héroes relacionados"
+    },
+    "pages.communityUI.heroesHint": {
+      "fr": "Jusqu'à {n} héros, affichés en étiquettes vers leur fiche.",
+      "text": "Hasta {n} héroes, mostrados como etiquetas hacia su ficha."
+    },
+    "pages.communityUI.heroPlaceholder": {
+      "fr": "Nom d'un héros…",
+      "text": "Nombre de un héroe…"
+    },
+    "pages.communityUI.removeHero": {
+      "fr": "Retirer {name}",
+      "text": "Quitar a {name}"
+    },
+    "pages.communityUI.publishThread": {
+      "fr": "Publier la discussion",
+      "text": "Publicar la conversación"
+    },
+    "pages.communityUI.publishReply": {
+      "fr": "Répondre",
+      "text": "Responder"
+    },
+    "pages.communityUI.report.open": {
+      "fr": "Signaler",
+      "text": "Reportar"
+    },
+    "pages.communityUI.report.title": {
+      "fr": "Pourquoi signaler ce contenu ?",
+      "text": "¿Por qué reportas este contenido?"
+    },
+    "pages.communityUI.report.reasons.spam": {
+      "fr": "Spam ou arnaque",
+      "text": "Spam o estafa"
+    },
+    "pages.communityUI.report.reasons.abuse": {
+      "fr": "Insulte, harcèlement, haine",
+      "text": "Insultos, acoso, odio"
+    },
+    "pages.communityUI.report.reasons.offtopic": {
+      "fr": "Hors sujet",
+      "text": "Fuera de tema"
+    },
+    "pages.communityUI.report.reasons.personal": {
+      "fr": "Informations personnelles",
+      "text": "Información personal"
+    },
+    "pages.communityUI.report.reasons.other": {
+      "fr": "Autre",
+      "text": "Otro"
+    },
+    "pages.communityUI.report.note": {
+      "fr": "Précision (facultatif)",
+      "text": "Detalles (opcional)"
+    },
+    "pages.communityUI.report.send": {
+      "fr": "Envoyer le signalement",
+      "text": "Enviar el reporte"
+    },
+    "pages.communityUI.report.sent": {
+      "fr": "Signalement envoyé, merci.",
+      "text": "Reporte enviado, gracias."
+    },
+    "pages.communityUI.errors.signIn": {
+      "fr": "Votre session a expiré : reconnectez-vous.",
+      "text": "Tu sesión ha caducado: vuelve a iniciar sesión."
+    },
+    "pages.communityUI.errors.tooFast": {
+      "fr": "Trop de messages d'un coup : patientez une minute.",
+      "text": "Demasiados mensajes de golpe: espera un minuto."
+    },
+    "pages.communityUI.errors.day": {
+      "fr": "Limite quotidienne atteinte : revenez demain.",
+      "text": "Límite diario alcanzado: vuelve mañana."
+    },
+    "pages.communityUI.errors.duplicate": {
+      "fr": "Vous venez de publier ce même texte.",
+      "text": "Acabas de publicar este mismo texto."
+    },
+    "pages.communityUI.errors.blocked": {
+      "fr": "Ce texte contient un terme refusé sur le forum.",
+      "text": "Este texto contiene un término que el foro rechaza."
+    },
+    "pages.communityUI.errors.spam": {
+      "fr": "Ce texte ressemble à du spam (lien raccourci, invitation, arnaque aux diamants).",
+      "text": "Este texto parece spam (enlace acortado, invitación, estafa de diamantes)."
+    },
+    "pages.communityUI.errors.links": {
+      "fr": "Trop de liens : {n} au plus par message.",
+      "text": "Demasiados enlaces: {n} por mensaje como máximo."
+    },
+    "pages.communityUI.errors.newAccountLinks": {
+      "fr": "Les comptes nouveaux sur le forum ne peuvent pas encore publier de liens.",
+      "text": "Las cuentas nuevas en el foro todavía no pueden publicar enlaces."
+    },
+    "pages.communityUI.errors.banned": {
+      "fr": "Votre compte ne peut plus participer à la communauté.",
+      "text": "Tu cuenta ya no puede participar en la comunidad."
+    },
+    "pages.communityUI.errors.window": {
+      "fr": "Le délai pour modifier ou supprimer ce message est passé.",
+      "text": "Ya ha pasado el plazo para editar o eliminar este mensaje."
+    },
+    "pages.communityUI.errors.locked": {
+      "fr": "Cette discussion est verrouillée.",
+      "text": "Esta conversación está cerrada."
+    },
+    "pages.communityUI.errors.hidden": {
+      "fr": "Ce contenu est masqué par la modération.",
+      "text": "Este contenido está oculto por la moderación."
+    },
+    "pages.communityUI.errors.unknown": {
+      "fr": "Ce contenu n'existe plus.",
+      "text": "Este contenido ya no existe."
+    },
+    "pages.communityUI.errors.title": {
+      "fr": "Le titre doit faire entre {min} et {max} caractères.",
+      "text": "El título debe tener entre {min} y {max} caracteres."
+    },
+    "pages.communityUI.errors.body": {
+      "fr": "Le message doit faire entre {min} et {max} caractères.",
+      "text": "El mensaje debe tener entre {min} y {max} caracteres."
+    },
+    "pages.communityUI.errors.invalid": {
+      "fr": "Envoi refusé : vérifiez les champs.",
+      "text": "Envío rechazado: revisa los campos."
+    },
+    "pages.communityUI.errors.unavailable": {
+      "fr": "Service momentanément indisponible. Réessayez dans un instant.",
+      "text": "Servicio no disponible por el momento. Vuelve a intentarlo en un momento."
+    },
+    "pages.communityUI.regions.id": {
+      "fr": "Indonésie",
+      "text": "Indonesia"
+    },
+    "pages.communityUI.regions.ph": {
+      "fr": "Philippines",
+      "text": "Filipinas"
+    },
+    "pages.communityUI.regions.mysg": {
+      "fr": "Malaisie et Singapour",
+      "text": "Malasia y Singapur"
+    },
+    "pages.communityUI.regions.sea": {
+      "fr": "Autre Asie du Sud-Est",
+      "text": "Resto del Sudeste Asiático"
+    },
+    "pages.communityUI.regions.asia": {
+      "fr": "Autre Asie",
+      "text": "Resto de Asia"
+    },
+    "pages.communityUI.regions.mena": {
+      "fr": "Moyen-Orient et Afrique du Nord",
+      "text": "Oriente Medio y Norte de África"
+    },
+    "pages.communityUI.regions.eu": {
+      "fr": "Europe",
+      "text": "Europa"
+    },
+    "pages.communityUI.regions.na": {
+      "fr": "Amérique du Nord",
+      "text": "Norteamérica"
+    },
+    "pages.communityUI.regions.latam": {
+      "fr": "Amérique latine",
+      "text": "Latinoamérica"
+    },
+    "pages.communityUI.regions.other": {
+      "fr": "Autre",
+      "text": "Otra"
+    },
+    "pages.communityUI.playTimes.morning": {
+      "fr": "Le matin",
+      "text": "Por la mañana"
+    },
+    "pages.communityUI.playTimes.afternoon": {
+      "fr": "L'après-midi",
+      "text": "Por la tarde"
+    },
+    "pages.communityUI.playTimes.evening": {
+      "fr": "Le soir",
+      "text": "Por la noche"
+    },
+    "pages.communityUI.playTimes.night": {
+      "fr": "La nuit",
+      "text": "De madrugada"
+    },
+    "pages.communityUI.playTimes.weekdays": {
+      "fr": "En semaine",
+      "text": "Entre semana"
+    },
+    "pages.communityUI.playTimes.weekends": {
+      "fr": "Le week-end",
+      "text": "Los fines de semana"
+    },
+    "pages.communityUI.teammates.newCard": {
+      "fr": "Publier ma carte",
+      "text": "Publicar mi tarjeta"
+    },
+    "pages.communityUI.teammates.editCard": {
+      "fr": "Modifier ou renouveler ma carte",
+      "text": "Editar o renovar mi tarjeta"
+    },
+    "pages.communityUI.teammates.deleteCard": {
+      "fr": "Retirer ma carte",
+      "text": "Retirar mi tarjeta"
+    },
+    "pages.communityUI.teammates.confirmDelete": {
+      "fr": "Retirer votre carte ?",
+      "text": "¿Retirar tu tarjeta?"
+    },
+    "pages.communityUI.teammates.cardListed": {
+      "fr": "Votre carte est en ligne jusqu'au {date}. L'enregistrer à nouveau la prolonge de sept jours.",
+      "text": "Tu tarjeta está publicada hasta el {date}. Guardarla de nuevo la prolonga siete días."
+    },
+    "pages.communityUI.teammates.cardHidden": {
+      "fr": "Votre carte a été masquée par la modération.",
+      "text": "Tu tarjeta fue ocultada por la moderación."
+    },
+    "pages.communityUI.teammates.region": {
+      "fr": "Région",
+      "text": "Región"
+    },
+    "pages.communityUI.teammates.rank": {
+      "fr": "Rang",
+      "text": "Rango"
+    },
+    "pages.communityUI.teammates.choose": {
+      "fr": "Choisir…",
+      "text": "Elegir…"
+    },
+    "pages.communityUI.teammates.lanes": {
+      "fr": "Lanes jouées",
+      "text": "Líneas que juegas"
+    },
+    "pages.communityUI.teammates.heroes": {
+      "fr": "Héros favoris",
+      "text": "Héroes favoritos"
+    },
+    "pages.communityUI.teammates.heroesHint": {
+      "fr": "Jusqu'à {n} héros.",
+      "text": "Hasta {n} héroes."
+    },
+    "pages.communityUI.teammates.languages": {
+      "fr": "Langues parlées ({n} au plus)",
+      "text": "Idiomas que hablas ({n} como máximo)"
+    },
+    "pages.communityUI.teammates.playTimes": {
+      "fr": "Quand vous jouez",
+      "text": "Cuándo juegas"
+    },
+    "pages.communityUI.teammates.note": {
+      "fr": "Ce que vous cherchez (facultatif, sans lien)",
+      "text": "Lo que buscas (opcional, sin enlaces)"
+    },
+    "pages.communityUI.teammates.contact": {
+      "fr": "Contact (facultatif)",
+      "text": "Contacto (opcional)"
+    },
+    "pages.communityUI.teammates.gameId": {
+      "fr": "ID de jeu et serveur",
+      "text": "ID del juego y servidor"
+    },
+    "pages.communityUI.teammates.discord": {
+      "fr": "Pseudo Discord",
+      "text": "Usuario de Discord"
+    },
+    "pages.communityUI.teammates.contactNote": {
+      "fr": "Montrés aux seuls joueurs connectés, jamais aux visiteurs ni aux moteurs de recherche. Retirez votre carte pour les effacer.",
+      "text": "Solo se muestran a los jugadores con sesión iniciada, nunca a los visitantes ni a los buscadores. Retira tu tarjeta para borrarlos."
+    },
+    "pages.communityUI.teammates.publish": {
+      "fr": "Publier pour sept jours",
+      "text": "Publicar durante siete días"
+    },
+    "pages.communityUI.teammates.saved": {
+      "fr": "Carte publiée.",
+      "text": "Tarjeta publicada."
+    },
+    "pages.communityUI.teammates.needLanesAndLanguages": {
+      "fr": "Choisissez au moins une lane et une langue.",
+      "text": "Elige al menos una línea y un idioma."
+    },
+    "pages.communityUI.teammates.errors.gameId": {
+      "fr": "ID de jeu attendu sous la forme 12345678 (1234).",
+      "text": "Se espera el ID del juego como 12345678 (1234)."
+    },
+    "pages.communityUI.teammates.errors.discord": {
+      "fr": "Pseudo Discord invalide.",
+      "text": "Usuario de Discord no válido."
+    },
+    "pages.communityUI.teammates.errors.note": {
+      "fr": "Le texte doit faire {max} caractères au plus, sans lien.",
+      "text": "El texto debe tener {max} caracteres como máximo, sin enlaces."
+    },
+    "pages.communityUI.teammates.errors.hidden": {
+      "fr": "Votre carte a été masquée par la modération : elle ne peut pas être republiée.",
+      "text": "Tu tarjeta fue ocultada por la moderación: no se puede volver a publicar."
+    },
+    "pages.communityUI.moderation.hide": {
+      "fr": "Masquer",
+      "text": "Ocultar"
+    },
+    "pages.communityUI.moderation.unhide": {
+      "fr": "Réafficher",
+      "text": "Volver a mostrar"
+    },
+    "pages.communityUI.moderation.delete": {
+      "fr": "Supprimer",
+      "text": "Eliminar"
+    },
+    "pages.communityUI.moderation.lock": {
+      "fr": "Verrouiller",
+      "text": "Cerrar"
+    },
+    "pages.communityUI.moderation.unlock": {
+      "fr": "Déverrouiller",
+      "text": "Reabrir"
+    },
+    "pages.communityUI.moderation.pin": {
+      "fr": "Épingler",
+      "text": "Fijar"
+    },
+    "pages.communityUI.moderation.unpin": {
+      "fr": "Désépingler",
+      "text": "Desfijar"
+    },
+    "pages.communityUI.moderation.ban": {
+      "fr": "Bannir l'auteur",
+      "text": "Banear al autor"
+    },
+    "pages.communityUI.moderation.unban": {
+      "fr": "Lever le bannissement",
+      "text": "Levantar el baneo"
+    },
+    "pages.communityUI.moderation.dismiss": {
+      "fr": "Classer sans suite",
+      "text": "Descartar los reportes"
+    },
+    "pages.communityUI.moderation.duration": {
+      "fr": "Durée",
+      "text": "Duración"
+    },
+    "pages.communityUI.moderation.days": {
+      "fr": "{n} jour(s)",
+      "text": "{n} día(s)"
+    },
+    "pages.communityUI.moderation.forever": {
+      "fr": "Définitif",
+      "text": "Permanente"
+    },
+    "pages.communityUI.moderation.reason": {
+      "fr": "Motif (journal)",
+      "text": "Motivo (registro)"
+    },
+    "pages.communityUI.moderation.confirmBan": {
+      "fr": "Confirmer le bannissement",
+      "text": "Confirmar el baneo"
+    },
+    "pages.communityUI.moderation.confirmDelete": {
+      "fr": "Supprimer définitivement ce contenu ?",
+      "text": "¿Eliminar este contenido definitivamente?"
+    },
+    "pages.communityUI.moderation.failed": {
+      "fr": "L'action a échoué : rechargez la page.",
+      "text": "La acción falló: recarga la página."
+    },
+    "prose.community.title": {
+      "fr": "Communauté : forum et recherche de coéquipiers",
+      "text": "Comunidad: foro y buscador de compañeros"
+    },
+    "prose.community.intro": {
+      "fr": "Si vous écrivez dans la communauté (forum, votes, signalements, carte de recherche de coéquipiers), le serveur du site conserve, dans sa base de données :",
+      "text": "Si participas en la comunidad (foro, votos, reportes, tarjeta de búsqueda de compañeros), el servidor del sitio guarda, en su base de datos:"
+    },
+    "prose.community.account": {
+      "fr": "un identifiant de compte dérivé (une empreinte de votre ID de jeu et de votre serveur, jamais l'ID lui-même), votre pseudo de jeu, et la date de votre première participation ;",
+      "text": "un identificador de cuenta derivado (una huella de tu ID del juego y tu servidor, nunca el ID en sí), tu nombre en el juego y la fecha de tu primera participación;"
+    },
+    "prose.community.posts": {
+      "fr": "vos discussions et réponses, publiques, avec leur date ; vos votes et vos signalements, qui ne sont montrés à personne d'autre que les modérateurs (les signalements) ;",
+      "text": "tus conversaciones y respuestas, públicas, con su fecha; tus votos y reportes, que solo ven los moderadores (los reportes);"
+    },
+    "prose.community.card": {
+      "fr": "votre carte de recherche de coéquipiers, et, si vous les ajoutez, votre ID de jeu et votre pseudo Discord : ils ne sont montrés qu'aux joueurs connectés, et la carte est effacée sept jours après son dernier enregistrement.",
+      "text": "tu tarjeta de búsqueda de compañeros y, si los añades, tu ID del juego y tu usuario de Discord: solo los ven los jugadores con sesión iniciada, y la tarjeta se borra siete días después de su último guardado."
+    },
+    "prose.community.moderation": {
+      "fr": "Les modérateurs voient les signalements et peuvent masquer, supprimer ou bannir ; chacune de leurs décisions est consignée dans un journal. Les limites de débit utilisent votre adresse IP, en mémoire seulement, quelques minutes.",
+      "text": "Los moderadores ven los reportes y pueden ocultar, eliminar o banear; cada una de sus decisiones queda anotada en un registro. Los límites de frecuencia usan tu dirección IP, solo en memoria, durante unos minutos."
+    },
+    "prose.community.deletion": {
+      "fr": "Vous pouvez modifier un message pendant une heure et le supprimer pendant une journée, retirer votre carte à tout moment. Au-delà, ou pour effacer toute votre participation, écrivez à {contact}.",
+      "text": "Puedes editar un mensaje durante una hora y eliminarlo durante un día, y retirar tu tarjeta en cualquier momento. Después, o para borrar toda tu participación, escribe a {contact}."
+    },
+    "prose.privacy.blocks.0.p": {
+      "fr": "Ce site est conçu pour conserver le moins de données possible. La plupart des pages fonctionnent sans rien enregistrer sur un serveur ; seules les fonctions que vous choisissez d'utiliser (connexion au compte de jeu, communauté, notifications, bot Discord) gardent ce qu'elles décrivent plus bas. Cette page détaille ce qui est traité, et où.",
+      "text": "Este sitio está pensado para guardar los menos datos posibles. La mayoría de las páginas funcionan sin registrar nada en un servidor; solo las funciones que eliges usar (inicio de sesión con la cuenta del juego, comunidad, notificaciones, bot de Discord) guardan lo que describen más abajo. Esta página detalla qué se trata, y dónde."
+    },
+    "prose.privacy.blocks.15.p": {
+      "fr": "Vous gardez la main sur ce qui vit dans votre navigateur (favoris, session) en vous déconnectant ou en effaçant les données du site. Pour consulter ou supprimer ce que le serveur conserve sur vous (communauté, notifications, bot Discord), ou pour toute question, écrivez à [{contact}](mailto:{contact}).",
+      "text": "Mantienes el control de lo que vive en tu navegador (favoritos, sesión) cerrando sesión o borrando los datos del sitio. Para consultar o eliminar lo que el servidor guarda sobre ti (comunidad, notificaciones, bot de Discord), o para cualquier pregunta, escribe a [{contact}](mailto:{contact})."
     }
   },
   "id": {
@@ -6857,8 +8737,8 @@
       "text": "Visual yang ditampilkan (potret, ikon, emblem, ilustrasi) berasal dari wiki komunitas dan tetap menjadi milik Moonton. Visual tersebut disertakan untuk tujuan ilustrasi dan informasi, dan akan dihapus atas permintaan pemegang hak."
     },
     "prose.privacy.blocks.0.p": {
-      "fr": "Ce site est conçu pour fonctionner sans conserver de données personnelles sur un serveur : il n'a pas de base de données de comptes. Cette page décrit le peu qui est traité, et où.",
-      "text": "Situs ini dirancang untuk berfungsi tanpa menyimpan data pribadi di server: situs ini tidak memiliki database akun. Halaman ini menjelaskan sedikit data yang diproses, dan di mana."
+      "fr": "Ce site est conçu pour conserver le moins de données possible. La plupart des pages fonctionnent sans rien enregistrer sur un serveur ; seules les fonctions que vous choisissez d'utiliser (connexion au compte de jeu, communauté, notifications, bot Discord) gardent ce qu'elles décrivent plus bas. Cette page détaille ce qui est traité, et où.",
+      "text": "Situs ini dirancang untuk menyimpan data sesedikit mungkin. Sebagian besar halaman berjalan tanpa menyimpan apa pun di server; hanya fitur yang kamu pilih untuk digunakan (login akun game, komunitas, notifikasi, bot Discord) yang menyimpan apa yang dijelaskan di bawah. Halaman ini merinci apa yang diproses, dan di mana."
     },
     "prose.privacy.blocks.1.h": {
       "fr": "Cookies",
@@ -6877,8 +8757,8 @@
       "text": "Jika pengukuran pengunjung diaktifkan, pengukuran itu menggunakan alat tanpa cookie dan tanpa data pribadi, yang tidak melacak pengunjung dari satu situs ke situs lain. Dalam hal ini, banner persetujuan tidak diperlukan."
     },
     "prose.privacy.blocks.15.p": {
-      "fr": "Le site ne constituant aucun fichier de données personnelles, il n'y a rien à consulter, rectifier ou supprimer côté serveur. Vous gardez la main sur ce qui vit dans votre navigateur (favoris, session) en vous déconnectant ou en effaçant les données du site. Pour toute question, écrivez à [{contact}](mailto:{contact}).",
-      "text": "Karena situs ini tidak membuat berkas data pribadi apa pun, tidak ada yang perlu diakses, diperbaiki, atau dihapus di sisi server. Anda tetap mengendalikan apa yang ada di browser Anda (favorit, sesi) dengan logout atau menghapus data situs. Untuk pertanyaan apa pun, tulis ke [{contact}](mailto:{contact})."
+      "fr": "Vous gardez la main sur ce qui vit dans votre navigateur (favoris, session) en vous déconnectant ou en effaçant les données du site. Pour consulter ou supprimer ce que le serveur conserve sur vous (communauté, notifications, bot Discord), ou pour toute question, écrivez à [{contact}](mailto:{contact}).",
+      "text": "Kamu tetap memegang kendali atas apa yang ada di browsermu (favorit, sesi) dengan keluar atau menghapus data situs. Untuk melihat atau menghapus apa yang disimpan server tentangmu (komunitas, notifikasi, bot Discord), atau untuk pertanyaan apa pun, kirim email ke [{contact}](mailto:{contact})."
     },
     "prose.privacy.blocks.2.p": {
       "fr": "Un seul cookie peut être déposé, et uniquement si vous connectez votre compte de jeu :",
@@ -9579,6 +11459,938 @@
     "pages.accountValueUI.bindingValue.none": {
       "fr": "Invité, sans liaison",
       "text": "Tamu, tanpa binding"
+    },
+    "footer.community": {
+      "fr": "Communauté",
+      "text": "Komunitas"
+    },
+    "pages.community.title": {
+      "fr": "Communauté",
+      "text": "Komunitas"
+    },
+    "pages.community.lead": {
+      "fr": "Le forum des joueurs de MLBBDex : questions, builds, aide en classé, esport et guides, plus un tableau pour trouver des coéquipiers. Lecture libre, connexion avec votre compte de jeu pour écrire.",
+      "text": "Forum para pemain MLBBDex: pertanyaan, build, bantuan ranked, esports dan panduan, plus papan untuk mencari rekan tim. Bebas dibaca; masuk dengan akun game kamu untuk menulis."
+    },
+    "pages.community.seo.title": {
+      "fr": "Forum Mobile Legends et recherche de coéquipiers",
+      "text": "Forum Mobile Legends dan pencari rekan tim"
+    },
+    "pages.community.seo.description": {
+      "fr": "Le forum de la communauté MLBBDex : héros et builds, aide en classé, esport, guides de joueurs, et des joueurs de Mobile Legends à rejoindre par région, rang et lane.",
+      "text": "Forum komunitas MLBBDex: hero dan build, bantuan ranked, esports, panduan pemain, dan pemain Mobile Legends untuk diajak satu tim berdasarkan region, rank, dan lane."
+    },
+    "pages.community.seo.categoryTitle": {
+      "fr": "{name} – forum Mobile Legends",
+      "text": "{name} – forum Mobile Legends"
+    },
+    "pages.community.seo.threadTitle": {
+      "fr": "{title} – forum MLBB",
+      "text": "{title} – forum MLBB"
+    },
+    "pages.community.categories.general.name": {
+      "fr": "Général",
+      "text": "Umum"
+    },
+    "pages.community.categories.general.description": {
+      "fr": "Tout ce qui touche au jeu et ne rentre pas ailleurs.",
+      "text": "Apa saja soal game yang tidak cocok di kategori lain."
+    },
+    "pages.community.categories.heroes-builds.name": {
+      "fr": "Héros et builds",
+      "text": "Hero & build"
+    },
+    "pages.community.categories.heroes-builds.description": {
+      "fr": "Objets, emblèmes, combos et matchs à la loupe, héros par héros.",
+      "text": "Item, emblem, combo, dan matchup, hero demi hero."
+    },
+    "pages.community.categories.ranked-help.name": {
+      "fr": "Aide en classé",
+      "text": "Bantuan ranked"
+    },
+    "pages.community.categories.ranked-help.description": {
+      "fr": "Monter de rang : draft, rôles, rotations, mental.",
+      "text": "Naik rank: draft, role, rotasi, mental."
+    },
+    "pages.community.categories.esports.name": {
+      "fr": "Esport",
+      "text": "Esports"
+    },
+    "pages.community.categories.esports.description": {
+      "fr": "MPL, MSC, Mondiaux : matchs, équipes et picks des pros.",
+      "text": "MPL, MSC, Worlds: pertandingan, tim, dan pick para pro."
+    },
+    "pages.community.categories.guides.name": {
+      "fr": "Guides de joueurs",
+      "text": "Panduan pemain"
+    },
+    "pages.community.categories.guides.description": {
+      "fr": "Vos guides détaillés : un héros, une lane, une mécanique.",
+      "text": "Panduan lengkap kalian: satu hero, satu lane, satu mekanik."
+    },
+    "pages.community.categories.site-feedback.name": {
+      "fr": "Bugs et avis sur le site",
+      "text": "Bug & masukan untuk situs"
+    },
+    "pages.community.categories.site-feedback.description": {
+      "fr": "Un bug, une donnée fausse, une idée pour MLBBDex : dites-le ici.",
+      "text": "Bug, data yang salah, atau ide untuk MLBBDex: sampaikan di sini."
+    },
+    "pages.community.categoriesTitle": {
+      "fr": "Catégories",
+      "text": "Kategori"
+    },
+    "pages.community.latestTitle": {
+      "fr": "Dernières discussions",
+      "text": "Diskusi terbaru"
+    },
+    "pages.community.emptyAll": {
+      "fr": "Aucune discussion pour l'instant : lancez la première.",
+      "text": "Belum ada diskusi: mulai yang pertama."
+    },
+    "pages.community.emptyCategory": {
+      "fr": "Aucune discussion dans cette catégorie pour l'instant.",
+      "text": "Belum ada diskusi di kategori ini."
+    },
+    "pages.community.threadCount": {
+      "fr": "{n} discussion(s)",
+      "text": "{n} diskusi"
+    },
+    "pages.community.replies": {
+      "fr": "{n} réponse(s)",
+      "text": "{n} balasan"
+    },
+    "pages.community.pinned": {
+      "fr": "Épinglée",
+      "text": "Disematkan"
+    },
+    "pages.community.locked": {
+      "fr": "Verrouillée",
+      "text": "Dikunci"
+    },
+    "pages.community.edited": {
+      "fr": "modifié",
+      "text": "diedit"
+    },
+    "pages.community.sortLabel": {
+      "fr": "Ordre des discussions",
+      "text": "Urutan diskusi"
+    },
+    "pages.community.sort.latest": {
+      "fr": "Récentes",
+      "text": "Terbaru"
+    },
+    "pages.community.sort.top": {
+      "fr": "Les plus votées",
+      "text": "Vote terbanyak"
+    },
+    "pages.community.signIn": {
+      "fr": "Connectez-vous",
+      "text": "Masuk"
+    },
+    "pages.community.signInToPost": {
+      "fr": "avec votre compte de jeu pour lancer une discussion.",
+      "text": "dengan akun game kamu untuk memulai diskusi."
+    },
+    "pages.community.signInToReply": {
+      "fr": "avec votre compte de jeu pour répondre.",
+      "text": "dengan akun game kamu untuk membalas."
+    },
+    "pages.community.postingAs": {
+      "fr": "Vous écrivez en tant que {name}.",
+      "text": "Kamu menulis sebagai {name}."
+    },
+    "pages.community.threadLead": {
+      "fr": "Lancée par {name} dans {category}.",
+      "text": "Dimulai oleh {name} di {category}."
+    },
+    "pages.community.openingPost": {
+      "fr": "Message d'ouverture",
+      "text": "Postingan pembuka"
+    },
+    "pages.community.noReplies": {
+      "fr": "Pas encore de réponse.",
+      "text": "Belum ada balasan."
+    },
+    "pages.community.replyTitle": {
+      "fr": "Répondre",
+      "text": "Balas"
+    },
+    "pages.community.replyDeleted": {
+      "fr": "Message supprimé par son auteur.",
+      "text": "Pesan dihapus oleh penulisnya."
+    },
+    "pages.community.replyHidden": {
+      "fr": "Message masqué en attendant la modération.",
+      "text": "Pesan disembunyikan menunggu moderasi."
+    },
+    "pages.community.lockedNotice": {
+      "fr": "Cette discussion est verrouillée : on ne peut plus y répondre.",
+      "text": "Diskusi ini dikunci: tidak bisa dibalas lagi."
+    },
+    "pages.community.backToCategory": {
+      "fr": "Retour à {name}",
+      "text": "Kembali ke {name}"
+    },
+    "pages.community.moderationBar": {
+      "fr": "Modération",
+      "text": "Moderasi"
+    },
+    "pages.community.moderate": {
+      "fr": "Modérer",
+      "text": "Moderasi"
+    },
+    "pages.community.hiddenForModerators": {
+      "fr": "Masqué : visible des seuls modérateurs.",
+      "text": "Disembunyikan: hanya terlihat oleh moderator."
+    },
+    "pages.community.unavailable": {
+      "fr": "La communauté est momentanément indisponible. Réessayez dans un instant.",
+      "text": "Komunitas sedang tidak tersedia. Coba lagi sebentar lagi."
+    },
+    "pages.community.discordText": {
+      "fr": "Vous préférez discuter en direct ? Le serveur Discord MLBBDex a aussi ses salons d'entraide et de recherche de coéquipiers.",
+      "text": "Lebih suka ngobrol langsung? Server Discord MLBBDex juga punya channel bantuan dan cari tim."
+    },
+    "pages.community.discordJoin": {
+      "fr": "Rejoindre le Discord",
+      "text": "Gabung ke Discord"
+    },
+    "pages.community.teammatesTitle": {
+      "fr": "Trouver des coéquipiers",
+      "text": "Cari rekan tim"
+    },
+    "pages.community.teammatesLead": {
+      "fr": "Publiez une carte « je cherche » avec votre région, votre rang, vos lanes et vos héros, et parcourez celles des autres joueurs.",
+      "text": "Pasang kartu \"mencari\" dengan region, rank, lane, dan hero kamu, lalu lihat kartu pemain lain."
+    },
+    "pages.community.teammatesCta": {
+      "fr": "Voir les joueurs",
+      "text": "Lihat pemain"
+    },
+    "pages.community.search": {
+      "fr": "Rechercher",
+      "text": "Cari"
+    },
+    "pages.community.searchLabel": {
+      "fr": "Rechercher dans le forum",
+      "text": "Cari di forum"
+    },
+    "pages.community.searchPlaceholder": {
+      "fr": "Rechercher dans le forum…",
+      "text": "Cari di forum…"
+    },
+    "pages.community.searchTitle": {
+      "fr": "Recherche dans le forum",
+      "text": "Pencarian forum"
+    },
+    "pages.community.searchLead": {
+      "fr": "Les discussions dont le titre, le texte ou une réponse contiennent vos mots. Des guillemets pour une expression exacte, un tiret pour exclure un mot.",
+      "text": "Diskusi yang judul, isi, atau balasannya memuat kata-katamu. Tanda kutip untuk frasa persis, tanda minus untuk mengecualikan kata."
+    },
+    "pages.community.searchLeadCategory": {
+      "fr": "Recherche dans la catégorie {name}.",
+      "text": "Mencari di kategori {name}."
+    },
+    "pages.community.searchResults": {
+      "fr": "{n} discussion(s) pour « {query} »",
+      "text": "{n} diskusi untuk \"{query}\""
+    },
+    "pages.community.searchEmpty": {
+      "fr": "Aucune discussion ne correspond. Essayez d'autres mots, ou moins de mots.",
+      "text": "Tidak ada diskusi yang cocok. Coba kata lain, atau lebih sedikit kata."
+    },
+    "pages.community.searchHint": {
+      "fr": "Tapez un ou plusieurs mots : un héros, un objet, une question.",
+      "text": "Ketik satu kata atau lebih: hero, item, atau pertanyaan."
+    },
+    "pages.community.rules.title": {
+      "fr": "Règles du forum",
+      "text": "Aturan forum"
+    },
+    "pages.community.rules.respect": {
+      "fr": "Restez courtois : pas d'insulte, de harcèlement ni de propos haineux.",
+      "text": "Tetap sopan: tanpa hinaan, pelecehan, atau ujaran kebencian."
+    },
+    "pages.community.rules.noSpam": {
+      "fr": "Pas de publicité, de vente de comptes ni de « diamants gratuits » : ce sont des arnaques.",
+      "text": "Tanpa iklan, jual beli akun, atau \"diamond gratis\": itu penipuan."
+    },
+    "pages.community.rules.privacy": {
+      "fr": "Ne publiez pas les informations personnelles d'autrui.",
+      "text": "Jangan sebarkan informasi pribadi orang lain."
+    },
+    "pages.community.rules.newAccounts": {
+      "fr": "Les comptes nouveaux sur le forum ont des limites plus basses et ne peuvent pas publier de liens pendant trois jours.",
+      "text": "Akun yang baru di forum punya batas lebih rendah dan tidak bisa memposting tautan selama tiga hari."
+    },
+    "pages.community.rules.report": {
+      "fr": "Un message pose problème ? Signalez-le : les modérateurs le verront, et plusieurs signalements le masquent en attendant.",
+      "text": "Ada postingan bermasalah? Laporkan: moderator akan melihatnya, dan beberapa laporan akan menyembunyikannya sementara."
+    },
+    "pages.community.teammates.title": {
+      "fr": "Trouver des coéquipiers",
+      "text": "Cari rekan tim"
+    },
+    "pages.community.teammates.lead": {
+      "fr": "Des joueurs qui cherchent un duo, un trio ou une équipe, par région, rang, lane et langue. Chaque carte reste en ligne sept jours ; une seule par compte.",
+      "text": "Pemain yang mencari duo, trio, atau tim, berdasarkan region, rank, lane, dan bahasa. Tiap kartu tayang tujuh hari; satu per akun."
+    },
+    "pages.community.teammates.seoTitle": {
+      "fr": "Trouver des coéquipiers Mobile Legends",
+      "text": "Cari rekan tim Mobile Legends"
+    },
+    "pages.community.teammates.seoDescription": {
+      "fr": "Joueurs de Mobile Legends à la recherche d'un duo ou d'une équipe : filtrez par région, rang, lane et langue, et publiez votre propre carte.",
+      "text": "Pemain Mobile Legends yang mencari duo atau tim: saring berdasarkan region, rank, lane, dan bahasa, lalu pasang kartumu sendiri."
+    },
+    "pages.community.teammates.ownTitle": {
+      "fr": "Votre carte",
+      "text": "Kartu kamu"
+    },
+    "pages.community.teammates.signInToPost": {
+      "fr": "avec votre compte de jeu pour publier votre carte et voir les contacts.",
+      "text": "dengan akun game kamu untuk memasang kartu dan melihat kontak."
+    },
+    "pages.community.teammates.listTitle": {
+      "fr": "{n} joueur(s) disponible(s)",
+      "text": "{n} pemain tersedia"
+    },
+    "pages.community.teammates.any": {
+      "fr": "Tous",
+      "text": "Semua"
+    },
+    "pages.community.teammates.lane": {
+      "fr": "Lane",
+      "text": "Lane"
+    },
+    "pages.community.teammates.language": {
+      "fr": "Langue",
+      "text": "Bahasa"
+    },
+    "pages.community.teammates.filter": {
+      "fr": "Filtrer",
+      "text": "Saring"
+    },
+    "pages.community.teammates.reset": {
+      "fr": "Tout afficher",
+      "text": "Tampilkan semua"
+    },
+    "pages.community.teammates.empty": {
+      "fr": "Aucune carte ne correspond pour l'instant. Élargissez les filtres, ou publiez la vôtre.",
+      "text": "Belum ada kartu yang cocok. Perluas saringan, atau pasang kartumu."
+    },
+    "pages.community.teammates.speaks": {
+      "fr": "Langues",
+      "text": "Bahasa"
+    },
+    "pages.community.teammates.plays": {
+      "fr": "Joue",
+      "text": "Main"
+    },
+    "pages.community.teammates.gameId": {
+      "fr": "ID de jeu",
+      "text": "ID game"
+    },
+    "pages.community.teammates.signInForContact": {
+      "fr": "pour voir le contact.",
+      "text": "untuk melihat kontak."
+    },
+    "pages.community.teammates.noContact": {
+      "fr": "Pas de contact partagé : répondez-lui sur le forum ou le Discord.",
+      "text": "Tidak ada kontak dibagikan: hubungi lewat forum atau Discord."
+    },
+    "pages.community.teammates.discordText": {
+      "fr": "Sur le serveur Discord MLBBDex, le salon de recherche de coéquipiers tourne en continu.",
+      "text": "Di server Discord MLBBDex, channel cari tim selalu ramai."
+    },
+    "pages.community.moderation.title": {
+      "fr": "Modération de la communauté",
+      "text": "Moderasi komunitas"
+    },
+    "pages.community.moderation.lead": {
+      "fr": "Les signalements ouverts, les comptes bannis et le journal des décisions. Chaque action ferme les signalements de sa cible et est enregistrée.",
+      "text": "Laporan terbuka, akun yang diblokir, dan log keputusan. Setiap tindakan menutup laporan pada targetnya dan dicatat."
+    },
+    "pages.community.moderation.queue": {
+      "fr": "À traiter ({n})",
+      "text": "Perlu ditinjau ({n})"
+    },
+    "pages.community.moderation.queueEmpty": {
+      "fr": "Aucun signalement ouvert.",
+      "text": "Tidak ada laporan terbuka."
+    },
+    "pages.community.moderation.kinds.thread": {
+      "fr": "Discussion",
+      "text": "Diskusi"
+    },
+    "pages.community.moderation.kinds.post": {
+      "fr": "Réponse",
+      "text": "Balasan"
+    },
+    "pages.community.moderation.kinds.card": {
+      "fr": "Carte coéquipier",
+      "text": "Kartu rekan tim"
+    },
+    "pages.community.moderation.banned": {
+      "fr": "auteur banni",
+      "text": "penulis diblokir"
+    },
+    "pages.community.moderation.hidden": {
+      "fr": "masqué",
+      "text": "disembunyikan"
+    },
+    "pages.community.moderation.open": {
+      "fr": "Voir sur le site",
+      "text": "Lihat di situs"
+    },
+    "pages.community.moderation.bannedTitle": {
+      "fr": "Comptes bannis ({n})",
+      "text": "Akun diblokir ({n})"
+    },
+    "pages.community.moderation.bannedEmpty": {
+      "fr": "Aucun compte banni.",
+      "text": "Tidak ada akun yang diblokir."
+    },
+    "pages.community.moderation.until": {
+      "fr": "jusqu'au {date}",
+      "text": "sampai {date}"
+    },
+    "pages.community.moderation.forever": {
+      "fr": "définitivement",
+      "text": "permanen"
+    },
+    "pages.community.moderation.logTitle": {
+      "fr": "Journal de modération",
+      "text": "Log moderasi"
+    },
+    "pages.community.moderation.logEmpty": {
+      "fr": "Aucune décision pour l'instant.",
+      "text": "Belum ada keputusan."
+    },
+    "pages.community.moderation.when": {
+      "fr": "Quand",
+      "text": "Kapan"
+    },
+    "pages.community.moderation.who": {
+      "fr": "Modérateur",
+      "text": "Moderator"
+    },
+    "pages.community.moderation.what": {
+      "fr": "Action",
+      "text": "Tindakan"
+    },
+    "pages.community.moderation.note": {
+      "fr": "Note",
+      "text": "Catatan"
+    },
+    "pages.community.moderation.actions.hide": {
+      "fr": "Masquer",
+      "text": "Sembunyikan"
+    },
+    "pages.community.moderation.actions.unhide": {
+      "fr": "Réafficher",
+      "text": "Tampilkan lagi"
+    },
+    "pages.community.moderation.actions.delete": {
+      "fr": "Supprimer",
+      "text": "Hapus"
+    },
+    "pages.community.moderation.actions.lock": {
+      "fr": "Verrouiller",
+      "text": "Kunci"
+    },
+    "pages.community.moderation.actions.unlock": {
+      "fr": "Déverrouiller",
+      "text": "Buka kunci"
+    },
+    "pages.community.moderation.actions.pin": {
+      "fr": "Épingler",
+      "text": "Sematkan"
+    },
+    "pages.community.moderation.actions.unpin": {
+      "fr": "Désépingler",
+      "text": "Lepas sematan"
+    },
+    "pages.community.moderation.actions.ban": {
+      "fr": "Bannir",
+      "text": "Blokir"
+    },
+    "pages.community.moderation.actions.unban": {
+      "fr": "Lever le bannissement",
+      "text": "Cabut blokir"
+    },
+    "pages.community.moderation.actions.dismiss": {
+      "fr": "Classer sans suite",
+      "text": "Abaikan"
+    },
+    "pages.communityUI.votes": {
+      "fr": "{n} vote(s)",
+      "text": "{n} vote"
+    },
+    "pages.communityUI.upvote": {
+      "fr": "Voter pour ce message",
+      "text": "Vote postingan ini"
+    },
+    "pages.communityUI.unvote": {
+      "fr": "Retirer mon vote",
+      "text": "Tarik vote saya"
+    },
+    "pages.communityUI.signInToVote": {
+      "fr": "Connectez-vous pour voter",
+      "text": "Masuk untuk memberi vote"
+    },
+    "pages.communityUI.signIn": {
+      "fr": "Se connecter",
+      "text": "Masuk"
+    },
+    "pages.communityUI.edit": {
+      "fr": "Modifier",
+      "text": "Edit"
+    },
+    "pages.communityUI.editing": {
+      "fr": "Modification du message",
+      "text": "Mengedit postingan"
+    },
+    "pages.communityUI.delete": {
+      "fr": "Supprimer",
+      "text": "Hapus"
+    },
+    "pages.communityUI.cancel": {
+      "fr": "Annuler",
+      "text": "Batal"
+    },
+    "pages.communityUI.save": {
+      "fr": "Enregistrer",
+      "text": "Simpan"
+    },
+    "pages.communityUI.sending": {
+      "fr": "Envoi…",
+      "text": "Mengirim…"
+    },
+    "pages.communityUI.confirmDeleteThread": {
+      "fr": "Supprimer cette discussion ? Ses réponses ne seront plus affichées.",
+      "text": "Hapus diskusi ini? Balasannya tidak akan ditampilkan lagi."
+    },
+    "pages.communityUI.confirmDeleteReply": {
+      "fr": "Supprimer cette réponse ?",
+      "text": "Hapus balasan ini?"
+    },
+    "pages.communityUI.newThread": {
+      "fr": "Nouvelle discussion",
+      "text": "Diskusi baru"
+    },
+    "pages.communityUI.titleLabel": {
+      "fr": "Titre",
+      "text": "Judul"
+    },
+    "pages.communityUI.bodyLabel": {
+      "fr": "Message",
+      "text": "Pesan"
+    },
+    "pages.communityUI.replyLabel": {
+      "fr": "Votre réponse",
+      "text": "Balasan kamu"
+    },
+    "pages.communityUI.markdownHint": {
+      "fr": "Markdown : **gras**, *italique*, `code`, > citation, - liste, [lien](https://…). Pas de HTML ni d'image.",
+      "text": "Markdown: **tebal**, *miring*, `code`, > kutipan, - daftar, [tautan](https://…). Tanpa HTML atau gambar."
+    },
+    "pages.communityUI.heroesLabel": {
+      "fr": "Héros concernés",
+      "text": "Hero terkait"
+    },
+    "pages.communityUI.heroesHint": {
+      "fr": "Jusqu'à {n} héros, affichés en étiquettes vers leur fiche.",
+      "text": "Hingga {n} hero, ditampilkan sebagai tag ke halaman mereka."
+    },
+    "pages.communityUI.heroPlaceholder": {
+      "fr": "Nom d'un héros…",
+      "text": "Nama hero…"
+    },
+    "pages.communityUI.removeHero": {
+      "fr": "Retirer {name}",
+      "text": "Hapus {name}"
+    },
+    "pages.communityUI.publishThread": {
+      "fr": "Publier la discussion",
+      "text": "Terbitkan diskusi"
+    },
+    "pages.communityUI.publishReply": {
+      "fr": "Répondre",
+      "text": "Balas"
+    },
+    "pages.communityUI.report.open": {
+      "fr": "Signaler",
+      "text": "Laporkan"
+    },
+    "pages.communityUI.report.title": {
+      "fr": "Pourquoi signaler ce contenu ?",
+      "text": "Kenapa melaporkan konten ini?"
+    },
+    "pages.communityUI.report.reasons.spam": {
+      "fr": "Spam ou arnaque",
+      "text": "Spam atau penipuan"
+    },
+    "pages.communityUI.report.reasons.abuse": {
+      "fr": "Insulte, harcèlement, haine",
+      "text": "Hinaan, pelecehan, kebencian"
+    },
+    "pages.communityUI.report.reasons.offtopic": {
+      "fr": "Hors sujet",
+      "text": "Di luar topik"
+    },
+    "pages.communityUI.report.reasons.personal": {
+      "fr": "Informations personnelles",
+      "text": "Informasi pribadi"
+    },
+    "pages.communityUI.report.reasons.other": {
+      "fr": "Autre",
+      "text": "Lainnya"
+    },
+    "pages.communityUI.report.note": {
+      "fr": "Précision (facultatif)",
+      "text": "Keterangan (opsional)"
+    },
+    "pages.communityUI.report.send": {
+      "fr": "Envoyer le signalement",
+      "text": "Kirim laporan"
+    },
+    "pages.communityUI.report.sent": {
+      "fr": "Signalement envoyé, merci.",
+      "text": "Laporan terkirim, terima kasih."
+    },
+    "pages.communityUI.errors.signIn": {
+      "fr": "Votre session a expiré : reconnectez-vous.",
+      "text": "Sesi kamu berakhir: masuk lagi."
+    },
+    "pages.communityUI.errors.tooFast": {
+      "fr": "Trop de messages d'un coup : patientez une minute.",
+      "text": "Terlalu banyak postingan sekaligus: tunggu semenit."
+    },
+    "pages.communityUI.errors.day": {
+      "fr": "Limite quotidienne atteinte : revenez demain.",
+      "text": "Batas harian tercapai: kembali besok."
+    },
+    "pages.communityUI.errors.duplicate": {
+      "fr": "Vous venez de publier ce même texte.",
+      "text": "Kamu baru saja memposting teks yang sama."
+    },
+    "pages.communityUI.errors.blocked": {
+      "fr": "Ce texte contient un terme refusé sur le forum.",
+      "text": "Teks ini memuat istilah yang ditolak forum."
+    },
+    "pages.communityUI.errors.spam": {
+      "fr": "Ce texte ressemble à du spam (lien raccourci, invitation, arnaque aux diamants).",
+      "text": "Teks ini terlihat seperti spam (tautan pendek, undangan, penipuan diamond)."
+    },
+    "pages.communityUI.errors.links": {
+      "fr": "Trop de liens : {n} au plus par message.",
+      "text": "Terlalu banyak tautan: maksimal {n} per postingan."
+    },
+    "pages.communityUI.errors.newAccountLinks": {
+      "fr": "Les comptes nouveaux sur le forum ne peuvent pas encore publier de liens.",
+      "text": "Akun yang baru di forum belum bisa memposting tautan."
+    },
+    "pages.communityUI.errors.banned": {
+      "fr": "Votre compte ne peut plus participer à la communauté.",
+      "text": "Akun kamu tidak bisa lagi berpartisipasi di komunitas."
+    },
+    "pages.communityUI.errors.window": {
+      "fr": "Le délai pour modifier ou supprimer ce message est passé.",
+      "text": "Batas waktu untuk mengedit atau menghapus postingan ini sudah lewat."
+    },
+    "pages.communityUI.errors.locked": {
+      "fr": "Cette discussion est verrouillée.",
+      "text": "Diskusi ini dikunci."
+    },
+    "pages.communityUI.errors.hidden": {
+      "fr": "Ce contenu est masqué par la modération.",
+      "text": "Konten ini disembunyikan oleh moderasi."
+    },
+    "pages.communityUI.errors.unknown": {
+      "fr": "Ce contenu n'existe plus.",
+      "text": "Konten ini sudah tidak ada."
+    },
+    "pages.communityUI.errors.title": {
+      "fr": "Le titre doit faire entre {min} et {max} caractères.",
+      "text": "Judul harus antara {min} dan {max} karakter."
+    },
+    "pages.communityUI.errors.body": {
+      "fr": "Le message doit faire entre {min} et {max} caractères.",
+      "text": "Pesan harus antara {min} dan {max} karakter."
+    },
+    "pages.communityUI.errors.invalid": {
+      "fr": "Envoi refusé : vérifiez les champs.",
+      "text": "Ditolak: periksa isian."
+    },
+    "pages.communityUI.errors.unavailable": {
+      "fr": "Service momentanément indisponible. Réessayez dans un instant.",
+      "text": "Layanan sedang tidak tersedia. Coba lagi sebentar lagi."
+    },
+    "pages.communityUI.regions.id": {
+      "fr": "Indonésie",
+      "text": "Indonesia"
+    },
+    "pages.communityUI.regions.ph": {
+      "fr": "Philippines",
+      "text": "Filipina"
+    },
+    "pages.communityUI.regions.mysg": {
+      "fr": "Malaisie et Singapour",
+      "text": "Malaysia & Singapura"
+    },
+    "pages.communityUI.regions.sea": {
+      "fr": "Autre Asie du Sud-Est",
+      "text": "Asia Tenggara lainnya"
+    },
+    "pages.communityUI.regions.asia": {
+      "fr": "Autre Asie",
+      "text": "Asia lainnya"
+    },
+    "pages.communityUI.regions.mena": {
+      "fr": "Moyen-Orient et Afrique du Nord",
+      "text": "Timur Tengah & Afrika Utara"
+    },
+    "pages.communityUI.regions.eu": {
+      "fr": "Europe",
+      "text": "Eropa"
+    },
+    "pages.communityUI.regions.na": {
+      "fr": "Amérique du Nord",
+      "text": "Amerika Utara"
+    },
+    "pages.communityUI.regions.latam": {
+      "fr": "Amérique latine",
+      "text": "Amerika Latin"
+    },
+    "pages.communityUI.regions.other": {
+      "fr": "Autre",
+      "text": "Lainnya"
+    },
+    "pages.communityUI.playTimes.morning": {
+      "fr": "Le matin",
+      "text": "Pagi"
+    },
+    "pages.communityUI.playTimes.afternoon": {
+      "fr": "L'après-midi",
+      "text": "Siang"
+    },
+    "pages.communityUI.playTimes.evening": {
+      "fr": "Le soir",
+      "text": "Sore"
+    },
+    "pages.communityUI.playTimes.night": {
+      "fr": "La nuit",
+      "text": "Malam"
+    },
+    "pages.communityUI.playTimes.weekdays": {
+      "fr": "En semaine",
+      "text": "Hari kerja"
+    },
+    "pages.communityUI.playTimes.weekends": {
+      "fr": "Le week-end",
+      "text": "Akhir pekan"
+    },
+    "pages.communityUI.teammates.newCard": {
+      "fr": "Publier ma carte",
+      "text": "Pasang kartuku"
+    },
+    "pages.communityUI.teammates.editCard": {
+      "fr": "Modifier ou renouveler ma carte",
+      "text": "Edit atau perpanjang kartuku"
+    },
+    "pages.communityUI.teammates.deleteCard": {
+      "fr": "Retirer ma carte",
+      "text": "Turunkan kartuku"
+    },
+    "pages.communityUI.teammates.confirmDelete": {
+      "fr": "Retirer votre carte ?",
+      "text": "Turunkan kartumu?"
+    },
+    "pages.communityUI.teammates.cardListed": {
+      "fr": "Votre carte est en ligne jusqu'au {date}. L'enregistrer à nouveau la prolonge de sept jours.",
+      "text": "Kartumu tayang sampai {date}. Menyimpannya lagi memperpanjang tujuh hari."
+    },
+    "pages.communityUI.teammates.cardHidden": {
+      "fr": "Votre carte a été masquée par la modération.",
+      "text": "Kartumu disembunyikan oleh moderasi."
+    },
+    "pages.communityUI.teammates.region": {
+      "fr": "Région",
+      "text": "Region"
+    },
+    "pages.communityUI.teammates.rank": {
+      "fr": "Rang",
+      "text": "Rank"
+    },
+    "pages.communityUI.teammates.choose": {
+      "fr": "Choisir…",
+      "text": "Pilih…"
+    },
+    "pages.communityUI.teammates.lanes": {
+      "fr": "Lanes jouées",
+      "text": "Lane yang dimainkan"
+    },
+    "pages.communityUI.teammates.heroes": {
+      "fr": "Héros favoris",
+      "text": "Hero andalan"
+    },
+    "pages.communityUI.teammates.heroesHint": {
+      "fr": "Jusqu'à {n} héros.",
+      "text": "Hingga {n} hero."
+    },
+    "pages.communityUI.teammates.languages": {
+      "fr": "Langues parlées ({n} au plus)",
+      "text": "Bahasa yang dikuasai (maksimal {n})"
+    },
+    "pages.communityUI.teammates.playTimes": {
+      "fr": "Quand vous jouez",
+      "text": "Kapan kamu main"
+    },
+    "pages.communityUI.teammates.note": {
+      "fr": "Ce que vous cherchez (facultatif, sans lien)",
+      "text": "Yang kamu cari (opsional, tanpa tautan)"
+    },
+    "pages.communityUI.teammates.contact": {
+      "fr": "Contact (facultatif)",
+      "text": "Kontak (opsional)"
+    },
+    "pages.communityUI.teammates.gameId": {
+      "fr": "ID de jeu et serveur",
+      "text": "ID game dan server"
+    },
+    "pages.communityUI.teammates.discord": {
+      "fr": "Pseudo Discord",
+      "text": "Username Discord"
+    },
+    "pages.communityUI.teammates.contactNote": {
+      "fr": "Montrés aux seuls joueurs connectés, jamais aux visiteurs ni aux moteurs de recherche. Retirez votre carte pour les effacer.",
+      "text": "Hanya ditampilkan ke pemain yang masuk, tidak pernah ke pengunjung atau mesin pencari. Turunkan kartumu untuk menghapusnya."
+    },
+    "pages.communityUI.teammates.publish": {
+      "fr": "Publier pour sept jours",
+      "text": "Pasang selama tujuh hari"
+    },
+    "pages.communityUI.teammates.saved": {
+      "fr": "Carte publiée.",
+      "text": "Kartu terpasang."
+    },
+    "pages.communityUI.teammates.needLanesAndLanguages": {
+      "fr": "Choisissez au moins une lane et une langue.",
+      "text": "Pilih minimal satu lane dan satu bahasa."
+    },
+    "pages.communityUI.teammates.errors.gameId": {
+      "fr": "ID de jeu attendu sous la forme 12345678 (1234).",
+      "text": "ID game harus berformat 12345678 (1234)."
+    },
+    "pages.communityUI.teammates.errors.discord": {
+      "fr": "Pseudo Discord invalide.",
+      "text": "Username Discord tidak valid."
+    },
+    "pages.communityUI.teammates.errors.note": {
+      "fr": "Le texte doit faire {max} caractères au plus, sans lien.",
+      "text": "Teks maksimal {max} karakter, tanpa tautan."
+    },
+    "pages.communityUI.teammates.errors.hidden": {
+      "fr": "Votre carte a été masquée par la modération : elle ne peut pas être republiée.",
+      "text": "Kartumu disembunyikan oleh moderasi: tidak bisa dipasang lagi."
+    },
+    "pages.communityUI.moderation.hide": {
+      "fr": "Masquer",
+      "text": "Sembunyikan"
+    },
+    "pages.communityUI.moderation.unhide": {
+      "fr": "Réafficher",
+      "text": "Tampilkan lagi"
+    },
+    "pages.communityUI.moderation.delete": {
+      "fr": "Supprimer",
+      "text": "Hapus"
+    },
+    "pages.communityUI.moderation.lock": {
+      "fr": "Verrouiller",
+      "text": "Kunci"
+    },
+    "pages.communityUI.moderation.unlock": {
+      "fr": "Déverrouiller",
+      "text": "Buka kunci"
+    },
+    "pages.communityUI.moderation.pin": {
+      "fr": "Épingler",
+      "text": "Sematkan"
+    },
+    "pages.communityUI.moderation.unpin": {
+      "fr": "Désépingler",
+      "text": "Lepas sematan"
+    },
+    "pages.communityUI.moderation.ban": {
+      "fr": "Bannir l'auteur",
+      "text": "Blokir penulis"
+    },
+    "pages.communityUI.moderation.unban": {
+      "fr": "Lever le bannissement",
+      "text": "Cabut blokir"
+    },
+    "pages.communityUI.moderation.dismiss": {
+      "fr": "Classer sans suite",
+      "text": "Abaikan laporan"
+    },
+    "pages.communityUI.moderation.duration": {
+      "fr": "Durée",
+      "text": "Durasi"
+    },
+    "pages.communityUI.moderation.days": {
+      "fr": "{n} jour(s)",
+      "text": "{n} hari"
+    },
+    "pages.communityUI.moderation.forever": {
+      "fr": "Définitif",
+      "text": "Permanen"
+    },
+    "pages.communityUI.moderation.reason": {
+      "fr": "Motif (journal)",
+      "text": "Alasan (log)"
+    },
+    "pages.communityUI.moderation.confirmBan": {
+      "fr": "Confirmer le bannissement",
+      "text": "Konfirmasi blokir"
+    },
+    "pages.communityUI.moderation.confirmDelete": {
+      "fr": "Supprimer définitivement ce contenu ?",
+      "text": "Hapus konten ini secara permanen?"
+    },
+    "pages.communityUI.moderation.failed": {
+      "fr": "L'action a échoué : rechargez la page.",
+      "text": "Tindakan gagal: muat ulang halaman."
+    },
+    "prose.community.title": {
+      "fr": "Communauté : forum et recherche de coéquipiers",
+      "text": "Komunitas: forum dan pencari rekan tim"
+    },
+    "prose.community.intro": {
+      "fr": "Si vous écrivez dans la communauté (forum, votes, signalements, carte de recherche de coéquipiers), le serveur du site conserve, dans sa base de données :",
+      "text": "Jika kamu berpartisipasi di komunitas (forum, vote, laporan, kartu cari rekan tim), server situs menyimpan di basis datanya:"
+    },
+    "prose.community.account": {
+      "fr": "un identifiant de compte dérivé (une empreinte de votre ID de jeu et de votre serveur, jamais l'ID lui-même), votre pseudo de jeu, et la date de votre première participation ;",
+      "text": "ID akun turunan (hash dari ID game dan server kamu, tidak pernah ID itu sendiri), nama dalam game, dan tanggal partisipasi pertamamu;"
+    },
+    "prose.community.posts": {
+      "fr": "vos discussions et réponses, publiques, avec leur date ; vos votes et vos signalements, qui ne sont montrés à personne d'autre que les modérateurs (les signalements) ;",
+      "text": "diskusi dan balasanmu, yang bersifat publik, beserta tanggalnya; vote dan laporanmu, yang hanya dilihat moderator (laporan);"
+    },
+    "prose.community.card": {
+      "fr": "votre carte de recherche de coéquipiers, et, si vous les ajoutez, votre ID de jeu et votre pseudo Discord : ils ne sont montrés qu'aux joueurs connectés, et la carte est effacée sept jours après son dernier enregistrement.",
+      "text": "kartu cari rekan timmu dan, jika kamu menambahkannya, ID game dan username Discord: hanya ditampilkan ke pemain yang masuk, dan kartu dihapus tujuh hari setelah terakhir disimpan."
+    },
+    "prose.community.moderation": {
+      "fr": "Les modérateurs voient les signalements et peuvent masquer, supprimer ou bannir ; chacune de leurs décisions est consignée dans un journal. Les limites de débit utilisent votre adresse IP, en mémoire seulement, quelques minutes.",
+      "text": "Moderator melihat laporan dan bisa menyembunyikan, menghapus, atau memblokir; setiap keputusan mereka dicatat dalam log. Batas laju memakai alamat IP kamu, hanya di memori, selama beberapa menit."
+    },
+    "prose.community.deletion": {
+      "fr": "Vous pouvez modifier un message pendant une heure et le supprimer pendant une journée, retirer votre carte à tout moment. Au-delà, ou pour effacer toute votre participation, écrivez à {contact}.",
+      "text": "Kamu bisa mengedit postingan selama satu jam dan menghapusnya selama satu hari, serta menurunkan kartumu kapan saja. Setelah itu, atau untuk menghapus seluruh partisipasimu, kirim email ke {contact}."
     }
   },
   "it": {
@@ -12081,6 +14893,946 @@
     "pages.accountValueUI.bindingValue.none": {
       "fr": "Invité, sans liaison",
       "text": "Ospite, non collegato"
+    },
+    "footer.community": {
+      "fr": "Communauté",
+      "text": "Community"
+    },
+    "pages.community.title": {
+      "fr": "Communauté",
+      "text": "Community"
+    },
+    "pages.community.lead": {
+      "fr": "Le forum des joueurs de MLBBDex : questions, builds, aide en classé, esport et guides, plus un tableau pour trouver des coéquipiers. Lecture libre, connexion avec votre compte de jeu pour écrire.",
+      "text": "Il forum dei giocatori di MLBBDex: domande, build, aiuto in classificata, esport e guide, più una bacheca per trovare compagni di squadra. Lettura libera, accesso con il tuo account di gioco per scrivere."
+    },
+    "pages.community.seo.title": {
+      "fr": "Forum Mobile Legends et recherche de coéquipiers",
+      "text": "Forum di Mobile Legends e ricerca compagni di squadra"
+    },
+    "pages.community.seo.description": {
+      "fr": "Le forum de la communauté MLBBDex : héros et builds, aide en classé, esport, guides de joueurs, et des joueurs de Mobile Legends à rejoindre par région, rang et lane.",
+      "text": "Il forum della community di MLBBDex: eroi e build, aiuto in classificata, esport, guide dei giocatori e giocatori di Mobile Legends con cui fare squadra per regione, rango e lane."
+    },
+    "pages.community.seo.categoryTitle": {
+      "fr": "{name} – forum Mobile Legends",
+      "text": "{name} – forum di Mobile Legends"
+    },
+    "pages.community.seo.threadTitle": {
+      "fr": "{title} – forum MLBB",
+      "text": "{title} – forum MLBB"
+    },
+    "pages.community.categories.general.name": {
+      "fr": "Général",
+      "text": "Generale"
+    },
+    "pages.community.categories.general.description": {
+      "fr": "Tout ce qui touche au jeu et ne rentre pas ailleurs.",
+      "text": "Tutto ciò che riguarda il gioco e non rientra altrove."
+    },
+    "pages.community.categories.heroes-builds.name": {
+      "fr": "Héros et builds",
+      "text": "Eroi e build"
+    },
+    "pages.community.categories.heroes-builds.description": {
+      "fr": "Objets, emblèmes, combos et matchs à la loupe, héros par héros.",
+      "text": "Oggetti, emblemi, combo e matchup, eroe per eroe."
+    },
+    "pages.community.categories.ranked-help.name": {
+      "fr": "Aide en classé",
+      "text": "Aiuto in classificata"
+    },
+    "pages.community.categories.ranked-help.description": {
+      "fr": "Monter de rang : draft, rôles, rotations, mental.",
+      "text": "Salire di rango: draft, ruoli, rotazioni, mentalità."
+    },
+    "pages.community.categories.esports.name": {
+      "fr": "Esport",
+      "text": "Esport"
+    },
+    "pages.community.categories.esports.description": {
+      "fr": "MPL, MSC, Mondiaux : matchs, équipes et picks des pros.",
+      "text": "MPL, MSC, Mondiali: partite, squadre e pick dei pro."
+    },
+    "pages.community.categories.guides.name": {
+      "fr": "Guides de joueurs",
+      "text": "Guide dei giocatori"
+    },
+    "pages.community.categories.guides.description": {
+      "fr": "Vos guides détaillés : un héros, une lane, une mécanique.",
+      "text": "Le vostre guide dettagliate: un eroe, una lane, una meccanica."
+    },
+    "pages.community.categories.site-feedback.name": {
+      "fr": "Bugs et avis sur le site",
+      "text": "Bug e feedback sul sito"
+    },
+    "pages.community.categories.site-feedback.description": {
+      "fr": "Un bug, une donnée fausse, une idée pour MLBBDex : dites-le ici.",
+      "text": "Un bug, un dato sbagliato, un'idea per MLBBDex: diccelo qui."
+    },
+    "pages.community.categoriesTitle": {
+      "fr": "Catégories",
+      "text": "Categorie"
+    },
+    "pages.community.latestTitle": {
+      "fr": "Dernières discussions",
+      "text": "Ultime discussioni"
+    },
+    "pages.community.emptyAll": {
+      "fr": "Aucune discussion pour l'instant : lancez la première.",
+      "text": "Ancora nessuna discussione: avvia la prima."
+    },
+    "pages.community.emptyCategory": {
+      "fr": "Aucune discussion dans cette catégorie pour l'instant.",
+      "text": "Ancora nessuna discussione in questa categoria."
+    },
+    "pages.community.threadCount": {
+      "fr": "{n} discussion(s)",
+      "text": "{n} discussione/i"
+    },
+    "pages.community.replies": {
+      "fr": "{n} réponse(s)",
+      "text": "{n} risposta/e"
+    },
+    "pages.community.pinned": {
+      "fr": "Épinglée",
+      "text": "Fissata"
+    },
+    "pages.community.locked": {
+      "fr": "Verrouillée",
+      "text": "Bloccata"
+    },
+    "pages.community.edited": {
+      "fr": "modifié",
+      "text": "modificato"
+    },
+    "pages.community.sortLabel": {
+      "fr": "Ordre des discussions",
+      "text": "Ordine delle discussioni"
+    },
+    "pages.community.sort.latest": {
+      "fr": "Récentes",
+      "text": "Recenti"
+    },
+    "pages.community.sort.top": {
+      "fr": "Les plus votées",
+      "text": "Più votate"
+    },
+    "pages.community.signIn": {
+      "fr": "Connectez-vous",
+      "text": "Accedi"
+    },
+    "pages.community.signInToPost": {
+      "fr": "avec votre compte de jeu pour lancer une discussion.",
+      "text": "con il tuo account di gioco per avviare una discussione."
+    },
+    "pages.community.signInToReply": {
+      "fr": "avec votre compte de jeu pour répondre.",
+      "text": "con il tuo account di gioco per rispondere."
+    },
+    "pages.community.postingAs": {
+      "fr": "Vous écrivez en tant que {name}.",
+      "text": "Stai scrivendo come {name}."
+    },
+    "pages.community.threadLead": {
+      "fr": "Lancée par {name} dans {category}.",
+      "text": "Avviata da {name} in {category}."
+    },
+    "pages.community.openingPost": {
+      "fr": "Message d'ouverture",
+      "text": "Messaggio iniziale"
+    },
+    "pages.community.noReplies": {
+      "fr": "Pas encore de réponse.",
+      "text": "Ancora nessuna risposta."
+    },
+    "pages.community.replyTitle": {
+      "fr": "Répondre",
+      "text": "Rispondi"
+    },
+    "pages.community.replyDeleted": {
+      "fr": "Message supprimé par son auteur.",
+      "text": "Messaggio eliminato dal suo autore."
+    },
+    "pages.community.replyHidden": {
+      "fr": "Message masqué en attendant la modération.",
+      "text": "Messaggio nascosto in attesa di moderazione."
+    },
+    "pages.community.lockedNotice": {
+      "fr": "Cette discussion est verrouillée : on ne peut plus y répondre.",
+      "text": "Questa discussione è bloccata: non accetta più risposte."
+    },
+    "pages.community.backToCategory": {
+      "fr": "Retour à {name}",
+      "text": "Torna a {name}"
+    },
+    "pages.community.moderationBar": {
+      "fr": "Modération",
+      "text": "Moderazione"
+    },
+    "pages.community.moderate": {
+      "fr": "Modérer",
+      "text": "Modera"
+    },
+    "pages.community.hiddenForModerators": {
+      "fr": "Masqué : visible des seuls modérateurs.",
+      "text": "Nascosto: visibile solo ai moderatori."
+    },
+    "pages.community.unavailable": {
+      "fr": "La communauté est momentanément indisponible. Réessayez dans un instant.",
+      "text": "La community è momentaneamente non disponibile. Riprova tra poco."
+    },
+    "pages.community.discordText": {
+      "fr": "Vous préférez discuter en direct ? Le serveur Discord MLBBDex a aussi ses salons d'entraide et de recherche de coéquipiers.",
+      "text": "Preferisci chattare dal vivo? Anche il server Discord di MLBBDex ha canali di aiuto e di ricerca squadra."
+    },
+    "pages.community.discordJoin": {
+      "fr": "Rejoindre le Discord",
+      "text": "Unisciti al Discord"
+    },
+    "pages.community.teammatesTitle": {
+      "fr": "Trouver des coéquipiers",
+      "text": "Trova compagni di squadra"
+    },
+    "pages.community.teammatesLead": {
+      "fr": "Publiez une carte « je cherche » avec votre région, votre rang, vos lanes et vos héros, et parcourez celles des autres joueurs.",
+      "text": "Pubblica una scheda « cerco » con la tua regione, il tuo rango, le tue lane e i tuoi eroi, e sfoglia quelle degli altri giocatori."
+    },
+    "pages.community.teammatesCta": {
+      "fr": "Voir les joueurs",
+      "text": "Vedi i giocatori"
+    },
+    "pages.community.search": {
+      "fr": "Rechercher",
+      "text": "Cerca"
+    },
+    "pages.community.searchLabel": {
+      "fr": "Rechercher dans le forum",
+      "text": "Cerca nel forum"
+    },
+    "pages.community.searchPlaceholder": {
+      "fr": "Rechercher dans le forum…",
+      "text": "Cerca nel forum…"
+    },
+    "pages.community.searchTitle": {
+      "fr": "Recherche dans le forum",
+      "text": "Ricerca nel forum"
+    },
+    "pages.community.searchLead": {
+      "fr": "Les discussions dont le titre, le texte ou une réponse contiennent vos mots. Des guillemets pour une expression exacte, un tiret pour exclure un mot.",
+      "text": "Le discussioni il cui titolo, testo o una risposta contengono le tue parole. Le virgolette per un'espressione esatta, un trattino per escludere una parola."
+    },
+    "pages.community.searchLeadCategory": {
+      "fr": "Recherche dans la catégorie {name}.",
+      "text": "Ricerca nella categoria {name}."
+    },
+    "pages.community.searchResults": {
+      "fr": "{n} discussion(s) pour « {query} »",
+      "text": "{n} discussione/i per « {query} »"
+    },
+    "pages.community.searchEmpty": {
+      "fr": "Aucune discussion ne correspond. Essayez d'autres mots, ou moins de mots.",
+      "text": "Nessuna discussione corrisponde. Prova altre parole, o meno parole."
+    },
+    "pages.community.searchHint": {
+      "fr": "Tapez un ou plusieurs mots : un héros, un objet, une question.",
+      "text": "Digita una o più parole: un eroe, un oggetto, una domanda."
+    },
+    "pages.community.rules.title": {
+      "fr": "Règles du forum",
+      "text": "Regole del forum"
+    },
+    "pages.community.rules.respect": {
+      "fr": "Restez courtois : pas d'insulte, de harcèlement ni de propos haineux.",
+      "text": "Resta cortese: niente insulti, molestie o discorsi d'odio."
+    },
+    "pages.community.rules.noSpam": {
+      "fr": "Pas de publicité, de vente de comptes ni de « diamants gratuits » : ce sont des arnaques.",
+      "text": "Niente pubblicità, vendita di account o « diamanti gratis »: sono truffe."
+    },
+    "pages.community.rules.privacy": {
+      "fr": "Ne publiez pas les informations personnelles d'autrui.",
+      "text": "Non pubblicare informazioni personali altrui."
+    },
+    "pages.community.rules.newAccounts": {
+      "fr": "Les comptes nouveaux sur le forum ont des limites plus basses et ne peuvent pas publier de liens pendant trois jours.",
+      "text": "Gli account nuovi sul forum hanno limiti più bassi e non possono pubblicare link per tre giorni."
+    },
+    "pages.community.rules.report": {
+      "fr": "Un message pose problème ? Signalez-le : les modérateurs le verront, et plusieurs signalements le masquent en attendant.",
+      "text": "Un messaggio è un problema? Segnalalo: i moderatori lo vedranno, e più segnalazioni lo nascondono nel frattempo."
+    },
+    "pages.community.teammates.title": {
+      "fr": "Trouver des coéquipiers",
+      "text": "Trova compagni di squadra"
+    },
+    "pages.community.teammates.lead": {
+      "fr": "Des joueurs qui cherchent un duo, un trio ou une équipe, par région, rang, lane et langue. Chaque carte reste en ligne sept jours ; une seule par compte.",
+      "text": "Giocatori che cercano un duo, un trio o una squadra, per regione, rango, lane e lingua. Ogni scheda resta online sette giorni; una per account."
+    },
+    "pages.community.teammates.seoTitle": {
+      "fr": "Trouver des coéquipiers Mobile Legends",
+      "text": "Trova compagni di squadra per Mobile Legends"
+    },
+    "pages.community.teammates.seoDescription": {
+      "fr": "Joueurs de Mobile Legends à la recherche d'un duo ou d'une équipe : filtrez par région, rang, lane et langue, et publiez votre propre carte.",
+      "text": "Giocatori di Mobile Legends in cerca di un duo o di una squadra: filtra per regione, rango, lane e lingua, e pubblica la tua scheda."
+    },
+    "pages.community.teammates.ownTitle": {
+      "fr": "Votre carte",
+      "text": "La tua scheda"
+    },
+    "pages.community.teammates.signInToPost": {
+      "fr": "avec votre compte de jeu pour publier votre carte et voir les contacts.",
+      "text": "con il tuo account di gioco per pubblicare la tua scheda e vedere i contatti."
+    },
+    "pages.community.teammates.listTitle": {
+      "fr": "{n} joueur(s) disponible(s)",
+      "text": "{n} giocatore/i disponibile/i"
+    },
+    "pages.community.teammates.any": {
+      "fr": "Tous",
+      "text": "Tutti"
+    },
+    "pages.community.teammates.lane": {
+      "fr": "Lane",
+      "text": "Lane"
+    },
+    "pages.community.teammates.language": {
+      "fr": "Langue",
+      "text": "Lingua"
+    },
+    "pages.community.teammates.filter": {
+      "fr": "Filtrer",
+      "text": "Filtra"
+    },
+    "pages.community.teammates.reset": {
+      "fr": "Tout afficher",
+      "text": "Mostra tutto"
+    },
+    "pages.community.teammates.empty": {
+      "fr": "Aucune carte ne correspond pour l'instant. Élargissez les filtres, ou publiez la vôtre.",
+      "text": "Nessuna scheda corrisponde per ora. Allarga i filtri, o pubblica la tua."
+    },
+    "pages.community.teammates.speaks": {
+      "fr": "Langues",
+      "text": "Lingue"
+    },
+    "pages.community.teammates.plays": {
+      "fr": "Joue",
+      "text": "Gioca"
+    },
+    "pages.community.teammates.gameId": {
+      "fr": "ID de jeu",
+      "text": "ID di gioco"
+    },
+    "pages.community.teammates.signInForContact": {
+      "fr": "pour voir le contact.",
+      "text": "per vedere il contatto."
+    },
+    "pages.community.teammates.noContact": {
+      "fr": "Pas de contact partagé : répondez-lui sur le forum ou le Discord.",
+      "text": "Nessun contatto condiviso: contattalo sul forum o sul Discord."
+    },
+    "pages.community.teammates.discordText": {
+      "fr": "Sur le serveur Discord MLBBDex, le salon de recherche de coéquipiers tourne en continu.",
+      "text": "Sul server Discord di MLBBDex, il canale di ricerca squadra non si ferma mai."
+    },
+    "pages.community.moderation.title": {
+      "fr": "Modération de la communauté",
+      "text": "Moderazione della community"
+    },
+    "pages.community.moderation.lead": {
+      "fr": "Les signalements ouverts, les comptes bannis et le journal des décisions. Chaque action ferme les signalements de sa cible et est enregistrée.",
+      "text": "Le segnalazioni aperte, gli account bannati e il registro delle decisioni. Ogni azione chiude le segnalazioni del suo obiettivo e viene registrata."
+    },
+    "pages.community.moderation.queue": {
+      "fr": "À traiter ({n})",
+      "text": "Da esaminare ({n})"
+    },
+    "pages.community.moderation.queueEmpty": {
+      "fr": "Aucun signalement ouvert.",
+      "text": "Nessuna segnalazione aperta."
+    },
+    "pages.community.moderation.kinds.thread": {
+      "fr": "Discussion",
+      "text": "Discussione"
+    },
+    "pages.community.moderation.kinds.post": {
+      "fr": "Réponse",
+      "text": "Risposta"
+    },
+    "pages.community.moderation.kinds.card": {
+      "fr": "Carte coéquipier",
+      "text": "Scheda compagno"
+    },
+    "pages.community.moderation.banned": {
+      "fr": "auteur banni",
+      "text": "autore bannato"
+    },
+    "pages.community.moderation.hidden": {
+      "fr": "masqué",
+      "text": "nascosto"
+    },
+    "pages.community.moderation.open": {
+      "fr": "Voir sur le site",
+      "text": "Vedi sul sito"
+    },
+    "pages.community.moderation.bannedTitle": {
+      "fr": "Comptes bannis ({n})",
+      "text": "Account bannati ({n})"
+    },
+    "pages.community.moderation.bannedEmpty": {
+      "fr": "Aucun compte banni.",
+      "text": "Nessun account bannato."
+    },
+    "pages.community.moderation.until": {
+      "fr": "jusqu'au {date}",
+      "text": "fino al {date}"
+    },
+    "pages.community.moderation.forever": {
+      "fr": "définitivement",
+      "text": "definitivamente"
+    },
+    "pages.community.moderation.logTitle": {
+      "fr": "Journal de modération",
+      "text": "Registro di moderazione"
+    },
+    "pages.community.moderation.logEmpty": {
+      "fr": "Aucune décision pour l'instant.",
+      "text": "Ancora nessuna decisione."
+    },
+    "pages.community.moderation.when": {
+      "fr": "Quand",
+      "text": "Quando"
+    },
+    "pages.community.moderation.who": {
+      "fr": "Modérateur",
+      "text": "Moderatore"
+    },
+    "pages.community.moderation.what": {
+      "fr": "Action",
+      "text": "Azione"
+    },
+    "pages.community.moderation.note": {
+      "fr": "Note",
+      "text": "Nota"
+    },
+    "pages.community.moderation.actions.hide": {
+      "fr": "Masquer",
+      "text": "Nascondi"
+    },
+    "pages.community.moderation.actions.unhide": {
+      "fr": "Réafficher",
+      "text": "Mostra di nuovo"
+    },
+    "pages.community.moderation.actions.delete": {
+      "fr": "Supprimer",
+      "text": "Elimina"
+    },
+    "pages.community.moderation.actions.lock": {
+      "fr": "Verrouiller",
+      "text": "Blocca"
+    },
+    "pages.community.moderation.actions.unlock": {
+      "fr": "Déverrouiller",
+      "text": "Sblocca"
+    },
+    "pages.community.moderation.actions.pin": {
+      "fr": "Épingler",
+      "text": "Fissa"
+    },
+    "pages.community.moderation.actions.unpin": {
+      "fr": "Désépingler",
+      "text": "Rimuovi dai fissati"
+    },
+    "pages.community.moderation.actions.ban": {
+      "fr": "Bannir",
+      "text": "Banna"
+    },
+    "pages.community.moderation.actions.unban": {
+      "fr": "Lever le bannissement",
+      "text": "Revoca il ban"
+    },
+    "pages.community.moderation.actions.dismiss": {
+      "fr": "Classer sans suite",
+      "text": "Archivia"
+    },
+    "pages.communityUI.votes": {
+      "fr": "{n} vote(s)",
+      "text": "{n} voto/i"
+    },
+    "pages.communityUI.upvote": {
+      "fr": "Voter pour ce message",
+      "text": "Vota questo messaggio"
+    },
+    "pages.communityUI.unvote": {
+      "fr": "Retirer mon vote",
+      "text": "Ritira il mio voto"
+    },
+    "pages.communityUI.signInToVote": {
+      "fr": "Connectez-vous pour voter",
+      "text": "Accedi per votare"
+    },
+    "pages.communityUI.signIn": {
+      "fr": "Se connecter",
+      "text": "Accedi"
+    },
+    "pages.communityUI.edit": {
+      "fr": "Modifier",
+      "text": "Modifica"
+    },
+    "pages.communityUI.editing": {
+      "fr": "Modification du message",
+      "text": "Modifica del messaggio"
+    },
+    "pages.communityUI.delete": {
+      "fr": "Supprimer",
+      "text": "Elimina"
+    },
+    "pages.communityUI.cancel": {
+      "fr": "Annuler",
+      "text": "Annulla"
+    },
+    "pages.communityUI.save": {
+      "fr": "Enregistrer",
+      "text": "Salva"
+    },
+    "pages.communityUI.sending": {
+      "fr": "Envoi…",
+      "text": "Invio…"
+    },
+    "pages.communityUI.confirmDeleteThread": {
+      "fr": "Supprimer cette discussion ? Ses réponses ne seront plus affichées.",
+      "text": "Eliminare questa discussione? Le sue risposte non saranno più mostrate."
+    },
+    "pages.communityUI.confirmDeleteReply": {
+      "fr": "Supprimer cette réponse ?",
+      "text": "Eliminare questa risposta?"
+    },
+    "pages.communityUI.newThread": {
+      "fr": "Nouvelle discussion",
+      "text": "Nuova discussione"
+    },
+    "pages.communityUI.titleLabel": {
+      "fr": "Titre",
+      "text": "Titolo"
+    },
+    "pages.communityUI.bodyLabel": {
+      "fr": "Message",
+      "text": "Messaggio"
+    },
+    "pages.communityUI.replyLabel": {
+      "fr": "Votre réponse",
+      "text": "La tua risposta"
+    },
+    "pages.communityUI.markdownHint": {
+      "fr": "Markdown : **gras**, *italique*, `code`, > citation, - liste, [lien](https://…). Pas de HTML ni d'image.",
+      "text": "Markdown: **grassetto**, *corsivo*, `code`, > citazione, - elenco, [link](https://…). Niente HTML né immagini."
+    },
+    "pages.communityUI.heroesLabel": {
+      "fr": "Héros concernés",
+      "text": "Eroi interessati"
+    },
+    "pages.communityUI.heroesHint": {
+      "fr": "Jusqu'à {n} héros, affichés en étiquettes vers leur fiche.",
+      "text": "Fino a {n} eroi, mostrati come etichette verso la loro scheda."
+    },
+    "pages.communityUI.heroPlaceholder": {
+      "fr": "Nom d'un héros…",
+      "text": "Nome di un eroe…"
+    },
+    "pages.communityUI.removeHero": {
+      "fr": "Retirer {name}",
+      "text": "Rimuovi {name}"
+    },
+    "pages.communityUI.publishThread": {
+      "fr": "Publier la discussion",
+      "text": "Pubblica la discussione"
+    },
+    "pages.communityUI.publishReply": {
+      "fr": "Répondre",
+      "text": "Rispondi"
+    },
+    "pages.communityUI.report.open": {
+      "fr": "Signaler",
+      "text": "Segnala"
+    },
+    "pages.communityUI.report.title": {
+      "fr": "Pourquoi signaler ce contenu ?",
+      "text": "Perché segnali questo contenuto?"
+    },
+    "pages.communityUI.report.reasons.spam": {
+      "fr": "Spam ou arnaque",
+      "text": "Spam o truffa"
+    },
+    "pages.communityUI.report.reasons.abuse": {
+      "fr": "Insulte, harcèlement, haine",
+      "text": "Insulti, molestie, odio"
+    },
+    "pages.communityUI.report.reasons.offtopic": {
+      "fr": "Hors sujet",
+      "text": "Fuori tema"
+    },
+    "pages.communityUI.report.reasons.personal": {
+      "fr": "Informations personnelles",
+      "text": "Informazioni personali"
+    },
+    "pages.communityUI.report.reasons.other": {
+      "fr": "Autre",
+      "text": "Altro"
+    },
+    "pages.communityUI.report.note": {
+      "fr": "Précision (facultatif)",
+      "text": "Dettagli (facoltativo)"
+    },
+    "pages.communityUI.report.send": {
+      "fr": "Envoyer le signalement",
+      "text": "Invia la segnalazione"
+    },
+    "pages.communityUI.report.sent": {
+      "fr": "Signalement envoyé, merci.",
+      "text": "Segnalazione inviata, grazie."
+    },
+    "pages.communityUI.errors.signIn": {
+      "fr": "Votre session a expiré : reconnectez-vous.",
+      "text": "La tua sessione è scaduta: accedi di nuovo."
+    },
+    "pages.communityUI.errors.tooFast": {
+      "fr": "Trop de messages d'un coup : patientez une minute.",
+      "text": "Troppi messaggi in una volta: aspetta un minuto."
+    },
+    "pages.communityUI.errors.day": {
+      "fr": "Limite quotidienne atteinte : revenez demain.",
+      "text": "Limite giornaliero raggiunto: torna domani."
+    },
+    "pages.communityUI.errors.duplicate": {
+      "fr": "Vous venez de publier ce même texte.",
+      "text": "Hai appena pubblicato questo stesso testo."
+    },
+    "pages.communityUI.errors.blocked": {
+      "fr": "Ce texte contient un terme refusé sur le forum.",
+      "text": "Questo testo contiene un termine rifiutato dal forum."
+    },
+    "pages.communityUI.errors.spam": {
+      "fr": "Ce texte ressemble à du spam (lien raccourci, invitation, arnaque aux diamants).",
+      "text": "Questo testo sembra spam (link abbreviato, invito, truffa dei diamanti)."
+    },
+    "pages.communityUI.errors.links": {
+      "fr": "Trop de liens : {n} au plus par message.",
+      "text": "Troppi link: al massimo {n} per messaggio."
+    },
+    "pages.communityUI.errors.newAccountLinks": {
+      "fr": "Les comptes nouveaux sur le forum ne peuvent pas encore publier de liens.",
+      "text": "Gli account nuovi sul forum non possono ancora pubblicare link."
+    },
+    "pages.communityUI.errors.banned": {
+      "fr": "Votre compte ne peut plus participer à la communauté.",
+      "text": "Il tuo account non può più partecipare alla community."
+    },
+    "pages.communityUI.errors.window": {
+      "fr": "Le délai pour modifier ou supprimer ce message est passé.",
+      "text": "Il tempo per modificare o eliminare questo messaggio è scaduto."
+    },
+    "pages.communityUI.errors.locked": {
+      "fr": "Cette discussion est verrouillée.",
+      "text": "Questa discussione è bloccata."
+    },
+    "pages.communityUI.errors.hidden": {
+      "fr": "Ce contenu est masqué par la modération.",
+      "text": "Questo contenuto è nascosto dalla moderazione."
+    },
+    "pages.communityUI.errors.unknown": {
+      "fr": "Ce contenu n'existe plus.",
+      "text": "Questo contenuto non esiste più."
+    },
+    "pages.communityUI.errors.title": {
+      "fr": "Le titre doit faire entre {min} et {max} caractères.",
+      "text": "Il titolo deve avere tra {min} e {max} caratteri."
+    },
+    "pages.communityUI.errors.body": {
+      "fr": "Le message doit faire entre {min} et {max} caractères.",
+      "text": "Il messaggio deve avere tra {min} e {max} caratteri."
+    },
+    "pages.communityUI.errors.invalid": {
+      "fr": "Envoi refusé : vérifiez les champs.",
+      "text": "Invio rifiutato: controlla i campi."
+    },
+    "pages.communityUI.errors.unavailable": {
+      "fr": "Service momentanément indisponible. Réessayez dans un instant.",
+      "text": "Servizio momentaneamente non disponibile. Riprova tra poco."
+    },
+    "pages.communityUI.regions.id": {
+      "fr": "Indonésie",
+      "text": "Indonesia"
+    },
+    "pages.communityUI.regions.ph": {
+      "fr": "Philippines",
+      "text": "Filippine"
+    },
+    "pages.communityUI.regions.mysg": {
+      "fr": "Malaisie et Singapour",
+      "text": "Malesia e Singapore"
+    },
+    "pages.communityUI.regions.sea": {
+      "fr": "Autre Asie du Sud-Est",
+      "text": "Altro Sud-est asiatico"
+    },
+    "pages.communityUI.regions.asia": {
+      "fr": "Autre Asie",
+      "text": "Altra Asia"
+    },
+    "pages.communityUI.regions.mena": {
+      "fr": "Moyen-Orient et Afrique du Nord",
+      "text": "Medio Oriente e Nord Africa"
+    },
+    "pages.communityUI.regions.eu": {
+      "fr": "Europe",
+      "text": "Europa"
+    },
+    "pages.communityUI.regions.na": {
+      "fr": "Amérique du Nord",
+      "text": "Nord America"
+    },
+    "pages.communityUI.regions.latam": {
+      "fr": "Amérique latine",
+      "text": "America Latina"
+    },
+    "pages.communityUI.regions.other": {
+      "fr": "Autre",
+      "text": "Altro"
+    },
+    "pages.communityUI.playTimes.morning": {
+      "fr": "Le matin",
+      "text": "Di mattina"
+    },
+    "pages.communityUI.playTimes.afternoon": {
+      "fr": "L'après-midi",
+      "text": "Di pomeriggio"
+    },
+    "pages.communityUI.playTimes.evening": {
+      "fr": "Le soir",
+      "text": "Di sera"
+    },
+    "pages.communityUI.playTimes.night": {
+      "fr": "La nuit",
+      "text": "A notte fonda"
+    },
+    "pages.communityUI.playTimes.weekdays": {
+      "fr": "En semaine",
+      "text": "Nei giorni feriali"
+    },
+    "pages.communityUI.playTimes.weekends": {
+      "fr": "Le week-end",
+      "text": "Nel weekend"
+    },
+    "pages.communityUI.teammates.newCard": {
+      "fr": "Publier ma carte",
+      "text": "Pubblica la mia scheda"
+    },
+    "pages.communityUI.teammates.editCard": {
+      "fr": "Modifier ou renouveler ma carte",
+      "text": "Modifica o rinnova la mia scheda"
+    },
+    "pages.communityUI.teammates.deleteCard": {
+      "fr": "Retirer ma carte",
+      "text": "Ritira la mia scheda"
+    },
+    "pages.communityUI.teammates.confirmDelete": {
+      "fr": "Retirer votre carte ?",
+      "text": "Ritirare la tua scheda?"
+    },
+    "pages.communityUI.teammates.cardListed": {
+      "fr": "Votre carte est en ligne jusqu'au {date}. L'enregistrer à nouveau la prolonge de sept jours.",
+      "text": "La tua scheda è online fino al {date}. Salvarla di nuovo la prolunga di sette giorni."
+    },
+    "pages.communityUI.teammates.cardHidden": {
+      "fr": "Votre carte a été masquée par la modération.",
+      "text": "La tua scheda è stata nascosta dalla moderazione."
+    },
+    "pages.communityUI.teammates.region": {
+      "fr": "Région",
+      "text": "Regione"
+    },
+    "pages.communityUI.teammates.rank": {
+      "fr": "Rang",
+      "text": "Rango"
+    },
+    "pages.communityUI.teammates.choose": {
+      "fr": "Choisir…",
+      "text": "Scegli…"
+    },
+    "pages.communityUI.teammates.lanes": {
+      "fr": "Lanes jouées",
+      "text": "Lane giocate"
+    },
+    "pages.communityUI.teammates.heroes": {
+      "fr": "Héros favoris",
+      "text": "Eroi preferiti"
+    },
+    "pages.communityUI.teammates.heroesHint": {
+      "fr": "Jusqu'à {n} héros.",
+      "text": "Fino a {n} eroi."
+    },
+    "pages.communityUI.teammates.languages": {
+      "fr": "Langues parlées ({n} au plus)",
+      "text": "Lingue parlate (al massimo {n})"
+    },
+    "pages.communityUI.teammates.playTimes": {
+      "fr": "Quand vous jouez",
+      "text": "Quando giochi"
+    },
+    "pages.communityUI.teammates.note": {
+      "fr": "Ce que vous cherchez (facultatif, sans lien)",
+      "text": "Cosa cerchi (facoltativo, senza link)"
+    },
+    "pages.communityUI.teammates.contact": {
+      "fr": "Contact (facultatif)",
+      "text": "Contatto (facoltativo)"
+    },
+    "pages.communityUI.teammates.gameId": {
+      "fr": "ID de jeu et serveur",
+      "text": "ID di gioco e server"
+    },
+    "pages.communityUI.teammates.discord": {
+      "fr": "Pseudo Discord",
+      "text": "Nome utente Discord"
+    },
+    "pages.communityUI.teammates.contactNote": {
+      "fr": "Montrés aux seuls joueurs connectés, jamais aux visiteurs ni aux moteurs de recherche. Retirez votre carte pour les effacer.",
+      "text": "Mostrati solo ai giocatori che hanno effettuato l'accesso, mai ai visitatori né ai motori di ricerca. Ritira la scheda per cancellarli."
+    },
+    "pages.communityUI.teammates.publish": {
+      "fr": "Publier pour sept jours",
+      "text": "Pubblica per sette giorni"
+    },
+    "pages.communityUI.teammates.saved": {
+      "fr": "Carte publiée.",
+      "text": "Scheda pubblicata."
+    },
+    "pages.communityUI.teammates.needLanesAndLanguages": {
+      "fr": "Choisissez au moins une lane et une langue.",
+      "text": "Scegli almeno una lane e una lingua."
+    },
+    "pages.communityUI.teammates.errors.gameId": {
+      "fr": "ID de jeu attendu sous la forme 12345678 (1234).",
+      "text": "ID di gioco atteso nel formato 12345678 (1234)."
+    },
+    "pages.communityUI.teammates.errors.discord": {
+      "fr": "Pseudo Discord invalide.",
+      "text": "Nome utente Discord non valido."
+    },
+    "pages.communityUI.teammates.errors.note": {
+      "fr": "Le texte doit faire {max} caractères au plus, sans lien.",
+      "text": "Il testo deve avere al massimo {max} caratteri, senza link."
+    },
+    "pages.communityUI.teammates.errors.hidden": {
+      "fr": "Votre carte a été masquée par la modération : elle ne peut pas être republiée.",
+      "text": "La tua scheda è stata nascosta dalla moderazione: non può essere ripubblicata."
+    },
+    "pages.communityUI.moderation.hide": {
+      "fr": "Masquer",
+      "text": "Nascondi"
+    },
+    "pages.communityUI.moderation.unhide": {
+      "fr": "Réafficher",
+      "text": "Mostra di nuovo"
+    },
+    "pages.communityUI.moderation.delete": {
+      "fr": "Supprimer",
+      "text": "Elimina"
+    },
+    "pages.communityUI.moderation.lock": {
+      "fr": "Verrouiller",
+      "text": "Blocca"
+    },
+    "pages.communityUI.moderation.unlock": {
+      "fr": "Déverrouiller",
+      "text": "Sblocca"
+    },
+    "pages.communityUI.moderation.pin": {
+      "fr": "Épingler",
+      "text": "Fissa"
+    },
+    "pages.communityUI.moderation.unpin": {
+      "fr": "Désépingler",
+      "text": "Rimuovi dai fissati"
+    },
+    "pages.communityUI.moderation.ban": {
+      "fr": "Bannir l'auteur",
+      "text": "Banna l'autore"
+    },
+    "pages.communityUI.moderation.unban": {
+      "fr": "Lever le bannissement",
+      "text": "Revoca il ban"
+    },
+    "pages.communityUI.moderation.dismiss": {
+      "fr": "Classer sans suite",
+      "text": "Archivia le segnalazioni"
+    },
+    "pages.communityUI.moderation.duration": {
+      "fr": "Durée",
+      "text": "Durata"
+    },
+    "pages.communityUI.moderation.days": {
+      "fr": "{n} jour(s)",
+      "text": "{n} giorno/i"
+    },
+    "pages.communityUI.moderation.forever": {
+      "fr": "Définitif",
+      "text": "Definitivo"
+    },
+    "pages.communityUI.moderation.reason": {
+      "fr": "Motif (journal)",
+      "text": "Motivo (registro)"
+    },
+    "pages.communityUI.moderation.confirmBan": {
+      "fr": "Confirmer le bannissement",
+      "text": "Conferma il ban"
+    },
+    "pages.communityUI.moderation.confirmDelete": {
+      "fr": "Supprimer définitivement ce contenu ?",
+      "text": "Eliminare definitivamente questo contenuto?"
+    },
+    "pages.communityUI.moderation.failed": {
+      "fr": "L'action a échoué : rechargez la page.",
+      "text": "L'azione non è riuscita: ricarica la pagina."
+    },
+    "prose.community.title": {
+      "fr": "Communauté : forum et recherche de coéquipiers",
+      "text": "Community: forum e ricerca compagni di squadra"
+    },
+    "prose.community.intro": {
+      "fr": "Si vous écrivez dans la communauté (forum, votes, signalements, carte de recherche de coéquipiers), le serveur du site conserve, dans sa base de données :",
+      "text": "Se partecipi alla community (forum, voti, segnalazioni, scheda per trovare compagni), il server del sito conserva, nel suo database:"
+    },
+    "prose.community.account": {
+      "fr": "un identifiant de compte dérivé (une empreinte de votre ID de jeu et de votre serveur, jamais l'ID lui-même), votre pseudo de jeu, et la date de votre première participation ;",
+      "text": "un identificativo di account derivato (un'impronta del tuo ID di gioco e del server, mai l'ID stesso), il tuo nome in gioco e la data della tua prima partecipazione;"
+    },
+    "prose.community.posts": {
+      "fr": "vos discussions et réponses, publiques, avec leur date ; vos votes et vos signalements, qui ne sont montrés à personne d'autre que les modérateurs (les signalements) ;",
+      "text": "le tue discussioni e risposte, pubbliche, con la loro data; i tuoi voti e le tue segnalazioni, mostrati solo ai moderatori (le segnalazioni);"
+    },
+    "prose.community.card": {
+      "fr": "votre carte de recherche de coéquipiers, et, si vous les ajoutez, votre ID de jeu et votre pseudo Discord : ils ne sont montrés qu'aux joueurs connectés, et la carte est effacée sept jours après son dernier enregistrement.",
+      "text": "la tua scheda per trovare compagni e, se li aggiungi, il tuo ID di gioco e il tuo nome utente Discord: sono mostrati solo ai giocatori che hanno effettuato l'accesso, e la scheda viene cancellata sette giorni dopo l'ultimo salvataggio."
+    },
+    "prose.community.moderation": {
+      "fr": "Les modérateurs voient les signalements et peuvent masquer, supprimer ou bannir ; chacune de leurs décisions est consignée dans un journal. Les limites de débit utilisent votre adresse IP, en mémoire seulement, quelques minutes.",
+      "text": "I moderatori vedono le segnalazioni e possono nascondere, eliminare o bannare; ogni loro decisione viene annotata in un registro. I limiti di frequenza usano il tuo indirizzo IP, solo in memoria, per qualche minuto."
+    },
+    "prose.community.deletion": {
+      "fr": "Vous pouvez modifier un message pendant une heure et le supprimer pendant une journée, retirer votre carte à tout moment. Au-delà, ou pour effacer toute votre participation, écrivez à {contact}.",
+      "text": "Puoi modificare un messaggio per un'ora ed eliminarlo per un giorno, e ritirare la tua scheda in qualsiasi momento. Oltre, o per cancellare tutta la tua partecipazione, scrivi a {contact}."
+    },
+    "prose.privacy.blocks.0.p": {
+      "fr": "Ce site est conçu pour conserver le moins de données possible. La plupart des pages fonctionnent sans rien enregistrer sur un serveur ; seules les fonctions que vous choisissez d'utiliser (connexion au compte de jeu, communauté, notifications, bot Discord) gardent ce qu'elles décrivent plus bas. Cette page détaille ce qui est traité, et où.",
+      "text": "Questo sito è pensato per conservare meno dati possibile. La maggior parte delle pagine funziona senza registrare nulla su un server; solo le funzioni che scegli di usare (accesso con l'account di gioco, community, notifiche, bot Discord) conservano ciò che descrivono più sotto. Questa pagina spiega cosa viene trattato, e dove."
+    },
+    "prose.privacy.blocks.15.p": {
+      "fr": "Vous gardez la main sur ce qui vit dans votre navigateur (favoris, session) en vous déconnectant ou en effaçant les données du site. Pour consulter ou supprimer ce que le serveur conserve sur vous (communauté, notifications, bot Discord), ou pour toute question, écrivez à [{contact}](mailto:{contact}).",
+      "text": "Mantieni il controllo su ciò che vive nel tuo browser (preferiti, sessione) disconnettendoti o cancellando i dati del sito. Per consultare o eliminare ciò che il server conserva su di te (community, notifiche, bot Discord), o per qualsiasi domanda, scrivi a [{contact}](mailto:{contact})."
     }
   }
 }

@@ -232,7 +232,8 @@
     "intro": "Héros, builds et contres par rang, tier list calculée sur les taux de victoire en classé, objets, emblèmes et patch notes de Mobile Legends: Bang Bang, en français, anglais, italien, espagnol et indonésien. Projet indépendant, ouvert aux contributions.",
     "sources": "Données de jeu issues du wiki Mobile Legends (CC BY-SA). Taux de victoire, de ban et de sélection, contres et builds les plus joués viennent des statistiques de parties classées du jeu, via l'API communautaire arena.rone.dev.",
     "discord": "Rejoindre le Discord",
-    "bot": "Bot Discord"
+    "bot": "Bot Discord",
+    "community": "Communauté"
   },
   "language": {
     "choose": "Langue",
@@ -4149,6 +4150,279 @@
         "social": "Réseau social seul",
         "none": "Invité, sans liaison"
       }
+    },
+    "community": {
+      "title": "Communauté",
+      "lead": "Le forum des joueurs de MLBBDex : questions, builds, aide en classé, esport et guides, plus un tableau pour trouver des coéquipiers. Lecture libre, connexion avec votre compte de jeu pour écrire.",
+      "seo": {
+        "title": "Forum Mobile Legends et recherche de coéquipiers",
+        "description": "Le forum de la communauté MLBBDex : héros et builds, aide en classé, esport, guides de joueurs, et des joueurs de Mobile Legends à rejoindre par région, rang et lane.",
+        "categoryTitle": "{name} – forum Mobile Legends",
+        "threadTitle": "{title} – forum MLBB"
+      },
+      "categories": {
+        "general": {
+          "name": "Général",
+          "description": "Tout ce qui touche au jeu et ne rentre pas ailleurs."
+        },
+        "heroes-builds": {
+          "name": "Héros et builds",
+          "description": "Objets, emblèmes, combos et matchs à la loupe, héros par héros."
+        },
+        "ranked-help": {
+          "name": "Aide en classé",
+          "description": "Monter de rang : draft, rôles, rotations, mental."
+        },
+        "esports": {
+          "name": "Esport",
+          "description": "MPL, MSC, Mondiaux : matchs, équipes et picks des pros."
+        },
+        "guides": {
+          "name": "Guides de joueurs",
+          "description": "Vos guides détaillés : un héros, une lane, une mécanique."
+        },
+        "site-feedback": {
+          "name": "Bugs et avis sur le site",
+          "description": "Un bug, une donnée fausse, une idée pour MLBBDex : dites-le ici."
+        }
+      },
+      "categoriesTitle": "Catégories",
+      "latestTitle": "Dernières discussions",
+      "emptyAll": "Aucune discussion pour l'instant : lancez la première.",
+      "emptyCategory": "Aucune discussion dans cette catégorie pour l'instant.",
+      "threadCount": "{n} discussion(s)",
+      "replies": "{n} réponse(s)",
+      "pinned": "Épinglée",
+      "locked": "Verrouillée",
+      "edited": "modifié",
+      "sortLabel": "Ordre des discussions",
+      "sort": {
+        "latest": "Récentes",
+        "top": "Les plus votées"
+      },
+      "signIn": "Connectez-vous",
+      "signInToPost": "avec votre compte de jeu pour lancer une discussion.",
+      "signInToReply": "avec votre compte de jeu pour répondre.",
+      "postingAs": "Vous écrivez en tant que {name}.",
+      "threadLead": "Lancée par {name} dans {category}.",
+      "openingPost": "Message d'ouverture",
+      "noReplies": "Pas encore de réponse.",
+      "replyTitle": "Répondre",
+      "replyDeleted": "Message supprimé par son auteur.",
+      "replyHidden": "Message masqué en attendant la modération.",
+      "lockedNotice": "Cette discussion est verrouillée : on ne peut plus y répondre.",
+      "backToCategory": "Retour à {name}",
+      "moderationBar": "Modération",
+      "moderate": "Modérer",
+      "hiddenForModerators": "Masqué : visible des seuls modérateurs.",
+      "unavailable": "La communauté est momentanément indisponible. Réessayez dans un instant.",
+      "discordText": "Vous préférez discuter en direct ? Le serveur Discord MLBBDex a aussi ses salons d'entraide et de recherche de coéquipiers.",
+      "discordJoin": "Rejoindre le Discord",
+      "teammatesTitle": "Trouver des coéquipiers",
+      "teammatesLead": "Publiez une carte « je cherche » avec votre région, votre rang, vos lanes et vos héros, et parcourez celles des autres joueurs.",
+      "teammatesCta": "Voir les joueurs",
+      "search": "Rechercher",
+      "searchLabel": "Rechercher dans le forum",
+      "searchPlaceholder": "Rechercher dans le forum…",
+      "searchTitle": "Recherche dans le forum",
+      "searchLead": "Les discussions dont le titre, le texte ou une réponse contiennent vos mots. Des guillemets pour une expression exacte, un tiret pour exclure un mot.",
+      "searchLeadCategory": "Recherche dans la catégorie {name}.",
+      "searchResults": "{n} discussion(s) pour « {query} »",
+      "searchEmpty": "Aucune discussion ne correspond. Essayez d'autres mots, ou moins de mots.",
+      "searchHint": "Tapez un ou plusieurs mots : un héros, un objet, une question.",
+      "rules": {
+        "title": "Règles du forum",
+        "respect": "Restez courtois : pas d'insulte, de harcèlement ni de propos haineux.",
+        "noSpam": "Pas de publicité, de vente de comptes ni de « diamants gratuits » : ce sont des arnaques.",
+        "privacy": "Ne publiez pas les informations personnelles d'autrui.",
+        "newAccounts": "Les comptes nouveaux sur le forum ont des limites plus basses et ne peuvent pas publier de liens pendant trois jours.",
+        "report": "Un message pose problème ? Signalez-le : les modérateurs le verront, et plusieurs signalements le masquent en attendant."
+      },
+      "teammates": {
+        "title": "Trouver des coéquipiers",
+        "lead": "Des joueurs qui cherchent un duo, un trio ou une équipe, par région, rang, lane et langue. Chaque carte reste en ligne sept jours ; une seule par compte.",
+        "seoTitle": "Trouver des coéquipiers Mobile Legends",
+        "seoDescription": "Joueurs de Mobile Legends à la recherche d'un duo ou d'une équipe : filtrez par région, rang, lane et langue, et publiez votre propre carte.",
+        "ownTitle": "Votre carte",
+        "signInToPost": "avec votre compte de jeu pour publier votre carte et voir les contacts.",
+        "listTitle": "{n} joueur(s) disponible(s)",
+        "any": "Tous",
+        "lane": "Lane",
+        "language": "Langue",
+        "filter": "Filtrer",
+        "reset": "Tout afficher",
+        "empty": "Aucune carte ne correspond pour l'instant. Élargissez les filtres, ou publiez la vôtre.",
+        "speaks": "Langues",
+        "plays": "Joue",
+        "gameId": "ID de jeu",
+        "signInForContact": "pour voir le contact.",
+        "noContact": "Pas de contact partagé : répondez-lui sur le forum ou le Discord.",
+        "discordText": "Sur le serveur Discord MLBBDex, le salon de recherche de coéquipiers tourne en continu."
+      },
+      "moderation": {
+        "title": "Modération de la communauté",
+        "lead": "Les signalements ouverts, les comptes bannis et le journal des décisions. Chaque action ferme les signalements de sa cible et est enregistrée.",
+        "queue": "À traiter ({n})",
+        "queueEmpty": "Aucun signalement ouvert.",
+        "kinds": {
+          "thread": "Discussion",
+          "post": "Réponse",
+          "card": "Carte coéquipier"
+        },
+        "banned": "auteur banni",
+        "hidden": "masqué",
+        "open": "Voir sur le site",
+        "bannedTitle": "Comptes bannis ({n})",
+        "bannedEmpty": "Aucun compte banni.",
+        "until": "jusqu'au {date}",
+        "forever": "définitivement",
+        "logTitle": "Journal de modération",
+        "logEmpty": "Aucune décision pour l'instant.",
+        "when": "Quand",
+        "who": "Modérateur",
+        "what": "Action",
+        "note": "Note",
+        "actions": {
+          "hide": "Masquer",
+          "unhide": "Réafficher",
+          "delete": "Supprimer",
+          "lock": "Verrouiller",
+          "unlock": "Déverrouiller",
+          "pin": "Épingler",
+          "unpin": "Désépingler",
+          "ban": "Bannir",
+          "unban": "Lever le bannissement",
+          "dismiss": "Classer sans suite"
+        }
+      }
+    },
+    "communityUI": {
+      "votes": "{n} vote(s)",
+      "upvote": "Voter pour ce message",
+      "unvote": "Retirer mon vote",
+      "signInToVote": "Connectez-vous pour voter",
+      "signIn": "Se connecter",
+      "edit": "Modifier",
+      "editing": "Modification du message",
+      "delete": "Supprimer",
+      "cancel": "Annuler",
+      "save": "Enregistrer",
+      "sending": "Envoi…",
+      "confirmDeleteThread": "Supprimer cette discussion ? Ses réponses ne seront plus affichées.",
+      "confirmDeleteReply": "Supprimer cette réponse ?",
+      "newThread": "Nouvelle discussion",
+      "titleLabel": "Titre",
+      "bodyLabel": "Message",
+      "replyLabel": "Votre réponse",
+      "markdownHint": "Markdown : **gras**, *italique*, `code`, > citation, - liste, [lien](https://…). Pas de HTML ni d'image.",
+      "heroesLabel": "Héros concernés",
+      "heroesHint": "Jusqu'à {n} héros, affichés en étiquettes vers leur fiche.",
+      "heroPlaceholder": "Nom d'un héros…",
+      "removeHero": "Retirer {name}",
+      "publishThread": "Publier la discussion",
+      "publishReply": "Répondre",
+      "report": {
+        "open": "Signaler",
+        "title": "Pourquoi signaler ce contenu ?",
+        "reasons": {
+          "spam": "Spam ou arnaque",
+          "abuse": "Insulte, harcèlement, haine",
+          "offtopic": "Hors sujet",
+          "personal": "Informations personnelles",
+          "other": "Autre"
+        },
+        "note": "Précision (facultatif)",
+        "send": "Envoyer le signalement",
+        "sent": "Signalement envoyé, merci."
+      },
+      "errors": {
+        "signIn": "Votre session a expiré : reconnectez-vous.",
+        "tooFast": "Trop de messages d'un coup : patientez une minute.",
+        "day": "Limite quotidienne atteinte : revenez demain.",
+        "duplicate": "Vous venez de publier ce même texte.",
+        "blocked": "Ce texte contient un terme refusé sur le forum.",
+        "spam": "Ce texte ressemble à du spam (lien raccourci, invitation, arnaque aux diamants).",
+        "links": "Trop de liens : {n} au plus par message.",
+        "newAccountLinks": "Les comptes nouveaux sur le forum ne peuvent pas encore publier de liens.",
+        "banned": "Votre compte ne peut plus participer à la communauté.",
+        "window": "Le délai pour modifier ou supprimer ce message est passé.",
+        "locked": "Cette discussion est verrouillée.",
+        "hidden": "Ce contenu est masqué par la modération.",
+        "unknown": "Ce contenu n'existe plus.",
+        "title": "Le titre doit faire entre {min} et {max} caractères.",
+        "body": "Le message doit faire entre {min} et {max} caractères.",
+        "invalid": "Envoi refusé : vérifiez les champs.",
+        "unavailable": "Service momentanément indisponible. Réessayez dans un instant."
+      },
+      "regions": {
+        "id": "Indonésie",
+        "ph": "Philippines",
+        "mysg": "Malaisie et Singapour",
+        "sea": "Autre Asie du Sud-Est",
+        "asia": "Autre Asie",
+        "mena": "Moyen-Orient et Afrique du Nord",
+        "eu": "Europe",
+        "na": "Amérique du Nord",
+        "latam": "Amérique latine",
+        "other": "Autre"
+      },
+      "playTimes": {
+        "morning": "Le matin",
+        "afternoon": "L'après-midi",
+        "evening": "Le soir",
+        "night": "La nuit",
+        "weekdays": "En semaine",
+        "weekends": "Le week-end"
+      },
+      "teammates": {
+        "newCard": "Publier ma carte",
+        "editCard": "Modifier ou renouveler ma carte",
+        "deleteCard": "Retirer ma carte",
+        "confirmDelete": "Retirer votre carte ?",
+        "cardListed": "Votre carte est en ligne jusqu'au {date}. L'enregistrer à nouveau la prolonge de sept jours.",
+        "cardHidden": "Votre carte a été masquée par la modération.",
+        "region": "Région",
+        "rank": "Rang",
+        "choose": "Choisir…",
+        "lanes": "Lanes jouées",
+        "heroes": "Héros favoris",
+        "heroesHint": "Jusqu'à {n} héros.",
+        "languages": "Langues parlées ({n} au plus)",
+        "playTimes": "Quand vous jouez",
+        "note": "Ce que vous cherchez (facultatif, sans lien)",
+        "contact": "Contact (facultatif)",
+        "gameId": "ID de jeu et serveur",
+        "discord": "Pseudo Discord",
+        "contactNote": "Montrés aux seuls joueurs connectés, jamais aux visiteurs ni aux moteurs de recherche. Retirez votre carte pour les effacer.",
+        "publish": "Publier pour sept jours",
+        "saved": "Carte publiée.",
+        "needLanesAndLanguages": "Choisissez au moins une lane et une langue.",
+        "errors": {
+          "gameId": "ID de jeu attendu sous la forme 12345678 (1234).",
+          "discord": "Pseudo Discord invalide.",
+          "note": "Le texte doit faire {max} caractères au plus, sans lien.",
+          "hidden": "Votre carte a été masquée par la modération : elle ne peut pas être republiée."
+        }
+      },
+      "moderation": {
+        "hide": "Masquer",
+        "unhide": "Réafficher",
+        "delete": "Supprimer",
+        "lock": "Verrouiller",
+        "unlock": "Déverrouiller",
+        "pin": "Épingler",
+        "unpin": "Désépingler",
+        "ban": "Bannir l'auteur",
+        "unban": "Lever le bannissement",
+        "dismiss": "Classer sans suite",
+        "duration": "Durée",
+        "days": "{n} jour(s)",
+        "forever": "Définitif",
+        "reason": "Motif (journal)",
+        "confirmBan": "Confirmer le bannissement",
+        "confirmDelete": "Supprimer définitivement ce contenu ?",
+        "failed": "L'action a échoué : rechargez la page."
+      }
     }
   },
   "modeSheet": {
@@ -4458,7 +4732,7 @@
     "privacy": {
       "blocks": [
         {
-          "p": "Ce site est conçu pour fonctionner sans conserver de données personnelles sur un serveur : il n'a pas de base de données de comptes. Cette page décrit le peu qui est traité, et où."
+          "p": "Ce site est conçu pour conserver le moins de données possible. La plupart des pages fonctionnent sans rien enregistrer sur un serveur ; seules les fonctions que vous choisissez d'utiliser (connexion au compte de jeu, communauté, notifications, bot Discord) gardent ce qu'elles décrivent plus bas. Cette page détaille ce qui est traité, et où."
         },
         {
           "h": "Cookies"
@@ -4505,7 +4779,7 @@
           "h": "Vos droits"
         },
         {
-          "p": "Le site ne constituant aucun fichier de données personnelles, il n'y a rien à consulter, rectifier ou supprimer côté serveur. Vous gardez la main sur ce qui vit dans votre navigateur (favoris, session) en vous déconnectant ou en effaçant les données du site. Pour toute question, écrivez à [{contact}](mailto:{contact})."
+          "p": "Vous gardez la main sur ce qui vit dans votre navigateur (favoris, session) en vous déconnectant ou en effaçant les données du site. Pour consulter ou supprimer ce que le serveur conserve sur vous (communauté, notifications, bot Discord), ou pour toute question, écrivez à [{contact}](mailto:{contact})."
         }
       ]
     },
@@ -4526,6 +4800,15 @@
       "results": "pour les classements des jeux du jour joués dans Discord : l'identifiant et le pseudo Discord des joueurs et leurs scores.",
       "details": "Le détail, la durée de conservation et la suppression sont décrits sur la page de confidentialité du bot.",
       "members": "Rien n'est conservé sur les membres d'un serveur : leurs arrivées et départs, que Discord signale au bot, servent seulement à publier les messages de bienvenue et de départ que le serveur a activés."
+    },
+    "community": {
+      "title": "Communauté : forum et recherche de coéquipiers",
+      "intro": "Si vous écrivez dans la communauté (forum, votes, signalements, carte de recherche de coéquipiers), le serveur du site conserve, dans sa base de données :",
+      "account": "un identifiant de compte dérivé (une empreinte de votre ID de jeu et de votre serveur, jamais l'ID lui-même), votre pseudo de jeu, et la date de votre première participation ;",
+      "posts": "vos discussions et réponses, publiques, avec leur date ; vos votes et vos signalements, qui ne sont montrés à personne d'autre que les modérateurs (les signalements) ;",
+      "card": "votre carte de recherche de coéquipiers, et, si vous les ajoutez, votre ID de jeu et votre pseudo Discord : ils ne sont montrés qu'aux joueurs connectés, et la carte est effacée sept jours après son dernier enregistrement.",
+      "moderation": "Les modérateurs voient les signalements et peuvent masquer, supprimer ou bannir ; chacune de leurs décisions est consignée dans un journal. Les limites de débit utilisent votre adresse IP, en mémoire seulement, quelques minutes.",
+      "deletion": "Vous pouvez modifier un message pendant une heure et le supprimer pendant une journée, retirer votre carte à tout moment. Au-delà, ou pour effacer toute votre participation, écrivez à {contact}."
     }
   },
   "compareUI": {

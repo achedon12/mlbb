@@ -232,7 +232,8 @@
     "intro": "Hero, build, dan counter Mobile Legends: Bang Bang berdasarkan rank, tier list yang dihitung dari win rate ranked, item, emblem, dan patch notes, dalam bahasa Inggris, Prancis, Italia, Spanyol, dan Indonesia. Proyek independen yang terbuka untuk kontribusi.",
     "sources": "Data permainan dari wiki Mobile Legends (CC BY-SA). Win rate, ban dan pengambilan, counter, dan build yang paling banyak dimainkan berasal dari statistik pertandingan peringkat game, melalui API komunitas arena.rone.dev.",
     "discord": "Bergabunglah dengan Perselisihan",
-    "bot": "Bot perselisihan"
+    "bot": "Bot perselisihan",
+    "community": "Komunitas"
   },
   "language": {
     "choose": "Bahasa",
@@ -4149,6 +4150,279 @@
         "social": "Hanya media sosial",
         "none": "Tamu, tanpa binding"
       }
+    },
+    "community": {
+      "title": "Komunitas",
+      "lead": "Forum para pemain MLBBDex: pertanyaan, build, bantuan ranked, esports dan panduan, plus papan untuk mencari rekan tim. Bebas dibaca; masuk dengan akun game kamu untuk menulis.",
+      "seo": {
+        "title": "Forum Mobile Legends dan pencari rekan tim",
+        "description": "Forum komunitas MLBBDex: hero dan build, bantuan ranked, esports, panduan pemain, dan pemain Mobile Legends untuk diajak satu tim berdasarkan region, rank, dan lane.",
+        "categoryTitle": "{name} – forum Mobile Legends",
+        "threadTitle": "{title} – forum MLBB"
+      },
+      "categories": {
+        "general": {
+          "name": "Umum",
+          "description": "Apa saja soal game yang tidak cocok di kategori lain."
+        },
+        "heroes-builds": {
+          "name": "Hero & build",
+          "description": "Item, emblem, combo, dan matchup, hero demi hero."
+        },
+        "ranked-help": {
+          "name": "Bantuan ranked",
+          "description": "Naik rank: draft, role, rotasi, mental."
+        },
+        "esports": {
+          "name": "Esports",
+          "description": "MPL, MSC, Worlds: pertandingan, tim, dan pick para pro."
+        },
+        "guides": {
+          "name": "Panduan pemain",
+          "description": "Panduan lengkap kalian: satu hero, satu lane, satu mekanik."
+        },
+        "site-feedback": {
+          "name": "Bug & masukan untuk situs",
+          "description": "Bug, data yang salah, atau ide untuk MLBBDex: sampaikan di sini."
+        }
+      },
+      "categoriesTitle": "Kategori",
+      "latestTitle": "Diskusi terbaru",
+      "emptyAll": "Belum ada diskusi: mulai yang pertama.",
+      "emptyCategory": "Belum ada diskusi di kategori ini.",
+      "threadCount": "{n} diskusi",
+      "replies": "{n} balasan",
+      "pinned": "Disematkan",
+      "locked": "Dikunci",
+      "edited": "diedit",
+      "sortLabel": "Urutan diskusi",
+      "sort": {
+        "latest": "Terbaru",
+        "top": "Vote terbanyak"
+      },
+      "signIn": "Masuk",
+      "signInToPost": "dengan akun game kamu untuk memulai diskusi.",
+      "signInToReply": "dengan akun game kamu untuk membalas.",
+      "postingAs": "Kamu menulis sebagai {name}.",
+      "threadLead": "Dimulai oleh {name} di {category}.",
+      "openingPost": "Postingan pembuka",
+      "noReplies": "Belum ada balasan.",
+      "replyTitle": "Balas",
+      "replyDeleted": "Pesan dihapus oleh penulisnya.",
+      "replyHidden": "Pesan disembunyikan menunggu moderasi.",
+      "lockedNotice": "Diskusi ini dikunci: tidak bisa dibalas lagi.",
+      "backToCategory": "Kembali ke {name}",
+      "moderationBar": "Moderasi",
+      "moderate": "Moderasi",
+      "hiddenForModerators": "Disembunyikan: hanya terlihat oleh moderator.",
+      "unavailable": "Komunitas sedang tidak tersedia. Coba lagi sebentar lagi.",
+      "discordText": "Lebih suka ngobrol langsung? Server Discord MLBBDex juga punya channel bantuan dan cari tim.",
+      "discordJoin": "Gabung ke Discord",
+      "teammatesTitle": "Cari rekan tim",
+      "teammatesLead": "Pasang kartu \"mencari\" dengan region, rank, lane, dan hero kamu, lalu lihat kartu pemain lain.",
+      "teammatesCta": "Lihat pemain",
+      "search": "Cari",
+      "searchLabel": "Cari di forum",
+      "searchPlaceholder": "Cari di forum…",
+      "searchTitle": "Pencarian forum",
+      "searchLead": "Diskusi yang judul, isi, atau balasannya memuat kata-katamu. Tanda kutip untuk frasa persis, tanda minus untuk mengecualikan kata.",
+      "searchLeadCategory": "Mencari di kategori {name}.",
+      "searchResults": "{n} diskusi untuk \"{query}\"",
+      "searchEmpty": "Tidak ada diskusi yang cocok. Coba kata lain, atau lebih sedikit kata.",
+      "searchHint": "Ketik satu kata atau lebih: hero, item, atau pertanyaan.",
+      "rules": {
+        "title": "Aturan forum",
+        "respect": "Tetap sopan: tanpa hinaan, pelecehan, atau ujaran kebencian.",
+        "noSpam": "Tanpa iklan, jual beli akun, atau \"diamond gratis\": itu penipuan.",
+        "privacy": "Jangan sebarkan informasi pribadi orang lain.",
+        "newAccounts": "Akun yang baru di forum punya batas lebih rendah dan tidak bisa memposting tautan selama tiga hari.",
+        "report": "Ada postingan bermasalah? Laporkan: moderator akan melihatnya, dan beberapa laporan akan menyembunyikannya sementara."
+      },
+      "teammates": {
+        "title": "Cari rekan tim",
+        "lead": "Pemain yang mencari duo, trio, atau tim, berdasarkan region, rank, lane, dan bahasa. Tiap kartu tayang tujuh hari; satu per akun.",
+        "seoTitle": "Cari rekan tim Mobile Legends",
+        "seoDescription": "Pemain Mobile Legends yang mencari duo atau tim: saring berdasarkan region, rank, lane, dan bahasa, lalu pasang kartumu sendiri.",
+        "ownTitle": "Kartu kamu",
+        "signInToPost": "dengan akun game kamu untuk memasang kartu dan melihat kontak.",
+        "listTitle": "{n} pemain tersedia",
+        "any": "Semua",
+        "lane": "Lane",
+        "language": "Bahasa",
+        "filter": "Saring",
+        "reset": "Tampilkan semua",
+        "empty": "Belum ada kartu yang cocok. Perluas saringan, atau pasang kartumu.",
+        "speaks": "Bahasa",
+        "plays": "Main",
+        "gameId": "ID game",
+        "signInForContact": "untuk melihat kontak.",
+        "noContact": "Tidak ada kontak dibagikan: hubungi lewat forum atau Discord.",
+        "discordText": "Di server Discord MLBBDex, channel cari tim selalu ramai."
+      },
+      "moderation": {
+        "title": "Moderasi komunitas",
+        "lead": "Laporan terbuka, akun yang diblokir, dan log keputusan. Setiap tindakan menutup laporan pada targetnya dan dicatat.",
+        "queue": "Perlu ditinjau ({n})",
+        "queueEmpty": "Tidak ada laporan terbuka.",
+        "kinds": {
+          "thread": "Diskusi",
+          "post": "Balasan",
+          "card": "Kartu rekan tim"
+        },
+        "banned": "penulis diblokir",
+        "hidden": "disembunyikan",
+        "open": "Lihat di situs",
+        "bannedTitle": "Akun diblokir ({n})",
+        "bannedEmpty": "Tidak ada akun yang diblokir.",
+        "until": "sampai {date}",
+        "forever": "permanen",
+        "logTitle": "Log moderasi",
+        "logEmpty": "Belum ada keputusan.",
+        "when": "Kapan",
+        "who": "Moderator",
+        "what": "Tindakan",
+        "note": "Catatan",
+        "actions": {
+          "hide": "Sembunyikan",
+          "unhide": "Tampilkan lagi",
+          "delete": "Hapus",
+          "lock": "Kunci",
+          "unlock": "Buka kunci",
+          "pin": "Sematkan",
+          "unpin": "Lepas sematan",
+          "ban": "Blokir",
+          "unban": "Cabut blokir",
+          "dismiss": "Abaikan"
+        }
+      }
+    },
+    "communityUI": {
+      "votes": "{n} vote",
+      "upvote": "Vote postingan ini",
+      "unvote": "Tarik vote saya",
+      "signInToVote": "Masuk untuk memberi vote",
+      "signIn": "Masuk",
+      "edit": "Edit",
+      "editing": "Mengedit postingan",
+      "delete": "Hapus",
+      "cancel": "Batal",
+      "save": "Simpan",
+      "sending": "Mengirim…",
+      "confirmDeleteThread": "Hapus diskusi ini? Balasannya tidak akan ditampilkan lagi.",
+      "confirmDeleteReply": "Hapus balasan ini?",
+      "newThread": "Diskusi baru",
+      "titleLabel": "Judul",
+      "bodyLabel": "Pesan",
+      "replyLabel": "Balasan kamu",
+      "markdownHint": "Markdown: **tebal**, *miring*, `code`, > kutipan, - daftar, [tautan](https://…). Tanpa HTML atau gambar.",
+      "heroesLabel": "Hero terkait",
+      "heroesHint": "Hingga {n} hero, ditampilkan sebagai tag ke halaman mereka.",
+      "heroPlaceholder": "Nama hero…",
+      "removeHero": "Hapus {name}",
+      "publishThread": "Terbitkan diskusi",
+      "publishReply": "Balas",
+      "report": {
+        "open": "Laporkan",
+        "title": "Kenapa melaporkan konten ini?",
+        "reasons": {
+          "spam": "Spam atau penipuan",
+          "abuse": "Hinaan, pelecehan, kebencian",
+          "offtopic": "Di luar topik",
+          "personal": "Informasi pribadi",
+          "other": "Lainnya"
+        },
+        "note": "Keterangan (opsional)",
+        "send": "Kirim laporan",
+        "sent": "Laporan terkirim, terima kasih."
+      },
+      "errors": {
+        "signIn": "Sesi kamu berakhir: masuk lagi.",
+        "tooFast": "Terlalu banyak postingan sekaligus: tunggu semenit.",
+        "day": "Batas harian tercapai: kembali besok.",
+        "duplicate": "Kamu baru saja memposting teks yang sama.",
+        "blocked": "Teks ini memuat istilah yang ditolak forum.",
+        "spam": "Teks ini terlihat seperti spam (tautan pendek, undangan, penipuan diamond).",
+        "links": "Terlalu banyak tautan: maksimal {n} per postingan.",
+        "newAccountLinks": "Akun yang baru di forum belum bisa memposting tautan.",
+        "banned": "Akun kamu tidak bisa lagi berpartisipasi di komunitas.",
+        "window": "Batas waktu untuk mengedit atau menghapus postingan ini sudah lewat.",
+        "locked": "Diskusi ini dikunci.",
+        "hidden": "Konten ini disembunyikan oleh moderasi.",
+        "unknown": "Konten ini sudah tidak ada.",
+        "title": "Judul harus antara {min} dan {max} karakter.",
+        "body": "Pesan harus antara {min} dan {max} karakter.",
+        "invalid": "Ditolak: periksa isian.",
+        "unavailable": "Layanan sedang tidak tersedia. Coba lagi sebentar lagi."
+      },
+      "regions": {
+        "id": "Indonesia",
+        "ph": "Filipina",
+        "mysg": "Malaysia & Singapura",
+        "sea": "Asia Tenggara lainnya",
+        "asia": "Asia lainnya",
+        "mena": "Timur Tengah & Afrika Utara",
+        "eu": "Eropa",
+        "na": "Amerika Utara",
+        "latam": "Amerika Latin",
+        "other": "Lainnya"
+      },
+      "playTimes": {
+        "morning": "Pagi",
+        "afternoon": "Siang",
+        "evening": "Sore",
+        "night": "Malam",
+        "weekdays": "Hari kerja",
+        "weekends": "Akhir pekan"
+      },
+      "teammates": {
+        "newCard": "Pasang kartuku",
+        "editCard": "Edit atau perpanjang kartuku",
+        "deleteCard": "Turunkan kartuku",
+        "confirmDelete": "Turunkan kartumu?",
+        "cardListed": "Kartumu tayang sampai {date}. Menyimpannya lagi memperpanjang tujuh hari.",
+        "cardHidden": "Kartumu disembunyikan oleh moderasi.",
+        "region": "Region",
+        "rank": "Rank",
+        "choose": "Pilih…",
+        "lanes": "Lane yang dimainkan",
+        "heroes": "Hero andalan",
+        "heroesHint": "Hingga {n} hero.",
+        "languages": "Bahasa yang dikuasai (maksimal {n})",
+        "playTimes": "Kapan kamu main",
+        "note": "Yang kamu cari (opsional, tanpa tautan)",
+        "contact": "Kontak (opsional)",
+        "gameId": "ID game dan server",
+        "discord": "Username Discord",
+        "contactNote": "Hanya ditampilkan ke pemain yang masuk, tidak pernah ke pengunjung atau mesin pencari. Turunkan kartumu untuk menghapusnya.",
+        "publish": "Pasang selama tujuh hari",
+        "saved": "Kartu terpasang.",
+        "needLanesAndLanguages": "Pilih minimal satu lane dan satu bahasa.",
+        "errors": {
+          "gameId": "ID game harus berformat 12345678 (1234).",
+          "discord": "Username Discord tidak valid.",
+          "note": "Teks maksimal {max} karakter, tanpa tautan.",
+          "hidden": "Kartumu disembunyikan oleh moderasi: tidak bisa dipasang lagi."
+        }
+      },
+      "moderation": {
+        "hide": "Sembunyikan",
+        "unhide": "Tampilkan lagi",
+        "delete": "Hapus",
+        "lock": "Kunci",
+        "unlock": "Buka kunci",
+        "pin": "Sematkan",
+        "unpin": "Lepas sematan",
+        "ban": "Blokir penulis",
+        "unban": "Cabut blokir",
+        "dismiss": "Abaikan laporan",
+        "duration": "Durasi",
+        "days": "{n} hari",
+        "forever": "Permanen",
+        "reason": "Alasan (log)",
+        "confirmBan": "Konfirmasi blokir",
+        "confirmDelete": "Hapus konten ini secara permanen?",
+        "failed": "Tindakan gagal: muat ulang halaman."
+      }
     }
   },
   "modeSheet": {
@@ -4458,7 +4732,7 @@
     "privacy": {
       "blocks": [
         {
-          "p": "Situs ini dirancang untuk berfungsi tanpa menyimpan data pribadi di server: situs ini tidak memiliki database akun. Halaman ini menjelaskan sedikit data yang diproses, dan di mana."
+          "p": "Situs ini dirancang untuk menyimpan data sesedikit mungkin. Sebagian besar halaman berjalan tanpa menyimpan apa pun di server; hanya fitur yang kamu pilih untuk digunakan (login akun game, komunitas, notifikasi, bot Discord) yang menyimpan apa yang dijelaskan di bawah. Halaman ini merinci apa yang diproses, dan di mana."
         },
         {
           "h": "Cookie"
@@ -4505,7 +4779,7 @@
           "h": "Hak Anda"
         },
         {
-          "p": "Karena situs ini tidak membuat berkas data pribadi apa pun, tidak ada yang perlu diakses, diperbaiki, atau dihapus di sisi server. Anda tetap mengendalikan apa yang ada di browser Anda (favorit, sesi) dengan logout atau menghapus data situs. Untuk pertanyaan apa pun, tulis ke [{contact}](mailto:{contact})."
+          "p": "Kamu tetap memegang kendali atas apa yang ada di browsermu (favorit, sesi) dengan keluar atau menghapus data situs. Untuk melihat atau menghapus apa yang disimpan server tentangmu (komunitas, notifikasi, bot Discord), atau untuk pertanyaan apa pun, kirim email ke [{contact}](mailto:{contact})."
         }
       ]
     },
@@ -4526,6 +4800,15 @@
       "results": "untuk peringkat game hari ini yang dimainkan di Discord: ID Discord para pemain dan nama panggilan serta skor mereka.",
       "details": "Detail, periode penyimpanan, dan penghapusan dijelaskan di halaman privasi bot.",
       "members": "Tidak ada data anggota server yang disimpan: bergabung dan keluarnya mereka, yang diberitahukan Discord ke bot, hanya dipakai untuk memposting pesan sambutan dan perpisahan yang diaktifkan server."
+    },
+    "community": {
+      "title": "Komunitas: forum dan pencari rekan tim",
+      "intro": "Jika kamu berpartisipasi di komunitas (forum, vote, laporan, kartu cari rekan tim), server situs menyimpan di basis datanya:",
+      "account": "ID akun turunan (hash dari ID game dan server kamu, tidak pernah ID itu sendiri), nama dalam game, dan tanggal partisipasi pertamamu;",
+      "posts": "diskusi dan balasanmu, yang bersifat publik, beserta tanggalnya; vote dan laporanmu, yang hanya dilihat moderator (laporan);",
+      "card": "kartu cari rekan timmu dan, jika kamu menambahkannya, ID game dan username Discord: hanya ditampilkan ke pemain yang masuk, dan kartu dihapus tujuh hari setelah terakhir disimpan.",
+      "moderation": "Moderator melihat laporan dan bisa menyembunyikan, menghapus, atau memblokir; setiap keputusan mereka dicatat dalam log. Batas laju memakai alamat IP kamu, hanya di memori, selama beberapa menit.",
+      "deletion": "Kamu bisa mengedit postingan selama satu jam dan menghapusnya selama satu hari, serta menurunkan kartumu kapan saja. Setelah itu, atau untuk menghapus seluruh partisipasimu, kirim email ke {contact}."
     }
   },
   "compareUI": {
