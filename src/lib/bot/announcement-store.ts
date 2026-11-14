@@ -21,7 +21,8 @@ export function announcementSources(): Sources {
       title: p.title,
       date: p.date ?? null,
       balance: p.balance,
-      heroes: p.adjustments.flatMap((a) => (a.slug ? [a.slug] : [])),
+      // A hero adjusted in several sections of the notes appears once.
+      heroes: [...new Set(p.adjustments.flatMap((a) => (a.slug ? [a.slug] : [])))],
     })),
     skins: releasedSkins().map((s) => ({
       hero: s.hero,
