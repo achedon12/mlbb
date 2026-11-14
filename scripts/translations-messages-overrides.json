@@ -1075,6 +1075,22 @@
     "pages.botAdmin.backupTrigger.schedule": {
       "fr": "planifiée",
       "text": "scheduled"
+    },
+    "pages.apiDoc.routes.heroCounters.summary": {
+      "fr": "Contres mesurés d'un héros, par rang : les héros qu'il bat et ceux qui le battent, en points d'écart de taux de victoire, avec son taux de victoire de référence.",
+      "text": "A hero's measured counters, by rank: the heroes it beats and those that beat it, as win-rate gaps in points, with its baseline win rate."
+    },
+    "pages.apiDoc.routes.heroBuilds.summary": {
+      "fr": "Builds réellement joués avec un héros, par position puis par rang : trois objets clés, l'emblème, ses talents et le sort, avec leurs taux.",
+      "text": "Builds actually played with a hero, by position then by rank: three key items, the emblem, its talents and the spell, with their rates."
+    },
+    "pages.apiDoc.routes.patchVersion.summary": {
+      "fr": "Un patch en détail : notes, nouveaux héros et ajustements de chaque héros, avec le nombre de buffs et de nerfs.",
+      "text": "One patch in detail: notes, new heroes and each hero's adjustments, with the number of buffs and nerfs."
+    },
+    "pages.apiDoc.routes.patchVersion.localeParam": {
+      "fr": "Langue des textes (anglais par défaut)",
+      "text": "Language of the texts (English by default)"
     }
   },
   "es": {

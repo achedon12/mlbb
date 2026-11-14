@@ -656,6 +656,16 @@
         },
         "rankings": {
           "summary": "Classifica calcolata: percentuali di vittoria, di ban e di pick, tier e data di rilevazione."
+        },
+        "heroCounters": {
+          "summary": "Contatori misurati di un eroe, per grado: gli eroi che ha battuto e quelli che lo hanno battuto, in punti di differenza nel tasso di vittoria, con il suo tasso di vittoria di riferimento."
+        },
+        "heroBuilds": {
+          "summary": "Le build effettivamente giocate con un eroe, per posizione e poi per grado: tre oggetti chiave, l'emblema, i suoi talenti e l'incantesimo, con i relativi tassi."
+        },
+        "patchVersion": {
+          "summary": "Una patch in dettaglio: note, nuovi eroi e modifiche a ciascun eroe, con il numero di buff e nerf.",
+          "localeParam": "Lingua del testo (inglese per impostazione predefinita)"
         }
       },
       "endpoints": "Endpoint"

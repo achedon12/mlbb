@@ -656,6 +656,16 @@
         },
         "rankings": {
           "summary": "Peringkat dihitung: kemenangan, ban dan tingkat seleksi, tingkatan dan tanggal laporan."
+        },
+        "heroCounters": {
+          "summary": "Counter hero diukur, berdasarkan peringkat: hero yang dia kalahkan dan siapa yang mengalahkannya, dalam perbedaan poin dalam win rate, dengan referensi win ratenya."
+        },
+        "heroBuilds": {
+          "summary": "Build sebenarnya dimainkan dengan seorang hero, berdasarkan posisi, lalu berdasarkan peringkat: tiga item utama, emblem, bakatnya, dan spellnya, beserta tarifnya."
+        },
+        "patchVersion": {
+          "summary": "Detail patch: catatan, hero baru dan penyesuaian setiap hero, dengan jumlah buff dan nerf.",
+          "localeParam": "Bahasa teks (Bahasa Inggris secara default)"
         }
       },
       "endpoints": "Titik masuk"

@@ -656,6 +656,16 @@
         },
         "rankings": {
           "summary": "Clasificación calculada: tasas de victoria, de baneo y de selección, tier y fecha del registro."
+        },
+        "heroCounters": {
+          "summary": "Contadores medidos de un héroe, por rango: los héroes a los que vence y los que le vencen, en puntos de diferencia en el índice de victoria, con su índice de victoria de referencia."
+        },
+        "heroBuilds": {
+          "summary": "Las configuraciones realmente jugadas con un héroe, por posición y luego por rango: tres objetos clave, el emblema, sus talentos y el hechizo, con sus tasas."
+        },
+        "patchVersion": {
+          "summary": "Un parche en detalle: notas, nuevos héroes y ajustes a cada héroe, con el número de mejoras y nerfs.",
+          "localeParam": "Idioma del texto (inglés por defecto)"
         }
       },
       "endpoints": "Endpoints"
