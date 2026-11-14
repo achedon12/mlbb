@@ -82,23 +82,30 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
       <HomeHero locale={locale} />
 
       {/*
-        The blocks as tiles of one grid: stacked on a phone and a tablet, side
-        by side on a wide screen, where the meta takes two thirds of the first
-        row and the patch the rest, the month's events and the tools the
-        second, the roles and the articles the third.
+        The blocks as tiles: one under the other on a phone and a tablet. On a
+        wide screen, two stacks side by side whose heights match — the meta
+        and the patch (its three lists side by side) on two thirds of the
+        width, the tools and the roles on the last third — the last tile of
+        each stack growing to end level with the other; then the month's
+        events and the articles, each across the width. The stacks are
+        `contents` below `2xl`: the tiles keep one reading order everywhere.
       */}
       <div className="page-wrap grid gap-4 py-6 sm:gap-5 sm:py-10 2xl:grid-cols-12">
-        <HomeMeta locale={locale} className={cn(TILE, "2xl:col-span-8")} />
-        <HomePatch locale={locale} className={cn(TILE, "2xl:col-span-4")} />
-        <HomeLive locale={locale} className={cn(TILE, "2xl:col-span-8")} />
-        <HomeTools locale={locale} className={cn(TILE, "2xl:col-span-4")} />
-        <section aria-labelledby="home-roles" className={cn(TILE, "2xl:col-span-5")}>
-          <SectionTitle id="home-roles" lead={t("home.startLead")}>
-            {t("home.startTitle")}
-          </SectionTitle>
-          <RoleAccess count={byRole} locale={locale} />
-        </section>
-        <HomeCommunity locale={locale} className={cn(TILE, "2xl:col-span-7")} />
+        <div className="contents 2xl:col-span-8 2xl:flex 2xl:flex-col 2xl:gap-5">
+          <HomeMeta locale={locale} className={TILE} />
+          <HomePatch locale={locale} className={cn(TILE, "2xl:flex-1")} />
+        </div>
+        <div className="contents 2xl:col-span-4 2xl:flex 2xl:flex-col 2xl:gap-5">
+          <HomeTools locale={locale} className={TILE} />
+          <section aria-labelledby="home-roles" className={cn(TILE, "2xl:flex-1")}>
+            <SectionTitle id="home-roles" lead={t("home.startLead")}>
+              {t("home.startTitle")}
+            </SectionTitle>
+            <RoleAccess count={byRole} locale={locale} />
+          </section>
+        </div>
+        <HomeLive locale={locale} className={cn(TILE, "2xl:col-span-12")} />
+        <HomeCommunity locale={locale} className={cn(TILE, "2xl:col-span-12")} />
       </div>
 
       {/*

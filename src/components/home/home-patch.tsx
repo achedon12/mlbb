@@ -73,7 +73,7 @@ export function HomePatch({ locale, className }: { locale: Locale; className?: s
           </ul>
         )}
 
-        <div className="grid gap-4 md:grid-cols-3 2xl:grid-cols-1">
+        <div className="grid gap-4 md:grid-cols-3">
           {ADJUSTMENT_DIRECTIONS.map((direction) => {
             const list = groups[direction];
             if (list.length === 0) return null;
@@ -134,7 +134,7 @@ export function HomePatch({ locale, className }: { locale: Locale; className?: s
           })}
         </div>
 
-        <div className="mt-4 flex flex-col gap-2 text-xs leading-relaxed text-chalk-500 sm:flex-row sm:items-start sm:justify-between sm:gap-6 2xl:flex-col 2xl:gap-2">
+        <div className="mt-4 flex flex-col gap-2 text-xs leading-relaxed text-chalk-500 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
           {hasImpacts && <p className="max-w-2xl">{t("home.patch.impactNote", { n: DAYS_IMPACT })}</p>}
           <p className="flex shrink-0 flex-wrap gap-x-4 gap-y-1 text-sm">
             <Link href="/meta" className="font-semibold text-gold-400 hover:text-gold-500">
