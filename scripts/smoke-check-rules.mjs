@@ -119,6 +119,9 @@ export const PAGES = [
   { path: "/tools/tier-list-maker", locales: EN_FR },
   { path: "/map", locales: EN_FR },
   { path: "/esports", locales: EN_FR },
+  { discover: "esports-players", path: "/esports/<tournament>/players", locales: EN_FR },
+  { discover: "esports-player", path: "/esports/players/<slug>", locales: EN_FR },
+  { discover: "esports-team", path: "/esports/teams/<slug>", locales: EN_FR },
   { path: "/events", locales: EN_FR },
   { path: "/quiz", locales: EN_FR, browser: true },
   { path: "/mlbbdle", locales: EN_FR },
@@ -373,6 +376,7 @@ export const SITEMAP_CHILDREN = [
   "items",
   "emblems-spells",
   "events",
+  "esports",
   "patch-notes",
   "news",
 ];
@@ -521,6 +525,13 @@ function compareVersions(a, b) {
   return 0;
 }
 
+/** Esports pages whose slugs follow the covered tournaments: the first listed one is checked. */
+const ESPORTS_DISCOVERY = {
+  "esports-players": /^\/esports\/[a-z0-9-]+\/players$/,
+  "esports-player": /^\/esports\/players\/[a-z0-9-]+$/,
+  "esports-team": /^\/esports\/teams\/[a-z0-9-]+$/,
+};
+
 /**
  * Turns the page table into concrete paths (locale-less) using the sitemap.
  * Returns `{ pages, problems }`: a static path missing from the sitemap, or a
@@ -545,6 +556,8 @@ export function resolvePages(paths, table = PAGES) {
       if (versions.length) path = `/patch-notes/${versions.at(-1)}`;
     } else if (page.discover === "compare-pair") {
       path = [...english].find((p) => /^\/compare\/[a-z0-9-]+-vs-[a-z0-9-]+$/.test(p)) ?? null;
+    } else if (page.discover in ESPORTS_DISCOVERY) {
+      path = [...english].find((p) => ESPORTS_DISCOVERY[page.discover].test(p)) ?? null;
     }
     if (path) pages.push({ ...page, path });
     else problems.push(`${page.path}: no matching URL in the sitemap`);

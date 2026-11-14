@@ -9,7 +9,9 @@ import {
   stageName,
   StatusBadge,
   tournamentDates,
+  TournamentNav,
 } from "@/components/esports-parts";
+import { TeamNameLink } from "@/components/esports-pro";
 import { HeroPortrait } from "@/components/hero-portrait";
 import { Card, PageHeader, SectionTitle } from "@/components/ui";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
@@ -29,6 +31,7 @@ import {
   type Standing,
   type Tournament,
 } from "@/lib/esports";
+import { hasPlayerStats, hasTeamPage, proTeams } from "@/lib/esports-players";
 import { serializeJsonLd } from "@/lib/html";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -148,6 +151,10 @@ export default async function TournamentPage({ params }: Params) {
         }
       : {}),
     isBasedOn: turn.sources[0]?.url,
+    // Teams with a page, among those listed for this tournament.
+    competitor: proTeams
+      .filter((team) => hasTeamPage(team.slug) && team.tournaments.some((x) => x.tournament === turn.slug))
+      .map((team) => ({ "@type": "SportsTeam", name: team.name, url: `${site.url}/${locale}/esports/teams/${team.slug}` })),
   };
 
   const dates = tournamentDates(t, locale, turn);
@@ -190,6 +197,7 @@ export default async function TournamentPage({ params }: Params) {
             </div>
           ))}
         </dl>
+        {hasPlayerStats(turn.slug) && <TournamentNav t={t} turn={turn} active="overview" />}
       </PageHeader>
 
       <div className="mx-auto max-w-6xl space-y-16 px-4 py-12">
@@ -304,7 +312,7 @@ function StandingTable({ standing, caption, t }: { standing: Standing; caption: 
                     {knownZone(r.zone) && <span className="sr-only">, {t(`pages.esports.zones.${r.zone}`)}</span>}
                   </td>
                   <th scope="row" className="px-3 py-1.5 text-left font-semibold text-chalk-100">
-                    {r.team}
+                    <TeamNameLink name={r.team} />
                   </th>
                   <td className={cn(cell, "text-chalk-100")}>
                     {r.series[0]}–{r.series[1]}
@@ -405,9 +413,9 @@ function DraftCard({ match: m, turn, t, locale }: { match: DraftMatch; turn: Tou
     <Card className="h-full p-4">
       <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
         <h3 className="font-heading text-lg font-bold text-chalk-100">
-          {m.teams[0]}{" "}
+          <TeamNameLink name={m.teams[0]} />{" "}
           <span className="tabular-nums text-gold-400">{m.score ? `${m.score[0]}–${m.score[1]}` : "–"}</span>{" "}
-          {m.teams[1]}
+          <TeamNameLink name={m.teams[1]} />
         </h3>
         <p className="text-xs text-chalk-500">
           <time dateTime={m.date}>{shortDate(locale, m.date)}</time>

@@ -73,6 +73,11 @@ describe("sitemap split by page type", () => {
     expect(sitemapGroupOf(`${base}/tier-list/lane/gold`)).toBe("tier-lists");
     expect(sitemapGroupOf(`${base}/statistics`)).toBe("tier-lists");
     expect(sitemapGroupOf(`${base}/events/2026-08`)).toBe("events");
+    expect(sitemapGroupOf(`${base}/esports`)).toBe("pages");
+    expect(sitemapGroupOf(`${base}/esports/mpl-id-season-18`)).toBe("esports");
+    expect(sitemapGroupOf(`${base}/esports/mpl-id-season-18/players`)).toBe("esports");
+    expect(sitemapGroupOf(`${base}/esports/players/kairi`)).toBe("esports");
+    expect(sitemapGroupOf(`${base}/esports/teams/onic`)).toBe("esports");
     expect(sitemapGroupOf(`${base}/patch-notes/1.8.92`)).toBe("patch-notes");
     expect(sitemapGroupOf(`${base}/news/some-article`)).toBe("news");
   });

@@ -16,6 +16,7 @@ import { LOCALES } from "@/i18n/config";
 import { monthKeys } from "@/lib/events-server";
 import { CHECKED_ON } from "@/lib/objectives";
 import { esportsUpdatedAt, tournaments } from "@/lib/esports";
+import { hasPlayerStats, hasTeamPage, playedSlugs, proTeams } from "@/lib/esports-players";
 import { botPublished } from "@/lib/bot/public";
 import { advanceSyncedAt, advanceVersion, advanceVersionNumbers, advanceVersions } from "@/lib/advance-server";
 
@@ -113,6 +114,29 @@ export function sitemapEntries(): MetadataRoute.Sitemap {
       priority: 0.5,
       lastModified: dateOf(esportsUpdatedAt),
     })),
+    // Player statistics of each tournament, then one page per pro player and team.
+    ...tournaments
+      .filter((t) => hasPlayerStats(t.slug))
+      .map((t) => ({
+        path: `/esports/${t.slug}/players`,
+        changeFrequency: "weekly" as const,
+        priority: 0.4,
+        lastModified: dateOf(esportsUpdatedAt),
+      })),
+    ...[...playedSlugs].map((slug) => ({
+      path: `/esports/players/${slug}`,
+      changeFrequency: "weekly" as const,
+      priority: 0.3,
+      lastModified: dateOf(esportsUpdatedAt),
+    })),
+    ...proTeams
+      .filter((team) => hasTeamPage(team.slug))
+      .map((team) => ({
+        path: `/esports/teams/${team.slug}`,
+        changeFrequency: "weekly" as const,
+        priority: 0.4,
+        lastModified: dateOf(esportsUpdatedAt),
+      })),
     // Advance Server notes, dated by the version they describe.
     {
       path: "/patch-notes/advance-server",
@@ -241,6 +265,7 @@ export const SITEMAPS = [
   { name: "items", pattern: /^\/items\/[^/]+$/ },
   { name: "emblems-spells", pattern: /^\/(emblems|spells)\/[^/]+$/ },
   { name: "events", pattern: /^\/events\/[^/]+$/ },
+  { name: "esports", pattern: /^\/esports\/.+$/ },
   { name: "patch-notes", pattern: /^\/patch-notes\/.+$/ },
   { name: "news", pattern: /^\/news\/.+$/ },
 ] as const satisfies readonly { name: string; pattern: RegExp | null }[];
