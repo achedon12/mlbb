@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { isSuperAdmin, parseAdminIds, readBotConfig } from "@/lib/bot/config";
 import { BOT_PERMISSIONS, communityInvite, discordImage, inviteUrl, PERMISSIONS_BITFIELD } from "@/lib/bot/public";
-import { commandFigures, daysBetween, percentile, perDay } from "@/lib/bot/stats";
+import { daysBetween, fillDays, percentile } from "@/lib/bot/stats";
 
 const ENV = {
   DATABASE_URL: "postgresql://mlbbdex:x@postgres:5432/mlbbdex",
@@ -96,25 +96,13 @@ describe("admin figures", () => {
     expect(percentile(Array.from({ length: 100 }, (_, i) => i + 1), 95)).toBe(95);
   });
 
-  it("counts per UTC day, every day present", () => {
+  it("fills every day of the range, zero when the database had no row", () => {
     const days = daysBetween(new Date("2026-11-12T10:00:00Z"), new Date("2026-11-14T08:00:00Z"));
     expect(days).toEqual(["2026-11-12", "2026-11-13", "2026-11-14"]);
-    expect(perDay([new Date("2026-11-14T01:00:00Z"), new Date("2026-11-14T23:00:00Z"), new Date("2026-11-01T00:00:00Z")], days)).toEqual([
+    expect(fillDays([{ day: "2026-11-14", value: 2 }, { day: "2026-11-01", value: 7 }], days)).toEqual([
       { day: "2026-11-12", value: 0 },
       { day: "2026-11-13", value: 0 },
       { day: "2026-11-14", value: 2 },
-    ]);
-  });
-
-  it("groups commands with their errors and p95, most used first", () => {
-    const figures = commandFigures([
-      { command: "hero", ok: true, durationMs: 100 },
-      { command: "hero", ok: false, durationMs: 900 },
-      { command: "build", ok: true, durationMs: 50 },
-    ]);
-    expect(figures).toEqual([
-      { command: "hero", count: 2, errors: 1, p95: 900 },
-      { command: "build", count: 1, errors: 0, p95: 50 },
     ]);
   });
 });
