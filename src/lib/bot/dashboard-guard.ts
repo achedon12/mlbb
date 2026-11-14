@@ -1,6 +1,7 @@
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { NextResponse } from "next/server";
 import type { z } from "zod";
+import { clientAddress } from "@/lib/client-address";
 import { addressOf, limitByMinute } from "@/lib/push-server";
 import { readCapped } from "@/lib/read-body";
 import { site } from "@/lib/site";
@@ -27,6 +28,31 @@ export const answer = (data: unknown, status = 200) => NextResponse.json(data, {
 const MAX_BODY = 16 * 1024;
 /** Per address: a settings save, a test post, a flush are a few a minute at most. */
 const allowed = limitByMinute(30);
+
+/**
+ * Dashboard page views that ask the bot. Listing a user's servers costs the
+ * bot one Discord member lookup per server it is in (a REST call each, under
+ * the bot token's global rate limit), and the bot accepts a fixed number of
+ * calls from the site: unthrottled, one signed-in account refreshing the
+ * page in a loop would starve the dashboard, test posts and the bot's own
+ * REST traffic for everyone. A person browsing never gets near these.
+ */
+export const DASHBOARD_READS_PER_USER = 20;
+export const DASHBOARD_READS_PER_ADDRESS = 60;
+const readsByUser = limitByMinute(DASHBOARD_READS_PER_USER);
+const readsByAddress = limitByMinute(DASHBOARD_READS_PER_ADDRESS);
+
+/** May this view call the bot? Both windows count the view, whatever the other says. */
+export function dashboardReadAllowed(userId: string, address: string): boolean {
+  const user = readsByUser(userId);
+  const fromAddress = readsByAddress(address);
+  return user && fromAddress;
+}
+
+/** Same, for a page: the address nginx saw, from the request's headers. */
+export async function dashboardPageAllowed(userId: string): Promise<boolean> {
+  return dashboardReadAllowed(userId, clientAddress(await headers()) ?? "unknown");
+}
 
 /** Pure: is this Origin the site's own? A missing Origin is refused on a mutation. */
 export function originAllowed(origin: string | null, siteUrl: string, requestUrl: string, production: boolean): boolean {

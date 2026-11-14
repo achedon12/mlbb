@@ -78,7 +78,10 @@ Everything is free: no plans, no paywall, no payment code.
 - **Who may configure a server**: asked live to the bot on every read and
   write (`GET /internal/guilds/manageable?user=<id>`,
   `GET /internal/guilds/<guild>/manageable?user=<id>`): the member must have
-  `ManageGuild` in that server and the bot must be in it.
+  `ManageGuild` in that server and the bot must be in it. Listing a user's
+  servers costs the bot one Discord member lookup per server it is in, so
+  the dashboard pages that ask the bot are capped at 20 views a minute per
+  account and 60 per address (past that, "the bot is unreachable").
 - **Super admins**: Discord user ids in `BOT_SUPER_ADMIN_IDS`
   (comma-separated), checked server-side on every admin route.
 - Mutating routes check `Origin` against `NEXT_PUBLIC_SITE_URL` (and
