@@ -1,6 +1,6 @@
 import { db } from "@/lib/db";
 import { ok, readSigned, refusal, withDatabase } from "@/lib/bot/internal";
-import { PERIODS, periodStart, rank, type Period } from "@/lib/bot/leaderboard";
+import { LEADERBOARD_CANDIDATES, PERIODS, periodStart, rankTotals, type Period } from "@/lib/bot/leaderboard";
 import { isSnowflake } from "@/lib/bot/public";
 import { DAILY_GAMES, type DailyGame } from "@/lib/bot/settings";
 import { dayUtc, isValidDay } from "@/lib/quiz";
@@ -24,11 +24,35 @@ export async function GET(request: Request) {
 
   return withDatabase("leaderboard", async () => {
     const start = periodStart(period as Period, day) ?? new Date(Date.parse(`${day}T00:00:00Z`) - ALL_TIME_DAYS * 86_400_000).toISOString().slice(0, 10);
-    const rows = await db().dailyResult.findMany({
-      where: { guildId: guild, game, day: { gte: start, lte: day } },
-      select: { discordUserId: true, discordUserName: true, day: true, score: true },
-      take: 50_000,
+    const where = { guildId: guild, game, day: { gte: start, lte: day } };
+    // Summed per player by the database (index guildId, game, day): a year
+    // of a busy server is never loaded row by row.
+    const groups = await db().dailyResult.groupBy({
+      by: ["discordUserId"],
+      where,
+      _count: { _all: true },
+      _sum: { score: true },
+      orderBy:
+        game === "quiz"
+          ? [{ _sum: { score: "desc" } }, { discordUserId: "asc" }]
+          : [{ _count: { discordUserId: "desc" } }, { _avg: { score: "asc" } }, { discordUserId: "asc" }],
+      take: LEADERBOARD_CANDIDATES,
     });
-    return ok({ game, period, day, entries: rank(game as DailyGame, rows) });
+    if (!groups.length) return ok({ game, period, day, entries: [] });
+    // Each candidate's latest name: a renamed player shows under their current name.
+    const names = await db().dailyResult.findMany({
+      where: { ...where, discordUserId: { in: groups.map((g) => g.discordUserId) } },
+      orderBy: [{ discordUserId: "asc" }, { day: "desc" }],
+      distinct: ["discordUserId"],
+      select: { discordUserId: true, discordUserName: true },
+    });
+    const nameOf = new Map(names.map((n) => [n.discordUserId, n.discordUserName]));
+    const totals = groups.map((g) => ({
+      discordUserId: g.discordUserId,
+      discordUserName: nameOf.get(g.discordUserId) ?? g.discordUserId,
+      plays: g._count._all,
+      total: g._sum.score ?? 0,
+    }));
+    return ok({ game, period, day, entries: rankTotals(game as DailyGame, totals) });
   });
 }
