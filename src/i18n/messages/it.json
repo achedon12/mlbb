@@ -26,7 +26,9 @@
     },
     "table": {
       "sortBy": "Ordina per {column}"
-    }
+    },
+    "joinDiscord": "Unisciti alla Discordia",
+    "discordServer": "Server Discord della comunità MLBBDex"
   },
   "nav": {
     "database": "Database",
@@ -203,6 +205,10 @@
     "damageCalculator": {
       "label": "Calcolatore dei danni",
       "desc": "Danno da un colpo dopo la difesa"
+    },
+    "bot": {
+      "label": "Bot della discordia",
+      "desc": "I file, l'elenco dei livelli e le partite del giorno nei tuoi server"
     }
   },
   "account": {
@@ -224,7 +230,9 @@
     "version": "Versione {v}",
     "contribute": "Contribuisci",
     "intro": "Eroi, build e counter per rango, una tier list calcolata sui tassi di vittoria delle partite classificate, oggetti, emblemi e patch notes di Mobile Legends: Bang Bang, in italiano, inglese, francese, spagnolo e indonesiano. Progetto indipendente, aperto ai contributi.",
-    "sources": "Dati di gioco dal wiki di Mobile Legends (CC BY-SA). Tassi di vittoria, ban e selezione, counter e build più giocate provengono dalle statistiche delle partite classificate del gioco, tramite l'API della community arena.rone.dev."
+    "sources": "Dati di gioco dal wiki di Mobile Legends (CC BY-SA). Tassi di vittoria, ban e selezione, counter e build più giocate provengono dalle statistiche delle partite classificate del gioco, tramite l'API della community arena.rone.dev.",
+    "discord": "Unisciti alla Discordia",
+    "bot": "Bot della discordia"
   },
   "language": {
     "choose": "Lingua",
@@ -3301,6 +3309,209 @@
       "effectiveHp": "HP efficaci contro questo colpo",
       "defenderHp": "HP del difensore",
       "average": "In media, con {chance} probabilità critica: {damage} danno per attacco base."
+    },
+    "bot": {
+      "title": "Bot Discord MLBBDex",
+      "breadcrumb": "Bot della discordia",
+      "metaTitle": "Bot Discord Mobile Legends: eroi, build, elenco livelli",
+      "metaDescription": "Bot Discord gratuito per Mobile Legends: schede degli eroi, build, contatori, elenco dei livelli, note sulla patch e MLBBdle del giorno, in cinque lingue.",
+      "lead": "Fogli di eroi, build misurate, elenco dei livelli e note sulla patch da MLBBDex, direttamente nei tuoi server Discord. Gratuito, senza abbonamento, in cinque lingue.",
+      "add": "Aggiungi a Discordia",
+      "join": "Unisciti al server",
+      "dashboard": "Pannello di controllo",
+      "servers": "Presente sui server {count}",
+      "free": "Funzionalità gratuite, nessuna a pagamento",
+      "featuresTitle": "Cosa fa il bot",
+      "features": {
+        "heroesTitle": "Fogli e costruzioni",
+        "heroesText": "Ruolo, corsie, livello, percentuale di vittorie, selezione e ban, build meglio misurata, emblema, incantesimi e segnalini di un eroe, con un collegamento al suo profilo completo.",
+        "announcementsTitle": "Annunci automatici",
+        "announcementsText": "Nuove patch, nuove skin, calendario degli eventi, server avanzati e risultati eSport pubblicati nella lobby di tua scelta, con un ruolo da menzionare se lo desideri.",
+        "dailyTitle": "Giochi del giorno",
+        "dailyText": "L'MLBBdle e il quiz del giorno si giocano su Discord, con lo stesso puzzle del sito e una classifica specifica per il tuo server.",
+        "languagesTitle": "Cinque lingue",
+        "languagesText": "Comandi e risposte in inglese, francese, italiano, spagnolo e indonesiano, a seconda della lingua del server scelta."
+      },
+      "commandsTitle": "Ordini",
+      "commandsLead": "Tutti i comandi sono comandi barra: digita / nella lobby per vederli, con completamento automatico di eroi, oggetti, emblemi e incantesimi.",
+      "commands": {
+        "hero": "Profilo dell'eroe: ruolo, corsie, livello, valutazione, build migliore, emblema, incantesimi e combo.",
+        "build": "Le build più vincenti di un eroe, con i relativi oggetti ed emblema.",
+        "counter": "Gli eroi che sconfiggono un dato eroe e quelli che lui sconfigge, secondo i giochi misurati.",
+        "tierlist": "I migliori terzi, per grado, corsia o ruolo.",
+        "compare": "Due eroi faccia a faccia.",
+        "item": "Statistiche ed effetto di un elemento.",
+        "emblem": "Talenti e uso di un emblema.",
+        "spell": "Effetto e tempo di recupero di un incantesimo di combattimento.",
+        "patch": "Riepilogo dell'ultima patch o di una determinata versione: buff, nerf, aggiustamenti.",
+        "skins": "Le ultime skin rilasciate, ovvero quelle di un eroe.",
+        "events": "Eventi attuali e futuri.",
+        "nickname": "Un soprannome stilizzato, con la scelta dello stile.",
+        "mlbbdle": "L'MLBBdle di oggi, in modalità classica o abilità.",
+        "quiz": "Il quiz di oggi, con pulsanti per rispondere.",
+        "leaderboard": "Classifica del server per i giochi del giorno, per giorno, settimana o dall'inizio.",
+        "servertime": "Ora del server di gioco e conto alla rovescia per il ripristino giornaliero.",
+        "setup": "Collegamento al dashboard del server (è richiesta l'autorizzazione Gestisci server).",
+        "help": "L'elenco degli ordini.",
+        "invite": "Il collegamento per aggiungere il bot a un altro server.",
+        "about": "Collegamenti al sito, server di supporto, voti e privacy."
+      },
+      "permissionsTitle": "Autorizzazioni richieste",
+      "permissionsText": "Il minimo indispensabile per rispondere e pubblicare: mai Amministratore, e nessun accesso al contenuto dei messaggi o alla lista degli iscritti.",
+      "permissions": {
+        "view": "Guarda gli spettacoli",
+        "send": "Invia messaggi",
+        "threads": "Invia messaggi nei thread",
+        "embed": "Incorpora collegamenti",
+        "attach": "Allega file",
+        "history": "Visualizza i vecchi post",
+        "emojis": "Usa emoji esterni",
+        "reactions": "Aggiungi reazioni"
+      },
+      "faqTitle": "Domande frequenti",
+      "faq1q": "Il bot è gratuito?",
+      "faq1a": "Sì, completamente: nessun abbonamento, nessuna funzione riservata, nessuna pubblicità. È finanziato, come il sito, dal suo autore.",
+      "faq2q": "Come configurare gli annunci?",
+      "faq2a": "Aggiungi il bot, quindi apri la dashboard con il tuo account Discord: scegli una stanza (e, se vuoi, un ruolo da menzionare) per ogni tipo di annuncio. È necessaria l'autorizzazione Gestisci server.",
+      "faq3q": "Da dove provengono i dati?",
+      "faq3a": "Dalle stesse fonti del sito: la wiki di Mobile Legends per eroi, oggetti e patch e statistiche di gioco classificate per tariffe e build. Vengono aggiornati ogni giorno.",
+      "faq4q": "Quali dati conserva il bot?",
+      "faq4a": "Il nome e le impostazioni del tuo server, le pubblicazioni già effettuate e, per la classifica, l'ID Discord e il nickname dei giocatori delle partite del giorno. I dettagli sono nella pagina sulla privacy del bot.",
+      "faq5q": "L'MLBBdle su Discord è lo stesso del sito?",
+      "faq5a": "Sì: stesso eroe, stessa abilità e stessi quiz ogni giorno UTC, in tutte le lingue.",
+      "privacy": "Privacy dei robot",
+      "terms": "Termini di utilizzo"
+    },
+    "botPrivacy": {
+      "title": "Privacy del bot Discord",
+      "metaDescription": "Cosa conserva il bot Discord MLBBDex, perché, per quanto tempo e come eliminarlo.",
+      "lead": "Cosa conserva il bot, perché e per quanto tempo.",
+      "storedTitle": "Ciò che è conservato",
+      "storedServer": "Per ogni server: il suo identificatore, il suo nome, la sua icona, il suo numero di membri, la sua lingua, le sue impostazioni (stanze, ruoli, orario di gioco della giornata) e l'elenco degli annunci già pubblicati.",
+      "storedResults": "Per la classifica di gioco di oggi: ID Discord e nickname del giocatore, giorno, partita e punteggio.",
+      "storedCommands": "Per le statistiche: il nome di ogni comando utilizzato, il server, la lingua, la durata e il successo. Nessun ID utente.",
+      "storedVotes": "Per le statistiche: l'ID Discord delle persone che votano per il bot in un elenco di bot.",
+      "notStoredTitle": "Ciò che non viene conservato",
+      "notStored": "Il bot non legge il contenuto dei messaggi e non ha accesso all'elenco dei membri. Nessun token Discord viene conservato: l'accesso alla dashboard serve solo per leggere il tuo ID, quindi il token viene scartato.",
+      "cookieTitle": "Accedi alla dashboard",
+      "cookie": "L'accesso con Discord imposta un cookie di sessione crittografato (`mlbbdex_discord`, httpOnly, 7 giorni) che contiene il tuo ID Discord, nome e avatar e un cookie temporaneo (`mlbbdex_discord_oauth`, 10 minuti) durante l'accesso. Sono strettamente necessari per il servizio richiesto.",
+      "retentionTitle": "Durata di conservazione",
+      "retention": "Quando il bot lascia un server, i suoi dati vengono cancellati 30 giorni dopo, insieme ai risultati dei suoi giocatori (un ritorno del bot entro questo periodo ripristinerà le impostazioni). Le statistiche degli ordini vengono cancellate dopo 90 giorni.",
+      "rightsTitle": "I tuoi diritti",
+      "rights": "Per visualizzare o eliminare i dati relativi al tuo ID Discord o al server, scrivi a [{contact}](mailto:{contact}). La rimozione del bot dal server avvia l'eliminazione automatica.",
+      "sitePrivacy": "Privacy del sito"
+    },
+    "botTerms": {
+      "title": "Termini di servizio di Discord Bot",
+      "metaDescription": "Termini di servizio del bot Discord di MLBBDex: servizio gratuito, utilizzo corretto, dati di gioco forniti senza garanzia.",
+      "lead": "Le semplici regole di un servizio gratuito.",
+      "p1": "Il bot MLBBDex è un progetto di fan indipendente e gratuito, non correlato a Moonton. Mobile Legends: Bang Bang è un marchio di Shanghai Moonton Technology Co., Ltd.",
+      "p2": "I dati (statistiche, build, elenco dei livelli, note sulla patch) vengono forniti così come sono, senza garanzia di accuratezza o disponibilità. Provengono dal wiki di Mobile Legends (CC BY-SA) e dalle statistiche di gioco classificate.",
+      "p3": "Non dirottare il bot: nessuna automazione abusiva dei comandi, nessun tentativo di accedere alle impostazioni di un server che non gestisci. Il servizio potrebbe essere limitato o rimosso da un server che ne abusa.",
+      "p4": "Il servizio potrà variare, essere interrotto o sospeso in qualsiasi momento. Al suo utilizzo si applicano le regole di Discord (termini di utilizzo e regole della community).",
+      "p5": "I dati conservati sono descritti nella pagina sulla privacy del bot. Per qualsiasi domanda: [{contact}](mailto:{contact})."
+    },
+    "botDashboard": {
+      "title": "Pannello di controllo del bot",
+      "lead": "Imposta il bot per ciascuno dei tuoi server: lingua, annunci e giochi del giorno.",
+      "login": "Connettiti con Discord",
+      "loginLead": "Accedi con Discord per vedere i server che gestisci. Viene letto solo il tuo identificatore: nessun accesso ai tuoi messaggi o ai tuoi server.",
+      "loginFailed": "La connessione non è riuscita. Riprova.",
+      "logout": "Esci",
+      "signedAs": "Accedi come {name}",
+      "serversTitle": "I tuoi server",
+      "serversLead": "Server in cui disponi dell'autorizzazione Gestisci server e in cui è presente il bot.",
+      "noServers": "Nessun server da ottimizzare ancora: aggiungi il bot a un server che gestisci.",
+      "addBot": "Aggiungi il bot a un server",
+      "manage": "Impostato",
+      "unreachable": "Il bot non risponde al momento. Riprova tra qualche minuto.",
+      "back": "Tutti i tuoi server",
+      "notAllowed": "Questo server non è nell'elenco di quelli che gestisci.",
+      "settingsTitle": "Impostazioni",
+      "deliveriesTitle": "Ultime pubblicazioni",
+      "noDeliveries": "Nessuna pubblicazione ancora.",
+      "statuses": {
+        "sent": "Pubblicato",
+        "failed": "Fallimento",
+        "forbidden": "Autorizzazione negata"
+      },
+      "members": "{count} membri",
+      "admin": "Pannello di amministrazione"
+    },
+    "botUI": {
+      "language": "Lingua del bot su questo server",
+      "announcementsTitle": "Annunci",
+      "announcementsLead": "Uno spettacolo per tipo di annuncio; nessuno spettacolo, nessun annuncio.",
+      "channel": "Soggiorno",
+      "role": "Ruolo da menzionare",
+      "off": "Disabilitato",
+      "noRole": "Nessuna menzione",
+      "types": {
+        "patches": "Patch notes",
+        "skins": "Nuove skin",
+        "events": "Eventi",
+        "advanceServer": "Server avanzato",
+        "esports": "Esport"
+      },
+      "dailyTitle": "Giochi del giorno",
+      "dailyMlbbdle": "Spettacolo MLBBdle",
+      "dailyQuiz": "Fiera dei quiz",
+      "dailyHour": "Pubblica l'ora",
+      "hourUtc": "{hour} ore UTC",
+      "save": "Salva",
+      "saving": "Registrazione…",
+      "saved": "Impostazioni salvate.",
+      "saveFailed": "La registrazione non è riuscita. Riprova.",
+      "test": "Invia una prova",
+      "testSent": "Messaggio di prova inviato.",
+      "testFailed": "Impossibile inviare il test a questa lounge.",
+      "failing": "Il bot non è riuscito a postare su questo canale: controlla i suoi permessi, quindi salva.",
+      "flush": "Pubblica gli annunci in sospeso",
+      "flushing": "Pubblicazione annunci...",
+      "flushed": "Annunci verificati: {count} novità/i, pubblicazione richiesta al bot.",
+      "flushFailed": "Il bot non ha risposto."
+    },
+    "botAdmin": {
+      "title": "Amministrazione dei bot",
+      "lead": "Lo stato del bot e dei suoi server.",
+      "window": "Periodo",
+      "windows": {
+        "24h": "24 ore",
+        "7d": "7 giorni",
+        "30d": "30 giorni"
+      },
+      "serversTitle": "Server",
+      "active": "Server attivi",
+      "left": "Server rimasti (conservati per 30 giorni)",
+      "votes": "Voti nel periodo",
+      "joinsPerDay": "Arrivi al giorno (30 giorni)",
+      "leavesPerDay": "Partenze giornaliere (30 giorni)",
+      "biggest": "Server più grandi",
+      "locales": "LINGUE",
+      "commandsTitle": "Ordini",
+      "total": "Ordini nel periodo",
+      "errorRate": "Tasso di errore",
+      "p95": "Durata pag.95",
+      "perDay": "Ordini al giorno",
+      "topCommands": "Comandi più utilizzati",
+      "command": "Ordine",
+      "count": "Numero",
+      "errors": "Errori",
+      "announcementsTitle": "Annunci",
+      "delivered": "Pubblicato",
+      "failed": "Scacchi",
+      "dailyTitle": "Giochi del giorno",
+      "playersPerDay": "Giocatori al giorno (30 giorni)",
+      "healthTitle": "Salute dei robot",
+      "guildCount": "Server visti dal bot",
+      "shards": "Frammenti",
+      "ping": "Latenza",
+      "memory": "Memoria",
+      "uptime": "Iniziato da",
+      "shard": "Frammento {id}",
+      "botUnreachable": "Il bot non risponde.",
+      "databaseUnreachable": "Il database non risponde.",
+      "chartEmpty": "Nessun dato sul periodo."
     }
   },
   "modeSheet": {
@@ -3608,6 +3819,14 @@
       "favourites": "l'elenco dei tuoi eroi preferiti (i loro identificativi), aggiornato quando lo modifichi.",
       "usage": "Questi dati servono solo ad avvisarti quando una patch modifica uno di questi eroi. Non sono collegati a nessun account né a nessun nome e non vengono ceduti a nessuno; il contenuto delle notifiche è cifrato fino al tuo browser, e solo il servizio di notifiche del browser si occupa di consegnarlo.",
       "unsubscribe": "Per annullare l'iscrizione, disattiva l'interruttore nei tuoi preferiti, o la campanella accanto al pulsante dei preferiti nella scheda di un eroe: questi dati vengono allora cancellati dal server. Anche bloccare le notifiche del sito nel browser o cancellarne i dati interrompe l'invio; l'iscrizione, ormai non valida, viene cancellata alla notifica successiva."
+    },
+    "bot": {
+      "title": "Bot Discord (facoltativo)",
+      "intro": "Se utilizzi il bot Discord MLBBDex o la sua dashboard, il server del sito conserva anche:",
+      "cookie": "un cookie di sessione crittografato, `mlbbdex_discord` (httpOnly, 7 giorni), se accedi alla dashboard con Discord: il tuo ID Discord, nome e avatar, nient'altro; non vengono conservati gettoni Discord;",
+      "servers": "per ciascun server dove è presente il bot: il suo nome, la lingua e le impostazioni;",
+      "results": "per le classifiche delle partite giocate oggi su Discord: ID Discord e nickname dei giocatori e i loro punteggi.",
+      "details": "Dettagli, periodo di conservazione ed eliminazione sono descritti nella pagina sulla privacy del bot."
     }
   },
   "compareUI": {

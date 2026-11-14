@@ -26,7 +26,9 @@
     },
     "table": {
       "sortBy": "Urutkan berdasarkan {column}"
-    }
+    },
+    "joinDiscord": "Bergabunglah dengan Perselisihan",
+    "discordServer": "Server Perselisihan Komunitas MLBBdex"
   },
   "nav": {
     "database": "Basis data",
@@ -203,6 +205,10 @@
     "damageCalculator": {
       "label": "Kalkulator damage",
       "desc": "Damage satu serangan setelah pertahanan"
+    },
+    "bot": {
+      "label": "Bot perselisihan",
+      "desc": "File, tier list, dan permainan hari ini di server Anda"
     }
   },
   "account": {
@@ -224,7 +230,9 @@
     "version": "Versi {v}",
     "contribute": "Berkontribusi",
     "intro": "Hero, build, dan counter Mobile Legends: Bang Bang berdasarkan rank, tier list yang dihitung dari win rate ranked, item, emblem, dan patch notes, dalam bahasa Inggris, Prancis, Italia, Spanyol, dan Indonesia. Proyek independen yang terbuka untuk kontribusi.",
-    "sources": "Data permainan dari wiki Mobile Legends (CC BY-SA). Win rate, ban dan pengambilan, counter, dan build yang paling banyak dimainkan berasal dari statistik pertandingan peringkat game, melalui API komunitas arena.rone.dev."
+    "sources": "Data permainan dari wiki Mobile Legends (CC BY-SA). Win rate, ban dan pengambilan, counter, dan build yang paling banyak dimainkan berasal dari statistik pertandingan peringkat game, melalui API komunitas arena.rone.dev.",
+    "discord": "Bergabunglah dengan Perselisihan",
+    "bot": "Bot perselisihan"
   },
   "language": {
     "choose": "Bahasa",
@@ -3301,6 +3309,209 @@
       "effectiveHp": "HP efektif melawan serangan ini",
       "defenderHp": "HP Pembela",
       "average": "Rata-rata, dengan {chance} peluang kritis: {damage} damage per serangan dasar."
+    },
+    "bot": {
+      "title": "Bot Perselisihan MLBBdex",
+      "breadcrumb": "Bot perselisihan",
+      "metaTitle": "Bot Discord Mobile Legends: hero, build, daftar tier",
+      "metaDescription": "Bot Discord gratis untuk Mobile Legends: hero sheet, build, counter, tier list, patch note, dan MLBBdle hari ini, dalam lima bahasa.",
+      "lead": "Lembar hero, build terukur, tier list, dan patch notes dari MLBBDex, langsung di server Discord Anda. Gratis, tanpa berlangganan, dalam lima bahasa.",
+      "add": "Tambahkan ke Perselisihan",
+      "join": "Bergabunglah dengan server",
+      "dashboard": "Dasbor",
+      "servers": "Hadir di server {count}",
+      "free": "Gratis, tidak ada fitur berbayar",
+      "featuresTitle": "Apa yang dilakukan bot",
+      "features": {
+        "heroesTitle": "Lembaran dan build",
+        "heroesText": "Peran, lane, tingkatan, win rate, pemilihan dan ban, build terukur terbaik, emblem, spell dan counter hero, dengan tautan ke profil lengkap mereka.",
+        "announcementsTitle": "Pengumuman otomatis",
+        "announcementsText": "Patch baru, skin baru, kalender acara, server lanjutan, dan hasil esports dipublikasikan di lobi pilihan Anda, dengan peran yang dapat disebutkan jika Anda mau.",
+        "dailyTitle": "Permainan hari ini",
+        "dailyText": "MLBBdle dan kuis hari ini dimainkan di Discord, dengan teka-teki yang sama seperti di situs, dan peringkat khusus untuk server Anda.",
+        "languagesTitle": "Lima bahasa",
+        "languagesText": "Perintah dan respon dalam bahasa Inggris, Perancis, Italia, Spanyol dan Indonesia, tergantung pada bahasa server yang dipilih."
+      },
+      "commandsTitle": "Pesanan",
+      "commandsLead": "Semua perintah adalah perintah garis miring: ketik / di lobi untuk melihatnya, dengan pelengkapan otomatis hero, item, emblem, dan spell.",
+      "commands": {
+        "hero": "Profil Hero: Peran, Lane, Tingkatan, Tingkat, Bentuk Terbaik, Emblem, Spell, dan Kombo.",
+        "build": "Build hero yang paling menang, beserta item dan emblemnya.",
+        "counter": "Hero yang mengalahkan hero tertentu, dan hero yang dikalahkannya, berdasarkan permainan yang diukur.",
+        "tierlist": "Sepertiga terbaik, berdasarkan pangkat, lane, atau peran.",
+        "compare": "Dua hero saling berhadapan.",
+        "item": "Statistik dan efek suatu item.",
+        "emblem": "Bakat dan penggunaan emblem.",
+        "spell": "Efek dan cooldown dari battle spell.",
+        "patch": "Ringkasan patch terakhir, atau versi tertentu: buff, nerf, penyesuaian.",
+        "skins": "Skin terbaru yang dirilis, atau milik seorang hero.",
+        "events": "Acara saat ini dan yang akan datang.",
+        "nickname": "Nama panggilan bergaya, dengan pilihan gaya.",
+        "mlbbdle": "MLBBdle hari ini, dalam mode klasik atau skill.",
+        "quiz": "Kuis hari ini, dengan tombol untuk menjawab.",
+        "leaderboard": "Peringkat server untuk permainan hari ini, hari, minggu, atau sejak awal.",
+        "servertime": "Waktu server game dan hitungan mundur harian.",
+        "setup": "Tautan ke dasbor server (diperlukan izin Kelola Server).",
+        "help": "Daftar pesanan.",
+        "invite": "Tautan untuk menambahkan bot ke server lain.",
+        "about": "Tautan ke situs, server dukungan, suara, dan privasi."
+      },
+      "permissionsTitle": "Izin diminta",
+      "permissionsText": "Minimal untuk merespons dan mempublikasikan: tidak pernah menjadi Administrator, dan tidak ada akses ke konten pesan atau ke daftar anggota.",
+      "permissions": {
+        "view": "Lihat pertunjukannya",
+        "send": "Kirim pesan",
+        "threads": "Kirim pesan dalam rangkaian pesan",
+        "embed": "Sematkan tautan",
+        "attach": "Lampirkan file",
+        "history": "Lihat postingan lama",
+        "emojis": "Gunakan emoji eksternal",
+        "reactions": "Tambahkan reaksi"
+      },
+      "faqTitle": "Pertanyaan yang sering diajukan",
+      "faq1q": "Apakah botnya gratis?",
+      "faq1a": "Ya, sepenuhnya: tanpa berlangganan, tanpa fungsi khusus, tanpa iklan. Ini dibiayai seperti situsnya, oleh pembuatnya.",
+      "faq2q": "Bagaimana cara mengkonfigurasi iklan?",
+      "faq2a": "Tambahkan bot, lalu buka dasbor dengan akun Discord Anda: pilih ruangan (dan, jika Anda mau, peran untuk disebutkan) untuk setiap jenis iklan. Anda memerlukan izin Kelola Server.",
+      "faq3q": "Dari mana datanya berasal?",
+      "faq3a": "Dari sumber yang sama dengan situs: wiki Mobile Legends untuk hero, item dan patch, serta statistik peringkat game untuk rate dan build. Mereka diperbarui setiap hari.",
+      "faq4q": "Data apa yang disimpan bot?",
+      "faq4a": "Nama dan pengaturan server Anda, publikasi yang sudah dibuat, dan, untuk peringkat, ID Discord dan nama panggilan para pemain game hari itu. Detailnya ada di halaman privasi bot.",
+      "faq5q": "Apakah MLBBdle di Discord sama dengan di situs?",
+      "faq5a": "Ya: hero yang sama, skill yang sama, dan putaran kuis yang sama setiap hari UTC, dalam semua bahasa.",
+      "privacy": "Privasi Bot",
+      "terms": "Ketentuan Penggunaan"
+    },
+    "botPrivacy": {
+      "title": "Privasi Bot Perselisihan",
+      "metaDescription": "Apa yang disimpan oleh bot MLBBEx Discord, mengapa, berapa lama, dan bagaimana cara menghapusnya.",
+      "lead": "Apa yang disimpan bot, alasannya, dan untuk berapa lama.",
+      "storedTitle": "Apa yang dilestarikan",
+      "storedServer": "Untuk setiap server: pengenalnya, namanya, ikonnya, jumlah anggotanya, bahasanya, pengaturannya (ruangan, peran, waktu permainan) dan daftar pengumuman yang sudah dipublikasikan.",
+      "storedResults": "Untuk peringkat game hari ini: ID Discord pemain dan nama panggilannya, hari, permainan, dan skor.",
+      "storedCommands": "Untuk statistik: nama setiap perintah yang digunakan, server, bahasa, durasi dan keberhasilan. Tidak ada ID pengguna.",
+      "storedVotes": "Untuk statistik: ID Perselisihan orang yang memilih bot di daftar bot.",
+      "notStoredTitle": "Apa yang tidak dilestarikan",
+      "notStored": "Bot tidak membaca isi pesan dan tidak memiliki akses ke daftar anggota. Tidak ada token Discord yang disimpan: masuk ke dasbor hanya untuk membaca ID Anda, lalu token tersebut dibuang.",
+      "cookieTitle": "Masuk ke dasbor",
+      "cookie": "Masuk dengan Discord menyetel cookie sesi terenkripsi (`mlbbdex_discord`, httpOnly, 7 hari) yang berisi ID Discord, nama, dan avatar Anda, serta cookie sementara (`mlbbdex_discord_oauth`, 10 menit) saat masuk. Cookie tersebut sangat diperlukan untuk layanan yang diminta.",
+      "retentionTitle": "Umur simpan",
+      "retention": "Ketika bot meninggalkan server, datanya akan dihapus 30 hari kemudian, bersama dengan hasil pemainnya (kembalinya bot dalam periode ini akan memulihkan pengaturan). Statistik pesanan dihapus setelah 90 hari.",
+      "rightsTitle": "Hak Anda",
+      "rights": "Untuk melihat atau menghapus data yang terkait dengan ID atau server Discord Anda, tulis ke [{contact}](mailto:{contact}). Menghapus bot dari server memulai penghapusan otomatis.",
+      "sitePrivacy": "Privasi Situs"
+    },
+    "botTerms": {
+      "title": "Ketentuan Layanan Bot Perselisihan",
+      "metaDescription": "Ketentuan layanan bot MLBBEx Discord: layanan gratis, penggunaan wajar, data game disediakan tanpa jaminan.",
+      "lead": "Aturan sederhana dari layanan gratis.",
+      "p1": "Bot MLBBDex adalah proyek penggemar independen dan gratis, tidak ada hubungannya dengan Moonton. Mobile Legends: Bang Bang adalah merek dari Shanghai Moonton Technology Co., Ltd.",
+      "p2": "Data (statistik, build, tier list, patch note) disediakan sebagaimana adanya, tanpa jaminan keakuratan atau ketersediaan. Mereka berasal dari wiki Mobile Legends (CC BY-SA) dan statistik permainan peringkat.",
+      "p3": "Jangan membajak bot: tidak ada otomatisasi perintah yang menyalahgunakan, tidak ada upaya untuk mengakses pengaturan server yang tidak Anda kelola. Layanan mungkin dibatasi atau dihapus dari server yang menyalahgunakannya.",
+      "p4": "Layanan dapat berubah, terganggu, atau dihentikan kapan saja. Aturan Discord (ketentuan penggunaan dan aturan komunitas) berlaku untuk penggunaannya.",
+      "p5": "Data yang disimpan dijelaskan di halaman privasi bot. Untuk pertanyaan apa pun: [{contact}](mailto:{contact})."
+    },
+    "botDashboard": {
+      "title": "Dasbor Bot",
+      "lead": "Atur bot untuk setiap server Anda: bahasa, pengumuman, dan permainan hari ini.",
+      "login": "Terhubung dengan Perselisihan",
+      "loginLead": "Masuk dengan Discord untuk melihat server yang Anda kelola. Hanya pengenal Anda yang dibaca: tidak ada akses ke pesan atau server Anda.",
+      "loginFailed": "Sambungan tidak berhasil. Coba lagi.",
+      "logout": "Keluar",
+      "signedAs": "Masuk sebagai {name}",
+      "serversTitle": "Server Anda",
+      "serversLead": "Server tempat Anda memiliki izin Kelola Server dan tempat bot berada.",
+      "noServers": "Belum ada server yang perlu disetel: tambahkan bot ke server yang Anda kelola.",
+      "addBot": "Tambahkan bot ke server",
+      "manage": "Mengatur",
+      "unreachable": "Bot tidak merespons saat ini. Coba lagi dalam beberapa menit.",
+      "back": "Semua server Anda",
+      "notAllowed": "Server ini tidak ada dalam daftar server yang Anda kelola.",
+      "settingsTitle": "Pengaturan",
+      "deliveriesTitle": "Publikasi terbaru",
+      "noDeliveries": "Belum ada publikasi.",
+      "statuses": {
+        "sent": "Diterbitkan",
+        "failed": "Kegagalan",
+        "forbidden": "Izin ditolak"
+      },
+      "members": "{count} anggota",
+      "admin": "Panel Admin"
+    },
+    "botUI": {
+      "language": "Bahasa bot di server ini",
+      "announcementsTitle": "Pengumuman",
+      "announcementsLead": "Satu tayangan per jenis iklan; tidak ada pertunjukan, tidak ada pengumuman.",
+      "channel": "Ruang tamu",
+      "role": "Peran untuk disebutkan",
+      "off": "Dengan disabilitas",
+      "noRole": "Tidak disebutkan",
+      "types": {
+        "patches": "Patch notes",
+        "skins": "Skin baru",
+        "events": "Acara",
+        "advanceServer": "Advanced Server",
+        "esports": "esports"
+      },
+      "dailyTitle": "Permainan hari ini",
+      "dailyMlbbdle": "Pertunjukan MLBBdle",
+      "dailyQuiz": "Pameran Kuis",
+      "dailyHour": "Waktu posting",
+      "hourUtc": "{hour} jam UTC",
+      "save": "Menyimpan",
+      "saving": "Pendaftaran…",
+      "saved": "Pengaturan tersimpan.",
+      "saveFailed": "Pendaftaran gagal. Coba lagi.",
+      "test": "Kirim tes",
+      "testSent": "Pesan percobaan terkirim.",
+      "testFailed": "Tes tidak dapat dikirim ke ruang tunggu ini.",
+      "failing": "Bot tidak dapat memposting ke saluran ini: periksa izinnya, lalu simpan.",
+      "flush": "Publikasikan pengumuman yang tertunda",
+      "flushing": "Publikasi pengumuman…",
+      "flushed": "Pengumuman terverifikasi: {count} baru, publikasi diminta dari bot.",
+      "flushFailed": "Bot tidak merespons."
+    },
+    "botAdmin": {
+      "title": "Administrasi bot",
+      "lead": "Status bot dan servernya.",
+      "window": "Periode",
+      "windows": {
+        "24h": "24 jam",
+        "7d": "7 hari",
+        "30d": "30 hari"
+      },
+      "serversTitle": "Server",
+      "active": "Server aktif",
+      "left": "Server tersisa (ditahan selama 30 hari)",
+      "votes": "Pemungutan suara selama periode tersebut",
+      "joinsPerDay": "Kedatangan per hari (30 hari)",
+      "leavesPerDay": "Keberangkatan per hari (30 hari)",
+      "biggest": "Server terbesar",
+      "locales": "BAHASA",
+      "commandsTitle": "Pesanan",
+      "total": "Pesanan selama periode tersebut",
+      "errorRate": "Tingkat kesalahan",
+      "p95": "Durasi hal95",
+      "perDay": "Pesanan per hari",
+      "topCommands": "Perintah yang paling banyak digunakan",
+      "command": "Memesan",
+      "count": "Nomor",
+      "errors": "Kesalahan",
+      "announcementsTitle": "Pengumuman",
+      "delivered": "Diterbitkan",
+      "failed": "Catur",
+      "dailyTitle": "Permainan hari ini",
+      "playersPerDay": "Pemain per hari (30 hari)",
+      "healthTitle": "Kesehatan bot",
+      "guildCount": "Server dilihat oleh bot",
+      "shards": "Pecahan",
+      "ping": "Latensi",
+      "memory": "Ingatan",
+      "uptime": "Dimulai dari",
+      "shard": "Pecahan {id}",
+      "botUnreachable": "Bot tidak merespons.",
+      "databaseUnreachable": "Basis data tidak merespons.",
+      "chartEmpty": "Tidak ada data mengenai periode tersebut."
     }
   },
   "modeSheet": {
@@ -3608,6 +3819,14 @@
       "favourites": "daftar hero favorit Anda (pengidentifikasinya), diperbarui saat Anda memodifikasinya.",
       "usage": "Data ini hanya digunakan untuk memberi tahu ketika ada patch yang memodifikasi salah satu hero tersebut. Mereka tidak ditautkan ke akun atau nama apa pun dan tidak dikirimkan kepada siapa pun; konten notifikasi dienkripsi ke browser Anda, dan hanya layanan notifikasi yang memastikan pengirimannya.",
       "unsubscribe": "Untuk berhenti berlangganan, matikan tombol favorit, atau bel di sebelah tombol favorit daftar: data ini kemudian dihapus dari server. Memblokir pemberitahuan situs di browser Anda atau menghapus datanya juga menghentikan pengiriman; langganan yang menjadi tidak valid akan dihapus pada pemberitahuan berikutnya."
+    },
+    "bot": {
+      "title": "Bot perselisihan (opsional)",
+      "intro": "Jika Anda menggunakan bot MLBBEx Discord atau dasbornya, server situs juga menyimpan:",
+      "cookie": "cookie sesi terenkripsi, `mlbbdex_discord` (httpOnly, 7 hari), jika Anda masuk ke dasbor dengan Discord: ID Discord Anda, nama dan avatar, tidak ada yang lain; tidak ada token Discord yang dipertahankan;",
+      "servers": "untuk setiap server tempat bot berada: nama, bahasa, dan pengaturannya;",
+      "results": "untuk peringkat game hari ini yang dimainkan di Discord: ID Discord para pemain dan nama panggilan serta skor mereka.",
+      "details": "Detail, periode penyimpanan, dan penghapusan dijelaskan di halaman privasi bot."
     }
   },
   "compareUI": {
