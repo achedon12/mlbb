@@ -65,6 +65,7 @@ const NEWS = [
 
 // The bot's page only exists when the bot is deployed (application id set at build time).
 const SITE = [
+  { href: "/community", key: "community" },
   ...(botPublished() ? [{ href: "/bot", key: "bot" }] : []),
   { href: "/api-doc", key: "publicApi" },
   { href: "/about", key: "about" },

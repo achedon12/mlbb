@@ -73,12 +73,14 @@ export function acceptCallback(
 }
 
 /**
- * Where a login lands: one of two fixed pages of the site, in one of its
+ * Where a login lands: one of three fixed pages of the site (the dashboard,
+ * the admin panel, the community moderation queue), in one of its
  * languages, as a path. Nothing from the query string reaches it, so there
  * is no open redirect to build.
  */
 export function loginTarget(locale: string | undefined, next: string | undefined): string {
   const lang = locale && isLocale(locale) ? locale : "en";
+  if (next === "moderation") return `/${lang}/community/moderation`;
   return `/${lang}/bot/${next === "admin" ? "admin" : "dashboard"}`;
 }
 
