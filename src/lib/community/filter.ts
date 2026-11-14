@@ -88,7 +88,7 @@ export function links(text: string): (URL | null)[] {
   });
 }
 
-const hostOf = (url: URL) => url.hostname.toLowerCase().replace(/^www\./, "");
+const hostOf = (url: URL) => url.hostname.toLowerCase().replace(/\.+$/, "").replace(/^www\./, "");
 const pathOf = (url: URL) => url.pathname.replace(/\/+$/, "");
 
 /** The site's own Discord invite, the one invite allowed, as `host/path`; or null. */

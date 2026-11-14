@@ -209,6 +209,10 @@ describe.skipIf(!url)("community database paths", async () => {
     const id = created.value.id;
     const report = (n: number) => store.reportTarget({ kind: "thread", id, reason: "spam" }, author(n));
     expect(await store.reportTarget({ kind: "thread", id, reason: "spam" }, author(13))).toBe("own");
+    // Three brand-new accounts cannot hide anything on their own.
+    for (const n of [50, 51, 52]) expect(await report(n)).toBe("ok");
+    expect((await store.getThread(id))?.hiddenAt).toBeNull();
+    for (const n of [14, 15, 16]) await veteran(n);
     expect(await report(14)).toBe("ok");
     expect(await report(14)).toBe("duplicate");
     expect(await report(15)).toBe("ok");
@@ -220,7 +224,7 @@ describe.skipIf(!url)("community database paths", async () => {
     const queue = await store.moderationQueue();
     const entry = queue.find((e) => e.kind === "thread" && e.id === id);
     expect(entry).toMatchObject({ hidden: true, authorId: account(13), title: "Reported thread" });
-    expect(entry?.reports).toHaveLength(3);
+    expect(entry?.reports).toHaveLength(6);
 
     // Not a moderator: the same 404 as no route at all.
     const decide = (body: unknown) => moderationRoute.POST(call("/api/community/moderation", "POST", body));
@@ -308,6 +312,7 @@ describe.skipIf(!url)("community database paths", async () => {
     // Three reports hide a card the same way.
     await store.saveCard(card, author(31));
     const other = (await store.ownCard(account(31)))!.id;
+    for (const n of [32, 33, 34]) await veteran(n);
     for (const n of [32, 33, 34]) await store.reportTarget({ kind: "card", id: other, reason: "spam" }, author(n));
     await store.deleteCard(account(31));
     expect(await store.saveCard(card, author(31))).toEqual({ ok: false, reason: "hidden" });
@@ -322,6 +327,7 @@ describe.skipIf(!url)("community database paths", async () => {
     // Reports judged unfounded lift the hide they caused, not a moderator's.
     await store.saveCard(card, author(35));
     const reported = (await store.ownCard(account(35)))!.id;
+    for (const n of [36, 37, 38]) await veteran(n);
     for (const n of [36, 37, 38]) await store.reportTarget({ kind: "card", id: reported, reason: "spam" }, author(n));
     expect(await store.saveCard(card, author(35))).toEqual({ ok: false, reason: "hidden" });
     expect(await store.moderate({ action: "dismiss", kind: "card", id: reported }, moderator)).toBe("ok");
@@ -332,10 +338,12 @@ describe.skipIf(!url)("community database paths", async () => {
     // Dismissing reports on an older card never lifts a moderator's hide of a newer one.
     await store.saveCard(card, author(40));
     const first = (await store.ownCard(account(40)))!.id;
+    for (const n of [41, 42, 43]) await veteran(n);
     for (const n of [41, 42, 43]) await store.reportTarget({ kind: "card", id: first, reason: "spam" }, author(n));
     expect(await store.moderate({ action: "dismiss", kind: "card", id: first }, moderator)).toBe("ok");
     expect(await store.moderate({ action: "hide", kind: "card", id: first }, moderator)).toBe("ok");
     await store.deleteCard(account(40));
+    for (const n of [44, 45, 46]) await veteran(n);
     for (const n of [44, 45, 46]) await store.reportTarget({ kind: "card", id: first, reason: "spam" }, author(n)).catch(() => null);
     await store.moderate({ action: "dismiss", kind: "card", id: first }, moderator);
     expect(await store.saveCard(card, author(40))).toEqual({ ok: false, reason: "hidden" });

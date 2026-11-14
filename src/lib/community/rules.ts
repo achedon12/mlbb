@@ -29,8 +29,8 @@ export * from "./constants";
  */
 
 /** A search query as stored in the address: one line, at most 100 characters. */
-export function readQuery(value: string | undefined): string {
-  if (!value) return "";
+export function readQuery(value: string | string[] | undefined): string {
+  if (typeof value !== "string" || !value) return "";
   return [...cleanText(value, false)].slice(0, 100).join("");
 }
 

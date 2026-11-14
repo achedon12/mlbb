@@ -140,6 +140,7 @@ describe("community filter", () => {
     const options = { newAccount: false };
     expect(screenText("FREE DIAMONDS here", options)).toBe("spam");
     expect(screenText("see https://bit.ly/abc", options)).toBe("spam");
+    expect(screenText("see https://bit.ly./abc", options)).toBe("spam");
     expect(screenText("join https://discord.gg/other", options)).toBe("spam");
     expect(screenText("join https://discord.com/invite/other", options)).toBe("spam");
     expect(screenText("docs at https://discord.com/developers/docs", options)).toBe("ok");
@@ -190,5 +191,13 @@ describe("community markdown", () => {
   it("gives a plain-text excerpt", () => {
     expect(plainText("**Ling** & <Fanny>\n\n- jungle")).toBe("Ling & <Fanny> jungle");
     expect(plainText("word ".repeat(100), 20)).toHaveLength(20);
+  });
+});
+
+describe("readQuery", () => {
+  it("ignores a repeated parameter instead of failing", async () => {
+    const { readQuery } = await import("@/lib/community/rules");
+    expect(readQuery(["a", "b"])).toBe("");
+    expect(readQuery("ling build")).toBe("ling build");
   });
 });

@@ -56,6 +56,8 @@ export async function generateMetadata({ params, searchParams }: Params): Promis
   const { locale, thread: segment } = await params;
   const thread = await load(segment);
   if (!thread) return { robots: { index: false, follow: true } };
+  // A hidden thread's title and text stay out of the page head.
+  if (thread.hiddenAt) return { robots: { index: false, follow: false } };
   const t = createT(locale);
   const page = readPageNumber((await searchParams).page);
   const meta = metaPage(locale, {
@@ -66,7 +68,6 @@ export async function generateMetadata({ params, searchParams }: Params): Promis
     published: thread.createdAt.toISOString(),
     author: thread.authorName,
   });
-  if (thread.hiddenAt) return { ...meta, robots: { index: false, follow: false } };
   return page > 1 ? { ...meta, robots: { index: false, follow: true } } : meta;
 }
 

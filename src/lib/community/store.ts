@@ -11,6 +11,7 @@ import {
   canEdit,
   isBanned,
   isNewAccount,
+  NEW_ACCOUNT_MS,
   threadPath,
   type Category,
   type ReportReason,
@@ -165,8 +166,9 @@ export function createThread(input: ThreadInput, author: Author, now = Date.now(
   return serial(async (tx) => {
     const refusal = await checkPosting(tx, author, "threads", input.body, now);
     if (refusal) return { ok: false, reason: refusal };
-    const screenedTitle = screenText(input.title, { newAccount: false });
-    if (screenedTitle === "blocked" || screenedTitle === "spam") return { ok: false, reason: screenedTitle };
+    const poster = await tx.communityMember.findUnique({ where: { accountId: author.id }, select: { firstSeenAt: true } });
+    const screenedTitle = screenText(input.title, { newAccount: !poster || isNewAccount(poster.firstSeenAt, now) });
+    if (screenedTitle !== "ok") return { ok: false, reason: screenedTitle };
     const at = new Date(now);
     const thread = await tx.forumThread.create({
       data: { ...input, authorId: author.id, authorName: author.name, createdAt: at, lastPostAt: at },
@@ -406,7 +408,14 @@ export function reportTarget(
         createdAt: new Date(now),
       },
     });
-    const open = await tx.communityReport.count({ where: { kind: input.kind, targetId: input.id, resolvedAt: null } });
+    // Only reporters past the new-account period count towards hiding:
+    // three throwaway accounts cannot silence anyone.
+    const reporters = (
+      await tx.communityReport.findMany({ where: { kind: input.kind, targetId: input.id, resolvedAt: null }, select: { reporterId: true } })
+    ).map((r) => r.reporterId);
+    const open = await tx.communityMember.count({
+      where: { accountId: { in: reporters }, firstSeenAt: { lte: new Date(now - NEW_ACCOUNT_MS) } },
+    });
     if (open >= AUTO_HIDE_REPORTS) {
       await setHidden(tx, input.kind, input.id, new Date(now));
       if (input.kind === "card") await tx.communityMember.updateMany({ where: { accountId: target.author }, data: { cardHiddenAt: new Date(now) } });
