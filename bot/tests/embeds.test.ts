@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { announcementMessage, allowedMentionsFor, testMessage } from "../src/embeds/announcements.js";
+import { announcementMessage, allowedMentionsFor, monthName, testMessage } from "../src/embeds/announcements.js";
 import { makeView } from "../src/embeds/common.js";
 import { dailyPost, leaderboardEmbed, mlbbdleClassicEmbed, quizButtons, quizStepEmbed } from "../src/embeds/daily.js";
 import { bestBuild, buildEmbed, counterEmbed, heroButtons, heroEmbed, itemEmbed, tierlistEmbed } from "../src/embeds/game.js";
@@ -186,5 +186,15 @@ describe("daily games", () => {
     const post = dailyPost(en, "mlbbdle", "2026-11-14", 65);
     expect(post.allowed_mentions).toEqual({ parse: [] });
     expect(JSON.stringify(post.components)).toContain("daily:mlbbdle:2026-11-14");
+  });
+});
+
+describe("events announcement", () => {
+  it("names the month in the server's language when the site sends no title", () => {
+    const msg = announcementMessage("events", { month: "2026-11", url: "/events/2026-11", count: 4 }, "fr", null, SITE)!;
+    expect(msg).not.toBeNull();
+    expect(msg.embeds?.[0]?.title).toBe("Événements : novembre 2026");
+    expect(monthName("2026-11", "en")).toBe("November 2026");
+    expect(monthName("soon", "en")).toBe("soon");
   });
 });
