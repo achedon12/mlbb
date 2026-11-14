@@ -1,0 +1,463 @@
+{
+  "commands": {
+    "hero": {
+      "name": "hero",
+      "description": "Profil hero: role, lane, tier, rate, dan build terbaik",
+      "options": {
+        "name": {
+          "name": "nama",
+          "description": "Nama hero"
+        }
+      }
+    },
+    "build": {
+      "name": "build",
+      "description": "Build yang benar-benar dipakai pemain untuk menang dengan hero ini",
+      "options": {
+        "hero": {
+          "name": "hero",
+          "description": "Nama hero"
+        },
+        "rank": {
+          "name": "rank",
+          "description": "Rentang rank pengukuran"
+        }
+      }
+    },
+    "counter": {
+      "name": "counter",
+      "description": "Siapa yang mengalahkan hero ini, dan siapa yang dikalahkannya, dari win rate terukur",
+      "options": {
+        "hero": {
+          "name": "hero",
+          "description": "Nama hero"
+        },
+        "rank": {
+          "name": "rank",
+          "description": "Rentang rank pengukuran"
+        }
+      }
+    },
+    "tierlist": {
+      "name": "tierlist",
+      "description": "Tier list terkini, dihitung dari win rate dan ban rate",
+      "options": {
+        "rank": {
+          "name": "rank",
+          "description": "Rentang rank"
+        },
+        "lane": {
+          "name": "lane",
+          "description": "Hanya hero yang dimainkan di lane ini"
+        },
+        "role": {
+          "name": "role",
+          "description": "Hanya hero dengan role ini"
+        }
+      }
+    },
+    "compare": {
+      "name": "bandingkan",
+      "description": "Dua hero berhadapan",
+      "options": {
+        "first": {
+          "name": "pertama",
+          "description": "Hero pertama"
+        },
+        "second": {
+          "name": "kedua",
+          "description": "Hero kedua"
+        }
+      }
+    },
+    "item": {
+      "name": "item",
+      "description": "Sebuah item: harga, statistik, pasif, dan resep",
+      "options": {
+        "name": {
+          "name": "nama",
+          "description": "Nama item"
+        }
+      }
+    },
+    "emblem": {
+      "name": "emblem",
+      "description": "Sebuah emblem dan role yang cocok",
+      "options": {
+        "name": {
+          "name": "nama",
+          "description": "Nama emblem"
+        }
+      }
+    },
+    "spell": {
+      "name": "spell",
+      "description": "Sebuah battle spell dan cooldown-nya",
+      "options": {
+        "name": {
+          "name": "nama",
+          "description": "Nama spell"
+        }
+      }
+    },
+    "patch": {
+      "name": "patch",
+      "description": "Ringkasan patch terbaru, atau versi tertentu",
+      "options": {
+        "version": {
+          "name": "versi",
+          "description": "Versi patch, misalnya 2.1.90"
+        }
+      }
+    },
+    "skins": {
+      "name": "skin",
+      "description": "Skin terbaru, atau semua skin seorang hero",
+      "options": {
+        "hero": {
+          "name": "hero",
+          "description": "Nama hero"
+        }
+      }
+    },
+    "events": {
+      "name": "event",
+      "description": "Event dalam game yang sedang dan akan berlangsung"
+    },
+    "nickname": {
+      "name": "nickname",
+      "description": "Tulis nama dalam game kamu dengan font keren",
+      "options": {
+        "text": {
+          "name": "teks",
+          "description": "Nickname kamu (huruf dan angka diberi gaya)"
+        },
+        "style": {
+          "name": "gaya",
+          "description": "Gaya font"
+        }
+      }
+    },
+    "mlbbdle": {
+      "name": "mlbbdle",
+      "description": "Tebak hero hari ini, teka-teki yang sama dengan di mlbbdex.com",
+      "options": {
+        "guess": {
+          "name": "tebakan",
+          "description": "Tebakan kamu"
+        },
+        "mode": {
+          "name": "mode",
+          "description": "Mode permainan"
+        }
+      }
+    },
+    "quiz": {
+      "name": "kuis",
+      "description": "Kuis MLBB hari ini: lima ronde, satu jawaban per ronde"
+    },
+    "leaderboard": {
+      "name": "peringkat",
+      "description": "Peringkat server ini untuk permainan harian",
+      "options": {
+        "game": {
+          "name": "permainan",
+          "description": "Permainan yang mana"
+        },
+        "period": {
+          "name": "periode",
+          "description": "Periode yang mana"
+        }
+      }
+    },
+    "servertime": {
+      "name": "waktu-server",
+      "description": "Waktu server game dan reset berikutnya"
+    },
+    "setup": {
+      "name": "pengaturan",
+      "description": "Buka pengaturan server ini di mlbbdex.com"
+    },
+    "help": {
+      "name": "bantuan",
+      "description": "Semua perintah MLBBDex"
+    },
+    "invite": {
+      "name": "undang",
+      "description": "Tambahkan MLBBDex ke server lain"
+    },
+    "about": {
+      "name": "tentang",
+      "description": "Tentang MLBBDex: situs, server bantuan, privasi"
+    }
+  },
+  "choices": {
+    "rank": {
+      "all": "Semua rank",
+      "epic": "Epic",
+      "legend": "Legend",
+      "mythic": "Mythic",
+      "honor": "Mythical Honor",
+      "glory": "Mythical Glory"
+    },
+    "lane": {
+      "Gold": "Gold Lane",
+      "Exp": "EXP Lane",
+      "Mid": "Mid Lane",
+      "Jungle": "Jungle",
+      "Roam": "Roam"
+    },
+    "role": {
+      "Tank": "Tank",
+      "Fighter": "Fighter",
+      "Assassin": "Assassin",
+      "Mage": "Mage",
+      "Marksman": "Marksman",
+      "Support": "Support"
+    },
+    "mode": {
+      "classic": "Klasik",
+      "skill": "Skill"
+    },
+    "game": {
+      "mlbbdle-classic": "MLBBdle klasik",
+      "mlbbdle-skill": "MLBBdle skill",
+      "quiz": "Kuis"
+    },
+    "period": {
+      "day": "Hari ini",
+      "week": "Minggu ini",
+      "all": "Sepanjang masa"
+    },
+    "style": {
+      "bold": "Gemuk",
+      "italic": "Huruf miring",
+      "boldItalic": "Miring tebal",
+      "script": "Kaligrafi",
+      "boldScript": "Kaligrafi tebal",
+      "fraktur": "Gotik",
+      "boldFraktur": "Gotik Gemuk",
+      "doubleStruck": "Kerawang",
+      "monospace": "Mesin tik",
+      "sans": "Sans serif",
+      "sansBold": "Sans serif tebal",
+      "sansItalic": "Miring sans serif",
+      "sansBoldItalic": "Sans serif miring tebal",
+      "smallCaps": "Modal kecil",
+      "circled": "Lingkaran",
+      "negativeCircled": "Lingkaran penuh",
+      "squared": "Kemas",
+      "fullWidth": "Pengejaran penuh",
+      "superscript": "Eksponen",
+      "strikethrough": "Batang",
+      "underline": "Menggarisbawahi"
+    }
+  },
+  "ui": {
+    "common": {
+      "open": "Buka di MLBBDex",
+      "error": "Terjadi kesalahan. Coba lagi sebentar lagi.",
+      "siteDown": "MLBBDex sedang tidak merespons. Coba lagi dalam semenit.",
+      "notFound": "Tidak ada hasil untuk “{query}”. Pilih saran dari daftar.",
+      "guildOnly": "Perintah ini hanya berfungsi di server.",
+      "noPermission": "Kamu memerlukan izin Kelola Server.",
+      "unavailable": "Ini belum tersedia di Discord: ada di MLBBDex.",
+      "measuredAt": "Diukur pada {date}",
+      "allRanksFallback": "Angka per rank belum tersedia di sini: semua rank ditampilkan.",
+      "source": "Data: MLBBDex, Mobile Legends Wiki (CC BY-SA)",
+      "none": "Tidak ada",
+      "expired": "Tombol ini sudah kedaluwarsa. Jalankan perintahnya lagi."
+    },
+    "hero": {
+      "role": "Role",
+      "lanes": "Lane",
+      "tier": "Tier",
+      "winRate": "Win rate",
+      "pickRate": "Pick rate",
+      "banRate": "Ban rate",
+      "build": "Build terbaik",
+      "emblem": "Emblem",
+      "spell": "Spell",
+      "skills": "Skill",
+      "difficulty": "Kesulitan",
+      "buttonBuild": "Build",
+      "buttonCounters": "Counter",
+      "buttonSkins": "Skin"
+    },
+    "build": {
+      "title": "{hero}: build",
+      "measured": "Paling banyak dimainkan di {rank}, dengan win rate-nya",
+      "written": "Ditulis oleh tim MLBBDex",
+      "items": "Item",
+      "rates": "{win} menang · {pick} dipilih",
+      "none": "Belum ada build terukur untuk hero ini."
+    },
+    "counter": {
+      "title": "{hero}: counter",
+      "weak": "Kesulitan melawan",
+      "strong": "Kuat melawan",
+      "none": "Belum ada counter terukur untuk hero ini."
+    },
+    "tierlist": {
+      "title": "Tier list",
+      "filtered": "Tier list: {filter}",
+      "empty": "Tidak ada hero yang cocok dengan filter ini."
+    },
+    "compare": {
+      "title": "{a} vs {b}",
+      "same": "Pilih dua hero yang berbeda."
+    },
+    "item": {
+      "price": "Harga",
+      "category": "Kategori",
+      "stats": "Statistik",
+      "passive": "Pasif",
+      "unique": "Unik",
+      "active": "Aktif",
+      "recipe": "Resep"
+    },
+    "emblem": {
+      "role": "Cocok untuk",
+      "title": "{name}"
+    },
+    "spell": {
+      "cooldown": "Cooldown",
+      "seconds": "{n} dtk",
+      "roles": "Umum dipakai"
+    },
+    "patch": {
+      "latest": "Patch terbaru",
+      "buffs": "Buff",
+      "nerfs": "Nerf",
+      "adjustments": "Penyesuaian",
+      "heroes": "Hero yang diubah",
+      "unknown": "Tidak ada catatan patch {version}."
+    },
+    "skins": {
+      "title": "{hero}: skin",
+      "newest": "Skin terbaru",
+      "count": "{n} skin",
+      "none": "Belum ada skin tercatat."
+    },
+    "events": {
+      "title": "Event",
+      "current": "Sedang berlangsung",
+      "upcoming": "Akan datang",
+      "none": "Belum ada event tercatat saat ini."
+    },
+    "nickname": {
+      "title": "Nickname kamu",
+      "pick": "Pilih gaya lain",
+      "copy": "Tekan lama (ponsel) atau pilih (komputer) untuk menyalinnya.",
+      "length": "{n} karakter",
+      "empty": "Ketik setidaknya satu huruf atau angka."
+    },
+    "mlbbdle": {
+      "title": "MLBBdle #{number}",
+      "classic": "Klasik",
+      "skill": "Skill",
+      "howTo": "Tebak dengan `/mlbbdle tebakan:` dan nama hero. Setiap tebakan menunjukkan ciri yang sama: 🟩 cocok, 🟧 sebagian, 🟥 tidak, ⬛ tidak diketahui.",
+      "columns": "Gender · Role · Lane · Spesialisasi · Damage · Jangkauan · Resource · Wilayah · Tahun",
+      "guesses": "{n} tebakan",
+      "already": "Kamu sudah menebak {hero}.",
+      "solved": "Ketemu: **{hero}** dalam {n} tebakan!",
+      "solvedPublic": "{user} menemukan MLBBdle hari ini ({mode}) dalam {n} tebakan!",
+      "done": "Kamu sudah menemukan hero hari ini. Kembali lagi besok!",
+      "skillPrompt": "Skill siapa ini?",
+      "clueName": "Nama skill",
+      "clueExcerpt": "Deskripsi",
+      "clueRoles": "Role",
+      "nextClue": "Petunjuk berikutnya setelah {n} kesalahan lagi.",
+      "unavailable": "Teka-teki hari ini sedang tidak tersedia.",
+      "newer": "rilis lebih baru",
+      "older": "rilis lebih lama",
+      "dailyTitle": "MLBBdle #{number} sudah tersedia",
+      "dailyBody": "Tebak hero hari ini, sama dengan di MLBBDex. Tekan Main atau ketik `/mlbbdle`.",
+      "play": "Main",
+      "playOnSite": "Main di MLBBDex"
+    },
+    "quiz": {
+      "title": "Kuis #{number}",
+      "round": "Ronde {n} dari {total}",
+      "skill": "Skill siapa ini?",
+      "skin": "Skin siapa ini?",
+      "story": "Kisah siapa ini?",
+      "item": "Item apa ini?",
+      "duel": "Siapa yang win rate-nya lebih tinggi?",
+      "price": "Harga: {price}",
+      "right": "Benar!",
+      "wrong": "Bukan: jawabannya {answer}.",
+      "finished": "Selesai: {points} / {max} poin.",
+      "finishedPublic": "{user} mencetak {points} / {max} di kuis hari ini!",
+      "done": "Kamu sudah memainkan kuis hari ini: {points} / {max}.",
+      "unavailable": "Kuis hari ini sedang tidak tersedia.",
+      "dailyTitle": "Kuis #{number} sudah tersedia",
+      "dailyBody": "Lima ronde tentang hero, skin, dan item MLBB. Tekan Main atau ketik `/kuis`."
+    },
+    "leaderboard": {
+      "title": "{game}: {period}",
+      "empty": "Belum ada yang bermain. Jadilah yang pertama!",
+      "solvedDays": "{n} hari · rata-rata {avg} tebakan",
+      "points": "{n} poin · {plays} permainan"
+    },
+    "servertime": {
+      "title": "Waktu server",
+      "now": "Waktu server (UTC-8)",
+      "daily": "Reset harian",
+      "weekly": "Reset mingguan",
+      "starlight": "Starlight baru"
+    },
+    "setup": {
+      "body": "Pilih bahasa, channel pengumuman, dan permainan harian server ini di dashboard.",
+      "button": "Buka dashboard"
+    },
+    "help": {
+      "title": "Perintah MLBBDex",
+      "footer": "Gratis, dalam lima bahasa. Data dari mlbbdex.com."
+    },
+    "invite": {
+      "body": "Tambahkan MLBBDex ke server yang kamu kelola. Bot hanya meminta izin yang dipakainya: tanpa administrator, tanpa membaca pesan.",
+      "button": "Tambahkan ke Discord"
+    },
+    "about": {
+      "title": "Tentang MLBBDex",
+      "body": "MLBBDex adalah basis pengetahuan gratis tentang Mobile Legends: Bang Bang: hero, build, counter, tier list, dan patch note, dalam bahasa Inggris, Prancis, Italia, Spanyol, dan Indonesia. Bot ini membawanya ke server kamu.",
+      "servers": "Server",
+      "site": "Situs",
+      "support": "Server bantuan",
+      "vote": "Vote",
+      "privacy": "Privasi"
+    },
+    "announce": {
+      "patchTitle": "Patch baru: {version}",
+      "patchBody": "{buff} buff, {nerf} nerf, {adjust} penyesuaian.",
+      "skinTitle": "Skin baru: {name}",
+      "skinBody": "Skin baru untuk {hero}.",
+      "eventTitle": "Event: {title}",
+      "eventBody": "{count} event di kalender.",
+      "advanceTitle": "Advance server: {version}",
+      "advanceBody": "Perubahan berikutnya ada di server uji.",
+      "esportsTitle": "Esports: {name}",
+      "esportsWinner": "Pemenang: {winner}",
+      "testTitle": "Pesan uji MLBBDex",
+      "testBody": "Pengumuman akan diposting di channel ini."
+    }
+  },
+  "labels": {
+    "roles": {
+      "Tank": "Tank",
+      "Fighter": "Fighter",
+      "Assassin": "Assassin",
+      "Mage": "Mage",
+      "Marksman": "Marksman",
+      "Support": "Support"
+    },
+    "lanes": {
+      "Gold": "Gold Lane",
+      "Exp": "EXP Lane",
+      "Mid": "Mid Lane",
+      "Jungle": "Jungle",
+      "Roam": "Roam"
+    }
+  }
+}
