@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { botStats, BotUnavailable } from "@/lib/bot/client";
+import { botStats, BotUnavailable, refusalFor } from "@/lib/bot/client";
 import type { BotConfig } from "@/lib/bot/config";
 
 /**
@@ -68,5 +68,21 @@ describe("botStats", () => {
   it("still refuses an answer that is not stats", async () => {
     answer({ shards: "nope" });
     await expect(botStats(config)).rejects.toBeInstanceOf(BotUnavailable);
+  });
+});
+
+describe("refusalFor", () => {
+  const refusals = new Map<string, "not_member" | "no_manage_roles" | "above_user" | null>([
+    ["1", null],
+    ["2", "above_user"],
+  ]);
+  it("keeps a grantable role grantable", () => {
+    expect(refusalFor(refusals, "1")).toBeNull();
+  });
+  it("passes the bot's reason through", () => {
+    expect(refusalFor(refusals, "2")).toBe("above_user");
+  });
+  it("refuses a role the bot did not answer for", () => {
+    expect(refusalFor(refusals, "3")).toBe("not_member");
   });
 });
