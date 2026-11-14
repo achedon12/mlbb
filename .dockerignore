@@ -16,3 +16,5 @@ donnees-serveur
 .env
 .env.local
 .env.*.local
+# The Discord bot has its own image (bot/Dockerfile)
+bot

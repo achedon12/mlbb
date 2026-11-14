@@ -1,0 +1,463 @@
+{
+  "commands": {
+    "hero": {
+      "name": "eroe",
+      "description": "La scheda di un eroe: ruolo, lane, tier, percentuali e build migliore",
+      "options": {
+        "name": {
+          "name": "nome",
+          "description": "Nome dell'eroe"
+        }
+      }
+    },
+    "build": {
+      "name": "build",
+      "description": "Le build con cui i giocatori vincono davvero con un eroe",
+      "options": {
+        "hero": {
+          "name": "eroe",
+          "description": "Nome dell'eroe"
+        },
+        "rank": {
+          "name": "rango",
+          "description": "Fascia di rango della misura"
+        }
+      }
+    },
+    "counter": {
+      "name": "counter",
+      "description": "Chi batte un eroe, e chi batte lui, secondo i tassi di vittoria misurati",
+      "options": {
+        "hero": {
+          "name": "eroe",
+          "description": "Nome dell'eroe"
+        },
+        "rank": {
+          "name": "rango",
+          "description": "Fascia di rango della misura"
+        }
+      }
+    },
+    "tierlist": {
+      "name": "tierlist",
+      "description": "La tier list attuale, calcolata su tassi di vittoria e di ban",
+      "options": {
+        "rank": {
+          "name": "rango",
+          "description": "Fascia di rango"
+        },
+        "lane": {
+          "name": "lane",
+          "description": "Solo gli eroi giocati in questa lane"
+        },
+        "role": {
+          "name": "ruolo",
+          "description": "Solo gli eroi di questo ruolo"
+        }
+      }
+    },
+    "compare": {
+      "name": "confronta",
+      "description": "Due eroi faccia a faccia",
+      "options": {
+        "first": {
+          "name": "primo",
+          "description": "Primo eroe"
+        },
+        "second": {
+          "name": "secondo",
+          "description": "Secondo eroe"
+        }
+      }
+    },
+    "item": {
+      "name": "oggetto",
+      "description": "Un oggetto: prezzo, statistiche, passiva e ricetta",
+      "options": {
+        "name": {
+          "name": "nome",
+          "description": "Nome dell'oggetto"
+        }
+      }
+    },
+    "emblem": {
+      "name": "emblema",
+      "description": "Un emblema e i ruoli a cui è adatto",
+      "options": {
+        "name": {
+          "name": "nome",
+          "description": "Nome dell'emblema"
+        }
+      }
+    },
+    "spell": {
+      "name": "incantesimo",
+      "description": "Un incantesimo di battaglia e la sua ricarica",
+      "options": {
+        "name": {
+          "name": "nome",
+          "description": "Nome dell'incantesimo"
+        }
+      }
+    },
+    "patch": {
+      "name": "patch",
+      "description": "Riepilogo dell'ultima patch, o di una versione precisa",
+      "options": {
+        "version": {
+          "name": "versione",
+          "description": "Versione della patch, per esempio 2.1.90"
+        }
+      }
+    },
+    "skins": {
+      "name": "skin",
+      "description": "Le skin più recenti, o tutte le skin di un eroe",
+      "options": {
+        "hero": {
+          "name": "eroe",
+          "description": "Nome dell'eroe"
+        }
+      }
+    },
+    "events": {
+      "name": "eventi",
+      "description": "Gli eventi in corso e in arrivo nel gioco"
+    },
+    "nickname": {
+      "name": "nickname",
+      "description": "Scrivi il tuo nome di gioco con un font elegante",
+      "options": {
+        "text": {
+          "name": "testo",
+          "description": "Il tuo nickname (lettere e cifre vengono stilizzate)"
+        },
+        "style": {
+          "name": "stile",
+          "description": "Stile del font"
+        }
+      }
+    },
+    "mlbbdle": {
+      "name": "mlbbdle",
+      "description": "Indovina l'eroe del giorno, lo stesso enigma di mlbbdex.com",
+      "options": {
+        "guess": {
+          "name": "tentativo",
+          "description": "Il tuo tentativo"
+        },
+        "mode": {
+          "name": "modalità",
+          "description": "Modalità di gioco"
+        }
+      }
+    },
+    "quiz": {
+      "name": "quiz",
+      "description": "Il quiz MLBB del giorno: cinque round, una risposta ciascuno"
+    },
+    "leaderboard": {
+      "name": "classifica",
+      "description": "La classifica di questo server nei giochi del giorno",
+      "options": {
+        "game": {
+          "name": "gioco",
+          "description": "Quale gioco"
+        },
+        "period": {
+          "name": "periodo",
+          "description": "Quale periodo"
+        }
+      }
+    },
+    "servertime": {
+      "name": "ora-server",
+      "description": "L'ora del server di gioco e i prossimi reset"
+    },
+    "setup": {
+      "name": "configura",
+      "description": "Apri le impostazioni di questo server su mlbbdex.com"
+    },
+    "help": {
+      "name": "aiuto",
+      "description": "Tutti i comandi di MLBBDex"
+    },
+    "invite": {
+      "name": "invita",
+      "description": "Aggiungi MLBBDex a un altro server"
+    },
+    "about": {
+      "name": "info",
+      "description": "Informazioni su MLBBDex: sito, server di supporto, privacy"
+    }
+  },
+  "choices": {
+    "rank": {
+      "all": "Tutti i ranghi",
+      "epic": "Epico",
+      "legend": "Leggenda",
+      "mythic": "Mitico",
+      "honor": "Onore mitico",
+      "glory": "Gloria mitica"
+    },
+    "lane": {
+      "Gold": "Gold Lane",
+      "Exp": "EXP Lane",
+      "Mid": "Mid Lane",
+      "Jungle": "Jungle",
+      "Roam": "Roam"
+    },
+    "role": {
+      "Tank": "Tank",
+      "Fighter": "Combattente",
+      "Assassin": "Assassino",
+      "Mage": "Mago",
+      "Marksman": "Tiratore",
+      "Support": "Supporto"
+    },
+    "mode": {
+      "classic": "Classica",
+      "skill": "Abilità"
+    },
+    "game": {
+      "mlbbdle-classic": "MLBBdle classica",
+      "mlbbdle-skill": "MLBBdle abilità",
+      "quiz": "Quiz"
+    },
+    "period": {
+      "day": "Oggi",
+      "week": "Questa settimana",
+      "all": "Di sempre"
+    },
+    "style": {
+      "bold": "Grassetto",
+      "italic": "Corsivo",
+      "boldItalic": "Grassetto corsivo",
+      "script": "Calligrafico",
+      "boldScript": "Calligrafico grassetto",
+      "fraktur": "Gotico",
+      "boldFraktur": "Gotico grassetto",
+      "doubleStruck": "Doppio tratto",
+      "monospace": "Macchina da scrivere",
+      "sans": "Senza grazie",
+      "sansBold": "Senza grazie grassetto",
+      "sansItalic": "Senza grazie corsivo",
+      "sansBoldItalic": "Senza grazie grassetto corsivo",
+      "smallCaps": "Maiuscoletto",
+      "circled": "Cerchiato",
+      "negativeCircled": "Cerchio pieno",
+      "squared": "Riquadrato",
+      "fullWidth": "Larghezza piena",
+      "superscript": "Apice",
+      "strikethrough": "Barrato",
+      "underline": "Sottolineato"
+    }
+  },
+  "ui": {
+    "common": {
+      "open": "Apri su MLBBDex",
+      "error": "Qualcosa è andato storto. Riprova tra un momento.",
+      "siteDown": "MLBBDex non risponde al momento. Riprova tra un minuto.",
+      "notFound": "Nessun risultato per «{query}». Scegli un suggerimento dall'elenco.",
+      "guildOnly": "Questo comando funziona solo in un server.",
+      "noPermission": "Ti serve il permesso Gestisci server.",
+      "unavailable": "Non è ancora disponibile su Discord: lo trovi su MLBBDex.",
+      "measuredAt": "Misurato il {date}",
+      "allRanksFallback": "I dati per rango non sono ancora disponibili qui: tutti i ranghi.",
+      "source": "Dati: MLBBDex, Mobile Legends Wiki (CC BY-SA)",
+      "none": "Nessuno",
+      "expired": "Questo pulsante è scaduto. Ripeti il comando."
+    },
+    "hero": {
+      "role": "Ruolo",
+      "lanes": "Lane",
+      "tier": "Tier",
+      "winRate": "Tasso di vittoria",
+      "pickRate": "Tasso di scelta",
+      "banRate": "Tasso di ban",
+      "build": "Build migliore",
+      "emblem": "Emblema",
+      "spell": "Incantesimo",
+      "skills": "Abilità",
+      "difficulty": "Difficoltà",
+      "buttonBuild": "Build",
+      "buttonCounters": "Counter",
+      "buttonSkins": "Skin"
+    },
+    "build": {
+      "title": "{hero}: build",
+      "measured": "Le più giocate in {rank}, con il loro tasso di vittoria",
+      "written": "Scritta dal team MLBBDex",
+      "items": "Oggetti",
+      "rates": "{win} vittorie · {pick} scelte",
+      "none": "Nessuna build misurata per questo eroe per ora."
+    },
+    "counter": {
+      "title": "{hero}: counter",
+      "weak": "In difficoltà contro",
+      "strong": "Forte contro",
+      "none": "Nessun counter misurato per questo eroe per ora."
+    },
+    "tierlist": {
+      "title": "Tier list",
+      "filtered": "Tier list: {filter}",
+      "empty": "Nessun eroe corrisponde a questi filtri."
+    },
+    "compare": {
+      "title": "{a} contro {b}",
+      "same": "Scegli due eroi diversi."
+    },
+    "item": {
+      "price": "Prezzo",
+      "category": "Categoria",
+      "stats": "Statistiche",
+      "passive": "Passiva",
+      "unique": "Unica",
+      "active": "Attiva",
+      "recipe": "Ricetta"
+    },
+    "emblem": {
+      "role": "Adatto a",
+      "title": "{name}"
+    },
+    "spell": {
+      "cooldown": "Ricarica",
+      "seconds": "{n} s",
+      "roles": "Comune su"
+    },
+    "patch": {
+      "latest": "Ultima patch",
+      "buffs": "Buff",
+      "nerfs": "Nerf",
+      "adjustments": "Modifiche",
+      "heroes": "Eroi modificati",
+      "unknown": "Nessuna patch {version} registrata."
+    },
+    "skins": {
+      "title": "{hero}: skin",
+      "newest": "Skin più recenti",
+      "count": "{n} skin",
+      "none": "Nessuna skin registrata."
+    },
+    "events": {
+      "title": "Eventi",
+      "current": "In corso",
+      "upcoming": "In arrivo",
+      "none": "Nessun evento registrato al momento."
+    },
+    "nickname": {
+      "title": "Il tuo nickname",
+      "pick": "Scegli un altro stile",
+      "copy": "Tieni premuto (mobile) o seleziona (computer) per copiarlo.",
+      "length": "{n} caratteri",
+      "empty": "Scrivi almeno una lettera o una cifra."
+    },
+    "mlbbdle": {
+      "title": "MLBBdle n. {number}",
+      "classic": "Classica",
+      "skill": "Abilità",
+      "howTo": "Prova con `/mlbbdle tentativo:` e il nome di un eroe. Ogni tentativo indica i tratti in comune: 🟩 uguale, 🟧 in parte, 🟥 no, ⬛ sconosciuto.",
+      "columns": "Genere · Ruolo · Lane · Specialità · Danno · Portata · Risorsa · Regione · Anno",
+      "guesses": "{n} tentativi",
+      "already": "Hai già provato {hero}.",
+      "solved": "Trovato: **{hero}** in {n} tentativi!",
+      "solvedPublic": "{user} ha trovato il MLBBdle del giorno ({mode}) in {n} tentativi!",
+      "done": "Hai già trovato l'eroe del giorno. Torna domani!",
+      "skillPrompt": "Di chi è questa abilità?",
+      "clueName": "Nome dell'abilità",
+      "clueExcerpt": "Descrizione",
+      "clueRoles": "Ruoli",
+      "nextClue": "Prossimo indizio tra {n} errori.",
+      "unavailable": "L'enigma del giorno non è disponibile al momento.",
+      "newer": "uscito dopo",
+      "older": "uscito prima",
+      "dailyTitle": "Il MLBBdle n. {number} è online",
+      "dailyBody": "Indovina l'eroe del giorno, lo stesso di MLBBDex. Premi Gioca o scrivi `/mlbbdle`.",
+      "play": "Gioca",
+      "playOnSite": "Gioca su MLBBDex"
+    },
+    "quiz": {
+      "title": "Quiz n. {number}",
+      "round": "Round {n} di {total}",
+      "skill": "Di chi è questa abilità?",
+      "skin": "Di chi è questa skin?",
+      "story": "Di chi è questa storia?",
+      "item": "Quale oggetto è questo?",
+      "duel": "Chi ha il tasso di vittoria più alto?",
+      "price": "Prezzo: {price}",
+      "right": "Giusto!",
+      "wrong": "No: era {answer}.",
+      "finished": "Finito: {points} / {max} punti.",
+      "finishedPublic": "{user} ha fatto {points} / {max} nel quiz del giorno!",
+      "done": "Hai già giocato il quiz del giorno: {points} / {max}.",
+      "unavailable": "Il quiz del giorno non è disponibile al momento.",
+      "dailyTitle": "Il quiz n. {number} è online",
+      "dailyBody": "Cinque round su eroi, skin e oggetti di MLBB. Premi Gioca o scrivi `/quiz`."
+    },
+    "leaderboard": {
+      "title": "{game}: {period}",
+      "empty": "Nessuno ha ancora giocato. Sii il primo!",
+      "solvedDays": "{n} giorni · {avg} tentativi in media",
+      "points": "{n} punti · {plays} partite"
+    },
+    "servertime": {
+      "title": "Ora del server",
+      "now": "Ora del server (UTC-8)",
+      "daily": "Reset giornaliero",
+      "weekly": "Reset settimanale",
+      "starlight": "Nuovo Starlight"
+    },
+    "setup": {
+      "body": "Scegli la lingua, i canali degli annunci e i giochi del giorno di questo server nella dashboard.",
+      "button": "Apri la dashboard"
+    },
+    "help": {
+      "title": "Comandi di MLBBDex",
+      "footer": "Gratuito, in cinque lingue. Dati da mlbbdex.com."
+    },
+    "invite": {
+      "body": "Aggiungi MLBBDex a un server che gestisci. Chiede solo i permessi che usa: niente amministratore, nessuna lettura dei messaggi.",
+      "button": "Aggiungi a Discord"
+    },
+    "about": {
+      "title": "Informazioni su MLBBDex",
+      "body": "MLBBDex è una base di conoscenza gratuita su Mobile Legends: Bang Bang: eroi, build, counter, tier list e note delle patch, in inglese, francese, italiano, spagnolo e indonesiano. Il bot la porta nel tuo server.",
+      "servers": "Server",
+      "site": "Sito",
+      "support": "Server di supporto",
+      "vote": "Vota",
+      "privacy": "Privacy"
+    },
+    "announce": {
+      "patchTitle": "Nuova patch: {version}",
+      "patchBody": "{buff} buff, {nerf} nerf, {adjust} modifiche.",
+      "skinTitle": "Nuova skin: {name}",
+      "skinBody": "Una nuova skin per {hero}.",
+      "eventTitle": "Eventi: {title}",
+      "eventBody": "{count} eventi in calendario.",
+      "advanceTitle": "Server avanzato: {version}",
+      "advanceBody": "Le prossime modifiche sono sul server di prova.",
+      "esportsTitle": "Esport: {name}",
+      "esportsWinner": "Vincitore: {winner}",
+      "testTitle": "Messaggio di prova MLBBDex",
+      "testBody": "Gli annunci verranno pubblicati in questo canale."
+    }
+  },
+  "labels": {
+    "roles": {
+      "Tank": "Tank",
+      "Fighter": "Combattente",
+      "Assassin": "Assassino",
+      "Mage": "Mago",
+      "Marksman": "Tiratore",
+      "Support": "Supporto"
+    },
+    "lanes": {
+      "Gold": "Gold Lane",
+      "Exp": "EXP Lane",
+      "Mid": "Mid Lane",
+      "Jungle": "Jungle",
+      "Roam": "Roam"
+    }
+  }
+}
