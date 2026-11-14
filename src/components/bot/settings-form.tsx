@@ -3,6 +3,7 @@
 import { useId, useState } from "react";
 import { LOCALES, LOCALE_NAME, type Locale } from "@/i18n/config";
 import { useT } from "@/i18n/provider";
+import { AutoRolesFieldset, type AutoRoleChoice } from "@/components/bot/auto-roles-fieldset";
 import { GreetingsFieldset, type GreetingSample } from "@/components/bot/greetings-fieldset";
 import { ANNOUNCEMENT_TYPES, GREETING_KINDS, type AnnouncementType, type GreetingKind } from "@/lib/bot/kinds";
 import type { GuildSettingsView, SettingsInput } from "@/lib/bot/settings";
@@ -13,7 +14,8 @@ import { cn } from "@/lib/utils";
  * lists come from the bot, through the page; the save goes to
  * `/api/discord/guilds/<id>/settings`, which checks everything again
  * (permission, channels, roles) before writing. The welcome and goodbye
- * messages have their own part, `greetings-fieldset.tsx`.
+ * messages have their own part, `greetings-fieldset.tsx`, and so do the
+ * auto-roles, `auto-roles-fieldset.tsx`.
  *
  * Plain controlled selects and two fetch calls: the page ships little more
  * than this form.
@@ -126,12 +128,16 @@ export function SettingsForm({
   initial,
   channels,
   roles,
+  autoRoles,
   sample,
 }: {
   guildId: string;
   initial: GuildSettingsView;
   channels: Channel[];
+  /** Roles an announcement may mention. */
   roles: Channel[];
+  /** Every role, with whether the bot may give it, and its Manage Roles. */
+  autoRoles: { roles: AutoRoleChoice[]; manageRoles: boolean };
   /** Who and what the welcome preview shows: the signed-in user, this server. */
   sample: GreetingSample;
 }) {
@@ -140,6 +146,7 @@ export function SettingsForm({
   const [failing, setFailing] = useState(
     () => new Set<AnnouncementType | GreetingKind>([...ANNOUNCEMENT_TYPES, ...GREETING_KINDS].filter((key) => initial[key].failing)),
   );
+  const [autoRolesFailing, setAutoRolesFailing] = useState(initial.autoRoles.failing);
   const [status, setStatus] = useState<Status>({ kind: "idle" });
   const ids = useId();
 
@@ -152,6 +159,7 @@ export function SettingsForm({
     const response = await send(`/api/discord/guilds/${guildId}/settings`, "PUT", value);
     if (response?.ok) {
       setFailing(new Set());
+      setAutoRolesFailing(false);
       setStatus({ kind: "ok", text: t("pages.botUI.saved") });
     } else {
       setStatus({ kind: "error", text: t("pages.botUI.saveFailed") });
@@ -284,6 +292,14 @@ export function SettingsForm({
             greeting={{ kind, message: value[kind].message }}
           />
         )}
+      />
+
+      <AutoRolesFieldset
+        value={value.autoRoles}
+        roles={autoRoles.roles}
+        manageRoles={autoRoles.manageRoles}
+        failing={autoRolesFailing}
+        onChange={(autoRoles) => setValue((v) => ({ ...v, autoRoles }))}
       />
 
       <div className="flex flex-wrap items-center gap-3">

@@ -3528,7 +3528,24 @@
       },
       "preview": "Pratinjau",
       "welcomeDefault": "Selamat datang di **{server}**, {user}! Sekarang kita ada {count} anggota: pilih peranmu di Saluran & Peran.",
-      "goodbyeDefault": "**{username}** telah keluar dari server."
+      "goodbyeDefault": "**{username}** telah keluar dari server.",
+      "autoRolesTitle": "Peran otomatis",
+      "autoRolesLead": "Peran secara otomatis diberikan kepada setiap orang yang bergabung dengan server, dan peran lainnya kepada bot yang ditambahkan. Jika server Anda meminta untuk menerima aturannya, anggota akan menerima peran mereka setelah mereka menerimanya.",
+      "autoRolesToggle": "Berikan peran kepada anggota yang datang",
+      "autoRolesTargets": {
+        "humans": "Peran untuk anggota",
+        "bots": "Peran untuk bot"
+      },
+      "autoRolesNone": "Tidak ada",
+      "autoRolesHelp": "Maksimal 3 peran untuk masing-masing. Peran dengan izin moderasi atau administrasi tidak pernah diberikan.",
+      "autoRolesNoPermission": "MLBBDex tidak memiliki izin Kelola Peran: berikan izin Kelola Peran kepada MLBBDex dan seret perannya ke atas peran yang akan diberikan (Pengaturan Server > Peran), lalu muat ulang halaman ini.",
+      "autoRolesAbove": "Beberapa peran berada di atas peran MLBBDex dan tidak dapat diberikan: seret perannya ke atas peran yang akan diberikan (Pengaturan Server > Peran), lalu muat ulang halaman ini.",
+      "autoRolesFailing": "Bot tidak dapat memberikan peran ini saat anggota terakhir bergabung: periksa izin Kelola Peran dan posisi perannya, lalu simpan.",
+      "autoRoleRefusals": {
+        "managed": "dikelola oleh integrasi",
+        "above_bot": "di atas bot",
+        "dangerous": "izin moderasi"
+      }
     },
     "botAdmin": {
       "title": "Administrasi bot",

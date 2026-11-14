@@ -3528,7 +3528,24 @@
       },
       "preview": "Vista previa",
       "welcomeDefault": "¡Te damos la bienvenida a **{server}**, {user}! Ya somos {count}: elige tus roles en Canales y roles.",
-      "goodbyeDefault": "**{username}** ha salido del servidor."
+      "goodbyeDefault": "**{username}** ha salido del servidor.",
+      "autoRolesTitle": "Roles automáticos",
+      "autoRolesLead": "Roles asignados automáticamente a cada persona que se une al servidor y otros a los bots agregados. Si su servidor solicita aceptar sus reglas, el miembro recibe sus roles una vez que las haya aceptado.",
+      "autoRolesToggle": "Dar roles a los miembros que llegan",
+      "autoRolesTargets": {
+        "humans": "Roles para los miembros",
+        "bots": "Roles para los bots"
+      },
+      "autoRolesNone": "Ninguno",
+      "autoRolesHelp": "3 roles como máximo para cada uno. Nunca se otorga un rol con permiso de moderación o administración.",
+      "autoRolesNoPermission": "MLBBDex no tiene el permiso Gestionar roles: dale a MLBBDex el permiso Gestionar roles y arrastra su rol por encima de los roles que se darán (Ajustes del servidor > Roles), y luego vuelve a cargar esta página.",
+      "autoRolesAbove": "Algunos roles están por encima del de MLBBDex y no se pueden dar: arrastra su rol por encima de los roles que se darán (Ajustes del servidor > Roles), y luego vuelve a cargar esta página.",
+      "autoRolesFailing": "El bot no pudo dar estos roles en la última llegada: revisa su permiso Gestionar roles y la posición de su rol, y luego guarda.",
+      "autoRoleRefusals": {
+        "managed": "gestionado por una integración",
+        "above_bot": "por encima del bot",
+        "dangerous": "permisos de moderación"
+      }
     },
     "botAdmin": {
       "title": "administración de bots",

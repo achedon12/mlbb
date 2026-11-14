@@ -3528,7 +3528,24 @@
       },
       "preview": "Preview",
       "welcomeDefault": "Welcome to **{server}**, {user}! There are {count} of us now: pick your roles in Channels & Roles.",
-      "goodbyeDefault": "**{username}** has left the server."
+      "goodbyeDefault": "**{username}** has left the server.",
+      "autoRolesTitle": "Auto-roles",
+      "autoRolesLead": "Roles given automatically to everyone who joins the server, and others to the bots added to it. If your server asks members to accept its rules, they get their roles once they have.",
+      "autoRolesToggle": "Give roles to members who join",
+      "autoRolesTargets": {
+        "humans": "Roles for members",
+        "bots": "Roles for bots"
+      },
+      "autoRolesNone": "None",
+      "autoRolesHelp": "Up to 3 roles each. A role with a moderation or administration permission is never given.",
+      "autoRolesNoPermission": "MLBBDex does not have the Manage Roles permission: give MLBBDex the Manage Roles permission and drag its role above the roles to give (Server Settings > Roles), then reload this page.",
+      "autoRolesAbove": "Some roles are above MLBBDex's role and cannot be given: drag its role above the roles to give (Server Settings > Roles), then reload this page.",
+      "autoRolesFailing": "The bot could not give these roles at the last join: check its Manage Roles permission and where its role sits, then save.",
+      "autoRoleRefusals": {
+        "managed": "managed by an integration",
+        "above_bot": "above the bot",
+        "dangerous": "moderation permissions"
+      }
     },
     "botAdmin": {
       "title": "Bot administration",

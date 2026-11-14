@@ -583,6 +583,58 @@
     "nav.bot.desc": {
       "fr": "Le bot Discord Mobile Legends : builds, counters, tier list et MLBBdle dans vos serveurs",
       "text": "The Mobile Legends Discord bot: builds, counters, tier list and MLBBdle in your servers"
+    },
+    "pages.botUI.autoRolesTitle": {
+      "fr": "Rôles automatiques",
+      "text": "Auto-roles"
+    },
+    "pages.botUI.autoRolesLead": {
+      "fr": "Des rôles donnés automatiquement à chaque personne qui rejoint le serveur, et d'autres aux bots ajoutés. Si votre serveur demande d'accepter ses règles, le membre reçoit ses rôles une fois qu'il les a acceptées.",
+      "text": "Roles given automatically to everyone who joins the server, and others to the bots added to it. If your server asks members to accept its rules, they get their roles once they have."
+    },
+    "pages.botUI.autoRolesToggle": {
+      "fr": "Donner des rôles aux membres qui arrivent",
+      "text": "Give roles to members who join"
+    },
+    "pages.botUI.autoRolesTargets.humans": {
+      "fr": "Rôles des membres",
+      "text": "Roles for members"
+    },
+    "pages.botUI.autoRolesTargets.bots": {
+      "fr": "Rôles des bots",
+      "text": "Roles for bots"
+    },
+    "pages.botUI.autoRolesNone": {
+      "fr": "Aucun",
+      "text": "None"
+    },
+    "pages.botUI.autoRolesHelp": {
+      "fr": "3 rôles au plus pour chacun. Un rôle avec une permission de modération ou d'administration n'est jamais donné.",
+      "text": "Up to 3 roles each. A role with a moderation or administration permission is never given."
+    },
+    "pages.botUI.autoRolesNoPermission": {
+      "fr": "MLBBDex n'a pas la permission Gérer les rôles : donnez à MLBBDex la permission Gérer les rôles et glissez son rôle au-dessus des rôles à donner (Paramètres du serveur > Rôles), puis rechargez cette page.",
+      "text": "MLBBDex does not have the Manage Roles permission: give MLBBDex the Manage Roles permission and drag its role above the roles to give (Server Settings > Roles), then reload this page."
+    },
+    "pages.botUI.autoRolesAbove": {
+      "fr": "Certains rôles sont au-dessus de celui de MLBBDex et ne peuvent pas être donnés : glissez son rôle au-dessus des rôles à donner (Paramètres du serveur > Rôles), puis rechargez cette page.",
+      "text": "Some roles are above MLBBDex's role and cannot be given: drag its role above the roles to give (Server Settings > Roles), then reload this page."
+    },
+    "pages.botUI.autoRolesFailing": {
+      "fr": "Le bot n'a pas pu donner ces rôles à la dernière arrivée : vérifiez sa permission Gérer les rôles et la place de son rôle, puis enregistrez.",
+      "text": "The bot could not give these roles at the last join: check its Manage Roles permission and where its role sits, then save."
+    },
+    "pages.botUI.autoRoleRefusals.managed": {
+      "fr": "géré par une intégration",
+      "text": "managed by an integration"
+    },
+    "pages.botUI.autoRoleRefusals.above_bot": {
+      "fr": "au-dessus du bot",
+      "text": "above the bot"
+    },
+    "pages.botUI.autoRoleRefusals.dangerous": {
+      "fr": "permissions de modération",
+      "text": "moderation permissions"
     }
   },
   "es": {
@@ -1297,6 +1349,30 @@
     "nav.bot.desc": {
       "fr": "Le bot Discord Mobile Legends : builds, counters, tier list et MLBBdle dans vos serveurs",
       "text": "El bot de Discord de Mobile Legends: builds, counters, tier list y MLBBdle en tus servidores"
+    },
+    "pages.botUI.autoRolesTargets.humans": {
+      "fr": "Rôles des membres",
+      "text": "Roles para los miembros"
+    },
+    "pages.botUI.autoRolesTargets.bots": {
+      "fr": "Rôles des bots",
+      "text": "Roles para los bots"
+    },
+    "pages.botUI.autoRolesNoPermission": {
+      "fr": "MLBBDex n'a pas la permission Gérer les rôles : donnez à MLBBDex la permission Gérer les rôles et glissez son rôle au-dessus des rôles à donner (Paramètres du serveur > Rôles), puis rechargez cette page.",
+      "text": "MLBBDex no tiene el permiso Gestionar roles: dale a MLBBDex el permiso Gestionar roles y arrastra su rol por encima de los roles que se darán (Ajustes del servidor > Roles), y luego vuelve a cargar esta página."
+    },
+    "pages.botUI.autoRolesAbove": {
+      "fr": "Certains rôles sont au-dessus de celui de MLBBDex et ne peuvent pas être donnés : glissez son rôle au-dessus des rôles à donner (Paramètres du serveur > Rôles), puis rechargez cette page.",
+      "text": "Algunos roles están por encima del de MLBBDex y no se pueden dar: arrastra su rol por encima de los roles que se darán (Ajustes del servidor > Roles), y luego vuelve a cargar esta página."
+    },
+    "pages.botUI.autoRolesFailing": {
+      "fr": "Le bot n'a pas pu donner ces rôles à la dernière arrivée : vérifiez sa permission Gérer les rôles et la place de son rôle, puis enregistrez.",
+      "text": "El bot no pudo dar estos roles en la última llegada: revisa su permiso Gestionar roles y la posición de su rol, y luego guarda."
+    },
+    "pages.botUI.autoRoleRefusals.above_bot": {
+      "fr": "au-dessus du bot",
+      "text": "por encima del bot"
     }
   },
   "id": {
@@ -3967,6 +4043,34 @@
     "nav.bot.desc": {
       "fr": "Le bot Discord Mobile Legends : builds, counters, tier list et MLBBdle dans vos serveurs",
       "text": "Bot Discord Mobile Legends: build, counter, tier list, dan MLBBdle di server kamu"
+    },
+    "pages.botUI.autoRolesTargets.humans": {
+      "fr": "Rôles des membres",
+      "text": "Peran untuk anggota"
+    },
+    "pages.botUI.autoRolesTargets.bots": {
+      "fr": "Rôles des bots",
+      "text": "Peran untuk bot"
+    },
+    "pages.botUI.autoRolesHelp": {
+      "fr": "3 rôles au plus pour chacun. Un rôle avec une permission de modération ou d'administration n'est jamais donné.",
+      "text": "Maksimal 3 peran untuk masing-masing. Peran dengan izin moderasi atau administrasi tidak pernah diberikan."
+    },
+    "pages.botUI.autoRolesNoPermission": {
+      "fr": "MLBBDex n'a pas la permission Gérer les rôles : donnez à MLBBDex la permission Gérer les rôles et glissez son rôle au-dessus des rôles à donner (Paramètres du serveur > Rôles), puis rechargez cette page.",
+      "text": "MLBBDex tidak memiliki izin Kelola Peran: berikan izin Kelola Peran kepada MLBBDex dan seret perannya ke atas peran yang akan diberikan (Pengaturan Server > Peran), lalu muat ulang halaman ini."
+    },
+    "pages.botUI.autoRolesAbove": {
+      "fr": "Certains rôles sont au-dessus de celui de MLBBDex et ne peuvent pas être donnés : glissez son rôle au-dessus des rôles à donner (Paramètres du serveur > Rôles), puis rechargez cette page.",
+      "text": "Beberapa peran berada di atas peran MLBBDex dan tidak dapat diberikan: seret perannya ke atas peran yang akan diberikan (Pengaturan Server > Peran), lalu muat ulang halaman ini."
+    },
+    "pages.botUI.autoRolesFailing": {
+      "fr": "Le bot n'a pas pu donner ces rôles à la dernière arrivée : vérifiez sa permission Gérer les rôles et la place de son rôle, puis enregistrez.",
+      "text": "Bot tidak dapat memberikan peran ini saat anggota terakhir bergabung: periksa izin Kelola Peran dan posisi perannya, lalu simpan."
+    },
+    "pages.botUI.autoRoleRefusals.managed": {
+      "fr": "géré par une intégration",
+      "text": "dikelola oleh integrasi"
     }
   },
   "it": {
@@ -4733,6 +4837,22 @@
     "nav.bot.desc": {
       "fr": "Le bot Discord Mobile Legends : builds, counters, tier list et MLBBdle dans vos serveurs",
       "text": "Il bot Discord di Mobile Legends: build, counter, tier list e MLBBdle nei tuoi server"
+    },
+    "pages.botUI.autoRolesToggle": {
+      "fr": "Donner des rôles aux membres qui arrivent",
+      "text": "Assegna ruoli ai membri che entrano"
+    },
+    "pages.botUI.autoRolesNoPermission": {
+      "fr": "MLBBDex n'a pas la permission Gérer les rôles : donnez à MLBBDex la permission Gérer les rôles et glissez son rôle au-dessus des rôles à donner (Paramètres du serveur > Rôles), puis rechargez cette page.",
+      "text": "MLBBDex non ha il permesso Gestire i ruoli: concedi a MLBBDex il permesso Gestire i ruoli e trascina il suo ruolo sopra i ruoli da assegnare (Impostazioni server > Ruoli), poi ricarica questa pagina."
+    },
+    "pages.botUI.autoRolesAbove": {
+      "fr": "Certains rôles sont au-dessus de celui de MLBBDex et ne peuvent pas être donnés : glissez son rôle au-dessus des rôles à donner (Paramètres du serveur > Rôles), puis rechargez cette page.",
+      "text": "Alcuni ruoli sono sopra quello di MLBBDex e non possono essere assegnati: trascina il suo ruolo sopra i ruoli da assegnare (Impostazioni server > Ruoli), poi ricarica questa pagina."
+    },
+    "pages.botUI.autoRolesFailing": {
+      "fr": "Le bot n'a pas pu donner ces rôles à la dernière arrivée : vérifiez sa permission Gérer les rôles et la place de son rôle, puis enregistrez.",
+      "text": "Il bot non è riuscito ad assegnare questi ruoli all'ultimo ingresso: controlla il suo permesso Gestire i ruoli e la posizione del suo ruolo, poi salva."
     }
   }
 }

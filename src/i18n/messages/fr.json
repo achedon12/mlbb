@@ -3528,7 +3528,24 @@
       },
       "preview": "Aperçu",
       "welcomeDefault": "Bienvenue sur **{server}**, {user} ! Nous sommes maintenant {count} : choisis tes rôles dans Salons et rôles.",
-      "goodbyeDefault": "**{username}** a quitté le serveur."
+      "goodbyeDefault": "**{username}** a quitté le serveur.",
+      "autoRolesTitle": "Rôles automatiques",
+      "autoRolesLead": "Des rôles donnés automatiquement à chaque personne qui rejoint le serveur, et d'autres aux bots ajoutés. Si votre serveur demande d'accepter ses règles, le membre reçoit ses rôles une fois qu'il les a acceptées.",
+      "autoRolesToggle": "Donner des rôles aux membres qui arrivent",
+      "autoRolesTargets": {
+        "humans": "Rôles des membres",
+        "bots": "Rôles des bots"
+      },
+      "autoRolesNone": "Aucun",
+      "autoRolesHelp": "3 rôles au plus pour chacun. Un rôle avec une permission de modération ou d'administration n'est jamais donné.",
+      "autoRolesNoPermission": "MLBBDex n'a pas la permission Gérer les rôles : donnez à MLBBDex la permission Gérer les rôles et glissez son rôle au-dessus des rôles à donner (Paramètres du serveur > Rôles), puis rechargez cette page.",
+      "autoRolesAbove": "Certains rôles sont au-dessus de celui de MLBBDex et ne peuvent pas être donnés : glissez son rôle au-dessus des rôles à donner (Paramètres du serveur > Rôles), puis rechargez cette page.",
+      "autoRolesFailing": "Le bot n'a pas pu donner ces rôles à la dernière arrivée : vérifiez sa permission Gérer les rôles et la place de son rôle, puis enregistrez.",
+      "autoRoleRefusals": {
+        "managed": "géré par une intégration",
+        "above_bot": "au-dessus du bot",
+        "dangerous": "permissions de modération"
+      }
     },
     "botAdmin": {
       "title": "Administration du bot",
