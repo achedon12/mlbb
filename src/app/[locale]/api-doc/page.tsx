@@ -41,6 +41,16 @@ const ROUTES: Route[] = [
     example: "/api/v1/heroes/khufra",
   },
   {
+    path: "/api/v1/heroes/{slug}/counters",
+    key: "heroCounters",
+    example: "/api/v1/heroes/argus/counters",
+  },
+  {
+    path: "/api/v1/heroes/{slug}/builds",
+    key: "heroBuilds",
+    example: "/api/v1/heroes/argus/builds",
+  },
+  {
     path: "/api/v1/items",
     key: "items",
     settings: [
@@ -52,6 +62,12 @@ const ROUTES: Route[] = [
     path: "/api/v1/patches",
     key: "patches",
     example: "/api/v1/patches",
+  },
+  {
+    path: "/api/v1/patches/{version}",
+    key: "patchVersion",
+    settings: [{ name: "locale", values: "en, fr, it, es, id", role: "localeParam" }],
+    example: "/api/v1/patches/2.2.16?locale=fr",
   },
   {
     path: "/api/v1/rankings",

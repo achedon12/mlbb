@@ -656,6 +656,16 @@
         },
         "rankings": {
           "summary": "Calculated ranking: win, ban and pick rates, tier and date recorded."
+        },
+        "heroCounters": {
+          "summary": "A hero's measured counters, by rank: the heroes it beats and those that beat it, as win-rate gaps in points, with its baseline win rate."
+        },
+        "heroBuilds": {
+          "summary": "Builds actually played with a hero, by position then by rank: three key items, the emblem, its talents and the spell, with their rates."
+        },
+        "patchVersion": {
+          "summary": "One patch in detail: notes, new heroes and each hero's adjustments, with the number of buffs and nerfs.",
+          "localeParam": "Language of the texts (English by default)"
         }
       },
       "endpoints": "Endpoints"

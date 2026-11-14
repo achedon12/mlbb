@@ -15011,5 +15011,21 @@
   "id|Dernière sauvegarde en échec le {when} ({trigger}) : {error}": "Pencadangan terakhir yang gagal pada {when} ({trigger}): {error}",
   "id|planifiée": "berencana",
   "id|au démarrage": "saat permulaan",
-  "id|manuelle": "panduan"
+  "id|manuelle": "panduan",
+  "en|Contres mesurés d'un héros, par rang : les héros qu'il bat et ceux qui le battent, en points d'écart de taux de victoire, avec son taux de victoire de référence.": "Measured counters of a hero, by rank: the heroes he beats and those who beat him, in points of difference in victory rate, with his reference victory rate.",
+  "en|Builds réellement joués avec un héros, par position puis par rang : trois objets clés, l'emblème, ses talents et le sort, avec leurs taux.": "Builds actually played with a hero, by position then by rank: three key objects, the emblem, his talents and the spell, with their rates.",
+  "en|Un patch en détail : notes, nouveaux héros et ajustements de chaque héros, avec le nombre de buffs et de nerfs.": "A patch in detail: notes, new heroes and adjustments to each hero, with the number of buffs and nerfs.",
+  "en|Langue des textes (anglais par défaut)": "Text language (English by default)",
+  "it|Contres mesurés d'un héros, par rang : les héros qu'il bat et ceux qui le battent, en points d'écart de taux de victoire, avec son taux de victoire de référence.": "Contatori misurati di un eroe, per grado: gli eroi che ha battuto e quelli che lo hanno battuto, in punti di differenza nel tasso di vittoria, con il suo tasso di vittoria di riferimento.",
+  "it|Builds réellement joués avec un héros, par position puis par rang : trois objets clés, l'emblème, ses talents et le sort, avec leurs taux.": "Le build effettivamente giocate con un eroe, per posizione e poi per grado: tre oggetti chiave, l'emblema, i suoi talenti e l'incantesimo, con i relativi tassi.",
+  "it|Un patch en détail : notes, nouveaux héros et ajustements de chaque héros, avec le nombre de buffs et de nerfs.": "Una patch in dettaglio: note, nuovi eroi e modifiche a ciascun eroe, con il numero di buff e nerf.",
+  "it|Langue des textes (anglais par défaut)": "Lingua del testo (inglese per impostazione predefinita)",
+  "es|Contres mesurés d'un héros, par rang : les héros qu'il bat et ceux qui le battent, en points d'écart de taux de victoire, avec son taux de victoire de référence.": "Contadores medidos de un héroe, por rango: los héroes a los que vence y los que le vencen, en puntos de diferencia en el índice de victoria, con su índice de victoria de referencia.",
+  "es|Builds réellement joués avec un héros, par position puis par rang : trois objets clés, l'emblème, ses talents et le sort, avec leurs taux.": "Las configuraciones realmente jugadas con un héroe, por posición y luego por rango: tres objetos clave, el emblema, sus talentos y el hechizo, con sus tasas.",
+  "es|Un patch en détail : notes, nouveaux héros et ajustements de chaque héros, avec le nombre de buffs et de nerfs.": "Un parche en detalle: notas, nuevos héroes y ajustes a cada héroe, con el número de mejoras y nerfs.",
+  "es|Langue des textes (anglais par défaut)": "Idioma del texto (inglés por defecto)",
+  "id|Contres mesurés d'un héros, par rang : les héros qu'il bat et ceux qui le battent, en points d'écart de taux de victoire, avec son taux de victoire de référence.": "Penghitung pahlawan diukur, berdasarkan peringkat: pahlawan yang dia kalahkan dan siapa yang mengalahkannya, dalam perbedaan poin dalam tingkat kemenangan, dengan referensi tingkat kemenangannya.",
+  "id|Builds réellement joués avec un héros, par position puis par rang : trois objets clés, l'emblème, ses talents et le sort, avec leurs taux.": "Build sebenarnya dimainkan dengan seorang pahlawan, berdasarkan posisi, lalu berdasarkan peringkat: tiga objek utama, lambang, bakatnya, dan mantranya, beserta tarifnya.",
+  "id|Un patch en détail : notes, nouveaux héros et ajustements de chaque héros, avec le nombre de buffs et de nerfs.": "Detail patch: catatan, hero baru dan penyesuaian setiap hero, dengan jumlah buff dan nerf.",
+  "id|Langue des textes (anglais par défaut)": "Bahasa teks (Bahasa Inggris secara default)"
 }

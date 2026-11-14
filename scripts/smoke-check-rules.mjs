@@ -125,7 +125,7 @@ export const PAGES = [
   { path: "/about", locales: ALL, browser: true, minWords: 150 },
   { path: "/legal", locales: ALL, browser: true, minWords: 150 },
   { path: "/privacy", locales: ALL, browser: true, minWords: 150 },
-  { path: "/api-doc", locales: EN_FR, allowedPlaceholders: ["{slug}"] },
+  { path: "/api-doc", locales: EN_FR, allowedPlaceholders: ["{slug}", "{version}"] },
   { discover: "compare-pair", path: "/compare/<a>-vs-<b>", locales: EN_FR },
 ];
 
