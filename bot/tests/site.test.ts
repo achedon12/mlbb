@@ -61,6 +61,23 @@ describe("internal API client", () => {
     expect(await client.guildLocale(null)).toBeNull();
   });
 
+  it("asks the site once for a burst of identical leaderboards, again after a new result", async () => {
+    // /leaderboard is the one command that reached the site on every use:
+    // members spamming it could spend the bot's whole budget of signed calls.
+    const G = "123456789012345678";
+    const board = { game: "quiz", period: "week", day: "2026-11-14", entries: [] };
+    const fetch = vi.fn(async (url: string, _init?: RequestInit) => (url.includes("/results") ? json({ stored: 1 }) : json(board)));
+    const client = new SiteClient("http://mlbb:3001", SECRET, fetch);
+    await Promise.all(Array.from({ length: 20 }, () => client.leaderboard(G, "quiz", "week")));
+    await client.leaderboard(G, "quiz", "week");
+    expect(fetch).toHaveBeenCalledTimes(1);
+    await client.leaderboard(G, "quiz", "day");
+    expect(fetch).toHaveBeenCalledTimes(2);
+    await client.submitResults([{ guildId: G, day: "2026-11-14", game: "quiz", discordUserId: "223456789012345678", discordUserName: "x", points: 3 }]);
+    await client.leaderboard(G, "quiz", "week");
+    expect(fetch.mock.calls.filter(([url]) => url.includes("period=week"))).toHaveLength(2);
+  });
+
   it("reads one hour's daily servers page by page, signed", async () => {
     const A = "123456789012345678";
     const B = "223456789012345678";
