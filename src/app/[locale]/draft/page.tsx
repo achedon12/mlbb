@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DraftModes } from "@/components/draft-modes";
 import { Foldable } from "@/components/foldable";
+import { GuideLink } from "@/components/guide";
 import Link from "@/components/link";
 import { OpenAnchor } from "@/components/open-anchor";
 import { Card, PageHeader } from "@/components/ui";
@@ -12,6 +13,7 @@ import type { T } from "@/i18n/t";
 import { createT, messagesPage } from "@/i18n/translations";
 import type { TypeDamage } from "@/lib/composition";
 import { allHeroes } from "@/lib/data";
+import { guide } from "@/lib/guides";
 import {
   GAME_TIMERS,
   RANKED_BANS,
@@ -89,6 +91,10 @@ function StepList({ steps, t }: { steps: Step[]; t: T }) {
   );
 }
 
+/** Header links, sized like a button: they sit on the title line from `sm` up. */
+const actionClass =
+  "bevel-sm inline-flex min-h-11 items-center border border-night-700 px-3 py-2 text-sm font-semibold text-gold-400 transition-colors hover:border-gold-500/60 hover:text-gold-500";
+
 export default async function DraftPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
   const t = createT(locale);
@@ -116,12 +122,12 @@ export default async function DraftPage({ params }: { params: Promise<{ locale: 
         lead={t("pages.draft.toolsLead")}
         meta={[t("draftUI.account", { n: allHeroes.length }), t("pages.freshness.patch", { v: patchCurrent.version })]}
         actions={
-          <Link
-            href="/tools/team"
-            className="bevel-sm inline-flex min-h-11 items-center border border-night-700 px-3 py-2 text-sm font-semibold text-gold-400 transition-colors hover:border-gold-500/60 hover:text-gold-500"
-          >
-            {t("pages.draft.teamLink")} →
-          </Link>
+          <>
+            <Link href="/tools/team" className={actionClass}>
+              {t("pages.draft.teamLink")} →
+            </Link>
+            <GuideLink guide={guide("drafting-basics", locale)} locale={locale} className={actionClass} />
+          </>
         }
       />
       <OpenAnchor />

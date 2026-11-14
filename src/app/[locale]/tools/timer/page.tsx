@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "@/components/link";
 import { ObjectiveTimer } from "@/components/objective-timer";
+import { GuideLink } from "@/components/guide";
+import { guide } from "@/lib/guides";
 import { Foldable } from "@/components/foldable";
 import { PageHeader } from "@/components/ui";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
@@ -170,6 +172,9 @@ export default async function TimerPage({ params }: Params) {
               <Link href="/tools/retribution" className="font-semibold text-gold-400 transition-colors hover:text-gold-500">
                 {t("pages.timer.retributionLink")} →
               </Link>
+            </li>
+            <li>
+              <GuideLink guide={guide("jungle-objectives", locale)} locale={locale} />
             </li>
           </ul>
         </section>

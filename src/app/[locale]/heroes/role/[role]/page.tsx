@@ -4,6 +4,8 @@ import Link from "@/components/link";
 import { FreshnessLine } from "@/components/freshness";
 import { HeroPortrait } from "@/components/hero-portrait";
 import { classesChip } from "@/components/chip";
+import { GuideLink } from "@/components/guide";
+import { GUIDE_LANE_OF_ROLE, guideOfLane } from "@/lib/guides";
 import { BadgeTier, PageHeader } from "@/components/ui";
 import { allHeroes } from "@/lib/data";
 import { ROLES } from "@/lib/draft";
@@ -113,12 +115,19 @@ export default async function RolePage({ params }: Params) {
       </PageHeader>
 
       <div className="mx-auto max-w-5xl px-4 py-12">
-        <Link
-          href={pathFilter({ type: "role", value: role })}
-          className="bevel-sm inline-flex items-center gap-2 bg-gold-500 px-4 py-2 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400"
-        >
-          {t("pages.heroesRole.seeTierList", r)} →
-        </Link>
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+          <Link
+            href={pathFilter({ type: "role", value: role })}
+            className="bevel-sm inline-flex items-center gap-2 bg-gold-500 px-4 py-2 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400"
+          >
+            {t("pages.heroesRole.seeTierList", r)} →
+          </Link>
+          <GuideLink
+            guide={guideOfLane(GUIDE_LANE_OF_ROLE[role], locale)}
+            locale={locale}
+            className="text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500"
+          />
+        </div>
 
         <nav aria-label={t("pages.heroesRole.otherRoles")} className="mb-8 mt-6 flex flex-wrap items-center gap-2">
           <span aria-hidden className="mr-1 text-xs uppercase tracking-wide text-chalk-500">
