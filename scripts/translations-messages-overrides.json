@@ -1403,6 +1403,306 @@
     "pages.botPrivacy.roleMenus": {
       "fr": "Menus de rôles : le serveur enregistre pour chaque menu son salon, son titre, son texte, ses rôles avec leurs libellés et emojis, l'identifiant du message publié et l'identifiant Discord du gestionnaire qui l'a configuré. Quand un membre s'en sert, le bot lui donne ou retire le rôle et ne conserve rien sur lui, hormis un compteur en mémoire de quelques secondes qui limite les changements trop rapprochés.",
       "text": "Role menus: for each menu, the server's choice of channel, title, text, roles with their labels and emojis, the id of the published message and the Discord id of the manager who set it up are stored. When a member uses one, the bot gives or removes the role and keeps nothing about them, apart from an in-memory counter, a few seconds long, that limits changes made too close together."
+    },
+    "pages.esports.nav.label": {
+      "fr": "Sections du tournoi",
+      "text": "Tournament sections"
+    },
+    "pages.esports.nav.overview": {
+      "fr": "Aperçu",
+      "text": "Overview"
+    },
+    "pages.esports.nav.players": {
+      "fr": "Joueurs",
+      "text": "Players"
+    },
+    "pages.esports.pro.roles.exp": {
+      "fr": "EXP",
+      "text": "EXP"
+    },
+    "pages.esports.pro.roles.jungle": {
+      "fr": "Jungle",
+      "text": "Jungle"
+    },
+    "pages.esports.pro.roles.mid": {
+      "fr": "Mid",
+      "text": "Mid"
+    },
+    "pages.esports.pro.roles.gold": {
+      "fr": "Gold",
+      "text": "Gold"
+    },
+    "pages.esports.pro.roles.roam": {
+      "fr": "Roam",
+      "text": "Roam"
+    },
+    "pages.esports.pro.roles.flex": {
+      "fr": "Polyvalent",
+      "text": "Flex"
+    },
+    "pages.esports.pro.status.sub": {
+      "fr": "Remplaçant",
+      "text": "Substitute"
+    },
+    "pages.esports.pro.status.former": {
+      "fr": "Ancien joueur",
+      "text": "Former player"
+    },
+    "pages.esports.pro.record": {
+      "fr": "{wins} V – {losses} D",
+      "text": "{wins} W – {losses} L"
+    },
+    "pages.esports.pro.win": {
+      "fr": "Victoire",
+      "text": "Win"
+    },
+    "pages.esports.pro.loss": {
+      "fr": "Défaite",
+      "text": "Loss"
+    },
+    "pages.esports.pro.vs": {
+      "fr": "contre {team}",
+      "text": "vs {team}"
+    },
+    "pages.esports.pro.method": {
+      "fr": "Liquipedia saisit chaque draft sous forme de cinq héros par équipe, dans l'ordre des lanes de l'effectif : chaque héros est attribué au joueur de sa place, en tenant compte des remplacements indiqués pour le match. Liquipedia ne relève ni éliminations, ni morts, ni assistances pour Mobile Legends : pas de KDA ici, seulement les parties, les victoires, les titres de MVP et les héros joués.",
+      "text": "Liquipedia enters each draft as five heroes per team, in the lane order of the roster: each hero is credited to the player in that slot, taking into account the substitutions listed for the match. Liquipedia records no kills, deaths or assists for Mobile Legends: there is no KDA here, only games, wins, MVP awards and heroes played."
+    },
+    "pages.esports.pro.methodLabel": {
+      "fr": "Méthode et limites",
+      "text": "Method and limits"
+    },
+    "pages.esports.pro.players.seoTitle": {
+      "fr": "{name} : statistiques des joueurs",
+      "text": "{name}: player stats"
+    },
+    "pages.esports.pro.players.seoDescription": {
+      "fr": "{name} : parties, taux de victoire, titres de MVP et héros joués par les {n} joueurs, partie par partie, d'après les drafts de Liquipedia.",
+      "text": "{name}: games, win rate, MVP awards and heroes played by the {n} players, game by game, from Liquipedia's drafts."
+    },
+    "pages.esports.pro.players.title": {
+      "fr": "{name} : joueurs",
+      "text": "{name}: players"
+    },
+    "pages.esports.pro.players.lead": {
+      "fr": "{n} joueurs sur {games} parties : bilan, MVP et héros joués par chacun, triables par colonne.",
+      "text": "{n} players over {games} games: record, MVPs and heroes played by each, sortable by any column."
+    },
+    "pages.esports.pro.players.empty": {
+      "fr": "Aucune partie relevée pour l'instant : les statistiques des joueurs apparaîtront dès les premiers matchs.",
+      "text": "No games recorded yet: player stats will appear after the first matches."
+    },
+    "pages.esports.pro.player.seoTitle": {
+      "fr": "{name} ({team}) : héros et statistiques en compétition",
+      "text": "{name} ({team}): pro heroes and stats"
+    },
+    "pages.esports.pro.player.seoTitleAlone": {
+      "fr": "{name} : héros et statistiques en compétition",
+      "text": "{name}: pro heroes and stats"
+    },
+    "pages.esports.pro.player.seoDescription": {
+      "fr": "{name}, {role} de {team} : {games} parties pros relevées, {rate} de victoires. Héros les plus joués : {heroes}.",
+      "text": "{name}, {role} for {team}: {games} pro games recorded, {rate} won. Most played heroes: {heroes}."
+    },
+    "pages.esports.pro.player.lead": {
+      "fr": "{name}, {role} de {team} : {games} parties relevées sur Liquipedia, héros joués et résultats tournoi par tournoi.",
+      "text": "{name}, {role} for {team}: {games} games recorded on Liquipedia, with the heroes played and the results tournament by tournament."
+    },
+    "pages.esports.pro.player.facts.team": {
+      "fr": "Équipe",
+      "text": "Team"
+    },
+    "pages.esports.pro.player.facts.role": {
+      "fr": "Rôle",
+      "text": "Role"
+    },
+    "pages.esports.pro.player.facts.games": {
+      "fr": "Parties",
+      "text": "Games"
+    },
+    "pages.esports.pro.player.facts.record": {
+      "fr": "Bilan",
+      "text": "Record"
+    },
+    "pages.esports.pro.player.facts.winRate": {
+      "fr": "Victoires",
+      "text": "Win rate"
+    },
+    "pages.esports.pro.player.facts.mvps": {
+      "fr": "MVP",
+      "text": "MVP"
+    },
+    "pages.esports.pro.player.heroesTitle": {
+      "fr": "Héros joués",
+      "text": "Heroes played"
+    },
+    "pages.esports.pro.player.heroesIntro": {
+      "fr": "{n} héros joués en compétition, du plus joué au moins joué.",
+      "text": "{n} heroes played in competition, most played first."
+    },
+    "pages.esports.pro.player.tournamentsTitle": {
+      "fr": "Tournois",
+      "text": "Tournaments"
+    },
+    "pages.esports.pro.player.matchesTitle": {
+      "fr": "Derniers matchs",
+      "text": "Latest matches"
+    },
+    "pages.esports.pro.player.matchesIntro": {
+      "fr": "Les {n} derniers matchs, avec le héros joué à chaque partie.",
+      "text": "The last {n} matches, with the hero played in each game."
+    },
+    "pages.esports.pro.player.liquipedia": {
+      "fr": "Page Liquipedia",
+      "text": "Liquipedia page"
+    },
+    "pages.esports.pro.player.mvp": {
+      "fr": "MVP du match",
+      "text": "Match MVP"
+    },
+    "pages.esports.pro.team.seoTitle": {
+      "fr": "{name} : effectif, résultats et drafts",
+      "text": "{name}: roster, results and drafts"
+    },
+    "pages.esports.pro.team.seoDescription": {
+      "fr": "{name} : effectif, bilan de {series} et de {games} sur {tournaments} tournoi(s), derniers matchs avec picks et bans partie par partie.",
+      "text": "{name}: roster, a record of {series} in series and {games} in games over {tournaments} tournament(s), latest matches with picks and bans game by game."
+    },
+    "pages.esports.pro.team.lead": {
+      "fr": "{name} : effectif, bilan et drafts des tournois couverts, d'après Liquipedia.",
+      "text": "{name}: roster, record and drafts of the covered tournaments, from Liquipedia."
+    },
+    "pages.esports.pro.team.facts.series": {
+      "fr": "Séries",
+      "text": "Series"
+    },
+    "pages.esports.pro.team.facts.games": {
+      "fr": "Parties",
+      "text": "Games"
+    },
+    "pages.esports.pro.team.facts.tournaments": {
+      "fr": "Tournois",
+      "text": "Tournaments"
+    },
+    "pages.esports.pro.team.facts.titles": {
+      "fr": "Titres",
+      "text": "Titles"
+    },
+    "pages.esports.pro.team.rosterTitle": {
+      "fr": "Effectif",
+      "text": "Roster"
+    },
+    "pages.esports.pro.team.rosterIntro": {
+      "fr": "Joueurs listés pour {name}, titulaires d'abord.",
+      "text": "Players listed for {name}, starters first."
+    },
+    "pages.esports.pro.team.gamesPlayed": {
+      "fr": "{n} parties",
+      "text": "{n} games"
+    },
+    "pages.esports.pro.team.recordsTitle": {
+      "fr": "Bilan par tournoi",
+      "text": "Record by tournament"
+    },
+    "pages.esports.pro.team.champion": {
+      "fr": "Champion",
+      "text": "Champion"
+    },
+    "pages.esports.pro.team.matchesTitle": {
+      "fr": "Matchs",
+      "text": "Matches"
+    },
+    "pages.esports.pro.team.matchesIntro": {
+      "fr": "{n} matchs relevés, du plus récent au plus ancien. Ouvrez un match pour voir ses drafts.",
+      "text": "{n} matches recorded, most recent first. Open a match to see its drafts."
+    },
+    "pages.esports.pro.team.forfeit": {
+      "fr": "Forfait",
+      "text": "Forfeit"
+    },
+    "pages.esports.pro.columns.tournament": {
+      "fr": "Tournoi",
+      "text": "Tournament"
+    },
+    "pages.esports.pro.columns.team": {
+      "fr": "Équipe",
+      "text": "Team"
+    },
+    "pages.esports.pro.columns.role": {
+      "fr": "Rôle",
+      "text": "Role"
+    },
+    "pages.esports.pro.columns.games": {
+      "fr": "Parties",
+      "text": "Games"
+    },
+    "pages.esports.pro.columns.record": {
+      "fr": "Bilan",
+      "text": "Record"
+    },
+    "pages.esports.pro.columns.winRate": {
+      "fr": "Victoires",
+      "text": "Win rate"
+    },
+    "pages.esports.pro.columns.mvps": {
+      "fr": "MVP",
+      "text": "MVP"
+    },
+    "pages.esportsPlayersUI.caption": {
+      "fr": "Statistiques des joueurs : {name}",
+      "text": "Player stats: {name}"
+    },
+    "pages.esportsPlayersUI.player": {
+      "fr": "Joueur",
+      "text": "Player"
+    },
+    "pages.esportsPlayersUI.team": {
+      "fr": "Équipe",
+      "text": "Team"
+    },
+    "pages.esportsPlayersUI.role": {
+      "fr": "Rôle",
+      "text": "Role"
+    },
+    "pages.esportsPlayersUI.games": {
+      "fr": "Parties",
+      "text": "Games"
+    },
+    "pages.esportsPlayersUI.wins": {
+      "fr": "V",
+      "text": "W"
+    },
+    "pages.esportsPlayersUI.losses": {
+      "fr": "D",
+      "text": "L"
+    },
+    "pages.esportsPlayersUI.winRate": {
+      "fr": "Victoires",
+      "text": "Win rate"
+    },
+    "pages.esportsPlayersUI.mvps": {
+      "fr": "MVP",
+      "text": "MVP"
+    },
+    "pages.esportsPlayersUI.heroes": {
+      "fr": "Héros",
+      "text": "Heroes"
+    },
+    "pages.esportsPlayersUI.top": {
+      "fr": "Plus joués",
+      "text": "Most played"
+    },
+    "pages.esportsPlayersUI.winsLong": {
+      "fr": "Victoires",
+      "text": "Wins"
+    },
+    "pages.esportsPlayersUI.lossesLong": {
+      "fr": "Défaites",
+      "text": "Losses"
+    },
+    "pages.esportsPlayersUI.heroLine": {
+      "fr": "{hero} : {games} parties, {wins} victoires",
+      "text": "{hero}: {games} games, {wins} wins"
     }
   },
   "es": {
@@ -2829,6 +3129,106 @@
     "pages.botPrivacy.roleMenus": {
       "fr": "Menus de rôles : le serveur enregistre pour chaque menu son salon, son titre, son texte, ses rôles avec leurs libellés et emojis, l'identifiant du message publié et l'identifiant Discord du gestionnaire qui l'a configuré. Quand un membre s'en sert, le bot lui donne ou retire le rôle et ne conserve rien sur lui, hormis un compteur en mémoire de quelques secondes qui limite les changements trop rapprochés.",
       "text": "Menús de roles: de cada menú se guardan el canal, el título, el texto, los roles con sus etiquetas y emojis, el identificador del mensaje publicado y el identificador de Discord del gestor que lo configuró. Cuando un miembro lo usa, el bot le da o le quita el rol y no guarda nada sobre él, salvo un contador en memoria de unos segundos que limita los cambios demasiado seguidos."
+    },
+    "pages.esports.nav.overview": {
+      "fr": "Aperçu",
+      "text": "Resumen"
+    },
+    "pages.esports.pro.roles.gold": {
+      "fr": "Gold",
+      "text": "Gold"
+    },
+    "pages.esports.pro.roles.flex": {
+      "fr": "Polyvalent",
+      "text": "Flex"
+    },
+    "pages.esports.pro.status.sub": {
+      "fr": "Remplaçant",
+      "text": "Suplente"
+    },
+    "pages.esports.pro.status.former": {
+      "fr": "Ancien joueur",
+      "text": "Exjugador"
+    },
+    "pages.esports.pro.vs": {
+      "fr": "contre {team}",
+      "text": "contra {team}"
+    },
+    "pages.esports.pro.method": {
+      "fr": "Liquipedia saisit chaque draft sous forme de cinq héros par équipe, dans l'ordre des lanes de l'effectif : chaque héros est attribué au joueur de sa place, en tenant compte des remplacements indiqués pour le match. Liquipedia ne relève ni éliminations, ni morts, ni assistances pour Mobile Legends : pas de KDA ici, seulement les parties, les victoires, les titres de MVP et les héros joués.",
+      "text": "Liquipedia registra cada draft como cinco héroes por equipo, en el orden de líneas de la plantilla: cada héroe se atribuye al jugador de su posición, teniendo en cuenta los cambios indicados para el partido. Liquipedia no registra asesinatos, muertes ni asistencias en Mobile Legends: aquí no hay KDA, solo partidas, victorias, MVP y héroes jugados."
+    },
+    "pages.esports.pro.players.seoTitle": {
+      "fr": "{name} : statistiques des joueurs",
+      "text": "{name}: estadísticas de los jugadores"
+    },
+    "pages.esports.pro.players.seoDescription": {
+      "fr": "{name} : parties, taux de victoire, titres de MVP et héros joués par les {n} joueurs, partie par partie, d'après les drafts de Liquipedia.",
+      "text": "{name}: partidas, porcentaje de victorias, MVP y héroes jugados por los {n} jugadores, partida a partida, según los drafts de Liquipedia."
+    },
+    "pages.esports.pro.players.lead": {
+      "fr": "{n} joueurs sur {games} parties : bilan, MVP et héros joués par chacun, triables par colonne.",
+      "text": "{n} jugadores en {games} partidas: balance, MVP y héroes jugados por cada uno, ordenables por columna."
+    },
+    "pages.esports.pro.players.empty": {
+      "fr": "Aucune partie relevée pour l'instant : les statistiques des joueurs apparaîtront dès les premiers matchs.",
+      "text": "Aún no hay partidas registradas: las estadísticas de los jugadores aparecerán tras los primeros partidos."
+    },
+    "pages.esports.pro.player.seoDescription": {
+      "fr": "{name}, {role} de {team} : {games} parties pros relevées, {rate} de victoires. Héros les plus joués : {heroes}.",
+      "text": "{name}, {role} de {team}: {games} partidas profesionales registradas, {rate} de victorias. Héroes más jugados: {heroes}."
+    },
+    "pages.esports.pro.player.lead": {
+      "fr": "{name}, {role} de {team} : {games} parties relevées sur Liquipedia, héros joués et résultats tournoi par tournoi.",
+      "text": "{name}, {role} de {team}: {games} partidas registradas en Liquipedia, con los héroes jugados y los resultados torneo a torneo."
+    },
+    "pages.esports.pro.player.facts.winRate": {
+      "fr": "Victoires",
+      "text": "Victorias"
+    },
+    "pages.esports.pro.player.matchesIntro": {
+      "fr": "Les {n} derniers matchs, avec le héros joué à chaque partie.",
+      "text": "Los últimos {n} partidos, con el héroe jugado en cada partida."
+    },
+    "pages.esports.pro.player.liquipedia": {
+      "fr": "Page Liquipedia",
+      "text": "Página de Liquipedia"
+    },
+    "pages.esports.pro.team.seoDescription": {
+      "fr": "{name} : effectif, bilan de {series} et de {games} sur {tournaments} tournoi(s), derniers matchs avec picks et bans partie par partie.",
+      "text": "{name}: plantilla, balance de {series} en series y {games} en partidas en {tournaments} torneo(s), últimos partidos con picks y bans partida a partida."
+    },
+    "pages.esports.pro.team.facts.titles": {
+      "fr": "Titres",
+      "text": "Títulos"
+    },
+    "pages.esports.pro.team.rosterTitle": {
+      "fr": "Effectif",
+      "text": "Plantilla"
+    },
+    "pages.esports.pro.team.recordsTitle": {
+      "fr": "Bilan par tournoi",
+      "text": "Balance por torneo"
+    },
+    "pages.esports.pro.team.matchesIntro": {
+      "fr": "{n} matchs relevés, du plus récent au plus ancien. Ouvrez un match pour voir ses drafts.",
+      "text": "{n} partidos registrados, del más reciente al más antiguo. Abre un partido para ver sus drafts."
+    },
+    "pages.esports.pro.team.forfeit": {
+      "fr": "Forfait",
+      "text": "Incomparecencia"
+    },
+    "pages.esportsPlayersUI.caption": {
+      "fr": "Statistiques des joueurs : {name}",
+      "text": "Estadísticas de los jugadores: {name}"
+    },
+    "pages.esportsPlayersUI.top": {
+      "fr": "Plus joués",
+      "text": "Más jugados"
+    },
+    "pages.esportsPlayersUI.heroLine": {
+      "fr": "{hero} : {games} parties, {wins} victoires",
+      "text": "{hero}: {games} partidas, {wins} victorias"
     }
   },
   "id": {
@@ -6227,6 +6627,190 @@
     "pages.botPrivacy.roleMenus": {
       "fr": "Menus de rôles : le serveur enregistre pour chaque menu son salon, son titre, son texte, ses rôles avec leurs libellés et emojis, l'identifiant du message publié et l'identifiant Discord du gestionnaire qui l'a configuré. Quand un membre s'en sert, le bot lui donne ou retire le rôle et ne conserve rien sur lui, hormis un compteur en mémoire de quelques secondes qui limite les changements trop rapprochés.",
       "text": "Menu role: untuk setiap menu disimpan channel, judul, teks, role beserta label dan emoji-nya, ID pesan yang diterbitkan, dan ID Discord pengelola yang mengaturnya. Saat anggota memakainya, bot memberi atau melepas role dan tidak menyimpan apa pun tentang anggota itu, kecuali penghitung di memori selama beberapa detik untuk membatasi perubahan yang terlalu rapat."
+    },
+    "pages.esports.nav.overview": {
+      "fr": "Aperçu",
+      "text": "Ringkasan"
+    },
+    "pages.esports.pro.roles.exp": {
+      "fr": "EXP",
+      "text": "EXP"
+    },
+    "pages.esports.pro.roles.jungle": {
+      "fr": "Jungle",
+      "text": "Jungle"
+    },
+    "pages.esports.pro.roles.mid": {
+      "fr": "Mid",
+      "text": "Mid"
+    },
+    "pages.esports.pro.roles.gold": {
+      "fr": "Gold",
+      "text": "Gold"
+    },
+    "pages.esports.pro.roles.roam": {
+      "fr": "Roam",
+      "text": "Roam"
+    },
+    "pages.esports.pro.roles.flex": {
+      "fr": "Polyvalent",
+      "text": "Flex"
+    },
+    "pages.esports.pro.record": {
+      "fr": "{wins} V – {losses} D",
+      "text": "{wins} M – {losses} K"
+    },
+    "pages.esports.pro.win": {
+      "fr": "Victoire",
+      "text": "Menang"
+    },
+    "pages.esports.pro.loss": {
+      "fr": "Défaite",
+      "text": "Kalah"
+    },
+    "pages.esports.pro.method": {
+      "fr": "Liquipedia saisit chaque draft sous forme de cinq héros par équipe, dans l'ordre des lanes de l'effectif : chaque héros est attribué au joueur de sa place, en tenant compte des remplacements indiqués pour le match. Liquipedia ne relève ni éliminations, ni morts, ni assistances pour Mobile Legends : pas de KDA ici, seulement les parties, les victoires, les titres de MVP et les héros joués.",
+      "text": "Liquipedia mencatat setiap draft sebagai lima hero per tim, sesuai urutan lane di roster: setiap hero dikaitkan dengan pemain di posisi itu, dengan memperhitungkan pergantian pemain yang dicatat untuk pertandingan tersebut. Liquipedia tidak mencatat kill, death, atau assist untuk Mobile Legends: tidak ada KDA di sini, hanya game, kemenangan, MVP, dan hero yang dimainkan."
+    },
+    "pages.esports.pro.players.seoTitle": {
+      "fr": "{name} : statistiques des joueurs",
+      "text": "{name}: statistik pemain"
+    },
+    "pages.esports.pro.players.seoDescription": {
+      "fr": "{name} : parties, taux de victoire, titres de MVP et héros joués par les {n} joueurs, partie par partie, d'après les drafts de Liquipedia.",
+      "text": "{name}: game, win rate, MVP, dan hero yang dimainkan oleh {n} pemain, game demi game, berdasarkan draft Liquipedia."
+    },
+    "pages.esports.pro.players.lead": {
+      "fr": "{n} joueurs sur {games} parties : bilan, MVP et héros joués par chacun, triables par colonne.",
+      "text": "{n} pemain dalam {games} game: rekor, MVP, dan hero yang dimainkan masing-masing, bisa diurutkan per kolom."
+    },
+    "pages.esports.pro.players.empty": {
+      "fr": "Aucune partie relevée pour l'instant : les statistiques des joueurs apparaîtront dès les premiers matchs.",
+      "text": "Belum ada game yang tercatat: statistik pemain akan muncul setelah pertandingan pertama."
+    },
+    "pages.esports.pro.player.seoTitle": {
+      "fr": "{name} ({team}) : héros et statistiques en compétition",
+      "text": "{name} ({team}): hero dan statistik pro"
+    },
+    "pages.esports.pro.player.seoTitleAlone": {
+      "fr": "{name} : héros et statistiques en compétition",
+      "text": "{name}: hero dan statistik pro"
+    },
+    "pages.esports.pro.player.seoDescription": {
+      "fr": "{name}, {role} de {team} : {games} parties pros relevées, {rate} de victoires. Héros les plus joués : {heroes}.",
+      "text": "{name}, {role} {team}: {games} game pro tercatat, menang {rate}. Hero paling sering dimainkan: {heroes}."
+    },
+    "pages.esports.pro.player.lead": {
+      "fr": "{name}, {role} de {team} : {games} parties relevées sur Liquipedia, héros joués et résultats tournoi par tournoi.",
+      "text": "{name}, {role} {team}: {games} game tercatat di Liquipedia, dengan hero yang dimainkan dan hasil di setiap turnamen."
+    },
+    "pages.esports.pro.player.facts.games": {
+      "fr": "Parties",
+      "text": "Game"
+    },
+    "pages.esports.pro.player.facts.record": {
+      "fr": "Bilan",
+      "text": "Rekor"
+    },
+    "pages.esports.pro.player.facts.winRate": {
+      "fr": "Victoires",
+      "text": "Win rate"
+    },
+    "pages.esports.pro.player.heroesTitle": {
+      "fr": "Héros joués",
+      "text": "Hero yang dimainkan"
+    },
+    "pages.esports.pro.player.heroesIntro": {
+      "fr": "{n} héros joués en compétition, du plus joué au moins joué.",
+      "text": "{n} hero dimainkan di kompetisi, dari yang paling sering."
+    },
+    "pages.esports.pro.player.matchesIntro": {
+      "fr": "Les {n} derniers matchs, avec le héros joué à chaque partie.",
+      "text": "{n} pertandingan terakhir, dengan hero yang dimainkan di setiap game."
+    },
+    "pages.esports.pro.team.seoDescription": {
+      "fr": "{name} : effectif, bilan de {series} et de {games} sur {tournaments} tournoi(s), derniers matchs avec picks et bans partie par partie.",
+      "text": "{name}: roster, rekor {series} di seri dan {games} di game dalam {tournaments} turnamen, pertandingan terbaru dengan pick dan ban game demi game."
+    },
+    "pages.esports.pro.team.lead": {
+      "fr": "{name} : effectif, bilan et drafts des tournois couverts, d'après Liquipedia.",
+      "text": "{name}: roster, rekor, dan draft dari turnamen yang dicakup, berdasarkan Liquipedia."
+    },
+    "pages.esports.pro.team.facts.games": {
+      "fr": "Parties",
+      "text": "Game"
+    },
+    "pages.esports.pro.team.facts.titles": {
+      "fr": "Titres",
+      "text": "Gelar"
+    },
+    "pages.esports.pro.team.rosterTitle": {
+      "fr": "Effectif",
+      "text": "Roster"
+    },
+    "pages.esports.pro.team.rosterIntro": {
+      "fr": "Joueurs listés pour {name}, titulaires d'abord.",
+      "text": "Pemain yang terdaftar untuk {name}, pemain inti lebih dulu."
+    },
+    "pages.esports.pro.team.gamesPlayed": {
+      "fr": "{n} parties",
+      "text": "{n} game"
+    },
+    "pages.esports.pro.team.recordsTitle": {
+      "fr": "Bilan par tournoi",
+      "text": "Rekor per turnamen"
+    },
+    "pages.esports.pro.team.matchesTitle": {
+      "fr": "Matchs",
+      "text": "Pertandingan"
+    },
+    "pages.esports.pro.team.matchesIntro": {
+      "fr": "{n} matchs relevés, du plus récent au plus ancien. Ouvrez un match pour voir ses drafts.",
+      "text": "{n} pertandingan tercatat, dari yang terbaru. Buka pertandingan untuk melihat draft-nya."
+    },
+    "pages.esports.pro.team.forfeit": {
+      "fr": "Forfait",
+      "text": "Walkover"
+    },
+    "pages.esports.pro.columns.games": {
+      "fr": "Parties",
+      "text": "Game"
+    },
+    "pages.esports.pro.columns.record": {
+      "fr": "Bilan",
+      "text": "Rekor"
+    },
+    "pages.esports.pro.columns.winRate": {
+      "fr": "Victoires",
+      "text": "Win rate"
+    },
+    "pages.esportsPlayersUI.games": {
+      "fr": "Parties",
+      "text": "Game"
+    },
+    "pages.esportsPlayersUI.wins": {
+      "fr": "V",
+      "text": "M"
+    },
+    "pages.esportsPlayersUI.losses": {
+      "fr": "D",
+      "text": "K"
+    },
+    "pages.esportsPlayersUI.winRate": {
+      "fr": "Victoires",
+      "text": "Win rate"
+    },
+    "pages.esportsPlayersUI.winsLong": {
+      "fr": "Victoires",
+      "text": "Menang"
+    },
+    "pages.esportsPlayersUI.lossesLong": {
+      "fr": "Défaites",
+      "text": "Kalah"
+    },
+    "pages.esportsPlayersUI.heroLine": {
+      "fr": "{hero} : {games} parties, {wins} victoires",
+      "text": "{hero}: {games} game, {wins} menang"
     }
   },
   "it": {
@@ -7701,6 +8285,110 @@
     "pages.botPrivacy.roleMenus": {
       "fr": "Menus de rôles : le serveur enregistre pour chaque menu son salon, son titre, son texte, ses rôles avec leurs libellés et emojis, l'identifiant du message publié et l'identifiant Discord du gestionnaire qui l'a configuré. Quand un membre s'en sert, le bot lui donne ou retire le rôle et ne conserve rien sur lui, hormis un compteur en mémoire de quelques secondes qui limite les changements trop rapprochés.",
       "text": "Menu dei ruoli: per ogni menu vengono conservati il canale, il titolo, il testo, i ruoli con etichette ed emoji, l'identificativo del messaggio pubblicato e l'identificativo Discord del gestore che l'ha configurato. Quando un membro lo usa, il bot gli dà o toglie il ruolo e non conserva nulla su di lui, salvo un contatore in memoria di pochi secondi che limita i cambi troppo ravvicinati."
+    },
+    "pages.esports.nav.overview": {
+      "fr": "Aperçu",
+      "text": "Panoramica"
+    },
+    "pages.esports.pro.roles.gold": {
+      "fr": "Gold",
+      "text": "Gold"
+    },
+    "pages.esports.pro.roles.flex": {
+      "fr": "Polyvalent",
+      "text": "Flex"
+    },
+    "pages.esports.pro.status.sub": {
+      "fr": "Remplaçant",
+      "text": "Riserva"
+    },
+    "pages.esports.pro.record": {
+      "fr": "{wins} V – {losses} D",
+      "text": "{wins} V – {losses} S"
+    },
+    "pages.esports.pro.win": {
+      "fr": "Victoire",
+      "text": "Vittoria"
+    },
+    "pages.esports.pro.method": {
+      "fr": "Liquipedia saisit chaque draft sous forme de cinq héros par équipe, dans l'ordre des lanes de l'effectif : chaque héros est attribué au joueur de sa place, en tenant compte des remplacements indiqués pour le match. Liquipedia ne relève ni éliminations, ni morts, ni assistances pour Mobile Legends : pas de KDA ici, seulement les parties, les victoires, les titres de MVP et les héros joués.",
+      "text": "Liquipedia inserisce ogni draft come cinque eroi per squadra, nell'ordine delle corsie della rosa: ogni eroe è attribuito al giocatore di quella posizione, tenendo conto delle sostituzioni indicate per la partita. Liquipedia non registra uccisioni, morti né assist per Mobile Legends: niente KDA qui, solo partite, vittorie, MVP ed eroi giocati."
+    },
+    "pages.esports.pro.players.seoTitle": {
+      "fr": "{name} : statistiques des joueurs",
+      "text": "{name}: statistiche dei giocatori"
+    },
+    "pages.esports.pro.players.seoDescription": {
+      "fr": "{name} : parties, taux de victoire, titres de MVP et héros joués par les {n} joueurs, partie par partie, d'après les drafts de Liquipedia.",
+      "text": "{name}: partite, percentuale di vittorie, MVP ed eroi giocati dai {n} giocatori, partita per partita, dai draft di Liquipedia."
+    },
+    "pages.esports.pro.players.lead": {
+      "fr": "{n} joueurs sur {games} parties : bilan, MVP et héros joués par chacun, triables par colonne.",
+      "text": "{n} giocatori su {games} partite: bilancio, MVP ed eroi giocati da ciascuno, ordinabili per colonna."
+    },
+    "pages.esports.pro.players.empty": {
+      "fr": "Aucune partie relevée pour l'instant : les statistiques des joueurs apparaîtront dès les premiers matchs.",
+      "text": "Nessuna partita registrata per ora: le statistiche dei giocatori appariranno dopo i primi incontri."
+    },
+    "pages.esports.pro.player.seoDescription": {
+      "fr": "{name}, {role} de {team} : {games} parties pros relevées, {rate} de victoires. Héros les plus joués : {heroes}.",
+      "text": "{name}, {role} dei {team}: {games} partite professionistiche registrate, {rate} di vittorie. Eroi più giocati: {heroes}."
+    },
+    "pages.esports.pro.player.lead": {
+      "fr": "{name}, {role} de {team} : {games} parties relevées sur Liquipedia, héros joués et résultats tournoi par tournoi.",
+      "text": "{name}, {role} dei {team}: {games} partite registrate su Liquipedia, con gli eroi giocati e i risultati torneo per torneo."
+    },
+    "pages.esports.pro.player.liquipedia": {
+      "fr": "Page Liquipedia",
+      "text": "Pagina Liquipedia"
+    },
+    "pages.esports.pro.team.seoDescription": {
+      "fr": "{name} : effectif, bilan de {series} et de {games} sur {tournaments} tournoi(s), derniers matchs avec picks et bans partie par partie.",
+      "text": "{name}: rosa, bilancio di {series} nelle serie e {games} nelle partite in {tournaments} torneo/i, ultimi incontri con pick e ban partita per partita."
+    },
+    "pages.esports.pro.team.lead": {
+      "fr": "{name} : effectif, bilan et drafts des tournois couverts, d'après Liquipedia.",
+      "text": "{name}: rosa, bilancio e draft dei tornei coperti, da Liquipedia."
+    },
+    "pages.esports.pro.team.rosterTitle": {
+      "fr": "Effectif",
+      "text": "Rosa"
+    },
+    "pages.esports.pro.team.recordsTitle": {
+      "fr": "Bilan par tournoi",
+      "text": "Bilancio per torneo"
+    },
+    "pages.esports.pro.team.matchesTitle": {
+      "fr": "Matchs",
+      "text": "Incontri"
+    },
+    "pages.esports.pro.team.matchesIntro": {
+      "fr": "{n} matchs relevés, du plus récent au plus ancien. Ouvrez un match pour voir ses drafts.",
+      "text": "{n} incontri registrati, dal più recente al più vecchio. Apri un incontro per vederne i draft."
+    },
+    "pages.esports.pro.team.forfeit": {
+      "fr": "Forfait",
+      "text": "Forfait"
+    },
+    "pages.esports.pro.player.matchesTitle": {
+      "fr": "Derniers matchs",
+      "text": "Ultimi incontri"
+    },
+    "pages.esports.pro.player.matchesIntro": {
+      "fr": "Les {n} derniers matchs, avec le héros joué à chaque partie.",
+      "text": "Gli ultimi {n} incontri, con l'eroe giocato in ogni partita."
+    },
+    "pages.esportsPlayersUI.caption": {
+      "fr": "Statistiques des joueurs : {name}",
+      "text": "Statistiche dei giocatori: {name}"
+    },
+    "pages.esportsPlayersUI.losses": {
+      "fr": "D",
+      "text": "S"
+    },
+    "pages.esportsPlayersUI.top": {
+      "fr": "Plus joués",
+      "text": "Più giocati"
     }
   }
 }

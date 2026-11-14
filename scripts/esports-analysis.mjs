@@ -230,15 +230,50 @@ export function readDate(value) {
   return new Date(ms).toISOString().replace(/\.000Z$/, "Z");
 }
 
+/**
+ * A player named in a substitution: `Name`, or `{{Opponent|Name|link=Page}}`
+ * / `{{OpponentPlayer|…}}`. `link` is the player's page when the shown name
+ * differs from it.
+ */
+export function readPlayerRef(value) {
+  if (!value) return null;
+  const b = blocks(value)[0];
+  if (!b) {
+    const name = plainText(value);
+    return name ? { name, link: null } : null;
+  }
+  const p = params(b.body);
+  const name = plainText(p.positional[0] ?? p.named.get("1") ?? "");
+  return name ? { name, link: plainText(p.named.get("link") ?? "") || null } : null;
+}
+
+/**
+ * Players swapped for one match: `{{Substitution|in=…|out=…|games=2}}`. The
+ * games, when listed, are the only ones the swap applies to.
+ */
+function readSubstitutions(value) {
+  return find(value ?? "", ["substitution"])
+    .map((b) => {
+      const p = params(b.body).named;
+      const games = (p.get("games") ?? "")
+        .split(/[,;\s]+/)
+        .map((n) => Number.parseInt(n, 10))
+        .filter(Number.isFinite);
+      return { in: readPlayerRef(p.get("in")), out: readPlayerRef(p.get("out")), games };
+    })
+    .filter((s) => s.in && s.out);
+}
+
 function readOpponent(value) {
   const b = value ? blocks(value)[0] : null;
-  if (!b) return { name: null, placeholder: plainText(value) || null, score: null };
+  if (!b) return { name: null, placeholder: plainText(value) || null, score: null, substitutions: [] };
   const p = params(b.body);
   const first = plainText(p.positional[0] ?? p.named.get("1") ?? "") || null;
   const score = (p.named.get("score") ?? "").trim() || null;
-  if (b.name === "literalopponent") return { name: null, placeholder: first, score };
+  const substitutions = readSubstitutions(p.named.get("substitutes"));
+  if (b.name === "literalopponent") return { name: null, placeholder: first, score, substitutions };
   const name = first && !/^(tbd|tba|bye)$/i.test(first) ? first : null;
-  return { name, placeholder: null, score };
+  return { name, placeholder: null, score, substitutions };
 }
 
 /** Heroes of one game, in entry order, empty slots skipped. */
@@ -286,7 +321,13 @@ export function readMatch(body) {
     .filter(Boolean)
     .map(Number)
     .sort((a, b) => a - b);
-  const games = numbers.map((n) => readGame(p.get(`map${n}`))).filter((g) => g && g.winner);
+  // The map number stays: a substitution can name the games it applies to.
+  const games = numbers
+    .map((n) => {
+      const g = readGame(p.get(`map${n}`));
+      return g && { ...g, number: n };
+    })
+    .filter((g) => g && g.winner);
   const bestOf = integer(p.get("bestof")) ?? (numbers.length || null);
   const score = [0, 0];
   for (const g of games) score[g.winner - 1] += 1;
@@ -307,6 +348,8 @@ export function readMatch(body) {
   return {
     teams: opponents.map((o) => o.name),
     placeholders: opponents.map((o) => o.placeholder),
+    substitutions: opponents.map((o) => o.substitutions),
+    mvp: plainText(p.get("mvp") ?? "") || null,
     date: readDate(p.get("date")),
     bestOf,
     score: forfeit ? null : score,
@@ -368,6 +411,74 @@ export function stageKey(name) {
 
 /** Display order of the stages: the order they are played in. */
 export const STAGE_ORDER = STAGES.map(([key]) => key);
+
+// ─────────────────────────────────────────────────────────────
+// Rosters
+// ─────────────────────────────────────────────────────────────
+
+const ROLE_KEYS = {
+  exp: "exp",
+  explaner: "exp",
+  jgl: "jungle",
+  jungle: "jungle",
+  jungler: "jungle",
+  mid: "mid",
+  midlaner: "mid",
+  gold: "gold",
+  goldlaner: "gold",
+  roam: "roam",
+  roamer: "roam",
+  flex: "flex",
+};
+
+/** "exp, captain" → "exp"; `null` for anything that is not a lane. */
+export function readRole(value) {
+  const first = (value ?? "").split(",")[0].toLowerCase().replace(/[^a-z]/g, "");
+  return ROLE_KEYS[first] ?? null;
+}
+
+/** Staff are not always marked `type=staff`: their role gives them away. */
+const STAFF_ROLE = /coach|analyst|manager|staff|director|owner|strateg/i;
+
+function readPerson(body) {
+  const p = params(body);
+  const name = plainText(p.positional[0] ?? p.named.get("1") ?? "");
+  const roleText = p.named.get("role") ?? "";
+  const type = (p.named.get("type") ?? "").trim().toLowerCase();
+  if (!name || type === "staff" || (STAFF_ROLE.test(roleText) && !readRole(roleText))) return null;
+  const status = (p.named.get("status") ?? "").trim().toLowerCase();
+  return {
+    name,
+    link: plainText(p.named.get("link") ?? "") || null,
+    role: readRole(roleText),
+    status: status === "sub" || status === "former" ? status : null,
+  };
+}
+
+/**
+ * Rosters of the `{{TeamParticipants}}` sections: every player of each team,
+ * in page order, staff left out. Liquipedia lists the five starters first, in
+ * lane order (EXP, jungle, mid, gold, roam): the order the drafts enter their
+ * heroes in, `t1h1` to `t1h5`. A team listed in several sections (wildcard,
+ * then main event) is merged.
+ */
+export function readParticipants(text) {
+  const teams = new Map();
+  for (const block of find(text, ["teamparticipants"])) {
+    for (const value of params(block.body).positional) {
+      const b = blocks(value).find((x) => x.name === "opponent");
+      if (!b) continue;
+      const p = params(b.body);
+      const team = plainText(p.positional[0] ?? "");
+      if (!team) continue;
+      const players = find(p.named.get("players") ?? "", ["person"]).map((x) => readPerson(x.body)).filter(Boolean);
+      const known = teams.get(team) ?? [];
+      for (const player of players) if (!known.some((k) => k.name === player.name)) known.push(player);
+      teams.set(team, known);
+    }
+  }
+  return [...teams].map(([team, players]) => ({ team, players })).filter((t) => t.players.length > 0);
+}
 
 // ─────────────────────────────────────────────────────────────
 // Page analysis
@@ -450,6 +561,7 @@ export function analyzePage(raw) {
     infobox: readInfobox(text),
     tables: find(text, TABLES).map(readTable),
     containers: find(text, CONTAINERS).map(readContainer).filter((c) => c.matches.length > 0),
+    participants: readParticipants(text),
   };
 }
 
@@ -695,5 +807,190 @@ export function buildTournament(stages, { resolve, lookup = resolve, teamName, d
     champion: findChampion(out),
     heroes,
     drafts: recentDrafts(all, drafts, lookup, teamName),
+  };
+}
+
+// ─────────────────────────────────────────────────────────────
+// Players: lineups game by game
+// ─────────────────────────────────────────────────────────────
+
+/** Page title as MediaWiki stores it: underscores as spaces, first letter in capitals. */
+export function pageTitle(text) {
+  const t = text.replace(/_/g, " ").replace(/\s+/g, " ").trim();
+  return t ? t[0].toUpperCase() + t.slice(1) : t;
+}
+
+/** Title of a player's page: the link when the shown name differs from it. */
+export const playerPage = (ref) => pageTitle(ref.link ?? ref.name);
+
+/** Address segment: "S A N Z" → "s-a-n-z", "Deku (Malaysian player)" → "deku-malaysian-player". */
+export function slugify(text) {
+  return text
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+/**
+ * Who played each game of a tournament.
+ *
+ * The drafts give heroes only: `t1h1` to `t1h5`, in the lane order of the
+ * team's roster. Liquipedia links a hero to a player the same way: the five
+ * starters of the `{{TeamParticipants}}` roster, in order, adjusted by the
+ * substitutions the match lists (for every game, or the games it names). A
+ * player brought in who is not on the roster takes the slot of the player
+ * named `out`, or else of the starter of the same lane.
+ *
+ * `playerId` turns `{ name, link }` into a stable id (the page title, after
+ * redirects). Returns the rosters (players with their id) and every played
+ * match with its lineups: on the match, and on a game only when it differs.
+ */
+export function buildLineups(stages, participants, { teamName, lookup, playerId }) {
+  const rosters = new Map();
+  for (const t of participants) {
+    const team = teamName(t.team);
+    const entry = rosters.get(team) ?? { team, players: [] };
+    for (const p of t.players) {
+      const id = playerId(p);
+      if (!entry.players.some((x) => x.id === id)) entry.players.push({ id, name: p.name, role: p.role, status: p.status });
+    }
+    rosters.set(team, entry);
+  }
+
+  const starters = (team) => {
+    const list = rosters.get(team)?.players.filter((p) => !p.status).slice(0, 5) ?? [];
+    return list.length === 5 ? list : null;
+  };
+
+  function lineup(team, substitutions, game) {
+    const base = starters(team);
+    if (!base) return null;
+    const line = base.map((p) => p.id);
+    const roster = rosters.get(team);
+    for (const s of substitutions) {
+      if (s.games.length > 0 && !s.games.includes(game)) continue;
+      const inId = playerId(s.in);
+      if (line.includes(inId)) continue;
+      let slot = line.indexOf(playerId(s.out));
+      const known = roster.players.find((p) => p.id === inId);
+      if (slot < 0 && known?.role) slot = base.findIndex((p) => p.role === known.role);
+      if (slot < 0) continue;
+      line[slot] = inId;
+      if (!known) roster.players.push({ id: inId, name: s.in.name, role: base[slot].role, status: "sub" });
+    }
+    return line;
+  }
+
+  const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+  const matches = [];
+  for (const stage of stages) {
+    for (const container of stage.analysis.containers) {
+      for (const m of container.matches) {
+        if (!m.winner || !m.teams[0] || !m.teams[1]) continue;
+        const teams = m.teams.map(teamName);
+        const subs = m.substitutions ?? [[], []];
+        // Swaps limited to some games stay out of the match lineup.
+        const lineups = [0, 1].map((i) => lineup(teams[i], subs[i].filter((s) => s.games.length === 0), null));
+        const games = m.games.map((g) => {
+          const own = [0, 1].map((i) => lineup(teams[i], subs[i], g.number));
+          return {
+            winner: g.winner,
+            duration: g.duration,
+            team1Side: g.team1Side,
+            picks: g.picks.map((l) => l.map((h) => lookup(h) ?? h)),
+            bans: g.bans.map((l) => l.map((h) => lookup(h) ?? h)),
+            ...(same(own, lineups) ? {} : { lineups: own }),
+          };
+        });
+        // The MVP is written as the shown name: looked up among the players of the match.
+        const played = new Set([...lineups, ...games.map((g) => g.lineups ?? [])].flat(2).filter(Boolean));
+        const mvpKey = m.mvp ? normalizeName(m.mvp) : null;
+        const mvp = mvpKey
+          ? (teams
+              .flatMap((t) => rosters.get(t)?.players ?? [])
+              .find((p) => played.has(p.id) && (normalizeName(p.name) === mvpKey || normalizeName(p.id) === mvpKey))?.id ?? null)
+          : null;
+        matches.push({ stage: stage.title, date: m.date, teams, score: m.score, winner: m.winner, mvp, lineups, games });
+      }
+    }
+  }
+  return { rosters: [...rosters.values()], matches };
+}
+
+/** Unique slugs: a second name that reduces to the same one gets a suffix. */
+function slugger(fallback) {
+  const byKey = new Map();
+  const used = new Set();
+  return (key) => {
+    if (byKey.has(key)) return byKey.get(key);
+    const base = slugify(key) || fallback;
+    let slug = base;
+    for (let n = 2; used.has(slug); n += 1) slug = `${base}-${n}`;
+    used.add(slug);
+    byKey.set(key, slug);
+    return slug;
+  };
+}
+
+/**
+ * Players, teams and matches of every tournament, ids replaced by slugs.
+ * `entries`: `{ tournament, rosters, matches }` from the oldest tournament to
+ * the latest, so a player's shown name is the latest one. `pages`: player
+ * page titles that exist on Liquipedia, to link to.
+ */
+export function assembleProData(entries, pages) {
+  const playerSlug = slugger("player");
+  const teamSlug = slugger("team");
+  const players = new Map();
+  const teams = new Map();
+  const teamOf = (name) => {
+    if (!teams.has(name)) teams.set(name, { slug: teamSlug(name), name, tournaments: [] });
+    return teams.get(name);
+  };
+  const matches = [];
+  for (const { tournament, rosters, matches: played } of entries) {
+    const rosterOf = (name) => {
+      const team = teamOf(name);
+      let entry = team.tournaments.find((t) => t.tournament === tournament);
+      if (!entry) {
+        entry = { tournament, players: [] };
+        team.tournaments.push(entry);
+      }
+      return entry;
+    };
+    for (const r of rosters) {
+      const entry = rosterOf(r.team);
+      for (const p of r.players) {
+        const slug = playerSlug(p.id);
+        const player = players.get(p.id) ?? { slug, name: p.name, page: pages.has(p.id) ? p.id : null, tournaments: [] };
+        player.name = p.name;
+        player.tournaments.push({ tournament, team: teamOf(r.team).slug, role: p.role, status: p.status });
+        players.set(p.id, player);
+        entry.players.push(slug);
+      }
+    }
+    const slugs = (lineups) => lineups.map((l) => (l ? l.map(playerSlug) : null));
+    for (const m of played) {
+      for (const name of m.teams) rosterOf(name);
+      matches.push({
+        tournament,
+        stage: m.stage,
+        date: m.date,
+        teams: m.teams.map((name) => teamOf(name).slug),
+        score: m.score,
+        winner: m.winner,
+        mvp: m.mvp ? playerSlug(m.mvp) : null,
+        lineups: slugs(m.lineups),
+        games: m.games.map(({ lineups, ...g }) => (lineups ? { ...g, lineups: slugs(lineups) } : g)),
+      });
+    }
+  }
+  const bySlug = (a, b) => a.slug.localeCompare(b.slug);
+  return {
+    players: [...players.values()].sort(bySlug),
+    teams: [...teams.values()].sort(bySlug),
+    matches,
   };
 }

@@ -277,6 +277,18 @@ describe("resolvePages", () => {
     expect(problems).toEqual(["/en/tools/draft: not listed in the sitemap (route moved or removed?)"]);
   });
 
+  it("picks one esports players, player and team page each", () => {
+    const esports = [
+      { discover: "esports-players", path: "/esports/<tournament>/players", locales: ["en"] },
+      { discover: "esports-player", path: "/esports/players/<slug>", locales: ["en"] },
+      { discover: "esports-team", path: "/esports/teams/<slug>", locales: ["en"] },
+    ];
+    const paths = ["/en/esports", "/en/esports/msc-2026", "/en/esports/players/kairi", "/en/esports/msc-2026/players", "/en/esports/teams/onic"];
+    const { pages, problems } = resolvePages(paths, esports);
+    expect(pages.map((p) => p.path)).toEqual(["/esports/msc-2026/players", "/esports/players/kairi", "/esports/teams/onic"]);
+    expect(problems).toEqual([]);
+  });
+
   it("reports a discovery that finds nothing", () => {
     const { problems } = resolvePages(["/en", "/en/draft"], table.slice(3));
     expect(problems).toEqual(["/patch-notes/<latest version>: no matching URL in the sitemap", "/compare/<a>-vs-<b>: no matching URL in the sitemap"]);

@@ -1,4 +1,5 @@
 import { Fragment, type ReactNode } from "react";
+import Link from "@/components/link";
 import type { Locale } from "@/i18n/config";
 import type { T } from "@/i18n/translations";
 import { esportsSource, type SourceLabel, type SourcePage, type Status, type Tournament } from "@/lib/esports";
@@ -82,6 +83,40 @@ export function StatusBadge({ status, t }: { status: Status; t: T }) {
       {status === "live" && <span aria-hidden className="size-1.5 rounded-full bg-current motion-safe:animate-pulse" />}
       {t(`pages.esports.status.${status}`)}
     </span>
+  );
+}
+
+/**
+ * Sections of a tournament, one page each: links rather than client tabs, so
+ * each view has its own address, title and place in the sitemap.
+ */
+export function TournamentNav({ t, turn, active }: { t: T; turn: Tournament; active: "overview" | "players" }) {
+  const items = [
+    { id: "overview", href: `/esports/${turn.slug}` },
+    { id: "players", href: `/esports/${turn.slug}/players` },
+  ] as const;
+  return (
+    <nav aria-label={t("pages.esports.nav.label")} className="mt-5 border-b border-night-700/70">
+      <ul className="-mb-px flex gap-1">
+        {items.map((item) => {
+          const current = item.id === active;
+          return (
+            <li key={item.id}>
+              <Link
+                href={item.href}
+                aria-current={current ? "page" : undefined}
+                className={cn(
+                  "block border-b-2 px-4 py-2.5 font-heading text-sm font-semibold transition-colors",
+                  current ? "border-gold-500 text-gold-400" : "border-transparent text-chalk-500 hover:text-chalk-100",
+                )}
+              >
+                {t(`pages.esports.nav.${item.id}`)}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
   );
 }
 
