@@ -43,6 +43,16 @@ export default async function PrivacyPage({ params }: Params) {
         </ul>
         <p>{t("prose.push.usage")}</p>
         <p>{t("prose.push.unsubscribe")}</p>
+        {/* Community (forum, votes, reports, teammate cards): kept in the database. */}
+        <h2 id="community">{t("prose.community.title")}</h2>
+        <p>{t("prose.community.intro")}</p>
+        <ul>
+          <li>{t("prose.community.account")}</li>
+          <li>{t("prose.community.posts")}</li>
+          <li>{t("prose.community.card")}</li>
+        </ul>
+        <p>{t("prose.community.moderation")}</p>
+        <p>{t("prose.community.deletion", { contact: legal.contact })}</p>
         {/* Discord bot: described when it is deployed (its id is known at build time). */}
         {botPublished() && (
           <>
