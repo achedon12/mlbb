@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { LOCALES } from "../i18n/index.js";
+import { LOCALES } from "../i18n/locales.js";
 
 /**
  * Shapes of the site's internal API (`/api/bot/*`), validated on receipt:
