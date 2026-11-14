@@ -48,11 +48,30 @@ Everything is free: no plans, no paywall, no payment code.
   `X-MLBBDex-Signature` = hex HMAC-SHA256(`BOT_API_SECRET`,
   `${timestamp}.${method}.${path}.${body}`). The receiver rejects a timestamp
   more than 300 s away and compares in constant time. Same scheme both ways.
-  `BOT_API_SECRET` is ≥ 32 random bytes (`openssl rand -hex 32`).
+  `BOT_API_SECRET` is ≥ 32 random bytes (`openssl rand -hex 32`); a shorter
+  one is refused by the verifier itself, not only by the configuration.
+- Replay: the site remembers every signature it accepted for 600 s and
+  refuses it a second time (the bot re-signs and retries once on a 401);
+  the bot does the same for the site's POSTs.
+- Order on the site's `/api/bot/*`: 404 without the bot's configuration,
+  rate limit, body cap (declared length, then the stream itself, before
+  anything is parsed: 256 KB, 2 MB for the guild sync), signature, then
+  JSON and zod. Every signature failure answers the same
+  `401 {"error":"unauthorized"}`; the reason only goes to the log. Every
+  answer is `Cache-Control: no-store`.
+- Rate limits key on the client address the reverse proxy saw: the
+  `X-Forwarded-For` entry `TRUSTED_PROXY_HOPS` places from the right
+  (default 1), validated as an IP; the client-supplied entries to its left
+  are ignored, and so is `X-Real-IP`. Requests without a trustworthy
+  address (the bot's direct calls) share one window.
 - The bot's HTTP server binds to the internal docker network only, caps
   bodies at 64 KB, and rate limits.
 - **Dashboard login**: Discord OAuth2 authorization code flow with PKCE and a
-  `state` cookie, scope `identify` only. The Discord access token is used
+  `state` cookie (sealed, 10 minutes, scoped to `/api/discord/callback`,
+  cleared by the callback whatever the outcome), scope `identify` only. The
+  redirect URI comes from `NEXT_PUBLIC_SITE_URL`, never from the request;
+  the login lands on `/<locale>/bot/dashboard` or `/<locale>/bot/admin`,
+  nothing else. The Discord access token is used
   once to read the user id, then dropped: nothing Discord-issued is stored.
   Session = encrypted, httpOnly, Secure, SameSite=Lax cookie
   (`BOT_SESSION_SECRET`, 7 days), holding the Discord user id, name, avatar.
@@ -62,8 +81,12 @@ Everything is free: no plans, no paywall, no payment code.
   `ManageGuild` in that server and the bot must be in it.
 - **Super admins**: Discord user ids in `BOT_SUPER_ADMIN_IDS`
   (comma-separated), checked server-side on every admin route.
-- Mutating routes check `Origin` against `NEXT_PUBLIC_SITE_URL`, validate
-  bodies with zod, and are rate limited (`limitByMinute`).
+- Mutating routes check `Origin` against `NEXT_PUBLIC_SITE_URL` (and
+  `Sec-Fetch-Site: same-origin` when the browser sends it), cap bodies at
+  16 KB while reading them, validate them with zod, and are rate limited
+  (`limitByMinute`). A server's write takes its id from the path only,
+  asks the bot for ManageGuild on that request, and checks every channel
+  and role id against what the bot reports for that server.
 - Bot invite permissions, least privilege: View Channels, Send Messages,
   Send Messages in Threads, Embed Links, Attach Files, Read Message History,
   Use External Emojis, Add Reactions. Scopes `bot applications.commands`.
@@ -87,7 +110,8 @@ Everything is free: no plans, no paywall, no payment code.
 - `Delivery`: announcementId + guildId (composite PK), status, messageId,
   error, sentAt — so a restart never posts twice.
 - `CommandLog`: id, command, guildId (nullable), locale, durationMs, ok,
-  createdAt. No user id (counts only). Indexed on createdAt, command.
+  createdAt. No user id (counts only). Indexed on createdAt (every admin
+  figure reads a time window, aggregated by Postgres).
 - `DailyResult`: guildId, day, game (`mlbbdle-classic`, `mlbbdle-skill`,
   `quiz`), discordUserId, discordUserName, guesses/points, createdAt. Unique
   (guildId, day, game, discordUserId). For the server leaderboards.
@@ -103,13 +127,21 @@ Everything is free: no plans, no paywall, no payment code.
   data: new patch in `patches.json`, new skins in `skins.json`, events,
   advance server, esports results — detected at site start and after each
   data deploy, idempotent by (type, key)).
-- `POST /api/bot/deliveries` — `[{announcementId, guildId, status, messageId?, error?}]`.
+- `POST /api/bot/deliveries` — `[{announcementId, guildId, status, messageId?, error?}]`
+  (up to 500; `announcementId` as a number or a numeric string), written
+  as one bulk upsert.
 - `POST /api/bot/commands/log` — batch of `{command, guildId, locale, durationMs, ok}`
   (the bot buffers and flushes every 30 s).
 - `GET  /api/bot/daily?day=YYYY-MM-DD` → today's MLBBdle secrets (classic,
   skill) and quiz rounds, computed with `src/lib/mlbbdle.ts` / `quiz.ts`
   exactly like the site, so Discord and site share the same daily puzzle.
-- `POST /api/bot/daily/results`, `GET /api/bot/daily/leaderboard?guild=&game=&period=day|week|all`.
+- `GET  /api/bot/daily/guilds?hour=0..23[&after=<guild id>]` →
+  `{ hour, guilds: [{guildId, locale, dailyMlbbdleChannelId, dailyQuizChannelId}], next }`:
+  the servers whose daily post goes out at that hour, a thousand per page
+  (`next` = the `after` of the following page, null on the last). The
+  bot's hourly round reads this, never every server's settings.
+- `POST /api/bot/daily/results`, `GET /api/bot/daily/leaderboard?guild=&game=&period=day|week|all`
+  (summed per player by the database; "all" reads the last 366 days).
 
 ## Bot internal API (`bot/`, HMAC-signed, port 3100, internal network)
 
@@ -193,7 +225,12 @@ MLBBdle/quiz post goes out at `dailyHourUtc` with a "Play" button.
   top.gg (`TOPGG_TOKEN`), discordbotlist.com (`DBL_TOKEN`) and
   discord.bots.gg (`DBOTSGG_TOKEN`); each is optional — no token, no post.
 - Vote webhooks (top.gg, DBL) at `/api/bot/votes/<list>` verified with their
-  secret (`TOPGG_WEBHOOK_SECRET`, `DBL_WEBHOOK_SECRET`); a vote only thanks
+  secret (`TOPGG_WEBHOOK_SECRET`, `DBL_WEBHOOK_SECRET`), as each list
+  documents it: top.gg v1 signs `${t}.${rawBody}` (HMAC-SHA256, header
+  `x-topgg-signature: t=…,v1=…`, refused past 5 minutes, accepted once);
+  top.gg legacy and discordbotlist.com send the secret as `Authorization`.
+  Constant-time comparisons, 4 KB body cap, nothing parsed before the
+  request is authenticated. A vote only thanks
   the voter in DM if they allow it and counts for the admin stats (free bot:
   no rewards to unlock).
 - Listing copy (short and long descriptions, tags, in English) kept in
@@ -205,7 +242,8 @@ Site: `DATABASE_URL`, `BOT_API_SECRET`, `BOT_INTERNAL_URL`
 (`http://bot:3100`), `BOT_SESSION_SECRET`, `DISCORD_CLIENT_ID`,
 `DISCORD_CLIENT_SECRET`, `BOT_SUPER_ADMIN_IDS`,
 `NEXT_PUBLIC_DISCORD_CLIENT_ID`, `NEXT_PUBLIC_DISCORD_INVITE_URL`,
-`TOPGG_WEBHOOK_SECRET`, `DBL_WEBHOOK_SECRET`.
+`TOPGG_WEBHOOK_SECRET`, `DBL_WEBHOOK_SECRET`, `TRUSTED_PROXY_HOPS`
+(reverse proxies appending to `X-Forwarded-For`, default 1).
 
 Bot: `DISCORD_TOKEN`, `DISCORD_CLIENT_ID`, `BOT_API_SECRET`,
 `SITE_URL` (public API) and `SITE_INTERNAL_URL` (`http://mlbb:3001`),
@@ -226,4 +264,7 @@ deployment without the bot.
 - Bot: unit tests for command option parsing, localization completeness
   (every command has every locale, every i18n key in every file),
   embed builders, signing, delivery retry/backoff, listing poster.
+- Site, against a real Postgres (`tests/functional/bot-database.test.ts`,
+  skipped without `TEST_DATABASE_URL`): bulk guild sync and deliveries,
+  pending targets, daily servers by hour, leaderboard and admin aggregates.
 - Both: `npm run typecheck`, `npm run lint`, `npm test`, build.
