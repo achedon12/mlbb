@@ -37,8 +37,13 @@ src/games/        MLBBdle comparison, quiz rounds, nicknames, server time
   members stored; never message content), and the invite asks for 8
   permissions, no Administrator (see [LISTING.md](LISTING.md)).
 - **Replies within 3 s**: every command is deferred first; autocomplete has
-  a 2.5 s deadline. The reply language is the server's setting, else the
-  member's Discord language, else English.
+  a 2.5 s deadline. The lists most commands read (heroes, rankings,
+  patches, items) are loaded when a shard starts and every 10 minutes, so
+  a command rarely waits on the site. The reply language is the server's
+  setting, else the member's Discord language, else English.
+- **Status line**: rotates every 5 minutes between "Watching /help ·
+  mlbbdex.com", "Playing /mlbbdle daily" and, from 25 servers, the server
+  count; set again after every reconnect.
 - **Memory-light**: caches with a TTL and a size cap, empty message and
   member caches, a 192 MB heap per process in the image.
 
