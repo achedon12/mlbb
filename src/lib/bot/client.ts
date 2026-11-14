@@ -214,3 +214,49 @@ export const testPost = (config: BotConfig, guildId: string, channelId: string, 
 export const flushAnnouncements = (config: BotConfig) => call(config, "POST", "/internal/announcements/flush", z.unknown(), {});
 
 export const botStats = (config: BotConfig) => call(config, "GET", "/internal/stats", stats);
+
+const emoji = z.object({ id: snowflake, name: z.string().min(1).max(32), animated: z.boolean().default(false) });
+export type BotEmoji = z.infer<typeof emoji>;
+
+/** The server's custom emojis, for the role menu pickers and the save's checks. */
+export const guildEmojis = (config: BotConfig, guild: string): Promise<BotEmoji[]> =>
+  call(config, "GET", `/internal/guilds/${idOf(guild)}/emojis`, z.object({ emojis: z.array(emoji).max(500) })).then((r) => r.emojis);
+
+/**
+ * The dashboard changed this server: the shard holding it forgets the
+ * settings, role menus and managers it cached, so the change applies at
+ * once rather than within minutes. A fresh body each time: the bot
+ * refuses a signature it has already seen.
+ */
+export const refreshGuild = (config: BotConfig, guild: string) =>
+  call(config, "POST", `/internal/guilds/${idOf(guild)}/refresh`, z.unknown(), { nonce: crypto.randomUUID() });
+
+/** Same, never failing the dashboard's own answer: the cache expires within minutes anyway. */
+export const refreshGuildQuietly = (config: BotConfig, guild: string) => refreshGuild(config, guild).catch(() => undefined);
+
+/** What the bot needs to post a role menu: the stored menu, as it reads it from the site. */
+export interface BotRoleMenu {
+  id: number;
+  channelId: string;
+  title: string;
+  description: string | null;
+  mode: string;
+  options: { roleId: string; label: string; emoji: string | null }[];
+  configuredBy: string;
+  messageId: string | null;
+  messageChannelId: string | null;
+}
+
+/** Posts the menu's message, or edits the one already posted (moved when the channel changed). */
+export const publishRoleMenu = (config: BotConfig, guild: string, locale: string, menu: BotRoleMenu) =>
+  call(
+    config,
+    "POST",
+    `/internal/guilds/${idOf(guild)}/role-menus/publish`,
+    z.object({ ok: z.boolean(), messageId: snowflake.optional(), channelId: snowflake.optional(), error: z.string().max(300).optional() }),
+    { locale, menu },
+  );
+
+/** Deletes a deleted menu's message, best effort. */
+export const removeRoleMenuMessage = (config: BotConfig, guild: string, channelId: string, messageId: string) =>
+  call(config, "POST", `/internal/guilds/${idOf(guild)}/role-menus/remove`, z.object({ ok: z.boolean() }), { channelId, messageId });
