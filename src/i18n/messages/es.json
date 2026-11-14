@@ -4303,6 +4303,13 @@
   "offline": {
     "banner": "Sin conexión — las páginas ya consultadas siguen disponibles."
   },
+  "discordPopup": {
+    "label": "Invitación al Discord de MLBBDex",
+    "title": "Únete al Discord de MLBBDex",
+    "text": "Avisos de parche, MLBBdle diario y compañeros de equipo.",
+    "join": "Unirme",
+    "close": "Cerrar la invitación"
+  },
   "search": {
     "open": "Buscar",
     "placeholder": "Un héroe, un objeto, un parche…",

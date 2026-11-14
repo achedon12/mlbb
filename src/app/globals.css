@@ -25,6 +25,10 @@
 
   --color-blood-500: #d94848;
 
+  /* Discord's own blurple, kept for what leads to the community server. */
+  --color-blurple-500: #5865f2;
+  --color-blurple-600: #4752c4;
+
   --color-chalk-100: #eef2fb;
   --color-chalk-200: #dbe2f0;
   --color-chalk-300: #b7c2da;
@@ -210,6 +214,23 @@ h1, h2, h3, h4 {
 @media (prefers-reduced-motion: no-preference) {
   .drawer {
     animation: slide-up 0.22s ease-out;
+  }
+}
+
+/* Discord invitation: it rises a few pixels, not the whole screen. */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .discord-popup {
+    animation: rise-in 0.25s ease-out;
   }
 }
 

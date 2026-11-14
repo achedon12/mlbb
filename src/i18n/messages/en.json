@@ -4303,6 +4303,13 @@
   "offline": {
     "banner": "Offline — pages you have already visited are still available."
   },
+  "discordPopup": {
+    "label": "MLBBDex Discord invitation",
+    "title": "Join the MLBBDex Discord",
+    "text": "Patch alerts, the daily MLBBdle, teammates to find.",
+    "join": "Join",
+    "close": "Close the invitation"
+  },
   "search": {
     "open": "Search",
     "placeholder": "A hero, an item, a patch…",

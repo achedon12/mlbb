@@ -54,6 +54,7 @@ export function Drawer({
         className="fixed inset-0 z-50 bg-night-950/70 backdrop-blur-sm"
       />
       <div
+        data-bottom-ui
         role="dialog"
         aria-modal="true"
         aria-label={title}
