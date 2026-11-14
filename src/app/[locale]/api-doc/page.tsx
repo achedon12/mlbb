@@ -55,8 +55,33 @@ const ROUTES: Route[] = [
     key: "items",
     settings: [
       { name: "category", values: "Attack, Magic, Defense, Movement, Jungling, Roaming", role: "catParam" },
+      { name: "locale", values: "en, fr, it, es, id", role: "localeParam" },
     ],
-    example: "/api/v1/items?category=Defense",
+    example: "/api/v1/items?category=Defense&locale=fr",
+  },
+  {
+    path: "/api/v1/emblems",
+    key: "emblems",
+    settings: [{ name: "locale", values: "en, fr, it, es, id", role: "localeParam" }],
+    example: "/api/v1/emblems?locale=fr",
+  },
+  {
+    path: "/api/v1/spells",
+    key: "spells",
+    settings: [{ name: "locale", values: "en, fr, it, es, id", role: "localeParam" }],
+    example: "/api/v1/spells?locale=fr",
+  },
+  {
+    path: "/api/v1/skins",
+    key: "skins",
+    settings: [{ name: "limit", values: "1 – 100", role: "limitParam" }],
+    example: "/api/v1/skins?limit=10",
+  },
+  {
+    path: "/api/v1/events",
+    key: "events",
+    settings: [{ name: "locale", values: "en, fr, it, es, id", role: "localeParam" }],
+    example: "/api/v1/events?locale=fr",
   },
   {
     path: "/api/v1/patches",

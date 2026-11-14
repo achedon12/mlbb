@@ -16,7 +16,11 @@ Route, parameter and field names are in English, as in the code.
 | --- | --- | --- |
 | `GET /api/v1/heroes` | The roster: a summary of each hero (roles, lanes, ratings, skills…) | `role`: Tank, Fighter, Assassin, Mage, Marksman, Support · `lane`: Gold, Jungle, Mid, Exp, Roam (the former values Or, Milieu and Experience are still accepted) |
 | `GET /api/v1/heroes/{slug}` | A hero's full page: base stats, ratings, skills, skins… | — |
-| `GET /api/v1/items` | The item catalogue: price, bonuses, passive, active, recipe | `category`: Attack, Magic, Defense, Movement (exact match, case-insensitive) |
+| `GET /api/v1/items` | The item catalogue: price, bonuses, passive, active, recipe | `category`: Attack, Magic, Defense, Movement (exact match, case-insensitive) · `locale`: en, fr, it, es, id (English by default) |
+| `GET /api/v1/emblems` | The six role emblems: slug, name, role, bonus (`description`), who they suit, icon | `locale`: en, fr, it, es, id (English by default) |
+| `GET /api/v1/spells` | Battle spells: slug, name, effect (`description`), cooldown in seconds, roles, icon | `locale`: en, fr, it, es, id (English by default) |
+| `GET /api/v1/skins` | The newest released skins, newest first: hero, id, name, release, rarity, series, artwork | `limit`: 1 to 100 (20 by default) |
+| `GET /api/v1/events` | This month's and the announced months' StarLight and Collector skins: name, `start` and `end` of the month (ISO, UTC), artwork, link to the month's page | `locale`: en, fr, it, es, id (English by default) |
 | `GET /api/v1/patches` | The list of patch notes, with a link to each one | — |
 | `GET /api/v1/rankings` | The computed tier list: tier, win, ban and pick rates, score | — |
 | `GET /api/health` | Service health check (`{ "status": "ok" }`) | — |
@@ -52,6 +56,8 @@ Every response wraps its data the same way:
   `/api/v1/rankings`, an object `{ measuredAt, heroes }`: `measuredAt` is the
   date the rates were measured, which is separate from the sync.
 - `total`: present on lists, the number of items returned.
+- Images (`image` fields of the emblems, spells, skins and events) are absolute
+  `https://` URLs, usable as they are by a Discord embed.
 - `source`: where the data comes from and its license, repeated in the
   `X-Data-License` header.
 
