@@ -31,7 +31,18 @@ Object.assign(process.env, {
   BOT_INTERNAL_URL: "http://bot:3100",
   DISCORD_CLIENT_ID: "123456789012345678",
   DISCORD_CLIENT_SECRET: "c".repeat(32),
+  BOT_SUPER_ADMIN_IDS: "555555555555555555",
 });
+const ADMIN = "555555555555555555";
+
+const backup = vi.hoisted(() => ({
+  runBackup: vi.fn(async (): Promise<{ ok: true; file: unknown; removed: string[] } | { ok: false; error: string }> => ({
+    ok: true,
+    file: { name: "mlbbdex-20261114-033000.dump", size: 10, createdAt: "2026-11-14T03:30:00.000Z" },
+    removed: [],
+  })),
+}));
+vi.mock("@/lib/db-backup", async (original) => ({ ...(await original<object>()), ...backup }));
 
 const client = vi.hoisted(() => ({
   // Two managers of GUILD: USER and CO_MANAGER.
@@ -101,6 +112,7 @@ const { signedHeaders } = await import("@/lib/bot/signature");
 const { sealSession } = await import("@/lib/bot/session");
 const { PUT } = await import("@/app/api/discord/guilds/[id]/settings/route");
 const testRoute = await import("@/app/api/discord/guilds/[id]/test/route");
+const backupRoute = await import("@/app/api/discord/admin/backup/route");
 const { z } = await import("zod");
 
 const config = readBotConfig(process.env);
@@ -414,5 +426,47 @@ describe("dashboard greeting test", () => {
     expect((await post(GUILD, { ...ok, guildName: "@everyone" })).status).toBe(400);
     expect((await post(GUILD, ok, { origin: "https://evil.example" })).status).toBe(403);
     expect(client.testPost).not.toHaveBeenCalled();
+  });
+});
+
+describe("admin backup now", () => {
+  const post = (headers: Record<string, string> = {}) =>
+    backupRoute.POST(
+      new Request(`${BASE}/api/discord/admin/backup`, {
+        method: "POST",
+        headers: { origin: "https://mlbbdex.com", "content-type": "application/json", "x-forwarded-for": "198.51.100.3", ...headers },
+        body: "{}",
+      }),
+    );
+
+  beforeEach(() => backup.runBackup.mockClear());
+
+  it("backs up for a super admin, from the site's own pages only", async () => {
+    jar.session = sealSession(config, { id: ADMIN, name: "Admin", avatar: null });
+    const response = await post();
+    expect(response.status).toBe(200);
+    expect(await response.json()).toMatchObject({ ok: true, file: { name: "mlbbdex-20261114-033000.dump" } });
+    expect(backup.runBackup).toHaveBeenCalledWith({ trigger: "admin" });
+    expect((await post({ origin: "https://evil.example" })).status).toBe(403);
+    expect((await post({ "sec-fetch-site": "same-site" })).status).toBe(403);
+    expect(backup.runBackup).toHaveBeenCalledTimes(1);
+  });
+
+  it("answers 409 while one runs, 500 when it fails", async () => {
+    jar.session = sealSession(config, { id: ADMIN, name: "Admin", avatar: null });
+    backup.runBackup.mockResolvedValueOnce({ ok: false, error: "already_running" });
+    expect((await post()).status).toBe(409);
+    backup.runBackup.mockResolvedValueOnce({ ok: false, error: "pg_dump exited with 1: secret detail" });
+    const failed = await post();
+    expect(failed.status).toBe(500);
+    expect(await failed.json()).toEqual({ error: "backup failed" });
+  });
+
+  it("is a missing page for anyone else, signed out included", async () => {
+    jar.session = sealSession(config, { id: USER, name: "Leo", avatar: null });
+    expect((await post()).status).toBe(404);
+    jar.session = undefined;
+    expect((await post()).status).toBe(401);
+    expect(backup.runBackup).not.toHaveBeenCalled();
   });
 });
