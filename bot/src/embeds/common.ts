@@ -1,4 +1,4 @@
-import { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } from "discord.js";
+import { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder, escapeMarkdown } from "discord.js";
 import { formatPercent, translator, type Locale, type Translator } from "../i18n/index.js";
 import { assetUrl, siteLink } from "../links.js";
 
@@ -35,6 +35,24 @@ export function makeView(locale: Locale, siteUrl: string, campaign?: string): Vi
 /** Embed field values are capped at 1024 characters, descriptions at 4096. */
 export function clip(text: string, max = 1024): string {
   return text.length <= max ? text : `${text.slice(0, max - 1).trimEnd()}…`;
+}
+
+/**
+ * Text a member typed (an option, a display name), shown back in one of the
+ * bot's messages: every markdown construct is escaped, masked links,
+ * headings and lists included, which `escapeMarkdown` leaves alone by
+ * default. Otherwise `/item name:[Free Nitro](https://evil.example)` posts,
+ * in the channel and in the bot's name, a link whose target is hidden
+ * behind a trusted-looking label. Mentions are a separate matter: every
+ * send path turns them off (`allowedMentions`).
+ */
+export function plain(text: string): string {
+  return escapeMarkdown(text, { maskedLink: true, heading: true, bulletedList: true, numberedList: true });
+}
+
+/** The "nothing found" reply, quoting what was typed: escaped, and cut to 100 characters. */
+export function notFoundEmbed(view: View, query: string): EmbedBuilder {
+  return baseEmbed(view, COLORS.night).setDescription(view.t("ui.common.notFound", { query: plain(query.slice(0, 100)) }));
 }
 
 export function baseEmbed(view: View, color: number = COLORS.brand): EmbedBuilder {

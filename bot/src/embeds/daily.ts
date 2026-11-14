@@ -2,7 +2,7 @@ import { ActionRowBuilder, ButtonBuilder, ButtonStyle, escapeMarkdown, type Embe
 import { emojiRow, nextClue, unlockedClues, yearHint, type Mode } from "../games/mlbbdle.js";
 import type { Step } from "../games/quiz.js";
 import type { Game, Leaderboard, MlbbdleHero, Period, SkillPuzzle } from "../site/schemas.js";
-import { baseEmbed, clip, COLORS, linkButton, listOr, roleLabels, type View } from "./common.js";
+import { baseEmbed, clip, COLORS, linkButton, listOr, plain, roleLabels, type View } from "./common.js";
 
 /** Embeds of the daily games: MLBBdle, quiz, leaderboards, and the daily post. */
 
@@ -54,7 +54,7 @@ export function mlbbdleSkillEmbed(
 
 /** The public "solved" line: the grid of squares, never the hero's name. */
 export function mlbbdleSolvedPublic(view: View, user: string, mode: Mode, number: number, guesses: number, grid: string[]): string {
-  const head = view.t("ui.mlbbdle.solvedPublic", { user: escapeMarkdown(user), mode: view.t(`ui.mlbbdle.${mode}`), n: guesses });
+  const head = view.t("ui.mlbbdle.solvedPublic", { user: plain(user), mode: view.t(`ui.mlbbdle.${mode}`), n: guesses });
   return clip(`${head}\nMLBBdle #${number}\n${grid.slice(-8).join("\n")}`, 2000);
 }
 
@@ -118,7 +118,7 @@ export function leaderboardEmbed(view: View, game: Game, period: Period, board: 
       game === "quiz"
         ? view.t("ui.leaderboard.points", { n: e.score, plays })
         : view.t("ui.leaderboard.solvedDays", { n: plays, avg: e.score.toFixed(1) });
-    return `${medal[rank - 1] ?? `**${rank}.**`} ${escapeMarkdown(e.discordUserName)} — ${detail}`;
+    return `${medal[rank - 1] ?? `**${rank}.**`} ${plain(e.discordUserName)} — ${detail}`;
   });
   return embed.setDescription(clip(lines.join("\n"), 4096));
 }

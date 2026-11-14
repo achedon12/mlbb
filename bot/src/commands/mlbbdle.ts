@@ -1,7 +1,7 @@
 import { MessageFlags, type ButtonInteraction, type ChatInputCommandInteraction } from "discord.js";
 import { choiceOption, optionName, slash, stringOption } from "../discord/builders.js";
 import type { Command, Context } from "../discord/types.js";
-import { baseEmbed, COLORS, openRow } from "../embeds/common.js";
+import { baseEmbed, COLORS, openRow, plain } from "../embeds/common.js";
 import { mlbbdleClassicEmbed, mlbbdleSkillEmbed, mlbbdleSolvedPublic } from "../embeds/daily.js";
 import { emojiRow, MODES, skillGrid, type Mode } from "../games/mlbbdle.js";
 import { dayUtc } from "../games/state.js";
@@ -79,7 +79,7 @@ export async function playMlbbdle(
     } else {
       const hero = resolveByName(roster, guess);
       if (!hero) {
-        note = ctx.t("ui.common.notFound", { query: guess.slice(0, 100) });
+        note = ctx.t("ui.common.notFound", { query: plain(guess.slice(0, 100)) });
       } else if (progress.guesses.includes(hero.slug)) {
         note = ctx.t("ui.mlbbdle.already", { hero: hero.name });
       } else {
