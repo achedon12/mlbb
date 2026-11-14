@@ -28,7 +28,9 @@
   },
   "scripts": {
     "dev": "next dev -p 3001",
-    "build": "next build",
+    "build": "prisma generate && next build",
+    "postinstall": "prisma generate",
+    "db:migrate": "prisma migrate dev",
     "start": "node scripts/start.mjs",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
@@ -48,6 +50,8 @@
     "translate:articles": "node scripts/translate-articles.mjs"
   },
   "dependencies": {
+    "@prisma/adapter-pg": "^7.10.1",
+    "@prisma/client": "^7.10.1",
     "clsx": "^2.1.1",
     "fast-xml-parser": "^5.11.1",
     "gray-matter": "^4.0.3",
@@ -55,6 +59,7 @@
     "marked": "^18.0.11",
     "next": "^16.0.0",
     "node-html-parser": "^9.0.4",
+    "pg": "^8.23.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "sanitize-html": "^2.17.7",
@@ -68,6 +73,7 @@
     "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4.0.0",
     "@types/node": "^26.4.1",
+    "@types/pg": "^8.23.1",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@types/sanitize-html": "^2.16.1",
@@ -76,6 +82,7 @@
     "@vitest/coverage-v8": "^5.0.0",
     "eslint": "^10.10.0",
     "eslint-config-next": "^16.0.0",
+    "prisma": "^7.10.1",
     "sharp": "^0.35.4",
     "tailwindcss": "^4.0.0",
     "typescript": "npm:@typescript/typescript6@^6.0.2",
@@ -86,5 +93,9 @@
     "edge >= 111",
     "firefox >= 128",
     "safari >= 16.4"
-  ]
+  ],
+  "allowScripts": {
+    "@prisma/engines@7.10.1": true,
+    "prisma@7.10.1": true
+  }
 }

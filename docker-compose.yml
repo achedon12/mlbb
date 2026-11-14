@@ -8,6 +8,8 @@ services:
         NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://mlbbdex.com}
         NEXT_PUBLIC_MATOMO_URL: ${NEXT_PUBLIC_MATOMO_URL:-}
         NEXT_PUBLIC_MATOMO_SITE_ID: ${NEXT_PUBLIC_MATOMO_SITE_ID:-}
+        NEXT_PUBLIC_DISCORD_CLIENT_ID: ${NEXT_PUBLIC_DISCORD_CLIENT_ID:-}
+        NEXT_PUBLIC_DISCORD_INVITE_URL: ${NEXT_PUBLIC_DISCORD_INVITE_URL:-}
     image: mlbb:latest
     env_file:
       - .env
@@ -15,6 +17,16 @@ services:
     restart: unless-stopped
     ports:
       - "127.0.0.1:${PORT:-3003}:3001"
+    # The site talks to the database and the bot on the internal network; the
+    # default network carries its published port and its outgoing calls.
+    networks:
+      - default
+      - internal
+    # Only with the bot profile: without it, the site starts alone, as before.
+    depends_on:
+      postgres:
+        condition: service_healthy
+        required: false
     read_only: true
     # Hard ceiling above the 1 GB heap (see NODE_OPTIONS in the Dockerfile) plus
     # Node's off-heap memory: a regression shows up as a restart instead of
@@ -44,5 +56,95 @@ services:
         max-size: "10m"
         max-file: "3"
 
+  # Discord bot data (docs/discord-bot.md). Started with the `bot` profile
+  # only (COMPOSE_PROFILES=bot in .env). No published port: only the site
+  # reaches it, on the internal network.
+  postgres:
+    image: postgres:17-alpine
+    profiles: ["bot"]
+    container_name: mlbb-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: mlbbdex
+      POSTGRES_USER: mlbbdex
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-}
+    networks:
+      - internal
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    # The server writes only to its data volume, its socket and /tmp.
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /var/run/postgresql
+    mem_limit: 512m
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mlbbdex -d mlbbdex"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 20s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # The discord.js process (bot/). It needs the internet (Discord's gateway)
+  # and the internal network (the site), never the database: it gets its own
+  # variables, listed one by one, and not the site's .env as a whole.
+  bot:
+    build:
+      context: ./bot
+      dockerfile: Dockerfile
+    profiles: ["bot"]
+    image: mlbb-bot:latest
+    container_name: mlbb-bot
+    restart: unless-stopped
+    environment:
+      DISCORD_TOKEN: ${DISCORD_TOKEN:-}
+      DISCORD_CLIENT_ID: ${DISCORD_CLIENT_ID:-}
+      BOT_API_SECRET: ${BOT_API_SECRET:-}
+      SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://mlbbdex.com}
+      SITE_INTERNAL_URL: http://mlbb:3001
+      BOT_HTTP_HOST: 0.0.0.0
+      BOT_HTTP_PORT: "3100"
+      TOPGG_TOKEN: ${TOPGG_TOKEN:-}
+      DBL_TOKEN: ${DBL_TOKEN:-}
+      DBOTSGG_TOKEN: ${DBOTSGG_TOKEN:-}
+      SUPPORT_SERVER_URL: ${NEXT_PUBLIC_DISCORD_INVITE_URL:-}
+    networks:
+      - default
+      - internal
+    expose:
+      - "3100"
+    read_only: true
+    tmpfs:
+      - /tmp
+    mem_limit: 512m
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:3100/health"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 20s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  # No way out: the database is only reachable from the containers on it.
+  internal:
+    internal: true
+
 volumes:
   donnees:
+  postgres:

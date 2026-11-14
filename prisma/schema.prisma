@@ -1,0 +1,142 @@
+// Discord bot data (see docs/discord-bot.md). Only the site reads and
+// writes it: the bot goes through the signed internal API.
+//
+// Every Discord id is a snowflake kept as text (up to 20 digits): a 64-bit
+// integer would not survive JSON on the way to the bot.
+
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/generated/prisma"
+  moduleFormat = "esm"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+/// A server the bot is (or was) in. `leftAt` set: the bot left; its rows are
+/// deleted 30 days later, so a re-invite within that time keeps the settings.
+model Guild {
+  id          String    @id @db.VarChar(20)
+  name        String    @db.VarChar(100)
+  icon        String?   @db.VarChar(64)
+  memberCount Int       @default(0)
+  /// One of the site languages: en, fr, it, es, id.
+  locale      String    @default("en") @db.VarChar(2)
+  joinedAt    DateTime  @default(now())
+  leftAt      DateTime?
+  updatedAt   DateTime  @updatedAt
+
+  settings   GuildSettings?
+  deliveries Delivery[]
+
+  @@index([leftAt])
+}
+
+/// Per-server settings. A null channel turns the announcement type off;
+/// `<type>Failing` is set when the bot could not post there (permissions
+/// lost) and cleared when the settings are saved again.
+model GuildSettings {
+  guildId String @id @db.VarChar(20)
+  guild   Guild  @relation(fields: [guildId], references: [id], onDelete: Cascade)
+
+  patchesChannelId       String? @db.VarChar(20)
+  patchesRoleId          String? @db.VarChar(20)
+  patchesFailing         Boolean @default(false)
+  skinsChannelId         String? @db.VarChar(20)
+  skinsRoleId            String? @db.VarChar(20)
+  skinsFailing           Boolean @default(false)
+  eventsChannelId        String? @db.VarChar(20)
+  eventsRoleId           String? @db.VarChar(20)
+  eventsFailing          Boolean @default(false)
+  advanceServerChannelId String? @db.VarChar(20)
+  advanceServerRoleId    String? @db.VarChar(20)
+  advanceServerFailing   Boolean @default(false)
+  esportsChannelId       String? @db.VarChar(20)
+  esportsRoleId          String? @db.VarChar(20)
+  esportsFailing         Boolean @default(false)
+
+  dailyMlbbdleChannelId String? @db.VarChar(20)
+  dailyQuizChannelId    String? @db.VarChar(20)
+  /// Hour of the daily games post, 0 to 23, UTC.
+  dailyHourUtc          Int     @default(12)
+
+  updatedAt DateTime @updatedAt
+}
+
+/// Something worth posting, detected in the site's own data. Unique by
+/// (type, key): detecting it again changes nothing. `silent`: recorded on the
+/// first detection of its type, as a baseline, and never delivered.
+model Announcement {
+  id        Int      @id @default(autoincrement())
+  type      String   @db.VarChar(16)
+  key       String   @db.VarChar(120)
+  payload   Json
+  silent    Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  deliveries Delivery[]
+
+  @@unique([type, key])
+  @@index([createdAt])
+}
+
+/// One announcement in one server: present once the bot tried, so a restart
+/// never posts twice.
+model Delivery {
+  announcementId Int
+  guildId        String       @db.VarChar(20)
+  announcement   Announcement @relation(fields: [announcementId], references: [id], onDelete: Cascade)
+  guild          Guild        @relation(fields: [guildId], references: [id], onDelete: Cascade)
+  /// sent, failed or forbidden.
+  status         String       @db.VarChar(16)
+  messageId      String?      @db.VarChar(20)
+  error          String?      @db.VarChar(300)
+  sentAt         DateTime     @default(now())
+
+  @@id([announcementId, guildId])
+  @@index([guildId])
+  @@index([sentAt])
+}
+
+/// One command run. No user id: counts only.
+model CommandLog {
+  id         Int      @id @default(autoincrement())
+  command    String   @db.VarChar(32)
+  guildId    String?  @db.VarChar(20)
+  locale     String   @db.VarChar(8)
+  durationMs Int
+  ok         Boolean
+  createdAt  DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([command])
+}
+
+/// A player's result at a daily game in a server, for its leaderboards.
+/// `score`: guesses for MLBBdle (lower is better), points for the quiz.
+model DailyResult {
+  guildId         String   @db.VarChar(20)
+  /// UTC day, YYYY-MM-DD, the same day as the site's puzzle.
+  day             String   @db.VarChar(10)
+  /// mlbbdle-classic, mlbbdle-skill or quiz.
+  game            String   @db.VarChar(16)
+  discordUserId   String   @db.VarChar(20)
+  discordUserName String   @db.VarChar(64)
+  score           Int
+  createdAt       DateTime @default(now())
+
+  @@id([guildId, day, game, discordUserId])
+  @@index([guildId, game, day])
+  @@index([day])
+}
+
+/// A vote on a bot list (top.gg, discordbotlist.com), for the admin stats.
+model Vote {
+  id            Int      @id @default(autoincrement())
+  list          String   @db.VarChar(16)
+  discordUserId String   @db.VarChar(20)
+  createdAt     DateTime @default(now())
+
+  @@index([createdAt])
+}

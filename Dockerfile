@@ -2,8 +2,26 @@ FROM node:22-alpine AS deps
 
 WORKDIR /app
 COPY package.json package-lock.json ./
+# The install generates the database client (postinstall): it needs the schema.
+COPY prisma.config.ts ./
+COPY prisma ./prisma
 RUN --mount=type=cache,target=/root/.npm \
     npm ci --no-audit --no-fund
+
+# The Prisma command line, alone, to apply the migrations when the container
+# starts: the standalone server does not carry it, and the full node_modules
+# would triple the image. Same version as the lock file.
+FROM node:22-alpine AS migrate
+
+WORKDIR /migrate
+COPY package-lock.json /tmp/package-lock.json
+RUN --mount=type=cache,target=/root/.npm \
+    version=$(node -p "require('/tmp/package-lock.json').packages['node_modules/prisma'].version") \
+ && echo '{"private":true}' > package.json \
+ && npm install --no-audit --no-fund --no-save "prisma@$version" \
+ && rm /tmp/package-lock.json
+COPY prisma.config.ts ./
+COPY prisma ./prisma
 
 FROM node:22-alpine AS builder
 
@@ -13,9 +31,15 @@ ENV NEXT_TELEMETRY_DISABLED=1
 ARG NEXT_PUBLIC_SITE_URL
 ARG NEXT_PUBLIC_MATOMO_URL
 ARG NEXT_PUBLIC_MATOMO_SITE_ID
+# Discord bot: public values only, inlined in the pages (the invite link, the
+# "Add to Discord" button). Without them the bot pages are not built.
+ARG NEXT_PUBLIC_DISCORD_CLIENT_ID
+ARG NEXT_PUBLIC_DISCORD_INVITE_URL
 ENV NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL \
     NEXT_PUBLIC_MATOMO_URL=$NEXT_PUBLIC_MATOMO_URL \
-    NEXT_PUBLIC_MATOMO_SITE_ID=$NEXT_PUBLIC_MATOMO_SITE_ID
+    NEXT_PUBLIC_MATOMO_SITE_ID=$NEXT_PUBLIC_MATOMO_SITE_ID \
+    NEXT_PUBLIC_DISCORD_CLIENT_ID=$NEXT_PUBLIC_DISCORD_CLIENT_ID \
+    NEXT_PUBLIC_DISCORD_INVITE_URL=$NEXT_PUBLIC_DISCORD_INVITE_URL
 
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
@@ -57,6 +81,9 @@ RUN apk add --no-cache wget \
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+# Owned by root: the user runs the migrations, it has no business editing them.
+COPY --from=migrate /migrate ./migrate
+COPY scripts/container-start.mjs ./container-start.mjs
 
 USER nextjs
 
@@ -66,4 +93,6 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
     CMD wget -qO- http://127.0.0.1:3001/api/health || exit 1
 
 STOPSIGNAL SIGTERM
-CMD ["node", "server.js"]
+# Applies the pending database migrations when DATABASE_URL is set, then
+# starts the server in the same process (it stays PID 1 and gets SIGTERM).
+CMD ["node", "container-start.mjs"]
