@@ -6,12 +6,14 @@ import { NotFoundError, requestJson, SiteUnavailableError, type FetchLike } from
 import {
   anyBody,
   daily,
+  dailyGuildsPage,
   DEFAULT_SETTINGS,
   guildSettings,
   leaderboard,
   pendingAnnouncements,
   type Announcement,
   type Daily,
+  type DailyGuild,
   type Game,
   type GuildSettings,
   type Leaderboard,
@@ -159,6 +161,25 @@ export class SiteClient {
     return this.dailyCache.getOrLoad(`${day}:${locale}`, () =>
       this.request("GET", `/api/bot/daily?day=${day}&locale=${locale}`, daily),
     );
+  }
+
+  /**
+   * Servers whose daily post goes out at `hour` (UTC), with their language
+   * and channels, every page of them: the site filters by hour, so the
+   * hourly round never reads every server's settings.
+   */
+  async dailyGuilds(hour: number): Promise<DailyGuild[]> {
+    const out: DailyGuild[] = [];
+    let after: string | null = null;
+    // Bounded: a thousand per page, far more servers than the bot will ever be in.
+    for (let page = 0; page < 100; page++) {
+      const query: string = `hour=${hour}${after ? `&after=${after}` : ""}`;
+      const result: { guilds: DailyGuild[]; next: string | null } = await this.request("GET", `/api/bot/daily/guilds?${query}`, dailyGuildsPage);
+      out.push(...result.guilds);
+      if (!result.next || result.next === after) break;
+      after = result.next;
+    }
+    return out;
   }
 
   submitResults(results: DailyResult[]): Promise<unknown> {

@@ -143,16 +143,22 @@ describe("daily posts", () => {
   function poster(recent: string[] = []) {
     return { post: vi.fn(async () => ({ id: "1" })), recentCustomIds: vi.fn(async () => recent) };
   }
+  // The site lists the servers of the hour asked: this one posts at 12.
   const site = {
-    settings: vi.fn(async () => settings),
+    dailyGuilds: vi.fn(async (hour: number) =>
+      hour === settings.dailyHourUtc
+        ? [{ guildId: GUILD, locale: settings.locale, dailyMlbbdleChannelId: settings.dailyMlbbdleChannelId, dailyQuizChannelId: null }]
+        : [],
+    ),
     daily: vi.fn(async () => ({ number: 65, quiz: { numero: 65, manches: [] } }) as never),
   };
 
   it("posts at the server's hour only, with the Play marker", async () => {
     const p = poster();
-    const daily = new DailyPoster({ site, poster: p, guildIds: async () => [GUILD], siteUrl: "https://mlbbdex.com", botId: "1" });
+    const daily = new DailyPoster({ site, poster: p, siteUrl: "https://mlbbdex.com", botId: "1" });
     expect(await daily.run(11, "2026-11-14")).toBe(0);
     expect(await daily.run(12, "2026-11-14")).toBe(1);
+    expect(site.dailyGuilds).toHaveBeenCalledWith(12);
     expect(JSON.stringify(p.post.mock.calls[0])).toContain("daily:mlbbdle:2026-11-14");
     // Same hour again (restart, second tick): nothing more.
     expect(await daily.run(12, "2026-11-14")).toBe(0);
@@ -160,7 +166,7 @@ describe("daily posts", () => {
 
   it("does not post again when today's message is already in the channel", async () => {
     const p = poster(["daily:mlbbdle:2026-11-14"]);
-    const daily = new DailyPoster({ site, poster: p, guildIds: async () => [GUILD], siteUrl: "https://mlbbdex.com", botId: "1" });
+    const daily = new DailyPoster({ site, poster: p, siteUrl: "https://mlbbdex.com", botId: "1" });
     expect(await daily.run(12, "2026-11-14")).toBe(0);
     expect(p.post).not.toHaveBeenCalled();
   });
