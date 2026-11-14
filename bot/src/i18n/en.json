@@ -441,6 +441,14 @@
       "esportsWinner": "Winner: {winner}",
       "testTitle": "MLBBDex test post",
       "testBody": "Announcements will be posted in this channel."
+    },
+    "greetings": {
+      "welcome": "Welcome to **{server}**, {user}! There are {count} of us now: pick your roles in Channels & Roles.",
+      "goodbye": "**{username}** has left the server.",
+      "welcomeRaid": "Welcome to the {count} new members! Pick your roles in Channels & Roles.",
+      "goodbyeRaid": "{count} members have left the server.",
+      "testWelcome": "Test: welcome message",
+      "testGoodbye": "Test: goodbye message"
     }
   },
   "labels": {

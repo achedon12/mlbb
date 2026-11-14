@@ -441,6 +441,14 @@
       "esportsWinner": "Ganador: {winner}",
       "testTitle": "Mensaje de prueba de MLBBDex",
       "testBody": "Los anuncios se publicarán en este canal."
+    },
+    "greetings": {
+      "welcome": "¡Te damos la bienvenida a **{server}**, {user}! Ya somos {count}: elige tus roles en Canales y roles.",
+      "goodbye": "**{username}** ha salido del servidor.",
+      "welcomeRaid": "¡Damos la bienvenida a los {count} nuevos miembros! Elegid vuestros roles en Canales y roles.",
+      "goodbyeRaid": "{count} miembros han salido del servidor.",
+      "testWelcome": "Prueba: mensaje de bienvenida",
+      "testGoodbye": "Prueba: mensaje de despedida"
     }
   },
   "labels": {

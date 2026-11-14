@@ -4,6 +4,7 @@ import { TtlCache } from "./cache.js";
 import { ConfigError, loadConfig, requireDiscord, type Config } from "./config.js";
 import { makeView } from "./embeds/common.js";
 import { testMessage } from "./embeds/announcements.js";
+import { greetingMessage } from "./embeds/greetings.js";
 import { createInternalServer, type InternalApi } from "./http/server.js";
 import { log } from "./log.js";
 import { DailyPoster } from "./managers/daily-poster.js";
@@ -95,11 +96,33 @@ const api: InternalApi = {
   isManageable: (guildId, userId) => fleet.isManageable(guildId, userId),
   channels: (guildId) => fleet.channels(guildId),
   flush: () => delivery?.flush() ?? Promise.resolve(null),
-  async testPost(guildId, channelId, locale) {
+  async testPost(guildId, channelId, locale, greeting) {
     channelCache.delete(guildId);
     if (!(await ownsChannel(guildId, channelId))) return { ok: false, error: "channel_not_available" };
+    const view = makeView(locale, config.SITE_URL, "test-post");
+    // A greeting test shows the real message, with the dashboard user as
+    // the member, but pings nobody: it is the owner trying, not a newcomer.
+    const message = greeting
+      ? greetingMessage(
+          view,
+          greeting.kind,
+          {
+            member: {
+              id: greeting.member.id,
+              username: greeting.member.username,
+              avatarUrl: greeting.member.avatar
+                ? rest.cdn.avatar(greeting.member.id, greeting.member.avatar, { size: 128 })
+                : rest.cdn.defaultAvatar(Number((BigInt(greeting.member.id) >> 22n) % 6n)),
+            },
+            guildName: greeting.guildName,
+            memberCount: greeting.memberCount,
+            custom: greeting.message,
+          },
+          { ping: false, title: view.t(greeting.kind === "welcome" ? "ui.greetings.testWelcome" : "ui.greetings.testGoodbye") },
+        )
+      : testMessage(view);
     try {
-      await poster.post(channelId, testMessage(makeView(locale, config.SITE_URL, "test-post")));
+      await poster.post(channelId, message);
       return { ok: true };
     } catch (error) {
       return { ok: false, error: classifyError(error) === "forbidden" ? "missing_permissions" : errorLabel(error) };

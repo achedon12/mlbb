@@ -53,8 +53,32 @@ describe("internal HTTP server", () => {
     expect(api.flush).toHaveBeenCalled();
     const body = JSON.stringify({ guildId: GUILD, channelId: USER, locale: "fr" });
     expect(await (await call("POST", "/internal/test-post", body)).json()).toEqual({ ok: true });
-    expect(api.testPost).toHaveBeenCalledWith(GUILD, USER, "fr");
+    expect(api.testPost).toHaveBeenCalledWith(GUILD, USER, "fr", undefined);
     expect((await call("GET", "/internal/stats")).status).toBe(200);
+  });
+
+  it("passes a welcome or goodbye test on, with the text being edited", async () => {
+    const greeting = {
+      kind: "welcome",
+      message: "Hi {user}",
+      member: { id: USER, username: "layla", avatar: "a_0123456789abcdef0123456789abcdef" },
+      guildName: "Land of Dawn",
+      memberCount: 42,
+    };
+    const body = JSON.stringify({ guildId: GUILD, channelId: USER, locale: "it", ...greeting });
+    expect(await (await call("POST", "/internal/test-post", body)).json()).toEqual({ ok: true });
+    expect(api.testPost).toHaveBeenLastCalledWith(GUILD, USER, "it", greeting);
+
+    const bad = [
+      { ...greeting, kind: "raid" },
+      { ...greeting, message: "x".repeat(501) },
+      { ...greeting, member: { ...greeting.member, avatar: "../../evil" } },
+      { ...greeting, member: undefined },
+      { ...greeting, extra: true },
+    ];
+    for (const b of bad) {
+      expect((await call("POST", "/internal/test-post", JSON.stringify({ guildId: GUILD, channelId: USER, ...b }))).status).toBe(400);
+    }
   });
 
   it("validates parameters and bodies", async () => {
