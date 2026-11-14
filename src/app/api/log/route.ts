@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { clientAddress } from "@/lib/client-address";
 import { log } from "@/lib/log";
 
 /**
@@ -33,7 +34,8 @@ function allowed(address: string): boolean {
 const text = (value: unknown, max: number) => (value == null ? undefined : String(value).slice(0, max));
 
 export async function POST(request: Request) {
-  const address = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+  // The address nginx saw: a forged left-most entry would dodge the limit.
+  const address = clientAddress(request.headers) ?? "unknown";
   if (!allowed(address)) return new NextResponse(null, { status: 429 });
 
   try {

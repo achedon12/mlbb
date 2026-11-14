@@ -4,6 +4,7 @@ import { join } from "node:path";
 import webpush from "web-push";
 import { LOCALES, type Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
+import { clientAddress } from "@/lib/client-address";
 import { heroesBySlug } from "@/lib/data-client";
 import { log, logError } from "@/lib/log";
 import {
@@ -209,8 +210,12 @@ export function limitByMinute(maximum: number): (address: string) => boolean {
   };
 }
 
-export const addressOf = (request: Request) =>
-  request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || request.headers.get("x-real-ip") || "unknown";
+/**
+ * The window key: the address nginx saw, never the left-most forwarded entry
+ * the caller can rewrite to get a fresh window on every request. Requests
+ * without a trustworthy address share one window.
+ */
+export const addressOf = (request: Request) => clientAddress(request.headers) ?? "unknown";
 
 // ── Sending ────────────────────────────────────────────────────────
 
