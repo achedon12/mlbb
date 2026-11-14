@@ -1,7 +1,7 @@
-import { ActionRowBuilder, escapeMarkdown, StringSelectMenuBuilder, type EmbedBuilder } from "discord.js";
+import { ActionRowBuilder, StringSelectMenuBuilder, type EmbedBuilder } from "discord.js";
 import { choiceOption, optionName, slash, stringOption } from "../discord/builders.js";
 import type { Command, ComponentHandler } from "../discord/types.js";
-import { baseEmbed, COLORS, linkButton, type View } from "../embeds/common.js";
+import { baseEmbed, COLORS, linkButton, plain, type View } from "../embeds/common.js";
 import { measure, sanitize, STYLES, stylize, type Style } from "../games/nicknames.js";
 
 /**
@@ -21,7 +21,7 @@ export function nicknameEmbed(view: View, text: string, style: Style): EmbedBuil
   const { codePoints } = measure(styled);
   return baseEmbed(view, COLORS.brand)
     .setTitle(view.t("ui.nickname.title"))
-    .setDescription(`# ${escapeMarkdown(styled)}\n${view.t("ui.nickname.copy")}`)
+    .setDescription(`# ${plain(styled)}\n${view.t("ui.nickname.copy")}`)
     .addFields(
       { name: view.t(`choices.style.${style}`), value: view.t("ui.nickname.length", { n: codePoints }), inline: true },
     );

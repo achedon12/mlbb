@@ -1,6 +1,6 @@
 import type { AutocompleteInteraction, ChatInputCommandInteraction } from "discord.js";
 import type { Context } from "../discord/types.js";
-import { baseEmbed, COLORS } from "../embeds/common.js";
+import { notFoundEmbed } from "../embeds/common.js";
 import { bestBuild, type BuildView, type CounterView } from "../embeds/game.js";
 import { RANKS, type HeroDetail, type HeroSummary, type Rank, type RankingEntry } from "../site/game-data.js";
 import { resolveByName, searchByName, toChoices } from "../search.js";
@@ -25,9 +25,8 @@ export async function heroOrReply(interaction: ChatInputCommandInteraction, ctx:
 }
 
 export async function replyNotFound(interaction: ChatInputCommandInteraction, ctx: Context, query: string): Promise<void> {
-  await interaction.editReply({
-    embeds: [baseEmbed(ctx, COLORS.night).setDescription(ctx.t("ui.common.notFound", { query: query.slice(0, 100) }))],
-  });
+  // Public for most commands: what was typed is quoted escaped (see `plain`).
+  await interaction.editReply({ embeds: [notFoundEmbed(ctx, query)] });
 }
 
 export function parseRank(value: string | null): Rank {
