@@ -52,6 +52,11 @@ export function inviteUrl(clientId: string): string {
   return url.toString();
 }
 
-export function voteUrl(clientId: string): string {
-  return `https://top.gg/bot/${clientId}/vote`;
+/**
+ * The bot's vote page, on discordbotlist.com where it is live: its top.gg
+ * page is a 404 until top.gg approves the listing. The id is kept for that
+ * switch back.
+ */
+export function voteUrl(_clientId: string): string {
+  return "https://discordbotlist.com/bots/mlbbdex/upvote";
 }

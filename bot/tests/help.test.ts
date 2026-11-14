@@ -11,7 +11,7 @@ const links: HelpLinks = {
   invite: "https://discord.com/oauth2/authorize?client_id=1571083624789581834",
   support: "https://discord.gg/mw5RzvkkU3",
   website: `${SITE}/en/bot`,
-  vote: "https://top.gg/bot/1571083624789581834/vote",
+  vote: "https://discordbotlist.com/bots/mlbbdex/upvote",
 };
 
 describe("/help categories", () => {
