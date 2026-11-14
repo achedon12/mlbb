@@ -57,6 +57,16 @@ export class Fleet {
     })) as Grantable | null;
   }
 
+  /** Tells the shard holding this server to forget its cached settings and role menus. */
+  async forget(guildId: string): Promise<void> {
+    await this.manager.broadcastEval(
+      (client, ctx) => {
+        client.mlbbdex?.forget(ctx.guildId);
+      },
+      { shard: this.shardOf(guildId), context: { guildId } },
+    );
+  }
+
   async hasGuild(guildId: string): Promise<boolean> {
     return Boolean(
       await this.manager.broadcastEval((client, ctx) => client.guilds.cache.has(ctx.guildId), {

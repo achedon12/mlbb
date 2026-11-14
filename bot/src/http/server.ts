@@ -3,7 +3,7 @@ import { z } from "zod";
 import { isLocale, type Locale } from "../i18n/index.js";
 import { log } from "../log.js";
 import { ReplayGuard, SIGNATURE_HEADER, TIMESTAMP_HEADER, verify } from "../security/signing.js";
-import { GREETING_KINDS, GREETING_MAX_LENGTH, SNOWFLAKE } from "../site/schemas.js";
+import { GREETING_KINDS, GREETING_MAX_LENGTH, roleMenu, SNOWFLAKE, type RoleMenu } from "../site/schemas.js";
 
 /**
  * The bot's internal HTTP server, called by the site only.
@@ -41,6 +41,14 @@ export interface InternalApi {
   /** Which roles this user may hand out (auto-roles), the member fetched live. */
   grantable(guildId: string, userId: string): Promise<{ member: boolean; roles: unknown[] } | null>;
   flush(): Promise<unknown>;
+  /** The server's custom emojis (for the role menu pickers); null: server not here. */
+  emojis(guildId: string): Promise<{ id: string; name: string; animated: boolean }[] | null>;
+  /** The dashboard saved this server: its shard forgets the settings and role menus it cached. */
+  refresh(guildId: string): Promise<void>;
+  /** Posts a role menu's message, or edits the one already posted. */
+  publishRoleMenu(guildId: string, locale: Locale, menu: RoleMenu): Promise<{ ok: boolean; messageId?: string; channelId?: string; error?: string }>;
+  /** Deletes a deleted menu's message, in a channel of that server. */
+  removeRoleMenu(guildId: string, channelId: string, messageId: string): Promise<{ ok: boolean }>;
   /** Without `greeting`, the announcement test post. */
   testPost(guildId: string, channelId: string, locale: Locale, greeting?: GreetingTest): Promise<{ ok: boolean; error?: string }>;
   stats(): Promise<unknown>;
@@ -82,6 +90,21 @@ const testPostBody = z.union([
     })
     .strict(),
 ]);
+
+const publishBody = z.object({ locale: z.string().optional(), menu: roleMenu }).strict();
+const removeBody = z.object({ channelId: z.string().regex(SNOWFLAKE), messageId: z.string().regex(SNOWFLAKE) }).strict();
+
+function parseBody<T>(body: string, schema: z.ZodType<T>): T {
+  let json: unknown;
+  try {
+    json = JSON.parse(body || "{}");
+  } catch {
+    throw new HttpError(400, "invalid_json");
+  }
+  const parsed = schema.safeParse(json);
+  if (!parsed.success) throw new HttpError(400, "invalid_body");
+  return parsed.data;
+}
 
 function readBody(req: IncomingMessage): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -176,7 +199,7 @@ export function createInternalServer({ secret: given, api, now = Date.now }: Ser
     }
 
     const parts = url.pathname.split("/").filter(Boolean); // ["internal", ...]
-    const [, first, second, third] = parts;
+    const [, first, second, third, fourth] = parts;
 
     if (method === "GET" && first === "guilds" && second === "manageable" && parts.length === 3) {
       return send(res, 200, { guilds: await api.manageableGuilds(userParam(url)) });
@@ -190,6 +213,24 @@ export function createInternalServer({ secret: given, api, now = Date.now }: Ser
       if (third === "can-assign") {
         const result = await api.grantable(second, userParam(url));
         return result ? send(res, 200, result) : send(res, 404, { error: "unknown_guild" });
+      }
+      if (third === "emojis") {
+        const emojis = await api.emojis(second);
+        return emojis ? send(res, 200, { emojis }) : send(res, 404, { error: "unknown_guild" });
+      }
+    }
+    if (method === "POST" && first === "guilds" && second && SNOWFLAKE.test(second)) {
+      if (third === "refresh" && parts.length === 4) {
+        await api.refresh(second);
+        return send(res, 202, { accepted: true });
+      }
+      if (third === "role-menus" && fourth === "publish" && parts.length === 5) {
+        const { locale, menu } = parseBody(body, publishBody);
+        return send(res, 200, await api.publishRoleMenu(second, isLocale(locale) ? locale : "en", menu));
+      }
+      if (third === "role-menus" && fourth === "remove" && parts.length === 5) {
+        const { channelId, messageId } = parseBody(body, removeBody);
+        return send(res, 200, await api.removeRoleMenu(second, channelId, messageId));
       }
     }
     if (method === "POST" && first === "announcements" && second === "flush" && parts.length === 3) {

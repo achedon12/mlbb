@@ -45,3 +45,31 @@ export const GRANTER_REFUSALS = ["not_member", "no_manage_roles", "above_user"] 
 export type GranterRefusal = (typeof GRANTER_REFUSALS)[number];
 /** The save's answer when the manager could not give a chosen role; the dashboard says so. */
 export const AUTO_ROLES_NOT_GRANTABLE = "auto-roles not grantable";
+
+/**
+ * Self-assign role menus (`bot/src/discord/role-menus.ts`): a message with
+ * a select menu of roles the members pick themselves. "single": picking
+ * one removes the menu's others (ranks); "multiple": each pick toggles.
+ */
+export const ROLE_MENU_MODES = ["single", "multiple"] as const;
+export type RoleMenuMode = (typeof ROLE_MENU_MODES)[number];
+/** Menus per server. */
+export const MAX_ROLE_MENUS = 10;
+/** Discord's cap on the options of one select menu. */
+export const MAX_ROLE_MENU_OPTIONS = 25;
+/** Same caps as the columns (`VarChar`), and below Discord's (title 256, option label 100). */
+export const ROLE_MENU_TITLE_MAX = 100;
+export const ROLE_MENU_DESCRIPTION_MAX = 1000;
+export const ROLE_MENU_LABEL_MAX = 80;
+/** The save's answer when the manager could not give one of the menu's roles. */
+export const ROLE_MENU_NOT_GRANTABLE = "role menu not grantable";
+/** The publish's answer when a role of the menu can no longer be given by the bot. */
+export const ROLE_MENU_ROLES_UNAVAILABLE = "role menu roles unavailable";
+
+/**
+ * Where a menu's message stands: never posted, posted but saved since
+ * (the publish sets both dates to the same instant), or up to date.
+ */
+export type RoleMenuStatus = "draft" | "changed" | "published";
+export const roleMenuStatus = (menu: { messageId: string | null; publishedAt: string | null; updatedAt: string }): RoleMenuStatus =>
+  !menu.messageId || !menu.publishedAt ? "draft" : new Date(menu.updatedAt) > new Date(menu.publishedAt) ? "changed" : "published";

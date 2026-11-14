@@ -40,6 +40,7 @@ describe.skipIf(!url)("bot database paths", async () => {
   const settingsRoute = await import("@/app/api/bot/guilds/[id]/settings/route");
   const greetingFailure = await import("@/app/api/bot/guilds/[id]/greeting-failure/route");
   const autoRoleFailure = await import("@/app/api/bot/guilds/[id]/auto-role-failure/route");
+  const roleMenusRoute = await import("@/app/api/bot/guilds/[id]/role-menus/route");
   const { settingsRow } = await import("@/lib/bot/settings");
 
   const entry = (n: number, extra: Partial<{ name: string; memberCount: number; locale: string }> = {}) => ({
@@ -53,6 +54,7 @@ describe.skipIf(!url)("bot database paths", async () => {
   beforeAll(async () => {
     await db().$transaction([
       db().delivery.deleteMany(),
+      db().roleMenu.deleteMany(),
       db().announcement.deleteMany(),
       db().guildSettings.deleteMany(),
       db().guild.deleteMany(),
@@ -283,6 +285,39 @@ describe.skipIf(!url)("bot database paths", async () => {
     // Bots' roles alone still count as configured.
     await db().guildSettings.update({ where: { guildId: id }, data: { autoRoleIds: [], autoRoleFailing: false } });
     expect(await (await fail()).json()).toEqual({ ok: true, marked: 1 });
+  });
+
+  it("stores role menus, serves a server's own to the bot and drops them with the server", async () => {
+    const id = g(991);
+    const other = g(992);
+    for (const [guildId, n] of [[id, 991], [other, 992]] as const) await db().guild.upsert({ where: { id: guildId }, create: entry(n), update: {} });
+    const options = [
+      { roleId: g(701), label: "Epic", emoji: `<:rank_epic:${g(801)}>` },
+      { roleId: g(702), label: "Legend", emoji: null },
+    ];
+    const menu = await db().roleMenu.create({ data: { guildId: id, channelId: g(901), title: "Rank", options, configuredBy: g(600) } });
+    // Defaults from the migration: single mode, never published.
+    expect(menu).toMatchObject({ mode: "single", description: null, messageId: null, messageChannelId: null, publishedAt: null });
+    await db().roleMenu.create({ data: { guildId: other, channelId: g(902), title: "Elsewhere", options, configuredBy: g(600) } });
+
+    let second = 0;
+    const read = async (guildId: string) => {
+      const path = `/api/bot/guilds/${guildId}/role-menus`;
+      const headers = signedHeaders(SECRET, "GET", path, "", Date.now() - 40_000 + 1_000 * second++);
+      const response = await roleMenusRoute.GET(new Request(`http://mlbb:3001${path}`, { headers }), { params: Promise.resolve({ id: guildId }) });
+      expect(response.status).toBe(200);
+      return ((await response.json()) as { menus: { id: number; title: string; options: unknown }[] }).menus;
+    };
+    const menus = await read(id);
+    expect(menus).toHaveLength(1);
+    expect(menus[0]).toMatchObject({ id: menu.id, title: "Rank", mode: "single", options, configuredBy: g(600) });
+
+    // A server the bot left serves none, and its menus go with it.
+    await db().guild.update({ where: { id }, data: { leftAt: new Date() } });
+    expect(await read(id)).toEqual([]);
+    await db().guild.delete({ where: { id } });
+    expect(await db().roleMenu.count({ where: { guildId: id } })).toBe(0);
+    expect(await db().roleMenu.count({ where: { guildId: other } })).toBe(1);
   });
 
   it("computes the admin figures in the database, p95 by nearest rank", async () => {

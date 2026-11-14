@@ -476,6 +476,25 @@
       "goodbyeRaid": "{count} membri hanno lasciato il server.",
       "testWelcome": "Prova: messaggio di benvenuto",
       "testGoodbye": "Prova: messaggio di addio"
+    },
+    "roleMenu": {
+      "defaultSingle": "Scegli il tuo ruolo nel menu qui sotto. Sceglierne un altro lo sostituisce.",
+      "defaultMultiple": "Scegli i tuoi ruoli nel menu qui sotto. Scegliere un ruolo che hai già lo rimuove.",
+      "placeholderSingle": "Scegli il tuo ruolo",
+      "placeholderMultiple": "Scegli i tuoi ruoli",
+      "clearSingle": "Rimuovi il mio ruolo",
+      "clearMultiple": "Rimuovi i miei ruoli",
+      "added": "Aggiunto: {roles}",
+      "removed": "Rimosso: {roles}",
+      "alreadyHave": "Hai già questo ruolo: non è cambiato nulla.",
+      "nothingToRemove": "Non hai nessuno dei ruoli di questo menu.",
+      "unknownMenu": "Questo menu non è più attivo. Chiedi a un gestore del server di pubblicarlo di nuovo dalla dashboard di MLBBDex.",
+      "unknownOption": "Questa scelta non è più nel menu. Chiedi a un gestore del server di pubblicarlo di nuovo.",
+      "rateLimited": "Piano: aspetta qualche secondo prima di cambiare di nuovo i tuoi ruoli.",
+      "refusedRole": "Uno di questi ruoli non esiste più. Chiedi a un gestore del server di aggiornare il menu.",
+      "refusedBot": "MLBBDex non può più dare questo ruolo: gli servono il permesso Gestire i ruoli e il suo ruolo sopra questo. Avvisa un gestore del server.",
+      "refusedGranter": "Questo menu è in pausa: il gestore che l'ha configurato non può più dare questi ruoli. Un altro gestore deve salvarlo di nuovo sulla dashboard di MLBBDex.",
+      "failed": "Non è stato possibile cambiare i tuoi ruoli in questo momento. Riprova tra poco."
     }
   },
   "labels": {

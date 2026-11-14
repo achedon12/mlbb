@@ -1,5 +1,5 @@
 import { fileURLToPath } from "node:url";
-import { REST, ShardingManager } from "discord.js";
+import { REST, Routes, ShardingManager } from "discord.js";
 import { TtlCache } from "./cache.js";
 import { ConfigError, loadConfig, requireDiscord, type Config } from "./config.js";
 import { makeView } from "./embeds/common.js";
@@ -13,6 +13,7 @@ import { Fleet } from "./managers/fleet.js";
 import { ListingPoster, postCommandsToDbl } from "./managers/listing.js";
 import { COMMANDS } from "./commands/index.js";
 import { classifyError, errorLabel, restPoster } from "./managers/poster.js";
+import { messageRest, publishRoleMenu, removeRoleMenuMessage } from "./managers/role-menu-publisher.js";
 import { statsAnswer } from "./managers/stats.js";
 import { SiteClient } from "./site/internal-api.js";
 import { BOT_VERSION } from "./version.js";
@@ -71,6 +72,25 @@ async function ownsChannel(guildId: string, channelId: string): Promise<boolean>
   return ids.has(channelId);
 }
 
+/**
+ * A server's custom emojis, for the dashboard's role menu pickers: one REST
+ * call, cached a minute (the emoji cache of the shards is off), and dropped
+ * when the dashboard saves.
+ */
+type Emoji = { id: string; name: string; animated: boolean };
+const emojiCache = new TtlCache<Emoji[]>(60 * 1000, 500);
+const messages = messageRest(rest);
+async function guildEmojis(guildId: string): Promise<Emoji[] | null> {
+  if (!(await fleet.hasGuild(guildId))) return null;
+  return emojiCache.getOrLoad(guildId, async () => {
+    const raw = (await rest.get(Routes.guildEmojis(guildId))) as { id?: string | null; name?: string | null; animated?: boolean; available?: boolean }[];
+    return raw
+      .filter((e): e is { id: string; name: string; animated?: boolean; available?: boolean } => Boolean(e.id && e.name) && e.available !== false)
+      .map((e) => ({ id: e.id, name: e.name, animated: e.animated === true }))
+      .slice(0, 500);
+  });
+}
+
 const delivery = site ? new DeliveryService({ site, poster, siteUrl: config.SITE_URL, ownsChannel }) : null;
 const daily = site
   ? new DailyPoster({ site, poster, siteUrl: config.SITE_URL, botId: clientId, ownsChannel })
@@ -100,6 +120,25 @@ const api: InternalApi = {
   channels: (guildId) => fleet.channels(guildId),
   grantable: (guildId, userId) => fleet.grantable(guildId, userId),
   flush: () => delivery?.flush() ?? Promise.resolve(null),
+  emojis: (guildId) => guildEmojis(guildId),
+  async refresh(guildId) {
+    channelCache.delete(guildId);
+    emojiCache.delete(guildId);
+    await fleet.forget(guildId);
+  },
+  async publishRoleMenu(guildId, locale, menu) {
+    channelCache.delete(guildId);
+    const result = await publishRoleMenu(messages, makeView(locale, config.SITE_URL, "role-menu"), menu, (channelId) =>
+      ownsChannel(guildId, channelId),
+    );
+    if (!result.ok) log.info("role menu not published", { guild: guildId, error: result.error });
+    return result;
+  },
+  async removeRoleMenu(guildId, channelId, messageId) {
+    // Only a channel of that server: the ids come from the site, the check from Discord.
+    if (!(await ownsChannel(guildId, channelId))) return { ok: false };
+    return { ok: await removeRoleMenuMessage(messages, channelId, messageId) };
+  },
   async testPost(guildId, channelId, locale, greeting) {
     channelCache.delete(guildId);
     if (!(await ownsChannel(guildId, channelId))) return { ok: false, error: "channel_not_available" };

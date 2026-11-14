@@ -197,6 +197,7 @@ export function SettingsForm({
   roles,
   autoRoles,
   sample,
+  extraSections = [],
 }: {
   guildId: string;
   initial: GuildSettingsView;
@@ -207,6 +208,8 @@ export function SettingsForm({
   autoRoles: { roles: AutoRoleChoice[]; manageRoles: boolean };
   /** Who and what the welcome preview shows: the signed-in user, this server. */
   sample: GreetingSample;
+  /** Parts of the page outside this form (role menus), listed in the same index. */
+  extraSections?: { id: string; title: string; state?: SectionState }[];
 }) {
   const t = useT();
   const [saved, setSaved] = useState<SettingsInput>(() => toInput(initial));
@@ -269,11 +272,12 @@ export function SettingsForm({
     { id: "greetings", title: t("pages.botUI.greetingsTitle"), state: greetingsState },
     { id: "auto-roles", title: t("pages.botUI.autoRolesTitle"), state: autoRolesState },
   ];
+  const index = [...sections, ...extraSections];
   const section = (id: string) => sections.find((s) => s.id === id)!;
 
   return (
     <form onSubmit={save} className="lg:grid lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-8">
-      <SectionIndex items={sections} />
+      <SectionIndex items={index} />
 
       <div className="mt-5 min-w-0 space-y-6 lg:mt-0">
         <Section id="language" icon={Languages} title={section("language").title} lead={t("pages.botUI.languageLead")}>

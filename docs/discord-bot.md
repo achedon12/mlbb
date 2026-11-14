@@ -93,9 +93,10 @@ Everything is free: no plans, no paywall, no payment code.
 - Bot invite permissions, least privilege: View Channels, Send Messages,
   Send Messages in Threads, Embed Links, Attach Files, Read Message History,
   Use External Emojis, Add Reactions. Scopes `bot applications.commands`.
-  No Administrator. **Not Manage Roles either**: the auto-roles need it,
-  and a server's admin who turns them on grants it (and drags the bot's
-  role above the roles to give); the dashboard says so when it is missing.
+  No Administrator. **Not Manage Roles either**: the auto-roles and the
+  role menus need it, and a server's admin who turns them on grants it
+  (and drags the bot's role above the roles to give); the dashboard says
+  so when it is missing.
 - Intents: `Guilds`, plus one privileged intent, `GuildMembers`, for a
   single purpose: the `guildMemberAdd` / `guildMemberRemove` events behind
   the welcome and goodbye messages and the auto-roles (plus
@@ -130,6 +131,14 @@ Everything is free: no plans, no paywall, no payment code.
   the default), one `autoRoleFailing` with its `autoRoleFailReason`
   (`bot` or `granter`), and `autoRolesConfiguredBy`, the Discord id of the
   manager who chose them.
+- `RoleMenu`: id, guildId (cascade with the guild), channelId, title
+  (≤ 100), description (≤ 1000, null = the bot's default sentence),
+  mode (`single` or `multiple`), options (JSON, 1 to 25
+  `{roleId, label ≤ 80, emoji}`, `emoji` a unicode emoji or the server's
+  `<:name:id>`, or null), configuredBy (the manager who chose the roles),
+  messageId / messageChannelId (the message posted, null until published),
+  publishedAt, createdAt, updatedAt (the publish sets it to publishedAt:
+  later means "changes not published"). At most 10 per server.
 - `Announcement`: id, type, key (e.g. patch version, skin id), payload
   (JSON), createdAt. Unique (type, key).
 - `Delivery`: announcementId + guildId (composite PK), status, messageId,
@@ -157,6 +166,9 @@ Everything is free: no plans, no paywall, no payment code.
   gone, moved above it or given a dangerous permission; `granter`: the
   manager who chose them left or can no longer give them); same rule,
   until the settings are saved.
+- `GET  /api/bot/guilds/:id/role-menus` → `{menus: [{id, channelId, title,
+  description, mode, options, configuredBy, messageId, messageChannelId}]}`
+  (none for a server unknown or left).
 - `GET  /api/bot/announcements/pending` → announcements with the guilds and
   channels still to deliver (the site creates announcements from its own
   data: new patch in `patches.json`, new skins in `skins.json`, events,
@@ -193,6 +205,23 @@ Everything is free: no plans, no paywall, no payment code.
   [{id, refusal}]}`: which roles that user may have the bot give, the
   member fetched live (`refusal`: `not_member`, `no_manage_roles`,
   `above_user`, or null).
+- `GET  /internal/guilds/:id/emojis` → `{emojis: [{id, name, animated}]}`:
+  the server's custom emojis (one REST call from the manager, cached a
+  minute; the shards' emoji cache is off), for the role menu pickers and
+  the save's checks.
+- `POST /internal/guilds/:id/refresh` (body: a nonce): the dashboard saved
+  this server; the manager drops its channel and emoji caches and the
+  shard holding the server forgets its settings, role menus and the
+  managers it looked up, so a save applies at once instead of within the
+  2-minute cache.
+- `POST /internal/guilds/:id/role-menus/publish` `{locale, menu}` →
+  `{ok, messageId, channelId}` or `{ok: false, error}` (`channel_not_available`,
+  `missing_permissions`, `invalid_menu`): posts the menu's message, or
+  edits the one already posted (posted again if it was deleted; a new one
+  when the channel changed, the old one deleted). The channels, old and
+  new, must be ones the bot reports for that server.
+- `POST /internal/guilds/:id/role-menus/remove` `{channelId, messageId}`:
+  deletes a deleted menu's message, in a channel of that server only.
 - `POST /internal/announcements/flush` → deliver pending now (called by the
   site after it creates announcements).
 - `POST /internal/test-post` `{guildId, channelId, locale}` → posts a test
@@ -336,6 +365,70 @@ list). Off until a role is chosen.
   log); the bot skips them until the settings are saved. A member who left
   already, an outage or a 5xx is only logged.
 
+## Role menus
+
+A message the bot posts for a server (an embed with the server's title and
+text, a select menu of up to 25 roles with their labels and emojis, and a
+"Remove my role(s)" button) where members pick their own roles. Off until
+a manager creates one; at most 10 per server. The use it was made for: a
+community server's ranks (Warrior to Mythical Immortal, one at a time,
+with its `rank_*` emojis).
+
+- Modes: `single` (picking a role gives it and removes the menu's other
+  roles the member has: ranks; the new role is given first, so a swap cut
+  short leaves two, never none) and `multiple` (each role picked is
+  toggled). The button removes every role of the menu the member has.
+- Custom ids: `rolemenu:<menu id>` (select) and `rolemenu:<menu id>:clear`
+  (button). The pick is acknowledged by re-sending the message's own
+  components, which resets the menu on the member's screen (picking the
+  same role later still reaches the bot); the answer is ephemeral, in the
+  server's language, roles shown as mentions (never pinging).
+- Trust nothing in the interaction but which menu and which values: the
+  bot reads the server's menus from the site (`GET
+  /api/bot/guilds/:id/role-menus`, 2-minute cache per shard, forgotten
+  when the dashboard saves or publishes, read again fresh on a miss, at
+  most once per server every 10 s),
+  for the server the interaction comes from (another server's menu id
+  finds nothing), requires the message clicked to be the one recorded for
+  the menu (an old copy answers "no longer active"), and refuses any value
+  that is not one of its options, or several in single mode.
+- Before every change, for every role touched (added or removed), the
+  auto-roles' rules: Manage Roles held, role below the bot's highest, not
+  managed, not @everyone, none of the dangerous permissions; and the
+  manager who configured the menu (`configuredBy`) is still a member who
+  could give it (owner, or Manage Roles and the role below their highest),
+  that lookup cached 5 minutes per server and manager (shared with the
+  auto-roles, dropped on a refresh). A refusal is told to the member
+  (role gone, bot not allowed, menu paused) and logged; nothing is marked
+  failing: the dashboard computes it live.
+- Each role is added and removed with its own call (`PUT`/`DELETE
+  .../members/:user/roles/:role`), never a whole role list, so a change
+  made meanwhile is not overwritten.
+- Abuse: 5 changes per member and server in 30 s, one at a time, counted
+  in memory only (10,000 members per shard at most).
+- Save (`POST /api/discord/guilds/:id/role-menus`, `PUT` and `DELETE
+  .../role-menus/:menu`): the dashboard gate, ManageGuild asked live, the
+  menu read under the server of the path, the channel among the bot's,
+  every role among those the bot reports assignable (roles left unchanged
+  are not checked again), every custom emoji among the server's (asked to
+  the bot), and the confused-deputy rule of the auto-roles: a saver who
+  can give every role becomes `configuredBy`; one who cannot may still edit
+  the text or the channel of a menu whose roles stay the same (the owner
+  stays), never change its roles or create one ("role menu not grantable").
+- Publish (`POST .../role-menus/:menu/publish`, 6 a minute per user): the
+  same checks, then the bot posts or edits; the site records the message
+  and asks the bot to forget its copy. A role no longer assignable refuses
+  the publish ("role menu roles unavailable").
+- Dashboard: one card per menu (channel, mode, roles with their emojis,
+  "published", "not published yet" or "changes not published"; warnings
+  when a role can no longer be given, or when its manager can no longer
+  give its roles, asked live to the bot for up to 3 managers), an editor
+  (channel, title, text, mode, roles added from a picker offering only the
+  roles the bot and the signed-in manager may give, label, emoji from the
+  server's emojis or any unicode one, order) with a preview of the
+  message. A role named like one of the server's emojis gets it at once
+  ("Mythical Glory" finds `rank_mythical_glory` or `rank_mythic_glory`).
+
 ## Site pages
 
 - `/[locale]/bot` — landing: what it does, live server count, command list
@@ -348,7 +441,8 @@ list). Off until a role is chosen.
   hour, welcome and goodbye messages (on/off, channel, optional text with
   the placeholders and a live preview), auto-roles (on/off, up to 3 roles
   for members and 3 for bots, a warning when the bot lacks Manage Roles or
-  a role is above its own), "send a test" buttons, delivery health.
+  a role is above its own), role menus (see above), "send a test" buttons,
+  delivery health.
 - `/[locale]/bot/admin` — super admins, over 24 h (by hour), 7 or 30 days
   (by UTC day), each figure against the window before of the same length:
   bot health (status, uptime, memory, version, each shard's status, ping,
@@ -479,10 +573,18 @@ deployment without the bot.
   welcome and goodbye messages (placeholders, sanitising, allowed
   mentions, raid coalescing with fake timers, failing channels, intents),
   and the auto-roles (dangerous permissions, hierarchy and managed roles,
-  people and bots apart, pending members, the raid queue, failures).
+  people and bots apart, pending members, the raid queue, failures), and
+  the role menus (single-choice swap, toggles, unknown option or menu,
+  another server's menu, old message, role deleted or made dangerous,
+  configurer who lost the permission, rate limit, publish and move).
+- Site: the role menu routes as requests (`tests/unit/bot-role-menu-routes.test.ts`:
+  foreign channel, role or emoji, dangerous role, confused deputy, the
+  owner kept on a text edit, publish and delete, the bot's read parsed by
+  the bot's own schema).
 - Site, against a real Postgres (`tests/functional/bot-database.test.ts`,
   skipped without `TEST_DATABASE_URL`): bulk guild sync and deliveries,
   pending targets, daily servers by hour, leaderboard and admin aggregates,
   the welcome and goodbye settings and the auto-roles (migration
-  defaults, signed read, failing flag).
+  defaults, signed read, failing flag), the role menus (signed read per
+  server, none once left, cascade).
 - Both: `npm run typecheck`, `npm run lint`, `npm test`, build.
