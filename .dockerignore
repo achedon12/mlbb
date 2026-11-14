@@ -13,8 +13,10 @@ LICENSE
 *.log
 logs
 donnees-serveur
-.env
-.env.local
-.env.*.local
+# Every env file: `next build` loads .env.production and copies it into
+# .next/standalone, which the image ships. Secrets come from the compose
+# environment at run time, never from the image.
+.env*
+!.env.example
 # The Discord bot has its own image (bot/Dockerfile)
 bot
