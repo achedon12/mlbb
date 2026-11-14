@@ -63,4 +63,21 @@ describe("security headers", () => {
     expect(policy.get("script-src")).toEqual(["'self'", "'unsafe-inline'"]);
     expect(policy.get("connect-src")).toEqual(["'self'"]);
   });
+
+  it("allows Discord's CDN for images only when the bot is deployed", async () => {
+    const without = directives(
+      (await siteHeaders({ NODE_ENV: "production", NEXT_PUBLIC_DISCORD_CLIENT_ID: "" })).get("Content-Security-Policy") ?? "",
+    );
+    expect(without.get("img-src")).not.toContain("https://cdn.discordapp.com");
+    const policy = directives(
+      (await siteHeaders({ NODE_ENV: "production", NEXT_PUBLIC_DISCORD_CLIENT_ID: "123456789012345678" })).get(
+        "Content-Security-Policy",
+      ) ?? "",
+    );
+    expect(policy.get("img-src")).toContain("https://cdn.discordapp.com");
+    // Images only: no script, connection or frame from Discord.
+    for (const name of ["script-src", "connect-src", "frame-src", "default-src"]) {
+      expect(policy.get(name)).not.toContain("https://cdn.discordapp.com");
+    }
+  });
 });

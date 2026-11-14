@@ -1,6 +1,9 @@
 import Link from "@/components/link";
 import type { Locale } from "@/i18n/config";
+import { createT } from "@/i18n/translations";
+import { communityInvite } from "@/lib/bot/public";
 import { site } from "@/lib/site";
+import { DiscordMark } from "./bot/discord-mark";
 import { AccountButton } from "./account-button";
 import { DesktopMenu } from "./desktop-menu";
 import { MobileMenu } from "./mobile-menu";
@@ -18,6 +21,8 @@ import { LocalePicker } from "./locale-picker";
  * screens up; below that, the expanded menu (`MobileMenu`) takes over.
  */
 export function Header({ locale }: { locale: Locale }) {
+  // Community server invite, inlined at build time; no link without it.
+  const discord = communityInvite();
   return (
     <header className="sticky top-0 z-40 border-b border-night-700/70 bg-night-950/85 backdrop-blur">
       {/* Gold edge at the top, echoing the heading rule. */}
@@ -41,6 +46,17 @@ export function Header({ locale }: { locale: Locale }) {
 
         <div className="ml-auto flex items-center gap-1 sm:gap-2">
           <GlobalSearch />
+          {discord && (
+            <a
+              href={discord}
+              rel="noopener"
+              aria-label={createT(locale)("common.joinDiscord")}
+              title={createT(locale)("common.discordServer")}
+              className="grid size-9 place-items-center rounded-md text-chalk-300 transition-colors hover:text-gold-400"
+            >
+              <DiscordMark size={18} />
+            </a>
+          )}
           <LocalePicker locale={locale} />
           <AccountButton />
           <MobileMenu />
