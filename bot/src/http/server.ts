@@ -3,7 +3,7 @@ import { z } from "zod";
 import { isLocale, type Locale } from "../i18n/index.js";
 import { log } from "../log.js";
 import { ReplayGuard, SIGNATURE_HEADER, TIMESTAMP_HEADER, verify } from "../security/signing.js";
-import { SNOWFLAKE } from "../site/schemas.js";
+import { GREETING_KINDS, GREETING_MAX_LENGTH, SNOWFLAKE } from "../site/schemas.js";
 
 /**
  * The bot's internal HTTP server, called by the site only.
@@ -19,6 +19,19 @@ export const MAX_BODY_BYTES = 64 * 1024;
 const RATE_LIMIT_MAX = 120;
 const RATE_LIMIT_WINDOW_MS = 10_000;
 
+/**
+ * A greeting test: the text being edited on the dashboard (saved or not),
+ * shown with the dashboard user as the member and the server's name and
+ * size as the site knows them.
+ */
+export interface GreetingTest {
+  kind: (typeof GREETING_KINDS)[number];
+  message: string | null;
+  member: { id: string; username: string; avatar: string | null };
+  guildName: string;
+  memberCount: number;
+}
+
 /** What the routes do, implemented by the manager (and by fakes in tests). */
 export interface InternalApi {
   ready(): boolean;
@@ -26,7 +39,8 @@ export interface InternalApi {
   isManageable(guildId: string, userId: string): Promise<boolean>;
   channels(guildId: string): Promise<{ channels: unknown[]; roles: unknown[] } | null>;
   flush(): Promise<unknown>;
-  testPost(guildId: string, channelId: string, locale: Locale): Promise<{ ok: boolean; error?: string }>;
+  /** Without `greeting`, the announcement test post. */
+  testPost(guildId: string, channelId: string, locale: Locale, greeting?: GreetingTest): Promise<{ ok: boolean; error?: string }>;
   stats(): Promise<unknown>;
 }
 
@@ -42,11 +56,30 @@ class HttpError extends Error {
   }
 }
 
-const testPostBody = z.object({
+const target = {
   guildId: z.string().regex(SNOWFLAKE),
   channelId: z.string().regex(SNOWFLAKE),
   locale: z.string().optional(),
-});
+};
+/** `kind` absent: the announcement test, as before greetings existed. */
+const testPostBody = z.union([
+  z.object({ ...target, kind: z.literal("announcement").optional() }).strict(),
+  z
+    .object({
+      ...target,
+      kind: z.enum(GREETING_KINDS),
+      message: z.string().max(GREETING_MAX_LENGTH).nullable(),
+      member: z.object({
+        id: z.string().regex(SNOWFLAKE),
+        username: z.string().min(1).max(64),
+        // Discord's avatar hash: 32 hex digits, "a_" first when animated.
+        avatar: z.string().regex(/^(a_)?[0-9a-f]{32}$/).nullable(),
+      }),
+      guildName: z.string().min(1).max(100),
+      memberCount: z.number().int().min(0).max(100_000_000),
+    })
+    .strict(),
+]);
 
 function readBody(req: IncomingMessage): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -167,8 +200,10 @@ export function createInternalServer({ secret: given, api, now = Date.now }: Ser
       }
       const parsed = testPostBody.safeParse(json);
       if (!parsed.success) throw new HttpError(400, "invalid_body");
-      const locale = isLocale(parsed.data.locale) ? parsed.data.locale : "en";
-      return send(res, 200, await api.testPost(parsed.data.guildId, parsed.data.channelId, locale));
+      const { guildId, channelId, locale: given, ...rest } = parsed.data;
+      const locale = isLocale(given) ? given : "en";
+      const greeting = "member" in rest ? rest : undefined;
+      return send(res, 200, await api.testPost(guildId, channelId, locale, greeting));
     }
     if (method === "GET" && first === "stats" && parts.length === 2) {
       return send(res, 200, await api.stats());

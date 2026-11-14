@@ -22,6 +22,29 @@ const channelSetting = z
   .object({ channelId: snowflake.nullable().catch(null), roleId: snowflake.nullable().catch(null), failing: z.boolean().catch(false) })
   .catch({ channelId: null, roleId: null, failing: false });
 
+export const GREETING_KINDS = ["welcome", "goodbye"] as const;
+export type GreetingKind = (typeof GREETING_KINDS)[number];
+/** The site's cap on an owner's text; the bot clips to it again before posting. */
+export const GREETING_MAX_LENGTH = 500;
+
+/**
+ * Welcome or goodbye message. Anything unreadable turns it off: a message
+ * nobody configured must never be posted. A text over the cap is clipped
+ * rather than dropped (the owner did write one).
+ */
+const greetingSetting = z
+  .object({
+    channelId: snowflake.nullable().catch(null),
+    message: z
+      .string()
+      .transform((text) => text.slice(0, GREETING_MAX_LENGTH))
+      .nullable()
+      .catch(null),
+    failing: z.boolean().catch(false),
+  })
+  .catch({ channelId: null, message: null, failing: false });
+export type GreetingSetting = z.infer<typeof greetingSetting>;
+
 export const guildSettings = unwrap(
   z.preprocess(
     // Settings may list the announcement types at the top level or under
@@ -40,6 +63,9 @@ export const guildSettings = unwrap(
       dailyMlbbdleChannelId: snowflake.nullable().catch(null),
       dailyQuizChannelId: snowflake.nullable().catch(null),
       dailyHourUtc: z.number().int().min(0).max(23).catch(12),
+      // Absent from an older site: off.
+      welcome: greetingSetting.default({ channelId: null, message: null, failing: false }),
+      goodbye: greetingSetting.default({ channelId: null, message: null, failing: false }),
     }),
   ),
 );
@@ -53,6 +79,8 @@ export const DEFAULT_SETTINGS: GuildSettings = {
   dailyMlbbdleChannelId: null,
   dailyQuizChannelId: null,
   dailyHourUtc: 12,
+  welcome: { channelId: null, message: null, failing: false },
+  goodbye: { channelId: null, message: null, failing: false },
 };
 
 export const announcementTarget = z.object({
