@@ -37,7 +37,7 @@ describe("/help categories", () => {
 
   it("examples use the reader's command and option names, and translated choices", () => {
     const build = HELP_CATEGORIES[0]!.commands.find((e) => e.key === "build")!;
-    expect(exampleLine(en, build)).toBe("/build hero:Fanny rank:Mythical Glory");
+    expect(exampleLine(en, build)).toBe("/build hero:Chou rank:Mythical Glory");
     const nickname = HELP_CATEGORIES.find((c) => c.key === "tools")!.commands[0]!;
     expect(exampleLine(fr, nickname)).toBe(`/${t("fr", "commands.nickname.name")} ${t("fr", "commands.nickname.options.text.name")}:Shadow ${t("fr", "commands.nickname.options.style.name")}:${t("fr", "choices.style.fraktur")}`);
     expect(exampleLine(en, { key: "quiz" })).toBe("/quiz");

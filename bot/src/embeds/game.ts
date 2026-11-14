@@ -254,7 +254,8 @@ export function patchEmbed(view: View, patch: Patch, detail: PatchDetail | null,
       { name: view.t("ui.patch.adjustments"), value: `◆ ${detail.balance.adjust}`, inline: true },
     );
   }
-  const changed = detail?.adjustments ?? [];
+  // A hero with several sections in the notes (a revamp, then a fix) is listed once.
+  const changed = [...new Map((detail?.adjustments ?? []).map((h) => [h.slug || h.name, h])).values()];
   if (changed.length) {
     const mark = (type: string | null) => (type === "buff" ? "▲" : type === "nerf" ? "▼" : "◆");
     embed.addFields({

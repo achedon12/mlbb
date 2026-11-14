@@ -31,7 +31,7 @@ export const HELP_CATEGORIES: HelpCategory[] = [
     emoji: "🛡️",
     commands: [
       { key: "hero", example: [["name", "Layla"]] },
-      { key: "build", example: [["hero", "Fanny"], ["rank", "choices.rank.glory"]] },
+      { key: "build", example: [["hero", "Chou"], ["rank", "choices.rank.glory"]] },
       { key: "skins", example: [["hero", "Lesley"]] },
       { key: "item", example: [["name", "Blade of Despair"]] },
       { key: "emblem", example: [["name", "Assassin Emblem"]] },

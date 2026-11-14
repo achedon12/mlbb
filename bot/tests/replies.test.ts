@@ -140,6 +140,12 @@ describe("lists in fields", () => {
     expect(heroes.endsWith("+4 more")).toBe(true);
     expect(json.fields?.[0]?.value).toBe("▲ 17");
   });
+
+  it("patch replies list a hero once, even with several sections in the notes", () => {
+    const twice = [{ name: "Aulus", slug: "aulus", type: "buff" }, { name: "Aulus", slug: "aulus", type: "buff" }, { name: "Chou", slug: "chou", type: "nerf" }];
+    const json = patchEmbed(en, { version: "2.2.16", title: "Patch Notes 2.2.16", link: "" }, { version: "2.2.16", title: "Patch Notes 2.2.16", adjustments: twice }, false).toJSON();
+    expect(json.fields?.[0]?.value).toBe("▲ Aulus · ▼ Chou");
+  });
 });
 
 describe("did you mean", () => {
