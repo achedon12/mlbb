@@ -19,6 +19,8 @@ import { createHmac, timingSafeEqual } from "node:crypto";
 export const HEADER_TIMESTAMP = "x-mlbbdex-timestamp";
 export const HEADER_SIGNATURE = "x-mlbbdex-signature";
 export const MAX_SKEW_S = 300;
+/** Shorter secrets are refused outright: `openssl rand -hex 32` gives 64 characters. */
+export const MIN_SECRET = 32;
 
 export function sign(secret: string, timestamp: number, method: string, path: string, body: string): string {
   return createHmac("sha256", secret).update(`${timestamp}.${method.toUpperCase()}.${path}.${body}`).digest("hex");
@@ -54,6 +56,11 @@ export class ReplayGuard {
     this.seen.set(signature, nowS + 2 * MAX_SKEW_S);
     return true;
   }
+
+  /** Lets a signature through again: its request failed before doing anything, the sender will retry it. */
+  forget(signature: string): void {
+    this.seen.delete(signature);
+  }
 }
 
 export function verify(
@@ -68,7 +75,7 @@ export function verify(
     guard?: ReplayGuard;
   },
 ): Verdict {
-  if (!o.secret) return { ok: false, reason: "no-secret" };
+  if (!o.secret || o.secret.length < MIN_SECRET) return { ok: false, reason: "no-secret" };
   if (!o.timestamp || !o.signature) return { ok: false, reason: "missing" };
   if (!/^\d{1,12}$/.test(o.timestamp) || !/^[0-9a-f]{64}$/.test(o.signature)) return { ok: false, reason: "signature" };
   const nowS = Math.floor((o.now ?? Date.now()) / 1000);

@@ -1,5 +1,6 @@
 import { log } from "@/lib/log";
 import { isSnowflake } from "./public";
+import { MIN_SECRET } from "./signature";
 
 /**
  * Discord bot: server-side configuration, read from the environment at
@@ -19,7 +20,7 @@ export interface BotConfig {
 }
 
 /** Secrets of at least 32 characters: `openssl rand -hex 32` gives 64. */
-export const MIN_SECRET = 32;
+export { MIN_SECRET } from "./signature";
 
 /** Comma-separated Discord ids; anything else is dropped. */
 export function parseAdminIds(raw: string | undefined): Set<string> {

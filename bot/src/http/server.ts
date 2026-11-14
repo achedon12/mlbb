@@ -89,7 +89,11 @@ const userParam = (url: URL) => {
   return user;
 };
 
-export function createInternalServer({ secret, api, now = Date.now }: ServerOptions): Server {
+/** A secret shorter than this is treated as unset (the config refuses it too). */
+export const MIN_SECRET_LENGTH = 32;
+
+export function createInternalServer({ secret: given, api, now = Date.now }: ServerOptions): Server {
+  const secret = given && given.length >= MIN_SECRET_LENGTH ? given : undefined;
   const buckets = new Map<string, { count: number; resetAt: number }>();
   const replay = new ReplayGuard();
 
