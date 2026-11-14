@@ -32455,6 +32455,18 @@
     "winRateTool.zeroSentence": {
       "fr": "Aucune série de défaites ne peut faire passer un taux sous 0 %.",
       "text": "Walang losing streak na makakapagbaba ng win rate sa ilalim ng 0%."
+    },
+    "pages.collectionUI.progressTitle": {
+      "fr": "Avancement",
+      "text": "Progreso"
+    },
+    "pages.collectionUI.seriesCheck": {
+      "fr": "Cocher les {n} skins {series}",
+      "text": "Lagyan ng tsek ang {n} skin ng {series}"
+    },
+    "pages.collectionUI.seriesUncheck": {
+      "fr": "Décocher les {n} skins {series}",
+      "text": "Alisin ang tsek sa {n} skin ng {series}"
     }
   },
   "th": {
@@ -57415,6 +57427,22 @@
     "winRateTool.zeroSentence": {
       "fr": "Aucune série de défaites ne peut faire passer un taux sous 0 %.",
       "text": "Nenhuma sequência de derrotas pode levar uma taxa abaixo de 0%."
+    },
+    "pages.collectionUI.progressTitle": {
+      "fr": "Avancement",
+      "text": "Progresso"
+    },
+    "pages.collectionUI.seriesCheck": {
+      "fr": "Cocher les {n} skins {series}",
+      "text": "Marcar as {n} skins {series}"
+    },
+    "pages.collectionUI.seriesUncheck": {
+      "fr": "Décocher les {n} skins {series}",
+      "text": "Desmarcar as {n} skins {series}"
+    },
+    "pages.collectionUI.played_empty": {
+      "fr": "Aucun héros joué cette saison.",
+      "text": "Nenhum herói jogado nesta temporada."
     }
   },
   "ru": {
@@ -61571,8 +61599,8 @@
       "text": "Снять отметки со всех героев и скинов?"
     },
     "pages.collectionUI.empty": {
-      "fr": "Cochez dans la liste les héros et les skins que vous possédez : le total se met à jour au fur et à mesure et reste enregistré dans ce navigateur.",
-      "text": "Отметьте в списке героев и скины, которые у вас есть: сумма обновляется по ходу и сохраняется в этом браузере."
+      "fr": "Cochez dans la liste les héros et les skins que vous possédez : le total se met à jour au fur et à mesure et reste enregistré dans ce navigateur, et sur votre compte si vous êtes connecté.",
+      "text": "Отметьте в списке героев и скины, которые у вас есть: итог обновляется сразу и сохраняется в этом браузере, а если вы вошли — и в вашем аккаунте."
     },
     "pages.collectionUI.error": {
       "fr": "Impossible de charger la liste des skins. Vérifiez votre connexion et rechargez la page.",
@@ -70197,6 +70225,26 @@
     "winRateTool.zeroSentence": {
       "fr": "Aucune série de défaites ne peut faire passer un taux sous 0 %.",
       "text": "Никакая серия поражений не опустит процент побед ниже 0%."
+    },
+    "pages.collectionUI.progressTitle": {
+      "fr": "Avancement",
+      "text": "Прогресс"
+    },
+    "pages.collectionUI.played_failed": {
+      "fr": "Vos héros joués ne sont pas lisibles pour l'instant : réessayez plus tard.",
+      "text": "Не удалось загрузить ваших сыгранных героев: попробуйте позже."
+    },
+    "pages.collectionUI.played_empty": {
+      "fr": "Aucun héros joué cette saison.",
+      "text": "В этом сезоне вы ещё не играли ни на одном герое."
+    },
+    "pages.collectionUI.seriesCheck": {
+      "fr": "Cocher les {n} skins {series}",
+      "text": "Отметить {n} скинов {series}"
+    },
+    "pages.collectionUI.seriesUncheck": {
+      "fr": "Décocher les {n} skins {series}",
+      "text": "Снять отметку с {n} скинов {series}"
     }
   }
 }
