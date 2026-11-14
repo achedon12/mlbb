@@ -1,4 +1,5 @@
 import rawData from "@/data/game/esports.json";
+import { isLocale } from "@/i18n/config";
 import { rankingFull } from "./tier-list";
 
 /**
@@ -147,6 +148,36 @@ export const esportsSource = data.source;
 export const esportsUpdatedAt = data.updatedAt;
 export const tournaments = data.tournaments;
 export const tournamentBySlug = new Map(tournaments.map((t) => [t.slug, t]));
+
+/**
+ * Whether an unknown slug names an earlier edition of a covered series
+ * ("m5-world-championship" while M7 and M8 are covered). Those addresses are
+ * guessed from the covered ones, or quoted by search engines and assistants:
+ * they lead to the esports index rather than to a 404. Only editions older
+ * than the oldest covered one qualify — a later one may well be covered at the
+ * next sync, and a permanent redirect cached in the meantime would hide it.
+ */
+export function isPastEdition(slug: string, list: Pick<Tournament, "slug" | "number">[] = tournaments): boolean {
+  return list.some((t) => {
+    const [before, after] = t.slug.split(String(t.number));
+    if (after === undefined || !slug.startsWith(before!) || !slug.endsWith(after)) return false;
+    const middle = slug.slice(before!.length, slug.length - after.length);
+    if (!/^\d+$/.test(middle)) return false;
+    const oldest = Math.min(...list.filter((x) => x.slug === `${before}${x.number}${after}`).map((x) => x.number));
+    return Number(middle) < oldest;
+  });
+}
+
+/**
+ * Where an unknown tournament address leads: the esports index of its
+ * language for a past edition, nothing otherwise (a 404). The target is built
+ * from a known locale only — never from the raw segment, which could turn
+ * into another host ("//example.com").
+ */
+export function pastEditionRedirect(locale: string, slug: string, list?: Pick<Tournament, "slug" | "number">[]): string | null {
+  if (!isLocale(locale) || !isPastEdition(slug, list)) return null;
+  return `/${locale}/esports`;
+}
 
 // ─────────────────────────────────────────────────────────────
 // Status and order
