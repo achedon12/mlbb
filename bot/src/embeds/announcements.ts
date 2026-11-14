@@ -32,6 +32,14 @@ function withRole(roleId: string | null, body: RESTPostAPIChannelMessageJSONBody
  * The message of one announcement for one server, or null when the payload
  * does not have the shape of its type (the delivery is then marked failed).
  */
+/** "2026-11" as "November 2026" in the locale; the raw value when it is not a month. */
+export function monthName(month: string, locale: Locale): string {
+  const m = /^(\d{4})-(\d{2})$/.exec(month);
+  if (!m) return month;
+  const date = new Date(Date.UTC(Number(m[1]), Number(m[2]) - 1, 1));
+  return new Intl.DateTimeFormat(locale, { month: "long", year: "numeric", timeZone: "UTC" }).format(date);
+}
+
 export function announcementMessage(
   type: AnnouncementType,
   payload: unknown,
@@ -68,7 +76,9 @@ export function announcementMessage(
       const p = PAYLOADS.events.safeParse(payload);
       if (!p.success) return null;
       path = p.data.url;
-      embed.setTitle(clip(view.t("ui.announce.eventTitle", { title: p.data.title }), 256));
+      // The site sends the month only: it is named in the server's language.
+      const title = p.data.title ?? monthName(p.data.month, locale);
+      embed.setTitle(clip(view.t("ui.announce.eventTitle", { title }), 256));
       if (p.data.count !== undefined) embed.setDescription(view.t("ui.announce.eventBody", { count: p.data.count }));
       break;
     }

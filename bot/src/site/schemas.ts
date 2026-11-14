@@ -107,7 +107,7 @@ export const PAYLOADS = {
     image: z.string().nullable().optional(),
     url: path,
   }),
-  events: z.object({ month: text(20), title: text(200), url: path, count: count.optional() }),
+  events: z.object({ month: text(20), title: text(200).optional(), url: path, count: count.optional() }),
   advanceServer: z.object({ version: text(40), date: z.string().nullable().optional(), url: path }),
   esports: z.object({
     slug: text(120),
