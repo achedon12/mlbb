@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { originAllowed } from "@/lib/bot/dashboard-guard";
-import { authorizeUrl, callbackQuery, challengeOf, createState, createVerifier, isState, isVerifier } from "@/lib/bot/oauth";
+import { originAllowed, sameOriginRequest } from "@/lib/bot/dashboard-guard";
+import { acceptCallback, authorizeUrl, callbackQuery, challengeOf, createState, createVerifier, isState, isVerifier, loginTarget } from "@/lib/bot/oauth";
 import { seal, unseal } from "@/lib/bot/seal";
-import { openOAuth, openSession, sealSession } from "@/lib/bot/session";
+import { cookieOptions, OAUTH_PATH, openOAuth, openSession, sealSession } from "@/lib/bot/session";
 
 const config = { sessionSecret: "s".repeat(64) };
 const USER = { id: "123456789012345678", name: "Leo", avatar: null };
@@ -87,5 +87,53 @@ describe("dashboard origin check", () => {
   it("also accepts the address the request was sent to, in development", () => {
     expect(originAllowed("http://localhost:3013", site, "http://localhost:3013/api/discord/logout", false)).toBe(true);
     expect(originAllowed("http://localhost:9999", site, "http://localhost:3013/api/discord/logout", false)).toBe(false);
+  });
+});
+
+describe("OAuth callback", () => {
+  const pending = { state: createState(), verifier: createVerifier() };
+  const query = (o: Record<string, string>) => new URLSearchParams(o);
+  const code = "a".repeat(30);
+
+  it("trades the code only when the state matches the sealed one", () => {
+    expect(acceptCallback(pending, query({ code, state: pending.state }))).toEqual({ code, verifier: pending.verifier });
+    expect(acceptCallback(pending, query({ code, state: createState() }))).toBeNull();
+  });
+
+  it("refuses without a pending exchange (expired, used), on errors and on malformed parameters", () => {
+    expect(acceptCallback(null, query({ code, state: pending.state }))).toBeNull();
+    expect(acceptCallback(pending, query({ code, state: pending.state, error: "access_denied" }))).toBeNull();
+    expect(acceptCallback(pending, query({ state: pending.state }))).toBeNull();
+    expect(acceptCallback(pending, query({ code: "<script>", state: pending.state }))).toBeNull();
+    expect(acceptCallback({ state: "", verifier: pending.verifier }, query({ code, state: "" }))).toBeNull();
+  });
+
+  it("only ever lands on the site's own dashboard or admin page", () => {
+    expect(loginTarget("fr", "admin")).toBe("/fr/bot/admin");
+    expect(loginTarget("en", "dashboard")).toBe("/en/bot/dashboard");
+    expect(loginTarget("//evil.example", "https://evil.example")).toBe("/en/bot/dashboard");
+    expect(loginTarget(undefined, undefined)).toBe("/en/bot/dashboard");
+    expect(new URL(loginTarget("es", "x"), "https://mlbbdex.com").origin).toBe("https://mlbbdex.com");
+  });
+
+  it("scopes the exchange cookie to the callback, the session cookie to the site", () => {
+    expect(OAUTH_PATH).toBe("/api/discord/callback");
+    expect(cookieOptions(600, OAUTH_PATH)).toEqual({ httpOnly: true, secure: true, sameSite: "lax", path: OAUTH_PATH, maxAge: 600 });
+    expect(cookieOptions(0).maxAge).toBe(0);
+  });
+});
+
+describe("state-changing requests", () => {
+  const site = "https://mlbbdex.com";
+  const url = "http://mlbb:3001/api/discord/guilds/1/settings";
+  const headers = (o: Record<string, string>) => new Headers(o);
+
+  it("needs the site's Origin and, when sent, Sec-Fetch-Site same-origin", () => {
+    expect(sameOriginRequest(headers({ origin: site, "sec-fetch-site": "same-origin" }), site, url, true)).toBe(true);
+    expect(sameOriginRequest(headers({ origin: site }), site, url, true)).toBe(true);
+    expect(sameOriginRequest(headers({ origin: site, "sec-fetch-site": "same-site" }), site, url, true)).toBe(false);
+    expect(sameOriginRequest(headers({ origin: site, "sec-fetch-site": "cross-site" }), site, url, true)).toBe(false);
+    expect(sameOriginRequest(headers({ "sec-fetch-site": "same-origin" }), site, url, true)).toBe(false);
+    expect(sameOriginRequest(headers({ origin: "https://evil.example" }), site, url, true)).toBe(false);
   });
 });

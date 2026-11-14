@@ -17,7 +17,8 @@ export const SESSION_COOKIE = "mlbbdex_discord";
 export const OAUTH_COOKIE = "mlbbdex_discord_oauth";
 export const SESSION_TTL_S = 7 * 24 * 3600;
 export const OAUTH_TTL_S = 10 * 60;
-export const OAUTH_PATH = "/api/discord";
+/** The OAuth cookie is only ever sent to the callback. */
+export const OAUTH_PATH = "/api/discord/callback";
 
 export const sessionShape = z.object({
   id: z.string().regex(/^\d{17,20}$/),

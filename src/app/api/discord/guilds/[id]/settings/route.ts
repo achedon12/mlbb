@@ -1,7 +1,6 @@
 import { db } from "@/lib/db";
-import { BotUnavailable, canManage, guildChannels } from "@/lib/bot/client";
-import { answer, guardDashboard, refused } from "@/lib/bot/dashboard-guard";
-import { isSnowflake } from "@/lib/bot/public";
+import { BotUnavailable } from "@/lib/bot/client";
+import { answer, authorizeGuild, guardDashboard, refused } from "@/lib/bot/dashboard-guard";
 import { checkAgainstGuild, settingsInput, settingsRow, settingsView } from "@/lib/bot/settings";
 import { logError } from "@/lib/log";
 
@@ -16,14 +15,13 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
   const gate = await guardDashboard(request, settingsInput);
   if (gate instanceof Response) return gate;
   const { id } = await params;
-  if (!isSnowflake(id)) return refused(400, "invalid server id");
 
   try {
-    if (!(await canManage(gate.config, id, gate.user.id))) return refused(403, "not allowed");
+    const lists = await authorizeGuild(gate.config, id, gate.user.id);
+    if (lists instanceof Response) return lists;
     const guild = await db().guild.findUnique({ where: { id }, select: { id: true, leftAt: true } });
     if (!guild || guild.leftAt) return refused(404, "unknown server");
-    const { channels, roles } = await guildChannels(gate.config, id);
-    const checked = checkAgainstGuild(gate.body, new Set(channels.map((c) => c.id)), new Set(roles.map((r) => r.id)));
+    const checked = checkAgainstGuild(gate.body, new Set(lists.channels.map((c) => c.id)), new Set(lists.roles.map((r) => r.id)));
     if (!checked.ok) return refused(400, `unknown channel or role: ${checked.field}`);
 
     const row = settingsRow(checked.value);
