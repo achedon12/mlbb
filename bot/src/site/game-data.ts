@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { TtlCache } from "../cache.js";
-import { LOCALES, type Locale } from "../i18n/index.js";
+import { LOCALES, type Locale } from "../i18n/locales.js";
 import { NotFoundError, requestJson, type FetchLike } from "./http.js";
 
 /**
