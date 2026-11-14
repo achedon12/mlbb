@@ -246,7 +246,7 @@ verification form, once the bot passes 100 servers:
 ## Links for the listing forms
 
 - Website: https://mlbbdex.com/en/bot
-- Vote: https://top.gg/bot/1571083624789581834/vote
+- Vote: https://discordbotlist.com/bots/mlbbdex/upvote (top.gg: https://top.gg/bot/1571083624789581834/vote once approved)
 - Privacy policy: https://mlbbdex.com/en/bot/privacy
 - Terms of service: https://mlbbdex.com/en/bot/terms
 - Support server: https://discord.gg/mw5RzvkkU3

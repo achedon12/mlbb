@@ -38,6 +38,12 @@ export interface Command {
   ephemeral?: boolean;
   /** Only usable in a server (leaderboards, settings). */
   guildOnly?: boolean;
+  /**
+   * Answers from memory, well within Discord's three seconds: no "thinking…"
+   * first, the reply is sent at once (one round trip to Discord instead of
+   * two). `execute` still answers with `editReply`, sent as the reply.
+   */
+  instant?: boolean;
   data: () => RESTPostAPIChatInputApplicationCommandsJSONBody;
   /** Runs after the reply was deferred: answer with `editReply`. */
   execute: (interaction: ChatInputCommandInteraction, ctx: Context) => Promise<void>;

@@ -6,6 +6,7 @@ import { helpLinks } from "./help.js";
 
 export const invite: Command = {
   key: "invite",
+  instant: true,
   ephemeral: true,
   data: () => slash("invite").toJSON(),
   async execute(interaction, ctx) {

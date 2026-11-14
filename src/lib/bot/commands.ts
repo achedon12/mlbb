@@ -30,5 +30,9 @@ export const BOT_COMMANDS: { name: string; options?: string; category: BotCatego
   { name: "about", category: "setup" },
 ];
 
-/** The bot's vote page on top.gg, which lists it by its application id. */
-export const voteUrl = (clientId: string) => `https://top.gg/bot/${clientId}/vote`;
+/**
+ * The bot's vote page. discordbotlist.com, where the bot is live: its top.gg
+ * page stays a 404 until top.gg approves the listing (both lists send their
+ * votes to `/api/bot/votes/*` either way). The id is kept for that switch back.
+ */
+export const voteUrl = (_clientId: string) => "https://discordbotlist.com/bots/mlbbdex/upvote";

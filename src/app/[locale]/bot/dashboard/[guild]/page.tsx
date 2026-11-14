@@ -8,7 +8,7 @@ import { PageHeader } from "@/components/ui";
 import type { Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { createT, messagesPage } from "@/i18n/translations";
-import { canManage, grantableRoles, guildChannels, mentionableRoles } from "@/lib/bot/client";
+import { canManage, grantableRoles, guildChannels, mentionableRoles, refusalFor } from "@/lib/bot/client";
 import { botConfig } from "@/lib/bot/config";
 import { dashboardPageAllowed } from "@/lib/bot/dashboard-guard";
 import { botClientId, discordImage, isSnowflake } from "@/lib/bot/public";
@@ -130,7 +130,7 @@ export default async function GuildPage({ params }: Params) {
               channels={lists.channels.map(({ id, name }) => ({ id, name }))}
               roles={mentionableRoles(lists.roles).map(({ id, name }) => ({ id, name }))}
               autoRoles={{
-                roles: lists.roles.map((r) => ({ ...r, granterRefusal: granted.refusals.get(r.id) ?? "not_member" })),
+                roles: lists.roles.map((r) => ({ ...r, granterRefusal: refusalFor(granted.refusals, r.id) })),
                 manageRoles: lists.manageRoles,
               }}
               sample={{ user: user.name, avatarUrl: discordImage("avatars", user.id, user.avatar, 128), server: guild.name, count: guild.memberCount }}

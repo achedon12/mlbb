@@ -47,6 +47,7 @@ export function nicknameComponents(view: View, text: string, style: Style) {
 
 export const nickname: Command = {
   key: "nickname",
+  instant: true,
   ephemeral: true,
   data: () =>
     slash("nickname")
