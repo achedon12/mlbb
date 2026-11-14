@@ -442,14 +442,18 @@ export function valueAtLevel(p: Pair, level: number): number {
 }
 
 /**
- * Share of damage that goes through a defense, after penetration:
- * total defense = defense x (1 - percent penetration) - flat penetration,
- * never below -60 (Physical penetration and Physical defense pages), then the
- * 120 / (120 + total defense) multiplier.
+ * Defense left once penetration is applied: percentage first, then flat,
+ * defense x (1 - percent penetration) - flat penetration. Flat penetration
+ * "can ignore the target's physical defense below 0 (up to negative 60)"
+ * (Physical penetration page): the floor is -60, not 0.
  */
+export function totalDefense(targetDefense: number, penPercent: number, penFlat: number): number {
+  return Math.max(MIN_DEFENSE, targetDefense * (1 - penPercent / 100) - penFlat);
+}
+
+/** Share of damage that goes through a defense, after penetration: 120 / (120 + total defense). */
 export function damageShare(targetDefense: number, penPercent: number, penFlat: number): number {
-  const total = Math.max(MIN_DEFENSE, targetDefense * (1 - penPercent / 100) - penFlat);
-  return DEFENSE_CONSTANT / (DEFENSE_CONSTANT + total);
+  return DEFENSE_CONSTANT / (DEFENSE_CONSTANT + totalDefense(targetDefense, penPercent, penFlat));
 }
 
 /** Effective HP: HP divided by the defense's damage multiplier. */

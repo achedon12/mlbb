@@ -199,6 +199,10 @@
     "communityBuilds": {
       "label": "Builds de la communauté",
       "desc": "Partagés et votés par les joueurs"
+    },
+    "damageCalculator": {
+      "label": "Calculateur de dégâts",
+      "desc": "Les dégâts d'un coup après défense"
     }
   },
   "account": {
@@ -1079,6 +1083,10 @@
       "communityBuild": {
         "title": "{title} · build pour {hero}",
         "description": "Un build pour {hero} partagé par {name} sur MLBBDex, avec ses statistiques calculées : {votes} vote(s) à ce jour."
+      },
+      "damageCalculator": {
+        "title": "Calculateur de dégâts MLBB : défense et pénétration",
+        "description": "Calculez les dégâts d'une attaque de base ou d'un coup dans Mobile Legends après défense et pénétration : coups pour tuer et PV effectifs, héros et objets ou stats saisies."
       }
     },
     "freshness": {
@@ -3228,6 +3236,71 @@
       "backToHero": "Tous les builds pour {hero}",
       "statsTitle": "Statistiques calculées",
       "statsMissing": "Statistiques indisponibles pour ce héros."
+    },
+    "damageCalculator": {
+      "title": "Calculateur de dégâts",
+      "lead": "Un attaquant, un défenseur, un coup : ce qui passe la défense, combien de coups pour tuer et les PV effectifs. Choisissez des héros et leurs objets, ou tapez les stats lues en partie.",
+      "methodTitle": "Le calcul",
+      "method1": "La défense restante se calcule dans l'ordre du jeu : la pénétration en pourcentage d'abord, puis la pénétration fixe, soit défense × (1 − pénétration %) − pénétration fixe. Le résultat peut passer sous 0, jusqu'à −60 et pas au-delà : la pénétration fixe fait alors gagner des dégâts. Seule compte la pénétration du type du coup, physique ou magique.",
+      "method2": "Les dégâts reçus valent dégâts bruts × 120 ÷ (120 + défense restante) : 120 de défense laissent passer la moitié des dégâts, −60 les doublent. Les dégâts purs ignorent défense et pénétration. Les coups pour tuer arrondissent PV ÷ dégâts à l'entier supérieur ; les PV effectifs, PV × (120 + défense restante) ÷ 120, sont les dégâts bruts qu'il faut infliger pour tuer.",
+      "method3": "Une attaque de base inflige des dégâts physiques égaux à l'attaque physique totale ; un critique en inflige les dégâts critiques, 200 % par défaut, et la moyenne pondère les deux par la chance de critique. Les héros dont le passif modifie l'attaque de base ne sont pas modélisés. Les stats d'un héros viennent du simulateur de build : niveaux entre 1 et 15 interpolés, emblème sans talents, passifs conditionnels des objets non comptés.",
+      "method4": "Les compétences ne sont pas calculées : nos données de compétences donnent des fourchettes par niveau de compétence sans dire quel niveau correspond à quelle valeur, et à peine une sur dix porte un ratio. Pour une compétence, lisez ses dégâts bruts dans le jeu et entrez-les en « Dégâts bruts ». La vitesse d'attaque de base manque aussi : pas de dégâts par seconde.",
+      "sourcesTitle": "Sources",
+      "sourceWiki": "Wiki Mobile Legends : {page}"
+    },
+    "damageCalculatorUI": {
+      "attackerTitle": "Attaquant",
+      "defenderTitle": "Défenseur",
+      "source": "Origine des stats",
+      "modeHero": "Héros et objets",
+      "modeManual": "Stats saisies",
+      "chooseHero": {
+        "attacker": "Choisir l'attaquant",
+        "defender": "Choisir le défenseur"
+      },
+      "changeHero": "Changer de héros",
+      "level": "Niveau {level}",
+      "levelDown": "Niveau précédent",
+      "levelUp": "Niveau suivant",
+      "items": "Objets",
+      "slotEmpty": "Emplacement {n} : vide",
+      "slotFilled": "Emplacement {n} : {item}",
+      "pickItem": "Objet de l'emplacement {n}",
+      "emblem": "Emblème",
+      "noEmblem": "Aucun",
+      "interpolated": "Niveau {level} : stats de base interpolées entre les niveaux 1 et 15.",
+      "manualNote": {
+        "attacker": "Les stats de l'écran d'attributs en partie, talents et bonus compris. Pourcentages de 0 à 100 ; les dégâts critiques valent 200 % par défaut.",
+        "defender": "Les PV et défenses de l'écran d'attributs, bonus compris."
+      },
+      "hitTitle": "Le coup",
+      "hitKind": "Coup",
+      "basicAttack": "Attaque de base",
+      "rawHit": "Dégâts bruts",
+      "basicNote": "Dégâts physiques égaux à l'attaque physique totale de l'attaquant, et son coup critique s'il a de la chance de critique.",
+      "rawAmount": "Dégâts avant défense",
+      "damageType": "Type",
+      "kinds": {
+        "physical": "Physiques",
+        "magic": "Magiques",
+        "true": "Purs"
+      },
+      "resultTitle": "Résultat",
+      "missingAttacker": "Choisissez un attaquant, ou saisissez ses stats : chaque champ doit contenir un nombre valide.",
+      "missingDefender": "Choisissez un défenseur, ou saisissez ses stats : chaque champ doit contenir un nombre valide.",
+      "invalidRaw": "Entrez des dégâts bruts positifs.",
+      "normalHit": "Coup normal",
+      "critHit": "Coup critique",
+      "damagePerHit": "dégâts par coup",
+      "hitsToKill": "coups pour tuer",
+      "rawDamage": "Dégâts bruts",
+      "defenseAfter": "Défense après pénétration",
+      "defenseFromTo": "{from} → {to}",
+      "ignored": "ignorée",
+      "share": "Part des dégâts qui passe",
+      "effectiveHp": "PV effectifs face à ce coup",
+      "defenderHp": "PV du défenseur",
+      "average": "En moyenne, avec {chance} de chance de critique : {damage} dégâts par attaque de base."
     }
   },
   "modeSheet": {

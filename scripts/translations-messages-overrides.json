@@ -314,6 +314,10 @@
       "fr": "Afficher les {n} héros qui bougent",
       "text": "Mostrar los {n} héroes que más se mueven"
     },
+    "nav.damageCalculator.desc": {
+      "fr": "Les dégâts d'un coup après défense",
+      "text": "El daño de un golpe tras la defensa"
+    },
     "nav.groups.news": {
       "fr": "Actualités",
       "text": "Novedades"
@@ -353,6 +357,42 @@
     "pages.collectionUI.series": {
       "fr": "Série",
       "text": "Serie"
+    },
+    "pages.damageCalculator.method1": {
+      "fr": "La défense restante se calcule dans l'ordre du jeu : la pénétration en pourcentage d'abord, puis la pénétration fixe, soit défense × (1 − pénétration %) − pénétration fixe. Le résultat peut passer sous 0, jusqu'à −60 et pas au-delà : la pénétration fixe fait alors gagner des dégâts. Seule compte la pénétration du type du coup, physique ou magique.",
+      "text": "La defensa restante sigue el orden del juego: primero la penetración porcentual, luego la penetración fija, es decir, defensa × (1 − penetración %) − penetración fija. El resultado puede bajar de 0, hasta −60 y no más: la penetración fija añade entonces daño. Solo cuenta la penetración del tipo del golpe, física o mágica."
+    },
+    "pages.damageCalculator.method2": {
+      "fr": "Les dégâts reçus valent dégâts bruts × 120 ÷ (120 + défense restante) : 120 de défense laissent passer la moitié des dégâts, −60 les doublent. Les dégâts purs ignorent défense et pénétration. Les coups pour tuer arrondissent PV ÷ dégâts à l'entier supérieur ; les PV effectifs, PV × (120 + défense restante) ÷ 120, sont les dégâts bruts qu'il faut infliger pour tuer.",
+      "text": "El daño recibido es daño bruto × 120 ÷ (120 + defensa restante): 120 de defensa dejan pasar la mitad del daño, −60 lo duplican. El daño puro ignora defensa y penetración. Los golpes para matar redondean PV ÷ daño al entero superior; los PV efectivos, PV × (120 + defensa restante) ÷ 120, son el daño bruto necesario para matar."
+    },
+    "pages.damageCalculator.method3": {
+      "fr": "Une attaque de base inflige des dégâts physiques égaux à l'attaque physique totale ; un critique en inflige les dégâts critiques, 200 % par défaut, et la moyenne pondère les deux par la chance de critique. Les héros dont le passif modifie l'attaque de base ne sont pas modélisés. Les stats d'un héros viennent du simulateur de build : niveaux entre 1 et 15 interpolés, emblème sans talents, passifs conditionnels des objets non comptés.",
+      "text": "Un ataque básico inflige daño físico igual al ataque físico total; un crítico inflige el daño crítico, 200 % por defecto, y la media pondera ambos por la probabilidad de crítico. Los héroes cuya pasiva cambia su ataque básico no están modelados. Las estadísticas de un héroe vienen del simulador de builds: niveles entre 1 y 15 interpolados, emblema sin talentos, pasivas condicionales de los objetos sin contar."
+    },
+    "pages.damageCalculatorUI.hitKind": {
+      "fr": "Coup",
+      "text": "Tipo de golpe"
+    },
+    "pages.damageCalculatorUI.pickItem": {
+      "fr": "Objet de l'emplacement {n}",
+      "text": "Objeto del hueco {n}"
+    },
+    "pages.damageCalculatorUI.rawDamage": {
+      "fr": "Dégâts bruts",
+      "text": "Daño bruto"
+    },
+    "pages.damageCalculatorUI.rawHit": {
+      "fr": "Dégâts bruts",
+      "text": "Daño bruto"
+    },
+    "pages.damageCalculatorUI.slotEmpty": {
+      "fr": "Emplacement {n} : vide",
+      "text": "Hueco {n}: vacío"
+    },
+    "pages.damageCalculatorUI.slotFilled": {
+      "fr": "Emplacement {n} : {item}",
+      "text": "Hueco {n}: {item}"
     },
     "pages.draftSimulatorUI.boardLabel": {
       "fr": "Plateau du draft",
@@ -2655,6 +2695,74 @@
     "tools.serverTime.yourTime": {
       "fr": "Chez vous : {time} ({timezone})",
       "text": "Waktu Anda: {time} ({timezone})"
+    },
+    "pages.damageCalculatorUI.hitTitle": {
+      "fr": "Le coup",
+      "text": "Serangan"
+    },
+    "pages.damageCalculatorUI.hitKind": {
+      "fr": "Coup",
+      "text": "Jenis serangan"
+    },
+    "pages.damageCalculatorUI.rawHit": {
+      "fr": "Dégâts bruts",
+      "text": "Damage mentah"
+    },
+    "pages.damageCalculatorUI.rawDamage": {
+      "fr": "Dégâts bruts",
+      "text": "Damage mentah"
+    },
+    "pages.damageCalculatorUI.damageType": {
+      "fr": "Type",
+      "text": "Jenis"
+    },
+    "pages.damageCalculatorUI.kinds.physical": {
+      "fr": "Physiques",
+      "text": "Physical"
+    },
+    "pages.damageCalculatorUI.kinds.magic": {
+      "fr": "Magiques",
+      "text": "Magic"
+    },
+    "pages.damageCalculatorUI.kinds.true": {
+      "fr": "Purs",
+      "text": "True"
+    },
+    "pages.damageCalculatorUI.slotEmpty": {
+      "fr": "Emplacement {n} : vide",
+      "text": "Slot {n}: kosong"
+    },
+    "pages.damageCalculatorUI.slotFilled": {
+      "fr": "Emplacement {n} : {item}",
+      "text": "Slot {n}: {item}"
+    },
+    "pages.damageCalculatorUI.pickItem": {
+      "fr": "Objet de l'emplacement {n}",
+      "text": "Item untuk slot {n}"
+    },
+    "pages.damageCalculatorUI.share": {
+      "fr": "Part des dégâts qui passe",
+      "text": "Bagian damage yang tembus"
+    },
+    "pages.damageCalculatorUI.missingDefender": {
+      "fr": "Choisissez un défenseur, ou saisissez ses stats : chaque champ doit contenir un nombre valide.",
+      "text": "Pilih pembela, atau masukkan statistiknya: setiap kolom harus berisi angka yang valid."
+    },
+    "pages.damageCalculatorUI.missingAttacker": {
+      "fr": "Choisissez un attaquant, ou saisissez ses stats : chaque champ doit contenir un nombre valide.",
+      "text": "Pilih penyerang, atau masukkan statistiknya: setiap kolom harus berisi angka yang valid."
+    },
+    "nav.damageCalculator.desc": {
+      "fr": "Les dégâts d'un coup après défense",
+      "text": "Damage satu serangan setelah pertahanan"
+    },
+    "pages.damageCalculator.method2": {
+      "fr": "Les dégâts reçus valent dégâts bruts × 120 ÷ (120 + défense restante) : 120 de défense laissent passer la moitié des dégâts, −60 les doublent. Les dégâts purs ignorent défense et pénétration. Les coups pour tuer arrondissent PV ÷ dégâts à l'entier supérieur ; les PV effectifs, PV × (120 + défense restante) ÷ 120, sont les dégâts bruts qu'il faut infliger pour tuer.",
+      "text": "Damage yang diterima = damage mentah × 120 ÷ (120 + sisa pertahanan): 120 pertahanan meloloskan separuh damage, −60 menggandakannya. True damage mengabaikan pertahanan dan penetrasi. Jumlah serangan untuk membunuh adalah HP ÷ damage, dibulatkan ke atas; HP efektif, HP × (120 + sisa pertahanan) ÷ 120, adalah damage mentah yang dibutuhkan untuk membunuh."
+    },
+    "pages.damageCalculator.method3": {
+      "fr": "Une attaque de base inflige des dégâts physiques égaux à l'attaque physique totale ; un critique en inflige les dégâts critiques, 200 % par défaut, et la moyenne pondère les deux par la chance de critique. Les héros dont le passif modifie l'attaque de base ne sont pas modélisés. Les stats d'un héros viennent du simulateur de build : niveaux entre 1 et 15 interpolés, emblème sans talents, passifs conditionnels des objets non comptés.",
+      "text": "Serangan dasar memberikan damage fisik sebesar total serangan fisik; serangan kritis memberikan damage kritis, 200% secara default, dan rata-ratanya menimbang keduanya dengan peluang kritis. Hero yang pasifnya mengubah serangan dasar tidak dimodelkan. Statistik hero berasal dari simulator build: level antara 1 dan 15 diinterpolasi, emblem tanpa bakat, pasif bersyarat item tidak dihitung."
     }
   },
   "it": {
@@ -2745,6 +2853,38 @@
     "pages.communityBuilds.spell": {
       "fr": "Sort",
       "text": "Incantesimo"
+    },
+    "pages.damageCalculator.method2": {
+      "fr": "Les dégâts reçus valent dégâts bruts × 120 ÷ (120 + défense restante) : 120 de défense laissent passer la moitié des dégâts, −60 les doublent. Les dégâts purs ignorent défense et pénétration. Les coups pour tuer arrondissent PV ÷ dégâts à l'entier supérieur ; les PV effectifs, PV × (120 + défense restante) ÷ 120, sont les dégâts bruts qu'il faut infliger pour tuer.",
+      "text": "Il danno subito vale danno grezzo × 120 ÷ (120 + difesa rimanente): 120 di difesa lasciano passare metà del danno, −60 lo raddoppiano. Il danno puro ignora difesa e penetrazione. I colpi per uccidere arrotondano HP ÷ danno all'intero superiore; gli HP effettivi, HP × (120 + difesa rimanente) ÷ 120, sono il danno grezzo da infliggere per uccidere."
+    },
+    "pages.damageCalculator.method3": {
+      "fr": "Une attaque de base inflige des dégâts physiques égaux à l'attaque physique totale ; un critique en inflige les dégâts critiques, 200 % par défaut, et la moyenne pondère les deux par la chance de critique. Les héros dont le passif modifie l'attaque de base ne sont pas modélisés. Les stats d'un héros viennent du simulateur de build : niveaux entre 1 et 15 interpolés, emblème sans talents, passifs conditionnels des objets non comptés.",
+      "text": "Un attacco base infligge danni fisici pari all'attacco fisico totale; un colpo critico infligge i danni critici, 200% di base, e la media pondera i due con la probabilità di critico. Gli eroi la cui passiva modifica l'attacco base non sono modellati. Le statistiche di un eroe vengono dal simulatore di build: livelli tra 1 e 15 interpolati, emblema senza talenti, passive condizionali degli oggetti non contate."
+    },
+    "pages.damageCalculatorUI.hitKind": {
+      "fr": "Coup",
+      "text": "Tipo di colpo"
+    },
+    "pages.damageCalculatorUI.modeManual": {
+      "fr": "Stats saisies",
+      "text": "Statistiche inserite"
+    },
+    "pages.damageCalculatorUI.pickItem": {
+      "fr": "Objet de l'emplacement {n}",
+      "text": "Oggetto dello slot {n}"
+    },
+    "pages.damageCalculatorUI.rawDamage": {
+      "fr": "Dégâts bruts",
+      "text": "Danno grezzo"
+    },
+    "pages.damageCalculatorUI.rawHit": {
+      "fr": "Dégâts bruts",
+      "text": "Danno grezzo"
+    },
+    "pages.damageCalculatorUI.slotEmpty": {
+      "fr": "Emplacement {n} : vide",
+      "text": "Slot {n}: vuoto"
     },
     "pages.draftSimulatorUI.boardLabel": {
       "fr": "Plateau du draft",

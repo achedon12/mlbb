@@ -16,6 +16,7 @@ import {
   type SimCatalog,
   type SimulatorData,
 } from "./build-simulator";
+import { isComplete, type DamageCalculatorData } from "./damage-calculator";
 import { buildsPlayed, allHeroes, itemsFor } from "./data";
 import { imageTalent, nameTalent, spellSheets, textChoice } from "./usage-sheets";
 import { MEASURED_RANKS } from "./measured-ranks";
@@ -104,6 +105,12 @@ export function simulatorData(locale: Locale, t: T): SimulatorData {
     talents: [...simCatalog.talents.values()].map((tl) => ({ ...tl, name: nameTalent(t, tl.key), image: imageTalent(tl.key) })),
     spells: spellSheets.map((s) => ({ key: s.slug, name: spellName(t, s.slug), image: s.image })),
   };
+}
+
+/** Damage calculator catalog: the simulator's, less what the calculator does not offer. */
+export function damageCalculatorData(locale: Locale, t: T): DamageCalculatorData {
+  const { heroes, items, categories, emblems } = simulatorData(locale, t);
+  return { heroes: heroes.filter((h) => isComplete(h.sim)), items, categories, emblems };
 }
 
 /** Display names of the whole catalog, for pages that show builds without the simulator. */
