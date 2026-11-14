@@ -3689,38 +3689,87 @@
     "pts": "poin"
   },
   "home": {
-    "title1": "Seluruh game, dijelaskan",
-    "titleAccent": "dalam bahasa {language}",
-    "lead": "{heroes} hero dan {skins} skinnya, tier list yang dihitung berdasarkan kecepatan permainan, rancangan bantuan, item, emblem, dan patch notes. Data disinkronkan sendiri; analisisnya ditulis dengan tangan.",
+    "title": "Mobile Legends: tier list, build, dan counter patch {version}",
+    "lead": "Semua {heroes} hero, build dan counter mereka yang diukur dari pertandingan ranked, tier list yang dihitung ulang setiap sinkronisasi, dan alat untuk menyiapkan setiap draft.",
+    "search": {
+      "label": "Cari hero",
+      "placeholder": "Ling, Khufra, Layla…",
+      "submit": "Cari",
+      "all": "Cari juga item, skin, atau skill"
+    },
     "browse": "Telusuri Hero",
-    "draftHelp": "Asisten draft",
-    "statHeroes": "hero",
-    "statSkins": "skin",
-    "statPatches": "patch",
-    "statAnalyses": "analisis tertulis",
+    "tierListCta": "Lihat tier list",
+    "winRate": "Win rate {value}",
+    "rail": {
+      "title": "Saat ini di dalam game",
+      "patch": "Patch aktif",
+      "patchSince": "Patch aktif sejak {date}",
+      "rates": "Rate diukur pada",
+      "esportsLive": "Turnamen berlangsung",
+      "esportsNext": "Turnamen berikutnya, {date}",
+      "starlight": "StarLight {month}",
+      "serverTime": "Waktu server",
+      "reset": "reset dalam"
+    },
+    "meta": {
+      "title": "Meta patch {version}",
+      "lead": "{n} hero diperingkat berdasarkan win rate dan ban rate per {date}, semua rank digabung.",
+      "splitLabel": "Sebaran {n} hero yang diperingkat per tier: buka tier list",
+      "tierCount": "tier {tier}: {n} hero",
+      "topTier": "Tier S+: {n} hero",
+      "win": "Win rate tertinggi",
+      "ban": "Paling sering di-ban",
+      "pick": "Paling sering dimainkan",
+      "week": "Dalam tujuh hari",
+      "weekEmpty": "Tidak ada hero yang bergerak jelas minggu ini."
+    },
+    "patch": {
+      "title": "Yang diubah patch {version}",
+      "lead": "{n} hero diubah pada {date}, dengan selisih win rate yang terukur sejak itu.",
+      "leadUndated": "{n} hero diubah, diurutkan menurut arah perubahannya.",
+      "newHero": "Hero baru: {name}",
+      "more": "Dan {n} lagi di catatan patch",
+      "impact": "win rate {gap} poin setelah patch",
+      "impactNote": "Selisih poin antara win rate rata-rata {n} hari sebelum patch dan {n} hari sesudahnya, semua rank digabung. Abu-abu: selisih terlalu kecil untuk dihitung.",
+      "metaReport": "Laporan meta patch",
+      "testing": "Sedang diuji di Advance Server: {version}"
+    },
+    "live": {
+      "title": "Bulan ini di dalam game",
+      "lead": "Skin bulan ini, skin yang sudah diumumkan, dan turnamen yang sedang berlangsung.",
+      "skinsOf": "Skin {month}",
+      "allEvents": "Semua event",
+      "starlight": "Skin StarLight",
+      "collector": "Skin Collector",
+      "skinAlt": "{skin}, skin {hero}",
+      "announced": "Diumumkan untuk {month}",
+      "announcedCount": "{n} skin diumumkan",
+      "esports": "Esports",
+      "allEsports": "Semua turnamen",
+      "proPicked": "Paling sering di-pick pro",
+      "proBanned": "Paling sering di-ban pro",
+      "proNote": "Dari {games} pertandingan pro terakhir yang tercatat."
+    },
+    "toolsTitle": "Peralatan",
+    "toolsLead": "Siapkan draft, uji build, berlatih.",
+    "daily": {
+      "title": "Game harian",
+      "lead": "Ronde baru setiap hari, sama untuk semua pemain.",
+      "play": "Main"
+    },
     "startTitle": "Mulai dari mana",
     "startLead": "Anda memainkan role, bukan katalog. Mulai dari situ.",
-    "rankingTitle": "Teratas di patch ini",
-    "rankingLead": "Dihitung dari win rate dan ban yang dilaporkan oleh game, bukan opini.",
-    "fullTierList": "Tier list lengkap",
-    "skinsTitle": "Galeri Skin",
-    "skinsLead": "Skin {skins} dari game ini, dengan ilustrasi ukuran penuh, kelangkaannya, dan harganya.",
-    "seeHeroes": "Lihat para hero",
-    "lastUpdate": "Pembaruan terakhir",
-    "allNews": "Semua berita",
-    "syncLead": "Sinkronisasi terakhir pada {date}.",
-    "cards": {
-      "dataTitle": "Pembaruan data dengan sendirinya",
-      "dataText": "Hero, skin, item, patch, dan visual ditarik dari wiki setiap minggu. Hero baru muncul di sini tanpa ada yang menangkapnya.",
-      "rankingTitle": "Pemeringkatan tidak memberikan pendapat",
-      "rankingText": "Tier list dihitung berdasarkan win rate dan ban yang dilaporkan oleh game. Aturan penghitungan ditampilkan di halaman.",
-      "writtenTitle": "Apa yang tertulis tetap tertulis",
-      "writtenText": "Analisis, build, dan panduan ditulis dengan tangan. Tidak ada ekstraksi yang dapat menjelaskan mengapa seorang hero itu kuat; di sinilah kontribusi diperhitungkan."
-    },
-    "howItWorks": "Cara kerja situs ini",
-    "followRss": "Ikuti publikasi di RSS",
-    "winPercent": "% win rate",
     "latestArticles": "Artikel terbaru",
+    "allNews": "Semua berita",
+    "followRss": "Ikuti publikasi di RSS",
+    "community": {
+      "title": "Komunitas",
+      "buildsText": "Build yang dibagikan pemain, diurutkan menurut vote.",
+      "contributeText": "Tulis analisis hero, perbaiki data, usulkan ide."
+    },
+    "fullTierList": "Tier list lengkap",
+    "readNotes": "Baca catatannya",
+    "winPercent": "% win rate",
     "trends": {
       "title": "Tren minggu ini",
       "lead": "Evolusi win rate selama tujuh hari, semua peringkat digabungkan. Penyimpangan kurang dari {threshold} poin, terlalu dekat dengan pembulatan, tidak dipertahankan.",
@@ -3730,19 +3779,20 @@
       "noFall": "Tidak ada hero yang mengambil langkah mundur minggu ini.",
       "open": "Tampilkan {n} hero yang sedang bergerak"
     },
-    "readNotes": "Baca catatannya",
-    "toolsTitle": "Peralatan",
-    "toolsLead": "Siapkan pertandingan, uji pick, berlatih."
+    "howItWorks": "Cara kerja situs ini",
+    "syncLead": "Sinkronisasi terakhir pada {date}.",
+    "cards": {
+      "dataTitle": "Pembaruan data dengan sendirinya",
+      "dataText": "Hero, skin, item, patch, dan visual ditarik dari wiki setiap minggu. Hero baru muncul di sini tanpa ada yang menangkapnya.",
+      "rankingTitle": "Pemeringkatan tidak memberikan pendapat",
+      "rankingText": "Tier list dihitung berdasarkan win rate dan ban yang dilaporkan oleh game. Aturan penghitungan ditampilkan di halaman.",
+      "writtenTitle": "Apa yang tertulis tetap tertulis",
+      "writtenText": "Analisis, build, dan panduan ditulis dengan tangan. Tidak ada ekstraksi yang dapat menjelaskan mengapa seorang hero itu kuat; di sinilah kontribusi diperhitungkan."
+    }
   },
   "featured": {
     "heroOfTheDay": "Hero hari ini",
-    "role": "Peran",
-    "position": "Posisi",
-    "tierList": "Tier list",
-    "wins": "Kemenangan",
-    "skins": "skin",
-    "seeSheet": "Lihat filenya",
-    "tier": "Tingkat {p}"
+    "seeSheet": "Lihat filenya"
   },
   "access": {
     "account": "{n} hero"

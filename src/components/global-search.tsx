@@ -31,6 +31,9 @@ function load(locale: Locale): Promise<EntrySearch[]> {
   return promise;
 }
 
+/** Window event that opens the dialog, for triggers outside the header. */
+export const OPEN_SEARCH_EVENT = "mlbbdex:open-search";
+
 /** Results shown per group. */
 const BY_GROUP = 6;
 
@@ -58,8 +61,14 @@ export function GlobalSearch() {
         setOpen(false);
       }
     };
+    // A button elsewhere on the page (the home page search) opens the same dialog.
+    const request = () => setOpen(true);
     window.addEventListener("keydown", shortcut);
-    return () => window.removeEventListener("keydown", shortcut);
+    window.addEventListener(OPEN_SEARCH_EVENT, request);
+    return () => {
+      window.removeEventListener("keydown", shortcut);
+      window.removeEventListener(OPEN_SEARCH_EVENT, request);
+    };
   }, []);
 
   useEffect(() => {

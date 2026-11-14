@@ -3689,38 +3689,87 @@
     "pts": "pts"
   },
   "home": {
-    "title1": "The whole game, explained",
-    "titleAccent": "in {language}",
-    "lead": "{heroes} heroes and their {skins} skins, a tier list calculated from in-game rates, a draft assistant, items, emblems and patch notes. The data syncs itself; the analysis is written by hand.",
+    "title": "Mobile Legends: tier list, builds and counters for patch {version}",
+    "lead": "All {heroes} heroes, their builds and counters measured in ranked games, a tier list recomputed at every sync and tools to prepare every draft.",
+    "search": {
+      "label": "Search for a hero",
+      "placeholder": "Ling, Khufra, Layla…",
+      "submit": "Search",
+      "all": "Also search for an item, a skin or a skill"
+    },
     "browse": "Browse heroes",
-    "draftHelp": "Draft assistant",
-    "statHeroes": "heroes",
-    "statSkins": "skins",
-    "statPatches": "patches",
-    "statAnalyses": "written analyses",
+    "tierListCta": "See the tier list",
+    "winRate": "{value} win rate",
+    "rail": {
+      "title": "Right now in the game",
+      "patch": "Live patch",
+      "patchSince": "Live patch since {date}",
+      "rates": "Rates measured on",
+      "esportsLive": "Tournament under way",
+      "esportsNext": "Next tournament, {date}",
+      "starlight": "StarLight for {month}",
+      "serverTime": "Server time",
+      "reset": "reset in"
+    },
+    "meta": {
+      "title": "The meta of patch {version}",
+      "lead": "{n} heroes ranked on the win and ban rates of {date}, all ranks combined.",
+      "splitLabel": "How the {n} ranked heroes split across tiers: open the tier list",
+      "tierCount": "tier {tier}: {n} heroes",
+      "topTier": "Tier S+: {n} heroes",
+      "win": "Highest win rate",
+      "ban": "Most banned",
+      "pick": "Most played",
+      "week": "Over seven days",
+      "weekEmpty": "No hero moved clearly this week."
+    },
+    "patch": {
+      "title": "What patch {version} changed",
+      "lead": "{n} heroes changed on {date}, with the measured shift in their win rate since.",
+      "leadUndated": "{n} heroes changed, sorted by the direction of the change.",
+      "newHero": "New hero: {name}",
+      "more": "And {n} more in the notes",
+      "impact": "win rate {gap} points after the patch",
+      "impactNote": "Gap in points between the average win rate over the {n} days before the patch and over the {n} days after it, all ranks combined. In grey, a gap too small to count.",
+      "metaReport": "Patch meta report",
+      "testing": "In testing on the Advance Server: {version}"
+    },
+    "live": {
+      "title": "This month in the game",
+      "lead": "The month's skins, the announced ones, and the tournaments under way.",
+      "skinsOf": "{month} skins",
+      "allEvents": "All events",
+      "starlight": "StarLight skin",
+      "collector": "Collector skin",
+      "skinAlt": "{skin}, a {hero} skin",
+      "announced": "Announced for {month}",
+      "announcedCount": "{n} skins announced",
+      "esports": "Esports",
+      "allEsports": "All tournaments",
+      "proPicked": "Most picked in pro play",
+      "proBanned": "Most banned in pro play",
+      "proNote": "Over the last {games} recorded pro games."
+    },
+    "toolsTitle": "Tools",
+    "toolsLead": "Prepare a draft, test a build, practise.",
+    "daily": {
+      "title": "Daily games",
+      "lead": "A new round every day, the same for every player.",
+      "play": "Play"
+    },
     "startTitle": "Where to start",
     "startLead": "You play a role, not a catalog. Start from there.",
-    "rankingTitle": "Top of the patch",
-    "rankingLead": "Calculated from the win and ban rates reported by the game, not from opinion.",
-    "fullTierList": "Full tier list",
-    "skinsTitle": "Skin galleries",
-    "skinsLead": "The game's {skins} skins, with full-size artwork, rarity and price.",
-    "seeHeroes": "Browse heroes",
-    "lastUpdate": "Latest update",
-    "allNews": "All news",
-    "syncLead": "Last synced on {date}.",
-    "cards": {
-      "dataTitle": "The data updates itself",
-      "dataText": "Heroes, skins, items, patches and images are pulled from the wiki every week. A new hero shows up here without anyone having to enter it.",
-      "rankingTitle": "The ranking has no opinion",
-      "rankingText": "The tier list is calculated from the win and ban rates reported by the game. The calculation rule is shown on the page.",
-      "writtenTitle": "What's written stays written",
-      "writtenText": "Analyses, builds and guides are written by hand. No data extraction can tell why a hero is strong; that's where contributions matter."
-    },
-    "howItWorks": "How this site works",
-    "followRss": "Follow new posts via RSS",
-    "winPercent": "% win rate",
     "latestArticles": "Latest articles",
+    "allNews": "All news",
+    "followRss": "Follow new posts via RSS",
+    "community": {
+      "title": "Community",
+      "buildsText": "Builds shared by players, ranked by their votes.",
+      "contributeText": "Write a hero analysis, fix a data point, suggest an idea."
+    },
+    "fullTierList": "Full tier list",
+    "readNotes": "Read the notes",
+    "winPercent": "% win rate",
     "trends": {
       "title": "This week's trends",
       "lead": "Seven-day change in win rate, all ranks combined. Changes under {threshold} points are too close to rounding to count.",
@@ -3730,19 +3779,20 @@
       "noFall": "No hero is clearly falling this week.",
       "open": "Show the {n} heroes on the move"
     },
-    "readNotes": "Read the notes",
-    "toolsTitle": "Tools",
-    "toolsLead": "Prepare a match, test a pick, practice."
+    "howItWorks": "How this site works",
+    "syncLead": "Last synced on {date}.",
+    "cards": {
+      "dataTitle": "The data updates itself",
+      "dataText": "Heroes, skins, items, patches and images are pulled from the wiki every week. A new hero shows up here without anyone having to enter it.",
+      "rankingTitle": "The ranking has no opinion",
+      "rankingText": "The tier list is calculated from the win and ban rates reported by the game. The calculation rule is shown on the page.",
+      "writtenTitle": "What's written stays written",
+      "writtenText": "Analyses, builds and guides are written by hand. No data extraction can tell why a hero is strong; that's where contributions matter."
+    }
   },
   "featured": {
     "heroOfTheDay": "Hero of the day",
-    "role": "Role",
-    "position": "Lane",
-    "tierList": "Tier list",
-    "wins": "Wins",
-    "skins": "Skins",
-    "seeSheet": "View profile",
-    "tier": "Tier {p}"
+    "seeSheet": "View profile"
   },
   "access": {
     "account": "{n} heroes"
