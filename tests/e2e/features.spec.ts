@@ -254,6 +254,32 @@ test.describe("mobile menu", () => {
     const width = await page.evaluate(() => document.documentElement.scrollWidth);
     expect(width).toBeLessThanOrEqual(PHONE.width);
   });
+
+  test("the keyboard stays in the open sheet and Escape returns to the burger", async ({ page }) => {
+    await page.goto("/fr/tier-list");
+    const burger = page.locator("#nav-burger");
+    await expect(async () => {
+      await burger.focus();
+      await page.keyboard.press("Enter");
+      await expect(page.getByRole("button", { name: /fermer le menu/i })).toBeVisible({ timeout: 1_000 });
+    }).toPass();
+    const nav = page.getByRole("navigation", { name: /navigation principale/i });
+    const header = page.getByRole("banner");
+    // Tab from the burger wraps around the header and into the sheet, never
+    // to the page hidden behind it.
+    for (let i = 0; i < 3; i++) {
+      await page.keyboard.press("Tab");
+      expect(await header.evaluate((h) => h.contains(document.activeElement))).toBe(true);
+    }
+    expect(await nav.evaluate((n) => n.contains(document.activeElement))).toBe(true);
+    // Shift+Tab from the first stop of the header wraps around to the burger.
+    await header.getByRole("link").first().focus();
+    await page.keyboard.press("Shift+Tab");
+    await expect(burger).toBeFocused();
+    await page.keyboard.press("Escape");
+    await expect(nav).toBeHidden();
+    await expect(burger).toBeFocused();
+  });
 });
 
 test("a hero page's share image is a PNG", async ({ request }) => {

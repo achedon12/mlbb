@@ -58,7 +58,7 @@ export function LocalePicker({ locale }: { locale: Locale }) {
         aria-expanded={open}
         aria-label={t("language.change")}
         onClick={() => setOpen((o) => !o)}
-        className="flex items-center gap-1.5 rounded-md px-2.5 py-2 text-sm font-medium text-chalk-300 transition-colors hover:text-chalk-100"
+        className="flex h-9 items-center gap-1.5 rounded-md px-2.5 text-sm font-medium text-chalk-300 transition-colors hover:text-chalk-100"
       >
         <Globe size={16} aria-hidden />
         <span className="hidden sm:inline uppercase">{locale}</span>
