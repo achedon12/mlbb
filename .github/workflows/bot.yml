@@ -1,0 +1,59 @@
+name: Discord bot
+
+# The bot is its own package (bot/): its checks run only when it changes, so
+# a data sync or a site change does not pay for them.
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - bot/**
+      - src/lib/nicknames.ts
+      - .github/workflows/bot.yml
+  pull_request:
+    paths:
+      - bot/**
+      - src/lib/nicknames.ts
+      - .github/workflows/bot.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+defaults:
+  run:
+    working-directory: bot
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: bot/package-lock.json
+
+      - run: npm ci --no-audit --no-fund
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Types
+        run: npm run typecheck
+
+      # Includes the parity test against the site's src/lib/nicknames.ts.
+      - name: Tests
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+      - name: Docker image
+        run: docker build -t mlbbdex-bot:ci .
