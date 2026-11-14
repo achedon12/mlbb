@@ -35,8 +35,16 @@ function countApiCall(request: NextRequest, event: NextFetchEvent, status?: numb
   );
 }
 
+/**
+ * The Discord bot's internal API is called from a single address, the bot
+ * container's, far more than 90 times a minute at busy hours. Those routes
+ * check their HMAC signature and carry their own, higher limit
+ * (`src/lib/bot/internal.ts`). The vote webhooks stay under this one.
+ */
+const isBotInternal = (path: string) => path.startsWith("/api/bot/") && !path.startsWith("/api/bot/votes/");
+
 function rateLimitApi(request: NextRequest, event: NextFetchEvent) {
-  if (request.nextUrl.pathname === "/api/health") return NextResponse.next();
+  if (request.nextUrl.pathname === "/api/health" || isBotInternal(request.nextUrl.pathname)) return NextResponse.next();
   // The address nginx saw: a caller rotating a forged left-most entry
   // would otherwise get a fresh window on every request. Requests without
   // a trustworthy address share one window, which errs on the strict side.

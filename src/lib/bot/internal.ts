@@ -26,13 +26,17 @@ export const MAX_INTERNAL_BODY = 256 * 1024;
 
 type Gate<T> = { config: BotConfig; body: T; url: URL } | NextResponse;
 
-export async function readSigned<S extends z.ZodType>(request: Request, schema: S | null): Promise<Gate<z.infer<S>>> {
+export async function readSigned<S extends z.ZodType>(
+  request: Request,
+  schema: S | null,
+  maxBody = MAX_INTERNAL_BODY,
+): Promise<Gate<z.infer<S>>> {
   const config = botConfig();
   if (!config) return refusal(404, "not found");
   if (!allowed(addressOf(request))) return refusal(429, "too many requests");
-  if (Number(request.headers.get("content-length") ?? 0) > MAX_INTERNAL_BODY) return refusal(413, "body too large");
+  if (Number(request.headers.get("content-length") ?? 0) > maxBody) return refusal(413, "body too large");
   const raw = request.method === "GET" ? "" : await request.text();
-  if (Buffer.byteLength(raw) > MAX_INTERNAL_BODY) return refusal(413, "body too large");
+  if (Buffer.byteLength(raw) > maxBody) return refusal(413, "body too large");
 
   const url = new URL(request.url);
   const verdict = verify({
