@@ -4,7 +4,8 @@ import { notFoundEmbed, offersInvite } from "../embeds/common.js";
 import { bestBuild, type BuildView, type CounterView } from "../embeds/game.js";
 import { inviteUrl } from "../links.js";
 import { RANKS, type HeroDetail, type HeroSummary, type Rank, type RankingEntry } from "../site/game-data.js";
-import { resolveByName, searchByName, suggest, toChoices, type Named } from "../search.js";
+import { EMBLEMS } from "../catalog.js";
+import { normalize, resolveByName, searchByName, suggest, toChoices, type Named } from "../search.js";
 
 /** Lookups shared by several commands: heroes, rankings, builds, counters. */
 
@@ -87,9 +88,7 @@ export async function buildsOf(ctx: Context, hero: HeroDetail, rank: Rank): Prom
     }
   }
   const written = hero.analysis?.builds ?? [];
-  const builds = await Promise.all(
-    written.map(async (b) => ({ items: await localizeItems(ctx, b.items), emblem: b.emblem || null, spell: b.spell || null })),
-  );
+  const builds = await Promise.all(written.map((b) => writtenBuild(ctx, b)));
   return { builds, rank: null };
 }
 
@@ -98,7 +97,38 @@ export async function topBuildOf(ctx: Context, hero: HeroDetail): Promise<BuildV
   const measured = bestBuild(await ctx.services.data.builds(hero.slug).catch(() => null));
   if (measured) return { ...measured, items: await localizeItems(ctx, measured.items) };
   const written = hero.analysis?.builds[0];
-  return written ? { items: await localizeItems(ctx, written.items), emblem: written.emblem || null, spell: written.spell || null } : null;
+  return written ? writtenBuild(ctx, written) : null;
+}
+
+type WrittenBuild = NonNullable<HeroDetail["analysis"]>["builds"][number];
+
+async function writtenBuild(ctx: Context, b: WrittenBuild): Promise<BuildView> {
+  return { items: await localizeItems(ctx, b.items), emblem: await localizeEmblem(ctx, b.emblem), spell: b.spell || null };
+}
+
+/**
+ * The analyses are written in French, the site's first language, emblems
+ * included ("Emblème de soutien") while items keep their English names. The
+ * emblem is recognised in either language and named in the reply's.
+ */
+const EMBLEM_WORDS: Record<string, string> = {
+  tank: "tank", fighter: "combattant", assassin: "assassin", mage: "mage", marksman: "tireur", support: "soutien",
+};
+
+export function emblemSlug(name: string): string | null {
+  const n = normalize(name);
+  for (const e of EMBLEMS) {
+    if (n === normalize(e.name) || n === normalize(`Emblème de ${EMBLEM_WORDS[e.slug]}`) || n === normalize(`Emblème d'${EMBLEM_WORDS[e.slug]}`)) return e.slug;
+  }
+  return null;
+}
+
+export async function localizeEmblem(ctx: Context, name: string): Promise<string | null> {
+  if (!name) return null;
+  const slug = emblemSlug(name);
+  if (!slug) return name;
+  const localized = (await ctx.services.data.emblems(ctx.locale).catch(() => null))?.find((e) => e.slug === slug)?.name;
+  return localized ?? EMBLEMS.find((e) => e.slug === slug)!.name;
 }
 
 export async function countersOf(ctx: Context, hero: HeroDetail, rank: Rank): Promise<CounterView> {

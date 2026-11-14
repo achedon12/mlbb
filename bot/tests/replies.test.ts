@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
 import { aboutEmbed } from "../src/commands/about.js";
+import { emblemSlug, localizeEmblem } from "../src/commands/shared.js";
 import { loadConfig } from "../src/config.js";
 import { COLORS, errorEmbed, FAMILY_COLORS, listMore, makeView, notFoundEmbed, offersInvite, replyRow } from "../src/embeds/common.js";
 import { leaderboardEmbed, mlbbdleClassicEmbed } from "../src/embeds/daily.js";
@@ -197,6 +198,20 @@ describe("link buttons under the main replies", () => {
   it("the hero sheet keeps its three buttons and adds the invite as the fifth", () => {
     expect(heroButtons(en, "layla", INVITE).toJSON().components).toHaveLength(5);
     expect(heroButtons(en, "layla").toJSON().components).toHaveLength(4);
+  });
+});
+
+describe("written builds", () => {
+  it("name the emblem in the reply's language, though the analyses write it in French", async () => {
+    expect(emblemSlug("Emblème de soutien")).toBe("support");
+    expect(emblemSlug("Emblème d'assassin")).toBe("assassin");
+    expect(emblemSlug("Marksman Emblem")).toBe("marksman");
+    expect(emblemSlug("Custom thing")).toBeNull();
+    const ctx = (emblems: { slug: string; name: string }[] | null) =>
+      ({ ...en, services: { data: { emblems: async () => emblems } } }) as unknown as Parameters<typeof localizeEmblem>[0];
+    expect(await localizeEmblem(ctx(null), "Emblème de tireur")).toBe("Marksman Emblem");
+    expect(await localizeEmblem(ctx([{ slug: "marksman", name: "Emblema Tiratore" }]), "Emblème de tireur")).toBe("Emblema Tiratore");
+    expect(await localizeEmblem(ctx(null), "")).toBeNull();
   });
 });
 
