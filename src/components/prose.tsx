@@ -4,6 +4,46 @@ import { messagesFor } from "@/i18n/translations";
 
 type Block = { h?: string; p?: string; ul?: string[] };
 
+const substitute = (text: string, variables: Record<string, string>) =>
+  text.replace(/\{(\w+)\}/g, (_, k) => variables[k] ?? `{${k}}`);
+
+/**
+ * One line of prose: links `[text](url)` and code `` `code` ``, with the
+ * `{key}` variables substituted. Also used by pages that lay out their
+ * prose by hand (the bot's privacy page).
+ */
+export function inlineProse(text: string, variables: Record<string, string> = {}, key = "p"): React.ReactNode[] {
+  const sub = (t: string) => substitute(t, variables);
+  const out: React.ReactNode[] = [];
+  // Successive split: links, then code, on the substituted text.
+  const re = /\[([^\]]+)\]\(([^)]+)\)|`([^`]+)`/g;
+  let last = 0;
+  let m: RegExpExecArray | null;
+  let n = 0;
+  while ((m = re.exec(text)) !== null) {
+    if (m.index > last) out.push(sub(text.slice(last, m.index)));
+    if (m[3] !== undefined) {
+      out.push(<code key={`${key}c${n}`}>{sub(m[3])}</code>);
+    } else {
+      const url = sub(m[2]);
+      const external = /^https?:|^mailto:/.test(url);
+      out.push(
+        external ? (
+          <a key={`${key}l${n}`} href={url} rel="noreferrer" target={url.startsWith("mailto:") ? undefined : "_blank"}>
+            {sub(m[1])}
+          </a>
+        ) : (
+          <Link key={`${key}l${n}`} href={url}>{sub(m[1])}</Link>
+        ),
+      );
+    }
+    last = re.lastIndex;
+    n += 1;
+  }
+  if (last < text.length) out.push(sub(text.slice(last)));
+  return out;
+}
+
 /**
  * Renders a prose page from the catalogue. Content = array of blocks:
  * heading `h`, paragraph `p`, or list `ul`. Text accepts links
@@ -22,38 +62,8 @@ export function Prose({
   const prose = tree.prose as Record<string, { blocks?: Block[] }> | undefined;
   const blocks = prose?.[messageKey]?.blocks ?? [];
 
-  const sub = (text: string) => text.replace(/\{(\w+)\}/g, (_, k) => variables[k] ?? `{${k}}`);
-
-  const inline = (text: string, key: string) => {
-    const out: React.ReactNode[] = [];
-    // Successive split: links, then code, on the substituted text.
-    const re = /\[([^\]]+)\]\(([^)]+)\)|`([^`]+)`/g;
-    let last = 0;
-    let m: RegExpExecArray | null;
-    let n = 0;
-    while ((m = re.exec(text)) !== null) {
-      if (m.index > last) out.push(sub(text.slice(last, m.index)));
-      if (m[3] !== undefined) {
-        out.push(<code key={`${key}c${n}`}>{sub(m[3])}</code>);
-      } else {
-        const url = sub(m[2]);
-        const external = /^https?:|^mailto:/.test(url);
-        out.push(
-          external ? (
-            <a key={`${key}l${n}`} href={url} rel="noreferrer" target={url.startsWith("mailto:") ? undefined : "_blank"}>
-              {sub(m[1])}
-            </a>
-          ) : (
-            <Link key={`${key}l${n}`} href={url}>{sub(m[1])}</Link>
-          ),
-        );
-      }
-      last = re.lastIndex;
-      n += 1;
-    }
-    if (last < text.length) out.push(sub(text.slice(last)));
-    return out;
-  };
+  const inline = (text: string, key: string) => inlineProse(text, variables, key);
+  const sub = (text: string) => substitute(text, variables);
 
   return (
     <div className="prose-mlbb mx-auto max-w-3xl px-4 py-14">
