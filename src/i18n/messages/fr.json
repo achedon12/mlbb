@@ -3357,7 +3357,7 @@
         "about": "Liens vers le site, le serveur d'entraide, les votes et la confidentialité."
       },
       "permissionsTitle": "Permissions demandées",
-      "permissionsText": "Le strict nécessaire pour répondre et publier : jamais Administrateur, et aucun accès au contenu des messages ni à la liste des membres.",
+      "permissionsText": "Le strict nécessaire pour répondre et publier : jamais Administrateur, et aucun accès au contenu des messages. L'intent « Server Members » sert seulement aux messages de bienvenue et de départ : rien n'est conservé sur les membres.",
       "permissions": {
         "view": "Voir les salons",
         "send": "Envoyer des messages",
@@ -3387,12 +3387,12 @@
       "metaDescription": "Ce que le bot Discord MLBBDex conserve, pourquoi, combien de temps, et comment le faire supprimer.",
       "lead": "Ce que le bot conserve, pourquoi, et combien de temps.",
       "storedTitle": "Ce qui est conservé",
-      "storedServer": "Pour chaque serveur : son identifiant, son nom, son icône, son nombre de membres, sa langue, ses réglages (salons, rôles, heure des jeux du jour) et la liste des annonces déjà publiées.",
+      "storedServer": "Pour chaque serveur : son identifiant, son nom, son icône, son nombre de membres, sa langue, ses réglages (salons, rôles, heure des jeux du jour, textes des messages de bienvenue et de départ) et la liste des annonces déjà publiées.",
       "storedResults": "Pour les classements des jeux du jour : l'identifiant et le pseudo Discord du joueur, le jour, le jeu et son score.",
       "storedCommands": "Pour les statistiques : le nom de chaque commande utilisée, le serveur, la langue, la durée et le succès. Aucun identifiant d'utilisateur.",
       "storedVotes": "Pour les statistiques : l'identifiant Discord des personnes qui votent pour le bot sur une liste de bots.",
       "notStoredTitle": "Ce qui n'est pas conservé",
-      "notStored": "Le bot ne lit pas le contenu des messages et n'a pas accès à la liste des membres. Aucun jeton Discord n'est conservé : la connexion au tableau de bord sert uniquement à lire votre identifiant, puis le jeton est abandonné.",
+      "notStored": "Le bot ne lit pas le contenu des messages et ne télécharge pas la liste des membres. Quand quelqu'un rejoint ou quitte un serveur, Discord le signale au bot (intent « Server Members ») : cet événement sert uniquement à publier le message de bienvenue ou de départ, si le serveur l'a activé, et rien n'est conservé sur ce membre. Aucun jeton Discord n'est conservé : la connexion au tableau de bord sert uniquement à lire votre identifiant, puis le jeton est abandonné.",
       "cookieTitle": "Connexion au tableau de bord",
       "cookie": "Se connecter avec Discord dépose un cookie de session chiffré (`mlbbdex_discord`, httpOnly, 7 jours) qui contient votre identifiant, votre nom et votre avatar Discord, et un cookie temporaire (`mlbbdex_discord_oauth`, 10 minutes) pendant la connexion. Ils sont strictement nécessaires au service demandé.",
       "retentionTitle": "Durée de conservation",
@@ -3409,7 +3409,8 @@
       "p2": "Les données (statistiques, builds, tier list, patch notes) sont fournies telles quelles, sans garantie d'exactitude ni de disponibilité. Elles viennent du wiki Mobile Legends (CC BY-SA) et des statistiques des parties classées.",
       "p3": "Ne détournez pas le bot : pas d'automatisation abusive des commandes, pas de tentative d'accès aux réglages d'un serveur que vous ne gérez pas. Le service peut être limité ou retiré d'un serveur qui en abuse.",
       "p4": "Le service peut évoluer, être interrompu ou arrêté à tout moment. Les règles de Discord (conditions d'utilisation et règles de la communauté) s'appliquent à son usage.",
-      "p5": "Les données conservées sont décrites sur la page de confidentialité du bot. Pour toute question : [{contact}](mailto:{contact})."
+      "p5": "Les données conservées sont décrites sur la page de confidentialité du bot. Pour toute question : [{contact}](mailto:{contact}).",
+      "p6": "Les messages de bienvenue et de départ sont rédigés par les gestionnaires du serveur, qui répondent de leur contenu ; le bot y neutralise les mentions de masse et de rôles. Les arrivées et départs de membres ne servent qu'à publier ces messages."
     },
     "botDashboard": {
       "title": "Tableau de bord du bot",
@@ -3847,7 +3848,8 @@
       "cookie": "un cookie de session chiffré, `mlbbdex_discord` (httpOnly, 7 jours), si vous vous connectez au tableau de bord avec Discord : votre identifiant, votre nom et votre avatar Discord, rien d'autre ; aucun jeton Discord n'est conservé ;",
       "servers": "pour chaque serveur où le bot est présent : son nom, sa langue et ses réglages ;",
       "results": "pour les classements des jeux du jour joués dans Discord : l'identifiant et le pseudo Discord des joueurs et leurs scores.",
-      "details": "Le détail, la durée de conservation et la suppression sont décrits sur la page de confidentialité du bot."
+      "details": "Le détail, la durée de conservation et la suppression sont décrits sur la page de confidentialité du bot.",
+      "members": "Rien n'est conservé sur les membres d'un serveur : leurs arrivées et départs, que Discord signale au bot, servent seulement à publier les messages de bienvenue et de départ que le serveur a activés."
     }
   },
   "compareUI": {

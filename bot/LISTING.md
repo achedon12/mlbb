@@ -39,6 +39,9 @@ to the full page.
 - **Daily games**: today's **MLBBdle** (guess the hero, classic or skill
   mode) and the **daily quiz**, the very same puzzles as on mlbbdex.com, with
   a server leaderboard and an optional daily post at the hour you pick.
+- **Welcome and goodbye messages**: greet newcomers in the channel you
+  pick, with your own text or ours, and a single message when a raid
+  arrives instead of a flood.
 - **Nickname generator**: write your in-game name in 21 stylish fonts.
 - **Server time**: game server clock and countdowns to the daily and weekly
   resets.
@@ -80,8 +83,10 @@ member's own.
 - Only the permissions it uses: view channels, send messages (and in
   threads), embed links, attach files, read message history, use external
   emojis, add reactions. **No Administrator.**
-- **No privileged intents**: the bot does not read your messages and does
-  not download your member list.
+- **One privileged intent, for one thing**: Server Members, only to know
+  when someone joins or leaves, for the welcome and goodbye messages. The
+  bot does not read your messages, does not download your member list, and
+  stores nothing about your members.
 - It stores your server's settings and, for the leaderboards, the Discord id
   and name of players of the daily games. Command statistics are counts only,
   with no user id. Details: [mlbbdex.com/en/bot/privacy](https://mlbbdex.com/en/bot/privacy).
@@ -119,6 +124,20 @@ https://discord.com/oauth2/authorize?client_id=<DISCORD_CLIENT_ID>&permissions=2
 
 `tests/embeds.test.ts` checks that `INVITE_PERMISSIONS` (in `src/links.ts`)
 still equals this total.
+
+## Privileged intent
+
+Developer portal: Bot > Privileged Gateway Intents > **Server Members
+Intent** on (Presence and Message Content stay off). Without it the bot
+still runs, with the welcome and goodbye messages off. Text for Discord's
+verification form, once the bot passes 100 servers:
+
+> MLBBDex uses the Server Members intent only to receive the member join
+> and leave events (GUILD_MEMBER_ADD, GUILD_MEMBER_REMOVE), to post the
+> welcome and goodbye messages a server's managers turn on in its
+> dashboard. It never requests the member list, keeps no member cache and
+> stores nothing about members: the event is read (id, username, avatar),
+> the message posted, and the data dropped. The feature is off by default.
 
 ## Links for the listing forms
 
