@@ -9,6 +9,10 @@ they run on demand (or in CI), then their output is committed.
   patch notes, hero lore, game modes.
 - **Community API** (`arena.rone.dev`): statistics (win rates, counters),
   fallback skill icons, lore teasers.
+- **Liquipedia** (`liquipedia.net/mobilelegends`, MediaWiki API, CC BY-SA 3.0):
+  esports tournaments, standings, drafts, rosters and lineups. Read with
+  `npm run sync:esports` under the API terms (identified User-Agent, two
+  seconds between requests, a revision cache).
 
 > The sync collects no player's match statistics: Moonton does not publish them.
 
@@ -22,6 +26,7 @@ they run on demand (or in CI), then their output is committed.
 | `node scripts/sync.mjs --combos` | Skill combos only (`combos.json`) |
 | `npm run translate` | Translates the interface, content data and articles (see [Translations](Translations)) |
 | `npm run watch` | Snapshot of the Watch page feeds (`watch.json`) |
+| `npm run sync:esports` | Esports tournaments (`esports.json`) and pro players and teams (`esports-players.json`) |
 
 ## What the sync produces
 
@@ -30,6 +35,12 @@ they run on demand (or in CI), then their output is committed.
 builds, guides, teammates, relations), `stories.json`, `modes.json`,
 `ranks.json`, `names.json`, `evolution.json`, `combos.json`, `duos.json`,
 `visuals.json` (the visuals tables) and `sync.json` (the run's timestamp).
+`npm run sync:esports` writes `esports.json` (tournaments, standings, hero
+counts, latest drafts) and `esports-players.json` (rosters, then every played
+match with its drafts and the five players of each side, one line per entry).
+Liquipedia enters picks in the roster's lane order; the player of each hero
+comes from the starters, adjusted by the substitutions the match lists. It
+records no kills, deaths or assists for Mobile Legends, so there is no KDA.
 `npm run watch` writes `watch.json`, and `npm run translate` writes the
 per-language versions (`stories/`, `skills/`, `modes/`, `items/`,
 `patches/`, `combos/`, `tier-notes/`, one `<language>.json` each).
@@ -151,8 +162,9 @@ The page table is resolved against that union.
 `/sitemap.xml`, the address submitted to Search Console and named in
 `robots.txt`, is a sitemap index. It lists one child sitemap per page type,
 `/sitemaps/<name>.xml`: `pages` (home, hubs, tools, fixed texts, lore, game
-modes, esports, skin calendars), `tier-lists`, `heroes`, `hero-counters`,
+modes, the esports hub, skin calendars), `tier-lists`, `heroes`, `hero-counters`,
 `hero-duos`, `hero-skins`, `compare`, `items`, `emblems-spells`, `events`,
+`esports` (tournaments, their player statistics, pro players and teams),
 `patch-notes` and `news`. Search Console then reports submitted and indexed
 pages for each type separately. The entries are built in `src/lib/sitemap.ts`
 and distributed by path pattern; a new route lands in `pages` unless a pattern
