@@ -11,6 +11,7 @@ import {
   guildSettings,
   leaderboard,
   pendingAnnouncements,
+  PERIODS,
   type Announcement,
   type Daily,
   type DailyGuild,
@@ -64,10 +65,20 @@ export interface DailyResult {
 const SETTINGS_TTL_MS = 2 * 60 * 1000;
 /** The daily puzzle is fixed for the day; ten minutes covers a deploy changing the roster. */
 const DAILY_TTL_MS = 10 * 60 * 1000;
+/**
+ * /leaderboard was the one command that reached the site on every use:
+ * members spamming it (nine game and period pairs per server) could spend
+ * the whole budget of signed calls the site accepts from the bot, and
+ * settings, deliveries and results would then fail for every server. A
+ * burst now costs one call per board and half a minute; a new result
+ * clears that server's boards for its game, so a player sees their score.
+ */
+const LEADERBOARD_TTL_MS = 30 * 1000;
 
 export class SiteClient {
   private readonly settingsCache = new TtlCache<GuildSettings>(SETTINGS_TTL_MS, 2000);
   private readonly dailyCache = new TtlCache<Daily>(DAILY_TTL_MS, 12);
+  private readonly leaderboardCache = new TtlCache<Leaderboard>(LEADERBOARD_TTL_MS, 1000);
 
   constructor(
     private readonly baseUrl: string,
@@ -182,11 +193,15 @@ export class SiteClient {
     return out;
   }
 
-  submitResults(results: DailyResult[]): Promise<unknown> {
-    return this.request("POST", "/api/bot/daily/results", anyBody, results);
+  async submitResults(results: DailyResult[]): Promise<unknown> {
+    const stored = await this.request("POST", "/api/bot/daily/results", anyBody, results);
+    for (const r of results) for (const period of PERIODS) this.leaderboardCache.delete(`${r.guildId}:${r.game}:${period}`);
+    return stored;
   }
 
   leaderboard(guildId: string, game: Game, period: Period): Promise<Leaderboard> {
-    return this.request("GET", `/api/bot/daily/leaderboard?guild=${guildId}&game=${game}&period=${period}`, leaderboard);
+    return this.leaderboardCache.getOrLoad(`${guildId}:${game}:${period}`, () =>
+      this.request("GET", `/api/bot/daily/leaderboard?guild=${guildId}&game=${game}&period=${period}`, leaderboard),
+    );
   }
 }
