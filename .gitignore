@@ -62,3 +62,6 @@ next-env.d.ts
 
 # Generated database client (npm install, npm run build)
 /src/generated
+
+# Database dumps (runtime)
+/backups

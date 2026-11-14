@@ -42,9 +42,15 @@ export interface GuildLists {
 
 export interface ShardStats {
   id: number;
+  /** discord.js's gateway `Status` (0 = Ready); the site names it. */
   status: number;
+  /** -1 until the first heartbeat. */
   ping: number;
   guilds: number;
+  /** This shard's process (resident set). */
+  memoryMb: number;
+  /** Since the shard's client became ready. */
+  uptimeSec: number;
 }
 
 export interface ShardApi {
@@ -181,6 +187,8 @@ export function createShardApi(client: Client): ShardApi {
       status: client.ws.status,
       ping: client.ws.ping,
       guilds: client.guilds.cache.size,
+      memoryMb: Math.round(process.memoryUsage().rss / 1024 / 1024),
+      uptimeSec: Math.round((client.uptime ?? 0) / 1000),
     }),
   };
 }

@@ -60,7 +60,8 @@ ENV NODE_ENV=production \
     NEXT_TELEMETRY_DISABLED=1 \
     PORT=3001 \
     HOSTNAME=0.0.0.0 \
-    DATA_DIR=/app/donnees-serveur
+    DATA_DIR=/app/donnees-serveur \
+    BACKUP_DIR=/app/backups
 
 # V8 sizes its heap from the host's RAM (4 GB on a 16 GB server) and only
 # collects garbage seriously near that limit: the site sat at 5 GB in
@@ -71,12 +72,16 @@ ENV NODE_ENV=production \
 ENV NODE_OPTIONS=--max-old-space-size=1024
 
 # The data folder exists in the image, owned by the user: a named volume
-# mounted on it inherits that ownership when it is created.
-RUN apk add --no-cache wget \
+# mounted on it inherits that ownership when it is created. The backups
+# folder too (a host folder mounted there must belong to uid 1001).
+# pg_dump for the daily database backups (src/lib/db-backup.ts): the
+# client of the compose database's major version, 17 — an older pg_dump
+# refuses a newer server.
+RUN apk add --no-cache wget postgresql17-client \
  && addgroup -g 1001 -S nodejs \
  && adduser -u 1001 -S nextjs -G nodejs \
- && mkdir -p /app/donnees-serveur \
- && chown nextjs:nodejs /app/donnees-serveur
+ && mkdir -p /app/donnees-serveur /app/backups \
+ && chown nextjs:nodejs /app/donnees-serveur /app/backups
 
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
