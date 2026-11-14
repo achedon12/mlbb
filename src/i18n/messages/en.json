@@ -209,6 +209,10 @@
     "bot": {
       "label": "Discord bot",
       "desc": "The Mobile Legends Discord bot: builds, counters, tier list and MLBBdle in your servers"
+    },
+    "guides": {
+      "label": "Guides",
+      "desc": "Strategy, macro and roles explained"
     }
   },
   "account": {
@@ -4426,6 +4430,42 @@
         "confirmDelete": "Delete this content for good?",
         "failed": "The action failed: reload the page."
       }
+    },
+    "guides": {
+      "title": "Guides",
+      "lead": "The basics that win ranked games: laning phase, objectives, rotations, teamfights, drafting, then one guide per role. Every guide links to the heroes, items and tools of the site it talks about.",
+      "metaTitle": "Mobile Legends guides: strategy and roles",
+      "metaDescription": "Mobile Legends: Bang Bang guides: laning phase, jungle and objectives, rotations, teamfights, macro, drafting, ranked, and a guide for each of the five lanes.",
+      "nGuides": "{n} guides",
+      "strategy": "Strategy",
+      "strategyLead": "What is played beyond the hero: the wave, the map, the objectives and the draft.",
+      "roles": "Roles",
+      "rolesLead": "One lane per guide: what the role brings, the heroes holding it right now, what it builds.",
+      "kind": {
+        "strategy": "Strategy",
+        "role": "Role"
+      },
+      "readingTime": "{n} min read",
+      "updated": "Updated {date}",
+      "related": "Go further",
+      "tools": "Tools for this guide",
+      "toolsLead": "To put into practice what the guide explains.",
+      "all": "All guides",
+      "readGuide": "Guide: {title}",
+      "heroesLead": "The best ranked {lane} heroes in the computed tier list, all ranks combined, as measured on {date}. The list follows every sync.",
+      "heroesLink": "Full {lane} tier list",
+      "heroesEmpty": "No measurements yet for this lane.",
+      "kitLead": "What {lane} players build the most: the most played builds of every hero in the role, weighted by how popular the hero is, as measured on {date}.",
+      "kitShare": "Share of builds",
+      "kitEmpty": "No measured builds for this lane yet.",
+      "kitLink": "Try a build in the simulator",
+      "kitParts": {
+        "items": "Items",
+        "spells": "Battle Spells",
+        "emblems": "Emblems",
+        "talents": "Talents"
+      },
+      "ldName": "Mobile Legends: Bang Bang Guides"
     }
   },
   "modeSheet": {

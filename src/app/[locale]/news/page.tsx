@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ListArticles } from "@/components/article";
+import Link from "@/components/link";
 import { PageHeader } from "@/components/ui";
 import { articles } from "@/lib/content";
 import { languageName, type Locale } from "@/i18n/config";
@@ -32,6 +33,11 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: L
       <PageHeader
         title={t("pages.news.title")}
         lead={t("pages.news.lead")}
+        actions={
+          <Link href="/guides" className="text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500">
+            {t("pages.guides.all")} →
+          </Link>
+        }
       />
       <div className="mx-auto max-w-3xl px-4 py-14">
         <ListArticles articles={list} base="/news" locale={locale} />

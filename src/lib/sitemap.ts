@@ -10,6 +10,7 @@ import { calendarYears } from "@/lib/skin-catalog-server";
 import { regionsLore } from "@/lib/lore";
 import { heroesWithSkins } from "@/lib/hero-skins";
 import { articles } from "@/lib/content";
+import { guides, guidesUpdated } from "@/lib/guides";
 import { ROLES } from "@/lib/draft";
 import { pathFilter, pathRole, FILTERS_LANE, FILTERS_ROLE } from "@/lib/tier-list-filters";
 import { site } from "@/lib/site";
@@ -193,6 +194,14 @@ export function sitemapEntries(): MetadataRoute.Sitemap {
     { path: "/ranks", changeFrequency: "weekly", priority: 0.6, lastModified: measuredDate },
     { path: "/game-modes", changeFrequency: "monthly", priority: 0.6, lastModified: synced },
     { path: "/news", changeFrequency: "daily", priority: 0.8, lastModified: dateOf(news[0]?.date) },
+    // Guides: the hub, dated by its latest revision, then each guide by its own.
+    { path: "/guides", changeFrequency: "monthly", priority: 0.7, lastModified: dateOf(guidesUpdated()) },
+    ...guides("fr").map((g) => ({
+      path: `/guides/${g.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+      lastModified: dateOf(g.updated),
+    })),
     { path: "/watch", changeFrequency: "hourly", priority: 0.6, lastModified: dateOf(watch.measuredAt) },
     {
       path: "/patch-notes",
@@ -292,6 +301,7 @@ export const SITEMAPS = [
   { name: "esports", pattern: /^\/esports\/.+$/ },
   { name: "patch-notes", pattern: /^\/patch-notes\/.+$/ },
   { name: "news", pattern: /^\/news\/.+$/ },
+  { name: "guides", pattern: /^\/guides\/.+$/ },
 ] as const satisfies readonly { name: string; pattern: RegExp | null }[];
 
 export type SitemapName = (typeof SITEMAPS)[number]["name"];

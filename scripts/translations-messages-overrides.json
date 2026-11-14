@@ -3579,6 +3579,42 @@
     "pages.community.moderation.asReported": {
       "fr": "Tel que signalé",
       "text": "As reported"
+    },
+    "pages.guides.lead": {
+      "fr": "Les bases qui font gagner des parties classées : phase de lane, objectifs, rotations, combats d'équipe, draft, puis un guide par rôle. Chaque guide renvoie aux héros, objets et outils du site dont il parle.",
+      "text": "The basics that win ranked games: laning phase, objectives, rotations, teamfights, drafting, then one guide per role. Every guide links to the heroes, items and tools of the site it talks about."
+    },
+    "pages.guides.metaDescription": {
+      "fr": "Guides Mobile Legends: Bang Bang : phase de lane, jungle et objectifs, rotations, combats d'équipe, macro, draft, classé, et un guide pour chacune des cinq lanes.",
+      "text": "Mobile Legends: Bang Bang guides: laning phase, jungle and objectives, rotations, teamfights, macro, drafting, ranked, and a guide for each of the five lanes."
+    },
+    "pages.guides.strategyLead": {
+      "fr": "Ce qui se joue au-delà du héros : la vague, la carte, les objectifs et la sélection.",
+      "text": "What is played beyond the hero: the wave, the map, the objectives and the draft."
+    },
+    "pages.guides.rolesLead": {
+      "fr": "Une lane par guide : ce que le poste apporte, les héros qui y tiennent en ce moment, ce qu'on y construit.",
+      "text": "One lane per guide: what the role brings, the heroes holding it right now, what it builds."
+    },
+    "pages.guides.tools": {
+      "fr": "Les outils du guide",
+      "text": "Tools for this guide"
+    },
+    "pages.guides.toolsLead": {
+      "fr": "Pour mettre en pratique ce que le guide explique.",
+      "text": "To put into practice what the guide explains."
+    },
+    "pages.guides.heroesLead": {
+      "fr": "Les héros les mieux classés en {lane} dans la tier list calculée, tous rangs confondus, d'après la mesure du {date}. La liste suit chaque synchronisation.",
+      "text": "The best ranked {lane} heroes in the computed tier list, all ranks combined, as measured on {date}. The list follows every sync."
+    },
+    "pages.guides.heroesLink": {
+      "fr": "Toute la tier list {lane}",
+      "text": "Full {lane} tier list"
+    },
+    "pages.guides.kitLead": {
+      "fr": "Ce que les joueurs de {lane} construisent le plus : les builds les plus joués de chaque héros du poste, pondérés par sa popularité, d'après la mesure du {date}.",
+      "text": "What {lane} players build the most: the most played builds of every hero in the role, weighted by how popular the hero is, as measured on {date}."
     }
   },
   "es": {
@@ -6981,6 +7017,74 @@
     "pages.community.moderation.asReported": {
       "fr": "Tel que signalé",
       "text": "Tal como se reportó"
+    },
+    "nav.guides.desc": {
+      "fr": "Stratégie, macro et rôles expliqués",
+      "text": "Estrategia, macro y roles explicados"
+    },
+    "pages.guides.lead": {
+      "fr": "Les bases qui font gagner des parties classées : phase de lane, objectifs, rotations, combats d'équipe, draft, puis un guide par rôle. Chaque guide renvoie aux héros, objets et outils du site dont il parle.",
+      "text": "Lo básico para ganar partidas clasificatorias: fase de líneas, objetivos, rotaciones, peleas de equipo, draft y una guía por rol. Cada guía enlaza con los héroes, objetos y herramientas del sitio de los que habla."
+    },
+    "pages.guides.metaDescription": {
+      "fr": "Guides Mobile Legends: Bang Bang : phase de lane, jungle et objectifs, rotations, combats d'équipe, macro, draft, classé, et un guide pour chacune des cinq lanes.",
+      "text": "Guías de Mobile Legends: Bang Bang: fase de líneas, jungla y objetivos, rotaciones, peleas de equipo, macro, draft, clasificatoria y una guía para cada una de las cinco líneas."
+    },
+    "pages.guides.strategyLead": {
+      "fr": "Ce qui se joue au-delà du héros : la vague, la carte, les objectifs et la sélection.",
+      "text": "Lo que se juega más allá del héroe: la oleada, el mapa, los objetivos y el draft."
+    },
+    "pages.guides.rolesLead": {
+      "fr": "Une lane par guide : ce que le poste apporte, les héros qui y tiennent en ce moment, ce qu'on y construit.",
+      "text": "Una línea por guía: lo que aporta el rol, los héroes que la dominan ahora mismo, lo que se construye en ella."
+    },
+    "pages.guides.readingTime": {
+      "fr": "{n} min de lecture",
+      "text": "{n} min de lectura"
+    },
+    "pages.guides.tools": {
+      "fr": "Les outils du guide",
+      "text": "Las herramientas de la guía"
+    },
+    "pages.guides.toolsLead": {
+      "fr": "Pour mettre en pratique ce que le guide explique.",
+      "text": "Para poner en práctica lo que explica la guía."
+    },
+    "pages.guides.heroesLead": {
+      "fr": "Les héros les mieux classés en {lane} dans la tier list calculée, tous rangs confondus, d'après la mesure du {date}. La liste suit chaque synchronisation.",
+      "text": "Los héroes mejor clasificados en {lane} en la tier list calculada, todos los rangos juntos, según la medición del {date}. La lista sigue cada sincronización."
+    },
+    "pages.guides.heroesLink": {
+      "fr": "Toute la tier list {lane}",
+      "text": "Toda la tier list de {lane}"
+    },
+    "pages.guides.heroesEmpty": {
+      "fr": "Pas encore de mesure pour cette lane.",
+      "text": "Aún no hay mediciones para esta línea."
+    },
+    "pages.guides.kitLead": {
+      "fr": "Ce que les joueurs de {lane} construisent le plus : les builds les plus joués de chaque héros du poste, pondérés par sa popularité, d'après la mesure du {date}.",
+      "text": "Lo que más construyen los jugadores de {lane}: las builds más jugadas de cada héroe del rol, ponderadas por su popularidad, según la medición del {date}."
+    },
+    "pages.guides.kitShare": {
+      "fr": "Part des builds",
+      "text": "Parte de las builds"
+    },
+    "pages.guides.kitEmpty": {
+      "fr": "Pas encore de builds mesurés pour cette lane.",
+      "text": "Aún no hay builds medidas para esta línea."
+    },
+    "pages.guides.kitLink": {
+      "fr": "Essayer un build dans le simulateur",
+      "text": "Probar una build en el simulador"
+    },
+    "pages.guides.kitParts.spells": {
+      "fr": "Sorts de combat",
+      "text": "Hechizos de batalla"
+    },
+    "pages.guides.ldName": {
+      "fr": "Guides Mobile Legends: Bang Bang",
+      "text": "Guías de Mobile Legends: Bang Bang"
     }
   },
   "id": {
@@ -12427,6 +12531,58 @@
     "pages.community.moderation.asReported": {
       "fr": "Tel que signalé",
       "text": "Saat dilaporkan"
+    },
+    "pages.guides.lead": {
+      "fr": "Les bases qui font gagner des parties classées : phase de lane, objectifs, rotations, combats d'équipe, draft, puis un guide par rôle. Chaque guide renvoie aux héros, objets et outils du site dont il parle.",
+      "text": "Dasar-dasar yang memenangkan pertandingan ranked: fase lane, objektif, rotasi, team fight, draft, lalu satu panduan per role. Setiap panduan menautkan ke hero, item, dan alat situs yang dibahasnya."
+    },
+    "pages.guides.metaDescription": {
+      "fr": "Guides Mobile Legends: Bang Bang : phase de lane, jungle et objectifs, rotations, combats d'équipe, macro, draft, classé, et un guide pour chacune des cinq lanes.",
+      "text": "Panduan Mobile Legends: Bang Bang: fase lane, jungle dan objektif, rotasi, team fight, makro, draft, ranked, dan panduan untuk masing-masing dari lima lane."
+    },
+    "pages.guides.strategyLead": {
+      "fr": "Ce qui se joue au-delà du héros : la vague, la carte, les objectifs et la sélection.",
+      "text": "Yang dimainkan di luar hero: wave, peta, objektif, dan draft."
+    },
+    "pages.guides.rolesLead": {
+      "fr": "Une lane par guide : ce que le poste apporte, les héros qui y tiennent en ce moment, ce qu'on y construit.",
+      "text": "Satu lane per panduan: apa yang dibawa role ini, hero yang menguasainya saat ini, dan apa yang dibuild di sana."
+    },
+    "pages.guides.updated": {
+      "fr": "Mis à jour le {date}",
+      "text": "Diperbarui {date}"
+    },
+    "pages.guides.related": {
+      "fr": "Pour aller plus loin",
+      "text": "Baca juga"
+    },
+    "pages.guides.tools": {
+      "fr": "Les outils du guide",
+      "text": "Alat untuk panduan ini"
+    },
+    "pages.guides.heroesLead": {
+      "fr": "Les héros les mieux classés en {lane} dans la tier list calculée, tous rangs confondus, d'après la mesure du {date}. La liste suit chaque synchronisation.",
+      "text": "Hero dengan peringkat terbaik di {lane} dalam tier list yang dihitung, semua rank digabung, menurut pengukuran {date}. Daftar ini mengikuti setiap sinkronisasi."
+    },
+    "pages.guides.kitLead": {
+      "fr": "Ce que les joueurs de {lane} construisent le plus : les builds les plus joués de chaque héros du poste, pondérés par sa popularité, d'après la mesure du {date}.",
+      "text": "Yang paling banyak dibuild pemain {lane}: build paling sering dimainkan dari setiap hero di role ini, dibobot menurut popularitasnya, menurut pengukuran {date}."
+    },
+    "pages.guides.kitEmpty": {
+      "fr": "Pas encore de builds mesurés pour cette lane.",
+      "text": "Belum ada build terukur untuk lane ini."
+    },
+    "pages.guides.kitParts.emblems": {
+      "fr": "Emblèmes",
+      "text": "Emblem"
+    },
+    "pages.guides.kitParts.talents": {
+      "fr": "Talents",
+      "text": "Talent"
+    },
+    "pages.guides.ldName": {
+      "fr": "Guides Mobile Legends: Bang Bang",
+      "text": "Panduan Mobile Legends: Bang Bang"
     }
   },
   "it": {
@@ -15881,6 +16037,58 @@
     "pages.community.moderation.asReported": {
       "fr": "Tel que signalé",
       "text": "Come segnalato"
+    },
+    "pages.guides.lead": {
+      "fr": "Les bases qui font gagner des parties classées : phase de lane, objectifs, rotations, combats d'équipe, draft, puis un guide par rôle. Chaque guide renvoie aux héros, objets et outils du site dont il parle.",
+      "text": "Le basi che fanno vincere le partite classificate: fase di lane, obiettivi, rotazioni, scontri di squadra, draft, poi una guida per ruolo. Ogni guida rimanda agli eroi, agli oggetti e agli strumenti del sito di cui parla."
+    },
+    "pages.guides.metaDescription": {
+      "fr": "Guides Mobile Legends: Bang Bang : phase de lane, jungle et objectifs, rotations, combats d'équipe, macro, draft, classé, et un guide pour chacune des cinq lanes.",
+      "text": "Guide di Mobile Legends: Bang Bang: fase di lane, jungle e obiettivi, rotazioni, scontri di squadra, macro, draft, classificate e una guida per ciascuna delle cinque lane."
+    },
+    "pages.guides.strategyLead": {
+      "fr": "Ce qui se joue au-delà du héros : la vague, la carte, les objectifs et la sélection.",
+      "text": "Ciò che si gioca oltre l'eroe: l'ondata, la mappa, gli obiettivi e il draft."
+    },
+    "pages.guides.rolesLead": {
+      "fr": "Une lane par guide : ce que le poste apporte, les héros qui y tiennent en ce moment, ce qu'on y construit.",
+      "text": "Una lane per guida: cosa porta il ruolo, gli eroi che la tengono in questo momento, cosa vi si costruisce."
+    },
+    "pages.guides.updated": {
+      "fr": "Mis à jour le {date}",
+      "text": "Aggiornata il {date}"
+    },
+    "pages.guides.tools": {
+      "fr": "Les outils du guide",
+      "text": "Gli strumenti della guida"
+    },
+    "pages.guides.heroesLead": {
+      "fr": "Les héros les mieux classés en {lane} dans la tier list calculée, tous rangs confondus, d'après la mesure du {date}. La liste suit chaque synchronisation.",
+      "text": "Gli eroi meglio classificati in {lane} nella tier list calcolata, tutti i ranghi insieme, secondo la misurazione del {date}. La lista segue ogni sincronizzazione."
+    },
+    "pages.guides.heroesLink": {
+      "fr": "Toute la tier list {lane}",
+      "text": "Tutta la tier list {lane}"
+    },
+    "pages.guides.heroesEmpty": {
+      "fr": "Pas encore de mesure pour cette lane.",
+      "text": "Ancora nessuna misurazione per questa lane."
+    },
+    "pages.guides.kitLead": {
+      "fr": "Ce que les joueurs de {lane} construisent le plus : les builds les plus joués de chaque héros du poste, pondérés par sa popularité, d'après la mesure du {date}.",
+      "text": "Cosa costruiscono di più i giocatori in {lane}: le build più giocate di ogni eroe del ruolo, pesate in base alla sua popolarità, secondo la misurazione del {date}."
+    },
+    "pages.guides.kitEmpty": {
+      "fr": "Pas encore de builds mesurés pour cette lane.",
+      "text": "Ancora nessuna build misurata per questa lane."
+    },
+    "pages.guides.kitParts.spells": {
+      "fr": "Sorts de combat",
+      "text": "Battle Spell"
+    },
+    "pages.guides.ldName": {
+      "fr": "Guides Mobile Legends: Bang Bang",
+      "text": "Guide di Mobile Legends: Bang Bang"
     }
   }
 }
