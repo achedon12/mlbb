@@ -643,6 +643,26 @@
     "pages.botTerms.p7": {
       "fr": "Les rôles automatiques sont choisis par les gestionnaires du serveur ; le bot refuse de donner un rôle placé au-dessus du sien, géré par une intégration ou portant une permission de modération ou d'administration.",
       "text": "Auto-roles are chosen by the server's managers; the bot refuses to give a role placed above its own, managed by an integration or carrying a moderation or administration permission."
+    },
+    "pages.botUI.autoRolesFailingGranter": {
+      "fr": "Le membre qui a choisi ces rôles a quitté le serveur ou ne peut plus les donner lui-même : un gestionnaire qui a la permission Gérer les rôles, avec un rôle au-dessus de ceux-ci, doit enregistrer à nouveau.",
+      "text": "The member who chose these roles left the server or can no longer give them themselves: a manager with the Manage Roles permission, whose role is above these, must save again."
+    },
+    "pages.botUI.autoRolesNotGrantable": {
+      "fr": "Vous ne pouvez pas donner l'un de ces rôles vous-même (permission Gérer les rôles, rôle au-dessus du vôtre) : le bot ne le donnera pas à votre place.",
+      "text": "You cannot give one of these roles yourself (Manage Roles permission, role above yours): the bot will not give it for you."
+    },
+    "pages.botUI.autoRoleRefusals.not_member": {
+      "fr": "vous n'êtes pas membre",
+      "text": "you are not a member"
+    },
+    "pages.botUI.autoRoleRefusals.no_manage_roles": {
+      "fr": "il vous faut Gérer les rôles",
+      "text": "you need Manage Roles"
+    },
+    "pages.botUI.autoRoleRefusals.above_user": {
+      "fr": "au-dessus de votre rôle",
+      "text": "above your role"
     }
   },
   "es": {
@@ -1389,6 +1409,18 @@
     "pages.botTerms.p7": {
       "fr": "Les rôles automatiques sont choisis par les gestionnaires du serveur ; le bot refuse de donner un rôle placé au-dessus du sien, géré par une intégration ou portant une permission de modération ou d'administration.",
       "text": "Los roles automáticos los eligen los gestores del servidor; el bot se niega a dar un rol situado por encima del suyo, gestionado por una integración o con un permiso de moderación o de administración."
+    },
+    "pages.botUI.autoRolesFailingGranter": {
+      "fr": "Le membre qui a choisi ces rôles a quitté le serveur ou ne peut plus les donner lui-même : un gestionnaire qui a la permission Gérer les rôles, avec un rôle au-dessus de ceux-ci, doit enregistrer à nouveau.",
+      "text": "El miembro que eligió estos roles dejó el servidor o ya no puede darlos él mismo: un gestor con el permiso Gestionar roles, y un rol por encima de estos, debe guardar de nuevo."
+    },
+    "pages.botUI.autoRolesNotGrantable": {
+      "fr": "Vous ne pouvez pas donner l'un de ces rôles vous-même (permission Gérer les rôles, rôle au-dessus du vôtre) : le bot ne le donnera pas à votre place.",
+      "text": "No puedes dar tú mismo uno de estos roles (permiso Gestionar roles, rol por encima del tuyo): el bot no lo dará en tu lugar."
+    },
+    "pages.botUI.autoRoleRefusals.no_manage_roles": {
+      "fr": "il vous faut Gérer les rôles",
+      "text": "necesitas Gestionar roles"
     }
   },
   "id": {
@@ -4091,6 +4123,22 @@
     "pages.botPrivacy.autoRoles": {
       "fr": "Rôles automatiques : si le serveur en a choisi, le bot donne ces rôles à qui arrive, avec la permission Gérer les rôles que les administrateurs du serveur lui accordent ; un membre qui doit encore accepter les règles du serveur n'est retenu (son identifiant, en mémoire, au plus 24 heures) que le temps de les accepter, et rien n'est enregistré.",
       "text": "Peran otomatis: jika server memilihnya, bot memberikan peran tersebut kepada siapa pun yang bergabung, dengan izin Kelola Peran yang diberikan admin server; anggota yang masih harus menerima aturan server hanya diingat (ID-nya, di memori, paling lama 24 jam) sampai ia menerimanya, dan tidak ada yang disimpan."
+    },
+    "pages.botUI.autoRolesFailingGranter": {
+      "fr": "Le membre qui a choisi ces rôles a quitté le serveur ou ne peut plus les donner lui-même : un gestionnaire qui a la permission Gérer les rôles, avec un rôle au-dessus de ceux-ci, doit enregistrer à nouveau.",
+      "text": "Anggota yang memilih peran ini telah keluar dari server atau tidak bisa lagi memberikannya sendiri: pengelola dengan izin Kelola Peran, yang perannya di atas peran-peran ini, harus menyimpan lagi."
+    },
+    "pages.botUI.autoRolesNotGrantable": {
+      "fr": "Vous ne pouvez pas donner l'un de ces rôles vous-même (permission Gérer les rôles, rôle au-dessus du vôtre) : le bot ne le donnera pas à votre place.",
+      "text": "Anda tidak bisa memberikan salah satu peran ini sendiri (izin Kelola Peran, peran di atas peran Anda): bot tidak akan memberikannya untuk Anda."
+    },
+    "pages.botUI.autoRoleRefusals.not_member": {
+      "fr": "vous n'êtes pas membre",
+      "text": "Anda bukan anggota"
+    },
+    "pages.botUI.autoRoleRefusals.no_manage_roles": {
+      "fr": "il vous faut Gérer les rôles",
+      "text": "Anda perlu Kelola Peran"
     }
   },
   "it": {
@@ -4881,6 +4929,22 @@
     "pages.botTerms.p7": {
       "fr": "Les rôles automatiques sont choisis par les gestionnaires du serveur ; le bot refuse de donner un rôle placé au-dessus du sien, géré par une intégration ou portant une permission de modération ou d'administration.",
       "text": "I ruoli automatici sono scelti dai gestori del server; il bot rifiuta di assegnare un ruolo posto sopra il proprio, gestito da un'integrazione o con un permesso di moderazione o di amministrazione."
+    },
+    "pages.botUI.autoRolesFailingGranter": {
+      "fr": "Le membre qui a choisi ces rôles a quitté le serveur ou ne peut plus les donner lui-même : un gestionnaire qui a la permission Gérer les rôles, avec un rôle au-dessus de ceux-ci, doit enregistrer à nouveau.",
+      "text": "Il membro che ha scelto questi ruoli ha lasciato il server o non può più assegnarli lui stesso: un gestore con il permesso Gestire i ruoli, e un ruolo sopra questi, deve salvare di nuovo."
+    },
+    "pages.botUI.autoRolesNotGrantable": {
+      "fr": "Vous ne pouvez pas donner l'un de ces rôles vous-même (permission Gérer les rôles, rôle au-dessus du vôtre) : le bot ne le donnera pas à votre place.",
+      "text": "Non puoi assegnare tu stesso uno di questi ruoli (permesso Gestire i ruoli, ruolo sopra il tuo): il bot non lo assegnerà al posto tuo."
+    },
+    "pages.botUI.autoRoleRefusals.no_manage_roles": {
+      "fr": "il vous faut Gérer les rôles",
+      "text": "ti serve Gestire i ruoli"
+    },
+    "pages.botUI.autoRoleRefusals.above_user": {
+      "fr": "au-dessus de votre rôle",
+      "text": "sopra il tuo ruolo"
     }
   }
 }

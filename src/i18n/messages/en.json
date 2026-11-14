@@ -3546,8 +3546,13 @@
       "autoRoleRefusals": {
         "managed": "managed by an integration",
         "above_bot": "above the bot",
-        "dangerous": "moderation permissions"
-      }
+        "dangerous": "moderation permissions",
+        "not_member": "you are not a member",
+        "no_manage_roles": "you need Manage Roles",
+        "above_user": "above your role"
+      },
+      "autoRolesFailingGranter": "The member who chose these roles left the server or can no longer give them themselves: a manager with the Manage Roles permission, whose role is above these, must save again.",
+      "autoRolesNotGrantable": "You cannot give one of these roles yourself (Manage Roles permission, role above yours): the bot will not give it for you."
     },
     "botAdmin": {
       "title": "Bot administration",

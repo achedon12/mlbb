@@ -32,3 +32,16 @@ export type AutoRoleTarget = (typeof AUTO_ROLE_TARGETS)[number];
  */
 export const AUTO_ROLE_REFUSALS = ["managed", "above_bot", "dangerous"] as const;
 export type AutoRoleRefusal = (typeof AUTO_ROLE_REFUSALS)[number];
+
+/**
+ * Why auto-roles stopped: `bot`, the bot may not give them (Manage Roles
+ * lost, a role moved or made dangerous); `granter`, the manager who chose
+ * them left or can no longer give them.
+ */
+export const AUTO_ROLE_FAILURES = ["bot", "granter"] as const;
+export type AutoRoleFailure = (typeof AUTO_ROLE_FAILURES)[number];
+/** Why a manager may not have the bot give a role (`bot/src/discord/auto-roles.ts`). */
+export const GRANTER_REFUSALS = ["not_member", "no_manage_roles", "above_user"] as const;
+export type GranterRefusal = (typeof GRANTER_REFUSALS)[number];
+/** The save's answer when the manager could not give a chosen role; the dashboard says so. */
+export const AUTO_ROLES_NOT_GRANTABLE = "auto-roles not grantable";

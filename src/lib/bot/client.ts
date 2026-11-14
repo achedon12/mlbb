@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { log } from "@/lib/log";
 import type { BotConfig } from "./config";
-import { AUTO_ROLE_REFUSALS, type GreetingKind } from "./kinds";
+import { AUTO_ROLE_REFUSALS, GRANTER_REFUSALS, type GreetingKind } from "./kinds";
 import { signedHeaders } from "./signature";
 
 /**
@@ -118,6 +118,25 @@ export const guildChannels = (config: BotConfig, guild: string): Promise<GuildLi
     `/internal/guilds/${idOf(guild)}/channels`,
     z.object({ channels: z.array(channel).max(500), roles: z.array(role).max(250), manageRoles: z.boolean().default(false) }),
   );
+
+/**
+ * Which roles this user may have the bot give (auto-roles), the member
+ * fetched live by the bot: owner, or Manage Roles and the role below their
+ * highest. Only the roles with no refusal are in `grantable`.
+ */
+export const grantableRoles = (config: BotConfig, guild: string, user: string) =>
+  call(
+    config,
+    "GET",
+    `/internal/guilds/${idOf(guild)}/can-assign?${q(user)}`,
+    z.object({
+      member: z.boolean(),
+      roles: z.array(z.object({ id: snowflake, refusal: z.enum(GRANTER_REFUSALS).nullable() })).max(250),
+    }),
+  ).then((r) => ({
+    refusals: new Map(r.roles.map((role) => [role.id, role.refusal ?? null])),
+    grantable: new Set(r.roles.filter((role) => role.refusal === null).map((role) => role.id)),
+  }));
 
 /**
  * A welcome or goodbye test: the text being edited (saved or not), shown

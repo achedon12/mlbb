@@ -12,6 +12,8 @@ const SESSION_SECRET = "b".repeat(64);
 const GUILD = "111111111111111111";
 const OTHER_GUILD = "999999999999999999";
 const USER = "222222222222222222";
+/** Another manager of GUILD (Manage Server), with or without Manage Roles per test. */
+const CO_MANAGER = "222222222222222223";
 const CHANNEL = "333333333333333333";
 const FOREIGN_CHANNEL = "444444444444444444";
 /** Roles of GUILD as the bot reports them: one it may give, and three it refuses. */
@@ -32,7 +34,17 @@ Object.assign(process.env, {
 });
 
 const client = vi.hoisted(() => ({
-  canManage: vi.fn(async (_c: unknown, guild: string, user: string) => guild === "111111111111111111" && user === "222222222222222222"),
+  // Two managers of GUILD: USER and CO_MANAGER.
+  canManage: vi.fn(
+    async (_c: unknown, guild: string, user: string) =>
+      guild === "111111111111111111" && (user === "222222222222222222" || user === "222222222222222223"),
+  ),
+  /** Roles each manager may give themselves, as the bot would report them. */
+  grants: new Map<string, string[]>([["222222222222222222", ["555555555555555551"]]]),
+  grantableRoles: vi.fn(async (_c: unknown, _guild: string, user: string) => {
+    const ids = client.grants.get(user) ?? [];
+    return { refusals: new Map(ids.map((id) => [id, null])), grantable: new Set(ids) };
+  }),
   guildChannels: vi.fn(async (_c: unknown, guild: string) =>
     guild === "111111111111111111"
       ? {
@@ -56,8 +68,17 @@ vi.mock("next/headers", () => ({ cookies: async () => ({ get: () => (jar.session
 
 const store = vi.hoisted(() => ({
   writes: [] as unknown[],
+  /** The server's stored settings row (null: never saved). */
+  settings: null as Record<string, unknown> | null,
   guild: {
-    findUnique: vi.fn(async () => ({ id: "111111111111111111", name: "Land of Dawn", memberCount: 42, leftAt: null })),
+    findUnique: vi.fn(async () => ({
+      id: "111111111111111111",
+      name: "Land of Dawn",
+      memberCount: 42,
+      leftAt: null,
+      locale: "fr",
+      settings: store.settings,
+    })),
     update: vi.fn((a: unknown) => a),
   },
   guildSettings: { upsert: vi.fn((a: unknown) => a) },
@@ -170,7 +191,9 @@ describe("dashboard settings write", () => {
   beforeEach(() => {
     jar.session = sealSession(config, { id: USER, name: "Leo", avatar: null });
     store.writes = [];
+    store.settings = null;
     client.canManage.mockClear();
+    client.grantableRoles.mockClear();
   });
 
   it("saves for a manager of the server in the path, with its own channels", async () => {
@@ -196,7 +219,98 @@ describe("dashboard settings write", () => {
     const response = await put(GUILD, form({ roles: [MEMBER_ROLE], botRoles: [MEMBER_ROLE] }));
     expect(response.status).toBe(200);
     const upsert = store.writes[1] as { create: Record<string, unknown> };
-    expect(upsert.create).toMatchObject({ autoRoleIds: [MEMBER_ROLE], botAutoRoleIds: [MEMBER_ROLE], autoRoleFailing: false });
+    expect(upsert.create).toMatchObject({
+      autoRoleIds: [MEMBER_ROLE],
+      botAutoRoleIds: [MEMBER_ROLE],
+      autoRoleFailing: false,
+      autoRolesConfiguredBy: USER,
+    });
+    expect(client.grantableRoles).toHaveBeenCalledWith(expect.anything(), GUILD, USER);
+  });
+
+  describe("confused deputy: a manager cannot have the bot give a role they could not", () => {
+    // Its own address: the save limit (30 a minute per address) is not the subject here.
+    const putHere = (body: unknown) => put(GUILD, body, { "x-forwarded-for": "198.51.100.2" });
+    const asCoManager = () => (jar.session = sealSession(config, { id: CO_MANAGER, name: "Alt", avatar: null }));
+    const saved = (extra: Record<string, unknown> = {}) => ({
+      guildId: GUILD,
+      dailyHourUtc: 12,
+      autoRoleIds: [MEMBER_ROLE],
+      botAutoRoleIds: [],
+      autoRoleFailing: false,
+      autoRoleFailReason: null,
+      autoRolesConfiguredBy: USER,
+      ...extra,
+    });
+    const refusedNotGrantable = async (response: Response) => {
+      expect(response.status).toBe(400);
+      expect(await response.json()).toEqual({ error: "auto-roles not grantable" });
+    };
+
+    it("refuses a manager without Manage Roles (Manage Server alone)", async () => {
+      asCoManager();
+      client.grants.set(CO_MANAGER, []);
+      await refusedNotGrantable(await putHere(form({ roles: [MEMBER_ROLE] })));
+      await refusedNotGrantable(await putHere(form({ botRoles: [MEMBER_ROLE] })));
+      expect(store.writes).toHaveLength(0);
+    });
+
+    it("refuses a role above the manager's own, even with Manage Roles", async () => {
+      // The bot reports the role as one this manager may not give (above_user).
+      asCoManager();
+      client.grants.set(CO_MANAGER, ["555555555555555550"]);
+      await refusedNotGrantable(await putHere(form({ roles: [MEMBER_ROLE] })));
+      expect(store.writes).toHaveLength(0);
+    });
+
+    it("accepts the owner (any role below the bot)", async () => {
+      asCoManager();
+      client.grants.set(CO_MANAGER, [MEMBER_ROLE]);
+      expect((await putHere(form({ roles: [MEMBER_ROLE] }))).status).toBe(200);
+      expect((store.writes[1] as { create: Record<string, unknown> }).create).toMatchObject({ autoRolesConfiguredBy: CO_MANAGER });
+    });
+
+    it("lets another manager save unrelated settings without asking about the roles", async () => {
+      store.settings = saved();
+      asCoManager();
+      client.grants.set(CO_MANAGER, []);
+      expect((await putHere(form({ channel: CHANNEL, roles: [MEMBER_ROLE] }))).status).toBe(200);
+      expect(client.grantableRoles).not.toHaveBeenCalled();
+      // The roles stay the first manager's.
+      expect((store.writes[1] as { update: Record<string, unknown> }).update).toMatchObject({ autoRolesConfiguredBy: USER, autoRoleFailing: false });
+    });
+
+    it("keeps failing auto-roles failing when a manager who cannot give them saves", async () => {
+      store.settings = saved({ autoRoleFailing: true, autoRoleFailReason: "granter" });
+      asCoManager();
+      client.grants.set(CO_MANAGER, []);
+      expect((await putHere(form({ roles: [MEMBER_ROLE] }))).status).toBe(200);
+      expect((store.writes[1] as { update: Record<string, unknown> }).update).toMatchObject({
+        autoRolesConfiguredBy: USER,
+        autoRoleFailing: true,
+        autoRoleFailReason: "granter",
+      });
+    });
+
+    it("lets a manager who can give them take failing auto-roles over", async () => {
+      store.settings = saved({ autoRoleFailing: true, autoRoleFailReason: "granter" });
+      asCoManager();
+      client.grants.set(CO_MANAGER, [MEMBER_ROLE]);
+      expect((await putHere(form({ roles: [MEMBER_ROLE] }))).status).toBe(200);
+      expect((store.writes[1] as { update: Record<string, unknown> }).update).toMatchObject({
+        autoRolesConfiguredBy: CO_MANAGER,
+        autoRoleFailing: false,
+        autoRoleFailReason: null,
+      });
+    });
+
+    it("checks the whole new list against the saver when it changes", async () => {
+      store.settings = saved();
+      asCoManager();
+      client.grants.set(CO_MANAGER, []);
+      await refusedNotGrantable(await putHere(form({ roles: [MEMBER_ROLE], botRoles: [MEMBER_ROLE] })));
+      expect(store.writes).toHaveLength(0);
+    });
   });
 
   it("refuses dangerous, higher, managed and foreign auto-roles server-side", async () => {

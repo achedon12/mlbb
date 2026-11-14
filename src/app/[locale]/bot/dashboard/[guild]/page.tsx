@@ -7,7 +7,7 @@ import { PageHeader } from "@/components/ui";
 import type { Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { createT, messagesPage } from "@/i18n/translations";
-import { canManage, guildChannels, mentionableRoles } from "@/lib/bot/client";
+import { canManage, grantableRoles, guildChannels, mentionableRoles } from "@/lib/bot/client";
 import { botConfig } from "@/lib/bot/config";
 import { dashboardPageAllowed } from "@/lib/bot/dashboard-guard";
 import { botClientId, discordImage, isSnowflake } from "@/lib/bot/public";
@@ -70,12 +70,14 @@ export default async function GuildPage({ params }: Params) {
 
   let allowed: boolean;
   let lists: Awaited<ReturnType<typeof guildChannels>>;
+  let granted: Awaited<ReturnType<typeof grantableRoles>>;
   // Throttled per account and address (see `dashboardReadAllowed`).
   if (!(await dashboardPageAllowed(user.id))) return message(t("pages.botDashboard.unreachable"));
   try {
     allowed = await canManage(config, id, user.id);
     if (!allowed) return message(t("pages.botDashboard.notAllowed"));
-    lists = await guildChannels(config, id);
+    // Which roles this user may hand out: the auto-role pickers offer only those.
+    [lists, granted] = await Promise.all([guildChannels(config, id), grantableRoles(config, id, user.id)]);
   } catch {
     return message(t("pages.botDashboard.unreachable"));
   }
@@ -110,7 +112,10 @@ export default async function GuildPage({ params }: Params) {
               initial={view}
               channels={lists.channels.map(({ id, name }) => ({ id, name }))}
               roles={mentionableRoles(lists.roles).map(({ id, name }) => ({ id, name }))}
-              autoRoles={{ roles: lists.roles, manageRoles: lists.manageRoles }}
+              autoRoles={{
+                roles: lists.roles.map((r) => ({ ...r, granterRefusal: granted.refusals.get(r.id) ?? "not_member" })),
+                manageRoles: lists.manageRoles,
+              }}
               sample={{ user: user.name, avatarUrl: discordImage("avatars", user.id, user.avatar, 128), server: guild.name, count: guild.memberCount }}
             />
           </ExtendMessages>

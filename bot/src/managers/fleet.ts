@@ -1,5 +1,5 @@
 import { ShardClientUtil, type ShardingManager } from "discord.js";
-import type { GuildLists, ShardStats } from "../discord/shard-api.js";
+import type { Grantable, GuildLists, ShardStats } from "../discord/shard-api.js";
 import type { GuildSummary } from "../site/internal-api.js";
 
 /**
@@ -48,6 +48,13 @@ export class Fleet {
       shard: this.shardOf(guildId),
       context: { guildId },
     })) as GuildLists | null;
+  }
+
+  async grantable(guildId: string, userId: string): Promise<Grantable | null> {
+    return (await this.manager.broadcastEval((client, ctx) => client.mlbbdex?.grantable(ctx.guildId, ctx.userId) ?? null, {
+      shard: this.shardOf(guildId),
+      context: { guildId, userId },
+    })) as Grantable | null;
   }
 
   async hasGuild(guildId: string): Promise<boolean> {

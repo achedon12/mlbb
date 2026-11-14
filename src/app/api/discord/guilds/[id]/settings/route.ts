@@ -1,7 +1,16 @@
 import { db } from "@/lib/db";
-import { BotUnavailable, mentionableRoles } from "@/lib/bot/client";
+import { BotUnavailable, grantableRoles, mentionableRoles } from "@/lib/bot/client";
 import { answer, authorizeGuild, guardDashboard, refused } from "@/lib/bot/dashboard-guard";
-import { checkAgainstGuild, settingsInput, settingsRow, settingsView } from "@/lib/bot/settings";
+import {
+  AUTO_ROLES_NOT_GRANTABLE,
+  autoRoleNeedsGrantable,
+  autoRolesChanged,
+  autoRoleWrite,
+  checkAgainstGuild,
+  settingsInput,
+  settingsRow,
+  settingsView,
+} from "@/lib/bot/settings";
 import { logError } from "@/lib/log";
 
 /**
@@ -20,21 +29,34 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
   try {
     const lists = await authorizeGuild(gate.config, id, gate.user.id);
     if (lists instanceof Response) return lists;
-    const guild = await db().guild.findUnique({ where: { id }, select: { id: true, leftAt: true } });
+    const guild = await db().guild.findUnique({ where: { id }, select: { id: true, leftAt: true, locale: true, settings: true } });
     if (!guild || guild.leftAt) return refused(404, "unknown server");
+    const stored = settingsView(id, guild.locale, guild.settings).autoRoles;
+    const unchanged = !autoRolesChanged(stored, gate.body.autoRoles);
     // Auto-roles: only the roles the bot reported as assignable, on this
     // request. Without Manage Roles they are still saved (the dashboard
     // warns, the bot marks them failing at the next join): turning the
-    // permission back on must not need a second save.
+    // permission back on must not need a second save. Lists left as they
+    // were are not checked again: another manager's save of an unrelated
+    // setting must not fail on them (the bot checks them at every join).
+    const assignable = new Set(lists.roles.filter((r) => r.assignable).map((r) => r.id));
+    if (unchanged) for (const roleId of [...stored.roleIds, ...stored.botRoleIds]) assignable.add(roleId);
     const checked = checkAgainstGuild(
       gate.body,
       new Set(lists.channels.map((c) => c.id)),
       new Set(mentionableRoles(lists.roles).map((r) => r.id)),
-      new Set(lists.roles.filter((r) => r.assignable).map((r) => r.id)),
+      assignable,
     );
     if (!checked.ok) return refused(400, `unknown channel or role: ${checked.field}`);
 
-    const row = settingsRow(checked.value);
+    // And only roles this manager could give themselves (confused deputy).
+    const grantable = autoRoleNeedsGrantable(stored, checked.value.autoRoles)
+      ? (await grantableRoles(gate.config, id, gate.user.id)).grantable
+      : null;
+    const autoRoles = autoRoleWrite(stored, checked.value.autoRoles, gate.user.id, grantable);
+    if (!autoRoles.ok) return refused(400, AUTO_ROLES_NOT_GRANTABLE);
+
+    const row = settingsRow(checked.value, autoRoles.write);
     const [, settings] = await db().$transaction([
       db().guild.update({ where: { id }, data: { locale: checked.value.locale } }),
       db().guildSettings.upsert({ where: { guildId: id }, create: { guildId: id, ...row }, update: row }),

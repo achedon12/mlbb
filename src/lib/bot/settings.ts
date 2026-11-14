@@ -11,13 +11,16 @@ import {
   ANNOUNCEMENT_TYPES,
   GREETING_KINDS,
   GREETING_MAX_LENGTH,
+  AUTO_ROLE_FAILURES,
   MAX_AUTO_ROLES,
   type AnnouncementType,
+  type AutoRoleFailure,
   type GreetingKind,
 } from "./kinds";
 
 export {
   ANNOUNCEMENT_TYPES,
+  AUTO_ROLES_NOT_GRANTABLE,
   DAILY_GAMES,
   GREETING_KINDS,
   GREETING_MAX_LENGTH,
@@ -50,8 +53,11 @@ export interface GreetingSetting {
 export interface AutoRoleSetting {
   roleIds: string[];
   botRoleIds: string[];
-  /** The bot could not give them last time (Manage Roles lost, role moved). */
+  /** The bot could not give them last time; `failReason` says why. */
   failing: boolean;
+  failReason: AutoRoleFailure | null;
+  /** The manager who chose them: the bot gives only what they could give. */
+  configuredBy: string | null;
 }
 
 /** What `GET /api/bot/guilds/:id/settings` answers. */
@@ -73,6 +79,8 @@ export type SettingsRow = {
   autoRoleIds: string[];
   botAutoRoleIds: string[];
   autoRoleFailing: boolean;
+  autoRoleFailReason: string | null;
+  autoRolesConfiguredBy: string | null;
 } & { [K in `${AnnouncementType}ChannelId` | `${AnnouncementType}RoleId`]: string | null } & {
   [K in `${AnnouncementType}Failing`]: boolean;
 } & { [K in `${GreetingKind}ChannelId` | `${GreetingKind}Message`]: string | null } & {
@@ -116,6 +124,8 @@ export function settingsView(guildId: string, locale: string, row: SettingsRow |
       roleIds: row?.autoRoleIds ?? [],
       botRoleIds: row?.botAutoRoleIds ?? [],
       failing: row?.autoRoleFailing ?? false,
+      failReason: row?.autoRoleFailing ? asFailure(row.autoRoleFailReason) : null,
+      configuredBy: row?.autoRolesConfiguredBy ?? null,
     },
   };
 }
@@ -199,15 +209,77 @@ export function checkAgainstGuild(
   return { ok: true, value };
 }
 
-/** Row to write; saving clears every "failing" flag, the bot tries again. */
-export function settingsRow(input: SettingsInput): SettingsRow {
+const asFailure = (value: string | null | undefined): AutoRoleFailure =>
+  (AUTO_ROLE_FAILURES as readonly string[]).includes(value ?? "") ? (value as AutoRoleFailure) : "bot";
+
+/** Who owns the auto-roles after a save, and whether they stay failing. */
+export interface AutoRoleWrite {
+  configuredBy: string | null;
+  failing: boolean;
+  failReason: AutoRoleFailure | null;
+}
+
+const OFF: AutoRoleWrite = { configuredBy: null, failing: false, failReason: null };
+
+const sameRoles = (a: readonly string[], b: readonly string[]) => a.length === b.length && a.every((id) => b.includes(id));
+
+/** Did the save change either list (order aside)? */
+export const autoRolesChanged = (stored: Pick<AutoRoleSetting, "roleIds" | "botRoleIds">, input: SettingsInput["autoRoles"]) =>
+  !sameRoles(stored.roleIds, input.roleIds) || !sameRoles(stored.botRoleIds, input.botRoleIds);
+
+/**
+ * The confused-deputy guard. Manage Server opens the dashboard; it does not
+ * let anyone hand out roles. Whoever sets the auto-roles must be able to
+ * give every one of them themselves (`grantable`, from the bot, on this
+ * request: Manage Roles and below their highest role, or owner), and
+ * becomes the one the bot checks before every assignment.
+ *
+ * - lists changed and not empty: the saver must be able to give them all,
+ *   or the save is refused; they become the owner of the setting;
+ * - lists unchanged: another manager saving an unrelated setting changes
+ *   nothing. When the auto-roles are failing, a saver who can give them
+ *   takes them over and clears the flag; one who cannot leaves them as
+ *   they are, failing, without the rest of the save being refused;
+ * - lists emptied: off, nobody owns them.
+ *
+ * `needsGrantable` says whether `grantable` must be asked to the bot.
+ */
+export function autoRoleNeedsGrantable(stored: AutoRoleSetting, input: SettingsInput["autoRoles"]): boolean {
+  const empty = !input.roleIds.length && !input.botRoleIds.length;
+  if (empty) return false;
+  return autoRolesChanged(stored, input) || stored.failing || !stored.configuredBy;
+}
+
+export function autoRoleWrite(
+  stored: AutoRoleSetting,
+  input: SettingsInput["autoRoles"],
+  userId: string,
+  grantable: ReadonlySet<string> | null,
+): { ok: true; write: AutoRoleWrite } | { ok: false; field: string } {
+  if (!input.roleIds.length && !input.botRoleIds.length) return { ok: true, write: OFF };
+  const changed = autoRolesChanged(stored, input);
+  const keep: AutoRoleWrite = { configuredBy: stored.configuredBy, failing: stored.failing, failReason: stored.failReason };
+  if (!autoRoleNeedsGrantable(stored, input)) return { ok: true, write: { ...keep, failing: false, failReason: null } };
+  const allowed = grantable !== null && [...input.roleIds, ...input.botRoleIds].every((id) => grantable.has(id));
+  if (allowed) return { ok: true, write: { configuredBy: userId, failing: false, failReason: null } };
+  if (changed) {
+    const field = input.roleIds.some((id) => !grantable?.has(id)) ? "autoRoles.roleIds" : "autoRoles.botRoleIds";
+    return { ok: false, field };
+  }
+  return { ok: true, write: keep };
+}
+
+/** Row to write; saving clears every "failing" flag, the bot tries again (auto-roles: see `autoRoleWrite`). */
+export function settingsRow(input: SettingsInput, autoRoles: AutoRoleWrite = OFF): SettingsRow {
   const row = {
     dailyMlbbdleChannelId: input.dailyMlbbdleChannelId,
     dailyQuizChannelId: input.dailyQuizChannelId,
     dailyHourUtc: input.dailyHourUtc,
     autoRoleIds: input.autoRoles.roleIds,
     botAutoRoleIds: input.autoRoles.botRoleIds,
-    autoRoleFailing: false,
+    autoRoleFailing: autoRoles.failing,
+    autoRoleFailReason: autoRoles.failReason,
+    autoRolesConfiguredBy: autoRoles.configuredBy,
   } as SettingsRow;
   for (const type of ANNOUNCEMENT_TYPES) {
     row[`${type}ChannelId`] = input.announcements[type].channelId;

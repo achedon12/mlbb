@@ -1,7 +1,7 @@
 import { RESTJSONErrorCodes } from "discord.js";
 import { AUTO_ROLE_REASON, type AutoRoleCheck } from "../discord/auto-roles.js";
 import { log } from "../log.js";
-import type { AutoRoleSetting, GuildSettings } from "../site/schemas.js";
+import type { AutoRoleFailure, AutoRoleSetting, GuildSettings } from "../site/schemas.js";
 import { classifyError, errorLabel } from "./poster.js";
 
 /**
@@ -25,9 +25,12 @@ import { classifyError, errorLabel } from "./poster.js";
  *
  * Every assignment checks again, against the cache at that moment, that
  * the bot has Manage Roles and each role is one it may give (see
- * `discord/auto-roles.ts`). When it may not, or Discord answers that it
- * lacks the permission, the server's auto-roles are marked failing on the
- * site, and skipped until the owner saves the settings again.
+ * `discord/auto-roles.ts`), and that the manager who chose the roles is
+ * still a member who could give them (Manage Roles, roles below theirs, or
+ * owner), so a manager cannot have the bot give a role they could not. When
+ * either fails, or Discord answers that the bot lacks the permission, the
+ * server's auto-roles are marked failing on the site, with the reason, and
+ * skipped until the settings are saved again.
  */
 
 /** Assignments running at once, per shard. */
@@ -53,7 +56,12 @@ export interface AutoRolerDeps {
   settings: (guildId: string) => Promise<GuildSettings>;
   /** May the bot give these roles in this server, now? */
   check: (guildId: string, roleIds: readonly string[]) => AutoRoleCheck;
-  markFailing: (guildId: string) => Promise<unknown>;
+  /**
+   * Could the manager who chose them give these roles, now? `unknown`:
+   * Discord could not be asked (an outage), nothing is marked.
+   */
+  granter: (guildId: string, userId: string, roleIds: readonly string[]) => Promise<"ok" | "refused" | "unknown">;
+  markFailing: (guildId: string, reason: AutoRoleFailure) => Promise<unknown>;
   now?: () => number;
 }
 
@@ -161,14 +169,27 @@ export class AutoRoler {
   private async assign(member: JoinedMember): Promise<void> {
     // Read again: auto-roles turned off, or marked failing by a member
     // ahead in the queue, are not given.
-    const roleIds = rolesFor((await this.deps.settings(member.guildId)).autoRoles, member);
+    const setting = (await this.deps.settings(member.guildId)).autoRoles;
+    const roleIds = rolesFor(setting, member);
     if (!roleIds.length) return;
     const check = this.deps.check(member.guildId, roleIds);
     if (!check.ok) {
       // The server is not in the cache (an outage): nothing the owner can fix.
       if (check.reason === "unknown_guild") return;
       log.warn("auto-role refused", { guild: member.guildId, reason: check.reason, role: check.roleId });
-      await this.fail(member.guildId);
+      await this.fail(member.guildId, "bot");
+      return;
+    }
+    // The bot gives only what the manager who chose the roles could give
+    // themselves, now: still a member, Manage Roles, roles below theirs.
+    const granter = setting.configuredBy ? await this.deps.granter(member.guildId, setting.configuredBy, roleIds) : "refused";
+    if (granter === "unknown") {
+      log.warn("auto-role granter not checked", { guild: member.guildId });
+      return;
+    }
+    if (granter === "refused") {
+      log.warn("auto-role refused", { guild: member.guildId, reason: "granter" });
+      await this.fail(member.guildId, "granter");
       return;
     }
     try {
@@ -182,11 +203,11 @@ export class AutoRoler {
         return;
       }
       log.warn("auto-role forbidden", { guild: member.guildId, error: errorLabel(error) });
-      await this.fail(member.guildId);
+      await this.fail(member.guildId, "bot");
     }
   }
 
-  private async fail(guildId: string): Promise<void> {
-    await this.deps.markFailing(guildId).catch((error: unknown) => log.warn("auto-role failure not recorded", { guild: guildId, error }));
+  private async fail(guildId: string, reason: AutoRoleFailure): Promise<void> {
+    await this.deps.markFailing(guildId, reason).catch((error: unknown) => log.warn("auto-role failure not recorded", { guild: guildId, error }));
   }
 }

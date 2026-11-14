@@ -3546,8 +3546,13 @@
       "autoRoleRefusals": {
         "managed": "dikelola oleh integrasi",
         "above_bot": "di atas bot",
-        "dangerous": "izin moderasi"
-      }
+        "dangerous": "izin moderasi",
+        "not_member": "Anda bukan anggota",
+        "no_manage_roles": "Anda perlu Kelola Peran",
+        "above_user": "di atas peran Anda"
+      },
+      "autoRolesFailingGranter": "Anggota yang memilih peran ini telah keluar dari server atau tidak bisa lagi memberikannya sendiri: pengelola dengan izin Kelola Peran, yang perannya di atas peran-peran ini, harus menyimpan lagi.",
+      "autoRolesNotGrantable": "Anda tidak bisa memberikan salah satu peran ini sendiri (izin Kelola Peran, peran di atas peran Anda): bot tidak akan memberikannya untuk Anda."
     },
     "botAdmin": {
       "title": "Administrasi bot",

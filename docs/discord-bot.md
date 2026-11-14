@@ -127,7 +127,9 @@ Everything is free: no plans, no paywall, no payment code.
   (nullable = the default text, at most 500 characters) and
   `welcomeFailing` / `goodbyeFailing`; for the auto-roles, `autoRoleIds`
   (people) and `botAutoRoleIds` (bots), each 0 to 3 role ids (empty = off,
-  the default), and one `autoRoleFailing`.
+  the default), one `autoRoleFailing` with its `autoRoleFailReason`
+  (`bot` or `granter`), and `autoRolesConfiguredBy`, the Discord id of the
+  manager who chose them.
 - `Announcement`: id, type, key (e.g. patch version, skin id), payload
   (JSON), createdAt. Unique (type, key).
 - `Delivery`: announcementId + guildId (composite PK), status, messageId,
@@ -146,13 +148,15 @@ Everything is free: no plans, no paywall, no payment code.
 - `POST /api/bot/guilds/:id/join`, `POST /api/bot/guilds/:id/leave`.
 - `GET  /api/bot/guilds/:id/settings` → settings (defaults if none),
   `welcome` and `goodbye` included as `{channelId, message, failing}`,
-  `autoRoles` as `{roleIds, botRoleIds, failing}`.
+  `autoRoles` as `{roleIds, botRoleIds, failing, failReason, configuredBy}`.
 - `POST /api/bot/guilds/:id/greeting-failure` — `{kind: "welcome"|"goodbye"}`:
   the bot could not post that message (channel gone, permission lost); it
   is marked failing, and the bot skips it until the settings are saved.
-- `POST /api/bot/guilds/:id/auto-role-failure` — `{}`: the bot could not
-  give the auto-roles (Manage Roles lost, a role gone, moved above it or
-  given a dangerous permission); same rule, until the settings are saved.
+- `POST /api/bot/guilds/:id/auto-role-failure` — `{reason: "bot"|"granter"}`:
+  the bot could not give the auto-roles (`bot`: Manage Roles lost, a role
+  gone, moved above it or given a dangerous permission; `granter`: the
+  manager who chose them left or can no longer give them); same rule,
+  until the settings are saved.
 - `GET  /api/bot/announcements/pending` → announcements with the guilds and
   channels still to deliver (the site creates announcements from its own
   data: new patch in `patches.json`, new skins in `skins.json`, events,
@@ -185,6 +189,10 @@ Everything is free: no plans, no paywall, no payment code.
   @everyone, each with `assignable` and `refusal` (`managed`, `above_bot`,
   `dangerous`, or null), and `manageRoles` (does the bot hold it). Managed
   roles are never offered as a mention.
+- `GET  /internal/guilds/:id/can-assign?user=<id>` → `{member, roles:
+  [{id, refusal}]}`: which roles that user may have the bot give, the
+  member fetched live (`refusal`: `not_member`, `no_manage_roles`,
+  `above_user`, or null).
 - `POST /internal/announcements/flush` → deliver pending now (called by the
   site after it creates announcements).
 - `POST /internal/test-post` `{guildId, channelId, locale}` → posts a test
@@ -295,6 +303,20 @@ list). Off until a role is chosen.
   disabled with the reason), and the save asks the bot for the same list on
   that request and refuses any other id: another server's role, a typed
   id, a dangerous one.
+- No confused deputy: Manage Server opens the dashboard, it does not let
+  anyone hand out roles. Whoever sets the lists must be able to give every
+  role themselves (owner, or Manage Roles and the role strictly below
+  their highest role), asked live to the bot (`can-assign`) on the save;
+  otherwise the save is refused ("auto-roles not grantable") and the
+  pickers already show those roles disabled with the reason. The saver
+  becomes `autoRolesConfiguredBy`. Lists left unchanged are not checked
+  again, so another manager can still save other settings; when they are
+  failing, a saver who can give them takes them over and clears the flag,
+  one who cannot leaves them failing. Before every assignment the bot
+  checks that this manager is still a member who could give them (member
+  lookup cached 5 minutes per server and manager); if not, nothing is
+  given and the auto-roles are marked failing with the reason `granter`,
+  which the dashboard explains.
 - Membership screening: Discord refuses a role to a member still
   `pending` (rules not accepted yet). Such a member is remembered in
   memory (server and member id, 24 hours at most, 10,000 per shard) and

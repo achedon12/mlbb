@@ -2,19 +2,38 @@
 
 import { useId, useRef, useState } from "react";
 import { useT } from "@/i18n/provider";
-import { AUTO_ROLE_TARGETS, MAX_AUTO_ROLES, type AutoRoleRefusal, type AutoRoleTarget } from "@/lib/bot/kinds";
+import {
+  AUTO_ROLE_TARGETS,
+  MAX_AUTO_ROLES,
+  type AutoRoleFailure,
+  type AutoRoleRefusal,
+  type AutoRoleTarget,
+  type GranterRefusal,
+} from "@/lib/bot/kinds";
 import { cn } from "@/lib/utils";
 
 /**
  * "Auto-roles" part of a server's settings form: a switch, then up to 3
  * roles for the people who join and up to 3 for the bots added. The roles
- * come from the bot with whether it may give each one: the others are
- * listed but disabled, with the reason. The save checks it all again with
- * the bot (`checkAgainstGuild`), whatever this page sends.
+ * come from the bot with whether it may give each one, and whether the
+ * signed-in manager may (Manage Roles and below their highest role, or
+ * owner): the others are listed but disabled, with the reason. The save
+ * checks it all again with the bot (`checkAgainstGuild`, `autoRoleWrite`),
+ * whatever this page sends.
  */
 
 export type AutoRolesValue = { roleIds: string[]; botRoleIds: string[] };
-export type AutoRoleChoice = { id: string; name: string; assignable: boolean; refusal: AutoRoleRefusal | null };
+export type AutoRoleChoice = {
+  id: string;
+  name: string;
+  assignable: boolean;
+  refusal: AutoRoleRefusal | null;
+  /** Why the signed-in manager may not give it, or null. */
+  granterRefusal: GranterRefusal | null;
+};
+
+/** The first reason a role cannot be picked: the bot's, then the manager's. */
+const reasonOf = (r: AutoRoleChoice) => r.refusal ?? r.granterRefusal;
 
 const FIELD = "bevel-sm w-full border border-night-700 bg-night-900 px-3 py-2 text-sm text-chalk-100 outline-none transition-colors focus:border-gold-500";
 
@@ -57,9 +76,9 @@ function RolePickers({
             >
               <option value="">{t("pages.botUI.autoRolesNone")}</option>
               {roles.map((r) => (
-                <option key={r.id} value={r.id} disabled={!r.assignable || (r.id !== current && ids.includes(r.id))}>
+                <option key={r.id} value={r.id} disabled={!r.assignable || r.granterRefusal !== null || (r.id !== current && ids.includes(r.id))}>
                   @{r.name}
-                  {r.refusal ? ` (${t(`pages.botUI.autoRoleRefusals.${r.refusal}`)})` : ""}
+                  {reasonOf(r) ? ` (${t(`pages.botUI.autoRoleRefusals.${reasonOf(r)}`)})` : ""}
                 </option>
               ))}
             </select>
@@ -81,7 +100,8 @@ export function AutoRolesFieldset({
   roles: AutoRoleChoice[];
   /** Does the bot hold Manage Roles in this server? */
   manageRoles: boolean;
-  failing: boolean;
+  /** Why the bot stopped giving them, or null. */
+  failing: AutoRoleFailure | null;
   onChange: (value: AutoRolesValue) => void;
 }) {
   const t = useT();
@@ -100,7 +120,7 @@ export function AutoRolesFieldset({
       <div className="bevel-sm mt-4 border border-night-700/70 bg-night-900/60 p-4">
         {failing && configured && (
           <p role="alert" className="mb-3 text-sm text-blood-400">
-            {t("pages.botUI.autoRolesFailing")}
+            {t(failing === "granter" ? "pages.botUI.autoRolesFailingGranter" : "pages.botUI.autoRolesFailing")}
           </p>
         )}
         <label className="flex items-center gap-2 text-sm text-chalk-100">

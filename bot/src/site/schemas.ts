@@ -59,9 +59,22 @@ const roleList = z
  * Unreadable, they are off: a role nobody chose must never be given.
  */
 const autoRoleSetting = z
-  .object({ roleIds: roleList, botRoleIds: roleList.default([]), failing: z.boolean().catch(false) })
-  .catch({ roleIds: [], botRoleIds: [], failing: false });
+  .object({
+    roleIds: roleList,
+    botRoleIds: roleList.default([]),
+    failing: z.boolean().catch(false),
+    // Who chose them: the bot gives only what that person could give.
+    configuredBy: snowflake.nullable().catch(null).default(null),
+  })
+  .catch({ roleIds: [], botRoleIds: [], failing: false, configuredBy: null });
 export type AutoRoleSetting = z.infer<typeof autoRoleSetting>;
+/**
+ * Why auto-roles stopped: `bot`, the bot may not give them (Manage Roles
+ * lost, a role moved or made dangerous); `granter`, the manager who chose
+ * them left or could no longer give them.
+ */
+export const AUTO_ROLE_FAILURES = ["bot", "granter"] as const;
+export type AutoRoleFailure = (typeof AUTO_ROLE_FAILURES)[number];
 
 export const guildSettings = unwrap(
   z.preprocess(
@@ -84,7 +97,7 @@ export const guildSettings = unwrap(
       // Absent from an older site: off.
       welcome: greetingSetting.default({ channelId: null, message: null, failing: false }),
       goodbye: greetingSetting.default({ channelId: null, message: null, failing: false }),
-      autoRoles: autoRoleSetting.default({ roleIds: [], botRoleIds: [], failing: false }),
+      autoRoles: autoRoleSetting.default({ roleIds: [], botRoleIds: [], failing: false, configuredBy: null }),
     }),
   ),
 );
@@ -100,7 +113,7 @@ export const DEFAULT_SETTINGS: GuildSettings = {
   dailyHourUtc: 12,
   welcome: { channelId: null, message: null, failing: false },
   goodbye: { channelId: null, message: null, failing: false },
-  autoRoles: { roleIds: [], botRoleIds: [], failing: false },
+  autoRoles: { roleIds: [], botRoleIds: [], failing: false, configuredBy: null },
 };
 
 export const announcementTarget = z.object({

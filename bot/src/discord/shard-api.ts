@@ -1,6 +1,15 @@
 import { ChannelType, PermissionFlagsBits, RESTJSONErrorCodes, type Client, type Guild } from "discord.js";
 import { fromDiscordLocale } from "../i18n/index.js";
-import { roleFacts, roleRefusal, type RoleRefusal } from "./auto-roles.js";
+import {
+  granterFacts,
+  granterRefusal,
+  NOT_A_MEMBER,
+  roleFacts,
+  roleRefusal,
+  type GranterFacts,
+  type GranterRefusal,
+  type RoleRefusal,
+} from "./auto-roles.js";
 import type { GuildSummary } from "../site/internal-api.js";
 
 /**
@@ -43,7 +52,15 @@ export interface ShardApi {
   manageableGuilds(userId: string): Promise<{ id: string; name: string; icon: string | null }[]>;
   isManageable(guildId: string, userId: string): Promise<boolean>;
   channels(guildId: string): Promise<GuildLists | null>;
+  /** Which roles this person may hand out through the bot; null: server not here. */
+  grantable(guildId: string, userId: string): Promise<Grantable | null>;
   stats(): ShardStats;
+}
+
+/** Per role (every one but @everyone), may this person give it? */
+export interface Grantable {
+  member: boolean;
+  roles: { id: string; refusal: GranterRefusal | null }[];
 }
 
 declare module "discord.js" {
@@ -77,6 +94,20 @@ async function canManage(guild: Guild, userId: string): Promise<boolean> {
     return member.permissions.has(PermissionFlagsBits.ManageGuild);
   } catch (error) {
     if ((error as { code?: number }).code === RESTJSONErrorCodes.UnknownMember) return false;
+    throw error;
+  }
+}
+
+/**
+ * The facts deciding which roles this person may give (see
+ * `granterRefusal`), from the member fetched live by id, not cached.
+ */
+export async function fetchGranter(guild: Guild, userId: string): Promise<GranterFacts> {
+  try {
+    const member = await guild.members.fetch({ user: userId, cache: false, force: true });
+    return granterFacts(guild, member);
+  } catch (error) {
+    if ((error as { code?: number }).code === RESTJSONErrorCodes.UnknownMember) return NOT_A_MEMBER;
     throw error;
   }
 }
@@ -132,6 +163,17 @@ export function createShardApi(client: Client): ShardApi {
         })
         .slice(0, 250);
       return { channels: channels.slice(0, 500), roles, manageRoles: me.permissions.has(PermissionFlagsBits.ManageRoles) };
+    },
+
+    async grantable(guildId, userId) {
+      const guild = client.guilds.cache.get(guildId);
+      if (!guild?.available) return null;
+      const granter = await fetchGranter(guild, userId);
+      const roles = guild.roles.cache
+        .filter((r) => r.id !== guild.id)
+        .map((r) => ({ id: r.id, refusal: granterRefusal(granter, r.id) }))
+        .slice(0, 250);
+      return { member: granter.member, roles };
     },
 
     stats: () => ({

@@ -239,6 +239,8 @@ describe.skipIf(!url)("bot database paths", async () => {
       autoRoleIds: [],
       botAutoRoleIds: [],
       autoRoleFailing: false,
+      autoRoleFailReason: null,
+      autoRolesConfiguredBy: null,
     });
 
     let second = 0;
@@ -261,15 +263,22 @@ describe.skipIf(!url)("bot database paths", async () => {
       );
     };
 
-    expect(await read()).toEqual({ roleIds: [], botRoleIds: [], failing: false });
+    expect(await read()).toEqual({ roleIds: [], botRoleIds: [], failing: false, failReason: null, configuredBy: null });
     // Off: nothing to fail.
     expect(await (await fail()).json()).toEqual({ ok: true, marked: 0 });
 
-    await db().guildSettings.update({ where: { guildId: id }, data: { autoRoleIds: [g(501), g(502), g(503)], botAutoRoleIds: [g(504)] } });
-    expect(await read()).toEqual({ roleIds: [g(501), g(502), g(503)], botRoleIds: [g(504)], failing: false });
+    await db().guildSettings.update({
+      where: { guildId: id },
+      data: { autoRoleIds: [g(501), g(502), g(503)], botAutoRoleIds: [g(504)], autoRolesConfiguredBy: g(600) },
+    });
+    expect(await read()).toEqual({ roleIds: [g(501), g(502), g(503)], botRoleIds: [g(504)], failing: false, failReason: null, configuredBy: g(600) });
     expect(await (await fail()).json()).toEqual({ ok: true, marked: 1 });
     expect((await fail(JSON.stringify({ roleId: g(501) }))).status).toBe(400);
-    expect(await read()).toMatchObject({ failing: true });
+    expect(await read()).toMatchObject({ failing: true, failReason: "bot" });
+    // The manager who chose them left or lost the permission: said as such.
+    expect(await (await fail(JSON.stringify({ reason: "granter" }))).json()).toEqual({ ok: true, marked: 1 });
+    expect(await read()).toMatchObject({ failing: true, failReason: "granter", configuredBy: g(600) });
+    expect((await fail(JSON.stringify({ reason: "admin" }))).status).toBe(400);
 
     // Bots' roles alone still count as configured.
     await db().guildSettings.update({ where: { guildId: id }, data: { autoRoleIds: [], autoRoleFailing: false } });

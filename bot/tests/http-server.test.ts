@@ -12,6 +12,7 @@ const api: InternalApi = {
   manageableGuilds: vi.fn(async () => [{ id: GUILD, name: "Guild", icon: null }]),
   isManageable: vi.fn(async () => true),
   channels: vi.fn(async (id: string) => (id === GUILD ? { channels: [], roles: [] } : null)),
+  grantable: vi.fn(async (id: string) => (id === GUILD ? { member: true, roles: [{ id: GUILD, refusal: "above_user" }] } : null)),
   flush: vi.fn(async () => undefined),
   testPost: vi.fn(async () => ({ ok: true })),
   stats: vi.fn(async () => ({ guildCount: 1 })),
@@ -49,6 +50,13 @@ describe("internal HTTP server", () => {
     expect(await (await call("GET", `/internal/guilds/${GUILD}/manageable?user=${USER}`)).json()).toEqual({ manageable: true });
     expect(await (await call("GET", `/internal/guilds/${GUILD}/channels`)).json()).toEqual({ channels: [], roles: [] });
     expect((await call("GET", `/internal/guilds/323456789012345678/channels`)).status).toBe(404);
+    expect(await (await call("GET", `/internal/guilds/${GUILD}/can-assign?user=${USER}`)).json()).toEqual({
+      member: true,
+      roles: [{ id: GUILD, refusal: "above_user" }],
+    });
+    expect(api.grantable).toHaveBeenCalledWith(GUILD, USER);
+    expect((await call("GET", `/internal/guilds/${GUILD}/can-assign`)).status).toBe(400);
+    expect((await call("GET", `/internal/guilds/323456789012345678/can-assign?user=${USER}`)).status).toBe(404);
     expect((await call("POST", "/internal/announcements/flush", "{}")).status).toBe(202);
     expect(api.flush).toHaveBeenCalled();
     const body = JSON.stringify({ guildId: GUILD, channelId: USER, locale: "fr" });

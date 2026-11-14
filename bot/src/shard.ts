@@ -3,14 +3,15 @@ import { COMMANDS, COMPONENTS, commandMap } from "./commands/index.js";
 import { loadConfig, requireDiscord } from "./config.js";
 import { DISALLOWED_INTENTS, gatewayIntents, MEMBER_INTENT_WARNING, memberEventsAvailable } from "./discord/intents.js";
 import { handleInteraction } from "./discord/interactions.js";
-import { createShardApi, guildSummary } from "./discord/shard-api.js";
+import { createShardApi, fetchGranter, guildSummary } from "./discord/shard-api.js";
 import type { Services } from "./discord/types.js";
 import type { MlbbdleProgress } from "./commands/mlbbdle.js";
 import type { QuizProgress } from "./games/quiz.js";
 import { DayStore } from "./games/state.js";
 import { log } from "./log.js";
 import { CommandLogger } from "./managers/command-logger.js";
-import { checkGuildRoles } from "./discord/auto-roles.js";
+import { TtlCache } from "./cache.js";
+import { checkGuildRoles, granterAllows, type GranterFacts } from "./discord/auto-roles.js";
 import { AutoRoler, type JoinedMember } from "./managers/auto-roler.js";
 import { Greeter, type MemberEvent } from "./managers/greeter.js";
 import { restPoster } from "./managers/poster.js";
@@ -101,12 +102,31 @@ const greeter =
       })
     : null;
 
+/**
+ * The manager who chose a server's auto-roles, as Discord last reported
+ * them (one live member lookup per server every few minutes, not one per
+ * newcomer during a raid). Their roles are compared with the role cache's
+ * current positions on every use.
+ */
+const granters = new TtlCache<GranterFacts>(5 * 60 * 1000, 500);
+
 const autoRoler =
   site && memberEvents
     ? new AutoRoler({
         settings: (guildId) => site.settings(guildId),
         check: (guildId, roleIds) => checkGuildRoles(client.guilds.cache.get(guildId), roleIds),
-        markFailing: (guildId) => site.markAutoRoleFailing(guildId),
+        granter: async (guildId, userId, roleIds) => {
+          const guild = client.guilds.cache.get(guildId);
+          if (!guild) return "unknown";
+          try {
+            const facts = await granters.getOrLoad(`${guildId}:${userId}`, () => fetchGranter(guild, userId));
+            return granterAllows(facts, roleIds) ? "ok" : "refused";
+          } catch (error) {
+            log.warn("auto-role granter lookup failed", { guild: guildId, error });
+            return "unknown";
+          }
+        },
+        markFailing: (guildId, reason) => site.markAutoRoleFailing(guildId, reason),
       })
     : null;
 

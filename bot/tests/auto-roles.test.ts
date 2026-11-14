@@ -4,7 +4,11 @@ import {
   AUTO_ROLE_REASON,
   checkRoles,
   DANGEROUS_PERMISSIONS,
+  granterAllows,
+  granterRefusal,
   hasDangerousPermission,
+  NOT_A_MEMBER,
+  type GranterFacts,
   roleRefusal,
   type AutoRoleCheck,
   type RoleFacts,
@@ -23,6 +27,7 @@ const ROLE = "223456789012345678";
 const ROLE_2 = "223456789012345679";
 const BOT_ROLE = "223456789012345670";
 const USER = "323456789012345678";
+const ADMIN = "423456789012345678";
 
 const facts = (extra: Partial<RoleFacts> = {}): RoleFacts => ({
   id: ROLE,
@@ -78,28 +83,69 @@ describe("which roles the bot may give", () => {
   });
 });
 
-describe("auto-role settings from the site", () => {
-  it("are off by default and when absent from an older site", () => {
-    expect(DEFAULT_SETTINGS.autoRoles).toEqual({ roleIds: [], botRoleIds: [], failing: false });
-    expect(guildSettings.parse({ dailyHourUtc: 12 }).autoRoles).toEqual({ roleIds: [], botRoleIds: [], failing: false });
+describe("which roles a manager may have the bot give", () => {
+  const granter = (extra: Partial<GranterFacts> = {}): GranterFacts => ({
+    member: true,
+    owner: false,
+    manageRoles: true,
+    below: (id) => id === ROLE,
+    ...extra,
   });
 
-  it("keep at most 3 distinct snowflakes per list, and turn off when unreadable", () => {
-    const parsed = guildSettings.parse({ autoRoles: { roleIds: [ROLE, ROLE, "@everyone", 5, ROLE_2, "323456789012345671", "323456789012345672"], botRoleIds: [BOT_ROLE], failing: true } });
-    expect(parsed.autoRoles).toEqual({ roleIds: [ROLE, ROLE_2, "323456789012345671"], botRoleIds: [BOT_ROLE], failing: true });
-    expect(guildSettings.parse({ autoRoles: "admin" }).autoRoles).toEqual({ roleIds: [], botRoleIds: [], failing: false });
-    expect(guildSettings.parse({ autoRoles: { roleIds: [ROLE] } }).autoRoles).toEqual({ roleIds: [ROLE], botRoleIds: [], failing: false });
+  it("needs Manage Roles: Manage Server alone gives nothing", () => {
+    expect(granterRefusal(granter({ manageRoles: false }), ROLE)).toBe("no_manage_roles");
+    expect(granterAllows(granter({ manageRoles: false }), [ROLE])).toBe(false);
+  });
+
+  it("refuses a role at or above the manager's highest role", () => {
+    expect(granterRefusal(granter(), ROLE)).toBeNull();
+    expect(granterRefusal(granter(), ROLE_2)).toBe("above_user");
+    expect(granterAllows(granter(), [ROLE, ROLE_2])).toBe(false);
+    expect(granterAllows(granter(), [ROLE])).toBe(true);
+  });
+
+  it("lets the owner give any role, without Manage Roles", () => {
+    const owner = granter({ owner: true, manageRoles: false, below: () => false });
+    expect(granterRefusal(owner, ROLE_2)).toBeNull();
+    expect(granterAllows(owner, [ROLE, ROLE_2])).toBe(true);
+  });
+
+  it("refuses everything to someone who left the server", () => {
+    expect(granterRefusal(NOT_A_MEMBER, ROLE)).toBe("not_member");
+    expect(granterAllows({ ...NOT_A_MEMBER, owner: true }, [ROLE])).toBe(false);
   });
 });
 
-function setup(autoRoles: Partial<GuildSettings["autoRoles"]> = {}, check: AutoRoleCheck = { ok: true }) {
-  let settings: GuildSettings = { ...DEFAULT_SETTINGS, autoRoles: { roleIds: [ROLE], botRoleIds: [BOT_ROLE], failing: false, ...autoRoles } };
+describe("auto-role settings from the site", () => {
+  it("are off by default and when absent from an older site", () => {
+    expect(DEFAULT_SETTINGS.autoRoles).toEqual({ roleIds: [], botRoleIds: [], failing: false, configuredBy: null });
+    expect(guildSettings.parse({ dailyHourUtc: 12 }).autoRoles).toEqual({ roleIds: [], botRoleIds: [], failing: false, configuredBy: null });
+  });
+
+  it("keep at most 3 distinct snowflakes per list, and turn off when unreadable", () => {
+    const parsed = guildSettings.parse({ autoRoles: { roleIds: [ROLE, ROLE, "@everyone", 5, ROLE_2, "323456789012345671", "323456789012345672"], botRoleIds: [BOT_ROLE], failing: true, configuredBy: ADMIN } });
+    expect(parsed.autoRoles).toEqual({ roleIds: [ROLE, ROLE_2, "323456789012345671"], botRoleIds: [BOT_ROLE], failing: true, configuredBy: ADMIN });
+    expect(guildSettings.parse({ autoRoles: "admin" }).autoRoles).toEqual({ roleIds: [], botRoleIds: [], failing: false, configuredBy: null });
+    expect(guildSettings.parse({ autoRoles: { roleIds: [ROLE], configuredBy: "<@1>" } }).autoRoles).toEqual({ roleIds: [ROLE], botRoleIds: [], failing: false, configuredBy: null });
+  });
+});
+
+function setup(
+  autoRoles: Partial<GuildSettings["autoRoles"]> = {},
+  check: AutoRoleCheck = { ok: true },
+  granter: "ok" | "refused" | "unknown" = "ok",
+) {
+  let settings: GuildSettings = {
+    ...DEFAULT_SETTINGS,
+    autoRoles: { roleIds: [ROLE], botRoleIds: [BOT_ROLE], failing: false, configuredBy: ADMIN, ...autoRoles },
+  };
   const markFailing = vi.fn(async () => {
     settings = { ...settings, autoRoles: { ...settings.autoRoles, failing: true } };
   });
   const checkFn = vi.fn((_guild: string, _roles: readonly string[]) => check);
   let clock = 0;
-  const roler = new AutoRoler({ settings: async () => settings, check: checkFn, markFailing, now: () => clock });
+  const granterFn = vi.fn(async (_guild: string, _user: string, _roles: readonly string[]) => granter);
+  const roler = new AutoRoler({ settings: async () => settings, check: checkFn, granter: granterFn, markFailing, now: () => clock });
   const member = (extra: Partial<JoinedMember> = {}): JoinedMember & { addRoles: ReturnType<typeof vi.fn> } => ({
     guildId: GUILD,
     id: USER,
@@ -108,7 +154,7 @@ function setup(autoRoles: Partial<GuildSettings["autoRoles"]> = {}, check: AutoR
     addRoles: vi.fn(async () => undefined),
     ...extra,
   }) as JoinedMember & { addRoles: ReturnType<typeof vi.fn> };
-  return { roler, member, markFailing, checkFn, tick: (ms: number) => (clock += ms) };
+  return { roler, member, markFailing, checkFn, granterFn, tick: (ms: number) => (clock += ms) };
 }
 
 describe("auto-roles on join", () => {
@@ -159,7 +205,7 @@ describe("auto-roles on join", () => {
     expect(second.addRoles).not.toHaveBeenCalled();
     // The second member found the settings marked failing.
     expect(markFailing).toHaveBeenCalledTimes(1);
-    expect(markFailing).toHaveBeenCalledWith(GUILD);
+    expect(markFailing).toHaveBeenCalledWith(GUILD, "bot");
   });
 
   it("does not mark failing for a server out of the cache, a member gone or a hiccup", async () => {
@@ -180,6 +226,49 @@ describe("auto-roles on join", () => {
     await roler.joined(forbidden);
     await roler.drained();
     expect(markFailing).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe("the manager who chose the auto-roles", () => {
+  it("is asked about the very roles given, before each assignment", async () => {
+    const { roler, member, granterFn } = setup({ roleIds: [ROLE, ROLE_2] });
+    const m = member();
+    await roler.joined(m);
+    await roler.drained();
+    expect(granterFn).toHaveBeenCalledWith(GUILD, ADMIN, [ROLE, ROLE_2]);
+    expect(m.addRoles).toHaveBeenCalled();
+  });
+
+  it("left the server or lost the permission: nothing given, marked failing for that reason", async () => {
+    const { roler, member, markFailing } = setup({}, { ok: true }, "refused");
+    const m = member();
+    const bot = member({ bot: true });
+    await roler.joined(m);
+    await roler.joined(bot);
+    await roler.drained();
+    expect(m.addRoles).not.toHaveBeenCalled();
+    expect(bot.addRoles).not.toHaveBeenCalled();
+    expect(markFailing).toHaveBeenCalledTimes(1);
+    expect(markFailing).toHaveBeenCalledWith(GUILD, "granter");
+  });
+
+  it("unknown (no one recorded): nothing given", async () => {
+    const { roler, member, markFailing, granterFn } = setup({ configuredBy: null });
+    const m = member();
+    await roler.joined(m);
+    await roler.drained();
+    expect(granterFn).not.toHaveBeenCalled();
+    expect(m.addRoles).not.toHaveBeenCalled();
+    expect(markFailing).toHaveBeenCalledWith(GUILD, "granter");
+  });
+
+  it("could not be looked up (an outage): skipped, not marked", async () => {
+    const { roler, member, markFailing } = setup({}, { ok: true }, "unknown");
+    const m = member();
+    await roler.joined(m);
+    await roler.drained();
+    expect(m.addRoles).not.toHaveBeenCalled();
+    expect(markFailing).not.toHaveBeenCalled();
   });
 });
 

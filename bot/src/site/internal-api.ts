@@ -16,6 +16,7 @@ import {
   type Daily,
   type DailyGuild,
   type Game,
+  type AutoRoleFailure,
   type GreetingKind,
   type GuildSettings,
   type Leaderboard,
@@ -164,10 +165,10 @@ export class SiteClient {
    * failing until the owner saves again, and the cached copy is flagged at
    * once so the members queued behind are not tried while it is fresh.
    */
-  markAutoRoleFailing(guildId: string): Promise<unknown> {
+  markAutoRoleFailing(guildId: string, reason: AutoRoleFailure): Promise<unknown> {
     const cached = this.settingsCache.get(guildId);
     if (cached) this.settingsCache.set(guildId, { ...cached, autoRoles: { ...cached.autoRoles, failing: true } });
-    return this.request("POST", `/api/bot/guilds/${guildId}/auto-role-failure`, anyBody, {});
+    return this.request("POST", `/api/bot/guilds/${guildId}/auto-role-failure`, anyBody, { reason });
   }
 
   /** Locale setting of a server, or null; never throws (replies must not depend on it). */

@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 import {
   ANNOUNCEMENT_TYPES,
+  autoRoleNeedsGrantable,
+  autoRoleWrite,
   checkAgainstGuild,
   DEFAULT_DAILY_HOUR,
   GREETING_KINDS,
@@ -9,6 +11,7 @@ import {
   settingsInput,
   settingsRow,
   settingsView,
+  type AutoRoleSetting,
   type SettingsInput,
 } from "@/lib/bot/settings";
 import { siteLocaleOf } from "@/lib/bot/guild-store";
@@ -19,6 +22,8 @@ const ROLE = "333333333333333333";
 const ROLE_2 = "333333333333333334";
 const ROLE_3 = "333333333333333335";
 const ROLE_4 = "333333333333333336";
+const ADMIN = "444444444444444441";
+const OTHER_ADMIN = "444444444444444442";
 
 function input(): SettingsInput {
   return {
@@ -140,7 +145,13 @@ describe("bot settings", () => {
   });
 
   it("has auto-roles off by default, for people and bots", () => {
-    expect(settingsView("123456789012345678", "fr", null).autoRoles).toEqual({ roleIds: [], botRoleIds: [], failing: false });
+    expect(settingsView("123456789012345678", "fr", null).autoRoles).toEqual({
+      roleIds: [],
+      botRoleIds: [],
+      failing: false,
+      failReason: null,
+      configuredBy: null,
+    });
   });
 
   it("takes up to 3 distinct role ids per auto-role list", () => {
@@ -177,12 +188,79 @@ describe("bot settings", () => {
   it("stores the auto-roles and clears their failing flag on save", () => {
     const value = input();
     value.autoRoles = { roleIds: [ROLE], botRoleIds: [ROLE_2] };
-    const row = settingsRow(value);
-    expect(row).toMatchObject({ autoRoleIds: [ROLE], botAutoRoleIds: [ROLE_2], autoRoleFailing: false });
-    expect(settingsView("123456789012345678", "fr", { ...row, autoRoleFailing: true }).autoRoles).toEqual({
+    const row = settingsRow(value, { configuredBy: ADMIN, failing: false, failReason: null });
+    expect(row).toMatchObject({ autoRoleIds: [ROLE], botAutoRoleIds: [ROLE_2], autoRoleFailing: false, autoRolesConfiguredBy: ADMIN });
+    expect(settingsView("123456789012345678", "fr", { ...row, autoRoleFailing: true, autoRoleFailReason: "granter" }).autoRoles).toEqual({
       roleIds: [ROLE],
       botRoleIds: [ROLE_2],
       failing: true,
+      failReason: "granter",
+      configuredBy: ADMIN,
+    });
+  });
+
+  describe("who may set the auto-roles (never a role the manager could not give)", () => {
+    const stored = (extra: Partial<AutoRoleSetting> = {}): AutoRoleSetting => ({
+      roleIds: [ROLE],
+      botRoleIds: [],
+      failing: false,
+      failReason: null,
+      configuredBy: ADMIN,
+      ...extra,
+    });
+    const off = stored({ roleIds: [], configuredBy: null });
+
+    it("asks the bot only when the lists change, or are failing or unowned", () => {
+      expect(autoRoleNeedsGrantable(off, { roleIds: [ROLE], botRoleIds: [] })).toBe(true);
+      expect(autoRoleNeedsGrantable(stored(), { roleIds: [ROLE], botRoleIds: [] })).toBe(false);
+      expect(autoRoleNeedsGrantable(stored(), { roleIds: [ROLE], botRoleIds: [ROLE_2] })).toBe(true);
+      expect(autoRoleNeedsGrantable(stored({ roleIds: [ROLE, ROLE_2] }), { roleIds: [ROLE_2, ROLE], botRoleIds: [] })).toBe(false);
+      expect(autoRoleNeedsGrantable(stored({ failing: true, failReason: "granter" }), { roleIds: [ROLE], botRoleIds: [] })).toBe(true);
+      expect(autoRoleNeedsGrantable(stored({ configuredBy: null }), { roleIds: [ROLE], botRoleIds: [] })).toBe(true);
+      expect(autoRoleNeedsGrantable(stored(), { roleIds: [], botRoleIds: [] })).toBe(false);
+    });
+
+    it("refuses a new role the manager cannot give (no Manage Roles, above them), in either list", () => {
+      expect(autoRoleWrite(off, { roleIds: [ROLE], botRoleIds: [] }, OTHER_ADMIN, new Set())).toEqual({ ok: false, field: "autoRoles.roleIds" });
+      expect(autoRoleWrite(off, { roleIds: [ROLE], botRoleIds: [ROLE_2] }, OTHER_ADMIN, new Set([ROLE]))).toEqual({
+        ok: false,
+        field: "autoRoles.botRoleIds",
+      });
+      expect(autoRoleWrite(off, { roleIds: [ROLE], botRoleIds: [] }, OTHER_ADMIN, null)).toMatchObject({ ok: false });
+    });
+
+    it("makes the manager who set them the one the bot checks", () => {
+      expect(autoRoleWrite(off, { roleIds: [ROLE], botRoleIds: [ROLE_2] }, OTHER_ADMIN, new Set([ROLE, ROLE_2]))).toEqual({
+        ok: true,
+        write: { configuredBy: OTHER_ADMIN, failing: false, failReason: null },
+      });
+    });
+
+    it("leaves unchanged lists to their owner when another manager saves something else", () => {
+      expect(autoRoleWrite(stored(), { roleIds: [ROLE], botRoleIds: [] }, OTHER_ADMIN, null)).toEqual({
+        ok: true,
+        write: { configuredBy: ADMIN, failing: false, failReason: null },
+      });
+    });
+
+    it("lets a manager who can give them take failing auto-roles over; leaves them failing otherwise", () => {
+      const failing = stored({ failing: true, failReason: "granter" });
+      expect(autoRoleWrite(failing, { roleIds: [ROLE], botRoleIds: [] }, OTHER_ADMIN, new Set([ROLE]))).toEqual({
+        ok: true,
+        write: { configuredBy: OTHER_ADMIN, failing: false, failReason: null },
+      });
+      // Not refused (the rest of the save goes through), but still failing, still theirs.
+      expect(autoRoleWrite(failing, { roleIds: [ROLE], botRoleIds: [] }, OTHER_ADMIN, new Set())).toEqual({
+        ok: true,
+        write: { configuredBy: ADMIN, failing: true, failReason: "granter" },
+      });
+    });
+
+    it("turns them off, owned by nobody, when both lists are emptied", () => {
+      expect(autoRoleWrite(stored(), { roleIds: [], botRoleIds: [] }, OTHER_ADMIN, null)).toEqual({
+        ok: true,
+        write: { configuredBy: null, failing: false, failReason: null },
+      });
     });
   });
 

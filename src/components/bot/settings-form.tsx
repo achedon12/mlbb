@@ -6,6 +6,7 @@ import { useT } from "@/i18n/provider";
 import { AutoRolesFieldset, type AutoRoleChoice } from "@/components/bot/auto-roles-fieldset";
 import { GreetingsFieldset, type GreetingSample } from "@/components/bot/greetings-fieldset";
 import { ANNOUNCEMENT_TYPES, GREETING_KINDS, type AnnouncementType, type GreetingKind } from "@/lib/bot/kinds";
+import { AUTO_ROLES_NOT_GRANTABLE } from "@/lib/bot/kinds";
 import type { GuildSettingsView, SettingsInput } from "@/lib/bot/settings";
 import { cn } from "@/lib/utils";
 
@@ -146,7 +147,7 @@ export function SettingsForm({
   const [failing, setFailing] = useState(
     () => new Set<AnnouncementType | GreetingKind>([...ANNOUNCEMENT_TYPES, ...GREETING_KINDS].filter((key) => initial[key].failing)),
   );
-  const [autoRolesFailing, setAutoRolesFailing] = useState(initial.autoRoles.failing);
+  const [autoRolesFailing, setAutoRolesFailing] = useState(initial.autoRoles.failing ? (initial.autoRoles.failReason ?? "bot") : null);
   const [status, setStatus] = useState<Status>({ kind: "idle" });
   const ids = useId();
 
@@ -159,10 +160,12 @@ export function SettingsForm({
     const response = await send(`/api/discord/guilds/${guildId}/settings`, "PUT", value);
     if (response?.ok) {
       setFailing(new Set());
-      setAutoRolesFailing(false);
+      setAutoRolesFailing(null);
       setStatus({ kind: "ok", text: t("pages.botUI.saved") });
     } else {
-      setStatus({ kind: "error", text: t("pages.botUI.saveFailed") });
+      // A role this manager could not give themselves: say so, not "try again".
+      const error = response?.status === 400 ? ((await response.json().catch(() => null)) as { error?: string } | null)?.error : null;
+      setStatus({ kind: "error", text: t(error === AUTO_ROLES_NOT_GRANTABLE ? "pages.botUI.autoRolesNotGrantable" : "pages.botUI.saveFailed") });
     }
   };
 

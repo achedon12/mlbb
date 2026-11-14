@@ -3546,8 +3546,13 @@
       "autoRoleRefusals": {
         "managed": "gestionado por una integración",
         "above_bot": "por encima del bot",
-        "dangerous": "permisos de moderación"
-      }
+        "dangerous": "permisos de moderación",
+        "not_member": "no eres miembro",
+        "no_manage_roles": "necesitas Gestionar roles",
+        "above_user": "por encima de tu rol"
+      },
+      "autoRolesFailingGranter": "El miembro que eligió estos roles dejó el servidor o ya no puede darlos él mismo: un gestor con el permiso Gestionar roles, y un rol por encima de estos, debe guardar de nuevo.",
+      "autoRolesNotGrantable": "No puedes dar tú mismo uno de estos roles (permiso Gestionar roles, rol por encima del tuyo): el bot no lo dará en tu lugar."
     },
     "botAdmin": {
       "title": "administración de bots",

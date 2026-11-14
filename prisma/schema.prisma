@@ -86,6 +86,12 @@ model GuildSettings {
   botAutoRoleIds  String[] @default([]) @db.VarChar(20)
   /// The bot could not give them (Manage Roles lost, a role moved above it).
   autoRoleFailing Boolean  @default(false)
+  /// Why: "bot" (the bot may not give them) or "granter" (the manager below).
+  autoRoleFailReason    String? @db.VarChar(16)
+  /// Discord id of the manager who chose the roles. The bot gives only what
+  /// that person could give themselves (Manage Roles, roles below theirs, or
+  /// owner), checked again before every assignment.
+  autoRolesConfiguredBy String? @db.VarChar(20)
 
   updatedAt DateTime @updatedAt
 
