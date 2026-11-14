@@ -3590,6 +3590,9 @@
           "p": "If audience measurement is enabled, it uses a cookie-free tool that collects no personal data and doesn't track visitors from one site to another. No consent banner is needed in that case."
         },
         {
+          "p": "Calls to the public API (`/api/v1`), made by scripts or other sites, are counted the same way, by the server and without cookies: the requested address, the response code, the referring page and the software the call declares, and the IP address, anonymised by the measurement tool. No identifier is assigned, and a call sent with the `DNT: 1` or `Sec-GPC: 1` header is not counted."
+        },
+        {
           "h": "Your rights"
         },
         {

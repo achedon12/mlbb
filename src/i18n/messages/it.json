@@ -3590,6 +3590,9 @@
           "p": "Se la misurazione del pubblico è attiva, avviene con uno strumento senza cookie e senza dati personali, che non segue i visitatori da un sito all'altro. In tal caso non serve alcun banner di consenso."
         },
         {
+          "p": "Le chiamate alle API pubbliche (`/api/v1`), effettuate da script o altri siti, vengono conteggiate allo stesso modo, dal server e senza cookie: l'indirizzo richiesto, il codice di risposta, la pagina originale e il software dichiarati dalla chiamata, nonché l'indirizzo IP, anonimizzato dallo strumento di misurazione. Non viene assegnato alcun identificatore e una chiamata inviata con intestazione `DNT: 1` o `Sec-GPC: 1` non viene conteggiata."
+        },
+        {
           "h": "I tuoi diritti"
         },
         {

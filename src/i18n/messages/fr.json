@@ -3590,6 +3590,9 @@
           "p": "Si une mesure d'audience est activée, elle l'est avec un outil sans cookie et sans donnée personnelle, qui ne suit pas les visiteurs d'un site à l'autre. Aucun bandeau de consentement n'est alors nécessaire."
         },
         {
+          "p": "Les appels à l'API publique (`/api/v1`), faits par des scripts ou d'autres sites, sont comptés de la même façon, par le serveur et sans cookie : l'adresse demandée, le code de réponse, la page d'origine et le logiciel déclarés par l'appel, ainsi que l'adresse IP, anonymisée par l'outil de mesure. Aucun identifiant n'est attribué, et un appel envoyé avec l'en-tête `DNT: 1` ou `Sec-GPC: 1` n'est pas compté."
+        },
+        {
           "h": "Vos droits"
         },
         {
