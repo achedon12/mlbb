@@ -1,4 +1,6 @@
 import sanitizeHtml from "sanitize-html";
+import type { Locale } from "@/i18n/config";
+import { prefix } from "@/i18n/links";
 
 /**
  * Sanitisation of rendered HTML.
@@ -28,6 +30,27 @@ const OPTIONS: sanitizeHtml.IOptions = {
 
 export function cleanHtml(html: string): string {
   return sanitizeHtml(html, OPTIONS);
+}
+
+/**
+ * Sanitisation of a guide written for the site. Same allowlist, but a link to
+ * another page of the site stays a site link: it gets the reader's language
+ * and opens in the same tab, without `nofollow`, since these links are what
+ * ties a guide to the heroes, items and tools it talks about. Only outside
+ * links are forced to a new tab without referrer.
+ */
+export function cleanGuideHtml(html: string, locale: Locale): string {
+  return sanitizeHtml(html, {
+    ...OPTIONS,
+    transformTags: {
+      a: (tagName, attribs): sanitizeHtml.Tag => {
+        const href = attribs.href ?? "";
+        if (href.startsWith("/") && !href.startsWith("//")) return { tagName, attribs: { href: prefix(href, locale) } };
+        if (href.startsWith("#")) return { tagName, attribs: { href } };
+        return { tagName, attribs: { href, rel: "noreferrer nofollow", target: "_blank" } };
+      },
+    },
+  });
 }
 
 // Server pages keep importing it from here; client components import

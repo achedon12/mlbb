@@ -209,6 +209,10 @@
     "bot": {
       "label": "Bot perselisihan",
       "desc": "Bot Discord Mobile Legends: build, counter, tier list, dan MLBBdle di server kamu"
+    },
+    "guides": {
+      "label": "Panduan",
+      "desc": "Strategi, makro dan peran dijelaskan"
     }
   },
   "account": {
@@ -4426,6 +4430,42 @@
         "confirmDelete": "Hapus konten ini secara permanen?",
         "failed": "Tindakan gagal: muat ulang halaman."
       }
+    },
+    "guides": {
+      "title": "Panduan",
+      "lead": "Dasar-dasar yang memenangkan pertandingan ranked: fase lane, objektif, rotasi, team fight, draft, lalu satu panduan per role. Setiap panduan menautkan ke hero, item, dan alat situs yang dibahasnya.",
+      "metaTitle": "Panduan Mobile Legends: Strategi dan Peran",
+      "metaDescription": "Panduan Mobile Legends: Bang Bang: fase lane, jungle dan objektif, rotasi, team fight, makro, draft, ranked, dan panduan untuk masing-masing dari lima lane.",
+      "nGuides": "{n} panduan",
+      "strategy": "Strategi",
+      "strategyLead": "Yang dimainkan di luar hero: wave, peta, objektif, dan draft.",
+      "roles": "Peran",
+      "rolesLead": "Satu lane per panduan: apa yang dibawa role ini, hero yang menguasainya saat ini, dan apa yang dibuild di sana.",
+      "kind": {
+        "strategy": "Strategi",
+        "role": "Peran"
+      },
+      "readingTime": "{n} menit membaca",
+      "updated": "Diperbarui {date}",
+      "related": "Baca juga",
+      "tools": "Alat untuk panduan ini",
+      "toolsLead": "Untuk mempraktikkan apa yang dijelaskan panduan ini.",
+      "all": "Semua panduan",
+      "readGuide": "Panduan: {title}",
+      "heroesLead": "Hero dengan peringkat terbaik di {lane} dalam tier list yang dihitung, semua rank digabung, menurut pengukuran {date}. Daftar ini mengikuti setiap sinkronisasi.",
+      "heroesLink": "Seluruh tier list {lane}",
+      "heroesEmpty": "Belum ada pengukuran untuk lane ini.",
+      "kitLead": "Yang paling banyak dibuild pemain {lane}: build paling sering dimainkan dari setiap hero di role ini, dibobot menurut popularitasnya, menurut pengukuran {date}.",
+      "kitShare": "Bagian build",
+      "kitEmpty": "Belum ada build terukur untuk lane ini.",
+      "kitLink": "Coba build di simulator",
+      "kitParts": {
+        "items": "Item",
+        "spells": "Battle Spell",
+        "emblems": "Emblem",
+        "talents": "Talent"
+      },
+      "ldName": "Panduan Mobile Legends: Bang Bang"
     }
   },
   "modeSheet": {

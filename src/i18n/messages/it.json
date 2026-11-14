@@ -209,6 +209,10 @@
     "bot": {
       "label": "Bot della discordia",
       "desc": "Il bot Discord di Mobile Legends: build, counter, tier list e MLBBdle nei tuoi server"
+    },
+    "guides": {
+      "label": "Guide",
+      "desc": "Strategia, macro e ruoli spiegati"
     }
   },
   "account": {
@@ -4426,6 +4430,42 @@
         "confirmDelete": "Eliminare definitivamente questo contenuto?",
         "failed": "L'azione non è riuscita: ricarica la pagina."
       }
+    },
+    "guides": {
+      "title": "Guide",
+      "lead": "Le basi che fanno vincere le partite classificate: fase di lane, obiettivi, rotazioni, scontri di squadra, draft, poi una guida per ruolo. Ogni guida rimanda agli eroi, agli oggetti e agli strumenti del sito di cui parla.",
+      "metaTitle": "Guide Mobile Legends: strategia e ruoli",
+      "metaDescription": "Guide di Mobile Legends: Bang Bang: fase di lane, jungle e obiettivi, rotazioni, scontri di squadra, macro, draft, classificate e una guida per ciascuna delle cinque lane.",
+      "nGuides": "{n} guide",
+      "strategy": "Strategia",
+      "strategyLead": "Ciò che si gioca oltre l'eroe: l'ondata, la mappa, gli obiettivi e il draft.",
+      "roles": "Ruoli",
+      "rolesLead": "Una lane per guida: cosa porta il ruolo, gli eroi che la tengono in questo momento, cosa vi si costruisce.",
+      "kind": {
+        "strategy": "Strategia",
+        "role": "Ruolo"
+      },
+      "readingTime": "{n} min di lettura",
+      "updated": "Aggiornata il {date}",
+      "related": "Per saperne di più",
+      "tools": "Gli strumenti della guida",
+      "toolsLead": "Per mettere in pratica quanto spiegato nella guida.",
+      "all": "Tutte le guide",
+      "readGuide": "Guida: {title}",
+      "heroesLead": "Gli eroi meglio classificati in {lane} nella tier list calcolata, tutti i ranghi insieme, secondo la misurazione del {date}. La lista segue ogni sincronizzazione.",
+      "heroesLink": "Tutta la tier list {lane}",
+      "heroesEmpty": "Ancora nessuna misurazione per questa lane.",
+      "kitLead": "Cosa costruiscono di più i giocatori in {lane}: le build più giocate di ogni eroe del ruolo, pesate in base alla sua popolarità, secondo la misurazione del {date}.",
+      "kitShare": "Quota di build",
+      "kitEmpty": "Ancora nessuna build misurata per questa lane.",
+      "kitLink": "Prova una build nel simulatore",
+      "kitParts": {
+        "items": "Oggetti",
+        "spells": "Battle Spell",
+        "emblems": "Emblemi",
+        "talents": "Talenti"
+      },
+      "ldName": "Guide di Mobile Legends: Bang Bang"
     }
   },
   "modeSheet": {
