@@ -14,7 +14,8 @@ import { db } from "@/lib/db";
 
 export const WINDOWS = { "24h": 1, "7d": 7, "30d": 30 } as const;
 export type StatsWindow = keyof typeof WINDOWS;
-export const isWindow = (w: string | undefined): w is StatsWindow => !!w && w in WINDOWS;
+/** Own keys only: `in` also accepts "constructor" or "toString", a function, which turned every date into NaN. */
+export const isWindow = (w: string | undefined): w is StatsWindow => !!w && Object.hasOwn(WINDOWS, w);
 
 /** Nearest-rank percentile of durations; 0 for an empty list. */
 export function percentile(values: number[], p: number): number {
