@@ -199,6 +199,10 @@
     "communityBuilds": {
       "label": "Build komunitas",
       "desc": "Dibagikan dan divote oleh pemain"
+    },
+    "damageCalculator": {
+      "label": "Kalkulator damage",
+      "desc": "Damage satu serangan setelah pertahanan"
     }
   },
   "account": {
@@ -1079,6 +1083,10 @@
       "communityBuild": {
         "title": "{title} · build {hero}",
         "description": "Sebuah build untuk {hero} yang dibagikan oleh {name} di MLBBDex, dengan statistiknya dihitung: {votes} suara hingga saat ini."
+      },
+      "damageCalculator": {
+        "title": "Kalkulator Damage MLBB: Pertahanan dan Penetrasi",
+        "description": "Hitung damage serangan dasar atau pukulan di Mobile Legends setelah pertahanan dan penetrasi: pukulan untuk membunuh dan efektif HP, hero, dan item atau stat yang dimasukkan."
       }
     },
     "freshness": {
@@ -3228,6 +3236,71 @@
       "backToHero": "Semua dibuat untuk {hero}",
       "statsTitle": "Statistik yang dihitung",
       "statsMissing": "Statistik tidak tersedia untuk hero ini."
+    },
+    "damageCalculator": {
+      "title": "Kalkulator damage",
+      "lead": "Satu penyerang, satu pembela, satu pukulan: apa yang melewati pertahanan, berapa banyak pukulan yang harus dibunuh, dan HP efektif. Pilih hero dan itemnya, atau ketik statistik yang dibaca sebagian.",
+      "methodTitle": "Perhitungannya",
+      "method1": "Pertahanan yang tersisa dihitung sesuai urutan permainan: persentase penetrasi terlebih dahulu, kemudian penetrasi tetap, yaitu pertahanan × (1 − penetrasi %) − penetrasi tetap. Hasilnya bisa di bawah 0, hingga −60 dan tidak lebih dari itu: penetrasi tetap kemudian meningkatkan damage. Yang penting adalah penetrasi jenis pukulannya, fisik atau magis.",
+      "method2": "Damage yang diterima = damage mentah × 120 ÷ (120 + sisa pertahanan): 120 pertahanan meloloskan separuh damage, −60 menggandakannya. True damage mengabaikan pertahanan dan penetrasi. Jumlah serangan untuk membunuh adalah HP ÷ damage, dibulatkan ke atas; HP efektif, HP × (120 + sisa pertahanan) ÷ 120, adalah damage mentah yang dibutuhkan untuk membunuh.",
+      "method3": "Serangan dasar memberikan damage fisik sebesar total serangan fisik; serangan kritis memberikan damage kritis, 200% secara default, dan rata-ratanya menimbang keduanya dengan peluang kritis. Hero yang pasifnya mengubah serangan dasar tidak dimodelkan. Statistik hero berasal dari simulator build: level antara 1 dan 15 diinterpolasi, emblem tanpa bakat, pasif bersyarat item tidak dihitung.",
+      "method4": "Skill tidak dihitung: data skill kami memberikan rentang berdasarkan tingkat skill tanpa menyatakan tingkat mana yang sesuai dengan nilai yang mana, dan hampir satu dari sepuluh memiliki rasio. Untuk sebuah skill, baca damage mentahnya dalam game dan masukkan di “Raw Damage”. Kecepatan serangan dasar juga kurang: tidak ada damage per detik.",
+      "sourcesTitle": "Sumber",
+      "sourceWiki": "Wiki Legenda Seluler: {page}"
+    },
+    "damageCalculatorUI": {
+      "attackerTitle": "Penyerang",
+      "defenderTitle": "Pembela",
+      "source": "Asal mula statistik",
+      "modeHero": "Hero dan item",
+      "modeManual": "Statistik dimasukkan",
+      "chooseHero": {
+        "attacker": "Pilih penyerang",
+        "defender": "Pilih pembela"
+      },
+      "changeHero": "Ganti hero",
+      "level": "Tingkat {level}",
+      "levelDown": "Tingkat sebelumnya",
+      "levelUp": "Tingkat berikutnya",
+      "items": "Item",
+      "slotEmpty": "Slot {n}: kosong",
+      "slotFilled": "Slot {n}: {item}",
+      "pickItem": "Item untuk slot {n}",
+      "emblem": "Emblem",
+      "noEmblem": "Tidak ada",
+      "interpolated": "Level {level}: statistik dasar diinterpolasi antara level 1 dan 15.",
+      "manualNote": {
+        "attacker": "Sebagian statistik dari layar atribut, termasuk bakat dan bonus. Persentase dari 0 hingga 100; Damage kritis adalah 200% secara default.",
+        "defender": "HP dan pertahanan dari layar atribut, termasuk bonus."
+      },
+      "hitTitle": "Serangan",
+      "hitKind": "Jenis serangan",
+      "basicAttack": "Serangan dasar",
+      "rawHit": "Damage mentah",
+      "basicNote": "Damage fisik sama dengan total serangan fisik penyerang, dan serangan kritisnya jika memiliki peluang kritis.",
+      "rawAmount": "Damage sebelum pertahanan",
+      "damageType": "Jenis",
+      "kinds": {
+        "physical": "Physical",
+        "magic": "Magic",
+        "true": "True"
+      },
+      "resultTitle": "Hasil",
+      "missingAttacker": "Pilih penyerang, atau masukkan statistiknya: setiap kolom harus berisi angka yang valid.",
+      "missingDefender": "Pilih pembela, atau masukkan statistiknya: setiap kolom harus berisi angka yang valid.",
+      "invalidRaw": "Masukkan damage mentah positif.",
+      "normalHit": "Pukulan biasa",
+      "critHit": "Serangan Kritis",
+      "damagePerHit": "damage per pukulan",
+      "hitsToKill": "pukulan untuk membunuh",
+      "rawDamage": "Damage mentah",
+      "defenseAfter": "Pertahanan setelah penetrasi",
+      "defenseFromTo": "{from} → {to}",
+      "ignored": "diabaikan",
+      "share": "Bagian damage yang tembus",
+      "effectiveHp": "HP efektif melawan serangan ini",
+      "defenderHp": "HP Pembela",
+      "average": "Rata-rata, dengan {chance} peluang kritis: {damage} damage per serangan dasar."
     }
   },
   "modeSheet": {

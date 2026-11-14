@@ -114,6 +114,7 @@ export const PAGES = [
   { path: "/tools/matchups", locales: EN_FR, browser: true },
   { path: "/draft", locales: ALL, browser: true },
   { path: "/tools/build", locales: EN_FR },
+  { path: "/tools/damage-calculator", locales: EN_FR },
   { path: "/tools/timer", locales: EN_FR },
   { path: "/tools/tier-list-maker", locales: EN_FR },
   { path: "/map", locales: EN_FR },

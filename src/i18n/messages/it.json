@@ -199,6 +199,10 @@
     "communityBuilds": {
       "label": "Build della community",
       "desc": "Condivise e votate dai giocatori"
+    },
+    "damageCalculator": {
+      "label": "Calcolatore dei danni",
+      "desc": "Danno da un colpo dopo la difesa"
     }
   },
   "account": {
@@ -1079,6 +1083,10 @@
       "communityBuild": {
         "title": "{title} · build per {hero}",
         "description": "Una build per {hero} condivisa da {name} su MLBBDex, con le statistiche calcolate: {votes} voto/i finora."
+      },
+      "damageCalculator": {
+        "title": "Calcolatore dei danni MLBB: difesa e penetrazione",
+        "description": "Calcola il danno di un attacco base o di un colpo in Mobile Legends dopo la difesa e la penetrazione: colpi per uccidere e HP effettivi, eroi e oggetti o statistiche inseriti."
       }
     },
     "freshness": {
@@ -3228,6 +3236,71 @@
       "backToHero": "Tutte le build per {hero}",
       "statsTitle": "Statistiche calcolate",
       "statsMissing": "Statistiche non disponibili per questo eroe."
+    },
+    "damageCalculator": {
+      "title": "Calcolatore dei danni",
+      "lead": "Un attaccante, un difensore, un colpo: cosa supera la difesa, quanti colpi uccidere e gli HP effettivi. Scegli gli eroi e i loro oggetti oppure digita le statistiche lette in parte.",
+      "methodTitle": "Il calcolo",
+      "method1": "La difesa rimanente viene calcolata nell'ordine di gioco: prima la percentuale di penetrazione, poi la penetrazione fissa, cioè difesa × (1 − penetrazione %) − penetrazione fissa. Il risultato può scendere sotto 0, fino a -60 e non oltre: la penetrazione fissa quindi aumenta il danno. Ciò che conta è la penetrazione del tipo di colpo, fisico o magico.",
+      "method2": "Il danno subito vale danno grezzo × 120 ÷ (120 + difesa rimanente): 120 di difesa lasciano passare metà del danno, −60 lo raddoppiano. Il danno puro ignora difesa e penetrazione. I colpi per uccidere arrotondano HP ÷ danno all'intero superiore; gli HP effettivi, HP × (120 + difesa rimanente) ÷ 120, sono il danno grezzo da infliggere per uccidere.",
+      "method3": "Un attacco base infligge danni fisici pari all'attacco fisico totale; un colpo critico infligge i danni critici, 200% di base, e la media pondera i due con la probabilità di critico. Gli eroi la cui passiva modifica l'attacco base non sono modellati. Le statistiche di un eroe vengono dal simulatore di build: livelli tra 1 e 15 interpolati, emblema senza talenti, passive condizionali degli oggetti non contate.",
+      "method4": "Le competenze non vengono calcolate: i nostri dati sulle competenze forniscono intervalli per livello di competenza senza dire quale livello corrisponde a quale valore, e appena uno su dieci riporta un rapporto. Per un'abilità, leggi il suo danno grezzo nel gioco e inseriscilo in \"Danno grezzo\". Manca anche la velocità di attacco base: nessun danno al secondo.",
+      "sourcesTitle": "Fonti",
+      "sourceWiki": "Wiki di Mobile Legends: {page}"
+    },
+    "damageCalculatorUI": {
+      "attackerTitle": "Attaccante",
+      "defenderTitle": "Difensore",
+      "source": "Origine delle statistiche",
+      "modeHero": "Eroi e oggetti",
+      "modeManual": "Statistiche inserite",
+      "chooseHero": {
+        "attacker": "Scegli l'attaccante",
+        "defender": "Scegli il difensore"
+      },
+      "changeHero": "Cambia eroe",
+      "level": "Livello {level}",
+      "levelDown": "Livello precedente",
+      "levelUp": "Livello successivo",
+      "items": "Oggetti",
+      "slotEmpty": "Slot {n}: vuoto",
+      "slotFilled": "Posizione {n}: {item}",
+      "pickItem": "Oggetto dello slot {n}",
+      "emblem": "Emblema",
+      "noEmblem": "Nessuno",
+      "interpolated": "Livello {level}: statistiche base interpolate tra i livelli 1 e 15.",
+      "manualNote": {
+        "attacker": "Le statistiche dalla schermata degli attributi in parte, inclusi talenti e bonus. Percentuali da 0 a 100; Il danno critico è del 200% per impostazione predefinita.",
+        "defender": "HP e difese dalla schermata degli attributi, inclusi i bonus."
+      },
+      "hitTitle": "Il colpo",
+      "hitKind": "Tipo di colpo",
+      "basicAttack": "Attacco base",
+      "rawHit": "Danno grezzo",
+      "basicNote": "Danno fisico pari all'attacco fisico totale dell'attaccante e al suo colpo critico se ha una probabilità critica.",
+      "rawAmount": "Danno prima della difesa",
+      "damageType": "Tipo",
+      "kinds": {
+        "physical": "Fisico",
+        "magic": "Magico",
+        "true": "Puro"
+      },
+      "resultTitle": "Risultato",
+      "missingAttacker": "Scegli un attaccante, oppure inserisci le sue statistiche: ogni campo deve contenere un numero valido.",
+      "missingDefender": "Scegli un difensore, oppure inserisci le sue statistiche: ogni campo deve contenere un numero valido.",
+      "invalidRaw": "Inserisci un danno grezzo positivo.",
+      "normalHit": "Colpo normale",
+      "critHit": "Colpo critico",
+      "damagePerHit": "danno per colpo",
+      "hitsToKill": "colpi per uccidere",
+      "rawDamage": "Danno grezzo",
+      "defenseAfter": "Difesa dopo la penetrazione",
+      "defenseFromTo": "{from} → {to}",
+      "ignored": "ignorato",
+      "share": "Quota di danno che passa",
+      "effectiveHp": "HP efficaci contro questo colpo",
+      "defenderHp": "HP del difensore",
+      "average": "In media, con {chance} probabilità critica: {damage} danno per attacco base."
     }
   },
   "modeSheet": {

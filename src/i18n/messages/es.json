@@ -199,6 +199,10 @@
     "communityBuilds": {
       "label": "Builds de la comunidad",
       "desc": "Compartidas y votadas por los jugadores"
+    },
+    "damageCalculator": {
+      "label": "Calculadora de daños",
+      "desc": "El daño de un golpe tras la defensa"
     }
   },
   "account": {
@@ -1079,6 +1083,10 @@
       "communityBuild": {
         "title": "{title} · build para {hero}",
         "description": "Una build para {hero} compartida por {name} en MLBBDex, con sus estadísticas calculadas: {votes} voto(s) hasta ahora."
+      },
+      "damageCalculator": {
+        "title": "Calculadora de daños de MLBB: defensa y penetración",
+        "description": "Calcula el daño de un ataque básico o un golpe en Mobile Legends después de la defensa y la penetración: golpes para matar y HP efectivos, héroes y elementos o estadísticas ingresadas."
       }
     },
     "freshness": {
@@ -3228,6 +3236,71 @@
       "backToHero": "Todas las builds para {hero}",
       "statsTitle": "Estadísticas calculadas",
       "statsMissing": "Estadísticas no disponibles para este héroe."
+    },
+    "damageCalculator": {
+      "title": "Calculadora de daños",
+      "lead": "Un atacante, un defensor, un golpe: qué pasa la defensa, cuántos golpes matar y los HP efectivos. Elige héroes y sus objetos, o escribe las estadísticas leídas en parte.",
+      "methodTitle": "El cálculo",
+      "method1": "La defensa restante sigue el orden del juego: primero la penetración porcentual, luego la penetración fija, es decir, defensa × (1 − penetración %) − penetración fija. El resultado puede bajar de 0, hasta −60 y no más: la penetración fija añade entonces daño. Solo cuenta la penetración del tipo del golpe, física o mágica.",
+      "method2": "El daño recibido es daño bruto × 120 ÷ (120 + defensa restante): 120 de defensa dejan pasar la mitad del daño, −60 lo duplican. El daño puro ignora defensa y penetración. Los golpes para matar redondean PV ÷ daño al entero superior; los PV efectivos, PV × (120 + defensa restante) ÷ 120, son el daño bruto necesario para matar.",
+      "method3": "Un ataque básico inflige daño físico igual al ataque físico total; un crítico inflige el daño crítico, 200 % por defecto, y la media pondera ambos por la probabilidad de crítico. Los héroes cuya pasiva cambia su ataque básico no están modelados. Las estadísticas de un héroe vienen del simulador de builds: niveles entre 1 y 15 interpolados, emblema sin talentos, pasivas condicionales de los objetos sin contar.",
+      "method4": "Las habilidades no se calculan: nuestros datos de habilidades dan rangos por nivel de habilidad sin decir qué nivel corresponde a qué valor, y apenas uno de cada diez tiene una proporción. Para una habilidad, lee su daño bruto en el juego e ingrésalo en \"Daño bruto\". También falta la velocidad de ataque base: no hay daño por segundo.",
+      "sourcesTitle": "Fuentes",
+      "sourceWiki": "Wiki de Mobile Legends: {page}"
+    },
+    "damageCalculatorUI": {
+      "attackerTitle": "Agresor",
+      "defenderTitle": "Defensor",
+      "source": "Origen de las estadísticas",
+      "modeHero": "Héroes y objetos",
+      "modeManual": "Estadísticas ingresadas",
+      "chooseHero": {
+        "attacker": "Elige el atacante",
+        "defender": "Elige el defensor"
+      },
+      "changeHero": "Cambiar de héroe",
+      "level": "Nivel {level}",
+      "levelDown": "Nivel anterior",
+      "levelUp": "Nivel siguiente",
+      "items": "Objetos",
+      "slotEmpty": "Hueco {n}: vacío",
+      "slotFilled": "Hueco {n}: {item}",
+      "pickItem": "Objeto del hueco {n}",
+      "emblem": "Emblema",
+      "noEmblem": "Ninguno",
+      "interpolated": "Nivel {level}: estadísticas base interpoladas entre los niveles 1 y 15.",
+      "manualNote": {
+        "attacker": "Las estadísticas de la pantalla de atributos en parte, incluidos talentos y bonificaciones. Porcentajes de 0 a 100; El daño crítico es del 200% por defecto.",
+        "defender": "HP y defensas desde la pantalla de atributos, incluidas las bonificaciones."
+      },
+      "hitTitle": "el golpe",
+      "hitKind": "Tipo de golpe",
+      "basicAttack": "Ataque básico",
+      "rawHit": "Daño bruto",
+      "basicNote": "Daño físico igual al ataque físico total del atacante y su golpe crítico si tiene probabilidad crítica.",
+      "rawAmount": "Daño antes de la defensa",
+      "damageType": "Tipo",
+      "kinds": {
+        "physical": "Físico",
+        "magic": "Mágico",
+        "true": "Puro"
+      },
+      "resultTitle": "Resultado",
+      "missingAttacker": "Elija un atacante o ingrese sus estadísticas: cada campo debe contener un número válido.",
+      "missingDefender": "Elige un defensor o ingresa sus estadísticas: cada campo debe contener un número válido.",
+      "invalidRaw": "Ingrese el daño bruto positivo.",
+      "normalHit": "Golpe normal",
+      "critHit": "Golpe crítico",
+      "damagePerHit": "daño por golpe",
+      "hitsToKill": "golpes para matar",
+      "rawDamage": "Daño bruto",
+      "defenseAfter": "Defensa después de la penetración",
+      "defenseFromTo": "{from} → {to}",
+      "ignored": "ignorado",
+      "share": "Proporción de daño que pasa",
+      "effectiveHp": "HP efectivo contra este golpe.",
+      "defenderHp": "HP del defensor",
+      "average": "En promedio, con {chance} probabilidad crítica: {damage} de daño por ataque básico."
     }
   },
   "modeSheet": {
