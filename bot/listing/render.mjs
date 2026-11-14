@@ -12,7 +12,7 @@
  * Fonts: Noto Sans stands in for Discord's gg sans. Squares of the MLBBdle
  * grid are drawn, not taken from an emoji font.
  */
-import { readFile, stat } from "node:fs/promises";
+import { copyFile, readFile, stat } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 import { counterEmbed, heroButtons, heroEmbed, buildEmbed, patchEmbed, tierlistEmbed } from "../dist/embeds/game.js";
@@ -369,6 +369,8 @@ async function save(name, svg, density = 144) {
   if (size > 1024 * 1024) throw new Error(`${name}.png is ${size} bytes, over 1 MB`);
   // The site's /bot page serves the same visuals as WebP.
   await sharp(file).webp({ quality: 88 }).toFile(`${REPO}public/bot/${name}.webp`);
+  // Share cards: not every network reads WebP, so the banner also goes as PNG.
+  if (name === "banner") await copyFile(file, `${REPO}public/bot/banner.png`);
   process.stdout.write(`${name}.png ${Math.round(size / 1024)} KB\n`);
 }
 

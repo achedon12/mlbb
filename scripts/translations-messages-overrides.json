@@ -383,6 +383,206 @@
     "prose.bot.members": {
       "fr": "Rien n'est conservé sur les membres d'un serveur : leurs arrivées et départs, que Discord signale au bot, servent seulement à publier les messages de bienvenue et de départ que le serveur a activés.",
       "text": "Nothing is kept about a server's members: their joins and leaves, which Discord reports to the bot, are only used to post the welcome and goodbye messages the server turned on."
+    },
+    "pages.bot.metaTitle": {
+      "fr": "Bot Discord Mobile Legends (MLBB) : builds, counters, tier list",
+      "text": "Mobile Legends Discord bot (MLBB): builds, counters, tier list"
+    },
+    "pages.bot.metaDescription": {
+      "fr": "MLBBDex, le bot Discord gratuit pour Mobile Legends : builds et counters mesurés sur les parties classées, tier list, patch notes, alertes skins et MLBBdle du jour, en cinq langues.",
+      "text": "MLBBDex, the free Mobile Legends Discord bot: builds and counters measured on ranked games, tier list, patch notes, skin alerts and the daily MLBBdle, in five languages."
+    },
+    "pages.bot.lead": {
+      "fr": "Builds, counters, tier list et patch notes de Mobile Legends: Bang Bang, mesurés sur les parties classées et mis à jour chaque jour, directement dans votre serveur. Plus un MLBBdle quotidien pour votre communauté. Gratuit, en cinq langues.",
+      "text": "Mobile Legends: Bang Bang builds, counters, tier list and patch notes, measured on ranked games and updated every day, right in your server. Plus a daily MLBBdle for your community. Free, in five languages."
+    },
+    "pages.bot.noAdmin": {
+      "fr": "Sans permission Administrateur",
+      "text": "No Administrator permission"
+    },
+    "pages.bot.showcase.heroesTitle": {
+      "fr": "La fiche d'un héros en une commande",
+      "text": "A hero's sheet in one command"
+    },
+    "pages.bot.showcase.heroesText": {
+      "fr": "/hero donne le rôle, les couloirs, le tier, les taux de victoire, de sélection et de ban, le meilleur build, l'emblème, le sort et les compétences, avec l'illustration du héros. Les boutons Build, Counters et Skins approfondissent sans encombrer le salon.",
+      "text": "/hero gives the role, lanes, tier, win, pick and ban rates, best build, emblem, spell and skills, with the hero's artwork. The Build, Counters and Skins buttons dig deeper without cluttering the channel."
+    },
+    "pages.bot.showcase.heroesAlt": {
+      "fr": "La réponse de /hero dans Discord : fiche de Sun avec tier, taux, build et illustration",
+      "text": "The /hero reply in Discord: Sun's sheet with tier, rates, build and artwork"
+    },
+    "pages.bot.showcase.buildsText": {
+      "fr": "/build montre les objets, l'emblème et le sort avec lesquels les joueurs gagnent, par rang. /counter liste les héros qui battent le vôtre et ceux qu'il bat.",
+      "text": "/build shows the items, emblem and spell players win with, by rank. /counter lists the heroes that beat yours and the ones it beats."
+    },
+    "pages.bot.showcase.buildsAlt": {
+      "fr": "La réponse de /counter dans Discord : les counters de Ling",
+      "text": "The /counter reply in Discord: Ling's counters"
+    },
+    "pages.bot.showcase.metaTitle": {
+      "fr": "La méta du moment",
+      "text": "Today's meta"
+    },
+    "pages.bot.showcase.metaText": {
+      "fr": "/tierlist calcule la tier list à partir des taux de victoire, de sélection et de ban, tous rangs confondus ou d'Épique à Gloire mythique, par couloir ou par rôle.",
+      "text": "/tierlist computes the tier list from win, pick and ban rates, across all ranks or from Epic to Mythical Glory, by lane or by role."
+    },
+    "pages.bot.showcase.metaAlt": {
+      "fr": "La réponse de /tierlist dans Discord : les tiers S+, S et A",
+      "text": "The /tierlist reply in Discord: the S+, S and A tiers"
+    },
+    "pages.bot.showcase.newsTitle": {
+      "fr": "Patchs et annonces automatiques",
+      "text": "Patches and automatic announcements"
+    },
+    "pages.bot.showcase.newsText": {
+      "fr": "/patch résume le dernier patch : buffs, nerfs et héros modifiés. Le bot peut aussi publier seul les nouveaux patchs, skins, événements, serveur avancé et résultats esport dans les salons de votre choix, avec un rôle à mentionner.",
+      "text": "/patch sums up the latest patch: buffs, nerfs and changed heroes. The bot can also post new patches, skins, events, the Advance Server and esports results on its own, in the channels you choose, with a role to mention."
+    },
+    "pages.bot.showcase.newsAlt": {
+      "fr": "La réponse de /patch dans Discord : buffs, nerfs et héros modifiés",
+      "text": "The /patch reply in Discord: buffs, nerfs and changed heroes"
+    },
+    "pages.bot.showcase.dailyTitle": {
+      "fr": "MLBBdle et quiz du jour",
+      "text": "Daily MLBBdle and quiz"
+    },
+    "pages.bot.showcase.dailyText": {
+      "fr": "Devinez le héros du jour en mode classique ou compétence, le même que sur le site, puis comparez-vous dans le classement du serveur. Le bot peut publier le jeu chaque jour à l'heure choisie.",
+      "text": "Guess today's hero in classic or skill mode, the same one as on the site, then compare yourselves on the server leaderboard. The bot can post the game every day at the hour you pick."
+    },
+    "pages.bot.showcase.dailyAlt": {
+      "fr": "Une partie de MLBBdle dans Discord, trouvée en cinq essais",
+      "text": "An MLBBdle game in Discord, solved in five guesses"
+    },
+    "pages.bot.extras.welcomeTitle": {
+      "fr": "Messages d'accueil",
+      "text": "Welcome messages"
+    },
+    "pages.bot.extras.welcomeText": {
+      "fr": "Bienvenue et au revoir dans le salon choisi, avec votre texte ou le nôtre, et un seul message quand un raid arrive.",
+      "text": "Welcome and goodbye in the channel you pick, with your text or ours, and a single message when a raid arrives."
+    },
+    "pages.bot.extras.toolsText": {
+      "fr": "Générateur de pseudo stylisé (21 polices), heure du serveur de jeu et comptes à rebours des resets.",
+      "text": "Stylish nickname generator (21 fonts), game server time and reset countdowns."
+    },
+    "pages.bot.extras.languagesText": {
+      "fr": "Commandes et réponses en anglais, français, italien, espagnol et indonésien, selon la langue du serveur ou de chaque membre.",
+      "text": "Commands and replies in English, French, Italian, Spanish and Indonesian, following the server's language or each member's."
+    },
+    "pages.bot.extras.freeText": {
+      "fr": "Pas d'abonnement, pas de vote obligatoire, pas de fonction réservée : tout est gratuit, pour tous les serveurs.",
+      "text": "No subscription, no vote lock, no locked feature: everything is free, for every server."
+    },
+    "pages.bot.commandsTitle": {
+      "fr": "Toutes les commandes",
+      "text": "Every command"
+    },
+    "pages.bot.categories.heroes": {
+      "fr": "Héros et builds",
+      "text": "Heroes & builds"
+    },
+    "pages.bot.categories.news": {
+      "fr": "Patchs et actus",
+      "text": "Patch & news"
+    },
+    "pages.bot.categories.setup": {
+      "fr": "Configuration du serveur",
+      "text": "Server setup"
+    },
+    "pages.bot.commands.hero": {
+      "fr": "Fiche d'un héros : rôle, couloirs, tier, taux, meilleur build, emblème, sort, compétences et illustration.",
+      "text": "A hero's sheet: role, lanes, tier, rates, best build, emblem, spell, skills and artwork."
+    },
+    "pages.bot.commands.build": {
+      "fr": "Les builds les plus gagnants d'un héros, par rang : objets, emblème et sort.",
+      "text": "A hero's best-winning builds, by rank: items, emblem and spell."
+    },
+    "pages.bot.commands.counter": {
+      "fr": "Les héros qui battent un héros donné, et ceux qu'il bat.",
+      "text": "The heroes that beat a given hero, and those it beats."
+    },
+    "pages.bot.commands.compare": {
+      "fr": "Deux héros face à face : tier et taux côte à côte.",
+      "text": "Two heroes head to head: tier and rates side by side."
+    },
+    "pages.bot.commands.item": {
+      "fr": "Prix, statistiques, passif, actif et recette d'un objet.",
+      "text": "An item's price, stats, passive, active and recipe."
+    },
+    "pages.bot.commands.emblem": {
+      "fr": "Un emblème et les rôles auxquels il convient.",
+      "text": "An emblem and the roles it fits."
+    },
+    "pages.bot.commands.patch": {
+      "fr": "Résumé du dernier patch, ou d'une version donnée : buffs, nerfs, héros modifiés.",
+      "text": "Summary of the latest patch, or of a given version: buffs, nerfs, changed heroes."
+    },
+    "pages.bot.commands.skins": {
+      "fr": "Les derniers skins sortis, ou tous ceux d'un héros.",
+      "text": "The newest skins, or every skin of a hero."
+    },
+    "pages.bot.commands.nickname": {
+      "fr": "Un pseudo stylisé, avec 21 polices au choix.",
+      "text": "A styled nickname, with 21 fonts to choose from."
+    },
+    "pages.bot.commands.servertime": {
+      "fr": "L'heure du serveur de jeu et les comptes à rebours des resets.",
+      "text": "The game server time and the reset countdowns."
+    },
+    "pages.bot.commands.help": {
+      "fr": "Les commandes par catégorie, avec un exemple pour chacune.",
+      "text": "The commands by category, with an example for each."
+    },
+    "pages.bot.commands.about": {
+      "fr": "Version, nombre de serveurs, liens vers le site, le serveur d'entraide et le vote.",
+      "text": "Version, server count, links to the site, the support server and voting."
+    },
+    "pages.bot.faq1a": {
+      "fr": "Oui, entièrement : pas d'abonnement, pas de fonction réservée, pas de vote obligatoire, pas de publicité. Il est financé comme le site, par son auteur.",
+      "text": "Yes, entirely: no subscription, no locked feature, no vote lock, no ads. Like the site, it is paid for by its author."
+    },
+    "pages.bot.faq2a": {
+      "fr": "Cliquez sur « Ajouter à Discord », choisissez un serveur où vous avez la permission Gérer le serveur, puis validez. Les commandes apparaissent dès que vous tapez / dans un salon.",
+      "text": "Click \"Add to Discord\", pick a server where you have the Manage Server permission, and confirm. The commands show up as soon as you type / in a channel."
+    },
+    "pages.bot.faq3a": {
+      "fr": "Ouvrez le tableau de bord avec votre compte Discord (ou tapez /setup) : choisissez un salon, et si vous voulez un rôle à mentionner, pour chaque type d'annonce. Il faut la permission Gérer le serveur.",
+      "text": "Open the dashboard with your Discord account (or type /setup): pick a channel, and if you want a role to mention, for each announcement type. You need the Manage Server permission."
+    },
+    "pages.bot.faq4q": {
+      "fr": "D'où viennent les builds, counters et la tier list ?",
+      "text": "Where do the builds, counters and tier list come from?"
+    },
+    "pages.bot.faq4a": {
+      "fr": "Des mêmes sources que le site : les statistiques des parties classées pour les taux, les builds et les counters, et le wiki Mobile Legends pour les héros, objets et patchs. Elles sont mises à jour chaque jour.",
+      "text": "From the same sources as the site: ranked game statistics for rates, builds and counters, and the Mobile Legends wiki for heroes, items and patches. They are refreshed every day."
+    },
+    "pages.bot.faq5q": {
+      "fr": "Le bot a-t-il besoin de la permission Administrateur ?",
+      "text": "Does the bot need the Administrator permission?"
+    },
+    "pages.bot.faq5a": {
+      "fr": "Non. Il ne demande que ce qu'il utilise pour répondre et publier, et ne lit jamais le contenu des messages.",
+      "text": "No. It only asks for what it uses to reply and post, and never reads message content."
+    },
+    "pages.bot.faq6q": {
+      "fr": "Dans quelles langues répond-il ?",
+      "text": "Which languages does it speak?"
+    },
+    "pages.bot.faq6a": {
+      "fr": "En anglais, français, italien, espagnol et indonésien. La langue se choisit pour tout le serveur dans le tableau de bord ; sinon, chaque membre reçoit la sienne.",
+      "text": "English, French, Italian, Spanish and Indonesian. The language can be set for the whole server in the dashboard; otherwise each member gets their own."
+    },
+    "pages.bot.ctaText": {
+      "fr": "Une minute pour l'ajouter, rien à payer. Des questions ou une idée ? Le serveur MLBBDex vous attend.",
+      "text": "One minute to add, nothing to pay. Questions or an idea? The MLBBDex server is waiting for you."
+    },
+    "nav.bot.desc": {
+      "fr": "Le bot Discord Mobile Legends : builds, counters, tier list et MLBBdle dans vos serveurs",
+      "text": "The Mobile Legends Discord bot: builds, counters, tier list and MLBBdle in your servers"
     }
   },
   "es": {
@@ -745,6 +945,358 @@
     "prose.bot.members": {
       "fr": "Rien n'est conservé sur les membres d'un serveur : leurs arrivées et départs, que Discord signale au bot, servent seulement à publier les messages de bienvenue et de départ que le serveur a activés.",
       "text": "No se guarda nada de los miembros de un servidor: sus entradas y salidas, que Discord comunica al bot, solo sirven para publicar los mensajes de bienvenida y despedida que el servidor activó."
+    },
+    "pages.bot.title": {
+      "fr": "MLBBDex — le bot Discord Mobile Legends",
+      "text": "MLBBDex — el bot de Discord de Mobile Legends"
+    },
+    "pages.bot.breadcrumb": {
+      "fr": "Bot Discord",
+      "text": "Bot de Discord"
+    },
+    "pages.bot.metaTitle": {
+      "fr": "Bot Discord Mobile Legends (MLBB) : builds, counters, tier list",
+      "text": "Bot de Discord de Mobile Legends (MLBB): builds, counters, tier list"
+    },
+    "pages.bot.metaDescription": {
+      "fr": "MLBBDex, le bot Discord gratuit pour Mobile Legends : builds et counters mesurés sur les parties classées, tier list, patch notes, alertes skins et MLBBdle du jour, en cinq langues.",
+      "text": "MLBBDex, el bot de Discord gratuito para Mobile Legends: builds y counters medidos en partidas clasificatorias, tier list, notas de parche, avisos de skins y el MLBBdle del día, en cinco idiomas."
+    },
+    "pages.bot.lead": {
+      "fr": "Builds, counters, tier list et patch notes de Mobile Legends: Bang Bang, mesurés sur les parties classées et mis à jour chaque jour, directement dans votre serveur. Plus un MLBBdle quotidien pour votre communauté. Gratuit, en cinq langues.",
+      "text": "Builds, counters, tier list y notas de parche de Mobile Legends: Bang Bang, medidos en partidas clasificatorias y actualizados cada día, directamente en tu servidor. Además, un MLBBdle diario para tu comunidad. Gratis, en cinco idiomas."
+    },
+    "pages.bot.add": {
+      "fr": "Ajouter à Discord",
+      "text": "Añadir a Discord"
+    },
+    "pages.bot.join": {
+      "fr": "Rejoindre le serveur",
+      "text": "Unirse al servidor"
+    },
+    "pages.bot.vote": {
+      "fr": "Voter sur top.gg",
+      "text": "Votar en top.gg"
+    },
+    "pages.bot.dashboard": {
+      "fr": "Tableau de bord",
+      "text": "Panel de control"
+    },
+    "pages.bot.servers": {
+      "fr": "Présent sur {count} serveurs",
+      "text": "En {count} servidores"
+    },
+    "pages.bot.free": {
+      "fr": "100 % gratuit",
+      "text": "100 % gratis"
+    },
+    "pages.bot.languages": {
+      "fr": "5 langues",
+      "text": "5 idiomas"
+    },
+    "pages.bot.noAdmin": {
+      "fr": "Sans permission Administrateur",
+      "text": "Sin permiso de Administrador"
+    },
+    "pages.bot.showcaseTitle": {
+      "fr": "Ce que fait le bot",
+      "text": "Qué hace el bot"
+    },
+    "pages.bot.showcase.heroesTitle": {
+      "fr": "La fiche d'un héros en une commande",
+      "text": "La ficha de un héroe en un comando"
+    },
+    "pages.bot.showcase.heroesText": {
+      "fr": "/hero donne le rôle, les couloirs, le tier, les taux de victoire, de sélection et de ban, le meilleur build, l'emblème, le sort et les compétences, avec l'illustration du héros. Les boutons Build, Counters et Skins approfondissent sans encombrer le salon.",
+      "text": "/hero muestra el rol, las líneas, el tier, las tasas de victoria, pick y baneo, la mejor build, el emblema, el hechizo y las habilidades, con la ilustración del héroe. Los botones Build, Counters y Skins profundizan sin llenar el canal."
+    },
+    "pages.bot.showcase.heroesAlt": {
+      "fr": "La réponse de /hero dans Discord : fiche de Sun avec tier, taux, build et illustration",
+      "text": "La respuesta de /hero en Discord: la ficha de Sun con tier, tasas, build e ilustración"
+    },
+    "pages.bot.showcase.buildsTitle": {
+      "fr": "Builds et counters",
+      "text": "Builds y counters"
+    },
+    "pages.bot.showcase.buildsText": {
+      "fr": "/build montre les objets, l'emblème et le sort avec lesquels les joueurs gagnent, par rang. /counter liste les héros qui battent le vôtre et ceux qu'il bat.",
+      "text": "/build muestra los objetos, el emblema y el hechizo con los que ganan los jugadores, por rango. /counter lista los héroes que vencen al tuyo y a los que vence."
+    },
+    "pages.bot.showcase.buildsAlt": {
+      "fr": "La réponse de /counter dans Discord : les counters de Ling",
+      "text": "La respuesta de /counter en Discord: los counters de Ling"
+    },
+    "pages.bot.showcase.metaTitle": {
+      "fr": "La méta du moment",
+      "text": "El meta del momento"
+    },
+    "pages.bot.showcase.metaText": {
+      "fr": "/tierlist calcule la tier list à partir des taux de victoire, de sélection et de ban, tous rangs confondus ou d'Épique à Gloire mythique, par couloir ou par rôle.",
+      "text": "/tierlist calcula la tier list a partir de las tasas de victoria, pick y baneo, en todos los rangos o de Épico a Gloria Mítica, por línea o por rol."
+    },
+    "pages.bot.showcase.metaAlt": {
+      "fr": "La réponse de /tierlist dans Discord : les tiers S+, S et A",
+      "text": "La respuesta de /tierlist en Discord: los tiers S+, S y A"
+    },
+    "pages.bot.showcase.newsTitle": {
+      "fr": "Patchs et annonces automatiques",
+      "text": "Parches y anuncios automáticos"
+    },
+    "pages.bot.showcase.newsText": {
+      "fr": "/patch résume le dernier patch : buffs, nerfs et héros modifiés. Le bot peut aussi publier seul les nouveaux patchs, skins, événements, serveur avancé et résultats esport dans les salons de votre choix, avec un rôle à mentionner.",
+      "text": "/patch resume el último parche: buffs, nerfs y héroes modificados. El bot también puede publicar por sí solo los nuevos parches, skins, eventos, el Servidor Avanzado y los resultados de esports en los canales que elijas, con un rol para mencionar."
+    },
+    "pages.bot.showcase.newsAlt": {
+      "fr": "La réponse de /patch dans Discord : buffs, nerfs et héros modifiés",
+      "text": "La respuesta de /patch en Discord: buffs, nerfs y héroes modificados"
+    },
+    "pages.bot.showcase.dailyTitle": {
+      "fr": "MLBBdle et quiz du jour",
+      "text": "MLBBdle y quiz del día"
+    },
+    "pages.bot.showcase.dailyText": {
+      "fr": "Devinez le héros du jour en mode classique ou compétence, le même que sur le site, puis comparez-vous dans le classement du serveur. Le bot peut publier le jeu chaque jour à l'heure choisie.",
+      "text": "Adivina el héroe del día en modo clásico o habilidad, el mismo que en la web, y comparaos en la clasificación del servidor. El bot puede publicar el juego cada día a la hora que elijas."
+    },
+    "pages.bot.showcase.dailyAlt": {
+      "fr": "Une partie de MLBBdle dans Discord, trouvée en cinq essais",
+      "text": "Una partida de MLBBdle en Discord, resuelta en cinco intentos"
+    },
+    "pages.bot.extrasTitle": {
+      "fr": "Et aussi",
+      "text": "Y además"
+    },
+    "pages.bot.extras.welcomeTitle": {
+      "fr": "Messages d'accueil",
+      "text": "Mensajes de bienvenida"
+    },
+    "pages.bot.extras.welcomeText": {
+      "fr": "Bienvenue et au revoir dans le salon choisi, avec votre texte ou le nôtre, et un seul message quand un raid arrive.",
+      "text": "Bienvenidas y despedidas en el canal que elijas, con tu texto o el nuestro, y un solo mensaje cuando llega un raid."
+    },
+    "pages.bot.extras.toolsTitle": {
+      "fr": "Outils",
+      "text": "Herramientas"
+    },
+    "pages.bot.extras.toolsText": {
+      "fr": "Générateur de pseudo stylisé (21 polices), heure du serveur de jeu et comptes à rebours des resets.",
+      "text": "Generador de nicks con estilo (21 fuentes), hora del servidor del juego y cuentas atrás de los reinicios."
+    },
+    "pages.bot.extras.languagesTitle": {
+      "fr": "Cinq langues",
+      "text": "Cinco idiomas"
+    },
+    "pages.bot.extras.languagesText": {
+      "fr": "Commandes et réponses en anglais, français, italien, espagnol et indonésien, selon la langue du serveur ou de chaque membre.",
+      "text": "Comandos y respuestas en inglés, francés, italiano, español e indonesio, según el idioma del servidor o de cada miembro."
+    },
+    "pages.bot.extras.freeTitle": {
+      "fr": "Gratuit pour de bon",
+      "text": "Gratis de verdad"
+    },
+    "pages.bot.extras.freeText": {
+      "fr": "Pas d'abonnement, pas de vote obligatoire, pas de fonction réservée : tout est gratuit, pour tous les serveurs.",
+      "text": "Sin suscripción, sin voto obligatorio, sin funciones reservadas: todo es gratis, para todos los servidores."
+    },
+    "pages.bot.commandsTitle": {
+      "fr": "Toutes les commandes",
+      "text": "Todos los comandos"
+    },
+    "pages.bot.commandsLead": {
+      "fr": "Toutes les commandes sont des commandes slash : tapez / dans un salon pour les voir, avec l'autocomplétion des héros, objets, emblèmes et sorts.",
+      "text": "Todos son comandos de barra: escribe / en un canal para verlos, con autocompletado de héroes, objetos, emblemas y hechizos."
+    },
+    "pages.bot.categories.heroes": {
+      "fr": "Héros et builds",
+      "text": "Héroes y builds"
+    },
+    "pages.bot.categories.meta": {
+      "fr": "Méta",
+      "text": "Meta"
+    },
+    "pages.bot.categories.news": {
+      "fr": "Patchs et actus",
+      "text": "Parches y novedades"
+    },
+    "pages.bot.categories.games": {
+      "fr": "Jeux",
+      "text": "Juegos"
+    },
+    "pages.bot.categories.tools": {
+      "fr": "Outils",
+      "text": "Herramientas"
+    },
+    "pages.bot.categories.setup": {
+      "fr": "Configuration du serveur",
+      "text": "Configuración del servidor"
+    },
+    "pages.bot.commands.hero": {
+      "fr": "Fiche d'un héros : rôle, couloirs, tier, taux, meilleur build, emblème, sort, compétences et illustration.",
+      "text": "La ficha de un héroe: rol, líneas, tier, tasas, mejor build, emblema, hechizo, habilidades e ilustración."
+    },
+    "pages.bot.commands.build": {
+      "fr": "Les builds les plus gagnants d'un héros, par rang : objets, emblème et sort.",
+      "text": "Las builds más ganadoras de un héroe, por rango: objetos, emblema y hechizo."
+    },
+    "pages.bot.commands.counter": {
+      "fr": "Les héros qui battent un héros donné, et ceux qu'il bat.",
+      "text": "Los héroes que vencen a un héroe, y a los que vence."
+    },
+    "pages.bot.commands.tierlist": {
+      "fr": "La tier list du moment, par rang, couloir ou rôle.",
+      "text": "La tier list del momento, por rango, línea o rol."
+    },
+    "pages.bot.commands.compare": {
+      "fr": "Deux héros face à face : tier et taux côte à côte.",
+      "text": "Dos héroes cara a cara: tier y tasas lado a lado."
+    },
+    "pages.bot.commands.item": {
+      "fr": "Prix, statistiques, passif, actif et recette d'un objet.",
+      "text": "Precio, estadísticas, pasiva, activa y receta de un objeto."
+    },
+    "pages.bot.commands.emblem": {
+      "fr": "Un emblème et les rôles auxquels il convient.",
+      "text": "Un emblema y los roles a los que conviene."
+    },
+    "pages.bot.commands.spell": {
+      "fr": "Effet et temps de recharge d'un sort de combat.",
+      "text": "Efecto y enfriamiento de un hechizo de batalla."
+    },
+    "pages.bot.commands.patch": {
+      "fr": "Résumé du dernier patch, ou d'une version donnée : buffs, nerfs, héros modifiés.",
+      "text": "Resumen del último parche, o de una versión: buffs, nerfs, héroes modificados."
+    },
+    "pages.bot.commands.skins": {
+      "fr": "Les derniers skins sortis, ou tous ceux d'un héros.",
+      "text": "Las skins más recientes, o todas las de un héroe."
+    },
+    "pages.bot.commands.events": {
+      "fr": "Les événements en cours et à venir.",
+      "text": "Los eventos actuales y próximos."
+    },
+    "pages.bot.commands.nickname": {
+      "fr": "Un pseudo stylisé, avec 21 polices au choix.",
+      "text": "Un nick con estilo, con 21 fuentes a elegir."
+    },
+    "pages.bot.commands.mlbbdle": {
+      "fr": "Le MLBBdle du jour, en mode classique ou compétence.",
+      "text": "El MLBBdle del día, en modo clásico o habilidad."
+    },
+    "pages.bot.commands.quiz": {
+      "fr": "Le quiz du jour, avec des boutons pour répondre.",
+      "text": "El quiz del día, con botones para responder."
+    },
+    "pages.bot.commands.leaderboard": {
+      "fr": "Le classement du serveur aux jeux du jour, par jour, semaine ou depuis le début.",
+      "text": "La clasificación del servidor en los juegos del día: hoy, esta semana o histórica."
+    },
+    "pages.bot.commands.servertime": {
+      "fr": "L'heure du serveur de jeu et les comptes à rebours des resets.",
+      "text": "La hora del servidor del juego y las cuentas atrás de los reinicios."
+    },
+    "pages.bot.commands.setup": {
+      "fr": "Lien vers le tableau de bord du serveur (permission Gérer le serveur requise).",
+      "text": "Enlace al panel de control del servidor (requiere el permiso Gestionar servidor)."
+    },
+    "pages.bot.commands.help": {
+      "fr": "Les commandes par catégorie, avec un exemple pour chacune.",
+      "text": "Los comandos por categoría, cada uno con un ejemplo."
+    },
+    "pages.bot.commands.invite": {
+      "fr": "Le lien pour ajouter le bot à un autre serveur.",
+      "text": "El enlace para añadir el bot a otro servidor."
+    },
+    "pages.bot.commands.about": {
+      "fr": "Version, nombre de serveurs, liens vers le site, le serveur d'entraide et le vote.",
+      "text": "Versión, número de servidores, enlaces a la web, al servidor de ayuda y al voto."
+    },
+    "pages.bot.faqTitle": {
+      "fr": "Questions fréquentes",
+      "text": "Preguntas frecuentes"
+    },
+    "pages.bot.faq1q": {
+      "fr": "Le bot est-il gratuit ?",
+      "text": "¿El bot es gratis?"
+    },
+    "pages.bot.faq1a": {
+      "fr": "Oui, entièrement : pas d'abonnement, pas de fonction réservée, pas de vote obligatoire, pas de publicité. Il est financé comme le site, par son auteur.",
+      "text": "Sí, del todo: sin suscripción, sin funciones reservadas, sin voto obligatorio, sin publicidad. Como la web, lo paga su autor."
+    },
+    "pages.bot.faq2q": {
+      "fr": "Comment ajouter MLBBDex à mon serveur ?",
+      "text": "¿Cómo añado MLBBDex a mi servidor?"
+    },
+    "pages.bot.faq2a": {
+      "fr": "Cliquez sur « Ajouter à Discord », choisissez un serveur où vous avez la permission Gérer le serveur, puis validez. Les commandes apparaissent dès que vous tapez / dans un salon.",
+      "text": "Haz clic en \"Añadir a Discord\", elige un servidor en el que tengas el permiso Gestionar servidor y confirma. Los comandos aparecen en cuanto escribes / en un canal."
+    },
+    "pages.bot.faq3q": {
+      "fr": "Comment configurer les annonces ?",
+      "text": "¿Cómo configuro los anuncios?"
+    },
+    "pages.bot.faq3a": {
+      "fr": "Ouvrez le tableau de bord avec votre compte Discord (ou tapez /setup) : choisissez un salon, et si vous voulez un rôle à mentionner, pour chaque type d'annonce. Il faut la permission Gérer le serveur.",
+      "text": "Abre el panel de control con tu cuenta de Discord (o escribe /setup): elige un canal, y si quieres un rol para mencionar, para cada tipo de anuncio. Necesitas el permiso Gestionar servidor."
+    },
+    "pages.bot.faq4q": {
+      "fr": "D'où viennent les builds, counters et la tier list ?",
+      "text": "¿De dónde salen las builds, los counters y la tier list?"
+    },
+    "pages.bot.faq4a": {
+      "fr": "Des mêmes sources que le site : les statistiques des parties classées pour les taux, les builds et les counters, et le wiki Mobile Legends pour les héros, objets et patchs. Elles sont mises à jour chaque jour.",
+      "text": "De las mismas fuentes que la web: las estadísticas de las partidas clasificatorias para las tasas, las builds y los counters, y la wiki de Mobile Legends para los héroes, los objetos y los parches. Se actualizan cada día."
+    },
+    "pages.bot.faq5q": {
+      "fr": "Le bot a-t-il besoin de la permission Administrateur ?",
+      "text": "¿El bot necesita el permiso de Administrador?"
+    },
+    "pages.bot.faq5a": {
+      "fr": "Non. Il ne demande que ce qu'il utilise pour répondre et publier, et ne lit jamais le contenu des messages.",
+      "text": "No. Solo pide lo que usa para responder y publicar, y nunca lee el contenido de los mensajes."
+    },
+    "pages.bot.faq6q": {
+      "fr": "Dans quelles langues répond-il ?",
+      "text": "¿En qué idiomas responde?"
+    },
+    "pages.bot.faq6a": {
+      "fr": "En anglais, français, italien, espagnol et indonésien. La langue se choisit pour tout le serveur dans le tableau de bord ; sinon, chaque membre reçoit la sienne.",
+      "text": "En inglés, francés, italiano, español e indonesio. El idioma se elige para todo el servidor en el panel de control; si no, cada miembro recibe el suyo."
+    },
+    "pages.bot.faq7q": {
+      "fr": "Quelles données le bot conserve-t-il ?",
+      "text": "¿Qué datos guarda el bot?"
+    },
+    "pages.bot.faq7a": {
+      "fr": "Le nom et les réglages de votre serveur, les publications déjà faites, et, pour les classements, l'identifiant et le pseudo Discord des joueurs des jeux du jour. Le détail est sur la page de confidentialité du bot.",
+      "text": "El nombre y los ajustes de tu servidor, lo que ya ha publicado y, para las clasificaciones, el id y el nombre de Discord de los jugadores de los juegos del día. Los detalles están en la página de privacidad del bot."
+    },
+    "pages.bot.faq8q": {
+      "fr": "Le MLBBdle de Discord est-il le même que sur le site ?",
+      "text": "¿El MLBBdle de Discord es el mismo que el de la web?"
+    },
+    "pages.bot.faq8a": {
+      "fr": "Oui : même héros, même compétence et mêmes manches de quiz chaque jour UTC, dans toutes les langues.",
+      "text": "Sí: el mismo héroe, la misma habilidad y las mismas rondas del quiz cada día UTC, en todos los idiomas."
+    },
+    "pages.bot.ctaTitle": {
+      "fr": "Ajoutez MLBBDex à votre serveur",
+      "text": "Añade MLBBDex a tu servidor"
+    },
+    "pages.bot.ctaText": {
+      "fr": "Une minute pour l'ajouter, rien à payer. Des questions ou une idée ? Le serveur MLBBDex vous attend.",
+      "text": "Un minuto para añadirlo, nada que pagar. ¿Preguntas o una idea? El servidor de MLBBDex te espera."
+    },
+    "pages.bot.privacy": {
+      "fr": "Confidentialité du bot",
+      "text": "Privacidad del bot"
+    },
+    "pages.bot.terms": {
+      "fr": "Conditions d'utilisation",
+      "text": "Condiciones de uso"
+    },
+    "nav.bot.desc": {
+      "fr": "Le bot Discord Mobile Legends : builds, counters, tier list et MLBBdle dans vos serveurs",
+      "text": "El bot de Discord de Mobile Legends: builds, counters, tier list y MLBBdle en tus servidores"
     }
   },
   "id": {
@@ -3063,6 +3615,358 @@
     "prose.bot.members": {
       "fr": "Rien n'est conservé sur les membres d'un serveur : leurs arrivées et départs, que Discord signale au bot, servent seulement à publier les messages de bienvenue et de départ que le serveur a activés.",
       "text": "Tidak ada data anggota server yang disimpan: bergabung dan keluarnya mereka, yang diberitahukan Discord ke bot, hanya dipakai untuk memposting pesan sambutan dan perpisahan yang diaktifkan server."
+    },
+    "pages.bot.title": {
+      "fr": "MLBBDex — le bot Discord Mobile Legends",
+      "text": "MLBBDex — bot Discord Mobile Legends"
+    },
+    "pages.bot.breadcrumb": {
+      "fr": "Bot Discord",
+      "text": "Bot Discord"
+    },
+    "pages.bot.metaTitle": {
+      "fr": "Bot Discord Mobile Legends (MLBB) : builds, counters, tier list",
+      "text": "Bot Discord Mobile Legends (MLBB): build, counter, tier list"
+    },
+    "pages.bot.metaDescription": {
+      "fr": "MLBBDex, le bot Discord gratuit pour Mobile Legends : builds et counters mesurés sur les parties classées, tier list, patch notes, alertes skins et MLBBdle du jour, en cinq langues.",
+      "text": "MLBBDex, bot Discord gratis untuk Mobile Legends: build dan counter yang diukur dari pertandingan ranked, tier list, patch note, info skin baru, dan MLBBdle harian, dalam lima bahasa."
+    },
+    "pages.bot.lead": {
+      "fr": "Builds, counters, tier list et patch notes de Mobile Legends: Bang Bang, mesurés sur les parties classées et mis à jour chaque jour, directement dans votre serveur. Plus un MLBBdle quotidien pour votre communauté. Gratuit, en cinq langues.",
+      "text": "Build, counter, tier list, dan patch note Mobile Legends: Bang Bang, diukur dari pertandingan ranked dan diperbarui setiap hari, langsung di server kamu. Ditambah MLBBdle harian untuk komunitas kamu. Gratis, dalam lima bahasa."
+    },
+    "pages.bot.add": {
+      "fr": "Ajouter à Discord",
+      "text": "Tambahkan ke Discord"
+    },
+    "pages.bot.join": {
+      "fr": "Rejoindre le serveur",
+      "text": "Gabung ke server"
+    },
+    "pages.bot.vote": {
+      "fr": "Voter sur top.gg",
+      "text": "Vote di top.gg"
+    },
+    "pages.bot.dashboard": {
+      "fr": "Tableau de bord",
+      "text": "Dasbor"
+    },
+    "pages.bot.servers": {
+      "fr": "Présent sur {count} serveurs",
+      "text": "Dipakai di {count} server"
+    },
+    "pages.bot.free": {
+      "fr": "100 % gratuit",
+      "text": "100% gratis"
+    },
+    "pages.bot.languages": {
+      "fr": "5 langues",
+      "text": "5 bahasa"
+    },
+    "pages.bot.noAdmin": {
+      "fr": "Sans permission Administrateur",
+      "text": "Tanpa izin Administrator"
+    },
+    "pages.bot.showcaseTitle": {
+      "fr": "Ce que fait le bot",
+      "text": "Apa yang dilakukan bot ini"
+    },
+    "pages.bot.showcase.heroesTitle": {
+      "fr": "La fiche d'un héros en une commande",
+      "text": "Profil hero dalam satu perintah"
+    },
+    "pages.bot.showcase.heroesText": {
+      "fr": "/hero donne le rôle, les couloirs, le tier, les taux de victoire, de sélection et de ban, le meilleur build, l'emblème, le sort et les compétences, avec l'illustration du héros. Les boutons Build, Counters et Skins approfondissent sans encombrer le salon.",
+      "text": "/hero menampilkan role, lane, tier, win rate, pick rate, dan ban rate, build terbaik, emblem, spell, dan skill, lengkap dengan artwork hero. Tombol Build, Counter, dan Skin memberi detail tanpa memenuhi channel."
+    },
+    "pages.bot.showcase.heroesAlt": {
+      "fr": "La réponse de /hero dans Discord : fiche de Sun avec tier, taux, build et illustration",
+      "text": "Balasan /hero di Discord: profil Sun dengan tier, rate, build, dan artwork"
+    },
+    "pages.bot.showcase.buildsTitle": {
+      "fr": "Builds et counters",
+      "text": "Build dan counter"
+    },
+    "pages.bot.showcase.buildsText": {
+      "fr": "/build montre les objets, l'emblème et le sort avec lesquels les joueurs gagnent, par rang. /counter liste les héros qui battent le vôtre et ceux qu'il bat.",
+      "text": "/build menampilkan item, emblem, dan spell yang dipakai pemain untuk menang, per rank. /counter menampilkan hero yang mengalahkan hero kamu dan yang dikalahkannya."
+    },
+    "pages.bot.showcase.buildsAlt": {
+      "fr": "La réponse de /counter dans Discord : les counters de Ling",
+      "text": "Balasan /counter di Discord: counter untuk Ling"
+    },
+    "pages.bot.showcase.metaTitle": {
+      "fr": "La méta du moment",
+      "text": "Meta saat ini"
+    },
+    "pages.bot.showcase.metaText": {
+      "fr": "/tierlist calcule la tier list à partir des taux de victoire, de sélection et de ban, tous rangs confondus ou d'Épique à Gloire mythique, par couloir ou par rôle.",
+      "text": "/tierlist menghitung tier list dari win rate, pick rate, dan ban rate, di semua rank atau dari Epic sampai Mythical Glory, per lane atau per role."
+    },
+    "pages.bot.showcase.metaAlt": {
+      "fr": "La réponse de /tierlist dans Discord : les tiers S+, S et A",
+      "text": "Balasan /tierlist di Discord: tier S+, S, dan A"
+    },
+    "pages.bot.showcase.newsTitle": {
+      "fr": "Patchs et annonces automatiques",
+      "text": "Patch dan pengumuman otomatis"
+    },
+    "pages.bot.showcase.newsText": {
+      "fr": "/patch résume le dernier patch : buffs, nerfs et héros modifiés. Le bot peut aussi publier seul les nouveaux patchs, skins, événements, serveur avancé et résultats esport dans les salons de votre choix, avec un rôle à mentionner.",
+      "text": "/patch merangkum patch terbaru: buff, nerf, dan hero yang diubah. Bot juga bisa memposting sendiri patch baru, skin, event, Advance Server, dan hasil esports di channel pilihan kamu, dengan role untuk di-mention."
+    },
+    "pages.bot.showcase.newsAlt": {
+      "fr": "La réponse de /patch dans Discord : buffs, nerfs et héros modifiés",
+      "text": "Balasan /patch di Discord: buff, nerf, dan hero yang diubah"
+    },
+    "pages.bot.showcase.dailyTitle": {
+      "fr": "MLBBdle et quiz du jour",
+      "text": "MLBBdle dan kuis harian"
+    },
+    "pages.bot.showcase.dailyText": {
+      "fr": "Devinez le héros du jour en mode classique ou compétence, le même que sur le site, puis comparez-vous dans le classement du serveur. Le bot peut publier le jeu chaque jour à l'heure choisie.",
+      "text": "Tebak hero hari ini dalam mode klasik atau skill, sama dengan di situs, lalu bandingkan skor di leaderboard server. Bot bisa memposting game ini setiap hari di jam yang kamu pilih."
+    },
+    "pages.bot.showcase.dailyAlt": {
+      "fr": "Une partie de MLBBdle dans Discord, trouvée en cinq essais",
+      "text": "Satu permainan MLBBdle di Discord, terjawab dalam lima tebakan"
+    },
+    "pages.bot.extrasTitle": {
+      "fr": "Et aussi",
+      "text": "Dan juga"
+    },
+    "pages.bot.extras.welcomeTitle": {
+      "fr": "Messages d'accueil",
+      "text": "Pesan sambutan"
+    },
+    "pages.bot.extras.welcomeText": {
+      "fr": "Bienvenue et au revoir dans le salon choisi, avec votre texte ou le nôtre, et un seul message quand un raid arrive.",
+      "text": "Ucapan selamat datang dan selamat tinggal di channel pilihan kamu, dengan teks kamu atau teks kami, dan satu pesan saja saat ada raid."
+    },
+    "pages.bot.extras.toolsTitle": {
+      "fr": "Outils",
+      "text": "Alat"
+    },
+    "pages.bot.extras.toolsText": {
+      "fr": "Générateur de pseudo stylisé (21 polices), heure du serveur de jeu et comptes à rebours des resets.",
+      "text": "Generator nickname keren (21 font), waktu server game, dan hitung mundur reset."
+    },
+    "pages.bot.extras.languagesTitle": {
+      "fr": "Cinq langues",
+      "text": "Lima bahasa"
+    },
+    "pages.bot.extras.languagesText": {
+      "fr": "Commandes et réponses en anglais, français, italien, espagnol et indonésien, selon la langue du serveur ou de chaque membre.",
+      "text": "Perintah dan balasan dalam bahasa Inggris, Prancis, Italia, Spanyol, dan Indonesia, sesuai bahasa server atau bahasa tiap member."
+    },
+    "pages.bot.extras.freeTitle": {
+      "fr": "Gratuit pour de bon",
+      "text": "Benar-benar gratis"
+    },
+    "pages.bot.extras.freeText": {
+      "fr": "Pas d'abonnement, pas de vote obligatoire, pas de fonction réservée : tout est gratuit, pour tous les serveurs.",
+      "text": "Tanpa langganan, tanpa wajib vote, tanpa fitur terkunci: semuanya gratis, untuk semua server."
+    },
+    "pages.bot.commandsTitle": {
+      "fr": "Toutes les commandes",
+      "text": "Semua perintah"
+    },
+    "pages.bot.commandsLead": {
+      "fr": "Toutes les commandes sont des commandes slash : tapez / dans un salon pour les voir, avec l'autocomplétion des héros, objets, emblèmes et sorts.",
+      "text": "Semua perintah adalah slash command: ketik / di channel untuk melihatnya, dengan isi otomatis untuk hero, item, emblem, dan spell."
+    },
+    "pages.bot.categories.heroes": {
+      "fr": "Héros et builds",
+      "text": "Hero & build"
+    },
+    "pages.bot.categories.meta": {
+      "fr": "Méta",
+      "text": "Meta"
+    },
+    "pages.bot.categories.news": {
+      "fr": "Patchs et actus",
+      "text": "Patch & berita"
+    },
+    "pages.bot.categories.games": {
+      "fr": "Jeux",
+      "text": "Game"
+    },
+    "pages.bot.categories.tools": {
+      "fr": "Outils",
+      "text": "Alat"
+    },
+    "pages.bot.categories.setup": {
+      "fr": "Configuration du serveur",
+      "text": "Pengaturan server"
+    },
+    "pages.bot.commands.hero": {
+      "fr": "Fiche d'un héros : rôle, couloirs, tier, taux, meilleur build, emblème, sort, compétences et illustration.",
+      "text": "Profil hero: role, lane, tier, rate, build terbaik, emblem, spell, skill, dan artwork."
+    },
+    "pages.bot.commands.build": {
+      "fr": "Les builds les plus gagnants d'un héros, par rang : objets, emblème et sort.",
+      "text": "Build paling menang untuk hero, per rank: item, emblem, dan spell."
+    },
+    "pages.bot.commands.counter": {
+      "fr": "Les héros qui battent un héros donné, et ceux qu'il bat.",
+      "text": "Hero yang mengalahkan hero tertentu, dan yang dikalahkannya."
+    },
+    "pages.bot.commands.tierlist": {
+      "fr": "La tier list du moment, par rang, couloir ou rôle.",
+      "text": "Tier list saat ini, per rank, lane, atau role."
+    },
+    "pages.bot.commands.compare": {
+      "fr": "Deux héros face à face : tier et taux côte à côte.",
+      "text": "Dua hero berhadapan: tier dan rate berdampingan."
+    },
+    "pages.bot.commands.item": {
+      "fr": "Prix, statistiques, passif, actif et recette d'un objet.",
+      "text": "Harga, statistik, pasif, aktif, dan resep sebuah item."
+    },
+    "pages.bot.commands.emblem": {
+      "fr": "Un emblème et les rôles auxquels il convient.",
+      "text": "Sebuah emblem dan role yang cocok."
+    },
+    "pages.bot.commands.spell": {
+      "fr": "Effet et temps de recharge d'un sort de combat.",
+      "text": "Efek dan cooldown sebuah battle spell."
+    },
+    "pages.bot.commands.patch": {
+      "fr": "Résumé du dernier patch, ou d'une version donnée : buffs, nerfs, héros modifiés.",
+      "text": "Ringkasan patch terbaru, atau versi tertentu: buff, nerf, hero yang diubah."
+    },
+    "pages.bot.commands.skins": {
+      "fr": "Les derniers skins sortis, ou tous ceux d'un héros.",
+      "text": "Skin terbaru, atau semua skin seorang hero."
+    },
+    "pages.bot.commands.events": {
+      "fr": "Les événements en cours et à venir.",
+      "text": "Event yang sedang dan akan berlangsung."
+    },
+    "pages.bot.commands.nickname": {
+      "fr": "Un pseudo stylisé, avec 21 polices au choix.",
+      "text": "Nickname keren, dengan 21 pilihan font."
+    },
+    "pages.bot.commands.mlbbdle": {
+      "fr": "Le MLBBdle du jour, en mode classique ou compétence.",
+      "text": "MLBBdle hari ini, mode klasik atau skill."
+    },
+    "pages.bot.commands.quiz": {
+      "fr": "Le quiz du jour, avec des boutons pour répondre.",
+      "text": "Kuis hari ini, dengan tombol untuk menjawab."
+    },
+    "pages.bot.commands.leaderboard": {
+      "fr": "Le classement du serveur aux jeux du jour, par jour, semaine ou depuis le début.",
+      "text": "Leaderboard server untuk game harian: hari ini, minggu ini, atau sepanjang masa."
+    },
+    "pages.bot.commands.servertime": {
+      "fr": "L'heure du serveur de jeu et les comptes à rebours des resets.",
+      "text": "Waktu server game dan hitung mundur reset."
+    },
+    "pages.bot.commands.setup": {
+      "fr": "Lien vers le tableau de bord du serveur (permission Gérer le serveur requise).",
+      "text": "Link ke dasbor server (perlu izin Kelola Server)."
+    },
+    "pages.bot.commands.help": {
+      "fr": "Les commandes par catégorie, avec un exemple pour chacune.",
+      "text": "Perintah per kategori, masing-masing dengan contoh."
+    },
+    "pages.bot.commands.invite": {
+      "fr": "Le lien pour ajouter le bot à un autre serveur.",
+      "text": "Link untuk menambahkan bot ke server lain."
+    },
+    "pages.bot.commands.about": {
+      "fr": "Version, nombre de serveurs, liens vers le site, le serveur d'entraide et le vote.",
+      "text": "Versi, jumlah server, link ke situs, server bantuan, dan vote."
+    },
+    "pages.bot.faqTitle": {
+      "fr": "Questions fréquentes",
+      "text": "Pertanyaan umum"
+    },
+    "pages.bot.faq1q": {
+      "fr": "Le bot est-il gratuit ?",
+      "text": "Apakah bot ini gratis?"
+    },
+    "pages.bot.faq1a": {
+      "fr": "Oui, entièrement : pas d'abonnement, pas de fonction réservée, pas de vote obligatoire, pas de publicité. Il est financé comme le site, par son auteur.",
+      "text": "Ya, sepenuhnya: tanpa langganan, tanpa fitur terkunci, tanpa wajib vote, tanpa iklan. Seperti situsnya, bot ini dibiayai oleh pembuatnya."
+    },
+    "pages.bot.faq2q": {
+      "fr": "Comment ajouter MLBBDex à mon serveur ?",
+      "text": "Bagaimana cara menambahkan MLBBDex ke server saya?"
+    },
+    "pages.bot.faq2a": {
+      "fr": "Cliquez sur « Ajouter à Discord », choisissez un serveur où vous avez la permission Gérer le serveur, puis validez. Les commandes apparaissent dès que vous tapez / dans un salon.",
+      "text": "Klik \"Tambahkan ke Discord\", pilih server tempat kamu punya izin Kelola Server, lalu konfirmasi. Perintahnya muncul begitu kamu mengetik / di channel."
+    },
+    "pages.bot.faq3q": {
+      "fr": "Comment configurer les annonces ?",
+      "text": "Bagaimana cara mengatur pengumuman?"
+    },
+    "pages.bot.faq3a": {
+      "fr": "Ouvrez le tableau de bord avec votre compte Discord (ou tapez /setup) : choisissez un salon, et si vous voulez un rôle à mentionner, pour chaque type d'annonce. Il faut la permission Gérer le serveur.",
+      "text": "Buka dasbor dengan akun Discord kamu (atau ketik /setup): pilih channel, dan jika mau role untuk di-mention, untuk setiap jenis pengumuman. Kamu perlu izin Kelola Server."
+    },
+    "pages.bot.faq4q": {
+      "fr": "D'où viennent les builds, counters et la tier list ?",
+      "text": "Dari mana build, counter, dan tier list berasal?"
+    },
+    "pages.bot.faq4a": {
+      "fr": "Des mêmes sources que le site : les statistiques des parties classées pour les taux, les builds et les counters, et le wiki Mobile Legends pour les héros, objets et patchs. Elles sont mises à jour chaque jour.",
+      "text": "Dari sumber yang sama dengan situs: statistik pertandingan ranked untuk rate, build, dan counter, serta wiki Mobile Legends untuk hero, item, dan patch. Semuanya diperbarui setiap hari."
+    },
+    "pages.bot.faq5q": {
+      "fr": "Le bot a-t-il besoin de la permission Administrateur ?",
+      "text": "Apakah bot ini perlu izin Administrator?"
+    },
+    "pages.bot.faq5a": {
+      "fr": "Non. Il ne demande que ce qu'il utilise pour répondre et publier, et ne lit jamais le contenu des messages.",
+      "text": "Tidak. Bot hanya meminta izin yang dipakainya untuk membalas dan memposting, dan tidak pernah membaca isi pesan."
+    },
+    "pages.bot.faq6q": {
+      "fr": "Dans quelles langues répond-il ?",
+      "text": "Bahasa apa saja yang didukung?"
+    },
+    "pages.bot.faq6a": {
+      "fr": "En anglais, français, italien, espagnol et indonésien. La langue se choisit pour tout le serveur dans le tableau de bord ; sinon, chaque membre reçoit la sienne.",
+      "text": "Inggris, Prancis, Italia, Spanyol, dan Indonesia. Bahasa bisa diatur untuk seluruh server di dasbor; jika tidak, setiap member mendapat bahasanya sendiri."
+    },
+    "pages.bot.faq7q": {
+      "fr": "Quelles données le bot conserve-t-il ?",
+      "text": "Data apa yang disimpan bot?"
+    },
+    "pages.bot.faq7a": {
+      "fr": "Le nom et les réglages de votre serveur, les publications déjà faites, et, pour les classements, l'identifiant et le pseudo Discord des joueurs des jeux du jour. Le détail est sur la page de confidentialité du bot.",
+      "text": "Nama dan pengaturan server kamu, apa yang sudah diposting, dan, untuk leaderboard, id dan nama Discord pemain game harian. Detailnya ada di halaman privasi bot."
+    },
+    "pages.bot.faq8q": {
+      "fr": "Le MLBBdle de Discord est-il le même que sur le site ?",
+      "text": "Apakah MLBBdle di Discord sama dengan di situs?"
+    },
+    "pages.bot.faq8a": {
+      "fr": "Oui : même héros, même compétence et mêmes manches de quiz chaque jour UTC, dans toutes les langues.",
+      "text": "Ya: hero yang sama, skill yang sama, dan ronde kuis yang sama setiap hari UTC, dalam semua bahasa."
+    },
+    "pages.bot.ctaTitle": {
+      "fr": "Ajoutez MLBBDex à votre serveur",
+      "text": "Tambahkan MLBBDex ke server kamu"
+    },
+    "pages.bot.ctaText": {
+      "fr": "Une minute pour l'ajouter, rien à payer. Des questions ou une idée ? Le serveur MLBBDex vous attend.",
+      "text": "Satu menit untuk menambahkan, tanpa biaya. Ada pertanyaan atau ide? Server MLBBDex menunggu kamu."
+    },
+    "pages.bot.privacy": {
+      "fr": "Confidentialité du bot",
+      "text": "Privasi bot"
+    },
+    "pages.bot.terms": {
+      "fr": "Conditions d'utilisation",
+      "text": "Ketentuan penggunaan"
+    },
+    "nav.bot.desc": {
+      "fr": "Le bot Discord Mobile Legends : builds, counters, tier list et MLBBdle dans vos serveurs",
+      "text": "Bot Discord Mobile Legends: build, counter, tier list, dan MLBBdle di server kamu"
     }
   },
   "it": {
@@ -3477,6 +4381,358 @@
     "prose.bot.members": {
       "fr": "Rien n'est conservé sur les membres d'un serveur : leurs arrivées et départs, que Discord signale au bot, servent seulement à publier les messages de bienvenue et de départ que le serveur a activés.",
       "text": "Nulla viene conservato sui membri di un server: i loro ingressi e uscite, che Discord comunica al bot, servono solo a pubblicare i messaggi di benvenuto e di addio attivati dal server."
+    },
+    "pages.bot.title": {
+      "fr": "MLBBDex — le bot Discord Mobile Legends",
+      "text": "MLBBDex — il bot Discord di Mobile Legends"
+    },
+    "pages.bot.breadcrumb": {
+      "fr": "Bot Discord",
+      "text": "Bot Discord"
+    },
+    "pages.bot.metaTitle": {
+      "fr": "Bot Discord Mobile Legends (MLBB) : builds, counters, tier list",
+      "text": "Bot Discord di Mobile Legends (MLBB): build, counter, tier list"
+    },
+    "pages.bot.metaDescription": {
+      "fr": "MLBBDex, le bot Discord gratuit pour Mobile Legends : builds et counters mesurés sur les parties classées, tier list, patch notes, alertes skins et MLBBdle du jour, en cinq langues.",
+      "text": "MLBBDex, il bot Discord gratuito per Mobile Legends: build e counter misurati sulle partite classificate, tier list, note delle patch, avvisi sulle skin e MLBBdle del giorno, in cinque lingue."
+    },
+    "pages.bot.lead": {
+      "fr": "Builds, counters, tier list et patch notes de Mobile Legends: Bang Bang, mesurés sur les parties classées et mis à jour chaque jour, directement dans votre serveur. Plus un MLBBdle quotidien pour votre communauté. Gratuit, en cinq langues.",
+      "text": "Build, counter, tier list e note delle patch di Mobile Legends: Bang Bang, misurati sulle partite classificate e aggiornati ogni giorno, direttamente nel tuo server. In più un MLBBdle quotidiano per la tua community. Gratuito, in cinque lingue."
+    },
+    "pages.bot.add": {
+      "fr": "Ajouter à Discord",
+      "text": "Aggiungi a Discord"
+    },
+    "pages.bot.join": {
+      "fr": "Rejoindre le serveur",
+      "text": "Entra nel server"
+    },
+    "pages.bot.vote": {
+      "fr": "Voter sur top.gg",
+      "text": "Vota su top.gg"
+    },
+    "pages.bot.dashboard": {
+      "fr": "Tableau de bord",
+      "text": "Pannello di controllo"
+    },
+    "pages.bot.servers": {
+      "fr": "Présent sur {count} serveurs",
+      "text": "Presente in {count} server"
+    },
+    "pages.bot.free": {
+      "fr": "100 % gratuit",
+      "text": "100% gratuito"
+    },
+    "pages.bot.languages": {
+      "fr": "5 langues",
+      "text": "5 lingue"
+    },
+    "pages.bot.noAdmin": {
+      "fr": "Sans permission Administrateur",
+      "text": "Senza permesso di Amministratore"
+    },
+    "pages.bot.showcaseTitle": {
+      "fr": "Ce que fait le bot",
+      "text": "Cosa fa il bot"
+    },
+    "pages.bot.showcase.heroesTitle": {
+      "fr": "La fiche d'un héros en une commande",
+      "text": "La scheda di un eroe in un comando"
+    },
+    "pages.bot.showcase.heroesText": {
+      "fr": "/hero donne le rôle, les couloirs, le tier, les taux de victoire, de sélection et de ban, le meilleur build, l'emblème, le sort et les compétences, avec l'illustration du héros. Les boutons Build, Counters et Skins approfondissent sans encombrer le salon.",
+      "text": "/hero mostra ruolo, lane, tier, tassi di vittoria, pick e ban, build migliore, emblema, incantesimo e abilità, con l'illustrazione dell'eroe. I pulsanti Build, Counter e Skin approfondiscono senza intasare il canale."
+    },
+    "pages.bot.showcase.heroesAlt": {
+      "fr": "La réponse de /hero dans Discord : fiche de Sun avec tier, taux, build et illustration",
+      "text": "La risposta di /hero su Discord: la scheda di Sun con tier, tassi, build e illustrazione"
+    },
+    "pages.bot.showcase.buildsTitle": {
+      "fr": "Builds et counters",
+      "text": "Build e counter"
+    },
+    "pages.bot.showcase.buildsText": {
+      "fr": "/build montre les objets, l'emblème et le sort avec lesquels les joueurs gagnent, par rang. /counter liste les héros qui battent le vôtre et ceux qu'il bat.",
+      "text": "/build mostra gli oggetti, l'emblema e l'incantesimo con cui i giocatori vincono, per rango. /counter elenca gli eroi che battono il tuo e quelli che batte lui."
+    },
+    "pages.bot.showcase.buildsAlt": {
+      "fr": "La réponse de /counter dans Discord : les counters de Ling",
+      "text": "La risposta di /counter su Discord: i counter di Ling"
+    },
+    "pages.bot.showcase.metaTitle": {
+      "fr": "La méta du moment",
+      "text": "Il meta del momento"
+    },
+    "pages.bot.showcase.metaText": {
+      "fr": "/tierlist calcule la tier list à partir des taux de victoire, de sélection et de ban, tous rangs confondus ou d'Épique à Gloire mythique, par couloir ou par rôle.",
+      "text": "/tierlist calcola la tier list dai tassi di vittoria, pick e ban, su tutti i ranghi o da Epico a Gloria Mitica, per lane o per ruolo."
+    },
+    "pages.bot.showcase.metaAlt": {
+      "fr": "La réponse de /tierlist dans Discord : les tiers S+, S et A",
+      "text": "La risposta di /tierlist su Discord: i tier S+, S e A"
+    },
+    "pages.bot.showcase.newsTitle": {
+      "fr": "Patchs et annonces automatiques",
+      "text": "Patch e annunci automatici"
+    },
+    "pages.bot.showcase.newsText": {
+      "fr": "/patch résume le dernier patch : buffs, nerfs et héros modifiés. Le bot peut aussi publier seul les nouveaux patchs, skins, événements, serveur avancé et résultats esport dans les salons de votre choix, avec un rôle à mentionner.",
+      "text": "/patch riassume l'ultima patch: buff, nerf ed eroi modificati. Il bot può anche pubblicare da solo nuove patch, skin, eventi, Advance Server e risultati esport nei canali che scegli, con un ruolo da menzionare."
+    },
+    "pages.bot.showcase.newsAlt": {
+      "fr": "La réponse de /patch dans Discord : buffs, nerfs et héros modifiés",
+      "text": "La risposta di /patch su Discord: buff, nerf ed eroi modificati"
+    },
+    "pages.bot.showcase.dailyTitle": {
+      "fr": "MLBBdle et quiz du jour",
+      "text": "MLBBdle e quiz del giorno"
+    },
+    "pages.bot.showcase.dailyText": {
+      "fr": "Devinez le héros du jour en mode classique ou compétence, le même que sur le site, puis comparez-vous dans le classement du serveur. Le bot peut publier le jeu chaque jour à l'heure choisie.",
+      "text": "Indovina l'eroe del giorno in modalità classica o abilità, lo stesso del sito, poi confrontatevi nella classifica del server. Il bot può pubblicare il gioco ogni giorno all'ora che scegli."
+    },
+    "pages.bot.showcase.dailyAlt": {
+      "fr": "Une partie de MLBBdle dans Discord, trouvée en cinq essais",
+      "text": "Una partita di MLBBdle su Discord, risolta in cinque tentativi"
+    },
+    "pages.bot.extrasTitle": {
+      "fr": "Et aussi",
+      "text": "E inoltre"
+    },
+    "pages.bot.extras.welcomeTitle": {
+      "fr": "Messages d'accueil",
+      "text": "Messaggi di benvenuto"
+    },
+    "pages.bot.extras.welcomeText": {
+      "fr": "Bienvenue et au revoir dans le salon choisi, avec votre texte ou le nôtre, et un seul message quand un raid arrive.",
+      "text": "Benvenuto e arrivederci nel canale che scegli, con il tuo testo o il nostro, e un solo messaggio quando arriva un raid."
+    },
+    "pages.bot.extras.toolsTitle": {
+      "fr": "Outils",
+      "text": "Strumenti"
+    },
+    "pages.bot.extras.toolsText": {
+      "fr": "Générateur de pseudo stylisé (21 polices), heure du serveur de jeu et comptes à rebours des resets.",
+      "text": "Generatore di nickname con stile (21 font), ora del server di gioco e conti alla rovescia dei reset."
+    },
+    "pages.bot.extras.languagesTitle": {
+      "fr": "Cinq langues",
+      "text": "Cinque lingue"
+    },
+    "pages.bot.extras.languagesText": {
+      "fr": "Commandes et réponses en anglais, français, italien, espagnol et indonésien, selon la langue du serveur ou de chaque membre.",
+      "text": "Comandi e risposte in inglese, francese, italiano, spagnolo e indonesiano, secondo la lingua del server o di ogni membro."
+    },
+    "pages.bot.extras.freeTitle": {
+      "fr": "Gratuit pour de bon",
+      "text": "Gratuito per davvero"
+    },
+    "pages.bot.extras.freeText": {
+      "fr": "Pas d'abonnement, pas de vote obligatoire, pas de fonction réservée : tout est gratuit, pour tous les serveurs.",
+      "text": "Niente abbonamento, niente voto obbligatorio, nessuna funzione riservata: tutto è gratuito, per ogni server."
+    },
+    "pages.bot.commandsTitle": {
+      "fr": "Toutes les commandes",
+      "text": "Tutti i comandi"
+    },
+    "pages.bot.commandsLead": {
+      "fr": "Toutes les commandes sont des commandes slash : tapez / dans un salon pour les voir, avec l'autocomplétion des héros, objets, emblèmes et sorts.",
+      "text": "Sono tutti comandi slash: scrivi / in un canale per vederli, con il completamento automatico di eroi, oggetti, emblemi e incantesimi."
+    },
+    "pages.bot.categories.heroes": {
+      "fr": "Héros et builds",
+      "text": "Eroi e build"
+    },
+    "pages.bot.categories.meta": {
+      "fr": "Méta",
+      "text": "Meta"
+    },
+    "pages.bot.categories.news": {
+      "fr": "Patchs et actus",
+      "text": "Patch e novità"
+    },
+    "pages.bot.categories.games": {
+      "fr": "Jeux",
+      "text": "Giochi"
+    },
+    "pages.bot.categories.tools": {
+      "fr": "Outils",
+      "text": "Strumenti"
+    },
+    "pages.bot.categories.setup": {
+      "fr": "Configuration du serveur",
+      "text": "Configurazione del server"
+    },
+    "pages.bot.commands.hero": {
+      "fr": "Fiche d'un héros : rôle, couloirs, tier, taux, meilleur build, emblème, sort, compétences et illustration.",
+      "text": "La scheda di un eroe: ruolo, lane, tier, tassi, build migliore, emblema, incantesimo, abilità e illustrazione."
+    },
+    "pages.bot.commands.build": {
+      "fr": "Les builds les plus gagnants d'un héros, par rang : objets, emblème et sort.",
+      "text": "Le build più vincenti di un eroe, per rango: oggetti, emblema e incantesimo."
+    },
+    "pages.bot.commands.counter": {
+      "fr": "Les héros qui battent un héros donné, et ceux qu'il bat.",
+      "text": "Gli eroi che battono un eroe, e quelli che batte lui."
+    },
+    "pages.bot.commands.tierlist": {
+      "fr": "La tier list du moment, par rang, couloir ou rôle.",
+      "text": "La tier list del momento, per rango, lane o ruolo."
+    },
+    "pages.bot.commands.compare": {
+      "fr": "Deux héros face à face : tier et taux côte à côte.",
+      "text": "Due eroi faccia a faccia: tier e tassi fianco a fianco."
+    },
+    "pages.bot.commands.item": {
+      "fr": "Prix, statistiques, passif, actif et recette d'un objet.",
+      "text": "Prezzo, statistiche, passiva, attiva e ricetta di un oggetto."
+    },
+    "pages.bot.commands.emblem": {
+      "fr": "Un emblème et les rôles auxquels il convient.",
+      "text": "Un emblema e i ruoli a cui è adatto."
+    },
+    "pages.bot.commands.spell": {
+      "fr": "Effet et temps de recharge d'un sort de combat.",
+      "text": "Effetto e ricarica di un incantesimo di battaglia."
+    },
+    "pages.bot.commands.patch": {
+      "fr": "Résumé du dernier patch, ou d'une version donnée : buffs, nerfs, héros modifiés.",
+      "text": "Riepilogo dell'ultima patch, o di una versione: buff, nerf, eroi modificati."
+    },
+    "pages.bot.commands.skins": {
+      "fr": "Les derniers skins sortis, ou tous ceux d'un héros.",
+      "text": "Le skin più recenti, o tutte quelle di un eroe."
+    },
+    "pages.bot.commands.events": {
+      "fr": "Les événements en cours et à venir.",
+      "text": "Gli eventi in corso e in arrivo."
+    },
+    "pages.bot.commands.nickname": {
+      "fr": "Un pseudo stylisé, avec 21 polices au choix.",
+      "text": "Un nickname con stile, con 21 font a scelta."
+    },
+    "pages.bot.commands.mlbbdle": {
+      "fr": "Le MLBBdle du jour, en mode classique ou compétence.",
+      "text": "L'MLBBdle del giorno, in modalità classica o abilità."
+    },
+    "pages.bot.commands.quiz": {
+      "fr": "Le quiz du jour, avec des boutons pour répondre.",
+      "text": "Il quiz del giorno, con pulsanti per rispondere."
+    },
+    "pages.bot.commands.leaderboard": {
+      "fr": "Le classement du serveur aux jeux du jour, par jour, semaine ou depuis le début.",
+      "text": "La classifica del server nei giochi del giorno: oggi, questa settimana o di sempre."
+    },
+    "pages.bot.commands.servertime": {
+      "fr": "L'heure du serveur de jeu et les comptes à rebours des resets.",
+      "text": "L'ora del server di gioco e i conti alla rovescia dei reset."
+    },
+    "pages.bot.commands.setup": {
+      "fr": "Lien vers le tableau de bord du serveur (permission Gérer le serveur requise).",
+      "text": "Link al pannello di controllo del server (serve il permesso Gestisci server)."
+    },
+    "pages.bot.commands.help": {
+      "fr": "Les commandes par catégorie, avec un exemple pour chacune.",
+      "text": "I comandi per categoria, ciascuno con un esempio."
+    },
+    "pages.bot.commands.invite": {
+      "fr": "Le lien pour ajouter le bot à un autre serveur.",
+      "text": "Il link per aggiungere il bot a un altro server."
+    },
+    "pages.bot.commands.about": {
+      "fr": "Version, nombre de serveurs, liens vers le site, le serveur d'entraide et le vote.",
+      "text": "Versione, numero di server, link al sito, al server di supporto e al voto."
+    },
+    "pages.bot.faqTitle": {
+      "fr": "Questions fréquentes",
+      "text": "Domande frequenti"
+    },
+    "pages.bot.faq1q": {
+      "fr": "Le bot est-il gratuit ?",
+      "text": "Il bot è gratuito?"
+    },
+    "pages.bot.faq1a": {
+      "fr": "Oui, entièrement : pas d'abonnement, pas de fonction réservée, pas de vote obligatoire, pas de publicité. Il est financé comme le site, par son auteur.",
+      "text": "Sì, del tutto: niente abbonamento, nessuna funzione riservata, nessun voto obbligatorio, nessuna pubblicità. Come il sito, lo paga il suo autore."
+    },
+    "pages.bot.faq2q": {
+      "fr": "Comment ajouter MLBBDex à mon serveur ?",
+      "text": "Come aggiungo MLBBDex al mio server?"
+    },
+    "pages.bot.faq2a": {
+      "fr": "Cliquez sur « Ajouter à Discord », choisissez un serveur où vous avez la permission Gérer le serveur, puis validez. Les commandes apparaissent dès que vous tapez / dans un salon.",
+      "text": "Clicca su \"Aggiungi a Discord\", scegli un server in cui hai il permesso Gestisci server e conferma. I comandi compaiono appena scrivi / in un canale."
+    },
+    "pages.bot.faq3q": {
+      "fr": "Comment configurer les annonces ?",
+      "text": "Come configuro gli annunci?"
+    },
+    "pages.bot.faq3a": {
+      "fr": "Ouvrez le tableau de bord avec votre compte Discord (ou tapez /setup) : choisissez un salon, et si vous voulez un rôle à mentionner, pour chaque type d'annonce. Il faut la permission Gérer le serveur.",
+      "text": "Apri il pannello di controllo con il tuo account Discord (o scrivi /setup): scegli un canale, e se vuoi un ruolo da menzionare, per ogni tipo di annuncio. Serve il permesso Gestisci server."
+    },
+    "pages.bot.faq4q": {
+      "fr": "D'où viennent les builds, counters et la tier list ?",
+      "text": "Da dove vengono build, counter e tier list?"
+    },
+    "pages.bot.faq4a": {
+      "fr": "Des mêmes sources que le site : les statistiques des parties classées pour les taux, les builds et les counters, et le wiki Mobile Legends pour les héros, objets et patchs. Elles sont mises à jour chaque jour.",
+      "text": "Dalle stesse fonti del sito: le statistiche delle partite classificate per tassi, build e counter, e il wiki di Mobile Legends per eroi, oggetti e patch. Sono aggiornate ogni giorno."
+    },
+    "pages.bot.faq5q": {
+      "fr": "Le bot a-t-il besoin de la permission Administrateur ?",
+      "text": "Il bot ha bisogno del permesso di Amministratore?"
+    },
+    "pages.bot.faq5a": {
+      "fr": "Non. Il ne demande que ce qu'il utilise pour répondre et publier, et ne lit jamais le contenu des messages.",
+      "text": "No. Chiede solo ciò che usa per rispondere e pubblicare, e non legge mai il contenuto dei messaggi."
+    },
+    "pages.bot.faq6q": {
+      "fr": "Dans quelles langues répond-il ?",
+      "text": "In quali lingue risponde?"
+    },
+    "pages.bot.faq6a": {
+      "fr": "En anglais, français, italien, espagnol et indonésien. La langue se choisit pour tout le serveur dans le tableau de bord ; sinon, chaque membre reçoit la sienne.",
+      "text": "In inglese, francese, italiano, spagnolo e indonesiano. La lingua si sceglie per tutto il server nel pannello di controllo; altrimenti ogni membro riceve la propria."
+    },
+    "pages.bot.faq7q": {
+      "fr": "Quelles données le bot conserve-t-il ?",
+      "text": "Quali dati conserva il bot?"
+    },
+    "pages.bot.faq7a": {
+      "fr": "Le nom et les réglages de votre serveur, les publications déjà faites, et, pour les classements, l'identifiant et le pseudo Discord des joueurs des jeux du jour. Le détail est sur la page de confidentialité du bot.",
+      "text": "Il nome e le impostazioni del tuo server, ciò che ha già pubblicato e, per le classifiche, l'id e il nome Discord dei giocatori dei giochi del giorno. I dettagli sono nella pagina sulla privacy del bot."
+    },
+    "pages.bot.faq8q": {
+      "fr": "Le MLBBdle de Discord est-il le même que sur le site ?",
+      "text": "L'MLBBdle su Discord è lo stesso del sito?"
+    },
+    "pages.bot.faq8a": {
+      "fr": "Oui : même héros, même compétence et mêmes manches de quiz chaque jour UTC, dans toutes les langues.",
+      "text": "Sì: stesso eroe, stessa abilità e stessi round del quiz ogni giorno UTC, in tutte le lingue."
+    },
+    "pages.bot.ctaTitle": {
+      "fr": "Ajoutez MLBBDex à votre serveur",
+      "text": "Aggiungi MLBBDex al tuo server"
+    },
+    "pages.bot.ctaText": {
+      "fr": "Une minute pour l'ajouter, rien à payer. Des questions ou une idée ? Le serveur MLBBDex vous attend.",
+      "text": "Un minuto per aggiungerlo, niente da pagare. Domande o un'idea? Il server di MLBBDex ti aspetta."
+    },
+    "pages.bot.privacy": {
+      "fr": "Confidentialité du bot",
+      "text": "Privacy del bot"
+    },
+    "pages.bot.terms": {
+      "fr": "Conditions d'utilisation",
+      "text": "Condizioni d'uso"
+    },
+    "nav.bot.desc": {
+      "fr": "Le bot Discord Mobile Legends : builds, counters, tier list et MLBBdle dans vos serveurs",
+      "text": "Il bot Discord di Mobile Legends: build, counter, tier list e MLBBdle nei tuoi server"
     }
   }
 }
