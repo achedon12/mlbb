@@ -36,6 +36,7 @@ function toInput(view: GuildSettingsView): SettingsInput {
     dailyHourUtc: view.dailyHourUtc,
     welcome: { channelId: view.welcome.channelId, message: view.welcome.message },
     goodbye: { channelId: view.goodbye.channelId, message: view.goodbye.message },
+    autoRoles: { roleIds: view.autoRoles.roleIds, botRoleIds: view.autoRoles.botRoleIds },
   };
 }
 

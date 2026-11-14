@@ -14,6 +14,13 @@ const OTHER_GUILD = "999999999999999999";
 const USER = "222222222222222222";
 const CHANNEL = "333333333333333333";
 const FOREIGN_CHANNEL = "444444444444444444";
+/** Roles of GUILD as the bot reports them: one it may give, and three it refuses. */
+const MEMBER_ROLE = "555555555555555551";
+const MOD_ROLE = "555555555555555552";
+const HIGH_ROLE = "555555555555555553";
+const BOOSTER_ROLE = "555555555555555554";
+/** A role of OTHER_GUILD, assignable there. */
+const FOREIGN_ROLE = "555555555555555559";
 
 Object.assign(process.env, {
   DATABASE_URL: "postgresql://x:y@localhost:5432/z",
@@ -26,10 +33,20 @@ Object.assign(process.env, {
 
 const client = vi.hoisted(() => ({
   canManage: vi.fn(async (_c: unknown, guild: string, user: string) => guild === "111111111111111111" && user === "222222222222222222"),
-  guildChannels: vi.fn(async (_c: unknown, guild: string) => ({
-    channels: guild === "111111111111111111" ? [{ id: "333333333333333333", name: "news", type: "text" }] : [],
-    roles: [],
-  })),
+  guildChannels: vi.fn(async (_c: unknown, guild: string) =>
+    guild === "111111111111111111"
+      ? {
+          channels: [{ id: "333333333333333333", name: "news", type: "text" }],
+          roles: [
+            { id: "555555555555555551", name: "Player", assignable: true, refusal: null },
+            { id: "555555555555555552", name: "Mod", assignable: false, refusal: "dangerous" },
+            { id: "555555555555555553", name: "Staff", assignable: false, refusal: "above_bot" },
+            { id: "555555555555555554", name: "Booster", assignable: false, refusal: "managed" },
+          ],
+          manageRoles: true,
+        }
+      : { channels: [], roles: [{ id: "555555555555555559", name: "Player", assignable: true, refusal: null }], manageRoles: true },
+  ),
   testPost: vi.fn(async () => ({ ok: true })),
 }));
 vi.mock("@/lib/bot/client", async (original) => ({ ...(await original<object>()), ...client }));
@@ -123,16 +140,22 @@ describe("internal API gate", () => {
 });
 
 describe("dashboard settings write", () => {
-  const form = (o: { channel?: string | null; welcome?: string | null } = {}) => ({
+  const form = (
+    o: { channel?: string | null; welcome?: string | null; mention?: string | null; roles?: string[]; botRoles?: string[] } = {},
+  ) => ({
     locale: "fr",
     announcements: Object.fromEntries(
-      ["patches", "skins", "events", "advanceServer", "esports"].map((t) => [t, { channelId: t === "patches" ? (o.channel ?? null) : null, roleId: null }]),
+      ["patches", "skins", "events", "advanceServer", "esports"].map((t) => [
+        t,
+        { channelId: t === "patches" ? (o.channel ?? null) : null, roleId: t === "patches" ? (o.mention ?? null) : null },
+      ]),
     ),
     dailyMlbbdleChannelId: null,
     dailyQuizChannelId: null,
     dailyHourUtc: 12,
     welcome: { channelId: o.welcome ?? null, message: "Hi {user}" },
     goodbye: { channelId: null, message: null },
+    autoRoles: { roleIds: o.roles ?? [], botRoleIds: o.botRoles ?? [] },
   });
   const put = (guild: string, body: unknown, headers: Record<string, string> = {}) =>
     PUT(
@@ -167,6 +190,34 @@ describe("dashboard settings write", () => {
     expect((await put(GUILD, form({ channel: FOREIGN_CHANNEL }))).status).toBe(400);
     expect((await put(GUILD, form({ welcome: FOREIGN_CHANNEL }))).status).toBe(400);
     expect(store.writes).toHaveLength(0);
+  });
+
+  it("saves auto-roles the bot reported as assignable in that server", async () => {
+    const response = await put(GUILD, form({ roles: [MEMBER_ROLE], botRoles: [MEMBER_ROLE] }));
+    expect(response.status).toBe(200);
+    const upsert = store.writes[1] as { create: Record<string, unknown> };
+    expect(upsert.create).toMatchObject({ autoRoleIds: [MEMBER_ROLE], botAutoRoleIds: [MEMBER_ROLE], autoRoleFailing: false });
+  });
+
+  it("refuses dangerous, higher, managed and foreign auto-roles server-side", async () => {
+    for (const role of [MOD_ROLE, HIGH_ROLE, BOOSTER_ROLE, FOREIGN_ROLE, "666666666666666666"]) {
+      expect((await put(GUILD, form({ roles: [role] }))).status).toBe(400);
+      expect((await put(GUILD, form({ botRoles: [MEMBER_ROLE, role] }))).status).toBe(400);
+    }
+    // Four roles, a duplicate: refused by the schema.
+    expect((await put(GUILD, form({ roles: [MEMBER_ROLE, MEMBER_ROLE] }))).status).toBe(400);
+    expect(store.writes).toHaveLength(0);
+  });
+
+  it("takes the server from the path: another server's roles cannot be set through it", async () => {
+    // The user manages GUILD only; naming OTHER_GUILD in the path is refused before anything.
+    expect((await put(OTHER_GUILD, form({ roles: [FOREIGN_ROLE] }))).status).toBe(403);
+    expect(store.writes).toHaveLength(0);
+  });
+
+  it("never offers a managed role as a mention", async () => {
+    expect((await put(GUILD, form({ channel: CHANNEL, mention: BOOSTER_ROLE }))).status).toBe(400);
+    expect((await put(GUILD, form({ channel: CHANNEL, mention: MOD_ROLE }))).status).toBe(200);
   });
 
   it("refuses a malformed server id before asking the bot", async () => {

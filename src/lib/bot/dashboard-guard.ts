@@ -5,7 +5,7 @@ import { clientAddress } from "@/lib/client-address";
 import { addressOf, limitByMinute } from "@/lib/push-server";
 import { readCapped } from "@/lib/read-body";
 import { site } from "@/lib/site";
-import { canManage, guildChannels, type BotChannel, type BotRole } from "./client";
+import { canManage, guildChannels, type GuildLists } from "./client";
 import { botConfig, type BotConfig } from "./config";
 import { isSnowflake } from "./public";
 import { openSession, SESSION_COOKIE, type DiscordSession } from "./session";
@@ -131,7 +131,7 @@ export async function authorizeGuild(
   config: BotConfig,
   guildId: string,
   userId: string,
-): Promise<{ channels: BotChannel[]; roles: BotRole[] } | NextResponse> {
+): Promise<GuildLists | NextResponse> {
   if (!isSnowflake(guildId)) return refused(400, "invalid server id");
   if (!(await canManage(config, guildId, userId))) return refused(403, "not allowed");
   return guildChannels(config, guildId);

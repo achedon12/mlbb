@@ -4,7 +4,8 @@ import { afterAll, beforeAll, describe, expect, it } from "vitest";
  * The bot's database paths against a real Postgres: the bulk statements
  * (guild sync, deliveries), the narrowed pending list, the daily-post
  * list by hour, the aggregated leaderboard and admin figures, the welcome
- * and goodbye settings (migration, signed read, failing flag).
+ * and goodbye settings and the auto-roles (migration, signed read, failing
+ * flag).
  *
  * Needs a migrated, disposable database, for instance:
  *   docker run -d --rm -p 127.0.0.1:55432:5432 -e POSTGRES_PASSWORD=t postgres:17-alpine
@@ -38,6 +39,7 @@ describe.skipIf(!url)("bot database paths", async () => {
   const deliveriesRoute = await import("@/app/api/bot/deliveries/route");
   const settingsRoute = await import("@/app/api/bot/guilds/[id]/settings/route");
   const greetingFailure = await import("@/app/api/bot/guilds/[id]/greeting-failure/route");
+  const autoRoleFailure = await import("@/app/api/bot/guilds/[id]/auto-role-failure/route");
   const { settingsRow } = await import("@/lib/bot/settings");
 
   const entry = (n: number, extra: Partial<{ name: string; memberCount: number; locale: string }> = {}) => ({
@@ -221,9 +223,57 @@ describe.skipIf(!url)("bot database paths", async () => {
       dailyHourUtc: 12,
       welcome: { channelId: g(77), message: null },
       goodbye: { channelId: null, message: "Bye {username}" },
+      autoRoles: { roleIds: [], botRoleIds: [] },
     });
     await db().guildSettings.update({ where: { guildId: id }, data: row });
     expect(await read()).toMatchObject({ welcome: { channelId: g(77), message: null, failing: false } });
+  });
+
+  it("stores the auto-roles, serves them to the bot and flags them failing", async () => {
+    const id = g(990);
+    // Defaults straight from the migration, written by SQL alone: off, for people and bots.
+    await db().guild.upsert({ where: { id }, create: entry(990), update: {} });
+    await db().guildSettings.deleteMany({ where: { guildId: id } });
+    await db().$executeRaw`INSERT INTO "GuildSettings" ("guildId", "updatedAt") VALUES (${id}, now())`;
+    expect(await db().guildSettings.findUniqueOrThrow({ where: { guildId: id } })).toMatchObject({
+      autoRoleIds: [],
+      botAutoRoleIds: [],
+      autoRoleFailing: false,
+    });
+
+    let second = 0;
+    const read = async () => {
+      const path = `/api/bot/guilds/${id}/settings`;
+      const headers = signedHeaders(SECRET, "GET", path, "", Date.now() - 50_000 + 1_000 * second++);
+      const response = await settingsRoute.GET(new Request(`http://mlbb:3001${path}`, { headers }), { params: Promise.resolve({ id }) });
+      expect(response.status).toBe(200);
+      return ((await response.json()) as { autoRoles: unknown }).autoRoles;
+    };
+    const fail = async (body = "{}") => {
+      const path = `/api/bot/guilds/${id}/auto-role-failure`;
+      return autoRoleFailure.POST(
+        new Request(`http://mlbb:3001${path}`, {
+          method: "POST",
+          headers: signedHeaders(SECRET, "POST", path, body, Date.now() - 50_000 + 1_000 * second++),
+          body,
+        }),
+        { params: Promise.resolve({ id }) },
+      );
+    };
+
+    expect(await read()).toEqual({ roleIds: [], botRoleIds: [], failing: false });
+    // Off: nothing to fail.
+    expect(await (await fail()).json()).toEqual({ ok: true, marked: 0 });
+
+    await db().guildSettings.update({ where: { guildId: id }, data: { autoRoleIds: [g(501), g(502), g(503)], botAutoRoleIds: [g(504)] } });
+    expect(await read()).toEqual({ roleIds: [g(501), g(502), g(503)], botRoleIds: [g(504)], failing: false });
+    expect(await (await fail()).json()).toEqual({ ok: true, marked: 1 });
+    expect((await fail(JSON.stringify({ roleId: g(501) }))).status).toBe(400);
+    expect(await read()).toMatchObject({ failing: true });
+
+    // Bots' roles alone still count as configured.
+    await db().guildSettings.update({ where: { guildId: id }, data: { autoRoleIds: [], autoRoleFailing: false } });
+    expect(await (await fail()).json()).toEqual({ ok: true, marked: 1 });
   });
 
   it("computes the admin figures in the database, p95 by nearest rank", async () => {

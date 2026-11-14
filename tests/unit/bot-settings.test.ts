@@ -16,6 +16,9 @@ import { siteLocaleOf } from "@/lib/bot/guild-store";
 const CHANNEL = "111111111111111111";
 const OTHER_CHANNEL = "222222222222222222";
 const ROLE = "333333333333333333";
+const ROLE_2 = "333333333333333334";
+const ROLE_3 = "333333333333333335";
+const ROLE_4 = "333333333333333336";
 
 function input(): SettingsInput {
   return {
@@ -26,6 +29,7 @@ function input(): SettingsInput {
     dailyHourUtc: 12,
     welcome: { channelId: null, message: null },
     goodbye: { channelId: null, message: null },
+    autoRoles: { roleIds: [], botRoleIds: [] },
   };
 }
 
@@ -133,6 +137,53 @@ describe("bot settings", () => {
     const row = settingsRow(value);
     expect(row).toMatchObject({ welcomeChannelId: null, welcomeMessage: "Hi {user}", goodbyeChannelId: null, goodbyeMessage: null });
     expect(settingsView("123456789012345678", "fr", row).welcome).toEqual({ channelId: null, message: "Hi {user}", failing: false });
+  });
+
+  it("has auto-roles off by default, for people and bots", () => {
+    expect(settingsView("123456789012345678", "fr", null).autoRoles).toEqual({ roleIds: [], botRoleIds: [], failing: false });
+  });
+
+  it("takes up to 3 distinct role ids per auto-role list", () => {
+    const value = input();
+    value.autoRoles = { roleIds: [ROLE, ROLE_2, ROLE_3], botRoleIds: [ROLE_4] };
+    expect(settingsInput.safeParse(value).success).toBe(true);
+    const bad: ((v: SettingsInput) => void)[] = [
+      (v) => (v.autoRoles.roleIds = [ROLE, ROLE_2, ROLE_3, ROLE_4]),
+      (v) => (v.autoRoles.botRoleIds = [ROLE, ROLE_2, ROLE_3, ROLE_4]),
+      (v) => (v.autoRoles.roleIds = [ROLE, ROLE]),
+      (v) => (v.autoRoles.botRoleIds = ["@everyone"]),
+      (v) => (v.autoRoles.roleIds = ["<@&333333333333333333>"]),
+      (v) => (v.autoRoles.roleIds = [ROLE.slice(0, 10)]),
+      (v) => ((v.autoRoles as Record<string, unknown>).failing = false),
+      (v) => delete (v.autoRoles as Partial<SettingsInput["autoRoles"]>).botRoleIds,
+      (v) => delete (v as Partial<SettingsInput>).autoRoles,
+    ];
+    for (const change of bad) {
+      const v = input();
+      change(v);
+      expect(settingsInput.safeParse(v).success).toBe(false);
+    }
+  });
+
+  it("only gives roles the bot reported as assignable on this server", () => {
+    const value = input();
+    value.autoRoles = { roleIds: [ROLE], botRoleIds: [ROLE_2] };
+    // Not assignable (above the bot, managed, dangerous) or another server's: refused.
+    expect(checkAgainstGuild(value, new Set(), new Set([ROLE, ROLE_2]), new Set([ROLE]))).toEqual({ ok: false, field: "autoRoles.botRoleIds" });
+    expect(checkAgainstGuild(value, new Set(), new Set([ROLE, ROLE_2]))).toEqual({ ok: false, field: "autoRoles.roleIds" });
+    expect(checkAgainstGuild(value, new Set(), new Set(), new Set([ROLE, ROLE_2])).ok).toBe(true);
+  });
+
+  it("stores the auto-roles and clears their failing flag on save", () => {
+    const value = input();
+    value.autoRoles = { roleIds: [ROLE], botRoleIds: [ROLE_2] };
+    const row = settingsRow(value);
+    expect(row).toMatchObject({ autoRoleIds: [ROLE], botAutoRoleIds: [ROLE_2], autoRoleFailing: false });
+    expect(settingsView("123456789012345678", "fr", { ...row, autoRoleFailing: true }).autoRoles).toEqual({
+      roleIds: [ROLE],
+      botRoleIds: [ROLE_2],
+      failing: true,
+    });
   });
 
   it("maps Discord's preferred locale to a site language", () => {

@@ -39,7 +39,8 @@ model Guild {
 /// `<type>Failing` is set when the bot could not post there (permissions
 /// lost) and cleared when the settings are saved again. The welcome and
 /// goodbye messages work the same way: a null channel turns them off, a
-/// null message posts the default text in the server's language.
+/// null message posts the default text in the server's language. Auto-roles
+/// too: an empty list turns them off, and saving clears their failing flag.
 model GuildSettings {
   guildId String @id @db.VarChar(20)
   guild   Guild  @relation(fields: [guildId], references: [id], onDelete: Cascade)
@@ -75,6 +76,16 @@ model GuildSettings {
   goodbyeChannelId String? @db.VarChar(20)
   goodbyeMessage   String? @db.VarChar(500)
   goodbyeFailing   Boolean @default(false)
+
+  /// Roles given to a person who joins (`guildMemberAdd`, or once they pass
+  /// the server's membership screening), at most 3; empty, the default,
+  /// turns auto-roles off. Each was checked against what the bot may give
+  /// when saved, and is checked again by the bot before every assignment.
+  autoRoleIds     String[] @default([]) @db.VarChar(20)
+  /// Same, for the bots added to the server (never the people's roles).
+  botAutoRoleIds  String[] @default([]) @db.VarChar(20)
+  /// The bot could not give them (Manage Roles lost, a role moved above it).
+  autoRoleFailing Boolean  @default(false)
 
   updatedAt DateTime @updatedAt
 

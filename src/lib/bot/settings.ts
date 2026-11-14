@@ -7,13 +7,21 @@ import { LOCALES, type Locale } from "@/i18n/config";
  * database: the validation is tested on its own.
  */
 
-import { ANNOUNCEMENT_TYPES, GREETING_KINDS, GREETING_MAX_LENGTH, type AnnouncementType, type GreetingKind } from "./kinds";
+import {
+  ANNOUNCEMENT_TYPES,
+  GREETING_KINDS,
+  GREETING_MAX_LENGTH,
+  MAX_AUTO_ROLES,
+  type AnnouncementType,
+  type GreetingKind,
+} from "./kinds";
 
 export {
   ANNOUNCEMENT_TYPES,
   DAILY_GAMES,
   GREETING_KINDS,
   GREETING_MAX_LENGTH,
+  MAX_AUTO_ROLES,
   type AnnouncementType,
   type DailyGame,
   type GreetingKind,
@@ -38,6 +46,14 @@ export interface GreetingSetting {
   failing: boolean;
 }
 
+/** Roles given to newcomers, people and bots apart: both empty, auto-roles are off. */
+export interface AutoRoleSetting {
+  roleIds: string[];
+  botRoleIds: string[];
+  /** The bot could not give them last time (Manage Roles lost, role moved). */
+  failing: boolean;
+}
+
 /** What `GET /api/bot/guilds/:id/settings` answers. */
 export type GuildSettingsView = {
   guildId: string;
@@ -45,6 +61,7 @@ export type GuildSettingsView = {
   dailyMlbbdleChannelId: string | null;
   dailyQuizChannelId: string | null;
   dailyHourUtc: number;
+  autoRoles: AutoRoleSetting;
 } & Record<AnnouncementType, AnnouncementSetting> &
   Record<GreetingKind, GreetingSetting>;
 
@@ -53,6 +70,9 @@ export type SettingsRow = {
   dailyMlbbdleChannelId: string | null;
   dailyQuizChannelId: string | null;
   dailyHourUtc: number;
+  autoRoleIds: string[];
+  botAutoRoleIds: string[];
+  autoRoleFailing: boolean;
 } & { [K in `${AnnouncementType}ChannelId` | `${AnnouncementType}RoleId`]: string | null } & {
   [K in `${AnnouncementType}Failing`]: boolean;
 } & { [K in `${GreetingKind}ChannelId` | `${GreetingKind}Message`]: string | null } & {
@@ -92,6 +112,11 @@ export function settingsView(guildId: string, locale: string, row: SettingsRow |
     dailyMlbbdleChannelId: row?.dailyMlbbdleChannelId ?? null,
     dailyQuizChannelId: row?.dailyQuizChannelId ?? null,
     dailyHourUtc: row?.dailyHourUtc ?? DEFAULT_DAILY_HOUR,
+    autoRoles: {
+      roleIds: row?.autoRoleIds ?? [],
+      botRoleIds: row?.botAutoRoleIds ?? [],
+      failing: row?.autoRoleFailing ?? false,
+    },
   };
 }
 
@@ -110,6 +135,12 @@ export const greetingText = z
 
 const greetingInput = z.object({ channelId: optionalId, message: greetingText }).strict();
 
+/** Up to 3 distinct roles; an empty list turns that half of auto-roles off. */
+export const autoRoleIds = z
+  .array(snowflake)
+  .max(MAX_AUTO_ROLES)
+  .refine((ids) => new Set(ids).size === ids.length, "duplicate role");
+
 /** What the dashboard sends when saving. */
 export const settingsInput = z
   .object({
@@ -124,6 +155,8 @@ export const settingsInput = z
     dailyHourUtc: z.number().int().min(0).max(23),
     welcome: greetingInput,
     goodbye: greetingInput,
+    /** `roleIds` for the people who join, `botRoleIds` for the bots added. */
+    autoRoles: z.object({ roleIds: autoRoleIds, botRoleIds: autoRoleIds }).strict(),
   })
   .strict();
 export type SettingsInput = z.infer<typeof settingsInput>;
@@ -133,11 +166,17 @@ export type SettingsInput = z.infer<typeof settingsInput>;
  * or a role that is not among them is refused, so the dashboard can only
  * point the bot at places it can post in. A role without a channel is
  * meaningless and dropped.
+ *
+ * An auto-role must be one the bot itself reported as assignable on this
+ * request (below its highest role, not managed, no moderation or
+ * administration permission): a role id typed into the request, another
+ * server's role or a dangerous one is refused, whatever the page showed.
  */
 export function checkAgainstGuild(
   input: SettingsInput,
   channels: ReadonlySet<string>,
   roles: ReadonlySet<string>,
+  assignable: ReadonlySet<string> = new Set(),
 ): { ok: true; value: SettingsInput } | { ok: false; field: string } {
   const value: SettingsInput = structuredClone(input);
   for (const type of ANNOUNCEMENT_TYPES) {
@@ -154,6 +193,9 @@ export function checkAgainstGuild(
     const id = value[kind].channelId;
     if (id && !channels.has(id)) return { ok: false, field: `${kind}.channelId` };
   }
+  for (const field of ["roleIds", "botRoleIds"] as const) {
+    if (value.autoRoles[field].some((id) => !assignable.has(id))) return { ok: false, field: `autoRoles.${field}` };
+  }
   return { ok: true, value };
 }
 
@@ -163,6 +205,9 @@ export function settingsRow(input: SettingsInput): SettingsRow {
     dailyMlbbdleChannelId: input.dailyMlbbdleChannelId,
     dailyQuizChannelId: input.dailyQuizChannelId,
     dailyHourUtc: input.dailyHourUtc,
+    autoRoleIds: input.autoRoles.roleIds,
+    botAutoRoleIds: input.autoRoles.botRoleIds,
+    autoRoleFailing: false,
   } as SettingsRow;
   for (const type of ANNOUNCEMENT_TYPES) {
     row[`${type}ChannelId`] = input.announcements[type].channelId;
