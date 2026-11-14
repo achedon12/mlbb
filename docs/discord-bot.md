@@ -349,15 +349,78 @@ list). Off until a role is chosen.
   the placeholders and a live preview), auto-roles (on/off, up to 3 roles
   for members and 3 for bots, a warning when the bot lacks Manage Roles or
   a role is above its own), "send a test" buttons, delivery health.
-- `/[locale]/bot/admin` — super admins: servers (count, joins/leaves per
-  day, biggest servers, locales), commands (top commands, error rate,
-  p95 duration, per day 24h/7d/30d), announcements (delivered/failed),
-  daily games (players per day), bot health (shards, ping, memory),
-  "flush announcements" action.
+- `/[locale]/bot/admin` — super admins, over 24 h (by hour), 7 or 30 days
+  (by UTC day), each figure against the window before of the same length:
+  bot health (status, uptime, memory, version, each shard's status, ping,
+  servers and memory, asked live to the bot); tiles for commands run,
+  active servers, members reached, daily game players, servers using the
+  bot, error rate, p95 response time, announcements posted and votes;
+  commands per bucket stacked by command (top five, then "other"), top
+  commands with errors and p95, p95 per bucket, users' languages, most
+  active servers; joins and leaves per bucket, server languages,
+  biggest servers, failing settings; deliveries per announcement type and
+  status, last failures; daily game players per day and game; the last
+  errors and bot warnings of the site's log; the database backups.
+  Actions: "flush announcements", "back up now". Every figure is
+  aggregated by Postgres (`src/lib/bot/stats.ts`, a few queries at a time
+  so the five-connection pool stays free for the bot) and every chart is
+  server-rendered HTML/SVG with CSS tooltips and a screen-reader table
+  (`src/components/bot/admin-charts.tsx`). `CommandLog` stores no user
+  id, so there is no "unique users of commands" figure: the unique
+  players come from the daily games.
 - `/[locale]/bot/privacy`, `/[locale]/bot/terms` — required by Discord's
   developer portal and the bot lists.
 - The community Discord server link (permanent invite,
   `NEXT_PUBLIC_DISCORD_INVITE_URL`) in the header, footer and `/bot`.
+
+## Database backups
+
+One `pg_dump` a day at 03:30 UTC, the three newest kept
+(`src/lib/db-backup.ts`, scheduled with node-cron from
+`src/instrumentation.ts`).
+
+- **Where it runs: the site container.** It is the only process holding
+  `DATABASE_URL`, it already runs the bot's chores, and the admin panel
+  that lists the backups and offers "back up now" lives in it: the list is
+  a directory read, the button a direct call, with no new service, network
+  route or secret. The image gains `postgresql17-client` (a few MB, Alpine
+  package), matching the compose database's major version: an older
+  pg_dump refuses a newer server. A dedicated cron container would need
+  its own copy of the database password and an API for the panel to read
+  its state.
+- **Format**: custom (`--format=custom --compress=6 --no-owner
+  --no-privileges`), restored with `pg_restore`:
+  `pg_restore --clean --if-exists -d "$DATABASE_URL" backups/mlbbdex-….dump`.
+- **Where**: `BACKUP_DIR` (`/app/backups` in the image), mounted from
+  `./backups` on the host (in `.gitignore` and `.dockerignore`). The host
+  folder must belong to the image's user:
+  `mkdir -p backups && chown 1001:1001 backups`. Files are named
+  `mlbbdex-YYYYMMDD-HHMMSS.dump` (UTC), so name order is date order.
+- **Atomic**: the dump is written to a hidden `.….partial` file and renamed
+  once pg_dump exits 0 with a non-empty file; a failed dump is deleted.
+  Rotation then deletes all but the three newest, and any partial file a
+  crash left behind.
+- **One at a time**: an in-process flag, plus a lock file created
+  exclusively in the folder (two containers sharing it never dump at
+  once); a lock older than the dump's 10-minute timeout is a crashed run
+  and is taken over.
+- **No secret in arguments or logs**: the connection goes to pg_dump as
+  `PG*` variables of its own environment (which inherits nothing else of
+  the site's, so no bot secret either), never on its command line where
+  `ps` would show it. Logs carry file names, sizes and pg_dump's last
+  message only.
+- **Catch-up**: a site started with no backup of the last 26 hours makes
+  one two minutes after startup.
+- **Status**: `status.json` in the folder keeps the last run (when, how
+  long, which file, or why it failed); the admin panel shows it with the
+  list. "Back up now" is `POST /api/discord/admin/backup`, behind the same
+  gate as the flush (Origin and `Sec-Fetch-Site`, session, rate limit,
+  super admin checked on the request): 409 while a backup runs.
+- Only in production, or in development when `BACKUP_DIR` is set.
+
+Three daily dumps on the same disk protect against a bad migration or a
+mistaken delete, not against losing the server: copy `./backups`
+elsewhere (rsync from another host) for that.
 
 ## Listing
 
@@ -390,7 +453,8 @@ Site: `DATABASE_URL`, `BOT_API_SECRET`, `BOT_INTERNAL_URL`
 `DISCORD_CLIENT_SECRET`, `BOT_SUPER_ADMIN_IDS`,
 `NEXT_PUBLIC_DISCORD_CLIENT_ID`, `NEXT_PUBLIC_DISCORD_INVITE_URL`,
 `TOPGG_WEBHOOK_SECRET`, `DBL_WEBHOOK_SECRET`, `TRUSTED_PROXY_HOPS`
-(reverse proxies appending to `X-Forwarded-For`, default 1).
+(reverse proxies appending to `X-Forwarded-For`, default 1), `BACKUP_DIR`
+(database dumps, `/app/backups` in the image).
 
 Bot: `DISCORD_TOKEN`, `DISCORD_CLIENT_ID`, `BOT_API_SECRET`,
 `SITE_URL` (public API) and `SITE_INTERNAL_URL` (`http://mlbb:3001`),

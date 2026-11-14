@@ -20,3 +20,4 @@ donnees-serveur
 !.env.example
 # The Discord bot has its own image (bot/Dockerfile)
 bot
+backups

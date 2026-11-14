@@ -13,7 +13,9 @@ import { Fleet } from "./managers/fleet.js";
 import { ListingPoster, postCommandsToDbl } from "./managers/listing.js";
 import { COMMANDS } from "./commands/index.js";
 import { classifyError, errorLabel, restPoster } from "./managers/poster.js";
+import { statsAnswer } from "./managers/stats.js";
 import { SiteClient } from "./site/internal-api.js";
+import { BOT_VERSION } from "./version.js";
 
 /**
  * Manager process: spawns the shards (one gateway connection each, see
@@ -131,13 +133,14 @@ const api: InternalApi = {
     }
   },
   async stats() {
-    const shards = await fleet.stats();
-    return {
-      shards,
-      guildCount: shards.reduce((n, s) => n + s.guilds, 0),
-      uptimeSec: Math.round((Date.now() - startedAt) / 1000),
-      memoryMb: Math.round(process.memoryUsage().rss / 1024 / 1024),
-    };
+    return statsAnswer({
+      ...(await fleet.stats()),
+      startedAt,
+      now: Date.now(),
+      managerRssBytes: process.memoryUsage().rss,
+      version: BOT_VERSION,
+      node: process.version,
+    });
   },
 };
 

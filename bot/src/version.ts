@@ -15,3 +15,4 @@ function readVersion(): string {
 }
 
 export const VERSION = readVersion();
+export const BOT_VERSION = VERSION;

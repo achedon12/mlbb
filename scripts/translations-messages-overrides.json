@@ -979,6 +979,102 @@
     "home.community.contributeText": {
       "fr": "Rédiger l'analyse d'un héros, corriger une donnée, proposer une idée.",
       "text": "Write a hero analysis, fix a data point, suggest an idea."
+    },
+    "pages.botAdmin.updated": {
+      "fr": "Chiffres de {time} UTC",
+      "text": "Figures as of {time} UTC"
+    },
+    "pages.botAdmin.noBase": {
+      "fr": "rien avant pour comparer",
+      "text": "nothing to compare with"
+    },
+    "pages.botAdmin.kpi.commands": {
+      "fr": "Commandes lancées",
+      "text": "Commands run"
+    },
+    "pages.botAdmin.kpi.members": {
+      "fr": "Membres touchés",
+      "text": "Members reached"
+    },
+    "pages.botAdmin.kpi.players": {
+      "fr": "Joueurs des jeux du jour",
+      "text": "Daily game players"
+    },
+    "pages.botAdmin.kpi.activeGuilds": {
+      "fr": "Serveurs où le bot sert",
+      "text": "Servers using the bot"
+    },
+    "pages.botAdmin.kpi.p95": {
+      "fr": "Temps de réponse p95",
+      "text": "p95 response time"
+    },
+    "pages.botAdmin.kpi.delivered": {
+      "fr": "Annonces publiées",
+      "text": "Announcements posted"
+    },
+    "pages.botAdmin.status.degraded": {
+      "fr": "Dégradé",
+      "text": "Degraded"
+    },
+    "pages.botAdmin.node": {
+      "fr": "Node",
+      "text": "Node"
+    },
+    "pages.botAdmin.pingUnknown": {
+      "fr": "en attente",
+      "text": "waiting"
+    },
+    "pages.botAdmin.shardStatus.connecting": {
+      "fr": "Connexion",
+      "text": "Connecting"
+    },
+    "pages.botAdmin.shardStatus.waitingForGuilds": {
+      "fr": "Attend ses serveurs",
+      "text": "Waiting for servers"
+    },
+    "pages.botAdmin.shardStatus.resuming": {
+      "fr": "Reprise",
+      "text": "Resuming"
+    },
+    "pages.botAdmin.commandsUnit": {
+      "fr": "commandes",
+      "text": "commands"
+    },
+    "pages.botAdmin.perBucket.hour": {
+      "fr": "Commandes par heure",
+      "text": "Commands per hour"
+    },
+    "pages.botAdmin.perBucket.day": {
+      "fr": "Commandes par jour",
+      "text": "Commands per day"
+    },
+    "pages.botAdmin.byType": {
+      "fr": "Publications par type",
+      "text": "Posts by type"
+    },
+    "pages.botAdmin.failingServers": {
+      "fr": "Réglages en échec",
+      "text": "Failing settings"
+    },
+    "pages.botAdmin.results": {
+      "fr": "Parties jouées",
+      "text": "Games played"
+    },
+    "pages.botAdmin.opsTitle": {
+      "fr": "Exploitation",
+      "text": "Operations"
+    },
+    "pages.botAdmin.logsTitle": {
+      "fr": "Journal récent",
+      "text": "Recent log"
+    },
+    "pages.botAdmin.lastBackupFailed": {
+      "fr": "Dernière sauvegarde en échec le {when} ({trigger}) : {error}",
+      "text": "Last backup failed on {when} ({trigger}): {error}"
+    },
+    "pages.botAdmin.backupTrigger.schedule": {
+      "fr": "planifiée",
+      "text": "scheduled"
     }
   },
   "es": {
@@ -2001,6 +2097,102 @@
     "home.community.contributeText": {
       "fr": "Rédiger l'analyse d'un héros, corriger une donnée, proposer une idée.",
       "text": "Escribir el análisis de un héroe, corregir un dato, proponer una idea."
+    },
+    "pages.botAdmin.updated": {
+      "fr": "Chiffres de {time} UTC",
+      "text": "Datos de las {time} UTC"
+    },
+    "pages.botAdmin.noBase": {
+      "fr": "rien avant pour comparer",
+      "text": "sin periodo anterior"
+    },
+    "pages.botAdmin.kpi.commands": {
+      "fr": "Commandes lancées",
+      "text": "Comandos ejecutados"
+    },
+    "pages.botAdmin.kpi.members": {
+      "fr": "Membres touchés",
+      "text": "Miembros alcanzados"
+    },
+    "pages.botAdmin.kpi.players": {
+      "fr": "Joueurs des jeux du jour",
+      "text": "Jugadores de los juegos del día"
+    },
+    "pages.botAdmin.kpi.activeGuilds": {
+      "fr": "Serveurs où le bot sert",
+      "text": "Servidores que usan el bot"
+    },
+    "pages.botAdmin.kpi.p95": {
+      "fr": "Temps de réponse p95",
+      "text": "Tiempo de respuesta p95"
+    },
+    "pages.botAdmin.kpi.delivered": {
+      "fr": "Annonces publiées",
+      "text": "Anuncios publicados"
+    },
+    "pages.botAdmin.status.degraded": {
+      "fr": "Dégradé",
+      "text": "Degradado"
+    },
+    "pages.botAdmin.node": {
+      "fr": "Node",
+      "text": "Node"
+    },
+    "pages.botAdmin.pingUnknown": {
+      "fr": "en attente",
+      "text": "esperando"
+    },
+    "pages.botAdmin.shardStatus.connecting": {
+      "fr": "Connexion",
+      "text": "Conectando"
+    },
+    "pages.botAdmin.shardStatus.waitingForGuilds": {
+      "fr": "Attend ses serveurs",
+      "text": "Esperando servidores"
+    },
+    "pages.botAdmin.shardStatus.resuming": {
+      "fr": "Reprise",
+      "text": "Reanudando"
+    },
+    "pages.botAdmin.commandsUnit": {
+      "fr": "commandes",
+      "text": "comandos"
+    },
+    "pages.botAdmin.perBucket.hour": {
+      "fr": "Commandes par heure",
+      "text": "Comandos por hora"
+    },
+    "pages.botAdmin.perBucket.day": {
+      "fr": "Commandes par jour",
+      "text": "Comandos por día"
+    },
+    "pages.botAdmin.byType": {
+      "fr": "Publications par type",
+      "text": "Publicaciones por tipo"
+    },
+    "pages.botAdmin.failingServers": {
+      "fr": "Réglages en échec",
+      "text": "Ajustes con fallos"
+    },
+    "pages.botAdmin.results": {
+      "fr": "Parties jouées",
+      "text": "Partidas jugadas"
+    },
+    "pages.botAdmin.opsTitle": {
+      "fr": "Exploitation",
+      "text": "Operaciones"
+    },
+    "pages.botAdmin.logsTitle": {
+      "fr": "Journal récent",
+      "text": "Registro reciente"
+    },
+    "pages.botAdmin.lastBackupFailed": {
+      "fr": "Dernière sauvegarde en échec le {when} ({trigger}) : {error}",
+      "text": "La última copia falló el {when} ({trigger}): {error}"
+    },
+    "pages.botAdmin.backupTrigger.schedule": {
+      "fr": "planifiée",
+      "text": "programada"
     }
   },
   "id": {
@@ -4995,6 +5187,102 @@
     "home.community.contributeText": {
       "fr": "Rédiger l'analyse d'un héros, corriger une donnée, proposer une idée.",
       "text": "Tulis analisis hero, perbaiki data, usulkan ide."
+    },
+    "pages.botAdmin.updated": {
+      "fr": "Chiffres de {time} UTC",
+      "text": "Data pukul {time} UTC"
+    },
+    "pages.botAdmin.noBase": {
+      "fr": "rien avant pour comparer",
+      "text": "tidak ada periode sebelumnya"
+    },
+    "pages.botAdmin.kpi.commands": {
+      "fr": "Commandes lancées",
+      "text": "Perintah dijalankan"
+    },
+    "pages.botAdmin.kpi.members": {
+      "fr": "Membres touchés",
+      "text": "Anggota terjangkau"
+    },
+    "pages.botAdmin.kpi.players": {
+      "fr": "Joueurs des jeux du jour",
+      "text": "Pemain gim harian"
+    },
+    "pages.botAdmin.kpi.activeGuilds": {
+      "fr": "Serveurs où le bot sert",
+      "text": "Server yang memakai bot"
+    },
+    "pages.botAdmin.kpi.p95": {
+      "fr": "Temps de réponse p95",
+      "text": "Waktu respons p95"
+    },
+    "pages.botAdmin.kpi.delivered": {
+      "fr": "Annonces publiées",
+      "text": "Pengumuman terkirim"
+    },
+    "pages.botAdmin.status.degraded": {
+      "fr": "Dégradé",
+      "text": "Terganggu"
+    },
+    "pages.botAdmin.node": {
+      "fr": "Node",
+      "text": "Node"
+    },
+    "pages.botAdmin.pingUnknown": {
+      "fr": "en attente",
+      "text": "menunggu"
+    },
+    "pages.botAdmin.shardStatus.connecting": {
+      "fr": "Connexion",
+      "text": "Menghubungkan"
+    },
+    "pages.botAdmin.shardStatus.waitingForGuilds": {
+      "fr": "Attend ses serveurs",
+      "text": "Menunggu server"
+    },
+    "pages.botAdmin.shardStatus.resuming": {
+      "fr": "Reprise",
+      "text": "Melanjutkan"
+    },
+    "pages.botAdmin.commandsUnit": {
+      "fr": "commandes",
+      "text": "perintah"
+    },
+    "pages.botAdmin.perBucket.hour": {
+      "fr": "Commandes par heure",
+      "text": "Perintah per jam"
+    },
+    "pages.botAdmin.perBucket.day": {
+      "fr": "Commandes par jour",
+      "text": "Perintah per hari"
+    },
+    "pages.botAdmin.byType": {
+      "fr": "Publications par type",
+      "text": "Kiriman per jenis"
+    },
+    "pages.botAdmin.failingServers": {
+      "fr": "Réglages en échec",
+      "text": "Pengaturan bermasalah"
+    },
+    "pages.botAdmin.results": {
+      "fr": "Parties jouées",
+      "text": "Permainan dimainkan"
+    },
+    "pages.botAdmin.opsTitle": {
+      "fr": "Exploitation",
+      "text": "Operasional"
+    },
+    "pages.botAdmin.logsTitle": {
+      "fr": "Journal récent",
+      "text": "Log terbaru"
+    },
+    "pages.botAdmin.lastBackupFailed": {
+      "fr": "Dernière sauvegarde en échec le {when} ({trigger}) : {error}",
+      "text": "Pencadangan terakhir gagal pada {when} ({trigger}): {error}"
+    },
+    "pages.botAdmin.backupTrigger.schedule": {
+      "fr": "planifiée",
+      "text": "terjadwal"
     }
   },
   "it": {
@@ -6065,6 +6353,102 @@
     "home.community.contributeText": {
       "fr": "Rédiger l'analyse d'un héros, corriger une donnée, proposer une idée.",
       "text": "Scrivere l'analisi di un eroe, correggere un dato, proporre un'idea."
+    },
+    "pages.botAdmin.updated": {
+      "fr": "Chiffres de {time} UTC",
+      "text": "Dati delle {time} UTC"
+    },
+    "pages.botAdmin.noBase": {
+      "fr": "rien avant pour comparer",
+      "text": "nessun periodo precedente"
+    },
+    "pages.botAdmin.kpi.commands": {
+      "fr": "Commandes lancées",
+      "text": "Comandi eseguiti"
+    },
+    "pages.botAdmin.kpi.members": {
+      "fr": "Membres touchés",
+      "text": "Membri raggiunti"
+    },
+    "pages.botAdmin.kpi.players": {
+      "fr": "Joueurs des jeux du jour",
+      "text": "Giocatori dei giochi del giorno"
+    },
+    "pages.botAdmin.kpi.activeGuilds": {
+      "fr": "Serveurs où le bot sert",
+      "text": "Server che usano il bot"
+    },
+    "pages.botAdmin.kpi.p95": {
+      "fr": "Temps de réponse p95",
+      "text": "Tempo di risposta p95"
+    },
+    "pages.botAdmin.kpi.delivered": {
+      "fr": "Annonces publiées",
+      "text": "Annunci pubblicati"
+    },
+    "pages.botAdmin.status.degraded": {
+      "fr": "Dégradé",
+      "text": "Degradato"
+    },
+    "pages.botAdmin.node": {
+      "fr": "Node",
+      "text": "Node"
+    },
+    "pages.botAdmin.pingUnknown": {
+      "fr": "en attente",
+      "text": "in attesa"
+    },
+    "pages.botAdmin.shardStatus.connecting": {
+      "fr": "Connexion",
+      "text": "Connessione"
+    },
+    "pages.botAdmin.shardStatus.waitingForGuilds": {
+      "fr": "Attend ses serveurs",
+      "text": "In attesa dei server"
+    },
+    "pages.botAdmin.shardStatus.resuming": {
+      "fr": "Reprise",
+      "text": "Ripresa"
+    },
+    "pages.botAdmin.commandsUnit": {
+      "fr": "commandes",
+      "text": "comandi"
+    },
+    "pages.botAdmin.perBucket.hour": {
+      "fr": "Commandes par heure",
+      "text": "Comandi all'ora"
+    },
+    "pages.botAdmin.perBucket.day": {
+      "fr": "Commandes par jour",
+      "text": "Comandi al giorno"
+    },
+    "pages.botAdmin.byType": {
+      "fr": "Publications par type",
+      "text": "Pubblicazioni per tipo"
+    },
+    "pages.botAdmin.failingServers": {
+      "fr": "Réglages en échec",
+      "text": "Impostazioni in errore"
+    },
+    "pages.botAdmin.results": {
+      "fr": "Parties jouées",
+      "text": "Partite giocate"
+    },
+    "pages.botAdmin.opsTitle": {
+      "fr": "Exploitation",
+      "text": "Gestione"
+    },
+    "pages.botAdmin.logsTitle": {
+      "fr": "Journal récent",
+      "text": "Log recente"
+    },
+    "pages.botAdmin.lastBackupFailed": {
+      "fr": "Dernière sauvegarde en échec le {when} ({trigger}) : {error}",
+      "text": "Ultimo backup fallito il {when} ({trigger}): {error}"
+    },
+    "pages.botAdmin.backupTrigger.schedule": {
+      "fr": "planifiée",
+      "text": "programmato"
     }
   }
 }

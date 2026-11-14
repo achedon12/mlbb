@@ -47,6 +47,10 @@ services:
       # Patch notification subscriptions and last announced patch: a named
       # volume, kept from one `up -d --build` to the next (not by `down -v`).
       - donnees:/app/donnees-serveur
+      # Daily database dumps, the three newest (docs/discord-bot.md). A host
+      # folder, to copy them off the server; it must belong to the image's
+      # user: mkdir -p backups && chown 1001:1001 backups
+      - ./backups:/app/backups
     tmpfs:
       - /tmp
       - /app/.next/cache
