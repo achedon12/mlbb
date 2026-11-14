@@ -7,6 +7,7 @@ import type { Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
 import { manageableGuilds, type BotGuild } from "@/lib/bot/client";
 import { botConfig, isSuperAdmin } from "@/lib/bot/config";
+import { dashboardPageAllowed } from "@/lib/bot/dashboard-guard";
 import { botClientId, inviteUrl } from "@/lib/bot/public";
 import { currentDiscordUser } from "@/lib/bot/session";
 
@@ -34,7 +35,9 @@ export default async function DashboardPage({ params, searchParams }: Params) {
   const user = await currentDiscordUser(config);
 
   let guilds: BotGuild[] | null = null;
-  if (user) guilds = await manageableGuilds(config, user.id).catch(() => null);
+  // Throttled per account and address (see `dashboardReadAllowed`): past
+  // the ceiling, the page says the bot is unreachable for a moment.
+  if (user && (await dashboardPageAllowed(user.id))) guilds = await manageableGuilds(config, user.id).catch(() => null);
 
   return (
     <>
