@@ -2,12 +2,16 @@
  * Account value estimator: what a collection cost, and the range an account
  * like it is sometimes offered for.
  *
- * Every figure is an order of magnitude, never a price. The cost side adds up
- * skins at a typical diamond cost per tier — the median shop price of the tier
- * when the shop sells it, an editorial draw cost otherwise. The resale side
- * applies a fraction of that cost, nudged by rank, heroes, emblems and the
- * account's binding. Each factor is shown on the page, with its value: a
- * reader can redo the sum by hand.
+ * Skins are counted with the game's own tiers, the ones of the Showcase
+ * (Profile > Showcase > Collection > skin collection points overview): a
+ * player copies the "owned" number of each row, and the page gives back the
+ * collection points the game shows, as a check. Every figure is an order of
+ * magnitude, never a price. The cost side adds up skins at a typical diamond
+ * cost per tier: the median shop price of the tier when the shop sells it,
+ * an editorial draw cost otherwise. The resale side applies a fraction of
+ * that cost, nudged by rank, heroes, emblems and the account's binding. Each
+ * factor is shown on the page, with its value: a reader can redo the sum by
+ * hand.
  *
  * Account trading breaks Moonton's terms of service: the page says so, and the
  * estimate is no advice to sell or buy. Pure module, without data: the
@@ -17,34 +21,49 @@
 
 // ── Tiers ───────────────────────────────────────────────────────────
 
-/**
- * How players count their skins: by the shop line or the event that sold
- * them, more than by the frame colour. From the cheapest to the dearest.
- */
-export const TIERS = ["basic", "elite", "special", "epic", "starlight", "other", "collector", "grand", "legend"] as const;
+/** The Showcase tiers, in the game's order: from the rarest to the most common. */
+export const TIERS = ["legend", "grand", "exquisite", "deluxe", "exceptional", "common", "painted", "glow"] as const;
 export type Tier = (typeof TIERS)[number];
 
-/** Tiers no shop sells: their cost is an editorial draw or pass estimate. */
-export const DRAW_TIERS = ["starlight", "collector", "grand", "legend"] as const satisfies readonly Tier[];
+/**
+ * Collection points of one skin of each tier, as the game counts them in the
+ * Showcase. A shining skin counts for nothing in the total.
+ */
+export const POINTS: Record<Tier, number> = {
+  legend: 4000,
+  grand: 3000,
+  exquisite: 2000,
+  deluxe: 400,
+  exceptional: 200,
+  common: 100,
+  painted: 40,
+  glow: 0,
+};
+
+/** Tiers no shop sells: their cost is an editorial draw estimate. */
+export const DRAW_TIERS = ["legend", "grand", "exquisite"] as const satisfies readonly Tier[];
 export type DrawTier = (typeof DRAW_TIERS)[number];
 
+/** Tiers the catalogue does not list (colour variants): a flat editorial cost. */
+export const FLAT_TIERS = ["painted", "glow"] as const satisfies readonly Tier[];
+export type FlatTier = (typeof FLAT_TIERS)[number];
+
 /**
- * Tier of a skin, from its rarity rank (1 Common to 6 Supreme) and its series
- * as the wiki labels it. The label wins: a Collector skin is framed
- * Exquisite, a StarLight one Exceptional.
+ * Rarity rank of the catalogue (`RARITIES`: 1 Common, 2 Exquisite,
+ * 3 Exceptional, 4 Deluxe, 5 Grand, 6 Supreme) to Showcase tier. The wiki's
+ * rarities are the game's frame qualities, so the match is one to one;
+ * Supreme is the Legend row of the Showcase.
  */
-export function tierOf(skin: { rarity: number; series: string | null }): Tier {
-  const series = skin.series?.toLowerCase() ?? "";
-  if (series === "legend") return "legend";
-  if (series === "collector") return "collector";
-  if (series.includes("starlight")) return "starlight";
-  if (series === "elite") return "elite";
-  if (series === "special") return "special";
-  if (series === "epic") return "epic";
-  if (skin.rarity >= 6) return "legend";
-  if (skin.rarity === 5) return "grand";
-  if (!skin.series && skin.rarity <= 1) return "basic";
-  return "other";
+const RANK_TIER: Record<number, Tier> = { 1: "common", 2: "exquisite", 3: "exceptional", 4: "deluxe", 5: "grand", 6: "legend" };
+
+/** Showcase tier of a catalogue skin; null for the original skin (rank 0) or an unknown rank. */
+export function tierOf(skin: { rarity: number }): Tier | null {
+  return RANK_TIER[skin.rarity] ?? null;
+}
+
+/** Collection points of a set of counts: the total the Showcase shows. */
+export function pointsOf(skins: Partial<Record<Tier, number>>): number {
+  return TIERS.reduce((sum, t) => sum + (skins[t] ?? 0) * POINTS[t], 0);
 }
 
 // ── Model ───────────────────────────────────────────────────────────
@@ -73,7 +92,12 @@ export type Currency = (typeof CURRENCIES)[number];
 export interface Assumptions {
   checked: string;
   usdPerDiamond: number;
+  /** Typical diamonds spent on draws for one skin of the tier. */
   drawCost: Record<DrawTier, number>;
+  /** Pages the draw costs were read from. */
+  drawCostSources: string[];
+  /** Diamonds counted for a colour variant, which no shop prices on its own. */
+  flatCost: Record<FlatTier, number>;
   resale: {
     low: number;
     high: number;
@@ -90,14 +114,19 @@ export interface Assumptions {
 
 export interface TierCost {
   tier: Tier;
-  /** Collectible skins of the tier in the game. */
-  count: number;
+  /** Collection points of one skin, as the game counts them. */
+  points: number;
+  /** Collectible skins of the tier in the catalogue; null when the catalogue does not list the tier. */
+  count: number | null;
   /** Of them, skins with a diamond shop price. */
   priced: number;
   /** Diamonds counted for one skin of the tier. */
   cost: number;
-  /** Where `cost` comes from: the tier's median shop price, or an editorial draw estimate. */
-  basis: "shop" | "draw";
+  /**
+   * Where `cost` comes from: the tier's median shop price, an editorial draw
+   * estimate, or a flat editorial value for the colour variants.
+   */
+  basis: "shop" | "draw" | "flat";
 }
 
 export interface Model {
@@ -115,6 +144,7 @@ function median(values: number[]): number {
 }
 
 const isDrawTier = (t: Tier): t is DrawTier => (DRAW_TIERS as readonly Tier[]).includes(t);
+const isFlatTier = (t: Tier): t is FlatTier => (FLAT_TIERS as readonly Tier[]).includes(t);
 
 /**
  * Cost table of the tiers, from the collectible skins of the catalogue. A
@@ -122,31 +152,26 @@ const isDrawTier = (t: Tier): t is DrawTier => (DRAW_TIERS as readonly Tier[]).i
  * were also sold in the shop: the draw is how most players got them.
  */
 export function modelOf(
-  skins: readonly { rarity: number; series: string | null; price: { dm?: number } }[],
+  skins: readonly { rarity: number; price: { dm?: number } }[],
   heroes: number,
   emblems: number,
-  assumptions: Pick<Assumptions, "drawCost">,
+  assumptions: Pick<Assumptions, "drawCost" | "flatCost">,
 ): Model {
   const groups = new Map<Tier, number[]>(TIERS.map((t) => [t, []]));
-  const counts = new Map<Tier, number>(TIERS.map((t) => [t, 0]));
   for (const s of skins) {
     const tier = tierOf(s);
-    counts.set(tier, counts.get(tier)! + 1);
-    if (s.price.dm) groups.get(tier)!.push(s.price.dm);
+    if (tier) groups.get(tier)!.push(s.price.dm ?? 0);
   }
   return {
     heroes,
     emblems,
-    tiers: TIERS.map((tier) => {
-      const prices = groups.get(tier)!;
-      const draw = isDrawTier(tier);
-      return {
-        tier,
-        count: counts.get(tier)!,
-        priced: prices.length,
-        cost: draw ? assumptions.drawCost[tier] : median(prices),
-        basis: draw ? "draw" : "shop",
-      };
+    tiers: TIERS.map((tier): TierCost => {
+      const prices = groups.get(tier)!.filter((dm) => dm > 0);
+      const base = { tier, points: POINTS[tier], priced: prices.length };
+      if (isFlatTier(tier)) return { ...base, count: null, cost: assumptions.flatCost[tier], basis: "flat" };
+      const count = groups.get(tier)!.length;
+      if (isDrawTier(tier)) return { ...base, count, cost: assumptions.drawCost[tier], basis: "draw" };
+      return { ...base, count, cost: median(prices), basis: "shop" };
     }),
   };
 }
@@ -167,7 +192,16 @@ export const DEFAULT_INPUTS: Inputs = { skins: {}, rank: "epic", heroes: 0, embl
 /** Upper bound of the diamond balance field: past it, a typo rather than an account. */
 export const MAX_DIAMONDS = 1_000_000;
 
+/**
+ * Upper bound of a tier's count. The catalogue lags a little behind the game
+ * (a skin of the month is in the Showcase before the wiki lists it), so its
+ * count cannot be the bound: this one only stops a typo.
+ */
+export const MAX_PER_TIER = 2000;
+
 export interface Estimate {
+  /** Collection points of the skins: the total of the Showcase. */
+  points: number;
   /** Diamonds the skins cost, at the tier costs. */
   skinDiamonds: number;
   /** Skins plus the diamond balance. */
@@ -182,11 +216,11 @@ export interface Estimate {
 const clamp = (n: number, min: number, max: number) => Math.min(max, Math.max(min, Number.isFinite(n) ? n : min));
 const rounded = (n: number, decimals = 3) => Math.round(n * 10 ** decimals) / 10 ** decimals;
 
-/** Inputs brought back inside what the game allows: no more skins than exist, no negative count. */
+/** Inputs brought back inside what the game allows: no negative count, no typo-sized one. */
 export function clampInputs(i: Inputs, m: Model): Inputs {
   const skins: Partial<Record<Tier, number>> = {};
   for (const t of m.tiers) {
-    const n = Math.round(clamp(i.skins[t.tier] ?? 0, 0, t.count));
+    const n = Math.round(clamp(i.skins[t.tier] ?? 0, 0, MAX_PER_TIER));
     if (n > 0) skins[t.tier] = n;
   }
   return {
@@ -213,6 +247,7 @@ export function estimate(input: Inputs, m: Model, a: Assumptions): Estimate {
   };
   const multiplier = factors.rank * factors.heroes * factors.emblems * factors.binding;
   return {
+    points: pointsOf(i.skins),
     skinDiamonds,
     totalDiamonds,
     usd,
@@ -238,7 +273,7 @@ export function roughly(n: number): number {
 
 /**
  * The estimate lives in the address, so it can be shared: counts only, no
- * name, no account id. `?s=elite.4,epic.2&r=mythic&h=80&e=3&d=500&b=moonton&c=EUR`.
+ * name, no account id. `?s=legend.1,deluxe.69&r=mythic&h=80&e=3&d=500&b=moonton&c=EUR`.
  */
 export function writeParams(i: Inputs, currency: Currency): string {
   const p = new URLSearchParams();
@@ -259,7 +294,11 @@ const integer = (v: string | null) => {
   return v !== null && Number.isFinite(n) && n >= 0 ? Math.floor(n) : 0;
 };
 
-/** Reads an address back; anything unknown or malformed falls back to the default. */
+/**
+ * Reads an address back; anything unknown or malformed falls back to the
+ * default. The tiers of the earlier version of the page ("elite", "epic"…)
+ * are not tiers of the game: they are dropped rather than guessed.
+ */
 export function readParams(search: string): { inputs: Inputs; currency: Currency } {
   const p = new URLSearchParams(search);
   const skins: Partial<Record<Tier, number>> = {};
@@ -283,18 +322,26 @@ export function readParams(search: string): { inputs: Inputs; currency: Currency
   };
 }
 
-/** Counts of a saved collection, by tier: what the collection tool's save holds, read in the browser. */
+/**
+ * Counts of a saved collection, by Showcase tier: what the collection tool's
+ * save holds, read in the browser. `unmapped` counts the saved skins that
+ * could not be given a tier (no longer in the catalogue, or of an unknown
+ * rarity); original skins are not counted at all, as in the game.
+ */
 export function countsFromCollection(
   owned: { heros: readonly string[]; skins: readonly string[] },
-  catalog: { heroes: readonly { slug: string }[]; skins: readonly { id: string; rarity: number; series: string | null }[] },
-): { skins: Partial<Record<Tier, number>>; heroes: number } {
-  const ids = new Set(owned.skins);
+  catalog: { heroes: readonly { slug: string }[]; skins: readonly { id: string; rarity: number }[] },
+): { skins: Partial<Record<Tier, number>>; heroes: number; unmapped: number } {
+  const byId = new Map(catalog.skins.map((s) => [s.id, s]));
   const skins: Partial<Record<Tier, number>> = {};
-  for (const s of catalog.skins) {
-    if (s.rarity === 0 || !ids.has(s.id)) continue;
-    const tier = tierOf(s);
-    skins[tier] = (skins[tier] ?? 0) + 1;
+  let unmapped = 0;
+  for (const id of new Set(owned.skins)) {
+    const s = byId.get(id);
+    if (s?.rarity === 0) continue;
+    const tier = s ? tierOf(s) : null;
+    if (tier) skins[tier] = (skins[tier] ?? 0) + 1;
+    else unmapped += 1;
   }
   const slugs = new Set(catalog.heroes.map((h) => h.slug));
-  return { skins, heroes: owned.heros.filter((h) => slugs.has(h)).length };
+  return { skins, heroes: owned.heros.filter((h) => slugs.has(h)).length, unmapped };
 }

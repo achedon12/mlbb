@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useId, useMemo, useState } from "react";
-import { Download, RotateCcw, Share2 } from "lucide-react";
+import { ChevronRight, Download, RotateCcw, Share2 } from "lucide-react";
 import { Chip, FilterGroup, classesChip } from "@/components/chip";
 import { Card } from "@/components/ui";
 import { LOCALE_INTL } from "@/i18n/config";
@@ -11,6 +11,7 @@ import {
   CURRENCIES,
   DEFAULT_INPUTS,
   MAX_DIAMONDS,
+  MAX_PER_TIER,
   RANKS,
   clampInputs,
   convert,
@@ -25,8 +26,11 @@ import {
   type Model,
   type Rank,
   type Tier,
+  type TierCost,
 } from "@/lib/account-value";
 import { KEY_COLLECTION, readOwnership } from "@/lib/collection";
+import type { ShowcaseReading } from "@/lib/showcase-ocr";
+import { ShowcaseScan } from "@/components/showcase-scan";
 import { readSyncedCollection } from "@/lib/collection-sync-client";
 import { loadCatalog } from "@/lib/skin-catalog";
 import { trackEvent, trackShare } from "@/lib/analytics";
@@ -44,6 +48,7 @@ function NumberField({
   value,
   max,
   showMax = true,
+  mark,
   onChange,
 }: {
   label: string;
@@ -52,15 +57,23 @@ function NumberField({
   max: number;
   /** "/ 103" after the value: how many exist in the game; off for a bare bound. */
   showMax?: boolean;
+  /** Filled from a screenshot: confirmed by the row's points, or to check by hand. */
+  mark?: Mark;
   onChange: (n: number) => void;
 }) {
+  const t = useT();
   const id = useId();
   const locale = useLocale();
   const count = new Intl.NumberFormat(LOCALE_INTL[locale]);
   return (
     <div>
-      <label htmlFor={id} className="block text-sm font-semibold text-chalk-200">
+      <label htmlFor={id} className="flex flex-wrap items-baseline gap-x-2 text-sm font-semibold text-chalk-200">
         {label}
+        {mark && (
+          <span className={cn("text-xs font-medium", mark === "check" ? "text-rose-400" : "text-gold-400")}>
+            {t(`pages.accountValueUI.scan.${mark}`)}
+          </span>
+        )}
       </label>
       <div className="relative mt-1">
         <input
@@ -72,9 +85,12 @@ function NumberField({
           placeholder="0"
           onChange={(e) => onChange(Math.min(max, readCount(e.target.value)))}
           aria-describedby={hint ? `${id}-hint` : undefined}
+          aria-invalid={mark === "check" || undefined}
           className={cn(
             "bevel-sm w-full border border-night-700 bg-night-900 py-2 pl-3 tabular-nums text-chalk-100 outline-none transition-colors placeholder:text-chalk-600 focus:border-gold-500",
             showMax ? "pr-14" : "pr-3",
+            mark === "detected" && "border-gold-500/70 bg-gold-500/5",
+            mark === "check" && "border-rose-500/80 bg-rose-500/5",
           )}
         />
         {showMax && (
@@ -88,6 +104,56 @@ function NumberField({
           {hint}
         </p>
       )}
+    </div>
+  );
+}
+
+type Mark = "detected" | "check";
+
+const COST_HINT: Record<TierCost["basis"], string> = {
+  shop: "pages.accountValueUI.costShop",
+  draw: "pages.accountValueUI.costDraw",
+  flat: "pages.accountValueUI.costFlat",
+};
+
+/**
+ * Where the counts are in the game, with a sketch of one row of the
+ * Showcase overview: the number to copy is the first one.
+ */
+function WhereToFind() {
+  const t = useT();
+  const locale = useLocale();
+  const steps = t("pages.accountValueUI.wherePath")
+    .split(">")
+    .map((s) => s.trim())
+    .filter(Boolean);
+  return (
+    <div className="bevel-sm mt-5 flex flex-col gap-4 border border-night-700/70 bg-night-900/60 p-4 sm:flex-row sm:items-center">
+      <div className="min-w-0 flex-1">
+        <p className="text-sm font-semibold text-chalk-100">{t("pages.accountValueUI.whereTitle")}</p>
+        <ol className="mt-2 flex flex-wrap items-center gap-1 text-sm" aria-label={t("pages.accountValueUI.wherePath")}>
+          {steps.map((step, i) => (
+            <li key={step} className="flex items-center gap-1">
+              {i > 0 && <ChevronRight size={14} aria-hidden className="text-chalk-500" />}
+              <span className="bevel-sm border border-gold-500/30 bg-gold-500/5 px-2 py-0.5 font-medium text-gold-400">{step}</span>
+            </li>
+          ))}
+        </ol>
+        <p className="mt-2 text-xs leading-relaxed text-chalk-400">{t("pages.accountValueUI.whereHint")}</p>
+      </div>
+      {/* A sketch of one row, not a capture: the highlighted number is the one to type. */}
+      <div aria-hidden className="bevel-sm w-full shrink-0 border border-night-700 bg-night-950/70 p-3 text-xs sm:w-52">
+        <div className="flex items-center justify-between gap-2">
+          <span className="font-semibold text-chalk-200">{t("pages.accountValueUI.tier.grand")}</span>
+          <span className="tabular-nums text-chalk-400">
+            <span className="rounded-sm bg-gold-500/20 px-1 font-bold text-gold-400 ring-1 ring-gold-500/60">12</span>/111
+          </span>
+        </div>
+        <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-night-800">
+          <div className="h-full w-[11%] bg-gold-500/70" />
+        </div>
+        <p className="mt-1.5 text-right tabular-nums text-chalk-500">{new Intl.NumberFormat(LOCALE_INTL[locale]).format(36000)}</p>
+      </div>
     </div>
   );
 }
@@ -107,6 +173,8 @@ export function AccountValueEstimator({ model, assumptions }: { model: Model; as
   const [ready, setReady] = useState(false);
   const [saved, setSaved] = useState(false);
   const [importing, setImporting] = useState<"" | "busy" | "done" | "failed">("");
+  const [imported, setImported] = useState({ n: 0, unmapped: 0 });
+  const [marks, setMarks] = useState<Partial<Record<Tier, Mark>>>({});
   const [share, setShare] = useState<"" | "copied" | "shared" | "failed">("");
 
   // The address and the collection save are only readable in the browser.
@@ -161,16 +229,42 @@ export function AccountValueEstimator({ model, assumptions }: { model: Model; as
     setInputs((before) => clampInputs({ ...before, ...patch }, model));
     setShare("");
   };
-  const setSkin = (tier: Tier, n: number) => set({ skins: { ...inputs.skins, [tier]: n } });
+  const setSkin = (tier: Tier, n: number) => {
+    set({ skins: { ...inputs.skins, [tier]: n } });
+    // A count typed over a detected one is the player's own.
+    setMarks((before) => {
+      const rest = { ...before };
+      delete rest[tier];
+      return rest;
+    });
+  };
+  const catalogCounts = useMemo(
+    () => Object.fromEntries(model.tiers.filter((x) => x.count != null).map((x) => [x.tier, x.count!])) as Partial<Record<Tier, number>>,
+    [model],
+  );
+  function fromScreenshot(reading: ShowcaseReading) {
+    const skins = { ...inputs.skins };
+    const next: Partial<Record<Tier, Mark>> = {};
+    for (const r of reading.rows) {
+      skins[r.tier] = r.owned;
+      // The header total matching the rows confirms every one of them.
+      next[r.tier] = r.checked || reading.header?.matches ? "detected" : "check";
+    }
+    set({ skins });
+    setMarks(next);
+  }
 
   async function importCollection() {
     setImporting("busy");
     try {
       const [catalog, owned] = await Promise.all([loadCatalog(locale), readSyncedCollection()]);
       const counts = countsFromCollection(owned, catalog);
-      set({ skins: counts.skins, heroes: counts.heroes });
+      const n = Object.values(counts.skins).reduce((a, b) => a + (b ?? 0), 0);
+      // The colour variants are not in the catalogue: what was typed for them stays.
+      set({ skins: { ...counts.skins, painted: inputs.skins.painted, glow: inputs.skins.glow }, heroes: counts.heroes });
+      setImported({ n, unmapped: counts.unmapped });
       setImporting("done");
-      trackEvent("Account value", "Import", undefined, Object.values(counts.skins).reduce((a, b) => a + (b ?? 0), 0));
+      trackEvent("Account value", "Import", undefined, n);
     } catch {
       setImporting("failed");
     }
@@ -214,6 +308,13 @@ export function AccountValueEstimator({ model, assumptions }: { model: Model; as
             <p className="mt-1 text-lg font-semibold tabular-nums text-chalk-100">≈ {money(result.usd)}</p>
 
             <h3 className="mt-5 border-t border-night-800 pt-4 text-xs uppercase tracking-wide text-chalk-500">
+              {t("pages.accountValueUI.pointsTitle")}
+            </h3>
+            {/* Exact, not rounded: it is meant to match the game's own total. */}
+            <p className="mt-1 font-heading text-2xl font-bold tabular-nums text-chalk-100">{count.format(result.points)}</p>
+            <p className="mt-1 text-xs leading-relaxed text-chalk-500">{t("pages.accountValueUI.pointsCheck")}</p>
+
+            <h3 className="mt-5 border-t border-night-800 pt-4 text-xs uppercase tracking-wide text-chalk-500">
               {t("pages.accountValueUI.resaleTitle")}
             </h3>
             {result.resale ? (
@@ -251,7 +352,10 @@ export function AccountValueEstimator({ model, assumptions }: { model: Model; as
               </button>
               <button
                 type="button"
-                onClick={() => set(DEFAULT_INPUTS)}
+                onClick={() => {
+                  set(DEFAULT_INPUTS);
+                  setMarks({});
+                }}
                 className={cn(classesChip(false), "inline-flex items-center gap-2")}
               >
                 <RotateCcw size={15} aria-hidden />
@@ -279,9 +383,18 @@ export function AccountValueEstimator({ model, assumptions }: { model: Model; as
               <Download size={15} aria-hidden />
               {t("pages.accountValueUI.import")}
             </button>
-            <p aria-live="polite" className="w-full text-xs text-chalk-500 empty:hidden">
-              {importing && importing !== "busy" ? t(`pages.accountValueUI.import_${importing}`) : ""}
-            </p>
+            <div aria-live="polite" className="w-full space-y-0.5 text-xs text-chalk-500 empty:hidden">
+              {importing === "failed" && <p>{t("pages.accountValueUI.import_failed")}</p>}
+              {importing === "done" && (
+                <>
+                  <p>{t("pages.accountValueUI.import_done", { n: count.format(imported.n) })}</p>
+                  {imported.unmapped > 0 && (
+                    <p className="text-gold-400">{t("pages.accountValueUI.import_unmapped", { n: count.format(imported.unmapped) })}</p>
+                  )}
+                  <p>{t("pages.accountValueUI.import_variants")}</p>
+                </>
+              )}
+            </div>
           </div>
         )}
 
@@ -290,20 +403,25 @@ export function AccountValueEstimator({ model, assumptions }: { model: Model; as
             {t("pages.accountValueUI.skinsTitle")}
           </legend>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
-          <div className="mt-5 grid grid-cols-2 gap-x-3 gap-y-4 sm:gap-x-4 xl:grid-cols-3">
-            {model.tiers.map((tier) => (
-              <NumberField
-                key={tier.tier}
-                label={t(`pages.accountValueUI.tier.${tier.tier}`)}
-                hint={t(tier.basis === "shop" ? "pages.accountValueUI.costShop" : "pages.accountValueUI.costDraw", {
-                  n: count.format(tier.cost),
-                })}
-                value={inputs.skins[tier.tier] ?? 0}
-                max={tier.count}
-                onChange={(n) => setSkin(tier.tier, n)}
-              />
-            ))}
-          </div>
+          <WhereToFind />
+          <ShowcaseScan catalog={catalogCounts} onRead={fromScreenshot}>
+            <div className="mt-5 grid grid-cols-2 gap-x-3 gap-y-4 sm:gap-x-4 xl:grid-cols-4">
+              {model.tiers.map((tier) => (
+                <NumberField
+                  key={tier.tier}
+                  label={t(`pages.accountValueUI.tier.${tier.tier}`)}
+                  hint={`${t("pages.accountValueUI.pointsEach", { points: count.format(tier.points) })} · ${t(COST_HINT[tier.basis], {
+                    n: count.format(tier.cost),
+                  })}`}
+                  value={inputs.skins[tier.tier] ?? 0}
+                  max={MAX_PER_TIER}
+                  showMax={false}
+                  mark={marks[tier.tier]}
+                  onChange={(n) => setSkin(tier.tier, n)}
+                />
+              ))}
+            </div>
+          </ShowcaseScan>
         </fieldset>
 
         <fieldset>

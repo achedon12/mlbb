@@ -17,7 +17,7 @@ import { version } from "./package.json";
  * The Matomo origin is read at build time (a Docker build argument), like the
  * tracker itself.
  */
-function contentSecurityPolicy(): string {
+function contentSecurityPolicy({ wasm = false } = {}): string {
   const development = process.env.NODE_ENV === "development";
   let matomo = "";
   try {
@@ -31,7 +31,14 @@ function contentSecurityPolicy(): string {
   const directives: Record<string, string[]> = {
     "default-src": ["'self'"],
     // React's development build evaluates code for its call stacks.
-    "script-src": ["'self'", "'unsafe-inline'", ...(development ? ["'unsafe-eval'"] : []), matomo],
+    // The screenshot reader's worker (`/ocr/`, see the headers) compiles WebAssembly.
+    "script-src": [
+      "'self'",
+      "'unsafe-inline'",
+      ...(development ? ["'unsafe-eval'"] : []),
+      ...(wasm ? ["'wasm-unsafe-eval'"] : []),
+      matomo,
+    ],
     // Server-rendered `style` attributes (bars, rarity colours) and the styles
     // Next injects.
     "style-src": ["'self'", "'unsafe-inline'"],
@@ -176,6 +183,19 @@ const nextConfig: NextConfig = {
           // is left out on purpose: leaving the browser preload list takes
           // months.
           { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains" },
+        ],
+      },
+      // The OCR worker of the account value estimator (`public/ocr/`, copied
+      // by `scripts/copy-ocr-assets.mjs`). A dedicated worker runs under the
+      // policy of its own script's response, so only these files may compile
+      // WebAssembly: the pages keep the policy above. Listed last, this rule
+      // replaces that header for these paths. The files only change with the
+      // library version: a week of cache.
+      {
+        source: "/ocr/:path*",
+        headers: [
+          { key: "Content-Security-Policy", value: contentSecurityPolicy({ wasm: true }) },
+          { key: "Cache-Control", value: "public, max-age=604800" },
         ],
       },
     ];
