@@ -50,6 +50,6 @@ describe("/bot visuals and links", () => {
   });
 
   it("votes on the bot's discordbotlist.com page while top.gg reviews it", () => {
-    expect(voteUrl("1571083624789581834")).toBe("https://discordbotlist.com/bots/mlbbdex/upvote");
+    expect(voteUrl()).toBe("https://discordbotlist.com/bots/mlbbdex/upvote");
   });
 });

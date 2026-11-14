@@ -83,7 +83,7 @@ export default async function BotPage({ params }: Params) {
   const invite = communityInvite();
   const servers = await liveServerCount();
   const add = inviteUrl(clientId);
-  const vote = voteUrl(clientId);
+  const vote = voteUrl();
   const h2 = "font-heading text-xl font-bold text-chalk-100 sm:text-2xl";
   const faq = Array.from({ length: FAQ_COUNT }, (_, i) => ({ q: t(`pages.bot.faq${i + 1}q`), a: t(`pages.bot.faq${i + 1}a`) }));
 
