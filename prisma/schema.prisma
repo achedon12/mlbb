@@ -231,6 +231,9 @@ model CommunityMember {
   banReason   String?   @db.VarChar(300)
   /// Discord id of the moderator who banned the account.
   bannedBy    String?   @db.VarChar(20)
+  /// A moderator hid the account's teammate card: kept here, not on the
+  /// card, so deleting the card and posting it again does not undo it.
+  cardHiddenAt DateTime?
 
   @@index([bannedAt])
 }
@@ -306,9 +309,15 @@ model CommunityReport {
   kind       String    @db.VarChar(8)
   targetId   Int
   reporterId String    @db.VarChar(24)
+  /// The target's author when it was reported: a ban still reaches them if
+  /// they delete it (a card is deleted for good).
+  authorId   String    @db.VarChar(24)
   /// spam, abuse, offtopic, personal or other.
   reason     String    @db.VarChar(16)
   note       String?   @db.VarChar(300)
+  /// What the target said when it was reported (title and text), so the
+  /// moderators see it even if its author edits or deletes it afterwards.
+  snapshot   String?
   createdAt  DateTime  @default(now())
   resolvedAt DateTime?
   /// Discord id of the moderator who closed it.
@@ -316,6 +325,9 @@ model CommunityReport {
 
   @@unique([kind, targetId, reporterId])
   @@index([resolvedAt, createdAt])
+  /// The queue groups the open reports by target; the cap counts a reporter's.
+  @@index([resolvedAt, kind, targetId])
+  @@index([reporterId, resolvedAt])
 }
 
 /// What a moderator did, for the record: hide, unhide, delete, lock, unlock,

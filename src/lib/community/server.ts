@@ -97,6 +97,7 @@ const STATUS: Record<string, number> = {
   locked: 409,
   duplicate: 409,
   day: 429,
+  limit: 429,
   blocked: 422,
   spam: 422,
   links: 422,

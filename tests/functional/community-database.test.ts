@@ -294,4 +294,89 @@ describe.skipIf(!url)("community database paths", async () => {
     expect((await store.listCards({}, 1, Date.now() + 8 * DAY)).total).toBe(0);
     expect(await db().teammateCard.count({ where: { accountId: account(22) } })).toBe(0);
   });
+
+  const moderator = { id: MODERATOR, name: "Moderator" };
+  const card = { region: "eu", rank: "epic", lanes: ["Mid"], heroes: [], languages: ["en"], playTimes: [], note: "Hi", gameId: null, discord: "spam.account" } as CardInput;
+
+  it("keeps a hidden card's account from listing one again, even after deleting it", async () => {
+    await store.saveCard(card, author(30));
+    const id = (await store.ownCard(account(30)))!.id;
+    expect(await store.moderate({ action: "hide", kind: "card", id }, moderator)).toBe("ok");
+    expect(await store.deleteCard(account(30))).toBe(true);
+    expect(await store.saveCard(card, author(30))).toEqual({ ok: false, reason: "hidden" });
+
+    // Three reports hide a card the same way.
+    await store.saveCard(card, author(31));
+    const other = (await store.ownCard(account(31)))!.id;
+    for (const n of [32, 33, 34]) await store.reportTarget({ kind: "card", id: other, reason: "spam" }, author(n));
+    await store.deleteCard(account(31));
+    expect(await store.saveCard(card, author(31))).toEqual({ ok: false, reason: "hidden" });
+
+    // The deleted card stays in the queue, from its snapshot, and its author can still be banned.
+    const entry = (await store.moderationQueue()).find((e) => e.kind === "card" && e.id === other);
+    expect(entry).toMatchObject({ deleted: true, authorId: account(31), snapshot: "Hi\nDiscord: spam.account", count: 3 });
+    expect(await store.moderate({ action: "ban", kind: "card", id: other, days: 1 }, moderator)).toBe("ok");
+    expect(await store.memberAllowed(author(31))).toBe(false);
+    expect(await store.moderate({ action: "lock", kind: "card", id: other }, moderator)).toBe("invalid");
+
+    // Shown again by a moderator: the account may list a card again.
+    expect(await store.moderate({ action: "unhide", kind: "card", id }, moderator)).toBe("ok");
+    expect(await store.saveCard(card, author(30))).toMatchObject({ ok: true });
+  });
+
+  it("freezes hidden posts for their authors and keeps what was reported", async () => {
+    await veteran(35);
+    const created = await store.createThread(thread("Freeze me", "The original reported text."), author(35));
+    if (!created.ok) throw new Error("thread");
+    const id = created.value.id;
+    const reply = await store.createReply(id, "A reply in it", author(35));
+    if (!reply.ok) throw new Error("reply");
+
+    // Reported once, not hidden: the author may still edit, the report keeps the original.
+    expect(await store.reportTarget({ kind: "thread", id, reason: "abuse" }, author(36))).toBe("ok");
+    expect(await store.editThread(id, { title: "Freeze me", body: "Innocent text now.", heroes: [] }, author(35))).toBe("ok");
+    const entry = (await store.moderationQueue()).find((e) => e.kind === "thread" && e.id === id);
+    expect(entry).toMatchObject({ snapshot: "Freeze me\n\nThe original reported text.", body: "Innocent text now.", deleted: false });
+
+    await store.moderate({ action: "hide", kind: "thread", id }, moderator);
+    const edit = { title: "Freeze me", body: "Trying to clean it up.", heroes: [] };
+    expect(await store.editThread(id, edit, author(35))).toBe("hidden");
+    expect(await store.deleteThread(id, author(35))).toBe("hidden");
+    // A reply of a hidden thread is frozen too.
+    expect(await store.editReply(reply.value.id, "Changed", author(35))).toBe("hidden");
+    expect(await store.deleteReply(reply.value.id, author(35))).toBe("hidden");
+    expect((await store.getThread(id))?.body).toBe("Innocent text now.");
+
+    await store.moderate({ action: "unhide", kind: "thread", id }, moderator);
+    await store.moderate({ action: "hide", kind: "post", id: reply.value.id }, moderator);
+    expect(await store.editReply(reply.value.id, "Changed", author(35))).toBe("hidden");
+    expect(await store.deleteReply(reply.value.id, author(35))).toBe("hidden");
+
+    // A locked thread takes no edit from its author either.
+    await store.moderate({ action: "lock", kind: "thread", id }, moderator);
+    expect(await store.editThread(id, edit, author(35))).toBe("locked");
+  });
+
+  it("caps open reports per account and never lets a flood bury a new report", async () => {
+    await db().communityReport.updateMany({ where: { resolvedAt: null }, data: { resolvedAt: new Date() } });
+    await veteran(40);
+    const ids: number[] = [];
+    for (let i = 0; i < 22; i++) {
+      const at = new Date(Date.now() - (22 - i) * 60_000);
+      const created = await db().forumThread.create({
+        data: { category: "general", title: `Flood target ${i}`, body: "Flood body", authorId: account(40), authorName: "Player 40", createdAt: at, lastPostAt: at },
+      });
+      ids.push(created.id);
+    }
+    // One account files the most it may: the 21st waits until some are closed.
+    for (const id of ids.slice(0, 20)) expect(await store.reportTarget({ kind: "thread", id, reason: "spam" }, author(41))).toBe("ok");
+    expect(await store.reportTarget({ kind: "thread", id: ids[20]!, reason: "spam" }, author(41))).toBe("limit");
+
+    // A newer report from someone else, and a target reported twice.
+    expect(await store.reportTarget({ kind: "thread", id: ids[21]!, reason: "abuse" }, author(42))).toBe("ok");
+    expect(await store.reportTarget({ kind: "thread", id: ids[5]!, reason: "abuse" }, author(42))).toBe("ok");
+    const queue = await store.moderationQueue(3);
+    expect(queue.map((e) => e.id)).toEqual([ids[5], ids[21], ids[19]]);
+    expect(queue[0]!.count).toBe(2);
+  });
 });

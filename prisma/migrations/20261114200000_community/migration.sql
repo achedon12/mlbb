@@ -7,6 +7,7 @@ CREATE TABLE "CommunityMember" (
     "banUntil" TIMESTAMP(3),
     "banReason" VARCHAR(300),
     "bannedBy" VARCHAR(20),
+    "cardHiddenAt" TIMESTAMP(3),
 
     CONSTRAINT "CommunityMember_pkey" PRIMARY KEY ("accountId")
 );
@@ -65,8 +66,10 @@ CREATE TABLE "CommunityReport" (
     "kind" VARCHAR(8) NOT NULL,
     "targetId" INTEGER NOT NULL,
     "reporterId" VARCHAR(24) NOT NULL,
+    "authorId" VARCHAR(24) NOT NULL,
     "reason" VARCHAR(16) NOT NULL,
     "note" VARCHAR(300),
+    "snapshot" TEXT,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "resolvedAt" TIMESTAMP(3),
     "resolvedBy" VARCHAR(20),
@@ -133,6 +136,12 @@ CREATE INDEX "ForumPost_authorId_createdAt_idx" ON "ForumPost"("authorId", "crea
 
 -- CreateIndex
 CREATE INDEX "CommunityReport_resolvedAt_createdAt_idx" ON "CommunityReport"("resolvedAt", "createdAt");
+
+-- CreateIndex
+CREATE INDEX "CommunityReport_resolvedAt_kind_targetId_idx" ON "CommunityReport"("resolvedAt", "kind", "targetId");
+
+-- CreateIndex
+CREATE INDEX "CommunityReport_reporterId_resolvedAt_idx" ON "CommunityReport"("reporterId", "resolvedAt");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "CommunityReport_kind_targetId_reporterId_key" ON "CommunityReport"("kind", "targetId", "reporterId");

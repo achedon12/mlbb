@@ -17007,5 +17007,17 @@
   "id|vos discussions et réponses, publiques, avec leur date ; vos votes et vos signalements, qui ne sont montrés à personne d'autre que les modérateurs (les signalements) ;": "diskusi dan tanggapan Anda, publik, dengan tanggalnya; suara dan laporan Anda, yang tidak diperlihatkan kepada siapa pun selain moderator (laporan);",
   "id|votre carte de recherche de coéquipiers, et, si vous les ajoutez, votre ID de jeu et votre pseudo Discord : ils ne sont montrés qu'aux joueurs connectés, et la carte est effacée sept jours après son dernier enregistrement.": "kartu pencarian rekan satu tim Anda, dan, jika Anda menambahkannya, ID permainan dan nama panggilan Discord Anda: kartu tersebut hanya ditampilkan kepada pemain yang terhubung, dan kartu tersebut dihapus tujuh hari setelah penyimpanan terakhirnya.",
   "id|Les modérateurs voient les signalements et peuvent masquer, supprimer ou bannir ; chacune de leurs décisions est consignée dans un journal. Les limites de débit utilisent votre adresse IP, en mémoire seulement, quelques minutes.": "Moderator melihat laporan dan dapat menyembunyikan, menghapus atau melarangnya; setiap keputusan mereka dicatat dalam jurnal. Batasan kecepatan menggunakan alamat IP Anda, hanya di memori, selama beberapa menit.",
-  "id|Vous pouvez modifier un message pendant une heure et le supprimer pendant une journée, retirer votre carte à tout moment. Au-delà, ou pour effacer toute votre participation, écrivez à {contact}.": "Anda dapat mengedit pesan selama satu jam dan menghapusnya selama sehari, menarik kartu Anda kapan saja. Selain itu, atau untuk menghapus semua partisipasi Anda, tulis ke {contact}."
+  "id|Vous pouvez modifier un message pendant une heure et le supprimer pendant une journée, retirer votre carte à tout moment. Au-delà, ou pour effacer toute votre participation, écrivez à {contact}.": "Anda dapat mengedit pesan selama satu jam dan menghapusnya selama sehari, menarik kartu Anda kapan saja. Selain itu, atau untuk menghapus semua partisipasi Anda, tulis ke {contact}.",
+  "en|supprimé par son auteur": "deleted by its author",
+  "en|{n} signalement(s)": "{n} report(s)",
+  "en|Tel que signalé": "As reported",
+  "it|supprimé par son auteur": "cancellato dal suo autore",
+  "it|{n} signalement(s)": "{n} rapporto/i",
+  "it|Tel que signalé": "Come riportato",
+  "es|supprimé par son auteur": "eliminado por su autor",
+  "es|{n} signalement(s)": "{n} informe(s)",
+  "es|Tel que signalé": "Como se informó",
+  "id|supprimé par son auteur": "dihapus oleh penulisnya",
+  "id|{n} signalement(s)": "{n} laporan",
+  "id|Tel que signalé": "Seperti diberitakan"
 }

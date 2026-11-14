@@ -4293,7 +4293,10 @@
           "ban": "Banna",
           "unban": "Revoca il ban",
           "dismiss": "Archivia"
-        }
+        },
+        "deleted": "eliminato dal suo autore",
+        "reportCount": "{n} segnalazione/i",
+        "asReported": "Come segnalato"
       }
     },
     "communityUI": {

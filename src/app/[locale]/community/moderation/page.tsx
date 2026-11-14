@@ -85,13 +85,23 @@ export default async function ModerationPage({ params, searchParams }: Params) {
                             {e.authorName}
                             {e.authorBanned && <span className="ml-2 text-xs text-blood-400">{t("pages.community.moderation.banned")}</span>}
                             {e.hidden && <span className="ml-2 text-xs text-gold-400">{t("pages.community.moderation.hidden")}</span>}
+                            {e.deleted && <span className="ml-2 text-xs text-chalk-500">{t("pages.community.moderation.deleted")}</span>}
+                            <span className="ml-2 text-xs text-chalk-500">{t("pages.community.moderation.reportCount", { n: e.count })}</span>
                           </p>
-                          <Link href={e.path} className="text-xs text-azure-400 underline underline-offset-4">
-                            {t("pages.community.moderation.open")}
-                          </Link>
+                          {!e.deleted && (
+                            <Link href={e.path} className="text-xs text-azure-400 underline underline-offset-4">
+                              {t("pages.community.moderation.open")}
+                            </Link>
+                          )}
                         </div>
                         {e.title && <p className="font-semibold text-chalk-100">{e.title}</p>}
-                        <p className="whitespace-pre-line break-words text-sm text-chalk-300">{plainText(e.body, 600) || "-"}</p>
+                        {!e.deleted && <p className="whitespace-pre-line break-words text-sm text-chalk-300">{plainText(e.body, 600) || "-"}</p>}
+                        {e.snapshot && (e.deleted || e.snapshot !== (e.kind === "thread" ? `${e.title}\n\n${e.body}` : e.body)) && (
+                          <div className="border-l-2 border-gold-500/50 pl-3">
+                            <p className="text-xs font-semibold text-gold-400">{t("pages.community.moderation.asReported")}</p>
+                            <p className="mt-1 whitespace-pre-line break-words text-sm text-chalk-300">{[...e.snapshot].slice(0, 1500).join("")}</p>
+                          </div>
+                        )}
                         <ul className="space-y-1 text-xs text-chalk-400">
                           {e.reports.map((r, i) => (
                             <li key={i}>

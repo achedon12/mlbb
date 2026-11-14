@@ -3567,6 +3567,18 @@
     "prose.privacy.blocks.15.p": {
       "fr": "Vous gardez la main sur ce qui vit dans votre navigateur (favoris, session) en vous déconnectant ou en effaçant les données du site. Pour consulter ou supprimer ce que le serveur conserve sur vous (communauté, notifications, bot Discord), ou pour toute question, écrivez à [{contact}](mailto:{contact}).",
       "text": "You stay in control of what lives in your browser (favorites, session) by logging out or clearing the site data. To see or delete what the server keeps about you (community, notifications, Discord bot), or for any question, write to [{contact}](mailto:{contact})."
+    },
+    "pages.community.moderation.deleted": {
+      "fr": "supprimé par son auteur",
+      "text": "deleted by its author"
+    },
+    "pages.community.moderation.reportCount": {
+      "fr": "{n} signalement(s)",
+      "text": "{n} report(s)"
+    },
+    "pages.community.moderation.asReported": {
+      "fr": "Tel que signalé",
+      "text": "As reported"
     }
   },
   "es": {
@@ -6957,6 +6969,18 @@
     "prose.privacy.blocks.15.p": {
       "fr": "Vous gardez la main sur ce qui vit dans votre navigateur (favoris, session) en vous déconnectant ou en effaçant les données du site. Pour consulter ou supprimer ce que le serveur conserve sur vous (communauté, notifications, bot Discord), ou pour toute question, écrivez à [{contact}](mailto:{contact}).",
       "text": "Mantienes el control de lo que vive en tu navegador (favoritos, sesión) cerrando sesión o borrando los datos del sitio. Para consultar o eliminar lo que el servidor guarda sobre ti (comunidad, notificaciones, bot de Discord), o para cualquier pregunta, escribe a [{contact}](mailto:{contact})."
+    },
+    "pages.community.moderation.deleted": {
+      "fr": "supprimé par son auteur",
+      "text": "eliminado por su autor"
+    },
+    "pages.community.moderation.reportCount": {
+      "fr": "{n} signalement(s)",
+      "text": "{n} reporte(s)"
+    },
+    "pages.community.moderation.asReported": {
+      "fr": "Tel que signalé",
+      "text": "Tal como se reportó"
     }
   },
   "id": {
@@ -12391,6 +12415,18 @@
     "prose.community.deletion": {
       "fr": "Vous pouvez modifier un message pendant une heure et le supprimer pendant une journée, retirer votre carte à tout moment. Au-delà, ou pour effacer toute votre participation, écrivez à {contact}.",
       "text": "Kamu bisa mengedit postingan selama satu jam dan menghapusnya selama satu hari, serta menurunkan kartumu kapan saja. Setelah itu, atau untuk menghapus seluruh partisipasimu, kirim email ke {contact}."
+    },
+    "pages.community.moderation.deleted": {
+      "fr": "supprimé par son auteur",
+      "text": "dihapus oleh penulisnya"
+    },
+    "pages.community.moderation.reportCount": {
+      "fr": "{n} signalement(s)",
+      "text": "{n} laporan"
+    },
+    "pages.community.moderation.asReported": {
+      "fr": "Tel que signalé",
+      "text": "Saat dilaporkan"
     }
   },
   "it": {
@@ -15833,6 +15869,18 @@
     "prose.privacy.blocks.15.p": {
       "fr": "Vous gardez la main sur ce qui vit dans votre navigateur (favoris, session) en vous déconnectant ou en effaçant les données du site. Pour consulter ou supprimer ce que le serveur conserve sur vous (communauté, notifications, bot Discord), ou pour toute question, écrivez à [{contact}](mailto:{contact}).",
       "text": "Mantieni il controllo su ciò che vive nel tuo browser (preferiti, sessione) disconnettendoti o cancellando i dati del sito. Per consultare o eliminare ciò che il server conserva su di te (community, notifiche, bot Discord), o per qualsiasi domanda, scrivi a [{contact}](mailto:{contact})."
+    },
+    "pages.community.moderation.deleted": {
+      "fr": "supprimé par son auteur",
+      "text": "eliminato dal suo autore"
+    },
+    "pages.community.moderation.reportCount": {
+      "fr": "{n} signalement(s)",
+      "text": "{n} segnalazione/i"
+    },
+    "pages.community.moderation.asReported": {
+      "fr": "Tel que signalé",
+      "text": "Come segnalato"
     }
   }
 }

@@ -4293,7 +4293,10 @@
           "ban": "Bannir",
           "unban": "Lever le bannissement",
           "dismiss": "Classer sans suite"
-        }
+        },
+        "deleted": "supprimé par son auteur",
+        "reportCount": "{n} signalement(s)",
+        "asReported": "Tel que signalé"
       }
     },
     "communityUI": {

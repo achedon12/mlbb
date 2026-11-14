@@ -36,6 +36,7 @@ export function refusal(t: T, answer: Answer, reply = false): string {
     case "401":
       return t("pages.communityUI.errors.signIn");
     case "too many requests":
+    case "limit":
     case "429":
       return t("pages.communityUI.errors.tooFast");
     case "day":

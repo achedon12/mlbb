@@ -4293,7 +4293,10 @@
           "ban": "Ban",
           "unban": "Lift the ban",
           "dismiss": "Dismiss"
-        }
+        },
+        "deleted": "deleted by its author",
+        "reportCount": "{n} report(s)",
+        "asReported": "As reported"
       }
     },
     "communityUI": {

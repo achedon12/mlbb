@@ -62,8 +62,17 @@ Moderators are the bot's super admins: a Discord login whose id is in
 configuration must be complete for the login to exist). They sign in at
 `/community/moderation`, which lists:
 
-- open reports, one entry per target, the most reported first; three
-  reports from different accounts hide a target until someone decides;
+- open reports, one entry per target, grouped and counted by the database:
+  the most reported first, then the most recently reported. Three reports
+  from different accounts hide a target until someone decides; one account
+  may have at most 20 open reports, so a flood cannot bury the others;
+- each report keeps a snapshot of what it reported (and its author), shown
+  when the target was edited or deleted since. A hidden thread or reply is
+  frozen: its author can neither edit nor delete it (nor the replies of a
+  hidden thread), and a locked thread takes no edit;
+- a hidden teammate card is recorded on the account (`cardHiddenAt`): the
+  owner may delete it but cannot list a new one until a moderator shows it
+  again;
 - actions: hide / show again, delete, lock / unlock and pin / unpin (threads),
   ban the author (1, 7 or 30 days, or for good, with a reason), dismiss;
   each one closes the target's reports and is written to `ModerationLog`;

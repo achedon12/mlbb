@@ -4293,7 +4293,10 @@
           "ban": "Blokir",
           "unban": "Cabut blokir",
           "dismiss": "Abaikan"
-        }
+        },
+        "deleted": "dihapus oleh penulisnya",
+        "reportCount": "{n} laporan",
+        "asReported": "Saat dilaporkan"
       }
     },
     "communityUI": {

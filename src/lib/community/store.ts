@@ -176,13 +176,16 @@ export function createThread(input: ThreadInput, author: Author, now = Date.now(
   });
 }
 
-export type ChangeResult = "ok" | "unknown" | "forbidden" | "window" | "locked" | PostingRefusal;
+export type ChangeResult = "ok" | "unknown" | "forbidden" | "window" | "locked" | "hidden" | PostingRefusal;
 
 export function editThread(id: number, input: ThreadEdit, author: Author, now = Date.now()): Promise<ChangeResult> {
   return serial(async (tx) => {
     const thread = await tx.forumThread.findUnique({ where: { id } });
     if (!thread || thread.deletedAt) return "unknown";
     if (thread.authorId !== author.id) return "forbidden";
+    // Hidden: what was reported stays as it is until a moderator decides.
+    if (thread.hiddenAt) return "hidden";
+    if (thread.locked) return "locked";
     if (!canEdit(thread.createdAt, now)) return "window";
     const member = await tx.communityMember.findUnique({ where: { accountId: author.id } });
     if (isBanned(member, now)) return "banned";
@@ -197,9 +200,10 @@ export function editThread(id: number, input: ThreadEdit, author: Author, now = 
 }
 
 export async function deleteThread(id: number, author: Author, now = Date.now()): Promise<ChangeResult> {
-  const thread = await db().forumThread.findUnique({ where: { id }, select: { authorId: true, createdAt: true, deletedAt: true } });
+  const thread = await db().forumThread.findUnique({ where: { id }, select: { authorId: true, createdAt: true, deletedAt: true, hiddenAt: true } });
   if (!thread || thread.deletedAt) return "unknown";
   if (thread.authorId !== author.id) return "forbidden";
+  if (thread.hiddenAt) return "hidden";
   if (!canDelete(thread.createdAt, now)) return "window";
   await db().forumThread.update({ where: { id }, data: { deletedAt: new Date(now), body: "" } });
   return "ok";
@@ -228,9 +232,10 @@ export function createReply(threadId: number, body: string, author: Author, now 
 
 export function editReply(id: number, body: string, author: Author, now = Date.now()): Promise<ChangeResult> {
   return serial(async (tx) => {
-    const post = await tx.forumPost.findUnique({ where: { id }, include: { thread: { select: { locked: true } } } });
+    const post = await tx.forumPost.findUnique({ where: { id }, include: { thread: { select: { locked: true, hiddenAt: true } } } });
     if (!post || post.deletedAt) return "unknown";
     if (post.authorId !== author.id) return "forbidden";
+    if (post.hiddenAt || post.thread.hiddenAt) return "hidden";
     if (post.thread.locked) return "locked";
     if (!canEdit(post.createdAt, now)) return "window";
     const member = await tx.communityMember.findUnique({ where: { accountId: author.id } });
@@ -244,9 +249,10 @@ export function editReply(id: number, body: string, author: Author, now = Date.n
 
 export function deleteReply(id: number, author: Author, now = Date.now()): Promise<ChangeResult> {
   return serial(async (tx) => {
-    const post = await tx.forumPost.findUnique({ where: { id } });
+    const post = await tx.forumPost.findUnique({ where: { id }, include: { thread: { select: { hiddenAt: true } } } });
     if (!post || post.deletedAt) return "unknown";
     if (post.authorId !== author.id) return "forbidden";
+    if (post.hiddenAt || post.thread.hiddenAt) return "hidden";
     if (!canDelete(post.createdAt, now)) return "window";
     await removeReply(tx, post.id, post.threadId, now);
     return "ok";
@@ -330,13 +336,32 @@ export async function searchThreads(query: string, category: Category | null, pa
 
 // -- Reports ---------------------------------------------------------------
 
-export type ReportResult = "ok" | "duplicate" | "unknown" | "own" | "banned";
+export type ReportResult = "ok" | "duplicate" | "unknown" | "own" | "banned" | "limit";
+
+/** Open reports one account may have waiting at once: a flood cannot bury the others'. */
+export const OPEN_REPORTS_PER_ACCOUNT = 20;
+const SNAPSHOT_MAX = 12_000;
 
 /** The author of a target (account hash), or null when it does not exist. */
 async function authorOf(tx: Prisma.TransactionClient, kind: TargetKind, id: number): Promise<string | null> {
-  if (kind === "thread") return (await tx.forumThread.findUnique({ where: { id }, select: { authorId: true } }))?.authorId ?? null;
-  if (kind === "post") return (await tx.forumPost.findUnique({ where: { id }, select: { authorId: true } }))?.authorId ?? null;
-  return (await tx.teammateCard.findUnique({ where: { id }, select: { accountId: true } }))?.accountId ?? null;
+  return (await targetOf(tx, kind, id))?.author ?? null;
+}
+
+const cardText = (c: { note: string | null; discord: string | null; gameId: string | null }) =>
+  [c.note, c.discord && `Discord: ${c.discord}`, c.gameId && `ID: ${c.gameId}`].filter(Boolean).join("\n");
+
+/** A target's author and what it says (title and text, or a card's free fields), or null. */
+async function targetOf(tx: Prisma.TransactionClient, kind: TargetKind, id: number): Promise<{ author: string; text: string } | null> {
+  if (kind === "thread") {
+    const t = await tx.forumThread.findUnique({ where: { id }, select: { authorId: true, title: true, body: true } });
+    return t && { author: t.authorId, text: `${t.title}\n\n${t.body}` };
+  }
+  if (kind === "post") {
+    const p = await tx.forumPost.findUnique({ where: { id }, select: { authorId: true, body: true } });
+    return p && { author: p.authorId, text: p.body };
+  }
+  const card = await tx.teammateCard.findUnique({ where: { id } });
+  return card && { author: card.accountId, text: cardText(card) };
 }
 
 async function setHidden(tx: Prisma.TransactionClient, kind: TargetKind, id: number, hiddenAt: Date | null) {
@@ -356,9 +381,9 @@ export function reportTarget(
   now = Date.now(),
 ): Promise<ReportResult> {
   return serial(async (tx) => {
-    const author = await authorOf(tx, input.kind, input.id);
-    if (!author) return "unknown";
-    if (author === reporter.id) return "own";
+    const target = await targetOf(tx, input.kind, input.id);
+    if (!target) return "unknown";
+    if (target.author === reporter.id) return "own";
     const member = await tx.communityMember.upsert({
       where: { accountId: reporter.id },
       create: { accountId: reporter.id, name: reporter.name, firstSeenAt: new Date(now) },
@@ -367,11 +392,25 @@ export function reportTarget(
     if (isBanned(member, now)) return "banned";
     const key = { kind_targetId_reporterId: { kind: input.kind, targetId: input.id, reporterId: reporter.id } };
     if (await tx.communityReport.findUnique({ where: key })) return "duplicate";
+    if ((await tx.communityReport.count({ where: { reporterId: reporter.id, resolvedAt: null } })) >= OPEN_REPORTS_PER_ACCOUNT) return "limit";
     await tx.communityReport.create({
-      data: { kind: input.kind, targetId: input.id, reporterId: reporter.id, reason: input.reason, note: input.note || null, createdAt: new Date(now) },
+      data: {
+        kind: input.kind,
+        targetId: input.id,
+        reporterId: reporter.id,
+        authorId: target.author,
+        reason: input.reason,
+        note: input.note || null,
+        // What was reported, whatever its author does with it afterwards.
+        snapshot: [...target.text].slice(0, SNAPSHOT_MAX).join(""),
+        createdAt: new Date(now),
+      },
     });
     const open = await tx.communityReport.count({ where: { kind: input.kind, targetId: input.id, resolvedAt: null } });
-    if (open >= AUTO_HIDE_REPORTS) await setHidden(tx, input.kind, input.id, new Date(now));
+    if (open >= AUTO_HIDE_REPORTS) {
+      await setHidden(tx, input.kind, input.id, new Date(now));
+      if (input.kind === "card") await tx.communityMember.updateMany({ where: { accountId: target.author }, data: { cardHiddenAt: new Date(now) } });
+    }
     return "ok";
   });
 }
@@ -421,8 +460,10 @@ export type CardResult = { ok: true; id: number } | { ok: false; reason: "banned
 
 /**
  * Publishes the account's card, or replaces it: one card per account, and
- * every save lists it for 7 more days. A card hidden by moderation stays
- * hidden: saving it again does not bring it back.
+ * every save lists it for 7 more days. Once the account's card was hidden
+ * (by a moderator or by reports), it cannot list one again - deleting the
+ * card first changes nothing, the decision is kept on the member - until a
+ * moderator shows it again.
  */
 export function saveCard(input: CardInput, author: Author, now = Date.now()): Promise<CardResult> {
   return serial(async (tx) => {
@@ -432,13 +473,12 @@ export function saveCard(input: CardInput, author: Author, now = Date.now()): Pr
       update: { name: author.name },
     });
     if (isBanned(member, now)) return { ok: false, reason: "banned" };
+    if (member.cardHiddenAt) return { ok: false, reason: "hidden" };
     if (input.note) {
       const verdict = screenText(input.note, { newAccount: false });
       if (verdict !== "ok") return { ok: false, reason: verdict };
     }
     if (input.discord && screenText(input.discord, { newAccount: false }) === "blocked") return { ok: false, reason: "blocked" };
-    const existing = await tx.teammateCard.findUnique({ where: { accountId: author.id }, select: { hiddenAt: true, expiresAt: true } });
-    if (existing?.hiddenAt && existing.expiresAt.getTime() > now) return { ok: false, reason: "hidden" };
     const data = { ...input, authorName: author.name, createdAt: new Date(now), expiresAt: new Date(now + CARD_TTL_MS), hiddenAt: null };
     const card = await tx.teammateCard.upsert({
       where: { accountId: author.id },
@@ -485,17 +525,32 @@ export function moderate(
     if (threadOnly && kind !== "thread") return "invalid";
     if (o.action === "unban" ? !o.accountId : !kind || !id) return "invalid";
     let accountId: string | null = o.accountId ?? null;
+    let gone = false;
     if (kind && id) {
       accountId = await authorOf(tx, kind, id);
-      if (!accountId) return "unknown";
+      if (!accountId) {
+        // Deleted by its author since (a card is deleted for good): the
+        // reports still name the author, for a ban or a dismissal.
+        const reported =
+          (await tx.communityReport.findFirst({ where: { kind, targetId: id }, select: { authorId: true } }))?.authorId ??
+          (await tx.moderationLog.findFirst({ where: { kind, targetId: id, accountId: { not: null } }, select: { accountId: true } }))?.accountId;
+        if (!reported || !["dismiss", "ban", "hide", "unhide", "delete"].includes(o.action)) return "unknown";
+        accountId = reported;
+        gone = true;
+      }
     }
 
     switch (o.action) {
       case "hide":
       case "unhide":
-        await setHidden(tx, kind!, id!, o.action === "hide" ? at : null);
+        if (!gone) await setHidden(tx, kind!, id!, o.action === "hide" ? at : null);
+        // A card's hiding follows its account, not the row (see saveCard).
+        if (kind === "card") {
+          await tx.communityMember.updateMany({ where: { accountId: accountId! }, data: { cardHiddenAt: o.action === "hide" ? at : null } });
+        }
         break;
       case "delete":
+        if (gone) break;
         if (kind === "thread") await tx.forumThread.update({ where: { id }, data: { deletedAt: at, body: "" } });
         else if (kind === "post") {
           const post = await tx.forumPost.findUniqueOrThrow({ where: { id }, select: { threadId: true, deletedAt: true } });
@@ -549,13 +604,19 @@ export function moderate(
 export interface QueueEntry {
   kind: TargetKind;
   id: number;
+  /** Open reports on it (the most recent ones are listed in `reports`). */
+  count: number;
   reports: { reason: string; note: string | null; createdAt: Date }[];
-  /** What the target says, as stored (Markdown for posts). */
+  /** What the target said when it was first reported. */
+  snapshot: string | null;
+  /** What the target says now, as stored (Markdown for posts); empty once deleted. */
   title: string | null;
   body: string;
   authorId: string;
   authorName: string;
   hidden: boolean;
+  /** Deleted by its author since it was reported. */
+  deleted: boolean;
   /** Where to see it: the thread's path, or the teammate page. */
   path: string;
   threadLocked: boolean;
@@ -563,43 +624,76 @@ export interface QueueEntry {
   authorBanned: boolean;
 }
 
-/** Open reports, one entry per target, the most reported first. */
+const REPORTS_SHOWN = 10;
+
+/**
+ * Open reports, one entry per target: the most reported first, then the
+ * most recently reported. Grouped and counted by the database, so a flood
+ * on one target (each reporter is capped at `OPEN_REPORTS_PER_ACCOUNT` open
+ * reports anyway) never pushes the others out of the queue.
+ */
 export async function moderationQueue(limit = 50, now = Date.now()): Promise<QueueEntry[]> {
-  const reports = await db().communityReport.findMany({ where: { resolvedAt: null }, orderBy: { createdAt: "asc" }, take: 1000 });
-  const groups = new Map<string, { kind: TargetKind; id: number; reports: QueueEntry["reports"] }>();
-  for (const r of reports) {
-    const key = `${r.kind}:${r.targetId}`;
-    const group = groups.get(key) ?? { kind: r.kind as TargetKind, id: r.targetId, reports: [] };
-    group.reports.push({ reason: r.reason, note: r.note, createdAt: r.createdAt });
-    groups.set(key, group);
-  }
-  const ordered = [...groups.values()].sort((a, b) => b.reports.length - a.reports.length).slice(0, limit);
-  const ids = (kind: TargetKind) => ordered.filter((g) => g.kind === kind).map((g) => g.id);
+  const groups = await db().communityReport.groupBy({
+    by: ["kind", "targetId"],
+    where: { resolvedAt: null },
+    _count: { _all: true },
+    _max: { createdAt: true },
+    orderBy: [{ _count: { id: "desc" } }, { _max: { createdAt: "desc" } }],
+    take: limit,
+  });
+  if (groups.length === 0) return [];
+  const targets = groups.map((g) => ({ kind: g.kind, targetId: g.targetId }));
+  const reports = await db().communityReport.findMany({
+    where: { resolvedAt: null, OR: targets },
+    orderBy: { createdAt: "desc" },
+    take: limit * 50,
+  });
+  const ids = (kind: TargetKind) => groups.filter((g) => g.kind === kind).map((g) => g.targetId);
   const [threads, posts, cards] = await Promise.all([
     db().forumThread.findMany({ where: { id: { in: ids("thread") } } }),
     db().forumPost.findMany({ where: { id: { in: ids("post") } }, include: { thread: { select: { id: true, title: true, category: true, locked: true, pinned: true } } } }),
     db().teammateCard.findMany({ where: { id: { in: ids("card") } } }),
   ]);
-  const authors = [...threads.map((t) => t.authorId), ...posts.map((p) => p.authorId), ...cards.map((c) => c.accountId)];
+  const authors = [...new Set(reports.map((r) => r.authorId))];
   const members = await db().communityMember.findMany({ where: { accountId: { in: authors } } });
   const banned = new Set(members.filter((m) => isBanned(m, now)).map((m) => m.accountId));
+  const names = new Map(members.map((m) => [m.accountId, m.name]));
 
-  return ordered.flatMap((g): QueueEntry[] => {
-    const base = { kind: g.kind, id: g.id, reports: g.reports };
-    if (g.kind === "thread") {
-      const t = threads.find((x) => x.id === g.id);
-      if (!t || t.deletedAt) return [];
-      return [{ ...base, title: t.title, body: t.body, authorId: t.authorId, authorName: t.authorName, hidden: Boolean(t.hiddenAt), path: threadPath(t), threadLocked: t.locked, threadPinned: t.pinned, authorBanned: banned.has(t.authorId) }];
+  return groups.map((g): QueueEntry => {
+    const kind = g.kind as TargetKind;
+    const own = reports.filter((r) => r.kind === g.kind && r.targetId === g.targetId);
+    const first = own.at(-1);
+    const authorId = first?.authorId ?? "";
+    const base = {
+      kind,
+      id: g.targetId,
+      count: g._count._all,
+      reports: own.slice(0, REPORTS_SHOWN).map((r) => ({ reason: r.reason, note: r.note, createdAt: r.createdAt })),
+      snapshot: first?.snapshot ?? null,
+      authorId,
+      authorName: names.get(authorId) ?? "?",
+      authorBanned: banned.has(authorId),
+      title: null,
+      body: "",
+      hidden: false,
+      deleted: true,
+      path: kind === "card" ? "/community/teammates" : "/community",
+      threadLocked: false,
+      threadPinned: false,
+    };
+    if (kind === "thread") {
+      const t = threads.find((x) => x.id === g.targetId);
+      if (!t) return base;
+      return { ...base, title: t.title, body: t.body, authorName: t.authorName, hidden: Boolean(t.hiddenAt), deleted: Boolean(t.deletedAt), path: threadPath(t), threadLocked: t.locked, threadPinned: t.pinned };
     }
-    if (g.kind === "post") {
-      const p = posts.find((x) => x.id === g.id);
-      if (!p || p.deletedAt) return [];
-      return [{ ...base, title: p.thread.title, body: p.body, authorId: p.authorId, authorName: p.authorName, hidden: Boolean(p.hiddenAt), path: `${threadPath(p.thread)}#post-${p.id}`, threadLocked: p.thread.locked, threadPinned: p.thread.pinned, authorBanned: banned.has(p.authorId) }];
+    if (kind === "post") {
+      const p = posts.find((x) => x.id === g.targetId);
+      if (!p) return base;
+      return { ...base, title: p.thread.title, body: p.body, authorName: p.authorName, hidden: Boolean(p.hiddenAt), deleted: Boolean(p.deletedAt), path: `${threadPath(p.thread)}#post-${p.id}`, threadLocked: p.thread.locked, threadPinned: p.thread.pinned };
     }
-    const c = cards.find((x) => x.id === g.id);
-    if (!c) return [];
-    const body = [c.note, c.discord && `Discord: ${c.discord}`, c.gameId && `ID: ${c.gameId}`].filter(Boolean).join("\n");
-    return [{ ...base, title: null, body, authorId: c.accountId, authorName: c.authorName, hidden: Boolean(c.hiddenAt), path: "/community/teammates", threadLocked: false, threadPinned: false, authorBanned: banned.has(c.accountId) }];
+    const card = cards.find((x) => x.id === g.targetId);
+    if (!card) return base;
+    return { ...base, body: cardText(card), authorName: card.authorName, hidden: Boolean(card.hiddenAt), deleted: false };
   });
 }
 
