@@ -1122,6 +1122,10 @@
       "damageCalculator": {
         "title": "Calcolatore dei danni MLBB: difesa e penetrazione",
         "description": "Calcola il danno di un attacco base o di un colpo in Mobile Legends dopo la difesa e la penetrazione: colpi per uccidere e HP effettivi, eroi e oggetti o statistiche inseriti."
+      },
+      "strategyPlanner": {
+        "title": "Pianificatore di strategia MLBB: lavagna tattica sulla mappa",
+        "description": "Una lavagna tattica gratuita sulla mappa di Mobile Legends: Bang Bang: posiziona gli eroi delle due squadre, la Tartaruga, il Signore e i buff, disegna frecce e rotazioni, aggiungi note, poi condividi il piano con un link o un'immagine PNG. Senza registrazione, col dito o col mouse."
       }
     },
     "freshness": {
@@ -3142,7 +3146,8 @@
           "step2": "Le prime {waves} ondate della Mid Lane hanno {lancers} lancieri e {infantry} fante: pulisci in fretta, poi ruota verso i lati.",
           "step3": "Sii al livello 4 per la Tartaruga al minuto {turtle} e controlla eventuali invasioni della tua giungla nel primo minuto."
         }
-      }
+      },
+      "plannerLink": "Disegna una rotazione su questa mappa con il pianificatore di strategia"
     },
     "mapUI": {
       "mapLabel": "Mappa schematica della Terra dell'Alba",
@@ -3936,6 +3941,87 @@
       "winsLong": "Vittorie",
       "lossesLong": "Sconfitte",
       "heroLine": "{hero}: {games} partite, {wins} vittorie"
+    },
+    "strategyPlanner": {
+      "title": "Pianificatore di strategia MLBB",
+      "crumb": "Pianificatore",
+      "lead": "Prepara una rotazione, un gank o uno scontro per un obiettivo sulla mappa: posiziona gli eroi delle due squadre, la Tartaruga, il Signore e i buff, traccia frecce e percorsi, aggiungi note. Il piano si condivide con un link e si esporta in immagine.",
+      "howToTitle": "Istruzioni",
+      "howToOpen": "Mostra i quattro passaggi",
+      "step1": "Scegli una squadra, blu o rossa, poi tocca un eroe nell'elenco: appare davanti alla sua base. Gli obiettivi si posizionano allo stesso modo.",
+      "step2": "Con lo strumento Sposta, trascina un eroe, un obiettivo, una freccia o un tracciato. Da tastiera, Tab passa da un elemento all'altro, le frecce lo spostano (Maiusc per andare più veloce) e Canc lo rimuove.",
+      "step3": "Gli strumenti Matita e Freccia disegnano sulla mappa nel colore scelto; lo strumento Testo mette l'etichetta digitata dove tocchi. Ctrl+Z annulla, Ctrl+Maiusc+Z ripristina.",
+      "step4": "Finito? Copia il link, che contiene tutto il piano senza account né server, oppure scarica l'immagine PNG.",
+      "mapNote": "La mappa è il nostro schema della Terra dell'Alba, lo stesso della guida alla mappa: la tua base in basso a sinistra, il fiume in diagonale, la Tartaruga vicino alla lane EXP e il Signore dall'altra parte. Le distanze non sono in scala.",
+      "mapLink": "La guida alla mappa: campi, orari e rotazioni",
+      "timerLink": "Timer degli obiettivi",
+      "draftLink": "Simulatore di draft"
+    },
+    "strategyPlannerUI": {
+      "toolsLabel": "Strumenti di disegno",
+      "tools": {
+        "move": "Sposta",
+        "pen": "Matita",
+        "arrow": "Freccia",
+        "text": "Testo"
+      },
+      "colorLabel": "Colore",
+      "colors": {
+        "gold": "Oro",
+        "white": "Bianco",
+        "blue": "Blu",
+        "red": "Rosso",
+        "green": "Verde",
+        "purple": "Viola"
+      },
+      "labelField": "Testo dell'etichetta",
+      "labelCentre": "Metti al centro",
+      "labelHelp": "Tocca la mappa per mettere l'etichetta in quel punto.",
+      "labelFirst": "Scrivi prima il testo dell'etichetta.",
+      "boardLabel": "Mappa del piano",
+      "help": "Sposta: trascina un elemento, oppure selezionalo da tastiera (Tab) e usa le frecce. Matita, Freccia e Testo disegnano direttamente sulla mappa.",
+      "undo": "Annulla",
+      "redo": "Ripristina",
+      "delete": "Elimina la selezione",
+      "clear": "Cancella tutto",
+      "export": "Immagine PNG",
+      "share": "Copia il link",
+      "paletteLabel": "Eroi e obiettivi",
+      "heroes": "Eroi",
+      "teamLabel": "Squadra degli eroi aggiunti",
+      "teams": {
+        "blue": "Squadra blu",
+        "red": "Squadra rossa"
+      },
+      "search": "Cerca un eroe",
+      "noHero": "Nessun eroe corrisponde.",
+      "addHero": "Aggiungi {name} ({team})",
+      "selectHero": "Seleziona {name} ({team}), già sulla mappa",
+      "objectives": "Obiettivi",
+      "addMarker": "Posiziona: {name}",
+      "count": "{n} elementi su {max}",
+      "element": {
+        "hero": "{name} ({team})",
+        "text": "Etichetta «{text}»",
+        "arrow": "Freccia, colore {color}",
+        "line": "Tracciato, colore {color}"
+      },
+      "placed": "Aggiunto alla mappa: {name}.",
+      "removed": "Eliminato: {name}.",
+      "cleared": "Mappa cancellata. Annulla la ripristina.",
+      "undone": "Azione annullata.",
+      "redone": "Azione ripristinata.",
+      "full": "Limite di {n} elementi raggiunto.",
+      "sharedLoaded": "Piano condiviso caricato.",
+      "sharedInvalid": "Questo link non contiene un piano leggibile.",
+      "exporting": "Creazione dell'immagine…",
+      "exportDone": "Immagine scaricata.",
+      "exportShared": "Immagine condivisa.",
+      "exportError": "Non è stato possibile creare l'immagine.",
+      "imageTitle": "Piano di strategia MLBB",
+      "linkCopied": "Link copiato: contiene tutto il piano.",
+      "linkShared": "Link condiviso.",
+      "linkError": "Copia non riuscita: copia l'indirizzo della pagina."
     }
   },
   "modeSheet": {

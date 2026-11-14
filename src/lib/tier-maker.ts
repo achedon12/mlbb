@@ -10,6 +10,8 @@
  * roster. A 133-hero link fits in under one kilobyte.
  */
 
+import { decodeText, encodeText } from "./link-code";
+
 export interface Row {
   id: string;
   name: string;
@@ -195,82 +197,15 @@ export function deserialize(text: string, known: Set<string>): StateTier | null 
   return { title: clean(title, TITLE_MAX), rows: tierRows };
 }
 
-function toBase64Url(bytes: Uint8Array): string {
-  let binary = "";
-  for (const o of bytes) binary += String.fromCharCode(o);
-  return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
-}
-
-function fromBase64Url(code: string): Uint8Array | null {
-  if (!/^[A-Za-z0-9_-]*$/.test(code)) return null;
-  try {
-    const binary = atob(code.replace(/-/g, "+").replace(/_/g, "/") + "===".slice((code.length + 3) % 4));
-    return Uint8Array.from(binary, (c) => c.charCodeAt(0));
-  } catch {
-    return null;
-  }
-}
-
-/** Pipes bytes through a (de)compression stream, stopping beyond `max`. */
-async function transform(
-  bytes: Uint8Array,
-  feed: CompressionStream | DecompressionStream,
-  max = Infinity,
-): Promise<Uint8Array | null> {
-  try {
-    const reader = new Blob([bytes as BlobPart]).stream().pipeThrough(feed).getReader();
-    const chunks: Uint8Array[] = [];
-    let total = 0;
-    for (;;) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      total += value.length;
-      if (total > max) {
-        await reader.cancel();
-        return null;
-      }
-      chunks.push(value);
-    }
-    const output = new Uint8Array(total);
-    let i = 0;
-    for (const m of chunks) {
-      output.set(m, i);
-      i += m.length;
-    }
-    return output;
-  } catch {
-    return null;
-  }
-}
-
-const compressionAvailable = () => typeof CompressionStream !== "undefined";
-
 /**
  * Link code: "2" + compressed text, or "1" + raw text when
  * compression is unavailable or gains nothing (an almost empty list).
  */
 export async function encodeTier(state: StateTier, compress = true): Promise<string> {
-  const bytes = new TextEncoder().encode(serialize(state));
-  const raw = `1${toBase64Url(bytes)}`;
-  if (!compress || !compressionAvailable()) return raw;
-  const compressed = await transform(bytes, new CompressionStream("deflate-raw"));
-  const code = compressed ? `2${toBase64Url(compressed)}` : raw;
-  return code.length < raw.length ? code : raw;
+  return encodeText(serialize(state), compress);
 }
 
 export async function decodeTier(code: string, known: Set<string>): Promise<StateTier | null> {
-  if (!code || code.length > CODE_MAX) return null;
-  const bytes = fromBase64Url(code.slice(1));
-  if (!bytes) return null;
-  let text: Uint8Array | null = null;
-  if (code[0] === "1") text = bytes;
-  else if (code[0] === "2" && typeof DecompressionStream !== "undefined") {
-    text = await transform(bytes, new DecompressionStream("deflate-raw"), TEXT_MAX);
-  }
-  if (!text || text.length > TEXT_MAX) return null;
-  try {
-    return deserialize(new TextDecoder("utf-8", { fatal: true }).decode(text), known);
-  } catch {
-    return null;
-  }
+  const text = await decodeText(code, { codeMax: CODE_MAX, textMax: TEXT_MAX });
+  return text === null ? null : deserialize(text, known);
 }

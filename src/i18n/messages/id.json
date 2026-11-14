@@ -1122,6 +1122,10 @@
       "damageCalculator": {
         "title": "Kalkulator Damage MLBB: Pertahanan dan Penetrasi",
         "description": "Hitung damage serangan dasar atau pukulan di Mobile Legends setelah pertahanan dan penetrasi: pukulan untuk membunuh dan efektif HP, hero, dan item atau stat yang dimasukkan."
+      },
+      "strategyPlanner": {
+        "title": "Perencana strategi MLBB: papan taktik di atas peta",
+        "description": "Papan taktik gratis di atas peta Mobile Legends: Bang Bang: letakkan hero kedua tim, Turtle, Lord, dan buff, gambar panah dan rotasi, tambahkan catatan, lalu bagikan rencananya lewat tautan atau gambar PNG. Tanpa daftar, dengan jari maupun mouse."
       }
     },
     "freshness": {
@@ -3142,7 +3146,8 @@
           "step2": "Gelombang {waves} pertama di tengah memiliki {lancers} tombak dan {infantry} prajurit infanteri: bersihkan dengan cepat, lalu berbelok ke samping.",
           "step3": "Jadilah level 4 untuk Turtle di {turtle}, dan saksikan invasi ke hutanmu pada menit pertama."
         }
-      }
+      },
+      "plannerLink": "Gambar rotasi di peta ini dengan perencana strategi"
     },
     "mapUI": {
       "mapLabel": "Peta skema Land of Dawn",
@@ -3936,6 +3941,87 @@
       "winsLong": "Menang",
       "lossesLong": "Kalah",
       "heroLine": "{hero}: {games} game, {wins} menang"
+    },
+    "strategyPlanner": {
+      "title": "Perencana strategi MLBB",
+      "crumb": "Perencana",
+      "lead": "Siapkan rotasi, gank, atau perebutan objektif di peta: letakkan hero kedua tim, Turtle, Lord, dan buff, gambar panah dan jalur, tambahkan catatan. Rencana dibagikan lewat tautan dan diekspor sebagai gambar.",
+      "howToTitle": "Cara memakai",
+      "howToOpen": "Tampilkan empat langkah",
+      "step1": "Pilih tim, biru atau merah, lalu sentuh hero di daftar: hero muncul di depan base-nya. Objektif diletakkan dengan cara yang sama.",
+      "step2": "Dengan alat Pindahkan, seret hero, objektif, panah, atau garis. Dengan keyboard, Tab berpindah antarelemen, tombol panah menggesernya (Shift untuk lebih cepat), dan Delete menghapusnya.",
+      "step3": "Alat Pensil dan Panah menggambar di peta dengan warna pilihan; alat Teks menaruh label yang Anda ketik di tempat yang Anda sentuh. Ctrl+Z membatalkan, Ctrl+Shift+Z mengulang.",
+      "step4": "Selesai? Salin tautannya, yang memuat seluruh rencana tanpa akun atau server, atau unduh gambar PNG-nya.",
+      "mapNote": "Peta ini adalah skema Land of Dawn buatan kami, sama seperti di panduan peta: base Anda di kiri bawah, sungai melintang diagonal, Turtle di dekat EXP lane, dan Lord di sisi lainnya. Jaraknya tidak sesuai skala.",
+      "mapLink": "Panduan peta: camp, waktu muncul, dan rotasi",
+      "timerLink": "Timer objektif",
+      "draftLink": "Simulator draft"
+    },
+    "strategyPlannerUI": {
+      "toolsLabel": "Alat gambar",
+      "tools": {
+        "move": "Pindahkan",
+        "pen": "Pensil",
+        "arrow": "Panah",
+        "text": "Teks"
+      },
+      "colorLabel": "Warna",
+      "colors": {
+        "gold": "Emas",
+        "white": "Putih",
+        "blue": "Biru",
+        "red": "Merah",
+        "green": "Hijau",
+        "purple": "Ungu"
+      },
+      "labelField": "Teks label",
+      "labelCentre": "Taruh di tengah",
+      "labelHelp": "Sentuh peta untuk menaruh label di titik itu.",
+      "labelFirst": "Ketik teks labelnya terlebih dahulu.",
+      "boardLabel": "Peta rencana",
+      "help": "Pindahkan: seret elemen, atau pilih dengan keyboard (Tab) lalu gunakan tombol panah. Pensil, Panah, dan Teks menggambar langsung di peta.",
+      "undo": "Batalkan",
+      "redo": "Ulangi",
+      "delete": "Hapus pilihan",
+      "clear": "Hapus semua",
+      "export": "Gambar PNG",
+      "share": "Salin tautan",
+      "paletteLabel": "Hero dan objektif",
+      "heroes": "Hero",
+      "teamLabel": "Tim untuk hero yang ditambahkan",
+      "teams": {
+        "blue": "Tim Biru",
+        "red": "Tim Merah"
+      },
+      "search": "Cari hero",
+      "noHero": "Tidak ada hero yang cocok.",
+      "addHero": "Tambahkan {name} ({team})",
+      "selectHero": "Pilih {name} ({team}), sudah ada di peta",
+      "objectives": "Objektif",
+      "addMarker": "Letakkan: {name}",
+      "count": "{n} dari {max} elemen",
+      "element": {
+        "hero": "{name} ({team})",
+        "text": "Label “{text}”",
+        "arrow": "Panah, warna {color}",
+        "line": "Garis, warna {color}"
+      },
+      "placed": "Ditambahkan ke peta: {name}.",
+      "removed": "Dihapus: {name}.",
+      "cleared": "Peta dihapus. Batalkan untuk mengembalikannya.",
+      "undone": "Tindakan dibatalkan.",
+      "redone": "Tindakan diulang.",
+      "full": "Batas {n} elemen tercapai.",
+      "sharedLoaded": "Rencana yang dibagikan dimuat.",
+      "sharedInvalid": "Tautan ini tidak berisi rencana yang bisa dibaca.",
+      "exporting": "Membuat gambar…",
+      "exportDone": "Gambar diunduh.",
+      "exportShared": "Gambar dibagikan.",
+      "exportError": "Gambar tidak dapat dibuat.",
+      "imageTitle": "Rencana strategi MLBB",
+      "linkCopied": "Tautan disalin: berisi seluruh rencana.",
+      "linkShared": "Tautan dibagikan.",
+      "linkError": "Gagal menyalin: salin alamat halaman ini."
     }
   },
   "modeSheet": {

@@ -1122,6 +1122,10 @@
       "damageCalculator": {
         "title": "Calculadora de daños de MLBB: defensa y penetración",
         "description": "Calcula el daño de un ataque básico o un golpe en Mobile Legends después de la defensa y la penetración: golpes para matar y HP efectivos, héroes y elementos o estadísticas ingresadas."
+      },
+      "strategyPlanner": {
+        "title": "Planificador de estrategia MLBB: pizarra táctica sobre el mapa",
+        "description": "Una pizarra táctica gratuita sobre el mapa de Mobile Legends: Bang Bang: coloca a los héroes de los dos equipos, la Tortuga, el Señor y los buffs, dibuja flechas y rotaciones, añade notas y comparte el plan con un enlace o una imagen PNG. Sin registro, con el dedo o con el ratón."
       }
     },
     "freshness": {
@@ -3142,7 +3146,8 @@
           "step2": "Las primeras {waves} oleadas de la Mid Lane traen {lancers} lanceros y {infantry} soldado de infantería: limpia rápido y luego rota hacia los lados.",
           "step3": "Llega a nivel 4 para la Tortuga del minuto {turtle} y vigila las invasiones a tu jungla durante el primer minuto."
         }
-      }
+      },
+      "plannerLink": "Traza una rotación en este mapa con el planificador de estrategia"
     },
     "mapUI": {
       "mapLabel": "Mapa esquemático de la Tierra del Amanecer",
@@ -3936,6 +3941,87 @@
       "winsLong": "Victorias",
       "lossesLong": "Derrotas",
       "heroLine": "{hero}: {games} partidas, {wins} victorias"
+    },
+    "strategyPlanner": {
+      "title": "Planificador de estrategia MLBB",
+      "crumb": "Planificador",
+      "lead": "Prepara una rotación, un gank o una pelea por un objetivo sobre el mapa: coloca a los héroes de los dos equipos, la Tortuga, el Señor y los buffs, traza flechas y caminos, añade notas. El plan se comparte con un enlace y se exporta como imagen.",
+      "howToTitle": "Instrucciones",
+      "howToOpen": "Mostrar los cuatro pasos",
+      "step1": "Elige un equipo, azul o rojo, y toca un héroe de la lista: aparece delante de su base. Los objetivos se colocan igual.",
+      "step2": "Con la herramienta Mover, arrastra un héroe, un objetivo, una flecha o un trazo. Con el teclado, Tab pasa de un elemento a otro, las flechas lo mueven (Mayús para ir más rápido) y Supr lo elimina.",
+      "step3": "Las herramientas Lápiz y Flecha dibujan sobre el mapa en el color elegido; la herramienta Texto pone la etiqueta escrita donde toques. Ctrl+Z deshace, Ctrl+Mayús+Z rehace.",
+      "step4": "¿Listo? Copia el enlace, que contiene todo el plan sin cuenta ni servidor, o descarga la imagen PNG.",
+      "mapNote": "El mapa es nuestro esquema de la Tierra del Amanecer, el mismo que en la guía del mapa: tu base abajo a la izquierda, el río en diagonal, la Tortuga cerca de la línea EXP y el Señor al otro lado. Las distancias no están a escala.",
+      "mapLink": "La guía del mapa: campamentos, tiempos y rotaciones",
+      "timerLink": "Cronómetro de objetivos",
+      "draftLink": "Simulador de draft"
+    },
+    "strategyPlannerUI": {
+      "toolsLabel": "Herramientas de dibujo",
+      "tools": {
+        "move": "Mover",
+        "pen": "Lápiz",
+        "arrow": "Flecha",
+        "text": "Texto"
+      },
+      "colorLabel": "Color",
+      "colors": {
+        "gold": "Oro",
+        "white": "Blanco",
+        "blue": "Azul",
+        "red": "Rojo",
+        "green": "Verde",
+        "purple": "Morado"
+      },
+      "labelField": "Texto de la etiqueta",
+      "labelCentre": "Colocar en el centro",
+      "labelHelp": "Toca el mapa para poner la etiqueta en ese punto.",
+      "labelFirst": "Escribe primero el texto de la etiqueta.",
+      "boardLabel": "Mapa del plan",
+      "help": "Mover: arrastra un elemento, o selecciónalo con el teclado (Tab) y usa las flechas. Lápiz, Flecha y Texto dibujan directamente sobre el mapa.",
+      "undo": "Deshacer",
+      "redo": "Rehacer",
+      "delete": "Eliminar la selección",
+      "clear": "Borrar todo",
+      "export": "Imagen PNG",
+      "share": "Copiar el enlace",
+      "paletteLabel": "Héroes y objetivos",
+      "heroes": "Héroes",
+      "teamLabel": "Equipo de los héroes que añades",
+      "teams": {
+        "blue": "Equipo azul",
+        "red": "Equipo rojo"
+      },
+      "search": "Buscar un héroe",
+      "noHero": "Ningún héroe coincide.",
+      "addHero": "Añadir a {name} ({team})",
+      "selectHero": "Seleccionar a {name} ({team}), ya en el mapa",
+      "objectives": "Objetivos",
+      "addMarker": "Colocar: {name}",
+      "count": "{n} de {max} elementos",
+      "element": {
+        "hero": "{name} ({team})",
+        "text": "Etiqueta «{text}»",
+        "arrow": "Flecha, color {color}",
+        "line": "Trazo, color {color}"
+      },
+      "placed": "Añadido al mapa: {name}.",
+      "removed": "Eliminado: {name}.",
+      "cleared": "Mapa borrado. Deshacer lo recupera.",
+      "undone": "Acción deshecha.",
+      "redone": "Acción rehecha.",
+      "full": "Límite de {n} elementos alcanzado.",
+      "sharedLoaded": "Plan compartido cargado.",
+      "sharedInvalid": "Este enlace no contiene un plan legible.",
+      "exporting": "Creando la imagen…",
+      "exportDone": "Imagen descargada.",
+      "exportShared": "Imagen compartida.",
+      "exportError": "No se pudo crear la imagen.",
+      "imageTitle": "Plan de estrategia MLBB",
+      "linkCopied": "Enlace copiado: contiene todo el plan.",
+      "linkShared": "Enlace compartido.",
+      "linkError": "No se pudo copiar: copia la dirección de la página."
     }
   },
   "modeSheet": {

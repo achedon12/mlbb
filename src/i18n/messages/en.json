@@ -1122,6 +1122,10 @@
       "damageCalculator": {
         "title": "MLBB damage calculator: defense and penetration",
         "description": "Work out the damage of a basic attack or a hit in Mobile Legends after defense and penetration: hits to kill and effective HP, from heroes and items or typed stats."
+      },
+      "strategyPlanner": {
+        "title": "MLBB strategy planner: a tactical board on the map",
+        "description": "A free tactical board on the Mobile Legends: Bang Bang map: place both teams' heroes, the Turtle, the Lord and the buffs, draw arrows and rotations, add notes, then share the plan as a link or a PNG image. No sign-up, by finger or mouse."
       }
     },
     "freshness": {
@@ -3142,7 +3146,8 @@
           "step2": "The first {waves} mid waves have {lancers} lancers and {infantry} infantry: clear fast, then rotate to the sides.",
           "step3": "Be level 4 for the Turtle at {turtle}, and watch for an invade of your jungle in the first minute."
         }
-      }
+      },
+      "plannerLink": "Draw a rotation on this map with the strategy planner"
     },
     "mapUI": {
       "mapLabel": "Schematic map of the Land of Dawn",
@@ -3936,6 +3941,87 @@
       "winsLong": "Wins",
       "lossesLong": "Losses",
       "heroLine": "{hero}: {games} games, {wins} wins"
+    },
+    "strategyPlanner": {
+      "title": "MLBB strategy planner",
+      "crumb": "Planner",
+      "lead": "Prepare a rotation, a gank or an objective fight on the map: place both teams' heroes, the Turtle, the Lord and the buffs, draw arrows and paths, add notes. The plan is shared as a link and exported as an image.",
+      "howToTitle": "How to use it",
+      "howToOpen": "Show the four steps",
+      "step1": "Pick a team, blue or red, then tap a hero in the list: it appears in front of its base. Objectives are placed the same way.",
+      "step2": "With the Move tool, drag a hero, an objective, an arrow or a line. With the keyboard, Tab goes from one element to the next, the arrow keys move it (Shift to go faster) and Delete removes it.",
+      "step3": "The Pen and Arrow tools draw on the map in the chosen colour; the Text tool puts the label you typed where you tap. Ctrl+Z undoes, Ctrl+Shift+Z redoes.",
+      "step4": "Done? Copy the link, which holds the whole plan with no account or server, or download the PNG image.",
+      "mapNote": "The map is our diagram of the Land of Dawn, the same as on the map guide: your base in the bottom left, the river across the diagonal, the Turtle near the EXP lane and the Lord on the other side. Distances are not to scale.",
+      "mapLink": "The map guide: camps, timings and rotations",
+      "timerLink": "Objective timer",
+      "draftLink": "Draft simulator"
+    },
+    "strategyPlannerUI": {
+      "toolsLabel": "Drawing tools",
+      "tools": {
+        "move": "Move",
+        "pen": "Pen",
+        "arrow": "Arrow",
+        "text": "Text"
+      },
+      "colorLabel": "Colour",
+      "colors": {
+        "gold": "Gold",
+        "white": "White",
+        "blue": "Blue",
+        "red": "Red",
+        "green": "Green",
+        "purple": "Purple"
+      },
+      "labelField": "Label text",
+      "labelCentre": "Place in the centre",
+      "labelHelp": "Tap the map to put the label there.",
+      "labelFirst": "Type the label text first.",
+      "boardLabel": "Plan map",
+      "help": "Move: drag an element, or select it with the keyboard (Tab) and use the arrow keys. Pen, Arrow and Text draw straight on the map.",
+      "undo": "Undo",
+      "redo": "Redo",
+      "delete": "Delete selection",
+      "clear": "Clear all",
+      "export": "PNG image",
+      "share": "Copy the link",
+      "paletteLabel": "Heroes and objectives",
+      "heroes": "Heroes",
+      "teamLabel": "Team of the heroes you add",
+      "teams": {
+        "blue": "Blue team",
+        "red": "Red team"
+      },
+      "search": "Search a hero",
+      "noHero": "No hero matches.",
+      "addHero": "Add {name} ({team})",
+      "selectHero": "Select {name} ({team}), already on the map",
+      "objectives": "Objectives",
+      "addMarker": "Place: {name}",
+      "count": "{n} of {max} elements",
+      "element": {
+        "hero": "{name} ({team})",
+        "text": "Label “{text}”",
+        "arrow": "Arrow, {color}",
+        "line": "Line, {color}"
+      },
+      "placed": "Added to the map: {name}.",
+      "removed": "Removed: {name}.",
+      "cleared": "Map cleared. Undo brings it back.",
+      "undone": "Action undone.",
+      "redone": "Action redone.",
+      "full": "Limit of {n} elements reached.",
+      "sharedLoaded": "Shared plan loaded.",
+      "sharedInvalid": "This link holds no readable plan.",
+      "exporting": "Creating the image…",
+      "exportDone": "Image downloaded.",
+      "exportShared": "Image shared.",
+      "exportError": "The image could not be created.",
+      "imageTitle": "MLBB strategy plan",
+      "linkCopied": "Link copied: it holds the whole plan.",
+      "linkShared": "Link shared.",
+      "linkError": "Copy failed: copy the page address instead."
     }
   },
   "modeSheet": {

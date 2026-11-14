@@ -1122,6 +1122,10 @@
       "damageCalculator": {
         "title": "Calculateur de dégâts MLBB : défense et pénétration",
         "description": "Calculez les dégâts d'une attaque de base ou d'un coup dans Mobile Legends après défense et pénétration : coups pour tuer et PV effectifs, héros et objets ou stats saisies."
+      },
+      "strategyPlanner": {
+        "title": "Planificateur de stratégie MLBB : tableau tactique sur la carte",
+        "description": "Tableau tactique gratuit sur la carte de Mobile Legends: Bang Bang : placez les héros des deux équipes, la Tortue, le Seigneur et les buffs, dessinez flèches et rotations, ajoutez des notes, puis partagez le plan par lien ou en image PNG. Sans inscription, au doigt comme à la souris."
       }
     },
     "freshness": {
@@ -3142,7 +3146,8 @@
           "step2": "Les {waves} premières vagues du milieu comptent {lancers} lanciers et {infantry} fantassin : nettoyez vite, puis tournez vers les côtés.",
           "step3": "Soyez niveau 4 pour la Tortue à {turtle}, et surveillez l'invasion de votre jungle pendant la première minute."
         }
-      }
+      },
+      "plannerLink": "Tracer une rotation sur cette carte avec le planificateur de stratégie"
     },
     "mapUI": {
       "mapLabel": "Carte schématique de la Terre de l'Aube",
@@ -3936,6 +3941,87 @@
       "winsLong": "Victoires",
       "lossesLong": "Défaites",
       "heroLine": "{hero} : {games} parties, {wins} victoires"
+    },
+    "strategyPlanner": {
+      "title": "Planificateur de stratégie MLBB",
+      "crumb": "Planificateur",
+      "lead": "Préparez une rotation, un gank ou un combat d'objectif sur la carte : placez les héros des deux équipes, la Tortue, le Seigneur et les buffs, tracez flèches et chemins, ajoutez des notes. Le plan se partage par lien et s'exporte en image.",
+      "howToTitle": "Mode d'emploi",
+      "howToOpen": "Afficher les quatre étapes",
+      "step1": "Choisissez une équipe, bleue ou rouge, puis touchez un héros dans la liste : il apparaît devant sa base. Les objectifs se posent de la même façon.",
+      "step2": "Avec l'outil Déplacer, faites glisser un héros, un objectif, une flèche ou un tracé. Au clavier, Tab passe d'un élément à l'autre, les flèches le déplacent (Maj pour aller plus vite) et Suppr l'enlève.",
+      "step3": "Les outils Crayon et Flèche dessinent sur la carte, dans la couleur choisie ; l'outil Texte pose l'étiquette saisie là où vous touchez. Ctrl+Z annule, Ctrl+Maj+Z rétablit.",
+      "step4": "Terminé ? Copiez le lien, il contient tout le plan sans compte ni serveur, ou téléchargez l'image PNG.",
+      "mapNote": "La carte est notre schéma de la Terre de l'Aube, le même que sur le guide de la carte : votre base en bas à gauche, la rivière en diagonale, la Tortue près de la lane EXP et le Seigneur de l'autre côté. Les distances ne sont pas à l'échelle.",
+      "mapLink": "Le guide de la carte : camps, horaires et rotations",
+      "timerLink": "Chrono des objectifs",
+      "draftLink": "Simulateur de draft"
+    },
+    "strategyPlannerUI": {
+      "toolsLabel": "Outils de dessin",
+      "tools": {
+        "move": "Déplacer",
+        "pen": "Crayon",
+        "arrow": "Flèche",
+        "text": "Texte"
+      },
+      "colorLabel": "Couleur",
+      "colors": {
+        "gold": "Or",
+        "white": "Blanc",
+        "blue": "Bleu",
+        "red": "Rouge",
+        "green": "Vert",
+        "purple": "Violet"
+      },
+      "labelField": "Texte de l'étiquette",
+      "labelCentre": "Placer au centre",
+      "labelHelp": "Touchez la carte pour poser l'étiquette à cet endroit.",
+      "labelFirst": "Saisissez d'abord le texte de l'étiquette.",
+      "boardLabel": "Carte du plan",
+      "help": "Déplacer : glissez un élément, ou sélectionnez-le au clavier (Tab) et utilisez les flèches. Crayon, Flèche et Texte dessinent directement sur la carte.",
+      "undo": "Annuler",
+      "redo": "Rétablir",
+      "delete": "Supprimer la sélection",
+      "clear": "Tout effacer",
+      "export": "Image PNG",
+      "share": "Copier le lien",
+      "paletteLabel": "Héros et objectifs",
+      "heroes": "Héros",
+      "teamLabel": "Équipe des héros ajoutés",
+      "teams": {
+        "blue": "Équipe bleue",
+        "red": "Équipe rouge"
+      },
+      "search": "Chercher un héros",
+      "noHero": "Aucun héros ne correspond.",
+      "addHero": "Ajouter {name} ({team})",
+      "selectHero": "Sélectionner {name} ({team}), déjà sur la carte",
+      "objectives": "Objectifs",
+      "addMarker": "Placer : {name}",
+      "count": "{n} éléments sur {max}",
+      "element": {
+        "hero": "{name} ({team})",
+        "text": "Étiquette « {text} »",
+        "arrow": "Flèche, couleur {color}",
+        "line": "Tracé, couleur {color}"
+      },
+      "placed": "Ajouté sur la carte : {name}.",
+      "removed": "Supprimé : {name}.",
+      "cleared": "Carte effacée. Annuler la rétablit.",
+      "undone": "Action annulée.",
+      "redone": "Action rétablie.",
+      "full": "Limite de {n} éléments atteinte.",
+      "sharedLoaded": "Plan partagé chargé.",
+      "sharedInvalid": "Ce lien ne contient pas de plan lisible.",
+      "exporting": "Création de l'image…",
+      "exportDone": "Image téléchargée.",
+      "exportShared": "Image partagée.",
+      "exportError": "L'image n'a pas pu être créée.",
+      "imageTitle": "Plan de stratégie MLBB",
+      "linkCopied": "Lien copié : il contient tout le plan.",
+      "linkShared": "Lien partagé.",
+      "linkError": "Copie impossible : copiez l'adresse de la page."
     }
   },
   "modeSheet": {
