@@ -8,6 +8,7 @@ const stamp = (ms: number, style: "R" | "F" | "t") => `<t:${Math.floor(ms / 1000
 
 export const servertime: Command = {
   key: "servertime",
+  instant: true,
   data: () => slash("servertime").toJSON(),
   async execute(interaction, ctx) {
     const now = Date.now();

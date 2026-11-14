@@ -1,4 +1,4 @@
-import { MessageFlags, type Interaction, type RepliableInteraction } from "discord.js";
+import { MessageFlags, type ChatInputCommandInteraction, type Interaction, type RepliableInteraction } from "discord.js";
 import { errorEmbed, makeView } from "../embeds/common.js";
 import { resolveLocale, translator, type Locale } from "../i18n/index.js";
 import { log } from "../log.js";
@@ -39,6 +39,20 @@ async function replyError(interaction: RepliableInteraction, ctx: Context, error
   }
 }
 
+/**
+ * For an `instant` command: its first `editReply` is sent as the reply
+ * itself, the later ones edit it as usual. Commands keep one way to answer.
+ */
+export function answerAtOnce(interaction: ChatInputCommandInteraction, ephemeral: boolean): void {
+  const edit = interaction.editReply.bind(interaction);
+  interaction.editReply = (async (options: Parameters<typeof edit>[0]) => {
+    if (interaction.replied || interaction.deferred) return edit(options);
+    const payload = typeof options === "string" ? { content: options } : options;
+    await interaction.reply({ ...(payload as object), ...(ephemeral ? { flags: MessageFlags.Ephemeral } : {}) } as never);
+    return interaction.fetchReply();
+  }) as typeof interaction.editReply;
+}
+
 export async function handleInteraction(
   interaction: Interaction,
   commands: Map<string, Command>,
@@ -60,7 +74,8 @@ export async function handleInteraction(
     const command = commands.get(interaction.commandName);
     if (!command) return;
     const started = performance.now();
-    await interaction.deferReply(command.ephemeral ? { flags: MessageFlags.Ephemeral } : {});
+    if (command.instant) answerAtOnce(interaction, command.ephemeral === true);
+    else await interaction.deferReply(command.ephemeral ? { flags: MessageFlags.Ephemeral } : {});
     const locale = await localeFor(services, interaction.guildId, interaction.locale);
     const ctx = contextFor(services, locale, command.key);
     let ok = true;

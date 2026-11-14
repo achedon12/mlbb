@@ -164,6 +164,7 @@ export function helpComponents(view: View, page: HelpPage, links: HelpLinks) {
 
 export const help: Command = {
   key: "help",
+  instant: true,
   ephemeral: true,
   data: () => slash("help").toJSON(),
   async execute(interaction, ctx) {
