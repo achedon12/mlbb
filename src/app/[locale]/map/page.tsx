@@ -3,7 +3,7 @@ import Link from "@/components/link";
 import { MapGuide, type MapCard } from "@/components/map-guide";
 import { PageHeader } from "@/components/ui";
 import { Foldable } from "@/components/foldable";
-import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { dataTool, metaPage } from "@/i18n/seo";
 import { createT, messagesPage, type T } from "@/i18n/translations";
@@ -52,7 +52,7 @@ const wikiPageName = (url: string) => decodeURIComponent(url.split("/wiki/")[1] 
 
 /** Cards of every point of interest, built here so the browser only receives the finished text. */
 function mapCards(t: T, locale: Locale): Record<MapPointKey, MapCard> {
-  const number = new Intl.NumberFormat(LOCALE_HTML[locale]);
+  const number = new Intl.NumberFormat(LOCALE_INTL[locale]);
   const seconds = (n: number) => t("pages.map.seconds", { n: number.format(n) });
   const label = (key: string) => t(`pages.map.fact.${key}`);
   const hp = (key: CampKey) => {
@@ -410,7 +410,7 @@ export default async function MapPage({ params }: Params) {
               <h2 id="sources-title" className="font-semibold text-chalk-300">
                 {t("pages.map.sourcesTitle")}
               </h2>
-              <p className="mt-2">{t("pages.map.sourcesIntro", { date: formatShortDate(CHECKED_ON, LOCALE_HTML[locale]) })}</p>
+              <p className="mt-2">{t("pages.map.sourcesIntro", { date: formatShortDate(CHECKED_ON, LOCALE_INTL[locale]) })}</p>
               <ul className="mt-2 grid list-disc gap-x-8 gap-y-1 pl-5 sm:grid-cols-2">
                 {sources.map((url) => (
                   <li key={url}>

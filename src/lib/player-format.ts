@@ -4,7 +4,7 @@
  * Deliberately lightweight module: the match list, rendered client-side,
  * imports it without bundling the site data.
  */
-import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import type { Lane } from "./types";
 
 const FORMATS = new Map<string, Intl.NumberFormat>();
@@ -13,7 +13,7 @@ function format(siteLocale: Locale, options: Intl.NumberFormatOptions): Intl.Num
   const key = `${siteLocale}:${JSON.stringify(options)}`;
   let f = FORMATS.get(key);
   if (!f) {
-    f = new Intl.NumberFormat(LOCALE_HTML[siteLocale], options);
+    f = new Intl.NumberFormat(LOCALE_INTL[siteLocale], options);
     FORMATS.set(key, f);
   }
   return f;
@@ -35,7 +35,7 @@ export function formatGap(points: number, siteLocale: Locale): string {
 
 /** Form to use for a number, according to the language's plural rules. */
 export function plural(n: number, siteLocale: Locale): "one" | "other" {
-  return new Intl.PluralRules(LOCALE_HTML[siteLocale]).select(n) === "one" ? "one" : "other";
+  return new Intl.PluralRules(LOCALE_INTL[siteLocale]).select(n) === "one" ? "one" : "other";
 }
 
 /** Ratio (eliminations + assists) / deaths, counting at least one death. */
@@ -60,5 +60,5 @@ export function formatDateMatch(seconds: number, siteLocale: Locale, locale: boo
     ? { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }
     : { day: "numeric", month: "short", timeZone: "UTC" };
   if (otherYear) options.year = "numeric";
-  return new Intl.DateTimeFormat(LOCALE_HTML[siteLocale], options).format(date);
+  return new Intl.DateTimeFormat(LOCALE_INTL[siteLocale], options).format(date);
 }

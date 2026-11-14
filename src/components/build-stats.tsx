@@ -2,7 +2,7 @@
 
 import { useId, useState } from "react";
 import { AlertTriangle, ChevronDown } from "lucide-react";
-import { LOCALE_HTML } from "@/i18n/config";
+import { LOCALE_INTL } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
 import {
   PERCENT_STATS,
@@ -60,7 +60,7 @@ export function BuildStats({
 }) {
   const t = useT();
   const siteLocale = useLocale();
-  const locale = LOCALE_HTML[siteLocale];
+  const locale = LOCALE_INTL[siteLocale];
   const whole = new Intl.NumberFormat(locale, { maximumFractionDigits: 0 });
   const decimal = new Intl.NumberFormat(locale, { maximumFractionDigits: 1 });
   const percent = new Intl.NumberFormat(locale, { style: "percent", maximumFractionDigits: 1 });

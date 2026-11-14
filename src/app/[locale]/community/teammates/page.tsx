@@ -6,7 +6,7 @@ import { HeroPortrait } from "@/components/hero-portrait";
 import Link from "@/components/link";
 import { Pager } from "@/components/pager";
 import { PageHeader } from "@/components/ui";
-import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { metaPage } from "@/i18n/seo";
 import { createT, messagesPage } from "@/i18n/translations";
@@ -63,7 +63,7 @@ export default async function TeammatesPage({ params, searchParams }: Params) {
   const filters = filtersOf(query);
   const page = readPageNumber(query.page);
   const now = await requestTime();
-  const languageName = new Intl.DisplayNames([LOCALE_HTML[locale]], { type: "language" });
+  const languageName = new Intl.DisplayNames([LOCALE_INTL[locale]], { type: "language" });
 
   const player = await currentPlayer().catch(() => ({ status: "unavailable" as const }));
   const viewer = player.status === "ok" ? player.id : null;

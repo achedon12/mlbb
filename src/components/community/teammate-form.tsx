@@ -4,7 +4,7 @@ import { useId, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Send, Trash2 } from "lucide-react";
 import { useLocale, useT } from "@/i18n/provider";
-import { LOCALE_HTML } from "@/i18n/config";
+import { LOCALE_INTL } from "@/i18n/config";
 import { trackEvent } from "@/lib/analytics";
 import { CARD_HEROES_MAX, CARD_NOTE_MAX, LANGUAGES, PLAY_TIMES, RANKS, REGIONS } from "@/lib/community/constants";
 import { LANES } from "@/lib/draft";
@@ -100,7 +100,7 @@ export function TeammateForm({ heroes, card }: { heroes: HeroOption[]; card: Own
   const [discord, setDiscord] = useState(card?.discord ?? "");
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState<{ ok: boolean; text: string } | null>(null);
-  const languageName = new Intl.DisplayNames([LOCALE_HTML[locale]], { type: "language" });
+  const languageName = new Intl.DisplayNames([LOCALE_INTL[locale]], { type: "language" });
 
   async function save(e: React.FormEvent) {
     e.preventDefault();
@@ -170,7 +170,7 @@ export function TeammateForm({ heroes, card }: { heroes: HeroOption[]; card: Own
           {card.hidden
             ? t("pages.communityUI.teammates.cardHidden")
             : t("pages.communityUI.teammates.cardListed", {
-                date: new Intl.DateTimeFormat(LOCALE_HTML[locale], { day: "numeric", month: "long" }).format(new Date(card.expiresAt)),
+                date: new Intl.DateTimeFormat(LOCALE_INTL[locale], { day: "numeric", month: "long" }).format(new Date(card.expiresAt)),
               })}
         </p>
       )}

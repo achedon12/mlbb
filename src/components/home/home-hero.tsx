@@ -6,7 +6,7 @@ import { SearchAllButton } from "@/components/home/search-all-button";
 import { ServerTimeChip } from "@/components/home/server-time-chip";
 import { monthText } from "@/components/event-month";
 import { shortDate } from "@/components/esports-parts";
-import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { prefix } from "@/i18n/links";
 import { createT } from "@/i18n/translations";
 import { allHeroes, illustrations } from "@/lib/data";
@@ -38,7 +38,7 @@ function heroOfTheDay() {
  */
 export function HomeHero({ locale }: { locale: Locale }) {
   const t = createT(locale);
-  const lang = LOCALE_HTML[locale];
+  const lang = LOCALE_INTL[locale];
   const featured = heroOfTheDay();
   const ranked = featured ? rankingFull.find((e) => e.hero.slug === featured.hero.slug) : null;
 

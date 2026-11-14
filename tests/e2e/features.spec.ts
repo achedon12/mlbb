@@ -274,3 +274,52 @@ test("the PWA manifest declares a maskable icon", async ({ request }) => {
   expect(icon.status()).toBe(200);
   expect(icon.headers()["content-type"]).toContain("image/png");
 });
+
+test.describe("language picker", () => {
+  const NAMES = ["English", "Français", "Italiano", "Español", "Bahasa Indonesia", "Filipino", "ไทย", "Português (Brasil)", "Русский"];
+  const exact = new RegExp(`^(${NAMES.map((n) => n.replace(/[()]/g, "\\$&")).join("|")})$`);
+  // The picker's entries, not the navigation's section buttons.
+  const options = (page: Page) => page.locator("header li").getByRole("button").filter({ hasText: exact });
+
+  test("lists every language and switches the current page", async ({ page }) => {
+    await page.goto("/en/heroes/khufra");
+    await expect(async () => {
+      await page.getByRole("button", { name: "Change language" }).click();
+      await expect(options(page).first()).toBeVisible({ timeout: 1_000 });
+    }).toPass();
+    await expect(options(page)).toHaveText(NAMES);
+
+    await options(page).filter({ hasText: "Русский" }).click();
+    await expect(page).toHaveURL(/\/ru\/heroes\/khufra$/);
+    await expect(page.locator("html")).toHaveAttribute("lang", "ru-RU");
+    await expect(page.getByRole("heading", { name: "Khufra", level: 1 })).toBeVisible();
+  });
+
+  test.describe("on a phone", () => {
+    test.use({ viewport: PHONE });
+
+    test("its longest name fits the screen", async ({ page }) => {
+      await page.goto("/pt");
+      await expect(page.locator("html")).toHaveAttribute("lang", "pt-BR");
+      const option = options(page).filter({ hasText: "Português (Brasil)" });
+      await expect(async () => {
+        await page.getByRole("button", { name: /idioma/i }).click();
+        await expect(option).toBeVisible({ timeout: 1_000 });
+      }).toPass();
+      const box = await option.boundingBox();
+      expect(box!.x).toBeGreaterThanOrEqual(0);
+      expect(box!.x + box!.width).toBeLessThanOrEqual(PHONE.width);
+    });
+  });
+
+  test.describe("from the browser's language", () => {
+    // Older systems name Filipino after Tagalog (`tl`): it still reaches /fil.
+    test.use({ locale: "tl-PH", extraHTTPHeaders: { "Accept-Language": "tl-PH,tl;q=0.9,en;q=0.8" } });
+
+    test("a Tagalog browser lands on the Filipino site", async ({ page }) => {
+      await page.goto("/");
+      await expect(page).toHaveURL(/\/fil$/);
+      await expect(page.locator("html")).toHaveAttribute("lang", "fil-PH");
+    });
+  });
+});

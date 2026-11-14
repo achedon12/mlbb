@@ -346,4 +346,28 @@ export const COUNTRY_BY_LOCALE: Record<Locale, CountryTimezone[]> = {
     { country: "ID", timezone: "Asia/Makassar", city: "Makassar" },
     { country: "ID", timezone: "Asia/Jayapura", city: "Jayapura" },
   ],
+  fil: [
+    { country: "PH", timezone: "Asia/Manila" },
+    { country: "AE", timezone: "Asia/Dubai" },
+    { country: "SA", timezone: "Asia/Riyadh" },
+  ],
+  th: [{ country: "TH", timezone: "Asia/Bangkok" }],
+  // Brazil first: the site's Portuguese is Brazil's, a country with four time zones.
+  pt: [
+    { country: "BR", timezone: "America/Sao_Paulo", city: "São Paulo" },
+    { country: "BR", timezone: "America/Manaus", city: "Manaus" },
+    { country: "BR", timezone: "America/Rio_Branco", city: "Rio Branco" },
+    { country: "PT", timezone: "Europe/Lisbon" },
+    { country: "AO", timezone: "Africa/Luanda" },
+    { country: "MZ", timezone: "Africa/Maputo" },
+  ],
+  // Russia spans eleven time zones: its largest cities, then its neighbours.
+  ru: [
+    { country: "RU", timezone: "Europe/Moscow", city: "Moscow" },
+    { country: "RU", timezone: "Asia/Yekaterinburg", city: "Yekaterinburg" },
+    { country: "RU", timezone: "Asia/Novosibirsk", city: "Novosibirsk" },
+    { country: "RU", timezone: "Asia/Vladivostok", city: "Vladivostok" },
+    { country: "BY", timezone: "Europe/Minsk" },
+    { country: "KZ", timezone: "Asia/Almaty" },
+  ],
 };

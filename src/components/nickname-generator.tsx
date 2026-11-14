@@ -4,7 +4,7 @@ import { Check, Copy, Shuffle } from "lucide-react";
 import { useEffect, useId, useRef, useState } from "react";
 import { classesChip } from "@/components/chip";
 import { Card } from "@/components/ui";
-import { LOCALE_HTML } from "@/i18n/config";
+import { LOCALE_INTL } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
 import {
   DECORATIONS,
@@ -65,7 +65,7 @@ const primaryButton =
 export function NicknameGenerator() {
   const t = useT();
   const locale = useLocale();
-  const number = new Intl.NumberFormat(LOCALE_HTML[locale]);
+  const number = new Intl.NumberFormat(LOCALE_INTL[locale]);
   const inputId = useId();
   const helpId = useId();
   const [input, setInput] = useState(() => t("pages.nicknameUI.example"));

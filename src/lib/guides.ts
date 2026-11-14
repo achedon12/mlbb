@@ -150,13 +150,19 @@ export function guidesUpdated(): string | undefined {
 /** Words read per minute: a cautious pace for a text full of game terms. */
 const WORDS_PER_MINUTE = 200;
 
+/**
+ * Words as the language's word breaker sees them: Thai puts no space between
+ * words, so splitting on spaces read a Thai guide as a one-minute text.
+ */
+const WORDS = new Intl.Segmenter(undefined, { granularity: "word" });
+
 /** Estimated reading time in whole minutes, at least one. */
 export function readingMinutes(markdown: string): number {
   const text = markdown
     .replace(/<!--[\s\S]*?-->/g, " ")
     .replace(/\]\([^)]*\)/g, "]")
     .replace(/[#*_>`[\]-]/g, " ");
-  const words = text.split(/\s+/).filter((w) => /[\p{L}\p{N}]/u.test(w)).length;
+  const words = [...WORDS.segment(text)].filter((s) => s.isWordLike).length;
   return Math.max(1, Math.round(words / WORDS_PER_MINUTE));
 }
 

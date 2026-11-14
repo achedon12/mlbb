@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
-import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import type { T } from "@/i18n/t";
 import type { GeneratedItem } from "@/lib/types";
 import { cn } from "@/lib/utils";
@@ -42,7 +42,7 @@ export function costMerge(item: PreviewItem, catalog: CatalogRecipes): number | 
   return item.price - components.reduce((sum, c) => sum + (c?.price ?? 0), 0);
 }
 
-const count = (locale: Locale, n: number) => n.toLocaleString(LOCALE_HTML[locale]);
+const count = (locale: Locale, n: number) => n.toLocaleString(LOCALE_INTL[locale]);
 
 /** Stats and effects, as `dt`/`dd` pairs to place in a `dl`. */
 export function EffectsItem({ item, t }: { item: PreviewItem; t: T }) {

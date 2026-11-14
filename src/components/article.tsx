@@ -1,6 +1,6 @@
 import Link from "@/components/link";
 import { cleanHtml } from "@/lib/html";
-import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
 import { Breadcrumb } from "@/components/breadcrumb";
 import type { Article } from "@/lib/types";
@@ -39,7 +39,7 @@ export function ListArticles({
                 {t(`articleCategory.${a.category}`)}
               </span>
               <time dateTime={a.date} className="text-xs text-chalk-500">
-                {formatShortDate(a.date, LOCALE_HTML[locale])}
+                {formatShortDate(a.date, LOCALE_INTL[locale])}
               </time>
             </div>
             <h2 className="mt-2 font-heading text-xl font-bold leading-snug text-chalk-100">
@@ -117,7 +117,7 @@ export function BodyArticle({
                     className="bevel-sm block h-full border border-night-700/70 bg-night-900/60 p-3 transition-colors hover:border-gold-500/60"
                   >
                     <time dateTime={o.date} className="text-xs text-chalk-500">
-                      {formatShortDate(o.date, LOCALE_HTML[locale])}
+                      {formatShortDate(o.date, LOCALE_INTL[locale])}
                     </time>
                     <span className="mt-1 block text-sm font-semibold leading-snug text-chalk-100">{o.title}</span>
                   </Link>
@@ -142,7 +142,7 @@ export function BodyArticle({
             {t(`articleCategory.${article.category}`)}
           </span>
           <time dateTime={article.date} className="text-xs text-chalk-500">
-            {formatShortDate(article.date, LOCALE_HTML[locale])}
+            {formatShortDate(article.date, LOCALE_INTL[locale])}
           </time>
           <span className="text-xs text-chalk-500">{t("articleUI.by", { author: article.author })}</span>
         </div>

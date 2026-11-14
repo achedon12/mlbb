@@ -1,5 +1,4 @@
 import { z } from "zod";
-import { LOCALES, type Locale } from "@/i18n/config";
 
 /**
  * A server's bot settings: the shape the bot reads, the shape the dashboard
@@ -13,7 +12,9 @@ import {
   GREETING_MAX_LENGTH,
   AUTO_ROLE_FAILURES,
   MAX_AUTO_ROLES,
+  BOT_LOCALES,
   type AnnouncementType,
+  type BotLocale,
   type AutoRoleFailure,
   type GreetingKind,
 } from "./kinds";
@@ -63,7 +64,7 @@ export interface AutoRoleSetting {
 /** What `GET /api/bot/guilds/:id/settings` answers. */
 export type GuildSettingsView = {
   guildId: string;
-  locale: Locale;
+  locale: BotLocale;
   dailyMlbbdleChannelId: string | null;
   dailyQuizChannelId: string | null;
   dailyHourUtc: number;
@@ -87,8 +88,8 @@ export type SettingsRow = {
   [K in `${GreetingKind}Failing`]: boolean;
 };
 
-export const asLocale = (value: string | null | undefined): Locale =>
-  (LOCALES as readonly string[]).includes(value ?? "") ? (value as Locale) : "en";
+export const asLocale = (value: string | null | undefined): BotLocale =>
+  (BOT_LOCALES as readonly string[]).includes(value ?? "") ? (value as BotLocale) : "en";
 
 /** Settings of a server, defaults when it never saved any. */
 export function settingsView(guildId: string, locale: string, row: SettingsRow | null): GuildSettingsView {
@@ -154,7 +155,7 @@ export const autoRoleIds = z
 /** What the dashboard sends when saving. */
 export const settingsInput = z
   .object({
-    locale: z.enum(LOCALES),
+    locale: z.enum(BOT_LOCALES),
     announcements: z.object(
       Object.fromEntries(
         ANNOUNCEMENT_TYPES.map((t) => [t, z.object({ channelId: optionalId, roleId: optionalId }).strict()]),

@@ -32,6 +32,26 @@ const TEXTS: Record<Locale, { title: string; text: string; retry: string }> = {
     "title": "Terjadi kesalahan",
     "text": "Situs mengalami masalah yang tidak terduga. Coba lagi sebentar lagi.",
     "retry": "Coba lagi"
+  },
+  "fil": {
+    "title": "Nagkaroon ng error",
+    "text": "Nagkaproblema ang site nang hindi inaasahan. Subukan ulit maya-maya.",
+    "retry": "Subukan ulit"
+  },
+  "th": {
+    "title": "เกิดข้อผิดพลาด",
+    "text": "เว็บไซต์พบปัญหาที่ไม่คาดคิด ลองใหม่อีกครั้งในอีกสักครู่",
+    "retry": "ลองอีกครั้ง"
+  },
+  "pt": {
+    "title": "Ocorreu um erro",
+    "text": "O site encontrou um problema inesperado. Tente de novo em instantes.",
+    "retry": "Tentar de novo"
+  },
+  "ru": {
+    "title": "Произошла ошибка",
+    "text": "На сайте возникла непредвиденная проблема. Попробуйте ещё раз через минуту.",
+    "retry": "Попробовать снова"
   }
 };
 

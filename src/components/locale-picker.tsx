@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { Check, ChevronDown, Globe } from "lucide-react";
-import { LOCALES, LOCALE_NAME, isLocale, type Locale } from "@/i18n/config";
+import { LOCALES, LOCALE_HTML, LOCALE_NAME, isLocale, type Locale } from "@/i18n/config";
 import { useT } from "@/i18n/provider";
 import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
@@ -66,7 +66,7 @@ export function LocalePicker({ locale }: { locale: Locale }) {
       </button>
 
       <div hidden={!open} className="absolute right-0 top-full z-50 pt-2">
-        <ul className="bevel w-40 border border-night-700/80 bg-night-900/98 p-1.5 shadow-2xl shadow-night-950/60 backdrop-blur">
+        <ul className="bevel w-max min-w-40 border border-night-700/80 bg-night-900/98 p-1.5 shadow-2xl shadow-night-950/60 backdrop-blur">
           {LOCALES.map((l) => {
             const active = l === locale;
             return (
@@ -74,9 +74,10 @@ export function LocalePicker({ locale }: { locale: Locale }) {
                 <button
                   type="button"
                   onClick={() => choose(l)}
+                  lang={LOCALE_HTML[l]}
                   aria-current={active ? "true" : undefined}
                   className={cn(
-                    "flex w-full items-center justify-between gap-2 rounded-md px-2.5 py-2 text-sm transition-colors",
+                    "flex w-full items-center justify-between gap-2 whitespace-nowrap rounded-md px-2.5 py-2 text-sm transition-colors",
                     active ? "text-gold-400" : "text-chalk-200 hover:bg-night-800/60",
                   )}
                 >

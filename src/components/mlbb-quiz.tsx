@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Palette, Scale, ScrollText, Share2, Shield, Sparkles, Trophy, type LucideIcon } from "lucide-react";
 import { FilterGroup, Chip } from "@/components/chip";
 import { RoundQuiz, type CatalogQuiz } from "@/components/quiz-round";
-import { LOCALE_HTML } from "@/i18n/config";
+import { LOCALE_INTL } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
 import type { T } from "@/i18n/t";
 import {
@@ -186,7 +186,7 @@ function ChallengeOfDay({ catalog, onPractice }: { catalog: CatalogQuiz; onPract
 
   const { challenge } = state;
   const allFinished = challenge.manches.every((m, i) => roundFinished(m, attempts[i] ?? []));
-  const readableDate = new Intl.DateTimeFormat(LOCALE_HTML[locale], { dateStyle: "long", timeZone: "UTC" }).format(
+  const readableDate = new Intl.DateTimeFormat(LOCALE_INTL[locale], { dateStyle: "long", timeZone: "UTC" }).format(
     new Date(`${challenge.jour}T00:00:00Z`),
   );
 
@@ -344,7 +344,7 @@ function Summary({
   const distribution = Array.from({ length: max + 1 }, (_, i) => stats.distribution[i] ?? 0);
   const higher = Math.max(1, ...distribution);
   const average = stats.joues ? distribution.reduce((s, n, i) => s + n * i, 0) / stats.joues : 0;
-  const format = new Intl.NumberFormat(LOCALE_HTML[locale], { maximumFractionDigits: 1 });
+  const format = new Intl.NumberFormat(LOCALE_INTL[locale], { maximumFractionDigits: 1 });
 
   // Native sharing is for mobile; elsewhere it would open a system dialog
   // where the clipboard is enough.

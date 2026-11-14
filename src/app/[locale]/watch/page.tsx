@@ -3,7 +3,7 @@ import Link from "@/components/link";
 import { ExternalLink } from "lucide-react";
 import { PageHeader } from "@/components/ui";
 import { measureWatch, sources, watch } from "@/lib/watch";
-import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
 import { metaPage } from "@/i18n/seo";
 import { formatShortDate } from "@/lib/utils";
@@ -23,7 +23,7 @@ export default async function WatchPage({ params }: { params: Promise<{ locale: 
   const { locale } = await params;
   const t = createT(locale);
   const news = watch();
-  const date = (iso: string) => formatShortDate(iso, LOCALE_HTML[locale]);
+  const date = (iso: string) => formatShortDate(iso, LOCALE_INTL[locale]);
   const [creditBefore, creditAfter = ""] = t("pages.watch.credit").split("{link}");
 
   return (

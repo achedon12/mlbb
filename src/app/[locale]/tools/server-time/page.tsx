@@ -3,7 +3,7 @@ import { ServerClock } from "@/components/server-clock";
 import Link from "@/components/link";
 import { PageHeader } from "@/components/ui";
 import { Foldable } from "@/components/foldable";
-import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { dataTool, metaPage } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
 import { patchDetails } from "@/lib/data";
@@ -46,12 +46,17 @@ const TIMEZONE_EXAMPLE: Record<Locale, string> = {
   it: "Europe/Rome",
   es: "Europe/Madrid",
   id: "Asia/Jakarta",
+  // The Philippines keep one time all year: the US West Coast shows the summer shift.
+  fil: "America/Los_Angeles",
+  th: "Asia/Bangkok",
+  pt: "America/Sao_Paulo",
+  ru: "Europe/Moscow",
 };
 
 /** The server's "wall clock" time converted into a time zone, at a given date. */
 function serverTimeIn(locale: Locale, time: number, timezone: string, month = 0) {
   const instant = Date.UTC(2026, month, 5, time) - SERVER_OFFSET_MIN * 60_000;
-  return new Intl.DateTimeFormat(locale, { hour: "2-digit", minute: "2-digit", hourCycle: "h23", timeZone: timezone }).format(
+  return new Intl.DateTimeFormat(LOCALE_INTL[locale], { hour: "2-digit", minute: "2-digit", hourCycle: "h23", timeZone: timezone }).format(
     instant,
   );
 }
@@ -78,7 +83,7 @@ export default async function ServerTimePage({ params }: Params) {
   const current = currentSeason(SEASONS, now);
   const upcoming = nextSeason(SEASONS, now);
   const schedule = SEASONS.slice(-SCHEDULE_ROWS).reverse();
-  const day = new Intl.DateTimeFormat(LOCALE_HTML[locale], { day: "numeric", month: "long", year: "numeric", timeZone: SERVER_TIMEZONE });
+  const day = new Intl.DateTimeFormat(LOCALE_INTL[locale], { day: "numeric", month: "long", year: "numeric", timeZone: SERVER_TIMEZONE });
   const sources = [...new Set(SEASONS.slice(-SCHEDULE_ROWS).map((s) => s.source).filter((s): s is string => !!s))];
   const structuredData = dataTool(locale, {
     name: t("pages.serverTime.title"),

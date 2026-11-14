@@ -18,7 +18,7 @@ import { ChipActive, FilterBar } from "@/components/filter-bar";
 import { Drawer } from "@/components/drawer";
 import { Pager } from "@/components/pager";
 import { pageHref, paging, pathWithoutPage, slicePage, SIZE_CARDS } from "@/lib/pager";
-import { LOCALE_HTML } from "@/i18n/config";
+import { LOCALE_INTL } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
 import { keySearch, cn } from "@/lib/utils";
 
@@ -208,7 +208,7 @@ export function ItemList({
                           // an item icon reads as a level or a quantity,
                           // not as a price.
                           <span className="text-xs tabular-nums text-gold-400">
-                            {o.price.toLocaleString(LOCALE_HTML[locale])} {t("pages.itemsList.gold")}
+                            {o.price.toLocaleString(LOCALE_INTL[locale])} {t("pages.itemsList.gold")}
                           </span>
                         )}
                       </button>
@@ -322,7 +322,7 @@ function ItemSheet({
                     <p className="mt-1 text-sm text-chalk-500">
                       {t("pages.itemsList.price")}{" "}
                       <span className="font-heading text-gold-400">
-                        {item.price.toLocaleString(LOCALE_HTML[locale])} {t("pages.itemsList.gold")}
+                        {item.price.toLocaleString(LOCALE_INTL[locale])} {t("pages.itemsList.gold")}
                       </span>
                     </p>
                   )}

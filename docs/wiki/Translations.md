@@ -1,7 +1,8 @@
 # Translations
 
 The site is available in **English (en, the default language), French (fr),
-Italian (it), Spanish (es) and Indonesian (id)**. Nothing is translated at
+Italian (it), Spanish (es), Indonesian (id), Filipino (fil), Thai (th),
+Brazilian Portuguese (pt) and Russian (ru)**. Nothing is translated at
 runtime: everything is translated **once**, by hand or in CI, then committed
 and cached. The application only reads static catalogues and data, per
 language.
@@ -44,12 +45,38 @@ interface, `scripts/translations-data.json` for data and articles; keyed by
 language and text, committed): a sentence already translated never goes back
 over the network.
 
+## Language codes
+
+The code is the URL segment, so it stays lowercase and without a region:
+`/pt` is Brazilian Portuguese. The region appears where it means something:
+`lang="pt-BR"` and `hreflang="pt-BR"` (`LOCALE_HTML`, `LOCALE_HREFLANG` in
+`src/i18n/config.ts`); every other `hreflang` is the bare code, so `fr` or
+`es` reach readers outside France and Spain. Browsers sending Tagalog (`tl`)
+get the Filipino site.
+
+Dates and numbers go through `LOCALE_INTL`: the `lang` code, except Thai,
+forced to the Gregorian calendar (its default counts years in the Buddhist
+era, 2569 for 2026).
+
+Rajdhani (headings) has no Cyrillic or Thai and Inter (body) no Thai: the
+Russian and Thai pages load Play, Chakra Petch and Noto Sans Thai
+(`src/app/[locale]/layout.tsx`, `:lang()` rules in `globals.css`).
+
 ## Game vocabulary and hand corrections
 
 - `scripts/translation-glossary.mjs` holds per-language game vocabulary applied
   to the output (not to the cache). Indonesian players keep most MOBA terms in
   English ("hero", "skin", "build", "counter", "win rate", "Gold Lane"), which
   the service would otherwise translate literally. Hero stories are left out.
+- Filipino, Thai, Portuguese and Russian have their own rules and a
+  glossary each in `docs/glossary/`: what players of that market call
+  heroes, builds, counters, lanes and ranks. Thai rules match without word
+  boundaries (Thai has no spaces), Russian ones list each case form.
+- Hero names are put back in the game's spelling after translation
+  (`restoreNames`): the service writes them in Cyrillic or Thai letters, or
+  translates them outright ("Moskov" as Moscow). The rendering of each name
+  is cached like any text; names that are dictionary words in a language are
+  left alone.
 - `scripts/translations-messages-overrides.json` holds hand corrections of the
   interface, per language and message key, together with the French text they
   correct. They win over the machine translation and survive reruns; when the
@@ -78,4 +105,9 @@ automatically.
    `src/i18n/translations.ts` import the new files.
 3. Outside the type checker: the service worker's offline table
    (`public/sw.js`), the smoke check's locale list
-   (`scripts/smoke-check-rules.mjs`) and the catalogue tests.
+   (`scripts/smoke-check-rules.mjs`), the server time groups
+   (`tools.serverTime.group` in `fr.json`) and the catalogue tests.
+4. A script the site fonts lack needs a fallback font (see above), and a
+   glossary in `docs/glossary/` with its rules.
+5. The Discord bot has its own languages (`bot/src/i18n/locales.ts`): the
+   dashboard only offers those (`BOT_LOCALES`).

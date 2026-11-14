@@ -1,5 +1,4 @@
-import type { Locale } from "@/i18n/config";
-import type { GreetingKind } from "./kinds";
+import type { BotLocale, GreetingKind } from "./kinds";
 
 /**
  * The bot's default welcome and goodbye texts, word for word, in each of
@@ -8,7 +7,7 @@ import type { GreetingKind } from "./kinds";
  * language, not the page's. `tests/unit/bot-greeting-defaults.test.ts`
  * fails as soon as these drift from the bot's files.
  */
-export const GREETING_DEFAULTS: Record<Locale, Record<GreetingKind, string>> = {
+export const GREETING_DEFAULTS: Record<BotLocale, Record<GreetingKind, string>> = {
   en: {
     welcome: "Welcome to **{server}**, {user}! There are {count} of us now: pick your roles in Channels & Roles.",
     goodbye: "**{username}** has left the server.",

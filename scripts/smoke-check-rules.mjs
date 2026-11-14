@@ -11,9 +11,12 @@
 
 // Same list as LOCALES in src/i18n/config.ts: this module stays pure (no file
 // reading), and tests/unit/translation-scripts.test.mjs checks they match.
-export const LOCALES = ["en", "fr", "it", "es", "id"];
+export const LOCALES = ["en", "fr", "it", "es", "id", "fil", "th", "pt", "ru"];
 const ALL = LOCALES;
 const EN_FR = ["en", "fr"];
+// The four languages added last: a few more of their pages are read, the
+// ones where their scripts, long words and game vocabulary show first.
+const LATEST = ["fil", "th", "pt", "ru"];
 
 /** Placeholder left by a message that was not interpolated: `{plural}`, `{count}`. */
 export const PLACEHOLDER = /\{[A-Za-z_][A-Za-z0-9_]*\}/g;
@@ -52,7 +55,7 @@ export const PAGES = [
   { path: "", locales: ALL, browser: true },
   { path: "/heroes", locales: ALL, browser: true },
   { path: "/heroes/khufra", locales: ALL, browser: true },
-  { path: "/heroes/khufra/counters", locales: EN_FR },
+  { path: "/heroes/khufra/counters", locales: [...EN_FR, ...LATEST] },
   { path: "/heroes/khufra/duos", locales: EN_FR },
   {
     // Rarity names come from the message catalog: a French label leaking into
@@ -64,20 +67,29 @@ export const PAGES = [
       fr: ["Exquis", "Exceptionnel"],
       it: ["Squisita", "Eccezionale"],
       es: ["Exquisita", "Excepcional"],
-      // Indonesian keeps the game's English rarity names.
+      // Indonesian keeps the game's English rarity names, like the four
+      // languages added after it.
       id: ["Exquisite", "Exceptional"],
+      fil: ["Exquisite", "Exceptional"],
+      th: ["Exquisite", "Exceptional"],
+      pt: ["Exquisite", "Exceptional"],
+      ru: ["Exquisite", "Exceptional"],
     },
     excludes: {
       en: ["Exquis", "Exceptionnel"],
       it: ["Exquis", "Exceptionnel"],
       es: ["Exquis", "Exceptionnel"],
       id: ["Exquis", "Exceptionnel"],
+      fil: ["Exquis", "Exceptionnel"],
+      th: ["Exquis", "Exceptionnel"],
+      pt: ["Exquis", "Exceptionnel"],
+      ru: ["Exquis", "Exceptionnel"],
     },
   },
   { path: "/tier-list", locales: ALL, browser: true },
   { path: "/tier-list/role/fighter", locales: ALL, browser: true },
   { path: "/tier-list/role/mage", locales: EN_FR },
-  { path: "/tier-list/lane/jungle", locales: EN_FR },
+  { path: "/tier-list/lane/jungle", locales: [...EN_FR, ...LATEST] },
   { path: "/tier-list/mythic", locales: EN_FR },
   { path: "/heroes/role/tank", locales: EN_FR },
   { path: "/statistics", locales: ALL },
@@ -96,16 +108,27 @@ export const PAGES = [
       fr: ["Emblème de combattant"],
       it: ["Emblema Combattente"],
       es: ["Emblema de luchador"],
-      // Indonesian keeps the game's English emblem names.
+      // Indonesian keeps the game's English emblem names, and so do the
+      // four languages added after it (the service wrote "Эмблема Истребителя").
       id: ["Fighter Emblem"],
+      fil: ["Fighter Emblem"],
+      th: ["Fighter Emblem"],
+      pt: ["Fighter Emblem"],
+      ru: ["Fighter Emblem"],
     },
-    excludes: { fr: ["Fighter Emblem"], it: ["Fighter Emblem"], es: ["Fighter Emblem"], id: ["Emblème de combattant"] },
+    excludes: {
+      fr: ["Fighter Emblem"],
+      it: ["Fighter Emblem"],
+      es: ["Fighter Emblem"],
+      id: ["Emblème de combattant"],
+      ru: ["Эмблема Истребителя"],
+    },
   },
   { path: "/spells", locales: EN_FR },
   { path: "/spells/flicker", locales: EN_FR },
   { path: "/skins", locales: EN_FR },
   { path: "/ranks", locales: EN_FR },
-  { path: "/patch-notes", locales: EN_FR },
+  { path: "/patch-notes", locales: [...EN_FR, ...LATEST], excludes: { th: ["2569", "2570"] } },
   { discover: "latest-patch", path: "/patch-notes/<latest version>", locales: EN_FR },
   { path: "/game-modes", locales: EN_FR },
   { path: "/news", locales: EN_FR },
@@ -118,7 +141,9 @@ export const PAGES = [
     locales: ALL,
     browser: true,
     minWords: 400,
-    includes: { en: ["Retribution"], fr: ["Retribution"], it: ["Retribution"], es: ["Retribution"], id: ["Retribution"] },
+    includes: Object.fromEntries(ALL.map((l) => [l, ["Retribution"]])),
+    // Machine translations of the spell's name.
+    excludes: { pt: ["Retribuição"], ru: ["Возмездие"], fil: ["Parusa"] },
   },
   { path: "/guides/drafting-basics", locales: EN_FR, minWords: 400 },
   // Tools hub: every tool, by use, in every language (the header links it).
@@ -130,7 +155,8 @@ export const PAGES = [
   { path: "/tools/build", locales: EN_FR },
   { path: "/tools/damage-calculator", locales: EN_FR },
   { path: "/tools/timer", locales: EN_FR },
-  { path: "/tools/server-time", locales: EN_FR },
+  // Dates: the Thai calendar would count 2569 for 2026.
+  { path: "/tools/server-time", locales: [...EN_FR, ...LATEST], excludes: { th: ["2569", "2570"] } },
   { path: "/tools/account-value", locales: EN_FR, browser: true },
   // Editorial weekly list: the page must read as a page even when the list
   // is missing or out of date.
@@ -242,13 +268,27 @@ export function extractLang(html) {
   return lang ? lang[1] : null;
 }
 
-export const countWords = (text) => (String(text).match(/[\p{L}\p{N}]+/gu) ?? []).length;
+/**
+ * Words as the language's word breaker sees them. Thai writes no space
+ * between words and its vowel marks are not letters: counting runs of
+ * letters gave a Thai page a meaningless figure, so the dictionary-based
+ * segmenter does the counting.
+ */
+const WORDS = new Intl.Segmenter(undefined, { granularity: "word" });
+export const countWords = (text) => [...WORDS.segment(String(text))].filter((s) => s.isWordLike).length;
 
 const escapeRegExp = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
+/**
+ * A letter or digit that would make a match part of a longer word. Thai
+ * letters do not count: Thai has no spaces, so "Retribution" or a Thai term
+ * stands right against the Thai text around it.
+ */
+const WORD_CHAR = "[\\p{N}]|[^\\P{L}\\p{sc=Thai}]";
+
 /** Whether `phrase` appears in `text` as whole words ("Exquis" is not in "Exquisite"). */
 export function containsPhrase(text, phrase) {
-  return new RegExp(`(?<![\\p{L}\\p{N}])${escapeRegExp(phrase)}(?![\\p{L}\\p{N}])`, "u").test(text);
+  return new RegExp(`(?<!${WORD_CHAR})${escapeRegExp(phrase)}(?!${WORD_CHAR})`, "u").test(text);
 }
 
 /**

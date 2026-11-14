@@ -2,6 +2,15 @@
  * Announcement types and daily games: plain constants, in their own module
  * so the dashboard's client component gets them without zod.
  */
+/**
+ * The languages the bot speaks (`bot/src/i18n/locales.ts`), fewer than the
+ * site's: a server's language is picked among these only. A server set to a
+ * site language the bot lacks would see the dashboard promise replies the
+ * bot cannot write.
+ */
+export const BOT_LOCALES = ["en", "fr", "it", "es", "id"] as const;
+export type BotLocale = (typeof BOT_LOCALES)[number];
+
 export const ANNOUNCEMENT_TYPES = ["patches", "skins", "events", "advanceServer", "esports"] as const;
 export type AnnouncementType = (typeof ANNOUNCEMENT_TYPES)[number];
 

@@ -5,7 +5,7 @@ import { Foldable } from "@/components/foldable";
 import { LightImage } from "@/components/light-image";
 import { PageHeader } from "@/components/ui";
 import { ExtendMessages } from "@/i18n/provider";
-import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { LOCALE_HTML, LOCALE_INTL, type Locale } from "@/i18n/config";
 import { metaPage, metaPaged } from "@/i18n/seo";
 import { createT, messagesPage } from "@/i18n/translations";
 import { sync } from "@/lib/data";
@@ -145,7 +145,7 @@ export function Skins({ locale, page = 1 }: { locale: Locale; page?: number }) {
                       {s.name}
                     </span>
                     <span className="block truncate text-xs text-chalk-500">
-                      {h.name} · <time dateTime={s.release!}>{formatRelease(s.release!, locale)}</time>
+                      {h.name} · <time dateTime={s.release!}>{formatRelease(s.release!, LOCALE_INTL[locale])}</time>
                     </span>
                   </Link>
                 </li>

@@ -13,7 +13,7 @@ import { FreshnessLine } from "@/components/freshness";
 import Link from "@/components/link";
 import { Card, PageHeader, SectionTitle } from "@/components/ui";
 import visuals from "@/data/game/visuals.json";
-import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { metaPage } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
 import { heroesBySlug, itemsFor } from "@/lib/data";
@@ -50,7 +50,7 @@ function sheet(locale: Locale, slug: string) {
   const t = createT(locale);
   const heroes = usage("item", slug);
   const builders = topBuilders("item", slug);
-  const price = o.price === null ? null : `${o.price.toLocaleString(LOCALE_HTML[locale])} ${t("pages.itemsList.gold")}`;
+  const price = o.price === null ? null : `${o.price.toLocaleString(LOCALE_INTL[locale])} ${t("pages.itemsList.gold")}`;
   const details = [t(`categories.${o.category}`), price].filter(Boolean).join(", ");
   const effect = o.bonus ?? o.summary;
   const sentences = [
@@ -105,7 +105,7 @@ export default async function ItemPage({ params }: Params) {
   const item = previews.find((x) => x.slug === slug)!;
   const catalog = catalogRecipes(previews);
   const hasRecipe = item.recipe.length > 0 || (catalog.outlets.get(item.name)?.length ?? 0) > 0;
-  const price = (n: number) => `${n.toLocaleString(LOCALE_HTML[locale])} ${t("pages.itemsList.gold")}`;
+  const price = (n: number) => `${n.toLocaleString(LOCALE_INTL[locale])} ${t("pages.itemsList.gold")}`;
   const category = t(`categories.${o.category}`);
 
   // Neighboring items: same category, the closest in price, then sorted by price.
@@ -184,7 +184,7 @@ export default async function ItemPage({ params }: Params) {
               lead={t("pages.itemDetail.buildersIntro", {
                 name: o.name,
                 ranks: listNames(locale, BUILDER_RULE.ranks.map((r) => t(`measuredRanks.${r}`))),
-                min: new Intl.NumberFormat(LOCALE_HTML[locale], { style: "percent", maximumFractionDigits: 2 }).format(
+                min: new Intl.NumberFormat(LOCALE_INTL[locale], { style: "percent", maximumFractionDigits: 2 }).format(
                   BUILDER_RULE.minPickRate / 100,
                 ),
               })}

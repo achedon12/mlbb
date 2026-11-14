@@ -1,5 +1,7 @@
 "use client";
 
+import { LOCALE_INTL } from "@/i18n/config";
+
 import { useEffect, useId, useRef, useState } from "react";
 import { useLocale } from "@/i18n/provider";
 import { cn } from "@/lib/utils";
@@ -115,7 +117,7 @@ export function RateCurve({
     minimumFractionDigits: decimals,
     maximumFractionDigits: decimals,
   });
-  const day = new Intl.DateTimeFormat(locale, { day: "numeric", month: "short", timeZone: "UTC" });
+  const day = new Intl.DateTimeFormat(LOCALE_INTL[locale], { day: "numeric", month: "short", timeZone: "UTC" });
   const date = (s: string) => day.format(new Date(`${s}T00:00:00Z`));
 
   const ticks = [higher, (higher + lower) / 2, lower];

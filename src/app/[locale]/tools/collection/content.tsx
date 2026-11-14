@@ -3,7 +3,7 @@ import { CollectionCalculator } from "@/components/collection-calculator";
 import { FreshnessLine } from "@/components/freshness";
 import Link from "@/components/link";
 import { PageHeader, SectionTitle } from "@/components/ui";
-import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { dataTool, metaPage, metaPaged } from "@/i18n/seo";
 import { createT, messagesPage } from "@/i18n/translations";
@@ -41,7 +41,7 @@ export function metaCollection(locale: Locale, page = 1): Metadata {
 
 export function Collection({ locale, page = 1 }: { locale: Locale; page?: number }) {
   const t = createT(locale);
-  const count = new Intl.NumberFormat(LOCALE_HTML[locale]);
+  const count = new Intl.NumberFormat(LOCALE_INTL[locale]);
   const c = coveragePrice(catalogSkins());
   const structuredData = dataTool(locale, {
     name: t("pages.collection.title"),

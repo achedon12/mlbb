@@ -5,7 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Trash2, X } from "lucide-react";
 import { SearchField } from "@/components/search-field";
 import { FilterGroup, Chip } from "@/components/chip";
-import { LOCALE_HTML } from "@/i18n/config";
+import { LOCALE_INTL } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
 import type { ItemOption } from "@/lib/build-simulator";
 import { keySearch } from "@/lib/utils";
@@ -38,7 +38,7 @@ export function ItemPicker({
 }) {
   const t = useT();
   const locale = useLocale();
-  const gold = new Intl.NumberFormat(LOCALE_HTML[locale]);
+  const gold = new Intl.NumberFormat(LOCALE_INTL[locale]);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState<string | null>(null);
 

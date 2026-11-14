@@ -26,7 +26,7 @@ const CACHE_IMAGES = `images-${VERSION}`;
 const CACHE_DATA = `donnees-${VERSION}`;
 const CACHES = [CACHE_PAGES, CACHE_STATIC, CACHE_IMAGES, CACHE_DATA];
 // Same list as LOCALES in src/i18n/config.ts (a service worker cannot import it).
-const LOCALES = ["fr", "en", "it", "es", "id"];
+const LOCALES = ["fr", "en", "it", "es", "id", "fil", "th", "pt", "ru"];
 const MAX_PAGES = 250;
 const MAX_IMAGES = 800;
 const MAX_DATA = 300;
@@ -36,7 +36,17 @@ const MAX_DATA = 300;
  * worker cannot load the message catalogs: this small table is the only
  * visitor text it carries.
  */
-const OFFLINE_TEXT = { fr: "Hors ligne", en: "Offline", it: "Offline", es: "Sin conexión", id: "Offline" };
+const OFFLINE_TEXT = {
+  fr: "Hors ligne",
+  en: "Offline",
+  it: "Offline",
+  es: "Sin conexión",
+  id: "Offline",
+  fil: "Offline",
+  th: "ออฟไลน์",
+  pt: "Sem conexão",
+  ru: "Нет сети",
+};
 
 /**
  * In development, the service worker is only registered to try out
@@ -91,7 +101,7 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(cacheFirst(event, CACHE_IMAGES, MAX_IMAGES));
   } else if (
     /^\/(composition|matchups|trends|quiz|quiz\/day)\/[^/]+\.json$/.test(url.pathname) ||
-    /^\/[a-z]{2}\/search\.json$/.test(url.pathname)
+    /^\/[a-z]{2,3}\/search\.json$/.test(url.pathname)
   ) {
     event.respondWith(networkFirst(event, CACHE_DATA, MAX_DATA));
   }

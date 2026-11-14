@@ -4,7 +4,7 @@ import { MatchupMatrix } from "@/components/matchup-matrix";
 import { GuideLink } from "@/components/guide";
 import { guide } from "@/lib/guides";
 import { PageHeader } from "@/components/ui";
-import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { dataTool, metaPage } from "@/i18n/seo";
 import { createT, messagesPage } from "@/i18n/translations";
@@ -81,8 +81,8 @@ export default async function MatchupsPage({ params }: Params) {
   const shares = RANKS_CLASSES.map((r) => coverage(measuredGaps(counters, r, exists), allHeroes.length));
   const possible = shares[0]?.possible ?? 0;
   const measured = shares.map((s) => s.measured);
-  const integer = new Intl.NumberFormat(LOCALE_HTML[locale]);
-  const percent = new Intl.NumberFormat(LOCALE_HTML[locale], { style: "percent", maximumFractionDigits: 0 });
+  const integer = new Intl.NumberFormat(LOCALE_INTL[locale]);
+  const percent = new Intl.NumberFormat(LOCALE_INTL[locale], { style: "percent", maximumFractionDigits: 0 });
 
   const sectionTitle = "font-heading text-2xl font-bold text-chalk-100";
   const link = "font-semibold text-gold-400 transition-colors hover:text-gold-500";

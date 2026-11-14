@@ -18,7 +18,7 @@ import { shiftDay, isValidDay, dayUtc } from "@/lib/quiz";
 export const dynamic = "force-dynamic";
 
 export async function GET(_request: Request, { params }: { params: Promise<{ file: string }> }) {
-  const m = /^([a-z]{2})-(\d{4}-\d{2}-\d{2})\.json$/.exec((await params).file);
+  const m = /^([a-z]{2,3})-(\d{4}-\d{2}-\d{2})\.json$/.exec((await params).file);
   if (!m || !isLocale(m[1]) || !isValidDay(m[2])) return new NextResponse(null, { status: 404 });
   const [, language, day] = m;
   const today = dayUtc(new Date());

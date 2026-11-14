@@ -1,7 +1,7 @@
 import { ArrowBigUp, Lock, MessageSquare, Pin, Search } from "lucide-react";
 import Link from "@/components/link";
 import { HeroPortrait } from "@/components/hero-portrait";
-import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import type { T } from "@/i18n/t";
 import { threadPath } from "@/lib/community/constants";
 import type { ThreadSummary } from "@/lib/community/store";
@@ -17,7 +17,7 @@ import { DiscordMark } from "@/components/bot/discord-mark";
 /** "3 hours ago", in the page's language, from the request time. */
 export function ago(locale: Locale, date: Date, now: number): string {
   const seconds = Math.round((date.getTime() - now) / 1000);
-  const format = new Intl.RelativeTimeFormat(LOCALE_HTML[locale], { numeric: "auto" });
+  const format = new Intl.RelativeTimeFormat(LOCALE_INTL[locale], { numeric: "auto" });
   const steps: [Intl.RelativeTimeFormatUnit, number][] = [
     ["year", 31_536_000],
     ["month", 2_592_000],
@@ -78,7 +78,7 @@ export function ThreadList({
   if (threads.length === 0) {
     return <p className="border border-dashed border-night-700 p-6 text-sm text-chalk-400">{emptyText}</p>;
   }
-  const number = new Intl.NumberFormat(LOCALE_HTML[locale]);
+  const number = new Intl.NumberFormat(LOCALE_INTL[locale]);
   return (
     <ul className="divide-y divide-night-800 border-y border-night-800">
       {threads.map((th) => (

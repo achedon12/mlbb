@@ -4,7 +4,7 @@ import { useEffect, useId, useMemo, useState } from "react";
 import { Download, RotateCcw, Share2 } from "lucide-react";
 import { Chip, FilterGroup, classesChip } from "@/components/chip";
 import { Card } from "@/components/ui";
-import { LOCALE_HTML } from "@/i18n/config";
+import { LOCALE_INTL } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
 import {
   BINDINGS,
@@ -55,7 +55,7 @@ function NumberField({
 }) {
   const id = useId();
   const locale = useLocale();
-  const count = new Intl.NumberFormat(LOCALE_HTML[locale]);
+  const count = new Intl.NumberFormat(LOCALE_INTL[locale]);
   return (
     <div>
       <label htmlFor={id} className="block text-sm font-semibold text-chalk-200">
@@ -100,7 +100,7 @@ function NumberField({
 export function AccountValueEstimator({ model, assumptions }: { model: Model; assumptions: Assumptions }) {
   const t = useT();
   const locale = useLocale();
-  const html = LOCALE_HTML[locale];
+  const html = LOCALE_INTL[locale];
   const [inputs, setInputs] = useState<Inputs>(DEFAULT_INPUTS);
   const [currency, setCurrency] = useState<Currency>("USD");
   const [ready, setReady] = useState(false);

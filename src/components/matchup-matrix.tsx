@@ -5,7 +5,7 @@ import { ArrowLeftRight, Link2, Plus, RotateCcw, X } from "lucide-react";
 import { HeroSelector, HeroThumb, type HeroPickable } from "@/components/hero-picker";
 import Link from "@/components/link";
 import { ChoiceRank } from "@/components/rank-picker";
-import { LOCALE_HTML } from "@/i18n/config";
+import { LOCALE_INTL } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
 import { trackShare } from "@/lib/analytics";
 import {
@@ -113,7 +113,7 @@ export function MatchupMatrix({
   const state = charges[rank];
   const gaps = state && state !== "error" ? state.gaps : null;
   const duels = useMemo(() => (gaps ? measuredDuels(gaps, rows, columns) : []), [gaps, rows, columns]);
-  const gap = (v: number) => `${formatGap(v, LOCALE_HTML[siteLocale])} ${t("counters.pts")}`;
+  const gap = (v: number) => `${formatGap(v, LOCALE_INTL[siteLocale])} ${t("counters.pts")}`;
 
   const picked = new Set([...rows, ...columns]);
   const setters: Record<Side, typeof setRows> = { rows: setRows, columns: setColumns };
@@ -319,7 +319,7 @@ export function MatchupMatrix({
                                 shade(value),
                               )}
                             >
-                              {formatGap(value, LOCALE_HTML[siteLocale])}
+                              {formatGap(value, LOCALE_INTL[siteLocale])}
                             </Link>
                           )}
                         </td>
