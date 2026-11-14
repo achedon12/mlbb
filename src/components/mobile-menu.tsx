@@ -162,7 +162,9 @@ export function MobileMenu() {
         {open ? <X size={20} aria-hidden /> : <Menu size={20} aria-hidden />}
       </button>
 
+      {/* `data-bottom-ui`: while the menu is open, the Discord invitation steps aside. */}
       <div
+        data-bottom-ui
         hidden={!open}
         onClick={close}
         className="fixed inset-0 top-16 z-30 bg-night-950/60 backdrop-blur-sm"

@@ -4,6 +4,26 @@
       "fr": "Pagination",
       "text": "Pagination"
     },
+    "discordPopup.close": {
+      "fr": "Fermer l'invitation",
+      "text": "Close the invitation"
+    },
+    "discordPopup.join": {
+      "fr": "Rejoindre",
+      "text": "Join"
+    },
+    "discordPopup.label": {
+      "fr": "Invitation au Discord MLBBDex",
+      "text": "MLBBDex Discord invitation"
+    },
+    "discordPopup.text": {
+      "fr": "Alertes de patch, MLBBdle du jour, coéquipiers à trouver.",
+      "text": "Patch alerts, the daily MLBBdle, teammates to find."
+    },
+    "discordPopup.title": {
+      "fr": "Rejoignez le Discord MLBBDex",
+      "text": "Join the MLBBDex Discord"
+    },
     "draftUI.answersLabel": {
       "fr": "Suggestions pour la lane {lane}",
       "text": "Suggestions for the {lane} lane"
@@ -293,6 +313,26 @@
     "common.pager.previous": {
       "fr": "Page précédente",
       "text": "Página anterior"
+    },
+    "discordPopup.close": {
+      "fr": "Fermer l'invitation",
+      "text": "Cerrar la invitación"
+    },
+    "discordPopup.join": {
+      "fr": "Rejoindre",
+      "text": "Unirme"
+    },
+    "discordPopup.label": {
+      "fr": "Invitation au Discord MLBBDex",
+      "text": "Invitación al Discord de MLBBDex"
+    },
+    "discordPopup.text": {
+      "fr": "Alertes de patch, MLBBdle du jour, coéquipiers à trouver.",
+      "text": "Avisos de parche, MLBBdle diario y compañeros de equipo."
+    },
+    "discordPopup.title": {
+      "fr": "Rejoignez le Discord MLBBDex",
+      "text": "Únete al Discord de MLBBDex"
     },
     "draftUI.filledBy": {
       "fr": "Pourvue par {name}",
@@ -2763,6 +2803,26 @@
     "pages.damageCalculator.method3": {
       "fr": "Une attaque de base inflige des dégâts physiques égaux à l'attaque physique totale ; un critique en inflige les dégâts critiques, 200 % par défaut, et la moyenne pondère les deux par la chance de critique. Les héros dont le passif modifie l'attaque de base ne sont pas modélisés. Les stats d'un héros viennent du simulateur de build : niveaux entre 1 et 15 interpolés, emblème sans talents, passifs conditionnels des objets non comptés.",
       "text": "Serangan dasar memberikan damage fisik sebesar total serangan fisik; serangan kritis memberikan damage kritis, 200% secara default, dan rata-ratanya menimbang keduanya dengan peluang kritis. Hero yang pasifnya mengubah serangan dasar tidak dimodelkan. Statistik hero berasal dari simulator build: level antara 1 dan 15 diinterpolasi, emblem tanpa bakat, pasif bersyarat item tidak dihitung."
+    },
+    "discordPopup.label": {
+      "fr": "Invitation au Discord MLBBDex",
+      "text": "Undangan Discord MLBBDex"
+    },
+    "discordPopup.title": {
+      "fr": "Rejoignez le Discord MLBBDex",
+      "text": "Gabung Discord MLBBDex"
+    },
+    "discordPopup.text": {
+      "fr": "Alertes de patch, MLBBdle du jour, coéquipiers à trouver.",
+      "text": "Info patch, MLBBdle harian, dan cari teman mabar."
+    },
+    "discordPopup.join": {
+      "fr": "Rejoindre",
+      "text": "Gabung"
+    },
+    "discordPopup.close": {
+      "fr": "Fermer l'invitation",
+      "text": "Tutup undangan"
     }
   },
   "it": {
@@ -2773,6 +2833,26 @@
     "common.pager.status": {
       "fr": "Page {page} sur {pages} · {first} à {last} sur {total}",
       "text": "Pagina {page} di {pages} · da {first} a {last} di {total}"
+    },
+    "discordPopup.close": {
+      "fr": "Fermer l'invitation",
+      "text": "Chiudi l'invito"
+    },
+    "discordPopup.join": {
+      "fr": "Rejoindre",
+      "text": "Unisciti"
+    },
+    "discordPopup.label": {
+      "fr": "Invitation au Discord MLBBDex",
+      "text": "Invito al Discord di MLBBDex"
+    },
+    "discordPopup.text": {
+      "fr": "Alertes de patch, MLBBdle du jour, coéquipiers à trouver.",
+      "text": "Avvisi sulle patch, MLBBdle del giorno, compagni di squadra."
+    },
+    "discordPopup.title": {
+      "fr": "Rejoignez le Discord MLBBDex",
+      "text": "Unisciti al Discord di MLBBDex"
     },
     "draftUI.filledBy": {
       "fr": "Pourvue par {name}",

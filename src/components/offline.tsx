@@ -49,7 +49,7 @@ export function Offline() {
 
   if (online) return null;
   return (
-    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-40 flex justify-center p-3">
+    <div data-bottom-ui className="pointer-events-none fixed inset-x-0 bottom-0 z-40 flex justify-center p-3">
       <p
         role="status"
         className="bevel-sm pointer-events-auto flex items-center gap-2 border border-gold-500/40 bg-night-900/95 px-4 py-2 text-sm text-chalk-100 shadow-lg shadow-black/40 backdrop-blur-sm"
