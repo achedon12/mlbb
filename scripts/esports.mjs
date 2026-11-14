@@ -5,9 +5,11 @@
  *     node scripts/esports.mjs            only re-reads pages that changed
  *     node scripts/esports.mjs --force    ignores the cache
  *
- * Writes `src/data/game/esports.json`. Liquipedia content is licensed under
- * CC BY-SA 3.0: every page showing it credits it, with links to the source
- * pages. Teams stay plain text: no logo, no photo.
+ * Writes `src/data/game/esports.json` (tournaments, standings, hero counts)
+ * and `src/data/game/esports-players.json` (rosters, lineups and drafts of
+ * every played match, read by the player and team pages). Liquipedia content
+ * is licensed under CC BY-SA 3.0: every page showing it credits it, with links
+ * to the source pages. Teams and players stay plain text: no logo, no photo.
  *
  * The API terms are followed to the letter: descriptive User-Agent with a
  * contact, gzip, one request at a time, two seconds between requests and
@@ -20,8 +22,11 @@ import { existsSync } from "node:fs";
 import { readFile, writeFile } from "node:fs/promises";
 import {
   analyzePage,
+  assembleProData,
+  buildLineups,
   buildTournament,
   createHeroResolver,
+  playerPage,
   readAliasTable,
   STAGE_ORDER,
   stageKey,
@@ -32,12 +37,13 @@ const API = "https://liquipedia.net/mobilelegends/api.php";
 const WIKI = "https://liquipedia.net/mobilelegends/";
 const USER_AGENT = "MLBBDex/1.0 (+https://mlbbdex.com; contact@leoderoin.fr)";
 const OUTPUT = "src/data/game/esports.json";
+const PLAYERS_OUTPUT = "src/data/game/esports-players.json";
 const CACHE = "scripts/esports-cache.json";
 const HEROES = "src/data/game/heroes.json";
 const HERO_MODULE = "Module:HeroNames";
 
 /** Bump when the analysis changes: cached pages are then read again. */
-const ANALYSIS_VERSION = 2;
+const ANALYSIS_VERSION = 3;
 const INTERVAL = 2100;
 const RENDER_INTERVAL = 31000;
 /** Titles per request: the API caps at 50, and page contents add up fast. */
@@ -175,6 +181,18 @@ async function resolveTeams(keys, cache) {
   }
 }
 
+/**
+ * Player pages, after redirects: a renamed player keeps one id whatever name
+ * a tournament page writes ("Lutpii", "Lutpiii"). Each title is queried once
+ * and kept in the cache; a title without a page stays as written.
+ */
+async function resolvePlayers(titles, cache) {
+  const unknown = [...new Set(titles)].filter((t) => t && !(t in cache.players));
+  if (!unknown.length) return;
+  console.log(`  ${unknown.length} player page(s) to resolve`);
+  for (const [title, r] of await revisions(unknown)) cache.players[title] = r?.title ?? null;
+}
+
 // ─────────────────────────────────────────────────────────────
 // Cache
 // ─────────────────────────────────────────────────────────────
@@ -183,7 +201,7 @@ async function readJson(path, fallback) {
   return existsSync(path) ? JSON.parse(await readFile(path, "utf8")) : fallback;
 }
 
-const emptyCache = () => ({ version: ANALYSIS_VERSION, pages: {}, subpages: {}, teams: {}, heroNames: null });
+const emptyCache = () => ({ version: ANALYSIS_VERSION, pages: {}, subpages: {}, teams: {}, players: {}, heroNames: null });
 
 /**
  * Analysis of each title, re-read only when its revision changed. Returns,
@@ -279,7 +297,9 @@ const wikiLink = (title) => `${WIKI}${encodeURI(title.replace(/ /g, "_"))}`;
 async function main() {
   const startedAt = Date.now();
   let cache = await readJson(CACHE, emptyCache());
-  if (FORCE || cache.version !== ANALYSIS_VERSION) cache = { ...emptyCache(), teams: cache.teams ?? {} };
+  if (cache.version !== ANALYSIS_VERSION) cache = { ...emptyCache(), teams: cache.teams ?? {}, players: cache.players ?? {} };
+  // --force reads everything again, the player page redirects included.
+  if (FORCE) cache = { ...emptyCache(), teams: cache.teams ?? {} };
   const previous = await readJson(OUTPUT, { tournaments: [] });
 
   try {
@@ -299,12 +319,24 @@ async function main() {
 
     // Teams: every name met, resolved in a single render.
     const keys = new Set();
-    for (const p of read.values()) {
-      for (const t of p?.analysis.tables ?? []) for (const team of t.teams) keys.add(teamKey(team.name));
-      for (const c of p?.analysis.containers ?? []) for (const m of c.matches) for (const team of m.teams) if (team) keys.add(teamKey(team));
+    const pages = [...kept.map((e) => e.page), ...read.values()].filter(Boolean);
+    for (const p of pages) {
+      for (const t of p.analysis.tables) for (const team of t.teams) keys.add(teamKey(team.name));
+      for (const c of p.analysis.containers) for (const m of c.matches) for (const team of m.teams) if (team) keys.add(teamKey(team));
+      for (const t of p.analysis.participants) keys.add(teamKey(t.team));
     }
     await resolveTeams(keys, cache);
     const teamName = (raw) => cache.teams[teamKey(raw)] ?? raw;
+
+    // Players: every roster entry and substitution, pages resolved in batches.
+    const refs = [];
+    for (const p of pages) {
+      for (const t of p.analysis.participants) refs.push(...t.players);
+      for (const c of p.analysis.containers) for (const m of c.matches) for (const side of m.substitutions) for (const s of side) refs.push(s.in, s.out);
+    }
+    await resolvePlayers(refs.map(playerPage), cache);
+    const playerId = (ref) => cache.players[playerPage(ref)] ?? playerPage(ref);
+    const lineupsBySlug = new Map();
 
     const siteHeroes = JSON.parse(await readFile(HEROES, "utf8"));
     const { resolve, lookup, unknown } = createHeroResolver(cache.heroNames?.table ?? {}, siteHeroes);
@@ -320,6 +352,8 @@ async function main() {
       const sources = [e.page, ...stages.map((s) => read.get(s.page)).filter(Boolean)]
         .filter((p, i, all) => all.findIndex((x) => x.title === p.title) === i)
         .map((p) => ({ title: p.title, url: wikiLink(p.title), revision: p.timestamp }));
+      const participants = [e.page.analysis, ...stages.map((s) => s.analysis)].flatMap((a) => a.participants);
+      lineupsBySlug.set(e.series.slug(e.number), buildLineups(stages, participants, { teamName, lookup, playerId }));
       return {
         slug: e.series.slug(e.number),
         series: e.series.id.startsWith("mpl") ? "mpl" : e.series.id,
@@ -358,6 +392,22 @@ async function main() {
       tournaments,
     };
     await writeFile(OUTPUT, `${JSON.stringify(output, null, 1)}\n`);
+
+    // Oldest tournament first: a player's latest name and team win.
+    const chronological = [...tournaments].sort((a, b) => (a.startDate ?? "").localeCompare(b.startDate ?? ""));
+    const existing = new Set(Object.values(cache.players).filter(Boolean));
+    const pro = assembleProData(
+      chronological.map((t) => ({ tournament: t.slug, ...lineupsBySlug.get(t.slug) })),
+      existing,
+    );
+    // Compact: one line per player, team and match, so a sync diff stays readable.
+    const lines = (list) => list.map((x) => `  ${JSON.stringify(x)}`).join(",\n");
+    await writeFile(
+      PLAYERS_OUTPUT,
+      `{\n "updatedAt": ${JSON.stringify(output.updatedAt)},\n "players": [\n${lines(pro.players)}\n ],\n "teams": [\n${lines(pro.teams)}\n ],\n "matches": [\n${lines(pro.matches)}\n ]\n}\n`,
+    );
+    const attributed = pro.matches.flatMap((m) => m.games).filter((g) => g.picks[0].length === 5).length;
+    console.log(`${pro.players.length} players, ${pro.teams.length} teams, ${pro.matches.length} matches written to ${PLAYERS_OUTPUT} (${attributed} games with a draft)`);
 
     console.log(`\n${tournaments.length} tournaments written to ${OUTPUT}:`);
     for (const t of tournaments) {

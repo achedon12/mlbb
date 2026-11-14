@@ -2641,6 +2641,87 @@
         "ranked": "Kemenangan berperingkat",
         "rankedDetail": "kehadiran di baris {value}",
         "link": "Meta pro dan turnamen"
+      },
+      "nav": {
+        "label": "Bagian Turnamen",
+        "overview": "Ringkasan",
+        "players": "Pemain"
+      },
+      "pro": {
+        "roles": {
+          "exp": "EXP",
+          "jungle": "Jungle",
+          "mid": "Mid",
+          "gold": "Gold",
+          "roam": "Roam",
+          "flex": "Flex"
+        },
+        "status": {
+          "sub": "Pengganti",
+          "former": "Mantan pemain"
+        },
+        "record": "{wins} M – {losses} K",
+        "win": "Menang",
+        "loss": "Kalah",
+        "vs": "melawan {team}",
+        "method": "Liquipedia mencatat setiap draft sebagai lima hero per tim, sesuai urutan lane di roster: setiap hero dikaitkan dengan pemain di posisi itu, dengan memperhitungkan pergantian pemain yang dicatat untuk pertandingan tersebut. Liquipedia tidak mencatat kill, death, atau assist untuk Mobile Legends: tidak ada KDA di sini, hanya game, kemenangan, MVP, dan hero yang dimainkan.",
+        "methodLabel": "Metode dan batasan",
+        "players": {
+          "seoTitle": "{name}: statistik pemain",
+          "seoDescription": "{name}: game, win rate, MVP, dan hero yang dimainkan oleh {n} pemain, game demi game, berdasarkan draft Liquipedia.",
+          "title": "{name}: pemain",
+          "lead": "{n} pemain dalam {games} game: rekor, MVP, dan hero yang dimainkan masing-masing, bisa diurutkan per kolom.",
+          "empty": "Belum ada game yang tercatat: statistik pemain akan muncul setelah pertandingan pertama."
+        },
+        "player": {
+          "seoTitle": "{name} ({team}): hero dan statistik pro",
+          "seoTitleAlone": "{name}: hero dan statistik pro",
+          "seoDescription": "{name}, {role} {team}: {games} game pro tercatat, menang {rate}. Hero paling sering dimainkan: {heroes}.",
+          "lead": "{name}, {role} {team}: {games} game tercatat di Liquipedia, dengan hero yang dimainkan dan hasil di setiap turnamen.",
+          "facts": {
+            "team": "Tim",
+            "role": "Peran",
+            "games": "Game",
+            "record": "Rekor",
+            "winRate": "Win rate",
+            "mvps": "MVP"
+          },
+          "heroesTitle": "Hero yang dimainkan",
+          "heroesIntro": "{n} hero dimainkan di kompetisi, dari yang paling sering.",
+          "tournamentsTitle": "Turnamen",
+          "matchesTitle": "Pertandingan terbaru",
+          "matchesIntro": "{n} pertandingan terakhir, dengan hero yang dimainkan di setiap game.",
+          "liquipedia": "Halaman Liquipedia",
+          "mvp": "MVP pertandingan"
+        },
+        "team": {
+          "seoTitle": "{name}: skuad, hasil dan draft",
+          "seoDescription": "{name}: roster, rekor {series} di seri dan {games} di game dalam {tournaments} turnamen, pertandingan terbaru dengan pick dan ban game demi game.",
+          "lead": "{name}: roster, rekor, dan draft dari turnamen yang dicakup, berdasarkan Liquipedia.",
+          "facts": {
+            "series": "Seri",
+            "games": "Game",
+            "tournaments": "Turnamen",
+            "titles": "Gelar"
+          },
+          "rosterTitle": "Roster",
+          "rosterIntro": "Pemain yang terdaftar untuk {name}, pemain inti lebih dulu.",
+          "gamesPlayed": "{n} game",
+          "recordsTitle": "Rekor per turnamen",
+          "champion": "Juara",
+          "matchesTitle": "Pertandingan",
+          "matchesIntro": "{n} pertandingan tercatat, dari yang terbaru. Buka pertandingan untuk melihat draft-nya.",
+          "forfeit": "Walkover"
+        },
+        "columns": {
+          "tournament": "Turnamen",
+          "team": "Tim",
+          "role": "Peran",
+          "games": "Game",
+          "record": "Rekor",
+          "winRate": "Win rate",
+          "mvps": "MVP"
+        }
       }
     },
     "esportsUI": {
@@ -3803,6 +3884,22 @@
         "startup": "saat permulaan",
         "admin": "panduan"
       }
+    },
+    "esportsPlayersUI": {
+      "caption": "Statistik Pemain: {name}",
+      "player": "Pemain",
+      "team": "Tim",
+      "role": "Peran",
+      "games": "Game",
+      "wins": "M",
+      "losses": "K",
+      "winRate": "Win rate",
+      "mvps": "MVP",
+      "heroes": "Hero",
+      "top": "Paling banyak dimainkan",
+      "winsLong": "Menang",
+      "lossesLong": "Kalah",
+      "heroLine": "{hero}: {games} game, {wins} menang"
     }
   },
   "modeSheet": {

@@ -2641,6 +2641,87 @@
         "ranked": "Ranked win rate",
         "rankedDetail": "ranked presence {value}",
         "link": "Pro meta and tournaments"
+      },
+      "nav": {
+        "label": "Tournament sections",
+        "overview": "Overview",
+        "players": "Players"
+      },
+      "pro": {
+        "roles": {
+          "exp": "EXP",
+          "jungle": "Jungle",
+          "mid": "Mid",
+          "gold": "Gold",
+          "roam": "Roam",
+          "flex": "Flex"
+        },
+        "status": {
+          "sub": "Substitute",
+          "former": "Former player"
+        },
+        "record": "{wins} W – {losses} L",
+        "win": "Win",
+        "loss": "Loss",
+        "vs": "vs {team}",
+        "method": "Liquipedia enters each draft as five heroes per team, in the lane order of the roster: each hero is credited to the player in that slot, taking into account the substitutions listed for the match. Liquipedia records no kills, deaths or assists for Mobile Legends: there is no KDA here, only games, wins, MVP awards and heroes played.",
+        "methodLabel": "Method and limits",
+        "players": {
+          "seoTitle": "{name}: player stats",
+          "seoDescription": "{name}: games, win rate, MVP awards and heroes played by the {n} players, game by game, from Liquipedia's drafts.",
+          "title": "{name}: players",
+          "lead": "{n} players over {games} games: record, MVPs and heroes played by each, sortable by any column.",
+          "empty": "No games recorded yet: player stats will appear after the first matches."
+        },
+        "player": {
+          "seoTitle": "{name} ({team}): pro heroes and stats",
+          "seoTitleAlone": "{name}: pro heroes and stats",
+          "seoDescription": "{name}, {role} for {team}: {games} pro games recorded, {rate} won. Most played heroes: {heroes}.",
+          "lead": "{name}, {role} for {team}: {games} games recorded on Liquipedia, with the heroes played and the results tournament by tournament.",
+          "facts": {
+            "team": "Team",
+            "role": "Role",
+            "games": "Games",
+            "record": "Record",
+            "winRate": "Win rate",
+            "mvps": "MVP"
+          },
+          "heroesTitle": "Heroes played",
+          "heroesIntro": "{n} heroes played in competition, most played first.",
+          "tournamentsTitle": "Tournaments",
+          "matchesTitle": "Latest matches",
+          "matchesIntro": "The last {n} matches, with the hero played in each game.",
+          "liquipedia": "Liquipedia page",
+          "mvp": "Match MVP"
+        },
+        "team": {
+          "seoTitle": "{name}: roster, results and drafts",
+          "seoDescription": "{name}: roster, a record of {series} in series and {games} in games over {tournaments} tournament(s), latest matches with picks and bans game by game.",
+          "lead": "{name}: roster, record and drafts of the covered tournaments, from Liquipedia.",
+          "facts": {
+            "series": "Series",
+            "games": "Games",
+            "tournaments": "Tournaments",
+            "titles": "Titles"
+          },
+          "rosterTitle": "Roster",
+          "rosterIntro": "Players listed for {name}, starters first.",
+          "gamesPlayed": "{n} games",
+          "recordsTitle": "Record by tournament",
+          "champion": "Champion",
+          "matchesTitle": "Matches",
+          "matchesIntro": "{n} matches recorded, most recent first. Open a match to see its drafts.",
+          "forfeit": "Forfeit"
+        },
+        "columns": {
+          "tournament": "Tournament",
+          "team": "Team",
+          "role": "Role",
+          "games": "Games",
+          "record": "Record",
+          "winRate": "Win rate",
+          "mvps": "MVP"
+        }
       }
     },
     "esportsUI": {
@@ -3803,6 +3884,22 @@
         "startup": "at startup",
         "admin": "manual"
       }
+    },
+    "esportsPlayersUI": {
+      "caption": "Player stats: {name}",
+      "player": "Player",
+      "team": "Team",
+      "role": "Role",
+      "games": "Games",
+      "wins": "W",
+      "losses": "L",
+      "winRate": "Win rate",
+      "mvps": "MVP",
+      "heroes": "Heroes",
+      "top": "Most played",
+      "winsLong": "Wins",
+      "lossesLong": "Losses",
+      "heroLine": "{hero}: {games} games, {wins} wins"
     }
   },
   "modeSheet": {

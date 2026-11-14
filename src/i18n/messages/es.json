@@ -2641,6 +2641,87 @@
         "ranked": "Victorias en clasificatoria",
         "rankedDetail": "presencia en clasificatoria {value}",
         "link": "Meta pro y torneos"
+      },
+      "nav": {
+        "label": "Secciones del torneo",
+        "overview": "Resumen",
+        "players": "Jugadores"
+      },
+      "pro": {
+        "roles": {
+          "exp": "EXP",
+          "jungle": "Jungle",
+          "mid": "Mid",
+          "gold": "Gold",
+          "roam": "Roam",
+          "flex": "Flex"
+        },
+        "status": {
+          "sub": "Suplente",
+          "former": "Exjugador"
+        },
+        "record": "{wins} V – {losses} D",
+        "win": "Victoria",
+        "loss": "Derrota",
+        "vs": "contra {team}",
+        "method": "Liquipedia registra cada draft como cinco héroes por equipo, en el orden de líneas de la plantilla: cada héroe se atribuye al jugador de su posición, teniendo en cuenta los cambios indicados para el partido. Liquipedia no registra asesinatos, muertes ni asistencias en Mobile Legends: aquí no hay KDA, solo partidas, victorias, MVP y héroes jugados.",
+        "methodLabel": "Método y límites",
+        "players": {
+          "seoTitle": "{name}: estadísticas de los jugadores",
+          "seoDescription": "{name}: partidas, porcentaje de victorias, MVP y héroes jugados por los {n} jugadores, partida a partida, según los drafts de Liquipedia.",
+          "title": "{name}: jugadores",
+          "lead": "{n} jugadores en {games} partidas: balance, MVP y héroes jugados por cada uno, ordenables por columna.",
+          "empty": "Aún no hay partidas registradas: las estadísticas de los jugadores aparecerán tras los primeros partidos."
+        },
+        "player": {
+          "seoTitle": "{name} ({team}): héroes y estadísticas en competición",
+          "seoTitleAlone": "{name}: héroes y estadísticas en competición",
+          "seoDescription": "{name}, {role} de {team}: {games} partidas profesionales registradas, {rate} de victorias. Héroes más jugados: {heroes}.",
+          "lead": "{name}, {role} de {team}: {games} partidas registradas en Liquipedia, con los héroes jugados y los resultados torneo a torneo.",
+          "facts": {
+            "team": "Equipo",
+            "role": "Rol",
+            "games": "Partidas",
+            "record": "Balance",
+            "winRate": "Victorias",
+            "mvps": "MVP"
+          },
+          "heroesTitle": "Héroes jugados",
+          "heroesIntro": "{n} héroes jugados en competición, del más jugado al menos jugado.",
+          "tournamentsTitle": "Torneos",
+          "matchesTitle": "Últimos partidos",
+          "matchesIntro": "Los últimos {n} partidos, con el héroe jugado en cada partida.",
+          "liquipedia": "Página de Liquipedia",
+          "mvp": "MVP del partido"
+        },
+        "team": {
+          "seoTitle": "{name}: plantilla, resultados y drafts",
+          "seoDescription": "{name}: plantilla, balance de {series} en series y {games} en partidas en {tournaments} torneo(s), últimos partidos con picks y bans partida a partida.",
+          "lead": "{name}: plantilla, resultados y drafts de los torneos cubiertos, según Liquipedia.",
+          "facts": {
+            "series": "Series",
+            "games": "Partidas",
+            "tournaments": "Torneos",
+            "titles": "Títulos"
+          },
+          "rosterTitle": "Plantilla",
+          "rosterIntro": "Jugadores listados para {name}, titulares primero.",
+          "gamesPlayed": "{n} partidas",
+          "recordsTitle": "Balance por torneo",
+          "champion": "Campeón",
+          "matchesTitle": "Partidos",
+          "matchesIntro": "{n} partidos registrados, del más reciente al más antiguo. Abre un partido para ver sus drafts.",
+          "forfeit": "Incomparecencia"
+        },
+        "columns": {
+          "tournament": "Torneo",
+          "team": "Equipo",
+          "role": "Rol",
+          "games": "Partidas",
+          "record": "Balance",
+          "winRate": "Victorias",
+          "mvps": "MVP"
+        }
       }
     },
     "esportsUI": {
@@ -3803,6 +3884,22 @@
         "startup": "al inicio",
         "admin": "manual"
       }
+    },
+    "esportsPlayersUI": {
+      "caption": "Estadísticas de los jugadores: {name}",
+      "player": "Jugador",
+      "team": "Equipo",
+      "role": "Rol",
+      "games": "Partidas",
+      "wins": "V",
+      "losses": "D",
+      "winRate": "Victorias",
+      "mvps": "MVP",
+      "heroes": "Héroes",
+      "top": "Más jugados",
+      "winsLong": "Victorias",
+      "lossesLong": "Derrotas",
+      "heroLine": "{hero}: {games} partidas, {wins} victorias"
     }
   },
   "modeSheet": {
