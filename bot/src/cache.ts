@@ -34,6 +34,11 @@ export class TtlCache<V> {
     this.entries.delete(key);
   }
 
+  /** Drops every entry whose key matches. */
+  deleteWhere(match: (key: string) => boolean): void {
+    for (const key of [...this.entries.keys()]) if (match(key)) this.entries.delete(key);
+  }
+
   clear(): void {
     this.entries.clear();
   }

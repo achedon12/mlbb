@@ -476,6 +476,25 @@
       "goodbyeRaid": "{count} members have left the server.",
       "testWelcome": "Test: welcome message",
       "testGoodbye": "Test: goodbye message"
+    },
+    "roleMenu": {
+      "defaultSingle": "Pick your role in the menu below. Picking another one replaces it.",
+      "defaultMultiple": "Pick your roles in the menu below. Picking a role you already have removes it.",
+      "placeholderSingle": "Choose your role",
+      "placeholderMultiple": "Choose your roles",
+      "clearSingle": "Remove my role",
+      "clearMultiple": "Remove my roles",
+      "added": "Added: {roles}",
+      "removed": "Removed: {roles}",
+      "alreadyHave": "You already have this role: nothing changed.",
+      "nothingToRemove": "You have none of this menu's roles.",
+      "unknownMenu": "This menu is no longer active. Ask a server manager to publish it again from the MLBBDex dashboard.",
+      "unknownOption": "This choice is no longer in the menu. Ask a server manager to publish it again.",
+      "rateLimited": "Slow down: wait a few seconds before changing your roles again.",
+      "refusedRole": "One of these roles no longer exists. Ask a server manager to update the menu.",
+      "refusedBot": "MLBBDex can no longer give this role: it needs the Manage Roles permission and its role above this one. Ask a server manager.",
+      "refusedGranter": "This menu is paused: the manager who set it up can no longer give these roles. Another manager has to save it again on the MLBBDex dashboard.",
+      "failed": "Your roles could not be changed right now. Try again in a moment."
     }
   },
   "labels": {

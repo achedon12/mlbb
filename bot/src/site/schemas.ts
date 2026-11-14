@@ -116,6 +116,58 @@ export const DEFAULT_SETTINGS: GuildSettings = {
   autoRoles: { roleIds: [], botRoleIds: [], failing: false, configuredBy: null },
 };
 
+// ─── Role menus ────────────────────────────────────────────────────────
+
+export const ROLE_MENU_MODES = ["single", "multiple"] as const;
+export type RoleMenuMode = (typeof ROLE_MENU_MODES)[number];
+/** Discord's cap on the options of one select menu; the site's too. */
+export const MAX_ROLE_MENU_OPTIONS = 25;
+
+const roleMenuOption = z.object({
+  roleId: snowflake,
+  label: z.string().trim().min(1).max(100),
+  // A unicode emoji or `<:name:id>`; unreadable, the option has none.
+  emoji: z.string().max(80).nullable().catch(null).default(null),
+});
+
+/**
+ * A self-assign role menu as the site stores it. The bot gives nothing
+ * outside `options`: whatever an interaction carries is matched against
+ * this list, and an option the list does not hold is refused.
+ */
+export const roleMenu = z.object({
+  id: z.union([z.number().int().positive(), z.string().regex(/^\d{1,12}$/)]).transform(String),
+  channelId: snowflake,
+  title: z.string().min(1).max(256),
+  description: z.string().max(4000).nullable().catch(null).default(null),
+  mode: z.enum(ROLE_MENU_MODES),
+  options: z
+    .array(roleMenuOption)
+    .min(1)
+    .max(MAX_ROLE_MENU_OPTIONS)
+    .refine((options) => new Set(options.map((o) => o.roleId)).size === options.length, "duplicate role"),
+  // Who chose the roles: the bot gives only what that person could give.
+  configuredBy: snowflake.nullable().catch(null).default(null),
+  messageId: snowflake.nullable().catch(null).default(null),
+  messageChannelId: snowflake.nullable().catch(null).default(null),
+});
+export type RoleMenu = z.infer<typeof roleMenu>;
+
+/** `GET /api/bot/guilds/:id/role-menus`: an unreadable menu is dropped, never half-used. */
+export const roleMenuList = unwrap(
+  z.object({
+    menus: z
+      .array(z.unknown())
+      .max(100)
+      .transform((list) =>
+        list.flatMap((m) => {
+          const parsed = roleMenu.safeParse(m);
+          return parsed.success ? [parsed.data] : [];
+        }),
+      ),
+  }),
+);
+
 export const announcementTarget = z.object({
   guildId: snowflake,
   channelId: snowflake,

@@ -476,6 +476,25 @@
       "goodbyeRaid": "{count} anggota telah keluar dari server.",
       "testWelcome": "Tes: pesan sambutan",
       "testGoodbye": "Tes: pesan perpisahan"
+    },
+    "roleMenu": {
+      "defaultSingle": "Pilih role kamu di menu di bawah. Memilih role lain akan menggantinya.",
+      "defaultMultiple": "Pilih role kamu di menu di bawah. Memilih role yang sudah kamu punya akan melepasnya.",
+      "placeholderSingle": "Pilih role kamu",
+      "placeholderMultiple": "Pilih role-role kamu",
+      "clearSingle": "Lepas role saya",
+      "clearMultiple": "Lepas role-role saya",
+      "added": "Ditambahkan: {roles}",
+      "removed": "Dilepas: {roles}",
+      "alreadyHave": "Kamu sudah punya role ini: tidak ada yang berubah.",
+      "nothingToRemove": "Kamu tidak punya satu pun role dari menu ini.",
+      "unknownMenu": "Menu ini sudah tidak aktif. Minta pengelola server untuk menerbitkannya lagi dari dasbor MLBBDex.",
+      "unknownOption": "Pilihan ini sudah tidak ada di menu. Minta pengelola server untuk menerbitkannya lagi.",
+      "rateLimited": "Pelan-pelan: tunggu beberapa detik sebelum mengubah role kamu lagi.",
+      "refusedRole": "Salah satu role ini sudah tidak ada. Minta pengelola server untuk memperbarui menu.",
+      "refusedBot": "MLBBDex tidak bisa lagi memberikan role ini: ia butuh izin Kelola Role dan role-nya di atas role ini. Beri tahu pengelola server.",
+      "refusedGranter": "Menu ini dijeda: pengelola yang mengaturnya tidak bisa lagi memberikan role ini. Pengelola lain harus menyimpannya lagi di dasbor MLBBDex.",
+      "failed": "Role kamu belum bisa diubah saat ini. Coba lagi sebentar lagi."
     }
   },
   "labels": {

@@ -12,6 +12,7 @@ import {
   leaderboard,
   pendingAnnouncements,
   PERIODS,
+  roleMenuList,
   type Announcement,
   type Daily,
   type DailyGuild,
@@ -21,6 +22,7 @@ import {
   type GuildSettings,
   type Leaderboard,
   type Period,
+  type RoleMenu,
 } from "./schemas.js";
 
 /**
@@ -81,6 +83,7 @@ export class SiteClient {
   private readonly settingsCache = new TtlCache<GuildSettings>(SETTINGS_TTL_MS, 2000);
   private readonly dailyCache = new TtlCache<Daily>(DAILY_TTL_MS, 12);
   private readonly leaderboardCache = new TtlCache<Leaderboard>(LEADERBOARD_TTL_MS, 1000);
+  private readonly roleMenuCache = new TtlCache<RoleMenu[]>(SETTINGS_TTL_MS, 2000);
 
   constructor(
     private readonly baseUrl: string,
@@ -132,7 +135,7 @@ export class SiteClient {
   }
 
   leaveGuild(id: string): Promise<unknown> {
-    this.settingsCache.delete(id);
+    this.forgetGuild(id);
     return this.request("POST", `/api/bot/guilds/${id}/leave`, anyBody, {});
   }
 
@@ -169,6 +172,30 @@ export class SiteClient {
     const cached = this.settingsCache.get(guildId);
     if (cached) this.settingsCache.set(guildId, { ...cached, autoRoles: { ...cached.autoRoles, failing: true } });
     return this.request("POST", `/api/bot/guilds/${guildId}/auto-role-failure`, anyBody, { reason });
+  }
+
+  /**
+   * A server's role menus. Cached like the settings; the site asks the bot
+   * to forget them when the dashboard saves or publishes one (`forgetGuild`),
+   * and `fresh` skips the cache (a click on a message the cached copy does
+   * not know yet).
+   */
+  roleMenus(guildId: string, fresh = false): Promise<RoleMenu[]> {
+    if (fresh) this.roleMenuCache.delete(guildId);
+    return this.roleMenuCache.getOrLoad(guildId, async () => {
+      try {
+        return (await this.request("GET", `/api/bot/guilds/${guildId}/role-menus`, roleMenuList)).menus;
+      } catch (error) {
+        if (error instanceof NotFoundError) return [];
+        throw error;
+      }
+    });
+  }
+
+  /** The dashboard changed this server: the next read asks the site again. */
+  forgetGuild(guildId: string): void {
+    this.settingsCache.delete(guildId);
+    this.roleMenuCache.delete(guildId);
   }
 
   /** Locale setting of a server, or null; never throws (replies must not depend on it). */

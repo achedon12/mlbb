@@ -16,6 +16,10 @@ const api: InternalApi = {
   flush: vi.fn(async () => undefined),
   testPost: vi.fn(async () => ({ ok: true })),
   stats: vi.fn(async () => ({ guildCount: 1 })),
+  emojis: vi.fn(async (id: string) => (id === GUILD ? [{ id: USER, name: "rank_epic", animated: false }] : null)),
+  refresh: vi.fn(async () => undefined),
+  publishRoleMenu: vi.fn(async () => ({ ok: true, messageId: USER, channelId: USER })),
+  removeRoleMenu: vi.fn(async () => ({ ok: true })),
 };
 
 let base = "";
@@ -63,6 +67,37 @@ describe("internal HTTP server", () => {
     expect(await (await call("POST", "/internal/test-post", body)).json()).toEqual({ ok: true });
     expect(api.testPost).toHaveBeenCalledWith(GUILD, USER, "fr", undefined);
     expect((await call("GET", "/internal/stats")).status).toBe(200);
+  });
+
+  it("serves the role menu routes: emojis, refresh, publish and remove", async () => {
+    expect(await (await call("GET", `/internal/guilds/${GUILD}/emojis`)).json()).toEqual({ emojis: [{ id: USER, name: "rank_epic", animated: false }] });
+    expect((await call("GET", `/internal/guilds/323456789012345678/emojis`)).status).toBe(404);
+    expect((await call("POST", `/internal/guilds/${GUILD}/refresh`, '{"nonce":"a"}')).status).toBe(202);
+    expect(api.refresh).toHaveBeenCalledWith(GUILD);
+
+    const menu = {
+      id: 7,
+      channelId: USER,
+      title: "Rank",
+      description: null,
+      mode: "single",
+      options: [{ roleId: USER, label: "Epic", emoji: "<:rank_epic:123456789012345678>" }],
+      configuredBy: USER,
+      messageId: null,
+      messageChannelId: null,
+    };
+    const publish = (body: unknown) => call("POST", `/internal/guilds/${GUILD}/role-menus/publish`, JSON.stringify(body));
+    expect(await (await publish({ locale: "fr", menu })).json()).toEqual({ ok: true, messageId: USER, channelId: USER });
+    expect(api.publishRoleMenu).toHaveBeenCalledWith(GUILD, "fr", expect.objectContaining({ id: "7", mode: "single" }));
+    // A menu that does not hold together is refused before the bot sees it.
+    for (const bad of [{ ...menu, options: [] }, { ...menu, mode: "all" }, { ...menu, channelId: "x" }]) {
+      expect((await publish({ locale: "fr", menu: bad })).status, JSON.stringify(bad)).toBe(400);
+    }
+    expect((await publish({ locale: "fr", menu, extra: 1 })).status).toBe(400);
+    const remove = (body: unknown) => call("POST", `/internal/guilds/${GUILD}/role-menus/remove`, JSON.stringify(body));
+    expect(await (await remove({ channelId: USER, messageId: USER })).json()).toEqual({ ok: true });
+    expect(api.removeRoleMenu).toHaveBeenCalledWith(GUILD, USER, USER);
+    expect((await remove({ channelId: "x", messageId: USER })).status).toBe(400);
   });
 
   it("passes a welcome or goodbye test on, with the text being edited", async () => {

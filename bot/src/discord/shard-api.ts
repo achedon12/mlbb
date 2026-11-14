@@ -60,7 +60,14 @@ export interface ShardApi {
   channels(guildId: string): Promise<GuildLists | null>;
   /** Which roles this person may hand out through the bot; null: server not here. */
   grantable(guildId: string, userId: string): Promise<Grantable | null>;
+  /** The dashboard saved this server: drop what the shard cached of it. */
+  forget(guildId: string): void;
   stats(): ShardStats;
+}
+
+/** What the shard drops when the dashboard saves a server (its site caches). */
+export interface ShardHooks {
+  forget?: (guildId: string) => void;
 }
 
 /** Per role (every one but @everyone), may this person give it? */
@@ -131,7 +138,7 @@ async function mapLimit<T, R>(items: T[], limit: number, fn: (item: T) => Promis
   return out;
 }
 
-export function createShardApi(client: Client): ShardApi {
+export function createShardApi(client: Client, hooks: ShardHooks = {}): ShardApi {
   return {
     guildSummaries: () => client.guilds.cache.filter((g) => g.available).map(guildSummary),
 
@@ -181,6 +188,8 @@ export function createShardApi(client: Client): ShardApi {
         .slice(0, 250);
       return { member: granter.member, roles };
     },
+
+    forget: (guildId) => hooks.forget?.(guildId),
 
     stats: () => ({
       id: client.shard?.ids[0] ?? 0,
