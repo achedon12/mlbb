@@ -37,7 +37,9 @@ model Guild {
 
 /// Per-server settings. A null channel turns the announcement type off;
 /// `<type>Failing` is set when the bot could not post there (permissions
-/// lost) and cleared when the settings are saved again.
+/// lost) and cleared when the settings are saved again. The welcome and
+/// goodbye messages work the same way: a null channel turns them off, a
+/// null message posts the default text in the server's language.
 model GuildSettings {
   guildId String @id @db.VarChar(20)
   guild   Guild  @relation(fields: [guildId], references: [id], onDelete: Cascade)
@@ -62,6 +64,17 @@ model GuildSettings {
   dailyQuizChannelId    String? @db.VarChar(20)
   /// Hour of the daily games post, 0 to 23, UTC.
   dailyHourUtc          Int     @default(12)
+
+  /// Posted when a member joins (`guildMemberAdd`). The text is the owner's
+  /// own, with placeholders, at most 500 characters; nothing about the
+  /// member is stored.
+  welcomeChannelId String? @db.VarChar(20)
+  welcomeMessage   String? @db.VarChar(500)
+  welcomeFailing   Boolean @default(false)
+  /// Posted when a member leaves (`guildMemberRemove`).
+  goodbyeChannelId String? @db.VarChar(20)
+  goodbyeMessage   String? @db.VarChar(500)
+  goodbyeFailing   Boolean @default(false)
 
   updatedAt DateTime @updatedAt
 

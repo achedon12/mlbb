@@ -3,6 +3,9 @@ import {
   ANNOUNCEMENT_TYPES,
   checkAgainstGuild,
   DEFAULT_DAILY_HOUR,
+  GREETING_KINDS,
+  GREETING_MAX_LENGTH,
+  greetingText,
   settingsInput,
   settingsRow,
   settingsView,
@@ -21,6 +24,8 @@ function input(): SettingsInput {
     dailyMlbbdleChannelId: null,
     dailyQuizChannelId: null,
     dailyHourUtc: 12,
+    welcome: { channelId: null, message: null },
+    goodbye: { channelId: null, message: null },
   };
 }
 
@@ -30,6 +35,8 @@ describe("bot settings", () => {
     expect(view.locale).toBe("id");
     expect(view.dailyHourUtc).toBe(DEFAULT_DAILY_HOUR);
     for (const t of ANNOUNCEMENT_TYPES) expect(view[t]).toEqual({ channelId: null, roleId: null, failing: false });
+    // Welcome and goodbye messages are off until the owner picks a channel.
+    for (const k of GREETING_KINDS) expect(view[k]).toEqual({ channelId: null, message: null, failing: false });
     expect(settingsView("123456789012345678", "xx", null).locale).toBe("en");
   });
 
@@ -50,6 +57,11 @@ describe("bot settings", () => {
       (v) => ((v as { locale: string }).locale = "de"),
       (v) => (v.extra = true),
       (v) => ((v.announcements.events as Record<string, unknown>).mention = "everyone"),
+      (v) => (v.welcome.channelId = "#general"),
+      (v) => (v.goodbye.message = "x".repeat(GREETING_MAX_LENGTH + 1)),
+      (v) => (v.welcome.message = "Hi\u0000there"),
+      (v) => ((v.welcome as Record<string, unknown>).allowedMentions = ["everyone"]),
+      (v) => delete (v as Partial<SettingsInput>).goodbye,
     ];
     for (const change of cases) {
       const value = input() as SettingsInput & Record<string, unknown>;
@@ -74,6 +86,27 @@ describe("bot settings", () => {
     expect(checkAgainstGuild(daily, channels, roles)).toEqual({ ok: false, field: "dailyQuizChannelId" });
   });
 
+  it("normalises a welcome text, and treats a blank one as the default", () => {
+    expect(greetingText.parse("  Welcome {user}!\r\nPick roles.  ")).toBe("Welcome {user}!\nPick roles.");
+    expect(greetingText.parse("   \n ")).toBeNull();
+    expect(greetingText.parse(null)).toBeNull();
+    expect(greetingText.parse("x".repeat(GREETING_MAX_LENGTH))).toHaveLength(GREETING_MAX_LENGTH);
+    // Stored as typed: the bot neutralises mentions when it posts.
+    expect(greetingText.parse("@everyone hi {user}")).toBe("@everyone hi {user}");
+
+    const value = input();
+    value.welcome = { channelId: CHANNEL, message: "Hello {user}, welcome to {server}!" };
+    expect(settingsInput.parse(value).welcome.message).toBe("Hello {user}, welcome to {server}!");
+  });
+
+  it("only posts welcome and goodbye messages in channels the bot reported", () => {
+    const value = input();
+    value.goodbye = { channelId: OTHER_CHANNEL, message: null };
+    expect(checkAgainstGuild(value, new Set([CHANNEL]), new Set())).toEqual({ ok: false, field: "goodbye.channelId" });
+    value.goodbye.channelId = CHANNEL;
+    expect(checkAgainstGuild(value, new Set([CHANNEL]), new Set()).ok).toBe(true);
+  });
+
   it("drops a role mention without a channel", () => {
     const value = input();
     value.announcements.skins = { channelId: null, roleId: ROLE };
@@ -90,7 +123,16 @@ describe("bot settings", () => {
     expect(row.patchesChannelId).toBe(CHANNEL);
     expect(row.patchesRoleId).toBe(ROLE);
     for (const t of ANNOUNCEMENT_TYPES) expect(row[`${t}Failing`]).toBe(false);
+    for (const k of GREETING_KINDS) expect(row[`${k}Failing`]).toBe(false);
     expect(settingsView("123456789012345678", "fr", row).patches).toEqual({ channelId: CHANNEL, roleId: ROLE, failing: false });
+  });
+
+  it("keeps a turned-off message's text, so turning it back on finds it", () => {
+    const value = input();
+    value.welcome = { channelId: null, message: "Hi {user}" };
+    const row = settingsRow(value);
+    expect(row).toMatchObject({ welcomeChannelId: null, welcomeMessage: "Hi {user}", goodbyeChannelId: null, goodbyeMessage: null });
+    expect(settingsView("123456789012345678", "fr", row).welcome).toEqual({ channelId: null, message: "Hi {user}", failing: false });
   });
 
   it("maps Discord's preferred locale to a site language", () => {

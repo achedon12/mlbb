@@ -3,7 +3,8 @@ import { afterAll, beforeAll, describe, expect, it } from "vitest";
 /**
  * The bot's database paths against a real Postgres: the bulk statements
  * (guild sync, deliveries), the narrowed pending list, the daily-post
- * list by hour, the aggregated leaderboard and admin figures.
+ * list by hour, the aggregated leaderboard and admin figures, the welcome
+ * and goodbye settings (migration, signed read, failing flag).
  *
  * Needs a migrated, disposable database, for instance:
  *   docker run -d --rm -p 127.0.0.1:55432:5432 -e POSTGRES_PASSWORD=t postgres:17-alpine
@@ -35,6 +36,9 @@ describe.skipIf(!url)("bot database paths", async () => {
   const { signedHeaders } = await import("@/lib/bot/signature");
   const leaderboard = await import("@/app/api/bot/daily/leaderboard/route");
   const deliveriesRoute = await import("@/app/api/bot/deliveries/route");
+  const settingsRoute = await import("@/app/api/bot/guilds/[id]/settings/route");
+  const greetingFailure = await import("@/app/api/bot/guilds/[id]/greeting-failure/route");
+  const { settingsRow } = await import("@/lib/bot/settings");
 
   const entry = (n: number, extra: Partial<{ name: string; memberCount: number; locale: string }> = {}) => ({
     id: g(n),
@@ -155,6 +159,71 @@ describe.skipIf(!url)("bot database paths", async () => {
     expect(response.status).toBe(200);
     const { entries } = (await response.json()) as { entries: unknown[] };
     expect(entries).toEqual(rank("mlbbdle-classic", rows.map((r) => ({ ...r }))));
+  });
+
+  it("stores welcome and goodbye settings, serves them to the bot and flags a failing channel", async () => {
+    const id = g(1);
+    // Defaults straight from the migration: both messages off.
+    expect(await db().guildSettings.findUniqueOrThrow({ where: { guildId: id } })).toMatchObject({
+      welcomeChannelId: null,
+      welcomeMessage: null,
+      welcomeFailing: false,
+      goodbyeChannelId: null,
+      goodbyeMessage: null,
+      goodbyeFailing: false,
+    });
+    const long = "é".repeat(500);
+    await db().guildSettings.update({
+      where: { guildId: id },
+      data: { welcomeChannelId: g(77), welcomeMessage: long, goodbyeChannelId: null, goodbyeMessage: "Bye {username}" },
+    });
+
+    // Each read signs with its own second: the site refuses a signature twice.
+    let second = 0;
+    const read = async () => {
+      const path = `/api/bot/guilds/${id}/settings`;
+      const headers = signedHeaders(SECRET, "GET", path, "", Date.now() - 60_000 + 1_000 * second++);
+      const response = await settingsRoute.GET(new Request(`http://mlbb:3001${path}`, { headers }), { params: Promise.resolve({ id }) });
+      expect(response.status).toBe(200);
+      return (await response.json()) as { welcome: unknown; goodbye: unknown };
+    };
+    const fail = async (kind: string) => {
+      const path = `/api/bot/guilds/${id}/greeting-failure`;
+      const body = JSON.stringify({ kind });
+      return greetingFailure.POST(
+        new Request(`http://mlbb:3001${path}`, { method: "POST", headers: signedHeaders(SECRET, "POST", path, body), body }),
+        { params: Promise.resolve({ id }) },
+      );
+    };
+
+    expect(await read()).toMatchObject({
+      welcome: { channelId: g(77), message: long, failing: false },
+      goodbye: { channelId: null, message: "Bye {username}", failing: false },
+    });
+    expect(await (await fail("welcome")).json()).toEqual({ ok: true, marked: 1 });
+    // A message that is off has nothing to fail.
+    expect(await (await fail("goodbye")).json()).toEqual({ ok: true, marked: 0 });
+    expect((await fail("announcement")).status).toBe(400);
+    expect(await read()).toMatchObject({ welcome: { failing: true }, goodbye: { failing: false } });
+
+    // Saving from the dashboard clears the flag, as for announcements.
+    const row = settingsRow({
+      locale: "fr",
+      announcements: {
+        patches: { channelId: g(901), roleId: null },
+        skins: { channelId: null, roleId: null },
+        events: { channelId: null, roleId: null },
+        advanceServer: { channelId: null, roleId: null },
+        esports: { channelId: null, roleId: null },
+      },
+      dailyMlbbdleChannelId: null,
+      dailyQuizChannelId: null,
+      dailyHourUtc: 12,
+      welcome: { channelId: g(77), message: null },
+      goodbye: { channelId: null, message: "Bye {username}" },
+    });
+    await db().guildSettings.update({ where: { guildId: id }, data: row });
+    expect(await read()).toMatchObject({ welcome: { channelId: g(77), message: null, failing: false } });
   });
 
   it("computes the admin figures in the database, p95 by nearest rank", async () => {
