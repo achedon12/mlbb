@@ -1,0 +1,8 @@
+{
+  "name": "mlbb-migrate",
+  "private": true,
+  "description": "Prisma command line alone, for the container to apply the migrations at start (see the Dockerfile). Same prisma version as the root lock file: tests/unit/prisma-cli.test.ts checks it.",
+  "dependencies": {
+    "prisma": "7.10.1"
+  }
+}
