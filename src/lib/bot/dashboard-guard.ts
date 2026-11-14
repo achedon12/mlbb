@@ -1,0 +1,65 @@
+import { cookies } from "next/headers";
+import { NextResponse } from "next/server";
+import type { z } from "zod";
+import { addressOf, limitByMinute } from "@/lib/push-server";
+import { site } from "@/lib/site";
+import { botConfig, type BotConfig } from "./config";
+import { openSession, SESSION_COOKIE, type DiscordSession } from "./session";
+
+/**
+ * Gate of the dashboard's mutating routes (`/api/discord/*`), called from the
+ * site's own pages with the session cookie.
+ *
+ * SameSite=Lax already keeps the cookie off cross-site POSTs; the Origin
+ * check makes it explicit: a mutating request must come from the site's
+ * public origin (or, in development, from the address it was sent to).
+ */
+
+const NO_STORE = { "Cache-Control": "private, no-store" };
+export const refused = (status: number, error: string) => NextResponse.json({ error }, { status, headers: NO_STORE });
+export const answer = (data: unknown, status = 200) => NextResponse.json(data, { status, headers: NO_STORE });
+
+const MAX_BODY = 16 * 1024;
+/** Per address: a settings save, a test post, a flush are a few a minute at most. */
+const allowed = limitByMinute(30);
+
+/** Pure: is this Origin the site's own? A missing Origin is refused on a mutation. */
+export function originAllowed(origin: string | null, siteUrl: string, requestUrl: string, production: boolean): boolean {
+  if (!origin) return false;
+  let given: string;
+  try {
+    given = new URL(origin).origin;
+  } catch {
+    return false;
+  }
+  if (given === new URL(siteUrl).origin) return true;
+  return !production && given === new URL(requestUrl).origin;
+}
+
+type Guarded<T> = { config: BotConfig; user: DiscordSession; body: T } | NextResponse;
+
+export async function guardDashboard<S extends z.ZodType>(request: Request, schema: S | null): Promise<Guarded<z.infer<S>>> {
+  const config = botConfig();
+  if (!config) return refused(404, "not found");
+  if (!originAllowed(request.headers.get("origin"), site.url, request.url, process.env.NODE_ENV === "production")) {
+    return refused(403, "origin refused");
+  }
+  if (!allowed(addressOf(request))) return refused(429, "too many requests");
+  const user = openSession(config, (await cookies()).get(SESSION_COOKIE)?.value);
+  if (!user) return refused(401, "not signed in");
+  if (!schema) return { config, user, body: undefined as z.infer<S> };
+
+  if (!request.headers.get("content-type")?.toLowerCase().startsWith("application/json")) return refused(415, "JSON expected");
+  if (Number(request.headers.get("content-length") ?? 0) > MAX_BODY) return refused(413, "body too large");
+  const raw = await request.text();
+  if (Buffer.byteLength(raw) > MAX_BODY) return refused(413, "body too large");
+  let json: unknown;
+  try {
+    json = JSON.parse(raw);
+  } catch {
+    return refused(400, "invalid JSON");
+  }
+  const parsed = schema.safeParse(json);
+  if (!parsed.success) return refused(400, "invalid request");
+  return { config, user, body: parsed.data };
+}
