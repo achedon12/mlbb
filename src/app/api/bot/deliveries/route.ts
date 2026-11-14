@@ -1,7 +1,7 @@
 import { z } from "zod";
-import { db } from "@/lib/db";
+import { recordDeliveries } from "@/lib/bot/delivery-store";
 import { ok, readSigned, withDatabase } from "@/lib/bot/internal";
-import { ANNOUNCEMENT_TYPES, snowflake, type AnnouncementType } from "@/lib/bot/settings";
+import { snowflake } from "@/lib/bot/settings";
 
 /**
  * Delivery outcomes, after the bot's own retries. A recorded delivery is
@@ -12,10 +12,12 @@ import { ANNOUNCEMENT_TYPES, snowflake, type AnnouncementType } from "@/lib/bot/
  */
 export const dynamic = "force-dynamic";
 
-const body = z
+export const deliveriesBody = z
   .array(
     z.object({
-      announcementId: z.number().int().positive(),
+      // The bot carries announcement ids as strings (its schema accepts
+      // either form): both are read as the integer they are.
+      announcementId: z.union([z.number().int().positive(), z.string().regex(/^[1-9]\d{0,9}$/).transform(Number)]),
       guildId: snowflake,
       status: z.enum(["sent", "failed", "forbidden"]),
       messageId: snowflake.optional(),
@@ -25,36 +27,7 @@ const body = z
   .max(500);
 
 export async function POST(request: Request) {
-  const gate = await readSigned(request, body);
+  const gate = await readSigned(request, deliveriesBody);
   if (gate instanceof Response) return gate;
-  const reports = gate.body;
-  return withDatabase("deliveries", async () => {
-    if (!reports.length) return ok({ stored: 0 });
-    // Only known announcements and servers: a stale report is dropped, not a foreign key error.
-    const [announcements, guilds] = await Promise.all([
-      db().announcement.findMany({ where: { id: { in: reports.map((r) => r.announcementId) } }, select: { id: true, type: true } }),
-      db().guild.findMany({ where: { id: { in: reports.map((r) => r.guildId) } }, select: { id: true } }),
-    ]);
-    const types = new Map(announcements.map((a) => [a.id, a.type]));
-    const known = new Set(guilds.map((g) => g.id));
-    let stored = 0;
-    for (const r of reports) {
-      const type = types.get(r.announcementId);
-      if (!type || !known.has(r.guildId)) continue;
-      const data = { status: r.status, messageId: r.messageId ?? null, error: r.error?.slice(0, 300) ?? null, sentAt: new Date() };
-      await db().delivery.upsert({
-        where: { announcementId_guildId: { announcementId: r.announcementId, guildId: r.guildId } },
-        create: { announcementId: r.announcementId, guildId: r.guildId, ...data },
-        update: data,
-      });
-      if (r.status === "forbidden" && (ANNOUNCEMENT_TYPES as readonly string[]).includes(type)) {
-        await db().guildSettings.updateMany({
-          where: { guildId: r.guildId },
-          data: { [`${type as AnnouncementType}Failing`]: true },
-        });
-      }
-      stored += 1;
-    }
-    return ok({ stored });
-  });
+  return withDatabase("deliveries", async () => ok({ stored: await recordDeliveries(gate.body) }));
 }

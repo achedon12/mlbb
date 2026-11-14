@@ -21,7 +21,9 @@ export function db(): PrismaClient {
   const url = process.env.DATABASE_URL?.trim();
   if (!url) throw new Error("DATABASE_URL is not set");
   // A small pool: the site is one process, and the bot's calls are short.
-  const adapter = new PrismaPg({ connectionString: url, max: 5, idleTimeoutMillis: 30_000 });
+  // A request waits at most five seconds for a connection (pg's default is
+  // forever), so a saturated pool turns into a 503, not a hung request.
+  const adapter = new PrismaPg({ connectionString: url, max: 5, idleTimeoutMillis: 30_000, connectionTimeoutMillis: 5_000 });
   const client = new PrismaClient({ adapter });
   globalForDb.mlbbdexDb = client;
   return client;
