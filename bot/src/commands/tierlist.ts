@@ -1,9 +1,9 @@
 import { choiceOption, optionName, slash } from "../discord/builders.js";
 import type { Command } from "../discord/types.js";
-import { label, openRow } from "../embeds/common.js";
+import { label, replyRow } from "../embeds/common.js";
 import { tierlistEmbed } from "../embeds/game.js";
 import { LANES, RANKS, ROLES, type HeroSummary, type Lane, type Rank, type RankingEntry, type Role } from "../site/game-data.js";
-import { parseRank } from "./shared.js";
+import { inviteFor, parseRank } from "./shared.js";
 
 export interface TierlistFilters {
   rank: Rank;
@@ -74,6 +74,6 @@ export const tierlist: Command = {
       .filter(Boolean)
       .join(" · ");
     const path = tierlistPath(f);
-    await interaction.editReply({ embeds: [tierlistEmbed(ctx, entries, filter || null, path, note)], components: [openRow(ctx, path)] });
+    await interaction.editReply({ embeds: [tierlistEmbed(ctx, entries, filter || null, path, note)], components: [replyRow(ctx, path, inviteFor(ctx, interaction.guildId))] });
   },
 };

@@ -61,7 +61,7 @@ export async function playMlbbdle(
   const secret = secretSlug ? bySlug.get(secretSlug) : undefined;
   if (!daily || !secretSlug || (mode === "classic" && !secret)) {
     await interaction.editReply({
-      embeds: [baseEmbed(ctx, COLORS.night).setDescription(ctx.t("ui.mlbbdle.unavailable"))],
+      embeds: [baseEmbed(ctx, COLORS.slate).setDescription(ctx.t("ui.mlbbdle.unavailable"))],
       components: [openRow(ctx, "/mlbbdle")],
     });
     return;

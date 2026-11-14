@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
-import { ListingPoster, listingTargets, postListings } from "../src/managers/listing.js";
+import { COMMANDS } from "../src/commands/index.js";
+import { dblAuthorization, ListingPoster, listingTargets, postCommandsToDbl, postListings } from "../src/managers/listing.js";
 
 const BOT = "123456789012345678";
 const counts = { guilds: 1234, shards: 2 };
@@ -33,6 +34,28 @@ describe("bot list stats", () => {
 
   it("posts only to the lists that have a token", () => {
     expect(listingTargets(BOT, { dbl: "x" }, counts).map((t) => t.name)).toEqual(["discordbotlist.com"]);
+  });
+
+  it("sends the registered command list to discordbotlist.com, token in the header only", async () => {
+    const fetch = fakeFetch();
+    const commands = COMMANDS.map((c) => c.data());
+    expect(await postCommandsToDbl(BOT, "dbl-token", commands, fetch)).toBe(true);
+    const [url, init] = fetch.mock.calls[0]!;
+    expect(url).toBe(`https://discordbotlist.com/api/v1/bots/${BOT}/commands`);
+    expect(init!.method).toBe("POST");
+    expect((init!.headers as Record<string, string>).Authorization).toBe("Bot dbl-token");
+    const body = JSON.parse(String(init!.body)) as { name: string }[];
+    expect(body.map((c) => c.name)).toEqual(commands.map((c) => c.name));
+    expect(String(init!.body)).not.toContain("dbl-token");
+    expect(dblAuthorization("Bot abc")).toBe("Bot abc");
+  });
+
+  it("a refused or unreachable command post is reported, never thrown", async () => {
+    expect(await postCommandsToDbl(BOT, "t", [], fakeFetch(401))).toBe(false);
+    const down = vi.fn(async () => {
+      throw new Error("ECONNRESET");
+    });
+    await expect(postCommandsToDbl(BOT, "t", [], down)).resolves.toBe(false);
   });
 
   it("a refusing or unreachable list does not stop the others", async () => {

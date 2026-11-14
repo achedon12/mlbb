@@ -6,7 +6,7 @@ import { counter } from "./counter.js";
 import { dailyPlayHandler } from "./daily-play.js";
 import { emblem } from "./emblem.js";
 import { events } from "./events.js";
-import { help } from "./help.js";
+import { help, helpMenu } from "./help.js";
 import { hero, heroButtonsHandler } from "./hero.js";
 import { invite } from "./invite.js";
 import { item } from "./item.js";
@@ -27,7 +27,7 @@ export const COMMANDS: Command[] = [
   nickname, mlbbdle, quiz, leaderboard, servertime, setup, help, invite, about,
 ];
 
-export const COMPONENTS: ComponentHandler[] = [heroButtonsHandler, nicknameMenu, quizButtonsHandler, dailyPlayHandler];
+export const COMPONENTS: ComponentHandler[] = [heroButtonsHandler, nicknameMenu, quizButtonsHandler, dailyPlayHandler, helpMenu];
 
 /** Commands by their English name, which is what interactions carry. */
 export function commandMap(): Map<string, Command> {

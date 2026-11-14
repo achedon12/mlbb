@@ -70,7 +70,8 @@ const detail = patchDetails as unknown as Record<
  * must stay recognizable from one visit to the next during the day.
  */
 /** Interactive tools from the menu, shown as a grid on the home page. */
-const TOOLS = BASE.filter((e) => e.href.startsWith("/tools/") || ["/draft", "/compare", "/quiz", "/mlbbdle"].includes(e.href));
+// The bot page is in the BASE list only when the bot is deployed.
+const TOOLS = BASE.filter((e) => e.href.startsWith("/tools/") || ["/draft", "/compare", "/quiz", "/mlbbdle", "/bot"].includes(e.href));
 
 function heroOfTheDay() {
   const eligible = allHeroes.filter((h) => illustrations[h.slug]);

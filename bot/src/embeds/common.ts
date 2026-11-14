@@ -9,9 +9,32 @@ export const COLORS = {
   blood: 0xd94848,
   green: 0x3fb37f,
   night: 0x131b30,
+  violet: 0x8f6ee6,
+  blurple: 0x5865f2,
+  /** Errors and empty states: visible on Discord's dark and light themes, unlike night. */
+  slate: 0x7a86a8,
 } as const;
 
 export const TIER_COLORS: Record<string, number> = { "S+": 0xd94848, S: 0xe0a92e, A: 0x3fb37f, B: 0x2b7fe0, C: 0x7a86a8 };
+
+/**
+ * Command families, as /help groups them. Each has its colour, so a reply
+ * says at a glance what kind of answer it is: a hero, the meta, news...
+ */
+export const FAMILIES = ["heroes", "meta", "news", "games", "tools", "setup"] as const;
+export type Family = (typeof FAMILIES)[number];
+
+export const FAMILY_COLORS: Record<Family, number> = {
+  heroes: COLORS.brand,
+  meta: COLORS.blood,
+  news: COLORS.green,
+  games: COLORS.azure,
+  tools: COLORS.violet,
+  setup: COLORS.blurple,
+};
+
+/** The site's icon, shown small next to every footer. */
+export const FOOTER_ICON = "/icons/icon-192.png";
 
 /** What an embed builder needs: the language, its texts, and how to link to the site. */
 export interface View {
@@ -50,13 +73,26 @@ export function plain(text: string): string {
   return escapeMarkdown(text, { maskedLink: true, heading: true, bulletedList: true, numberedList: true });
 }
 
-/** The "nothing found" reply, quoting what was typed: escaped, and cut to 100 characters. */
-export function notFoundEmbed(view: View, query: string): EmbedBuilder {
-  return baseEmbed(view, COLORS.night).setDescription(view.t("ui.common.notFound", { query: plain(query.slice(0, 100)) }));
+/**
+ * The "nothing found" reply, quoting what was typed (escaped, cut to 100
+ * characters), with the closest names when there are some.
+ */
+export function notFoundEmbed(view: View, query: string, suggestions: string[] = []): EmbedBuilder {
+  const hint = suggestions.length
+    ? view.t("ui.common.didYouMean", { names: suggestions.slice(0, 3).map((s) => `**${plain(s)}**`).join(", ") })
+    : view.t("ui.common.pickSuggestion");
+  return baseEmbed(view, COLORS.slate).setDescription(`${view.t("ui.common.notFound", { query: plain(query.slice(0, 100)) })}\n${hint}`);
 }
 
+/** The reply when something failed: the site down (with when to retry) or anything else. */
+export function errorEmbed(view: View, siteDown: boolean): EmbedBuilder {
+  return baseEmbed(view, COLORS.slate).setDescription(view.t(siteDown ? "ui.common.siteDown" : "ui.common.error"));
+}
+
+/** Every reply's frame: the family's colour, and the source with the site's name in the footer. */
 export function baseEmbed(view: View, color: number = COLORS.brand): EmbedBuilder {
-  return new EmbedBuilder().setColor(color).setFooter({ text: view.t("ui.common.source") });
+  const icon = view.asset(FOOTER_ICON);
+  return new EmbedBuilder().setColor(color).setFooter({ text: view.t("ui.common.source"), ...(icon ? { iconURL: icon } : {}) });
 }
 
 export function linkButton(label: string, url: string): ButtonBuilder {
@@ -67,9 +103,48 @@ export function openRow(view: View, path: string): ActionRowBuilder<ButtonBuilde
   return new ActionRowBuilder<ButtonBuilder>().addComponents(linkButton(view.t("ui.common.open"), view.link(path)));
 }
 
+/**
+ * Should a reply offer "Add to your server"? Everywhere but the community
+ * server: its members already know the bot, and an invite there reads as
+ * an advert. When the community server is not configured, everywhere.
+ */
+export function offersInvite(guildId: string | null, communityGuildId: string | undefined): boolean {
+  return !communityGuildId || guildId !== communityGuildId;
+}
+
+/**
+ * The single row of links under the main informational replies: the page on
+ * the site and, outside the community server, the invite. Nothing more: no
+ * DM, no extra message.
+ */
+export function replyRow(view: View, path: string, invite: string | null): ActionRowBuilder<ButtonBuilder> {
+  const row = openRow(view, path);
+  if (invite) row.addComponents(linkButton(view.t("ui.common.addToServer"), invite));
+  return row;
+}
+
 /** A list joined for a field, never empty (Discord rejects an empty field). */
 export function listOr(view: View, values: string[], separator = ", "): string {
   return values.length ? clip(values.join(separator)) : view.t("ui.common.none");
+}
+
+/**
+ * A list for a field that never ends cut in the middle of a name: past
+ * `max` entries, or what fits in the field's 1024 characters, the rest is
+ * counted ("+12 more").
+ */
+export function listMore(view: View, values: string[], separator = ", ", max = values.length): string {
+  if (!values.length) return view.t("ui.common.none");
+  const more = (n: number) => view.t("ui.common.more", { n });
+  const shown: string[] = [];
+  for (const v of values.slice(0, max)) {
+    const rest = values.length - shown.length - 1;
+    const length = [...shown, v].join(separator).length + (rest > 0 ? separator.length + more(rest).length : 0);
+    if (length > 1024) break;
+    shown.push(v);
+  }
+  const hidden = values.length - shown.length;
+  return hidden > 0 ? `${shown.join(separator)}${separator}${more(hidden)}` : shown.join(separator);
 }
 
 /** Translated label, or the raw value when the files have none (a role added by a sync). */

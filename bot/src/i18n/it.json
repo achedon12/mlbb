@@ -2,7 +2,7 @@
   "commands": {
     "hero": {
       "name": "eroe",
-      "description": "La scheda di un eroe: ruolo, lane, tier, percentuali e build migliore",
+      "description": "Scheda di un eroe di Mobile Legends: ruolo, lane, tier, win rate, build migliore, emblema",
       "options": {
         "name": {
           "name": "nome",
@@ -12,7 +12,7 @@
     },
     "build": {
       "name": "build",
-      "description": "Le build con cui i giocatori vincono davvero con un eroe",
+      "description": "Build MLBB migliore di un eroe: oggetti, emblema e incantesimo di chi vince, per rango",
       "options": {
         "hero": {
           "name": "eroe",
@@ -26,7 +26,7 @@
     },
     "counter": {
       "name": "counter",
-      "description": "Chi batte un eroe, e chi batte lui, secondo i tassi di vittoria misurati",
+      "description": "Counter MLBB: chi batte un eroe e chi batte lui, da vere partite classificate",
       "options": {
         "hero": {
           "name": "eroe",
@@ -40,7 +40,7 @@
     },
     "tierlist": {
       "name": "tierlist",
-      "description": "La tier list attuale, calcolata su tassi di vittoria e di ban",
+      "description": "Tier list di Mobile Legends (meta attuale) per rango, lane o ruolo, da vittorie e ban",
       "options": {
         "rank": {
           "name": "rango",
@@ -58,7 +58,7 @@
     },
     "compare": {
       "name": "confronta",
-      "description": "Due eroi faccia a faccia",
+      "description": "Confronta due eroi MLBB: tier, tassi di vittoria, pick e ban fianco a fianco",
       "options": {
         "first": {
           "name": "primo",
@@ -72,7 +72,7 @@
     },
     "item": {
       "name": "oggetto",
-      "description": "Un oggetto: prezzo, statistiche, passiva e ricetta",
+      "description": "Dettagli di un oggetto MLBB: prezzo, statistiche, passiva, attiva e ricetta",
       "options": {
         "name": {
           "name": "nome",
@@ -82,7 +82,7 @@
     },
     "emblem": {
       "name": "emblema",
-      "description": "Un emblema e i ruoli a cui è adatto",
+      "description": "Dettagli di un emblema MLBB e i ruoli a cui è adatto",
       "options": {
         "name": {
           "name": "nome",
@@ -92,7 +92,7 @@
     },
     "spell": {
       "name": "incantesimo",
-      "description": "Un incantesimo di battaglia e la sua ricarica",
+      "description": "Incantesimo di battaglia MLBB: effetto, ricarica e ruoli che lo usano",
       "options": {
         "name": {
           "name": "nome",
@@ -102,7 +102,7 @@
     },
     "patch": {
       "name": "patch",
-      "description": "Riepilogo dell'ultima patch, o di una versione precisa",
+      "description": "Ultime note di patch di Mobile Legends, o una versione: buff, nerf ed eroi modificati",
       "options": {
         "version": {
           "name": "versione",
@@ -112,7 +112,7 @@
     },
     "skins": {
       "name": "skin",
-      "description": "Le skin più recenti, o tutte le skin di un eroe",
+      "description": "Le skin più recenti di Mobile Legends, o tutte le skin di un eroe",
       "options": {
         "hero": {
           "name": "eroe",
@@ -122,11 +122,11 @@
     },
     "events": {
       "name": "eventi",
-      "description": "Gli eventi in corso e in arrivo nel gioco"
+      "description": "Gli eventi di Mobile Legends in corso e in arrivo"
     },
     "nickname": {
       "name": "nickname",
-      "description": "Scrivi il tuo nome di gioco con un font elegante",
+      "description": "Generatore di nickname MLBB: il tuo nome di gioco in 21 font eleganti",
       "options": {
         "text": {
           "name": "testo",
@@ -140,7 +140,7 @@
     },
     "mlbbdle": {
       "name": "mlbbdle",
-      "description": "Indovina l'eroe del giorno, lo stesso enigma di mlbbdex.com",
+      "description": "Gioca a MLBBdle: indovina l'eroe di Mobile Legends del giorno, classica o abilità",
       "options": {
         "guess": {
           "name": "tentativo",
@@ -154,11 +154,11 @@
     },
     "quiz": {
       "name": "quiz",
-      "description": "Il quiz MLBB del giorno: cinque round, una risposta ciascuno"
+      "description": "Quiz giornaliero di Mobile Legends: cinque round su eroi, skin e oggetti"
     },
     "leaderboard": {
       "name": "classifica",
-      "description": "La classifica di questo server nei giochi del giorno",
+      "description": "Classifica MLBBdle e quiz di questo server: oggi, questa settimana o di sempre",
       "options": {
         "game": {
           "name": "gioco",
@@ -172,23 +172,23 @@
     },
     "servertime": {
       "name": "ora-server",
-      "description": "L'ora del server di gioco e i prossimi reset"
+      "description": "Ora del server MLBB e conto alla rovescia per i reset giornaliero e settimanale"
     },
     "setup": {
       "name": "configura",
-      "description": "Apri le impostazioni di questo server su mlbbdex.com"
+      "description": "Configura MLBBDex qui: lingua, avvisi patch e skin, giochi del giorno, benvenuto"
     },
     "help": {
       "name": "aiuto",
-      "description": "Tutti i comandi di MLBBDex"
+      "description": "Tutti i comandi di MLBBDex per categoria, con esempi"
     },
     "invite": {
       "name": "invita",
-      "description": "Aggiungi MLBBDex a un altro server"
+      "description": "Aggiungi MLBBDex, il bot di Mobile Legends, al tuo server Discord"
     },
     "about": {
       "name": "info",
-      "description": "Informazioni su MLBBDex: sito, server di supporto, privacy"
+      "description": "Informazioni su MLBBDex: versione, server, attività, sito, server di supporto e voto"
     }
   },
   "choices": {
@@ -257,16 +257,20 @@
     "common": {
       "open": "Apri su MLBBDex",
       "error": "Qualcosa è andato storto. Riprova tra un momento.",
-      "siteDown": "MLBBDex non risponde al momento. Riprova tra un minuto.",
-      "notFound": "Nessun risultato per «{query}». Scegli un suggerimento dall'elenco.",
+      "siteDown": "MLBBDex non risponde al momento. Riprova tra un minuto: di solito è già tornato.",
+      "notFound": "Nessun risultato per «{query}».",
       "guildOnly": "Questo comando funziona solo in un server.",
       "noPermission": "Ti serve il permesso Gestisci server.",
       "unavailable": "Non è ancora disponibile su Discord: lo trovi su MLBBDex.",
       "measuredAt": "Misurato il {date}",
       "allRanksFallback": "I dati per rango non sono ancora disponibili qui: tutti i ranghi.",
-      "source": "Dati: MLBBDex, Mobile Legends Wiki (CC BY-SA)",
+      "source": "mlbbdex.com · Dati: MLBBDex, Mobile Legends Wiki (CC BY-SA)",
       "none": "Nessuno",
-      "expired": "Questo pulsante è scaduto. Ripeti il comando."
+      "expired": "Questo pulsante è scaduto. Ripeti il comando.",
+      "didYouMean": "Forse cercavi {names}?",
+      "pickSuggestion": "Scegli un nome tra i suggerimenti che compaiono mentre scrivi.",
+      "addToServer": "Aggiungi al tuo server",
+      "more": "+{n} altri"
     },
     "hero": {
       "role": "Ruolo",
@@ -296,12 +300,16 @@
       "title": "{hero}: counter",
       "weak": "In difficoltà contro",
       "strong": "Forte contro",
-      "none": "Nessun counter misurato per questo eroe per ora."
+      "none": "Nessun counter misurato per questo eroe per ora.",
+      "measured": "Vantaggio in punti di tasso di vittoria, misurato su partite classificate.",
+      "written": "Scelti dal team di MLBBDex."
     },
     "tierlist": {
       "title": "Tier list",
       "filtered": "Tier list: {filter}",
-      "empty": "Nessun eroe corrisponde a questi filtri."
+      "empty": "Nessun eroe corrisponde a questi filtri.",
+      "tier": "{tier} · {n}",
+      "lead": "Da tassi di vittoria, pick e ban. I primi tre tier."
     },
     "compare": {
       "title": "{a} contro {b}",
@@ -331,7 +339,9 @@
       "nerfs": "Nerf",
       "adjustments": "Modifiche",
       "heroes": "Eroi modificati",
-      "unknown": "Nessuna patch {version} registrata."
+      "unknown": "Nessuna patch {version} registrata.",
+      "released": "Uscita il {date}",
+      "recent": "Patch recenti: {versions}"
     },
     "skins": {
       "title": "{hero}: skin",
@@ -413,11 +423,25 @@
     },
     "help": {
       "title": "Comandi di MLBBDex",
-      "footer": "Gratuito, in cinque lingue. Dati da mlbbdex.com."
+      "intro": "Mobile Legends: Bang Bang nel tuo server: schede degli eroi, build e counter misurati sulle partite classificate, tier list, note delle patch e giochi del giorno. Gratuito, in cinque lingue.",
+      "categories": {
+        "heroes": "Eroi e build",
+        "meta": "Meta",
+        "news": "Patch e novità",
+        "games": "Giochi",
+        "tools": "Strumenti",
+        "setup": "Configurazione del server"
+      },
+      "startTitle": "Per iniziare",
+      "start": "Scrivi {example}: i nomi si completano mentre scrivi.",
+      "pick": "Ogni comando con un esempio. Scrivi / per vederli su Discord.",
+      "menu": "Scegli una categoria",
+      "overview": "Panoramica"
     },
     "invite": {
       "body": "Aggiungi MLBBDex a un server che gestisci. Chiede solo i permessi che usa: niente amministratore, nessuna lettura dei messaggi.",
-      "button": "Aggiungi a Discord"
+      "button": "Aggiungi a Discord",
+      "title": "Aggiungi MLBBDex al tuo server"
     },
     "about": {
       "title": "Informazioni su MLBBDex",
@@ -426,7 +450,10 @@
       "site": "Sito",
       "support": "Server di supporto",
       "vote": "Vota",
-      "privacy": "Privacy"
+      "privacy": "Privacy",
+      "version": "Versione",
+      "uptime": "Online da",
+      "languages": "Lingue"
     },
     "announce": {
       "patchTitle": "Nuova patch: {version}",
