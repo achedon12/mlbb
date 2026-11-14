@@ -27,12 +27,6 @@ const WINDOW_MS = 60_000;
 const MAX_PER_WINDOW = 90;
 const buckets = new Map<string, { count: number; reset: number }>();
 
-function address(request: NextRequest): string {
-  const forwarded = request.headers.get("x-forwarded-for");
-  if (forwarded) return forwarded.split(",")[0]!.trim();
-  return request.headers.get("x-real-ip") ?? "unknown";
-}
-
 /** Never awaited: `waitUntil` lets the hit finish after the response has left. */
 function countApiCall(request: NextRequest, event: NextFetchEvent, status?: number) {
   const ip = clientAddress(request.headers);
@@ -43,7 +37,10 @@ function countApiCall(request: NextRequest, event: NextFetchEvent, status?: numb
 
 function rateLimitApi(request: NextRequest, event: NextFetchEvent) {
   if (request.nextUrl.pathname === "/api/health") return NextResponse.next();
-  const ip = address(request);
+  // The address nginx saw: a caller rotating a forged left-most entry
+  // would otherwise get a fresh window on every request. Requests without
+  // a trustworthy address share one window, which errs on the strict side.
+  const ip = clientAddress(request.headers) ?? "unknown";
   const now = Date.now();
   const bucket = buckets.get(ip);
   if (!bucket || now > bucket.reset) {
