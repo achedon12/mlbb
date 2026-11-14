@@ -649,7 +649,8 @@
         },
         "items": {
           "summary": "Oggetti del negozio, con statistiche, passive e ricette.",
-          "catParam": "Mantiene solo questa categoria."
+          "catParam": "Mantiene solo questa categoria.",
+          "localeParam": "Lingua di nomi ed effetti (inglese per impostazione predefinita)"
         },
         "patches": {
           "summary": "Versioni elencate, dalla più recente alla più vecchia."
@@ -666,6 +667,22 @@
         "patchVersion": {
           "summary": "Una patch in dettaglio: note, nuovi eroi e modifiche a ciascun eroe, con il numero di buff e nerf.",
           "localeParam": "Lingua del testo (inglese per impostazione predefinita)"
+        },
+        "skins": {
+          "summary": "Ultime skin uscite, dalla più recente alla più vecchia: eroe, nome, data di uscita, rarità, serie e illustrazione.",
+          "limitParam": "Numero di skin restituite (20 per impostazione predefinita, 100 al massimo)."
+        },
+        "events": {
+          "summary": "Eventi del mese in corso e dei mesi annunciati: la skin StarLight e le skin Collector, con inizio e fine del mese, l'illustrazione e la pagina del mese sul sito.",
+          "localeParam": "Lingua dei nomi (inglese per impostazione predefinita)"
+        },
+        "emblems": {
+          "summary": "I sei emblemi di ruolo: nome, ruolo, bonus, a chi sono adatti e icona.",
+          "localeParam": "Lingua dei testi (inglese per impostazione predefinita)"
+        },
+        "spells": {
+          "summary": "Magie di battaglia: effetto, tempo di ricarica in secondi, ruoli, a chi sono adatte e icona.",
+          "localeParam": "Lingua dei testi (inglese per impostazione predefinita)"
         }
       },
       "endpoints": "Endpoint"
@@ -2083,6 +2100,10 @@
         "navMonths": "Mese precedente e successivo",
         "allMonths": "Tutti i mesi",
         "yearLink": "Tutte le skin uscite nel {year}"
+      },
+      "entry": {
+        "starlight": "Skin StarLight: {skin} ({hero})",
+        "collector": "Skin Collector: {skin} ({hero})"
       }
     },
     "nickname": {

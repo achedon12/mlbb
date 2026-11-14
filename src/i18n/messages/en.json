@@ -649,7 +649,8 @@
         },
         "items": {
           "summary": "Shop items, with stats, passives and recipes.",
-          "catParam": "Only keep this category."
+          "catParam": "Only keep this category.",
+          "localeParam": "Language of names and effects (English by default)"
         },
         "patches": {
           "summary": "Listed versions, from newest to oldest."
@@ -665,6 +666,22 @@
         },
         "patchVersion": {
           "summary": "One patch in detail: notes, new heroes and each hero's adjustments, with the number of buffs and nerfs.",
+          "localeParam": "Language of the texts (English by default)"
+        },
+        "skins": {
+          "summary": "Latest released skins, newest first: hero, name, release date, rarity, series and artwork.",
+          "limitParam": "Number of skins returned (20 by default, 100 at most)."
+        },
+        "events": {
+          "summary": "Events of the current month and of the announced ones: the StarLight skin and the Collector skins, with the start and end of the month, the artwork and the month's page on the site.",
+          "localeParam": "Language of the names (English by default)"
+        },
+        "emblems": {
+          "summary": "The six role emblems: name, role, bonus, who they suit and icon.",
+          "localeParam": "Language of the texts (English by default)"
+        },
+        "spells": {
+          "summary": "Battle spells: effect, cooldown in seconds, roles, who they suit and icon.",
           "localeParam": "Language of the texts (English by default)"
         }
       },
@@ -2083,6 +2100,10 @@
         "navMonths": "Previous and next month",
         "allMonths": "All months",
         "yearLink": "Every skin released in {year}"
+      },
+      "entry": {
+        "starlight": "StarLight skin: {skin} ({hero})",
+        "collector": "Collector skin: {skin} ({hero})"
       }
     },
     "nickname": {

@@ -23,7 +23,7 @@ import { site } from "@/lib/site";
  */
 
 const PREFIX = "/api/v1";
-const ENDPOINTS = new Set(["heroes", "items", "patches", "rankings"]);
+const ENDPOINTS = new Set(["heroes", "items", "patches", "rankings", "skins", "events", "emblems", "spells"]);
 const HEROES = new Set(Object.keys(names));
 // A hanging Matomo with steady traffic would otherwise pile up open
 // connections in the server; past this many pending hits, new ones are dropped.
