@@ -32,6 +32,8 @@ function toInput(view: GuildSettingsView): SettingsInput {
     dailyMlbbdleChannelId: view.dailyMlbbdleChannelId,
     dailyQuizChannelId: view.dailyQuizChannelId,
     dailyHourUtc: view.dailyHourUtc,
+    welcome: { channelId: view.welcome.channelId, message: view.welcome.message },
+    goodbye: { channelId: view.goodbye.channelId, message: view.goodbye.message },
   };
 }
 
