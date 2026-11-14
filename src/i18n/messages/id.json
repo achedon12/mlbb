@@ -3436,7 +3436,8 @@
       "retention": "Ketika bot meninggalkan server, datanya akan dihapus 30 hari kemudian, bersama dengan hasil pemainnya (kembalinya bot dalam periode ini akan memulihkan pengaturan). Statistik pesanan dihapus setelah 90 hari.",
       "rightsTitle": "Hak Anda",
       "rights": "Untuk melihat atau menghapus data yang terkait dengan ID atau server Discord Anda, tulis ke [{contact}](mailto:{contact}). Menghapus bot dari server memulai penghapusan otomatis.",
-      "sitePrivacy": "Privasi Situs"
+      "sitePrivacy": "Privasi Situs",
+      "autoRoles": "Peran otomatis: jika server memilihnya, bot memberikan peran tersebut kepada siapa pun yang bergabung, dengan izin Kelola Peran yang diberikan admin server; anggota yang masih harus menerima aturan server hanya diingat (ID-nya, di memori, paling lama 24 jam) sampai ia menerimanya, dan tidak ada yang disimpan."
     },
     "botTerms": {
       "title": "Ketentuan Layanan Bot Perselisihan",
@@ -3447,7 +3448,8 @@
       "p3": "Jangan membajak bot: tidak ada otomatisasi perintah yang menyalahgunakan, tidak ada upaya untuk mengakses pengaturan server yang tidak Anda kelola. Layanan mungkin dibatasi atau dihapus dari server yang menyalahgunakannya.",
       "p4": "Layanan dapat berubah, terganggu, atau dihentikan kapan saja. Aturan Discord (ketentuan penggunaan dan aturan komunitas) berlaku untuk penggunaannya.",
       "p5": "Data yang disimpan dijelaskan di halaman privasi bot. Untuk pertanyaan apa pun: [{contact}](mailto:{contact}).",
-      "p6": "Pesan sambutan dan perpisahan ditulis oleh pengelola server, yang bertanggung jawab atas isinya; bot menetralkan mention massal dan mention peran di dalamnya. Anggota yang bergabung dan keluar hanya dipakai untuk memposting pesan-pesan ini."
+      "p6": "Pesan sambutan dan perpisahan ditulis oleh pengelola server, yang bertanggung jawab atas isinya; bot menetralkan mention massal dan mention peran di dalamnya. Anggota yang bergabung dan keluar hanya dipakai untuk memposting pesan-pesan ini.",
+      "p7": "Peran otomatis dipilih oleh manajer server; bot menolak untuk memberikan peran yang ditempatkan di atas perannya sendiri, dikelola oleh integrasi atau membawa izin moderasi atau administrasi."
     },
     "botDashboard": {
       "title": "Dasbor Bot",

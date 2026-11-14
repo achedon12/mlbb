@@ -3436,7 +3436,8 @@
       "retention": "Quando il bot lascia un server, i suoi dati vengono cancellati 30 giorni dopo, insieme ai risultati dei suoi giocatori (un ritorno del bot entro questo periodo ripristinerà le impostazioni). Le statistiche degli ordini vengono cancellate dopo 90 giorni.",
       "rightsTitle": "I tuoi diritti",
       "rights": "Per visualizzare o eliminare i dati relativi al tuo ID Discord o al server, scrivi a [{contact}](mailto:{contact}). La rimozione del bot dal server avvia l'eliminazione automatica.",
-      "sitePrivacy": "Privacy del sito"
+      "sitePrivacy": "Privacy del sito",
+      "autoRoles": "Ruoli automatici: se il server ne ha scelti, il bot assegna questi ruoli a chi entra, con il permesso Gestire i ruoli che gli concedono gli amministratori del server; un membro che deve ancora accettare le regole del server viene solo ricordato (il suo ID, in memoria, per 24 ore al massimo) finché non le accetta, e nulla viene registrato."
     },
     "botTerms": {
       "title": "Termini di servizio di Discord Bot",
@@ -3447,7 +3448,8 @@
       "p3": "Non dirottare il bot: nessuna automazione abusiva dei comandi, nessun tentativo di accedere alle impostazioni di un server che non gestisci. Il servizio potrebbe essere limitato o rimosso da un server che ne abusa.",
       "p4": "Il servizio potrà variare, essere interrotto o sospeso in qualsiasi momento. Al suo utilizzo si applicano le regole di Discord (termini di utilizzo e regole della community).",
       "p5": "I dati conservati sono descritti nella pagina sulla privacy del bot. Per qualsiasi domanda: [{contact}](mailto:{contact}).",
-      "p6": "I messaggi di benvenuto e di addio sono scritti dai gestori del server, che rispondono del loro contenuto; il bot vi neutralizza le menzioni di massa e dei ruoli. Gli ingressi e le uscite dei membri servono solo a pubblicare questi messaggi."
+      "p6": "I messaggi di benvenuto e di addio sono scritti dai gestori del server, che rispondono del loro contenuto; il bot vi neutralizza le menzioni di massa e dei ruoli. Gli ingressi e le uscite dei membri servono solo a pubblicare questi messaggi.",
+      "p7": "I ruoli automatici sono scelti dai gestori del server; il bot rifiuta di assegnare un ruolo posto sopra il proprio, gestito da un'integrazione o con un permesso di moderazione o di amministrazione."
     },
     "botDashboard": {
       "title": "Pannello di controllo del bot",

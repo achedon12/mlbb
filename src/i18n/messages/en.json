@@ -3436,7 +3436,8 @@
       "retention": "When the bot leaves a server, its data is deleted 30 days later, along with its players' results (if the bot comes back within that time, the settings are still there). Command statistics are deleted after 90 days.",
       "rightsTitle": "Your rights",
       "rights": "To see or delete the data tied to your Discord id or your server, write to [{contact}](mailto:{contact}). Removing the bot from the server starts the automatic deletion.",
-      "sitePrivacy": "Site privacy"
+      "sitePrivacy": "Site privacy",
+      "autoRoles": "Auto-roles: if the server chose some, the bot gives those roles to whoever joins, with the Manage Roles permission the server's admins grant it; a member who still has to accept the server's rules is only remembered (their id, in memory, for 24 hours at most) until they do, and nothing is saved."
     },
     "botTerms": {
       "title": "Discord bot terms of use",
@@ -3447,7 +3448,8 @@
       "p3": "Do not misuse the bot: no abusive automation of commands, no attempt to reach the settings of a server you do not manage. The service may be limited or removed from a server that abuses it.",
       "p4": "The service may change, be interrupted or stop at any time. Discord's rules (Terms of Service and Community Guidelines) apply to its use.",
       "p5": "The data stored is described on the bot's privacy page. Any question: [{contact}](mailto:{contact}).",
-      "p6": "Welcome and goodbye messages are written by the server's managers, who are responsible for their content; the bot neutralises mass and role mentions in them. Members joining and leaving are only used to post these messages."
+      "p6": "Welcome and goodbye messages are written by the server's managers, who are responsible for their content; the bot neutralises mass and role mentions in them. Members joining and leaving are only used to post these messages.",
+      "p7": "Auto-roles are chosen by the server's managers; the bot refuses to give a role placed above its own, managed by an integration or carrying a moderation or administration permission."
     },
     "botDashboard": {
       "title": "Bot dashboard",

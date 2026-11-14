@@ -3436,7 +3436,8 @@
       "retention": "Quand le bot quitte un serveur, ses données sont supprimées 30 jours plus tard, avec les résultats de ses joueurs (un retour du bot dans ce délai retrouve les réglages). Les statistiques de commandes sont supprimées après 90 jours.",
       "rightsTitle": "Vos droits",
       "rights": "Pour consulter ou faire supprimer les données liées à votre identifiant Discord ou à votre serveur, écrivez à [{contact}](mailto:{contact}). Retirer le bot du serveur lance la suppression automatique.",
-      "sitePrivacy": "Confidentialité du site"
+      "sitePrivacy": "Confidentialité du site",
+      "autoRoles": "Rôles automatiques : si le serveur en a choisi, le bot donne ces rôles à qui arrive, avec la permission Gérer les rôles que les administrateurs du serveur lui accordent ; un membre qui doit encore accepter les règles du serveur n'est retenu (son identifiant, en mémoire, au plus 24 heures) que le temps de les accepter, et rien n'est enregistré."
     },
     "botTerms": {
       "title": "Conditions d'utilisation du bot Discord",
@@ -3447,7 +3448,8 @@
       "p3": "Ne détournez pas le bot : pas d'automatisation abusive des commandes, pas de tentative d'accès aux réglages d'un serveur que vous ne gérez pas. Le service peut être limité ou retiré d'un serveur qui en abuse.",
       "p4": "Le service peut évoluer, être interrompu ou arrêté à tout moment. Les règles de Discord (conditions d'utilisation et règles de la communauté) s'appliquent à son usage.",
       "p5": "Les données conservées sont décrites sur la page de confidentialité du bot. Pour toute question : [{contact}](mailto:{contact}).",
-      "p6": "Les messages de bienvenue et de départ sont rédigés par les gestionnaires du serveur, qui répondent de leur contenu ; le bot y neutralise les mentions de masse et de rôles. Les arrivées et départs de membres ne servent qu'à publier ces messages."
+      "p6": "Les messages de bienvenue et de départ sont rédigés par les gestionnaires du serveur, qui répondent de leur contenu ; le bot y neutralise les mentions de masse et de rôles. Les arrivées et départs de membres ne servent qu'à publier ces messages.",
+      "p7": "Les rôles automatiques sont choisis par les gestionnaires du serveur ; le bot refuse de donner un rôle placé au-dessus du sien, géré par une intégration ou portant une permission de modération ou d'administration."
     },
     "botDashboard": {
       "title": "Tableau de bord du bot",

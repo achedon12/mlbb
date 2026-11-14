@@ -635,6 +635,14 @@
     "pages.botUI.autoRoleRefusals.dangerous": {
       "fr": "permissions de modération",
       "text": "moderation permissions"
+    },
+    "pages.botPrivacy.autoRoles": {
+      "fr": "Rôles automatiques : si le serveur en a choisi, le bot donne ces rôles à qui arrive, avec la permission Gérer les rôles que les administrateurs du serveur lui accordent ; un membre qui doit encore accepter les règles du serveur n'est retenu (son identifiant, en mémoire, au plus 24 heures) que le temps de les accepter, et rien n'est enregistré.",
+      "text": "Auto-roles: if the server chose some, the bot gives those roles to whoever joins, with the Manage Roles permission the server's admins grant it; a member who still has to accept the server's rules is only remembered (their id, in memory, for 24 hours at most) until they do, and nothing is saved."
+    },
+    "pages.botTerms.p7": {
+      "fr": "Les rôles automatiques sont choisis par les gestionnaires du serveur ; le bot refuse de donner un rôle placé au-dessus du sien, géré par une intégration ou portant une permission de modération ou d'administration.",
+      "text": "Auto-roles are chosen by the server's managers; the bot refuses to give a role placed above its own, managed by an integration or carrying a moderation or administration permission."
     }
   },
   "es": {
@@ -1373,6 +1381,14 @@
     "pages.botUI.autoRoleRefusals.above_bot": {
       "fr": "au-dessus du bot",
       "text": "por encima del bot"
+    },
+    "pages.botPrivacy.autoRoles": {
+      "fr": "Rôles automatiques : si le serveur en a choisi, le bot donne ces rôles à qui arrive, avec la permission Gérer les rôles que les administrateurs du serveur lui accordent ; un membre qui doit encore accepter les règles du serveur n'est retenu (son identifiant, en mémoire, au plus 24 heures) que le temps de les accepter, et rien n'est enregistré.",
+      "text": "Roles automáticos: si el servidor eligió algunos, el bot da esos roles a quien llega, con el permiso Gestionar roles que le conceden los administradores del servidor; un miembro que aún debe aceptar las reglas del servidor solo se recuerda (su ID, en memoria, 24 horas como máximo) hasta que las acepta, y no se guarda nada."
+    },
+    "pages.botTerms.p7": {
+      "fr": "Les rôles automatiques sont choisis par les gestionnaires du serveur ; le bot refuse de donner un rôle placé au-dessus du sien, géré par une intégration ou portant une permission de modération ou d'administration.",
+      "text": "Los roles automáticos los eligen los gestores del servidor; el bot se niega a dar un rol situado por encima del suyo, gestionado por una integración o con un permiso de moderación o de administración."
     }
   },
   "id": {
@@ -4071,6 +4087,10 @@
     "pages.botUI.autoRoleRefusals.managed": {
       "fr": "géré par une intégration",
       "text": "dikelola oleh integrasi"
+    },
+    "pages.botPrivacy.autoRoles": {
+      "fr": "Rôles automatiques : si le serveur en a choisi, le bot donne ces rôles à qui arrive, avec la permission Gérer les rôles que les administrateurs du serveur lui accordent ; un membre qui doit encore accepter les règles du serveur n'est retenu (son identifiant, en mémoire, au plus 24 heures) que le temps de les accepter, et rien n'est enregistré.",
+      "text": "Peran otomatis: jika server memilihnya, bot memberikan peran tersebut kepada siapa pun yang bergabung, dengan izin Kelola Peran yang diberikan admin server; anggota yang masih harus menerima aturan server hanya diingat (ID-nya, di memori, paling lama 24 jam) sampai ia menerimanya, dan tidak ada yang disimpan."
     }
   },
   "it": {
@@ -4853,6 +4873,14 @@
     "pages.botUI.autoRolesFailing": {
       "fr": "Le bot n'a pas pu donner ces rôles à la dernière arrivée : vérifiez sa permission Gérer les rôles et la place de son rôle, puis enregistrez.",
       "text": "Il bot non è riuscito ad assegnare questi ruoli all'ultimo ingresso: controlla il suo permesso Gestire i ruoli e la posizione del suo ruolo, poi salva."
+    },
+    "pages.botPrivacy.autoRoles": {
+      "fr": "Rôles automatiques : si le serveur en a choisi, le bot donne ces rôles à qui arrive, avec la permission Gérer les rôles que les administrateurs du serveur lui accordent ; un membre qui doit encore accepter les règles du serveur n'est retenu (son identifiant, en mémoire, au plus 24 heures) que le temps de les accepter, et rien n'est enregistré.",
+      "text": "Ruoli automatici: se il server ne ha scelti, il bot assegna questi ruoli a chi entra, con il permesso Gestire i ruoli che gli concedono gli amministratori del server; un membro che deve ancora accettare le regole del server viene solo ricordato (il suo ID, in memoria, per 24 ore al massimo) finché non le accetta, e nulla viene registrato."
+    },
+    "pages.botTerms.p7": {
+      "fr": "Les rôles automatiques sont choisis par les gestionnaires du serveur ; le bot refuse de donner un rôle placé au-dessus du sien, géré par une intégration ou portant une permission de modération ou d'administration.",
+      "text": "I ruoli automatici sono scelti dai gestori del server; il bot rifiuta di assegnare un ruolo posto sopra il proprio, gestito da un'integrazione o con un permesso di moderazione o di amministrazione."
     }
   }
 }
