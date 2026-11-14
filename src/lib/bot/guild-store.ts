@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { db } from "@/lib/db";
+import { Prisma } from "@/generated/prisma/client";
 import { asLocale, snowflake } from "./settings";
 
 /**
@@ -38,18 +39,50 @@ export async function upsertGuild(id: string, info: z.infer<typeof guildInfo>): 
   });
 }
 
-/** A rejoin within the retention keeps the settings: the join date is that of the first arrival. */
+/** Rows per statement: 5 parameters each, far below Postgres' 65,535. */
+export const SYNC_CHUNK = 1_000;
+
+export function chunks<T>(list: T[], size: number): T[][] {
+  const out: T[][] = [];
+  for (let i = 0; i < list.length; i += size) out.push(list.slice(i, i + size));
+  return out;
+}
+
+/**
+ * The bot's list, in a few statements whatever its size: one
+ * `INSERT … ON CONFLICT DO UPDATE` per thousand servers (a server listed
+ * twice keeps its last entry: one statement may not touch a row twice),
+ * and, for a full sync, one update marking every other server as left.
+ * A row whose values did not change is not rewritten.
+ *
+ * Same rules as `upsertGuild`: a new server takes Discord's locale, a known
+ * one keeps the dashboard's; a rejoin within the retention keeps its
+ * settings and its first join date. Every value is a bound parameter.
+ */
 export async function syncGuilds(full: boolean, guilds: GuildEntry[]): Promise<{ synced: number; left: number }> {
-  for (const g of guilds) await upsertGuild(g.id, g);
-  let left = 0;
-  if (full) {
-    const result = await db().guild.updateMany({
-      where: { leftAt: null, id: { notIn: guilds.map((g) => g.id) } },
-      data: { leftAt: new Date() },
-    });
-    left = result.count;
-  }
-  return { synced: guilds.length, left };
+  const unique = [...new Map(guilds.map((g) => [g.id, g])).values()];
+  const statements = chunks(unique, SYNC_CHUNK).map(
+    (part) => db().$executeRaw`
+      INSERT INTO "Guild" ("id", "name", "icon", "memberCount", "locale", "updatedAt")
+      VALUES ${Prisma.join(part.map((g) => Prisma.sql`(${g.id}, ${g.name}, ${g.icon ?? null}, ${g.memberCount}, ${siteLocaleOf(g.locale)}, now())`))}
+      ON CONFLICT ("id") DO UPDATE SET
+        "name" = EXCLUDED."name",
+        "icon" = EXCLUDED."icon",
+        "memberCount" = EXCLUDED."memberCount",
+        "leftAt" = NULL,
+        "updatedAt" = now()
+      WHERE "Guild"."name" IS DISTINCT FROM EXCLUDED."name"
+         OR "Guild"."icon" IS DISTINCT FROM EXCLUDED."icon"
+         OR "Guild"."memberCount" IS DISTINCT FROM EXCLUDED."memberCount"
+         OR "Guild"."leftAt" IS NOT NULL`,
+  );
+  const ids = unique.map((g) => g.id);
+  // One array parameter rather than one parameter per server.
+  const leaving = full
+    ? [db().$executeRaw`UPDATE "Guild" SET "leftAt" = now(), "updatedAt" = now() WHERE "leftAt" IS NULL AND NOT ("id" = ANY(${ids}::text[]))`]
+    : [];
+  const results = await db().$transaction([...statements, ...leaving]);
+  return { synced: unique.length, left: full ? results[results.length - 1] : 0 };
 }
 
 export async function leaveGuild(id: string): Promise<void> {
@@ -72,4 +105,38 @@ export async function purgeExpired(now = new Date()): Promise<{ guilds: number; 
     db().commandLog.deleteMany({ where: { createdAt: { lt: new Date(now.getTime() - COMMAND_LOG_DAYS * 86_400_000) } } }),
   ]);
   return { guilds: guilds.count, logs: logs.count };
+}
+
+/** Servers per page of the daily-post list. */
+export const DAILY_PAGE = 1_000;
+
+/**
+ * Servers whose daily games post goes out at `hour` (UTC): present, with at
+ * least one daily channel set. Ordered by id and paged with `after` (the
+ * last id of the previous page), so the bot reads one hour's servers in a
+ * few calls instead of every server's settings every hour.
+ */
+export async function dailyGuilds(hour: number, after: string | null) {
+  const rows = await db().guildSettings.findMany({
+    where: {
+      dailyHourUtc: hour,
+      guild: { leftAt: null },
+      OR: [{ dailyMlbbdleChannelId: { not: null } }, { dailyQuizChannelId: { not: null } }],
+      ...(after ? { guildId: { gt: after } } : {}),
+    },
+    orderBy: { guildId: "asc" },
+    take: DAILY_PAGE + 1,
+    select: { guildId: true, dailyMlbbdleChannelId: true, dailyQuizChannelId: true, guild: { select: { locale: true } } },
+  });
+  const page = rows.slice(0, DAILY_PAGE);
+  return {
+    hour,
+    guilds: page.map((r) => ({
+      guildId: r.guildId,
+      locale: asLocale(r.guild.locale),
+      dailyMlbbdleChannelId: r.dailyMlbbdleChannelId,
+      dailyQuizChannelId: r.dailyQuizChannelId,
+    })),
+    next: rows.length > DAILY_PAGE ? page[page.length - 1].guildId : null,
+  };
 }
