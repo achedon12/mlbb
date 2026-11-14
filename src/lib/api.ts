@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import { DEFAULT_LOCALE, isLocale, type Locale } from "@/i18n/config";
+import { absoluteUrl } from "@/lib/site";
 
 /**
  * Public API responses.
@@ -39,4 +41,19 @@ export function notFound(what: string) {
     { error: `${what} not found` },
     { status: 404, headers: { "Access-Control-Allow-Origin": "*" } },
   );
+}
+
+/** Language asked with `?locale=`; English when absent or unknown, as the API always answered. */
+export function localeParam(settings: URLSearchParams): Locale {
+  const requested = settings.get("locale") ?? DEFAULT_LOCALE;
+  return isLocale(requested) ? requested : DEFAULT_LOCALE;
+}
+
+/**
+ * Absolute address of a site visual: a third party (a Discord embed first)
+ * cannot resolve "/visuels/...", and refuses anything but an https URL.
+ */
+export function absoluteImage(path: string | null | undefined): string | null {
+  if (!path) return null;
+  return /^https?:\/\//.test(path) ? path : absoluteUrl(path);
 }

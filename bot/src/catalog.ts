@@ -1,12 +1,12 @@
 import type { Role } from "./site/game-data.js";
 
 /**
- * Emblems and battle spells: the public API has no endpoint for them yet, and
- * the list is short and stable (six emblems, eleven spells, unchanged for
- * seasons). Only what the commands need to suggest a name and link to the
- * page is kept here: names are the game's, in English as players see them in
- * a match; descriptions are read from `/api/v1/emblems` and `/api/v1/spells`
- * once the site serves them.
+ * Emblems and battle spells: the list is short and stable (six emblems,
+ * eleven spells, unchanged for seasons). Only what the commands need to
+ * suggest a name and link to the page is kept here: names are the game's, in
+ * English as players see them in a match; localized names and descriptions
+ * are read from `/api/v1/emblems` and `/api/v1/spells`, and this list stands
+ * in when the site does not answer.
  */
 
 export interface CatalogEntry {

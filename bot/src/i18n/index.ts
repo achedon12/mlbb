@@ -4,6 +4,7 @@ import es from "./es.json" with { type: "json" };
 import fr from "./fr.json" with { type: "json" };
 import id from "./id.json" with { type: "json" };
 import it from "./it.json" with { type: "json" };
+import { LOCALES, type Locale } from "./locales.js";
 
 /**
  * Bot translations, one JSON file per site language.
@@ -14,8 +15,7 @@ import it from "./it.json" with { type: "json" };
  * mapping lives here and nowhere else.
  */
 
-export const LOCALES = ["en", "fr", "it", "es", "id"] as const;
-export type Locale = (typeof LOCALES)[number];
+export { LOCALES, type Locale };
 export const DEFAULT_LOCALE: Locale = "en";
 
 /** Discord locales that receive each site language in command localizations. */

@@ -1091,6 +1091,50 @@
     "pages.apiDoc.routes.patchVersion.localeParam": {
       "fr": "Langue des textes (anglais par défaut)",
       "text": "Language of the texts (English by default)"
+    },
+    "pages.events.entry.starlight": {
+      "fr": "Skin StarLight : {skin} ({hero})",
+      "text": "StarLight skin: {skin} ({hero})"
+    },
+    "pages.events.entry.collector": {
+      "fr": "Skin Collector : {skin} ({hero})",
+      "text": "Collector skin: {skin} ({hero})"
+    },
+    "pages.apiDoc.routes.items.localeParam": {
+      "fr": "Langue des noms et des effets (anglais par défaut)",
+      "text": "Language of names and effects (English by default)"
+    },
+    "pages.apiDoc.routes.skins.summary": {
+      "fr": "Derniers skins sortis, du plus récent au plus ancien : héros, nom, date de sortie, rareté, série et illustration.",
+      "text": "Latest released skins, newest first: hero, name, release date, rarity, series and artwork."
+    },
+    "pages.apiDoc.routes.skins.limitParam": {
+      "fr": "Nombre de skins renvoyés (20 par défaut, 100 au plus).",
+      "text": "Number of skins returned (20 by default, 100 at most)."
+    },
+    "pages.apiDoc.routes.events.summary": {
+      "fr": "Événements du mois en cours et des mois annoncés : skin StarLight et skins Collector, avec le début et la fin du mois, l'illustration et la page du mois sur le site.",
+      "text": "Events of the current month and of the announced ones: the StarLight skin and the Collector skins, with the start and end of the month, the artwork and the month's page on the site."
+    },
+    "pages.apiDoc.routes.events.localeParam": {
+      "fr": "Langue des noms (anglais par défaut)",
+      "text": "Language of the names (English by default)"
+    },
+    "pages.apiDoc.routes.emblems.summary": {
+      "fr": "Les six emblèmes de rôle : nom, rôle, bonus, à qui ils conviennent et icône.",
+      "text": "The six role emblems: name, role, bonus, who they suit and icon."
+    },
+    "pages.apiDoc.routes.emblems.localeParam": {
+      "fr": "Langue des textes (anglais par défaut)",
+      "text": "Language of the texts (English by default)"
+    },
+    "pages.apiDoc.routes.spells.summary": {
+      "fr": "Sorts de combat : effet, temps de recharge en secondes, rôles, à qui ils conviennent et icône.",
+      "text": "Battle spells: effect, cooldown in seconds, roles, who they suit and icon."
+    },
+    "pages.apiDoc.routes.spells.localeParam": {
+      "fr": "Langue des textes (anglais par défaut)",
+      "text": "Language of the texts (English by default)"
     }
   },
   "es": {
@@ -2209,6 +2253,50 @@
     "pages.botAdmin.backupTrigger.schedule": {
       "fr": "planifiée",
       "text": "programada"
+    },
+    "pages.events.entry.starlight": {
+      "fr": "Skin StarLight : {skin} ({hero})",
+      "text": "Skin StarLight: {skin} ({hero})"
+    },
+    "pages.events.entry.collector": {
+      "fr": "Skin Collector : {skin} ({hero})",
+      "text": "Skin Collector: {skin} ({hero})"
+    },
+    "pages.apiDoc.routes.items.localeParam": {
+      "fr": "Langue des noms et des effets (anglais par défaut)",
+      "text": "Idioma de los nombres y efectos (inglés por defecto)"
+    },
+    "pages.apiDoc.routes.skins.summary": {
+      "fr": "Derniers skins sortis, du plus récent au plus ancien : héros, nom, date de sortie, rareté, série et illustration.",
+      "text": "Últimos skins lanzados, del más reciente al más antiguo: héroe, nombre, fecha de lanzamiento, rareza, serie e ilustración."
+    },
+    "pages.apiDoc.routes.skins.limitParam": {
+      "fr": "Nombre de skins renvoyés (20 par défaut, 100 au plus).",
+      "text": "Número de skins devueltos (20 por defecto, 100 como máximo)."
+    },
+    "pages.apiDoc.routes.events.summary": {
+      "fr": "Événements du mois en cours et des mois annoncés : skin StarLight et skins Collector, avec le début et la fin du mois, l'illustration et la page du mois sur le site.",
+      "text": "Eventos del mes en curso y de los meses anunciados: el skin StarLight y los skins Collector, con el inicio y el final del mes, la ilustración y la página del mes en el sitio."
+    },
+    "pages.apiDoc.routes.events.localeParam": {
+      "fr": "Langue des noms (anglais par défaut)",
+      "text": "Idioma de los nombres (inglés por defecto)"
+    },
+    "pages.apiDoc.routes.emblems.summary": {
+      "fr": "Les six emblèmes de rôle : nom, rôle, bonus, à qui ils conviennent et icône.",
+      "text": "Los seis emblemas de rol: nombre, rol, bonificación, a quién convienen e icono."
+    },
+    "pages.apiDoc.routes.emblems.localeParam": {
+      "fr": "Langue des textes (anglais par défaut)",
+      "text": "Idioma de los textos (inglés por defecto)"
+    },
+    "pages.apiDoc.routes.spells.summary": {
+      "fr": "Sorts de combat : effet, temps de recharge en secondes, rôles, à qui ils conviennent et icône.",
+      "text": "Hechizos de batalla: efecto, enfriamiento en segundos, roles, a quién convienen e icono."
+    },
+    "pages.apiDoc.routes.spells.localeParam": {
+      "fr": "Langue des textes (anglais par défaut)",
+      "text": "Idioma de los textos (inglés por defecto)"
     }
   },
   "id": {
@@ -5299,6 +5387,50 @@
     "pages.botAdmin.backupTrigger.schedule": {
       "fr": "planifiée",
       "text": "terjadwal"
+    },
+    "pages.events.entry.starlight": {
+      "fr": "Skin StarLight : {skin} ({hero})",
+      "text": "Skin StarLight: {skin} ({hero})"
+    },
+    "pages.events.entry.collector": {
+      "fr": "Skin Collector : {skin} ({hero})",
+      "text": "Skin Collector: {skin} ({hero})"
+    },
+    "pages.apiDoc.routes.items.localeParam": {
+      "fr": "Langue des noms et des effets (anglais par défaut)",
+      "text": "Bahasa nama dan efek (bahasa Inggris secara default)"
+    },
+    "pages.apiDoc.routes.skins.summary": {
+      "fr": "Derniers skins sortis, du plus récent au plus ancien : héros, nom, date de sortie, rareté, série et illustration.",
+      "text": "Skin terbaru yang dirilis, dari yang terbaru: hero, nama, tanggal rilis, kelangkaan, seri, dan artwork."
+    },
+    "pages.apiDoc.routes.skins.limitParam": {
+      "fr": "Nombre de skins renvoyés (20 par défaut, 100 au plus).",
+      "text": "Jumlah skin yang dikembalikan (20 secara default, paling banyak 100)."
+    },
+    "pages.apiDoc.routes.events.summary": {
+      "fr": "Événements du mois en cours et des mois annoncés : skin StarLight et skins Collector, avec le début et la fin du mois, l'illustration et la page du mois sur le site.",
+      "text": "Event bulan ini dan bulan-bulan yang sudah diumumkan: skin StarLight dan skin Collector, dengan awal dan akhir bulan, artwork, serta halaman bulan tersebut di situs."
+    },
+    "pages.apiDoc.routes.events.localeParam": {
+      "fr": "Langue des noms (anglais par défaut)",
+      "text": "Bahasa nama (bahasa Inggris secara default)"
+    },
+    "pages.apiDoc.routes.emblems.summary": {
+      "fr": "Les six emblèmes de rôle : nom, rôle, bonus, à qui ils conviennent et icône.",
+      "text": "Enam emblem role: nama, role, bonus, cocok untuk siapa, dan ikon."
+    },
+    "pages.apiDoc.routes.emblems.localeParam": {
+      "fr": "Langue des textes (anglais par défaut)",
+      "text": "Bahasa teks (bahasa Inggris secara default)"
+    },
+    "pages.apiDoc.routes.spells.summary": {
+      "fr": "Sorts de combat : effet, temps de recharge en secondes, rôles, à qui ils conviennent et icône.",
+      "text": "Battle spell: efek, cooldown dalam detik, role, cocok untuk siapa, dan ikon."
+    },
+    "pages.apiDoc.routes.spells.localeParam": {
+      "fr": "Langue des textes (anglais par défaut)",
+      "text": "Bahasa teks (bahasa Inggris secara default)"
     }
   },
   "it": {
@@ -6465,6 +6597,50 @@
     "pages.botAdmin.backupTrigger.schedule": {
       "fr": "planifiée",
       "text": "programmato"
+    },
+    "pages.events.entry.starlight": {
+      "fr": "Skin StarLight : {skin} ({hero})",
+      "text": "Skin StarLight: {skin} ({hero})"
+    },
+    "pages.events.entry.collector": {
+      "fr": "Skin Collector : {skin} ({hero})",
+      "text": "Skin Collector: {skin} ({hero})"
+    },
+    "pages.apiDoc.routes.items.localeParam": {
+      "fr": "Langue des noms et des effets (anglais par défaut)",
+      "text": "Lingua di nomi ed effetti (inglese per impostazione predefinita)"
+    },
+    "pages.apiDoc.routes.skins.summary": {
+      "fr": "Derniers skins sortis, du plus récent au plus ancien : héros, nom, date de sortie, rareté, série et illustration.",
+      "text": "Ultime skin uscite, dalla più recente alla più vecchia: eroe, nome, data di uscita, rarità, serie e illustrazione."
+    },
+    "pages.apiDoc.routes.skins.limitParam": {
+      "fr": "Nombre de skins renvoyés (20 par défaut, 100 au plus).",
+      "text": "Numero di skin restituite (20 per impostazione predefinita, 100 al massimo)."
+    },
+    "pages.apiDoc.routes.events.summary": {
+      "fr": "Événements du mois en cours et des mois annoncés : skin StarLight et skins Collector, avec le début et la fin du mois, l'illustration et la page du mois sur le site.",
+      "text": "Eventi del mese in corso e dei mesi annunciati: la skin StarLight e le skin Collector, con inizio e fine del mese, l'illustrazione e la pagina del mese sul sito."
+    },
+    "pages.apiDoc.routes.events.localeParam": {
+      "fr": "Langue des noms (anglais par défaut)",
+      "text": "Lingua dei nomi (inglese per impostazione predefinita)"
+    },
+    "pages.apiDoc.routes.emblems.summary": {
+      "fr": "Les six emblèmes de rôle : nom, rôle, bonus, à qui ils conviennent et icône.",
+      "text": "I sei emblemi di ruolo: nome, ruolo, bonus, a chi sono adatti e icona."
+    },
+    "pages.apiDoc.routes.emblems.localeParam": {
+      "fr": "Langue des textes (anglais par défaut)",
+      "text": "Lingua dei testi (inglese per impostazione predefinita)"
+    },
+    "pages.apiDoc.routes.spells.summary": {
+      "fr": "Sorts de combat : effet, temps de recharge en secondes, rôles, à qui ils conviennent et icône.",
+      "text": "Magie di battaglia: effetto, tempo di ricarica in secondi, ruoli, a chi sono adatte e icona."
+    },
+    "pages.apiDoc.routes.spells.localeParam": {
+      "fr": "Langue des textes (anglais par défaut)",
+      "text": "Lingua dei testi (inglese per impostazione predefinita)"
     }
   }
 }

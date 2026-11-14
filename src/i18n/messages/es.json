@@ -649,7 +649,8 @@
         },
         "items": {
           "summary": "Objetos de la tienda, con estadísticas, pasivas y recetas.",
-          "catParam": "Solo conserva esta categoría."
+          "catParam": "Solo conserva esta categoría.",
+          "localeParam": "Idioma de los nombres y efectos (inglés por defecto)"
         },
         "patches": {
           "summary": "Versiones listadas, de la más reciente a la más antigua."
@@ -666,6 +667,22 @@
         "patchVersion": {
           "summary": "Un parche en detalle: notas, nuevos héroes y ajustes a cada héroe, con el número de mejoras y nerfs.",
           "localeParam": "Idioma del texto (inglés por defecto)"
+        },
+        "skins": {
+          "summary": "Últimos skins lanzados, del más reciente al más antiguo: héroe, nombre, fecha de lanzamiento, rareza, serie e ilustración.",
+          "limitParam": "Número de skins devueltos (20 por defecto, 100 como máximo)."
+        },
+        "events": {
+          "summary": "Eventos del mes en curso y de los meses anunciados: el skin StarLight y los skins Collector, con el inicio y el final del mes, la ilustración y la página del mes en el sitio.",
+          "localeParam": "Idioma de los nombres (inglés por defecto)"
+        },
+        "emblems": {
+          "summary": "Los seis emblemas de rol: nombre, rol, bonificación, a quién convienen e icono.",
+          "localeParam": "Idioma de los textos (inglés por defecto)"
+        },
+        "spells": {
+          "summary": "Hechizos de batalla: efecto, enfriamiento en segundos, roles, a quién convienen e icono.",
+          "localeParam": "Idioma de los textos (inglés por defecto)"
         }
       },
       "endpoints": "Endpoints"
@@ -2083,6 +2100,10 @@
         "navMonths": "Mes anterior y siguiente",
         "allMonths": "Todos los meses",
         "yearLink": "Todos los skins lanzados en {year}"
+      },
+      "entry": {
+        "starlight": "Skin StarLight: {skin} ({hero})",
+        "collector": "Skin Collector: {skin} ({hero})"
       }
     },
     "nickname": {

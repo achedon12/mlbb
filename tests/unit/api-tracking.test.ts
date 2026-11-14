@@ -16,6 +16,10 @@ import { GET as hero } from "@/app/api/v1/heroes/[slug]/route";
 import { GET as items } from "@/app/api/v1/items/route";
 import { GET as patches } from "@/app/api/v1/patches/route";
 import { GET as rankings } from "@/app/api/v1/rankings/route";
+import { GET as skins } from "@/app/api/v1/skins/route";
+import { GET as events } from "@/app/api/v1/events/route";
+import { GET as emblems } from "@/app/api/v1/emblems/route";
+import { GET as spells } from "@/app/api/v1/spells/route";
 
 /**
  * Server-side measurement of the public API: which calls reach Matomo, with
@@ -65,14 +69,22 @@ describe("endpointPattern", () => {
     expect(endpointPattern("/api/v1/heroes")).toBe("heroes");
     expect(endpointPattern("/api/v1/heroes/layla")).toBe("heroes/{slug}");
     expect(endpointPattern("/api/v1/heroes/tigreal")).toBe("heroes/{slug}");
+    expect(endpointPattern("/api/v1/heroes/layla/counters")).toBe("heroes/{slug}/counters");
+    expect(endpointPattern("/api/v1/heroes/layla/builds")).toBe("heroes/{slug}/builds");
+    expect(endpointPattern("/api/v1/heroes/layla/skins")).toBe("(unknown)");
+    expect(endpointPattern("/api/v1/patches/2.2.16")).toBe("patches/{version}");
     expect(endpointPattern("/api/v1/items")).toBe("items");
     expect(endpointPattern("/api/v1/patches")).toBe("patches");
     expect(endpointPattern("/api/v1/rankings")).toBe("rankings");
+    expect(endpointPattern("/api/v1/skins")).toBe("skins");
+    expect(endpointPattern("/api/v1/events")).toBe("events");
+    expect(endpointPattern("/api/v1/emblems")).toBe("emblems");
+    expect(endpointPattern("/api/v1/spells")).toBe("spells");
   });
 
   it("files paths without a route together instead of one row each", () => {
     expect(endpointPattern("/api/v1")).toBe("(unknown)");
-    expect(endpointPattern("/api/v1/skins")).toBe("(unknown)");
+    expect(endpointPattern("/api/v1/talents")).toBe("(unknown)");
     expect(endpointPattern("/api/v1/heroes/layla/skins")).toBe("(unknown)");
   });
 
@@ -102,6 +114,10 @@ describe("apiStatus", () => {
       ["/api/v1/items", () => items(request("/api/v1/items?category=nothing"))],
       ["/api/v1/patches", () => patches()],
       ["/api/v1/rankings", () => rankings()],
+      ["/api/v1/skins", () => skins(request("/api/v1/skins?limit=0"))],
+      ["/api/v1/events", () => events(request("/api/v1/events?locale=zz"))],
+      ["/api/v1/emblems", () => emblems(request("/api/v1/emblems"))],
+      ["/api/v1/spells", () => spells(request("/api/v1/spells?locale=fr"))],
       ["/api/v1/heroes/layla", () => hero(request("/api/v1/heroes/layla"), { params: Promise.resolve({ slug: "layla" }) })],
       ["/api/v1/heroes/nobody", () => hero(request("/api/v1/heroes/nobody"), { params: Promise.resolve({ slug: "nobody" }) })],
     ];
@@ -111,7 +127,7 @@ describe("apiStatus", () => {
   });
 
   it("answers 404 without a route and 405 to a method the routes do not export", () => {
-    expect(apiStatus("/api/v1/skins", "GET")).toBe(404);
+    expect(apiStatus("/api/v1/talents", "GET")).toBe(404);
     expect(apiStatus("/api/v1/heroes", "POST")).toBe(405);
     expect(apiStatus("/api/v1/heroes", "HEAD")).toBe(200);
   });

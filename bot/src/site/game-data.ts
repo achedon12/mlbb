@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { TtlCache } from "../cache.js";
-import { LOCALES, type Locale } from "../i18n/index.js";
+import { LOCALES, type Locale } from "../i18n/locales.js";
 import { NotFoundError, requestJson, type FetchLike } from "./http.js";
 
 /**
@@ -9,9 +9,11 @@ import { NotFoundError, requestJson, type FetchLike } from "./http.js";
  * stale at the next sync.
  *
  * Shapes follow `src/app/api/v1/**` in the site. Unknown fields are stripped
- * by the schemas, which keeps the cached objects small. Some endpoints the
- * commands would like (`counters`, `builds`, `emblems`...) are optional: on
- * a 404 the command falls back to a link to the page on the site.
+ * by the schemas, which keeps the cached objects small. Some endpoints
+ * (`counters`, `builds`, `emblems`, `skins`...) are read as optional: on a
+ * 404 the command falls back to a link to the page on the site.
+ * `tests/unit/bot-api-contract.test.ts` (site side) runs this client against
+ * the site's route handlers, so a path or a shape cannot drift unnoticed.
  */
 
 const envelope = <T extends z.ZodType>(data: T) => z.object({ data });
