@@ -41,6 +41,14 @@ export function periodStart(period: Period, day: string): string | null {
   return null;
 }
 
+/** One player's results over the period, summed: what the database aggregates. */
+export interface PlayerTotal {
+  discordUserId: string;
+  discordUserName: string;
+  plays: number;
+  total: number;
+}
+
 export function rank(game: DailyGame, rows: ResultRow[], size = LEADERBOARD_SIZE): Entry[] {
   const byUser = new Map<string, { name: string; latest: string; plays: number; total: number }>();
   for (const r of rows) {
@@ -54,10 +62,19 @@ export function rank(game: DailyGame, rows: ResultRow[], size = LEADERBOARD_SIZE
     }
     byUser.set(r.discordUserId, user);
   }
+  return rankTotals(
+    game,
+    [...byUser].map(([id, u]) => ({ discordUserId: id, discordUserName: u.name, plays: u.plays, total: u.total })),
+    size,
+  );
+}
+
+/** Same ranking, from totals already summed per player. */
+export function rankTotals(game: DailyGame, totals: PlayerTotal[], size = LEADERBOARD_SIZE): Entry[] {
   const quiz = game === "quiz";
-  const list = [...byUser].map(([id, u]) => ({
-    discordUserId: id,
-    discordUserName: u.name,
+  const list = totals.map((u) => ({
+    discordUserId: u.discordUserId,
+    discordUserName: u.discordUserName,
     plays: u.plays,
     score: quiz ? u.total : Math.round((u.total / u.plays) * 10) / 10,
   }));
@@ -73,3 +90,11 @@ export function rank(game: DailyGame, rows: ResultRow[], size = LEADERBOARD_SIZE
   }
   return out;
 }
+
+/**
+ * Candidates read from the database, in the database's order (same keys,
+ * unrounded average), before the exact ranking above: more than the ten
+ * shown, so a tie the rounding creates at the tenth place is still decided
+ * by Discord id, as with every row in memory.
+ */
+export const LEADERBOARD_CANDIDATES = 5 * LEADERBOARD_SIZE;
