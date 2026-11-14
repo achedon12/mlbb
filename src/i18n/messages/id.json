@@ -3453,7 +3453,7 @@
     },
     "botDashboard": {
       "title": "Dasbor Bot",
-      "lead": "Atur bot untuk setiap server Anda: bahasa, pengumuman, dan permainan hari ini.",
+      "lead": "Atur bot untuk setiap server Anda: bahasa, pengumuman, permainan hari ini, pesan selamat datang, dan peran otomatis.",
       "login": "Terhubung dengan Perselisihan",
       "loginLead": "Masuk dengan Discord untuk melihat server yang Anda kelola. Hanya pengenal Anda yang dibaca: tidak ada akses ke pesan atau server Anda.",
       "loginFailed": "Sambungan tidak berhasil. Coba lagi.",
@@ -3463,7 +3463,7 @@
       "serversLead": "Server tempat Anda memiliki izin Kelola Server dan tempat bot berada.",
       "noServers": "Belum ada server yang perlu disetel: tambahkan bot ke server yang Anda kelola.",
       "addBot": "Tambahkan bot ke server",
-      "manage": "Mengatur",
+      "manage": "Atur",
       "unreachable": "Bot tidak merespons saat ini. Coba lagi dalam beberapa menit.",
       "back": "Semua server Anda",
       "notAllowed": "Server ini tidak ada dalam daftar server yang Anda kelola.",
@@ -3476,7 +3476,12 @@
         "forbidden": "Izin ditolak"
       },
       "members": "{count} anggota",
-      "admin": "Panel Admin"
+      "admin": "Panel Admin",
+      "loginTitle": "Masuk untuk menyiapkan bot",
+      "addBotLead": "Server yang Anda kelola tidak muncul? Undang MLBBDex ke sana, lalu kembali lagi ke sini.",
+      "botPresent": "MLBBDex ada di server ini",
+      "noManageRoles": "Tanpa izin Kelola Peran",
+      "deliveriesLead": "Pengumuman terbaru yang diposting di server ini, dan yang gagal."
     },
     "botUI": {
       "language": "Bahasa bot di server ini",
@@ -3550,7 +3555,23 @@
         "above_user": "di atas peran Anda"
       },
       "autoRolesFailingGranter": "Anggota yang memilih peran ini telah keluar dari server atau tidak bisa lagi memberikannya sendiri: pengelola dengan izin Kelola Peran, yang perannya di atas peran-peran ini, harus menyimpan lagi.",
-      "autoRolesNotGrantable": "Anda tidak bisa memberikan salah satu peran ini sendiri (izin Kelola Peran, peran di atas peran Anda): bot tidak akan memberikannya untuk Anda."
+      "autoRolesNotGrantable": "Anda tidak bisa memberikan salah satu peran ini sendiri (izin Kelola Peran, peran di atas peran Anda): bot tidak akan memberikannya untuk Anda.",
+      "languageTitle": "Bahasa",
+      "languageLead": "Bahasa yang digunakan bot untuk merespons dan memposting ke server ini, termasuk pesan selamat datang.",
+      "dailyLead": "MLBBdle dan kuis hari ini, diposting sekali sehari dengan tombol Main.",
+      "statusOn": "Aktif",
+      "statusOff": "Nonaktif",
+      "statusAttention": "Perlu diperbaiki",
+      "statusCount": "{on} dari {total} aktif",
+      "sectionsNav": "Bagian pengaturan",
+      "unsaved": "Perubahan yang belum disimpan",
+      "allSaved": "Semua perubahan tersimpan",
+      "discard": "Batalkan perubahan",
+      "dismiss": "Tutup",
+      "announcementType": "Pengumuman",
+      "testing": "Mengirim…",
+      "noChannels": "Bot tidak dapat memposting di saluran mana pun di server ini: berikan izin Lihat Saluran, Kirim Pesan, dan Sematkan Tautan di setidaknya satu saluran, lalu muat ulang halaman ini.",
+      "autoRolesNoneSelectable": "Belum ada peran yang dapat dipilih: setiap peran berada di atas peran bot atau peran Anda, dikelola oleh integrasi, atau memiliki izin moderasi."
     },
     "botAdmin": {
       "title": "Administrasi bot",

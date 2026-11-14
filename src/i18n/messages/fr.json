@@ -3453,7 +3453,7 @@
     },
     "botDashboard": {
       "title": "Tableau de bord du bot",
-      "lead": "Réglez le bot pour chacun de vos serveurs : langue, annonces et jeux du jour.",
+      "lead": "Réglez le bot pour chacun de vos serveurs : langue, annonces, jeux du jour, messages de bienvenue et rôles automatiques.",
       "login": "Se connecter avec Discord",
       "loginLead": "Connectez-vous avec Discord pour voir les serveurs que vous gérez. Seul votre identifiant est lu : aucun accès à vos messages ni à vos serveurs.",
       "loginFailed": "La connexion n'a pas abouti. Réessayez.",
@@ -3463,7 +3463,7 @@
       "serversLead": "Les serveurs où vous avez la permission Gérer le serveur et où le bot est présent.",
       "noServers": "Aucun serveur à régler pour l'instant : ajoutez le bot à un serveur que vous gérez.",
       "addBot": "Ajouter le bot à un serveur",
-      "manage": "Régler",
+      "manage": "Configurer",
       "unreachable": "Le bot ne répond pas pour le moment. Réessayez dans quelques minutes.",
       "back": "Tous vos serveurs",
       "notAllowed": "Ce serveur n'est pas dans la liste de ceux que vous gérez.",
@@ -3476,7 +3476,12 @@
         "forbidden": "Permission refusée"
       },
       "members": "{count} membres",
-      "admin": "Panneau d'administration"
+      "admin": "Panneau d'administration",
+      "loginTitle": "Connectez-vous pour régler le bot",
+      "addBotLead": "Un serveur que vous gérez n'apparaît pas ? Invitez-y MLBBDex, puis revenez ici.",
+      "botPresent": "MLBBDex est sur ce serveur",
+      "noManageRoles": "Sans la permission Gérer les rôles",
+      "deliveriesLead": "Les dernières annonces publiées sur ce serveur, et celles qui ont échoué."
     },
     "botUI": {
       "language": "Langue du bot sur ce serveur",
@@ -3550,7 +3555,23 @@
         "above_user": "au-dessus de votre rôle"
       },
       "autoRolesFailingGranter": "Le membre qui a choisi ces rôles a quitté le serveur ou ne peut plus les donner lui-même : un gestionnaire qui a la permission Gérer les rôles, avec un rôle au-dessus de ceux-ci, doit enregistrer à nouveau.",
-      "autoRolesNotGrantable": "Vous ne pouvez pas donner l'un de ces rôles vous-même (permission Gérer les rôles, rôle au-dessus du vôtre) : le bot ne le donnera pas à votre place."
+      "autoRolesNotGrantable": "Vous ne pouvez pas donner l'un de ces rôles vous-même (permission Gérer les rôles, rôle au-dessus du vôtre) : le bot ne le donnera pas à votre place.",
+      "languageTitle": "Langue",
+      "languageLead": "La langue dans laquelle le bot répond et publie sur ce serveur, messages de bienvenue compris.",
+      "dailyLead": "Le MLBBdle et le quiz du jour, publiés une fois par jour avec un bouton Jouer.",
+      "statusOn": "Activé",
+      "statusOff": "Désactivé",
+      "statusAttention": "À corriger",
+      "statusCount": "{on} sur {total} activés",
+      "sectionsNav": "Parties des réglages",
+      "unsaved": "Modifications non enregistrées",
+      "allSaved": "Tout est enregistré",
+      "discard": "Annuler les modifications",
+      "dismiss": "Fermer",
+      "announcementType": "Annonce",
+      "testing": "Envoi…",
+      "noChannels": "Le bot ne peut publier dans aucun salon de ce serveur : donnez-lui les permissions Voir le salon, Envoyer des messages et Intégrer des liens dans au moins un salon, puis rechargez cette page.",
+      "autoRolesNoneSelectable": "Aucun rôle ne peut être choisi pour l'instant : chaque rôle est soit au-dessus du bot ou du vôtre, soit géré par une intégration, soit porteur de permissions de modération."
     },
     "botAdmin": {
       "title": "Administration du bot",

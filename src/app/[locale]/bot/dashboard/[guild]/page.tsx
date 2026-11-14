@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { GuildIcon, LoginPanel, UserBar } from "@/components/bot/dashboard-parts";
+import { ArrowLeft } from "lucide-react";
+import { BUTTON, GuildIcon, LoginPanel, UserBar } from "@/components/bot/dashboard-parts";
 import { SettingsForm } from "@/components/bot/settings-form";
 import Link from "@/components/link";
 import { PageHeader } from "@/components/ui";
@@ -47,12 +48,15 @@ export default async function GuildPage({ params }: Params) {
       <PageHeader title={t("pages.botDashboard.title")} lead={t("pages.botDashboard.lead")} crumbs={[...crumbs.slice(0, 1), { name: t("pages.bot.dashboard") }]} />
       <div className="mx-auto max-w-4xl space-y-6 px-4 py-10">
         {user ? <UserBar t={t} locale={locale} user={user} /> : null}
-        <p role="alert" className="text-chalk-300">
-          {text}
-        </p>
-        <Link href="/bot/dashboard" className="text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500">
-          ← {t("pages.botDashboard.back")}
-        </Link>
+        <div className="bevel border border-night-700 bg-night-900/80 p-5 sm:p-6">
+          <p role="alert" className="text-base leading-relaxed text-chalk-100">
+            {text}
+          </p>
+          <Link href="/bot/dashboard" className={`${BUTTON} mt-4 border border-night-600 bg-night-800 text-chalk-100 hover:border-gold-500/70`}>
+            <ArrowLeft aria-hidden className="size-4" />
+            {t("pages.botDashboard.back")}
+          </Link>
+        </div>
       </div>
     </>
   );
@@ -97,11 +101,24 @@ export default async function GuildPage({ params }: Params) {
         title={guild.name}
         lead={t("pages.botDashboard.lead")}
         crumbs={[...crumbs, { name: guild.name }]}
-        icon={<GuildIcon id={guild.id} icon={guild.icon} name={guild.name} />}
-        meta={[t("pages.botDashboard.members", { count: new Intl.NumberFormat(locale).format(guild.memberCount) })]}
+        icon={<GuildIcon id={guild.id} icon={guild.icon} name={guild.name} size="lg" />}
+        meta={[
+          <span key="bot" className="inline-flex items-center gap-1.5 text-emerald-300">
+            <span aria-hidden className="size-2 rounded-full bg-emerald-400" />
+            {t("pages.botDashboard.botPresent")}
+          </span>,
+          t("pages.botDashboard.members", { count: new Intl.NumberFormat(locale).format(guild.memberCount) }),
+          lists.manageRoles ? null : t("pages.botDashboard.noManageRoles"),
+        ]}
       />
-      <div className="mx-auto max-w-4xl space-y-10 px-4 py-10">
-        <UserBar t={t} locale={locale} user={user} />
+      <div className="mx-auto max-w-6xl space-y-10 px-4 py-8 sm:py-10">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <Link href="/bot/dashboard" className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500">
+            <ArrowLeft aria-hidden className="size-4" />
+            {t("pages.botDashboard.back")}
+          </Link>
+          <UserBar t={t} locale={locale} user={user} compact />
+        </div>
         <section aria-labelledby="settings">
           <h2 id="settings" className="sr-only">
             {t("pages.botDashboard.settingsTitle")}
@@ -121,25 +138,25 @@ export default async function GuildPage({ params }: Params) {
           </ExtendMessages>
         </section>
 
-        <section aria-labelledby="deliveries">
+        <section aria-labelledby="deliveries" className="bevel border border-night-700 bg-night-900/80 p-4 sm:p-5 lg:ml-[15rem]">
           <h2 id="deliveries" className="font-heading text-xl font-bold text-chalk-100">
             {t("pages.botDashboard.deliveriesTitle")}
           </h2>
-          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <p className="mt-1 text-sm text-chalk-400">{t("pages.botDashboard.deliveriesLead")}</p>
           {!health?.length ? (
-            <p className="mt-4 text-sm text-chalk-500">{t("pages.botDashboard.noDeliveries")}</p>
+            <p className="mt-4 text-base text-chalk-300">{t("pages.botDashboard.noDeliveries")}</p>
           ) : (
-            <ul className="mt-4 divide-y divide-night-700/70 border-y border-night-700/70 text-sm">
+            <ul className="mt-4 divide-y divide-night-700 border-y border-night-700 text-base">
               {health.map((d) => (
                 <li key={`${d.type}-${d.key}`} className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 py-2.5">
                   <span className="text-chalk-100">
-                    {t(`pages.botUI.types.${d.type}`)} <span className="text-chalk-500">· {d.key}</span>
+                    {t(`pages.botUI.types.${d.type}`)} <span className="text-chalk-400">({d.key})</span>
                   </span>
                   <span className="flex items-baseline gap-3">
                     <span className={cn("font-semibold", d.status === "sent" ? "text-emerald-400" : "text-blood-400")}>
                       {t(`pages.botDashboard.statuses.${d.status}`)}
                     </span>
-                    <time dateTime={d.sentAt} className="tabular-nums text-chalk-500">
+                    <time dateTime={d.sentAt} className="text-sm tabular-nums text-chalk-400">
                       {dateTime.format(new Date(d.sentAt))} UTC
                     </time>
                   </span>

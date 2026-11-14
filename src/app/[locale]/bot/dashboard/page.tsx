@@ -1,6 +1,7 @@
+import { ChevronRight, Plus, ShieldCheck } from "lucide-react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { GuildIcon, LoginPanel, UserBar, BUTTON } from "@/components/bot/dashboard-parts";
+import { BUTTON, GuildIcon, LoginPanel, UserBar } from "@/components/bot/dashboard-parts";
 import Link from "@/components/link";
 import { PageHeader } from "@/components/ui";
 import type { Locale } from "@/i18n/config";
@@ -15,7 +16,9 @@ type Params = { params: Promise<{ locale: Locale }>; searchParams: Promise<{ log
 
 /**
  * Dashboard home: Discord login, then the servers this user can manage,
- * asked live to the bot (Manage Server in that server, bot present).
+ * asked live to the bot (Manage Server in that server, bot present), each a
+ * card leading to its settings, and a distinct card to add the bot to
+ * another server (the login reads no server list: those cannot be named).
  * Private and dynamic: never indexed, never cached.
  */
 export const dynamic = "force-dynamic";
@@ -39,6 +42,22 @@ export default async function DashboardPage({ params, searchParams }: Params) {
   // the ceiling, the page says the bot is unreachable for a moment.
   if (user && (await dashboardPageAllowed(user.id))) guilds = await manageableGuilds(config, user.id).catch(() => null);
 
+  const addCard = (
+    <a
+      href={inviteUrl(clientId)}
+      rel="noopener"
+      className="bevel group flex h-full min-h-24 items-center gap-4 border border-dashed border-night-600 bg-night-900/40 p-4 transition-colors hover:border-gold-500/70 hover:bg-night-900/80"
+    >
+      <span aria-hidden className="bevel-sm grid size-12 shrink-0 place-items-center bg-gold-500/15 text-gold-400">
+        <Plus className="size-6" />
+      </span>
+      <span className="min-w-0 flex-1">
+        <span className="block font-heading text-lg font-bold text-chalk-100">{t("pages.botDashboard.addBot")}</span>
+        <span className="mt-0.5 block text-sm leading-relaxed text-chalk-400">{t("pages.botDashboard.addBotLead")}</span>
+      </span>
+    </a>
+  );
+
   return (
     <>
       <PageHeader
@@ -46,24 +65,26 @@ export default async function DashboardPage({ params, searchParams }: Params) {
         lead={t("pages.botDashboard.lead")}
         crumbs={[{ name: t("pages.bot.breadcrumb"), href: "/bot" }, { name: t("pages.bot.dashboard") }]}
       />
-      <div className="mx-auto max-w-4xl space-y-8 px-4 py-10">
+      <div className="mx-auto max-w-5xl space-y-8 px-4 py-8 sm:py-10">
         {!user ? (
           <LoginPanel t={t} locale={locale} next="dashboard" failed={(await searchParams).login === "failed"} />
         ) : (
           <>
             <UserBar t={t} locale={locale} user={user} />
             <section aria-labelledby="servers">
-              <h2 id="servers" className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
+              <h2 id="servers" className="font-heading text-2xl font-bold text-chalk-100">
                 {t("pages.botDashboard.serversTitle")}
               </h2>
-              <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
-              <p className="mt-3 text-sm text-chalk-500">{t("pages.botDashboard.serversLead")}</p>
+              <p className="mt-1 max-w-prose text-base text-chalk-300">{t("pages.botDashboard.serversLead")}</p>
               {guilds === null ? (
-                <p role="alert" className="mt-5 text-chalk-300">
+                <p role="alert" className="bevel mt-5 border-l-4 border-blood-400 bg-blood-500/10 p-4 text-base text-chalk-100">
                   {t("pages.botDashboard.unreachable")}
                 </p>
               ) : guilds.length === 0 ? (
-                <p className="mt-5 text-chalk-300">{t("pages.botDashboard.noServers")}</p>
+                <div className="mt-5 space-y-4">
+                  <p className="text-base text-chalk-200">{t("pages.botDashboard.noServers")}</p>
+                  <div className="max-w-xl">{addCard}</div>
+                </div>
               ) : (
                 <ul className="mt-5 grid gap-3 sm:grid-cols-2">
                   {guilds.map((g) => (
@@ -71,24 +92,36 @@ export default async function DashboardPage({ params, searchParams }: Params) {
                       <Link
                         href={`/bot/dashboard/${g.id}`}
                         prefetch={false}
-                        className="bevel-sm flex items-center gap-3 border border-night-700/70 bg-night-900/60 p-3 transition-colors hover:border-gold-500/60"
+                        className="bevel group flex min-h-24 items-center gap-4 border border-night-700 bg-night-900/80 p-4 transition-colors hover:border-gold-500/70 hover:bg-night-850"
                       >
                         <GuildIcon id={g.id} icon={g.icon} name={g.name} />
-                        <span className="min-w-0 flex-1 truncate font-semibold text-chalk-100">{g.name}</span>
-                        <span className="text-sm text-gold-400">{t("pages.botDashboard.manage")} →</span>
+                        <span className="min-w-0 flex-1">
+                          <span className="block truncate font-heading text-lg font-bold text-chalk-100">{g.name}</span>
+                          <span className="mt-1 inline-flex items-center gap-1.5 text-sm text-emerald-300">
+                            <span aria-hidden className="size-2 rounded-full bg-emerald-400" />
+                            {t("pages.botDashboard.botPresent")}
+                          </span>
+                        </span>
+                        <span className={`${BUTTON} shrink-0 bg-gold-500 text-night-950 group-hover:bg-gold-400`}>
+                          {t("pages.botDashboard.manage")}
+                          <ChevronRight aria-hidden className="size-4" />
+                        </span>
                       </Link>
                     </li>
                   ))}
+                  <li>{addCard}</li>
                 </ul>
               )}
-              <a href={inviteUrl(clientId)} rel="noopener" className={`${BUTTON} mt-6 border border-night-600 bg-night-800 text-chalk-100 hover:border-gold-500/60`}>
-                {t("pages.botDashboard.addBot")}
-              </a>
             </section>
             {isSuperAdmin(config, user.id) && (
               <p>
-                <Link href="/bot/admin" prefetch={false} className="text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500">
-                  {t("pages.botDashboard.admin")} →
+                <Link
+                  href="/bot/admin"
+                  prefetch={false}
+                  className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500"
+                >
+                  <ShieldCheck aria-hidden className="size-4" />
+                  {t("pages.botDashboard.admin")}
                 </Link>
               </p>
             )}

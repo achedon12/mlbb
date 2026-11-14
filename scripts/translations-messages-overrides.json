@@ -655,6 +655,98 @@
     "pages.botUI.autoRoleRefusals.above_user": {
       "fr": "au-dessus de votre rôle",
       "text": "above your role"
+    },
+    "pages.botUI.languageTitle": {
+      "fr": "Langue",
+      "text": "Language"
+    },
+    "pages.botUI.languageLead": {
+      "fr": "La langue dans laquelle le bot répond et publie sur ce serveur, messages de bienvenue compris.",
+      "text": "The language the bot replies and posts in on this server, welcome messages included."
+    },
+    "pages.botUI.dailyLead": {
+      "fr": "Le MLBBdle et le quiz du jour, publiés une fois par jour avec un bouton Jouer.",
+      "text": "Today's MLBBdle and quiz, posted once a day with a Play button."
+    },
+    "pages.botUI.statusOn": {
+      "fr": "Activé",
+      "text": "On"
+    },
+    "pages.botUI.statusOff": {
+      "fr": "Désactivé",
+      "text": "Off"
+    },
+    "pages.botUI.statusAttention": {
+      "fr": "À corriger",
+      "text": "Needs fixing"
+    },
+    "pages.botUI.statusCount": {
+      "fr": "{on} sur {total} activés",
+      "text": "{on} of {total} on"
+    },
+    "pages.botUI.sectionsNav": {
+      "fr": "Parties des réglages",
+      "text": "Settings sections"
+    },
+    "pages.botUI.unsaved": {
+      "fr": "Modifications non enregistrées",
+      "text": "Unsaved changes"
+    },
+    "pages.botUI.allSaved": {
+      "fr": "Tout est enregistré",
+      "text": "All changes saved"
+    },
+    "pages.botUI.discard": {
+      "fr": "Annuler les modifications",
+      "text": "Discard changes"
+    },
+    "pages.botUI.dismiss": {
+      "fr": "Fermer",
+      "text": "Dismiss"
+    },
+    "pages.botUI.announcementType": {
+      "fr": "Annonce",
+      "text": "Announcement"
+    },
+    "pages.botUI.testing": {
+      "fr": "Envoi…",
+      "text": "Sending…"
+    },
+    "pages.botUI.noChannels": {
+      "fr": "Le bot ne peut publier dans aucun salon de ce serveur : donnez-lui les permissions Voir le salon, Envoyer des messages et Intégrer des liens dans au moins un salon, puis rechargez cette page.",
+      "text": "The bot cannot post in any channel of this server: give it the View Channel, Send Messages and Embed Links permissions in at least one channel, then reload this page."
+    },
+    "pages.botUI.autoRolesNoneSelectable": {
+      "fr": "Aucun rôle ne peut être choisi pour l'instant : chaque rôle est soit au-dessus du bot ou du vôtre, soit géré par une intégration, soit porteur de permissions de modération.",
+      "text": "No role can be chosen yet: every role is above the bot's or yours, managed by an integration, or carries moderation permissions."
+    },
+    "pages.botDashboard.loginTitle": {
+      "fr": "Connectez-vous pour régler le bot",
+      "text": "Log in to set up the bot"
+    },
+    "pages.botDashboard.addBotLead": {
+      "fr": "Un serveur que vous gérez n'apparaît pas ? Invitez-y MLBBDex, puis revenez ici.",
+      "text": "A server you manage is missing? Invite MLBBDex to it, then come back here."
+    },
+    "pages.botDashboard.botPresent": {
+      "fr": "MLBBDex est sur ce serveur",
+      "text": "MLBBDex is in this server"
+    },
+    "pages.botDashboard.noManageRoles": {
+      "fr": "Sans la permission Gérer les rôles",
+      "text": "No Manage Roles permission"
+    },
+    "pages.botDashboard.deliveriesLead": {
+      "fr": "Les dernières annonces publiées sur ce serveur, et celles qui ont échoué.",
+      "text": "The latest announcements posted on this server, and those that failed."
+    },
+    "pages.botDashboard.manage": {
+      "fr": "Configurer",
+      "text": "Configure"
+    },
+    "pages.botDashboard.lead": {
+      "fr": "Réglez le bot pour chacun de vos serveurs : langue, annonces, jeux du jour, messages de bienvenue et rôles automatiques.",
+      "text": "Set the bot up for each of your servers: language, announcements, daily games, welcome messages and auto-roles."
     }
   },
   "es": {
@@ -1405,6 +1497,46 @@
     "pages.botUI.autoRoleRefusals.no_manage_roles": {
       "fr": "il vous faut Gérer les rôles",
       "text": "necesitas Gestionar roles"
+    },
+    "pages.botUI.dailyLead": {
+      "fr": "Le MLBBdle et le quiz du jour, publiés une fois par jour avec un bouton Jouer.",
+      "text": "El MLBBdle y el quiz del día, publicados una vez al día con un botón Jugar."
+    },
+    "pages.botUI.statusAttention": {
+      "fr": "À corriger",
+      "text": "Requiere atención"
+    },
+    "pages.botUI.statusCount": {
+      "fr": "{on} sur {total} activés",
+      "text": "{on} de {total} activados"
+    },
+    "pages.botUI.allSaved": {
+      "fr": "Tout est enregistré",
+      "text": "Todo guardado"
+    },
+    "pages.botUI.discard": {
+      "fr": "Annuler les modifications",
+      "text": "Descartar cambios"
+    },
+    "pages.botUI.testing": {
+      "fr": "Envoi…",
+      "text": "Enviando…"
+    },
+    "pages.botUI.noChannels": {
+      "fr": "Le bot ne peut publier dans aucun salon de ce serveur : donnez-lui les permissions Voir le salon, Envoyer des messages et Intégrer des liens dans au moins un salon, puis rechargez cette page.",
+      "text": "El bot no puede publicar en ningún canal de este servidor: dale los permisos Ver canal, Enviar mensajes e Insertar enlaces en al menos un canal, y luego vuelve a cargar esta página."
+    },
+    "pages.botUI.autoRolesNoneSelectable": {
+      "fr": "Aucun rôle ne peut être choisi pour l'instant : chaque rôle est soit au-dessus du bot ou du vôtre, soit géré par une intégration, soit porteur de permissions de modération.",
+      "text": "Todavía no se puede elegir ningún rol: cada rol está por encima del del bot o del tuyo, lo gestiona una integración o tiene permisos de moderación."
+    },
+    "pages.botDashboard.noManageRoles": {
+      "fr": "Sans la permission Gérer les rôles",
+      "text": "Sin el permiso Gestionar roles"
+    },
+    "pages.botDashboard.addBotLead": {
+      "fr": "Un serveur que vous gérez n'apparaît pas ? Invitez-y MLBBDex, puis revenez ici.",
+      "text": "¿Falta un servidor que gestionas? Invita a MLBBDex y vuelve aquí."
     }
   },
   "id": {
@@ -4115,6 +4247,62 @@
     "pages.botUI.autoRoleRefusals.no_manage_roles": {
       "fr": "il vous faut Gérer les rôles",
       "text": "Anda perlu Kelola Peran"
+    },
+    "pages.botUI.dailyLead": {
+      "fr": "Le MLBBdle et le quiz du jour, publiés une fois par jour avec un bouton Jouer.",
+      "text": "MLBBdle dan kuis hari ini, diposting sekali sehari dengan tombol Main."
+    },
+    "pages.botUI.statusOn": {
+      "fr": "Activé",
+      "text": "Aktif"
+    },
+    "pages.botUI.statusOff": {
+      "fr": "Désactivé",
+      "text": "Nonaktif"
+    },
+    "pages.botUI.statusAttention": {
+      "fr": "À corriger",
+      "text": "Perlu diperbaiki"
+    },
+    "pages.botUI.statusCount": {
+      "fr": "{on} sur {total} activés",
+      "text": "{on} dari {total} aktif"
+    },
+    "pages.botUI.sectionsNav": {
+      "fr": "Parties des réglages",
+      "text": "Bagian pengaturan"
+    },
+    "pages.botUI.allSaved": {
+      "fr": "Tout est enregistré",
+      "text": "Semua perubahan tersimpan"
+    },
+    "pages.botUI.discard": {
+      "fr": "Annuler les modifications",
+      "text": "Batalkan perubahan"
+    },
+    "pages.botUI.dismiss": {
+      "fr": "Fermer",
+      "text": "Tutup"
+    },
+    "pages.botUI.noChannels": {
+      "fr": "Le bot ne peut publier dans aucun salon de ce serveur : donnez-lui les permissions Voir le salon, Envoyer des messages et Intégrer des liens dans au moins un salon, puis rechargez cette page.",
+      "text": "Bot tidak dapat memposting di saluran mana pun di server ini: berikan izin Lihat Saluran, Kirim Pesan, dan Sematkan Tautan di setidaknya satu saluran, lalu muat ulang halaman ini."
+    },
+    "pages.botUI.autoRolesNoneSelectable": {
+      "fr": "Aucun rôle ne peut être choisi pour l'instant : chaque rôle est soit au-dessus du bot ou du vôtre, soit géré par une intégration, soit porteur de permissions de modération.",
+      "text": "Belum ada peran yang dapat dipilih: setiap peran berada di atas peran bot atau peran Anda, dikelola oleh integrasi, atau memiliki izin moderasi."
+    },
+    "pages.botDashboard.noManageRoles": {
+      "fr": "Sans la permission Gérer les rôles",
+      "text": "Tanpa izin Kelola Peran"
+    },
+    "pages.botDashboard.deliveriesLead": {
+      "fr": "Les dernières annonces publiées sur ce serveur, et celles qui ont échoué.",
+      "text": "Pengumuman terbaru yang diposting di server ini, dan yang gagal."
+    },
+    "pages.botDashboard.manage": {
+      "fr": "Configurer",
+      "text": "Atur"
     }
   },
   "it": {
@@ -4913,6 +5101,46 @@
     "pages.botUI.autoRoleRefusals.above_user": {
       "fr": "au-dessus de votre rôle",
       "text": "sopra il tuo ruolo"
+    },
+    "pages.botUI.dailyLead": {
+      "fr": "Le MLBBdle et le quiz du jour, publiés une fois par jour avec un bouton Jouer.",
+      "text": "L'MLBBdle e il quiz del giorno, pubblicati una volta al giorno con un pulsante Gioca."
+    },
+    "pages.botUI.statusOn": {
+      "fr": "Activé",
+      "text": "Attivo"
+    },
+    "pages.botUI.statusOff": {
+      "fr": "Désactivé",
+      "text": "Disattivato"
+    },
+    "pages.botUI.statusCount": {
+      "fr": "{on} sur {total} activés",
+      "text": "{on} su {total} attivi"
+    },
+    "pages.botUI.sectionsNav": {
+      "fr": "Parties des réglages",
+      "text": "Sezioni delle impostazioni"
+    },
+    "pages.botUI.allSaved": {
+      "fr": "Tout est enregistré",
+      "text": "Tutto salvato"
+    },
+    "pages.botUI.noChannels": {
+      "fr": "Le bot ne peut publier dans aucun salon de ce serveur : donnez-lui les permissions Voir le salon, Envoyer des messages et Intégrer des liens dans au moins un salon, puis rechargez cette page.",
+      "text": "Il bot non può pubblicare in nessun canale di questo server: dagli i permessi Visualizza canale, Invia messaggi e Incorpora link in almeno un canale, poi ricarica questa pagina."
+    },
+    "pages.botUI.autoRolesNoneSelectable": {
+      "fr": "Aucun rôle ne peut être choisi pour l'instant : chaque rôle est soit au-dessus du bot ou du vôtre, soit géré par une intégration, soit porteur de permissions de modération.",
+      "text": "Nessun ruolo può essere scelto per ora: ogni ruolo è sopra quello del bot o il tuo, gestito da un'integrazione o con permessi di moderazione."
+    },
+    "pages.botDashboard.noManageRoles": {
+      "fr": "Sans la permission Gérer les rôles",
+      "text": "Senza il permesso Gestire i ruoli"
+    },
+    "pages.botDashboard.addBotLead": {
+      "fr": "Un serveur que vous gérez n'apparaît pas ? Invitez-y MLBBDex, puis revenez ici.",
+      "text": "Manca un server che gestisci? Invita MLBBDex, poi torna qui."
     }
   }
 }

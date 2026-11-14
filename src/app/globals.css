@@ -23,6 +23,8 @@
   --color-azure-400: #4da3ff;
   --color-azure-500: #2b7fe0;
 
+  /* 400: text on night (5.6:1); 500 is for fills and borders. */
+  --color-blood-400: #ef6b6b;
   --color-blood-500: #d94848;
 
   /* Discord's own blurple, kept for what leads to the community server. */

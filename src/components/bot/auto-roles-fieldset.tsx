@@ -10,7 +10,7 @@ import {
   type AutoRoleTarget,
   type GranterRefusal,
 } from "@/lib/bot/kinds";
-import { cn } from "@/lib/utils";
+import { FIELD, HELP, LABEL, Notice, Toggle } from "@/components/bot/dashboard-ui";
 
 /**
  * "Auto-roles" part of a server's settings form: a switch, then up to 3
@@ -35,8 +35,6 @@ export type AutoRoleChoice = {
 /** The first reason a role cannot be picked: the bot's, then the manager's. */
 const reasonOf = (r: AutoRoleChoice) => r.refusal ?? r.granterRefusal;
 
-const FIELD = "bevel-sm w-full border border-night-700 bg-night-900 px-3 py-2 text-sm text-chalk-100 outline-none transition-colors focus:border-gold-500";
-
 const FIELD_OF: Record<AutoRoleTarget, keyof AutoRolesValue> = { humans: "roleIds", bots: "botRoleIds" };
 
 function RolePickers({
@@ -55,9 +53,9 @@ function RolePickers({
   // The chosen roles, then one empty picker while there is room.
   const slots = ids.length < MAX_AUTO_ROLES ? [...ids, ""] : ids;
   return (
-    <div>
-      <p className="text-xs font-semibold text-chalk-300">{t(`pages.botUI.autoRolesTargets.${target}`)}</p>
-      <div className="mt-1 grid gap-2 sm:grid-cols-3">
+    <fieldset>
+      <legend className={LABEL}>{t(`pages.botUI.autoRolesTargets.${target}`)}</legend>
+      <div className="mt-1.5 grid gap-2 sm:grid-cols-3">
         {slots.map((current, slot) => (
           <div key={slot}>
             <label htmlFor={`${base}-${slot}`} className="sr-only">
@@ -72,7 +70,7 @@ function RolePickers({
                 else next.splice(slot, 1);
                 onChange(next);
               }}
-              className={cn(FIELD, "disabled:opacity-50")}
+              className={FIELD}
             >
               <option value="">{t("pages.botUI.autoRolesNone")}</option>
               {roles.map((r) => (
@@ -85,7 +83,7 @@ function RolePickers({
           </div>
         ))}
       </div>
-    </div>
+    </fieldset>
   );
 }
 
@@ -113,57 +111,49 @@ export function AutoRolesFieldset({
   const on = open || configured;
   const above = roles.some((r) => r.refusal === "above_bot");
 
-  return (
-    <fieldset>
-      <legend className="font-heading text-lg font-bold text-chalk-100">{t("pages.botUI.autoRolesTitle")}</legend>
-      <p className="mt-1 text-sm text-chalk-500">{t("pages.botUI.autoRolesLead")}</p>
-      <div className="bevel-sm mt-4 border border-night-700/70 bg-night-900/60 p-4">
-        {failing && configured && (
-          <p role="alert" className="mb-3 text-sm text-blood-400">
-            {t(failing === "granter" ? "pages.botUI.autoRolesFailingGranter" : "pages.botUI.autoRolesFailing")}
-          </p>
-        )}
-        <label className="flex items-center gap-2 text-sm text-chalk-100">
-          <input
-            type="checkbox"
-            checked={on}
-            onChange={(e) => {
-              if (e.target.checked) {
-                setOpen(true);
-                onChange(kept.current);
-              } else {
-                kept.current = value;
-                setOpen(false);
-                onChange({ roleIds: [], botRoleIds: [] });
-              }
-            }}
-            className="size-4 accent-gold-500"
-          />
-          {t("pages.botUI.autoRolesToggle")}
-        </label>
+  const selectable = roles.filter((r) => r.assignable && r.granterRefusal === null).length;
 
-        {on && (
-          <div className="mt-3 space-y-4">
-            {!manageRoles ? (
-              <p role="alert" className="text-sm text-blood-400">
-                {t("pages.botUI.autoRolesNoPermission")}
-              </p>
-            ) : above ? (
-              <p className="text-sm text-gold-400">{t("pages.botUI.autoRolesAbove")}</p>
-            ) : null}
-            {AUTO_ROLE_TARGETS.map((target) => (
-              <RolePickers
-                key={target}
-                target={target}
-                ids={value[FIELD_OF[target]]}
-                roles={roles}
-                onChange={(ids) => onChange({ ...value, [FIELD_OF[target]]: ids })}
-              />
-            ))}
-            <p className="text-xs text-chalk-500">{t("pages.botUI.autoRolesHelp")}</p>
-          </div>
-        )}
-      </div>
-    </fieldset>
+  return (
+    <div className="space-y-4">
+      {failing && configured ? (
+        <Notice tone="error">{t(failing === "granter" ? "pages.botUI.autoRolesFailingGranter" : "pages.botUI.autoRolesFailing")}</Notice>
+      ) : null}
+      <Toggle
+        checked={on}
+        onChange={(checked) => {
+          if (checked) {
+            setOpen(true);
+            onChange(kept.current);
+          } else {
+            kept.current = value;
+            setOpen(false);
+            onChange({ roleIds: [], botRoleIds: [] });
+          }
+        }}
+      >
+        {t("pages.botUI.autoRolesToggle")}
+      </Toggle>
+
+      {on && (
+        <div className="space-y-5">
+          {!manageRoles ? (
+            <Notice tone="error">{t("pages.botUI.autoRolesNoPermission")}</Notice>
+          ) : above ? (
+            <Notice tone="warning">{t("pages.botUI.autoRolesAbove")}</Notice>
+          ) : null}
+          {!selectable ? <Notice tone="warning">{t("pages.botUI.autoRolesNoneSelectable")}</Notice> : null}
+          {AUTO_ROLE_TARGETS.map((target) => (
+            <RolePickers
+              key={target}
+              target={target}
+              ids={value[FIELD_OF[target]]}
+              roles={roles}
+              onChange={(ids) => onChange({ ...value, [FIELD_OF[target]]: ids })}
+            />
+          ))}
+          <p className={HELP}>{t("pages.botUI.autoRolesHelp")}</p>
+        </div>
+      )}
+    </div>
   );
 }
