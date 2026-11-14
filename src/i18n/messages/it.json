@@ -3357,7 +3357,7 @@
         "about": "Collegamenti al sito, server di supporto, voti e privacy."
       },
       "permissionsTitle": "Autorizzazioni richieste",
-      "permissionsText": "Il minimo indispensabile per rispondere e pubblicare: mai Amministratore, e nessun accesso al contenuto dei messaggi o alla lista degli iscritti.",
+      "permissionsText": "Solo ciò che serve per rispondere e pubblicare: mai Amministratore, e nessun accesso al contenuto dei messaggi. L'intent Server Members serve solo ai messaggi di benvenuto e di addio: nulla dei membri viene conservato.",
       "permissions": {
         "view": "Guarda gli spettacoli",
         "send": "Invia messaggi",
@@ -3387,12 +3387,12 @@
       "metaDescription": "Cosa conserva il bot Discord MLBBDex, perché, per quanto tempo e come eliminarlo.",
       "lead": "Cosa conserva il bot, perché e per quanto tempo.",
       "storedTitle": "Ciò che è conservato",
-      "storedServer": "Per ogni server: il suo identificatore, il suo nome, la sua icona, il suo numero di membri, la sua lingua, le sue impostazioni (stanze, ruoli, orario di gioco della giornata) e l'elenco degli annunci già pubblicati.",
+      "storedServer": "Per ogni server: il suo id, nome, icona, numero di membri, lingua, impostazioni (canali, ruoli, ora dei giochi del giorno, testi dei messaggi di benvenuto e di addio) e l'elenco degli annunci già pubblicati.",
       "storedResults": "Per la classifica di gioco di oggi: ID Discord e nickname del giocatore, giorno, partita e punteggio.",
       "storedCommands": "Per le statistiche: il nome di ogni comando utilizzato, il server, la lingua, la durata e il successo. Nessun ID utente.",
       "storedVotes": "Per le statistiche: l'ID Discord delle persone che votano per il bot in un elenco di bot.",
       "notStoredTitle": "Ciò che non viene conservato",
-      "notStored": "Il bot non legge il contenuto dei messaggi e non ha accesso all'elenco dei membri. Nessun token Discord viene conservato: l'accesso alla dashboard serve solo per leggere il tuo ID, quindi il token viene scartato.",
+      "notStored": "Il bot non legge il contenuto dei messaggi e non scarica l'elenco dei membri. Quando qualcuno entra in un server o lo lascia, Discord lo comunica al bot (l'intent Server Members): l'evento serve solo a pubblicare il messaggio di benvenuto o di addio, se il server l'ha attivato, e nulla di quel membro viene conservato. Nessun token Discord viene conservato: l'accesso alla dashboard legge solo il tuo id, poi il token viene scartato.",
       "cookieTitle": "Accedi alla dashboard",
       "cookie": "L'accesso con Discord imposta un cookie di sessione crittografato (`mlbbdex_discord`, httpOnly, 7 giorni) che contiene il tuo ID Discord, nome e avatar e un cookie temporaneo (`mlbbdex_discord_oauth`, 10 minuti) durante l'accesso. Sono strettamente necessari per il servizio richiesto.",
       "retentionTitle": "Durata di conservazione",
@@ -3409,7 +3409,8 @@
       "p2": "I dati (statistiche, build, elenco dei livelli, note sulla patch) vengono forniti così come sono, senza garanzia di accuratezza o disponibilità. Provengono dal wiki di Mobile Legends (CC BY-SA) e dalle statistiche di gioco classificate.",
       "p3": "Non dirottare il bot: nessuna automazione abusiva dei comandi, nessun tentativo di accedere alle impostazioni di un server che non gestisci. Il servizio potrebbe essere limitato o rimosso da un server che ne abusa.",
       "p4": "Il servizio potrà variare, essere interrotto o sospeso in qualsiasi momento. Al suo utilizzo si applicano le regole di Discord (termini di utilizzo e regole della community).",
-      "p5": "I dati conservati sono descritti nella pagina sulla privacy del bot. Per qualsiasi domanda: [{contact}](mailto:{contact})."
+      "p5": "I dati conservati sono descritti nella pagina sulla privacy del bot. Per qualsiasi domanda: [{contact}](mailto:{contact}).",
+      "p6": "I messaggi di benvenuto e di addio sono scritti dai gestori del server, che rispondono del loro contenuto; il bot vi neutralizza le menzioni di massa e dei ruoli. Gli ingressi e le uscite dei membri servono solo a pubblicare questi messaggi."
     },
     "botDashboard": {
       "title": "Pannello di controllo del bot",
@@ -3847,7 +3848,8 @@
       "cookie": "un cookie di sessione crittografato, `mlbbdex_discord` (httpOnly, 7 giorni), se accedi alla dashboard con Discord: il tuo ID Discord, nome e avatar, nient'altro; non vengono conservati gettoni Discord;",
       "servers": "per ciascun server dove è presente il bot: il suo nome, la lingua e le impostazioni;",
       "results": "per le classifiche delle partite giocate oggi su Discord: ID Discord e nickname dei giocatori e i loro punteggi.",
-      "details": "Dettagli, periodo di conservazione ed eliminazione sono descritti nella pagina sulla privacy del bot."
+      "details": "Dettagli, periodo di conservazione ed eliminazione sono descritti nella pagina sulla privacy del bot.",
+      "members": "Nulla viene conservato sui membri di un server: i loro ingressi e uscite, che Discord comunica al bot, servono solo a pubblicare i messaggi di benvenuto e di addio attivati dal server."
     }
   },
   "compareUI": {

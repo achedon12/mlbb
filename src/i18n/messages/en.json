@@ -3357,7 +3357,7 @@
         "about": "Links to the site, the support server, voting and privacy."
       },
       "permissionsTitle": "Permissions requested",
-      "permissionsText": "Only what replying and posting need: never Administrator, and no access to message content or the member list.",
+      "permissionsText": "Only what replying and posting need: never Administrator, and no access to message content. The Server Members intent only serves the welcome and goodbye messages: nothing about members is stored.",
       "permissions": {
         "view": "View Channels",
         "send": "Send Messages",
@@ -3387,12 +3387,12 @@
       "metaDescription": "What the MLBBDex Discord bot stores, why, for how long, and how to have it deleted.",
       "lead": "What the bot stores, why, and for how long.",
       "storedTitle": "What is stored",
-      "storedServer": "For each server: its id, name, icon, member count, language, settings (channels, roles, daily games hour) and the list of announcements already posted.",
+      "storedServer": "For each server: its id, name, icon, member count, language, settings (channels, roles, daily games hour, welcome and goodbye message texts) and the list of announcements already posted.",
       "storedResults": "For the daily games leaderboards: the player's Discord id and name, the day, the game and the score.",
       "storedCommands": "For statistics: the name of each command used, the server, the language, the duration and whether it worked. No user id.",
       "storedVotes": "For statistics: the Discord id of people who vote for the bot on a bot list.",
       "notStoredTitle": "What is not stored",
-      "notStored": "The bot does not read message content and has no access to the member list. No Discord token is kept: logging in to the dashboard only reads your id, then the token is dropped.",
+      "notStored": "The bot does not read message content and does not download the member list. When someone joins or leaves a server, Discord tells the bot (the Server Members intent): that event is only used to post the welcome or goodbye message, if the server turned it on, and nothing about that member is stored. No Discord token is kept: logging in to the dashboard only reads your id, then the token is dropped.",
       "cookieTitle": "Dashboard login",
       "cookie": "Logging in with Discord sets an encrypted session cookie (`mlbbdex_discord`, httpOnly, 7 days) holding your Discord id, name and avatar, and a temporary cookie (`mlbbdex_discord_oauth`, 10 minutes) during the login. Both are strictly necessary for the service you ask for.",
       "retentionTitle": "Retention",
@@ -3409,7 +3409,8 @@
       "p2": "The data (statistics, builds, tier list, patch notes) is provided as is, with no warranty of accuracy or availability. It comes from the Mobile Legends wiki (CC BY-SA) and ranked game statistics.",
       "p3": "Do not misuse the bot: no abusive automation of commands, no attempt to reach the settings of a server you do not manage. The service may be limited or removed from a server that abuses it.",
       "p4": "The service may change, be interrupted or stop at any time. Discord's rules (Terms of Service and Community Guidelines) apply to its use.",
-      "p5": "The data stored is described on the bot's privacy page. Any question: [{contact}](mailto:{contact})."
+      "p5": "The data stored is described on the bot's privacy page. Any question: [{contact}](mailto:{contact}).",
+      "p6": "Welcome and goodbye messages are written by the server's managers, who are responsible for their content; the bot neutralises mass and role mentions in them. Members joining and leaving are only used to post these messages."
     },
     "botDashboard": {
       "title": "Bot dashboard",
@@ -3847,7 +3848,8 @@
       "cookie": "an encrypted session cookie, `mlbbdex_discord` (httpOnly, 7 days), if you log in to the dashboard with Discord: your Discord id, name and avatar, nothing else; no Discord token is kept;",
       "servers": "for each server the bot is in: its name, language and settings;",
       "results": "for the leaderboards of the daily games played in Discord: the players' Discord id and name and their scores.",
-      "details": "The details, the retention period and deletion are on the bot's privacy page."
+      "details": "The details, the retention period and deletion are on the bot's privacy page.",
+      "members": "Nothing is kept about a server's members: their joins and leaves, which Discord reports to the bot, are only used to post the welcome and goodbye messages the server turned on."
     }
   },
   "compareUI": {

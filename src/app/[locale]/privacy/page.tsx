@@ -53,6 +53,7 @@ export default async function PrivacyPage({ params }: Params) {
               <li>{t("prose.bot.servers")}</li>
               <li>{t("prose.bot.results")}</li>
             </ul>
+            <p>{t("prose.bot.members")}</p>
             <p>
               <Link href="/bot/privacy">{t("prose.bot.details")}</Link>
             </p>
