@@ -101,4 +101,14 @@ describe("without a secret", () => {
     expect((await fetch(`${url}/health`)).status).toBe(200);
     await new Promise<void>((resolve) => closed.close(() => resolve()));
   });
+
+  it("treats a secret too short to resist guessing as no secret", async () => {
+    const short = "k".repeat(31);
+    const closed = createInternalServer({ secret: short, api });
+    await new Promise<void>((resolve) => closed.listen(0, "127.0.0.1", resolve));
+    const url = `http://127.0.0.1:${(closed.address() as AddressInfo).port}`;
+    const response = await fetch(`${url}/internal/stats`, { headers: signedHeaders(short, "GET", "/internal/stats", "") });
+    expect(response.status).toBe(503);
+    await new Promise<void>((resolve) => closed.close(() => resolve()));
+  });
 });
