@@ -59,6 +59,7 @@ const GAME = [
 
 const NEWS = [
   { href: "/news", key: "news" },
+  { href: "/guides", key: "guides" },
   { href: "/watch", key: "watch" },
   { href: "/patch-notes", key: "patchNotes" },
 ];

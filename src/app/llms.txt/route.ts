@@ -1,6 +1,7 @@
 import { counters, allHeroes } from "@/lib/data";
 import { ranksByPair } from "@/lib/pairs";
 import { botPublished } from "@/lib/bot/public";
+import { guides } from "@/lib/guides";
 import { site } from "@/lib/site";
 import { measure } from "@/lib/tier-list";
 import { LOCALES } from "@/i18n/config";
@@ -63,6 +64,13 @@ Statistics come from ranked games aggregated by the community API arena.rone.dev
 - [Win-rate calculator](${link("/tools/win-rate")}), [server time, reset times by country and ranked season schedule](${link("/tools/server-time")}), [tier list maker](${link("/tools/tier-list-maker")}) and [strategy planner](${link("/tools/strategy-planner")}).
 - [Build simulator](${link("/tools/build")}) and [damage calculator](${link("/tools/damage-calculator")}): stats of an equipped hero, and what a hit deals after defense and penetration.
 - [Collection value](${link("/tools/collection")}) and [account value estimator](${link("/tools/account-value")}): what a collection cost at shop prices, and an indicative, clearly approximate account estimate in USD, EUR, PHP, IDR and MYR.
+
+## Guides
+
+- [Guides](${link("/guides")}): long-form strategy guides (laning, jungle and objective timings, rotations and vision, teamfights, macro and split push, drafting, wave management, climbing ranked) and one guide per lane, whose recommended heroes and builds are read from the latest measurements.
+${guides("en")
+  .map((g) => `- [${g.title}](${link(`/guides/${g.slug}`)}): ${g.summary}`)
+  .join("\n")}
 
 ## API
 

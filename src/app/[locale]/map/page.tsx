@@ -27,7 +27,9 @@ import {
   formatTime,
   type CampKey,
 } from "@/lib/objectives";
-import type { Role } from "@/lib/types";
+import type { Lane, Role } from "@/lib/types";
+import { guide, guideOfLane } from "@/lib/guides";
+import { GuideLink } from "@/components/guide";
 import { formatShortDate } from "@/lib/utils";
 
 type Params = { params: Promise<{ locale: Locale }> };
@@ -283,6 +285,15 @@ function mapCards(t: T, locale: Locale): Record<MapPointKey, MapCard> {
 
 type RotationKey = "jungle" | "roam" | "gold" | "exp" | "mid";
 
+/** Lane of each rotation, whose guide the rotation card points to. */
+const ROTATION_LANES: Record<RotationKey, Lane> = { jungle: "Jungle", roam: "Roam", gold: "Gold", exp: "Exp", mid: "Mid" };
+
+/** The lane guide as a rotation link; none when the guide does not exist. */
+function guideLinks(lane: Lane, locale: Locale, t: T) {
+  const g = guideOfLane(lane, locale);
+  return g ? [{ href: `/guides/${g.slug}`, label: t("pages.guides.readGuide", { title: g.short }) }] : [];
+}
+
 /** Role tier lists linked from each rotation. */
 const ROTATION_ROLES: Record<RotationKey, Role[]> = {
   jungle: ["Assassin", "Fighter"],
@@ -328,6 +339,7 @@ export default async function MapPage({ params }: Params) {
     links: [
       ...ROTATION_ROLES[key].map((r) => ({ href: `/tier-list/role/${SLUGS_ROLE[r]}`, label: t("pages.map.tierLink", { role: t(`roles.${r}`) }) })),
       ...(key === "jungle" ? [{ href: "/tools/retribution", label: t("pages.map.retributionLink") }] : []),
+      ...guideLinks(ROTATION_LANES[key], locale, t),
     ],
   }));
 
@@ -386,10 +398,11 @@ export default async function MapPage({ params }: Params) {
                   </li>
                 ))}
               </ul>
-              <p className="mt-6 text-sm">
+              <p className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm">
                 <Link href="/tools/timer" className="font-semibold text-gold-400 transition-colors hover:text-gold-500">
                   {t("pages.map.timerCta")} →
                 </Link>
+                <GuideLink guide={guide("jungle-objectives", locale)} locale={locale} />
               </p>
             </section>
 

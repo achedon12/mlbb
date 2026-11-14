@@ -209,6 +209,10 @@
     "bot": {
       "label": "Bot Discord",
       "desc": "Le bot Discord Mobile Legends : builds, counters, tier list et MLBBdle dans vos serveurs"
+    },
+    "guides": {
+      "label": "Guides",
+      "desc": "Stratégie, macro et rôles expliqués"
     }
   },
   "account": {
@@ -4426,6 +4430,42 @@
         "confirmDelete": "Supprimer définitivement ce contenu ?",
         "failed": "L'action a échoué : rechargez la page."
       }
+    },
+    "guides": {
+      "title": "Guides",
+      "lead": "Les bases qui font gagner des parties classées : phase de lane, objectifs, rotations, combats d'équipe, draft, puis un guide par rôle. Chaque guide renvoie aux héros, objets et outils du site dont il parle.",
+      "metaTitle": "Guides Mobile Legends : stratégie et rôles",
+      "metaDescription": "Guides Mobile Legends: Bang Bang : phase de lane, jungle et objectifs, rotations, combats d'équipe, macro, draft, classé, et un guide pour chacune des cinq lanes.",
+      "nGuides": "{n} guides",
+      "strategy": "Stratégie",
+      "strategyLead": "Ce qui se joue au-delà du héros : la vague, la carte, les objectifs et la sélection.",
+      "roles": "Rôles",
+      "rolesLead": "Une lane par guide : ce que le poste apporte, les héros qui y tiennent en ce moment, ce qu'on y construit.",
+      "kind": {
+        "strategy": "Stratégie",
+        "role": "Rôle"
+      },
+      "readingTime": "{n} min de lecture",
+      "updated": "Mis à jour le {date}",
+      "related": "Pour aller plus loin",
+      "tools": "Les outils du guide",
+      "toolsLead": "Pour mettre en pratique ce que le guide explique.",
+      "all": "Tous les guides",
+      "readGuide": "Guide : {title}",
+      "heroesLead": "Les héros les mieux classés en {lane} dans la tier list calculée, tous rangs confondus, d'après la mesure du {date}. La liste suit chaque synchronisation.",
+      "heroesLink": "Toute la tier list {lane}",
+      "heroesEmpty": "Pas encore de mesure pour cette lane.",
+      "kitLead": "Ce que les joueurs de {lane} construisent le plus : les builds les plus joués de chaque héros du poste, pondérés par sa popularité, d'après la mesure du {date}.",
+      "kitShare": "Part des builds",
+      "kitEmpty": "Pas encore de builds mesurés pour cette lane.",
+      "kitLink": "Essayer un build dans le simulateur",
+      "kitParts": {
+        "items": "Objets",
+        "spells": "Sorts de combat",
+        "emblems": "Emblèmes",
+        "talents": "Talents"
+      },
+      "ldName": "Guides Mobile Legends: Bang Bang"
     }
   },
   "modeSheet": {

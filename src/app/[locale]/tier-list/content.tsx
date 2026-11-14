@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "@/components/link";
 import type { Crumb } from "@/components/breadcrumb";
 import { freshnessFacts } from "@/components/freshness";
+import { GuideLink } from "@/components/guide";
+import { guideOfLane } from "@/lib/guides";
 import { Foldable } from "@/components/foldable";
 import { BadgeTier, PageHeader } from "@/components/ui";
 import { trendsOf } from "@/lib/evolution";
@@ -331,6 +333,12 @@ export function TierList({
                 <Link href={pathRole(filter.value)} className="font-semibold text-gold-400 hover:text-gold-500">
                   {t("pages.tierList.seeRole", markersFilter(t, filter))} →
                 </Link>
+              </>
+            )}
+            {filter.type === "lane" && (
+              <>
+                {" "}
+                <GuideLink guide={guideOfLane(filter.value, locale)} locale={locale} />
               </>
             )}
           </p>

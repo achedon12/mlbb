@@ -109,6 +109,18 @@ export const PAGES = [
   { discover: "latest-patch", path: "/patch-notes/<latest version>", locales: EN_FR },
   { path: "/game-modes", locales: EN_FR },
   { path: "/news", locales: EN_FR },
+  { path: "/guides", locales: ALL, browser: true },
+  {
+    // A role guide: long text plus the lane's live heroes and builds. The
+    // spell keeps its in-game name in every language: a machine translation
+    // of it ("Rétribution", "Castigo") fails here.
+    path: "/guides/jungle",
+    locales: ALL,
+    browser: true,
+    minWords: 400,
+    includes: { en: ["Retribution"], fr: ["Retribution"], it: ["Retribution"], es: ["Retribution"], id: ["Retribution"] },
+  },
+  { path: "/guides/drafting-basics", locales: EN_FR, minWords: 400 },
   { path: "/tools/retribution", locales: EN_FR },
   { path: "/tools/team", locales: EN_FR, browser: true },
   { path: "/tools/matchups", locales: EN_FR, browser: true },
@@ -385,6 +397,7 @@ export const SITEMAP_CHILDREN = [
   "esports",
   "patch-notes",
   "news",
+  "guides",
 ];
 
 /** Below this many URLs across every child sitemap, the sitemap is considered broken. */

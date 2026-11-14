@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "@/components/link";
 import { MatchupMatrix } from "@/components/matchup-matrix";
+import { GuideLink } from "@/components/guide";
+import { guide } from "@/lib/guides";
 import { PageHeader } from "@/components/ui";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
@@ -98,6 +100,7 @@ export default async function MatchupsPage({ params }: Params) {
           <Link href="/draft" className={link}>
             {t("pages.matchups.draftLink")} →
           </Link>
+          <GuideLink guide={guide("drafting-basics", locale)} locale={locale} className={link} />
         </p>
 
         <section aria-labelledby="method-title">

@@ -3,6 +3,7 @@ import visuals from "@/data/game/visuals.json";
 import { LOCALES, type Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
 import { article, articles } from "@/lib/content";
+import { guides } from "@/lib/guides";
 import { skills, counters, allHeroes, itemsFor, patchDetails } from "@/lib/data";
 import { duos } from "@/lib/duos";
 import { regionsLore } from "@/lib/lore";
@@ -101,6 +102,13 @@ export async function GET(_request: Request, { params }: { params: Promise<{ loc
       type: "page" as const,
       title: article("news", a.slug, locale)?.title ?? a.title,
       href: `/news/${a.slug}`,
+    })),
+    { type: "page" as const, title: t("nav.guides.label"), detail: t("nav.guides.desc"), href: "/guides" },
+    ...guides(locale).map((g) => ({
+      type: "page" as const,
+      title: g.title,
+      detail: t(`pages.guides.kind.${g.kind}`),
+      href: `/guides/${g.slug}`,
     })),
     ...[...BASE, ...NEWS].map((e) => ({
       type: "page" as const,

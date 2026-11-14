@@ -39,6 +39,60 @@ export function postData(a: Article, path: string, locale: Locale) {
   };
 }
 
+/**
+ * Structured data of a guide: an `Article` rather than a `BlogPosting`, since
+ * a guide is kept up to date instead of being dated news. `dateModified` is
+ * its last revision, `timeRequired` the reading time shown on the page.
+ */
+export function guideData(
+  g: { title: string; summary: string; date: string; updated: string; author: string; keywords: string[] },
+  o: { path: string; locale: Locale; minutes: number; section: string },
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: g.title,
+    description: g.summary,
+    datePublished: g.date,
+    dateModified: g.updated,
+    inLanguage: LOCALE_HTML[o.locale],
+    articleSection: o.section,
+    timeRequired: `PT${o.minutes}M`,
+    ...(g.keywords.length ? { keywords: g.keywords.join(", ") } : {}),
+    author: { "@type": "Person", name: g.author, url: `https://github.com/${g.author}` },
+    publisher: { "@type": "Organization", name: site.name, url: site.url },
+    about: { "@type": "VideoGame", name: "Mobile Legends: Bang Bang", publisher: "Moonton" },
+    mainEntityOfPage: `${site.url}/${o.locale}${o.path}`,
+  };
+}
+
+/** Structured data of the guides hub: the page and the ordered list of its guides. */
+export function guidesHubData(
+  locale: Locale,
+  o: { name: string; description: string; path: string; guides: { title: string; slug: string }[] },
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: o.name,
+    description: o.description,
+    url: `${site.url}/${locale}${o.path}`,
+    inLanguage: LOCALE_HTML[locale],
+    isPartOf: { "@type": "WebSite", name: site.name, url: site.url },
+    mainEntity: {
+      "@type": "ItemList",
+      name: o.name,
+      numberOfItems: o.guides.length,
+      itemListElement: o.guides.map((g, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: g.title,
+        url: `${site.url}/${locale}${o.path}/${g.slug}`,
+      })),
+    },
+  };
+}
+
 /** Open Graph locale of each site language. */
 export const OG_LOCALE: Record<Locale, string> = {
   en: "en_US",
