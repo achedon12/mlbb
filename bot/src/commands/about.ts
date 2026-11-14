@@ -45,6 +45,7 @@ export async function serverCount(client: Client): Promise<number | null> {
 
 export const about: Command = {
   key: "about",
+  instant: true,
   ephemeral: true,
   data: () => slash("about").toJSON(),
   async execute(interaction, ctx) {

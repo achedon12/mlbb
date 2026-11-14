@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { log } from "@/lib/log";
 import type { BotConfig } from "./config";
-import { AUTO_ROLE_REFUSALS, GRANTER_REFUSALS, type GreetingKind } from "./kinds";
+import { AUTO_ROLE_REFUSALS, GRANTER_REFUSALS, type GranterRefusal, type GreetingKind } from "./kinds";
 import { signedHeaders } from "./signature";
 
 /**
@@ -180,6 +180,15 @@ export const grantableRoles = (config: BotConfig, guild: string, user: string) =
     refusals: new Map(r.roles.map((role) => [role.id, role.refusal ?? null])),
     grantable: new Set(r.roles.filter((role) => role.refusal === null).map((role) => role.id)),
   }));
+
+/**
+ * Why this dashboard user may not give a role as an auto-role, or null when
+ * they may. A role the bot did not answer for counts as refused: never
+ * offered on a guess. (`null` is an answer: the role is grantable.)
+ */
+export function refusalFor(refusals: ReadonlyMap<string, GranterRefusal | null>, roleId: string): GranterRefusal | null {
+  return refusals.has(roleId) ? (refusals.get(roleId) ?? null) : "not_member";
+}
 
 /**
  * A welcome or goodbye test: the text being edited (saved or not), shown

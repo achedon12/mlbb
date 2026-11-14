@@ -1135,6 +1135,10 @@
     "pages.apiDoc.routes.spells.localeParam": {
       "fr": "Langue des textes (anglais par défaut)",
       "text": "Language of the texts (English by default)"
+    },
+    "pages.bot.vote": {
+      "fr": "Voter pour MLBBDex",
+      "text": "Vote for MLBBDex"
     }
   },
   "es": {
@@ -1519,8 +1523,8 @@
       "text": "Unirse al servidor"
     },
     "pages.bot.vote": {
-      "fr": "Voter sur top.gg",
-      "text": "Votar en top.gg"
+      "fr": "Voter pour MLBBDex",
+      "text": "Vota por MLBBDex"
     },
     "pages.bot.dashboard": {
       "fr": "Tableau de bord",
@@ -4637,8 +4641,8 @@
       "text": "Gabung ke server"
     },
     "pages.bot.vote": {
-      "fr": "Voter sur top.gg",
-      "text": "Vote di top.gg"
+      "fr": "Voter pour MLBBDex",
+      "text": "Vote MLBBDex"
     },
     "pages.bot.dashboard": {
       "fr": "Tableau de bord",
@@ -5867,8 +5871,8 @@
       "text": "Entra nel server"
     },
     "pages.bot.vote": {
-      "fr": "Voter sur top.gg",
-      "text": "Vota su top.gg"
+      "fr": "Voter pour MLBBDex",
+      "text": "Vota MLBBDex"
     },
     "pages.bot.dashboard": {
       "fr": "Tableau de bord",

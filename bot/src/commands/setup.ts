@@ -5,6 +5,7 @@ import { baseEmbed, FAMILY_COLORS, linkButton } from "../embeds/common.js";
 
 export const setup: Command = {
   key: "setup",
+  instant: true,
   ephemeral: true,
   guildOnly: true,
   data: () => slash("setup", { guildOnly: true }).setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild).toJSON(),

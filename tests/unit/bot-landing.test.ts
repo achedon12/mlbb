@@ -49,7 +49,7 @@ describe("/bot visuals and links", () => {
     expect(existsSync("public/bot/banner.png")).toBe(true);
   });
 
-  it("votes on the bot's top.gg page", () => {
-    expect(voteUrl("1571083624789581834")).toBe("https://top.gg/bot/1571083624789581834/vote");
+  it("votes on the bot's discordbotlist.com page while top.gg reviews it", () => {
+    expect(voteUrl("1571083624789581834")).toBe("https://discordbotlist.com/bots/mlbbdex/upvote");
   });
 });
