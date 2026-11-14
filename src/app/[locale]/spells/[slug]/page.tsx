@@ -131,7 +131,7 @@ export default async function SpellPage({ params }: Params) {
         <FreshnessLine locale={locale} className="mt-4" />
       </PageHeader>
 
-      <div className="mx-auto max-w-6xl space-y-14 px-4 py-10">
+      <div className="page-wrap space-y-14 py-10">
         <Card>
           <dl className="grid gap-4 text-sm sm:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
             <div>

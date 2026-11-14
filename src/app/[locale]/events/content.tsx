@@ -149,7 +149,7 @@ export function Events({ locale, page = 1 }: { locale: Locale; page?: number }) 
         <FreshnessLine locale={locale} className="mt-4" />
       </PageHeader>
 
-      <div className="mx-auto max-w-6xl space-y-16 px-4 py-12">
+      <div className="page-wrap space-y-16 py-12">
         <section id="this-month" className="scroll-mt-24">
           <SectionTitle>{t("pages.events.thisMonthTitle", { month: monthText(locale, currentMonth) })}</SectionTitle>
           <Card className="border-gold-500/60">

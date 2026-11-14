@@ -182,7 +182,7 @@ export default async function HeroSkinsPage({ params }: Params) {
         </div>
       </PageHeader>
 
-      <div className="mx-auto max-w-6xl px-4 py-10">
+      <div className="page-wrap py-10">
         <ol className="grid gap-6 md:grid-cols-2">
           {g.skins.map((s, i) => {
             const r = rarity(s.rarity);

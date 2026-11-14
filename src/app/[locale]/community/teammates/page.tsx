@@ -187,7 +187,7 @@ export default async function TeammatesPage({ params, searchParams }: Params) {
         crumbs={[{ name: t("pages.community.title"), href: "/community" }, { name: t("pages.community.teammates.title") }]}
       />
       <ExtendMessages messages={messagesPage(locale, ["pages.communityUI"])}>
-        <div className="mx-auto max-w-6xl space-y-8 px-4 py-8">
+        <div className="page-wrap space-y-8 py-8">
           {!data ? (
             <Unavailable t={t} />
           ) : (

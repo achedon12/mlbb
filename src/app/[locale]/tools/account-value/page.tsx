@@ -75,7 +75,7 @@ export default async function AccountValuePage({ params }: Params) {
         <FreshnessLine locale={locale} className="mt-4" />
       </PageHeader>
 
-      <div className="mx-auto max-w-6xl space-y-12 px-4 py-8 sm:py-12">
+      <div className="page-wrap space-y-12 py-8 sm:py-12">
         <p role="note" className="bevel-sm max-w-3xl border border-gold-500/30 bg-gold-500/5 p-4 text-sm leading-relaxed text-chalk-200">
           {t("pages.accountValue.warning")}
         </p>

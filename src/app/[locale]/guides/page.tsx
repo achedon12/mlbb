@@ -40,7 +40,7 @@ export default async function GuidesPage({ params }: Params) {
         lead={t("pages.guides.lead")}
         meta={[t("pages.guides.nGuides", { n: list.length })]}
       />
-      <div className="mx-auto max-w-6xl space-y-12 px-4 py-10 sm:space-y-16 sm:py-14">
+      <div className="page-wrap space-y-12 py-10 sm:space-y-16 sm:py-14">
         {GUIDE_KINDS.map((kind) => {
           const ofKind = list.filter((g) => g.kind === kind);
           if (ofKind.length === 0) return null;

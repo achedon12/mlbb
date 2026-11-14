@@ -60,7 +60,7 @@ export default async function CommunitySearchPage({ params, searchParams }: Para
           <SearchForm t={t} locale={locale} query={query} category={category ?? undefined} />
         </div>
       </PageHeader>
-      <div className="mx-auto max-w-6xl space-y-6 px-4 py-8 *:max-w-4xl">
+      <div className="page-wrap space-y-6 py-8 *:max-w-4xl">
         {!result ? (
           <Unavailable t={t} />
         ) : query ? (

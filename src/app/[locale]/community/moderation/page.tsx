@@ -46,7 +46,7 @@ export default async function ModerationPage({ params, searchParams }: Params) {
     return (
       <>
         {header}
-        <div className="mx-auto max-w-6xl px-4 py-10">
+        <div className="page-wrap py-10">
           <LoginPanel t={t} locale={locale} next="moderation" failed={query.login === "failed"} />
         </div>
       </>
@@ -61,7 +61,7 @@ export default async function ModerationPage({ params, searchParams }: Params) {
     <>
       {header}
       <ExtendMessages messages={messagesPage(locale, ["pages.communityUI"])}>
-        <div className="mx-auto max-w-6xl space-y-12 px-4 py-10">
+        <div className="page-wrap space-y-12 py-10">
           <UserBar t={t} locale={locale} user={user} />
           {!data ? (
             <Unavailable t={t} />

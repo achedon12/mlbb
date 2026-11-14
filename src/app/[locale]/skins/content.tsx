@@ -110,7 +110,7 @@ export function Skins({ locale, page = 1 }: { locale: Locale; page?: number }) {
         </p>
       </PageHeader>
 
-      <div className="mx-auto max-w-6xl space-y-14 px-4 py-10">
+      <div className="page-wrap space-y-14 py-10">
         <section aria-labelledby="latest-skins">
           <h2 id="latest-skins" className="font-heading text-2xl font-bold text-chalk-100">
             {t("pages.skins.latest")}

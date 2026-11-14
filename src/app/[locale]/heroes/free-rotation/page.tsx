@@ -80,7 +80,7 @@ export default async function FreeRotationPage({ params }: Params) {
         meta={facts}
       />
 
-      <div className="mx-auto max-w-6xl space-y-8 px-4 pb-10 pt-6 sm:space-y-14">
+      <div className="page-wrap space-y-8 pb-10 pt-6 sm:space-y-14">
         {rotation.state === "current" ? (
           <section aria-labelledby="rotation-title">
             <SectionTitle id="rotation-title" lead={t("pages.freeRotation.listLead", { n: heroes.length })}>

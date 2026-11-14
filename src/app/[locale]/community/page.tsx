@@ -52,7 +52,7 @@ export default async function CommunityPage({ params }: Params) {
           <SearchForm t={t} locale={locale} />
         </div>
       </PageHeader>
-      <div className="mx-auto max-w-6xl space-y-12 px-4 py-10">
+      <div className="page-wrap space-y-12 py-10">
         {!data ? (
           <Unavailable t={t} />
         ) : (

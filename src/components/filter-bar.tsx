@@ -24,6 +24,11 @@ import { cn } from "@/lib/utils";
  * the same nodes move into the bottom sheet (`Drawer`) the rest of the site
  * already uses. Nothing is duplicated, no state travels, and the URL keeps
  * holding the current filter exactly as before.
+ *
+ * Given the results as `content`, the bar becomes a sidebar from `xl` up: a
+ * sticky column on the left with the search, the selection and every group
+ * stacked, the results beside it on the rest of the width. Same nodes, the
+ * layout only changes with the screen.
  */
 export function FilterBar({
   label,
@@ -32,6 +37,7 @@ export function FilterBar({
   count,
   clear,
   className,
+  content,
   children,
 }: {
   /** Name of the button and of the sheet; "Filter…" by default. */
@@ -45,43 +51,86 @@ export function FilterBar({
   /** Button that drops every filter at once. */
   clear?: { label: string; onClick: () => void };
   className?: string;
+  /** The filtered results: when given, the filters become a left sidebar from `xl` up. */
+  content?: React.ReactNode;
   children: React.ReactNode;
 }) {
   const t = useT();
   const [open, setOpen] = useState(false);
   const name = label ?? t("common.filter");
 
+  const side = content !== undefined;
+  const clearButton = clear && (
+    <button type="button" onClick={clear.onClick} className={cn(classesChip(false, true), "shrink-0")}>
+      {clear.label}
+    </button>
+  );
+
+  const bar = (
+    <div
+      className={cn(
+        "sticky top-16 z-30 mb-4 border-b border-night-700/70 bg-night-950/90 py-2 backdrop-blur",
+        side &&
+          "xl:top-20 xl:mb-0 xl:max-h-[calc(100dvh-6rem)] xl:overflow-y-auto xl:overscroll-contain xl:border-b-0 xl:border-r xl:bg-transparent xl:py-1 xl:pr-5 xl:backdrop-blur-none",
+        className,
+      )}
+    >
+      <div className={cn("flex flex-wrap items-center gap-2", side && "xl:flex-col xl:items-stretch")}>
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          aria-expanded={open}
+          className={cn(classesChip(false, true), "inline-flex shrink-0 items-center gap-1.5 lg:hidden")}
+        >
+          <SlidersHorizontal size={14} aria-hidden />
+          {name}
+        </button>
+        {search && (
+          <div className={cn("min-w-0 flex-1 basis-40 lg:max-w-xs", side && "xl:max-w-none xl:flex-none xl:basis-auto")}>
+            {search}
+          </div>
+        )}
+        {side ? (
+          <div className="contents xl:flex xl:flex-wrap xl:items-center xl:gap-2 xl:empty:hidden">
+            {active}
+            {clearButton}
+          </div>
+        ) : (
+          <>
+            {active}
+            {clearButton}
+          </>
+        )}
+        {count && (
+          <div className={cn("ml-auto shrink-0 text-xs text-chalk-500", side && "xl:order-first xl:ml-0")}>{count}</div>
+        )}
+      </div>
+      {/* Below `lg` the groups live in the sheet; they stay in the document
+          so a crawler still follows the links they hold. */}
+      {!open && (
+        <div
+          className={cn(
+            "mt-2 hidden flex-col gap-2 lg:flex",
+            // In the sidebar each group's label takes its own line above its chips.
+            side && "xl:mt-5 xl:gap-5 xl:[&_.filter-legend]:w-full",
+          )}
+        >
+          {children}
+        </div>
+      )}
+    </div>
+  );
+
   return (
     <>
-      <div
-        className={cn(
-          "sticky top-16 z-30 mb-4 border-b border-night-700/70 bg-night-950/90 py-2 backdrop-blur",
-          className,
-        )}
-      >
-        <div className="flex flex-wrap items-center gap-2">
-          <button
-            type="button"
-            onClick={() => setOpen(true)}
-            aria-expanded={open}
-            className={cn(classesChip(false, true), "inline-flex shrink-0 items-center gap-1.5 lg:hidden")}
-          >
-            <SlidersHorizontal size={14} aria-hidden />
-            {name}
-          </button>
-          {search && <div className="min-w-0 flex-1 basis-40 lg:max-w-xs">{search}</div>}
-          {active}
-          {clear && (
-            <button type="button" onClick={clear.onClick} className={cn(classesChip(false, true), "shrink-0")}>
-              {clear.label}
-            </button>
-          )}
-          {count && <div className="ml-auto shrink-0 text-xs text-chalk-500">{count}</div>}
+      {side ? (
+        <div className="xl:grid xl:grid-cols-[17rem_minmax(0,1fr)] xl:items-start xl:gap-8">
+          {bar}
+          <div className="min-w-0">{content}</div>
         </div>
-        {/* Below `lg` the groups live in the sheet; they stay in the document
-            so a crawler still follows the links they hold. */}
-        {!open && <div className="mt-2 hidden flex-col gap-2 lg:flex">{children}</div>}
-      </div>
+      ) : (
+        bar
+      )}
       {open && (
         <Drawer title={name} onClose={() => setOpen(false)}>
           <div className="flex flex-col gap-4 px-4 pb-6 pt-4">{children}</div>

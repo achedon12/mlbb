@@ -152,6 +152,31 @@ export function StatisticsTable({
   return (
     <div>
       <FilterBar
+        content={
+          <>
+            {/* No horizontal scroller any more: below `sm` the rows are cards. */}
+            <div className="mt-3 sm:overflow-x-auto sm:border sm:border-night-700/70 xl:mt-0">
+              <CardsTable
+                className="stats-table"
+                caption={t("pages.statisticsTable.legend", { rank: t(`measuredRanks.${rank}`) })}
+                columns={columns}
+                rows={slice}
+                rowKey={(l) => l.slug}
+                sort={state.sort}
+                order={state.order}
+                onSort={sort}
+                empty={t("pages.heroesList.none")}
+                t={t}
+              />
+            </div>
+            <Pager
+              paging={view}
+              href={(n) => pageHref(pathStatistics(rank), request, n)}
+              onNavigate={setPage}
+              t={t}
+            />
+          </>
+        }
         search={
           <SearchField
             value={state.search}
@@ -191,7 +216,7 @@ export function StatisticsTable({
         }
       >
         <nav aria-label={t("measuredRanks.label")} className="flex flex-wrap items-center gap-2">
-          <span aria-hidden className="mr-1 w-20 shrink-0 text-xs uppercase tracking-wide text-chalk-500">
+          <span aria-hidden className="filter-legend mr-1 w-20 shrink-0 text-xs uppercase tracking-wide text-chalk-500">
             {t("measuredRanks.label")}
           </span>
           {ranks.map((r) => (
@@ -221,28 +246,6 @@ export function StatisticsTable({
           emblem={imageLane}
         />
       </FilterBar>
-
-      {/* No horizontal scroller any more: below `sm` the rows are cards. */}
-      <div className="mt-3 sm:border sm:border-night-700/70">
-        <CardsTable
-          className="stats-table"
-          caption={t("pages.statisticsTable.legend", { rank: t(`measuredRanks.${rank}`) })}
-          columns={columns}
-          rows={slice}
-          rowKey={(l) => l.slug}
-          sort={state.sort}
-          order={state.order}
-          onSort={sort}
-          empty={t("pages.heroesList.none")}
-          t={t}
-        />
-      </div>
-      <Pager
-        paging={view}
-        href={(n) => pageHref(pathStatistics(rank), request, n)}
-        onNavigate={setPage}
-        t={t}
-      />
     </div>
   );
 }

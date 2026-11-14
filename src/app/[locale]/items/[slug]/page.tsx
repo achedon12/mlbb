@@ -148,7 +148,7 @@ export default async function ItemPage({ params }: Params) {
         <FreshnessLine locale={locale} className="mt-4" />
       </PageHeader>
 
-      <div className="mx-auto max-w-6xl space-y-14 px-4 py-10">
+      <div className="page-wrap space-y-14 py-10">
         <section className={cn("grid gap-4", hasRecipe && "md:grid-cols-2")}>
           <Card>
             <h2 className="font-heading text-lg font-bold text-chalk-100">{t("pages.itemDetail.effects")}</h2>

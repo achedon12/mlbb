@@ -140,7 +140,7 @@ export default async function EmblemPage({ params }: Params) {
         <FreshnessLine locale={locale} className="mt-4" />
       </PageHeader>
 
-      <div className="mx-auto max-w-6xl space-y-14 px-4 py-10">
+      <div className="page-wrap space-y-14 py-10">
         <Card>
           <dl className="grid gap-4 text-sm sm:grid-cols-2">
             <div>

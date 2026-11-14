@@ -349,7 +349,7 @@ export default async function MapPage({ params }: Params) {
     <ExtendMessages messages={messagesPage(locale, ["pages.mapUI"])}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
       <PageHeader title={t("pages.map.title")} lead={t("pages.map.lead")} />
-      <div className="mx-auto max-w-6xl space-y-14 px-4 py-10">
+      <div className="page-wrap space-y-14 py-10">
         <section aria-labelledby="map-title">
           <h2 id="map-title" className={sectionTitle}>
             {t("pages.map.mapTitle")}

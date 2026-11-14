@@ -187,7 +187,7 @@ export default async function MetaReportPage({ params }: Params) {
         )}
       </PageHeader>
 
-      <div className="mx-auto max-w-6xl space-y-8 px-4 pb-10 pt-5 sm:space-y-16">
+      <div className="page-wrap space-y-8 pb-10 pt-5 sm:space-y-16">
         {/* ── Risers and fallers ─────────────────────────────────────────── */}
         <section>
           <SectionTitle lead={t("home.trends.lead", { threshold: threshold })}>{t("home.trends.title")}</SectionTitle>

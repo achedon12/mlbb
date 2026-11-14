@@ -166,7 +166,7 @@ export default async function LoreRegionPage({ params }: Params) {
         ]}
       />
 
-      <div className="mx-auto max-w-6xl space-y-16 px-4 py-12">
+      <div className="page-wrap space-y-16 py-12">
         <section id="overview">
           <SectionTitle>{t("pages.lore.region.inBriefTitle")}</SectionTitle>
           <ul className="max-w-3xl list-disc space-y-2 pl-5 leading-relaxed text-chalk-300 marker:text-gold-400">

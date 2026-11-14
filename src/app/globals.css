@@ -445,7 +445,7 @@ h1, h2, h3, h4 {
     @apply truncate;
   }
   .stats-table tbody th {
-    @apply sm:w-44 sm:max-w-44;
+    @apply sm:w-44 sm:max-w-44 2xl:w-64 2xl:max-w-64;
   }
   .stats-table :is(th, td)[data-column="tier"] {
     @apply sm:text-center;

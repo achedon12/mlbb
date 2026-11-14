@@ -18,21 +18,24 @@ export interface TierRow {
  * before the first hero appeared: they now live in the filter bar's sheet,
  * with the current rank, lane or role kept visible as a chip. The links
  * themselves are still rendered at every width, so a crawler follows them.
+ * The tiers, server-rendered, come in as `children`: from `xl` up they sit
+ * beside the chips, which become a sidebar.
  */
-export function TierRows({ rows, home }: { rows: TierRow[]; home: string }) {
+export function TierRows({ rows, home, children }: { rows: TierRow[]; home: string; children?: React.ReactNode }) {
   // Only what departs from the default deserves a chip: "all ranks" is not a
   // filter, and the address it points to is the one we are on.
   const chosen = rows.flatMap((r) => r.links.filter((l) => l.active && l.href !== home));
 
   return (
     <FilterBar
+      content={children}
       active={chosen.map((l) => (
         <ChipActive key={l.href} label={l.name} emblem={l.emblem} href={home} />
       ))}
     >
       {rows.map((r) => (
         <nav key={r.label} aria-label={r.label} className="flex flex-wrap items-center gap-2">
-          <span aria-hidden className="mr-1 shrink-0 text-xs uppercase tracking-wide text-chalk-500 sm:w-20">
+          <span aria-hidden className="filter-legend mr-1 shrink-0 text-xs uppercase tracking-wide text-chalk-500 sm:w-20">
             {r.label}
           </span>
           {r.links.map((l) => (

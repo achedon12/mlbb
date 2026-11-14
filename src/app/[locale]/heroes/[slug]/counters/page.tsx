@@ -280,7 +280,7 @@ export default async function CountersPage({ params }: Params) {
         </ul>
       </PageHeader>
 
-      <div className="mx-auto max-w-6xl space-y-6 px-4 pb-8 pt-5 sm:space-y-14">
+      <div className="page-wrap space-y-6 pb-8 pt-5 sm:space-y-14">
         {/* ── Summary, all ranks combined ───────────────────────────── */}
         {(best.length > 0 || victims.length > 0) && (
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
