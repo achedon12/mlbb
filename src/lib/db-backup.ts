@@ -83,12 +83,12 @@ export interface BackupFile {
 
 /** The backups in the folder, newest first; a missing folder is none. */
 export async function listBackups(dir = backupDir()): Promise<BackupFile[]> {
-  const names = await readdir(dir).catch(() => [] as string[]);
+  const names = await readdir(/*turbopackIgnore: true*/ dir).catch(() => [] as string[]);
   const files = await Promise.all(
     names.map(async (name) => {
       const date = backupDate(name);
       if (!date) return null;
-      const info = await stat(join(dir, name)).catch(() => null);
+      const info = await stat(join(/*turbopackIgnore: true*/ dir, name)).catch(() => null);
       return info?.isFile() ? { name, size: info.size, createdAt: date.toISOString() } : null;
     }),
   );
@@ -99,11 +99,11 @@ export async function listBackups(dir = backupDir()): Promise<BackupFile[]> {
 export async function rotate(dir = backupDir(), keep = KEEP, inProgress?: string): Promise<string[]> {
   const removed: string[] = [];
   for (const old of (await listBackups(dir)).slice(keep)) {
-    await unlink(join(dir, old.name)).then(() => removed.push(old.name), () => undefined);
+    await unlink(join(/*turbopackIgnore: true*/ dir, old.name)).then(() => removed.push(old.name), () => undefined);
   }
-  for (const name of await readdir(dir).catch(() => [] as string[])) {
+  for (const name of await readdir(/*turbopackIgnore: true*/ dir).catch(() => [] as string[])) {
     if (name.endsWith(".partial") && name !== inProgress) {
-      await unlink(join(dir, name)).then(() => removed.push(name), () => undefined);
+      await unlink(join(/*turbopackIgnore: true*/ dir, name)).then(() => removed.push(name), () => undefined);
     }
   }
   return removed;
@@ -121,7 +121,7 @@ export interface BackupStatus {
 
 export async function readStatus(dir = backupDir()): Promise<BackupStatus | null> {
   try {
-    return JSON.parse(await readFile(join(dir, STATUS), "utf8")) as BackupStatus;
+    return JSON.parse(await readFile(join(/*turbopackIgnore: true*/ dir, STATUS), "utf8")) as BackupStatus;
   } catch {
     return null;
   }
@@ -167,7 +167,7 @@ let running = false;
 
 /** Takes the folder's lock, or says another process holds it. */
 async function lock(dir: string, now: Date): Promise<boolean> {
-  const path = join(dir, LOCK);
+  const path = join(/*turbopackIgnore: true*/ dir, LOCK);
   for (let attempt = 0; attempt < 2; attempt += 1) {
     try {
       const handle = await open(path, "wx");
@@ -205,9 +205,9 @@ export async function runBackup({
   const started = now();
   let locked = false;
   const name = backupName(started);
-  const partial = join(dir, `.${name}.partial`);
+  const partial = join(/*turbopackIgnore: true*/ dir, `.${name}.partial`);
   const finish = async (status: Omit<BackupStatus, "at" | "durationMs" | "trigger">) => {
-    await writeAtomic(join(dir, STATUS), JSON.stringify({ ...status, trigger, at: started.toISOString(), durationMs: now().getTime() - started.getTime() }))
+    await writeAtomic(join(/*turbopackIgnore: true*/ dir, STATUS), JSON.stringify({ ...status, trigger, at: started.toISOString(), durationMs: now().getTime() - started.getTime() }))
       .catch(() => undefined);
   };
   try {
@@ -219,7 +219,7 @@ export async function runBackup({
     await dump(partial, env);
     const size = (await stat(partial)).size;
     if (size === 0) throw new Error("pg_dump wrote an empty file");
-    await rename(partial, join(dir, name));
+    await rename(partial, join(/*turbopackIgnore: true*/ dir, name));
     const removed = await rotate(dir, KEEP);
     const file = { name, size, createdAt: started.toISOString() };
     await finish({ ok: true, file: name, size });
@@ -232,7 +232,7 @@ export async function runBackup({
     await logError("database backup failed", error, { trigger });
     return { ok: false, error: message };
   } finally {
-    if (locked) await rm(join(dir, LOCK), { force: true });
+    if (locked) await rm(join(/*turbopackIgnore: true*/ dir, LOCK), { force: true });
     running = false;
   }
 }

@@ -29,8 +29,9 @@ export async function log(
   (level === "error" ? console.error : console.log)(row.trimEnd());
 
   try {
-    await mkdir(FOLDER, { recursive: true });
-    await appendFile(join(FOLDER, fileOfDay(level)), row, "utf8");
+    // A runtime folder: nothing for the build to trace.
+    await mkdir(/*turbopackIgnore: true*/ FOLDER, { recursive: true });
+    await appendFile(join(/*turbopackIgnore: true*/ FOLDER, fileOfDay(level)), row, "utf8");
   } catch {
     // Read-only or unavailable folder: standard output is enough.
   }
