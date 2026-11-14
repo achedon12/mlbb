@@ -23,8 +23,10 @@ import { site } from "@/lib/site";
  */
 
 const PREFIX = "/api/v1";
-const ENDPOINTS = new Set(["heroes", "items", "patches", "rankings"]);
+const ENDPOINTS = new Set(["heroes", "items", "patches", "rankings", "skins", "events", "emblems", "spells"]);
 const HEROES = new Set(Object.keys(names));
+/** What a hero's record has under it: its measured counters and played builds. */
+const HERO_DETAILS = new Set(["counters", "builds"]);
 // A hanging Matomo with steady traffic would otherwise pile up open
 // connections in the server; past this many pending hits, new ones are dropped.
 const MAX_IN_FLIGHT = 64;
@@ -83,6 +85,8 @@ export function endpointPattern(pathname: string): string | null {
   const parts = pathname.slice(PREFIX.length).split("/").filter(Boolean);
   if (parts.length === 1 && ENDPOINTS.has(parts[0]!)) return parts[0]!;
   if (parts.length === 2 && parts[0] === "heroes") return "heroes/{slug}";
+  if (parts.length === 3 && parts[0] === "heroes" && HERO_DETAILS.has(parts[2]!)) return `heroes/{slug}/${parts[2]}`;
+  if (parts.length === 2 && parts[0] === "patches") return "patches/{version}";
   return "(unknown)";
 }
 
@@ -97,8 +101,8 @@ export function apiStatus(pathname: string, method: string): number {
   const pattern = endpointPattern(pathname);
   if (pattern === null || pattern === "(unknown)") return 404;
   if (method !== "GET" && method !== "HEAD") return 405;
-  if (pattern === "heroes/{slug}") {
-    const slug = decoded(pathname.split("/").filter(Boolean).at(-1)!);
+  if (pattern.startsWith("heroes/{slug}")) {
+    const slug = decoded(pathname.split("/").filter(Boolean)[3]!);
     return HEROES.has(slug) ? 200 : 404;
   }
   return 200;

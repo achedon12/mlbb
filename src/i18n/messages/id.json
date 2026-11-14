@@ -649,7 +649,8 @@
         },
         "items": {
           "summary": "Belanja item, dengan statistik, pasif, dan resep.",
-          "catParam": "Pertahankan hanya kategori ini."
+          "catParam": "Pertahankan hanya kategori ini.",
+          "localeParam": "Bahasa nama dan efek (bahasa Inggris secara default)"
         },
         "patches": {
           "summary": "Versi terdaftar, dari yang terbaru hingga terlama."
@@ -666,6 +667,22 @@
         "patchVersion": {
           "summary": "Detail patch: catatan, hero baru dan penyesuaian setiap hero, dengan jumlah buff dan nerf.",
           "localeParam": "Bahasa teks (Bahasa Inggris secara default)"
+        },
+        "skins": {
+          "summary": "Skin terbaru yang dirilis, dari yang terbaru: hero, nama, tanggal rilis, kelangkaan, seri, dan artwork.",
+          "limitParam": "Jumlah skin yang dikembalikan (20 secara default, paling banyak 100)."
+        },
+        "events": {
+          "summary": "Event bulan ini dan bulan-bulan yang sudah diumumkan: skin StarLight dan skin Collector, dengan awal dan akhir bulan, artwork, serta halaman bulan tersebut di situs.",
+          "localeParam": "Bahasa nama (bahasa Inggris secara default)"
+        },
+        "emblems": {
+          "summary": "Enam emblem role: nama, role, bonus, cocok untuk siapa, dan ikon.",
+          "localeParam": "Bahasa teks (bahasa Inggris secara default)"
+        },
+        "spells": {
+          "summary": "Battle spell: efek, cooldown dalam detik, role, cocok untuk siapa, dan ikon.",
+          "localeParam": "Bahasa teks (bahasa Inggris secara default)"
         }
       },
       "endpoints": "Titik masuk"
@@ -2083,6 +2100,10 @@
         "navMonths": "Sebelumnya dan bulan depan",
         "allMonths": "Setiap bulan",
         "yearLink": "Semua skin dirilis pada {year}"
+      },
+      "entry": {
+        "starlight": "Skin StarLight: {skin} ({hero})",
+        "collector": "Skin Collector: {skin} ({hero})"
       }
     },
     "nickname": {
