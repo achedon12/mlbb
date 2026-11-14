@@ -216,4 +216,22 @@ export const leaderboard = unwrap(
 export type Leaderboard = z.infer<typeof leaderboard>;
 
 /** Any 2xx JSON body: the bot does not depend on what write routes return. */
+/** One page of `GET /api/bot/daily/guilds?hour=`: the servers to post the daily games in. */
+export const dailyGuildsPage = unwrap(
+  z.object({
+    guilds: z
+      .array(
+        z.object({
+          guildId: snowflake,
+          locale,
+          dailyMlbbdleChannelId: snowflake.nullable().catch(null),
+          dailyQuizChannelId: snowflake.nullable().catch(null),
+        }),
+      )
+      .max(5_000),
+    next: snowflake.nullable().catch(null),
+  }),
+);
+export type DailyGuild = z.infer<typeof dailyGuildsPage>["guilds"][number];
+
 export const anyBody = z.unknown();

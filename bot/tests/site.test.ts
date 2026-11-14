@@ -60,6 +60,25 @@ describe("internal API client", () => {
     expect(fetch).toHaveBeenCalledTimes(1);
     expect(await client.guildLocale(null)).toBeNull();
   });
+
+  it("reads one hour's daily servers page by page, signed", async () => {
+    const A = "123456789012345678";
+    const B = "223456789012345678";
+    const fetch = vi.fn(async (url: string, _init?: RequestInit) =>
+      new URL(url).searchParams.get("after")
+        ? json({ guilds: [{ guildId: B, locale: "fr", dailyMlbbdleChannelId: null, dailyQuizChannelId: A }], next: null })
+        : json({ guilds: [{ guildId: A, locale: "xx", dailyMlbbdleChannelId: B, dailyQuizChannelId: "bad" }], next: A }),
+    );
+    const client = new SiteClient("http://mlbb:3001", SECRET, fetch);
+    expect(await client.dailyGuilds(7)).toEqual([
+      { guildId: A, locale: "en", dailyMlbbdleChannelId: B, dailyQuizChannelId: null },
+      { guildId: B, locale: "fr", dailyMlbbdleChannelId: null, dailyQuizChannelId: A },
+    ]);
+    expect(fetch.mock.calls.map(([url]) => new URL(url).pathname + new URL(url).search)).toEqual([
+      "/api/bot/daily/guilds?hour=7",
+      `/api/bot/daily/guilds?hour=7&after=${A}`,
+    ]);
+  });
 });
 
 describe("payload validation", () => {
