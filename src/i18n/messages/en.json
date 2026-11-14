@@ -11,7 +11,7 @@
     "breadcrumb": "Breadcrumb",
     "sections": "Page sections",
     "close": "Close",
-    "homeDescription": "Mobile Legends: Bang Bang knowledge base: all 133 heroes, their counters and builds by rank, the tier list, items, emblems and patch notes.",
+    "homeDescription": "Mobile Legends: Bang Bang knowledge base: all {heroes} heroes, their counters and builds by rank, the tier list, items, emblems and patch notes.",
     "siblings": "Other pages at the same level as {name}",
     "filter": "Filter…",
     "contents": "Contents",
@@ -373,6 +373,7 @@
       "weaknesses": "Weaknesses",
       "analysisPending": "Analysis in progress",
       "analysisText": "The data for {name} is up to date — it comes straight from the wiki. What's missing is the commentary: what the hero actually does, their builds and their counters. That can't be extracted; it has to be written.",
+      "analysisTranslated": "Analysis written in French and machine-translated.",
       "contribute": "Contribute to this analysis →",
       "countersIntro": "Based on in-game win rates: the gap in points shows how much {name}'s win rate shifts against each opponent.",
       "countersRef": "Baseline win rate: {rate}%.",
@@ -823,7 +824,7 @@
       "statPending": "Awaiting an analysis",
       "principleTitle": "What you write",
       "principle1": "Roles, lanes, skills, skins, statistics and popular builds come from the automatic sync with the wiki and the community API. An analysis adds only what no extraction produces: what the hero really does, strengths and weaknesses, counters and explained builds.",
-      "principle2": "Analyses are written in French, the site's original language. Each one is a TypeScript entry added to the hero's role file in `src/data/heros/`.",
+      "principle2": "Analyses are written in French, the site's original language. Each one is a TypeScript entry added to the hero's role file in `src/data/heroes/`.",
       "fieldsTitle": "The fields",
       "fieldsIntro": "An analysis follows the `AnalyseHeros` type in `src/lib/types.ts`. Its skills and builds each have their own shape.",
       "group": {
@@ -2620,6 +2621,7 @@
       "allVersions": "All Advance Server versions",
       "seo": {
         "title": "MLBB Advance Server patch notes {v}: buffs, nerfs and changes",
+        "titleHub": "MLBB Advance Server patch notes: every version (latest {v})",
         "titleGeneric": "MLBB Advance Server patch notes: buffs, nerfs and changes",
         "description": "Notes from the Advance Server, Mobile Legends' test server: latest documented version {version}, with {buffs} buffs, {nerfs} nerfs and {adjust} hero adjustments. Changes under test, which may evolve before the Official Server.",
         "descriptionVersion": "MLBB Advance Server {version}: {buffs} heroes buffed, {nerfs} nerfed and {adjust} adjusted, including {heroes}. Changes under test, which may evolve before the Official Server.",
@@ -4271,6 +4273,7 @@
         "title": "Mobile Legends forum and teammate finder",
         "description": "The MLBBDex community forum: heroes and builds, ranked help, esports, player guides, and Mobile Legends players to team up with by region, rank and lane.",
         "categoryTitle": "{name} – Mobile Legends forum",
+        "categoryDescription": "{description} The “{name}” threads of the MLBBDex Mobile Legends forum, open to every player.",
         "threadTitle": "{title} – MLBB forum"
       },
       "categories": {

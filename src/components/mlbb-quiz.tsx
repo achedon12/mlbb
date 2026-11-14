@@ -167,8 +167,9 @@ function ChallengeOfDay({ catalog, onPractice }: { catalog: CatalogQuiz; onPract
   }, [current]);
 
   if (state === null || !day) {
+    // About the height of a round once drawn: the rules below stay put.
     return (
-      <p role="status" className="py-10 text-center text-sm text-chalk-500">
+      <p role="status" className="grid min-h-[36rem] place-items-center text-center text-sm text-chalk-500 sm:min-h-[32rem]">
         {t("pages.quizUI.loading")}
       </p>
     );

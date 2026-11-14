@@ -11,7 +11,7 @@
     "breadcrumb": "Breadcrumb",
     "sections": "Mga seksyon ng pahina",
     "close": "Isara",
-    "homeDescription": "Knowledge base ng Mobile Legends: Bang Bang: lahat ng 133 hero, ang kanilang mga counter at build ayon sa rank, ang tier list, mga item, emblem at patch notes.",
+    "homeDescription": "Knowledge base ng Mobile Legends: Bang Bang: lahat ng {heroes} hero, ang kanilang mga counter at build ayon sa rank, ang tier list, mga item, emblem at patch notes.",
     "siblings": "Iba pang mga pahina sa parehong antas ng {name}",
     "filter": "I-filter…",
     "contents": "Nilalaman",
@@ -373,6 +373,7 @@
       "weaknesses": "Mga kahinaan",
       "analysisPending": "Isinusulat pa ang analysis",
       "analysisText": "Updated ang data para kay {name} — direkta itong galing sa wiki. Ang kulang ay ang komentaryo: kung ano talaga ang ginagawa ng hero, ang kanyang mga build at mga counter. Hindi ito basta makukuha; kailangan itong isulat.",
+      "analysisTranslated": "Isinulat ang analysis sa French at isinalin nang awtomatiko.",
       "contribute": "Mag-ambag sa analysis na ito →",
       "countersIntro": "Batay sa in-game win rate: ipinapakita ng pagitan sa points kung gaano gumagalaw ang win rate ni {name} laban sa bawat kalaban.",
       "countersRef": "Baseline na win rate: {rate}%.",
@@ -823,7 +824,7 @@
       "statPending": "Naghihintay ng analysis",
       "principleTitle": "Ang isusulat mo",
       "principle1": "Ang mga role, lane, skill, skin, stats at sikat na build ay galing sa awtomatikong sync sa wiki at sa community API. Ang analysis ay nagdadagdag lang ng hindi kayang ibigay ng anumang extraction: ano talaga ang ginagawa ng hero, mga lakas at kahinaan, mga counter at ipinaliwanag na build.",
-      "principle2": "Isinusulat ang mga analysis sa French, ang orihinal na wika ng site. Bawat isa ay TypeScript entry na idinadagdag sa role file ng hero sa `src/data/heros/`.",
+      "principle2": "Isinusulat ang mga analysis sa French, ang orihinal na wika ng site. Bawat isa ay TypeScript entry na idinadagdag sa role file ng hero sa `src/data/heroes/`.",
       "fieldsTitle": "Ang mga field",
       "fieldsIntro": "Sinusunod ng analysis ang type na `AnalyseHeros` sa `src/lib/types.ts`. May kanya-kanyang hugis ang mga skill at build nito.",
       "group": {
@@ -2620,6 +2621,7 @@
       "allVersions": "Lahat ng bersyon ng Advance Server",
       "seo": {
         "title": "MLBB Advance Server patch notes {v}: buff, nerf at mga pagbabago",
+        "titleHub": "Patch notes ng Advance Server ng MLBB: lahat ng bersyon (pinakabago {v})",
         "titleGeneric": "MLBB Advance Server patch notes: buff, nerf at mga pagbabago",
         "description": "Notes mula sa Advance Server, ang test server ng Mobile Legends: pinakabagong nakadokumentong version {version}, may {buffs} buff, {nerfs} nerf at {adjust} hero adjustment. Mga pagbabagong tine-test pa, na puwedeng magbago bago umabot sa Official Server.",
         "descriptionVersion": "MLBB Advance Server {version}: {buffs} hero ang na-buff, {nerfs} ang na-nerf at {adjust} ang na-adjust, kasama ang {heroes}. Mga pagbabagong tine-test pa, na puwedeng magbago bago umabot sa Official Server.",
@@ -4271,6 +4273,7 @@
         "title": "Mobile Legends forum at teammate finder",
         "description": "Ang community forum ng MLBBDex: mga hero at build, tulong sa ranked, esports, mga guide ng player, at mga Mobile Legends player na puwedeng maka-team ayon sa region, rank at lane.",
         "categoryTitle": "{name} – Mobile Legends forum",
+        "categoryDescription": "{description} Ang mga thread na “{name}” sa Mobile Legends forum ng MLBBDex, bukas sa lahat ng player.",
         "threadTitle": "{title} – MLBB forum"
       },
       "categories": {

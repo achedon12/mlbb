@@ -11,7 +11,7 @@
     "breadcrumb": "Fil d'Ariane",
     "sections": "Sections de la fiche",
     "close": "Fermer",
-    "homeDescription": "Base de connaissances Mobile Legends: Bang Bang : les 133 héros, leurs contres et builds par rang, la tier list, les objets, emblèmes et patch notes.",
+    "homeDescription": "Base de connaissances Mobile Legends: Bang Bang : les {heroes} héros, leurs contres et builds par rang, la tier list, les objets, emblèmes et patch notes.",
     "siblings": "Autres pages au même niveau que {name}",
     "filter": "Filtrer…",
     "contents": "Sommaire",
@@ -373,6 +373,7 @@
       "weaknesses": "Faiblesses",
       "analysisPending": "Analyse en cours de rédaction",
       "analysisText": "Les données de {name} sont à jour — elles viennent directement du wiki. Ce qui manque, c'est le commentaire : ce que le héros fait vraiment, ses builds et ses contres. Cela ne s'extrait pas, cela s'écrit.",
+      "analysisTranslated": "Analyse rédigée en français, traduite automatiquement.",
       "contribute": "Contribuer à cette analyse →",
       "countersIntro": "Établi sur les taux de victoire du jeu : l'écart en points indique de combien le taux de {name} varie face à chaque adversaire.",
       "countersRef": "Taux de victoire de référence : {rate} %.",
@@ -823,7 +824,7 @@
       "statPending": "En attente d'une analyse",
       "principleTitle": "Ce que vous écrivez",
       "principle1": "Rôles, positions, compétences, skins, statistiques et builds joués arrivent par la synchronisation automatique du wiki et de l'API communautaire. Une analyse n'apporte que ce qu'aucune extraction ne produit : ce que le héros fait vraiment, ses forces et ses faiblesses, ses contres et des builds expliqués.",
-      "principle2": "Les analyses s'écrivent en français, la langue d'origine du site. Chacune est une entrée TypeScript, ajoutée au fichier du rôle du héros dans `src/data/heros/`.",
+      "principle2": "Les analyses s'écrivent en français, la langue d'origine du site. Chacune est une entrée TypeScript, ajoutée au fichier du rôle du héros dans `src/data/heroes/`.",
       "fieldsTitle": "Les champs",
       "fieldsIntro": "Une analyse suit le type `AnalyseHeros` de `src/lib/types.ts`. Ses compétences et ses builds ont chacun leur propre forme.",
       "group": {
@@ -2620,6 +2621,7 @@
       "allVersions": "Toutes les versions du serveur Advance",
       "seo": {
         "title": "Patch notes serveur Advance MLBB {v} : buffs, nerfs et changements",
+        "titleHub": "Patch notes serveur Advance MLBB : toutes les versions (dernière {v})",
         "titleGeneric": "Patch notes serveur Advance MLBB : buffs, nerfs et changements",
         "description": "Notes du serveur Advance, le serveur de test de Mobile Legends : dernière version documentée {version}, avec {buffs} buffs, {nerfs} nerfs et {adjust} ajustements de héros. Des changements en test, qui peuvent évoluer avant le serveur officiel.",
         "descriptionVersion": "Serveur Advance MLBB {version} : {buffs} héros améliorés, {nerfs} affaiblis et {adjust} ajustés, dont {heroes}. Des changements en test, qui peuvent évoluer avant le serveur officiel.",
@@ -4271,6 +4273,7 @@
         "title": "Forum Mobile Legends et recherche de coéquipiers",
         "description": "Le forum de la communauté MLBBDex : héros et builds, aide en classé, esport, guides de joueurs, et des joueurs de Mobile Legends à rejoindre par région, rang et lane.",
         "categoryTitle": "{name} – forum Mobile Legends",
+        "categoryDescription": "{description} Les discussions « {name} » du forum Mobile Legends de MLBBDex, ouvertes à tous les joueurs.",
         "threadTitle": "{title} – forum MLBB"
       },
       "categories": {

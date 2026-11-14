@@ -221,8 +221,10 @@ export function CollectionCalculator({ page: pageServer = 1 }: { page?: number }
     );
   }
   if (!catalog || !data || !summary || !owned) {
+    // A screen high while the catalogue loads: the tool is longer than that
+    // once drawn, so the sections below it no longer jump down into view.
     return (
-      <Card aria-busy>
+      <Card aria-busy className="min-h-svh">
         <p className="text-sm text-chalk-500">{t("pages.collectionUI.loading")}</p>
       </Card>
     );

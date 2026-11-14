@@ -54,7 +54,16 @@ export const MIN_WORDS = 40;
 export const PAGES = [
   { path: "", locales: ALL, browser: true },
   { path: "/heroes", locales: ALL, browser: true },
-  { path: "/heroes/khufra", locales: ALL, browser: true },
+  {
+    path: "/heroes/khufra",
+    locales: ALL,
+    browser: true,
+    // The written analysis is French at the source: every other language
+    // shows its translation (src/data/game/analyses/).
+    excludes: Object.fromEntries(
+      ALL.filter((l) => l !== "fr").map((l) => [l, ["Khufra existe pour répondre", "Sa compétence 1 pose un champ"]]),
+    ),
+  },
   { path: "/heroes/khufra/counters", locales: [...EN_FR, ...LATEST] },
   { path: "/heroes/khufra/duos", locales: EN_FR },
   {
