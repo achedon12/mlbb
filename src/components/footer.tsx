@@ -2,7 +2,9 @@ import Link from "@/components/link";
 import { Rss } from "lucide-react";
 import type { Locale } from "@/i18n/config";
 import { createT, type T } from "@/i18n/translations";
+import { botPublished, communityInvite } from "@/lib/bot/public";
 import { site } from "@/lib/site";
+import { DiscordMark } from "./bot/discord-mark";
 
 /** Footer link column. `prefix` picks the key family. */
 function Column({
@@ -61,7 +63,9 @@ const NEWS = [
   { href: "/patch-notes", key: "patchNotes" },
 ];
 
+// The bot's page only exists when the bot is deployed (application id set at build time).
 const SITE = [
+  ...(botPublished() ? [{ href: "/bot", key: "bot" }] : []),
   { href: "/api-doc", key: "publicApi" },
   { href: "/about", key: "about" },
   { href: "/contribute", key: "contribute" },
@@ -72,6 +76,7 @@ const SITE = [
 
 export function Footer({ locale }: { locale: Locale }) {
   const t = createT(locale);
+  const discord = communityInvite();
 
   return (
     <footer className="mt-16 border-t border-night-700/70 bg-night-900/40">
@@ -89,7 +94,7 @@ export function Footer({ locale }: { locale: Locale }) {
           <p className="mt-3 line-clamp-3 max-w-xs text-sm leading-relaxed text-chalk-500 sm:line-clamp-none">
             {t("footer.intro")}
           </p>
-          <div className="mt-4 flex items-center gap-4">
+          <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
             <a
               href={site.repository}
               className="flex items-center gap-2 text-sm text-chalk-300 transition-colors hover:text-gold-400"
@@ -106,6 +111,16 @@ export function Footer({ locale }: { locale: Locale }) {
               <Rss size={16} aria-hidden />
               RSS
             </Link>
+            {discord && (
+              <a
+                href={discord}
+                className="flex items-center gap-2 text-sm text-chalk-300 transition-colors hover:text-gold-400"
+                rel="noopener"
+              >
+                <DiscordMark />
+                {t("footer.discord")}
+              </a>
+            )}
           </div>
         </div>
 
