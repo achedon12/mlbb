@@ -74,10 +74,26 @@ export function SiteNav({
   // Escape, or a click outside, closes; Escape gives focus back to the button.
   useEffect(() => {
     if (!open && !sheet) return;
+    const burger = document.getElementById("nav-burger");
     const onKey = (e: KeyboardEvent) => {
+      // The open sheet covers the page: Tab cycles through the header (sheet,
+      // search, language, account, burger) instead of walking into the links
+      // hidden behind it.
+      if (e.key === "Tab" && sheet && nav.current) {
+        const scope = nav.current.closest("header") ?? nav.current;
+        const stops = [
+          ...scope.querySelectorAll<HTMLElement>("a[href], button:not([disabled]), input, select, textarea"),
+        ].filter((el) => el.offsetParent !== null);
+        const at = stops.indexOf(document.activeElement as HTMLElement);
+        const next = e.shiftKey ? (at <= 0 ? stops.length - 1 : at - 1) : at === stops.length - 1 ? 0 : at + 1;
+        e.preventDefault();
+        stops[next]?.focus();
+        return;
+      }
       if (e.key !== "Escape") return;
-      const button = open ? document.getElementById(`nav-button-${open}`) : document.getElementById("nav-burger");
-      if (open && window.matchMedia(DESKTOP).matches) setOpen(null);
+      // In the sheet, the section buttons vanish with it: focus returns to the burger.
+      const button = sheet ? burger : open ? document.getElementById(`nav-button-${open}`) : burger;
+      if (open && !sheet && window.matchMedia(DESKTOP).matches) setOpen(null);
       else {
         setOpen(null);
         setSheet(false);

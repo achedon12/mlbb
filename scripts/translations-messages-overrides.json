@@ -4071,6 +4071,22 @@
     "prose.collection.deletion": {
       "fr": "Pour vider la copie de votre compte, effacez votre collection dans l'outil en étant connecté ; pour supprimer la ligne elle-même, écrivez à {contact}.",
       "text": "To empty your account's copy, clear your collection in the tool while signed in; to delete the record itself, write to {contact}."
+    },
+    "common.homeDescription": {
+      "fr": "Base de connaissances Mobile Legends: Bang Bang : les {heroes} héros, leurs contres et builds par rang, la tier list, les objets, emblèmes et patch notes.",
+      "text": "Mobile Legends: Bang Bang knowledge base: all {heroes} heroes, their counters and builds by rank, the tier list, items, emblems and patch notes."
+    },
+    "pages.heroDetail.analysisTranslated": {
+      "fr": "Analyse rédigée en français, traduite automatiquement.",
+      "text": "Analysis written in French and machine-translated."
+    },
+    "pages.advanceServer.seo.titleHub": {
+      "fr": "Patch notes serveur Advance MLBB : toutes les versions (dernière {v})",
+      "text": "MLBB Advance Server patch notes: every version (latest {v})"
+    },
+    "pages.community.seo.categoryDescription": {
+      "fr": "{description} Les discussions « {name} » du forum Mobile Legends de MLBBDex, ouvertes à tous les joueurs.",
+      "text": "{description} The “{name}” threads of the MLBBDex Mobile Legends forum, open to every player."
     }
   },
   "es": {
@@ -7997,6 +8013,22 @@
     "prose.collection.deletion": {
       "fr": "Pour vider la copie de votre compte, effacez votre collection dans l'outil en étant connecté ; pour supprimer la ligne elle-même, écrivez à {contact}.",
       "text": "Para vaciar la copia de tu cuenta, borra tu colección en la herramienta con la sesión iniciada; para eliminar el registro en sí, escribe a {contact}."
+    },
+    "common.homeDescription": {
+      "fr": "Base de connaissances Mobile Legends: Bang Bang : les {heroes} héros, leurs contres et builds par rang, la tier list, les objets, emblèmes et patch notes.",
+      "text": "Base de conocimiento de Mobile Legends: Bang Bang: los {heroes} héroes, sus counters y builds por rango, la tier list, los objetos, emblemas y notas del parche."
+    },
+    "pages.heroDetail.analysisTranslated": {
+      "fr": "Analyse rédigée en français, traduite automatiquement.",
+      "text": "Análisis escrito en francés y traducido automáticamente."
+    },
+    "pages.advanceServer.seo.titleHub": {
+      "fr": "Patch notes serveur Advance MLBB : toutes les versions (dernière {v})",
+      "text": "Patch notes del Advance Server de MLBB: todas las versiones (última {v})"
+    },
+    "pages.community.seo.categoryDescription": {
+      "fr": "{description} Les discussions « {name} » du forum Mobile Legends de MLBBDex, ouvertes à tous les joueurs.",
+      "text": "{description} Los hilos «{name}» del foro de Mobile Legends de MLBBDex, abiertos a todos los jugadores."
     }
   },
   "id": {
@@ -13963,6 +13995,26 @@
     "prose.collection.deletion": {
       "fr": "Pour vider la copie de votre compte, effacez votre collection dans l'outil en étant connecté ; pour supprimer la ligne elle-même, écrivez à {contact}.",
       "text": "Untuk mengosongkan salinan di akun Anda, hapus koleksi di alat saat masuk; untuk menghapus datanya sepenuhnya, tulis ke {contact}."
+    },
+    "common.homeDescription": {
+      "fr": "Base de connaissances Mobile Legends: Bang Bang : les {heroes} héros, leurs contres et builds par rang, la tier list, les objets, emblèmes et patch notes.",
+      "text": "Basis pengetahuan Mobile Legends: Bang Bang: {heroes} hero, counter dan build mereka berdasarkan peringkat, tier list, item, emblem, dan patch notes."
+    },
+    "pages.heroDetail.analysisTranslated": {
+      "fr": "Analyse rédigée en français, traduite automatiquement.",
+      "text": "Analisis ditulis dalam bahasa Prancis dan diterjemahkan secara otomatis."
+    },
+    "pages.advanceServer.seo.titleHub": {
+      "fr": "Patch notes serveur Advance MLBB : toutes les versions (dernière {v})",
+      "text": "Patch notes Advance Server MLBB: semua versi (terbaru {v})"
+    },
+    "pages.community.seo.categoryDescription": {
+      "fr": "{description} Les discussions « {name} » du forum Mobile Legends de MLBBDex, ouvertes à tous les joueurs.",
+      "text": "{description} Thread “{name}” di forum Mobile Legends MLBBDex, terbuka untuk semua pemain."
+    },
+    "pages.esports.meta.record": {
+      "fr": "{wins} V – {losses} D",
+      "text": "{wins} M – {losses} K"
     }
   },
   "it": {
@@ -17917,6 +17969,22 @@
     "prose.collection.deletion": {
       "fr": "Pour vider la copie de votre compte, effacez votre collection dans l'outil en étant connecté ; pour supprimer la ligne elle-même, écrivez à {contact}.",
       "text": "Per svuotare la copia del tuo account, cancella la collezione nello strumento con l'accesso effettuato; per eliminare il record stesso, scrivi a {contact}."
+    },
+    "common.homeDescription": {
+      "fr": "Base de connaissances Mobile Legends: Bang Bang : les {heroes} héros, leurs contres et builds par rang, la tier list, les objets, emblèmes et patch notes.",
+      "text": "Base di conoscenza di Mobile Legends: Bang Bang: i {heroes} eroi, i loro counter e le build per rango, la tier list, gli oggetti, gli emblemi e le patch notes."
+    },
+    "pages.heroDetail.analysisTranslated": {
+      "fr": "Analyse rédigée en français, traduite automatiquement.",
+      "text": "Analisi scritta in francese e tradotta automaticamente."
+    },
+    "pages.advanceServer.seo.titleHub": {
+      "fr": "Patch notes serveur Advance MLBB : toutes les versions (dernière {v})",
+      "text": "Patch notes Advance Server MLBB: tutte le versioni (ultima {v})"
+    },
+    "pages.community.seo.categoryDescription": {
+      "fr": "{description} Les discussions « {name} » du forum Mobile Legends de MLBBDex, ouvertes à tous les joueurs.",
+      "text": "{description} Le discussioni «{name}» del forum Mobile Legends di MLBBDex, aperte a tutti i giocatori."
     }
   },
   "fil": {
@@ -18073,8 +18141,8 @@
       "text": "Home"
     },
     "common.homeDescription": {
-      "fr": "Base de connaissances Mobile Legends: Bang Bang : les 133 héros, leurs contres et builds par rang, la tier list, les objets, emblèmes et patch notes.",
-      "text": "Knowledge base ng Mobile Legends: Bang Bang: lahat ng 133 hero, ang kanilang mga counter at build ayon sa rank, ang tier list, mga item, emblem at patch notes."
+      "fr": "Base de connaissances Mobile Legends: Bang Bang : les {heroes} héros, leurs contres et builds par rang, la tier list, les objets, emblèmes et patch notes.",
+      "text": "Knowledge base ng Mobile Legends: Bang Bang: lahat ng {heroes} hero, ang kanilang mga counter at build ayon sa rank, ang tier list, mga item, emblem at patch notes."
     },
     "common.method": {
       "fr": "Méthode et sources",
@@ -23957,8 +24025,8 @@
       "text": "Ang mga role, lane, skill, skin, stats at sikat na build ay galing sa awtomatikong sync sa wiki at sa community API. Ang analysis ay nagdadagdag lang ng hindi kayang ibigay ng anumang extraction: ano talaga ang ginagawa ng hero, mga lakas at kahinaan, mga counter at ipinaliwanag na build."
     },
     "pages.contribute.principle2": {
-      "fr": "Les analyses s'écrivent en français, la langue d'origine du site. Chacune est une entrée TypeScript, ajoutée au fichier du rôle du héros dans `src/data/heros/`.",
-      "text": "Isinusulat ang mga analysis sa French, ang orihinal na wika ng site. Bawat isa ay TypeScript entry na idinadagdag sa role file ng hero sa `src/data/heros/`."
+      "fr": "Les analyses s'écrivent en français, la langue d'origine du site. Chacune est une entrée TypeScript, ajoutée au fichier du rôle du héros dans `src/data/heroes/`.",
+      "text": "Isinusulat ang mga analysis sa French, ang orihinal na wika ng site. Bawat isa ay TypeScript entry na idinadagdag sa role file ng hero sa `src/data/heroes/`."
     },
     "pages.contribute.principleTitle": {
       "fr": "Ce que vous écrivez",
@@ -32467,6 +32535,18 @@
     "pages.collectionUI.seriesUncheck": {
       "fr": "Décocher les {n} skins {series}",
       "text": "Alisin ang tsek sa {n} skin ng {series}"
+    },
+    "pages.heroDetail.analysisTranslated": {
+      "fr": "Analyse rédigée en français, traduite automatiquement.",
+      "text": "Isinulat ang analysis sa French at isinalin nang awtomatiko."
+    },
+    "pages.advanceServer.seo.titleHub": {
+      "fr": "Patch notes serveur Advance MLBB : toutes les versions (dernière {v})",
+      "text": "Patch notes ng Advance Server ng MLBB: lahat ng bersyon (pinakabago {v})"
+    },
+    "pages.community.seo.categoryDescription": {
+      "fr": "{description} Les discussions « {name} » du forum Mobile Legends de MLBBDex, ouvertes à tous les joueurs.",
+      "text": "{description} Ang mga thread na “{name}” sa Mobile Legends forum ng MLBBDex, bukas sa lahat ng player."
     }
   },
   "th": {
@@ -32615,8 +32695,8 @@
       "text": "หน้าแรก"
     },
     "common.homeDescription": {
-      "fr": "Base de connaissances Mobile Legends: Bang Bang : les 133 héros, leurs contres et builds par rang, la tier list, les objets, emblèmes et patch notes.",
-      "text": "คลังข้อมูล Mobile Legends: Bang Bang: ฮีโร่ทั้ง 133 ตัว เคาน์เตอร์และบิลด์ตามแรงก์ Tier List ไอเทม Emblem และแพตช์โน้ต"
+      "fr": "Base de connaissances Mobile Legends: Bang Bang : les {heroes} héros, leurs contres et builds par rang, la tier list, les objets, emblèmes et patch notes.",
+      "text": "คลังข้อมูล Mobile Legends: Bang Bang: ฮีโร่ทั้ง {heroes} ตัว เคาน์เตอร์และบิลด์ตามแรงก์ Tier List ไอเทม Emblem และแพตช์โน้ต"
     },
     "common.joinDiscord": {
       "fr": "Rejoindre le Discord",
@@ -38019,8 +38099,8 @@
       "text": "บทบาท เลน สกิล สกิน สถิติ และบิลด์ยอดนิยมมาจากการซิงก์อัตโนมัติกับวิกิและ API ของคอมมูนิตี้ บทวิเคราะห์จะเพิ่มเฉพาะสิ่งที่การดึงข้อมูลอัตโนมัติให้ไม่ได้: ฮีโร่ทำอะไรได้จริง จุดแข็งและจุดอ่อน เคาน์เตอร์ และบิลด์พร้อมคำอธิบาย"
     },
     "pages.contribute.principle2": {
-      "fr": "Les analyses s'écrivent en français, la langue d'origine du site. Chacune est une entrée TypeScript, ajoutée au fichier du rôle du héros dans `src/data/heros/`.",
-      "text": "บทวิเคราะห์เขียนเป็นภาษาฝรั่งเศส ซึ่งเป็นภาษาต้นฉบับของเว็บไซต์ แต่ละบทเป็นรายการ TypeScript ที่เพิ่มลงในไฟล์บทบาทของฮีโร่ใน `src/data/heros/`"
+      "fr": "Les analyses s'écrivent en français, la langue d'origine du site. Chacune est une entrée TypeScript, ajoutée au fichier du rôle du héros dans `src/data/heroes/`.",
+      "text": "บทวิเคราะห์เขียนเป็นภาษาฝรั่งเศส ซึ่งเป็นภาษาต้นฉบับของเว็บไซต์ แต่ละบทเป็นรายการ TypeScript ที่เพิ่มลงในไฟล์บทบาทของฮีโร่ใน `src/data/heroes/`"
     },
     "pages.contribute.review.check": {
       "fr": "Lancez `npm run lint`, `npm run typecheck` et `npm test`. La vérification automatique les relancera de toute façon.",
@@ -46005,6 +46085,18 @@
     "winRateTool.zeroSentence": {
       "fr": "Aucune série de défaites ne peut faire passer un taux sous 0 %.",
       "text": "ไม่ว่าจะแพ้ติดต่อกันกี่เกม Win Rate ก็ไม่ต่ำกว่า 0%"
+    },
+    "pages.heroDetail.analysisTranslated": {
+      "fr": "Analyse rédigée en français, traduite automatiquement.",
+      "text": "บทวิเคราะห์เขียนเป็นภาษาฝรั่งเศสและแปลด้วยเครื่อง"
+    },
+    "pages.advanceServer.seo.titleHub": {
+      "fr": "Patch notes serveur Advance MLBB : toutes les versions (dernière {v})",
+      "text": "แพตช์โน้ต Advance Server MLBB: ทุกเวอร์ชัน (ล่าสุด {v})"
+    },
+    "pages.community.seo.categoryDescription": {
+      "fr": "{description} Les discussions « {name} » du forum Mobile Legends de MLBBDex, ouvertes à tous les joueurs.",
+      "text": "{description} กระทู้หมวด “{name}” ในฟอรัม Mobile Legends ของ MLBBDex เปิดให้ผู้เล่นทุกคน"
     }
   },
   "pt": {
@@ -46117,8 +46209,8 @@
       "text": "Início"
     },
     "common.homeDescription": {
-      "fr": "Base de connaissances Mobile Legends: Bang Bang : les 133 héros, leurs contres et builds par rang, la tier list, les objets, emblèmes et patch notes.",
-      "text": "Base de conhecimento do Mobile Legends: Bang Bang: todos os 133 heróis, seus counters e builds por elo, a tier list, itens, emblemas e patch notes."
+      "fr": "Base de connaissances Mobile Legends: Bang Bang : les {heroes} héros, leurs contres et builds par rang, la tier list, les objets, emblèmes et patch notes.",
+      "text": "Base de conhecimento do Mobile Legends: Bang Bang: todos os {heroes} heróis, seus counters e builds por elo, a tier list, itens, emblemas e patch notes."
     },
     "common.joinDiscord": {
       "fr": "Rejoindre le Discord",
@@ -50661,8 +50753,8 @@
       "text": "Funções, lanes, habilidades, skins, estatísticas e builds usadas chegam pela sincronização automática com a wiki e a API da comunidade. Uma análise traz apenas o que nenhuma extração produz: o que o herói realmente faz, seus pontos fortes e fracos, seus counters e builds explicadas."
     },
     "pages.contribute.principle2": {
-      "fr": "Les analyses s'écrivent en français, la langue d'origine du site. Chacune est une entrée TypeScript, ajoutée au fichier du rôle du héros dans `src/data/heros/`.",
-      "text": "As análises são escritas em francês, o idioma original do site. Cada uma é uma entrada TypeScript, adicionada ao arquivo da função do herói em `src/data/heros/`."
+      "fr": "Les analyses s'écrivent en français, la langue d'origine du site. Chacune est une entrée TypeScript, ajoutée au fichier du rôle du héros dans `src/data/heroes/`.",
+      "text": "As análises são escritas em francês, o idioma original do site. Cada uma é uma entrada TypeScript, adicionada ao arquivo da função do herói em `src/data/heroes/`."
     },
     "pages.contribute.review.check": {
       "fr": "Lancez `npm run lint`, `npm run typecheck` et `npm test`. La vérification automatique les relancera de toute façon.",
@@ -57443,6 +57535,18 @@
     "pages.collectionUI.played_empty": {
       "fr": "Aucun héros joué cette saison.",
       "text": "Nenhum herói jogado nesta temporada."
+    },
+    "pages.heroDetail.analysisTranslated": {
+      "fr": "Analyse rédigée en français, traduite automatiquement.",
+      "text": "Análise escrita em francês e traduzida automaticamente."
+    },
+    "pages.advanceServer.seo.titleHub": {
+      "fr": "Patch notes serveur Advance MLBB : toutes les versions (dernière {v})",
+      "text": "Patch notes do Advance Server de MLBB: todas as versões (última {v})"
+    },
+    "pages.community.seo.categoryDescription": {
+      "fr": "{description} Les discussions « {name} » du forum Mobile Legends de MLBBDex, ouvertes à tous les joueurs.",
+      "text": "{description} Os tópicos “{name}” do fórum de Mobile Legends do MLBBDex, abertos a todos os jogadores."
     }
   },
   "ru": {
@@ -57571,8 +57675,8 @@
       "text": "Главная"
     },
     "common.homeDescription": {
-      "fr": "Base de connaissances Mobile Legends: Bang Bang : les 133 héros, leurs contres et builds par rang, la tier list, les objets, emblèmes et patch notes.",
-      "text": "База знаний Mobile Legends: Bang Bang: все 133 героя, их контрпики и билды по рангам, тир-лист, предметы, эмблемы и патч-ноуты."
+      "fr": "Base de connaissances Mobile Legends: Bang Bang : les {heroes} héros, leurs contres et builds par rang, la tier list, les objets, emblèmes et patch notes.",
+      "text": "База знаний Mobile Legends: Bang Bang: все {heroes} героя, их контрпики и билды по рангам, тир-лист, предметы, эмблемы и патч-ноуты."
     },
     "common.joinDiscord": {
       "fr": "Rejoindre le Discord",
@@ -62691,8 +62795,8 @@
       "text": "Роли, линии, навыки, скины, статистика и популярные билды поступают из автоматической синхронизации с вики и API сообщества. Разбор добавляет только то, чего не даёт никакое извлечение данных: что герой делает на самом деле, сильные и слабые стороны, контрпики и билды с объяснениями."
     },
     "pages.contribute.principle2": {
-      "fr": "Les analyses s'écrivent en français, la langue d'origine du site. Chacune est une entrée TypeScript, ajoutée au fichier du rôle du héros dans `src/data/heros/`.",
-      "text": "Разборы пишутся на французском — исходном языке сайта. Каждый из них — это запись TypeScript, добавленная в файл роли героя в `src/data/heros/`."
+      "fr": "Les analyses s'écrivent en français, la langue d'origine du site. Chacune est une entrée TypeScript, ajoutée au fichier du rôle du héros dans `src/data/heroes/`.",
+      "text": "Разборы пишутся на французском — исходном языке сайта. Каждый из них — это запись TypeScript, добавленная в файл роли героя в `src/data/heroes/`."
     },
     "pages.contribute.principleTitle": {
       "fr": "Ce que vous écrivez",
@@ -70245,6 +70349,18 @@
     "pages.collectionUI.seriesUncheck": {
       "fr": "Décocher les {n} skins {series}",
       "text": "Снять отметку с {n} скинов {series}"
+    },
+    "pages.heroDetail.analysisTranslated": {
+      "fr": "Analyse rédigée en français, traduite automatiquement.",
+      "text": "Разбор написан на французском и переведён автоматически."
+    },
+    "pages.advanceServer.seo.titleHub": {
+      "fr": "Patch notes serveur Advance MLBB : toutes les versions (dernière {v})",
+      "text": "Патч-ноуты Advance Server MLBB: все версии (последняя {v})"
+    },
+    "pages.community.seo.categoryDescription": {
+      "fr": "{description} Les discussions « {name} » du forum Mobile Legends de MLBBDex, ouvertes à tous les joueurs.",
+      "text": "{description} Темы раздела «{name}» форума Mobile Legends на MLBBDex, открытые для всех игроков."
     }
   }
 }

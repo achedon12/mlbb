@@ -1,0 +1,1079 @@
+{
+  "lancelot": {
+    "summary": "Asesino de la jungla basado en la secuencia de guiones, con una ventana de invulnerabilidad durante el último.",
+    "analysis": "Lancelot pasa por una pelea en lugar de entrar en ella. Su habilidad 2 marca objetivos, su habilidad 1 se recarga golpeando un objetivo marcado: bien encadenado, puede lanzarse casi sin interrupción siempre que golpee algo.\n\nSu habilidad definitiva lo hace invulnerable durante la animación, lo que también lo convierte en una herramienta defensiva para esquivar un control o una ejecución. El héroe es castigado por cualquier cosa que bloquee el movimiento (Khufra a la cabeza) y por zonas que le impiden avanzar.",
+    "skills": [
+      "Su daño aumenta brevemente después de esquivar o atravesar a un enemigo.",
+      "Se mueve en una dirección golpeando a los enemigos por los que pasa. El tiempo de reutilización se reduce al golpear un objetivo marcado.",
+      "Proyecta una espada que marca a los enemigos golpeados y los ralentiza.",
+      "Encadena una serie de golpes en un área mientras permaneces invulnerable durante la animación."
+    ],
+    "strengths": [
+      "Movilidad casi continua en combate.",
+      "Invulnerabilidad defensivamente explotable",
+      "Limpieza rápida de la jungla"
+    ],
+    "weaknesses": [
+      "Completamente neutralizado por bloqueo de movimiento.",
+      "Frágil si se interrumpe la secuencia.",
+      "Larga curva de aprendizaje"
+    ],
+    "builds": [
+      {
+        "name": "Selva estándar",
+        "context": "La construcción de referencia: penetración y luego un elemento de supervivencia para mantener la segunda rotación."
+      }
+    ]
+  },
+  "gusion": {
+    "summary": "Combo asesino mágico: coloca sus dagas, se teletransporta sobre ellas y las recoge para infligir todo su daño de una vez.",
+    "analysis": "Gusion es el héroe combinado más exigente del juego después de Fanny. Todas sus habilidades se pueden repetir, y el orden y el momento de las repeticiones determinan por completo su daño. El combo estándar es dejar las dagas, acercarse con lo último y luego activar la recuperación para que todo suceda simultáneamente.\n\nUn Gusion dominado elimina cualquier objetivo frágil en menos de un segundo, a menudo antes de que la pantalla del oponente muestre algo. Un Gusion rudo causa un tercio del daño y muere en el acto. Pocos héroes tienen una brecha tan grande entre los dos.",
+    "skills": [
+      "Después de una habilidad, su siguiente ataque básico inflige daño adicional proporcional a la salud faltante del objetivo.",
+      "Lanza dagas en forma de abanico. Al volver a lanzar la habilidad se recuerdan las dagas colocadas, lo que inflige daño nuevamente.",
+      "Lanza una daga única. Relanzar la habilidad teletransporta a Gusion a la daga.",
+      "Recarga ambas habilidades y te permite impulsarte hacia una zona. El punto de partida de cualquier combo."
+    ],
+    "strengths": [
+      "Uno de los picos de daño más altos del juego.",
+      "Movilidad extrema entre dagas.",
+      "Impone presión permanente en el carril central"
+    ],
+    "weaknesses": [
+      "Entre las ejecuciones más difíciles de la plantilla",
+      "Consumo de maná muy alto.",
+      "Sin su habilidad definitiva, su daño colapsa."
+    ],
+    "builds": [
+      {
+        "name": "Selva Mágica",
+        "context": "Penetración mágica prioritaria: Gusion apunta a objetivos fáciles, no a tanques."
+      }
+    ]
+  },
+  "ling": {
+    "summary": "Asesino que se mueve por las paredes, fuera de su alcance, y elige el momento para caer sobre un objetivo.",
+    "analysis": "Ling cambia la geometría del mapa. Mientras está en una pared, es intocable para la mayoría de las habilidades terrestres, lo que le permite esperar indefinidamente hasta la apertura. No utiliza maná sino un recurso energético, lo que limita el número de saltos consecutivos.\n\nSu habilidad definitiva lo hace inmune a los controles mientras salta y causa daño crítico. El héroe es excelente en escaramuzas móviles y débil contra un equipo agrupado que se reserva el control. Khufra sigue siendo su respuesta más clara.",
+    "skills": [
+      "Ling puede escalar paredes y moverse rápidamente, regenerando su energía.",
+      "Salta a cualquier punto, incluida una pared. Coste de energía, sin recargar mientras dure la energía.",
+      "Golpea a los enemigos a su alrededor y aumenta su velocidad de ataque.",
+      "Salta alrededor de un área causando daño crítico, inmune a los controles mientras saltas."
+    ],
+    "strengths": [
+      "Moviéndose por las paredes, fuera de alcance en el suelo.",
+      "Elige libremente el momento de la iniciación.",
+      "Excelente en escaramuzas y robo de objetivos."
+    ],
+    "weaknesses": [
+      "Depende enteramente de su energía.",
+      "Inicio lento antes de dos elementos.",
+      "Severamente castigado con bloqueos de movimiento."
+    ],
+    "builds": [
+      {
+        "name": "Selva crítica",
+        "context": "Su habilidad definitiva causa daño crítico: la tasa crítica vale más que la penetración bruta."
+      }
+    ]
+  },
+  "yi-sun-shin": {
+    "summary": "Jungler híbrido que cambia de arco a espada según la distancia y cuya habilidad definitiva revela todo el mapa.",
+    "analysis": "Yi Sun-shin cambia de arma por su cuenta: dispara un arco desde lejos y golpea con una espada al contacto, y cada cambio fortalece sus dos siguientes ataques. Su habilidad 1 lo impulsa hacia adelante haciéndolo brevemente inmune a los controles, y su recarga disminuye con cada cambio de arma exitoso. El último primero le da una visión de todo el mapa y una aceleración, luego, reiniciado, envía una nave que aturde el centro de la zona antes de un bombardeo que ralentiza: es tanto una herramienta de información como una iniciación a distancia.\n\nSu rendimiento mesurado se concentra al inicio del partido: su porcentaje de victorias es significativamente mayor en los partidos que terminan antes del minuto doce, y luego vuelve a situarse en torno a la media. Por tanto, vive más del avance conseguido en la jungla que del final del juego, y su única protección contra los controles sólo dura un instante. Las mediciones lo colocan en dificultades contra Karina, Urano, Aamon, Johnson y Hayabusa, desde el rango Mítico hasta el rango Gloria Mítica.",
+    "skills": [
+      "Ataca con un arco o una espada dependiendo de la distancia de su objetivo. Después de cada cambio de arma, sus siguientes dos ataques ganan impulso y daño crítico, con un breve aumento de velocidad.",
+      "Corre hacia adelante con la espada, lo que la hace insensible a los controles por un corto tiempo. Cada cambio de arma activado acorta su recarga: esta es su principal movilidad en combate.",
+      "Pulsación breve: un golpe rápido con la espada. Pulsación larga: una flecha cuyo daño aumenta con el tiempo de carga. En ambos casos, activa inmediatamente la bonificación por cambio de arma.",
+      "Revela el mapa completo durante unos segundos y lo acelera. Relanzado, envía un barco a estrellarse contra un área, aturdiendo el centro, luego varias salvas de cañón que reducen la velocidad en un área más amplia."
+    ],
+    "strengths": [
+      "Visión de todo el mapa en el lanzamiento de lo último.",
+      "No se ve afectado por los controles durante la habilidad 1.",
+      "Daño a distancia y al contacto, sin cambiar de estructura.",
+      "Alta tasa de victorias medida en juegos cortos"
+    ],
+    "weaknesses": [
+      "Tasa de victorias medida que vuelve al promedio después de los primeros minutos",
+      "Protección contra controles que solo dura un instante",
+      "En dificultad contra Karina, Urano y Aamon según mediciones"
+    ],
+    "builds": [
+      {
+        "name": "Selva estándar",
+        "context": "La configuración más jugada, en todos los rangos: Hunter Strike y War Axe, luego Endless Battle, que fortalece el ataque básico después de cada habilidad y lo cura a lo largo del camino."
+      },
+      {
+        "name": "Ejecución",
+        "context": "Sky Piercer en lugar de War Axe: menos jugado, con una tasa de victorias mejor medida. Su umbral de ejecución crece con las muertes y disminuye con cada muerte, lo que le conviene a un jungla que obtiene una ventaja temprana."
+      }
+    ]
+  },
+  "selena": {
+    "summary": "Heroína con dos formas: trampas y flecha aturdidora desde la distancia, luego asesinato al contacto después de lo último.",
+    "analysis": "Selena se juega en dos etapas. En su forma élfica, coloca demonios que vigilan un lugar y se aferran a los enemigos que pasan, y dispara una flecha cuyo aturdimiento se alarga con la distancia recorrida; sus habilidades dejan marcas en los objetivos. Lo último la cambia a Forma Abisal, donde sus habilidades se convierten en un ataque de salto con escudo y una carga, que consume estas marcas para causar daño adicional; Luego podrá volver a su forma élfica.\n\nEsta versatilidad tiene un coste: toda su iniciación depende de la flecha, que debe partir desde lejos para aturdir durante mucho tiempo. Su tasa de victorias medida se mantiene por debajo del promedio en todos los rangos, con un punto bajo en juegos que duran menos de doce minutos. Se juega tanto en el carril central como en itinerancia, con diferentes objetos según la posición. Las mediciones la ponen en dificultades frente a Gloo, Popol y Kupa, Chip y Lolita.",
+    "skills": [
+      "Se mueve libremente de una forma a otra. En forma élfica, sus habilidades suponen marcas acumulativas; en Forma Abisal, su daño consume estas marcas para golpear más fuerte. El juego consiste en anotar desde lejos y luego rematar desde corta distancia.",
+      "Coloca un demonio que espera en un lugar, se adhiere al primer enemigo que se acerca, lo ralentiza y luego explota sobre él y sus vecinos. Pueden coexistir varias trampas y cada trampa adicional refuerza la explosión.",
+      "Dispara una flecha que aturde al primer héroe alcanzado y dura más cuanto más viaja. Al pasar por una trampa, la lleva consigo y aplica su efecto al objetivo. Su verdadera herramienta de iniciación.",
+      "La cambia a su forma abisal con un breve aumento de velocidad y restablece el tiempo de reutilización de sus habilidades en esta forma. Luego, sus ataques básicos causan daño mágico adicional."
+    ],
+    "strengths": [
+      "Aturdimiento prolongado cuando la flecha viene desde muy lejos.",
+      "Trampas colocadas de antemano, varias a la vez.",
+      "Dos formas: control remoto, luego daño por contacto",
+      "Se puede jugar en el carril central y en itinerancia."
+    ],
+    "weaknesses": [
+      "Toda su iniciación depende de una flecha que debe apuntar desde lejos.",
+      "Tasa de victorias medida por debajo del promedio en todos los rangos",
+      "Más débil en juegos muy cortos según mediciones.",
+      "En dificultad contra Gloo, Popol y Kupa y Chip"
+    ],
+    "builds": [
+      {
+        "name": "carril central",
+        "context": "La configuración más jugada en el medio: Starlium Scythe agrega daño al ataque básico que sigue a una habilidad, que cumple con su forma abisal, Lightning Truncheon un eco de daño y Divine Glaive penetración mágica."
+      },
+      {
+        "name": "Roam",
+        "context": "La configuración más jugada en itinerancia: Enchanted Talisman se centra en la recarga y el maná en lugar del daño bruto, para volver a tirar trampas y flechas con más frecuencia con los ingresos más bajos de esta posición."
+      }
+    ]
+  },
+  "chou": {
+    "summary": "Luchador de aislamiento: extrae un objetivo del grupo contrario y lo mata antes de que su equipo reaccione.",
+    "analysis": "Chou es el héroe con el techo más alto en itinerancia. La idea es simple: lo último envía un objetivo al aire y lo mueve, pero su ejecución se basa en cancelaciones de animación que el juego no explica en ninguna parte. El combo de referencia encadena la habilidad 1, el salto cancelado, la habilidad definitiva y luego la habilidad 2 para sujetar el objetivo al aterrizar.\n\nDe ahí viene su interés por un equipo organizado: él elige quién muere. Por otro lado, contra un jugador que mantiene su Purify, la habilidad definitiva pierde la mitad de su valor y Chou vuelve a ser un luchador promedio.",
+    "skills": [
+      "Cada pocos ataques básicos, su siguiente ataque se convierte en un golpe mejorado que causa daño adicional.",
+      "Tres golpes sucesivos. El último lanza al aire a los enemigos alcanzados.",
+      "Corre en una dirección y se vuelve inmune a los controles mientras corre.",
+      "Golpea un objetivo, lo lanza y lo sigue hasta el final. Aleja a un oponente de su equipo."
+    ],
+    "strengths": [
+      "Selecciona y aísla un objetivo prioritario.",
+      "Inmune a los controles durante la habilidad 2",
+      "Excelente en dos o tres escaramuzas."
+    ],
+    "weaknesses": [
+      "Ejecución exigente, muy punitivo a la hora de aprender.",
+      "Neutralizado por Purify en el objetivo previsto",
+      "Daño bajo si falla el aislamiento"
+    ],
+    "builds": [
+      {
+        "name": "Aislamiento de itinerancia",
+        "context": "La versión jugada en competición: suficiente resistencia para sobrevivir el viaje de ida y vuelta, sin elementos de daño puro."
+      },
+      {
+        "name": "experiencia ofensiva",
+        "context": "En el carril de la experiencia, cuando Chou debe ganar su duelo en lugar de servir a su equipo."
+      }
+    ]
+  },
+  "yu-zhong": {
+    "summary": "Luchador de carril experimentado que se cura a sí mismo al golpear y se vuelve muy difícil de matar en combates prolongados.",
+    "analysis": "Yu Zhong gana las últimas peleas. Su pasiva transforma parte del daño infligido en un escudo, lo que lo hace excelente cuando hay varios objetivos a su alcance: una confrontación a cinco bandas le da mucho más retorno que un duelo.\n\nSu habilidad máxima lo hace inmune a los controles mientras avanza, lo que también lo convierte en un iniciador creíble. Contrarrestarlo casi siempre implica reducir la curación: sin ella, un Yu Zhong bien equipado absorbe a todo un equipo.",
+    "skills": [
+      "El daño causado por sus habilidades se convierte parcialmente en un escudo, con mayor eficiencia en múltiples objetivos.",
+      "Encadena dos barridos frente a él. El segundo causa mayor daño.",
+      "Salta hacia adelante y lanza a los enemigos golpeados. Se utiliza tanto para atacar como para escapar.",
+      "Toma la forma de un dragón: inmune a los controles, avanza mientras inflige daño en el área y luego derriba al enemigo."
+    ],
+    "strengths": [
+      "Regeneración muy fuerte en peleas a cinco bandas.",
+      "Controlar la inmunidad durante la máxima",
+      "Buen empuje de carril y buen control de las olas."
+    ],
+    "weaknesses": [
+      "Colapso por atención reducida",
+      "Frágil comienzo del juego antes del tercer elemento.",
+      "Poco daño en un solo objetivo aislado."
+    ],
+    "builds": [
+      {
+        "name": "Experiencia de regeneración",
+        "context": "La construcción de referencia: resistencia y robo de vida, ya que la pasiva ya convierte el daño en escudo."
+      }
+    ]
+  },
+  "paquito": {
+    "summary": "Window Fighter: cada habilidad utilizada mejora la siguiente, durante un pico de daño muy corto.",
+    "analysis": "Paquito no se juega habilidad a habilidad sino por secuencias. Cada lanzamiento de hechizo carga una versión mejorada del siguiente, y el objetivo es unir esas versiones mejoradas en el orden correcto antes de que se cierre la ventana.\n\nBien hecho, elimina un objetivo débil en dos segundos desde una distancia considerable. Jugado mal, desperdicia sus versiones mejoradas en minions y no le queda nada. Es un héroe del ritmo, muy sensible al nivel del jugador.",
+    "skills": [
+      "El uso de una habilidad mejora la siguiente habilidad diferente durante unos segundos.",
+      "Sigue recto. Versión mejorada: más alcance, mayor daño y movimiento hacia adelante.",
+      "Golpea en un arco. Versión mejorada: lanza a los enemigos golpeados.",
+      "Corre hacia un objetivo y lo derriba. Versión mejorada: daño y proyección mucho mayores."
+    ],
+    "strengths": [
+      "Daño máximo muy alto en un período corto",
+      "Gran rango de iniciación",
+      "Sin coste de maná"
+    ],
+    "weaknesses": [
+      "Pierde todo su interés si las ventanas se estropean.",
+      "Muy vulnerable una vez que se gastan las habilidades.",
+      "Punitivo contra héroes que mantienen su control."
+    ],
+    "builds": [
+      {
+        "name": "Selva explosiva",
+        "context": "Cuando el objetivo es eliminar al tirador o mago contrario desde la primera iniciación."
+      }
+    ]
+  },
+  "dyrroth": {
+    "summary": "Luchador furioso que quita la armadura física de su objetivo antes de golpearlo, se juega tanto en el carril de experiencia como en la jungla.",
+    "analysis": "Dyrroth acumula ira mientras lucha; A mitad de camino, sus dos primeras habilidades se convierten en una versión reforzada, con más alcance o más daño. Cada dos ataques básicos, golpea en un círculo a su alrededor y se cura a sí mismo, y cada héroe golpeado acorta sus tiempos de reutilización. La habilidad 2 lo lanza hacia un objetivo y luego, refundido, le quita gran parte de su armadura física durante unos segundos: es la apertura la que hace efectivo el resto de su daño. El último sale después de un breve retraso, no se puede interrumpir y ralentiza todo lo que atraviesa.\n\nVive de sus jugadas tempranas: su tasa de victorias medida es más alta en juegos cortos y cae por debajo del promedio después del minuto dieciocho. Sus números también varían según el rango, siendo más bajos en Mythic que en Mythic Glory. Las medidas lo ponen en dificultades frente a Masha, Benedetta y Thamuz.",
+    "skills": [
+      "A partir de la mitad de su indicador de ira, sus habilidades 1 y 2 se fortalecen. Cada dos ataques básicos, golpea en círculo y recupera HP, y cada golpe de héroe reduce los tiempos de reutilización de sus dos primeras habilidades.",
+      "Golpe lineal que ralentiza a los enemigos golpeados. Reforzado, llega más lejos, golpea más fuerte y frena más: una buena manera de evitar que un objetivo se salga de su alcance.",
+      "Una avalancha que se detiene en el primer enemigo que no es esbirro, luego un segundo golpe fijo que reduce en gran medida la armadura física del objetivo. Reforzado, la reducción es más fuerte y el objetivo se ralentiza significativamente por un instante.",
+      "Tras un breve retraso, un golpe devastador va de frente, imposible de interrumpir, y ralentiza a los enemigos a su paso. El retraso es visible: preferentemente lanza hacia un objetivo que ya está ralentizado."
+    ],
+    "strengths": [
+      "Reducción de armadura física incorporada en la habilidad 2",
+      "Curación regular en combate gracias a su pasiva.",
+      "Los tiempos de reutilización se acortaron por cada golpe de héroe.",
+      "Dos posiciones posibles: carril de experiencia o jungla."
+    ],
+    "weaknesses": [
+      "La tasa de victorias medida disminuye en juegos largos",
+      "Habilidades fortalecidas solo desde el nivel medio de ira.",
+      "Un último lanzado después de un retraso, que el objetivo puede anticipar.",
+      "En dificultad contra Masha, Benedetta y Thamuz según mediciones"
+    ],
+    "builds": [
+      {
+        "name": "carril de experiencia",
+        "context": "El carril de experiencia integrado más jugado para todos los rangos: War Axe y Queen's Wings para robo de vida y supervivencia, Rose Gold Meteor para el escudo cuando su HP cae bajo. Las opciones siguen estando muy dispersas en esta posición, y en Mythic Glory es una versión de penetración (Blade of the Heptaseas, Hunter Strike, Rose Gold Meteor) la que viene primero."
+      },
+      {
+        "name": "Selva",
+        "context": "La build más jugada en la jungla: Brute Force Breastplate agrega HP, ataque y una reducción en la duración de los controles cuando encadena daño, War Axe y Rose Gold Meteor mantienen el robo de vida."
+      }
+    ]
+  },
+  "sun": {
+    "summary": "Luchador que se multiplica: sus dobles atacan con él, lo curan y devoran la armadura de sus objetivos.",
+    "analysis": "Sol lucha convocando dobles. Sus dos primeras habilidades arrojan su bastón, lo que deja un duplicado temporal; el segundo además lo esconde mientras se mueve con el palo. Lo último invoca un duplicado más duradero, más cercano a sus propias estadísticas. Cada golpe de Sun o sus dobles reduce un poco la armadura física del objetivo, y cada golpe de un doble la cura: cuantos más dobles haya en un objetivo, más rápido se derretirá y más durará.\n\nSu perfil mesurado es el de un héroe al final del juego: tasa de victorias por debajo del promedio en juegos que duran menos de catorce minutos, y luego significativamente por encima después del decimosexto. También suele estar prohibido, especialmente en el rango mítico. El doble de lo máximo implica un mayor daño, y las métricas ponen a Sun en problemas contra Aldous, Natan, Alucard, Joy y Ruby.",
+    "skills": [
+      "Cada golpe del Sol o un doble reduce la armadura física del objetivo, acumulándose. Cada vez que un doble inflige daño, Sun recupera HP. Sus ataques y los de sus dobles también golpean más fuerte a los monstruos.",
+      "Lanza el palo en línea; en el momento del impacto o al final del golpe, se transforma en un doble que se apodera de parte de sus estadísticas. Comparte su tiempo de reutilización y niveles con la habilidad 2.",
+      "Tira el bastón, dejando un duplicado en su lugar, mientras Sun se esconde y viaja con el bastón. De este modo puede cambiar de posición sin ser visto, dejando al doble detrás de él.",
+      "Invoca un duplicado más duradero que se hace cargo de la mayoría de sus estadísticas y efectos de ataque. Este doble, sin embargo, sufre mayores daños."
+    ],
+    "strengths": [
+      "Reducción de armadura acumulativa para él y sus dobles.",
+      "Curando cada golpe de un doble",
+      "La tasa de victorias medida aumentó considerablemente en los juegos largos",
+      "La habilidad 2 lo oculta mientras se mueve."
+    ],
+    "weaknesses": [
+      "Débil en juegos cortos según mediciones.",
+      "Duplicar lo último requiere mayor daño",
+      "En dificultad contra Aldous, Natan y Alucard según mediciones"
+    ],
+    "builds": [
+      {
+        "name": "carril de experiencia",
+        "context": "La configuración más jugada en el carril de experiencia: velocidad de ataque y crítico, de la cual sus dobles se benefician al recuperar parte de sus efectos de ataque, y Great Dragon Spear para velocidad después del máximo. Se asocia con mayor frecuencia con el emblema de apoyo y el hechizo Petrify."
+      },
+      {
+        "name": "Selva",
+        "context": "Los mismos tres objetos en jungla, Corrosion Scythe primero, con el emblema del tirador y Retribution: esta es la versión más jugada en esta posición."
+      }
+    ]
+  },
+  "guinevere": {
+    "summary": "Luchadora contra daños mágicos que lanza a sus objetivos por el aire y luego los mantiene allí bajo su habilidad definitiva.",
+    "analysis": "Ginebra se basa en la proyección. Su habilidad 2 la hace saltar a través de un área, enviando enemigos al aire, luego puede lanzarse nuevamente para un breve teletransporte que deja una ilusión detrás. Inflige daño adicional a los objetivos en el aire y sus golpes marcan a los enemigos: su habilidad máxima proyecta un objetivo con tres marcas, que lanza al aire a los enemigos que ya están allí con cada golpe, mientras que Guinevere no se ve afectada por los controles.\n\nPor tanto, todo depende de la habilidad 2: si el salto falla y faltan las marcas, el último pierde la mayor parte de su control. Sus números medidos están cerca del promedio, un poco mejores en juegos cortos, y su tasa de suspensiones ha disminuido en los últimos treinta días. Las medidas la ponen en dificultades contra Masha, Wanwan, Khufra, Diggie y Fanny.",
+    "skills": [
+      "Sus ataques básicos causan daño mágico y cargan un indicador; lleno, hace que el siguiente ataque básico sea guiado. Sus golpes marcan a los enemigos y golpea con más fuerza los objetivos en el aire.",
+      "Un orbe que daña y ralentiza al primer enemigo alcanzado. Cada llave reduce todas sus recargas: esta es la habilidad que se debe lanzar con más frecuencia para preparar las marcas.",
+      "Salta a un área que aturde brevemente y luego lanza al aire a los héroes y monstruos golpeados. Relanzado en los segundos siguientes, la teletransporta, haciéndola invisible por un momento y deja una ilusión que explota si la golpeas.",
+      "Crea un campo de fuerza que golpea repetidamente a los enemigos cercanos. Los objetivos que ya están en el aire, o marcados tres veces, se lanzan varias veces. Es impermeable a los controles mientras dure."
+    ],
+    "strengths": [
+      "Control de área repetido bajo último",
+      "No se ve afectado por los controles durante la final.",
+      "Un relanzamiento de la habilidad 2 para reposicionarte",
+      "Los tiempos de reutilización se reducen cuando se activa la habilidad 1."
+    ],
+    "weaknesses": [
+      "Una definitiva que depende de una proyección o de marcas colocadas antes.",
+      "Tasa de ganancias medida cerca del promedio, sin pico marcado",
+      "Luchando contra Masha, Wanwan y Khufra según las medidas"
+    ],
+    "builds": [
+      {
+        "name": "Vuelo mágico de la vida",
+        "context": "La configuración más jugada: Concentrated Energy aporta poder mágico y robo de vida híbrido, Queen's Wings supervivencia y recarga cuando su HP cae, Divine Glaive penetración mágica."
+      },
+      {
+        "name": "Daño tras habilidad",
+        "context": "Starlium Scythe en lugar de Queen's Wings, para daño adicional en el ataque que sigue a cada habilidad: menos jugado, con una tasa de victorias medida comparable."
+      }
+    ]
+  },
+  "kagura": {
+    "summary": "Mago de estado dual: sus habilidades cambian completamente dependiendo de si sostiene su paraguas o lo tiene abajo.",
+    "analysis": "Kagura tiene ocho habilidades en práctica para tres golpes. Cada hechizo tiene una versión con paraguas y una versión sin él, y saber en qué estado te encuentras es lo principal del héroe. El combo característico sigue la postura del paraguas, un rápel que cruza y proyecta, luego el último para bloquear.\n\nTambién es una de las pocas magas capaces de salir sola de una mala posición, ya que teletransportarse al paraguas le sirve como escape. A cambio, un error de estado la deja sin movilidad en medio del equipo contrario.",
+    "skills": [
+      "Cuando Kagura y su paraguas están juntos, sus habilidades se recargan más rápido y obtiene un escudo después de un hechizo.",
+      "Envía el paraguas a una ubicación o lo recupera. El paraguas colocado ralentiza a los enemigos a su alrededor.",
+      "Con el paraguas: se mueve en una dirección. Sin el paraguas: se teletransporta hacia él, lanzando a los enemigos por los que pasa.",
+      "Enraiza y atrae enemigos alrededor del paraguas, luego causa un daño significativo en el área."
+    ],
+    "strengths": [
+      "Daño de área muy alto a mitad del juego.",
+      "Movilidad defensiva poco común para un mago.",
+      "Control permanente de zonas alrededor del paraguas."
+    ],
+    "weaknesses": [
+      "Gestión estatal exigente y punitiva por errores",
+      "Alto coste de maná antes del primer objeto.",
+      "Sin un paraguas cerca, ella está inmóvil."
+    ],
+    "builds": [
+      {
+        "name": "Entorno explosivo",
+        "context": "La construcción estándar: penetración mágica para mantener el daño contra los primeros objetos defensivos."
+      }
+    ]
+  },
+  "pharsa": {
+    "summary": "Mago de artillería: sus ataques definitivos atraviesan el mapa, sin siquiera entrar en combate.",
+    "analysis": "Pharsa juega con el alcance. Su habilidad máxima es un bombardeo canalizado que cubre un área enorme desde larga distancia, lo que le permite participar en una pelea que apenas puede ver. Bien colocado, este hechizo por sí solo puede decidir un enfrentamiento en torno al señor.\n\nSu habilidad 2 le otorga una forma voladora que atraviesa paredes, esencial para reposicionarse después de canalizar. El punto débil es obvio: durante el último ella está inmóvil e indefensa, y cualquier asesino que la encuentre la mata.",
+    "skills": [
+      "Después de una habilidad, su siguiente ataque básico inflige daño mágico adicional.",
+      "Envía una ola que explota desde la distancia e inflige daño en el área.",
+      "Toma forma voladora para moverse rápidamente, cruzando obstáculos.",
+      "Canaliza un bombardeo sobre una zona muy amplia, a gran distancia del mapa."
+    ],
+    "strengths": [
+      "Rango definitivo entre los mejores del juego.",
+      "Participa en batallas sin exponerte",
+      "Reposicionamiento libre gracias a la forma voladora"
+    ],
+    "weaknesses": [
+      "Inmóvil e indefenso mientras canaliza",
+      "No hay control fiable en caso de iniciación.",
+      "Depende mucho de la visión de su equipo."
+    ],
+    "builds": [
+      {
+        "name": "artillería media",
+        "context": "Alcance y daño bruto, con un elemento defensivo tardío para sobrevivir a una inmersión."
+      }
+    ]
+  },
+  "cecilion": {
+    "summary": "Mago apilable: acumula sangre a lo largo del juego y se convierte en una amenaza de área que es imposible de ignorar al final del juego.",
+    "analysis": "Cecilión es una apuesta a largo plazo. Cada habilidad lanzada añade una carga permanente que aumenta su daño y su maná máximo: un Cecilion que ha cultivado tranquilamente durante quince minutos ya no tiene nada que ver con el del principio.\n\nPor otro lado, es extremadamente frágil antes de acumular y sus habilidades tienen una zona amplia pero lenta. Ante un equipo que lo ataca temprano y con frecuencia, nunca alcanza su nivel. Es el típico héroe donde el resultado depende más del ritmo del juego que del duelo.",
+    "skills": [
+      "Cada habilidad que golpea a un enemigo acumula cargas permanentes que aumentan su daño y maná máximo.",
+      "Libera una ola de murciélagos en una dirección, causando daño en el área.",
+      "Levanta garras que inmovilizan brevemente a los enemigos en el área.",
+      "Se cura a sí mismo, gana alcance en sus habilidades e inflige un enorme daño AoE a su alrededor."
+    ],
+    "strengths": [
+      "Daño de área ilimitado al final del juego",
+      "Excelente control de olas y empuje de carril.",
+      "Uno de los mejores magos para mantener un objetivo."
+    ],
+    "weaknesses": [
+      "Muy frágil y sin movilidad.",
+      "Depende enteramente de su acumulación temprana.",
+      "Objetivo prioritario de todos los asesinos."
+    ],
+    "builds": [
+      {
+        "name": "Entorno acumulativo",
+        "context": "Maná y recarga primero para acumularse rápidamente, daño después. El Reloj de Arena no es opcional."
+      }
+    ]
+  },
+  "novaria": {
+    "summary": "Mago de acoso a distancia, cuya habilidad máxima agranda la silueta de los objetivos para que sus disparos sean más fáciles de realizar.",
+    "analysis": "Novaria se juega desde lejos. Su habilidad 1 coloca una esfera que duele y se ralentiza a su alrededor antes de explotar; su habilidad 2 hace que una esfera regrese a ella, dándole velocidad y la capacidad de atravesar paredes, luego la arroja hacia un héroe, con un daño que aumenta con la distancia recorrida. Sus esferas revelan a los enemigos cercanos y su habilidad máxima amplía la zona de impacto de los héroes golpeados al tiempo que revela su entorno: esto es lo que hace que sus tiros lejanos sean confiables.\n\nNo sufre aturdimientos ni congelaciones, sólo ralentizaciones. Su tasa de victorias medida se mantiene por debajo del promedio en todos los rangos, pero aumenta con la duración del juego y supera el cincuenta por ciento después del minuto dieciocho. Las mediciones la colocan claramente en dificultades contra Natalia, luego contra Zilong, Aldous, Ling y Estes.",
+    "skills": [
+      "Las esferas que invoca ralentizan continuamente a los enemigos cercanos y los hacen visibles. Cada esfera colocada es, por tanto, también una fuente de visión.",
+      "Coloca una esfera que daña a los enemigos a su alrededor varias veces, luego explota y aumenta significativamente su desaceleración. Se utiliza para defender un área o preparar un tiro de habilidad 2.",
+      "Hace aparecer una esfera a lo lejos y la acerca hacia ella, ganando velocidad y atravesando el escenario. Luego puede volver a lanzarla: la esfera explota al primer héroe tocado, tanto más poderosa cuanto más ha viajado.",
+      "Una ola que frena brevemente a los héroes golpeados y los marca durante unos segundos: su zona de impacto se hace mucho más grande y se revela su entorno. Para lanzar justo antes de tiros lejanos."
+    ],
+    "strengths": [
+      "El daño aumenta con la distancia del disparo.",
+      "Visión sobre enemigos cercanos a sus esferas.",
+      "Camina a través de paredes durante la habilidad 2",
+      "Tasa de victorias medida en aumento en juegos largos"
+    ],
+    "weaknesses": [
+      "Sin aturdimientos ni congelaciones, solo desaceleraciones.",
+      "Tasa de victorias medida por debajo del promedio en todos los rangos",
+      "Más débil en juegos cortos según mediciones.",
+      "Claramente en dificultades contra Natalia"
+    ],
+    "builds": [
+      {
+        "name": "Acoso",
+        "context": "La configuración más jugada: Lightning Truncheon agrega un eco de daño a sus habilidades, Glowing Wand una quemadura que también reduce la curación y Wishing Lantern daño al HP actual del objetivo al tocarlo."
+      }
+    ]
+  },
+  "eudora": {
+    "summary": "Mago de explosión: cada habilidad electriza al objetivo y fortalece al siguiente, hasta un aturdimiento de área.",
+    "analysis": "Eudora trabaja en secuencia. Cada una de sus habilidades electrifica a los objetivos golpeados, y la siguiente habilidad obtiene un efecto contra un objetivo electrificado: la habilidad 1 crea una cadena que lo acelera y puede reducir su tiempo de reutilización a la mitad, la habilidad 2 cambia de un aturdimiento de un solo objetivo a un aturdimiento de área, y la habilidad definitiva desencadena una explosión adicional alrededor de cada objetivo electrificado. El orden correcto convierte una rotación de habilidades en eliminación y control del grupo.\n\nSin la electrificación aplicada, sus habilidades pierden sus efectos adicionales: una primera habilidad fallida rompe la secuencia. Su tasa de victorias medida es mayor en juegos cortos y vuelve a caer al promedio después de dieciocho minutos. El parche 2.1.88 la sitúa entre los héroes reforzados, sin que la wiki detalle la modificación. Las medidas la ponen en dificultades frente a Atlas, Masha, Barats y Leomord.",
+    "skills": [
+      "Sus habilidades electrizan a los héroes y monstruos golpeados durante unos segundos, y cada una de sus habilidades obtiene un efecto adicional contra un objetivo electrizado. Todo su juego está en orden de lanzamiento.",
+      "Un rayo en forma de abanico, reforzado contra los minions. Sobre un objetivo electrificado, crea una cadena que lo acelera por un instante y le inflige daño continuo; si la cadena aguanta hasta el final, la recarga se reduce a la mitad.",
+      "Un orbe que reduce la defensa mágica del objetivo y lo aturde. En un objetivo electrificado, el efecto se extiende a todos los enemigos a su alrededor: este es su control de grupo.",
+      "Un rayo cae sobre una zona, más fuerte en el centro que en las afueras. Cada objetivo electrificado alcanzado provoca una segunda explosión a su alrededor después de un breve retraso."
+    ],
+    "strengths": [
+      "Aturdimiento AoE cuando el objetivo está electrificado",
+      "El tiempo de reutilización de la habilidad 1 se reduce a la mitad mientras se mantiene la cadena.",
+      "Una habilidad definitiva que explota por segunda vez alrededor de objetivos electrificados.",
+      "Alta tasa de victorias medida en juegos cortos"
+    ],
+    "weaknesses": [
+      "Una primera habilidad fallida priva a las siguientes de sus efectos.",
+      "Tasa de victorias medida que cae hacia el promedio en juegos largos",
+      "En dificultad contra Atlas, Masha y Barats según mediciones"
+    ],
+    "builds": [
+      {
+        "name": "Explosión",
+        "context": "La configuración más jugada, muy por delante de las demás: Genius Wand reduce la defensa mágica de los objetivos, Sky Piercer remata a los héroes con muy pocos HP, Lightning Truncheon agrega un eco de daño. El Assassin Emblem es la elección de la gran mayoría de jugadores que lo adquieren."
+      },
+      {
+        "name": "Penetración y quema",
+        "context": "Glowing Wand y Divine Glaive en lugar de Sky Piercer y Lightning Truncheon: mucho menos jugado, con una tasa de victorias medida equivalente. Útil contra objetivos resistentes a la magia o autocurativos."
+      }
+    ]
+  },
+  "zetian": {
+    "summary": "Mago cuya habilidad máxima daña y aturde a todos los héroes contrarios, dondequiera que se encuentren en el mapa.",
+    "analysis": "Zetian combina acoso y presencia global. Su habilidad 1 lanza una ola que lanza otra con cada golpe, hasta tres, y puede moverse y lanzar otras habilidades durante este tiempo; su habilidad 2 instala un espíritu que ralentiza, reduce la defensa mágica y puede ser redirigido. Su habilidad máxima acelera a todo su equipo, hiere y aturde brevemente a cada héroe enemigo y revela su posición: pesa en una pelea incluso lanzada al otro lado del mapa. Su pasiva también la protege, a largos intervalos, haciendo retroceder y aturdiendo a los héroes que se acercan a ella.\n\nSu rendimiento medido es más regular que espectacular: tasa de victorias cercana a la media, sin diferencias marcadas dependiendo de la duración del juego, y tasa de baneos ligeramente reducida en treinta días. El robo de vida de su pasiva solo se carga cuando golpea a los héroes con sus dos primeras habilidades. Las medidas la ponen en dificultades frente a Valentina, Floryn, Mathilda, Uranus y Gloo.",
+    "skills": [
+      "Golpear a los héroes con las habilidades 1 y 2 le otorga un robo de vida que se acumula. A intervalos prolongados, una protección repele y aturde a los héroes que se acercan a ella y le otorga un escudo.",
+      "Una ola que, si golpea, desencadena otras, hasta tres; el último es más ancho y atrae ligeramente. Puede moverse y usar sus otras habilidades durante la secuencia.",
+      "Invoca un espíritu que ralentiza el área, daña continuamente y reduce la defensa mágica de los enemigos presentes. Relanzado, lo envía a la carga hacia otro punto, con una mayor desaceleración al llegar.",
+      "Acelera a todos los héroes aliados, daña y aturde brevemente a todos los héroes contrarios y los revela, sin límite de distancia. Puede lanzar sus otras habilidades mientras canaliza."
+    ],
+    "strengths": [
+      "Una definitiva global que aturde a todos los héroes contrarios.",
+      "Revela a todo el equipo enemigo al lanzar lo último.",
+      "Protección automática contra un atacante gracias a la pasiva",
+      "Puede moverse durante la habilidad 1"
+    ],
+    "weaknesses": [
+      "Protección pasiva disponible solo cada dos minutos",
+      "Un robo de vida que depende de habilidades que afectan a los héroes.",
+      "En dificultades contra Valentina, Floryn y Mathilda según las medidas"
+    ],
+    "builds": [
+      {
+        "name": "Ardor y eco",
+        "context": "La configuración más jugada: Glowing Wand para reducción de quemaduras y curación, Lightning Truncheon para eco de daño, Divine Glaive para penetración mágica."
+      },
+      {
+        "name": "Enfriamiento definitivo",
+        "context": "Fleeting Time en lugar de Divine Glaive reduce el tiempo de reutilización de la habilidad definitiva con cada eliminación o asistencia, para volver a lanzar su aturdimiento global con más frecuencia. Segunda configuración más jugada, con una tasa de victorias medida cercana a la primera."
+      }
+    ]
+  },
+  "vexana": {
+    "summary": "Mago de control que convoca a un guardián luchador, mucho más efectivo, según mediciones, en partidas cortas que en largas.",
+    "analysis": "Vexana acosa a distancia y controla en el impacto. Su habilidad 1 es un proyectil que se detiene ante el primer héroe alcanzado, lo asusta y lo empuja antes de explotar contra sus vecinos; su habilidad 2 llega a un área después de un breve retraso. Su habilidad definitiva lanza a los enemigos por los aires cuando llega un guardián, que luego lucha junto a él durante varios segundos y golpea grandes áreas. Su pasivo maldice a los objetivos golpeados, que explotan sobre sus aliados si mueren.\n\nLas mediciones lo sitúan en la media de todas las clasificaciones, pero con una clara pendiente: alto porcentaje de victorias en partidos cortos, por debajo del cincuenta por ciento más allá del minuto dieciséis. Su habilidad retrasada 2 le da tiempo al objetivo para salir del área. Está en dificultades frente a Alice, X.Borg, Marcel, Natalia y Benedetta.",
+    "skills": [
+      "Vexana y su guardián maldicen a los enemigos durante unos segundos. Un objetivo maldito que muere explota y daña a los aliados cercanos: útil cuando los oponentes luchan en grupos.",
+      "Un proyectil que hiere en su camino y se detiene en el primer impacto del héroe: éste se asusta y es rechazado, luego la explosión asusta también a los enemigos cercanos. Su principal herramienta para interrumpir una iniciación.",
+      "Marca un área que es alcanzada después de un breve retraso. Daño simple, que se aplicará a un objetivo ya controlado, por ejemplo justo después de la habilidad 1.",
+      "Invoca a un guardián que lanza a los enemigos por los aires al llegar y luego lucha junto a ellos durante varios segundos, atacando grandes áreas."
+    ],
+    "strengths": [
+      "Dos controles: miedo en la habilidad 1, proyección en la máxima",
+      "Un guardián que lucha junto a él durante varios segundos.",
+      "Daño AoE en grupos reducidos",
+      "Alta tasa de victorias medida en juegos cortos"
+    ],
+    "weaknesses": [
+      "La tasa de victorias medida disminuye en juegos largos",
+      "Una habilidad retrasada 2, fácil de anticipar",
+      "Un proyectil de habilidad 1 detenido por el primer héroe que encuentra.",
+      "En dificultad contra Alice, X.Borg y Marcel según mediciones."
+    ],
+    "builds": [
+      {
+        "name": "Ardor y eco",
+        "context": "La configuración más jugada: Glowing Wand para reducción de quemaduras y curación, Lightning Truncheon para eco de daño, Divine Glaive para penetración mágica."
+      },
+      {
+        "name": "Reducción de defensa",
+        "context": "Segunda configuración más jugada: Genius Wand primera para reducir la defensa mágica de los héroes golpeados, con el emblema del asesino. La tasa de victorias se midió ligeramente por debajo de la primera."
+      }
+    ]
+  },
+  "nana": {
+    "summary": "Mago de acoso que incapacita a un objetivo transformándolo y sobrevive una vez a un golpe fatal.",
+    "analysis": "Nana desgasta a sus oponentes desde lejos con un boomerang que golpea de un lado a otro. Su habilidad 2 envía a Molina a perseguir al héroe enemigo más cercano: el que golpea se transforma por un corto tiempo, se ralentiza y se debilita contra el daño mágico. Lo último golpea un área tres veces y aturde a los enemigos golpeados varias veces seguidas. Su pasiva le otorga, una vez cada dos minutos y medio, una transformación invulnerable en el momento de morir.\n\nSus cifras medidas son bajas: tasa de victorias por debajo del promedio en todos los rangos, incluso menor en Mythic Glory, sin ninguna mejora real en juegos largos. Mientras transforma su pasiva, no puede lanzar ninguna habilidad y Molina elige ella misma su objetivo entre los héroes cercanos. Las brechas en la contrapartida siguen siendo modestas; los más claros la colocan en dificultades contra Gloo, luego contra Akai e Hylos.",
+    "skills": [
+      "Ante un golpe mortal, se libra de los efectos negativos y se transforma: invulnerable, más rápida, recupera un poco de HP pero no puede lanzar ninguna habilidad. El efecto tiene un tiempo de reutilización prolongado.",
+      "Un boomerang que golpea a la ida y a la vuelta. Su daño disminuye por cada enemigo adicional atravesado: es mejor apuntar a un objetivo aislado.",
+      "Coloca a Molina, quien luego persigue al héroe enemigo más cercano. El primer héroe alcanzado se transforma por un corto tiempo, se ralentiza y se reduce su defensa mágica. Sin héroes a su alcance, Molina permanece en el lugar por un momento antes de desaparecer.",
+      "Molina golpea una zona tres veces seguidas, desacelerando con cada impacto. Un enemigo golpeado por impactos consecutivos queda aturdido."
+    ],
+    "strengths": [
+      "Una transformación que neutraliza a un héroe contrario.",
+      "Sobrevive una vez a un golpe fatal gracias a la pasiva",
+      "Reducción mágica de la defensa en la portería de Molina",
+      "Aturdimiento de área definitivo sobre los objetivos que permanecen allí"
+    ],
+    "weaknesses": [
+      "Tasa de victorias medida por debajo del promedio en todos los rangos",
+      "No hay habilidades utilizables durante la transformación pasiva.",
+      "Molina persigue al héroe más cercano, no al que elegimos",
+      "En dificultad contra Gloo según medidas."
+    ],
+    "builds": [
+      {
+        "name": "Ardor y penetración",
+        "context": "La configuración más jugada, con diferencia: Glowing Wand y Divine Glaive para quemar y penetración mágica, luego Wishing Lantern para dañar el HP actual del objetivo al tocarlo. Está asociado con el hechizo Flameshot en lugar de Flicker."
+      }
+    ]
+  },
+  "granger": {
+    "summary": "Magazine Shooter: su daño proviene de sus habilidades, no de su velocidad de ataque.",
+    "analysis": "Granger no está construido como un shooter clásico. Su pasiva establece su ataque en seis balas, la última de las cuales es crítica, lo que hace que la velocidad de ataque sea casi inútil para él: compras daño de ataque y penetración.\n\nEsto le da un pico de poder muy temprano, explotable en la jungla desde el primer objeto. Su fragilidad sigue siendo la de un tirador, agravada por la falta de control: mal posicionado, sólo tiene su habilidad 2 para esperar escapar.",
+    "skills": [
+      "Su arma contiene seis balas. La última bala del cargador siempre da un golpe crítico.",
+      "Dispara una ráfaga de cono que atraviesa a los enemigos e inflige mayor daño al primer objetivo alcanzado.",
+      "Se mueve rápidamente y recarga instantáneamente su arma, ganando velocidad de ataque.",
+      "Equipa un cañón de largo alcance que dispara proyectiles explosivos por el mapa."
+    ],
+    "strengths": [
+      "Pico de potencia muy temprano",
+      "Daño de largo alcance con máxima",
+      "Funciona tanto en la jungla como en el carril dorado."
+    ],
+    "weaknesses": [
+      "sin control",
+      "Muy frágil, sólo un esquivar disponible.",
+      "Finales más débiles que los tiradores con velocidad de ataque"
+    ],
+    "builds": [
+      {
+        "name": "Daño en bruto de oro",
+        "context": "La velocidad de ataque no añade nada a su pasiva: acumulamos daño de ataque y penetración."
+      }
+    ]
+  },
+  "beatrix": {
+    "summary": "Shooter con cuatro armas, cada una con su habilidad definitiva: cambia de rol según el arma que lleva.",
+    "analysis": "Beatrix son en realidad cuatro héroes. Lleva dos armas a la vez entre cuatro, y cada una redefine su alcance, su velocidad y su habilidad definitiva: un rifle de francotirador de muy largo alcance, una escopeta explosiva, un rifle de asalto de velocidad rápida y un lanzagranadas de área.\n\nEl nivel de juego consiste en elegir la pareja correcta antes del juego y luego alternarla en el combate. Esto es lo que lo hace muy fuerte en la competencia y muy exigente en el juego clasificado: un mal par, o un mal cambio en el momento equivocado, y ya no causa ningún daño.",
+    "skills": [
+      "Beatrix lleva dos de cuatro armas. Cada arma modifica sus ataques básicos y reemplaza su definitiva.",
+      "Se mueve y deja humo que lo oculta brevemente.",
+      "Intercambia el arma activa por la segunda arma que llevas, recargando la definitiva correspondiente.",
+      "Depende del arma que se lleve: tiro de precisión de largo alcance, salva explosiva, ráfaga rápida o granadas de área."
+    ],
+    "strengths": [
+      "Alcance y versatilidad incomparables",
+      "Daño muy alto desde el inicio del juego.",
+      "Se adapta a cualquier composición contraria."
+    ],
+    "weaknesses": [
+      "El más difícil de usar en su categoría.",
+      "Frágil y lento sin su humo",
+      "Un mal par de armas es irremediable"
+    ],
+    "builds": [
+      {
+        "name": "Oro de largo alcance",
+        "context": "Pareja de rifle de precisión y lanzagranadas: recorremos la distancia y alcanzamos los objetivos."
+      }
+    ]
+  },
+  "melissa": {
+    "summary": "Tirador defensivo: su habilidad definitiva crea un área por la que los enemigos cuerpo a cuerpo no pueden atravesar.",
+    "analysis": "Melissa resuelve el clásico problema del tirador (quedarse sumergido) con una respuesta directa. Su habilidad definitiva establece un círculo que derriba a los oponentes cuerpo a cuerpo y reduce en gran medida su daño en el interior, lo que le permite seguir disparando mientras un asesino se agota al intentar entrar.\n\nSigue siendo una tiradora estándar en comparación con el resto: buena acumulación de poder, daño decente y ninguna amenaza fuera de su alcance. Contra un equipo a distancia que lo ignora y atraviesa la zona, la habilidad definitiva pierde la mayor parte de su valor.",
+    "skills": [
+      "Su daño aumenta contra objetivos cercanos o distantes dependiendo de la distancia, y sus ataques se ralentizan brevemente.",
+      "Se mueve lanzando un muñeco que causa daño de área.",
+      "Invoca un muñeco que persigue a los enemigos y los ralentiza.",
+      "Crea una zona que los enemigos cuerpo a cuerpo no pueden cruzar y en la que su daño se reduce considerablemente."
+    ],
+    "strengths": [
+      "Respuesta directa a asesinos y inmersiones.",
+      "Manejo sencillo para una impresora moderna",
+      "Desaceleraciones constantes que hacen que navegar con kitesurf sea más seguro"
+    ],
+    "weaknesses": [
+      "Ultimate no protege contra daño a distancia",
+      "Menos alcance que los tiradores de artillería.",
+      "No es muy útil para participar o crear una apertura."
+    ],
+    "builds": [
+      {
+        "name": "Estándar oro",
+        "context": "Velocidad de ataque y crítico: Melissa dispara continuamente hasta ser golpeada."
+      }
+    ]
+  },
+  "miya": {
+    "summary": "Shooter de ataque básico puro: gana impulso mientras golpea, y su habilidad máxima la hace desaparecer en el momento en que la apuntas.",
+    "analysis": "Miya basa todo en el ataque básico. Su pasiva acumula velocidad de ataque con cada disparo que impacta, la habilidad 1 agrega flechas adicionales que también dañan a los objetivos cercanos y la habilidad 2 inmoviliza un área antes de ralentizar lo que hay a su alrededor. Su habilidad definitiva elimina los efectos negativos, la hace invisible y la saca de este estado con su pasiva ya cargada al máximo: se utiliza tanto para escapar como para volver al intercambio a toda velocidad. Su tasa de victorias medida aumenta ligeramente con la duración del juego.\n\nNo tiene movimiento instantáneo. Una vez que se usa lo último, solo le queda la habilidad 2 para ralentizar a un atacante, y su ritmo cae tan pronto como deja de golpear a un objetivo. Las contramedidas la ponen en dificultades contra Beatrix, Granger, Gatotkaca, Karina y Belerick, con una brecha que se encuentra desde el rango Mítico hasta el rango Gloria Mítica.",
+    "skills": [
+      "Cada ataque básico que impacta agrega un nivel de velocidad de ataque, hasta cinco. Con la carga completa, cada disparo provoca la aparición de una sombra que lo golpea: el objetivo es no dejar que los niveles vuelvan a caer.",
+      "Durante unos segundos, cada ataque básico viene con dos flechas más y parte del daño golpea a los enemigos cercanos al objetivo. Para ser lanzado al inicio de un intercambio o en una ola de minions.",
+      "Una flecha cae sobre una zona e inmoviliza a los enemigos presentes, luego estalla en proyectiles que disminuyen la velocidad. Este es su único control: es mejor mantenerlo para detener a un atacante que para añadir daño.",
+      "Elimina efectos negativos, la hace invisible y acelera su movimiento hasta su próximo ataque. Sale con su pasiva a plena carga: la definitiva sirve tanto para salir de una iniciación como para reanudar un combate inmediatamente."
+    ],
+    "strengths": [
+      "Daño sostenido que aumenta mientras golpee continuamente",
+      "Una habilidad definitiva que elimina los efectos negativos y la hace invisible.",
+      "Daño a objetivos vecinos con habilidad 1",
+      "Tasa de victorias medida que se mantiene en juegos largos"
+    ],
+    "weaknesses": [
+      "No hay movimiento instantáneo para salir de una iniciación.",
+      "No más escape una vez que se usa lo último",
+      "Su cadencia disminuye tan pronto como deja de dar en el blanco.",
+      "En dificultad contra Beatrix y Granger según mediciones."
+    ],
+    "builds": [
+      {
+        "name": "Crítico",
+        "context": "La configuración más jugada en Gold Lane, todos los rangos combinados, como en Mythic Glory: la probabilidad crítica alimenta Berserker's Fury y activa la velocidad de ataque de Haas' Claws, que también proporciona robo de vida."
+      },
+      {
+        "name": "Daño por impacto",
+        "context": "Menos jugado que la versión crítica, con una tasa de victoria medida ligeramente mayor: Corrosion Scythe y Demon Hunter Sword añaden daño a cada ataque básico, lo cual es adecuado contra objetivos con muchos HP."
+      }
+    ]
+  },
+  "hanabi": {
+    "summary": "Lanzador de daño de rebote, cuyos controles no golpean mientras lleva un escudo.",
+    "analysis": "Hanabi inflige su daño en rebote: cada ataque básico o habilidad que golpea envía espadas a los enemigos vecinos, lo que la hace efectiva en peleas grupales y en oleadas. Su habilidad 1 le otorga un escudo, y mientras un escudo la proteja, los efectos de control no tienen ningún efecto sobre ella; parte del daño que inflige también recarga este escudo. Su habilidad definitiva inmoviliza al primer héroe golpeado antes de explotar a su alrededor.\n\nSin embargo, no tiene ningún movimiento instantáneo: si el escudo cae, vuelve a ser un objetivo fácil de alcanzar. Su tasa de victorias medida es más alta en juegos cortos y disminuye significativamente a medida que se hacen más largos, cayendo por debajo del cincuenta por ciento después del minuto dieciocho. En el rango Mythic Glory, las medidas la colocan en dificultad contra Lolita, Joy, Beatrix, Wanwan e Ixia.",
+    "skills": [
+      "Cada ataque básico o habilidad que golpea envía espadas a múltiples enemigos cercanos, y el daño disminuye con cada rebote. Los rebotes de los ataques básicos recuperan algunos de sus efectos de ataque.",
+      "Mientras usa un escudo, independientemente de su origen, Hanabi ignora los controles. Al activarlo, se protege, gana velocidad de movimiento y ataque, y parte del daño infligido fortalece este escudo hasta cierto límite.",
+      "Lanza un kunai que ralentiza enormemente a los enemigos cruzados y los marca: sus siguientes rebotes sobre estos objetivos no pierden potencia. Útil para prepararse para una pelea grupal.",
+      "Proyecta una flor que inmoviliza al primer héroe golpeado, luego florece después de un breve retraso y daña a los enemigos cercanos. Su único control: lanzar al objetivo que el equipo pueda seguir."
+    ],
+    "strengths": [
+      "El daño se reparte entre múltiples objetivos gracias a los rebotes.",
+      "Inmune a los controles siempre que un escudo la proteja.",
+      "Un escudo que se recarga con el daño que inflige",
+      "Un control definitivo para abrir una pelea."
+    ],
+    "weaknesses": [
+      "No hay movimiento instantáneo para reubicarse.",
+      "Vulnerable en cuanto se rompe su escudo.",
+      "La tasa de victorias se mide como una clara caída en los juegos largos",
+      "En dificultad contra Lolita y Beatrix según las medidas."
+    ],
+    "builds": [
+      {
+        "name": "Ataques reforzados",
+        "context": "Con diferencia, las builds más jugadas en Gold Lane: Corrosion Scythe, Demon Hunter Sword y Golden Staff fortalecen cada ataque básico, cuyos rebotes recuperan parte de los efectos. Se asocia con mayor frecuencia con el emblema del luchador y el hechizo Aegis, cuyo escudo también lo hace inmune a los controles."
+      }
+    ]
+  },
+  "lesley": {
+    "summary": "Lanzador de críticos a distancia, cuya tasa de victorias medida va de muy baja a alta dependiendo de la duración del juego.",
+    "analysis": "Lesley juega con alcance y golpe crítico. Si no ha recibido daño en unos segundos, su pasiva alarga su siguiente ataque básico y le da una alta probabilidad crítica, y cualquier penetración física que compre se convierte en daño crítico. La habilidad 1 la camufla y fortalece su ataque, la habilidad 2 empuja a los enemigos frente a ella mientras la hace retirarse, y la habilidad definitiva fija a un héroe contrario para dispararle cuatro balas seguidas.\n\nEl precio de este perfil se puede ver en las mediciones: su porcentaje de victorias en todos los rangos está por debajo de la media, con un punto muy bajo en partidos de menos de catorce minutos, y sólo supera el cincuenta por ciento a partir del minuto dieciocho. Su pasiva se corta tan pronto como la golpean, y las balas del máximo pueden ser interceptadas por otro héroe enemigo colocado frente al objetivo. Las mediciones la colocan en dificultades ante Sun, Gloo, Estes, Tigreal y Mathilda.",
+    "skills": [
+      "Después de unos segundos sin recibir daño, su siguiente ataque básico tiene un alcance mayor y tiene una alta probabilidad crítica. La penetración física comprada se convierte en daño crítico y este disparo devuelve el doble de energía que un ataque normal.",
+      "Lo camufla durante unos segundos, con más velocidad, más ataque físico y doble regeneración de energía. El estado termina tan pronto como ella causa o recibe daño, y los enemigos atentos pueden detectar su ubicación.",
+      "Lanza una granada cónica que derriba a los enemigos mientras da un pequeño salto hacia atrás. Durante lo último, cancela la canalización para disparar inmediatamente la bala restante.",
+      "Se fija en un héroe contrario y le dispara cuatro balas seguidas, que restauran la energía. Otro héroe enemigo puede bloquearlos y una interrupción reembolsa parte de la recarga. También da un poco de oportunidad crítica en todo momento."
+    ],
+    "strengths": [
+      "Golpes críticos y de alto alcance sin tener que exponerte",
+      "La tasa de victorias medida aumentó considerablemente en los juegos largos",
+      "Una habilidad definitiva que remata a un objetivo a distancia.",
+      "Una habilidad 2 que repele a un atacante mientras lo hace retroceder."
+    ],
+    "weaknesses": [
+      "Muy débil en juegos cortos según mediciones.",
+      "Su pasiva se apaga tan pronto como recibe daño.",
+      "Las balas definitivas pueden ser bloqueadas por otro héroe.",
+      "En dificultad contra Sun, Gloo y Estes."
+    ],
+    "builds": [
+      {
+        "name": "Crítica y penetración",
+        "context": "La configuración más jugada, con diferencia: Malefic Gun proporciona penetración que su pasiva convierte en daño crítico, y Sea Halberd reduce la curación y los escudos de los objetivos golpeados."
+      },
+      {
+        "name": "Sin reducción de cuidados",
+        "context": "La misma base con Blade of Despair en lugar de Sea Halberd: mucho menos jugado, con un índice de victorias mejor medido. Reserva para juegos donde el equipo contrario no depende de la curación ni de los escudos."
+      }
+    ]
+  },
+  "estes": {
+    "summary": "La curación más cruda del juego: su habilidad máxima regenera a todo el equipo durante varios segundos.",
+    "analysis": "Estes no hace más que sanar, pero lo hace a un volumen que ningún otro soporte alcanza. En una pelea prolongada en torno a un objetivo, su habilidad definitiva puede anular el daño sostenido de toda una composición.\n\nEsto también lo convierte en el héroe de la lista que más depende del contexto. Contra un equipo que compra reducción de curación, o que tiene una iniciación capaz de eliminarla primero, se vuelve casi inútil. No proporciona control, daño ni movilidad: si no cura, no existe.",
+    "skills": [
+      "Su curación aplica una marca que aumenta la regeneración de los aliados afectados.",
+      "Cura a un aliado objetivo y aumenta su velocidad de movimiento.",
+      "Vincula a un objetivo enemigo, lo ralentiza y luego lo inmoviliza si el vínculo se mantiene el tiempo suficiente.",
+      "Crea un área que cura continuamente a todos los aliados presentes durante varios segundos."
+    ],
+    "strengths": [
+      "Volumen de atención inigualable a lo largo del tiempo",
+      "Hace que las batallas objetivas sean muy difíciles de perder.",
+      "Sencillo de jugar correctamente"
+    ],
+    "weaknesses": [
+      "Cancelado por reducción de curación.",
+      "Sin control confiable ni daños",
+      "Objetivo prioritario, y sin ninguna filtración"
+    ],
+    "builds": [
+      {
+        "name": "cuidado deambular",
+        "context": "Recarga y maná primero: la cantidad de definitivas lanzadas cuenta más que su unidad de poder."
+      }
+    ]
+  },
+  "angela": {
+    "summary": "Apoyo que se adhiere a un aliado en todo el mapa para fortalecerlo y protegerlo desde la distancia.",
+    "analysis": "Ángela desempeña un segundo papel paralelo al suyo. Su habilidad definitiva le permite unirse a cualquier aliado en cualquier lugar, dándole un escudo y un aumento de estadísticas mientras está adjunta; literalmente se convierte en una extensión del jugador elegido.\n\nBien usado, permite a su portador sumergirse con una seguridad que nunca tendría solo, y aparece en el otro lado del mapa para dar la vuelta a una escaramuza. Usado incorrectamente, pasa el juego asignado al jugador equivocado y no influye en nada.",
+    "skills": [
+      "Sus habilidades aplican cargas que aumentan el daño recibido por el objetivo o la curación recibida por el aliado.",
+      "Proyecta una ola que causa daño y ralentiza a los enemigos golpeados.",
+      "Vincula un objetivo: un enemigo queda inmovilizado después de un retraso, un aliado recibe curación continua.",
+      "Se vincula a un aliado en cualquier parte del mapa, otorgándole un escudo y mayores estadísticas."
+    ],
+    "strengths": [
+      "Presencia global: opera en todas partes del mapa",
+      "Escudo que realmente salva a quien lo usa sumergido",
+      "Excelente como dúo coordinado."
+    ],
+    "weaknesses": [
+      "Extremadamente frágil fuera de su máximo.",
+      "Su valor depende del nivel del aliado elegido.",
+      "Fácil de matar mientras está atado si el usuario se cae."
+    ],
+    "builds": [
+      {
+        "name": "Protección de roaming",
+        "context": "Primero recarga, luego resistencia: Ángela debe poder volver a lanzar su habilidad definitiva con frecuencia."
+      }
+    ]
+  },
+  "mathilda": {
+    "summary": "Apoyo a la movilidad: lleva consigo un aliado para atacar o extraer.",
+    "analysis": "Mathilda es el apoyo más versátil del juego actual. Su habilidad 2 implica un aliado en su movimiento, lo que permite poner en contacto a un luchador así como sacar a un tirador de una mala posición. Su habilidad definitiva bloquea un objetivo y sirve como iniciación dirigida.\n\nTambién tiene un daño real, lo que la hace jugable como asesina secundaria cuando el juego sale mal. Su dificultad radica en la lectura: cada jugada involucra a dos jugadores a la vez, y un error cuesta dos muertes en lugar de una.",
+    "skills": [
+      "Sus habilidades generan un escudo y aumentan brevemente su velocidad de movimiento.",
+      "Envía espíritus que causan daño y marcan a los enemigos golpeados.",
+      "Vuela en una dirección, llevándote consigo al aliado más cercano.",
+      "Corre hacia un objetivo marcado, inmovilizándolo e infligiendo daño en el área."
+    ],
+    "strengths": [
+      "Reposiciona a un aliado, en ataque o defensa.",
+      "Daño real por soporte.",
+      "Rotaciones de cartas muy rápidas."
+    ],
+    "weaknesses": [
+      "Un error de movimiento involucra a dos jugadores.",
+      "No me importa",
+      "Frágil si lo último se usa vacío"
+    ],
+    "builds": [
+      {
+        "name": "Movilidad itinerante",
+        "context": "Un poco de daño para seguir siendo una amenaza, el resto en recarga y resistencia."
+      }
+    ]
+  },
+  "rafaela": {
+    "summary": "Soporte de curación y resurrección, que recupera a un aliado caído sin esperar a que finalice su temporizador de reaparición.",
+    "analysis": "Rafaela combina cuidado, rapidez y control. Su habilidad 2 cura a los aliados cercanos, especialmente a los más heridos, y les da velocidad con una breve inmunidad a las ralentizaciones; su habilidad 1 golpea automáticamente a los tres enemigos más cercanos, revelándolos y ralentizándolos; sus aturdimientos definitivos en una línea. Su pasiva, sobre todo, te permite resucitar a un aliado caído, que reaparece en la base: por tanto, una eliminación del enemigo le cuesta menos a tu equipo.\n\nEl parche 2.1.88 redujo significativamente la recarga base de resurrección, al tiempo que aumentó la parte que depende del tiempo de reaparición del aliado, fortaleció la habilidad 1 y redujo el costo de maná de sus otras habilidades. Su tasa de victorias medida ahora está muy por encima del promedio y su tasa de prohibiciones ha aumentado en los últimos treinta días. Su límite es la iniciación: un único mando, apuntar en línea recta. Las medidas la ponen en dificultades frente a Ixia, Odette, Estes, Layla y Silvanna.",
+    "skills": [
+      "A intervalos regulares, una habilidad especial resucita a un aliado caído después de una breve canalización; reaparece en la base con una ganancia de velocidad. La recarga depende del tiempo de reaparición del aliado y no se beneficia de la reducción de recarga.",
+      "Golpea automáticamente a los tres enemigos más cercanos, revelándolos brevemente y ralentizándolos. Los objetivos atacados nuevamente poco después reciben más daño y se acumulan.",
+      "Cura a los aliados cercanos, con curación adicional para ella y el aliado más herido, y les otorga velocidad e inmunidad breve a las ralentizaciones. El poder mágico aumenta esta bonificación de velocidad.",
+      "Un rayo en línea recta que daña y aturde a los enemigos golpeados. Su único control: lanzar sobre una iniciación contraria o sobre un objetivo ya ralentizado por la habilidad 1."
+    ],
+    "strengths": [
+      "Revive a un aliado caído sin esperar a que termine su límite de tiempo.",
+      "Curación grupal con velocidad e inmunidad lenta.",
+      "Una habilidad de orientación automática 1 que revela enemigos.",
+      "Tasa de ganancias medida muy por encima del promedio"
+    ],
+    "weaknesses": [
+      "Un único mando, para apuntar en línea recta",
+      "La tasa de victorias es menor en juegos largos, aunque sigue siendo alta",
+      "En dificultad contra Ixia, Odette y Estes según mediciones."
+    ],
+    "builds": [
+      {
+        "name": "Deambular por el tratamiento",
+        "context": "La configuración más jugada: Flask of the Oasis protege a los aliados curados con pocos HP y reduce sus recargas, Enchanted Talisman proporciona recarga y maná, Queen's Wings supervivencia. Los jugadores dudan entre Impure Rage y Focusing Mark, con tasas de victoria medidas muy cercanas."
+      }
+    ]
+  },
+  "floryn": {
+    "summary": "Soporte de curación global: su habilidad máxima cura a todo el equipo, independientemente de dónde se encuentren en el mapa.",
+    "analysis": "Floryn sana a distancia y sin necesidad de apuntar a sus aliados. Su habilidad 1 apunta a un enemigo y las frutas curativas luego rebotan hacia los aliados cercanos; su habilidad 2 aturde brevemente y revela a los enemigos golpeados; Su habilidad máxima cura a todo el equipo dos veces, independientemente de la distancia, y aumenta instantáneamente los escudos y la regeneración. Su linterna mejora sus estadísticas y puede compartirse con un aliado, quien luego recibe una bonificación por cada uno de sus tratamientos.\n\nSu rendimiento medido depende en gran medida de la duración del partido: alto porcentaje de victorias en partidos cortos, menos del cincuenta por ciento después del minuto dieciocho. El parche 2.1.88 redujo el coste de maná de sus dos primeras habilidades. Sus mejores duetos medidos son con Carmilla y Atlas, y las mediciones la colocan claramente en dificultades contra Lolita, luego contra Yin, Ixia, Baxia y Silvanna.",
+    "skills": [
+      "Su linterna mejora gradualmente sus estadísticas y nunca se vende. Fuera del combate, puede confiar la flor a un aliado, quien obtiene una bonificación cada vez que lo cura.",
+      "Lanzar una semilla a un enemigo; De él brotan frutos curativos que rebotan hacia los aliados cercanos. Ella acosa y cura con igual habilidad.",
+      "Una bola de energía que explota al golpear al primer enemigo, aturdiendo brevemente a los enemigos cercanos y revelando su posición por un momento.",
+      "Cura dos veces a todos los héroes aliados, dondequiera que estén en el mapa, y aumenta brevemente sus escudos y su regeneración. Suficiente para salvar a un aliado aislado o cambiar una pelea lejana."
+    ],
+    "strengths": [
+      "Un ultimate que cura a todo el equipo sin límite de distancia.",
+      "Un tratamiento sin tener que apuntar a un aliado, mediante la habilidad 1",
+      "Aturdimiento y revelación de habilidad 2",
+      "Un bono de curación compartido con un aliado gracias a la linterna."
+    ],
+    "weaknesses": [
+      "La tasa de victorias se mide en fuerte caída en los juegos largos",
+      "Un control muy breve",
+      "Claramente en dificultades contra Lolita según las medidas."
+    ],
+    "builds": [
+      {
+        "name": "Deambular por el tratamiento",
+        "context": "La construcción de referencia, en gran parte mayoritaria: la linterna, Flask of the Oasis para el escudo en aliados curados con PV bajo, Fleeting Time para acortar la recarga de lo último con cada eliminación o asistencia."
+      }
+    ]
+  },
+  "carmilla": {
+    "summary": "Tanque de apoyo que une a los enemigos: el control o el daño de uno se extiende a los demás.",
+    "analysis": "Carmilla vive en contacto. Su pasiva la hace robar parte de las defensas de los héroes que toca, sus flores giran en torno a ella hiriendo, ralentizándose cada vez más y curándola, y su habilidad 2 acumula velocidad antes de relanzarse sobre un objetivo para aturdirlo, sobre todo cuanto más dura la carga. Su habilidad definitiva maldice una zona: los enemigos que permanecen allí son inmovilizados y luego vinculados, y mientras permanezcan cerca, el control sufrido por uno se aplica a los demás, con parte del daño.\n\nEsta mecánica hace que su valor dependa mucho de sus aliados: sus dúos mejor medidos muestran brechas entre los más fuertes registrados, con Diggie, Floryn, Mathilda y Chip. Si los enemigos se alejan unos de otros, el vínculo se rompe. Ella se encuentra entre los héroes reforzados del parche 2.1.88, sin detalles publicados en la wiki. Las mediciones la colocan en dificultades ante X.Borg, Valentina, Natalia y Lesley.",
+    "skills": [
+      "Cada vez que daña a un héroe contrario, roba parte de sus defensas físicas y mágicas durante unos segundos, acumulándose, con un retraso antes de poder volver a robar al mismo héroe.",
+      "Dos flores giran a su alrededor, dañando a los enemigos, ralentizándolos cada vez más y acelerándolos con cada golpe. Cada golpe de flor la cura, y mucho menos a los minions.",
+      "Acumula energía al ganar velocidad y luego se lanza hacia un héroe o monstruo para dañarlo y aturdirlo. Cuanto más dure la carga, más fuerte será el daño y el aturdimiento.",
+      "Maldice un área que ralentiza, luego inmoviliza y ata a los enemigos que quedan dentro. Un control sufrido por un enemigo vinculado se aplica a otros, que también reciben parte del daño; el vínculo se rompe si se alejan el uno del otro."
+    ],
+    "strengths": [
+      "Controles y daño compartido entre enemigos vinculados.",
+      "Roba las defensas de los héroes que golpea.",
+      "Cuidados continuos mientras florecen sus flores.",
+      "Un aturdimiento cuya duración aumenta con la carga."
+    ],
+    "weaknesses": [
+      "Un vínculo roto tan pronto como los enemigos se hacen a un lado",
+      "Un valor muy dependiente de los aliados que explotan el vínculo",
+      "En dificultad contra X.Borg, Valentina y Natalia según mediciones"
+    ],
+    "builds": [
+      {
+        "name": "Deambular por contacto",
+        "context": "La configuración más jugada, con diferencia: Cursed Helmet quema a los enemigos a su alrededor y así mantiene la huida de las defensas de su pasiva, Dominance Ice reduce su curación, Antique Cuirass debilita el daño físico de quienes la tocan con habilidades."
+      }
+    ]
+  },
+  "tigreal": {
+    "summary": "Tanque iniciador histórico, capaz de reunir a todo un equipo en una única definitiva.",
+    "analysis": "Tigreal hace una cosa, y la hace mejor que casi nadie: enfrentarse a varios oponentes a la vez. El combo clásico es apresurarse con la habilidad 2 y luego encadenar inmediatamente la habilidad definitiva antes de que los objetivos se dispersen; cancelar la animación con un hechizo Flicker sigue siendo la técnica más rentable para aprender con él.\n\nSu límite es claro: aparte de su fin último, no aporta casi nada. Un Tigreal que se perdió su iniciación deja a su equipo con cuatro por unos diez segundos. Es un héroe del tiempo, no de la presencia continua.",
+    "skills": [
+      "Los ataques básicos de Tigreal cargan su armadura. Mientras está completamente cargado, su siguiente ataque causa daño adicional y lo protege brevemente.",
+      "Rompe el suelo frente a él, causando daño y ralentizando a los enemigos golpeados.",
+      "Corre hacia adelante, empuja a los enemigos que encuentra y luego los lanza al aire al final de la carrera.",
+      "Atrae a todos los enemigos cercanos hacia él y luego los aturde. La referencia en iniciación grupal."
+    ],
+    "strengths": [
+      "La mejor agrupación del juego en múltiples objetivos.",
+      "Muy duradero incluso con un presupuesto modesto de objetos.",
+      "Legible: fácil de aprender en un juego de baja clasificación."
+    ],
+    "weaknesses": [
+      "Inútil cuando su habilidad definitiva está en tiempo de reutilización.",
+      "La iniciación se telegrafia sin Flicker",
+      "Sin movilidad para desconectarse si falla"
+    ],
+    "builds": [
+      {
+        "name": "Iniciador de itinerancia",
+        "context": "La compilación predeterminada. Sacrificamos todo el daño para alcanzar el contacto y sobrevivir al comienzo del combate."
+      },
+      {
+        "name": "Frente resistente a la magia",
+        "context": "Contra una composición contraria con dos o más magos, o cuando el daño mágico contrario excede el físico."
+      }
+    ]
+  },
+  "franco": {
+    "summary": "Tanque de iniciación cuya parte entera cabe en un gancho de agarre: elimina a un jugador del mapa.",
+    "analysis": "Franco no juega el mismo juego que los demás tanques. No busca absorber daño, busca eliminar a un oponente del combate antes de que comience. Una lucha exitosa contra el tirador contrario, seguida de la definitiva, es un jugador muerto y un objetivo libre.\n\nPor lo tanto, todo su valor reside en la precisión de una habilidad de proyectil lento, que la visión determina por completo. Franco juega entre los arbustos, no en el camino. Un Franco que falla tres ganchos seguidos es un peso muerto; un Franco que las toca gana la partida solo.",
+    "skills": [
+      "Cada golpe recibido aumenta su velocidad de movimiento durante un breve tiempo, de forma acumulativa.",
+      "Lanza un gancho que atrae al primer enemigo golpeado y lo inmoviliza brevemente.",
+      "Golpea a su alrededor, infligiendo daño y ralentizando enormemente a los enemigos cercanos.",
+      "Inmoviliza a un objetivo y lo golpea repetidamente. El control dura lo suficiente para que el equipo concluya."
+    ],
+    "strengths": [
+      "Elimina un objetivo clave del combate, independientemente de la resistencia.",
+      "Excelente control de puntería alrededor del señor y la tortuga.",
+      "Recompensa enormemente la lectura de tarjetas"
+    ],
+    "weaknesses": [
+      "Un gancho de agarre fallido lo deja sin nada durante ocho segundos.",
+      "Muy dependiente de la visión y los arbustos.",
+      "El último es un objetivo único: sin relevo, muere después"
+    ],
+    "builds": [
+      {
+        "name": "Controlar la itinerancia",
+        "context": "Franco no necesita daño: necesita estar dentro del alcance y sobrevivir al agarre."
+      }
+    ]
+  },
+  "khufra": {
+    "summary": "El tanque que castiga la movilidad: su habilidad 1 anula las carreras y saltos enemigos.",
+    "analysis": "Khufra existe para atender a una categoría específica de héroes: aquellos que están en constante movimiento. Su habilidad 1 coloca un campo que interrumpe cualquier carrera por la que pasa, lo que neutraliza a Fanny, Ling, Wanwan o Benedetta de una manera que ningún otro tanque permite.\n\nAparte de esta función de respuesta, sigue siendo un excelente iniciador: la bola definitiva impulsa a los oponentes y les permite ser empujados contra una torre o una pared. Su punto débil es su recarga: aparte de las habilidades, Khufra es lento y fácil de sortear.",
+    "skills": [
+      "Después de usar una habilidad, su siguiente ataque básico causa daño adicional y lo cura.",
+      "Crea un área que lanza al aire a los enemigos que intentan atravesarla. La principal herramienta antimovilidad del juego.",
+      "Se transforma en una bola y rueda en una dirección, empujando y ralentizando a los enemigos que golpea.",
+      "Golpea el suelo: los enemigos atrapados en la zona son lanzados y inmovilizados por un momento."
+    ],
+    "strengths": [
+      "Respuesta directa a cualquier marcación móvil.",
+      "Secuencia muy larga de controles una vez iniciados.",
+      "Puede aislar un objetivo contra una pared."
+    ],
+    "weaknesses": [
+      "Sin sus habilidades no tiene velocidad.",
+      "Tiempos de reutilización largos al comienzo del juego.",
+      "Poco útil contra un equipo sin movimiento."
+    ],
+    "builds": [
+      {
+        "name": "Itinerancia antimovilidad",
+        "context": "La construcción estándar, que se tomará tan pronto como el equipo contrario alinee un asesino móvil."
+      }
+    ]
+  },
+  "belerick": {
+    "summary": "Tanque de burla que responde a cada serie de golpes recibidos: cuanto más le golpeas, más duele.",
+    "analysis": "Belerick está hecho para recibir golpes. Su pasiva dispara al enemigo más cercano a medida que recibe daño y aumenta el HP que obtiene de sus elementos y emblemas. Sus dos controles son provocaciones: la habilidad 1 ralentiza en una línea y luego provoca, tras un breve retraso, a los enemigos que quedan en la línea, y la definitiva provoca todo lo que la rodea. Su habilidad 2 lo acelera, ralentiza enormemente a su objetivo y lo cura, y cada activación de la pasiva acorta su recarga.\n\nSu daño depende del daño que recibe: un equipo que lo ignora le quita la mayor parte de su respuesta, y la provocación de la habilidad 1 le da tiempo para abandonar la línea. Su tasa de victorias medida es más alta en juegos cortos y disminuye lentamente a partir de entonces. Las mediciones lo colocan en dificultades ante Lesley, Beatrix, Brody, Natalia y Marcel.",
+    "skills": [
+      "El daño que recibe tiene la posibilidad de desatar un disparo mágico contra el enemigo más cercano, basado en parte en su HP máximo. El PV proporcionado por sus objetos y emblemas aumenta: cada objeto PV también fortalece su respuesta.",
+      "Las lianas salen en fila, se enrollan y disminuyen la velocidad, luego las semillas dejadas en el camino provocan a los enemigos que aún están sobre ellas un momento después. La desaceleración sirve para mantenerlos allí.",
+      "Lo acelera y fortalece su siguiente ataque básico, lo que ralentiza enormemente al objetivo y lo cura parte de los HP que le faltan. Cada disparo del pasivo reduce su recarga.",
+      "Enredaderas surgen a su alrededor, golpeando varias veces y provocando a todos los enemigos en el área. Lanzar en medio del equipo contrario, para que gire hacia él."
+    ],
+    "strengths": [
+      "Dos provocaciones, incluida una desde la zona final",
+      "Una respuesta automática cuando recibe daño.",
+      "Curación y aceleración en la habilidad 2.",
+      "HP adicional obtenido de cada elemento"
+    ],
+    "weaknesses": [
+      "Poco daño si el oponente no lo golpea.",
+      "Una burla de habilidad 1 retrasada, que se evita saliendo de la línea.",
+      "Luchando contra Lesley, Beatrix y Brody según medidas"
+    ],
+    "builds": [
+      {
+        "name": "Deambular PV",
+        "context": "La configuración más jugada: Dominance Ice reduce la curación de los enemigos a su alrededor, Chastise Pauldron ralentiza el ataque de quienes lo golpean, Guardian Helmet acumula el HP que fortalece su pasiva."
+      },
+      {
+        "name": "Resistencias mixtas",
+        "context": "Segunda configuración más jugada, asociada con Vengeance: Antique Cuirass contra daño físico de habilidades, Athena's Shield contra daño mágico, cuando el equipo contrario mezcla los dos."
+      }
+    ]
+  },
+  "atlas": {
+    "summary": "Tanque iniciador que atrae a varios héroes a la vez y los coloca donde él decide.",
+    "analysis": "Atlas se involucra en dos etapas. Su habilidad definitiva lanza cadenas que ralentizan a los héroes golpeados mientras canaliza, luego, revivido, los atrae hacia él y los aplasta en el lugar elegido; sólo una eliminación puede interrumpirlo. Su habilidad 2 le hace salir de su armadura para moverse más rápido, inmune a las ralentizaciones, antes de que la máquina se le una y lo aturda. Cada habilidad lanzada crea una zona de frío a su alrededor que ralentiza y luego congela a los enemigos que permanecen allí.\n\nSus números varían según el rango: su tasa de victoria medida es mayor en Mythic y Mythic Honor que en Mythic Glory, donde, sin embargo, está más prohibido. Está entre los héroes reforzados del parche 2.1.88, sin detalles publicados en la wiki. Sus mejores duetos medidos son con apoyos – Mathilda, Floryn, Estes, Rafaela – y las mediciones lo colocan claramente en dificultades contra Marcel, luego contra Wanwan, Alice, Valentina y Lancelot.",
+    "skills": [
+      "Cada habilidad lanzada lo envuelve durante unos segundos con un aliento helado: los enemigos que permanecen allí se ralentizan cada vez más y luego se congelan por un breve momento. Gana defensas mientras la respiración está activa.",
+      "Golpea el suelo y provoca tres explosiones a su alrededor. Fuera de su armadura, el piloto y la máquina la lanzan.",
+      "Deja la máquina, más rápido e insensible a las ralentizaciones, mientras ella lo sigue cada vez más rápido. Cuando se unen, los enemigos cercanos resultan dañados y aturdidos. El piloto y la máquina comparten una barra de HP y sufren menos daño durante esta fase.",
+      "Lanza cadenas que ralentizan a los héroes golpeados mientras canalizan, lo que solo interrumpe una eliminación. Relanzado, los atrae hacia él y los aplasta en el lugar elegido. Fuera de su armadura, la máquina regresa inmediatamente pero el aturdimiento se convierte en una desaceleración."
+    ],
+    "strengths": [
+      "Mueve a varios héroes a la vez con lo último",
+      "Un proceso interrumpido sólo por una eliminación",
+      "Insensible a las ralentizaciones al salir de la máquina",
+      "Una zona fría que se desacelera y luego se congela"
+    ],
+    "weaknesses": [
+      "Claramente en dificultades contra Marcel según las mediciones",
+      "La tasa de victorias es menor en Mythic Glory",
+      "Un aturdimiento perdido si lo último se sale de su armadura.",
+      "En dificultades contra Wanwan, Alice y Valentina."
+    ],
+    "builds": [
+      {
+        "name": "Iniciación resistente",
+        "context": "La configuración más jugada: Dominance Ice para resistencias y reducción de curación a su alrededor, Radiant Armor contra magia, Chastise Pauldron contra ataques básicos."
+      },
+      {
+        "name": "Contra la magia",
+        "context": "Athena's Shield en lugar de Radiant Armor, con el emblema de apoyo: menos jugado, con una tasa de victorias mejor medida. Se utiliza mejor contra un equipo contrario con un gran daño mágico."
+      }
+    ]
+  },
+  "barats": {
+    "summary": "Jungler tanque cuya montura crece con cada habilidad que golpea y que se traga a un oponente solo para escupirlo contra una pared.",
+    "analysis": "Barats juega con la acumulación. Cada habilidad que golpea hace que Detona, su montura, crezca y le otorga defensas adicionales; con carga máxima, sus ataques básicos se convierten en pisoteos de área que mantienen el efecto. La habilidad 2 se ralentiza y atrae a los enemigos hacia él, y la habilidad definitiva lanza Detona al primer enemigo golpeado: el objetivo es tragado, neutralizado, luego escupido y explota con un aturdimiento si golpea a un héroe o una pared. Barats no responde a los controles durante la maniobra.\n\nSu rendimiento mesurado se concentra al inicio del partido: alto porcentaje de victorias en los partidos cortos, luego por debajo del cincuenta por ciento después del minuto dieciséis. Su popularidad está creciendo y las tasas de selección y prohibición han aumentado en los últimos treinta días. Las mediciones lo sitúan muy claramente en dificultades frente a X.Borg, luego frente a Gord, Alice, Yve y Urano.",
+    "skills": [
+      "Cada habilidad que impacta añade una carga durante unos segundos: Detona crece y gana defensas y resistencia a los controles. Con la carga máxima, sus ataques básicos se convierten en pisotones de área de efecto que extienden las cargas.",
+      "Detona escupe aceite en un ventilador, que Barats enciende inmediatamente. El área crece con el número de cargas: esta es su capacidad para limpiar y mantener las cargas.",
+      "Dos misiles caen sobre un área y disminuyen la velocidad, luego su explosión empuja a los enemigos hacia Barats. Se utiliza para acercar un objetivo al alcance del máximo.",
+      "Después de un breve retraso, Detona carga y se traga al primer enemigo golpeado, incapacitándolo y luego escupiéndolo. Si el objetivo golpea a un héroe o una pared, explota y aturde a los enemigos cercanos. Barats ignora los controles durante la duración y cancela los reembolsos como parte del tiempo de reutilización."
+    ],
+    "strengths": [
+      "Defensas que aumentan con cada habilidad que golpea",
+      "Una habilidad definitiva que neutraliza a un objetivo y lo aturde contra una pared.",
+      "No se ve afectado por los controles durante la final.",
+      "Una habilidad 2 que atrae enemigos hacia él."
+    ],
+    "weaknesses": [
+      "La tasa de victorias se mide como una clara caída en los juegos largos",
+      "Debe tocar sus habilidades para mantener sus cargos.",
+      "Muy claramente en dificultad contra X.Borg según las mediciones."
+    ],
+    "builds": [
+      {
+        "name": "Tanque de la selva",
+        "context": "Las build más jugadas en la jungla: War Axe para robo de vida, Brute Force Breastplate para HP y reducción de la duración de los controles cuando recibe daño, Oracle para reforzar la curación y los escudos que recibe."
+      }
+    ]
+  },
+  "minotaur": {
+    "summary": "Tanque itinerante que cura a su equipo tanto como los protege, y cuya habilidad definitiva lo hace enfurecerse para fortalecer sus habilidades.",
+    "analysis": "Minotauro proporciona dos cosas: control y curación. Su habilidad 1 le hace saltar sobre un área, lanzando brevemente a los enemigos y reforzando sus siguientes ataques; su habilidad 2 cura al aliado más herido cercano y a él mismo. El último golpea el suelo tres veces, lo ralentiza y luego lo lanza al aire, haciéndolo insensible a los controles durante el ataque y provocando que se enfurezca: durante varios segundos, sus habilidades se refuerzan y su curación afecta a todos los aliados cercanos.\n\nRara vez es sancionado a pesar de tener un índice de victorias superior al promedio en todos los rangos, una brecha que se erosiona lentamente en los juegos largos. Está entre los héroes reforzados del parche 2.1.88, sin detalles publicados en la wiki. Las mediciones lo ponen en dificultades frente a Beatrix, Ixia, Carmilla, Alice e Yve.",
+    "skills": [
+      "Cada habilidad lanzada le otorga una bonificación temporal y lo cura parte del daño que le infligen los héroes contrarios. En la ira, estos efectos se duplican.",
+      "Salta sobre un área, lanza brevemente a los enemigos y los ralentiza, luego fortalece sus ataques básicos durante unos segundos. En furia, el área y el daño aumentan.",
+      "Cura al aliado cercano más herido y a él mismo, según el HP que le falta. En estado de ira, la curación se extiende a todos los aliados cercanos: esta es la habilidad que se debe conservar hasta el final de la pelea.",
+      "Golpea el suelo tres veces: los dos primeros golpes se ralentizan significativamente, el último se lanza al aire. Ignora los controles durante el ataque y luego se enfurece durante varios segundos con habilidades mejoradas."
+    ],
+    "strengths": [
+      "Cura al aliado más herido y luego a todos los aliados enfurecidos.",
+      "Dos proyecciones, al salto y al final",
+      "No se ve afectado por los controles durante la final.",
+      "Tasa de victorias medida por encima del promedio en todos los rangos"
+    ],
+    "weaknesses": [
+      "Las habilidades solo se fortalecieron durante la ira que siguió al último",
+      "Tasa de victorias medida que se erosiona en juegos largos",
+      "En dificultad contra Beatrix, Ixia y Carmilla según mediciones"
+    ],
+    "builds": [
+      {
+        "name": "Deambular por el tratamiento",
+        "context": "La configuración más jugada: Flask of the Oasis otorga un escudo a los aliados curados con pocos HP y reduce sus recargas, Dominance Ice y Radiant Armor complementan las resistencias."
+      },
+      {
+        "name": "Atención recibida",
+        "context": "Oracle en lugar de Radiant Armor refuerza la curación y los escudos que recibe, incluido el suyo: menos jugado, con un índice de victoria medido más alto."
+      }
+    ]
+  }
+}

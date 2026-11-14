@@ -53,6 +53,14 @@ import tierNotesFil from "@/data/game/tier-notes/fil.json";
 import tierNotesTh from "@/data/game/tier-notes/th.json";
 import tierNotesPt from "@/data/game/tier-notes/pt.json";
 import tierNotesRu from "@/data/game/tier-notes/ru.json";
+import analysesEn from "@/data/game/analyses/en.json";
+import analysesIt from "@/data/game/analyses/it.json";
+import analysesEs from "@/data/game/analyses/es.json";
+import analysesId from "@/data/game/analyses/id.json";
+import analysesFil from "@/data/game/analyses/fil.json";
+import analysesTh from "@/data/game/analyses/th.json";
+import analysesPt from "@/data/game/analyses/pt.json";
+import analysesRu from "@/data/game/analyses/ru.json";
 import generatedPatches from "@/data/game/patches.json";
 import patchesFr from "@/data/game/patches/fr.json";
 import patchesIt from "@/data/game/patches/it.json";
@@ -73,6 +81,7 @@ import type { PickRates } from "./usage-builds";
 import type {
   WikiSkill,
   Hero,
+  HeroAnalysis,
   HeroStory,
   GameMode,
   DetailedPatch,
@@ -312,6 +321,57 @@ const TIER_NOTES = {
 } satisfies Record<Locale, unknown>;
 export function tierNotes(locale: Locale): Record<string, string> {
   return TIER_NOTES[locale] as Record<string, string>;
+}
+
+/** Translatable part of an analysis, as `npm run translate` writes it. */
+interface AnalysisText {
+  summary: string;
+  analysis: string;
+  skills: string[];
+  strengths: string[];
+  weaknesses: string[];
+  builds: { name: string; context: string }[];
+}
+/** French is the source itself: it has no file of its own. */
+const ANALYSES = {
+  en: analysesEn,
+  it: analysesIt,
+  es: analysesEs,
+  id: analysesId,
+  fil: analysesFil,
+  th: analysesTh,
+  pt: analysesPt,
+  ru: analysesRu,
+} satisfies Record<Exclude<Locale, "fr">, unknown>;
+
+/**
+ * A hero's analysis in the requested language. The analyses are written in
+ * French; the other languages overlay their translated prose on the source,
+ * which keeps the slugs, items, cooldowns and order. Whatever the last
+ * translation run has not reached yet (an analysis just added, a list that
+ * changed length since) stays in French rather than disappear or misalign.
+ */
+export function analysisFor(analysis: HeroAnalysis | null, locale: Locale): HeroAnalysis | null {
+  if (!analysis || locale === "fr") return analysis;
+  const text = (ANALYSES[locale] as Record<string, Partial<AnalysisText>>)[analysis.slug];
+  if (!text) return analysis;
+  const list = (source: string[], translated: string[] | undefined) =>
+    translated?.length === source.length ? translated : source;
+  const skillsText = text.skills?.length === analysis.skills.length ? text.skills : null;
+  const buildsText = text.builds?.length === analysis.builds.length ? text.builds : null;
+  return {
+    ...analysis,
+    summary: text.summary || analysis.summary,
+    analysis: text.analysis || analysis.analysis,
+    skills: analysis.skills.map((c, i) => ({ ...c, description: skillsText?.[i] || c.description })),
+    strengths: list(analysis.strengths, text.strengths),
+    weaknesses: list(analysis.weaknesses, text.weaknesses),
+    builds: analysis.builds.map((b, i) => ({
+      ...b,
+      name: buildsText?.[i]?.name || b.name,
+      context: buildsText?.[i]?.context || b.context,
+    })),
+  };
 }
 
 export const patches = generatedPatches.list as unknown as Patch[];

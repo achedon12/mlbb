@@ -161,7 +161,8 @@ export function Mlbbdle({ heroes, labels }: { heroes: MlbbdleHero[]; labels: Rec
 
       {mode !== "practice" &&
         (puzzle === null || !day ? (
-          <p role="status" className="py-10 text-center text-sm text-chalk-500">
+          // About the height of the guess form once drawn: no jump below it.
+          <p role="status" className="grid min-h-[17rem] place-items-center text-center text-sm text-chalk-500 sm:min-h-[12rem]">
             {t("pages.mlbbdleUI.loading")}
           </p>
         ) : puzzle === "error" ? (

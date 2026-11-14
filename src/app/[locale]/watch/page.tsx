@@ -51,7 +51,7 @@ export default async function WatchPage({ params }: { params: Promise<{ locale: 
             {t("pages.watch.none")}
           </p>
         ) : (
-          <ul className="grid gap-2 sm:gap-3 lg:grid-cols-2 2xl:grid-cols-3">
+          <ul className="grid grid-cols-1 gap-2 sm:gap-3 lg:grid-cols-2 2xl:grid-cols-3">
             {news.map((a) => (
               <li key={a.link}>
                 <a
@@ -60,7 +60,7 @@ export default async function WatchPage({ params }: { params: Promise<{ locale: 
                   target="_blank"
                   className="bevel group flex h-full gap-3 border border-night-700/70 bg-night-900/60 p-3 transition-colors hover:border-gold-500/60 sm:gap-4 sm:p-5"
                 >
-                  <div className="min-w-0 flex-1">
+                  <div className="min-w-0 flex-1 break-words">
                     <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
                       <span className="text-xs font-semibold uppercase tracking-wide text-gold-400">
                         {a.source}

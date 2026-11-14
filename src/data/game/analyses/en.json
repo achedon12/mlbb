@@ -1,0 +1,1079 @@
+{
+  "lancelot": {
+    "summary": "Jungle assassin built on the sequence of dashes, with a window of invulnerability during the ultimate.",
+    "analysis": "Lancelot goes through a fight rather than entering it. His skill 2 marks targets, his skill 1 recharges by hitting a marked target: well chained, he can dash almost without interruption as long as he hits something.\n\nHis ultimate makes him invulnerable during the animation, which also makes it a defensive tool to dodge a check or an execution. The hero is punished by anything that blocks movement – ​​Khufra in the lead – and by areas that prevent him from moving forward.",
+    "skills": [
+      "Its damage increases briefly after dodging or passing through an enemy.",
+      "Moves in one direction by hitting enemies it passes through. Cooldown is reduced by hitting a marked target.",
+      "Projects a blade that marks enemies hit and slows them.",
+      "Chain a series of strikes in an area while remaining invulnerable during the animation."
+    ],
+    "strengths": [
+      "Almost continuous mobility in combat",
+      "Defensively exploitable invulnerability",
+      "Quick Jungle Clearing"
+    ],
+    "weaknesses": [
+      "Completely neutralized by movement blocking",
+      "Fragile if the sequence is interrupted",
+      "Long learning curve"
+    ],
+    "builds": [
+      {
+        "name": "Standard Jungle",
+        "context": "The reference build: penetration then a survival item to hold the second rotation."
+      }
+    ]
+  },
+  "gusion": {
+    "summary": "Combo magic assassin: he places his daggers, teleports on them, and picks them up to inflict all his damage at once.",
+    "analysis": "Gusion is the most demanding combo hero in the game after Fanny. All of his skills can be rerolled, and the order and timing of the rerolls entirely determine his damage. The standard combo is to put the daggers down, get close with the ultimate, then trigger the recovery so everything happens simultaneously.\n\nA mastered Gusion takes out any fragile target in less than a second, often before the opponent's screen has shown anything. A rough Gusion does a third of the damage and dies on the spot. Few heroes have such a wide gap between the two.",
+    "skills": [
+      "After a skill, his next basic attack deals additional damage proportional to the target's missing health.",
+      "Throws daggers in a fan pattern. Recasting the skill recalls the planted daggers, dealing damage again.",
+      "Throws a unique dagger. Recasting the skill teleports Gusion to the dagger.",
+      "Recharges both skills and allows you to propel yourself towards an area. The starting point of any combo."
+    ],
+    "strengths": [
+      "One of the highest damage peaks in the game",
+      "Extreme mobility between daggers",
+      "Imposes permanent pressure on the middle lane"
+    ],
+    "weaknesses": [
+      "Among the most difficult executions on the roster",
+      "Very high mana consumption",
+      "Without his ultimate, his damage collapses"
+    ],
+    "builds": [
+      {
+        "name": "Magic Jungle",
+        "context": "Priority Magic Penetration: Gusion targets soft targets, not tanks."
+      }
+    ]
+  },
+  "ling": {
+    "summary": "Assassin who moves on walls, out of range, and chooses his moment to fall on a target.",
+    "analysis": "Ling changes the geometry of the map. While on a wall, he is untouchable by most ground skills, allowing him to wait indefinitely for the opening. It does not use mana but an energy resource, which limits the number of consecutive jumps.\n\nHis ultimate makes him immune to checks while leaping and deals critical damage. The hero is excellent in mobile skirmishing and weak against a grouped team that keeps his controls to himself. Khufra remains his clearest response.",
+    "skills": [
+      "Ling can climb walls and move quickly, regenerating his energy.",
+      "Jump to any point, including a wall. Energy cost, without recharging as long as the energy lasts.",
+      "Hits enemies around him and increases his attack speed.",
+      "Leaps around an area dealing critical damage, immune to controls while jumping."
+    ],
+    "strengths": [
+      "Moving on walls, out of reach on the ground",
+      "Freely chooses the moment of initiation",
+      "Excellent in skirmishing and objective stealing"
+    ],
+    "weaknesses": [
+      "Depends entirely on its energy",
+      "Slow start before two items",
+      "Severely punished by movement blocks"
+    ],
+    "builds": [
+      {
+        "name": "Critical Jungle",
+        "context": "His ultimate deals critical damage: critical rate is worth more than raw penetration."
+      }
+    ]
+  },
+  "yi-sun-shin": {
+    "summary": "Hybrid jungler who switches from bow to sword depending on the distance, and whose ultimate reveals the entire map.",
+    "analysis": "Yi Sun-shin changes weapons on his own: he shoots a bow from afar and strikes with a sword on contact, and each change strengthens his next two attacks. His skill 1 propels him forward by briefly rendering him immune to controls, and his recharge decreases with each successful weapon change. The ultimate first gives him vision of the entire map and an acceleration, then, restarted, sends a ship which stuns the center of the zone before a barrage which slows down: it is as much an information tool as a remote initiation.\n\nHis measured performance is concentrated at the start of the game: his victory rate is significantly higher in games finished before the twelfth minute, then returns to around the average. He therefore lives from the advance gained in the jungle rather than from the end of the game, and his only protection against controls only lasts an instant. The measurements place him in difficulty against Karina, Uranus, Aamon, Johnson and Hayabusa, from Mythic rank to Mythic Glory rank.",
+    "skills": [
+      "He attacks with a bow or sword depending on the distance from his target. After each weapon switch, his next two attacks gain momentum and critical damage, with a short speed boost.",
+      "Rush forward with the sword, which makes it insensitive to controls for a short time. Each weapon change triggered shortens its recharge: this is its main mobility in combat.",
+      "Short press: a quick sword strike. Long press: an arrow whose damage increases with charge time. In both cases, it immediately triggers the weapon change bonus.",
+      "Reveals the entire map for a few seconds and speeds it up. Relaunched, it sends a ship crashing into an area, stunning the center, then several cannon salvos which slow down over a wider area."
+    ],
+    "strengths": [
+      "Vision of the entire map at the launch of the ultimate",
+      "Unaffected by checks during skill 1 rush",
+      "Damage at distance and on contact, without changing build",
+      "High measured win rate in short games"
+    ],
+    "weaknesses": [
+      "Measured win rate which reverts to average after the first few minutes",
+      "Protection against controls that only lasts an instant",
+      "In difficulty against Karina, Uranus and Aamon according to measurements"
+    ],
+    "builds": [
+      {
+        "name": "Standard Jungle",
+        "context": "The most played build, at all ranks: Hunter Strike and War Axe, then Endless Battle, which strengthens the basic attack following each skill and heals it along the way."
+      },
+      {
+        "name": "Execution",
+        "context": "Sky Piercer instead of War Axe: less played, with a better measured win rate. His execution threshold grows with kills and decreases with each death, which suits a jungler who gets an early lead."
+      }
+    ]
+  },
+  "selena": {
+    "summary": "Heroine with two forms: traps and stun arrow from a distance, then assassination on contact after the ultimate.",
+    "analysis": "Selena is played in two stages. In her elven form, she places demons that watch over a location and cling to passing enemies, and she shoots an arrow whose stun lengthens with the distance traveled; his skills leave marks on targets. The ultimate switches her to Abyssal Form, where her skills become a leaping attack with shield and a charge, which consume these marks for additional damage; she can then return to elven form.\n\nThis versatility has a cost: its entire initiation relies on the arrow, which must start from afar to stun for a long time. His measured win rate remains below average at all ranks, with a low point in games lasting less than twelve minutes. It is played in the middle lane as well as in roam, with different objects depending on the position. The measurements place her in difficulty against Gloo, Popol and Kupa, Chip and Lolita.",
+    "skills": [
+      "It moves freely from one form to another. In elven form, his skills pose cumulative marks; in Abyssal Form, its damage consumes these marks to hit harder. The game is about scoring from afar, then finishing from close range.",
+      "Places a waiting demon in a location, attaches itself to the first enemy that approaches, slows them down, then explodes on them and their neighbors. Multiple traps can coexist, and each additional trap strengthens the explosion.",
+      "Fires an arrow that stuns the first hero hit, lasting longer the further it has traveled. When passing through a trap, she takes it with her and applies its effect to the target. Its real initiation tool.",
+      "Switches her to Abyssal form with a brief speed gain and resets the cooldown of her skills in this form. His basic attacks then deal additional magic damage."
+    ],
+    "strengths": [
+      "Long stun when the arrow comes from far away",
+      "Traps laid in advance, several at a time",
+      "Two forms: remote control, then contact damage",
+      "Playable in middle lane as well as roaming"
+    ],
+    "weaknesses": [
+      "His entire initiation depends on an arrow to be aimed from afar",
+      "Win rate measured below average at all ranks",
+      "Weakest in very short games according to measurements",
+      "In difficulty against Gloo, Popol and Kupa and Chip"
+    ],
+    "builds": [
+      {
+        "name": "Middle lane",
+        "context": "The most played build in the middle: Starlium Scythe adds damage to the basic attack that follows a skill, which serves its abyssal form, Lightning Truncheon a damage echo and Divine Glaive magic penetration."
+      },
+      {
+        "name": "Roam",
+        "context": "The most played build in roam: Enchanted Talisman focuses on recharge and mana rather than raw damage, to reroll traps and arrows more often with the lower income of this position."
+      }
+    ]
+  },
+  "chou": {
+    "summary": "Isolation fighter: he extracts a target from the opposing group and kills it before his team reacts.",
+    "analysis": "Chou is the highest ceiling hero in roam. The idea is simple – the ultimate sends a target into the air and moves it – but its execution relies on animation cancellations that the game nowhere explains. The reference combo chains skill 1, canceled jump, ultimate, then skill 2 to hold the target upon landing.\n\nHis interest in an organized team comes from there: he chooses who dies. Against a player who keeps his Purify, on the other hand, the ultimate loses half of its value, and Chou becomes an average fighter again.",
+    "skills": [
+      "Every few basic attacks, his next attack becomes an upgraded hit that deals extra damage.",
+      "Three successive strikes. The last one throws enemies hit into the air.",
+      "Dashes in one direction, becoming immune to controls while running.",
+      "Hits a target, throws it and follows it all the way. Moves an opponent away from their team."
+    ],
+    "strengths": [
+      "Selects and isolates a priority target",
+      "Immune to checks during skill 2",
+      "Excellent in two or three skirmishes"
+    ],
+    "weaknesses": [
+      "Demanding execution, very punitive when learning",
+      "Neutralized by Purify on the intended target",
+      "Low damage if isolation fails"
+    ],
+    "builds": [
+      {
+        "name": "Roam isolation",
+        "context": "The version played in competition: enough resistance to survive the round trip, no pure damage items."
+      },
+      {
+        "name": "Offensive experience",
+        "context": "In experience lane, when Chou must win his duel rather than serve his team."
+      }
+    ]
+  },
+  "yu-zhong": {
+    "summary": "Experienced lane fighter who heals himself on hitting and becomes very difficult to kill in prolonged combat.",
+    "analysis": "Yu Zhong wins fights that last. Its passive transforms part of the damage inflicted into a shield, which makes it excellent when there are several targets in range - a five-way confrontation gives it much more return than a duel.\n\nHis ultimate makes him immune to checks while he advances, which also makes him a credible initiator. Countering it almost always involves reducing healing: without it, a well-equipped Yu Zhong absorbs an entire team.",
+    "skills": [
+      "The damage dealt by his skills partially converts into a shield, with increased efficiency on multiple targets.",
+      "Chains two sweeps in front of him. The second deals increased damage.",
+      "Leaps forward and throws enemies hit. Used as much to engage as to escape.",
+      "Takes the form of a dragon: immune to controls, it advances while inflicting area damage then knocks an enemy to the ground."
+    ],
+    "strengths": [
+      "Very strong regeneration in five-way fights",
+      "Control immunity during ultimate",
+      "Good lane push and good wave control"
+    ],
+    "weaknesses": [
+      "Collapsed by reduced care",
+      "Fragile start to the game before the third item",
+      "Little damage on single isolated target"
+    ],
+    "builds": [
+      {
+        "name": "Regeneration experience",
+        "context": "The reference build: resistance and lifesteal, since the passive already converts damage into a shield."
+      }
+    ]
+  },
+  "paquito": {
+    "summary": "Window Fighter: Each skill used improves the next, for a very short damage peak.",
+    "analysis": "Paquito is not played skill by skill but by sequences. Each spell cast loads an enhanced version of the next one, and the whole point of it is to string together those enhanced versions in the correct order before the window closes.\n\nWell done, it takes out a weak target in two seconds from a considerable distance. Played poorly, he wastes his upgraded versions on minions and has nothing left. He is a rhythm hero, very sensitive to the player's level.",
+    "skills": [
+      "Using a skill buffs the next different skill for a few seconds.",
+      "Hit straight ahead. Improved version: more range, increased damage and forward movement.",
+      "Strike in an arc. Improved version: throws enemies hit.",
+      "Rushes towards a target and knocks them back. Improved version: greatly increased damage and projection."
+    ],
+    "strengths": [
+      "Very high peak damage over a short window",
+      "Great initiation range",
+      "No mana cost"
+    ],
+    "weaknesses": [
+      "Loses all its interest if the windows are spoiled",
+      "Very vulnerable once skills are spent",
+      "Punitive against heroes who maintain their control"
+    ],
+    "builds": [
+      {
+        "name": "Explosive Jungle",
+        "context": "When the objective is to eliminate the opposing shooter or mage from the first initiation."
+      }
+    ]
+  },
+  "dyrroth": {
+    "summary": "Rage fighter who removes physical armor from his target before striking them, played in experience lane as well as in jungle.",
+    "analysis": "Dyrroth builds up rage while fighting; At mid-gauge, his first two skills become a reinforced version, with more range or more damage. Every two basic attacks he hits in a circle around himself and heals himself, and each hero hit shortens his cooldowns. Skill 2 launches it at a target then, recast, removes a large part of its physical armor for a few seconds: it is the opening which makes the rest of its damage effective. The ultimate leaves after a short delay, cannot be interrupted, and slows down everything it passes through.\n\nHe lives on his early game rallies: his measured win rate is highest in short games and drops below average after the eighteenth minute. Its numbers also vary depending on the rank, lower in Mythic than in Mythic Glory. The measures place him in difficulty against Masha, Benedetta and Thamuz.",
+    "skills": [
+      "From half his rage gauge, his skills 1 and 2 are strengthened. Every two basic attacks, he hits in a circle and recovers HP, and each hero hit reduces the cooldowns of his first two skills.",
+      "Line strike that slows enemies hit. Reinforced, it carries further, hits harder and slows down more: a good way to prevent a target from going out of range.",
+      "A rush that stops on the first non-minion enemy, then a second lock-on strike that greatly reduces the target's physical armor. Reinforced, the reduction is stronger and the target is very significantly slowed down for an instant.",
+      "After a short delay, a devastating blow goes straight ahead, impossible to interrupt, and slows enemies in its path. The delay is visible: he preferably launches at a target that is already slowed down."
+    ],
+    "strengths": [
+      "Physical armor reduction built into skill 2",
+      "Regular healing in combat thanks to its passive",
+      "Cooldowns shortened for each hero hit",
+      "Two possible positions: experience lane or jungle"
+    ],
+    "weaknesses": [
+      "Win rate measured decreasing in long games",
+      "Skills strengthened only from mid-rage gauge",
+      "An ultimate launched after a delay, which the target can anticipate",
+      "In difficulty against Masha, Benedetta and Thamuz according to measurements"
+    ],
+    "builds": [
+      {
+        "name": "Experience lane",
+        "context": "The most played build in experience lane for all ranks: War Axe and Queen's Wings for lifesteal and survival, Rose Gold Meteor for the shield when its HP drops low. The choices remain very scattered in this position, and in Mythic Glory it is a penetration version (Blade of the Heptaseas, Hunter Strike, Rose Gold Meteor) which comes first."
+      },
+      {
+        "name": "Jungle",
+        "context": "The most played build in the jungle: Brute Force Breastplate adds HP, attack and a reduction in the duration of controls when it chains damage, War Axe and Rose Gold Meteor keep lifesteal."
+      }
+    ]
+  },
+  "sun": {
+    "summary": "Fighter who multiplies: his doubles strike with him, heal him and eat away at the targets' armor.",
+    "analysis": "Sun fights by summoning doubles. His first two skills throw his staff, which leaves a temporary duplicate; the second additionally hides him while he moves with the stick. The ultimate summons a more durable duplicate, closer to its own stats. Each hit from Sun or his doubles reduces the target's physical armor a little, and each hit from a double heals it: the more doubles there are on a target, the faster it melts and the longer it lasts.\n\nHis measured profile is that of a late-game hero: victory rate below average in games lasting less than fourteen minutes, then significantly above after the sixteenth. He is also very often banned, especially at Mythic rank. Double the ultimate takes increased damage, and the metrics put Sun in trouble against Aldous, Natan, Alucard, Joy, and Ruby.",
+    "skills": [
+      "Each hit from Sun or a double reduces the target's physical armor, stacking. Every time a double deals damage, Sun recovers HP. His attacks and those of his doubles also hit monsters harder.",
+      "Throws the stick in a line; on impact or at the end of the stroke, it changes into a double which takes over part of its statistics. Shares its cooldown and levels with skill 2.",
+      "Throw the staff, leaving a duplicate in its place, while Sun hides and travels with the staff. He can thus change position without being seen, leaving the double behind him.",
+      "Summons a more durable duplicate that takes over most of its stats and attack effects. This double, however, suffers increased damage."
+    ],
+    "strengths": [
+      "Cumulative armor reduction for him and his doubles",
+      "Healing every hit of a double",
+      "Victory rate measured sharply increased in long games",
+      "Skill 2 hides it while moving"
+    ],
+    "weaknesses": [
+      "Weak in short games according to measurements",
+      "Double the ultimate takes increased damage",
+      "In difficulty against Aldous, Natan and Alucard according to measurements"
+    ],
+    "builds": [
+      {
+        "name": "Experience lane",
+        "context": "The most played build in experience lane: attack speed and critical, from which its doubles benefit by taking back part of its attack effects, and Great Dragon Spear for speed after the ultimate. It is most often associated with the support emblem and the spell Petrify."
+      },
+      {
+        "name": "Jungle",
+        "context": "The same three objects in jungle, Corrosion Scythe first, with the shooter emblem and Retribution: this is the most played version in this position."
+      }
+    ]
+  },
+  "guinevere": {
+    "summary": "Magic damage fighter who knocks her targets into the air, then holds them there under her ultimate.",
+    "analysis": "Guinevere is built around projection. Her skill 2 makes her leap across an area, sending enemies into the air, then can launch herself again for a short teleport that leaves an illusion behind. She inflicts additional damage on targets in the air, and her hits mark enemies: a target with three marks is projected by her ultimate, which launches enemies already there into the air with each hit, while Guinevere remains unaffected by controls.\n\nEverything therefore depends on skill 2: if the jump fails and the marks are missing, the ultimate loses most of its control. His measured numbers are close to average, a little better in short games, and his ban rate has fallen over the last thirty days. The measurements place her in difficulty against Masha, Wanwan, Khufra, Diggie and Fanny.",
+    "skills": [
+      "Its basic attacks deal magic damage and charge a gauge; full, it makes the next basic attack guided. Her blows mark enemies, and she hits targets in the air harder.",
+      "An orb that damages and slows the first enemy hit. Each key reduces all its recharges: this is the skill to cast most often to prepare the marks.",
+      "Leap to an area which briefly stuns then throws hit heroes and monsters into the air. Relaunched in the seconds that follow, it teleports her, making her invisible for a moment and leaves an illusion that explodes if you hit it.",
+      "Creates a force field that hits nearby enemies repeatedly. Targets already in the air, or marked three times, are launched several times. It is impervious to controls for the duration."
+    ],
+    "strengths": [
+      "Area control repeated under ultimate",
+      "Unaffected by controls during the ultimate",
+      "A relaunch of skill 2 to reposition yourself",
+      "Cooldowns reduced when skill 1 hits"
+    ],
+    "weaknesses": [
+      "An ultimate which depends on a projection or marks placed before",
+      "Win rate measured close to average, with no marked peak",
+      "Struggling against Masha, Wanwan and Khufra according to measurements"
+    ],
+    "builds": [
+      {
+        "name": "Magical life flight",
+        "context": "The most played build: Concentrated Energy brings magical power and hybrid lifesteal, Queen's Wings survival and recharge when its HP drops, Divine Glaive magical penetration."
+      },
+      {
+        "name": "Damage after skill",
+        "context": "Starlium Scythe instead of Queen's Wings, for additional damage on the attack that follows each skill: less played, with a comparable measured win rate."
+      }
+    ]
+  },
+  "kagura": {
+    "summary": "Dual-State Mage: Her skills completely change depending on whether she is holding her umbrella or has it down.",
+    "analysis": "Kagura has eight skills in practice for three hits. Each spell has a version with an umbrella and a version without, and knowing what state you are in is the hero's main thing. The signature combo follows the pose of the umbrella, a rappel that crosses and projects, then the ultimate to lock.\n\nShe is also one of the rare mages capable of getting out of a bad position on her own, since teleporting to the umbrella serves as an escape. In return, a status error leaves her without mobility in the middle of the opposing team.",
+    "skills": [
+      "When Kagura and her umbrella are together, her skills recharge faster and she gains a shield after a spell.",
+      "Sends the umbrella to a location, or recalls it. The placed umbrella slows down enemies around it.",
+      "With the umbrella: moves in one direction. Without the umbrella: teleports towards it, throwing enemies it passes through.",
+      "Roots and attracts enemies around the umbrella, then deals significant area damage."
+    ],
+    "strengths": [
+      "Very high area damage in the mid-game",
+      "Rare defensive mobility for a mage",
+      "Permanent zone control around the umbrella"
+    ],
+    "weaknesses": [
+      "Demanding state management, punitive for errors",
+      "High mana cost before first item",
+      "Without an umbrella nearby, she is immobile"
+    ],
+    "builds": [
+      {
+        "name": "Explosive environment",
+        "context": "The standard build: magical penetration to maintain damage against the first defensive objects."
+      }
+    ]
+  },
+  "pharsa": {
+    "summary": "Artillery Mage: His ultimate strikes across the map, without ever entering combat.",
+    "analysis": "Pharsa plays on the scope. Her ultimate is a channeled bombardment covering a huge area from long range, allowing her to participate in a fight she can barely see. Well placed, this spell alone can decide a clash around the lord.\n\nHis skill 2 gives him a flying form that passes through walls, essential for repositioning after channeling. The weak point is obvious: during the ultimate she is immobile and defenseless, and any assassin who finds her kills her.",
+    "skills": [
+      "After a skill, his next basic attack deals bonus magic damage.",
+      "Sends out a wave that explodes from a distance, dealing area damage.",
+      "Takes a flying form to move quickly, crossing obstacles.",
+      "Channels a bombardment over a very large area, at a long distance from the map."
+    ],
+    "strengths": [
+      "Ultimate range among the greatest in the game",
+      "Take part in battles without exposing yourself",
+      "Free repositioning thanks to the flying shape"
+    ],
+    "weaknesses": [
+      "Immobile and helpless while channeling",
+      "No reliable control in case of initiation on it",
+      "Depends a lot on the vision of his team"
+    ],
+    "builds": [
+      {
+        "name": "Artillery middle",
+        "context": "Range and raw damage, with a late defensive item to survive a dive."
+      }
+    ]
+  },
+  "cecilion": {
+    "summary": "Stacking Mage: He accumulates blood throughout the game and becomes an area threat that is impossible to ignore at the end of the game.",
+    "analysis": "Cecilion is a bet on the long term. Each skill launched adds a permanent charge which increases its damage and its maximum mana - a Cecilion which has farmed quietly for fifteen minutes no longer has anything to do with the one at the beginning.\n\nOn the other hand, he is extremely fragile before stacking, and his skills have a wide but slow zone. Faced with a team that attacks him early and often, he never reaches his level. He is the typical hero where the result depends on the pace of the game more than the duel.",
+    "skills": [
+      "Each skill hitting an enemy accumulates permanent charges that increase their damage and maximum mana.",
+      "Releases a wave of bats in one direction, dealing area damage.",
+      "Raises claws that briefly immobilize enemies in the area.",
+      "Heals himself, gains range on his skills, and deals massive AoE damage around him."
+    ],
+    "strengths": [
+      "Unlimited area damage late game",
+      "Excellent wave control and lane push",
+      "One of the best mages to hold an objective"
+    ],
+    "weaknesses": [
+      "Very fragile and without mobility",
+      "Depends entirely on its early accumulation",
+      "Priority target of all assassins"
+    ],
+    "builds": [
+      {
+        "name": "Cumulative environment",
+        "context": "Mana and recharge first to stack quickly, damage later. The Hourglass is not optional."
+      }
+    ]
+  },
+  "novaria": {
+    "summary": "Ranged harassment mage, whose ultimate enlarges the silhouette of targets to make his shots easier to place.",
+    "analysis": "Novaria is played from afar. Her skill 1 places a sphere that hurts and slows down around her before exploding; her skill 2 makes a sphere return to her, giving it speed and the ability to pass through walls, then throws it back towards a hero, with damage that increases with the distance traveled. His spheres reveal nearby enemies, and his ultimate enlarges the impact zone of the heroes hit while revealing their surroundings: this is what makes his long shots reliable.\n\nShe has no stuns or freezes, only slows. His measured win rate remains below average at all ranks, but increases with game length and rises above fifty percent after the eighteenth minute. The measurements place her clearly in difficulty against Natalia, then against Zilong, Aldous, Ling and Estes.",
+    "skills": [
+      "The spheres she summons continuously slow down nearby enemies and make them visible. Each sphere placed is therefore also a source of vision.",
+      "Places a sphere that damages enemies around it several times, then explodes and significantly increases its slowdown. Used to hold an area or prepare a skill 2 shot.",
+      "Makes a sphere appear in the distance and brings it back towards it, gaining speed and crossing the scenery. She can then relaunch it: the sphere explodes on the first hero touched, all the more powerful the further it has traveled.",
+      "A wave that briefly slows down the heroes hit and marks them for a few seconds: their impact zone becomes much larger and their surroundings are revealed. To be thrown just before long shots."
+    ],
+    "strengths": [
+      "Damage increases with shot distance",
+      "Vision on enemies close to its spheres",
+      "Walk through walls during skill 2",
+      "Win rate measured on the rise in long games"
+    ],
+    "weaknesses": [
+      "No stuns or freezes, only slowdowns",
+      "Win rate measured below average at all ranks",
+      "Weakest in short games according to measurements",
+      "Clearly in difficulty against Natalia"
+    ],
+    "builds": [
+      {
+        "name": "Harassment",
+        "context": "The most played build: Lightning Truncheon adds an echo of damage to its skills, Glowing Wand a burn which also reduces healing, and Wishing Lantern damage to the target's current HP from touching it."
+      }
+    ]
+  },
+  "eudora": {
+    "summary": "Explosion Mage: Each skill electrifies the target and strengthens the next, up to an area stun.",
+    "analysis": "Eudora works in sequence. Each of his skills electrifies targets hit, and the next skill gains an effect against an electrified target: skill 1 creates a chain that accelerates him and can reduce his cooldown by half, skill 2 changes from a single-target stun to an area stun, and the ultimate triggers an additional explosion around each electrified target. The right order turns a skill rotation into elimination and group control.\n\nWithout electrification applied, his skills lose their additional effects: a first failed skill breaks the sequence. His measured win rate is higher in short games and drops back to average after eighteen minutes. Patch 2.1.88 places her among the reinforced heroes, without the wiki detailing the modification. The measures place her in difficulty against Atlas, Masha, Barats and Leomord.",
+    "skills": [
+      "His skills electrify the heroes and monsters hit for a few seconds, and each of his skills gains an additional effect against an electrified target. His entire game is in the order of launch.",
+      "A fan-shaped lightning bolt, reinforced against minions. On an electrified target, it creates a chain which accelerates it for an instant and inflicts continuous damage; if the chain holds to the end, the recharge is reduced by half.",
+      "An orb that reduces the target's magic defense and stuns them. On an electrified target, the effect extends to all enemies around it: this is its group control.",
+      "Lightning strikes an area, stronger in the center than on the outskirts. Each electrified target hit triggers a second explosion around it after a short delay."
+    ],
+    "strengths": [
+      "AoE stun when target is electrified",
+      "Skill 1 cooldown halved while chain holds",
+      "An ultimate that explodes a second time around electrified targets",
+      "High measured win rate in short games"
+    ],
+    "weaknesses": [
+      "A failed first skill deprives the following ones of their effects",
+      "Measured win rate which drops towards the average in long games",
+      "In difficulty against Atlas, Masha and Barats according to measurements"
+    ],
+    "builds": [
+      {
+        "name": "Blast",
+        "context": "The most played build, far ahead of the others: Genius Wand reduces the magic defense of targets, Sky Piercer finishes off heroes with very low HP, Lightning Truncheon adds an echo of damage. The Assassin Emblem is the choice of the vast majority of players who take it."
+      },
+      {
+        "name": "Penetration and burning",
+        "context": "Glowing Wand and Divine Glaive instead of Sky Piercer and Lightning Truncheon: much less played, with an equivalent measured win rate. Useful against magic-resistant or self-healing targets."
+      }
+    ]
+  },
+  "zetian": {
+    "summary": "Mage whose ultimate damages and stuns all opposing heroes, wherever they are on the map.",
+    "analysis": "Zetian combines harassment and global presence. Her skill 1 launches a wave that launches another on each hit, up to three, and she can move and cast other skills during this time; his skill 2 installs a spirit that slows, reduces magic defense and can be redirected. His ultimate accelerates his entire team, injures and briefly stuns each enemy hero and reveals their position: it weighs on a fight even launched on the other side of the map. Her passive also protects her, at long intervals, by pushing back and stunning heroes who approach her.\n\nIts measured performance is regular rather than spectacular: victory rate close to average, with no marked difference depending on the duration of the game, and ban rate down slightly over thirty days. His passive's lifesteal only charges when hitting heroes with his first two skills. The measurements place her in difficulty against Valentina, Floryn, Mathilda, Uranus and Gloo.",
+    "skills": [
+      "Hitting heroes with skills 1 and 2 gives him lifesteal which stacks. At long intervals, a protection repels and stuns heroes who approach it and grants it a shield.",
+      "A wave which, if it hits, triggers another, up to three; the last one is wider and attracts slightly. She can move and use her other skills during the sequence.",
+      "Summons a spirit that slows the area, continuously damages and reduces the magic defense of enemies present. Relaunched, it sends it charging towards another point, with a further slowdown upon arrival.",
+      "Accelerates all allied heroes, briefly damages and stuns all opposing heroes and reveals them, with no distance limit. She can cast her other skills while channeling."
+    ],
+    "strengths": [
+      "A global ultimate that stuns every opposing hero",
+      "Reveals the entire enemy team when launching the ultimate",
+      "Automatic protection against an attacker thanks to the passive",
+      "Can move during skill 1"
+    ],
+    "weaknesses": [
+      "Passive protection available only every two minutes",
+      "A lifesteal that depends on skills that affect heroes",
+      "In difficulty against Valentina, Floryn and Mathilda according to the measures"
+    ],
+    "builds": [
+      {
+        "name": "Burning and echo",
+        "context": "The most played build: Glowing Wand for burn and healing reduction, Lightning Truncheon for damage echo, Divine Glaive for magic penetration."
+      },
+      {
+        "name": "Ultimate Cooldown",
+        "context": "Fleeting Time instead of Divine Glaive reduces the cooldown of the ultimate with each elimination or assist, to recast its global stun more often. Second most played build, with a measured win rate close to the first."
+      }
+    ]
+  },
+  "vexana": {
+    "summary": "Control mage that summons a fighting guardian, much more effective, according to measurements, in short games than in long ones.",
+    "analysis": "Vexana harasses from a distance and controls on impact. His skill 1 is a projectile that stops on the first hero hit, frightens him and pushes him away before exploding on his neighbors; his skill 2 hits an area after a short delay. His ultimate throws enemies into the air as a guardian arrives, who then fights alongside him for several seconds and hits large areas. Its passive curses targets hit, which explode on their allies if they die.\n\nThe measurements place it in the average for all ranks, but with a clear slope: high victory rate in short games, below fifty percent beyond the sixteenth minute. Its delayed skill 2 gives the target time to exit the area. She is in difficulty facing Alice, X.Borg, Marcel, Natalia and Benedetta.",
+    "skills": [
+      "Vexana and her guardian curse enemies hit for a few seconds. A cursed target that dies explodes and damages nearby allies: useful when opponents fight in groups.",
+      "A projectile which injures on its path and stops on the first hero hit: he is frightened and pushed back, then the explosion also frightens nearby enemies. Its main tool for interrupting an initiation.",
+      "Marks an area that is hit after a short delay. Simple damage, to be placed on a target already controlled, for example just after skill 1.",
+      "Summons a guardian who knocks enemies into the air upon arrival, then fights alongside them for several seconds, striking large areas."
+    ],
+    "strengths": [
+      "Two checks: fear at skill 1, projection at ultimate",
+      "A guardian who fights alongside him for several seconds",
+      "AoE damage on tight groups",
+      "High measured win rate in short games"
+    ],
+    "weaknesses": [
+      "Win rate measured decreasing in long games",
+      "A delayed skill 2, easy to anticipate",
+      "A skill 1 projectile stopped by the first hero he encounters",
+      "In difficulty against Alice, X.Borg and Marcel according to measurements"
+    ],
+    "builds": [
+      {
+        "name": "Burning and echo",
+        "context": "The most played build: Glowing Wand for burn and healing reduction, Lightning Truncheon for damage echo, Divine Glaive for magic penetration."
+      },
+      {
+        "name": "Defense Reduction",
+        "context": "Second most played build: Genius Wand first to reduce the magic defense of heroes hit, with the assassin emblem. Win rate measured slightly lower than the first."
+      }
+    ]
+  },
+  "nana": {
+    "summary": "Harassment mage that incapacitates a target by transforming it, and survives a fatal blow once.",
+    "analysis": "Nana wears down her opponents from afar with a boomerang that hits back and forth. Her skill 2 sends Molina to pursue the closest enemy hero: the one she hits is transformed for a short time, slowed down and weakened against magic damage. The ultimate hits an area three times and stuns enemies hit multiple times in a row. Her passive grants her, once every two and a half minutes, an invulnerable transformation at the moment she should die.\n\nIts measured figures are low: below average victory rate at all ranks, even lower in Mythic Glory, with no real improvement in long games. While transforming her passive, she cannot cast any skills, and Molina chooses her target herself among nearby heroes. The counter gaps remain modest; the clearest place her in difficulty against Gloo, then against Akai and Hylos.",
+    "skills": [
+      "Faced with a fatal blow, she gets rid of the negative effects and transforms: invulnerable, faster, she recovers a little HP but cannot launch any skills. The effect has a long cooldown.",
+      "A boomerang that hits on the way out and back. Its damage decreases for each additional enemy crossed: it is better to aim at an isolated target.",
+      "Place Molina, who then pursues the closest enemy hero. The first hero reached is transformed for a short time, slowed down and his magic defense reduced. With no heroes within range, Molina stays in place for a moment before disappearing.",
+      "Molina hits a zone three times in a row, slowing down with each impact. An enemy hit by consecutive impacts is stunned."
+    ],
+    "strengths": [
+      "A transformation that neutralizes an opposing hero",
+      "Survive a fatal blow once thanks to the passive",
+      "Magic defense reduction on Molina's target",
+      "Ultimate area stun on targets remaining there"
+    ],
+    "weaknesses": [
+      "Win rate measured below average at all ranks",
+      "No skills usable during passive transformation",
+      "Molina pursues the closest hero, not the one we choose",
+      "In difficulty against Gloo according to measurements"
+    ],
+    "builds": [
+      {
+        "name": "Burning and penetration",
+        "context": "The most played build, by far: Glowing Wand and Divine Glaive for burning and magical penetration, then Wishing Lantern for damage to the target's current HP from touching it. It is associated with the Flameshot spell rather than Flicker."
+      }
+    ]
+  },
+  "granger": {
+    "summary": "Magazine Shooter: His damage comes from his skills, not his attack speed.",
+    "analysis": "Granger is not built like a classic shooter. His passive sets his attack to six bullets, the last of which is critical, which makes attack speed almost useless on him: you buy attack damage and penetration.\n\nThis gives it a very early peak of power, exploitable in the jungle from the first object. His fragility remains that of a shooter, aggravated by the absence of any control: poorly positioned, he only has his skill 2 to hope to escape.",
+    "skills": [
+      "His gun contains six bullets. The last bullet in the magazine always deals a critical hit.",
+      "Fires a cone burst that passes through enemies, dealing increased damage to the first target hit.",
+      "Moves quickly and instantly reloads his weapon, gaining attack speed.",
+      "Equip a long-range cannon firing explosive shells across the map."
+    ],
+    "strengths": [
+      "Very early power peak",
+      "Long range damage with ultimate",
+      "Works in jungle as well as in gold lane"
+    ],
+    "weaknesses": [
+      "No control",
+      "Very fragile, only one dodge available",
+      "Weaker endgame than attack speed shooters"
+    ],
+    "builds": [
+      {
+        "name": "Gold raw damage",
+        "context": "Attack speed adds nothing to its passive: we stack attack damage and penetration."
+      }
+    ]
+  },
+  "beatrix": {
+    "summary": "Shooter with four weapons, each with its own ultimate: she changes role depending on the weapon carried.",
+    "analysis": "Beatrix is ​​actually four heroes. She carries two weapons at a time among four, and each redefines its range, its rate and its ultimate: a very long range sniper rifle, an explosive shotgun, a rapid rate assault rifle, an area grenade launcher.\n\nThe level of play consists of choosing the correct pair before the game, then alternating in combat. This is what makes it both very strong in competition and very punishing in ranked play: a bad pair, or a bad change at the wrong time, and it no longer has any damage at all.",
+    "skills": [
+      "Beatrix carries two of four weapons. Each weapon modifies its basic attacks and replaces its ultimate.",
+      "Moves and leaves smoke that briefly conceals it.",
+      "Exchanges the active weapon for the second weapon carried, reloading the corresponding ultimate.",
+      "Depends on the weapon carried: long-range precision shot, explosive salvo, rapid burst or area grenades."
+    ],
+    "strengths": [
+      "Unparalleled reach and versatility",
+      "Very high damage from the start of the game",
+      "Adapts to any opposing composition"
+    ],
+    "weaknesses": [
+      "The most difficult to use in its category",
+      "Fragile and slow without its smoke",
+      "A bad pair of weapons is irremediable"
+    ],
+    "builds": [
+      {
+        "name": "Long range gold",
+        "context": "Pair of precision rifle and grenade launcher: we go the distance and hit the objectives."
+      }
+    ]
+  },
+  "melissa": {
+    "summary": "Defensive Shooter: Her ultimate creates an area that melee enemies cannot pass through.",
+    "analysis": "Melissa solves the classic shooter problem — getting dunked — with a direct response. His ultimate lays down a circle that knocks back melee opponents and greatly reduces their damage inside, allowing him to keep shooting while an assassin exhausts himself trying to get in.\n\nShe remains a standard shooter compared to the rest: good power build-up, decent damage, no threat beyond her reach. Against a ranged team that ignores it and punches through the zone, the ultimate loses most of its value.",
+    "skills": [
+      "Its damage increases against nearby or distant targets depending on distance, and its attacks briefly slow down.",
+      "Moves by throwing a doll that deals area damage.",
+      "Summons a doll that chases enemies and slows them down.",
+      "Creates an area that melee enemies cannot cross and in which their damage is greatly reduced."
+    ],
+    "strengths": [
+      "Direct response to assassins and dives",
+      "Simple handling for a modern printer",
+      "Constant slowdowns which make kiting safer"
+    ],
+    "weaknesses": [
+      "Ultimate does not protect against ranged damage",
+      "Less range than artillery shooters",
+      "Not very useful for engaging or creating an opening"
+    ],
+    "builds": [
+      {
+        "name": "Gold standard",
+        "context": "Attack Speed ​​and Critical: Melissa fires continuously until she is hit."
+      }
+    ]
+  },
+  "miya": {
+    "summary": "Pure basic attack shooter: she gains momentum as long as she hits, and her ultimate makes her disappear the moment you aim her.",
+    "analysis": "Miya bases everything on basic attack. Its passive stacks attack speed with each shot that hits, skill 1 adds additional arrows that also damage nearby targets, and skill 2 immobilizes an area before slowing down what's around it. Her ultimate removes the negative effects, makes her invisible and brings her out of this state with her passive already at full charge: it is used as much to escape as to return to the exchange at full speed. Its measured win rate increases slightly with the length of the game.\n\nIt has no instantaneous movement. Once the ultimate is used, she only has skill 2 left to slow down an attacker, and her pace drops as soon as she stops hitting a target. The countermeasures place her in difficulty against Beatrix, Granger, Gatotkaca, Karina and Belerick, with a gap which is found from the Mythic rank to the Mythic Glory rank.",
+    "skills": [
+      "Each basic attack that hits adds one tier of attack speed, up to five. At full charge, each shot causes a shadow to appear which strikes with it: the whole point is to never let the levels fall again.",
+      "For a few seconds, each basic attack comes with two more arrows, and part of the damage hits enemies close to the target. To be thrown at the start of an exchange or on a wave of minions.",
+      "An arrow falls on an area and immobilizes the enemies present, then bursts into projectiles which slow down. This is its only control: it is better to keep it to stop an attacker than to add damage.",
+      "Removes negative effects, makes her invisible and speeds up her movement until her next attack. She comes out with her passive at full charge: the ultimate is used both to get out of an initiation and to resume a fight immediately."
+    ],
+    "strengths": [
+      "Sustained damage that increases as long as it hits continuously",
+      "An ultimate that removes negative effects and makes her invisible",
+      "Damage to neighboring targets with skill 1",
+      "Measured win rate that holds up in long games"
+    ],
+    "weaknesses": [
+      "No instant movement to exit an initiation",
+      "No more escape once the ultimate is used",
+      "Her cadence drops as soon as she stops hitting a target.",
+      "In difficulty against Beatrix and Granger according to measurements"
+    ],
+    "builds": [
+      {
+        "name": "Critical",
+        "context": "The most played build in gold lane, all ranks combined, as in Mythic Glory: the critical chance fuels Berserker's Fury and triggers the attack speed of Haas' Claws, which also provides lifesteal."
+      },
+      {
+        "name": "Impact damage",
+        "context": "Less played than the critical version, with a slightly higher measured victory rate: Corrosion Scythe and Demon Hunter Sword add damage to each basic attack, which is suitable against targets with a lot of HP."
+      }
+    ]
+  },
+  "hanabi": {
+    "summary": "Rebounding damage shooter, which controls don't hit while she's carrying a shield.",
+    "analysis": "Hanabi inflicts her damage in ricochet: each basic attack or skill that hits sends blades back to neighboring enemies, making her effective in group fights and on waves. Her skill 1 gives her a shield, and as long as a shield protects her, control effects have no effect on her; part of the damage it inflicts also recharges this shield. His ultimate immobilizes the first hero hit before exploding around him.\n\nHowever, she has no instantaneous movement: if the shield falls, she becomes an easy target to reach again. His measured win rate is highest in short games and declines significantly as they get longer, falling below fifty percent after the eighteenth minute. At the Mythic Glory rank, the measurements place her in difficulty against Lolita, Joy, Beatrix, Wanwan and Ixia.",
+    "skills": [
+      "Each basic attack or skill that hits sends blades back at multiple nearby enemies, with damage decreasing with each bounce. Basic attack bounces regain some of its attack effects.",
+      "While wearing a shield, regardless of its source, Hanabi ignores controls. By activating it, she protects herself, gains movement and attack speed, and part of the damage inflicted strengthens this shield up to a certain limit.",
+      "Throws a kunai which greatly slows down enemies crossed and marks them: its next bounces on these targets do not lose power. Useful for preparing for a group fight.",
+      "Projects a flower that immobilizes the first hero hit, then blooms after a short delay and damages nearby enemies. Its only control: to throw at the target that the team can follow."
+    ],
+    "strengths": [
+      "Damage spread across multiple targets thanks to bounces",
+      "Immune to controls as long as a shield protects her",
+      "A shield that recharges with the damage it inflicts",
+      "An ultimate control to open a fight"
+    ],
+    "weaknesses": [
+      "No instantaneous movement to relocate",
+      "Vulnerable as soon as his shield is broken",
+      "Win rate measured as a clear drop in long games",
+      "In difficulty against Lolita and Beatrix according to the measurements"
+    ],
+    "builds": [
+      {
+        "name": "Reinforced attacks",
+        "context": "By far the most played build in gold lane: Corrosion Scythe, Demon Hunter Sword and Golden Staff strengthen each basic attack, the rebounds of which regain part of the effects. It is most often associated with the fighter emblem and the spell Aegis, whose shield also makes it immune to checks."
+      }
+    ]
+  },
+  "lesley": {
+    "summary": "Ranged crit shooter, whose measured win rate goes from very low to high depending on the length of the game.",
+    "analysis": "Lesley plays on range and critical strike. If she hasn't taken damage in a few seconds, her passive lengthens her next basic attack and gives her a high critical chance, and any physical penetration she buys turns into critical damage. Skill 1 camouflages her and strengthens her attack, skill 2 pushes enemies in front of her while making her retreat, and the ultimate locks on to an opposing hero to shoot him four bullets in a row.\n\nThe price of this profile can be seen in the measurements: its victory rate across all ranks is below average, with a very low point in games lasting less than fourteen minutes, and only exceeds fifty percent from the eighteenth minute. Her passive cuts off as soon as she is hit, and the ultimate's bullets can be intercepted by another enemy hero placed in front of the target. The measurements place her in difficulty against Sun, Gloo, Estes, Tigreal and Mathilda.",
+    "skills": [
+      "After a few seconds without taking damage, his next basic attack ranges further and has a high critical chance. Purchased physical penetration becomes critical damage, and this shot returns twice as much energy as a normal attack.",
+      "Camouflages it for a few seconds, with more speed, more physical attack and doubled energy regeneration. The state ends as soon as she deals or takes damage, and attentive enemies can spot her location.",
+      "Throws a cone grenade that knocks back enemies while it does a small hop backwards. During the ultimate, she cancels channeling to immediately fire a remaining bullet.",
+      "Locks onto an opposing hero and shoots them four bullets in a row, which restore energy. Another enemy hero can block them, and an interruption refunds part of the recharge. Also gives a bit of critical chance at all times."
+    ],
+    "strengths": [
+      "High range and critical hits without having to expose yourself",
+      "Victory rate measured sharply increased in long games",
+      "An ultimate that finishes off a target from a distance",
+      "A skill 2 that repels an attacker while making them retreat"
+    ],
+    "weaknesses": [
+      "Very weak in short games according to measurements",
+      "Her passive turns off as soon as she takes damage",
+      "Ultimate bullets can be blocked by another hero",
+      "In difficulty against Sun, Gloo and Estes"
+    ],
+    "builds": [
+      {
+        "name": "Criticism and penetration",
+        "context": "The most played build, by far: Malefic Gun provides penetration that its passive converts into critical damage, and Sea Halberd reduces the healing and shields of targets hit."
+      },
+      {
+        "name": "Without reduction of care",
+        "context": "The same base with Blade of Despair instead of Sea Halberd: much less played, with a better measured victory rate. Reserve for games where the opposing team does not rely on healing or shields."
+      }
+    ]
+  },
+  "estes": {
+    "summary": "The crudest heal in the game: its ultimate regenerates the entire team for several seconds.",
+    "analysis": "Estes does nothing but heal, but he does it at a volume that no other support reaches. In a prolonged fight around an objective, his ultimate can negate an entire composition's worth of sustained damage.\n\nThis also makes him the most context-dependent hero on the roster. Against a team that buys healing reduction, or has an initiation capable of removing it first, it becomes almost useless. It provides no control, no damage, no mobility: if it doesn't heal, it doesn't exist.",
+    "skills": [
+      "His healing applies a mark that increases the regeneration of affected allies.",
+      "Heals a targeted ally and increases their movement speed.",
+      "Links an enemy target, slows it, then immobilizes it if the link holds long enough.",
+      "Creates an area that continuously heals all allies present for several seconds."
+    ],
+    "strengths": [
+      "Unrivaled volume of care over time",
+      "Makes objective battles very difficult to lose",
+      "Simple to play correctly"
+    ],
+    "weaknesses": [
+      "Canceled by healing reduction",
+      "No reliable control or damage",
+      "Priority target, and without any leak"
+    ],
+    "builds": [
+      {
+        "name": "Roam care",
+        "context": "Recharge and mana first: the number of ultimates launched counts more than their unit power."
+      }
+    ]
+  },
+  "angela": {
+    "summary": "Support that attaches to an ally across the map to strengthen and protect them from a distance.",
+    "analysis": "Angela plays a second part in parallel with hers. Her ultimate allows her to join any ally anywhere, giving her a shield and stat boost while she's attached — she literally becomes an extension of the chosen player.\n\nUsed well, it allows a wielder to dive with a security they never would alone, and it appears on the other side of the map to turn around a skirmish. Used incorrectly, it passes the game attached to the wrong player and does not influence anything.",
+    "skills": [
+      "His skills apply charges that increase the damage taken by the target or the healing received by the ally.",
+      "Projects a wave that deals damage and slows enemies hit.",
+      "Links a target: an enemy is immobilized after a delay, an ally receives continuous healing.",
+      "Attaches to an ally anywhere on the map, granting them a shield and increased stats."
+    ],
+    "strengths": [
+      "Global presence: operates everywhere on the map",
+      "Shield that actually saves a submerged wearer",
+      "Excellent as a coordinated duo"
+    ],
+    "weaknesses": [
+      "Extremely fragile outside of his ultimate",
+      "Its value depends on the level of the chosen ally",
+      "Easy to kill while attached if wearer falls"
+    ],
+    "builds": [
+      {
+        "name": "Roam protection",
+        "context": "Recharge first, then resistance: Angela must be able to recast her ultimate often."
+      }
+    ]
+  },
+  "mathilda": {
+    "summary": "Mobility Support: She takes an ally with her, to engage or extract.",
+    "analysis": "Mathilda is the most versatile support in the game today. His skill 2 involves an ally in his movement, which makes it possible to bring a fighter into contact as well as to get a shooter out of a bad position. His ultimate locks a target and serves as a targeted initiation.\n\nShe also has real damage, which makes her playable as a secondary assassin when the game goes wrong. Its difficulty lies in reading: each move involves two players at a time, and an error costs two deaths instead of one.",
+    "skills": [
+      "His skills generate a shield and briefly increase his movement speed.",
+      "Sends out spirits that deal damage and mark enemies hit.",
+      "Fly off in one direction, taking the closest ally with her.",
+      "Rushes towards a marked target, immobilizing them and dealing damage to the area."
+    ],
+    "strengths": [
+      "Repositions an ally, in attack or defense",
+      "Actual damage for support",
+      "Very fast card rotations"
+    ],
+    "weaknesses": [
+      "A movement error involves two players",
+      "No care",
+      "Fragile if the ultimate is used empty"
+    ],
+    "builds": [
+      {
+        "name": "Roam mobility",
+        "context": "A little damage to remain a threat, the rest in recharge and resistance."
+      }
+    ]
+  },
+  "rafaela": {
+    "summary": "Healing and resurrection support, which brings back a fallen ally without waiting for their respawn timer to end.",
+    "analysis": "Rafaela combines care, speed and control. His skill 2 heals nearby allies, especially the most injured, and gives them speed with a brief immunity to slowdowns; his skill 1 automatically hits the three closest enemies, revealing them and slowing them; his ultimate stuns on a line. Its passive, above all, allows you to resurrect a fallen ally, who reappears at the base: an opposing elimination therefore costs your team less.\n\nPatch 2.1.88 significantly reduced the base recharge of resurrection, while increasing the part that depends on the ally's reappearance time, strengthened skill 1 and lowered the mana cost of its other skills. His measured win rate is now well above average, and his ban rate is increasing over the last thirty days. Its limit is initiation: a single control, to aim in a straight line. The measurements place her in difficulty against Ixia, Odette, Estes, Layla and Silvanna.",
+    "skills": [
+      "At regular intervals, a special skill resurrects a fallen ally after a short channel; he reappears at the base with a speed gain. The recharge depends on the ally's respawn time and does not benefit from the recharge reduction.",
+      "Automatically hits the three closest enemies, briefly revealing them and slowing them. Targets hit again shortly after take more damage, stacking up.",
+      "Heals nearby allies, with extra healing for her and the most injured ally, and gives them speed and brief immunity to slows. Magic power increases this speed bonus.",
+      "A straight line beam that damages and stuns enemies hit. Its only control: to throw on an opposing initiation or on a target already slowed by skill 1."
+    ],
+    "strengths": [
+      "Revives a fallen ally without waiting for their time limit to end",
+      "Group healing with speed and slow immunity",
+      "An auto-targeting skill 1 that reveals enemies",
+      "Win rate measured well above average"
+    ],
+    "weaknesses": [
+      "A single control, to aim in a straight line",
+      "Win rate measured lower in long games, although it remains high",
+      "In difficulty against Ixia, Odette and Estes according to measurements"
+    ],
+    "builds": [
+      {
+        "name": "Treatment Roam",
+        "context": "The most played build: Flask of the Oasis protects healed allies at low HP and reduces their recharges, Enchanted Talisman provides recharge and mana, Queen's Wings survival. Players hesitate between Impure Rage and Focusing Mark, with victory rates measured very close."
+      }
+    ]
+  },
+  "floryn": {
+    "summary": "Global Healing Support: Her ultimate heals the entire team, regardless of where they are on the map.",
+    "analysis": "Floryn heals from a distance and without needing to target her allies. His skill 1 targets an enemy, and healing fruits then bounce towards nearby allies; his skill 2 briefly stuns and reveals enemies hit; his ultimate heals the entire team twice, regardless of distance, and instantly boosts shields and regeneration. His lantern improves his statistics and can be shared with an ally, who then receives a bonus for each of his treatments.\n\nIts measured performance depends strongly on the duration of the game: high victory rate in short games, under fifty percent after the eighteenth minute. Patch 2.1.88 reduced the mana cost of his first two skills. Her best duets measured are with Carmilla and Atlas, and the measurements place her clearly in difficulty against Lolita, then against Yin, Ixia, Baxia and Silvanna.",
+    "skills": [
+      "His lantern gradually improves its statistics and never sells. Outside of combat, she can entrust the flower to an ally, who gains a bonus each time she heals him.",
+      "Throw a seed at an enemy; healing fruits spring from it and bounce towards nearby allies. She harasses and heals with equal skill.",
+      "A ball of energy that explodes on the first enemy hit, briefly stunning nearby enemies and revealing their position for a moment.",
+      "Heals all allied heroes twice, wherever they are on the map, and briefly boosts their shields and regeneration. Enough to save an isolated ally or change a distant fight."
+    ],
+    "strengths": [
+      "An ultimate that heals the entire team with no distance limit",
+      "A treatment without having to target an ally, via skill 1",
+      "Stun and skill 2 reveal",
+      "A healing bonus shared with an ally thanks to the lantern"
+    ],
+    "weaknesses": [
+      "Victory rate measured in sharp decline in long games",
+      "A very brief check",
+      "Clearly in difficulty against Lolita according to the measurements"
+    ],
+    "builds": [
+      {
+        "name": "Treatment Roam",
+        "context": "The reference build, very largely in the majority: the lantern, Flask of the Oasis for the shield on healed allies with low PV, Fleeting Time to shorten the recharge of the ultimate with each elimination or assistance."
+      }
+    ]
+  },
+  "carmilla": {
+    "summary": "Support tank that links enemies together: control or damage on one spreads to the others.",
+    "analysis": "Carmilla lives in contact. Her passive makes her steal part of the defenses of the heroes she touches, her flowers revolve around her wounding, slowing down more and more and healing her, and her skill 2 accumulates speed before relaunching on a target to stun it, especially the longer the charge lasts. His ultimate curses an area: enemies who remain there are immobilized then linked, and as long as they remain close, a control suffered by one applies to the others, with part of the damage.\n\nThis mechanic makes its value very dependent on its allies: its best measured duos show gaps among the strongest recorded, with Diggie, Floryn, Mathilda and Chip. If enemies move away from each other, the bond breaks. She is among the reinforced heroes of patch 2.1.88, with no details published on the wiki. The measurements place her in difficulty against X.Borg, Valentina, Natalia and Lesley.",
+    "skills": [
+      "Each time she damages an opposing hero, she steals part of their physical and magical defenses for a few seconds, accumulating, with a delay before being able to steal the same hero again.",
+      "Two flowers spin around her, damaging enemies, slowing them down more and more and speeding up with each hit. Each flower hit heals her, much less on minions.",
+      "Accumulates energy by gaining speed, then launches back at a hero or monster to damage and stun them. The longer the charge lasts, the stronger the damage and stun.",
+      "Curses an area that slows, then immobilizes and binds enemies left inside. A check suffered by a linked enemy applies to others, who also receive part of the damage; the bond breaks if they move away from each other."
+    ],
+    "strengths": [
+      "Controls and damage shared between linked enemies",
+      "Steals defenses from heroes it hits",
+      "Continuous care while its flowers strike",
+      "A stun whose duration increases with charge"
+    ],
+    "weaknesses": [
+      "A bond broken as soon as enemies move aside",
+      "A value very dependent on the allies who exploit the link",
+      "In difficulty against X.Borg, Valentina and Natalia according to measurements"
+    ],
+    "builds": [
+      {
+        "name": "Roam on contact",
+        "context": "The most played build, by far: Cursed Helmet burns enemies around her and thus maintains the flight of defenses from her passive, Dominance Ice reduces their healing, Antique Cuirass weakens the physical damage of those who touch her with skills."
+      }
+    ]
+  },
+  "tigreal": {
+    "summary": "Historical initiator tank, capable of bringing together an entire team in a single ultimate.",
+    "analysis": "Tigreal does one thing, and he does it better than almost anyone: pick up multiple opponents at once. The classic combo is to rush in with skill 2, then immediately chain the ultimate before the targets disperse — canceling the animation with a Flicker spell remains the most profitable technique to learn on him.\n\nIts limit is clear: apart from its ultimate, it brings almost nothing. A Tigreal who missed his initiation leaves his team with four for around ten seconds. He's a hero of timing, not continuous presence.",
+    "skills": [
+      "Tigreal's basic attacks charge his armor. While fully charged, his next attack deals additional damage and briefly protects him.",
+      "Smashes the ground in front of him, dealing damage and slowing enemies hit.",
+      "Rushes forward, pushing enemies encountered, then throwing them into the air at the end of the run.",
+      "Pulls all nearby enemies towards him, then stuns them. The reference in group initiation."
+    ],
+    "strengths": [
+      "The best grouping in the game on multiple targets",
+      "Very durable even with a modest budget of objects",
+      "Readable: easy to learn in a low ranked game"
+    ],
+    "weaknesses": [
+      "Useless when his ultimate is on cooldown",
+      "Initiation is telegraphed without Flicker",
+      "No mobility to disengage if he misses"
+    ],
+    "builds": [
+      {
+        "name": "Roam initiator",
+        "context": "The default build. We sacrifice all damage to reach contact and survive the opening of the fight."
+      },
+      {
+        "name": "Magic Resistant Front",
+        "context": "Against an opposing composition with two or more mages, or when the opposing magical damage exceeds the physical."
+      }
+    ]
+  },
+  "franco": {
+    "summary": "Initiation tank whose entire part fits in a grappling hook: it removes a player from the map.",
+    "analysis": "Franco does not play the same game as the other tanks. He's not looking to absorb damage, he's looking to remove an opponent from combat before it begins. A successful grapple on the opposing shooter, followed by the ultimate, is a dead player and a free objective.\n\nIts entire value therefore rests on the precision of a slow projectile skill, which vision entirely determines. Franco plays in the bushes, not in the lane. A Franco who misses three grapples in a row is dead weight; a Franco who touches them wins the game alone.",
+    "skills": [
+      "Each hit received increases his movement speed for a short time, cumulative.",
+      "Throws a hook that pulls the first enemy hit to them and briefly immobilizes them.",
+      "Strikes around him, dealing damage and greatly slowing nearby enemies.",
+      "Immobilizes a target and hits it repeatedly. The check lasts long enough for the team to conclude."
+    ],
+    "strengths": [
+      "Removes a key target from combat, regardless of resistance",
+      "Excellent aim control around the lord and the turtle",
+      "Hugely rewards card reading"
+    ],
+    "weaknesses": [
+      "A failed grappling hook leaves him with nothing for eight seconds",
+      "Very dependent on vision and bushes",
+      "The ultimate is a single target: without a relay, it dies after"
+    ],
+    "builds": [
+      {
+        "name": "Control Roam",
+        "context": "Franco doesn't need damage: he needs to get into range and survive the grapple."
+      }
+    ]
+  },
+  "khufra": {
+    "summary": "The tank that punishes mobility: its skill 1 cancels enemy dashes and jumps.",
+    "analysis": "Khufra exists to cater to a specific category of heroes—those who are constantly on the move. Its skill 1 places a field that interrupts any dash it passes through, which neutralizes Fanny, Ling, Wanwan or Benedetta in a way that no other tank allows.\n\nApart from this response role, it remains an excellent initiator: the ultimate ball propels opponents and allows them to be pushed back against a turret or a wall. Its weakness is its recharge: apart from skills, Khufra is slow and easy to bypass.",
+    "skills": [
+      "After using a skill, his next basic attack deals additional damage and heals him.",
+      "Creates an area that throws enemies who attempt to move through it into the air. The main anti-mobility tool in the game.",
+      "Transforms into a ball and rolls in one direction, pushing and slowing enemies it hits.",
+      "Hits the ground: enemies caught in the area are thrown and immobilized for a moment."
+    ],
+    "strengths": [
+      "Direct response to any mobile dial",
+      "Very long sequence of checks once launched",
+      "Can isolate a target against a wall"
+    ],
+    "weaknesses": [
+      "Without his skills he has no speed",
+      "Long cooldowns at the start of the game",
+      "Not very useful against a team without movement"
+    ],
+    "builds": [
+      {
+        "name": "Anti-mobility roam",
+        "context": "The standard build, to be taken as soon as the opposing team lines up a mobile assassin."
+      }
+    ]
+  },
+  "belerick": {
+    "summary": "Taunt tank that responds to each series of blows received: the more you hit it, the more it hurts.",
+    "analysis": "Belerick is built to be hit. His passive shoots the nearest enemy as he takes damage, and increases the HP he gains from his items and emblems. Its two controls are provocations: skill 1 slows down on a line then provokes, after a short delay, the enemies remaining on the line, and the ultimate provokes everything around it. His skill 2 accelerates him, greatly slows down his target and heals him, and each trigger of the passive shortens its recharge.\n\nIts damage depends on the damage it receives: a team that ignores it takes away most of its response, and the provocation of skill 1 gives time to leave the line. His measured win rate is highest in short games and declines slowly thereafter. The measurements place him in difficulty against Lesley, Beatrix, Brody, Natalia and Marcel.",
+    "skills": [
+      "Damage he takes has a chance to unleash a magic shot on the nearest enemy, based in part on his maximum HP. The PV provided by its objects and emblems are increased: each PV object also strengthens its response.",
+      "Lianas leave in a line, wound and slow down, then the seeds left on the path provoke the enemies still on them a moment later. The slowdown serves to keep them there.",
+      "Speeds it up and strengthens its next basic attack, which greatly slows the target and heals it for part of its missing HP. Each shot of the passive reduces its recharge.",
+      "Vines spring up around him, hitting several times and taunting all enemies in the area. To throw in the middle of the opposing team, so that they turn towards him."
+    ],
+    "strengths": [
+      "Two provocations, including one from the ultimate zone",
+      "An automatic response when he takes damage",
+      "Heal and acceleration on skill 2",
+      "Additional HP gained from each item"
+    ],
+    "weaknesses": [
+      "Little damage if the opponent doesn't hit it",
+      "A delayed skill 1 taunt, which is avoided by leaving the line",
+      "Struggling against Lesley, Beatrix and Brody according to measurements"
+    ],
+    "builds": [
+      {
+        "name": "Roam PV",
+        "context": "The most played build: Dominance Ice reduces the healing of enemies around him, Chastise Pauldron slows the attack of those who hit him, Guardian Helmet stacks the HP that his passive strengthens."
+      },
+      {
+        "name": "Mixed resistors",
+        "context": "Second most played build, associated with Vengeance: Antique Cuirass against physical damage from skills, Athena's Shield against magic damage, when the opposing team mixes the two."
+      }
+    ]
+  },
+  "atlas": {
+    "summary": "Initiator tank which attracts several heroes at once and places them wherever he decides.",
+    "analysis": "Atlas engages in two stages. His ultimate throws chains that slow down hit heroes while he channels, then, revived, pulls them towards him and crushes them in the chosen location; only a deletion can interrupt it. His skill 2 makes him come out of his armor to move faster, immune to slowdowns, before the machine joins him by stunning around it. Each skill launched creates a zone of cold around itself which slows down, then freezes the enemies who remain there.\n\nHis numbers vary depending on the rank: his measured victory rate is higher in Mythic and Mythic Honor than in Mythic Glory, where he is however more banned. He is among the reinforced heroes of patch 2.1.88, with no details published on the wiki. His best duets measured are with supports – Mathilda, Floryn, Estes, Rafaela – and the measurements place him clearly in difficulty against Marcel, then against Wanwan, Alice, Valentina and Lancelot.",
+    "skills": [
+      "Each skill launched surrounds it for a few seconds with an icy breath: the enemies who remain there are slowed down more and more, then frozen for a short moment. He gains defenses while the breath is active.",
+      "Hits the ground and causes three explosions around him. Out of her armor, the pilot and the machine both launch her.",
+      "He leaves the machine, faster and insensitive to slowdowns, while it follows him faster and faster. When they join together, nearby enemies are damaged and stunned. Pilot and machine share a HP bar and take less damage during this phase.",
+      "Launches chains that slow down heroes hit while channeling, which only interrupts a removal. Relaunched, it brings them back towards it and crushes them in the chosen place. Out of its armor, the machine returns immediately but the stun becomes a slowdown."
+    ],
+    "strengths": [
+      "Move multiple heroes at once with ultimate",
+      "A pipeline interrupted only by a deletion",
+      "Insensitive to slowdowns when leaving the machine",
+      "A cold zone that slows down and then freezes"
+    ],
+    "weaknesses": [
+      "Clearly in difficulty against Marcel according to the measurements",
+      "Win rate measured lower in Mythic Glory",
+      "A stun lost if the ultimate goes out of its armor",
+      "In difficulty against Wanwan, Alice and Valentina"
+    ],
+    "builds": [
+      {
+        "name": "Resistant initiation",
+        "context": "The most played build: Dominance Ice for resistances and healing reduction around him, Radiant Armor against magic, Chastise Pauldron against basic attacks."
+      },
+      {
+        "name": "Against magic",
+        "context": "Athena's Shield in place of Radiant Armor, with the support emblem: less played, with a better measured win rate. Best used against an opposing team with high magic damage."
+      }
+    ]
+  },
+  "barats": {
+    "summary": "Tank jungler whose mount grows with each skill that hits, and who swallows an opponent only to spit them out against a wall.",
+    "analysis": "Barats plays on accumulation. Each skill that hits makes Detona, his mount, grow bigger and gives him additional defenses; at maximum charge, its basic attacks become area tramples which maintain the effect. Skill 2 slows down and brings enemies back towards him, and the ultimate throws Detona on the first enemy hit: the target is swallowed, neutralized, then spat out, and explodes with a stun if it hits a hero or a wall. Barats is unresponsive to controls during the maneuver.\n\nIts measured performance is concentrated at the start of the game: high victory rate in short games, then below fifty percent after the sixteenth minute. It is growing in popularity, with selection and ban rates increasing over the last thirty days. The measurements place him very clearly in difficulty facing X.Borg, then facing Gord, Alice, Yve and Uranus.",
+    "skills": [
+      "Each skill that hits adds a charge for a few seconds: Detona grows and gains defenses and resistance to controls. At max charge, his basic attacks become AoE stomps that extend charges.",
+      "Detona spits oil in a fan, which Barats immediately ignites. The area grows with the number of charges: this is its ability to clean and maintain the charges.",
+      "Two missiles fall on an area and slow down, then their blast pushes enemies towards Barats. Used to bring a target within range of the ultimate.",
+      "After a short delay, Detona charges and swallows the first enemy hit, incapacitating them and then spitting them out. If the target hits a hero or a wall, it explodes and stuns nearby enemies. Barats ignores checks for the duration, and canceling refunds part of the cooldown."
+    ],
+    "strengths": [
+      "Defenses that increase with each skill that hits",
+      "An ultimate that neutralizes a target and stuns against a wall",
+      "Unaffected by controls during the ultimate",
+      "A skill 2 that brings enemies towards him"
+    ],
+    "weaknesses": [
+      "Win rate measured as a clear drop in long games",
+      "Must touch his skills to keep his charges",
+      "Very clearly in difficulty against X.Borg according to measurements"
+    ],
+    "builds": [
+      {
+        "name": "Jungle Tank",
+        "context": "The most played build in the jungle: War Axe for lifesteal, Brute Force Breastplate for HP and reduction of the duration of controls when he takes damage, Oracle to reinforce the healing and shields he receives."
+      }
+    ]
+  },
+  "minotaur": {
+    "summary": "Roam tank who heals his team as much as he protects them, and whose ultimate makes him go into a rage to strengthen his skills.",
+    "analysis": "Minotaur provides two things: control and healing. His skill 1 makes him jump over an area, briefly throwing enemies and reinforcing his following attacks; his skill 2 heals the most injured ally nearby as well as himself. The ultimate hits the ground three times, slows down then throws it into the air, making it insensitive to controls during the attack and causing it to go into a rage: for several seconds, its skills are reinforced and its healing affects all nearby allies.\n\nHe is rarely banned despite a victory rate measured above average at all ranks, a gap which slowly erodes in long games. He is among the reinforced heroes of patch 2.1.88, with no details published on the wiki. The measurements place him in difficulty against Beatrix, Ixia, Carmilla, Alice and Yve.",
+    "skills": [
+      "Each skill launched gives him a temporary bonus and heals him for part of the damage inflicted on him by opposing heroes. In rage, these effects are doubled.",
+      "Jumps over an area, briefly throws enemies and slows them, then strengthens its basic attacks for a few seconds. In rage, area and damage increase.",
+      "Heals the most injured nearby ally and himself, based on his missing HP. In rage, the healing extends to all nearby allies: this is the skill to keep for the end of a fight.",
+      "Hit the ground three times: the first two hits slow down significantly, the last one throws into the air. He ignores controls during the attack, then rages for several seconds with enhanced skills."
+    ],
+    "strengths": [
+      "A heal on the most injured ally, then on all enraged allies",
+      "Two projections, at the leap and at the ultimate",
+      "Unaffected by controls during the ultimate",
+      "Win rate measured above average at all ranks"
+    ],
+    "weaknesses": [
+      "Skills only strengthened during the rage following the ultimate",
+      "Measured win rate which erodes in long games",
+      "In difficulty against Beatrix, Ixia and Carmilla according to measurements"
+    ],
+    "builds": [
+      {
+        "name": "Treatment Roam",
+        "context": "The most played build: Flask of the Oasis grants a shield to healed allies at low HP and reduces their recharges, Dominance Ice and Radiant Armor complement the resistances."
+      },
+      {
+        "name": "Care received",
+        "context": "Oracle instead of Radiant Armor reinforces the healing and shields he receives, including his own: less played, with a victory rate measured higher."
+      }
+    ]
+  }
+}

@@ -179,7 +179,7 @@ export function GlobalSearch() {
         onClick={() => setOpen(true)}
         aria-label={t("search.open")}
         aria-keyshortcuts="Control+K Meta+K"
-        className="bevel-sm flex items-center gap-2 border border-night-700 px-2 py-1.5 text-sm sm:px-2.5 text-chalk-400 transition-colors hover:border-gold-500/60 hover:text-gold-400"
+        className="bevel-sm flex h-9 min-w-9 items-center justify-center gap-2 border border-night-700 px-2 text-sm sm:px-2.5 text-chalk-400 transition-colors hover:border-gold-500/60 hover:text-gold-400"
       >
         <Search size={16} aria-hidden />
         <span className="hidden 2xl:inline">{t("search.open")}</span>

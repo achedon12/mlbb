@@ -11,7 +11,7 @@
     "breadcrumb": "Breadcrumb",
     "sections": "Bagian halaman",
     "close": "Tutup",
-    "homeDescription": "Basis pengetahuan Mobile Legends: Bang Bang: 133 hero, counter dan build mereka berdasarkan peringkat, tier list, item, emblem, dan patch notes.",
+    "homeDescription": "Basis pengetahuan Mobile Legends: Bang Bang: {heroes} hero, counter dan build mereka berdasarkan peringkat, tier list, item, emblem, dan patch notes.",
     "siblings": "Halaman lain pada level yang sama dengan {name}",
     "filter": "Filter…",
     "contents": "Daftar isi",
@@ -373,6 +373,7 @@
       "weaknesses": "Kelemahan",
       "analysisPending": "Analisis sedang ditulis",
       "analysisText": "Data untuk {name} adalah yang terbaru — berasal langsung dari wiki. Yang kurang adalah komentarnya: apa yang sebenarnya dilakukan sang hero, build-nya, dan counter-nya. Ini tidak dapat diekstraksi, ada tertulis.",
+      "analysisTranslated": "Analisis ditulis dalam bahasa Prancis dan diterjemahkan secara otomatis.",
       "contribute": "Berkontribusi pada analisis ini →",
       "countersIntro": "Berdasarkan win rate permainan: penyebaran poin menunjukkan seberapa besar perbedaan tingkat {name} terhadap setiap lawan.",
       "countersRef": "Win rate dasar: {rate}%.",
@@ -823,7 +824,7 @@
       "statPending": "Menunggu analisis",
       "principleTitle": "Apa yang Anda tulis",
       "principle1": "Peran, posisi, skill, skin, statistik, dan build yang dimainkan tiba melalui sinkronisasi otomatis wiki dan API komunitas. Analisis hanya memberikan apa yang tidak dihasilkan oleh ekstraksi: apa yang sebenarnya dilakukan hero, kekuatan dan kelemahannya, serangan baliknya, dan penjelasan buildnya.",
-      "principle2": "Analisisnya ditulis dalam bahasa Perancis, bahasa asli situs ini. Masing-masing adalah entri TypeScript, ditambahkan ke file peran hero di `src/data/heros/`.",
+      "principle2": "Analisisnya ditulis dalam bahasa Perancis, bahasa asli situs ini. Masing-masing adalah entri TypeScript, ditambahkan ke file peran hero di `src/data/heroes/`.",
       "fieldsTitle": "Ladang",
       "fieldsIntro": "Analisis mengikuti tipe `AnalyseHeros` dari `src/lib/types.ts`. Skill dan build miliknya masing-masing memiliki bentuknya masing-masing.",
       "group": {
@@ -2620,6 +2621,7 @@
       "allVersions": "Semua versi Server muka",
       "seo": {
         "title": "Patch notes Advanced Server MLBB {v}: buff, nerf, dan perubahan",
+        "titleHub": "Patch notes Advance Server MLBB: semua versi (terbaru {v})",
         "titleGeneric": "Patch notes Advanced Server MLBB: buff, nerf, dan perubahan",
         "description": "Catatan dari server Advance, server uji Mobile Legends: versi dokumentasi terbaru {version}, dengan {buffs} buff, {nerfs} nerf, dan {adjust} penyesuaian hero. Perubahan dalam pengujian, yang mungkin berkembang sebelum server resmi.",
         "descriptionVersion": "Advanced Server MLBB {version}: {buffs} hero ditingkatkan, {nerfs} melemah dan {adjust} disesuaikan, termasuk {heroes}. Perubahan dalam pengujian, yang mungkin berkembang sebelum server resmi.",
@@ -2676,7 +2678,7 @@
         "picks": "{n} pilihan",
         "bans": "{n} ban",
         "presence": "Kehadiran {value}",
-        "record": "{wins} V – {losses} D",
+        "record": "{wins} M – {losses} K",
         "none": "Tidak ada permainan profesional yang dicatat selama periode ini untuk saat ini."
       },
       "versus": {
@@ -4271,6 +4273,7 @@
         "title": "Forum Mobile Legends dan pencari rekan tim",
         "description": "Forum komunitas MLBBDex: hero dan build, bantuan ranked, esports, panduan pemain, dan pemain Mobile Legends untuk diajak satu tim berdasarkan region, rank, dan lane.",
         "categoryTitle": "{name} – forum Mobile Legends",
+        "categoryDescription": "{description} Thread “{name}” di forum Mobile Legends MLBBDex, terbuka untuk semua pemain.",
         "threadTitle": "{title} – forum MLBB"
       },
       "categories": {

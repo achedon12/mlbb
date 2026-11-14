@@ -26,6 +26,9 @@ const OPTIONS: sanitizeHtml.IOptions = {
   transformTags: {
     a: sanitizeHtml.simpleTransform("a", { rel: "noreferrer nofollow", target: "_blank" }),
   },
+  // The wiki wraps its item icons in links: once the image is dropped, an
+  // empty link remains, which a screen reader announces with no name.
+  exclusiveFilter: (frame) => frame.tag === "a" && !frame.text.trim(),
 };
 
 export function cleanHtml(html: string): string {
