@@ -4251,6 +4251,23 @@
       "whereTitle": "Dove trovare questi numeri",
       "wherePath": "Profilo > Vetrina > Collezione",
       "whereHint": "Apri il riepilogo dei punti collezione delle skin: ogni categoria mostra \"possedute/totale\" e i suoi punti. Copia il primo numero di ogni riga.",
+      "scan": {
+        "button": "Leggi uno screenshot",
+        "retry": "Prova un'altra immagine",
+        "hint": "Oppure trascinalo qui, o incollalo (Ctrl+V).",
+        "privacy": "L'immagine viene letta nel tuo browser: non lascia mai il tuo dispositivo.",
+        "loading": "Caricamento del lettore (qualche MB, solo la prima volta)…",
+        "reading": "Lettura dell'immagine…",
+        "done": "Valori rilevati dal tuo screenshot: controllali.",
+        "headerOk": "Il totale letto ({total}) corrisponde alla somma delle righe.",
+        "headerOff": "Il totale letto ({read}) non corrisponde alla somma delle righe ({sum}): controlla i campi segnalati.",
+        "rowsCheck": "Da controllare: {tiers}.",
+        "missing": "Non lette, da compilare a mano: {tiers}.",
+        "failed": "Nessun riepilogo dei punti collezione trovato in questa immagine. Prova uno screenshot nitido della Vetrina, con il pannello aperto.",
+        "error": "Il lettore non si è avviato in questo browser. Ricopia i numeri a mano.",
+        "detected": "rilevato",
+        "check": "da controllare"
+      },
       "tier": {
         "legend": "Suprema",
         "grand": "Grandiosa",

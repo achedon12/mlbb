@@ -4251,6 +4251,23 @@
       "whereTitle": "Where to find these numbers",
       "wherePath": "Profile > Showcase > Collection",
       "whereHint": "Open the skin collection points overview: each tier shows \"owned/total\" and its points. Copy the first number of each row.",
+      "scan": {
+        "button": "Read a screenshot",
+        "retry": "Try another image",
+        "hint": "Or drop it here, or paste it (Ctrl+V).",
+        "privacy": "The image is read in your browser: it never leaves your device.",
+        "loading": "Loading the reader (a few MB, the first time only)…",
+        "reading": "Reading the image…",
+        "done": "Values detected on your screenshot: check them.",
+        "headerOk": "The total read ({total}) matches the sum of the rows.",
+        "headerOff": "The total read ({read}) does not match the sum of the rows ({sum}): check the flagged fields.",
+        "rowsCheck": "To check: {tiers}.",
+        "missing": "Not read, fill in by hand: {tiers}.",
+        "failed": "No skin collection points overview found in this image. Try a sharp screenshot of the Showcase, with the panel open.",
+        "error": "The reader could not start in this browser. Copy the numbers by hand.",
+        "detected": "detected",
+        "check": "to check"
+      },
       "tier": {
         "legend": "Supreme",
         "grand": "Grand",

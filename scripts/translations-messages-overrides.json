@@ -4143,6 +4143,66 @@
     "pages.accountValue.drawSources": {
       "fr": "Sources des coûts de tirage :",
       "text": "Draw cost sources:"
+    },
+    "pages.accountValueUI.scan.button": {
+      "fr": "Lire une capture d'écran",
+      "text": "Read a screenshot"
+    },
+    "pages.accountValueUI.scan.retry": {
+      "fr": "Essayer une autre image",
+      "text": "Try another image"
+    },
+    "pages.accountValueUI.scan.hint": {
+      "fr": "Ou déposez-la ici, ou collez-la (Ctrl+V).",
+      "text": "Or drop it here, or paste it (Ctrl+V)."
+    },
+    "pages.accountValueUI.scan.privacy": {
+      "fr": "L'image est lue dans votre navigateur : elle ne quitte jamais votre appareil.",
+      "text": "The image is read in your browser: it never leaves your device."
+    },
+    "pages.accountValueUI.scan.loading": {
+      "fr": "Chargement du lecteur (quelques Mo, la première fois seulement)…",
+      "text": "Loading the reader (a few MB, the first time only)…"
+    },
+    "pages.accountValueUI.scan.reading": {
+      "fr": "Lecture de l'image…",
+      "text": "Reading the image…"
+    },
+    "pages.accountValueUI.scan.done": {
+      "fr": "Valeurs détectées sur votre capture : vérifiez-les.",
+      "text": "Values detected on your screenshot: check them."
+    },
+    "pages.accountValueUI.scan.headerOk": {
+      "fr": "Le total lu ({total}) correspond à la somme des lignes.",
+      "text": "The total read ({total}) matches the sum of the rows."
+    },
+    "pages.accountValueUI.scan.headerOff": {
+      "fr": "Le total lu ({read}) ne correspond pas à la somme des lignes ({sum}) : vérifiez les cases signalées.",
+      "text": "The total read ({read}) does not match the sum of the rows ({sum}): check the flagged fields."
+    },
+    "pages.accountValueUI.scan.rowsCheck": {
+      "fr": "À vérifier : {tiers}.",
+      "text": "To check: {tiers}."
+    },
+    "pages.accountValueUI.scan.missing": {
+      "fr": "Non lues, à remplir à la main : {tiers}.",
+      "text": "Not read, fill in by hand: {tiers}."
+    },
+    "pages.accountValueUI.scan.failed": {
+      "fr": "Aucun aperçu des points de collection reconnu sur cette image. Essayez une capture nette de la Vitrine, panneau ouvert.",
+      "text": "No skin collection points overview found in this image. Try a sharp screenshot of the Showcase, with the panel open."
+    },
+    "pages.accountValueUI.scan.error": {
+      "fr": "Le lecteur n'a pas pu démarrer dans ce navigateur. Recopiez les nombres à la main.",
+      "text": "The reader could not start in this browser. Copy the numbers by hand."
+    },
+    "pages.accountValueUI.scan.detected": {
+      "fr": "détecté",
+      "text": "detected"
+    },
+    "pages.accountValueUI.scan.check": {
+      "fr": "à vérifier",
+      "text": "to check"
     }
   },
   "es": {
@@ -8141,6 +8201,66 @@
     "pages.accountValue.drawSources": {
       "fr": "Sources des coûts de tirage :",
       "text": "Fuentes de los costes de sorteo:"
+    },
+    "pages.accountValueUI.scan.button": {
+      "fr": "Lire une capture d'écran",
+      "text": "Leer una captura de pantalla"
+    },
+    "pages.accountValueUI.scan.retry": {
+      "fr": "Essayer une autre image",
+      "text": "Probar otra imagen"
+    },
+    "pages.accountValueUI.scan.hint": {
+      "fr": "Ou déposez-la ici, ou collez-la (Ctrl+V).",
+      "text": "O suéltala aquí, o pégala (Ctrl+V)."
+    },
+    "pages.accountValueUI.scan.privacy": {
+      "fr": "L'image est lue dans votre navigateur : elle ne quitte jamais votre appareil.",
+      "text": "La imagen se lee en tu navegador: nunca sale de tu dispositivo."
+    },
+    "pages.accountValueUI.scan.loading": {
+      "fr": "Chargement du lecteur (quelques Mo, la première fois seulement)…",
+      "text": "Cargando el lector (unos MB, solo la primera vez)…"
+    },
+    "pages.accountValueUI.scan.reading": {
+      "fr": "Lecture de l'image…",
+      "text": "Leyendo la imagen…"
+    },
+    "pages.accountValueUI.scan.done": {
+      "fr": "Valeurs détectées sur votre capture : vérifiez-les.",
+      "text": "Valores detectados en tu captura: compruébalos."
+    },
+    "pages.accountValueUI.scan.headerOk": {
+      "fr": "Le total lu ({total}) correspond à la somme des lignes.",
+      "text": "El total leído ({total}) coincide con la suma de las filas."
+    },
+    "pages.accountValueUI.scan.headerOff": {
+      "fr": "Le total lu ({read}) ne correspond pas à la somme des lignes ({sum}) : vérifiez les cases signalées.",
+      "text": "El total leído ({read}) no coincide con la suma de las filas ({sum}): revisa los campos marcados."
+    },
+    "pages.accountValueUI.scan.rowsCheck": {
+      "fr": "À vérifier : {tiers}.",
+      "text": "Por revisar: {tiers}."
+    },
+    "pages.accountValueUI.scan.missing": {
+      "fr": "Non lues, à remplir à la main : {tiers}.",
+      "text": "No leídas, rellénalas a mano: {tiers}."
+    },
+    "pages.accountValueUI.scan.failed": {
+      "fr": "Aucun aperçu des points de collection reconnu sur cette image. Essayez une capture nette de la Vitrine, panneau ouvert.",
+      "text": "No se encontró ningún resumen de puntos de colección en esta imagen. Prueba con una captura nítida del Escaparate, con el panel abierto."
+    },
+    "pages.accountValueUI.scan.error": {
+      "fr": "Le lecteur n'a pas pu démarrer dans ce navigateur. Recopiez les nombres à la main.",
+      "text": "El lector no pudo iniciarse en este navegador. Copia los números a mano."
+    },
+    "pages.accountValueUI.scan.detected": {
+      "fr": "détecté",
+      "text": "detectado"
+    },
+    "pages.accountValueUI.scan.check": {
+      "fr": "à vérifier",
+      "text": "por revisar"
     }
   },
   "id": {
@@ -14183,6 +14303,66 @@
     "pages.accountValue.drawSources": {
       "fr": "Sources des coûts de tirage :",
       "text": "Sumber biaya draw:"
+    },
+    "pages.accountValueUI.scan.button": {
+      "fr": "Lire une capture d'écran",
+      "text": "Baca screenshot"
+    },
+    "pages.accountValueUI.scan.retry": {
+      "fr": "Essayer une autre image",
+      "text": "Coba gambar lain"
+    },
+    "pages.accountValueUI.scan.hint": {
+      "fr": "Ou déposez-la ici, ou collez-la (Ctrl+V).",
+      "text": "Atau taruh di sini, atau tempel (Ctrl+V)."
+    },
+    "pages.accountValueUI.scan.privacy": {
+      "fr": "L'image est lue dans votre navigateur : elle ne quitte jamais votre appareil.",
+      "text": "Gambar dibaca di browser-mu: tidak pernah keluar dari perangkatmu."
+    },
+    "pages.accountValueUI.scan.loading": {
+      "fr": "Chargement du lecteur (quelques Mo, la première fois seulement)…",
+      "text": "Memuat pembaca (beberapa MB, hanya pertama kali)…"
+    },
+    "pages.accountValueUI.scan.reading": {
+      "fr": "Lecture de l'image…",
+      "text": "Membaca gambar…"
+    },
+    "pages.accountValueUI.scan.done": {
+      "fr": "Valeurs détectées sur votre capture : vérifiez-les.",
+      "text": "Nilai terdeteksi dari screenshot-mu: periksa kembali."
+    },
+    "pages.accountValueUI.scan.headerOk": {
+      "fr": "Le total lu ({total}) correspond à la somme des lignes.",
+      "text": "Total yang terbaca ({total}) sama dengan jumlah baris."
+    },
+    "pages.accountValueUI.scan.headerOff": {
+      "fr": "Le total lu ({read}) ne correspond pas à la somme des lignes ({sum}) : vérifiez les cases signalées.",
+      "text": "Total yang terbaca ({read}) tidak sama dengan jumlah baris ({sum}): periksa kolom yang ditandai."
+    },
+    "pages.accountValueUI.scan.rowsCheck": {
+      "fr": "À vérifier : {tiers}.",
+      "text": "Perlu dicek: {tiers}."
+    },
+    "pages.accountValueUI.scan.missing": {
+      "fr": "Non lues, à remplir à la main : {tiers}.",
+      "text": "Tidak terbaca, isi manual: {tiers}."
+    },
+    "pages.accountValueUI.scan.failed": {
+      "fr": "Aucun aperçu des points de collection reconnu sur cette image. Essayez une capture nette de la Vitrine, panneau ouvert.",
+      "text": "Tidak ada ringkasan poin koleksi skin di gambar ini. Coba screenshot Showcase yang jelas, dengan panelnya terbuka."
+    },
+    "pages.accountValueUI.scan.error": {
+      "fr": "Le lecteur n'a pas pu démarrer dans ce navigateur. Recopiez les nombres à la main.",
+      "text": "Pembaca tidak bisa berjalan di browser ini. Salin angkanya secara manual."
+    },
+    "pages.accountValueUI.scan.detected": {
+      "fr": "détecté",
+      "text": "terdeteksi"
+    },
+    "pages.accountValueUI.scan.check": {
+      "fr": "à vérifier",
+      "text": "perlu dicek"
     }
   },
   "it": {
@@ -18209,6 +18389,66 @@
     "pages.accountValue.drawSources": {
       "fr": "Sources des coûts de tirage :",
       "text": "Fonti dei costi delle estrazioni:"
+    },
+    "pages.accountValueUI.scan.button": {
+      "fr": "Lire une capture d'écran",
+      "text": "Leggi uno screenshot"
+    },
+    "pages.accountValueUI.scan.retry": {
+      "fr": "Essayer une autre image",
+      "text": "Prova un'altra immagine"
+    },
+    "pages.accountValueUI.scan.hint": {
+      "fr": "Ou déposez-la ici, ou collez-la (Ctrl+V).",
+      "text": "Oppure trascinalo qui, o incollalo (Ctrl+V)."
+    },
+    "pages.accountValueUI.scan.privacy": {
+      "fr": "L'image est lue dans votre navigateur : elle ne quitte jamais votre appareil.",
+      "text": "L'immagine viene letta nel tuo browser: non lascia mai il tuo dispositivo."
+    },
+    "pages.accountValueUI.scan.loading": {
+      "fr": "Chargement du lecteur (quelques Mo, la première fois seulement)…",
+      "text": "Caricamento del lettore (qualche MB, solo la prima volta)…"
+    },
+    "pages.accountValueUI.scan.reading": {
+      "fr": "Lecture de l'image…",
+      "text": "Lettura dell'immagine…"
+    },
+    "pages.accountValueUI.scan.done": {
+      "fr": "Valeurs détectées sur votre capture : vérifiez-les.",
+      "text": "Valori rilevati dal tuo screenshot: controllali."
+    },
+    "pages.accountValueUI.scan.headerOk": {
+      "fr": "Le total lu ({total}) correspond à la somme des lignes.",
+      "text": "Il totale letto ({total}) corrisponde alla somma delle righe."
+    },
+    "pages.accountValueUI.scan.headerOff": {
+      "fr": "Le total lu ({read}) ne correspond pas à la somme des lignes ({sum}) : vérifiez les cases signalées.",
+      "text": "Il totale letto ({read}) non corrisponde alla somma delle righe ({sum}): controlla i campi segnalati."
+    },
+    "pages.accountValueUI.scan.rowsCheck": {
+      "fr": "À vérifier : {tiers}.",
+      "text": "Da controllare: {tiers}."
+    },
+    "pages.accountValueUI.scan.missing": {
+      "fr": "Non lues, à remplir à la main : {tiers}.",
+      "text": "Non lette, da compilare a mano: {tiers}."
+    },
+    "pages.accountValueUI.scan.failed": {
+      "fr": "Aucun aperçu des points de collection reconnu sur cette image. Essayez une capture nette de la Vitrine, panneau ouvert.",
+      "text": "Nessun riepilogo dei punti collezione trovato in questa immagine. Prova uno screenshot nitido della Vetrina, con il pannello aperto."
+    },
+    "pages.accountValueUI.scan.error": {
+      "fr": "Le lecteur n'a pas pu démarrer dans ce navigateur. Recopiez les nombres à la main.",
+      "text": "Il lettore non si è avviato in questo browser. Ricopia i numeri a mano."
+    },
+    "pages.accountValueUI.scan.detected": {
+      "fr": "détecté",
+      "text": "rilevato"
+    },
+    "pages.accountValueUI.scan.check": {
+      "fr": "à vérifier",
+      "text": "da controllare"
     }
   },
   "fil": {
@@ -32807,6 +33047,66 @@
     "pages.accountValueUI.pointsCheck": {
       "fr": "Comparez avec le total de votre Vitrine : s'il est identique, vos nombres sont justes.",
       "text": "Ihambing ito sa kabuuan sa iyong Showcase: kung magkapareho, tama ang iyong mga numero."
+    },
+    "pages.accountValueUI.scan.button": {
+      "fr": "Lire une capture d'écran",
+      "text": "Basahin ang screenshot"
+    },
+    "pages.accountValueUI.scan.retry": {
+      "fr": "Essayer une autre image",
+      "text": "Subukan ang ibang larawan"
+    },
+    "pages.accountValueUI.scan.hint": {
+      "fr": "Ou déposez-la ici, ou collez-la (Ctrl+V).",
+      "text": "O i-drop ito rito, o i-paste (Ctrl+V)."
+    },
+    "pages.accountValueUI.scan.privacy": {
+      "fr": "L'image est lue dans votre navigateur : elle ne quitte jamais votre appareil.",
+      "text": "Binabasa ang larawan sa iyong browser: hindi ito umaalis sa iyong device."
+    },
+    "pages.accountValueUI.scan.loading": {
+      "fr": "Chargement du lecteur (quelques Mo, la première fois seulement)…",
+      "text": "Nilo-load ang reader (ilang MB, sa unang beses lang)…"
+    },
+    "pages.accountValueUI.scan.reading": {
+      "fr": "Lecture de l'image…",
+      "text": "Binabasa ang larawan…"
+    },
+    "pages.accountValueUI.scan.done": {
+      "fr": "Valeurs détectées sur votre capture : vérifiez-les.",
+      "text": "Mga value na nakita sa iyong screenshot: suriin ang mga ito."
+    },
+    "pages.accountValueUI.scan.headerOk": {
+      "fr": "Le total lu ({total}) correspond à la somme des lignes.",
+      "text": "Tugma ang nabasang total ({total}) sa kabuuan ng mga hilera."
+    },
+    "pages.accountValueUI.scan.headerOff": {
+      "fr": "Le total lu ({read}) ne correspond pas à la somme des lignes ({sum}) : vérifiez les cases signalées.",
+      "text": "Hindi tugma ang nabasang total ({read}) sa kabuuan ng mga hilera ({sum}): suriin ang mga minarkahang field."
+    },
+    "pages.accountValueUI.scan.rowsCheck": {
+      "fr": "À vérifier : {tiers}.",
+      "text": "Suriin: {tiers}."
+    },
+    "pages.accountValueUI.scan.missing": {
+      "fr": "Non lues, à remplir à la main : {tiers}.",
+      "text": "Hindi nabasa, punan nang mano-mano: {tiers}."
+    },
+    "pages.accountValueUI.scan.failed": {
+      "fr": "Aucun aperçu des points de collection reconnu sur cette image. Essayez une capture nette de la Vitrine, panneau ouvert.",
+      "text": "Walang nakitang skin collection points overview sa larawang ito. Subukan ang malinaw na screenshot ng Showcase na bukas ang panel."
+    },
+    "pages.accountValueUI.scan.error": {
+      "fr": "Le lecteur n'a pas pu démarrer dans ce navigateur. Recopiez les nombres à la main.",
+      "text": "Hindi nakapagsimula ang reader sa browser na ito. Kopyahin nang mano-mano ang mga numero."
+    },
+    "pages.accountValueUI.scan.detected": {
+      "fr": "détecté",
+      "text": "nakita"
+    },
+    "pages.accountValueUI.scan.check": {
+      "fr": "à vérifier",
+      "text": "suriin"
     }
   },
   "th": {
@@ -46381,6 +46681,66 @@
     "pages.accountValueUI.import_variants": {
       "fr": "Les apparences colorées et éclatantes ne sont pas dans le catalogue : ajoutez-les à la main.",
       "text": "สกิน Painted และ Shining ไม่อยู่ในแค็ตตาล็อก: กรอกเพิ่มเอง"
+    },
+    "pages.accountValueUI.scan.button": {
+      "fr": "Lire une capture d'écran",
+      "text": "อ่านภาพหน้าจอ"
+    },
+    "pages.accountValueUI.scan.retry": {
+      "fr": "Essayer une autre image",
+      "text": "ลองภาพอื่น"
+    },
+    "pages.accountValueUI.scan.hint": {
+      "fr": "Ou déposez-la ici, ou collez-la (Ctrl+V).",
+      "text": "หรือลากมาวางที่นี่ หรือวาง (Ctrl+V)"
+    },
+    "pages.accountValueUI.scan.privacy": {
+      "fr": "L'image est lue dans votre navigateur : elle ne quitte jamais votre appareil.",
+      "text": "ภาพถูกอ่านในเบราว์เซอร์ของคุณ: ไม่ออกจากอุปกรณ์ของคุณเลย"
+    },
+    "pages.accountValueUI.scan.loading": {
+      "fr": "Chargement du lecteur (quelques Mo, la première fois seulement)…",
+      "text": "กำลังโหลดตัวอ่าน (ไม่กี่ MB เฉพาะครั้งแรก)…"
+    },
+    "pages.accountValueUI.scan.reading": {
+      "fr": "Lecture de l'image…",
+      "text": "กำลังอ่านภาพ…"
+    },
+    "pages.accountValueUI.scan.done": {
+      "fr": "Valeurs détectées sur votre capture : vérifiez-les.",
+      "text": "ค่าที่ตรวจพบจากภาพหน้าจอของคุณ: โปรดตรวจสอบ"
+    },
+    "pages.accountValueUI.scan.headerOk": {
+      "fr": "Le total lu ({total}) correspond à la somme des lignes.",
+      "text": "ผลรวมที่อ่านได้ ({total}) ตรงกับผลรวมของแต่ละแถว"
+    },
+    "pages.accountValueUI.scan.headerOff": {
+      "fr": "Le total lu ({read}) ne correspond pas à la somme des lignes ({sum}) : vérifiez les cases signalées.",
+      "text": "ผลรวมที่อ่านได้ ({read}) ไม่ตรงกับผลรวมของแถว ({sum}): ตรวจสอบช่องที่ทำเครื่องหมายไว้"
+    },
+    "pages.accountValueUI.scan.rowsCheck": {
+      "fr": "À vérifier : {tiers}.",
+      "text": "ต้องตรวจสอบ: {tiers}"
+    },
+    "pages.accountValueUI.scan.missing": {
+      "fr": "Non lues, à remplir à la main : {tiers}.",
+      "text": "อ่านไม่ได้ กรอกเอง: {tiers}"
+    },
+    "pages.accountValueUI.scan.failed": {
+      "fr": "Aucun aperçu des points de collection reconnu sur cette image. Essayez une capture nette de la Vitrine, panneau ouvert.",
+      "text": "ไม่พบภาพรวมแต้มคอลเลกชันสกินในภาพนี้ ลองใช้ภาพหน้าจอ Showcase ที่ชัดเจนและเปิดแผงไว้"
+    },
+    "pages.accountValueUI.scan.error": {
+      "fr": "Le lecteur n'a pas pu démarrer dans ce navigateur. Recopiez les nombres à la main.",
+      "text": "ตัวอ่านเริ่มทำงานในเบราว์เซอร์นี้ไม่ได้ กรอกตัวเลขเอง"
+    },
+    "pages.accountValueUI.scan.detected": {
+      "fr": "détecté",
+      "text": "ตรวจพบ"
+    },
+    "pages.accountValueUI.scan.check": {
+      "fr": "à vérifier",
+      "text": "ต้องตรวจสอบ"
     }
   },
   "pt": {
@@ -57879,6 +58239,66 @@
     "pages.accountValueUI.pointsCheck": {
       "fr": "Comparez avec le total de votre Vitrine : s'il est identique, vos nombres sont justes.",
       "text": "Compare com o total da sua Vitrine: se for igual, seus números estão certos."
+    },
+    "pages.accountValueUI.scan.button": {
+      "fr": "Lire une capture d'écran",
+      "text": "Ler uma captura de tela"
+    },
+    "pages.accountValueUI.scan.retry": {
+      "fr": "Essayer une autre image",
+      "text": "Tentar outra imagem"
+    },
+    "pages.accountValueUI.scan.hint": {
+      "fr": "Ou déposez-la ici, ou collez-la (Ctrl+V).",
+      "text": "Ou solte-a aqui, ou cole (Ctrl+V)."
+    },
+    "pages.accountValueUI.scan.privacy": {
+      "fr": "L'image est lue dans votre navigateur : elle ne quitte jamais votre appareil.",
+      "text": "A imagem é lida no seu navegador: ela nunca sai do seu aparelho."
+    },
+    "pages.accountValueUI.scan.loading": {
+      "fr": "Chargement du lecteur (quelques Mo, la première fois seulement)…",
+      "text": "Carregando o leitor (alguns MB, só na primeira vez)…"
+    },
+    "pages.accountValueUI.scan.reading": {
+      "fr": "Lecture de l'image…",
+      "text": "Lendo a imagem…"
+    },
+    "pages.accountValueUI.scan.done": {
+      "fr": "Valeurs détectées sur votre capture : vérifiez-les.",
+      "text": "Valores detectados na sua captura: confira-os."
+    },
+    "pages.accountValueUI.scan.headerOk": {
+      "fr": "Le total lu ({total}) correspond à la somme des lignes.",
+      "text": "O total lido ({total}) bate com a soma das linhas."
+    },
+    "pages.accountValueUI.scan.headerOff": {
+      "fr": "Le total lu ({read}) ne correspond pas à la somme des lignes ({sum}) : vérifiez les cases signalées.",
+      "text": "O total lido ({read}) não bate com a soma das linhas ({sum}): confira os campos marcados."
+    },
+    "pages.accountValueUI.scan.rowsCheck": {
+      "fr": "À vérifier : {tiers}.",
+      "text": "Conferir: {tiers}."
+    },
+    "pages.accountValueUI.scan.missing": {
+      "fr": "Non lues, à remplir à la main : {tiers}.",
+      "text": "Não lidas, preencha à mão: {tiers}."
+    },
+    "pages.accountValueUI.scan.failed": {
+      "fr": "Aucun aperçu des points de collection reconnu sur cette image. Essayez une capture nette de la Vitrine, panneau ouvert.",
+      "text": "Nenhum resumo de pontos de coleção encontrado nesta imagem. Tente uma captura nítida da Vitrine, com o painel aberto."
+    },
+    "pages.accountValueUI.scan.error": {
+      "fr": "Le lecteur n'a pas pu démarrer dans ce navigateur. Recopiez les nombres à la main.",
+      "text": "O leitor não pôde iniciar neste navegador. Copie os números à mão."
+    },
+    "pages.accountValueUI.scan.detected": {
+      "fr": "détecté",
+      "text": "detectado"
+    },
+    "pages.accountValueUI.scan.check": {
+      "fr": "à vérifier",
+      "text": "conferir"
     }
   },
   "ru": {
@@ -70733,6 +71153,66 @@
     "pages.accountValueUI.pointsCheck": {
       "fr": "Comparez avec le total de votre Vitrine : s'il est identique, vos nombres sont justes.",
       "text": "Сравните с итогом в вашей Витрине: если совпадает, ваши числа верны."
+    },
+    "pages.accountValueUI.scan.button": {
+      "fr": "Lire une capture d'écran",
+      "text": "Прочитать скриншот"
+    },
+    "pages.accountValueUI.scan.retry": {
+      "fr": "Essayer une autre image",
+      "text": "Попробовать другое изображение"
+    },
+    "pages.accountValueUI.scan.hint": {
+      "fr": "Ou déposez-la ici, ou collez-la (Ctrl+V).",
+      "text": "Или перетащите его сюда, или вставьте (Ctrl+V)."
+    },
+    "pages.accountValueUI.scan.privacy": {
+      "fr": "L'image est lue dans votre navigateur : elle ne quitte jamais votre appareil.",
+      "text": "Изображение читается в вашем браузере и никогда не покидает устройство."
+    },
+    "pages.accountValueUI.scan.loading": {
+      "fr": "Chargement du lecteur (quelques Mo, la première fois seulement)…",
+      "text": "Загрузка распознавания (несколько МБ, только в первый раз)…"
+    },
+    "pages.accountValueUI.scan.reading": {
+      "fr": "Lecture de l'image…",
+      "text": "Чтение изображения…"
+    },
+    "pages.accountValueUI.scan.done": {
+      "fr": "Valeurs détectées sur votre capture : vérifiez-les.",
+      "text": "Значения со скриншота: проверьте их."
+    },
+    "pages.accountValueUI.scan.headerOk": {
+      "fr": "Le total lu ({total}) correspond à la somme des lignes.",
+      "text": "Прочитанный итог ({total}) совпадает с суммой строк."
+    },
+    "pages.accountValueUI.scan.headerOff": {
+      "fr": "Le total lu ({read}) ne correspond pas à la somme des lignes ({sum}) : vérifiez les cases signalées.",
+      "text": "Прочитанный итог ({read}) не совпадает с суммой строк ({sum}): проверьте отмеченные поля."
+    },
+    "pages.accountValueUI.scan.rowsCheck": {
+      "fr": "À vérifier : {tiers}.",
+      "text": "Проверить: {tiers}."
+    },
+    "pages.accountValueUI.scan.missing": {
+      "fr": "Non lues, à remplir à la main : {tiers}.",
+      "text": "Не прочитаны, заполните вручную: {tiers}."
+    },
+    "pages.accountValueUI.scan.failed": {
+      "fr": "Aucun aperçu des points de collection reconnu sur cette image. Essayez une capture nette de la Vitrine, panneau ouvert.",
+      "text": "На этом изображении не найден обзор очков коллекции скинов. Попробуйте чёткий скриншот Витрины с открытой панелью."
+    },
+    "pages.accountValueUI.scan.error": {
+      "fr": "Le lecteur n'a pas pu démarrer dans ce navigateur. Recopiez les nombres à la main.",
+      "text": "Распознавание не запустилось в этом браузере. Перепишите числа вручную."
+    },
+    "pages.accountValueUI.scan.detected": {
+      "fr": "détecté",
+      "text": "распознано"
+    },
+    "pages.accountValueUI.scan.check": {
+      "fr": "à vérifier",
+      "text": "проверить"
     }
   }
 }

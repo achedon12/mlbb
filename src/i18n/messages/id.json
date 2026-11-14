@@ -4251,6 +4251,23 @@
       "whereTitle": "Di mana menemukan angka ini",
       "wherePath": "Profil > Showcase > Koleksi",
       "whereHint": "Buka ringkasan poin koleksi skin: setiap kategori menampilkan \"dimiliki/total\" dan poinnya. Salin angka pertama di setiap baris.",
+      "scan": {
+        "button": "Baca screenshot",
+        "retry": "Coba gambar lain",
+        "hint": "Atau taruh di sini, atau tempel (Ctrl+V).",
+        "privacy": "Gambar dibaca di browser-mu: tidak pernah keluar dari perangkatmu.",
+        "loading": "Memuat pembaca (beberapa MB, hanya pertama kali)…",
+        "reading": "Membaca gambar…",
+        "done": "Nilai terdeteksi dari screenshot-mu: periksa kembali.",
+        "headerOk": "Total yang terbaca ({total}) sama dengan jumlah baris.",
+        "headerOff": "Total yang terbaca ({read}) tidak sama dengan jumlah baris ({sum}): periksa kolom yang ditandai.",
+        "rowsCheck": "Perlu dicek: {tiers}.",
+        "missing": "Tidak terbaca, isi manual: {tiers}.",
+        "failed": "Tidak ada ringkasan poin koleksi skin di gambar ini. Coba screenshot Showcase yang jelas, dengan panelnya terbuka.",
+        "error": "Pembaca tidak bisa berjalan di browser ini. Salin angkanya secara manual.",
+        "detected": "terdeteksi",
+        "check": "perlu dicek"
+      },
       "tier": {
         "legend": "Supreme",
         "grand": "Grand",

@@ -29,6 +29,8 @@ import {
   type TierCost,
 } from "@/lib/account-value";
 import { KEY_COLLECTION, readOwnership } from "@/lib/collection";
+import type { ShowcaseReading } from "@/lib/showcase-ocr";
+import { ShowcaseScan } from "@/components/showcase-scan";
 import { readSyncedCollection } from "@/lib/collection-sync-client";
 import { loadCatalog } from "@/lib/skin-catalog";
 import { trackEvent, trackShare } from "@/lib/analytics";
@@ -46,6 +48,7 @@ function NumberField({
   value,
   max,
   showMax = true,
+  mark,
   onChange,
 }: {
   label: string;
@@ -54,15 +57,23 @@ function NumberField({
   max: number;
   /** "/ 103" after the value: how many exist in the game; off for a bare bound. */
   showMax?: boolean;
+  /** Filled from a screenshot: confirmed by the row's points, or to check by hand. */
+  mark?: Mark;
   onChange: (n: number) => void;
 }) {
+  const t = useT();
   const id = useId();
   const locale = useLocale();
   const count = new Intl.NumberFormat(LOCALE_INTL[locale]);
   return (
     <div>
-      <label htmlFor={id} className="block text-sm font-semibold text-chalk-200">
+      <label htmlFor={id} className="flex flex-wrap items-baseline gap-x-2 text-sm font-semibold text-chalk-200">
         {label}
+        {mark && (
+          <span className={cn("text-xs font-medium", mark === "check" ? "text-rose-400" : "text-gold-400")}>
+            {t(`pages.accountValueUI.scan.${mark}`)}
+          </span>
+        )}
       </label>
       <div className="relative mt-1">
         <input
@@ -74,9 +85,12 @@ function NumberField({
           placeholder="0"
           onChange={(e) => onChange(Math.min(max, readCount(e.target.value)))}
           aria-describedby={hint ? `${id}-hint` : undefined}
+          aria-invalid={mark === "check" || undefined}
           className={cn(
             "bevel-sm w-full border border-night-700 bg-night-900 py-2 pl-3 tabular-nums text-chalk-100 outline-none transition-colors placeholder:text-chalk-600 focus:border-gold-500",
             showMax ? "pr-14" : "pr-3",
+            mark === "detected" && "border-gold-500/70 bg-gold-500/5",
+            mark === "check" && "border-rose-500/80 bg-rose-500/5",
           )}
         />
         {showMax && (
@@ -94,6 +108,8 @@ function NumberField({
   );
 }
 
+type Mark = "detected" | "check";
+
 const COST_HINT: Record<TierCost["basis"], string> = {
   shop: "pages.accountValueUI.costShop",
   draw: "pages.accountValueUI.costDraw",
@@ -106,6 +122,7 @@ const COST_HINT: Record<TierCost["basis"], string> = {
  */
 function WhereToFind() {
   const t = useT();
+  const locale = useLocale();
   const steps = t("pages.accountValueUI.wherePath")
     .split(">")
     .map((s) => s.trim())
@@ -135,7 +152,7 @@ function WhereToFind() {
         <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-night-800">
           <div className="h-full w-[11%] bg-gold-500/70" />
         </div>
-        <p className="mt-1.5 text-right tabular-nums text-chalk-500">36 000</p>
+        <p className="mt-1.5 text-right tabular-nums text-chalk-500">{new Intl.NumberFormat(LOCALE_INTL[locale]).format(36000)}</p>
       </div>
     </div>
   );
@@ -157,6 +174,7 @@ export function AccountValueEstimator({ model, assumptions }: { model: Model; as
   const [saved, setSaved] = useState(false);
   const [importing, setImporting] = useState<"" | "busy" | "done" | "failed">("");
   const [imported, setImported] = useState({ n: 0, unmapped: 0 });
+  const [marks, setMarks] = useState<Partial<Record<Tier, Mark>>>({});
   const [share, setShare] = useState<"" | "copied" | "shared" | "failed">("");
 
   // The address and the collection save are only readable in the browser.
@@ -211,7 +229,30 @@ export function AccountValueEstimator({ model, assumptions }: { model: Model; as
     setInputs((before) => clampInputs({ ...before, ...patch }, model));
     setShare("");
   };
-  const setSkin = (tier: Tier, n: number) => set({ skins: { ...inputs.skins, [tier]: n } });
+  const setSkin = (tier: Tier, n: number) => {
+    set({ skins: { ...inputs.skins, [tier]: n } });
+    // A count typed over a detected one is the player's own.
+    setMarks((before) => {
+      const rest = { ...before };
+      delete rest[tier];
+      return rest;
+    });
+  };
+  const catalogCounts = useMemo(
+    () => Object.fromEntries(model.tiers.filter((x) => x.count != null).map((x) => [x.tier, x.count!])) as Partial<Record<Tier, number>>,
+    [model],
+  );
+  function fromScreenshot(reading: ShowcaseReading) {
+    const skins = { ...inputs.skins };
+    const next: Partial<Record<Tier, Mark>> = {};
+    for (const r of reading.rows) {
+      skins[r.tier] = r.owned;
+      // The header total matching the rows confirms every one of them.
+      next[r.tier] = r.checked || reading.header?.matches ? "detected" : "check";
+    }
+    set({ skins });
+    setMarks(next);
+  }
 
   async function importCollection() {
     setImporting("busy");
@@ -311,7 +352,10 @@ export function AccountValueEstimator({ model, assumptions }: { model: Model; as
               </button>
               <button
                 type="button"
-                onClick={() => set(DEFAULT_INPUTS)}
+                onClick={() => {
+                  set(DEFAULT_INPUTS);
+                  setMarks({});
+                }}
                 className={cn(classesChip(false), "inline-flex items-center gap-2")}
               >
                 <RotateCcw size={15} aria-hidden />
@@ -360,21 +404,24 @@ export function AccountValueEstimator({ model, assumptions }: { model: Model; as
           </legend>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
           <WhereToFind />
-          <div className="mt-5 grid grid-cols-2 gap-x-3 gap-y-4 sm:gap-x-4 xl:grid-cols-4">
-            {model.tiers.map((tier) => (
-              <NumberField
-                key={tier.tier}
-                label={t(`pages.accountValueUI.tier.${tier.tier}`)}
-                hint={`${t("pages.accountValueUI.pointsEach", { points: count.format(tier.points) })} · ${t(COST_HINT[tier.basis], {
-                  n: count.format(tier.cost),
-                })}`}
-                value={inputs.skins[tier.tier] ?? 0}
-                max={MAX_PER_TIER}
-                showMax={false}
-                onChange={(n) => setSkin(tier.tier, n)}
-              />
-            ))}
-          </div>
+          <ShowcaseScan catalog={catalogCounts} onRead={fromScreenshot}>
+            <div className="mt-5 grid grid-cols-2 gap-x-3 gap-y-4 sm:gap-x-4 xl:grid-cols-4">
+              {model.tiers.map((tier) => (
+                <NumberField
+                  key={tier.tier}
+                  label={t(`pages.accountValueUI.tier.${tier.tier}`)}
+                  hint={`${t("pages.accountValueUI.pointsEach", { points: count.format(tier.points) })} · ${t(COST_HINT[tier.basis], {
+                    n: count.format(tier.cost),
+                  })}`}
+                  value={inputs.skins[tier.tier] ?? 0}
+                  max={MAX_PER_TIER}
+                  showMax={false}
+                  mark={marks[tier.tier]}
+                  onChange={(n) => setSkin(tier.tier, n)}
+                />
+              ))}
+            </div>
+          </ShowcaseScan>
         </fieldset>
 
         <fieldset>

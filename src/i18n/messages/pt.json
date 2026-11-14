@@ -4251,6 +4251,23 @@
       "whereTitle": "Onde encontrar esses números",
       "wherePath": "Perfil > Vitrine > Coleção",
       "whereHint": "Abra o resumo dos pontos de coleção de skins: cada categoria mostra \"obtidas/total\" e seus pontos. Copie o primeiro número de cada linha.",
+      "scan": {
+        "button": "Ler uma captura de tela",
+        "retry": "Tentar outra imagem",
+        "hint": "Ou solte-a aqui, ou cole (Ctrl+V).",
+        "privacy": "A imagem é lida no seu navegador: ela nunca sai do seu aparelho.",
+        "loading": "Carregando o leitor (alguns MB, só na primeira vez)…",
+        "reading": "Lendo a imagem…",
+        "done": "Valores detectados na sua captura: confira-os.",
+        "headerOk": "O total lido ({total}) bate com a soma das linhas.",
+        "headerOff": "O total lido ({read}) não bate com a soma das linhas ({sum}): confira os campos marcados.",
+        "rowsCheck": "Conferir: {tiers}.",
+        "missing": "Não lidas, preencha à mão: {tiers}.",
+        "failed": "Nenhum resumo de pontos de coleção encontrado nesta imagem. Tente uma captura nítida da Vitrine, com o painel aberto.",
+        "error": "O leitor não pôde iniciar neste navegador. Copie os números à mão.",
+        "detected": "detectado",
+        "check": "conferir"
+      },
       "tier": {
         "legend": "Supreme",
         "grand": "Grand",

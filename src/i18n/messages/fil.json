@@ -4251,6 +4251,23 @@
       "whereTitle": "Saan mahahanap ang mga numerong ito",
       "wherePath": "Profile > Showcase > Collection",
       "whereHint": "Buksan ang skin collection points overview: bawat tier ay nagpapakita ng \"owned/total\" at ng points nito. Kopyahin ang unang numero ng bawat hilera.",
+      "scan": {
+        "button": "Basahin ang screenshot",
+        "retry": "Subukan ang ibang larawan",
+        "hint": "O i-drop ito rito, o i-paste (Ctrl+V).",
+        "privacy": "Binabasa ang larawan sa iyong browser: hindi ito umaalis sa iyong device.",
+        "loading": "Nilo-load ang reader (ilang MB, sa unang beses lang)…",
+        "reading": "Binabasa ang larawan…",
+        "done": "Mga value na nakita sa iyong screenshot: suriin ang mga ito.",
+        "headerOk": "Tugma ang nabasang total ({total}) sa kabuuan ng mga hilera.",
+        "headerOff": "Hindi tugma ang nabasang total ({read}) sa kabuuan ng mga hilera ({sum}): suriin ang mga minarkahang field.",
+        "rowsCheck": "Suriin: {tiers}.",
+        "missing": "Hindi nabasa, punan nang mano-mano: {tiers}.",
+        "failed": "Walang nakitang skin collection points overview sa larawang ito. Subukan ang malinaw na screenshot ng Showcase na bukas ang panel.",
+        "error": "Hindi nakapagsimula ang reader sa browser na ito. Kopyahin nang mano-mano ang mga numero.",
+        "detected": "nakita",
+        "check": "suriin"
+      },
       "tier": {
         "legend": "Supreme",
         "grand": "Grand",

@@ -4251,6 +4251,23 @@
       "whereTitle": "Où trouver ces nombres",
       "wherePath": "Profil > Vitrine > Collection",
       "whereHint": "Ouvrez l'aperçu des points de collection de skins : chaque catégorie y affiche « possédés/total » et ses points. Recopiez le premier nombre de chaque ligne.",
+      "scan": {
+        "button": "Lire une capture d'écran",
+        "retry": "Essayer une autre image",
+        "hint": "Ou déposez-la ici, ou collez-la (Ctrl+V).",
+        "privacy": "L'image est lue dans votre navigateur : elle ne quitte jamais votre appareil.",
+        "loading": "Chargement du lecteur (quelques Mo, la première fois seulement)…",
+        "reading": "Lecture de l'image…",
+        "done": "Valeurs détectées sur votre capture : vérifiez-les.",
+        "headerOk": "Le total lu ({total}) correspond à la somme des lignes.",
+        "headerOff": "Le total lu ({read}) ne correspond pas à la somme des lignes ({sum}) : vérifiez les cases signalées.",
+        "rowsCheck": "À vérifier : {tiers}.",
+        "missing": "Non lues, à remplir à la main : {tiers}.",
+        "failed": "Aucun aperçu des points de collection reconnu sur cette image. Essayez une capture nette de la Vitrine, panneau ouvert.",
+        "error": "Le lecteur n'a pas pu démarrer dans ce navigateur. Recopiez les nombres à la main.",
+        "detected": "détecté",
+        "check": "à vérifier"
+      },
       "tier": {
         "legend": "Légende",
         "grand": "Grandiose",

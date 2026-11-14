@@ -19,6 +19,8 @@ const eslintConfig = defineConfig([
     "src/generated/**",
     // The Discord bot is its own package, with its own lint config.
     "bot/**",
+    // Screenshot reader, copied minified from node_modules (scripts/copy-ocr-assets.mjs).
+    "public/ocr/**",
   ]),
 ]);
 
