@@ -68,11 +68,12 @@ export function renderMarkdown(source: string): string {
 /** Plain text of a post, for descriptions and structured data: one line, at most `max` characters. */
 export function plainText(source: string, max = 300): string {
   const text = sanitizeHtml(renderMarkdown(source), { allowedTags: [], allowedAttributes: {} })
-    .replace(/&amp;/g, "&")
     .replace(/&lt;/g, "<")
     .replace(/&gt;/g, ">")
     .replace(/&quot;/g, '"')
     .replace(/&#39;/g, "'")
+    // Last, so an escaped entity ("&amp;lt;") reads as itself, not as "<".
+    .replace(/&amp;/g, "&")
     .replace(/\s+/g, " ")
     .trim();
   const chars = [...text];

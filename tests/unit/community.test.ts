@@ -201,3 +201,10 @@ describe("readQuery", () => {
     expect(readQuery("ling build")).toBe("ling build");
   });
 });
+
+describe("plainText", () => {
+  it("decodes each entity once", async () => {
+    const { plainText } = await import("@/lib/community/markdown");
+    expect(plainText("Tom &amp;lt;3 Jerry & <b>")).toBe("Tom &lt;3 Jerry & <b>");
+  });
+});
