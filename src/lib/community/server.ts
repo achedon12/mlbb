@@ -10,7 +10,8 @@ import { logError } from "@/lib/log";
 import { addressOf, limitByMinute } from "@/lib/push-server";
 import { readCapped } from "@/lib/read-body";
 import { MAX_BODY_BYTES } from "./constants";
-import type { Author } from "./store";
+import { discordAccountId, discordDisplayName, resolveMember, type DiscordLink, type DiscordLogin, type Member } from "./identity";
+import { discordLink, type Author } from "./store";
 
 /**
  * Request side of the community routes: who is asking, may they, and the
@@ -43,11 +44,51 @@ export type LimitKind = keyof typeof accountLimits;
 type Guarded<T> = { author: Author; body: T } | NextResponse;
 
 /** Signed-in game account, or the refusal. */
-async function authorOrRefusal(): Promise<Author | NextResponse> {
+async function playerOrRefusal(): Promise<Author | NextResponse> {
   const player: Player = await currentPlayer().catch((): Player => ({ status: "unavailable" }));
   if (player.status === "none") return refused(401, "sign in required");
   if (player.status !== "ok") return refused(503, "login service unavailable");
-  return { id: player.id, name: player.name };
+  return { id: player.id, name: player.name, provider: "game" };
+}
+
+/** The Discord login (the dashboard's sealed session cookie), or null; null too when the bot side is not configured. */
+export async function currentDiscordLogin(): Promise<DiscordLogin> {
+  const config = botConfig();
+  if (!config) return null;
+  const user = openSession(config, (await cookies()).get(SESSION_COOKIE)?.value);
+  return user ? { id: user.id, name: user.name } : null;
+}
+
+/**
+ * The community member behind this request, game account or Discord account
+ * (see `resolveMember`). The Discord member's link is read from the database;
+ * when that read fails, a Discord login alone counts as unavailable.
+ */
+export async function currentMember(now = Date.now()): Promise<Member> {
+  const [game, discord] = await Promise.all([
+    currentPlayer().catch((): Player => ({ status: "unavailable" })),
+    currentDiscordLogin(),
+  ]);
+  let link: DiscordLink = null;
+  if (discord && databaseConfigured()) {
+    try {
+      link = await discordLink(discordAccountId(discord.id));
+    } catch (error) {
+      await logError("community: discord link read failed", error);
+      if (game.status !== "ok") return { status: "unavailable" };
+      return resolveMember({ game, discord: null, link: null, now });
+    }
+  }
+  return resolveMember({ game, discord, link, now });
+}
+
+/** Signed-in member, game account or Discord account, or the refusal. */
+async function memberOrRefusal(): Promise<Author | NextResponse> {
+  const member = await currentMember();
+  if (member.status === "none") return refused(401, "sign in required");
+  if (member.status === "discordTooNew") return refused(403, "discordTooNew");
+  if (member.status !== "ok") return refused(503, "login service unavailable");
+  return member.author;
 }
 
 /** Body read under the cap, then JSON, then the schema. */
@@ -70,19 +111,54 @@ export async function readJsonBody<S extends z.ZodType>(request: Request, schema
 }
 
 /**
- * Gate of the players' mutating routes. `schema` null: no body (a DELETE).
+ * Gate of the community's mutating routes: a game account or a Discord
+ * account. `schema` null: no body (a DELETE).
  */
-export async function guardPlayer<S extends z.ZodType>(request: Request, kind: LimitKind, schema: S | null): Promise<Guarded<z.infer<S>>> {
+export function guardMember<S extends z.ZodType>(request: Request, kind: LimitKind, schema: S | null): Promise<Guarded<z.infer<S>>> {
+  return guard(request, kind, schema, memberOrRefusal);
+}
+
+/** Gate of the routes tied to the game account itself (the collection): no Discord login. */
+export function guardPlayer<S extends z.ZodType>(request: Request, kind: LimitKind, schema: S | null): Promise<Guarded<z.infer<S>>> {
+  return guard(request, kind, schema, playerOrRefusal);
+}
+
+async function guard<S extends z.ZodType>(
+  request: Request,
+  kind: LimitKind,
+  schema: S | null,
+  who: () => Promise<Author | NextResponse>,
+): Promise<Guarded<z.infer<S>>> {
   if (!databaseConfigured()) return refused(404, "not found");
   if (!isSameOrigin(request)) return refused(403, "origin refused");
   if (!byAddress(addressOf(request))) return refused(429, "too many requests");
-  const author = await authorOrRefusal();
+  const author = await who();
   if (author instanceof NextResponse) return author;
   if (!accountLimits[kind](author.id)) return refused(429, "too many requests");
   if (!schema) return { author, body: undefined as z.infer<S> };
   const body = await readJsonBody(request, schema);
   if (body instanceof NextResponse) return body;
   return { author, body: body.data };
+}
+
+const linkRate = limitByMinute(3);
+
+/**
+ * Gate of the account link: both logins on this request, the game one
+ * confirmed by the login service, the Discord one by its sealed cookie.
+ * No body. The Discord account's age does not matter here: once linked, it
+ * acts as the game account.
+ */
+export async function guardLink(request: Request): Promise<{ game: Author; discord: Author } | NextResponse> {
+  if (!databaseConfigured()) return refused(404, "not found");
+  if (!isSameOrigin(request)) return refused(403, "origin refused");
+  if (!byAddress(addressOf(request))) return refused(429, "too many requests");
+  const [game, discord] = await Promise.all([playerOrRefusal(), currentDiscordLogin()]);
+  if (game instanceof NextResponse) return game;
+  if (!discord) return refused(401, "sign in required");
+  if (!linkRate(game.id)) return refused(429, "too many requests");
+  const id = discordAccountId(discord.id);
+  return { game, discord: { id, name: discordDisplayName(discord.name, id), provider: "discord" } };
 }
 
 /**
@@ -98,6 +174,7 @@ const STATUS: Record<string, number> = {
   hidden: 403,
   locked: 409,
   duplicate: 409,
+  taken: 409,
   day: 429,
   limit: 429,
   blocked: 422,
@@ -152,3 +229,6 @@ export async function guardModerator<S extends z.ZodType>(
   if (body instanceof NextResponse) return body;
   return { moderator, body: body.data };
 }
+
+/** Whether the forum offers the Discord login: the bot side (and its OAuth app) is configured. */
+export const discordLoginEnabled = () => botConfig() !== null;

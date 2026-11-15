@@ -73,14 +73,24 @@ export function acceptCallback(
 }
 
 /**
- * Where a login lands: one of three fixed pages of the site (the dashboard,
- * the admin panel, the community moderation queue), in one of its
- * languages, as a path. Nothing from the query string reaches it, so there
- * is no open redirect to build.
+ * Community page a forum login returns to: `/community`, a category, a
+ * thread (`/community/<category>/<id>-<slug>`) or the teammate finder. Lower
+ * case letters, digits and dashes only, so it can only ever be a path of the
+ * site's community section.
  */
-export function loginTarget(locale: string | undefined, next: string | undefined): string {
+export const COMMUNITY_RETURN = /^\/community(?:\/[a-z0-9][a-z0-9-]{0,99}){0,2}$/;
+export const isCommunityReturn = (path: string | null | undefined): path is string => Boolean(path && COMMUNITY_RETURN.test(path));
+
+/**
+ * Where a login lands: one of the site's own pages (the dashboard, the admin
+ * panel, the community moderation queue, or a community page matching
+ * `COMMUNITY_RETURN`), in one of its languages, as a path. Nothing else from
+ * the query string reaches it, so there is no open redirect to build.
+ */
+export function loginTarget(locale: string | undefined, next: string | undefined, back?: string): string {
   const lang = locale && isLocale(locale) ? locale : "en";
   if (next === "moderation") return `/${lang}/community/moderation`;
+  if (next === "community") return `/${lang}${isCommunityReturn(back) ? back : "/community"}`;
   return `/${lang}/bot/${next === "admin" ? "admin" : "dashboard"}`;
 }
 

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { reportInput } from "@/lib/community/rules";
-import { answer, guardPlayer, refusedFor, storageFailed } from "@/lib/community/server";
+import { answer, guardMember, refusedFor, storageFailed } from "@/lib/community/server";
 import { reportTarget } from "@/lib/community/store";
 import { log } from "@/lib/log";
 
@@ -14,7 +14,7 @@ import { log } from "@/lib/log";
 export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
-  const guarded = await guardPlayer(request, "report", reportInput);
+  const guarded = await guardMember(request, "report", reportInput);
   if (guarded instanceof NextResponse) return guarded;
   const { body, author } = guarded;
   try {

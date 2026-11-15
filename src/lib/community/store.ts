@@ -19,6 +19,7 @@ import {
   type TargetKind,
 } from "./constants";
 import { screenText, type FilterVerdict } from "./filter";
+import { planVoteMerge } from "./identity";
 import type { CardInput, ThreadEdit, ThreadInput } from "./rules";
 
 /**
@@ -30,10 +31,20 @@ import type { CardInput, ThreadEdit, ThreadInput } from "./rules";
  */
 
 export interface Author {
-  /** Account hash (`accountId`), never the in-game id. */
+  /** Member id (`accountId`): a hash of the in-game id or of the Discord id, never the id itself. */
   id: string;
   name: string;
+  /** How a member created now signs in; game accounts when left out (see `identity.ts`). */
+  provider?: "game" | "discord";
 }
+
+/** Columns of a member row created by an author's first action. */
+const newMember = (author: Author, now: number) => ({
+  accountId: author.id,
+  name: author.name,
+  provider: author.provider ?? "game",
+  firstSeenAt: new Date(now),
+});
 
 const DAY_MS = 24 * 3600 * 1000;
 const DUPLICATE_MS = 10 * 60_000;
@@ -43,17 +54,17 @@ const DUPLICATE_MS = 10 * 60_000;
 export type PostingRefusal = "banned" | "day" | "duplicate" | Exclude<FilterVerdict, "ok">;
 
 /** The member row of an account, created on its first action; its name follows the game's. */
-export async function touchMember(author: Author) {
+export async function touchMember(author: Author, now = Date.now()) {
   return db().communityMember.upsert({
     where: { accountId: author.id },
-    create: { accountId: author.id, name: author.name },
+    create: newMember(author, now),
     update: { name: author.name },
   });
 }
 
 /** Can this account vote, report or list a card? Only a ban stops it. */
 export async function memberAllowed(author: Author, now = Date.now()): Promise<boolean> {
-  return !isBanned(await touchMember(author), now);
+  return !isBanned(await touchMember(author, now), now);
 }
 
 /**
@@ -70,7 +81,7 @@ async function checkPosting(
 ): Promise<PostingRefusal | null> {
   const member = await tx.communityMember.upsert({
     where: { accountId: author.id },
-    create: { accountId: author.id, name: author.name, firstSeenAt: new Date(now) },
+    create: newMember(author, now),
     update: { name: author.name },
   });
   if (isBanned(member, now)) return "banned";
@@ -100,6 +111,106 @@ async function serial<T>(work: (tx: Prisma.TransactionClient) => Promise<T>): Pr
       if (!conflict || attempt >= 2) throw error;
     }
   }
+}
+
+// -- Linking a Discord account to a game account ----------------------------
+
+export type LinkResult = "ok" | "banned" | "taken";
+
+/**
+ * Links a Discord member to a game account, both proven by this request's
+ * logins: from then on the Discord login acts as the game account. Whatever
+ * the Discord member did is merged into the game account in the same
+ * transaction: its threads, replies and card (when the game account has
+ * none), its votes and reports (one per target, never on one's own post),
+ * the earlier of the two first-seen dates, a hidden-card decision.
+ *
+ * Refused when either account is banned (linking must not wash a ban) and
+ * when either one is already linked to someone else. There is no unlinking
+ * from the site.
+ */
+export function linkAccounts(game: Author, discord: Author, now = Date.now()): Promise<LinkResult> {
+  return serial(async (tx) => {
+    const g = await tx.communityMember.upsert({
+      where: { accountId: game.id },
+      create: newMember({ ...game, provider: "game" }, now),
+      update: { name: game.name },
+    });
+    const d = await tx.communityMember.upsert({
+      where: { accountId: discord.id },
+      create: newMember({ ...discord, provider: "discord" }, now),
+      update: {},
+    });
+    if (d.linkedTo === game.id) return "ok";
+    if (d.linkedTo || g.linkedTo || g.provider !== "game" || d.provider !== "discord") return "taken";
+    if (await tx.communityMember.findUnique({ where: { linkedTo: game.id }, select: { accountId: true } })) return "taken";
+    if (isBanned(g, now) || isBanned(d, now)) return "banned";
+
+    // Votes first: the planning needs the authors as they are now.
+    const [gameVotes, discordVotes] = await Promise.all([
+      tx.forumVote.findMany({ where: { voterId: game.id }, select: { kind: true, targetId: true } }),
+      tx.forumVote.findMany({ where: { voterId: discord.id }, select: { kind: true, targetId: true } }),
+    ]);
+    const ids = (kind: string) => [...new Set([...gameVotes, ...discordVotes].filter((v) => v.kind === kind).map((v) => v.targetId))];
+    const [threads, posts] = await Promise.all([
+      tx.forumThread.findMany({ where: { id: { in: ids("thread") } }, select: { id: true, authorId: true } }),
+      tx.forumPost.findMany({ where: { id: { in: ids("post") } }, select: { id: true, authorId: true } }),
+    ]);
+    const authors = new Map([
+      ...threads.map((t) => [`thread:${t.id}`, t.authorId] as const),
+      ...posts.map((p) => [`post:${p.id}`, p.authorId] as const),
+    ]);
+    const plan = planVoteMerge({ gameVotes, discordVotes, authors, gameId: game.id, discordId: discord.id });
+    for (const { vote, voter } of plan.drop) {
+      const voterId = voter === "game" ? game.id : discord.id;
+      await tx.forumVote.delete({ where: { kind_targetId_voterId: { kind: vote.kind, targetId: vote.targetId, voterId } } });
+      const change = { score: { decrement: 1 } };
+      if (vote.kind === "thread") await tx.forumThread.updateMany({ where: { id: vote.targetId }, data: change });
+      else await tx.forumPost.updateMany({ where: { id: vote.targetId }, data: change });
+    }
+    for (const vote of plan.move) {
+      await tx.forumVote.update({ where: { kind_targetId_voterId: { ...vote, voterId: discord.id } }, data: { voterId: game.id } });
+    }
+
+    await tx.forumThread.updateMany({ where: { authorId: discord.id }, data: { authorId: game.id } });
+    await tx.forumPost.updateMany({ where: { authorId: discord.id }, data: { authorId: game.id } });
+
+    // Reports: one per account and target; the game account's copy stays.
+    const gameReports = new Set(
+      (await tx.communityReport.findMany({ where: { reporterId: game.id }, select: { kind: true, targetId: true } })).map((r) => `${r.kind}:${r.targetId}`),
+    );
+    for (const r of await tx.communityReport.findMany({ where: { reporterId: discord.id }, select: { id: true, kind: true, targetId: true } })) {
+      if (gameReports.has(`${r.kind}:${r.targetId}`)) await tx.communityReport.delete({ where: { id: r.id } });
+      else await tx.communityReport.update({ where: { id: r.id }, data: { reporterId: game.id } });
+    }
+    await tx.communityReport.updateMany({ where: { authorId: discord.id }, data: { authorId: game.id } });
+
+    // One card per account: the game account's own card wins.
+    if (await tx.teammateCard.findUnique({ where: { accountId: game.id }, select: { id: true } })) {
+      await tx.teammateCard.deleteMany({ where: { accountId: discord.id } });
+    } else {
+      await tx.teammateCard.updateMany({ where: { accountId: discord.id }, data: { accountId: game.id } });
+    }
+
+    await tx.communityMember.update({
+      where: { accountId: game.id },
+      data: {
+        firstSeenAt: d.firstSeenAt < g.firstSeenAt ? d.firstSeenAt : g.firstSeenAt,
+        cardHiddenAt: g.cardHiddenAt ?? d.cardHiddenAt,
+      },
+    });
+    await tx.communityMember.update({ where: { accountId: discord.id }, data: { linkedTo: game.id, linkedAt: new Date(now) } });
+    return "ok";
+  });
+}
+
+/** The game account a Discord member acts as, and its name; null when the member has no row yet. */
+export async function discordLink(discordAccountId: string): Promise<{ linkedTo: string | null; primaryName: string | null } | null> {
+  const row = await db().communityMember.findUnique({ where: { accountId: discordAccountId }, select: { linkedTo: true } });
+  if (!row) return null;
+  if (!row.linkedTo) return { linkedTo: null, primaryName: null };
+  const primary = await db().communityMember.findUnique({ where: { accountId: row.linkedTo }, select: { name: true } });
+  return { linkedTo: row.linkedTo, primaryName: primary?.name ?? null };
 }
 
 // -- Threads ---------------------------------------------------------------
@@ -281,7 +392,7 @@ export function toggleVote(kind: "thread" | "post", targetId: number, voter: Aut
     if (target.authorId === voter.id) return { ok: false, reason: "own" };
     const member = await tx.communityMember.upsert({
       where: { accountId: voter.id },
-      create: { accountId: voter.id, name: voter.name, firstSeenAt: new Date(now) },
+      create: newMember(voter, now),
       update: {},
     });
     if (isBanned(member, now)) return { ok: false, reason: "banned" };
@@ -388,7 +499,7 @@ export function reportTarget(
     if (target.author === reporter.id) return "own";
     const member = await tx.communityMember.upsert({
       where: { accountId: reporter.id },
-      create: { accountId: reporter.id, name: reporter.name, firstSeenAt: new Date(now) },
+      create: newMember(reporter, now),
       update: {},
     });
     if (isBanned(member, now)) return "banned";
@@ -478,7 +589,7 @@ export function saveCard(input: CardInput, author: Author, now = Date.now()): Pr
   return serial(async (tx) => {
     const member = await tx.communityMember.upsert({
       where: { accountId: author.id },
-      create: { accountId: author.id, name: author.name, firstSeenAt: new Date(now) },
+      create: newMember(author, now),
       update: { name: author.name },
     });
     if (isBanned(member, now)) return { ok: false, reason: "banned" };

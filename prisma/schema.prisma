@@ -271,6 +271,15 @@ model CommunityMember {
   /// A moderator hid the account's teammate card: kept here, not on the
   /// card, so deleting the card and posting it again does not undo it.
   cardHiddenAt DateTime?
+  /// How the member signs in: "game" (`accountId` hashes the in-game id and
+  /// server) or "discord" (`accountId` hashes the Discord id; the id itself
+  /// is not stored).
+  provider     String    @default("game") @db.VarChar(8)
+  /// A Discord member linked to a game account: its `accountId`. Signing in
+  /// with that Discord account then acts as the game account, whose row
+  /// holds the ban, the new-account period and the content.
+  linkedTo     String?   @unique @db.VarChar(24)
+  linkedAt     DateTime?
 
   @@index([bannedAt])
 }
