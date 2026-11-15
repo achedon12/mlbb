@@ -1,5 +1,6 @@
 "use client";
 
+import { useDiscordMoment } from "@/components/discord-moment";
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { ImageUp, LoaderCircle } from "lucide-react";
 import { classesChip } from "@/components/chip";
@@ -40,6 +41,7 @@ export function ShowcaseScan({
   /** The section the image can be dropped on. */
   children: ReactNode;
 }) {
+  const discord = useDiscordMoment();
   const t = useT();
   const locale = useLocale();
   const id = useId();
@@ -62,6 +64,7 @@ export function ShowcaseScan({
       }
       onRead(reading);
       setState({ step: "done", reading });
+      discord.offer("value", 3000);
       trackEvent(
         "Account value",
         "Screenshot",
@@ -177,6 +180,7 @@ export function ShowcaseScan({
         </div>
       </div>
       {children}
+      {discord.card}
     </div>
   );
 }

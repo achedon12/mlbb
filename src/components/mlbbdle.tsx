@@ -1,5 +1,6 @@
 "use client";
 
+import { useDiscordMoment } from "@/components/discord-moment";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Check, Dices, Eye, Share2, SkipForward } from "lucide-react";
 import Link from "@/components/link";
@@ -57,6 +58,7 @@ const secondaryButton =
   "bevel-sm inline-flex min-h-11 items-center justify-center gap-2 border border-night-600 px-4 py-2 text-sm text-chalk-300 transition-colors hover:border-gold-500 hover:text-gold-400";
 
 export function Mlbbdle({ heroes, labels }: { heroes: MlbbdleHero[]; labels: Record<string, string> }) {
+  const discord = useDiscordMoment();
   const t = useT();
   const language = useLocale();
   const catalog = useMemo(() => buildCatalog(heroes, labels), [heroes, labels]);
@@ -125,6 +127,8 @@ export function Mlbbdle({ heroes, labels }: { heroes: MlbbdleHero[]; labels: Rec
       writeStats(m, updated);
       setStats((s) => ({ ...s, [m]: updated }));
       trackEvent("MLBBdle", "Solve", m, next[m].length);
+      // After the win banner had its moment.
+      discord.offer("mlbbdle", 2500);
       shouldFocus.current = true;
     }
   }
@@ -138,6 +142,7 @@ export function Mlbbdle({ heroes, labels }: { heroes: MlbbdleHero[]; labels: Rec
 
   return (
     <div>
+      {discord.card}
       <FilterGroup legend={t("pages.mlbbdleUI.mode")} widthLegend="" className="mb-6">
         {/* The site's chips are 32 px tall: same look here, but finger-sized. */}
         {(["classic", "skill", "practice"] as const).map((m) => (

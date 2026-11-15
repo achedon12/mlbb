@@ -1,5 +1,6 @@
 "use client";
 
+import { useDiscordMoment } from "@/components/discord-moment";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ListOrdered, Play, RotateCcw, Settings2, SkipForward, Undo2 } from "lucide-react";
 import { SearchField } from "@/components/search-field";
@@ -134,6 +135,12 @@ export function DraftSimulator({
   const turns = useMemo(() => expandTurns(sequence(settings.format, settings.rank)), [settings.format, settings.rank]);
   const state = draftState(turns, choices);
   const turn = started ? state.current : null;
+  // The draft played out to its last pick: the moment to invite.
+  const { offer: offerDiscord, card: discordCard } = useDiscordMoment();
+  const finished = started && !turn;
+  useEffect(() => {
+    if (finished) offerDiscord("draft", 2500);
+  }, [finished, offerDiscord]);
   const player = turn ? playedBy(settings, turn) : null;
   const mine = player === "player";
   const isBan = turn?.action === "ban";
@@ -343,6 +350,7 @@ export function DraftSimulator({
 
   return (
     <div className="space-y-6">
+      {discordCard}
       <p aria-live="polite" className="sr-only">
         {announce.join(" ")}
       </p>
