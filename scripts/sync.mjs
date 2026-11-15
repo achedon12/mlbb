@@ -660,6 +660,82 @@ async function evolutionSingle() {
 }
 
 /**
+ * `--measures`: the daily refresh of everything measured in ranked games —
+ * ranking (win, ban and pick rates, per rank), counters, played builds, plus
+ * teammates and trends — on heroes already synchronized, without rereading
+ * the wiki. The weekly full sync still does the catalogue. Same merge rules
+ * as `main`: a source that does not answer keeps the previous values, and a
+ * hero it did not serve keeps his. Icons of talents or spells new to a build
+ * are only downloaded by the full sync.
+ */
+async function measuresDaily() {
+  const heroes = await readJson(`${OUTPUT}/heroes.json`);
+  if (!Array.isArray(heroes) || heroes.length === 0) throw new Error("Run a full synchronization first.");
+  const statsExisting = await readJson(`${OUTPUT}/statistics.json`);
+
+  console.log("Hero ranking…");
+  let stats = null;
+  try {
+    stats = await ranking(heroes);
+    console.log(`  ${Object.keys(stats.all).length} heroes measured, ${Object.keys(stats).length} ranks`);
+  } catch (error) {
+    console.warn(`  statistics unavailable (${error.message}) — ranking unchanged`);
+  }
+  console.log("Actual counters (academy)…");
+  let counters = null;
+  try {
+    counters = await actualCounters(heroes);
+    console.log(`  ${Object.keys(counters).length} heroes with measured counters`);
+  } catch (error) {
+    console.warn(`  counters unavailable (${error.message}) — unchanged`);
+  }
+  console.log("Played builds (academy)…");
+  let builds = null;
+  let guides = null;
+  try {
+    ({ builds, guides } = await buildsActual(heroes));
+    console.log(`  ${Object.keys(builds).length} heroes with builds`);
+  } catch (error) {
+    console.warn(`  builds unavailable (${error.message}) — unchanged`);
+  }
+  const existing = await readJson(`${OUTPUT}/evolution.json`);
+  const measured = (h) => Number(Boolean(existing.trends?.[h.slug]));
+  const order = [...heroes].sort((a, b) => measured(a) - measured(b));
+  console.log("Teammates and trends (academy)…");
+  let complementary = { teammates: {}, trends: {} };
+  try {
+    complementary = await teammatesAndTrends(order, await heroTableById(heroes));
+  } catch (error) {
+    console.warn(`  teammates and trends unavailable (${error.message}) — unchanged`);
+  }
+
+  const perHero = (name, next) => {
+    const { merged, kept } = keepUnservedHeroes(statsExisting[name], next ?? {});
+    if (next && kept.length) console.warn(`  ${name}: ${kept.length} heroes not served this run, previous values kept`);
+    return merged;
+  };
+  const ranksBefore = statsExisting.rankings?.byRank ?? {};
+  const statistics = {
+    ...statsExisting,
+    rankings: stats
+      ? { measuredAt: new Date().toISOString(), rates: stats.all, byRank: keepMissingRanks(ranksBefore, stats) }
+      : (statsExisting.rankings ?? { measuredAt: null, rates: {} }),
+    counters: perHero("counters", counters),
+    builds: perHero("builds", builds),
+    guides: perHero("guides", guides),
+    teammates: { ...(statsExisting.teammates ?? {}), ...(complementary.teammates ?? {}) },
+  };
+  await Promise.all([
+    writeFile(`${OUTPUT}/statistics.json`, JSON.stringify(statistics, null, 2) + "\n"),
+    writeEvolution(complementary),
+  ]);
+  // The ranking is the measure the site dates: nothing served, fail the
+  // run so the workflow retries rather than reporting a silent success.
+  if (!stats && !counters && !builds) throw new Error("No measure served by the API");
+  console.log(`  ${Object.keys(complementary.trends ?? {}).length} heroes with trends`);
+}
+
+/**
  * Skill combos recommended by the game, per hero: the API describes them in
  * English and refers to each skill by its identifier, which the hero sheet
  * (`skillsArena`, see fetchArenaSkills) turns into a name. The local icon is
@@ -2120,7 +2196,9 @@ async function main() {
   console.log(`\nWritten to ${OUTPUT}/`);
 }
 
-await (process.argv.includes("--evolution")
+await (process.argv.includes("--measures")
+  ? measuresDaily()
+  : process.argv.includes("--evolution")
   ? evolutionSingle()
   : process.argv.includes("--combos")
     ? combosOnly()
