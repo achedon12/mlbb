@@ -11,6 +11,8 @@ import {
   CURRENCIES,
   DEFAULT_INPUTS,
   MAX_DIAMONDS,
+  MAX_GROUP_POINTS,
+  POINT_GROUPS,
   MAX_PER_TIER,
   RANKS,
   clampInputs,
@@ -24,12 +26,13 @@ import {
   type Currency,
   type Inputs,
   type Model,
+  type PointGroup,
   type Rank,
   type Tier,
   type TierCost,
 } from "@/lib/account-value";
 import { KEY_COLLECTION, readOwnership } from "@/lib/collection";
-import type { ShowcaseReading } from "@/lib/showcase-ocr";
+import type { PanelReading } from "@/lib/showcase-ocr";
 import { ShowcaseScan } from "@/components/showcase-scan";
 import { readSyncedCollection } from "@/lib/collection-sync-client";
 import { loadCatalog } from "@/lib/skin-catalog";
@@ -174,7 +177,7 @@ export function AccountValueEstimator({ model, assumptions }: { model: Model; as
   const [saved, setSaved] = useState(false);
   const [importing, setImporting] = useState<"" | "busy" | "done" | "failed">("");
   const [imported, setImported] = useState({ n: 0, unmapped: 0 });
-  const [marks, setMarks] = useState<Partial<Record<Tier, Mark>>>({});
+  const [marks, setMarks] = useState<Partial<Record<Tier | PointGroup, Mark>>>({});
   const [share, setShare] = useState<"" | "copied" | "shared" | "failed">("");
 
   // The address and the collection save are only readable in the browser.
@@ -223,35 +226,58 @@ export function AccountValueEstimator({ model, assumptions }: { model: Model; as
     }).format(value);
   };
   const ownedSkins = Object.values(inputs.skins).reduce((a, b) => a + (b ?? 0), 0);
-  const empty = ownedSkins === 0 && inputs.diamonds === 0;
+  const groupPoints = Object.values(inputs.points).reduce((a, b) => a + (b ?? 0), 0);
+  const empty = ownedSkins === 0 && groupPoints === 0 && inputs.diamonds === 0;
 
   const set = (patch: Partial<Inputs>) => {
     setInputs((before) => clampInputs({ ...before, ...patch }, model));
     setShare("");
   };
-  const setSkin = (tier: Tier, n: number) => {
-    set({ skins: { ...inputs.skins, [tier]: n } });
-    // A count typed over a detected one is the player's own.
+  // A value typed over a detected one is the player's own.
+  const unmark = (key: Tier | PointGroup) =>
     setMarks((before) => {
       const rest = { ...before };
-      delete rest[tier];
+      delete rest[key];
       return rest;
     });
+  const setSkin = (tier: Tier, n: number) => {
+    set({ skins: { ...inputs.skins, [tier]: n } });
+    unmark(tier);
+  };
+  const setPoints = (group: PointGroup, n: number) => {
+    set({ points: { ...inputs.points, [group]: n } });
+    unmark(group);
   };
   const catalogCounts = useMemo(
     () => Object.fromEntries(model.tiers.filter((x) => x.count != null).map((x) => [x.tier, x.count!])) as Partial<Record<Tier, number>>,
     [model],
   );
-  function fromScreenshot(reading: ShowcaseReading) {
+  /** One panel read: its fields are replaced, the others' kept, with their marks. */
+  function fromScreenshot(panel: PanelReading) {
+    if (panel.kind === "items") {
+      const r = panel.reading;
+      set({ points: { ...inputs.points, [r.group]: r.points } });
+      setMarks((before) => ({ ...before, [r.group]: r.header?.matches ? "detected" : "check" }));
+      return;
+    }
+    const reading = panel.reading;
     const skins = { ...inputs.skins };
-    const next: Partial<Record<Tier, Mark>> = {};
+    const next: Partial<Record<Tier | PointGroup, Mark>> = {};
     for (const r of reading.rows) {
       skins[r.tier] = r.owned;
       // The header total matching the rows confirms every one of them.
       next[r.tier] = r.checked || reading.header?.matches ? "detected" : "check";
     }
-    set({ skins });
-    setMarks(next);
+    const points = { ...inputs.points };
+    if (reading.shining != null) {
+      points.shining = reading.shining;
+      next.shining = reading.header?.matches ? "detected" : "check";
+    }
+    set({ skins, points });
+    setMarks((before) => {
+      const kept = Object.fromEntries(Object.entries(before).filter(([k]) => k === "inMatch" || k === "outMatch"));
+      return { ...kept, ...next };
+    });
   }
 
   async function importCollection() {
@@ -261,7 +287,7 @@ export function AccountValueEstimator({ model, assumptions }: { model: Model; as
       const counts = countsFromCollection(owned, catalog);
       const n = Object.values(counts.skins).reduce((a, b) => a + (b ?? 0), 0);
       // The colour variants are not in the catalogue: what was typed for them stays.
-      set({ skins: { ...counts.skins, painted: inputs.skins.painted, glow: inputs.skins.glow }, heroes: counts.heroes });
+      set({ skins: { ...counts.skins, painted: inputs.skins.painted }, heroes: counts.heroes });
       setImported({ n, unmapped: counts.unmapped });
       setImporting("done");
       trackEvent("Account value", "Import", undefined, n);
@@ -312,6 +338,14 @@ export function AccountValueEstimator({ model, assumptions }: { model: Model; as
             </h3>
             {/* Exact, not rounded: it is meant to match the game's own total. */}
             <p className="mt-1 font-heading text-2xl font-bold tabular-nums text-chalk-100">{count.format(result.points)}</p>
+            {groupPoints > 0 && (
+              <p className="mt-0.5 text-xs tabular-nums text-chalk-400">
+                {t("pages.accountValueUI.pointsSplit", {
+                  skins: count.format(result.skinPoints),
+                  items: count.format(result.points - result.skinPoints),
+                })}
+              </p>
+            )}
             <p className="mt-1 text-xs leading-relaxed text-chalk-500">{t("pages.accountValueUI.pointsCheck")}</p>
 
             <h3 className="mt-5 border-t border-night-800 pt-4 text-xs uppercase tracking-wide text-chalk-500">
@@ -398,31 +432,54 @@ export function AccountValueEstimator({ model, assumptions }: { model: Model; as
           </div>
         )}
 
-        <fieldset>
-          <legend className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
+        <section aria-labelledby="showcase-title">
+          <h2 id="showcase-title" className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
             {t("pages.accountValueUI.skinsTitle")}
-          </legend>
+          </h2>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
           <WhereToFind />
           <ShowcaseScan catalog={catalogCounts} onRead={fromScreenshot}>
-            <div className="mt-5 grid grid-cols-2 gap-x-3 gap-y-4 sm:gap-x-4 xl:grid-cols-4">
-              {model.tiers.map((tier) => (
-                <NumberField
-                  key={tier.tier}
-                  label={t(`pages.accountValueUI.tier.${tier.tier}`)}
-                  hint={`${t("pages.accountValueUI.pointsEach", { points: count.format(tier.points) })} · ${t(COST_HINT[tier.basis], {
-                    n: count.format(tier.cost),
-                  })}`}
-                  value={inputs.skins[tier.tier] ?? 0}
-                  max={MAX_PER_TIER}
-                  showMax={false}
-                  mark={marks[tier.tier]}
-                  onChange={(n) => setSkin(tier.tier, n)}
-                />
-              ))}
-            </div>
+            <fieldset className="mt-6">
+              <legend className="text-base font-semibold text-chalk-100">{t("pages.accountValueUI.skinsLegend")}</legend>
+              <div className="mt-3 grid grid-cols-2 gap-x-3 gap-y-4 sm:gap-x-4 xl:grid-cols-4">
+                {model.tiers.map((tier) => (
+                  <NumberField
+                    key={tier.tier}
+                    label={t(`pages.accountValueUI.tier.${tier.tier}`)}
+                    hint={`${t("pages.accountValueUI.pointsEach", { points: count.format(tier.points) })} · ${t(COST_HINT[tier.basis], {
+                      n: count.format(tier.cost),
+                    })}`}
+                    value={inputs.skins[tier.tier] ?? 0}
+                    max={MAX_PER_TIER}
+                    showMax={false}
+                    mark={marks[tier.tier]}
+                    onChange={(n) => setSkin(tier.tier, n)}
+                  />
+                ))}
+              </div>
+            </fieldset>
+            <fieldset className="mt-6">
+              <legend className="text-base font-semibold text-chalk-100">{t("pages.accountValueUI.pointsLegend")}</legend>
+              <p className="mt-1 text-xs leading-relaxed text-chalk-400">{t("pages.accountValueUI.pointsLead")}</p>
+              <div className="mt-3 grid grid-cols-2 gap-x-3 gap-y-4 sm:gap-x-4 xl:grid-cols-3">
+                {POINT_GROUPS.map((g) => (
+                  <NumberField
+                    key={g}
+                    label={t(`pages.accountValueUI.group.${g}`)}
+                    hint={`${t(`pages.accountValueUI.groupWhere.${g}`)} · ${t("pages.accountValueUI.costPoint", {
+                      n: new Intl.NumberFormat(html, { maximumFractionDigits: 2 }).format(assumptions.pointCost[g]),
+                    })}`}
+                    value={inputs.points[g] ?? 0}
+                    max={MAX_GROUP_POINTS}
+                    showMax={false}
+                    mark={marks[g]}
+                    onChange={(n) => setPoints(g, n)}
+                  />
+                ))}
+              </div>
+            </fieldset>
           </ShowcaseScan>
-        </fieldset>
+        </section>
 
         <fieldset>
           <legend className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">

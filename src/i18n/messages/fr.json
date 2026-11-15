@@ -4202,7 +4202,7 @@
       "warning": "Acheter, vendre ou échanger un compte enfreint les conditions d'utilisation de Moonton : le compte peut être banni ou récupéré par son ancien propriétaire, et les arnaques sont fréquentes. Cette estimation sert à mesurer ce qu'une collection a coûté, pas à fixer un prix. Rien n'est envoyé à un serveur.",
       "methodTitle": "La méthode, chiffre par chiffre",
       "methodPoints": "Les catégories sont celles de la Vitrine du jeu, avec les points de collection que le jeu donne à chaque skin. La somme des points sert de vérification : elle doit retomber sur le total affiché dans le jeu.",
-      "methodCost": "Chaque skin compte pour le coût typique de sa catégorie. Premium, Exceptionnelle et Commun se vendent en boutique : leur coût est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Légende, Grandiose et Exquis s'obtiennent par tirage : ils prennent la médiane, arrondie, des coûts publiés par des guides de joueurs, qui varie beaucoup d'un événement et d'un joueur à l'autre. Une apparence colorée compte pour une valeur symbolique, une apparence éclatante pour rien.",
+      "methodCost": "Chaque skin compte pour le coût typique de sa catégorie. Premium, Exceptionnelle et Commun se vendent en boutique : leur coût est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Légende, Grandiose et Exquis s'obtiennent par tirage : ils prennent la médiane, arrondie, des coûts publiés par des guides de joueurs, qui varie beaucoup d'un événement et d'un joueur à l'autre. Une apparence colorée compte pour une valeur symbolique.",
       "tableCaption": "Points et coût comptés par skin, par catégorie",
       "colTier": "Catégorie",
       "colPoints": "Points",
@@ -4227,7 +4227,8 @@
       "ratesSource": "Source des taux",
       "checked": "hypothèses vérifiées le {date}",
       "methodPrivacy": "Le calcul se fait dans votre navigateur. Les nombres saisis sont écrits dans l'adresse de la page pour pouvoir partager le résultat : aucun nom, aucun identifiant de compte, rien n'est enregistré sur un serveur.",
-      "collectionLink": "Cocher sa collection skin par skin"
+      "collectionLink": "Cocher sa collection skin par skin",
+      "methodItems": "Les apparences éclatantes et les objets des deux autres panneaux (effets de rappel, émotes, cadres d'avatar…) valent des points très variables d'un objet à l'autre : ils sont comptés à leurs points, à {inMatch} diamant par point pour les objets de partie, {outMatch} pour les objets hors partie, souvent gratuits, et {shining} pour les apparences éclatantes. La plupart viennent d'événements et de passes : c'est une estimation basse."
     },
     "accountValueUI": {
       "costTitle": "Coût estimé de la collection",
@@ -4249,16 +4250,16 @@
       "import": "Reprendre ma collection",
       "import_done": "Skins et héros repris de votre collection : {n} skins classés par catégorie.",
       "import_unmapped": "Skins sans catégorie connue, laissés de côté : {n}.",
-      "import_variants": "Les apparences colorées et éclatantes ne sont pas dans le catalogue : ajoutez-les à la main.",
+      "import_variants": "Les apparences colorées ne sont pas dans le catalogue : ajoutez-les à la main, comme les points des autres panneaux.",
       "import_failed": "Impossible de charger le catalogue des skins. Réessayez.",
-      "skinsTitle": "Vos skins, comme dans la Vitrine",
+      "skinsTitle": "Votre collection, comme dans la Vitrine",
       "whereTitle": "Où trouver ces nombres",
       "wherePath": "Profil > Vitrine > Collection",
-      "whereHint": "Ouvrez l'aperçu des points de collection de skins : chaque catégorie y affiche « possédés/total » et ses points. Recopiez le premier nombre de chaque ligne.",
+      "whereHint": "Trois aperçus des points de collection s'y ouvrent : skins, objets de partie et objets hors partie. Pour les skins, recopiez le premier nombre de chaque ligne (« possédés/total ») ; pour les deux autres, le total en points en haut du panneau.",
       "scan": {
         "button": "Lire une capture d'écran",
         "retry": "Essayer une autre image",
-        "hint": "Ou déposez-la ici, ou collez-la (Ctrl+V).",
+        "hint": "Ou déposez-la ici, ou collez-la (Ctrl+V). Une capture par panneau, dans l'ordre que vous voulez.",
         "privacy": "L'image est lue dans votre navigateur : elle ne quitte jamais votre appareil.",
         "loading": "Chargement du lecteur (quelques Mo, la première fois seulement)…",
         "reading": "Lecture de l'image…",
@@ -4270,7 +4271,9 @@
         "failed": "Aucun aperçu des points de collection reconnu sur cette image. Essayez une capture nette de la Vitrine, panneau ouvert.",
         "error": "Le lecteur n'a pas pu démarrer dans ce navigateur. Recopiez les nombres à la main.",
         "detected": "détecté",
-        "check": "à vérifier"
+        "check": "à vérifier",
+        "doneItems": "{group} : {points} points détectés sur votre capture.",
+        "shining": "Apparences éclatantes : {points} points."
       },
       "tier": {
         "legend": "Légende",
@@ -4279,15 +4282,14 @@
         "deluxe": "Premium",
         "exceptional": "Exceptionnelle",
         "common": "Commun",
-        "painted": "Apparences colorées",
-        "glow": "Apparence éclatante"
+        "painted": "Apparences colorées"
       },
       "pointsEach": "{points} points l'un",
       "costShop": "≈ {n} diamants l'un (boutique)",
       "costDraw": "≈ {n} diamants l'un (tirage estimé)",
       "costFlat": "≈ {n} diamants l'un (valeur symbolique)",
-      "pointsTitle": "Points de collection de skins",
-      "pointsCheck": "Comparez avec le total de votre Vitrine : s'il est identique, vos nombres sont justes.",
+      "pointsTitle": "Points de collection",
+      "pointsCheck": "Comparez avec le total de votre Vitrine, sous votre titre de collectionneur : s'il est identique, vos nombres sont justes.",
       "accountTitle": "Votre compte",
       "rank": "Rang le plus haut atteint",
       "heroes": "Héros possédés",
@@ -4299,7 +4301,22 @@
         "moonton": "Compte Moonton",
         "social": "Réseau social seul",
         "none": "Invité, sans liaison"
-      }
+      },
+      "skinsLegend": "Skins par catégorie",
+      "pointsLegend": "Comptés en points",
+      "pointsLead": "Ces objets valent des points très différents d'un objet à l'autre : indiquez le total en points que le jeu affiche.",
+      "group": {
+        "shining": "Apparences éclatantes",
+        "inMatch": "Objets de partie",
+        "outMatch": "Objets hors partie"
+      },
+      "groupWhere": {
+        "shining": "Dernière ligne du panneau des skins",
+        "inMatch": "Effets, émotes, statues…",
+        "outMatch": "Cadres d'avatar, bannières…"
+      },
+      "costPoint": "≈ {n} diamant par point",
+      "pointsSplit": "Skins {skins} · autres {items}"
     },
     "community": {
       "title": "Communauté",

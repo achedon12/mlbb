@@ -160,9 +160,15 @@ async function remove(base) {
 
 const builds = new Map();
 
-/** The build id of a `.next/server` folder, read once. */
+/**
+ * The build id of a `.next/server` folder, read once; null when there is none
+ * (`next dev` writes no BUILD_ID, and its pages are never kept).
+ */
 function buildOf(dist) {
-  if (!builds.has(dist)) builds.set(dist, readFileSync(join(dist, "..", "BUILD_ID"), "utf8").trim());
+  if (!builds.has(dist)) {
+    const file = join(dist, "..", "BUILD_ID");
+    builds.set(dist, existsSync(file) ? readFileSync(file, "utf8").trim() : null);
+  }
   return builds.get(dist);
 }
 
@@ -186,8 +192,9 @@ export default class CacheHandler {
     this.built = new FileSystemCache({ ...context, flushToDisk: false });
     // During the build, pages are written by the build itself: nothing to keep.
     const building = process.env.NEXT_PHASE === "phase-production-build";
-    if (context.dev || building || !context.serverDistDir) return;
+    if (context.dev || building || !context.serverDistDir || process.env.NODE_ENV === "development") return;
     const build = buildOf(context.serverDistDir);
+    if (!build) return;
     const root = join(context.serverDistDir, "..", "cache", "pages");
     prune(root, build);
     this.rendered = new FileSystemCache({ ...context, serverDistDir: join(root, build), flushToDisk: true });

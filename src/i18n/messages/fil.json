@@ -2781,8 +2781,8 @@
         "bans": "Mga ban",
         "blue": "blue side",
         "red": "red side",
-        "showGames": "Ipakita ang {n} game",
-        "hideGames": "Itago ang mga game"
+        "showGames": "Ipakita ang {n} laro",
+        "hideGames": "Itago ang mga bahagi"
       },
       "heroPro": {
         "title": "{name} sa pro play",
@@ -2889,8 +2889,8 @@
       "losses": "Talo",
       "winRate": "Win rate",
       "noPick": "Walang pick",
-      "showAll": "Ipakita ang lahat ng {n} hero",
-      "showFewer": "Ipakita ang mas kaunting hero"
+      "showAll": "Ipakita ang {n} hero",
+      "showFewer": "Magpakita ng mas kaunting mga hero"
     },
     "draftSimulatorUI": {
       "tabsLabel": "Tool mode",
@@ -4202,7 +4202,7 @@
       "warning": "Ang pagbili, pagbenta o pag-trade ng account ay labag sa terms of service ng Moonton: puwedeng ma-ban ang account o bawiin ng dating may-ari, at karaniwan ang scam. Sinusukat ng tantiyang ito kung magkano ang nagastos sa isang collection; hindi ito nagtatakda ng presyo. Walang ipinapadala sa server.",
       "methodTitle": "Ang paraan, isa-isang numero",
       "methodPoints": "Ang mga tier ay ang mga nasa Showcase ng laro, kasama ang collection points na ibinibigay ng laro sa bawat skin. Ang kabuuang points ay pansuri: dapat itong tumugma sa kabuuang ipinapakita ng laro.",
-      "methodCost": "Ang bawat skin ay binibilang sa karaniwang gastos ng tier nito. Ang mga Deluxe, Exceptional at Common skin ay ibinebenta sa shop: ang gastos nila ay ang median na presyo sa diamonds ng mga skin ng tier, mula sa data ng laro. Ang mga Supreme, Grand at Exquisite skin ay nakukuha sa draw: kinukuha nila ang median, na binilog, ng mga gastos na inilathala ng mga gabay ng manlalaro, na malaki ang pagkakaiba sa bawat event at bawat manlalaro. Ang painted skin ay may simbolikong halaga, ang shining skin ay wala.",
+      "methodCost": "Ang bawat skin ay binibilang para sa karaniwang halaga ng kategorya nito. Ang Premium, Exceptional at Common ay ibinebenta sa mga tindahan: ang kanilang gastos ay ang median na presyo sa mga diamante ng mga skin sa kategorya, na naitala sa data ng laro. Ang Legend, Grandiose at Exquisite ay nakukuha sa pamamagitan ng pagguhit: kinukuha nila ang median, bilugan, ng mga gastos na inilathala ng mga gabay ng manlalaro, na nag-iiba-iba mula sa isang kaganapan at mula sa isang manlalaro patungo sa isa pa. Ang isang makulay na hitsura ay binibilang para sa simbolikong halaga.",
       "tableCaption": "Points at gastos na binibilang bawat skin, ayon sa tier",
       "colTier": "Tier",
       "colPoints": "Mga puntos",
@@ -4227,7 +4227,8 @@
       "ratesSource": "Source ng mga rate",
       "checked": "sinuri ang mga assumption noong {date}",
       "methodPrivacy": "Tumatakbo sa browser mo ang kuwenta. Isinusulat sa address ng page ang mga numerong in-type mo para ma-share ang resulta: walang pangalan, walang account ID, walang iniimbak sa server.",
-      "collectionLink": "I-tick ang collection mo, isa-isang skin"
+      "collectionLink": "I-tick ang collection mo, isa-isang skin",
+      "methodItems": "Ang shining skins at ang items ng dalawa pang panel (recall effects, emotes, avatar frames…) ay may iba-ibang points bawat item: binibilang sila ayon sa points nila, {inMatch} diamond bawat point para sa in-match items, {outMatch} para sa out-of-match items na kadalasang libre, at {shining} para sa shining skins. Karamihan ay galing sa events at passes: mababang tantiya ito."
     },
     "accountValueUI": {
       "costTitle": "Tinatayang halaga ng collection",
@@ -4249,16 +4250,16 @@
       "import": "Gamitin ang collection ko",
       "import_done": "Mga skin at hero na kinuha mula sa iyong koleksyon: {n} skin na inayos ayon sa tier.",
       "import_unmapped": "Mga skin na walang kilalang kategorya, iniwan: {n}.",
-      "import_variants": "Wala sa catalog ang mga painted at shining skin: idagdag ang mga ito nang mano-mano.",
+      "import_variants": "Ang mga kulay na hitsura ay wala sa catalog: idagdag ang mga ito sa pamamagitan ng kamay, tulad ng mga punto ng iba pang mga panel.",
       "import_failed": "Hindi ma-load ang skin catalogue. Subukan ulit.",
-      "skinsTitle": "Ang iyong mga skin, tulad ng sa Showcase",
+      "skinsTitle": "Ang iyong koleksyon, tulad ng sa Showcase",
       "whereTitle": "Saan mahahanap ang mga numerong ito",
       "wherePath": "Profile > Showcase > Collection",
-      "whereHint": "Buksan ang skin collection points overview: bawat tier ay nagpapakita ng \"owned/total\" at ng points nito. Kopyahin ang unang numero ng bawat hilera.",
+      "whereHint": "Tatlong overview ng collection points ang bubukas doon: skins, in-match items at out-of-match items. Sa skins, kopyahin ang unang numero ng bawat row (\"owned/total\"); sa dalawa pa, ang kabuuang points sa itaas ng panel.",
       "scan": {
         "button": "Basahin ang screenshot",
         "retry": "Subukan ang ibang larawan",
-        "hint": "O i-drop ito rito, o i-paste (Ctrl+V).",
+        "hint": "O i-drop ito dito, o i-paste ito (Ctrl+V). Isang pagkuha sa bawat panel, sa pagkakasunud-sunod na gusto mo.",
         "privacy": "Binabasa ang larawan sa iyong browser: hindi ito umaalis sa iyong device.",
         "loading": "Nilo-load ang reader (ilang MB, sa unang beses lang)…",
         "reading": "Binabasa ang larawan…",
@@ -4270,7 +4271,9 @@
         "failed": "Walang nakitang skin collection points overview sa larawang ito. Subukan ang malinaw na screenshot ng Showcase na bukas ang panel.",
         "error": "Hindi nakapagsimula ang reader sa browser na ito. Kopyahin nang mano-mano ang mga numero.",
         "detected": "nakita",
-        "check": "suriin"
+        "check": "suriin",
+        "doneItems": "{group}: {points} puntos ang nakita sa iyong pagkuha.",
+        "shining": "Shining skins: {points} points."
       },
       "tier": {
         "legend": "Supreme",
@@ -4279,15 +4282,14 @@
         "deluxe": "Deluxe",
         "exceptional": "Exceptional",
         "common": "Common",
-        "painted": "Painted skins",
-        "glow": "Shining skins"
+        "painted": "Painted skins"
       },
       "pointsEach": "{points} points bawat isa",
       "costShop": "≈ {n} diamonds bawat isa (shop)",
       "costDraw": "≈ {n} diamonds bawat isa (tinatayang draw)",
       "costFlat": "≈ {n} diamonds bawat isa (simbolikong halaga)",
-      "pointsTitle": "Skin collection points",
-      "pointsCheck": "Ihambing ito sa kabuuan sa iyong Showcase: kung magkapareho, tama ang iyong mga numero.",
+      "pointsTitle": "Collection points",
+      "pointsCheck": "Ihambing sa kabuuan sa iyong Showcase, sa ilalim ng pamagat ng iyong kolektor: kung ito ay magkapareho, ang iyong mga numero ay tama.",
       "accountTitle": "Account mo",
       "rank": "Pinakamataas na rank na naabot",
       "heroes": "Mga hero na pag-aari",
@@ -4299,7 +4301,22 @@
         "moonton": "Moonton account",
         "social": "Social network lang",
         "none": "Guest, walang binding"
-      }
+      },
+      "skinsLegend": "Mga skin ayon sa kategorya",
+      "pointsLegend": "Binibilang sa mga puntos",
+      "pointsLead": "Iba-iba ang points ng bawat item: ilagay ang kabuuang points na ipinapakita ng laro.",
+      "group": {
+        "shining": "Shining skins",
+        "inMatch": "In-match items",
+        "outMatch": "Out-of-match items"
+      },
+      "groupWhere": {
+        "shining": "Huling hilera ng panel ng mga skin",
+        "inMatch": "Mga epekto, emote, estatwa...",
+        "outMatch": "Mga avatar frame, banner…"
+      },
+      "costPoint": "≈ {n} brilyante bawat punto",
+      "pointsSplit": "Mga skin {skins} · iba pa {items}"
     },
     "community": {
       "title": "Community",

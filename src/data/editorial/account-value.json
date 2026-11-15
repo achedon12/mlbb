@@ -1,5 +1,5 @@
 {
-  "$comment": "Assumptions of the account value estimator (/tools/account-value), written by hand: see docs/editorial-data.md. Every figure here is indicative and shown as such on the page. Skins are counted by the game's Showcase tiers. Deluxe, Exceptional and Common are costed from the synced shop prices; only the draw tiers (Legend, Grand, Exquisite), which have no shop price, take a cost from drawCost, and the colour variants (painted, shining) a flat one from flatCost. Exchange rates are units of each currency for one US dollar, read on ratesDate.",
+  "$comment": "Assumptions of the account value estimator (/tools/account-value), written by hand: see docs/editorial-data.md. Every figure here is indicative and shown as such on the page. Skins are counted by the game's Showcase tiers. Deluxe, Exceptional and Common are costed from the synced shop prices; only the draw tiers (Legend, Grand, Exquisite), which have no shop price, take a cost from drawCost, the painted colour variants a flat one from flatCost, and the shining skins and the other Showcase panels (in-match and out-of-match items) a cost per collection point from pointCost. Exchange rates are units of each currency for one US dollar, read on ratesDate.",
   "checked": "2026-11-14",
   "usdPerDiamond": 0.0194,
   "usdPerDiamondNote": "257 diamonds for 4.99 USD, the usual top-up pack without first-purchase bonus.",
@@ -16,10 +16,15 @@
     "https://gamingonphone.com/guides/mobile-legends-bang-bang-2026-collector-skins-complete-list-and-how-to-get-them"
   ],
   "flatCost": {
-    "painted": 50,
-    "glow": 0
+    "painted": 50
   },
-  "flatCostNote": "A painted skin is a colour variant handed out with StarLight and events, never sold on its own: a token 50 diamonds. A shining skin counts for nothing, as in the Showcase total.",
+  "flatCostNote": "A painted skin is a colour variant handed out with StarLight and events, never sold on its own: a token 50 diamonds.",
+  "pointCost": {
+    "shining": 1,
+    "inMatch": 1,
+    "outMatch": 0.5
+  },
+  "pointCostNote": "Diamonds counted per collection point of the Showcase's other panels. Bought skins come to about 1.5 to 3 diamonds per point (a 749-diamond Deluxe skin is 400 points); these items mostly come from events, passes and season rewards, a few from the shop (a recall effect, about 130 points, sells for 300 to 600 diamonds). In-match items and shining skins are counted at 1 diamond per point, out-of-match items, mostly free avatar frames, at half that.",
   "resale": {
     "low": 0.1,
     "high": 0.3,

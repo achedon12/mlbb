@@ -2781,8 +2781,8 @@
         "bans": "Ban",
         "blue": "sisi biru",
         "red": "sisi merah",
-        "showGames": "Tampilkan {n} game",
-        "hideGames": "Sembunyikan game"
+        "showGames": "Tampilkan {n} permainan",
+        "hideGames": "Sembunyikan bagian"
       },
       "heroPro": {
         "title": "{name} di antara para profesional",
@@ -2889,7 +2889,7 @@
       "losses": "Kekalahan",
       "winRate": "Win rate",
       "noPick": "Tidak ada pilihan",
-      "showAll": "Tampilkan semua {n} hero",
+      "showAll": "Tampilkan {n} hero",
       "showFewer": "Tampilkan lebih sedikit hero"
     },
     "draftSimulatorUI": {
@@ -4202,7 +4202,7 @@
       "warning": "Membeli, menjual, atau menukar akun melanggar ketentuan layanan Moonton: akun bisa diblokir atau diambil kembali oleh pemilik lamanya, dan penipuan sering terjadi. Estimasi ini mengukur biaya sebuah koleksi, bukan menentukan harga. Tidak ada yang dikirim ke server.",
       "methodTitle": "Metodenya, angka demi angka",
       "methodPoints": "Kategorinya adalah kategori Showcase di dalam game, dengan poin koleksi yang diberikan game untuk setiap skin. Jumlah poin berfungsi sebagai pengecekan: hasilnya harus sama dengan total yang ditampilkan game.",
-      "methodCost": "Setiap skin dihitung dengan biaya umum kategorinya. Skin Deluxe, Exceptional, dan Common dijual di toko: biayanya adalah harga median dalam diamond dari skin kategori itu, diambil dari data game. Skin Supreme, Grand, dan Exquisite didapat dari draw: biayanya adalah median, dibulatkan, dari biaya yang diterbitkan panduan pemain, yang sangat bervariasi antar event dan antar pemain. Skin Painted dihitung dengan nilai simbolis, skin Shining tidak dihitung.",
+      "methodCost": "Setiap skin dihitung berdasarkan biaya tipikal di kategorinya. Premium, Luar Biasa, dan Umum dijual di toko: biayanya adalah harga rata-rata berlian dari skin dalam kategori tersebut, yang dicatat dalam data game. Legend, Grandiose, dan Exquisite diperoleh dengan draw: mereka mengambil median, pembulatan, dari biaya yang diterbitkan oleh panduan pemain, yang sangat bervariasi dari satu peristiwa dan dari satu pemain ke pemain lainnya. Penampilan yang penuh warna mempunyai nilai simbolis.",
       "tableCaption": "Poin dan biaya yang dihitung per skin, per kategori",
       "colTier": "Kategori",
       "colPoints": "Poin",
@@ -4227,7 +4227,8 @@
       "ratesSource": "Sumber kurs",
       "checked": "asumsi dicek pada {date}",
       "methodPrivacy": "Perhitungan dilakukan di browser kamu. Angka yang kamu isi ditulis di alamat halaman agar hasilnya bisa dibagikan: tanpa nama, tanpa ID akun, tidak ada yang disimpan di server.",
-      "collectionLink": "Centang koleksimu skin demi skin"
+      "collectionLink": "Centang koleksimu skin demi skin",
+      "methodItems": "Skin Shining dan item di dua panel lainnya (efek recall, emote, bingkai avatar…) bernilai poin yang sangat berbeda dari satu item ke item lain: semuanya dihitung dari poinnya, {inMatch} diamond per poin untuk item dalam match, {outMatch} untuk item luar match yang sering gratis, dan {shining} untuk skin Shining. Sebagian besar didapat dari event dan pass: ini estimasi rendah."
     },
     "accountValueUI": {
       "costTitle": "Perkiraan biaya koleksi",
@@ -4249,16 +4250,16 @@
       "import": "Pakai koleksi saya",
       "import_done": "Skin dan hero diambil dari koleksimu: {n} skin dikelompokkan per kategori.",
       "import_unmapped": "Skin tanpa kategori yang dikenal, tidak dihitung: {n}.",
-      "import_variants": "Skin Painted dan Shining tidak ada di katalog: tambahkan secara manual.",
+      "import_variants": "Tampilan berwarna tidak ada dalam katalog: tambahkan dengan tangan, seperti titik pada panel lainnya.",
       "import_failed": "Katalog skin gagal dimuat. Coba lagi.",
-      "skinsTitle": "Skin-mu, seperti di Showcase",
+      "skinsTitle": "Koleksi Anda, seperti di Showcase",
       "whereTitle": "Di mana menemukan angka ini",
       "wherePath": "Profil > Showcase > Koleksi",
-      "whereHint": "Buka ringkasan poin koleksi skin: setiap kategori menampilkan \"dimiliki/total\" dan poinnya. Salin angka pertama di setiap baris.",
+      "whereHint": "Di sana ada tiga ringkasan poin koleksi: skin, item dalam match, dan item luar match. Untuk skin, salin angka pertama di setiap baris (\"dimiliki/total\"); untuk dua lainnya, total poin di bagian atas panel.",
       "scan": {
         "button": "Baca screenshot",
         "retry": "Coba gambar lain",
-        "hint": "Atau taruh di sini, atau tempel (Ctrl+V).",
+        "hint": "Atau letakkan di sini, atau tempel (Ctrl+V). Satu pengambilan per panel, sesuai urutan yang Anda inginkan.",
         "privacy": "Gambar dibaca di browser-mu: tidak pernah keluar dari perangkatmu.",
         "loading": "Memuat pembaca (beberapa MB, hanya pertama kali)…",
         "reading": "Membaca gambar…",
@@ -4270,7 +4271,9 @@
         "failed": "Tidak ada ringkasan poin koleksi skin di gambar ini. Coba screenshot Showcase yang jelas, dengan panelnya terbuka.",
         "error": "Pembaca tidak bisa berjalan di browser ini. Salin angkanya secara manual.",
         "detected": "terdeteksi",
-        "check": "perlu dicek"
+        "check": "perlu dicek",
+        "doneItems": "{group}: {points} poin terdeteksi pada tangkapan Anda.",
+        "shining": "Skin Shining: {points} poin."
       },
       "tier": {
         "legend": "Supreme",
@@ -4279,15 +4282,14 @@
         "deluxe": "Deluxe",
         "exceptional": "Exceptional",
         "common": "Common",
-        "painted": "Skin Painted",
-        "glow": "Skin Shining"
+        "painted": "Skin Painted"
       },
       "pointsEach": "{points} poin per skin",
       "costShop": "≈ {n} diamond per skin (toko)",
       "costDraw": "≈ {n} diamond per skin (perkiraan draw)",
       "costFlat": "≈ {n} diamond per skin (nilai simbolis)",
-      "pointsTitle": "Poin koleksi skin",
-      "pointsCheck": "Bandingkan dengan total di Showcase-mu: jika sama, angkamu sudah benar.",
+      "pointsTitle": "Poin koleksi",
+      "pointsCheck": "Bandingkan dengan jumlah total di Etalase Anda, di bawah judul kolektor Anda: jika sama, nomor Anda benar.",
       "accountTitle": "Akun kamu",
       "rank": "Rank tertinggi yang dicapai",
       "heroes": "Hero yang dimiliki",
@@ -4299,7 +4301,22 @@
         "moonton": "Akun Moonton",
         "social": "Hanya media sosial",
         "none": "Tamu, tanpa binding"
-      }
+      },
+      "skinsLegend": "Skin berdasarkan kategori",
+      "pointsLegend": "Dihitung dalam poin",
+      "pointsLead": "Item-item ini bernilai poin yang sangat berbeda satu sama lain: masukkan total poin yang ditampilkan game.",
+      "group": {
+        "shining": "Skin Shining",
+        "inMatch": "Item dalam match",
+        "outMatch": "Item luar match"
+      },
+      "groupWhere": {
+        "shining": "Baris terakhir panel skin",
+        "inMatch": "Efek, emote, patung…",
+        "outMatch": "Bingkai avatar, spanduk…"
+      },
+      "costPoint": "≈ {n} berlian per poin",
+      "pointsSplit": "Skin {skins} · lainnya {items}"
     },
     "community": {
       "title": "Komunitas",

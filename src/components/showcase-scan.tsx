@@ -6,7 +6,7 @@ import { classesChip } from "@/components/chip";
 import { LOCALE_INTL } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
 import { pointsOf, type Tier } from "@/lib/account-value";
-import { READ_TIERS, type ShowcaseReading } from "@/lib/showcase-ocr";
+import { READ_TIERS, type PanelReading } from "@/lib/showcase-ocr";
 import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
@@ -14,7 +14,7 @@ type State =
   | { step: "idle" }
   | { step: "loading" | "reading" }
   | { step: "failed" | "error" }
-  | { step: "done"; reading: ShowcaseReading };
+  | { step: "done"; reading: PanelReading };
 
 /** The first image of a paste or a drop, if any. */
 const imageOf = (items: DataTransferItemList | null | undefined, files: FileList | null | undefined): File | null => {
@@ -24,8 +24,9 @@ const imageOf = (items: DataTransferItemList | null | undefined, files: FileList
 };
 
 /**
- * Fills the tier counts from a screenshot of the Showcase panel: chosen from
- * the gallery, dropped on the section or pasted. The OCR runs in the browser
+ * Fills the fields from a screenshot of one of the Showcase's three panels
+ * (skins, in-match items, out-of-match items): chosen from the gallery,
+ * dropped on the section or pasted. The OCR runs in the browser
  * and its result only pre-fills the fields, marked for the player to check.
  */
 export function ShowcaseScan({
@@ -35,7 +36,7 @@ export function ShowcaseScan({
 }: {
   /** Skins per tier in the catalogue, to judge the totals read. */
   catalog: Partial<Record<Tier, number>>;
-  onRead: (reading: ShowcaseReading) => void;
+  onRead: (reading: PanelReading) => void;
   /** The section the image can be dropped on. */
   children: ReactNode;
 }) {
@@ -61,7 +62,12 @@ export function ShowcaseScan({
       }
       onRead(reading);
       setState({ step: "done", reading });
-      trackEvent("Account value", "Screenshot", reading.header?.matches ? "checked" : "partial", reading.rows.length);
+      trackEvent(
+        "Account value",
+        "Screenshot",
+        `${reading.kind === "skins" ? "skins" : reading.reading.group} ${reading.reading.header?.matches ? "checked" : "partial"}`,
+        reading.reading.rows.length,
+      );
     } catch {
       setState({ step: "error" });
     }
@@ -84,8 +90,13 @@ export function ShowcaseScan({
   }, []);
 
   const tierNames = (tiers: readonly Tier[]) => tiers.map((x) => t(`pages.accountValueUI.tier.${x}`)).join(", ");
-  const reading = state.step === "done" ? state.reading : null;
-  const sum = reading ? pointsOf(Object.fromEntries(reading.rows.map((r) => [r.tier, r.owned]))) : 0;
+  const panel = state.step === "done" ? state.reading : null;
+  const reading = panel?.kind === "skins" ? panel.reading : null;
+  const items = panel?.kind === "items" ? panel.reading : null;
+  const sum = reading
+    ? pointsOf(Object.fromEntries(reading.rows.map((r) => [r.tier, r.owned]))) + (reading.shining ?? 0)
+    : (items?.points ?? 0);
+  const header = panel?.reading.header ?? null;
   const unchecked = reading?.rows.filter((r) => !r.checked).map((r) => r.tier) ?? [];
   const missing = reading ? READ_TIERS.filter((x) => !reading.rows.some((r) => r.tier === x)) : [];
 
@@ -129,7 +140,7 @@ export function ShowcaseScan({
           className={cn(classesChip(true), "inline-flex items-center gap-2 disabled:opacity-60")}
         >
           {busy ? <LoaderCircle size={15} aria-hidden className="animate-spin" /> : <ImageUp size={15} aria-hidden />}
-          {t(reading || state.step === "failed" ? "pages.accountValueUI.scan.retry" : "pages.accountValueUI.scan.button")}
+          {t(panel || state.step === "failed" ? "pages.accountValueUI.scan.retry" : "pages.accountValueUI.scan.button")}
         </button>
         <p className="min-w-0 basis-full text-xs leading-relaxed text-chalk-400 sm:basis-0 sm:flex-1">
           <span className="hidden sm:inline">{t("pages.accountValueUI.scan.hint")} </span>
@@ -139,15 +150,25 @@ export function ShowcaseScan({
           {busy && <p className="text-chalk-300">{t(`pages.accountValueUI.scan.${state.step}`)}</p>}
           {state.step === "failed" && <p className="text-gold-400">{t("pages.accountValueUI.scan.failed")}</p>}
           {state.step === "error" && <p className="text-gold-400">{t("pages.accountValueUI.scan.error")}</p>}
-          {reading && (
+          {panel && (
             <>
-              <p className="font-semibold text-gold-400">{t("pages.accountValueUI.scan.done")}</p>
-              {reading.header?.matches ? (
-                <p className="text-chalk-300">{t("pages.accountValueUI.scan.headerOk", { total: count.format(reading.header.value) })}</p>
-              ) : reading.header ? (
+              <p className="font-semibold text-gold-400">
+                {items
+                  ? t("pages.accountValueUI.scan.doneItems", {
+                      group: t(`pages.accountValueUI.group.${items.group}`),
+                      points: count.format(items.points),
+                    })
+                  : t("pages.accountValueUI.scan.done")}
+              </p>
+              {header?.matches ? (
+                <p className="text-chalk-300">{t("pages.accountValueUI.scan.headerOk", { total: count.format(header.value) })}</p>
+              ) : header ? (
                 <p className="text-chalk-300">
-                  {t("pages.accountValueUI.scan.headerOff", { read: count.format(reading.header.value), sum: count.format(sum) })}
+                  {t("pages.accountValueUI.scan.headerOff", { read: count.format(header.value), sum: count.format(sum) })}
                 </p>
+              ) : null}
+              {reading?.shining ? (
+                <p className="text-chalk-300">{t("pages.accountValueUI.scan.shining", { points: count.format(reading.shining) })}</p>
               ) : null}
               {unchecked.length > 0 && <p className="text-chalk-300">{t("pages.accountValueUI.scan.rowsCheck", { tiers: tierNames(unchecked) })}</p>}
               {missing.length > 0 && <p className="text-chalk-300">{t("pages.accountValueUI.scan.missing", { tiers: tierNames(missing) })}</p>}

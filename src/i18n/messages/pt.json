@@ -2781,8 +2781,8 @@
         "bans": "Bans",
         "blue": "lado azul",
         "red": "lado vermelho",
-        "showGames": "Mostrar as {n} partidas",
-        "hideGames": "Ocultar as partidas"
+        "showGames": "Mostrar {n} jogos",
+        "hideGames": "Ocultar peças"
       },
       "heroPro": {
         "title": "{name} no cenário pro",
@@ -2889,7 +2889,7 @@
       "losses": "Derrotas",
       "winRate": "Taxa de vitória",
       "noPick": "Nenhum pick",
-      "showAll": "Mostrar os {n} heróis",
+      "showAll": "Mostrar {n} heróis",
       "showFewer": "Mostrar menos heróis"
     },
     "draftSimulatorUI": {
@@ -4202,7 +4202,7 @@
       "warning": "Comprar, vender ou trocar uma conta viola os termos de serviço da Moonton: a conta pode ser banida ou recuperada pelo antigo dono, e golpes são comuns. Esta estimativa mede quanto uma coleção custou; ela não define um preço. Nada é enviado a um servidor.",
       "methodTitle": "O método, número por número",
       "methodPoints": "As categorias são as da Vitrine do jogo, com os pontos de coleção que o jogo dá a cada skin. A soma dos pontos serve de conferência: ela deve bater com o total exibido no jogo.",
-      "methodCost": "Cada skin conta pelo custo típico da sua categoria. As skins Deluxe, Exceptional e Common são vendidas na loja: o custo delas é o preço mediano em diamantes das skins da categoria, tirado dos dados do jogo. As skins Supreme, Grand e Exquisite vêm de sorteios: usam a mediana, arredondada, dos custos publicados por guias de jogadores, que varia muito de um evento e de um jogador para outro. Uma skin Painted conta por um valor simbólico, uma skin Shining por nada.",
+      "methodCost": "Cada skin conta para o custo típico de sua categoria. Premium, Excepcional e Comum são vendidas nas lojas: seu custo é o preço mediano em diamantes das skins da categoria, registrado nos dados do jogo. Lenda, Grandioso e Requintado são obtidos por sorteio: pegam a mediana, arredondada, dos custos publicados pelos guias dos jogadores, que varia muito de um evento e de um jogador para outro. Uma aparência colorida conta com valor simbólico.",
       "tableCaption": "Pontos e custo contados por skin, por categoria",
       "colTier": "Categoria",
       "colPoints": "Pontos",
@@ -4227,7 +4227,8 @@
       "ratesSource": "Fonte das taxas",
       "checked": "hipóteses verificadas em {date}",
       "methodPrivacy": "O cálculo é feito no seu navegador. Os números digitados são gravados no endereço da página para que o resultado possa ser compartilhado: nenhum nome, nenhum ID de conta, nada é salvo em um servidor.",
-      "collectionLink": "Marque sua coleção skin por skin"
+      "collectionLink": "Marque sua coleção skin por skin",
+      "methodItems": "As skins Shining e os itens dos outros dois painéis (efeitos de recall, emotes, molduras de avatar…) valem pontos muito diferentes de um item para outro: são contados pelos seus pontos, a {inMatch} diamante por ponto os itens de partida, {outMatch} os de fora da partida, muitas vezes gratuitos, e {shining} as skins Shining. A maioria vem de eventos e passes: é uma estimativa baixa."
     },
     "accountValueUI": {
       "costTitle": "Custo estimado da coleção",
@@ -4249,16 +4250,16 @@
       "import": "Usar minha coleção",
       "import_done": "Skins e heróis trazidos da sua coleção: {n} skins classificadas por categoria.",
       "import_unmapped": "Skins sem categoria conhecida, deixadas de fora: {n}.",
-      "import_variants": "As skins Painted e Shining não estão no catálogo: adicione-as à mão.",
+      "import_variants": "As aparências coloridas não estão no catálogo: adicione-as à mão, como os pontos dos demais painéis.",
       "import_failed": "Não foi possível carregar o catálogo de skins. Tente novamente.",
-      "skinsTitle": "Suas skins, como na Vitrine",
+      "skinsTitle": "Sua coleção, como no Showcase",
       "whereTitle": "Onde encontrar esses números",
       "wherePath": "Perfil > Vitrine > Coleção",
-      "whereHint": "Abra o resumo dos pontos de coleção de skins: cada categoria mostra \"obtidas/total\" e seus pontos. Copie o primeiro número de cada linha.",
+      "whereHint": "Lá se abrem três resumos de pontos de coleção: skins, itens de partida e itens fora da partida. Para as skins, copie o primeiro número de cada linha (\"obtidas/total\"); para os outros dois, o total de pontos no topo do painel.",
       "scan": {
         "button": "Ler uma captura de tela",
         "retry": "Tentar outra imagem",
-        "hint": "Ou solte-a aqui, ou cole (Ctrl+V).",
+        "hint": "Ou solte aqui ou cole (Ctrl+V). Uma captura por painel, na ordem que desejar.",
         "privacy": "A imagem é lida no seu navegador: ela nunca sai do seu aparelho.",
         "loading": "Carregando o leitor (alguns MB, só na primeira vez)…",
         "reading": "Lendo a imagem…",
@@ -4270,7 +4271,9 @@
         "failed": "Nenhum resumo de pontos de coleção encontrado nesta imagem. Tente uma captura nítida da Vitrine, com o painel aberto.",
         "error": "O leitor não pôde iniciar neste navegador. Copie os números à mão.",
         "detected": "detectado",
-        "check": "conferir"
+        "check": "conferir",
+        "doneItems": "{group}: {points} pontos detectados na sua captura.",
+        "shining": "Skins Shining: {points} pontos."
       },
       "tier": {
         "legend": "Supreme",
@@ -4279,15 +4282,14 @@
         "deluxe": "Deluxe",
         "exceptional": "Exceptional",
         "common": "Common",
-        "painted": "Skins Painted",
-        "glow": "Skins Shining"
+        "painted": "Skins Painted"
       },
       "pointsEach": "{points} pontos cada",
       "costShop": "≈ {n} diamantes cada (loja)",
       "costDraw": "≈ {n} diamantes cada (sorteio estimado)",
       "costFlat": "≈ {n} diamantes cada (valor simbólico)",
-      "pointsTitle": "Pontos de coleção de skins",
-      "pointsCheck": "Compare com o total da sua Vitrine: se for igual, seus números estão certos.",
+      "pointsTitle": "Pontos de coleção",
+      "pointsCheck": "Compare com o total na sua Vitrine, sob o seu título de colecionador: se for idêntico, seus números estão corretos.",
       "accountTitle": "Sua conta",
       "rank": "Elo mais alto alcançado",
       "heroes": "Heróis que você tem",
@@ -4299,7 +4301,22 @@
         "moonton": "Conta Moonton",
         "social": "Só rede social",
         "none": "Convidado, sem vinculação"
-      }
+      },
+      "skinsLegend": "Skins por categoria",
+      "pointsLegend": "Contado em pontos",
+      "pointsLead": "Esses itens valem pontos muito diferentes de um para outro: informe o total de pontos que o jogo mostra.",
+      "group": {
+        "shining": "Skins Shining",
+        "inMatch": "Itens de partida",
+        "outMatch": "Itens fora da partida"
+      },
+      "groupWhere": {
+        "shining": "Última linha do painel de skins",
+        "inMatch": "Efeitos, emotes, estátuas…",
+        "outMatch": "Molduras de avatar, banners…"
+      },
+      "costPoint": "≈ {n} diamante por ponto",
+      "pointsSplit": "Skins {skins} · outros {items}"
     },
     "community": {
       "title": "Comunidade",
