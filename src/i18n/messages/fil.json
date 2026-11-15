@@ -5908,6 +5908,26 @@
     "esports": {
       "title": "Sundan ang mga tournament kasama ang ibang fans",
       "text": "MPL, MSC at M-series: nasa esports channel ng Discord ang mga resulta."
+    },
+    "nickname": {
+      "title": "Ipakita ang bago mong nickname",
+      "text": "Subukan ito sa MLBBDex Discord at maghanap ng teammates sa rank mo."
+    },
+    "skins": {
+      "title": "Malaman agad ang bagong skins",
+      "text": "Bagong skins, StarLight at draws, nasa Discord agad paglabas."
+    },
+    "tools": {
+      "title": "Ihanda ang drafts kasama ang squad",
+      "text": "I-share ang lineups mo at maghanap ng teammates sa MLBBDex Discord."
+    },
+    "value": {
+      "title": "Ikumpara ang collection mo",
+      "text": "Ipakita ang Showcase mo at mag-usap tungkol sa skins sa MLBBDex Discord."
+    },
+    "copy": {
+      "title": "Nakopya ang nickname! Ipakita mo na",
+      "text": "Sumali sa MLBBDex Discord: teammates ayon sa rank, patch alerts at MLBBdle ng araw."
     }
   }
 }

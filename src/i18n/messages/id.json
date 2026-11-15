@@ -5908,6 +5908,26 @@
     "esports": {
       "title": "Ikuti turnamen bareng fans lain",
       "text": "MPL, MSC, dan M-series: hasilnya masuk ke channel esports Discord."
+    },
+    "nickname": {
+      "title": "Pamerkan nickname barumu",
+      "text": "Coba di Discord MLBBDex dan cari teman se-rank."
+    },
+    "skins": {
+      "title": "Tahu duluan soal skin baru",
+      "text": "Skin baru, StarLight, dan draw langsung masuk ke Discord begitu rilis."
+    },
+    "tools": {
+      "title": "Siapkan draft bareng tim",
+      "text": "Bagikan komposisimu dan cari teman di Discord MLBBDex."
+    },
+    "value": {
+      "title": "Bandingkan koleksimu",
+      "text": "Pamerkan Showcase-mu dan ngobrol soal skin di Discord MLBBDex."
+    },
+    "copy": {
+      "title": "Nickname disalin! Ayo pamerkan",
+      "text": "Gabung Discord MLBBDex: cari teman per rank, notifikasi patch, dan MLBBdle harian."
     }
   }
 }
