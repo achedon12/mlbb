@@ -5183,7 +5183,7 @@
         "collection": "Koleksi tersinkronisasi: hingga Anda mengosongkannya, atau sesuai permintaan.",
         "push": "Pemberitahuan patch: sampai berhenti berlangganan; langganan yang menjadi tidak valid akan dihapus pada pemberitahuan berikutnya.",
         "bot": "Untuk bot Discord: pengaturan server, dan hasil permainan hari itu yang dimainkan di sana, hingga 30 hari setelah bot keluar; log perintah garis miring yang digunakan, tanpa ID anggota, 90 hari; memilih bot, hingga diminta untuk menghapus.",
-        "logs": "Log teknis: kesalahan yang ditemukan oleh browser (pesan, halaman, versi situs, jenis browser; baik alamat IP maupun akun) disimpan di server untuk diagnosis, hingga dihapus oleh penerbit.",
+        "logs": "Log teknis: kesalahan server dan kesalahan yang ditemukan oleh browser (pesan, halaman, versi situs, jenis browser, tanpa alamat IP atau akun) disimpan selama 30 hari untuk diagnosis. Peristiwa keamanan dan moderasi (permintaan ditolak, tindakan moderator dan administrator) disimpan selama 6 bulan. Mereka kemudian dihapus secara otomatis.",
         "backups": "Cadangan: salinan harian database; hanya tiga data terbaru yang disimpan, sehingga data yang dihapus akan hilang dari cadangan dalam tiga hari.",
         "rateLimits": "Batasan Nilai: Alamat IP Anda, hanya di memori, tidak pernah ditulis ke disk."
       },

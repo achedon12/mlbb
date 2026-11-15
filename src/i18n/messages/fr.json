@@ -5183,7 +5183,7 @@
         "collection": "Collection synchronisée : jusqu'à ce que vous la vidiez, ou sur demande.",
         "push": "Notifications de patch : jusqu'au désabonnement ; un abonnement devenu invalide est supprimé à la notification suivante.",
         "bot": "Pour le bot Discord : les réglages d'un serveur, et les résultats des jeux du jour qui y ont été joués, jusqu'à 30 jours après le départ du bot ; le journal des commandes slash utilisées, sans identifiant de membre, 90 jours ; les votes pour le bot, jusqu'à demande de suppression.",
-        "logs": "Journaux techniques : les erreurs rencontrées par le navigateur (message, page, version du site, type de navigateur ; ni adresse IP ni compte) sont gardées sur le serveur pour le diagnostic, jusqu'à leur suppression par l'éditeur.",
+        "logs": "Journaux techniques : les erreurs du serveur et celles rencontrées par le navigateur (message, page, version du site, type de navigateur, sans adresse IP ni compte) sont gardées 30 jours pour le diagnostic. Les événements de sécurité et de modération (requêtes refusées, actions des modérateurs et des administrateurs) sont gardés 6 mois. Ils sont ensuite effacés automatiquement.",
         "backups": "Sauvegardes : une copie quotidienne de la base de données ; seules les trois plus récentes sont gardées, si bien qu'une donnée effacée disparaît des sauvegardes en trois jours.",
         "rateLimits": "Limites de débit : votre adresse IP, en mémoire seulement, jamais écrite sur disque."
       },

@@ -4687,6 +4687,10 @@
     "pages.communityUI.link.unlinkConfirm": {
       "fr": "Délier votre compte Discord de votre compte de jeu ? Tout ce qui a été publié, voté ou signalé reste sur votre compte de jeu, y compris ce que vous aviez fait avec Discord avant de lier les comptes. Votre compte Discord redevient un membre à part, tout neuf et sans historique : il repasse par la période des nouveaux comptes, et un compte Discord de moins de 7 jours ne peut pas participer.",
       "text": "Unlink your Discord account from your game account? Everything posted, voted on or reported stays on your game account, including what you had done with Discord before linking the accounts. Your Discord account becomes a separate member again, brand new and with no history: it goes through the new-account period again, and a Discord account less than 7 days old cannot take part."
+    },
+    "prose.gdpr.retention.logs": {
+      "fr": "Journaux techniques : les erreurs du serveur et celles rencontrées par le navigateur (message, page, version du site, type de navigateur, sans adresse IP ni compte) sont gardées 30 jours pour le diagnostic. Les événements de sécurité et de modération (requêtes refusées, actions des modérateurs et des administrateurs) sont gardés 6 mois. Ils sont ensuite effacés automatiquement.",
+      "text": "Technical logs: server errors and those met by the browser (message, page, site version, browser type, without IP address or account) are kept for 30 days for diagnosis. Security and moderation events (refused requests, moderators' and administrators' actions) are kept for 6 months. They are then deleted automatically."
     }
   },
   "es": {

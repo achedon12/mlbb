@@ -5183,7 +5183,7 @@
         "collection": "Coleta sincronizada: até esvaziá-la ou sob demanda.",
         "push": "Notificações de patch: até cancelar a assinatura; uma assinatura que se tornou inválida será excluída na próxima notificação.",
         "bot": "Para o bot Discord: as configurações de um servidor, e os resultados dos jogos do dia ali disputados, até 30 dias após a saída do bot; log de comandos de barra utilizados, sem ID de membro, 90 dias; votos para o bot, até que seja solicitada a exclusão.",
-        "logs": "Registros técnicos: erros encontrados pelo navegador (mensagem, página, versão do site, tipo de navegador; nem endereço IP nem conta) são mantidos no servidor para diagnóstico, até sua exclusão pelo editor.",
+        "logs": "Registros técnicos: erros do servidor e encontrados pelo navegador (mensagem, página, versão do site, tipo de navegador, sem endereço IP ou conta) são mantidos por 30 dias para diagnóstico. Os eventos de segurança e moderação (pedidos recusados, ações de moderadores e administradores) são mantidos por 6 meses. Eles são então excluídos automaticamente.",
         "backups": "Backups: uma cópia diária do banco de dados; apenas os três mais recentes são mantidos, de modo que os dados excluídos desaparecem dos backups em três dias.",
         "rateLimits": "Limites de Taxa: Seu endereço IP, somente na memória, nunca gravado em disco."
       },

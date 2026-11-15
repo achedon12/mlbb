@@ -5183,7 +5183,7 @@
         "collection": "Naka-synchronize na koleksyon: hanggang sa walang laman ito, o on demand.",
         "push": "Mga notification ng patch: hanggang sa mag-unsubscribe; ang isang subscription na naging hindi wasto ay tatanggalin sa susunod na abiso.",
         "bot": "Para sa Discord bot: ang mga setting ng isang server, at ang mga resulta ng mga laro sa araw na nilalaro doon, hanggang 30 araw pagkatapos ng pag-alis ng bot; log ng slash command na ginamit, walang ID ng miyembro, 90 araw; boto para sa bot, hanggang hiniling na tanggalin.",
-        "logs": "Mga teknikal na log: ang mga error na nakatagpo ng browser (mensahe, pahina, bersyon ng site, uri ng browser; alinman sa IP address o account) ay pinananatili sa server para sa diagnosis, hanggang sa pagtanggal ng mga ito ng publisher.",
+        "logs": "Mga teknikal na log: ang mga error sa server at ang mga nakatagpo ng browser (mensahe, pahina, bersyon ng site, uri ng browser, nang walang IP address o account) ay pinananatili sa loob ng 30 araw para sa diagnosis. Ang mga kaganapan sa seguridad at pag-moderate (mga kahilingan ay tinanggihan, mga aksyon ng mga moderator at administrator) ay pinananatili sa loob ng 6 na buwan. Pagkatapos ay awtomatikong tatanggalin ang mga ito.",
         "backups": "Mga backup: araw-araw na kopya ng database; ang tatlong pinakabago lamang ang pinananatili, upang ang mga tinanggal na data ay mawala sa mga backup sa loob ng tatlong araw.",
         "rateLimits": "Mga Limitasyon sa Rate: Ang iyong IP address, sa memorya lamang, ay hindi kailanman nakasulat sa disk."
       },

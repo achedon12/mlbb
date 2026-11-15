@@ -5183,7 +5183,7 @@
         "collection": "Raccolta sincronizzata: fino allo svuotamento, oppure a richiesta.",
         "push": "Notifiche patch: fino all'annullamento dell'iscrizione; un abbonamento divenuto non valido viene cancellato alla notifica successiva.",
         "bot": "Per il bot Discord: le impostazioni di un server e i risultati delle partite giornaliere giocate lì, fino a 30 giorni dopo la partenza del bot; registro dei comandi slash utilizzati, senza ID membro, 90 giorni; voti per il bot, fino alla richiesta di eliminazione.",
-        "logs": "Log tecnici: gli errori riscontrati dal browser (messaggio, pagina, versione del sito, tipo di browser; né indirizzo IP né account) vengono conservati sul server per la diagnosi, fino alla loro cancellazione da parte dell'editore.",
+        "logs": "Log tecnici: gli errori del server e quelli riscontrati dal browser (messaggio, pagina, versione del sito, tipo di browser, senza indirizzo IP o account) vengono conservati per 30 giorni per la diagnosi. Gli eventi di sicurezza e moderazione (richieste rifiutate, azioni di moderatori e amministratori) vengono conservati per 6 mesi. Successivamente verranno eliminati automaticamente.",
         "backups": "Backup: una copia giornaliera del database; vengono conservati solo i tre più recenti, in modo che i dati cancellati scompaiano dai backup entro tre giorni.",
         "rateLimits": "Limiti di velocità: il tuo indirizzo IP, solo in memoria, mai scritto su disco."
       },
