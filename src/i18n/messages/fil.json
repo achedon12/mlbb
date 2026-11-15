@@ -2339,7 +2339,8 @@
       "units": "{u} sa UTF-16 units",
       "overGuide": "Mas mahaba sa {max} character na sinabi ng isang guide: maaaring tanggihan ito ng laro.",
       "rating": "Maaaring lumabas na blangkong kahon ang ilang simbolo sa laro, o tanggihan. Hindi inilalathala ng laro kung paano nito binibilang ang haba: ibinibigay ng counter ang dalawang karaniwang sukat.",
-      "stylesTitle": "Lahat ng style"
+      "stylesTitle": "Lahat ng style",
+      "copiedDiscord": "Ipakita sa Discord →"
     },
     "drawCalculator": {
       "title": "MLBB Draw Calculator",

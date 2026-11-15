@@ -21,7 +21,7 @@ export const DISCORD_CONTEXTS = [
 export type DiscordContext = (typeof DISCORD_CONTEXTS)[number];
 
 /** Where a tracked invitation link sits, for the event name in the analytics. */
-export type DiscordPlacement = "Header" | "Menu" | "Footer" | "Inline" | "Band" | "Moment" | "Popup";
+export type DiscordPlacement = "Header" | "Menu" | "Footer" | "Inline" | "Band" | "Moment" | "Toast" | "Popup";
 
 const bare = (pathname: string) => pathname.replace(/^\/[a-z]{2,3}(?=\/|$)/, "") || "/";
 
