@@ -5511,7 +5511,6 @@
   "discordPopup": {
     "label": "Imbitasyon sa MLBBDex Discord",
     "title": "Sumali sa MLBBDex Discord",
-    "text": "Mga patch alert, ang daily MLBBdle, mga kakampi na mahahanap.",
     "join": "Sumali",
     "close": "Isara ang imbitasyon"
   },
@@ -5823,6 +5822,37 @@
       "imagePreview": "Image",
       "downloadVideo": "I-download ang video",
       "videoPreparing": "Inihahanda ang video…"
+    }
+  },
+  "discordCta": {
+    "join": "Sumali sa server",
+    "default": {
+      "title": "Sumali sa MLBBDex Discord",
+      "text": "Teammates ayon sa rank at region, patch alerts at ang MLBBdle ng araw. Libre."
+    },
+    "hero": {
+      "title": "Malaman agad ang susunod na buff o nerf",
+      "text": "Patch notes, bagong skins at events, nasa Discord agad paglabas."
+    },
+    "tier": {
+      "title": "Gumagalaw ang meta bawat linggo",
+      "text": "Pag-usapan ang mga umaangat na hero at mga build na gumagana kasama ang players sa Discord."
+    },
+    "teammates": {
+      "title": "Maghanap ng squad ngayon",
+      "text": "Ang teammates channel ng Discord, may rank at region roles."
+    },
+    "patch": {
+      "title": "Unang makaalam ng susunod na patch",
+      "text": "Patch notes, advance server at bagong skins, awtomatikong pino-post sa Discord."
+    },
+    "daily": {
+      "title": "MLBBdle at quiz, kasama ang ibang players",
+      "text": "Ikumpara ang laro mo ngayong araw sa community sa Discord."
+    },
+    "esports": {
+      "title": "Sundan ang mga tournament kasama ang ibang fans",
+      "text": "MPL, MSC at M-series: nasa esports channel ng Discord ang mga resulta."
     }
   }
 }

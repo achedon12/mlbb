@@ -2,6 +2,7 @@ import { Bot, HandHeart, Library, Rss } from "lucide-react";
 import Link from "@/components/link";
 import { cn } from "@/lib/utils";
 import { DiscordMark } from "@/components/bot/discord-mark";
+import { DiscordJoinLink } from "@/components/discord-join-link";
 import { SectionTitle } from "@/components/ui";
 import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
@@ -62,9 +63,10 @@ export function HomeCommunity({ locale, className }: { locale: Locale; className
       <div>
         <SectionTitle>{t("home.community.title")}</SectionTitle>
         {invite && (
-          <a
+          <DiscordJoinLink
             href={invite}
-            rel="noopener"
+            placement="Inline"
+            context="default"
             className="bevel group mb-3 flex items-center gap-4 border border-blurple-500/50 bg-blurple-500/15 p-4 transition-colors hover:border-blurple-500 hover:bg-blurple-500/25"
           >
             <span className="bevel-sm grid size-12 shrink-0 place-items-center bg-blurple-500 text-white">
@@ -72,9 +74,9 @@ export function HomeCommunity({ locale, className }: { locale: Locale; className
             </span>
             <span className="min-w-0">
               <span className="block font-heading text-lg font-bold text-chalk-100">{t("discordPopup.title")}</span>
-              <span className="block text-sm text-chalk-300">{t("discordPopup.text")}</span>
+              <span className="block text-sm text-chalk-300">{t("discordCta.default.text")}</span>
             </span>
-          </a>
+          </DiscordJoinLink>
         )}
         <ul className="space-y-2">
           {doors.map(({ href, icon: Icon, title, text }) => (

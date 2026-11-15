@@ -6,8 +6,7 @@ import type { T } from "@/i18n/t";
 import { threadPath } from "@/lib/community/constants";
 import type { ThreadSummary } from "@/lib/community/store";
 import { allHeroes, heroesBySlug } from "@/lib/data";
-import { communityInvite } from "@/lib/bot/public";
-import { DiscordMark } from "@/components/bot/discord-mark";
+import { DiscordInvite } from "@/components/discord-invite";
 
 /**
  * Server parts of the community pages: thread rows, hero tags, dates, the
@@ -129,26 +128,7 @@ export function ThreadList({
 
 /** The MLBBDex Discord server, as the other place to find people. */
 export function DiscordAlternative({ t, text }: { t: T; text: string }) {
-  const invite = communityInvite();
-  if (!invite) return null;
-  return (
-    <aside className="bevel flex flex-wrap items-center justify-between gap-4 border border-blurple-500/40 bg-blurple-500/10 p-4 sm:p-5">
-      <p className="flex min-w-0 items-center gap-3 text-sm text-chalk-200">
-        <span aria-hidden className="bevel-sm grid size-10 shrink-0 place-items-center bg-blurple-500/25 text-chalk-100">
-          <DiscordMark />
-        </span>
-        <span className="min-w-0">{text}</span>
-      </p>
-      <a
-        href={invite}
-        rel="noopener"
-        target="_blank"
-        className="bevel-sm inline-flex min-h-11 items-center bg-blurple-500 px-4 text-sm font-semibold text-white transition-colors hover:bg-blurple-600"
-      >
-        {t("pages.community.discordJoin")}
-      </a>
-    </aside>
-  );
+  return <DiscordInvite t={t} context="teammates" text={text} />;
 }
 
 /** Shown in place of the community when the database is not set up or does not answer. */

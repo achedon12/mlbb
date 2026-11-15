@@ -1,3 +1,4 @@
+import { DiscordInvite } from "@/components/discord-invite";
 import type { Metadata } from "next";
 import Link from "@/components/link";
 import { Mlbbdle } from "@/components/mlbbdle";
@@ -162,6 +163,7 @@ export default async function MlbbdlePage({ params }: Params) {
             </li>
           </ul>
         </section>
+        <DiscordInvite t={t} context="daily" />
       </div>
     </>
   );

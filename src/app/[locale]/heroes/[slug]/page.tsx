@@ -1,3 +1,4 @@
+import { DiscordInvite } from "@/components/discord-invite";
 import type { Metadata } from "next";
 import { ExtendMessages } from "@/i18n/provider";
 import { LOCALE_HTML } from "@/i18n/config";
@@ -831,6 +832,7 @@ export default async function HeroPage({ params }: Params) {
             },
           ]}
         />
+        <DiscordInvite t={t} context="hero" className="mt-10" />
       </div>
       </div>
       </RankProvider>

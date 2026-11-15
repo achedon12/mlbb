@@ -4,6 +4,7 @@ import { createT } from "@/i18n/translations";
 import { communityInvite } from "@/lib/bot/public";
 import { site } from "@/lib/site";
 import { DiscordMark } from "./bot/discord-mark";
+import { DiscordJoinLink } from "./discord-join-link";
 import { AccountButton } from "./account-button";
 import { GlobalSearch } from "./global-search";
 import { LocalePicker } from "./locale-picker";
@@ -43,29 +44,30 @@ export function Header({ locale }: { locale: Locale }) {
           closeLabel={t("nav.close")}
           sheetFooter={
             discord && (
-              <a
+              <DiscordJoinLink
                 href={discord}
-                rel="noopener"
+                placement="Menu"
                 className="bevel-sm flex items-center justify-center gap-2 bg-blurple-500 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-blurple-600"
               >
                 <DiscordMark size={18} />
                 {t("common.joinDiscord")}
-              </a>
+              </DiscordJoinLink>
             )
           }
           actions={
             <>
               <GlobalSearch />
               {discord && (
-                <a
+                // In Discord's own colour: a grey glyph among grey glyphs went unseen.
+                <DiscordJoinLink
                   href={discord}
-                  rel="noopener"
-                  aria-label={t("common.joinDiscord")}
+                  placement="Header"
+                  label={t("common.joinDiscord")}
                   title={t("common.discordServer")}
-                  className="hidden size-9 place-items-center rounded-md text-chalk-300 transition-colors hover:text-gold-400 sm:grid"
+                  className="hidden size-9 place-items-center rounded-md bg-blurple-500/15 text-blurple-400 ring-1 ring-blurple-500/40 transition-colors hover:bg-blurple-500 hover:text-white sm:grid"
                 >
                   <DiscordMark size={18} />
-                </a>
+                </DiscordJoinLink>
               )}
               <LocalePicker locale={locale} />
               <AccountButton />
