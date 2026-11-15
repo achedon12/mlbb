@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import Image from "next/image";
 import { SearchField } from "@/components/search-field";
+import { useSearchReport } from "@/components/use-search-report";
 import {
   catalogRecipes,
   EffectsItem,
@@ -144,6 +145,7 @@ export function ItemList({
       );
     });
   }, [items, search, category, active]);
+  useSearchReport(search, results.length, "Items");
 
   // An item named by the address is on the page that holds it, whatever page
   // the reader was on: a link like `/items#thunder-belt` must land on it.

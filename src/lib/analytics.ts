@@ -11,7 +11,7 @@
  * ("Add", "Copy"), name = the subject (a hero slug, a tool), value = a number
  * when there is one (guesses, points). Never personal data.
  */
-type Command = [string, ...unknown[]];
+export type Command = [string, ...unknown[]];
 
 declare global {
   interface Window {
@@ -22,10 +22,13 @@ declare global {
 export const analyticsEnabled = Boolean(process.env.NEXT_PUBLIC_MATOMO_URL && process.env.NEXT_PUBLIC_MATOMO_SITE_ID);
 
 function push(...commands: Command[]) {
-  if (!analyticsEnabled || typeof window === "undefined") return;
+  if (!analyticsEnabled || typeof window === "undefined" || commands.length === 0) return;
   const queue = (window._paq ??= []);
   queue.push(...commands);
 }
+
+/** Raw Matomo commands, for the consent calls (`lib/consent.ts`). */
+export const pushCommands = push;
 
 /**
  * One page view. The App Router changes page without reloading: Matomo, which

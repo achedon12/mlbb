@@ -12,6 +12,7 @@ import { Card } from "@/components/ui";
 import type { Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
 import { disconnect } from "@/lib/actions";
+import { SignOutForm } from "@/components/sign-out-form";
 import { formatCount, formatPercent } from "@/lib/player-format";
 import type { StatsPlayer } from "@/lib/player-api";
 import { friends, statistics } from "@/lib/mlbb-auth";
@@ -53,11 +54,11 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
             {t("pages.account.unavailable")}
           </h1>
           <p className="mt-3 leading-relaxed text-chalk-300">{t("pages.account.unavailableText")}</p>
-          <form action={disconnect} className="mt-5">
+          <SignOutForm action={disconnect} className="mt-5">
             <button type="submit" className="text-sm text-chalk-500 underline underline-offset-4 hover:text-blood-500">
               {t("pages.account.signOut")}
             </button>
-          </form>
+          </SignOutForm>
         </Card>
       </div>
     );
@@ -102,7 +103,7 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
           </div>
         </div>
 
-        <form action={disconnect}>
+        <SignOutForm action={disconnect}>
           <button
             type="submit"
             className="bevel-sm flex items-center gap-2 border border-night-700 px-4 py-2 text-sm text-chalk-300 transition-colors hover:border-blood-500/50 hover:text-blood-500"
@@ -110,7 +111,7 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
             <LogOut size={15} aria-hidden />
             {t("pages.account.signedOut")}
           </button>
-        </form>
+        </SignOutForm>
       </div>
 
       {/* ── Ranks and figures ──────────────────────────────────────────── */}

@@ -54,6 +54,7 @@ export default async function BotPrivacyPage({ params }: Params) {
         <p>{p("cookie")}</p>
         <h2>{t("pages.botPrivacy.retentionTitle")}</h2>
         <p>{p("retention")}</p>
+        <p>{p("pseudonymous")}</p>
         <h2>{t("pages.botPrivacy.rightsTitle")}</h2>
         <p>{p("rights")}</p>
         <p>

@@ -7,6 +7,7 @@ import { Card } from "@/components/ui";
 import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import type { T } from "@/i18n/translations";
 import { reconnect } from "@/lib/actions";
+import { SignOutForm } from "@/components/sign-out-form";
 import { formatGap, formatCount, formatPercent, plural } from "@/lib/player-format";
 import type { StatsPlayer } from "@/lib/player-api";
 import {
@@ -73,14 +74,14 @@ export function StateProfile({ type, t }: { type: "expired" | "unavailable" | "e
       </h1>
       <p className="mt-3 leading-relaxed text-chalk-300">{t(`pages.accountProfile.${keys[1]}`)}</p>
       {type === "expired" ? (
-        <form action={reconnect} className="mt-5">
+        <SignOutForm action={reconnect} className="mt-5">
           <button
             type="submit"
             className="bevel-sm bg-gold-500 px-4 py-2 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400"
           >
             {t("pages.accountProfile.signInAgain")}
           </button>
-        </form>
+        </SignOutForm>
       ) : (
         <Link
           href="/account"

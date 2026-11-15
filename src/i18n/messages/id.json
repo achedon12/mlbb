@@ -664,8 +664,8 @@
     },
     "privacy": {
       "title": "Privasi",
-      "lead": "Apa yang diproses situs, apa yang tidak diproses, dan di mana data Anda berada.",
-      "metaDescription": "Cookie, penyimpanan lokal, koneksi akun game, dan pengukuran audiens: apa yang diproses situs, dan di mana."
+      "lead": "Apa yang diproses situs tersebut, mengapa, untuk berapa lama, dan bagaimana menggunakan hak Anda.",
+      "metaDescription": "Cookie dan persetujuan, pengukuran audiens, data yang disimpan dan durasi, penerima dan hak GDPR: apa yang diproses MLBBDex, dan bagaimana cara menghapusnya."
     },
     "account": {
       "metaTitle": "Akun saya",
@@ -3741,13 +3741,14 @@
       "cookieTitle": "Masuk ke dasbor",
       "cookie": "Masuk dengan Discord menyetel cookie sesi terenkripsi (`mlbbdex_discord`, httpOnly, 7 hari) yang berisi ID Discord, nama, dan avatar Anda, serta cookie sementara (`mlbbdex_discord_oauth`, 10 menit) saat masuk. Cookie tersebut sangat diperlukan untuk layanan yang diminta.",
       "retentionTitle": "Umur simpan",
-      "retention": "Ketika bot meninggalkan server, datanya akan dihapus 30 hari kemudian, bersama dengan hasil pemainnya (kembalinya bot dalam periode ini akan memulihkan pengaturan). Statistik pesanan dihapus setelah 90 hari.",
+      "retention": "Ketika bot meninggalkan server, datanya akan dihapus 30 hari kemudian, bersama dengan hasil pemainnya (kembalinya bot dalam periode ini akan memulihkan pengaturan). Selama bot tetap berada di server, hasil pertandingan hari itu disimpan tanpa batas waktu untuk pemeringkatan, kecuali jika diminta penghapusan. Suara untuk bot disimpan tanpa batas waktu, kecuali diminta untuk dihapus. Statistik pesanan dihapus setelah 90 hari.",
       "rightsTitle": "Hak Anda",
       "rights": "Untuk melihat atau menghapus data yang terkait dengan ID atau server Discord Anda, tulis ke [{contact}](mailto:{contact}). Menghapus bot dari server memulai penghapusan otomatis.",
       "sitePrivacy": "Privasi Situs",
       "autoRoles": "Peran otomatis: jika server memilihnya, bot memberikan peran tersebut kepada siapa pun yang bergabung, dengan izin Kelola Peran yang diberikan admin server; anggota yang masih harus menerima aturan server hanya diingat (ID-nya, di memori, paling lama 24 jam) sampai ia menerimanya, dan tidak ada yang disimpan.",
       "roleMenus": "Menu role: untuk setiap menu disimpan channel, judul, teks, role beserta label dan emoji-nya, ID pesan yang diterbitkan, dan ID Discord pengelola yang mengaturnya. Saat anggota memakainya, bot memberi atau melepas role dan tidak menyimpan apa pun tentang anggota itu, kecuali penghitung di memori selama beberapa detik untuk membatasi perubahan yang terlalu rapat.",
-      "tempVoice": "Channel suara sementara: server menyimpan channel hub-nya beserta batas pengguna dan templat namanya. Untuk setiap channel suara yang dibuat bot, bot menyimpan ID channel, ID channel hub, dan ID member yang dibuatkan channel itu, sampai channel dihapus, yaitu begitu channel kosong. Untuk mengetahui siapa berada di channel suara mana, bot menerima status suara dari Discord (intent \"Guild Voice States\"), menyimpannya di memori, dan tidak merekam satu pun."
+      "tempVoice": "Channel suara sementara: server menyimpan channel hub-nya beserta batas pengguna dan templat namanya. Untuk setiap channel suara yang dibuat bot, bot menyimpan ID channel, ID channel hub, dan ID member yang dibuatkan channel itu, sampai channel dihapus, yaitu begitu channel kosong. Untuk mengetahui siapa berada di channel suara mana, bot menerima status suara dari Discord (intent \"Guild Voice States\"), menyimpannya di memori, dan tidak merekam satu pun.",
+      "pseudonymous": "Di situs, forum dan koleksinya tidak menyimpan ID Discord atau ID game Anda dalam teks biasa, tetapi sidik jari (SHA-256, tanpa garam). Ini adalah data pseudonim, bukan anonim: siapa pun yang mengetahui pengenalnya dapat menghitung ulang sidik jarinya, dan oleh karena itu, data tersebut tetap merupakan data pribadi yang dilindungi. Bot menyimpan pengidentifikasi Discord dalam teks biasa (hasil, suara, menu peran)."
     },
     "botTerms": {
       "title": "Ketentuan Layanan Bot Perselisihan",
@@ -4969,7 +4970,7 @@
           "h": "Penyedia hosting"
         },
         {
-          "p": "Situs ini dihosting oleh [{host}]({hostSite})."
+          "p": "Situs ini dihosting oleh [{host}]({hostSite}), {hostAddress}, telepon {hostPhone}. Pengukuran audiens (Matomo) dihosting di server lain, di [{analyticsHost}]({analyticsHostSite}), {analyticsHostAddress}."
         },
         {
           "h": "Kekayaan intelektual"
@@ -4993,61 +4994,35 @@
           "h": "Data pribadi"
         },
         {
-          "p": "Pemrosesan data dan penggunaan cookie dirinci dalam [kebijakan privasi](/privacy)."
+          "p": "Penerbit bertanggung jawab untuk memproses data pribadi. Data yang diproses, tujuannya, cookie, periode penyimpanan, dan hak Anda dirinci dalam [kebijakan privasi](/privacy). Anda dapat mengubah pilihan cookie Anda kapan saja dari tautan “Kelola cookie” di bagian bawah setiap halaman."
         }
       ]
     },
     "privacy": {
       "blocks": [
         {
-          "p": "Situs ini dirancang untuk menyimpan data sesedikit mungkin. Sebagian besar halaman berjalan tanpa menyimpan apa pun di server; hanya fitur yang kamu pilih untuk digunakan (login akun game, komunitas, notifikasi, bot Discord) yang menyimpan apa yang dijelaskan di bawah. Halaman ini merinci apa yang diproses, dan di mana."
+          "p": "Situs ini dirancang untuk memproses data sesedikit mungkin. Sebagian besar halaman berfungsi tanpa akun dan tanpa menyimpan apa pun di server; hanya fitur yang Anda pilih untuk digunakan (akun game atau login Discord, komunitas, koleksi, notifikasi, bot Discord) yang mempertahankan apa yang dijelaskan di bawah. Sesuai dengan Peraturan Perlindungan Data Umum (GDPR) dan Undang-Undang Perlindungan Data, halaman ini merinci apa yang diproses, alasannya, untuk berapa lama, dan bagaimana menggunakan hak Anda."
         },
         {
-          "h": "Cookie"
+          "h": "Pengontrol data"
         },
         {
-          "p": "Hanya satu cookie yang dapat dipasang, dan hanya jika Anda menghubungkan akun game Anda:"
+          "p": "Pengontrol datanya adalah {publisher}, yang menerbitkan situs ini secara pribadi dan nirlaba (lihat [pemberitahuan hukum](/legal)). Untuk pertanyaan atau permintaan apa pun tentang data Anda: [{contact}](mailto:{contact})."
+        },
+        {
+          "h": "Tujuan dan dasar hukum"
         },
         {
           "ul": [
-            "`mlbb_jeu` — cookie sesi yang mutlak diperlukan untuk login. Cookie ini berisi token sementara yang diberikan oleh layanan Moonton, tidak pernah meninggalkan server (`httpOnly`), dan kedaluwarsa dengan sendirinya. Tanpa login, tidak ada cookie yang dipasang."
+            "Pengukuran audiens tanpa cookie (tampilan halaman, pencarian situs, tindakan anonim): mengetahui halaman mana yang digunakan dan meningkatkan situs. Dasar hukum: kepentingan sah penerbit (pasal 6.1.f GDPR).",
+            "Pengukuran audiens dengan cookie (kenali pengunjung yang kembali): hanya dengan persetujuan Anda (pasal 6.1.a GDPR dan pasal 82 Undang-Undang Perlindungan Data), yang dapat Anda tarik kapan saja.",
+            "Fungsi yang Anda minta (koneksi ke akun game atau Discord, komunitas, koleksi skin, notifikasi patch, bot Discord dan dasbornya): pelaksanaan layanan yang diminta, sesuai dengan ketentuan penggunaannya (pasal 6.1.b GDPR).",
+            "Keamanan dan moderasi (batas kecepatan, laporan, log moderasi, log kesalahan, cadangan): kepentingan sah penerbit dalam melindungi situs dan penggunanya (pasal 6.1.f GDPR).",
+            "Menghafal preferensi Anda (bahasa, favorit, pengaturan alat): diperlukan agar situs berfungsi saat Anda menggunakannya, di browser Anda."
           ]
         },
         {
-          "p": "Karena cookie ini mutlak diperlukan untuk layanan yang Anda minta (tetap login), cookie ini tidak memerlukan persetujuan sebelumnya. Tidak ada cookie iklan maupun pelacakan yang digunakan."
-        },
-        {
-          "h": "Penyimpanan di browser Anda"
-        },
-        {
-          "p": "Hero favorit Anda disimpan di penyimpanan lokal browser (`localStorage`), hanya di perangkat Anda. Data ini tidak dikirim ke server mana pun dan tidak pernah keluar dari browser ini. Menghapus data situs akan menghapusnya."
-        },
-        {
-          "h": "Login akun game"
-        },
-        {
-          "p": "Login menggunakan alur resmi Moonton: Anda memberikan ID dan server game Anda, kode verifikasi dikirim kepada Anda di dalam game, dan situs menerima token sementara sebagai balasannya. Pertukaran ini melewati API komunitas (`arena.rone.dev`) dan layanan autentikasi Moonton. Situs ini tidak menyimpan informasi tersebut: token berada di cookie sesi, di sisi browser, dan hilang saat Anda logout atau saat kedaluwarsa. Anda tidak pernah dimintai kata sandi."
-        },
-        {
-          "h": "Konten pihak ketiga"
-        },
-        {
-          "p": "Gambar (potret, ikon, emblem) disajikan oleh host Moonton dan wiki komunitas. Karena itu, memuat halaman akan mengirim permintaan ke layanan tersebut, yang dapat melihat alamat IP Anda, seperti halnya sumber daya jarak jauh lainnya."
-        },
-        {
-          "h": "Pengukuran pengunjung"
-        },
-        {
-          "p": "Jika pengukuran pengunjung diaktifkan, pengukuran itu menggunakan alat tanpa cookie dan tanpa data pribadi, yang tidak melacak pengunjung dari satu situs ke situs lain. Dalam hal ini, banner persetujuan tidak diperlukan."
-        },
-        {
-          "p": "Panggilan ke API publik (`/api/v1`), yang dilakukan oleh skrip atau situs lain, dihitung dengan cara yang sama, oleh server dan tanpa cookie: alamat yang diminta, kode respons, halaman asli dan perangkat lunak yang dinyatakan oleh panggilan tersebut, serta alamat IP, dianonimkan oleh alat pengukuran. Tidak ada pengenal yang ditetapkan, dan panggilan yang dikirim dengan header `DNT: 1` atau `Sec-GPC: 1` tidak dihitung."
-        },
-        {
-          "h": "Hak Anda"
-        },
-        {
-          "p": "Kamu tetap memegang kendali atas apa yang ada di browsermu (favorit, sesi) dengan keluar atau menghapus data situs. Untuk melihat atau menghapus apa yang disimpan server tentangmu (komunitas, notifikasi, bot Discord), atau untuk pertanyaan apa pun, kirim email ke [{contact}](mailto:{contact})."
+          "p": "Tidak ada data yang dijual, disewakan, atau digunakan untuk tujuan periklanan atau build profil, dan tidak ada keputusan otomatis yang dibuat tentang Anda."
         }
       ]
     },
@@ -5076,8 +5051,9 @@
       "discord": "jika Anda masuk dengan Discord: ID akun turunan (sidik jari ID Discord Anda, bukan ID itu sendiri), nama tampilan Discord Anda, ditampilkan di pesan Anda, dan tanggal partisipasi pertama Anda. Koneksi hanya menanyakan identitas Anda pada Discord, tanpa email atau daftar server Anda, dan melewati cookie sesi terenkripsi `mlbbdex_discord` (7 hari), yang menyimpan pengenal, nama, dan avatar Discord Anda; tidak ada token Discord yang dipertahankan. Usia akun Discord Anda, yang terbaca di pengenalnya, tidak dicatat. Jika Anda menautkan akun Discord Anda ke akun game Anda, tautan antara kedua akun Anda dipertahankan, dan kontribusi Discord Anda bergabung dengan akun game Anda;",
       "posts": "diskusi dan balasanmu, yang bersifat publik, beserta tanggalnya; vote dan laporanmu, yang hanya dilihat moderator (laporan);",
       "card": "kartu cari rekan timmu dan, jika kamu menambahkannya, ID game dan username Discord: hanya ditampilkan ke pemain yang masuk, dan kartu dihapus tujuh hari setelah terakhir disimpan.",
-      "moderation": "Moderator melihat laporan dan bisa menyembunyikan, menghapus, atau memblokir; setiap keputusan mereka dicatat dalam log. Batas laju memakai alamat IP kamu, hanya di memori, selama beberapa menit.",
-      "deletion": "Kamu bisa mengedit postingan selama satu jam dan menghapusnya selama satu hari, serta menurunkan kartumu kapan saja. Setelah itu, atau untuk menghapus seluruh partisipasimu, kirim email ke {contact}."
+      "moderation": "Moderator melihat laporan dan dapat menyembunyikan, menghapus atau melarangnya; setiap keputusan mereka dicatat dalam jurnal. Batasan kecepatan menggunakan alamat IP Anda, hanya di memori: tidak pernah ditulis ke disk.",
+      "deletion": "Anda dapat mengedit pesan selama satu jam dan menghapusnya selama sehari, menarik kartu Anda kapan saja. Pesan yang dihapus kehilangan teksnya; diskusi yang dihapus tetap mempertahankan judul, penulis, dan tanggalnya. Selain itu, atau untuk menghapus semua partisipasi Anda, tulis ke {contact}.",
+      "pseudonymous": "Sidik jari ini (SHA-256, bebas garam) adalah data nama samaran, bukan anonim: siapa pun yang mengetahui ID game dan server Anda, atau ID Perselisihan Anda, dapat menghitung ulang sidik jari tersebut. Mereka tetap menjadi data pribadi, dilindungi sebagaimana mestinya."
     },
     "collection": {
       "title": "Koleksi skin",
@@ -5085,6 +5061,133 @@
       "data": "sidik akun yang sama dengan komunitas (tidak pernah ID game Anda), daftar hero dan skin yang dicentang, serta tanggal penyimpanan terakhir; tidak ada yang lain, dan tidak ditampilkan kepada siapa pun.",
       "usage": "Data ini hanya dipakai agar koleksi Anda bisa dibuka di perangkat lain. Filter \"yang saya mainkan\" membaca hero musim ini dari layanan login saat Anda mengaktifkannya, tanpa menyimpan apa pun.",
       "deletion": "Untuk mengosongkan salinan di akun Anda, hapus koleksi di alat saat masuk; untuk menghapus datanya sepenuhnya, tulis ke {contact}."
+    },
+    "gdpr": {
+      "cookies": {
+        "title": "kue",
+        "intro": "Situs ini menggunakan cookie berikut. Pengukuran penonton hanya dibuat dengan persetujuan Anda, diberikan atau ditolak di spanduk; yang lainnya sangat diperlukan untuk fungsi yang Anda gunakan atau mengingat pilihan yang telah Anda buat, dan dikecualikan dari persetujuan. Tidak ada iklan, jejaring sosial, atau cookie pihak ketiga yang digunakan.",
+        "head": {
+          "name": "Nama",
+          "purpose": "Tujuan",
+          "duration": "Lamanya",
+          "by": "Dipasang oleh",
+          "consent": "Izin"
+        },
+        "yes": "Ya",
+        "no": "TIDAK",
+        "site": "MLBBdex",
+        "matomo": "Matomo (dihosting sendiri oleh MLBBDex)",
+        "langue": {
+          "purpose": "Ingat bahasa situs yang Anda lihat.",
+          "duration": "1 tahun"
+        },
+        "game": {
+          "purpose": "Sesi login akun game: token sementara dari layanan login, tidak dapat dibaca oleh skrip halaman (httpOnly). Dibuat hanya jika Anda masuk.",
+          "duration": "Sampai token habis masa berlakunya (paling lama 7 hari) atau terputus"
+        },
+        "discord": {
+          "purpose": "Sesi koneksi dengan Discord (forum, dasbor bot): ID Discord Anda, nama dan avatar, dienkripsi. Dibuat hanya jika Anda masuk.",
+          "duration": "7 hari, atau hingga pemutusan sambungan"
+        },
+        "discordOauth": {
+          "purpose": "Perlindungan koneksi Discord sedang berlangsung, terhadap pemalsuan permintaan.",
+          "duration": "10 menit"
+        },
+        "pkId": {
+          "purpose": "Pengukuran audiens: pengidentifikasi acak, yang memungkinkan untuk mengenali kunjungan kembali.",
+          "duration": "13 bulan"
+        },
+        "pkSes": {
+          "purpose": "Pengukuran audiens: mengelompokkan halaman-halaman dari kunjungan yang sama.",
+          "duration": "30 menit"
+        },
+        "pkRef": {
+          "purpose": "Pengukuran audiens: situs atau kampanye asal kunjungan.",
+          "duration": "6 bulan"
+        },
+        "pkTest": {
+          "purpose": "Memeriksa apakah browser menerima cookie; segera dihapus.",
+          "duration": "Beberapa saat"
+        },
+        "mtmConsent": {
+          "purpose": "Ingat, untuk Matomo, Anda telah menerima cookie-nya.",
+          "duration": "6 bulan"
+        },
+        "consentYes": "Ya",
+        "consentAfter": "Ya (dibuat setelah cookie diterima)",
+        "without": "Sebelum Anda memilih, dan jika Anda menolak, pengukuran penonton dilanjutkan tanpa cookie apa pun. Menolak tidak menghilangkan fungsi apa pun dari situs ini.",
+        "choice": "Pilihan Anda disimpan selama enam bulan di penyimpanan lokal browser Anda (`mlbb_consent`, beserta tanggalnya), lalu Anda ditanya lagi. Anda dapat mengubahnya atau membatalkan persetujuan Anda kapan saja, dari tombol ini atau tautan “Kelola cookie” di bagian bawah setiap halaman:"
+      },
+      "storage": {
+        "title": "Penyimpanan di browser Anda",
+        "intro": "Data ini tetap ada di perangkat Anda, di penyimpanan lokal (`localStorage`) atau sesi (`sessionStorage`) browser. Mereka tidak dibaca oleh pihak ketiga mana pun dan hanya meninggalkan perangkat Anda dalam kasus yang ditentukan. Mereka disimpan sampai Anda menghapus data dari situs, kecuali dinyatakan lain.",
+        "head": {
+          "key": "Kunci",
+          "content": "Isi"
+        },
+        "consent": "Pilihan Anda pada cookie pengukuran audiens, dan tanggalnya (6 bulan).",
+        "favourites": "Hero favoritmu. Dikirim ke server hanya jika Anda mengaktifkan pemberitahuan patch.",
+        "push": "Notifikasi patch aktif di browser ini.",
+        "collection": "Koleksi skin Anda, dan status sinkronisasinya dengan akun Anda (sidik jari akun, bukan ID game Anda).",
+        "popup": "Memori undangan perselisihan: ditutup (selama 30 hari) atau diikuti, dan jumlah halaman yang dilihat di tab (waktu tab).",
+        "games": "Game, seri, dan statistik dari MLBBdle dan kuisnya.",
+        "tierList": "Draft dari pembuat tier list.",
+        "timer": "Permainan saat ini (waktu tab) dan pengaturan pengatur waktu objektif.",
+        "retribution": "Nilai tes Retribution tertinggi.",
+        "cache": "Agar berfungsi secara offline, situs ini juga menyimpan salinan halaman, gambar, dan data yang dilihat di cache browser Anda (pekerja layanan): paling banyak 250 halaman dan 800 gambar, hanya di perangkat Anda. Halaman-halaman yang ditautkan ke koneksi (akun, login, dasbor dan administrasi bot, dan halaman apa pun yang ditampilkan untuk pengunjung yang login) tidak pernah disimpan di sana, dan pemutusan koneksi akan menghapus halaman-halaman yang dapat disimpan oleh versi situs sebelumnya."
+      },
+      "audience": {
+        "title": "Pengukuran penonton",
+        "tool": "Penonton diukur dengan Matomo, perangkat lunak gratis yang diinstal dan dikelola oleh penerbit di servernya sendiri (`matomo.leoderoin.fr`), yang dihosting di Prancis oleh [{analyticsHost}]({analyticsHostSite}). Data tersebut tidak dibagikan kepada siapa pun, atau digunakan untuk tujuan lain, atau dirujuk silang dengan situs lain.",
+        "data": "Matomo menerima halaman yang dikonsultasikan, judul dan halaman aslinya, durasi kunjungan, pencarian yang dilakukan di situs dan jumlah hasil, beberapa tindakan anonim (tab dibuka pada file, kedalaman membaca, menambahkan favorit, berbagi, dll.), jenis perangkat, browser dan bahasa, serta alamat IP Anda, dua byte terakhir disembunyikan sebelum perekaman apa pun.",
+        "cookieless": "Tanpa persetujuan Anda, pengukuran dilakukan tanpa cookie: setiap kunjungan dihitung secara terpisah, tanpa dapat dibandingkan dengan kunjungan sebelumnya. Jika Anda menerima cookie, Matomo menempatkan pengidentifikasi acak (`_pk_id`) yang memungkinkannya mengenali kunjungan kembali; itu tidak mengatakan siapa kamu.",
+        "retention": "Data kunjungan terperinci disimpan hingga dihapus oleh penerbit; laporan terenkripsi, tanpa data individual, disimpan lebih lama.",
+        "api": "Panggilan ke API publik (`/api/v1`), yang dilakukan oleh skrip atau situs lain, dihitung oleh server, tanpa cookie: alamat yang diminta, kode respons, halaman asli dan perangkat lunak yang dinyatakan oleh panggilan tersebut, serta alamat IP penelepon, disamarkan dengan cara yang sama. Panggilan yang dikirim dengan header `DNT: 1` atau `Sec-GPC: 1` tidak dihitung.",
+        "object": "Anda dapat menolak pengukuran tanpa cookie dengan menulis ke [{contact}](mailto:{contact}), atau cukup dengan memblokir domain pengukuran dengan pemblokir konten: situs bekerja dengan cara yang sama."
+      },
+      "game": {
+        "title": "Masuk ke akun permainan",
+        "text": "Koneksinya menggunakan alur resmi Moonton: Anda menunjukkan nama pengguna dan server game Anda, kode verifikasi dikirimkan kepada Anda dalam game, dan situs menerima token sementara sebagai imbalannya. Pertukaran ini melalui API komunitas (`arena.rone.dev`) dan melalui layanan Moonton, yang menerima pengidentifikasi Anda, server Anda, kode, lalu token. Token berada di cookie sesi `mlbb_jeu` dan tidak pernah disimpan di server; tanggapan layanan (profil, statistik, permainan) disimpan dalam memori paling lama beberapa jam, untuk membatasi panggilan. Anda tidak pernah dimintai kata sandi. Server hanya memelihara sesuatu secara permanen jika Anda menggunakan komunitas atau koleksi, seperti dijelaskan di bawah."
+      },
+      "thirdParty": {
+        "title": "Konten pihak ketiga",
+        "text": "Gambar permainan (potret, ikon, emblem) berasal dari Moonton dan wiki komunitas; mereka pada dasarnya diambil oleh server situs dan disajikan dari alamatnya, namun beberapa dapat dimuat langsung dari host mereka, yang kemudian melihat alamat IP Anda, seperti halnya sumber daya jarak jauh lainnya. Di dasbor bot, avatar dan ikon Discord dimuat dari `cdn.discordapp.com`. Tautan undangan perselisihan mengarah ke discord.com, yang tunduk pada kebijakan privasinya sendiri."
+      },
+      "recipients": {
+        "title": "Penerima dan penyedia layanan",
+        "intro": "Data Anda hanya dapat diakses oleh penerbit dan, untuk laporan, oleh sukarelawan moderator komunitas. Tergantung pada fungsi yang Anda gunakan, fungsi tersebut dihosting atau dikirimkan di:",
+        "host": "{host} ([{hostSite}]({hostSite})): hosting server situs, basis datanya, dan cadangannya;",
+        "matomo": "Matomo, diinstal pada server penerbit yang dihosting oleh [{analyticsHost}]({analyticsHostSite}): pengukuran audiens, tanpa transfer apa pun ke penerbit perangkat lunak;",
+        "discord": "Discord Inc.: koneksi dengan Discord, bot dan dasbornya;",
+        "moonton": "Moonton dan API komunitas `arena.rone.dev`: koneksi akun game dan statistik profil;",
+        "push": "layanan notifikasi browser Anda (Google, Mozilla, Apple atau Microsoft): pengiriman notifikasi patch, yang isinya dienkripsi;",
+        "votes": "direktori bot (top.gg, discordbotlist.com): jika Anda memilih bot, mereka mengirimkan ID Discord Anda ke situs."
+      },
+      "transfers": {
+        "title": "Transfer ke luar Uni Eropa",
+        "text": "Fitur opsional tertentu melibatkan layanan yang berlokasi di luar Uni Eropa: Discord, di Amerika Serikat, jika Anda terhubung dengan Discord atau menggunakan bot (transfer diatur oleh kerangka perlindungan data UE-AS atau klausul kontrak standar Komisi Eropa); Moonton, Asia, dan API Komunitas `arena.rone.dev`, jika Anda menghubungkan akun game Anda; layanan notifikasi browser Anda, jika Anda mengaktifkan notifikasi. Transfer ini hanya terjadi jika Anda menggunakan fungsi-fungsi ini."
+      },
+      "retention": {
+        "title": "Berapa lama data disimpan",
+        "audience": "Pengukuran audiens: data kunjungan disimpan hingga dihapus oleh penerbit; cookie, lihat tabel di atas; pilihan Anda pada cookie, 6 bulan.",
+        "sessions": "Sesi: token akun game hingga habis masa berlakunya (paling lama 7 hari); sesi Discord, 7 hari.",
+        "community": "Komunitas: akun Anda, pesan Anda, suara Anda, laporan Anda, dan log moderasi disimpan selama komunitas tersebut ada, kecuali Anda meminta penghapusan; laporan menyimpan salinan teks yang dilaporkan. Kartu rekan satu tim dihapus tujuh hari setelah pendaftaran terakhirnya.",
+        "builds": "Build komunitas: hingga dihapus oleh penulisnya, atau berdasarkan permintaan.",
+        "collection": "Koleksi tersinkronisasi: hingga Anda mengosongkannya, atau sesuai permintaan.",
+        "push": "Pemberitahuan patch: sampai berhenti berlangganan; langganan yang menjadi tidak valid akan dihapus pada pemberitahuan berikutnya.",
+        "bot": "Untuk bot Discord: pengaturan server, dan hasil permainan hari itu yang dimainkan di sana, hingga 30 hari setelah bot keluar; log perintah garis miring yang digunakan, tanpa ID anggota, 90 hari; memilih bot, hingga diminta untuk menghapus.",
+        "logs": "Log teknis: kesalahan yang ditemukan oleh browser (pesan, halaman, versi situs, jenis browser; baik alamat IP maupun akun) disimpan di server untuk diagnosis, hingga dihapus oleh penerbit.",
+        "backups": "Cadangan: salinan harian database; hanya tiga data terbaru yang disimpan, sehingga data yang dihapus akan hilang dari cadangan dalam tiga hari.",
+        "rateLimits": "Batasan Nilai: Alamat IP Anda, hanya di memori, tidak pernah ditulis ke disk."
+      },
+      "rights": {
+        "title": "Hak Anda",
+        "list": "Anda mempunyai hak untuk mengakses, memperbaiki dan menghapus data Anda, hak untuk membatasi pemrosesan dan portabilitasnya, dan hak untuk menolak pemrosesan berdasarkan kepentingan yang sah. Jika pemrosesan didasarkan pada persetujuan Anda (cookie pengukuran audiens), Anda dapat menariknya kapan saja, semudah yang Anda berikan; penarikan ini tidak mempertanyakan apa yang telah dilakukan sebelumnya.",
+        "browser": "Apa yang ada di browser Anda (favorit, koleksi, preferensi, pilihan cookie) ada di tangan Anda: menghapus data situs akan menghapusnya.",
+        "contact": "Selebihnya (komunitas, koleksi tersinkronisasi, notifikasi, bot), tulis ke [{contact}](mailto:{contact}), sebutkan akun yang bersangkutan (nama panggilan game atau nama Discord) sehingga dapat ditemukan. Anda akan menerima tanggapan dalam waktu satu bulan.",
+        "cnil": "Jika Anda menganggap, setelah menghubungi penerbit, bahwa hak Anda tidak dihormati, Anda dapat mengirimkan keluhan ke CNIL ([cnil.fr](https://www.cnil.fr/fr/plaintes)) atau ke otoritas perlindungan data di negara Anda.",
+        "updated": "Terakhir diperbarui: 15 November 2026."
+      }
     }
   },
   "compareUI": {
@@ -5929,5 +6032,16 @@
       "title": "Nickname disalin! Ayo pamerkan",
       "text": "Gabung Discord MLBBDex: cari teman per rank, notifikasi patch, dan MLBBdle harian."
     }
+  },
+  "consent": {
+    "title": "Cookie pengukuran audiens",
+    "text": "Dengan persetujuan Anda, MLBBDex memasang cookie untuk mengetahui berapa banyak pengunjung yang kembali. Pengukuran dilakukan dengan Matomo, yang terpasang di server situs ini sendiri: tanpa iklan, tanpa pelacakan pihak ketiga, tidak ada data yang dijual. Jika Anda menolak, pengukuran tetap berjalan secara anonim, tanpa cookie.",
+    "more": "Pelajari lebih lanjut",
+    "accept": "Terima",
+    "refuse": "Tolak",
+    "keep": "Pertahankan pilihan saya saat ini",
+    "currentGranted": "Pilihan saat ini: cookie diterima pada {date}.",
+    "currentDenied": "Pilihan saat ini: cookie ditolak pada {date}.",
+    "manage": "Kelola cookie"
   }
 }

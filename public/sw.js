@@ -11,6 +11,15 @@
  * - API and React navigation data (RSC): never cached. When an internal
  *   navigation fails for lack of network, Next falls back to a regular page
  *   load — which this service worker can serve.
+ * - Signed-in pages: never stored. The account, login, bot dashboard and
+ *   admin pages go straight to the network, and so does any response marked
+ *   `Cache-Control: private` or `no-store` (every page rendered for a
+ *   session: community, builds). A service worker cannot see `Set-Cookie`
+ *   (browsers hide it), but the session cookies are only ever set by the
+ *   login action and the Discord callback, neither of which is stored. Otherwise a
+ *   shared device would show them, offline, after the visitor signed out.
+ *   Signing out also wipes any such copy left by an older worker
+ *   (`forgetPrivate`).
  * - Notifications: the server sends an encrypted message (title, text,
  *   path); it is shown, and a click opens the path on the site.
  */
@@ -30,6 +39,17 @@ const LOCALES = ["fr", "en", "it", "es", "id", "fil", "th", "pt", "ru"];
 const MAX_PAGES = 250;
 const MAX_IMAGES = 800;
 const MAX_DATA = 300;
+
+/**
+ * Pages that belong to a signed-in visitor, with or without the locale
+ * prefix. Community pages are only private when signed in: their responses
+ * then say so (`private, no-store`), which `cacheable` reads.
+ */
+const PRIVATE_PATH = /^\/(?:[a-z]{2,3}\/)?(?:account|login|bot\/dashboard|bot\/admin)(?:\/|$)/;
+/** Pages showing who is signed in: dropped from the cache on sign-out. */
+const SIGNED_IN_PATH = /^\/(?:[a-z]{2,3}\/)?(?:account|login|bot\/dashboard|bot\/admin|community|builds)(?:\/|$)/;
+/** Requests that sign out: the game account (a server action posted from the account page) is told by the page itself. */
+const SIGN_OUT_PATH = "/api/discord/logout";
 
 /**
  * Plain-text fallback when not even the "offline" page is cached. The service
@@ -76,6 +96,8 @@ self.addEventListener("activate", (event) => {
       .then((names) =>
         Promise.all(names.filter((n) => !CACHE_ENABLED || !CACHES.includes(n)).map((n) => caches.delete(n))),
       )
+      // Copies of signed-in pages stored by an earlier version of this worker.
+      .then(() => (CACHE_ENABLED ? forgetPrivate(false) : undefined))
       .then(() => self.clients.claim()),
   );
 });
@@ -83,10 +105,21 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   if (!CACHE_ENABLED) return;
   const { request } = event;
-  if (request.method !== "GET") return;
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
+  // Signing out of Discord: the request goes through untouched, the signed-in pages leave the cache.
+  if (url.pathname === SIGN_OUT_PATH) {
+    event.waitUntil(forgetPrivate(true));
+    return;
+  }
+  if (request.method !== "GET") return;
   if (url.pathname.startsWith("/api/")) return;
+  // A signed-in page: network only, nothing stored, no stale copy served;
+  // offline, the "offline" page of its locale.
+  if (PRIVATE_PATH.test(url.pathname)) {
+    if (request.mode === "navigate") event.respondWith(fetch(request).catch(() => offlinePage(url.pathname)));
+    return;
+  }
   if (request.headers.get("RSC") === "1" || url.searchParams.has("_rsc")) return;
 
   if (request.mode === "navigate") {
@@ -107,9 +140,17 @@ self.addEventListener("fetch", (event) => {
   }
 });
 
-/** Prewarming: the page sends the list of sections to keep offline. */
+/**
+ * Messages from the page: prewarming (the list of sections to keep offline),
+ * and the game account's sign-out (`forget-private`).
+ */
 self.addEventListener("message", (event) => {
-  if (!CACHE_ENABLED || event.data?.type !== "prewarm" || !Array.isArray(event.data.urls)) return;
+  if (!CACHE_ENABLED) return;
+  if (event.data?.type === "forget-private") {
+    event.waitUntil(forgetPrivate(true));
+    return;
+  }
+  if (event.data?.type !== "prewarm" || !Array.isArray(event.data.urls)) return;
   event.waitUntil(prewarm(event.data.urls));
 });
 
@@ -165,7 +206,7 @@ async function page(event, url) {
   const cache = await caches.open(CACHE_PAGES);
   try {
     const response = await fetch(event.request);
-    if (response.ok) event.waitUntil(store(cache, url, response.clone()));
+    if (cacheable(url, response)) event.waitUntil(store(cache, url, response.clone()));
     return response;
   } catch {
     const cached =
@@ -240,6 +281,42 @@ async function networkFirst(event, name, max) {
   }
 }
 
+async function offlinePage(pathname) {
+  const locale = LOCALES.find((l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`)) ?? "fr";
+  const cache = await caches.open(CACHE_PAGES);
+  return (
+    (await cache.match(`/${locale}/offline`)) ??
+    new Response(OFFLINE_TEXT[locale] ?? OFFLINE_TEXT.en, { status: 503, headers: { "Content-Type": "text/plain; charset=utf-8" } })
+  );
+}
+
+/**
+ * Whether a page may be kept: a success, not a signed-in page, and nothing
+ * in its headers saying it belongs to one visitor. A redirect's final
+ * address counts too ("/account" reached from "/").
+ */
+function cacheable(url, response) {
+  if (!response.ok) return false;
+  if (PRIVATE_PATH.test(url.pathname)) return false;
+  if (response.url && PRIVATE_PATH.test(new URL(response.url).pathname)) return false;
+  const control = (response.headers.get("Cache-Control") || "").toLowerCase();
+  return !/\b(?:no-store|private)\b/.test(control);
+}
+
+/**
+ * Drops the cached pages that may show a signed-in visitor: those stored
+ * against the rules above, and, on sign-out (`signingOut`), every page of
+ * the signed-in areas, whatever their headers said.
+ */
+async function forgetPrivate(signingOut) {
+  const cache = await caches.open(CACHE_PAGES);
+  for (const request of await cache.keys()) {
+    const url = new URL(request.url);
+    const response = signingOut && SIGNED_IN_PATH.test(url.pathname) ? null : await cache.match(request);
+    if (!response || !cacheable(url, response)) await cache.delete(request);
+  }
+}
+
 /** The oldest entries go first: `keys()` follows insertion order. */
 async function trim(cache, max) {
   const keys = await cache.keys();
@@ -253,7 +330,7 @@ async function prewarm(urls) {
     if (await cache.match(url.href)) continue;
     try {
       const response = await fetch(url.href, { credentials: "same-origin" });
-      if (response.ok) await store(cache, url, response);
+      if (cacheable(url, response)) await store(cache, url, response);
     } catch {
       return; // network gone: resume on the next visit
     }

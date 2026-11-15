@@ -664,8 +664,8 @@
     },
     "privacy": {
       "title": "Privacy",
-      "lead": "What the site processes, what it doesn't, and where your data lives.",
-      "metaDescription": "Cookies, local storage, game account login and audience measurement: what the site processes, and where."
+      "lead": "What the site processes, why, for how long, and how to exercise your rights.",
+      "metaDescription": "Cookies and consent, audience measurement, data retained and duration, recipients and GDPR rights: what MLBBDex processes, and how to delete it."
     },
     "account": {
       "metaTitle": "My account",
@@ -3741,13 +3741,14 @@
       "cookieTitle": "Dashboard login",
       "cookie": "Logging in with Discord sets an encrypted session cookie (`mlbbdex_discord`, httpOnly, 7 days) holding your Discord id, name and avatar, and a temporary cookie (`mlbbdex_discord_oauth`, 10 minutes) during the login. Both are strictly necessary for the service you ask for.",
       "retentionTitle": "Retention",
-      "retention": "When the bot leaves a server, its data is deleted 30 days later, along with its players' results (if the bot comes back within that time, the settings are still there). Command statistics are deleted after 90 days.",
+      "retention": "When the bot leaves a server, its data is deleted 30 days later, along with its players' results (if the bot comes back within that time, the settings are restored). While the bot stays on the server, daily game results are kept with no time limit, for the leaderboards, unless you ask for their deletion. Votes for the bot are kept with no time limit, unless you ask for their deletion. Command statistics are deleted after 90 days.",
       "rightsTitle": "Your rights",
       "rights": "To see or delete the data tied to your Discord id or your server, write to [{contact}](mailto:{contact}). Removing the bot from the server starts the automatic deletion.",
       "sitePrivacy": "Site privacy",
       "autoRoles": "Auto-roles: if the server chose some, the bot gives those roles to whoever joins, with the Manage Roles permission the server's admins grant it; a member who still has to accept the server's rules is only remembered (their id, in memory, for 24 hours at most) until they do, and nothing is saved.",
       "roleMenus": "Role menus: for each menu, the server's choice of channel, title, text, roles with their labels and emojis, the id of the published message and the Discord id of the manager who set it up are stored. When a member uses one, the bot gives or removes the role and keeps nothing about them, apart from an in-memory counter, a few seconds long, that limits changes made too close together.",
-      "tempVoice": "Temporary voice channels: the server stores its join-to-create channels with their user limit and name template. For each voice channel the bot creates, it keeps the ids of the channel, of the join-to-create channel and of the member it was created for, until the channel is deleted, which happens as soon as it is empty. To know who is in which voice channel, the bot receives Discord's voice states (the \"Guild Voice States\" intent), keeps them in memory and stores none of them."
+      "tempVoice": "Temporary voice channels: the server stores its join-to-create channels with their user limit and name template. For each voice channel the bot creates, it keeps the ids of the channel, of the join-to-create channel and of the member it was created for, until the channel is deleted, which happens as soon as it is empty. To know who is in which voice channel, the bot receives Discord's voice states (the \"Guild Voice States\" intent), keeps them in memory and stores none of them.",
+      "pseudonymous": "On the site, the forum and the collection do not keep your Discord ID or your game ID in plain text, but a hash of it (SHA-256, unsalted). This is pseudonymous data, not anonymous: anyone who knows the ID can compute the hash again, so it remains personal data and is protected as such. The bot itself keeps Discord IDs in plain text (results, votes, role menus)."
     },
     "botTerms": {
       "title": "Discord bot terms of use",
@@ -4969,7 +4970,7 @@
           "h": "Hosting"
         },
         {
-          "p": "The site is hosted by [{host}]({hostSite})."
+          "p": "The site is hosted by [{host}]({hostSite}), {hostAddress}, telephone {hostPhone}. Audience measurement (Matomo) is hosted on another server, at [{analyticsHost}]({analyticsHostSite}), {analyticsHostAddress}."
         },
         {
           "h": "Intellectual property"
@@ -4993,61 +4994,35 @@
           "h": "Personal data"
         },
         {
-          "p": "Data processing and the use of cookies are detailed in the [privacy policy](/privacy)."
+          "p": "The publisher is responsible for processing personal data. The data processed, their purposes, cookies, retention periods and your rights are detailed in the [privacy policy](/privacy). You can change your choice of cookies at any time from the “Manage cookies” link at the bottom of each page."
         }
       ]
     },
     "privacy": {
       "blocks": [
         {
-          "p": "This site is designed to keep as little data as possible. Most pages work without storing anything on a server; only the features you choose to use (game account login, community, notifications, Discord bot) keep what they describe below. This page details what is processed, and where."
+          "p": "This site is designed to process as little data as possible. Most pages work without an account and without saving anything on a server; only the features you choose to use (game account or Discord sign-in, community, collection, notifications, Discord bot) keep what they describe below. In line with the General Data Protection Regulation (GDPR) and the French Data Protection Act (loi Informatique et Libertés), this page explains what is processed, why, for how long, and how to exercise your rights."
         },
         {
-          "h": "Cookies"
+          "h": "Data controller"
         },
         {
-          "p": "Only one cookie can be set, and only if you connect your game account:"
+          "p": "The data controller is {publisher}, who publishes this site personally, on a non-profit basis (see the [legal notice](/legal)). For any question or request about your data: [{contact}](mailto:{contact})."
+        },
+        {
+          "h": "Purposes and legal bases"
         },
         {
           "ul": [
-            "`mlbb_jeu` — session cookie strictly necessary for login. It contains the temporary token issued by the Moonton service, never leaves the server (`httpOnly`), and expires on its own. If you don't log in, no cookie is set."
+            "Audience measurement without cookies (page views, site searches, anonymous actions): know which pages are used and improve the site. Legal basis: the legitimate interest of the publisher (article 6.1.f of the GDPR).",
+            "Audience measurement with cookies (recognising a returning visitor): only with your consent (article 6.1.a of the GDPR and article 82 of the French Data Protection Act), which you can withdraw at any time.",
+            "Features you ask for (game account or Discord sign-in, community, skin collection, patch notifications, Discord bot and its dashboard): performance of the requested service, under its terms of use (article 6.1.b of the GDPR).",
+            "Security and moderation (rate limits, reports, moderation log, error logs, backups): legitimate interest of the publisher in protecting the site and its users (article 6.1.f of the GDPR).",
+            "Remembering your preferences (language, favourites, tool settings): needed for the site to work the way you use it, in your browser."
           ]
         },
         {
-          "p": "As this cookie is strictly necessary for the service you request (staying logged in), it doesn't require prior consent. No advertising or tracking cookies are used."
-        },
-        {
-          "h": "Storage in your browser"
-        },
-        {
-          "p": "Your favorite heroes are saved in your browser's local storage (`localStorage`), on your device only. They are not sent to any server and never leave this browser. Clearing the site data erases them."
-        },
-        {
-          "h": "Game account login"
-        },
-        {
-          "p": "Login uses Moonton's official flow: you provide your game ID and server, a verification code is sent to you in-game, and the site receives a temporary token in return. These exchanges go through a community API (`arena.rone.dev`) and Moonton's authentication service. The site stores none of this information: the token lives in the session cookie, on the browser side, and disappears when you log out or when it expires. You are never asked for a password."
-        },
-        {
-          "h": "Third-party content"
-        },
-        {
-          "p": "The images (portraits, icons, emblems) are served by Moonton's and the community wiki's hosts. Loading a page therefore sends requests to these services, which can see your IP address, as with any remote resource."
-        },
-        {
-          "h": "Audience measurement"
-        },
-        {
-          "p": "If audience measurement is enabled, it uses a cookie-free tool that collects no personal data and doesn't track visitors from one site to another. No consent banner is needed in that case."
-        },
-        {
-          "p": "Calls to the public API (`/api/v1`), made by scripts or other sites, are counted the same way, by the server and without cookies: the requested address, the response code, the referring page and the software the call declares, and the IP address, anonymised by the measurement tool. No identifier is assigned, and a call sent with the `DNT: 1` or `Sec-GPC: 1` header is not counted."
-        },
-        {
-          "h": "Your rights"
-        },
-        {
-          "p": "You stay in control of what lives in your browser (favorites, session) by logging out or clearing the site data. To see or delete what the server keeps about you (community, notifications, Discord bot), or for any question, write to [{contact}](mailto:{contact})."
+          "p": "No data is sold, rented or used for advertising or profiling purposes, and no automated decisions are made about you."
         }
       ]
     },
@@ -5076,8 +5051,9 @@
       "discord": "if you log in with Discord: a derived account ID (a fingerprint of your Discord ID, never the ID itself), your Discord display name, displayed on your messages, and the date of your first participation. The connection only asks Discord for your identity, without your email or the list of your servers, and goes through the encrypted session cookie `mlbbdex_discord` (7 days), which keeps your identifier, your name and your Discord avatar; no Discord tokens are retained. The age of your Discord account, read in its identifier, is not recorded. If you link your Discord account to your game account, the link between your two accounts is preserved, and your Discord contributions join your game account;",
       "posts": "your discussions and replies, which are public, with their date; your votes and reports, shown to no one but the moderators (the reports);",
       "card": "your teammate card and, if you add them, your game ID and Discord username: they are shown to signed-in players only, and the card is erased seven days after it was last saved.",
-      "moderation": "Moderators see the reports and can hide, delete or ban; each of their decisions is written to a log. The rate limits use your IP address, in memory only, for a few minutes.",
-      "deletion": "You can edit a post for an hour and delete it for a day, and take your card down at any time. Beyond that, or to erase all your participation, write to {contact}."
+      "moderation": "Moderators see reports and can hide, delete or ban them; each of their decisions is recorded in a journal. Rate limits use your IP address, in memory only: it is never written to disk.",
+      "deletion": "You can edit a message for an hour and delete it for a day, withdraw your card at any time. A deleted message loses its text; a deleted discussion keeps its title, author and date. Beyond that, or to delete all your participation, write to {contact}.",
+      "pseudonymous": "These hashes (SHA-256, unsalted) are pseudonymous data, not anonymous: anyone who knows your game ID and server, or your Discord ID, can compute the hash again. They remain personal data, protected as such."
     },
     "collection": {
       "title": "Skin collection",
@@ -5085,6 +5061,133 @@
       "data": "the same account fingerprint as the community (never your game ID), the list of ticked heroes and skins, and the date of the last save; nothing else, and nothing is shown to anyone.",
       "usage": "It is only used to find your collection on your other devices. The \"the ones I play\" filter reads your heroes of the season from the login service when you turn it on, and keeps nothing.",
       "deletion": "To empty your account's copy, clear your collection in the tool while signed in; to delete the record itself, write to {contact}."
+    },
+    "gdpr": {
+      "cookies": {
+        "title": "Cookies",
+        "intro": "The site uses the following cookies. Audience measurement cookies are only set with your consent, given or refused in the banner; the others are strictly necessary for a feature you use or remember a choice you made, and are exempt from consent. No advertising, social network or third-party cookies are used.",
+        "head": {
+          "name": "Name",
+          "purpose": "Purpose",
+          "duration": "Duration",
+          "by": "Set by",
+          "consent": "Consent"
+        },
+        "yes": "Yes",
+        "no": "No",
+        "site": "MLBBDex",
+        "matomo": "Matomo (self-hosted by MLBBDex)",
+        "langue": {
+          "purpose": "Remember the language of the site you are viewing.",
+          "duration": "1 year"
+        },
+        "game": {
+          "purpose": "Game account sign-in session: the temporary token from the sign-in service, unreadable by the page's scripts (httpOnly). Only set if you sign in.",
+          "duration": "Until the token expires (7 days at most) or you sign out"
+        },
+        "discord": {
+          "purpose": "Discord sign-in session (forum, bot dashboard): your Discord ID, name and avatar, encrypted. Only set if you sign in.",
+          "duration": "7 days, or until you sign out"
+        },
+        "discordOauth": {
+          "purpose": "Protects the Discord sign-in in progress against request forgery.",
+          "duration": "10 minutes"
+        },
+        "pkId": {
+          "purpose": "Audience measurement: random identifier, which makes it possible to recognize a returning visit.",
+          "duration": "13 months"
+        },
+        "pkSes": {
+          "purpose": "Audience measurement: groups together pages from the same visit.",
+          "duration": "30 minutes"
+        },
+        "pkRef": {
+          "purpose": "Audience measurement: site or campaign where the visit comes from.",
+          "duration": "6 months"
+        },
+        "pkTest": {
+          "purpose": "Checks that the browser accepts cookies; deleted immediately.",
+          "duration": "A few moments"
+        },
+        "mtmConsent": {
+          "purpose": "Remembers, for Matomo, that you have accepted its cookies.",
+          "duration": "6 months"
+        },
+        "consentYes": "Yes",
+        "consentAfter": "Yes (set once cookies are accepted)",
+        "without": "Before you choose, and if you refuse, audience measurement carries on without any cookie. Refusing does not take away any feature of the site.",
+        "choice": "Your choice is kept for six months in your browser's local storage (`mlbb_consent`, with its date), then you are asked again. You can modify it or withdraw your consent at any time, from this button or the “Manage cookies” link at the bottom of each page:"
+      },
+      "storage": {
+        "title": "Storage in your browser",
+        "intro": "This data remains on your device, in the browser's local (`localStorage`) or session (`sessionStorage`) storage. They are not read by any third party and only leave your device in the indicated cases. They are kept until you delete the data from the site, unless otherwise indicated.",
+        "head": {
+          "key": "Key",
+          "content": "Content"
+        },
+        "consent": "Your choice on audience measurement cookies, and its date (6 months).",
+        "favourites": "Your favorite heroes. Sent to the server only if you enable patch notifications.",
+        "push": "Patch notifications active on this browser.",
+        "collection": "Your skin collection, and the status of its sync with your account (an account fingerprint, never your game ID).",
+        "popup": "Memory of the Discord invitation: closed (for 30 days) or followed, and pages viewed in the tab (for the tab's lifetime).",
+        "games": "Games, streaks and statistics of MLBBdle and the quiz.",
+        "tierList": "Drafts from the tier list maker.",
+        "timer": "Match in progress (for the tab's lifetime) and objective timer settings.",
+        "retribution": "Best scores of the Retribution test.",
+        "cache": "To work offline, the site also keeps a copy of the pages, images and data you viewed in your browser's cache (service worker): 250 pages and 800 images at most, on your device only. Signed-in pages (account, sign-in, bot dashboard and admin, and any page shown to a signed-in visitor) are never kept there, and signing out erases any that an earlier version of the site may have kept."
+      },
+      "audience": {
+        "title": "Audience measurement",
+        "tool": "The audience is measured with Matomo, free software installed and administered by the publisher on its own server (`matomo.leoderoin.fr`), hosted in France by [{analyticsHost}]({analyticsHostSite}). The data is not shared with anyone, nor used for other purposes, nor cross-referenced with that of other sites.",
+        "data": "Matomo receives the pages viewed, their title and the referring page, the length of the visit, searches made on the site and how many results they had, a few anonymous actions (tab opened on a hero page, reading depth, favourite added, share…), the type of device, browser and language, and your IP address, whose last two bytes are masked before anything is recorded.",
+        "cookieless": "Without your consent, measurement is done without cookies: each visit is counted on its own and cannot be linked to earlier ones. If you accept cookies, Matomo sets a random identifier (`_pk_id`) that lets it recognise a returning visit; it does not tell who you are.",
+        "retention": "Detailed visit data is retained until deleted by the publisher; encrypted reports, without individual data, are kept longer.",
+        "api": "Calls to the public API (`/api/v1`), made by scripts or other sites, are counted by the server, without cookies: the requested address, the response code, the referring page and the software declared by the call, and the caller's IP address, masked the same way. A call sent with the `DNT: 1` or `Sec-GPC: 1` header is not counted.",
+        "object": "You can object to the cookieless measurement by writing to [{contact}](mailto:{contact}), or simply by blocking the measurement domain with a content blocker: the site works just the same."
+      },
+      "game": {
+        "title": "Game account login",
+        "text": "Sign-in uses Moonton's official flow: you enter your game ID and server, a verification code is sent to you in the game, and the site receives a temporary token in return. These exchanges go through a community API (`arena.rone.dev`) and Moonton's services, which receive your ID, your server, the code and then the token. The token lives in the `mlbb_jeu` session cookie and is never saved on the server; the service's answers (profile, statistics, matches) are kept in memory for a few hours at most, to limit calls. You are never asked for a password. The server only keeps anything long-term if you use the community or the collection, as described below."
+      },
+      "thirdParty": {
+        "title": "Third-party content",
+        "text": "The game images (portraits, icons, emblems) come from Moonton and the community wiki; they are essentially retrieved by the site's server and served from its address, but some can be loaded directly from their hosts, who then see your IP address, as with any remote resource. On the bot dashboard, Discord avatars and icons are loaded from `cdn.discordapp.com`. Discord invite links lead to discord.com, which is subject to its own privacy policy."
+      },
+      "recipients": {
+        "title": "Recipients and service providers",
+        "intro": "Your data is only accessible to the publisher and, for reports, to the community's volunteer moderators. Depending on the features you use, it is hosted by or sent to:",
+        "host": "{host} ([{hostSite}]({hostSite})): hosting of the site server, its database and its backups;",
+        "matomo": "Matomo, installed on a publisher's server hosted by [{analyticsHost}]({analyticsHostSite}): audience measurement, without any transfer to the software publisher;",
+        "discord": "Discord Inc.: Discord sign-in, the bot and its dashboard;",
+        "moonton": "Moonton and the community API `arena.rone.dev`: game account sign-in and your profile statistics;",
+        "push": "your browser's notification service (Google, Mozilla, Apple or Microsoft): delivery of patch notifications, the content of which is encrypted;",
+        "votes": "bot directories (top.gg, discordbotlist.com): if you vote for the bot, they transmit your Discord ID to the site."
+      },
+      "transfers": {
+        "title": "Transfers outside the European Union",
+        "text": "Some optional features involve services located outside the European Union: Discord, in the United States, if you sign in with Discord or use the bot (transfers covered by the EU–US Data Privacy Framework or the European Commission's standard contractual clauses); Moonton, in Asia, and the community API `arena.rone.dev`, if you connect your game account; your browser's notification service, if you turn on notifications. These transfers only happen if you use these features."
+      },
+      "retention": {
+        "title": "How long data is kept",
+        "audience": "Audience measurement: visit data kept until deleted by the publisher; cookies, see table above; your choice on cookies, 6 months.",
+        "sessions": "Sessions: the game account token until it expires (7 days at most); the Discord session, 7 days.",
+        "community": "Community: your account, posts, votes, reports and the moderation log are kept for as long as the community exists, unless you ask for them to be erased; a report keeps a copy of the reported text. A teammate card is deleted seven days after it was last saved.",
+        "builds": "Community builds: until deleted by their author, or upon request.",
+        "collection": "Synced collection: until you empty it, or on request.",
+        "push": "Patch notifications: until unsubscribed; a subscription that has become invalid is deleted upon the next notification.",
+        "bot": "For the Discord bot: a server's settings, and the results of the daily games played there, until 30 days after the bot leaves; the log of slash commands used, with no member ID, 90 days; votes for the bot, until you ask for their deletion.",
+        "logs": "Technical logs: errors encountered by the browser (message, page, site version, browser type; neither IP address nor account) are kept on the server for diagnosis, until their deletion by the publisher.",
+        "backups": "Backups: a daily copy of the database; only the three most recent are kept, so that deleted data disappears from the backups in three days.",
+        "rateLimits": "Rate limits: your IP address, in memory only, never written to disk."
+      },
+      "rights": {
+        "title": "Your rights",
+        "list": "You have the right to access, rectify and erase your data, to restrict its processing and to data portability, and the right to object to processing based on legitimate interest. Where processing is based on your consent (audience measurement cookies), you can withdraw it at any time, as easily as you gave it; withdrawing does not affect what was done before.",
+        "browser": "What lives in your browser (favorites, collection, preferences, choices on cookies) is in your hands: clearing the site data deletes it.",
+        "contact": "For the rest (community, synchronized collection, notifications, bot), write to [{contact}](mailto:{contact}), specifying the account concerned (game nickname or Discord name) so that it can be found. You will receive a response within one month.",
+        "cnil": "If you consider, after contacting the publisher, that your rights are not respected, you can send a complaint to the CNIL ([cnil.fr](https://www.cnil.fr/fr/plaintes)) or to the data protection authority in your country.",
+        "updated": "Last updated: 15 November 2026."
+      }
     }
   },
   "compareUI": {
@@ -5929,5 +6032,16 @@
       "title": "Nickname copied! Come show it off",
       "text": "Join the MLBBDex Discord: teammates by rank, patch alerts and the daily MLBBdle."
     }
+  },
+  "consent": {
+    "title": "Audience measurement cookies",
+    "text": "With your consent, MLBBDex sets cookies to see how many visitors come back. Measurement is done with Matomo, installed on the site's own server: no ads, no third-party tracking, no data sold. If you refuse, it carries on anonymously, without cookies.",
+    "more": "Learn more",
+    "accept": "Accept",
+    "refuse": "Reject",
+    "keep": "Keep my current choice",
+    "currentGranted": "Current choice: cookies accepted on {date}.",
+    "currentDenied": "Current choice: cookies refused on {date}.",
+    "manage": "Manage cookies"
   }
 }
