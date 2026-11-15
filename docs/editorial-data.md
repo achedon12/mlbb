@@ -78,7 +78,7 @@ does not give. The page prints all of them in its method section.
 - `usdPerDiamond`: the price of a diamond at the usual top-up pack, without
   first-purchase bonus (`usdPerDiamondNote` says which pack).
 - Skins are counted by the game's Showcase tiers (Legend, Grand, Exquisite,
-  Deluxe, Exceptional, Common, painted, shining), with the collection points
+  Deluxe, Exceptional, Common, painted), with the collection points
   the game gives each one (`POINTS` in `src/lib/account-value.ts`). The
   catalogue's rarities map one to one onto them (Supreme is the Legend row).
 - `drawCost`: the typical diamond cost of a skin of a draw tier (Legend,
@@ -88,7 +88,12 @@ does not give. The page prints all of them in its method section.
   (Deluxe, Exceptional, Common) are costed from the synced shop prices and
   need no edit.
 - `flatCost`: the token value of a painted skin (a colour variant, never sold
-  on its own) and of a shining one (0, as in the game's points total).
+  on its own).
+- `pointCost`: diamonds counted per collection point for what the Showcase
+  totals in points rather than by tier: the shining skins (the last row of the
+  skin panel, outside the skin count), the in-match items and the
+  out-of-match items (the two other panels). `pointCostNote` says how the
+  values were chosen.
 - `resale`: the fraction of the cost a comparable account is offered for, and
   the four factors (rank, heroes owned, emblems, binding).
 - `rates`, `ratesDate`, `ratesSource`, `ratesNote`: fixed exchange rates, one

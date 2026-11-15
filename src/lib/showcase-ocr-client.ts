@@ -9,9 +9,9 @@ import {
   better,
   binarize,
   complete,
-  readShowcase,
+  readPanel,
   wordsOf,
-  type ShowcaseReading,
+  type PanelReading,
 } from "./showcase-ocr";
 
 /**
@@ -41,14 +41,15 @@ async function pixels(image: Blob): Promise<HTMLCanvasElement> {
 }
 
 /**
- * Reads the screenshot; null when no Showcase panel was recognised. Throws
+ * Reads the screenshot, whichever of the three panels it shows; null when
+ * none was recognised. Throws
  * when the reader itself cannot start (blocked worker, no WebAssembly).
  */
 export async function scanShowcase(
   image: Blob,
   catalog: Partial<Record<Tier, number>>,
   onStep: (step: ScanStep) => void = () => {},
-): Promise<ShowcaseReading | null> {
+): Promise<PanelReading | null> {
   onStep("loading");
   const [source, { createWorker, OEM, PSM }] = await Promise.all([pixels(image), import("tesseract.js")]);
   const worker = await createWorker("eng", OEM.LSTM_ONLY, {
@@ -66,13 +67,13 @@ export async function scanShowcase(
     work.width = source.width;
     work.height = source.height;
     const context = work.getContext("2d")!;
-    let best: ShowcaseReading | null = null;
+    let best: PanelReading | null = null;
     for (const threshold of THRESHOLDS) {
       const frame = new ImageData(new Uint8ClampedArray(original.data), original.width, original.height);
       binarize(frame.data, threshold);
       context.putImageData(frame, 0, 0);
       const { data } = await worker.recognize(work, {}, { blocks: true });
-      best = better(best, readShowcase(wordsOf(data), catalog));
+      best = better(best, readPanel(wordsOf(data), catalog));
       if (complete(best)) break;
     }
     return best;

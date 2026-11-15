@@ -2376,10 +2376,6 @@
       "fr": "La méthode, chiffre par chiffre",
       "text": "The method, figure by figure"
     },
-    "pages.accountValue.methodCost": {
-      "fr": "Chaque skin compte pour le coût typique de sa catégorie. Premium, Exceptionnelle et Commun se vendent en boutique : leur coût est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Légende, Grandiose et Exquis s'obtiennent par tirage : ils prennent la médiane, arrondie, des coûts publiés par des guides de joueurs, qui varie beaucoup d'un événement et d'un joueur à l'autre. Une apparence colorée compte pour une valeur symbolique, une apparence éclatante pour rien.",
-      "text": "Each skin counts for the typical cost of its tier. Deluxe, Exceptional and Common skins are sold in the shop: their cost is the median diamond price of the tier's skins, read in the game data. Supreme, Grand and Exquisite skins come from draws: they take the rounded median of the costs published by player guides, which varies a lot from one event and one player to the next. A painted skin counts for a token value, a shining skin for nothing."
-    },
     "pages.accountValue.tableCaption": {
       "fr": "Points et coût comptés par skin, par catégorie",
       "text": "Points and cost counted per skin, by tier"
@@ -2539,10 +2535,6 @@
     "pages.accountValueUI.import_failed": {
       "fr": "Impossible de charger le catalogue des skins. Réessayez.",
       "text": "The skin catalogue could not be loaded. Try again."
-    },
-    "pages.accountValueUI.skinsTitle": {
-      "fr": "Vos skins, comme dans la Vitrine",
-      "text": "Your skins, as in the Showcase"
     },
     "pages.accountValueUI.tier.grand": {
       "fr": "Grandiose",
@@ -4065,8 +4057,8 @@
       "text": "Skins with no known tier, left out: {n}."
     },
     "pages.accountValueUI.import_variants": {
-      "fr": "Les apparences colorées et éclatantes ne sont pas dans le catalogue : ajoutez-les à la main.",
-      "text": "Painted and shining skins are not in the catalogue: add them by hand."
+      "fr": "Les apparences colorées ne sont pas dans le catalogue : ajoutez-les à la main, comme les points des autres panneaux.",
+      "text": "Painted skins are not in the catalogue: add them by hand, like the points of the other panels."
     },
     "pages.accountValueUI.whereTitle": {
       "fr": "Où trouver ces nombres",
@@ -4077,8 +4069,8 @@
       "text": "Profile > Showcase > Collection"
     },
     "pages.accountValueUI.whereHint": {
-      "fr": "Ouvrez l'aperçu des points de collection de skins : chaque catégorie y affiche « possédés/total » et ses points. Recopiez le premier nombre de chaque ligne.",
-      "text": "Open the skin collection points overview: each tier shows \"owned/total\" and its points. Copy the first number of each row."
+      "fr": "Trois aperçus des points de collection s'y ouvrent : skins, objets de partie et objets hors partie. Pour les skins, recopiez le premier nombre de chaque ligne (« possédés/total ») ; pour les deux autres, le total en points en haut du panneau.",
+      "text": "Three collection points overviews open there: skins, in-match items and out-of-match items. For skins, copy the first number of each row (\"owned/total\"); for the other two, the points total at the top of the panel."
     },
     "pages.accountValueUI.tier.exquisite": {
       "fr": "Exquis",
@@ -4100,10 +4092,6 @@
       "fr": "Apparences colorées",
       "text": "Painted skins"
     },
-    "pages.accountValueUI.tier.glow": {
-      "fr": "Apparence éclatante",
-      "text": "Shining skins"
-    },
     "pages.accountValueUI.pointsEach": {
       "fr": "{points} points l'un",
       "text": "{points} points each"
@@ -4113,12 +4101,12 @@
       "text": "≈ {n} diamonds each (token value)"
     },
     "pages.accountValueUI.pointsTitle": {
-      "fr": "Points de collection de skins",
-      "text": "Skin collection points"
+      "fr": "Points de collection",
+      "text": "Collection points"
     },
     "pages.accountValueUI.pointsCheck": {
-      "fr": "Comparez avec le total de votre Vitrine : s'il est identique, vos nombres sont justes.",
-      "text": "Compare it with the total in your Showcase: if it matches, your numbers are right."
+      "fr": "Comparez avec le total de votre Vitrine, sous votre titre de collectionneur : s'il est identique, vos nombres sont justes.",
+      "text": "Compare with the total of your Showcase, under your collector title: if it is the same, your numbers are right."
     },
     "pages.accountValue.methodPoints": {
       "fr": "Les catégories sont celles de la Vitrine du jeu, avec les points de collection que le jeu donne à chaque skin. La somme des points sert de vérification : elle doit retomber sur le total affiché dans le jeu.",
@@ -4153,8 +4141,8 @@
       "text": "Try another image"
     },
     "pages.accountValueUI.scan.hint": {
-      "fr": "Ou déposez-la ici, ou collez-la (Ctrl+V).",
-      "text": "Or drop it here, or paste it (Ctrl+V)."
+      "fr": "Ou déposez-la ici, ou collez-la (Ctrl+V). Une capture par panneau, dans l'ordre que vous voulez.",
+      "text": "Or drop it here, or paste it (Ctrl+V). One screenshot per panel, in any order."
     },
     "pages.accountValueUI.scan.privacy": {
       "fr": "L'image est lue dans votre navigateur : elle ne quitte jamais votre appareil.",
@@ -4203,6 +4191,42 @@
     "pages.accountValueUI.scan.check": {
       "fr": "à vérifier",
       "text": "to check"
+    },
+    "pages.accountValueUI.group.shining": {
+      "fr": "Apparences éclatantes",
+      "text": "Shining skins"
+    },
+    "pages.accountValueUI.group.inMatch": {
+      "fr": "Objets de partie",
+      "text": "In-match items"
+    },
+    "pages.accountValueUI.group.outMatch": {
+      "fr": "Objets hors partie",
+      "text": "Out-of-match items"
+    },
+    "pages.accountValueUI.scan.shining": {
+      "fr": "Apparences éclatantes : {points} points.",
+      "text": "Shining skins: {points} points."
+    },
+    "pages.accountValueUI.pointsLead": {
+      "fr": "Ces objets valent des points très différents d'un objet à l'autre : indiquez le total en points que le jeu affiche.",
+      "text": "These items are worth very different points from one to the next: enter the points total the game shows."
+    },
+    "pages.accountValueUI.scan.doneItems": {
+      "fr": "{group} : {points} points détectés sur votre capture.",
+      "text": "{group}: {points} points detected on your screenshot."
+    },
+    "pages.accountValueUI.pointsSplit": {
+      "fr": "Skins {skins} · autres {items}",
+      "text": "Skins {skins} · other {items}"
+    },
+    "pages.accountValueUI.pointsLegend": {
+      "fr": "Comptés en points",
+      "text": "Counted in points"
+    },
+    "pages.accountValue.methodItems": {
+      "fr": "Les apparences éclatantes et les objets des deux autres panneaux (effets de rappel, émotes, cadres d'avatar…) valent des points très variables d'un objet à l'autre : ils sont comptés à leurs points, à {inMatch} diamant par point pour les objets de partie, {outMatch} pour les objets hors partie, souvent gratuits, et {shining} pour les apparences éclatantes. La plupart viennent d'événements et de passes : c'est une estimation basse.",
+      "text": "Shining skins and the items of the two other panels (recall effects, emotes, avatar frames…) are worth very different points from one item to the next: they are counted by their points, at {inMatch} diamond per point for in-match items, {outMatch} for out-of-match items, often free, and {shining} for shining skins. Most come from events and passes: this is a low estimate."
     }
   },
   "es": {
@@ -6402,10 +6426,6 @@
       "fr": "La méthode, chiffre par chiffre",
       "text": "El método, cifra a cifra"
     },
-    "pages.accountValue.methodCost": {
-      "fr": "Chaque skin compte pour le coût typique de sa catégorie. Premium, Exceptionnelle et Commun se vendent en boutique : leur coût est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Légende, Grandiose et Exquis s'obtiennent par tirage : ils prennent la médiane, arrondie, des coûts publiés par des guides de joueurs, qui varie beaucoup d'un événement et d'un joueur à l'autre. Une apparence colorée compte pour une valeur symbolique, une apparence éclatante pour rien.",
-      "text": "Cada skin cuenta por el coste típico de su categoría. Las skins Deluxe, Excepcionales y Comunes se venden en la tienda: su coste es el precio mediano en diamantes de las skins de la categoría, tomado de los datos del juego. Las skins Supremas, Grandiosas y Exquisitas se obtienen en sorteos: toman la mediana, redondeada, de los costes publicados por guías de jugadores, que varía mucho de un evento y de un jugador a otro. Una skin pintada cuenta por un valor simbólico, una skin brillante por nada."
-    },
     "pages.accountValue.tableCaption": {
       "fr": "Points et coût comptés par skin, par catégorie",
       "text": "Puntos y coste contados por skin, por categoría"
@@ -6565,10 +6585,6 @@
     "pages.accountValueUI.import_failed": {
       "fr": "Impossible de charger le catalogue des skins. Réessayez.",
       "text": "No se pudo cargar el catálogo de skins. Inténtalo de nuevo."
-    },
-    "pages.accountValueUI.skinsTitle": {
-      "fr": "Vos skins, comme dans la Vitrine",
-      "text": "Tus skins, como en el Escaparate"
     },
     "pages.accountValueUI.tier.grand": {
       "fr": "Grandiose",
@@ -8122,10 +8138,6 @@
       "fr": "Skins sans catégorie connue, laissés de côté : {n}.",
       "text": "Skins sin categoría conocida, que se dejan fuera: {n}."
     },
-    "pages.accountValueUI.import_variants": {
-      "fr": "Les apparences colorées et éclatantes ne sont pas dans le catalogue : ajoutez-les à la main.",
-      "text": "Las skins pintadas y brillantes no están en el catálogo: añádelas a mano."
-    },
     "pages.accountValueUI.whereTitle": {
       "fr": "Où trouver ces nombres",
       "text": "Dónde encontrar estos números"
@@ -8133,10 +8145,6 @@
     "pages.accountValueUI.wherePath": {
       "fr": "Profil > Vitrine > Collection",
       "text": "Perfil > Escaparate > Colección"
-    },
-    "pages.accountValueUI.whereHint": {
-      "fr": "Ouvrez l'aperçu des points de collection de skins : chaque catégorie y affiche « possédés/total » et ses points. Recopiez le premier nombre de chaque ligne.",
-      "text": "Abre el resumen de puntos de colección de skins: cada categoría muestra \"obtenidas/total\" y sus puntos. Copia el primer número de cada fila."
     },
     "pages.accountValueUI.tier.exquisite": {
       "fr": "Exquis",
@@ -8158,10 +8166,6 @@
       "fr": "Apparences colorées",
       "text": "Skins pintadas"
     },
-    "pages.accountValueUI.tier.glow": {
-      "fr": "Apparence éclatante",
-      "text": "Skins brillantes"
-    },
     "pages.accountValueUI.pointsEach": {
       "fr": "{points} points l'un",
       "text": "{points} puntos cada una"
@@ -8171,12 +8175,8 @@
       "text": "≈ {n} diamantes cada una (valor simbólico)"
     },
     "pages.accountValueUI.pointsTitle": {
-      "fr": "Points de collection de skins",
-      "text": "Puntos de colección de skins"
-    },
-    "pages.accountValueUI.pointsCheck": {
-      "fr": "Comparez avec le total de votre Vitrine : s'il est identique, vos nombres sont justes.",
-      "text": "Compáralo con el total de tu Escaparate: si coincide, tus números son correctos."
+      "fr": "Points de collection",
+      "text": "Puntos de colección"
     },
     "pages.accountValue.methodPoints": {
       "fr": "Les catégories sont celles de la Vitrine du jeu, avec les points de collection que le jeu donne à chaque skin. La somme des points sert de vérification : elle doit retomber sur le total affiché dans le jeu.",
@@ -8209,10 +8209,6 @@
     "pages.accountValueUI.scan.retry": {
       "fr": "Essayer une autre image",
       "text": "Probar otra imagen"
-    },
-    "pages.accountValueUI.scan.hint": {
-      "fr": "Ou déposez-la ici, ou collez-la (Ctrl+V).",
-      "text": "O suéltala aquí, o pégala (Ctrl+V)."
     },
     "pages.accountValueUI.scan.privacy": {
       "fr": "L'image est lue dans votre navigateur : elle ne quitte jamais votre appareil.",
@@ -8261,6 +8257,34 @@
     "pages.accountValueUI.scan.check": {
       "fr": "à vérifier",
       "text": "por revisar"
+    },
+    "pages.accountValueUI.group.shining": {
+      "fr": "Apparences éclatantes",
+      "text": "Skins brillantes"
+    },
+    "pages.accountValueUI.group.inMatch": {
+      "fr": "Objets de partie",
+      "text": "Objetos de partida"
+    },
+    "pages.accountValueUI.group.outMatch": {
+      "fr": "Objets hors partie",
+      "text": "Objetos fuera de partida"
+    },
+    "pages.accountValueUI.scan.shining": {
+      "fr": "Apparences éclatantes : {points} points.",
+      "text": "Skins brillantes: {points} puntos."
+    },
+    "pages.accountValueUI.whereHint": {
+      "fr": "Trois aperçus des points de collection s'y ouvrent : skins, objets de partie et objets hors partie. Pour les skins, recopiez le premier nombre de chaque ligne (« possédés/total ») ; pour les deux autres, le total en points en haut du panneau.",
+      "text": "Allí se abren tres resúmenes de puntos de colección: skins, objetos de partida y objetos fuera de partida. Para las skins, copia el primer número de cada fila («obtenidas/total»); para los otros dos, el total de puntos en la parte superior del panel."
+    },
+    "pages.accountValue.methodItems": {
+      "fr": "Les apparences éclatantes et les objets des deux autres panneaux (effets de rappel, émotes, cadres d'avatar…) valent des points très variables d'un objet à l'autre : ils sont comptés à leurs points, à {inMatch} diamant par point pour les objets de partie, {outMatch} pour les objets hors partie, souvent gratuits, et {shining} pour les apparences éclatantes. La plupart viennent d'événements et de passes : c'est une estimation basse.",
+      "text": "Las skins brillantes y los objetos de los otros dos paneles (efectos de regreso, emotes, marcos de avatar…) valen puntos muy distintos de un objeto a otro: se cuentan por sus puntos, a {inMatch} diamante por punto los objetos de partida, {outMatch} los de fuera de partida, a menudo gratuitos, y {shining} las skins brillantes. La mayoría vienen de eventos y pases: es una estimación baja."
+    },
+    "pages.accountValueUI.pointsLead": {
+      "fr": "Ces objets valent des points très différents d'un objet à l'autre : indiquez le total en points que le jeu affiche.",
+      "text": "Estos objetos valen puntos muy distintos de uno a otro: indica el total de puntos que muestra el juego."
     }
   },
   "id": {
@@ -12512,10 +12536,6 @@
       "fr": "La méthode, chiffre par chiffre",
       "text": "Metodenya, angka demi angka"
     },
-    "pages.accountValue.methodCost": {
-      "fr": "Chaque skin compte pour le coût typique de sa catégorie. Premium, Exceptionnelle et Commun se vendent en boutique : leur coût est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Légende, Grandiose et Exquis s'obtiennent par tirage : ils prennent la médiane, arrondie, des coûts publiés par des guides de joueurs, qui varie beaucoup d'un événement et d'un joueur à l'autre. Une apparence colorée compte pour une valeur symbolique, une apparence éclatante pour rien.",
-      "text": "Setiap skin dihitung dengan biaya umum kategorinya. Skin Deluxe, Exceptional, dan Common dijual di toko: biayanya adalah harga median dalam diamond dari skin kategori itu, diambil dari data game. Skin Supreme, Grand, dan Exquisite didapat dari draw: biayanya adalah median, dibulatkan, dari biaya yang diterbitkan panduan pemain, yang sangat bervariasi antar event dan antar pemain. Skin Painted dihitung dengan nilai simbolis, skin Shining tidak dihitung."
-    },
     "pages.accountValue.tableCaption": {
       "fr": "Points et coût comptés par skin, par catégorie",
       "text": "Poin dan biaya yang dihitung per skin, per kategori"
@@ -12675,10 +12695,6 @@
     "pages.accountValueUI.import_failed": {
       "fr": "Impossible de charger le catalogue des skins. Réessayez.",
       "text": "Katalog skin gagal dimuat. Coba lagi."
-    },
-    "pages.accountValueUI.skinsTitle": {
-      "fr": "Vos skins, comme dans la Vitrine",
-      "text": "Skin-mu, seperti di Showcase"
     },
     "pages.accountValueUI.tier.grand": {
       "fr": "Grandiose",
@@ -14224,10 +14240,6 @@
       "fr": "Skins sans catégorie connue, laissés de côté : {n}.",
       "text": "Skin tanpa kategori yang dikenal, tidak dihitung: {n}."
     },
-    "pages.accountValueUI.import_variants": {
-      "fr": "Les apparences colorées et éclatantes ne sont pas dans le catalogue : ajoutez-les à la main.",
-      "text": "Skin Painted dan Shining tidak ada di katalog: tambahkan secara manual."
-    },
     "pages.accountValueUI.whereTitle": {
       "fr": "Où trouver ces nombres",
       "text": "Di mana menemukan angka ini"
@@ -14235,10 +14247,6 @@
     "pages.accountValueUI.wherePath": {
       "fr": "Profil > Vitrine > Collection",
       "text": "Profil > Showcase > Koleksi"
-    },
-    "pages.accountValueUI.whereHint": {
-      "fr": "Ouvrez l'aperçu des points de collection de skins : chaque catégorie y affiche « possédés/total » et ses points. Recopiez le premier nombre de chaque ligne.",
-      "text": "Buka ringkasan poin koleksi skin: setiap kategori menampilkan \"dimiliki/total\" dan poinnya. Salin angka pertama di setiap baris."
     },
     "pages.accountValueUI.tier.exquisite": {
       "fr": "Exquis",
@@ -14260,10 +14268,6 @@
       "fr": "Apparences colorées",
       "text": "Skin Painted"
     },
-    "pages.accountValueUI.tier.glow": {
-      "fr": "Apparence éclatante",
-      "text": "Skin Shining"
-    },
     "pages.accountValueUI.pointsEach": {
       "fr": "{points} points l'un",
       "text": "{points} poin per skin"
@@ -14273,12 +14277,8 @@
       "text": "≈ {n} diamond per skin (nilai simbolis)"
     },
     "pages.accountValueUI.pointsTitle": {
-      "fr": "Points de collection de skins",
-      "text": "Poin koleksi skin"
-    },
-    "pages.accountValueUI.pointsCheck": {
-      "fr": "Comparez avec le total de votre Vitrine : s'il est identique, vos nombres sont justes.",
-      "text": "Bandingkan dengan total di Showcase-mu: jika sama, angkamu sudah benar."
+      "fr": "Points de collection",
+      "text": "Poin koleksi"
     },
     "pages.accountValue.methodPoints": {
       "fr": "Les catégories sont celles de la Vitrine du jeu, avec les points de collection que le jeu donne à chaque skin. La somme des points sert de vérification : elle doit retomber sur le total affiché dans le jeu.",
@@ -14311,10 +14311,6 @@
     "pages.accountValueUI.scan.retry": {
       "fr": "Essayer une autre image",
       "text": "Coba gambar lain"
-    },
-    "pages.accountValueUI.scan.hint": {
-      "fr": "Ou déposez-la ici, ou collez-la (Ctrl+V).",
-      "text": "Atau taruh di sini, atau tempel (Ctrl+V)."
     },
     "pages.accountValueUI.scan.privacy": {
       "fr": "L'image est lue dans votre navigateur : elle ne quitte jamais votre appareil.",
@@ -14363,6 +14359,34 @@
     "pages.accountValueUI.scan.check": {
       "fr": "à vérifier",
       "text": "perlu dicek"
+    },
+    "pages.accountValueUI.group.shining": {
+      "fr": "Apparences éclatantes",
+      "text": "Skin Shining"
+    },
+    "pages.accountValueUI.group.inMatch": {
+      "fr": "Objets de partie",
+      "text": "Item dalam match"
+    },
+    "pages.accountValueUI.group.outMatch": {
+      "fr": "Objets hors partie",
+      "text": "Item luar match"
+    },
+    "pages.accountValueUI.scan.shining": {
+      "fr": "Apparences éclatantes : {points} points.",
+      "text": "Skin Shining: {points} poin."
+    },
+    "pages.accountValueUI.whereHint": {
+      "fr": "Trois aperçus des points de collection s'y ouvrent : skins, objets de partie et objets hors partie. Pour les skins, recopiez le premier nombre de chaque ligne (« possédés/total ») ; pour les deux autres, le total en points en haut du panneau.",
+      "text": "Di sana ada tiga ringkasan poin koleksi: skin, item dalam match, dan item luar match. Untuk skin, salin angka pertama di setiap baris (\"dimiliki/total\"); untuk dua lainnya, total poin di bagian atas panel."
+    },
+    "pages.accountValue.methodItems": {
+      "fr": "Les apparences éclatantes et les objets des deux autres panneaux (effets de rappel, émotes, cadres d'avatar…) valent des points très variables d'un objet à l'autre : ils sont comptés à leurs points, à {inMatch} diamant par point pour les objets de partie, {outMatch} pour les objets hors partie, souvent gratuits, et {shining} pour les apparences éclatantes. La plupart viennent d'événements et de passes : c'est une estimation basse.",
+      "text": "Skin Shining dan item di dua panel lainnya (efek recall, emote, bingkai avatar…) bernilai poin yang sangat berbeda dari satu item ke item lain: semuanya dihitung dari poinnya, {inMatch} diamond per poin untuk item dalam match, {outMatch} untuk item luar match yang sering gratis, dan {shining} untuk skin Shining. Sebagian besar didapat dari event dan pass: ini estimasi rendah."
+    },
+    "pages.accountValueUI.pointsLead": {
+      "fr": "Ces objets valent des points très différents d'un objet à l'autre : indiquez le total en points que le jeu affiche.",
+      "text": "Item-item ini bernilai poin yang sangat berbeda satu sama lain: masukkan total poin yang ditampilkan game."
     }
   },
   "it": {
@@ -16614,10 +16638,6 @@
       "fr": "La méthode, chiffre par chiffre",
       "text": "Il metodo, cifra per cifra"
     },
-    "pages.accountValue.methodCost": {
-      "fr": "Chaque skin compte pour le coût typique de sa catégorie. Premium, Exceptionnelle et Commun se vendent en boutique : leur coût est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Légende, Grandiose et Exquis s'obtiennent par tirage : ils prennent la médiane, arrondie, des coûts publiés par des guides de joueurs, qui varie beaucoup d'un événement et d'un joueur à l'autre. Une apparence colorée compte pour une valeur symbolique, une apparence éclatante pour rien.",
-      "text": "Ogni skin vale il costo tipico della sua categoria. Le skin Deluxe, Eccezionali e Comuni si vendono nel negozio: il loro costo è il prezzo mediano in diamanti delle skin della categoria, rilevato nei dati del gioco. Le skin Supreme, Grandiose e Squisite si ottengono con le estrazioni: prendono la mediana, arrotondata, dei costi pubblicati dalle guide dei giocatori, che varia molto da un evento e da un giocatore all'altro. Una skin dipinta vale un importo simbolico, una skin splendente nulla."
-    },
     "pages.accountValue.tableCaption": {
       "fr": "Points et coût comptés par skin, par catégorie",
       "text": "Punti e costo contati per skin, per categoria"
@@ -16777,10 +16797,6 @@
     "pages.accountValueUI.import_failed": {
       "fr": "Impossible de charger le catalogue des skins. Réessayez.",
       "text": "Impossibile caricare il catalogo delle skin. Riprova."
-    },
-    "pages.accountValueUI.skinsTitle": {
-      "fr": "Vos skins, comme dans la Vitrine",
-      "text": "Le tue skin, come nella Vetrina"
     },
     "pages.accountValueUI.tier.grand": {
       "fr": "Grandiose",
@@ -18310,10 +18326,6 @@
       "fr": "Skins sans catégorie connue, laissés de côté : {n}.",
       "text": "Skin senza categoria nota, escluse: {n}."
     },
-    "pages.accountValueUI.import_variants": {
-      "fr": "Les apparences colorées et éclatantes ne sont pas dans le catalogue : ajoutez-les à la main.",
-      "text": "Le skin dipinte e splendenti non sono nel catalogo: aggiungile a mano."
-    },
     "pages.accountValueUI.whereTitle": {
       "fr": "Où trouver ces nombres",
       "text": "Dove trovare questi numeri"
@@ -18321,10 +18333,6 @@
     "pages.accountValueUI.wherePath": {
       "fr": "Profil > Vitrine > Collection",
       "text": "Profilo > Vetrina > Collezione"
-    },
-    "pages.accountValueUI.whereHint": {
-      "fr": "Ouvrez l'aperçu des points de collection de skins : chaque catégorie y affiche « possédés/total » et ses points. Recopiez le premier nombre de chaque ligne.",
-      "text": "Apri il riepilogo dei punti collezione delle skin: ogni categoria mostra \"possedute/totale\" e i suoi punti. Copia il primo numero di ogni riga."
     },
     "pages.accountValueUI.tier.exquisite": {
       "fr": "Exquis",
@@ -18346,10 +18354,6 @@
       "fr": "Apparences colorées",
       "text": "Skin dipinte"
     },
-    "pages.accountValueUI.tier.glow": {
-      "fr": "Apparence éclatante",
-      "text": "Skin splendenti"
-    },
     "pages.accountValueUI.pointsEach": {
       "fr": "{points} points l'un",
       "text": "{points} punti ciascuna"
@@ -18359,12 +18363,8 @@
       "text": "≈ {n} diamanti ciascuna (valore simbolico)"
     },
     "pages.accountValueUI.pointsTitle": {
-      "fr": "Points de collection de skins",
-      "text": "Punti collezione delle skin"
-    },
-    "pages.accountValueUI.pointsCheck": {
-      "fr": "Comparez avec le total de votre Vitrine : s'il est identique, vos nombres sont justes.",
-      "text": "Confrontalo con il totale della tua Vetrina: se coincide, i tuoi numeri sono giusti."
+      "fr": "Points de collection",
+      "text": "Punti collezione"
     },
     "pages.accountValue.methodPoints": {
       "fr": "Les catégories sont celles de la Vitrine du jeu, avec les points de collection que le jeu donne à chaque skin. La somme des points sert de vérification : elle doit retomber sur le total affiché dans le jeu.",
@@ -18397,10 +18397,6 @@
     "pages.accountValueUI.scan.retry": {
       "fr": "Essayer une autre image",
       "text": "Prova un'altra immagine"
-    },
-    "pages.accountValueUI.scan.hint": {
-      "fr": "Ou déposez-la ici, ou collez-la (Ctrl+V).",
-      "text": "Oppure trascinalo qui, o incollalo (Ctrl+V)."
     },
     "pages.accountValueUI.scan.privacy": {
       "fr": "L'image est lue dans votre navigateur : elle ne quitte jamais votre appareil.",
@@ -18449,6 +18445,34 @@
     "pages.accountValueUI.scan.check": {
       "fr": "à vérifier",
       "text": "da controllare"
+    },
+    "pages.accountValueUI.group.shining": {
+      "fr": "Apparences éclatantes",
+      "text": "Skin splendenti"
+    },
+    "pages.accountValueUI.group.inMatch": {
+      "fr": "Objets de partie",
+      "text": "Oggetti in partita"
+    },
+    "pages.accountValueUI.group.outMatch": {
+      "fr": "Objets hors partie",
+      "text": "Oggetti fuori partita"
+    },
+    "pages.accountValueUI.scan.shining": {
+      "fr": "Apparences éclatantes : {points} points.",
+      "text": "Skin splendenti: {points} punti."
+    },
+    "pages.accountValueUI.whereHint": {
+      "fr": "Trois aperçus des points de collection s'y ouvrent : skins, objets de partie et objets hors partie. Pour les skins, recopiez le premier nombre de chaque ligne (« possédés/total ») ; pour les deux autres, le total en points en haut du panneau.",
+      "text": "Lì si aprono tre panoramiche dei punti collezione: skin, oggetti in partita e oggetti fuori partita. Per le skin, copia il primo numero di ogni riga («possedute/totale»); per gli altri due, il totale dei punti in cima al pannello."
+    },
+    "pages.accountValue.methodItems": {
+      "fr": "Les apparences éclatantes et les objets des deux autres panneaux (effets de rappel, émotes, cadres d'avatar…) valent des points très variables d'un objet à l'autre : ils sont comptés à leurs points, à {inMatch} diamant par point pour les objets de partie, {outMatch} pour les objets hors partie, souvent gratuits, et {shining} pour les apparences éclatantes. La plupart viennent d'événements et de passes : c'est une estimation basse.",
+      "text": "Le skin splendenti e gli oggetti degli altri due pannelli (effetti di richiamo, emote, cornici avatar…) valgono punti molto diversi da un oggetto all'altro: sono contati in base ai loro punti, a {inMatch} diamante per punto gli oggetti in partita, {outMatch} quelli fuori partita, spesso gratuiti, e {shining} le skin splendenti. La maggior parte arriva da eventi e pass: è una stima bassa."
+    },
+    "pages.accountValueUI.pointsLead": {
+      "fr": "Ces objets valent des points très différents d'un objet à l'autre : indiquez le total en points que le jeu affiche.",
+      "text": "Questi oggetti valgono punti molto diversi l'uno dall'altro: indica il totale dei punti mostrato dal gioco."
     }
   },
   "fil": {
@@ -20964,10 +20988,6 @@
       "fr": "Ce qu'a coûté une collection de skins, en diamants et en argent, et la fourchette indicative d'un compte comparable. Un ordre de grandeur, jamais un prix : la méthode est détaillée sous l'outil.",
       "text": "Magkano ang nagastos sa isang skin collection, sa diamonds at sa pera, at ang tinatayang range ng isang katulad na account. Tantiya lang, hindi kailanman presyo: nakadetalye ang paraan sa ibaba ng tool."
     },
-    "pages.accountValue.methodCost": {
-      "fr": "Chaque skin compte pour le coût typique de sa catégorie. Premium, Exceptionnelle et Commun se vendent en boutique : leur coût est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Légende, Grandiose et Exquis s'obtiennent par tirage : ils prennent la médiane, arrondie, des coûts publiés par des guides de joueurs, qui varie beaucoup d'un événement et d'un joueur à l'autre. Une apparence colorée compte pour une valeur symbolique, une apparence éclatante pour rien.",
-      "text": "Ang bawat skin ay binibilang sa karaniwang gastos ng tier nito. Ang mga Deluxe, Exceptional at Common skin ay ibinebenta sa shop: ang gastos nila ay ang median na presyo sa diamonds ng mga skin ng tier, mula sa data ng laro. Ang mga Supreme, Grand at Exquisite skin ay nakukuha sa draw: kinukuha nila ang median, na binilog, ng mga gastos na inilathala ng mga gabay ng manlalaro, na malaki ang pagkakaiba sa bawat event at bawat manlalaro. Ang painted skin ay may simbolikong halaga, ang shining skin ay wala."
-    },
     "pages.accountValue.methodLimits": {
       "fr": "Les montants affichés sont arrondis à deux chiffres significatifs. Ne sont pas comptés : les héros eux-mêmes, achetés le plus souvent en points de bataille, les skins limités d'un serveur, les cosmétiques (effets, emotes, cadres) ni l'historique de matchs. Un vrai marché dépend aussi de la demande du moment, que rien ici ne mesure.",
       "text": "Rounded sa dalawang significant figure ang mga halaga. Hindi kasama: ang mga hero mismo, na kadalasang binibili gamit ang battle points, mga skin na limitado sa server, cosmetics (effect, emote, frame) at match history. Nakadepende rin ang tunay na market sa demand sa sandaling iyon, na walang sumusukat dito."
@@ -21119,10 +21139,6 @@
     "pages.accountValueUI.share_shared": {
       "fr": "Résultat partagé.",
       "text": "Na-share ang resulta."
-    },
-    "pages.accountValueUI.skinsTitle": {
-      "fr": "Vos skins, comme dans la Vitrine",
-      "text": "Ang iyong mga skin, tulad ng sa Showcase"
     },
     "pages.accountValueUI.tier.grand": {
       "fr": "Grandiose",
@@ -33008,10 +33024,6 @@
       "fr": "Apparences colorées",
       "text": "Painted skins"
     },
-    "pages.accountValueUI.tier.glow": {
-      "fr": "Apparence éclatante",
-      "text": "Shining skins"
-    },
     "pages.accountValueUI.wherePath": {
       "fr": "Profil > Vitrine > Collection",
       "text": "Profile > Showcase > Collection"
@@ -33025,8 +33037,8 @@
       "text": "≈ {n} diamonds bawat isa (simbolikong halaga)"
     },
     "pages.accountValueUI.pointsTitle": {
-      "fr": "Points de collection de skins",
-      "text": "Skin collection points"
+      "fr": "Points de collection",
+      "text": "Collection points"
     },
     "pages.accountValue.methodPoints": {
       "fr": "Les catégories sont celles de la Vitrine du jeu, avec les points de collection que le jeu donne à chaque skin. La somme des points sert de vérification : elle doit retomber sur le total affiché dans le jeu.",
@@ -33036,18 +33048,6 @@
       "fr": "Le catalogue suit le wiki et compte parfois quelques skins de moins que le jeu, le temps que les nouveautés y soient ajoutées : les cases n'ont donc pas de maximum.",
       "text": "Sinusundan ng catalog ang wiki at minsan ay may ilang skin na kulang kumpara sa laro, hanggang maidagdag ang mga bago: kaya walang maximum ang mga field."
     },
-    "pages.accountValueUI.import_variants": {
-      "fr": "Les apparences colorées et éclatantes ne sont pas dans le catalogue : ajoutez-les à la main.",
-      "text": "Wala sa catalog ang mga painted at shining skin: idagdag ang mga ito nang mano-mano."
-    },
-    "pages.accountValueUI.whereHint": {
-      "fr": "Ouvrez l'aperçu des points de collection de skins : chaque catégorie y affiche « possédés/total » et ses points. Recopiez le premier nombre de chaque ligne.",
-      "text": "Buksan ang skin collection points overview: bawat tier ay nagpapakita ng \"owned/total\" at ng points nito. Kopyahin ang unang numero ng bawat hilera."
-    },
-    "pages.accountValueUI.pointsCheck": {
-      "fr": "Comparez avec le total de votre Vitrine : s'il est identique, vos nombres sont justes.",
-      "text": "Ihambing ito sa kabuuan sa iyong Showcase: kung magkapareho, tama ang iyong mga numero."
-    },
     "pages.accountValueUI.scan.button": {
       "fr": "Lire une capture d'écran",
       "text": "Basahin ang screenshot"
@@ -33055,10 +33055,6 @@
     "pages.accountValueUI.scan.retry": {
       "fr": "Essayer une autre image",
       "text": "Subukan ang ibang larawan"
-    },
-    "pages.accountValueUI.scan.hint": {
-      "fr": "Ou déposez-la ici, ou collez-la (Ctrl+V).",
-      "text": "O i-drop ito rito, o i-paste (Ctrl+V)."
     },
     "pages.accountValueUI.scan.privacy": {
       "fr": "L'image est lue dans votre navigateur : elle ne quitte jamais votre appareil.",
@@ -33107,6 +33103,34 @@
     "pages.accountValueUI.scan.check": {
       "fr": "à vérifier",
       "text": "suriin"
+    },
+    "pages.accountValueUI.group.shining": {
+      "fr": "Apparences éclatantes",
+      "text": "Shining skins"
+    },
+    "pages.accountValueUI.group.inMatch": {
+      "fr": "Objets de partie",
+      "text": "In-match items"
+    },
+    "pages.accountValueUI.group.outMatch": {
+      "fr": "Objets hors partie",
+      "text": "Out-of-match items"
+    },
+    "pages.accountValueUI.scan.shining": {
+      "fr": "Apparences éclatantes : {points} points.",
+      "text": "Shining skins: {points} points."
+    },
+    "pages.accountValueUI.whereHint": {
+      "fr": "Trois aperçus des points de collection s'y ouvrent : skins, objets de partie et objets hors partie. Pour les skins, recopiez le premier nombre de chaque ligne (« possédés/total ») ; pour les deux autres, le total en points en haut du panneau.",
+      "text": "Tatlong overview ng collection points ang bubukas doon: skins, in-match items at out-of-match items. Sa skins, kopyahin ang unang numero ng bawat row (\"owned/total\"); sa dalawa pa, ang kabuuang points sa itaas ng panel."
+    },
+    "pages.accountValue.methodItems": {
+      "fr": "Les apparences éclatantes et les objets des deux autres panneaux (effets de rappel, émotes, cadres d'avatar…) valent des points très variables d'un objet à l'autre : ils sont comptés à leurs points, à {inMatch} diamant par point pour les objets de partie, {outMatch} pour les objets hors partie, souvent gratuits, et {shining} pour les apparences éclatantes. La plupart viennent d'événements et de passes : c'est une estimation basse.",
+      "text": "Ang shining skins at ang items ng dalawa pang panel (recall effects, emotes, avatar frames…) ay may iba-ibang points bawat item: binibilang sila ayon sa points nila, {inMatch} diamond bawat point para sa in-match items, {outMatch} para sa out-of-match items na kadalasang libre, at {shining} para sa shining skins. Karamihan ay galing sa events at passes: mababang tantiya ito."
+    },
+    "pages.accountValueUI.pointsLead": {
+      "fr": "Ces objets valent des points très différents d'un objet à l'autre : indiquez le total en points que le jeu affiche.",
+      "text": "Iba-iba ang points ng bawat item: ilagay ang kabuuang points na ipinapakita ng laro."
     }
   },
   "th": {
@@ -35458,10 +35482,6 @@
       "fr": "Ce qu'a coûté une collection de skins, en diamants et en argent, et la fourchette indicative d'un compte comparable. Un ordre de grandeur, jamais un prix : la méthode est détaillée sous l'outil.",
       "text": "คอลเลกชันสกินใช้ไปเท่าไร ทั้งเป็นเพชรและเป็นเงิน และช่วงมูลค่าโดยประมาณของบัญชีที่ใกล้เคียงกัน เป็นเพียงขนาดโดยประมาณ ไม่ใช่ราคา: วิธีคำนวณอธิบายไว้ใต้เครื่องมือ"
     },
-    "pages.accountValue.methodCost": {
-      "fr": "Chaque skin compte pour le coût typique de sa catégorie. Premium, Exceptionnelle et Commun se vendent en boutique : leur coût est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Légende, Grandiose et Exquis s'obtiennent par tirage : ils prennent la médiane, arrondie, des coûts publiés par des guides de joueurs, qui varie beaucoup d'un événement et d'un joueur à l'autre. Une apparence colorée compte pour une valeur symbolique, une apparence éclatante pour rien.",
-      "text": "แต่ละสกินนับตามค่าใช้จ่ายทั่วไปของระดับนั้น สกิน Deluxe, Exceptional และ Common ขายในร้านค้า: ค่าใช้จ่ายคือราคามัธยฐานเป็นเพชรของสกินในระดับนั้น จากข้อมูลเกม สกิน Supreme, Grand และ Exquisite ได้จากการสุ่ม: ใช้ค่ามัธยฐานแบบปัดเศษของค่าใช้จ่ายที่คู่มือผู้เล่นเผยแพร่ ซึ่งแตกต่างกันมากในแต่ละอีเวนต์และผู้เล่น สกิน Painted นับเป็นมูลค่าเชิงสัญลักษณ์ ส่วนสกิน Shining ไม่นับ"
-    },
     "pages.accountValue.methodLimits": {
       "fr": "Les montants affichés sont arrondis à deux chiffres significatifs. Ne sont pas comptés : les héros eux-mêmes, achetés le plus souvent en points de bataille, les skins limités d'un serveur, les cosmétiques (effets, emotes, cadres) ni l'historique de matchs. Un vrai marché dépend aussi de la demande du moment, que rien ici ne mesure.",
       "text": "จำนวนเงินปัดเป็นเลขนัยสำคัญสองหลัก ไม่นับรวม: ตัวฮีโร่ซึ่งส่วนใหญ่ซื้อด้วย Battle Points, สกินเฉพาะเซิร์ฟเวอร์, ของตกแต่ง (เอฟเฟกต์ อีโมต กรอบ) และประวัติการแข่งขัน ตลาดจริงยังขึ้นกับความต้องการในขณะนั้น ซึ่งไม่มีสิ่งใดในที่นี้วัดได้"
@@ -35601,10 +35621,6 @@
     "pages.accountValueUI.share_shared": {
       "fr": "Résultat partagé.",
       "text": "แชร์ผลลัพธ์แล้ว"
-    },
-    "pages.accountValueUI.skinsTitle": {
-      "fr": "Vos skins, comme dans la Vitrine",
-      "text": "สกินของคุณ แบบเดียวกับใน Showcase"
     },
     "pages.accountValueUI.tier.grand": {
       "fr": "Grandiose",
@@ -46650,10 +46666,6 @@
       "fr": "Apparences colorées",
       "text": "สกิน Painted"
     },
-    "pages.accountValueUI.tier.glow": {
-      "fr": "Apparence éclatante",
-      "text": "สกิน Shining"
-    },
     "pages.accountValueUI.wherePath": {
       "fr": "Profil > Vitrine > Collection",
       "text": "โปรไฟล์ > Showcase > Collection"
@@ -46667,8 +46679,8 @@
       "text": "≈ {n} เพชรต่อสกิน (มูลค่าเชิงสัญลักษณ์)"
     },
     "pages.accountValueUI.pointsTitle": {
-      "fr": "Points de collection de skins",
-      "text": "แต้มคอลเลกชันสกิน"
+      "fr": "Points de collection",
+      "text": "แต้มคอลเลกชัน"
     },
     "pages.accountValue.methodPoints": {
       "fr": "Les catégories sont celles de la Vitrine du jeu, avec les points de collection que le jeu donne à chaque skin. La somme des points sert de vérification : elle doit retomber sur le total affiché dans le jeu.",
@@ -46678,10 +46690,6 @@
       "fr": "Le catalogue suit le wiki et compte parfois quelques skins de moins que le jeu, le temps que les nouveautés y soient ajoutées : les cases n'ont donc pas de maximum.",
       "text": "แค็ตตาล็อกอ้างอิงจากวิกิ และบางครั้งมีสกินน้อยกว่าในเกมเล็กน้อยจนกว่าจะเพิ่มสกินใหม่ ช่องกรอกจึงไม่มีค่าสูงสุด"
     },
-    "pages.accountValueUI.import_variants": {
-      "fr": "Les apparences colorées et éclatantes ne sont pas dans le catalogue : ajoutez-les à la main.",
-      "text": "สกิน Painted และ Shining ไม่อยู่ในแค็ตตาล็อก: กรอกเพิ่มเอง"
-    },
     "pages.accountValueUI.scan.button": {
       "fr": "Lire une capture d'écran",
       "text": "อ่านภาพหน้าจอ"
@@ -46689,10 +46697,6 @@
     "pages.accountValueUI.scan.retry": {
       "fr": "Essayer une autre image",
       "text": "ลองภาพอื่น"
-    },
-    "pages.accountValueUI.scan.hint": {
-      "fr": "Ou déposez-la ici, ou collez-la (Ctrl+V).",
-      "text": "หรือลากมาวางที่นี่ หรือวาง (Ctrl+V)"
     },
     "pages.accountValueUI.scan.privacy": {
       "fr": "L'image est lue dans votre navigateur : elle ne quitte jamais votre appareil.",
@@ -46741,6 +46745,34 @@
     "pages.accountValueUI.scan.check": {
       "fr": "à vérifier",
       "text": "ต้องตรวจสอบ"
+    },
+    "pages.accountValueUI.group.shining": {
+      "fr": "Apparences éclatantes",
+      "text": "สกิน Shining"
+    },
+    "pages.accountValueUI.group.inMatch": {
+      "fr": "Objets de partie",
+      "text": "ไอเทมในแมตช์"
+    },
+    "pages.accountValueUI.group.outMatch": {
+      "fr": "Objets hors partie",
+      "text": "ไอเทมนอกแมตช์"
+    },
+    "pages.accountValueUI.scan.shining": {
+      "fr": "Apparences éclatantes : {points} points.",
+      "text": "สกิน Shining: {points} แต้ม"
+    },
+    "pages.accountValueUI.whereHint": {
+      "fr": "Trois aperçus des points de collection s'y ouvrent : skins, objets de partie et objets hors partie. Pour les skins, recopiez le premier nombre de chaque ligne (« possédés/total ») ; pour les deux autres, le total en points en haut du panneau.",
+      "text": "ที่นั่นมีภาพรวมแต้มคอลเลกชัน 3 แผง: สกิน ไอเทมในแมตช์ และไอเทมนอกแมตช์ สำหรับสกิน ให้คัดลอกตัวเลขแรกของแต่ละแถว (\"มี/ทั้งหมด\") ส่วนอีก 2 แผง ให้ใช้แต้มรวมด้านบนของแผง"
+    },
+    "pages.accountValue.methodItems": {
+      "fr": "Les apparences éclatantes et les objets des deux autres panneaux (effets de rappel, émotes, cadres d'avatar…) valent des points très variables d'un objet à l'autre : ils sont comptés à leurs points, à {inMatch} diamant par point pour les objets de partie, {outMatch} pour les objets hors partie, souvent gratuits, et {shining} pour les apparences éclatantes. La plupart viennent d'événements et de passes : c'est une estimation basse.",
+      "text": "สกิน Shining และไอเทมใน 2 แผงที่เหลือ (เอฟเฟกต์ Recall, อีโมต, กรอบอวาตาร์…) มีแต้มต่างกันมากในแต่ละชิ้น จึงคิดตามแต้ม: ไอเทมในแมตช์ {inMatch} ไดมอนด์ต่อแต้ม ไอเทมนอกแมตช์ซึ่งมักได้ฟรี {outMatch} และสกิน Shining {shining} ส่วนใหญ่ได้จากอีเวนต์และพาส: นี่จึงเป็นการประเมินแบบต่ำ"
+    },
+    "pages.accountValueUI.pointsLead": {
+      "fr": "Ces objets valent des points très différents d'un objet à l'autre : indiquez le total en points que le jeu affiche.",
+      "text": "ไอเทมเหล่านี้มีแต้มต่างกันมากในแต่ละชิ้น: กรอกแต้มรวมที่เกมแสดง"
     }
   },
   "pt": {
@@ -48691,10 +48723,6 @@
     "pages.accountValue.lead": {
       "fr": "Ce qu'a coûté une collection de skins, en diamants et en argent, et la fourchette indicative d'un compte comparable. Un ordre de grandeur, jamais un prix : la méthode est détaillée sous l'outil.",
       "text": "Quanto custou uma coleção de skins, em diamantes e em dinheiro, e a faixa indicativa de uma conta comparável. Uma ordem de grandeza, nunca um preço: o método está detalhado abaixo da ferramenta."
-    },
-    "pages.accountValue.methodCost": {
-      "fr": "Chaque skin compte pour le coût typique de sa catégorie. Premium, Exceptionnelle et Commun se vendent en boutique : leur coût est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Légende, Grandiose et Exquis s'obtiennent par tirage : ils prennent la médiane, arrondie, des coûts publiés par des guides de joueurs, qui varie beaucoup d'un événement et d'un joueur à l'autre. Une apparence colorée compte pour une valeur symbolique, une apparence éclatante pour rien.",
-      "text": "Cada skin conta pelo custo típico da sua categoria. As skins Deluxe, Exceptional e Common são vendidas na loja: o custo delas é o preço mediano em diamantes das skins da categoria, tirado dos dados do jogo. As skins Supreme, Grand e Exquisite vêm de sorteios: usam a mediana, arredondada, dos custos publicados por guias de jogadores, que varia muito de um evento e de um jogador para outro. Uma skin Painted conta por um valor simbólico, uma skin Shining por nada."
     },
     "pages.accountValue.methodLimits": {
       "fr": "Les montants affichés sont arrondis à deux chiffres significatifs. Ne sont pas comptés : les héros eux-mêmes, achetés le plus souvent en points de bataille, les skins limités d'un serveur, les cosmétiques (effets, emotes, cadres) ni l'historique de matchs. Un vrai marché dépend aussi de la demande du moment, que rien ici ne mesure.",
@@ -58192,10 +58220,6 @@
       "fr": "Apparences colorées",
       "text": "Skins Painted"
     },
-    "pages.accountValueUI.tier.glow": {
-      "fr": "Apparence éclatante",
-      "text": "Skins Shining"
-    },
     "pages.accountValueUI.wherePath": {
       "fr": "Profil > Vitrine > Collection",
       "text": "Perfil > Vitrine > Coleção"
@@ -58209,8 +58233,8 @@
       "text": "≈ {n} diamantes cada (valor simbólico)"
     },
     "pages.accountValueUI.pointsTitle": {
-      "fr": "Points de collection de skins",
-      "text": "Pontos de coleção de skins"
+      "fr": "Points de collection",
+      "text": "Pontos de coleção"
     },
     "pages.accountValue.tableCaption": {
       "fr": "Points et coût comptés par skin, par catégorie",
@@ -58224,22 +58248,6 @@
       "fr": "Le catalogue suit le wiki et compte parfois quelques skins de moins que le jeu, le temps que les nouveautés y soient ajoutées : les cases n'ont donc pas de maximum.",
       "text": "O catálogo segue a wiki e às vezes tem algumas skins a menos que o jogo, até as novas serem adicionadas: por isso os campos não têm máximo."
     },
-    "pages.accountValueUI.import_variants": {
-      "fr": "Les apparences colorées et éclatantes ne sont pas dans le catalogue : ajoutez-les à la main.",
-      "text": "As skins Painted e Shining não estão no catálogo: adicione-as à mão."
-    },
-    "pages.accountValueUI.whereHint": {
-      "fr": "Ouvrez l'aperçu des points de collection de skins : chaque catégorie y affiche « possédés/total » et ses points. Recopiez le premier nombre de chaque ligne.",
-      "text": "Abra o resumo dos pontos de coleção de skins: cada categoria mostra \"obtidas/total\" e seus pontos. Copie o primeiro número de cada linha."
-    },
-    "pages.accountValueUI.skinsTitle": {
-      "fr": "Vos skins, comme dans la Vitrine",
-      "text": "Suas skins, como na Vitrine"
-    },
-    "pages.accountValueUI.pointsCheck": {
-      "fr": "Comparez avec le total de votre Vitrine : s'il est identique, vos nombres sont justes.",
-      "text": "Compare com o total da sua Vitrine: se for igual, seus números estão certos."
-    },
     "pages.accountValueUI.scan.button": {
       "fr": "Lire une capture d'écran",
       "text": "Ler uma captura de tela"
@@ -58247,10 +58255,6 @@
     "pages.accountValueUI.scan.retry": {
       "fr": "Essayer une autre image",
       "text": "Tentar outra imagem"
-    },
-    "pages.accountValueUI.scan.hint": {
-      "fr": "Ou déposez-la ici, ou collez-la (Ctrl+V).",
-      "text": "Ou solte-a aqui, ou cole (Ctrl+V)."
     },
     "pages.accountValueUI.scan.privacy": {
       "fr": "L'image est lue dans votre navigateur : elle ne quitte jamais votre appareil.",
@@ -58299,6 +58303,34 @@
     "pages.accountValueUI.scan.check": {
       "fr": "à vérifier",
       "text": "conferir"
+    },
+    "pages.accountValueUI.group.shining": {
+      "fr": "Apparences éclatantes",
+      "text": "Skins Shining"
+    },
+    "pages.accountValueUI.group.inMatch": {
+      "fr": "Objets de partie",
+      "text": "Itens de partida"
+    },
+    "pages.accountValueUI.group.outMatch": {
+      "fr": "Objets hors partie",
+      "text": "Itens fora da partida"
+    },
+    "pages.accountValueUI.scan.shining": {
+      "fr": "Apparences éclatantes : {points} points.",
+      "text": "Skins Shining: {points} pontos."
+    },
+    "pages.accountValueUI.whereHint": {
+      "fr": "Trois aperçus des points de collection s'y ouvrent : skins, objets de partie et objets hors partie. Pour les skins, recopiez le premier nombre de chaque ligne (« possédés/total ») ; pour les deux autres, le total en points en haut du panneau.",
+      "text": "Lá se abrem três resumos de pontos de coleção: skins, itens de partida e itens fora da partida. Para as skins, copie o primeiro número de cada linha (\"obtidas/total\"); para os outros dois, o total de pontos no topo do painel."
+    },
+    "pages.accountValue.methodItems": {
+      "fr": "Les apparences éclatantes et les objets des deux autres panneaux (effets de rappel, émotes, cadres d'avatar…) valent des points très variables d'un objet à l'autre : ils sont comptés à leurs points, à {inMatch} diamant par point pour les objets de partie, {outMatch} pour les objets hors partie, souvent gratuits, et {shining} pour les apparences éclatantes. La plupart viennent d'événements et de passes : c'est une estimation basse.",
+      "text": "As skins Shining e os itens dos outros dois painéis (efeitos de recall, emotes, molduras de avatar…) valem pontos muito diferentes de um item para outro: são contados pelos seus pontos, a {inMatch} diamante por ponto os itens de partida, {outMatch} os de fora da partida, muitas vezes gratuitos, e {shining} as skins Shining. A maioria vem de eventos e passes: é uma estimativa baixa."
+    },
+    "pages.accountValueUI.pointsLead": {
+      "fr": "Ces objets valent des points très différents d'un objet à l'autre : indiquez le total en points que le jeu affiche.",
+      "text": "Esses itens valem pontos muito diferentes de um para outro: informe o total de pontos que o jogo mostra."
     }
   },
   "ru": {
@@ -60505,10 +60537,6 @@
     "pages.accountValue.lead": {
       "fr": "Ce qu'a coûté une collection de skins, en diamants et en argent, et la fourchette indicative d'un compte comparable. Un ordre de grandeur, jamais un prix : la méthode est détaillée sous l'outil.",
       "text": "Во сколько обошлась коллекция скинов — в алмазах и в деньгах, — и ориентировочный диапазон цены сопоставимого аккаунта. Это порядок величины, а не цена: методика подробно описана под инструментом."
-    },
-    "pages.accountValue.methodCost": {
-      "fr": "Chaque skin compte pour le coût typique de sa catégorie. Premium, Exceptionnelle et Commun se vendent en boutique : leur coût est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Légende, Grandiose et Exquis s'obtiennent par tirage : ils prennent la médiane, arrondie, des coûts publiés par des guides de joueurs, qui varie beaucoup d'un événement et d'un joueur à l'autre. Une apparence colorée compte pour une valeur symbolique, une apparence éclatante pour rien.",
-      "text": "Каждый скин считается по типичной стоимости своей категории. Скины Deluxe, Exceptional и Обычный продаются в магазине: их стоимость — медианная цена в алмазах скинов категории по данным игры. Скины Высший, Grand и Exquisite достаются из розыгрышей: для них берётся округлённая медиана затрат из гайдов игроков, которая сильно меняется от события к событию и от игрока к игроку. Скин Painted считается по символической стоимости, скин Shining не считается вовсе."
     },
     "pages.accountValue.methodLimits": {
       "fr": "Les montants affichés sont arrondis à deux chiffres significatifs. Ne sont pas comptés : les héros eux-mêmes, achetés le plus souvent en points de bataille, les skins limités d'un serveur, les cosmétiques (effets, emotes, cadres) ni l'historique de matchs. Un vrai marché dépend aussi de la demande du moment, que rien ici ne mesure.",
@@ -71106,10 +71134,6 @@
       "fr": "Apparences colorées",
       "text": "Скины Painted"
     },
-    "pages.accountValueUI.tier.glow": {
-      "fr": "Apparence éclatante",
-      "text": "Скины Shining"
-    },
     "pages.accountValueUI.wherePath": {
       "fr": "Profil > Vitrine > Collection",
       "text": "Профиль > Витрина > Коллекция"
@@ -71123,8 +71147,8 @@
       "text": "≈ {n} алмазов за скин (символическая стоимость)"
     },
     "pages.accountValueUI.pointsTitle": {
-      "fr": "Points de collection de skins",
-      "text": "Очки коллекции скинов"
+      "fr": "Points de collection",
+      "text": "Очки коллекции"
     },
     "pages.accountValue.methodPoints": {
       "fr": "Les catégories sont celles de la Vitrine du jeu, avec les points de collection que le jeu donne à chaque skin. La somme des points sert de vérification : elle doit retomber sur le total affiché dans le jeu.",
@@ -71138,22 +71162,6 @@
       "fr": "Skins et héros repris de votre collection : {n} skins classés par catégorie.",
       "text": "Скины и герои взяты из вашей коллекции: {n} скинов распределено по категориям."
     },
-    "pages.accountValueUI.import_variants": {
-      "fr": "Les apparences colorées et éclatantes ne sont pas dans le catalogue : ajoutez-les à la main.",
-      "text": "Скины Painted и Shining в каталоге отсутствуют: добавьте их вручную."
-    },
-    "pages.accountValueUI.whereHint": {
-      "fr": "Ouvrez l'aperçu des points de collection de skins : chaque catégorie y affiche « possédés/total » et ses points. Recopiez le premier nombre de chaque ligne.",
-      "text": "Откройте обзор очков коллекции скинов: в каждой категории указано «получено/всего» и её очки. Перепишите первое число каждой строки."
-    },
-    "pages.accountValueUI.skinsTitle": {
-      "fr": "Vos skins, comme dans la Vitrine",
-      "text": "Ваши скины, как в Витрине"
-    },
-    "pages.accountValueUI.pointsCheck": {
-      "fr": "Comparez avec le total de votre Vitrine : s'il est identique, vos nombres sont justes.",
-      "text": "Сравните с итогом в вашей Витрине: если совпадает, ваши числа верны."
-    },
     "pages.accountValueUI.scan.button": {
       "fr": "Lire une capture d'écran",
       "text": "Прочитать скриншот"
@@ -71161,10 +71169,6 @@
     "pages.accountValueUI.scan.retry": {
       "fr": "Essayer une autre image",
       "text": "Попробовать другое изображение"
-    },
-    "pages.accountValueUI.scan.hint": {
-      "fr": "Ou déposez-la ici, ou collez-la (Ctrl+V).",
-      "text": "Или перетащите его сюда, или вставьте (Ctrl+V)."
     },
     "pages.accountValueUI.scan.privacy": {
       "fr": "L'image est lue dans votre navigateur : elle ne quitte jamais votre appareil.",
@@ -71213,6 +71217,34 @@
     "pages.accountValueUI.scan.check": {
       "fr": "à vérifier",
       "text": "проверить"
+    },
+    "pages.accountValueUI.group.shining": {
+      "fr": "Apparences éclatantes",
+      "text": "Скины Shining"
+    },
+    "pages.accountValueUI.group.inMatch": {
+      "fr": "Objets de partie",
+      "text": "Предметы в матче"
+    },
+    "pages.accountValueUI.group.outMatch": {
+      "fr": "Objets hors partie",
+      "text": "Предметы вне матча"
+    },
+    "pages.accountValueUI.scan.shining": {
+      "fr": "Apparences éclatantes : {points} points.",
+      "text": "Скины Shining: {points} очков."
+    },
+    "pages.accountValueUI.whereHint": {
+      "fr": "Trois aperçus des points de collection s'y ouvrent : skins, objets de partie et objets hors partie. Pour les skins, recopiez le premier nombre de chaque ligne (« possédés/total ») ; pour les deux autres, le total en points en haut du panneau.",
+      "text": "Там открываются три обзора очков коллекции: скины, предметы в матче и предметы вне матча. Для скинов перепишите первое число каждой строки («есть/всего»); для двух других — сумму очков вверху панели."
+    },
+    "pages.accountValue.methodItems": {
+      "fr": "Les apparences éclatantes et les objets des deux autres panneaux (effets de rappel, émotes, cadres d'avatar…) valent des points très variables d'un objet à l'autre : ils sont comptés à leurs points, à {inMatch} diamant par point pour les objets de partie, {outMatch} pour les objets hors partie, souvent gratuits, et {shining} pour les apparences éclatantes. La plupart viennent d'événements et de passes : c'est une estimation basse.",
+      "text": "Скины Shining и предметы двух других панелей (эффекты возвращения, эмоции, рамки аватара…) стоят очень разное число очков: они считаются по очкам — {inMatch} алмаза за очко для предметов в матче, {outMatch} для предметов вне матча, часто бесплатных, и {shining} для скинов Shining. Большинство из них дают события и пропуски: это заниженная оценка."
+    },
+    "pages.accountValueUI.pointsLead": {
+      "fr": "Ces objets valent des points très différents d'un objet à l'autre : indiquez le total en points que le jeu affiche.",
+      "text": "Эти предметы стоят очень разное число очков: укажите сумму очков, которую показывает игра."
     }
   }
 }
