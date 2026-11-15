@@ -5141,7 +5141,7 @@
         "tool": "L'audience est mesurée avec Matomo, un logiciel libre installé et administré par l'éditeur sur son propre serveur (`matomo.leoderoin.fr`). Les données ne sont partagées avec personne, ni utilisées à d'autres fins, ni croisées avec celles d'autres sites.",
         "data": "Matomo reçoit les pages consultées, leur titre et la page d'origine, la durée de la visite, les recherches faites sur le site et leur nombre de résultats, quelques actions anonymes (onglet ouvert sur une fiche, profondeur de lecture, ajout d'un favori, partage…), le type d'appareil, le navigateur et la langue, ainsi que votre adresse IP, dont les deux derniers octets sont masqués avant tout enregistrement.",
         "cookieless": "Sans votre accord, la mesure se fait sans cookie : chaque visite est comptée isolément, sans pouvoir être rapprochée des précédentes. Si vous acceptez les cookies, Matomo dépose un identifiant aléatoire (`_pk_id`) qui lui permet de reconnaître une visite qui revient ; il ne dit pas qui vous êtes.",
-        "retention": "Les données de visite détaillées sont conservées 25 mois au plus, puis supprimées ; seuls des rapports chiffrés, sans donnée individuelle, sont gardés au-delà.",
+        "retention": "Les données de visite détaillées sont conservées jusqu'à leur suppression par l'éditeur ; les rapports chiffrés, sans donnée individuelle, sont gardés plus longtemps.",
         "api": "Les appels à l'API publique (`/api/v1`), faits par des scripts ou d'autres sites, sont comptés par le serveur, sans cookie : l'adresse demandée, le code de réponse, la page d'origine et le logiciel déclarés par l'appel, ainsi que l'adresse IP de l'appelant, masquée de la même façon. Un appel envoyé avec l'en-tête `DNT: 1` ou `Sec-GPC: 1` n'est pas compté.",
         "object": "Vous pouvez vous opposer à la mesure sans cookie en écrivant à [{contact}](mailto:{contact}), ou simplement en bloquant le domaine de mesure avec un bloqueur de contenu : le site fonctionne de la même façon."
       },
@@ -5169,7 +5169,7 @@
       },
       "retention": {
         "title": "Combien de temps les données sont conservées",
-        "audience": "Mesure d'audience : 25 mois au plus pour les données de visite ; cookies, voir le tableau plus haut ; votre choix sur les cookies, 6 mois.",
+        "audience": "Mesure d'audience : données de visite conservées jusqu'à leur suppression par l'éditeur ; cookies, voir le tableau plus haut ; votre choix sur les cookies, 6 mois.",
         "sessions": "Sessions : le jeton du compte de jeu jusqu'à son expiration (7 jours au plus) ; la session Discord, 7 jours.",
         "community": "Communauté : votre compte, vos messages, vos votes, vos signalements et le journal de modération sont conservés tant que la communauté existe, sauf demande d'effacement ; un signalement garde une copie du texte signalé. Une carte de coéquipier est effacée sept jours après son dernier enregistrement.",
         "builds": "Builds de la communauté : jusqu'à leur suppression par leur auteur, ou sur demande.",
