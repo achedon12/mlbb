@@ -63,7 +63,13 @@ const RECIPIENTS = ["host", "matomo", "discord", "moonton", "push", "votes"];
 export default async function PrivacyPage({ params }: Params) {
   const { locale } = await params;
   const t = createT(locale);
-  const vars = { contact: legal.contact, host: legal.host, hostSite: legal.hostSite };
+  const vars = {
+    contact: legal.contact,
+    host: legal.host,
+    hostSite: legal.hostSite,
+    analyticsHost: legal.analyticsHost,
+    analyticsHostSite: legal.analyticsHostSite,
+  };
   const g = (key: string) => inlineProse(t(`prose.gdpr.${key}`), vars, key);
 
   return (

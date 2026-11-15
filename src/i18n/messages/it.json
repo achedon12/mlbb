@@ -4970,7 +4970,7 @@
           "h": "Hosting"
         },
         {
-          "p": "Il sito è ospitato da [{host}]({hostSite})."
+          "p": "Il sito è ospitato da [{host}]({hostSite}), {hostAddress}, telefono {hostPhone}. La misurazione del pubblico (Matomo) è ospitata su un altro server, alle [{analyticsHost}]({analyticsHostSite}), {analyticsHostAddress}."
         },
         {
           "h": "Proprietà intellettuale"
@@ -5138,10 +5138,10 @@
       },
       "audience": {
         "title": "Misurazione del pubblico",
-        "tool": "L'audience viene misurata con Matomo, software gratuito installato e amministrato dall'editore sul proprio server (`matomo.leoderoin.fr`). I dati non vengono condivisi con nessuno, né utilizzati per altri scopi, né incrociati con quelli di altri siti.",
+        "tool": "L'audience viene misurata con Matomo, software gratuito installato e amministrato dall'editore sul proprio server (`matomo.leoderoin.fr`), ospitato in Francia da [{analyticsHost}]({analyticsHostSite}). I dati non vengono condivisi con nessuno, né utilizzati per altri scopi, né incrociati con quelli di altri siti.",
         "data": "Matomo riceve le pagine consultate, il loro titolo e la pagina originale, la durata della visita, le ricerche effettuate sul sito e il loro numero di risultati, alcune azioni anonime (scheda aperta su un file, profondità di lettura, aggiunta ai preferiti, condivisione, ecc.), il tipo di dispositivo, il browser e la lingua, nonché il tuo indirizzo IP, i cui ultimi due byte vengono nascosti prima di qualsiasi registrazione.",
         "cookieless": "Senza il tuo consenso, la misurazione avviene senza cookie: ogni visita viene conteggiata separatamente, senza poter essere confrontata con quelle precedenti. Se accetti i cookie, Matomo inserisce un identificatore casuale (`_pk_id`) che gli consente di riconoscere una visita successiva; non dice chi sei.",
-        "retention": "I dati dettagliati delle visite vengono conservati per un massimo di 25 mesi, poi cancellati; Oltre a ciò vengono conservati solo i rapporti numerici, senza dati individuali.",
+        "retention": "I dati dettagliati sulle visite vengono conservati fino alla cancellazione da parte dell'editore; i rapporti crittografati, senza dati individuali, vengono conservati più a lungo.",
         "api": "Le chiamate alle API pubbliche (`/api/v1`), effettuate da script o altri siti, vengono conteggiate dal server, senza cookie: l'indirizzo richiesto, il codice di risposta, la pagina originale e il software dichiarato dalla chiamata, nonché l'indirizzo IP del chiamante, mascherati allo stesso modo. Una chiamata inviata con intestazione `DNT: 1` o `Sec-GPC: 1` non viene conteggiata.",
         "object": "Puoi opporti alla misurazione senza cookie scrivendo a [{contact}](mailto:{contact}), o semplicemente bloccando il dominio di misurazione con un content blocker: il sito funziona allo stesso modo."
       },
@@ -5157,7 +5157,7 @@
         "title": "Destinatari e fornitori di servizi",
         "intro": "I tuoi dati sono accessibili solo all'editore e, per le segnalazioni, ai moderatori volontari della community. A seconda delle funzioni utilizzate, vengono ospitati o trasmessi su:",
         "host": "{host} ([{hostSite}]({hostSite})): hosting del server del sito, del suo database e dei suoi backup;",
-        "matomo": "Matomo, installato sul server dell'editore: misurazione dell'audience, senza alcun trasferimento all'editore del software;",
+        "matomo": "Matomo, installato sul server di un editore ospitato da [{analyticsHost}]({analyticsHostSite}): misurazione dell'audience, senza alcun trasferimento all'editore del software;",
         "discord": "Discord Inc.: connessione con Discord, bot e relativa dashboard;",
         "moonton": "Moonton e API della community `arena.rone.dev`: connessione all'account di gioco e statistiche del profilo;",
         "push": "il servizio di notifica del browser (Google, Mozilla, Apple o Microsoft): invio di notifiche di patch, il cui contenuto è crittografato;",
@@ -5169,7 +5169,7 @@
       },
       "retention": {
         "title": "Per quanto tempo vengono conservati i dati",
-        "audience": "Misurazione dell'audience: 25 mesi al massimo per i dati sulle visite; cookie, vedi tabella sopra; a vostra scelta sui cookie, 6 mesi.",
+        "audience": "Misurazione dell'audience: dati sulle visite conservati fino alla cancellazione da parte dell'editore; cookie, vedi tabella sopra; a vostra scelta sui cookie, 6 mesi.",
         "sessions": "Sessioni: il token dell'account di gioco fino alla sua scadenza (massimo 7 giorni); la sessione Discord, 7 giorni.",
         "community": "Community: il tuo account, i tuoi messaggi, i tuoi voti, le tue segnalazioni e il registro di moderazione vengono conservati finché esiste la community, a meno che tu non richieda la cancellazione; un report conserva una copia del testo riportato. Una carta compagno di squadra viene cancellata sette giorni dopo la sua ultima registrazione.",
         "builds": "Build della community: fino all'eliminazione da parte dell'autore o su richiesta.",

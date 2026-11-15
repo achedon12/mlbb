@@ -4970,7 +4970,7 @@
           "h": "Hosting"
         },
         {
-          "p": "The site is hosted by [{host}]({hostSite})."
+          "p": "The site is hosted by [{host}]({hostSite}), {hostAddress}, telephone {hostPhone}. Audience measurement (Matomo) is hosted on another server, at [{analyticsHost}]({analyticsHostSite}), {analyticsHostAddress}."
         },
         {
           "h": "Intellectual property"
@@ -5138,10 +5138,10 @@
       },
       "audience": {
         "title": "Audience measurement",
-        "tool": "The audience is measured with Matomo, free software installed and administered by the publisher on its own server (`matomo.leoderoin.fr`). The data is not shared with anyone, nor used for other purposes, nor cross-referenced with that of other sites.",
+        "tool": "The audience is measured with Matomo, free software installed and administered by the publisher on its own server (`matomo.leoderoin.fr`), hosted in France by [{analyticsHost}]({analyticsHostSite}). The data is not shared with anyone, nor used for other purposes, nor cross-referenced with that of other sites.",
         "data": "Matomo receives the pages viewed, their title and the referring page, the length of the visit, searches made on the site and how many results they had, a few anonymous actions (tab opened on a hero page, reading depth, favourite added, share…), the type of device, browser and language, and your IP address, whose last two bytes are masked before anything is recorded.",
         "cookieless": "Without your consent, measurement is done without cookies: each visit is counted on its own and cannot be linked to earlier ones. If you accept cookies, Matomo sets a random identifier (`_pk_id`) that lets it recognise a returning visit; it does not tell who you are.",
-        "retention": "Detailed visit data is kept for 25 months at most, then deleted; only aggregate reports, with no individual data, are kept beyond that.",
+        "retention": "Detailed visit data is retained until deleted by the publisher; encrypted reports, without individual data, are kept longer.",
         "api": "Calls to the public API (`/api/v1`), made by scripts or other sites, are counted by the server, without cookies: the requested address, the response code, the referring page and the software declared by the call, and the caller's IP address, masked the same way. A call sent with the `DNT: 1` or `Sec-GPC: 1` header is not counted.",
         "object": "You can object to the cookieless measurement by writing to [{contact}](mailto:{contact}), or simply by blocking the measurement domain with a content blocker: the site works just the same."
       },
@@ -5157,7 +5157,7 @@
         "title": "Recipients and service providers",
         "intro": "Your data is only accessible to the publisher and, for reports, to the community's volunteer moderators. Depending on the features you use, it is hosted by or sent to:",
         "host": "{host} ([{hostSite}]({hostSite})): hosting of the site server, its database and its backups;",
-        "matomo": "Matomo, installed on the publisher's server: audience measurement, without any transfer to the software publisher;",
+        "matomo": "Matomo, installed on a publisher's server hosted by [{analyticsHost}]({analyticsHostSite}): audience measurement, without any transfer to the software publisher;",
         "discord": "Discord Inc.: Discord sign-in, the bot and its dashboard;",
         "moonton": "Moonton and the community API `arena.rone.dev`: game account sign-in and your profile statistics;",
         "push": "your browser's notification service (Google, Mozilla, Apple or Microsoft): delivery of patch notifications, the content of which is encrypted;",
@@ -5169,7 +5169,7 @@
       },
       "retention": {
         "title": "How long data is kept",
-        "audience": "Audience measurement: 25 months at most for visit data; cookies, see table above; your choice on cookies, 6 months.",
+        "audience": "Audience measurement: visit data kept until deleted by the publisher; cookies, see table above; your choice on cookies, 6 months.",
         "sessions": "Sessions: the game account token until it expires (7 days at most); the Discord session, 7 days.",
         "community": "Community: your account, posts, votes, reports and the moderation log are kept for as long as the community exists, unless you ask for them to be erased; a report keeps a copy of the reported text. A teammate card is deleted seven days after it was last saved.",
         "builds": "Community builds: until deleted by their author, or upon request.",

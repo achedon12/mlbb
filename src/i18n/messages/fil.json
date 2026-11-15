@@ -4970,7 +4970,7 @@
           "h": "Hosting"
         },
         {
-          "p": "Ang site ay naka-host sa [{host}]({hostSite})."
+          "p": "Ang site ay hino-host ng [{host}]({hostSite}), {hostAddress}, telepono {hostPhone}. Ang pagsukat ng madla (Matomo) ay naka-host sa isa pang server, sa [{analyticsHost}]({analyticsHostSite}), {analyticsHostAddress}."
         },
         {
           "h": "Intelektwal na ari-arian"
@@ -5138,10 +5138,10 @@
       },
       "audience": {
         "title": "Pagsukat ng madla",
-        "tool": "Ang madla ay sinusukat gamit ang Matomo, libreng software na naka-install at pinangangasiwaan ng publisher sa sarili nitong server (`matomo.leoderoin.fr`). Ang data ay hindi ibinabahagi sa sinuman, o ginagamit para sa iba pang mga layunin, o cross-reference sa ibang mga site.",
+        "tool": "Sinusukat ang audience gamit ang Matomo, libreng software na naka-install at pinangangasiwaan ng publisher sa sarili nitong server (`matomo.leoderoin.fr`), na naka-host sa France ni [{analyticsHost}]({analyticsHostSite}). Ang data ay hindi ibinabahagi sa sinuman, o ginagamit para sa iba pang mga layunin, o cross-reference sa ibang mga site.",
         "data": "Natanggap ni Matomo ang mga pahinang kinonsulta, ang kanilang pamagat at ang orihinal na pahina, ang tagal ng pagbisita, ang mga paghahanap na isinagawa sa site at ang bilang ng mga resulta nito, ilang hindi kilalang aksyon (nabuksan ang tab sa isang file, lalim ng pagbabasa, pagdaragdag ng paborito, pagbabahagi, atbp.), ang uri ng device, browser at wika, pati na rin ang iyong IP address, ang huling dalawang byte na nakatago bago ang anumang pag-record.",
         "cookieless": "Kung wala ang iyong pahintulot, ang pagsukat ay ginagawa nang walang cookies: ang bawat pagbisita ay binibilang nang hiwalay, nang hindi maikukumpara sa mga nauna. Kung tumatanggap ka ng cookies, naglalagay si Matomo ng random na identifier (`_pk_id`) na nagbibigay-daan dito na makilala ang isang pabalik na pagbisita; hindi nito sinasabi kung sino ka.",
-        "retention": "Ang detalyadong data ng pagbisita ay pinananatili sa loob ng maximum na 25 buwan, pagkatapos ay tatanggalin; ang mga numerical na ulat lamang, na walang indibidwal na data, ang pinananatiling higit pa doon.",
+        "retention": "Ang detalyadong data ng pagbisita ay pinapanatili hanggang sa tanggalin ng publisher; ang mga naka-encrypt na ulat, nang walang indibidwal na data, ay pinananatiling mas matagal.",
         "api": "Ang mga tawag sa pampublikong API (`/api/v1`), na ginawa ng mga script o iba pang mga site, ay binibilang ng server, nang walang cookies: ang hiniling na address, ang response code, ang orihinal na page at ang software na idineklara ng tawag, pati na rin ang IP address ng tumatawag, na naka-mask sa parehong paraan. Ang isang tawag na ipinadala na may header `DNT: 1` o `Sec-GPC: 1` ay hindi binibilang.",
         "object": "Maaari kang tumutol sa walang cookie na pagsukat sa pamamagitan ng pagsulat sa [{contact}](mailto:{contact}), o sa pamamagitan lamang ng pagharang sa domain ng pagsukat gamit ang isang content blocker: gumagana ang site sa parehong paraan."
       },
@@ -5157,7 +5157,7 @@
         "title": "Mga tatanggap at tagapagbigay ng serbisyo",
         "intro": "Ang iyong data ay maa-access lamang ng publisher at, para sa mga ulat, sa mga boluntaryong moderator ng komunidad. Depende sa mga function na iyong ginagamit, sila ay naka-host o ipinadala sa:",
         "host": "{host} ([{hostSite}]({hostSite})): pagho-host ng server ng site, database nito at mga backup nito;",
-        "matomo": "Matomo, na naka-install sa server ng publisher: pagsukat ng audience, nang walang anumang paglilipat sa software publisher;",
+        "matomo": "Matomo, na naka-install sa server ng isang publisher na hino-host ni [{analyticsHost}]({analyticsHostSite}): pagsukat ng audience, nang walang anumang paglilipat sa software publisher;",
         "discord": "Discord Inc.: koneksyon sa Discord, bot at dashboard nito;",
         "moonton": "Moonton at community API `arena.rone.dev`: koneksyon sa account ng laro at mga istatistika ng profile;",
         "push": "serbisyo ng abiso ng iyong browser (Google, Mozilla, Apple o Microsoft): paghahatid ng mga patch notification, na ang nilalaman nito ay naka-encrypt;",
@@ -5169,7 +5169,7 @@
       },
       "retention": {
         "title": "Gaano katagal pinapanatili ang data",
-        "audience": "Pagsukat ng madla: 25 buwan nang hindi hihigit para sa data ng pagbisita; cookies, tingnan ang talahanayan sa itaas; ang iyong pinili sa cookies, 6 na buwan.",
+        "audience": "Pagsukat ng madla: data ng pagbisita na pinapanatili hanggang sa tanggalin ng publisher; cookies, tingnan ang talahanayan sa itaas; ang iyong pinili sa cookies, 6 na buwan.",
         "sessions": "Mga Session: ang token ng account ng laro hanggang sa mag-expire ito (7 araw sa pinakamaraming); ang Discord session, 7 araw.",
         "community": "Komunidad: ang iyong account, ang iyong mga mensahe, ang iyong mga boto, ang iyong mga ulat at ang log ng pag-moderate ay pinapanatili hangga't umiiral ang komunidad, maliban kung humiling ka ng pagtanggal; ang isang ulat ay nagpapanatili ng isang kopya ng iniulat na teksto. Ang isang teammate card ay tatanggalin pitong araw pagkatapos ng huling pagpaparehistro nito.",
         "builds": "Mga build ng komunidad: hanggang sa tanggalin ng kanilang may-akda, o kapag hiniling.",

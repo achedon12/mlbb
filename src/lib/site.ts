@@ -23,8 +23,17 @@ export const legal = {
   publisher: "Leo Deroin",
   publisherSite: "https://leoderoin.fr",
   contact: "contact@leoderoin.fr",
-  host: "Lord Hosting",
-  hostSite: "https://lord-hosting.com",
+  // Hosting of the site (LCEN art. 6: name, address, phone), from the
+  // host's own legal notice (lordhosting.fr/mentions-legales, May 2026).
+  host: "LORDHOSTING SASU",
+  hostSite: "https://lordhosting.fr",
+  hostAddress: "5 square Frédéric Vallois, 75015 Paris, France",
+  hostPhone: "+33 6 01 21 24 27",
+  // Hosting of the audience measurement (Matomo), on another server:
+  // from PulseHeberg's terms (cdn.pulseheberg.com/contracts/fr/cgu.pdf).
+  analyticsHost: "SAS PulseHeberg",
+  analyticsHostSite: "https://pulseheberg.com",
+  analyticsHostAddress: "9 boulevard de Strasbourg, 83000 Toulon, France",
 } as const;
 
 export function absoluteUrl(path: string): string {

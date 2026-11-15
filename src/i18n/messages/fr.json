@@ -4970,7 +4970,7 @@
           "h": "Hébergeur"
         },
         {
-          "p": "Le site est hébergé par [{host}]({hostSite})."
+          "p": "Le site est hébergé par [{host}]({hostSite}), {hostAddress}, téléphone {hostPhone}. La mesure d'audience (Matomo) est hébergée sur un autre serveur, chez [{analyticsHost}]({analyticsHostSite}), {analyticsHostAddress}."
         },
         {
           "h": "Propriété intellectuelle"
@@ -5138,7 +5138,7 @@
       },
       "audience": {
         "title": "Mesure d'audience",
-        "tool": "L'audience est mesurée avec Matomo, un logiciel libre installé et administré par l'éditeur sur son propre serveur (`matomo.leoderoin.fr`). Les données ne sont partagées avec personne, ni utilisées à d'autres fins, ni croisées avec celles d'autres sites.",
+        "tool": "L'audience est mesurée avec Matomo, un logiciel libre installé et administré par l'éditeur sur son propre serveur (`matomo.leoderoin.fr`), hébergé en France par [{analyticsHost}]({analyticsHostSite}). Les données ne sont partagées avec personne, ni utilisées à d'autres fins, ni croisées avec celles d'autres sites.",
         "data": "Matomo reçoit les pages consultées, leur titre et la page d'origine, la durée de la visite, les recherches faites sur le site et leur nombre de résultats, quelques actions anonymes (onglet ouvert sur une fiche, profondeur de lecture, ajout d'un favori, partage…), le type d'appareil, le navigateur et la langue, ainsi que votre adresse IP, dont les deux derniers octets sont masqués avant tout enregistrement.",
         "cookieless": "Sans votre accord, la mesure se fait sans cookie : chaque visite est comptée isolément, sans pouvoir être rapprochée des précédentes. Si vous acceptez les cookies, Matomo dépose un identifiant aléatoire (`_pk_id`) qui lui permet de reconnaître une visite qui revient ; il ne dit pas qui vous êtes.",
         "retention": "Les données de visite détaillées sont conservées jusqu'à leur suppression par l'éditeur ; les rapports chiffrés, sans donnée individuelle, sont gardés plus longtemps.",
@@ -5157,7 +5157,7 @@
         "title": "Destinataires et prestataires",
         "intro": "Vos données ne sont accessibles qu'à l'éditeur et, pour les signalements, aux modérateurs bénévoles de la communauté. Selon les fonctions que vous utilisez, elles sont hébergées ou transmises chez :",
         "host": "{host} ([{hostSite}]({hostSite})) : hébergement du serveur du site, de sa base de données et de ses sauvegardes ;",
-        "matomo": "Matomo, installé sur le serveur de l'éditeur : mesure d'audience, sans aucun transfert à l'éditeur du logiciel ;",
+        "matomo": "Matomo, installé sur un serveur de l'éditeur hébergé par [{analyticsHost}]({analyticsHostSite}) : mesure d'audience, sans aucun transfert à l'éditeur du logiciel ;",
         "discord": "Discord Inc. : connexion avec Discord, bot et son tableau de bord ;",
         "moonton": "Moonton et l'API communautaire `arena.rone.dev` : connexion au compte de jeu et statistiques de votre profil ;",
         "push": "le service de notifications de votre navigateur (Google, Mozilla, Apple ou Microsoft) : acheminement des notifications de patch, dont le contenu est chiffré ;",
