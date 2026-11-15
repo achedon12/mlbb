@@ -664,8 +664,8 @@
     },
     "privacy": {
       "title": "Privacy",
-      "lead": "Ano ang pinoproseso ng site, ano ang hindi, at saan nakalagay ang iyong data.",
-      "metaDescription": "Cookies, local storage, pag-log in sa game account at audience measurement: ano ang pinoproseso ng site, at saan."
+      "lead": "Ano ang pinoproseso ng site, bakit, gaano katagal, at kung paano gamitin ang iyong mga karapatan.",
+      "metaDescription": "Cookies at pahintulot, pagsukat ng audience, data na napanatili at tagal, mga tatanggap at mga karapatan sa GDPR: kung ano ang pinoproseso ng MLBBEx, at kung paano ito tatanggalin."
     },
     "account": {
       "metaTitle": "Ang aking account",
@@ -4993,61 +4993,35 @@
           "h": "Personal na data"
         },
         {
-          "p": "Ang pagproseso ng data at ang paggamit ng cookies ay nakadetalye sa [privacy policy](/privacy)."
+          "p": "Ang publisher ay responsable para sa pagproseso ng personal na data. Ang data na naproseso, ang kanilang mga layunin, cookies, panahon ng pagpapanatili at ang iyong mga karapatan ay nakadetalye sa [patakaran sa privacy](/privacy). Maaari mong baguhin ang iyong piniling cookies anumang oras mula sa link na \"Pamahalaan ang cookies\" sa ibaba ng bawat pahina."
         }
       ]
     },
     "privacy": {
       "blocks": [
         {
-          "p": "Dinisenyo ang site na ito para magtago ng pinakakaunting data hangga't maaari. Gumagana ang karamihan ng page nang walang iniimbak sa server; ang mga feature lang na pinili mong gamitin (pag-login sa game account, community, notification, Discord bot) ang nagtatago ng inilalarawan nila sa ibaba. Idinedetalye ng page na ito kung ano ang pinoproseso, at saan."
+          "p": "Ang site na ito ay idinisenyo upang iproseso ang pinakamaliit na data hangga't maaari. Karamihan sa mga pahina ay gumagana nang walang account at hindi nagse-save ng anuman sa isang server; tanging ang mga feature na pipiliin mong gamitin (game account o Discord login, komunidad, koleksyon, notification, Discord bot) ang nagpapanatili sa kung ano ang inilalarawan nila sa ibaba. Alinsunod sa General Data Protection Regulation (GDPR) at Data Protection Act, ang pahinang ito ay nagdedetalye kung ano ang pinoproseso, bakit, gaano katagal, at kung paano gamitin ang iyong mga karapatan."
         },
         {
-          "h": "Cookies"
+          "h": "Controller ng data"
         },
         {
-          "p": "Isang cookie lang ang maaaring ilagay, at kung ikokonekta mo lang ang iyong game account:"
+          "p": "Ang data controller ay {publisher}, na naglalathala ng site na ito sa isang personal at non-profit na batayan (tingnan ang [mga legal na abiso](/legal)). Para sa anumang mga katanungan o kahilingan tungkol sa iyong data: [{contact}](mailto:{contact})."
+        },
+        {
+          "h": "Mga layunin at legal na batayan"
         },
         {
           "ul": [
-            "`mlbb_jeu` — session cookie na mahigpit na kinakailangan para sa pag-login. Naglalaman ito ng pansamantalang token na ibinigay ng serbisyo ng Moonton, hindi kailanman umaalis sa server (`httpOnly`), at kusang nag-e-expire. Kung hindi ka mag-log in, walang cookie na inilalagay."
+            "Pagsusukat ng madla nang walang cookies (mga page view, paghahanap sa site, anonymous na pagkilos): alamin kung aling mga page ang ginagamit at pagbutihin ang site. Legal na batayan: ang lehitimong interes ng publisher (artikulo 6.1.f ng GDPR).",
+            "Pagsukat ng madla gamit ang cookies (kilalain ang isang bumabalik na bisita): lamang sa iyong pahintulot (artikulo 6.1.a ng GDPR at artikulo 82 ng Data Protection Act), na maaari mong bawiin anumang oras.",
+            "Mga function na hinihiling mo (koneksyon sa game account o Discord, komunidad, koleksyon ng mga skin, patch notification, Discord bot at dashboard nito): pagpapatupad ng hiniling na serbisyo, ayon sa mga kondisyon ng paggamit nito (artikulo 6.1.b ng GDPR).",
+            "Seguridad at pagmo-moderate (mga limitasyon sa rate, mga ulat, log ng pagmo-moderate, mga log ng error, mga backup): lehitimong interes ng publisher sa pagprotekta sa site at sa mga user nito (artikulo 6.1.f ng GDPR).",
+            "Ang pagsasaulo ng iyong mga kagustuhan (wika, mga paborito, mga setting ng tool): kinakailangan para gumana ang site habang ginagamit mo ito, sa iyong browser."
           ]
         },
         {
-          "p": "Dahil mahigpit na kinakailangan ang cookie na ito para sa serbisyong hinihiling mo (manatiling naka-log in), hindi ito nangangailangan ng paunang pahintulot. Walang ginagamit na advertising o tracking cookie."
-        },
-        {
-          "h": "Storage sa iyong browser"
-        },
-        {
-          "p": "Naka-save ang mga paborito mong hero sa local storage ng iyong browser (`localStorage`), sa device mo lamang. Hindi ito ipinapadala sa anumang server at hindi kailanman umaalis sa browser na ito. Mabubura ito kapag ni-clear mo ang data ng site."
-        },
-        {
-          "h": "Pag-login sa game account"
-        },
-        {
-          "p": "Ginagamit ng pag-login ang opisyal na proseso ng Moonton: ibinibigay mo ang iyong game ID at server, may verification code na ipapadala sa iyo sa loob ng game, at tatanggap ang site ng pansamantalang token bilang kapalit. Dumadaan ang mga palitang ito sa isang community API (`arena.rone.dev`) at sa authentication service ng Moonton. Wala sa impormasyong ito ang iniimbak ng site: nasa session cookie ang token, sa panig ng browser, at nawawala ito kapag nag-log out ka o kapag nag-expire ito. Hindi ka kailanman hihingan ng password."
-        },
-        {
-          "h": "Third-party na content"
-        },
-        {
-          "p": "Ang mga image (portrait, icon, emblem) ay ini-serve ng mga host ng Moonton at ng community wiki. Kaya kapag naglo-load ng page, nagpapadala ito ng mga request sa mga serbisyong ito, na makakakita ng iyong IP address, gaya ng anumang remote na resource."
-        },
-        {
-          "h": "Audience measurement"
-        },
-        {
-          "p": "Kung naka-enable ang audience measurement, gumagamit ito ng tool na walang cookie, hindi nangongolekta ng personal na data at hindi sumusubaybay sa mga bisita mula sa isang site papunta sa iba. Sa ganitong kaso, hindi kailangan ng consent banner."
-        },
-        {
-          "p": "Ang mga tawag sa public API (`/api/v1`), na ginagawa ng mga script o ibang site, ay binibilang sa parehong paraan, ng server at walang cookie: ang hiniling na address, ang response code, ang referring page at ang software na idinedeklara ng tawag, at ang IP address, na ina-anonymize ng measurement tool. Walang identifier na itinatalaga, at hindi binibilang ang tawag na may header na `DNT: 1` o `Sec-GPC: 1`."
-        },
-        {
-          "h": "Ang iyong mga karapatan"
-        },
-        {
-          "p": "Ikaw ang may kontrol sa nasa iyong browser (mga paborito, session) sa pamamagitan ng pag-log out o pag-clear ng data ng site. Para makita o mabura ang itinatago ng server tungkol sa iyo (community, notification, Discord bot), o para sa anumang tanong, sumulat sa [{contact}](mailto:{contact})."
+          "p": "Walang data na ibinebenta, nirerentahan o ginagamit para sa mga layunin ng pag-advertise o pag-profile, at walang mga awtomatikong pagpapasya na ginawa tungkol sa iyo."
         }
       ]
     },
@@ -5076,8 +5050,8 @@
       "discord": "kung mag-log in ka gamit ang Discord: isang nagmula na account ID (isang fingerprint ng iyong Discord ID, hindi ang ID mismo), ang iyong Discord display name, na ipinapakita sa iyong mga mensahe, at ang petsa ng iyong unang paglahok. Hinihiling lang ng koneksyon ang Discord para sa iyong pagkakakilanlan, nang wala ang iyong email o ang listahan ng iyong mga server, at dumaan sa naka-encrypt na session cookie `mlbbdex_discord` (7 araw), na nagpapanatili sa iyong identifier, iyong pangalan at iyong Discord avatar; walang mga Discord token ang nananatili. Ang edad ng iyong Discord account, na nabasa sa identifier nito, ay hindi naitala. Kung ili-link mo ang iyong Discord account sa iyong game account, ang link sa pagitan ng iyong dalawang account ay mapapanatili, at ang iyong mga kontribusyon sa Discord ay sasali sa iyong game account;",
       "posts": "ang iyong mga discussion at reply, na public, kasama ang petsa nila; ang iyong mga boto at report, na hindi ipinapakita kaninuman maliban sa mga moderator (ang mga report);",
       "card": "ang iyong teammate card at, kung idaragdag mo, ang iyong game ID at Discord username: ipinapakita lang ang mga ito sa mga naka-sign in na player, at binubura ang card pitong araw pagkatapos ng huling pag-save nito.",
-      "moderation": "Nakikita ng mga moderator ang mga report at maaari silang magtago, mag-delete o mag-ban; isinusulat sa isang log ang bawat desisyon nila. Ginagamit ng mga rate limit ang iyong IP address, sa memory lamang, sa loob ng ilang minuto.",
-      "deletion": "Maaari mong i-edit ang isang post sa loob ng isang oras at i-delete ito sa loob ng isang araw, at tanggalin ang iyong card anumang oras. Lampas doon, o para burahin ang lahat ng iyong paglahok, sumulat sa {contact}."
+      "moderation": "Nakikita ng mga moderator ang mga ulat at maaaring itago, tanggalin o i-ban ang mga ito; bawat isa sa kanilang mga desisyon ay naitala sa isang journal. Ginagamit ng mga limitasyon sa rate ang iyong IP address, sa memorya lamang: hindi ito kailanman isinulat sa disk.",
+      "deletion": "Maaari mong i-edit ang isang mensahe sa loob ng isang oras at tanggalin ito para sa isang araw, bawiin ang iyong card anumang oras. Ang isang tinanggal na mensahe ay nawawala ang teksto nito; pinapanatili ng isang tinanggal na talakayan ang pamagat, may-akda at petsa nito. Higit pa riyan, o para tanggalin ang lahat ng iyong pakikilahok, sumulat sa {contact}."
     },
     "collection": {
       "title": "Koleksyon ng skin",
@@ -5085,6 +5059,133 @@
       "data": "ang parehong account imprint bilang komunidad (hindi kailanman ang iyong ID ng laro), ang listahan ng mga hero at mga skin na nasuri, at ang petsa ng huling pagpaparehistro; walang iba, at walang ipinapakita sa sinuman.",
       "usage": "Ginagamit lang ito para mahanap ang iyong koleksyon sa iba mo pang device. Binabasa ng filter na \"mga nilalaro ko\" ang iyong mga hero ng season mula sa serbisyo sa pag-login sa sandaling i-activate mo ito, nang walang nai-save na anuman.",
       "deletion": "Upang alisan ng laman ang kopya ng iyong account, tanggalin ang iyong koleksyon sa tool habang naka-log in; Upang tanggalin ang mismong linya, sumulat sa {contact}."
+    },
+    "gdpr": {
+      "cookies": {
+        "title": "Mga cookies",
+        "intro": "Ginagamit ng site ang sumusunod na cookies. Ang mga para sa pagsukat ng madla ay nilikha lamang sa iyong kasunduan, ibinigay o tinanggihan sa banner; ang iba ay mahigpit na kinakailangan para sa isang function na ginagamit mo o naaalala ang isang piniling ginawa mo, at hindi kasama sa pahintulot. Walang ginagamit na advertising, social network o third party na cookies.",
+        "head": {
+          "name": "Pangalan",
+          "purpose": "Layunin",
+          "duration": "Tagal",
+          "by": "Naglalagay",
+          "consent": "Pagpayag"
+        },
+        "yes": "Oo",
+        "no": "Hindi",
+        "site": "MLBBDex",
+        "matomo": "Matomo (self-host ni MLBBDex)",
+        "langue": {
+          "purpose": "Tandaan ang wika ng site na iyong tinitingnan.",
+          "duration": "1 taon"
+        },
+        "game": {
+          "purpose": "Sesyon ng pag-login sa account ng laro: ang pansamantalang token ng serbisyo sa pag-log in, hindi nababasa ng mga script ng pahina (httpOnly). Magagawa lamang kung mag-log in ka.",
+          "duration": "Hanggang sa mag-expire ang token (hindi hihigit sa 7 araw) o madiskonekta"
+        },
+        "discord": {
+          "purpose": "Sesyon ng koneksyon sa Discord (forum, bot dashboard): ang iyong Discord ID, pangalan at avatar, naka-encrypt. Magagawa lamang kung mag-log in ka.",
+          "duration": "7 araw, o hanggang sa madiskonekta"
+        },
+        "discordOauth": {
+          "purpose": "Proteksyon ng koneksyon sa Discord na isinasagawa, laban sa pamemeke ng kahilingan.",
+          "duration": "10 minuto"
+        },
+        "pkId": {
+          "purpose": "Pagsusukat ng madla: random na identifier, na ginagawang posible na makilala ang isang bumabalik na pagbisita.",
+          "duration": "13 buwan"
+        },
+        "pkSes": {
+          "purpose": "Pagsusukat ng madla: pinagsama-sama ang mga pahina mula sa parehong pagbisita.",
+          "duration": "30 minuto"
+        },
+        "pkRef": {
+          "purpose": "Pagsukat ng madla: site o campaign kung saan nagmumula ang pagbisita.",
+          "duration": "6 na buwan"
+        },
+        "pkTest": {
+          "purpose": "Sinusuri kung tumatanggap ang browser ng cookies; tinanggal agad.",
+          "duration": "Ilang sandali"
+        },
+        "mtmConsent": {
+          "purpose": "Natatandaan, para kay Matomo, na tinanggap mo ang cookies nito.",
+          "duration": "6 na buwan"
+        },
+        "consentYes": "Oo",
+        "consentAfter": "Oo (ginawa kapag tinanggap ang cookies)",
+        "without": "Bago ang iyong pinili, at kung tumanggi ka, magpapatuloy ang pagsukat ng audience nang walang anumang cookies. Ang pagtanggi ay hindi nag-aalis sa iyo ng anumang function ng site.",
+        "choice": "Ang iyong pinili ay pinananatili sa loob ng anim na buwan sa lokal na imbakan ng iyong browser (`mlbb_consent`, kasama ang petsa nito), pagkatapos ay tatanungin ka muli. Maaari mo itong baguhin o bawiin ang iyong pahintulot anumang oras, mula sa button na ito o sa link na “Pamahalaan ang cookies” sa ibaba ng bawat pahina:"
+      },
+      "storage": {
+        "title": "Imbakan sa iyong browser",
+        "intro": "Ang data na ito ay nananatili sa iyong device, sa lokal na (`localStorage`) o session (`sessionStorage`) na storage ng browser. Hindi sila binabasa ng anumang third party at iniiwan lang ang iyong device sa mga ipinahiwatig na kaso. Pinapanatili ang mga ito hanggang sa tanggalin mo ang data mula sa site, maliban kung iba ang ipinahiwatig.",
+        "head": {
+          "key": "Susi",
+          "content": "Nilalaman"
+        },
+        "consent": "Ang iyong pinili sa cookies ng pagsukat ng audience, at ang petsa nito (6 na buwan).",
+        "favourites": "Ang iyong mga paboritong hero. Ipinadala lamang sa server kung pinagana mo ang mga notification sa patch.",
+        "push": "Aktibo ang mga notification ng patch sa browser na ito.",
+        "collection": "Ang iyong koleksyon ng skin, at ang katayuan ng pag-sync nito sa iyong account (isang fingerprint ng account, hindi ang iyong ID ng laro).",
+        "popup": "Discord memory ng imbitasyon: sarado (sa loob ng 30 araw) o sinundan, at bilang ng mga pahinang tiningnan sa tab (oras ng tab).",
+        "games": "Mga laro, serye at istatistika mula sa MLBBdle at ang pagsusulit.",
+        "tierList": "Mga draft mula sa tagalikha ng tier list.",
+        "timer": "Kasalukuyang laro (oras ng tab) at mga setting ng layunin ng timer.",
+        "retribution": "Pinakamataas na mga marka ng pagsusulit sa Retribution.",
+        "cache": "Upang gumana nang offline, ang site ay nagpapanatili din ng isang kopya ng mga pahina, mga larawan at data na tiningnan sa cache ng iyong browser (service worker): 250 mga pahina at 800 mga larawan sa karamihan, sa iyong device lamang."
+      },
+      "audience": {
+        "title": "Pagsukat ng madla",
+        "tool": "Ang madla ay sinusukat gamit ang Matomo, libreng software na naka-install at pinangangasiwaan ng publisher sa sarili nitong server (`matomo.leoderoin.fr`). Ang data ay hindi ibinabahagi sa sinuman, o ginagamit para sa iba pang mga layunin, o cross-reference sa ibang mga site.",
+        "data": "Natanggap ni Matomo ang mga pahinang kinonsulta, ang kanilang pamagat at ang orihinal na pahina, ang tagal ng pagbisita, ang mga paghahanap na isinagawa sa site at ang bilang ng mga resulta nito, ilang hindi kilalang aksyon (nabuksan ang tab sa isang file, lalim ng pagbabasa, pagdaragdag ng paborito, pagbabahagi, atbp.), ang uri ng device, browser at wika, pati na rin ang iyong IP address, ang huling dalawang byte na nakatago bago ang anumang pag-record.",
+        "cookieless": "Kung wala ang iyong pahintulot, ang pagsukat ay ginagawa nang walang cookies: ang bawat pagbisita ay binibilang nang hiwalay, nang hindi maikukumpara sa mga nauna. Kung tumatanggap ka ng cookies, naglalagay si Matomo ng random na identifier (`_pk_id`) na nagbibigay-daan dito na makilala ang isang pabalik na pagbisita; hindi nito sinasabi kung sino ka.",
+        "retention": "Ang detalyadong data ng pagbisita ay pinananatili sa loob ng maximum na 25 buwan, pagkatapos ay tatanggalin; ang mga numerical na ulat lamang, na walang indibidwal na data, ang pinananatiling higit pa doon.",
+        "api": "Ang mga tawag sa pampublikong API (`/api/v1`), na ginawa ng mga script o iba pang mga site, ay binibilang ng server, nang walang cookies: ang hiniling na address, ang response code, ang orihinal na page at ang software na idineklara ng tawag, pati na rin ang IP address ng tumatawag, na naka-mask sa parehong paraan. Ang isang tawag na ipinadala na may header `DNT: 1` o `Sec-GPC: 1` ay hindi binibilang.",
+        "object": "Maaari kang tumutol sa walang cookie na pagsukat sa pamamagitan ng pagsulat sa [{contact}](mailto:{contact}), o sa pamamagitan lamang ng pagharang sa domain ng pagsukat gamit ang isang content blocker: gumagana ang site sa parehong paraan."
+      },
+      "game": {
+        "title": "Mag-login sa account ng laro",
+        "text": "Ang koneksyon ay gumagamit ng opisyal na daloy ng Moonton: ipinapahiwatig mo ang iyong username at ang iyong server ng laro, isang verification code ang ipinadala sa iyo sa laro, at ang site ay tumatanggap ng pansamantalang token bilang kapalit. Ang mga palitan na ito ay dumaan sa isang community API (`arena.rone.dev`) at sa pamamagitan ng mga serbisyo ng Moonton, na tumatanggap ng iyong identifier, iyong server, ang code pagkatapos ang token. Ang token ay nabubuhay sa session cookie `mlbb_jeu` at hindi kailanman nase-save sa server; ang mga tugon ng serbisyo (profile, estadistika, laro) ay pinananatili sa memorya ng ilang oras, upang limitahan ang mga tawag. Hindi ka kailanman hihilingin ng password. Ang server ay nagpapanatili lamang ng isang bagay nang permanente kung gagamitin mo ang komunidad o koleksyon, tulad ng inilarawan sa ibaba."
+      },
+      "thirdParty": {
+        "title": "Third-party na nilalaman",
+        "text": "Ang mga larawan ng laro (mga larawan, icon, emblem) ay nagmula sa Moonton at sa wiki ng komunidad; mahalagang kinukuha ang mga ito ng server ng site at inihahatid mula sa address nito, ngunit ang ilan ay maaaring direktang i-load mula sa kanilang mga host, na pagkatapos ay makikita ang iyong IP address, tulad ng sa anumang malayong mapagkukunan. Sa dashboard ng bot, nilo-load ang mga avatar at icon ng Discord mula sa `cdn.discordapp.com`. Ang mga link ng imbitasyon sa discord ay humahantong sa discord.com, na napapailalim sa sarili nitong patakaran sa privacy."
+      },
+      "recipients": {
+        "title": "Mga tatanggap at tagapagbigay ng serbisyo",
+        "intro": "Ang iyong data ay maa-access lamang ng publisher at, para sa mga ulat, sa mga boluntaryong moderator ng komunidad. Depende sa mga function na iyong ginagamit, sila ay naka-host o ipinadala sa:",
+        "host": "{host} ([{hostSite}]({hostSite})): pagho-host ng server ng site, database nito at mga backup nito;",
+        "matomo": "Matomo, na naka-install sa server ng publisher: pagsukat ng audience, nang walang anumang paglilipat sa software publisher;",
+        "discord": "Discord Inc.: koneksyon sa Discord, bot at dashboard nito;",
+        "moonton": "Moonton at community API `arena.rone.dev`: koneksyon sa account ng laro at mga istatistika ng profile;",
+        "push": "serbisyo ng abiso ng iyong browser (Google, Mozilla, Apple o Microsoft): paghahatid ng mga patch notification, na ang nilalaman nito ay naka-encrypt;",
+        "votes": "mga direktoryo ng bot (top.gg, discordbotlist.com): kung iboboto mo ang bot, ipapadala nila ang iyong Discord ID sa site."
+      },
+      "transfers": {
+        "title": "Mga paglilipat sa labas ng European Union",
+        "text": "Ang ilang partikular na opsyonal na feature ay kinabibilangan ng mga serbisyong matatagpuan sa labas ng European Union: Discord, sa United States, kung kumonekta ka sa Discord o gagamitin ang bot (mga paglilipat na pinamamahalaan ng EU-US data protection framework o ang mga karaniwang contractual clause ng European Commission); Moonton, Asia, at ang `arena.rone.dev` Community API, kung ikinonekta mo ang iyong game account; serbisyo ng mga notification ng iyong browser, kung pinagana mo ang mga notification. Nagaganap lamang ang mga paglilipat na ito kung gagamitin mo ang mga function na ito."
+      },
+      "retention": {
+        "title": "Gaano katagal pinapanatili ang data",
+        "audience": "Pagsukat ng madla: 25 buwan nang hindi hihigit para sa data ng pagbisita; cookies, tingnan ang talahanayan sa itaas; ang iyong pinili sa cookies, 6 na buwan.",
+        "sessions": "Mga Session: ang token ng account ng laro hanggang sa mag-expire ito (7 araw sa pinakamaraming); ang Discord session, 7 araw.",
+        "community": "Komunidad: ang iyong account, ang iyong mga mensahe, ang iyong mga boto, ang iyong mga ulat at ang log ng pag-moderate ay pinapanatili hangga't umiiral ang komunidad, maliban kung humiling ka ng pagtanggal; ang isang ulat ay nagpapanatili ng isang kopya ng iniulat na teksto. Ang isang teammate card ay tatanggalin pitong araw pagkatapos ng huling pagpaparehistro nito.",
+        "builds": "Mga build ng komunidad: hanggang sa tanggalin ng kanilang may-akda, o kapag hiniling.",
+        "collection": "Naka-synchronize na koleksyon: hanggang sa walang laman ito, o on demand.",
+        "push": "Mga notification ng patch: hanggang sa mag-unsubscribe; ang isang subscription na naging hindi wasto ay tatanggalin sa susunod na abiso.",
+        "bot": "Para sa Discord bot: ang mga setting ng isang server, at ang mga resulta ng mga laro sa araw na nilalaro doon, hanggang 30 araw pagkatapos ng pag-alis ng bot; log ng slash command na ginamit, walang ID ng miyembro, 90 araw; boto para sa bot, hanggang hiniling na tanggalin.",
+        "logs": "Mga teknikal na log: ang mga error na nakatagpo ng browser (mensahe, pahina, bersyon ng site, uri ng browser; alinman sa IP address o account) ay pinananatili sa server para sa diagnosis, hanggang sa pagtanggal ng mga ito ng publisher.",
+        "backups": "Mga backup: araw-araw na kopya ng database; ang tatlong pinakabago lamang ang pinananatili, upang ang mga tinanggal na data ay mawala sa mga backup sa loob ng tatlong araw.",
+        "rateLimits": "Mga Limitasyon sa Rate: Ang iyong IP address, sa memorya lamang, ay hindi kailanman nakasulat sa disk."
+      },
+      "rights": {
+        "title": "Ang iyong mga karapatan",
+        "list": "Mayroon kang karapatan sa pag-access, pagwawasto at pagbura ng iyong data, isang karapatang limitahan ang kanilang pagpoproseso at ang kanilang kakayahang dalhin, at ang karapatang tumutol sa pagproseso batay sa lehitimong interes. Kapag ang pagproseso ay batay sa iyong pahintulot (cookies sa pagsukat ng madla), maaari mo itong bawiin anumang oras, tulad ng ibinigay mo dito; ang withdrawal na ito ay hindi nagtatanong kung ano ang ginawa dati.",
+        "browser": "Ang nabubuhay sa iyong browser (mga paborito, koleksyon, mga kagustuhan, mga pagpipilian sa cookies) ay nasa iyong mga kamay: ang pag-clear sa data ng site ay nagtatanggal nito.",
+        "contact": "Para sa iba pa (komunidad, naka-synchronize na koleksyon, mga notification, bot), sumulat sa [{contact}](mailto:{contact}), na tinukoy ang account na may kinalaman (palayaw ng laro o pangalan ng Discord) upang mahanap ito. Makakatanggap ka ng tugon sa loob ng isang buwan.",
+        "cnil": "Kung isinasaalang-alang mo, pagkatapos makipag-ugnayan sa publisher, na hindi iginagalang ang iyong mga karapatan, maaari kang magpadala ng reklamo sa CNIL ([cnil.fr](https://www.cnil.fr/fr/plaintes)) o sa awtoridad sa proteksyon ng data sa iyong bansa.",
+        "updated": "Huling na-update: Nobyembre 15, 2026."
+      }
     }
   },
   "compareUI": {
@@ -5929,5 +6030,16 @@
       "title": "Nakopya ang nickname! Ipakita mo na",
       "text": "Sumali sa MLBBDex Discord: teammates ayon sa rank, patch alerts at MLBBdle ng araw."
     }
+  },
+  "consent": {
+    "title": "Cookies sa pagsukat ng audience",
+    "text": "Kung papayag ka, gagamit ang MLBBDex ng cookies para malaman kung ilang bisita ang bumabalik. Ang pagsukat ay ginagawa ng Matomo, na naka-install sa sariling server ng site: walang ads, walang pagsubaybay ng third party, walang ibinebentang data. Kung tatanggi ka, magpapatuloy ito nang anonymous, nang walang cookies.",
+    "more": "Matuto pa",
+    "accept": "Tanggapin",
+    "refuse": "Tanggihan",
+    "keep": "Panatilihin ang aking kasalukuyang pagpipilian",
+    "currentGranted": "Kasalukuyang pagpipilian: tinanggap ang cookies noong {date}.",
+    "currentDenied": "Kasalukuyang pagpipilian: tinanggihan ang cookies noong {date}.",
+    "manage": "Pamahalaan ang cookies"
   }
 }

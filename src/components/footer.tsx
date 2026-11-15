@@ -10,6 +10,7 @@ import { FOOTER, type Chip } from "@/lib/sections";
 import { site } from "@/lib/site";
 import { DiscordMark } from "./bot/discord-mark";
 import { DiscordJoinLink } from "./discord-join-link";
+import { ConsentSettingsButton } from "./consent-banner";
 
 /** Footer link column: one per header section, plus the site's own pages. */
 function Column({ title, links, t }: { title: string; links: readonly Chip[]; t: T }) {
@@ -116,7 +117,10 @@ export function Footer({ locale, year }: { locale: Locale; year: number }) {
             © {year} {site.name} — {t("footer.rights", { author: site.author })}
             <span className="text-chalk-600"> · {t("footer.version", { v: process.env.VERSION_SITE ?? "" })}</span>
           </p>
-          <p className="text-chalk-600">{t("footer.brand")}</p>
+          <p className="flex flex-wrap items-center gap-x-3 text-chalk-600">
+            <ConsentSettingsButton className="text-chalk-500 underline-offset-2 transition-colors hover:text-chalk-100 hover:underline" />
+            <span>{t("footer.brand")}</span>
+          </p>
         </div>
       </div>
     </footer>

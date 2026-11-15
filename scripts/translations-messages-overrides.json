@@ -3500,21 +3500,9 @@
       "fr": "votre carte de recherche de coéquipiers, et, si vous les ajoutez, votre ID de jeu et votre pseudo Discord : ils ne sont montrés qu'aux joueurs connectés, et la carte est effacée sept jours après son dernier enregistrement.",
       "text": "your teammate card and, if you add them, your game ID and Discord username: they are shown to signed-in players only, and the card is erased seven days after it was last saved."
     },
-    "prose.community.moderation": {
-      "fr": "Les modérateurs voient les signalements et peuvent masquer, supprimer ou bannir ; chacune de leurs décisions est consignée dans un journal. Les limites de débit utilisent votre adresse IP, en mémoire seulement, quelques minutes.",
-      "text": "Moderators see the reports and can hide, delete or ban; each of their decisions is written to a log. The rate limits use your IP address, in memory only, for a few minutes."
-    },
-    "prose.community.deletion": {
-      "fr": "Vous pouvez modifier un message pendant une heure et le supprimer pendant une journée, retirer votre carte à tout moment. Au-delà, ou pour effacer toute votre participation, écrivez à {contact}.",
-      "text": "You can edit a post for an hour and delete it for a day, and take your card down at any time. Beyond that, or to erase all your participation, write to {contact}."
-    },
     "prose.privacy.blocks.0.p": {
-      "fr": "Ce site est conçu pour conserver le moins de données possible. La plupart des pages fonctionnent sans rien enregistrer sur un serveur ; seules les fonctions que vous choisissez d'utiliser (connexion au compte de jeu, communauté, notifications, bot Discord) gardent ce qu'elles décrivent plus bas. Cette page détaille ce qui est traité, et où.",
-      "text": "This site is designed to keep as little data as possible. Most pages work without storing anything on a server; only the features you choose to use (game account login, community, notifications, Discord bot) keep what they describe below. This page details what is processed, and where."
-    },
-    "prose.privacy.blocks.15.p": {
-      "fr": "Vous gardez la main sur ce qui vit dans votre navigateur (favoris, session) en vous déconnectant ou en effaçant les données du site. Pour consulter ou supprimer ce que le serveur conserve sur vous (communauté, notifications, bot Discord), ou pour toute question, écrivez à [{contact}](mailto:{contact}).",
-      "text": "You stay in control of what lives in your browser (favorites, session) by logging out or clearing the site data. To see or delete what the server keeps about you (community, notifications, Discord bot), or for any question, write to [{contact}](mailto:{contact})."
+      "fr": "Ce site est conçu pour traiter le moins de données possible. La plupart des pages fonctionnent sans compte et sans rien enregistrer sur un serveur ; seules les fonctions que vous choisissez d'utiliser (connexion au compte de jeu ou à Discord, communauté, collection, notifications, bot Discord) conservent ce qu'elles décrivent plus bas. Conformément au Règlement général sur la protection des données (RGPD) et à la loi Informatique et Libertés, cette page détaille ce qui est traité, pourquoi, combien de temps, et comment exercer vos droits.",
+      "text": "This site is designed to process as little data as possible. Most pages work without an account and without saving anything on a server; only the features you choose to use (game account or Discord sign-in, community, collection, notifications, Discord bot) keep what they describe below. In line with the General Data Protection Regulation (GDPR) and the French Data Protection Act (loi Informatique et Libertés), this page explains what is processed, why, for how long, and how to exercise your rights."
     },
     "pages.community.moderation.deleted": {
       "fr": "supprimé par son auteur",
@@ -4519,6 +4507,158 @@
     "discordCta.copy.text": {
       "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
       "text": "Join the MLBBDex Discord: teammates by rank, patch alerts and the daily MLBBdle."
+    },
+    "consent.text": {
+      "fr": "Avec votre accord, MLBBDex dépose des cookies pour savoir combien de visiteurs reviennent. La mesure est faite par Matomo, installé sur le serveur du site : pas de publicité, pas de pistage par des tiers, aucune donnée vendue. Si vous refusez, elle continue sans cookie, de façon anonyme.",
+      "text": "With your consent, MLBBDex sets cookies to see how many visitors come back. Measurement is done with Matomo, installed on the site's own server: no ads, no third-party tracking, no data sold. If you refuse, it carries on anonymously, without cookies."
+    },
+    "consent.refuse": {
+      "fr": "Refuser",
+      "text": "Reject"
+    },
+    "prose.gdpr.cookies.intro": {
+      "fr": "Le site utilise les cookies suivants. Ceux de mesure d'audience ne sont créés qu'avec votre accord, donné ou refusé dans le bandeau ; les autres sont strictement nécessaires à une fonction que vous utilisez ou mémorisent un choix que vous avez fait, et sont dispensés de consentement. Aucun cookie publicitaire, de réseau social ou d'un tiers n'est utilisé.",
+      "text": "The site uses the following cookies. Audience measurement cookies are only set with your consent, given or refused in the banner; the others are strictly necessary for a feature you use or remember a choice you made, and are exempt from consent. No advertising, social network or third-party cookies are used."
+    },
+    "prose.gdpr.cookies.head.by": {
+      "fr": "Émetteur",
+      "text": "Set by"
+    },
+    "prose.gdpr.cookies.game.purpose": {
+      "fr": "Session de connexion au compte de jeu : le jeton temporaire du service de connexion, illisible par les scripts de la page (httpOnly). Créé seulement si vous vous connectez.",
+      "text": "Game account sign-in session: the temporary token from the sign-in service, unreadable by the page's scripts (httpOnly). Only set if you sign in."
+    },
+    "prose.gdpr.cookies.game.duration": {
+      "fr": "Jusqu'à l'expiration du jeton (7 jours au plus) ou la déconnexion",
+      "text": "Until the token expires (7 days at most) or you sign out"
+    },
+    "prose.gdpr.cookies.discord.purpose": {
+      "fr": "Session de connexion avec Discord (forum, tableau de bord du bot) : votre identifiant, votre nom et votre avatar Discord, chiffrés. Créé seulement si vous vous connectez.",
+      "text": "Discord sign-in session (forum, bot dashboard): your Discord ID, name and avatar, encrypted. Only set if you sign in."
+    },
+    "prose.gdpr.cookies.discord.duration": {
+      "fr": "7 jours, ou jusqu'à la déconnexion",
+      "text": "7 days, or until you sign out"
+    },
+    "prose.gdpr.cookies.discordOauth.purpose": {
+      "fr": "Protection de la connexion Discord en cours, contre la falsification de requête.",
+      "text": "Protects the Discord sign-in in progress against request forgery."
+    },
+    "prose.gdpr.cookies.consentAfter": {
+      "fr": "Oui (créé une fois les cookies acceptés)",
+      "text": "Yes (set once cookies are accepted)"
+    },
+    "prose.gdpr.cookies.without": {
+      "fr": "Avant votre choix, et si vous refusez, la mesure d'audience continue sans aucun cookie. Refuser ne vous prive d'aucune fonction du site.",
+      "text": "Before you choose, and if you refuse, audience measurement carries on without any cookie. Refusing does not take away any feature of the site."
+    },
+    "prose.gdpr.storage.games": {
+      "fr": "Parties, séries et statistiques de MLBBdle et du quiz.",
+      "text": "Games, streaks and statistics of MLBBdle and the quiz."
+    },
+    "prose.gdpr.storage.tierList": {
+      "fr": "Brouillons du créateur de tier list.",
+      "text": "Drafts from the tier list maker."
+    },
+    "prose.gdpr.storage.retribution": {
+      "fr": "Meilleurs scores du test de Châtiment.",
+      "text": "Best scores of the Retribution test."
+    },
+    "prose.gdpr.storage.popup": {
+      "fr": "Mémoire de l'invitation au Discord : fermée (pendant 30 jours) ou suivie, et nombre de pages vues dans l'onglet (le temps de l'onglet).",
+      "text": "Memory of the Discord invitation: closed (for 30 days) or followed, and pages viewed in the tab (for the tab's lifetime)."
+    },
+    "prose.gdpr.storage.timer": {
+      "fr": "Partie en cours (le temps de l'onglet) et réglages du minuteur d'objectifs.",
+      "text": "Match in progress (for the tab's lifetime) and objective timer settings."
+    },
+    "prose.gdpr.audience.data": {
+      "fr": "Matomo reçoit les pages consultées, leur titre et la page d'origine, la durée de la visite, les recherches faites sur le site et leur nombre de résultats, quelques actions anonymes (onglet ouvert sur une fiche, profondeur de lecture, ajout d'un favori, partage…), le type d'appareil, le navigateur et la langue, ainsi que votre adresse IP, dont les deux derniers octets sont masqués avant tout enregistrement.",
+      "text": "Matomo receives the pages viewed, their title and the referring page, the length of the visit, searches made on the site and how many results they had, a few anonymous actions (tab opened on a hero page, reading depth, favourite added, share…), the type of device, browser and language, and your IP address, whose last two bytes are masked before anything is recorded."
+    },
+    "prose.gdpr.audience.cookieless": {
+      "fr": "Sans votre accord, la mesure se fait sans cookie : chaque visite est comptée isolément, sans pouvoir être rapprochée des précédentes. Si vous acceptez les cookies, Matomo dépose un identifiant aléatoire (`_pk_id`) qui lui permet de reconnaître une visite qui revient ; il ne dit pas qui vous êtes.",
+      "text": "Without your consent, measurement is done without cookies: each visit is counted on its own and cannot be linked to earlier ones. If you accept cookies, Matomo sets a random identifier (`_pk_id`) that lets it recognise a returning visit; it does not tell who you are."
+    },
+    "prose.gdpr.audience.retention": {
+      "fr": "Les données de visite détaillées sont conservées 25 mois au plus, puis supprimées ; seuls des rapports chiffrés, sans donnée individuelle, sont gardés au-delà.",
+      "text": "Detailed visit data is kept for 25 months at most, then deleted; only aggregate reports, with no individual data, are kept beyond that."
+    },
+    "prose.gdpr.audience.api": {
+      "fr": "Les appels à l'API publique (`/api/v1`), faits par des scripts ou d'autres sites, sont comptés par le serveur, sans cookie : l'adresse demandée, le code de réponse, la page d'origine et le logiciel déclarés par l'appel, ainsi que l'adresse IP de l'appelant, masquée de la même façon. Un appel envoyé avec l'en-tête `DNT: 1` ou `Sec-GPC: 1` n'est pas compté.",
+      "text": "Calls to the public API (`/api/v1`), made by scripts or other sites, are counted by the server, without cookies: the requested address, the response code, the referring page and the software declared by the call, and the caller's IP address, masked the same way. A call sent with the `DNT: 1` or `Sec-GPC: 1` header is not counted."
+    },
+    "prose.gdpr.audience.object": {
+      "fr": "Vous pouvez vous opposer à la mesure sans cookie en écrivant à [{contact}](mailto:{contact}), ou simplement en bloquant le domaine de mesure avec un bloqueur de contenu : le site fonctionne de la même façon.",
+      "text": "You can object to the cookieless measurement by writing to [{contact}](mailto:{contact}), or simply by blocking the measurement domain with a content blocker: the site works just the same."
+    },
+    "prose.gdpr.game.text": {
+      "fr": "La connexion utilise le flux officiel de Moonton : vous indiquez votre identifiant et votre serveur de jeu, un code de vérification vous est envoyé en jeu, et le site reçoit en retour un jeton temporaire. Ces échanges passent par une API communautaire (`arena.rone.dev`) et par les services de Moonton, qui reçoivent votre identifiant, votre serveur, le code puis le jeton. Le jeton vit dans le cookie de session `mlbb_jeu` et n'est jamais enregistré sur le serveur ; les réponses du service (profil, statistiques, parties) sont gardées en mémoire quelques heures au plus, pour limiter les appels. Aucun mot de passe ne vous est jamais demandé. Le serveur ne conserve durablement quelque chose que si vous utilisez la communauté ou la collection, comme décrit plus bas.",
+      "text": "Sign-in uses Moonton's official flow: you enter your game ID and server, a verification code is sent to you in the game, and the site receives a temporary token in return. These exchanges go through a community API (`arena.rone.dev`) and Moonton's services, which receive your ID, your server, the code and then the token. The token lives in the `mlbb_jeu` session cookie and is never saved on the server; the service's answers (profile, statistics, matches) are kept in memory for a few hours at most, to limit calls. You are never asked for a password. The server only keeps anything long-term if you use the community or the collection, as described below."
+    },
+    "prose.gdpr.recipients.title": {
+      "fr": "Destinataires et prestataires",
+      "text": "Recipients and service providers"
+    },
+    "prose.gdpr.recipients.intro": {
+      "fr": "Vos données ne sont accessibles qu'à l'éditeur et, pour les signalements, aux modérateurs bénévoles de la communauté. Selon les fonctions que vous utilisez, elles sont hébergées ou transmises chez :",
+      "text": "Your data is only accessible to the publisher and, for reports, to the community's volunteer moderators. Depending on the features you use, it is hosted by or sent to:"
+    },
+    "prose.gdpr.recipients.discord": {
+      "fr": "Discord Inc. : connexion avec Discord, bot et son tableau de bord ;",
+      "text": "Discord Inc.: Discord sign-in, the bot and its dashboard;"
+    },
+    "prose.gdpr.recipients.moonton": {
+      "fr": "Moonton et l'API communautaire `arena.rone.dev` : connexion au compte de jeu et statistiques de votre profil ;",
+      "text": "Moonton and the community API `arena.rone.dev`: game account sign-in and your profile statistics;"
+    },
+    "prose.gdpr.transfers.text": {
+      "fr": "Certaines fonctions facultatives font intervenir des services situés hors de l'Union européenne : Discord, aux États-Unis, si vous vous connectez avec Discord ou utilisez le bot (transferts encadrés par le cadre de protection des données UE–États-Unis ou les clauses contractuelles types de la Commission européenne) ; Moonton, en Asie, et l'API communautaire `arena.rone.dev`, si vous connectez votre compte de jeu ; le service de notifications de votre navigateur, si vous activez les notifications. Ces transferts n'ont lieu que si vous utilisez ces fonctions.",
+      "text": "Some optional features involve services located outside the European Union: Discord, in the United States, if you sign in with Discord or use the bot (transfers covered by the EU–US Data Privacy Framework or the European Commission's standard contractual clauses); Moonton, in Asia, and the community API `arena.rone.dev`, if you connect your game account; your browser's notification service, if you turn on notifications. These transfers only happen if you use these features."
+    },
+    "prose.gdpr.retention.title": {
+      "fr": "Combien de temps les données sont conservées",
+      "text": "How long data is kept"
+    },
+    "prose.gdpr.retention.community": {
+      "fr": "Communauté : votre compte, vos messages, vos votes, vos signalements et le journal de modération sont conservés tant que la communauté existe, sauf demande d'effacement ; un signalement garde une copie du texte signalé. Une carte de coéquipier est effacée sept jours après son dernier enregistrement.",
+      "text": "Community: your account, posts, votes, reports and the moderation log are kept for as long as the community exists, unless you ask for them to be erased; a report keeps a copy of the reported text. A teammate card is deleted seven days after it was last saved."
+    },
+    "prose.gdpr.retention.collection": {
+      "fr": "Collection synchronisée : jusqu'à ce que vous la vidiez, ou sur demande.",
+      "text": "Synced collection: until you empty it, or on request."
+    },
+    "prose.gdpr.retention.bot": {
+      "fr": "Pour le bot Discord : les réglages d'un serveur, et les résultats des jeux du jour qui y ont été joués, jusqu'à 30 jours après le départ du bot ; le journal des commandes slash utilisées, sans identifiant de membre, 90 jours ; les votes pour le bot, jusqu'à demande de suppression.",
+      "text": "For the Discord bot: a server's settings, and the results of the daily games played there, until 30 days after the bot leaves; the log of slash commands used, with no member ID, 90 days; votes for the bot, until you ask for their deletion."
+    },
+    "prose.gdpr.retention.rateLimits": {
+      "fr": "Limites de débit : votre adresse IP, en mémoire seulement, jamais écrite sur disque.",
+      "text": "Rate limits: your IP address, in memory only, never written to disk."
+    },
+    "prose.gdpr.rights.list": {
+      "fr": "Vous disposez d'un droit d'accès, de rectification et d'effacement de vos données, d'un droit à la limitation de leur traitement et à leur portabilité, et du droit de vous opposer à un traitement fondé sur l'intérêt légitime. Lorsque le traitement repose sur votre consentement (cookies de mesure d'audience), vous pouvez le retirer à tout moment, aussi simplement que vous l'avez donné ; ce retrait ne remet pas en cause ce qui a été fait auparavant.",
+      "text": "You have the right to access, rectify and erase your data, to restrict its processing and to data portability, and the right to object to processing based on legitimate interest. Where processing is based on your consent (audience measurement cookies), you can withdraw it at any time, as easily as you gave it; withdrawing does not affect what was done before."
+    },
+    "prose.gdpr.rights.updated": {
+      "fr": "Dernière mise à jour : 15 novembre 2026.",
+      "text": "Last updated: 15 November 2026."
+    },
+    "prose.privacy.blocks.2.p": {
+      "fr": "Le responsable du traitement est {publisher}, qui édite ce site à titre personnel et sans but lucratif (voir les [mentions légales](/legal)). Pour toute question ou demande sur vos données : [{contact}](mailto:{contact}).",
+      "text": "The data controller is {publisher}, who publishes this site personally, on a non-profit basis (see the [legal notice](/legal)). For any question or request about your data: [{contact}](mailto:{contact})."
+    },
+    "prose.privacy.blocks.4.ul.1": {
+      "fr": "Mesure d'audience avec cookies (reconnaître un visiteur qui revient) : uniquement avec votre consentement (article 6.1.a du RGPD et article 82 de la loi Informatique et Libertés), que vous pouvez retirer à tout moment.",
+      "text": "Audience measurement with cookies (recognising a returning visitor): only with your consent (article 6.1.a of the GDPR and article 82 of the French Data Protection Act), which you can withdraw at any time."
+    },
+    "prose.privacy.blocks.4.ul.2": {
+      "fr": "Fonctions que vous demandez (connexion au compte de jeu ou à Discord, communauté, collection de skins, notifications de patch, bot Discord et son tableau de bord) : exécution du service demandé, selon ses conditions d'utilisation (article 6.1.b du RGPD).",
+      "text": "Features you ask for (game account or Discord sign-in, community, skin collection, patch notifications, Discord bot and its dashboard): performance of the requested service, under its terms of use (article 6.1.b of the GDPR)."
+    },
+    "prose.privacy.blocks.4.ul.4": {
+      "fr": "Mémorisation de vos préférences (langue, favoris, réglages des outils) : nécessaire au fonctionnement du site tel que vous l'utilisez, dans votre navigateur.",
+      "text": "Remembering your preferences (language, favourites, tool settings): needed for the site to work the way you use it, in your browser."
     }
   },
   "es": {
@@ -7842,22 +7982,6 @@
       "fr": "votre carte de recherche de coéquipiers, et, si vous les ajoutez, votre ID de jeu et votre pseudo Discord : ils ne sont montrés qu'aux joueurs connectés, et la carte est effacée sept jours après son dernier enregistrement.",
       "text": "tu tarjeta de búsqueda de compañeros y, si los añades, tu ID del juego y tu usuario de Discord: solo los ven los jugadores con sesión iniciada, y la tarjeta se borra siete días después de su último guardado."
     },
-    "prose.community.moderation": {
-      "fr": "Les modérateurs voient les signalements et peuvent masquer, supprimer ou bannir ; chacune de leurs décisions est consignée dans un journal. Les limites de débit utilisent votre adresse IP, en mémoire seulement, quelques minutes.",
-      "text": "Los moderadores ven los reportes y pueden ocultar, eliminar o banear; cada una de sus decisiones queda anotada en un registro. Los límites de frecuencia usan tu dirección IP, solo en memoria, durante unos minutos."
-    },
-    "prose.community.deletion": {
-      "fr": "Vous pouvez modifier un message pendant une heure et le supprimer pendant une journée, retirer votre carte à tout moment. Au-delà, ou pour effacer toute votre participation, écrivez à {contact}.",
-      "text": "Puedes editar un mensaje durante una hora y eliminarlo durante un día, y retirar tu tarjeta en cualquier momento. Después, o para borrar toda tu participación, escribe a {contact}."
-    },
-    "prose.privacy.blocks.0.p": {
-      "fr": "Ce site est conçu pour conserver le moins de données possible. La plupart des pages fonctionnent sans rien enregistrer sur un serveur ; seules les fonctions que vous choisissez d'utiliser (connexion au compte de jeu, communauté, notifications, bot Discord) gardent ce qu'elles décrivent plus bas. Cette page détaille ce qui est traité, et où.",
-      "text": "Este sitio está pensado para guardar los menos datos posibles. La mayoría de las páginas funcionan sin registrar nada en un servidor; solo las funciones que eliges usar (inicio de sesión con la cuenta del juego, comunidad, notificaciones, bot de Discord) guardan lo que describen más abajo. Esta página detalla qué se trata, y dónde."
-    },
-    "prose.privacy.blocks.15.p": {
-      "fr": "Vous gardez la main sur ce qui vit dans votre navigateur (favoris, session) en vous déconnectant ou en effaçant les données du site. Pour consulter ou supprimer ce que le serveur conserve sur vous (communauté, notifications, bot Discord), ou pour toute question, écrivez à [{contact}](mailto:{contact}).",
-      "text": "Mantienes el control de lo que vive en tu navegador (favoritos, sesión) cerrando sesión o borrando los datos del sitio. Para consultar o eliminar lo que el servidor guarda sobre ti (comunidad, notificaciones, bot de Discord), o para cualquier pregunta, escribe a [{contact}](mailto:{contact})."
-    },
     "pages.community.moderation.deleted": {
       "fr": "supprimé par son auteur",
       "text": "eliminado por su autor"
@@ -8849,6 +8973,18 @@
     "discordCta.copy.text": {
       "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
       "text": "Únete al Discord de MLBBDex: compañeros por rango, avisos de parche y el MLBBdle del día."
+    },
+    "consent.text": {
+      "fr": "Avec votre accord, MLBBDex dépose des cookies pour savoir combien de visiteurs reviennent. La mesure est faite par Matomo, installé sur le serveur du site : pas de publicité, pas de pistage par des tiers, aucune donnée vendue. Si vous refusez, elle continue sans cookie, de façon anonyme.",
+      "text": "Con tu consentimiento, MLBBDex usa cookies para saber cuántos visitantes vuelven. La medición se hace con Matomo, instalado en el propio servidor del sitio: sin publicidad, sin rastreo de terceros, sin venta de datos. Si las rechazas, sigue de forma anónima, sin cookies."
+    },
+    "prose.gdpr.cookies.head.by": {
+      "fr": "Émetteur",
+      "text": "Emisor"
+    },
+    "prose.gdpr.storage.retribution": {
+      "fr": "Meilleurs scores du test de Châtiment.",
+      "text": "Mejores puntuaciones de la Prueba de Castigo."
     }
   },
   "id": {
@@ -10627,54 +10763,6 @@
     "prose.legal.blocks.7.p": {
       "fr": "Les visuels affichés (portraits, icônes, emblèmes, illustrations) proviennent du wiki communautaire et restent la propriété de Moonton. Ils sont inclus à des fins d'illustration et d'information. Sur demande de l'ayant droit, ils seront retirés.",
       "text": "Visual yang ditampilkan (potret, ikon, emblem, ilustrasi) berasal dari wiki komunitas dan tetap menjadi milik Moonton. Visual tersebut disertakan untuk tujuan ilustrasi dan informasi, dan akan dihapus atas permintaan pemegang hak."
-    },
-    "prose.privacy.blocks.0.p": {
-      "fr": "Ce site est conçu pour conserver le moins de données possible. La plupart des pages fonctionnent sans rien enregistrer sur un serveur ; seules les fonctions que vous choisissez d'utiliser (connexion au compte de jeu, communauté, notifications, bot Discord) gardent ce qu'elles décrivent plus bas. Cette page détaille ce qui est traité, et où.",
-      "text": "Situs ini dirancang untuk menyimpan data sesedikit mungkin. Sebagian besar halaman berjalan tanpa menyimpan apa pun di server; hanya fitur yang kamu pilih untuk digunakan (login akun game, komunitas, notifikasi, bot Discord) yang menyimpan apa yang dijelaskan di bawah. Halaman ini merinci apa yang diproses, dan di mana."
-    },
-    "prose.privacy.blocks.1.h": {
-      "fr": "Cookies",
-      "text": "Cookie"
-    },
-    "prose.privacy.blocks.10.p": {
-      "fr": "Les images (portraits, icônes, emblèmes) sont servies par les hébergeurs de Moonton et du wiki communautaire. Charger une page adresse donc des requêtes à ces services, qui peuvent voir votre adresse IP, comme pour toute ressource distante.",
-      "text": "Gambar (potret, ikon, emblem) disajikan oleh host Moonton dan wiki komunitas. Karena itu, memuat halaman akan mengirim permintaan ke layanan tersebut, yang dapat melihat alamat IP Anda, seperti halnya sumber daya jarak jauh lainnya."
-    },
-    "prose.privacy.blocks.11.h": {
-      "fr": "Mesure d'audience",
-      "text": "Pengukuran pengunjung"
-    },
-    "prose.privacy.blocks.12.p": {
-      "fr": "Si une mesure d'audience est activée, elle l'est avec un outil sans cookie et sans donnée personnelle, qui ne suit pas les visiteurs d'un site à l'autre. Aucun bandeau de consentement n'est alors nécessaire.",
-      "text": "Jika pengukuran pengunjung diaktifkan, pengukuran itu menggunakan alat tanpa cookie dan tanpa data pribadi, yang tidak melacak pengunjung dari satu situs ke situs lain. Dalam hal ini, banner persetujuan tidak diperlukan."
-    },
-    "prose.privacy.blocks.15.p": {
-      "fr": "Vous gardez la main sur ce qui vit dans votre navigateur (favoris, session) en vous déconnectant ou en effaçant les données du site. Pour consulter ou supprimer ce que le serveur conserve sur vous (communauté, notifications, bot Discord), ou pour toute question, écrivez à [{contact}](mailto:{contact}).",
-      "text": "Kamu tetap memegang kendali atas apa yang ada di browsermu (favorit, sesi) dengan keluar atau menghapus data situs. Untuk melihat atau menghapus apa yang disimpan server tentangmu (komunitas, notifikasi, bot Discord), atau untuk pertanyaan apa pun, kirim email ke [{contact}](mailto:{contact})."
-    },
-    "prose.privacy.blocks.2.p": {
-      "fr": "Un seul cookie peut être déposé, et uniquement si vous connectez votre compte de jeu :",
-      "text": "Hanya satu cookie yang dapat dipasang, dan hanya jika Anda menghubungkan akun game Anda:"
-    },
-    "prose.privacy.blocks.3.ul.0": {
-      "fr": "`mlbb_jeu` — cookie de session strictement nécessaire à la connexion. Il contient le jeton temporaire remis par le service de Moonton, ne quitte jamais le serveur (`httpOnly`), et expire de lui-même. Sans connexion, aucun cookie n'est déposé.",
-      "text": "`mlbb_jeu` — cookie sesi yang mutlak diperlukan untuk login. Cookie ini berisi token sementara yang diberikan oleh layanan Moonton, tidak pernah meninggalkan server (`httpOnly`), dan kedaluwarsa dengan sendirinya. Tanpa login, tidak ada cookie yang dipasang."
-    },
-    "prose.privacy.blocks.4.p": {
-      "fr": "Ce cookie étant strictement nécessaire au service que vous demandez (rester connecté), il ne requiert pas de consentement préalable. Aucun cookie publicitaire ni de suivi n'est utilisé.",
-      "text": "Karena cookie ini mutlak diperlukan untuk layanan yang Anda minta (tetap login), cookie ini tidak memerlukan persetujuan sebelumnya. Tidak ada cookie iklan maupun pelacakan yang digunakan."
-    },
-    "prose.privacy.blocks.6.p": {
-      "fr": "Vos héros favoris sont enregistrés dans le stockage local de votre navigateur (`localStorage`), sur votre appareil uniquement. Ils ne sont envoyés à aucun serveur et ne quittent pas ce navigateur. Vider les données du site les efface.",
-      "text": "Hero favorit Anda disimpan di penyimpanan lokal browser (`localStorage`), hanya di perangkat Anda. Data ini tidak dikirim ke server mana pun dan tidak pernah keluar dari browser ini. Menghapus data situs akan menghapusnya."
-    },
-    "prose.privacy.blocks.7.h": {
-      "fr": "Connexion au compte de jeu",
-      "text": "Login akun game"
-    },
-    "prose.privacy.blocks.8.p": {
-      "fr": "La connexion utilise le flux officiel de Moonton : vous fournissez votre identifiant et serveur de jeu, un code de vérification vous est envoyé en jeu, et le site reçoit en retour un jeton temporaire. Ces échanges transitent par une API communautaire (`arena.rone.dev`) et le service d'authentification de Moonton. Le site n'enregistre rien de ces informations : le jeton vit dans le cookie de session, côté navigateur, et disparaît à la déconnexion ou à l'expiration. Aucun mot de passe ne vous est jamais demandé.",
-      "text": "Login menggunakan alur resmi Moonton: Anda memberikan ID dan server game Anda, kode verifikasi dikirim kepada Anda di dalam game, dan situs menerima token sementara sebagai balasannya. Pertukaran ini melewati API komunitas (`arena.rone.dev`) dan layanan autentikasi Moonton. Situs ini tidak menyimpan informasi tersebut: token berada di cookie sesi, di sisi browser, dan hilang saat Anda logout atau saat kedaluwarsa. Anda tidak pernah dimintai kata sandi."
     },
     "rankNames.elite": {
       "fr": "Élite",
@@ -14224,14 +14312,6 @@
       "fr": "votre carte de recherche de coéquipiers, et, si vous les ajoutez, votre ID de jeu et votre pseudo Discord : ils ne sont montrés qu'aux joueurs connectés, et la carte est effacée sept jours après son dernier enregistrement.",
       "text": "kartu cari rekan timmu dan, jika kamu menambahkannya, ID game dan username Discord: hanya ditampilkan ke pemain yang masuk, dan kartu dihapus tujuh hari setelah terakhir disimpan."
     },
-    "prose.community.moderation": {
-      "fr": "Les modérateurs voient les signalements et peuvent masquer, supprimer ou bannir ; chacune de leurs décisions est consignée dans un journal. Les limites de débit utilisent votre adresse IP, en mémoire seulement, quelques minutes.",
-      "text": "Moderator melihat laporan dan bisa menyembunyikan, menghapus, atau memblokir; setiap keputusan mereka dicatat dalam log. Batas laju memakai alamat IP kamu, hanya di memori, selama beberapa menit."
-    },
-    "prose.community.deletion": {
-      "fr": "Vous pouvez modifier un message pendant une heure et le supprimer pendant une journée, retirer votre carte à tout moment. Au-delà, ou pour effacer toute votre participation, écrivez à {contact}.",
-      "text": "Kamu bisa mengedit postingan selama satu jam dan menghapusnya selama satu hari, serta menurunkan kartumu kapan saja. Setelah itu, atau untuk menghapus seluruh partisipasimu, kirim email ke {contact}."
-    },
     "pages.community.moderation.deleted": {
       "fr": "supprimé par son auteur",
       "text": "dihapus oleh penulisnya"
@@ -15175,6 +15255,26 @@
     "discordCta.copy.text": {
       "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
       "text": "Gabung Discord MLBBDex: cari teman per rank, notifikasi patch, dan MLBBdle harian."
+    },
+    "consent.text": {
+      "fr": "Avec votre accord, MLBBDex dépose des cookies pour savoir combien de visiteurs reviennent. La mesure est faite par Matomo, installé sur le serveur du site : pas de publicité, pas de pistage par des tiers, aucune donnée vendue. Si vous refusez, elle continue sans cookie, de façon anonyme.",
+      "text": "Dengan persetujuan Anda, MLBBDex memasang cookie untuk mengetahui berapa banyak pengunjung yang kembali. Pengukuran dilakukan dengan Matomo, yang terpasang di server situs ini sendiri: tanpa iklan, tanpa pelacakan pihak ketiga, tidak ada data yang dijual. Jika Anda menolak, pengukuran tetap berjalan secara anonim, tanpa cookie."
+    },
+    "consent.accept": {
+      "fr": "Accepter",
+      "text": "Terima"
+    },
+    "consent.refuse": {
+      "fr": "Refuser",
+      "text": "Tolak"
+    },
+    "consent.keep": {
+      "fr": "Garder mon choix actuel",
+      "text": "Pertahankan pilihan saya saat ini"
+    },
+    "prose.gdpr.cookies.head.by": {
+      "fr": "Émetteur",
+      "text": "Dipasang oleh"
     }
   },
   "it": {
@@ -18550,22 +18650,6 @@
       "fr": "votre carte de recherche de coéquipiers, et, si vous les ajoutez, votre ID de jeu et votre pseudo Discord : ils ne sont montrés qu'aux joueurs connectés, et la carte est effacée sept jours après son dernier enregistrement.",
       "text": "la tua scheda per trovare compagni e, se li aggiungi, il tuo ID di gioco e il tuo nome utente Discord: sono mostrati solo ai giocatori che hanno effettuato l'accesso, e la scheda viene cancellata sette giorni dopo l'ultimo salvataggio."
     },
-    "prose.community.moderation": {
-      "fr": "Les modérateurs voient les signalements et peuvent masquer, supprimer ou bannir ; chacune de leurs décisions est consignée dans un journal. Les limites de débit utilisent votre adresse IP, en mémoire seulement, quelques minutes.",
-      "text": "I moderatori vedono le segnalazioni e possono nascondere, eliminare o bannare; ogni loro decisione viene annotata in un registro. I limiti di frequenza usano il tuo indirizzo IP, solo in memoria, per qualche minuto."
-    },
-    "prose.community.deletion": {
-      "fr": "Vous pouvez modifier un message pendant une heure et le supprimer pendant une journée, retirer votre carte à tout moment. Au-delà, ou pour effacer toute votre participation, écrivez à {contact}.",
-      "text": "Puoi modificare un messaggio per un'ora ed eliminarlo per un giorno, e ritirare la tua scheda in qualsiasi momento. Oltre, o per cancellare tutta la tua partecipazione, scrivi a {contact}."
-    },
-    "prose.privacy.blocks.0.p": {
-      "fr": "Ce site est conçu pour conserver le moins de données possible. La plupart des pages fonctionnent sans rien enregistrer sur un serveur ; seules les fonctions que vous choisissez d'utiliser (connexion au compte de jeu, communauté, notifications, bot Discord) gardent ce qu'elles décrivent plus bas. Cette page détaille ce qui est traité, et où.",
-      "text": "Questo sito è pensato per conservare meno dati possibile. La maggior parte delle pagine funziona senza registrare nulla su un server; solo le funzioni che scegli di usare (accesso con l'account di gioco, community, notifiche, bot Discord) conservano ciò che descrivono più sotto. Questa pagina spiega cosa viene trattato, e dove."
-    },
-    "prose.privacy.blocks.15.p": {
-      "fr": "Vous gardez la main sur ce qui vit dans votre navigateur (favoris, session) en vous déconnectant ou en effaçant les données du site. Pour consulter ou supprimer ce que le serveur conserve sur vous (communauté, notifications, bot Discord), ou pour toute question, écrivez à [{contact}](mailto:{contact}).",
-      "text": "Mantieni il controllo su ciò che vive nel tuo browser (preferiti, sessione) disconnettendoti o cancellando i dati del sito. Per consultare o eliminare ciò che il server conserva su di te (community, notifiche, bot Discord), o per qualsiasi domanda, scrivi a [{contact}](mailto:{contact})."
-    },
     "pages.community.moderation.deleted": {
       "fr": "supprimé par son auteur",
       "text": "eliminato dal suo autore"
@@ -19545,6 +19629,30 @@
     "discordCta.copy.text": {
       "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
       "text": "Entra nel Discord di MLBBDex: compagni per rank, avvisi di patch e il MLBBdle del giorno."
+    },
+    "consent.text": {
+      "fr": "Avec votre accord, MLBBDex dépose des cookies pour savoir combien de visiteurs reviennent. La mesure est faite par Matomo, installé sur le serveur du site : pas de publicité, pas de pistage par des tiers, aucune donnée vendue. Si vous refusez, elle continue sans cookie, de façon anonyme.",
+      "text": "Con il tuo consenso, MLBBDex usa dei cookie per sapere quanti visitatori tornano. La misurazione è fatta con Matomo, installato sul server del sito: niente pubblicità, nessun tracciamento da parte di terzi, nessun dato venduto. Se rifiuti, continua in forma anonima, senza cookie."
+    },
+    "consent.accept": {
+      "fr": "Accepter",
+      "text": "Accetta"
+    },
+    "consent.refuse": {
+      "fr": "Refuser",
+      "text": "Rifiuta"
+    },
+    "consent.currentGranted": {
+      "fr": "Choix actuel : cookies acceptés le {date}.",
+      "text": "Scelta attuale: cookie accettati il {date}."
+    },
+    "consent.currentDenied": {
+      "fr": "Choix actuel : cookies refusés le {date}.",
+      "text": "Scelta attuale: cookie rifiutati il {date}."
+    },
+    "prose.gdpr.storage.retribution": {
+      "fr": "Meilleurs scores du test de Châtiment.",
+      "text": "Migliori punteggi del Test di Retribution."
     }
   },
   "fil": {
@@ -30124,14 +30232,6 @@
       "fr": "Notes publiées le {date}",
       "text": "Notes na inilathala noong {date}"
     },
-    "pages.privacy.lead": {
-      "fr": "Ce que le site traite, ce qu'il ne traite pas, et où vivent vos données.",
-      "text": "Ano ang pinoproseso ng site, ano ang hindi, at saan nakalagay ang iyong data."
-    },
-    "pages.privacy.metaDescription": {
-      "fr": "Cookies, stockage local, connexion au compte de jeu et mesure d'audience : ce que le site traite, et où.",
-      "text": "Cookies, local storage, pag-log in sa game account at audience measurement: ano ang pinoproseso ng site, at saan."
-    },
     "pages.privacy.title": {
       "fr": "Confidentialité",
       "text": "Privacy"
@@ -32992,17 +33092,9 @@
       "fr": "votre carte de recherche de coéquipiers, et, si vous les ajoutez, votre ID de jeu et votre pseudo Discord : ils ne sont montrés qu'aux joueurs connectés, et la carte est effacée sept jours après son dernier enregistrement.",
       "text": "ang iyong teammate card at, kung idaragdag mo, ang iyong game ID at Discord username: ipinapakita lang ang mga ito sa mga naka-sign in na player, at binubura ang card pitong araw pagkatapos ng huling pag-save nito."
     },
-    "prose.community.deletion": {
-      "fr": "Vous pouvez modifier un message pendant une heure et le supprimer pendant une journée, retirer votre carte à tout moment. Au-delà, ou pour effacer toute votre participation, écrivez à {contact}.",
-      "text": "Maaari mong i-edit ang isang post sa loob ng isang oras at i-delete ito sa loob ng isang araw, at tanggalin ang iyong card anumang oras. Lampas doon, o para burahin ang lahat ng iyong paglahok, sumulat sa {contact}."
-    },
     "prose.community.intro": {
       "fr": "Si vous écrivez dans la communauté (forum, votes, signalements, carte de recherche de coéquipiers), le serveur du site conserve, dans sa base de données :",
       "text": "Kung lumalahok ka sa community (forum, boto, report, teammate card), itinatago ng server ng site, sa database nito:"
-    },
-    "prose.community.moderation": {
-      "fr": "Les modérateurs voient les signalements et peuvent masquer, supprimer ou bannir ; chacune de leurs décisions est consignée dans un journal. Les limites de débit utilisent votre adresse IP, en mémoire seulement, quelques minutes.",
-      "text": "Nakikita ng mga moderator ang mga report at maaari silang magtago, mag-delete o mag-ban; isinusulat sa isang log ang bawat desisyon nila. Ginagamit ng mga rate limit ang iyong IP address, sa memory lamang, sa loob ng ilang minuto."
     },
     "prose.community.posts": {
       "fr": "vos discussions et réponses, publiques, avec leur date ; vos votes et vos signalements, qui ne sont montrés à personne d'autre que les modérateurs (les signalements) ;",
@@ -33023,10 +33115,6 @@
     "prose.legal.blocks.10.p": {
       "fr": "Les informations sont fournies à titre indicatif, sans garantie d'exactitude ni d'exhaustivité : le jeu évolue, et certaines données peuvent être en retard sur une mise à jour. Les liens vers des sites tiers n'engagent que leurs auteurs.",
       "text": "Ibinibigay ang impormasyon bilang gabay lamang, nang walang garantiya ng katumpakan o pagkakumpleto: nagbabago ang game, at maaaring mahuli ang ilang data sa isang update. Ang mga link sa mga third-party na site ay tanging pananagutan ng kanilang mga may-akda."
-    },
-    "prose.legal.blocks.12.p": {
-      "fr": "Le traitement des données et l'usage des cookies sont détaillés dans la [politique de confidentialité](/privacy).",
-      "text": "Ang pagproseso ng data at ang paggamit ng cookies ay nakadetalye sa [privacy policy](/privacy)."
     },
     "prose.legal.blocks.2.p": {
       "fr": "Contact : [{contact}](mailto:{contact})",
@@ -33051,66 +33139,6 @@
     "prose.legal.blocks.8.p": {
       "fr": "Les données factuelles proviennent du [wiki Mobile Legends](https://mobilelegends.fandom.com) (licence CC BY-SA) et d'une API communautaire. Le code et les textes rédigés pour ce site sont publiés sous licence MIT — voir le [dépôt public]({repository}).",
       "text": "Ang factual na data ay galing sa [Mobile Legends wiki](https://mobilelegends.fandom.com) (lisensyang CC BY-SA) at sa isang community API. Ang code at mga text na isinulat para sa site na ito ay inilalathala sa ilalim ng MIT license — tingnan ang [public repository]({repository})."
-    },
-    "prose.privacy.blocks.0.p": {
-      "fr": "Ce site est conçu pour conserver le moins de données possible. La plupart des pages fonctionnent sans rien enregistrer sur un serveur ; seules les fonctions que vous choisissez d'utiliser (connexion au compte de jeu, communauté, notifications, bot Discord) gardent ce qu'elles décrivent plus bas. Cette page détaille ce qui est traité, et où.",
-      "text": "Dinisenyo ang site na ito para magtago ng pinakakaunting data hangga't maaari. Gumagana ang karamihan ng page nang walang iniimbak sa server; ang mga feature lang na pinili mong gamitin (pag-login sa game account, community, notification, Discord bot) ang nagtatago ng inilalarawan nila sa ibaba. Idinedetalye ng page na ito kung ano ang pinoproseso, at saan."
-    },
-    "prose.privacy.blocks.1.h": {
-      "fr": "Cookies",
-      "text": "Cookies"
-    },
-    "prose.privacy.blocks.10.p": {
-      "fr": "Les images (portraits, icônes, emblèmes) sont servies par les hébergeurs de Moonton et du wiki communautaire. Charger une page adresse donc des requêtes à ces services, qui peuvent voir votre adresse IP, comme pour toute ressource distante.",
-      "text": "Ang mga image (portrait, icon, emblem) ay ini-serve ng mga host ng Moonton at ng community wiki. Kaya kapag naglo-load ng page, nagpapadala ito ng mga request sa mga serbisyong ito, na makakakita ng iyong IP address, gaya ng anumang remote na resource."
-    },
-    "prose.privacy.blocks.11.h": {
-      "fr": "Mesure d'audience",
-      "text": "Audience measurement"
-    },
-    "prose.privacy.blocks.12.p": {
-      "fr": "Si une mesure d'audience est activée, elle l'est avec un outil sans cookie et sans donnée personnelle, qui ne suit pas les visiteurs d'un site à l'autre. Aucun bandeau de consentement n'est alors nécessaire.",
-      "text": "Kung naka-enable ang audience measurement, gumagamit ito ng tool na walang cookie, hindi nangongolekta ng personal na data at hindi sumusubaybay sa mga bisita mula sa isang site papunta sa iba. Sa ganitong kaso, hindi kailangan ng consent banner."
-    },
-    "prose.privacy.blocks.13.p": {
-      "fr": "Les appels à l'API publique (`/api/v1`), faits par des scripts ou d'autres sites, sont comptés de la même façon, par le serveur et sans cookie : l'adresse demandée, le code de réponse, la page d'origine et le logiciel déclarés par l'appel, ainsi que l'adresse IP, anonymisée par l'outil de mesure. Aucun identifiant n'est attribué, et un appel envoyé avec l'en-tête `DNT: 1` ou `Sec-GPC: 1` n'est pas compté.",
-      "text": "Ang mga tawag sa public API (`/api/v1`), na ginagawa ng mga script o ibang site, ay binibilang sa parehong paraan, ng server at walang cookie: ang hiniling na address, ang response code, ang referring page at ang software na idinedeklara ng tawag, at ang IP address, na ina-anonymize ng measurement tool. Walang identifier na itinatalaga, at hindi binibilang ang tawag na may header na `DNT: 1` o `Sec-GPC: 1`."
-    },
-    "prose.privacy.blocks.15.p": {
-      "fr": "Vous gardez la main sur ce qui vit dans votre navigateur (favoris, session) en vous déconnectant ou en effaçant les données du site. Pour consulter ou supprimer ce que le serveur conserve sur vous (communauté, notifications, bot Discord), ou pour toute question, écrivez à [{contact}](mailto:{contact}).",
-      "text": "Ikaw ang may kontrol sa nasa iyong browser (mga paborito, session) sa pamamagitan ng pag-log out o pag-clear ng data ng site. Para makita o mabura ang itinatago ng server tungkol sa iyo (community, notification, Discord bot), o para sa anumang tanong, sumulat sa [{contact}](mailto:{contact})."
-    },
-    "prose.privacy.blocks.2.p": {
-      "fr": "Un seul cookie peut être déposé, et uniquement si vous connectez votre compte de jeu :",
-      "text": "Isang cookie lang ang maaaring ilagay, at kung ikokonekta mo lang ang iyong game account:"
-    },
-    "prose.privacy.blocks.3.ul.0": {
-      "fr": "`mlbb_jeu` — cookie de session strictement nécessaire à la connexion. Il contient le jeton temporaire remis par le service de Moonton, ne quitte jamais le serveur (`httpOnly`), et expire de lui-même. Sans connexion, aucun cookie n'est déposé.",
-      "text": "`mlbb_jeu` — session cookie na mahigpit na kinakailangan para sa pag-login. Naglalaman ito ng pansamantalang token na ibinigay ng serbisyo ng Moonton, hindi kailanman umaalis sa server (`httpOnly`), at kusang nag-e-expire. Kung hindi ka mag-log in, walang cookie na inilalagay."
-    },
-    "prose.privacy.blocks.4.p": {
-      "fr": "Ce cookie étant strictement nécessaire au service que vous demandez (rester connecté), il ne requiert pas de consentement préalable. Aucun cookie publicitaire ni de suivi n'est utilisé.",
-      "text": "Dahil mahigpit na kinakailangan ang cookie na ito para sa serbisyong hinihiling mo (manatiling naka-log in), hindi ito nangangailangan ng paunang pahintulot. Walang ginagamit na advertising o tracking cookie."
-    },
-    "prose.privacy.blocks.5.h": {
-      "fr": "Stockage dans votre navigateur",
-      "text": "Storage sa iyong browser"
-    },
-    "prose.privacy.blocks.6.p": {
-      "fr": "Vos héros favoris sont enregistrés dans le stockage local de votre navigateur (`localStorage`), sur votre appareil uniquement. Ils ne sont envoyés à aucun serveur et ne quittent pas ce navigateur. Vider les données du site les efface.",
-      "text": "Naka-save ang mga paborito mong hero sa local storage ng iyong browser (`localStorage`), sa device mo lamang. Hindi ito ipinapadala sa anumang server at hindi kailanman umaalis sa browser na ito. Mabubura ito kapag ni-clear mo ang data ng site."
-    },
-    "prose.privacy.blocks.7.h": {
-      "fr": "Connexion au compte de jeu",
-      "text": "Pag-login sa game account"
-    },
-    "prose.privacy.blocks.8.p": {
-      "fr": "La connexion utilise le flux officiel de Moonton : vous fournissez votre identifiant et serveur de jeu, un code de vérification vous est envoyé en jeu, et le site reçoit en retour un jeton temporaire. Ces échanges transitent par une API communautaire (`arena.rone.dev`) et le service d'authentification de Moonton. Le site n'enregistre rien de ces informations : le jeton vit dans le cookie de session, côté navigateur, et disparaît à la déconnexion ou à l'expiration. Aucun mot de passe ne vous est jamais demandé.",
-      "text": "Ginagamit ng pag-login ang opisyal na proseso ng Moonton: ibinibigay mo ang iyong game ID at server, may verification code na ipapadala sa iyo sa loob ng game, at tatanggap ang site ng pansamantalang token bilang kapalit. Dumadaan ang mga palitang ito sa isang community API (`arena.rone.dev`) at sa authentication service ng Moonton. Wala sa impormasyong ito ang iniimbak ng site: nasa session cookie ang token, sa panig ng browser, at nawawala ito kapag nag-log out ka o kapag nag-expire ito. Hindi ka kailanman hihingan ng password."
-    },
-    "prose.privacy.blocks.9.h": {
-      "fr": "Contenus tiers",
-      "text": "Third-party na content"
     },
     "prose.push.endpoint": {
       "fr": "l'adresse d'abonnement fournie par le service de notifications de votre navigateur (Google, Mozilla, Apple ou Microsoft selon le navigateur) et les clés de chiffrement qui l'accompagnent ;",
@@ -34419,6 +34447,14 @@
     "discordCta.copy.text": {
       "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
       "text": "Sumali sa MLBBDex Discord: teammates ayon sa rank, patch alerts at MLBBdle ng araw."
+    },
+    "consent.text": {
+      "fr": "Avec votre accord, MLBBDex dépose des cookies pour savoir combien de visiteurs reviennent. La mesure est faite par Matomo, installé sur le serveur du site : pas de publicité, pas de pistage par des tiers, aucune donnée vendue. Si vous refusez, elle continue sans cookie, de façon anonyme.",
+      "text": "Kung papayag ka, gagamit ang MLBBDex ng cookies para malaman kung ilang bisita ang bumabalik. Ang pagsukat ay ginagawa ng Matomo, na naka-install sa sariling server ng site: walang ads, walang pagsubaybay ng third party, walang ibinebentang data. Kung tatanggi ka, magpapatuloy ito nang anonymous, nang walang cookies."
+    },
+    "prose.gdpr.cookies.head.by": {
+      "fr": "Émetteur",
+      "text": "Naglalagay"
     }
   },
   "th": {
@@ -44310,14 +44346,6 @@
       "fr": "Patch notes",
       "text": "แพตช์โน้ต"
     },
-    "pages.privacy.lead": {
-      "fr": "Ce que le site traite, ce qu'il ne traite pas, et où vivent vos données.",
-      "text": "เว็บไซต์ประมวลผลข้อมูลอะไร ไม่ประมวลผลอะไร และข้อมูลของคุณถูกเก็บไว้ที่ใด"
-    },
-    "pages.privacy.metaDescription": {
-      "fr": "Cookies, stockage local, connexion au compte de jeu et mesure d'audience : ce que le site traite, et où.",
-      "text": "คุกกี้ พื้นที่จัดเก็บในเครื่อง การเข้าสู่ระบบด้วยบัญชีเกม และการวัดผู้เข้าชม: เว็บไซต์ประมวลผลข้อมูลอะไร และที่ไหน"
-    },
     "pages.privacy.title": {
       "fr": "Confidentialité",
       "text": "ความเป็นส่วนตัว"
@@ -46966,17 +46994,9 @@
       "fr": "votre carte de recherche de coéquipiers, et, si vous les ajoutez, votre ID de jeu et votre pseudo Discord : ils ne sont montrés qu'aux joueurs connectés, et la carte est effacée sept jours après son dernier enregistrement.",
       "text": "การ์ดหาเพื่อนร่วมทีมของคุณ และ ID เกมกับชื่อผู้ใช้ Discord หากคุณเพิ่มไว้: ข้อมูลเหล่านี้แสดงเฉพาะผู้เล่นที่เข้าสู่ระบบ และการ์ดจะถูกลบเมื่อครบเจ็ดวันนับจากการบันทึกครั้งล่าสุด"
     },
-    "prose.community.deletion": {
-      "fr": "Vous pouvez modifier un message pendant une heure et le supprimer pendant une journée, retirer votre carte à tout moment. Au-delà, ou pour effacer toute votre participation, écrivez à {contact}.",
-      "text": "คุณแก้ไขโพสต์ได้ภายในหนึ่งชั่วโมง ลบได้ภายในหนึ่งวัน และถอนการ์ดได้ทุกเมื่อ หากเกินกว่านั้น หรือต้องการลบการมีส่วนร่วมทั้งหมดของคุณ โปรดติดต่อ {contact}"
-    },
     "prose.community.intro": {
       "fr": "Si vous écrivez dans la communauté (forum, votes, signalements, carte de recherche de coéquipiers), le serveur du site conserve, dans sa base de données :",
       "text": "หากคุณร่วมกิจกรรมในคอมมูนิตี้ (ฟอรัม โหวต รายงาน การ์ดหาเพื่อนร่วมทีม) เซิร์ฟเวอร์ของเว็บไซต์จะเก็บข้อมูลต่อไปนี้ไว้ในฐานข้อมูล:"
-    },
-    "prose.community.moderation": {
-      "fr": "Les modérateurs voient les signalements et peuvent masquer, supprimer ou bannir ; chacune de leurs décisions est consignée dans un journal. Les limites de débit utilisent votre adresse IP, en mémoire seulement, quelques minutes.",
-      "text": "ผู้ดูแลเห็นรายงาน และสามารถซ่อน ลบ หรือแบนได้; ทุกการตัดสินใจของผู้ดูแลจะถูกบันทึกไว้ในบันทึกการดูแล การจำกัดอัตราการใช้งานใช้ที่อยู่ IP ของคุณในหน่วยความจำเท่านั้น เป็นเวลาไม่กี่นาที"
     },
     "prose.community.posts": {
       "fr": "vos discussions et réponses, publiques, avec leur date ; vos votes et vos signalements, qui ne sont montrés à personne d'autre que les modérateurs (les signalements) ;",
@@ -47021,50 +47041,6 @@
     "prose.legal.blocks.9.h": {
       "fr": "Responsabilité",
       "text": "ความรับผิด"
-    },
-    "prose.privacy.blocks.0.p": {
-      "fr": "Ce site est conçu pour conserver le moins de données possible. La plupart des pages fonctionnent sans rien enregistrer sur un serveur ; seules les fonctions que vous choisissez d'utiliser (connexion au compte de jeu, communauté, notifications, bot Discord) gardent ce qu'elles décrivent plus bas. Cette page détaille ce qui est traité, et où.",
-      "text": "เว็บไซต์นี้ออกแบบให้เก็บข้อมูลน้อยที่สุดเท่าที่เป็นไปได้ หน้าส่วนใหญ่ทำงานโดยไม่จัดเก็บสิ่งใดบนเซิร์ฟเวอร์; มีเพียงฟีเจอร์ที่คุณเลือกใช้ (การเข้าสู่ระบบด้วยบัญชีเกม คอมมูนิตี้ การแจ้งเตือน บอท Discord) ที่จะเก็บข้อมูลตามที่อธิบายไว้ด้านล่าง หน้านี้อธิบายรายละเอียดว่ามีการประมวลผลข้อมูลใด และที่ใด"
-    },
-    "prose.privacy.blocks.10.p": {
-      "fr": "Les images (portraits, icônes, emblèmes) sont servies par les hébergeurs de Moonton et du wiki communautaire. Charger une page adresse donc des requêtes à ces services, qui peuvent voir votre adresse IP, comme pour toute ressource distante.",
-      "text": "รูปภาพ (ภาพฮีโร่ ไอคอน Emblem) ให้บริการโดยโฮสต์ของ Moonton และของวิกิคอมมูนิตี้ ดังนั้นการโหลดหน้าเว็บจะส่งคำขอไปยังบริการเหล่านี้ ซึ่งสามารถเห็นที่อยู่ IP ของคุณได้ เช่นเดียวกับทรัพยากรภายนอกทั่วไป"
-    },
-    "prose.privacy.blocks.12.p": {
-      "fr": "Si une mesure d'audience est activée, elle l'est avec un outil sans cookie et sans donnée personnelle, qui ne suit pas les visiteurs d'un site à l'autre. Aucun bandeau de consentement n'est alors nécessaire.",
-      "text": "หากเปิดใช้การวัดผู้ชม จะใช้เครื่องมือที่ไม่ใช้คุกกี้ ไม่เก็บข้อมูลส่วนบุคคล และไม่ติดตามผู้เยี่ยมชมข้ามเว็บไซต์ ในกรณีนี้จึงไม่จำเป็นต้องมีแบนเนอร์ขอความยินยอม"
-    },
-    "prose.privacy.blocks.13.p": {
-      "fr": "Les appels à l'API publique (`/api/v1`), faits par des scripts ou d'autres sites, sont comptés de la même façon, par le serveur et sans cookie : l'adresse demandée, le code de réponse, la page d'origine et le logiciel déclarés par l'appel, ainsi que l'adresse IP, anonymisée par l'outil de mesure. Aucun identifiant n'est attribué, et un appel envoyé avec l'en-tête `DNT: 1` ou `Sec-GPC: 1` n'est pas compté.",
-      "text": "การเรียกใช้ API สาธารณะ (`/api/v1`) โดยสคริปต์หรือเว็บไซต์อื่น จะถูกนับในลักษณะเดียวกัน โดยเซิร์ฟเวอร์และไม่ใช้คุกกี้: ที่อยู่ที่ร้องขอ รหัสการตอบกลับ หน้าที่อ้างอิงมา ซอฟต์แวร์ที่การเรียกนั้นระบุ และที่อยู่ IP ซึ่งเครื่องมือวัดผลจะทำให้ไม่ระบุตัวตน ไม่มีการกำหนดตัวระบุใดๆ และการเรียกที่ส่งพร้อมส่วนหัว `DNT: 1` หรือ `Sec-GPC: 1` จะไม่ถูกนับ"
-    },
-    "prose.privacy.blocks.15.p": {
-      "fr": "Vous gardez la main sur ce qui vit dans votre navigateur (favoris, session) en vous déconnectant ou en effaçant les données du site. Pour consulter ou supprimer ce que le serveur conserve sur vous (communauté, notifications, bot Discord), ou pour toute question, écrivez à [{contact}](mailto:{contact}).",
-      "text": "คุณควบคุมข้อมูลที่อยู่ในเบราว์เซอร์ของคุณ (รายการโปรด เซสชัน) ได้เองด้วยการออกจากระบบหรือล้างข้อมูลของเว็บไซต์ หากต้องการดูหรือลบข้อมูลที่เซิร์ฟเวอร์เก็บไว้เกี่ยวกับคุณ (คอมมูนิตี้ การแจ้งเตือน บอท Discord) หรือมีคำถามใดๆ โปรดติดต่อ [{contact}](mailto:{contact})"
-    },
-    "prose.privacy.blocks.2.p": {
-      "fr": "Un seul cookie peut être déposé, et uniquement si vous connectez votre compte de jeu :",
-      "text": "มีคุกกี้ที่อาจถูกตั้งได้เพียงหนึ่งรายการ และเฉพาะเมื่อคุณเชื่อมต่อบัญชีเกมของคุณเท่านั้น:"
-    },
-    "prose.privacy.blocks.3.ul.0": {
-      "fr": "`mlbb_jeu` — cookie de session strictement nécessaire à la connexion. Il contient le jeton temporaire remis par le service de Moonton, ne quitte jamais le serveur (`httpOnly`), et expire de lui-même. Sans connexion, aucun cookie n'est déposé.",
-      "text": "`mlbb_jeu` — คุกกี้เซสชันที่จำเป็นอย่างยิ่งต่อการเข้าสู่ระบบ ประกอบด้วยโทเค็นชั่วคราวที่ออกโดยบริการของ Moonton ไม่เคยออกจากฝั่งเซิร์ฟเวอร์ (`httpOnly`) และหมดอายุเอง หากคุณไม่เข้าสู่ระบบ จะไม่มีการตั้งคุกกี้ใดๆ"
-    },
-    "prose.privacy.blocks.4.p": {
-      "fr": "Ce cookie étant strictement nécessaire au service que vous demandez (rester connecté), il ne requiert pas de consentement préalable. Aucun cookie publicitaire ni de suivi n'est utilisé.",
-      "text": "เนื่องจากคุกกี้นี้จำเป็นอย่างยิ่งต่อบริการที่คุณร้องขอ (การคงสถานะเข้าสู่ระบบ) จึงไม่จำเป็นต้องได้รับความยินยอมล่วงหน้า ไม่มีการใช้คุกกี้เพื่อการโฆษณาหรือการติดตาม"
-    },
-    "prose.privacy.blocks.6.p": {
-      "fr": "Vos héros favoris sont enregistrés dans le stockage local de votre navigateur (`localStorage`), sur votre appareil uniquement. Ils ne sont envoyés à aucun serveur et ne quittent pas ce navigateur. Vider les données du site les efface.",
-      "text": "ฮีโร่โปรดของคุณถูกบันทึกไว้ในพื้นที่จัดเก็บภายในของเบราว์เซอร์ (`localStorage`) บนอุปกรณ์ของคุณเท่านั้น ข้อมูลนี้ไม่ถูกส่งไปยังเซิร์ฟเวอร์ใด และไม่ออกไปจากเบราว์เซอร์นี้ การล้างข้อมูลของเว็บไซต์จะลบข้อมูลดังกล่าว"
-    },
-    "prose.privacy.blocks.7.h": {
-      "fr": "Connexion au compte de jeu",
-      "text": "การเข้าสู่ระบบด้วยบัญชีเกม"
-    },
-    "prose.privacy.blocks.8.p": {
-      "fr": "La connexion utilise le flux officiel de Moonton : vous fournissez votre identifiant et serveur de jeu, un code de vérification vous est envoyé en jeu, et le site reçoit en retour un jeton temporaire. Ces échanges transitent par une API communautaire (`arena.rone.dev`) et le service d'authentification de Moonton. Le site n'enregistre rien de ces informations : le jeton vit dans le cookie de session, côté navigateur, et disparaît à la déconnexion ou à l'expiration. Aucun mot de passe ne vous est jamais demandé.",
-      "text": "การเข้าสู่ระบบใช้ขั้นตอนอย่างเป็นทางการของ Moonton: คุณระบุ ID เกมและเซิร์ฟเวอร์ ระบบจะส่งรหัสยืนยันถึงคุณในเกม และเว็บไซต์จะได้รับโทเค็นชั่วคราวกลับมา การแลกเปลี่ยนข้อมูลเหล่านี้ผ่าน API คอมมูนิตี้ (`arena.rone.dev`) และบริการยืนยันตัวตนของ Moonton เว็บไซต์ไม่จัดเก็บข้อมูลเหล่านี้: โทเค็นอยู่ในคุกกี้เซสชันฝั่งเบราว์เซอร์ และหายไปเมื่อคุณออกจากระบบหรือเมื่อหมดอายุ คุณจะไม่ถูกขอรหัสผ่านเลย"
     },
     "prose.push.endpoint": {
       "fr": "l'adresse d'abonnement fournie par le service de notifications de votre navigateur (Google, Mozilla, Apple ou Microsoft selon le navigateur) et les clés de chiffrement qui l'accompagnent ;",
@@ -48277,6 +48253,22 @@
     "discordCta.copy.text": {
       "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
       "text": "เข้าร่วม Discord ของ MLBBDex: หาเพื่อนร่วมทีมตามแรงก์ แจ้งเตือนแพตช์ และ MLBBdle ประจำวัน"
+    },
+    "consent.text": {
+      "fr": "Avec votre accord, MLBBDex dépose des cookies pour savoir combien de visiteurs reviennent. La mesure est faite par Matomo, installé sur le serveur du site : pas de publicité, pas de pistage par des tiers, aucune donnée vendue. Si vous refusez, elle continue sans cookie, de façon anonyme.",
+      "text": "หากคุณยินยอม MLBBDex จะใช้คุกกี้เพื่อดูว่ามีผู้เยี่ยมชมกลับมากี่คน การวัดผลทำด้วย Matomo ที่ติดตั้งบนเซิร์ฟเวอร์ของเว็บไซต์เอง ไม่มีโฆษณา ไม่มีการติดตามโดยบุคคลที่สาม ไม่มีการขายข้อมูล หากคุณปฏิเสธ การวัดผลจะยังคงทำต่อแบบไม่ระบุตัวตนและไม่ใช้คุกกี้"
+    },
+    "consent.currentDenied": {
+      "fr": "Choix actuel : cookies refusés le {date}.",
+      "text": "ตัวเลือกปัจจุบัน: ปฏิเสธคุกกี้เมื่อ {date}"
+    },
+    "prose.gdpr.cookies.head.by": {
+      "fr": "Émetteur",
+      "text": "ผู้ตั้งค่า"
+    },
+    "prose.gdpr.storage.retribution": {
+      "fr": "Meilleurs scores du test de Châtiment.",
+      "text": "คะแนนสูงสุดของการทดสอบ Retribution"
     }
   },
   "pt": {
@@ -56552,10 +56544,6 @@
       "fr": "Afficher le détail des {n} ajustements",
       "text": "Mostrar detalhes dos {n} ajustes"
     },
-    "pages.privacy.metaDescription": {
-      "fr": "Cookies, stockage local, connexion au compte de jeu et mesure d'audience : ce que le site traite, et où.",
-      "text": "Cookies, armazenamento local, login na conta do jogo e medição de audiência: o que o site processa, e onde."
-    },
     "pages.privacy.title": {
       "fr": "Confidentialité",
       "text": "Privacidade"
@@ -58820,17 +58808,9 @@
       "fr": "votre carte de recherche de coéquipiers, et, si vous les ajoutez, votre ID de jeu et votre pseudo Discord : ils ne sont montrés qu'aux joueurs connectés, et la carte est effacée sept jours après son dernier enregistrement.",
       "text": "seu cartão de busca de companheiros de equipe e, se você os adicionar, seu ID do jogo e seu nome de usuário do Discord: eles são mostrados apenas a jogadores conectados, e o cartão é apagado sete dias após o último salvamento."
     },
-    "prose.community.deletion": {
-      "fr": "Vous pouvez modifier un message pendant une heure et le supprimer pendant une journée, retirer votre carte à tout moment. Au-delà, ou pour effacer toute votre participation, écrivez à {contact}.",
-      "text": "Você pode editar uma mensagem durante uma hora e excluí-la durante um dia, e remover seu cartão a qualquer momento. Depois desses prazos, ou para apagar toda a sua participação, escreva para {contact}."
-    },
     "prose.community.intro": {
       "fr": "Si vous écrivez dans la communauté (forum, votes, signalements, carte de recherche de coéquipiers), le serveur du site conserve, dans sa base de données :",
       "text": "Se você participa da comunidade (fórum, votos, denúncias, cartão de busca de companheiros de equipe), o servidor do site guarda, no seu banco de dados:"
-    },
-    "prose.community.moderation": {
-      "fr": "Les modérateurs voient les signalements et peuvent masquer, supprimer ou bannir ; chacune de leurs décisions est consignée dans un journal. Les limites de débit utilisent votre adresse IP, en mémoire seulement, quelques minutes.",
-      "text": "Os moderadores veem as denúncias e podem ocultar, excluir ou banir; cada uma das decisões deles é registrada em um log. Os limites de taxa usam o seu endereço IP, apenas em memória, por alguns minutos."
     },
     "prose.community.posts": {
       "fr": "vos discussions et réponses, publiques, avec leur date ; vos votes et vos signalements, qui ne sont montrés à personne d'autre que les modérateurs (les signalements) ;",
@@ -58848,10 +58828,6 @@
       "fr": "Les informations sont fournies à titre indicatif, sans garantie d'exactitude ni d'exhaustivité : le jeu évolue, et certaines données peuvent être en retard sur une mise à jour. Les liens vers des sites tiers n'engagent que leurs auteurs.",
       "text": "As informações são fornecidas a título indicativo, sem garantia de exatidão nem de completude: o jogo evolui, e alguns dados podem estar atrasados em relação a uma atualização. Os links para sites de terceiros são de responsabilidade exclusiva de seus autores."
     },
-    "prose.legal.blocks.12.p": {
-      "fr": "Le traitement des données et l'usage des cookies sont détaillés dans la [politique de confidentialité](/privacy).",
-      "text": "O tratamento de dados e o uso de cookies estão detalhados na [política de privacidade](/privacy)."
-    },
     "prose.legal.blocks.3.h": {
       "fr": "Hébergeur",
       "text": "Hospedagem"
@@ -58867,54 +58843,6 @@
     "prose.legal.blocks.8.p": {
       "fr": "Les données factuelles proviennent du [wiki Mobile Legends](https://mobilelegends.fandom.com) (licence CC BY-SA) et d'une API communautaire. Le code et les textes rédigés pour ce site sont publiés sous licence MIT — voir le [dépôt public]({repository}).",
       "text": "Os dados factuais vêm da [wiki do Mobile Legends](https://mobilelegends.fandom.com) (licença CC BY-SA) e de uma API comunitária. O código e os textos escritos para este site são publicados sob a licença MIT; veja o [repositório público]({repository})."
-    },
-    "prose.privacy.blocks.0.p": {
-      "fr": "Ce site est conçu pour conserver le moins de données possible. La plupart des pages fonctionnent sans rien enregistrer sur un serveur ; seules les fonctions que vous choisissez d'utiliser (connexion au compte de jeu, communauté, notifications, bot Discord) gardent ce qu'elles décrivent plus bas. Cette page détaille ce qui est traité, et où.",
-      "text": "Este site foi concebido para guardar o mínimo possível de dados. A maioria das páginas funciona sem gravar nada em um servidor; apenas os recursos que você decide usar (login da conta do jogo, comunidade, notificações, bot de Discord) guardam o que descrevem abaixo. Esta página detalha o que é tratado e onde."
-    },
-    "prose.privacy.blocks.1.h": {
-      "fr": "Cookies",
-      "text": "Cookies"
-    },
-    "prose.privacy.blocks.10.p": {
-      "fr": "Les images (portraits, icônes, emblèmes) sont servies par les hébergeurs de Moonton et du wiki communautaire. Charger une page adresse donc des requêtes à ces services, qui peuvent voir votre adresse IP, comme pour toute ressource distante.",
-      "text": "As imagens (retratos, ícones, emblemas) são servidas pelos provedores de hospedagem da Moonton e da wiki da comunidade. Carregar uma página envia, portanto, solicitações a esses serviços, que podem ver o seu endereço IP, como acontece com qualquer recurso remoto."
-    },
-    "prose.privacy.blocks.12.p": {
-      "fr": "Si une mesure d'audience est activée, elle l'est avec un outil sans cookie et sans donnée personnelle, qui ne suit pas les visiteurs d'un site à l'autre. Aucun bandeau de consentement n'est alors nécessaire.",
-      "text": "Se a medição de audiência estiver ativada, ela usa uma ferramenta sem cookies e sem dados pessoais, que não rastreia os visitantes de um site para outro. Nesse caso, nenhum banner de consentimento é necessário."
-    },
-    "prose.privacy.blocks.13.p": {
-      "fr": "Les appels à l'API publique (`/api/v1`), faits par des scripts ou d'autres sites, sont comptés de la même façon, par le serveur et sans cookie : l'adresse demandée, le code de réponse, la page d'origine et le logiciel déclarés par l'appel, ainsi que l'adresse IP, anonymisée par l'outil de mesure. Aucun identifiant n'est attribué, et un appel envoyé avec l'en-tête `DNT: 1` ou `Sec-GPC: 1` n'est pas compté.",
-      "text": "As chamadas à API pública (`/api/v1`), feitas por scripts ou por outros sites, são contadas da mesma forma, pelo servidor e sem cookies: o endereço solicitado, o código de resposta, a página de origem e o software declarados pela chamada, além do endereço IP, anonimizado pela ferramenta de medição. Nenhum identificador é atribuído, e uma chamada enviada com o cabeçalho `DNT: 1` ou `Sec-GPC: 1` não é contada."
-    },
-    "prose.privacy.blocks.15.p": {
-      "fr": "Vous gardez la main sur ce qui vit dans votre navigateur (favoris, session) en vous déconnectant ou en effaçant les données du site. Pour consulter ou supprimer ce que le serveur conserve sur vous (communauté, notifications, bot Discord), ou pour toute question, écrivez à [{contact}](mailto:{contact}).",
-      "text": "Você mantém o controle do que fica no seu navegador (favoritos, sessão) ao sair ou ao limpar os dados do site. Para consultar ou excluir o que o servidor guarda sobre você (comunidade, notificações, bot de Discord), ou para qualquer dúvida, escreva para [{contact}](mailto:{contact})."
-    },
-    "prose.privacy.blocks.2.p": {
-      "fr": "Un seul cookie peut être déposé, et uniquement si vous connectez votre compte de jeu :",
-      "text": "Apenas um cookie pode ser gravado, e somente se você conectar sua conta do jogo:"
-    },
-    "prose.privacy.blocks.3.ul.0": {
-      "fr": "`mlbb_jeu` — cookie de session strictement nécessaire à la connexion. Il contient le jeton temporaire remis par le service de Moonton, ne quitte jamais le serveur (`httpOnly`), et expire de lui-même. Sans connexion, aucun cookie n'est déposé.",
-      "text": "`mlbb_jeu`: cookie de sessão estritamente necessário para o login. Ele contém o token temporário emitido pelo serviço da Moonton, nunca sai do servidor (`httpOnly`) e expira sozinho. Se você não fizer login, nenhum cookie é gravado."
-    },
-    "prose.privacy.blocks.4.p": {
-      "fr": "Ce cookie étant strictement nécessaire au service que vous demandez (rester connecté), il ne requiert pas de consentement préalable. Aucun cookie publicitaire ni de suivi n'est utilisé.",
-      "text": "Como este cookie é estritamente necessário ao serviço que você solicita (permanecer conectado), ele não exige consentimento prévio. Nenhum cookie de publicidade ou de rastreamento é utilizado."
-    },
-    "prose.privacy.blocks.6.p": {
-      "fr": "Vos héros favoris sont enregistrés dans le stockage local de votre navigateur (`localStorage`), sur votre appareil uniquement. Ils ne sont envoyés à aucun serveur et ne quittent pas ce navigateur. Vider les données du site les efface.",
-      "text": "Seus heróis favoritos são salvos no armazenamento local do seu navegador (`localStorage`), apenas no seu dispositivo. Eles não são enviados a nenhum servidor e não saem deste navegador. Limpar os dados do site os apaga."
-    },
-    "prose.privacy.blocks.7.h": {
-      "fr": "Connexion au compte de jeu",
-      "text": "Login na conta do jogo"
-    },
-    "prose.privacy.blocks.8.p": {
-      "fr": "La connexion utilise le flux officiel de Moonton : vous fournissez votre identifiant et serveur de jeu, un code de vérification vous est envoyé en jeu, et le site reçoit en retour un jeton temporaire. Ces échanges transitent par une API communautaire (`arena.rone.dev`) et le service d'authentification de Moonton. Le site n'enregistre rien de ces informations : le jeton vit dans le cookie de session, côté navigateur, et disparaît à la déconnexion ou à l'expiration. Aucun mot de passe ne vous est jamais demandé.",
-      "text": "O login usa o fluxo oficial da Moonton: você informa seu ID e servidor do jogo, um código de verificação é enviado a você no jogo, e o site recebe em troca um token temporário. Essas trocas passam por uma API comunitária (`arena.rone.dev`) e pelo serviço de autenticação da Moonton. O site não grava nenhuma dessas informações: o token fica no cookie de sessão, do lado do navegador, e desaparece quando você sai ou quando ele expira. Nenhuma senha é solicitada a você."
     },
     "prose.push.endpoint": {
       "fr": "l'adresse d'abonnement fournie par le service de notifications de votre navigateur (Google, Mozilla, Apple ou Microsoft selon le navigateur) et les clés de chiffrement qui l'accompagnent ;",
@@ -60055,6 +59983,30 @@
     "discordCta.copy.text": {
       "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
       "text": "Entre no Discord do MLBBDex: parceiros por elo, alertas de patch e o MLBBdle do dia."
+    },
+    "consent.text": {
+      "fr": "Avec votre accord, MLBBDex dépose des cookies pour savoir combien de visiteurs reviennent. La mesure est faite par Matomo, installé sur le serveur du site : pas de publicité, pas de pistage par des tiers, aucune donnée vendue. Si vous refusez, elle continue sans cookie, de façon anonyme.",
+      "text": "Com o seu consentimento, o MLBBDex usa cookies para saber quantos visitantes voltam. A medição é feita pelo Matomo, instalado no próprio servidor do site: sem publicidade, sem rastreamento por terceiros, nenhum dado vendido. Se você recusar, ela continua de forma anônima, sem cookies."
+    },
+    "consent.currentDenied": {
+      "fr": "Choix actuel : cookies refusés le {date}.",
+      "text": "Escolha atual: cookies recusados em {date}."
+    },
+    "prose.gdpr.recipients.intro": {
+      "fr": "Vos données ne sont accessibles qu'à l'éditeur et, pour les signalements, aux modérateurs bénévoles de la communauté. Selon les fonctions que vous utilisez, elles sont hébergées ou transmises chez :",
+      "text": "Seus dados só podem ser acessados pelo editor e, no caso de denúncias, pelos moderadores voluntários da comunidade. Conforme os recursos que você usa, eles são hospedados ou enviados para:"
+    },
+    "prose.gdpr.retention.title": {
+      "fr": "Combien de temps les données sont conservées",
+      "text": "Por quanto tempo os dados são guardados"
+    },
+    "prose.gdpr.storage.retribution": {
+      "fr": "Meilleurs scores du test de Châtiment.",
+      "text": "Melhores pontuações do Teste de Retribution."
+    },
+    "pages.privacy.lead": {
+      "fr": "Ce que le site traite, pourquoi, combien de temps, et comment exercer vos droits.",
+      "text": "O que o site processa, por quê, por quanto tempo e como exercer seus direitos."
     }
   },
   "ru": {
@@ -69266,10 +69218,6 @@
       "fr": "Notes publiées le {date}",
       "text": "Патч-ноуты опубликованы {date}"
     },
-    "pages.privacy.metaDescription": {
-      "fr": "Cookies, stockage local, connexion au compte de jeu et mesure d'audience : ce que le site traite, et où.",
-      "text": "Файлы cookie, локальное хранилище, вход через игровой аккаунт и измерение аудитории: что и где обрабатывает сайт."
-    },
     "pages.quiz.challenges.duel.desc": {
       "fr": "{n} paires de héros : lequel gagne le plus souvent en partie classée, tous rangs confondus ? Les taux sont ceux de notre dernier relevé.",
       "text": "Пар героев: {n}. Кто из двух чаще побеждает в рейтинговых матчах по всем рангам? Показатели взяты из нашего последнего среза данных."
@@ -71838,17 +71786,9 @@
       "fr": "votre carte de recherche de coéquipiers, et, si vous les ajoutez, votre ID de jeu et votre pseudo Discord : ils ne sont montrés qu'aux joueurs connectés, et la carte est effacée sept jours après son dernier enregistrement.",
       "text": "вашу карточку поиска тиммейтов и, если вы их добавите, ваш игровой ID и имя пользователя Discord: они видны только вошедшим игрокам, а карточка удаляется через семь дней после последнего сохранения."
     },
-    "prose.community.deletion": {
-      "fr": "Vous pouvez modifier un message pendant une heure et le supprimer pendant une journée, retirer votre carte à tout moment. Au-delà, ou pour effacer toute votre participation, écrivez à {contact}.",
-      "text": "Вы можете редактировать сообщение в течение часа, удалять его в течение суток и снять свою карточку в любой момент. В остальных случаях или чтобы удалить всё ваше участие, напишите на {contact}."
-    },
     "prose.community.intro": {
       "fr": "Si vous écrivez dans la communauté (forum, votes, signalements, carte de recherche de coéquipiers), le serveur du site conserve, dans sa base de données :",
       "text": "Если вы участвуете в сообществе (форум, голоса, жалобы, карточка поиска тиммейтов), сервер сайта хранит в своей базе данных:"
-    },
-    "prose.community.moderation": {
-      "fr": "Les modérateurs voient les signalements et peuvent masquer, supprimer ou bannir ; chacune de leurs décisions est consignée dans un journal. Les limites de débit utilisent votre adresse IP, en mémoire seulement, quelques minutes.",
-      "text": "Модераторы видят жалобы и могут скрывать, удалять и блокировать; каждое их решение записывается в журнал. Ограничения частоты запросов используют ваш IP-адрес — только в памяти и на несколько минут."
     },
     "prose.community.posts": {
       "fr": "vos discussions et réponses, publiques, avec leur date ; vos votes et vos signalements, qui ne sont montrés à personne d'autre que les modérateurs (les signalements) ;",
@@ -71890,45 +71830,9 @@
       "fr": "Les données factuelles proviennent du [wiki Mobile Legends](https://mobilelegends.fandom.com) (licence CC BY-SA) et d'une API communautaire. Le code et les textes rédigés pour ce site sont publiés sous licence MIT — voir le [dépôt public]({repository}).",
       "text": "Фактические данные взяты из [вики Mobile Legends](https://mobilelegends.fandom.com) (лицензия CC BY-SA) и API сообщества. Код и тексты, написанные для этого сайта, опубликованы под лицензией MIT — см. [публичный репозиторий]({repository})."
     },
-    "prose.privacy.blocks.0.p": {
-      "fr": "Ce site est conçu pour conserver le moins de données possible. La plupart des pages fonctionnent sans rien enregistrer sur un serveur ; seules les fonctions que vous choisissez d'utiliser (connexion au compte de jeu, communauté, notifications, bot Discord) gardent ce qu'elles décrivent plus bas. Cette page détaille ce qui est traité, et où.",
-      "text": "Этот сайт устроен так, чтобы хранить как можно меньше данных. Большинство страниц работают, ничего не сохраняя на сервере; только функции, которые вы решите использовать (вход в игровой аккаунт, сообщество, уведомления, Discord-бот), хранят то, что описано ниже. На этой странице подробно описано, что обрабатывается и где."
-    },
-    "prose.privacy.blocks.10.p": {
-      "fr": "Les images (portraits, icônes, emblèmes) sont servies par les hébergeurs de Moonton et du wiki communautaire. Charger une page adresse donc des requêtes à ces services, qui peuvent voir votre adresse IP, comme pour toute ressource distante.",
-      "text": "Изображения (портреты, иконки, эмблемы) раздаются хостингами Moonton и вики сообщества. Поэтому при загрузке страницы к этим сервисам отправляются запросы, и они могут видеть ваш IP-адрес, как и при загрузке любого удалённого ресурса."
-    },
-    "prose.privacy.blocks.12.p": {
-      "fr": "Si une mesure d'audience est activée, elle l'est avec un outil sans cookie et sans donnée personnelle, qui ne suit pas les visiteurs d'un site à l'autre. Aucun bandeau de consentement n'est alors nécessaire.",
-      "text": "Если измерение аудитории включено, оно выполняется инструментом без cookie и без персональных данных, который не отслеживает посетителей между сайтами. В этом случае баннер согласия не нужен."
-    },
-    "prose.privacy.blocks.13.p": {
-      "fr": "Les appels à l'API publique (`/api/v1`), faits par des scripts ou d'autres sites, sont comptés de la même façon, par le serveur et sans cookie : l'adresse demandée, le code de réponse, la page d'origine et le logiciel déclarés par l'appel, ainsi que l'adresse IP, anonymisée par l'outil de mesure. Aucun identifiant n'est attribué, et un appel envoyé avec l'en-tête `DNT: 1` ou `Sec-GPC: 1` n'est pas compté.",
-      "text": "Обращения к публичному API (`/api/v1`) из скриптов или с других сайтов учитываются так же — сервером и без cookie: запрошенный адрес, код ответа, страница-источник и программа, указанные в запросе, а также IP-адрес, анонимизированный инструментом измерения. Идентификатор не присваивается, а запрос с заголовком `DNT: 1` или `Sec-GPC: 1` не учитывается."
-    },
-    "prose.privacy.blocks.15.p": {
-      "fr": "Vous gardez la main sur ce qui vit dans votre navigateur (favoris, session) en vous déconnectant ou en effaçant les données du site. Pour consulter ou supprimer ce que le serveur conserve sur vous (communauté, notifications, bot Discord), ou pour toute question, écrivez à [{contact}](mailto:{contact}).",
-      "text": "Вы управляете тем, что хранится в вашем браузере (избранное, сессия), выходя из аккаунта или очищая данные сайта. Чтобы просмотреть или удалить то, что сервер хранит о вас (сообщество, уведомления, Discord-бот), или по любому вопросу пишите на [{contact}](mailto:{contact})."
-    },
     "prose.privacy.blocks.2.p": {
-      "fr": "Un seul cookie peut être déposé, et uniquement si vous connectez votre compte de jeu :",
-      "text": "Может быть установлен только один файл cookie, и только если вы подключите свой игровой аккаунт:"
-    },
-    "prose.privacy.blocks.3.ul.0": {
-      "fr": "`mlbb_jeu` — cookie de session strictement nécessaire à la connexion. Il contient le jeton temporaire remis par le service de Moonton, ne quitte jamais le serveur (`httpOnly`), et expire de lui-même. Sans connexion, aucun cookie n'est déposé.",
-      "text": "`mlbb_jeu` — сессионный cookie, строго необходимый для входа. Он содержит временный токен, выданный сервисом Moonton, никогда не покидает сервер (`httpOnly`) и истекает сам. Если вы не входите, cookie не устанавливается."
-    },
-    "prose.privacy.blocks.4.p": {
-      "fr": "Ce cookie étant strictement nécessaire au service que vous demandez (rester connecté), il ne requiert pas de consentement préalable. Aucun cookie publicitaire ni de suivi n'est utilisé.",
-      "text": "Поскольку этот cookie строго необходим для запрошенной вами услуги (сохранение входа), он не требует предварительного согласия. Рекламные и отслеживающие cookie не используются."
-    },
-    "prose.privacy.blocks.6.p": {
-      "fr": "Vos héros favoris sont enregistrés dans le stockage local de votre navigateur (`localStorage`), sur votre appareil uniquement. Ils ne sont envoyés à aucun serveur et ne quittent pas ce navigateur. Vider les données du site les efface.",
-      "text": "Ваши избранные герои сохраняются в локальном хранилище браузера (`localStorage`), только на вашем устройстве. Они не отправляются ни на какой сервер и не покидают этот браузер. Очистка данных сайта удаляет их."
-    },
-    "prose.privacy.blocks.8.p": {
-      "fr": "La connexion utilise le flux officiel de Moonton : vous fournissez votre identifiant et serveur de jeu, un code de vérification vous est envoyé en jeu, et le site reçoit en retour un jeton temporaire. Ces échanges transitent par une API communautaire (`arena.rone.dev`) et le service d'authentification de Moonton. Le site n'enregistre rien de ces informations : le jeton vit dans le cookie de session, côté navigateur, et disparaît à la déconnexion ou à l'expiration. Aucun mot de passe ne vous est jamais demandé.",
-      "text": "Вход использует официальный механизм Moonton: вы указываете свой игровой ID и сервер, в игру приходит код подтверждения, а сайт в ответ получает временный токен. Этот обмен проходит через API сообщества (`arena.rone.dev`) и сервис аутентификации Moonton. Сайт не сохраняет ничего из этих данных: токен хранится в сессионном cookie на стороне браузера и исчезает при выходе или по истечении срока действия. Пароль у вас никогда не запрашивается."
+      "fr": "Le responsable du traitement est {publisher}, qui édite ce site à titre personnel et sans but lucratif (voir les [mentions légales](/legal)). Pour toute question ou demande sur vos données : [{contact}](mailto:{contact}).",
+      "text": "Оператором персональных данных является {publisher}, который ведёт этот сайт как частное лицо, на некоммерческой основе (см. [правовую информацию](/legal)). По любым вопросам или запросам о ваших данных: [{contact}](mailto:{contact})."
     },
     "prose.push.endpoint": {
       "fr": "l'adresse d'abonnement fournie par le service de notifications de votre navigateur (Google, Mozilla, Apple ou Microsoft selon le navigateur) et les clés de chiffrement qui l'accompagnent ;",
@@ -73205,6 +73109,30 @@
     "discordCta.copy.text": {
       "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
       "text": "Заходите в Discord MLBBDex: тиммейты по рангу, оповещения о патчах и MLBBdle дня."
+    },
+    "consent.text": {
+      "fr": "Avec votre accord, MLBBDex dépose des cookies pour savoir combien de visiteurs reviennent. La mesure est faite par Matomo, installé sur le serveur du site : pas de publicité, pas de pistage par des tiers, aucune donnée vendue. Si vous refusez, elle continue sans cookie, de façon anonyme.",
+      "text": "С вашего согласия MLBBDex использует файлы cookie, чтобы узнать, сколько посетителей возвращается. Измерение выполняет Matomo, установленный на собственном сервере сайта: никакой рекламы, никакого отслеживания третьими сторонами, никакой продажи данных. Если вы откажетесь, измерение продолжится анонимно, без файлов cookie."
+    },
+    "consent.accept": {
+      "fr": "Accepter",
+      "text": "Принять"
+    },
+    "consent.refuse": {
+      "fr": "Refuser",
+      "text": "Отклонить"
+    },
+    "prose.gdpr.cookies.head.by": {
+      "fr": "Émetteur",
+      "text": "Кем устанавливается"
+    },
+    "prose.gdpr.storage.retribution": {
+      "fr": "Meilleurs scores du test de Châtiment.",
+      "text": "Лучшие результаты тренажёра Retribution."
+    },
+    "prose.privacy.blocks.1.h": {
+      "fr": "Responsable du traitement",
+      "text": "Оператор персональных данных"
     }
   }
 }

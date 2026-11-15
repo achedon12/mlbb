@@ -664,8 +664,8 @@
     },
     "privacy": {
       "title": "Confidentialité",
-      "lead": "Ce que le site traite, ce qu'il ne traite pas, et où vivent vos données.",
-      "metaDescription": "Cookies, stockage local, connexion au compte de jeu et mesure d'audience : ce que le site traite, et où."
+      "lead": "Ce que le site traite, pourquoi, combien de temps, et comment exercer vos droits.",
+      "metaDescription": "Cookies et consentement, mesure d'audience, données conservées et durées, destinataires et droits RGPD : ce que MLBBDex traite, et comment l'effacer."
     },
     "account": {
       "metaTitle": "Mon compte",
@@ -4993,61 +4993,35 @@
           "h": "Données personnelles"
         },
         {
-          "p": "Le traitement des données et l'usage des cookies sont détaillés dans la [politique de confidentialité](/privacy)."
+          "p": "L'éditeur est le responsable du traitement des données personnelles. Les données traitées, leurs finalités, les cookies, les durées de conservation et vos droits sont détaillés dans la [politique de confidentialité](/privacy). Vous pouvez modifier à tout moment votre choix sur les cookies depuis le lien « Gérer les cookies », en bas de chaque page."
         }
       ]
     },
     "privacy": {
       "blocks": [
         {
-          "p": "Ce site est conçu pour conserver le moins de données possible. La plupart des pages fonctionnent sans rien enregistrer sur un serveur ; seules les fonctions que vous choisissez d'utiliser (connexion au compte de jeu, communauté, notifications, bot Discord) gardent ce qu'elles décrivent plus bas. Cette page détaille ce qui est traité, et où."
+          "p": "Ce site est conçu pour traiter le moins de données possible. La plupart des pages fonctionnent sans compte et sans rien enregistrer sur un serveur ; seules les fonctions que vous choisissez d'utiliser (connexion au compte de jeu ou à Discord, communauté, collection, notifications, bot Discord) conservent ce qu'elles décrivent plus bas. Conformément au Règlement général sur la protection des données (RGPD) et à la loi Informatique et Libertés, cette page détaille ce qui est traité, pourquoi, combien de temps, et comment exercer vos droits."
         },
         {
-          "h": "Cookies"
+          "h": "Responsable du traitement"
         },
         {
-          "p": "Un seul cookie peut être déposé, et uniquement si vous connectez votre compte de jeu :"
+          "p": "Le responsable du traitement est {publisher}, qui édite ce site à titre personnel et sans but lucratif (voir les [mentions légales](/legal)). Pour toute question ou demande sur vos données : [{contact}](mailto:{contact})."
+        },
+        {
+          "h": "Finalités et bases légales"
         },
         {
           "ul": [
-            "`mlbb_jeu` — cookie de session strictement nécessaire à la connexion. Il contient le jeton temporaire remis par le service de Moonton, ne quitte jamais le serveur (`httpOnly`), et expire de lui-même. Sans connexion, aucun cookie n'est déposé."
+            "Mesure d'audience sans cookie (pages vues, recherches sur le site, actions anonymes) : savoir quelles pages servent et améliorer le site. Base légale : l'intérêt légitime de l'éditeur (article 6.1.f du RGPD).",
+            "Mesure d'audience avec cookies (reconnaître un visiteur qui revient) : uniquement avec votre consentement (article 6.1.a du RGPD et article 82 de la loi Informatique et Libertés), que vous pouvez retirer à tout moment.",
+            "Fonctions que vous demandez (connexion au compte de jeu ou à Discord, communauté, collection de skins, notifications de patch, bot Discord et son tableau de bord) : exécution du service demandé, selon ses conditions d'utilisation (article 6.1.b du RGPD).",
+            "Sécurité et modération (limites de débit, signalements, journal de modération, journaux d'erreurs, sauvegardes) : intérêt légitime de l'éditeur à protéger le site et ses utilisateurs (article 6.1.f du RGPD).",
+            "Mémorisation de vos préférences (langue, favoris, réglages des outils) : nécessaire au fonctionnement du site tel que vous l'utilisez, dans votre navigateur."
           ]
         },
         {
-          "p": "Ce cookie étant strictement nécessaire au service que vous demandez (rester connecté), il ne requiert pas de consentement préalable. Aucun cookie publicitaire ni de suivi n'est utilisé."
-        },
-        {
-          "h": "Stockage dans votre navigateur"
-        },
-        {
-          "p": "Vos héros favoris sont enregistrés dans le stockage local de votre navigateur (`localStorage`), sur votre appareil uniquement. Ils ne sont envoyés à aucun serveur et ne quittent pas ce navigateur. Vider les données du site les efface."
-        },
-        {
-          "h": "Connexion au compte de jeu"
-        },
-        {
-          "p": "La connexion utilise le flux officiel de Moonton : vous fournissez votre identifiant et serveur de jeu, un code de vérification vous est envoyé en jeu, et le site reçoit en retour un jeton temporaire. Ces échanges transitent par une API communautaire (`arena.rone.dev`) et le service d'authentification de Moonton. Le site n'enregistre rien de ces informations : le jeton vit dans le cookie de session, côté navigateur, et disparaît à la déconnexion ou à l'expiration. Aucun mot de passe ne vous est jamais demandé."
-        },
-        {
-          "h": "Contenus tiers"
-        },
-        {
-          "p": "Les images (portraits, icônes, emblèmes) sont servies par les hébergeurs de Moonton et du wiki communautaire. Charger une page adresse donc des requêtes à ces services, qui peuvent voir votre adresse IP, comme pour toute ressource distante."
-        },
-        {
-          "h": "Mesure d'audience"
-        },
-        {
-          "p": "Si une mesure d'audience est activée, elle l'est avec un outil sans cookie et sans donnée personnelle, qui ne suit pas les visiteurs d'un site à l'autre. Aucun bandeau de consentement n'est alors nécessaire."
-        },
-        {
-          "p": "Les appels à l'API publique (`/api/v1`), faits par des scripts ou d'autres sites, sont comptés de la même façon, par le serveur et sans cookie : l'adresse demandée, le code de réponse, la page d'origine et le logiciel déclarés par l'appel, ainsi que l'adresse IP, anonymisée par l'outil de mesure. Aucun identifiant n'est attribué, et un appel envoyé avec l'en-tête `DNT: 1` ou `Sec-GPC: 1` n'est pas compté."
-        },
-        {
-          "h": "Vos droits"
-        },
-        {
-          "p": "Vous gardez la main sur ce qui vit dans votre navigateur (favoris, session) en vous déconnectant ou en effaçant les données du site. Pour consulter ou supprimer ce que le serveur conserve sur vous (communauté, notifications, bot Discord), ou pour toute question, écrivez à [{contact}](mailto:{contact})."
+          "p": "Aucune donnée n'est vendue, louée ni utilisée à des fins publicitaires ou de profilage, et aucune décision automatisée n'est prise à votre sujet."
         }
       ]
     },
@@ -5076,8 +5050,8 @@
       "discord": "si vous vous connectez avec Discord : un identifiant de compte dérivé (une empreinte de votre identifiant Discord, jamais l'identifiant lui-même), votre nom d'affichage Discord, affiché sur vos messages, et la date de votre première participation. La connexion ne demande à Discord que votre identité, sans votre e-mail ni la liste de vos serveurs, et passe par le cookie de session chiffré `mlbbdex_discord` (7 jours), qui garde votre identifiant, votre nom et votre avatar Discord ; aucun jeton Discord n'est conservé. L'âge de votre compte Discord, lu dans son identifiant, n'est pas enregistré. Si vous liez votre compte Discord à votre compte de jeu, le lien entre vos deux comptes est conservé, et vos contributions Discord rejoignent votre compte de jeu ;",
       "posts": "vos discussions et réponses, publiques, avec leur date ; vos votes et vos signalements, qui ne sont montrés à personne d'autre que les modérateurs (les signalements) ;",
       "card": "votre carte de recherche de coéquipiers, et, si vous les ajoutez, votre ID de jeu et votre pseudo Discord : ils ne sont montrés qu'aux joueurs connectés, et la carte est effacée sept jours après son dernier enregistrement.",
-      "moderation": "Les modérateurs voient les signalements et peuvent masquer, supprimer ou bannir ; chacune de leurs décisions est consignée dans un journal. Les limites de débit utilisent votre adresse IP, en mémoire seulement, quelques minutes.",
-      "deletion": "Vous pouvez modifier un message pendant une heure et le supprimer pendant une journée, retirer votre carte à tout moment. Au-delà, ou pour effacer toute votre participation, écrivez à {contact}."
+      "moderation": "Les modérateurs voient les signalements et peuvent masquer, supprimer ou bannir ; chacune de leurs décisions est consignée dans un journal. Les limites de débit utilisent votre adresse IP, en mémoire seulement : elle n'est jamais écrite sur disque.",
+      "deletion": "Vous pouvez modifier un message pendant une heure et le supprimer pendant une journée, retirer votre carte à tout moment. Un message supprimé perd son texte ; une discussion supprimée garde son titre, son auteur et sa date. Au-delà, ou pour effacer toute votre participation, écrivez à {contact}."
     },
     "collection": {
       "title": "Collection de skins",
@@ -5085,6 +5059,133 @@
       "data": "la même empreinte de compte que la communauté (jamais votre ID de jeu), la liste des héros et des skins cochés, et la date du dernier enregistrement ; rien d'autre, et rien n'est montré à personne.",
       "usage": "Elle sert seulement à retrouver votre collection sur vos autres appareils. Le filtre « ceux que je joue » lit vos héros de la saison auprès du service de connexion au moment où vous l'activez, sans rien conserver.",
       "deletion": "Pour vider la copie de votre compte, effacez votre collection dans l'outil en étant connecté ; pour supprimer la ligne elle-même, écrivez à {contact}."
+    },
+    "gdpr": {
+      "cookies": {
+        "title": "Cookies",
+        "intro": "Le site utilise les cookies suivants. Ceux de mesure d'audience ne sont créés qu'avec votre accord, donné ou refusé dans le bandeau ; les autres sont strictement nécessaires à une fonction que vous utilisez ou mémorisent un choix que vous avez fait, et sont dispensés de consentement. Aucun cookie publicitaire, de réseau social ou d'un tiers n'est utilisé.",
+        "head": {
+          "name": "Nom",
+          "purpose": "Finalité",
+          "duration": "Durée",
+          "by": "Émetteur",
+          "consent": "Consentement"
+        },
+        "yes": "Oui",
+        "no": "Non",
+        "site": "MLBBDex",
+        "matomo": "Matomo (auto-hébergé par MLBBDex)",
+        "langue": {
+          "purpose": "Mémoriser la langue du site que vous consultez.",
+          "duration": "1 an"
+        },
+        "game": {
+          "purpose": "Session de connexion au compte de jeu : le jeton temporaire du service de connexion, illisible par les scripts de la page (httpOnly). Créé seulement si vous vous connectez.",
+          "duration": "Jusqu'à l'expiration du jeton (7 jours au plus) ou la déconnexion"
+        },
+        "discord": {
+          "purpose": "Session de connexion avec Discord (forum, tableau de bord du bot) : votre identifiant, votre nom et votre avatar Discord, chiffrés. Créé seulement si vous vous connectez.",
+          "duration": "7 jours, ou jusqu'à la déconnexion"
+        },
+        "discordOauth": {
+          "purpose": "Protection de la connexion Discord en cours, contre la falsification de requête.",
+          "duration": "10 minutes"
+        },
+        "pkId": {
+          "purpose": "Mesure d'audience : identifiant aléatoire, qui permet de reconnaître une visite qui revient.",
+          "duration": "13 mois"
+        },
+        "pkSes": {
+          "purpose": "Mesure d'audience : regroupe les pages d'une même visite.",
+          "duration": "30 minutes"
+        },
+        "pkRef": {
+          "purpose": "Mesure d'audience : site ou campagne d'où vient la visite.",
+          "duration": "6 mois"
+        },
+        "pkTest": {
+          "purpose": "Vérifie que le navigateur accepte les cookies ; effacé aussitôt.",
+          "duration": "Quelques instants"
+        },
+        "mtmConsent": {
+          "purpose": "Mémorise, pour Matomo, que vous avez accepté ses cookies.",
+          "duration": "6 mois"
+        },
+        "consentYes": "Oui",
+        "consentAfter": "Oui (créé une fois les cookies acceptés)",
+        "without": "Avant votre choix, et si vous refusez, la mesure d'audience continue sans aucun cookie. Refuser ne vous prive d'aucune fonction du site.",
+        "choice": "Votre choix est conservé six mois dans le stockage local de votre navigateur (`mlbb_consent`, avec sa date), puis vous est redemandé. Vous pouvez le modifier ou retirer votre consentement à tout moment, depuis ce bouton ou le lien « Gérer les cookies » en bas de chaque page :"
+      },
+      "storage": {
+        "title": "Stockage dans votre navigateur",
+        "intro": "Ces données restent sur votre appareil, dans le stockage local (`localStorage`) ou de session (`sessionStorage`) du navigateur. Elles ne sont lues par aucun tiers et ne quittent votre appareil que dans les cas indiqués. Elles sont conservées jusqu'à ce que vous effaciez les données du site, sauf durée indiquée.",
+        "head": {
+          "key": "Clé",
+          "content": "Contenu"
+        },
+        "consent": "Votre choix sur les cookies de mesure d'audience, et sa date (6 mois).",
+        "favourites": "Vos héros favoris. Envoyés au serveur seulement si vous activez les notifications de patch.",
+        "push": "Notifications de patch actives sur ce navigateur.",
+        "collection": "Votre collection de skins, et l'état de sa synchronisation avec votre compte (une empreinte de compte, jamais votre ID de jeu).",
+        "popup": "Mémoire de l'invitation au Discord : fermée (pendant 30 jours) ou suivie, et nombre de pages vues dans l'onglet (le temps de l'onglet).",
+        "games": "Parties, séries et statistiques de MLBBdle et du quiz.",
+        "tierList": "Brouillons du créateur de tier list.",
+        "timer": "Partie en cours (le temps de l'onglet) et réglages du minuteur d'objectifs.",
+        "retribution": "Meilleurs scores du test de Châtiment.",
+        "cache": "Pour fonctionner hors ligne, le site garde aussi dans le cache de votre navigateur (service worker) une copie des pages, images et données consultées : 250 pages et 800 images au plus, sur votre appareil uniquement."
+      },
+      "audience": {
+        "title": "Mesure d'audience",
+        "tool": "L'audience est mesurée avec Matomo, un logiciel libre installé et administré par l'éditeur sur son propre serveur (`matomo.leoderoin.fr`). Les données ne sont partagées avec personne, ni utilisées à d'autres fins, ni croisées avec celles d'autres sites.",
+        "data": "Matomo reçoit les pages consultées, leur titre et la page d'origine, la durée de la visite, les recherches faites sur le site et leur nombre de résultats, quelques actions anonymes (onglet ouvert sur une fiche, profondeur de lecture, ajout d'un favori, partage…), le type d'appareil, le navigateur et la langue, ainsi que votre adresse IP, dont les deux derniers octets sont masqués avant tout enregistrement.",
+        "cookieless": "Sans votre accord, la mesure se fait sans cookie : chaque visite est comptée isolément, sans pouvoir être rapprochée des précédentes. Si vous acceptez les cookies, Matomo dépose un identifiant aléatoire (`_pk_id`) qui lui permet de reconnaître une visite qui revient ; il ne dit pas qui vous êtes.",
+        "retention": "Les données de visite détaillées sont conservées 25 mois au plus, puis supprimées ; seuls des rapports chiffrés, sans donnée individuelle, sont gardés au-delà.",
+        "api": "Les appels à l'API publique (`/api/v1`), faits par des scripts ou d'autres sites, sont comptés par le serveur, sans cookie : l'adresse demandée, le code de réponse, la page d'origine et le logiciel déclarés par l'appel, ainsi que l'adresse IP de l'appelant, masquée de la même façon. Un appel envoyé avec l'en-tête `DNT: 1` ou `Sec-GPC: 1` n'est pas compté.",
+        "object": "Vous pouvez vous opposer à la mesure sans cookie en écrivant à [{contact}](mailto:{contact}), ou simplement en bloquant le domaine de mesure avec un bloqueur de contenu : le site fonctionne de la même façon."
+      },
+      "game": {
+        "title": "Connexion au compte de jeu",
+        "text": "La connexion utilise le flux officiel de Moonton : vous indiquez votre identifiant et votre serveur de jeu, un code de vérification vous est envoyé en jeu, et le site reçoit en retour un jeton temporaire. Ces échanges passent par une API communautaire (`arena.rone.dev`) et par les services de Moonton, qui reçoivent votre identifiant, votre serveur, le code puis le jeton. Le jeton vit dans le cookie de session `mlbb_jeu` et n'est jamais enregistré sur le serveur ; les réponses du service (profil, statistiques, parties) sont gardées en mémoire quelques heures au plus, pour limiter les appels. Aucun mot de passe ne vous est jamais demandé. Le serveur ne conserve durablement quelque chose que si vous utilisez la communauté ou la collection, comme décrit plus bas."
+      },
+      "thirdParty": {
+        "title": "Contenus tiers",
+        "text": "Les images du jeu (portraits, icônes, emblèmes) viennent de Moonton et du wiki communautaire ; elles sont pour l'essentiel récupérées par le serveur du site et servies depuis son adresse, mais certaines peuvent être chargées directement depuis leurs hébergeurs, qui voient alors votre adresse IP, comme pour toute ressource distante. Sur le tableau de bord du bot, les avatars et icônes Discord sont chargés depuis `cdn.discordapp.com`. Les liens d'invitation au Discord mènent à discord.com, soumis à sa propre politique de confidentialité."
+      },
+      "recipients": {
+        "title": "Destinataires et prestataires",
+        "intro": "Vos données ne sont accessibles qu'à l'éditeur et, pour les signalements, aux modérateurs bénévoles de la communauté. Selon les fonctions que vous utilisez, elles sont hébergées ou transmises chez :",
+        "host": "{host} ([{hostSite}]({hostSite})) : hébergement du serveur du site, de sa base de données et de ses sauvegardes ;",
+        "matomo": "Matomo, installé sur le serveur de l'éditeur : mesure d'audience, sans aucun transfert à l'éditeur du logiciel ;",
+        "discord": "Discord Inc. : connexion avec Discord, bot et son tableau de bord ;",
+        "moonton": "Moonton et l'API communautaire `arena.rone.dev` : connexion au compte de jeu et statistiques de votre profil ;",
+        "push": "le service de notifications de votre navigateur (Google, Mozilla, Apple ou Microsoft) : acheminement des notifications de patch, dont le contenu est chiffré ;",
+        "votes": "les annuaires de bots (top.gg, discordbotlist.com) : si vous votez pour le bot, ils transmettent votre identifiant Discord au site."
+      },
+      "transfers": {
+        "title": "Transferts hors de l'Union européenne",
+        "text": "Certaines fonctions facultatives font intervenir des services situés hors de l'Union européenne : Discord, aux États-Unis, si vous vous connectez avec Discord ou utilisez le bot (transferts encadrés par le cadre de protection des données UE–États-Unis ou les clauses contractuelles types de la Commission européenne) ; Moonton, en Asie, et l'API communautaire `arena.rone.dev`, si vous connectez votre compte de jeu ; le service de notifications de votre navigateur, si vous activez les notifications. Ces transferts n'ont lieu que si vous utilisez ces fonctions."
+      },
+      "retention": {
+        "title": "Combien de temps les données sont conservées",
+        "audience": "Mesure d'audience : 25 mois au plus pour les données de visite ; cookies, voir le tableau plus haut ; votre choix sur les cookies, 6 mois.",
+        "sessions": "Sessions : le jeton du compte de jeu jusqu'à son expiration (7 jours au plus) ; la session Discord, 7 jours.",
+        "community": "Communauté : votre compte, vos messages, vos votes, vos signalements et le journal de modération sont conservés tant que la communauté existe, sauf demande d'effacement ; un signalement garde une copie du texte signalé. Une carte de coéquipier est effacée sept jours après son dernier enregistrement.",
+        "builds": "Builds de la communauté : jusqu'à leur suppression par leur auteur, ou sur demande.",
+        "collection": "Collection synchronisée : jusqu'à ce que vous la vidiez, ou sur demande.",
+        "push": "Notifications de patch : jusqu'au désabonnement ; un abonnement devenu invalide est supprimé à la notification suivante.",
+        "bot": "Pour le bot Discord : les réglages d'un serveur, et les résultats des jeux du jour qui y ont été joués, jusqu'à 30 jours après le départ du bot ; le journal des commandes slash utilisées, sans identifiant de membre, 90 jours ; les votes pour le bot, jusqu'à demande de suppression.",
+        "logs": "Journaux techniques : les erreurs rencontrées par le navigateur (message, page, version du site, type de navigateur ; ni adresse IP ni compte) sont gardées sur le serveur pour le diagnostic, jusqu'à leur suppression par l'éditeur.",
+        "backups": "Sauvegardes : une copie quotidienne de la base de données ; seules les trois plus récentes sont gardées, si bien qu'une donnée effacée disparaît des sauvegardes en trois jours.",
+        "rateLimits": "Limites de débit : votre adresse IP, en mémoire seulement, jamais écrite sur disque."
+      },
+      "rights": {
+        "title": "Vos droits",
+        "list": "Vous disposez d'un droit d'accès, de rectification et d'effacement de vos données, d'un droit à la limitation de leur traitement et à leur portabilité, et du droit de vous opposer à un traitement fondé sur l'intérêt légitime. Lorsque le traitement repose sur votre consentement (cookies de mesure d'audience), vous pouvez le retirer à tout moment, aussi simplement que vous l'avez donné ; ce retrait ne remet pas en cause ce qui a été fait auparavant.",
+        "browser": "Ce qui vit dans votre navigateur (favoris, collection, préférences, choix sur les cookies) est entre vos mains : effacer les données du site le supprime.",
+        "contact": "Pour le reste (communauté, collection synchronisée, notifications, bot), écrivez à [{contact}](mailto:{contact}), en précisant le compte concerné (pseudo de jeu ou nom Discord) pour qu'il soit retrouvé. Une réponse vous est apportée dans un délai d'un mois.",
+        "cnil": "Si vous estimez, après avoir contacté l'éditeur, que vos droits ne sont pas respectés, vous pouvez adresser une réclamation à la CNIL ([cnil.fr](https://www.cnil.fr/fr/plaintes)) ou à l'autorité de protection des données de votre pays.",
+        "updated": "Dernière mise à jour : 15 novembre 2026."
+      }
     }
   },
   "compareUI": {
@@ -5929,5 +6030,16 @@
       "title": "Pseudo copié ! Viens le montrer",
       "text": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour."
     }
+  },
+  "consent": {
+    "title": "Cookies de mesure d'audience",
+    "text": "Avec votre accord, MLBBDex dépose des cookies pour savoir combien de visiteurs reviennent. La mesure est faite par Matomo, installé sur le serveur du site : pas de publicité, pas de pistage par des tiers, aucune donnée vendue. Si vous refusez, elle continue sans cookie, de façon anonyme.",
+    "more": "En savoir plus",
+    "accept": "Accepter",
+    "refuse": "Refuser",
+    "keep": "Garder mon choix actuel",
+    "currentGranted": "Choix actuel : cookies acceptés le {date}.",
+    "currentDenied": "Choix actuel : cookies refusés le {date}.",
+    "manage": "Gérer les cookies"
   }
 }
