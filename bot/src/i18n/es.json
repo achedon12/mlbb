@@ -495,6 +495,9 @@
       "refusedBot": "MLBBDex ya no puede dar este rol: necesita el permiso Gestionar roles y su rol por encima de este. Avisa a un gestor del servidor.",
       "refusedGranter": "Este menú está en pausa: el gestor que lo configuró ya no puede dar estos roles. Otro gestor tiene que volver a guardarlo en el panel de MLBBDex.",
       "failed": "No se han podido cambiar tus roles ahora mismo. Inténtalo de nuevo en un momento."
+    },
+    "tempVoice": {
+      "defaultName": "🎯 Sala de {user}"
     }
   },
   "labels": {

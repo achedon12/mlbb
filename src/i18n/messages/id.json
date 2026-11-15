@@ -3744,7 +3744,8 @@
       "rights": "Untuk melihat atau menghapus data yang terkait dengan ID atau server Discord Anda, tulis ke [{contact}](mailto:{contact}). Menghapus bot dari server memulai penghapusan otomatis.",
       "sitePrivacy": "Privasi Situs",
       "autoRoles": "Peran otomatis: jika server memilihnya, bot memberikan peran tersebut kepada siapa pun yang bergabung, dengan izin Kelola Peran yang diberikan admin server; anggota yang masih harus menerima aturan server hanya diingat (ID-nya, di memori, paling lama 24 jam) sampai ia menerimanya, dan tidak ada yang disimpan.",
-      "roleMenus": "Menu role: untuk setiap menu disimpan channel, judul, teks, role beserta label dan emoji-nya, ID pesan yang diterbitkan, dan ID Discord pengelola yang mengaturnya. Saat anggota memakainya, bot memberi atau melepas role dan tidak menyimpan apa pun tentang anggota itu, kecuali penghitung di memori selama beberapa detik untuk membatasi perubahan yang terlalu rapat."
+      "roleMenus": "Menu role: untuk setiap menu disimpan channel, judul, teks, role beserta label dan emoji-nya, ID pesan yang diterbitkan, dan ID Discord pengelola yang mengaturnya. Saat anggota memakainya, bot memberi atau melepas role dan tidak menyimpan apa pun tentang anggota itu, kecuali penghitung di memori selama beberapa detik untuk membatasi perubahan yang terlalu rapat.",
+      "tempVoice": "Channel suara sementara: server menyimpan channel hub-nya beserta batas pengguna dan templat namanya. Untuk setiap channel suara yang dibuat bot, bot menyimpan ID channel, ID channel hub, dan ID member yang dibuatkan channel itu, sampai channel dihapus, yaitu begitu channel kosong. Untuk mengetahui siapa berada di channel suara mana, bot menerima status suara dari Discord (intent \"Guild Voice States\"), menyimpannya di memori, dan tidak merekam satu pun."
     },
     "botTerms": {
       "title": "Ketentuan Layanan Bot Perselisihan",
@@ -3956,6 +3957,41 @@
         "clearSingle": "Lepas role saya",
         "clearMultiple": "Lepas role-role saya",
         "required": "Pilih channel, judul, dan minimal satu role, masing-masing dengan label."
+      },
+      "tempVoice": {
+        "title": "Channel suara sementara",
+        "lead": "Member yang masuk ke channel hub mendapat channel suara sendiri, dibuat tepat di sebelahnya dan dihapus begitu kosong. Praktis untuk custom game atau ranked lima orang.",
+        "empty": "Belum ada channel hub.",
+        "hub": "Channel hub {number}",
+        "channel": "Channel suara hub",
+        "chooseChannel": "Pilih channel suara",
+        "deletedChannel": "Channel dihapus",
+        "userLimit": "Batas pengguna",
+        "userLimitHelp": "Dari 0 sampai {max}; 0: tanpa batas. Misalnya 5 untuk ranked, 10 untuk custom game.",
+        "name": "Nama channel yang dibuat",
+        "nameHelp": "Opsional, maksimal {max} karakter. {placeholder} diganti dengan nama tampilan member. Kosong: nama bawaan, dalam bahasa server.",
+        "preview": "Contoh:",
+        "add": "Tambah channel hub",
+        "remove": "Hapus",
+        "save": "Simpan channel suara",
+        "saved": "Channel suara sementara disimpan.",
+        "statusHubs": "Channel hub: {count}",
+        "tooMany": "Maksimal {max} channel hub per server.",
+        "noVoiceChannels": "Bot tidak melihat channel suara apa pun di server ini: buat satu sebagai hub, lalu muat ulang halaman ini.",
+        "unknownChannel": "Channel ini sudah tidak ada, atau bot tidak bisa melihatnya lagi: pilih yang lain atau hapus channel hub ini.",
+        "missingPermissions": "MLBBDex tidak memiliki izin {permissions}: tanpanya, tidak ada channel yang dibuat. Berikan izin itu ke peran MLBBDex (Pengaturan Server > Peran), lalu muat ulang halaman ini.",
+        "permissionNames": {
+          "manageChannels": "Kelola Channel",
+          "moveMembers": "Pindahkan Anggota"
+        },
+        "help": "Bot memerlukan izin Kelola Channel dan Pindahkan Anggota, serta Lihat Channel dan Hubungkan di channel hub dan kategorinya. Member bisa mengganti nama channel-nya, mengubah batasnya, serta memindahkan atau membisukan member lain di dalamnya. Bot hanya menghapus channel yang dibuatnya.",
+        "errors": {
+          "noChannel": "Pilih channel suara untuk setiap channel hub.",
+          "limit": "Batas pengguna dari 0 sampai {max}.",
+          "unknownChannel": "Sebuah channel hub bukan lagi channel suara di server ini: muat ulang halaman.",
+          "rateLimited": "Terlalu banyak penyimpanan berturut-turut: tunggu satu menit.",
+          "failed": "Gagal menyimpan. Coba lagi."
+        }
       }
     },
     "botAdmin": {

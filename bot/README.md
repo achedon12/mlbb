@@ -38,6 +38,10 @@ src/games/        MLBBdle comparison, quiz rounds, nicknames, server time
   invite asks for 8 permissions, no Administrator, no Manage Roles (a
   server using auto-roles or role menus grants it; see [LISTING.md](LISTING.md)).
   Role menus need no intent: they are interactions on the bot's message.
+  Temporary voice channels use `GuildVoiceStates` (not privileged; voice
+  states kept in memory, none stored) and need Manage Channels and Move
+  Members, which the invite does not ask for either: a server using them
+  grants both.
 - **Replies within 3 s**: every command is deferred first; autocomplete has
   a 2.5 s deadline. The lists most commands read (heroes, rankings,
   patches, items) are loaded when a shard starts and every 10 minutes, so

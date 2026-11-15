@@ -76,6 +76,48 @@ export type AutoRoleSetting = z.infer<typeof autoRoleSetting>;
 export const AUTO_ROLE_FAILURES = ["bot", "granter"] as const;
 export type AutoRoleFailure = (typeof AUTO_ROLE_FAILURES)[number];
 
+// ─── Temporary voice channels ─────────────────────────────────────────
+
+/** The site's caps: hubs per server, the name template, Discord's user limit. */
+export const MAX_TEMP_VOICE_HUBS = 5;
+export const TEMP_VOICE_NAME_MAX = 80;
+export const TEMP_VOICE_MAX_USER_LIMIT = 99;
+
+const tempVoiceHub = z.object({
+  channelId: snowflake,
+  userLimit: z.number().int().min(0).max(TEMP_VOICE_MAX_USER_LIMIT).catch(0).default(0),
+  nameTemplate: z
+    .string()
+    .transform((text) => text.slice(0, TEMP_VOICE_NAME_MAX).trim() || null)
+    .nullable()
+    .catch(null)
+    .default(null),
+});
+export type TempVoiceHub = z.infer<typeof tempVoiceHub>;
+
+/**
+ * "Join to create" hubs. An unreadable hub is dropped, never half-used:
+ * a channel nobody chose must never spawn voice channels.
+ */
+const tempVoiceSetting = z
+  .object({
+    hubs: z
+      .array(z.unknown())
+      .transform((list) => {
+        const seen = new Set<string>();
+        return list
+          .flatMap((h) => {
+            const parsed = tempVoiceHub.safeParse(h);
+            if (!parsed.success || seen.has(parsed.data.channelId)) return [];
+            seen.add(parsed.data.channelId);
+            return [parsed.data];
+          })
+          .slice(0, MAX_TEMP_VOICE_HUBS);
+      })
+      .catch([]),
+  })
+  .catch({ hubs: [] });
+
 export const guildSettings = unwrap(
   z.preprocess(
     // Settings may list the announcement types at the top level or under
@@ -98,6 +140,7 @@ export const guildSettings = unwrap(
       welcome: greetingSetting.default({ channelId: null, message: null, failing: false }),
       goodbye: greetingSetting.default({ channelId: null, message: null, failing: false }),
       autoRoles: autoRoleSetting.default({ roleIds: [], botRoleIds: [], failing: false, configuredBy: null }),
+      tempVoice: tempVoiceSetting.default({ hubs: [] }),
     }),
   ),
 );
@@ -114,7 +157,33 @@ export const DEFAULT_SETTINGS: GuildSettings = {
   welcome: { channelId: null, message: null, failing: false },
   goodbye: { channelId: null, message: null, failing: false },
   autoRoles: { roleIds: [], botRoleIds: [], failing: false, configuredBy: null },
+  tempVoice: { hubs: [] },
 };
+
+/** A voice channel the bot created from a hub, as the site keeps it. */
+export const tempVoiceChannel = z.object({
+  guildId: snowflake,
+  channelId: snowflake,
+  hubChannelId: snowflake,
+  ownerId: snowflake,
+});
+export type TempVoiceChannel = z.infer<typeof tempVoiceChannel>;
+
+/** One page of `GET /api/bot/temp-voice`: every registered channel, an unreadable one dropped. */
+export const tempVoiceChannelsPage = unwrap(
+  z.object({
+    channels: z
+      .array(z.unknown())
+      .max(1_000)
+      .transform((list) =>
+        list.flatMap((c) => {
+          const parsed = tempVoiceChannel.safeParse(c);
+          return parsed.success ? [parsed.data] : [];
+        }),
+      ),
+    next: snowflake.nullable().catch(null),
+  }),
+);
 
 // ─── Role menus ────────────────────────────────────────────────────────
 

@@ -3,13 +3,17 @@ import { log } from "../log.js";
 
 /**
  * Gateway intents. `Guilds` is all the commands and announcements need.
+ * `GuildVoiceStates` (not privileged) feeds the temporary voice channels:
+ * who joins a hub, when a temporary channel empties
+ * (`managers/temp-voice.ts`); the bot keeps the voice states (channel and
+ * user ids) in memory, nothing more, and stores none.
  * `GuildMembers` (privileged) is asked for one reason only: the
  * `guildMemberAdd` / `guildMemberRemove` events behind the welcome and
  * goodbye messages. The bot never lists, fetches or stores members with it.
  * Never MessageContent, never presences.
  */
 
-const BASE = [GatewayIntentBits.Guilds];
+const BASE = [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates];
 
 export function gatewayIntents(memberEvents: boolean): GatewayIntentBits[] {
   return memberEvents ? [...BASE, GatewayIntentBits.GuildMembers] : [...BASE];

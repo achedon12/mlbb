@@ -16,6 +16,9 @@ import { AutoRoler, type JoinedMember } from "./managers/auto-roler.js";
 import { Greeter, type MemberEvent } from "./managers/greeter.js";
 import { restPoster } from "./managers/poster.js";
 import { GameData, WARM_INTERVAL_MS } from "./site/game-data.js";
+import { discordTempVoice } from "./discord/temp-voice.js";
+import { TempVoiceManager } from "./managers/temp-voice.js";
+import { resolveLocale, t } from "./i18n/index.js";
 import { serverCount } from "./commands/about.js";
 import { presenceAt, PresenceRotator } from "./discord/presence.js";
 import { SiteClient } from "./site/internal-api.js";
@@ -24,8 +27,9 @@ import { SiteClient } from "./site/internal-api.js";
  * One shard: a gateway connection serving part of the servers, started by
  * the ShardingManager (`index.ts`). It answers interactions and reports
  * joins and leaves, posts the welcome and goodbye messages and gives the
- * auto-roles (member events reach the shard only); the other posting loops
- * run in the manager, over REST.
+ * auto-roles (member events reach the shard only), and runs the temporary
+ * voice channels (voice events too); the other posting loops run in the
+ * manager, over REST.
  */
 
 const config = loadConfig();
@@ -65,7 +69,8 @@ const client = new Client({
     ReactionManager: 0,
     ReactionUserManager: 0,
     ThreadMemberManager: 0,
-    VoiceStateManager: 0,
+    // Voice states stay cached (channel and user ids): the temporary voice
+    // channels count who is left in one from them.
     GuildEmojiManager: 0,
     GuildStickerManager: 0,
     GuildInviteManager: 0,
@@ -119,6 +124,21 @@ const autoRoler =
       })
     : null;
 
+// Hubs and the channels created are the site's: without it, nothing to watch.
+const tempVoice = site
+  ? new TempVoiceManager({
+      settings: (guildId) => site.settings(guildId),
+      defaultName: (guildId, settings) =>
+        t(resolveLocale(settings.locale, client.guilds.cache.get(guildId)?.preferredLocale), "ui.tempVoice.defaultName"),
+      discord: discordTempVoice(client),
+      registry: {
+        register: (channel) => site.registerTempVoice(channel),
+        forget: (channelIds) => site.forgetTempVoice(channelIds),
+        list: () => site.tempVoiceChannels(),
+      },
+    })
+  : null;
+
 /** What auto-roles read of a member: its ids, bot or not, screening, and the call. */
 function joinedMember(member: GuildMember): JoinedMember {
   return {
@@ -164,6 +184,8 @@ client.once(Events.ClientReady, async (ready) => {
     await site.syncGuilds(false, ready.guilds.cache.filter((g) => g.available).map(guildSummary)).catch((error: unknown) =>
       log.warn("partial guild sync failed", { error }),
     );
+    // Channels left empty while the bot was down are deleted, gone ones forgotten.
+    await tempVoice?.sweep().catch((error: unknown) => log.warn("temp voice sweep failed", { error }));
   }
 });
 
@@ -201,6 +223,21 @@ client.on(Events.GuildMemberRemove, (member) => {
   if (greeter && !member.user?.bot) void greeter.handle("goodbye", memberEvent(member));
 });
 
+// Temporary voice channels: a member joining a hub, a temporary channel emptying.
+client.on(Events.VoiceStateUpdate, (oldState, newState) => {
+  if (!tempVoice || oldState.channelId === newState.channelId) return;
+  const member = newState.member ?? oldState.member;
+  void tempVoice.handle({
+    guildId: newState.guild.id,
+    userId: newState.id,
+    bot: member?.user.bot ?? false,
+    displayName: member?.displayName ?? "",
+    from: oldState.channelId,
+    to: newState.channelId,
+  });
+});
+client.on(Events.ChannelDelete, (channel) => tempVoice?.channelDeleted(channel.id));
+
 // A new session (after a reconnect) starts without the status: set it again.
 client.on(Events.ShardReady, () => void presence.refresh());
 client.on(Events.ShardResume, () => void presence.refresh());
@@ -221,6 +258,7 @@ async function shutdown(signal: string): Promise<void> {
   greeter?.stop();
   presence.stop();
   autoRoler?.stop();
+  tempVoice?.stop();
   await services.logger.stop().catch(() => undefined);
   await client.destroy();
   process.exit(0);

@@ -13,6 +13,7 @@ import {
   pendingAnnouncements,
   PERIODS,
   roleMenuList,
+  tempVoiceChannelsPage,
   type Announcement,
   type Daily,
   type DailyGuild,
@@ -23,6 +24,7 @@ import {
   type Leaderboard,
   type Period,
   type RoleMenu,
+  type TempVoiceChannel,
 } from "./schemas.js";
 
 /**
@@ -190,6 +192,36 @@ export class SiteClient {
         throw error;
       }
     });
+  }
+
+  /**
+   * A voice channel the bot just created from a hub: kept by the site so
+   * that, after a restart, the bot deletes it once empty (and never
+   * deletes a channel it did not create).
+   */
+  registerTempVoice(channel: TempVoiceChannel): Promise<unknown> {
+    const { guildId, ...rest } = channel;
+    return this.request("POST", `/api/bot/guilds/${guildId}/temp-voice`, anyBody, rest);
+  }
+
+  /** Channels deleted, or found gone: the site forgets them. */
+  forgetTempVoice(channelIds: string[]): Promise<unknown> {
+    return this.request("POST", "/api/bot/temp-voice/forget", anyBody, { channelIds: channelIds.slice(0, 500) });
+  }
+
+  /** Every registered temporary voice channel, every page (each shard keeps its servers' ones). */
+  async tempVoiceChannels(): Promise<TempVoiceChannel[]> {
+    const out: TempVoiceChannel[] = [];
+    let after: string | null = null;
+    // Bounded: a thousand per page.
+    for (let page = 0; page < 100; page++) {
+      const query: string = after ? `?after=${after}` : "";
+      const result: { channels: TempVoiceChannel[]; next: string | null } = await this.request("GET", `/api/bot/temp-voice${query}`, tempVoiceChannelsPage);
+      out.push(...result.channels);
+      if (!result.next || result.next === after) break;
+      after = result.next;
+    }
+    return out;
   }
 
   /** The dashboard changed this server: the next read asks the site again. */

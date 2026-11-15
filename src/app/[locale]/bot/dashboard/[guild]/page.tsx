@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import { BUTTON, GuildIcon, LoginPanel, UserBar } from "@/components/bot/dashboard-parts";
 import { RoleMenusSection } from "@/components/bot/role-menus-section";
 import { SettingsForm } from "@/components/bot/settings-form";
+import { TempVoiceSection } from "@/components/bot/temp-voice-section";
 import Link from "@/components/link";
 import { PageHeader } from "@/components/ui";
 import { LOCALE_INTL, type Locale } from "@/i18n/config";
@@ -14,9 +15,10 @@ import { botConfig } from "@/lib/bot/config";
 import { dashboardPageAllowed } from "@/lib/bot/dashboard-guard";
 import { botClientId, discordImage, isSnowflake } from "@/lib/bot/public";
 import { currentDiscordUser } from "@/lib/bot/session";
-import { roleMenuStatus } from "@/lib/bot/kinds";
+import { roleMenuStatus, TEMP_VOICE_DEFAULT_NAMES } from "@/lib/bot/kinds";
 import { roleMenuView } from "@/lib/bot/role-menus";
 import { settingsView } from "@/lib/bot/settings";
+import { tempVoiceHubView } from "@/lib/bot/temp-voice";
 import { deliveryHealth } from "@/lib/bot/stats";
 import { db } from "@/lib/db";
 import { cn } from "@/lib/utils";
@@ -96,7 +98,9 @@ export default async function GuildPage({ params }: Params) {
   }
 
   const [guild, health, menuRows] = await Promise.all([
-    db().guild.findUnique({ where: { id }, include: { settings: true } }).catch(() => undefined),
+    db()
+      .guild.findUnique({ where: { id }, include: { settings: true, tempVoiceHubs: { orderBy: { id: "asc" } } } })
+      .catch(() => undefined),
     deliveryHealth(id).catch(() => null),
     db()
       .roleMenu.findMany({ where: { guildId: id }, orderBy: { id: "asc" } })
@@ -125,6 +129,14 @@ export default async function GuildPage({ params }: Params) {
           kind: "on" as const,
           text: t("pages.botUI.statusCount", { on: menus.filter((m) => roleMenuStatus(m) !== "draft").length, total: menus.length }),
         };
+  // Temporary voice: attention when the bot lacks a permission it needs or a hub is gone.
+  const hubs = guild.tempVoiceHubs.map(tempVoiceHubView);
+  const voiceIds = new Set(lists.voiceChannels.map((c) => c.id));
+  const tempVoiceState = !hubs.length
+    ? { kind: "off" as const, text: t("pages.botUI.statusOff") }
+    : !lists.manageChannels || !lists.moveMembers || hubs.some((h) => !voiceIds.has(h.channelId))
+      ? { kind: "attention" as const, text: t("pages.botUI.statusAttention") }
+      : { kind: "on" as const, text: t("pages.botUI.tempVoice.statusHubs", { count: hubs.length }) };
   const roleChoices = lists.roles.map((r) => ({ ...r, granterRefusal: refusalFor(granted.refusals, r.id) }));
   const dateTime = new Intl.DateTimeFormat(LOCALE_INTL[locale], { dateStyle: "medium", timeStyle: "short", timeZone: "UTC" });
 
@@ -164,7 +176,10 @@ export default async function GuildPage({ params }: Params) {
               roles={mentionableRoles(lists.roles).map(({ id, name }) => ({ id, name }))}
               autoRoles={{ roles: roleChoices, manageRoles: lists.manageRoles }}
               sample={{ user: user.name, avatarUrl: discordImage("avatars", user.id, user.avatar, 128), server: guild.name, count: guild.memberCount }}
-              extraSections={[{ id: "role-menus", title: t("pages.botUI.roleMenus.title"), state: menusState }]}
+              extraSections={[
+                { id: "role-menus", title: t("pages.botUI.roleMenus.title"), state: menusState },
+                { id: "temp-voice", title: t("pages.botUI.tempVoice.title"), state: tempVoiceState },
+              ]}
             />
             <div className="mt-6 lg:ml-[15rem]">
               <RoleMenusSection
@@ -177,6 +192,18 @@ export default async function GuildPage({ params }: Params) {
                 manageRoles={lists.manageRoles}
                 paused={paused}
                 state={menusState}
+              />
+            </div>
+            <div className="mt-6 lg:ml-[15rem]">
+              <TempVoiceSection
+                guildId={guild.id}
+                initial={hubs}
+                voiceChannels={lists.voiceChannels}
+                manageChannels={lists.manageChannels}
+                moveMembers={lists.moveMembers}
+                defaultName={TEMP_VOICE_DEFAULT_NAMES[view.locale]}
+                sampleUser={user.name}
+                state={tempVoiceState}
               />
             </div>
           </ExtendMessages>
