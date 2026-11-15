@@ -495,6 +495,9 @@
       "refusedBot": "MLBBDex can no longer give this role: it needs the Manage Roles permission and its role above this one. Ask a server manager.",
       "refusedGranter": "This menu is paused: the manager who set it up can no longer give these roles. Another manager has to save it again on the MLBBDex dashboard.",
       "failed": "Your roles could not be changed right now. Try again in a moment."
+    },
+    "tempVoice": {
+      "defaultName": "🎯 {user}'s lobby"
     }
   },
   "labels": {

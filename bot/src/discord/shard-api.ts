@@ -33,11 +33,25 @@ export interface RoleChoice {
   refusal: RoleRefusal | null;
 }
 
-/** The pickers' lists, and whether the bot holds Manage Roles (auto-roles need it). */
+/** A voice channel, for the temporary voice hub pickers. */
+export interface VoiceChannelChoice {
+  id: string;
+  name: string;
+  /** Its category's name, null outside one. */
+  category: string | null;
+}
+
+/**
+ * The pickers' lists, and whether the bot holds Manage Roles (auto-roles
+ * need it), Manage Channels and Move Members (temporary voice channels).
+ */
 export interface GuildLists {
   channels: ChannelChoice[];
   roles: RoleChoice[];
   manageRoles: boolean;
+  voiceChannels: VoiceChannelChoice[];
+  manageChannels: boolean;
+  moveMembers: boolean;
 }
 
 export interface ShardStats {
@@ -175,7 +189,20 @@ export function createShardApi(client: Client, hooks: ShardHooks = {}): ShardApi
           return { id: r.id, name: r.name, assignable: refusal === null, refusal };
         })
         .slice(0, 250);
-      return { channels: channels.slice(0, 500), roles, manageRoles: me.permissions.has(PermissionFlagsBits.ManageRoles) };
+      // Every voice channel (not stages): a hub the bot cannot see is
+      // listed too, the dashboard warns about the permissions.
+      const voiceChannels = guild.channels.cache
+        .filter((c) => c.type === ChannelType.GuildVoice)
+        .sort((a, b) => ("rawPosition" in a && "rawPosition" in b ? a.rawPosition - b.rawPosition : 0))
+        .map((c) => ({ id: c.id, name: c.name, category: c.parent?.name ?? null }));
+      return {
+        channels: channels.slice(0, 500),
+        roles,
+        manageRoles: me.permissions.has(PermissionFlagsBits.ManageRoles),
+        voiceChannels: voiceChannels.slice(0, 500),
+        manageChannels: me.permissions.has(PermissionFlagsBits.ManageChannels),
+        moveMembers: me.permissions.has(PermissionFlagsBits.MoveMembers),
+      };
     },
 
     async grantable(guildId, userId) {

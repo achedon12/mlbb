@@ -4287,6 +4287,126 @@
     "discordCta.esports.text": {
       "fr": "MPL, MSC et M-series : les résultats arrivent dans le salon esports du Discord.",
       "text": "MPL, MSC and M-series: results land in the Discord's esports channel."
+    },
+    "pages.botUI.tempVoice.title": {
+      "fr": "Salons vocaux temporaires",
+      "text": "Temporary voice channels"
+    },
+    "pages.botUI.tempVoice.lead": {
+      "fr": "Un membre qui rejoint un salon d'entrée obtient son propre salon vocal, créé juste à côté et supprimé dès qu'il est vide. Pratique pour les parties personnalisées ou les ranked à cinq.",
+      "text": "A member who joins a join-to-create channel gets a voice channel of their own, created right next to it and deleted as soon as it is empty. Handy for custom games or five-stack ranked."
+    },
+    "pages.botUI.tempVoice.empty": {
+      "fr": "Aucun salon d'entrée pour l'instant.",
+      "text": "No join-to-create channel yet."
+    },
+    "pages.botUI.tempVoice.hub": {
+      "fr": "Salon d'entrée {number}",
+      "text": "Join-to-create channel {number}"
+    },
+    "pages.botUI.tempVoice.channel": {
+      "fr": "Salon vocal d'entrée",
+      "text": "Join-to-create voice channel"
+    },
+    "pages.botUI.tempVoice.chooseChannel": {
+      "fr": "Choisir un salon vocal",
+      "text": "Pick a voice channel"
+    },
+    "pages.botUI.tempVoice.deletedChannel": {
+      "fr": "Salon supprimé",
+      "text": "Deleted channel"
+    },
+    "pages.botUI.tempVoice.userLimit": {
+      "fr": "Limite de membres",
+      "text": "User limit"
+    },
+    "pages.botUI.tempVoice.userLimitHelp": {
+      "fr": "De 0 à {max} ; 0 : pas de limite. Par exemple 5 pour les ranked, 10 pour une partie personnalisée.",
+      "text": "From 0 to {max}; 0: no limit. For example 5 for ranked, 10 for a custom game."
+    },
+    "pages.botUI.tempVoice.name": {
+      "fr": "Nom des salons créés",
+      "text": "Name of the channels created"
+    },
+    "pages.botUI.tempVoice.nameHelp": {
+      "fr": "Facultatif, {max} caractères au plus. {placeholder} est remplacé par le pseudo du membre. Vide : le nom par défaut, dans la langue du serveur.",
+      "text": "Optional, {max} characters at most. {placeholder} is replaced by the member's display name. Blank: the default name, in the server's language."
+    },
+    "pages.botUI.tempVoice.preview": {
+      "fr": "Exemple :",
+      "text": "Example:"
+    },
+    "pages.botUI.tempVoice.add": {
+      "fr": "Ajouter un salon d'entrée",
+      "text": "Add a join-to-create channel"
+    },
+    "pages.botUI.tempVoice.remove": {
+      "fr": "Retirer",
+      "text": "Remove"
+    },
+    "pages.botUI.tempVoice.save": {
+      "fr": "Enregistrer les salons vocaux",
+      "text": "Save the voice channels"
+    },
+    "pages.botUI.tempVoice.saved": {
+      "fr": "Salons vocaux temporaires enregistrés.",
+      "text": "Temporary voice channels saved."
+    },
+    "pages.botUI.tempVoice.statusHubs": {
+      "fr": "Salons d'entrée : {count}",
+      "text": "Join-to-create channels: {count}"
+    },
+    "pages.botUI.tempVoice.tooMany": {
+      "fr": "{max} salons d'entrée au plus par serveur.",
+      "text": "{max} join-to-create channels at most per server."
+    },
+    "pages.botUI.tempVoice.noVoiceChannels": {
+      "fr": "Le bot ne voit aucun salon vocal sur ce serveur : créez-en un pour servir d'entrée, puis rechargez cette page.",
+      "text": "The bot sees no voice channel on this server: create one to act as the entry, then reload this page."
+    },
+    "pages.botUI.tempVoice.unknownChannel": {
+      "fr": "Ce salon n'existe plus, ou le bot ne le voit plus : choisissez-en un autre ou retirez ce salon d'entrée.",
+      "text": "This channel no longer exists, or the bot can no longer see it: pick another one or remove this join-to-create channel."
+    },
+    "pages.botUI.tempVoice.missingPermissions": {
+      "fr": "MLBBDex n'a pas la permission {permissions} : sans elle, aucun salon n'est créé. Donnez-la au rôle de MLBBDex (Paramètres du serveur > Rôles), puis rechargez cette page.",
+      "text": "MLBBDex does not have the {permissions} permission: without it, no channel is created. Give it to MLBBDex's role (Server Settings > Roles), then reload this page."
+    },
+    "pages.botUI.tempVoice.permissionNames.manageChannels": {
+      "fr": "Gérer les salons",
+      "text": "Manage Channels"
+    },
+    "pages.botUI.tempVoice.permissionNames.moveMembers": {
+      "fr": "Déplacer des membres",
+      "text": "Move Members"
+    },
+    "pages.botUI.tempVoice.help": {
+      "fr": "Le bot a besoin des permissions Gérer les salons et Déplacer des membres, et de Voir le salon et Se connecter sur le salon d'entrée et sa catégorie. Le membre peut renommer son salon, changer sa limite, et y déplacer ou rendre muets les autres membres. Le bot ne supprime que les salons qu'il a créés.",
+      "text": "The bot needs the Manage Channels and Move Members permissions, and View Channel and Connect on the join-to-create channel and its category. The member can rename their channel, change its user limit, and move or mute the other members in it. The bot only deletes the channels it created."
+    },
+    "pages.botUI.tempVoice.errors.noChannel": {
+      "fr": "Choisissez un salon vocal pour chaque salon d'entrée.",
+      "text": "Pick a voice channel for each join-to-create channel."
+    },
+    "pages.botUI.tempVoice.errors.limit": {
+      "fr": "La limite de membres va de 0 à {max}.",
+      "text": "The user limit goes from 0 to {max}."
+    },
+    "pages.botUI.tempVoice.errors.unknownChannel": {
+      "fr": "Un salon d'entrée n'est plus un salon vocal de ce serveur : rechargez la page.",
+      "text": "A join-to-create channel is no longer a voice channel of this server: reload the page."
+    },
+    "pages.botUI.tempVoice.errors.rateLimited": {
+      "fr": "Trop d'enregistrements d'affilée : patientez une minute.",
+      "text": "Too many saves in a row: wait a minute."
+    },
+    "pages.botUI.tempVoice.errors.failed": {
+      "fr": "L'enregistrement a échoué. Réessayez.",
+      "text": "Saving failed. Try again."
+    },
+    "pages.botPrivacy.tempVoice": {
+      "fr": "Salons vocaux temporaires : le serveur enregistre ses salons d'entrée avec leur limite de membres et leur modèle de nom. Pour chaque salon vocal que le bot crée, il conserve l'identifiant du salon, du salon d'entrée et du membre pour qui il l'a créé, jusqu'à ce que le salon soit supprimé, ce qui arrive dès qu'il est vide. Pour savoir qui est dans quel salon vocal, le bot reçoit les états vocaux de Discord (intent « Guild Voice States »), les garde en mémoire et n'en enregistre aucun.",
+      "text": "Temporary voice channels: the server stores its join-to-create channels with their user limit and name template. For each voice channel the bot creates, it keeps the ids of the channel, of the join-to-create channel and of the member it was created for, until the channel is deleted, which happens as soon as it is empty. To know who is in which voice channel, the bot receives Discord's voice states (the \"Guild Voice States\" intent), keeps them in memory and stores none of them."
     }
   },
   "es": {
@@ -8405,6 +8525,126 @@
     "discordCta.esports.text": {
       "fr": "MPL, MSC et M-series : les résultats arrivent dans le salon esports du Discord.",
       "text": "MPL, MSC y M-series: los resultados llegan al canal de esports del Discord."
+    },
+    "pages.botUI.tempVoice.title": {
+      "fr": "Salons vocaux temporaires",
+      "text": "Canales de voz temporales"
+    },
+    "pages.botUI.tempVoice.lead": {
+      "fr": "Un membre qui rejoint un salon d'entrée obtient son propre salon vocal, créé juste à côté et supprimé dès qu'il est vide. Pratique pour les parties personnalisées ou les ranked à cinq.",
+      "text": "Un miembro que entra en un canal de entrada obtiene su propio canal de voz, creado justo al lado y borrado en cuanto se queda vacío. Útil para partidas personalizadas o ranked de cinco."
+    },
+    "pages.botUI.tempVoice.empty": {
+      "fr": "Aucun salon d'entrée pour l'instant.",
+      "text": "Todavía no hay ningún canal de entrada."
+    },
+    "pages.botUI.tempVoice.hub": {
+      "fr": "Salon d'entrée {number}",
+      "text": "Canal de entrada {number}"
+    },
+    "pages.botUI.tempVoice.channel": {
+      "fr": "Salon vocal d'entrée",
+      "text": "Canal de voz de entrada"
+    },
+    "pages.botUI.tempVoice.chooseChannel": {
+      "fr": "Choisir un salon vocal",
+      "text": "Elige un canal de voz"
+    },
+    "pages.botUI.tempVoice.deletedChannel": {
+      "fr": "Salon supprimé",
+      "text": "Canal eliminado"
+    },
+    "pages.botUI.tempVoice.userLimit": {
+      "fr": "Limite de membres",
+      "text": "Límite de usuarios"
+    },
+    "pages.botUI.tempVoice.userLimitHelp": {
+      "fr": "De 0 à {max} ; 0 : pas de limite. Par exemple 5 pour les ranked, 10 pour une partie personnalisée.",
+      "text": "De 0 a {max}; 0: sin límite. Por ejemplo 5 para ranked, 10 para una partida personalizada."
+    },
+    "pages.botUI.tempVoice.name": {
+      "fr": "Nom des salons créés",
+      "text": "Nombre de los canales creados"
+    },
+    "pages.botUI.tempVoice.nameHelp": {
+      "fr": "Facultatif, {max} caractères au plus. {placeholder} est remplacé par le pseudo du membre. Vide : le nom par défaut, dans la langue du serveur.",
+      "text": "Opcional, {max} caracteres como máximo. {placeholder} se sustituye por el nombre visible del miembro. Vacío: el nombre por defecto, en el idioma del servidor."
+    },
+    "pages.botUI.tempVoice.preview": {
+      "fr": "Exemple :",
+      "text": "Ejemplo:"
+    },
+    "pages.botUI.tempVoice.add": {
+      "fr": "Ajouter un salon d'entrée",
+      "text": "Añadir un canal de entrada"
+    },
+    "pages.botUI.tempVoice.remove": {
+      "fr": "Retirer",
+      "text": "Quitar"
+    },
+    "pages.botUI.tempVoice.save": {
+      "fr": "Enregistrer les salons vocaux",
+      "text": "Guardar los canales de voz"
+    },
+    "pages.botUI.tempVoice.saved": {
+      "fr": "Salons vocaux temporaires enregistrés.",
+      "text": "Canales de voz temporales guardados."
+    },
+    "pages.botUI.tempVoice.statusHubs": {
+      "fr": "Salons d'entrée : {count}",
+      "text": "Canales de entrada: {count}"
+    },
+    "pages.botUI.tempVoice.tooMany": {
+      "fr": "{max} salons d'entrée au plus par serveur.",
+      "text": "{max} canales de entrada como máximo por servidor."
+    },
+    "pages.botUI.tempVoice.noVoiceChannels": {
+      "fr": "Le bot ne voit aucun salon vocal sur ce serveur : créez-en un pour servir d'entrée, puis rechargez cette page.",
+      "text": "El bot no ve ningún canal de voz en este servidor: crea uno que sirva de entrada y vuelve a cargar esta página."
+    },
+    "pages.botUI.tempVoice.unknownChannel": {
+      "fr": "Ce salon n'existe plus, ou le bot ne le voit plus : choisissez-en un autre ou retirez ce salon d'entrée.",
+      "text": "Este canal ya no existe o el bot ya no lo ve: elige otro o quita este canal de entrada."
+    },
+    "pages.botUI.tempVoice.missingPermissions": {
+      "fr": "MLBBDex n'a pas la permission {permissions} : sans elle, aucun salon n'est créé. Donnez-la au rôle de MLBBDex (Paramètres du serveur > Rôles), puis rechargez cette page.",
+      "text": "MLBBDex no tiene el permiso {permissions}: sin él no se crea ningún canal. Dáselo al rol de MLBBDex (Ajustes del servidor > Roles) y vuelve a cargar esta página."
+    },
+    "pages.botUI.tempVoice.permissionNames.manageChannels": {
+      "fr": "Gérer les salons",
+      "text": "Gestionar canales"
+    },
+    "pages.botUI.tempVoice.permissionNames.moveMembers": {
+      "fr": "Déplacer des membres",
+      "text": "Mover miembros"
+    },
+    "pages.botUI.tempVoice.help": {
+      "fr": "Le bot a besoin des permissions Gérer les salons et Déplacer des membres, et de Voir le salon et Se connecter sur le salon d'entrée et sa catégorie. Le membre peut renommer son salon, changer sa limite, et y déplacer ou rendre muets les autres membres. Le bot ne supprime que les salons qu'il a créés.",
+      "text": "El bot necesita los permisos Gestionar canales y Mover miembros, y Ver canal y Conectar en el canal de entrada y su categoría. El miembro puede renombrar su canal, cambiar su límite y mover o silenciar a los demás miembros dentro. El bot solo borra los canales que ha creado."
+    },
+    "pages.botUI.tempVoice.errors.noChannel": {
+      "fr": "Choisissez un salon vocal pour chaque salon d'entrée.",
+      "text": "Elige un canal de voz para cada canal de entrada."
+    },
+    "pages.botUI.tempVoice.errors.limit": {
+      "fr": "La limite de membres va de 0 à {max}.",
+      "text": "El límite de usuarios va de 0 a {max}."
+    },
+    "pages.botUI.tempVoice.errors.unknownChannel": {
+      "fr": "Un salon d'entrée n'est plus un salon vocal de ce serveur : rechargez la page.",
+      "text": "Un canal de entrada ya no es un canal de voz de este servidor: vuelve a cargar la página."
+    },
+    "pages.botUI.tempVoice.errors.rateLimited": {
+      "fr": "Trop d'enregistrements d'affilée : patientez une minute.",
+      "text": "Demasiados guardados seguidos: espera un minuto."
+    },
+    "pages.botUI.tempVoice.errors.failed": {
+      "fr": "L'enregistrement a échoué. Réessayez.",
+      "text": "No se pudo guardar. Inténtalo de nuevo."
+    },
+    "pages.botPrivacy.tempVoice": {
+      "fr": "Salons vocaux temporaires : le serveur enregistre ses salons d'entrée avec leur limite de membres et leur modèle de nom. Pour chaque salon vocal que le bot crée, il conserve l'identifiant du salon, du salon d'entrée et du membre pour qui il l'a créé, jusqu'à ce que le salon soit supprimé, ce qui arrive dès qu'il est vide. Pour savoir qui est dans quel salon vocal, le bot reçoit les états vocaux de Discord (intent « Guild Voice States »), les garde en mémoire et n'en enregistre aucun.",
+      "text": "Canales de voz temporales: el servidor guarda sus canales de entrada con su límite de usuarios y su modelo de nombre. Por cada canal de voz que crea, el bot conserva el identificador del canal, del canal de entrada y del miembro para quien lo creó, hasta que el canal se borra, lo que ocurre en cuanto se queda vacío. Para saber quién está en cada canal de voz, el bot recibe los estados de voz de Discord (intent «Guild Voice States»), los mantiene en memoria y no guarda ninguno."
     }
   },
   "id": {
@@ -14567,6 +14807,126 @@
     "discordCta.esports.text": {
       "fr": "MPL, MSC et M-series : les résultats arrivent dans le salon esports du Discord.",
       "text": "MPL, MSC, dan M-series: hasilnya masuk ke channel esports Discord."
+    },
+    "pages.botUI.tempVoice.title": {
+      "fr": "Salons vocaux temporaires",
+      "text": "Channel suara sementara"
+    },
+    "pages.botUI.tempVoice.lead": {
+      "fr": "Un membre qui rejoint un salon d'entrée obtient son propre salon vocal, créé juste à côté et supprimé dès qu'il est vide. Pratique pour les parties personnalisées ou les ranked à cinq.",
+      "text": "Member yang masuk ke channel hub mendapat channel suara sendiri, dibuat tepat di sebelahnya dan dihapus begitu kosong. Praktis untuk custom game atau ranked lima orang."
+    },
+    "pages.botUI.tempVoice.empty": {
+      "fr": "Aucun salon d'entrée pour l'instant.",
+      "text": "Belum ada channel hub."
+    },
+    "pages.botUI.tempVoice.hub": {
+      "fr": "Salon d'entrée {number}",
+      "text": "Channel hub {number}"
+    },
+    "pages.botUI.tempVoice.channel": {
+      "fr": "Salon vocal d'entrée",
+      "text": "Channel suara hub"
+    },
+    "pages.botUI.tempVoice.chooseChannel": {
+      "fr": "Choisir un salon vocal",
+      "text": "Pilih channel suara"
+    },
+    "pages.botUI.tempVoice.deletedChannel": {
+      "fr": "Salon supprimé",
+      "text": "Channel dihapus"
+    },
+    "pages.botUI.tempVoice.userLimit": {
+      "fr": "Limite de membres",
+      "text": "Batas pengguna"
+    },
+    "pages.botUI.tempVoice.userLimitHelp": {
+      "fr": "De 0 à {max} ; 0 : pas de limite. Par exemple 5 pour les ranked, 10 pour une partie personnalisée.",
+      "text": "Dari 0 sampai {max}; 0: tanpa batas. Misalnya 5 untuk ranked, 10 untuk custom game."
+    },
+    "pages.botUI.tempVoice.name": {
+      "fr": "Nom des salons créés",
+      "text": "Nama channel yang dibuat"
+    },
+    "pages.botUI.tempVoice.nameHelp": {
+      "fr": "Facultatif, {max} caractères au plus. {placeholder} est remplacé par le pseudo du membre. Vide : le nom par défaut, dans la langue du serveur.",
+      "text": "Opsional, maksimal {max} karakter. {placeholder} diganti dengan nama tampilan member. Kosong: nama bawaan, dalam bahasa server."
+    },
+    "pages.botUI.tempVoice.preview": {
+      "fr": "Exemple :",
+      "text": "Contoh:"
+    },
+    "pages.botUI.tempVoice.add": {
+      "fr": "Ajouter un salon d'entrée",
+      "text": "Tambah channel hub"
+    },
+    "pages.botUI.tempVoice.remove": {
+      "fr": "Retirer",
+      "text": "Hapus"
+    },
+    "pages.botUI.tempVoice.save": {
+      "fr": "Enregistrer les salons vocaux",
+      "text": "Simpan channel suara"
+    },
+    "pages.botUI.tempVoice.saved": {
+      "fr": "Salons vocaux temporaires enregistrés.",
+      "text": "Channel suara sementara disimpan."
+    },
+    "pages.botUI.tempVoice.statusHubs": {
+      "fr": "Salons d'entrée : {count}",
+      "text": "Channel hub: {count}"
+    },
+    "pages.botUI.tempVoice.tooMany": {
+      "fr": "{max} salons d'entrée au plus par serveur.",
+      "text": "Maksimal {max} channel hub per server."
+    },
+    "pages.botUI.tempVoice.noVoiceChannels": {
+      "fr": "Le bot ne voit aucun salon vocal sur ce serveur : créez-en un pour servir d'entrée, puis rechargez cette page.",
+      "text": "Bot tidak melihat channel suara apa pun di server ini: buat satu sebagai hub, lalu muat ulang halaman ini."
+    },
+    "pages.botUI.tempVoice.unknownChannel": {
+      "fr": "Ce salon n'existe plus, ou le bot ne le voit plus : choisissez-en un autre ou retirez ce salon d'entrée.",
+      "text": "Channel ini sudah tidak ada, atau bot tidak bisa melihatnya lagi: pilih yang lain atau hapus channel hub ini."
+    },
+    "pages.botUI.tempVoice.missingPermissions": {
+      "fr": "MLBBDex n'a pas la permission {permissions} : sans elle, aucun salon n'est créé. Donnez-la au rôle de MLBBDex (Paramètres du serveur > Rôles), puis rechargez cette page.",
+      "text": "MLBBDex tidak memiliki izin {permissions}: tanpanya, tidak ada channel yang dibuat. Berikan izin itu ke peran MLBBDex (Pengaturan Server > Peran), lalu muat ulang halaman ini."
+    },
+    "pages.botUI.tempVoice.permissionNames.manageChannels": {
+      "fr": "Gérer les salons",
+      "text": "Kelola Channel"
+    },
+    "pages.botUI.tempVoice.permissionNames.moveMembers": {
+      "fr": "Déplacer des membres",
+      "text": "Pindahkan Anggota"
+    },
+    "pages.botUI.tempVoice.help": {
+      "fr": "Le bot a besoin des permissions Gérer les salons et Déplacer des membres, et de Voir le salon et Se connecter sur le salon d'entrée et sa catégorie. Le membre peut renommer son salon, changer sa limite, et y déplacer ou rendre muets les autres membres. Le bot ne supprime que les salons qu'il a créés.",
+      "text": "Bot memerlukan izin Kelola Channel dan Pindahkan Anggota, serta Lihat Channel dan Hubungkan di channel hub dan kategorinya. Member bisa mengganti nama channel-nya, mengubah batasnya, serta memindahkan atau membisukan member lain di dalamnya. Bot hanya menghapus channel yang dibuatnya."
+    },
+    "pages.botUI.tempVoice.errors.noChannel": {
+      "fr": "Choisissez un salon vocal pour chaque salon d'entrée.",
+      "text": "Pilih channel suara untuk setiap channel hub."
+    },
+    "pages.botUI.tempVoice.errors.limit": {
+      "fr": "La limite de membres va de 0 à {max}.",
+      "text": "Batas pengguna dari 0 sampai {max}."
+    },
+    "pages.botUI.tempVoice.errors.unknownChannel": {
+      "fr": "Un salon d'entrée n'est plus un salon vocal de ce serveur : rechargez la page.",
+      "text": "Sebuah channel hub bukan lagi channel suara di server ini: muat ulang halaman."
+    },
+    "pages.botUI.tempVoice.errors.rateLimited": {
+      "fr": "Trop d'enregistrements d'affilée : patientez une minute.",
+      "text": "Terlalu banyak penyimpanan berturut-turut: tunggu satu menit."
+    },
+    "pages.botUI.tempVoice.errors.failed": {
+      "fr": "L'enregistrement a échoué. Réessayez.",
+      "text": "Gagal menyimpan. Coba lagi."
+    },
+    "pages.botPrivacy.tempVoice": {
+      "fr": "Salons vocaux temporaires : le serveur enregistre ses salons d'entrée avec leur limite de membres et leur modèle de nom. Pour chaque salon vocal que le bot crée, il conserve l'identifiant du salon, du salon d'entrée et du membre pour qui il l'a créé, jusqu'à ce que le salon soit supprimé, ce qui arrive dès qu'il est vide. Pour savoir qui est dans quel salon vocal, le bot reçoit les états vocaux de Discord (intent « Guild Voice States »), les garde en mémoire et n'en enregistre aucun.",
+      "text": "Channel suara sementara: server menyimpan channel hub-nya beserta batas pengguna dan templat namanya. Untuk setiap channel suara yang dibuat bot, bot menyimpan ID channel, ID channel hub, dan ID member yang dibuatkan channel itu, sampai channel dihapus, yaitu begitu channel kosong. Untuk mengetahui siapa berada di channel suara mana, bot menerima status suara dari Discord (intent \"Guild Voice States\"), menyimpannya di memori, dan tidak merekam satu pun."
     }
   },
   "it": {
@@ -18713,6 +19073,126 @@
     "discordCta.esports.text": {
       "fr": "MPL, MSC et M-series : les résultats arrivent dans le salon esports du Discord.",
       "text": "MPL, MSC e M-series: i risultati arrivano nel canale esports del Discord."
+    },
+    "pages.botUI.tempVoice.title": {
+      "fr": "Salons vocaux temporaires",
+      "text": "Canali vocali temporanei"
+    },
+    "pages.botUI.tempVoice.lead": {
+      "fr": "Un membre qui rejoint un salon d'entrée obtient son propre salon vocal, créé juste à côté et supprimé dès qu'il est vide. Pratique pour les parties personnalisées ou les ranked à cinq.",
+      "text": "Un membro che entra in un canale d'ingresso ottiene un proprio canale vocale, creato subito accanto ed eliminato appena si svuota. Comodo per le partite personalizzate o le ranked in cinque."
+    },
+    "pages.botUI.tempVoice.empty": {
+      "fr": "Aucun salon d'entrée pour l'instant.",
+      "text": "Ancora nessun canale d'ingresso."
+    },
+    "pages.botUI.tempVoice.hub": {
+      "fr": "Salon d'entrée {number}",
+      "text": "Canale d'ingresso {number}"
+    },
+    "pages.botUI.tempVoice.channel": {
+      "fr": "Salon vocal d'entrée",
+      "text": "Canale vocale d'ingresso"
+    },
+    "pages.botUI.tempVoice.chooseChannel": {
+      "fr": "Choisir un salon vocal",
+      "text": "Scegli un canale vocale"
+    },
+    "pages.botUI.tempVoice.deletedChannel": {
+      "fr": "Salon supprimé",
+      "text": "Canale eliminato"
+    },
+    "pages.botUI.tempVoice.userLimit": {
+      "fr": "Limite de membres",
+      "text": "Limite utenti"
+    },
+    "pages.botUI.tempVoice.userLimitHelp": {
+      "fr": "De 0 à {max} ; 0 : pas de limite. Par exemple 5 pour les ranked, 10 pour une partie personnalisée.",
+      "text": "Da 0 a {max}; 0: nessun limite. Per esempio 5 per le ranked, 10 per una partita personalizzata."
+    },
+    "pages.botUI.tempVoice.name": {
+      "fr": "Nom des salons créés",
+      "text": "Nome dei canali creati"
+    },
+    "pages.botUI.tempVoice.nameHelp": {
+      "fr": "Facultatif, {max} caractères au plus. {placeholder} est remplacé par le pseudo du membre. Vide : le nom par défaut, dans la langue du serveur.",
+      "text": "Facoltativo, al massimo {max} caratteri. {placeholder} viene sostituito dal nome visualizzato del membro. Vuoto: il nome predefinito, nella lingua del server."
+    },
+    "pages.botUI.tempVoice.preview": {
+      "fr": "Exemple :",
+      "text": "Esempio:"
+    },
+    "pages.botUI.tempVoice.add": {
+      "fr": "Ajouter un salon d'entrée",
+      "text": "Aggiungi un canale d'ingresso"
+    },
+    "pages.botUI.tempVoice.remove": {
+      "fr": "Retirer",
+      "text": "Rimuovi"
+    },
+    "pages.botUI.tempVoice.save": {
+      "fr": "Enregistrer les salons vocaux",
+      "text": "Salva i canali vocali"
+    },
+    "pages.botUI.tempVoice.saved": {
+      "fr": "Salons vocaux temporaires enregistrés.",
+      "text": "Canali vocali temporanei salvati."
+    },
+    "pages.botUI.tempVoice.statusHubs": {
+      "fr": "Salons d'entrée : {count}",
+      "text": "Canali d'ingresso: {count}"
+    },
+    "pages.botUI.tempVoice.tooMany": {
+      "fr": "{max} salons d'entrée au plus par serveur.",
+      "text": "Al massimo {max} canali d'ingresso per server."
+    },
+    "pages.botUI.tempVoice.noVoiceChannels": {
+      "fr": "Le bot ne voit aucun salon vocal sur ce serveur : créez-en un pour servir d'entrée, puis rechargez cette page.",
+      "text": "Il bot non vede nessun canale vocale su questo server: creane uno che faccia da ingresso, poi ricarica questa pagina."
+    },
+    "pages.botUI.tempVoice.unknownChannel": {
+      "fr": "Ce salon n'existe plus, ou le bot ne le voit plus : choisissez-en un autre ou retirez ce salon d'entrée.",
+      "text": "Questo canale non esiste più, o il bot non lo vede più: scegline un altro o rimuovi questo canale d'ingresso."
+    },
+    "pages.botUI.tempVoice.missingPermissions": {
+      "fr": "MLBBDex n'a pas la permission {permissions} : sans elle, aucun salon n'est créé. Donnez-la au rôle de MLBBDex (Paramètres du serveur > Rôles), puis rechargez cette page.",
+      "text": "MLBBDex non ha il permesso {permissions}: senza, non viene creato nessun canale. Concedilo al ruolo di MLBBDex (Impostazioni server > Ruoli), poi ricarica questa pagina."
+    },
+    "pages.botUI.tempVoice.permissionNames.manageChannels": {
+      "fr": "Gérer les salons",
+      "text": "Gestire i canali"
+    },
+    "pages.botUI.tempVoice.permissionNames.moveMembers": {
+      "fr": "Déplacer des membres",
+      "text": "Spostare i membri"
+    },
+    "pages.botUI.tempVoice.help": {
+      "fr": "Le bot a besoin des permissions Gérer les salons et Déplacer des membres, et de Voir le salon et Se connecter sur le salon d'entrée et sa catégorie. Le membre peut renommer son salon, changer sa limite, et y déplacer ou rendre muets les autres membres. Le bot ne supprime que les salons qu'il a créés.",
+      "text": "Il bot ha bisogno dei permessi Gestire i canali e Spostare i membri, e di Visualizzare il canale e Connettersi sul canale d'ingresso e sulla sua categoria. Il membro può rinominare il proprio canale, cambiarne il limite e spostare o silenziare gli altri membri al suo interno. Il bot elimina solo i canali che ha creato."
+    },
+    "pages.botUI.tempVoice.errors.noChannel": {
+      "fr": "Choisissez un salon vocal pour chaque salon d'entrée.",
+      "text": "Scegli un canale vocale per ogni canale d'ingresso."
+    },
+    "pages.botUI.tempVoice.errors.limit": {
+      "fr": "La limite de membres va de 0 à {max}.",
+      "text": "Il limite utenti va da 0 a {max}."
+    },
+    "pages.botUI.tempVoice.errors.unknownChannel": {
+      "fr": "Un salon d'entrée n'est plus un salon vocal de ce serveur : rechargez la page.",
+      "text": "Un canale d'ingresso non è più un canale vocale di questo server: ricarica la pagina."
+    },
+    "pages.botUI.tempVoice.errors.rateLimited": {
+      "fr": "Trop d'enregistrements d'affilée : patientez une minute.",
+      "text": "Troppi salvataggi di fila: attendi un minuto."
+    },
+    "pages.botUI.tempVoice.errors.failed": {
+      "fr": "L'enregistrement a échoué. Réessayez.",
+      "text": "Salvataggio non riuscito. Riprova."
+    },
+    "pages.botPrivacy.tempVoice": {
+      "fr": "Salons vocaux temporaires : le serveur enregistre ses salons d'entrée avec leur limite de membres et leur modèle de nom. Pour chaque salon vocal que le bot crée, il conserve l'identifiant du salon, du salon d'entrée et du membre pour qui il l'a créé, jusqu'à ce que le salon soit supprimé, ce qui arrive dès qu'il est vide. Pour savoir qui est dans quel salon vocal, le bot reçoit les états vocaux de Discord (intent « Guild Voice States »), les garde en mémoire et n'en enregistre aucun.",
+      "text": "Canali vocali temporanei: il server salva i suoi canali d'ingresso con il loro limite utenti e il modello di nome. Per ogni canale vocale che crea, il bot conserva l'identificativo del canale, del canale d'ingresso e del membro per cui l'ha creato, finché il canale non viene eliminato, cosa che avviene appena si svuota. Per sapere chi è in quale canale vocale, il bot riceve gli stati vocali di Discord (intent «Guild Voice States»), li tiene in memoria e non ne salva nessuno."
     }
   },
   "fil": {
@@ -33431,6 +33911,126 @@
     "discordCta.esports.text": {
       "fr": "MPL, MSC et M-series : les résultats arrivent dans le salon esports du Discord.",
       "text": "MPL, MSC at M-series: nasa esports channel ng Discord ang mga resulta."
+    },
+    "pages.botUI.tempVoice.title": {
+      "fr": "Salons vocaux temporaires",
+      "text": "Mga pansamantalang voice channel"
+    },
+    "pages.botUI.tempVoice.lead": {
+      "fr": "Un membre qui rejoint un salon d'entrée obtient son propre salon vocal, créé juste à côté et supprimé dès qu'il est vide. Pratique pour les parties personnalisées ou les ranked à cinq.",
+      "text": "Ang member na papasok sa isang join-to-create channel ay magkakaroon ng sariling voice channel, ginagawa sa tabi nito at binubura kapag wala nang tao. Swak sa custom game o five-stack na ranked."
+    },
+    "pages.botUI.tempVoice.empty": {
+      "fr": "Aucun salon d'entrée pour l'instant.",
+      "text": "Wala pang join-to-create channel."
+    },
+    "pages.botUI.tempVoice.hub": {
+      "fr": "Salon d'entrée {number}",
+      "text": "Join-to-create channel {number}"
+    },
+    "pages.botUI.tempVoice.channel": {
+      "fr": "Salon vocal d'entrée",
+      "text": "Join-to-create voice channel"
+    },
+    "pages.botUI.tempVoice.chooseChannel": {
+      "fr": "Choisir un salon vocal",
+      "text": "Pumili ng voice channel"
+    },
+    "pages.botUI.tempVoice.deletedChannel": {
+      "fr": "Salon supprimé",
+      "text": "Nabura na channel"
+    },
+    "pages.botUI.tempVoice.userLimit": {
+      "fr": "Limite de membres",
+      "text": "User limit"
+    },
+    "pages.botUI.tempVoice.userLimitHelp": {
+      "fr": "De 0 à {max} ; 0 : pas de limite. Par exemple 5 pour les ranked, 10 pour une partie personnalisée.",
+      "text": "Mula 0 hanggang {max}; 0: walang limit. Halimbawa 5 para sa ranked, 10 para sa custom game."
+    },
+    "pages.botUI.tempVoice.name": {
+      "fr": "Nom des salons créés",
+      "text": "Pangalan ng mga ginawang channel"
+    },
+    "pages.botUI.tempVoice.nameHelp": {
+      "fr": "Facultatif, {max} caractères au plus. {placeholder} est remplacé par le pseudo du membre. Vide : le nom par défaut, dans la langue du serveur.",
+      "text": "Opsyonal, hanggang {max} na character. Papalitan ang {placeholder} ng display name ng member. Blangko: ang default na pangalan, sa wika ng server."
+    },
+    "pages.botUI.tempVoice.preview": {
+      "fr": "Exemple :",
+      "text": "Halimbawa:"
+    },
+    "pages.botUI.tempVoice.add": {
+      "fr": "Ajouter un salon d'entrée",
+      "text": "Magdagdag ng join-to-create channel"
+    },
+    "pages.botUI.tempVoice.remove": {
+      "fr": "Retirer",
+      "text": "Alisin"
+    },
+    "pages.botUI.tempVoice.save": {
+      "fr": "Enregistrer les salons vocaux",
+      "text": "I-save ang mga voice channel"
+    },
+    "pages.botUI.tempVoice.saved": {
+      "fr": "Salons vocaux temporaires enregistrés.",
+      "text": "Na-save ang mga pansamantalang voice channel."
+    },
+    "pages.botUI.tempVoice.statusHubs": {
+      "fr": "Salons d'entrée : {count}",
+      "text": "Mga join-to-create channel: {count}"
+    },
+    "pages.botUI.tempVoice.tooMany": {
+      "fr": "{max} salons d'entrée au plus par serveur.",
+      "text": "Hanggang {max} na join-to-create channel bawat server."
+    },
+    "pages.botUI.tempVoice.noVoiceChannels": {
+      "fr": "Le bot ne voit aucun salon vocal sur ce serveur : créez-en un pour servir d'entrée, puis rechargez cette page.",
+      "text": "Walang nakikitang voice channel ang bot sa server na ito: gumawa ng isa bilang entry, tapos i-reload ang page na ito."
+    },
+    "pages.botUI.tempVoice.unknownChannel": {
+      "fr": "Ce salon n'existe plus, ou le bot ne le voit plus : choisissez-en un autre ou retirez ce salon d'entrée.",
+      "text": "Wala na ang channel na ito, o hindi na ito nakikita ng bot: pumili ng iba o alisin ang join-to-create channel na ito."
+    },
+    "pages.botUI.tempVoice.missingPermissions": {
+      "fr": "MLBBDex n'a pas la permission {permissions} : sans elle, aucun salon n'est créé. Donnez-la au rôle de MLBBDex (Paramètres du serveur > Rôles), puis rechargez cette page.",
+      "text": "Walang {permissions} permission ang MLBBDex: kung wala ito, walang channel na gagawin. Ibigay ito sa role ng MLBBDex (Server Settings > Roles), tapos i-reload ang page na ito."
+    },
+    "pages.botUI.tempVoice.permissionNames.manageChannels": {
+      "fr": "Gérer les salons",
+      "text": "Manage Channels"
+    },
+    "pages.botUI.tempVoice.permissionNames.moveMembers": {
+      "fr": "Déplacer des membres",
+      "text": "Move Members"
+    },
+    "pages.botUI.tempVoice.help": {
+      "fr": "Le bot a besoin des permissions Gérer les salons et Déplacer des membres, et de Voir le salon et Se connecter sur le salon d'entrée et sa catégorie. Le membre peut renommer son salon, changer sa limite, et y déplacer ou rendre muets les autres membres. Le bot ne supprime que les salons qu'il a créés.",
+      "text": "Kailangan ng bot ang Manage Channels at Move Members permission, at View Channel at Connect sa join-to-create channel at sa category nito. Puwedeng palitan ng member ang pangalan ng channel niya, baguhin ang limit, at ilipat o i-mute ang ibang member doon. Ang mga channel lang na ginawa ng bot ang binubura nito."
+    },
+    "pages.botUI.tempVoice.errors.noChannel": {
+      "fr": "Choisissez un salon vocal pour chaque salon d'entrée.",
+      "text": "Pumili ng voice channel para sa bawat join-to-create channel."
+    },
+    "pages.botUI.tempVoice.errors.limit": {
+      "fr": "La limite de membres va de 0 à {max}.",
+      "text": "Ang user limit ay mula 0 hanggang {max}."
+    },
+    "pages.botUI.tempVoice.errors.unknownChannel": {
+      "fr": "Un salon d'entrée n'est plus un salon vocal de ce serveur : rechargez la page.",
+      "text": "Hindi na voice channel ng server na ito ang isang join-to-create channel: i-reload ang page."
+    },
+    "pages.botUI.tempVoice.errors.rateLimited": {
+      "fr": "Trop d'enregistrements d'affilée : patientez une minute.",
+      "text": "Masyadong maraming save nang sunod-sunod: maghintay ng isang minuto."
+    },
+    "pages.botUI.tempVoice.errors.failed": {
+      "fr": "L'enregistrement a échoué. Réessayez.",
+      "text": "Hindi na-save. Subukan ulit."
+    },
+    "pages.botPrivacy.tempVoice": {
+      "fr": "Salons vocaux temporaires : le serveur enregistre ses salons d'entrée avec leur limite de membres et leur modèle de nom. Pour chaque salon vocal que le bot crée, il conserve l'identifiant du salon, du salon d'entrée et du membre pour qui il l'a créé, jusqu'à ce que le salon soit supprimé, ce qui arrive dès qu'il est vide. Pour savoir qui est dans quel salon vocal, le bot reçoit les états vocaux de Discord (intent « Guild Voice States »), les garde en mémoire et n'en enregistre aucun.",
+      "text": "Mga pansamantalang voice channel: sine-save ng server ang mga join-to-create channel nito kasama ang user limit at template ng pangalan. Para sa bawat voice channel na ginagawa ng bot, iniingatan nito ang ID ng channel, ng join-to-create channel at ng member na pinaggawan nito, hanggang mabura ang channel, na nangyayari kapag wala nang tao. Para malaman kung sino ang nasa aling voice channel, tumatanggap ang bot ng voice states mula sa Discord (\"Guild Voice States\" intent), itinatago ang mga ito sa memory at wala itong sine-save."
     }
   },
   "th": {
@@ -47133,6 +47733,126 @@
     "discordCta.esports.text": {
       "fr": "MPL, MSC et M-series : les résultats arrivent dans le salon esports du Discord.",
       "text": "MPL, MSC และ M-series: ผลการแข่งขันส่งเข้าห้อง esports ของ Discord"
+    },
+    "pages.botUI.tempVoice.title": {
+      "fr": "Salons vocaux temporaires",
+      "text": "ช่องเสียงชั่วคราว"
+    },
+    "pages.botUI.tempVoice.lead": {
+      "fr": "Un membre qui rejoint un salon d'entrée obtient son propre salon vocal, créé juste à côté et supprimé dès qu'il est vide. Pratique pour les parties personnalisées ou les ranked à cinq.",
+      "text": "สมาชิกที่เข้าช่องทางเข้าจะได้ช่องเสียงของตัวเอง สร้างไว้ข้าง ๆ และลบทิ้งทันทีที่ไม่มีใครอยู่ เหมาะกับเกมกำหนดเองหรือแรงก์ห้าคน"
+    },
+    "pages.botUI.tempVoice.empty": {
+      "fr": "Aucun salon d'entrée pour l'instant.",
+      "text": "ยังไม่มีช่องทางเข้า"
+    },
+    "pages.botUI.tempVoice.hub": {
+      "fr": "Salon d'entrée {number}",
+      "text": "ช่องทางเข้า {number}"
+    },
+    "pages.botUI.tempVoice.channel": {
+      "fr": "Salon vocal d'entrée",
+      "text": "ช่องเสียงทางเข้า"
+    },
+    "pages.botUI.tempVoice.chooseChannel": {
+      "fr": "Choisir un salon vocal",
+      "text": "เลือกช่องเสียง"
+    },
+    "pages.botUI.tempVoice.deletedChannel": {
+      "fr": "Salon supprimé",
+      "text": "ช่องที่ถูกลบ"
+    },
+    "pages.botUI.tempVoice.userLimit": {
+      "fr": "Limite de membres",
+      "text": "จำกัดจำนวนผู้ใช้"
+    },
+    "pages.botUI.tempVoice.userLimitHelp": {
+      "fr": "De 0 à {max} ; 0 : pas de limite. Par exemple 5 pour les ranked, 10 pour une partie personnalisée.",
+      "text": "ตั้งแต่ 0 ถึง {max}; 0 คือไม่จำกัด เช่น 5 สำหรับแรงก์ 10 สำหรับเกมกำหนดเอง"
+    },
+    "pages.botUI.tempVoice.name": {
+      "fr": "Nom des salons créés",
+      "text": "ชื่อของช่องที่สร้าง"
+    },
+    "pages.botUI.tempVoice.nameHelp": {
+      "fr": "Facultatif, {max} caractères au plus. {placeholder} est remplacé par le pseudo du membre. Vide : le nom par défaut, dans la langue du serveur.",
+      "text": "ไม่บังคับ ไม่เกิน {max} ตัวอักษร {placeholder} จะถูกแทนด้วยชื่อที่แสดงของสมาชิก เว้นว่าง: ใช้ชื่อเริ่มต้นในภาษาของเซิร์ฟเวอร์"
+    },
+    "pages.botUI.tempVoice.preview": {
+      "fr": "Exemple :",
+      "text": "ตัวอย่าง:"
+    },
+    "pages.botUI.tempVoice.add": {
+      "fr": "Ajouter un salon d'entrée",
+      "text": "เพิ่มช่องทางเข้า"
+    },
+    "pages.botUI.tempVoice.remove": {
+      "fr": "Retirer",
+      "text": "นำออก"
+    },
+    "pages.botUI.tempVoice.save": {
+      "fr": "Enregistrer les salons vocaux",
+      "text": "บันทึกช่องเสียง"
+    },
+    "pages.botUI.tempVoice.saved": {
+      "fr": "Salons vocaux temporaires enregistrés.",
+      "text": "บันทึกช่องเสียงชั่วคราวแล้ว"
+    },
+    "pages.botUI.tempVoice.statusHubs": {
+      "fr": "Salons d'entrée : {count}",
+      "text": "ช่องทางเข้า: {count}"
+    },
+    "pages.botUI.tempVoice.tooMany": {
+      "fr": "{max} salons d'entrée au plus par serveur.",
+      "text": "ช่องทางเข้าได้สูงสุด {max} ช่องต่อเซิร์ฟเวอร์"
+    },
+    "pages.botUI.tempVoice.noVoiceChannels": {
+      "fr": "Le bot ne voit aucun salon vocal sur ce serveur : créez-en un pour servir d'entrée, puis rechargez cette page.",
+      "text": "บอทไม่เห็นช่องเสียงในเซิร์ฟเวอร์นี้เลย: สร้างช่องหนึ่งไว้เป็นทางเข้า แล้วโหลดหน้านี้ใหม่"
+    },
+    "pages.botUI.tempVoice.unknownChannel": {
+      "fr": "Ce salon n'existe plus, ou le bot ne le voit plus : choisissez-en un autre ou retirez ce salon d'entrée.",
+      "text": "ช่องนี้ไม่มีแล้ว หรือบอทมองไม่เห็นแล้ว: เลือกช่องอื่นหรือนำช่องทางเข้านี้ออก"
+    },
+    "pages.botUI.tempVoice.missingPermissions": {
+      "fr": "MLBBDex n'a pas la permission {permissions} : sans elle, aucun salon n'est créé. Donnez-la au rôle de MLBBDex (Paramètres du serveur > Rôles), puis rechargez cette page.",
+      "text": "MLBBDex ไม่มีสิทธิ์ {permissions}: หากไม่มีสิทธิ์นี้ จะไม่มีการสร้างช่อง มอบสิทธิ์ให้บทบาทของ MLBBDex (การตั้งค่าเซิร์ฟเวอร์ > บทบาท) แล้วโหลดหน้านี้ใหม่"
+    },
+    "pages.botUI.tempVoice.permissionNames.manageChannels": {
+      "fr": "Gérer les salons",
+      "text": "จัดการช่อง"
+    },
+    "pages.botUI.tempVoice.permissionNames.moveMembers": {
+      "fr": "Déplacer des membres",
+      "text": "ย้ายสมาชิก"
+    },
+    "pages.botUI.tempVoice.help": {
+      "fr": "Le bot a besoin des permissions Gérer les salons et Déplacer des membres, et de Voir le salon et Se connecter sur le salon d'entrée et sa catégorie. Le membre peut renommer son salon, changer sa limite, et y déplacer ou rendre muets les autres membres. Le bot ne supprime que les salons qu'il a créés.",
+      "text": "บอทต้องมีสิทธิ์ จัดการช่อง และ ย้ายสมาชิก รวมถึง ดูช่อง และ เชื่อมต่อ ในช่องทางเข้าและหมวดหมู่ของช่องนั้น สมาชิกเปลี่ยนชื่อช่องของตัวเอง เปลี่ยนจำนวนจำกัด และย้ายหรือปิดเสียงสมาชิกคนอื่นในช่องได้ บอทลบเฉพาะช่องที่บอทสร้างเท่านั้น"
+    },
+    "pages.botUI.tempVoice.errors.noChannel": {
+      "fr": "Choisissez un salon vocal pour chaque salon d'entrée.",
+      "text": "เลือกช่องเสียงให้ทุกช่องทางเข้า"
+    },
+    "pages.botUI.tempVoice.errors.limit": {
+      "fr": "La limite de membres va de 0 à {max}.",
+      "text": "จำกัดจำนวนผู้ใช้ได้ตั้งแต่ 0 ถึง {max}"
+    },
+    "pages.botUI.tempVoice.errors.unknownChannel": {
+      "fr": "Un salon d'entrée n'est plus un salon vocal de ce serveur : rechargez la page.",
+      "text": "มีช่องทางเข้าที่ไม่ใช่ช่องเสียงของเซิร์ฟเวอร์นี้แล้ว: โหลดหน้าใหม่"
+    },
+    "pages.botUI.tempVoice.errors.rateLimited": {
+      "fr": "Trop d'enregistrements d'affilée : patientez une minute.",
+      "text": "บันทึกติดกันบ่อยเกินไป: รอสักหนึ่งนาที"
+    },
+    "pages.botUI.tempVoice.errors.failed": {
+      "fr": "L'enregistrement a échoué. Réessayez.",
+      "text": "บันทึกไม่สำเร็จ ลองอีกครั้ง"
+    },
+    "pages.botPrivacy.tempVoice": {
+      "fr": "Salons vocaux temporaires : le serveur enregistre ses salons d'entrée avec leur limite de membres et leur modèle de nom. Pour chaque salon vocal que le bot crée, il conserve l'identifiant du salon, du salon d'entrée et du membre pour qui il l'a créé, jusqu'à ce que le salon soit supprimé, ce qui arrive dès qu'il est vide. Pour savoir qui est dans quel salon vocal, le bot reçoit les états vocaux de Discord (intent « Guild Voice States »), les garde en mémoire et n'en enregistre aucun.",
+      "text": "ช่องเสียงชั่วคราว: เซิร์ฟเวอร์บันทึกช่องทางเข้าพร้อมจำนวนจำกัดผู้ใช้และรูปแบบชื่อ สำหรับช่องเสียงแต่ละช่องที่บอทสร้าง บอทจะเก็บไอดีของช่อง ไอดีของช่องทางเข้า และไอดีของสมาชิกที่ช่องนั้นสร้างให้ ไว้จนกว่าช่องจะถูกลบ ซึ่งเกิดขึ้นทันทีที่ไม่มีใครอยู่ เพื่อให้รู้ว่าใครอยู่ในช่องเสียงไหน บอทจะรับสถานะเสียงจาก Discord (intent \"Guild Voice States\") เก็บไว้ในหน่วยความจำ และไม่บันทึกไว้เลย"
     }
   },
   "pt": {
@@ -58751,6 +59471,126 @@
     "discordCta.esports.text": {
       "fr": "MPL, MSC et M-series : les résultats arrivent dans le salon esports du Discord.",
       "text": "MPL, MSC e M-series: os resultados chegam ao canal de esports do Discord."
+    },
+    "pages.botUI.tempVoice.title": {
+      "fr": "Salons vocaux temporaires",
+      "text": "Canais de voz temporários"
+    },
+    "pages.botUI.tempVoice.lead": {
+      "fr": "Un membre qui rejoint un salon d'entrée obtient son propre salon vocal, créé juste à côté et supprimé dès qu'il est vide. Pratique pour les parties personnalisées ou les ranked à cinq.",
+      "text": "Um membro que entra num canal de entrada ganha um canal de voz só dele, criado logo ao lado e apagado assim que fica vazio. Prático para partidas personalizadas ou ranqueadas em cinco."
+    },
+    "pages.botUI.tempVoice.empty": {
+      "fr": "Aucun salon d'entrée pour l'instant.",
+      "text": "Nenhum canal de entrada por enquanto."
+    },
+    "pages.botUI.tempVoice.hub": {
+      "fr": "Salon d'entrée {number}",
+      "text": "Canal de entrada {number}"
+    },
+    "pages.botUI.tempVoice.channel": {
+      "fr": "Salon vocal d'entrée",
+      "text": "Canal de voz de entrada"
+    },
+    "pages.botUI.tempVoice.chooseChannel": {
+      "fr": "Choisir un salon vocal",
+      "text": "Escolha um canal de voz"
+    },
+    "pages.botUI.tempVoice.deletedChannel": {
+      "fr": "Salon supprimé",
+      "text": "Canal apagado"
+    },
+    "pages.botUI.tempVoice.userLimit": {
+      "fr": "Limite de membres",
+      "text": "Limite de usuários"
+    },
+    "pages.botUI.tempVoice.userLimitHelp": {
+      "fr": "De 0 à {max} ; 0 : pas de limite. Par exemple 5 pour les ranked, 10 pour une partie personnalisée.",
+      "text": "De 0 a {max}; 0: sem limite. Por exemplo 5 para ranqueada, 10 para uma partida personalizada."
+    },
+    "pages.botUI.tempVoice.name": {
+      "fr": "Nom des salons créés",
+      "text": "Nome dos canais criados"
+    },
+    "pages.botUI.tempVoice.nameHelp": {
+      "fr": "Facultatif, {max} caractères au plus. {placeholder} est remplacé par le pseudo du membre. Vide : le nom par défaut, dans la langue du serveur.",
+      "text": "Opcional, no máximo {max} caracteres. {placeholder} é substituído pelo nome de exibição do membro. Vazio: o nome padrão, no idioma do servidor."
+    },
+    "pages.botUI.tempVoice.preview": {
+      "fr": "Exemple :",
+      "text": "Exemplo:"
+    },
+    "pages.botUI.tempVoice.add": {
+      "fr": "Ajouter un salon d'entrée",
+      "text": "Adicionar um canal de entrada"
+    },
+    "pages.botUI.tempVoice.remove": {
+      "fr": "Retirer",
+      "text": "Remover"
+    },
+    "pages.botUI.tempVoice.save": {
+      "fr": "Enregistrer les salons vocaux",
+      "text": "Salvar os canais de voz"
+    },
+    "pages.botUI.tempVoice.saved": {
+      "fr": "Salons vocaux temporaires enregistrés.",
+      "text": "Canais de voz temporários salvos."
+    },
+    "pages.botUI.tempVoice.statusHubs": {
+      "fr": "Salons d'entrée : {count}",
+      "text": "Canais de entrada: {count}"
+    },
+    "pages.botUI.tempVoice.tooMany": {
+      "fr": "{max} salons d'entrée au plus par serveur.",
+      "text": "No máximo {max} canais de entrada por servidor."
+    },
+    "pages.botUI.tempVoice.noVoiceChannels": {
+      "fr": "Le bot ne voit aucun salon vocal sur ce serveur : créez-en un pour servir d'entrée, puis rechargez cette page.",
+      "text": "O bot não vê nenhum canal de voz neste servidor: crie um para servir de entrada e recarregue esta página."
+    },
+    "pages.botUI.tempVoice.unknownChannel": {
+      "fr": "Ce salon n'existe plus, ou le bot ne le voit plus : choisissez-en un autre ou retirez ce salon d'entrée.",
+      "text": "Este canal não existe mais, ou o bot não o vê mais: escolha outro ou remova este canal de entrada."
+    },
+    "pages.botUI.tempVoice.missingPermissions": {
+      "fr": "MLBBDex n'a pas la permission {permissions} : sans elle, aucun salon n'est créé. Donnez-la au rôle de MLBBDex (Paramètres du serveur > Rôles), puis rechargez cette page.",
+      "text": "O MLBBDex não tem a permissão {permissions}: sem ela, nenhum canal é criado. Dê essa permissão ao cargo do MLBBDex (Configurações do servidor > Cargos) e recarregue esta página."
+    },
+    "pages.botUI.tempVoice.permissionNames.manageChannels": {
+      "fr": "Gérer les salons",
+      "text": "Gerenciar canais"
+    },
+    "pages.botUI.tempVoice.permissionNames.moveMembers": {
+      "fr": "Déplacer des membres",
+      "text": "Mover membros"
+    },
+    "pages.botUI.tempVoice.help": {
+      "fr": "Le bot a besoin des permissions Gérer les salons et Déplacer des membres, et de Voir le salon et Se connecter sur le salon d'entrée et sa catégorie. Le membre peut renommer son salon, changer sa limite, et y déplacer ou rendre muets les autres membres. Le bot ne supprime que les salons qu'il a créés.",
+      "text": "O bot precisa das permissões Gerenciar canais e Mover membros, e de Ver canal e Conectar no canal de entrada e na categoria dele. O membro pode renomear o canal, mudar o limite e mover ou silenciar os outros membros dentro dele. O bot só apaga os canais que criou."
+    },
+    "pages.botUI.tempVoice.errors.noChannel": {
+      "fr": "Choisissez un salon vocal pour chaque salon d'entrée.",
+      "text": "Escolha um canal de voz para cada canal de entrada."
+    },
+    "pages.botUI.tempVoice.errors.limit": {
+      "fr": "La limite de membres va de 0 à {max}.",
+      "text": "O limite de usuários vai de 0 a {max}."
+    },
+    "pages.botUI.tempVoice.errors.unknownChannel": {
+      "fr": "Un salon d'entrée n'est plus un salon vocal de ce serveur : rechargez la page.",
+      "text": "Um canal de entrada não é mais um canal de voz deste servidor: recarregue a página."
+    },
+    "pages.botUI.tempVoice.errors.rateLimited": {
+      "fr": "Trop d'enregistrements d'affilée : patientez une minute.",
+      "text": "Muitos salvamentos seguidos: espere um minuto."
+    },
+    "pages.botUI.tempVoice.errors.failed": {
+      "fr": "L'enregistrement a échoué. Réessayez.",
+      "text": "Não foi possível salvar. Tente de novo."
+    },
+    "pages.botPrivacy.tempVoice": {
+      "fr": "Salons vocaux temporaires : le serveur enregistre ses salons d'entrée avec leur limite de membres et leur modèle de nom. Pour chaque salon vocal que le bot crée, il conserve l'identifiant du salon, du salon d'entrée et du membre pour qui il l'a créé, jusqu'à ce que le salon soit supprimé, ce qui arrive dès qu'il est vide. Pour savoir qui est dans quel salon vocal, le bot reçoit les états vocaux de Discord (intent « Guild Voice States »), les garde en mémoire et n'en enregistre aucun.",
+      "text": "Canais de voz temporários: o servidor guarda os canais de entrada com o limite de usuários e o modelo de nome. Para cada canal de voz que cria, o bot guarda o identificador do canal, do canal de entrada e do membro para quem o criou, até o canal ser apagado, o que acontece assim que ele fica vazio. Para saber quem está em cada canal de voz, o bot recebe os estados de voz do Discord (intent \"Guild Voice States\"), mantém esses dados na memória e não grava nenhum."
     }
   },
   "ru": {
@@ -71725,6 +72565,126 @@
     "discordCta.esports.text": {
       "fr": "MPL, MSC et M-series : les résultats arrivent dans le salon esports du Discord.",
       "text": "MPL, MSC и M-series: результаты приходят в канал esports в Discord."
+    },
+    "pages.botUI.tempVoice.title": {
+      "fr": "Salons vocaux temporaires",
+      "text": "Временные голосовые каналы"
+    },
+    "pages.botUI.tempVoice.lead": {
+      "fr": "Un membre qui rejoint un salon d'entrée obtient son propre salon vocal, créé juste à côté et supprimé dès qu'il est vide. Pratique pour les parties personnalisées ou les ranked à cinq.",
+      "text": "Участник, зашедший во входной канал, получает собственный голосовой канал, созданный рядом и удаляемый, как только в нём никого не останется. Удобно для пользовательских матчей или рейтинга впятером."
+    },
+    "pages.botUI.tempVoice.empty": {
+      "fr": "Aucun salon d'entrée pour l'instant.",
+      "text": "Входных каналов пока нет."
+    },
+    "pages.botUI.tempVoice.hub": {
+      "fr": "Salon d'entrée {number}",
+      "text": "Входной канал {number}"
+    },
+    "pages.botUI.tempVoice.channel": {
+      "fr": "Salon vocal d'entrée",
+      "text": "Входной голосовой канал"
+    },
+    "pages.botUI.tempVoice.chooseChannel": {
+      "fr": "Choisir un salon vocal",
+      "text": "Выберите голосовой канал"
+    },
+    "pages.botUI.tempVoice.deletedChannel": {
+      "fr": "Salon supprimé",
+      "text": "Канал удалён"
+    },
+    "pages.botUI.tempVoice.userLimit": {
+      "fr": "Limite de membres",
+      "text": "Лимит пользователей"
+    },
+    "pages.botUI.tempVoice.userLimitHelp": {
+      "fr": "De 0 à {max} ; 0 : pas de limite. Par exemple 5 pour les ranked, 10 pour une partie personnalisée.",
+      "text": "От 0 до {max}; 0 — без ограничения. Например, 5 для рейтинга, 10 для пользовательского матча."
+    },
+    "pages.botUI.tempVoice.name": {
+      "fr": "Nom des salons créés",
+      "text": "Название создаваемых каналов"
+    },
+    "pages.botUI.tempVoice.nameHelp": {
+      "fr": "Facultatif, {max} caractères au plus. {placeholder} est remplacé par le pseudo du membre. Vide : le nom par défaut, dans la langue du serveur.",
+      "text": "Необязательно, не более {max} символов. {placeholder} заменяется отображаемым именем участника. Пусто — название по умолчанию на языке сервера."
+    },
+    "pages.botUI.tempVoice.preview": {
+      "fr": "Exemple :",
+      "text": "Пример:"
+    },
+    "pages.botUI.tempVoice.add": {
+      "fr": "Ajouter un salon d'entrée",
+      "text": "Добавить входной канал"
+    },
+    "pages.botUI.tempVoice.remove": {
+      "fr": "Retirer",
+      "text": "Убрать"
+    },
+    "pages.botUI.tempVoice.save": {
+      "fr": "Enregistrer les salons vocaux",
+      "text": "Сохранить голосовые каналы"
+    },
+    "pages.botUI.tempVoice.saved": {
+      "fr": "Salons vocaux temporaires enregistrés.",
+      "text": "Временные голосовые каналы сохранены."
+    },
+    "pages.botUI.tempVoice.statusHubs": {
+      "fr": "Salons d'entrée : {count}",
+      "text": "Входных каналов: {count}"
+    },
+    "pages.botUI.tempVoice.tooMany": {
+      "fr": "{max} salons d'entrée au plus par serveur.",
+      "text": "Не более {max} входных каналов на сервер."
+    },
+    "pages.botUI.tempVoice.noVoiceChannels": {
+      "fr": "Le bot ne voit aucun salon vocal sur ce serveur : créez-en un pour servir d'entrée, puis rechargez cette page.",
+      "text": "Бот не видит ни одного голосового канала на этом сервере: создайте канал, который будет входным, затем перезагрузите страницу."
+    },
+    "pages.botUI.tempVoice.unknownChannel": {
+      "fr": "Ce salon n'existe plus, ou le bot ne le voit plus : choisissez-en un autre ou retirez ce salon d'entrée.",
+      "text": "Этого канала больше нет, или бот его больше не видит: выберите другой или уберите этот входной канал."
+    },
+    "pages.botUI.tempVoice.missingPermissions": {
+      "fr": "MLBBDex n'a pas la permission {permissions} : sans elle, aucun salon n'est créé. Donnez-la au rôle de MLBBDex (Paramètres du serveur > Rôles), puis rechargez cette page.",
+      "text": "У MLBBDex нет права {permissions}: без него каналы не создаются. Выдайте его роли MLBBDex (Настройки сервера > Роли), затем перезагрузите страницу."
+    },
+    "pages.botUI.tempVoice.permissionNames.manageChannels": {
+      "fr": "Gérer les salons",
+      "text": "«Управлять каналами»"
+    },
+    "pages.botUI.tempVoice.permissionNames.moveMembers": {
+      "fr": "Déplacer des membres",
+      "text": "«Перемещать участников»"
+    },
+    "pages.botUI.tempVoice.help": {
+      "fr": "Le bot a besoin des permissions Gérer les salons et Déplacer des membres, et de Voir le salon et Se connecter sur le salon d'entrée et sa catégorie. Le membre peut renommer son salon, changer sa limite, et y déplacer ou rendre muets les autres membres. Le bot ne supprime que les salons qu'il a créés.",
+      "text": "Боту нужны права «Управлять каналами» и «Перемещать участников», а также «Просматривать каналы» и «Подключаться» во входном канале и его категории. Участник может переименовать свой канал, изменить лимит, перемещать других участников и отключать им микрофон. Бот удаляет только созданные им каналы."
+    },
+    "pages.botUI.tempVoice.errors.noChannel": {
+      "fr": "Choisissez un salon vocal pour chaque salon d'entrée.",
+      "text": "Выберите голосовой канал для каждого входного канала."
+    },
+    "pages.botUI.tempVoice.errors.limit": {
+      "fr": "La limite de membres va de 0 à {max}.",
+      "text": "Лимит пользователей — от 0 до {max}."
+    },
+    "pages.botUI.tempVoice.errors.unknownChannel": {
+      "fr": "Un salon d'entrée n'est plus un salon vocal de ce serveur : rechargez la page.",
+      "text": "Один из входных каналов больше не голосовой канал этого сервера: перезагрузите страницу."
+    },
+    "pages.botUI.tempVoice.errors.rateLimited": {
+      "fr": "Trop d'enregistrements d'affilée : patientez une minute.",
+      "text": "Слишком много сохранений подряд: подождите минуту."
+    },
+    "pages.botUI.tempVoice.errors.failed": {
+      "fr": "L'enregistrement a échoué. Réessayez.",
+      "text": "Не удалось сохранить. Попробуйте ещё раз."
+    },
+    "pages.botPrivacy.tempVoice": {
+      "fr": "Salons vocaux temporaires : le serveur enregistre ses salons d'entrée avec leur limite de membres et leur modèle de nom. Pour chaque salon vocal que le bot crée, il conserve l'identifiant du salon, du salon d'entrée et du membre pour qui il l'a créé, jusqu'à ce que le salon soit supprimé, ce qui arrive dès qu'il est vide. Pour savoir qui est dans quel salon vocal, le bot reçoit les états vocaux de Discord (intent « Guild Voice States »), les garde en mémoire et n'en enregistre aucun.",
+      "text": "Временные голосовые каналы: сервер хранит свои входные каналы с лимитом пользователей и шаблоном названия. Для каждого созданного голосового канала бот хранит идентификаторы канала, входного канала и участника, для которого он создан, пока канал не будет удалён, а это происходит, как только в нём никого не остаётся. Чтобы знать, кто в каком голосовом канале, бот получает голосовые состояния от Discord (intent «Guild Voice States»), держит их в памяти и ничего из них не сохраняет."
     }
   }
 }

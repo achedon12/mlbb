@@ -3744,7 +3744,8 @@
       "rights": "Para ver o eliminar datos relacionados con su ID de Discord o servidor, escriba a [{contact}](mailto:{contact}). Al eliminar el bot del servidor se inicia la eliminación automática.",
       "sitePrivacy": "Privacidad del sitio",
       "autoRoles": "Roles automáticos: si el servidor eligió algunos, el bot da esos roles a quien llega, con el permiso Gestionar roles que le conceden los administradores del servidor; un miembro que aún debe aceptar las reglas del servidor solo se recuerda (su ID, en memoria, 24 horas como máximo) hasta que las acepta, y no se guarda nada.",
-      "roleMenus": "Menús de roles: de cada menú se guardan el canal, el título, el texto, los roles con sus etiquetas y emojis, el identificador del mensaje publicado y el identificador de Discord del gestor que lo configuró. Cuando un miembro lo usa, el bot le da o le quita el rol y no guarda nada sobre él, salvo un contador en memoria de unos segundos que limita los cambios demasiado seguidos."
+      "roleMenus": "Menús de roles: de cada menú se guardan el canal, el título, el texto, los roles con sus etiquetas y emojis, el identificador del mensaje publicado y el identificador de Discord del gestor que lo configuró. Cuando un miembro lo usa, el bot le da o le quita el rol y no guarda nada sobre él, salvo un contador en memoria de unos segundos que limita los cambios demasiado seguidos.",
+      "tempVoice": "Canales de voz temporales: el servidor guarda sus canales de entrada con su límite de usuarios y su modelo de nombre. Por cada canal de voz que crea, el bot conserva el identificador del canal, del canal de entrada y del miembro para quien lo creó, hasta que el canal se borra, lo que ocurre en cuanto se queda vacío. Para saber quién está en cada canal de voz, el bot recibe los estados de voz de Discord (intent «Guild Voice States»), los mantiene en memoria y no guarda ninguno."
     },
     "botTerms": {
       "title": "Términos de servicio de Discord Bot",
@@ -3956,6 +3957,41 @@
         "clearSingle": "Quitar mi rol",
         "clearMultiple": "Quitar mis roles",
         "required": "Elige un canal, un título y al menos un rol, cada uno con una etiqueta."
+      },
+      "tempVoice": {
+        "title": "Canales de voz temporales",
+        "lead": "Un miembro que entra en un canal de entrada obtiene su propio canal de voz, creado justo al lado y borrado en cuanto se queda vacío. Útil para partidas personalizadas o ranked de cinco.",
+        "empty": "Todavía no hay ningún canal de entrada.",
+        "hub": "Canal de entrada {number}",
+        "channel": "Canal de voz de entrada",
+        "chooseChannel": "Elige un canal de voz",
+        "deletedChannel": "Canal eliminado",
+        "userLimit": "Límite de usuarios",
+        "userLimitHelp": "De 0 a {max}; 0: sin límite. Por ejemplo 5 para ranked, 10 para una partida personalizada.",
+        "name": "Nombre de los canales creados",
+        "nameHelp": "Opcional, {max} caracteres como máximo. {placeholder} se sustituye por el nombre visible del miembro. Vacío: el nombre por defecto, en el idioma del servidor.",
+        "preview": "Ejemplo:",
+        "add": "Añadir un canal de entrada",
+        "remove": "Quitar",
+        "save": "Guardar los canales de voz",
+        "saved": "Canales de voz temporales guardados.",
+        "statusHubs": "Canales de entrada: {count}",
+        "tooMany": "{max} canales de entrada como máximo por servidor.",
+        "noVoiceChannels": "El bot no ve ningún canal de voz en este servidor: crea uno que sirva de entrada y vuelve a cargar esta página.",
+        "unknownChannel": "Este canal ya no existe o el bot ya no lo ve: elige otro o quita este canal de entrada.",
+        "missingPermissions": "MLBBDex no tiene el permiso {permissions}: sin él no se crea ningún canal. Dáselo al rol de MLBBDex (Ajustes del servidor > Roles) y vuelve a cargar esta página.",
+        "permissionNames": {
+          "manageChannels": "Gestionar canales",
+          "moveMembers": "Mover miembros"
+        },
+        "help": "El bot necesita los permisos Gestionar canales y Mover miembros, y Ver canal y Conectar en el canal de entrada y su categoría. El miembro puede renombrar su canal, cambiar su límite y mover o silenciar a los demás miembros dentro. El bot solo borra los canales que ha creado.",
+        "errors": {
+          "noChannel": "Elige un canal de voz para cada canal de entrada.",
+          "limit": "El límite de usuarios va de 0 a {max}.",
+          "unknownChannel": "Un canal de entrada ya no es un canal de voz de este servidor: vuelve a cargar la página.",
+          "rateLimited": "Demasiados guardados seguidos: espera un minuto.",
+          "failed": "No se pudo guardar. Inténtalo de nuevo."
+        }
       }
     },
     "botAdmin": {

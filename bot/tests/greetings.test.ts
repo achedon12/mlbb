@@ -116,8 +116,9 @@ describe("greeting translations", () => {
 
 describe("gateway intents", () => {
   it("adds GuildMembers only for member events, and never message content", () => {
-    expect(gatewayIntents(false)).toEqual([GatewayIntentBits.Guilds]);
-    expect(gatewayIntents(true)).toEqual([GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers]);
+    // GuildVoiceStates (not privileged) always: the temporary voice channels.
+    expect(gatewayIntents(false)).toEqual([GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates]);
+    expect(gatewayIntents(true)).toEqual([GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildMembers]);
     for (const on of [true, false]) {
       expect(gatewayIntents(on)).not.toContain(GatewayIntentBits.MessageContent);
       expect(gatewayIntents(on)).not.toContain(GatewayIntentBits.GuildPresences);

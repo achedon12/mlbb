@@ -80,5 +80,36 @@ export const ROLE_MENU_ROLES_UNAVAILABLE = "role menu roles unavailable";
  * (the publish sets both dates to the same instant), or up to date.
  */
 export type RoleMenuStatus = "draft" | "changed" | "published";
+
 export const roleMenuStatus = (menu: { messageId: string | null; publishedAt: string | null; updatedAt: string }): RoleMenuStatus =>
   !menu.messageId || !menu.publishedAt ? "draft" : new Date(menu.updatedAt) > new Date(menu.publishedAt) ? "changed" : "published";
+
+/**
+ * Temporary voice channels (`bot/src/managers/temp-voice.ts`): a member
+ * who joins a hub gets a voice channel of their own, deleted once empty.
+ * Hubs per server; the name template's cap (the column's `VarChar(80)`,
+ * under Discord's 100 once `{user}` is replaced); Discord's user limit (0: none).
+ */
+export const MAX_TEMP_VOICE_HUBS = 5;
+export const TEMP_VOICE_NAME_MAX = 80;
+export const TEMP_VOICE_MAX_USER_LIMIT = 99;
+export const TEMP_VOICE_PLACEHOLDER = "{user}";
+/** The bot's default name, per bot language, for the dashboard's preview (`bot/src/i18n/*.json`, `ui.tempVoice.defaultName`). */
+export const TEMP_VOICE_DEFAULT_NAMES: Record<BotLocale, string> = {
+  en: "🎯 {user}'s lobby",
+  fr: "🎯 Salon de {user}",
+  it: "🎯 Lobby di {user}",
+  es: "🎯 Sala de {user}",
+  id: "🎯 Lobi {user}",
+};
+
+/**
+ * The name the bot gives a hub's channel, for the dashboard's preview:
+ * the template (blank: the default one), `{user}` replaced, clipped to
+ * Discord's 100 characters, like `channelName` in `bot/src/managers/temp-voice.ts`.
+ */
+export function tempVoicePreview(template: string | null, fallback: string, user: string): string {
+  const render = (text: string) => text.replaceAll(TEMP_VOICE_PLACEHOLDER, user).replace(/\s+/g, " ").trim();
+  const name = (template && render(template)) || render(fallback) || user;
+  return [...name].slice(0, 100).join("").trim();
+}

@@ -3744,7 +3744,8 @@
       "rights": "Para makita o mabura ang data na nakaugnay sa iyong Discord ID o sa iyong server, sumulat sa [{contact}](mailto:{contact}). Ang pagtanggal sa bot mula sa server ay nagsisimula ng awtomatikong pagbura.",
       "sitePrivacy": "Privacy ng site",
       "autoRoles": "Auto-roles: kung may pinili ang server, ibinibigay ng bot ang mga role na iyon sa sinumang sumali, gamit ang Manage Roles permission na ibinigay dito ng mga admin ng server; ang member na kailangan pang tanggapin ang mga patakaran ng server ay tinatandaan lang (ang kanyang ID, sa memory, nang hindi hihigit sa 24 oras) hanggang sa tanggapin niya ang mga ito, at walang sine-save.",
-      "roleMenus": "Role menus: para sa bawat menu, iniimbak ang piniling channel ng server, title, text, mga role kasama ang kanilang label at emoji, ang ID ng nai-post na mensahe at ang Discord ID ng manager na nag-set up nito. Kapag gumamit nito ang isang member, ibinibigay o inaalis ng bot ang role at walang itinatago tungkol sa kanya, maliban sa isang counter sa memory na tumatagal nang ilang segundo, na naglilimita sa mga pagbabagong masyadong magkakalapit."
+      "roleMenus": "Role menus: para sa bawat menu, iniimbak ang piniling channel ng server, title, text, mga role kasama ang kanilang label at emoji, ang ID ng nai-post na mensahe at ang Discord ID ng manager na nag-set up nito. Kapag gumamit nito ang isang member, ibinibigay o inaalis ng bot ang role at walang itinatago tungkol sa kanya, maliban sa isang counter sa memory na tumatagal nang ilang segundo, na naglilimita sa mga pagbabagong masyadong magkakalapit.",
+      "tempVoice": "Mga pansamantalang voice channel: sine-save ng server ang mga join-to-create channel nito kasama ang user limit at template ng pangalan. Para sa bawat voice channel na ginagawa ng bot, iniingatan nito ang ID ng channel, ng join-to-create channel at ng member na pinaggawan nito, hanggang mabura ang channel, na nangyayari kapag wala nang tao. Para malaman kung sino ang nasa aling voice channel, tumatanggap ang bot ng voice states mula sa Discord (\"Guild Voice States\" intent), itinatago ang mga ito sa memory at wala itong sine-save."
     },
     "botTerms": {
       "title": "Terms of use ng Discord bot",
@@ -3956,6 +3957,41 @@
         "clearSingle": "Alisin ang role ko",
         "clearMultiple": "Alisin ang mga role ko",
         "required": "Pumili ng channel, title at kahit isang role, bawat isa ay may label."
+      },
+      "tempVoice": {
+        "title": "Mga pansamantalang voice channel",
+        "lead": "Ang member na papasok sa isang join-to-create channel ay magkakaroon ng sariling voice channel, ginagawa sa tabi nito at binubura kapag wala nang tao. Swak sa custom game o five-stack na ranked.",
+        "empty": "Wala pang join-to-create channel.",
+        "hub": "Join-to-create channel {number}",
+        "channel": "Join-to-create voice channel",
+        "chooseChannel": "Pumili ng voice channel",
+        "deletedChannel": "Nabura na channel",
+        "userLimit": "User limit",
+        "userLimitHelp": "Mula 0 hanggang {max}; 0: walang limit. Halimbawa 5 para sa ranked, 10 para sa custom game.",
+        "name": "Pangalan ng mga ginawang channel",
+        "nameHelp": "Opsyonal, hanggang {max} na character. Papalitan ang {placeholder} ng display name ng member. Blangko: ang default na pangalan, sa wika ng server.",
+        "preview": "Halimbawa:",
+        "add": "Magdagdag ng join-to-create channel",
+        "remove": "Alisin",
+        "save": "I-save ang mga voice channel",
+        "saved": "Na-save ang mga pansamantalang voice channel.",
+        "statusHubs": "Mga join-to-create channel: {count}",
+        "tooMany": "Hanggang {max} na join-to-create channel bawat server.",
+        "noVoiceChannels": "Walang nakikitang voice channel ang bot sa server na ito: gumawa ng isa bilang entry, tapos i-reload ang page na ito.",
+        "unknownChannel": "Wala na ang channel na ito, o hindi na ito nakikita ng bot: pumili ng iba o alisin ang join-to-create channel na ito.",
+        "missingPermissions": "Walang {permissions} permission ang MLBBDex: kung wala ito, walang channel na gagawin. Ibigay ito sa role ng MLBBDex (Server Settings > Roles), tapos i-reload ang page na ito.",
+        "permissionNames": {
+          "manageChannels": "Manage Channels",
+          "moveMembers": "Move Members"
+        },
+        "help": "Kailangan ng bot ang Manage Channels at Move Members permission, at View Channel at Connect sa join-to-create channel at sa category nito. Puwedeng palitan ng member ang pangalan ng channel niya, baguhin ang limit, at ilipat o i-mute ang ibang member doon. Ang mga channel lang na ginawa ng bot ang binubura nito.",
+        "errors": {
+          "noChannel": "Pumili ng voice channel para sa bawat join-to-create channel.",
+          "limit": "Ang user limit ay mula 0 hanggang {max}.",
+          "unknownChannel": "Hindi na voice channel ng server na ito ang isang join-to-create channel: i-reload ang page.",
+          "rateLimited": "Masyadong maraming save nang sunod-sunod: maghintay ng isang minuto.",
+          "failed": "Hindi na-save. Subukan ulit."
+        }
       }
     },
     "botAdmin": {

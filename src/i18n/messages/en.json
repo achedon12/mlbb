@@ -3744,7 +3744,8 @@
       "rights": "To see or delete the data tied to your Discord id or your server, write to [{contact}](mailto:{contact}). Removing the bot from the server starts the automatic deletion.",
       "sitePrivacy": "Site privacy",
       "autoRoles": "Auto-roles: if the server chose some, the bot gives those roles to whoever joins, with the Manage Roles permission the server's admins grant it; a member who still has to accept the server's rules is only remembered (their id, in memory, for 24 hours at most) until they do, and nothing is saved.",
-      "roleMenus": "Role menus: for each menu, the server's choice of channel, title, text, roles with their labels and emojis, the id of the published message and the Discord id of the manager who set it up are stored. When a member uses one, the bot gives or removes the role and keeps nothing about them, apart from an in-memory counter, a few seconds long, that limits changes made too close together."
+      "roleMenus": "Role menus: for each menu, the server's choice of channel, title, text, roles with their labels and emojis, the id of the published message and the Discord id of the manager who set it up are stored. When a member uses one, the bot gives or removes the role and keeps nothing about them, apart from an in-memory counter, a few seconds long, that limits changes made too close together.",
+      "tempVoice": "Temporary voice channels: the server stores its join-to-create channels with their user limit and name template. For each voice channel the bot creates, it keeps the ids of the channel, of the join-to-create channel and of the member it was created for, until the channel is deleted, which happens as soon as it is empty. To know who is in which voice channel, the bot receives Discord's voice states (the \"Guild Voice States\" intent), keeps them in memory and stores none of them."
     },
     "botTerms": {
       "title": "Discord bot terms of use",
@@ -3956,6 +3957,41 @@
         "clearSingle": "Remove my role",
         "clearMultiple": "Remove my roles",
         "required": "Choose a channel, a title and at least one role, each with a label."
+      },
+      "tempVoice": {
+        "title": "Temporary voice channels",
+        "lead": "A member who joins a join-to-create channel gets a voice channel of their own, created right next to it and deleted as soon as it is empty. Handy for custom games or five-stack ranked.",
+        "empty": "No join-to-create channel yet.",
+        "hub": "Join-to-create channel {number}",
+        "channel": "Join-to-create voice channel",
+        "chooseChannel": "Pick a voice channel",
+        "deletedChannel": "Deleted channel",
+        "userLimit": "User limit",
+        "userLimitHelp": "From 0 to {max}; 0: no limit. For example 5 for ranked, 10 for a custom game.",
+        "name": "Name of the channels created",
+        "nameHelp": "Optional, {max} characters at most. {placeholder} is replaced by the member's display name. Blank: the default name, in the server's language.",
+        "preview": "Example:",
+        "add": "Add a join-to-create channel",
+        "remove": "Remove",
+        "save": "Save the voice channels",
+        "saved": "Temporary voice channels saved.",
+        "statusHubs": "Join-to-create channels: {count}",
+        "tooMany": "{max} join-to-create channels at most per server.",
+        "noVoiceChannels": "The bot sees no voice channel on this server: create one to act as the entry, then reload this page.",
+        "unknownChannel": "This channel no longer exists, or the bot can no longer see it: pick another one or remove this join-to-create channel.",
+        "missingPermissions": "MLBBDex does not have the {permissions} permission: without it, no channel is created. Give it to MLBBDex's role (Server Settings > Roles), then reload this page.",
+        "permissionNames": {
+          "manageChannels": "Manage Channels",
+          "moveMembers": "Move Members"
+        },
+        "help": "The bot needs the Manage Channels and Move Members permissions, and View Channel and Connect on the join-to-create channel and its category. The member can rename their channel, change its user limit, and move or mute the other members in it. The bot only deletes the channels it created.",
+        "errors": {
+          "noChannel": "Pick a voice channel for each join-to-create channel.",
+          "limit": "The user limit goes from 0 to {max}.",
+          "unknownChannel": "A join-to-create channel is no longer a voice channel of this server: reload the page.",
+          "rateLimited": "Too many saves in a row: wait a minute.",
+          "failed": "Saving failed. Try again."
+        }
       }
     },
     "botAdmin": {

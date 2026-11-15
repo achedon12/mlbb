@@ -27,9 +27,11 @@ model Guild {
   leftAt      DateTime?
   updatedAt   DateTime  @updatedAt
 
-  settings   GuildSettings?
-  deliveries Delivery[]
-  roleMenus  RoleMenu[]
+  settings          GuildSettings?
+  deliveries        Delivery[]
+  roleMenus         RoleMenu[]
+  tempVoiceHubs     TempVoiceHub[]
+  tempVoiceChannels TempVoiceChannel[]
 
   @@index([leftAt])
   /// Joins per day, in the admin panel.
@@ -82,17 +84,17 @@ model GuildSettings {
   /// the server's membership screening), at most 3; empty, the default,
   /// turns auto-roles off. Each was checked against what the bot may give
   /// when saved, and is checked again by the bot before every assignment.
-  autoRoleIds     String[] @default([]) @db.VarChar(20)
+  autoRoleIds           String[] @default([]) @db.VarChar(20)
   /// Same, for the bots added to the server (never the people's roles).
-  botAutoRoleIds  String[] @default([]) @db.VarChar(20)
+  botAutoRoleIds        String[] @default([]) @db.VarChar(20)
   /// The bot could not give them (Manage Roles lost, a role moved above it).
-  autoRoleFailing Boolean  @default(false)
+  autoRoleFailing       Boolean  @default(false)
   /// Why: "bot" (the bot may not give them) or "granter" (the manager below).
-  autoRoleFailReason    String? @db.VarChar(16)
+  autoRoleFailReason    String?  @db.VarChar(16)
   /// Discord id of the manager who chose the roles. The bot gives only what
   /// that person could give themselves (Manage Roles, roles below theirs, or
   /// owner), checked again before every assignment.
-  autoRolesConfiguredBy String? @db.VarChar(20)
+  autoRolesConfiguredBy String?  @db.VarChar(20)
 
   updatedAt DateTime @updatedAt
 
@@ -127,6 +129,41 @@ model RoleMenu {
   publishedAt      DateTime?
   createdAt        DateTime  @default(now())
   updatedAt        DateTime  @updatedAt
+
+  @@index([guildId])
+}
+
+/// A "join to create" voice channel: a member who joins `channelId` gets a
+/// voice channel of their own, created by the bot next to it (same
+/// category), which they may rename, cap and moderate, deleted once empty.
+/// The hub itself stays. `userLimit`: the new channel's cap, 0 for none.
+/// `nameTemplate`: its name, `{user}` replaced by the member's display
+/// name; null, the default name in the server's language. At most 5 per server.
+model TempVoiceHub {
+  id           Int      @id @default(autoincrement())
+  guildId      String   @db.VarChar(20)
+  guild        Guild    @relation(fields: [guildId], references: [id], onDelete: Cascade)
+  channelId    String   @db.VarChar(20)
+  userLimit    Int      @default(0)
+  nameTemplate String?  @db.VarChar(80)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@unique([guildId, channelId])
+}
+
+/// A voice channel the bot created from a hub, kept until it is deleted:
+/// after a restart the bot deletes the ones left empty, forgets the ones
+/// that no longer exist, and never deletes a channel that is not listed
+/// here. `ownerId`: the member it was created for (sent back to it rather
+/// than given a second one).
+model TempVoiceChannel {
+  channelId    String   @id @db.VarChar(20)
+  guildId      String   @db.VarChar(20)
+  guild        Guild    @relation(fields: [guildId], references: [id], onDelete: Cascade)
+  hubChannelId String   @db.VarChar(20)
+  ownerId      String   @db.VarChar(20)
+  createdAt    DateTime @default(now())
 
   @@index([guildId])
 }
@@ -223,14 +260,14 @@ model Vote {
 /// set: the account may no longer post, vote, report or list a card (until
 /// `banUntil`, or for good when it is null).
 model CommunityMember {
-  accountId   String    @id @db.VarChar(24)
-  name        String    @db.VarChar(40)
-  firstSeenAt DateTime  @default(now())
-  bannedAt    DateTime?
-  banUntil    DateTime?
-  banReason   String?   @db.VarChar(300)
+  accountId    String    @id @db.VarChar(24)
+  name         String    @db.VarChar(40)
+  firstSeenAt  DateTime  @default(now())
+  bannedAt     DateTime?
+  banUntil     DateTime?
+  banReason    String?   @db.VarChar(300)
   /// Discord id of the moderator who banned the account.
-  bannedBy    String?   @db.VarChar(20)
+  bannedBy     String?   @db.VarChar(20)
   /// A moderator hid the account's teammate card: kept here, not on the
   /// card, so deleting the card and posting it again does not undo it.
   cardHiddenAt DateTime?
