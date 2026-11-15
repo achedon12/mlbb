@@ -4356,7 +4356,7 @@
     },
     "community": {
       "title": "Community",
-      "lead": "Il forum dei giocatori di MLBBDex: domande, build, aiuto in classificata, esport e guide, più una bacheca per trovare compagni di squadra. Lettura libera, accesso con il tuo account di gioco per scrivere.",
+      "lead": "Il forum dei giocatori di MLBBDex: domande, build, aiuto per le classifiche, eSport e guide, oltre a una tabella per trovare compagni di squadra. Tutti possono leggere. Per scrivere accedi con il tuo account di gioco o Discord.",
       "seo": {
         "title": "Forum di Mobile Legends e ricerca compagni di squadra",
         "description": "Il forum della community di MLBBDex: eroi e build, aiuto in classificata, esport, guide dei giocatori e giocatori di Mobile Legends con cui fare squadra per regione, rango e lane.",
@@ -4405,9 +4405,19 @@
         "top": "Più votate"
       },
       "signIn": "Accedi",
-      "signInToPost": "con il tuo account di gioco per avviare una discussione.",
-      "signInToReply": "con il tuo account di gioco per rispondere.",
+      "signInChoice": {
+        "post": "Accedi per avviare una discussione:",
+        "reply": "Accedi per rispondere:",
+        "card": "Accedi per pubblicare la tua scheda e visualizzare i contatti:",
+        "game": "Con il mio account di gioco",
+        "discord": "Con Discord",
+        "discordNote": "Con Discord, il sito riceve solo il tuo numero di account Discord e il tuo nome visualizzato, mai la tua email. Nei messaggi viene visualizzato solo il nome visualizzato.",
+        "failed": "La connessione con Discord non è riuscita. Riprova.",
+        "discordTooNew": "Il tuo account Discord è stato creato meno di {days} giorni fa: non può ancora partecipare al forum. Accedi con il tuo account di gioco o torna tra qualche giorno."
+      },
       "postingAs": "Stai scrivendo come {name}.",
+      "postingAsDiscord": "Scrivi come {name} (connessione Discord).",
+      "signOutDiscord": "Esci da Discord",
       "threadLead": "Avviata da {name} in {category}.",
       "openingPost": "Messaggio iniziale",
       "noReplies": "Ancora nessuna risposta.",
@@ -4448,7 +4458,6 @@
         "seoTitle": "Trova compagni di squadra per Mobile Legends",
         "seoDescription": "Giocatori di Mobile Legends in cerca di un duo o di una squadra: filtra per regione, rango, lane e lingua, e pubblica la tua scheda.",
         "ownTitle": "La tua scheda",
-        "signInToPost": "con il tuo account di gioco per pubblicare la tua scheda e vedere i contatti.",
         "listTitle": "{n} giocatore/i disponibile/i",
         "any": "Tutti",
         "lane": "Lane",
@@ -4552,6 +4561,7 @@
         "links": "Troppi link: al massimo {n} per messaggio.",
         "newAccountLinks": "Gli account nuovi sul forum non possono ancora pubblicare link.",
         "banned": "Il tuo account non può più partecipare alla community.",
+        "discordTooNew": "Il tuo account Discord ha meno di {days} giorni: non può ancora partecipare.",
         "window": "Il tempo per modificare o eliminare questo messaggio è scaduto.",
         "locked": "Questa discussione è bloccata.",
         "hidden": "Questo contenuto è nascosto dalla moderazione.",
@@ -4629,6 +4639,12 @@
         "confirmBan": "Conferma il ban",
         "confirmDelete": "Eliminare definitivamente questo contenuto?",
         "failed": "L'azione non è riuscita: ricarica la pagina."
+      },
+      "link": {
+        "offer": "Sei anche connesso a Discord. Collega i tuoi due account per mantenere un unico profilo sul forum: potrai poi connetterti con l'uno o con l'altro, e ciò che hai pubblicato con Discord entrerà a far parte del tuo account di gioco. Il collegamento è permanente.",
+        "button": "Collega il mio account Discord",
+        "done": "I tuoi account sono collegati: sul forum, Discord e il tuo account di gioco diventano un tutt'uno.",
+        "taken": "Questo account Discord o account di gioco è già collegato a un altro account."
       }
     },
     "guides": {
@@ -5045,7 +5061,7 @@
     "bot": {
       "title": "Bot Discord (facoltativo)",
       "intro": "Se utilizzi il bot Discord MLBBDex o la sua dashboard, il server del sito conserva anche:",
-      "cookie": "un cookie di sessione crittografato, `mlbbdex_discord` (httpOnly, 7 giorni), se accedi alla dashboard con Discord: il tuo ID Discord, nome e avatar, nient'altro; non vengono conservati gettoni Discord;",
+      "cookie": "un cookie di sessione crittografato, `mlbbdex_discord` (httpOnly, 7 giorni), se accedi con Discord alla dashboard o al forum: il tuo ID Discord, nome e avatar, nient'altro; non vengono conservati gettoni Discord;",
       "servers": "per ciascun server dove è presente il bot: il suo nome, la lingua e le impostazioni;",
       "results": "per le classifiche delle partite giocate oggi su Discord: ID Discord e nickname dei giocatori e i loro punteggi.",
       "details": "Dettagli, periodo di conservazione ed eliminazione sono descritti nella pagina sulla privacy del bot.",
@@ -5054,7 +5070,8 @@
     "community": {
       "title": "Community: forum e ricerca compagni di squadra",
       "intro": "Se partecipi alla community (forum, voti, segnalazioni, scheda per trovare compagni), il server del sito conserva, nel suo database:",
-      "account": "un identificativo di account derivato (un'impronta del tuo ID di gioco e del server, mai l'ID stesso), il tuo nome in gioco e la data della tua prima partecipazione;",
+      "account": "se accedi con il tuo account di gioco: un ID account derivato (un'impronta digitale del tuo ID di gioco e del tuo server, mai l'ID stesso), il tuo nickname di gioco e la data della tua prima partecipazione;",
+      "discord": "se accedi con Discord: un ID account derivato (un'impronta digitale del tuo ID Discord, mai l'ID stesso), il tuo nome visualizzato Discord, visualizzato sui tuoi messaggi e la data della tua prima partecipazione. La connessione richiede a Discord solo la tua identità, senza la tua email o l'elenco dei tuoi server, e passa attraverso il cookie di sessione crittografato `mlbbdex_discord` (7 giorni), che conserva il tuo identificatore, il tuo nome e il tuo avatar Discord; nessun gettone Discord viene mantenuto. L'età del tuo account Discord, letta nel suo identificatore, non viene registrata. Se colleghi il tuo account Discord al tuo account di gioco, il collegamento tra i tuoi due account viene preservato e i tuoi contributi Discord si uniscono al tuo account di gioco;",
       "posts": "le tue discussioni e risposte, pubbliche, con la loro data; i tuoi voti e le tue segnalazioni, mostrati solo ai moderatori (le segnalazioni);",
       "card": "la tua scheda per trovare compagni e, se li aggiungi, il tuo ID di gioco e il tuo nome utente Discord: sono mostrati solo ai giocatori che hanno effettuato l'accesso, e la scheda viene cancellata sette giorni dopo l'ultimo salvataggio.",
       "moderation": "I moderatori vedono le segnalazioni e possono nascondere, eliminare o bannare; ogni loro decisione viene annotata in un registro. I limiti di frequenza usano il tuo indirizzo IP, solo in memoria, per qualche minuto.",

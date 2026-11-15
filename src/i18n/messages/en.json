@@ -4356,7 +4356,7 @@
     },
     "community": {
       "title": "Community",
-      "lead": "The MLBBDex players' forum: questions, builds, ranked help, esports and guides, plus a board to find teammates. Free to read; sign in with your game account to write.",
+      "lead": "The MLBBDex player forum: questions, builds, ranked help, esports and guides, plus a table to find teammates. Everyone can read. To write, log in with your game account or Discord.",
       "seo": {
         "title": "Mobile Legends forum and teammate finder",
         "description": "The MLBBDex community forum: heroes and builds, ranked help, esports, player guides, and Mobile Legends players to team up with by region, rank and lane.",
@@ -4405,9 +4405,19 @@
         "top": "Top voted"
       },
       "signIn": "Sign in",
-      "signInToPost": "with your game account to start a discussion.",
-      "signInToReply": "with your game account to reply.",
+      "signInChoice": {
+        "post": "Sign in to start a discussion:",
+        "reply": "Sign in to reply:",
+        "card": "Sign in to post your card and see contacts:",
+        "game": "With my game account",
+        "discord": "With Discord",
+        "discordNote": "With Discord, the site only receives your Discord account number and your display name, never your email. Only the display name appears on your posts.",
+        "failed": "Signing in with Discord did not work. Please try again.",
+        "discordTooNew": "Your Discord account was created less than {days} days ago: it cannot take part in the forum yet. Sign in with your game account, or come back in a few days."
+      },
       "postingAs": "You are writing as {name}.",
+      "postingAsDiscord": "You are posting as {name} (Discord sign-in).",
+      "signOutDiscord": "Log out of Discord",
       "threadLead": "Started by {name} in {category}.",
       "openingPost": "Opening post",
       "noReplies": "No reply yet.",
@@ -4448,7 +4458,6 @@
         "seoTitle": "Find Mobile Legends teammates",
         "seoDescription": "Mobile Legends players looking for a duo or a team: filter by region, rank, lane and language, and post your own card.",
         "ownTitle": "Your card",
-        "signInToPost": "with your game account to post your card and see the contacts.",
         "listTitle": "{n} player(s) available",
         "any": "Any",
         "lane": "Lane",
@@ -4552,6 +4561,7 @@
         "links": "Too many links: {n} per post at most.",
         "newAccountLinks": "Accounts new to the forum cannot post links yet.",
         "banned": "Your account can no longer take part in the community.",
+        "discordTooNew": "Your Discord account is less than {days} days old: it cannot take part yet.",
         "window": "The time to edit or delete this post has passed.",
         "locked": "This discussion is locked.",
         "hidden": "This content is hidden by moderation.",
@@ -4629,6 +4639,12 @@
         "confirmBan": "Confirm the ban",
         "confirmDelete": "Delete this content for good?",
         "failed": "The action failed: reload the page."
+      },
+      "link": {
+        "offer": "You are also signed in with Discord. Link your two accounts to keep a single forum profile: you can then sign in with either one, and what you posted with Discord moves to your game account. The link is permanent.",
+        "button": "Link my Discord account",
+        "done": "Your accounts are linked: on the forum, Discord and your game account are now one.",
+        "taken": "This Discord account or game account is already linked to another account."
       }
     },
     "guides": {
@@ -5045,7 +5061,7 @@
     "bot": {
       "title": "Discord bot (optional)",
       "intro": "If you use the MLBBDex Discord bot or its dashboard, the site's server also keeps:",
-      "cookie": "an encrypted session cookie, `mlbbdex_discord` (httpOnly, 7 days), if you log in to the dashboard with Discord: your Discord id, name and avatar, nothing else; no Discord token is kept;",
+      "cookie": "an encrypted session cookie, `mlbbdex_discord` (httpOnly, 7 days), if you log in with Discord to the dashboard or forum: your Discord ID, name and avatar, nothing else; no Discord tokens are retained;",
       "servers": "for each server the bot is in: its name, language and settings;",
       "results": "for the leaderboards of the daily games played in Discord: the players' Discord id and name and their scores.",
       "details": "The details, the retention period and deletion are on the bot's privacy page.",
@@ -5054,7 +5070,8 @@
     "community": {
       "title": "Community: forum and teammate finder",
       "intro": "If you take part in the community (forum, votes, reports, teammate card), the site's server keeps, in its database:",
-      "account": "a derived account id (a hash of your game ID and server, never the ID itself), your in-game name, and the date you first took part;",
+      "account": "if you log in with your game account: a derived account ID (a fingerprint of your game ID and server, never the ID itself), your game nickname, and the date of your first participation;",
+      "discord": "if you log in with Discord: a derived account ID (a fingerprint of your Discord ID, never the ID itself), your Discord display name, displayed on your messages, and the date of your first participation. The connection only asks Discord for your identity, without your email or the list of your servers, and goes through the encrypted session cookie `mlbbdex_discord` (7 days), which keeps your identifier, your name and your Discord avatar; no Discord tokens are retained. The age of your Discord account, read in its identifier, is not recorded. If you link your Discord account to your game account, the link between your two accounts is preserved, and your Discord contributions join your game account;",
       "posts": "your discussions and replies, which are public, with their date; your votes and reports, shown to no one but the moderators (the reports);",
       "card": "your teammate card and, if you add them, your game ID and Discord username: they are shown to signed-in players only, and the card is erased seven days after it was last saved.",
       "moderation": "Moderators see the reports and can hide, delete or ban; each of their decisions is written to a log. The rate limits use your IP address, in memory only, for a few minutes.",

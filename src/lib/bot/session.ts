@@ -32,7 +32,9 @@ export const oauthShape = z.object({
   state: z.string(),
   verifier: z.string(),
   locale: z.enum(LOCALES),
-  next: z.enum(["dashboard", "admin", "moderation"]),
+  next: z.enum(["dashboard", "admin", "moderation", "community"]),
+  /** With `community`: the community page to return to (`COMMUNITY_RETURN`). */
+  back: z.string().max(240).optional(),
 });
 export type OAuthPending = z.infer<typeof oauthShape>;
 

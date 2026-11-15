@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ReportButton } from "@/components/community/post-actions";
 import { ago, DiscordAlternative, heroOptions, isoDate, Unavailable } from "@/components/community/parts";
+import { MemberLine, SignInChoice } from "@/components/community/sign-in";
 import { TeammateForm, type OwnCard } from "@/components/community/teammate-form";
 import { HeroPortrait } from "@/components/hero-portrait";
 import Link from "@/components/link";
@@ -10,11 +11,10 @@ import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { metaPage } from "@/i18n/seo";
 import { createT, messagesPage } from "@/i18n/translations";
-import { currentPlayer } from "@/lib/community-builds-server";
 import { CARDS_PER_PAGE, LANGUAGES, RANKS, readPageNumber, REGIONS } from "@/lib/community/constants";
 import { listCards, ownCard, type Card, type CardFilters } from "@/lib/community/store";
 import { heroesBySlug } from "@/lib/data";
-import { requestTime } from "@/lib/community/server";
+import { currentMember, discordLoginEnabled, requestTime } from "@/lib/community/server";
 import { databaseConfigured } from "@/lib/db";
 import { LANES } from "@/lib/draft";
 import { paging } from "@/lib/pager";
@@ -27,7 +27,7 @@ import { paging } from "@/lib/pager";
  */
 export const dynamic = "force-dynamic";
 
-type Query = { region?: string; rank?: string; lane?: string; language?: string; page?: string };
+type Query = { region?: string; rank?: string; lane?: string; language?: string; page?: string; login?: string };
 type Params = { params: Promise<{ locale: Locale }>; searchParams: Promise<Query> };
 
 const pick = (value: string | undefined, allowed: readonly string[]) => (value && allowed.includes(value) ? value : undefined);
@@ -65,8 +65,8 @@ export default async function TeammatesPage({ params, searchParams }: Params) {
   const now = await requestTime();
   const languageName = new Intl.DisplayNames([LOCALE_INTL[locale]], { type: "language" });
 
-  const player = await currentPlayer().catch(() => ({ status: "unavailable" as const }));
-  const viewer = player.status === "ok" ? player.id : null;
+  const member = await currentMember(now);
+  const viewer = member.status === "ok" ? member.author.id : null;
   const data = databaseConfigured()
     ? await Promise.all([listCards(filters, page, now), viewer ? ownCard(viewer, now) : null]).catch(() => null)
     : null;
@@ -160,9 +160,9 @@ export default async function TeammatesPage({ params, searchParams }: Params) {
               </dl>
             ) : (
               <p className="text-chalk-500">
-                <Link href="/login" className="text-gold-400 underline underline-offset-4 hover:text-gold-500">
+                <a href="#own-card-title" className="text-gold-400 underline underline-offset-4 hover:text-gold-500">
                   {t("pages.community.signIn")}
-                </Link>{" "}
+                </a>{" "}
                 {t("pages.community.teammates.signInForContact")}
               </p>
             )
@@ -196,15 +196,21 @@ export default async function TeammatesPage({ params, searchParams }: Params) {
                 <h2 id="own-card-title" className="sr-only">
                   {t("pages.community.teammates.ownTitle")}
                 </h2>
-                {viewer ? (
-                  <TeammateForm heroes={heroOptions()} card={ownProps} />
+                {member.status === "ok" ? (
+                  <>
+                    <MemberLine t={t} locale={locale} member={member} back="/community/teammates" />
+                    <TeammateForm heroes={heroOptions()} card={ownProps} />
+                  </>
                 ) : (
-                  <p className="text-sm text-chalk-300">
-                    <Link href="/login" className="text-gold-400 underline underline-offset-4 hover:text-gold-500">
-                      {t("pages.community.signIn")}
-                    </Link>{" "}
-                    {t("pages.community.teammates.signInToPost")}
-                  </p>
+                  <SignInChoice
+                    t={t}
+                    locale={locale}
+                    purpose="card"
+                    back="/community/teammates"
+                    member={member}
+                    discordEnabled={discordLoginEnabled()}
+                    failed={query.login === "failed"}
+                  />
                 )}
               </section>
 

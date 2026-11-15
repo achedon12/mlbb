@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { cardInput } from "@/lib/community/rules";
-import { answer, guardPlayer, refusedFor, storageFailed } from "@/lib/community/server";
+import { answer, guardMember, refusedFor, storageFailed } from "@/lib/community/server";
 import { deleteCard, saveCard } from "@/lib/community/store";
 import { heroesBySlug } from "@/lib/data";
 
@@ -15,7 +15,7 @@ import { heroesBySlug } from "@/lib/data";
 export const dynamic = "force-dynamic";
 
 export async function PUT(request: Request) {
-  const guarded = await guardPlayer(request, "card", cardInput);
+  const guarded = await guardMember(request, "card", cardInput);
   if (guarded instanceof NextResponse) return guarded;
   const card = { ...guarded.body, heroes: [...new Set(guarded.body.heroes)].filter((h) => heroesBySlug.has(h)) };
   try {
@@ -27,7 +27,7 @@ export async function PUT(request: Request) {
 }
 
 export async function DELETE(request: Request) {
-  const guarded = await guardPlayer(request, "card", null);
+  const guarded = await guardMember(request, "card", null);
   if (guarded instanceof NextResponse) return guarded;
   try {
     return (await deleteCard(guarded.author.id))

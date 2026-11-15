@@ -3,16 +3,16 @@ import { notFound } from "next/navigation";
 import { NewThread } from "@/components/community/composer";
 import { heroOptions, Rules, SearchForm, ThreadList, Unavailable } from "@/components/community/parts";
 import Link from "@/components/link";
+import { MemberLine, SignInChoice } from "@/components/community/sign-in";
 import { Pager } from "@/components/pager";
 import { PageHeader } from "@/components/ui";
 import type { Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { metaPage } from "@/i18n/seo";
 import { createT, messagesPage } from "@/i18n/translations";
-import { currentPlayer } from "@/lib/community-builds-server";
 import { CATEGORIES, isCategory, readPageNumber, readSort, SORTS, THREADS_PER_PAGE, type Sort } from "@/lib/community/constants";
 import { listThreads } from "@/lib/community/store";
-import { requestTime } from "@/lib/community/server";
+import { currentMember, discordLoginEnabled, requestTime } from "@/lib/community/server";
 import { databaseConfigured } from "@/lib/db";
 import { paging } from "@/lib/pager";
 import { cn } from "@/lib/utils";
@@ -26,7 +26,7 @@ export const dynamic = "force-dynamic";
 
 type Params = {
   params: Promise<{ locale: Locale; category: string }>;
-  searchParams: Promise<{ sort?: string; page?: string }>;
+  searchParams: Promise<{ sort?: string; page?: string; login?: string }>;
 };
 
 const href = (category: string, sort: Sort, page: number) => {
@@ -65,9 +65,9 @@ export default async function CategoryPage({ params, searchParams }: Params) {
   const now = await requestTime();
   const name = t(`pages.community.categories.${category}.name`);
 
-  const [data, player] = await Promise.all([
+  const [data, member] = await Promise.all([
     databaseConfigured() ? listThreads({ category, sort, page }).catch(() => null) : null,
-    currentPlayer().catch(() => ({ status: "unavailable" as const })),
+    currentMember(now),
   ]);
   if (data && page > 1 && data.threads.length === 0) notFound();
   const view = paging(data?.total ?? 0, page, THREADS_PER_PAGE);
@@ -115,16 +115,23 @@ export default async function CategoryPage({ params, searchParams }: Params) {
                     </Link>
                   ))}
                 </nav>
-                {player.status !== "ok" && (
-                  <p className="text-sm text-chalk-400">
-                    <Link href="/login" className="text-gold-400 underline underline-offset-4 hover:text-gold-500">
-                      {t("pages.community.signIn")}
-                    </Link>{" "}
-                    {t("pages.community.signInToPost")}
-                  </p>
-                )}
               </div>
-              {player.status === "ok" && <NewThread category={category} heroes={heroOptions()} />}
+              {member.status === "ok" ? (
+                <>
+                  <MemberLine t={t} locale={locale} member={member} back={`/community/${category}`} />
+                  <NewThread category={category} heroes={heroOptions()} />
+                </>
+              ) : (
+                <SignInChoice
+                  t={t}
+                  locale={locale}
+                  purpose="post"
+                  back={`/community/${category}`}
+                  member={member}
+                  discordEnabled={discordLoginEnabled()}
+                  failed={query.login === "failed"}
+                />
+              )}
               <ThreadList threads={data.threads} t={t} locale={locale} now={now} emptyText={t("pages.community.emptyCategory")} />
               <Pager paging={view} href={(n) => href(category, sort, n)} t={t} />
             </>

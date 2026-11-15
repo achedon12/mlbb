@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { idParam, replyInput } from "@/lib/community/rules";
-import { answer, guardPlayer, refused, refusedFor, storageFailed } from "@/lib/community/server";
+import { answer, guardMember, refused, refusedFor, storageFailed } from "@/lib/community/server";
 import { deleteReply, editReply } from "@/lib/community/store";
 
 /**
@@ -13,7 +13,7 @@ export const dynamic = "force-dynamic";
 type Context = { params: Promise<{ id: string }> };
 
 export async function PATCH(request: Request, { params }: Context) {
-  const guarded = await guardPlayer(request, "edit", replyInput);
+  const guarded = await guardMember(request, "edit", replyInput);
   if (guarded instanceof NextResponse) return guarded;
   const id = idParam((await params).id);
   if (!id) return refused(404, "unknown");
@@ -26,7 +26,7 @@ export async function PATCH(request: Request, { params }: Context) {
 }
 
 export async function DELETE(request: Request, { params }: Context) {
-  const guarded = await guardPlayer(request, "edit", null);
+  const guarded = await guardMember(request, "edit", null);
   if (guarded instanceof NextResponse) return guarded;
   const id = idParam((await params).id);
   if (!id) return refused(404, "unknown");

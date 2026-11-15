@@ -29,7 +29,7 @@ export async function GET(request: Request) {
   const jar = await cookies();
   const pending = openOAuth(config, jar.get(OAUTH_COOKIE)?.value);
   const back = (failed: boolean) => {
-    const target = new URL(loginTarget(pending?.locale, pending?.next), siteOrigin(request));
+    const target = new URL(loginTarget(pending?.locale, pending?.next, pending?.back), siteOrigin(request));
     if (failed) target.searchParams.set("login", "failed");
     const response = NextResponse.redirect(target, 303);
     response.headers.set("Cache-Control", "private, no-store");

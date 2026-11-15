@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { REPLIES_PER_PAGE } from "@/lib/community/constants";
 import { idParam, replyInput } from "@/lib/community/rules";
-import { answer, guardPlayer, refused, refusedFor, storageFailed } from "@/lib/community/server";
+import { answer, guardMember, refused, refusedFor, storageFailed } from "@/lib/community/server";
 import { createReply } from "@/lib/community/store";
 
 /**
@@ -13,7 +13,7 @@ import { createReply } from "@/lib/community/store";
 export const dynamic = "force-dynamic";
 
 export async function POST(request: Request, { params }: { params: Promise<{ id: string }> }) {
-  const guarded = await guardPlayer(request, "reply", replyInput);
+  const guarded = await guardMember(request, "reply", replyInput);
   if (guarded instanceof NextResponse) return guarded;
   const id = idParam((await params).id);
   if (!id) return refused(404, "unknown");

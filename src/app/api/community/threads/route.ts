@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { threadPath } from "@/lib/community/constants";
 import { knownHeroes, threadInput } from "@/lib/community/rules";
-import { answer, guardPlayer, refusedFor, storageFailed } from "@/lib/community/server";
+import { answer, guardMember, refusedFor, storageFailed } from "@/lib/community/server";
 import { createThread } from "@/lib/community/store";
 import { heroesBySlug } from "@/lib/data";
 import { log } from "@/lib/log";
@@ -17,7 +17,7 @@ import { log } from "@/lib/log";
 export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
-  const guarded = await guardPlayer(request, "thread", threadInput);
+  const guarded = await guardMember(request, "thread", threadInput);
   if (guarded instanceof NextResponse) return guarded;
   const { author, body } = guarded;
   try {
