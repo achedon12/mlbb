@@ -88,6 +88,13 @@ export default async function AccountValuePage({ params }: Params) {
           <div className="space-y-4 leading-relaxed text-chalk-300">
             <p>{t("pages.accountValue.methodPoints")}</p>
             <p>{t("pages.accountValue.methodCost")}</p>
+            <p>
+              {t("pages.accountValue.methodItems", {
+                inMatch: decimal.format(ASSUMPTIONS.pointCost.inMatch),
+                outMatch: decimal.format(ASSUMPTIONS.pointCost.outMatch),
+                shining: decimal.format(ASSUMPTIONS.pointCost.shining),
+              })}
+            </p>
 
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm">

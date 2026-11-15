@@ -67,6 +67,14 @@ afterEach(() => {
 afterAll(() => rmSync(ROOT, { recursive: true, force: true }));
 
 describe("response cache", () => {
+  it("keeps nothing on disk without a build id, as under next dev", async () => {
+    const next = freshBuild();
+    rmSync(join(next, "BUILD_ID"));
+    const cache = handler();
+    await cache.set(key("/fr/heroes/miya"), page(), setContext);
+    expect(existsSync(join(next, "cache", "pages"))).toBe(false);
+  });
+
   it("keeps a rendered page on disk and reads it back", async () => {
     freshBuild();
     const cache = handler();

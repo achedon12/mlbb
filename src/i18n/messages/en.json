@@ -2781,8 +2781,8 @@
         "bans": "Bans",
         "blue": "blue side",
         "red": "red side",
-        "showGames": "Show the {n} games",
-        "hideGames": "Hide the games"
+        "showGames": "Show {n} games",
+        "hideGames": "Hide parts"
       },
       "heroPro": {
         "title": "{name} in pro play",
@@ -2889,7 +2889,7 @@
       "losses": "Losses",
       "winRate": "Win rate",
       "noPick": "No pick",
-      "showAll": "Show all {n} heroes",
+      "showAll": "Show {n} heroes",
       "showFewer": "Show fewer heroes"
     },
     "draftSimulatorUI": {
@@ -4202,7 +4202,7 @@
       "warning": "Buying, selling or trading an account breaks Moonton's terms of service: the account can be banned or taken back by its former owner, and scams are common. This estimate measures what a collection cost; it does not set a price. Nothing is sent to a server.",
       "methodTitle": "The method, figure by figure",
       "methodPoints": "The tiers are the ones of the game's Showcase, with the collection points the game gives each skin. The points total is a check: it should land on the total the game shows.",
-      "methodCost": "Each skin counts for the typical cost of its tier. Deluxe, Exceptional and Common skins are sold in the shop: their cost is the median diamond price of the tier's skins, read in the game data. Supreme, Grand and Exquisite skins come from draws: they take the rounded median of the costs published by player guides, which varies a lot from one event and one player to the next. A painted skin counts for a token value, a shining skin for nothing.",
+      "methodCost": "Each skin counts for the typical cost of its category. Premium, Exceptional and Common are sold in stores: their cost is the median price in diamonds of the skins in the category, recorded in the game data. Legend, Grandiose and Exquisite are obtained by drawing: they take the median, rounded, of the costs published by player guides, which varies a lot from one event and from one player to another. A colorful appearance counts for symbolic value.",
       "tableCaption": "Points and cost counted per skin, by tier",
       "colTier": "Tier",
       "colPoints": "Points",
@@ -4227,7 +4227,8 @@
       "ratesSource": "Source of the rates",
       "checked": "assumptions checked on {date}",
       "methodPrivacy": "The calculation runs in your browser. The numbers you type are written into the page address so the result can be shared: no name, no account ID, nothing is stored on a server.",
-      "collectionLink": "Tick your collection skin by skin"
+      "collectionLink": "Tick your collection skin by skin",
+      "methodItems": "Shining skins and the items of the two other panels (recall effects, emotes, avatar frames…) are worth very different points from one item to the next: they are counted by their points, at {inMatch} diamond per point for in-match items, {outMatch} for out-of-match items, often free, and {shining} for shining skins. Most come from events and passes: this is a low estimate."
     },
     "accountValueUI": {
       "costTitle": "Estimated cost of the collection",
@@ -4249,16 +4250,16 @@
       "import": "Use my collection",
       "import_done": "Skins and heroes taken from your collection: {n} skins sorted by tier.",
       "import_unmapped": "Skins with no known tier, left out: {n}.",
-      "import_variants": "Painted and shining skins are not in the catalogue: add them by hand.",
+      "import_variants": "Painted skins are not in the catalogue: add them by hand, like the points of the other panels.",
       "import_failed": "The skin catalogue could not be loaded. Try again.",
-      "skinsTitle": "Your skins, as in the Showcase",
+      "skinsTitle": "Your collection, as in the Showcase",
       "whereTitle": "Where to find these numbers",
       "wherePath": "Profile > Showcase > Collection",
-      "whereHint": "Open the skin collection points overview: each tier shows \"owned/total\" and its points. Copy the first number of each row.",
+      "whereHint": "Three collection points overviews open there: skins, in-match items and out-of-match items. For skins, copy the first number of each row (\"owned/total\"); for the other two, the points total at the top of the panel.",
       "scan": {
         "button": "Read a screenshot",
         "retry": "Try another image",
-        "hint": "Or drop it here, or paste it (Ctrl+V).",
+        "hint": "Or drop it here, or paste it (Ctrl+V). One screenshot per panel, in any order.",
         "privacy": "The image is read in your browser: it never leaves your device.",
         "loading": "Loading the reader (a few MB, the first time only)…",
         "reading": "Reading the image…",
@@ -4270,7 +4271,9 @@
         "failed": "No skin collection points overview found in this image. Try a sharp screenshot of the Showcase, with the panel open.",
         "error": "The reader could not start in this browser. Copy the numbers by hand.",
         "detected": "detected",
-        "check": "to check"
+        "check": "to check",
+        "doneItems": "{group}: {points} points detected on your screenshot.",
+        "shining": "Shining skins: {points} points."
       },
       "tier": {
         "legend": "Supreme",
@@ -4279,15 +4282,14 @@
         "deluxe": "Deluxe",
         "exceptional": "Exceptional",
         "common": "Common",
-        "painted": "Painted skins",
-        "glow": "Shining skins"
+        "painted": "Painted skins"
       },
       "pointsEach": "{points} points each",
       "costShop": "≈ {n} diamonds each (shop)",
       "costDraw": "≈ {n} diamonds each (estimated draw)",
       "costFlat": "≈ {n} diamonds each (token value)",
-      "pointsTitle": "Skin collection points",
-      "pointsCheck": "Compare it with the total in your Showcase: if it matches, your numbers are right.",
+      "pointsTitle": "Collection points",
+      "pointsCheck": "Compare with the total of your Showcase, under your collector title: if it is the same, your numbers are right.",
       "accountTitle": "Your account",
       "rank": "Highest rank reached",
       "heroes": "Heroes owned",
@@ -4299,7 +4301,22 @@
         "moonton": "Moonton account",
         "social": "Social network only",
         "none": "Guest, unbound"
-      }
+      },
+      "skinsLegend": "Skins by category",
+      "pointsLegend": "Counted in points",
+      "pointsLead": "These items are worth very different points from one to the next: enter the points total the game shows.",
+      "group": {
+        "shining": "Shining skins",
+        "inMatch": "In-match items",
+        "outMatch": "Out-of-match items"
+      },
+      "groupWhere": {
+        "shining": "Last row of the skins panel",
+        "inMatch": "Effects, emotes, statues…",
+        "outMatch": "Avatar frames, banners…"
+      },
+      "costPoint": "≈ {n} diamond per point",
+      "pointsSplit": "Skins {skins} · other {items}"
     },
     "community": {
       "title": "Community",

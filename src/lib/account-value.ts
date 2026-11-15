@@ -5,7 +5,11 @@
  * Skins are counted with the game's own tiers, the ones of the Showcase
  * (Profile > Showcase > Collection > skin collection points overview): a
  * player copies the "owned" number of each row, and the page gives back the
- * collection points the game shows, as a check. Every figure is an order of
+ * collection points the game shows, as a check. The rest of the collection
+ * (shining skins, in-match items such as recall effects and emotes, and
+ * out-of-match items such as avatar frames) is counted in points, the way
+ * the Showcase totals each of its other panels: their items are worth very
+ * different points, so a count alone would say little. Every figure is an order of
  * magnitude, never a price. The cost side adds up skins at a typical diamond
  * cost per tier: the median shop price of the tier when the shop sells it,
  * an editorial draw cost otherwise. The resale side applies a fraction of
@@ -22,13 +26,10 @@
 // ── Tiers ───────────────────────────────────────────────────────────
 
 /** The Showcase tiers, in the game's order: from the rarest to the most common. */
-export const TIERS = ["legend", "grand", "exquisite", "deluxe", "exceptional", "common", "painted", "glow"] as const;
+export const TIERS = ["legend", "grand", "exquisite", "deluxe", "exceptional", "common", "painted"] as const;
 export type Tier = (typeof TIERS)[number];
 
-/**
- * Collection points of one skin of each tier, as the game counts them in the
- * Showcase. A shining skin counts for nothing in the total.
- */
+/** Collection points of one skin of each tier, as the game counts them in the Showcase. */
 export const POINTS: Record<Tier, number> = {
   legend: 4000,
   grand: 3000,
@@ -37,15 +38,27 @@ export const POINTS: Record<Tier, number> = {
   exceptional: 200,
   common: 100,
   painted: 40,
-  glow: 0,
 };
+
+/**
+ * Parts of the collection counted in points, as the Showcase shows them: the
+ * shining skins (a row of the skin panel with points but no count, left out
+ * of the skin total), the in-match items (recall, elimination and spawn
+ * effects, emotes, statues…) and the out-of-match items (avatar frames,
+ * banners, loading effects…), each the total of its own panel.
+ */
+export const POINT_GROUPS = ["shining", "inMatch", "outMatch"] as const;
+export type PointGroup = (typeof POINT_GROUPS)[number];
+
+/** Upper bound of a group's points: past it, a typo rather than a collection. */
+export const MAX_GROUP_POINTS = 1_000_000;
 
 /** Tiers no shop sells: their cost is an editorial draw estimate. */
 export const DRAW_TIERS = ["legend", "grand", "exquisite"] as const satisfies readonly Tier[];
 export type DrawTier = (typeof DRAW_TIERS)[number];
 
 /** Tiers the catalogue does not list (colour variants): a flat editorial cost. */
-export const FLAT_TIERS = ["painted", "glow"] as const satisfies readonly Tier[];
+export const FLAT_TIERS = ["painted"] as const satisfies readonly Tier[];
 export type FlatTier = (typeof FLAT_TIERS)[number];
 
 /**
@@ -98,6 +111,11 @@ export interface Assumptions {
   drawCostSources: string[];
   /** Diamonds counted for a colour variant, which no shop prices on its own. */
   flatCost: Record<FlatTier, number>;
+  /**
+   * Diamonds counted for one collection point of a points group: most of
+   * these items come from events and passes, a few from the shop.
+   */
+  pointCost: Record<PointGroup, number>;
   resale: {
     low: number;
     high: number;
@@ -180,6 +198,8 @@ export function modelOf(
 
 export interface Inputs {
   skins: Partial<Record<Tier, number>>;
+  /** Collection points of the shining skins and of the items, per group. */
+  points: Partial<Record<PointGroup, number>>;
   rank: Rank;
   heroes: number;
   emblems: number;
@@ -187,7 +207,7 @@ export interface Inputs {
   binding: Binding;
 }
 
-export const DEFAULT_INPUTS: Inputs = { skins: {}, rank: "epic", heroes: 0, emblems: 0, diamonds: 0, binding: "moonton" };
+export const DEFAULT_INPUTS: Inputs = { skins: {}, points: {}, rank: "epic", heroes: 0, emblems: 0, diamonds: 0, binding: "moonton" };
 
 /** Upper bound of the diamond balance field: past it, a typo rather than an account. */
 export const MAX_DIAMONDS = 1_000_000;
@@ -200,11 +220,15 @@ export const MAX_DIAMONDS = 1_000_000;
 export const MAX_PER_TIER = 2000;
 
 export interface Estimate {
-  /** Collection points of the skins: the total of the Showcase. */
+  /** Collection points of everything counted: the total of the Showcase. */
   points: number;
+  /** Of them, the skins counted by tier. */
+  skinPoints: number;
   /** Diamonds the skins cost, at the tier costs. */
   skinDiamonds: number;
-  /** Skins plus the diamond balance. */
+  /** Diamonds counted for the points groups (shining skins and items). */
+  itemDiamonds: number;
+  /** Skins, items and the diamond balance. */
   totalDiamonds: number;
   /** `totalDiamonds` in US dollars. */
   usd: number;
@@ -223,8 +247,14 @@ export function clampInputs(i: Inputs, m: Model): Inputs {
     const n = Math.round(clamp(i.skins[t.tier] ?? 0, 0, MAX_PER_TIER));
     if (n > 0) skins[t.tier] = n;
   }
+  const points: Partial<Record<PointGroup, number>> = {};
+  for (const g of POINT_GROUPS) {
+    const n = Math.round(clamp(i.points?.[g] ?? 0, 0, MAX_GROUP_POINTS));
+    if (n > 0) points[g] = n;
+  }
   return {
     skins,
+    points,
     rank: (RANKS as readonly string[]).includes(i.rank) ? i.rank : DEFAULT_INPUTS.rank,
     heroes: Math.round(clamp(i.heroes, 0, m.heroes)),
     emblems: Math.round(clamp(i.emblems, 0, m.emblems)),
@@ -236,7 +266,9 @@ export function clampInputs(i: Inputs, m: Model): Inputs {
 export function estimate(input: Inputs, m: Model, a: Assumptions): Estimate {
   const i = clampInputs(input, m);
   const skinDiamonds = m.tiers.reduce((sum, t) => sum + (i.skins[t.tier] ?? 0) * t.cost, 0);
-  const totalDiamonds = skinDiamonds + i.diamonds;
+  const itemDiamonds = Math.round(POINT_GROUPS.reduce((sum, g) => sum + (i.points[g] ?? 0) * a.pointCost[g], 0));
+  const skinPoints = pointsOf(i.skins);
+  const totalDiamonds = skinDiamonds + itemDiamonds + i.diamonds;
   const usd = totalDiamonds * a.usdPerDiamond;
   const share = m.heroes > 0 ? i.heroes / m.heroes : 0;
   const factors = {
@@ -247,8 +279,10 @@ export function estimate(input: Inputs, m: Model, a: Assumptions): Estimate {
   };
   const multiplier = factors.rank * factors.heroes * factors.emblems * factors.binding;
   return {
-    points: pointsOf(i.skins),
+    points: skinPoints + POINT_GROUPS.reduce((sum, g) => sum + (i.points[g] ?? 0), 0),
+    skinPoints,
     skinDiamonds,
+    itemDiamonds,
     totalDiamonds,
     usd,
     factors,
@@ -273,12 +307,15 @@ export function roughly(n: number): number {
 
 /**
  * The estimate lives in the address, so it can be shared: counts only, no
- * name, no account id. `?s=legend.1,deluxe.69&r=mythic&h=80&e=3&d=500&b=moonton&c=EUR`.
+ * name, no account id.
+ * `?s=legend.1,deluxe.69&p=shining.700,inMatch.18855&r=mythic&h=80&e=3&d=500&b=moonton&c=EUR`.
  */
 export function writeParams(i: Inputs, currency: Currency): string {
   const p = new URLSearchParams();
   const skins = TIERS.filter((t) => (i.skins[t] ?? 0) > 0).map((t) => `${t}.${i.skins[t]}`);
   if (skins.length) p.set("s", skins.join(","));
+  const points = POINT_GROUPS.filter((g) => (i.points[g] ?? 0) > 0).map((g) => `${g}.${i.points[g]}`);
+  if (points.length) p.set("p", points.join(","));
   if (i.rank !== DEFAULT_INPUTS.rank) p.set("r", i.rank);
   if (i.heroes) p.set("h", String(i.heroes));
   if (i.emblems) p.set("e", String(i.emblems));
@@ -296,8 +333,9 @@ const integer = (v: string | null) => {
 
 /**
  * Reads an address back; anything unknown or malformed falls back to the
- * default. The tiers of the earlier version of the page ("elite", "epic"…)
- * are not tiers of the game: they are dropped rather than guessed.
+ * default. The tiers of the earlier versions of the page ("elite", "epic"…,
+ * or a count of shining skins, now counted in points) are dropped rather
+ * than guessed.
  */
 export function readParams(search: string): { inputs: Inputs; currency: Currency } {
   const p = new URLSearchParams(search);
@@ -306,12 +344,18 @@ export function readParams(search: string): { inputs: Inputs; currency: Currency
     const [tier, n] = part.split(".");
     if ((TIERS as readonly string[]).includes(tier) && integer(n ?? null) > 0) skins[tier as Tier] = integer(n);
   }
+  const points: Partial<Record<PointGroup, number>> = {};
+  for (const part of (p.get("p") ?? "").split(",")) {
+    const [group, n] = part.split(".");
+    if ((POINT_GROUPS as readonly string[]).includes(group) && integer(n ?? null) > 0) points[group as PointGroup] = integer(n);
+  }
   const rank = p.get("r") ?? "";
   const binding = p.get("b") ?? "";
   const currency = p.get("c") ?? "";
   return {
     inputs: {
       skins,
+      points,
       rank: (RANKS as readonly string[]).includes(rank) ? (rank as Rank) : DEFAULT_INPUTS.rank,
       heroes: integer(p.get("h")),
       emblems: integer(p.get("e")),

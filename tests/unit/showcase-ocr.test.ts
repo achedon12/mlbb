@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { pointsOf } from "@/lib/account-value";
-import { binarize, fractionReadings, pointsMatch, readShowcase, type OcrWord } from "@/lib/showcase-ocr";
+import { binarize, fractionReadings, pointsMatch, readItems, readPanel, readShowcase, type OcrWord } from "@/lib/showcase-ocr";
 
 /** Skins per tier in the catalogue at the time of the capture. */
 const CATALOG = { legend: 15, grand: 101, exquisite: 108, deluxe: 157, exceptional: 270, common: 277 };
@@ -13,6 +13,9 @@ const CATALOG = { legend: 15, grand: 101, exquisite: 108, deluxe: 157, exception
  * browser tries. Rewritten by `showcase-ocr-real.test.ts` (OCR=1 OCR_WRITE=1).
  */
 const WORDS: OcrWord[] = JSON.parse(readFileSync("tests/fixtures/showcase/words-fr.json", "utf8"));
+
+/** OCR output of the three panels of another French Showcase (159 895 points in all). */
+const fixture = (name: string): OcrWord[] => JSON.parse(readFileSync(`tests/fixtures/showcase/words-fr-${name}.json`, "utf8"));
 
 const word = (text: string, x: number, y: number): OcrWord => ({ text, bbox: { x0: x, y0: y, x1: x + 20 * text.length, y1: y + 20 } });
 
@@ -98,6 +101,67 @@ describe("readShowcase", () => {
   it("gives up on an image that is not the panel", () => {
     expect(readShowcase([word("2026", 0, 0), word("12/30", 0, 100)], CATALOG)).toBeNull();
     expect(readShowcase([], CATALOG)).toBeNull();
+  });
+});
+
+describe("the shining row", () => {
+  it("reads its points and counts them in the header total", () => {
+    const r = readShowcase(fixture("skins-shining"), CATALOG)!;
+    expect(r.rows.map((x) => x.owned)).toEqual([2, 12, 8, 63, 126, 237, 53]);
+    expect(r.shining).toBe(700);
+    expect(r.header).toEqual({ value: 136_920, matches: true });
+    expect(r.collection).toEqual({ owned: 501, total: 1164 });
+  });
+
+  it("reads none when the total leaves no room for it", () => {
+    expect(readShowcase(WORDS, CATALOG)!.shining ?? 0).toBe(0);
+  });
+});
+
+describe("readItems", () => {
+  it("reads the in-match panel's ten rows and checks them against its total", () => {
+    const r = readItems(fixture("inmatch"))!;
+    expect(r.group).toBe("inMatch");
+    expect(r.rows.map((x) => x.points)).toEqual([3180, 3300, 1480, 2300, 2680, 1250, 3725, 370, 570, 0]);
+    expect(r.points).toBe(18_855);
+    expect(r.header).toEqual({ value: 18_855, matches: true });
+  });
+
+  it("reads the out-of-match panel", () => {
+    const r = readItems(fixture("outmatch"))!;
+    expect(r.group).toBe("outMatch");
+    expect(r.points).toBe(4120);
+    expect(r.header?.matches).toBe(true);
+  });
+
+  it("drops a coin read as a digit when the header total says so", () => {
+    const rows = [
+      ["25/120", "93180"],
+      ["20/67", "3300"],
+      ["48/157", "1480"],
+      ["16/76", "2300"],
+      ["38/91", "92680"],
+      ["0/6", "8"],
+    ];
+    const words = [word("12940", 600, 0), ...rows.flatMap(([c, p], i) => [word(c, 300, 100 * (i + 1)), word(p, 600, 100 * (i + 1))])];
+    const r = readItems(words)!;
+    expect(r.rows.map((x) => x.points)).toEqual([3180, 3300, 1480, 2300, 2680, 0]);
+    expect(r.header).toEqual({ value: 12_940, matches: true });
+  });
+});
+
+describe("readPanel", () => {
+  it("tells the three panels apart", () => {
+    expect(readPanel(WORDS, CATALOG)?.kind).toBe("skins");
+    expect(readPanel(fixture("skins-shining"), CATALOG)?.kind).toBe("skins");
+    const inMatch = readPanel(fixture("inmatch"), CATALOG);
+    expect(inMatch?.kind === "items" && inMatch.reading.group).toBe("inMatch");
+    const outMatch = readPanel(fixture("outmatch"), CATALOG);
+    expect(outMatch?.kind === "items" && outMatch.reading.group).toBe("outMatch");
+  });
+
+  it("gives up on an image that is no panel", () => {
+    expect(readPanel([word("2026", 0, 0), word("12/30", 0, 100)], CATALOG)).toBeNull();
   });
 });
 

@@ -3,6 +3,7 @@ import assumptionsData from "@/data/editorial/account-value.json";
 import {
   CURRENCIES,
   DEFAULT_INPUTS,
+  MAX_GROUP_POINTS,
   MAX_PER_TIER,
   POINTS,
   RANKS,
@@ -55,8 +56,8 @@ describe("tierOf", () => {
 });
 
 describe("collection points", () => {
-  it("gives each tier the game's points, the shining skins none", () => {
-    expect(TIERS.map((t) => POINTS[t])).toEqual([4000, 3000, 2000, 400, 200, 100, 40, 0]);
+  it("gives each tier the game's points", () => {
+    expect(TIERS.map((t) => POINTS[t])).toEqual([4000, 3000, 2000, 400, 200, 100, 40]);
   });
 
   it("adds up to the total of a real Showcase", () => {
@@ -64,7 +65,16 @@ describe("collection points", () => {
     const skins = { legend: 1, grand: 12, exquisite: 19, deluxe: 69, exceptional: 130, common: 240, painted: 39 };
     expect(pointsOf(skins)).toBe(4000 + 36000 + 38000 + 27600 + 26000 + 24000 + 1560);
     expect(pointsOf(skins)).toBe(157_160);
-    expect(pointsOf({ ...skins, glow: 25 })).toBe(157_160);
+  });
+
+  it("adds the shining skins and the item panels to the total, as the Showcase does", () => {
+    // The three panels of a real Showcase: 136 920 + 18 855 + 4 120 = 159 895.
+    const skins = { legend: 2, grand: 12, exquisite: 8, deluxe: 63, exceptional: 126, common: 237, painted: 53 };
+    const m = modelOf([], 0, 0, a);
+    const e = estimate({ ...DEFAULT_INPUTS, skins, points: { shining: 700, inMatch: 18_855, outMatch: 4120 } }, m, a);
+    expect(e.skinPoints).toBe(136_220);
+    expect(e.points).toBe(159_895);
+    expect(e.itemDiamonds).toBe(Math.round(700 * a.pointCost.shining + 18_855 * a.pointCost.inMatch + 4120 * a.pointCost.outMatch));
   });
 });
 
@@ -89,7 +99,6 @@ describe("modelOf", () => {
 
   it("gives the colour variants a flat cost and no catalogue count", () => {
     expect(tier("painted")).toMatchObject({ count: null, cost: a.flatCost.painted, basis: "flat", points: 40 });
-    expect(tier("glow")).toMatchObject({ count: null, cost: 0, basis: "flat", points: 0 });
   });
 
   it("lists every tier, in the Showcase order, even an empty one", () => {
@@ -146,6 +155,7 @@ describe("estimate", () => {
   it("does not cap a tier at the catalogue count, only a typo, nor keeps negative counts", () => {
     const i = clampInputs(input({ skins: { deluxe: 9, grand: 99_999, legend: -2 }, heroes: 400, emblems: 12, diamonds: -5 }), m);
     expect(i).toMatchObject({ skins: { deluxe: 9, grand: MAX_PER_TIER }, heroes: 100, emblems: 6, diamonds: 0 });
+    expect(clampInputs(input({ points: { inMatch: -4, outMatch: 5e9 } }), m).points).toEqual({ outMatch: MAX_GROUP_POINTS });
   });
 });
 
@@ -165,9 +175,17 @@ describe("display", () => {
 
 describe("address", () => {
   it("round-trips the inputs and the currency", () => {
-    const i: Inputs = { skins: { legend: 1, deluxe: 69, glow: 2 }, rank: "mythic-glory", heroes: 80, emblems: 3, diamonds: 1200, binding: "social" };
+    const i: Inputs = {
+      skins: { legend: 1, deluxe: 69 },
+      points: { shining: 700, outMatch: 4120 },
+      rank: "mythic-glory",
+      heroes: 80,
+      emblems: 3,
+      diamonds: 1200,
+      binding: "social",
+    };
     const query = writeParams(i, "EUR");
-    expect(query).toBe("?s=legend.1%2Cdeluxe.69%2Cglow.2&r=mythic-glory&h=80&e=3&d=1200&b=social&c=EUR");
+    expect(query).toBe("?s=legend.1%2Cdeluxe.69&p=shining.700%2CoutMatch.4120&r=mythic-glory&h=80&e=3&d=1200&b=social&c=EUR");
     expect(readParams(query)).toEqual({ inputs: i, currency: "EUR" });
   });
 
@@ -176,7 +194,7 @@ describe("address", () => {
   });
 
   it("ignores what it does not know", () => {
-    const { inputs, currency } = readParams("?s=deluxe.x,unknown.3,exquisite.2,elite.4&r=god&h=-4&b=stolen&c=BTC");
+    const { inputs, currency } = readParams("?s=deluxe.x,unknown.3,exquisite.2,elite.4,glow.2&p=gems.4,inMatch.-3&r=god&h=-4&b=stolen&c=BTC");
     expect(inputs).toEqual({ ...DEFAULT_INPUTS, skins: { exquisite: 2 } });
     expect(currency).toBe("USD");
   });
@@ -217,6 +235,6 @@ describe("editorial assumptions", () => {
     for (const t of ["legend", "grand", "exquisite"] as const) expect(a.drawCost[t]).toBeGreaterThan(0);
     expect(a.drawCostSources.length).toBeGreaterThan(0);
     for (const url of a.drawCostSources) expect(url).toMatch(/^https:\/\//);
-    expect(a.flatCost.glow).toBe(0);
+    for (const g of ["shining", "inMatch", "outMatch"] as const) expect(a.pointCost[g]).toBeGreaterThan(0);
   });
 });
