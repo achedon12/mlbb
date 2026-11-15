@@ -5908,6 +5908,26 @@
     "esports": {
       "title": "Sigue los torneos con otros fans",
       "text": "MPL, MSC y M-series: los resultados llegan al canal de esports del Discord."
+    },
+    "nickname": {
+      "title": "Presume tu nuevo nick",
+      "text": "Pruébalo en el Discord de MLBBDex y encuentra compañeros de tu rango."
+    },
+    "skins": {
+      "title": "Entérate primero de las nuevas skins",
+      "text": "Las nuevas skins, la StarLight y los sorteos llegan al Discord en cuanto salen."
+    },
+    "tools": {
+      "title": "Prepara tus drafts con tu equipo",
+      "text": "Comparte tus composiciones y encuentra compañeros en el Discord de MLBBDex."
+    },
+    "value": {
+      "title": "Compara tu colección",
+      "text": "Muestra tu Escaparate y habla de skins con los jugadores del Discord de MLBBDex."
+    },
+    "copy": {
+      "title": "¡Nick copiado! Ven a presumirlo",
+      "text": "Únete al Discord de MLBBDex: compañeros por rango, avisos de parche y el MLBBdle del día."
     }
   }
 }
