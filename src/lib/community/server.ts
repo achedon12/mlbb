@@ -145,10 +145,11 @@ async function guard<S extends z.ZodType>(
 const linkRate = limitByMinute(3);
 
 /**
- * Gate of the account link: both logins on this request, the game one
- * confirmed by the login service, the Discord one by its sealed cookie.
- * No body. The Discord account's age does not matter here: once linked, it
- * acts as the game account.
+ * Gate of the account link and of its undoing: both logins on this request,
+ * the game one confirmed by the login service, the Discord one by its sealed
+ * cookie. No body. The Discord account's age does not matter here: once
+ * linked, it acts as the game account; once unlinked, `resolveMember` checks
+ * it again on every request.
  */
 export async function guardLink(request: Request): Promise<{ game: Author; discord: Author } | NextResponse> {
   if (!databaseConfigured()) return refused(404, "not found");
@@ -176,6 +177,7 @@ const STATUS: Record<string, number> = {
   locked: 409,
   duplicate: 409,
   taken: 409,
+  notLinked: 409,
   day: 429,
   limit: 429,
   blocked: 422,

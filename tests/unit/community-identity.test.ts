@@ -85,13 +85,32 @@ describe("resolveMember", () => {
       author: { id: GAME.status === "ok" ? GAME.id : "", name: "Ling Main", provider: "game" },
       via: "game",
       linkable: false,
+      unlinkable: false,
     });
     const both = resolveMember({ game: GAME, discord, link: null, now: NOW });
     expect(both).toMatchObject({ status: "ok", via: "game", linkable: true, author: { provider: "game" } });
     const unlinkedRow = resolveMember({ game: GAME, discord, link: { linkedTo: null, primaryName: null, bannedAt: null, banUntil: null }, now: NOW });
     expect(unlinkedRow).toMatchObject({ linkable: true });
     const linked = resolveMember({ game: GAME, discord, link: { linkedTo: "a".repeat(24), primaryName: "Ling Main", bannedAt: null, banUntil: null }, now: NOW });
-    expect(linked).toMatchObject({ linkable: false, via: "game" });
+    expect(linked).toMatchObject({ linkable: false, unlinkable: true, via: "game" });
+    // Linked to another game account: neither offer.
+    const elsewhere = resolveMember({ game: GAME, discord, link: { linkedTo: "z".repeat(24), primaryName: "Other", bannedAt: null, banUntil: null }, now: NOW });
+    expect(elsewhere).toMatchObject({ linkable: false, unlinkable: false, via: "game" });
+  });
+
+  it("offers to unlink a Discord login linked to the game account beside it, and only that one", () => {
+    const gameId = GAME.status === "ok" ? GAME.id : "";
+    const link = { linkedTo: gameId, primaryName: "Ling Main", bannedAt: null, banUntil: null };
+    expect(resolveMember({ game: GAME, discord, link, now: NOW })).toMatchObject({ via: "game", linkable: false, unlinkable: true });
+    // Signed in with Discord alone: nothing to prove the game account with.
+    expect(resolveMember({ game: { status: "none" }, discord, link, now: NOW })).toMatchObject({ via: "discord", unlinkable: false });
+    // Once unlinked, the Discord login is its own member again, under the account-age guard.
+    const unlinked = { linkedTo: null, primaryName: null, bannedAt: null, banUntil: null };
+    expect(resolveMember({ game: { status: "none" }, discord: { id: FRESH, name: "Leo" }, link: unlinked, now: NOW })).toEqual({ status: "discordTooNew" });
+    expect(resolveMember({ game: { status: "none" }, discord, link: unlinked, now: NOW })).toMatchObject({
+      status: "ok",
+      author: { id: discordAccountId(OLD), provider: "discord" },
+    });
   });
 
   it("lets a Discord account a week old in on its own, under its hash and display name", () => {
@@ -101,6 +120,7 @@ describe("resolveMember", () => {
       author: { id: discordAccountId(OLD), name: "Leo", provider: "discord" },
       via: "discord",
       linkable: false,
+      unlinkable: false,
     });
   });
 
@@ -115,7 +135,7 @@ describe("resolveMember", () => {
     const link = { linkedTo: "b".repeat(24), primaryName: "Gord Fan", bannedAt: null, banUntil: null };
     const member = resolveMember({ game: { status: "none" }, discord: { id: FRESH, name: "Leo" }, link, now: NOW });
     // The game account carries the ban and the new-account period, so the Discord age no longer matters.
-    expect(member).toEqual({ status: "ok", author: { id: "b".repeat(24), name: "Gord Fan", provider: "game" }, via: "discord", linkable: false });
+    expect(member).toEqual({ status: "ok", author: { id: "b".repeat(24), name: "Gord Fan", provider: "game" }, via: "discord", linkable: false, unlinkable: false });
   });
 
   it("answers the game login's own status without a Discord login", () => {

@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import Link from "@/components/link";
 import { FreshnessLine } from "@/components/freshness";
 import { HeroPortrait } from "@/components/hero-portrait";
 import { SERIES_STYLES, TraitLegend } from "@/components/hero-radar";
 import { Card, PageHeader } from "@/components/ui";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
-import { metaPage } from "@/i18n/seo";
+import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT, type T } from "@/i18n/translations";
 import { formatGap, itemsCounter, hasLifesteal } from "@/lib/counters";
 import { buildsPlayed, teammates, counters, heroesBySlug, itemsFor } from "@/lib/data";
@@ -21,6 +20,7 @@ import { statsByRank } from "@/lib/tier-list";
 import type { Hero } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { visualItem } from "@/lib/build-visuals";
+import { NotFoundPage } from "@/components/not-found-page";
 
 /**
  * Head-to-head page "{a} vs {b}": who wins the duel, rank by rank.
@@ -84,7 +84,7 @@ function verdict(locale: Locale, a: Hero, b: Hero) {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, pair } = await params;
   const p = resolve(pair);
-  if (!p) return {};
+  if (!p) return notFoundMetadata(locale);
   const t = createT(locale);
   const names = { a: p.a.name, b: p.b.name };
   const { ref, sentence } = verdict(locale, p.a, p.b);
@@ -112,7 +112,7 @@ function buildOf(h: Hero, rank: MeasuredRank) {
 export default async function VersusPage({ params }: Params) {
   const { locale, pair } = await params;
   const p = resolve(pair);
-  if (!p) notFound();
+  if (!p) return <NotFoundPage />;
   const { a, b } = p;
 
   const t = createT(locale);

@@ -4644,10 +4644,17 @@
         "failed": "L'action a échoué : rechargez la page."
       },
       "link": {
-        "offer": "Vous êtes aussi connecté avec Discord. Liez vos deux comptes pour garder un seul profil sur le forum : vous pourrez ensuite vous connecter avec l'un ou l'autre, et ce que vous avez publié avec Discord rejoindra votre compte de jeu. Le lien est définitif.",
+        "offer": "Vous êtes aussi connecté avec Discord. Liez vos deux comptes pour garder un seul profil sur le forum : vous pourrez ensuite vous connecter avec l'un ou l'autre, et ce que vous avez publié avec Discord rejoindra votre compte de jeu. Vous pourrez les délier plus tard, mais ce qui a rejoint votre compte de jeu y restera.",
         "button": "Lier mon compte Discord",
         "done": "Vos comptes sont liés : sur le forum, Discord et votre compte de jeu ne font plus qu'un.",
-        "taken": "Ce compte Discord ou ce compte de jeu est déjà lié à un autre compte."
+        "taken": "Ce compte Discord ou ce compte de jeu est déjà lié à un autre compte.",
+        "unlink": "Délier mon compte Discord",
+        "unlinkConfirm": "Délier votre compte Discord de votre compte de jeu ? Tout ce qui a été publié, voté ou signalé reste sur votre compte de jeu, y compris ce que vous aviez fait avec Discord avant de lier les comptes. Votre compte Discord redevient un membre à part, tout neuf et sans historique : il repasse par la période des nouveaux comptes, et un compte Discord de moins de 7 jours ne peut pas participer.",
+        "unlinkButton": "Oui, délier",
+        "cancel": "Annuler",
+        "unlinkDone": "Vos comptes sont déliés : sur le forum, votre compte Discord est maintenant un membre à part.",
+        "unlinkBanned": "Votre compte de jeu est banni du forum : les comptes ne peuvent pas être déliés tant que le bannissement dure.",
+        "notLinked": "Ce compte Discord n'est pas lié à ce compte de jeu."
       }
     },
     "guides": {
@@ -5176,7 +5183,7 @@
         "collection": "Collection synchronisée : jusqu'à ce que vous la vidiez, ou sur demande.",
         "push": "Notifications de patch : jusqu'au désabonnement ; un abonnement devenu invalide est supprimé à la notification suivante.",
         "bot": "Pour le bot Discord : les réglages d'un serveur, et les résultats des jeux du jour qui y ont été joués, jusqu'à 30 jours après le départ du bot ; le journal des commandes slash utilisées, sans identifiant de membre, 90 jours ; les votes pour le bot, jusqu'à demande de suppression.",
-        "logs": "Journaux techniques : les erreurs rencontrées par le navigateur (message, page, version du site, type de navigateur ; ni adresse IP ni compte) sont gardées sur le serveur pour le diagnostic, jusqu'à leur suppression par l'éditeur.",
+        "logs": "Journaux techniques : les erreurs du serveur et celles rencontrées par le navigateur (message, page, version du site, type de navigateur, sans adresse IP ni compte) sont gardées 30 jours pour le diagnostic. Les événements de sécurité et de modération (requêtes refusées, actions des modérateurs et des administrateurs) sont gardés 6 mois. Ils sont ensuite effacés automatiquement.",
         "backups": "Sauvegardes : une copie quotidienne de la base de données ; seules les trois plus récentes sont gardées, si bien qu'une donnée effacée disparaît des sauvegardes en trois jours.",
         "rateLimits": "Limites de débit : votre adresse IP, en mémoire seulement, jamais écrite sur disque."
       },

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { ExternalLink } from "lucide-react";
-import { notFound } from "next/navigation";
 import {
   BalanceSummary,
   EntryCard,
@@ -14,7 +13,7 @@ import { WikiCredit } from "@/components/wiki-credit";
 import { Breadcrumb } from "@/components/breadcrumb";
 import Link from "@/components/link";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
-import { metaPage } from "@/i18n/seo";
+import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
 import {
   advanceVersion,
@@ -28,6 +27,7 @@ import { heroesBySlug } from "@/lib/data";
 import { longDate, listNames, patchCurrent } from "@/lib/freshness";
 import { serializeJsonLd } from "@/lib/html";
 import { site } from "@/lib/site";
+import { NotFoundPage } from "@/components/not-found-page";
 
 type Params = { params: Promise<{ locale: Locale; version: string }> };
 
@@ -48,7 +48,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, version } = await params;
   const v = advanceVersion(locale, version);
-  if (!v) return {};
+  if (!v) return notFoundMetadata(locale);
   const t = createT(locale);
   // The date, the hero counts and the first heroes named fill the description.
   const names = [...new Set(v.heroes.map((h) => heroesBySlug.get(h.slug)?.name ?? h.name))].slice(0, 4);
@@ -78,7 +78,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function AdvanceServerVersionPage({ params }: Params) {
   const { locale, version } = await params;
   const v = advanceVersion(locale, version);
-  if (!v) notFound();
+  if (!v) return <NotFoundPage />;
   const t = createT(locale);
   const live = patchCurrent.version;
   const translated = isTranslated(locale, v.version);

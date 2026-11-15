@@ -4644,10 +4644,17 @@
         "failed": "The action failed: reload the page."
       },
       "link": {
-        "offer": "You are also signed in with Discord. Link your two accounts to keep a single forum profile: you can then sign in with either one, and what you posted with Discord moves to your game account. The link is permanent.",
+        "offer": "You are also connected with Discord. Link your two accounts to keep a single profile on the forum: you can then log in with either, and what you posted with Discord will join your game account. You can unlink them later, but what joined your game account will stay there.",
         "button": "Link my Discord account",
         "done": "Your accounts are linked: on the forum, Discord and your game account are now one.",
-        "taken": "This Discord account or game account is already linked to another account."
+        "taken": "This Discord account or game account is already linked to another account.",
+        "unlink": "Unlink my Discord account",
+        "unlinkConfirm": "Unlink your Discord account from your game account? Everything posted, voted on or reported stays on your game account, including what you had done with Discord before linking the accounts. Your Discord account becomes a separate member again, brand new and with no history: it goes through the new-account period again, and a Discord account less than 7 days old cannot take part.",
+        "unlinkButton": "Yes, unlink",
+        "cancel": "Cancel",
+        "unlinkDone": "Your accounts are unlinked: on the forum, your Discord account is now a separate member.",
+        "unlinkBanned": "Your game account is banned from the forum: accounts cannot be unlinked while the ban lasts.",
+        "notLinked": "This Discord account is not linked to this game account."
       }
     },
     "guides": {
@@ -5176,7 +5183,7 @@
         "collection": "Synced collection: until you empty it, or on request.",
         "push": "Patch notifications: until unsubscribed; a subscription that has become invalid is deleted upon the next notification.",
         "bot": "For the Discord bot: a server's settings, and the results of the daily games played there, until 30 days after the bot leaves; the log of slash commands used, with no member ID, 90 days; votes for the bot, until you ask for their deletion.",
-        "logs": "Technical logs: errors encountered by the browser (message, page, site version, browser type; neither IP address nor account) are kept on the server for diagnosis, until their deletion by the publisher.",
+        "logs": "Technical logs: server errors and those met by the browser (message, page, site version, browser type, without IP address or account) are kept for 30 days for diagnosis. Security and moderation events (refused requests, moderators' and administrators' actions) are kept for 6 months. They are then deleted automatically.",
         "backups": "Backups: a daily copy of the database; only the three most recent are kept, so that deleted data disappears from the backups in three days.",
         "rateLimits": "Rate limits: your IP address, in memory only, never written to disk."
       },

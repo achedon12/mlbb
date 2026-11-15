@@ -6,7 +6,7 @@ import { HeroPortrait } from "@/components/hero-portrait";
 import { PageHeader } from "@/components/ui";
 import type { Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
-import { metaPage } from "@/i18n/seo";
+import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT, messagesPage } from "@/i18n/translations";
 import { buildNames, simCatalog } from "@/lib/build-catalog";
 import { sortBuilds, toPublic } from "@/lib/community-builds";
@@ -31,7 +31,7 @@ const knownHero = (slug: string) => (simCatalog.heroes.has(slug) ? heroesBySlug.
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, hero } = await params;
   const h = knownHero(hero);
-  if (!h) return {};
+  if (!h) return notFoundMetadata(locale);
   const t = createT(locale);
   const count = ((await listBuilds().catch(() => [])) ?? []).filter((b) => b.build.hero === hero).length;
   return {

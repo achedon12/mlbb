@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import Link from "@/components/link";
 import { inlineProse } from "@/components/prose";
 import { PageHeader } from "@/components/ui";
 import type { Locale } from "@/i18n/config";
-import { metaPage } from "@/i18n/seo";
+import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
 import { botClientId } from "@/lib/bot/public";
 import { legal } from "@/lib/site";
+import { NotFoundPage } from "@/components/not-found-page";
 
 type Params = { params: Promise<{ locale: Locale }> };
 
 /** The bot's privacy policy: the address Discord's developer portal and the bot lists ask for. */
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
-  if (!botClientId()) return {};
+  if (!botClientId()) return notFoundMetadata(locale);
   const t = createT(locale);
   return metaPage(locale, {
     title: t("pages.botPrivacy.title"),
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function BotPrivacyPage({ params }: Params) {
   const { locale } = await params;
-  if (!botClientId()) notFound();
+  if (!botClientId()) return <NotFoundPage />;
   const t = createT(locale);
   const vars = { contact: legal.contact };
   const p = (key: string) => inlineProse(t(`pages.botPrivacy.${key}`), vars, key);

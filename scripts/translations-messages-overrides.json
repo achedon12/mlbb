@@ -4675,6 +4675,22 @@
     "prose.gdpr.storage.cache": {
       "fr": "Pour fonctionner hors ligne, le site garde aussi dans le cache de votre navigateur (service worker) une copie des pages, images et données consultées : 250 pages et 800 images au plus, sur votre appareil uniquement. Les pages liées à une connexion (compte, connexion, tableau de bord et administration du bot, et toute page affichée pour un visiteur connecté) n'y sont jamais gardées, et la déconnexion efface celles qu'une version précédente du site aurait pu garder.",
       "text": "To work offline, the site also keeps a copy of the pages, images and data you viewed in your browser's cache (service worker): 250 pages and 800 images at most, on your device only. Signed-in pages (account, sign-in, bot dashboard and admin, and any page shown to a signed-in visitor) are never kept there, and signing out erases any that an earlier version of the site may have kept."
+    },
+    "pages.communityUI.link.unlinkButton": {
+      "fr": "Oui, délier",
+      "text": "Yes, unlink"
+    },
+    "pages.communityUI.link.cancel": {
+      "fr": "Annuler",
+      "text": "Cancel"
+    },
+    "pages.communityUI.link.unlinkConfirm": {
+      "fr": "Délier votre compte Discord de votre compte de jeu ? Tout ce qui a été publié, voté ou signalé reste sur votre compte de jeu, y compris ce que vous aviez fait avec Discord avant de lier les comptes. Votre compte Discord redevient un membre à part, tout neuf et sans historique : il repasse par la période des nouveaux comptes, et un compte Discord de moins de 7 jours ne peut pas participer.",
+      "text": "Unlink your Discord account from your game account? Everything posted, voted on or reported stays on your game account, including what you had done with Discord before linking the accounts. Your Discord account becomes a separate member again, brand new and with no history: it goes through the new-account period again, and a Discord account less than 7 days old cannot take part."
+    },
+    "prose.gdpr.retention.logs": {
+      "fr": "Journaux techniques : les erreurs du serveur et celles rencontrées par le navigateur (message, page, version du site, type de navigateur, sans adresse IP ni compte) sont gardées 30 jours pour le diagnostic. Les événements de sécurité et de modération (requêtes refusées, actions des modérateurs et des administrateurs) sont gardés 6 mois. Ils sont ensuite effacés automatiquement.",
+      "text": "Technical logs: server errors and those met by the browser (message, page, site version, browser type, without IP address or account) are kept for 30 days for diagnosis. Security and moderation events (refused requests, moderators' and administrators' actions) are kept for 6 months. They are then deleted automatically."
     }
   },
   "es": {
@@ -9001,6 +9017,14 @@
     "prose.gdpr.storage.retribution": {
       "fr": "Meilleurs scores du test de Châtiment.",
       "text": "Mejores puntuaciones de la Prueba de Castigo."
+    },
+    "pages.communityUI.link.unlinkButton": {
+      "fr": "Oui, délier",
+      "text": "Sí, desvincular"
+    },
+    "pages.communityUI.link.cancel": {
+      "fr": "Annuler",
+      "text": "Cancelar"
     }
   },
   "id": {
@@ -15291,6 +15315,18 @@
     "prose.gdpr.cookies.head.by": {
       "fr": "Émetteur",
       "text": "Dipasang oleh"
+    },
+    "pages.communityUI.link.unlink": {
+      "fr": "Délier mon compte Discord",
+      "text": "Putuskan tautan akun Discord saya"
+    },
+    "pages.communityUI.link.unlinkButton": {
+      "fr": "Oui, délier",
+      "text": "Ya, putuskan tautan"
+    },
+    "pages.communityUI.link.cancel": {
+      "fr": "Annuler",
+      "text": "Batal"
     }
   },
   "it": {
@@ -19669,6 +19705,10 @@
     "prose.gdpr.storage.retribution": {
       "fr": "Meilleurs scores du test de Châtiment.",
       "text": "Migliori punteggi del Test di Retribution."
+    },
+    "pages.communityUI.link.unlinkButton": {
+      "fr": "Oui, délier",
+      "text": "Sì, scollega"
     }
   },
   "fil": {
@@ -34467,6 +34507,10 @@
     "prose.gdpr.cookies.head.by": {
       "fr": "Émetteur",
       "text": "Naglalagay"
+    },
+    "pages.communityUI.link.unlinkButton": {
+      "fr": "Oui, délier",
+      "text": "Oo, i-unlink"
     }
   },
   "th": {
@@ -48277,6 +48321,10 @@
     "prose.gdpr.storage.retribution": {
       "fr": "Meilleurs scores du test de Châtiment.",
       "text": "คะแนนสูงสุดของการทดสอบ Retribution"
+    },
+    "pages.communityUI.link.unlinkButton": {
+      "fr": "Oui, délier",
+      "text": "ใช่ ยกเลิกการเชื่อมโยง"
     }
   },
   "pt": {
@@ -60011,6 +60059,10 @@
     "pages.privacy.lead": {
       "fr": "Ce que le site traite, pourquoi, combien de temps, et comment exercer vos droits.",
       "text": "O que o site processa, por quê, por quanto tempo e como exercer seus direitos."
+    },
+    "pages.communityUI.link.unlinkButton": {
+      "fr": "Oui, délier",
+      "text": "Sim, desvincular"
     }
   },
   "ru": {
@@ -73133,6 +73185,14 @@
     "prose.privacy.blocks.1.h": {
       "fr": "Responsable du traitement",
       "text": "Оператор персональных данных"
+    },
+    "pages.communityUI.link.unlinkButton": {
+      "fr": "Oui, délier",
+      "text": "Да, отвязать"
+    },
+    "pages.communityUI.link.unlinkDone": {
+      "fr": "Vos comptes sont déliés : sur le forum, votre compte Discord est maintenant un membre à part.",
+      "text": "Ваши учетные записи отвязаны: на форуме ваша учетная запись Discord теперь отдельный участник."
     }
   }
 }

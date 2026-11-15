@@ -1,3 +1,4 @@
+import { notFoundMetadata } from "@/i18n/seo";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import type { Locale } from "@/i18n/config";
@@ -16,7 +17,7 @@ type Params = { params: Promise<{ locale: Locale; page: string }> };
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, page } = await params;
   const n = readPage(page, Number.MAX_SAFE_INTEGER);
-  return n ? metaBuilds(locale, n) : {};
+  return n ? metaBuilds(locale, n) : notFoundMetadata(locale);
 }
 
 export default async function CommunityBuildsPagePage({ params }: Params) {

@@ -86,8 +86,21 @@ queries in `src/lib/community/store.ts` match exactly.
   (a vote's point comes off; such a report would count towards hiding); the
   card moves unless the game account has one; the earlier first-seen date
   and a hidden-card decision are kept. Linking is refused when either
-  account is banned (a merge must not wash a ban) or already linked; there
-  is no unlinking from the site (ask the contact address).
+  account is banned (a merge must not wash a ban) or already linked.
+- **Unlinking**: a browser signed in both ways, linked to each other, is
+  offered "unlink my Discord account", with a confirmation that says what
+  follows (DELETE `/api/community/link`, the same gate as linking: both
+  logins, same origin, the address's rate, 3 a minute per game account).
+  `linkedTo` goes back to null, and the Discord login becomes a separate,
+  new member with no history: nothing moves back, whatever was merged at
+  link time and everything posted since stays with the game account. Its
+  `firstSeenAt` is reset, so it goes through the new-account period again,
+  and, being unlinked, through the 7-day Discord account-age guard again.
+  Moderation stops landing on the game account (`actingAccount` reads
+  `linkedTo`). Refused (403 `banned`) while either row is banned, so a ban
+  cannot be escaped by leaving the banned account behind; a moderator's card
+  hide on the game account is copied to the Discord member it leaves; 409
+  `notLinked` when the two are not linked to each other.
 - **Bans on linked members**: a moderation decision aimed at a linked
   Discord id (an old report, the banned list) lands on the game account it
   acts as (`actingAccount`); an unban lifts both rows. A Discord login whose

@@ -7,7 +7,9 @@
  * so a new patch always coincides with a startup. With the Discord bot
  * configured, it also records the announcements found in the data and
  * starts the bot's periodic chores (`src/lib/bot/startup.ts`), and schedules
- * the daily backup of its database (`src/lib/db-backup.ts`).
+ * the daily backup of its database (`src/lib/db-backup.ts`). Always, it
+ * deletes the log files past their retention, then does so every day
+ * (`startLogRetention`, `src/lib/log.ts`).
  *
  * Only the Node runtime is concerned (not the edge), never the build, and nothing
  * is loaded while the VAPID keys (or the bot variables) are missing.
@@ -15,6 +17,8 @@
 export async function register() {
   if (process.env.NEXT_RUNTIME !== "nodejs") return;
   if (process.env.NEXT_PHASE === "phase-production-build") return;
+  const { startLogRetention } = await import("@/lib/log");
+  startLogRetention();
   if (process.env.BOT_API_SECRET && process.env.DATABASE_URL) {
     const { startBotChores } = await import("@/lib/bot/startup");
     startBotChores();

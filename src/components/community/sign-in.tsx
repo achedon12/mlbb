@@ -4,14 +4,15 @@ import Link from "@/components/link";
 import type { Locale } from "@/i18n/config";
 import type { T } from "@/i18n/t";
 import type { Member } from "@/lib/community/identity";
-import { LinkAccounts } from "./link-accounts";
+import { LinkAccounts, UnlinkAccounts } from "./link-accounts";
 
 /**
  * Who is writing, on the forum pages: the two ways in for a visitor (the
  * game account, or Discord when the site's Discord login is configured),
  * and for a member the name they post under, the Discord logout, and the
- * offer to link a Discord login to the game account beside it. Login and
- * logout are a link and a form; only the link offer needs a script.
+ * offer to link a Discord login to the game account beside it, or to unlink
+ * them. Login and logout are a link and a form; only the link and unlink
+ * offers need a script.
  */
 
 const BUTTON = "bevel-sm inline-flex min-h-11 items-center justify-center gap-2 px-4 py-2 text-sm font-semibold transition-colors";
@@ -95,6 +96,7 @@ export function MemberLine({ t, locale, member, back }: { t: T; locale: Locale; 
         )}
       </div>
       {member.linkable && <LinkAccounts />}
+      {member.unlinkable && <UnlinkAccounts />}
     </div>
   );
 }

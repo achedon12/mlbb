@@ -9,9 +9,9 @@ import { useT } from "@/i18n/provider";
  * where to go next (search, heroes, tier list, home).
  *
  * Shared by `[locale]/not-found.tsx` (the boundary every `notFound()` lands
- * on) and `[locale]/[...unknown]`, which renders it on the server so the 404
- * HTML is never an empty shell. Both render the exact same markup: when the
- * boundary takes over on the client, nothing moves.
+ * in the browser) and `NotFoundPage`, which renders it on the server so the
+ * 404 HTML is never an empty shell. Both render the exact same markup: when
+ * the boundary takes over on the client, nothing moves.
  */
 export function NotFoundView() {
   const t = useT();

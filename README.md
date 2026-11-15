@@ -196,7 +196,9 @@ inside the container) and belongs behind a reverse proxy. The final image
 contains no sources and no build toolchain: only the Next server in
 `standalone` mode, its static assets and `public/`. The container runs without
 privileges, with a read-only filesystem and all capabilities dropped. Three
-volumes: the logs (`./logs`), the named volume `donnees`
+volumes: the logs (`./logs`, one file per day and kind, `erreurs-*` deleted
+after 30 days and `evenements-*` after 6 months by the site itself at startup
+and then daily, see `src/lib/log.ts`), the named volume `donnees`
 (`/app/donnees-serveur`), which keeps notification subscriptions from one
 deployment to the next, and the named volume `cache` (`/app/.next/cache`), where
 the pages rendered on demand and the optimised images are kept. Compression

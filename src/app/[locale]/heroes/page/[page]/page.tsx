@@ -1,9 +1,10 @@
+import { notFoundMetadata } from "@/i18n/seo";
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import type { Locale } from "@/i18n/config";
 import { allHeroes } from "@/lib/data";
 import { pagesAfterFirst, readPage, SIZE_CARDS } from "@/lib/pager";
 import { Heroes, metaHeroes, pagesHeroes } from "../../content";
+import { NotFoundPage } from "@/components/not-found-page";
 
 /**
  * Pages 2 and beyond of the catalogue. Prerendered like the first one — five
@@ -20,12 +21,12 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, page } = await params;
   const n = readPage(page, pagesHeroes());
-  return n ? metaHeroes(locale, n) : {};
+  return n ? metaHeroes(locale, n) : notFoundMetadata(locale);
 }
 
 export default async function HeroesPagePage({ params }: Params) {
   const { locale, page } = await params;
   const n = readPage(page, pagesHeroes());
-  if (!n) notFound();
+  if (!n) return <NotFoundPage />;
   return <Heroes locale={locale} page={n} />;
 }

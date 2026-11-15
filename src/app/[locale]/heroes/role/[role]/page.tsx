@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import Link from "@/components/link";
 import { FreshnessLine } from "@/components/freshness";
 import { HeroPortrait } from "@/components/hero-portrait";
@@ -16,7 +15,8 @@ import { rankingFull } from "@/lib/tier-list";
 import type { Role } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import { createT, type T } from "@/i18n/translations";
-import { heroListData, metaPage } from "@/i18n/seo";
+import { heroListData, metaPage, notFoundMetadata } from "@/i18n/seo";
+import { NotFoundPage } from "@/components/not-found-page";
 
 type Params = { params: Promise<{ locale: Locale; role: string }> };
 
@@ -67,7 +67,7 @@ function description(locale: Locale, role: Role): string {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, role: slug } = await params;
   const role = roleOfSlug(slug);
-  if (!role) return {};
+  if (!role) return notFoundMetadata(locale);
   const t = createT(locale);
   return metaPage(locale, {
     title: t("pages.seo.heroesRole.title", { ...markers(t, role, roleHeroes(role).length), v: patchCurrent.version }),
@@ -79,7 +79,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function RolePage({ params }: Params) {
   const { locale, role: slug } = await params;
   const role = roleOfSlug(slug);
-  if (!role) notFound();
+  if (!role) return <NotFoundPage />;
   const t = createT(locale);
   const list = roleHeroes(role);
   const r = markers(t, role, list.length);

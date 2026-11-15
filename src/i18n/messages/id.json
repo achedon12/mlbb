@@ -4644,10 +4644,17 @@
         "failed": "Tindakan gagal: muat ulang halaman."
       },
       "link": {
-        "offer": "Anda juga terhubung dengan Discord. Tautkan kedua akun Anda untuk menyimpan satu profil di forum: Anda kemudian dapat terhubung dengan salah satu akun, dan apa yang Anda publikasikan dengan Discord akan bergabung dengan akun game Anda. Tautannya permanen.",
+        "offer": "Anda juga terhubung dengan Discord. Tautkan kedua akun Anda untuk menyimpan satu profil di forum: Anda kemudian dapat masuk dengan salah satu akun tersebut, dan apa yang Anda posting dengan Discord akan bergabung dengan akun game Anda. Anda dapat membatalkan tautannya nanti, tetapi apa yang bergabung dengan akun game Anda akan tetap ada di sana.",
         "button": "Tautkan akun Discord saya",
         "done": "Akun Anda tertaut: di forum, Discord dan akun game Anda menjadi satu.",
-        "taken": "Akun Discord atau akun game ini sudah tertaut ke akun lain."
+        "taken": "Akun Discord atau akun game ini sudah tertaut ke akun lain.",
+        "unlink": "Putuskan tautan akun Discord saya",
+        "unlinkConfirm": "Putuskan tautan akun Discord Anda dari akun game Anda? Apa pun yang diposting, dipilih, atau dilaporkan tetap ada di akun game Anda, termasuk apa yang Anda lakukan dengan Discord sebelum menautkan akun tersebut. Akun Discord Anda menjadi anggota terpisah lagi, baru dan tanpa riwayat: melewati periode akun baru, dan akun Discord yang berumur kurang dari 7 hari tidak dapat berpartisipasi.",
+        "unlinkButton": "Ya, putuskan tautan",
+        "cancel": "Batal",
+        "unlinkDone": "Tautan akun Anda dibatalkan: di forum, akun Discord Anda sekarang menjadi anggota terpisah.",
+        "unlinkBanned": "Akun game Anda diblokir dari forum: akun tidak dapat dibatalkan tautannya selama ban berlangsung.",
+        "notLinked": "Akun Discord ini tidak tertaut ke akun game ini."
       }
     },
     "guides": {
@@ -5176,7 +5183,7 @@
         "collection": "Koleksi tersinkronisasi: hingga Anda mengosongkannya, atau sesuai permintaan.",
         "push": "Pemberitahuan patch: sampai berhenti berlangganan; langganan yang menjadi tidak valid akan dihapus pada pemberitahuan berikutnya.",
         "bot": "Untuk bot Discord: pengaturan server, dan hasil permainan hari itu yang dimainkan di sana, hingga 30 hari setelah bot keluar; log perintah garis miring yang digunakan, tanpa ID anggota, 90 hari; memilih bot, hingga diminta untuk menghapus.",
-        "logs": "Log teknis: kesalahan yang ditemukan oleh browser (pesan, halaman, versi situs, jenis browser; baik alamat IP maupun akun) disimpan di server untuk diagnosis, hingga dihapus oleh penerbit.",
+        "logs": "Log teknis: kesalahan server dan kesalahan yang ditemukan oleh browser (pesan, halaman, versi situs, jenis browser, tanpa alamat IP atau akun) disimpan selama 30 hari untuk diagnosis. Peristiwa keamanan dan moderasi (permintaan ditolak, tindakan moderator dan administrator) disimpan selama 6 bulan. Mereka kemudian dihapus secara otomatis.",
         "backups": "Cadangan: salinan harian database; hanya tiga data terbaru yang disimpan, sehingga data yang dihapus akan hilang dari cadangan dalam tiga hari.",
         "rateLimits": "Batasan Nilai: Alamat IP Anda, hanya di memori, tidak pernah ditulis ke disk."
       },

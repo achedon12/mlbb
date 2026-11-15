@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import { WikiCredit } from "@/components/wiki-credit";
 import { MonthContent, SourceList, heroName, monthLabel, monthSummary, monthText } from "@/components/event-month";
 import { FreshnessLine } from "@/components/freshness";
 import Link from "@/components/link";
 import { PageHeader } from "@/components/ui";
 import type { Locale } from "@/i18n/config";
-import { metaPage } from "@/i18n/seo";
+import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
 import { linkSkin } from "@/lib/skin-catalog";
 import { calendarYears, dataListSkins } from "@/lib/skin-catalog-server";
@@ -14,6 +13,7 @@ import { sync } from "@/lib/data";
 import { OTHER_MODES, monthStatus, neighbours } from "@/lib/events";
 import { monthByKey, monthKeys, referenceDate, sourcesForMonth } from "@/lib/events-server";
 import { serializeJsonLd } from "@/lib/html";
+import { NotFoundPage } from "@/components/not-found-page";
 
 type Params = { params: Promise<{ locale: Locale; month: string }> };
 
@@ -36,7 +36,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, month } = await params;
   const m = monthByKey(month);
-  if (!m) return {};
+  if (!m) return notFoundMetadata(locale);
   const t = createT(locale);
   const english = monthLabel("en", m.month);
   return metaPage(locale, {
@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function EventMonthPage({ params }: Params) {
   const { locale, month } = await params;
   const m = monthByKey(month);
-  if (!m) notFound();
+  if (!m) return <NotFoundPage />;
 
   const t = createT(locale);
   const keys = monthKeys();
