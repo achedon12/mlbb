@@ -765,7 +765,9 @@
       "title": "ไม่พบหน้า",
       "text": "หน้านี้ไม่มีอยู่ หรือถูกลบไปแล้ว ดูหน้าข้อมูลฮีโร่ได้จากแคตตาล็อก",
       "home": "กลับหน้าแรก",
-      "heroes": "ดูฮีโร่"
+      "heroes": "ดูฮีโร่",
+      "tierList": "Tier List ปัจจุบัน",
+      "search": "ค้นหาฮีโร่ ไอเทม หรือหน้า"
     },
     "winRate": {
       "title": "เครื่องคำนวณ Win Rate",
@@ -1040,7 +1042,7 @@
         "rate": "Win Rate {winRate}, Tier {tier}"
       },
       "tierList": {
-        "title": "Tier List MLBB {month}: ฮีโร่ที่ดีที่สุดตามแรงก์ (แพตช์ {v})",
+        "title": "Tier List MLBB {month}: จัดอันดับฮีโร่ (แพตช์ {v})",
         "titleRank": "Tier List MLBB {rank} {month} (แพตช์ {v})",
         "description": "{top} นำ Tier List MLBB ที่วัดเมื่อ {date} (แพตช์ {v}) โดย {first} มี Win Rate {winRate} ฮีโร่ {n} ตัวจัดอันดับตาม Win Rate และ Ban Rate พร้อมลิสต์ของแต่ละแรงก์",
         "descriptionRank": "{top} นำ Tier List MLBB {rank} ที่วัดเมื่อ {date} (แพตช์ {v}) โดย {first} มี Win Rate {winRate} ฮีโร่ {n} ตัวจัดอันดับตาม Win Rate และ Ban Rate ในเกมแรงก์ {rank}"
@@ -1069,7 +1071,7 @@
         "descriptionThree": "เปรียบเทียบฮีโร่ Mobile Legends: Bang Bang สองหรือสามตัวจากทั้งหมด {n} ตัว: Tier, Win Rate และ Ban Rate ตามแรงก์ เรดาร์คะแนน กราฟ 30 วัน บทบาท และเลน ข้อมูลวันที่ {date}, แพตช์ {v}"
       },
       "patchNotes": {
-        "title": "แพตช์โน้ต MLBB: อัปเดตล่าสุด {v} และการปรับฮีโร่",
+        "title": "แพตช์โน้ต MLBB: อัปเดต {v} บัฟและเนิร์ฟ",
         "description": "แพตช์ Mobile Legends ล่าสุด: {version} ฮีโร่ที่ได้บัฟ: {buffs} โดนเนิร์ฟ: {nerfs} ปรับสมดุล: {others} แพตช์โน้ตฉบับเต็มของ {m} แพตช์ล่าสุด และรวมทั้งหมด {n} แพตช์"
       },
       "patch": {
@@ -1089,15 +1091,15 @@
         "description": "เลือกฮีโร่ได้ฝั่งละสูงสุดห้าตัว แล้วดูส่วนต่าง Win Rate ที่เกมวัดได้ในการปะทะแต่ละคู่ แยกตามแรงก์ ฮีโร่ {n} ตัว ไม่มีค่าที่แต่งขึ้น: คู่ที่ไม่มีข้อมูลจะเว้นว่างไว้"
       },
       "tierLane": {
-        "title": "ฮีโร่ {lane} ที่ดีที่สุดใน MLBB: Tier List {lane} {month} (แพตช์ {v})",
+        "title": "ฮีโร่ {lane} ที่ดีที่สุดใน MLBB {month} (แพตช์ {v})",
         "description": "{top} นำ Tier List {lane} ของ MLBB ที่วัดเมื่อ {date} (แพตช์ {v}) โดย {first} มี Win Rate {winRate} จัดอันดับฮีโร่ {lane} {n} ตัวตาม Win Rate และ Ban Rate"
       },
       "tierRole": {
-        "title": "{plural} ที่ดีที่สุดใน MLBB: Tier List {role} {month} (แพตช์ {v})",
+        "title": "{plural} ที่ดีที่สุดใน MLBB {month} (แพตช์ {v})",
         "description": "{top} นำ Tier List {plural} ของ MLBB ที่วัดเมื่อ {date} (แพตช์ {v}) โดย {first} มี Win Rate {winRate} จัดอันดับ {plural} {n} ตัวตาม Win Rate และ Ban Rate"
       },
       "heroesRole": {
-        "title": "{plural} MLBB ทั้ง {n} ตัว: Tier, Win Rate และเลน (แพตช์ {v})",
+        "title": "{plural} MLBB ทั้ง {n} ตัว: Tier และ Win Rate (แพตช์ {v})",
         "description": "{plural} ทั้ง {n} ตัวใน Mobile Legends: Bang Bang เรียงจากแข็งแกร่งที่สุด: Tier, Win Rate และเลนที่วัดเมื่อ {date} (แพตช์ {v}) อันดับต้น: {top}"
       },
       "meta": {
@@ -1146,7 +1148,7 @@
         "description": "ติ๊กฮีโร่และสกินที่คุณมีจากฮีโร่ {heroes} ตัวและสกิน {skins} ชุด: ดูมูลค่าตามราคาร้านค้า Mobile Legends: Bang Bang เป็นเพชร แยกตามความหายากและซีรีส์ ฟรี ไม่ต้องสมัคร บันทึกไว้ในเบราว์เซอร์ของคุณ"
       },
       "events": {
-        "title": "กิจกรรม MLBB: StarLight, Collector และสกินทุกเดือน",
+        "title": "กิจกรรม MLBB: StarLight, Collector และสกินประจำเดือน",
         "description": "ปฏิทินกิจกรรม Mobile Legends: Bang Bang ตั้งแต่ {start} ถึง {end} ({n} เดือน): สกิน StarLight สกิน Collector กิจกรรมสุ่ม และร้านค้า StarLight ล่าสุดที่ทราบ: {latest}"
       },
       "eventsMonth": {
@@ -1169,7 +1171,7 @@
         "description": "ตัวจับเวลาฟรีสำหรับ Mobile Legends: เต่าที่ {turtle} ลอร์ด บัฟม่วงและบัฟส้ม บันทึกทุกครั้งที่ฆ่าได้ แล้วรับการแจ้งเตือน {soon} และ {urgent} วินาทีก่อนเกิดใหม่แต่ละครั้ง หน้าจอไม่ดับ ใช้งานออฟไลน์ได้ เวลาอ้างอิงจากวิกิ"
       },
       "map": {
-        "title": "คู่มือแผนที่ Mobile Legends: แคมป์ป่า เต่า ลอร์ด และการโรเตต",
+        "title": "แผนที่ MLBB: ป่า เต่า ลอร์ด และการโรเตต",
         "description": "แผนผังแบบอินเทอร์แอกทีฟของ Land of Dawn: ฐาน เลน ป้อม แคมป์ป่า เต่าและลอร์ด พร้อมเวลา รางวัล และการโรเตตตามบทบาท ค่าอ้างอิงจากวิกิพร้อมแหล่งที่มา"
       },
       "buildSimulator": {
@@ -1406,8 +1408,8 @@
       "titleRank": "สถิติฮีโร่ {rank}",
       "lead": "Win Rate, Ban Rate และ Pick Rate ของฮีโร่ทุกตัวตามที่เกมรายงาน พร้อมการเปลี่ยนแปลงในเจ็ดวันและแนวโน้มสามสิบวัน เรียงตามคอลัมน์ใดก็ได้ กรองตามบทบาทหรือเลน",
       "leadRank": "ค่าสถิติชุดเดียวกัน แต่วัดเฉพาะเกม {rank}: ฮีโร่อาจครองเกมในแรงก์หนึ่งแต่ลำบากในอีกแรงก์หนึ่ง",
-      "metaTitle": "สถิติฮีโร่ MLBB: Win Rate, Pick Rate และ Ban Rate ตามแรงก์ (แพตช์ {v})",
-      "metaTitleRank": "สถิติฮีโร่ MLBB {rank}: Win Rate, Pick Rate และ Ban Rate (แพตช์ {v})",
+      "metaTitle": "สถิติ MLBB ตามแรงก์: Win Rate, Pick และ Ban (แพตช์ {v})",
+      "metaTitleRank": "สถิติ MLBB {rank}: Win Rate และ Ban (แพตช์ {v})",
       "metaDescription": "Win Rate, Ban Rate และ Pick Rate ของฮีโร่ Mobile Legends ทั้ง {n} ตัว แยกตามแรงก์ พร้อมการเปลี่ยนแปลง 7 วันและแนวโน้ม 30 วัน Win Rate สูงสุด: {name} ({rate}) อัปเดตเมื่อ {date}",
       "metaDescriptionRank": "Win Rate, Ban Rate และ Pick Rate ของฮีโร่ Mobile Legends ทั้ง {n} ตัวในเกม {rank} พร้อมการเปลี่ยนแปลง 7 วันและแนวโน้ม 30 วัน Win Rate สูงสุด: {name} ({rate}) อัปเดตเมื่อ {date}",
       "ldName": "สถิติฮีโร่ Mobile Legends: Bang Bang ({rank})",
@@ -1484,8 +1486,8 @@
     },
     "duos": {
       "title": "คู่หูที่ดีที่สุดของ {name}",
-      "metaTitle": "คู่หูที่ดีที่สุดของ {name}: ฮีโร่ที่ชนะเมื่อเล่นกับ {name} (แพตช์ {v})",
-      "metaTitleNoPatch": "คู่หูที่ดีที่สุดของ {name}: ฮีโร่ที่ชนะเมื่อเล่นกับ {name}",
+      "metaTitle": "คู่หูที่ดีที่สุดของ {name} ใน MLBB (แพตช์ {v})",
+      "metaTitleNoPatch": "คู่หูที่ดีที่สุดของ {name} ใน MLBB",
       "updatedOn": "อัปเดตเมื่อ {date}",
       "allRanks": "ทุกแรงก์รวมกัน",
       "atRank": "ที่แรงก์ {rank}",
@@ -1544,8 +1546,8 @@
     },
     "versus": {
       "title": "{a} vs {b}",
-      "metaTitle": "{a} vs {b}: ใครชนะ? สถิติการปะทะตามแรงก์ (แพตช์ {v})",
-      "metaTitleNoPatch": "{a} vs {b}: ใครชนะ? สถิติการปะทะตามแรงก์",
+      "metaTitle": "{a} vs {b}: ใครชนะ? (แพตช์ {v})",
+      "metaTitleNoPatch": "{a} vs {b}: ใครชนะการดวล?",
       "lead": "{a} ปะทะ {b} วัดโดยเกมแยกตามแรงก์: ใครได้เปรียบด้าน Win Rate ในการปะทะ ใครแข็งแกร่งกว่าในต้นเกมหรือท้ายเกม บิลด์ที่เล่นมากที่สุด และผลงานเมื่ออยู่ทีมเดียวกัน",
       "noMeasure": "ยังไม่มีข้อมูลการปะทะระหว่าง {a} และ {b}",
       "balanced": "{context} {a} และ {b} สูสีกัน: ไม่มีฝ่ายใดได้เปรียบเกินไม่กี่ทศนิยมของแต้ม",
@@ -2247,7 +2249,7 @@
       "calendarLink": "ปฏิทินสกินทั้งหมด แยกตามปี",
       "source": "รายการ StarLight และ Collector วันที่ ความหายาก และราคา จาก {link} ภายใต้สัญญาอนุญาต CC BY-SA",
       "month": {
-        "title": "Starlight และอีเวนต์ MLBB {month}: สกิน วันที่ และราคา",
+        "title": "Starlight และอีเวนต์ MLBB {month}: สกินและราคา",
         "announced": "เดือนที่ประกาศแล้ว: สกินเหล่านี้อยู่ในรายการของวิกิชุมชนก่อนวางจำหน่ายในเกม วันที่และราคายังรอการยืนยัน",
         "navMonths": "เดือนก่อนหน้าและเดือนถัดไป",
         "allMonths": "ทุกเดือน",
@@ -2620,8 +2622,8 @@
       "after": "หลัง:",
       "allVersions": "Advance Server ทุกเวอร์ชัน",
       "seo": {
-        "title": "แพตช์โน้ต MLBB Advance Server {v}: บัฟ เนิร์ฟ และการเปลี่ยนแปลง",
-        "titleHub": "แพตช์โน้ต Advance Server MLBB: ทุกเวอร์ชัน (ล่าสุด {v})",
+        "title": "MLBB Advance Server {v}: บัฟ เนิร์ฟ และของใหม่",
+        "titleHub": "MLBB Advance Server: แพตช์โน้ต (ล่าสุด {v})",
         "titleGeneric": "แพตช์โน้ต MLBB Advance Server: บัฟ เนิร์ฟ และการเปลี่ยนแปลง",
         "description": "โน้ตจาก Advance Server เซิร์ฟเวอร์ทดสอบของ Mobile Legends: เวอร์ชันล่าสุดที่มีข้อมูลคือ {version} มีบัฟ {buffs} รายการ เนิร์ฟ {nerfs} รายการ และปรับฮีโร่ {adjust} รายการ เป็นการเปลี่ยนแปลงที่อยู่ระหว่างทดสอบ ซึ่งอาจมีการปรับแก้ก่อนลงเซิร์ฟเวอร์ทางการ",
         "descriptionVersion": "MLBB Advance Server {version}: ฮีโร่ได้รับบัฟ {buffs} ตัว โดนเนิร์ฟ {nerfs} ตัว และถูกปรับ {adjust} ตัว รวมถึง {heroes} เป็นการเปลี่ยนแปลงที่อยู่ระหว่างทดสอบ ซึ่งอาจมีการปรับแก้ก่อนลงเซิร์ฟเวอร์ทางการ",

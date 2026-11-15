@@ -25,19 +25,19 @@ import { visualItem } from "@/lib/build-visuals";
 /**
  * Head-to-head page "{a} vs {b}": who wins the duel, rank by rank.
  *
- * Only pairs with a measured duel get a page — b among a's most marked
- * gaps, or the reverse, at one rank at least —, in alphabetical order
- * of the slugs: the reverse order is not generated and falls on the 404. A
- * plain page, all server components: a few thousand addresses per language.
+ * Any two known heroes get a page, in alphabetical order of the slugs: the
+ * reverse order falls on the 404. Only a selection of the measured duels is
+ * offered to engines (`pairsSitemap`); a pair with no measured duel says
+ * `noindex, follow`. A plain page, all server components.
  */
 
 type Params = { params: Promise<{ locale: Locale; pair: string }> };
 
-// Nearly 3,000 pairs in four languages: generating them at build time would add
+// Thousands of pairs in every language: generating them at build time would add
 // gigabytes for pages visited one at a time. Each one is rendered on its
 // first request, then served from the cache until the next deploy (the data
 // only changes through one, so a timed revalidation would re-render identical
-// pages); an unmeasured pair or one in reverse order still falls on the 404
+// pages); a pair in reverse order or with an unknown hero falls on the 404
 // (`resolve`).
 export const dynamicParams = true;
 
@@ -87,12 +87,18 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!p) return {};
   const t = createT(locale);
   const names = { a: p.a.name, b: p.b.name };
-  return metaPage(locale, {
+  const { ref, sentence } = verdict(locale, p.a, p.b);
+  const meta = metaPage(locale, {
     title: patchCurrent ? t("pages.versus.metaTitle", { ...names, v: patchCurrent.version }) : t("pages.versus.metaTitleNoPatch", names),
-    description: `${verdict(locale, p.a, p.b).sentence} ${t("pages.duos.updatedOn", { date: longDate(locale) })}`,
+    description: `${sentence} ${t("pages.duos.updatedOn", { date: longDate(locale) })}`,
     path: pathPair(p.a.slug, p.b.slug),
     type: "article",
   });
+  // A pair with no measured duel at any rank is not in the sitemap and has
+  // nothing of its own to show (two hero sheets side by side): `noindex,
+  // follow`, like the paged lists, so engines still follow its hero links.
+  // Measured pairs left out of the sitemap (`pairsSitemap`) stay indexable.
+  return ref ? meta : { ...meta, robots: { index: false, follow: true } };
 }
 
 /** A hero's most played build on its main lane, at the requested rank or all ranks. */

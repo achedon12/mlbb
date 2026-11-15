@@ -17,7 +17,7 @@ import statistics from "@/data/game/statistics.json";
 import visuals from "@/data/game/visuals.json";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { heroLabel } from "@/i18n/hero-data";
-import { metaPage } from "@/i18n/seo";
+import { metaPage, TITLE_MAX } from "@/i18n/seo";
 import { createT, type T } from "@/i18n/translations";
 import {
   aggregateCounters,
@@ -110,7 +110,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   // the short title keeps it visible.
   const variables = { ...names(h.name), v: patchCurrent?.version ?? "" };
   const full = t(patchCurrent ? "pages.heroCounters.metaTitle" : "pages.heroCounters.metaTitleNoPatch", variables);
-  const title = patchCurrent && full.length > TITLE_LONG ? t("pages.heroCounters.metaTitleShort", variables) : full;
+  const title = patchCurrent && full.length > TITLE_MAX ? t("pages.heroCounters.metaTitleShort", variables) : full;
   return {
     ...metaPage(locale, {
       title,
@@ -124,9 +124,6 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     ...(rank ? {} : { robots: { index: false, follow: true } }),
   };
 }
-
-/** Beyond this, the full title is cut in the results before the patch number. */
-const TITLE_LONG = 62;
 
 export default async function CountersPage({ params }: Params) {
   const { locale, slug } = await params;

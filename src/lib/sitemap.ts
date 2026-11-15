@@ -2,9 +2,9 @@ import type { MetadataRoute } from "next";
 import watch from "@/data/game/watch.json";
 import accountValue from "@/data/editorial/account-value.json";
 import { freeRotationData } from "@/lib/free-rotation-server";
-import { counters, allHeroes, modesSlugs, itemsFor, patchDetails, sync } from "@/lib/data";
+import { counters, allHeroes, heroesBySlug, modesSlugs, itemsFor, patchDetails, sync } from "@/lib/data";
 import { duos } from "@/lib/duos";
-import { ranksByPair } from "@/lib/pairs";
+import { pairsSitemap } from "@/lib/pairs";
 import { emblemsSheets, spellSheets } from "@/lib/usage-sheets";
 import { calendarYears } from "@/lib/skin-catalog-server";
 import { regionsLore } from "@/lib/lore";
@@ -236,11 +236,13 @@ export function sitemapEntries(): MetadataRoute.Sitemap {
     // Pages derived from the measurements: dated by the measurement, like hero pages.
     ...allHeroes.filter((h) => counters[h.slug]).map((h) => statistics(`/heroes/${h.slug}/counters`, "weekly", 0.6)),
     ...allHeroes.filter((h) => duos[h.slug]).map((h) => statistics(`/heroes/${h.slug}/duos`, "weekly", 0.5)),
-    // Duels: only pairs measured at two ranks at least, the others
-    // stay reachable but too thin to be offered to engines.
-    ...[...ranksByPair(counters, (s) => allHeroes.some((h) => h.slug === s))]
-      .filter(([, n]) => n >= 2)
-      .map(([segment]) => statistics(`/compare/${segment}`, "weekly", 0.4)),
+    // Duels: each hero's two most one-sided opponents among the pairs measured
+    // at every rank (`pairsSitemap`), about 200 pairs. The other pairs keep
+    // their page, rendered on demand and linked from the hero pages; the ones
+    // with no measured duel at all say `noindex, follow` themselves.
+    ...pairsSitemap(counters, (s) => heroesBySlug.has(s)).map((segment) =>
+      statistics(`/compare/${segment}`, "weekly", 0.4),
+    ),
     ...itemsFor("en").map((o) => statistics(`/items/${o.slug}`, "weekly", 0.5)),
     ...emblemsSheets.map((e) => statistics(`/emblems/${e.slug}`, "weekly", 0.5)),
     statistics("/spells", "monthly", 0.5),
