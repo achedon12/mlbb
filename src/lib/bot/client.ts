@@ -77,9 +77,23 @@ const role = z.object({
   assignable: z.boolean().default(false),
   refusal: z.enum(AUTO_ROLE_REFUSALS).nullable().default(null),
 });
+/** A voice channel, for the temporary voice hub pickers. */
+const voiceChannel = z.object({ id: snowflake, name, category: name.nullable().default(null) });
 export type BotChannel = z.infer<typeof channel>;
 export type BotRole = z.infer<typeof role>;
-export type GuildLists = { channels: BotChannel[]; roles: BotRole[]; manageRoles: boolean };
+export type BotVoiceChannel = z.infer<typeof voiceChannel>;
+/**
+ * `manageChannels` and `moveMembers`: what temporary voice channels need.
+ * An older bot sends neither and no voice channel: the section shows none.
+ */
+export type GuildLists = {
+  channels: BotChannel[];
+  roles: BotRole[];
+  manageRoles: boolean;
+  voiceChannels: BotVoiceChannel[];
+  manageChannels: boolean;
+  moveMembers: boolean;
+};
 
 /** Roles an announcement may mention: managed ones (bots, boosts) are left out. */
 export const mentionableRoles = (roles: BotRole[]) => roles.filter((r) => r.refusal !== "managed");
@@ -152,14 +166,22 @@ export const canManage = (config: BotConfig, guild: string, user: string) =>
 
 /**
  * The server's channels and roles, for the pickers and every write's
- * checks, and whether the bot holds Manage Roles there (auto-roles need it).
+ * checks, and whether the bot holds Manage Roles there (auto-roles need it);
+ * its voice channels, and Manage Channels and Move Members (temporary voice).
  */
 export const guildChannels = (config: BotConfig, guild: string): Promise<GuildLists> =>
   call(
     config,
     "GET",
     `/internal/guilds/${idOf(guild)}/channels`,
-    z.object({ channels: z.array(channel).max(500), roles: z.array(role).max(250), manageRoles: z.boolean().default(false) }),
+    z.object({
+      channels: z.array(channel).max(500),
+      roles: z.array(role).max(250),
+      manageRoles: z.boolean().default(false),
+      voiceChannels: z.array(voiceChannel).max(500).default([]),
+      manageChannels: z.boolean().default(false),
+      moveMembers: z.boolean().default(false),
+    }),
   );
 
 /**

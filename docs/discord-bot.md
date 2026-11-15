@@ -97,7 +97,8 @@ Everything is free: no plans, no paywall, no payment code.
   role menus need it, and a server's admin who turns them on grants it
   (and drags the bot's role above the roles to give); the dashboard says
   so when it is missing.
-- Intents: `Guilds`, plus one privileged intent, `GuildMembers`, for a
+- Intents: `Guilds` and `GuildVoiceStates` (not privileged, for the
+  temporary voice channels), plus one privileged intent, `GuildMembers`, for a
   single purpose: the `guildMemberAdd` / `guildMemberRemove` events behind
   the welcome and goodbye messages and the auto-roles (plus
   `guildMemberUpdate`, for a member passing membership screening). The
@@ -139,6 +140,13 @@ Everything is free: no plans, no paywall, no payment code.
   messageId / messageChannelId (the message posted, null until published),
   publishedAt, createdAt, updatedAt (the publish sets it to publishedAt:
   later means "changes not published"). At most 10 per server.
+- `TempVoiceHub`: id, guildId (cascade), channelId (a voice channel of the
+  server; unique per server), userLimit (0 to 99, 0 = none), nameTemplate
+  (≤ 80, `{user}` for the member's display name, null = the bot's default
+  name in the server's language). At most 5 per server.
+- `TempVoiceChannel`: channelId (PK), guildId (cascade), hubChannelId,
+  ownerId, createdAt: a voice channel the bot created from a hub, kept
+  until it is deleted, so that a restart finds it again.
 - `Announcement`: id, type, key (e.g. patch version, skin id), payload
   (JSON), createdAt. Unique (type, key).
 - `Delivery`: announcementId + guildId (composite PK), status, messageId,
@@ -169,6 +177,15 @@ Everything is free: no plans, no paywall, no payment code.
 - `GET  /api/bot/guilds/:id/role-menus` → `{menus: [{id, channelId, title,
   description, mode, options, configuredBy, messageId, messageChannelId}]}`
   (none for a server unknown or left).
+- The settings also carry `tempVoice: {hubs: [{channelId, userLimit, nameTemplate}]}`.
+- `POST /api/bot/guilds/:id/temp-voice` — `{channelId, hubChannelId, ownerId}`:
+  a temporary voice channel the bot just created (idempotent; 404 for a
+  server unknown or left, at most 200 per server).
+- `GET  /api/bot/temp-voice[?after=<channel id>]` → `{channels: [{guildId,
+  channelId, hubChannelId, ownerId}], next}`, a thousand per page: every
+  registered channel, read by each shard after a restart.
+- `POST /api/bot/temp-voice/forget` — `{channelIds: [...]}` (1 to 500):
+  channels deleted or found gone.
 - `GET  /api/bot/announcements/pending` → announcements with the guilds and
   channels still to deliver (the site creates announcements from its own
   data: new patch in `patches.json`, new skins in `skins.json`, events,
@@ -201,6 +218,8 @@ Everything is free: no plans, no paywall, no payment code.
   @everyone, each with `assignable` and `refusal` (`managed`, `above_bot`,
   `dangerous`, or null), and `manageRoles` (does the bot hold it). Managed
   roles are never offered as a mention.
+  Also the voice channels (`voiceChannels: [{id, name, category}]`) and
+  `manageChannels` / `moveMembers`, for the temporary voice section.
 - `GET  /internal/guilds/:id/can-assign?user=<id>` → `{member, roles:
   [{id, refusal}]}`: which roles that user may have the bot give, the
   member fetched live (`refusal`: `not_member`, `no_manage_roles`,
@@ -428,6 +447,56 @@ with its `rank_*` emojis).
   server's emojis or any unicode one, order) with a preview of the
   message. A role named like one of the server's emojis gets it at once
   ("Mythical Glory" finds `rank_mythical_glory` or `rank_mythic_glory`).
+
+## Temporary voice channels
+
+- "Join to create": a member who joins one of a server's hubs (up to 5
+  voice channels, e.g. "Custom games" with a limit of 10 and "Ranked"
+  with 5) gets a voice channel of their own, created right below the hub
+  in its category, named from the hub's template (`{user}` = their display
+  name; default "🎯 {user}'s lobby" in the server's language, clipped to
+  100 characters), with the hub's user limit; the bot moves them in and
+  deletes the channel once the last member leaves. The hub stays.
+- Intent `GuildVoiceStates` (not privileged); the voice state cache is on
+  (channel and user ids, nothing stored), and occupants are counted from
+  it, not from `channel.members` (the member cache stays nearly empty).
+  Only the shard holding a server receives its voice events: each server
+  is handled by one process, and the sweep below skips the other shards'
+  servers.
+- Permissions, granted by the server (the invite asks for neither):
+  Manage Channels and Move Members, View Channel and Connect on the hub
+  and its category. The new channel copies the category's overwrites (the
+  hub's outside one), minus any bit the bot does not hold itself (Discord
+  refuses those); the member gets View Channel, Connect, Speak, Manage
+  Channels (rename, user limit), Move Members, Mute and Deafen Members in
+  it, each only if the bot holds it, and never a bit the server took from
+  them: View Channel, Connect and Speak only if they hold them on the hub,
+  no moderation bit denied to them or one of their roles (hub or category
+  overwrites, @everyone aside), none while timed out, their own overwrite's
+  denies copied; the bot gives itself View Channel,
+  Connect, Manage Channels and Move Members there so it can always delete
+  it. A missing permission creates nothing and is logged once per server
+  every 10 minutes.
+- Edge cases: a member who already owns a channel is sent back to it; one
+  creation per member at a time and one every 10 s at most; 50 temporary
+  channels per server at most; a member who left the hub before the move
+  (or that Discord reports gone) leaves an empty channel, deleted at once;
+  a full category (50 channels) puts the channel outside any category; the
+  server's 500-channel cap is logged; a deleted hub creates nothing (the
+  dashboard flags it); a channel deleted by someone is forgotten; a
+  channel later picked as a hub is never deleted.
+- Persistence: every created channel is registered on the site
+  (`TempVoiceChannel`). After a restart each shard reads the list and, for
+  its own servers, deletes the empty ones, forgets the gone ones and
+  watches the others; the settings unreadable, it touches nothing. The
+  bot only ever deletes a channel it created (in memory) or that the site
+  lists as created by it, and only a voice channel.
+- Dashboard: a "Temporary voice channels" section, saved on its own
+  (`PUT /api/discord/guilds/:id/temp-voice`, every hub at once; each hub
+  must be a voice channel the bot reports for the server, on this
+  request), with the voice channels (category › name), the user limit,
+  the name template with a live preview, and warnings when the bot lacks
+  Manage Channels or Move Members or a hub was deleted.
 
 ## Site pages
 

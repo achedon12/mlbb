@@ -3744,7 +3744,8 @@
       "rights": "Pour consulter ou faire supprimer les données liées à votre identifiant Discord ou à votre serveur, écrivez à [{contact}](mailto:{contact}). Retirer le bot du serveur lance la suppression automatique.",
       "sitePrivacy": "Confidentialité du site",
       "autoRoles": "Rôles automatiques : si le serveur en a choisi, le bot donne ces rôles à qui arrive, avec la permission Gérer les rôles que les administrateurs du serveur lui accordent ; un membre qui doit encore accepter les règles du serveur n'est retenu (son identifiant, en mémoire, au plus 24 heures) que le temps de les accepter, et rien n'est enregistré.",
-      "roleMenus": "Menus de rôles : le serveur enregistre pour chaque menu son salon, son titre, son texte, ses rôles avec leurs libellés et emojis, l'identifiant du message publié et l'identifiant Discord du gestionnaire qui l'a configuré. Quand un membre s'en sert, le bot lui donne ou retire le rôle et ne conserve rien sur lui, hormis un compteur en mémoire de quelques secondes qui limite les changements trop rapprochés."
+      "roleMenus": "Menus de rôles : le serveur enregistre pour chaque menu son salon, son titre, son texte, ses rôles avec leurs libellés et emojis, l'identifiant du message publié et l'identifiant Discord du gestionnaire qui l'a configuré. Quand un membre s'en sert, le bot lui donne ou retire le rôle et ne conserve rien sur lui, hormis un compteur en mémoire de quelques secondes qui limite les changements trop rapprochés.",
+      "tempVoice": "Salons vocaux temporaires : le serveur enregistre ses salons d'entrée avec leur limite de membres et leur modèle de nom. Pour chaque salon vocal que le bot crée, il conserve l'identifiant du salon, du salon d'entrée et du membre pour qui il l'a créé, jusqu'à ce que le salon soit supprimé, ce qui arrive dès qu'il est vide. Pour savoir qui est dans quel salon vocal, le bot reçoit les états vocaux de Discord (intent « Guild Voice States »), les garde en mémoire et n'en enregistre aucun."
     },
     "botTerms": {
       "title": "Conditions d'utilisation du bot Discord",
@@ -3956,6 +3957,41 @@
         "clearSingle": "Retirer mon rôle",
         "clearMultiple": "Retirer mes rôles",
         "required": "Choisissez un salon, un titre et au moins un rôle, chacun avec un libellé."
+      },
+      "tempVoice": {
+        "title": "Salons vocaux temporaires",
+        "lead": "Un membre qui rejoint un salon d'entrée obtient son propre salon vocal, créé juste à côté et supprimé dès qu'il est vide. Pratique pour les parties personnalisées ou les ranked à cinq.",
+        "empty": "Aucun salon d'entrée pour l'instant.",
+        "hub": "Salon d'entrée {number}",
+        "channel": "Salon vocal d'entrée",
+        "chooseChannel": "Choisir un salon vocal",
+        "deletedChannel": "Salon supprimé",
+        "userLimit": "Limite de membres",
+        "userLimitHelp": "De 0 à {max} ; 0 : pas de limite. Par exemple 5 pour les ranked, 10 pour une partie personnalisée.",
+        "name": "Nom des salons créés",
+        "nameHelp": "Facultatif, {max} caractères au plus. {placeholder} est remplacé par le pseudo du membre. Vide : le nom par défaut, dans la langue du serveur.",
+        "preview": "Exemple :",
+        "add": "Ajouter un salon d'entrée",
+        "remove": "Retirer",
+        "save": "Enregistrer les salons vocaux",
+        "saved": "Salons vocaux temporaires enregistrés.",
+        "statusHubs": "Salons d'entrée : {count}",
+        "tooMany": "{max} salons d'entrée au plus par serveur.",
+        "noVoiceChannels": "Le bot ne voit aucun salon vocal sur ce serveur : créez-en un pour servir d'entrée, puis rechargez cette page.",
+        "unknownChannel": "Ce salon n'existe plus, ou le bot ne le voit plus : choisissez-en un autre ou retirez ce salon d'entrée.",
+        "missingPermissions": "MLBBDex n'a pas la permission {permissions} : sans elle, aucun salon n'est créé. Donnez-la au rôle de MLBBDex (Paramètres du serveur > Rôles), puis rechargez cette page.",
+        "permissionNames": {
+          "manageChannels": "Gérer les salons",
+          "moveMembers": "Déplacer des membres"
+        },
+        "help": "Le bot a besoin des permissions Gérer les salons et Déplacer des membres, et de Voir le salon et Se connecter sur le salon d'entrée et sa catégorie. Le membre peut renommer son salon, changer sa limite, et y déplacer ou rendre muets les autres membres. Le bot ne supprime que les salons qu'il a créés.",
+        "errors": {
+          "noChannel": "Choisissez un salon vocal pour chaque salon d'entrée.",
+          "limit": "La limite de membres va de 0 à {max}.",
+          "unknownChannel": "Un salon d'entrée n'est plus un salon vocal de ce serveur : rechargez la page.",
+          "rateLimited": "Trop d'enregistrements d'affilée : patientez une minute.",
+          "failed": "L'enregistrement a échoué. Réessayez."
+        }
       }
     },
     "botAdmin": {

@@ -2,8 +2,12 @@ import { db } from "@/lib/db";
 import { ok, readSigned, refusal, withDatabase } from "@/lib/bot/internal";
 import { isSnowflake } from "@/lib/bot/public";
 import { settingsView } from "@/lib/bot/settings";
+import { tempVoiceHubView } from "@/lib/bot/temp-voice";
 
-/** A server's settings, the defaults when it never saved any. Unknown server: 404. */
+/**
+ * A server's settings, the defaults when it never saved any, with its
+ * temporary voice hubs. Unknown server: 404.
+ */
 export const dynamic = "force-dynamic";
 
 export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }) {
@@ -12,8 +16,8 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
   const { id } = await params;
   if (!isSnowflake(id)) return refusal(400, "invalid server id");
   return withDatabase("settings read", async () => {
-    const guild = await db().guild.findUnique({ where: { id }, include: { settings: true } });
+    const guild = await db().guild.findUnique({ where: { id }, include: { settings: true, tempVoiceHubs: { orderBy: { id: "asc" } } } });
     if (!guild) return refusal(404, "unknown server");
-    return ok(settingsView(guild.id, guild.locale, guild.settings));
+    return ok({ ...settingsView(guild.id, guild.locale, guild.settings), tempVoice: { hubs: guild.tempVoiceHubs.map(tempVoiceHubView) } });
   });
 }

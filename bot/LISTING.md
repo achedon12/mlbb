@@ -114,6 +114,9 @@ language; replies follow the language set for the server, or each member's own.
   and the auto-roles; nothing about your members is stored.
 - Auto-roles and role menus need Manage Roles, which the invite does not ask for:
   you grant it if you use them, and the bot never gives a role with moderation permissions.
+- Temporary voice channels need Manage Channels and Move Members, not in the
+  invite either: you grant them if you use them, and the bot only ever deletes
+  the voice channels it created.
 - Details: [mlbbdex.com/en/bot/privacy](https://mlbbdex.com/en/bot/privacy).
   Open source: [github.com/achedon12/mlbb](https://github.com/achedon12/mlbb).
 

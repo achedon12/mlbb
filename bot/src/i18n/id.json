@@ -495,6 +495,9 @@
       "refusedBot": "MLBBDex tidak bisa lagi memberikan role ini: ia butuh izin Kelola Role dan role-nya di atas role ini. Beri tahu pengelola server.",
       "refusedGranter": "Menu ini dijeda: pengelola yang mengaturnya tidak bisa lagi memberikan role ini. Pengelola lain harus menyimpannya lagi di dasbor MLBBDex.",
       "failed": "Role kamu belum bisa diubah saat ini. Coba lagi sebentar lagi."
+    },
+    "tempVoice": {
+      "defaultName": "🎯 Lobi {user}"
     }
   },
   "labels": {

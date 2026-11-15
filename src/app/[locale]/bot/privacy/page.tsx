@@ -49,6 +49,7 @@ export default async function BotPrivacyPage({ params }: Params) {
         <p>{p("notStored")}</p>
         <p>{p("autoRoles")}</p>
         <p>{p("roleMenus")}</p>
+        <p>{p("tempVoice")}</p>
         <h2>{t("pages.botPrivacy.cookieTitle")}</h2>
         <p>{p("cookie")}</p>
         <h2>{t("pages.botPrivacy.retentionTitle")}</h2>
