@@ -2,7 +2,8 @@
 
 A lightweight community area on mlbbdex.com: a forum in six categories and
 a "looking for teammates" board. Reading is public and server-rendered;
-writing needs the game account login the site already has (`/login`).
+writing needs a login: the game account login the site already has
+(`/login`), or Discord (the bot dashboard's login, see "Members").
 
 ## Pages
 
@@ -19,12 +20,15 @@ writing needs the game account login the site already has (`/login`).
 - `/community/teammates` — cards filtered by region, rank, lane, language.
 - `/community/moderation` — the moderators' queue (not indexed).
 
-## Data (Prisma, `prisma/migrations/20261114200000_community`)
+## Data (Prisma, `prisma/migrations/20261114200000_community`, `…_community_discord_members`)
 
 `CommunityMember`, `ForumThread`, `ForumPost`, `ForumVote`, `CommunityReport`,
 `ModerationLog`, `TeammateCard` (see `prisma/schema.prisma`). Authors are kept
-as the account hash of `src/lib/community-builds-server.ts`, never the in-game
-id. The migration adds two GIN expression indexes for the search, which the
+as a 24-character member id (`accountId`): the account hash of
+`src/lib/community-builds-server.ts` for a game account, a hash of the Discord
+id (`discordAccountId`, a namespace of its own) for a Discord account; never
+the in-game id nor the Discord id. `CommunityMember.provider` says which, and
+`linkedTo` holds a Discord member's link to a game account. The migration adds two GIN expression indexes for the search, which the
 queries in `src/lib/community/store.ts` match exactly.
 
 ## Writing rules
@@ -47,11 +51,51 @@ queries in `src/lib/community/store.ts` match exactly.
 - Teammate cards: one per account, listed for 7 days from each save. The
   in-game id and the Discord handle are only rendered for signed-in players.
 
+## Members
+
+`src/lib/community/identity.ts` (pure) and `currentMember` in
+`src/lib/community/server.ts` decide who a request comes from:
+
+- **Game account** (`/login`): as before. When both logins are present, the
+  game account is the one that writes.
+- **Discord**: the bot dashboard's OAuth login (`/api/discord/login?next=community&back=<community page>`,
+  scope `identify` only, state and PKCE in a sealed cookie, the sealed
+  `mlbbdex_discord` session cookie). `back` must match `COMMUNITY_RETURN`
+  (`/community`, a category, a thread, the teammate finder), anything else is
+  dropped: no open redirect. The member's name is the Discord display name,
+  stripped of control and bidirectional characters, cut to 40 characters, and
+  replaced by `Member <6 hex>` when the word filter refuses it; the Discord id
+  and avatar are never shown. Offered only when the bot configuration is
+  complete (`botConfig()`); no extra variable.
+- **Discord account age**: the account's creation date is read from its id
+  (snowflake: `id >> 22` + the Discord epoch). An unlinked Discord account
+  younger than 7 days cannot post, vote, report or list a card (403
+  `discordTooNew`; the pages say so). On top of that, a Discord member goes
+  through the same new-account period as a game account (3 days from its
+  first action on the forum), with the same caps, link ban, rate limits, and
+  the same exclusion from the reporters who can hide a post.
+- **Linking**: a browser signed in both ways, unlinked, is offered "link my
+  Discord account" (POST `/api/community/link`, same origin, 3 a minute).
+  Nothing is linked without that click. The Discord member gets
+  `linkedTo = <game accountId>` (unique: one Discord per game account and
+  back) and from then on a Discord-only login acts as the game account: its
+  name, its new-account period, its ban. What the Discord member had done is
+  merged in the same transaction: threads, replies and reports move, votes
+  move except duplicates and votes that would land on one's own post (their
+  points come off), the card moves unless the game account has one, the
+  earlier first-seen date and a hidden-card decision are kept. Linking is
+  refused when either account is banned (a merge must not wash a ban) or
+  already linked; there is no unlinking from the site (ask the contact
+  address).
+- Without linking, the two logins are two members; a person signed in both
+  ways is told so on every forum page until they link.
+
 ## Requests
 
 Mutating routes (`/api/community/*`) check, in order: database configured,
 `Origin` against `NEXT_PUBLIC_SITE_URL` (required, plus `Sec-Fetch-Site`
-when sent), the address's rate, the game session, the account's rate, then
+when sent), the address's rate, the member (game session or Discord session,
+see "Members"), the account's rate, then
 the body (48 KB cap while reading, JSON, zod, strict keys). Every answer is
 `no-store`.
 

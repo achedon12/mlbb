@@ -57,6 +57,7 @@ export default async function PrivacyPage({ params }: Params) {
         <p>{t("prose.community.intro")}</p>
         <ul>
           <li>{t("prose.community.account")}</li>
+          <li>{inlineProse(t("prose.community.discord"))}</li>
           <li>{t("prose.community.posts")}</li>
           <li>{t("prose.community.card")}</li>
         </ul>
