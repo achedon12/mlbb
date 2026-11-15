@@ -765,7 +765,9 @@
       "title": "Halaman tidak ditemukan",
       "text": "Halaman ini tidak ada, atau sudah tidak ada lagi. Lembar hero dapat diakses dari katalog.",
       "home": "Kembali ke beranda",
-      "heroes": "Lihat para hero"
+      "heroes": "Lihat para hero",
+      "tierList": "Tier list saat ini",
+      "search": "Cari hero, item, atau halaman"
     },
     "winRate": {
       "title": "Kalkulator Win Rate",
@@ -1040,7 +1042,7 @@
         "rate": "{winRate} kemenangan, level {tier}."
       },
       "tierList": {
-        "title": "Tier List MLBB {month}: Hero Terkuat per Rank (Patch {v})",
+        "title": "Tier List MLBB {month}: Peringkat Hero (Patch {v})",
         "titleRank": "Tier List MLBB {rank} {month} (Patch {v})",
         "description": "{top} mendominasi tier list MLBB yang tercatat di {date} (patch {v}); {first} menampilkan {winRate} kemenangan. {n} hero diberi peringkat berdasarkan win rate dan ban mereka, dengan daftar berdasarkan peringkat.",
         "descriptionRank": "{top} mendominasi tier list MLBB {rank} yang tercatat di {date} (patch {v}); {first} menampilkan {winRate} kemenangan. {n} peringkat hero berdasarkan win rate dan ban mereka di {rank}."
@@ -1069,7 +1071,7 @@
         "descriptionThree": "Bandingkan dua atau tiga hero {n} Mobile Legends: Bang Bang: tingkatan, win rate dan ban berdasarkan peringkat, radar peringkat, kurva 30 hari, peran dan lane. Data dari {date}, patch {v}."
       },
       "patchNotes": {
-        "title": "Patch Notes MLBB: Update Terbaru {v} & Perubahan Hero",
+        "title": "Patch Notes MLBB: Update {v}, Buff & Nerf",
         "description": "Patch terbaru Mobile Legends: {version}. Hero ditingkatkan: {buffs}, melemah: {nerfs}, disesuaikan: {others}. Catatan lengkap dari {m} patch terbaru, {n} patch dicatat secara total."
       },
       "patch": {
@@ -1089,15 +1091,15 @@
         "description": "Pilih hingga lima hero dari masing-masing pihak dan baca, untuk setiap duel, perbedaan win rate diukur berdasarkan permainan, peringkat demi peringkat. {n} hero, tidak ada nilai yang diciptakan: duel yang tidak terukur tetap kosong."
       },
       "tierLane": {
-        "title": "Hero {lane} Terbaik di MLBB — Tier List {lane} {month} (Patch {v})",
+        "title": "Hero {lane} Terbaik MLBB {month} (Patch {v})",
         "description": "{top} mendominasi tier list MLBB {lane} yang tercatat di {date} (patch {v}); {first} menampilkan {winRate} kemenangan. {n} hero yang dapat dimainkan di {lane}, diberi peringkat berdasarkan win rate dan bannya."
       },
       "tierRole": {
-        "title": "{plural} Terbaik di MLBB — Tier List {role} {month} (Patch {v})",
+        "title": "{plural} Terbaik MLBB {month} (Patch {v})",
         "description": "{top} mendominasi daftar tier MLBB {plural} yang tercatat di {date} (patch {v}); {first} menampilkan {winRate} kemenangan. {n} {plural} diberi peringkat berdasarkan win rate dan ban mereka."
       },
       "heroesRole": {
-        "title": "Semua {n} {plural} MLBB: Tier, Win Rate & Lane (Patch {v})",
+        "title": "Semua {n} {plural} MLBB: Tier & Win Rate (Patch {v})",
         "description": "{n} {plural} Mobile Legends: Bang Bang, dari yang terkuat hingga terlemah: tingkatan, win rate, dan lane yang tercatat di {date} (patch {v}). Terkemuka: {top}."
       },
       "meta": {
@@ -1146,7 +1148,7 @@
         "description": "Periksa hero dan skin yang Anda miliki di antara {heroes} hero dan {skins} skin: lihat berapa harganya berdasarkan harga toko Mobile Legends: Bang Bang, dalam berlian, berdasarkan kelangkaan, dan berdasarkan seri. Gratis, tanpa registrasi, disimpan di browser Anda."
       },
       "events": {
-        "title": "Event MLBB: StarLight, Collector & Skin Setiap Bulan",
+        "title": "Event MLBB: StarLight, Collector & Skin Bulan Ini",
         "description": "Kalender acara Mobile Legends: Bang Bang, dari {start} hingga {end} ({n} bulan): Skin StarLight, skin Kolektor, undian, dan simpan. StarLight yang terakhir diketahui: {latest}."
       },
       "eventsMonth": {
@@ -1169,7 +1171,7 @@
         "description": "Timer Gratis Mobile Legends: Turtle di {turtle}, Lord, buff ungu dan oranye. Catat setiap kematian dan terima peringatan {soon} lalu {urgent} s sebelum setiap kembali. Layar aktif, offline, waktu diambil dari wiki."
       },
       "map": {
-        "title": "Panduan map Mobile Legends: camp jungle, Turtle, Lord, dan rotasi",
+        "title": "Map MLBB: Jungle, Turtle, Lord, dan Rotasi",
         "description": "Peta Land of Dawn yang skematis dan interaktif: markas, lane, menara, kamp hutan, Turtle dan Lord, dengan jadwal, hadiah, dan rotasi berdasarkan peran. Nilai diambil dari wiki, sumber pendukung."
       },
       "buildSimulator": {
@@ -1406,8 +1408,8 @@
       "titleRank": "Statistik hero {rank}",
       "lead": "Win rate, ban, dan pemilihan setiap hero, dilaporkan oleh permainan, dengan evolusinya selama tujuh hari dan kurvanya selama tiga puluh hari. Urutkan berdasarkan kolom mana saja, filter berdasarkan peran atau posisi.",
       "leadRank": "Tingkat yang sama, diukur hanya pada permainan {rank}: seorang hero dapat mendominasi di satu peringkat dan berjuang di peringkat lain.",
-      "metaTitle": "Statistik Hero MLBB: Win Rate, Pick Rate & Ban Rate per Rank (Patch {v})",
-      "metaTitleRank": "Statistik Hero MLBB {rank}: Win Rate, Pick Rate & Ban Rate (Patch {v})",
+      "metaTitle": "Statistik MLBB per Rank: Win Rate, Pick & Ban (Patch {v})",
+      "metaTitleRank": "Statistik MLBB {rank}: Win Rate & Ban (Patch {v})",
       "metaDescription": "Win rate, ban, dan pengambilan {n} hero Mobile Legends, berdasarkan peringkat, dengan evolusi selama 7 hari dan kurva selama 30 hari. Win rate terbaik: {name} ({rate}). Diperbarui pada {date}.",
       "metaDescriptionRank": "Win rate, ban, dan pengambilan {n} hero Mobile Legends di {rank} game, dengan evolusi selama 7 hari dan kurva selama 30 hari. Win rate terbaik: {name} ({rate}). Diperbarui pada {date}.",
       "ldName": "Statistik Hero Mobile Legends: Bang Bang ({rank})",
@@ -1484,8 +1486,8 @@
     },
     "duos": {
       "title": "Duo terbaik untuk {name}",
-      "metaTitle": "Duo Terbaik {name}: Hero yang Menang Bersama {name} (Patch {v})",
-      "metaTitleNoPatch": "Duo Terbaik {name}: Hero yang Menang Bersama {name}",
+      "metaTitle": "Duo Terbaik {name} di MLBB (Patch {v})",
+      "metaTitleNoPatch": "Duo Terbaik {name} di MLBB",
       "updatedOn": "Diperbarui pada {date}.",
       "allRanks": "Semua rank",
       "atRank": "Di {rank}",
@@ -1544,8 +1546,8 @@
     },
     "versus": {
       "title": "{a} vs {b}",
-      "metaTitle": "{a} vs {b}: Siapa yang Menang? Statistik Matchup per Rank (Patch {v})",
-      "metaTitleNoPatch": "{a} vs {b}: Siapa yang Menang? Statistik Matchup per Rank",
+      "metaTitle": "{a} vs {b}: Siapa yang Menang? (Patch {v})",
+      "metaTitleNoPatch": "{a} vs {b}: Siapa yang Menang Duel?",
       "lead": "{a} versus {b}, diukur berdasarkan permainan peringkat demi peringkat: siapa yang menang dalam win rate dalam duel, siapa yang lebih berbobot di awal atau akhir permainan, build mereka yang paling sering dimainkan, dan berapa nilainya di tim yang sama.",
       "noMeasure": "Belum ada duel antara {a} dan {b}.",
       "balanced": "{context}, {a} dan {b} sama: tidak ada yang menang lebih dari sepersepuluh poin.",
@@ -2247,7 +2249,7 @@
       "calendarLink": "Kalender semua skin, tahun demi tahun",
       "source": "Daftar StarLight dan Kolektor, tanggal, kelangkaan dan harga diambil dari {link}, di bawah lisensi CC BY-SA.",
       "month": {
-        "title": "Acara Starlight dan MLBB {month}: skin, tanggal dan harga",
+        "title": "Starlight & Event MLBB {month}: Skin dan Harga",
         "announced": "Bulan yang diumumkan: Skin ini muncul pada daftar di wiki komunitas sebelum dirilis dalam game. Tanggal dan harga masih harus dikonfirmasi.",
         "navMonths": "Sebelumnya dan bulan depan",
         "allMonths": "Setiap bulan",
@@ -2620,8 +2622,8 @@
       "after": "Setelah :",
       "allVersions": "Semua versi Server muka",
       "seo": {
-        "title": "Patch notes Advanced Server MLBB {v}: buff, nerf, dan perubahan",
-        "titleHub": "Patch notes Advance Server MLBB: semua versi (terbaru {v})",
+        "title": "Advance Server MLBB {v}: Buff, Nerf & Konten Baru",
+        "titleHub": "Advance Server MLBB: Patch Notes (Terbaru {v})",
         "titleGeneric": "Patch notes Advanced Server MLBB: buff, nerf, dan perubahan",
         "description": "Catatan dari server Advance, server uji Mobile Legends: versi dokumentasi terbaru {version}, dengan {buffs} buff, {nerfs} nerf, dan {adjust} penyesuaian hero. Perubahan dalam pengujian, yang mungkin berkembang sebelum server resmi.",
         "descriptionVersion": "Advanced Server MLBB {version}: {buffs} hero ditingkatkan, {nerfs} melemah dan {adjust} disesuaikan, termasuk {heroes}. Perubahan dalam pengujian, yang mungkin berkembang sebelum server resmi.",

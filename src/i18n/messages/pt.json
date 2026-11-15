@@ -765,7 +765,9 @@
       "title": "Página não encontrada",
       "text": "Esta página não existe, ou não existe mais. As páginas dos heróis estão disponíveis no catálogo.",
       "home": "Voltar ao início",
-      "heroes": "Ver os heróis"
+      "heroes": "Ver os heróis",
+      "tierList": "Tier list atual",
+      "search": "Procurar um herói, um item ou uma página"
     },
     "winRate": {
       "title": "Calculadora de taxa de vitória",
@@ -1031,8 +1033,8 @@
     },
     "seo": {
       "hero": {
-        "title": "{name}: build, emblema e counters (tier {tier}, patch {v})",
-        "titleNoTier": "{name}: build, emblema e counters (patch {v})",
+        "title": "{name}: build, emblema, counters (tier {tier}, patch {v})",
+        "titleNoTier": "{name}: build, emblema, counters (patch {v})",
         "counters": "{name} sofre mais counter de {counters} no {rank}.",
         "countersAll": "{name} sofre mais counter de {counters}, considerando todos os elos.",
         "build": "Build mais usada: {items}.",
@@ -1040,8 +1042,8 @@
         "rate": "{winRate} de vitórias, tier {tier}."
       },
       "tierList": {
-        "title": "Tier list MLBB {month}: melhores heróis por elo (patch {v})",
-        "titleRank": "Tier list MLBB {rank}, {month} (patch {v})",
+        "title": "Tier list MLBB {month}: heróis classificados (patch {v})",
+        "titleRank": "Tier list MLBB {rank} {month} (patch {v})",
         "description": "{top} lideram a tier list MLBB medida em {date} (patch {v}), e {first} tem {winRate} de taxa de vitória. {n} heróis ranqueados pelas taxas de vitória e de ban, com uma lista para cada elo.",
         "descriptionRank": "{top} lideram a tier list MLBB {rank} medida em {date} (patch {v}), e {first} tem {winRate} de taxa de vitória. {n} heróis ranqueados pelas taxas de vitória e de ban em partidas de {rank}."
       },
@@ -1069,7 +1071,7 @@
         "descriptionThree": "Compare dois ou três dos {n} heróis de Mobile Legends: Bang Bang: tier, taxas de vitória e de ban por elo, radar de notas, curvas de 30 dias, funções e lanes. Dados de {date}, patch {v}."
       },
       "patchNotes": {
-        "title": "Patch notes de MLBB: atualização {v} e ajustes de heróis",
+        "title": "Patch notes de MLBB: atualização {v}, buffs e nerfs",
         "description": "Último patch de Mobile Legends: {version}. Heróis fortalecidos: {buffs}, enfraquecidos: {nerfs}, ajustados: {others}. Notas completas dos {m} patches recentes, {n} patches listados no total."
       },
       "patch": {
@@ -1089,15 +1091,15 @@
         "description": "Escolha até cinco heróis de cada lado e veja, para cada duelo, a diferença de taxa de vitória medida pelo jogo, elo por elo. {n} heróis, nenhum valor inventado: os duelos não medidos ficam vazios."
       },
       "tierLane": {
-        "title": "Melhores heróis de {lane} em MLBB: tier list {lane} {month} (patch {v})",
+        "title": "Melhores heróis de {lane} em MLBB, {month} (patch {v})",
         "description": "{top} lideram a tier list {lane} de MLBB medida em {date} (patch {v}); {first} tem {winRate} de vitórias. {n} heróis jogáveis na {lane}, classificados pelas taxas de vitória e de ban."
       },
       "tierRole": {
-        "title": "Melhores {plural} de MLBB: tier list {role}, {month} (patch {v})",
+        "title": "Melhores {plural} de MLBB, {month} (patch {v})",
         "description": "{top} lideram a tier list de {plural} de MLBB medida em {date} (patch {v}); {first} tem {winRate} de vitórias. {n} {plural} classificados pelas taxas de vitória e de ban."
       },
       "heroesRole": {
-        "title": "Os {n} {plural} de MLBB: tiers, taxa de vitória e lanes (patch {v})",
+        "title": "Os {n} {plural} de MLBB: tiers e winrate (patch {v})",
         "description": "Os {n} {plural} de Mobile Legends: Bang Bang, do mais forte ao mais fraco: tier, taxa de vitória e lanes medidos em {date} (patch {v}). Na liderança: {top}."
       },
       "meta": {
@@ -1146,7 +1148,7 @@
         "description": "Marque os heróis e as skins que você tem entre {heroes} heróis e {skins} skins: veja quanto custam pelo preço da loja de Mobile Legends: Bang Bang, em diamantes, por raridade e por série. Grátis, sem cadastro, salvo no seu navegador."
       },
       "events": {
-        "title": "Eventos de MLBB: StarLight, Collector e skins de cada mês",
+        "title": "Eventos de MLBB: StarLight, Collector e skins do mês",
         "description": "O calendário de eventos de Mobile Legends: Bang Bang, de {start} a {end} ({n} meses): skin StarLight, skins Collector, sorteios e loja. Última StarLight conhecida: {latest}."
       },
       "eventsMonth": {
@@ -1169,7 +1171,7 @@
         "description": "Cronômetro grátis para Mobile Legends: Tartaruga aos {turtle}, Lorde, buffs roxo e laranja. Registre cada abate e receba um alerta {soon} e depois {urgent} s antes de cada retorno. Tela sempre ligada, funciona offline, tempos tirados da wiki."
       },
       "map": {
-        "title": "Mapa de Mobile Legends: camps da jungle, Tartaruga, Lorde e rotações",
+        "title": "Mapa de MLBB: jungle, Tartaruga, Lorde e rotações",
         "description": "Mapa esquemático e interativo da Land of Dawn: bases, lanes, torres, camps da jungle, Tartaruga e Lorde, com tempos, recompensas e rotações por função. Valores tirados da wiki, com fontes."
       },
       "buildSimulator": {
@@ -1406,8 +1408,8 @@
       "titleRank": "Estatísticas dos heróis — {rank}",
       "lead": "As taxas de vitória, de ban e de pick de cada herói, informadas pelo jogo, com a variação em sete dias e a curva de trinta dias. Ordene por qualquer coluna, filtre por função ou por lane.",
       "leadRank": "As mesmas taxas, medidas apenas nas partidas do elo {rank}: um herói pode dominar em um elo e sofrer em outro.",
-      "metaTitle": "Estatísticas de MLBB: vitória, pick e ban dos heróis por elo (patch {v})",
-      "metaTitleRank": "Estatísticas de MLBB no {rank}: vitória, pick e ban (patch {v})",
+      "metaTitle": "Estatísticas de MLBB por elo: winrate, pick e ban (patch {v})",
+      "metaTitleRank": "Estatísticas de MLBB {rank}: winrate e bans (patch {v})",
       "metaDescription": "Taxas de vitória, de ban e de pick dos {n} heróis de Mobile Legends, por elo, com a variação em 7 dias e a curva de 30 dias. Maior taxa de vitória: {name} ({rate}). Atualizado em {date}.",
       "metaDescriptionRank": "Taxas de vitória, de ban e de pick dos {n} heróis de Mobile Legends nas partidas do elo {rank}, com a variação em 7 dias e a curva de 30 dias. Maior taxa de vitória: {name} ({rate}). Atualizado em {date}.",
       "ldName": "Estatísticas dos heróis de Mobile Legends: Bang Bang ({rank})",
@@ -1484,8 +1486,8 @@
     },
     "duos": {
       "title": "Melhores duplas com {name}",
-      "metaTitle": "Melhores duplas com {name}: os heróis que fazem {name} vencer (patch {v})",
-      "metaTitleNoPatch": "Melhores duplas com {name}: os heróis que fazem {name} vencer",
+      "metaTitle": "Melhores duplas com {name} em MLBB (patch {v})",
+      "metaTitleNoPatch": "Melhores duplas com {name} em MLBB",
       "updatedOn": "Atualizado em {date}.",
       "allRanks": "Considerando todos os elos",
       "atRank": "No elo {rank}",
@@ -1544,8 +1546,8 @@
     },
     "versus": {
       "title": "{a} vs {b}",
-      "metaTitle": "{a} vs {b}: quem vence? Estatísticas do confronto por elo (patch {v})",
-      "metaTitleNoPatch": "{a} vs {b}: quem vence? Estatísticas do confronto por elo",
+      "metaTitle": "{a} vs {b}: quem vence? (patch {v})",
+      "metaTitleNoPatch": "{a} vs {b}: quem vence o duelo?",
       "lead": "{a} contra {b}, medido pelo jogo elo por elo: quem ganha em taxa de vitória no confronto, quem pesa mais no início ou no fim da partida, suas builds mais usadas e como se saem no mesmo time.",
       "noMeasure": "Ainda não há confronto medido entre {a} e {b}.",
       "balanced": "{context}, {a} e {b} estão equilibrados: nenhum ganha mais do que alguns décimos de ponto.",
@@ -2247,7 +2249,7 @@
       "calendarLink": "Calendário de todas as skins, ano a ano",
       "source": "Listas StarLight e Collector, datas, raridades e preços retirados de {link}, sob licença CC BY-SA.",
       "month": {
-        "title": "Starlight e eventos de MLBB em {month}: skins, datas e preços",
+        "title": "Starlight e eventos de MLBB em {month}: skins e preços",
         "announced": "Mês anunciado: estas skins aparecem em uma lista da wiki da comunidade antes do lançamento no jogo. Datas e preços ainda precisam ser confirmados.",
         "navMonths": "Mês anterior e seguinte",
         "allMonths": "Todos os meses",
@@ -2620,8 +2622,8 @@
       "after": "depois:",
       "allVersions": "Todas as versões do Advance Server",
       "seo": {
-        "title": "Patch notes do Advance Server de MLBB {v}: buffs, nerfs e mudanças",
-        "titleHub": "Patch notes do Advance Server de MLBB: todas as versões (última {v})",
+        "title": "Advance Server de MLBB {v}: buffs, nerfs e novidades",
+        "titleHub": "Advance Server de MLBB: patch notes (última {v})",
         "titleGeneric": "Patch notes do Advance Server de MLBB: buffs, nerfs e mudanças",
         "description": "Notas do Advance Server, o servidor de testes de Mobile Legends: última versão documentada {version}, com {buffs} buffs, {nerfs} nerfs e {adjust} ajustes de heróis. Mudanças em teste, que podem ser alteradas antes do servidor oficial.",
         "descriptionVersion": "Advance Server de MLBB {version}: {buffs} heróis fortalecidos, {nerfs} enfraquecidos e {adjust} ajustados, incluindo {heroes}. Mudanças em teste, que podem ser alteradas antes do servidor oficial.",

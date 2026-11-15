@@ -4033,8 +4033,8 @@
       "text": "Analysis written in French and machine-translated."
     },
     "pages.advanceServer.seo.titleHub": {
-      "fr": "Patch notes serveur Advance MLBB : toutes les versions (dernière {v})",
-      "text": "MLBB Advance Server patch notes: every version (latest {v})"
+      "fr": "Serveur Advance MLBB : patch notes (dernière {v})",
+      "text": "MLBB Advance Server: patch notes (latest {v})"
     },
     "pages.community.seo.categoryDescription": {
       "fr": "{description} Les discussions « {name} » du forum Mobile Legends de MLBBDex, ouvertes à tous les joueurs.",
@@ -4435,6 +4435,50 @@
     "pages.communityUI.errors.discordTooNew": {
       "fr": "Votre compte Discord a moins de {days} jours : il ne peut pas encore participer.",
       "text": "Your Discord account is less than {days} days old: it cannot take part yet."
+    },
+    "pages.seo.tierList.title": {
+      "fr": "Tier list MLBB {month} : héros classés (patch {v})",
+      "text": "MLBB tier list {month}: heroes ranked (patch {v})"
+    },
+    "pages.seo.tierList.titleRank": {
+      "fr": "Tier list MLBB {rank} {month} (patch {v})",
+      "text": "MLBB tier list {rank} {month} (patch {v})"
+    },
+    "pages.seo.tierLane.title": {
+      "fr": "Meilleurs héros {lane} MLBB {month} (patch {v})",
+      "text": "Best {lane} heroes in MLBB, {month} (patch {v})"
+    },
+    "pages.seo.tierRole.title": {
+      "fr": "Meilleurs {plural} MLBB {month} (patch {v})",
+      "text": "Best MLBB {plural}, {month} (patch {v})"
+    },
+    "pages.statistics.metaTitleRank": {
+      "fr": "Stats MLBB {rank} : winrate et bans (patch {v})",
+      "text": "MLBB {rank} stats: winrate and bans (patch {v})"
+    },
+    "pages.seo.heroesRole.title": {
+      "fr": "Les {n} {plural} MLBB : paliers et winrate (patch {v})",
+      "text": "All {n} MLBB {plural}: tiers and winrate (patch {v})"
+    },
+    "pages.seo.map.title": {
+      "fr": "Carte MLBB : jungle, Tortue, Seigneur et rotations",
+      "text": "MLBB map: jungle camps, Turtle, Lord and rotations"
+    },
+    "pages.seo.events.title": {
+      "fr": "Événements MLBB : StarLight, Collector et skins du mois",
+      "text": "MLBB events: StarLight, Collector and monthly skins"
+    },
+    "pages.events.month.title": {
+      "fr": "Starlight et événements MLBB {month} : skins et prix",
+      "text": "MLBB Starlight and events {month}: skins and prices"
+    },
+    "pages.advanceServer.seo.title": {
+      "fr": "Serveur Advance MLBB {v} : buffs, nerfs et nouveautés",
+      "text": "MLBB Advance Server {v}: buffs, nerfs and new content"
+    },
+    "pages.notFound.search": {
+      "fr": "Chercher un héros, un objet ou une page",
+      "text": "Search for a hero, an item or a page"
     }
   },
   "es": {
@@ -8323,8 +8367,8 @@
       "text": "Análisis escrito en francés y traducido automáticamente."
     },
     "pages.advanceServer.seo.titleHub": {
-      "fr": "Patch notes serveur Advance MLBB : toutes les versions (dernière {v})",
-      "text": "Patch notes del Advance Server de MLBB: todas las versiones (última {v})"
+      "fr": "Serveur Advance MLBB : patch notes (dernière {v})",
+      "text": "Advance Server MLBB: patch notes (última {v})"
     },
     "pages.community.seo.categoryDescription": {
       "fr": "{description} Les discussions « {name} » du forum Mobile Legends de MLBBDex, ouvertes à tous les joueurs.",
@@ -8665,6 +8709,66 @@
     "pages.community.signInChoice.discord": {
       "fr": "Avec Discord",
       "text": "Con Discord"
+    },
+    "pages.seo.hero.title": {
+      "fr": "{name} : build, emblème, counters (palier {tier}, patch {v})",
+      "text": "{name}: build, emblema, counters (tier {tier}, parche {v})"
+    },
+    "pages.seo.hero.titleNoTier": {
+      "fr": "{name} : build, emblème, counters (patch {v})",
+      "text": "{name}: build, emblema, counters (parche {v})"
+    },
+    "pages.seo.tierList.title": {
+      "fr": "Tier list MLBB {month} : héros classés (patch {v})",
+      "text": "Tier list MLBB {month}: héroes clasificados (parche {v})"
+    },
+    "pages.seo.tierList.titleRank": {
+      "fr": "Tier list MLBB {rank} {month} (patch {v})",
+      "text": "Tier list MLBB {rank} {month} (parche {v})"
+    },
+    "pages.seo.tierLane.title": {
+      "fr": "Meilleurs héros {lane} MLBB {month} (patch {v})",
+      "text": "Mejores héroes {lane} MLBB, {month} (parche {v})"
+    },
+    "pages.seo.tierRole.title": {
+      "fr": "Meilleurs {plural} MLBB {month} (patch {v})",
+      "text": "Mejores {plural} MLBB, {month} (parche {v})"
+    },
+    "pages.statistics.metaTitleRank": {
+      "fr": "Stats MLBB {rank} : winrate et bans (patch {v})",
+      "text": "Estadísticas MLBB {rank}: winrate y bans (parche {v})"
+    },
+    "pages.seo.heroesRole.title": {
+      "fr": "Les {n} {plural} MLBB : paliers et winrate (patch {v})",
+      "text": "Los {n} {plural} de MLBB: tiers y winrate (parche {v})"
+    },
+    "pages.seo.patchNotes.title": {
+      "fr": "Patch notes MLBB : mise à jour {v}, buffs et nerfs",
+      "text": "Patch notes MLBB: actualización {v}, buffs y nerfs"
+    },
+    "pages.seo.map.title": {
+      "fr": "Carte MLBB : jungle, Tortue, Seigneur et rotations",
+      "text": "Mapa MLBB: jungla, Tortuga, Lord y rotaciones"
+    },
+    "pages.seo.events.title": {
+      "fr": "Événements MLBB : StarLight, Collector et skins du mois",
+      "text": "Eventos MLBB: StarLight, Collector y skins del mes"
+    },
+    "pages.events.month.title": {
+      "fr": "Starlight et événements MLBB {month} : skins et prix",
+      "text": "Starlight y eventos MLBB {month}: skins y precios"
+    },
+    "pages.advanceServer.seo.title": {
+      "fr": "Serveur Advance MLBB {v} : buffs, nerfs et nouveautés",
+      "text": "Advance Server MLBB {v}: buffs, nerfs y novedades"
+    },
+    "pages.notFound.tierList": {
+      "fr": "Tier list du moment",
+      "text": "Tier list actual"
+    },
+    "pages.notFound.search": {
+      "fr": "Chercher un héros, un objet ou une page",
+      "text": "Buscar un héroe, un objeto o una página"
     }
   },
   "id": {
@@ -9409,8 +9513,8 @@
       "text": "Anda"
     },
     "pages.advanceServer.seo.title": {
-      "fr": "Patch notes serveur Advance MLBB {v} : buffs, nerfs et changements",
-      "text": "Patch notes Advanced Server MLBB {v}: buff, nerf, dan perubahan"
+      "fr": "Serveur Advance MLBB {v} : buffs, nerfs et nouveautés",
+      "text": "Advance Server MLBB {v}: Buff, Nerf & Konten Baru"
     },
     "pages.advanceServer.seo.titleGeneric": {
       "fr": "Patch notes serveur Advance MLBB : buffs, nerfs et changements",
@@ -9497,12 +9601,12 @@
       "text": "Duo"
     },
     "pages.duos.metaTitle": {
-      "fr": "Meilleurs duos avec {name} : les héros qui font gagner {name} (patch {v})",
-      "text": "Duo Terbaik {name}: Hero yang Menang Bersama {name} (Patch {v})"
+      "fr": "Meilleurs duos avec {name} sur MLBB (patch {v})",
+      "text": "Duo Terbaik {name} di MLBB (Patch {v})"
     },
     "pages.duos.metaTitleNoPatch": {
-      "fr": "Meilleurs duos avec {name} : les héros qui font gagner {name}",
-      "text": "Duo Terbaik {name}: Hero yang Menang Bersama {name}"
+      "fr": "Meilleurs duos avec {name} sur MLBB",
+      "text": "Duo Terbaik {name} di MLBB"
     },
     "pages.duos.phase.early": {
       "fr": "Début de partie",
@@ -10061,15 +10165,15 @@
       "text": "Emblem, Talent & Battle Spell MLBB per Role (Patch {v})"
     },
     "pages.seo.events.title": {
-      "fr": "Événements MLBB : StarLight, Collector et skins de chaque mois",
-      "text": "Event MLBB: StarLight, Collector & Skin Setiap Bulan"
+      "fr": "Événements MLBB : StarLight, Collector et skins du mois",
+      "text": "Event MLBB: StarLight, Collector & Skin Bulan Ini"
     },
     "pages.seo.hero.title": {
-      "fr": "{name} : build, emblème et counters (palier {tier}, patch {v})",
+      "fr": "{name} : build, emblème, counters (palier {tier}, patch {v})",
       "text": "Build, Emblem & Counter {name} (Tier {tier}, Patch {v})"
     },
     "pages.seo.hero.titleNoTier": {
-      "fr": "{name} : build, emblème et counters (patch {v})",
+      "fr": "{name} : build, emblème, counters (patch {v})",
       "text": "Build, Emblem & Counter {name} (Patch {v})"
     },
     "pages.seo.heroes.title": {
@@ -10077,8 +10181,8 @@
       "text": "Semua {n} Hero MLBB: Role, Lane & Tier (Patch {v})"
     },
     "pages.seo.heroesRole.title": {
-      "fr": "Les {n} {plural} de MLBB : paliers, winrate et lanes (patch {v})",
-      "text": "Semua {n} {plural} MLBB: Tier, Win Rate & Lane (Patch {v})"
+      "fr": "Les {n} {plural} MLBB : paliers et winrate (patch {v})",
+      "text": "Semua {n} {plural} MLBB: Tier & Win Rate (Patch {v})"
     },
     "pages.seo.items.title": {
       "fr": "Les {n} objets MLBB : stats, recettes et prix (patch {v})",
@@ -10093,8 +10197,8 @@
       "text": "{region}: hero dan lore MLBB"
     },
     "pages.seo.map.title": {
-      "fr": "Carte de Mobile Legends : camps de la jungle, Tortue, Seigneur et rotations",
-      "text": "Panduan map Mobile Legends: camp jungle, Turtle, Lord, dan rotasi"
+      "fr": "Carte MLBB : jungle, Tortue, Seigneur et rotations",
+      "text": "Map MLBB: Jungle, Turtle, Lord, dan Rotasi"
     },
     "pages.seo.meta.title": {
       "fr": "Rapport méta MLBB du {date} (patch {v})",
@@ -10121,8 +10225,8 @@
       "text": "Patch MLBB {v}: Semua Buff & Nerf Hero ({n} perubahan)"
     },
     "pages.seo.patchNotes.title": {
-      "fr": "Patch notes MLBB : mise à jour {v} et ajustements des héros",
-      "text": "Patch Notes MLBB: Update Terbaru {v} & Perubahan Hero"
+      "fr": "Patch notes MLBB : mise à jour {v}, buffs et nerfs",
+      "text": "Patch Notes MLBB: Update {v}, Buff & Nerf"
     },
     "pages.seo.quiz.title": {
       "fr": "Quiz MLBB : devinez le héros du jour",
@@ -10145,15 +10249,15 @@
       "text": "Kalender Skin MLBB: Semua Skin per Tanggal Rilis"
     },
     "pages.seo.tierLane.title": {
-      "fr": "Meilleurs héros {lane} MLBB : tier list {lane} {month} (patch {v})",
-      "text": "Hero {lane} Terbaik di MLBB — Tier List {lane} {month} (Patch {v})"
+      "fr": "Meilleurs héros {lane} MLBB {month} (patch {v})",
+      "text": "Hero {lane} Terbaik MLBB {month} (Patch {v})"
     },
     "pages.seo.tierList.title": {
-      "fr": "Tier list MLBB {month} : les meilleurs héros (patch {v})",
-      "text": "Tier List MLBB {month}: Hero Terkuat per Rank (Patch {v})"
+      "fr": "Tier list MLBB {month} : héros classés (patch {v})",
+      "text": "Tier List MLBB {month}: Peringkat Hero (Patch {v})"
     },
     "pages.seo.tierList.titleRank": {
-      "fr": "Tier list MLBB {rank}, {month} (patch {v})",
+      "fr": "Tier list MLBB {rank} {month} (patch {v})",
       "text": "Tier List MLBB {rank} {month} (Patch {v})"
     },
     "pages.seo.tierMaker.title": {
@@ -10161,8 +10265,8 @@
       "text": "Tier List Maker MLBB: Buat & Bagikan Tier List Anda"
     },
     "pages.seo.tierRole.title": {
-      "fr": "Meilleurs {plural} MLBB : tier list {role}, {month} (patch {v})",
-      "text": "{plural} Terbaik di MLBB — Tier List {role} {month} (Patch {v})"
+      "fr": "Meilleurs {plural} MLBB {month} (patch {v})",
+      "text": "{plural} Terbaik MLBB {month} (Patch {v})"
     },
     "pages.seo.timer.title": {
       "fr": "Chrono d'objectifs MLBB : apparition du Seigneur et de la Tortue",
@@ -10241,12 +10345,12 @@
       "text": "Di pertandingan {rank}"
     },
     "pages.statistics.metaTitle": {
-      "fr": "Statistiques MLBB : victoire, pick et ban des héros par rang (patch {v})",
-      "text": "Statistik Hero MLBB: Win Rate, Pick Rate & Ban Rate per Rank (Patch {v})"
+      "fr": "Stats MLBB par rang : winrate, pick et ban (patch {v})",
+      "text": "Statistik MLBB per Rank: Win Rate, Pick & Ban (Patch {v})"
     },
     "pages.statistics.metaTitleRank": {
-      "fr": "Statistiques MLBB en {rank} : victoire, pick et ban (patch {v})",
-      "text": "Statistik Hero MLBB {rank}: Win Rate, Pick Rate & Ban Rate (Patch {v})"
+      "fr": "Stats MLBB {rank} : winrate et bans (patch {v})",
+      "text": "Statistik MLBB {rank}: Win Rate & Ban (Patch {v})"
     },
     "pages.statistics.titleRank": {
       "fr": "Statistiques des héros — {rank}",
@@ -10389,12 +10493,12 @@
       "text": "Matchup {name} lainnya"
     },
     "pages.versus.metaTitle": {
-      "fr": "{a} vs {b} : qui gagne ? Stats du duel par rang (patch {v})",
-      "text": "{a} vs {b}: Siapa yang Menang? Statistik Matchup per Rank (Patch {v})"
+      "fr": "{a} vs {b} : qui gagne ? (patch {v})",
+      "text": "{a} vs {b}: Siapa yang Menang? (Patch {v})"
     },
     "pages.versus.metaTitleNoPatch": {
-      "fr": "{a} vs {b} : qui gagne ? Stats du duel par rang",
-      "text": "{a} vs {b}: Siapa yang Menang? Statistik Matchup per Rank"
+      "fr": "{a} vs {b} : qui gagne le duel ?",
+      "text": "{a} vs {b}: Siapa yang Menang Duel?"
     },
     "pages.watch.metaTitle": {
       "fr": "Veille — l'actualité MLBB du web",
@@ -14593,8 +14697,8 @@
       "text": "Analisis ditulis dalam bahasa Prancis dan diterjemahkan secara otomatis."
     },
     "pages.advanceServer.seo.titleHub": {
-      "fr": "Patch notes serveur Advance MLBB : toutes les versions (dernière {v})",
-      "text": "Patch notes Advance Server MLBB: semua versi (terbaru {v})"
+      "fr": "Serveur Advance MLBB : patch notes (dernière {v})",
+      "text": "Advance Server MLBB: Patch Notes (Terbaru {v})"
     },
     "pages.community.seo.categoryDescription": {
       "fr": "{description} Les discussions « {name} » du forum Mobile Legends de MLBBDex, ouvertes à tous les joueurs.",
@@ -14947,6 +15051,10 @@
     "pages.communityUI.link.button": {
       "fr": "Lier mon compte Discord",
       "text": "Tautkan akun Discord saya"
+    },
+    "pages.events.month.title": {
+      "fr": "Starlight et événements MLBB {month} : skins et prix",
+      "text": "Starlight & Event MLBB {month}: Skin dan Harga"
     }
   },
   "it": {
@@ -18863,8 +18971,8 @@
       "text": "Analisi scritta in francese e tradotta automaticamente."
     },
     "pages.advanceServer.seo.titleHub": {
-      "fr": "Patch notes serveur Advance MLBB : toutes les versions (dernière {v})",
-      "text": "Patch notes Advance Server MLBB: tutte le versioni (ultima {v})"
+      "fr": "Serveur Advance MLBB : patch notes (dernière {v})",
+      "text": "Advance Server MLBB: patch notes (ultima {v})"
     },
     "pages.community.seo.categoryDescription": {
       "fr": "{description} Les discussions « {name} » du forum Mobile Legends de MLBBDex, ouvertes à tous les joueurs.",
@@ -19209,6 +19317,74 @@
     "pages.community.signInChoice.game": {
       "fr": "Avec mon compte de jeu",
       "text": "Con il mio account di gioco"
+    },
+    "pages.seo.hero.title": {
+      "fr": "{name} : build, emblème, counters (palier {tier}, patch {v})",
+      "text": "{name}: build, emblema, counter (tier {tier}, patch {v})"
+    },
+    "pages.seo.hero.titleNoTier": {
+      "fr": "{name} : build, emblème, counters (patch {v})",
+      "text": "{name}: build, emblema, counter (patch {v})"
+    },
+    "pages.duos.metaTitle": {
+      "fr": "Meilleurs duos avec {name} sur MLBB (patch {v})",
+      "text": "Migliori duo con {name} su MLBB (patch {v})"
+    },
+    "pages.duos.metaTitleNoPatch": {
+      "fr": "Meilleurs duos avec {name} sur MLBB",
+      "text": "Migliori duo con {name} su MLBB"
+    },
+    "pages.seo.tierList.title": {
+      "fr": "Tier list MLBB {month} : héros classés (patch {v})",
+      "text": "Tier list MLBB {month}: eroi in classifica (patch {v})"
+    },
+    "pages.seo.tierList.titleRank": {
+      "fr": "Tier list MLBB {rank} {month} (patch {v})",
+      "text": "Tier list MLBB {rank} {month} (patch {v})"
+    },
+    "pages.seo.tierLane.title": {
+      "fr": "Meilleurs héros {lane} MLBB {month} (patch {v})",
+      "text": "Migliori eroi {lane} MLBB, {month} (patch {v})"
+    },
+    "pages.seo.tierRole.title": {
+      "fr": "Meilleurs {plural} MLBB {month} (patch {v})",
+      "text": "Migliori {plural} MLBB, {month} (patch {v})"
+    },
+    "pages.statistics.metaTitle": {
+      "fr": "Stats MLBB par rang : winrate, pick et ban (patch {v})",
+      "text": "Statistiche MLBB per rango: winrate, pick e ban (patch {v})"
+    },
+    "pages.statistics.metaTitleRank": {
+      "fr": "Stats MLBB {rank} : winrate et bans (patch {v})",
+      "text": "Statistiche MLBB {rank}: winrate e ban (patch {v})"
+    },
+    "pages.seo.heroesRole.title": {
+      "fr": "Les {n} {plural} MLBB : paliers et winrate (patch {v})",
+      "text": "I {n} {plural} di MLBB: tier e winrate (patch {v})"
+    },
+    "pages.seo.patchNotes.title": {
+      "fr": "Patch notes MLBB : mise à jour {v}, buffs et nerfs",
+      "text": "Patch notes MLBB: aggiornamento {v}, buff e nerf"
+    },
+    "pages.seo.map.title": {
+      "fr": "Carte MLBB : jungle, Tortue, Seigneur et rotations",
+      "text": "Mappa MLBB: giungla, Tartaruga, Lord e rotazioni"
+    },
+    "pages.seo.events.title": {
+      "fr": "Événements MLBB : StarLight, Collector et skins du mois",
+      "text": "Eventi MLBB: StarLight, Collector e skin del mese"
+    },
+    "pages.events.month.title": {
+      "fr": "Starlight et événements MLBB {month} : skins et prix",
+      "text": "Starlight ed eventi MLBB {month}: skin e prezzi"
+    },
+    "pages.advanceServer.seo.title": {
+      "fr": "Serveur Advance MLBB {v} : buffs, nerfs et nouveautés",
+      "text": "Advance Server MLBB {v}: buff, nerf e novità"
+    },
+    "pages.notFound.tierList": {
+      "fr": "Tier list du moment",
+      "text": "Tier list del momento"
     }
   },
   "fil": {
@@ -22037,8 +22213,8 @@
       "text": "Ang mga pagbabagong tine-test sa Advance Server ng Mobile Legends, version by version."
     },
     "pages.advanceServer.seo.title": {
-      "fr": "Patch notes serveur Advance MLBB {v} : buffs, nerfs et changements",
-      "text": "MLBB Advance Server patch notes {v}: buff, nerf at mga pagbabago"
+      "fr": "Serveur Advance MLBB {v} : buffs, nerfs et nouveautés",
+      "text": "MLBB Advance Server {v}: buff, nerf at bagong content"
     },
     "pages.advanceServer.seo.titleGeneric": {
       "fr": "Patch notes serveur Advance MLBB : buffs, nerfs et changements",
@@ -26313,12 +26489,12 @@
       "text": "Mga duo"
     },
     "pages.duos.metaTitle": {
-      "fr": "Meilleurs duos avec {name} : les héros qui font gagner {name} (patch {v})",
-      "text": "Best {name} Duo: Mga Hero na Nananalo Kasama si {name} (Patch {v})"
+      "fr": "Meilleurs duos avec {name} sur MLBB (patch {v})",
+      "text": "Best Duo ni {name} sa MLBB (Patch {v})"
     },
     "pages.duos.metaTitleNoPatch": {
-      "fr": "Meilleurs duos avec {name} : les héros qui font gagner {name}",
-      "text": "Best {name} Duo: Mga Hero na Nananalo Kasama si {name}"
+      "fr": "Meilleurs duos avec {name} sur MLBB",
+      "text": "Best Duo ni {name} sa MLBB"
     },
     "pages.duos.noMeasure": {
       "fr": "Pas encore de duo mesuré pour {name}.",
@@ -27305,8 +27481,8 @@
       "text": "Inanunsyong buwan: nasa isang listahan ng community wiki ang mga skin na ito bago pa ang release nila sa laro. Kukumpirmahin pa ang mga petsa at presyo."
     },
     "pages.events.month.title": {
-      "fr": "Starlight et événements MLBB {month} : skins, dates et prix",
-      "text": "MLBB Starlight at events {month}: mga skin, petsa at presyo"
+      "fr": "Starlight et événements MLBB {month} : skins et prix",
+      "text": "MLBB Starlight at events {month}: mga skin at presyo"
     },
     "pages.events.month.yearLink": {
       "fr": "Tous les skins sortis en {year}",
@@ -30633,8 +30809,8 @@
       "text": "Ang events calendar ng Mobile Legends: Bang Bang, mula {start} hanggang {end} ({n} buwan): StarLight skin, mga Collector skin, draw at shop. Huling kilalang StarLight: {latest}."
     },
     "pages.seo.events.title": {
-      "fr": "Événements MLBB : StarLight, Collector et skins de chaque mois",
-      "text": "MLBB Events: StarLight, Collector at mga Skin Buwan-buwan"
+      "fr": "Événements MLBB : StarLight, Collector et skins du mois",
+      "text": "MLBB Events: StarLight, Collector at Skin ng Buwan"
     },
     "pages.seo.freeRotation.description": {
       "fr": "Les {n} héros gratuits de Mobile Legends pour la semaine du {date} : {heroes}… Rôles, liens vers leurs builds et leurs contres.",
@@ -30669,11 +30845,11 @@
       "text": "{winRate} win rate, {tier} tier."
     },
     "pages.seo.hero.title": {
-      "fr": "{name} : build, emblème et counters (palier {tier}, patch {v})",
+      "fr": "{name} : build, emblème, counters (palier {tier}, patch {v})",
       "text": "{name} Build, Emblem at Counter ({tier} Tier, Patch {v})"
     },
     "pages.seo.hero.titleNoTier": {
-      "fr": "{name} : build, emblème et counters (patch {v})",
+      "fr": "{name} : build, emblème, counters (patch {v})",
       "text": "{name} Build, Emblem at Counter (Patch {v})"
     },
     "pages.seo.heroes.description": {
@@ -30689,8 +30865,8 @@
       "text": "Lahat ng {n} {plural} sa Mobile Legends: Bang Bang, pinakamalakas muna: tier, win rate at lane na nasukat noong {date} (patch {v}). Nangunguna: {top}."
     },
     "pages.seo.heroesRole.title": {
-      "fr": "Les {n} {plural} de MLBB : paliers, winrate et lanes (patch {v})",
-      "text": "Lahat ng {n} MLBB {plural}: Tier, Win Rate at Lane (Patch {v})"
+      "fr": "Les {n} {plural} MLBB : paliers et winrate (patch {v})",
+      "text": "Lahat ng {n} MLBB {plural}: Tier at Win Rate (Patch {v})"
     },
     "pages.seo.items.description": {
       "fr": "Les {n} objets de Mobile Legends: Bang Bang : statistiques, passifs, recettes et prix. Les plus présents dans les builds les plus joués en ce moment : {top} (patch {v}). Et les héros qui construisent chaque objet.",
@@ -30721,8 +30897,8 @@
       "text": "Interactive na schematic map ng Land of Dawn: mga base, lane, turret, jungle camp, Turtle at Lord, kasama ang timing, reward at rotation ayon sa role. Mga value mula sa wiki, may source."
     },
     "pages.seo.map.title": {
-      "fr": "Carte de Mobile Legends : camps de la jungle, Tortue, Seigneur et rotations",
-      "text": "Mobile Legends map guide: jungle camp, Turtle, Lord at rotation"
+      "fr": "Carte MLBB : jungle, Tortue, Seigneur et rotations",
+      "text": "MLBB map: jungle, Turtle, Lord at rotation"
     },
     "pages.seo.matchups.description": {
       "fr": "Choisissez jusqu'à cinq héros de chaque côté et lisez, pour chaque duel, l'écart de taux de victoire mesuré par le jeu, rang par rang. {n} héros, aucune valeur inventée : les duels non mesurés restent vides.",
@@ -30777,8 +30953,8 @@
       "text": "Pinakabagong patch ng Mobile Legends: {version}. Mga hero na na-buff: {buffs}, na-nerf: {nerfs}, na-adjust: {others}. Buong notes ng {m} pinakabagong patch, {n} patch ang nakalista sa kabuuan."
     },
     "pages.seo.patchNotes.title": {
-      "fr": "Patch notes MLBB : mise à jour {v} et ajustements des héros",
-      "text": "MLBB Patch Notes: Pinakabagong Update {v} at Pagbabago sa Hero"
+      "fr": "Patch notes MLBB : mise à jour {v}, buffs et nerfs",
+      "text": "MLBB Patch Notes: Update {v}, Buff at Nerf"
     },
     "pages.seo.quiz.description": {
       "fr": "Un nouveau défi Mobile Legends: Bang Bang chaque jour : devinez le héros d'après une compétence, un détail de skin ou un extrait de son histoire, trouvez l'objet d'après ses stats et choisissez le meilleur taux de victoire. Indices à chaque erreur, séries et grille sans spoiler à partager. Gratuit, sans inscription.",
@@ -30837,8 +31013,8 @@
       "text": "Nangunguna ang {top} sa MLBB {lane} tier list na nasukat noong {date} (patch {v}), at si {first} ay may {winRate} win rate. {n} {lane} hero na niraranggo ayon sa win rate at ban rate."
     },
     "pages.seo.tierLane.title": {
-      "fr": "Meilleurs héros {lane} MLBB : tier list {lane} {month} (patch {v})",
-      "text": "Best {lane} Hero sa MLBB — {lane} Tier List {month} (Patch {v})"
+      "fr": "Meilleurs héros {lane} MLBB {month} (patch {v})",
+      "text": "Best {lane} Hero sa MLBB, {month} (Patch {v})"
     },
     "pages.seo.tierList.description": {
       "fr": "{top} dominent la tier list MLBB relevée le {date} (patch {v}) ; {first} affiche {winRate} de victoires. {n} héros classés selon leurs taux de victoire et de ban, avec une liste par rang.",
@@ -30849,12 +31025,12 @@
       "text": "Nangunguna ang {top} sa MLBB {rank} tier list na sinukat noong {date} (patch {v}), at may {winRate} win rate si {first}. {n} hero na niraranggo ayon sa win at ban rate sa mga game sa {rank}."
     },
     "pages.seo.tierList.title": {
-      "fr": "Tier list MLBB {month} : les meilleurs héros (patch {v})",
-      "text": "MLBB Tier List {month}: Pinakamalakas na Hero ayon sa Rank (Patch {v})"
+      "fr": "Tier list MLBB {month} : héros classés (patch {v})",
+      "text": "MLBB Tier List {month}: Ranking ng mga Hero (Patch {v})"
     },
     "pages.seo.tierList.titleRank": {
-      "fr": "Tier list MLBB {rank}, {month} (patch {v})",
-      "text": "MLBB {rank} Tier List {month} (Patch {v})"
+      "fr": "Tier list MLBB {rank} {month} (patch {v})",
+      "text": "MLBB Tier List {rank} {month} (Patch {v})"
     },
     "pages.seo.tierMaker.description": {
       "fr": "Classez tous les héros de Mobile Legends: Bang Bang dans vos propres paliers : glisser-déposer ou toucher pour placer, rangées à renommer et recolorer, filtres par rôle et par lane, départ possible depuis notre tier list calculée pour votre rang, puis lien à partager ou image PNG. Gratuit, sans inscription.",
@@ -30869,8 +31045,8 @@
       "text": "Nangunguna ang {top} sa tier list ng mga MLBB {plural} na nasukat noong {date} (patch {v}), at si {first} ay may {winRate} win rate. {n} {plural} na niraranggo ayon sa win rate at ban rate."
     },
     "pages.seo.tierRole.title": {
-      "fr": "Meilleurs {plural} MLBB : tier list {role}, {month} (patch {v})",
-      "text": "Best {plural} sa MLBB — {role} Tier List {month} (Patch {v})"
+      "fr": "Meilleurs {plural} MLBB {month} (patch {v})",
+      "text": "Best MLBB {plural}, {month} (Patch {v})"
     },
     "pages.seo.timer.description": {
       "fr": "Chrono gratuit pour Mobile Legends : Tortue à {turtle}, Seigneur, buffs violet et orange. Notez chaque mort et recevez une alerte {soon} puis {urgent} s avant chaque retour. Écran allumé, hors connexion, horaires tirés du wiki.",
@@ -31349,12 +31525,12 @@
       "text": "Win rate, ban rate at pick rate ng lahat ng {n} hero ng Mobile Legends sa mga {rank} match, kasama ang 7-araw na pagbabago at 30-araw na trend. Pinakamataas na win rate: {name} ({rate}). Na-update noong {date}."
     },
     "pages.statistics.metaTitle": {
-      "fr": "Statistiques MLBB : victoire, pick et ban des héros par rang (patch {v})",
-      "text": "MLBB Hero Stats: Win, Pick at Ban Rate ayon sa Rank (Patch {v})"
+      "fr": "Stats MLBB par rang : winrate, pick et ban (patch {v})",
+      "text": "MLBB Stats ayon sa Rank: Win, Pick at Ban (Patch {v})"
     },
     "pages.statistics.metaTitleRank": {
-      "fr": "Statistiques MLBB en {rank} : victoire, pick et ban (patch {v})",
-      "text": "MLBB {rank} Hero Stats: Win, Pick at Ban Rate (Patch {v})"
+      "fr": "Stats MLBB {rank} : winrate et bans (patch {v})",
+      "text": "MLBB {rank} Stats: Win Rate at Ban (Patch {v})"
     },
     "pages.statistics.movementsIntro": {
       "fr": "Évolution du taux de victoire sur sept jours dans ce rang, retenue quand elle atteint au moins {threshold} point.",
@@ -32429,12 +32605,12 @@
       "text": "Alamin pa"
     },
     "pages.versus.metaTitle": {
-      "fr": "{a} vs {b} : qui gagne ? Stats du duel par rang (patch {v})",
-      "text": "{a} vs {b}: Sino ang Panalo? Matchup Stats ayon sa Rank (Patch {v})"
+      "fr": "{a} vs {b} : qui gagne ? (patch {v})",
+      "text": "{a} vs {b}: Sino ang Panalo? (Patch {v})"
     },
     "pages.versus.metaTitleNoPatch": {
-      "fr": "{a} vs {b} : qui gagne ? Stats du duel par rang",
-      "text": "{a} vs {b}: Sino ang Panalo? Matchup Stats ayon sa Rank"
+      "fr": "{a} vs {b} : qui gagne le duel ?",
+      "text": "{a} vs {b}: Sino ang Panalo sa Duel?"
     },
     "pages.versus.noMeasure": {
       "fr": "Pas encore de duel mesuré entre {a} et {b}.",
@@ -33721,8 +33897,8 @@
       "text": "Isinulat ang analysis sa French at isinalin nang awtomatiko."
     },
     "pages.advanceServer.seo.titleHub": {
-      "fr": "Patch notes serveur Advance MLBB : toutes les versions (dernière {v})",
-      "text": "Patch notes ng Advance Server ng MLBB: lahat ng bersyon (pinakabago {v})"
+      "fr": "Serveur Advance MLBB : patch notes (dernière {v})",
+      "text": "MLBB Advance Server: patch notes (pinakabago {v})"
     },
     "pages.community.seo.categoryDescription": {
       "fr": "{description} Les discussions « {name} » du forum Mobile Legends de MLBBDex, ouvertes à tous les joueurs.",
@@ -34039,6 +34215,10 @@
     "pages.community.postingAsDiscord": {
       "fr": "Vous écrivez en tant que {name} (connexion Discord).",
       "text": "Sumusulat ka bilang {name} (login sa Discord)."
+    },
+    "pages.notFound.search": {
+      "fr": "Chercher un héros, un objet ou une page",
+      "text": "Maghanap ng hero, item o page"
     }
   },
   "th": {
@@ -36687,8 +36867,8 @@
       "text": "การเปลี่ยนแปลงที่ทดสอบบน Mobile Legends Advance Server ทีละเวอร์ชัน"
     },
     "pages.advanceServer.seo.title": {
-      "fr": "Patch notes serveur Advance MLBB {v} : buffs, nerfs et changements",
-      "text": "แพตช์โน้ต MLBB Advance Server {v}: บัฟ เนิร์ฟ และการเปลี่ยนแปลง"
+      "fr": "Serveur Advance MLBB {v} : buffs, nerfs et nouveautés",
+      "text": "MLBB Advance Server {v}: บัฟ เนิร์ฟ และของใหม่"
     },
     "pages.advanceServer.seo.titleGeneric": {
       "fr": "Patch notes serveur Advance MLBB : buffs, nerfs et changements",
@@ -40627,12 +40807,12 @@
       "text": "คู่หู"
     },
     "pages.duos.metaTitle": {
-      "fr": "Meilleurs duos avec {name} : les héros qui font gagner {name} (patch {v})",
-      "text": "คู่หูที่ดีที่สุดของ {name}: ฮีโร่ที่ชนะเมื่อเล่นกับ {name} (แพตช์ {v})"
+      "fr": "Meilleurs duos avec {name} sur MLBB (patch {v})",
+      "text": "คู่หูที่ดีที่สุดของ {name} ใน MLBB (แพตช์ {v})"
     },
     "pages.duos.metaTitleNoPatch": {
-      "fr": "Meilleurs duos avec {name} : les héros qui font gagner {name}",
-      "text": "คู่หูที่ดีที่สุดของ {name}: ฮีโร่ที่ชนะเมื่อเล่นกับ {name}"
+      "fr": "Meilleurs duos avec {name} sur MLBB",
+      "text": "คู่หูที่ดีที่สุดของ {name} ใน MLBB"
     },
     "pages.duos.noMeasure": {
       "fr": "Pas encore de duo mesuré pour {name}.",
@@ -41515,8 +41695,8 @@
       "text": "เดือนที่ประกาศแล้ว: สกินเหล่านี้อยู่ในรายการของวิกิชุมชนก่อนวางจำหน่ายในเกม วันที่และราคายังรอการยืนยัน"
     },
     "pages.events.month.title": {
-      "fr": "Starlight et événements MLBB {month} : skins, dates et prix",
-      "text": "Starlight และอีเวนต์ MLBB {month}: สกิน วันที่ และราคา"
+      "fr": "Starlight et événements MLBB {month} : skins et prix",
+      "text": "Starlight และอีเวนต์ MLBB {month}: สกินและราคา"
     },
     "pages.events.month.yearLink": {
       "fr": "Tous les skins sortis en {year}",
@@ -44707,8 +44887,8 @@
       "text": "ปฏิทินกิจกรรม Mobile Legends: Bang Bang ตั้งแต่ {start} ถึง {end} ({n} เดือน): สกิน StarLight สกิน Collector กิจกรรมสุ่ม และร้านค้า StarLight ล่าสุดที่ทราบ: {latest}"
     },
     "pages.seo.events.title": {
-      "fr": "Événements MLBB : StarLight, Collector et skins de chaque mois",
-      "text": "กิจกรรม MLBB: StarLight, Collector และสกินทุกเดือน"
+      "fr": "Événements MLBB : StarLight, Collector et skins du mois",
+      "text": "กิจกรรม MLBB: StarLight, Collector และสกินประจำเดือน"
     },
     "pages.seo.eventsMonth.metaDescription": {
       "fr": "Mobile Legends: Bang Bang en {month} : {summary}",
@@ -44743,11 +44923,11 @@
       "text": "Win Rate {winRate}, Tier {tier}"
     },
     "pages.seo.hero.title": {
-      "fr": "{name} : build, emblème et counters (palier {tier}, patch {v})",
+      "fr": "{name} : build, emblème, counters (palier {tier}, patch {v})",
       "text": "{name}: บิลด์ Emblem และเคาน์เตอร์ (Tier {tier}, แพตช์ {v})"
     },
     "pages.seo.hero.titleNoTier": {
-      "fr": "{name} : build, emblème et counters (patch {v})",
+      "fr": "{name} : build, emblème, counters (patch {v})",
       "text": "{name}: บิลด์ Emblem และเคาน์เตอร์ (แพตช์ {v})"
     },
     "pages.seo.heroes.description": {
@@ -44763,8 +44943,8 @@
       "text": "{plural} ทั้ง {n} ตัวใน Mobile Legends: Bang Bang เรียงจากแข็งแกร่งที่สุด: Tier, Win Rate และเลนที่วัดเมื่อ {date} (แพตช์ {v}) อันดับต้น: {top}"
     },
     "pages.seo.heroesRole.title": {
-      "fr": "Les {n} {plural} de MLBB : paliers, winrate et lanes (patch {v})",
-      "text": "{plural} MLBB ทั้ง {n} ตัว: Tier, Win Rate และเลน (แพตช์ {v})"
+      "fr": "Les {n} {plural} MLBB : paliers et winrate (patch {v})",
+      "text": "{plural} MLBB ทั้ง {n} ตัว: Tier และ Win Rate (แพตช์ {v})"
     },
     "pages.seo.items.description": {
       "fr": "Les {n} objets de Mobile Legends: Bang Bang : statistiques, passifs, recettes et prix. Les plus présents dans les builds les plus joués en ce moment : {top} (patch {v}). Et les héros qui construisent chaque objet.",
@@ -44795,8 +44975,8 @@
       "text": "แผนผังแบบอินเทอร์แอกทีฟของ Land of Dawn: ฐาน เลน ป้อม แคมป์ป่า เต่าและลอร์ด พร้อมเวลา รางวัล และการโรเตตตามบทบาท ค่าอ้างอิงจากวิกิพร้อมแหล่งที่มา"
     },
     "pages.seo.map.title": {
-      "fr": "Carte de Mobile Legends : camps de la jungle, Tortue, Seigneur et rotations",
-      "text": "คู่มือแผนที่ Mobile Legends: แคมป์ป่า เต่า ลอร์ด และการโรเตต"
+      "fr": "Carte MLBB : jungle, Tortue, Seigneur et rotations",
+      "text": "แผนที่ MLBB: ป่า เต่า ลอร์ด และการโรเตต"
     },
     "pages.seo.matchups.description": {
       "fr": "Choisissez jusqu'à cinq héros de chaque côté et lisez, pour chaque duel, l'écart de taux de victoire mesuré par le jeu, rang par rang. {n} héros, aucune valeur inventée : les duels non mesurés restent vides.",
@@ -44851,8 +45031,8 @@
       "text": "แพตช์ Mobile Legends ล่าสุด: {version} ฮีโร่ที่ได้บัฟ: {buffs} โดนเนิร์ฟ: {nerfs} ปรับสมดุล: {others} แพตช์โน้ตฉบับเต็มของ {m} แพตช์ล่าสุด และรวมทั้งหมด {n} แพตช์"
     },
     "pages.seo.patchNotes.title": {
-      "fr": "Patch notes MLBB : mise à jour {v} et ajustements des héros",
-      "text": "แพตช์โน้ต MLBB: อัปเดตล่าสุด {v} และการปรับฮีโร่"
+      "fr": "Patch notes MLBB : mise à jour {v}, buffs et nerfs",
+      "text": "แพตช์โน้ต MLBB: อัปเดต {v} บัฟและเนิร์ฟ"
     },
     "pages.seo.quiz.description": {
       "fr": "Un nouveau défi Mobile Legends: Bang Bang chaque jour : devinez le héros d'après une compétence, un détail de skin ou un extrait de son histoire, trouvez l'objet d'après ses stats et choisissez le meilleur taux de victoire. Indices à chaque erreur, séries et grille sans spoiler à partager. Gratuit, sans inscription.",
@@ -44907,8 +45087,8 @@
       "text": "{top} นำ Tier List {lane} ของ MLBB ที่วัดเมื่อ {date} (แพตช์ {v}) โดย {first} มี Win Rate {winRate} จัดอันดับฮีโร่ {lane} {n} ตัวตาม Win Rate และ Ban Rate"
     },
     "pages.seo.tierLane.title": {
-      "fr": "Meilleurs héros {lane} MLBB : tier list {lane} {month} (patch {v})",
-      "text": "ฮีโร่ {lane} ที่ดีที่สุดใน MLBB: Tier List {lane} {month} (แพตช์ {v})"
+      "fr": "Meilleurs héros {lane} MLBB {month} (patch {v})",
+      "text": "ฮีโร่ {lane} ที่ดีที่สุดใน MLBB {month} (แพตช์ {v})"
     },
     "pages.seo.tierList.description": {
       "fr": "{top} dominent la tier list MLBB relevée le {date} (patch {v}) ; {first} affiche {winRate} de victoires. {n} héros classés selon leurs taux de victoire et de ban, avec une liste par rang.",
@@ -44919,11 +45099,11 @@
       "text": "{top} นำ Tier List MLBB {rank} ที่วัดเมื่อ {date} (แพตช์ {v}) โดย {first} มี Win Rate {winRate} ฮีโร่ {n} ตัวจัดอันดับตาม Win Rate และ Ban Rate ในเกมแรงก์ {rank}"
     },
     "pages.seo.tierList.title": {
-      "fr": "Tier list MLBB {month} : les meilleurs héros (patch {v})",
-      "text": "Tier List MLBB {month}: ฮีโร่ที่ดีที่สุดตามแรงก์ (แพตช์ {v})"
+      "fr": "Tier list MLBB {month} : héros classés (patch {v})",
+      "text": "Tier List MLBB {month}: จัดอันดับฮีโร่ (แพตช์ {v})"
     },
     "pages.seo.tierList.titleRank": {
-      "fr": "Tier list MLBB {rank}, {month} (patch {v})",
+      "fr": "Tier list MLBB {rank} {month} (patch {v})",
       "text": "Tier List MLBB {rank} {month} (แพตช์ {v})"
     },
     "pages.seo.tierMaker.description": {
@@ -44939,8 +45119,8 @@
       "text": "{top} นำ Tier List {plural} ของ MLBB ที่วัดเมื่อ {date} (แพตช์ {v}) โดย {first} มี Win Rate {winRate} จัดอันดับ {plural} {n} ตัวตาม Win Rate และ Ban Rate"
     },
     "pages.seo.tierRole.title": {
-      "fr": "Meilleurs {plural} MLBB : tier list {role}, {month} (patch {v})",
-      "text": "{plural} ที่ดีที่สุดใน MLBB: Tier List {role} {month} (แพตช์ {v})"
+      "fr": "Meilleurs {plural} MLBB {month} (patch {v})",
+      "text": "{plural} ที่ดีที่สุดใน MLBB {month} (แพตช์ {v})"
     },
     "pages.seo.timer.description": {
       "fr": "Chrono gratuit pour Mobile Legends : Tortue à {turtle}, Seigneur, buffs violet et orange. Notez chaque mort et recevez une alerte {soon} puis {urgent} s avant chaque retour. Écran allumé, hors connexion, horaires tirés du wiki.",
@@ -45371,12 +45551,12 @@
       "text": "Win Rate, Ban Rate และ Pick Rate ของฮีโร่ Mobile Legends ทั้ง {n} ตัวในเกม {rank} พร้อมการเปลี่ยนแปลง 7 วันและแนวโน้ม 30 วัน Win Rate สูงสุด: {name} ({rate}) อัปเดตเมื่อ {date}"
     },
     "pages.statistics.metaTitle": {
-      "fr": "Statistiques MLBB : victoire, pick et ban des héros par rang (patch {v})",
-      "text": "สถิติฮีโร่ MLBB: Win Rate, Pick Rate และ Ban Rate ตามแรงก์ (แพตช์ {v})"
+      "fr": "Stats MLBB par rang : winrate, pick et ban (patch {v})",
+      "text": "สถิติ MLBB ตามแรงก์: Win Rate, Pick และ Ban (แพตช์ {v})"
     },
     "pages.statistics.metaTitleRank": {
-      "fr": "Statistiques MLBB en {rank} : victoire, pick et ban (patch {v})",
-      "text": "สถิติฮีโร่ MLBB {rank}: Win Rate, Pick Rate และ Ban Rate (แพตช์ {v})"
+      "fr": "Stats MLBB {rank} : winrate et bans (patch {v})",
+      "text": "สถิติ MLBB {rank}: Win Rate และ Ban (แพตช์ {v})"
     },
     "pages.statistics.movementsIntro": {
       "fr": "Évolution du taux de victoire sur sept jours dans ce rang, retenue quand elle atteint au moins {threshold} point.",
@@ -46359,12 +46539,12 @@
       "text": "ดูเพิ่มเติม"
     },
     "pages.versus.metaTitle": {
-      "fr": "{a} vs {b} : qui gagne ? Stats du duel par rang (patch {v})",
-      "text": "{a} vs {b}: ใครชนะ? สถิติการปะทะตามแรงก์ (แพตช์ {v})"
+      "fr": "{a} vs {b} : qui gagne ? (patch {v})",
+      "text": "{a} vs {b}: ใครชนะ? (แพตช์ {v})"
     },
     "pages.versus.metaTitleNoPatch": {
-      "fr": "{a} vs {b} : qui gagne ? Stats du duel par rang",
-      "text": "{a} vs {b}: ใครชนะ? สถิติการปะทะตามแรงก์"
+      "fr": "{a} vs {b} : qui gagne le duel ?",
+      "text": "{a} vs {b}: ใครชนะการดวล?"
     },
     "pages.versus.noMeasure": {
       "fr": "Pas encore de duel mesuré entre {a} et {b}.",
@@ -47539,8 +47719,8 @@
       "text": "บทวิเคราะห์เขียนเป็นภาษาฝรั่งเศสและแปลด้วยเครื่อง"
     },
     "pages.advanceServer.seo.titleHub": {
-      "fr": "Patch notes serveur Advance MLBB : toutes les versions (dernière {v})",
-      "text": "แพตช์โน้ต Advance Server MLBB: ทุกเวอร์ชัน (ล่าสุด {v})"
+      "fr": "Serveur Advance MLBB : patch notes (dernière {v})",
+      "text": "MLBB Advance Server: แพตช์โน้ต (ล่าสุด {v})"
     },
     "pages.community.seo.categoryDescription": {
       "fr": "{description} Les discussions « {name} » du forum Mobile Legends de MLBBDex, ouvertes à tous les joueurs.",
@@ -47853,6 +48033,10 @@
     "pages.botPrivacy.tempVoice": {
       "fr": "Salons vocaux temporaires : le serveur enregistre ses salons d'entrée avec leur limite de membres et leur modèle de nom. Pour chaque salon vocal que le bot crée, il conserve l'identifiant du salon, du salon d'entrée et du membre pour qui il l'a créé, jusqu'à ce que le salon soit supprimé, ce qui arrive dès qu'il est vide. Pour savoir qui est dans quel salon vocal, le bot reçoit les états vocaux de Discord (intent « Guild Voice States »), les garde en mémoire et n'en enregistre aucun.",
       "text": "ช่องเสียงชั่วคราว: เซิร์ฟเวอร์บันทึกช่องทางเข้าพร้อมจำนวนจำกัดผู้ใช้และรูปแบบชื่อ สำหรับช่องเสียงแต่ละช่องที่บอทสร้าง บอทจะเก็บไอดีของช่อง ไอดีของช่องทางเข้า และไอดีของสมาชิกที่ช่องนั้นสร้างให้ ไว้จนกว่าช่องจะถูกลบ ซึ่งเกิดขึ้นทันทีที่ไม่มีใครอยู่ เพื่อให้รู้ว่าใครอยู่ในช่องเสียงไหน บอทจะรับสถานะเสียงจาก Discord (intent \"Guild Voice States\") เก็บไว้ในหน่วยความจำ และไม่บันทึกไว้เลย"
+    },
+    "pages.notFound.search": {
+      "fr": "Chercher un héros, un objet ou une page",
+      "text": "ค้นหาฮีโร่ ไอเทม หรือหน้า"
     }
   },
   "pt": {
@@ -50033,8 +50217,8 @@
       "text": "As mudanças testadas no Advance Server de Mobile Legends, versão por versão."
     },
     "pages.advanceServer.seo.title": {
-      "fr": "Patch notes serveur Advance MLBB {v} : buffs, nerfs et changements",
-      "text": "Patch notes do Advance Server de MLBB {v}: buffs, nerfs e mudanças"
+      "fr": "Serveur Advance MLBB {v} : buffs, nerfs et nouveautés",
+      "text": "Advance Server de MLBB {v}: buffs, nerfs e novidades"
     },
     "pages.advanceServer.seo.titleGeneric": {
       "fr": "Patch notes serveur Advance MLBB : buffs, nerfs et changements",
@@ -53361,12 +53545,12 @@
       "text": "Duplas"
     },
     "pages.duos.metaTitle": {
-      "fr": "Meilleurs duos avec {name} : les héros qui font gagner {name} (patch {v})",
-      "text": "Melhores duplas com {name}: os heróis que fazem {name} vencer (patch {v})"
+      "fr": "Meilleurs duos avec {name} sur MLBB (patch {v})",
+      "text": "Melhores duplas com {name} em MLBB (patch {v})"
     },
     "pages.duos.metaTitleNoPatch": {
-      "fr": "Meilleurs duos avec {name} : les héros qui font gagner {name}",
-      "text": "Melhores duplas com {name}: os heróis que fazem {name} vencer"
+      "fr": "Meilleurs duos avec {name} sur MLBB",
+      "text": "Melhores duplas com {name} em MLBB"
     },
     "pages.duos.noMeasure": {
       "fr": "Pas encore de duo mesuré pour {name}.",
@@ -54125,8 +54309,8 @@
       "text": "Mês anterior e seguinte"
     },
     "pages.events.month.title": {
-      "fr": "Starlight et événements MLBB {month} : skins, dates et prix",
-      "text": "Starlight e eventos de MLBB em {month}: skins, datas e preços"
+      "fr": "Starlight et événements MLBB {month} : skins et prix",
+      "text": "Starlight e eventos de MLBB em {month}: skins e preços"
     },
     "pages.events.monthDetails": {
       "fr": "Voir le détail de {month}",
@@ -56737,8 +56921,8 @@
       "text": "O calendário de eventos de Mobile Legends: Bang Bang, de {start} a {end} ({n} meses): skin StarLight, skins Collector, sorteios e loja. Última StarLight conhecida: {latest}."
     },
     "pages.seo.events.title": {
-      "fr": "Événements MLBB : StarLight, Collector et skins de chaque mois",
-      "text": "Eventos de MLBB: StarLight, Collector e skins de cada mês"
+      "fr": "Événements MLBB : StarLight, Collector et skins du mois",
+      "text": "Eventos de MLBB: StarLight, Collector e skins do mês"
     },
     "pages.seo.freeRotation.description": {
       "fr": "Les {n} héros gratuits de Mobile Legends pour la semaine du {date} : {heroes}… Rôles, liens vers leurs builds et leurs contres.",
@@ -56773,8 +56957,8 @@
       "text": "{winRate} de vitórias, tier {tier}."
     },
     "pages.seo.hero.title": {
-      "fr": "{name} : build, emblème et counters (palier {tier}, patch {v})",
-      "text": "{name}: build, emblema e counters (tier {tier}, patch {v})"
+      "fr": "{name} : build, emblème, counters (palier {tier}, patch {v})",
+      "text": "{name}: build, emblema, counters (tier {tier}, patch {v})"
     },
     "pages.seo.heroes.description": {
       "fr": "Les {n} héros de Mobile Legends: Bang Bang avec rôle, lane, palier et taux de victoire (patch {v}, données du {date}). Les plus forts du moment : {top}. Et {skins} skins, {analyses} analyses rédigées.",
@@ -56789,8 +56973,8 @@
       "text": "Os {n} {plural} de Mobile Legends: Bang Bang, do mais forte ao mais fraco: tier, taxa de vitória e lanes medidos em {date} (patch {v}). Na liderança: {top}."
     },
     "pages.seo.heroesRole.title": {
-      "fr": "Les {n} {plural} de MLBB : paliers, winrate et lanes (patch {v})",
-      "text": "Os {n} {plural} de MLBB: tiers, taxa de vitória e lanes (patch {v})"
+      "fr": "Les {n} {plural} MLBB : paliers et winrate (patch {v})",
+      "text": "Os {n} {plural} de MLBB: tiers e winrate (patch {v})"
     },
     "pages.seo.items.description": {
       "fr": "Les {n} objets de Mobile Legends: Bang Bang : statistiques, passifs, recettes et prix. Les plus présents dans les builds les plus joués en ce moment : {top} (patch {v}). Et les héros qui construisent chaque objet.",
@@ -56821,8 +57005,8 @@
       "text": "Mapa esquemático e interativo da Land of Dawn: bases, lanes, torres, camps da jungle, Tartaruga e Lorde, com tempos, recompensas e rotações por função. Valores tirados da wiki, com fontes."
     },
     "pages.seo.map.title": {
-      "fr": "Carte de Mobile Legends : camps de la jungle, Tortue, Seigneur et rotations",
-      "text": "Mapa de Mobile Legends: camps da jungle, Tartaruga, Lorde e rotações"
+      "fr": "Carte MLBB : jungle, Tortue, Seigneur et rotations",
+      "text": "Mapa de MLBB: jungle, Tartaruga, Lorde e rotações"
     },
     "pages.seo.matchups.description": {
       "fr": "Choisissez jusqu'à cinq héros de chaque côté et lisez, pour chaque duel, l'écart de taux de victoire mesuré par le jeu, rang par rang. {n} héros, aucune valeur inventée : les duels non mesurés restent vides.",
@@ -56877,8 +57061,8 @@
       "text": "Último patch de Mobile Legends: {version}. Heróis fortalecidos: {buffs}, enfraquecidos: {nerfs}, ajustados: {others}. Notas completas dos {m} patches recentes, {n} patches listados no total."
     },
     "pages.seo.patchNotes.title": {
-      "fr": "Patch notes MLBB : mise à jour {v} et ajustements des héros",
-      "text": "Patch notes de MLBB: atualização {v} e ajustes de heróis"
+      "fr": "Patch notes MLBB : mise à jour {v}, buffs et nerfs",
+      "text": "Patch notes de MLBB: atualização {v}, buffs e nerfs"
     },
     "pages.seo.quiz.description": {
       "fr": "Un nouveau défi Mobile Legends: Bang Bang chaque jour : devinez le héros d'après une compétence, un détail de skin ou un extrait de son histoire, trouvez l'objet d'après ses stats et choisissez le meilleur taux de victoire. Indices à chaque erreur, séries et grille sans spoiler à partager. Gratuit, sans inscription.",
@@ -56937,8 +57121,8 @@
       "text": "{top} lideram a tier list {lane} de MLBB medida em {date} (patch {v}); {first} tem {winRate} de vitórias. {n} heróis jogáveis na {lane}, classificados pelas taxas de vitória e de ban."
     },
     "pages.seo.tierLane.title": {
-      "fr": "Meilleurs héros {lane} MLBB : tier list {lane} {month} (patch {v})",
-      "text": "Melhores heróis de {lane} em MLBB: tier list {lane} {month} (patch {v})"
+      "fr": "Meilleurs héros {lane} MLBB {month} (patch {v})",
+      "text": "Melhores heróis de {lane} em MLBB, {month} (patch {v})"
     },
     "pages.seo.tierList.description": {
       "fr": "{top} dominent la tier list MLBB relevée le {date} (patch {v}) ; {first} affiche {winRate} de victoires. {n} héros classés selon leurs taux de victoire et de ban, avec une liste par rang.",
@@ -56949,8 +57133,8 @@
       "text": "{top} lideram a tier list MLBB {rank} medida em {date} (patch {v}), e {first} tem {winRate} de taxa de vitória. {n} heróis ranqueados pelas taxas de vitória e de ban em partidas de {rank}."
     },
     "pages.seo.tierList.title": {
-      "fr": "Tier list MLBB {month} : les meilleurs héros (patch {v})",
-      "text": "Tier list MLBB {month}: melhores heróis por elo (patch {v})"
+      "fr": "Tier list MLBB {month} : héros classés (patch {v})",
+      "text": "Tier list MLBB {month}: heróis classificados (patch {v})"
     },
     "pages.seo.tierMaker.description": {
       "fr": "Classez tous les héros de Mobile Legends: Bang Bang dans vos propres paliers : glisser-déposer ou toucher pour placer, rangées à renommer et recolorer, filtres par rôle et par lane, départ possible depuis notre tier list calculée pour votre rang, puis lien à partager ou image PNG. Gratuit, sans inscription.",
@@ -56965,8 +57149,8 @@
       "text": "{top} lideram a tier list de {plural} de MLBB medida em {date} (patch {v}); {first} tem {winRate} de vitórias. {n} {plural} classificados pelas taxas de vitória e de ban."
     },
     "pages.seo.tierRole.title": {
-      "fr": "Meilleurs {plural} MLBB : tier list {role}, {month} (patch {v})",
-      "text": "Melhores {plural} de MLBB: tier list {role}, {month} (patch {v})"
+      "fr": "Meilleurs {plural} MLBB {month} (patch {v})",
+      "text": "Melhores {plural} de MLBB, {month} (patch {v})"
     },
     "pages.seo.timer.description": {
       "fr": "Chrono gratuit pour Mobile Legends : Tortue à {turtle}, Seigneur, buffs violet et orange. Notez chaque mort et recevez une alerte {soon} puis {urgent} s avant chaque retour. Écran allumé, hors connexion, horaires tirés du wiki.",
@@ -57321,12 +57505,12 @@
       "text": "Taxas de vitória, de ban e de pick dos {n} heróis de Mobile Legends nas partidas do elo {rank}, com a variação em 7 dias e a curva de 30 dias. Maior taxa de vitória: {name} ({rate}). Atualizado em {date}."
     },
     "pages.statistics.metaTitle": {
-      "fr": "Statistiques MLBB : victoire, pick et ban des héros par rang (patch {v})",
-      "text": "Estatísticas de MLBB: vitória, pick e ban dos heróis por elo (patch {v})"
+      "fr": "Stats MLBB par rang : winrate, pick et ban (patch {v})",
+      "text": "Estatísticas de MLBB por elo: winrate, pick e ban (patch {v})"
     },
     "pages.statistics.metaTitleRank": {
-      "fr": "Statistiques MLBB en {rank} : victoire, pick et ban (patch {v})",
-      "text": "Estatísticas de MLBB no {rank}: vitória, pick e ban (patch {v})"
+      "fr": "Stats MLBB {rank} : winrate et bans (patch {v})",
+      "text": "Estatísticas de MLBB {rank}: winrate e bans (patch {v})"
     },
     "pages.statistics.movementsIntro": {
       "fr": "Évolution du taux de victoire sur sept jours dans ce rang, retenue quand elle atteint au moins {threshold} point.",
@@ -58181,12 +58365,12 @@
       "text": "Para saber mais"
     },
     "pages.versus.metaTitle": {
-      "fr": "{a} vs {b} : qui gagne ? Stats du duel par rang (patch {v})",
-      "text": "{a} vs {b}: quem vence? Estatísticas do confronto por elo (patch {v})"
+      "fr": "{a} vs {b} : qui gagne ? (patch {v})",
+      "text": "{a} vs {b}: quem vence? (patch {v})"
     },
     "pages.versus.metaTitleNoPatch": {
-      "fr": "{a} vs {b} : qui gagne ? Stats du duel par rang",
-      "text": "{a} vs {b}: quem vence? Estatísticas do confronto por elo"
+      "fr": "{a} vs {b} : qui gagne le duel ?",
+      "text": "{a} vs {b}: quem vence o duelo?"
     },
     "pages.versus.noMeasure": {
       "fr": "Pas encore de duel mesuré entre {a} et {b}.",
@@ -59265,8 +59449,8 @@
       "text": "Análise escrita em francês e traduzida automaticamente."
     },
     "pages.advanceServer.seo.titleHub": {
-      "fr": "Patch notes serveur Advance MLBB : toutes les versions (dernière {v})",
-      "text": "Patch notes do Advance Server de MLBB: todas as versões (última {v})"
+      "fr": "Serveur Advance MLBB : patch notes (dernière {v})",
+      "text": "Advance Server de MLBB: patch notes (última {v})"
     },
     "pages.community.seo.categoryDescription": {
       "fr": "{description} Les discussions « {name} » du forum Mobile Legends de MLBBDex, ouvertes à tous les joueurs.",
@@ -59587,6 +59771,10 @@
     "pages.community.postingAsDiscord": {
       "fr": "Vous écrivez en tant que {name} (connexion Discord).",
       "text": "Você está escrevendo como {name} (login com Discord)."
+    },
+    "pages.notFound.search": {
+      "fr": "Chercher un héros, un objet ou une page",
+      "text": "Procurar um herói, um item ou uma página"
     }
   },
   "ru": {
@@ -62079,8 +62267,8 @@
       "text": "Изменения, которые тестируются на Advance Server Mobile Legends, версия за версией."
     },
     "pages.advanceServer.seo.title": {
-      "fr": "Patch notes serveur Advance MLBB {v} : buffs, nerfs et changements",
-      "text": "Патч-ноуты Advance Server MLBB {v}: баффы, нерфы и изменения"
+      "fr": "Serveur Advance MLBB {v} : buffs, nerfs et nouveautés",
+      "text": "Advance Server MLBB {v}: баффы, нерфы и новинки"
     },
     "pages.advanceServer.seo.titleGeneric": {
       "fr": "Patch notes serveur Advance MLBB : buffs, nerfs et changements",
@@ -65811,12 +65999,12 @@
       "text": "Контрпики {name}"
     },
     "pages.duos.metaTitle": {
-      "fr": "Meilleurs duos avec {name} : les héros qui font gagner {name} (patch {v})",
-      "text": "Лучшие дуэты с {name}: герои, которые побеждают вместе с {name} (патч {v})"
+      "fr": "Meilleurs duos avec {name} sur MLBB (patch {v})",
+      "text": "Лучшие дуэты с {name} в MLBB (патч {v})"
     },
     "pages.duos.metaTitleNoPatch": {
-      "fr": "Meilleurs duos avec {name} : les héros qui font gagner {name}",
-      "text": "Лучшие дуэты с {name}: герои, которые побеждают вместе с {name}"
+      "fr": "Meilleurs duos avec {name} sur MLBB",
+      "text": "Лучшие дуэты с {name} в MLBB"
     },
     "pages.duos.noMeasure": {
       "fr": "Pas encore de duo mesuré pour {name}.",
@@ -66567,8 +66755,8 @@
       "text": "Анонсированный месяц: эти скины есть в списке вики сообщества до выхода в игре. Даты и цены ещё не подтверждены."
     },
     "pages.events.month.title": {
-      "fr": "Starlight et événements MLBB {month} : skins, dates et prix",
-      "text": "Starlight и события MLBB, {month}: скины, даты и цены"
+      "fr": "Starlight et événements MLBB {month} : skins et prix",
+      "text": "Starlight и события MLBB, {month}: скины и цены"
     },
     "pages.events.month.yearLink": {
       "fr": "Tous les skins sortis en {year}",
@@ -69571,8 +69759,8 @@
       "text": "Календарь событий Mobile Legends: Bang Bang с {start} по {end} (месяцев: {n}): скин StarLight, скины Collector, розыгрыши и магазин. Последний известный StarLight: {latest}."
     },
     "pages.seo.events.title": {
-      "fr": "Événements MLBB : StarLight, Collector et skins de chaque mois",
-      "text": "События MLBB: StarLight, Collector и скины каждый месяц"
+      "fr": "Événements MLBB : StarLight, Collector et skins du mois",
+      "text": "События MLBB: StarLight, Collector и скины месяца"
     },
     "pages.seo.freeRotation.description": {
       "fr": "Les {n} héros gratuits de Mobile Legends pour la semaine du {date} : {heroes}… Rôles, liens vers leurs builds et leurs contres.",
@@ -69603,12 +69791,12 @@
       "text": "Процент побед: {winRate}, тир {tier}."
     },
     "pages.seo.hero.title": {
-      "fr": "{name} : build, emblème et counters (palier {tier}, patch {v})",
-      "text": "{name}: билд, эмблема и контрпики (тир {tier}, патч {v})"
+      "fr": "{name} : build, emblème, counters (palier {tier}, patch {v})",
+      "text": "{name}: билд, эмблема, контрпики (тир {tier}, патч {v})"
     },
     "pages.seo.hero.titleNoTier": {
-      "fr": "{name} : build, emblème et counters (patch {v})",
-      "text": "{name}: билд, эмблема и контрпики (патч {v})"
+      "fr": "{name} : build, emblème, counters (patch {v})",
+      "text": "{name}: билд, эмблема, контрпики (патч {v})"
     },
     "pages.seo.heroes.description": {
       "fr": "Les {n} héros de Mobile Legends: Bang Bang avec rôle, lane, palier et taux de victoire (patch {v}, données du {date}). Les plus forts du moment : {top}. Et {skins} skins, {analyses} analyses rédigées.",
@@ -69623,8 +69811,8 @@
       "text": "Все {plural} в Mobile Legends: Bang Bang ({n}), от сильнейших: тир, процент побед и линии по данным от {date} (патч {v}). Лидируют: {top}."
     },
     "pages.seo.heroesRole.title": {
-      "fr": "Les {n} {plural} de MLBB : paliers, winrate et lanes (patch {v})",
-      "text": "Все {plural} MLBB ({n}): тиры, процент побед и линии (патч {v})"
+      "fr": "Les {n} {plural} MLBB : paliers et winrate (patch {v})",
+      "text": "Все {plural} MLBB ({n}): тиры и винрейт (патч {v})"
     },
     "pages.seo.items.description": {
       "fr": "Les {n} objets de Mobile Legends: Bang Bang : statistiques, passifs, recettes et prix. Les plus présents dans les builds les plus joués en ce moment : {top} (patch {v}). Et les héros qui construisent chaque objet.",
@@ -69655,8 +69843,8 @@
       "text": "Интерактивная схема Land of Dawn: базы, линии, башни, лесные лагеря, Черепаха и Лорд, с таймингами, наградами и ротациями по ролям. Значения из вики, с источниками."
     },
     "pages.seo.map.title": {
-      "fr": "Carte de Mobile Legends : camps de la jungle, Tortue, Seigneur et rotations",
-      "text": "Гайд по карте Mobile Legends: лесные лагеря, Черепаха, Лорд и ротации"
+      "fr": "Carte MLBB : jungle, Tortue, Seigneur et rotations",
+      "text": "Карта MLBB: лес, Черепаха, Лорд и ротации"
     },
     "pages.seo.matchups.description": {
       "fr": "Choisissez jusqu'à cinq héros de chaque côté et lisez, pour chaque duel, l'écart de taux de victoire mesuré par le jeu, rang par rang. {n} héros, aucune valeur inventée : les duels non mesurés restent vides.",
@@ -69711,8 +69899,8 @@
       "text": "Последний патч Mobile Legends: {version}. Баффы героев: {buffs}, нерфы: {nerfs}, корректировки: {others}. Полные патч-ноуты последних патчей ({m}), всего патчей в списке: {n}."
     },
     "pages.seo.patchNotes.title": {
-      "fr": "Patch notes MLBB : mise à jour {v} et ajustements des héros",
-      "text": "Патч-ноуты MLBB: последнее обновление {v} и изменения героев"
+      "fr": "Patch notes MLBB : mise à jour {v}, buffs et nerfs",
+      "text": "Патч-ноуты MLBB: обновление {v}, баффы и нерфы"
     },
     "pages.seo.quiz.description": {
       "fr": "Un nouveau défi Mobile Legends: Bang Bang chaque jour : devinez le héros d'après une compétence, un détail de skin ou un extrait de son histoire, trouvez l'objet d'après ses stats et choisissez le meilleur taux de victoire. Indices à chaque erreur, séries et grille sans spoiler à partager. Gratuit, sans inscription.",
@@ -69767,8 +69955,8 @@
       "text": "{top} возглавляют тир-лист MLBB для {lane} по данным от {date} (патч {v}); у {first} процент побед {winRate}. Героев {lane} в рейтинге по проценту побед и банов: {n}."
     },
     "pages.seo.tierLane.title": {
-      "fr": "Meilleurs héros {lane} MLBB : tier list {lane} {month} (patch {v})",
-      "text": "Лучшие герои {lane} в MLBB — тир-лист {lane}, {month} (патч {v})"
+      "fr": "Meilleurs héros {lane} MLBB {month} (patch {v})",
+      "text": "Лучшие герои {lane} в MLBB, {month} (патч {v})"
     },
     "pages.seo.tierList.description": {
       "fr": "{top} dominent la tier list MLBB relevée le {date} (patch {v}) ; {first} affiche {winRate} de victoires. {n} héros classés selon leurs taux de victoire et de ban, avec une liste par rang.",
@@ -69779,8 +69967,8 @@
       "text": "{top} — лидеры тир-листа MLBB на ранге {rank} на {date} (патч {v}); у {first} процент побед {winRate}. Героев в рейтинге: {n}, ранжированы по проценту побед и банов в матчах на ранге {rank}."
     },
     "pages.seo.tierList.title": {
-      "fr": "Tier list MLBB {month} : les meilleurs héros (patch {v})",
-      "text": "Тир-лист MLBB, {month}: лучшие герои по рангам (патч {v})"
+      "fr": "Tier list MLBB {month} : héros classés (patch {v})",
+      "text": "Тир-лист MLBB, {month}: рейтинг героев (патч {v})"
     },
     "pages.seo.tierMaker.description": {
       "fr": "Classez tous les héros de Mobile Legends: Bang Bang dans vos propres paliers : glisser-déposer ou toucher pour placer, rangées à renommer et recolorer, filtres par rôle et par lane, départ possible depuis notre tier list calculée pour votre rang, puis lien à partager ou image PNG. Gratuit, sans inscription.",
@@ -69795,8 +69983,8 @@
       "text": "{top} возглавляют тир-лист MLBB ({plural}) по данным от {date} (патч {v}); у {first} процент побед {winRate}. В рейтинге по проценту побед и банов: {n}."
     },
     "pages.seo.tierRole.title": {
-      "fr": "Meilleurs {plural} MLBB : tier list {role}, {month} (patch {v})",
-      "text": "Лучшие {plural} в MLBB — тир-лист: {role}, {month} (патч {v})"
+      "fr": "Meilleurs {plural} MLBB {month} (patch {v})",
+      "text": "Лучшие {plural} в MLBB, {month} (патч {v})"
     },
     "pages.seo.timer.description": {
       "fr": "Chrono gratuit pour Mobile Legends : Tortue à {turtle}, Seigneur, buffs violet et orange. Notez chaque mort et recevez une alerte {soon} puis {urgent} s avant chaque retour. Écran allumé, hors connexion, horaires tirés du wiki.",
@@ -70187,12 +70375,12 @@
       "text": "Процент побед, банов и пиков всех героев Mobile Legends ({n}) в матчах ранга {rank}, с изменением за 7 дней и динамикой за 30 дней. Лучший процент побед: {name} ({rate}). Обновлено {date}."
     },
     "pages.statistics.metaTitle": {
-      "fr": "Statistiques MLBB : victoire, pick et ban des héros par rang (patch {v})",
-      "text": "Статистика героев MLBB: процент побед, пиков и банов по рангам (патч {v})"
+      "fr": "Stats MLBB par rang : winrate, pick et ban (patch {v})",
+      "text": "Статистика MLBB по рангам: винрейт, пики и баны (патч {v})"
     },
     "pages.statistics.metaTitleRank": {
-      "fr": "Statistiques MLBB en {rank} : victoire, pick et ban (patch {v})",
-      "text": "Статистика героев MLBB, {rank}: процент побед, пиков и банов (патч {v})"
+      "fr": "Stats MLBB {rank} : winrate et bans (patch {v})",
+      "text": "Статистика MLBB, {rank}: винрейт и баны (патч {v})"
     },
     "pages.statistics.movementsIntro": {
       "fr": "Évolution du taux de victoire sur sept jours dans ce rang, retenue quand elle atteint au moins {threshold} point.",
@@ -71147,12 +71335,12 @@
       "text": "Дальше"
     },
     "pages.versus.metaTitle": {
-      "fr": "{a} vs {b} : qui gagne ? Stats du duel par rang (patch {v})",
-      "text": "{a} против {b}: кто сильнее? Статистика противостояния по рангам (патч {v})"
+      "fr": "{a} vs {b} : qui gagne ? (patch {v})",
+      "text": "{a} против {b}: кто сильнее? (патч {v})"
     },
     "pages.versus.metaTitleNoPatch": {
-      "fr": "{a} vs {b} : qui gagne ? Stats du duel par rang",
-      "text": "{a} против {b}: кто сильнее? Статистика противостояния по рангам"
+      "fr": "{a} vs {b} : qui gagne le duel ?",
+      "text": "{a} против {b}: кто выиграет дуэль?"
     },
     "pages.versus.noMeasure": {
       "fr": "Pas encore de duel mesuré entre {a} et {b}.",
@@ -72351,8 +72539,8 @@
       "text": "Разбор написан на французском и переведён автоматически."
     },
     "pages.advanceServer.seo.titleHub": {
-      "fr": "Patch notes serveur Advance MLBB : toutes les versions (dernière {v})",
-      "text": "Патч-ноуты Advance Server MLBB: все версии (последняя {v})"
+      "fr": "Serveur Advance MLBB : patch notes (dernière {v})",
+      "text": "Advance Server MLBB: патч-ноуты (последний {v})"
     },
     "pages.community.seo.categoryDescription": {
       "fr": "{description} Les discussions « {name} » du forum Mobile Legends de MLBBDex, ouvertes à tous les joueurs.",
@@ -72689,6 +72877,14 @@
     "pages.communityUI.link.button": {
       "fr": "Lier mon compte Discord",
       "text": "Привязать мой аккаунт Discord"
+    },
+    "pages.seo.tierList.titleRank": {
+      "fr": "Tier list MLBB {rank} {month} (patch {v})",
+      "text": "Тир-лист MLBB {rank}, {month} (патч {v})"
+    },
+    "pages.notFound.search": {
+      "fr": "Chercher un héros, un objet ou une page",
+      "text": "Найти героя, предмет или страницу"
     }
   }
 }

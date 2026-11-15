@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { normalize, valuesRadar } from "@/components/hero-radar";
 import type { CountersByRank } from "@/lib/data";
 import type { DuosByRank } from "@/lib/duos";
+import { MEASURED_RANKS } from "@/lib/measured-ranks";
 import {
   measuredOpponents,
   pathPair,
@@ -13,6 +14,7 @@ import {
   readPair,
   bestByPhase,
   pairsMeasured,
+  pairsSitemap,
   phaseOf,
   phasesDuel,
   phasesDuo,
@@ -53,6 +55,27 @@ describe("pair path", () => {
 describe("pairsMeasured", () => {
   it("keeps each pair once, in either direction, without unknown heroes", () => {
     expect(pairsMeasured(counters, exists)).toEqual(["aamon-vs-fanny", "aamon-vs-gusion", "aamon-vs-x-borg", "fanny-vs-x-borg"]);
+  });
+});
+
+describe("pairsSitemap", () => {
+  const everyRank = (list: [string, number][]) =>
+    Object.fromEntries(MEASURED_RANKS.map((r) => [r, rank(list)])) as CountersByRank;
+  const full: Record<string, CountersByRank> = {
+    aamon: everyRank([["fanny", 3], ["gusion", 1], ["lolita", 2]]),
+    fanny: everyRank([["gusion", 0.5]]),
+    // Measured in one rank only: never listed, however one-sided.
+    tigreal: { all: rank([["aamon", 9]]) },
+  };
+
+  it("keeps each hero's most one-sided opponents among the pairs measured at every rank", () => {
+    // fanny and aamon pick each other (listed once); gusion's best is aamon,
+    // so fanny-vs-gusion, only fanny's second, stays out.
+    expect(pairsSitemap(full, () => true, 1)).toEqual(["aamon-vs-fanny", "aamon-vs-gusion", "aamon-vs-lolita"]);
+  });
+
+  it("never lists a pair measured at a single rank", () => {
+    expect(pairsSitemap(full, () => true, 5)).not.toContain("aamon-vs-tigreal");
   });
 });
 

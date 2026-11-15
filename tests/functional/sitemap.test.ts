@@ -53,6 +53,13 @@ describe("sitemap split by page type", () => {
     expect(new Set(children.map((e) => e.url)).size).toBe(all.length);
   });
 
+  it("lists a selection of the compare pages, not every measured pair", () => {
+    // About 200 pairs (two per hero, `pairsSitemap`) times every language.
+    const compare = groups.get("compare")!;
+    expect(compare.length).toBeGreaterThanOrEqual(1_000);
+    expect(compare.length).toBeLessThanOrEqual(2_500);
+  });
+
   it("keeps every child under Google's URL cap", () => {
     for (const entries of groups.values()) expect(entries.length).toBeLessThanOrEqual(MAX_SITEMAP_URLS);
   });
