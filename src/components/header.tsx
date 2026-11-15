@@ -2,13 +2,11 @@ import Link from "@/components/link";
 import type { Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
 import { communityInvite } from "@/lib/bot/public";
-import { SECTIONS } from "@/lib/sections";
 import { site } from "@/lib/site";
 import { DiscordMark } from "./bot/discord-mark";
 import { AccountButton } from "./account-button";
 import { GlobalSearch } from "./global-search";
 import { LocalePicker } from "./locale-picker";
-import { NavPanel } from "./nav-panel";
 import { SiteNav } from "./site-nav";
 
 /**
@@ -17,8 +15,8 @@ import { SiteNav } from "./site-nav";
  *
  * No server-side session read: the sign-in state is loaded by
  * `AccountButton` after render, which keeps every content page generated
- * at build time. The section panels are rendered here, on the server; the
- * browser only runs the toggle of `SiteNav`.
+ * at build time. The sections and their panels come from `SiteNav`, which
+ * builds a panel in the browser when it opens.
  */
 export function Header({ locale }: { locale: Locale }) {
   const t = createT(locale);
@@ -43,12 +41,6 @@ export function Header({ locale }: { locale: Locale }) {
           label={t("nav.main")}
           openLabel={t("nav.open")}
           closeLabel={t("nav.close")}
-          items={SECTIONS.map((s) => ({
-            key: s.key,
-            label: t(`nav.groups.${s.key}`),
-            icon: <s.icon size={16} />,
-            panel: <NavPanel section={s} t={t} />,
-          }))}
           sheetFooter={
             discord && (
               <a
