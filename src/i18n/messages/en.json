@@ -3741,13 +3741,14 @@
       "cookieTitle": "Dashboard login",
       "cookie": "Logging in with Discord sets an encrypted session cookie (`mlbbdex_discord`, httpOnly, 7 days) holding your Discord id, name and avatar, and a temporary cookie (`mlbbdex_discord_oauth`, 10 minutes) during the login. Both are strictly necessary for the service you ask for.",
       "retentionTitle": "Retention",
-      "retention": "When the bot leaves a server, its data is deleted 30 days later, along with its players' results (if the bot comes back within that time, the settings are still there). Command statistics are deleted after 90 days.",
+      "retention": "When the bot leaves a server, its data is deleted 30 days later, along with its players' results (if the bot comes back within that time, the settings are restored). While the bot stays on the server, daily game results are kept with no time limit, for the leaderboards, unless you ask for their deletion. Votes for the bot are kept with no time limit, unless you ask for their deletion. Command statistics are deleted after 90 days.",
       "rightsTitle": "Your rights",
       "rights": "To see or delete the data tied to your Discord id or your server, write to [{contact}](mailto:{contact}). Removing the bot from the server starts the automatic deletion.",
       "sitePrivacy": "Site privacy",
       "autoRoles": "Auto-roles: if the server chose some, the bot gives those roles to whoever joins, with the Manage Roles permission the server's admins grant it; a member who still has to accept the server's rules is only remembered (their id, in memory, for 24 hours at most) until they do, and nothing is saved.",
       "roleMenus": "Role menus: for each menu, the server's choice of channel, title, text, roles with their labels and emojis, the id of the published message and the Discord id of the manager who set it up are stored. When a member uses one, the bot gives or removes the role and keeps nothing about them, apart from an in-memory counter, a few seconds long, that limits changes made too close together.",
-      "tempVoice": "Temporary voice channels: the server stores its join-to-create channels with their user limit and name template. For each voice channel the bot creates, it keeps the ids of the channel, of the join-to-create channel and of the member it was created for, until the channel is deleted, which happens as soon as it is empty. To know who is in which voice channel, the bot receives Discord's voice states (the \"Guild Voice States\" intent), keeps them in memory and stores none of them."
+      "tempVoice": "Temporary voice channels: the server stores its join-to-create channels with their user limit and name template. For each voice channel the bot creates, it keeps the ids of the channel, of the join-to-create channel and of the member it was created for, until the channel is deleted, which happens as soon as it is empty. To know who is in which voice channel, the bot receives Discord's voice states (the \"Guild Voice States\" intent), keeps them in memory and stores none of them.",
+      "pseudonymous": "On the site, the forum and the collection do not keep your Discord ID or your game ID in plain text, but a hash of it (SHA-256, unsalted). This is pseudonymous data, not anonymous: anyone who knows the ID can compute the hash again, so it remains personal data and is protected as such. The bot itself keeps Discord IDs in plain text (results, votes, role menus)."
     },
     "botTerms": {
       "title": "Discord bot terms of use",
@@ -5051,7 +5052,8 @@
       "posts": "your discussions and replies, which are public, with their date; your votes and reports, shown to no one but the moderators (the reports);",
       "card": "your teammate card and, if you add them, your game ID and Discord username: they are shown to signed-in players only, and the card is erased seven days after it was last saved.",
       "moderation": "Moderators see reports and can hide, delete or ban them; each of their decisions is recorded in a journal. Rate limits use your IP address, in memory only: it is never written to disk.",
-      "deletion": "You can edit a message for an hour and delete it for a day, withdraw your card at any time. A deleted message loses its text; a deleted discussion keeps its title, author and date. Beyond that, or to delete all your participation, write to {contact}."
+      "deletion": "You can edit a message for an hour and delete it for a day, withdraw your card at any time. A deleted message loses its text; a deleted discussion keeps its title, author and date. Beyond that, or to delete all your participation, write to {contact}.",
+      "pseudonymous": "These hashes (SHA-256, unsalted) are pseudonymous data, not anonymous: anyone who knows your game ID and server, or your Discord ID, can compute the hash again. They remain personal data, protected as such."
     },
     "collection": {
       "title": "Skin collection",
@@ -5132,7 +5134,7 @@
         "tierList": "Drafts from the tier list maker.",
         "timer": "Match in progress (for the tab's lifetime) and objective timer settings.",
         "retribution": "Best scores of the Retribution test.",
-        "cache": "To function offline, the site also keeps a copy of the pages, images and data viewed in your browser's cache (service worker): 250 pages and 800 images at most, on your device only."
+        "cache": "To work offline, the site also keeps a copy of the pages, images and data you viewed in your browser's cache (service worker): 250 pages and 800 images at most, on your device only. Signed-in pages (account, sign-in, bot dashboard and admin, and any page shown to a signed-in visitor) are never kept there, and signing out erases any that an earlier version of the site may have kept."
       },
       "audience": {
         "title": "Audience measurement",

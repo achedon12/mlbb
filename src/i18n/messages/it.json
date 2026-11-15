@@ -3741,13 +3741,14 @@
       "cookieTitle": "Accedi alla dashboard",
       "cookie": "L'accesso con Discord imposta un cookie di sessione crittografato (`mlbbdex_discord`, httpOnly, 7 giorni) che contiene il tuo ID Discord, nome e avatar e un cookie temporaneo (`mlbbdex_discord_oauth`, 10 minuti) durante l'accesso. Sono strettamente necessari per il servizio richiesto.",
       "retentionTitle": "Durata di conservazione",
-      "retention": "Quando il bot lascia un server, i suoi dati vengono cancellati 30 giorni dopo, insieme ai risultati dei suoi giocatori (un ritorno del bot entro questo periodo ripristinerà le impostazioni). Le statistiche degli ordini vengono cancellate dopo 90 giorni.",
+      "retention": "Quando il bot lascia un server, i suoi dati vengono cancellati 30 giorni dopo, insieme ai risultati dei suoi giocatori (un ritorno del bot entro questo periodo ripristinerà le impostazioni). Finché il bot rimane sul server, i risultati delle partite della giornata vengono conservati per la classifica a tempo indeterminato, a meno che non venga richiesta la cancellazione. I voti per il bot vengono conservati a tempo indeterminato, a meno che non venga richiesto di eliminarli. Le statistiche degli ordini vengono cancellate dopo 90 giorni.",
       "rightsTitle": "I tuoi diritti",
       "rights": "Per visualizzare o eliminare i dati relativi al tuo ID Discord o al server, scrivi a [{contact}](mailto:{contact}). La rimozione del bot dal server avvia l'eliminazione automatica.",
       "sitePrivacy": "Privacy del sito",
       "autoRoles": "Ruoli automatici: se il server ne ha scelti, il bot assegna questi ruoli a chi entra, con il permesso Gestire i ruoli che gli concedono gli amministratori del server; un membro che deve ancora accettare le regole del server viene solo ricordato (il suo ID, in memoria, per 24 ore al massimo) finché non le accetta, e nulla viene registrato.",
       "roleMenus": "Menu dei ruoli: per ogni menu vengono conservati il canale, il titolo, il testo, i ruoli con etichette ed emoji, l'identificativo del messaggio pubblicato e l'identificativo Discord del gestore che l'ha configurato. Quando un membro lo usa, il bot gli dà o toglie il ruolo e non conserva nulla su di lui, salvo un contatore in memoria di pochi secondi che limita i cambi troppo ravvicinati.",
-      "tempVoice": "Canali vocali temporanei: il server salva i suoi canali d'ingresso con il loro limite utenti e il modello di nome. Per ogni canale vocale che crea, il bot conserva l'identificativo del canale, del canale d'ingresso e del membro per cui l'ha creato, finché il canale non viene eliminato, cosa che avviene appena si svuota. Per sapere chi è in quale canale vocale, il bot riceve gli stati vocali di Discord (intent «Guild Voice States»), li tiene in memoria e non ne salva nessuno."
+      "tempVoice": "Canali vocali temporanei: il server salva i suoi canali d'ingresso con il loro limite utenti e il modello di nome. Per ogni canale vocale che crea, il bot conserva l'identificativo del canale, del canale d'ingresso e del membro per cui l'ha creato, finché il canale non viene eliminato, cosa che avviene appena si svuota. Per sapere chi è in quale canale vocale, il bot riceve gli stati vocali di Discord (intent «Guild Voice States»), li tiene in memoria e non ne salva nessuno.",
+      "pseudonymous": "Sul sito, nel forum e nella raccolta non viene conservato il tuo ID Discord o il tuo ID di gioco in chiaro, ma un'impronta digitale (SHA-256, senza sale). Si tratta di dati pseudonimi, non anonimi: chiunque conosca l'identificatore può ricalcolare l'impronta digitale, e restano quindi dati personali, protetti come tali. Il bot mantiene gli identificatori Discord in testo semplice (risultati, voti, menu dei ruoli)."
     },
     "botTerms": {
       "title": "Termini di servizio di Discord Bot",
@@ -5051,7 +5052,8 @@
       "posts": "le tue discussioni e risposte, pubbliche, con la loro data; i tuoi voti e le tue segnalazioni, mostrati solo ai moderatori (le segnalazioni);",
       "card": "la tua scheda per trovare compagni e, se li aggiungi, il tuo ID di gioco e il tuo nome utente Discord: sono mostrati solo ai giocatori che hanno effettuato l'accesso, e la scheda viene cancellata sette giorni dopo l'ultimo salvataggio.",
       "moderation": "I moderatori vedono i resoconti e possono nasconderli, eliminarli o vietarli; ciascuna delle loro decisioni viene registrata in un diario. I limiti di velocità utilizzano il tuo indirizzo IP, solo in memoria: non viene mai scritto su disco.",
-      "deletion": "Puoi modificare un messaggio per un'ora ed eliminarlo per un giorno, ritirare la tua carta in qualsiasi momento. Un messaggio eliminato perde il testo; una discussione eliminata mantiene il titolo, l'autore e la data. Oltre a ciò, o per cancellare tutta la tua partecipazione, scrivi a {contact}."
+      "deletion": "Puoi modificare un messaggio per un'ora ed eliminarlo per un giorno, ritirare la tua carta in qualsiasi momento. Un messaggio eliminato perde il testo; una discussione eliminata mantiene il titolo, l'autore e la data. Oltre a ciò, o per cancellare tutta la tua partecipazione, scrivi a {contact}.",
+      "pseudonymous": "Queste impronte digitali (SHA-256, senza sale) sono dati pseudonimi, non anonimi: chiunque conosca il tuo ID di gioco e server, o il tuo ID Discord, può ricalcolare l'impronta digitale. Restano dati personali, protetti come tali."
     },
     "collection": {
       "title": "Collezione di skin",
@@ -5132,7 +5134,7 @@
         "tierList": "Bozze dal creatore dell'elenco dei livelli.",
         "timer": "Impostazioni del gioco corrente (tempo della scheda) e del timer dell'obiettivo.",
         "retribution": "Migliori punteggi del Test di Retribution.",
-        "cache": "Per funzionare offline, il sito conserva anche una copia delle pagine, delle immagini e dei dati visualizzati nella cache del tuo browser (service work): 250 pagine e 800 immagini al massimo, solo sul tuo dispositivo."
+        "cache": "Per funzionare offline, il sito conserva anche una copia delle pagine, delle immagini e dei dati visualizzati nella cache del tuo browser (service work): 250 pagine e 800 immagini al massimo, solo sul tuo dispositivo. Le pagine collegate ad una connessione (account, login, amministrazione dashboard e bot, e qualsiasi pagina visualizzata per un visitatore loggato) non vengono mai conservate lì, e la disconnessione cancella quelle che una versione precedente del sito avrebbe potuto conservare."
       },
       "audience": {
         "title": "Misurazione del pubblico",

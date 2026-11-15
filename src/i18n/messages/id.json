@@ -3741,13 +3741,14 @@
       "cookieTitle": "Masuk ke dasbor",
       "cookie": "Masuk dengan Discord menyetel cookie sesi terenkripsi (`mlbbdex_discord`, httpOnly, 7 hari) yang berisi ID Discord, nama, dan avatar Anda, serta cookie sementara (`mlbbdex_discord_oauth`, 10 menit) saat masuk. Cookie tersebut sangat diperlukan untuk layanan yang diminta.",
       "retentionTitle": "Umur simpan",
-      "retention": "Ketika bot meninggalkan server, datanya akan dihapus 30 hari kemudian, bersama dengan hasil pemainnya (kembalinya bot dalam periode ini akan memulihkan pengaturan). Statistik pesanan dihapus setelah 90 hari.",
+      "retention": "Ketika bot meninggalkan server, datanya akan dihapus 30 hari kemudian, bersama dengan hasil pemainnya (kembalinya bot dalam periode ini akan memulihkan pengaturan). Selama bot tetap berada di server, hasil pertandingan hari itu disimpan tanpa batas waktu untuk pemeringkatan, kecuali jika diminta penghapusan. Suara untuk bot disimpan tanpa batas waktu, kecuali diminta untuk dihapus. Statistik pesanan dihapus setelah 90 hari.",
       "rightsTitle": "Hak Anda",
       "rights": "Untuk melihat atau menghapus data yang terkait dengan ID atau server Discord Anda, tulis ke [{contact}](mailto:{contact}). Menghapus bot dari server memulai penghapusan otomatis.",
       "sitePrivacy": "Privasi Situs",
       "autoRoles": "Peran otomatis: jika server memilihnya, bot memberikan peran tersebut kepada siapa pun yang bergabung, dengan izin Kelola Peran yang diberikan admin server; anggota yang masih harus menerima aturan server hanya diingat (ID-nya, di memori, paling lama 24 jam) sampai ia menerimanya, dan tidak ada yang disimpan.",
       "roleMenus": "Menu role: untuk setiap menu disimpan channel, judul, teks, role beserta label dan emoji-nya, ID pesan yang diterbitkan, dan ID Discord pengelola yang mengaturnya. Saat anggota memakainya, bot memberi atau melepas role dan tidak menyimpan apa pun tentang anggota itu, kecuali penghitung di memori selama beberapa detik untuk membatasi perubahan yang terlalu rapat.",
-      "tempVoice": "Channel suara sementara: server menyimpan channel hub-nya beserta batas pengguna dan templat namanya. Untuk setiap channel suara yang dibuat bot, bot menyimpan ID channel, ID channel hub, dan ID member yang dibuatkan channel itu, sampai channel dihapus, yaitu begitu channel kosong. Untuk mengetahui siapa berada di channel suara mana, bot menerima status suara dari Discord (intent \"Guild Voice States\"), menyimpannya di memori, dan tidak merekam satu pun."
+      "tempVoice": "Channel suara sementara: server menyimpan channel hub-nya beserta batas pengguna dan templat namanya. Untuk setiap channel suara yang dibuat bot, bot menyimpan ID channel, ID channel hub, dan ID member yang dibuatkan channel itu, sampai channel dihapus, yaitu begitu channel kosong. Untuk mengetahui siapa berada di channel suara mana, bot menerima status suara dari Discord (intent \"Guild Voice States\"), menyimpannya di memori, dan tidak merekam satu pun.",
+      "pseudonymous": "Di situs, forum dan koleksinya tidak menyimpan ID Discord atau ID game Anda dalam teks biasa, tetapi sidik jari (SHA-256, tanpa garam). Ini adalah data pseudonim, bukan anonim: siapa pun yang mengetahui pengenalnya dapat menghitung ulang sidik jarinya, dan oleh karena itu, data tersebut tetap merupakan data pribadi yang dilindungi. Bot menyimpan pengidentifikasi Discord dalam teks biasa (hasil, suara, menu peran)."
     },
     "botTerms": {
       "title": "Ketentuan Layanan Bot Perselisihan",
@@ -5051,7 +5052,8 @@
       "posts": "diskusi dan balasanmu, yang bersifat publik, beserta tanggalnya; vote dan laporanmu, yang hanya dilihat moderator (laporan);",
       "card": "kartu cari rekan timmu dan, jika kamu menambahkannya, ID game dan username Discord: hanya ditampilkan ke pemain yang masuk, dan kartu dihapus tujuh hari setelah terakhir disimpan.",
       "moderation": "Moderator melihat laporan dan dapat menyembunyikan, menghapus atau melarangnya; setiap keputusan mereka dicatat dalam jurnal. Batasan kecepatan menggunakan alamat IP Anda, hanya di memori: tidak pernah ditulis ke disk.",
-      "deletion": "Anda dapat mengedit pesan selama satu jam dan menghapusnya selama sehari, menarik kartu Anda kapan saja. Pesan yang dihapus kehilangan teksnya; diskusi yang dihapus tetap mempertahankan judul, penulis, dan tanggalnya. Selain itu, atau untuk menghapus semua partisipasi Anda, tulis ke {contact}."
+      "deletion": "Anda dapat mengedit pesan selama satu jam dan menghapusnya selama sehari, menarik kartu Anda kapan saja. Pesan yang dihapus kehilangan teksnya; diskusi yang dihapus tetap mempertahankan judul, penulis, dan tanggalnya. Selain itu, atau untuk menghapus semua partisipasi Anda, tulis ke {contact}.",
+      "pseudonymous": "Sidik jari ini (SHA-256, bebas garam) adalah data nama samaran, bukan anonim: siapa pun yang mengetahui ID game dan server Anda, atau ID Perselisihan Anda, dapat menghitung ulang sidik jari tersebut. Mereka tetap menjadi data pribadi, dilindungi sebagaimana mestinya."
     },
     "collection": {
       "title": "Koleksi skin",
@@ -5132,7 +5134,7 @@
         "tierList": "Draft dari pembuat tier list.",
         "timer": "Permainan saat ini (waktu tab) dan pengaturan pengatur waktu objektif.",
         "retribution": "Nilai tes Retribution tertinggi.",
-        "cache": "Agar berfungsi secara offline, situs ini juga menyimpan salinan halaman, gambar, dan data yang dilihat di cache browser Anda (pekerja layanan): paling banyak 250 halaman dan 800 gambar, hanya di perangkat Anda."
+        "cache": "Agar berfungsi secara offline, situs ini juga menyimpan salinan halaman, gambar, dan data yang dilihat di cache browser Anda (pekerja layanan): paling banyak 250 halaman dan 800 gambar, hanya di perangkat Anda. Halaman-halaman yang ditautkan ke koneksi (akun, login, dasbor dan administrasi bot, dan halaman apa pun yang ditampilkan untuk pengunjung yang login) tidak pernah disimpan di sana, dan pemutusan koneksi akan menghapus halaman-halaman yang dapat disimpan oleh versi situs sebelumnya."
       },
       "audience": {
         "title": "Pengukuran penonton",

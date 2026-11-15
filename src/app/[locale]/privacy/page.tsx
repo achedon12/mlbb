@@ -190,6 +190,7 @@ export default async function PrivacyPage({ params }: Params) {
           <li>{t("prose.community.posts")}</li>
           <li>{t("prose.community.card")}</li>
         </ul>
+        <p>{t("prose.community.pseudonymous")}</p>
         <p>{t("prose.community.moderation")}</p>
         <p>{t("prose.community.deletion", { contact: legal.contact })}</p>
         {/* Skin collection: in the browser, and on the account when signed in. */}

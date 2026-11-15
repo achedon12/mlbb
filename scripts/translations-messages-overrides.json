@@ -4659,6 +4659,22 @@
     "prose.privacy.blocks.4.ul.4": {
       "fr": "Mémorisation de vos préférences (langue, favoris, réglages des outils) : nécessaire au fonctionnement du site tel que vous l'utilisez, dans votre navigateur.",
       "text": "Remembering your preferences (language, favourites, tool settings): needed for the site to work the way you use it, in your browser."
+    },
+    "pages.botPrivacy.retention": {
+      "fr": "Quand le bot quitte un serveur, ses données sont supprimées 30 jours plus tard, avec les résultats de ses joueurs (un retour du bot dans ce délai retrouve les réglages). Tant que le bot reste sur le serveur, les résultats des jeux du jour sont conservés sans limite de durée, pour les classements, sauf demande de suppression. Les votes pour le bot sont conservés sans limite de durée, sauf demande de suppression. Les statistiques de commandes sont supprimées après 90 jours.",
+      "text": "When the bot leaves a server, its data is deleted 30 days later, along with its players' results (if the bot comes back within that time, the settings are restored). While the bot stays on the server, daily game results are kept with no time limit, for the leaderboards, unless you ask for their deletion. Votes for the bot are kept with no time limit, unless you ask for their deletion. Command statistics are deleted after 90 days."
+    },
+    "pages.botPrivacy.pseudonymous": {
+      "fr": "Sur le site, le forum et la collection ne gardent pas votre identifiant Discord ni votre ID de jeu en clair, mais une empreinte (SHA-256, sans sel). C'est une donnée pseudonyme, pas anonyme : quiconque connaît l'identifiant peut recalculer l'empreinte, et elle reste donc une donnée personnelle, protégée comme telle. Le bot, lui, conserve les identifiants Discord en clair (résultats, votes, menus de rôles).",
+      "text": "On the site, the forum and the collection do not keep your Discord ID or your game ID in plain text, but a hash of it (SHA-256, unsalted). This is pseudonymous data, not anonymous: anyone who knows the ID can compute the hash again, so it remains personal data and is protected as such. The bot itself keeps Discord IDs in plain text (results, votes, role menus)."
+    },
+    "prose.community.pseudonymous": {
+      "fr": "Ces empreintes (SHA-256, sans sel) sont des données pseudonymes, pas anonymes : quiconque connaît votre ID de jeu et votre serveur, ou votre identifiant Discord, peut recalculer l'empreinte. Elles restent des données personnelles, protégées comme telles.",
+      "text": "These hashes (SHA-256, unsalted) are pseudonymous data, not anonymous: anyone who knows your game ID and server, or your Discord ID, can compute the hash again. They remain personal data, protected as such."
+    },
+    "prose.gdpr.storage.cache": {
+      "fr": "Pour fonctionner hors ligne, le site garde aussi dans le cache de votre navigateur (service worker) une copie des pages, images et données consultées : 250 pages et 800 images au plus, sur votre appareil uniquement. Les pages liées à une connexion (compte, connexion, tableau de bord et administration du bot, et toute page affichée pour un visiteur connecté) n'y sont jamais gardées, et la déconnexion efface celles qu'une version précédente du site aurait pu garder.",
+      "text": "To work offline, the site also keeps a copy of the pages, images and data you viewed in your browser's cache (service worker): 250 pages and 800 images at most, on your device only. Signed-in pages (account, sign-in, bot dashboard and admin, and any page shown to a signed-in visitor) are never kept there, and signing out erases any that an earlier version of the site may have kept."
     }
   },
   "es": {
@@ -23400,10 +23416,6 @@
       "fr": "Ce qui n'est pas conservé",
       "text": "Ang hindi iniimbak"
     },
-    "pages.botPrivacy.retention": {
-      "fr": "Quand le bot quitte un serveur, ses données sont supprimées 30 jours plus tard, avec les résultats de ses joueurs (un retour du bot dans ce délai retrouve les réglages). Les statistiques de commandes sont supprimées après 90 jours.",
-      "text": "Kapag umalis ang bot sa isang server, binubura ang data nito pagkalipas ng 30 araw, kasama ang mga resulta ng mga player nito (kung bumalik ang bot sa loob ng panahong iyon, naroon pa rin ang mga setting). Binubura ang statistics ng mga command pagkalipas ng 90 araw."
-    },
     "pages.botPrivacy.retentionTitle": {
       "fr": "Durée de conservation",
       "text": "Tagal ng pag-iimbak"
@@ -37946,10 +37958,6 @@
       "fr": "Ce qui n'est pas conservé",
       "text": "ข้อมูลที่ไม่จัดเก็บ"
     },
-    "pages.botPrivacy.retention": {
-      "fr": "Quand le bot quitte un serveur, ses données sont supprimées 30 jours plus tard, avec les résultats de ses joueurs (un retour du bot dans ce délai retrouve les réglages). Les statistiques de commandes sont supprimées après 90 jours.",
-      "text": "เมื่อบอทออกจากเซิร์ฟเวอร์ ข้อมูลของเซิร์ฟเวอร์นั้นจะถูกลบภายใน 30 วันต่อมา พร้อมกับผลของผู้เล่น (หากบอทกลับมาภายในระยะเวลาดังกล่าว การตั้งค่าจะยังคงอยู่) สถิติคำสั่งจะถูกลบหลังจาก 90 วัน"
-    },
     "pages.botPrivacy.retentionTitle": {
       "fr": "Durée de conservation",
       "text": "ระยะเวลาการจัดเก็บ"
@@ -51176,10 +51184,6 @@
       "fr": "Ce qui n'est pas conservé",
       "text": "O que não é armazenado"
     },
-    "pages.botPrivacy.retention": {
-      "fr": "Quand le bot quitte un serveur, ses données sont supprimées 30 jours plus tard, avec les résultats de ses joueurs (un retour du bot dans ce délai retrouve les réglages). Les statistiques de commandes sont supprimées après 90 jours.",
-      "text": "Quando o bot sai de um servidor, os dados desse servidor são excluídos 30 dias depois, junto com os resultados de seus jogadores (se o bot voltar dentro desse prazo, as configurações são recuperadas). As estatísticas de comandos são excluídas após 90 dias."
-    },
     "pages.botPrivacy.retentionTitle": {
       "fr": "Durée de conservation",
       "text": "Prazo de armazenamento"
@@ -63285,10 +63289,6 @@
     "pages.botPrivacy.notStoredTitle": {
       "fr": "Ce qui n'est pas conservé",
       "text": "Что не хранится"
-    },
-    "pages.botPrivacy.retention": {
-      "fr": "Quand le bot quitte un serveur, ses données sont supprimées 30 jours plus tard, avec les résultats de ses joueurs (un retour du bot dans ce délai retrouve les réglages). Les statistiques de commandes sont supprimées après 90 jours.",
-      "text": "Когда бот покидает сервер, данные сервера удаляются через 30 дней вместе с результатами его игроков (если бот вернётся в течение этого срока, настройки сохранятся). Статистика команд удаляется через 90 дней."
     },
     "pages.botPrivacy.retentionTitle": {
       "fr": "Durée de conservation",

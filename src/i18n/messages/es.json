@@ -3741,13 +3741,14 @@
       "cookieTitle": "Iniciar sesión en el panel",
       "cookie": "Iniciar sesión con Discord establece una cookie de sesión cifrada (`mlbbdex_discord`, httpOnly, 7 días) que contiene su ID, nombre y avatar de Discord, y una cookie temporal (`mlbbdex_discord_oauth`, 10 minutos) mientras está conectado. Son estrictamente necesarias para el servicio solicitado.",
       "retentionTitle": "Duración",
-      "retention": "Cuando el bot abandona un servidor, sus datos se eliminan 30 días después, junto con los resultados de sus jugadores (el regreso del bot dentro de este período restaurará la configuración). Las estadísticas de pedidos se eliminan después de 90 días.",
+      "retention": "Cuando el bot abandona un servidor, sus datos se eliminan 30 días después, junto con los resultados de sus jugadores (el regreso del bot dentro de este período restaurará la configuración). Mientras el bot permanezca en el servidor, los resultados de los juegos del día se conservan indefinidamente para la clasificación, a menos que se solicite su eliminación. Los votos para el bot se conservan indefinidamente, a menos que se solicite su eliminación. Las estadísticas de pedidos se eliminan después de 90 días.",
       "rightsTitle": "Tus derechos",
       "rights": "Para ver o eliminar datos relacionados con su ID de Discord o servidor, escriba a [{contact}](mailto:{contact}). Al eliminar el bot del servidor se inicia la eliminación automática.",
       "sitePrivacy": "Privacidad del sitio",
       "autoRoles": "Roles automáticos: si el servidor eligió algunos, el bot da esos roles a quien llega, con el permiso Gestionar roles que le conceden los administradores del servidor; un miembro que aún debe aceptar las reglas del servidor solo se recuerda (su ID, en memoria, 24 horas como máximo) hasta que las acepta, y no se guarda nada.",
       "roleMenus": "Menús de roles: de cada menú se guardan el canal, el título, el texto, los roles con sus etiquetas y emojis, el identificador del mensaje publicado y el identificador de Discord del gestor que lo configuró. Cuando un miembro lo usa, el bot le da o le quita el rol y no guarda nada sobre él, salvo un contador en memoria de unos segundos que limita los cambios demasiado seguidos.",
-      "tempVoice": "Canales de voz temporales: el servidor guarda sus canales de entrada con su límite de usuarios y su modelo de nombre. Por cada canal de voz que crea, el bot conserva el identificador del canal, del canal de entrada y del miembro para quien lo creó, hasta que el canal se borra, lo que ocurre en cuanto se queda vacío. Para saber quién está en cada canal de voz, el bot recibe los estados de voz de Discord (intent «Guild Voice States»), los mantiene en memoria y no guarda ninguno."
+      "tempVoice": "Canales de voz temporales: el servidor guarda sus canales de entrada con su límite de usuarios y su modelo de nombre. Por cada canal de voz que crea, el bot conserva el identificador del canal, del canal de entrada y del miembro para quien lo creó, hasta que el canal se borra, lo que ocurre en cuanto se queda vacío. Para saber quién está en cada canal de voz, el bot recibe los estados de voz de Discord (intent «Guild Voice States»), los mantiene en memoria y no guarda ninguno.",
+      "pseudonymous": "En el sitio, el foro y la colección no guardan su ID de Discord o su ID de juego en texto plano, sino una huella digital (SHA-256, sin sal). Se trata de datos seudónimos, no anónimos: cualquiera que conozca el identificador puede recalcular la huella dactilar y, por tanto, sigue siendo un dato personal, protegido como tal. El bot mantiene los identificadores de Discord en texto sin formato (resultados, votos, menús de roles)."
     },
     "botTerms": {
       "title": "Términos de servicio de Discord Bot",
@@ -5051,7 +5052,8 @@
       "posts": "tus conversaciones y respuestas, públicas, con su fecha; tus votos y reportes, que solo ven los moderadores (los reportes);",
       "card": "tu tarjeta de búsqueda de compañeros y, si los añades, tu ID del juego y tu usuario de Discord: solo los ven los jugadores con sesión iniciada, y la tarjeta se borra siete días después de su último guardado.",
       "moderation": "Los moderadores ven los informes y pueden ocultarlos, eliminarlos o prohibirlos; cada una de sus decisiones se registra en un diario. Los límites de velocidad utilizan su dirección IP, solo en la memoria: nunca se escribe en el disco.",
-      "deletion": "Puedes editar un mensaje por una hora y borrarlo por un día, retirar tu tarjeta en cualquier momento. Un mensaje eliminado pierde su texto; una discusión eliminada conserva su título, autor y fecha. Más allá de eso, o para eliminar toda tu participación, escribe al {contact}."
+      "deletion": "Puedes editar un mensaje por una hora y borrarlo por un día, retirar tu tarjeta en cualquier momento. Un mensaje eliminado pierde su texto; una discusión eliminada conserva su título, autor y fecha. Más allá de eso, o para eliminar toda tu participación, escribe al {contact}.",
+      "pseudonymous": "Estas huellas digitales (SHA-256, sin sal) son datos seudónimos, no anónimos: cualquiera que conozca su ID de juego y servidor, o su ID de Discord, puede recalcular la huella digital. Siguen siendo datos personales, protegidos como tales."
     },
     "collection": {
       "title": "Colección de skins",
@@ -5132,7 +5134,7 @@
         "tierList": "Borradores del creador de la lista de niveles.",
         "timer": "Juego actual (tiempo de pestaña) y configuración del temporizador de objetivos.",
         "retribution": "Mejores puntuaciones de la Prueba de Castigo.",
-        "cache": "Para funcionar sin conexión, el sitio también guarda una copia de las páginas, imágenes y datos visualizados en la memoria caché de su navegador (trabajador de servicio): 250 páginas y 800 imágenes como máximo, solo en su dispositivo."
+        "cache": "Para funcionar sin conexión, el sitio también guarda una copia de las páginas, imágenes y datos visualizados en la memoria caché de su navegador (trabajador de servicio): 250 páginas y 800 imágenes como máximo, solo en su dispositivo. Las páginas vinculadas a una conexión (cuenta, inicio de sesión, panel de control y administración de bot, y cualquier página mostrada para un visitante que ha iniciado sesión) nunca se guardan allí, y la desconexión borra aquellas que una versión anterior del sitio podría haber conservado."
       },
       "audience": {
         "title": "Medición de audiencia",
