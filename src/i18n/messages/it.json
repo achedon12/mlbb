@@ -2780,7 +2780,9 @@
         "picks": "Pick",
         "bans": "Ban",
         "blue": "lato blu",
-        "red": "lato rosso"
+        "red": "lato rosso",
+        "showGames": "Mostra le {n} partite",
+        "hideGames": "Nascondi le partite"
       },
       "heroPro": {
         "title": "{name} nel competitivo",
@@ -2886,7 +2888,9 @@
       "wins": "Vittorie",
       "losses": "Sconfitte",
       "winRate": "% vittorie",
-      "noPick": "Nessun pick"
+      "noPick": "Nessun pick",
+      "showAll": "Mostra tutti i {n} eroi",
+      "showFewer": "Mostra meno eroi"
     },
     "draftSimulatorUI": {
       "tabsLabel": "Modalità dello strumento",

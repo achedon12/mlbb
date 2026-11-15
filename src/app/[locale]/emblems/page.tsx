@@ -40,7 +40,7 @@ export default async function EmblemsPage({ params }: { params: Promise<{ locale
   const { locale } = await params;
   const t = createT(locale);
   return (
-    <ExtendMessages messages={messagesPage(locale, ["emblemData"])}>
+    <ExtendMessages messages={messagesPage(locale, ["emblemData", "emblemsUI"])}>
       <PageHeader
         title={t("pages.emblems.title")}
         lead={t("pages.emblems.lead")}

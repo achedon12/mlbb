@@ -2780,7 +2780,9 @@
         "picks": "Mga pick",
         "bans": "Mga ban",
         "blue": "blue side",
-        "red": "red side"
+        "red": "red side",
+        "showGames": "Ipakita ang {n} game",
+        "hideGames": "Itago ang mga game"
       },
       "heroPro": {
         "title": "{name} sa pro play",
@@ -2886,7 +2888,9 @@
       "wins": "Panalo",
       "losses": "Talo",
       "winRate": "Win rate",
-      "noPick": "Walang pick"
+      "noPick": "Walang pick",
+      "showAll": "Ipakita ang lahat ng {n} hero",
+      "showFewer": "Ipakita ang mas kaunting hero"
     },
     "draftSimulatorUI": {
       "tabsLabel": "Tool mode",

@@ -2780,7 +2780,9 @@
         "picks": "Pick",
         "bans": "แบน",
         "blue": "ฝั่งน้ำเงิน",
-        "red": "ฝั่งแดง"
+        "red": "ฝั่งแดง",
+        "showGames": "แสดงทั้ง {n} เกม",
+        "hideGames": "ซ่อนเกม"
       },
       "heroPro": {
         "title": "{name} ในเกมโปร",
@@ -2886,7 +2888,9 @@
       "wins": "ชนะ",
       "losses": "แพ้",
       "winRate": "Win Rate",
-      "noPick": "ไม่มีการ Pick"
+      "noPick": "ไม่มีการ Pick",
+      "showAll": "แสดงฮีโร่ทั้งหมด {n} ตัว",
+      "showFewer": "แสดงฮีโร่น้อยลง"
     },
     "draftSimulatorUI": {
       "tabsLabel": "โหมดเครื่องมือ",

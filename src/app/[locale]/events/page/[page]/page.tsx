@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import type { Locale } from "@/i18n/config";
-import { pagesAfterFirst, readPage } from "@/lib/pager";
-import { BY_PAGE_EVENTS, Events, metaEvents, monthsTimeline, pagesEvents } from "../../content";
+import { readPage } from "@/lib/pager";
+import { Events, metaEvents, pagesEvents } from "../../content";
 
-/** Older months of the timeline, two per page, each page prerendered. */
+/** Older months of the timeline, two per page, each page rendered on first request then cached. */
 type Params = { params: Promise<{ locale: Locale; page: string }> };
 
 export function generateStaticParams() {
-  return pagesAfterFirst(monthsTimeline().length, BY_PAGE_EVENTS);
+  // Rendered on first request, then cached (src/lib/prerender.ts).
+  return [];
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {

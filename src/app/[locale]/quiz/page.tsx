@@ -50,7 +50,7 @@ export default async function QuizPage({ params }: Params) {
         crumbs={[{ name: t("pages.quiz.crumb") }]}
       />
       <div className="mx-auto max-w-3xl space-y-14 px-4 py-10">
-        <ExtendMessages messages={messagesPage(locale, ["pages.quizUI"])}>
+        <ExtendMessages messages={messagesPage(locale, ["pages.quizUI", "draftUI"])}>
           <QuizMlbb heroes={heroes} items={items} />
         </ExtendMessages>
 

@@ -8,7 +8,8 @@ import { longDate, patchCurrent } from "@/lib/freshness";
 import { serializeJsonLd } from "@/lib/html";
 import { measuredOpponents, pathPair, segmentPair } from "@/lib/pairs";
 import type { Locale } from "@/i18n/config";
-import { createT } from "@/i18n/translations";
+import { ExtendMessages } from "@/i18n/provider";
+import { createT, messagesPage } from "@/i18n/translations";
 import { dataTool, metaPage } from "@/i18n/seo";
 
 /** Description built from data: comparable heroes, measurement date and patch. */
@@ -102,7 +103,9 @@ export default async function ComparePage({ params }: { params: Promise<{ locale
         lead={t("pages.compare.leadThree")}
       />
       <div className="page-wrap py-12">
-        <HeroComparator heroes={comparables} ranks={[...RANKS_CLASSES]} bounds={bounds} />
+        <ExtendMessages messages={messagesPage(locale, ["compareUI"])}>
+          <HeroComparator heroes={comparables} ranks={[...RANKS_CLASSES]} bounds={bounds} />
+        </ExtendMessages>
 
         <section aria-labelledby="duels" className="mt-14">
           <h2 id="duels" className="font-heading text-xl font-bold text-chalk-100">

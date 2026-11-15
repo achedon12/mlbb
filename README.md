@@ -168,9 +168,13 @@ scripts/
   watch.mjs      Snapshot of the Watch page feeds
 ```
 
-Content pages are **generated at build time**. Only the account routes are
-rendered on demand: the header does not read the session on the server, it asks
-for it after rendering, precisely so that the rest of the site stays static.
+Content pages are **static**: the most visited ones, in English and French, are
+generated at build time; the others (the other languages, pro players, older
+tournaments…) on their first request, then cached on disk until the next
+deployment (`src/lib/prerender.ts`, `cache-handler.mjs`). Only the account
+routes are rendered on every request: the header does not read the session on
+the server, it asks for it after rendering, precisely so that the rest of the
+site stays static.
 
 The site has **no state to keep**. Identity comes from the game: you sign in
 with Moonton's official verification code, and the site only receives a
@@ -191,10 +195,12 @@ The service listens on `127.0.0.1:3003` by default (the `PORT` variable; 3001
 inside the container) and belongs behind a reverse proxy. The final image
 contains no sources and no build toolchain: only the Next server in
 `standalone` mode, its static assets and `public/`. The container runs without
-privileges, with a read-only filesystem and all capabilities dropped. Two
-volumes: the logs (`./logs`) and the named volume `donnees`
+privileges, with a read-only filesystem and all capabilities dropped. Three
+volumes: the logs (`./logs`), the named volume `donnees`
 (`/app/donnees-serveur`), which keeps notification subscriptions from one
-deployment to the next.
+deployment to the next, and the named volume `cache` (`/app/.next/cache`), where
+the pages rendered on demand and the optimised images are kept. Compression
+belongs to the reverse proxy: see [Compression behind nginx](docs/nginx-compression.md).
 
 In production, every push to `main` deploys automatically over SSH: see
 [Data and sync](docs/wiki/Data-and-sync.md).

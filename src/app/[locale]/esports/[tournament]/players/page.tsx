@@ -8,7 +8,7 @@ import { ExtendMessages } from "@/i18n/provider";
 import { metaPage } from "@/i18n/seo";
 import { createT, messagesPage } from "@/i18n/translations";
 import { heroesBySlug } from "@/lib/data";
-import { tournamentBySlug, tournaments } from "@/lib/esports";
+import { tournamentBySlug } from "@/lib/esports";
 import {
   hasPlayerPage,
   hasPlayerStats,
@@ -24,7 +24,8 @@ type Params = { params: Promise<{ locale: Locale; tournament: string }> };
 
 /** Only tournaments with at least one game get a players page. */
 export function generateStaticParams() {
-  return tournaments.filter((t) => hasPlayerStats(t.slug)).map((t) => ({ tournament: t.slug }));
+  // Rendered on first request, then cached (src/lib/prerender.ts).
+  return [];
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {

@@ -51,9 +51,13 @@ services:
       # folder, to copy them off the server; it must belong to the image's
       # user: mkdir -p backups && chown 1001:1001 backups
       - ./backups:/app/backups
+      # Next's cache: the pages rendered on demand (cache-handler.mjs), one
+      # folder per build, and the optimised images. On disk rather than in a
+      # tmpfs, which would count against mem_limit; nothing in it needs to
+      # outlive a deployment (the handler deletes the previous builds' pages).
+      - cache:/app/.next/cache
     tmpfs:
       - /tmp
-      - /app/.next/cache
     security_opt:
       - no-new-privileges:true
     cap_drop:
@@ -163,4 +167,5 @@ networks:
 
 volumes:
   donnees:
+  cache:
   postgres:

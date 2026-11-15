@@ -88,7 +88,7 @@ export default async function MatchupsPage({ params }: Params) {
   const link = "font-semibold text-gold-400 transition-colors hover:text-gold-500";
 
   return (
-    <ExtendMessages messages={messagesPage(locale, ["pages.matchupsUI"])}>
+    <ExtendMessages messages={messagesPage(locale, ["pages.matchupsUI", "draftUI"])}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
       <PageHeader title={t("pages.matchups.title")} lead={t("pages.matchups.lead")} />
       <ToolLayout
