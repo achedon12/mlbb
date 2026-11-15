@@ -220,12 +220,26 @@ export default class CacheHandler {
 
   async set(key, data, context) {
     const status = data?.status ?? 200;
-    if (!this.rendered || !data || !PERSISTED.has(data.kind) || status >= 400) {
+    // Only successful pages reach the disk: no 404, no error, no redirect.
+    if (!this.rendered || !data || !PERSISTED.has(data.kind) || status < 200 || status >= 300) {
+      // A page that used to succeed and no longer does (its content was
+      // removed): its copy on disk must not keep being served.
+      if (this.rendered && data && PERSISTED.has(data.kind)) await this.forget(this.base(key, data.kind));
       // Next's in-memory cache only (bounded), never the disk.
       return this.built.set(key, data, context);
     }
     await this.rendered.set(key, data, context);
     await this.store.add(this.base(key, data.kind), bytesOf(data));
+  }
+
+  /** Deletes a page's files on disk and its entry in the store. */
+  async forget(base) {
+    const bytes = this.store.entries.get(base);
+    if (bytes !== undefined) {
+      this.store.entries.delete(base);
+      this.store.bytes -= bytes;
+    }
+    await remove(base);
   }
 
   async revalidateTag(tags, durations) {

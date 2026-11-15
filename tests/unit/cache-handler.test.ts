@@ -96,6 +96,18 @@ describe("response cache", () => {
     expect(existsSync(pages) ? readdirSync(pages) : []).toEqual([]);
   });
 
+  it("never writes a redirect, and drops a page that stops succeeding", async () => {
+    freshBuild();
+    const cache = handler();
+    await cache.set(key("/fr/heroes/page/1"), page(307), setContext);
+    expect(stored()).toEqual([]);
+    await cache.set(key("/fr/community/general/1-a"), page(), setContext);
+    expect(stored()).toEqual(["/fr/community/general/1-a"]);
+    await cache.set(key("/fr/community/general/1-a"), page(404), setContext);
+    expect(stored()).toEqual([]);
+    expect(await handler().get(key("/fr/community/general/1-a"), getContext)).toBeFalsy();
+  });
+
   it("keeps fetch results off the disk", async () => {
     const next = freshBuild();
     const cache = handler();
