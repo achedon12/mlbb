@@ -98,8 +98,12 @@ jobs:
             exit 1
           fi
           printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+          # After the build, the build cache older than a week and the images no
+          # container uses any more (the previous release) are dropped: left
+          # alone, every deployment adds a few gigabytes that nothing reclaims.
+          # A failed cleanup never fails the deployment.
           ssh -i ~/.ssh/deploy_key -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" \
-            "cd '$APP_DIR' && git pull --ff-only origin main && docker compose up -d --build"
+            "cd '$APP_DIR' && git pull --ff-only origin main && docker compose up -d --build && { docker builder prune -f --filter until=168h >/dev/null; docker image prune -f >/dev/null; true; }"
 
       # A green deploy must mean a working site, not only a container that
       # started: check what production serves once it answers again.
