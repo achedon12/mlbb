@@ -38,6 +38,7 @@
     "typecheck": "tsc --noEmit",
     "sync": "node scripts/sync.mjs",
     "sync:evolution": "node scripts/sync.mjs --evolution",
+    "sync:measures": "node scripts/sync.mjs --measures",
     "sync:events": "node scripts/events.mjs",
     "sync:advance-server": "node scripts/advance-server.mjs",
     "sync:esports": "node scripts/esports.mjs",

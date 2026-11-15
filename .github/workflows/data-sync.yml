@@ -1,8 +1,10 @@
 name: Data sync
 
-# Two rhythms. Every day, the fast-moving measures (trends, teammates, rates by
-# game duration) feed the long history: the API only goes back thirty days, and
-# only a regular run keeps them beyond that. Every Monday, the full sync also
+# Two rhythms. Every day, everything measured in ranked games is refreshed:
+# the ranking (win, ban and pick rates, which the tier list is computed from),
+# counters, played builds, and the fast-moving measures (trends, teammates,
+# rates by game duration) that feed the long history: the API only goes back
+# thirty days, and only a regular run keeps them beyond that. Every Monday, the full sync also
 # rereads the wiki catalogue (heroes, skins, items, patches, combos), translates
 # it, and checks that the site builds.
 #
@@ -105,7 +107,7 @@ jobs:
         if: steps.complete.outcome == 'success'
         run: npm run build
 
-      - name: Daily measures (trends, teammates, game durations)
+      - name: Daily measures (ranking, counters, builds, trends, teammates)
         if: env.COMPLETE != 'true' || steps.complete.outcome == 'failure'
         run: |
           # The community API sometimes fails. The script then keeps the
@@ -113,7 +115,7 @@ jobs:
           # quarter of an hour later. A lasting outage only leaves a warning:
           # the API's thirty days are picked up again at the next run.
           for attempt in 1 2; do
-            if npm run sync:evolution; then exit 0; fi
+            if npm run sync:measures; then exit 0; fi
             if [ "$attempt" = 1 ]; then sleep 900; fi
           done
           echo "::warning::Measures API unavailable: history unchanged today."
