@@ -168,7 +168,9 @@ describe("heroRankSheets", () => {
     const chou = row(26, "Chou", 10, 5);
     const inRoam = heroRankSheets(chou, "mythic", [match(26, 3, true), match(26, 3, false), match(26, 1, true)]);
     expect(inRoam[0].lane).toBe("Roam");
-    expect(inRoam[0].build!.items[0].name).toBe("Dominance Ice");
+    // The roam build most played at the rank, whatever the data of the day.
+    const roam = [...buildsPlayed.chou.Roam.mythic!].sort((a, b) => (b.pickRate ?? 0) - (a.pickRate ?? 0))[0];
+    expect(inRoam[0].build!.items[0].name).toBe(roam.items[0]);
     expect(heroRankSheets(chou, "mythic", [])[0].lane).toBe("Exp");
   });
 

@@ -1202,6 +1202,31 @@ async function buildsActual(heroes) {
 // ─────────────────────────────────────────────────────────────
 
 /**
+ * The ranking payload of a rank. The community API's firewall refuses this
+ * endpoint (HTTP 403) to the cloud runners of the daily workflow, while it
+ * answers the production server: the workflow then fetches it through the
+ * server into RANKING_RELAY_DIR, read first. A missing or unreadable relayed
+ * file falls back on the API itself.
+ */
+async function rankingPayload(rank) {
+  const relay = process.env.RANKING_RELAY_DIR;
+  if (relay) {
+    try {
+      const payload = JSON.parse(await readFile(`${relay}/${rank}.json`, "utf8"));
+      if (Array.isArray(payload?.data?.records) && payload.data.records.length > 0) return payload;
+    } catch {
+      // Not relayed: ask the API.
+    }
+  }
+  const response = await fetch(`${STATS}/heroes/rank?size=200&rank=${rank}`, {
+    headers: { "User-Agent": UA },
+    signal: AbortSignal.timeout(30000),
+  });
+  if (!response.ok) throw new Error(`Statistics unavailable (${rank}): HTTP ${response.status}`);
+  return response.json();
+}
+
+/**
  * Win, ban and pick rates, for each rank.
  *
  * This API's identifiers are not the wiki's: matching is done by name, after
@@ -1212,13 +1237,7 @@ async function ranking(heroes) {
   const known = new Set(heroes.map((h) => h.slug));
 
   async function rateOfRank(rank) {
-    const response = await fetch(`${STATS}/heroes/rank?size=200&rank=${rank}`, {
-      headers: { "User-Agent": UA },
-      signal: AbortSignal.timeout(30000),
-    });
-    if (!response.ok) throw new Error(`Statistics unavailable (${rank}): HTTP ${response.status}`);
-
-    const records = (await response.json())?.data?.records ?? [];
+    const records = (await rankingPayload(rank))?.data?.records ?? [];
     const rate = {};
     const orphans = [];
 
