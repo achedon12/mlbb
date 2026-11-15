@@ -12,7 +12,6 @@ import {
   TournamentNav,
 } from "@/components/esports-parts";
 import { TeamNameLink } from "@/components/esports-pro";
-import { HeroPortrait } from "@/components/hero-portrait";
 import { Card, PageHeader, SectionTitle } from "@/components/ui";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
@@ -35,13 +34,15 @@ import { hasPlayerStats, hasTeamPage, proTeams } from "@/lib/esports-players";
 import { serializeJsonLd } from "@/lib/html";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
+import { DraftGames } from "./draft-games";
 import { HeroStatsTable, type HeroStatRow } from "./hero-stats-table";
 
 type Params = { params: Promise<{ locale: Locale; tournament: string }> };
 
 /**
  * One tournament: standings and bracket results as the source lists them,
- * hero statistics (sortable) and the latest drafts, game by game.
+ * hero statistics (sortable) and the latest drafts, game by game (the
+ * older matches folded, see `DraftGames`).
  */
 export function generateStaticParams() {
   return tournaments.map((t) => ({ tournament: t.slug }));
@@ -254,9 +255,9 @@ export default async function TournamentPage({ params }: Params) {
               {t("pages.esports.drafts.title")}
             </SectionTitle>
             <ol className="grid gap-4 lg:grid-cols-2">
-              {turn.drafts.map((m) => (
+              {turn.drafts.map((m, i) => (
                 <li key={`${m.date}-${m.teams.join("-")}`}>
-                  <DraftCard match={m} turn={turn} t={t} locale={locale} />
+                  <DraftCard match={m} open={i < OPEN_DRAFTS} turn={turn} t={t} locale={locale} />
                 </li>
               ))}
             </ol>
@@ -407,8 +408,28 @@ function MatchLine({ match: m, t, locale }: { match: BracketMatch; t: T; locale:
   );
 }
 
-function DraftCard({ match: m, turn, t, locale }: { match: DraftMatch; turn: Tournament; t: T; locale: Locale }) {
+/** Matches whose games are drawn on the server (the latest); the older ones open on demand. */
+const OPEN_DRAFTS = 1;
+
+function DraftCard({
+  match: m,
+  open,
+  turn,
+  t,
+  locale,
+}: {
+  match: DraftMatch;
+  open: boolean;
+  turn: Tournament;
+  t: T;
+  locale: Locale;
+}) {
   const stage = turn.stages.find((s) => s.title === m.stage);
+  const names = Object.fromEntries(
+    [...new Set(m.games.flatMap((g) => [...g.picks.flat(), ...g.bans.flat()]))]
+      .filter((slug) => heroesBySlug.has(slug))
+      .map((slug) => [slug, heroName(slug)]),
+  );
   return (
     <Card className="h-full p-4">
       <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
@@ -422,80 +443,27 @@ function DraftCard({ match: m, turn, t, locale }: { match: DraftMatch; turn: Tou
           {stage && <> · {stageName(t, stage.key, stage.title)}</>}
         </p>
       </div>
-      <ol className="mt-3 space-y-3">
-        {m.games.map((g, i) => {
-          const other = g.team1Side === "blue" ? "red" : g.team1Side === "red" ? "blue" : null;
-          return (
-            <li key={i} className="border-t border-night-800 pt-3">
-              <p className="text-xs text-chalk-500">
-                {t("pages.esports.drafts.game", { n: i + 1 })}
-                {g.duration && <> · {g.duration}</>} ·{" "}
-                <span className="text-chalk-300">{t("pages.esports.drafts.won", { team: m.teams[g.winner - 1] })}</span>
-              </p>
-              <DraftSide team={m.teams[0]} side={g.team1Side} picks={g.picks[0]} bans={g.bans[0]} won={g.winner === 1} t={t} />
-              <DraftSide team={m.teams[1]} side={other} picks={g.picks[1]} bans={g.bans[1]} won={g.winner === 2} t={t} />
-            </li>
-          );
-        })}
-      </ol>
+      <DraftGames
+        teams={m.teams}
+        games={m.games.map((g, i) => ({
+          caption: [t("pages.esports.drafts.game", { n: i + 1 }), g.duration].filter(Boolean).join(" · "),
+          won: t("pages.esports.drafts.won", { team: m.teams[g.winner - 1] }),
+          winner: g.winner,
+          team1Side: g.team1Side,
+          picks: g.picks,
+          bans: g.bans,
+        }))}
+        names={names}
+        labels={{
+          picks: t("pages.esports.drafts.picks"),
+          bans: t("pages.esports.drafts.bans"),
+          blue: t("pages.esports.drafts.blue"),
+          red: t("pages.esports.drafts.red"),
+          show: t("pages.esports.drafts.showGames", { n: m.games.length }),
+          hide: t("pages.esports.drafts.hideGames"),
+        }}
+        open={open}
+      />
     </Card>
-  );
-}
-
-function DraftSide({
-  team,
-  side,
-  picks,
-  bans,
-  won,
-  t,
-}: {
-  team: string;
-  side: "blue" | "red" | null;
-  picks: string[];
-  bans: string[];
-  won: boolean;
-  t: T;
-}) {
-  return (
-    <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1.5">
-      <p className="flex w-full min-w-0 items-center gap-2 text-sm sm:w-40">
-        {side && (
-          <span
-            aria-hidden
-            className={cn("size-2 shrink-0 rounded-full", side === "blue" ? "bg-azure-400" : "bg-blood-500")}
-          />
-        )}
-        <span className={cn("truncate", won ? "font-semibold text-chalk-100" : "text-chalk-300")}>{team}</span>
-        {side && <span className="sr-only">({t(`pages.esports.drafts.${side}`)})</span>}
-      </p>
-      <HeroStrip label={t("pages.esports.drafts.picks")} heroes={picks} />
-      <HeroStrip label={t("pages.esports.drafts.bans")} heroes={bans} ban />
-    </div>
-  );
-}
-
-function HeroStrip({ label, heroes, ban = false }: { label: string; heroes: string[]; ban?: boolean }) {
-  if (heroes.length === 0) return null;
-  return (
-    <div className="flex items-center gap-1.5">
-      <span className="w-9 text-[0.65rem] uppercase tracking-wide text-chalk-500">{label}</span>
-      <ul className={cn("flex gap-1", ban && "opacity-60 grayscale")}>
-        {heroes.map((h, i) => {
-          const hero = heroesBySlug.get(h);
-          return (
-            // flex: the portrait is a span, sized only once it is a flex item.
-            <li key={`${h}-${i}`} title={hero?.name ?? h} className="flex">
-
-              {hero ? (
-                <HeroPortrait source={hero.images.icon ?? hero.images.portrait} name={hero.name} size="micro" />
-              ) : (
-                <span className="text-xs text-chalk-300">{h}</span>
-              )}
-            </li>
-          );
-        })}
-      </ul>
-    </div>
   );
 }
