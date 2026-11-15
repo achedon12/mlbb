@@ -4479,6 +4479,46 @@
     "pages.notFound.search": {
       "fr": "Chercher un héros, un objet ou une page",
       "text": "Search for a hero, an item or a page"
+    },
+    "discordCta.nickname.title": {
+      "fr": "Montre ton nouveau pseudo",
+      "text": "Show off your new nickname"
+    },
+    "discordCta.nickname.text": {
+      "fr": "Viens le tester sur le Discord MLBBDex et trouve des coéquipiers de ton rang.",
+      "text": "Try it on the MLBBDex Discord and find teammates at your rank."
+    },
+    "discordCta.skins.title": {
+      "fr": "Sois prévenu des nouveaux skins",
+      "text": "Know about new skins first"
+    },
+    "discordCta.skins.text": {
+      "fr": "Les nouveaux skins, la StarLight et les tirages arrivent sur le Discord dès leur sortie.",
+      "text": "New skins, StarLight and draws land on the Discord the moment they're out."
+    },
+    "discordCta.tools.title": {
+      "fr": "Prépare tes drafts avec ton équipe",
+      "text": "Plan your drafts with your squad"
+    },
+    "discordCta.tools.text": {
+      "fr": "Partage tes compositions et trouve des coéquipiers sur le Discord MLBBDex.",
+      "text": "Share your lineups and find teammates on the MLBBDex Discord."
+    },
+    "discordCta.value.title": {
+      "fr": "Compare ta collection",
+      "text": "Compare your collection"
+    },
+    "discordCta.value.text": {
+      "fr": "Montre ta Vitrine et parle skins avec les joueurs du Discord MLBBDex.",
+      "text": "Show your Showcase and talk skins with players on the MLBBDex Discord."
+    },
+    "discordCta.copy.title": {
+      "fr": "Pseudo copié ! Viens le montrer",
+      "text": "Nickname copied! Come show it off"
+    },
+    "discordCta.copy.text": {
+      "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
+      "text": "Join the MLBBDex Discord: teammates by rank, patch alerts and the daily MLBBdle."
     }
   },
   "es": {
@@ -8769,6 +8809,46 @@
     "pages.notFound.search": {
       "fr": "Chercher un héros, un objet ou une page",
       "text": "Buscar un héroe, un objeto o una página"
+    },
+    "discordCta.nickname.title": {
+      "fr": "Montre ton nouveau pseudo",
+      "text": "Presume tu nuevo nick"
+    },
+    "discordCta.nickname.text": {
+      "fr": "Viens le tester sur le Discord MLBBDex et trouve des coéquipiers de ton rang.",
+      "text": "Pruébalo en el Discord de MLBBDex y encuentra compañeros de tu rango."
+    },
+    "discordCta.skins.title": {
+      "fr": "Sois prévenu des nouveaux skins",
+      "text": "Entérate primero de las nuevas skins"
+    },
+    "discordCta.skins.text": {
+      "fr": "Les nouveaux skins, la StarLight et les tirages arrivent sur le Discord dès leur sortie.",
+      "text": "Las nuevas skins, la StarLight y los sorteos llegan al Discord en cuanto salen."
+    },
+    "discordCta.tools.title": {
+      "fr": "Prépare tes drafts avec ton équipe",
+      "text": "Prepara tus drafts con tu equipo"
+    },
+    "discordCta.tools.text": {
+      "fr": "Partage tes compositions et trouve des coéquipiers sur le Discord MLBBDex.",
+      "text": "Comparte tus composiciones y encuentra compañeros en el Discord de MLBBDex."
+    },
+    "discordCta.value.title": {
+      "fr": "Compare ta collection",
+      "text": "Compara tu colección"
+    },
+    "discordCta.value.text": {
+      "fr": "Montre ta Vitrine et parle skins avec les joueurs du Discord MLBBDex.",
+      "text": "Muestra tu Escaparate y habla de skins con los jugadores del Discord de MLBBDex."
+    },
+    "discordCta.copy.title": {
+      "fr": "Pseudo copié ! Viens le montrer",
+      "text": "¡Nick copiado! Ven a presumirlo"
+    },
+    "discordCta.copy.text": {
+      "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
+      "text": "Únete al Discord de MLBBDex: compañeros por rango, avisos de parche y el MLBBdle del día."
     }
   },
   "id": {
@@ -15055,6 +15135,46 @@
     "pages.events.month.title": {
       "fr": "Starlight et événements MLBB {month} : skins et prix",
       "text": "Starlight & Event MLBB {month}: Skin dan Harga"
+    },
+    "discordCta.nickname.title": {
+      "fr": "Montre ton nouveau pseudo",
+      "text": "Pamerkan nickname barumu"
+    },
+    "discordCta.nickname.text": {
+      "fr": "Viens le tester sur le Discord MLBBDex et trouve des coéquipiers de ton rang.",
+      "text": "Coba di Discord MLBBDex dan cari teman se-rank."
+    },
+    "discordCta.skins.title": {
+      "fr": "Sois prévenu des nouveaux skins",
+      "text": "Tahu duluan soal skin baru"
+    },
+    "discordCta.skins.text": {
+      "fr": "Les nouveaux skins, la StarLight et les tirages arrivent sur le Discord dès leur sortie.",
+      "text": "Skin baru, StarLight, dan draw langsung masuk ke Discord begitu rilis."
+    },
+    "discordCta.tools.title": {
+      "fr": "Prépare tes drafts avec ton équipe",
+      "text": "Siapkan draft bareng tim"
+    },
+    "discordCta.tools.text": {
+      "fr": "Partage tes compositions et trouve des coéquipiers sur le Discord MLBBDex.",
+      "text": "Bagikan komposisimu dan cari teman di Discord MLBBDex."
+    },
+    "discordCta.value.title": {
+      "fr": "Compare ta collection",
+      "text": "Bandingkan koleksimu"
+    },
+    "discordCta.value.text": {
+      "fr": "Montre ta Vitrine et parle skins avec les joueurs du Discord MLBBDex.",
+      "text": "Pamerkan Showcase-mu dan ngobrol soal skin di Discord MLBBDex."
+    },
+    "discordCta.copy.title": {
+      "fr": "Pseudo copié ! Viens le montrer",
+      "text": "Nickname disalin! Ayo pamerkan"
+    },
+    "discordCta.copy.text": {
+      "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
+      "text": "Gabung Discord MLBBDex: cari teman per rank, notifikasi patch, dan MLBBdle harian."
     }
   },
   "it": {
@@ -19385,6 +19505,46 @@
     "pages.notFound.tierList": {
       "fr": "Tier list du moment",
       "text": "Tier list del momento"
+    },
+    "discordCta.nickname.title": {
+      "fr": "Montre ton nouveau pseudo",
+      "text": "Mostra il tuo nuovo nickname"
+    },
+    "discordCta.nickname.text": {
+      "fr": "Viens le tester sur le Discord MLBBDex et trouve des coéquipiers de ton rang.",
+      "text": "Provalo sul Discord di MLBBDex e trova compagni del tuo rank."
+    },
+    "discordCta.skins.title": {
+      "fr": "Sois prévenu des nouveaux skins",
+      "text": "Scopri per primo le nuove skin"
+    },
+    "discordCta.skins.text": {
+      "fr": "Les nouveaux skins, la StarLight et les tirages arrivent sur le Discord dès leur sortie.",
+      "text": "Nuove skin, StarLight ed estrazioni arrivano sul Discord appena escono."
+    },
+    "discordCta.tools.title": {
+      "fr": "Prépare tes drafts avec ton équipe",
+      "text": "Prepara i draft con la tua squadra"
+    },
+    "discordCta.tools.text": {
+      "fr": "Partage tes compositions et trouve des coéquipiers sur le Discord MLBBDex.",
+      "text": "Condividi le tue composizioni e trova compagni sul Discord di MLBBDex."
+    },
+    "discordCta.value.title": {
+      "fr": "Compare ta collection",
+      "text": "Confronta la tua collezione"
+    },
+    "discordCta.value.text": {
+      "fr": "Montre ta Vitrine et parle skins avec les joueurs du Discord MLBBDex.",
+      "text": "Mostra la tua Vetrina e parla di skin con i giocatori del Discord di MLBBDex."
+    },
+    "discordCta.copy.title": {
+      "fr": "Pseudo copié ! Viens le montrer",
+      "text": "Nickname copiato! Vieni a mostrarlo"
+    },
+    "discordCta.copy.text": {
+      "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
+      "text": "Entra nel Discord di MLBBDex: compagni per rank, avvisi di patch e il MLBBdle del giorno."
     }
   },
   "fil": {
@@ -34219,6 +34379,46 @@
     "pages.notFound.search": {
       "fr": "Chercher un héros, un objet ou une page",
       "text": "Maghanap ng hero, item o page"
+    },
+    "discordCta.nickname.title": {
+      "fr": "Montre ton nouveau pseudo",
+      "text": "Ipakita ang bago mong nickname"
+    },
+    "discordCta.nickname.text": {
+      "fr": "Viens le tester sur le Discord MLBBDex et trouve des coéquipiers de ton rang.",
+      "text": "Subukan ito sa MLBBDex Discord at maghanap ng teammates sa rank mo."
+    },
+    "discordCta.skins.title": {
+      "fr": "Sois prévenu des nouveaux skins",
+      "text": "Malaman agad ang bagong skins"
+    },
+    "discordCta.skins.text": {
+      "fr": "Les nouveaux skins, la StarLight et les tirages arrivent sur le Discord dès leur sortie.",
+      "text": "Bagong skins, StarLight at draws, nasa Discord agad paglabas."
+    },
+    "discordCta.tools.title": {
+      "fr": "Prépare tes drafts avec ton équipe",
+      "text": "Ihanda ang drafts kasama ang squad"
+    },
+    "discordCta.tools.text": {
+      "fr": "Partage tes compositions et trouve des coéquipiers sur le Discord MLBBDex.",
+      "text": "I-share ang lineups mo at maghanap ng teammates sa MLBBDex Discord."
+    },
+    "discordCta.value.title": {
+      "fr": "Compare ta collection",
+      "text": "Ikumpara ang collection mo"
+    },
+    "discordCta.value.text": {
+      "fr": "Montre ta Vitrine et parle skins avec les joueurs du Discord MLBBDex.",
+      "text": "Ipakita ang Showcase mo at mag-usap tungkol sa skins sa MLBBDex Discord."
+    },
+    "discordCta.copy.title": {
+      "fr": "Pseudo copié ! Viens le montrer",
+      "text": "Nakopya ang nickname! Ipakita mo na"
+    },
+    "discordCta.copy.text": {
+      "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
+      "text": "Sumali sa MLBBDex Discord: teammates ayon sa rank, patch alerts at MLBBdle ng araw."
     }
   },
   "th": {
@@ -48037,6 +48237,46 @@
     "pages.notFound.search": {
       "fr": "Chercher un héros, un objet ou une page",
       "text": "ค้นหาฮีโร่ ไอเทม หรือหน้า"
+    },
+    "discordCta.nickname.title": {
+      "fr": "Montre ton nouveau pseudo",
+      "text": "อวดชื่อใหม่ของคุณ"
+    },
+    "discordCta.nickname.text": {
+      "fr": "Viens le tester sur le Discord MLBBDex et trouve des coéquipiers de ton rang.",
+      "text": "ลองใช้ใน Discord ของ MLBBDex และหาเพื่อนร่วมทีมแรงก์เดียวกัน"
+    },
+    "discordCta.skins.title": {
+      "fr": "Sois prévenu des nouveaux skins",
+      "text": "รู้ก่อนใครเมื่อมีสกินใหม่"
+    },
+    "discordCta.skins.text": {
+      "fr": "Les nouveaux skins, la StarLight et les tirages arrivent sur le Discord dès leur sortie.",
+      "text": "สกินใหม่ StarLight และการสุ่ม ส่งเข้า Discord ทันทีที่ออก"
+    },
+    "discordCta.tools.title": {
+      "fr": "Prépare tes drafts avec ton équipe",
+      "text": "วางแผนดราฟต์กับทีม"
+    },
+    "discordCta.tools.text": {
+      "fr": "Partage tes compositions et trouve des coéquipiers sur le Discord MLBBDex.",
+      "text": "แชร์การจัดทีมและหาเพื่อนร่วมทีมใน Discord ของ MLBBDex"
+    },
+    "discordCta.value.title": {
+      "fr": "Compare ta collection",
+      "text": "เทียบคอลเลกชันของคุณ"
+    },
+    "discordCta.value.text": {
+      "fr": "Montre ta Vitrine et parle skins avec les joueurs du Discord MLBBDex.",
+      "text": "อวด Showcase และคุยเรื่องสกินกับผู้เล่นใน Discord ของ MLBBDex"
+    },
+    "discordCta.copy.title": {
+      "fr": "Pseudo copié ! Viens le montrer",
+      "text": "คัดลอกชื่อแล้ว! มาอวดกัน"
+    },
+    "discordCta.copy.text": {
+      "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
+      "text": "เข้าร่วม Discord ของ MLBBDex: หาเพื่อนร่วมทีมตามแรงก์ แจ้งเตือนแพตช์ และ MLBBdle ประจำวัน"
     }
   },
   "pt": {
@@ -59775,6 +60015,46 @@
     "pages.notFound.search": {
       "fr": "Chercher un héros, un objet ou une page",
       "text": "Procurar um herói, um item ou uma página"
+    },
+    "discordCta.nickname.title": {
+      "fr": "Montre ton nouveau pseudo",
+      "text": "Mostre seu novo nick"
+    },
+    "discordCta.nickname.text": {
+      "fr": "Viens le tester sur le Discord MLBBDex et trouve des coéquipiers de ton rang.",
+      "text": "Teste no Discord do MLBBDex e ache parceiros do seu elo."
+    },
+    "discordCta.skins.title": {
+      "fr": "Sois prévenu des nouveaux skins",
+      "text": "Saiba primeiro das novas skins"
+    },
+    "discordCta.skins.text": {
+      "fr": "Les nouveaux skins, la StarLight et les tirages arrivent sur le Discord dès leur sortie.",
+      "text": "Novas skins, StarLight e sorteios chegam ao Discord assim que saem."
+    },
+    "discordCta.tools.title": {
+      "fr": "Prépare tes drafts avec ton équipe",
+      "text": "Prepare seus drafts com seu time"
+    },
+    "discordCta.tools.text": {
+      "fr": "Partage tes compositions et trouve des coéquipiers sur le Discord MLBBDex.",
+      "text": "Compartilhe suas composições e ache parceiros no Discord do MLBBDex."
+    },
+    "discordCta.value.title": {
+      "fr": "Compare ta collection",
+      "text": "Compare sua coleção"
+    },
+    "discordCta.value.text": {
+      "fr": "Montre ta Vitrine et parle skins avec les joueurs du Discord MLBBDex.",
+      "text": "Mostre sua Vitrine e fale de skins com os jogadores do Discord do MLBBDex."
+    },
+    "discordCta.copy.title": {
+      "fr": "Pseudo copié ! Viens le montrer",
+      "text": "Nick copiado! Venha mostrar"
+    },
+    "discordCta.copy.text": {
+      "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
+      "text": "Entre no Discord do MLBBDex: parceiros por elo, alertas de patch e o MLBBdle do dia."
     }
   },
   "ru": {
@@ -72885,6 +73165,46 @@
     "pages.notFound.search": {
       "fr": "Chercher un héros, un objet ou une page",
       "text": "Найти героя, предмет или страницу"
+    },
+    "discordCta.nickname.title": {
+      "fr": "Montre ton nouveau pseudo",
+      "text": "Покажите новый ник"
+    },
+    "discordCta.nickname.text": {
+      "fr": "Viens le tester sur le Discord MLBBDex et trouve des coéquipiers de ton rang.",
+      "text": "Опробуйте его в Discord MLBBDex и найдите тиммейтов своего ранга."
+    },
+    "discordCta.skins.title": {
+      "fr": "Sois prévenu des nouveaux skins",
+      "text": "Узнавайте первыми о новых скинах"
+    },
+    "discordCta.skins.text": {
+      "fr": "Les nouveaux skins, la StarLight et les tirages arrivent sur le Discord dès leur sortie.",
+      "text": "Новые скины, StarLight и розыгрыши приходят в Discord сразу после выхода."
+    },
+    "discordCta.tools.title": {
+      "fr": "Prépare tes drafts avec ton équipe",
+      "text": "Готовьте драфты вместе с командой"
+    },
+    "discordCta.tools.text": {
+      "fr": "Partage tes compositions et trouve des coéquipiers sur le Discord MLBBDex.",
+      "text": "Делитесь составами и находите тиммейтов в Discord MLBBDex."
+    },
+    "discordCta.value.title": {
+      "fr": "Compare ta collection",
+      "text": "Сравните свою коллекцию"
+    },
+    "discordCta.value.text": {
+      "fr": "Montre ta Vitrine et parle skins avec les joueurs du Discord MLBBDex.",
+      "text": "Покажите свою Витрину и обсуждайте скины с игроками в Discord MLBBDex."
+    },
+    "discordCta.copy.title": {
+      "fr": "Pseudo copié ! Viens le montrer",
+      "text": "Ник скопирован! Покажите его"
+    },
+    "discordCta.copy.text": {
+      "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
+      "text": "Заходите в Discord MLBBDex: тиммейты по рангу, оповещения о патчах и MLBBdle дня."
     }
   }
 }

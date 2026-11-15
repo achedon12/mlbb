@@ -4,6 +4,7 @@ import { Chakra_Petch, Inter, Noto_Sans_Thai, Play, Rajdhani } from "next/font/g
 import { Header } from "@/components/header";
 import { Offline } from "@/components/offline";
 import { DiscordPopup } from "@/components/discord-popup";
+import { DiscordBand } from "@/components/discord-band";
 import { Analytics } from "@/components/analytics";
 import { Footer } from "@/components/footer";
 import { ErrorReporter } from "@/components/error-reporter";
@@ -133,6 +134,7 @@ export default async function LocaleLayout({
           <main id="content" className="flex-1">
             {children}
           </main>
+          <DiscordBand />
           <Footer locale={locale} year={new Date().getFullYear()} />
           <Analytics />
           <ErrorReporter />
