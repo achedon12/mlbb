@@ -6035,9 +6035,27 @@
       "title": "Ikumpara ang collection mo",
       "text": "Ipakita ang Showcase mo at mag-usap tungkol sa skins sa MLBBDex Discord."
     },
-    "copy": {
-      "title": "Nakopya ang nickname! Ipakita mo na",
-      "text": "Sumali sa MLBBDex Discord: teammates ayon sa rank, patch alerts at MLBBdle ng araw."
+    "moment": {
+      "nickname": {
+        "title": "Nakopya ang nickname! Ipakita mo na",
+        "text": "Sumali sa MLBBDex Discord: teammates ayon sa rank, patch alerts at MLBBdle ng araw."
+      },
+      "mlbbdle": {
+        "title": "Nahulaan mo! Ikumpara ang score mo",
+        "text": "I-share ang MLBBdle mo ngayong araw at hamunin ang players sa MLBBDex Discord."
+      },
+      "quiz": {
+        "title": "Tapos ang quiz! Sino'ng mas magaling?",
+        "text": "Ikumpara ang score mo ngayong araw sa community sa MLBBDex Discord."
+      },
+      "value": {
+        "title": "Na-estimate ang account! Ipakita ang collection mo",
+        "text": "I-share ang Showcase mo at mag-usap tungkol sa skins sa MLBBDex Discord."
+      },
+      "draft": {
+        "title": "Tapos ang draft! Hanapin ang squad mo",
+        "text": "Laruin ang drafts mo nang totoo kasama ang teammates sa rank mo sa MLBBDex Discord."
+      }
     }
   },
   "consent": {

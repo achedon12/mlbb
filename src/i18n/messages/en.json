@@ -6035,9 +6035,27 @@
       "title": "Compare your collection",
       "text": "Show your Showcase and talk skins with players on the MLBBDex Discord."
     },
-    "copy": {
-      "title": "Nickname copied! Come show it off",
-      "text": "Join the MLBBDex Discord: teammates by rank, patch alerts and the daily MLBBdle."
+    "moment": {
+      "nickname": {
+        "title": "Nickname copied! Come show it off",
+        "text": "Join the MLBBDex Discord: teammates by rank, patch alerts and the daily MLBBdle."
+      },
+      "mlbbdle": {
+        "title": "Got it! Compare your score",
+        "text": "Share today's MLBBdle and challenge the players on the MLBBDex Discord."
+      },
+      "quiz": {
+        "title": "Quiz done! Who can beat you?",
+        "text": "Compare today's score with the community on the MLBBDex Discord."
+      },
+      "value": {
+        "title": "Account valued! Show off your collection",
+        "text": "Share your Showcase and talk skins with players on the MLBBDex Discord."
+      },
+      "draft": {
+        "title": "Draft done! Find your squad",
+        "text": "Play your drafts for real with teammates at your rank on the MLBBDex Discord."
+      }
     }
   },
   "consent": {
