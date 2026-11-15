@@ -1,3 +1,4 @@
+import { DiscordInvite } from "@/components/discord-invite";
 import type { Metadata } from "next";
 import { createT } from "@/i18n/translations";
 import { cleanHtml, serializeJsonLd } from "@/lib/html";
@@ -278,6 +279,9 @@ export default async function PatchPage({ params }: Params) {
         others={articles("patch-notes", locale)}
         back={{ href: "/patch-notes", label: t("pages.patchNotes.all") }}
       />
+      <div className="page-wrap pb-12">
+        <DiscordInvite t={t} context="patch" />
+      </div>
     </>
   );
 }

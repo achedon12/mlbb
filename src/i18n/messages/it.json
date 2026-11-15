@@ -5511,7 +5511,6 @@
   "discordPopup": {
     "label": "Invito al Discord di MLBBDex",
     "title": "Unisciti al Discord di MLBBDex",
-    "text": "Avvisi sulle patch, MLBBdle del giorno, compagni di squadra.",
     "join": "Unisciti",
     "close": "Chiudi l'invito"
   },
@@ -5823,6 +5822,37 @@
       "imagePreview": "Immagine",
       "downloadVideo": "Scarica il video",
       "videoPreparing": "Video in preparazione…"
+    }
+  },
+  "discordCta": {
+    "join": "Entra nel server",
+    "default": {
+      "title": "Entra nel Discord di MLBBDex",
+      "text": "Compagni per rank e regione, avvisi di patch e il MLBBdle del giorno. Gratis."
+    },
+    "hero": {
+      "title": "Scopri subito il prossimo buff o nerf",
+      "text": "Patch notes, nuove skin ed eventi arrivano sul Discord appena escono."
+    },
+    "tier": {
+      "title": "Il meta cambia ogni settimana",
+      "text": "Parla degli eroi in ascesa e delle build che funzionano con i giocatori del Discord."
+    },
+    "teammates": {
+      "title": "Trova una squadra subito",
+      "text": "Il canale compagni del Discord, con ruoli di rank e regione."
+    },
+    "patch": {
+      "title": "Primo a sapere della prossima patch",
+      "text": "Patch notes, server avanzato e nuove skin pubblicati in automatico sul Discord."
+    },
+    "daily": {
+      "title": "MLBBdle e quiz, insieme ad altri giocatori",
+      "text": "Confronta la tua partita del giorno con la community sul Discord."
+    },
+    "esports": {
+      "title": "Segui i tornei con altri fan",
+      "text": "MPL, MSC e M-series: i risultati arrivano nel canale esports del Discord."
     }
   }
 }

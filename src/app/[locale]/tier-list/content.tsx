@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "@/components/link";
+import { DiscordInvite } from "@/components/discord-invite";
 import type { Crumb } from "@/components/breadcrumb";
 import { freshnessFacts } from "@/components/freshness";
 import { GuideLink } from "@/components/guide";
@@ -383,6 +384,7 @@ export function TierList({
         <p className="mt-14 border-t border-night-800 pt-6 text-sm leading-relaxed text-chalk-500">
           {t("pages.tierList.conclusion")}
         </p>
+        <DiscordInvite t={t} context="tier" className="mt-8" />
         </TierRows>
       </div>
     </>

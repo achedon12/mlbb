@@ -5511,7 +5511,6 @@
   "discordPopup": {
     "label": "MLBBDex Discord invitation",
     "title": "Join the MLBBDex Discord",
-    "text": "Patch alerts, the daily MLBBdle, teammates to find.",
     "join": "Join",
     "close": "Close the invitation"
   },
@@ -5823,6 +5822,37 @@
       "imagePreview": "Image",
       "downloadVideo": "Download the video",
       "videoPreparing": "Preparing the video…"
+    }
+  },
+  "discordCta": {
+    "join": "Join the server",
+    "default": {
+      "title": "Join the MLBBDex Discord",
+      "text": "Teammates by rank and region, patch alerts and the daily MLBBdle. Free."
+    },
+    "hero": {
+      "title": "Know about the next buff or nerf first",
+      "text": "Patch notes, new skins and events land on the Discord the moment they're out."
+    },
+    "tier": {
+      "title": "The meta moves every week",
+      "text": "Talk rising heroes and builds that work with the players on the Discord."
+    },
+    "teammates": {
+      "title": "Find a squad right now",
+      "text": "The Discord's teammates channel, with rank and region roles."
+    },
+    "patch": {
+      "title": "Be first to know the next patch",
+      "text": "Patch notes, advance server and new skins posted automatically on the Discord."
+    },
+    "daily": {
+      "title": "MLBBdle and the quiz, with other players",
+      "text": "Compare today's game with the community on the Discord."
+    },
+    "esports": {
+      "title": "Follow the tournaments with other fans",
+      "text": "MPL, MSC and M-series: results land in the Discord's esports channel."
     }
   }
 }

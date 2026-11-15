@@ -28,6 +28,8 @@
   --color-blood-500: #d94848;
 
   /* Discord's own blurple, kept for what leads to the community server. */
+  /* 400: the glyph on night (6:1). */
+  --color-blurple-400: #8c95ff;
   --color-blurple-500: #5865f2;
   --color-blurple-600: #4752c4;
 

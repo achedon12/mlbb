@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 import { trackEvent } from "@/lib/analytics";
 import { communityInvite } from "@/lib/bot/public";
+import { discordContext } from "@/lib/discord-cta";
 import {
   DWELL_BEFORE_SHOWING_MS,
   isExcludedPath,
@@ -119,20 +120,20 @@ export function DiscordPopup() {
     shown.current = true;
     const session = readDiscordPopupSession();
     if (session) writeDiscordPopupSession({ ...session, shown: true });
-    trackEvent("Discord", "Popup shown");
-  }, [visible]);
+    trackEvent("Discord", "Popup shown", discordContext(pathname));
+  }, [visible, pathname]);
 
   const join = () => {
     rememberDiscordPopupJoined();
-    trackEvent("Discord", "Popup join");
+    trackEvent("Discord", "Popup join", discordContext(pathname));
     setClosed(true);
   };
   const dismiss = () => {
     rememberDiscordPopupDismissed(Date.now());
-    trackEvent("Discord", "Popup dismiss");
+    trackEvent("Discord", "Popup dismiss", discordContext(pathname));
     setClosed(true);
   };
 
   // The live region stays mounted, empty, so the card is announced when it appears.
-  return <div aria-live="polite">{visible && invite && <DiscordPopupCard invite={invite} onJoin={join} onDismiss={dismiss} />}</div>;
+  return <div aria-live="polite">{visible && invite && <DiscordPopupCard invite={invite} context={discordContext(pathname)} onJoin={join} onDismiss={dismiss} />}</div>;
 }

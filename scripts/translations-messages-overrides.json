@@ -4227,6 +4227,66 @@
     "pages.accountValue.methodItems": {
       "fr": "Les apparences éclatantes et les objets des deux autres panneaux (effets de rappel, émotes, cadres d'avatar…) valent des points très variables d'un objet à l'autre : ils sont comptés à leurs points, à {inMatch} diamant par point pour les objets de partie, {outMatch} pour les objets hors partie, souvent gratuits, et {shining} pour les apparences éclatantes. La plupart viennent d'événements et de passes : c'est une estimation basse.",
       "text": "Shining skins and the items of the two other panels (recall effects, emotes, avatar frames…) are worth very different points from one item to the next: they are counted by their points, at {inMatch} diamond per point for in-match items, {outMatch} for out-of-match items, often free, and {shining} for shining skins. Most come from events and passes: this is a low estimate."
+    },
+    "discordCta.join": {
+      "fr": "Rejoindre le serveur",
+      "text": "Join the server"
+    },
+    "discordCta.default.title": {
+      "fr": "Rejoignez le Discord MLBBDex",
+      "text": "Join the MLBBDex Discord"
+    },
+    "discordCta.default.text": {
+      "fr": "Coéquipiers par rang et par région, alertes de patch et MLBBdle du jour. Gratuit.",
+      "text": "Teammates by rank and region, patch alerts and the daily MLBBdle. Free."
+    },
+    "discordCta.hero.title": {
+      "fr": "Soyez prévenu du prochain buff ou nerf",
+      "text": "Know about the next buff or nerf first"
+    },
+    "discordCta.hero.text": {
+      "fr": "Les notes de patch, les nouveaux skins et les événements arrivent sur le Discord dès leur sortie.",
+      "text": "Patch notes, new skins and events land on the Discord the moment they're out."
+    },
+    "discordCta.tier.title": {
+      "fr": "Le méta bouge chaque semaine",
+      "text": "The meta moves every week"
+    },
+    "discordCta.tier.text": {
+      "fr": "Discutez des héros qui montent et des builds qui marchent avec les joueurs du Discord.",
+      "text": "Talk rising heroes and builds that work with the players on the Discord."
+    },
+    "discordCta.teammates.title": {
+      "fr": "Trouvez une équipe tout de suite",
+      "text": "Find a squad right now"
+    },
+    "discordCta.teammates.text": {
+      "fr": "Le salon des coéquipiers du Discord, avec les rôles de rang et de région.",
+      "text": "The Discord's teammates channel, with rank and region roles."
+    },
+    "discordCta.patch.title": {
+      "fr": "Prévenu dès le prochain patch",
+      "text": "Be first to know the next patch"
+    },
+    "discordCta.patch.text": {
+      "fr": "Notes de patch, serveur avancé et nouveaux skins publiés automatiquement sur le Discord.",
+      "text": "Patch notes, advance server and new skins posted automatically on the Discord."
+    },
+    "discordCta.daily.title": {
+      "fr": "Le MLBBdle et le quiz, entre joueurs",
+      "text": "MLBBdle and the quiz, with other players"
+    },
+    "discordCta.daily.text": {
+      "fr": "Comparez votre partie du jour avec la communauté sur le Discord.",
+      "text": "Compare today's game with the community on the Discord."
+    },
+    "discordCta.esports.title": {
+      "fr": "Suivez les tournois entre fans",
+      "text": "Follow the tournaments with other fans"
+    },
+    "discordCta.esports.text": {
+      "fr": "MPL, MSC et M-series : les résultats arrivent dans le salon esports du Discord.",
+      "text": "MPL, MSC and M-series: results land in the Discord's esports channel."
     }
   },
   "es": {
@@ -8285,6 +8345,66 @@
     "pages.accountValueUI.pointsLead": {
       "fr": "Ces objets valent des points très différents d'un objet à l'autre : indiquez le total en points que le jeu affiche.",
       "text": "Estos objetos valen puntos muy distintos de uno a otro: indica el total de puntos que muestra el juego."
+    },
+    "discordCta.join": {
+      "fr": "Rejoindre le serveur",
+      "text": "Unirse al servidor"
+    },
+    "discordCta.default.title": {
+      "fr": "Rejoignez le Discord MLBBDex",
+      "text": "Únete al Discord de MLBBDex"
+    },
+    "discordCta.default.text": {
+      "fr": "Coéquipiers par rang et par région, alertes de patch et MLBBdle du jour. Gratuit.",
+      "text": "Compañeros por rango y región, avisos de parche y el MLBBdle del día. Gratis."
+    },
+    "discordCta.hero.title": {
+      "fr": "Soyez prévenu du prochain buff ou nerf",
+      "text": "Entérate del próximo buff o nerf"
+    },
+    "discordCta.hero.text": {
+      "fr": "Les notes de patch, les nouveaux skins et les événements arrivent sur le Discord dès leur sortie.",
+      "text": "Notas de parche, nuevas skins y eventos llegan al Discord en cuanto salen."
+    },
+    "discordCta.tier.title": {
+      "fr": "Le méta bouge chaque semaine",
+      "text": "El meta cambia cada semana"
+    },
+    "discordCta.tier.text": {
+      "fr": "Discutez des héros qui montent et des builds qui marchent avec les joueurs du Discord.",
+      "text": "Habla de los héroes en alza y de las builds que funcionan con los jugadores del Discord."
+    },
+    "discordCta.teammates.title": {
+      "fr": "Trouvez une équipe tout de suite",
+      "text": "Encuentra equipo ahora mismo"
+    },
+    "discordCta.teammates.text": {
+      "fr": "Le salon des coéquipiers du Discord, avec les rôles de rang et de région.",
+      "text": "El canal de compañeros del Discord, con roles de rango y región."
+    },
+    "discordCta.patch.title": {
+      "fr": "Prévenu dès le prochain patch",
+      "text": "Entérate el primero del próximo parche"
+    },
+    "discordCta.patch.text": {
+      "fr": "Notes de patch, serveur avancé et nouveaux skins publiés automatiquement sur le Discord.",
+      "text": "Notas de parche, servidor avanzado y nuevas skins publicados automáticamente en el Discord."
+    },
+    "discordCta.daily.title": {
+      "fr": "Le MLBBdle et le quiz, entre joueurs",
+      "text": "MLBBdle y el quiz, con otros jugadores"
+    },
+    "discordCta.daily.text": {
+      "fr": "Comparez votre partie du jour avec la communauté sur le Discord.",
+      "text": "Compara tu partida del día con la comunidad en el Discord."
+    },
+    "discordCta.esports.title": {
+      "fr": "Suivez les tournois entre fans",
+      "text": "Sigue los torneos con otros fans"
+    },
+    "discordCta.esports.text": {
+      "fr": "MPL, MSC et M-series : les résultats arrivent dans le salon esports du Discord.",
+      "text": "MPL, MSC y M-series: los resultados llegan al canal de esports del Discord."
     }
   },
   "id": {
@@ -14387,6 +14507,66 @@
     "pages.accountValueUI.pointsLead": {
       "fr": "Ces objets valent des points très différents d'un objet à l'autre : indiquez le total en points que le jeu affiche.",
       "text": "Item-item ini bernilai poin yang sangat berbeda satu sama lain: masukkan total poin yang ditampilkan game."
+    },
+    "discordCta.join": {
+      "fr": "Rejoindre le serveur",
+      "text": "Gabung server"
+    },
+    "discordCta.default.title": {
+      "fr": "Rejoignez le Discord MLBBDex",
+      "text": "Gabung Discord MLBBDex"
+    },
+    "discordCta.default.text": {
+      "fr": "Coéquipiers par rang et par région, alertes de patch et MLBBdle du jour. Gratuit.",
+      "text": "Cari teman per rank dan region, notifikasi patch, dan MLBBdle harian. Gratis."
+    },
+    "discordCta.hero.title": {
+      "fr": "Soyez prévenu du prochain buff ou nerf",
+      "text": "Tahu duluan soal buff atau nerf berikutnya"
+    },
+    "discordCta.hero.text": {
+      "fr": "Les notes de patch, les nouveaux skins et les événements arrivent sur le Discord dès leur sortie.",
+      "text": "Patch notes, skin baru, dan event langsung masuk ke Discord begitu rilis."
+    },
+    "discordCta.tier.title": {
+      "fr": "Le méta bouge chaque semaine",
+      "text": "Meta berubah tiap minggu"
+    },
+    "discordCta.tier.text": {
+      "fr": "Discutez des héros qui montent et des builds qui marchent avec les joueurs du Discord.",
+      "text": "Bahas hero yang naik dan build yang ampuh bareng pemain di Discord."
+    },
+    "discordCta.teammates.title": {
+      "fr": "Trouvez une équipe tout de suite",
+      "text": "Cari tim sekarang juga"
+    },
+    "discordCta.teammates.text": {
+      "fr": "Le salon des coéquipiers du Discord, avec les rôles de rang et de région.",
+      "text": "Channel cari teman di Discord, dengan role rank dan region."
+    },
+    "discordCta.patch.title": {
+      "fr": "Prévenu dès le prochain patch",
+      "text": "Tahu duluan soal patch berikutnya"
+    },
+    "discordCta.patch.text": {
+      "fr": "Notes de patch, serveur avancé et nouveaux skins publiés automatiquement sur le Discord.",
+      "text": "Patch notes, advance server, dan skin baru diposting otomatis di Discord."
+    },
+    "discordCta.daily.title": {
+      "fr": "Le MLBBdle et le quiz, entre joueurs",
+      "text": "MLBBdle dan kuis, bareng pemain lain"
+    },
+    "discordCta.daily.text": {
+      "fr": "Comparez votre partie du jour avec la communauté sur le Discord.",
+      "text": "Bandingkan permainan harianmu dengan komunitas di Discord."
+    },
+    "discordCta.esports.title": {
+      "fr": "Suivez les tournois entre fans",
+      "text": "Ikuti turnamen bareng fans lain"
+    },
+    "discordCta.esports.text": {
+      "fr": "MPL, MSC et M-series : les résultats arrivent dans le salon esports du Discord.",
+      "text": "MPL, MSC, dan M-series: hasilnya masuk ke channel esports Discord."
     }
   },
   "it": {
@@ -18473,6 +18653,66 @@
     "pages.accountValueUI.pointsLead": {
       "fr": "Ces objets valent des points très différents d'un objet à l'autre : indiquez le total en points que le jeu affiche.",
       "text": "Questi oggetti valgono punti molto diversi l'uno dall'altro: indica il totale dei punti mostrato dal gioco."
+    },
+    "discordCta.join": {
+      "fr": "Rejoindre le serveur",
+      "text": "Entra nel server"
+    },
+    "discordCta.default.title": {
+      "fr": "Rejoignez le Discord MLBBDex",
+      "text": "Entra nel Discord di MLBBDex"
+    },
+    "discordCta.default.text": {
+      "fr": "Coéquipiers par rang et par région, alertes de patch et MLBBdle du jour. Gratuit.",
+      "text": "Compagni per rank e regione, avvisi di patch e il MLBBdle del giorno. Gratis."
+    },
+    "discordCta.hero.title": {
+      "fr": "Soyez prévenu du prochain buff ou nerf",
+      "text": "Scopri subito il prossimo buff o nerf"
+    },
+    "discordCta.hero.text": {
+      "fr": "Les notes de patch, les nouveaux skins et les événements arrivent sur le Discord dès leur sortie.",
+      "text": "Patch notes, nuove skin ed eventi arrivano sul Discord appena escono."
+    },
+    "discordCta.tier.title": {
+      "fr": "Le méta bouge chaque semaine",
+      "text": "Il meta cambia ogni settimana"
+    },
+    "discordCta.tier.text": {
+      "fr": "Discutez des héros qui montent et des builds qui marchent avec les joueurs du Discord.",
+      "text": "Parla degli eroi in ascesa e delle build che funzionano con i giocatori del Discord."
+    },
+    "discordCta.teammates.title": {
+      "fr": "Trouvez une équipe tout de suite",
+      "text": "Trova una squadra subito"
+    },
+    "discordCta.teammates.text": {
+      "fr": "Le salon des coéquipiers du Discord, avec les rôles de rang et de région.",
+      "text": "Il canale compagni del Discord, con ruoli di rank e regione."
+    },
+    "discordCta.patch.title": {
+      "fr": "Prévenu dès le prochain patch",
+      "text": "Primo a sapere della prossima patch"
+    },
+    "discordCta.patch.text": {
+      "fr": "Notes de patch, serveur avancé et nouveaux skins publiés automatiquement sur le Discord.",
+      "text": "Patch notes, server avanzato e nuove skin pubblicati in automatico sul Discord."
+    },
+    "discordCta.daily.title": {
+      "fr": "Le MLBBdle et le quiz, entre joueurs",
+      "text": "MLBBdle e quiz, insieme ad altri giocatori"
+    },
+    "discordCta.daily.text": {
+      "fr": "Comparez votre partie du jour avec la communauté sur le Discord.",
+      "text": "Confronta la tua partita del giorno con la community sul Discord."
+    },
+    "discordCta.esports.title": {
+      "fr": "Suivez les tournois entre fans",
+      "text": "Segui i tornei con altri fan"
+    },
+    "discordCta.esports.text": {
+      "fr": "MPL, MSC et M-series : les résultats arrivent dans le salon esports du Discord.",
+      "text": "MPL, MSC e M-series: i risultati arrivano nel canale esports del Discord."
     }
   },
   "fil": {
@@ -33131,6 +33371,66 @@
     "pages.accountValueUI.pointsLead": {
       "fr": "Ces objets valent des points très différents d'un objet à l'autre : indiquez le total en points que le jeu affiche.",
       "text": "Iba-iba ang points ng bawat item: ilagay ang kabuuang points na ipinapakita ng laro."
+    },
+    "discordCta.join": {
+      "fr": "Rejoindre le serveur",
+      "text": "Sumali sa server"
+    },
+    "discordCta.default.title": {
+      "fr": "Rejoignez le Discord MLBBDex",
+      "text": "Sumali sa MLBBDex Discord"
+    },
+    "discordCta.default.text": {
+      "fr": "Coéquipiers par rang et par région, alertes de patch et MLBBdle du jour. Gratuit.",
+      "text": "Teammates ayon sa rank at region, patch alerts at ang MLBBdle ng araw. Libre."
+    },
+    "discordCta.hero.title": {
+      "fr": "Soyez prévenu du prochain buff ou nerf",
+      "text": "Malaman agad ang susunod na buff o nerf"
+    },
+    "discordCta.hero.text": {
+      "fr": "Les notes de patch, les nouveaux skins et les événements arrivent sur le Discord dès leur sortie.",
+      "text": "Patch notes, bagong skins at events, nasa Discord agad paglabas."
+    },
+    "discordCta.tier.title": {
+      "fr": "Le méta bouge chaque semaine",
+      "text": "Gumagalaw ang meta bawat linggo"
+    },
+    "discordCta.tier.text": {
+      "fr": "Discutez des héros qui montent et des builds qui marchent avec les joueurs du Discord.",
+      "text": "Pag-usapan ang mga umaangat na hero at mga build na gumagana kasama ang players sa Discord."
+    },
+    "discordCta.teammates.title": {
+      "fr": "Trouvez une équipe tout de suite",
+      "text": "Maghanap ng squad ngayon"
+    },
+    "discordCta.teammates.text": {
+      "fr": "Le salon des coéquipiers du Discord, avec les rôles de rang et de région.",
+      "text": "Ang teammates channel ng Discord, may rank at region roles."
+    },
+    "discordCta.patch.title": {
+      "fr": "Prévenu dès le prochain patch",
+      "text": "Unang makaalam ng susunod na patch"
+    },
+    "discordCta.patch.text": {
+      "fr": "Notes de patch, serveur avancé et nouveaux skins publiés automatiquement sur le Discord.",
+      "text": "Patch notes, advance server at bagong skins, awtomatikong pino-post sa Discord."
+    },
+    "discordCta.daily.title": {
+      "fr": "Le MLBBdle et le quiz, entre joueurs",
+      "text": "MLBBdle at quiz, kasama ang ibang players"
+    },
+    "discordCta.daily.text": {
+      "fr": "Comparez votre partie du jour avec la communauté sur le Discord.",
+      "text": "Ikumpara ang laro mo ngayong araw sa community sa Discord."
+    },
+    "discordCta.esports.title": {
+      "fr": "Suivez les tournois entre fans",
+      "text": "Sundan ang mga tournament kasama ang ibang fans"
+    },
+    "discordCta.esports.text": {
+      "fr": "MPL, MSC et M-series : les résultats arrivent dans le salon esports du Discord.",
+      "text": "MPL, MSC at M-series: nasa esports channel ng Discord ang mga resulta."
     }
   },
   "th": {
@@ -46773,6 +47073,66 @@
     "pages.accountValueUI.pointsLead": {
       "fr": "Ces objets valent des points très différents d'un objet à l'autre : indiquez le total en points que le jeu affiche.",
       "text": "ไอเทมเหล่านี้มีแต้มต่างกันมากในแต่ละชิ้น: กรอกแต้มรวมที่เกมแสดง"
+    },
+    "discordCta.join": {
+      "fr": "Rejoindre le serveur",
+      "text": "เข้าร่วมเซิร์ฟเวอร์"
+    },
+    "discordCta.default.title": {
+      "fr": "Rejoignez le Discord MLBBDex",
+      "text": "เข้าร่วม Discord ของ MLBBDex"
+    },
+    "discordCta.default.text": {
+      "fr": "Coéquipiers par rang et par région, alertes de patch et MLBBdle du jour. Gratuit.",
+      "text": "หาเพื่อนร่วมทีมตามแรงก์และภูมิภาค แจ้งเตือนแพตช์ และ MLBBdle ประจำวัน ฟรี"
+    },
+    "discordCta.hero.title": {
+      "fr": "Soyez prévenu du prochain buff ou nerf",
+      "text": "รู้ก่อนใครเมื่อมีบัฟหรือเนิร์ฟ"
+    },
+    "discordCta.hero.text": {
+      "fr": "Les notes de patch, les nouveaux skins et les événements arrivent sur le Discord dès leur sortie.",
+      "text": "แพตช์โน้ต สกินใหม่ และอีเวนต์ ส่งเข้า Discord ทันทีที่ออก"
+    },
+    "discordCta.tier.title": {
+      "fr": "Le méta bouge chaque semaine",
+      "text": "เมต้าเปลี่ยนทุกสัปดาห์"
+    },
+    "discordCta.tier.text": {
+      "fr": "Discutez des héros qui montent et des builds qui marchent avec les joueurs du Discord.",
+      "text": "คุยเรื่องฮีโร่ที่กำลังมาและบิลด์ที่ใช้ได้จริงกับผู้เล่นใน Discord"
+    },
+    "discordCta.teammates.title": {
+      "fr": "Trouvez une équipe tout de suite",
+      "text": "หาทีมได้เลยตอนนี้"
+    },
+    "discordCta.teammates.text": {
+      "fr": "Le salon des coéquipiers du Discord, avec les rôles de rang et de région.",
+      "text": "ห้องหาเพื่อนร่วมทีมใน Discord พร้อมโรลแรงก์และภูมิภาค"
+    },
+    "discordCta.patch.title": {
+      "fr": "Prévenu dès le prochain patch",
+      "text": "รู้ก่อนใครเมื่อแพตช์ใหม่มา"
+    },
+    "discordCta.patch.text": {
+      "fr": "Notes de patch, serveur avancé et nouveaux skins publiés automatiquement sur le Discord.",
+      "text": "แพตช์โน้ต Advance Server และสกินใหม่ โพสต์อัตโนมัติใน Discord"
+    },
+    "discordCta.daily.title": {
+      "fr": "Le MLBBdle et le quiz, entre joueurs",
+      "text": "MLBBdle และควิซ เล่นกับผู้เล่นคนอื่น"
+    },
+    "discordCta.daily.text": {
+      "fr": "Comparez votre partie du jour avec la communauté sur le Discord.",
+      "text": "เทียบผลเกมวันนี้กับคอมมูนิตี้ใน Discord"
+    },
+    "discordCta.esports.title": {
+      "fr": "Suivez les tournois entre fans",
+      "text": "ติดตามทัวร์นาเมนต์กับแฟนๆ"
+    },
+    "discordCta.esports.text": {
+      "fr": "MPL, MSC et M-series : les résultats arrivent dans le salon esports du Discord.",
+      "text": "MPL, MSC และ M-series: ผลการแข่งขันส่งเข้าห้อง esports ของ Discord"
     }
   },
   "pt": {
@@ -58331,6 +58691,66 @@
     "pages.accountValueUI.pointsLead": {
       "fr": "Ces objets valent des points très différents d'un objet à l'autre : indiquez le total en points que le jeu affiche.",
       "text": "Esses itens valem pontos muito diferentes de um para outro: informe o total de pontos que o jogo mostra."
+    },
+    "discordCta.join": {
+      "fr": "Rejoindre le serveur",
+      "text": "Entrar no servidor"
+    },
+    "discordCta.default.title": {
+      "fr": "Rejoignez le Discord MLBBDex",
+      "text": "Entre no Discord do MLBBDex"
+    },
+    "discordCta.default.text": {
+      "fr": "Coéquipiers par rang et par région, alertes de patch et MLBBdle du jour. Gratuit.",
+      "text": "Parceiros por elo e região, alertas de patch e o MLBBdle do dia. Grátis."
+    },
+    "discordCta.hero.title": {
+      "fr": "Soyez prévenu du prochain buff ou nerf",
+      "text": "Saiba primeiro do próximo buff ou nerf"
+    },
+    "discordCta.hero.text": {
+      "fr": "Les notes de patch, les nouveaux skins et les événements arrivent sur le Discord dès leur sortie.",
+      "text": "Notas de patch, novas skins e eventos chegam ao Discord assim que saem."
+    },
+    "discordCta.tier.title": {
+      "fr": "Le méta bouge chaque semaine",
+      "text": "O meta muda toda semana"
+    },
+    "discordCta.tier.text": {
+      "fr": "Discutez des héros qui montent et des builds qui marchent avec les joueurs du Discord.",
+      "text": "Converse sobre os heróis em alta e as builds que funcionam com os jogadores do Discord."
+    },
+    "discordCta.teammates.title": {
+      "fr": "Trouvez une équipe tout de suite",
+      "text": "Ache um time agora mesmo"
+    },
+    "discordCta.teammates.text": {
+      "fr": "Le salon des coéquipiers du Discord, avec les rôles de rang et de région.",
+      "text": "O canal de parceiros do Discord, com cargos de elo e região."
+    },
+    "discordCta.patch.title": {
+      "fr": "Prévenu dès le prochain patch",
+      "text": "Saiba primeiro do próximo patch"
+    },
+    "discordCta.patch.text": {
+      "fr": "Notes de patch, serveur avancé et nouveaux skins publiés automatiquement sur le Discord.",
+      "text": "Notas de patch, servidor avançado e novas skins postados automaticamente no Discord."
+    },
+    "discordCta.daily.title": {
+      "fr": "Le MLBBdle et le quiz, entre joueurs",
+      "text": "MLBBdle e quiz, com outros jogadores"
+    },
+    "discordCta.daily.text": {
+      "fr": "Comparez votre partie du jour avec la communauté sur le Discord.",
+      "text": "Compare sua partida do dia com a comunidade no Discord."
+    },
+    "discordCta.esports.title": {
+      "fr": "Suivez les tournois entre fans",
+      "text": "Acompanhe os torneios com outros fãs"
+    },
+    "discordCta.esports.text": {
+      "fr": "MPL, MSC et M-series : les résultats arrivent dans le salon esports du Discord.",
+      "text": "MPL, MSC e M-series: os resultados chegam ao canal de esports do Discord."
     }
   },
   "ru": {
@@ -71245,6 +71665,66 @@
     "pages.accountValueUI.pointsLead": {
       "fr": "Ces objets valent des points très différents d'un objet à l'autre : indiquez le total en points que le jeu affiche.",
       "text": "Эти предметы стоят очень разное число очков: укажите сумму очков, которую показывает игра."
+    },
+    "discordCta.join": {
+      "fr": "Rejoindre le serveur",
+      "text": "Войти на сервер"
+    },
+    "discordCta.default.title": {
+      "fr": "Rejoignez le Discord MLBBDex",
+      "text": "Заходите в Discord MLBBDex"
+    },
+    "discordCta.default.text": {
+      "fr": "Coéquipiers par rang et par région, alertes de patch et MLBBdle du jour. Gratuit.",
+      "text": "Тиммейты по рангу и региону, оповещения о патчах и MLBBdle дня. Бесплатно."
+    },
+    "discordCta.hero.title": {
+      "fr": "Soyez prévenu du prochain buff ou nerf",
+      "text": "Узнайте первым о следующем бафе или нерфе"
+    },
+    "discordCta.hero.text": {
+      "fr": "Les notes de patch, les nouveaux skins et les événements arrivent sur le Discord dès leur sortie.",
+      "text": "Патчноуты, новые скины и события приходят в Discord сразу после выхода."
+    },
+    "discordCta.tier.title": {
+      "fr": "Le méta bouge chaque semaine",
+      "text": "Мета меняется каждую неделю"
+    },
+    "discordCta.tier.text": {
+      "fr": "Discutez des héros qui montent et des builds qui marchent avec les joueurs du Discord.",
+      "text": "Обсуждайте героев на подъёме и рабочие сборки с игроками в Discord."
+    },
+    "discordCta.teammates.title": {
+      "fr": "Trouvez une équipe tout de suite",
+      "text": "Найдите команду прямо сейчас"
+    },
+    "discordCta.teammates.text": {
+      "fr": "Le salon des coéquipiers du Discord, avec les rôles de rang et de région.",
+      "text": "Канал поиска тиммейтов в Discord, с ролями ранга и региона."
+    },
+    "discordCta.patch.title": {
+      "fr": "Prévenu dès le prochain patch",
+      "text": "Узнайте первым о следующем патче"
+    },
+    "discordCta.patch.text": {
+      "fr": "Notes de patch, serveur avancé et nouveaux skins publiés automatiquement sur le Discord.",
+      "text": "Патчноуты, тестовый сервер и новые скины публикуются в Discord автоматически."
+    },
+    "discordCta.daily.title": {
+      "fr": "Le MLBBdle et le quiz, entre joueurs",
+      "text": "MLBBdle и викторина вместе с другими игроками"
+    },
+    "discordCta.daily.text": {
+      "fr": "Comparez votre partie du jour avec la communauté sur le Discord.",
+      "text": "Сравните сегодняшнюю игру с сообществом в Discord."
+    },
+    "discordCta.esports.title": {
+      "fr": "Suivez les tournois entre fans",
+      "text": "Следите за турнирами вместе с фанатами"
+    },
+    "discordCta.esports.text": {
+      "fr": "MPL, MSC et M-series : les résultats arrivent dans le salon esports du Discord.",
+      "text": "MPL, MSC и M-series: результаты приходят в канал esports в Discord."
     }
   }
 }
