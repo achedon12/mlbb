@@ -2339,7 +2339,8 @@
       "units": "{u} en unités UTF-16",
       "overGuide": "Plus long que les {max} caractères qu'indique un guide : le jeu pourrait le refuser.",
       "rating": "Certains symboles peuvent s'afficher en carré vide dans le jeu, ou être refusés. Le jeu ne publie pas sa manière de compter la longueur : le compteur donne les deux mesures courantes.",
-      "stylesTitle": "Tous les styles"
+      "stylesTitle": "Tous les styles",
+      "copiedDiscord": "Montre-le sur le Discord →"
     },
     "drawCalculator": {
       "title": "Calculateur de tirages MLBB",

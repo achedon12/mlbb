@@ -21,6 +21,8 @@ import {
 } from "@/lib/nicknames";
 import { trackEvent } from "@/lib/analytics";
 import { useDiscordMoment } from "@/components/discord-moment";
+import { DiscordJoinLink } from "@/components/discord-join-link";
+import { communityInvite } from "@/lib/bot/public";
 import { cn } from "@/lib/utils";
 
 /**
@@ -30,6 +32,8 @@ import { cn } from "@/lib/utils";
 
 /** How long the copy confirmation stays on screen. */
 const TOAST_MS = 2500;
+/** Longer when the confirmation carries the Discord link: long enough to click it. */
+const TOAST_LINK_MS = 4500;
 
 /**
  * Copies to the clipboard. The modern API fails outside a secure context or
@@ -72,7 +76,7 @@ export function NicknameGenerator() {
   const [input, setInput] = useState(() => t("pages.nicknameUI.example"));
   const [style, setStyle] = useState<Style>("bold");
   const [decoration, setDecoration] = useState<Decoration>(DECORATIONS[0]);
-  const [toast, setToast] = useState<{ text: string; failed: boolean } | null>(null);
+  const [toast, setToast] = useState<{ text: string; failed: boolean; invite?: string | null } | null>(null);
   const [copied, setCopied] = useState<Style | null>(null);
   // The Discord invitation after a copy, once the confirmation is gone.
   const discord = useDiscordMoment();
@@ -91,18 +95,22 @@ export function NicknameGenerator() {
     setStyle(s);
     const ok = await copyText(text);
     if (ok) trackEvent("Nickname", "Copy", s);
+    // Every successful copy says where to show the nickname off: a link in the
+    // confirmation itself, not one more card. The card comes once a session.
+    const invite = ok ? communityInvite() : null;
+    const duration = invite ? TOAST_LINK_MS : TOAST_MS;
     setToast(
       ok
-        ? { text: t("pages.nicknameUI.copied", { nickname: text }), failed: false }
+        ? { text: t("pages.nicknameUI.copied", { nickname: text }), failed: false, invite }
         : { text: t("pages.nicknameUI.copyFailed"), failed: true },
     );
     setCopied(ok ? s : null);
     clearTimeout(timer.current);
-    if (ok) discord.offer("nickname", TOAST_MS + 200);
+    if (ok) discord.offer("nickname", duration + 200);
     timer.current = setTimeout(() => {
       setToast(null);
       setCopied(null);
-    }, TOAST_MS);
+    }, duration);
   }
 
   function random() {
@@ -260,11 +268,25 @@ export function NicknameGenerator() {
           <p
             data-bottom-ui
             className={cn(
-              "max-w-full break-all border bg-night-900 px-4 py-2.5 text-sm font-medium text-chalk-100 shadow-lg shadow-black/40",
+              "max-w-full border bg-night-900 px-4 py-2.5 text-sm font-medium text-chalk-100 shadow-lg shadow-black/40",
               toast.failed ? "border-blood-500/60" : "border-gold-500/60",
+              toast.invite && "pointer-events-auto",
             )}
           >
-            {toast.text}
+            <span className="break-all">{toast.text}</span>
+            {toast.invite && (
+              <>
+                {" "}
+                <DiscordJoinLink
+                  href={toast.invite}
+                  placement="Toast"
+                  context="nickname"
+                  className="whitespace-nowrap font-semibold text-blurple-400 underline underline-offset-4 hover:text-white"
+                >
+                  {t("pages.nicknameUI.copiedDiscord")}
+                </DiscordJoinLink>
+              </>
+            )}
           </p>
         )}
       </div>

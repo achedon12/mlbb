@@ -2339,7 +2339,8 @@
       "units": "{u} in UTF-16 units",
       "overGuide": "Longer than the {max} characters reported by a guide: the game may reject it.",
       "rating": "Some symbols may show up as empty boxes in game, or be rejected. The game doesn't publish how it counts length: the counter gives both common measures.",
-      "stylesTitle": "All styles"
+      "stylesTitle": "All styles",
+      "copiedDiscord": "Show it off on Discord →"
     },
     "drawCalculator": {
       "title": "MLBB Draw Calculator",
