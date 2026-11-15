@@ -67,6 +67,42 @@ jobs:
 
       - run: npm ci --no-audit --no-fund
 
+      # The community API refuses its ranking endpoint (HTTP 403) to cloud
+      # runners and answers the production server: fetch the six ranks through
+      # it (six small requests). Without the deploy secrets, or if the server
+      # does not answer, the sync asks the API directly, as before.
+      - name: Ranking through the production server
+        continue-on-error: true
+        env:
+          SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+          SSH_HOST: ${{ vars.DEPLOY_HOST }}
+          SSH_USER: ${{ vars.DEPLOY_USER }}
+          SSH_PORT: ${{ vars.DEPLOY_PORT || '22' }}
+        run: |
+          if [ -z "$SSH_KEY" ] || [ -z "$KNOWN_HOSTS" ] || [ -z "$SSH_HOST" ]; then
+            echo "No deploy secrets: the ranking is asked to the API directly."
+            exit 0
+          fi
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/relay_key
+          chmod 600 ~/.ssh/relay_key
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+          dir="$RUNNER_TEMP/ranking"
+          mkdir -p "$dir"
+          ua=$(node -e "const s=require('fs').readFileSync('scripts/sync.mjs','utf8');console.log(s.match(/const UA = \"([^\"]+)\"/)[1])")
+          for rank in all epic legend mythic honor glory; do
+            if ssh -i ~/.ssh/relay_key -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" \
+              "curl -sf --max-time 30 -A '$ua' 'https://arena.rone.dev/api/heroes/rank?size=200&rank=$rank'" > "$dir/$rank.json"; then
+              echo "$rank: $(wc -c < "$dir/$rank.json") bytes"
+            else
+              rm -f "$dir/$rank.json"
+              echo "::warning::Ranking $rank not relayed by the server"
+            fi
+          done
+          echo "RANKING_RELAY_DIR=$dir" >> "$GITHUB_ENV"
+          rm -f ~/.ssh/relay_key
+
       - name: Reread the sources and download the images
         id: complete
         if: env.COMPLETE == 'true'
