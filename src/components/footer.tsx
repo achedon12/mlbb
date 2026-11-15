@@ -9,6 +9,7 @@ import { communityInvite } from "@/lib/bot/public";
 import { FOOTER, type Chip } from "@/lib/sections";
 import { site } from "@/lib/site";
 import { DiscordMark } from "./bot/discord-mark";
+import { DiscordJoinLink } from "./discord-join-link";
 
 /** Footer link column: one per header section, plus the site's own pages. */
 function Column({ title, links, t }: { title: string; links: readonly Chip[]; t: T }) {
@@ -85,14 +86,14 @@ export function Footer({ locale, year }: { locale: Locale; year: number }) {
               RSS
             </Link>
             {discord && (
-              <a
+              <DiscordJoinLink
                 href={discord}
+                placement="Footer"
                 className="flex items-center gap-2 text-sm text-chalk-300 transition-colors hover:text-gold-400"
-                rel="noopener"
               >
                 <DiscordMark />
                 {t("footer.discord")}
-              </a>
+              </DiscordJoinLink>
             )}
           </div>
         </div>

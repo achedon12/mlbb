@@ -3,6 +3,7 @@
 import { useId } from "react";
 import { X } from "lucide-react";
 import { useT } from "@/i18n/provider";
+import type { DiscordContext } from "@/lib/discord-cta";
 import { DiscordMark } from "./bot/discord-mark";
 
 /**
@@ -18,10 +19,13 @@ import { DiscordMark } from "./bot/discord-mark";
  */
 export function DiscordPopupCard({
   invite,
+  context,
   onJoin,
   onDismiss,
 }: {
   invite: string;
+  /** Which invitation fits the page (`discordCta.<context>`). */
+  context: DiscordContext;
   onJoin: () => void;
   onDismiss: () => void;
 }) {
@@ -45,10 +49,10 @@ export function DiscordPopupCard({
       </span>
       <div className="min-w-0 flex-1">
         <p className="line-clamp-2 font-heading text-sm font-bold leading-tight text-chalk-100 md:text-base">
-          {t("discordPopup.title")}
+          {t(`discordCta.${context}.title`)}
         </p>
         <p id={text} className="mt-0.5 line-clamp-2 text-xs leading-snug text-chalk-400">
-          {t("discordPopup.text")}
+          {t(`discordCta.${context}.text`)}
         </p>
       </div>
       <a
