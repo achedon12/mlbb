@@ -4,8 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { LOCALES } from "@/i18n/config";
-import { sectionOf } from "@/lib/sections";
+import { useT } from "@/i18n/provider";
+import { SECTIONS, sectionOf } from "@/lib/sections";
 import { cn } from "@/lib/utils";
+import { NavLinks, NavPanel } from "./nav-panel";
 
 const LOCALE_PREFIX = new RegExp(`^/(?:${LOCALES.join("|")})(?=/|$)`);
 
@@ -14,29 +16,26 @@ const LOCALE_PREFIX = new RegExp(`^/(?:${LOCALES.join("|")})(?=/|$)`);
  *
  * One tree for every width. From `xl` up the buttons sit in the header and a
  * panel drops under it, across the page; below, the burger opens the same
- * tree as a full-height sheet where the buttons are accordion headers. The
- * panels themselves are server-rendered (`NavPanel`) and handed in as
- * children: the links are in the HTML of every page, and the browser only
- * runs this toggle.
+ * tree as a full-height sheet where the buttons are accordion headers.
+ *
+ * The full panels (icons, descriptions, layout) are only built in the
+ * browser, for the open section: rendered on the server for each of the six
+ * sections, they weighed some 85 KB of HTML in every page, and as much again
+ * in its RSC payload. A closed section keeps its links in the HTML as a bare
+ * list (`NavLinks`), so crawlers still find every address of the menu. The
+ * labels come from the shared client catalog (`nav`), the structure from
+ * `SECTIONS`: nothing is passed down from the server.
  */
-export interface NavItem {
-  key: string;
-  label: string;
-  icon: React.ReactNode;
-  panel: React.ReactNode;
-}
 
 const DESKTOP = "(min-width: 80rem) and (hover: hover)";
 
 export function SiteNav({
-  items,
   label,
   openLabel,
   closeLabel,
   actions,
   sheetFooter,
 }: {
-  items: NavItem[];
   /** Accessible name of the navigation landmark. */
   label: string;
   openLabel: string;
@@ -50,6 +49,7 @@ export function SiteNav({
   // Path without its locale prefix: /fr/tier-list → /tier-list.
   const bare = path.replace(LOCALE_PREFIX, "") || "/";
   const current = sectionOf(bare);
+  const t = useT();
   const [open, setOpen] = useState<string | null>(null);
   const [sheet, setSheet] = useState(false);
   const nav = useRef<HTMLElement>(null);
@@ -62,14 +62,6 @@ export function SiteNav({
     setOpen(null);
     setSheet(false);
   }
-
-  // The link of the page itself is marked current, in every panel.
-  useEffect(() => {
-    nav.current?.querySelectorAll<HTMLAnchorElement>("a[href]").forEach((a) => {
-      if (a.pathname === path) a.setAttribute("aria-current", "page");
-      else a.removeAttribute("aria-current");
-    });
-  }, [path]);
 
   // Escape, or a click outside, closes; Escape gives focus back to the button.
   useEffect(() => {
@@ -147,7 +139,7 @@ export function SiteNav({
         )}
       >
         <ul className="xl:flex xl:items-center xl:gap-0.5">
-          {items.map((item) => {
+          {SECTIONS.map((item) => {
             const isOpen = open === item.key;
             const active = current === item.key;
             return (
@@ -169,9 +161,9 @@ export function SiteNav({
                   )}
                 >
                   <span aria-hidden className={cn("shrink-0 xl:max-2xl:hidden", active ? "text-gold-400" : "text-chalk-500")}>
-                    {item.icon}
+                    <item.icon size={16} />
                   </span>
-                  <span className="flex-1 xl:whitespace-nowrap">{item.label}</span>
+                  <span className="flex-1 xl:whitespace-nowrap">{t(`nav.groups.${item.key}`)}</span>
                   <ChevronDown
                     size={15}
                     aria-hidden
@@ -190,7 +182,7 @@ export function SiteNav({
                   hidden={!isOpen}
                   className="pb-4 xl:absolute xl:inset-x-0 xl:top-full xl:z-50 xl:border-b xl:border-night-700/80 xl:bg-night-900 xl:pb-0 xl:shadow-2xl xl:shadow-night-950/70"
                 >
-                  {item.panel}
+                  {isOpen ? <NavPanel section={item} current={bare} /> : <NavLinks section={item} />}
                 </div>
               </li>
             );

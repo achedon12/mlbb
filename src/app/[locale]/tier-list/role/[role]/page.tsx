@@ -7,8 +7,6 @@ import { metaTierList, TierList } from "../../content";
 type Params = { params: Promise<{ locale: Locale; role: string }> };
 
 /** One page per role, all ranks combined: "/tier-list/role/marksman". */
-export const dynamicParams = false;
-
 export function generateStaticParams() {
   return Object.values(SLUGS_ROLE).map((role) => ({ role }));
 }

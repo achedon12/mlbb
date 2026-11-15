@@ -5,7 +5,8 @@ import { PageHeader } from "@/components/ui";
 import type { Locale } from "@/i18n/config";
 import { heroLabel } from "@/i18n/hero-data";
 import { metaPage } from "@/i18n/seo";
-import { createT } from "@/i18n/translations";
+import { ExtendMessages } from "@/i18n/provider";
+import { createT, messagesPage } from "@/i18n/translations";
 import type { TypeDamage } from "@/lib/composition";
 import { catalogTeam } from "@/lib/composition-data";
 import { RANKS_CLASSES } from "@/lib/tier-list";
@@ -42,11 +43,13 @@ export default async function TeamPage({ params }: Params) {
         </Link>
       </PageHeader>
       <div className="page-wrap py-12">
-        <TeamAnalysis
-          heroes={catalogTeam()}
-          ranks={RANKS_CLASSES}
-          labelsDamage={{ physical: damage("physical"), magic: damage("magic"), mixed: damage("mixed") }}
-        />
+        <ExtendMessages messages={messagesPage(locale, ["teamUI", "draftUI", "compareUI"])}>
+          <TeamAnalysis
+            heroes={catalogTeam()}
+            ranks={RANKS_CLASSES}
+            labelsDamage={{ physical: damage("physical"), magic: damage("magic"), mixed: damage("mixed") }}
+          />
+        </ExtendMessages>
 
         <p className="mt-14 border-t border-night-800 pt-6 text-sm leading-relaxed text-chalk-500">
           {t("pages.team.rating")}

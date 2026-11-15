@@ -72,7 +72,7 @@ export default async function TierListMakerPage({ params }: Params) {
         crumbs={[{ name: t("nav.tierList.label"), href: "/tier-list" }, { name: t("pages.tierMaker.crumb") }]}
       />
       <div className="page-wrap space-y-8 pb-10 pt-5 sm:space-y-14">
-        <ExtendMessages messages={messagesPage(locale, ["pages.tierMakerUI"])}>
+        <ExtendMessages messages={messagesPage(locale, ["pages.tierMakerUI", "draftUI"])}>
           <TierListMaker heroes={roster} groups={groups} ranks={RANKS_CLASSES} />
         </ExtendMessages>
 

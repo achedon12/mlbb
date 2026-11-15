@@ -27,10 +27,9 @@ type Params = { params: Promise<{ locale: Locale; region: string }> };
 /** Links shown right away; the others expand. */
 const LINKS_VISIBLE = 10;
 
-export const dynamicParams = false;
-
 export function generateStaticParams() {
-  return regionsLore.map((r) => ({ region: r.key }));
+  // Rendered on first request, then cached (src/lib/prerender.ts).
+  return [];
 }
 
 /** Heroes most linked to the others in their profiles: the region's figures, for the description. */

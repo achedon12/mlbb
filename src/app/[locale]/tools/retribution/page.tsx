@@ -4,7 +4,8 @@ import { PageHeader } from "@/components/ui";
 import { Foldable } from "@/components/foldable";
 import type { Locale } from "@/i18n/config";
 import { dataTool, metaPage } from "@/i18n/seo";
-import { createT } from "@/i18n/translations";
+import { ExtendMessages } from "@/i18n/provider";
+import { createT, messagesPage } from "@/i18n/translations";
 import {
   RETRIBUTION_BASE,
   RETRIBUTION_BY_LEVEL,
@@ -231,7 +232,9 @@ export default async function RetributionPage({ params }: Params) {
           </>
         }
       >
-        <RetributionTrainer address={`${site.url}/${locale}${PATH}`} />
+        <ExtendMessages messages={messagesPage(locale, ["tools"])}>
+          <RetributionTrainer address={`${site.url}/${locale}${PATH}`} />
+        </ExtendMessages>
       </ToolLayout>
     </>
   );

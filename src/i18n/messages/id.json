@@ -2780,7 +2780,9 @@
         "picks": "Pilihan",
         "bans": "Ban",
         "blue": "sisi biru",
-        "red": "sisi merah"
+        "red": "sisi merah",
+        "showGames": "Tampilkan {n} game",
+        "hideGames": "Sembunyikan game"
       },
       "heroPro": {
         "title": "{name} di antara para profesional",
@@ -2886,7 +2888,9 @@
       "wins": "Kemenangan",
       "losses": "Kekalahan",
       "winRate": "Win rate",
-      "noPick": "Tidak ada pilihan"
+      "noPick": "Tidak ada pilihan",
+      "showAll": "Tampilkan semua {n} hero",
+      "showFewer": "Tampilkan lebih sedikit hero"
     },
     "draftSimulatorUI": {
       "tabsLabel": "Modus alat",

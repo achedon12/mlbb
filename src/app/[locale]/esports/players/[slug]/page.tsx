@@ -10,7 +10,7 @@ import { metaPage } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
 import { heroesBySlug } from "@/lib/data";
 import { esportsSource, tournamentBySlug } from "@/lib/esports";
-import { playedSlugs, playerProfile, rate } from "@/lib/esports-players";
+import { playerProfile, rate } from "@/lib/esports-players";
 import { serializeJsonLd } from "@/lib/html";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -22,7 +22,8 @@ type Params = { params: Promise<{ locale: Locale; slug: string }> };
  * hero), tournament by tournament results and the latest matches.
  */
 export function generateStaticParams() {
-  return [...playedSlugs].map((slug) => ({ slug }));
+  // Rendered on first request, then cached (src/lib/prerender.ts).
+  return [];
 }
 
 /** Latest matches listed on the page. */

@@ -51,7 +51,7 @@ export default async function MlbbdlePage({ params }: Params) {
         crumbs={[{ name: t("pages.mlbbdle.breadcrumb") }]}
       />
       <div className="mx-auto max-w-4xl space-y-14 px-4 py-10">
-        <ExtendMessages messages={messagesPage(locale, ["pages.mlbbdleUI"])}>
+        <ExtendMessages messages={messagesPage(locale, ["pages.mlbbdleUI", "draftUI"])}>
           <Mlbbdle heroes={heroes} labels={labels} />
         </ExtendMessages>
 

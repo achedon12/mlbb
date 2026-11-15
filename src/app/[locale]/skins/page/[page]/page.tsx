@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import type { Locale } from "@/i18n/config";
-import { heroesWithSkins } from "@/lib/hero-skins";
-import { pagesAfterFirst, readPage } from "@/lib/pager";
-import { BY_PAGE_SKINS, metaSkins, pagesSkins, Skins } from "../../content";
+import { readPage } from "@/lib/pager";
+import { metaSkins, pagesSkins, Skins } from "../../content";
 
-/** Pages 2 and beyond of the gallery, prerendered like the first one. */
+/** Pages 2 and beyond of the gallery, rendered on first request then cached. */
 type Params = { params: Promise<{ locale: Locale; page: string }> };
 
 export function generateStaticParams() {
-  return pagesAfterFirst(heroesWithSkins.length, BY_PAGE_SKINS);
+  // Rendered on first request, then cached (src/lib/prerender.ts).
+  return [];
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {

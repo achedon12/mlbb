@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { LightImage } from "@/components/light-image";
 import Link from "@/components/link";
 import visuals from "@/data/game/visuals.json";
 import { itemsFor } from "@/lib/data";
@@ -21,13 +21,7 @@ export function BuildItem({ name, rank }: { name: string; rank: number }) {
     <>
       <span className="relative mx-auto block size-11">
         {image ? (
-          <Image
-            src={image}
-            alt=""
-            width={44}
-            height={44}
-            className="size-full object-contain"
-          />
+          <LightImage src={image} alt="" width={44} height={44} className="size-full object-contain" />
         ) : (
           <span className="grid size-full place-items-center bg-night-800 text-xs text-chalk-500">
             {rank}

@@ -46,7 +46,7 @@ export default async function DamageCalculatorPage({ params }: Params) {
       <PageHeader title={t("pages.damageCalculator.title")} lead={t("pages.damageCalculator.lead")} />
       <div className="page-wrap space-y-12 py-8">
         {/* The stat labels and the item picker's come from the build simulator's section. */}
-        <ExtendMessages messages={messagesPage(locale, ["pages.damageCalculatorUI", "pages.buildSimulatorUI"])}>
+        <ExtendMessages messages={messagesPage(locale, ["pages.damageCalculatorUI", "pages.buildSimulatorUI", "draftUI"])}>
           <DamageCalculator data={damageCalculatorData(locale, t)} />
         </ExtendMessages>
 

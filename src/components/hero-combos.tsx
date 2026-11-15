@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { LightImage } from "@/components/light-image";
 import { ChevronRight } from "lucide-react";
 import type { Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
@@ -34,7 +34,7 @@ export function HeroCombos({ combos, locale }: { combos: ComboHero[]; locale: Lo
                     {j > 0 && <ChevronRight size={14} aria-hidden className="shrink-0 text-chalk-500" />}
                     <span title={name} className="relative block size-10 overflow-hidden rounded-sm bg-night-800">
                       {c.icon ? (
-                        <Image src={c.icon} alt={name} fill sizes="40px" className="object-contain" />
+                        <LightImage src={c.icon} alt={name} width={40} height={40} className="size-full object-contain" />
                       ) : (
                         <span className="grid size-full place-items-center text-xs text-chalk-500">
                           <span aria-hidden>—</span>

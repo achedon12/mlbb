@@ -26,8 +26,6 @@ type Params = { params: Promise<{ locale: Locale; role: string }> };
  * of hero pages: that address canonicalizes to the whole catalog,
  * whereas a role page can be indexed on its own.
  */
-export const dynamicParams = false;
-
 export function generateStaticParams() {
   return Object.values(SLUGS_ROLE).map((role) => ({ role }));
 }

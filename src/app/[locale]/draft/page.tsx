@@ -132,7 +132,7 @@ export default async function DraftPage({ params }: { params: Promise<{ locale: 
       />
       <OpenAnchor />
       <div className="page-wrap py-6">
-        <ExtendMessages messages={messagesPage(locale, ["pages.draftSimulatorUI"])}>
+        <ExtendMessages messages={messagesPage(locale, ["pages.draftSimulatorUI", "draftUI", "teamUI", "compareUI"])}>
           <DraftModes
             heroes={simulationHeroes()}
             ranks={RANKS_CLASSES}

@@ -3,14 +3,15 @@ import { notFound } from "next/navigation";
 import { ExtendMessages } from "@/i18n/provider";
 import type { Locale } from "@/i18n/config";
 import { messagesPage } from "@/i18n/translations";
-import { pagesAfterFirst, readPage, SIZE_ROWS_CARDS } from "@/lib/pager";
-import { metaStatistics, pagesStatistics, rowsStatistics, Statistics } from "../../content";
+import { readPage } from "@/lib/pager";
+import { metaStatistics, pagesStatistics, Statistics } from "../../content";
 
-/** Pages 2 and beyond of the all-ranks table, prerendered like the first one. */
+/** Pages 2 and beyond of the all-ranks table, rendered on first request then cached. */
 type Params = { params: Promise<{ locale: Locale; page: string }> };
 
 export function generateStaticParams() {
-  return pagesAfterFirst(rowsStatistics("all").length, SIZE_ROWS_CARDS);
+  // Rendered on first request, then cached (src/lib/prerender.ts).
+  return [];
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {

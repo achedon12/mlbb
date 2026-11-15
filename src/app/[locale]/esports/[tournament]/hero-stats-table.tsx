@@ -28,16 +28,24 @@ const NUMERIC: Exclude<Column, "hero">[] = ["picks", "bans", "presence", "wins",
 const FIRST_ROWS = 8;
 
 /**
+ * Rows shown before the reader asks for the rest. A tournament draws up to a
+ * hundred heroes: the full table made 110 KB of HTML, most of it heroes
+ * picked once or twice.
+ */
+const SHOWN_ROWS = 20;
+
+/**
  * Hero statistics of a tournament, sortable by any column.
  *
- * The server renders every row in the default order (presence): search
- * engines and readers without JavaScript get the full table. In the browser,
- * sorting reorders those same rows, with no request.
+ * The server renders the first rows in the default order (presence); the
+ * others follow on request. Sorting reorders the whole list, with no
+ * request: the rows are all in the page's payload.
  */
 export function HeroStatsTable({ rows, name }: { rows: HeroStatRow[]; name: string }) {
   const t = useT();
   const locale = useLocale();
   const [sort, setSort] = useState<{ column: Column; descending: boolean }>({ column: "presence", descending: true });
+  const [all, setAll] = useState(false);
   const percent = useMemo(
     () => new Intl.NumberFormat(locale, { style: "percent", minimumFractionDigits: 1, maximumFractionDigits: 1 }),
     [locale],
@@ -56,64 +64,78 @@ export function HeroStatsTable({ rows, name }: { rows: HeroStatRow[]; name: stri
   const onSort = (column: Column) =>
     setSort((s) => (s.column === column ? { column, descending: !s.descending } : { column, descending: column !== "hero" }));
 
+  const shown = all ? sorted : sorted.slice(0, SHOWN_ROWS);
+
   return (
-    <div className="relative overflow-x-auto border border-night-700/70">
-      <table className="w-full min-w-[36rem] border-collapse text-sm tabular-nums">
-        <caption className="sr-only">{t("pages.esportsUI.caption", { name })}</caption>
-        <thead className="bg-night-900 text-xs text-chalk-500">
-          <tr>
-            <SortHeader column="hero" sort={sort} onSort={onSort} className="sticky left-0 z-10 bg-night-900 text-left">
-              {t("pages.esportsUI.hero")}
-            </SortHeader>
-            {NUMERIC.map((c) => (
-              <SortHeader key={c} column={c} sort={sort} onSort={onSort} className="text-right">
-                {t(`pages.esportsUI.${c}`)}
+    <div>
+      <div className="relative overflow-x-auto border border-night-700/70">
+        <table className="w-full min-w-[36rem] border-collapse text-sm tabular-nums">
+          <caption className="sr-only">{t("pages.esportsUI.caption", { name })}</caption>
+          <thead className="bg-night-900 text-xs text-chalk-500">
+            <tr>
+              <SortHeader column="hero" sort={sort} onSort={onSort} className="sticky left-0 z-10 bg-night-900 text-left">
+                {t("pages.esportsUI.hero")}
               </SortHeader>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {sorted.map((r, i) => (
-            <tr key={r.slug} className="group border-t border-night-800">
-              <th
-                scope="row"
-                className="sticky left-0 z-10 w-44 max-w-44 bg-night-950 px-3 py-1.5 text-left font-normal group-hover:bg-night-900"
-              >
-                <Link href={`/heroes/${r.slug}`} prefetch={false} className="flex items-center gap-2.5">
-                  <LightImage
-                    src={heroIcon(r.slug)}
-                    alt=""
-                    width={28}
-                    height={28}
-                    immediate={i < FIRST_ROWS}
-                    className="bevel-sm size-7 shrink-0 bg-night-800 object-cover"
-                  />
-                  <b className="truncate font-heading font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
-                    {r.name}
-                  </b>
-                </Link>
-              </th>
-              <td className="px-3 py-1.5 text-right text-chalk-100 group-hover:bg-night-900">{r.picks}</td>
-              <td className="px-3 py-1.5 text-right text-chalk-100 group-hover:bg-night-900">{r.bans}</td>
-              <td className="px-3 py-1.5 text-right font-semibold text-gold-400 group-hover:bg-night-900">
-                {percent.format(r.presence / 100)}
-              </td>
-              <td className="px-3 py-1.5 text-right text-chalk-300 group-hover:bg-night-900">{r.wins}</td>
-              <td className="px-3 py-1.5 text-right text-chalk-300 group-hover:bg-night-900">{r.losses}</td>
-              <td className="px-3 py-1.5 text-right text-chalk-100 group-hover:bg-night-900">
-                {r.winRate === null ? (
-                  <>
-                    <span aria-hidden>—</span>
-                    <span className="sr-only">{t("pages.esportsUI.noPick")}</span>
-                  </>
-                ) : (
-                  percent.format(r.winRate / 100)
-                )}
-              </td>
+              {NUMERIC.map((c) => (
+                <SortHeader key={c} column={c} sort={sort} onSort={onSort} className="text-right">
+                  {t(`pages.esportsUI.${c}`)}
+                </SortHeader>
+              ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {shown.map((r, i) => (
+              <tr key={r.slug} className="group border-t border-night-800">
+                <th
+                  scope="row"
+                  className="sticky left-0 z-10 w-44 max-w-44 bg-night-950 px-3 py-1.5 text-left font-normal group-hover:bg-night-900"
+                >
+                  <Link href={`/heroes/${r.slug}`} prefetch={false} className="flex items-center gap-2.5">
+                    <LightImage
+                      src={heroIcon(r.slug)}
+                      alt=""
+                      width={28}
+                      height={28}
+                      immediate={i < FIRST_ROWS}
+                      className="bevel-sm size-7 shrink-0 bg-night-800 object-cover"
+                    />
+                    <b className="truncate font-heading font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
+                      {r.name}
+                    </b>
+                  </Link>
+                </th>
+                <td className="px-3 py-1.5 text-right text-chalk-100 group-hover:bg-night-900">{r.picks}</td>
+                <td className="px-3 py-1.5 text-right text-chalk-100 group-hover:bg-night-900">{r.bans}</td>
+                <td className="px-3 py-1.5 text-right font-semibold text-gold-400 group-hover:bg-night-900">
+                  {percent.format(r.presence / 100)}
+                </td>
+                <td className="px-3 py-1.5 text-right text-chalk-300 group-hover:bg-night-900">{r.wins}</td>
+                <td className="px-3 py-1.5 text-right text-chalk-300 group-hover:bg-night-900">{r.losses}</td>
+                <td className="px-3 py-1.5 text-right text-chalk-100 group-hover:bg-night-900">
+                  {r.winRate === null ? (
+                    <>
+                      <span aria-hidden>—</span>
+                      <span className="sr-only">{t("pages.esportsUI.noPick")}</span>
+                    </>
+                  ) : (
+                    percent.format(r.winRate / 100)
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {rows.length > SHOWN_ROWS && (
+        <button
+          type="button"
+          aria-expanded={all}
+          onClick={() => setAll(!all)}
+          className="mt-3 text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500"
+        >
+          {all ? t("pages.esportsUI.showFewer") : t("pages.esportsUI.showAll", { n: rows.length })}
+        </button>
+      )}
     </div>
   );
 }

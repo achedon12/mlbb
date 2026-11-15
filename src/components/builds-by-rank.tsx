@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { LightImage } from "@/components/light-image";
 import Link from "@/components/link";
 import { useState } from "react";
 import { BuildPicker } from "@/components/build-picker";
@@ -44,6 +44,33 @@ export interface ResolvedGuide {
   votes: number;
 }
 
+/** A build's choices as indexes in `PackedBuilds.visuals` (see `packBuilds`, src/lib/build-visuals.ts). */
+interface PackedChoices {
+  items: number[];
+  emblem: number | null;
+  talents: number[];
+  spell: number | null;
+}
+
+export interface PackedBuilds {
+  byLane: Partial<Record<string, Partial<Record<MeasuredRank, (PackedChoices & Pick<ResolvedBuild, "win" | "selection">)[]>>>>;
+  guides: Partial<Record<string, Partial<Record<MeasuredRank, PackedChoices & Pick<ResolvedGuide, "author" | "votes">>>>>;
+  visuals: (ResolvedVisual | ResolvedItem)[];
+}
+
+function unpack<T extends PackedChoices>(
+  b: T,
+  visuals: PackedBuilds["visuals"],
+): Omit<T, keyof PackedChoices> & Pick<ResolvedBuild, "items" | "emblem" | "talents" | "spell"> {
+  return {
+    ...b,
+    items: b.items.map((i) => visuals[i] as ResolvedItem),
+    emblem: b.emblem === null ? null : visuals[b.emblem],
+    talents: b.talents.map((i) => visuals[i]),
+    spell: b.spell === null ? null : visuals[b.spell],
+  };
+}
+
 /**
  * Builds actually played, rank by rank.
  *
@@ -55,21 +82,16 @@ export interface ResolvedGuide {
  * separately, from a player guide: two distinct sources, never mixed
  * under the same win rate.
  */
-export function BuildsByRank({
-  byLane,
-  guides,
-}: {
-  byLane: Partial<Record<string, Partial<Record<MeasuredRank, ResolvedBuild[]>>>>;
-  guides: Partial<Record<string, Partial<Record<MeasuredRank, ResolvedGuide>>>>;
-}) {
+export function BuildsByRank({ builds: { byLane, guides, visuals } }: { builds: PackedBuilds }) {
   const t = useT();
   const rank = useRank();
   const lanes = [...new Set([...Object.keys(byLane), ...Object.keys(guides)])];
   const [lane, setLane] = useState(lanes[0]);
   const byRank = byLane[lane] ?? {};
   // The page's rank may be missing for this lane: fall back to all ranks.
-  const builds = byRank[rank] ?? byRank.all ?? [];
-  const guide = guides[lane]?.[rank] ?? guides[lane]?.all ?? null;
+  const builds = (byRank[rank] ?? byRank.all ?? []).map((b) => unpack(b, visuals));
+  const packedGuide = guides[lane]?.[rank] ?? guides[lane]?.all ?? null;
+  const guide = packedGuide && unpack(packedGuide, visuals);
 
   const nameEmblem = (name: string) => {
     const role = t(`roles.${name}`);
@@ -193,7 +215,7 @@ function ItemKey({ item }: { item: ResolvedItem }) {
     <>
       <span className="relative mx-auto block size-11">
         {item.image ? (
-          <Image src={item.image} alt="" width={44} height={44} className="size-full object-contain" />
+          <LightImage src={item.image} alt="" width={44} height={44} className="size-full object-contain" />
         ) : (
           <span className="grid size-full place-items-center bg-night-800 text-xs text-chalk-500">
             {item.name.charAt(0)}

@@ -33,7 +33,9 @@ type Params = { params: Promise<{ locale: Locale; year: string }> };
 export const dynamicParams = true;
 
 export function generateStaticParams() {
-  return calendarYears().map((a) => ({ year: String(a) }));
+  // The latest year only; the others are rendered on first request, then
+  // cached (src/lib/prerender.ts).
+  return calendarYears().slice(0, 1).map((a) => ({ year: String(a) }));
 }
 
 function yearOf(year: string): YearSkins | null {
