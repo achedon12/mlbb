@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { notFound } from "next/navigation";
 import { Gift, Languages, PartyPopper, Star, Wrench } from "lucide-react";
 import { DiscordMark } from "@/components/bot/discord-mark";
 import Link from "@/components/link";
 import { PageHeader } from "@/components/ui";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
-import { metaPage } from "@/i18n/seo";
+import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
 import { BOT_CATEGORIES, BOT_COMMANDS, voteUrl } from "@/lib/bot/commands";
 import { botClientId, communityInvite, inviteUrl } from "@/lib/bot/public";
 import { liveServerCount } from "@/lib/bot/server-count";
 import { serializeJsonLd } from "@/lib/html";
 import { site } from "@/lib/site";
+import { NotFoundPage } from "@/components/not-found-page";
 
 type Params = { params: Promise<{ locale: Locale }> };
 
@@ -34,7 +34,7 @@ const PATH = "/bot";
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
-  if (!botClientId()) return {};
+  if (!botClientId()) return notFoundMetadata(locale);
   const t = createT(locale);
   return metaPage(locale, {
     title: t("pages.bot.metaTitle"),
@@ -78,7 +78,7 @@ const FAQ_COUNT = 8;
 export default async function BotPage({ params }: Params) {
   const { locale } = await params;
   const clientId = botClientId();
-  if (!clientId) notFound();
+  if (!clientId) return <NotFoundPage />;
   const t = createT(locale);
   const invite = communityInvite();
   const servers = await liveServerCount();

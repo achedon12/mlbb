@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound, permanentRedirect } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
 import {
   formatPartialDate,
   formatPrize,
@@ -15,7 +15,7 @@ import { TeamNameLink } from "@/components/esports-pro";
 import { Card, PageHeader, SectionTitle } from "@/components/ui";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
-import { metaPage } from "@/i18n/seo";
+import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT, messagesPage, type T } from "@/i18n/translations";
 import { heroesBySlug } from "@/lib/data";
 import {
@@ -36,6 +36,7 @@ import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { DraftGames } from "./draft-games";
 import { HeroStatsTable, type HeroStatRow } from "./hero-stats-table";
+import { NotFoundPage } from "@/components/not-found-page";
 
 type Params = { params: Promise<{ locale: Locale; tournament: string }> };
 
@@ -81,7 +82,7 @@ function seoDescription(t: T, locale: Locale, turn: Tournament): string {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, tournament } = await params;
   const turn = tournamentBySlug.get(tournament);
-  if (!turn) return {};
+  if (!turn) return notFoundMetadata(locale);
   const t = createT(locale);
   return metaPage(locale, {
     title: seoTitle(t, turn),
@@ -108,7 +109,7 @@ export default async function TournamentPage({ params }: Params) {
     // An older edition, not covered: the index lists those that are.
     const target = pastEditionRedirect(locale, tournament);
     if (target) permanentRedirect(target);
-    notFound();
+    return <NotFoundPage />;
   }
   const t = createT(locale);
   const now = new Date();

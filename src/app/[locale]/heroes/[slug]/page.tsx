@@ -5,7 +5,6 @@ import { LOCALE_HTML } from "@/i18n/config";
 import { serializeJsonLd } from "@/lib/html";
 import Image from "next/image";
 import Link from "@/components/link";
-import { notFound } from "next/navigation";
 import { ShieldAlert, Swords, TriangleAlert } from "lucide-react";
 import { FavouriteButton } from "@/components/favourite-button";
 import { HeroSkills } from "@/components/hero-skills";
@@ -65,12 +64,13 @@ import type { Locale } from "@/i18n/config";
 import { createT, messagesPage, type T } from "@/i18n/translations";
 import { releaseDate, heroLabel } from "@/i18n/hero-data";
 import { normalizeNameSkin, mapValues } from "@/lib/utils";
-import { metaPage, TITLE_MAX } from "@/i18n/seo";
+import { metaPage, TITLE_MAX, notFoundMetadata } from "@/i18n/seo";
 import { FreshnessLine } from "@/components/freshness";
 import { longDate, dateMeasure, listNames, patchCurrent, percentage } from "@/lib/freshness";
 import { formatGap } from "@/lib/trends";
 import type { BucketDuration } from "@/lib/evolution";
 import type { Hero } from "@/lib/types";
+import { NotFoundPage } from "@/components/not-found-page";
 
 /** Tab anchors before they were named in English: shared links still open their tab. */
 const TAB_ALIASES = { analyse: "analysis", histoire: "story", competences: "skills", contres: "counters" };
@@ -85,7 +85,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, slug } = await params;
   const h = heroesBySlug.get(slug);
-  if (!h) return {};
+  if (!h) return notFoundMetadata(locale);
 
   const tm = createT(locale);
   const tier = rateBySlug.get(h.slug)?.tier;
@@ -175,7 +175,7 @@ function descriptionHero(locale: Locale, h: Hero): string {
 export default async function HeroPage({ params }: Params) {
   const { locale, slug } = await params;
   const h = heroesBySlug.get(slug);
-  if (!h) notFound();
+  if (!h) return <NotFoundPage />;
 
   const rankedEntry = rankingFull.find((e) => e.hero.slug === slug);
   const t = createT(locale);

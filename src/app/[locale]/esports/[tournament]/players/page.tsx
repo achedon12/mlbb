@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import { SourceCredit, TournamentNav } from "@/components/esports-parts";
 import { heroName, roleText, teamName } from "@/components/esports-pro";
 import { PageHeader } from "@/components/ui";
 import type { Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
-import { metaPage } from "@/i18n/seo";
+import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT, messagesPage } from "@/i18n/translations";
 import { heroesBySlug } from "@/lib/data";
 import { tournamentBySlug } from "@/lib/esports";
@@ -19,6 +18,7 @@ import {
   tournamentPlayers,
 } from "@/lib/esports-players";
 import { PlayersTable, type PlayerStatRow } from "./players-table";
+import { NotFoundPage } from "@/components/not-found-page";
 
 type Params = { params: Promise<{ locale: Locale; tournament: string }> };
 
@@ -31,7 +31,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, tournament } = await params;
   const turn = tournamentBySlug.get(tournament);
-  if (!turn || !hasPlayerStats(turn.slug)) return {};
+  if (!turn || !hasPlayerStats(turn.slug)) return notFoundMetadata(locale);
   const t = createT(locale);
   return metaPage(locale, {
     title: t("pages.esports.pro.players.seoTitle", { name: turn.name }),
@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function TournamentPlayersPage({ params }: Params) {
   const { locale, tournament } = await params;
   const turn = tournamentBySlug.get(tournament);
-  if (!turn || !hasPlayerStats(turn.slug)) notFound();
+  if (!turn || !hasPlayerStats(turn.slug)) return <NotFoundPage />;
   const t = createT(locale);
 
   const rows: PlayerStatRow[] = tournamentPlayers(turn.slug).map((l) => {

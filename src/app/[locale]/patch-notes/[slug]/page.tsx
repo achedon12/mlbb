@@ -2,7 +2,6 @@ import { DiscordInvite } from "@/components/discord-invite";
 import type { Metadata } from "next";
 import { createT } from "@/i18n/translations";
 import { cleanHtml, serializeJsonLd } from "@/lib/html";
-import { notFound } from "next/navigation";
 import { BodyArticle } from "@/components/article";
 import { WikiCredit } from "@/components/wiki-credit";
 import { Foldable } from "@/components/foldable";
@@ -16,9 +15,10 @@ import { countAdjustments, longDate, listNames, patchCurrent } from "@/lib/fresh
 import { site } from "@/lib/site";
 import type { DetailedPatch, PatchSection } from "@/lib/types";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
-import { postData, metaPage } from "@/i18n/seo";
+import { postData, metaPage, notFoundMetadata } from "@/i18n/seo";
 import { cn } from "@/lib/utils";
 import { HeroChanges, changedHeroCount } from "./hero-changes";
+import { NotFoundPage } from "@/components/not-found-page";
 
 type Params = { params: Promise<{ locale: Locale; slug: string }> };
 
@@ -87,7 +87,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   }
 
   const a = article("patch-notes", slug, locale);
-  if (!a) return {};
+  if (!a) return notFoundMetadata(locale);
 
   return metaPage(locale, {
     title: a.title,
@@ -262,7 +262,7 @@ export default async function PatchPage({ params }: Params) {
 
   // ── Written analysis ───────────────────────────────────────────────────
   const a = article("patch-notes", slug, locale);
-  if (!a) notFound();
+  if (!a) return <NotFoundPage />;
 
   const structuredData = postData(a, `/patch-notes/${slug}`, locale);
 

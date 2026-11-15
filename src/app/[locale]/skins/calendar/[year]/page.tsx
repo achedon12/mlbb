@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { OpenAnchor } from "@/components/open-anchor";
-import { notFound } from "next/navigation";
 import { propsCardSkin } from "@/components/skin-card";
 import { WikiCredit } from "@/components/wiki-credit";
 import { SkinGrid } from "@/components/skin-grid";
@@ -8,7 +7,7 @@ import { FreshnessLine } from "@/components/freshness";
 import Link from "@/components/link";
 import { PageHeader, SectionTitle } from "@/components/ui";
 import { LOCALE_INTL, type Locale } from "@/i18n/config";
-import { metaPage } from "@/i18n/seo";
+import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
 import {
   groupByDate,
@@ -23,13 +22,14 @@ import { calendarYears, dataListSkins, catalogHeroes, releasedSkins } from "@/li
 import { sync } from "@/lib/data";
 import { listNames, monthYear } from "@/lib/freshness";
 import { serializeJsonLd } from "@/lib/html";
+import { NotFoundPage } from "@/components/not-found-page";
 
 type Params = { params: Promise<{ locale: Locale; year: string }> };
 
 // Rendered on demand outside the prerendered values: frozen parameters send an
 // unknown one down Next's internal no-fallback path, which answers 404 but logs
 // `NoFallbackError` every time a crawler tries an address that does not exist.
-// The page checks the value itself and calls `notFound()`: the same 404, quietly.
+// The page checks the value itself and renders the 404 page: the same 404, quietly.
 export const dynamicParams = true;
 
 export function generateStaticParams() {
@@ -74,7 +74,7 @@ function description(locale: Locale, a: YearSkins): string {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, year } = await params;
   const a = yearOf(year);
-  if (!a) return {};
+  if (!a) return notFoundMetadata(locale);
   const t = createT(locale);
   return metaPage(locale, {
     title: t("pages.seo.calendarYear.title", { year: a.year }),
@@ -87,7 +87,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function SkinsYearPage({ params }: Params) {
   const { locale, year } = await params;
   const a = yearOf(year);
-  if (!a) notFound();
+  if (!a) return <NotFoundPage />;
 
   const t = createT(locale);
   const localeHtml = LOCALE_INTL[locale];

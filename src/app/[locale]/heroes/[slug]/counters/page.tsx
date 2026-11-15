@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { pathPair } from "@/lib/pairs";
 import Image from "next/image";
-import { notFound } from "next/navigation";
 import { ChevronDown, TrendingDown, TrendingUp, Users } from "lucide-react";
 import Link from "@/components/link";
 import { HeroSubLayout } from "@/components/hero-side-card";
@@ -17,7 +16,7 @@ import statistics from "@/data/game/statistics.json";
 import visuals from "@/data/game/visuals.json";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { heroLabel } from "@/i18n/hero-data";
-import { metaPage, TITLE_MAX } from "@/i18n/seo";
+import { metaPage, TITLE_MAX, notFoundMetadata } from "@/i18n/seo";
 import { createT, type T } from "@/i18n/translations";
 import {
   aggregateCounters,
@@ -42,6 +41,7 @@ import { rankingFull, RANKS_CLASSES, statsByRank } from "@/lib/tier-list";
 import type { Hero } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { visualItem } from "@/lib/build-visuals";
+import { NotFoundPage } from "@/components/not-found-page";
 
 /**
  * A hero's "counters" page: who to pick against it, rank by rank.
@@ -101,7 +101,7 @@ function summary(locale: Locale, h: Hero) {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, slug } = await params;
   const h = heroesBySlug.get(slug);
-  if (!h) return {};
+  if (!h) return notFoundMetadata(locale);
   const t = createT(locale);
   const { rank, sentence } = summary(locale, h);
   // Patch in the title: the results that rank for "counter" all
@@ -128,7 +128,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function CountersPage({ params }: Params) {
   const { locale, slug } = await params;
   const h = heroesBySlug.get(slug);
-  if (!h) notFound();
+  if (!h) return <NotFoundPage />;
 
   const t = createT(locale);
   const n = names(h.name);

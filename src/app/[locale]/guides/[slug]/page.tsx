@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import { GuideBody, GuideCard, GuideTools } from "@/components/guide";
 import Link from "@/components/link";
 import { AsideBlock } from "@/components/reading-layout";
@@ -8,8 +7,9 @@ import { longDate } from "@/lib/freshness";
 import { guide, guideHeadings, guides, guideSlugs, readingMinutes, renderGuide, type Guide } from "@/lib/guides";
 import { serializeJsonLd } from "@/lib/html";
 import type { Locale } from "@/i18n/config";
-import { guideData, metaPage } from "@/i18n/seo";
+import { guideData, metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
+import { NotFoundPage } from "@/components/not-found-page";
 
 type Params = { params: Promise<{ locale: Locale; slug: string }> };
 
@@ -20,7 +20,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, slug } = await params;
   const g = guide(slug, locale);
-  if (!g) return {};
+  if (!g) return notFoundMetadata(locale);
   return metaPage(locale, {
     title: g.title,
     description: g.summary,
@@ -42,7 +42,7 @@ function relatedOf(g: Guide, locale: Locale): Guide[] {
 export default async function GuidePage({ params }: Params) {
   const { locale, slug } = await params;
   const g = guide(slug, locale);
-  if (!g) notFound();
+  if (!g) return <NotFoundPage />;
   const t = createT(locale);
   const minutes = readingMinutes(g.content);
   const headings = guideHeadings(g.content);

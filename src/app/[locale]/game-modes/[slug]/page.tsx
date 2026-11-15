@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { LOCALE_HTML } from "@/i18n/config";
 import Image from "next/image";
-import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { serializeJsonLd } from "@/lib/html";
 import { modeBySlug, modesSlugs } from "@/lib/data";
@@ -10,8 +9,9 @@ import { createT } from "@/i18n/translations";
 import { WikiCredit } from "@/components/wiki-credit";
 import { site } from "@/lib/site";
 import type { Locale } from "@/i18n/config";
-import { metaPage } from "@/i18n/seo";
+import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import type { ModeSection } from "@/lib/types";
+import { NotFoundPage } from "@/components/not-found-page";
 
 type Params = { params: Promise<{ locale: Locale; slug: string }> };
 
@@ -22,7 +22,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, slug } = await params;
   const mode = modeBySlug(locale, slug);
-  if (!mode) return {};
+  if (!mode) return notFoundMetadata(locale);
   const t = createT(locale);
   return metaPage(locale, {
     title: t("pages.modes.titleMode", { name: mode.name }),
@@ -71,7 +71,7 @@ function renderElements(elements: ModeSection["elements"]) {
 export default async function GameModePage({ params }: Params) {
   const { locale, slug } = await params;
   const mode = modeBySlug(locale, slug);
-  if (!mode) notFound();
+  if (!mode) return <NotFoundPage />;
 
   const t = createT(locale);
   const [dark, light] = ACCENTS_MODES[slug] ?? ACCENT_MODE_DEFAULT;

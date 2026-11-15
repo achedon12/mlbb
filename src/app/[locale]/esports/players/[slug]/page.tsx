@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import { ExternalLink as ExternalIcon } from "lucide-react";
 import { interpolate, shortDate, SourceCredit } from "@/components/esports-parts";
 import { HeroIcon, heroName, percentText, roleText, TeamLink } from "@/components/esports-pro";
 import Link from "@/components/link";
 import { PageHeader, SectionTitle } from "@/components/ui";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
-import { metaPage } from "@/i18n/seo";
+import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
 import { heroesBySlug } from "@/lib/data";
 import { esportsSource, tournamentBySlug } from "@/lib/esports";
@@ -14,6 +13,7 @@ import { playerProfile, rate } from "@/lib/esports-players";
 import { serializeJsonLd } from "@/lib/html";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
+import { NotFoundPage } from "@/components/not-found-page";
 
 type Params = { params: Promise<{ locale: Locale; slug: string }> };
 
@@ -34,7 +34,7 @@ const liquipediaUrl = (page: string) => `${esportsSource.url}${encodeURI(page.re
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, slug } = await params;
   const p = playerProfile(slug);
-  if (!p) return {};
+  if (!p) return notFoundMetadata(locale);
   const t = createT(locale);
   const team = p.team?.name;
   const heroes = p.heroes
@@ -61,7 +61,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function PlayerPage({ params }: Params) {
   const { locale, slug } = await params;
   const p = playerProfile(slug);
-  if (!p) notFound();
+  if (!p) return <NotFoundPage />;
   const t = createT(locale);
   const heroes = p.heroes.filter((h) => heroesBySlug.has(h.slug));
   const recent = p.matches.slice(0, RECENT);

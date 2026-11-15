@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 import { shortDate, SourceCredit, stageName } from "@/components/esports-parts";
 import { PlayerLink, percentText, ProGameDraft, roleText, teamName } from "@/components/esports-pro";
 import Link from "@/components/link";
 import { PageHeader, SectionTitle } from "@/components/ui";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
-import { metaPage } from "@/i18n/seo";
+import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
 import { tournamentBySlug } from "@/lib/esports";
 import { hasPlayerPage, rate, teamProfile } from "@/lib/esports-players";
 import { serializeJsonLd } from "@/lib/html";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
+import { NotFoundPage } from "@/components/not-found-page";
 
 type Params = { params: Promise<{ locale: Locale; slug: string }> };
 
@@ -28,7 +28,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, slug } = await params;
   const p = teamProfile(slug);
-  if (!p) return {};
+  if (!p) return notFoundMetadata(locale);
   const t = createT(locale);
   return metaPage(locale, {
     title: t("pages.esports.pro.team.seoTitle", { name: p.team.name }),
@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function TeamPage({ params }: Params) {
   const { locale, slug } = await params;
   const p = teamProfile(slug);
-  if (!p) notFound();
+  if (!p) return <NotFoundPage />;
   const t = createT(locale);
   const latest = p.records[0];
   const titles = p.records.filter((r) => r.champion).length;

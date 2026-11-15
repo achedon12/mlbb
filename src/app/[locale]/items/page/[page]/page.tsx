@@ -1,9 +1,10 @@
+import { notFoundMetadata } from "@/i18n/seo";
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import type { Locale } from "@/i18n/config";
 import { countItems } from "@/lib/data";
 import { pagesAfterFirst, readPage, SIZE_CARDS } from "@/lib/pager";
 import { Items, metaItems, pagesItems } from "../../content";
+import { NotFoundPage } from "@/components/not-found-page";
 
 /**
  * Pages 2 and beyond of the item catalogue. Prerendered like the first one,
@@ -19,12 +20,12 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, page } = await params;
   const n = readPage(page, pagesItems());
-  return n ? metaItems(locale, n) : {};
+  return n ? metaItems(locale, n) : notFoundMetadata(locale);
 }
 
 export default async function ItemsPagePage({ params }: Params) {
   const { locale, page } = await params;
   const n = readPage(page, pagesItems());
-  if (!n) notFound();
+  if (!n) return <NotFoundPage />;
   return <Items locale={locale} page={n} />;
 }

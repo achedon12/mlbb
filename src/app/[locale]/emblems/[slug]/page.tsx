@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import { ItemIcon } from "@/components/item-sheet";
 import { ListLinks, PartsChoice, TableRanks, TableUsage } from "@/components/usage-sheet";
 import { FreshnessLine } from "@/components/freshness";
 import { Card, PageHeader, SectionTitle } from "@/components/ui";
 import type { Locale } from "@/i18n/config";
-import { metaPage } from "@/i18n/seo";
+import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import type { T } from "@/i18n/t";
 import { createT } from "@/i18n/translations";
 import { heroesBySlug } from "@/lib/data";
@@ -23,6 +22,7 @@ import {
 } from "@/lib/usage-sheets";
 import { longDate, listNames, patchCurrent } from "@/lib/freshness";
 import { serializeJsonLd } from "@/lib/html";
+import { NotFoundPage } from "@/components/not-found-page";
 
 type Params = { params: Promise<{ locale: Locale; slug: string }> };
 
@@ -30,7 +30,7 @@ type Params = { params: Promise<{ locale: Locale; slug: string }> };
 // Rendered on demand outside the prerendered values: frozen parameters send an
 // unknown one down Next's internal no-fallback path, which answers 404 but logs
 // `NoFallbackError` every time a crawler tries an address that does not exist.
-// The page checks the value itself and calls `notFound()`: the same 404, quietly.
+// The page checks the value itself and renders the 404 page: the same 404, quietly.
 export const dynamicParams = true;
 export function generateStaticParams() {
   return emblemsSheets.map((e) => ({ slug: e.slug }));
@@ -84,14 +84,14 @@ function sheet(locale: Locale, slug: string) {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, slug } = await params;
   const f = sheet(locale, slug);
-  if (!f) return {};
+  if (!f) return notFoundMetadata(locale);
   return metaPage(locale, { title: f.title, description: f.description, path: `/emblems/${slug}` });
 }
 
 export default async function EmblemPage({ params }: Params) {
   const { locale, slug } = await params;
   const fi = sheet(locale, slug);
-  if (!fi) notFound();
+  if (!fi) return <NotFoundPage />;
   const { f, t, name, heroes, talents } = fi;
 
   const spellsBySlug = new Map(spellSheets.map((s) => [s.slug, s]));

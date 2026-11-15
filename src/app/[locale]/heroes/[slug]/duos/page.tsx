@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import { ChevronDown, ThumbsDown, Users } from "lucide-react";
 import Link from "@/components/link";
 import { HeroSubLayout } from "@/components/hero-side-card";
@@ -8,7 +7,7 @@ import { CardsTable } from "@/components/cards-table";
 import { HeroPortrait } from "@/components/hero-portrait";
 import { Card, PageHeader } from "@/components/ui";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
-import { metaPage } from "@/i18n/seo";
+import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT, type T } from "@/i18n/translations";
 import { aggregateCounters, frenchOf, formatGap, listNames, summaryRank, type AggregatedCounter } from "@/lib/counters";
 import { teammates, allHeroes, heroesBySlug } from "@/lib/data";
@@ -22,6 +21,7 @@ import { site } from "@/lib/site";
 import { rankingFull, statsByRank } from "@/lib/tier-list";
 import type { Hero } from "@/lib/types";
 import { cn } from "@/lib/utils";
+import { NotFoundPage } from "@/components/not-found-page";
 
 /**
  * A hero's "duos" page: who it wins with, rank by rank and by
@@ -86,7 +86,7 @@ function summary(locale: Locale, h: Hero) {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, slug } = await params;
   const h = heroesBySlug.get(slug);
-  if (!h) return {};
+  if (!h) return notFoundMetadata(locale);
   const t = createT(locale);
   const meta = metaPage(locale, {
     // Patch in the title, like the counters pages: the results that rank
@@ -107,7 +107,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function DuosPage({ params }: Params) {
   const { locale, slug } = await params;
   const h = heroesBySlug.get(slug);
-  if (!h) notFound();
+  if (!h) return <NotFoundPage />;
 
   const t = createT(locale);
   const n = names(h.name);
