@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import { WikiCredit } from "@/components/wiki-credit";
 import Link from "@/components/link";
 import { LorePairCard } from "@/components/lore-pair";
@@ -7,7 +6,7 @@ import { HeroPortrait } from "@/components/hero-portrait";
 import { PageHeader, SectionTitle } from "@/components/ui";
 import type { Locale } from "@/i18n/config";
 import { releaseDate, heroLabel } from "@/i18n/hero-data";
-import { heroListData, metaPage } from "@/i18n/seo";
+import { heroListData, metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
 import { stories, sync } from "@/lib/data";
 import { listNames } from "@/lib/freshness";
@@ -21,6 +20,7 @@ import {
   type LorePair,
   type RegionLore,
 } from "@/lib/lore";
+import { NotFoundPage } from "@/components/not-found-page";
 
 type Params = { params: Promise<{ locale: Locale; region: string }> };
 
@@ -48,7 +48,7 @@ function figures(region: RegionLore, locale: Locale): string[] {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, region } = await params;
   const r = regionByKey.get(region);
-  if (!r) return {};
+  if (!r) return notFoundMetadata(locale);
   const t = createT(locale);
   const name = heroLabel(t, "region", r.name)!;
   return metaPage(locale, {
@@ -66,7 +66,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function LoreRegionPage({ params }: Params) {
   const { locale, region } = await params;
   const r = regionByKey.get(region);
-  if (!r) notFound();
+  if (!r) return <NotFoundPage />;
 
   const t = createT(locale);
   const h = stories(locale);

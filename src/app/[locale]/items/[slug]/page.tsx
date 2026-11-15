@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import {
   catalogRecipes,
   EffectsItem,
@@ -14,7 +13,7 @@ import Link from "@/components/link";
 import { Card, PageHeader, SectionTitle } from "@/components/ui";
 import visuals from "@/data/game/visuals.json";
 import { LOCALE_INTL, type Locale } from "@/i18n/config";
-import { metaPage } from "@/i18n/seo";
+import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
 import { heroesBySlug, itemsFor } from "@/lib/data";
 import { BUILDER_RULE, dataSheet, summaryRanks, topBuilders, usage } from "@/lib/usage-sheets";
@@ -22,6 +21,7 @@ import { metaItem } from "@/lib/item-meta";
 import { listNames, percentage } from "@/lib/freshness";
 import { serializeJsonLd } from "@/lib/html";
 import { cn } from "@/lib/utils";
+import { NotFoundPage } from "@/components/not-found-page";
 
 type Params = { params: Promise<{ locale: Locale; slug: string }> };
 
@@ -84,7 +84,7 @@ function sheet(locale: Locale, slug: string) {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, slug } = await params;
   const f = sheet(locale, slug);
-  if (!f) return {};
+  if (!f) return notFoundMetadata(locale);
   return metaPage(locale, { title: f.title, description: f.description, path: `/items/${slug}` });
 }
 
@@ -98,7 +98,7 @@ const toPage: ToItem = (o, content, className) => (
 export default async function ItemPage({ params }: Params) {
   const { locale, slug } = await params;
   const f = sheet(locale, slug);
-  if (!f) notFound();
+  if (!f) return <NotFoundPage />;
   const { o, t, heroes, builders } = f;
 
   const previews: PreviewItem[] = itemsFor(locale).map((x) => ({ ...x, image: images[x.slug] ?? null }));

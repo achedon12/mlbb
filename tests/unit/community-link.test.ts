@@ -3,7 +3,8 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 /**
  * Linking a Discord member to a game account, and moderation on linked
  * members, against an in-memory stand-in for the Prisma client: just the
- * calls `linkAccounts` and `moderate` make, with plain `where` matching.
+ * calls `linkAccounts`, `unlinkAccounts` and `moderate` make, with plain
+ * `where` matching.
  */
 
 type Row = Record<string, unknown>;
@@ -113,7 +114,7 @@ function fakeClient() {
 let fake = fakeClient();
 vi.mock("@/lib/db", () => ({ databaseConfigured: () => true, db: () => fake }));
 
-const { linkAccounts, moderate } = await import("@/lib/community/store");
+const { linkAccounts, moderate, unlinkAccounts } = await import("@/lib/community/store");
 const { isBanned } = await import("@/lib/community/constants");
 
 const NOW = Date.UTC(2026, 10, 15, 12);
@@ -208,5 +209,79 @@ describe("moderation on linked members", () => {
 
     expect(await moderate({ action: "hide", kind: "card", id: 5 }, MOD, NOW)).toBe("ok");
     expect(member(GAME.id).cardHiddenAt).toEqual(new Date(NOW));
+  });
+});
+
+describe("unlinkAccounts", () => {
+  /** A Discord member linked to GAME after merging some activity of its own, as `linkAccounts` leaves them. */
+  async function linked() {
+    fake.communityMember.insert({ accountId: GAME.id, name: GAME.name, firstSeenAt: new Date(NOW - 90 * DAY) });
+    fake.communityMember.insert({ accountId: DISCORD.id, name: DISCORD.name, provider: "discord", firstSeenAt: new Date(NOW - 60 * DAY) });
+    fake.forumThread.insert({ authorId: DISCORD.id, title: "t", body: "b" });
+    fake.forumVote.insert({ kind: "thread", targetId: 42, voterId: DISCORD.id });
+    fake.teammateCard.insert({ accountId: DISCORD.id });
+    expect(await linkAccounts(GAME, DISCORD, NOW - 10 * DAY)).toBe("ok");
+  }
+
+  it("makes the Discord login a new member with no history; what was merged stays with the game account", async () => {
+    await linked();
+    expect(await unlinkAccounts(GAME, DISCORD, NOW)).toBe("ok");
+
+    expect(member(DISCORD.id)).toMatchObject({ linkedTo: null, linkedAt: null, provider: "discord" });
+    // A new member again: the new-account period starts over.
+    expect(member(DISCORD.id).firstSeenAt).toEqual(new Date(NOW));
+    // Nothing moves back.
+    expect(fake.forumThread.rows[0].authorId).toBe(GAME.id);
+    expect(fake.forumVote.rows[0].voterId).toBe(GAME.id);
+    expect(fake.teammateCard.rows[0].accountId).toBe(GAME.id);
+    expect(member(GAME.id).firstSeenAt).toEqual(new Date(NOW - 90 * DAY));
+
+    // Unlinking again finds nothing to undo.
+    expect(await unlinkAccounts(GAME, DISCORD, NOW)).toBe("notLinked");
+  });
+
+  it("is refused while the game account is banned, so the ban cannot be left behind", async () => {
+    await linked();
+    member(GAME.id).bannedAt = new Date(NOW - DAY);
+    expect(await unlinkAccounts(GAME, DISCORD, NOW)).toBe("banned");
+    expect(member(DISCORD.id).linkedTo).toBe(GAME.id);
+
+    // Once the ban has run out, it goes through.
+    member(GAME.id).banUntil = new Date(NOW - 1);
+    expect(await unlinkAccounts(GAME, DISCORD, NOW)).toBe("ok");
+  });
+
+  it("only undoes a link between these two accounts", async () => {
+    await linked();
+    const other = { id: "o".repeat(24), name: "Other", provider: "game" as const };
+    fake.communityMember.insert({ accountId: other.id, name: other.name });
+    expect(await unlinkAccounts(other, DISCORD, NOW)).toBe("notLinked");
+    expect(member(DISCORD.id).linkedTo).toBe(GAME.id);
+    expect(await unlinkAccounts(GAME, { ...DISCORD, id: "e".repeat(24) }, NOW)).toBe("notLinked");
+  });
+
+  it("keeps a moderator's card hide on the Discord member it leaves", async () => {
+    await linked();
+    member(GAME.id).cardHiddenAt = new Date(NOW - DAY);
+    expect(await unlinkAccounts(GAME, DISCORD, NOW)).toBe("ok");
+    expect(member(DISCORD.id).cardHiddenAt).toEqual(new Date(NOW - DAY));
+  });
+
+  it("moderation aimed at the Discord member no longer lands on the game account", async () => {
+    await linked();
+    expect(await unlinkAccounts(GAME, DISCORD, NOW)).toBe("ok");
+    // Posted with the Discord login alone after unlinking: its own member's post.
+    const post = fake.forumPost.insert({ authorId: DISCORD.id, threadId: 1, body: "b" });
+
+    expect(await moderate({ action: "ban", kind: "post", id: post.id as number, note: "spam", days: 7 }, MOD, NOW)).toBe("ok");
+    expect(isBanned(member(DISCORD.id) as never, NOW)).toBe(true);
+    expect(isBanned(member(GAME.id) as never, NOW)).toBe(false);
+    expect(fake.moderationLog.rows.at(-1)).toMatchObject({ action: "ban", accountId: DISCORD.id });
+
+    // An unban aimed at the Discord member lifts its own ban only.
+    member(GAME.id).bannedAt = new Date(NOW - DAY);
+    expect(await moderate({ action: "unban", accountId: DISCORD.id }, MOD, NOW)).toBe("ok");
+    expect(isBanned(member(DISCORD.id) as never, NOW)).toBe(false);
+    expect(isBanned(member(GAME.id) as never, NOW)).toBe(true);
   });
 });

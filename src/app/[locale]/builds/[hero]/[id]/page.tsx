@@ -8,7 +8,7 @@ import { HeroPortrait } from "@/components/hero-portrait";
 import { PageHeader } from "@/components/ui";
 import type { Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
-import { metaPage } from "@/i18n/seo";
+import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT, messagesPage } from "@/i18n/translations";
 import { buildNames, emblemImage, emblemName, itemImage, simCatalog, spellImage, spellName, talentImage, talentName } from "@/lib/build-catalog";
 import { simulate } from "@/lib/build-simulator";
@@ -36,6 +36,7 @@ async function load(id: string) {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, id } = await params;
   const stored = await load(id);
+  if (stored === null) return notFoundMetadata(locale);
   if (!stored) return { robots: { index: false, follow: true } };
   const t = createT(locale);
   const hero = heroesBySlug.get(stored.build.hero)?.name ?? stored.build.hero;

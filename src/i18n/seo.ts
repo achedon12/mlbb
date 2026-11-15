@@ -2,7 +2,24 @@ import type { Metadata } from "next";
 import type { Article } from "@/lib/types";
 import { pageHref } from "@/lib/pager";
 import { site } from "@/lib/site";
-import { LOCALES, DEFAULT_LOCALE, LOCALE_HREFLANG, LOCALE_HTML, type Locale } from "./config";
+import { LOCALES, DEFAULT_LOCALE, LOCALE_HREFLANG, LOCALE_HTML, isLocale, type Locale } from "./config";
+import { createT } from "./translations";
+
+/**
+ * Metadata of the 404 page, for the `generateMetadata` of a page about to call
+ * `notFound()` (unknown hero, patch, player…): the 404 title in the page's
+ * language, `noindex, follow`, and neither the canonical nor the `hreflang`
+ * the language root's layout would otherwise lend it (this address is not the
+ * home page). The body is the layout's 404 fallback (`NotFoundFallback`).
+ */
+export function notFoundMetadata(locale: string): Metadata {
+  if (!isLocale(locale)) return {};
+  return {
+    title: createT(locale)("pages.notFound.title"),
+    robots: { index: false, follow: true },
+    alternates: { canonical: null, languages: {} },
+  };
+}
 
 /**
  * A page's language metadata: its canonical (in the current language) and

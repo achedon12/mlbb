@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { notFound } from "next/navigation";
 import Link from "@/components/link";
 import { HeroSubLayout } from "@/components/hero-side-card";
 import { PageHeader } from "@/components/ui";
 import { LOCALE_HTML, LOCALE_INTL, type Locale } from "@/i18n/config";
-import { metaPage } from "@/i18n/seo";
+import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT, type T } from "@/i18n/translations";
 import { heroesBySlug, sync } from "@/lib/data";
 import { serializeJsonLd } from "@/lib/html";
@@ -14,6 +13,7 @@ import { site } from "@/lib/site";
 import { formatRelease, CURRENCIES, type SkinFull } from "@/lib/skins";
 import { anchorsGallery, elide, heroGallery, heroesWithSkins, titleGallery, type HeroGallery } from "@/lib/hero-skins";
 import type { Hero } from "@/lib/types";
+import { NotFoundPage } from "@/components/not-found-page";
 
 /**
  * A hero's skin gallery: each skin with its illustration, its
@@ -53,9 +53,10 @@ function description(t: T, locale: Locale, h: Hero, g: HeroGallery): string {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, slug } = await params;
   const h = heroesBySlug.get(slug);
-  if (!h) return {};
+  if (!h) return notFoundMetadata(locale);
   const t = createT(locale);
   const g = heroGallery(h);
+  if (g.total === 0) return notFoundMetadata(locale);
   const el = elide(locale, h.name);
   return metaPage(locale, {
     title: t(el ? "pages.heroSkins.metaTitleElision" : "pages.heroSkins.metaTitle", { name: h.name, n: g.total }),
@@ -68,9 +69,9 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function HeroSkinsPage({ params }: Params) {
   const { locale, slug } = await params;
   const h = heroesBySlug.get(slug);
-  if (!h) notFound();
+  if (!h) return <NotFoundPage />;
   const g = heroGallery(h);
-  if (g.total === 0) notFound();
+  if (g.total === 0) return <NotFoundPage />;
 
   const t = createT(locale);
   // Rarity, availability and tag unknown to the catalog keep their original label.

@@ -4644,10 +4644,17 @@
         "failed": "Nabigo ang aksyon: i-reload ang page."
       },
       "link": {
-        "offer": "Nakakonekta ka rin sa Discord. I-link ang iyong dalawang account upang mapanatili ang isang profile sa forum: maaari kang kumonekta sa isa o sa isa pa, at kung ano ang iyong na-publish sa Discord ay sasali sa iyong account sa laro. Permanente ang link.",
+        "offer": "Nakakonekta ka rin sa Discord. I-link ang iyong dalawang account upang mapanatili ang isang profile sa forum: maaari kang mag-log in gamit ang alinman, at kung ano ang iyong nai-post sa Discord ay sasali sa iyong account sa laro. Maaari mong i-unlink ang mga ito sa ibang pagkakataon, ngunit kung ano ang sumali sa iyong game account ay mananatili doon.",
         "button": "I-link ang aking Discord account",
         "done": "Ang iyong mga account ay naka-link: sa forum, ang Discord at ang iyong account sa laro ay naging isa.",
-        "taken": "Ang Discord account o game account na ito ay naka-link na sa isa pang account."
+        "taken": "Ang Discord account o game account na ito ay naka-link na sa isa pang account.",
+        "unlink": "I-unlink ang aking Discord account",
+        "unlinkConfirm": "I-unlink ang iyong Discord account mula sa iyong gaming account? Ang anumang na-post, binoto, o iniulat ay nananatili sa iyong game account, kasama ang ginawa mo sa Discord bago i-link ang mga account. Ang iyong Discord account ay magiging isang hiwalay na miyembro muli, bago at walang kasaysayan: ito ay dumaan sa bagong panahon ng account, at ang isang Discord account na wala pang 7 araw ay hindi makakasali.",
+        "unlinkButton": "Oo, i-unlink",
+        "cancel": "Kanselahin",
+        "unlinkDone": "Ang iyong mga account ay na-unlink: sa forum, ang iyong Discord account ay isa nang hiwalay na miyembro.",
+        "unlinkBanned": "Ang iyong account sa laro ay pinagbawalan mula sa forum: hindi maaaring i-unlink ang mga account habang tumatagal ang ban.",
+        "notLinked": "Ang Discord account na ito ay hindi naka-link sa game account na ito."
       }
     },
     "guides": {
@@ -5176,7 +5183,7 @@
         "collection": "Naka-synchronize na koleksyon: hanggang sa walang laman ito, o on demand.",
         "push": "Mga notification ng patch: hanggang sa mag-unsubscribe; ang isang subscription na naging hindi wasto ay tatanggalin sa susunod na abiso.",
         "bot": "Para sa Discord bot: ang mga setting ng isang server, at ang mga resulta ng mga laro sa araw na nilalaro doon, hanggang 30 araw pagkatapos ng pag-alis ng bot; log ng slash command na ginamit, walang ID ng miyembro, 90 araw; boto para sa bot, hanggang hiniling na tanggalin.",
-        "logs": "Mga teknikal na log: ang mga error na nakatagpo ng browser (mensahe, pahina, bersyon ng site, uri ng browser; alinman sa IP address o account) ay pinananatili sa server para sa diagnosis, hanggang sa pagtanggal ng mga ito ng publisher.",
+        "logs": "Mga teknikal na log: ang mga error sa server at ang mga nakatagpo ng browser (mensahe, pahina, bersyon ng site, uri ng browser, nang walang IP address o account) ay pinananatili sa loob ng 30 araw para sa diagnosis. Ang mga kaganapan sa seguridad at pag-moderate (mga kahilingan ay tinanggihan, mga aksyon ng mga moderator at administrator) ay pinananatili sa loob ng 6 na buwan. Pagkatapos ay awtomatikong tatanggalin ang mga ito.",
         "backups": "Mga backup: araw-araw na kopya ng database; ang tatlong pinakabago lamang ang pinananatili, upang ang mga tinanggal na data ay mawala sa mga backup sa loob ng tatlong araw.",
         "rateLimits": "Mga Limitasyon sa Rate: Ang iyong IP address, sa memorya lamang, ay hindi kailanman nakasulat sa disk."
       },

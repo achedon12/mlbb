@@ -86,7 +86,7 @@
     "@types/web-push": "^3.6.4",
     "@typescript/native": "npm:typescript@^7.0.2",
     "@vitest/coverage-v8": "^5.1.0",
-    "eslint": "^10.14.0",
+    "eslint": "^10.15.0",
     "eslint-config-next": "^16.4.5",
     "prisma": "^7.10.1",
     "sharp": "^0.35.4",
@@ -103,5 +103,10 @@
   "allowScripts": {
     "@prisma/engines@7.10.1": true,
     "prisma@7.10.1": true
+  },
+  "overrides": {
+    "@typescript-eslint/typescript-estree": {
+      "minimatch": "^11.0.8"
+    }
   }
 }

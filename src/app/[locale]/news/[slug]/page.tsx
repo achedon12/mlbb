@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { serializeJsonLd } from "@/lib/html";
-import { notFound } from "next/navigation";
 import { BodyArticle } from "@/components/article";
 import { article, articleBody, articles } from "@/lib/content";
 import type { Locale } from "@/i18n/config";
-import { postData, metaPage } from "@/i18n/seo";
+import { postData, metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
+import { NotFoundPage } from "@/components/not-found-page";
 
 type Params = { params: Promise<{ locale: Locale; slug: string }> };
 
@@ -16,7 +16,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, slug } = await params;
   const a = article("news", slug, locale);
-  if (!a) return {};
+  if (!a) return notFoundMetadata(locale);
 
   return metaPage(locale, {
     title: a.title,
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function ArticlePage({ params }: Params) {
   const { locale, slug } = await params;
   const a = article("news", slug, locale);
-  if (!a) notFound();
+  if (!a) return <NotFoundPage />;
 
   const structuredData = postData(a, `/news/${slug}`, locale);
 

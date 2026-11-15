@@ -8,7 +8,7 @@ import { Pager } from "@/components/pager";
 import { PageHeader } from "@/components/ui";
 import type { Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
-import { metaPage } from "@/i18n/seo";
+import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT, messagesPage } from "@/i18n/translations";
 import { CATEGORIES, isCategory, readPageNumber, readSort, SORTS, THREADS_PER_PAGE, type Sort } from "@/lib/community/constants";
 import { listThreads } from "@/lib/community/store";
@@ -39,7 +39,7 @@ const href = (category: string, sort: Sort, page: number) => {
 
 export async function generateMetadata({ params, searchParams }: Params): Promise<Metadata> {
   const { locale, category } = await params;
-  if (!isCategory(category)) return {};
+  if (!isCategory(category)) return notFoundMetadata(locale);
   const query = await searchParams;
   const t = createT(locale);
   const name = t(`pages.community.categories.${category}.name`);

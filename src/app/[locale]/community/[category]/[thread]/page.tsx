@@ -11,7 +11,7 @@ import { Pager } from "@/components/pager";
 import { PageHeader } from "@/components/ui";
 import { LOCALE_HTML, LOCALE_INTL, type Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
-import { metaPage } from "@/i18n/seo";
+import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT, messagesPage } from "@/i18n/translations";
 import {
   canDelete,
@@ -55,6 +55,7 @@ async function load(segment: string): Promise<Thread | null | undefined> {
 export async function generateMetadata({ params, searchParams }: Params): Promise<Metadata> {
   const { locale, thread: segment } = await params;
   const thread = await load(segment);
+  if (thread === null) return notFoundMetadata(locale);
   if (!thread) return { robots: { index: false, follow: true } };
   // A hidden thread's title and text stay out of the page head.
   if (thread.hiddenAt) return { robots: { index: false, follow: false } };
