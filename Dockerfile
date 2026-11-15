@@ -86,6 +86,10 @@ RUN apk add --no-cache wget postgresql17-client \
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+# Next's cache folder, mounted as a volume (docker-compose.yml): created here,
+# owned by the user, so that a new volume inherits that ownership. The pages
+# rendered on demand are written there (cache-handler.mjs).
+RUN mkdir -p /app/.next/cache && chown nextjs:nodejs /app/.next/cache
 # Owned by root: the user runs the migrations, it has no business editing them.
 COPY --from=migrate /migrate ./migrate
 COPY scripts/container-start.mjs ./container-start.mjs

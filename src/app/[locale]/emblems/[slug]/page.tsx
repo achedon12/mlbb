@@ -26,7 +26,7 @@ import { serializeJsonLd } from "@/lib/html";
 
 type Params = { params: Promise<{ locale: Locale; slug: string }> };
 
-/** One page per emblem, generated at build time; any other address is a 404. */
+/** One page per emblem, generated at build time in `PRERENDERED_LOCALES`; any other emblem is a 404. */
 // Rendered on demand outside the prerendered values: frozen parameters send an
 // unknown one down Next's internal no-fallback path, which answers 404 but logs
 // `NoFallbackError` every time a crawler tries an address that does not exist.

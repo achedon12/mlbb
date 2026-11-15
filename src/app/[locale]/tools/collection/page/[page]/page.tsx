@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import type { Locale } from "@/i18n/config";
-import { catalogSkins } from "@/lib/skin-catalog-server";
-import { pagesAfterFirst, readPage, SIZE_CARDS } from "@/lib/pager";
+import { readPage } from "@/lib/pager";
 import { Collection, metaCollection, pagesCollection } from "../../content";
 
 /**
@@ -13,7 +12,8 @@ import { Collection, metaCollection, pagesCollection } from "../../content";
 type Params = { params: Promise<{ locale: Locale; page: string }> };
 
 export function generateStaticParams() {
-  return pagesAfterFirst(catalogSkins().heroes.length, SIZE_CARDS);
+  // Rendered on first request, then cached (src/lib/prerender.ts).
+  return [];
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {

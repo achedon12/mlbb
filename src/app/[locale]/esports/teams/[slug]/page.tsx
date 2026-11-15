@@ -9,7 +9,7 @@ import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { metaPage } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
 import { tournamentBySlug } from "@/lib/esports";
-import { hasPlayerPage, hasTeamPage, proTeams, rate, teamProfile } from "@/lib/esports-players";
+import { hasPlayerPage, rate, teamProfile } from "@/lib/esports-players";
 import { serializeJsonLd } from "@/lib/html";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -21,7 +21,8 @@ type Params = { params: Promise<{ locale: Locale; slug: string }> };
  * its drafts game by game (folded: a season is sixty games).
  */
 export function generateStaticParams() {
-  return proTeams.filter((team) => hasTeamPage(team.slug)).map((team) => ({ slug: team.slug }));
+  // Rendered on first request, then cached (src/lib/prerender.ts).
+  return [];
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {

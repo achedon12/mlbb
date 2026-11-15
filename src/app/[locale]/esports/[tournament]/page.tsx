@@ -45,7 +45,9 @@ type Params = { params: Promise<{ locale: Locale; tournament: string }> };
  * older matches folded, see `DraftGames`).
  */
 export function generateStaticParams() {
-  return tournaments.map((t) => ({ tournament: t.slug }));
+  // The current editions only; the older ones are rendered on first
+  // request, then cached (src/lib/prerender.ts).
+  return tournaments.filter((t) => t.current).map((t) => ({ tournament: t.slug }));
 }
 
 const heroName = (slug: string) => heroesBySlug.get(slug)?.name ?? slug;

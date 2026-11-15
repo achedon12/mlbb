@@ -13,8 +13,6 @@ import { createT } from "@/i18n/translations";
 
 type Params = { params: Promise<{ locale: Locale; slug: string }> };
 
-export const dynamicParams = false;
-
 export function generateStaticParams() {
   return guideSlugs().map((slug) => ({ slug }));
 }

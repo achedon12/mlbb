@@ -13,6 +13,7 @@ import { createT, messagesClient } from "@/i18n/translations";
 import { metaLocales, OG_LOCALE } from "@/i18n/seo";
 import { site } from "@/lib/site";
 import { allHeroes } from "@/lib/data";
+import { PRERENDERED_LOCALES } from "@/lib/prerender";
 
 /**
  * Self-hosted fonts: `next/font` downloads them at build time and serves them
@@ -63,9 +64,13 @@ const notoSansThai = Noto_Sans_Thai({
 
 type Params = { params: Promise<{ locale: string }> };
 
-/** One version of the site per language, generated at build time. */
+/**
+ * One version of the site per language. Only the most visited languages are
+ * generated at build time, the others on their first request
+ * (`PRERENDERED_LOCALES`, src/lib/prerender.ts).
+ */
 export function generateStaticParams() {
-  return LOCALES.map((locale) => ({ locale }));
+  return PRERENDERED_LOCALES.map((locale) => ({ locale }));
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {

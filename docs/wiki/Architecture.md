@@ -2,7 +2,7 @@
 
 ## Tech stack
 
-- **Next.js 16** (App Router), **React 19**: content pages generated at build time (static).
+- **Next.js 16** (App Router), **React 19**: static content pages, the most visited generated at build time in English and French, the others on first request then cached on disk until the next deployment (`src/lib/prerender.ts`, `cache-handler.mjs`).
 - **Tailwind CSS v4**: token-based theme (`@theme`), bevelled corners borrowed from the game.
 - **TypeScript** end to end.
 - **Docker**: self-contained production image (`output: standalone`).

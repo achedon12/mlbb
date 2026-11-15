@@ -1,3 +1,4 @@
+import { resolve } from "node:path";
 import type { NextConfig } from "next";
 import { version } from "./package.json";
 
@@ -92,12 +93,13 @@ const nextConfig: NextConfig = {
   // The root does not render <html> ([locale]/layout does): an unknown address
   // outside any locale, such as /llms.txt before it existed, ended in a 500
   // error in production. This global 404 renders its own document.
-  //
-  // The container runs read-only: pages rendered on demand (compare, counters,
-  // skins…) could never be written back to `.next/server/app`, and every
-  // attempt failed with ENOENT in the logs. They stay in the in-memory cache
-  // only, which is what was happening anyway, minus the failed writes.
-  experimental: { globalNotFound: true, isrFlushToDisk: false },
+  experimental: { globalNotFound: true },
+  // The container runs read-only: pages rendered on demand (other languages,
+  // pro players, compare, counters…) cannot be written back to
+  // `.next/server/app`. This handler keeps them in `.next/cache/pages`, the
+  // container's writable volume, and reads the build's pages where they are.
+  // Read from the project root, where the build runs.
+  cacheHandler: resolve("cache-handler.mjs"),
   compress: true,
   // Site version, read from package.json at build time: the footer shows it
   // without having to copy it by hand.

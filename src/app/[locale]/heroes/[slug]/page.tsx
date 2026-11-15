@@ -75,7 +75,7 @@ const TAB_ALIASES = { analyse: "analysis", histoire: "story", competences: "skil
 
 type Params = { params: Promise<{ locale: Locale; slug: string }> };
 
-/** One page per hero, generated at build time. */
+/** One page per hero, generated at build time (in `PRERENDERED_LOCALES`; the other languages on first request). */
 export function generateStaticParams() {
   return allHeroes.map((h) => ({ slug: h.slug }));
 }
