@@ -2339,7 +2339,8 @@
       "units": "{u} em unidades UTF-16",
       "overGuide": "Mais longo do que os {max} caracteres indicados por um guia: o jogo pode recusá-lo.",
       "rating": "Alguns símbolos podem aparecer como quadrados vazios no jogo ou ser recusados. O jogo não publica como conta o tamanho: o contador mostra as duas medidas mais comuns.",
-      "stylesTitle": "Todos os estilos"
+      "stylesTitle": "Todos os estilos",
+      "copiedDiscord": "Mostre no Discord →"
     },
     "drawCalculator": {
       "title": "Calculadora de sorteios de MLBB",

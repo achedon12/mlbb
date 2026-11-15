@@ -2339,7 +2339,8 @@
       "units": "{u} dalam unit UTF-16",
       "overGuide": "Lebih panjang dari karakter {max} yang ditunjukkan dalam panduan: game dapat menolaknya.",
       "rating": "Beberapa simbol mungkin muncul sebagai kotak kosong dalam permainan, atau ditolak. Permainan tidak mempublikasikan caranya menghitung panjang: counter memberikan dua pengukuran umum.",
-      "stylesTitle": "Semua gaya"
+      "stylesTitle": "Semua gaya",
+      "copiedDiscord": "Pamerkan di Discord →"
     },
     "drawCalculator": {
       "title": "Kalkulator Draw MLBB",

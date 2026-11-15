@@ -4723,6 +4723,10 @@
     "discordCta.moment.draft.text": {
       "fr": "Joue tes drafts pour de vrai avec des coéquipiers de ton rang sur le Discord MLBBDex.",
       "text": "Play your drafts for real with teammates at your rank on the MLBBDex Discord."
+    },
+    "pages.nicknameUI.copiedDiscord": {
+      "fr": "Montre-le sur le Discord →",
+      "text": "Show it off on Discord →"
     }
   },
   "es": {
@@ -9089,6 +9093,10 @@
     "discordCta.moment.draft.text": {
       "fr": "Joue tes drafts pour de vrai avec des coéquipiers de ton rang sur le Discord MLBBDex.",
       "text": "Juega tus drafts de verdad con compañeros de tu rango en el Discord de MLBBDex."
+    },
+    "pages.nicknameUI.copiedDiscord": {
+      "fr": "Montre-le sur le Discord →",
+      "text": "Presúmelo en Discord →"
     }
   },
   "id": {
@@ -15423,6 +15431,10 @@
     "discordCta.moment.draft.text": {
       "fr": "Joue tes drafts pour de vrai avec des coéquipiers de ton rang sur le Discord MLBBDex.",
       "text": "Mainkan draft-mu beneran bareng teman se-rank di Discord MLBBDex."
+    },
+    "pages.nicknameUI.copiedDiscord": {
+      "fr": "Montre-le sur le Discord →",
+      "text": "Pamerkan di Discord →"
     }
   },
   "it": {
@@ -19837,6 +19849,10 @@
     "discordCta.moment.draft.text": {
       "fr": "Joue tes drafts pour de vrai avec des coéquipiers de ton rang sur le Discord MLBBDex.",
       "text": "Gioca i tuoi draft sul serio con compagni del tuo rank sul Discord di MLBBDex."
+    },
+    "pages.nicknameUI.copiedDiscord": {
+      "fr": "Montre-le sur le Discord →",
+      "text": "Mostralo su Discord →"
     }
   },
   "fil": {
@@ -34671,6 +34687,10 @@
     "discordCta.moment.draft.text": {
       "fr": "Joue tes drafts pour de vrai avec des coéquipiers de ton rang sur le Discord MLBBDex.",
       "text": "Laruin ang drafts mo nang totoo kasama ang teammates sa rank mo sa MLBBDex Discord."
+    },
+    "pages.nicknameUI.copiedDiscord": {
+      "fr": "Montre-le sur le Discord →",
+      "text": "Ipakita sa Discord →"
     }
   },
   "th": {
@@ -48517,6 +48537,10 @@
     "discordCta.moment.draft.text": {
       "fr": "Joue tes drafts pour de vrai avec des coéquipiers de ton rang sur le Discord MLBBDex.",
       "text": "ดราฟต์จริงกับเพื่อนร่วมทีมแรงก์เดียวกันใน Discord ของ MLBBDex"
+    },
+    "pages.nicknameUI.copiedDiscord": {
+      "fr": "Montre-le sur le Discord →",
+      "text": "อวดใน Discord →"
     }
   },
   "pt": {
@@ -60287,6 +60311,10 @@
     "discordCta.moment.draft.text": {
       "fr": "Joue tes drafts pour de vrai avec des coéquipiers de ton rang sur le Discord MLBBDex.",
       "text": "Jogue seus drafts de verdade com parceiros do seu elo no Discord do MLBBDex."
+    },
+    "pages.nicknameUI.copiedDiscord": {
+      "fr": "Montre-le sur le Discord →",
+      "text": "Mostre no Discord →"
     }
   },
   "ru": {
@@ -73449,6 +73477,10 @@
     "discordCta.moment.draft.text": {
       "fr": "Joue tes drafts pour de vrai avec des coéquipiers de ton rang sur le Discord MLBBDex.",
       "text": "Играйте свои драфты по-настоящему с тиммейтами своего ранга в Discord MLBBDex."
+    },
+    "pages.nicknameUI.copiedDiscord": {
+      "fr": "Montre-le sur le Discord →",
+      "text": "Покажите в Discord →"
     }
   }
 }
