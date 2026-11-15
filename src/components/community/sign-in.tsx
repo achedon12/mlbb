@@ -49,6 +49,11 @@ export function SignInChoice({
           {t("pages.community.signInChoice.discordTooNew", { days: 7 })}
         </p>
       )}
+      {member.status === "banned" && (
+        <p role="status" className="border-l-4 border-blood-400 bg-blood-500/10 px-3 py-2 text-sm text-chalk-100">
+          {t("pages.communityUI.errors.banned")}
+        </p>
+      )}
       <p className="text-sm text-chalk-300">{t(`pages.community.signInChoice.${purpose}`)}</p>
       <div className="flex flex-wrap gap-2">
         <Link href="/login" className={`${BUTTON} bg-gold-500 text-night-950 hover:bg-gold-400`}>

@@ -80,13 +80,21 @@ queries in `src/lib/community/store.ts` match exactly.
   `linkedTo = <game accountId>` (unique: one Discord per game account and
   back) and from then on a Discord-only login acts as the game account: its
   name, its new-account period, its ban. What the Discord member had done is
-  merged in the same transaction: threads, replies and reports move, votes
-  move except duplicates and votes that would land on one's own post (their
-  points come off), the card moves unless the game account has one, the
-  earlier first-seen date and a hidden-card decision are kept. Linking is
-  refused when either account is banned (a merge must not wash a ban) or
-  already linked; there is no unlinking from the site (ask the contact
-  address).
+  merged in the same transaction (20 s timeout, bulk statements): threads,
+  replies, the moderation log lines and the collection move; votes and
+  reports move except duplicates and those that would land on one's own post
+  (a vote's point comes off; such a report would count towards hiding); the
+  card moves unless the game account has one; the earlier first-seen date
+  and a hidden-card decision are kept. Linking is refused when either
+  account is banned (a merge must not wash a ban) or already linked; there
+  is no unlinking from the site (ask the contact address).
+- **Bans on linked members**: a moderation decision aimed at a linked
+  Discord id (an old report, the banned list) lands on the game account it
+  acts as (`actingAccount`); an unban lifts both rows. A Discord login whose
+  own row is banned is refused, linked or not (403 `banned`).
+- **Names**: blank fillers (U+3164, U+2800, U+115F, U+1160, …) count as
+  spaces, stacked combining marks are capped at two, and a name with no
+  letter nor digit left falls back to `Member <6 hex>`.
 - Without linking, the two logins are two members; a person signed in both
   ways is told so on every forum page until they link.
 

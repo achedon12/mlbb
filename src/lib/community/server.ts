@@ -87,6 +87,7 @@ async function memberOrRefusal(): Promise<Author | NextResponse> {
   const member = await currentMember();
   if (member.status === "none") return refused(401, "sign in required");
   if (member.status === "discordTooNew") return refused(403, "discordTooNew");
+  if (member.status === "banned") return refused(403, "banned");
   if (member.status !== "ok") return refused(503, "login service unavailable");
   return member.author;
 }
