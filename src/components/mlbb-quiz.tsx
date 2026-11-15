@@ -1,5 +1,6 @@
 "use client";
 
+import { useDiscordMoment } from "@/components/discord-moment";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Palette, Scale, ScrollText, Share2, Shield, Sparkles, Trophy, type LucideIcon } from "lucide-react";
 import { FilterGroup, Chip } from "@/components/chip";
@@ -120,6 +121,7 @@ function roundOpen(challenge: Challenge, attempts: string[][]): number {
 }
 
 function ChallengeOfDay({ catalog, onPractice }: { catalog: CatalogQuiz; onPractice: () => void }) {
+  const discord = useDiscordMoment();
   const t = useT();
   const locale = useLocale();
   const [day, setDay] = useState<string | null>(null);
@@ -205,6 +207,7 @@ function ChallengeOfDay({ catalog, onPractice }: { catalog: CatalogQuiz; onPract
       setStats(nextStats);
       writeStats(nextStats);
       trackEvent("Quiz", "Finish", "daily", points);
+      discord.offer("quiz", 2500);
     }
   }
 
@@ -225,6 +228,7 @@ function ChallengeOfDay({ catalog, onPractice }: { catalog: CatalogQuiz; onPract
 
   return (
     <div className="space-y-5">
+      {discord.card}
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <p className="font-heading text-lg font-bold text-gold-400">
           {t("pages.quizUI.puzzleNumber", { n: challenge.numero, date: readableDate })}

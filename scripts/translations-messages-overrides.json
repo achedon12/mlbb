@@ -4500,14 +4500,6 @@
       "fr": "Montre ta Vitrine et parle skins avec les joueurs du Discord MLBBDex.",
       "text": "Show your Showcase and talk skins with players on the MLBBDex Discord."
     },
-    "discordCta.copy.title": {
-      "fr": "Pseudo copié ! Viens le montrer",
-      "text": "Nickname copied! Come show it off"
-    },
-    "discordCta.copy.text": {
-      "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
-      "text": "Join the MLBBDex Discord: teammates by rank, patch alerts and the daily MLBBdle."
-    },
     "consent.text": {
       "fr": "Avec votre accord, MLBBDex dépose des cookies pour savoir combien de visiteurs reviennent. La mesure est faite par Matomo, installé sur le serveur du site : pas de publicité, pas de pistage par des tiers, aucune donnée vendue. Si vous refusez, elle continue sans cookie, de façon anonyme.",
       "text": "With your consent, MLBBDex sets cookies to see how many visitors come back. Measurement is done with Matomo, installed on the site's own server: no ads, no third-party tracking, no data sold. If you refuse, it carries on anonymously, without cookies."
@@ -4691,6 +4683,46 @@
     "prose.gdpr.retention.logs": {
       "fr": "Journaux techniques : les erreurs du serveur et celles rencontrées par le navigateur (message, page, version du site, type de navigateur, sans adresse IP ni compte) sont gardées 30 jours pour le diagnostic. Les événements de sécurité et de modération (requêtes refusées, actions des modérateurs et des administrateurs) sont gardés 6 mois. Ils sont ensuite effacés automatiquement.",
       "text": "Technical logs: server errors and those met by the browser (message, page, site version, browser type, without IP address or account) are kept for 30 days for diagnosis. Security and moderation events (refused requests, moderators' and administrators' actions) are kept for 6 months. They are then deleted automatically."
+    },
+    "discordCta.moment.nickname.title": {
+      "fr": "Pseudo copié ! Viens le montrer",
+      "text": "Nickname copied! Come show it off"
+    },
+    "discordCta.moment.nickname.text": {
+      "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
+      "text": "Join the MLBBDex Discord: teammates by rank, patch alerts and the daily MLBBdle."
+    },
+    "discordCta.moment.mlbbdle.title": {
+      "fr": "Trouvé ! Compare ton score",
+      "text": "Got it! Compare your score"
+    },
+    "discordCta.moment.mlbbdle.text": {
+      "fr": "Partage ton MLBBdle du jour et défie les joueurs du Discord MLBBDex.",
+      "text": "Share today's MLBBdle and challenge the players on the MLBBDex Discord."
+    },
+    "discordCta.moment.quiz.title": {
+      "fr": "Quiz terminé ! Qui fait mieux ?",
+      "text": "Quiz done! Who can beat you?"
+    },
+    "discordCta.moment.quiz.text": {
+      "fr": "Compare ton score du jour avec la communauté sur le Discord MLBBDex.",
+      "text": "Compare today's score with the community on the MLBBDex Discord."
+    },
+    "discordCta.moment.value.title": {
+      "fr": "Compte estimé ! Montre ta collection",
+      "text": "Account valued! Show off your collection"
+    },
+    "discordCta.moment.value.text": {
+      "fr": "Partage ta Vitrine et parle skins avec les joueurs du Discord MLBBDex.",
+      "text": "Share your Showcase and talk skins with players on the MLBBDex Discord."
+    },
+    "discordCta.moment.draft.title": {
+      "fr": "Draft terminé ! Trouve ton équipe",
+      "text": "Draft done! Find your squad"
+    },
+    "discordCta.moment.draft.text": {
+      "fr": "Joue tes drafts pour de vrai avec des coéquipiers de ton rang sur le Discord MLBBDex.",
+      "text": "Play your drafts for real with teammates at your rank on the MLBBDex Discord."
     }
   },
   "es": {
@@ -8998,14 +9030,6 @@
       "fr": "Montre ta Vitrine et parle skins avec les joueurs du Discord MLBBDex.",
       "text": "Muestra tu Escaparate y habla de skins con los jugadores del Discord de MLBBDex."
     },
-    "discordCta.copy.title": {
-      "fr": "Pseudo copié ! Viens le montrer",
-      "text": "¡Nick copiado! Ven a presumirlo"
-    },
-    "discordCta.copy.text": {
-      "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
-      "text": "Únete al Discord de MLBBDex: compañeros por rango, avisos de parche y el MLBBdle del día."
-    },
     "consent.text": {
       "fr": "Avec votre accord, MLBBDex dépose des cookies pour savoir combien de visiteurs reviennent. La mesure est faite par Matomo, installé sur le serveur du site : pas de publicité, pas de pistage par des tiers, aucune donnée vendue. Si vous refusez, elle continue sans cookie, de façon anonyme.",
       "text": "Con tu consentimiento, MLBBDex usa cookies para saber cuántos visitantes vuelven. La medición se hace con Matomo, instalado en el propio servidor del sitio: sin publicidad, sin rastreo de terceros, sin venta de datos. Si las rechazas, sigue de forma anónima, sin cookies."
@@ -9025,6 +9049,46 @@
     "pages.communityUI.link.cancel": {
       "fr": "Annuler",
       "text": "Cancelar"
+    },
+    "discordCta.moment.nickname.title": {
+      "fr": "Pseudo copié ! Viens le montrer",
+      "text": "¡Nick copiado! Ven a presumirlo"
+    },
+    "discordCta.moment.nickname.text": {
+      "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
+      "text": "Únete al Discord de MLBBDex: compañeros por rango, avisos de parche y el MLBBdle del día."
+    },
+    "discordCta.moment.mlbbdle.title": {
+      "fr": "Trouvé ! Compare ton score",
+      "text": "¡Lo tienes! Compara tu puntuación"
+    },
+    "discordCta.moment.mlbbdle.text": {
+      "fr": "Partage ton MLBBdle du jour et défie les joueurs du Discord MLBBDex.",
+      "text": "Comparte tu MLBBdle del día y reta a los jugadores del Discord de MLBBDex."
+    },
+    "discordCta.moment.quiz.title": {
+      "fr": "Quiz terminé ! Qui fait mieux ?",
+      "text": "¡Quiz terminado! ¿Quién lo hace mejor?"
+    },
+    "discordCta.moment.quiz.text": {
+      "fr": "Compare ton score du jour avec la communauté sur le Discord MLBBDex.",
+      "text": "Compara tu puntuación del día con la comunidad en el Discord de MLBBDex."
+    },
+    "discordCta.moment.value.title": {
+      "fr": "Compte estimé ! Montre ta collection",
+      "text": "¡Cuenta estimada! Presume tu colección"
+    },
+    "discordCta.moment.value.text": {
+      "fr": "Partage ta Vitrine et parle skins avec les joueurs du Discord MLBBDex.",
+      "text": "Comparte tu Escaparate y habla de skins con los jugadores del Discord de MLBBDex."
+    },
+    "discordCta.moment.draft.title": {
+      "fr": "Draft terminé ! Trouve ton équipe",
+      "text": "¡Draft terminado! Encuentra tu equipo"
+    },
+    "discordCta.moment.draft.text": {
+      "fr": "Joue tes drafts pour de vrai avec des coéquipiers de ton rang sur le Discord MLBBDex.",
+      "text": "Juega tus drafts de verdad con compañeros de tu rango en el Discord de MLBBDex."
     }
   },
   "id": {
@@ -15288,14 +15352,6 @@
       "fr": "Montre ta Vitrine et parle skins avec les joueurs du Discord MLBBDex.",
       "text": "Pamerkan Showcase-mu dan ngobrol soal skin di Discord MLBBDex."
     },
-    "discordCta.copy.title": {
-      "fr": "Pseudo copié ! Viens le montrer",
-      "text": "Nickname disalin! Ayo pamerkan"
-    },
-    "discordCta.copy.text": {
-      "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
-      "text": "Gabung Discord MLBBDex: cari teman per rank, notifikasi patch, dan MLBBdle harian."
-    },
     "consent.text": {
       "fr": "Avec votre accord, MLBBDex dépose des cookies pour savoir combien de visiteurs reviennent. La mesure est faite par Matomo, installé sur le serveur du site : pas de publicité, pas de pistage par des tiers, aucune donnée vendue. Si vous refusez, elle continue sans cookie, de façon anonyme.",
       "text": "Dengan persetujuan Anda, MLBBDex memasang cookie untuk mengetahui berapa banyak pengunjung yang kembali. Pengukuran dilakukan dengan Matomo, yang terpasang di server situs ini sendiri: tanpa iklan, tanpa pelacakan pihak ketiga, tidak ada data yang dijual. Jika Anda menolak, pengukuran tetap berjalan secara anonim, tanpa cookie."
@@ -15327,6 +15383,46 @@
     "pages.communityUI.link.cancel": {
       "fr": "Annuler",
       "text": "Batal"
+    },
+    "discordCta.moment.nickname.title": {
+      "fr": "Pseudo copié ! Viens le montrer",
+      "text": "Nickname disalin! Ayo pamerkan"
+    },
+    "discordCta.moment.nickname.text": {
+      "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
+      "text": "Gabung Discord MLBBDex: cari teman per rank, notifikasi patch, dan MLBBdle harian."
+    },
+    "discordCta.moment.mlbbdle.title": {
+      "fr": "Trouvé ! Compare ton score",
+      "text": "Ketemu! Bandingkan skormu"
+    },
+    "discordCta.moment.mlbbdle.text": {
+      "fr": "Partage ton MLBBdle du jour et défie les joueurs du Discord MLBBDex.",
+      "text": "Bagikan MLBBdle harianmu dan tantang pemain di Discord MLBBDex."
+    },
+    "discordCta.moment.quiz.title": {
+      "fr": "Quiz terminé ! Qui fait mieux ?",
+      "text": "Kuis selesai! Siapa yang lebih jago?"
+    },
+    "discordCta.moment.quiz.text": {
+      "fr": "Compare ton score du jour avec la communauté sur le Discord MLBBDex.",
+      "text": "Bandingkan skor harianmu dengan komunitas di Discord MLBBDex."
+    },
+    "discordCta.moment.value.title": {
+      "fr": "Compte estimé ! Montre ta collection",
+      "text": "Akun sudah dinilai! Pamerkan koleksimu"
+    },
+    "discordCta.moment.value.text": {
+      "fr": "Partage ta Vitrine et parle skins avec les joueurs du Discord MLBBDex.",
+      "text": "Pamerkan Showcase-mu dan ngobrol soal skin di Discord MLBBDex."
+    },
+    "discordCta.moment.draft.title": {
+      "fr": "Draft terminé ! Trouve ton équipe",
+      "text": "Draft selesai! Cari tim kamu"
+    },
+    "discordCta.moment.draft.text": {
+      "fr": "Joue tes drafts pour de vrai avec des coéquipiers de ton rang sur le Discord MLBBDex.",
+      "text": "Mainkan draft-mu beneran bareng teman se-rank di Discord MLBBDex."
     }
   },
   "it": {
@@ -19674,14 +19770,6 @@
       "fr": "Montre ta Vitrine et parle skins avec les joueurs du Discord MLBBDex.",
       "text": "Mostra la tua Vetrina e parla di skin con i giocatori del Discord di MLBBDex."
     },
-    "discordCta.copy.title": {
-      "fr": "Pseudo copié ! Viens le montrer",
-      "text": "Nickname copiato! Vieni a mostrarlo"
-    },
-    "discordCta.copy.text": {
-      "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
-      "text": "Entra nel Discord di MLBBDex: compagni per rank, avvisi di patch e il MLBBdle del giorno."
-    },
     "consent.text": {
       "fr": "Avec votre accord, MLBBDex dépose des cookies pour savoir combien de visiteurs reviennent. La mesure est faite par Matomo, installé sur le serveur du site : pas de publicité, pas de pistage par des tiers, aucune donnée vendue. Si vous refusez, elle continue sans cookie, de façon anonyme.",
       "text": "Con il tuo consenso, MLBBDex usa dei cookie per sapere quanti visitatori tornano. La misurazione è fatta con Matomo, installato sul server del sito: niente pubblicità, nessun tracciamento da parte di terzi, nessun dato venduto. Se rifiuti, continua in forma anonima, senza cookie."
@@ -19709,6 +19797,46 @@
     "pages.communityUI.link.unlinkButton": {
       "fr": "Oui, délier",
       "text": "Sì, scollega"
+    },
+    "discordCta.moment.nickname.title": {
+      "fr": "Pseudo copié ! Viens le montrer",
+      "text": "Nickname copiato! Vieni a mostrarlo"
+    },
+    "discordCta.moment.nickname.text": {
+      "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
+      "text": "Entra nel Discord di MLBBDex: compagni per rank, avvisi di patch e il MLBBdle del giorno."
+    },
+    "discordCta.moment.mlbbdle.title": {
+      "fr": "Trouvé ! Compare ton score",
+      "text": "Trovato! Confronta il tuo punteggio"
+    },
+    "discordCta.moment.mlbbdle.text": {
+      "fr": "Partage ton MLBBdle du jour et défie les joueurs du Discord MLBBDex.",
+      "text": "Condividi il MLBBdle del giorno e sfida i giocatori del Discord di MLBBDex."
+    },
+    "discordCta.moment.quiz.title": {
+      "fr": "Quiz terminé ! Qui fait mieux ?",
+      "text": "Quiz finito! Chi fa meglio?"
+    },
+    "discordCta.moment.quiz.text": {
+      "fr": "Compare ton score du jour avec la communauté sur le Discord MLBBDex.",
+      "text": "Confronta il punteggio del giorno con la community sul Discord di MLBBDex."
+    },
+    "discordCta.moment.value.title": {
+      "fr": "Compte estimé ! Montre ta collection",
+      "text": "Account stimato! Mostra la tua collezione"
+    },
+    "discordCta.moment.value.text": {
+      "fr": "Partage ta Vitrine et parle skins avec les joueurs du Discord MLBBDex.",
+      "text": "Condividi la tua Vetrina e parla di skin con i giocatori del Discord di MLBBDex."
+    },
+    "discordCta.moment.draft.title": {
+      "fr": "Draft terminé ! Trouve ton équipe",
+      "text": "Draft finito! Trova la tua squadra"
+    },
+    "discordCta.moment.draft.text": {
+      "fr": "Joue tes drafts pour de vrai avec des coéquipiers de ton rang sur le Discord MLBBDex.",
+      "text": "Gioca i tuoi draft sul serio con compagni del tuo rank sul Discord di MLBBDex."
     }
   },
   "fil": {
@@ -34492,14 +34620,6 @@
       "fr": "Montre ta Vitrine et parle skins avec les joueurs du Discord MLBBDex.",
       "text": "Ipakita ang Showcase mo at mag-usap tungkol sa skins sa MLBBDex Discord."
     },
-    "discordCta.copy.title": {
-      "fr": "Pseudo copié ! Viens le montrer",
-      "text": "Nakopya ang nickname! Ipakita mo na"
-    },
-    "discordCta.copy.text": {
-      "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
-      "text": "Sumali sa MLBBDex Discord: teammates ayon sa rank, patch alerts at MLBBdle ng araw."
-    },
     "consent.text": {
       "fr": "Avec votre accord, MLBBDex dépose des cookies pour savoir combien de visiteurs reviennent. La mesure est faite par Matomo, installé sur le serveur du site : pas de publicité, pas de pistage par des tiers, aucune donnée vendue. Si vous refusez, elle continue sans cookie, de façon anonyme.",
       "text": "Kung papayag ka, gagamit ang MLBBDex ng cookies para malaman kung ilang bisita ang bumabalik. Ang pagsukat ay ginagawa ng Matomo, na naka-install sa sariling server ng site: walang ads, walang pagsubaybay ng third party, walang ibinebentang data. Kung tatanggi ka, magpapatuloy ito nang anonymous, nang walang cookies."
@@ -34511,6 +34631,46 @@
     "pages.communityUI.link.unlinkButton": {
       "fr": "Oui, délier",
       "text": "Oo, i-unlink"
+    },
+    "discordCta.moment.nickname.title": {
+      "fr": "Pseudo copié ! Viens le montrer",
+      "text": "Nakopya ang nickname! Ipakita mo na"
+    },
+    "discordCta.moment.nickname.text": {
+      "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
+      "text": "Sumali sa MLBBDex Discord: teammates ayon sa rank, patch alerts at MLBBdle ng araw."
+    },
+    "discordCta.moment.mlbbdle.title": {
+      "fr": "Trouvé ! Compare ton score",
+      "text": "Nahulaan mo! Ikumpara ang score mo"
+    },
+    "discordCta.moment.mlbbdle.text": {
+      "fr": "Partage ton MLBBdle du jour et défie les joueurs du Discord MLBBDex.",
+      "text": "I-share ang MLBBdle mo ngayong araw at hamunin ang players sa MLBBDex Discord."
+    },
+    "discordCta.moment.quiz.title": {
+      "fr": "Quiz terminé ! Qui fait mieux ?",
+      "text": "Tapos ang quiz! Sino'ng mas magaling?"
+    },
+    "discordCta.moment.quiz.text": {
+      "fr": "Compare ton score du jour avec la communauté sur le Discord MLBBDex.",
+      "text": "Ikumpara ang score mo ngayong araw sa community sa MLBBDex Discord."
+    },
+    "discordCta.moment.value.title": {
+      "fr": "Compte estimé ! Montre ta collection",
+      "text": "Na-estimate ang account! Ipakita ang collection mo"
+    },
+    "discordCta.moment.value.text": {
+      "fr": "Partage ta Vitrine et parle skins avec les joueurs du Discord MLBBDex.",
+      "text": "I-share ang Showcase mo at mag-usap tungkol sa skins sa MLBBDex Discord."
+    },
+    "discordCta.moment.draft.title": {
+      "fr": "Draft terminé ! Trouve ton équipe",
+      "text": "Tapos ang draft! Hanapin ang squad mo"
+    },
+    "discordCta.moment.draft.text": {
+      "fr": "Joue tes drafts pour de vrai avec des coéquipiers de ton rang sur le Discord MLBBDex.",
+      "text": "Laruin ang drafts mo nang totoo kasama ang teammates sa rank mo sa MLBBDex Discord."
     }
   },
   "th": {
@@ -48298,14 +48458,6 @@
       "fr": "Montre ta Vitrine et parle skins avec les joueurs du Discord MLBBDex.",
       "text": "อวด Showcase และคุยเรื่องสกินกับผู้เล่นใน Discord ของ MLBBDex"
     },
-    "discordCta.copy.title": {
-      "fr": "Pseudo copié ! Viens le montrer",
-      "text": "คัดลอกชื่อแล้ว! มาอวดกัน"
-    },
-    "discordCta.copy.text": {
-      "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
-      "text": "เข้าร่วม Discord ของ MLBBDex: หาเพื่อนร่วมทีมตามแรงก์ แจ้งเตือนแพตช์ และ MLBBdle ประจำวัน"
-    },
     "consent.text": {
       "fr": "Avec votre accord, MLBBDex dépose des cookies pour savoir combien de visiteurs reviennent. La mesure est faite par Matomo, installé sur le serveur du site : pas de publicité, pas de pistage par des tiers, aucune donnée vendue. Si vous refusez, elle continue sans cookie, de façon anonyme.",
       "text": "หากคุณยินยอม MLBBDex จะใช้คุกกี้เพื่อดูว่ามีผู้เยี่ยมชมกลับมากี่คน การวัดผลทำด้วย Matomo ที่ติดตั้งบนเซิร์ฟเวอร์ของเว็บไซต์เอง ไม่มีโฆษณา ไม่มีการติดตามโดยบุคคลที่สาม ไม่มีการขายข้อมูล หากคุณปฏิเสธ การวัดผลจะยังคงทำต่อแบบไม่ระบุตัวตนและไม่ใช้คุกกี้"
@@ -48325,6 +48477,46 @@
     "pages.communityUI.link.unlinkButton": {
       "fr": "Oui, délier",
       "text": "ใช่ ยกเลิกการเชื่อมโยง"
+    },
+    "discordCta.moment.nickname.title": {
+      "fr": "Pseudo copié ! Viens le montrer",
+      "text": "คัดลอกชื่อแล้ว! มาอวดกัน"
+    },
+    "discordCta.moment.nickname.text": {
+      "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
+      "text": "เข้าร่วม Discord ของ MLBBDex: หาเพื่อนร่วมทีมตามแรงก์ แจ้งเตือนแพตช์ และ MLBBdle ประจำวัน"
+    },
+    "discordCta.moment.mlbbdle.title": {
+      "fr": "Trouvé ! Compare ton score",
+      "text": "ทายถูก! มาเทียบคะแนนกัน"
+    },
+    "discordCta.moment.mlbbdle.text": {
+      "fr": "Partage ton MLBBdle du jour et défie les joueurs du Discord MLBBDex.",
+      "text": "แชร์ MLBBdle วันนี้และท้าผู้เล่นใน Discord ของ MLBBDex"
+    },
+    "discordCta.moment.quiz.title": {
+      "fr": "Quiz terminé ! Qui fait mieux ?",
+      "text": "ควิซจบแล้ว! ใครทำได้ดีกว่า?"
+    },
+    "discordCta.moment.quiz.text": {
+      "fr": "Compare ton score du jour avec la communauté sur le Discord MLBBDex.",
+      "text": "เทียบคะแนนวันนี้กับคอมมูนิตี้ใน Discord ของ MLBBDex"
+    },
+    "discordCta.moment.value.title": {
+      "fr": "Compte estimé ! Montre ta collection",
+      "text": "ประเมินบัญชีแล้ว! อวดคอลเลกชันของคุณ"
+    },
+    "discordCta.moment.value.text": {
+      "fr": "Partage ta Vitrine et parle skins avec les joueurs du Discord MLBBDex.",
+      "text": "แชร์ Showcase และคุยเรื่องสกินกับผู้เล่นใน Discord ของ MLBBDex"
+    },
+    "discordCta.moment.draft.title": {
+      "fr": "Draft terminé ! Trouve ton équipe",
+      "text": "ดราฟต์เสร็จแล้ว! หาทีมของคุณ"
+    },
+    "discordCta.moment.draft.text": {
+      "fr": "Joue tes drafts pour de vrai avec des coéquipiers de ton rang sur le Discord MLBBDex.",
+      "text": "ดราฟต์จริงกับเพื่อนร่วมทีมแรงก์เดียวกันใน Discord ของ MLBBDex"
     }
   },
   "pt": {
@@ -60028,14 +60220,6 @@
       "fr": "Montre ta Vitrine et parle skins avec les joueurs du Discord MLBBDex.",
       "text": "Mostre sua Vitrine e fale de skins com os jogadores do Discord do MLBBDex."
     },
-    "discordCta.copy.title": {
-      "fr": "Pseudo copié ! Viens le montrer",
-      "text": "Nick copiado! Venha mostrar"
-    },
-    "discordCta.copy.text": {
-      "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
-      "text": "Entre no Discord do MLBBDex: parceiros por elo, alertas de patch e o MLBBdle do dia."
-    },
     "consent.text": {
       "fr": "Avec votre accord, MLBBDex dépose des cookies pour savoir combien de visiteurs reviennent. La mesure est faite par Matomo, installé sur le serveur du site : pas de publicité, pas de pistage par des tiers, aucune donnée vendue. Si vous refusez, elle continue sans cookie, de façon anonyme.",
       "text": "Com o seu consentimento, o MLBBDex usa cookies para saber quantos visitantes voltam. A medição é feita pelo Matomo, instalado no próprio servidor do site: sem publicidade, sem rastreamento por terceiros, nenhum dado vendido. Se você recusar, ela continua de forma anônima, sem cookies."
@@ -60063,6 +60247,46 @@
     "pages.communityUI.link.unlinkButton": {
       "fr": "Oui, délier",
       "text": "Sim, desvincular"
+    },
+    "discordCta.moment.nickname.title": {
+      "fr": "Pseudo copié ! Viens le montrer",
+      "text": "Nick copiado! Venha mostrar"
+    },
+    "discordCta.moment.nickname.text": {
+      "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
+      "text": "Entre no Discord do MLBBDex: parceiros por elo, alertas de patch e o MLBBdle do dia."
+    },
+    "discordCta.moment.mlbbdle.title": {
+      "fr": "Trouvé ! Compare ton score",
+      "text": "Acertou! Compare sua pontuação"
+    },
+    "discordCta.moment.mlbbdle.text": {
+      "fr": "Partage ton MLBBdle du jour et défie les joueurs du Discord MLBBDex.",
+      "text": "Compartilhe seu MLBBdle do dia e desafie os jogadores do Discord do MLBBDex."
+    },
+    "discordCta.moment.quiz.title": {
+      "fr": "Quiz terminé ! Qui fait mieux ?",
+      "text": "Quiz concluído! Quem faz melhor?"
+    },
+    "discordCta.moment.quiz.text": {
+      "fr": "Compare ton score du jour avec la communauté sur le Discord MLBBDex.",
+      "text": "Compare sua pontuação do dia com a comunidade no Discord do MLBBDex."
+    },
+    "discordCta.moment.value.title": {
+      "fr": "Compte estimé ! Montre ta collection",
+      "text": "Conta avaliada! Mostre sua coleção"
+    },
+    "discordCta.moment.value.text": {
+      "fr": "Partage ta Vitrine et parle skins avec les joueurs du Discord MLBBDex.",
+      "text": "Compartilhe sua Vitrine e fale de skins com os jogadores do Discord do MLBBDex."
+    },
+    "discordCta.moment.draft.title": {
+      "fr": "Draft terminé ! Trouve ton équipe",
+      "text": "Draft concluído! Ache seu time"
+    },
+    "discordCta.moment.draft.text": {
+      "fr": "Joue tes drafts pour de vrai avec des coéquipiers de ton rang sur le Discord MLBBDex.",
+      "text": "Jogue seus drafts de verdade com parceiros do seu elo no Discord do MLBBDex."
     }
   },
   "ru": {
@@ -73154,14 +73378,6 @@
       "fr": "Montre ta Vitrine et parle skins avec les joueurs du Discord MLBBDex.",
       "text": "Покажите свою Витрину и обсуждайте скины с игроками в Discord MLBBDex."
     },
-    "discordCta.copy.title": {
-      "fr": "Pseudo copié ! Viens le montrer",
-      "text": "Ник скопирован! Покажите его"
-    },
-    "discordCta.copy.text": {
-      "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
-      "text": "Заходите в Discord MLBBDex: тиммейты по рангу, оповещения о патчах и MLBBdle дня."
-    },
     "consent.text": {
       "fr": "Avec votre accord, MLBBDex dépose des cookies pour savoir combien de visiteurs reviennent. La mesure est faite par Matomo, installé sur le serveur du site : pas de publicité, pas de pistage par des tiers, aucune donnée vendue. Si vous refusez, elle continue sans cookie, de façon anonyme.",
       "text": "С вашего согласия MLBBDex использует файлы cookie, чтобы узнать, сколько посетителей возвращается. Измерение выполняет Matomo, установленный на собственном сервере сайта: никакой рекламы, никакого отслеживания третьими сторонами, никакой продажи данных. Если вы откажетесь, измерение продолжится анонимно, без файлов cookie."
@@ -73193,6 +73409,46 @@
     "pages.communityUI.link.unlinkDone": {
       "fr": "Vos comptes sont déliés : sur le forum, votre compte Discord est maintenant un membre à part.",
       "text": "Ваши учетные записи отвязаны: на форуме ваша учетная запись Discord теперь отдельный участник."
+    },
+    "discordCta.moment.nickname.title": {
+      "fr": "Pseudo copié ! Viens le montrer",
+      "text": "Ник скопирован! Покажите его"
+    },
+    "discordCta.moment.nickname.text": {
+      "fr": "Rejoins le Discord MLBBDex : coéquipiers par rang, alertes de patch et MLBBdle du jour.",
+      "text": "Заходите в Discord MLBBDex: тиммейты по рангу, оповещения о патчах и MLBBdle дня."
+    },
+    "discordCta.moment.mlbbdle.title": {
+      "fr": "Trouvé ! Compare ton score",
+      "text": "Угадали! Сравните результат"
+    },
+    "discordCta.moment.mlbbdle.text": {
+      "fr": "Partage ton MLBBdle du jour et défie les joueurs du Discord MLBBDex.",
+      "text": "Поделитесь сегодняшним MLBBdle и бросьте вызов игрокам в Discord MLBBDex."
+    },
+    "discordCta.moment.quiz.title": {
+      "fr": "Quiz terminé ! Qui fait mieux ?",
+      "text": "Викторина пройдена! Кто лучше?"
+    },
+    "discordCta.moment.quiz.text": {
+      "fr": "Compare ton score du jour avec la communauté sur le Discord MLBBDex.",
+      "text": "Сравните сегодняшний результат с сообществом в Discord MLBBDex."
+    },
+    "discordCta.moment.value.title": {
+      "fr": "Compte estimé ! Montre ta collection",
+      "text": "Аккаунт оценён! Покажите коллекцию"
+    },
+    "discordCta.moment.value.text": {
+      "fr": "Partage ta Vitrine et parle skins avec les joueurs du Discord MLBBDex.",
+      "text": "Покажите свою Витрину и обсуждайте скины с игроками в Discord MLBBDex."
+    },
+    "discordCta.moment.draft.title": {
+      "fr": "Draft terminé ! Trouve ton équipe",
+      "text": "Драфт завершён! Найдите команду"
+    },
+    "discordCta.moment.draft.text": {
+      "fr": "Joue tes drafts pour de vrai avec des coéquipiers de ton rang sur le Discord MLBBDex.",
+      "text": "Играйте свои драфты по-настоящему с тиммейтами своего ранга в Discord MLBBDex."
     }
   }
 }

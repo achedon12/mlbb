@@ -6035,9 +6035,27 @@
       "title": "Bandingkan koleksimu",
       "text": "Pamerkan Showcase-mu dan ngobrol soal skin di Discord MLBBDex."
     },
-    "copy": {
-      "title": "Nickname disalin! Ayo pamerkan",
-      "text": "Gabung Discord MLBBDex: cari teman per rank, notifikasi patch, dan MLBBdle harian."
+    "moment": {
+      "nickname": {
+        "title": "Nickname disalin! Ayo pamerkan",
+        "text": "Gabung Discord MLBBDex: cari teman per rank, notifikasi patch, dan MLBBdle harian."
+      },
+      "mlbbdle": {
+        "title": "Ketemu! Bandingkan skormu",
+        "text": "Bagikan MLBBdle harianmu dan tantang pemain di Discord MLBBDex."
+      },
+      "quiz": {
+        "title": "Kuis selesai! Siapa yang lebih jago?",
+        "text": "Bandingkan skor harianmu dengan komunitas di Discord MLBBDex."
+      },
+      "value": {
+        "title": "Akun sudah dinilai! Pamerkan koleksimu",
+        "text": "Pamerkan Showcase-mu dan ngobrol soal skin di Discord MLBBDex."
+      },
+      "draft": {
+        "title": "Draft selesai! Cari tim kamu",
+        "text": "Mainkan draft-mu beneran bareng teman se-rank di Discord MLBBDex."
+      }
     }
   },
   "consent": {

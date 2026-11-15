@@ -20,7 +20,7 @@ import {
   type Style,
 } from "@/lib/nicknames";
 import { trackEvent } from "@/lib/analytics";
-import { DiscordAfterCopy, mayOfferAfterCopy } from "@/components/discord-after-copy";
+import { useDiscordMoment } from "@/components/discord-moment";
 import { cn } from "@/lib/utils";
 
 /**
@@ -74,8 +74,8 @@ export function NicknameGenerator() {
   const [decoration, setDecoration] = useState<Decoration>(DECORATIONS[0]);
   const [toast, setToast] = useState<{ text: string; failed: boolean } | null>(null);
   const [copied, setCopied] = useState<Style | null>(null);
-  // The Discord invitation after a copy: due once the confirmation is gone.
-  const [offer, setOffer] = useState<"" | "due" | "shown">("");
+  // The Discord invitation after a copy, once the confirmation is gone.
+  const discord = useDiscordMoment();
   const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   useEffect(() => () => clearTimeout(timer.current), []);
@@ -98,11 +98,10 @@ export function NicknameGenerator() {
     );
     setCopied(ok ? s : null);
     clearTimeout(timer.current);
-    if (ok && offer === "" && mayOfferAfterCopy()) setOffer("due");
+    if (ok) discord.offer("nickname", TOAST_MS + 200);
     timer.current = setTimeout(() => {
       setToast(null);
       setCopied(null);
-      setOffer((o) => (o === "due" ? "shown" : o));
     }, TOAST_MS);
   }
 
@@ -269,7 +268,7 @@ export function NicknameGenerator() {
           </p>
         )}
       </div>
-      {offer === "shown" && <DiscordAfterCopy onClose={() => setOffer("")} />}
+      {discord.card}
     </div>
   );
 }

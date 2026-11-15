@@ -6035,9 +6035,27 @@
       "title": "Confronta la tua collezione",
       "text": "Mostra la tua Vetrina e parla di skin con i giocatori del Discord di MLBBDex."
     },
-    "copy": {
-      "title": "Nickname copiato! Vieni a mostrarlo",
-      "text": "Entra nel Discord di MLBBDex: compagni per rank, avvisi di patch e il MLBBdle del giorno."
+    "moment": {
+      "nickname": {
+        "title": "Nickname copiato! Vieni a mostrarlo",
+        "text": "Entra nel Discord di MLBBDex: compagni per rank, avvisi di patch e il MLBBdle del giorno."
+      },
+      "mlbbdle": {
+        "title": "Trovato! Confronta il tuo punteggio",
+        "text": "Condividi il MLBBdle del giorno e sfida i giocatori del Discord di MLBBDex."
+      },
+      "quiz": {
+        "title": "Quiz finito! Chi fa meglio?",
+        "text": "Confronta il punteggio del giorno con la community sul Discord di MLBBDex."
+      },
+      "value": {
+        "title": "Account stimato! Mostra la tua collezione",
+        "text": "Condividi la tua Vetrina e parla di skin con i giocatori del Discord di MLBBDex."
+      },
+      "draft": {
+        "title": "Draft finito! Trova la tua squadra",
+        "text": "Gioca i tuoi draft sul serio con compagni del tuo rank sul Discord di MLBBDex."
+      }
     }
   },
   "consent": {

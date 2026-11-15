@@ -100,7 +100,8 @@ export function DiscordPopup() {
       });
     let cancelIdle = () => {};
     const show = () => {
-      cancelIdle = whenIdle(() => setDue(true));
+      // A moment invitation may have used the session's invitation meanwhile.
+      cancelIdle = whenIdle(() => !readDiscordPopupSession()?.shown && setDue(true));
     };
     // A new page restarts the reading time: the effect is cleaned up on every navigation.
     let timer: ReturnType<typeof setTimeout> | undefined;
