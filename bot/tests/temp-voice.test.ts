@@ -1,9 +1,13 @@
 import { OverwriteType, PermissionFlagsBits } from "discord.js";
 import { describe, expect, it, vi } from "vitest";
 import {
+  deniedTo,
   grantable,
   hasTempVoicePermissions,
+  OWNER_BASICS,
   OWNER_PERMISSIONS,
+  unknownOwner,
+  type OwnerFacts,
   parentFor,
   TEMP_VOICE_REQUIRED,
   tempVoiceOverwrites,
@@ -123,6 +127,8 @@ describe("user limits and hubs", () => {
 
 describe("permissions", () => {
   const required = TEMP_VOICE_REQUIRED;
+  /** A plain member of the hub: they see it, connect and speak there, nothing denied. */
+  const member = (extra: Partial<OwnerFacts> = {}): OwnerFacts => ({ id: USER, onHub: OWNER_BASICS, denied: 0n, timedOut: false, ...extra });
 
   it("needs Manage Channels, Move Members, View Channel and Connect, or Administrator", () => {
     expect(hasTempVoicePermissions(required)).toBe(true);
@@ -134,7 +140,7 @@ describe("permissions", () => {
 
   it("gives the member their channel's moderation, only what the bot holds itself", () => {
     const bot = required | PermissionFlagsBits.Speak;
-    const overwrites = tempVoiceOverwrites([], bot, USER, BOT);
+    const overwrites = tempVoiceOverwrites([], bot, member(), BOT);
     const owner = overwrites.find((o) => o.id === USER)!;
     expect(owner.type).toBe(OverwriteType.Member);
     expect(owner.allow & PermissionFlagsBits.ManageChannels).toBe(PermissionFlagsBits.ManageChannels);
@@ -143,7 +149,7 @@ describe("permissions", () => {
     expect(owner.allow & PermissionFlagsBits.MuteMembers).toBe(0n);
     // Never more than the owner set, never Manage Roles or Administrator.
     expect(owner.allow & ~OWNER_PERMISSIONS).toBe(0n);
-    const admin = tempVoiceOverwrites([], PermissionFlagsBits.Administrator, USER, BOT).find((o) => o.id === USER)!;
+    const admin = tempVoiceOverwrites([], PermissionFlagsBits.Administrator, member(), BOT).find((o) => o.id === USER)!;
     expect(admin.allow).toBe(OWNER_PERMISSIONS);
     expect(overwrites.find((o) => o.id === BOT)!.allow).toBe(required);
   });
@@ -153,18 +159,45 @@ describe("permissions", () => {
       { id: GUILD, type: OverwriteType.Role, allow: 0n, deny: PermissionFlagsBits.Connect | PermissionFlagsBits.ManageWebhooks },
       { id: ROLE, type: OverwriteType.Role, allow: PermissionFlagsBits.Connect, deny: 0n },
       { id: "623456789012345678", type: OverwriteType.Role, allow: PermissionFlagsBits.ManageWebhooks, deny: 0n },
-      // The member's and the bot's own are replaced, not doubled.
+      // The bot's own is replaced, the member's merged into theirs, never doubled.
       { id: USER, type: OverwriteType.Member, allow: 0n, deny: PermissionFlagsBits.Connect },
       { id: BOT, type: OverwriteType.Member, allow: 0n, deny: PermissionFlagsBits.ViewChannel },
     ];
-    const overwrites = tempVoiceOverwrites(base, required, USER, BOT);
+    const overwrites = tempVoiceOverwrites(base, required, member(), BOT);
     expect(overwrites.find((o) => o.id === GUILD)).toEqual({ id: GUILD, type: OverwriteType.Role, allow: 0n, deny: PermissionFlagsBits.Connect });
     expect(overwrites.find((o) => o.id === ROLE)?.allow).toBe(PermissionFlagsBits.Connect);
     // Left with nothing: dropped.
     expect(overwrites.some((o) => o.id === "623456789012345678")).toBe(false);
-    expect(overwrites.filter((o) => o.id === USER)).toHaveLength(1);
+    // Their own deny is kept, and Connect is not allowed over it.
+    expect(overwrites.filter((o) => o.id === USER)).toEqual([
+      { id: USER, type: OverwriteType.Member, allow: (OWNER_PERMISSIONS & required) & ~PermissionFlagsBits.Connect, deny: PermissionFlagsBits.Connect },
+    ]);
     expect(overwrites.filter((o) => o.id === BOT)).toEqual([{ id: BOT, type: OverwriteType.Member, allow: required, deny: 0n }]);
     expect(grantable(PermissionFlagsBits.Administrator) & PermissionFlagsBits.ManageWebhooks).toBe(PermissionFlagsBits.ManageWebhooks);
+  });
+
+  it("never lifts what the server denied the member", () => {
+    const all = PermissionFlagsBits.Administrator;
+    const ownerOf = (facts: OwnerFacts, base: Parameters<typeof tempVoiceOverwrites>[0] = []) =>
+      tempVoiceOverwrites(base, all, facts, BOT).find((o) => o.id === USER)!;
+    // Denied Speak on the hub (a muted member): no Speak in their own channel.
+    const muted = ownerOf(member({ onHub: PermissionFlagsBits.ViewChannel | PermissionFlagsBits.Connect }));
+    expect(muted.allow & PermissionFlagsBits.Speak).toBe(0n);
+    expect(muted.allow & PermissionFlagsBits.Connect).toBe(PermissionFlagsBits.Connect);
+    // A role of theirs denied Move Members on the category: not given back.
+    const roleDeny = [{ id: ROLE, type: OverwriteType.Role, allow: 0n, deny: PermissionFlagsBits.MoveMembers }];
+    const denied = deniedTo(roleDeny, USER, [ROLE, GUILD], GUILD);
+    expect(denied).toBe(PermissionFlagsBits.MoveMembers);
+    const limited = ownerOf(member({ denied }), roleDeny);
+    expect(limited.allow & PermissionFlagsBits.MoveMembers).toBe(0n);
+    expect(limited.allow & PermissionFlagsBits.ManageChannels).toBe(PermissionFlagsBits.ManageChannels);
+    // @everyone's denies are the server's baseline, not aimed at the member.
+    expect(deniedTo([{ id: GUILD, type: OverwriteType.Role, allow: 0n, deny: PermissionFlagsBits.MoveMembers }], USER, [GUILD], GUILD)).toBe(0n);
+    // Timed out: no moderation at all, and only the basics they still hold.
+    const timedOut = ownerOf(member({ timedOut: true, onHub: PermissionFlagsBits.ViewChannel }));
+    expect(timedOut.allow).toBe(PermissionFlagsBits.ViewChannel);
+    // Not found: nothing granted.
+    expect(ownerOf(unknownOwner(USER)).allow).toBe(0n);
   });
 
   it("creates outside a full category (Discord's 50 channels)", () => {

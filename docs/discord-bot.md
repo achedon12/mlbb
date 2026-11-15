@@ -469,7 +469,11 @@ with its `rank_*` emojis).
   hub's outside one), minus any bit the bot does not hold itself (Discord
   refuses those); the member gets View Channel, Connect, Speak, Manage
   Channels (rename, user limit), Move Members, Mute and Deafen Members in
-  it, each only if the bot holds it; the bot gives itself View Channel,
+  it, each only if the bot holds it, and never a bit the server took from
+  them: View Channel, Connect and Speak only if they hold them on the hub,
+  no moderation bit denied to them or one of their roles (hub or category
+  overwrites, @everyone aside), none while timed out, their own overwrite's
+  denies copied; the bot gives itself View Channel,
   Connect, Manage Channels and Move Members there so it can always delete
   it. A missing permission creates nothing and is logged once per server
   every 10 minutes.

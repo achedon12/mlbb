@@ -25,7 +25,13 @@ import { errorLabel } from "../managers/poster.js";
  * - the overwrites of the category (or of the hub, outside one, or when
  *   the category is full) are copied, each bit the bot lacks dropped;
  * - the member gets Manage Channels (rename, user limit), Move Members and
- *   Mute / Deafen Members in their channel, each only if the bot has it;
+ *   Mute / Deafen Members in their channel, each only if the bot has it,
+ *   and never a bit the server took from them: View Channel, Connect and
+ *   Speak only if they hold them on the hub (a member denied Speak, or
+ *   timed out, stays so in their own channel), no moderation bit denied to
+ *   them or one of their roles by an overwrite of the hub or its category,
+ *   nothing beyond that while timed out; the deny bits of their own
+ *   overwrite are copied as they are;
  * - the bot gives itself View Channel, Connect, Manage Channels and Move
  *   Members there, so a category denying them cannot lock it out of the
  *   channel it has to delete.
@@ -34,6 +40,9 @@ import { errorLabel } from "../managers/poster.js";
 /** Without these the bot creates nothing. */
 export const TEMP_VOICE_REQUIRED =
   PermissionFlagsBits.ViewChannel | PermissionFlagsBits.Connect | PermissionFlagsBits.ManageChannels | PermissionFlagsBits.MoveMembers;
+
+/** Granted only if the member already holds them on the hub. */
+export const OWNER_BASICS = PermissionFlagsBits.ViewChannel | PermissionFlagsBits.Connect | PermissionFlagsBits.Speak;
 
 /** What the member gets in their own channel, as far as the bot can give it. */
 export const OWNER_PERMISSIONS =
@@ -63,20 +72,51 @@ export interface PlainOverwrite {
   deny: bigint;
 }
 
+/** What the server allows the member who gets the channel, read on the hub. */
+export interface OwnerFacts {
+  id: string;
+  /** Their effective permissions on the hub. */
+  onHub: bigint;
+  /** Deny bits of the overwrites (hub and category) aimed at them or one of their roles, @everyone aside. */
+  denied: bigint;
+  timedOut: boolean;
+}
+
+/** Not found (left, Discord unreachable): nothing granted. */
+export const unknownOwner = (id: string): OwnerFacts => ({ id, onHub: 0n, denied: ALL, timedOut: true });
+
+/** The deny bits of these overwrites aimed at the member or one of their roles (not @everyone). */
+export function deniedTo(overwrites: readonly PlainOverwrite[], memberId: string, roleIds: readonly string[], everyoneId: string): bigint {
+  const targets = new Set([memberId, ...roleIds.filter((id) => id !== everyoneId)]);
+  return overwrites.filter((o) => targets.has(o.id)).reduce((bits, o) => bits | o.deny, 0n);
+}
+
+/**
+ * What the member's overwrite allows: the basics they already hold on the
+ * hub, the moderation bits nobody denied them (none while timed out), each
+ * one the bot holds, never one their own copied overwrite denies.
+ */
+export function ownerAllow(owner: OwnerFacts, mask: bigint, ownDeny: bigint): bigint {
+  const basics = OWNER_BASICS & owner.onHub;
+  const extras = owner.timedOut ? 0n : OWNER_PERMISSIONS & ~OWNER_BASICS & ~owner.denied;
+  return (basics | extras) & mask & ~ownDeny;
+}
+
 /**
  * The overwrites of the new channel: those copied (bits the bot lacks
- * dropped, the member's and the bot's own replaced), then the member's
- * and the bot's.
+ * dropped, the bot's own replaced, the member's merged into theirs), then
+ * the member's and the bot's.
  */
-export function tempVoiceOverwrites(base: readonly PlainOverwrite[], botPermissions: bigint, ownerId: string, botId: string): PlainOverwrite[] {
+export function tempVoiceOverwrites(base: readonly PlainOverwrite[], botPermissions: bigint, owner: OwnerFacts, botId: string): PlainOverwrite[] {
   const mask = grantable(botPermissions);
+  const ownDeny = base.filter((o) => o.id === owner.id).reduce((bits, o) => bits | o.deny, 0n) & mask;
   const copied = base
-    .filter((o) => o.id !== ownerId && o.id !== botId)
+    .filter((o) => o.id !== owner.id && o.id !== botId)
     .map((o) => ({ ...o, allow: o.allow & mask, deny: o.deny & mask }))
     .filter((o) => o.allow !== 0n || o.deny !== 0n);
   return [
     ...copied,
-    { id: ownerId, type: OverwriteType.Member, allow: OWNER_PERMISSIONS & mask, deny: 0n },
+    { id: owner.id, type: OverwriteType.Member, allow: ownerAllow(owner, mask, ownDeny), deny: ownDeny },
     { id: botId, type: OverwriteType.Member, allow: TEMP_VOICE_REQUIRED & mask, deny: 0n },
   ];
 }
@@ -96,6 +136,20 @@ const forbidden = (error: unknown) => {
 
 const plain = (channel: CategoryChannel | VoiceBasedChannel): PlainOverwrite[] =>
   channel.permissionOverwrites.cache.map((o) => ({ id: o.id, type: o.type, allow: o.allow.bitfield, deny: o.deny.bitfield }));
+
+/** The member's facts on the hub, fetched by id (not cached) when not in the cache; unknown: nothing granted. */
+async function facts(guild: Guild, hub: VoiceBasedChannel, where: CategoryChannel | VoiceBasedChannel, userId: string): Promise<OwnerFacts> {
+  const member = guild.members.cache.get(userId) ?? (await guild.members.fetch({ user: userId, cache: false }).catch(() => null));
+  if (!member) return unknownOwner(userId);
+  const roleIds = [...member.roles.cache.keys()];
+  const overwrites = where === hub ? plain(hub) : [...plain(hub), ...plain(where)];
+  return {
+    id: userId,
+    onHub: hub.permissionsFor(member)?.bitfield ?? 0n,
+    denied: deniedTo(overwrites, userId, roleIds, guild.id),
+    timedOut: member.isCommunicationDisabled(),
+  };
+}
 
 async function me(guild: Guild): Promise<GuildMember | null> {
   return guild.members.me ?? (await guild.members.fetchMe().catch(() => null));
@@ -135,7 +189,8 @@ export function discordTempVoice(client: Client): TempVoiceDiscord {
       if (!hasTempVoicePermissions(where.permissionsFor(bot)?.bitfield ?? 0n) || !hasTempVoicePermissions(hubChannel.permissionsFor(bot)?.bitfield ?? 0n)) {
         return { ok: false, reason: "missing_permissions" };
       }
-      const overwrites: OverwriteData[] = tempVoiceOverwrites(plain(where), bot.permissions.bitfield, owner.id, bot.id);
+      const ownerFacts = await facts(guild, hubChannel, where, owner.id);
+      const overwrites: OverwriteData[] = tempVoiceOverwrites(plain(where), bot.permissions.bitfield, ownerFacts, bot.id);
       try {
         const channel = await guild.channels.create({
           name,
