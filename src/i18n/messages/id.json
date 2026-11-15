@@ -4644,10 +4644,17 @@
         "failed": "Tindakan gagal: muat ulang halaman."
       },
       "link": {
-        "offer": "Anda juga terhubung dengan Discord. Tautkan kedua akun Anda untuk menyimpan satu profil di forum: Anda kemudian dapat terhubung dengan salah satu akun, dan apa yang Anda publikasikan dengan Discord akan bergabung dengan akun game Anda. Tautannya permanen.",
+        "offer": "Anda juga terhubung dengan Discord. Tautkan kedua akun Anda untuk menyimpan satu profil di forum: Anda kemudian dapat masuk dengan salah satu akun tersebut, dan apa yang Anda posting dengan Discord akan bergabung dengan akun game Anda. Anda dapat membatalkan tautannya nanti, tetapi apa yang bergabung dengan akun game Anda akan tetap ada di sana.",
         "button": "Tautkan akun Discord saya",
         "done": "Akun Anda tertaut: di forum, Discord dan akun game Anda menjadi satu.",
-        "taken": "Akun Discord atau akun game ini sudah tertaut ke akun lain."
+        "taken": "Akun Discord atau akun game ini sudah tertaut ke akun lain.",
+        "unlink": "Putuskan tautan akun Discord saya",
+        "unlinkConfirm": "Putuskan tautan akun Discord Anda dari akun game Anda? Apa pun yang diposting, dipilih, atau dilaporkan tetap ada di akun game Anda, termasuk apa yang Anda lakukan dengan Discord sebelum menautkan akun tersebut. Akun Discord Anda menjadi anggota terpisah lagi, baru dan tanpa riwayat: melewati periode akun baru, dan akun Discord yang berumur kurang dari 7 hari tidak dapat berpartisipasi.",
+        "unlinkButton": "Ya, putuskan tautan",
+        "cancel": "Batal",
+        "unlinkDone": "Tautan akun Anda dibatalkan: di forum, akun Discord Anda sekarang menjadi anggota terpisah.",
+        "unlinkBanned": "Akun game Anda diblokir dari forum: akun tidak dapat dibatalkan tautannya selama ban berlangsung.",
+        "notLinked": "Akun Discord ini tidak tertaut ke akun game ini."
       }
     },
     "guides": {

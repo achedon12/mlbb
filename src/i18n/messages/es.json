@@ -4644,10 +4644,17 @@
         "failed": "La acción falló: recarga la página."
       },
       "link": {
-        "offer": "También estás conectado con Discord. Vincula tus dos cuentas para mantener un único perfil en el foro: luego podrás conectarte con una u otra, y lo que hayas publicado en Discord se unirá a tu cuenta del juego. El vínculo es permanente.",
+        "offer": "También estás conectado con Discord. Vincula tus dos cuentas para mantener un único perfil en el foro: luego puedes iniciar sesión con cualquiera de ellas y lo que hayas publicado en Discord se unirá a tu cuenta del juego. Puedes desvincularlos más tarde, pero lo que se unió a tu cuenta del juego permanecerá allí.",
         "button": "Vincular mi cuenta de Discord",
         "done": "Tus cuentas están vinculadas: en el foro, Discord y tu cuenta de juego se convierten en una.",
-        "taken": "Esta cuenta de Discord o cuenta de juego ya está vinculada a otra cuenta."
+        "taken": "Esta cuenta de Discord o cuenta de juego ya está vinculada a otra cuenta.",
+        "unlink": "Desvincular mi cuenta de Discord",
+        "unlinkConfirm": "¿Desvincular tu cuenta de Discord de tu cuenta de juego? Todo lo publicado, votado o informado permanece en tu cuenta del juego, incluido lo que hiciste con Discord antes de vincular las cuentas. Tu cuenta de Discord vuelve a ser un miembro independiente, nuevo y sin historial: pasa por el período de nueva cuenta y una cuenta de Discord con menos de 7 días no puede participar.",
+        "unlinkButton": "Sí, desvincular",
+        "cancel": "Cancelar",
+        "unlinkDone": "Tus cuentas están desvinculadas: en el foro, tu cuenta de Discord ahora es un miembro independiente.",
+        "unlinkBanned": "Tu cuenta de juego está prohibida en el foro: las cuentas no se pueden desvincular mientras dure la prohibición.",
+        "notLinked": "Esta cuenta de Discord no está vinculada a esta cuenta de juego."
       }
     },
     "guides": {

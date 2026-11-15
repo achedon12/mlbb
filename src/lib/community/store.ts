@@ -129,8 +129,8 @@ export type LinkResult = "ok" | "banned" | "taken";
  * the earlier of the two first-seen dates, a hidden-card decision.
  *
  * Refused when either account is banned (linking must not wash a ban) and
- * when either one is already linked to someone else. There is no unlinking
- * from the site.
+ * when either one is already linked to someone else. Undone by
+ * `unlinkAccounts`, which gives nothing of this back.
  */
 export function linkAccounts(game: Author, discord: Author, now = Date.now()): Promise<LinkResult> {
   return serial(async (tx) => {
@@ -233,6 +233,42 @@ export function linkAccounts(game: Author, discord: Author, now = Date.now()): P
 
 /** A link moves a whole history in one transaction: more time than Prisma's default 5 s. */
 const LINK_TIMEOUT_MS = 20_000;
+
+export type UnlinkResult = "ok" | "banned" | "notLinked";
+
+/**
+ * Undoes a link, both logins proven by this request: the Discord login stops
+ * acting as the game account and becomes a separate member again, a new one.
+ *
+ * Nothing moves back: what the Discord member had done before the link was
+ * merged into the game account and stays there (threads, replies, votes,
+ * reports, card, moderation history), like everything posted since through
+ * either login. The Discord member starts over with no history: its
+ * first-seen date is now (the new-account period applies again) and, since
+ * it is no longer linked, the Discord account-age guard applies again
+ * (`resolveMember`). Moderation stops landing on the game account
+ * (`actingAccount` reads `linkedTo`).
+ *
+ * Refused while either row is banned, so a ban cannot be escaped by leaving
+ * the banned account behind, and when this Discord member is not linked to
+ * this game account. A card hidden by a moderator stays hidden on both
+ * sides, for the same reason.
+ */
+export function unlinkAccounts(game: Author, discord: Author, now = Date.now()): Promise<UnlinkResult> {
+  return serial(async (tx) => {
+    const [g, d] = await Promise.all([
+      tx.communityMember.findUnique({ where: { accountId: game.id } }),
+      tx.communityMember.findUnique({ where: { accountId: discord.id } }),
+    ]);
+    if (!g || !d || d.linkedTo !== game.id) return "notLinked";
+    if (isBanned(g, now) || isBanned(d, now)) return "banned";
+    await tx.communityMember.update({
+      where: { accountId: discord.id },
+      data: { linkedTo: null, linkedAt: null, firstSeenAt: new Date(now), cardHiddenAt: d.cardHiddenAt ?? g.cardHiddenAt, name: discord.name },
+    });
+    return "ok";
+  });
+}
 
 /**
  * The Discord member's row as resolution needs it: the game account it acts

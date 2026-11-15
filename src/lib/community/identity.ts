@@ -102,6 +102,8 @@ export type Member =
       via: "game" | "discord";
       /** Both logins present and not linked yet: the page offers to link them. */
       linkable: boolean;
+      /** Both logins present and linked to each other: the page offers to unlink them. */
+      unlinkable: boolean;
     }
   | { status: "discordTooNew" }
   /** The Discord login's own row is banned: refused even when it is linked. */
@@ -112,7 +114,8 @@ export type Member =
 /**
  * One identity per request:
  * - a game login wins (it is what the forum always used); when a Discord
- *   login sits next to it, unlinked, the page offers to link the two;
+ *   login sits next to it, unlinked, the page offers to link the two, and
+ *   linked to it, to unlink them;
  * - otherwise a Discord login whose own row is banned is refused, linked or
  *   not (the game account's ban is checked by the storage, on its row);
  * - otherwise a Discord login linked to a game account acts as that game
@@ -129,16 +132,17 @@ export function resolveMember(o: { game: GameLogin; discord: DiscordLogin; link:
       via: "game",
       // A banned Discord row is never offered to merge (linking refuses it too).
       linkable: Boolean(discord) && !link?.linkedTo && !isBanned(link, now),
+      unlinkable: Boolean(discord) && link?.linkedTo === game.id,
     };
   }
   if (discord) {
     if (isBanned(link, now)) return { status: "banned" };
     if (link?.linkedTo) {
-      return { status: "ok", author: { id: link.linkedTo, name: link.primaryName ?? "?", provider: "game" }, via: "discord", linkable: false };
+      return { status: "ok", author: { id: link.linkedTo, name: link.primaryName ?? "?", provider: "game" }, via: "discord", linkable: false, unlinkable: false };
     }
     if (!discordOldEnough(discord.id, now)) return { status: "discordTooNew" };
     const id = discordAccountId(discord.id);
-    return { status: "ok", author: { id, name: discordDisplayName(discord.name, id), provider: "discord" }, via: "discord", linkable: false };
+    return { status: "ok", author: { id, name: discordDisplayName(discord.name, id), provider: "discord" }, via: "discord", linkable: false, unlinkable: false };
   }
   return game;
 }

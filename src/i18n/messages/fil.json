@@ -4644,10 +4644,17 @@
         "failed": "Nabigo ang aksyon: i-reload ang page."
       },
       "link": {
-        "offer": "Nakakonekta ka rin sa Discord. I-link ang iyong dalawang account upang mapanatili ang isang profile sa forum: maaari kang kumonekta sa isa o sa isa pa, at kung ano ang iyong na-publish sa Discord ay sasali sa iyong account sa laro. Permanente ang link.",
+        "offer": "Nakakonekta ka rin sa Discord. I-link ang iyong dalawang account upang mapanatili ang isang profile sa forum: maaari kang mag-log in gamit ang alinman, at kung ano ang iyong nai-post sa Discord ay sasali sa iyong account sa laro. Maaari mong i-unlink ang mga ito sa ibang pagkakataon, ngunit kung ano ang sumali sa iyong game account ay mananatili doon.",
         "button": "I-link ang aking Discord account",
         "done": "Ang iyong mga account ay naka-link: sa forum, ang Discord at ang iyong account sa laro ay naging isa.",
-        "taken": "Ang Discord account o game account na ito ay naka-link na sa isa pang account."
+        "taken": "Ang Discord account o game account na ito ay naka-link na sa isa pang account.",
+        "unlink": "I-unlink ang aking Discord account",
+        "unlinkConfirm": "I-unlink ang iyong Discord account mula sa iyong gaming account? Ang anumang na-post, binoto, o iniulat ay nananatili sa iyong game account, kasama ang ginawa mo sa Discord bago i-link ang mga account. Ang iyong Discord account ay magiging isang hiwalay na miyembro muli, bago at walang kasaysayan: ito ay dumaan sa bagong panahon ng account, at ang isang Discord account na wala pang 7 araw ay hindi makakasali.",
+        "unlinkButton": "Oo, i-unlink",
+        "cancel": "Kanselahin",
+        "unlinkDone": "Ang iyong mga account ay na-unlink: sa forum, ang iyong Discord account ay isa nang hiwalay na miyembro.",
+        "unlinkBanned": "Ang iyong account sa laro ay pinagbawalan mula sa forum: hindi maaaring i-unlink ang mga account habang tumatagal ang ban.",
+        "notLinked": "Ang Discord account na ito ay hindi naka-link sa game account na ito."
       }
     },
     "guides": {

@@ -4644,10 +4644,17 @@
         "failed": "L'action a échoué : rechargez la page."
       },
       "link": {
-        "offer": "Vous êtes aussi connecté avec Discord. Liez vos deux comptes pour garder un seul profil sur le forum : vous pourrez ensuite vous connecter avec l'un ou l'autre, et ce que vous avez publié avec Discord rejoindra votre compte de jeu. Le lien est définitif.",
+        "offer": "Vous êtes aussi connecté avec Discord. Liez vos deux comptes pour garder un seul profil sur le forum : vous pourrez ensuite vous connecter avec l'un ou l'autre, et ce que vous avez publié avec Discord rejoindra votre compte de jeu. Vous pourrez les délier plus tard, mais ce qui a rejoint votre compte de jeu y restera.",
         "button": "Lier mon compte Discord",
         "done": "Vos comptes sont liés : sur le forum, Discord et votre compte de jeu ne font plus qu'un.",
-        "taken": "Ce compte Discord ou ce compte de jeu est déjà lié à un autre compte."
+        "taken": "Ce compte Discord ou ce compte de jeu est déjà lié à un autre compte.",
+        "unlink": "Délier mon compte Discord",
+        "unlinkConfirm": "Délier votre compte Discord de votre compte de jeu ? Tout ce qui a été publié, voté ou signalé reste sur votre compte de jeu, y compris ce que vous aviez fait avec Discord avant de lier les comptes. Votre compte Discord redevient un membre à part, tout neuf et sans historique : il repasse par la période des nouveaux comptes, et un compte Discord de moins de 7 jours ne peut pas participer.",
+        "unlinkButton": "Oui, délier",
+        "cancel": "Annuler",
+        "unlinkDone": "Vos comptes sont déliés : sur le forum, votre compte Discord est maintenant un membre à part.",
+        "unlinkBanned": "Votre compte de jeu est banni du forum : les comptes ne peuvent pas être déliés tant que le bannissement dure.",
+        "notLinked": "Ce compte Discord n'est pas lié à ce compte de jeu."
       }
     },
     "guides": {

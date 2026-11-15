@@ -4644,10 +4644,17 @@
         "failed": "L'azione non è riuscita: ricarica la pagina."
       },
       "link": {
-        "offer": "Sei anche connesso a Discord. Collega i tuoi due account per mantenere un unico profilo sul forum: potrai poi connetterti con l'uno o con l'altro, e ciò che hai pubblicato con Discord entrerà a far parte del tuo account di gioco. Il collegamento è permanente.",
+        "offer": "Sei anche connesso a Discord. Collega i tuoi due account per mantenere un unico profilo sul forum: potrai quindi accedere con uno qualsiasi dei due e ciò che hai pubblicato con Discord entrerà a far parte del tuo account di gioco. Potrai scollegarli in seguito, ma ciò che è stato aggiunto al tuo account di gioco rimarrà lì.",
         "button": "Collega il mio account Discord",
         "done": "I tuoi account sono collegati: sul forum, Discord e il tuo account di gioco diventano un tutt'uno.",
-        "taken": "Questo account Discord o account di gioco è già collegato a un altro account."
+        "taken": "Questo account Discord o account di gioco è già collegato a un altro account.",
+        "unlink": "Scollega il mio account Discord",
+        "unlinkConfirm": "Scollegare il tuo account Discord dal tuo account di gioco? Tutto ciò che viene pubblicato, votato o segnalato rimane sul tuo account di gioco, incluso ciò che hai fatto con Discord prima di collegare gli account. Il tuo account Discord diventa di nuovo un membro separato, nuovo di zecca e senza cronologia: passa attraverso il nuovo periodo di account e un account Discord vecchio da meno di 7 giorni non può partecipare.",
+        "unlinkButton": "Sì, scollega",
+        "cancel": "Annulla",
+        "unlinkDone": "I tuoi account sono scollegati: sul forum, il tuo account Discord è ora un membro separato.",
+        "unlinkBanned": "Il tuo account di gioco è bannato dal forum: gli account non possono essere scollegati finché dura il ban.",
+        "notLinked": "Questo account Discord non è collegato a questo account di gioco."
       }
     },
     "guides": {
