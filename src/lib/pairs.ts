@@ -88,6 +88,43 @@ export function measuredOpponents(counters: Record<string, CountersByRank>, slug
     .sort((x, y) => y.gap - x.gap || x.slug.localeCompare(y.slug));
 }
 
+/** Opponents per hero offered to the sitemap (`pairsSitemap`). */
+export const PAIRS_SITEMAP_PER_HERO = 2;
+
+/**
+ * The head-to-head pages offered to search engines, as canonical segments,
+ * sorted.
+ *
+ * Every canonical pair has a page, rendered on demand, but listing all of them
+ * (about 1,500 measured pairs, times every language) floods the sitemap with
+ * near-identical pages. The rule keeps the duels people actually look up: for
+ * each hero, its `perHero` most one-sided opponents (`measuredOpponents`) among
+ * the pairs measured at every rank (`MEASURED_RANKS`), so each listed page has
+ * a figure in every rank table. A pair kept by either of its two heroes is
+ * listed once. With 134 heroes and 2 opponents each, about 200 pairs.
+ */
+export function pairsSitemap(
+  counters: Record<string, CountersByRank>,
+  exists: (slug: string) => boolean,
+  perHero = PAIRS_SITEMAP_PER_HERO,
+): string[] {
+  const ranks = ranksByPair(counters, exists);
+  const kept = new Set<string>();
+  const heroes = new Set<string>();
+  for (const segment of ranks.keys()) {
+    const p = readPair(segment)!;
+    heroes.add(p.a).add(p.b);
+  }
+  for (const hero of heroes) {
+    measuredOpponents(counters, hero)
+      .map((o) => segmentPair(hero, o.slug))
+      .filter((segment) => ranks.get(segment) === MEASURED_RANKS.length)
+      .slice(0, perHero)
+      .forEach((segment) => kept.add(segment));
+  }
+  return [...kept].sort();
+}
+
 // ── Head-to-head ───────────────────────────────────────────────────
 
 const rounded = (v: number) => Math.round(v * 10) / 10;
