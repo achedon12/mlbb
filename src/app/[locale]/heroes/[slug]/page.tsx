@@ -61,10 +61,10 @@ import { MEASURED_RANKS, type MeasuredRank } from "@/lib/measured-ranks";
 import { pathRole } from "@/lib/tier-list-filters";
 import { site, absoluteUrl } from "@/lib/site";
 import type { Locale } from "@/i18n/config";
-import { createT, messagesPage } from "@/i18n/translations";
+import { createT, messagesPage, type T } from "@/i18n/translations";
 import { releaseDate, heroLabel } from "@/i18n/hero-data";
 import { normalizeNameSkin, mapValues } from "@/lib/utils";
-import { metaPage } from "@/i18n/seo";
+import { metaPage, TITLE_MAX } from "@/i18n/seo";
 import { FreshnessLine } from "@/components/freshness";
 import { longDate, dateMeasure, listNames, patchCurrent, percentage } from "@/lib/freshness";
 import { formatGap } from "@/lib/trends";
@@ -94,14 +94,20 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     // "aamon counter"), with the tier and the patch: the results that
     // carry a freshness marker are the ones that get clicked. The epithet stays
     // on the page.
-    title: tier
-      ? tm("pages.seo.hero.title", { name: h.name, tier: tier, v })
-      : tm("pages.seo.hero.titleNoTier", { name: h.name, v }),
+    // A long name ("Popol and Kupa") drops the tier rather than have the
+    // patch cut off in the results.
+    title: titleHero(tm, h.name, tier, v),
     description: descriptionHero(locale, h),
     path: `/heroes/${slug}`,
     type: "article",
     image: `/${locale}/heroes/${slug}/opengraph-image`,
   });
+}
+
+/** Title with the tier when it fits in `TITLE_MAX`, otherwise without it. */
+function titleHero(t: T, name: string, tier: string | undefined, v: string): string {
+  const withTier = tier ? t("pages.seo.hero.title", { name, tier, v }) : null;
+  return withTier && withTier.length <= TITLE_MAX ? withTier : t("pages.seo.hero.titleNoTier", { name, v });
 }
 
 /** Most played build on the hero's main lane, all ranks. */
