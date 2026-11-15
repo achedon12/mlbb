@@ -34,6 +34,11 @@ export default async function LegalPage({ params }: Params) {
           contact: legal.contact,
           host: legal.host,
           hostSite: legal.hostSite,
+          hostAddress: legal.hostAddress,
+          hostPhone: legal.hostPhone,
+          analyticsHost: legal.analyticsHost,
+          analyticsHostSite: legal.analyticsHostSite,
+          analyticsHostAddress: legal.analyticsHostAddress,
           repository: site.repository,
         }}
       />

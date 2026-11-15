@@ -9,7 +9,10 @@ import { readCapped } from "@/lib/read-body";
 /**
  * Logout: a POST from the dashboard's form (same origin only), the session
  * cookie cleared, back to the bot page in the form's language (or, with a
- * `back` field, to that community page).
+ * `back` field, to that community page). The service worker sees this
+ * request go by and drops its cached copies of signed-in pages
+ * (`forgetPrivate`, public/sw.js); the HTTP cache holds none, those pages
+ * being `private, no-store`.
  */
 export const dynamic = "force-dynamic";
 
