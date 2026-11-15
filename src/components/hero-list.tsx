@@ -6,6 +6,7 @@ import { Pager } from "@/components/pager";
 import type { Lane, Role } from "@/lib/types";
 import { useT } from "@/i18n/provider";
 import { SearchField } from "@/components/search-field";
+import { useSearchReport } from "@/components/use-search-report";
 import { FilterGroup, Chip } from "@/components/chip";
 import { ChipActive, FilterBar } from "@/components/filter-bar";
 import { imageLane, imageRole } from "@/lib/emblems";
@@ -107,6 +108,7 @@ export function HeroList({ heroes, page: pageServer = 1 }: { heroes: HeroPreview
     }
     return ordered;
   }, [heroes, search, role, lane, sort]);
+  useSearchReport(search, results.length, "Heroes");
 
   const view = paging(results.length, page, SIZE_CARDS);
   const slice = slicePage(results, view.page, SIZE_CARDS);

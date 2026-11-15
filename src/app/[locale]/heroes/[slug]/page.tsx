@@ -26,6 +26,7 @@ import { NextPatch } from "@/components/next-patch";
 import { HeroProStats } from "@/components/hero-pro-stats";
 import { durationOf, historyOf, trendsOf } from "@/lib/evolution";
 import { Tabs } from "@/components/tabs";
+import { ScrollDepth } from "@/components/scroll-depth";
 import { HeroFeedLink } from "@/components/hero-feed-link";
 
 import {
@@ -549,8 +550,11 @@ export default async function HeroPage({ params }: Params) {
       </div>
 
       <div className="page-wrap py-10 xl:col-start-2 xl:row-start-3 xl:w-auto xl:max-w-none xl:px-0 xl:pb-10 xl:pt-0">
+        {/* How far the page is read, and which tabs are opened: cookieless events. */}
+        <ScrollDepth category="Hero page" name={h.slug} />
         <Tabs
           aliases={TAB_ALIASES}
+          trackAs="Hero page"
           tabs={[
             {
               id: "analysis",

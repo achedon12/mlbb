@@ -3,6 +3,7 @@
 import { Suspense, useEffect, useId, useRef, useState } from "react";
 import { useT } from "@/i18n/provider";
 import { resolveAnchor, type AnchorAliases } from "@/lib/anchors";
+import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 /**
@@ -27,6 +28,11 @@ import { cn } from "@/lib/utils";
  * a link can lead straight to a tab, and a shared URL reopens the same one.
  * `aliases` maps renamed tab ids to the current ones, so that links shared
  * before the rename ("#histoire") still open their tab.
+ *
+ * `trackAs`, when given, files each tab the visitor opens (a click, the
+ * keyboard, or a link to its anchor once on the page — not the tab the page
+ * lands on) as a Matomo event of that category, action "Tab opened", name
+ * the tab id: which parts of a page are read.
  */
 export interface Tab {
   id: string;
@@ -40,7 +46,7 @@ export interface Tab {
   preview?: React.ReactNode;
 }
 
-export function Tabs({ tabs, aliases = {} }: { tabs: Tab[]; aliases?: AnchorAliases }) {
+export function Tabs({ tabs, aliases = {}, trackAs }: { tabs: Tab[]; aliases?: AnchorAliases; trackAs?: string }) {
   const t = useT();
   const [active, setActive] = useState(tabs[0]?.id);
   const [openTabs, setOpen] = useState(() => new Set(tabs[0] ? [tabs[0].id] : []));
@@ -52,7 +58,12 @@ export function Tabs({ tabs, aliases = {} }: { tabs: Tab[]; aliases?: AnchorAlia
   // no analysis must not show empty sections.
   const visible = tabs.filter((o) => o.content);
 
-  const openTab = (id: string) => {
+  // The open tab, also for the anchor listener, which keeps its first render's closure.
+  const current = useRef(active);
+
+  const openTab = (id: string, byVisitor = false) => {
+    if (byVisitor && trackAs && id !== current.current) trackEvent(trackAs, "Tab opened", id);
+    current.current = id;
     setActive(id);
     setOpen((o) => (o.has(id) ? o : new Set(o).add(id)));
   };
@@ -60,17 +71,17 @@ export function Tabs({ tabs, aliases = {} }: { tabs: Tab[]; aliases?: AnchorAlia
   // The hash picks the tab on arrival, then on every internal link to
   // another anchor of the same page.
   useEffect(() => {
-    const followAnchor = (scroll: boolean) => {
+    const followAnchor = (scroll: boolean, byVisitor = false) => {
       const hash = decodeURIComponent(window.location.hash.slice(1));
       const renamed = resolveAnchor(hash, aliases);
       const id = renamed ?? hash;
       if (!visible.some((o) => o.id === id)) return;
       if (renamed) window.history.replaceState(null, "", `#${id}`);
-      openTab(id);
+      openTab(id, byVisitor);
       if (scroll) list.current?.scrollIntoView({ block: "start" });
     };
     followAnchor(true);
-    const onChange = () => followAnchor(true);
+    const onChange = () => followAnchor(true, true);
     window.addEventListener("hashchange", onChange);
     return () => window.removeEventListener("hashchange", onChange);
     // A page's tabs and aliases do not change after render.
@@ -78,7 +89,7 @@ export function Tabs({ tabs, aliases = {} }: { tabs: Tab[]; aliases?: AnchorAlia
   }, []);
 
   const choose = (id: string) => {
-    openTab(id);
+    openTab(id, true);
     // replaceState: switching tabs does not fill the browser history.
     window.history.replaceState(null, "", `#${id}`);
   };
