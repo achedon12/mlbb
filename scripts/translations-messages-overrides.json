@@ -2716,14 +2716,6 @@
       "fr": "Connectez-vous",
       "text": "Sign in"
     },
-    "pages.community.signInToPost": {
-      "fr": "avec votre compte de jeu pour lancer une discussion.",
-      "text": "with your game account to start a discussion."
-    },
-    "pages.community.signInToReply": {
-      "fr": "avec votre compte de jeu pour répondre.",
-      "text": "with your game account to reply."
-    },
     "pages.community.postingAs": {
       "fr": "Vous écrivez en tant que {name}.",
       "text": "You are writing as {name}."
@@ -2875,10 +2867,6 @@
     "pages.community.teammates.ownTitle": {
       "fr": "Votre carte",
       "text": "Your card"
-    },
-    "pages.community.teammates.signInToPost": {
-      "fr": "avec votre compte de jeu pour publier votre carte et voir les contacts.",
-      "text": "with your game account to post your card and see the contacts."
     },
     "pages.community.teammates.listTitle": {
       "fr": "{n} joueur(s) disponible(s)",
@@ -4407,6 +4395,46 @@
     "pages.botPrivacy.tempVoice": {
       "fr": "Salons vocaux temporaires : le serveur enregistre ses salons d'entrée avec leur limite de membres et leur modèle de nom. Pour chaque salon vocal que le bot crée, il conserve l'identifiant du salon, du salon d'entrée et du membre pour qui il l'a créé, jusqu'à ce que le salon soit supprimé, ce qui arrive dès qu'il est vide. Pour savoir qui est dans quel salon vocal, le bot reçoit les états vocaux de Discord (intent « Guild Voice States »), les garde en mémoire et n'en enregistre aucun.",
       "text": "Temporary voice channels: the server stores its join-to-create channels with their user limit and name template. For each voice channel the bot creates, it keeps the ids of the channel, of the join-to-create channel and of the member it was created for, until the channel is deleted, which happens as soon as it is empty. To know who is in which voice channel, the bot receives Discord's voice states (the \"Guild Voice States\" intent), keeps them in memory and stores none of them."
+    },
+    "pages.community.postingAsDiscord": {
+      "fr": "Vous écrivez en tant que {name} (connexion Discord).",
+      "text": "You are posting as {name} (Discord sign-in)."
+    },
+    "pages.community.signInChoice.failed": {
+      "fr": "La connexion avec Discord n'a pas abouti. Réessayez.",
+      "text": "Signing in with Discord did not work. Please try again."
+    },
+    "pages.community.signInChoice.post": {
+      "fr": "Connectez-vous pour lancer une discussion :",
+      "text": "Sign in to start a discussion:"
+    },
+    "pages.community.signInChoice.reply": {
+      "fr": "Connectez-vous pour répondre :",
+      "text": "Sign in to reply:"
+    },
+    "pages.community.signInChoice.card": {
+      "fr": "Connectez-vous pour publier votre carte et voir les contacts :",
+      "text": "Sign in to post your card and see contacts:"
+    },
+    "pages.community.signInChoice.discordTooNew": {
+      "fr": "Votre compte Discord a été créé il y a moins de {days} jours : il ne peut pas encore participer au forum. Connectez-vous avec votre compte de jeu, ou revenez dans quelques jours.",
+      "text": "Your Discord account was created less than {days} days ago: it cannot take part in the forum yet. Sign in with your game account, or come back in a few days."
+    },
+    "pages.community.signInChoice.discordNote": {
+      "fr": "Avec Discord, le site ne reçoit que le numéro de votre compte Discord et votre nom d'affichage, jamais votre e-mail. Seul le nom d'affichage apparaît sur vos messages.",
+      "text": "With Discord, the site only receives your Discord account number and your display name, never your email. Only the display name appears on your posts."
+    },
+    "pages.communityUI.link.offer": {
+      "fr": "Vous êtes aussi connecté avec Discord. Liez vos deux comptes pour garder un seul profil sur le forum : vous pourrez ensuite vous connecter avec l'un ou l'autre, et ce que vous avez publié avec Discord rejoindra votre compte de jeu. Le lien est définitif.",
+      "text": "You are also signed in with Discord. Link your two accounts to keep a single forum profile: you can then sign in with either one, and what you posted with Discord moves to your game account. The link is permanent."
+    },
+    "pages.communityUI.link.done": {
+      "fr": "Vos comptes sont liés : sur le forum, Discord et votre compte de jeu ne font plus qu'un.",
+      "text": "Your accounts are linked: on the forum, Discord and your game account are now one."
+    },
+    "pages.communityUI.errors.discordTooNew": {
+      "fr": "Votre compte Discord a moins de {days} jours : il ne peut pas encore participer.",
+      "text": "Your Discord account is less than {days} days old: it cannot take part yet."
     }
   },
   "es": {
@@ -6946,14 +6974,6 @@
       "fr": "Connectez-vous",
       "text": "Inicia sesión"
     },
-    "pages.community.signInToPost": {
-      "fr": "avec votre compte de jeu pour lancer une discussion.",
-      "text": "con tu cuenta del juego para empezar una conversación."
-    },
-    "pages.community.signInToReply": {
-      "fr": "avec votre compte de jeu pour répondre.",
-      "text": "con tu cuenta del juego para responder."
-    },
     "pages.community.postingAs": {
       "fr": "Vous écrivez en tant que {name}.",
       "text": "Escribes como {name}."
@@ -7105,10 +7125,6 @@
     "pages.community.teammates.ownTitle": {
       "fr": "Votre carte",
       "text": "Tu tarjeta"
-    },
-    "pages.community.teammates.signInToPost": {
-      "fr": "avec votre compte de jeu pour publier votre carte et voir les contacts.",
-      "text": "con tu cuenta del juego para publicar tu tarjeta y ver los contactos."
     },
     "pages.community.teammates.listTitle": {
       "fr": "{n} joueur(s) disponible(s)",
@@ -8645,6 +8661,10 @@
     "pages.botPrivacy.tempVoice": {
       "fr": "Salons vocaux temporaires : le serveur enregistre ses salons d'entrée avec leur limite de membres et leur modèle de nom. Pour chaque salon vocal que le bot crée, il conserve l'identifiant du salon, du salon d'entrée et du membre pour qui il l'a créé, jusqu'à ce que le salon soit supprimé, ce qui arrive dès qu'il est vide. Pour savoir qui est dans quel salon vocal, le bot reçoit les états vocaux de Discord (intent « Guild Voice States »), les garde en mémoire et n'en enregistre aucun.",
       "text": "Canales de voz temporales: el servidor guarda sus canales de entrada con su límite de usuarios y su modelo de nombre. Por cada canal de voz que crea, el bot conserva el identificador del canal, del canal de entrada y del miembro para quien lo creó, hasta que el canal se borra, lo que ocurre en cuanto se queda vacío. Para saber quién está en cada canal de voz, el bot recibe los estados de voz de Discord (intent «Guild Voice States»), los mantiene en memoria y no guarda ninguno."
+    },
+    "pages.community.signInChoice.discord": {
+      "fr": "Avec Discord",
+      "text": "Con Discord"
     }
   },
   "id": {
@@ -13236,14 +13256,6 @@
       "fr": "Connectez-vous",
       "text": "Masuk"
     },
-    "pages.community.signInToPost": {
-      "fr": "avec votre compte de jeu pour lancer une discussion.",
-      "text": "dengan akun game kamu untuk memulai diskusi."
-    },
-    "pages.community.signInToReply": {
-      "fr": "avec votre compte de jeu pour répondre.",
-      "text": "dengan akun game kamu untuk membalas."
-    },
     "pages.community.postingAs": {
       "fr": "Vous écrivez en tant que {name}.",
       "text": "Kamu menulis sebagai {name}."
@@ -13395,10 +13407,6 @@
     "pages.community.teammates.ownTitle": {
       "fr": "Votre carte",
       "text": "Kartu kamu"
-    },
-    "pages.community.teammates.signInToPost": {
-      "fr": "avec votre compte de jeu pour publier votre carte et voir les contacts.",
-      "text": "dengan akun game kamu untuk memasang kartu dan melihat kontak."
     },
     "pages.community.teammates.listTitle": {
       "fr": "{n} joueur(s) disponible(s)",
@@ -14927,6 +14935,18 @@
     "pages.botPrivacy.tempVoice": {
       "fr": "Salons vocaux temporaires : le serveur enregistre ses salons d'entrée avec leur limite de membres et leur modèle de nom. Pour chaque salon vocal que le bot crée, il conserve l'identifiant du salon, du salon d'entrée et du membre pour qui il l'a créé, jusqu'à ce que le salon soit supprimé, ce qui arrive dès qu'il est vide. Pour savoir qui est dans quel salon vocal, le bot reçoit les états vocaux de Discord (intent « Guild Voice States »), les garde en mémoire et n'en enregistre aucun.",
       "text": "Channel suara sementara: server menyimpan channel hub-nya beserta batas pengguna dan templat namanya. Untuk setiap channel suara yang dibuat bot, bot menyimpan ID channel, ID channel hub, dan ID member yang dibuatkan channel itu, sampai channel dihapus, yaitu begitu channel kosong. Untuk mengetahui siapa berada di channel suara mana, bot menerima status suara dari Discord (intent \"Guild Voice States\"), menyimpannya di memori, dan tidak merekam satu pun."
+    },
+    "pages.community.signInChoice.discord": {
+      "fr": "Avec Discord",
+      "text": "Dengan Discord"
+    },
+    "pages.community.signOutDiscord": {
+      "fr": "Se déconnecter de Discord",
+      "text": "Keluar dari Discord"
+    },
+    "pages.communityUI.link.button": {
+      "fr": "Lier mon compte Discord",
+      "text": "Tautkan akun Discord saya"
     }
   },
   "it": {
@@ -17518,14 +17538,6 @@
       "fr": "Connectez-vous",
       "text": "Accedi"
     },
-    "pages.community.signInToPost": {
-      "fr": "avec votre compte de jeu pour lancer une discussion.",
-      "text": "con il tuo account di gioco per avviare una discussione."
-    },
-    "pages.community.signInToReply": {
-      "fr": "avec votre compte de jeu pour répondre.",
-      "text": "con il tuo account di gioco per rispondere."
-    },
     "pages.community.postingAs": {
       "fr": "Vous écrivez en tant que {name}.",
       "text": "Stai scrivendo come {name}."
@@ -17677,10 +17689,6 @@
     "pages.community.teammates.ownTitle": {
       "fr": "Votre carte",
       "text": "La tua scheda"
-    },
-    "pages.community.teammates.signInToPost": {
-      "fr": "avec votre compte de jeu pour publier votre carte et voir les contacts.",
-      "text": "con il tuo account di gioco per pubblicare la tua scheda e vedere i contatti."
     },
     "pages.community.teammates.listTitle": {
       "fr": "{n} joueur(s) disponible(s)",
@@ -19193,6 +19201,14 @@
     "pages.botPrivacy.tempVoice": {
       "fr": "Salons vocaux temporaires : le serveur enregistre ses salons d'entrée avec leur limite de membres et leur modèle de nom. Pour chaque salon vocal que le bot crée, il conserve l'identifiant du salon, du salon d'entrée et du membre pour qui il l'a créé, jusqu'à ce que le salon soit supprimé, ce qui arrive dès qu'il est vide. Pour savoir qui est dans quel salon vocal, le bot reçoit les états vocaux de Discord (intent « Guild Voice States »), les garde en mémoire et n'en enregistre aucun.",
       "text": "Canali vocali temporanei: il server salva i suoi canali d'ingresso con il loro limite utenti e il modello di nome. Per ogni canale vocale che crea, il bot conserva l'identificativo del canale, del canale d'ingresso e del membro per cui l'ha creato, finché il canale non viene eliminato, cosa che avviene appena si svuota. Per sapere chi è in quale canale vocale, il bot riceve gli stati vocali di Discord (intent «Guild Voice States»), li tiene in memoria e non ne salva nessuno."
+    },
+    "pages.community.signInChoice.discord": {
+      "fr": "Avec Discord",
+      "text": "Con Discord"
+    },
+    "pages.community.signInChoice.game": {
+      "fr": "Avec mon compte de jeu",
+      "text": "Con il mio account di gioco"
     }
   },
   "fil": {
@@ -24404,14 +24420,6 @@
       "fr": "Connectez-vous",
       "text": "Mag-sign in"
     },
-    "pages.community.signInToPost": {
-      "fr": "avec votre compte de jeu pour lancer une discussion.",
-      "text": "gamit ang game account mo para magsimula ng discussion."
-    },
-    "pages.community.signInToReply": {
-      "fr": "avec votre compte de jeu pour répondre.",
-      "text": "gamit ang game account mo para mag-reply."
-    },
     "pages.community.sort.latest": {
       "fr": "Récentes",
       "text": "Pinakabago"
@@ -24467,10 +24475,6 @@
     "pages.community.teammates.seoTitle": {
       "fr": "Trouver des coéquipiers Mobile Legends",
       "text": "Maghanap ng kakampi sa Mobile Legends"
-    },
-    "pages.community.teammates.signInToPost": {
-      "fr": "avec votre compte de jeu pour publier votre carte et voir les contacts.",
-      "text": "gamit ang game account mo para i-post ang card mo at makita ang mga contact."
     },
     "pages.community.teammates.speaks": {
       "fr": "Langues",
@@ -34031,6 +34035,10 @@
     "pages.botPrivacy.tempVoice": {
       "fr": "Salons vocaux temporaires : le serveur enregistre ses salons d'entrée avec leur limite de membres et leur modèle de nom. Pour chaque salon vocal que le bot crée, il conserve l'identifiant du salon, du salon d'entrée et du membre pour qui il l'a créé, jusqu'à ce que le salon soit supprimé, ce qui arrive dès qu'il est vide. Pour savoir qui est dans quel salon vocal, le bot reçoit les états vocaux de Discord (intent « Guild Voice States »), les garde en mémoire et n'en enregistre aucun.",
       "text": "Mga pansamantalang voice channel: sine-save ng server ang mga join-to-create channel nito kasama ang user limit at template ng pangalan. Para sa bawat voice channel na ginagawa ng bot, iniingatan nito ang ID ng channel, ng join-to-create channel at ng member na pinaggawan nito, hanggang mabura ang channel, na nangyayari kapag wala nang tao. Para malaman kung sino ang nasa aling voice channel, tumatanggap ang bot ng voice states mula sa Discord (\"Guild Voice States\" intent), itinatago ang mga ito sa memory at wala itong sine-save."
+    },
+    "pages.community.postingAsDiscord": {
+      "fr": "Vous écrivez en tant que {name} (connexion Discord).",
+      "text": "Sumusulat ka bilang {name} (login sa Discord)."
     }
   },
   "th": {
@@ -38818,10 +38826,6 @@
       "fr": "Forum Mobile Legends et recherche de coéquipiers",
       "text": "ฟอรัม Mobile Legends และหาเพื่อนร่วมทีม"
     },
-    "pages.community.signInToPost": {
-      "fr": "avec votre compte de jeu pour lancer une discussion.",
-      "text": "ด้วยบัญชีเกมของคุณเพื่อเริ่มการสนทนา"
-    },
     "pages.community.sortLabel": {
       "fr": "Ordre des discussions",
       "text": "ลำดับการสนทนา"
@@ -38869,10 +38873,6 @@
     "pages.community.teammates.signInForContact": {
       "fr": "pour voir le contact.",
       "text": "เพื่อดูช่องทางติดต่อ"
-    },
-    "pages.community.teammates.signInToPost": {
-      "fr": "avec votre compte de jeu pour publier votre carte et voir les contacts.",
-      "text": "ด้วยบัญชีเกมของคุณเพื่อโพสต์การ์ดและดูช่องทางติดต่อ"
     },
     "pages.community.teammates.title": {
       "fr": "Trouver des coéquipiers",
@@ -51892,10 +51892,6 @@
       "fr": "Connectez-vous",
       "text": "Entre"
     },
-    "pages.community.signInToPost": {
-      "fr": "avec votre compte de jeu pour lancer une discussion.",
-      "text": "com sua conta do jogo para iniciar uma discussão."
-    },
     "pages.community.sort.latest": {
       "fr": "Récentes",
       "text": "Recentes"
@@ -51947,10 +51943,6 @@
     "pages.community.teammates.seoTitle": {
       "fr": "Trouver des coéquipiers Mobile Legends",
       "text": "Encontre companheiros de equipe no Mobile Legends"
-    },
-    "pages.community.teammates.signInToPost": {
-      "fr": "avec votre compte de jeu pour publier votre carte et voir les contacts.",
-      "text": "com sua conta do jogo para publicar seu cartão e ver os contatos."
     },
     "pages.community.teammates.speaks": {
       "fr": "Langues",
@@ -59591,6 +59583,10 @@
     "pages.botPrivacy.tempVoice": {
       "fr": "Salons vocaux temporaires : le serveur enregistre ses salons d'entrée avec leur limite de membres et leur modèle de nom. Pour chaque salon vocal que le bot crée, il conserve l'identifiant du salon, du salon d'entrée et du membre pour qui il l'a créé, jusqu'à ce que le salon soit supprimé, ce qui arrive dès qu'il est vide. Pour savoir qui est dans quel salon vocal, le bot reçoit les états vocaux de Discord (intent « Guild Voice States »), les garde en mémoire et n'en enregistre aucun.",
       "text": "Canais de voz temporários: o servidor guarda os canais de entrada com o limite de usuários e o modelo de nome. Para cada canal de voz que cria, o bot guarda o identificador do canal, do canal de entrada e do membro para quem o criou, até o canal ser apagado, o que acontece assim que ele fica vazio. Para saber quem está em cada canal de voz, o bot recebe os estados de voz do Discord (intent \"Guild Voice States\"), mantém esses dados na memória e não grava nenhum."
+    },
+    "pages.community.postingAsDiscord": {
+      "fr": "Vous écrivez en tant que {name} (connexion Discord).",
+      "text": "Você está escrevendo como {name} (login com Discord)."
     }
   },
   "ru": {
@@ -64058,14 +64054,6 @@
       "fr": "Connectez-vous",
       "text": "Войдите"
     },
-    "pages.community.signInToPost": {
-      "fr": "avec votre compte de jeu pour lancer une discussion.",
-      "text": "через игровой аккаунт, чтобы начать обсуждение."
-    },
-    "pages.community.signInToReply": {
-      "fr": "avec votre compte de jeu pour répondre.",
-      "text": "через игровой аккаунт, чтобы ответить."
-    },
     "pages.community.sort.latest": {
       "fr": "Récentes",
       "text": "Новые"
@@ -64113,10 +64101,6 @@
     "pages.community.teammates.seoTitle": {
       "fr": "Trouver des coéquipiers Mobile Legends",
       "text": "Поиск тиммейтов в Mobile Legends"
-    },
-    "pages.community.teammates.signInToPost": {
-      "fr": "avec votre compte de jeu pour publier votre carte et voir les contacts.",
-      "text": "через игровой аккаунт, чтобы опубликовать карточку и видеть контакты."
     },
     "pages.community.teammates.speaks": {
       "fr": "Langues",
@@ -72685,6 +72669,26 @@
     "pages.botPrivacy.tempVoice": {
       "fr": "Salons vocaux temporaires : le serveur enregistre ses salons d'entrée avec leur limite de membres et leur modèle de nom. Pour chaque salon vocal que le bot crée, il conserve l'identifiant du salon, du salon d'entrée et du membre pour qui il l'a créé, jusqu'à ce que le salon soit supprimé, ce qui arrive dès qu'il est vide. Pour savoir qui est dans quel salon vocal, le bot reçoit les états vocaux de Discord (intent « Guild Voice States »), les garde en mémoire et n'en enregistre aucun.",
       "text": "Временные голосовые каналы: сервер хранит свои входные каналы с лимитом пользователей и шаблоном названия. Для каждого созданного голосового канала бот хранит идентификаторы канала, входного канала и участника, для которого он создан, пока канал не будет удалён, а это происходит, как только в нём никого не остаётся. Чтобы знать, кто в каком голосовом канале, бот получает голосовые состояния от Discord (intent «Guild Voice States»), держит их в памяти и ничего из них не сохраняет."
+    },
+    "pages.community.signInChoice.discord": {
+      "fr": "Avec Discord",
+      "text": "Через Discord"
+    },
+    "pages.community.signInChoice.game": {
+      "fr": "Avec mon compte de jeu",
+      "text": "Через игровой аккаунт"
+    },
+    "pages.community.signOutDiscord": {
+      "fr": "Se déconnecter de Discord",
+      "text": "Выйти из Discord"
+    },
+    "pages.community.postingAsDiscord": {
+      "fr": "Vous écrivez en tant que {name} (connexion Discord).",
+      "text": "Вы пишете как {name} (вход через Discord)."
+    },
+    "pages.communityUI.link.button": {
+      "fr": "Lier mon compte Discord",
+      "text": "Привязать мой аккаунт Discord"
     }
   }
 }

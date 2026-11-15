@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { isLocale } from "@/i18n/config";
 import { botConfig } from "@/lib/bot/config";
 import { redirectUri, refused } from "@/lib/bot/dashboard-guard";
-import { authorizeUrl, challengeOf, createState, createVerifier } from "@/lib/bot/oauth";
+import { authorizeUrl, challengeOf, createState, createVerifier, isCommunityReturn } from "@/lib/bot/oauth";
 import { seal } from "@/lib/bot/seal";
 import { cookieOptions, OAUTH_COOKIE, OAUTH_PATH, OAUTH_TTL_S, type OAuthPending } from "@/lib/bot/session";
 import { addressOf, limitByMinute } from "@/lib/push-server";
@@ -10,12 +10,14 @@ import { addressOf, limitByMinute } from "@/lib/push-server";
 /**
  * Starts the Discord login: a fresh state and PKCE verifier, sealed in a
  * short cookie scoped to `/api/discord`, then off to Discord's consent page.
- * `?locale=` and `?next=dashboard|admin|moderation` only choose which of the site's
- * own pages the callback returns to.
+ * `?locale=` and `?next=dashboard|admin|moderation|community` only choose which of
+ * the site's own pages the callback returns to; with `community`, `?back=` a
+ * community page (checked against `COMMUNITY_RETURN`, dropped otherwise).
  */
 export const dynamic = "force-dynamic";
 
 const allowed = limitByMinute(20);
+const NEXT = ["dashboard", "admin", "moderation", "community"] as const;
 
 export async function GET(request: Request) {
   const config = botConfig();
@@ -27,8 +29,10 @@ export async function GET(request: Request) {
     state: createState(),
     verifier: createVerifier(),
     locale: isLocale(locale) ? locale : "en",
-    next: query.get("next") === "admin" ? "admin" : query.get("next") === "moderation" ? "moderation" : "dashboard",
+    next: NEXT.find((n) => n === query.get("next")) ?? "dashboard",
   };
+  const back = query.get("back");
+  if (pending.next === "community" && isCommunityReturn(back)) pending.back = back;
   const response = NextResponse.redirect(
     authorizeUrl({ clientId: config.clientId, redirectUri: redirectUri(request), state: pending.state, challenge: challengeOf(pending.verifier) }),
   );

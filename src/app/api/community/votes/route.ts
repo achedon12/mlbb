@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { voteInput } from "@/lib/community/rules";
-import { answer, guardPlayer, refusedFor, storageFailed } from "@/lib/community/server";
+import { answer, guardMember, refusedFor, storageFailed } from "@/lib/community/server";
 import { toggleVote } from "@/lib/community/store";
 
 /**
@@ -11,7 +11,7 @@ import { toggleVote } from "@/lib/community/store";
 export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
-  const guarded = await guardPlayer(request, "vote", voteInput);
+  const guarded = await guardMember(request, "vote", voteInput);
   if (guarded instanceof NextResponse) return guarded;
   const { kind, id } = guarded.body;
   try {

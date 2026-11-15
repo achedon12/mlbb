@@ -5,6 +5,7 @@ import { Composer } from "@/components/community/composer";
 import { ModerationActions } from "@/components/community/moderation-actions";
 import { ago, HeroTags, heroOptions, isoDate, Unavailable } from "@/components/community/parts";
 import { PostShell } from "@/components/community/post-shell";
+import { MemberLine, SignInChoice } from "@/components/community/sign-in";
 import Link from "@/components/link";
 import { Pager } from "@/components/pager";
 import { PageHeader } from "@/components/ui";
@@ -12,7 +13,6 @@ import { LOCALE_HTML, LOCALE_INTL, type Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { metaPage } from "@/i18n/seo";
 import { createT, messagesPage } from "@/i18n/translations";
-import { currentPlayer } from "@/lib/community-builds-server";
 import {
   canDelete,
   canEdit,
@@ -24,7 +24,7 @@ import {
   threadSegment,
 } from "@/lib/community/constants";
 import { plainText, renderMarkdown } from "@/lib/community/markdown";
-import { currentModerator, requestTime } from "@/lib/community/server";
+import { currentMember, currentModerator, discordLoginEnabled, requestTime } from "@/lib/community/server";
 import { getThread, listReplies, votedBy, type Thread } from "@/lib/community/store";
 import { databaseConfigured } from "@/lib/db";
 import { serializeJsonLd } from "@/lib/html";
@@ -41,7 +41,7 @@ export const dynamic = "force-dynamic";
 
 type Params = {
   params: Promise<{ locale: Locale; category: string; thread: string }>;
-  searchParams: Promise<{ page?: string }>;
+  searchParams: Promise<{ page?: string; login?: string }>;
 };
 
 /** The thread, null when it does not exist (or no longer), undefined when the database fails. */
@@ -83,20 +83,21 @@ export default async function ThreadPage({ params, searchParams }: Params) {
       </div>
     );
   }
-  const [player, moderator] = await Promise.all([currentPlayer().catch(() => ({ status: "unavailable" as const })), currentModerator()]);
+  const now = await requestTime();
+  const [member, moderator] = await Promise.all([currentMember(now), currentModerator()]);
   if (thread.hiddenAt && !moderator) notFound();
   if (thread.category !== category || threadSegment(thread) !== segment) permanentRedirect(`/${locale}${threadPath(thread)}`);
 
-  const page = readPageNumber((await searchParams).page);
+  const query = await searchParams;
+  const page = readPageNumber(query.page);
   const { posts, total } = await listReplies(thread.id, page);
   if (page > 1 && posts.length === 0) notFound();
   const view = paging(total, page, REPLIES_PER_PAGE);
-  const viewer = player.status === "ok" ? player.id : null;
+  const viewer = member.status === "ok" ? member.author.id : null;
   const [threadVotes, postVotes] = await Promise.all([
     votedBy(viewer, "thread", [thread.id]),
     votedBy(viewer, "post", posts.map((p) => p.id)),
   ]);
-  const now = await requestTime();
   const heroes = heroOptions();
   const path = threadPath(thread);
   const categoryName = t(`pages.community.categories.${thread.category}.name`);
@@ -268,18 +269,23 @@ export default async function ThreadPage({ params, searchParams }: Params) {
                   <Lock size={15} aria-hidden />
                   {t("pages.community.lockedNotice")}
                 </p>
-              ) : player.status === "ok" ? (
+              ) : member.status === "ok" ? (
                 <>
-                  <p className="mb-3 text-xs text-chalk-500">{t("pages.community.postingAs", { name: player.name })}</p>
+                  <div className="mb-3">
+                    <MemberLine t={t} locale={locale} member={member} back={path} />
+                  </div>
                   <Composer mode={{ type: "reply", threadId: thread.id, threadPath: path }} />
                 </>
               ) : (
-                <p className="text-sm text-chalk-300">
-                  <Link href="/login" className="text-gold-400 underline underline-offset-4 hover:text-gold-500">
-                    {t("pages.community.signIn")}
-                  </Link>{" "}
-                  {t("pages.community.signInToReply")}
-                </p>
+                <SignInChoice
+                  t={t}
+                  locale={locale}
+                  purpose="reply"
+                  back={path}
+                  member={member}
+                  discordEnabled={discordLoginEnabled()}
+                  failed={query.login === "failed"}
+                />
               )}
             </div>
           </section>

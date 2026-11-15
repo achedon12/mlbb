@@ -53,6 +53,8 @@ export function refusal(t: T, answer: Answer, reply = false): string {
       return t("pages.communityUI.errors.newAccountLinks");
     case "banned":
       return t("pages.communityUI.errors.banned");
+    case "discordTooNew":
+      return t("pages.communityUI.errors.discordTooNew", { days: 7 });
     case "window":
       return t("pages.communityUI.errors.window");
     case "locked":

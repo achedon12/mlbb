@@ -4356,7 +4356,7 @@
     },
     "community": {
       "title": "Community",
-      "lead": "Ang forum ng mga player ng MLBBDex: mga tanong, build, tulong sa ranked, esports at guide, kasama ang board para makahanap ng mga kakampi. Libreng basahin; mag-sign in gamit ang game account mo para makapagsulat.",
+      "lead": "Ang forum ng manlalaro ng MLBBdex: mga tanong, pagbuo, tulong sa ranggo, mga esport at gabay, kasama ang isang talahanayan upang makahanap ng mga kakampi. Mababasa ng lahat. Upang magsulat, mag-log in gamit ang iyong account sa laro o Discord.",
       "seo": {
         "title": "Mobile Legends forum at teammate finder",
         "description": "Ang community forum ng MLBBDex: mga hero at build, tulong sa ranked, esports, mga guide ng player, at mga Mobile Legends player na puwedeng maka-team ayon sa region, rank at lane.",
@@ -4405,9 +4405,19 @@
         "top": "Pinakamaraming boto"
       },
       "signIn": "Mag-sign in",
-      "signInToPost": "gamit ang game account mo para magsimula ng discussion.",
-      "signInToReply": "gamit ang game account mo para mag-reply.",
+      "signInChoice": {
+        "post": "Mag-log in para magsimula ng talakayan:",
+        "reply": "Mag-log in upang tumugon:",
+        "card": "Mag-log in upang i-publish ang iyong card at tingnan ang mga contact:",
+        "game": "Gamit ang aking game account",
+        "discord": "Sa Discord",
+        "discordNote": "Sa Discord, natatanggap lang ng site ang iyong Discord account number at ang iyong display name, hindi ang iyong email. Tanging ang display name lang ang lalabas sa iyong mga mensahe.",
+        "failed": "Ang koneksyon sa Discord ay hindi matagumpay. Subukan muli.",
+        "discordTooNew": "Nalikha ang iyong Discord account nang wala pang {days} araw ang nakalipas: hindi pa ito makakasali sa forum. Mag-log in gamit ang iyong game account, o bumalik pagkalipas ng ilang araw."
+      },
       "postingAs": "Nagsusulat ka bilang {name}.",
+      "postingAsDiscord": "Sumusulat ka bilang {name} (login sa Discord).",
+      "signOutDiscord": "Mag-log out sa Discord",
       "threadLead": "Sinimulan ni {name} sa {category}.",
       "openingPost": "Unang post",
       "noReplies": "Wala pang reply.",
@@ -4448,7 +4458,6 @@
         "seoTitle": "Maghanap ng kakampi sa Mobile Legends",
         "seoDescription": "Mga Mobile Legends player na naghahanap ng duo o team: i-filter ayon sa region, rank, lane at wika, at i-post ang sarili mong card.",
         "ownTitle": "Card mo",
-        "signInToPost": "gamit ang game account mo para i-post ang card mo at makita ang mga contact.",
         "listTitle": "{n} player ang available",
         "any": "Kahit ano",
         "lane": "Lane",
@@ -4552,6 +4561,7 @@
         "links": "Masyadong maraming link: hanggang {n} lang bawat post.",
         "newAccountLinks": "Hindi pa makakapag-post ng link ang mga account na bago sa forum.",
         "banned": "Hindi na makakasali ang account mo sa community.",
+        "discordTooNew": "Ang iyong Discord account ay wala pang {days} araw na gulang: hindi pa ito makakasali.",
         "window": "Lumipas na ang oras para i-edit o i-delete ang post na ito.",
         "locked": "Naka-lock ang discussion na ito.",
         "hidden": "Itinago ng moderation ang content na ito.",
@@ -4629,6 +4639,12 @@
         "confirmBan": "Kumpirmahin ang ban",
         "confirmDelete": "Permanenteng i-delete ang content na ito?",
         "failed": "Nabigo ang aksyon: i-reload ang page."
+      },
+      "link": {
+        "offer": "Nakakonekta ka rin sa Discord. I-link ang iyong dalawang account upang mapanatili ang isang profile sa forum: maaari kang kumonekta sa isa o sa isa pa, at kung ano ang iyong na-publish sa Discord ay sasali sa iyong account sa laro. Permanente ang link.",
+        "button": "I-link ang aking Discord account",
+        "done": "Ang iyong mga account ay naka-link: sa forum, ang Discord at ang iyong account sa laro ay naging isa.",
+        "taken": "Ang Discord account o game account na ito ay naka-link na sa isa pang account."
       }
     },
     "guides": {
@@ -5045,7 +5061,7 @@
     "bot": {
       "title": "Discord bot (opsyonal)",
       "intro": "Kung ginagamit mo ang MLBBDex Discord bot o ang dashboard nito, itinatago rin ng server ng site ang:",
-      "cookie": "isang naka-encrypt na session cookie, `mlbbdex_discord` (httpOnly, 7 araw), kung mag-log in ka sa dashboard gamit ang Discord: ang iyong Discord ID, pangalan at avatar, wala nang iba; walang Discord token na itinatago;",
+      "cookie": "isang naka-encrypt na cookie ng session, `mlbbdex_discord` (httpOnly, 7 araw), kung mag-log in ka gamit ang Discord sa dashboard o forum: ang iyong Discord ID, pangalan at avatar, wala nang iba; walang mga Discord token ang nananatili;",
       "servers": "para sa bawat server kung saan naroon ang bot: ang pangalan, wika at mga setting nito;",
       "results": "para sa mga leaderboard ng mga daily game na nilalaro sa Discord: ang Discord ID at pangalan ng mga player at ang kanilang mga score.",
       "details": "Ang mga detalye, ang tagal ng pag-iimbak at ang pagbura ay nasa privacy page ng bot.",
@@ -5054,7 +5070,8 @@
     "community": {
       "title": "Community: forum at teammate finder",
       "intro": "Kung lumalahok ka sa community (forum, boto, report, teammate card), itinatago ng server ng site, sa database nito:",
-      "account": "isang derived na account ID (hash ng iyong game ID at server, hindi kailanman ang ID mismo), ang iyong in-game name, at ang petsa ng una mong paglahok;",
+      "account": "kung mag-log in ka gamit ang iyong game account: isang nagmula na account ID (isang fingerprint ng iyong game ID at server, hindi ang ID mismo), ang iyong palayaw sa laro, at ang petsa ng iyong unang paglahok;",
+      "discord": "kung mag-log in ka gamit ang Discord: isang nagmula na account ID (isang fingerprint ng iyong Discord ID, hindi ang ID mismo), ang iyong Discord display name, na ipinapakita sa iyong mga mensahe, at ang petsa ng iyong unang paglahok. Hinihiling lang ng koneksyon ang Discord para sa iyong pagkakakilanlan, nang wala ang iyong email o ang listahan ng iyong mga server, at dumaan sa naka-encrypt na session cookie `mlbbdex_discord` (7 araw), na nagpapanatili sa iyong identifier, iyong pangalan at iyong Discord avatar; walang mga Discord token ang nananatili. Ang edad ng iyong Discord account, na nabasa sa identifier nito, ay hindi naitala. Kung ili-link mo ang iyong Discord account sa iyong game account, ang link sa pagitan ng iyong dalawang account ay mapapanatili, at ang iyong mga kontribusyon sa Discord ay sasali sa iyong game account;",
       "posts": "ang iyong mga discussion at reply, na public, kasama ang petsa nila; ang iyong mga boto at report, na hindi ipinapakita kaninuman maliban sa mga moderator (ang mga report);",
       "card": "ang iyong teammate card at, kung idaragdag mo, ang iyong game ID at Discord username: ipinapakita lang ang mga ito sa mga naka-sign in na player, at binubura ang card pitong araw pagkatapos ng huling pag-save nito.",
       "moderation": "Nakikita ng mga moderator ang mga report at maaari silang magtago, mag-delete o mag-ban; isinusulat sa isang log ang bawat desisyon nila. Ginagamit ng mga rate limit ang iyong IP address, sa memory lamang, sa loob ng ilang minuto.",

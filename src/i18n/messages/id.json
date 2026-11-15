@@ -4356,7 +4356,7 @@
     },
     "community": {
       "title": "Komunitas",
-      "lead": "Forum para pemain MLBBDex: pertanyaan, build, bantuan ranked, esports dan panduan, plus papan untuk mencari rekan tim. Bebas dibaca; masuk dengan akun game kamu untuk menulis.",
+      "lead": "Forum pemain MLBBDex: pertanyaan, build, bantuan peringkat, esports dan panduan, ditambah meja untuk menemukan rekan satu tim. Semua orang bisa membaca. Untuk menulis, masuk dengan akun game atau Discord Anda.",
       "seo": {
         "title": "Forum Mobile Legends dan pencari rekan tim",
         "description": "Forum komunitas MLBBDex: hero dan build, bantuan ranked, esports, panduan pemain, dan pemain Mobile Legends untuk diajak satu tim berdasarkan region, rank, dan lane.",
@@ -4405,9 +4405,19 @@
         "top": "Vote terbanyak"
       },
       "signIn": "Masuk",
-      "signInToPost": "dengan akun game kamu untuk memulai diskusi.",
-      "signInToReply": "dengan akun game kamu untuk membalas.",
+      "signInChoice": {
+        "post": "Masuk untuk memulai diskusi:",
+        "reply": "Masuk untuk merespons:",
+        "card": "Masuk untuk menerbitkan kartu Anda dan melihat kontak:",
+        "game": "Dengan akun permainan saya",
+        "discord": "Dengan Discord",
+        "discordNote": "Dengan Discord, situs hanya menerima nomor akun Discord dan nama tampilan Anda, bukan email Anda. Hanya nama tampilan yang muncul di pesan Anda.",
+        "failed": "Koneksi dengan Discord tidak berhasil. Coba lagi.",
+        "discordTooNew": "Akun Discord Anda dibuat kurang dari {days} hari yang lalu: akun tersebut belum dapat berpartisipasi dalam forum. Masuk dengan akun game Anda, atau kembali lagi dalam beberapa hari."
+      },
       "postingAs": "Kamu menulis sebagai {name}.",
+      "postingAsDiscord": "Anda menulis sebagai {name} (koneksi Discord).",
+      "signOutDiscord": "Keluar dari Discord",
       "threadLead": "Dimulai oleh {name} di {category}.",
       "openingPost": "Postingan pembuka",
       "noReplies": "Belum ada balasan.",
@@ -4448,7 +4458,6 @@
         "seoTitle": "Cari rekan tim Mobile Legends",
         "seoDescription": "Pemain Mobile Legends yang mencari duo atau tim: saring berdasarkan region, rank, lane, dan bahasa, lalu pasang kartumu sendiri.",
         "ownTitle": "Kartu kamu",
-        "signInToPost": "dengan akun game kamu untuk memasang kartu dan melihat kontak.",
         "listTitle": "{n} pemain tersedia",
         "any": "Semua",
         "lane": "Lane",
@@ -4552,6 +4561,7 @@
         "links": "Terlalu banyak tautan: maksimal {n} per postingan.",
         "newAccountLinks": "Akun yang baru di forum belum bisa memposting tautan.",
         "banned": "Akun kamu tidak bisa lagi berpartisipasi di komunitas.",
+        "discordTooNew": "Akun Discord Anda berumur kurang dari {days} hari: akun tersebut belum dapat berpartisipasi.",
         "window": "Batas waktu untuk mengedit atau menghapus postingan ini sudah lewat.",
         "locked": "Diskusi ini dikunci.",
         "hidden": "Konten ini disembunyikan oleh moderasi.",
@@ -4629,6 +4639,12 @@
         "confirmBan": "Konfirmasi blokir",
         "confirmDelete": "Hapus konten ini secara permanen?",
         "failed": "Tindakan gagal: muat ulang halaman."
+      },
+      "link": {
+        "offer": "Anda juga terhubung dengan Discord. Tautkan kedua akun Anda untuk menyimpan satu profil di forum: Anda kemudian dapat terhubung dengan salah satu akun, dan apa yang Anda publikasikan dengan Discord akan bergabung dengan akun game Anda. Tautannya permanen.",
+        "button": "Tautkan akun Discord saya",
+        "done": "Akun Anda tertaut: di forum, Discord dan akun game Anda menjadi satu.",
+        "taken": "Akun Discord atau akun game ini sudah tertaut ke akun lain."
       }
     },
     "guides": {
@@ -5045,7 +5061,7 @@
     "bot": {
       "title": "Bot perselisihan (opsional)",
       "intro": "Jika Anda menggunakan bot MLBBEx Discord atau dasbornya, server situs juga menyimpan:",
-      "cookie": "cookie sesi terenkripsi, `mlbbdex_discord` (httpOnly, 7 hari), jika Anda masuk ke dasbor dengan Discord: ID Discord Anda, nama dan avatar, tidak ada yang lain; tidak ada token Discord yang dipertahankan;",
+      "cookie": "cookie sesi terenkripsi, `mlbbdex_discord` (httpOnly, 7 hari), jika Anda masuk dengan Discord ke dasbor atau forum: ID Discord Anda, nama dan avatar, tidak ada yang lain; tidak ada token Discord yang dipertahankan;",
       "servers": "untuk setiap server tempat bot berada: nama, bahasa, dan pengaturannya;",
       "results": "untuk peringkat game hari ini yang dimainkan di Discord: ID Discord para pemain dan nama panggilan serta skor mereka.",
       "details": "Detail, periode penyimpanan, dan penghapusan dijelaskan di halaman privasi bot.",
@@ -5054,7 +5070,8 @@
     "community": {
       "title": "Komunitas: forum dan pencari rekan tim",
       "intro": "Jika kamu berpartisipasi di komunitas (forum, vote, laporan, kartu cari rekan tim), server situs menyimpan di basis datanya:",
-      "account": "ID akun turunan (hash dari ID game dan server kamu, tidak pernah ID itu sendiri), nama dalam game, dan tanggal partisipasi pertamamu;",
+      "account": "jika Anda masuk dengan akun game Anda: ID akun turunan (sidik jari ID game dan server Anda, bukan ID itu sendiri), nama panggilan game Anda, dan tanggal partisipasi pertama Anda;",
+      "discord": "jika Anda masuk dengan Discord: ID akun turunan (sidik jari ID Discord Anda, bukan ID itu sendiri), nama tampilan Discord Anda, ditampilkan di pesan Anda, dan tanggal partisipasi pertama Anda. Koneksi hanya menanyakan identitas Anda pada Discord, tanpa email atau daftar server Anda, dan melewati cookie sesi terenkripsi `mlbbdex_discord` (7 hari), yang menyimpan pengenal, nama, dan avatar Discord Anda; tidak ada token Discord yang dipertahankan. Usia akun Discord Anda, yang terbaca di pengenalnya, tidak dicatat. Jika Anda menautkan akun Discord Anda ke akun game Anda, tautan antara kedua akun Anda dipertahankan, dan kontribusi Discord Anda bergabung dengan akun game Anda;",
       "posts": "diskusi dan balasanmu, yang bersifat publik, beserta tanggalnya; vote dan laporanmu, yang hanya dilihat moderator (laporan);",
       "card": "kartu cari rekan timmu dan, jika kamu menambahkannya, ID game dan username Discord: hanya ditampilkan ke pemain yang masuk, dan kartu dihapus tujuh hari setelah terakhir disimpan.",
       "moderation": "Moderator melihat laporan dan bisa menyembunyikan, menghapus, atau memblokir; setiap keputusan mereka dicatat dalam log. Batas laju memakai alamat IP kamu, hanya di memori, selama beberapa menit.",

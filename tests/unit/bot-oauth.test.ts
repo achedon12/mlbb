@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { originAllowed, sameOriginRequest } from "@/lib/bot/dashboard-guard";
-import { acceptCallback, authorizeUrl, callbackQuery, challengeOf, createState, createVerifier, isState, isVerifier, loginTarget } from "@/lib/bot/oauth";
+import { acceptCallback, authorizeUrl, callbackQuery, challengeOf, createState, createVerifier, isState, isCommunityReturn, isVerifier, loginTarget } from "@/lib/bot/oauth";
 import { seal, unseal } from "@/lib/bot/seal";
 import { cookieOptions, OAUTH_PATH, openOAuth, openSession, sealSession } from "@/lib/bot/session";
 
@@ -115,6 +115,20 @@ describe("OAuth callback", () => {
     expect(loginTarget("//evil.example", "https://evil.example")).toBe("/en/bot/dashboard");
     expect(loginTarget(undefined, undefined)).toBe("/en/bot/dashboard");
     expect(new URL(loginTarget("es", "x"), "https://mlbbdex.com").origin).toBe("https://mlbbdex.com");
+  });
+
+  it("returns a forum login to a community page, and only to one", () => {
+    expect(loginTarget("fr", "community")).toBe("/fr/community");
+    expect(loginTarget("fr", "community", "/community/general")).toBe("/fr/community/general");
+    expect(loginTarget("xx", "community", "/community/general/42-best-ling-build")).toBe("/en/community/general/42-best-ling-build");
+    expect(loginTarget("id", "community", "/community/teammates")).toBe("/id/community/teammates");
+    for (const back of ["//evil.example", "/community//evil.example", "/community/../bot/admin", "/community/a/b/c", "/bot/admin", "/community?x=1", "https://evil.example/community", "/community/Général"]) {
+      expect(isCommunityReturn(back)).toBe(false);
+      expect(loginTarget("en", "community", back)).toBe("/en/community");
+    }
+    expect(new URL(loginTarget("en", "community", "/community/x"), "https://mlbbdex.com").origin).toBe("https://mlbbdex.com");
+    // The other targets ignore `back`.
+    expect(loginTarget("fr", "dashboard", "/community/general")).toBe("/fr/bot/dashboard");
   });
 
   it("scopes the exchange cookie to the callback, the session cookie to the site", () => {

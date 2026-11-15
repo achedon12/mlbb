@@ -19,6 +19,7 @@ import {
   type TargetKind,
 } from "./constants";
 import { screenText, type FilterVerdict } from "./filter";
+import { actingAccount, planReportMerge, planVoteMerge, type DiscordLink } from "./identity";
 import type { CardInput, ThreadEdit, ThreadInput } from "./rules";
 
 /**
@@ -30,10 +31,20 @@ import type { CardInput, ThreadEdit, ThreadInput } from "./rules";
  */
 
 export interface Author {
-  /** Account hash (`accountId`), never the in-game id. */
+  /** Member id (`accountId`): a hash of the in-game id or of the Discord id, never the id itself. */
   id: string;
   name: string;
+  /** How a member created now signs in; game accounts when left out (see `identity.ts`). */
+  provider?: "game" | "discord";
 }
+
+/** Columns of a member row created by an author's first action. */
+const newMember = (author: Author, now: number) => ({
+  accountId: author.id,
+  name: author.name,
+  provider: author.provider ?? "game",
+  firstSeenAt: new Date(now),
+});
 
 const DAY_MS = 24 * 3600 * 1000;
 const DUPLICATE_MS = 10 * 60_000;
@@ -43,17 +54,17 @@ const DUPLICATE_MS = 10 * 60_000;
 export type PostingRefusal = "banned" | "day" | "duplicate" | Exclude<FilterVerdict, "ok">;
 
 /** The member row of an account, created on its first action; its name follows the game's. */
-export async function touchMember(author: Author) {
+export async function touchMember(author: Author, now = Date.now()) {
   return db().communityMember.upsert({
     where: { accountId: author.id },
-    create: { accountId: author.id, name: author.name },
+    create: newMember(author, now),
     update: { name: author.name },
   });
 }
 
 /** Can this account vote, report or list a card? Only a ban stops it. */
 export async function memberAllowed(author: Author, now = Date.now()): Promise<boolean> {
-  return !isBanned(await touchMember(author), now);
+  return !isBanned(await touchMember(author, now), now);
 }
 
 /**
@@ -70,7 +81,7 @@ async function checkPosting(
 ): Promise<PostingRefusal | null> {
   const member = await tx.communityMember.upsert({
     where: { accountId: author.id },
-    create: { accountId: author.id, name: author.name, firstSeenAt: new Date(now) },
+    create: newMember(author, now),
     update: { name: author.name },
   });
   if (isBanned(member, now)) return "banned";
@@ -91,15 +102,152 @@ async function checkPosting(
 }
 
 /** Serializable transaction, retried once on a write conflict. */
-async function serial<T>(work: (tx: Prisma.TransactionClient) => Promise<T>): Promise<T> {
+async function serial<T>(work: (tx: Prisma.TransactionClient) => Promise<T>, timeout?: number): Promise<T> {
   for (let attempt = 0; ; attempt++) {
     try {
-      return await db().$transaction(work, { isolationLevel: Prisma.TransactionIsolationLevel.Serializable });
+      return await db().$transaction(work, {
+        isolationLevel: Prisma.TransactionIsolationLevel.Serializable,
+        ...(timeout ? { timeout, maxWait: 5_000 } : {}),
+      });
     } catch (error) {
       const conflict = error instanceof Prisma.PrismaClientKnownRequestError && error.code === "P2034";
       if (!conflict || attempt >= 2) throw error;
     }
   }
+}
+
+// -- Linking a Discord account to a game account ----------------------------
+
+export type LinkResult = "ok" | "banned" | "taken";
+
+/**
+ * Links a Discord member to a game account, both proven by this request's
+ * logins: from then on the Discord login acts as the game account. Whatever
+ * the Discord member did is merged into the game account in the same
+ * transaction: its threads, replies and card (when the game account has
+ * none), its votes and reports (one per target, never on one's own post),
+ * the earlier of the two first-seen dates, a hidden-card decision.
+ *
+ * Refused when either account is banned (linking must not wash a ban) and
+ * when either one is already linked to someone else. There is no unlinking
+ * from the site.
+ */
+export function linkAccounts(game: Author, discord: Author, now = Date.now()): Promise<LinkResult> {
+  return serial(async (tx) => {
+    const g = await tx.communityMember.upsert({
+      where: { accountId: game.id },
+      create: newMember({ ...game, provider: "game" }, now),
+      update: { name: game.name },
+    });
+    const d = await tx.communityMember.upsert({
+      where: { accountId: discord.id },
+      create: newMember({ ...discord, provider: "discord" }, now),
+      update: {},
+    });
+    if (d.linkedTo === game.id) return "ok";
+    if (d.linkedTo || g.linkedTo || g.provider !== "game" || d.provider !== "discord") return "taken";
+    if (await tx.communityMember.findUnique({ where: { linkedTo: game.id }, select: { accountId: true } })) return "taken";
+    if (isBanned(g, now) || isBanned(d, now)) return "banned";
+
+    // Votes first: the planning needs the authors as they are now.
+    const [gameVotes, discordVotes] = await Promise.all([
+      tx.forumVote.findMany({ where: { voterId: game.id }, select: { kind: true, targetId: true } }),
+      tx.forumVote.findMany({ where: { voterId: discord.id }, select: { kind: true, targetId: true } }),
+    ]);
+    const ids = (kind: string) => [...new Set([...gameVotes, ...discordVotes].filter((v) => v.kind === kind).map((v) => v.targetId))];
+    const [threads, posts] = await Promise.all([
+      tx.forumThread.findMany({ where: { id: { in: ids("thread") } }, select: { id: true, authorId: true } }),
+      tx.forumPost.findMany({ where: { id: { in: ids("post") } }, select: { id: true, authorId: true } }),
+    ]);
+    const authors = new Map([
+      ...threads.map((t) => [`thread:${t.id}`, t.authorId] as const),
+      ...posts.map((p) => [`post:${p.id}`, p.authorId] as const),
+    ]);
+    const plan = planVoteMerge({ gameVotes, discordVotes, authors, gameId: game.id, discordId: discord.id });
+    // In a few statements whatever the member's activity: per voter and
+    // kind, one delete; per kind and number of points lost, one update.
+    for (const voter of ["game", "discord"] as const) {
+      for (const kind of ["thread", "post"]) {
+        const targetIds = plan.drop.filter((d) => d.voter === voter && d.vote.kind === kind).map((d) => d.vote.targetId);
+        if (targetIds.length) {
+          await tx.forumVote.deleteMany({ where: { voterId: voter === "game" ? game.id : discord.id, kind, targetId: { in: targetIds } } });
+        }
+      }
+    }
+    for (const kind of ["thread", "post"]) {
+      const lost = new Map<number, number>();
+      for (const d of plan.drop) if (d.vote.kind === kind) lost.set(d.vote.targetId, (lost.get(d.vote.targetId) ?? 0) + 1);
+      for (const n of new Set(lost.values())) {
+        const where = { id: { in: [...lost].filter(([, m]) => m === n).map(([id]) => id) } };
+        const data = { score: { decrement: n } };
+        if (kind === "thread") await tx.forumThread.updateMany({ where, data });
+        else await tx.forumPost.updateMany({ where, data });
+      }
+    }
+    // What is left of the Discord member's votes is exactly `plan.move`.
+    await tx.forumVote.updateMany({ where: { voterId: discord.id }, data: { voterId: game.id } });
+
+    await tx.forumThread.updateMany({ where: { authorId: discord.id }, data: { authorId: game.id } });
+    await tx.forumPost.updateMany({ where: { authorId: discord.id }, data: { authorId: game.id } });
+
+    // Reports: one per account and target (the game account's copy stays),
+    // and none on one's own post, which would count towards hiding it.
+    const reports = await tx.communityReport.findMany({
+      where: { reporterId: { in: [game.id, discord.id] } },
+      select: { id: true, kind: true, targetId: true, reporterId: true, authorId: true },
+    });
+    const dropReports = planReportMerge({ reports, gameId: game.id, discordId: discord.id });
+    if (dropReports.length) await tx.communityReport.deleteMany({ where: { id: { in: dropReports } } });
+    await tx.communityReport.updateMany({ where: { reporterId: discord.id }, data: { reporterId: game.id } });
+    await tx.communityReport.updateMany({ where: { authorId: discord.id }, data: { authorId: game.id } });
+
+    // One card per account: the game account's own card wins.
+    if (await tx.teammateCard.findUnique({ where: { accountId: game.id }, select: { id: true } })) {
+      await tx.teammateCard.deleteMany({ where: { accountId: discord.id } });
+    } else {
+      await tx.teammateCard.updateMany({ where: { accountId: discord.id }, data: { accountId: game.id } });
+    }
+    // The moderation history follows the person: past decisions on the
+    // Discord member now name the game account (the queue's fallbacks and
+    // the card-hide reasoning read it).
+    await tx.moderationLog.updateMany({ where: { accountId: discord.id }, data: { accountId: game.id } });
+    // The collection is a game-account feature (no Discord login reaches
+    // it); moved anyway so that no row keyed on the Discord member is left.
+    if (await tx.skinCollection.findUnique({ where: { accountId: game.id }, select: { accountId: true } })) {
+      await tx.skinCollection.deleteMany({ where: { accountId: discord.id } });
+    } else {
+      await tx.skinCollection.updateMany({ where: { accountId: discord.id }, data: { accountId: game.id } });
+    }
+
+    await tx.communityMember.update({
+      where: { accountId: game.id },
+      data: {
+        firstSeenAt: d.firstSeenAt < g.firstSeenAt ? d.firstSeenAt : g.firstSeenAt,
+        cardHiddenAt: g.cardHiddenAt ?? d.cardHiddenAt,
+      },
+    });
+    await tx.communityMember.update({ where: { accountId: discord.id }, data: { linkedTo: game.id, linkedAt: new Date(now) } });
+    return "ok";
+  }, LINK_TIMEOUT_MS);
+}
+
+/** A link moves a whole history in one transaction: more time than Prisma's default 5 s. */
+const LINK_TIMEOUT_MS = 20_000;
+
+/**
+ * The Discord member's row as resolution needs it: the game account it acts
+ * as and that account's name, and its own ban; null when it has no row yet.
+ */
+export async function discordLink(discordAccountId: string): Promise<DiscordLink> {
+  const row = await db().communityMember.findUnique({
+    where: { accountId: discordAccountId },
+    select: { linkedTo: true, bannedAt: true, banUntil: true },
+  });
+  if (!row) return null;
+  const own = { bannedAt: row.bannedAt, banUntil: row.banUntil };
+  if (!row.linkedTo) return { linkedTo: null, primaryName: null, ...own };
+  const primary = await db().communityMember.findUnique({ where: { accountId: row.linkedTo }, select: { name: true } });
+  return { linkedTo: row.linkedTo, primaryName: primary?.name ?? null, ...own };
 }
 
 // -- Threads ---------------------------------------------------------------
@@ -281,7 +429,7 @@ export function toggleVote(kind: "thread" | "post", targetId: number, voter: Aut
     if (target.authorId === voter.id) return { ok: false, reason: "own" };
     const member = await tx.communityMember.upsert({
       where: { accountId: voter.id },
-      create: { accountId: voter.id, name: voter.name, firstSeenAt: new Date(now) },
+      create: newMember(voter, now),
       update: {},
     });
     if (isBanned(member, now)) return { ok: false, reason: "banned" };
@@ -388,7 +536,7 @@ export function reportTarget(
     if (target.author === reporter.id) return "own";
     const member = await tx.communityMember.upsert({
       where: { accountId: reporter.id },
-      create: { accountId: reporter.id, name: reporter.name, firstSeenAt: new Date(now) },
+      create: newMember(reporter, now),
       update: {},
     });
     if (isBanned(member, now)) return "banned";
@@ -478,7 +626,7 @@ export function saveCard(input: CardInput, author: Author, now = Date.now()): Pr
   return serial(async (tx) => {
     const member = await tx.communityMember.upsert({
       where: { accountId: author.id },
-      create: { accountId: author.id, name: author.name, firstSeenAt: new Date(now) },
+      create: newMember(author, now),
       update: { name: author.name },
     });
     if (isBanned(member, now)) return { ok: false, reason: "banned" };
@@ -548,6 +696,16 @@ export function moderate(
         gone = true;
       }
     }
+    // A Discord member linked to a game account acts as that account: the
+    // decision (ban, card hide, the log line) lands on the game account. An
+    // unban also lifts a ban the Discord row itself may still carry.
+    let alsoUnban: string | null = null;
+    if (accountId) {
+      const row = await tx.communityMember.findUnique({ where: { accountId }, select: { accountId: true, linkedTo: true } });
+      const acting = actingAccount(row, accountId);
+      if (acting !== accountId) alsoUnban = accountId;
+      accountId = acting;
+    }
 
     switch (o.action) {
       case "hide":
@@ -584,7 +742,14 @@ export function moderate(
       }
       case "unban":
         if (!accountId) return "invalid";
-        if ((await tx.communityMember.updateMany({ where: { accountId }, data: { bannedAt: null, banUntil: null, banReason: null, bannedBy: null } })).count === 0) {
+        if (
+          (
+            await tx.communityMember.updateMany({
+              where: { accountId: { in: alsoUnban ? [accountId, alsoUnban] : [accountId] } },
+              data: { bannedAt: null, banUntil: null, banReason: null, bannedBy: null },
+            })
+          ).count === 0
+        ) {
           return "unknown";
         }
         break;
