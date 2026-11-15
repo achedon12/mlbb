@@ -5,7 +5,8 @@ import { PageHeader } from "@/components/ui";
 import { Foldable } from "@/components/foldable";
 import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { dataTool, metaPage } from "@/i18n/seo";
-import { createT } from "@/i18n/translations";
+import { ExtendMessages } from "@/i18n/provider";
+import { createT, messagesPage } from "@/i18n/translations";
 import { patchDetails } from "@/lib/data";
 import { serializeJsonLd } from "@/lib/html";
 import { cn } from "@/lib/utils";
@@ -239,7 +240,9 @@ export default async function ServerTimePage({ params }: Params) {
           </>
         }
       >
-        <ServerClock reference={now} seasons={SEASONS} />
+        <ExtendMessages messages={messagesPage(locale, ["tools"])}>
+          <ServerClock reference={now} seasons={SEASONS} />
+        </ExtendMessages>
       </ToolLayout>
     </>
   );

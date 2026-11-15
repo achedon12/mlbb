@@ -53,7 +53,7 @@ export default async function StrategyPlannerPage({ params }: Params) {
         crumbs={[{ name: t("nav.mapGuide.label"), href: "/map" }, { name: t("pages.strategyPlanner.crumb") }]}
       />
       <div className="page-wrap space-y-10 pb-10 pt-5">
-        <ExtendMessages messages={messagesPage(locale, ["pages.strategyPlannerUI"])}>
+        <ExtendMessages messages={messagesPage(locale, ["pages.strategyPlannerUI", "draftUI"])}>
           <StrategyPlanner heroes={heroes} markers={markers} />
         </ExtendMessages>
 

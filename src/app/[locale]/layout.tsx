@@ -128,7 +128,7 @@ export default async function LocaleLayout({
           <main id="content" className="flex-1">
             {children}
           </main>
-          <Footer locale={locale} />
+          <Footer locale={locale} year={new Date().getFullYear()} />
           <Analytics />
           <ErrorReporter />
           <Offline />

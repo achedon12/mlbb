@@ -3,7 +3,8 @@ import { WinRateCalculator } from "@/components/win-rate-calculator";
 import { PageHeader } from "@/components/ui";
 import { serializeJsonLd } from "@/lib/html";
 import type { Locale } from "@/i18n/config";
-import { createT } from "@/i18n/translations";
+import { ExtendMessages } from "@/i18n/provider";
+import { createT, messagesPage } from "@/i18n/translations";
 import { dataTool, metaPage } from "@/i18n/seo";
 import { ToolLayout } from "@/components/tool-layout";
 
@@ -53,7 +54,9 @@ export default async function WinRateToolPage({ params }: Params) {
           </>
         }
       >
-        <WinRateCalculator />
+        <ExtendMessages messages={messagesPage(locale, ["winRateTool"])}>
+          <WinRateCalculator />
+        </ExtendMessages>
       </ToolLayout>
     </>
   );

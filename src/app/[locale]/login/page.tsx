@@ -6,7 +6,8 @@ import { ShieldCheck } from "lucide-react";
 import { LoginForm } from "@/components/login-form";
 import { tokenCurrent } from "@/lib/session";
 import type { Locale } from "@/i18n/config";
-import { createT } from "@/i18n/translations";
+import { ExtendMessages } from "@/i18n/provider";
+import { createT, messagesPage } from "@/i18n/translations";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -31,7 +32,9 @@ export default async function LoginPage({ params }: { params: Promise<{ locale: 
       </p>
 
       <div className="mt-8">
-        <LoginForm />
+        <ExtendMessages messages={messagesPage(locale, ["loginForm"])}>
+          <LoginForm />
+        </ExtendMessages>
       </div>
 
       <p className="mt-8 flex gap-2 border-t border-night-800 pt-6 text-xs leading-relaxed text-chalk-500">

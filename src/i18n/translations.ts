@@ -33,7 +33,7 @@ export type { Tree, T };
  * argument (`tr("skinRarity", …)`), must stay out of this list.
  */
 const SERVER_ONLY = [
-  "footer", "modeSheet", "story", "home", "featured", "access", "prose", "newHero", "articleUI", "articleCategory",
+  "modeSheet", "story", "home", "featured", "access", "prose", "newHero", "articleUI", "articleCategory",
   "heroData", "pushNotif",
 ];
 
@@ -55,7 +55,7 @@ function merge(base: Tree, above: Tree): Tree {
  * sections. `pages.notFound` stays shared: the 404 page can appear
  * anywhere.
  */
-export const PAGE_SECTIONS = ["pages", "emblemData"];
+export const PAGE_SECTIONS = ["pages", "emblemData", "tools", "teamUI", "winRateTool", "draftUI", "compareUI", "loginForm", "emblemsUI"];
 const ALWAYS_COMMON = ["pages.notFound"];
 
 function full(locale: Locale): Tree {

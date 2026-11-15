@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "@/components/link";
 import { Rss } from "lucide-react";
 import type { Locale } from "@/i18n/config";
-import { createT, type T } from "@/i18n/translations";
+import { useT } from "@/i18n/provider";
+import type { T } from "@/i18n/translations";
 import { communityInvite } from "@/lib/bot/public";
 import { FOOTER, type Chip } from "@/lib/sections";
 import { site } from "@/lib/site";
@@ -25,8 +28,6 @@ function Column({ title, links, t }: { title: string; links: readonly Chip[]; t:
   );
 }
 
-const YEAR = new Date().getFullYear();
-
 /** GitHub mark (Octicons, MIT license): lucide 1.0 dropped brand icons. */
 function GithubMark() {
   return (
@@ -36,8 +37,18 @@ function GithubMark() {
   );
 }
 
-export function Footer({ locale }: { locale: Locale }) {
-  const t = createT(locale);
+/**
+ * Site footer: the site's map, in six columns, and its credits.
+ *
+ * Rendered in the browser's bundle rather than on the server: the same
+ * forty links in every page wrote their markup out twice, in the HTML and
+ * again in the RSC payload. As a client component, the payload only names
+ * it; its labels come from the shared catalog (`footer`, `nav`). The year
+ * comes from the server, which rendered the page, so that the browser does
+ * not write another one over it.
+ */
+export function Footer({ locale, year }: { locale: Locale; year: number }) {
+  const t = useT();
   const discord = communityInvite();
 
   return (
@@ -101,7 +112,7 @@ export function Footer({ locale }: { locale: Locale }) {
       <div className="border-t border-night-800">
         <div className="page-wrap flex flex-col gap-2 py-4 text-xs leading-relaxed text-chalk-500 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {YEAR} {site.name} — {t("footer.rights", { author: site.author })}
+            © {year} {site.name} — {t("footer.rights", { author: site.author })}
             <span className="text-chalk-600"> · {t("footer.version", { v: process.env.VERSION_SITE ?? "" })}</span>
           </p>
           <p className="text-chalk-600">{t("footer.brand")}</p>

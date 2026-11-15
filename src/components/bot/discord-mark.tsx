@@ -1,4 +1,12 @@
-/** Discord mark (Simple Icons, CC0): lucide 1.0 dropped brand icons. */
+"use client";
+
+/**
+ * Discord mark (Simple Icons, CC0): lucide 1.0 dropped brand icons.
+ *
+ * A client component for its weight only: its 1 KB path, drawn in the header
+ * and the footer of every page, was written out in each page's RSC payload as
+ * well as in its HTML. From the bundle, it is downloaded once.
+ */
 export function DiscordMark({ size = 16 }: { size?: number }) {
   return (
     <svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor" aria-hidden>
