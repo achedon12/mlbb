@@ -1,8 +1,15 @@
 import visuals from "@/data/game/visuals.json";
 import { emblems, slugEmblem, battleSpells } from "@/data/emblems";
-import type { ResolvedBuild, ResolvedGuide, ResolvedItem, ResolvedVisual } from "@/components/builds-by-rank";
+import type {
+  PackedBuilds,
+  ResolvedBuild,
+  ResolvedGuide,
+  ResolvedItem,
+  ResolvedVisual,
+} from "@/components/builds-by-rank";
 import { itemsFor, type BuildPlayed, type GuidePlayer } from "./data";
-import { keySearch } from "./utils";
+import type { MeasuredRank } from "./measured-ranks";
+import { keySearch, mapValues } from "./utils";
 import { readableRank } from "./ranks";
 
 /**
@@ -86,5 +93,42 @@ export function resolveGuide(g: GuidePlayer): ResolvedGuide {
     spell: g.spell ? spellVisual(g.spell) : null,
     author: rank ? { key: rank.key, division: rank.division } : null,
     votes: g.votes,
+  };
+}
+
+/**
+ * Builds as sent to the hero page's `BuildsByRank`: each visual once, in
+ * `visuals`, and the builds pointing to it by index. A hero's builds for six
+ * ranks and up to two lanes repeat the same dozen items, emblems and
+ * talents, each with its name and image path: written out in full, they were
+ * the largest prop of the page (some 40 KB of its RSC payload).
+ */
+export function packBuilds(
+  byLane: Partial<Record<string, Partial<Record<MeasuredRank, ResolvedBuild[]>>>>,
+  guides: Partial<Record<string, Partial<Record<MeasuredRank, ResolvedGuide>>>>,
+): PackedBuilds {
+  const visuals: PackedBuilds["visuals"] = [];
+  const index = new Map<string, number>();
+  const ref = (v: ResolvedVisual | ResolvedItem): number => {
+    const k = JSON.stringify(v);
+    let i = index.get(k);
+    if (i === undefined) {
+      i = visuals.push(v) - 1;
+      index.set(k, i);
+    }
+    return i;
+  };
+  const choices = (b: ResolvedBuild | ResolvedGuide) => ({
+    items: b.items.map(ref),
+    emblem: b.emblem ? ref(b.emblem) : null,
+    talents: b.talents.map(ref),
+    spell: b.spell ? ref(b.spell) : null,
+  });
+  return {
+    byLane: mapValues(byLane, (byRank) =>
+      mapValues(byRank, (list) => list.map((b) => ({ ...choices(b), win: b.win, selection: b.selection }))),
+    ),
+    guides: mapValues(guides, (byRank) => mapValues(byRank, (g) => ({ ...choices(g), author: g.author, votes: g.votes }))),
+    visuals,
   };
 }

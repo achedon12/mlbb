@@ -17,7 +17,7 @@ import { RankProvider, RankPicker, ValueByRank } from "@/components/rank-picker"
 import { BuildItem } from "@/components/build-item";
 import { BuildsByRank } from "@/components/builds-by-rank";
 import { BuildPicker } from "@/components/build-picker";
-import { resolveBuild, resolveGuide, visualEmblem, visualItem, spellVisual, visualTalent } from "@/lib/build-visuals";
+import { packBuilds, resolveBuild, resolveGuide, visualEmblem, visualItem, spellVisual, visualTalent } from "@/lib/build-visuals";
 import { heroGallery } from "@/lib/hero-skins";
 import { duos } from "@/lib/duos";
 import { HeroAdjustmentsDeferred, HeroStatisticsDeferred } from "@/components/hero-statistics-deferred";
@@ -695,7 +695,7 @@ export default async function HeroPage({ params }: Params) {
                 <div className="space-y-10">
                   {hasBuilds && (
                     <section>
-                      <BuildsByRank byLane={buildsShown} guides={guidesShown} />
+                      <BuildsByRank builds={packBuilds(buildsShown, guidesShown)} />
                     </section>
                   )}
                   {analysis && analysis.builds.length > 0 && (
