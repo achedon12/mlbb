@@ -10343,10 +10343,829 @@
     },
     "date": "2026-11-04"
   },
+  "1.9.20": {
+    "version": "1.9.20",
+    "title": "Patch Notes 1.9.20",
+    "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.9.20",
+    "toc": [
+      {
+        "level": 2,
+        "title": "De los diseñadores",
+        "anchor": "from-the-designers"
+      },
+      {
+        "level": 2,
+        "title": "I. Héroe nuevo y renovado",
+        "anchor": "i-new-revamped-hero"
+      },
+      {
+        "level": 3,
+        "title": "Nuevo héroe: Máscara del Inmortal - Suyou",
+        "anchor": "new-hero-mask-of-the-immortal-suyou"
+      },
+      {
+        "level": 2,
+        "title": "II. Ajustes de héroe",
+        "anchor": "ii-hero-adjustments"
+      },
+      {
+        "level": 2,
+        "title": "III. Ajustes del campo de batalla",
+        "anchor": "iii-battlefield-adjustments"
+      },
+      {
+        "level": 3,
+        "title": "A. Ajustes del equipo",
+        "anchor": "a-equipment-adjustments"
+      },
+      {
+        "level": 3,
+        "title": "B. Otros ajustes en el campo de batalla",
+        "anchor": "b-other-battlefield-adjustments"
+      },
+      {
+        "level": 2,
+        "title": "IV. Ajustes del sistema",
+        "anchor": "iv-system-adjustments"
+      },
+      {
+        "level": 3,
+        "title": "A. Clasificado",
+        "anchor": "a-ranked"
+      },
+      {
+        "level": 3,
+        "title": "B. Draft del campo de batalla",
+        "anchor": "b-battlefield-draft"
+      },
+      {
+        "level": 2,
+        "title": "V. Eventos",
+        "anchor": "v-events"
+      },
+      {
+        "level": 3,
+        "title": "A. Aniversario",
+        "anchor": "a-anniversary"
+      },
+      {
+        "level": 3,
+        "title": "B. Sorteo del efecto de retirada del equipo MPL",
+        "anchor": "b-mpl-team-recall-effect-lucky-draw"
+      },
+      {
+        "level": 3,
+        "title": "C. Brody \"AP Bren\"",
+        "anchor": "c-brody-apbren"
+      },
+      {
+        "level": 3,
+        "title": "D. Tienda",
+        "anchor": "d-shop"
+      },
+      {
+        "level": 3,
+        "title": "E. Nuevas máscaras",
+        "anchor": "e-new-skins"
+      },
+      {
+        "level": 3,
+        "title": "F. Primer evento de recarga S34",
+        "anchor": "f-s34-first-recharge-event"
+      },
+      {
+        "level": 3,
+        "title": "G. Invocación del Zodíaco",
+        "anchor": "g-zodiac-summon"
+      },
+      {
+        "level": 3,
+        "title": "H. Tienda de fragmentos",
+        "anchor": "h-fragment-shop"
+      },
+      {
+        "level": 3,
+        "title": "I. Héroes libres",
+        "anchor": "i-free-heroes"
+      },
+      {
+        "level": 2,
+        "title": "VI. Modos de juego/Ajustes de modo",
+        "anchor": "vi-game-modes-mode-adjustments"
+      },
+      {
+        "level": 3,
+        "title": "A. Pelea de sombras",
+        "anchor": "a-shadow-brawl"
+      },
+      {
+        "level": 3,
+        "title": "B. Batalla a muerte",
+        "anchor": "b-deathbattle"
+      },
+      {
+        "level": 3,
+        "title": "C. Sobremarcha",
+        "anchor": "c-overdrive"
+      },
+      {
+        "level": 3,
+        "title": "D. pelea",
+        "anchor": "d-brawl"
+      },
+      {
+        "level": 3,
+        "title": "E. Ajedrez Mágico",
+        "anchor": "e-magic-chess"
+      },
+      {
+        "level": 2,
+        "title": "Cambios no documentados",
+        "anchor": "undocumented-changes"
+      },
+      {
+        "level": 2,
+        "title": "Referencias",
+        "anchor": "references"
+      }
+    ],
+    "sections": [
+      {
+        "anchor": null,
+        "title": null,
+        "html": "<dl><dd><i>Esta página contiene notas de parche publicadas en el servidor oficial.</i></dd></dl>\n\n<p><br>\nSe lanzó una actualización para <i><a href=\"https://mobilelegends.fandom.com/wiki/Mobile_Legends:_Bang_Bang\" title=\"Mobile Legends: Bang Bang\" rel=\"noreferrer nofollow\" target=\"_blank\">Mobile Legends: Bang Bang</a></i> en el servidor original para el mes de septiembre del año 2024. Esto incluye al nuevo héroe <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Suyou\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Suyou\" title=\"Suyou\" rel=\"noreferrer nofollow\" target=\"_blank\">Suyou</a></span></span>, junto con ajustes de héroes, cambios de equipo, optimizaciones del campo de batalla, el evento Battlefield Draft y el inicio de la temporada 34.\n</p><p>La actualización se lanzó en septiembre de 2024.\n</p>",
+        "role": null
+      },
+      {
+        "anchor": "from-the-designers",
+        "title": "De los diseñadores",
+        "html": "<p>En esta actualización, hemos ajustado algunos héroes según datos y comentarios recientes. También hemos ajustado algunos equipos con la esperanza de diversificar la selección de héroes en las partidas clasificatorias.\n</p><p>Hemos optimizado algunos elementos básicos, incluida la experiencia de control de movimiento y ataque, los rangos o indicadores de habilidades de algunos héroes, el costo de maná de algunos héroes y más.\n</p><p>Además, el evento Battlefield Draft estará disponible, brindando una nueva experiencia en el campo de batalla. ¡Diviértete en la nueva versión!\n</p>",
+        "role": null
+      },
+      {
+        "anchor": "i-new-revamped-hero",
+        "title": "I. Héroe nuevo y renovado",
+        "html": "<h3 id=\"new-hero-mask-of-the-immortal-suyou\"><span>Nuevo héroe: Máscara del Inmortal - Suyou</span></h3>\n<p><b>Característica de héroe:</b> Un exorcista de Zhu'an que ha heredado el poder del Inmortal Nuo. (Asesino/Luchador)\n</p><p>Este héroe estará disponible el 21/09 (hora del servidor).\n</p><p><b>Pasivo - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Transient Immortal\"></span></span></span> <span><span>Inmortal transitorio</span></span></span></b>\n</p>\n<ul><li>[Tap-casting] cualquier habilidad le otorgará a Suyou más velocidad de movimiento.</li>\n<li>[Hold-casting] cualquier habilidad le otorgará a Suyou más reducción de daño.</li></ul>\n<p><b>Habilidad 1 - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Blade Surge\"></span></span></span> <span><span>Blade Surge</span></span></span></b>\n</p>\n<ul><li>[Tap-Cast]: Suyou lanza su arma en la dirección del objetivo, causando daño a los enemigos en su camino. Luego, Suyou parpadea hacia la ubicación del arma, la atrapa y realiza un corte en la dirección opuesta, causando un gran daño a los enemigos.</li>\n<li>[Mantener]: Suyou carga en la dirección del objetivo, se detiene al golpear a un enemigo y aturde al enemigo que está delante cuando se detiene.</li></ul>\n<p><b>Habilidad 2 - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Soul Sever\"></span></span></span> <span><span>Soul Sever</span></span></span></b>\n</p>\n<ul><li>[Toque]: Suyou inflige daño a los enemigos en un área en forma de abanico, lo que inflige mayor daño a los enemigos con menor HP.</li>\n<li>[Mantener]: Suyou canaliza el poder del Inmortal para realizar 3 cortes en un área en forma de abanico mientras recupera HP.</li></ul>\n<p><b>Habilidad 3 - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Evil Queller\"></span></span></span> <span><span>Evil Queller</span></span></span></b>\n</p>\n<ul><li>[Toque]: Suyou se desliza hacia atrás y balancea su arma en la dirección del objetivo, infligiendo daño a los enemigos en un área rectangular y en su camino hacia atrás.</li>\n<li>[Mantener]: Suyou dispara una flecha mortal en la dirección del objetivo, causando daño al objetivo golpeado.</li></ul>",
+        "role": null
+      },
+      {
+        "anchor": "ii-hero-adjustments",
+        "title": "II. Ajustes de héroe",
+        "html": "",
+        "role": "adjustments"
+      },
+      {
+        "anchor": "iii-battlefield-adjustments",
+        "title": "III. Ajustes del campo de batalla",
+        "html": "<h3 id=\"a-equipment-adjustments\"><span>A. Ajustes de equipo</span></h3>\n<p><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Clock_of_Destiny\" title=\"Clock of Destiny\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span> <a href=\"https://mobilelegends.fandom.com/wiki/Clock_of_Destiny\" title=\"Clock of Destiny\" rel=\"noreferrer nofollow\" target=\"_blank\">Reloj del Destino</a> <span>BUFF  ↑</span>\n</p>\n<dl><dd>Actualmente, este equipo tiene un abanico de aplicaciones algo reducido. Esperamos que algunos tanques y luchadores mágicos, como <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Esmeralda\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Esmeralda\" title=\"Esmeralda\" rel=\"noreferrer nofollow\" target=\"_blank\">Esmeralda</a></span></span> y <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Silvanna\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Silvanna\" title=\"Silvanna\" rel=\"noreferrer nofollow\" target=\"_blank\">Silvanna</a></span></span>, también considerará este equipo.</dd></dl>\n<ul><li><b>Atributos <span>BUFF  ↑</span></b>\n<ul><li>Se agregó una reducción del 10 % del CD.</li>\n<li>Maná: 800 → 400</li></ul></li>\n<li><b>Precio <span>NERF ↓</span></b>\n<ul><li>1950 → 2030</li></ul></li></ul>\n<p><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Wishing_Lantern\" title=\"Wishing Lantern\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span> <a href=\"https://mobilelegends.fandom.com/wiki/Wishing_Lantern\" title=\"Wishing Lantern\" rel=\"noreferrer nofollow\" target=\"_blank\">Linterna de los deseos</a> <span>BUFF  ↑</span>\n</p>\n<dl><dd>La reducción de CD proporcionada por este equipo permitirá a los magos lanzar habilidades con más frecuencia, por lo que le dimos el mismo atributo de maná que <span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Lightning_Truncheon\" title=\"Lightning Truncheon\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span> <a href=\"https://mobilelegends.fandom.com/wiki/Lightning_Truncheon\" title=\"Lightning Truncheon\" rel=\"noreferrer nofollow\" target=\"_blank\">Lightning Truncheon</a>.</dd></dl>\n<ul><li><b>Atributos <span>BUFF  ↑</span></b>\n<ul><li>Poder Mágico: 70 → 75</li>\n<li>Se agregaron 400 maná.</li></ul></li>\n<li><b>Precio <span>NERF ↓</span></b>\n<ul><li>2160 → 2250</li></ul></li></ul>\n<p><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Thunder_Belt\" title=\"Thunder Belt\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span> <a href=\"https://mobilelegends.fandom.com/wiki/Thunder_Belt\" title=\"Thunder Belt\" rel=\"noreferrer nofollow\" target=\"_blank\">Cinturón del Trueno</a> <span>NERF ↓</span>\n</p>\n<dl><dd>El daño de este equipo es un poco alto al principio y a la mitad del juego. Esperamos que se necesite más tiempo de acumulación para causar un gran daño.</dd></dl>\n<ul><li><b>Pasivo único: Rayo <span>NERF ↓</span></b>\n<ul><li>Daño: 50 + 100% Defensa Física Total + 100% Defensa Mágica Total → 50 + 100% Defensa Física Extra + 100% Defensa Mágica Extra</li></ul></li></ul>\n<p><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Twilight_Armor\" title=\"Twilight Armor\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span> <a href=\"https://mobilelegends.fandom.com/wiki/Twilight_Armor\" title=\"Twilight Armor\" rel=\"noreferrer nofollow\" target=\"_blank\">Armadura Crepuscular</a> <span>BUFF  ↑</span>\n</p>\n<dl><dd>Aumentó la adaptabilidad de este equipo.</dd></dl>\n<ul><li><b>Pasiva única: Crepúsculo <span>BUFF  ↑</span></b>\n<ul><li>Reducción de daño excesivo: (0,4% HP total)% → 20% + (0,2% HP total)%</li></ul></li></ul>\n<p><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Glowing_Wand\" title=\"Glowing Wand\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span> <a href=\"https://mobilelegends.fandom.com/wiki/Glowing_Wand\" title=\"Glowing Wand\" rel=\"noreferrer nofollow\" target=\"_blank\">Varita resplandeciente</a> <span>NERF ↓</span>\n</p>\n<dl><dd>Después de agregar el efecto de reducción de curación, este equipo se volvió demasiado versátil, y su tasa de uso excedía con creces la de otros equipos mágicos. Nuestro objetivo es reducir ligeramente su daño.</dd></dl>\n<ul><li><b>Pasivo único: Quemar <span>NERF ↓</span></b>\n<ul><li>Daño por segundo: 1,5% del HP máximo del objetivo → 1% del HP máximo del objetivo</li></ul></li></ul>\n<h3 id=\"b-other-battlefield-adjustments\"><span>B. Otros ajustes del campo de batalla</span></h3>\n<p><b>[Optimizaciones]</b>\n</p>\n<ul><li>1. Tras la optimización de la experiencia de Movimiento y Ataque para <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Hanabi\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Hanabi\" title=\"Hanabi\" rel=\"noreferrer nofollow\" target=\"_blank\">Hanabi</a></span></span> y <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Ixia\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Ixia\" title=\"Ixia\" rel=\"noreferrer nofollow\" target=\"_blank\">Ixia</a></span></span>, más tiradores recibirán la misma optimización, lo que les permitirá comenzar a moverse más rápidamente después de cada intervalo de ataque básico: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Miya\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Miya\" title=\"Miya\" rel=\"noreferrer nofollow\" target=\"_blank\">Miya</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Bruno\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Bruno\" title=\"Bruno\" rel=\"noreferrer nofollow\" target=\"_blank\">Bruno</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Yi Sun-shin\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Yi_Sun-shin\" title=\"Yi Sun-shin\" rel=\"noreferrer nofollow\" target=\"_blank\">Yi Sun-shin</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Karrie\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Karrie\" title=\"Karrie\" rel=\"noreferrer nofollow\" target=\"_blank\">Karrie</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Wanwan\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Wanwan\" title=\"Wanwan\" rel=\"noreferrer nofollow\" target=\"_blank\">Wanwan</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Popol and Kupa\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Popol_and_Kupa\" title=\"Popol and Kupa\" rel=\"noreferrer nofollow\" target=\"_blank\">Popol y Kupa</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Beatrix\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Beatrix\" title=\"Beatrix\" rel=\"noreferrer nofollow\" target=\"_blank\">Beatrix</a></span></span> (Bennett), <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Natan\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Natan\" title=\"Natan\" rel=\"noreferrer nofollow\" target=\"_blank\">Natan</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Melissa\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Melissa\" title=\"Melissa\" rel=\"noreferrer nofollow\" target=\"_blank\">Melissa</a></span></span> (Continuaremos supervise el rendimiento de estos héroes después de la optimización y realice ajustes en futuras actualizaciones si es necesario).\n<ul><li>(Nota: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Layla\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Layla\" title=\"Layla\" rel=\"noreferrer nofollow\" target=\"_blank\">Layla</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Moskov\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Moskov\" title=\"Moskov\" rel=\"noreferrer nofollow\" target=\"_blank\">Moskov</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Irithel\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Irithel\" title=\"Irithel\" rel=\"noreferrer nofollow\" target=\"_blank\">Irithel</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Lesley\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Lesley\" title=\"Lesley\" rel=\"noreferrer nofollow\" target=\"_blank\">Lesley</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Claude\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Claude\" title=\"Claude\" rel=\"noreferrer nofollow\" target=\"_blank\">Claude</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Beatrix\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Beatrix\" title=\"Beatrix\" rel=\"noreferrer nofollow\" target=\"_blank\">Beatrix</a></span></span> (Nibiru) ya puede comenzar a moverse más rápidamente después de cada intervalo de ataque básico, por lo que no requieren optimizaciones adicionales.)</li></ul></li>\n<li>2. Los jugadores han estado brindando comentarios constantemente sobre que los rangos de habilidades o indicadores de algunos héroes no son lo suficientemente claros. Por lo tanto, hemos revisado exhaustivamente el estado actual de todos los héroes y optimizado los efectos visuales para las siguientes habilidades de héroe: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Gord\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Gord\" title=\"Gord\" rel=\"noreferrer nofollow\" target=\"_blank\">Habilidad de Gord</a></span></span> 1, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Hilda\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Hilda\" title=\"Hilda\" rel=\"noreferrer nofollow\" target=\"_blank\">Hilda</a></span></span>'s Ultimate, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Thamuz\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Thamuz\" title=\"Thamuz\" rel=\"noreferrer nofollow\" target=\"_blank\">Thamuz</a></span></span> Habilidad 2, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Carmilla\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Carmilla\" title=\"Carmilla\" rel=\"noreferrer nofollow\" target=\"_blank\">Carmilla</a></span></span> es lo último, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Miya\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Miya\" title=\"Miya\" rel=\"noreferrer nofollow\" target=\"_blank\">Habilidad 2 de Miya</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Nana\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Nana\" title=\"Nana\" rel=\"noreferrer nofollow\" target=\"_blank\">Nana</a></span></span> es lo último, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Odette\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Odette\" title=\"Odette\" rel=\"noreferrer nofollow\" target=\"_blank\">Odette</a></span></span> es lo último, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Diggie\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Diggie\" title=\"Diggie\" rel=\"noreferrer nofollow\" target=\"_blank\">Diggie</a></span></span> es lo último, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Hylos\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Hylos\" title=\"Hylos\" rel=\"noreferrer nofollow\" target=\"_blank\">Hylos</a></span></span>' Habilidad 2, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Pharsa\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Pharsa\" title=\"Pharsa\" rel=\"noreferrer nofollow\" target=\"_blank\">Pharsa</a></span></span> es lo último, Habilidad de <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Jawhead\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Jawhead\" title=\"Jawhead\" rel=\"noreferrer nofollow\" target=\"_blank\">Jawhead</a></span></span> 2, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Claude\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Claude\" title=\"Claude\" rel=\"noreferrer nofollow\" target=\"_blank\">Claude</a></span></span> Ultimate, habilidad de <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Terizla\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Terizla\" title=\"Terizla\" rel=\"noreferrer nofollow\" target=\"_blank\">Terizla</a></span></span> 2 y Ultimate, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Lylia\"></span></span></span> Habilidad 2 de <span><a href=\"https://mobilelegends.fandom.com/wiki/Lylia\" title=\"Lylia\" rel=\"noreferrer nofollow\" target=\"_blank\">Lylia</a></span></span>. Esperamos que los jugadores ahora puedan distinguir de manera más intuitiva y sencilla sus rangos de habilidades en el juego.</li>\n<li>3. Unificó el maná y la regeneración de maná por segundo para la mayoría de los héroes con costo de maná (excepto <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Alice\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Alice\" title=\"Alice\" rel=\"noreferrer nofollow\" target=\"_blank\">Alice</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Cecilion\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Cecilion\" title=\"Cecilion\" rel=\"noreferrer nofollow\" target=\"_blank\">Cecilion</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Zhuxin\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Zhuxin\" title=\"Zhuxin\" rel=\"noreferrer nofollow\" target=\"_blank\">Zhuxin</a></span></span>).\n<ul><li>Algunos héroes tanque/roaming (<span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Chip\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Chip\" title=\"Chip\" rel=\"noreferrer nofollow\" target=\"_blank\">Chip</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Gloo\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Gloo\" title=\"Gloo\" rel=\"noreferrer nofollow\" target=\"_blank\">Gloo</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Mathilda\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Mathilda\" title=\"Mathilda\" rel=\"noreferrer nofollow\" target=\"_blank\">Mathilda</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Atlas\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Atlas\" title=\"Atlas\" rel=\"noreferrer nofollow\" target=\"_blank\">Atlas</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Carmilla\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Carmilla\" title=\"Carmilla\" rel=\"noreferrer nofollow\" target=\"_blank\">Carmilla</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Baxia\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Baxia\" title=\"Baxia\" rel=\"noreferrer nofollow\" target=\"_blank\">Baxia</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Belerick\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Belerick\" title=\"Belerick\" rel=\"noreferrer nofollow\" target=\"_blank\">Belerick</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Kaja\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Kaja\" title=\"Kaja\" rel=\"noreferrer nofollow\" target=\"_blank\">Kaja</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Uranus\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Uranus\" title=\"Uranus\" rel=\"noreferrer nofollow\" target=\"_blank\">Urano</a></span></span>) han aumentado Mana y Mana Regeneración por segundo.</li></ul></li>\n<li>4. Optimicé el indicador de <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Aurora\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Aurora\" title=\"Aurora\" rel=\"noreferrer nofollow\" target=\"_blank\">Aurora</a></span></span>'s Ultimate.</li>\n<li>5. Se optimizaron los efectos visuales para las habilidades 1 y 2 de <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Aldous\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Aldous\" title=\"Aldous\" rel=\"noreferrer nofollow\" target=\"_blank\">Aldous</a></span></span> y <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Eudora\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Eudora\" title=\"Eudora\" rel=\"noreferrer nofollow\" target=\"_blank\">Eudora</a></span></span>'s Ultimate para hacerlos más claros.</li>\n<li>6. Optimicé la experiencia combinada de <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Vale\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Vale\" title=\"Vale\" rel=\"noreferrer nofollow\" target=\"_blank\">Vale</a></span></span>'s Skill 2 y Ultimate. The Ultimate ahora dará prioridad a los enemigos en la dirección de la Habilidad 2.</li>\n<li>7. Optimicé los efectos visuales de <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Inspire\"></span></span></span> <span><span>Inspire</span></span></span>.</li></ul>\n<p><b>[Solución de errores]</b>\n</p>\n<ul><li>1. Se ajustó el indicador y el rango de efectos visuales del tercer lanzamiento de la habilidad 2 de <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Terizla\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Terizla\" title=\"Terizla\" rel=\"noreferrer nofollow\" target=\"_blank\">Terizla</a></span></span> para que coincida mejor con su real. área de daño.</li>\n<li>2. Se solucionó un problema en Mythic Battlefield donde la reducción de daño para los héroes aliados cercanos otorgada por la torreta exterior de Gold Lane no aumenta normalmente cuando el escudo de energía está activado.</li></ul>",
+        "role": null
+      },
+      {
+        "anchor": "iv-system-adjustments",
+        "title": "IV. Ajustes del sistema",
+        "html": "<h3 id=\"a-ranked\"><span>A. Clasificado</span></h3>\n<ul><li>1. S33 finalizará a las 23:59:59 del 20/09 (hora del servidor).</li>\n<li>2. S34 comenzará a las 00:00:00 del 21/09 (hora del servidor). Completa partidas clasificatorias para reclamar recompensas, incluido el aspecto de temporada S34: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Aulus\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Aulus\" title=\"Aulus\" rel=\"noreferrer nofollow\" target=\"_blank\">Aulus</a></span></span> \"Ironmane Reaver\" y Borde de avatar S34 \"Maestro de la transformación\".</li>\n<li>3. El nuevo capítulo de la historia S34 ya está disponible, que revela el misterioso trasfondo del nuevo héroe: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Suyou\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Suyou\" title=\"Suyou\" rel=\"noreferrer nofollow\" target=\"_blank\">Suyou</a></span></span>. ¡Obtén el exclusivo Suyou Emote completando todos los capítulos!</li></ul>\n<dl><dd>Esta temporada terminará 2 horas antes que las temporadas anteriores. Por favor asigne su tiempo en consecuencia. ¡Te deseo que disfrutes el juego y puedas ascender rápidamente a la cima!</dd></dl>\n<h3 id=\"b-battlefield-draft\"><span>B. Borrador del campo de batalla</span></h3>\n<dl><dd>¡El evento Battlefield Draft llegará pronto! Aquí tendrás la oportunidad de experimentar nuevos efectos en el campo de batalla, como Super Entourage, Healing Turret y Eternal Strength.</dd></dl>\n<ul><li>Este evento tendrá 4 fases. Cada fase se divide en Etapa de votación, Etapa de anuncio y Etapa de competencia.</li>\n<li>Durante cada etapa de votación, puedes obtener votos con efecto Battlefield al completar tareas. Puedes usarlos para votar por tu favorito entre tres efectos de campo de batalla diferentes.</li>\n<li>El efecto del campo de batalla con el mayor número de votos ingresará a la Etapa de Anuncio y, en última instancia, tendrá efecto en las partidas igualadas para rangos épicos y superiores durante la Etapa de Competición.</li>\n<li>Draft de Battlefield: ¡Tus mapas, tus reglas!</li>\n<li>El evento Battlefield Draft estará disponible del 21/09 al 22/11 (hora del servidor).</li></ul>\n<dl><dd>Nota: Algunas funciones de notificación de eventos solo son visibles en dispositivos Android.</dd></dl>",
+        "role": null
+      },
+      {
+        "anchor": "v-events",
+        "title": "V. Eventos",
+        "html": "<h3 id=\"a-anniversary\"><span>A. Aniversario</span></h3>\n<dl><dd>¡Los eventos del octavo aniversario de MLBB comenzarán oficialmente el 27/09 (hora del servidor)! ¡Durante el evento de aniversario, habrá nuevas experiencias con generosas recompensas que no querrás perderte!</dd></dl>\n<ul><li>El evento Gran Aventura estará disponible del 27/09 al 27/10 (hora del servidor). ¡Es hora de obtener la nueva piel <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Akai\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Akai\" title=\"Akai\" rel=\"noreferrer nofollow\" target=\"_blank\">Akai</a></span></span>! ¡Estén atentos para obtener más recompensas de aniversario!</li>\n<li>El evento renovado para jugadores que regresan estará disponible del 27/09 al 27/10 (hora del servidor). ¡Trae a tus amigos para obtener un aspecto Epic gratis!</li>\n<li>El nuevo aspecto <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Kagura\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Kagura\" title=\"Kagura\" rel=\"noreferrer nofollow\" target=\"_blank\">Kagura</a></span></span> estará disponible del 18/10 al 03/11 (hora del servidor). ¡Participa en el evento Regalo de aniversario de Kagura para conseguirlo gratis! ¡No te lo pierdas!</li>\n<li>El evento de sorteo de aspectos de aniversario se llevará a cabo del 4/10 al 17/10 (hora del servidor), ¡y habrá aspectos épicos gratuitos en juego!</li>\n<li>¡Participa en los eventos de bonificación de batalla de aniversario del 27/09 al 22/10 (hora del servidor) para obtener notificaciones de asesinato, fichas Ducati y muchas más recompensas gratis!</li></ul>\n<h3 id=\"b-mpl-team-recall-effect-lucky-draw\"><span>B. Sorteo del efecto de retirada del equipo MPL</span></h3>\n<ul><li>1. El 19/09 (hora del servidor), un evento de sorteo exclusivo que presenta efectos de recuperación de 12 equipos MPL: DEWA, ​​EVOS, FCAP, GEEK, LIQUID, OMG, ONIC, RBL, RORA, RSG, TLPH y TNC, llegará con toda su fuerza.</li>\n<li>2. Durante el evento, disfruta de un 50% de descuento en tu primer Sorteo 1X y Sorteo 10X. ¡No te lo pierdas!</li></ul>\n<h3 id=\"c-brody-apbren\"><span></span><span>C. Brody \"APBren\"</span></h3>\n<ul><li>1. Del 19/09 al 02/11 (hora del servidor), el <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Brody\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Brody\" title=\"Brody\" rel=\"noreferrer nofollow\" target=\"_blank\">Brody</a></span></span> El evento \"APBren\" estará disponible por tiempo limitado. ¡No se pierda una oferta por tiempo limitado de más del 60 % de descuento (en lugar de 1299 diamantes) una vez que comience el evento!</li>\n<li>2. Durante el evento, compra la tarjeta de recuerdo de campeón para desbloquear instantáneamente el aspecto de campeón M5 <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Brody\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Brody\" title=\"Brody\" rel=\"noreferrer nofollow\" target=\"_blank\">Brody</a></span></span> \"APBren\". Compra la tarjeta de recuerdo de campeón de lujo para desbloquear todas las recompensas de ambos niveles, incluido el efecto de recuperación, el efecto de aparición y el efecto de eliminación.</li></ul>\n<h3 id=\"d-shop\"><span>D. Tienda</span></h3>\n<p>Ajustes de tienda el 19/09 (hora del servidor):\n</p>\n<ul><li>1. Se eliminó la pestaña Tienda - Preparación - Especial.</li>\n<li>2. Se agregó una nueva Tienda: pestaña Especial que muestra todos los paquetes y artículos que se pueden comprar.</li></ul>\n<dl><dd>(Esta actualización está actualmente limitada solo a usuarios de Android. Usuarios de iOS, por favor esperen futuras actualizaciones).</dd></dl>\n<h3 id=\"e-new-skins\"><span>E. Nuevas máscaras</span></h3>\n<ul><li><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Paquito\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Paquito\" title=\"Paquito\" rel=\"noreferrer nofollow\" target=\"_blank\">Paquito</a></span></span> \"Fist of Glory\", el aspecto FMVP del M5, estará disponible el 19/09 (Servidor Time) con un 30 % de descuento durante la primera semana.</li>\n<li>La nueva máscara, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Suyou\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Suyou\" title=\"Suyou\" rel=\"noreferrer nofollow\" target=\"_blank\">Suyou</a></span></span> \"Venerated Vigilance\", estará disponible el 21/09 (hora del servidor) por solo 51 diamantes en las dos primeras semanas.</li></ul>\n<h3 id=\"f-s34-first-recharge-event\"><span>F. S34 Primer evento de recarga</span></h3>\n<ul><li>1. ¡Recarga 20 diamantes para reclamar el borde de avatar de primera recarga S34 gratis!</li>\n<li>2. Recarga cualquier cantidad para comprar el aspecto Elite exclusivo de primera recarga S34, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Hylos\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Hylos\" title=\"Hylos\" rel=\"noreferrer nofollow\" target=\"_blank\">Hylos</a></span></span> \"Bloodhoof Merodeador\". ¡Solo por 100 diamantes después del descuento!</li>\n<li>3. Recarga un total de 3 días para poder comprar la Rename Card (7 días), ¡y con solo 50 Diamantes!</li></ul>\n<h3 id=\"g-zodiac-summon\"><span>G. Invocación del Zodíaco</span></h3>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Lunox\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Lunox\" title=\"Lunox\" rel=\"noreferrer nofollow\" target=\"_blank\">Lunox</a></span></span> \"Libra\" regresará por tiempo limitado el 23/09 (hora del servidor). Estará disponible con un 30% de descuento durante la primera semana.\n</p>\n<h3 id=\"h-fragment-shop\"><span>H. Tienda de fragmentos</span></h3>\n<p>Ajustes de la tienda de fragmentos el 20/09 (hora del servidor):\n</p><p><b>a. Aspectos raros</b>\n</p>\n<ul><li>Añadido: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Miya\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Miya\" title=\"Miya\" rel=\"noreferrer nofollow\" target=\"_blank\">Miya</a></span></span> \"Capitán Thorns\", <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Franco\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Franco\" title=\"Franco\" rel=\"noreferrer nofollow\" target=\"_blank\">Franco</a></span></span> \"Apocalipsis\", <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Freya\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Freya\" title=\"Freya\" rel=\"noreferrer nofollow\" target=\"_blank\">Freya</a></span></span> \"Cazador de dragones\", <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Aurora\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Aurora\" title=\"Aurora\" rel=\"noreferrer nofollow\" target=\"_blank\">Aurora</a></span></span> \"Emperatriz del desamor\", <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Belerick\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Belerick\" title=\"Belerick\" rel=\"noreferrer nofollow\" target=\"_blank\">Belerick</a></span></span> \"Garra de tigre\"</li>\n<li>Eliminado: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Natalia\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Natalia\" title=\"Natalia\" rel=\"noreferrer nofollow\" target=\"_blank\">Natalia</a></span></span> \"Bailarina fantasma\", <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Zilong\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Zilong\" title=\"Zilong\" rel=\"noreferrer nofollow\" target=\"_blank\">Zilong</a></span></span> \"Guerrero del Este\", <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Harley\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Harley\" title=\"Harley\" rel=\"noreferrer nofollow\" target=\"_blank\">Harley</a></span></span> \"Magister Real\", <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Akai\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Akai\" title=\"Akai\" rel=\"noreferrer nofollow\" target=\"_blank\">Akai</a></span></span> \"Akazonae Samurai\", <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Uranus\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Uranus\" title=\"Uranus\" rel=\"noreferrer nofollow\" target=\"_blank\">Urano</a></span></span> \"Alma antigua\"</li></ul>\n<p><b>b. Tienda de héroes</b>\n</p>\n<ul><li>Añadido: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Zhask\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Zhask\" title=\"Zhask\" rel=\"noreferrer nofollow\" target=\"_blank\">Zhask</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Benedetta\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Benedetta\" title=\"Benedetta\" rel=\"noreferrer nofollow\" target=\"_blank\">Benedetta</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Martis\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Martis\" title=\"Martis\" rel=\"noreferrer nofollow\" target=\"_blank\">Martis</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Novaria\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Novaria\" title=\"Novaria\" rel=\"noreferrer nofollow\" target=\"_blank\">Novaria</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Vale\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Vale\" title=\"Vale\" rel=\"noreferrer nofollow\" target=\"_blank\">Vale</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Xavier\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Xavier\" title=\"Xavier\" rel=\"noreferrer nofollow\" target=\"_blank\">Xavier</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Arlott\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Arlott\" title=\"Arlott\" rel=\"noreferrer nofollow\" target=\"_blank\">Arlott</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Lylia\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Lylia\" title=\"Lylia\" rel=\"noreferrer nofollow\" target=\"_blank\">Lylia</a></span></span></li>\n<li>Eliminado: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Hanabi\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Hanabi\" title=\"Hanabi\" rel=\"noreferrer nofollow\" target=\"_blank\">Hanabi</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Angela\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Angela\" title=\"Angela\" rel=\"noreferrer nofollow\" target=\"_blank\">Ángela</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Beatrix\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Beatrix\" title=\"Beatrix\" rel=\"noreferrer nofollow\" target=\"_blank\">Beatrix</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Karrie\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Karrie\" title=\"Karrie\" rel=\"noreferrer nofollow\" target=\"_blank\">Karrie</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Fanny\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Fanny\" title=\"Fanny\" rel=\"noreferrer nofollow\" target=\"_blank\">Fanny</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Aamon\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Aamon\" title=\"Aamon\" rel=\"noreferrer nofollow\" target=\"_blank\">Aamon</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Lancelot\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Lancelot\" title=\"Lancelot\" rel=\"noreferrer nofollow\" target=\"_blank\">Lancelot</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Ruby\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Ruby\" title=\"Ruby\" rel=\"noreferrer nofollow\" target=\"_blank\">Rubí</a></span></span></li></ul>\n<h3 id=\"i-free-heroes\"><span>I. Héroes libres</span></h3>\n<p>Hora del servidor 20/09/2024 05:01:00 al 27/09/2024 05:00:00 \n</p>\n<ul><li>8 héroes libres: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Cyclops\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Cyclops\" title=\"Cyclops\" rel=\"noreferrer nofollow\" target=\"_blank\">Cíclope</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Silvanna\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Silvanna\" title=\"Silvanna\" rel=\"noreferrer nofollow\" target=\"_blank\">Silvanna</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Chou\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Chou\" title=\"Chou\" rel=\"noreferrer nofollow\" target=\"_blank\">Chou</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Aulus\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Aulus\" title=\"Aulus\" rel=\"noreferrer nofollow\" target=\"_blank\">Aulus</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Lunox\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Lunox\" title=\"Lunox\" rel=\"noreferrer nofollow\" target=\"_blank\">Lunox</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Hylos\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Hylos\" title=\"Hylos\" rel=\"noreferrer nofollow\" target=\"_blank\">Hylos</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Kagura\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Kagura\" title=\"Kagura\" rel=\"noreferrer nofollow\" target=\"_blank\">Kagura</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Arlott\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Arlott\" title=\"Arlott\" rel=\"noreferrer nofollow\" target=\"_blank\">Arlott</a></span></span></li>\n<li>6 héroes adicionales miembros de StarLight: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Hanabi\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Hanabi\" title=\"Hanabi\" rel=\"noreferrer nofollow\" target=\"_blank\">Hanabi</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Terizla\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Terizla\" title=\"Terizla\" rel=\"noreferrer nofollow\" target=\"_blank\">Terizla</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Lesley\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Lesley\" title=\"Lesley\" rel=\"noreferrer nofollow\" target=\"_blank\">Lesley</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Cecilion\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Cecilion\" title=\"Cecilion\" rel=\"noreferrer nofollow\" target=\"_blank\">Cecilion</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Carmilla\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Carmilla\" title=\"Carmilla\" rel=\"noreferrer nofollow\" target=\"_blank\">Carmilla</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Harith\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Harith\" title=\"Harith\" rel=\"noreferrer nofollow\" target=\"_blank\">Harith</a></span></span></li></ul>\n<p>Hora del servidor 27/09/2024 05:01:00 al 04/10/2024 05:00:00 \n</p>\n<ul><li>8 héroes libres: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Valentina\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Valentina\" title=\"Valentina\" rel=\"noreferrer nofollow\" target=\"_blank\">Valentina</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Helcurt\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Helcurt\" title=\"Helcurt\" rel=\"noreferrer nofollow\" target=\"_blank\">Helcurt</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Faramis\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Faramis\" title=\"Faramis\" rel=\"noreferrer nofollow\" target=\"_blank\">Faramis</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Hanzo\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Hanzo\" title=\"Hanzo\" rel=\"noreferrer nofollow\" target=\"_blank\">Hanzo</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Barats\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Barats\" title=\"Barats\" rel=\"noreferrer nofollow\" target=\"_blank\">Barats</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Cici\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Cici\" title=\"Cici\" rel=\"noreferrer nofollow\" target=\"_blank\">Cici</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Karina\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Karina\" title=\"Karina\" rel=\"noreferrer nofollow\" target=\"_blank\">Karina</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Aurora\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Aurora\" title=\"Aurora\" rel=\"noreferrer nofollow\" target=\"_blank\">Aurora</a></span></span></li>\n<li>6 héroes adicionales miembros de StarLight: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Mathilda\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Mathilda\" title=\"Mathilda\" rel=\"noreferrer nofollow\" target=\"_blank\">Mathilda</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Leomord\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Leomord\" title=\"Leomord\" rel=\"noreferrer nofollow\" target=\"_blank\">Leomord</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Karrie\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Karrie\" title=\"Karrie\" rel=\"noreferrer nofollow\" target=\"_blank\">Karrie</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Fredrinn\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Fredrinn\" title=\"Fredrinn\" rel=\"noreferrer nofollow\" target=\"_blank\">Fredrinn</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Belerick\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Belerick\" title=\"Belerick\" rel=\"noreferrer nofollow\" target=\"_blank\">Belerick</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Nolan\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Nolan\" title=\"Nolan\" rel=\"noreferrer nofollow\" target=\"_blank\">Nolan</a></span></span></li></ul>",
+        "role": null
+      },
+      {
+        "anchor": "vi-game-modes-mode-adjustments",
+        "title": "VI. Modos de juego/Ajustes de modo",
+        "html": "<h3 id=\"a-shadow-brawl\"><span>A. Pelea de sombras</span></h3>\n<p>Shadow Brawl regresa y estará disponible por tiempo limitado todas las semanas de jueves a domingo. ¡Diviértete con combates trepidantes!\n</p>\n<h3 id=\"b-deathbattle\"><span>B. Batalla a muerte</span></h3>\n<p>Deathbattle regresa y estará disponible por tiempo limitado todas las semanas de lunes a miércoles. ¡Diviértete con combates trepidantes!\n</p>\n<h3 id=\"c-overdrive\"><span>C. Sobremarcha</span></h3>\n<p>Overdrive estará disponible SÓLO el 21/09 (hora del servidor), que es el día de liquidación de la temporada.\n</p>\n<h3 id=\"d-brawl\"><span>D. Pelea</span></h3>\n<p><i>v304.1</i>\n</p><p><b>[Ajustes de equilibrio del héroe]</b>\n</p><p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Miya\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Miya\" title=\"Miya\" rel=\"noreferrer nofollow\" target=\"_blank\">Miya</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>DAÑO -8% → -10%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Ruby\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Ruby\" title=\"Ruby\" rel=\"noreferrer nofollow\" target=\"_blank\">Rubí</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>DAÑO recibido +10% → +16%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Aurora\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Aurora\" title=\"Aurora\" rel=\"noreferrer nofollow\" target=\"_blank\">Aurora</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>(Nuevo) DAÑO -6%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Gatotkaca\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Gatotkaca\" title=\"Gatotkaca\" rel=\"noreferrer nofollow\" target=\"_blank\">Gatotkaca</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>DAÑO recibido +10% → +14%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Argus\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Argus\" title=\"Argus\" rel=\"noreferrer nofollow\" target=\"_blank\">Argus</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>DAÑO +14% → +8%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Hylos\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Hylos\" title=\"Hylos\" rel=\"noreferrer nofollow\" target=\"_blank\">Hylos</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>(Nuevo) DAÑO recibido +10%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Jawhead\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Jawhead\" title=\"Jawhead\" rel=\"noreferrer nofollow\" target=\"_blank\">Jawhead</a></span></span> <span>BUFF  ↑</span>\n</p>\n<ul><li>DAÑO recibido -8% → -12%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Kimmy\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Kimmy\" title=\"Kimmy\" rel=\"noreferrer nofollow\" target=\"_blank\">Kimmy</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>DAÑO +14% → +8%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Dyrroth\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Dyrroth\" title=\"Dyrroth\" rel=\"noreferrer nofollow\" target=\"_blank\">Dyrroth</a></span></span> <span>BUFF  ↑</span>\n</p>\n<ul><li>DAÑO recibido -6% → -10%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Mathilda\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Mathilda\" title=\"Mathilda\" rel=\"noreferrer nofollow\" target=\"_blank\">Mathilda</a></span></span> <span>BUFF  ↑</span>\n</p>\n<ul><li>(Nuevo) DAÑO +10%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Phoveus\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Phoveus\" title=\"Phoveus\" rel=\"noreferrer nofollow\" target=\"_blank\">Phoveus</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>(Nuevo) DAÑO -8%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Xavier\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Xavier\" title=\"Xavier\" rel=\"noreferrer nofollow\" target=\"_blank\">Xavier</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>DAÑO -10% → -14%</li></ul>\n\n<p><br>\n</p>\n<h3 id=\"e-magic-chess\"><span>E. Ajedrez mágico</span></h3>\n<p><i>v488.1</i>\n</p><p><b>[Actualización del sorteo del tema]</b>\n</p>\n<ul><li>El evento de sorteo temático de Magic Chess, Astro Probe, regresará el 19/09/2024 a las 00:00:00 (hora del servidor) por tiempo limitado. Participe para tener la oportunidad de obtener el diseño exclusivo de Tharz: Astro Probe y Teleport Effect: Galactic Warp. ¡Manténganse al tanto!</li>\n<li>El evento de sorteo temático de Magic Chess, Astro Playroom, regresará el 31/10/2024 a las 00:00:00 (hora del servidor) por tiempo limitado. Participa para tener la oportunidad de obtener el tablero de ajedrez exclusivo: Astro Playroom y el efecto Teleport: Galactic Warp. ¡Manténganse al tanto!</li></ul>\n<p><b>[Ajustes de sinergia]</b>\n</p>\n<ul><li>Inmortales <span>BUFF  ↑</span>: Acumulación máxima para 2/4/6 Inmortales: 35 → 40</li>\n<li>Astro Power <span>NERF ↓</span>: Aumento de daño: 40%/90% → 40%/85%</li></ul>\n<p><b>[Ajustes del comandante]</b>\n</p>\n<ul><li>Harper <span>NERF ↓</span>: Voluntad del guerrero: Harper recibe 5 → 4 menos de daño de los ataques.</li>\n<li>Angela <span>NERF ↓</span>: Marioneta en una cuerda: se solucionó un problema por el cual los enemigos aturdidos no podían restaurar maná durante un período prolongado.</li>\n<li>Eva <span>BUFF  ↑</span>: Aumento de velocidad de ataque: 35% → 42%</li></ul>\n<p><b>[Ajustes de héroe]</b>\n</p>\n<ul><li>Selena <span>NERF ↓</span>: Daño de habilidad: 2350/3500/6200 → 2100/3150/5600</li></ul>\n<p><b>[Ajustes de equipo]</b>\n</p>\n<ul><li>Casco de guardián [Intendente] <span>NERF ↓</span>: Aumento máximo de HP: 30 % → 28 %</li></ul>\n―Leyendas móviles: Bang Bang",
+        "role": null
+      },
+      {
+        "anchor": "undocumented-changes",
+        "title": "Cambios no documentados",
+        "html": "<p>-\n</p>",
+        "role": null
+      },
+      {
+        "anchor": "references",
+        "title": "Referencias",
+        "html": "",
+        "role": null
+      }
+    ],
+    "newHeroes": [],
+    "adjustments": [
+      {
+        "name": "Zhuxin",
+        "type": "adjust",
+        "intro": "",
+        "sections": [],
+        "slug": "zhuxin"
+      },
+      {
+        "name": "Zhuxin",
+        "type": "adjust",
+        "intro": "La capacidad de Zhuxin para limpiar olas es débil, mientras que su potencial de control en las peleas en equipo es demasiado alto. Nuestro objetivo es abordar este problema.",
+        "sections": [
+          {
+            "name": "Atributos",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Regeneración de maná base",
+                "before": "28",
+                "after": "10"
+              }
+            ]
+          },
+          {
+            "name": "Pasivo",
+            "category": null,
+            "type": "adjust",
+            "changes": [
+              {
+                "label": "Pilas de mariposas carmesí Max",
+                "before": "30",
+                "after": "20"
+              },
+              {
+                "label": "Maná restaurado por pila de mariposas carmesí",
+                "before": "3% of Max Mana",
+                "after": "4% of Max Mana"
+              }
+            ]
+          },
+          {
+            "name": "Habilidad 1",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Lanzar ya no consume maná."
+              }
+            ]
+          },
+          {
+            "name": "Habilidad 2",
+            "category": null,
+            "type": "adjust",
+            "changes": [
+              {
+                "text": "Lanzar ya no consume maná. Cada vez que se aplica Soul Snare se consume entre 90 y 150 maná, lo que significa que no se consumirá maná si no se golpea a ningún héroe o unidad convocada."
+              }
+            ]
+          },
+          {
+            "name": "Último",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "text": "Lanzar ya no consume maná."
+              },
+              {
+                "text": "Se eliminó el efecto por el cual la Habilidad 2 no consume maná durante el Ultimate."
+              }
+            ]
+          }
+        ],
+        "slug": "zhuxin"
+      },
+      {
+        "name": "Chip",
+        "type": "adjust",
+        "intro": "Esperamos mejorar la efectividad de Chip en las peleas en equipo y al mismo tiempo reducir significativamente sus capacidades de soporte.",
+        "sections": [
+          {
+            "name": "Último",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Efecto adicional después del retraso",
+                "before": "50% Slow Effect",
+                "after": "Immobilizing Effect"
+              }
+            ]
+          },
+          {
+            "name": "Habilidad 4",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Enfriarse",
+                "before": "20s",
+                "after": "60s"
+              }
+            ]
+          }
+        ],
+        "slug": "chip"
+      },
+      {
+        "name": "Nolan",
+        "type": "buff",
+        "intro": "Mejora las habilidades asesinas de Nolan y reduce ligeramente su movilidad para mantener el equilibrio.",
+        "sections": [
+          {
+            "name": "Habilidad 1 y 2",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Enfriarse",
+                "before": "2-1s",
+                "after": "2.5-1.5s"
+              }
+            ]
+          },
+          {
+            "name": "Último",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Nuevo efecto: ralentiza el objetivo alcanzado un 30 % durante 0,5 s."
+              },
+              {
+                "label": "Enfriarse",
+                "before": "24-18s",
+                "after": "21-15s"
+              }
+            ]
+          }
+        ],
+        "slug": "nolan"
+      },
+      {
+        "name": "Terizla",
+        "type": "nerf",
+        "intro": "En la versión actual, Terizla tiene una presencia muy fuerte al principio y a la mitad del juego. Por lo tanto, hemos reducido significativamente su poder al principio del juego, pero hemos aumentado ligeramente su poder al final del juego.",
+        "sections": [
+          {
+            "name": "Pasivo",
+            "category": null,
+            "type": "adjust",
+            "changes": [
+              {
+                "label": "Reducción máxima de daños",
+                "before": "30%",
+                "after": "21%-35% (increases as the hero levels up)"
+              }
+            ]
+          },
+          {
+            "name": "Habilidad 1",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Enfriarse",
+                "before": "7s at all levels",
+                "after": "9s at all levels"
+              }
+            ]
+          },
+          {
+            "name": "Habilidad 2",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Enfriarse",
+                "before": "7-4.5s",
+                "after": "9-4s"
+              },
+              {
+                "label": "Daño de los primeros 2 ataques",
+                "before": "135-310 + 160%-185% Total Physical Attack",
+                "after": "90-315 + 135%-185% Total Physical Attack"
+              },
+              {
+                "label": "Daño a los súbditos",
+                "before": "60%-100%",
+                "after": "70%-100%"
+              }
+            ]
+          }
+        ],
+        "slug": "terizla"
+      },
+      {
+        "name": "Zhask",
+        "type": "nerf",
+        "intro": "Después de una serie de optimizaciones, Zhask era demasiado fuerte. Debilitaremos ligeramente su poder al principio del juego mientras simplificamos las reglas de herencia de atributos de Nightmaric Spawn y optimizamos la descripción de la habilidad.",
+        "sections": [
+          {
+            "name": "Habilidad 1",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Daño base de generación de pesadilla",
+                "before": "60",
+                "after": "55"
+              },
+              {
+                "label": "HP y defensa híbrida de Nightmaric Spawn heredados",
+                "before": "70%-100%",
+                "after": "55%-100%"
+              },
+              {
+                "label": "El poder mágico de Nightmaric Spawn se hereda",
+                "before": "50%-80%",
+                "after": "55%-100% (removed Extra Magic Power)."
+              }
+            ]
+          },
+          {
+            "name": "Último",
+            "category": null,
+            "type": "adjust",
+            "changes": [
+              {
+                "label": "Se hereda el poder mágico mejorado de Nightmaric Spawn",
+                "before": "90%",
+                "after": "100% (removed Extra Magic Power)."
+              }
+            ]
+          }
+        ],
+        "slug": "zhask"
+      },
+      {
+        "name": "Hylos",
+        "type": "nerf",
+        "intro": "Beneficiándose de los ajustes en algunos equipos, Hylos ha ido mostrando gradualmente su dominio en las partidas clasificatorias. Esperamos mantener el sólido rendimiento de Hylos al principio del juego, por lo que este ajuste reduce su durabilidad al final del juego.",
+        "sections": [
+          {
+            "name": "Atributos",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Crecimiento de HP",
+                "before": "360",
+                "after": "295"
+              },
+              {
+                "label": "Crecimiento de la defensa física",
+                "before": "6.8",
+                "after": "5.5"
+              },
+              {
+                "label": "Crecimiento de la defensa mágica",
+                "before": "4",
+                "after": "2.5"
+              },
+              {
+                "label": "Maná base",
+                "before": "430",
+                "after": "500"
+              },
+              {
+                "label": "Regeneración de maná base",
+                "before": "2.4",
+                "after": "4"
+              }
+            ]
+          }
+        ],
+        "slug": "hylos"
+      },
+      {
+        "name": "Roger",
+        "type": "nerf",
+        "intro": "Actualmente, Roger es extremadamente fuerte en términos de durabilidad, daño causado y movilidad. Queremos debilitar su capacidad de supervivencia y movilidad al principio y a la mitad del juego.",
+        "sections": [
+          {
+            "name": "Último",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Enfriarse",
+                "before": "6-4.5s",
+                "after": "9-4.5s"
+              },
+              {
+                "label": "Mayor defensa física y mágica",
+                "before": "40-70",
+                "after": "20-65"
+              }
+            ]
+          }
+        ],
+        "slug": "roger"
+      },
+      {
+        "name": "Julian",
+        "type": "nerf",
+        "intro": "Se debilitó ligeramente el potencial de explosión de Julian al principio y a la mitad del juego.",
+        "sections": [
+          {
+            "name": "Habilidad 1",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Daño sostenido de Scythe mejorado",
+                "before": "90-210",
+                "after": "80-180"
+              }
+            ]
+          }
+        ],
+        "slug": "julian"
+      },
+      {
+        "name": "Hayabusa",
+        "type": "nerf",
+        "intro": "Actualmente, Hayabusa es extremadamente dominante tanto en torneos profesionales como en partidos de alto rango. Hemos decidido reducir ligeramente su daño. Al mismo tiempo, hemos optimizado la velocidad de ataque de su Ultimate, permitiéndole a Hayabusa realizar muchas jugadas impresionantes al final del juego cuando se combina con su Habilidad 2.",
+        "sections": [
+          {
+            "name": "Último",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "text": "Optimización de efectos: Aumentó significativamente la velocidad de golpe de Ultimate en los niveles 2 y 3 (la duración total de 9 y 12 golpes de Ultimate de nivel 2 y 3 ahora es la misma que la de 6 golpes de Ultimate de nivel 1)."
+              },
+              {
+                "label": "Bonificación de daño",
+                "before": "75% Extra Physical Attack",
+                "after": "60% Extra Physical Attack"
+              }
+            ]
+          }
+        ],
+        "slug": "hayabusa"
+      },
+      {
+        "name": "Popol and Kupa",
+        "type": "nerf",
+        "intro": "Se redujo la capacidad de ráfaga de Popol y Kupa desde el principio hasta la mitad del juego y, al mismo tiempo, se redujo ligeramente la velocidad de eliminación de creeps para equilibrar su fuerza como Jungler y Gold Laner.",
+        "sections": [
+          {
+            "name": "Pasivo",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Daño adicional de Kupa contra Creeps",
+                "before": "150%",
+                "after": "120%"
+              }
+            ]
+          },
+          {
+            "name": "Habilidad 1",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Daño base de la mordedura de Kupa",
+                "before": "100-190",
+                "after": "70-160"
+              }
+            ]
+          }
+        ],
+        "slug": "popol-and-kupa"
+      },
+      {
+        "name": "Mathilda",
+        "type": "adjust",
+        "intro": "Se optimizó el control de la Habilidad 1, se redujo el alcance del campo de la Habilidad 2 y se redujo el costo de maná de todas las habilidades.",
+        "sections": [
+          {
+            "name": "Habilidad 1",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Rango",
+                "before": "4.6",
+                "after": "4.8"
+              },
+              {
+                "text": "Nuevo efecto: las habilidades de lanzamiento no interrumpirán el movimiento del héroe."
+              },
+              {
+                "label": "Costo de maná",
+                "before": "60-110",
+                "after": "50-75"
+              }
+            ]
+          },
+          {
+            "name": "Habilidad 2",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Rango",
+                "before": "5.5",
+                "after": "4.8"
+              },
+              {
+                "label": "Costo de maná",
+                "before": "75-100",
+                "after": "60-85"
+              }
+            ]
+          }
+        ],
+        "slug": "mathilda"
+      },
+      {
+        "name": "Edith",
+        "type": "adjust",
+        "intro": "Solucionamos un problema con Edith donde el poder mágico otorgado por Overload no era efectivo durante su Ultimate. Dado que la fuerza actual de Edith ya es bastante alta, esta solución en realidad aumentaría aún más su daño. Por lo tanto, hemos realizado algunos ajustes a su pasiva para mantener su daño general sin cambios.",
+        "sections": [
+          {
+            "name": "Pasivo",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "text": "Se solucionó un problema por el cual el poder mágico otorgado por Overload no era efectivo durante su Ultimate."
+              },
+              {
+                "label": "Bonificación total de poder mágico",
+                "before": "30%",
+                "after": "20%"
+              },
+              {
+                "label": "Daño adicional",
+                "before": "4% + 0.25% × Hero Level",
+                "after": "3% + 0.2% × Hero Level"
+              }
+            ]
+          }
+        ],
+        "slug": "edith"
+      },
+      {
+        "name": "Lolita",
+        "type": "nerf",
+        "intro": "En el último ajuste, aumentamos la eficiencia del escudo pasivo de Lolita, pero también le permitió obtener demasiada tasa de victorias a través de equipos como Frasco del Oasis. En este ajuste, nuestro objetivo es equilibrar los beneficios de sus diferentes configuraciones, convirtiéndola en un apoyo y un tanque en lugar de una maga con configuraciones mágicas completas. Por lo tanto, ajustamos el método de cálculo de los ingresos de su Escudo Pasivo y debilitamos ligeramente la fuerza de su Escudo Pasivo.",
+        "sections": [
+          {
+            "name": "Pasivo",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Intervalo de activación del escudo pasivo",
+                "before": "5s",
+                "after": "6s"
+              },
+              {
+                "label": "Escudo de cada pila",
+                "before": "80 + 16 × Hero Level + 60% Total Magic Power",
+                "after": "20 + 2.5% Total HP + 20% Total Magic Power"
+              }
+            ]
+          },
+          {
+            "name": "Habilidad 1",
+            "category": null,
+            "type": "adjust",
+            "changes": [
+              {
+                "label": "Gatillo de escudo pasivo",
+                "before": "Before the first dash",
+                "after": "After the first dash"
+              }
+            ]
+          }
+        ],
+        "slug": "lolita"
+      },
+      {
+        "name": "Balmond",
+        "type": "buff",
+        "intro": "La fuerza de Balmond es ligeramente deficiente en comparación con otros Junglers, por lo que hemos decidido prestarle a este viejo amigo la atención que tanto necesitaba.",
+        "sections": [
+          {
+            "name": "Habilidad 2",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "El daño aumenta con cada golpe posterior",
+                "before": "7.5%",
+                "after": "8.5%"
+              },
+              {
+                "label": "Aumento máximo de daño",
+                "before": "60%",
+                "after": "68%"
+              }
+            ]
+          }
+        ],
+        "slug": "balmond"
+      },
+      {
+        "name": "Arlott",
+        "type": "buff",
+        "intro": "Se eliminó el maná de Arlott y se mejoró ligeramente su capacidad de carril cuando su habilidad definitiva no está disponible.",
+        "sections": [
+          {
+            "name": "Pasivo",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Enfriarse",
+                "before": "8s",
+                "after": "7s"
+              }
+            ]
+          }
+        ],
+        "slug": "arlott"
+      },
+      {
+        "name": "Natalia",
+        "type": "buff",
+        "intro": "Se eliminó el maná de Natalia. Ahora, después de que Natalia entre en un arbusto, el tiempo restante para mejorar el ataque básico de Natalia ahora se mostrará donde solía estar su maná.",
+        "sections": [],
+        "slug": "natalia"
+      },
+      {
+        "name": "Grock",
+        "type": "buff",
+        "intro": "Se eliminó el maná de Grock.",
+        "sections": [],
+        "slug": "grock"
+      },
+      {
+        "name": "Claude",
+        "type": "buff",
+        "intro": "Se eliminó el maná de Claude.",
+        "sections": [],
+        "slug": "claude"
+      },
+      {
+        "name": "Alice",
+        "type": "buff",
+        "intro": "Aumentó el Max Mana de Alice junto con ajustes de equipo.",
+        "sections": [
+          {
+            "name": "Atributos",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Regeneración de maná por segundo",
+                "before": "3.6",
+                "after": "6"
+              },
+              {
+                "label": "Crecimiento de maná por nivel",
+                "before": "100",
+                "after": "150"
+              }
+            ]
+          }
+        ],
+        "slug": "alice"
+      },
+      {
+        "name": "Cecilion",
+        "type": "buff",
+        "intro": "Se aumentó el Max Mana de Cecilion junto con los ajustes del equipo.",
+        "sections": [
+          {
+            "name": "Atributos",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Crecimiento de maná por nivel",
+                "before": "109",
+                "after": "140"
+              }
+            ]
+          }
+        ],
+        "slug": "cecilion"
+      }
+    ],
+    "balance": {
+      "buff": 8,
+      "nerf": 8,
+      "adjust": 5
+    },
+    "date": "2026-11-11"
+  },
   "1.8.92": {
     "version": "1.8.92",
-    "title": "Patch Notes/1.8.92",
-    "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes%2F1.8.92",
+    "title": "Patch Notes 1.8.92",
+    "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.92",
     "toc": [
       {
         "level": 2,
@@ -11053,358 +11872,5 @@
       "adjust": 2
     },
     "date": "2024-06-15"
-  },
-  "1.8.88": {
-    "version": "1.8.88",
-    "title": "Patch Notes 1.8.88 (Advanced Server)",
-    "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.88_(Advanced_Server)",
-    "toc": [
-      {
-        "level": 2,
-        "title": "I. Ajustes de héroe",
-        "anchor": "i-hero-adjustments"
-      },
-      {
-        "level": 2,
-        "title": "II. Ajustes del campo de batalla y del sistema",
-        "anchor": "ii-battlefield-system-adjustments"
-      },
-      {
-        "level": 3,
-        "title": "Ajustes de equipo",
-        "anchor": "equipment-adjustments"
-      },
-      {
-        "level": 3,
-        "title": "Ajustes de Minion y Creeps",
-        "anchor": "minion-and-creeps-adjustments"
-      },
-      {
-        "level": 3,
-        "title": "Optimización del sistema de recompensas",
-        "anchor": "bounty-system-optimization"
-      },
-      {
-        "level": 3,
-        "title": "Ajustes del campo de batalla",
-        "anchor": "battlefield-adjustments"
-      },
-      {
-        "level": 2,
-        "title": "III. Eventos",
-        "anchor": "iii-events"
-      },
-      {
-        "level": 3,
-        "title": "Héroes libres",
-        "anchor": "free-heroes"
-      }
-    ],
-    "sections": [
-      {
-        "anchor": null,
-        "title": null,
-        "html": "<p><br>\n</p>",
-        "role": null
-      },
-      {
-        "anchor": "i-hero-adjustments",
-        "title": "I. Ajustes de héroe",
-        "html": "",
-        "role": "adjustments"
-      },
-      {
-        "anchor": "ii-battlefield-system-adjustments",
-        "title": "II. Ajustes del campo de batalla y del sistema",
-        "html": "<h3 id=\"equipment-adjustments\"><span>Ajustes del equipo</span></h3>\n<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\">\n\n<tbody><tr>\n<th scope=\"col\">Equipo\n</th>\n<th scope=\"col\">Cambiar\n</th></tr>\n<tr>\n<td><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Berserker%27s_Fury\" title=\"Berserker&#39;s Fury\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span> <a href=\"https://mobilelegends.fandom.com/wiki/Berserker%27s_Fury\" title=\"Berserker&#39;s Fury\" rel=\"noreferrer nofollow\" target=\"_blank\">Furia del Berserker</a> <span>BUFF  ↑</span>\n</td>\n<td>Iguala el precio total del conjunto ATK Crit y el conjunto de Velocidad de ataque.\n<p><b>Precio</b> <span>BUFF ↑</span>\n</p>\n<ul><li>2500 &gt;&gt; 2390</li></ul>\n</td></tr>\n<tr>\n<td><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Concentrated_Energy\" title=\"Concentrated Energy\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span> <a href=\"https://mobilelegends.fandom.com/wiki/Concentrated_Energy\" title=\"Concentrated Energy\" rel=\"noreferrer nofollow\" target=\"_blank\">Energía concentrada</a> <span>BUFF  ↑</span>\n</td>\n<td><b>Pasivo único - Recarga</b> <span>BUFF  ↑</span>\n<ul><li>Duración: 3s &gt;&gt; 5s</li></ul>\n</td></tr>\n<tr>\n<td><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Elegant_Gem\" title=\"Elegant Gem\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span> <a href=\"https://mobilelegends.fandom.com/wiki/Elegant_Gem\" title=\"Elegant Gem\" rel=\"noreferrer nofollow\" target=\"_blank\">Joya elegante</a> <span>NERF ↓</span>\n</td>\n<td><b>Pasivo Único - Regalo</b> <span>NERF ↓</span>\n<ul><li>Enfriamiento: 40s &gt;&gt; 60s</li></ul>\n</td></tr></tbody></table>\n<h3 id=\"minion-and-creeps-adjustments\"><span>Ajustes de Minion y Creeps</span></h3>\n<p>Actualmente, el Lord cumple el doble propósito de brindar economía al equipo y aumentar la presión de empuje. Queremos aumentar la presión de empuje del Señor y al mismo tiempo disminuir la economía de equipo que brindan para equilibrar la ventaja obtenida por el equipo que los toma.\n</p>\n<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\">\n\n<tbody><tr>\n<th scope=\"col\">Grima\n</th>\n<th scope=\"col\">Cambiar\n</th></tr>\n<tr>\n<td><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Lord\" title=\"Lord\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span> <a href=\"https://mobilelegends.fandom.com/wiki/Lord\" title=\"Lord\" rel=\"noreferrer nofollow\" target=\"_blank\">Señor (Neutral)</a>\n</td>\n<td>\n<ul><li>Gastos proporcionados: -37,5%</li>\n<li>Oro proporcionado: -26 a -36 % (escala con el tiempo del partido).</li></ul>\n</td></tr>\n<tr>\n<td><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Lord\" title=\"Lord\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span> <a href=\"https://mobilelegends.fandom.com/wiki/Lord\" title=\"Lord\" rel=\"noreferrer nofollow\" target=\"_blank\">Señor (Invocado)</a>\n</td>\n<td>\n<ul><li>Vida: +20%</li></ul>\n</td></tr></tbody></table>\n<h3 id=\"bounty-system-optimization\"><span>Optimización del sistema de recompensas</span></h3>\n<p>El sistema Bounty para poner fin a las rachas de muertes y el sistema Team Bounty han ayudado durante mucho tiempo al equipo desfavorecido a alcanzar al equipo favorecido, brindando más oportunidades de remontada. Sin embargo, debido a la falta de imágenes, muchos jugadores aún no comprenden estos mecanismos, lo que dificulta el desarrollo de tácticas dirigidas a los objetivos de alta recompensa del enemigo.\n</p><p>En este parche, hemos agregado una visualización del monto de recompensa actual para cada héroe en el marcador (solo se muestra si la recompensa no es inferior a 120 de oro), indicando el oro adicional que el asesino puede obtener por eliminar a ese héroe. Esperamos que esto ayude a los jugadores a hacer un mejor uso de este mecanismo para planificar sus tácticas y garantizar la victoria.\n</p><p>Notas adicionales: La recompensa de la matanza aumenta con el número de muertes consecutivas que realiza el héroe, pero solo se otorga al jugador que finaliza la matanza. La recompensa del equipo aumenta en la medida en que el héroe está por delante de la economía promedio del equipo contrario. Cuando un héroe líder muere, la recompensa del equipo se distribuye a todos los jugadores del equipo del asesino.\n</p>\n<h3 id=\"battlefield-adjustments\"><span>Ajustes del campo de batalla</span></h3>\n<ol><li>Se optimizaron las imágenes de <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"War Cry\"></span></span></span> <span><span>War Cry</span></span></span> y <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Temporal Reign\"></span></span></span> <span><span>Reino temporal</span></span></span> talentos en partidos.</li>\n<li>Se optimizó la configuración de batalla predeterminada para algunos héroes.</li>\n<li>Se optimizó la descripción <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Passive\"></span></span></span> <span><span>Passive</span></span></span> de <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Jawhead\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Jawhead\" title=\"Jawhead\" rel=\"noreferrer nofollow\" target=\"_blank\">Jawhead</a></span></span> para que coincida con los objetivos reales afectados.</li></ol>",
-        "role": null
-      },
-      {
-        "anchor": "iii-events",
-        "title": "III. Eventos",
-        "html": "<h3 id=\"free-heroes\"><span>Héroes libres</span></h3>\n<p>Hora del servidor 31/05/2024 05:00:00 al 07/06/2024 05:00:00 (Toque el botón Configuración en la esquina superior derecha de la página principal para verificar).\n</p>\n<dl><dd>8 héroes libres: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Harith\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Harith\" title=\"Harith\" rel=\"noreferrer nofollow\" target=\"_blank\">Harith</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Natalia\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Natalia\" title=\"Natalia\" rel=\"noreferrer nofollow\" target=\"_blank\">Natalia</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Gusion\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Gusion\" title=\"Gusion\" rel=\"noreferrer nofollow\" target=\"_blank\">Gusion</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Arlott\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Arlott\" title=\"Arlott\" rel=\"noreferrer nofollow\" target=\"_blank\">Arlott</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Benedetta\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Benedetta\" title=\"Benedetta\" rel=\"noreferrer nofollow\" target=\"_blank\">Benedetta</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Beatrix\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Beatrix\" title=\"Beatrix\" rel=\"noreferrer nofollow\" target=\"_blank\">Beatrix</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Yin\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Yin\" title=\"Yin\" rel=\"noreferrer nofollow\" target=\"_blank\">Yin</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Novaria\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Novaria\" title=\"Novaria\" rel=\"noreferrer nofollow\" target=\"_blank\">Novaria</a></span></span></dd></dl>\n<p>6 héroes adicionales miembros de StarLight: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Argus\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Argus\" title=\"Argus\" rel=\"noreferrer nofollow\" target=\"_blank\">Argus</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Phoveus\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Phoveus\" title=\"Phoveus\" rel=\"noreferrer nofollow\" target=\"_blank\">Phoveus</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Gloo\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Gloo\" title=\"Gloo\" rel=\"noreferrer nofollow\" target=\"_blank\">Gloo</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Cyclops\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Cyclops\" title=\"Cyclops\" rel=\"noreferrer nofollow\" target=\"_blank\">Cíclope</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Minsitthar\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Minsitthar\" title=\"Minsitthar\" rel=\"noreferrer nofollow\" target=\"_blank\">Minsitthar</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Kadita\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Kadita\" title=\"Kadita\" rel=\"noreferrer nofollow\" target=\"_blank\">Kadita</a></span></span>\n</p>",
-        "role": null
-      }
-    ],
-    "newHeroes": [],
-    "adjustments": [
-      {
-        "name": "Zhuxin",
-        "type": "adjust",
-        "intro": "Debilitó sus capacidades de control y mejoró la experiencia de eliminar Minions con Lantern Flare o ser controlado por enemigos. Mejora de atributos",
-        "sections": [
-          {
-            "name": "Atributos",
-            "category": null,
-            "type": null,
-            "changes": [
-              {
-                "label": "Max Maná",
-                "before": "1200",
-                "after": "1500"
-              }
-            ]
-          },
-          {
-            "name": "Lantern Flare",
-            "category": "Habilidad 2",
-            "type": "adjust",
-            "changes": [
-              {
-                "text": "Nuevo efecto: inflige un 20 % de daño adicional a los súbditos."
-              },
-              {
-                "text": "Nuevo efecto: ahora, cuando la habilidad es interrumpida por efectos de control, el indicador de habilidad se detendrá en su posición original. Una vez finalizado el control, ya no será necesario \"arrastrar\" nuevamente el indicador de habilidad."
-              },
-              {
-                "label": "Derriba al enemigo en el aire hasta",
-                "before": "1.5s",
-                "after": "1s"
-              }
-            ]
-          }
-        ],
-        "slug": "zhuxin"
-      },
-      {
-        "name": "Zhask",
-        "type": "buff",
-        "intro": "Ajustes experimentales: esperamos aumentar la estabilidad de Nightmaric Spawn (incluido el daño y el control) y desvincular la conexión de Zhask con Inspire, permitiéndole usar otros hechizos de batalla.",
-        "sections": [
-          {
-            "name": "Nightmaric Spawn",
-            "category": "Habilidad 1",
-            "type": "buff",
-            "changes": [
-              {
-                "text": "Se eliminaron los dos primeros ataques básicos. Nightmaric Spawn ahora liberará continuamente rayos de la muerte (considerados ataques básicos, la frecuencia del daño ya no se ve afectada por la velocidad de ataque)."
-              },
-              {
-                "label": "Efecto lento de los rayos de la muerte",
-                "before": "up to 60%",
-                "after": "up to 30%"
-              },
-              {
-                "label": "Daño de los rayos de la muerte",
-                "before": "90 +15 MP",
-                "after": "60 +20 MP"
-              },
-              {
-                "label": null,
-                "before": "Mana Cost 100-160",
-                "after": "60-90"
-              }
-            ]
-          },
-          {
-            "name": "Mind Eater",
-            "category": "Habilidad 2",
-            "type": "buff",
-            "changes": [
-              {
-                "text": "Renovación de habilidades: después de que Zhask inflija daño a los enemigos en la dirección especificada, Nightmaric Spawn atacará y aturdirá secuencialmente a los héroes enemigos golpeados por él."
-              },
-              {
-                "text": "Redujo el tiempo de anticipación en un 40%."
-              }
-            ]
-          },
-          {
-            "name": "Dominator's Descent",
-            "category": "Último",
-            "type": "buff",
-            "changes": [
-              {
-                "label": null,
-                "before": "Enhance Nightmaric Spawn on the spot",
-                "after": "Select an area to summon the enhanced Nightmaric Spawn"
-              },
-              {
-                "label": "Costo de maná",
-                "before": "200-400",
-                "after": "100-200"
-              }
-            ]
-          }
-        ],
-        "slug": "zhask"
-      },
-      {
-        "name": "Chou",
-        "type": "buff",
-        "intro": "Mejora aún más el desempeño de Chou en la mitad del juego.",
-        "sections": [
-          {
-            "name": "Only Fast",
-            "category": "Pasivo",
-            "type": "buff",
-            "changes": [
-              {
-                "text": "Se ajustó el efecto de Reducción de Defensa Física para que se aplique antes de aumentar el Daño de Ataque Básico."
-              }
-            ]
-          },
-          {
-            "name": "Jeet Kune Do",
-            "category": "Habilidad 1",
-            "type": "buff",
-            "changes": [
-              {
-                "text": "Aumentó la distancia del guión en un 20%. Usar dos lanzamientos de Habilidad 1 o Habilidad 2 activará el Ataque Básico mejorado por Pasivo (ya efectivo en el parche anterior)."
-              },
-              {
-                "label": "Enfriarse",
-                "before": "11-9s",
-                "after": "9-7s"
-              }
-            ]
-          }
-        ],
-        "slug": "chou"
-      },
-      {
-        "name": "Moskov",
-        "type": "adjust",
-        "intro": "Después de recopilar comentarios de varias fuentes, decidimos reducir el tiempo de reutilización de la Lanza de la miseria de Moskov manteniendo sus características únicas.",
-        "sections": [
-          {
-            "name": "Spear of Quiescence",
-            "category": "Pasivo",
-            "type": "buff",
-            "changes": [
-              {
-                "text": "El efecto restaurado de los ataques básicos puede reducir el tiempo de reutilización de Spear of Misery."
-              }
-            ]
-          },
-          {
-            "name": "Spear of Misery",
-            "category": "Habilidad 2",
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "Enfriarse",
-                "before": "12-9.5s",
-                "after": "12s at all levels"
-              },
-              {
-                "label": "Duración del aturdimiento",
-                "before": "1.5s",
-                "after": "1.2s"
-              }
-            ]
-          }
-        ],
-        "slug": "moskov"
-      },
-      {
-        "name": "Aulus",
-        "type": "adjust",
-        "intro": "Actualmente, el daño de ataque adicional en los ataques básicos (Ataque básico) de Aulus de su espíritu de lucha puede afectar las torretas y la base, lo que hace que empuje demasiado rápido. En este parche, solucionamos este problema y optimizamos la experiencia cuando Aulus lanza su Furia Imperecedera.",
-        "sections": [
-          {
-            "name": "Fighting Spirit",
-            "category": "Pasivo",
-            "type": "nerf",
-            "changes": [
-              {
-                "text": "El daño físico adicional de los ataques básicos con acumulaciones máximas de espíritu de lucha ya no funciona en torretas y bases."
-              }
-            ]
-          },
-          {
-            "name": "Undying Fury",
-            "category": "Último",
-            "type": "buff",
-            "changes": [
-              {
-                "text": "No se puede interrumpir al lanzar su Ultimate."
-              }
-            ]
-          }
-        ],
-        "slug": "aulus"
-      },
-      {
-        "name": "Nana",
-        "type": "buff",
-        "intro": "Aumentó el beneficio obtenido al golpear con su Molina Smooch.",
-        "sections": [
-          {
-            "name": "Molina Smooch",
-            "category": "Habilidad 2",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "Reducción de la defensa mágica de enemigos transformados",
-                "before": "25%-35%",
-                "after": "30%-40%"
-              }
-            ]
-          }
-        ],
-        "slug": "nana"
-      },
-      {
-        "name": "Natan",
-        "type": "nerf",
-        "intro": "Se redujo el potencial de daño de Natan a mitad del juego.",
-        "sections": [
-          {
-            "name": "Theory of Everything",
-            "category": "Pasivo",
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "Bonificación de poder mágico",
-                "before": "70%",
-                "after": "65%"
-              },
-              {
-                "label": "Efecto de ataque heredado",
-                "before": "70%",
-                "after": "65%"
-              }
-            ]
-          },
-          {
-            "name": "Superposition",
-            "category": "Habilidad 1",
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "Bonificación de poder mágico",
-                "before": "140%",
-                "after": "130%"
-              }
-            ]
-          },
-          {
-            "name": "Interference!",
-            "category": "Habilidad 2",
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "Bonificación de poder mágico de daño por retroceso",
-                "before": "70%",
-                "after": "65%"
-              },
-              {
-                "label": "Bonificación extra total de poder mágico",
-                "before": "14%",
-                "after": "13%"
-              }
-            ]
-          }
-        ],
-        "slug": "natan"
-      }
-    ],
-    "balance": {
-      "buff": 3,
-      "nerf": 1,
-      "adjust": 3
-    },
-    "date": "2024-06-07"
   }
 }

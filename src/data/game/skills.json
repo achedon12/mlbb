@@ -1082,19 +1082,19 @@
   "harley": [
     {
       "name": "Magic Master",
-      "description": "Harley's mastery of magic allows his Basic Attack to deal 60 (+50%Total Physical Attack)(+60%Total Magic Power) Magic Damage. His attacks reduce the enemy's Magic Defense by 2 for 3 seconds on hit (up to 10 stacks)."
+      "description": "Harley's mastery of magic allows his Basic Attack to and skills to reduce the enemey's Magic defense by 2 and increase his Attack speed by 5-10% (scales with hero level) for 3 seconds on hit. This effect stacks up to 10 times. Harley's Basic Attacks deal 60 (+50%Total Physical Attack)(+60%Total Magic Power) Magic Damage."
     },
     {
       "name": "Poker Trick",
-      "description": "Harley throws 3-5 waves of cards in the target direction, each dealing 130-210 (+25%Total Magic Power) Magic Damage to the first enemy hit and granting him 10% extra Attack Speed for 3 seconds on hit (up to 5-10 stacks). Enemies hit more than 3 times will take less damage from subsequent hits."
+      "description": "Harley throws 3-5 waves of cards, 3 cards per wave. Each dealing 120-180 (+25%Total Magic Power) Magic Damage to enemies. After the same target is hit 3 times, the damage will decay to 50% on subsequent hits."
     },
     {
       "name": "Space Escape",
-      "description": "Harley blinks in the designated direction, leaving a magic hat at his place, increasing his Movement Speed by 30% for 2 seconds. Use Again: Use again within 4 seconds to return where the hat is and lose the speed boost."
+      "description": "Harley blinks in the designated direction, leaving a magic hat at his starting location. His Movement Speed increases by 60% for 2 seconds, then rapidly decays to normal over 4 seconds. Use Again: Use again within 4 seconds to return where the hat is and lose the speed boost."
     },
     {
       "name": "Deadly Magic",
-      "description": "Harley casts a magic ring of fire at the target enemy hero (can be blocked by other heroes), dealing them 200-400 (+60%Total Magic Power) Magic Damage and slowing them by 40% for 1.5 seconds. The magic ring stays around the enemy for 4 seconds, during which Harley can hit the magic ring to damage the enemy with his skills. The magic ring will explode at the end of the duration, dealing 100-200 (+30%Total Magic Power) plus 50% of the enemy's damage taken within the duration as Magic Damage."
+      "description": "Harley casts a magic ring of fire at the target enemy hero, dealing them 200-400 (+60%Total Magic Power) Magic Damage and a 40% slow effect that decays to 15% after 1.5 seconds. The ring will stay around the target, during which Harley can hit the ring to damage the target. The ring will explode after 4 sedconds, dealing 200 (+50%Total Magic Power) plus 30-50% of the damage taken by the target while the ring was active."
     }
   ],
   "hayabusa": [
@@ -1368,7 +1368,7 @@
     },
     {
       "name": "Yin Yang Overturn",
-      "description": "Kagura resets the cooldown of Seimei Umbrella Open, dealing 235 (+60% Total Magic Power) Magic Damage to enemies around the Seimei Umbrella and slowing them by 60%. After 1.5s, enemy heroes around the umbrella are pulled to the center and take 480 (+155% Total Magic Power) Magic Damage."
+      "description": "Kagura resets the cooldown of Seimei Umbrella Open, dealing 235 (+60% Total Magic Power) Magic Damage to nearby enemies and slowing them by 60%. After 1.5s, enemy heroes around the umbrella are pulled to the center and take 480 (+155% Total Magic Power) Magic Damage."
     }
   ],
   "kaja": [
@@ -1534,7 +1534,7 @@
     },
     {
       "name": "Homeland Defender",
-      "description": "Lapu-Lapu accumulates 10 Bravery Blessing each time he deals damage (halved for damage dealt to non-hero units). When Bravery Blessing is full, Lapu-Lapu's next Basic Attack will make him dash toward the target, dealing (+150% Total Physical Attack) Physical Damage (cannot Crit) and granting him a shield that absorbs 250 (+65*Hero Level) damage for 2.5s."
+      "description": "Lapu-Lapu gains 10 Bravery Blessing each time he deals damage (halved against non-hero units). At max Bravery Blessing stacks, he dashes toward the target with his next Basic Attack, dealing (+150% Total Physical Attack) Physical Damage (cannot Crit) and granting him a 250 (+65*Hero Level) shield for 2.5s."
     },
     {
       "name": "Land Shaker",
@@ -1678,7 +1678,7 @@
     },
     {
       "name": "Flash Combo",
-      "description": "Passive: Basic Attacks grant Vigor (up to 2 stacks), each stack lasting 4s. Vigor enhances Flash Combo. Lukas consumes all Vigor to unleash a tail swing, dealing 280 (+120% Total Physical Attack) Physical Damage and recovering 6% of his when hitting a hero. 1 Stack: Lukas briefly stuns the target and pounces, dealing 80 (+45% Total Physical Attack) Physical Damage 3 times and knocking the enemy back. 2 Stacks: Lukas briefly stuns the target and leaps, dealing 50 (+20% Total Physical Attack) Physical Damage 2 times. Afterward, he summons sacred lightning, dealing 80 (+45% Total Physical Attack) Physical Damage 3 times while gaining Control Immunity for the duration."
+      "description": "Passive: Basic Attacks grant Vigor (up to 2 stacks), each stack lasting 4s. Vigor enhances Flash Combo. Lukas consumes all Vigor to unleash a tail swing, dealing 400 (+60% Total Physical Attack) Physical Damage and recovering 8% of his when hitting a hero. 1 Stack: Lukas briefly stuns the target and pounces, dealing 95 (+25% Total Physical Attack) Physical Damage 3 times and knocking the enemy back. 2 Stacks: Lukas briefly stuns the target and leaps, dealing 50 (+20% Total Physical Attack) Physical Damage 2 times. Afterward, he summons sacred lightning, dealing 95 (+25% Total Physical Attack) Physical Damage 3 times while gaining Control Immunity for the duration."
     },
     {
       "name": "Flash Step",
@@ -1712,7 +1712,7 @@
     },
     {
       "name": "Dreamland Twist",
-      "description": "Lunox is twisted by the powers of Chaos and Order. When she uses the Power of Order, she gains 0.5% Spell Vamp for every 1% Magic Penetration. When she uses the Power of Chaos, she gains 0.5% Magic Penetration for every 1% Spell Vamp."
+      "description": "Lunox is twisted by the powers of Chaos and Order. When Lunox uses Power of Order, she gains 10% Spell Vamp. When she uses Power of Chaos, she gains 10% Magic Penetration."
     },
     {
       "name": "Starlight Pulse",
@@ -1720,7 +1720,7 @@
     },
     {
       "name": "Chaos Assault",
-      "description": "Lunox unleashes Chaos Energy at a target enemy, dealing 250 (+120% Total Magic Power) (+ 2.5% target's ) Magic Damage (+ 1.5% against creeps). While enhanced by Power of Chaos, this skill has a brief cooldown, and its cast interval is unaffected by Cooldown Reduction."
+      "description": "Lunox unleashes Chaos Energy at a target enemy, dealing 250 (+120% Total Magic Power) (+ 3.5% target's ) Magic Damage (+ 2.1% against creeps). While enhanced by Power of Chaos, this skill has a brief cooldown, and its cast interval is unaffected by Cooldown Reduction."
     },
     {
       "name": "Cosmic Fission",
@@ -1732,7 +1732,7 @@
     },
     {
       "name": "Dreamland Twist",
-      "description": "Lunox is twisted by the powers of Chaos and Order. When she uses the Power of Order, she gains 0.5% Spell Vamp for every 1% Magic Penetration. When she uses the Power of Chaos, she gains 0.5% Magic Penetration for every 1% Spell Vamp."
+      "description": "Lunox is twisted by the powers of Chaos and Order. When Lunox uses Power of Order, she gains 10% Spell Vamp. When she uses Power of Chaos, she gains 10% Magic Penetration."
     },
     {
       "name": "Starlight Pulse",
@@ -1740,7 +1740,7 @@
     },
     {
       "name": "Chaos Assault",
-      "description": "Lunox unleashes Chaos Energy at a target enemy, dealing 250 (+120% Total Magic Power) (+ 2.5% target's ) Magic Damage (+ 1.5% against creeps). This skill shares its cooldown with Starlight Pulse. Using it grants Power of Chaos and ends the Power of Order state."
+      "description": "Lunox unleashes Chaos Energy at a target enemy, dealing 250 (+120% Total Magic Power) (+ 3.5% target's ) Magic Damage (+ 2.1% against creeps). This skill shares its cooldown with Starlight Pulse. Using it grants Power of Chaos and ends the Power of Order state."
     },
     {
       "name": "Cosmic Fission",
@@ -1748,7 +1748,7 @@
     },
     {
       "name": "Power of Chaos: Darkening",
-      "description": "Lunox blinks in the target direction, dealing 250 (+100% Total Magic Power) Magic Damage to nearby enemies and slowing them by 30% for 4s. For the next 4s, Lunox enhances her Power of Chaos, greatly reducing the cooldown of Chaos Assault (unaffected by Cooldown Reduction). Using Starlight Pulse ends this enhanced state."
+      "description": "Lunox dashes forward, dealing 150 (+135% Total Magic Power) Magic Damage to nearby enemies, slowing them by 30% for 4s. For the next 4s, Power of Chaos is enhanced, allowing Lunox to cast Chaos Assault repeatedly (the interval between casts is unaffected by Cooldown Reduction)."
     }
   ],
   "luo-yi": [
@@ -2156,27 +2156,27 @@
     },
     {
       "name": "We Are Angry!",
-      "description": "Popol and Kupa enter the Enraged state for 12s, gaining 15% extra Movement Speed and increasing their Attack Speed to 1.3 times. Kupa turns into Alpha Wolf Form, gaining 1500 , fully recovering its HP, while enhancing its other skills."
+      "description": "Popol and Kupa enter the Enraged state for 9s. During this time, Kupa turns into Alpha Wolf Form."
     },
     {
       "name": "We Are Friends",
-      "description": "Kupa recovers 10% per second after not taking damage for 5s. When Kupa is killed, Popol can Pray for 3s to bring Kupa back to the battlefield. Cooldown: 30s. Every 3 consecutive attacks from Kupa will enhance Popol's next Basic Attack to deal (+220% Total Physical Attack) Physical Damage. Kupa has 2500 (+1200% Total Physical Attack) and inherits 100% of Popol's other attributes and passive equipment effects (excluding Jungling and Roaming equipment effects). Kupa deals an additional 120% damage against creeps."
+      "description": "Kupa recovers 10% Max HP per second after not taking damage for 5s. When Kupa dies, Popol can Pray for 3s to revive it. Cooldown: 30s. Kupa has 3500 (+350*Hero Level) Max HP and inherits 100% of Popol's other attributes and equipment effects. Kupa deals 77 (+3*Hero Level) extra True Damage to creeps."
     },
     {
       "name": "Bite 'em, Kupa!",
-      "description": "Popol throws a spear at the target enemy, dealing 80 (+100% Total Physical Attack) Physical Damage while simultaneously commanding Kupa to lunge at the target, dealing an additional 70 (+75% Total Physical Attack) Physical Damage. Kupa will continue to attack the target for 3s. Alpha Wolf Form: Kupa stuns the enemy for 1s and bites them 3 times in quick succession."
+      "description": "Popol throws a spear at the target, signaling Kupa to attack and dealing 80 (+70% Total Physical Attack) Physical Damage. Kupa then bites the target, dealing 40 (+40% Total Physical Attack) Physical Damage and slowing them by 99% for 0.75s. While marked by the spear, whenever Popol or Kupa hits the target with a Basic Attack, both gain 7% Attack Speed and 3% Movement Speed for 4s (up to 3 stacks). Alpha Wolf Form: Kupa strikes fiercely, dealing 120 (+140% Total Physical Attack) Physical Damage to the target and nearby enemies and knocking them airborne for 0.5s."
     },
     {
       "name": "Kupa, Help!",
-      "description": "Popol summons Kupa back to his side, gaining a 240 (+200% Extra Physical Attack) shield while dealing 240 (+50% Total Physical Attack) Physical Damage to nearby enemies and slowing them by 35% for 0.5s. Kupa will then assist Popol to attack nearby enemies for 3s. Alpha Wolf Form: Kupa darts back to Popol, knocking nearby enemies airborne for 0.2s. The shield and damage are increased to 125%."
+      "description": "Popol calls Kupa back and gains a 240 (+200% Extra Physical Attack) shield. He can then ride Kupa for 1.5s, gaining 250 Movement Speed while mounted. Kupa also continuously recovers 20% of its Max HP. Popol can use a Basic Attack to end the Mounted state early. After returning, Kupa follows Popol until Popol attacks an enemy. Alpha Wolf Form: Shield effect increases to 125%, and Kupa recovers full HP while Mounted."
     },
     {
       "name": "Popol's Surprise",
-      "description": "Popol sets a trap at the target location that will detonate after a short delay once triggered, dealing 70 (+20% Total Magic Power) Magic Damage to the enemy that steps on it, immobilizing them for 1s, and creating a frost zone for 4s. Enemies in the frost zone will have their Movement Speed reduced by 20%. Popol gains a trap charge every 22s (up to 3). Up to 3 traps can exist at the same time on the battlefield, each lasting up to 60s."
+      "description": "Popol sets a trap. After a short delay, it immobilizes the enemy stepping on it for 1s. It then explodes to create a frost zone for 4s, which continuously slows enemies within by 20%. Popol gains a trap charge every 22s (up to 3 charges). Up to 4 traps can exist at the same time, each lasting up to 60s."
     },
     {
       "name": "We Are Angry!",
-      "description": "Popol and Kupa enter the Enraged state for 12s, gaining 15% extra Movement Speed and increasing their Attack Speed to 1.3 times. Kupa turns into Alpha Wolf Form, gaining 1500 , fully recovering its HP, while enhancing its other skills."
+      "description": "Popol and Kupa enter the Enraged state for 9s. During this time, Kupa turns into Alpha Wolf Form."
     }
   ],
   "rafaela": [
@@ -2216,7 +2216,7 @@
     },
     {
       "name": "Full Moon Curse",
-      "description": "Roger can freely switch between human and wolf forms. In human form, Roger's Basic Attack and skills deal additional damage equal to 4% of the target's current . In wolf form, Roger's Basic Attack and skills deal additional damage equal to 4% of the target's lost . This effect can only deal up to 60 additional damage against creeps."
+      "description": "Roger can freely switch between human and wolf forms. In human form, Roger's attack deals extra damage equal to 4% of the target's current . In wolf form, his attack deals extra damage equal to 4% of the target's [lost C6]. Extra damage against creeps is capped at 60."
     },
     {
       "name": "Lycan Pounce",

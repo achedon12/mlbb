@@ -10343,10 +10343,829 @@
     },
     "date": "2026-11-04"
   },
+  "1.9.20": {
+    "version": "1.9.20",
+    "title": "Patch Notes 1.9.20",
+    "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.9.20",
+    "toc": [
+      {
+        "level": 2,
+        "title": "จากนักออกแบบ",
+        "anchor": "from-the-designers"
+      },
+      {
+        "level": 2,
+        "title": "I. ฮีโร่ใหม่และฮีโร่ที่ปรับปรุงใหม่",
+        "anchor": "i-new-revamped-hero"
+      },
+      {
+        "level": 3,
+        "title": "ฮีโร่ใหม่: หน้ากากแห่งอมตะ - Suyou",
+        "anchor": "new-hero-mask-of-the-immortal-suyou"
+      },
+      {
+        "level": 2,
+        "title": "ครั้งที่สอง การปรับเปลี่ยนฮีโร่",
+        "anchor": "ii-hero-adjustments"
+      },
+      {
+        "level": 2,
+        "title": "III. การปรับเปลี่ยนสนามรบ",
+        "anchor": "iii-battlefield-adjustments"
+      },
+      {
+        "level": 3,
+        "title": "A. การปรับเปลี่ยนอุปกรณ์",
+        "anchor": "a-equipment-adjustments"
+      },
+      {
+        "level": 3,
+        "title": "B. การปรับเปลี่ยนสนามรบอื่นๆ",
+        "anchor": "b-other-battlefield-adjustments"
+      },
+      {
+        "level": 2,
+        "title": "IV. การปรับระบบ",
+        "anchor": "iv-system-adjustments"
+      },
+      {
+        "level": 3,
+        "title": "ก. อันดับ",
+        "anchor": "a-ranked"
+      },
+      {
+        "level": 3,
+        "title": "B. ร่างสนามรบ",
+        "anchor": "b-battlefield-draft"
+      },
+      {
+        "level": 2,
+        "title": "V. เหตุการณ์",
+        "anchor": "v-events"
+      },
+      {
+        "level": 3,
+        "title": "ก. วันครบรอบ",
+        "anchor": "a-anniversary"
+      },
+      {
+        "level": 3,
+        "title": "B. ผลการเรียกคืนทีม MPL Lucky Draw",
+        "anchor": "b-mpl-team-recall-effect-lucky-draw"
+      },
+      {
+        "level": 3,
+        "title": "ซี. Brody \"APBren\"",
+        "anchor": "c-brody-apbren"
+      },
+      {
+        "level": 3,
+        "title": "ดีช็อป",
+        "anchor": "d-shop"
+      },
+      {
+        "level": 3,
+        "title": "จ. สกินใหม่",
+        "anchor": "e-new-skins"
+      },
+      {
+        "level": 3,
+        "title": "F. S34 กิจกรรมเติมเงินครั้งแรก",
+        "anchor": "f-s34-first-recharge-event"
+      },
+      {
+        "level": 3,
+        "title": "G. อัญเชิญนักษัตร",
+        "anchor": "g-zodiac-summon"
+      },
+      {
+        "level": 3,
+        "title": "เอช. แฟรกเมนต์ ช็อป",
+        "anchor": "h-fragment-shop"
+      },
+      {
+        "level": 3,
+        "title": "I. ฮีโร่ฟรี",
+        "anchor": "i-free-heroes"
+      },
+      {
+        "level": 2,
+        "title": "วี. โหมดเกม/การปรับโหมด",
+        "anchor": "vi-game-modes-mode-adjustments"
+      },
+      {
+        "level": 3,
+        "title": "ก. การทะเลาะวิวาทแห่งเงา",
+        "anchor": "a-shadow-brawl"
+      },
+      {
+        "level": 3,
+        "title": "ข. ศึกมรณะ",
+        "anchor": "b-deathbattle"
+      },
+      {
+        "level": 3,
+        "title": "ค. โอเวอร์ไดรฟ์",
+        "anchor": "c-overdrive"
+      },
+      {
+        "level": 3,
+        "title": "ง. ทะเลาะวิวาท",
+        "anchor": "d-brawl"
+      },
+      {
+        "level": 3,
+        "title": "จ. หมากรุกเมจิก",
+        "anchor": "e-magic-chess"
+      },
+      {
+        "level": 2,
+        "title": "การเปลี่ยนแปลงที่ไม่มีเอกสาร",
+        "anchor": "undocumented-changes"
+      },
+      {
+        "level": 2,
+        "title": "อ้างอิง",
+        "anchor": "references"
+      }
+    ],
+    "sections": [
+      {
+        "anchor": null,
+        "title": null,
+        "html": "<dl><dd><i>หน้านี้ประกอบด้วยบันทึกการแก้ไขที่เผยแพร่บนเซิร์ฟเวอร์อย่างเป็นทางการ</i></dd></dl>\n\n<p><br>\nการอัปเดตสำหรับ <i><a href=\"https://mobilelegends.fandom.com/wiki/Mobile_Legends:_Bang_Bang\" title=\"Mobile Legends: Bang Bang\" rel=\"noreferrer nofollow\" target=\"_blank\">Mobile Legends: Bang Bang</a></i> ได้รับการเผยแพร่บนเซิร์ฟเวอร์ดั้งเดิมของเดือนกันยายน ปี 2024 ซึ่งรวมถึงฮีโร่ใหม่ <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Suyou\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Suyou\" title=\"Suyou\" rel=\"noreferrer nofollow\" target=\"_blank\">Suyou</a></span></span> พร้อมด้วยการปรับเปลี่ยนฮีโร่ การเปลี่ยนแปลงอุปกรณ์ การปรับปรุงสนามรบ กิจกรรม Battlefield Draft และการเริ่มฤดูกาลที่ 34\n</p><p>การอัปเดตนี้เผยแพร่ในเดือนกันยายน 2024\n</p>",
+        "role": null
+      },
+      {
+        "anchor": "from-the-designers",
+        "title": "จากนักออกแบบ",
+        "html": "<p>ในการอัปเดตนี้ เราได้ปรับเปลี่ยนฮีโร่บางตัวตามข้อมูลและข้อเสนอแนะล่าสุด นอกจากนี้เรายังได้ปรับเปลี่ยนอุปกรณ์บางอย่างโดยหวังว่าจะมีความหลากหลายในการเลือกฮีโร่ในการแข่งขันจัดอันดับ\n</p><p>เราได้ปรับปรุงองค์ประกอบพื้นฐานบางอย่าง รวมถึงประสบการณ์การควบคุมการเคลื่อนที่และการโจมตี ระยะหรือตัวชี้วัดสกิลของฮีโร่บางตัว ค่ามานาของฮีโร่บางตัว และอื่นๆ\n</p><p>นอกจากนี้ ยังมีกิจกรรม Battlefield Draft ที่จะมอบประสบการณ์สนามรบที่สดใหม่อีกด้วย ขอให้สนุกในเวอร์ชั่นใหม่!\n</p>",
+        "role": null
+      },
+      {
+        "anchor": "i-new-revamped-hero",
+        "title": "I. ฮีโร่ใหม่และฮีโร่ที่ปรับปรุงใหม่",
+        "html": "<h3 id=\"new-hero-mask-of-the-immortal-suyou\"><span>ฮีโร่ใหม่: หน้ากากแห่งความเป็นอมตะ - Suyou</span></h3>\n<p><b> คุณสมบัติฮีโร่: </b> หมอผีจาก Zhu'an ผู้สืบทอดพลังของ Immortal Nuo (Assassin/Fighter)\n</p><p>ฮีโร่นี้จะสามารถใช้ได้ในวันที่ 21/09 (เวลาเซิร์ฟเวอร์)\n</p><p><b>ติดตัว - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Transient Immortal\"></span></span></span> <span><span>อมตะชั่วคราว</span></span></span></b>\n</p>\n<ul><li>[Tap-casting] สกิลใดๆ ก็ตามจะทำให้ Suyou เคลื่อนที่เร็วขึ้น</li>\n<li>[Hold-casting] สกิลใดๆ จะทำให้ Suyou ลดความเสียหายได้มากขึ้น</li></ul>\n<p><b>สกิล 1 - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Blade Surge\"></span></span></span> <span><span>ใบมีดกระชาก</span></span></span></b>\n</p>\n<ul><li>[Tap-Cast]: Suyou ขว้างอาวุธของเขาไปในทิศทางของเป้าหมาย สร้างความเสียหายให้กับศัตรูที่อยู่ในเส้นทางของมัน จากนั้น Suyou กระพริบตาไปยังตำแหน่งของอาวุธ จับมัน และฟันไปในทิศทางตรงกันข้าม สร้างความเสียหายสูงให้กับศัตรู</li>\n<li>[กดค้างไว้]: Suyou พุ่งไปในทิศทางเป้าหมาย หยุดเมื่อโจมตีศัตรู และทำให้ศัตรูที่อยู่ข้างหน้ามึนงงเมื่อเขาหยุด</li></ul>\n<p><b>สกิล 2 - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Soul Sever\"></span></span></span> <span><span>โซลผ่า</span></span></span></b>\n</p>\n<ul><li>[แตะ]: Suyou สร้างความเสียหายให้กับศัตรูในพื้นที่รูปพัด สร้างความเสียหายที่สูงกว่ากับศัตรูที่มี HP ต่ำกว่า</li>\n<li>[กดค้างไว้]: Suyou ถ่ายทอดพลังของผู้อมตะเพื่อทำการโจมตี 3 ครั้งในพื้นที่รูปพัดขณะฟื้นฟู HP</li></ul>\n<p><b>สกิล 3 - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Evil Queller\"></span></span></span> <span><span>เคลเลอร์ชั่วร้าย</span></span></span></b>\n</p>\n<ul><li>[แตะ]: Suyou ร่อนไปข้างหลังและเหวี่ยงอาวุธไปในทิศทางเป้าหมาย สร้างความเสียหายให้กับศัตรูในพื้นที่สี่เหลี่ยมและบนเส้นทางของเขาไปข้างหลัง</li>\n<li>[กดค้างไว้]: Suyou ยิงธนูร้ายแรงไปในทิศทางเป้าหมาย สร้างความเสียหายให้กับเป้าหมายที่โดน</li></ul>",
+        "role": null
+      },
+      {
+        "anchor": "ii-hero-adjustments",
+        "title": "ครั้งที่สอง การปรับเปลี่ยนฮีโร่",
+        "html": "",
+        "role": "adjustments"
+      },
+      {
+        "anchor": "iii-battlefield-adjustments",
+        "title": "III. การปรับเปลี่ยนสนามรบ",
+        "html": "<h3 id=\"a-equipment-adjustments\"><span>ก. การปรับอุปกรณ์</span></h3>\n<p><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Clock_of_Destiny\" title=\"Clock of Destiny\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span> <a href=\"https://mobilelegends.fandom.com/wiki/Clock_of_Destiny\" title=\"Clock of Destiny\" rel=\"noreferrer nofollow\" target=\"_blank\">นาฬิกาแห่งโชคชะตา</a> <span>BUFF ↑</span>\n</p>\n<dl><dd>ปัจจุบันอุปกรณ์นี้มีขอบเขตการใช้งานที่ค่อนข้างแคบ เราหวังว่า Tank เวทย์มนตร์และ Fighter เช่น <span data-param>⟧<span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Esmeralda\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Esmeralda\" title=\"Esmeralda\" rel=\"noreferrer nofollow\" target=\"_blank\">Esmeralda</a></span></span> และ <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Silvanna\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Silvanna\" title=\"Silvanna\" rel=\"noreferrer nofollow\" target=\"_blank\">Silvanna</a></span></span> จะพิจารณาอุปกรณ์นี้ด้วย</dd></dl>\n<ul><li><b>แอตทริบิวต์ <span>บัฟ ↑</span></b>\n<ul><li>เพิ่มการลดซีดี 10%</li>\n<li>มานา: 800 → 400</li></ul></li>\n<li><b>ราคา <span>เนิร์ฟ ↓</span></b>\n<ul><li>1950 → 2030</li></ul></li></ul>\n<p><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Wishing_Lantern\" title=\"Wishing Lantern\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span> <a href=\"https://mobilelegends.fandom.com/wiki/Wishing_Lantern\" title=\"Wishing Lantern\" rel=\"noreferrer nofollow\" target=\"_blank\">โคมอธิษฐาน</a> <span>BUFF ↑</span>\n</p>\n<dl><dd>การลดซีดีที่ได้รับจากอุปกรณ์นี้จะช่วยให้ Mage ร่ายสกิลได้บ่อยขึ้น ดังนั้นเราจึงให้คุณสมบัติมานาแก่มันเหมือนกับ <span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Lightning_Truncheon\" title=\"Lightning Truncheon\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span> <a href=\"https://mobilelegends.fandom.com/wiki/Lightning_Truncheon\" title=\"Lightning Truncheon\" rel=\"noreferrer nofollow\" target=\"_blank\">กระบองสายฟ้า</a></dd></dl>\n<ul><li><b>แอตทริบิวต์ <span>บัฟ ↑</span></b>\n<ul><li>พลังเวทย์: 70 → 75</li>\n<li>เพิ่มมานา 400</li></ul></li>\n<li><b>ราคา <span>เนิร์ฟ ↓</span></b>\n<ul><li>2160 → 2250</li></ul></li></ul>\n<p><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Thunder_Belt\" title=\"Thunder Belt\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span> <a href=\"https://mobilelegends.fandom.com/wiki/Thunder_Belt\" title=\"Thunder Belt\" rel=\"noreferrer nofollow\" target=\"_blank\">เข็มขัดสายฟ้า</a> <span>NERF ↓</span>\n</p>\n<dl><dd>ความเสียหายของอุปกรณ์นี้ค่อนข้างสูงในช่วงต้นและกลางเกม เราหวังว่าจะใช้เวลาในการซ้อนนานขึ้นเพื่อสร้างความเสียหายสูง</dd></dl>\n<ul><li><b>พาสซีฟเฉพาะ - สายฟ้า <span>NERF ↓</span></b>\n<ul><li>ความเสียหาย: 50 + 100% การป้องกันกายภาพทั้งหมด + การป้องกันเวทย์มนตร์ทั้งหมด 100% → 50 + 100% การป้องกันกายภาพเพิ่มเติม + การป้องกันเวทย์มนตร์พิเศษ 100%</li></ul></li></ul>\n<p><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Twilight_Armor\" title=\"Twilight Armor\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span> <a href=\"https://mobilelegends.fandom.com/wiki/Twilight_Armor\" title=\"Twilight Armor\" rel=\"noreferrer nofollow\" target=\"_blank\">เกราะทไวไลท์</a> <span>BUFF ↑</span>\n</p>\n<dl><dd>เพิ่มความสามารถในการปรับตัวของอุปกรณ์นี้</dd></dl>\n<ul><li><b>พาสซีฟเฉพาะ - ทไวไลท์ <span>BUFF ↑</span></b>\n<ul><li>การลดความเสียหายส่วนเกิน: (0.4% HP ทั้งหมด)% → 20% + (0.2% HP ทั้งหมด)%</li></ul></li></ul>\n<p><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Glowing_Wand\" title=\"Glowing Wand\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span> <a href=\"https://mobilelegends.fandom.com/wiki/Glowing_Wand\" title=\"Glowing Wand\" rel=\"noreferrer nofollow\" target=\"_blank\">ไม้กายสิทธิ์เรืองแสง</a> <span>NERF ↓</span>\n</p>\n<dl><dd>หลังจากเพิ่มเอฟเฟกต์การลดการรักษา อุปกรณ์นี้ก็มีความหลากหลายมากเกินไป โดยมีอัตราการใช้ที่สูงกว่าอุปกรณ์เวทมนตร์อื่นๆ มาก เราตั้งเป้าหมายที่จะลดความเสียหายลงเล็กน้อย</dd></dl>\n<ul><li><b>พาสซีฟเฉพาะ - ไหม้เกรียม <span>NERF ↓</span></b>\n<ul><li>ความเสียหายต่อวินาที: 1.5% ของ HP สูงสุดของเป้าหมาย → 1% ของ HP สูงสุดของเป้าหมาย</li></ul></li></ul>\n<h3 id=\"b-other-battlefield-adjustments\"><span>B. การปรับเปลี่ยนสนามรบอื่นๆ</span></h3>\n<p><b>[การเพิ่มประสิทธิภาพ]</b>\n</p>\n<ul><li>1. หลังจากการเพิ่มประสิทธิภาพประสบการณ์การเคลื่อนไหวและการโจมตี <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Hanabi\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Hanabi\" title=\"Hanabi\" rel=\"noreferrer nofollow\" target=\"_blank\">Hanabi</a></span></span> และ <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Ixia\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Ixia\" title=\"Ixia\" rel=\"noreferrer nofollow\" target=\"_blank\">Ixia</a></span></span>นักแม่นปืนจำนวนมากขึ้นจะได้รับการเพิ่มประสิทธิภาพแบบเดียวกัน ทำให้พวกเขาเริ่มเคลื่อนที่ได้เร็วขึ้นหลังจากแต่ละช่วงเวลาของการโจมตีพื้นฐาน: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Miya\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Miya\" title=\"Miya\" rel=\"noreferrer nofollow\" target=\"_blank\">Miya</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Bruno\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Bruno\" title=\"Bruno\" rel=\"noreferrer nofollow\" target=\"_blank\">Bruno</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Yi Sun-shin\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Yi_Sun-shin\" title=\"Yi Sun-shin\" rel=\"noreferrer nofollow\" target=\"_blank\">Yi Sun-shin</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Karrie\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Karrie\" title=\"Karrie\" rel=\"noreferrer nofollow\" target=\"_blank\">Karrie</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Wanwan\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Wanwan\" title=\"Wanwan\" rel=\"noreferrer nofollow\" target=\"_blank\">Wanwan</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Popol and Kupa\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Popol_and_Kupa\" title=\"Popol and Kupa\" rel=\"noreferrer nofollow\" target=\"_blank\">Popol and Kupa</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Beatrix\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Beatrix\" title=\"Beatrix\" rel=\"noreferrer nofollow\" target=\"_blank\">Beatrix</a></span></span> (เบนเน็ตต์) <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Natan\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Natan\" title=\"Natan\" rel=\"noreferrer nofollow\" target=\"_blank\">Natan</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Melissa\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Melissa\" title=\"Melissa\" rel=\"noreferrer nofollow\" target=\"_blank\">Melissa</a></span></span> (เราจะติดตามประสิทธิภาพของฮีโร่เหล่านี้ต่อไปหลังจากการเพิ่มประสิทธิภาพ และทำการปรับเปลี่ยนในการอัปเดตในอนาคตหากจำเป็น)\n<ul><li>(หมายเหตุ: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Layla\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Layla\" title=\"Layla\" rel=\"noreferrer nofollow\" target=\"_blank\">Layla</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Moskov\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Moskov\" title=\"Moskov\" rel=\"noreferrer nofollow\" target=\"_blank\">มอสโก</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Irithel\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Irithel\" title=\"Irithel\" rel=\"noreferrer nofollow\" target=\"_blank\">อิริเธล</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Lesley\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Lesley\" title=\"Lesley\" rel=\"noreferrer nofollow\" target=\"_blank\">Lesley</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Claude\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Claude\" title=\"Claude\" rel=\"noreferrer nofollow\" target=\"_blank\">Claude</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Beatrix\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Beatrix\" title=\"Beatrix\" rel=\"noreferrer nofollow\" target=\"_blank\">Beatrix</a></span></span> (Nibiru) สามารถเริ่มเคลื่อนที่ได้เร็วขึ้นหลังจากการโจมตีพื้นฐานแต่ละครั้ง ดังนั้นจึงไม่จำเป็นต้องมีการเพิ่มประสิทธิภาพเพิ่มเติม)</li></ul></li>\n<li>2. ผู้เล่นให้ข้อเสนอแนะอย่างต่อเนื่องว่าช่วงสกิลหรือตัวบ่งชี้ของฮีโร่บางตัวไม่ชัดเจนเพียงพอ ดังนั้นเราจึงได้ตรวจสอบสถานะปัจจุบันของฮีโร่ทั้งหมดอย่างครอบคลุม และปรับเอฟเฟกต์ภาพให้เหมาะสมสำหรับสกิลฮีโร่ต่อไปนี้: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Gord\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Gord\" title=\"Gord\" rel=\"noreferrer nofollow\" target=\"_blank\">Gord</a></span></span> สกิลที่ 1, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Hilda\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Hilda\" title=\"Hilda\" rel=\"noreferrer nofollow\" target=\"_blank\">Hilda</a></span></span>สุดยอด <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Thamuz\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Thamuz\" title=\"Thamuz\" rel=\"noreferrer nofollow\" target=\"_blank\">Thamuz</a></span></span> สกิลที่ 2, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Carmilla\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Carmilla\" title=\"Carmilla\" rel=\"noreferrer nofollow\" target=\"_blank\">Carmilla</a></span></span>สุดยอด <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Miya\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Miya\" title=\"Miya\" rel=\"noreferrer nofollow\" target=\"_blank\">Miya</a></span></span> สกิล 2, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Nana\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Nana\" title=\"Nana\" rel=\"noreferrer nofollow\" target=\"_blank\">นาน่า</a></span></span>สุดยอด <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Odette\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Odette\" title=\"Odette\" rel=\"noreferrer nofollow\" target=\"_blank\">Odette</a></span></span>สุดยอด <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Diggie\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Diggie\" title=\"Diggie\" rel=\"noreferrer nofollow\" target=\"_blank\">Diggie</a></span></span>สุดยอด <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Hylos\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Hylos\" title=\"Hylos\" rel=\"noreferrer nofollow\" target=\"_blank\">Hylos</a></span></span>' สกิล 2, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Pharsa\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Pharsa\" title=\"Pharsa\" rel=\"noreferrer nofollow\" target=\"_blank\">Pharsa</a></span></span> สุดยอดของ <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Jawhead\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Jawhead\" title=\"Jawhead\" rel=\"noreferrer nofollow\" target=\"_blank\">Jawhead</a></span></span> สกิล 2, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Claude\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Claude\" title=\"Claude\" rel=\"noreferrer nofollow\" target=\"_blank\">Claude</a></span></span>สุดยอด, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Terizla\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Terizla\" title=\"Terizla\" rel=\"noreferrer nofollow\" target=\"_blank\">Terizla</a></span></span> สกิลของ 2 และอัลติเมท <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Lylia\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Lylia\" title=\"Lylia\" rel=\"noreferrer nofollow\" target=\"_blank\">Lylia</a></span></span> สกิลที่ 2 เราหวังว่าผู้เล่นจะสามารถแยกแยะช่วงสกิลของตนในเกมได้อย่างเป็นธรรมชาติและง่ายดายยิ่งขึ้น</li>\n<li>3. รวมมานาและฟื้นฟูมานาต่อวินาทีสำหรับฮีโร่ส่วนใหญ่ด้วยมานาที่ใช้ (ยกเว้น <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Alice\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Alice\" title=\"Alice\" rel=\"noreferrer nofollow\" target=\"_blank\">Alice</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Cecilion\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Cecilion\" title=\"Cecilion\" rel=\"noreferrer nofollow\" target=\"_blank\">Cecilion</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Zhuxin\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Zhuxin\" title=\"Zhuxin\" rel=\"noreferrer nofollow\" target=\"_blank\">Zhuxin</a></span></span>).\n<ul><li>ฮีโร่ Tank/โรมมิ่งบางตัว (<span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Chip\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Chip\" title=\"Chip\" rel=\"noreferrer nofollow\" target=\"_blank\">Chip</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Gloo\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Gloo\" title=\"Gloo\" rel=\"noreferrer nofollow\" target=\"_blank\">Gloo</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Mathilda\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Mathilda\" title=\"Mathilda\" rel=\"noreferrer nofollow\" target=\"_blank\">มาทิลด้า</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Atlas\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Atlas\" title=\"Atlas\" rel=\"noreferrer nofollow\" target=\"_blank\">แผนที่</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Carmilla\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Carmilla\" title=\"Carmilla\" rel=\"noreferrer nofollow\" target=\"_blank\">Carmilla</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Baxia\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Baxia\" title=\"Baxia\" rel=\"noreferrer nofollow\" target=\"_blank\">Baxia</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Belerick\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Belerick\" title=\"Belerick\" rel=\"noreferrer nofollow\" target=\"_blank\">Belerick</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Kaja\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Kaja\" title=\"Kaja\" rel=\"noreferrer nofollow\" target=\"_blank\">Kaja</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Uranus\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Uranus\" title=\"Uranus\" rel=\"noreferrer nofollow\" target=\"_blank\">Uranus</a></span></span>) ได้เพิ่มมานาและมานา รีเจนต่อวินาที</li></ul></li>\n<li>4. เพิ่มประสิทธิภาพตัวบ่งชี้ของ <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Aurora\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Aurora\" title=\"Aurora\" rel=\"noreferrer nofollow\" target=\"_blank\">Aurora</a></span></span>'s Ultimate</li>\n<li>5. ปรับเอฟเฟกต์ภาพให้เหมาะสมสำหรับ <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Aldous\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Aldous\" title=\"Aldous\" rel=\"noreferrer nofollow\" target=\"_blank\">Aldous</a></span></span> ของสกิล 1 &amp; 2 และ <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Eudora\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Eudora\" title=\"Eudora\" rel=\"noreferrer nofollow\" target=\"_blank\">Eudora</a></span></span> สุดยอดแห่งการทำให้ชัดเจนยิ่งขึ้น</li>\n<li>6. ปรับปรุงประสบการณ์คอมโบของ <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Vale\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Vale\" title=\"Vale\" rel=\"noreferrer nofollow\" target=\"_blank\">Vale</a></span>⟧</span> ของสกิล 2 และอัลติเมท อัลติเมทจะจัดลำดับความสำคัญของศัตรูไปในทิศทางของสกิล 2</li>\n<li>7. ปรับเอฟเฟกต์ภาพของ <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Inspire\"></span></span></span> <span><span>Inspire</span></span></span> ให้เหมาะสม</li></ul>\n<p><b>[แก้ไขข้อบกพร่อง]</b>\n</p>\n<ul><li>1. ปรับตัวบ่งชี้และช่วงเอฟเฟกต์ภาพของการใช้ครั้งที่สามของ <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Terizla\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Terizla\" title=\"Terizla\" rel=\"noreferrer nofollow\" target=\"_blank\">Terizla</a></span></span> ของสกิล 2 เพื่อให้ตรงกับมันมากขึ้น พื้นที่เสียหายจริง</li>\n<li>2. แก้ไขปัญหาใน Mythic Battlefield ที่การลดความเสียหายสำหรับฮีโร่พันธมิตรที่อยู่ใกล้เคียงที่ได้รับจากป้อมปราการด้านนอกของ Gold Lane จะไม่เพิ่มขึ้นตามปกติเมื่อเปิดโล่พลังงาน</li></ul>",
+        "role": null
+      },
+      {
+        "anchor": "iv-system-adjustments",
+        "title": "IV. การปรับระบบ",
+        "html": "<h3 id=\"a-ranked\"><span>ก. อันดับ</span></h3>\n<ul><li>1. S33 จะสิ้นสุดเวลา 23:59:59 น. ของวันที่ 20/09 (เวลาเซิร์ฟเวอร์)</li>\n<li>2. S34 จะเริ่มตั้งแต่เวลา 00:00:00 น. ของวันที่ 21/09 (เวลาเซิร์ฟเวอร์) จบการแข่งขันจัดอันดับเพื่อรับรางวัลรวมถึงสกินตามฤดูกาลของ S34: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Aulus\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Aulus\" title=\"Aulus\" rel=\"noreferrer nofollow\" target=\"_blank\">Aulus</a></span></span> \"Ironmane Reaver\" และ S34 กรอบอวาตาร์ \"เจ้าแห่งการเปลี่ยนแปลง\"</li>\n<li>3. เนื้อเรื่อง S34 ใหม่พร้อมให้เล่นแล้ว โดยเผยให้เห็นภูมิหลังลึกลับของฮีโร่ใหม่ - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Suyou\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Suyou\" title=\"Suyou\" rel=\"noreferrer nofollow\" target=\"_blank\">Suyou</a></span></span> รับ Suyou Emote สุดพิเศษเมื่อทำครบทุกบท!</li></ul>\n<dl><dd>ซีซั่นนี้จะจบเร็วกว่าซีซั่นก่อน 2 ชั่วโมง กรุณาจัดสรรเวลาให้เหมาะสม หวังว่าคุณจะสนุกกับเกมและปีนขึ้นไปด้านบนอย่างรวดเร็ว!</dd></dl>\n<h3 id=\"b-battlefield-draft\"><span>B. ร่างสนามรบ</span></h3>\n<dl><dd>กิจกรรม Battlefield Draft กำลังจะมาเร็วๆ นี้! ที่นี่คุณจะมีโอกาสสัมผัสกับเอฟเฟกต์สนามรบใหม่ล่าสุด เช่น Super Entourage, Healing Turret และ Eternal Strength</dd></dl>\n<ul><li>กิจกรรมนี้จะมีทั้งหมด 4 ระยะ แต่ละระยะจะแบ่งออกเป็นระยะการลงคะแนนเสียง ระยะการประกาศ และระยะการแข่งขัน</li>\n<li>ในแต่ละขั้นตอนการโหวต คุณสามารถรับการโหวตเอฟเฟกต์ Battlefield ได้จากการทำภารกิจให้สำเร็จ คุณสามารถใช้สิ่งเหล่านี้เพื่อโหวตให้กับสิ่งที่คุณชื่นชอบจากเอฟเฟกต์สนามรบที่แตกต่างกันสามแบบ</li>\n<li>เอฟเฟกต์สนามรบที่มีคะแนนโหวตสูงสุดจะเข้าสู่ด่านประกาศ และท้ายที่สุดจะมีผลในการแข่งขันจัดอันดับสำหรับระดับ Epic และระดับที่สูงกว่าในระหว่างด่านการแข่งขัน</li>\n<li>Battlefield Draft: แผนที่ของคุณ กฎของคุณ!</li>\n<li>กิจกรรม Battlefield Draft จะมีให้ตั้งแต่วันที่ 21/09 ถึง 11/22 (เวลาเซิร์ฟเวอร์)</li></ul>\n<dl><dd>หมายเหตุ: คุณสมบัติการแจ้งเตือนเหตุการณ์บางอย่างจะปรากฏบนอุปกรณ์ Android เท่านั้น</dd></dl>",
+        "role": null
+      },
+      {
+        "anchor": "v-events",
+        "title": "V. เหตุการณ์",
+        "html": "<h3 id=\"a-anniversary\"><span>ก. วันครบรอบ</span></h3>\n<dl><dd>กิจกรรมครบรอบ 8 ปี MLBB จะเริ่มอย่างเป็นทางการในวันที่ 27 ก.ย. (เวลาเซิร์ฟเวอร์)! ในช่วงกิจกรรมวันครบรอบ จะมีประสบการณ์ใหม่พร้อมรางวัลมากมายที่คุณไม่ควรพลาด!</dd></dl>\n<ul><li>กิจกรรม Grand Adventure จะมีให้บริการตั้งแต่ 27 กันยายน ถึง 10/27 (เวลาเซิร์ฟเวอร์) ได้เวลารับสกิน <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Akai\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Akai\" title=\"Akai\" rel=\"noreferrer nofollow\" target=\"_blank\">Akai</a></span></span> ใหม่! คอยติดตามรับรางวัลวันครบรอบเพิ่มเติม!</li>\n<li>กิจกรรมที่ปรับปรุงใหม่สำหรับผู้เล่นที่กลับมาจะมีให้ตั้งแต่วันที่ 27 กันยายน ถึง 10 กันยายน (เวลาเซิร์ฟเวอร์) พาเพื่อนของคุณไปด้วยเพื่อรับสกิน Epic ฟรี!</li>\n<li>สกินใหม่ <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Kagura\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Kagura\" title=\"Kagura\" rel=\"noreferrer nofollow\" target=\"_blank\">Kagura</a></span></span> สกินจะใช้งานได้ตั้งแต่วันที่ 10/18 ถึง 11/03 (เวลาเซิร์ฟเวอร์) เข้าร่วมกิจกรรมของขวัญวันครบรอบของคางุระเพื่อรับฟรี! อย่าพลาด!</li>\n<li>กิจกรรมแจกสกินฉลองครบรอบเริ่มตั้งแต่วันที่ 10/04 ถึง 10/17 (เวลาเซิร์ฟเวอร์) พร้อมรับสกิน Epic ฟรี!</li>\n<li>เข้าร่วมในกิจกรรมโบนัสการต่อสู้ฉลองครบรอบตั้งแต่วันที่ 27 กันยายน ถึง 22 กันยายน (เวลาเซิร์ฟเวอร์) เพื่อรับการแจ้งเตือนการสังหาร โทเค็น Ducati และรางวัลอื่นๆ อีกมากมายฟรี!</li></ul>\n<h3 id=\"b-mpl-team-recall-effect-lucky-draw\"><span>B. เอฟเฟกต์การเรียกคืนทีม MPL การจับรางวัล</span></h3>\n<ul><li>1. ในวันที่ 9 กันยายน 2562 (เวลาเซิร์ฟเวอร์) กิจกรรมจับรางวัลพิเศษที่มีเอฟเฟกต์การเรียกคืนของทีม MPL 12 ทีม—DEWA, ​​EVOS, FCAP, GEEK, LIQUID, OMG, ONIC, RBL, RORA, RSG, TLPH และ TNC—กำลังจะมีผลบังคับใช้เต็มรูปแบบ</li>\n<li>2. ในช่วงกิจกรรม เพลิดเพลินกับส่วนลด 50% สำหรับการจับรางวัล 1X ครั้งแรกและการจับรางวัล 10X แรกของคุณ อย่าพลาด!</li></ul>\n<h3 id=\"c-brody-apbren\"><span></span><span>ซ. Brody \"APBren\"</span></h3>\n<ul><li>1. ตั้งแต่วันที่ 19/09 ถึง 11/02 (เวลาเซิร์ฟเวอร์) <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Brody\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Brody\" title=\"Brody\" rel=\"noreferrer nofollow\" target=\"_blank\">Brody</a></span></span> กิจกรรม \"APBren\" จะมีให้บริการในช่วงเวลาจำกัด อย่าพลาดข้อเสนอเวลาจำกัดที่ส่วนลดมากกว่า 60% (จากเดิม 1,299 เพชร) เมื่อกิจกรรมเริ่มต้นขึ้น!</li>\n<li>2. ในช่วงกิจกรรม ซื้อการ์ดของที่ระลึกแชมเปี้ยนเพื่อปลดล็อคสกิน M5 Champion ทันที <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Brody\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Brody\" title=\"Brody\" rel=\"noreferrer nofollow\" target=\"_blank\">Brody</a></span></span> \"APBren\" ซื้อการ์ดของที่ระลึก Deluxe Champion เพื่อปลดล็อกรางวัลทั้งหมดจากทั้งสองระดับ รวมถึงเอฟเฟกต์การเรียกคืน เอฟเฟกต์การวางไข่ และเอฟเฟกต์การกำจัด</li></ul>\n<h3 id=\"d-shop\"><span>D. ร้านค้า</span></h3>\n<p>การปรับปรุงร้านค้าในวันที่ 9/19 (เวลาเซิร์ฟเวอร์):\n</p>\n<ul><li>1. ลบร้านค้า - การเตรียมการ - แท็บพิเศษ</li>\n<li>2. เพิ่มร้านค้าใหม่ - แท็บพิเศษที่แสดงแพ็คและไอเทมที่ซื้อได้ทั้งหมด</li></ul>\n<dl><dd>(ขณะนี้การอัปเดตนี้จำกัดเฉพาะผู้ใช้ Android เท่านั้น ผู้ใช้ iOS โปรดรอการอัปเดตในอนาคต)</dd></dl>\n<h3 id=\"e-new-skins\"><span>E. สกินใหม่</span></h3>\n<ul><li><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Paquito\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Paquito\" title=\"Paquito\" rel=\"noreferrer nofollow\" target=\"_blank\">Paquito</a></span></span> \"Fist of Glory\" สกิน M5 FMVP จะวางจำหน่ายในวันที่ 19/9/19 (เวลาเซิร์ฟเวอร์) รับส่วนลด 30% ในสัปดาห์แรก</li>\n<li>สกินใหม่ <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Suyou\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Suyou\" title=\"Suyou\" rel=\"noreferrer nofollow\" target=\"_blank\">Suyou</a></span></span> \"Venerated Vigilance\" จะเปิดให้ใช้งานในวันที่ 21/09 (เวลาเซิร์ฟเวอร์) ในราคาเพียง 51 เพชรในสองสัปดาห์แรก</li></ul>\n<h3 id=\"f-s34-first-recharge-event\"><span>ฟ. กิจกรรมเติมเงินครั้งแรก S34</span></h3>\n<ul><li>1. เติมเงิน 20 เพชรเพื่อรับกรอบอวาตาร์เติมเงิน S34 ครั้งแรกฟรี!</li>\n<li>2. เติมเงินจำนวนเท่าใดก็ได้เพื่อซื้อ S34 First Recharge Exclusive Elite Skin, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Hylos\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Hylos\" title=\"Hylos\" rel=\"noreferrer nofollow\" target=\"_blank\">Hylos</a></span></span> \"Bloodhoof ตัวกวน\". เพียง 100 Diamonds หลังหักส่วนลดแล้ว!</li>\n<li>3. เติมเงินให้ครบ 3 วันเพื่อซื้อการ์ดเปลี่ยนชื่อ (7 วัน) และมีเพียง 50 เพชรเท่านั้น!</li></ul>\n<h3 id=\"g-zodiac-summon\"><span>ก. อัญเชิญนักษัตร</span></h3>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Lunox\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Lunox\" title=\"Lunox\" rel=\"noreferrer nofollow\" target=\"_blank\">Lunox</a></span></span> \"Libra\" จะกลับมาในช่วงเวลาจำกัดในวันที่ 23/09 (เวลาเซิร์ฟเวอร์) โดยจะลดราคา 30% ในสัปดาห์แรก\n</p>\n<h3 id=\"h-fragment-shop\"><span>H. ร้านชิ้นส่วน</span></h3>\n<p>การปรับปรุงร้านค้าชิ้นส่วนในวันที่ 20/09 (เวลาเซิร์ฟเวอร์):\n</p><p><b>ก. สกินหายาก</b>\n</p>\n<ul><li>เพิ่ม: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Miya\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Miya\" title=\"Miya\" rel=\"noreferrer nofollow\" target=\"_blank\">Miya</a></span></span> \"กัปตันหนาม\", <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Franco\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Franco\" title=\"Franco\" rel=\"noreferrer nofollow\" target=\"_blank\">ฟรังโก</a></span></span> \"คัมภีร์ของศาสนาคริสต์\", <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Freya\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Freya\" title=\"Freya\" rel=\"noreferrer nofollow\" target=\"_blank\">Freya</a></span></span> \"นักล่ามังกร\", <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Aurora\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Aurora\" title=\"Aurora\" rel=\"noreferrer nofollow\" target=\"_blank\">Aurora</a></span></span> \"จักรพรรดินีอกหัก\", <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Belerick\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Belerick\" title=\"Belerick\" rel=\"noreferrer nofollow\" target=\"_blank\">Belerick</a></span></span> \"เล็บเสือ\"</li>\n<li>ลบแล้ว: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Natalia\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Natalia\" title=\"Natalia\" rel=\"noreferrer nofollow\" target=\"_blank\">Natalia</a></span></span> \"Phantom Dancer\", <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Zilong\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Zilong\" title=\"Zilong\" rel=\"noreferrer nofollow\" target=\"_blank\">Zilong</a></span></span> \"นักรบตะวันออก\", <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Harley\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Harley\" title=\"Harley\" rel=\"noreferrer nofollow\" target=\"_blank\">Harley</a></span></span> \"รอยัลมาจิสเตอร์\", <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Akai\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Akai\" title=\"Akai\" rel=\"noreferrer nofollow\" target=\"_blank\">Akai</a></span></span> \"อาคาโซนาเอะ ซามูไร\", <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Uranus\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Uranus\" title=\"Uranus\" rel=\"noreferrer nofollow\" target=\"_blank\">ดาวยูเรนัส</a></span></span> \"วิญญาณโบราณ\"</li></ul>\n<p><b>ข. ร้านฮีโร่</b>\n</p>\n<ul><li>เพิ่ม: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Zhask\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Zhask\" title=\"Zhask\" rel=\"noreferrer nofollow\" target=\"_blank\">Zhask</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Benedetta\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Benedetta\" title=\"Benedetta\" rel=\"noreferrer nofollow\" target=\"_blank\">เบเนเดตตา</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Martis\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Martis\" title=\"Martis\" rel=\"noreferrer nofollow\" target=\"_blank\">มาร์ทิส</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Novaria\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Novaria\" title=\"Novaria\" rel=\"noreferrer nofollow\" target=\"_blank\">Novaria</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Vale\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Vale\" title=\"Vale\" rel=\"noreferrer nofollow\" target=\"_blank\">Vale</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Xavier\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Xavier\" title=\"Xavier\" rel=\"noreferrer nofollow\" target=\"_blank\">Xavier</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Arlott\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Arlott\" title=\"Arlott\" rel=\"noreferrer nofollow\" target=\"_blank\">Arlott</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Lylia\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Lylia\" title=\"Lylia\" rel=\"noreferrer nofollow\" target=\"_blank\">Lylia</a></span></span></li>\n<li>ลบแล้ว: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Hanabi\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Hanabi\" title=\"Hanabi\" rel=\"noreferrer nofollow\" target=\"_blank\">Hanabi</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Angela\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Angela\" title=\"Angela\" rel=\"noreferrer nofollow\" target=\"_blank\">Angela</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Beatrix\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Beatrix\" title=\"Beatrix\" rel=\"noreferrer nofollow\" target=\"_blank\">บีทริกซ์</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Karrie\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Karrie\" title=\"Karrie\" rel=\"noreferrer nofollow\" target=\"_blank\">Karrie</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Fanny\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Fanny\" title=\"Fanny\" rel=\"noreferrer nofollow\" target=\"_blank\">แฟนนี่</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Aamon\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Aamon\" title=\"Aamon\" rel=\"noreferrer nofollow\" target=\"_blank\">Aamon</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Lancelot\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Lancelot\" title=\"Lancelot\" rel=\"noreferrer nofollow\" target=\"_blank\">Lancelot</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Ruby\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Ruby\" title=\"Ruby\" rel=\"noreferrer nofollow\" target=\"_blank\">ทับทิม</a></span></span></li></ul>\n<h3 id=\"i-free-heroes\"><span>ฉัน. ฮีโร่ฟรี</span></h3>\n<p>เวลาเซิร์ฟเวอร์ 20/9/2567 05:01:00 ถึง 27/09/2567 05:00:00 น. \n</p>\n<ul><li>ฮีโร่ฟรี 8 ตัว: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Cyclops\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Cyclops\" title=\"Cyclops\" rel=\"noreferrer nofollow\" target=\"_blank\">Cyclops</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Silvanna\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Silvanna\" title=\"Silvanna\" rel=\"noreferrer nofollow\" target=\"_blank\">Silvanna</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Chou\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Chou\" title=\"Chou\" rel=\"noreferrer nofollow\" target=\"_blank\">Chou</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Aulus\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Aulus\" title=\"Aulus\" rel=\"noreferrer nofollow\" target=\"_blank\">Aulus</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Lunox\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Lunox\" title=\"Lunox\" rel=\"noreferrer nofollow\" target=\"_blank\">Lunox</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Hylos\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Hylos\" title=\"Hylos\" rel=\"noreferrer nofollow\" target=\"_blank\">Hylos</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Kagura\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Kagura\" title=\"Kagura\" rel=\"noreferrer nofollow\" target=\"_blank\">Kagura</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Arlott\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Arlott\" title=\"Arlott\" rel=\"noreferrer nofollow\" target=\"_blank\">Arlott</a></span></span></li>\n<li>ฮีโร่สมาชิกสตาร์ไลท์พิเศษ 6 คน: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Hanabi\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Hanabi\" title=\"Hanabi\" rel=\"noreferrer nofollow\" target=\"_blank\">Hanabi</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Terizla\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Terizla\" title=\"Terizla\" rel=\"noreferrer nofollow\" target=\"_blank\">เทริซลา</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Lesley\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Lesley\" title=\"Lesley\" rel=\"noreferrer nofollow\" target=\"_blank\">Lesley</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Cecilion\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Cecilion\" title=\"Cecilion\" rel=\"noreferrer nofollow\" target=\"_blank\">Cecilion</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Carmilla\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Carmilla\" title=\"Carmilla\" rel=\"noreferrer nofollow\" target=\"_blank\">Carmilla</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Harith\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Harith\" title=\"Harith\" rel=\"noreferrer nofollow\" target=\"_blank\">Harith</a></span></span></li></ul>\n<p>เวลาเซิร์ฟเวอร์ 27/09/2567 05:01:00 ถึง 10/04/2567 05:00:00 น. \n</p>\n<ul><li>ฮีโร่ฟรี 8 ตัว: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Valentina\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Valentina\" title=\"Valentina\" rel=\"noreferrer nofollow\" target=\"_blank\">Valentina</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Helcurt\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Helcurt\" title=\"Helcurt\" rel=\"noreferrer nofollow\" target=\"_blank\">Helcurt</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Faramis\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Faramis\" title=\"Faramis\" rel=\"noreferrer nofollow\" target=\"_blank\">Faramis</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Hanzo\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Hanzo\" title=\"Hanzo\" rel=\"noreferrer nofollow\" target=\"_blank\">Hanzo</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Barats\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Barats\" title=\"Barats\" rel=\"noreferrer nofollow\" target=\"_blank\">Barats</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Cici\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Cici\" title=\"Cici\" rel=\"noreferrer nofollow\" target=\"_blank\">Cici</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Karina\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Karina\" title=\"Karina\" rel=\"noreferrer nofollow\" target=\"_blank\">คารินา</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Aurora\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Aurora\" title=\"Aurora\" rel=\"noreferrer nofollow\" target=\"_blank\">Aurora</a></span></span></li>\n<li>ฮีโร่สมาชิกสตาร์ไลท์พิเศษ 6 คน: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Mathilda\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Mathilda\" title=\"Mathilda\" rel=\"noreferrer nofollow\" target=\"_blank\">Mathilda</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Leomord\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Leomord\" title=\"Leomord\" rel=\"noreferrer nofollow\" target=\"_blank\">Leomord</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Karrie\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Karrie\" title=\"Karrie\" rel=\"noreferrer nofollow\" target=\"_blank\">Karrie</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Fredrinn\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Fredrinn\" title=\"Fredrinn\" rel=\"noreferrer nofollow\" target=\"_blank\">Fredrinn</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Belerick\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Belerick\" title=\"Belerick\" rel=\"noreferrer nofollow\" target=\"_blank\">Belerick</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Nolan\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Nolan\" title=\"Nolan\" rel=\"noreferrer nofollow\" target=\"_blank\">Nolan</a></span></span></li></ul>",
+        "role": null
+      },
+      {
+        "anchor": "vi-game-modes-mode-adjustments",
+        "title": "วี. โหมดเกม/การปรับโหมด",
+        "html": "<h3 id=\"a-shadow-brawl\"><span>ก. เงาวิวาท</span></h3>\n<p>Shadow Brawl กลับมาแล้วและจะใช้งานได้ในช่วงเวลาจำกัดทุกสัปดาห์ตั้งแต่วันพฤหัสบดีถึงวันอาทิตย์ สนุกกับการต่อสู้ที่รวดเร็ว!\n</p>\n<h3 id=\"b-deathbattle\"><span>B. เดธแบทเทิล</span></h3>\n<p>Deathbattle กลับมาอีกครั้งและจะใช้งานได้ในช่วงเวลาจำกัดทุกสัปดาห์ตั้งแต่วันจันทร์ถึงวันพุธ สนุกกับการต่อสู้ที่รวดเร็ว!\n</p>\n<h3 id=\"c-overdrive\"><span>ซ. โอเวอร์ไดรฟ์</span></h3>\n<p>โอเวอร์ไดรฟ์จะใช้งานได้เฉพาะในวันที่ 21 ก.ย. (เวลาเซิร์ฟเวอร์) ซึ่งเป็นวันชำระบัญชีฤดูกาล\n</p>\n<h3 id=\"d-brawl\"><span>D. วิวาท</span></h3>\n<p><i>v304.1</i>\n</p><p><b>[การปรับสมดุลฮีโร่]</b>\n</p><p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Miya\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Miya\" title=\"Miya\" rel=\"noreferrer nofollow\" target=\"_blank\">Miya</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>ความเสียหาย -8% → -10%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Ruby\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Ruby\" title=\"Ruby\" rel=\"noreferrer nofollow\" target=\"_blank\">Ruby</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>ความเสียหายที่ได้รับ +10% → +16%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Aurora\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Aurora\" title=\"Aurora\" rel=\"noreferrer nofollow\" target=\"_blank\">Aurora</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>(ใหม่) ความเสียหาย -6%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Gatotkaca\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Gatotkaca\" title=\"Gatotkaca\" rel=\"noreferrer nofollow\" target=\"_blank\">Gatotkaca</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>ความเสียหายที่ได้รับ +10% → +14%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Argus\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Argus\" title=\"Argus\" rel=\"noreferrer nofollow\" target=\"_blank\">Argus</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>ความเสียหาย +14% → +8%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Hylos\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Hylos\" title=\"Hylos\" rel=\"noreferrer nofollow\" target=\"_blank\">Hylos</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>(ใหม่) ความเสียหายที่ได้รับ +10%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Jawhead\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Jawhead\" title=\"Jawhead\" rel=\"noreferrer nofollow\" target=\"_blank\">Jawhead</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>ความเสียหายที่ได้รับ -8% → -12%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Kimmy\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Kimmy\" title=\"Kimmy\" rel=\"noreferrer nofollow\" target=\"_blank\">Kimmy</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>ความเสียหาย +14% → +8%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Dyrroth\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Dyrroth\" title=\"Dyrroth\" rel=\"noreferrer nofollow\" target=\"_blank\">Dyrroth</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>ความเสียหายที่ได้รับ -6% → -10%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Mathilda\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Mathilda\" title=\"Mathilda\" rel=\"noreferrer nofollow\" target=\"_blank\">มาทิลด้า</a></span></span> <span>BUFF ↑</span>\n</p>\n<ul><li>(ใหม่) ความเสียหาย +10%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Phoveus\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Phoveus\" title=\"Phoveus\" rel=\"noreferrer nofollow\" target=\"_blank\">Phoveus</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>(ใหม่) ความเสียหาย -8%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Xavier\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Xavier\" title=\"Xavier\" rel=\"noreferrer nofollow\" target=\"_blank\">Xavier</a></span></span> <span>NERF ↓</span>\n</p>\n<ul><li>ความเสียหาย -10% → -14%</li></ul>\n\n<p><br>\n</p>\n<h3 id=\"e-magic-chess\"><span>E. หมากรุกวิเศษ</span></h3>\n<p><i>v488.1</i>\n</p><p><b>[อัปเดตการวาดธีม]</b>\n</p>\n<ul><li>กิจกรรมจับรางวัลธีม Magic Chess Astro Probe จะกลับมาตั้งแต่วันที่ 19/09/2024 เวลา 00:00:00 น. (เวลาเซิร์ฟเวอร์) ในระยะเวลาจำกัด เข้าร่วมเพื่อลุ้นรับสกินพิเศษของ Tharz: Astro Probe และเอฟเฟกต์เทเลพอร์ต: Galactic Warp คอยติดตาม!</li>\n<li>กิจกรรมจับรางวัลธีม Magic Chess Astro Playroom จะกลับมาตั้งแต่วันที่ 31/10/2024 เวลา 00:00:00 น. (เวลาเซิร์ฟเวอร์) ในระยะเวลาจำกัด เข้าร่วมเพื่อลุ้นรับกระดานหมากรุกสุดพิเศษ: Astro Playroom และเอฟเฟกต์ Teleport: Galactic Warp คอยติดตาม!</li></ul>\n<p><b>[การปรับปรุงการทำงานร่วมกัน]</b>\n</p>\n<ul><li>อมตะ <span>BUFF ↑</span>: สแต็คสูงสุดสำหรับ 2/4/6 อมตะ: 35 → 40</li>\n<li>พลังดาราศาสตร์ <span>NERF ↓</span>: ความเสียหายเพิ่มขึ้น: 40%/90% → 40%/85%</li></ul>\n<p><b>[การปรับผู้บัญชาการ]</b>\n</p>\n<ul><li>ฮาร์เปอร์ <span>NERF ↓</span>: ความตั้งใจของนักรบ: ฮาร์เปอร์ได้รับความเสียหายจากการโจมตีน้อยลง 5 → 4</li>\n<li>Angela <span>NERF ↓</span>: Puppet-on-a-String: แก้ไขปัญหาที่ศัตรูที่มึนงงไม่สามารถฟื้นฟูมานาเป็นระยะเวลานาน</li>\n<li>เอวา <span>BUFF ↑</span>: เพิ่มความเร็วในการโจมตี: 35% → 42%</li></ul>\n<p><b>[การปรับฮีโร่]</b>\n</p>\n<ul><li>เซเลนา <span>NERF ↓</span>: ความเสียหายจากสกิล: 2350/3500/6200 → 2100/3150/5600</li></ul>\n<p><b>[ปรับปรุงอุปกรณ์]</b>\n</p>\n<ul><li>หมวกผู้พิทักษ์ [Quartermaster] <span>NERF ↓</span>: เพิ่ม HP สูงสุด: 30% → 28%</li></ul>\n―Mobile Legends: ปังปัง",
+        "role": null
+      },
+      {
+        "anchor": "undocumented-changes",
+        "title": "การเปลี่ยนแปลงที่ไม่มีเอกสาร",
+        "html": "<p>-\n</p>",
+        "role": null
+      },
+      {
+        "anchor": "references",
+        "title": "อ้างอิง",
+        "html": "",
+        "role": null
+      }
+    ],
+    "newHeroes": [],
+    "adjustments": [
+      {
+        "name": "Zhuxin",
+        "type": "adjust",
+        "intro": "",
+        "sections": [],
+        "slug": "zhuxin"
+      },
+      {
+        "name": "Zhuxin",
+        "type": "adjust",
+        "intro": "ความสามารถในการเคลียร์คลื่นของ Zhuxin นั้นอ่อนแอ ในขณะที่ความสามารถในการควบคุมของเธอในทีมไฟต์นั้นสูงเกินไป เรามุ่งมั่นที่จะแก้ไขปัญหานี้",
+        "sections": [
+          {
+            "name": "คุณสมบัติ",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "อัตราฟื้นฟูมานาพื้นฐาน",
+                "before": "28",
+                "after": "10"
+              }
+            ]
+          },
+          {
+            "name": "เฉยๆ",
+            "category": null,
+            "type": "adjust",
+            "changes": [
+              {
+                "label": "กองผีเสื้อ Max Crimson",
+                "before": "30",
+                "after": "20"
+              },
+              {
+                "label": "ฟื้นฟูมานาต่อกองผีเสื้อสีแดงเข้ม",
+                "before": "3% of Max Mana",
+                "after": "4% of Max Mana"
+              }
+            ]
+          },
+          {
+            "name": "สกิล 1",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "text": "การร่ายไม่ต้องใช้มานาอีกต่อไป"
+              }
+            ]
+          },
+          {
+            "name": "สกิล 2",
+            "category": null,
+            "type": "adjust",
+            "changes": [
+              {
+                "text": "การร่ายไม่ต้องใช้มานาอีกต่อไป แต่ละครั้งที่ใช้ Soul Snare จะใช้มานา 90-150 ซึ่งหมายความว่าจะไม่ใช้มานาหากไม่มีฮีโร่หรือยูนิตที่ถูกอัญเชิญ"
+              }
+            ]
+          },
+          {
+            "name": "สุดยอด",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "text": "การร่ายไม่ต้องใช้มานาอีกต่อไป"
+              },
+              {
+                "text": "ลบเอฟเฟกต์ที่สกิล 2 ไม่ใช้มานาระหว่างท่าไม้ตาย"
+              }
+            ]
+          }
+        ],
+        "slug": "zhuxin"
+      },
+      {
+        "name": "Chip",
+        "type": "adjust",
+        "intro": "เราหวังว่าจะเพิ่มประสิทธิภาพของ Chip ในทีมไฟต์ในขณะที่ลดความสามารถในการสนับสนุนของเขาลงอย่างมาก",
+        "sections": [
+          {
+            "name": "สุดยอด",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "ผลพิเศษหลังจากความล่าช้า",
+                "before": "50% Slow Effect",
+                "after": "Immobilizing Effect"
+              }
+            ]
+          },
+          {
+            "name": "สกิลที่ 4",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "คูลดาวน์",
+                "before": "20s",
+                "after": "60s"
+              }
+            ]
+          }
+        ],
+        "slug": "chip"
+      },
+      {
+        "name": "Nolan",
+        "type": "buff",
+        "intro": "เพิ่มความสามารถในการฆ่าของ Nolan ในขณะที่ลดความคล่องตัวของเขาเล็กน้อยเพื่อความสมดุล",
+        "sections": [
+          {
+            "name": "สกิล 1 และ 2",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "คูลดาวน์",
+                "before": "2-1s",
+                "after": "2.5-1.5s"
+              }
+            ]
+          },
+          {
+            "name": "สุดยอด",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "text": "เอฟเฟกต์ใหม่: ทำให้เป้าหมายที่โดนช้าลง 30% เป็นเวลา 0.5 วินาที"
+              },
+              {
+                "label": "คูลดาวน์",
+                "before": "24-18s",
+                "after": "21-15s"
+              }
+            ]
+          }
+        ],
+        "slug": "nolan"
+      },
+      {
+        "name": "Terizla",
+        "type": "nerf",
+        "intro": "ในเวอร์ชันปัจจุบัน Terizla มีสถานะที่แข็งแกร่งมากในช่วงต้นและกลางเกม ดังนั้นเราจึงได้ลดพลังในช่วงต้นเกมของเขาลงอย่างมาก แต่เพิ่มพลังในช่วงท้ายเกมของเขาเล็กน้อย",
+        "sections": [
+          {
+            "name": "เฉยๆ",
+            "category": null,
+            "type": "adjust",
+            "changes": [
+              {
+                "label": "การลดความเสียหายสูงสุด",
+                "before": "30%",
+                "after": "21%-35% (increases as the hero levels up)"
+              }
+            ]
+          },
+          {
+            "name": "สกิล 1",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "คูลดาวน์",
+                "before": "7s at all levels",
+                "after": "9s at all levels"
+              }
+            ]
+          },
+          {
+            "name": "สกิล 2",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "คูลดาวน์",
+                "before": "7-4.5s",
+                "after": "9-4s"
+              },
+              {
+                "label": "ความเสียหายของการโจมตี 2 ครั้งแรก",
+                "before": "135-310 + 160%-185% Total Physical Attack",
+                "after": "90-315 + 135%-185% Total Physical Attack"
+              },
+              {
+                "label": "สร้างความเสียหายให้กับมินเนี่ยน",
+                "before": "60%-100%",
+                "after": "70%-100%"
+              }
+            ]
+          }
+        ],
+        "slug": "terizla"
+      },
+      {
+        "name": "Zhask",
+        "type": "nerf",
+        "intro": "หลังจากการเพิ่มประสิทธิภาพหลายครั้ง Zhask ก็แข็งแกร่งเกินไปเล็กน้อย เราจะลดพลังในช่วงต้นเกมของเขาลงเล็กน้อย ในขณะเดียวกันก็ลดความซับซ้อนของกฎการสืบทอดคุณสมบัติของ Nightmaric Spawn และปรับคำอธิบายสกิลให้เหมาะสม",
+        "sections": [
+          {
+            "name": "สกิล 1",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "ความเสียหายฐานวางไข่ Nightmaric",
+                "before": "60",
+                "after": "55"
+              },
+              {
+                "label": "HP และการป้องกันแบบผสมผสานของ Nightmaric Spawn สืบทอดมา",
+                "before": "70%-100%",
+                "after": "55%-100%"
+              },
+              {
+                "label": "พลังเวทย์มนตร์ของ Nightmaric Spawn สืบทอดมา",
+                "before": "50%-80%",
+                "after": "55%-100% (removed Extra Magic Power)."
+              }
+            ]
+          },
+          {
+            "name": "สุดยอด",
+            "category": null,
+            "type": "adjust",
+            "changes": [
+              {
+                "label": "พลังเวทย์มนตร์ของ Nightmaric Spawn ที่ได้รับการปรับปรุงสืบทอดมา",
+                "before": "90%",
+                "after": "100% (removed Extra Magic Power)."
+              }
+            ]
+          }
+        ],
+        "slug": "zhask"
+      },
+      {
+        "name": "Hylos",
+        "type": "nerf",
+        "intro": "ได้รับประโยชน์จากการปรับเปลี่ยนอุปกรณ์บางอย่าง Hylos ค่อยๆ แสดงให้เห็นถึงความเหนือกว่าในการแข่งขันจัดอันดับ เราหวังว่าจะรักษาประสิทธิภาพที่แข็งแกร่งในช่วงต้นเกมของ Hylos ดังนั้นการปรับเปลี่ยนนี้จะลดความทนทานของเขาในช่วงท้ายเกม",
+        "sections": [
+          {
+            "name": "คุณสมบัติ",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "การเติบโตของ HP",
+                "before": "360",
+                "after": "295"
+              },
+              {
+                "label": "การเติบโตของการป้องกันกายภาพ",
+                "before": "6.8",
+                "after": "5.5"
+              },
+              {
+                "label": "การเติบโตของการป้องกันเวทย์มนตร์",
+                "before": "4",
+                "after": "2.5"
+              },
+              {
+                "label": "มานาฐาน",
+                "before": "430",
+                "after": "500"
+              },
+              {
+                "label": "อัตราฟื้นฟูมานาพื้นฐาน",
+                "before": "2.4",
+                "after": "4"
+              }
+            ]
+          }
+        ],
+        "slug": "hylos"
+      },
+      {
+        "name": "Roger",
+        "type": "nerf",
+        "intro": "ปัจจุบัน Roger มีความแข็งแกร่งอย่างมากในแง่ของความทนทาน ความเสียหายที่ได้รับ และความคล่องตัว เราต้องการลดความสามารถในการเอาตัวรอดและความคล่องตัวของเขาให้อ่อนแอลงในช่วงต้นและกลางเกม",
+        "sections": [
+          {
+            "name": "สุดยอด",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "คูลดาวน์",
+                "before": "6-4.5s",
+                "after": "9-4.5s"
+              },
+              {
+                "label": "เพิ่มพลังป้องกันกายภาพและเวทย์มนตร์",
+                "before": "40-70",
+                "after": "20-65"
+              }
+            ]
+          }
+        ],
+        "slug": "roger"
+      },
+      {
+        "name": "Julian",
+        "type": "nerf",
+        "intro": "เนิร์ฟความสามารถในการระเบิดของ Julian เล็กน้อยในช่วงต้นและกลางเกม",
+        "sections": [
+          {
+            "name": "สกิล 1",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "ความเสียหายต่อเนื่องของ Scythe ที่ปรับปรุงแล้ว",
+                "before": "90-210",
+                "after": "80-180"
+              }
+            ]
+          }
+        ],
+        "slug": "julian"
+      },
+      {
+        "name": "Hayabusa",
+        "type": "nerf",
+        "intro": "ปัจจุบัน Hayabusa มีความโดดเด่นอย่างมากทั้งในการแข่งขันระดับมืออาชีพและการแข่งขันระดับสูง เราได้ตัดสินใจที่จะลดความเสียหายของเขาลงเล็กน้อย ในเวลาเดียวกัน เราได้เพิ่มประสิทธิภาพความเร็วการโจมตีของอัลติเมทของเขา ทำให้ Hayabusa สามารถเล่นได้อย่างน่าประทับใจมากมายในช่วงท้ายเกมเมื่อรวมกับสกิล 2 ของเขา",
+        "sections": [
+          {
+            "name": "สุดยอด",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "text": "การเพิ่มประสิทธิภาพเอฟเฟกต์: เพิ่มความเร็วการโจมตีของอัลติเมทอย่างมีนัยสำคัญที่ระดับ 2 และ 3 (ระยะเวลารวมของการโจมตี 9 และ 12 ครั้งของอัลติเมทระดับ 2 และ 3 ขณะนี้เท่ากับ 6 การโจมตีของอัลติเมทระดับ 1)"
+              },
+              {
+                "label": "โบนัสความเสียหาย",
+                "before": "75% Extra Physical Attack",
+                "after": "60% Extra Physical Attack"
+              }
+            ]
+          }
+        ],
+        "slug": "hayabusa"
+      },
+      {
+        "name": "Popol and Kupa",
+        "type": "nerf",
+        "intro": "ลดความสามารถในการระเบิดของ Popol และ Kupa ในช่วงต้นถึงกลางเกม ในขณะเดียวกันก็ลดความเร็วในการเคลียร์ครีปลงเล็กน้อยเพื่อสร้างสมดุลให้กับความแข็งแกร่งของพวกเขาในฐานะ Jungler และ Gold Laner",
+        "sections": [
+          {
+            "name": "เฉยๆ",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "ความเสียหายเพิ่มเติมของ Kupa ต่อครีป",
+                "before": "150%",
+                "after": "120%"
+              }
+            ]
+          },
+          {
+            "name": "สกิล 1",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "ความเสียหายพื้นฐานของการกัดของ Kupa",
+                "before": "100-190",
+                "after": "70-160"
+              }
+            ]
+          }
+        ],
+        "slug": "popol-and-kupa"
+      },
+      {
+        "name": "Mathilda",
+        "type": "adjust",
+        "intro": "เพิ่มประสิทธิภาพการควบคุมสกิล 1 ลดระยะสนามของสกิล 2 และลดต้นทุนมานาของสกิลทั้งหมด",
+        "sections": [
+          {
+            "name": "สกิล 1",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "พิสัย",
+                "before": "4.6",
+                "after": "4.8"
+              },
+              {
+                "text": "เอฟเฟกต์ใหม่: สกิลการร่ายจะไม่ขัดขวางการเคลื่อนไหวของฮีโร่"
+              },
+              {
+                "label": "ค่ามานา",
+                "before": "60-110",
+                "after": "50-75"
+              }
+            ]
+          },
+          {
+            "name": "สกิล 2",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "พิสัย",
+                "before": "5.5",
+                "after": "4.8"
+              },
+              {
+                "label": "ค่ามานา",
+                "before": "75-100",
+                "after": "60-85"
+              }
+            ]
+          }
+        ],
+        "slug": "mathilda"
+      },
+      {
+        "name": "Edith",
+        "type": "adjust",
+        "intro": "เราได้แก้ไขปัญหาเกี่ยวกับ Edith ที่พลังเวทย์ที่ได้รับจาก Overload ไม่มีผลในระหว่างท่าไม้ตายของเธอ เนื่องจากความแข็งแกร่งในปัจจุบันของ Edith ค่อนข้างสูงอยู่แล้ว การแก้ไขนี้จึงช่วยเพิ่มความเสียหายให้กับเธอได้อีก ดังนั้นเราจึงทำการปรับเปลี่ยน Passive ของเธอเพื่อรักษาความเสียหายโดยรวมของเธอไม่เปลี่ยนแปลง",
+        "sections": [
+          {
+            "name": "เฉยๆ",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "text": "แก้ไขปัญหาที่พลังเวทย์ที่ได้รับจากการโอเวอร์โหลดไม่มีประสิทธิภาพระหว่างท่าไม้ตายของเธอ"
+              },
+              {
+                "label": "โบนัสพลังเวทย์ทั้งหมด",
+                "before": "30%",
+                "after": "20%"
+              },
+              {
+                "label": "โบนัสความเสียหาย",
+                "before": "4% + 0.25% × Hero Level",
+                "after": "3% + 0.2% × Hero Level"
+              }
+            ]
+          }
+        ],
+        "slug": "edith"
+      },
+      {
+        "name": "Lolita",
+        "type": "nerf",
+        "intro": "ในการปรับเปลี่ยนครั้งล่าสุด เราได้เพิ่มประสิทธิภาพของเกราะติดตัวของ Lolita แต่ยังทำให้เธอได้รับ Win Rate มากเกินไปผ่านอุปกรณ์เช่น Flask of the Oasis ในการปรับเปลี่ยนนี้ เรามุ่งหวังที่จะรักษาสมดุลระหว่างประโยชน์ของบิลด์ต่างๆ ของเธอ โดยทำให้เธอเป็น Support และแทงค์ แทนที่จะเป็น Mage ที่มีบิลด์เวทมนตร์เต็มรูปแบบ ดังนั้นเราจึงปรับวิธีการคำนวณรายได้จากโล่พาสซีฟของเธอ และลดความแข็งแกร่งของโล่พาสซีฟของเธอลงเล็กน้อย",
+        "sections": [
+          {
+            "name": "เฉยๆ",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "ช่วงเวลาทริกเกอร์โล่แบบพาสซีฟ",
+                "before": "5s",
+                "after": "6s"
+              },
+              {
+                "label": "โล่ของแต่ละกอง",
+                "before": "80 + 16 × Hero Level + 60% Total Magic Power",
+                "after": "20 + 2.5% Total HP + 20% Total Magic Power"
+              }
+            ]
+          },
+          {
+            "name": "สกิล 1",
+            "category": null,
+            "type": "adjust",
+            "changes": [
+              {
+                "label": "ทริกเกอร์โล่แบบพาสซีฟ",
+                "before": "Before the first dash",
+                "after": "After the first dash"
+              }
+            ]
+          }
+        ],
+        "slug": "lolita"
+      },
+      {
+        "name": "Balmond",
+        "type": "buff",
+        "intro": "ความแข็งแกร่งของ Balmond ยังขาดไปเล็กน้อยเมื่อเทียบกับ Jungler คนอื่นๆ ดังนั้นเราจึงตัดสินใจที่จะให้ความสนใจกับเพื่อนเก่าคนนี้เป็นเวลานาน",
+        "sections": [
+          {
+            "name": "สกิล 2",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "ความเสียหายเพิ่มขึ้นทุกครั้งที่โจมตีครั้งต่อๆ ไป",
+                "before": "7.5%",
+                "after": "8.5%"
+              },
+              {
+                "label": "เพิ่มความเสียหายสูงสุด",
+                "before": "60%",
+                "after": "68%"
+              }
+            ]
+          }
+        ],
+        "slug": "balmond"
+      },
+      {
+        "name": "Arlott",
+        "type": "buff",
+        "intro": "นำ Mana ของ Arlott ออก และปรับปรุงความสามารถในการเลนของเขาเล็กน้อยเมื่อ Ultimate ของเขาไม่พร้อมใช้งาน",
+        "sections": [
+          {
+            "name": "เฉยๆ",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "คูลดาวน์",
+                "before": "8s",
+                "after": "7s"
+              }
+            ]
+          }
+        ],
+        "slug": "arlott"
+      },
+      {
+        "name": "Natalia",
+        "type": "buff",
+        "intro": "ลบมานาของ Natalia ออก ตอนนี้ หลังจากที่ Natalia เข้าไปในพุ่มไม้ เวลาที่เหลือในการปรับปรุงการโจมตีปกติของ Natalia จะแสดงในตำแหน่งที่เคยเป็นมานาของเธอ",
+        "sections": [],
+        "slug": "natalia"
+      },
+      {
+        "name": "Grock",
+        "type": "buff",
+        "intro": "นำมานาของ Grock ออก",
+        "sections": [],
+        "slug": "grock"
+      },
+      {
+        "name": "Claude",
+        "type": "buff",
+        "intro": "ลบมานาของ Claude ออก",
+        "sections": [],
+        "slug": "claude"
+      },
+      {
+        "name": "Alice",
+        "type": "buff",
+        "intro": "เพิ่ม Max Mana ของ Alice ร่วมกับการปรับอุปกรณ์",
+        "sections": [
+          {
+            "name": "คุณสมบัติ",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "อัตราฟื้นฟูมานาต่อวินาที",
+                "before": "3.6",
+                "after": "6"
+              },
+              {
+                "label": "การเติบโตของมานาต่อระดับ",
+                "before": "100",
+                "after": "150"
+              }
+            ]
+          }
+        ],
+        "slug": "alice"
+      },
+      {
+        "name": "Cecilion",
+        "type": "buff",
+        "intro": "เพิ่ม Max Mana ของ Cecilion ร่วมกับการปรับอุปกรณ์",
+        "sections": [
+          {
+            "name": "คุณสมบัติ",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "การเติบโตของมานาต่อระดับ",
+                "before": "109",
+                "after": "140"
+              }
+            ]
+          }
+        ],
+        "slug": "cecilion"
+      }
+    ],
+    "balance": {
+      "buff": 8,
+      "nerf": 8,
+      "adjust": 5
+    },
+    "date": "2026-11-11"
+  },
   "1.8.92": {
     "version": "1.8.92",
-    "title": "Patch Notes/1.8.92",
-    "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes%2F1.8.92",
+    "title": "Patch Notes 1.8.92",
+    "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.92",
     "toc": [
       {
         "level": 2,
@@ -11053,358 +11872,5 @@
       "adjust": 2
     },
     "date": "2024-06-15"
-  },
-  "1.8.88": {
-    "version": "1.8.88",
-    "title": "Patch Notes 1.8.88 (Advanced Server)",
-    "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.88_(Advanced_Server)",
-    "toc": [
-      {
-        "level": 2,
-        "title": "I. การปรับเปลี่ยนฮีโร่",
-        "anchor": "i-hero-adjustments"
-      },
-      {
-        "level": 2,
-        "title": "ครั้งที่สอง การปรับปรุงสนามรบและระบบ",
-        "anchor": "ii-battlefield-system-adjustments"
-      },
-      {
-        "level": 3,
-        "title": "การปรับอุปกรณ์",
-        "anchor": "equipment-adjustments"
-      },
-      {
-        "level": 3,
-        "title": "การปรับเปลี่ยนมินเนี่ยนและครีป",
-        "anchor": "minion-and-creeps-adjustments"
-      },
-      {
-        "level": 3,
-        "title": "การเพิ่มประสิทธิภาพระบบรางวัล",
-        "anchor": "bounty-system-optimization"
-      },
-      {
-        "level": 3,
-        "title": "การปรับเปลี่ยนสนามรบ",
-        "anchor": "battlefield-adjustments"
-      },
-      {
-        "level": 2,
-        "title": "III. กิจกรรม",
-        "anchor": "iii-events"
-      },
-      {
-        "level": 3,
-        "title": "ฮีโร่ฟรี",
-        "anchor": "free-heroes"
-      }
-    ],
-    "sections": [
-      {
-        "anchor": null,
-        "title": null,
-        "html": "<p><br>\n</p>",
-        "role": null
-      },
-      {
-        "anchor": "i-hero-adjustments",
-        "title": "I. การปรับเปลี่ยนฮีโร่",
-        "html": "",
-        "role": "adjustments"
-      },
-      {
-        "anchor": "ii-battlefield-system-adjustments",
-        "title": "ครั้งที่สอง การปรับปรุงสนามรบและระบบ",
-        "html": "<h3 id=\"equipment-adjustments\"><span>การปรับอุปกรณ์</span></h3>\n<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\">\n\n<tbody><tr>\n<th scope=\"col\">อุปกรณ์\n</th>\n<th scope=\"col\">เปลี่ยน\n</th></tr>\n<tr>\n<td><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Berserker%27s_Fury\" title=\"Berserker&#39;s Fury\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span> <a href=\"https://mobilelegends.fandom.com/wiki/Berserker%27s_Fury\" title=\"Berserker&#39;s Fury\" rel=\"noreferrer nofollow\" target=\"_blank\">ความโกรธแค้นของเบอร์เซิร์กเกอร์</a> <span>BUFF ↑</span>\n</td>\n<td>ทำให้ราคารวมของเซ็ตคริติคอล ATK และเซ็ตความเร็วโจมตีเท่ากัน\n<p><b>ราคา</b> <span>BUFF ↑</span>\n</p>\n<ul><li>2500 &gt;&gt; 2390</li></ul>\n</td></tr>\n<tr>\n<td><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Concentrated_Energy\" title=\"Concentrated Energy\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span> <a href=\"https://mobilelegends.fandom.com/wiki/Concentrated_Energy\" title=\"Concentrated Energy\" rel=\"noreferrer nofollow\" target=\"_blank\"> พลังงานเข้มข้น</a> <span>BUFF ↑</span>\n</td>\n<td><b>ติดตัวเฉพาะ - เติมเงิน</b> <span>BUFF ↑</span>\n<ul><li>ระยะเวลา: 3 วินาที &gt;&gt; 5 วินาที</li></ul>\n</td></tr>\n<tr>\n<td><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Elegant_Gem\" title=\"Elegant Gem\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span> <a href=\"https://mobilelegends.fandom.com/wiki/Elegant_Gem\" title=\"Elegant Gem\" rel=\"noreferrer nofollow\" target=\"_blank\">อัญมณีที่หรูหรา</a> <span>NERF ↓</span>\n</td>\n<td><b>ติดตัวเฉพาะ - ของขวัญ</b> <span>NERF ↓</span>\n<ul><li>คูลดาวน์: 40 วินาที &gt;&gt; 60 วินาที</li></ul>\n</td></tr></tbody></table>\n<h3 id=\"minion-and-creeps-adjustments\"><span> การปรับเปลี่ยนมินเนี่ยนและครีป</span></h3>\n<p>ในปัจจุบัน พระเจ้าทรงสนองออบเจกทีฟสองประการในการจัดเตรียมเศรษฐกิจของทีมและเพิ่มแรงกดดัน เราต้องการเพิ่มแรงกดดันจากลอร์ดในขณะเดียวกันก็ลดเศรษฐกิจของทีมที่พวกเขามอบให้เพื่อสร้างสมดุลให้กับความได้เปรียบที่ทีมได้รับ\n</p>\n<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\">\n\n<tbody><tr>\n<th scope=\"col\">ครีพ\n</th>\n<th scope=\"col\">เปลี่ยน\n</th></tr>\n<tr>\n<td><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Lord\" title=\"Lord\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span> <a href=\"https://mobilelegends.fandom.com/wiki/Lord\" title=\"Lord\" rel=\"noreferrer nofollow\" target=\"_blank\">ลอร์ด (เป็นกลาง)</a>\n</td>\n<td>\n<ul><li>ค่าประสบการณ์ที่ได้รับ: -37.5%</li>\n<li>โกลด์ที่มอบให้: -26 ถึง -36% (สเกลตามเวลาการแข่งขัน)</li></ul>\n</td></tr>\n<tr>\n<td><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Lord\" title=\"Lord\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span> <a href=\"https://mobilelegends.fandom.com/wiki/Lord\" title=\"Lord\" rel=\"noreferrer nofollow\" target=\"_blank\">ลอร์ด (อัญเชิญ)</a>\n</td>\n<td>\n<ul><li>พลังชีวิต: +20%</li></ul>\n</td></tr></tbody></table>\n<h3 id=\"bounty-system-optimization\"><span>การเพิ่มประสิทธิภาพระบบรางวัล</span></h3>\n<p>ระบบค่าหัวสำหรับการยุติการฆ่าต่อเนื่อง และระบบค่าหัวของทีมช่วยให้ทีมที่เสียเปรียบไล่ตามทีมที่ได้เปรียบมาเป็นเวลานาน ทำให้มีโอกาสกลับมามากขึ้น อย่างไรก็ตาม เนื่องจากขาดการมองเห็น ผู้เล่นหลายคนยังคงไม่เข้าใจกลไกเหล่านี้ ทำให้ยากต่อการพัฒนากลยุทธ์โดยกำหนดเป้าหมายไปที่เป้าหมายที่มีค่าหัวสูงของศัตรู\n</p><p>ในแพตช์นี้ เราได้เพิ่มการแสดงค่าหัวปัจจุบันของฮีโร่แต่ละตัวบนกระดานคะแนน (แสดงเฉพาะในกรณีที่ค่าหัวไม่ต่ำกว่า 120 ทอง) ซึ่งแสดงถึงทองพิเศษที่ Assassin จะได้รับจากการกำจัดฮีโร่ตัวนั้น เราหวังว่าสิ่งนี้จะช่วยให้ผู้เล่นใช้กลไกนี้ได้ดีขึ้นเพื่อวางแผนกลยุทธ์และรับประกันชัยชนะ\n</p><p>หมายเหตุเพิ่มเติม: ค่าหัว Killing Spree จะเพิ่มขึ้นตามจำนวนการสังหารต่อเนื่องที่ฮีโร่ทำได้ แต่จะมอบให้กับผู้เล่นที่จบการฆ่าเท่านั้น ค่าหัวของทีมจะเพิ่มขึ้นตามจำนวนฮีโร่ที่นำหน้าเศรษฐกิจเฉลี่ยของทีมตรงข้าม เมื่อฮีโร่ชั้นนำถูกสังหาร ค่าหัวของทีมจะแจกจ่ายให้กับผู้เล่นทุกคนในทีมของ Assassin\n</p>\n<h3 id=\"battlefield-adjustments\"><span>การปรับปรุงสนามรบ</span></h3>\n<ol><li>ปรับภาพให้เหมาะสมของ <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"War Cry\"></span></span></span> <span><span>War Cry</span></span></span> และ <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Temporal Reign\"></span></span></span> <span><span> การครองราชย์ชั่วคราว</span></span></span> พรสวรรค์ในการแข่งขัน</li>\n<li>ปรับการตั้งค่าการต่อสู้เริ่มต้นสำหรับฮีโร่บางตัวให้เหมาะสม</li>\n<li>ปรับคำอธิบาย <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Passive\"></span></span></span> <span><span>Passive</span></span></span> ของ <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Jawhead\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Jawhead\" title=\"Jawhead\" rel=\"noreferrer nofollow\" target=\"_blank\">Jawhead</a></span></span> เพื่อให้ตรงกับเป้าหมายจริงที่ได้รับผลกระทบ</li></ol>",
-        "role": null
-      },
-      {
-        "anchor": "iii-events",
-        "title": "III. กิจกรรม",
-        "html": "<h3 id=\"free-heroes\"><span>ฮีโร่ฟรี</span></h3>\n<p>เวลาเซิร์ฟเวอร์ 31/05/2567 05:00:00 ถึง 06/07/2567 05:00:00 (แตะปุ่มการตั้งค่าที่มุมขวาบนของหน้าหลักเพื่อตรวจสอบ)\n</p>\n<dl><dd>ฮีโร่ฟรี 8 ตัว: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Harith\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Harith\" title=\"Harith\" rel=\"noreferrer nofollow\" target=\"_blank\">Harith</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Natalia\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Natalia\" title=\"Natalia\" rel=\"noreferrer nofollow\" target=\"_blank\">Natalia</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Gusion\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Gusion\" title=\"Gusion\" rel=\"noreferrer nofollow\" target=\"_blank\">Gusion</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Arlott\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Arlott\" title=\"Arlott\" rel=\"noreferrer nofollow\" target=\"_blank\">Arlott</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Benedetta\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Benedetta\" title=\"Benedetta\" rel=\"noreferrer nofollow\" target=\"_blank\">เบเนเดตตา</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Beatrix\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Beatrix\" title=\"Beatrix\" rel=\"noreferrer nofollow\" target=\"_blank\">บีทริกซ์</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Yin\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Yin\" title=\"Yin\" rel=\"noreferrer nofollow\" target=\"_blank\">Yin</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Novaria\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Novaria\" title=\"Novaria\" rel=\"noreferrer nofollow\" target=\"_blank\">Novaria</a></span></span></dd></dl>\n<p>ฮีโร่สมาชิกสตาร์ไลท์พิเศษ 6 คน: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Argus\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Argus\" title=\"Argus\" rel=\"noreferrer nofollow\" target=\"_blank\">Argus</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Phoveus\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Phoveus\" title=\"Phoveus\" rel=\"noreferrer nofollow\" target=\"_blank\">Phoveus</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Gloo\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Gloo\" title=\"Gloo\" rel=\"noreferrer nofollow\" target=\"_blank\">Gloo</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Cyclops\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Cyclops\" title=\"Cyclops\" rel=\"noreferrer nofollow\" target=\"_blank\">Cyclops</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Minsitthar\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Minsitthar\" title=\"Minsitthar\" rel=\"noreferrer nofollow\" target=\"_blank\">มินซิทธา</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Kadita\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Kadita\" title=\"Kadita\" rel=\"noreferrer nofollow\" target=\"_blank\">Kadita</a></span></span>\n</p>",
-        "role": null
-      }
-    ],
-    "newHeroes": [],
-    "adjustments": [
-      {
-        "name": "Zhuxin",
-        "type": "adjust",
-        "intro": "ลดความสามารถในการควบคุมของเธอลง ในขณะเดียวกันก็ปรับปรุงประสบการณ์ในการเคลียร์มินเนี่ยนด้วย Lantern Flare หรือถูกควบคุมโดยศัตรู บัฟคุณสมบัติ",
-        "sections": [
-          {
-            "name": "คุณสมบัติ",
-            "category": null,
-            "type": null,
-            "changes": [
-              {
-                "label": "แม็กซ์ มานา",
-                "before": "1200",
-                "after": "1500"
-              }
-            ]
-          },
-          {
-            "name": "Lantern Flare",
-            "category": "สกิล 2",
-            "type": "adjust",
-            "changes": [
-              {
-                "text": "เอฟเฟกต์ใหม่: สร้างความเสียหายเพิ่มเติม 20% ต่อมินเนี่ยน"
-              },
-              {
-                "text": "เอฟเฟกต์ใหม่: ตอนนี้ เมื่อสกิลถูกขัดจังหวะด้วยเอฟเฟกต์ควบคุม ตัวบ่งชี้สกิลจะหยุดที่ตำแหน่งเดิม หลังจากที่การควบคุมสิ้นสุดลง คุณไม่จำเป็นต้อง \"ลาก\" ตัวบ่งชี้สกิลออกมาอีกอีกต่อไป"
-              },
-              {
-                "label": "เคาะศัตรูทางอากาศขึ้นไป",
-                "before": "1.5s",
-                "after": "1s"
-              }
-            ]
-          }
-        ],
-        "slug": "zhuxin"
-      },
-      {
-        "name": "Zhask",
-        "type": "buff",
-        "intro": "การปรับเปลี่ยนการทดลอง: เราหวังว่าจะเพิ่มความเสถียรของ Nightmaric Spawn (รวมถึงความเสียหายและการควบคุม) และปลดการเชื่อมต่อของ Zhask กับ Inspire ทำให้เขาสามารถใช้ Battle Spell อื่น ๆ ได้",
-        "sections": [
-          {
-            "name": "Nightmaric Spawn",
-            "category": "สกิล 1",
-            "type": "buff",
-            "changes": [
-              {
-                "text": "ลบการโจมตีพื้นฐานสองครั้งแรกออก Nightmaric Spawn จะปล่อย Death Rays ออกมาอย่างต่อเนื่อง (ถือเป็นการโจมตีพื้นฐาน ความถี่ของความเสียหายจะไม่ได้รับผลกระทบจากความเร็วโจมตีอีกต่อไป)"
-              },
-              {
-                "label": "เอฟเฟกต์สโลว์จาก Death Rays",
-                "before": "up to 60%",
-                "after": "up to 30%"
-              },
-              {
-                "label": "ความเสียหายจากรังสีมรณะ",
-                "before": "90 +15 MP",
-                "after": "60 +20 MP"
-              },
-              {
-                "label": null,
-                "before": "Mana Cost 100-160",
-                "after": "60-90"
-              }
-            ]
-          },
-          {
-            "name": "Mind Eater",
-            "category": "สกิล 2",
-            "type": "buff",
-            "changes": [
-              {
-                "text": "การปรับปรุงสกิล: หลังจากที่ Zhask สร้างความเสียหายให้กับศัตรูในทิศทางที่กำหนด Nightmaric Spawn จะโจมตีและสตันฮีโร่ศัตรูที่โดนเขาตามลำดับ"
-              },
-              {
-                "text": "ลดเวลาในการคาดการณ์ลง 40%"
-              }
-            ]
-          },
-          {
-            "name": "Dominator's Descent",
-            "category": "สุดยอด",
-            "type": "buff",
-            "changes": [
-              {
-                "label": null,
-                "before": "Enhance Nightmaric Spawn on the spot",
-                "after": "Select an area to summon the enhanced Nightmaric Spawn"
-              },
-              {
-                "label": "ค่ามานา",
-                "before": "200-400",
-                "after": "100-200"
-              }
-            ]
-          }
-        ],
-        "slug": "zhask"
-      },
-      {
-        "name": "Chou",
-        "type": "buff",
-        "intro": "เพิ่มประสิทธิภาพของ Chou ในช่วงกลางเกม",
-        "sections": [
-          {
-            "name": "Only Fast",
-            "category": "เฉยๆ",
-            "type": "buff",
-            "changes": [
-              {
-                "text": "ปรับเอฟเฟกต์ลดการป้องกันกายภาพที่จะใช้ก่อนที่จะเพิ่มความเสียหายจากการโจมตีพื้นฐาน"
-              }
-            ]
-          },
-          {
-            "name": "Jeet Kune Do",
-            "category": "สกิล 1",
-            "type": "buff",
-            "changes": [
-              {
-                "text": "เพิ่มระยะพุ่งขึ้น 20% การใช้สกิล 1 หรือสกิล 2 สองครั้งจะเปิดใช้งานการโจมตีพื้นฐานที่ได้รับการปรับปรุงโดย Passive (มีผลแล้วในแพตช์ที่แล้ว)"
-              },
-              {
-                "label": "คูลดาวน์",
-                "before": "11-9s",
-                "after": "9-7s"
-              }
-            ]
-          }
-        ],
-        "slug": "chou"
-      },
-      {
-        "name": "Moskov",
-        "type": "adjust",
-        "intro": "หลังจากรวบรวมข้อเสนอแนะจากแหล่งต่างๆ เราได้ตัดสินใจลดคูลดาวน์ของ Spear of Misery ของ Moskov ในขณะที่ยังคงคุณลักษณะเฉพาะของเขาไว้",
-        "sections": [
-          {
-            "name": "Spear of Quiescence",
-            "category": "เฉยๆ",
-            "type": "buff",
-            "changes": [
-              {
-                "text": "การฟื้นฟูเอฟเฟกต์ของการโจมตีพื้นฐานสามารถลดคูลดาวน์ของ Spear of Misery ได้"
-              }
-            ]
-          },
-          {
-            "name": "Spear of Misery",
-            "category": "สกิล 2",
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "คูลดาวน์",
-                "before": "12-9.5s",
-                "after": "12s at all levels"
-              },
-              {
-                "label": "ระยะเวลาสตัน",
-                "before": "1.5s",
-                "after": "1.2s"
-              }
-            ]
-          }
-        ],
-        "slug": "moskov"
-      },
-      {
-        "name": "Aulus",
-        "type": "adjust",
-        "intro": "ในปัจจุบัน ความเสียหายจากการโจมตีเพิ่มเติมของการโจมตีพื้นฐาน|การโจมตีพื้นฐานของ Aulus จากจิตวิญญาณการต่อสู้ของเขาอาจส่งผลต่อป้อมปราการและฐาน ทำให้เขาดันเร็วเกินไป ในแพตช์นี้ เราได้แก้ไขปัญหานี้และปรับปรุงประสบการณ์เมื่อ Aulus ร่าย Undying Fury ของเขา",
-        "sections": [
-          {
-            "name": "Fighting Spirit",
-            "category": "เฉยๆ",
-            "type": "nerf",
-            "changes": [
-              {
-                "text": "ความเสียหายกายภาพเพิ่มเติมจากการโจมตีพื้นฐานที่สแตคสูงสุดของ Fighting Spirit จะไม่ทำงานบนป้อมปืนและฐานอีกต่อไป"
-              }
-            ]
-          },
-          {
-            "name": "Undying Fury",
-            "category": "สุดยอด",
-            "type": "buff",
-            "changes": [
-              {
-                "text": "ไม่สามารถถูกขัดจังหวะได้เมื่อร่ายท่าไม้ตายของเขา"
-              }
-            ]
-          }
-        ],
-        "slug": "aulus"
-      },
-      {
-        "name": "Nana",
-        "type": "buff",
-        "intro": "เพิ่มผลประโยชน์ที่ได้รับจากการโจมตีด้วย Molina Smooch ของเธอ",
-        "sections": [
-          {
-            "name": "Molina Smooch",
-            "category": "สกิล 2",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "การลดการป้องกันเวทย์มนตร์ของศัตรูที่แปลงร่าง",
-                "before": "25%-35%",
-                "after": "30%-40%"
-              }
-            ]
-          }
-        ],
-        "slug": "nana"
-      },
-      {
-        "name": "Natan",
-        "type": "nerf",
-        "intro": "ลดความเสียหายที่อาจเกิดขึ้นในช่วงกลางเกมของ Natan",
-        "sections": [
-          {
-            "name": "Theory of Everything",
-            "category": "เฉยๆ",
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "โบนัสพลังเวทย์มนตร์",
-                "before": "70%",
-                "after": "65%"
-              },
-              {
-                "label": "เอฟเฟกต์การโจมตีสืบทอดมา",
-                "before": "70%",
-                "after": "65%"
-              }
-            ]
-          },
-          {
-            "name": "Superposition",
-            "category": "สกิล 1",
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "โบนัสพลังเวทย์มนตร์",
-                "before": "140%",
-                "after": "130%"
-              }
-            ]
-          },
-          {
-            "name": "Interference!",
-            "category": "สกิล 2",
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "โบนัสพลังเวทย์ความเสียหายจากการกระเด็น",
-                "before": "70%",
-                "after": "65%"
-              },
-              {
-                "label": "โบนัสพลังเวทย์มนตร์รวมพิเศษ",
-                "before": "14%",
-                "after": "13%"
-              }
-            ]
-          }
-        ],
-        "slug": "natan"
-      }
-    ],
-    "balance": {
-      "buff": 3,
-      "nerf": 1,
-      "adjust": 3
-    },
-    "date": "2024-06-07"
   }
 }

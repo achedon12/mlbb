@@ -657,8 +657,7 @@
       "Fighter"
     ],
     "lanes": [
-      "Exp",
-      "Jungle"
+      "Exp"
     ],
     "specialties": [
       "Damage",
@@ -1461,8 +1460,7 @@
       "Marksman"
     ],
     "lanes": [
-      "Exp",
-      "Roam"
+      "Exp"
     ],
     "specialties": [
       "Control",
@@ -2668,8 +2666,8 @@
       "Fighter"
     ],
     "lanes": [
-      "Roam",
-      "Exp"
+      "Exp",
+      "Roam"
     ],
     "specialties": [
       "Charge",
@@ -3948,8 +3946,7 @@
       "Fighter"
     ],
     "lanes": [
-      "Exp",
-      "Roam"
+      "Exp"
     ],
     "specialties": [
       "Initiator",
@@ -4376,7 +4373,8 @@
       "Assassin"
     ],
     "lanes": [
-      "Exp"
+      "Exp",
+      "Jungle"
     ],
     "specialties": [
       "Chase",
@@ -4723,8 +4721,7 @@
       "Mage"
     ],
     "lanes": [
-      "Mid",
-      "Roam"
+      "Mid"
     ],
     "specialties": [
       "Initiator",
@@ -4984,7 +4981,8 @@
       "Fighter"
     ],
     "lanes": [
-      "Exp"
+      "Exp",
+      "Jungle"
     ],
     "specialties": [
       "Chase",

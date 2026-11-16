@@ -2265,7 +2265,7 @@
         "entries": [],
         "lines": [
           {
-            "text": "Esperamos aumentar o custo para alguns heróis invadirem a jungle inimiga no início do jogo e fornecer um ambiente agrícola mais seguro para alguns caçadores que são mais fracos no início do jogo.",
+            "text": "Esperamos aumentar o custo para alguns heróis invadirem a jungle inimiga no início do jogo e fornecer um ambiente agrícola mais seguro para alguns junglers que são mais fracos no início do jogo.",
             "level": 0,
             "type": null
           },
@@ -3618,7 +3618,7 @@
         "name": "Kagura",
         "type": "buff",
         "tag": null,
-        "intro": "Como representante de Magos de alto nível, o alto custo de Mana de Kagura e sua fraca capacidade de limpar pistas a tornaram pouco competitiva em torneios. Nesse sentido, otimizamos a experiência de lançamento e limpeza de pistas de Kagura.",
+        "intro": "Como representante de Magos de alto nível, o alto custo de Mana de Kagura e sua fraca capacidade de limpar lanes a tornaram pouco competitiva em torneios. Nesse sentido, otimizamos a experiência de lançamento e limpeza de lanes de Kagura.",
         "sections": [
           {
             "name": "Seimei Umbrella Open",
@@ -4162,7 +4162,7 @@
             "type": null
           },
           {
-            "text": "Ajustado o ícone de atribuição de pista de alguns heróis para corresponder às suas funções principais.",
+            "text": "Ajustado o ícone de atribuição de lane de alguns heróis para corresponder às suas funções principais.",
             "level": 1,
             "type": null
           },
@@ -7868,7 +7868,7 @@
         "name": "Pharsa",
         "type": "buff",
         "tag": null,
-        "intro": "Pharsa não tem um bom desempenho em partidas de alto escalão e de alto nível, então decidimos melhorar suas habilidades de limpeza de pista para lhe dar uma vantagem na pista intermediária.",
+        "intro": "Pharsa não tem um bom desempenho em partidas de alto escalão e de alto nível, então decidimos melhorar suas habilidades de limpeza de lane para lhe dar uma vantagem na lane intermediária.",
         "sections": [
           {
             "name": "Energy Impact",
@@ -10297,7 +10297,7 @@
         "name": "Hayabusa",
         "type": "buff",
         "tag": null,
-        "intro": "Comparada a outros caçadores, Hayabusa parece fraca no combate e na jungle no início do jogo.",
+        "intro": "Comparada a outros junglers, Hayabusa parece fraca no combate e na jungle no início do jogo.",
         "sections": [
           {
             "name": "Ninjutsu Phantom Shuriken",
@@ -12316,7 +12316,7 @@
         "name": "Alice",
         "type": "buff",
         "tag": null,
-        "intro": "Mudanças Experimentais: A mecânica do orbe de sangue é divertida, mas força o jogador de Alice a jogar em várias pistas para maximizar seus ganhos. Estamos tentando mudar a mecânica passiva e ajustar o ritmo de suas habilidades ativas. Sua Habilidade 2 agora pode ser usada com mais frequência, enquanto seu Ultimate concede mais capacidade de sobrevivência e aumenta a explosão de sua Habilidade 2, permitindo que Alice farme mais rápido.",
+        "intro": "Mudanças Experimentais: A mecânica do orbe de sangue é divertida, mas força o jogador de Alice a jogar em várias lanes para maximizar seus ganhos. Estamos tentando mudar a mecânica passiva e ajustar o ritmo de suas habilidades ativas. Sua Habilidade 2 agora pode ser usada com mais frequência, enquanto seu Ultimate concede mais capacidade de sobrevivência e aumenta a explosão de sua Habilidade 2, permitindo que Alice farme mais rápido.",
         "sections": [
           {
             "name": "Atributos",
@@ -14130,7 +14130,7 @@
             "type": null
           },
           {
-            "text": "Otimizado o botão \"Fechar pista\". Tocar no botão agora também mata todos os Minions no campo de batalha.",
+            "text": "Otimizado o botão \"Fechar lane\". Tocar no botão agora também mata todos os Minions no campo de batalha.",
             "level": 1,
             "type": null
           },
@@ -14183,7 +14183,7 @@
     "url": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.26_(Advanced_Server)",
     "date": "2023-10-13",
     "dateSource": "notes",
-    "summary": "Retrabalho de Roger, fortalecimentos de YSS e Harith, enfraquecimentos de Mathilda Fredrinn Mash, localizador de fraqueza de emblema renovado, enfraquecimento de renda de ouro na pista de ouro",
+    "summary": "Retrabalho de Roger, fortalecimentos de YSS e Harith, enfraquecimentos de Mathilda Fredrinn Mash, localizador de fraqueza de emblema renovado, enfraquecimento de renda de ouro na lane de ouro",
     "designerNotes": [],
     "newHeroes": [],
     "heroes": [
@@ -15179,7 +15179,7 @@
             "name": "Jungling Equipment",
             "type": "nerf",
             "tag": null,
-            "intro": "Junglers com vários equipamentos defensivos são muito poderosos neste patch. Portanto, pretendemos diminuir a velocidade de caça na jungle no meio e no final do jogo. Passivo Único: Caçador",
+            "intro": "Junglers com vários equipamentos defensivos são muito poderosos neste patch. Portanto, pretendemos diminuir a velocidade de caça na jungle no meio e no final do jogo. Passivo Único: Jungler",
             "sections": [
               {
                 "name": null,
