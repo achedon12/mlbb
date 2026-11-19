@@ -117,14 +117,24 @@ function inlineTemplates(text, html) {
   return out + text.slice(last);
 }
 
+/** Removes every match, again until none is left (no fragment can rebuild one). */
+function stripAll(text, re) {
+  let prev;
+  let s = text;
+  do {
+    prev = s;
+    s = s.replace(re, "");
+  } while (s !== prev);
+  return s;
+}
+
 /**
  * One inline wikitext fragment, as plain text (`html: false`, for structured
  * fields) or as safe HTML (bold, italics and line breaks kept, the rest
  * escaped). ">>" becomes "→", the notation of the other notes on the site.
  */
 export function inline(text, { html = false } = {}) {
-  let s = String(text ?? "")
-    .replace(/<!--[\s\S]*?-->/g, "")
+  let s = stripAll(String(text ?? ""), /<!--[\s\S]*?-->/g)
     // U+3164, a blank the page uses to pad lines.
     .replace(/ㅤ/g, "")
     .replace(/<\/?(?:h\d|div|span|center|small|big|nowiki)[^>]*>/gi, "")
@@ -144,10 +154,9 @@ export function inline(text, { html = false } = {}) {
   // Line breaks: kept as markers through the escaping.
   s = s.replace(/<br\s*\/?>/gi, "\n");
   if (!html) {
-    return s
+    return stripAll(s, /<[^>]*>/g)
       .replace(/'''(.*?)'''/g, "$1")
       .replace(/''(.*?)''/g, "$1")
-      .replace(/<[^>]+>/g, "")
       .split("\n")
       .map((l) => l.replace(/\s+/g, " ").trim())
       .filter(Boolean)
