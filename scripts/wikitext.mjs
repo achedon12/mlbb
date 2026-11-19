@@ -5,6 +5,8 @@
  * annotations (`{{scale|...}}`) that only make sense on the wiki. We keep the
  * sentence and drop the display machinery.
  */
+import { renderScale } from "./scale.mjs";
+
 /**
  * Strips every HTML tag, until stable.
  *
@@ -25,8 +27,9 @@ export function withoutTags(text) {
 export function cleanDescription(raw) {
   const withoutHtml = withoutTags(
     String(raw)
-      // Scaling annotations: they describe a formula, not an effect.
-      .replace(/\{\{scale\|[^}]*\}\}/gi, "")
+      // Scaling annotations carry the skill's numbers: written out the way
+      // the game writes them, "25 (+15% Total Magic Power) Magic Damage".
+      .replace(/\{\{scale\|([^{}]*)\}\}/gi, (_, args) => renderScale(args))
       .replace(/<nowiki>([\s\S]*?)<\/nowiki>/g, "$1")
       .replace(/<br\s*\/?>/gi, " "),
   );

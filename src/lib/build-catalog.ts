@@ -1,4 +1,3 @@
-import generatedHeroes from "@/data/game/heroes.json";
 import visuals from "@/data/game/visuals.json";
 import { emblems } from "@/data/emblems";
 import { EMBLEM_SETS, TALENT_FIGURES } from "@/data/emblem-attributes";
@@ -20,7 +19,6 @@ import { isComplete, type DamageCalculatorData } from "./damage-calculator";
 import { buildsPlayed, allHeroes, itemsFor } from "./data";
 import { imageTalent, nameTalent, spellSheets, textChoice } from "./usage-sheets";
 import { MEASURED_RANKS } from "./measured-ranks";
-import type { GeneratedHero } from "./types";
 import { visualItem } from "./build-visuals";
 
 /**
@@ -39,9 +37,12 @@ const isPurchasable = (o: { price: number | null; passive: string | null }) =>
   o.price !== null && !/one potion effect/i.test(o.passive ?? "");
 
 const englishItems = itemsFor("en").filter(isPurchasable);
+/** Kept in the catalogue so saved builds still read; hidden from the pickers. */
+const removedItems = new Set(englishItems.filter((o) => o.removed).map((o) => o.slug));
 
 export const simCatalog: SimCatalog = {
-  heroes: new Map((generatedHeroes as unknown as GeneratedHero[]).map((h) => [h.slug, prepareHero(h)])),
+  // Released heroes only, like every list of the site (see `listedHeroes`).
+  heroes: new Map(allHeroes.map((h) => [h.slug, prepareHero(h)])),
   items: new Map(englishItems.map((o) => [o.slug, prepareItem(o)])),
   emblems: new Map(EMBLEM_SETS.map((e) => [e.key, prepareEmblem(e.key, e.attributes)])),
   talents: new Map(TALENT_FIGURES.map((t) => [t.key, prepareTalent(t)])),
@@ -98,7 +99,13 @@ export function simulatorData(locale: Locale, t: T): SimulatorData {
     items: [...simCatalog.items.values()].map((o) => {
       const tr = translated.get(o.slug);
       const text = [tr?.bonus, tr?.unique].filter((x) => x && x !== "None").join(", ");
-      return { ...o, name: tr?.name ?? o.name, image: itemImage(o.slug), text: text || null };
+      return {
+        ...o,
+        name: tr?.name ?? o.name,
+        image: itemImage(o.slug),
+        text: text || null,
+        ...(removedItems.has(o.slug) ? { removed: true } : {}),
+      };
     }),
     categories: [...new Set(englishItems.map((o) => o.category))],
     emblems: [...simCatalog.emblems.values()].map((e) => ({ ...e, name: emblemName(t, e.key), image: emblemImage(e.key) })),

@@ -60,7 +60,8 @@ const heroDetail = heroSummary.extend({
   ratings: z
     .object({ difficulty: nullableNumber })
     .catch({ difficulty: null }),
-  skills: z.array(z.object({ name: z.string() }).nullable()).catch([]),
+  // Cooldown in seconds, from the game's official sheet (one value per level from the wiki).
+  skills: z.array(z.object({ name: z.string(), cooldown: z.array(z.number()).optional().catch(undefined) }).nullable()).catch([]),
   skins: z.array(skin).catch([]),
   images: z
     .object({ portrait: nullableString, icon: nullableString, skins: z.record(z.string(), z.string()).catch({}) })
@@ -90,6 +91,8 @@ const item = z.object({
   passive: nullableString,
   active: nullableString,
   recipe: z.array(z.string()).catch([]),
+  /** Taken out of the game: still answered by name, no longer suggested. */
+  removed: z.boolean().optional().catch(undefined),
 });
 export type Item = z.infer<typeof item>;
 

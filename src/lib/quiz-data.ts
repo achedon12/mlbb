@@ -2,7 +2,7 @@ import generatedVisuals from "@/data/game/visuals.json";
 import type { Locale } from "@/i18n/config";
 import { heroLabel } from "@/i18n/hero-data";
 import { createT } from "@/i18n/translations";
-import { skills, allHeroes, stories, illustrations, itemsFor, sync, visualsSkills } from "./data";
+import { skills, allHeroes, stories, illustrations, itemsFor, currentItemsFor, sync, visualsSkills } from "./data";
 import {
   cut,
   generateChallenge,
@@ -119,7 +119,8 @@ function skinsQuiz(h: Hero, locale: Locale): SkinQuiz[] {
 
 function itemsQuiz(locale: Locale): ItemQuiz[] {
   const t = createT(locale);
-  const list = itemsFor(locale);
+  // Only items still in the shop: a removed one would be a trick question.
+  const list = currentItemsFor(locale);
   const bySlug = new Map(list.map((o) => [o.slug, o]));
   // Recipes list components by their English name.
   const slugByName = new Map([...itemsFor("en"), ...list].map((o) => [o.name, o.slug]));

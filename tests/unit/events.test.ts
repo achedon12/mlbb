@@ -126,6 +126,19 @@ describe("script: wiki monthly lists", () => {
     ]);
   });
 
+  it("reads the month written without <br>, as the wiki does since February 2026", () => {
+    const rows = [
+      "<gallery>",
+      "File:Hero104610-portrait.png|'''Odette - Song of Devotion'''    February 2026  ",
+      "File:Hero101210-portrait.png|'''Bruno - The Purifier'''     November 2026",
+      "</gallery>",
+    ].join("\n");
+    expect(readGallery(rows)).toEqual([
+      { month: "2026-02", heroName: "Odette", skin: "Song of Devotion", id: "104610" },
+      { month: "2026-11", heroName: "Bruno", skin: "The Purifier", id: "101210" },
+    ]);
+  });
+
   it("links heroes by name, ignoring case and punctuation, and sorts by month", () => {
     const heroes = [
       { slug: "yi-sun-shin", name: "Yi Sun-shin" },

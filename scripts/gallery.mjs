@@ -13,14 +13,7 @@ export function extractIllustrations(wikitext) {
   const output = [];
   const seen = new Set();
 
-  for (const title of wikitext.matchAll(/^(=+)\s*(?:splash arts?|artworks?)\s*=+[ \t]*$/gim)) {
-    const level = title[1].length;
-    const run = wikitext.slice(title.index + title[0].length);
-    // The section runs up to the next heading of the same or a higher level;
-    // its subsections belong to it.
-    const end = run.search(new RegExp(`^={1,${level}}[^=]`, "m"));
-    const section = end === -1 ? run : run.slice(0, end);
-
+  for (const section of sections(wikitext, /(?:splash arts?|artworks?)/)) {
     for (const gallery of section.matchAll(/<gallery[^>]*>([\s\S]*?)<\/gallery>/gi)) {
       for (const row of gallery[1].matchAll(/^[ \t]*(?:File:|Image:)?([^|\n]+?\.(?:jpg|png))[ \t]*\|(.*)$/gim)) {
         const file = row[1].trim();
@@ -32,6 +25,91 @@ export function extractIllustrations(wikitext) {
     }
   }
   return output;
+}
+
+/**
+ * Bodies of the sections whose title matches `title`. A section runs up to
+ * the next heading of the same or a higher level; its subsections belong to
+ * it.
+ */
+function sections(wikitext, title) {
+  const bodies = [];
+  const heading = new RegExp(`^(=+)\\s*${title.source}\\s*=+[ \\t]*$`, "gim");
+  for (const match of wikitext.matchAll(heading)) {
+    const level = match[1].length;
+    const run = wikitext.slice(match.index + match[0].length);
+    const end = run.search(new RegExp(`^={1,${level}}[^=]`, "m"));
+    bodies.push(end === -1 ? run : run.slice(0, end));
+  }
+  return bodies;
+}
+
+/**
+ * Skins listed by the "Avatar icons" gallery of a hero page.
+ *
+ * Each row names the skin's icon after its game id, `Hero1284-icon.png|Tideborn
+ * Sailor`: the same id as the skin module and the shop portrait
+ * (`Hero1284-portrait.png`). The module stopped following the game in
+ * October 2026, the hero pages did not: this gallery is how a skin newer
+ * than the module gets its id. Painted variants (`Hero1284-color01-icon`)
+ * are colours of a skin, not skins, and are left out.
+ */
+export function extractAvatarIcons(wikitext) {
+  const output = [];
+  const seen = new Set();
+  for (const section of sections(wikitext, /avatar icons?/)) {
+    for (const gallery of section.matchAll(/<gallery[^>]*>([\s\S]*?)<\/gallery>/gi)) {
+      for (const row of gallery[1].matchAll(/^[ \t]*(?:File:|Image:)?(Hero(\d+)-icon[^|\n]*\.png)[ \t]*\|(.*)$/gim)) {
+        const id = row[2];
+        const name = cleanLegend(row[3]);
+        if (!name || seen.has(id)) continue;
+        seen.add(id);
+        output.push({ id, name, file: row[1].trim() });
+      }
+    }
+  }
+  return output;
+}
+
+/**
+ * Words that mark a wiki file as something other than the live game's
+ * artwork: an unreleased revamp ("Thamuz (Lord Lava; unreleased revamp).jpg"),
+ * a test-server or leaked visual, a fan work, a concept sketch, or the
+ * pre-revamp version kept for the record ("Masha Rogue Talon (Original).jpg").
+ */
+const PROVISIONAL = /\b(unreleased|upcoming|leak(?:ed|s)?|advanced? server|test server|fan[ -]?art|fan[ -]?made|concept|wip)\b|\(original\)|\(old\)|\bpre-revamp\b/i;
+
+/**
+ * Whether a wiki file is not the live artwork, from its name, the
+ * description of its file page, its upload comment and its categories.
+ */
+export function isProvisionalFile({ name = "", description = "", comment = "", categories = [] } = {}) {
+  return [name, description, comment, ...categories].some((text) => PROVISIONAL.test(String(text ?? "")));
+}
+
+/**
+ * The live file a provisional one stands next to on the wiki: the same name
+ * without its marker. "Thamuz (Lord Lava; unreleased revamp).jpg" sits next
+ * to "Thamuz (Lord Lava).jpg", the artwork the game shows; "Masha Rogue Talon
+ * (Original).jpg" next to "Masha (Rogue Talon).jpg". Several spellings are
+ * returned, the wiki uses them all; none when the name has no marker.
+ */
+export function fallbackFileNames(file) {
+  const ext = file.match(/\.(jpg|png)$/i)?.[0] ?? "";
+  const stem = file.slice(0, file.length - ext.length);
+  const without = stem
+    // "(Lord Lava; unreleased revamp)": the qualifier after the semicolon.
+    .replace(/;[^;()]*\b(?:unreleased|upcoming|leak|advance|revamp)\b[^;()]*/i, "")
+    // "(Original)", "(unreleased revamp)": a bracket holding only the marker.
+    .replace(/\(\s*[^()]*\b(?:unreleased|upcoming|leak|advance|original|old|revamp)\b[^()]*\)/i, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (!without || without === stem) return [];
+  const names = new Set([`${without}${ext}`]);
+  // "Masha Rogue Talon" → "Masha (Rogue Talon)": hero name, then the skin in brackets.
+  const words = without.split(" ");
+  if (!without.includes("(") && words.length > 1) names.add(`${words[0]} (${words.slice(1).join(" ")})${ext}`);
+  return [...names];
 }
 
 function cleanLegend(raw) {

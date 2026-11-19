@@ -73,6 +73,11 @@ export interface GeneratedItem {
   active: string | null;
   recipe: string[];
   bestFor: string | null;
+  /**
+   * Taken out of the game (Liquipedia's status, the official catalogue). The
+   * item keeps its page, marked as such, and leaves every list and picker.
+   */
+  removed?: boolean;
 }
 
 /**
@@ -121,6 +126,10 @@ export type SkillType = "Passive" | "Skill 1" | "Skill 2" | "Ultimate";
 export interface WikiSkill {
   name: string;
   description: string | null;
+  /** Seconds; one value from the official sheet, one per level from the wiki. */
+  cooldown?: number[];
+  /** Mana or energy, same convention as the cooldown. */
+  cost?: number[];
 }
 
 export interface Skill {

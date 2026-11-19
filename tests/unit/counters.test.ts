@@ -123,7 +123,7 @@ describe("items against a hero", () => {
 
   it("counters magic damage with magic defense, physical damage with physical defense", () => {
     expect(itemsCounter(profile({ typeDamage: "Magic" }), all).map((o) => o.slug)).toEqual([
-      "athena-s-shield",
+      "valkyrie-s-shield",
       "radiant-armor",
       "tough-boots",
     ]);
@@ -147,7 +147,7 @@ describe("items against a hero", () => {
     expect(hasLifesteal(["+60 Physical Attack", null])).toBe(false);
     expect(
       itemsCounter(profile({ lifesteal: true }), (s) => s !== "sea-halberd").map((o) => o.slug),
-    ).toEqual(["dominance-ice", "necklace-of-durance"]);
+    ).toEqual(["dominance-ice", "glowing-wand"]);
   });
 });
 

@@ -134,10 +134,11 @@ export type ReasonItem = "magic" | "physical" | "attacks" | "healing" | "control
  * that fits their build.
  */
 export const ITEMS_BY_REASON: Record<ReasonItem, string[]> = {
-  magic: ["athena-s-shield", "radiant-armor", "tough-boots"],
+  magic: ["valkyrie-s-shield", "radiant-armor", "tough-boots"],
   physical: ["antique-cuirass", "warrior-boots"],
   attacks: ["blade-armor", "chastise-pauldron"],
-  healing: ["dominance-ice", "sea-halberd", "necklace-of-durance"],
+  // Necklace of Durance left the game: Glowing Wand carries the magic Lifebane.
+  healing: ["dominance-ice", "sea-halberd", "glowing-wand"],
   control: ["tough-boots"],
 };
 

@@ -19,7 +19,7 @@ import { RankProvider, RankPicker, ValueByRank } from "@/components/rank-picker"
 import { BuildItem } from "@/components/build-item";
 import { BuildsByRank } from "@/components/builds-by-rank";
 import { BuildPicker } from "@/components/build-picker";
-import { packBuilds, resolveBuild, resolveGuide, visualEmblem, visualItem, spellVisual, visualTalent } from "@/lib/build-visuals";
+import { COMMON_EMBLEM, packBuilds, resolveBuild, resolveGuide, visualEmblem, visualItem, spellVisual, visualTalent } from "@/lib/build-visuals";
 import { heroGallery } from "@/lib/hero-skins";
 import { duos } from "@/lib/duos";
 import { HeroAdjustmentsDeferred, HeroStatisticsDeferred } from "@/components/hero-statistics-deferred";
@@ -212,6 +212,8 @@ export default async function HeroPage({ params }: Params) {
   // the played builds, as its role in the page's language.
   const nameEmblem = (name: string) => {
     const e = emblems.find((x) => x.name === name || x.role === name);
+    // "All", the stats API's word for the common emblem every role can take.
+    if (!e && name === COMMON_EMBLEM) return t("pages.buildSimulator.commonEmblem");
     return e ? t(`roles.${e.role}`) : name;
   };
 

@@ -291,7 +291,7 @@
     "version": "Version {v}",
     "contribute": "Contribute",
     "intro": "Mobile Legends: Bang Bang heroes, builds and counters by rank, a tier list calculated from ranked win rates, items, emblems and patch notes, in English, French, Italian, Spanish and Indonesian. An independent project, open to contributions.",
-    "sources": "Game data from the Mobile Legends wiki (CC BY-SA). Win, ban and pick rates, counters and most played builds come from the game's ranked match statistics, through the arena.rone.dev community API.",
+    "sources": "Texts from the Mobile Legends wiki (Fandom) and Liquipedia, under the CC BY-SA licence, with attribution to their contributors. Images and the names of heroes, skins and items are © Moonton, and for collaboration skins © their respective rights holders: they are not covered by that licence. Win, ban and pick rates, counters and most played builds come from the game's ranked match statistics, through the arena.rone.dev community API.",
     "discord": "Join the Discord",
     "columns": {
       "heroes": "Heroes",
@@ -1262,7 +1262,9 @@
       "category": "Category",
       "price": "Price",
       "crafting": "Crafting",
-      "similar": "Other {category} items"
+      "similar": "Other {category} items",
+      "removedTitle": "Removed from the game.",
+      "removedText": "{name} is no longer sold in the shop. Its page stays online for older builds and the links that lead here."
     },
     "emblemDetail": {
       "title": "{name} MLBB: Best Heroes & Talents (Patch {v})",
@@ -1487,7 +1489,8 @@
       "altIllustration": "{name} {skin} skin artwork",
       "altPortrait": "{name} wearing the {skin} skin, in-game portrait",
       "others": "Other heroes' skins",
-      "sheetLink": "See all {n} skins and artworks"
+      "sheetLink": "See all {n} skins and artworks",
+      "collaboration": "Collaboration skin: {franchise} © its rights holders, licensed to Moonton; artwork © Moonton. Only the portrait is shown."
     },
     "duos": {
       "title": "Best {name} duos",
@@ -3763,7 +3766,7 @@
       "metaDescription": "Terms of use of the MLBBDex Discord bot: a free service, fair use, game data provided without warranty.",
       "lead": "The simple rules of a free service.",
       "p1": "The MLBBDex bot is an independent, free fan project, not affiliated with Moonton. Mobile Legends: Bang Bang is a trademark of Shanghai Moonton Technology Co., Ltd.",
-      "p2": "The data (statistics, builds, tier list, patch notes) is provided as is, with no warranty of accuracy or availability. It comes from the Mobile Legends wiki (CC BY-SA) and ranked game statistics.",
+      "p2": "The data (statistics, builds, tier list, patch notes) is provided as is, with no warranty of accuracy or availability. The texts come from the Mobile Legends wiki (Fandom) and Liquipedia, under the CC BY-SA licence, and the figures from ranked match statistics. The game's images and names remain © Moonton, and those of collaborations © their rights holders.",
       "p3": "Do not misuse the bot: no abusive automation of commands, no attempt to reach the settings of a server you do not manage. The service may be limited or removed from a server that abuses it.",
       "p4": "The service may change, be interrupted or stop at any time. Discord's rules (Terms of Service and Community Guidelines) apply to its use.",
       "p5": "The data stored is described on the bot's privacy page. Any question: [{contact}](mailto:{contact}).",
@@ -4964,7 +4967,7 @@
           "p": "Once logged in with the in-game verification code, you see your own profile — season, heroes played, recent matches — read on demand through that same API, for you only. It is neither published nor kept beyond a cache of a few minutes."
         },
         {
-          "p": "The visuals belong to Moonton. Portraits, icons and skin artwork come from the community wiki and are served by this site so that nothing depends on a third-party domain. They remain Moonton's property, are included for illustration purposes, and will be removed at the rights holder's request. The site's visual identity — midnight blue, gold, cut corners — is inspired by the game's without reusing its interface files."
+          "p": "The visuals belong to Moonton, and for collaboration skins also to the rights holders of the characters and brands involved. Portraits, icons and skin artwork come from the community wiki and are served by this site so that nothing depends on a third-party domain. They remain Moonton's property, are included for illustration purposes, and will be removed at the rights holder's request. The site's visual identity — midnight blue, gold, cut corners — is inspired by the game's without reusing its interface files."
         },
         {
           "h": "The roundup"
@@ -5025,10 +5028,10 @@
           "p": "Mobile Legends: Bang Bang, its universe, its heroes, their names and their graphic representations are trademarks and works of Shanghai Moonton Technology Co., Ltd. This site is an independent fan project, with no affiliation, endorsement or sponsorship from Moonton."
         },
         {
-          "p": "The visuals displayed (portraits, icons, emblems, artwork) come from the community wiki and remain the property of Moonton. They are included for illustration and information purposes. They will be removed at the rights holder's request."
+          "p": "The visuals shown (portraits, icons, emblems, artwork) and the game's names are © Moonton. Those of collaboration skins (NARUTO, Star Wars, Transformers, Jujutsu Kaisen, The King of Fighters, Neymar Jr and the others) depict characters, brands and people owned by their respective rights holders, licensed to Moonton: the site only shows their small shop portrait, never the full-size artwork. These visuals are copied from the community wiki for illustration and information purposes; they are not under the CC BY-SA licence. They will be removed at the rights holder's request."
         },
         {
-          "p": "Factual data comes from the [Mobile Legends wiki](https://mobilelegends.fandom.com) (CC BY-SA license) and a community API. The code and texts written for this site are published under the MIT license — see the [public repository]({repository})."
+          "p": "Factual texts (descriptions, stories, patch notes, skin lists) come from the [Mobile Legends wiki](https://mobilelegends.fandom.com) on Fandom and from [Liquipedia](https://liquipedia.net/mobilelegends), under the CC BY-SA licence: every page that uses them credits its source, and their translations stay under that licence. Match figures come from a community API. The code and texts written for this site are published under the MIT license — see the [public repository]({repository})."
         },
         {
           "h": "Liability"
@@ -5664,6 +5667,11 @@
       "name": "Revitalize",
       "description": "Creates an area that heals allies inside it.",
       "bestFor": "Supports facing damage spread over time."
+    },
+    "flameshot": {
+      "name": "Flameshot",
+      "description": "Fires a flaming shot that knocks back nearby enemies and deals Magic Damage that grows with distance.",
+      "bestFor": "Mages and marksmen who need to finish from range or peel."
     }
   },
   "error": {

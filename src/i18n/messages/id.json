@@ -291,7 +291,7 @@
     "version": "Versi {v}",
     "contribute": "Berkontribusi",
     "intro": "Hero, build, dan counter Mobile Legends: Bang Bang berdasarkan rank, tier list yang dihitung dari win rate ranked, item, emblem, dan patch notes, dalam bahasa Inggris, Prancis, Italia, Spanyol, dan Indonesia. Proyek independen yang terbuka untuk kontribusi.",
-    "sources": "Data permainan dari wiki Mobile Legends (CC BY-SA). Win rate, ban dan pengambilan, counter, dan build yang paling banyak dimainkan berasal dari statistik pertandingan peringkat game, melalui API komunitas arena.rone.dev.",
+    "sources": "Teks diambil dari wiki Mobile Legends (Fandom) dan Liquipedia, di bawah lisensi CC BY-SA, dengan atribusi kepada kontributornya. Gambar, nama hero, skin dan item © Moonton, dan untuk skin kolaborasi © pemegang haknya masing-masing: semuanya tidak termasuk dalam lisensi ini. Win rate, ban dan pengambilan, counter, dan build yang paling banyak dimainkan berasal dari statistik pertandingan peringkat game, melalui API komunitas arena.rone.dev.",
     "discord": "Bergabunglah dengan Perselisihan",
     "columns": {
       "heroes": "Hero",
@@ -1262,7 +1262,9 @@
       "category": "Kategori",
       "price": "Harga",
       "crafting": "Resep",
-      "similar": "Item lain dalam kategori {category}"
+      "similar": "Item lain dalam kategori {category}",
+      "removedTitle": "Dihapus dari game.",
+      "removedText": "{name} tidak lagi dijual di toko. Halamannya tetap online untuk build lama dan tautan yang mengarah ke sini."
     },
     "emblemDetail": {
       "title": "{name} MLBB: Hero dan Bakat Terbaik (patch {v})",
@@ -1487,7 +1489,8 @@
       "altIllustration": "Ilustrasi skin {skin} — {name}",
       "altPortrait": "{name} dengan skin {skin}, potret dalam game",
       "others": "Skin hero lainnya",
-      "sheetLink": "Lihat {n} skin dan ilustrasi"
+      "sheetLink": "Lihat {n} skin dan ilustrasi",
+      "collaboration": "Skin kolaborasi: {franchise} © pemegang haknya, berdasarkan lisensi yang diberikan kepada Moonton; visual © Moonton. Hanya potretnya yang ditampilkan."
     },
     "duos": {
       "title": "Duo terbaik untuk {name}",
@@ -3763,7 +3766,7 @@
       "metaDescription": "Ketentuan layanan bot MLBBEx Discord: layanan gratis, penggunaan wajar, data game disediakan tanpa jaminan.",
       "lead": "Aturan sederhana dari layanan gratis.",
       "p1": "Bot MLBBDex adalah proyek penggemar independen dan gratis, tidak ada hubungannya dengan Moonton. Mobile Legends: Bang Bang adalah merek dari Shanghai Moonton Technology Co., Ltd.",
-      "p2": "Data (statistik, build, tier list, patch note) disediakan sebagaimana adanya, tanpa jaminan keakuratan atau ketersediaan. Mereka berasal dari wiki Mobile Legends (CC BY-SA) dan statistik permainan peringkat.",
+      "p2": "Data (statistik, build, tier list, patch note) disediakan sebagaimana adanya, tanpa jaminan keakuratan atau ketersediaan. Teks berasal dari wiki Mobile Legends (Fandom) dan Liquipedia, di bawah lisensi CC BY-SA, angka statistik dari permainan peringkat. Gambar dan nama permainan tetap © Moonton, dan kolaborasi © pemegang haknya.",
       "p3": "Jangan membajak bot: tidak ada otomatisasi perintah yang menyalahgunakan, tidak ada upaya untuk mengakses pengaturan server yang tidak Anda kelola. Layanan mungkin dibatasi atau dihapus dari server yang menyalahgunakannya.",
       "p4": "Layanan dapat berubah, terganggu, atau dihentikan kapan saja. Aturan Discord (ketentuan penggunaan dan aturan komunitas) berlaku untuk penggunaannya.",
       "p5": "Data yang disimpan dijelaskan di halaman privasi bot. Untuk pertanyaan apa pun: [{contact}](mailto:{contact}).",
@@ -4964,7 +4967,7 @@
           "p": "Masuk dengan kode verifikasi game, Anda melihat profil Anda sendiri — musim, hero yang dimainkan, game terbaru — baca sesuai permintaan melalui API yang sama, hanya untuk Anda. Itu tidak dipublikasikan atau disimpan melebihi cache beberapa menit."
         },
         {
-          "p": "Visual milik Moonton. Potret, ikon, dan ilustrasi skin berasal dari wiki komunitas dan disajikan oleh situs ini sehingga tidak ada yang bergantung pada domain pihak ketiga. Mereka tetap menjadi milik Moonton, hadir untuk tujuan ilustrasi, dan akan dihapus atas permintaan pemegang hak. Identitas visual situs – biru tengah malam, emas, jalan pintas – terinspirasi oleh permainan tanpa menggunakan file antarmuka."
+          "p": "Visualnya adalah milik Moonton, dan untuk skin kolaborasinya juga milik pemegang hak karakter dan brand yang bersangkutan. Potret, ikon, dan ilustrasi skin berasal dari wiki komunitas dan disajikan oleh situs ini sehingga tidak ada yang bergantung pada domain pihak ketiga. Mereka tetap menjadi milik Moonton, hadir untuk tujuan ilustrasi, dan akan dihapus atas permintaan pemegang hak. Identitas visual situs – biru tengah malam, emas, jalan pintas – terinspirasi oleh permainan tanpa menggunakan file antarmuka."
         },
         {
           "h": "Sehari sebelumnya"
@@ -5025,10 +5028,10 @@
           "p": "Mobile Legends: Bang Bang, dunianya, para hero-nya, nama-nama mereka, dan representasi grafis mereka adalah merek dagang dan karya milik Shanghai Moonton Technology Co., Ltd. Situs ini adalah proyek penggemar independen, tanpa afiliasi, persetujuan, maupun sponsor dari Moonton."
         },
         {
-          "p": "Visual yang ditampilkan (potret, ikon, emblem, ilustrasi) berasal dari wiki komunitas dan tetap menjadi milik Moonton. Visual tersebut disertakan untuk tujuan ilustrasi dan informasi, dan akan dihapus atas permintaan pemegang hak."
+          "p": "Visual yang ditampilkan (potret, ikon, emblem, ilustrasi) dan nama permainannya adalah © Moonton. Skin kolaborasi tersebut (NARUTO, Star Wars, Transformers, Jujutsu Kaisen, The King of Fighters, Neymar Jr, dan lainnya) menampilkan karakter, merek, dan orang-orang milik pemegang haknya masing-masing, di bawah lisensi yang diberikan kepada Moonton: situs hanya menampilkan potret kecil dari toko, tidak pernah menampilkan ilustrasi besar. Visual ini disalin dari wiki komunitas untuk tujuan ilustrasi dan informasi; mereka tidak dilisensikan di bawah CC BY-SA. Atas permintaan pemegang hak, mereka akan dihapus."
         },
         {
-          "p": "Data faktual berasal dari [wiki Mobile Legends](https://mobilelegends.fandom.com) (lisensi CC BY-SA) dan API komunitas. Kode dan teks yang ditulis untuk situs ini diterbitkan di bawah lisensi MIT — lihat [repositori publik]({repository})."
+          "p": "Teks faktual (deskripsi, cerita, patch notes, daftar skin) diambil dari [wiki Mobile Legends](https://mobilelegends.fandom.com) di Fandom dan dari [Liquipedia](https://liquipedia.net/mobilelegends), di bawah lisensi CC BY-SA: setiap halaman yang menggunakannya mencantumkan sumbernya, dan terjemahannya tetap di bawah lisensi ini. Nomor permainan berasal dari API komunitas. Kode dan teks yang ditulis untuk situs ini diterbitkan di bawah lisensi MIT — lihat [repositori publik]({repository})."
         },
         {
           "h": "Tanggung jawab"
@@ -5664,6 +5667,11 @@
       "name": "Revitalize",
       "description": "Menciptakan area yang menyembuhkan sekutu yang ada.",
       "bestFor": "Dukungan untuk damage menyebar seiring waktu."
+    },
+    "flameshot": {
+      "name": "Flameshot",
+      "description": "Menembakkan bola api yang mendorong musuh di dekatnya dan memberikan Magic Damage yang bertambah sesuai jarak.",
+      "bestFor": "Mage dan marksman yang perlu menghabisi dari jauh atau melepaskan diri."
     }
   },
   "error": {
