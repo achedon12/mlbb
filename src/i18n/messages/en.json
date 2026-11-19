@@ -1261,7 +1261,9 @@
       "category": "Category",
       "price": "Price",
       "crafting": "Crafting",
-      "similar": "Other {category} items"
+      "similar": "Other {category} items",
+      "removedTitle": "Removed from the game.",
+      "removedText": "{name} is no longer sold in the shop. Its page stays online for older builds and the links that lead here."
     },
     "emblemDetail": {
       "title": "{name} MLBB: Best Heroes & Talents (Patch {v})",
@@ -1483,11 +1485,11 @@
       "latest": "Most recent dated skin: {skin} ({date}).",
       "price": "Price",
       "illustrationOnly": "Artwork only: rarity, date and price are not in the database yet.",
-      "collaboration": "Collaboration skin: {franchise} © its rights holders, licensed to Moonton; artwork © Moonton. Only the portrait is shown.",
       "altIllustration": "{name} {skin} skin artwork",
       "altPortrait": "{name} wearing the {skin} skin, in-game portrait",
       "others": "Other heroes' skins",
-      "sheetLink": "See all {n} skins and artworks"
+      "sheetLink": "See all {n} skins and artworks",
+      "collaboration": "Collaboration skin: {franchise} © its rights holders, licensed to Moonton; artwork © Moonton. Only the portrait is shown."
     },
     "duos": {
       "title": "Best {name} duos",
@@ -5664,6 +5666,11 @@
       "name": "Revitalize",
       "description": "Creates an area that heals allies inside it.",
       "bestFor": "Supports facing damage spread over time."
+    },
+    "flameshot": {
+      "name": "Flameshot",
+      "description": "Fires a flaming shot that knocks back nearby enemies and deals Magic Damage that grows with distance.",
+      "bestFor": "Mages and marksmen who need to finish from range or peel."
     }
   },
   "error": {

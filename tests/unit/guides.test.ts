@@ -21,6 +21,7 @@ import { BASE } from "@/lib/sections";
 import { sitemapEntries } from "@/lib/sitemap";
 import { LOCALES } from "@/i18n/config";
 import type { BuildPlayed, BuildsHero } from "@/lib/data";
+import { renamedItemSlug } from "@/lib/item-names";
 
 /**
  * Guides: the files, their front matter, their links and their translations.
@@ -106,7 +107,10 @@ describe("guide links", () => {
     for (const locale of LOCALES) {
       for (const g of guides(locale)) {
         for (const target of internalLinks(g.content)) {
-          if (!published.has(target)) dead.push(`${locale}/${g.slug}: ${target}`);
+          // A renamed item's old address redirects to the new one.
+          const renamed = /^\/items\/([^/#?]+)$/.exec(target)?.[1];
+          const to = renamed ? renamedItemSlug(renamed) : null;
+          if (!published.has(target) && !(to && published.has(`/items/${to}`))) dead.push(`${locale}/${g.slug}: ${target}`);
         }
       }
     }

@@ -4,7 +4,7 @@ import { LOCALES, type Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
 import { article, articles } from "@/lib/content";
 import { guides } from "@/lib/guides";
-import { skills, counters, allHeroes, itemsFor, patchDetails } from "@/lib/data";
+import { skills, counters, allHeroes, currentItemsFor, patchDetails } from "@/lib/data";
 import { duos } from "@/lib/duos";
 import { regionsLore } from "@/lib/lore";
 import { emblemsSheets, spellSheets } from "@/lib/usage-sheets";
@@ -58,7 +58,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ loc
       })),
     // Lore regions: each region's page gathers its heroes and their stories.
     ...regionsLore.map((r) => ({ type: "page" as const, title: r.name, detail: t("nav.lore.label"), href: `/lore/${r.key}` })),
-    ...itemsFor(locale).map((o) => ({
+    ...currentItemsFor(locale).map((o) => ({
       type: "item" as const,
       title: o.name,
       detail: t(`categories.${o.category}`),

@@ -75,6 +75,7 @@ import generatedSync from "@/data/game/sync.json";
 import generatedStatistics from "@/data/game/statistics.json";
 import generatedVisuals from "@/data/game/visuals.json";
 import { analyses } from "@/data/heroes";
+import { currentItemName } from "./item-names";
 import { listedHeroes, listedSkins, shownIllustrations } from "./listed";
 import type { Locale } from "@/i18n/config";
 import type { MeasuredRank } from "./measured-ranks";
@@ -106,7 +107,11 @@ const VISUALS_EMPTY: HeroVisuals = { portrait: null, icon: null, skins: {} };
 
 const visuals = generatedVisuals.heroes as unknown as Record<string, HeroVisuals>;
 const skinsByHero = generatedSkins as unknown as Record<string, Skin[]>;
-const bySlugAnalysis = new Map(analyses.map((a) => [a.slug, a]));
+// Written builds name items as the game did when they were written: the
+// renamed ones take their current name (see item-names.ts).
+const bySlugAnalysis = new Map(
+  analyses.map((a) => [a.slug, { ...a, builds: a.builds.map((b) => ({ ...b, items: b.items.map(currentItemName) })) }]),
+);
 
 /** Released heroes and skins only: see `listed.ts`. */
 export const allHeroes: Hero[] = listedHeroes(generatedHeroes as unknown as GeneratedHero[]).map((h) => ({
@@ -206,8 +211,33 @@ export interface BuildPlayed {
   pickRate: number | null;
 }
 export type BuildsHero = Record<string, Partial<Record<MeasuredRank, BuildPlayed[]>>>;
-export const buildsPlayed =
-  (generatedStatistics as unknown as { builds?: Record<string, BuildsHero> }).builds ?? {};
+
+/**
+ * The stats API keeps old item names ("Athena's Shield", "Magic Boots"): they
+ * are brought to the catalogue's here, once, for the pages, the public API and
+ * the bot alike.
+ */
+type ByHeroLaneRank = Record<string, Record<string, Record<string, unknown>>>;
+export function withCurrentItems<T>(byHero: T): T {
+  const rename = (b: { items: string[] }) => ({ ...b, items: b.items.map(currentItemName) });
+  const out: ByHeroLaneRank = {};
+  for (const [hero, byLane] of Object.entries(byHero as ByHeroLaneRank)) {
+    out[hero] = {};
+    for (const [lane, byRank] of Object.entries(byLane)) {
+      out[hero][lane] = Object.fromEntries(
+        Object.entries(byRank).map(([rank, v]) => [
+          rank,
+          Array.isArray(v) ? v.map(rename) : v ? rename(v as { items: string[] }) : v,
+        ]),
+      );
+    }
+  }
+  return out as T;
+}
+
+export const buildsPlayed = withCurrentItems(
+  (generatedStatistics as unknown as { builds?: Record<string, BuildsHero> }).builds ?? {},
+);
 
 /**
  * Each hero's share of picks per measured rank (in %, all heroes of a rank
@@ -241,8 +271,9 @@ export interface GuidePlayer {
   views: number;
 }
 export type GuidesHero = Record<string, Partial<Record<MeasuredRank, GuidePlayer>>>;
-export const guidesPlayers =
-  (generatedStatistics as unknown as { guides?: Record<string, GuidesHero> }).guides ?? {};
+export const guidesPlayers = withCurrentItems(
+  (generatedStatistics as unknown as { guides?: Record<string, GuidesHero> }).guides ?? {},
+);
 
 /** Detailed content of recent patches, with structured hero adjustments. */
 export const patchDetails = generatedPatches.details as unknown as Record<string, DetailedPatch>;
@@ -311,8 +342,15 @@ const ITEMS = { en: itemsEn, fr: itemsFr, it: itemsIt, es: itemsEs, id: itemsId,
 export function itemsFor(locale: Locale): GeneratedItem[] {
   return ITEMS[locale] as unknown as GeneratedItem[];
 }
-/** Number of items (language-independent). */
-export const countItems = (itemsEn as unknown as GeneratedItem[]).length;
+/**
+ * Items still in the game, in the requested language: what lists, pickers and
+ * searches offer. A removed item keeps its page (`itemsFor`), marked as such.
+ */
+export function currentItemsFor(locale: Locale): GeneratedItem[] {
+  return itemsFor(locale).filter((o) => !o.removed);
+}
+/** Number of items in the game (language-independent). */
+export const countItems = currentItemsFor("en").length;
 
 /** Editorial notes of the tier list, per language. */
 const TIER_NOTES = {

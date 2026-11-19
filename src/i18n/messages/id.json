@@ -1261,7 +1261,9 @@
       "category": "Kategori",
       "price": "Harga",
       "crafting": "Resep",
-      "similar": "Item lain dalam kategori {category}"
+      "similar": "Item lain dalam kategori {category}",
+      "removedTitle": "Dihapus dari game.",
+      "removedText": "{name} tidak lagi dijual di toko. Halamannya tetap online untuk build lama dan tautan yang mengarah ke sini."
     },
     "emblemDetail": {
       "title": "{name} MLBB: Hero dan Bakat Terbaik (patch {v})",
@@ -1483,11 +1485,11 @@
       "latest": "Skin bertanggal terbaru: {skin} ({date}).",
       "price": "Harga",
       "illustrationOnly": "Ilustrasi saja: kelangkaan, tanggal dan harga belum ada di database.",
-      "collaboration": "Skin kolaborasi: {franchise} © pemegang haknya, berdasarkan lisensi yang diberikan kepada Moonton; visual © Moonton. Hanya potretnya yang ditampilkan.",
       "altIllustration": "Ilustrasi skin {skin} — {name}",
       "altPortrait": "{name} dengan skin {skin}, potret dalam game",
       "others": "Skin hero lainnya",
-      "sheetLink": "Lihat {n} skin dan ilustrasi"
+      "sheetLink": "Lihat {n} skin dan ilustrasi",
+      "collaboration": "Skin kolaborasi: {franchise} © pemegang haknya, berdasarkan lisensi yang diberikan kepada Moonton; visual © Moonton. Hanya potretnya yang ditampilkan."
     },
     "duos": {
       "title": "Duo terbaik untuk {name}",
@@ -5664,6 +5666,11 @@
       "name": "Revitalize",
       "description": "Menciptakan area yang menyembuhkan sekutu yang ada.",
       "bestFor": "Dukungan untuk damage menyebar seiring waktu."
+    },
+    "flameshot": {
+      "name": "Flameshot",
+      "description": "Menembakkan bola api yang mendorong musuh di dekatnya dan memberikan Magic Damage yang bertambah sesuai jarak.",
+      "bestFor": "Mage dan marksman yang perlu menghabisi dari jauh atau melepaskan diri."
     }
   },
   "error": {

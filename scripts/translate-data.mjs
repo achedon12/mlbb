@@ -151,7 +151,8 @@ function skillsTexts(d) {
 }
 const skillsRebuild = (d, t) =>
   Object.fromEntries(
-    Object.entries(d).map(([s, l]) => [s, l.map((c) => (c ? { name: c.name, description: t(c.description) } : c))]),
+    // Name, cooldown and cost stay as in the game: only the description is prose.
+    Object.entries(d).map(([s, l]) => [s, l.map((c) => (c ? { ...c, description: t(c.description) } : c))]),
   );
 
 function modesTexts(d) {
@@ -306,7 +307,8 @@ function descriptionsRebuild(d, t) {
 const GAMES = {
   // `narrative`: prose where game words are ordinary words, no glossary.
   stories: { source: "fr", narrative: true, texts: storiesTexts, rebuild: storiesRebuild },
-  skills: { source: "fr", texts: skillsTexts, rebuild: skillsRebuild },
+  // English source: the sync writes the official skill texts to skills/en.json.
+  skills: { source: "en", texts: skillsTexts, rebuild: skillsRebuild },
   modes: { source: "fr", texts: modesTexts, rebuild: modesRebuild },
   items: { source: "en", texts: itemsTexts, rebuild: itemsRebuild },
   "tier-notes": { source: "fr", texts: tierNotesTexts, rebuild: tierNotesRebuild },

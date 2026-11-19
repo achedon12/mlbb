@@ -2,6 +2,7 @@ import { LightImage } from "@/components/light-image";
 import Link from "@/components/link";
 import visuals from "@/data/game/visuals.json";
 import { itemsFor } from "@/lib/data";
+import { itemFinder } from "@/lib/item-names";
 
 /**
  * Item in a build's purchase order.
@@ -11,10 +12,11 @@ import { itemsFor } from "@/lib/data";
  * and the whole thing links to the item page.
  */
 const IMAGES = visuals.items as Record<string, string>;
-const BY_NAME = new Map(itemsFor("en").map((o) => [o.name, o]));
+const findItem = itemFinder(itemsFor("en"));
 
 export function BuildItem({ name, rank }: { name: string; rank: number }) {
-  const item = BY_NAME.get(name);
+  // Written analyses name items as the game did then ("Athena's Shield").
+  const item = findItem(name);
   const image = item ? IMAGES[item.slug] : undefined;
 
   const content = (
@@ -33,7 +35,7 @@ export function BuildItem({ name, rank }: { name: string; rank: number }) {
         </span>
       </span>
       <span className="mt-1.5 block text-[0.7rem] leading-tight text-chalk-300">
-        {name}
+        {item?.name ?? name}
       </span>
     </>
   );

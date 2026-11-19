@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { permanentRedirect } from "next/navigation";
 import {
   catalogRecipes,
   EffectsItem,
@@ -18,6 +19,7 @@ import { createT } from "@/i18n/translations";
 import { heroesBySlug, itemsFor } from "@/lib/data";
 import { BUILDER_RULE, dataSheet, summaryRanks, topBuilders, usage } from "@/lib/usage-sheets";
 import { metaItem } from "@/lib/item-meta";
+import { renamedItemSlug } from "@/lib/item-names";
 import { listNames, percentage } from "@/lib/freshness";
 import { serializeJsonLd } from "@/lib/html";
 import { cn } from "@/lib/utils";
@@ -98,19 +100,28 @@ const toPage: ToItem = (o, content, className) => (
 export default async function ItemPage({ params }: Params) {
   const { locale, slug } = await params;
   const f = sheet(locale, slug);
-  if (!f) return <NotFoundPage />;
+  if (!f) {
+    // A renamed item's old address leads to its page under the new name.
+    const renamed = renamedItemSlug(slug);
+    if (renamed && sheet(locale, renamed)) permanentRedirect(`/${locale}/items/${renamed}`);
+    return <NotFoundPage />;
+  }
   const { o, t, heroes, builders } = f;
 
+  // Every item for the recipes (a removed one may still name its parts), only
+  // the items in the game for the neighbours and the menu.
   const previews: PreviewItem[] = itemsFor(locale).map((x) => ({ ...x, image: images[x.slug] ?? null }));
+  const inGame = previews.filter((x) => !x.removed);
   const item = previews.find((x) => x.slug === slug)!;
-  const catalog = catalogRecipes(previews);
+  // A current item does not "build into" one that left the game.
+  const catalog = catalogRecipes(o.removed ? previews : inGame);
   const hasRecipe = item.recipe.length > 0 || (catalog.outlets.get(item.name)?.length ?? 0) > 0;
   const price = (n: number) => `${n.toLocaleString(LOCALE_INTL[locale])} ${t("pages.itemsList.gold")}`;
   const category = t(`categories.${o.category}`);
 
   // Neighboring items: same category, the closest in price, then sorted by price.
   const gap = (x: PreviewItem) => Math.abs((x.price ?? 0) - (o.price ?? 0));
-  const similar = previews
+  const similar = inGame
     .filter((x) => x.category === o.category && x.slug !== slug)
     .sort((a, b) => gap(a) - gap(b))
     .slice(0, 8)
@@ -139,7 +150,7 @@ export default async function ItemPage({ params }: Params) {
           { name: t("nav.items.label"), href: "/items" },
           {
             name: o.name,
-            siblings: [...previews]
+            siblings: [...inGame, ...(o.removed ? [item] : [])]
               .sort((a, b) => a.name.localeCompare(b.name))
               .map((x) => ({ name: x.name, href: `/items/${x.slug}` })),
           },
@@ -149,6 +160,12 @@ export default async function ItemPage({ params }: Params) {
       </PageHeader>
 
       <div className="page-wrap space-y-14 py-10">
+        {o.removed && (
+          <p role="note" className="bevel-sm border border-gold-500/40 bg-night-900/60 p-4 text-sm text-chalk-300">
+            <span className="font-semibold text-gold-400">{t("pages.itemDetail.removedTitle")}</span>{" "}
+            {t("pages.itemDetail.removedText", { name: o.name })}
+          </p>
+        )}
         <section className={cn("grid gap-4", hasRecipe && "md:grid-cols-2")}>
           <Card>
             <h2 className="font-heading text-lg font-bold text-chalk-100">{t("pages.itemDetail.effects")}</h2>

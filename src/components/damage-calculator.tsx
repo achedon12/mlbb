@@ -270,7 +270,7 @@ export function DamageCalculator({ data }: { data: DamageCalculatorData }) {
       )}
       {itemPicker && pickerSlot !== null && (
         <ItemPicker
-          items={data.items}
+          items={data.items.filter((o) => !o.removed)}
           categories={data.categories}
           title={t("pages.damageCalculatorUI.pickItem", { n: pickerSlot + 1 })}
           current={pickerCurrent ? (itemsBySlug.get(pickerCurrent) ?? null) : null}

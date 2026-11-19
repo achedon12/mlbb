@@ -1,0 +1,15 @@
+{
+  "_comment": "Item names the game's other sources still use, to the name of the site's catalogue (the wiki's). The stats API and Liquipedia kept 'Athena's Shield' after its renaming to 'Valkyrie's Shield' (September 2026), and both say 'Magic Boots' and 'Demon Boots' where the wiki says 'Shoes'. Read by src/lib/item-names.ts and scripts/items.mjs.",
+  "renamed": {
+    "Athena's Shield": "Valkyrie's Shield",
+    "Magic Boots": "Magic Shoes",
+    "Demon Boots": "Demon Shoes",
+    "Twilight Armor (Discarded)": "Twilight Armor"
+  },
+  "liquipediaTitles": {
+    "Valkyrie's Shield": "Athena's Shield",
+    "Haas' Claws": "Haas's Claws",
+    "Magic Shoes": "Magic Boots",
+    "Demon Shoes": "Demon Boots"
+  }
+}

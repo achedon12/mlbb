@@ -15,9 +15,10 @@ scripts all derive from it (the scripts read that array from the file).
 
 - **The interface**: `src/i18n/messages/fr.json` is the source catalogue;
   every other `src/i18n/messages/<language>.json` is derived from it.
-- **Content data**: lore, skills, game modes and tier list notes (French
-  source), items, patch notes and skill combos (English source), in
-  `src/data/game/<dataset>/<language>.json`. Advance Server notes (English
+- **Content data**: lore, game modes and tier list notes (French source),
+  items, skills, patch notes and skill combos (English source), in
+  `src/data/game/<dataset>/<language>.json`. The sync writes the English
+  source of items and skills (`items/en.json`, `skills/en.json`). Advance Server notes (English
   source) are translated by `scripts/advance-server.mjs`.
 - **Articles**: `content/fr/<section>/*.md` → `content/<language>/…` (title,
   standfirst and body; Markdown markers are preserved).

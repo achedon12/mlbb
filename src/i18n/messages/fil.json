@@ -1261,7 +1261,9 @@
       "category": "Kategorya",
       "price": "Presyo",
       "crafting": "Recipe",
-      "similar": "Iba pang {category} item"
+      "similar": "Iba pang {category} item",
+      "removedTitle": "Tinanggal na sa laro.",
+      "removedText": "Hindi na ibinebenta sa shop ang {name}. Nananatili online ang page nito para sa mga lumang build at sa mga link na papunta rito."
     },
     "emblemDetail": {
       "title": "{name} MLBB: Pinakamahusay na Hero at Talent (Patch {v})",
@@ -1483,11 +1485,11 @@
       "latest": "Pinakabagong skin na may petsa: {skin} ({date}).",
       "price": "Presyo",
       "illustrationOnly": "Artwork lang: wala pa sa database ang rarity, petsa at presyo.",
-      "collaboration": "Skin ng pakikipagtulungan: {franchise} © mga may hawak ng karapatan nito, sa ilalim ng lisensyang ipinagkaloob sa Moonton; visual © Moonton. Tanging ang portrait ang ipinapakita.",
       "altIllustration": "Artwork ng {skin} skin ni {name}",
       "altPortrait": "{name} suot ang {skin} skin, in-game portrait",
       "others": "Mga skin ng ibang hero",
-      "sheetLink": "Tingnan lahat ng {n} skin at artwork"
+      "sheetLink": "Tingnan lahat ng {n} skin at artwork",
+      "collaboration": "Skin ng pakikipagtulungan: {franchise} © mga may hawak ng karapatan nito, sa ilalim ng lisensyang ipinagkaloob sa Moonton; visual © Moonton. Tanging ang portrait ang ipinapakita."
     },
     "duos": {
       "title": "Best duo ni {name}",
@@ -5664,6 +5666,11 @@
       "name": "Revitalize",
       "description": "Gumagawa ng area na nagpapagaling sa mga kakampi sa loob nito.",
       "bestFor": "Mga support na humaharap sa damage na unti-unting dumarating."
+    },
+    "flameshot": {
+      "name": "Flameshot",
+      "description": "Nagpapaputok ng nagliliyab na bala na nagtutulak sa mga kalapit na kalaban at nagbibigay ng Magic Damage na lumalaki ayon sa layo.",
+      "bestFor": "Mga mage at marksman na kailangang tumapos mula sa malayo o kumawala."
     }
   },
   "error": {
