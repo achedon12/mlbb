@@ -64,7 +64,7 @@ export const HELP_CATEGORIES: HelpCategory[] = [
   {
     key: "tools",
     emoji: "🧰",
-    commands: [{ key: "nickname", example: [["text", "Shadow"], ["style", "choices.style.fraktur"]] }, { key: "servertime" }],
+    commands: [{ key: "nickname", example: [["text", "Shadow"], ["style", "choices.style.fraktur"]] }, { key: "servertime" }, { key: "profile" }],
   },
   {
     key: "setup",
