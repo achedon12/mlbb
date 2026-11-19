@@ -4747,6 +4747,30 @@
     "pages.patchNotes.publishedOn": {
       "fr": "Sorti le {date}",
       "text": "Released on {date}"
+    },
+    "footer.sources": {
+      "fr": "Textes repris du wiki Mobile Legends (Fandom) et de Liquipedia, sous licence CC BY-SA, avec attribution à leurs contributeurs. Images, noms de héros, de skins et d'objets © Moonton, et pour les skins de collaboration © leurs ayants droit respectifs : ils ne relèvent pas de cette licence. Taux de victoire, de ban et de sélection, contres et builds les plus joués viennent des statistiques de parties classées du jeu, via l'API communautaire arena.rone.dev.",
+      "text": "Texts from the Mobile Legends wiki (Fandom) and Liquipedia, under the CC BY-SA licence, with attribution to their contributors. Images and the names of heroes, skins and items are © Moonton, and for collaboration skins © their respective rights holders: they are not covered by that licence. Win, ban and pick rates, counters and most played builds come from the game's ranked match statistics, through the arena.rone.dev community API."
+    },
+    "pages.botTerms.p2": {
+      "fr": "Les données (statistiques, builds, tier list, patch notes) sont fournies telles quelles, sans garantie d'exactitude ni de disponibilité. Les textes viennent du wiki Mobile Legends (Fandom) et de Liquipedia, sous licence CC BY-SA, les chiffres des statistiques des parties classées. Les images et les noms du jeu restent © Moonton, et ceux des collaborations © leurs ayants droit.",
+      "text": "The data (statistics, builds, tier list, patch notes) is provided as is, with no warranty of accuracy or availability. The texts come from the Mobile Legends wiki (Fandom) and Liquipedia, under the CC BY-SA licence, and the figures from ranked match statistics. The game's images and names remain © Moonton, and those of collaborations © their rights holders."
+    },
+    "pages.heroSkins.collaboration": {
+      "fr": "Skin de collaboration : {franchise} © ses ayants droit, sous licence accordée à Moonton ; visuel © Moonton. Seul le portrait est affiché.",
+      "text": "Collaboration skin: {franchise} © its rights holders, licensed to Moonton; artwork © Moonton. Only the portrait is shown."
+    },
+    "prose.legal.blocks.7.p": {
+      "fr": "Les visuels affichés (portraits, icônes, emblèmes, illustrations) et les noms du jeu sont © Moonton. Ceux des skins de collaboration (NARUTO, Star Wars, Transformers, Jujutsu Kaisen, The King of Fighters, Neymar Jr et les autres) reprennent des personnages, marques et personnes appartenant à leurs ayants droit respectifs, sous licence accordée à Moonton : le site n'en montre que le petit portrait de la boutique, jamais l'illustration en grand. Ces visuels sont copiés depuis le wiki communautaire à des fins d'illustration et d'information ; ils ne sont pas sous licence CC BY-SA. Sur demande de l'ayant droit, ils seront retirés.",
+      "text": "The visuals shown (portraits, icons, emblems, artwork) and the game's names are © Moonton. Those of collaboration skins (NARUTO, Star Wars, Transformers, Jujutsu Kaisen, The King of Fighters, Neymar Jr and the others) depict characters, brands and people owned by their respective rights holders, licensed to Moonton: the site only shows their small shop portrait, never the full-size artwork. These visuals are copied from the community wiki for illustration and information purposes; they are not under the CC BY-SA licence. They will be removed at the rights holder's request."
+    },
+    "prose.legal.blocks.8.p": {
+      "fr": "Les textes factuels (descriptions, histoires, notes de patch, listes de skins) sont repris du [wiki Mobile Legends](https://mobilelegends.fandom.com) sur Fandom et de [Liquipedia](https://liquipedia.net/mobilelegends), sous licence CC BY-SA : chaque page qui les reprend crédite sa source, et leurs traductions restent sous cette licence. Les chiffres de parties viennent d'une API communautaire. Le code et les textes rédigés pour ce site sont publiés sous licence MIT — voir le [dépôt public]({repository}).",
+      "text": "Factual texts (descriptions, stories, patch notes, skin lists) come from the [Mobile Legends wiki](https://mobilelegends.fandom.com) on Fandom and from [Liquipedia](https://liquipedia.net/mobilelegends), under the CC BY-SA licence: every page that uses them credits its source, and their translations stay under that licence. Match figures come from a community API. The code and texts written for this site are published under the MIT license — see the [public repository]({repository})."
+    },
+    "prose.about.blocks.6.p": {
+      "fr": "Les visuels appartiennent à Moonton, et pour les skins de collaboration aussi aux ayants droit des personnages et marques concernés. Portraits, icônes et illustrations de skins proviennent du wiki communautaire et sont servis par ce site pour que rien ne dépende d'un domaine tiers. Ils restent la propriété de Moonton, sont présents à des fins d'illustration, et seront retirés sur demande de l'ayant droit. L'identité visuelle du site — bleu nuit, or, angles coupés — s'inspire de celle du jeu sans en reprendre les fichiers d'interface.",
+      "text": "The visuals belong to Moonton, and for collaboration skins also to the rights holders of the characters and brands involved. Portraits, icons and skin artwork come from the community wiki and are served by this site so that nothing depends on a third-party domain. They remain Moonton's property, are included for illustration purposes, and will be removed at the rights holder's request. The site's visual identity — midnight blue, gold, cut corners — is inspired by the game's without reusing its interface files."
     }
   },
   "es": {
@@ -10891,10 +10915,6 @@
     "prose.legal.blocks.6.p": {
       "fr": "Mobile Legends: Bang Bang, son univers, ses héros, leurs noms et leurs représentations graphiques sont des marques et des œuvres de Shanghai Moonton Technology Co., Ltd. Ce site est un projet de fan indépendant, sans affiliation, ni approbation, ni parrainage de Moonton.",
       "text": "Mobile Legends: Bang Bang, dunianya, para hero-nya, nama-nama mereka, dan representasi grafis mereka adalah merek dagang dan karya milik Shanghai Moonton Technology Co., Ltd. Situs ini adalah proyek penggemar independen, tanpa afiliasi, persetujuan, maupun sponsor dari Moonton."
-    },
-    "prose.legal.blocks.7.p": {
-      "fr": "Les visuels affichés (portraits, icônes, emblèmes, illustrations) proviennent du wiki communautaire et restent la propriété de Moonton. Ils sont inclus à des fins d'illustration et d'information. Sur demande de l'ayant droit, ils seront retirés.",
-      "text": "Visual yang ditampilkan (potret, ikon, emblem, ilustrasi) berasal dari wiki komunitas dan tetap menjadi milik Moonton. Visual tersebut disertakan untuk tujuan ilustrasi dan informasi, dan akan dihapus atas permintaan pemegang hak."
     },
     "rankNames.elite": {
       "fr": "Élite",
@@ -20888,10 +20908,6 @@
       "fr": "projet de fan indépendant. Contenus publiés par {author}.",
       "text": "independiyenteng fan project. Nilalamang inilathala ni {author}."
     },
-    "footer.sources": {
-      "fr": "Données de jeu issues du wiki Mobile Legends (CC BY-SA). Taux de victoire, de ban et de sélection, contres et builds les plus joués viennent des statistiques de parties classées du jeu, via l'API communautaire arena.rone.dev.",
-      "text": "Game data mula sa Mobile Legends wiki (CC BY-SA). Ang win, ban at pick rate, mga counter at pinakaginagamit na build ay galing sa ranked match statistics ng laro, sa pamamagitan ng arena.rone.dev community API."
-    },
     "heroCard.analysis": {
       "fr": "Analyse",
       "text": "Analysis"
@@ -23671,10 +23687,6 @@
     "pages.botTerms.p1": {
       "fr": "Le bot MLBBDex est un projet de fan indépendant, gratuit, sans lien avec Moonton. Mobile Legends: Bang Bang est une marque de Shanghai Moonton Technology Co., Ltd.",
       "text": "Ang MLBBDex bot ay isang independiyente at libreng fan project, na walang kaugnayan sa Moonton. Ang Mobile Legends: Bang Bang ay trademark ng Shanghai Moonton Technology Co., Ltd."
-    },
-    "pages.botTerms.p2": {
-      "fr": "Les données (statistiques, builds, tier list, patch notes) sont fournies telles quelles, sans garantie d'exactitude ni de disponibilité. Elles viennent du wiki Mobile Legends (CC BY-SA) et des statistiques des parties classées.",
-      "text": "Ibinibigay ang data (statistics, build, tier list, patch notes) nang as is, nang walang warranty ng katumpakan o availability. Nagmumula ito sa Mobile Legends wiki (CC BY-SA) at sa statistics ng mga ranked match."
     },
     "pages.botTerms.p3": {
       "fr": "Ne détournez pas le bot : pas d'automatisation abusive des commandes, pas de tentative d'accès aux réglages d'un serveur que vous ne gérez pas. Le service peut être limité ou retiré d'un serveur qui en abuse.",
@@ -33256,10 +33268,6 @@
       "fr": "Connecté avec le code de vérification du jeu, vous voyez votre propre profil — saison, héros joués, parties récentes — lu à la demande via cette même API, pour vous seul. Il n'est ni publié ni conservé au-delà d'un cache de quelques minutes.",
       "text": "Kapag naka-log in ka gamit ang in-game verification code, makikita mo ang sarili mong profile — season, mga hero na nilaro, mga kamakailang match — na binabasa kapag hiniling sa parehong API, para sa iyo lang. Hindi ito ipina-publish o itinatago lampas sa cache na ilang minuto."
     },
-    "prose.about.blocks.6.p": {
-      "fr": "Les visuels appartiennent à Moonton. Portraits, icônes et illustrations de skins proviennent du wiki communautaire et sont servis par ce site pour que rien ne dépende d'un domaine tiers. Ils restent la propriété de Moonton, sont présents à des fins d'illustration, et seront retirés sur demande de l'ayant droit. L'identité visuelle du site — bleu nuit, or, angles coupés — s'inspire de celle du jeu sans en reprendre les fichiers d'interface.",
-      "text": "Pag-aari ng Moonton ang mga visual. Ang mga portrait, icon at artwork ng skin ay galing sa community wiki at ini-serve ng site na ito para walang umaasa sa third-party na domain. Nananatili silang pag-aari ng Moonton, kasama para sa paglalarawan, at aalisin kapag hiniling ng may-ari ng karapatan. Ang visual identity ng site — midnight blue, gold, cut corners — ay inspirasyon mula sa game nang hindi ginagamit muli ang mga interface file nito."
-    },
     "prose.about.blocks.7.h": {
       "fr": "La veille",
       "text": "Ang roundup"
@@ -33343,14 +33351,6 @@
     "prose.legal.blocks.6.p": {
       "fr": "Mobile Legends: Bang Bang, son univers, ses héros, leurs noms et leurs représentations graphiques sont des marques et des œuvres de Shanghai Moonton Technology Co., Ltd. Ce site est un projet de fan indépendant, sans affiliation, ni approbation, ni parrainage de Moonton.",
       "text": "Ang Mobile Legends: Bang Bang, ang uniberso nito, ang mga hero nito, ang mga pangalan nila at ang kanilang mga graphic na representasyon ay mga trademark at gawa ng Shanghai Moonton Technology Co., Ltd. Ang site na ito ay isang independiyenteng fan project, na walang kaugnayan, endorsement o sponsorship mula sa Moonton."
-    },
-    "prose.legal.blocks.7.p": {
-      "fr": "Les visuels affichés (portraits, icônes, emblèmes, illustrations) proviennent du wiki communautaire et restent la propriété de Moonton. Ils sont inclus à des fins d'illustration et d'information. Sur demande de l'ayant droit, ils seront retirés.",
-      "text": "Ang mga visual na ipinapakita (mga portrait, icon, emblem, artwork) ay galing sa community wiki at nananatiling pag-aari ng Moonton. Kasama ang mga ito para sa paglalarawan at impormasyon. Aalisin ang mga ito kapag hiniling ng may-ari ng karapatan."
-    },
-    "prose.legal.blocks.8.p": {
-      "fr": "Les données factuelles proviennent du [wiki Mobile Legends](https://mobilelegends.fandom.com) (licence CC BY-SA) et d'une API communautaire. Le code et les textes rédigés pour ce site sont publiés sous licence MIT — voir le [dépôt public]({repository}).",
-      "text": "Ang factual na data ay galing sa [Mobile Legends wiki](https://mobilelegends.fandom.com) (lisensyang CC BY-SA) at sa isang community API. Ang code at mga text na isinulat para sa site na ito ay inilalathala sa ilalim ng MIT license — tingnan ang [public repository]({repository})."
     },
     "prose.push.endpoint": {
       "fr": "l'adresse d'abonnement fournie par le service de notifications de votre navigateur (Google, Mozilla, Apple ou Microsoft selon le navigateur) et les clés de chiffrement qui l'accompagnent ;",
@@ -35693,10 +35693,6 @@
     "footer.rights": {
       "fr": "projet de fan indépendant. Contenus publiés par {author}.",
       "text": "โปรเจกต์แฟนเมดอิสระ เนื้อหาเผยแพร่โดย {author}"
-    },
-    "footer.sources": {
-      "fr": "Données de jeu issues du wiki Mobile Legends (CC BY-SA). Taux de victoire, de ban et de sélection, contres et builds les plus joués viennent des statistiques de parties classées du jeu, via l'API communautaire arena.rone.dev.",
-      "text": "ข้อมูลเกมจากวิกิ Mobile Legends (CC BY-SA) Win Rate, Ban Rate, Pick Rate เคาน์เตอร์ และบิลด์ที่ใช้มากที่สุดมาจากสถิติแมตช์ Ranked ของเกม ผ่าน API ชุมชน arena.rone.dev"
     },
     "heroCard.analysis": {
       "fr": "Analyse",
@@ -38245,10 +38241,6 @@
     "pages.botTerms.p1": {
       "fr": "Le bot MLBBDex est un projet de fan indépendant, gratuit, sans lien avec Moonton. Mobile Legends: Bang Bang est une marque de Shanghai Moonton Technology Co., Ltd.",
       "text": "บอท MLBBDex เป็นโปรเจกต์อิสระที่แฟนเกมจัดทำขึ้นโดยไม่คิดค่าบริการ และไม่มีส่วนเกี่ยวข้องกับ Moonton Mobile Legends: Bang Bang เป็นเครื่องหมายการค้าของ Shanghai Moonton Technology Co., Ltd."
-    },
-    "pages.botTerms.p2": {
-      "fr": "Les données (statistiques, builds, tier list, patch notes) sont fournies telles quelles, sans garantie d'exactitude ni de disponibilité. Elles viennent du wiki Mobile Legends (CC BY-SA) et des statistiques des parties classées.",
-      "text": "ข้อมูล (สถิติ บิลด์ Tier List แพตช์โน้ต) ให้ไว้ตามสภาพที่เป็นอยู่ โดยไม่มีการรับประกันความถูกต้องหรือความพร้อมใช้งาน ข้อมูลมาจากวิกิ Mobile Legends (CC BY-SA) และสถิติเกม Ranked"
     },
     "pages.botTerms.p3": {
       "fr": "Ne détournez pas le bot : pas d'automatisation abusive des commandes, pas de tentative d'accès aux réglages d'un serveur que vous ne gérez pas. Le service peut être limité ou retiré d'un serveur qui en abuse.",
@@ -47186,10 +47178,6 @@
       "fr": "Connecté avec le code de vérification du jeu, vous voyez votre propre profil — saison, héros joués, parties récentes — lu à la demande via cette même API, pour vous seul. Il n'est ni publié ni conservé au-delà d'un cache de quelques minutes.",
       "text": "เมื่อเข้าสู่ระบบด้วยรหัสยืนยันในเกม คุณจะเห็นโปรไฟล์ของตัวเอง — ซีซัน ฮีโร่ที่เล่น เกมล่าสุด — ซึ่งอ่านผ่าน API เดียวกันเมื่อคุณเรียกดู และแสดงเฉพาะคุณ ข้อมูลไม่ถูกเผยแพร่และไม่ถูกเก็บไว้นานเกินแคชไม่กี่นาที"
     },
-    "prose.about.blocks.6.p": {
-      "fr": "Les visuels appartiennent à Moonton. Portraits, icônes et illustrations de skins proviennent du wiki communautaire et sont servis par ce site pour que rien ne dépende d'un domaine tiers. Ils restent la propriété de Moonton, sont présents à des fins d'illustration, et seront retirés sur demande de l'ayant droit. L'identité visuelle du site — bleu nuit, or, angles coupés — s'inspire de celle du jeu sans en reprendre les fichiers d'interface.",
-      "text": "ภาพทั้งหมดเป็นของ Moonton ภาพฮีโร่ ไอคอน และอาร์ตเวิร์กสกินมาจากวิกิคอมมูนิตี้ และเว็บไซต์นี้เป็นผู้ให้บริการไฟล์เอง เพื่อไม่ให้ขึ้นกับโดเมนของบุคคลที่สาม ภาพเหล่านี้ยังคงเป็นทรัพย์สินของ Moonton ใช้เพื่อประกอบเนื้อหา และจะถูกนำออกเมื่อเจ้าของสิทธิ์ร้องขอ เอกลักษณ์ทางภาพของเว็บไซต์ — สีน้ำเงินเข้ม สีทอง และมุมตัด — ได้แรงบันดาลใจจากเกม โดยไม่ได้นำไฟล์อินเทอร์เฟซของเกมมาใช้"
-    },
     "prose.about.blocks.7.h": {
       "fr": "La veille",
       "text": "สรุปข่าว"
@@ -47273,14 +47261,6 @@
     "prose.legal.blocks.6.p": {
       "fr": "Mobile Legends: Bang Bang, son univers, ses héros, leurs noms et leurs représentations graphiques sont des marques et des œuvres de Shanghai Moonton Technology Co., Ltd. Ce site est un projet de fan indépendant, sans affiliation, ni approbation, ni parrainage de Moonton.",
       "text": "Mobile Legends: Bang Bang จักรวาลของเกม ฮีโร่ ชื่อฮีโร่ และภาพกราฟิกของฮีโร่ เป็นเครื่องหมายการค้าและผลงานของ Shanghai Moonton Technology Co., Ltd. เว็บไซต์นี้เป็นโปรเจกต์อิสระของแฟนเกม ไม่มีส่วนเกี่ยวข้อง ไม่ได้รับการรับรอง และไม่ได้รับการสนับสนุนจาก Moonton"
-    },
-    "prose.legal.blocks.7.p": {
-      "fr": "Les visuels affichés (portraits, icônes, emblèmes, illustrations) proviennent du wiki communautaire et restent la propriété de Moonton. Ils sont inclus à des fins d'illustration et d'information. Sur demande de l'ayant droit, ils seront retirés.",
-      "text": "ภาพที่แสดง (ภาพฮีโร่ ไอคอน Emblem อาร์ตเวิร์ก) มาจากวิกิคอมมูนิตี้และยังคงเป็นทรัพย์สินของ Moonton ใช้เพื่อประกอบเนื้อหาและให้ข้อมูล และจะถูกนำออกเมื่อเจ้าของสิทธิ์ร้องขอ"
-    },
-    "prose.legal.blocks.8.p": {
-      "fr": "Les données factuelles proviennent du [wiki Mobile Legends](https://mobilelegends.fandom.com) (licence CC BY-SA) et d'une API communautaire. Le code et les textes rédigés pour ce site sont publiés sous licence MIT — voir le [dépôt public]({repository}).",
-      "text": "ข้อมูลข้อเท็จจริงมาจาก [วิกิ Mobile Legends](https://mobilelegends.fandom.com) (สัญญาอนุญาต CC BY-SA) และ API คอมมูนิตี้ โค้ดและข้อความที่เขียนขึ้นสำหรับเว็บไซต์นี้เผยแพร่ภายใต้สัญญาอนุญาต MIT — ดู [repository สาธารณะ]({repository})"
     },
     "prose.legal.blocks.9.h": {
       "fr": "Responsabilité",
@@ -49363,10 +49343,6 @@
     "footer.privacy": {
       "fr": "Confidentialité",
       "text": "Privacidade"
-    },
-    "footer.sources": {
-      "fr": "Données de jeu issues du wiki Mobile Legends (CC BY-SA). Taux de victoire, de ban et de sélection, contres et builds les plus joués viennent des statistiques de parties classées du jeu, via l'API communautaire arena.rone.dev.",
-      "text": "Dados do jogo da wiki do Mobile Legends (CC BY-SA). As taxas de vitória, ban e pick, os counters e as builds mais usadas vêm das estatísticas de partidas ranqueadas do jogo, por meio da API comunitária arena.rone.dev."
     },
     "heroCard.tierTitle": {
       "fr": "Palier {p} de la tier list",
@@ -51499,10 +51475,6 @@
     "pages.botTerms.p1": {
       "fr": "Le bot MLBBDex est un projet de fan indépendant, gratuit, sans lien avec Moonton. Mobile Legends: Bang Bang est une marque de Shanghai Moonton Technology Co., Ltd.",
       "text": "O bot MLBBDex é um projeto de fã independente e gratuito, sem vínculo com a Moonton. Mobile Legends: Bang Bang é uma marca da Shanghai Moonton Technology Co., Ltd."
-    },
-    "pages.botTerms.p2": {
-      "fr": "Les données (statistiques, builds, tier list, patch notes) sont fournies telles quelles, sans garantie d'exactitude ni de disponibilité. Elles viennent du wiki Mobile Legends (CC BY-SA) et des statistiques des parties classées.",
-      "text": "Os dados (estatísticas, builds, tier list, patch notes) são fornecidos no estado em que se encontram, sem garantia de exatidão nem de disponibilidade. Eles vêm da wiki do Mobile Legends (CC BY-SA) e das estatísticas das partidas ranqueadas."
     },
     "pages.botTerms.p3": {
       "fr": "Ne détournez pas le bot : pas d'automatisation abusive des commandes, pas de tentative d'accès aux réglages d'un serveur que vous ne gérez pas. Le service peut être limité ou retiré d'un serveur qui en abuse.",
@@ -59040,10 +59012,6 @@
       "fr": "Connecté avec le code de vérification du jeu, vous voyez votre propre profil — saison, héros joués, parties récentes — lu à la demande via cette même API, pour vous seul. Il n'est ni publié ni conservé au-delà d'un cache de quelques minutes.",
       "text": "Depois de entrar com o código de verificação do jogo, você vê o seu próprio perfil (temporada, heróis jogados, partidas recentes), lido sob demanda por essa mesma API, só para você. Ele não é publicado nem guardado além de um cache de alguns minutos."
     },
-    "prose.about.blocks.6.p": {
-      "fr": "Les visuels appartiennent à Moonton. Portraits, icônes et illustrations de skins proviennent du wiki communautaire et sont servis par ce site pour que rien ne dépende d'un domaine tiers. Ils restent la propriété de Moonton, sont présents à des fins d'illustration, et seront retirés sur demande de l'ayant droit. L'identité visuelle du site — bleu nuit, or, angles coupés — s'inspire de celle du jeu sans en reprendre les fichiers d'interface.",
-      "text": "Os visuais pertencem à Moonton. Retratos, ícones e artes de skins vêm da wiki da comunidade e são servidos por este site para que nada dependa de um domínio de terceiros. Eles continuam sendo propriedade da Moonton, estão aqui para fins ilustrativos e serão removidos a pedido do detentor dos direitos. A identidade visual do site (azul-noite, dourado, cantos cortados) se inspira na do jogo sem reutilizar seus arquivos de interface."
-    },
     "prose.about.blocks.7.h": {
       "fr": "La veille",
       "text": "O radar de notícias"
@@ -59115,14 +59083,6 @@
     "prose.legal.blocks.6.p": {
       "fr": "Mobile Legends: Bang Bang, son univers, ses héros, leurs noms et leurs représentations graphiques sont des marques et des œuvres de Shanghai Moonton Technology Co., Ltd. Ce site est un projet de fan indépendant, sans affiliation, ni approbation, ni parrainage de Moonton.",
       "text": "Mobile Legends: Bang Bang, seu universo, seus heróis, seus nomes e suas representações gráficas são marcas e obras da Shanghai Moonton Technology Co., Ltd. Este site é um projeto de fã independente, sem afiliação, endosso ou patrocínio da Moonton."
-    },
-    "prose.legal.blocks.7.p": {
-      "fr": "Les visuels affichés (portraits, icônes, emblèmes, illustrations) proviennent du wiki communautaire et restent la propriété de Moonton. Ils sont inclus à des fins d'illustration et d'information. Sur demande de l'ayant droit, ils seront retirés.",
-      "text": "Os visuais exibidos (retratos, ícones, emblemas, artes) vêm da wiki da comunidade e permanecem propriedade da Moonton. Eles são incluídos para fins ilustrativos e informativos. Serão removidos a pedido do detentor dos direitos."
-    },
-    "prose.legal.blocks.8.p": {
-      "fr": "Les données factuelles proviennent du [wiki Mobile Legends](https://mobilelegends.fandom.com) (licence CC BY-SA) et d'une API communautaire. Le code et les textes rédigés pour ce site sont publiés sous licence MIT — voir le [dépôt public]({repository}).",
-      "text": "Os dados factuais vêm da [wiki do Mobile Legends](https://mobilelegends.fandom.com) (licença CC BY-SA) e de uma API comunitária. O código e os textos escritos para este site são publicados sob a licença MIT; veja o [repositório público]({repository})."
     },
     "prose.push.endpoint": {
       "fr": "l'adresse d'abonnement fournie par le service de notifications de votre navigateur (Google, Mozilla, Apple ou Microsoft selon le navigateur) et les clés de chiffrement qui l'accompagnent ;",
@@ -61253,10 +61213,6 @@
     "footer.rights": {
       "fr": "projet de fan indépendant. Contenus publiés par {author}.",
       "text": "независимый фан-проект. Контент публикует {author}."
-    },
-    "footer.sources": {
-      "fr": "Données de jeu issues du wiki Mobile Legends (CC BY-SA). Taux de victoire, de ban et de sélection, contres et builds les plus joués viennent des statistiques de parties classées du jeu, via l'API communautaire arena.rone.dev.",
-      "text": "Игровые данные взяты из вики Mobile Legends (CC BY-SA). Процент побед, банов и пиков, контрпики и самые популярные билды берутся из статистики рейтинговых матчей через API сообщества arena.rone.dev."
     },
     "heroCard.skins": {
       "fr": "{n} skins",
@@ -63641,10 +63597,6 @@
     "pages.botTerms.p1": {
       "fr": "Le bot MLBBDex est un projet de fan indépendant, gratuit, sans lien avec Moonton. Mobile Legends: Bang Bang est une marque de Shanghai Moonton Technology Co., Ltd.",
       "text": "Бот MLBBDex — независимый бесплатный фанатский проект, не связанный с Moonton. Mobile Legends: Bang Bang — товарный знак Shanghai Moonton Technology Co., Ltd."
-    },
-    "pages.botTerms.p2": {
-      "fr": "Les données (statistiques, builds, tier list, patch notes) sont fournies telles quelles, sans garantie d'exactitude ni de disponibilité. Elles viennent du wiki Mobile Legends (CC BY-SA) et des statistiques des parties classées.",
-      "text": "Данные (статистика, билды, тир-лист, патч-ноуты) предоставляются «как есть», без гарантии точности или доступности. Они взяты из вики Mobile Legends (CC BY-SA) и статистики рейтинговых матчей."
     },
     "pages.botTerms.p3": {
       "fr": "Ne détournez pas le bot : pas d'automatisation abusive des commandes, pas de tentative d'accès aux réglages d'un serveur que vous ne gérez pas. Le service peut être limité ou retiré d'un serveur qui en abuse.",
@@ -72050,10 +72002,6 @@
       "fr": "Connecté avec le code de vérification du jeu, vous voyez votre propre profil — saison, héros joués, parties récentes — lu à la demande via cette même API, pour vous seul. Il n'est ni publié ni conservé au-delà d'un cache de quelques minutes.",
       "text": "Войдя с помощью кода подтверждения из игры, вы видите свой профиль — сезон, сыгранных героев, последние матчи, — который запрашивается по требованию через тот же API и показывается только вам. Он не публикуется и не хранится дольше кэша в несколько минут."
     },
-    "prose.about.blocks.6.p": {
-      "fr": "Les visuels appartiennent à Moonton. Portraits, icônes et illustrations de skins proviennent du wiki communautaire et sont servis par ce site pour que rien ne dépende d'un domaine tiers. Ils restent la propriété de Moonton, sont présents à des fins d'illustration, et seront retirés sur demande de l'ayant droit. L'identité visuelle du site — bleu nuit, or, angles coupés — s'inspire de celle du jeu sans en reprendre les fichiers d'interface.",
-      "text": "Изображения принадлежат Moonton. Портреты, иконки и арты скинов взяты из вики сообщества и раздаются этим сайтом, чтобы ничего не зависело от стороннего домена. Они остаются собственностью Moonton, используются в иллюстративных целях и будут удалены по запросу правообладателя. Визуальный стиль сайта — тёмно-синий, золото, срезанные углы — вдохновлён игрой, но не использует её файлы интерфейса."
-    },
     "prose.about.blocks.7.h": {
       "fr": "La veille",
       "text": "Обзор новостей"
@@ -72133,14 +72081,6 @@
     "prose.legal.blocks.6.p": {
       "fr": "Mobile Legends: Bang Bang, son univers, ses héros, leurs noms et leurs représentations graphiques sont des marques et des œuvres de Shanghai Moonton Technology Co., Ltd. Ce site est un projet de fan indépendant, sans affiliation, ni approbation, ni parrainage de Moonton.",
       "text": "Mobile Legends: Bang Bang, её вселенная, её герои, их имена и графические изображения являются товарными знаками и произведениями Shanghai Moonton Technology Co., Ltd. Этот сайт — независимый фанатский проект, не связанный с Moonton, не одобренный и не спонсируемый ею."
-    },
-    "prose.legal.blocks.7.p": {
-      "fr": "Les visuels affichés (portraits, icônes, emblèmes, illustrations) proviennent du wiki communautaire et restent la propriété de Moonton. Ils sont inclus à des fins d'illustration et d'information. Sur demande de l'ayant droit, ils seront retirés.",
-      "text": "Отображаемые изображения (портреты, иконки, эмблемы, арты) взяты из вики сообщества и остаются собственностью Moonton. Они используются в иллюстративных и информационных целях. По запросу правообладателя они будут удалены."
-    },
-    "prose.legal.blocks.8.p": {
-      "fr": "Les données factuelles proviennent du [wiki Mobile Legends](https://mobilelegends.fandom.com) (licence CC BY-SA) et d'une API communautaire. Le code et les textes rédigés pour ce site sont publiés sous licence MIT — voir le [dépôt public]({repository}).",
-      "text": "Фактические данные взяты из [вики Mobile Legends](https://mobilelegends.fandom.com) (лицензия CC BY-SA) и API сообщества. Код и тексты, написанные для этого сайта, опубликованы под лицензией MIT — см. [публичный репозиторий]({repository})."
     },
     "prose.privacy.blocks.2.p": {
       "fr": "Le responsable du traitement est {publisher}, qui édite ce site à titre personnel et sans but lucratif (voir les [mentions légales](/legal)). Pour toute question ou demande sur vos données : [{contact}](mailto:{contact}).",
