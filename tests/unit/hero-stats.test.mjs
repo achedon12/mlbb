@@ -146,6 +146,29 @@ describe("hero base stats merge", () => {
     expect(stats.physical_atk15).toBeUndefined();
   });
 
+  it("reads a value with its unit and a label stored inside the old value", () => {
+    const notes = {
+      "2.1.88": {
+        adjustments: [
+          // Marcel: "Base HP Regen: 12.4 per second → 22.4 per second".
+          { slug: "marcel", sections: [{ name: "Attributes", changes: [{ label: "Base HP Regen", before: "12.4 per second", after: "22.4 per second" }] }] },
+          // Hanzo, as earlier syncs stored "Base HP 2594 → 2440".
+          { slug: "hanzo", sections: [{ name: "Attributes", changes: [{ label: null, before: "Base HP 2594", after: "2440" }, { label: null, before: "40%", after: "30%" }] }] },
+          // A percentage is not a base value.
+          { slug: "argus", sections: [{ name: "Attributes", changes: [{ label: "Extra Attack Speed Bonus", before: "100%", after: "80%" }] }] },
+        ],
+      },
+    };
+    const attributes = patchAttributes(notes);
+    expect(attributes).toEqual({
+      marcel: { hp_regen1: { value: 22.4, version: "2.1.88" } },
+      hanzo: { hp1: { value: 2440, version: "2.1.88" } },
+    });
+    const marcel = mergeHeroStats({ fandom: { hp_regen1: "12.4" }, liquipedia: { hp_regen1: "12.4" }, patch: attributes.marcel });
+    expect(marcel.stats.hp_regen1).toBe("22.4");
+    expect(marcel.conflicts).toEqual([{ field: "hp_regen1", liquipedia: 12.4, patch: 22.4, version: "2.1.88" }]);
+  });
+
   it("keeps the module's range sentence and has no stats when no source has any", () => {
     expect(mergeHeroStats({ fandom: { basic_atk_range: "1.8  / 2.6 (Flash Strike)" } }).stats).toEqual({ basic_atk_range: "1.8  / 2.6 (Flash Strike)" });
     expect(mergeHeroStats({}).stats).toBeNull();
