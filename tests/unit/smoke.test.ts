@@ -1,5 +1,4 @@
 import { describe, expect, it } from "vitest";
-// @ts-expect-error -- plain JavaScript script, no type declarations.
 import { locs, problem } from "../../scripts/smoke.mjs";
 
 const page = (inner: string) => `<!DOCTYPE html><html><body>${inner}<template>This page could not be found.</template></body></html>`;

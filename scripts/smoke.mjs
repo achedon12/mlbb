@@ -56,7 +56,12 @@ async function get(url) {
   return { status: response.status, body: await response.text() };
 }
 
-/** What is wrong with this answer, or null. */
+/**
+ * What is wrong with this answer, or null.
+ * @param {{ status: number, body: string }} answer
+ * @param {string | null} [expected] text the page must contain
+ * @returns {string | null}
+ */
 export function problem({ status, body }, expected = null) {
   if (status !== 200) return `HTTP ${status}`;
   if (!/<\/html>\s*$/i.test(body.trim())) return "page cut short (no </html>)";
