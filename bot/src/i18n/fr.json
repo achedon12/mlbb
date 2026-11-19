@@ -174,6 +174,16 @@
       "name": "heure-serveur",
       "description": "Heure du serveur MLBB et comptes à rebours des réinitialisations"
     },
+    "profile": {
+      "name": "profil",
+      "description": "Une carte de profil Mobile Legends : rang, taux de victoire, héros les plus joués",
+      "options": {
+        "user": {
+          "name": "membre",
+          "description": "La carte de qui (il doit l'avoir rendue publique sur MLBBDex)"
+        }
+      }
+    },
     "setup": {
       "name": "configurer",
       "description": "Configure MLBBDex ici : langue, alertes patch et skins, jeux du jour, messages d'accueil"
@@ -416,6 +426,17 @@
       "daily": "Réinitialisation quotidienne",
       "weekly": "Réinitialisation hebdomadaire",
       "starlight": "Nouveau Starlight"
+    },
+    "profile": {
+      "alt": "Carte de profil Mobile Legends de {name}",
+      "notLinked": "Tu n'as pas encore relié ton compte de jeu. Sur MLBBDex, connecte-toi avec ton compte de jeu (un code envoyé dans le jeu, aucun mot de passe) et avec ce compte Discord, puis crée ta carte. Ça prend une minute.",
+      "stale": "Les chiffres de ta carte datent de plus de 30 jours : elle n'est plus affichée. Mets-les à jour sur MLBBDex, connecté avec ton compte de jeu.",
+      "unavailable": "{name} n'a pas de carte publique. Chaque membre choisit sur MLBBDex si les autres peuvent afficher la sienne.",
+      "rateLimited": "Doucement : réessaie dans une minute.",
+      "linkButton": "Relier mon compte",
+      "updateButton": "Mettre à jour ma carte",
+      "manageButton": "Ma carte sur MLBBDex",
+      "getYours": "Crée ta carte"
     },
     "setup": {
       "body": "Choisis la langue, les salons d'annonces et les jeux du jour de ce serveur sur le tableau de bord.",

@@ -3692,7 +3692,8 @@
         "setup": "Lien vers le tableau de bord du serveur (permission Gérer le serveur requise).",
         "help": "Les commandes par catégorie, avec un exemple pour chacune.",
         "invite": "Le lien pour ajouter le bot à un autre serveur.",
-        "about": "Version, nombre de serveurs, liens vers le site, le serveur d'entraide et le vote."
+        "about": "Version, nombre de serveurs, liens vers le site, le serveur d'entraide et le vote.",
+        "profile": "Votre profil Mobile Legends en image : rang, taux de victoire et héros les plus joués (à relier une fois sur le site)."
       },
       "permissionsTitle": "Permissions demandées",
       "permissionsText": "Le strict nécessaire pour répondre et publier : jamais Administrateur, et aucun accès au contenu des messages. L'intent « Server Members » sert seulement aux messages de bienvenue et de départ : rien n'est conservé sur les membres.",
@@ -3749,7 +3750,8 @@
       "autoRoles": "Rôles automatiques : si le serveur en a choisi, le bot donne ces rôles à qui arrive, avec la permission Gérer les rôles que les administrateurs du serveur lui accordent ; un membre qui doit encore accepter les règles du serveur n'est retenu (son identifiant, en mémoire, au plus 24 heures) que le temps de les accepter, et rien n'est enregistré.",
       "roleMenus": "Menus de rôles : le serveur enregistre pour chaque menu son salon, son titre, son texte, ses rôles avec leurs libellés et emojis, l'identifiant du message publié et l'identifiant Discord du gestionnaire qui l'a configuré. Quand un membre s'en sert, le bot lui donne ou retire le rôle et ne conserve rien sur lui, hormis un compteur en mémoire de quelques secondes qui limite les changements trop rapprochés.",
       "tempVoice": "Salons vocaux temporaires : le serveur enregistre ses salons d'entrée avec leur limite de membres et leur modèle de nom. Pour chaque salon vocal que le bot crée, il conserve l'identifiant du salon, du salon d'entrée et du membre pour qui il l'a créé, jusqu'à ce que le salon soit supprimé, ce qui arrive dès qu'il est vide. Pour savoir qui est dans quel salon vocal, le bot reçoit les états vocaux de Discord (intent « Guild Voice States »), les garde en mémoire et n'en enregistre aucun.",
-      "pseudonymous": "Sur le site, le forum et la collection ne gardent pas votre identifiant Discord ni votre ID de jeu en clair, mais une empreinte (SHA-256, sans sel). C'est une donnée pseudonyme, pas anonyme : quiconque connaît l'identifiant peut recalculer l'empreinte, et elle reste donc une donnée personnelle, protégée comme telle. Le bot, lui, conserve les identifiants Discord en clair (résultats, votes, menus de rôles)."
+      "pseudonymous": "Sur le site, le forum et la collection ne gardent pas votre identifiant Discord ni votre ID de jeu en clair, mais une empreinte (SHA-256, sans sel). C'est une donnée pseudonyme, pas anonyme : quiconque connaît l'identifiant peut recalculer l'empreinte, et elle reste donc une donnée personnelle, protégée comme telle. Le bot, lui, conserve les identifiants Discord en clair (résultats, votes, menus de rôles).",
+      "storedProfile": "Pour la carte /profile, seulement si le joueur la relie sur le site : une empreinte de son id Discord et une de son id de jeu et de son serveur, ses deux choix (visible par les autres, id affiché) et ses chiffres à sa dernière mise à jour (pseudo, avatar, pays, niveau, rang, parties et victoires de la saison, trois héros les plus joués). Supprimés quand il la délie, ou 30 jours après la dernière mise à jour. L'image dessinée reste dix minutes dans la mémoire du site."
     },
     "botTerms": {
       "title": "Conditions d'utilisation du bot Discord",
@@ -4700,6 +4702,37 @@
       "metaTitle": "Outils MLBB : draft, builds, dégâts et compte",
       "metaDescription": "Simulateur de draft, analyse d'équipe, simulateur de build, calculateur de dégâts, valeur de compte, chrono des objectifs et jeux du jour pour Mobile Legends: Bang Bang.",
       "nTools": "{n} outils"
+    },
+    "discordCard": {
+      "title": "Carte de profil Discord",
+      "intro": "Affichez votre rang, votre taux de victoire et vos héros les plus joués en image sur Discord, avec la commande /profile du bot MLBBDex.",
+      "needDiscord": "Pour la relier, connectez-vous aussi avec le compte Discord que vous utilisez sur vos serveurs.",
+      "discordButton": "Se connecter avec Discord",
+      "linkOffer": "Reliez le compte Discord {name} à ce compte de jeu. Vos chiffres actuels sont enregistrés pour la carte.",
+      "linkButton": "Relier et créer ma carte",
+      "linked": "Votre carte est reliée à un compte Discord. Tapez /profile sur un serveur où se trouve le bot MLBBDex.",
+      "otherDiscord": "Vous êtes connecté avec un autre compte Discord ({name}) que celui relié. Le relier y déplace la carte.",
+      "updatedAt": "Chiffres enregistrés le {date}.",
+      "refresh": "Mettre à jour mes chiffres",
+      "noAccess": "Le site ne garde aucun accès à votre compte de jeu : la carte montre les chiffres enregistrés lors de votre dernière mise à jour, et elle est supprimée après 30 jours sans mise à jour.",
+      "public": "Les autres peuvent afficher ma carte (/profile user:@vous)",
+      "publicHint": "Désactivé par défaut : vous seul pouvez l'afficher.",
+      "showId": "Afficher mon ID de jeu et mon serveur sur la carte",
+      "unlink": "Délier et supprimer ma carte",
+      "unlinkConfirm": "La carte et le lien sont supprimés aussitôt. Vous pourrez les recréer plus tard.",
+      "unlinkButton": "Supprimer",
+      "cancel": "Annuler",
+      "preview": "Aperçu de votre carte",
+      "done": "Enregistré.",
+      "errorDown": "Le service du jeu ne répond pas : réessayez dans quelques minutes.",
+      "errorExpired": "Votre session de jeu a expiré : reconnectez-vous.",
+      "error": "Une erreur est survenue. Réessayez dans un instant.",
+      "card": {
+        "wins": "Victoires",
+        "heroMatches": "{n} parties",
+        "updated": "Mis à jour le {date}",
+        "minimum": "Au moins : certains héros n'ont pas pu être lus"
+      }
     }
   },
   "modeSheet": {
@@ -5050,7 +5083,8 @@
       "servers": "pour chaque serveur où le bot est présent : son nom, sa langue et ses réglages ;",
       "results": "pour les classements des jeux du jour joués dans Discord : l'identifiant et le pseudo Discord des joueurs et leurs scores.",
       "details": "Le détail, la durée de conservation et la suppression sont décrits sur la page de confidentialité du bot.",
-      "members": "Rien n'est conservé sur les membres d'un serveur : leurs arrivées et départs, que Discord signale au bot, servent seulement à publier les messages de bienvenue et de départ que le serveur a activés."
+      "members": "Rien n'est conservé sur les membres d'un serveur : leurs arrivées et départs, que Discord signale au bot, servent seulement à publier les messages de bienvenue et de départ que le serveur a activés.",
+      "profile": "pour la carte /profile, si vous la reliez depuis votre page de compte : une empreinte de votre ID Discord et une de votre ID de jeu et de votre serveur (jamais les ID eux-mêmes), vos deux choix (si d'autres peuvent l'afficher, si elle montre votre ID) et une copie de vos chiffres à votre dernière mise à jour : pseudo, avatar, pays, niveau, rang, parties et victoires de la saison, trois héros les plus joués. Aucun jeton de jeu n'est conservé. La carte est supprimée quand vous la déliez, ou 30 jours après votre dernière mise à jour ;"
     },
     "community": {
       "title": "Communauté : forum et recherche de coéquipiers",
@@ -5186,7 +5220,8 @@
         "bot": "Pour le bot Discord : les réglages d'un serveur, et les résultats des jeux du jour qui y ont été joués, jusqu'à 30 jours après le départ du bot ; le journal des commandes slash utilisées, sans identifiant de membre, 90 jours ; les votes pour le bot, jusqu'à demande de suppression.",
         "logs": "Journaux techniques : les erreurs du serveur et celles rencontrées par le navigateur (message, page, version du site, type de navigateur, sans adresse IP ni compte) sont gardées 30 jours pour le diagnostic. Les événements de sécurité et de modération (requêtes refusées, actions des modérateurs et des administrateurs) sont gardés 6 mois. Ils sont ensuite effacés automatiquement.",
         "backups": "Sauvegardes : une copie quotidienne de la base de données ; seules les trois plus récentes sont gardées, si bien qu'une donnée effacée disparaît des sauvegardes en trois jours.",
-        "rateLimits": "Limites de débit : votre adresse IP, en mémoire seulement, jamais écrite sur disque."
+        "rateLimits": "Limites de débit : votre adresse IP, en mémoire seulement, jamais écrite sur disque.",
+        "profileCard": "Carte de profil Discord : jusqu'à ce que vous la déliiez, et au plus 30 jours après votre dernière mise à jour."
       },
       "rights": {
         "title": "Vos droits",
@@ -5194,7 +5229,7 @@
         "browser": "Ce qui vit dans votre navigateur (favoris, collection, préférences, choix sur les cookies) est entre vos mains : effacer les données du site le supprime.",
         "contact": "Pour le reste (communauté, collection synchronisée, notifications, bot), écrivez à [{contact}](mailto:{contact}), en précisant le compte concerné (pseudo de jeu ou nom Discord) pour qu'il soit retrouvé. Une réponse vous est apportée dans un délai d'un mois.",
         "cnil": "Si vous estimez, après avoir contacté l'éditeur, que vos droits ne sont pas respectés, vous pouvez adresser une réclamation à la CNIL ([cnil.fr](https://www.cnil.fr/fr/plaintes)) ou à l'autorité de protection des données de votre pays.",
-        "updated": "Dernière mise à jour : 15 novembre 2026."
+        "updated": "Dernière mise à jour : 19 novembre 2026."
       }
     }
   },

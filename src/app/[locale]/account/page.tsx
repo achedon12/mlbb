@@ -6,11 +6,13 @@ import { redirect } from "next/navigation";
 import { ChevronRight, CircleAlert, LogOut, Trophy } from "lucide-react";
 import { RankBadge } from "@/components/rank-badge";
 import { AccountFavourites } from "@/components/account-favourites";
+import { DiscordCardSection } from "@/components/discord-card-section";
 import Link from "@/components/link";
 import { StateProfile } from "@/components/player-profile";
 import { Card } from "@/components/ui";
 import type { Locale } from "@/i18n/config";
-import { createT } from "@/i18n/translations";
+import { createT, messagesPage } from "@/i18n/translations";
+import { ExtendMessages } from "@/i18n/provider";
 import { disconnect } from "@/lib/actions";
 import { SignOutForm } from "@/components/sign-out-form";
 import { formatCount, formatPercent } from "@/lib/player-format";
@@ -19,6 +21,7 @@ import { friends, statistics } from "@/lib/mlbb-auth";
 import { countryName, readableRank } from "@/lib/ranks";
 import { sessionPlayer } from "@/lib/session";
 import { summaryLastPatch } from "@/lib/patch-tracking";
+import { requestTime } from "@/lib/community/server";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -68,9 +71,10 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
 
   // Two sources in parallel: stats (often down) and friends
   // (on the auth subsystem, which stays online).
-  const [stats, friendList] = await Promise.all([
+  const [stats, friendList, now] = await Promise.all([
     statistics(token),
     friends(token),
+    requestTime(),
   ]);
 
   const rank = readableRank(profile.rankCurrent);
@@ -162,6 +166,11 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
           <ChevronRight size={18} className="shrink-0 text-chalk-500" aria-hidden />
         </Link>
       </section>
+
+      {/* ── Discord profile card (the bot's /profile) ────────────────── */}
+      <ExtendMessages messages={messagesPage(locale, ["pages.discordCard"])}>
+        <DiscordCardSection locale={locale} roleId={profile.roleId} zoneId={profile.zoneId} now={now} />
+      </ExtendMessages>
 
       {/* ── Friends ────────────────────────────────────────────────────── */}
       {friendList.status === "ok" && friendList.data.length > 0 && (

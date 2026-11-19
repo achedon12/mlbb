@@ -57,7 +57,7 @@ src/games/        MLBBdle comparison, quiz rounds, nicknames, server time
 
 `/hero`, `/build`, `/counter`, `/tierlist`, `/compare`, `/item`, `/emblem`,
 `/spell`, `/patch`, `/skins`, `/events`, `/nickname`, `/mlbbdle`, `/quiz`,
-`/leaderboard`, `/servertime`, `/setup`, `/help`, `/invite`, `/about`.
+`/leaderboard`, `/servertime`, `/profile`, `/setup`, `/help`, `/invite`, `/about`.
 
 Some commands use public API endpoints the site may not serve yet
 (`/api/v1/heroes/:slug/counters`, `/builds`, `/emblems`, `/spells`,

@@ -3692,7 +3692,8 @@
         "setup": "Link to the server's dashboard (Manage Server permission required).",
         "help": "The commands by category, with an example for each.",
         "invite": "The link to add the bot to another server.",
-        "about": "Version, server count, links to the site, the support server and voting."
+        "about": "Version, server count, links to the site, the support server and voting.",
+        "profile": "Your Mobile Legends profile as an image: rank, win rate and most played heroes (linked once on the site)."
       },
       "permissionsTitle": "Permissions requested",
       "permissionsText": "Only what replying and posting need: never Administrator, and no access to message content. The Server Members intent only serves the welcome and goodbye messages: nothing about members is stored.",
@@ -3749,7 +3750,8 @@
       "autoRoles": "Auto-roles: if the server chose some, the bot gives those roles to whoever joins, with the Manage Roles permission the server's admins grant it; a member who still has to accept the server's rules is only remembered (their id, in memory, for 24 hours at most) until they do, and nothing is saved.",
       "roleMenus": "Role menus: for each menu, the server's choice of channel, title, text, roles with their labels and emojis, the id of the published message and the Discord id of the manager who set it up are stored. When a member uses one, the bot gives or removes the role and keeps nothing about them, apart from an in-memory counter, a few seconds long, that limits changes made too close together.",
       "tempVoice": "Temporary voice channels: the server stores its join-to-create channels with their user limit and name template. For each voice channel the bot creates, it keeps the ids of the channel, of the join-to-create channel and of the member it was created for, until the channel is deleted, which happens as soon as it is empty. To know who is in which voice channel, the bot receives Discord's voice states (the \"Guild Voice States\" intent), keeps them in memory and stores none of them.",
-      "pseudonymous": "On the site, the forum and the collection do not keep your Discord ID or your game ID in plain text, but a hash of it (SHA-256, unsalted). This is pseudonymous data, not anonymous: anyone who knows the ID can compute the hash again, so it remains personal data and is protected as such. The bot itself keeps Discord IDs in plain text (results, votes, role menus)."
+      "pseudonymous": "On the site, the forum and the collection do not keep your Discord ID or your game ID in plain text, but a hash of it (SHA-256, unsalted). This is pseudonymous data, not anonymous: anyone who knows the ID can compute the hash again, so it remains personal data and is protected as such. The bot itself keeps Discord IDs in plain text (results, votes, role menus).",
+      "storedProfile": "For the /profile card, only if the player links it on the site: a hash of their Discord id and one of their game id and server, their two choices (shown to others, id shown) and their figures as of their last update (nickname, avatar, country, level, rank, season matches and wins, three most played heroes). Deleted on unlinking, or 30 days after the last update. The drawn image stays in the site's memory for ten minutes."
     },
     "botTerms": {
       "title": "Discord bot terms of use",
@@ -4700,6 +4702,37 @@
       "metaTitle": "MLBB tools: draft, builds, damage and account",
       "metaDescription": "Draft simulator, team analysis, build simulator, damage calculator, account value, objective timer and daily games for Mobile Legends: Bang Bang.",
       "nTools": "{n} tools"
+    },
+    "discordCard": {
+      "title": "Discord profile card",
+      "intro": "Post your rank, win rate and most played heroes as an image in Discord, with the MLBBDex bot's /profile command.",
+      "needDiscord": "To link it, also sign in with the Discord account you use on your servers.",
+      "discordButton": "Sign in with Discord",
+      "linkOffer": "Link the Discord account {name} to this game account. Your current figures are saved for the card.",
+      "linkButton": "Link and create my card",
+      "linked": "Your card is linked to a Discord account. Type /profile in a server where the MLBBDex bot is.",
+      "otherDiscord": "You are signed in with another Discord account ({name}) than the linked one. Linking it moves the card there.",
+      "updatedAt": "Figures saved on {date}.",
+      "refresh": "Update my figures",
+      "noAccess": "The site keeps no access to your game account: the card shows the figures saved at your last update, and is deleted after 30 days without one.",
+      "public": "Others can post my card (/profile user:@you)",
+      "publicHint": "Off by default: only you can post it.",
+      "showId": "Show my game ID and server on the card",
+      "unlink": "Unlink and delete my card",
+      "unlinkConfirm": "The card and the link are deleted at once. You can create them again later.",
+      "unlinkButton": "Delete",
+      "cancel": "Cancel",
+      "preview": "Preview of your card",
+      "done": "Saved.",
+      "errorDown": "The game's service is not answering: try again in a few minutes.",
+      "errorExpired": "Your game session has expired: log in again.",
+      "error": "Something went wrong. Try again in a moment.",
+      "card": {
+        "wins": "Wins",
+        "heroMatches": "{n} matches",
+        "updated": "Updated {date}",
+        "minimum": "At least: some heroes could not be read"
+      }
     }
   },
   "modeSheet": {
@@ -5050,7 +5083,8 @@
       "servers": "for each server the bot is in: its name, language and settings;",
       "results": "for the leaderboards of the daily games played in Discord: the players' Discord id and name and their scores.",
       "details": "The details, the retention period and deletion are on the bot's privacy page.",
-      "members": "Nothing is kept about a server's members: their joins and leaves, which Discord reports to the bot, are only used to post the welcome and goodbye messages the server turned on."
+      "members": "Nothing is kept about a server's members: their joins and leaves, which Discord reports to the bot, are only used to post the welcome and goodbye messages the server turned on.",
+      "profile": "for the /profile card, if you link it from your account page: a fingerprint of your Discord ID and one of your game ID and server (never the IDs themselves), your two choices (whether others may post it, whether it shows your ID) and a copy of your figures at your last update: nickname, avatar, country, level, rank, season matches and wins, three most played heroes. No game token is kept. The card is deleted when you unlink it, or 30 days after your last update;"
     },
     "community": {
       "title": "Community: forum and teammate finder",
@@ -5186,7 +5220,8 @@
         "bot": "For the Discord bot: a server's settings, and the results of the daily games played there, until 30 days after the bot leaves; the log of slash commands used, with no member ID, 90 days; votes for the bot, until you ask for their deletion.",
         "logs": "Technical logs: server errors and those met by the browser (message, page, site version, browser type, without IP address or account) are kept for 30 days for diagnosis. Security and moderation events (refused requests, moderators' and administrators' actions) are kept for 6 months. They are then deleted automatically.",
         "backups": "Backups: a daily copy of the database; only the three most recent are kept, so that deleted data disappears from the backups in three days.",
-        "rateLimits": "Rate limits: your IP address, in memory only, never written to disk."
+        "rateLimits": "Rate limits: your IP address, in memory only, never written to disk.",
+        "profileCard": "Discord profile card: until you unlink it, and at most 30 days after your last update."
       },
       "rights": {
         "title": "Your rights",
@@ -5194,7 +5229,7 @@
         "browser": "What lives in your browser (favorites, collection, preferences, choices on cookies) is in your hands: clearing the site data deletes it.",
         "contact": "For the rest (community, synchronized collection, notifications, bot), write to [{contact}](mailto:{contact}), specifying the account concerned (game nickname or Discord name) so that it can be found. You will receive a response within one month.",
         "cnil": "If you consider, after contacting the publisher, that your rights are not respected, you can send a complaint to the CNIL ([cnil.fr](https://www.cnil.fr/fr/plaintes)) or to the data protection authority in your country.",
-        "updated": "Last updated: 15 November 2026."
+        "updated": "Last updated: 19 November 2026."
       }
     }
   },

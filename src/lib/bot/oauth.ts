@@ -83,13 +83,14 @@ export const isCommunityReturn = (path: string | null | undefined): path is stri
 
 /**
  * Where a login lands: one of the site's own pages (the dashboard, the admin
- * panel, the community moderation queue, or a community page matching
+ * panel, the community moderation queue, the account page's Discord card, or a community page matching
  * `COMMUNITY_RETURN`), in one of its languages, as a path. Nothing else from
  * the query string reaches it, so there is no open redirect to build.
  */
 export function loginTarget(locale: string | undefined, next: string | undefined, back?: string): string {
   const lang = locale && isLocale(locale) ? locale : "en";
   if (next === "moderation") return `/${lang}/community/moderation`;
+  if (next === "account") return `/${lang}/account#discord-card`;
   if (next === "community") return `/${lang}${isCommunityReturn(back) ? back : "/community"}`;
   return `/${lang}/bot/${next === "admin" ? "admin" : "dashboard"}`;
 }

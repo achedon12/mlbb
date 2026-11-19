@@ -57,7 +57,7 @@ const STORAGE: { keys: string[]; key: string }[] = [
   { keys: ["mlbb_chatiment"], key: "retribution" },
 ];
 
-const RETENTION = ["audience", "sessions", "community", "builds", "collection", "push", "bot", "logs", "backups", "rateLimits"];
+const RETENTION = ["audience", "sessions", "community", "builds", "collection", "push", "bot", "profileCard", "logs", "backups", "rateLimits"];
 const RECIPIENTS = ["host", "matomo", "discord", "moonton", "push", "votes"];
 
 export default async function PrivacyPage({ params }: Params) {
@@ -215,6 +215,7 @@ export default async function PrivacyPage({ params }: Params) {
             <ul>
               <li>{inlineProse(t("prose.bot.cookie"))}</li>
               <li>{t("prose.bot.servers")}</li>
+              <li>{t("prose.bot.profile")}</li>
               <li>{t("prose.bot.results")}</li>
             </ul>
             <p>{t("prose.bot.members")}</p>

@@ -24,6 +24,7 @@ export const BOT_COMMANDS: { name: string; options?: string; category: BotCatego
   { name: "leaderboard", options: "[game] [period]", category: "games" },
   { name: "nickname", options: "<text> [style]", category: "tools" },
   { name: "servertime", category: "tools" },
+  { name: "profile", options: "[user]", category: "tools" },
   { name: "setup", category: "setup" },
   { name: "help", category: "setup" },
   { name: "invite", category: "setup" },

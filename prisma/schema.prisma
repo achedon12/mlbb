@@ -430,3 +430,26 @@ model SkinCollection {
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
 }
+
+// ── Discord profile card, for the bot's /profile (src/lib/discord-profile) ──
+
+/// A Discord account linked to a game account, so the bot's /profile posts
+/// that player's card. Created on the site by someone signed in with both at
+/// once, which proves they own both. `discordKey` is a hash of the Discord id
+/// and `accountId` the community's hash of the in-game id and server: neither
+/// id is stored in plain text here. `snapshot` holds the figures read from
+/// the game's services when the player linked or last refreshed, with no
+/// token kept to read them again; it is deleted 30 days after `snapshotAt`.
+/// `public`: other members may post the card with /profile user:@them.
+/// `showId`: the card shows the in-game id and server.
+model ProfileCard {
+  discordKey String   @id @db.VarChar(24)
+  accountId  String   @unique @db.VarChar(24)
+  public     Boolean  @default(false)
+  showId     Boolean  @default(true)
+  snapshot   Json
+  snapshotAt DateTime
+  linkedAt   DateTime @default(now())
+
+  @@index([snapshotAt])
+}

@@ -4,6 +4,7 @@ import {
   SlashCommandBuilder,
   type APIApplicationCommandOptionChoice,
   type SlashCommandStringOption,
+  type SlashCommandUserOption,
 } from "discord.js";
 import { localizations, t } from "../i18n/index.js";
 
@@ -38,6 +39,17 @@ export function stringOption(command: string, option: string, { required = false
       .setRequired(required)
       .setAutocomplete(autocomplete)
       .setMaxLength(maxLength);
+}
+
+/** A member to pick (Discord's user picker), localized like the string options. */
+export function userOption(command: string, option: string, { required = false } = {}) {
+  return (o: SlashCommandUserOption) =>
+    o
+      .setName(optionName(command, option))
+      .setNameLocalizations(localizations(`commands.${command}.options.${option}.name`))
+      .setDescription(t("en", `commands.${command}.options.${option}.description`))
+      .setDescriptionLocalizations(localizations(`commands.${command}.options.${option}.description`))
+      .setRequired(required);
 }
 
 /** Fixed choices of an option, labelled from `choices.<group>.<value>`. */

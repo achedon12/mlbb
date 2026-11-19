@@ -174,6 +174,16 @@
       "name": "ora-server",
       "description": "Ora del server MLBB e conto alla rovescia per i reset giornaliero e settimanale"
     },
+    "profile": {
+      "name": "profilo",
+      "description": "Una scheda profilo di Mobile Legends: rango, percentuale di vittorie, eroi più giocati",
+      "options": {
+        "user": {
+          "name": "utente",
+          "description": "Di chi è la scheda (deve averla resa pubblica su MLBBDex)"
+        }
+      }
+    },
     "setup": {
       "name": "configura",
       "description": "Configura MLBBDex qui: lingua, avvisi patch e skin, giochi del giorno, benvenuto"
@@ -416,6 +426,17 @@
       "daily": "Reset giornaliero",
       "weekly": "Reset settimanale",
       "starlight": "Nuovo Starlight"
+    },
+    "profile": {
+      "alt": "Scheda profilo di Mobile Legends di {name}",
+      "notLinked": "Non hai ancora collegato il tuo account di gioco. Su MLBBDex, accedi con il tuo account di gioco (un codice inviato nel gioco, nessuna password) e con questo account Discord, poi crea la tua scheda. Ci vuole un minuto.",
+      "stale": "I dati della tua scheda hanno più di 30 giorni, quindi non viene più mostrata. Aggiornali su MLBBDex, con l'accesso al tuo account di gioco.",
+      "unavailable": "{name} non ha una scheda pubblica. Ogni membro sceglie su MLBBDex se gli altri possono mostrare la sua.",
+      "rateLimited": "Con calma: riprova tra un minuto.",
+      "linkButton": "Collega il mio account",
+      "updateButton": "Aggiorna la mia scheda",
+      "manageButton": "La mia scheda su MLBBDex",
+      "getYours": "Crea la tua scheda"
     },
     "setup": {
       "body": "Scegli la lingua, i canali degli annunci e i giochi del giorno di questo server nella dashboard.",

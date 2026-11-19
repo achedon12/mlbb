@@ -157,6 +157,10 @@ Everything is free: no plans, no paywall, no payment code.
 - `DailyResult`: guildId, day, game (`mlbbdle-classic`, `mlbbdle-skill`,
   `quiz`), discordUserId, discordUserName, guesses/points, createdAt. Unique
   (guildId, day, game, discordUserId). For the server leaderboards.
+- `ProfileCard`: discordKey (PK, a hash of the Discord id), accountId
+  (unique, the community's hash of the in-game id and server), public,
+  showId, snapshot (JSON), snapshotAt, linkedAt. The `/profile` card, see
+  [Profile card](#profile-card).
 
 ## Internal API (site, `/api/bot/*`, HMAC-signed)
 
@@ -206,6 +210,10 @@ Everything is free: no plans, no paywall, no payment code.
   bot's hourly round reads this, never every server's settings.
 - `POST /api/bot/daily/results`, `GET /api/bot/daily/leaderboard?guild=&game=&period=day|week|all`
   (summed per player by the database; "all" reads the last 366 days).
+- `GET  /api/bot/profile?user=&viewer=&locale=` → the `/profile` card of
+  `user` asked by `viewer`, as `image/png`, or `{reason}` in JSON when
+  there is none to show (`notLinked`, `stale`, `unavailable`,
+  `rateLimited`); see [Profile card](#profile-card).
 
 ## Bot internal API (`bot/`, HMAC-signed, port 3100, internal network)
 
@@ -277,6 +285,8 @@ links back to the matching mlbbdex.com page (with the locale prefix and a
 - `/quiz` — today's quiz, buttons for answers, server leaderboard.
 - `/leaderboard [game] [period]` — server rankings.
 - `/servertime` — game server time and daily reset countdown.
+- `/profile [user]` — a player's Mobile Legends card as an image (see
+  [Profile card](#profile-card)); every refusal is ephemeral.
 - `/setup` — link to this server's dashboard page (ManageGuild only).
 - `/help` — an overview, then one page per family (Heroes & builds, Meta,
   Patch & news, Games, Tools, Server setup) switched with a select menu,
@@ -299,6 +309,67 @@ has the square icon as thumbnail and the original skin's artwork as image.
 Under `/hero`, `/build`, `/counter`, `/tierlist` and `/patch`: one row of
 link buttons, "Open on MLBBDex" and, outside the community server
 (`SUPPORT_GUILD_ID`), "Add to your server". No DM, no extra message.
+
+## Profile card
+
+`/profile [user]` posts a PNG card of a player: in-game avatar, name,
+country flag and name, level, in-game id and server (optional), a win-rate
+gauge, matches and wins of the latest season, the current rank with its
+emblem and stars (and the highest rank when above), the region (SEA, EU…,
+from the account's country), the season, and the three most played heroes
+of the season on strips of their artwork, with matches, win rate and a bar.
+Night blue and gold, the "ML MLBBDex" mark, "mlbbdex.com" and the date of
+the figures in the footer. Sample: [`docs/discord-profile-card.png`](discord-profile-card.png).
+
+**Where the figures come from.** The player statistics service
+(`arena.rone.dev/api/user/*`, relaying Moonton's battle report) only
+answers with the player's own token, obtained by the in-game code login
+(`src/lib/mlbb-auth.ts`); it has no public lookup by id. The site never
+stores that token (it lives in the `mlbb_jeu` cookie). So the card is a
+**snapshot**: when the player links or refreshes it from their account page,
+the site reads `/info` (name, avatar, level, rank, highest rank, country),
+`/season`, the latest season's `/heroes/frequent` (summed into matches and
+wins) and `/stats` (all seasons, used when the season's heroes are down),
+then stores `src/lib/discord-profile/snapshot.ts`'s shape and drops the
+token. Figures older than 30 days are not shown (to anyone) and the row is
+deleted by the site's six-hourly chores.
+
+**Linking (proof of ownership).** On `/account` (signed in with the game
+account, which proves it), the "Discord profile card" section offers to
+sign in with Discord (`/api/discord/login?next=account`, which proves the
+Discord account) and then "Link and create my card" (`POST
+/api/discord-profile {action: "link"}`, same origin, both logins on the
+request). Linking replaces any earlier link of either account: one card per
+Discord account and per game account. The game login alone is enough to
+refresh the figures, change the options or unlink (`PATCH`, `DELETE`): the
+owner of the game account can always take the card down.
+
+**Who sees what** (`cardAccess` in `src/lib/discord-profile/access.ts`):
+- `/profile`: your own card once linked. Typing it is choosing to post it:
+  the card goes to the channel.
+- `/profile user:@someone`: only if they ticked "Others can post my card"
+  on the site. **Off by default**: linking is for yourself; showing your
+  rank and heroes to anyone who types your name is a separate choice.
+  "Not linked", "private" and "figures too old" give the same answer, so
+  the bot never reveals who linked an account.
+- "Show my game ID and server on the card": on by default, can be turned off.
+
+**Drawing.** `src/lib/discord-profile/card.tsx`, with `next/og` (satori and
+resvg), Rajdhani (SIL OFL, `public/fonts`), the emblems of
+`public/visuels/rangs` and the hero artworks of `public/visuels/heros`
+converted by sharp. The avatar (Moonton's CDN only) and the flag (Twemoji)
+are fetched with a short timeout; without them the card shows initials and
+the country code. Labels come from the site's catalogue in the server's bot
+language. A drawn card stays ten minutes in memory (keyed by the figures'
+date, the options and the language, forty at most), two draws run at a
+time, one draw is given up after 20 s. Per member typing the command: four
+a minute.
+
+**Bot side.** `bot/src/commands/profile.ts`: deferred like every command;
+the card is sent as an attachment with a link to the account page; every
+"no" (not linked, figures too old, not public, rate limited, site down)
+replaces the deferred reply with an ephemeral follow-up and, where there is
+one, a button to fix it on the site.
 
 ## Announcements
 
