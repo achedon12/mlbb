@@ -11,6 +11,7 @@
  */
 import { createHash } from "node:crypto";
 import {
+  cdnImage,
   ID,
   readDetailMatch,
   readFrequentHeroes,
@@ -209,6 +210,17 @@ function remember<T>(
   return value;
 }
 
+/**
+ * A friend's avatar from the path the Moonton service gives (`6422/4/18/x.jpg`):
+ * the files live under `dist/face/` on the CDN, the bare path answers 403.
+ */
+export function friendAvatar(path: string | undefined): string | null {
+  if (!path) return null;
+  if (/^https?:\/\//.test(path)) return cdnImage(path);
+  const clean = path.replace(/^\/+/, "");
+  return cdnImage(`https://akmpicture.youngjoygame.com/${clean.startsWith("dist/") ? clean : `dist/face/${clean}`}`);
+}
+
 /** Basic profile: what stays reachable even when stats are down. */
 export function profile(token: string): Promise<Result<Profile>> {
   return authenticated("/info?lang=en", token, (data) => {
@@ -221,7 +233,7 @@ export function profile(token: string): Promise<Result<Profile>> {
       rankCurrent: Number(d.rank_level ?? 0),
       rankMax: Number(d.history_rank_level ?? 0),
       country: String(d.reg_country ?? ""),
-      avatar: d.avatar ? String(d.avatar) : null,
+      avatar: cdnImage(d.avatar),
     } satisfies Profile;
   });
 }
@@ -435,9 +447,7 @@ export async function friends(token: string): Promise<Result<Friend[]>> {
 
     const list = envelope.data.map((a) => ({
       name: String(a.sName ?? ""),
-      avatar: a.sFacePath
-        ? `https://akmpicture.youngjoygame.com/${a.sFacePath}`
-        : null,
+      avatar: friendAvatar(a.sFacePath),
     }));
     return { status: "ok", data: list };
   } catch (e) {

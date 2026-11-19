@@ -137,10 +137,30 @@ const entity = z
 /** Image hosts accepted by the `next/image` configuration. */
 const SAFE_IMAGE = /^https:\/\/(akmweb|akmpicture)\.youngjoygame\.com\/\S+$/;
 
+/**
+ * A Moonton CDN image address, or null. The service may wrap its images in
+ * the wsrv.nl image proxy (`https://wsrv.nl/?url=<encoded address>`): the
+ * original address is taken back out, since the proxy is not an allowed host.
+ */
+export function cdnImage(value: unknown): string | null {
+  if (typeof value !== "string" || value === "") return null;
+  let address = value;
+  try {
+    const url = new URL(value);
+    if (url.hostname === "wsrv.nl") {
+      const inner = url.searchParams.get("url") ?? "";
+      address = /^https?:\/\//.test(inner) ? inner.replace(/^http:/, "https:") : `https://${inner}`;
+    }
+  } catch {
+    return null;
+  }
+  return SAFE_IMAGE.test(address) ? address : null;
+}
+
 function heroOf(hid: number | null, e: z.output<typeof entity>): GameHero | null {
   const id = hid ?? e?.id ?? null;
   if (id === null || !Number.isInteger(id) || id <= 0) return null;
-  return { hid: id, name: e?.n ?? `#${id}`, image: e?.ix && SAFE_IMAGE.test(e.ix) ? e.ix : null };
+  return { hid: id, name: e?.n ?? `#${id}`, image: cdnImage(e?.ix) };
 }
 
 /** Match outcome: 1 win, 0 loss, nothing else is interpreted. */
