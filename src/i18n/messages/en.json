@@ -4741,7 +4741,9 @@
         "wins": "Wins",
         "heroMatches": "{n} matches",
         "updated": "Updated {date}",
-        "minimum": "At least: some heroes could not be read"
+        "minimum": "At least: some heroes could not be read",
+        "region": "Region",
+        "statsLater": "Hero stats will return as soon as the game service provides them again."
       }
     }
   },

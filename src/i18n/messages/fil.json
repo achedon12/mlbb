@@ -4741,7 +4741,9 @@
         "wins": "Panalo",
         "heroMatches": "{n} laban",
         "updated": "Na-update {date}",
-        "minimum": "Hindi bababa rito: may mga hero na hindi nabasa"
+        "minimum": "Hindi bababa rito: may mga hero na hindi nabasa",
+        "region": "Region",
+        "statsLater": "Babalik ang mga hero stats sa sandaling maibigay muli ng serbisyo ng laro ang mga ito."
       }
     }
   },

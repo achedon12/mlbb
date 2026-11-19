@@ -4741,7 +4741,9 @@
         "wins": "Victorias",
         "heroMatches": "{n} partidas",
         "updated": "Actualizado el {date}",
-        "minimum": "Como mínimo: algunos héroes no se pudieron leer"
+        "minimum": "Como mínimo: algunos héroes no se pudieron leer",
+        "region": "Región",
+        "statsLater": "Las estadísticas de héroe volverán tan pronto como el servicio del juego las proporcione nuevamente."
       }
     }
   },
