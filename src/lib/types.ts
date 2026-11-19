@@ -321,6 +321,11 @@ export interface StoryProfile {
 export interface HeroStory {
   tagline: string | null;
   lore: string[];
+  /**
+   * Positions in `lore` of the chapter titles ("Duke of Shards"), shown as
+   * subheadings. Absent from files written before the field existed.
+   */
+  headings?: number[];
   profile: StoryProfile | null;
   trivia: string[];
 }

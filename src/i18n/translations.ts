@@ -17,7 +17,7 @@ const MESSAGES: Record<Locale, Tree> = { en, fr, it, es, id, fil, th, pt, ru } a
  * the default language, then on the key itself: never a blank screen.
  */
 export function createT(locale: Locale): T {
-  return createTFrom(MESSAGES[locale], MESSAGES[DEFAULT_LOCALE]);
+  return createTFrom(MESSAGES[locale], MESSAGES[DEFAULT_LOCALE], { elide: locale === "fr" });
 }
 
 /** A language's full messages, to pass them to a client provider. */

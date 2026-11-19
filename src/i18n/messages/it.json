@@ -371,8 +371,8 @@
       },
       "strengths": "Punti di forza",
       "weaknesses": "Punti deboli",
-      "analysisPending": "Analisi in fase di stesura",
-      "analysisText": "I dati di {name} sono aggiornati: provengono direttamente dal wiki. Quello che manca è il commento: cosa fa davvero l'eroe, le sue build e i suoi counter. Questo non si estrae, si scrive.",
+      "analysisPending": "Nessuna analisi scritta ancora",
+      "analysisText": "Nessuno ha ancora scritto un'analisi di {name}: come giocarlo, quali oggetti comprare, contro chi affrontarlo. Nel frattempo, le altre schede riportano i dati misurati nel gioco classificato.",
       "analysisTranslated": "Analisi scritta in francese e tradotta automaticamente.",
       "contribute": "Contribuisci a questa analisi →",
       "countersIntro": "Basato sulle percentuali di vittoria del gioco: lo scarto in punti indica di quanto varia la percentuale di {name} contro ogni avversario.",
@@ -479,8 +479,8 @@
     },
     "emblems": {
       "title": "Emblemi e talenti",
-      "lead": "La vera domanda non è quali talenti esistano, ma quali scegliere per il ruolo che giochi. Scegli il tuo emblema: il resto della pagina si riorganizza di conseguenza.",
-      "metaDescription": "Quale emblema, quale talento e quale Battle Spell scegliere in base al tuo ruolo in Mobile Legends: Bang Bang. Scegli il tuo emblema e la pagina si organizza di conseguenza.",
+      "lead": "Scegli l'emblema del tuo ruolo: la pagina mostrerà quindi i suoi talenti e gli incantesimi di combattimento che li accompagnano.",
+      "metaDescription": "Quale emblema, talento e incantesimo di combattimento prendere a seconda del tuo ruolo in Mobile Legends: Bang Bang. Scegli il tuo emblema per vedere i suoi talenti.",
       "ogDescription": "Cosa scegliere in base al tuo ruolo: emblemi, talenti e Battle Spell."
     },
     "draft": {
@@ -1219,6 +1219,7 @@
     },
     "heroPreview": {
       "trend": "Negli ultimi {n} giorni il tasso di vittoria di {name} è passato da {start} a {end}, su tutti i ranghi ({gap} {pts}).",
+      "trendStable": "Negli ultimi {n} giorni, il tasso di vittoria di {name} non è cambiato: {end}, tutti i gradi combinati.",
       "duration": "{name} vince di più nelle partite di {window} ({winRate}) e di meno in quelle di {windowLow} ({winRateLow}).",
       "ranks": "In base al rango, il tasso di vittoria di {name} va dal {low} in {rankLow} al {high} in {rankHigh}.",
       "adjustments": "Modifiche a {name}: {n} nelle ultime {total} patch.",
@@ -4895,7 +4896,7 @@
       "play": "Gioca"
     },
     "startTitle": "Da dove iniziare",
-    "startLead": "Giochi un ruolo, non un catalogo. Inizia da qui.",
+    "startLead": "Scegli il tuo ruolo per vedere gli eroi che lo interpretano.",
     "latestArticles": "Ultimi articoli",
     "allNews": "Tutte le notizie",
     "followRss": "Segui le pubblicazioni via RSS",
@@ -4987,7 +4988,7 @@
           "p": "Sul sito non viene creato alcun account. I tuoi eroi preferiti restano nel tuo browser. Solo le notifiche, se le attivi, conservano sul server l'indirizzo di invio del tuo browser e l'elenco dei preferiti: la pagina sulla privacy spiega cosa viene conservato e come cancellarlo."
         },
         {
-          "h": "Contribuire"
+          "h": "Contribuisci"
         },
         {
           "p": "Il codice e i contenuti sono pubblici. Le schede degli eroi si trovano in file TypeScript tipizzati, gli articoli in file Markdown: puoi aggiungere una scheda o correggere un errore senza conoscere il resto del progetto."
@@ -5748,6 +5749,7 @@
     "resource": {
       "mana": "Mana",
       "energy": "Energia",
+      "rage": "Rabbia",
       "none": "Nessuna"
     },
     "damage": {

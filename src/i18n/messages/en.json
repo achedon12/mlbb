@@ -371,8 +371,8 @@
       },
       "strengths": "Strengths",
       "weaknesses": "Weaknesses",
-      "analysisPending": "Analysis in progress",
-      "analysisText": "The data for {name} is up to date — it comes straight from the wiki. What's missing is the commentary: what the hero actually does, their builds and their counters. That can't be extracted; it has to be written.",
+      "analysisPending": "No written analysis yet",
+      "analysisText": "No one has written an analysis of {name} yet: how to play them, what to build, who to pick them against. Meanwhile, the other tabs show the figures measured in ranked games.",
       "analysisTranslated": "Analysis written in French and machine-translated.",
       "contribute": "Contribute to this analysis →",
       "countersIntro": "Based on in-game win rates: the gap in points shows how much {name}'s win rate shifts against each opponent.",
@@ -479,8 +479,8 @@
     },
     "emblems": {
       "title": "Emblems and talents",
-      "lead": "The real question isn't which talents exist, but which ones to take for the role you play. Pick your emblem: the rest of the page reorganizes around it.",
-      "metaDescription": "Which emblem, talent and Battle Spell to take for your role in Mobile Legends: Bang Bang. Pick your emblem and the page organizes itself around it.",
+      "lead": "Pick your role's emblem: the page then shows its talents and the battle spells that go with it.",
+      "metaDescription": "Which emblem, talent and battle spell to take for your role in Mobile Legends: Bang Bang. Pick your emblem to see its talents.",
       "ogDescription": "What to take for your role: emblems, talents and Battle Spells."
     },
     "draft": {
@@ -1219,6 +1219,7 @@
     },
     "heroPreview": {
       "trend": "Over the last {n} days, {name}'s win rate went from {start} to {end} across all ranks ({gap} {pts}).",
+      "trendStable": "Over the last {n} days, {name}'s win rate has not moved: {end} across all ranks.",
       "duration": "{name} wins most in {window} games ({winRate}) and least in {windowLow} games ({winRateLow}).",
       "ranks": "By rank, {name}'s win rate ranges from {low} in {rankLow} to {high} in {rankHigh}.",
       "adjustments": "Changes to {name}: {n} in the last {total} patches.",
@@ -4895,7 +4896,7 @@
       "play": "Play"
     },
     "startTitle": "Where to start",
-    "startLead": "You play a role, not a catalog. Start from there.",
+    "startLead": "Choose your role to see the heroes who play it.",
     "latestArticles": "Latest articles",
     "allNews": "All news",
     "followRss": "Follow new posts via RSS",
@@ -5748,6 +5749,7 @@
     "resource": {
       "mana": "Mana",
       "energy": "Energy",
+      "rage": "Rage",
       "none": "None"
     },
     "damage": {

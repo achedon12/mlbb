@@ -66,7 +66,10 @@ function GroupChips({
 export function HeroStory({ story, name, locale }: { story: Story; name: string; locale: Locale }) {
   const t = createT(locale);
   const { tagline, lore, profile, trivia } = story;
-  const [first, ...run] = lore;
+  // Chapter titles ("Duke of Shards") are subheadings; the drop cap goes to
+  // the first real paragraph.
+  const headings = new Set(story.headings ?? []);
+  const firstParagraph = lore.findIndex((_, i) => !headings.has(i));
 
   return (
     <div className="space-y-12">
@@ -95,14 +98,22 @@ export function HeroStory({ story, name, locale }: { story: Story; name: string;
                 {t("story.story")}
               </h2>
               <div className="mt-5 max-w-[68ch] space-y-4 text-[0.95rem] leading-[1.8] text-chalk-300">
-                {first && (
-                  <p className="first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:font-heading first-letter:text-5xl first-letter:font-bold first-letter:leading-[0.8] first-letter:text-gold-400">
-                    {first}
-                  </p>
+                {lore.map((p, i) =>
+                  headings.has(i) ? (
+                    <h3 key={i} className="pt-4 font-heading text-base font-bold text-chalk-100">
+                      {p}
+                    </h3>
+                  ) : i === firstParagraph ? (
+                    <p
+                      key={i}
+                      className="first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:font-heading first-letter:text-5xl first-letter:font-bold first-letter:leading-[0.8] first-letter:text-gold-400"
+                    >
+                      {p}
+                    </p>
+                  ) : (
+                    <p key={i}>{p}</p>
+                  ),
                 )}
-                {run.map((p, i) => (
-                  <p key={i}>{p}</p>
-                ))}
               </div>
             </section>
           ) : (

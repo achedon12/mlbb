@@ -917,8 +917,11 @@ function PreviewStatistics({
   if (measures.length > 1) {
     const [k0, start] = measures[0];
     const [k1, end] = measures[measures.length - 1];
+    // "went from 50.3% to 50.3% (0.0 pts)" says nothing: an unchanged rate,
+    // once rounded, gets its own sentence.
+    const stable = percent(start) === percent(end);
     sentences.push(
-      t("pages.heroPreview.trend", {
+      t(stable ? "pages.heroPreview.trendStable" : "pages.heroPreview.trend", {
         name: h.name,
         n: k1 - k0 + 1,
         start: percent(start),

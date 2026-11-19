@@ -98,8 +98,9 @@ function excerptsStory(h: Hero, locale: Locale): string[] {
   const story = stories(locale)[h.slug];
   if (!story) return [];
   const names = namesOf(h, locale);
+  const headings = new Set(story.headings ?? []);
   const excerpts = story.lore
-    .filter((p) => !p.startsWith("=") && p.length >= 90 && p !== story.tagline)
+    .filter((p, i) => !headings.has(i) && !p.startsWith("=") && p.length >= 90 && p !== story.tagline)
     .map((p) => cut(maskName(cleanWiki(p), names), LENGTH_EXCERPT));
   return [...excerpts.filter((e) => e.includes(MASK)), ...excerpts.filter((e) => !e.includes(MASK))].slice(
     0,

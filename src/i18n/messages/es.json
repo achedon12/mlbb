@@ -371,8 +371,8 @@
       },
       "strengths": "Fortalezas",
       "weaknesses": "Debilidades",
-      "analysisPending": "Análisis en redacción",
-      "analysisText": "Los datos de {name} están al día: vienen directamente de la wiki. Lo que falta es el comentario: lo que el héroe hace realmente, sus builds y sus counters. Eso no se extrae, se escribe.",
+      "analysisPending": "Aún no hay análisis escrito",
+      "analysisText": "Nadie ha escrito todavía un análisis de {name}: cómo jugarlo, qué artículos comprar, contra quién enfrentarlo. Mientras tanto, las otras pestañas muestran las cifras medidas en el juego clasificado.",
       "analysisTranslated": "Análisis escrito en francés y traducido automáticamente.",
       "contribute": "Contribuir a este análisis →",
       "countersIntro": "Basado en las tasas de victoria del juego: la diferencia en puntos indica cuánto varía la tasa de {name} frente a cada rival.",
@@ -479,8 +479,8 @@
     },
     "emblems": {
       "title": "Emblemas y talentos",
-      "lead": "La verdadera pregunta no es qué talentos existen, sino cuáles elegir para el rol que juegas. Elige tu emblema: el resto de la página se reorganiza en torno a él.",
-      "metaDescription": "Qué emblema, qué talento y qué hechizo de combate elegir según tu rol en Mobile Legends: Bang Bang. Elige tu emblema y la página se organiza en torno a él.",
+      "lead": "Elige el emblema de tu rol: la página muestra sus talentos y los hechizos de combate que los acompañan.",
+      "metaDescription": "Qué emblema, talento y hechizo de combate elegir según tu rol en Mobile Legends: Bang Bang. Elige tu emblema para ver sus talentos.",
       "ogDescription": "Qué elegir según tu rol: emblemas, talentos y hechizos de combate."
     },
     "draft": {
@@ -1219,6 +1219,7 @@
     },
     "heroPreview": {
       "trend": "En los últimos {n} días, la tasa de victoria de {name} pasó del {start} al {end} en todos los rangos ({gap} {pts}).",
+      "trendStable": "Durante los últimos {n} días, la tasa de victorias de {name} no ha cambiado: {end}, todos los rangos combinados.",
       "duration": "{name} gana más en las partidas de {window} ({winRate}) y menos en las de {windowLow} ({winRateLow}).",
       "ranks": "Según el rango, la tasa de victoria de {name} va del {low} en {rankLow} al {high} en {rankHigh}.",
       "adjustments": "Cambios a {name}: {n} en los últimos {total} parches.",
@@ -4895,7 +4896,7 @@
       "play": "Jugar"
     },
     "startTitle": "Por dónde empezar",
-    "startLead": "Juegas un rol, no un catálogo. Empieza por aquí.",
+    "startLead": "Elige tu papel para ver a los héroes que lo interpretan.",
     "latestArticles": "Últimos artículos",
     "allNews": "Todas las noticias",
     "followRss": "Seguir las publicaciones por RSS",
@@ -5748,6 +5749,7 @@
     "resource": {
       "mana": "Maná",
       "energy": "Energía",
+      "rage": "Furia",
       "none": "Ninguno"
     },
     "damage": {
