@@ -102,7 +102,7 @@
       "desc": "Estrellas, divisiones y recompensas"
     },
     "retribution": {
-      "label": "Prueba de retribución",
+      "label": "Prueba de Castigo",
       "desc": "Entrena tu timing"
     },
     "quiz": {
@@ -1120,8 +1120,8 @@
         "descriptionSimple": "Los {n} rangos de Mobile Legends, de Guerrero a Inmortal Mítico: divisiones, estrellas por división, puntos míticos, draft y recompensas de temporada."
       },
       "retribution": {
-        "title": "Prueba de retribución de MLBB: entrena tu sincronización",
-        "description": "Entrenador de retribución gratuito para Mobile Legends: asegura Turtle, Lord y buffs antes que el jungla contrario. Daño de Retribución Real por nivel, 4 dificultades, registros en el dispositivo y tarjeta de resultados para compartir. Funciona sin conexión."
+        "title": "Prueba de Castigo MLBB: entrena tu timing",
+        "description": "Entrenador gratuito de Castigo para Mobile Legends: asegura la Tortuga, el Lord y los buffs antes que el jungla rival. Daño real del Castigo por nivel, 4 dificultades, récords en tu dispositivo y tarjeta de resultado para compartir. Funciona sin conexión."
       },
       "quiz": {
         "title": "Quiz MLBB: adivina el héroe del día",
@@ -1641,15 +1641,15 @@
       "seasonsNote": "Fechas en hora del servidor (UTC−8), tomadas de las notas del parche y comprobadas el {date}. Una temporada dura unos tres meses, pero ninguna fecha es estimada: un final no anunciado queda vacío."
     },
     "retribution": {
-      "title": "Prueba de retribución",
-      "lead": "Entrena el reflejo del jungla: la barra de vida de la Tortuga, el Señor o un beneficio se derrite bajo los golpes, y golpeas tan pronto como pasa bajo el daño de tu Retribución, antes que el jungla contrario.",
+      "title": "Prueba de Castigo",
+      "lead": "Entrena el reflejo del jungla: la barra de vida de la Tortuga, el Lord o un buff baja con los golpes, y tú golpeas en cuanto cae por debajo del daño de tu Castigo, antes que el jungla rival.",
       "rulesTitle": "Cómo funciona",
-      "rule1": "Elige un objetivo, una dificultad y el nivel de tu héroe. La barra de vida se derrite bajo los golpes de tu equipo; Presiona (botón grande, Espacio o Enter) tan pronto como el HP caiga bajo el daño de tu Retribución.",
-      "rule2": "Demasiado pronto, Retribution no mata y recarga en {recharge} s: el objetivo se pierde. Demasiado lento, el jungla contrario ataca en tu lugar o el monstruo cae sin ti.",
+      "rule1": "Elige un objetivo, una dificultad y el nivel de tu héroe. La barra de vida baja con los golpes de tu equipo; golpea (botón grande, Espacio o Intro) en cuanto los PV bajen del daño de tu Castigo.",
+      "rule2": "Demasiado pronto, el Castigo no mata y tarda {recharge} s en recargarse: el objetivo está perdido. Demasiado lento, el jungla rival golpea antes, o el monstruo cae sin ti.",
       "rule3": "Un golpe logrado vale hasta 1.000 puntos: {precision} por la precisión (la parte de los PV bajo el umbral que queda cuando golpeas) y {speed} por la velocidad, completa por debajo de {full} ms y nula a partir de {zero} ms.",
       "rule4": "Una partida tiene {n} rondas. Tu mejor total por objetivo y dificultad, y tu racha más larga de aciertos, se quedan en tu navegador. Una vez abierta la página, el entrenamiento también funciona sin conexión.",
       "valuesTitle": "Los valores utilizados",
-      "damageIntro": "Retribución inflige {base} de daño verdadero, más {perLevel} por nivel de héroe, a criaturas y súbditos. Por nivel:",
+      "damageIntro": "El Castigo inflige {base} de daño verdadero, más {perLevel} por nivel del héroe, a criaturas y súbditos. Por nivel:",
       "level": "Nv. {n}",
       "monstersTitle": "PV de los objetivos",
       "colSegment": "PV por segmento de barra",
@@ -1662,7 +1662,7 @@
       "colHpNumbers": "PV visibles",
       "yes": "Sí",
       "no": "No",
-      "trainingValues": "La tasa de acierto, el daño del equipo, las ráfagas y la reacción del jungla contrario son valores de entrenamiento, ajustados para parecerse al combate real: el juego no publica estos números. El daño de retribución y el HP del monstruo provienen de la wiki.",
+      "trainingValues": "El ritmo de los golpes, el daño del equipo, las ráfagas y la reacción del jungla rival son valores de entrenamiento, ajustados para parecer un combate real: el juego no publica esas cifras. El daño del Castigo y los PV de los monstruos, en cambio, vienen de la wiki.",
       "sourcesTitle": "Fuentes",
       "sourceRetribution": "Wiki Fandom, hechizo «Retribution»: daño por nivel y enfriamiento",
       "sourceMonsters": "Wiki Fandom, fichas «Turtle», «Lord», «Thunder Fenrir» y «Molten Fiend»: PV iniciales y tras 12 minutos, segmentos de la barra de vida"
@@ -3093,7 +3093,7 @@
       "usage3": "La vibración y el pitido (desactivado por defecto) avisan {soon} y luego {urgent} segundos antes de cada regreso, y la pantalla puede quedarse encendida. Todo funciona en el navegador: con la página abierta, el temporizador va sin conexión y la partida sigue en la pestaña si recargas.",
       "usage4": "El temporizador no lee la partida: solo sabe lo que tú le dices. Vuelve a sincronizarlo en cuanto se desvíe más de uno o dos segundos.",
       "mapLink": "Guía del mapa: campamentos, Tortuga, Lord y rotaciones",
-      "retributionLink": "Entrenamiento para la retribución",
+      "retributionLink": "Entrena el Castigo",
       "sourcesTitle": "Fuentes",
       "sourcesIntro": "Páginas de la wiki de Mobile Legends (Fandom), consultadas el {date}:",
       "sourcesNote": "Cuando dos valores de la wiki no coinciden (regreso del Lord después del minuto {lateFrom}, llegada del Cangrejo), el temporizador muestra la ventana entre ambos en lugar de elegir uno.",
@@ -3178,7 +3178,7 @@
       "healReward": "Buff de curación: {hp} PV y {mana} % de maná en {duration} s",
       "wavesValue": "Primera oleada en {first}, luego cada {interval} s",
       "timerLink": "Temporizador de objetivos",
-      "retributionLink": "Prueba de retribución",
+      "retributionLink": "Prueba de Castigo",
       "tierLink": "Tier list: {role}",
       "timerCta": "Sigue la Tortuga, el Lord y los buffs en partida con el temporizador",
       "sourcesTitle": "Fuentes",
@@ -3264,12 +3264,12 @@
           "bonus": "Primeras {waves} oleadas (hasta el minuto {end}): el súbdito cañón da un {bonus} % más de EXP"
         },
         "mid-lane": {
-          "name": "carril central",
+          "name": "Mid Lane",
           "role": "La línea más corta: los súbditos llegan antes que a las laterales. Ideal para un mago que rota hacia las demás líneas.",
           "bonus": "Primeras {waves} oleadas: {lancers} lanceros y {infantry} soldado de infantería"
         },
         "gold-lane": {
-          "name": "carril dorado",
+          "name": "Gold Lane",
           "role": "La línea alejada de la primera Tortuga. Suele ocuparla un tirador, que necesita objetos cuanto antes.",
           "bonus": "Primeras {waves} oleadas (hasta el minuto {end}): el súbdito cañón da un {bonus} % más de oro"
         }
@@ -3281,7 +3281,7 @@
           "title": "Jungla",
           "step1": "Empieza por el buff más cercano a la EXP Lane (naranja en {orange}, morado en {purple}): la ronda te deja en nivel 4 cerca de la Gold Lane, listo para emboscar.",
           "step2": "Sigue con el otro buff y los campamentos pequeños de ese lado; el Lithowanderer ({litho}, cerca de la Mid Lane) ayuda a llegar al nivel 4.",
-          "step3": "Estar en la Tortuga por {turtle}, Retribución disponible. Los beneficios regresan {buff} s después de su muerte: anótalos en el cronómetro.",
+          "step3": "Llega a la Tortuga para el minuto {turtle} con el Castigo listo. Los buffs vuelven {buff} s después de morir: anótalos en el temporizador.",
           "step4": "Al principio, deja los súbditos de las líneas a tus compañeros. Asegura al menos una de tres cosas: buffs, muertes o Tortuga."
         },
         "roam": {
@@ -3292,20 +3292,20 @@
           "step4": "A partir del minuto {share}, tus recompensas de súbditos y monstruos se reparten con el equipo: seguid agrupados."
         },
         "gold": {
-          "title": "carril dorado",
+          "title": "Gold Lane",
           "step1": "Durante las primeras {waves} oleadas (hasta el minuto {end}), el súbdito cañón de tu línea da un {goldBonus} % más de oro: no falles su último golpe.",
           "step2": "El Cangrejo, en el río cerca de las líneas laterales, da {crabGold} de oro en {crabDuration} s; el Cangrejo pequeño aparece ya en el {littleCrab}.",
           "step3": "Tu jungla no toma tus súbditos: al principio son tuyos.",
           "step4": "Si estás solo en tu línea, espera la siguiente oleada en un arbusto en lugar de dejarte ver."
         },
         "exp": {
-          "title": "carril EXP",
+          "title": "EXP Lane",
           "step1": "La primera Tortuga aparece en el minuto {turtle} junto a tu línea: llega a nivel 4 y prepárate para ayudar.",
           "step2": "Durante las primeras {waves} oleadas, el súbdito cañón de tu línea da un {expBonus} % más de EXP.",
           "step3": "Después de la Tortuga, vuelve a farmear si la pelea no es jugable."
         },
         "mid": {
-          "title": "carril central",
+          "title": "Mid Lane",
           "step1": "El Lithowanderer aparece en el minuto {litho} cerca de la Mid Lane: regeneración de maná y velocidad en el río para quien lo remate.",
           "step2": "Las primeras {waves} oleadas de la Mid Lane traen {lancers} lanceros y {infantry} soldado de infantería: limpia rápido y luego rota hacia los lados.",
           "step3": "Llega a nivel 4 para la Tortuga del minuto {turtle} y vigila las invasiones a tu jungla durante el primer minuto."
@@ -3701,7 +3701,7 @@
         "help": "Los comandos por categoría, cada uno con un ejemplo.",
         "invite": "El enlace para añadir el bot a otro servidor.",
         "about": "Versión, número de servidores, enlaces a la web, al servidor de ayuda y al voto.",
-        "profile": "Su perfil de Mobile Legends en imágenes: rango, índice de victoria y héroes más jugados (para vincular una vez en el sitio)."
+        "profile": "Tu perfil de Mobile Legends como imagen: rango, tasa de victorias y héroes más jugados (se vincula una vez en el sitio)."
       },
       "permissionsTitle": "Permisos solicitados",
       "permissionsText": "Solo lo necesario para responder y publicar: nunca Administrador, y ningún acceso al contenido de los mensajes. El intent Server Members solo sirve para los mensajes de bienvenida y despedida: no se guarda nada de los miembros.",
@@ -3759,7 +3759,7 @@
       "roleMenus": "Menús de roles: de cada menú se guardan el canal, el título, el texto, los roles con sus etiquetas y emojis, el identificador del mensaje publicado y el identificador de Discord del gestor que lo configuró. Cuando un miembro lo usa, el bot le da o le quita el rol y no guarda nada sobre él, salvo un contador en memoria de unos segundos que limita los cambios demasiado seguidos.",
       "tempVoice": "Canales de voz temporales: el servidor guarda sus canales de entrada con su límite de usuarios y su modelo de nombre. Por cada canal de voz que crea, el bot conserva el identificador del canal, del canal de entrada y del miembro para quien lo creó, hasta que el canal se borra, lo que ocurre en cuanto se queda vacío. Para saber quién está en cada canal de voz, el bot recibe los estados de voz de Discord (intent «Guild Voice States»), los mantiene en memoria y no guarda ninguno.",
       "pseudonymous": "En el sitio, el foro y la colección no guardan su ID de Discord o su ID de juego en texto plano, sino una huella digital (SHA-256, sin sal). Se trata de datos seudónimos, no anónimos: cualquiera que conozca el identificador puede recalcular la huella dactilar y, por tanto, sigue siendo un dato personal, protegido como tal. El bot mantiene los identificadores de Discord en texto sin formato (resultados, votos, menús de roles).",
-      "storedProfile": "Para la tarjeta /profile, solo si el jugador la vincula al sitio: una impresión de su ID de Discord y una de su ID de juego y su servidor, sus dos opciones (visibles para los demás, ID mostrada) y sus números en su última actualización (apodo, avatar, país, nivel, rango, juegos y victorias de la temporada, tres héroes más jugados). Eliminado al desvincularse o 30 días después de la última actualización. La imagen dibujada permanece en la memoria del sitio durante diez minutos."
+      "storedProfile": "Para la tarjeta /profile, solo si el jugador la vincula en el sitio: un hash de su id de Discord y otro de su id de juego y servidor, sus dos elecciones (visible para otros, id mostrado) y sus cifras en su última actualización (apodo, avatar, país, nivel, rango, partidas y victorias de la temporada, tres héroes más jugados). Se borran al desvincularla, o 30 días después de la última actualización. La imagen dibujada se queda diez minutos en la memoria del sitio."
     },
     "botTerms": {
       "title": "Términos de servicio de Discord Bot",
@@ -4712,34 +4712,34 @@
       "nTools": "{n} herramientas"
     },
     "discordCard": {
-      "title": "Tarjeta de perfil de discordia",
-      "intro": "Muestra tu rango, tasa de victorias y héroes más jugados en imágenes en Discord, con el comando /profile del bot MLBBDex.",
-      "needDiscord": "Para vincularlo, conéctate también con la cuenta de Discord que usas en tus servidores.",
-      "discordButton": "Conéctate con la discordia",
-      "linkOffer": "Vincula la cuenta de Discord {name} a esta cuenta de juego. Sus números actuales se guardan para la tarjeta.",
-      "linkButton": "Vincular y crear mi mapa",
-      "linked": "Su tarjeta está vinculada a una cuenta de Discord. Escriba /profile en un servidor donde se encuentra el bot MLBBDex.",
-      "otherDiscord": "Estás conectado con una cuenta de Discord diferente ({name}) a la vinculada. Al conectarlo, la tarjeta se mueve allí.",
-      "updatedAt": "Dígitos registrados en {date}.",
-      "refresh": "actualizar mis numeros",
-      "noAccess": "El sitio no conserva ningún acceso a su cuenta de juego: la tarjeta muestra los números guardados durante su última actualización y se elimina después de 30 días sin actualizar.",
-      "public": "Otros pueden ver mi tarjeta (/usuario de perfil:@tú)",
-      "publicHint": "Desactivado de forma predeterminada: solo tú puedes mostrarlo.",
-      "showId": "Mostrar mi ID de juego y servidor en el mapa",
-      "unlink": "Desvincular y eliminar mi tarjeta",
-      "unlinkConfirm": "La tarjeta y el enlace se eliminan inmediatamente. Puedes recrearlos más tarde.",
-      "unlinkButton": "BORRAR",
-      "cancel": "Deshacer",
-      "preview": "Resumen de su tarjeta",
-      "done": "Registrado.",
-      "errorDown": "El servicio de juego no responde: inténtalo de nuevo en unos minutos.",
+      "title": "Tarjeta de perfil de Discord",
+      "intro": "Muestra tu rango, tu tasa de victorias y tus héroes más jugados como imagen en Discord, con el comando /profile del bot MLBBDex.",
+      "needDiscord": "Para vincularla, inicia sesión también con la cuenta de Discord que usas en tus servidores.",
+      "discordButton": "Iniciar sesión con Discord",
+      "linkOffer": "Vincula la cuenta de Discord {name} a esta cuenta de juego. Tus cifras actuales se guardan para la tarjeta.",
+      "linkButton": "Vincular y crear mi tarjeta",
+      "linked": "Tu tarjeta está vinculada a una cuenta de Discord. Escribe /profile en un servidor donde esté el bot MLBBDex.",
+      "otherDiscord": "Has iniciado sesión con otra cuenta de Discord ({name}) distinta de la vinculada. Vincularla mueve la tarjeta a ella.",
+      "updatedAt": "Cifras guardadas el {date}.",
+      "refresh": "Actualizar mis cifras",
+      "noAccess": "El sitio no conserva ningún acceso a tu cuenta de juego: la tarjeta muestra las cifras guardadas en tu última actualización y se borra tras 30 días sin actualizar.",
+      "public": "Otros pueden mostrar mi tarjeta (/profile user:@tú)",
+      "publicHint": "Desactivado por defecto: solo tú puedes mostrarla.",
+      "showId": "Mostrar mi ID de juego y mi servidor en la tarjeta",
+      "unlink": "Desvincular y borrar mi tarjeta",
+      "unlinkConfirm": "La tarjeta y el vínculo se borran al instante. Podrás crearlos de nuevo más tarde.",
+      "unlinkButton": "Borrar",
+      "cancel": "Cancelar",
+      "preview": "Vista previa de tu tarjeta",
+      "done": "Guardado.",
+      "errorDown": "El servicio del juego no responde: inténtalo de nuevo en unos minutos.",
       "errorExpired": "Tu sesión de juego ha caducado: vuelve a iniciar sesión.",
-      "error": "Ha ocurrido un error. Inténtalo de nuevo en un momento.",
+      "error": "Algo ha fallado. Inténtalo de nuevo en un momento.",
       "card": {
         "wins": "Victorias",
         "heroMatches": "{n} partidas",
         "updated": "Actualizado el {date}",
-        "minimum": "Al menos: algunos héroes no se podían leer."
+        "minimum": "Como mínimo: algunos héroes no se pudieron leer"
       }
     }
   },
@@ -4778,9 +4778,9 @@
     "Support": "Soporte"
   },
   "lanes": {
-    "Gold": "Oro",
-    "Exp": "EXP",
-    "Mid": "Mid",
+    "Gold": "Gold Lane",
+    "Exp": "EXP Lane",
+    "Mid": "Mid Lane",
     "Jungle": "Jungle",
     "Roam": "Roam"
   },
@@ -5092,7 +5092,7 @@
       "results": "para las clasificaciones de los juegos jugados hoy en Discord: el ID y apodo de Discord de los jugadores y sus puntuaciones.",
       "details": "Los detalles, el período de retención y la eliminación se describen en la página de privacidad del bot.",
       "members": "No se guarda nada de los miembros de un servidor: sus entradas y salidas, que Discord comunica al bot, solo sirven para publicar los mensajes de bienvenida y despedida que el servidor activó.",
-      "profile": "para la tarjeta /profile, si la vinculas desde la página de tu cuenta: una impresión de tu ID de Discord y una de tus ID de juego y servidor (nunca las ID en sí), tus dos opciones (si otros pueden mostrarlas, si muestra tu ID) y una copia de tus números de tu última actualización: apodo, avatar, país, nivel, rango, juegos y victorias de la temporada, los tres héroes más jugados. No se retienen fichas de juego. La tarjeta se elimina cuando la desvinculas o 30 días después de tu última actualización;"
+      "profile": "para la tarjeta /profile, si la vinculas desde tu página de cuenta: una huella de tu ID de Discord y otra de tu ID de juego y servidor (nunca los ID en sí), tus dos elecciones (si otros pueden mostrarla, si muestra tu ID) y una copia de tus cifras en tu última actualización: apodo, avatar, país, nivel, rango, partidas y victorias de la temporada, tres héroes más jugados. No se conserva ningún token del juego. La tarjeta se borra cuando la desvinculas, o 30 días después de tu última actualización;"
     },
     "community": {
       "title": "Comunidad: foro y buscador de compañeros",
@@ -5229,7 +5229,7 @@
         "logs": "Registros técnicos: los errores del servidor y los encontrados por el navegador (mensaje, página, versión del sitio, tipo de navegador, sin dirección IP ni cuenta) se conservan durante 30 días para su diagnóstico. Los eventos de seguridad y moderación (solicitudes rechazadas, acciones de moderadores y administradores) se conservan durante 6 meses. Luego se eliminan automáticamente.",
         "backups": "Copias de seguridad: una copia diaria de la base de datos; sólo se conservan los tres más recientes, de modo que los datos eliminados desaparecen de las copias de seguridad en tres días.",
         "rateLimits": "Límites de velocidad: su dirección IP, solo en la memoria, nunca escrita en el disco.",
-        "profileCard": "Tarjeta de perfil de Discord: hasta que la desvincules, y no más de 30 días después de tu última actualización."
+        "profileCard": "Tarjeta de perfil de Discord: hasta que la desvincules, y como máximo 30 días después de tu última actualización."
       },
       "rights": {
         "title": "Tus derechos",
@@ -5979,10 +5979,10 @@
       "outcomeStolen": "Robado por el enemigo",
       "outcomeMissed": "Demasiado tarde",
       "detailSecured": "Precisión {precision} · reacción {reaction} ms · +{points} puntos",
-      "detailTooEarly": "Quedaban {remaining} HP después de tu Retribución, y se recarga en {recharge} s: el objetivo se pierde.",
+      "detailTooEarly": "Quedaban {remaining} PV tras tu Castigo, y tarda {recharge} s en recargarse: el objetivo está perdido.",
       "detailStolen": "El jungla rival golpeó {reaction} ms después de que los PV bajaran del umbral.",
-      "detailMissed": "El monstruo cayó a los golpes sin tu Retribución.",
-      "mapTitle": "Prueba de retribución",
+      "detailMissed": "El monstruo cayó con los golpes del equipo sin tu Castigo.",
+      "mapTitle": "Prueba de Castigo",
       "levelShort": "nivel {n}",
       "points": "puntos",
       "secured": "Asegurados",
@@ -5991,10 +5991,10 @@
       "newRecord": "¡Nuevo récord!",
       "announceSummary": "Partida terminada: {points} puntos.",
       "announceRound": "Ronda {n} de {total}: {objective}. Prepárate.",
-      "shareText": "Prueba de retribución de MLBB: {objective}, {difficulty}: {points} puntos, {secured}/{rounds} asegurados. A usted:",
+      "shareText": "Prueba de Castigo MLBB — {objective}, {difficulty}: {points} puntos, {secured}/{rounds} asegurados. Te toca:",
       "start": "Empezar",
       "ready": "Prepárate…",
-      "smite": "¡Venganza!",
+      "smite": "¡Castigo!",
       "next": "Siguiente ronda",
       "newRun": "Nueva partida",
       "settings": "Ajustes del entrenamiento",
@@ -6002,7 +6002,7 @@
       "difficultyLabel": "Dificultad",
       "levelLabel": "Nivel del héroe",
       "levelOption": "Nivel {n} — {damage} de daño",
-      "thresholdSentence": "Tu Retribución causa {damage} daño real: ataca cuando el HP cae por debajo. Nivel recomendado para este objetivo: {suggested}.",
+      "thresholdSentence": "Tu Castigo inflige {damage} de daño verdadero: golpea cuando los PV bajen de ahí. Nivel recomendado para este objetivo: {suggested}.",
       "maxHp": "{hp} PV",
       "round": "Ronda",
       "score": "Puntuación",
@@ -6014,7 +6014,7 @@
       "noMarker": "Sin marca",
       "rounds": "Rondas de la partida",
       "toPlay": "por jugar",
-      "help": "Espacio o Enter para presionar. Ataca cuando HP caiga por debajo de tu daño de Retribución.",
+      "help": "Espacio o Intro para golpear. Golpea cuando los PV bajen del daño de tu Castigo.",
       "summaryTitle": "Partida terminada",
       "share": "Compartir",
       "copy": "Copiar resultado",

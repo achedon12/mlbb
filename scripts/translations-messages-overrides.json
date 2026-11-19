@@ -2413,8 +2413,8 @@
       "text": "Latest discussions"
     },
     "pages.community.lead": {
-      "fr": "Le forum des joueurs de MLBBDex : questions, builds, aide en classé, esport et guides, plus un tableau pour trouver des coéquipiers. Lecture libre, connexion avec votre compte de jeu pour écrire.",
-      "text": "The MLBBDex players' forum: questions, builds, ranked help, esports and guides, plus a board to find teammates. Free to read; sign in with your game account to write."
+      "fr": "Le forum des joueurs de MLBBDex : questions, builds, aide en classé, esport et guides, plus un tableau pour trouver des coéquipiers. Tout le monde peut lire. Pour écrire, connectez-vous avec votre compte de jeu ou avec Discord.",
+      "text": "The MLBBDex player forum: questions, builds, ranked help, esports and guides, plus a table to find teammates. Everyone can read. To write, log in with your game account or Discord."
     },
     "pages.community.locked": {
       "fr": "Verrouillée",
@@ -2945,8 +2945,8 @@
       "text": "Your accounts are linked: on the forum, Discord and your game account are now one."
     },
     "pages.communityUI.link.offer": {
-      "fr": "Vous êtes aussi connecté avec Discord. Liez vos deux comptes pour garder un seul profil sur le forum : vous pourrez ensuite vous connecter avec l'un ou l'autre, et ce que vous avez publié avec Discord rejoindra votre compte de jeu. Le lien est définitif.",
-      "text": "You are also signed in with Discord. Link your two accounts to keep a single forum profile: you can then sign in with either one, and what you posted with Discord moves to your game account. The link is permanent."
+      "fr": "Vous êtes aussi connecté avec Discord. Liez vos deux comptes pour garder un seul profil sur le forum : vous pourrez ensuite vous connecter avec l'un ou l'autre, et ce que vous avez publié avec Discord rejoindra votre compte de jeu. Vous pourrez les délier plus tard, mais ce qui a rejoint votre compte de jeu y restera.",
+      "text": "You are also connected with Discord. Link your two accounts to keep a single profile on the forum: you can then log in with either, and what you posted with Discord will join your game account. You can unlink them later, but what joined your game account will stay there."
     },
     "pages.communityUI.link.unlinkButton": {
       "fr": "Oui, délier",
@@ -4541,8 +4541,8 @@
       "text": "It is only used to find your collection on your other devices. The \"the ones I play\" filter reads your heroes of the season from the login service when you turn it on, and keeps nothing."
     },
     "prose.community.account": {
-      "fr": "un identifiant de compte dérivé (une empreinte de votre ID de jeu et de votre serveur, jamais l'ID lui-même), votre pseudo de jeu, et la date de votre première participation ;",
-      "text": "a derived account id (a hash of your game ID and server, never the ID itself), your in-game name, and the date you first took part;"
+      "fr": "si vous vous connectez avec votre compte de jeu : un identifiant de compte dérivé (une empreinte de votre ID de jeu et de votre serveur, jamais l'ID lui-même), votre pseudo de jeu, et la date de votre première participation ;",
+      "text": "if you log in with your game account: a derived account ID (a fingerprint of your game ID and server, never the ID itself), your game nickname, and the date of your first participation;"
     },
     "prose.community.card": {
       "fr": "votre carte de recherche de coéquipiers, et, si vous les ajoutez, votre ID de jeu et votre pseudo Discord : ils ne sont montrés qu'aux joueurs connectés, et la carte est effacée sept jours après son dernier enregistrement.",
@@ -4581,8 +4581,8 @@
       "text": "You can object to the cookieless measurement by writing to [{contact}](mailto:{contact}), or simply by blocking the measurement domain with a content blocker: the site works just the same."
     },
     "prose.gdpr.audience.retention": {
-      "fr": "Les données de visite détaillées sont conservées 25 mois au plus, puis supprimées ; seuls des rapports chiffrés, sans donnée individuelle, sont gardés au-delà.",
-      "text": "Detailed visit data is kept for 25 months at most, then deleted; only aggregate reports, with no individual data, are kept beyond that."
+      "fr": "Les données de visite détaillées sont conservées jusqu'à leur suppression par l'éditeur ; les rapports chiffrés, sans donnée individuelle, sont gardés plus longtemps.",
+      "text": "Detailed visit data is retained until deleted by the publisher; encrypted reports, without individual data, are kept longer."
     },
     "prose.gdpr.cookies.consentAfter": {
       "fr": "Oui (créé une fois les cookies acceptés)",
@@ -4669,8 +4669,8 @@
       "text": "You have the right to access, rectify and erase your data, to restrict its processing and to data portability, and the right to object to processing based on legitimate interest. Where processing is based on your consent (audience measurement cookies), you can withdraw it at any time, as easily as you gave it; withdrawing does not affect what was done before."
     },
     "prose.gdpr.rights.updated": {
-      "fr": "Dernière mise à jour : 15 novembre 2026.",
-      "text": "Last updated: 15 November 2026."
+      "fr": "Dernière mise à jour : 19 novembre 2026.",
+      "text": "Last updated: 19 November 2026."
     },
     "prose.gdpr.storage.cache": {
       "fr": "Pour fonctionner hors ligne, le site garde aussi dans le cache de votre navigateur (service worker) une copie des pages, images et données consultées : 250 pages et 800 images au plus, sur votre appareil uniquement. Les pages liées à une connexion (compte, connexion, tableau de bord et administration du bot, et toute page affichée pour un visiteur connecté) n'y sont jamais gardées, et la déconnexion efface celles qu'une version précédente du site aurait pu garder.",
@@ -4787,6 +4787,154 @@
     "prose.about.blocks.6.p": {
       "fr": "Les visuels appartiennent à Moonton, et pour les skins de collaboration aussi aux ayants droit des personnages et marques concernés. Portraits, icônes et illustrations de skins proviennent du wiki communautaire et sont servis par ce site pour que rien ne dépende d'un domaine tiers. Ils restent la propriété de Moonton, sont présents à des fins d'illustration, et seront retirés sur demande de l'ayant droit. L'identité visuelle du site — bleu nuit, or, angles coupés — s'inspire de celle du jeu sans en reprendre les fichiers d'interface.",
       "text": "The visuals belong to Moonton, and for collaboration skins also to the rights holders of the characters and brands involved. Portraits, icons and skin artwork come from the community wiki and are served by this site so that nothing depends on a third-party domain. They remain Moonton's property, are included for illustration purposes, and will be removed at the rights holder's request. The site's visual identity — midnight blue, gold, cut corners — is inspired by the game's without reusing its interface files."
+    },
+    "nav.draft.label": {
+      "fr": "Draft",
+      "text": "Draft"
+    },
+    "account.signIn": {
+      "fr": "Connexion",
+      "text": "Log in"
+    },
+    "pages.tierList.tooFew": {
+      "fr": "Trop peu joué pour que les taux soient fiables",
+      "text": "Played too rarely for the rates to be reliable"
+    },
+    "pages.patchNotes.changes.summary.one": {
+      "fr": "Le patch {v} modifie {n} héros.",
+      "text": "Patch {v} changes {n} hero."
+    },
+    "pages.login.title": {
+      "fr": "Connexion",
+      "text": "Log in"
+    },
+    "pages.login.metaTitle": {
+      "fr": "Connexion",
+      "text": "Log in"
+    },
+    "pages.account.favourites": {
+      "fr": "Héros favoris",
+      "text": "Favorite heroes"
+    },
+    "pages.accountProfile.games": {
+      "fr": "Parties",
+      "text": "Matches"
+    },
+    "pages.accountProfile.bestStreak": {
+      "fr": "Meilleure série",
+      "text": "Best win streak"
+    },
+    "pages.accountProfile.outcome.loss": {
+      "fr": "Défaite",
+      "text": "Defeat"
+    },
+    "pages.itemDetail.category": {
+      "fr": "Catégorie",
+      "text": "Category"
+    },
+    "pages.spellDetail.seconds": {
+      "fr": "{n} s",
+      "text": "{n}s"
+    },
+    "pages.meta.bansPicks.played": {
+      "fr": "Les plus joués",
+      "text": "Most picked"
+    },
+    "pages.duos.phaseShort.early": {
+      "fr": "Début",
+      "text": "Early"
+    },
+    "pages.duos.phaseShort.late": {
+      "fr": "Fin",
+      "text": "Late"
+    },
+    "pages.quizUI.copyError": {
+      "fr": "Copie impossible : sélectionnez la grille à la main.",
+      "text": "Could not copy: select the grid manually."
+    },
+    "pages.quizUI.practise": {
+      "fr": "Continuer à l'entraînement",
+      "text": "Keep practicing"
+    },
+    "pages.quizUI.clues.category": {
+      "fr": "Catégorie",
+      "text": "Category"
+    },
+    "pages.quizUI.heroField": {
+      "fr": "Nom d'un héros…",
+      "text": "Type a hero name…"
+    },
+    "pages.quizUI.comparison.category": {
+      "fr": "Catégorie",
+      "text": "Category"
+    },
+    "pages.quizUI.altSkill": {
+      "fr": "Icône de la compétence à identifier",
+      "text": "Icon of the skill to identify"
+    },
+    "pages.tierMaker.howToTitle": {
+      "fr": "Mode d'emploi",
+      "text": "How it works"
+    },
+    "pages.tierMaker.howToOpen": {
+      "fr": "Afficher les quatre étapes",
+      "text": "Show all four steps"
+    },
+    "pages.tierMakerUI.reset": {
+      "fr": "Recommencer",
+      "text": "Start over"
+    },
+    "pages.tierMakerUI.colour": {
+      "fr": "Couleur",
+      "text": "Color"
+    },
+    "pages.mlbbdleUI.input": {
+      "fr": "Nom d'un héros…",
+      "text": "Type a hero name…"
+    },
+    "pages.advanceServer.kind.revamp": {
+      "fr": "Refonte",
+      "text": "Revamp"
+    },
+    "pages.esports.meta.winners": {
+      "fr": "Meilleur taux de victoire",
+      "text": "Best win rate"
+    },
+    "pages.draftSimulatorUI.undo": {
+      "fr": "Annuler",
+      "text": "Undo"
+    },
+    "pages.timerUI.undo": {
+      "fr": "Annuler",
+      "text": "Undo"
+    },
+    "pages.mapUI.short.exp-lane": {
+      "fr": "EXP",
+      "text": "EXP"
+    },
+    "pages.mapUI.short.mid-lane": {
+      "fr": "Mid",
+      "text": "Mid"
+    },
+    "pages.buildSimulatorUI.category": {
+      "fr": "Catégorie",
+      "text": "Category"
+    },
+    "pages.communityBuildsUI.errors.signIn": {
+      "fr": "Votre session a expiré : reconnectez-vous.",
+      "text": "Your session has expired: please sign in again."
+    },
+    "pages.botDashboard.login": {
+      "fr": "Se connecter avec Discord",
+      "text": "Log in with Discord"
+    },
+    "pages.guides.kitParts.spells": {
+      "fr": "Sorts de combat",
+      "text": "Battle Spells"
+    },
+    "emblemsUI.spells": {
+      "fr": "Sorts de combat",
+      "text": "Battle Spells"
     }
   },
   "es": {
@@ -7207,8 +7355,8 @@
       "text": "Comunidad"
     },
     "pages.community.lead": {
-      "fr": "Le forum des joueurs de MLBBDex : questions, builds, aide en classé, esport et guides, plus un tableau pour trouver des coéquipiers. Lecture libre, connexion avec votre compte de jeu pour écrire.",
-      "text": "El foro de los jugadores de MLBBDex: preguntas, builds, ayuda en clasificatoria, esports y guías, y un tablón para encontrar compañeros de equipo. Lectura libre; inicia sesión con tu cuenta del juego para escribir."
+      "fr": "Le forum des joueurs de MLBBDex : questions, builds, aide en classé, esport et guides, plus un tableau pour trouver des coéquipiers. Tout le monde peut lire. Pour écrire, connectez-vous avec votre compte de jeu ou avec Discord.",
+      "text": "El foro de jugadores de MLBBDex: preguntas, compilaciones, ayuda clasificada, deportes electrónicos y guías, además de una tabla para encontrar compañeros de equipo. Todos pueden leer. Para escribir, inicia sesión con tu cuenta de juego o Discord."
     },
     "pages.community.seo.title": {
       "fr": "Forum Mobile Legends et recherche de coéquipiers",
@@ -8099,8 +8247,8 @@
       "text": "Si participas en la comunidad (foro, votos, reportes, tarjeta de búsqueda de compañeros), el servidor del sitio guarda, en su base de datos:"
     },
     "prose.community.account": {
-      "fr": "un identifiant de compte dérivé (une empreinte de votre ID de jeu et de votre serveur, jamais l'ID lui-même), votre pseudo de jeu, et la date de votre première participation ;",
-      "text": "un identificador de cuenta derivado (una huella de tu ID del juego y tu servidor, nunca el ID en sí), tu nombre en el juego y la fecha de tu primera participación;"
+      "fr": "si vous vous connectez avec votre compte de jeu : un identifiant de compte dérivé (une empreinte de votre ID de jeu et de votre serveur, jamais l'ID lui-même), votre pseudo de jeu, et la date de votre première participation ;",
+      "text": "si inicia sesión con su cuenta de juego: una identificación de cuenta derivada (una huella digital de su identificación de juego y servidor, nunca la identificación en sí), su apodo de juego y la fecha de su primera participación;"
     },
     "prose.community.posts": {
       "fr": "vos discussions et réponses, publiques, avec leur date ; vos votes et vos signalements, qui ne sont montrés à personne d'autre que les modérateurs (les signalements) ;",
@@ -9157,6 +9305,134 @@
     "pages.nicknameUI.copiedDiscord": {
       "fr": "Montre-le sur le Discord →",
       "text": "Presúmelo en Discord →"
+    },
+    "common.joinDiscord": {
+      "fr": "Rejoindre le Discord",
+      "text": "Únete a la discordia"
+    },
+    "nav.objectiveTimer.label": {
+      "fr": "Chrono des objectifs",
+      "text": "Temporizador de objetivos"
+    },
+    "nav.bot.label": {
+      "fr": "Bot Discord",
+      "text": "robot de discordia"
+    },
+    "account.signIn": {
+      "fr": "Connexion",
+      "text": "Iniciar sesión"
+    },
+    "footer.discord": {
+      "fr": "Rejoindre le Discord",
+      "text": "Únete a la discordia"
+    },
+    "pages.tierList.tooFew": {
+      "fr": "Trop peu joué pour que les taux soient fiables",
+      "text": "Jugado demasiado poco para que las tasas sean fiables"
+    },
+    "pages.patchNotes.changes.summary.one": {
+      "fr": "Le patch {v} modifie {n} héros.",
+      "text": "El parche {v} modifica {n} héroe."
+    },
+    "pages.login.title": {
+      "fr": "Connexion",
+      "text": "Iniciar sesión"
+    },
+    "pages.login.metaTitle": {
+      "fr": "Connexion",
+      "text": "Iniciar sesión"
+    },
+    "pages.apiDoc.routes.patchVersion.localeParam": {
+      "fr": "Langue des textes (anglais par défaut)",
+      "text": "Idioma del texto (inglés por defecto)"
+    },
+    "pages.quiz.rulesTitle": {
+      "fr": "Comment jouer",
+      "text": "Cómo jugar"
+    },
+    "pages.quizUI.skip": {
+      "fr": "Passer",
+      "text": "Pasar"
+    },
+    "pages.quizUI.agreement.yes": {
+      "fr": "identique",
+      "text": "coincide"
+    },
+    "pages.quizUI.agreement.no": {
+      "fr": "différent",
+      "text": "no coincide"
+    },
+    "pages.quizUI.altSkill": {
+      "fr": "Icône de la compétence à identifier",
+      "text": "Icono de la habilidad que hay que adivinar"
+    },
+    "pages.tierMaker.howToTitle": {
+      "fr": "Mode d'emploi",
+      "text": "Cómo funciona"
+    },
+    "pages.tierMakerUI.reset": {
+      "fr": "Recommencer",
+      "text": "Empezar de nuevo"
+    },
+    "pages.events.modes.starlight.title": {
+      "fr": "Skin StarLight",
+      "text": "Skin StarLight"
+    },
+    "pages.esports.meta.winners": {
+      "fr": "Meilleur taux de victoire",
+      "text": "Mejor porcentaje de victorias"
+    },
+    "pages.esports.pro.roles.exp": {
+      "fr": "EXP",
+      "text": "EXP"
+    },
+    "pages.esports.pro.roles.mid": {
+      "fr": "Mid",
+      "text": "Mid"
+    },
+    "pages.draftSimulatorUI.settings.side": {
+      "fr": "Votre camp",
+      "text": "Tu equipo"
+    },
+    "pages.draftSimulatorUI.undo": {
+      "fr": "Annuler",
+      "text": "Deshacer"
+    },
+    "pages.timer.title": {
+      "fr": "Chrono des objectifs",
+      "text": "Temporizador de objetivos"
+    },
+    "pages.timerUI.undo": {
+      "fr": "Annuler",
+      "text": "Deshacer"
+    },
+    "pages.map.timerLink": {
+      "fr": "Chrono des objectifs",
+      "text": "Temporizador de objetivos"
+    },
+    "pages.mapUI.short.exp-lane": {
+      "fr": "EXP",
+      "text": "EXP"
+    },
+    "pages.mapUI.short.mid-lane": {
+      "fr": "Mid",
+      "text": "Mid"
+    },
+    "pages.botDashboard.login": {
+      "fr": "Se connecter avec Discord",
+      "text": "Conéctate con la discordia"
+    },
+    "pages.botUI.channel": {
+      "fr": "Salon",
+      "text": "Sala de estar"
+    },
+    "pages.botUI.save": {
+      "fr": "Enregistrer",
+      "text": "Ahorrar"
+    },
+    "pages.botUI.saveFailed": {
+      "fr": "L'enregistrement a échoué. Réessayez.",
+      "text": "El registro falló. Intentar otra vez."
     }
   },
   "id": {
@@ -13573,8 +13849,8 @@
       "text": "Komunitas"
     },
     "pages.community.lead": {
-      "fr": "Le forum des joueurs de MLBBDex : questions, builds, aide en classé, esport et guides, plus un tableau pour trouver des coéquipiers. Lecture libre, connexion avec votre compte de jeu pour écrire.",
-      "text": "Forum para pemain MLBBDex: pertanyaan, build, bantuan ranked, esports dan panduan, plus papan untuk mencari rekan tim. Bebas dibaca; masuk dengan akun game kamu untuk menulis."
+      "fr": "Le forum des joueurs de MLBBDex : questions, builds, aide en classé, esport et guides, plus un tableau pour trouver des coéquipiers. Tout le monde peut lire. Pour écrire, connectez-vous avec votre compte de jeu ou avec Discord.",
+      "text": "Forum pemain MLBBDex: pertanyaan, build, bantuan peringkat, esports dan panduan, ditambah meja untuk menemukan rekan satu tim. Semua orang bisa membaca. Untuk menulis, masuk dengan akun game atau Discord Anda."
     },
     "pages.community.seo.title": {
       "fr": "Forum Mobile Legends et recherche de coéquipiers",
@@ -14465,8 +14741,8 @@
       "text": "Jika kamu berpartisipasi di komunitas (forum, vote, laporan, kartu cari rekan tim), server situs menyimpan di basis datanya:"
     },
     "prose.community.account": {
-      "fr": "un identifiant de compte dérivé (une empreinte de votre ID de jeu et de votre serveur, jamais l'ID lui-même), votre pseudo de jeu, et la date de votre première participation ;",
-      "text": "ID akun turunan (hash dari ID game dan server kamu, tidak pernah ID itu sendiri), nama dalam game, dan tanggal partisipasi pertamamu;"
+      "fr": "si vous vous connectez avec votre compte de jeu : un identifiant de compte dérivé (une empreinte de votre ID de jeu et de votre serveur, jamais l'ID lui-même), votre pseudo de jeu, et la date de votre première participation ;",
+      "text": "jika Anda masuk dengan akun game Anda: ID akun turunan (sidik jari ID game dan server Anda, bukan ID itu sendiri), nama panggilan game Anda, dan tanggal partisipasi pertama Anda;"
     },
     "prose.community.posts": {
       "fr": "vos discussions et réponses, publiques, avec leur date ; vos votes et vos signalements, qui ne sont montrés à personne d'autre que les modérateurs (les signalements) ;",
@@ -15487,6 +15763,270 @@
     "pages.nicknameUI.copiedDiscord": {
       "fr": "Montre-le sur le Discord →",
       "text": "Pamerkan di Discord →"
+    },
+    "common.joinDiscord": {
+      "fr": "Rejoindre le Discord",
+      "text": "Bergabunglah dengan Perselisihan"
+    },
+    "nav.compare.label": {
+      "fr": "Comparateur",
+      "text": "Pembanding"
+    },
+    "nav.draft.label": {
+      "fr": "Draft",
+      "text": "Draft"
+    },
+    "nav.bot.label": {
+      "fr": "Bot Discord",
+      "text": "Bot perselisihan"
+    },
+    "footer.discord": {
+      "fr": "Rejoindre le Discord",
+      "text": "Bergabunglah dengan Perselisihan"
+    },
+    "pages.heroDetail.stat.region": {
+      "fr": "Région",
+      "text": "Wilayah"
+    },
+    "pages.itemsList.passive": {
+      "fr": "Passif",
+      "text": "Pasif"
+    },
+    "pages.tierList.win": {
+      "fr": "Victoire",
+      "text": "Kemenangan"
+    },
+    "pages.tierList.ban": {
+      "fr": "Ban",
+      "text": "Melarang"
+    },
+    "pages.tierList.pick": {
+      "fr": "Pick",
+      "text": "Memilih"
+    },
+    "pages.account.favourites": {
+      "fr": "Héros favoris",
+      "text": "Hero favorit"
+    },
+    "pages.apiDoc.routes.patchVersion.localeParam": {
+      "fr": "Langue des textes (anglais par défaut)",
+      "text": "Bahasa teks (Bahasa Inggris secara default)"
+    },
+    "pages.matchupsUI.legend": {
+      "fr": "Légende",
+      "text": "Legenda"
+    },
+    "pages.accountProfile.heroesPlayed": {
+      "fr": "Héros joués",
+      "text": "Hero dimainkan"
+    },
+    "pages.freshness.updatedOn": {
+      "fr": "Mis à jour le {date}",
+      "text": "Diperbarui pada {date}"
+    },
+    "pages.skins.updatedOn": {
+      "fr": "Mis à jour le {date}",
+      "text": "Diperbarui pada {date}"
+    },
+    "pages.versus.links.title": {
+      "fr": "Pour aller plus loin",
+      "text": "Untuk melangkah lebih jauh"
+    },
+    "pages.serverTime.faqTitle": {
+      "fr": "Questions fréquentes",
+      "text": "Pertanyaan yang sering diajukan"
+    },
+    "pages.quizUI.shared": {
+      "fr": "Résultat partagé.",
+      "text": "Hasil bersama."
+    },
+    "pages.quizUI.types.skill": {
+      "fr": "Compétence",
+      "text": "Keahlian"
+    },
+    "pages.quizUI.clues.region": {
+      "fr": "Région",
+      "text": "Wilayah"
+    },
+    "pages.quizUI.clues.passive": {
+      "fr": "Passif",
+      "text": "Pasif"
+    },
+    "pages.quizUI.heroField": {
+      "fr": "Nom d'un héros…",
+      "text": "Nama seorang hero..."
+    },
+    "pages.quizUI.comparison.region": {
+      "fr": "Région",
+      "text": "Wilayah"
+    },
+    "pages.tierMaker.howToTitle": {
+      "fr": "Mode d'emploi",
+      "text": "Petunjuk Penggunaan"
+    },
+    "pages.tierMaker.howToOpen": {
+      "fr": "Afficher les quatre étapes",
+      "text": "Tunjukkan keempat langkah tersebut"
+    },
+    "pages.events.modes.starlight.title": {
+      "fr": "Skin StarLight",
+      "text": "Skin Cahaya Bintang"
+    },
+    "pages.nickname.faqTitle": {
+      "fr": "Questions fréquentes",
+      "text": "Pertanyaan yang sering diajukan"
+    },
+    "pages.drawCalculator.faqTitle": {
+      "fr": "Questions fréquentes",
+      "text": "Pertanyaan yang sering diajukan"
+    },
+    "pages.drawCalculatorUI.you": {
+      "fr": "vous",
+      "text": "ANDA"
+    },
+    "pages.mlbbdleUI.modes.skill": {
+      "fr": "Compétence",
+      "text": "Keahlian"
+    },
+    "pages.mlbbdleUI.input": {
+      "fr": "Nom d'un héros…",
+      "text": "Nama seorang hero..."
+    },
+    "pages.mlbbdleUI.columns.region": {
+      "fr": "Région",
+      "text": "Wilayah"
+    },
+    "pages.mlbbdleUI.shared": {
+      "fr": "Résultat partagé.",
+      "text": "Hasil bersama."
+    },
+    "pages.mlbbdleUI.practiceType": {
+      "fr": "Type",
+      "text": "Baik"
+    },
+    "pages.esports.status.upcoming": {
+      "fr": "À venir",
+      "text": "Masa depan"
+    },
+    "pages.esports.meta.banned": {
+      "fr": "Les plus bannis",
+      "text": "Yang paling dilarang"
+    },
+    "pages.esports.meta.winners": {
+      "fr": "Meilleur taux de victoire",
+      "text": "Win rate terbaik"
+    },
+    "pages.esports.standings.games": {
+      "fr": "Parties",
+      "text": "Bagian"
+    },
+    "pages.esportsUI.wins": {
+      "fr": "Victoires",
+      "text": "Kemenangan"
+    },
+    "pages.esportsUI.losses": {
+      "fr": "Défaites",
+      "text": "Kekalahan"
+    },
+    "pages.draftSimulatorUI.you": {
+      "fr": "vous",
+      "text": "ANDA"
+    },
+    "pages.draftSimulatorUI.undo": {
+      "fr": "Annuler",
+      "text": "Membatalkan"
+    },
+    "pages.timer.title": {
+      "fr": "Chrono des objectifs",
+      "text": "Garis waktu tujuan"
+    },
+    "pages.timerUI.undo": {
+      "fr": "Annuler",
+      "text": "Membatalkan"
+    },
+    "pages.timerUI.newMatch": {
+      "fr": "Nouvelle partie",
+      "text": "Bagian baru"
+    },
+    "pages.map.timerLink": {
+      "fr": "Chrono des objectifs",
+      "text": "Garis waktu tujuan"
+    },
+    "pages.map.point.mid-lane.name": {
+      "fr": "Mid lane",
+      "text": "Mid Lane"
+    },
+    "pages.map.rotations.jungle.title": {
+      "fr": "Jungle",
+      "text": "Hutan"
+    },
+    "pages.map.rotations.roam.title": {
+      "fr": "Roam",
+      "text": "Berkeliaran"
+    },
+    "pages.mapUI.group.objective": {
+      "fr": "Objectifs",
+      "text": "Sasaran"
+    },
+    "pages.mapUI.legend.shared": {
+      "fr": "Commun",
+      "text": "Umum"
+    },
+    "pages.mapUI.short.exp-lane": {
+      "fr": "EXP",
+      "text": "pengalaman"
+    },
+    "pages.mapUI.short.mid-lane": {
+      "fr": "Mid",
+      "text": "Pertengahan"
+    },
+    "pages.buildSimulatorUI.groups.offense": {
+      "fr": "Attaque",
+      "text": "Menyerang"
+    },
+    "pages.communityBuildsUI.errors.signIn": {
+      "fr": "Votre session a expiré : reconnectez-vous.",
+      "text": "Sesi Anda telah kedaluwarsa: masuk lagi."
+    },
+    "pages.communityBuildsUI.publishing": {
+      "fr": "Publication…",
+      "text": "Publikasi…"
+    },
+    "pages.communityBuilds.talents": {
+      "fr": "Talents",
+      "text": "Bakat"
+    },
+    "pages.communityBuilds.spell": {
+      "fr": "Sort",
+      "text": "Mengeja"
+    },
+    "pages.botDashboard.login": {
+      "fr": "Se connecter avec Discord",
+      "text": "Terhubung dengan Perselisihan"
+    },
+    "pages.botUI.channel": {
+      "fr": "Salon",
+      "text": "Ruang tamu"
+    },
+    "pages.botUI.off": {
+      "fr": "Désactivé",
+      "text": "Dengan disabilitas"
+    },
+    "pages.botUI.types.esports": {
+      "fr": "Esport",
+      "text": "esports"
+    },
+    "pages.botUI.save": {
+      "fr": "Enregistrer",
+      "text": "Menyimpan"
+    },
+    "pages.botUI.saveFailed": {
+      "fr": "L'enregistrement a échoué. Réessayez.",
+      "text": "Pendaftaran gagal. Coba lagi."
+    },
+    "draftUI.laneFilter": {
+      "fr": "Position",
+      "text": "Posisi"
     }
   },
   "it": {
@@ -17959,8 +18499,8 @@
       "text": "Community"
     },
     "pages.community.lead": {
-      "fr": "Le forum des joueurs de MLBBDex : questions, builds, aide en classé, esport et guides, plus un tableau pour trouver des coéquipiers. Lecture libre, connexion avec votre compte de jeu pour écrire.",
-      "text": "Il forum dei giocatori di MLBBDex: domande, build, aiuto in classificata, esport e guide, più una bacheca per trovare compagni di squadra. Lettura libera, accesso con il tuo account di gioco per scrivere."
+      "fr": "Le forum des joueurs de MLBBDex : questions, builds, aide en classé, esport et guides, plus un tableau pour trouver des coéquipiers. Tout le monde peut lire. Pour écrire, connectez-vous avec votre compte de jeu ou avec Discord.",
+      "text": "Il forum dei giocatori di MLBBDex: domande, build, aiuto per le classifiche, eSport e guide, oltre a una tabella per trovare compagni di squadra. Tutti possono leggere. Per scrivere accedi con il tuo account di gioco o Discord."
     },
     "pages.community.seo.title": {
       "fr": "Forum Mobile Legends et recherche de coéquipiers",
@@ -18851,8 +19391,8 @@
       "text": "Se partecipi alla community (forum, voti, segnalazioni, scheda per trovare compagni), il server del sito conserva, nel suo database:"
     },
     "prose.community.account": {
-      "fr": "un identifiant de compte dérivé (une empreinte de votre ID de jeu et de votre serveur, jamais l'ID lui-même), votre pseudo de jeu, et la date de votre première participation ;",
-      "text": "un identificativo di account derivato (un'impronta del tuo ID di gioco e del server, mai l'ID stesso), il tuo nome in gioco e la data della tua prima partecipazione;"
+      "fr": "si vous vous connectez avec votre compte de jeu : un identifiant de compte dérivé (une empreinte de votre ID de jeu et de votre serveur, jamais l'ID lui-même), votre pseudo de jeu, et la date de votre première participation ;",
+      "text": "se accedi con il tuo account di gioco: un ID account derivato (un'impronta digitale del tuo ID di gioco e del tuo server, mai l'ID stesso), il tuo nickname di gioco e la data della tua prima partecipazione;"
     },
     "prose.community.posts": {
       "fr": "vos discussions et réponses, publiques, avec leur date ; vos votes et vos signalements, qui ne sont montrés à personne d'autre que les modérateurs (les signalements) ;",
@@ -19905,6 +20445,142 @@
     "pages.nicknameUI.copiedDiscord": {
       "fr": "Montre-le sur le Discord →",
       "text": "Mostralo su Discord →"
+    },
+    "common.joinDiscord": {
+      "fr": "Rejoindre le Discord",
+      "text": "Unisciti alla Discordia"
+    },
+    "nav.skinsCalendar.label": {
+      "fr": "Calendrier des skins",
+      "text": "Calendario skin"
+    },
+    "nav.bot.label": {
+      "fr": "Bot Discord",
+      "text": "Bot della discordia"
+    },
+    "account.signIn": {
+      "fr": "Connexion",
+      "text": "Accedi"
+    },
+    "footer.discord": {
+      "fr": "Rejoindre le Discord",
+      "text": "Unisciti alla Discordia"
+    },
+    "pages.heroDetail.stat.damage": {
+      "fr": "Dégâts",
+      "text": "Danno"
+    },
+    "pages.heroDetail.statistics.measures.win": {
+      "fr": "Victoire",
+      "text": "Vittorie"
+    },
+    "pages.tierList.tooFew": {
+      "fr": "Trop peu joué pour que les taux soient fiables",
+      "text": "Giocato troppo poco perché le percentuali siano affidabili"
+    },
+    "pages.patchNotes.changes.summary.one": {
+      "fr": "Le patch {v} modifie {n} héros.",
+      "text": "La patch {v} modifica {n} eroe."
+    },
+    "pages.login.title": {
+      "fr": "Connexion",
+      "text": "Accedi"
+    },
+    "pages.login.metaTitle": {
+      "fr": "Connexion",
+      "text": "Accedi"
+    },
+    "pages.apiDoc.routes.patchVersion.localeParam": {
+      "fr": "Langue des textes (anglais par défaut)",
+      "text": "Lingua del testo (inglese per impostazione predefinita)"
+    },
+    "pages.accountProfile.bestStreak": {
+      "fr": "Meilleure série",
+      "text": "Miglior serie di vittorie"
+    },
+    "pages.accountProfile.currentStreak": {
+      "fr": "Série en cours",
+      "text": "Serie in corso"
+    },
+    "pages.freshness.updatedOn": {
+      "fr": "Mis à jour le {date}",
+      "text": "Aggiornamento: {date}"
+    },
+    "pages.skins.updatedOn": {
+      "fr": "Mis à jour le {date}",
+      "text": "Aggiornamento: {date}"
+    },
+    "pages.quizUI.skip": {
+      "fr": "Passer",
+      "text": "Passa"
+    },
+    "pages.quizUI.agreement.yes": {
+      "fr": "identique",
+      "text": "uguale"
+    },
+    "pages.tierMaker.howToTitle": {
+      "fr": "Mode d'emploi",
+      "text": "Come funziona"
+    },
+    "pages.tierMaker.howToOpen": {
+      "fr": "Afficher les quatre étapes",
+      "text": "Mostra tutti e quattro i passaggi"
+    },
+    "pages.tierMakerUI.exportError": {
+      "fr": "L'image n'a pas pu être créée.",
+      "text": "Impossibile creare l'immagine."
+    },
+    "pages.advanceServer.openPage": {
+      "fr": "Voir la fiche de {name}",
+      "text": "Apri la scheda di {name}"
+    },
+    "pages.esports.meta.winners": {
+      "fr": "Meilleur taux de victoire",
+      "text": "Miglior percentuale di vittorie"
+    },
+    "pages.esports.pro.roles.exp": {
+      "fr": "EXP",
+      "text": "EXP"
+    },
+    "pages.esports.pro.roles.mid": {
+      "fr": "Mid",
+      "text": "Mid"
+    },
+    "pages.draftSimulatorUI.settings.side": {
+      "fr": "Votre camp",
+      "text": "La tua squadra"
+    },
+    "pages.map.fact.hp": {
+      "fr": "PV",
+      "text": "HP"
+    },
+    "pages.mapUI.short.exp-lane": {
+      "fr": "EXP",
+      "text": "EXP"
+    },
+    "pages.mapUI.short.mid-lane": {
+      "fr": "Mid",
+      "text": "Mid"
+    },
+    "pages.botDashboard.login": {
+      "fr": "Se connecter avec Discord",
+      "text": "Connettiti con Discord"
+    },
+    "pages.botUI.channel": {
+      "fr": "Salon",
+      "text": "Soggiorno"
+    },
+    "pages.botUI.off": {
+      "fr": "Désactivé",
+      "text": "Disabilitato"
+    },
+    "pages.botUI.saveFailed": {
+      "fr": "L'enregistrement a échoué. Réessayez.",
+      "text": "La registrazione non è riuscita. Riprova."
+    },
+    "heroData.specialty.damage": {
+      "fr": "Dégâts",
+      "text": "Danno"
     }
   },
   "fil": {
@@ -24665,8 +25341,8 @@
       "text": "Sa {skins} skin na puwede mong i-tick, {diamonds} ang may presyo sa diamonds, {others} ang may presyo sa ibang currency (Magic Core, gems…) at {unpriced} ang walang presyo sa shop: StarLight, event, draw at pass. Binibilang ang mga ito sa completion mo pero hindi sa kabuuang diamonds, imbes na hulaan."
     },
     "pages.collection.methodStorage": {
-      "fr": "Votre sélection reste dans ce navigateur (stockage local) : rien n'est envoyé à nos serveurs, et aucun compte n'est nécessaire. Les prix sont ceux de la boutique du jeu recensés par le wiki communautaire ; les remises et les packs ne sont pas pris en compte.",
-      "text": "Nananatili sa browser na ito ang pinili mo (local storage): walang ipinapadala sa aming mga server, at walang account na kailangan. Ang mga presyo ay ang presyo sa in-game shop na nakalista sa community wiki; hindi kasama ang mga discount at bundle."
+      "fr": "Votre sélection reste dans ce navigateur (stockage local), sans compte. Connecté avec votre compte de jeu, elle est aussi enregistrée sur votre compte, pour la retrouver sur un autre appareil ; un fichier de sauvegarde l'emporte où vous voulez. Les prix sont ceux de la boutique du jeu recensés par le wiki communautaire ; les remises et les packs ne sont pas pris en compte.",
+      "text": "Ang iyong pinili ay nananatili sa browser na ito (lokal na imbakan), nang walang account. Nakakonekta sa iyong account sa laro, ito ay nai-save din sa iyong account, upang mahanap mo ito sa isa pang device; dadalhin ito ng isang save file kahit saan mo gusto. Ang mga presyo ay yaong sa tindahan ng laro na nakalista ng wiki ng komunidad; ang mga reset at mga pakete ay hindi isinasaalang-alang."
     },
     "pages.collection.title": {
       "fr": "Calculateur de valeur de collection",
@@ -24717,8 +25393,8 @@
       "text": "I-untick ang bawat hero at bawat skin?"
     },
     "pages.collectionUI.empty": {
-      "fr": "Cochez dans la liste les héros et les skins que vous possédez : le total se met à jour au fur et à mesure et reste enregistré dans ce navigateur.",
-      "text": "I-tick ang mga hero at skin na pag-aari mo sa listahan: nag-a-update ang kabuuan habang nagti-tick ka at naka-save ito sa browser na ito."
+      "fr": "Cochez dans la liste les héros et les skins que vous possédez : le total se met à jour au fur et à mesure et reste enregistré dans ce navigateur, et sur votre compte si vous êtes connecté.",
+      "text": "Tingnan ang mga hero at skin na pagmamay-ari mo mula sa listahan: ang kabuuan ay unti-unting ina-update at nananatiling naka-save sa browser na ito, at sa iyong account kung nakakonekta ka."
     },
     "pages.collectionUI.error": {
       "fr": "Impossible de charger la liste des skins. Vérifiez votre connexion et rechargez la page.",
@@ -24917,8 +25593,8 @@
       "text": "Mga pinakabagong discussion"
     },
     "pages.community.lead": {
-      "fr": "Le forum des joueurs de MLBBDex : questions, builds, aide en classé, esport et guides, plus un tableau pour trouver des coéquipiers. Lecture libre, connexion avec votre compte de jeu pour écrire.",
-      "text": "Ang forum ng mga player ng MLBBDex: mga tanong, build, tulong sa ranked, esports at guide, kasama ang board para makahanap ng mga kakampi. Libreng basahin; mag-sign in gamit ang game account mo para makapagsulat."
+      "fr": "Le forum des joueurs de MLBBDex : questions, builds, aide en classé, esport et guides, plus un tableau pour trouver des coéquipiers. Tout le monde peut lire. Pour écrire, connectez-vous avec votre compte de jeu ou avec Discord.",
+      "text": "Ang forum ng manlalaro ng MLBBdex: mga tanong, pagbuo, tulong sa ranggo, mga esport at gabay, kasama ang isang talahanayan upang makahanap ng mga kakampi. Mababasa ng lahat. Upang magsulat, mag-log in gamit ang iyong account sa laro o Discord."
     },
     "pages.community.lockedNotice": {
       "fr": "Cette discussion est verrouillée : on ne peut plus y répondre.",
@@ -33273,8 +33949,8 @@
       "text": "Walang opisyal na feed ang Moonton — app ang website ng game at hindi mai-syndicate ang content nito. Kaya mano-manong inilalagay at kinokomentaryuhan ang mga update ng game sa patch notes, habang sinasaklaw ng roundup ang inilalathala ng iba pang bahagi ng web."
     },
     "prose.bot.cookie": {
-      "fr": "un cookie de session chiffré, `mlbbdex_discord` (httpOnly, 7 jours), si vous vous connectez au tableau de bord avec Discord : votre identifiant, votre nom et votre avatar Discord, rien d'autre ; aucun jeton Discord n'est conservé ;",
-      "text": "isang naka-encrypt na session cookie, `mlbbdex_discord` (httpOnly, 7 araw), kung mag-log in ka sa dashboard gamit ang Discord: ang iyong Discord ID, pangalan at avatar, wala nang iba; walang Discord token na itinatago;"
+      "fr": "un cookie de session chiffré, `mlbbdex_discord` (httpOnly, 7 jours), si vous vous connectez avec Discord au tableau de bord ou au forum : votre identifiant, votre nom et votre avatar Discord, rien d'autre ; aucun jeton Discord n'est conservé ;",
+      "text": "isang naka-encrypt na cookie ng session, `mlbbdex_discord` (httpOnly, 7 araw), kung mag-log in ka gamit ang Discord sa dashboard o forum: ang iyong Discord ID, pangalan at avatar, wala nang iba; walang mga Discord token ang nananatili;"
     },
     "prose.bot.details": {
       "fr": "Le détail, la durée de conservation et la suppression sont décrits sur la page de confidentialité du bot.",
@@ -33297,8 +33973,8 @@
       "text": "para sa bawat server kung saan naroon ang bot: ang pangalan, wika at mga setting nito;"
     },
     "prose.community.account": {
-      "fr": "un identifiant de compte dérivé (une empreinte de votre ID de jeu et de votre serveur, jamais l'ID lui-même), votre pseudo de jeu, et la date de votre première participation ;",
-      "text": "isang derived na account ID (hash ng iyong game ID at server, hindi kailanman ang ID mismo), ang iyong in-game name, at ang petsa ng una mong paglahok;"
+      "fr": "si vous vous connectez avec votre compte de jeu : un identifiant de compte dérivé (une empreinte de votre ID de jeu et de votre serveur, jamais l'ID lui-même), votre pseudo de jeu, et la date de votre première participation ;",
+      "text": "kung mag-log in ka gamit ang iyong game account: isang nagmula na account ID (isang fingerprint ng iyong game ID at server, hindi ang ID mismo), ang iyong palayaw sa laro, at ang petsa ng iyong unang paglahok;"
     },
     "prose.community.card": {
       "fr": "votre carte de recherche de coéquipiers, et, si vous les ajoutez, votre ID de jeu et votre pseudo Discord : ils ne sont montrés qu'aux joueurs connectés, et la carte est effacée sept jours après son dernier enregistrement.",
@@ -34699,6 +35375,134 @@
     "pages.nicknameUI.copiedDiscord": {
       "fr": "Montre-le sur le Discord →",
       "text": "Ipakita sa Discord →"
+    },
+    "nav.draft.label": {
+      "fr": "Draft",
+      "text": "Draft"
+    },
+    "nav.groups.community": {
+      "fr": "Communauté",
+      "text": "Komunidad"
+    },
+    "nav.spells.label": {
+      "fr": "Sorts de combat",
+      "text": "Battle Spells"
+    },
+    "nav.columns.community": {
+      "fr": "Communauté",
+      "text": "Komunidad"
+    },
+    "pages.account.favourites": {
+      "fr": "Héros favoris",
+      "text": "Mga paboritong hero"
+    },
+    "pages.accountProfile.colHero": {
+      "fr": "Héros",
+      "text": "Hero"
+    },
+    "pages.freshness.updatedOn": {
+      "fr": "Mis à jour le {date}",
+      "text": "Na-update noong {date}"
+    },
+    "pages.sheets.heroes": {
+      "fr": "Héros",
+      "text": "Hero"
+    },
+    "pages.itemDetail.category": {
+      "fr": "Catégorie",
+      "text": "Kategorya"
+    },
+    "pages.spellDetail.seconds": {
+      "fr": "{n} s",
+      "text": "{n}s"
+    },
+    "pages.heroCounters.colHero": {
+      "fr": "Héros",
+      "text": "Hero"
+    },
+    "pages.statisticsTable.heroes": {
+      "fr": "Héros",
+      "text": "Hero"
+    },
+    "pages.skins.updatedOn": {
+      "fr": "Mis à jour le {date}",
+      "text": "Na-update noong {date}"
+    },
+    "pages.quizUI.clues.category": {
+      "fr": "Catégorie",
+      "text": "Kategorya"
+    },
+    "pages.quizUI.comparison.category": {
+      "fr": "Catégorie",
+      "text": "Kategorya"
+    },
+    "pages.tierMaker.howToOpen": {
+      "fr": "Afficher les quatre étapes",
+      "text": "Ipakita ang lahat ng apat na hakbang"
+    },
+    "pages.lore.region.inBriefTitle": {
+      "fr": "En bref",
+      "text": "Sa madaling sabi"
+    },
+    "pages.skinsCalendarUI.heroes": {
+      "fr": "Héros",
+      "text": "Hero"
+    },
+    "pages.collectionUI.pool": {
+      "fr": "Héros",
+      "text": "Hero"
+    },
+    "pages.mlbbdleUI.heroColumn": {
+      "fr": "Héros",
+      "text": "Hero"
+    },
+    "pages.esports.versus.hero": {
+      "fr": "Héros",
+      "text": "Hero"
+    },
+    "pages.esports.pro.roles.exp": {
+      "fr": "EXP",
+      "text": "EXP"
+    },
+    "pages.esportsUI.hero": {
+      "fr": "Héros",
+      "text": "Hero"
+    },
+    "pages.draftSimulatorUI.timers.30": {
+      "fr": "{n} s",
+      "text": "{n}s"
+    },
+    "pages.draftSimulatorUI.seconds": {
+      "fr": "{n} s",
+      "text": "{n}s"
+    },
+    "pages.mapUI.short.exp-lane": {
+      "fr": "EXP",
+      "text": "EXP"
+    },
+    "pages.buildSimulatorUI.category": {
+      "fr": "Catégorie",
+      "text": "Kategorya"
+    },
+    "pages.communityUI.removeHero": {
+      "fr": "Retirer {name}",
+      "text": "Alisin ang {name}"
+    },
+    "pages.guides.updated": {
+      "fr": "Mis à jour le {date}",
+      "text": "Na-update noong {date}"
+    },
+    "pages.guides.kitParts.spells": {
+      "fr": "Sorts de combat",
+      "text": "Battle Spells"
+    },
+    "story.origin": {
+      "fr": "Origine",
+      "text": "Pinagmulan"
+    },
+    "emblemsUI.spells": {
+      "fr": "Sorts de combat",
+      "text": "Battle Spells"
     }
   },
   "th": {
@@ -39111,8 +39915,8 @@
       "text": "จากสกิน {skins} ตัวที่คุณติ๊กได้ มี {diamonds} ตัวที่มีราคาเป็นเพชร {others} ตัวมีราคาเป็นสกุลเงินอื่น (Magic Core, อัญมณี…) และ {unpriced} ตัวไม่มีราคาในร้านค้า: StarLight, อีเวนต์, กิจกรรมสุ่ม และพาส สกินเหล่านี้นับรวมในความคืบหน้าของคุณ แต่ไม่นับในยอดเพชรรวม แทนที่จะใช้ราคาที่เดาเอา"
     },
     "pages.collection.methodStorage": {
-      "fr": "Votre sélection reste dans ce navigateur (stockage local) : rien n'est envoyé à nos serveurs, et aucun compte n'est nécessaire. Les prix sont ceux de la boutique du jeu recensés par le wiki communautaire ; les remises et les packs ne sont pas pris en compte.",
-      "text": "รายการที่คุณเลือกจะเก็บไว้ในเบราว์เซอร์นี้ (local storage): ไม่มีข้อมูลใดถูกส่งไปยังเซิร์ฟเวอร์ของเรา และไม่ต้องมีบัญชี ราคาคือราคาในร้านค้าในเกมตามที่วิกิชุมชนระบุไว้ ไม่ได้รวมส่วนลดและแพ็กเกจ"
+      "fr": "Votre sélection reste dans ce navigateur (stockage local), sans compte. Connecté avec votre compte de jeu, elle est aussi enregistrée sur votre compte, pour la retrouver sur un autre appareil ; un fichier de sauvegarde l'emporte où vous voulez. Les prix sont ceux de la boutique du jeu recensés par le wiki communautaire ; les remises et les packs ne sont pas pris en compte.",
+      "text": "การเลือกของคุณยังคงอยู่ในเบราว์เซอร์นี้ (ที่จัดเก็บในเครื่อง) โดยไม่มีบัญชี เมื่อเชื่อมต่อกับบัญชีเกมของคุณแล้ว มันจะถูกบันทึกไว้ในบัญชีของคุณด้วย ดังนั้นคุณจึงสามารถค้นหามันได้บนอุปกรณ์อื่น ไฟล์บันทึกจะพาไปทุกที่ที่คุณต้องการ ราคาเป็นราคาของร้านเกมที่ระบุโดยวิกิชุมชน รีเซ็ตและแพ็คจะไม่ถูกนำมาพิจารณา"
     },
     "pages.collection.methodTitle": {
       "fr": "Comment la valeur est calculée",
@@ -39155,8 +39959,8 @@
       "text": "ยกเลิกติ๊กฮีโร่และสกินทั้งหมดใช่ไหม?"
     },
     "pages.collectionUI.empty": {
-      "fr": "Cochez dans la liste les héros et les skins que vous possédez : le total se met à jour au fur et à mesure et reste enregistré dans ce navigateur.",
-      "text": "ติ๊กฮีโร่และสกินที่คุณมีในรายการ: ยอดรวมจะอัปเดตทันทีและบันทึกไว้ในเบราว์เซอร์นี้"
+      "fr": "Cochez dans la liste les héros et les skins que vous possédez : le total se met à jour au fur et à mesure et reste enregistré dans ce navigateur, et sur votre compte si vous êtes connecté.",
+      "text": "ตรวจสอบฮีโร่และสกินที่คุณเป็นเจ้าของจากรายการ: ยอดรวมจะค่อยๆ อัปเดตและยังคงบันทึกไว้ในเบราว์เซอร์นี้ และในบัญชีของคุณหากคุณเชื่อมต่ออยู่"
     },
     "pages.collectionUI.error": {
       "fr": "Impossible de charger la liste des skins. Vérifiez votre connexion et rechargez la page.",
@@ -39315,8 +40119,8 @@
       "text": "ซ่อนอยู่: เห็นได้เฉพาะผู้ดูแลเท่านั้น"
     },
     "pages.community.lead": {
-      "fr": "Le forum des joueurs de MLBBDex : questions, builds, aide en classé, esport et guides, plus un tableau pour trouver des coéquipiers. Lecture libre, connexion avec votre compte de jeu pour écrire.",
-      "text": "ฟอรัมผู้เล่น MLBBDex: คำถาม บิลด์ ช่วยเหลือเรื่อง Ranked อีสปอร์ต และไกด์ พร้อมบอร์ดหาเพื่อนร่วมทีม อ่านได้ฟรี เข้าสู่ระบบด้วยบัญชีเกมเพื่อเขียน"
+      "fr": "Le forum des joueurs de MLBBDex : questions, builds, aide en classé, esport et guides, plus un tableau pour trouver des coéquipiers. Tout le monde peut lire. Pour écrire, connectez-vous avec votre compte de jeu ou avec Discord.",
+      "text": "ฟอรัมผู้เล่น MLBBDex: คำถาม บิลด์ ความช่วยเหลือในการจัดอันดับ อีสปอร์ต และคำแนะนำ รวมถึงโต๊ะสำหรับค้นหาเพื่อนร่วมทีม ทุกคนสามารถอ่านได้ หากต้องการเขียน ให้เข้าสู่ระบบด้วยบัญชีเกมหรือ Discord ของคุณ"
     },
     "pages.community.locked": {
       "fr": "Verrouillée",
@@ -47167,8 +47971,8 @@
       "text": "Moonton ไม่มีฟีดอย่างเป็นทางการ — เว็บไซต์ของเกมเป็นแอปที่นำเนื้อหาไปเผยแพร่ต่อไม่ได้ การอัปเดตเกมจึงถูกนำมาเขียนและอธิบายด้วยมือในแพตช์โน้ต ส่วนสรุปข่าวครอบคลุมสิ่งที่เว็บไซต์อื่นๆ เผยแพร่"
     },
     "prose.bot.cookie": {
-      "fr": "un cookie de session chiffré, `mlbbdex_discord` (httpOnly, 7 jours), si vous vous connectez au tableau de bord avec Discord : votre identifiant, votre nom et votre avatar Discord, rien d'autre ; aucun jeton Discord n'est conservé ;",
-      "text": "คุกกี้เซสชันที่เข้ารหัส `mlbbdex_discord` (httpOnly, 7 วัน) หากคุณเข้าสู่ระบบแดชบอร์ดด้วย Discord: Discord ID ชื่อ และอวาตาร์ของคุณ ไม่มีข้อมูลอื่น; ไม่มีการเก็บโทเค็น Discord;"
+      "fr": "un cookie de session chiffré, `mlbbdex_discord` (httpOnly, 7 jours), si vous vous connectez avec Discord au tableau de bord ou au forum : votre identifiant, votre nom et votre avatar Discord, rien d'autre ; aucun jeton Discord n'est conservé ;",
+      "text": "คุกกี้เซสชันที่เข้ารหัส `mlbbdex_discord` (httpOnly, 7 วัน) หากคุณเข้าสู่ระบบด้วย Discord ไปยังแดชบอร์ดหรือฟอรัม: Discord ID ชื่อและอวาตาร์ของคุณ ไม่มีอะไรอื่นใด ไม่มีการเก็บโทเค็น Discord ไว้"
     },
     "prose.bot.details": {
       "fr": "Le détail, la durée de conservation et la suppression sont décrits sur la page de confidentialité du bot.",
@@ -47195,8 +47999,8 @@
       "text": "บอท Discord (ไม่บังคับ)"
     },
     "prose.community.account": {
-      "fr": "un identifiant de compte dérivé (une empreinte de votre ID de jeu et de votre serveur, jamais l'ID lui-même), votre pseudo de jeu, et la date de votre première participation ;",
-      "text": "ID บัญชีที่สร้างขึ้นจากข้อมูลของคุณ (ค่าแฮชของ ID เกมและเซิร์ฟเวอร์ ไม่ใช่ตัว ID เอง) ชื่อในเกมของคุณ และวันที่คุณร่วมกิจกรรมครั้งแรก;"
+      "fr": "si vous vous connectez avec votre compte de jeu : un identifiant de compte dérivé (une empreinte de votre ID de jeu et de votre serveur, jamais l'ID lui-même), votre pseudo de jeu, et la date de votre première participation ;",
+      "text": "หากคุณเข้าสู่ระบบด้วยบัญชีเกมของคุณ: รหัสบัญชีที่ได้รับ (ลายนิ้วมือของรหัสเกมและเซิร์ฟเวอร์ของคุณ ไม่ใช่รหัสนั้นเอง) ชื่อเล่นในเกมของคุณ และวันที่เข้าร่วมครั้งแรก"
     },
     "prose.community.card": {
       "fr": "votre carte de recherche de coéquipiers, et, si vous les ajoutez, votre ID de jeu et votre pseudo Discord : ils ne sont montrés qu'aux joueurs connectés, et la carte est effacée sept jours après son dernier enregistrement.",
@@ -48509,6 +49313,134 @@
     "pages.nicknameUI.copiedDiscord": {
       "fr": "Montre-le sur le Discord →",
       "text": "อวดใน Discord →"
+    },
+    "nav.lore.label": {
+      "fr": "Lore",
+      "text": "ตำนาน"
+    },
+    "nav.groups.community": {
+      "fr": "Communauté",
+      "text": "ชุมชน"
+    },
+    "nav.events.label": {
+      "fr": "Événements",
+      "text": "กิจกรรม"
+    },
+    "nav.columns.community": {
+      "fr": "Communauté",
+      "text": "ชุมชน"
+    },
+    "nav.teammates.label": {
+      "fr": "Trouver des coéquipiers",
+      "text": "ค้นหาเพื่อนร่วมทีม"
+    },
+    "pages.heroesList.role": {
+      "fr": "Rôle",
+      "text": "บทบาท"
+    },
+    "pages.heroDetail.statistics.period": {
+      "fr": "Période",
+      "text": "ระยะเวลา"
+    },
+    "pages.draft.rules.tournamentTitle": {
+      "fr": "Tournoi (MPL, M-series)",
+      "text": "ทัวร์นาเมนต์ (MPL, M-series)"
+    },
+    "pages.draft.rules.shortSides.both": {
+      "fr": "Les deux",
+      "text": "ทั้งคู่"
+    },
+    "pages.account.favourites": {
+      "fr": "Héros favoris",
+      "text": "ฮีโร่ที่ชื่นชอบ"
+    },
+    "pages.contribute.optional": {
+      "fr": "facultatif",
+      "text": "ไม่จำเป็น"
+    },
+    "pages.accountProfile.colRole": {
+      "fr": "Rôle",
+      "text": "บทบาท"
+    },
+    "pages.freshness.updatedOn": {
+      "fr": "Mis à jour le {date}",
+      "text": "อัปเดตเมื่อ {date}"
+    },
+    "pages.itemDetail.category": {
+      "fr": "Catégorie",
+      "text": "หมวดหมู่"
+    },
+    "pages.skins.updatedOn": {
+      "fr": "Mis à jour le {date}",
+      "text": "อัปเดตเมื่อ {date}"
+    },
+    "pages.quiz.challenges.skill.title": {
+      "fr": "Compétence",
+      "text": "สกิล"
+    },
+    "pages.quizUI.types.skill": {
+      "fr": "Compétence",
+      "text": "สกิล"
+    },
+    "pages.quizUI.clues.roles": {
+      "fr": "Rôle",
+      "text": "บทบาท"
+    },
+    "pages.quizUI.clues.category": {
+      "fr": "Catégorie",
+      "text": "หมวดหมู่"
+    },
+    "pages.quizUI.comparison.roles": {
+      "fr": "Rôle",
+      "text": "บทบาท"
+    },
+    "pages.quizUI.comparison.category": {
+      "fr": "Catégorie",
+      "text": "หมวดหมู่"
+    },
+    "pages.tierMaker.howToOpen": {
+      "fr": "Afficher les quatre étapes",
+      "text": "แสดงทั้งสี่ขั้นตอน"
+    },
+    "pages.lore.region.inBriefTitle": {
+      "fr": "En bref",
+      "text": "โดยย่อ"
+    },
+    "pages.skinsCalendarUI.role": {
+      "fr": "Rôle",
+      "text": "บทบาท"
+    },
+    "pages.collectionUI.role": {
+      "fr": "Rôle",
+      "text": "บทบาท"
+    },
+    "pages.mlbbdleUI.loading": {
+      "fr": "Chargement…",
+      "text": "กำลังโหลด..."
+    },
+    "pages.mlbbdleUI.browse": {
+      "fr": "Parcourir les héros",
+      "text": "เรียกดูฮีโร่"
+    },
+    "pages.buildSimulatorUI.category": {
+      "fr": "Catégorie",
+      "text": "หมวดหมู่"
+    },
+    "pages.communityBuildsUI.titleLabel": {
+      "fr": "Titre",
+      "text": "ชื่อ"
+    },
+    "pages.guides.roles": {
+      "fr": "Rôles",
+      "text": "บทบาท"
+    },
+    "pages.guides.kind.role": {
+      "fr": "Rôle",
+      "text": "บทบาท"
+    },
+    "pages.guides.updated": {
+      "fr": "Mis à jour le {date}",
+      "text": "อัปเดตเมื่อ {date}"
     }
   },
   "pt": {
@@ -52209,8 +53141,8 @@
       "text": "Das {skins} skins que você pode marcar, {diamonds} têm preço em diamantes, {others} têm preço em outra moeda (Magic Cores, gemas…) e {unpriced} não têm preço na loja: StarLight, eventos, sorteios e passes. Essas contam para o seu progresso, mas não para o total em diamantes, em vez de serem estimadas a esmo."
     },
     "pages.collection.methodStorage": {
-      "fr": "Votre sélection reste dans ce navigateur (stockage local) : rien n'est envoyé à nos serveurs, et aucun compte n'est nécessaire. Les prix sont ceux de la boutique du jeu recensés par le wiki communautaire ; les remises et les packs ne sont pas pris en compte.",
-      "text": "Sua seleção fica neste navegador (armazenamento local): nada é enviado aos nossos servidores, e nenhuma conta é necessária. Os preços são os da loja do jogo listados pela wiki da comunidade; descontos e pacotes não são considerados."
+      "fr": "Votre sélection reste dans ce navigateur (stockage local), sans compte. Connecté avec votre compte de jeu, elle est aussi enregistrée sur votre compte, pour la retrouver sur un autre appareil ; un fichier de sauvegarde l'emporte où vous voulez. Les prix sont ceux de la boutique du jeu recensés par le wiki communautaire ; les remises et les packs ne sont pas pris en compte.",
+      "text": "Sua seleção permanece neste navegador (armazenamento local), sem conta. Conectado à sua conta do jogo, ele também fica salvo na sua conta, para que você possa encontrá-lo em outro dispositivo; um arquivo salvo leva para onde você quiser. Os preços são os da loja de jogos listados no wiki da comunidade; resets e packs não são considerados."
     },
     "pages.collection.title": {
       "fr": "Calculateur de valeur de collection",
@@ -52241,8 +53173,8 @@
       "text": "Na coleção"
     },
     "pages.collectionUI.empty": {
-      "fr": "Cochez dans la liste les héros et les skins que vous possédez : le total se met à jour au fur et à mesure et reste enregistré dans ce navigateur.",
-      "text": "Marque na lista os heróis e as skins que você tem: o total é atualizado na hora e fica salvo neste navegador."
+      "fr": "Cochez dans la liste les héros et les skins que vous possédez : le total se met à jour au fur et à mesure et reste enregistré dans ce navigateur, et sur votre compte si vous êtes connecté.",
+      "text": "Confira na lista os heróis e skins que você possui: o total é atualizado gradativamente e permanece salvo neste navegador, e na sua conta se estiver conectado."
     },
     "pages.collectionUI.error": {
       "fr": "Impossible de charger la liste des skins. Vérifiez votre connexion et rechargez la page.",
@@ -52365,8 +53297,8 @@
       "text": "editado"
     },
     "pages.community.lead": {
-      "fr": "Le forum des joueurs de MLBBDex : questions, builds, aide en classé, esport et guides, plus un tableau pour trouver des coéquipiers. Lecture libre, connexion avec votre compte de jeu pour écrire.",
-      "text": "O fórum dos jogadores do MLBBDex: perguntas, builds, ajuda na ranqueada, Esports e guias, além de um mural para encontrar companheiros de equipe. Leitura livre; entre com sua conta do jogo para escrever."
+      "fr": "Le forum des joueurs de MLBBDex : questions, builds, aide en classé, esport et guides, plus un tableau pour trouver des coéquipiers. Tout le monde peut lire. Pour écrire, connectez-vous avec votre compte de jeu ou avec Discord.",
+      "text": "O fórum de jogadores MLBBDex: perguntas, builds, ajuda classificada, esports e guias, além de uma mesa para encontrar companheiros de equipe. Todos podem ler. Para escrever, faça login com sua conta do jogo ou Discord."
     },
     "pages.community.locked": {
       "fr": "Verrouillée",
@@ -58981,8 +59913,8 @@
       "text": "A Moonton não publica nenhum feed oficial: o site do jogo é um aplicativo cujo conteúdo não pode ser distribuído. Por isso, as atualizações do jogo são reproduzidas e comentadas à mão nas patch notes, enquanto o radar cobre o que o resto da web publica."
     },
     "prose.bot.cookie": {
-      "fr": "un cookie de session chiffré, `mlbbdex_discord` (httpOnly, 7 jours), si vous vous connectez au tableau de bord avec Discord : votre identifiant, votre nom et votre avatar Discord, rien d'autre ; aucun jeton Discord n'est conservé ;",
-      "text": "um cookie de sessão criptografado, `mlbbdex_discord` (httpOnly, 7 dias), se você fizer login no painel com o Discord: seu ID, nome e avatar do Discord, nada mais; nenhum token do Discord é guardado;"
+      "fr": "un cookie de session chiffré, `mlbbdex_discord` (httpOnly, 7 jours), si vous vous connectez avec Discord au tableau de bord ou au forum : votre identifiant, votre nom et votre avatar Discord, rien d'autre ; aucun jeton Discord n'est conservé ;",
+      "text": "um cookie de sessão criptografado, `mlbbdex_discord` (httpOnly, 7 dias), se você fizer login com o Discord no painel ou fórum: seu ID do Discord, nome e avatar, nada mais; nenhum token Discord é retido;"
     },
     "prose.bot.details": {
       "fr": "Le détail, la durée de conservation et la suppression sont décrits sur la page de confidentialité du bot.",
@@ -59005,8 +59937,8 @@
       "text": "Bot de Discord (opcional)"
     },
     "prose.community.account": {
-      "fr": "un identifiant de compte dérivé (une empreinte de votre ID de jeu et de votre serveur, jamais l'ID lui-même), votre pseudo de jeu, et la date de votre première participation ;",
-      "text": "um identificador de conta derivado (um hash do seu ID do jogo e do seu servidor, nunca o próprio ID), seu nick no jogo e a data da sua primeira participação;"
+      "fr": "si vous vous connectez avec votre compte de jeu : un identifiant de compte dérivé (une empreinte de votre ID de jeu et de votre serveur, jamais l'ID lui-même), votre pseudo de jeu, et la date de votre première participation ;",
+      "text": "se você fizer login com sua conta de jogo: um ID de conta derivado (uma impressão digital de seu ID de jogo e servidor, nunca o ID em si), seu apelido no jogo e a data de sua primeira participação;"
     },
     "prose.community.card": {
       "fr": "votre carte de recherche de coéquipiers, et, si vous les ajoutez, votre ID de jeu et votre pseudo Discord : ils ne sont montrés qu'aux joueurs connectés, et la carte est effacée sept jours après son dernier enregistrement.",
@@ -60243,6 +61175,106 @@
     "pages.nicknameUI.copiedDiscord": {
       "fr": "Montre-le sur le Discord →",
       "text": "Mostre no Discord →"
+    },
+    "nav.lore.label": {
+      "fr": "Lore",
+      "text": "História"
+    },
+    "nav.freeRotation.desc": {
+      "fr": "La rotation de la semaine",
+      "text": "Rotação da semana"
+    },
+    "footer.legalNotice": {
+      "fr": "Mentions légales",
+      "text": "Avisos legais"
+    },
+    "pages.patchNotes.credit": {
+      "fr": "Notes reprises du {link}, sous licence CC BY-SA. Le texte original est publié par Moonton ; ce site n'en modifie pas le contenu.",
+      "text": "Notas retiradas de {link}, sob licença CC BY-SA. O texto original é publicado pela Moonton; este site não modifica seu conteúdo."
+    },
+    "pages.patchNotes.creditTranslated": {
+      "fr": "Notes reprises du {link}, sous licence CC BY-SA, et traduites automatiquement de l'anglais. Le texte original est publié par Moonton.",
+      "text": "Notas retiradas de {link}, sob licença CC BY-SA, e traduzidas automaticamente do inglês. O texto original é publicado pela Moonton."
+    },
+    "pages.account.favourites": {
+      "fr": "Héros favoris",
+      "text": "Heróis favoritos"
+    },
+    "pages.matchupsUI.copy": {
+      "fr": "Copier le lien",
+      "text": "Copiar link"
+    },
+    "pages.accountProfile.colHero": {
+      "fr": "Héros",
+      "text": "Herói"
+    },
+    "pages.sheets.heroes": {
+      "fr": "Héros",
+      "text": "Herói"
+    },
+    "pages.spellDetail.seconds": {
+      "fr": "{n} s",
+      "text": "{n}s"
+    },
+    "pages.heroCounters.atRank": {
+      "fr": "En {rank}",
+      "text": "Em {rank}"
+    },
+    "pages.heroCounters.colHero": {
+      "fr": "Héros",
+      "text": "Herói"
+    },
+    "pages.statisticsTable.heroes": {
+      "fr": "Héros",
+      "text": "Herói"
+    },
+    "pages.skinsCalendarUI.heroes": {
+      "fr": "Héros",
+      "text": "Herói"
+    },
+    "pages.skinsCalendarUI.series": {
+      "fr": "Série",
+      "text": "Série"
+    },
+    "pages.collectionUI.series": {
+      "fr": "Série",
+      "text": "Série"
+    },
+    "pages.collectionUI.pool": {
+      "fr": "Héros",
+      "text": "Herói"
+    },
+    "pages.collectionUI.syncSignIn": {
+      "fr": "Se connecter",
+      "text": "Conecte-se"
+    },
+    "pages.mlbbdleUI.heroColumn": {
+      "fr": "Héros",
+      "text": "Herói"
+    },
+    "pages.esports.meta.winners": {
+      "fr": "Meilleur taux de victoire",
+      "text": "Melhor taxa de vitória"
+    },
+    "pages.esports.versus.hero": {
+      "fr": "Héros",
+      "text": "Herói"
+    },
+    "pages.esports.pro.roles.exp": {
+      "fr": "EXP",
+      "text": "EXP"
+    },
+    "pages.esportsUI.hero": {
+      "fr": "Héros",
+      "text": "Herói"
+    },
+    "pages.mapUI.short.exp-lane": {
+      "fr": "EXP",
+      "text": "EXP"
+    },
+    "pages.buildSimulatorUI.copyLink": {
+      "fr": "Copier le lien",
+      "text": "Copiar link"
     }
   },
   "ru": {
@@ -64311,8 +65343,8 @@
       "text": "Из скинов, которые можно отметить ({skins}), цена в алмазах есть у {diamonds}, в другой валюте (Magic Cores, самоцветы…) — у {others}, а без цены в магазине — {unpriced}: StarLight, события, розыгрыши и пропуска. Они учитываются в прогрессе коллекции, но не в сумме алмазов — мы их не угадываем."
     },
     "pages.collection.methodStorage": {
-      "fr": "Votre sélection reste dans ce navigateur (stockage local) : rien n'est envoyé à nos serveurs, et aucun compte n'est nécessaire. Les prix sont ceux de la boutique du jeu recensés par le wiki communautaire ; les remises et les packs ne sont pas pris en compte.",
-      "text": "Ваш выбор хранится в этом браузере (локальное хранилище): на наши серверы ничего не отправляется, аккаунт не нужен. Цены — это цены игрового магазина по данным вики сообщества; скидки и наборы не учитываются."
+      "fr": "Votre sélection reste dans ce navigateur (stockage local), sans compte. Connecté avec votre compte de jeu, elle est aussi enregistrée sur votre compte, pour la retrouver sur un autre appareil ; un fichier de sauvegarde l'emporte où vous voulez. Les prix sont ceux de la boutique du jeu recensés par le wiki communautaire ; les remises et les packs ne sont pas pris en compte.",
+      "text": "Ваш выбор остается в этом браузере (локальном хранилище) без учетной записи. Привязанный к вашему игровому аккаунту, он также сохраняется в вашей учетной записи, поэтому вы можете найти его на другом устройстве; файл сохранения переносит его куда угодно. Цены указаны в игровом магазине, указанном в вики-сообществе; скидки и пакеты не учитываются."
     },
     "pages.collection.title": {
       "fr": "Calculateur de valeur de collection",
@@ -64523,8 +65555,8 @@
       "text": "изменено"
     },
     "pages.community.lead": {
-      "fr": "Le forum des joueurs de MLBBDex : questions, builds, aide en classé, esport et guides, plus un tableau pour trouver des coéquipiers. Lecture libre, connexion avec votre compte de jeu pour écrire.",
-      "text": "Форум игроков MLBBDex: вопросы, билды, помощь в рейтинге, киберспорт и гайды, а также доска для поиска тиммейтов. Читать можно всем; чтобы писать, войдите через игровой аккаунт."
+      "fr": "Le forum des joueurs de MLBBDex : questions, builds, aide en classé, esport et guides, plus un tableau pour trouver des coéquipiers. Tout le monde peut lire. Pour écrire, connectez-vous avec votre compte de jeu ou avec Discord.",
+      "text": "Форум игроков MLBBDex: вопросы, сборки, рейтинговая помощь, киберспорт и руководства, а также таблица для поиска товарищей по команде. Каждый может читать. Чтобы написать, войдите под своим игровым аккаунтом или Discord."
     },
     "pages.community.locked": {
       "fr": "Verrouillée",
@@ -71955,8 +72987,8 @@
       "text": "Moonton не публикует официальной ленты — сайт игры представляет собой приложение, содержимое которого нельзя транслировать. Поэтому обновления игры переносятся и комментируются вручную в патч-ноутах, а обзор новостей охватывает то, что публикует остальной интернет."
     },
     "prose.bot.cookie": {
-      "fr": "un cookie de session chiffré, `mlbbdex_discord` (httpOnly, 7 jours), si vous vous connectez au tableau de bord avec Discord : votre identifiant, votre nom et votre avatar Discord, rien d'autre ; aucun jeton Discord n'est conservé ;",
-      "text": "зашифрованный сессионный cookie `mlbbdex_discord` (httpOnly, 7 дней), если вы входите в панель управления через Discord: ваш идентификатор, имя и аватар Discord, и ничего больше; токены Discord не хранятся;"
+      "fr": "un cookie de session chiffré, `mlbbdex_discord` (httpOnly, 7 jours), si vous vous connectez avec Discord au tableau de bord ou au forum : votre identifiant, votre nom et votre avatar Discord, rien d'autre ; aucun jeton Discord n'est conservé ;",
+      "text": "зашифрованный файл cookie сеанса, `mlbbdex_discord` (только http, 7 дней), если вы входите с помощью Discord на панель управления или на форум: ваш идентификатор Discord, имя и аватар, ничего больше; токены Discord не сохраняются;"
     },
     "prose.bot.intro": {
       "fr": "Si vous utilisez le bot Discord MLBBDex ou son tableau de bord, le serveur du site conserve aussi :",
@@ -71979,8 +73011,8 @@
       "text": "Discord-бот (необязательно)"
     },
     "prose.community.account": {
-      "fr": "un identifiant de compte dérivé (une empreinte de votre ID de jeu et de votre serveur, jamais l'ID lui-même), votre pseudo de jeu, et la date de votre première participation ;",
-      "text": "производный идентификатор аккаунта (хеш вашего игрового ID и сервера, но никогда не сам ID), ваш игровой ник и дату вашего первого участия;"
+      "fr": "si vous vous connectez avec votre compte de jeu : un identifiant de compte dérivé (une empreinte de votre ID de jeu et de votre serveur, jamais l'ID lui-même), votre pseudo de jeu, et la date de votre première participation ;",
+      "text": "если вы входите в систему под своей игровой учетной записью: производный идентификатор учетной записи (отпечаток вашего игрового идентификатора и сервера, а не сам идентификатор), ваш игровой ник и дата вашего первого участия;"
     },
     "prose.community.card": {
       "fr": "votre carte de recherche de coéquipiers, et, si vous les ajoutez, votre ID de jeu et votre pseudo Discord : ils ne sont montrés qu'aux joueurs connectés, et la carte est effacée sept jours après son dernier enregistrement.",
@@ -73369,6 +74401,118 @@
     "pages.nicknameUI.copiedDiscord": {
       "fr": "Montre-le sur le Discord →",
       "text": "Покажите в Discord →"
+    },
+    "common.method": {
+      "fr": "Méthode et sources",
+      "text": "Метод и источники"
+    },
+    "nav.freeRotation.desc": {
+      "fr": "La rotation de la semaine",
+      "text": "Ротация недели"
+    },
+    "pages.heroDetail.statistics.minutes": {
+      "fr": "{from}–{to} min",
+      "text": "{from}–{to} мин."
+    },
+    "pages.draft.methodTitle": {
+      "fr": "Méthode et sources",
+      "text": "Метод и источники"
+    },
+    "pages.account.favourites": {
+      "fr": "Héros favoris",
+      "text": "Любимые герои"
+    },
+    "pages.accountProfile.colHero": {
+      "fr": "Héros",
+      "text": "Герой"
+    },
+    "pages.accountProfile.outcome.win": {
+      "fr": "Victoire",
+      "text": "Победа"
+    },
+    "pages.sheets.heroes": {
+      "fr": "Héros",
+      "text": "Герой"
+    },
+    "pages.heroCounters.colHero": {
+      "fr": "Héros",
+      "text": "Герой"
+    },
+    "pages.statisticsTable.heroes": {
+      "fr": "Héros",
+      "text": "Герой"
+    },
+    "pages.tierMaker.howToOpen": {
+      "fr": "Afficher les quatre étapes",
+      "text": "Показать все четыре шага"
+    },
+    "pages.tierMakerUI.export": {
+      "fr": "Télécharger l'image",
+      "text": "Скачать изображение"
+    },
+    "pages.skinsCalendarUI.heroes": {
+      "fr": "Héros",
+      "text": "Герой"
+    },
+    "pages.collectionUI.pool": {
+      "fr": "Héros",
+      "text": "Герой"
+    },
+    "pages.collectionUI.syncSignIn": {
+      "fr": "Se connecter",
+      "text": "Авторизоваться"
+    },
+    "pages.mlbbdleUI.noResult": {
+      "fr": "Aucun héros ne correspond.",
+      "text": "Ни один герой не подходит."
+    },
+    "pages.mlbbdleUI.heroColumn": {
+      "fr": "Héros",
+      "text": "Герой"
+    },
+    "pages.esports.versus.hero": {
+      "fr": "Héros",
+      "text": "Герой"
+    },
+    "pages.esports.facts.patch": {
+      "fr": "Patch",
+      "text": "Пластырь"
+    },
+    "pages.esports.pro.roles.exp": {
+      "fr": "EXP",
+      "text": "Опыт"
+    },
+    "pages.esports.pro.roles.gold": {
+      "fr": "Gold",
+      "text": "Золото"
+    },
+    "pages.esports.pro.win": {
+      "fr": "Victoire",
+      "text": "Победа"
+    },
+    "pages.esportsUI.hero": {
+      "fr": "Héros",
+      "text": "Герой"
+    },
+    "pages.draftSimulatorUI.methodTitle": {
+      "fr": "Méthode et sources",
+      "text": "Метод и источники"
+    },
+    "pages.mapUI.legend.shared": {
+      "fr": "Commun",
+      "text": "Общий"
+    },
+    "pages.botUI.roleMenus.titleLabel": {
+      "fr": "Titre",
+      "text": "Заголовок"
+    },
+    "pages.botAdmin.results": {
+      "fr": "Parties jouées",
+      "text": "Сыграно игр"
+    },
+    "pages.communityUI.titleLabel": {
+      "fr": "Titre",
+      "text": "Заголовок"
     }
   }
 }
