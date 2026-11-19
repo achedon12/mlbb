@@ -1,7 +1,14 @@
 import { describe, expect, it } from "vitest";
 import type { SkinCatalog } from "@/lib/skin-catalog";
 import { buildMonths, isMonth, monthOfRelease, monthStatus, neighbours, obtainMode, shiftMonth } from "@/lib/events";
-import { attachHeroes, level2Section, nameKey, readGallery, sortEntries } from "../../scripts/events.mjs";
+import {
+  attachHeroes,
+  currentMonthWarnings,
+  level2Section,
+  nameKey,
+  readGallery,
+  sortEntries,
+} from "../../scripts/events.mjs";
 
 const skin = (o: Partial<SkinCatalog>): SkinCatalog => ({
   id: "1",
@@ -137,6 +144,76 @@ describe("script: wiki monthly lists", () => {
       { month: "2026-02", heroName: "Odette", skin: "Song of Devotion", id: "104610" },
       { month: "2026-11", heroName: "Bruno", skin: "The Purifier", id: "101210" },
     ]);
+  });
+
+  // Lines of https://mobilelegends.fandom.com/wiki/Collector_Skins, revision 193921
+  // (2 November 2026): January 2026 still has the `<br>`, the next months do not.
+  const collector2026 = [
+    "==Collector Skins List==",
+    "=== 2026 ===",
+    "<gallery>",
+    "File:Hero1156-portrait.png|'''Xavier - Sunborn Monarch'''<br>January 2026",
+    "File:Hero104610-portrait.png|'''Odette - Song of Devotion'''    February 2026  ",
+    "File:Hero104713-portrait.png|'''Lancelot - Blade of Devotion'''     February 2026  ",
+    "File:Hero100610-portrait.png|'''Tigreal - Celestial General'''     March 2026  ",
+    "File:Hero100211-portrait.jpg|'''Balmond - Vulcan Lionheart'''     August 2026  ",
+    "File:Hero102710-portrait.png|'''Sun - Celestial Rebel'''     October 2026  ",
+    "File:Hero101813-portrait.png|'''Layla - Prismatic Rhythm'''     October 2026  ",
+    "File:Hero101210-portrait.png|'''Bruno - The Purifier'''     November 2026",
+    "</gallery>",
+  ].join("\n");
+
+  it("reads every month of the 2026 Collector list, with and without <br>", () => {
+    const entries = readGallery(level2Section(collector2026, "Collector Skins List") ?? "");
+    expect(entries.map((e: { month: string }) => e.month)).toEqual([
+      "2026-01",
+      "2026-02",
+      "2026-02",
+      "2026-03",
+      "2026-08",
+      "2026-10",
+      "2026-10",
+      "2026-11",
+    ]);
+    expect(entries.at(-1)).toEqual({ month: "2026-11", heroName: "Bruno", skin: "The Purifier", id: "101210" });
+    expect(entries[4]).toEqual({ month: "2026-08", heroName: "Balmond", skin: "Vulcan Lionheart", id: "100211" });
+  });
+
+  it("accepts the other separators the wiki has used, and abbreviated months", () => {
+    const rows = [
+      "File:Hero1156-portrait.png|'''Xavier - Sunborn Monarch'''<br/>January 2026",
+      "File:Hero104610-portrait.png|'''Odette - Song of Devotion'''<br />Feb. 2026",
+      "File:Hero100610-portrait.png|'''Tigreal – Celestial General'''&nbsp;March 2026",
+      "File:Hero104410-portrait.png|'''Grock - Tremor of the Deep''' (April 2026)",
+      "Hero048-portrait.png|Alice - Dreaming Monarch<br>May 2026",
+      "File:Hero107110-portrait.png|'''Kimmy - Starbound Sentry''', Sept 2026",
+    ].join("\n");
+    expect(readGallery(rows)).toEqual([
+      { month: "2026-01", heroName: "Xavier", skin: "Sunborn Monarch", id: "1156" },
+      { month: "2026-02", heroName: "Odette", skin: "Song of Devotion", id: "104610" },
+      { month: "2026-03", heroName: "Tigreal", skin: "Celestial General", id: "100610" },
+      { month: "2026-04", heroName: "Grock", skin: "Tremor of the Deep", id: "104410" },
+      { month: "2026-05", heroName: "Alice", skin: "Dreaming Monarch", id: "048" },
+      { month: "2026-09", heroName: "Kimmy", skin: "Starbound Sentry", id: "107110" },
+    ]);
+  });
+
+  it("does not take a caption word followed by a year for a month", () => {
+    expect(readGallery("File:Hero1-portrait.png|Hero - Summer 2026")).toEqual([]);
+    expect(readGallery("Hero215-portrait.png|'''Hayabusa - Experiment 21'''<br>2018")).toEqual([]);
+  });
+
+  it("warns when the current month has no StarLight or Collector entry", () => {
+    const november = Date.UTC(2026, 10, 19);
+    const lists = {
+      starlight: [{ month: "2026-11", heroName: "Kalea", skin: "Tideborn Sailor", id: "1284" }],
+      collector: [{ month: "2026-10", heroName: "Sun", skin: "Celestial Rebel", id: "102710" }],
+    };
+    const warnings = currentMonthWarnings(lists, november);
+    expect(warnings).toHaveLength(1);
+    expect(warnings[0]).toMatch(/^::warning::Collector Skins: no skin read for 2026-11/);
+    // "No Collector Skin Released" is an entry: the month is accounted for.
+    expect(currentMonthWarnings({ collector: [{ month: "2026-11", none: true }] }, november)).toEqual([]);
   });
 
   it("links heroes by name, ignoring case and punctuation, and sorts by month", () => {

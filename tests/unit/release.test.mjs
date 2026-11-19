@@ -87,11 +87,11 @@ describe("skinRelease", () => {
   const purifier = { id: "101210", release: "202X", availability: "Limited", label: "Collector" };
 
   it("dates a skin the module left at 202X from its Collector month", () => {
-    expect(skinRelease(purifier, { month: "2026-11", now: NOW })).toEqual({ release: "2026-11", released: true });
+    expect(skinRelease(purifier, { month: "2026-11", now: NOW })).toMatchObject({ release: "2026-11", released: true });
   });
 
   it("keeps out a skin of a month that has not started", () => {
-    expect(skinRelease({ id: "1265", release: null }, { month: "2026-12", confirmed: true, now: NOW })).toEqual({
+    expect(skinRelease({ id: "1265", release: null }, { month: "2026-12", confirmed: true, now: NOW })).toMatchObject({
       release: "2026-12",
       released: false,
     });
@@ -110,5 +110,43 @@ describe("skinRelease", () => {
   it("leaves out a skin no source dates or confirms", () => {
     expect(skinRelease({ id: "517", release: "202X", availability: "Upcoming" }, { now: NOW }).released).toBe(false);
     expect(skinRelease({ id: "1096", release: null, availability: null }, { now: NOW }).released).toBe(false);
+  });
+
+  it("reads a date to come on a skin that is out as a wrong year when it falls on the hero's release day", () => {
+    // Sora "Azure Cloud": Basic skin, sold since 18 December 2025, dated 2026-12-18 in the module.
+    const azure = { id: "1312", release: "2026-12-18", availability: "Available" };
+    expect(skinRelease(azure, { confirmed: true, heroRelease: "18 December 2025", now: NOW })).toEqual({
+      release: "2025-12-18",
+      released: true,
+      dateFix: "year typo",
+    });
+  });
+
+  it("shows no date rather than a date to come on a skin that is out", () => {
+    // Balmond "Ironhide Berserker": Season 39, dated 2026-12-18; Balmond came out in 2016.
+    const ironhide = { id: "100210", release: "2026-12-18", availability: "Limited", label: "S39" };
+    expect(skinRelease(ironhide, { confirmed: true, heroRelease: "2016", now: NOW })).toEqual({
+      release: null,
+      released: true,
+      dateFix: "future date",
+    });
+    // Not confirmed by any source: still left out, date untouched.
+    expect(skinRelease(ironhide, { heroRelease: "2016", now: NOW })).toMatchObject({ release: "2026-12-18", released: false });
+  });
+
+  it("takes the StarLight month over a module date of another month", () => {
+    // Fredrinn "Royal Marshal": StarLight of December 2025, dated 2025-11-01 in the module.
+    const marshal = { id: "1176", release: "2025-11-01", availability: "Limited", label: "StarLight" };
+    expect(skinRelease(marshal, { month: "2025-12", now: NOW })).toEqual({
+      release: "2025-12",
+      released: true,
+      dateFix: "series month",
+    });
+    // Same month: the module's exact day is kept.
+    expect(skinRelease({ ...marshal, release: "2025-12-05" }, { month: "2025-12", now: NOW })).toEqual({
+      release: "2025-12-05",
+      released: true,
+      dateFix: null,
+    });
   });
 });
