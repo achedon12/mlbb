@@ -106,10 +106,19 @@ describe("runBackup", () => {
   });
 
   it("runs once at a time, in this process and across processes", async () => {
+    // `release` is set only once the dump has started: releasing earlier
+    // (the lock can appear first) left the first run waiting until timeout.
     let release = () => {};
-    const slow: Dumper = (file) => new Promise((resolve) => (release = () => void writeFile(file, "x").then(resolve)));
+    let started = () => {};
+    const dumping = new Promise<void>((resolve) => (started = resolve));
+    const slow: Dumper = (file) =>
+      new Promise((resolve) => {
+        release = () => void writeFile(file, "x").then(resolve);
+        started();
+      });
     const first = runBackup({ trigger: "admin", dir, databaseUrl: URL_, dump: slow, now: () => day(14) });
-    await vi.waitFor(async () => expect(await readdir(dir)).toContain(".backup.lock"));
+    await dumping;
+    expect(await readdir(dir)).toContain(".backup.lock");
     expect(await runBackup({ trigger: "admin", dir, databaseUrl: URL_, dump: writeDump })).toEqual({ ok: false, error: "already_running" });
     release();
     expect((await first).ok).toBe(true);
