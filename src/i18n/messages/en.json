@@ -291,7 +291,7 @@
     "version": "Version {v}",
     "contribute": "Contribute",
     "intro": "Mobile Legends: Bang Bang heroes, builds and counters by rank, a tier list calculated from ranked win rates, items, emblems and patch notes, in English, French, Italian, Spanish and Indonesian. An independent project, open to contributions.",
-    "sources": "Game data from the Mobile Legends wiki (CC BY-SA). Win, ban and pick rates, counters and most played builds come from the game's ranked match statistics, through the arena.rone.dev community API.",
+    "sources": "Game data from the Mobile Legends wiki (CC BY-SA). Win, ban and pick rates, counters and most played builds come from the game's ranked match statistics, through the arena.rone.dev community API. Hero base stats and item status: official patch notes and Liquipedia (CC BY-SA 3.0). Skill texts, cooldowns and costs: the game's official hero sheets.",
     "discord": "Join the Discord",
     "columns": {
       "heroes": "Heroes",
@@ -1261,7 +1261,9 @@
       "category": "Category",
       "price": "Price",
       "crafting": "Crafting",
-      "similar": "Other {category} items"
+      "similar": "Other {category} items",
+      "removedTitle": "Removed from the game.",
+      "removedText": "{name} is no longer sold in the shop. Its page stays online for older builds and the links that lead here."
     },
     "emblemDetail": {
       "title": "{name} MLBB: Best Heroes & Talents (Patch {v})",
@@ -5663,6 +5665,11 @@
       "name": "Revitalize",
       "description": "Creates an area that heals allies inside it.",
       "bestFor": "Supports facing damage spread over time."
+    },
+    "flameshot": {
+      "name": "Flameshot",
+      "description": "Fires a flaming shot that knocks back nearby enemies and deals Magic Damage that grows with distance.",
+      "bestFor": "Mages and marksmen who need to finish from range or peel."
     }
   },
   "error": {

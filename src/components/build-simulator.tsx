@@ -590,7 +590,7 @@ export function BuildSimulator({
       )}
       {slot !== null && (
         <ItemPicker
-          items={data.items}
+          items={data.items.filter((o) => !o.removed)}
           categories={data.categories}
           title={t("pages.buildSimulatorUI.pickItem", { n: slot + 1 })}
           current={build.items[slot] ? (itemsBySlug.get(build.items[slot]) ?? null) : null}

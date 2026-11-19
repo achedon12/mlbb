@@ -66,10 +66,12 @@ export function HeroSkills({
       type: writtenSkill?.type ?? TYPES[i] ?? "Skill",
       icon: nameWiki ? icons[nameWiki] : undefined,
       // The written analysis wins: it explains, while the official description
-      // merely states. Failing that, the game's text beats nothing.
+      // merely states. Failing that, the game's text, with its numbers.
       description: writtenSkill?.description ?? officialSkill?.description ?? null,
-      cooldown: writtenSkill?.cooldown,
-      cost: writtenSkill?.cost,
+      // The written analysis states its figures for its own skill; the
+      // official sheet gives them for every hero.
+      cooldown: writtenSkill?.cooldown ?? officialSkill?.cooldown,
+      cost: writtenSkill?.cost ?? officialSkill?.cost,
     };
   });
   const detail = open === null ? null : sheets[open];

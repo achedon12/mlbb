@@ -291,7 +291,7 @@
     "version": "Versione {v}",
     "contribute": "Contribuisci",
     "intro": "Eroi, build e counter per rango, una tier list calcolata sui tassi di vittoria delle partite classificate, oggetti, emblemi e patch notes di Mobile Legends: Bang Bang, in italiano, inglese, francese, spagnolo e indonesiano. Progetto indipendente, aperto ai contributi.",
-    "sources": "Dati di gioco dal wiki di Mobile Legends (CC BY-SA). Tassi di vittoria, ban e selezione, counter e build più giocate provengono dalle statistiche delle partite classificate del gioco, tramite l'API della community arena.rone.dev.",
+    "sources": "Dati di gioco dal wiki di Mobile Legends (CC BY-SA). Tassi di vittoria, ban e selezione, counter e build più giocate provengono dalle statistiche delle partite classificate del gioco, tramite l'API della community arena.rone.dev. Statistiche base degli eroi e stato degli oggetti: note di patch ufficiali e Liquipedia (CC BY-SA 3.0). Testi, ricariche e costi delle abilità: schede ufficiali del gioco.",
     "discord": "Unisciti alla Discordia",
     "columns": {
       "heroes": "Eroi",
@@ -1261,7 +1261,9 @@
       "category": "Categoria",
       "price": "Prezzo",
       "crafting": "Creazione",
-      "similar": "Altri oggetti della categoria {category}"
+      "similar": "Altri oggetti della categoria {category}",
+      "removedTitle": "Rimosso dal gioco.",
+      "removedText": "{name} non è più in vendita nel negozio. La sua scheda resta online per le vecchie build e i link che portano qui."
     },
     "emblemDetail": {
       "title": "{name} MLBB: migliori eroi e talenti (patch {v})",
@@ -5663,6 +5665,11 @@
       "name": "Revitalize",
       "description": "Crea un'area che cura gli alleati al suo interno.",
       "bestFor": "Supporti contro danni distribuiti nel tempo."
+    },
+    "flameshot": {
+      "name": "Flameshot",
+      "description": "Spara un colpo infuocato che respinge i nemici vicini e infligge danni magici che crescono con la distanza.",
+      "bestFor": "Maghi e tiratori che devono finire a distanza o liberarsi."
     }
   },
   "error": {

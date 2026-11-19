@@ -39,6 +39,8 @@ const isPurchasable = (o: { price: number | null; passive: string | null }) =>
   o.price !== null && !/one potion effect/i.test(o.passive ?? "");
 
 const englishItems = itemsFor("en").filter(isPurchasable);
+/** Kept in the catalogue so saved builds still read; hidden from the pickers. */
+const removedItems = new Set(englishItems.filter((o) => o.removed).map((o) => o.slug));
 
 export const simCatalog: SimCatalog = {
   heroes: new Map((generatedHeroes as unknown as GeneratedHero[]).map((h) => [h.slug, prepareHero(h)])),
@@ -98,7 +100,13 @@ export function simulatorData(locale: Locale, t: T): SimulatorData {
     items: [...simCatalog.items.values()].map((o) => {
       const tr = translated.get(o.slug);
       const text = [tr?.bonus, tr?.unique].filter((x) => x && x !== "None").join(", ");
-      return { ...o, name: tr?.name ?? o.name, image: itemImage(o.slug), text: text || null };
+      return {
+        ...o,
+        name: tr?.name ?? o.name,
+        image: itemImage(o.slug),
+        text: text || null,
+        ...(removedItems.has(o.slug) ? { removed: true } : {}),
+      };
     }),
     categories: [...new Set(englishItems.map((o) => o.category))],
     emblems: [...simCatalog.emblems.values()].map((e) => ({ ...e, name: emblemName(t, e.key), image: emblemImage(e.key) })),

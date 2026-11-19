@@ -291,7 +291,7 @@
     "version": "Versión {v}",
     "contribute": "Contribuir",
     "intro": "Héroes, builds y counters por rango, una tier list calculada con las tasas de victoria de las partidas clasificatorias, objetos, emblemas y notas del parche de Mobile Legends: Bang Bang, en español, inglés, francés, italiano e indonesio. Proyecto independiente, abierto a contribuciones.",
-    "sources": "Datos del juego de la wiki de Mobile Legends (CC BY-SA). Las tasas de victoria, baneo y selección, los counters y las builds más usadas proceden de las estadísticas de partidas clasificatorias del juego, a través de la API comunitaria arena.rone.dev.",
+    "sources": "Datos del juego de la wiki de Mobile Legends (CC BY-SA). Las tasas de victoria, baneo y selección, los counters y las builds más usadas proceden de las estadísticas de partidas clasificatorias del juego, a través de la API comunitaria arena.rone.dev. Estadísticas base de los héroes y estado de los objetos: notas de parche oficiales y Liquipedia (CC BY-SA 3.0). Textos, enfriamientos y costes de las habilidades: fichas oficiales del juego.",
     "discord": "Únete a la discordia",
     "columns": {
       "heroes": "Héroes",
@@ -1261,7 +1261,9 @@
       "category": "Categoría",
       "price": "Precio",
       "crafting": "Fabricación",
-      "similar": "Otros objetos de la categoría {category}"
+      "similar": "Otros objetos de la categoría {category}",
+      "removedTitle": "Retirado del juego.",
+      "removedText": "{name} ya no se vende en la tienda. Su ficha sigue en línea para las builds antiguas y los enlaces que llevan aquí."
     },
     "emblemDetail": {
       "title": "{name} MLBB: mejores héroes y talentos (parche {v})",
@@ -5663,6 +5665,11 @@
       "name": "Revitalize",
       "description": "Crea una zona que cura a los aliados que están dentro.",
       "bestFor": "Soportes frente a daño repartido en el tiempo."
+    },
+    "flameshot": {
+      "name": "Flameshot",
+      "description": "Dispara un proyectil de fuego que empuja a los enemigos cercanos e inflige daño mágico que crece con la distancia.",
+      "bestFor": "Magos y tiradores que deben rematar a distancia o despejarse."
     }
   },
   "error": {

@@ -9,7 +9,8 @@ export const item: Command = {
   key: "item",
   data: () => slash("item").addStringOption(stringOption("item", "name", { required: true, autocomplete: true })).toJSON(),
   async autocomplete(interaction, ctx) {
-    return toChoices(searchByName(await ctx.services.data.items(ctx.locale), String(interaction.options.getFocused())));
+    const items = (await ctx.services.data.items(ctx.locale)).filter((i) => !i.removed);
+    return toChoices(searchByName(items, String(interaction.options.getFocused())));
   },
   async execute(interaction, ctx) {
     const query = interaction.options.getString(optionName("item", "name"), true);

@@ -291,7 +291,7 @@
     "version": "Version {v}",
     "contribute": "Contribuer",
     "intro": "Héros, builds et contres par rang, tier list calculée sur les taux de victoire en classé, objets, emblèmes et patch notes de Mobile Legends: Bang Bang, en français, anglais, italien, espagnol et indonésien. Projet indépendant, ouvert aux contributions.",
-    "sources": "Données de jeu issues du wiki Mobile Legends (CC BY-SA). Taux de victoire, de ban et de sélection, contres et builds les plus joués viennent des statistiques de parties classées du jeu, via l'API communautaire arena.rone.dev.",
+    "sources": "Données de jeu issues du wiki Mobile Legends (CC BY-SA). Taux de victoire, de ban et de sélection, contres et builds les plus joués viennent des statistiques de parties classées du jeu, via l'API communautaire arena.rone.dev. Statistiques de base des héros et statut des objets : notes de patch officielles et Liquipedia (CC BY-SA 3.0). Textes, recharges et coûts des compétences : fiches officielles du jeu.",
     "discord": "Rejoindre le Discord",
     "columns": {
       "heroes": "Héros",
@@ -1261,7 +1261,9 @@
       "category": "Catégorie",
       "price": "Prix",
       "crafting": "Fabrication",
-      "similar": "Autres objets de la catégorie {category}"
+      "similar": "Autres objets de la catégorie {category}",
+      "removedTitle": "Retiré du jeu.",
+      "removedText": "{name} n'est plus en vente dans la boutique. Sa fiche reste en ligne pour les anciens builds et les liens qui y mènent."
     },
     "emblemDetail": {
       "title": "{name} MLBB : meilleurs héros et talents (patch {v})",
@@ -5663,6 +5665,11 @@
       "name": "Revitalize",
       "description": "Crée une zone qui soigne les alliés présents.",
       "bestFor": "Soutiens face à des dégâts étalés dans le temps."
+    },
+    "flameshot": {
+      "name": "Flameshot",
+      "description": "Tire une boule de feu qui repousse les ennemis proches et inflige des dégâts magiques croissants avec la distance.",
+      "bestFor": "Mages et tireurs qui doivent achever à distance ou se dégager."
     }
   },
   "error": {

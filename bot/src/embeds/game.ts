@@ -88,7 +88,10 @@ export function heroEmbed(view: View, hero: HeroDetail, ranking: RankingEntry | 
     if (build.spell) embed.addFields({ name: view.t("ui.hero.spell"), value: build.spell, inline: true });
   }
   // Once each: the wiki lists a skill twice when it has two forms (Sun's clones).
-  const skills = [...new Set(hero.skills.flatMap((s) => (s ? [s.name] : [])))];
+  // The cooldown follows the name when the official sheet gives one.
+  const skills = [
+    ...new Set(hero.skills.flatMap((s) => (s ? [s.cooldown?.length ? `${s.name} (${s.cooldown.join("/")} s)` : s.name] : []))),
+  ];
   if (skills.length) embed.addFields({ name: view.t("ui.hero.skills"), value: listOr(view, skills, " · ") });
   return embed;
 }

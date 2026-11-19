@@ -291,7 +291,7 @@
     "version": "Bersyon {v}",
     "contribute": "Mag-ambag",
     "intro": "Mga hero, build at counter ng Mobile Legends: Bang Bang ayon sa rank, tier list na kinukuwenta mula sa ranked win rate, mga item, emblem at patch notes, sa English, French, Italian, Spanish at Indonesian. Isang independiyenteng proyekto, bukas sa mga kontribusyon.",
-    "sources": "Game data mula sa Mobile Legends wiki (CC BY-SA). Ang win, ban at pick rate, mga counter at pinakaginagamit na build ay galing sa ranked match statistics ng laro, sa pamamagitan ng arena.rone.dev community API.",
+    "sources": "Game data mula sa Mobile Legends wiki (CC BY-SA). Ang win, ban at pick rate, mga counter at pinakaginagamit na build ay galing sa ranked match statistics ng laro, sa pamamagitan ng arena.rone.dev community API. Base stats ng mga hero at status ng mga item: opisyal na patch notes at Liquipedia (CC BY-SA 3.0). Mga text, cooldown at cost ng skill: opisyal na hero sheet ng laro.",
     "discord": "Sumali sa Discord",
     "columns": {
       "heroes": "Mga hero",
@@ -1261,7 +1261,9 @@
       "category": "Kategorya",
       "price": "Presyo",
       "crafting": "Recipe",
-      "similar": "Iba pang {category} item"
+      "similar": "Iba pang {category} item",
+      "removedTitle": "Tinanggal na sa laro.",
+      "removedText": "Hindi na ibinebenta sa shop ang {name}. Nananatili online ang page nito para sa mga lumang build at sa mga link na papunta rito."
     },
     "emblemDetail": {
       "title": "{name} MLBB: Pinakamahusay na Hero at Talent (Patch {v})",
@@ -5663,6 +5665,11 @@
       "name": "Revitalize",
       "description": "Gumagawa ng area na nagpapagaling sa mga kakampi sa loob nito.",
       "bestFor": "Mga support na humaharap sa damage na unti-unting dumarating."
+    },
+    "flameshot": {
+      "name": "Flameshot",
+      "description": "Nagpapaputok ng nagliliyab na bala na nagtutulak sa mga kalapit na kalaban at nagbibigay ng Magic Damage na lumalaki ayon sa layo.",
+      "bestFor": "Mga mage at marksman na kailangang tumapos mula sa malayo o kumawala."
     }
   },
   "error": {

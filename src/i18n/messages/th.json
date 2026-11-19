@@ -291,7 +291,7 @@
     "version": "เวอร์ชัน {v}",
     "contribute": "ร่วมเขียน",
     "intro": "ฮีโร่ บิลด์ และเคาน์เตอร์ของ Mobile Legends: Bang Bang ตามแรงก์ Tier List ที่คำนวณจาก Win Rate ในเกม Ranked ไอเทม Emblem และแพตช์โน้ต ในภาษาอังกฤษ ฝรั่งเศส อิตาลี สเปน และอินโดนีเซีย เป็นโปรเจกต์อิสระที่เปิดให้ทุกคนร่วมสร้าง",
-    "sources": "ข้อมูลเกมจากวิกิ Mobile Legends (CC BY-SA) Win Rate, Ban Rate, Pick Rate เคาน์เตอร์ และบิลด์ที่ใช้มากที่สุดมาจากสถิติแมตช์ Ranked ของเกม ผ่าน API ชุมชน arena.rone.dev",
+    "sources": "ข้อมูลเกมจากวิกิ Mobile Legends (CC BY-SA) Win Rate, Ban Rate, Pick Rate เคาน์เตอร์ และบิลด์ที่ใช้มากที่สุดมาจากสถิติแมตช์ Ranked ของเกม ผ่าน API ชุมชน arena.rone.dev ค่าสถานะพื้นฐานของฮีโร่และสถานะไอเทม: แพตช์โน้ตทางการและ Liquipedia (CC BY-SA 3.0) ข้อความ คูลดาวน์ และค่าใช้จ่ายของสกิล: ข้อมูลฮีโร่ทางการของเกม",
     "discord": "เข้าร่วม Discord",
     "columns": {
       "heroes": "ฮีโร่",
@@ -1261,7 +1261,9 @@
       "category": "หมวดหมู่",
       "price": "ราคา",
       "crafting": "สูตรการคราฟต์",
-      "similar": "ไอเทม {category} อื่น ๆ"
+      "similar": "ไอเทม {category} อื่น ๆ",
+      "removedTitle": "ถูกนำออกจากเกมแล้ว",
+      "removedText": "{name} ไม่มีขายในร้านค้าแล้ว หน้านี้ยังคงอยู่สำหรับบิลด์เก่าและลิงก์ที่พามาที่นี่"
     },
     "emblemDetail": {
       "title": "{name} MLBB: ฮีโร่และ Talent ที่ดีที่สุด (แพตช์ {v})",
@@ -5663,6 +5665,11 @@
       "name": "Revitalize",
       "description": "สร้างพื้นที่ที่ฟื้นฟู HP ให้เพื่อนร่วมทีมที่อยู่ข้างใน",
       "bestFor": "Support ที่เจอดาเมจแบบต่อเนื่อง"
+    },
+    "flameshot": {
+      "name": "Flameshot",
+      "description": "ยิงลูกไฟที่ผลักศัตรูใกล้เคียงออกไปและสร้าง Magic Damage ที่เพิ่มขึ้นตามระยะทาง",
+      "bestFor": "Mage และ Marksman ที่ต้องปิดเกมจากระยะไกลหรือหนีออกมา"
     }
   },
   "error": {

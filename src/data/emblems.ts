@@ -93,5 +93,6 @@ export const battleSpells: BattleSpell[] = [
   { key: "arrival", name: "Arrival", cooldown: 90, description: "Téléporte le héros vers une tourelle ou un sbire allié.", bestFor: "Lanes solo qui doivent revenir vite après un retour à la base.", roles: ["Fighter", "Tank"] },
   { key: "vengeance", name: "Vengeance", cooldown: 75, description: "Renvoie une partie des dégâts subis pendant la durée.", bestFor: "Combattants de lane d'expérience.", roles: ["Fighter", "Tank"] },
   { key: "aegis", name: "Aegis", cooldown: 75, description: "Accorde un bouclier à soi-même et aux alliés proches.", bestFor: "Soutiens et tanks protecteurs.", roles: ["Support", "Tank"] },
+  { key: "flameshot", name: "Flameshot", cooldown: 50, description: "Tire une boule de feu qui repousse les ennemis proches et inflige des dégâts magiques croissants avec la distance.", bestFor: "Mages et tireurs qui doivent achever à distance ou se dégager.", roles: ["Mage", "Marksman"] },
   { key: "revitalize", name: "Revitalize", cooldown: 60, description: "Crée une zone qui soigne les alliés présents.", bestFor: "Soutiens face à des dégâts étalés dans le temps.", roles: ["Support"] },
 ];

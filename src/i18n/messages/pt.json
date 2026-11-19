@@ -291,7 +291,7 @@
     "version": "Versão {v}",
     "contribute": "Contribuir",
     "intro": "Heróis, builds e counters por elo, tier list calculada a partir das taxas de vitória das ranqueadas, itens, emblemas e patch notes do Mobile Legends: Bang Bang, em inglês, francês, italiano, espanhol e indonésio. Projeto independente, aberto a contribuições.",
-    "sources": "Dados do jogo da wiki do Mobile Legends (CC BY-SA). As taxas de vitória, ban e pick, os counters e as builds mais usadas vêm das estatísticas de partidas ranqueadas do jogo, por meio da API comunitária arena.rone.dev.",
+    "sources": "Dados do jogo da wiki do Mobile Legends (CC BY-SA). As taxas de vitória, ban e pick, os counters e as builds mais usadas vêm das estatísticas de partidas ranqueadas do jogo, por meio da API comunitária arena.rone.dev. Atributos base dos heróis e status dos itens: notas de patch oficiais e Liquipedia (CC BY-SA 3.0). Textos, recargas e custos das habilidades: fichas oficiais do jogo.",
     "discord": "Entre no Discord",
     "columns": {
       "heroes": "Heróis",
@@ -1261,7 +1261,9 @@
       "category": "Categoria",
       "price": "Preço",
       "crafting": "Fabricação",
-      "similar": "Outros itens da categoria {category}"
+      "similar": "Outros itens da categoria {category}",
+      "removedTitle": "Removido do jogo.",
+      "removedText": "{name} não é mais vendido na loja. A página continua no ar para builds antigas e para os links que levam até aqui."
     },
     "emblemDetail": {
       "title": "{name} MLBB: melhores heróis e talentos (patch {v})",
@@ -5663,6 +5665,11 @@
       "name": "Revitalize",
       "description": "Cria uma área que cura os aliados presentes.",
       "bestFor": "Suportes contra dano distribuído ao longo do tempo."
+    },
+    "flameshot": {
+      "name": "Flameshot",
+      "description": "Dispara um tiro flamejante que empurra os inimigos próximos e causa Dano Mágico que cresce com a distância.",
+      "bestFor": "Magos e atiradores que precisam finalizar de longe ou se desvencilhar."
     }
   },
   "error": {

@@ -291,7 +291,7 @@
     "version": "Versi {v}",
     "contribute": "Berkontribusi",
     "intro": "Hero, build, dan counter Mobile Legends: Bang Bang berdasarkan rank, tier list yang dihitung dari win rate ranked, item, emblem, dan patch notes, dalam bahasa Inggris, Prancis, Italia, Spanyol, dan Indonesia. Proyek independen yang terbuka untuk kontribusi.",
-    "sources": "Data permainan dari wiki Mobile Legends (CC BY-SA). Win rate, ban dan pengambilan, counter, dan build yang paling banyak dimainkan berasal dari statistik pertandingan peringkat game, melalui API komunitas arena.rone.dev.",
+    "sources": "Data permainan dari wiki Mobile Legends (CC BY-SA). Win rate, ban dan pengambilan, counter, dan build yang paling banyak dimainkan berasal dari statistik pertandingan peringkat game, melalui API komunitas arena.rone.dev. Atribut dasar hero dan status item: patch notes resmi dan Liquipedia (CC BY-SA 3.0). Teks, cooldown, dan biaya skill: lembar hero resmi game.",
     "discord": "Bergabunglah dengan Perselisihan",
     "columns": {
       "heroes": "Hero",
@@ -1261,7 +1261,9 @@
       "category": "Kategori",
       "price": "Harga",
       "crafting": "Resep",
-      "similar": "Item lain dalam kategori {category}"
+      "similar": "Item lain dalam kategori {category}",
+      "removedTitle": "Dihapus dari game.",
+      "removedText": "{name} tidak lagi dijual di toko. Halamannya tetap online untuk build lama dan tautan yang mengarah ke sini."
     },
     "emblemDetail": {
       "title": "{name} MLBB: Hero dan Bakat Terbaik (patch {v})",
@@ -5663,6 +5665,11 @@
       "name": "Revitalize",
       "description": "Menciptakan area yang menyembuhkan sekutu yang ada.",
       "bestFor": "Dukungan untuk damage menyebar seiring waktu."
+    },
+    "flameshot": {
+      "name": "Flameshot",
+      "description": "Menembakkan bola api yang mendorong musuh di dekatnya dan memberikan Magic Damage yang bertambah sesuai jarak.",
+      "bestFor": "Mage dan marksman yang perlu menghabisi dari jauh atau melepaskan diri."
     }
   },
   "error": {

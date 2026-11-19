@@ -3,7 +3,7 @@ import { ExtendMessages } from "@/i18n/provider";
 import { ItemList } from "@/components/item-list";
 import { PageHeader } from "@/components/ui";
 import visuals from "@/data/game/visuals.json";
-import { buildsPlayed, categoriesItems, heroesBySlug, countItems, itemsFor } from "@/lib/data";
+import { buildsPlayed, categoriesItems, heroesBySlug, countItems, currentItemsFor } from "@/lib/data";
 import { visualItem } from "@/lib/build-visuals";
 import type { HeroThumb } from "@/components/item-list";
 import type { Locale } from "@/i18n/config";
@@ -48,7 +48,8 @@ const images = visuals.items as Record<string, string>;
  */
 export async function Items({ locale, page = 1 }: { locale: Locale; page?: number }) {
   const t = createT(locale);
-  const previews = itemsFor(locale).map((o) => ({ ...o, image: images[o.slug] ?? null }));
+  // Items taken out of the game keep their page but leave the catalogue.
+  const previews = currentItemsFor(locale).map((o) => ({ ...o, image: images[o.slug] ?? null }));
 
   // Heroes that take each item in their most played builds, all
   // ranks combined, most played first. The browser only receives
