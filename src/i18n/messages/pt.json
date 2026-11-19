@@ -1214,6 +1214,26 @@
         "description": "Quanto custou sua coleção de Mobile Legends? Copie suas skins por categoria da Vitrine ({skins} skins no catálogo), confira seus pontos de coleção e tenha uma ordem de grandeza em diamantes, USD, EUR, PHP, IDR e MYR, com o método à vista."
       }
     },
+    "sources": {
+      "title": "Fontes",
+      "withPage": "{source} (página {page})",
+      "pair": "{a} e {b}",
+      "rows": {
+        "heroBase": "Características, habilidades e história: {sources}.",
+        "heroMeasures": "Textos oficiais de habilidades, taxas de vitória, counters e builds jogados em partidas ranqueadas: {sources}.",
+        "item": "Efeitos, preço e status do item: {sources}.",
+        "usage": "Builds jogadas e taxas por ranque: {sources}.",
+        "sheet": "Descrição e conselhos: escritos por {site}.",
+        "icons": "Ícones: {sources}.",
+        "rates": "Taxas de vitória, banimento e escolha nas partidas ranqueadas: API da comunidade {sources}.",
+        "tiers": "Tiers e tendências: calculados por {site} a partir dessas taxas.",
+        "patches": "Lista de patches e notas de lançamento: {sources}."
+      },
+      "licence": "Textos de wikis incluídos sob licença CC BY-SA, com atribuição aos seus colaboradores.",
+      "images": "Imagens © Moonton, usadas a título ilustrativo.",
+      "synced": "Dados do jogo sincronizados em {date}",
+      "measured": "Estatísticas medidas em {date}"
+    },
     "freshness": {
       "updatedOn": "Atualizado em {date}",
       "patch": "Patch {v}",

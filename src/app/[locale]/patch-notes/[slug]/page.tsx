@@ -5,6 +5,7 @@ import { createT, messagesPage } from "@/i18n/translations";
 import { cleanHtml, serializeJsonLd } from "@/lib/html";
 import { BodyArticle } from "@/components/article";
 import { PatchCredit } from "@/components/patch-credit";
+import { PageSourcesBlock } from "@/components/page-sources";
 import { Foldable } from "@/components/foldable";
 import { PageHeader } from "@/components/ui";
 import { NewHero } from "@/components/new-hero";
@@ -249,7 +250,9 @@ export default async function PatchPage({ params }: Params) {
                 </section>
               ))}
 
-              <PatchCredit t={t} patch={patch} translated={translated} />
+              <PageSourcesBlock locale={locale} of={{ kind: "patch" }}>
+                <PatchCredit t={t} patch={patch} translated={translated} className="" />
+              </PageSourcesBlock>
               <ReportError messages={messagesPage(locale, ["pages.reportError"])} path={`/patch-notes/${slug}`} className="mt-6" />
             </article>
           </div>

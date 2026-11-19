@@ -1,4 +1,5 @@
 import { LiquipediaPatchNote } from "@/components/patch-credit";
+import { PageSourcesBlock } from "@/components/page-sources";
 import { newestFirst } from "@/lib/patch-version";
 import { DiscordInvite } from "@/components/discord-invite";
 import type { Metadata } from "next";
@@ -851,6 +852,7 @@ export default async function HeroPage({ params }: Params) {
           ]}
         />
         <DiscordInvite t={t} context="hero" className="mt-10" />
+        <PageSourcesBlock locale={locale} of={{ kind: "hero", name: h.name }} />
         <ReportError messages={messagesPage(locale, ["pages.reportError"])} path={`/heroes/${h.slug}`} className="mt-6" />
       </div>
       </div>

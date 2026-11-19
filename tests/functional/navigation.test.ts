@@ -63,6 +63,7 @@ const NOT_IN_MENUS: Record<string, string> = {
   "/bot/dashboard": "the bot page, once signed in with Discord",
   "/bot/privacy": "the bot page",
   "/bot/terms": "the bot page",
+  "/patch-notes/advance-server": "the patch notes list; the menu and the home page only while a source documents it (advance-fresh.ts)",
 };
 
 describe("navigation", () => {

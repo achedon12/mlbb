@@ -10,6 +10,7 @@ import {
 } from "@/components/item-sheet";
 import { ListLinks, TableRanks, TableUsage } from "@/components/usage-sheet";
 import { FreshnessLine } from "@/components/freshness";
+import { PageSourcesBlock } from "@/components/page-sources";
 import Link from "@/components/link";
 import { Card, PageHeader, SectionTitle } from "@/components/ui";
 import visuals from "@/data/game/visuals.json";
@@ -257,6 +258,11 @@ export default async function ItemPage({ params }: Params) {
           </section>
         )}
 
+        <PageSourcesBlock
+          locale={locale}
+          of={{ kind: "item", name: itemsFor("en").find((x) => x.slug === slug)?.name ?? o.name }}
+          className="mt-0"
+        />
         <ReportError messages={messagesPage(locale, ["pages.reportError"])} path={`/items/${slug}`} />
       </div>
     </>
