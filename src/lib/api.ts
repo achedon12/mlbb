@@ -12,7 +12,14 @@ import { absoluteUrl } from "@/lib/site";
  * Caching is generous: this data only changes at the weekly sync, and
  * nothing justifies recomputing an identical response.
  */
-export function responseApi(data: unknown, options: { total?: number } = {}) {
+/** Liquipedia, which the patch list and some patch notes come from. */
+export const LIQUIPEDIA_CREDIT = {
+  name: "Liquipedia",
+  url: "https://liquipedia.net/mobilelegends/",
+  license: "CC BY-SA 3.0",
+};
+
+export function responseApi(data: unknown, options: { total?: number; liquipedia?: boolean } = {}) {
   return NextResponse.json(
     {
       data,
@@ -22,6 +29,8 @@ export function responseApi(data: unknown, options: { total?: number } = {}) {
         url: "https://mobilelegends.fandom.com",
         license: "CC BY-SA",
       },
+      // Patch data also comes from Liquipedia: its credit travels too.
+      ...(options.liquipedia ? { sources: [LIQUIPEDIA_CREDIT] } : {}),
     },
     {
       headers: {
@@ -30,7 +39,7 @@ export function responseApi(data: unknown, options: { total?: number } = {}) {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, OPTIONS",
         // An HTTP header only accepts Latin-1: no em dash here.
-        "X-Data-License": "CC BY-SA / Mobile Legends Wiki",
+        "X-Data-License": options.liquipedia ? "CC BY-SA / Mobile Legends Wiki, Liquipedia" : "CC BY-SA / Mobile Legends Wiki",
       },
     },
   );

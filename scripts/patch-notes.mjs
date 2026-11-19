@@ -204,7 +204,7 @@ export function newHeroes(sectionHtml) {
 }
 
 /** Stable anchor id, derived from the heading. */
-function toAnchor(text) {
+export function toAnchor(text) {
   return text
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")

@@ -620,7 +620,11 @@
       "archives": "Arquivo",
       "credit": "Notas retiradas de {link}, sob licença CC BY-SA. O texto original é publicado pela Moonton; este site não modifica seu conteúdo.",
       "creditTranslated": "Notas retiradas de {link}, sob licença CC BY-SA, e traduzidas automaticamente do inglês. O texto original é publicado pela Moonton.",
-      "publishedOn": "Notas publicadas em {date}",
+      "creditLiquipedia": "Notas retiradas de {source} ({page}), publicadas sob licença {license}. O texto original é publicado pela Moonton; este site não modifica seu conteúdo.",
+      "creditLiquipediaTranslated": "Notas retiradas de {source} ({page}), publicadas sob a licença {license} e traduzidas automaticamente do inglês. O texto original é publicado pela Moonton.",
+      "creditHeroesLiquipedia": "As mudanças nos heróis vêm de {source} ({page}), lançado sob a licença {license}.",
+      "creditShortLiquipedia": "Notas do patch {versions} retiradas de {source}, lançadas sob licença {license}.",
+      "publishedOn": "Lançado em {date}",
       "changes": {
         "title": "Todas as mudanças de heróis no patch {v}",
         "summary": {

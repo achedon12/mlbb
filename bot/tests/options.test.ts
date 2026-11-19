@@ -65,6 +65,9 @@ describe("option parsing", () => {
     expect(parseVersion("v2.1.90")).toBe("2.1.90");
     expect(parseVersion("Patch Notes 1.9.42")).toBe("1.9.42");
     expect(parseVersion("latest")).toBeNull();
+    expect(parseVersion("2.2.16a")).toBe("2.2.16a");
+    expect(parseVersion("Patch 1.9.20B")).toBe("1.9.20b");
+    expect(parseVersion("2.2.16 and more")).toBe("2.2.16");
     const patches = [
       { version: "2.2.16", title: "Patch Notes 2.2.16", link: "" },
       { version: "2.1.90", title: "Patch Notes 2.1.90", link: "" },

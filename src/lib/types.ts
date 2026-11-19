@@ -75,10 +75,18 @@ export interface GeneratedItem {
   bestFor: string | null;
 }
 
+/**
+ * A patch of the list. `link` is the page the notes are read from (Fandom
+ * wiki when it has one, Liquipedia otherwise); `liquipedia`, Liquipedia's page,
+ * which gives the release date.
+ */
 export interface Patch {
   version: string;
   title: string;
   link: string;
+  /** Release on the Official Server (Liquipedia), ISO date. */
+  date?: string | null;
+  liquipedia?: string | null;
 }
 
 /** Local paths of a hero's visuals. No external URL. */
@@ -224,12 +232,23 @@ export interface PatchSection {
   role: "newHeroes" | "adjustments" | null;
 }
 
+export type PatchSource = "fandom" | "liquipedia";
+
 export interface DetailedPatch {
   version: string;
   title: string;
-  /** Notes going live on the wiki, a few days from the release. */
+  /**
+   * Release on the Official Server, as Liquipedia dates it; for a patch
+   * Liquipedia does not list, the day its Fandom page was created.
+   */
   date?: string | null;
   link: string;
+  /** Wiki the notes are taken from: `link` is a page of it. */
+  source?: PatchSource;
+  /** Liquipedia's page for the patch, when it has one. */
+  liquipedia?: string | null;
+  /** Hero changes taken from Liquipedia while the rest comes from the Fandom page. */
+  adjustmentsSource?: PatchSource;
   toc: { level: number; title: string; anchor: string }[];
   sections: PatchSection[];
   newHeroes: NewHero[];

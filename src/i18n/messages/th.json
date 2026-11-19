@@ -620,7 +620,11 @@
       "archives": "คลังเก่า",
       "credit": "โน้ตนำมาจาก {link} ภายใต้สัญญาอนุญาต CC BY-SA ข้อความต้นฉบับเผยแพร่โดย Moonton เว็บไซต์นี้ไม่ได้แก้ไขเนื้อหา",
       "creditTranslated": "โน้ตนำมาจาก {link} ภายใต้สัญญาอนุญาต CC BY-SA และแปลจากภาษาอังกฤษโดยอัตโนมัติ ข้อความต้นฉบับเผยแพร่โดย Moonton",
-      "publishedOn": "โน้ตเผยแพร่เมื่อ {date}",
+      "creditLiquipedia": "หมายเหตุที่นำมาจาก {source} ({page}) จัดพิมพ์ภายใต้ใบอนุญาต {license} ข้อความต้นฉบับจัดพิมพ์โดย Moonton; ไซต์นี้ไม่ได้แก้ไขเนื้อหา",
+      "creditLiquipediaTranslated": "หมายเหตุที่นำมาจาก {source} ({page}) จัดพิมพ์ภายใต้ใบอนุญาต {license} และแปลจากภาษาอังกฤษโดยอัตโนมัติ ข้อความต้นฉบับเผยแพร่โดย Moonton",
+      "creditHeroesLiquipedia": "การเปลี่ยนแปลงฮีโร่มาจาก {source} ({page}) ซึ่งเผยแพร่ภายใต้ใบอนุญาต {license}",
+      "creditShortLiquipedia": "บันทึกการแก้ไข {versions} นำมาจาก {source} เผยแพร่ภายใต้ลิขสิทธิ์ {license}",
+      "publishedOn": "เผยแพร่เมื่อ {date}",
       "changes": {
         "title": "การเปลี่ยนแปลงฮีโร่ทั้งหมดในแพตช์ {v}",
         "summary": {

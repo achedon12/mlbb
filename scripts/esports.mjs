@@ -32,10 +32,8 @@ import {
   stageKey,
   teamKey,
 } from "./esports-analysis.mjs";
+import { api, chunks, contents, requestCount, revisions, WIKI } from "./liquipedia.mjs";
 
-const API = "https://liquipedia.net/mobilelegends/api.php";
-const WIKI = "https://liquipedia.net/mobilelegends/";
-const USER_AGENT = "MLBBDex/1.0 (+https://mlbbdex.com; contact@leoderoin.fr)";
 const OUTPUT = "src/data/game/esports.json";
 const PLAYERS_OUTPUT = "src/data/game/esports-players.json";
 const CACHE = "scripts/esports-cache.json";
@@ -44,11 +42,6 @@ const HERO_MODULE = "Module:HeroNames";
 
 /** Bump when the analysis changes: cached pages are then read again. */
 const ANALYSIS_VERSION = 3;
-const INTERVAL = 2100;
-const RENDER_INTERVAL = 31000;
-/** Titles per request: the API caps at 50, and page contents add up fast. */
-const CONTENT_BATCH = 10;
-const TITLE_BATCH = 50;
 const DRAFTS = 10;
 
 const FORCE = process.argv.includes("--force");
@@ -65,87 +58,6 @@ const SERIES = [
   { id: "mpl-ph", region: "ph", pattern: /^MPL\/Philippines\/Season (\d+)$/, slug: (n) => `mpl-ph-season-${n}`, short: (n) => `MPL PH S${n}`, seed: "MPL/Philippines/Season 18" },
   { id: "mpl-my", region: "my", pattern: /^MPL\/Malaysia\/Season (\d+)$/, slug: (n) => `mpl-my-season-${n}`, short: (n) => `MPL MY S${n}`, seed: "MPL/Malaysia/Season 18" },
 ];
-
-// ─────────────────────────────────────────────────────────────
-// API access, one request at a time
-// ─────────────────────────────────────────────────────────────
-
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-let lastRequest = 0;
-let lastRender = 0;
-let requestCount = 0;
-
-async function api(parameters, { render = false } = {}) {
-  const url = new URL(API);
-  for (const [k, v] of Object.entries({ ...parameters, format: "json", formatversion: "2" })) url.searchParams.set(k, v);
-  for (let attempt = 1; attempt <= 3; attempt += 1) {
-    const wait = Math.max(lastRequest + INTERVAL - Date.now(), render ? lastRender + RENDER_INTERVAL - Date.now() : 0);
-    if (wait > 0) await sleep(wait);
-    let response;
-    try {
-      response = await fetch(url, {
-        headers: { "User-Agent": USER_AGENT, "Accept-Encoding": "gzip" },
-        signal: AbortSignal.timeout(60000),
-      });
-    } finally {
-      lastRequest = Date.now();
-      if (render) lastRender = lastRequest;
-      requestCount += 1;
-    }
-    if (response.ok) {
-      const json = await response.json();
-      if (json.error) throw new Error(`Liquipedia: ${json.error.code} — ${json.error.info}`);
-      return json;
-    }
-    // 429 or outage: back off clearly rather than insist.
-    const delay = Number(response.headers.get("retry-after")) * 1000 || 60000 * attempt;
-    console.warn(`  HTTP ${response.status}, retrying in ${Math.round(delay / 1000)} s`);
-    await sleep(delay);
-  }
-  throw new Error(`Liquipedia unreachable: ${url}`);
-}
-
-const chunks = (list, size) => Array.from({ length: Math.ceil(list.length / size) }, (_, i) => list.slice(i * size, (i + 1) * size));
-
-/** Title as the wiki uses it, after normalization and redirects. */
-function resolver(query) {
-  const to = new Map();
-  for (const n of [...(query.normalized ?? []), ...(query.redirects ?? [])]) to.set(n.from, n.to);
-  return (title) => {
-    let t = title;
-    for (let i = 0; i < 3 && to.has(t); i += 1) t = to.get(t);
-    return t;
-  };
-}
-
-/** Latest revision of each title; `null` for a missing page. */
-async function revisions(titles) {
-  const out = new Map();
-  for (const batch of chunks([...new Set(titles)], TITLE_BATCH)) {
-    const { query } = await api({ action: "query", prop: "revisions", rvprop: "ids|timestamp", redirects: "1", titles: batch.join("|") });
-    const resolve = resolver(query);
-    const byTitle = new Map(query.pages.map((p) => [p.title, p]));
-    for (const title of batch) {
-      const p = byTitle.get(resolve(title));
-      const r = p && !p.missing ? p.revisions?.[0] : null;
-      out.set(title, r ? { title: p.title, revid: r.revid, timestamp: r.timestamp } : null);
-    }
-  }
-  return out;
-}
-
-/** Wikitext of the given titles (already resolved). */
-async function contents(titles) {
-  const out = new Map();
-  for (const batch of chunks(titles, CONTENT_BATCH)) {
-    const { query } = await api({ action: "query", prop: "revisions", rvprop: "ids|timestamp|content", rvslots: "main", titles: batch.join("|") });
-    for (const p of query.pages) {
-      const r = p.revisions?.[0];
-      if (r) out.set(p.title, { revid: r.revid, timestamp: r.timestamp, text: r.slots.main.content });
-    }
-  }
-  return out;
-}
 
 async function subpages(page) {
   const list = [];
@@ -418,7 +330,7 @@ async function main() {
     if (unknown.size) console.log(`Unmapped heroes: ${[...unknown].map(([n, c]) => `${n} (${c})`).join(", ")}`);
   } finally {
     await writeFile(CACHE, `${JSON.stringify(cache)}\n`);
-    console.log(`${requestCount} requests, ${Math.round((Date.now() - startedAt) / 1000)} s`);
+    console.log(`${requestCount()} requests, ${Math.round((Date.now() - startedAt) / 1000)} s`);
   }
 }
 

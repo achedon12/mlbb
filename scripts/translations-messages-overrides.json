@@ -4727,6 +4727,26 @@
     "pages.nicknameUI.copiedDiscord": {
       "fr": "Montre-le sur le Discord →",
       "text": "Show it off on Discord →"
+    },
+    "pages.patchNotes.creditLiquipedia": {
+      "fr": "Notes reprises de {source} ({page}), publiées sous la licence {license}. Le texte original est publié par Moonton ; ce site n'en modifie pas le contenu.",
+      "text": "Notes taken from {source} ({page}), published under the {license} license. The original text is published by Moonton; this site does not alter its content."
+    },
+    "pages.patchNotes.creditLiquipediaTranslated": {
+      "fr": "Notes reprises de {source} ({page}), publiées sous la licence {license}, et traduites automatiquement de l'anglais. Le texte original est publié par Moonton.",
+      "text": "Notes taken from {source} ({page}), published under the {license} license, and machine-translated from English. The original text is published by Moonton."
+    },
+    "pages.patchNotes.creditHeroesLiquipedia": {
+      "fr": "Les changements de héros viennent de {source} ({page}), publiés sous la licence {license}.",
+      "text": "The hero changes come from {source} ({page}), published under the {license} license."
+    },
+    "pages.patchNotes.creditShortLiquipedia": {
+      "fr": "Notes du patch {versions} reprises de {source}, publiées sous la licence {license}.",
+      "text": "Patch {versions} notes taken from {source}, published under the {license} license."
+    },
+    "pages.patchNotes.publishedOn": {
+      "fr": "Sorti le {date}",
+      "text": "Released on {date}"
     }
   },
   "es": {
@@ -30424,10 +30444,6 @@
       "fr": "Afficher la présentation des nouveaux héros ({n})",
       "text": "Ipakita ang overview ng mga bagong hero ({n})"
     },
-    "pages.patchNotes.publishedOn": {
-      "fr": "Notes publiées le {date}",
-      "text": "Notes na inilathala noong {date}"
-    },
     "pages.privacy.title": {
       "fr": "Confidentialité",
       "text": "Privacy"
@@ -44565,10 +44581,6 @@
     "pages.patchNotes.openArchives": {
       "fr": "Afficher les {n} patchs archivés",
       "text": "แสดงแพตช์ในคลังเก่า ({n})"
-    },
-    "pages.patchNotes.publishedOn": {
-      "fr": "Notes publiées le {date}",
-      "text": "โน้ตเผยแพร่เมื่อ {date}"
     },
     "pages.patchNotes.recent": {
       "fr": "Mises à jour récentes",
@@ -69517,10 +69529,6 @@
     "pages.patchNotes.openArchives": {
       "fr": "Afficher les {n} patchs archivés",
       "text": "Показать архивные патчи ({n})"
-    },
-    "pages.patchNotes.publishedOn": {
-      "fr": "Notes publiées le {date}",
-      "text": "Патч-ноуты опубликованы {date}"
     },
     "pages.quiz.challenges.duel.desc": {
       "fr": "{n} paires de héros : lequel gagne le plus souvent en partie classée, tous rangs confondus ? Les taux sont ceux de notre dernier relevé.",
