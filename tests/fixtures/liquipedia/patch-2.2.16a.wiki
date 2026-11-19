@@ -1,0 +1,97 @@
+{{Infobox patch
+|name=Patch 2.2.16a
+|image=
+|release=2026-10-14
+|highlight1 = Hero Adjustments
+|highlight2 = 
+|highlight3 = 
+|highlight4 = 
+|highlight5 = 
+|highlight6 = 
+|highlight7 = 
+|previous=2.2.16
+|next=2.2.23
+|footnotes= 
+}}
+
+=='''I.'''Hero Adjustments==
+<h3>{{HiddenSort|Aulus}}</h3>
+{{Herobc/New
+|hero      = Aulus
+|herotitle = 
+|note      = Reduced Aulus's sustainability while retaining his early-to-mid game burst potential.
+|type      = nerf
+
+|passivename = Fighting Spirit
+|passivetype = nerf
+|passive = Attack Speed of Enhanced Basic Attack: 20% (+ 2% * Hero Level) >> 20% at all levels<br>Enhanced Basic Attack's Base Damage: 135 (+ 15*Hero Level) >> 120 (+ 12*Hero Level)<br>HP Regen from Enhanced Basic Attacks: 30 (+ 15% Total Physical Attack) >> 15 (+ 20% Total Physical Attack)
+
+|skill1name = Aulus, Charge!
+|skill1type = nerf
+|skill1 = Cooldown: 14-12s >> 15s at all levels
+
+|ultimatename = Undying Fury
+|ultimatetype = buff
+|ultimate = Base Damage (First 4 Strikes): 110-270 >> 150-230<br>Base Damage (Last Slash): 330-810 >> 450-690<br>Reduced the foreswing of the final hit.
+}}
+
+<h3>{{HiddenSort|Hirara}}</h3>
+{{Herobc/New
+|hero      = Hirara
+|herotitle =
+|note          = Hirara could use her invincibility skill too frequently, making her difficult to deal with. We've reduced how often she can use her skills but slightly increased the burst damage of her full combo in the mid-to-late game.
+|type		   = nerf
+
+|skill1name = Meisen-e
+|skill1type = nerf
+|skill1 = Cooldown: 9-5.5s >> 10-6.5s
+
+|skill2name = Kaerazu
+|skill2type = buff
+|skill2= Damage: 150-255 (+ 65% Extra Physical Attack) >> 165-270 (+ 42%-70% Extra Physical Attack)
+}}
+
+<h3>{{HiddenSort|Eudora}}</h3>
+{{Herobc/New
+|hero      = Eudora
+|herotitle =
+|note          = Eudora was too oppressive in the early to mid game, so we've slightly reduced her Ultimate's damage at all levels.
+|type		   = nerf
+
+|ultimatename=Thunder's Wrath
+|ultimatetype= nerf
+|ultimate= Center Area Damage: 600-1000 (+ 160% Total Magic Power) >> 540-900 (+ 145% Total Magic Power)<br>Damage Outside the Center Area: 300-500 (+ 100% Total Magic Power) >> 270-450 (+ 90% Total Magic Power)<br>Delayed Damage: 330-550 (+ 110% Magic Power) >> 300-500 (+ 100% Magic Power)
+}}
+
+<h3>{{HiddenSort|Rafaela}}</h3> 
+{{Herobc/New 
+|hero = Rafaela 
+|herotitle = 
+|note = Rafaela's frequent skill casts provided excessive poke and team utility, so we've increased the cooldowns of Skills 1 and 2 at higher skill levels.
+|type = nerf
+
+|skill1name=Light of Retribution
+|skill1type=nerf
+|skill1=Cooldown: 5-3s >> 5s at all levels
+
+|skill2name=Holy Healing
+|skill2type=nerf
+|skill2=Cooldown: 10.5-8.5s >> 10.5-9.5s
+}}
+
+
+<h3>{{HiddenSort|Kalea}}</h3> 
+{{Herobc/New 
+|hero = Kalea 
+|herotitle = 
+|note = Kalea couldn't effectively threaten the enemy backline on her own and remained heavily reliant on her allies. Therefore, we've increased her solo kill potential.
+|type = buff
+
+|passivename = Surge of Life
+|passivetype = buff
+|passive=Damage of Enhanced Third Basic Attack: 70 (+ 4*Hero Level) >> 120 (+ 12*Hero Level)<br> New Effect: Gains 60% Movement Speed for 1s when absorbing the Water Zone.
+
+|skill3name = Tidal Strike
+|skill3type = buff
+|skill3 = Damage Bonus: 8% of Max HP >> 14% of Max HP
+}}

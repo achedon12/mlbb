@@ -1,0 +1,92 @@
+{{Infobox patch
+|name=Patch 2.1.95
+|image= 
+|release=2026-08-04
+|highlight1 = Revamped Hero {{HeroIcon|Kaja}} [[Kaja]], Nazar King . A highly mobile control Support who masters Primal Lightning to soar freely across the battlefield.
+|highlight2 = Hero Adjustments
+|highlight3 = Battlefield Adjustments
+|highlight4 = System Adjustments
+|highlight5 = Mode Adjustments
+|previous=2.1.90
+|next=2.1.95a
+|footnotes= 
+}}
+
+{{Quote
+|quote='''''From The Designers, '''''<br /><!--
+--><br /><!--
+-->In this patch, we focused on adjusting the strength of some heroes in Brawl to balance their performance in this mode. <br /><!--
+--><br /><!--
+-->Additionally, the long-awaited Chaos Clash returns in a revamped form. We've fully upgraded its map, core mechanics, and buff system. Jump in and check it out!<br /><!--
+--><br /><!--
+-->In the next patch, we will make balance adjustments based on hero performance in mid-to-late-season ranked matches and pick rates from the recently concluded MSC.<br /><!--
+--><br /><!--
+-->Good luck climbing the ranks!
+|source=Patch 2.1.95
+}}
+
+=='''I.'''Revamped Hero==
+<h3>{{HiddenSort|Kaja}}</h3>
+{{Herobc/New
+|hero      = Kaja
+|herotitle = Nazar King
+|note          = Hero Feature: A highly mobile control Support who masters Primal Lightning to soar freely across the battlefield.
+|type		   = Revamp
+
+|passivename=Wings of Lightning
+|passive=Kaja's skill damage inflicts [Paralysis] on enemies, briefly slowing them and reducing their damage.
+
+|skill1name=Ring of Order v2
+|skill1=Kaja summons a ring of Primal Lightning, dealing damage to enemies while recovering HP.
+
+|skill2name=Soaring Wings
+|skill2=Kaja dashes to the target, dealing damage and knocking them back before entering the [Soaring] state, which reduces this skill's cooldown. Hitting a hero or creep extends the state's duration.
+
+|ultimatename=Divine Binding
+|ultimate=Kaja hurls a lasso at the target area, restraining enemy heroes within. Can drag to shrink its radius while the skill is active.
+}}
+
+=='''II.'''Hero Adjustments==
+<h3>{{HiddenSort|Gord}}</h3>
+{{Herobc/New
+|hero      = Gord
+|herotitle = 
+|note          = Slightly reduced his early-to-mid-game damage output.
+|type          = nerf
+
+|passivename=Mystic Favor
+|passivetype=nerf
+|passive=Base Damage: 140 >> 120
+
+|ultimatename=Mystic Gush
+|ultimatetype=nerf
+|ultimate=Base Damage: 110-210 >> 90-160
+}}
+
+<h3>{{HiddenSort|Novaria}}</h3>
+{{Herobc/New
+|hero      = Novaria
+|herotitle = 
+|note          = We've noticed that Novaria's Skill 2 had too large a gap between average and high-level performance. To address this, we've made it easier to use effectively without lowering its high-end potential.
+|type          = buff
+
+|skill2name=Astral Recall
+|skill2type=buff
+|skill2=Movement Speed Boost: 20% initially and 60% after passing through obstacles >> 80% initially, then gradually decays to 30%
+
+Base Damage: 230-380 (+90% Total Magic Power) (+ 4% target's Max HP) >> 260-410 (+95% Total Magic Power) (+ 5% target's Max HP)
+
+Max Extra Damage Increase: 150% >> 120% (damage increase per buff stack remains at 15%)
+}}
+
+=='''III.'''Hero Adjustments==
+<h4>Bug Fixes</h4>
+Fixed an issue where using Purify would grant immunity to Clint's skill 1 damage in certain situations.
+
+=='''IV.'''System Adjustments==
+==='''A.'''Highlight Icons===
+When more than 3 match result icons are obtained, they will be collapsed, and only the amount will be displayed.
+
+==='''B.'''Season Achievements===
+Added the [Claim All] feature, allowing you to claim multiple task rewards at once.
+

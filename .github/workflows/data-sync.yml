@@ -6,7 +6,9 @@ name: Data sync
 # rates by game duration) that feed the long history: the API only goes back
 # thirty days, and only a regular run keeps them beyond that. Every Monday, the full sync also
 # rereads the wiki catalogue (heroes, skins, items, patches, combos), translates
-# it, and checks that the site builds.
+# it, and checks that the site builds. The patch list (Liquipedia, with the
+# Fandom wiki's notes) is also refreshed every day, translated and
+# build-checked only when it changed.
 #
 # The data is committed straight to main, production, with no human step: a
 # daily pull request would never be reviewed, and two data branches would
@@ -155,6 +157,38 @@ jobs:
             if [ "$attempt" = 1 ]; then sleep 900; fi
           done
           echo "::warning::Measures API unavailable: history unchanged today."
+
+      # The patch list follows Liquipedia every day: a patch shows as live
+      # from its release day, not from the next Monday. A few requests when
+      # nothing changed (one list, the recent pages); a failure keeps the
+      # previous notes.
+      - name: Patch list and notes (Liquipedia and the wiki)
+        id: patches
+        if: env.COMPLETE != 'true' || steps.complete.outcome == 'failure'
+        continue-on-error: true
+        run: |
+          # main's code may predate the patches-only mode: without it, the
+          # flag would start a full sync.
+          if ! grep -q -- '"--patches"' scripts/sync.mjs; then
+            echo "No patches-only sync on main yet: patches wait for the Monday run."
+            exit 0
+          fi
+          npm run sync -- --patches
+
+      - name: Translate and check the new patch notes
+        if: steps.patches.outcome == 'success'
+        run: |
+          if git diff --quiet -- src/data/game/patches.json; then
+            echo "No patch change."
+            exit 0
+          fi
+          node scripts/translate-data.mjs patches || echo "::warning::Patch translation failed: new notes stay in English for now."
+          # Daily runs skip the build: check it here, since the notes changed,
+          # and drop the new patch data rather than push a site that does not build.
+          if ! npm run build; then
+            echo "::warning::The site does not build with the new patch notes: previous patch data kept."
+            git checkout -- src/data/game/patches.json src/data/game/patches scripts/patches-cache.json
+          fi
 
       - name: Discard an unreadable data file
         run: |
