@@ -26,5 +26,7 @@ export async function readCardFigures(token: string, previous: ProfileSnapshot |
   if (!snapshot) return { status: "unavailable" };
   // Statistics often down: the figures last read stand, rather than zeros.
   const figuresRead = heroes?.status === "ok" || stats.status === "ok";
-  return { status: "ok", data: figuresRead || !previous ? snapshot : keepFigures(snapshot, previous) };
+  // Only the same account's: `previous` is never trusted to be the player's own.
+  const same = previous !== null && previous.roleId === snapshot.roleId && previous.zoneId === snapshot.zoneId;
+  return { status: "ok", data: figuresRead || !same ? snapshot : keepFigures(snapshot, previous) };
 }

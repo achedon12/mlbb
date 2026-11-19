@@ -63,6 +63,8 @@ export async function POST(request: Request) {
   const discord = body.data.action === "link" ? await currentDiscordLogin() : null;
   if (body.data.action === "link" && !discord) return refused(401, "sign in required");
 
+  // A lookup hint only: readCardFigures keeps these figures only if the
+  // account the game answered for is the same one.
   const me = identity(token);
   const previous = me.roleId > 0 ? await cardByAccount(accountId(me.roleId, me.zoneId)).catch(() => null) : null;
   const figures = await readCardFigures(token, previous?.snapshot ?? null);
