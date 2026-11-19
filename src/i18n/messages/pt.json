@@ -4718,13 +4718,13 @@
       "intro": "Mostre seu elo, sua taxa de vitória e seus heróis mais jogados como imagem no Discord, com o comando /profile do bot MLBBDex.",
       "needDiscord": "Para vinculá-lo, entre também com a conta do Discord que você usa nos seus servidores.",
       "discordButton": "Entrar com o Discord",
-      "linkOffer": "Vincule a conta do Discord {name} a esta conta do jogo. Seus números atuais são salvos para o cartão.",
+      "linkOffer": "Vincule a conta Discord {name} a esta conta do jogo. Suas estatísticas são lidas em cada perfil.",
       "linkButton": "Vincular e criar meu cartão",
       "linked": "Seu cartão está vinculado a uma conta do Discord. Digite /profile em um servidor onde o bot MLBBDex está.",
       "otherDiscord": "Você entrou com outra conta do Discord ({name}) diferente da vinculada. Vinculá-la move o cartão para ela.",
       "updatedAt": "Números salvos em {date}.",
       "refresh": "Atualizar meus números",
-      "noAccess": "O site não guarda nenhum acesso à sua conta do jogo: o cartão mostra os números salvos na sua última atualização e é apagado após 30 dias sem atualização.",
+      "noAccess": "Para que /profile mostre suas estatísticas atuais, o site mantém seu token de jogo criptografado até que ele expire (no máximo 7 dias); cada conexão com o site o renova. Após esse período, o cartão mostra as últimas estatísticas lidas e é excluído após 30 dias sem leitura.",
       "public": "Outros podem mostrar meu cartão (/profile user:@você)",
       "publicHint": "Desativado por padrão: só você pode mostrá-lo.",
       "showId": "Mostrar meu ID do jogo e meu servidor no cartão",
@@ -5094,7 +5094,7 @@
       "results": "para os rankings dos jogos do dia jogados no Discord: o ID e o nome no Discord dos jogadores e suas pontuações.",
       "details": "Os detalhes, o prazo de armazenamento e a exclusão estão descritos na página de privacidade do bot.",
       "members": "Nada é guardado sobre os membros de um servidor: as entradas e saídas deles, que o Discord informa ao bot, servem apenas para publicar as mensagens de boas-vindas e de despedida que o servidor ativou.",
-      "profile": "para o cartão /profile, se você o vincular pela sua página de conta: uma impressão do seu ID do Discord e outra do seu ID do jogo e servidor (nunca os próprios IDs), suas duas escolhas (se outros podem mostrá-lo, se ele mostra seu ID) e uma cópia dos seus números na sua última atualização: apelido, avatar, país, nível, elo, partidas e vitórias da temporada, três heróis mais jogados. Nenhum token do jogo é guardado. O cartão é apagado quando você o desvincula, ou 30 dias após sua última atualização;"
+      "profile": "para o cartão /profile, se você vinculá-lo na página da sua conta: uma impressão do seu ID do Discord e um do seu ID do jogo e do seu servidor (nunca os próprios IDs), suas duas escolhas (se outras pessoas puderem exibi-lo, se mostrar seu ID), uma cópia de suas estatísticas na última leitura: apelido, avatar, país, nível, classificação, jogos e vitórias da temporada, três heróis mais jogados e seu token de jogo, criptografado (AES-256-GCM), até que expire (7 dias no máximo), para que /profile relê suas estatísticas em cada chamada. Cada nova conexão com o site renova esse token. O cartão e o token são excluídos quando você os desvincula; o cartão também está 30 dias após a última leitura;"
     },
     "community": {
       "title": "Comunidade: fórum e busca de companheiros de equipe",
@@ -5199,7 +5199,7 @@
       },
       "game": {
         "title": "Faça login na conta do jogo",
-        "text": "A conexão usa o fluxo oficial do Moonton: você indica seu nome de usuário e seu servidor de jogo, um código de verificação é enviado a você no jogo e o site recebe um token temporário em troca. Essas exchanges passam por uma API da comunidade (`arena.rone.dev`) e pelos serviços Moonton, que recebem seu identificador, seu servidor, o código e depois o token. O token reside no cookie de sessão `mlbb_jeu` e nunca é salvo no servidor; as respostas do serviço (perfil, estatísticas, jogos) ficam guardadas na memória por no máximo algumas horas, para limitar as chamadas. Nunca é solicitada uma senha. O servidor só mantém algo permanentemente se você usar a comunidade ou coleção, conforme descrito abaixo."
+        "text": "A conexão usa o fluxo oficial do Moonton: você indica seu nome de usuário e seu servidor de jogo, um código de verificação é enviado a você no jogo e o site recebe um token temporário em troca. Essas exchanges passam por uma API da comunidade (`arena.rone.dev`) e pelos serviços Moonton, que recebem seu identificador, seu servidor, o código e depois o token. O token reside no cookie de sessão `mlbb_jeu`; ele só é salvo no servidor se você vincular um cartão /profile, criptografado e até expirar (veja a parte sobre o bot do Discord); as respostas do serviço (perfil, estatísticas, jogos) ficam guardadas na memória por no máximo algumas horas, para limitar as chamadas. Nunca é solicitada uma senha. O servidor só mantém algo permanentemente se você usar a comunidade ou coleção, conforme descrito abaixo."
       },
       "thirdParty": {
         "title": "Conteúdo de terceiros",
@@ -5222,7 +5222,7 @@
       "retention": {
         "title": "Por quanto tempo os dados são guardados",
         "audience": "Medição de audiência: dados de visitas mantidos até serem excluídos pelo editor; biscoitos, veja tabela acima; sua escolha em cookies, 6 meses.",
-        "sessions": "Sessões: o token da conta do jogo até expirar (no máximo 7 dias); a sessão Discord, 7 dias.",
+        "sessions": "Sessões: o token da conta do jogo até expirar (7 dias no máximo), no cookie e no servidor se você vincular um cartão /profile; a sessão Discord, 7 dias.",
         "community": "Comunidade: sua conta, suas mensagens, seus votos, seus relatórios e o registro de moderação são mantidos enquanto a comunidade existir, a menos que você solicite a exclusão; um relatório mantém uma cópia do texto relatado. Um cartão de companheiro de equipe é excluído sete dias após seu último registro.",
         "builds": "Builds de comunidade: até serem excluídas pelo autor ou mediante solicitação.",
         "collection": "Coleta sincronizada: até esvaziá-la ou sob demanda.",

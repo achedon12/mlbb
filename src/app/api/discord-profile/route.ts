@@ -7,6 +7,8 @@ import { answer, currentDiscordLogin, readJsonBody, refused, storageFailed } fro
 import { databaseConfigured } from "@/lib/db";
 import { profileDiscordKey } from "@/lib/discord-profile/access";
 import { readCardFigures } from "@/lib/discord-profile/read";
+import { sealGameToken } from "@/lib/discord-profile/token";
+import { identity } from "@/lib/mlbb-auth";
 import { forgetCard } from "@/lib/discord-profile/render-cache";
 import { cardByAccount, deleteCard, linkCard, refreshCard, setCardOptions } from "@/lib/discord-profile/store";
 import { addressOf, limitByMinute } from "@/lib/push-server";
@@ -61,20 +63,25 @@ export async function POST(request: Request) {
   const discord = body.data.action === "link" ? await currentDiscordLogin() : null;
   if (body.data.action === "link" && !discord) return refused(401, "sign in required");
 
-  const figures = await readCardFigures(token);
+  // A lookup hint only: readCardFigures keeps these figures only if the
+  // account the game answered for is the same one.
+  const me = identity(token);
+  const previous = me.roleId > 0 ? await cardByAccount(accountId(me.roleId, me.zoneId)).catch(() => null) : null;
+  const figures = await readCardFigures(token, previous?.snapshot ?? null);
   if (figures.status === "expired") return refused(401, "expired");
   if (figures.status !== "ok") return refused(503, "unavailable");
   const account = accountId(figures.data.roleId, figures.data.zoneId);
   if (!byAccount(account)) return refused(429, "too many requests");
+  const sealed = sealGameToken(token);
 
   try {
     if (discord) {
       const discordKey = profileDiscordKey(discord.id);
-      await linkCard({ discordKey, accountId: account, snapshot: figures.data });
+      await linkCard({ discordKey, accountId: account, snapshot: figures.data, token: sealed });
       forgetCard(discordKey);
       return answer({ ok: true });
     }
-    return (await refreshCard(account, figures.data)) ? answer({ ok: true }) : refused(409, "notLinked");
+    return (await refreshCard(account, figures.data, new Date(), sealed)) ? answer({ ok: true }) : refused(409, "notLinked");
   } catch (error) {
     return storageFailed("profile card save", error);
   }

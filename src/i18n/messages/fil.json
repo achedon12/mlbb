@@ -4718,13 +4718,13 @@
       "intro": "Ipakita ang rank, win rate at pinakamadalas mong laruing hero bilang larawan sa Discord, gamit ang /profile command ng MLBBDex bot.",
       "needDiscord": "Para i-link ito, mag-sign in din gamit ang Discord account na ginagamit mo sa mga server mo.",
       "discordButton": "Mag-sign in gamit ang Discord",
-      "linkOffer": "I-link ang Discord account na {name} sa game account na ito. Ise-save ang kasalukuyan mong mga numero para sa card.",
+      "linkOffer": "I-link ang Discord account {name} sa game account na ito. Ang iyong mga istatistika ay binabasa pabalik sa bawat /profile.",
       "linkButton": "I-link at gawin ang card ko",
       "linked": "Naka-link ang card mo sa isang Discord account. I-type ang /profile sa server kung nasaan ang MLBBDex bot.",
       "otherDiscord": "Naka-sign in ka gamit ang ibang Discord account ({name}) kaysa sa naka-link. Kapag ni-link ito, doon malilipat ang card.",
       "updatedAt": "Na-save ang mga numero noong {date}.",
       "refresh": "I-update ang mga numero ko",
-      "noAccess": "Walang itinatagong access ang site sa game account mo: ipinapakita ng card ang mga numerong na-save sa huli mong update, at buburahin ito pagkalipas ng 30 araw na walang update.",
+      "noAccess": "Para maipakita ng /profile ang iyong kasalukuyang mga istatistika, pinapanatili ng site na naka-encrypt ang token ng iyong laro hanggang sa ito ay mag-expire (7 araw nang higit pa); nire-renew ito ng bawat koneksyon sa site. Pagkatapos ng panahong ito, ipinapakita ng card ang huling nabasang istatistika, at tatanggalin ito pagkatapos ng 30 araw nang hindi nagbabasa.",
       "public": "Puwedeng ipakita ng iba ang card ko (/profile user:@ikaw)",
       "publicHint": "Naka-off bilang default: ikaw lang ang puwedeng magpakita nito.",
       "showId": "Ipakita ang game ID at server ko sa card",
@@ -5094,7 +5094,7 @@
       "results": "para sa mga leaderboard ng mga daily game na nilalaro sa Discord: ang Discord ID at pangalan ng mga player at ang kanilang mga score.",
       "details": "Ang mga detalye, ang tagal ng pag-iimbak at ang pagbura ay nasa privacy page ng bot.",
       "members": "Walang iniimbak tungkol sa mga member ng server: ang kanilang pagsali at pag-alis, na ipinapaalam ng Discord sa bot, ay ginagamit lang para i-post ang mga welcome at goodbye message na in-on ng server.",
-      "profile": "para sa /profile card, kung ili-link mo ito mula sa account page mo: isang fingerprint ng Discord ID mo at isa ng game ID at server mo (hindi kailanman ang mismong mga ID), ang dalawa mong pinili (kung puwedeng ipakita ito ng iba, kung ipinapakita nito ang ID mo) at kopya ng mga numero mo sa huli mong update: nickname, avatar, bansa, level, rank, mga laban at panalo sa season, tatlong pinakamadalas laruing hero. Walang game token na itinatago. Buburahin ang card kapag in-unlink mo ito, o 30 araw pagkatapos ng huli mong update;"
+      "profile": "para sa /profile card, kung ili-link mo ito mula sa page ng iyong account: isang print ng iyong Discord ID at isa sa iyong ID ng laro at iyong server (hindi kailanman ang mga ID mismo), ang iyong dalawang pagpipilian (kung maipapakita ito ng iba, kung ito ay nagpapakita ng iyong ID), isang kopya ng iyong mga istatistika sa huling nabasa: palayaw, avatar, bansa, antas, ranggo, mga laro at mga tagumpay ng season, at tatlong pinaka-nalaro mong hero (AES-256-GCM), hanggang sa mag-expire ito (7 araw sa pinakamaraming araw), para mabasa muli ng /profile ang iyong mga istatistika sa bawat tawag. Ang bawat bagong koneksyon sa site ay nire-renew ang token na ito. Ang card at token ay tatanggalin kapag tinanggal mo ito; ang card ay 30 araw din pagkatapos ng huling pagbabasa;"
     },
     "community": {
       "title": "Community: forum at teammate finder",
@@ -5199,7 +5199,7 @@
       },
       "game": {
         "title": "Mag-login sa account ng laro",
-        "text": "Ang koneksyon ay gumagamit ng opisyal na daloy ng Moonton: ipinapahiwatig mo ang iyong username at ang iyong server ng laro, isang verification code ang ipinadala sa iyo sa laro, at ang site ay tumatanggap ng pansamantalang token bilang kapalit. Ang mga palitan na ito ay dumaan sa isang community API (`arena.rone.dev`) at sa pamamagitan ng mga serbisyo ng Moonton, na tumatanggap ng iyong identifier, iyong server, ang code pagkatapos ang token. Ang token ay nabubuhay sa session cookie `mlbb_jeu` at hindi kailanman nase-save sa server; ang mga tugon ng serbisyo (profile, estadistika, laro) ay pinananatili sa memorya ng ilang oras, upang limitahan ang mga tawag. Hindi ka kailanman hihilingin ng password. Ang server ay nagpapanatili lamang ng isang bagay nang permanente kung gagamitin mo ang komunidad o koleksyon, tulad ng inilarawan sa ibaba."
+        "text": "Ang koneksyon ay gumagamit ng opisyal na daloy ng Moonton: ipinapahiwatig mo ang iyong username at ang iyong server ng laro, isang verification code ang ipinadala sa iyo sa laro, at ang site ay tumatanggap ng pansamantalang token bilang kapalit. Ang mga palitan na ito ay dumaan sa isang community API (`arena.rone.dev`) at sa pamamagitan ng mga serbisyo ng Moonton, na tumatanggap ng iyong identifier, iyong server, ang code pagkatapos ang token. Nakatira ang token sa session cookie `mlbb_jeu`; ise-save lang ito sa server kung magli-link ka ng /profile card, naka-encrypt at hanggang sa mag-expire ito (tingnan ang bahagi sa Discord bot); ang mga tugon ng serbisyo (profile, istatistika, laro) ay pinananatili sa memorya ng ilang oras, upang limitahan ang mga tawag. Hindi ka kailanman hihilingin ng password. Ang server ay nagpapanatili lamang ng isang bagay nang permanente kung gagamitin mo ang komunidad o koleksyon, tulad ng inilarawan sa ibaba."
       },
       "thirdParty": {
         "title": "Third-party na nilalaman",
@@ -5222,7 +5222,7 @@
       "retention": {
         "title": "Gaano katagal pinapanatili ang data",
         "audience": "Pagsukat ng madla: data ng pagbisita na pinapanatili hanggang sa tanggalin ng publisher; cookies, tingnan ang talahanayan sa itaas; ang iyong pinili sa cookies, 6 na buwan.",
-        "sessions": "Mga Session: ang token ng account ng laro hanggang sa mag-expire ito (7 araw sa pinakamaraming); ang Discord session, 7 araw.",
+        "sessions": "Mga Session: ang token ng account ng laro hanggang sa ito ay mag-expire (7 araw lamang), sa cookie, at sa server kung magli-link ka ng /profile card; ang Discord session, 7 araw.",
         "community": "Komunidad: ang iyong account, ang iyong mga mensahe, ang iyong mga boto, ang iyong mga ulat at ang log ng pag-moderate ay pinapanatili hangga't umiiral ang komunidad, maliban kung humiling ka ng pagtanggal; ang isang ulat ay nagpapanatili ng isang kopya ng iniulat na teksto. Ang isang teammate card ay tatanggalin pitong araw pagkatapos ng huling pagpaparehistro nito.",
         "builds": "Mga build ng komunidad: hanggang sa tanggalin ng kanilang may-akda, o kapag hiniling.",
         "collection": "Naka-synchronize na koleksyon: hanggang sa walang laman ito, o on demand.",

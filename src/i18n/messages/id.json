@@ -4718,13 +4718,13 @@
       "intro": "Tampilkan rank, win rate, dan hero yang paling sering kamu mainkan sebagai gambar di Discord, dengan perintah /profile dari bot MLBBDex.",
       "needDiscord": "Untuk menautkannya, masuk juga dengan akun Discord yang kamu pakai di servermu.",
       "discordButton": "Masuk dengan Discord",
-      "linkOffer": "Tautkan akun Discord {name} ke akun game ini. Angka-angkamu saat ini disimpan untuk kartu.",
+      "linkOffer": "Tautkan akun Discord {name} ke akun game ini. Statistik Anda dibaca kembali di setiap /profil.",
       "linkButton": "Tautkan dan buat kartuku",
       "linked": "Kartumu tertaut ke akun Discord. Ketik /profile di server yang ada bot MLBBDex.",
       "otherDiscord": "Kamu masuk dengan akun Discord lain ({name}) dari yang tertaut. Menautkannya akan memindahkan kartu ke sana.",
       "updatedAt": "Angka disimpan pada {date}.",
       "refresh": "Perbarui angkaku",
-      "noAccess": "Situs tidak menyimpan akses apa pun ke akun game-mu: kartu menampilkan angka yang disimpan saat pembaruan terakhirmu, dan dihapus setelah 30 hari tanpa pembaruan.",
+      "noAccess": "Agar /profile menampilkan statistik Anda saat ini, situs ini menjaga token permainan Anda tetap terenkripsi hingga habis masa berlakunya (paling lama 7 hari); setiap koneksi ke situs memperbaruinya. Setelah waktu ini, kartu menunjukkan statistik terakhir yang dibaca, dan dihapus setelah 30 hari tanpa membaca.",
       "public": "Orang lain boleh menampilkan kartuku (/profile user:@kamu)",
       "publicHint": "Nonaktif secara bawaan: hanya kamu yang bisa menampilkannya.",
       "showId": "Tampilkan ID game dan server-ku di kartu",
@@ -5094,7 +5094,7 @@
       "results": "untuk peringkat game hari ini yang dimainkan di Discord: ID Discord para pemain dan nama panggilan serta skor mereka.",
       "details": "Detail, periode penyimpanan, dan penghapusan dijelaskan di halaman privasi bot.",
       "members": "Tidak ada data anggota server yang disimpan: bergabung dan keluarnya mereka, yang diberitahukan Discord ke bot, hanya dipakai untuk memposting pesan sambutan dan perpisahan yang diaktifkan server.",
-      "profile": "untuk kartu /profile, jika kamu menautkannya dari halaman akunmu: sidik dari ID Discord-mu dan satu dari ID game dan server-mu (tidak pernah ID-nya sendiri), dua pilihanmu (apakah orang lain boleh menampilkannya, apakah ID-mu ditampilkan) dan salinan angkamu pada pembaruan terakhir: nama, avatar, negara, level, rank, pertandingan dan kemenangan musim ini, tiga hero yang paling sering dimainkan. Tidak ada token game yang disimpan. Kartu dihapus saat kamu melepas tautannya, atau 30 hari setelah pembaruan terakhirmu;"
+      "profile": "untuk kartu /profile, jika Anda menautkannya dari halaman akun Anda: cetakan ID Discord Anda dan salah satu ID permainan Anda dan server Anda (tidak pernah ID itu sendiri), dua pilihan Anda (jika orang lain dapat menampilkannya, jika itu menunjukkan ID Anda), salinan statistik Anda pada pembacaan terakhir: nama panggilan, avatar, negara, level, peringkat, permainan dan kemenangan musim ini, tiga hero yang paling sering dimainkan, dan token permainan Anda, terenkripsi (AES-256-GCM), hingga habis masa berlakunya (paling lama 7 hari), sehingga /profile membaca ulang statistik Anda pada setiap panggilan. Setiap koneksi baru ke situs memperbarui token ini. Kartu dan token akan dihapus saat Anda melepas ikatannya; kartunya juga 30 hari setelah pembacaan terakhir;"
     },
     "community": {
       "title": "Komunitas: forum dan pencari rekan tim",
@@ -5199,7 +5199,7 @@
       },
       "game": {
         "title": "Masuk ke akun permainan",
-        "text": "Koneksinya menggunakan alur resmi Moonton: Anda menunjukkan nama pengguna dan server game Anda, kode verifikasi dikirimkan kepada Anda dalam game, dan situs menerima token sementara sebagai imbalannya. Pertukaran ini melalui API komunitas (`arena.rone.dev`) dan melalui layanan Moonton, yang menerima pengidentifikasi Anda, server Anda, kode, lalu token. Token berada di cookie sesi `mlbb_jeu` dan tidak pernah disimpan di server; tanggapan layanan (profil, statistik, permainan) disimpan dalam memori paling lama beberapa jam, untuk membatasi panggilan. Anda tidak pernah dimintai kata sandi. Server hanya memelihara sesuatu secara permanen jika Anda menggunakan komunitas atau koleksi, seperti dijelaskan di bawah."
+        "text": "Koneksinya menggunakan alur resmi Moonton: Anda menunjukkan nama pengguna dan server game Anda, kode verifikasi dikirimkan kepada Anda dalam game, dan situs menerima token sementara sebagai imbalannya. Pertukaran ini melalui API komunitas (`arena.rone.dev`) dan melalui layanan Moonton, yang menerima pengidentifikasi Anda, server Anda, kode, lalu token. Token berada di cookie sesi `mlbb_jeu`; itu hanya disimpan di server jika Anda menautkan kartu /profile, dienkripsi dan sampai habis masa berlakunya (lihat bagian di bot Discord); tanggapan layanan (profil, statistik, permainan) disimpan dalam memori paling lama beberapa jam, untuk membatasi panggilan. Anda tidak pernah dimintai kata sandi. Server hanya memelihara sesuatu secara permanen jika Anda menggunakan komunitas atau koleksi, seperti dijelaskan di bawah."
       },
       "thirdParty": {
         "title": "Konten pihak ketiga",
@@ -5222,7 +5222,7 @@
       "retention": {
         "title": "Berapa lama data disimpan",
         "audience": "Pengukuran audiens: data kunjungan disimpan hingga dihapus oleh penerbit; cookie, lihat tabel di atas; pilihan Anda pada cookie, 6 bulan.",
-        "sessions": "Sesi: token akun game hingga habis masa berlakunya (paling lama 7 hari); sesi Discord, 7 hari.",
+        "sessions": "Sesi: token akun game hingga habis masa berlakunya (paling lama 7 hari), di cookie, dan di server jika Anda menautkan kartu /profil; sesi Discord, 7 hari.",
         "community": "Komunitas: akun Anda, pesan Anda, suara Anda, laporan Anda, dan log moderasi disimpan selama komunitas tersebut ada, kecuali Anda meminta penghapusan; laporan menyimpan salinan teks yang dilaporkan. Kartu rekan satu tim dihapus tujuh hari setelah pendaftaran terakhirnya.",
         "builds": "Build komunitas: hingga dihapus oleh penulisnya, atau berdasarkan permintaan.",
         "collection": "Koleksi tersinkronisasi: hingga Anda mengosongkannya, atau sesuai permintaan.",
