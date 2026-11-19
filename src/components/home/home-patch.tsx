@@ -5,6 +5,7 @@ import { HeroPortrait } from "@/components/hero-portrait";
 import { SectionTitle } from "@/components/ui";
 import type { Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
+import { advanceDocumented } from "@/lib/advance-fresh";
 import { advanceVersions, isUnderTest } from "@/lib/advance-server";
 import { detailedPatches, heroesBySlug } from "@/lib/data";
 import { historyOf } from "@/lib/evolution";
@@ -144,13 +145,15 @@ export function HomePatch({ locale, className }: { locale: Locale; className?: s
             <Link href="/meta" className="font-semibold text-gold-400 hover:text-gold-500">
               {t("home.patch.metaReport")}
             </Link>
-            <Link
-              href={testing ? `/patch-notes/advance-server/${testing.version}` : "/patch-notes/advance-server"}
-              className="inline-flex items-center gap-1.5 font-semibold text-gold-400 hover:text-gold-500"
-            >
-              <FlaskConical size={14} aria-hidden />
-              {testing ? t("home.patch.testing", { version: testing.version }) : t("nav.advanceServer.label")}
-            </Link>
+            {(testing || advanceDocumented()) && (
+              <Link
+                href={testing ? `/patch-notes/advance-server/${testing.version}` : "/patch-notes/advance-server"}
+                className="inline-flex items-center gap-1.5 font-semibold text-gold-400 hover:text-gold-500"
+              >
+                <FlaskConical size={14} aria-hidden />
+                {testing ? t("home.patch.testing", { version: testing.version }) : t("nav.advanceServer.label")}
+              </Link>
+            )}
           </p>
         </div>
       </div>
