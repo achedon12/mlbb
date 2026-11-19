@@ -15,6 +15,7 @@
  * client as an argument.
  */
 import { compareVersions, readVersion } from "./patch-version.mjs";
+import { splitChange } from "./patch-parser.mjs";
 import { toAnchor } from "./patch-notes.mjs";
 
 // ─────────────────────────────────────────────────────────────
@@ -179,11 +180,7 @@ const lines = (text) => inline(text).split("\n").map((l) => l.trim()).filter(Boo
  * (same reading as the Fandom notes, `patch-parser.mjs`).
  */
 export function change(line) {
-  const parts = line.split(/\s*→\s*/);
-  if (parts.length !== 2) return { text: line };
-  const sep = parts[0].indexOf(":");
-  if (sep === -1) return { label: null, before: parts[0].trim(), after: parts[1].trim() };
-  return { label: parts[0].slice(0, sep).trim(), before: parts[0].slice(sep + 1).trim(), after: parts[1].trim() };
+  return splitChange(line) ?? { text: line };
 }
 
 // ─────────────────────────────────────────────────────────────

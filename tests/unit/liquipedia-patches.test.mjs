@@ -77,6 +77,11 @@ describe("wikitext", () => {
     expect(change("Reduced the foreswing of the final hit.")).toEqual({ text: "Reduced the foreswing of the final hit." });
   });
 
+  it("reads a label written without its colon", () => {
+    expect(change("Base HP 2594 → 2440")).toEqual({ label: "Base HP", before: "2594", after: "2440" });
+    expect(change("Level 1 damage 200 → 250")).toEqual({ label: null, before: "Level 1 damage 200", after: "250" });
+  });
+
   it("reads the infobox", () => {
     expect(infobox(HOTFIX)).toMatchObject({ release: "2026-10-14", previous: "2.2.16", next: "2.2.23", highlights: ["Hero Adjustments"] });
     expect(infobox(REVAMP)?.highlights[0]).toBe(

@@ -18,6 +18,47 @@ const LANES = {
   Roaming: "Roam",
 };
 
+/**
+ * Lane ids of Moonton's hero sheets (`roadsort[].data.road_sort_id`, relayed
+ * by arena.rone.dev), mapped to the site's lane tokens. The titles stand in
+ * when an id is missing.
+ */
+const OFFICIAL_LANE_IDS = { 1: "Exp", 2: "Mid", 3: "Roam", 4: "Jungle", 5: "Gold" };
+const OFFICIAL_LANE_TITLES = { "exp lane": "Exp", "mid lane": "Mid", roam: "Roam", roaming: "Roam", jungle: "Jungle", jungling: "Jungle", "gold lane": "Gold" };
+
+/**
+ * Lanes of an official hero sheet, in the game's order (the first one is the
+ * lane the game puts first); null when the sheet gives none.
+ */
+export function officialLanes(sheet) {
+  const lanes = [];
+  for (const r of Array.isArray(sheet?.roadsort) ? sheet.roadsort : []) {
+    const d = r?.data;
+    const lane = OFFICIAL_LANE_IDS[String(d?.road_sort_id ?? "").trim()] ?? OFFICIAL_LANE_TITLES[String(d?.road_sort_title ?? "").trim().toLowerCase()];
+    if (lane && !lanes.includes(lane)) lanes.push(lane);
+  }
+  return lanes.length ? lanes : null;
+}
+
+/**
+ * Sets each hero's lanes from the official sheets, in place. The wiki module
+ * only stands in for a hero the API did not answer for: its `lane1`/`lane2`
+ * are typed by hand, while the sheets are the game's own lane list and order,
+ * which the site reads as the main lane (tier list by lane, draft lane
+ * assignment, builds and match durations of the main lane). Returns the
+ * heroes whose wiki lanes differed, for the sync log.
+ */
+export function withOfficialLanes(heroes, official) {
+  const changed = [];
+  for (const h of heroes) {
+    const lanes = official?.[h.slug];
+    if (!Array.isArray(lanes) || !lanes.length) continue;
+    if (lanes.join("/") !== (h.lanes ?? []).join("/")) changed.push({ name: h.name, wiki: h.lanes ?? [], official: lanes });
+    h.lanes = [...lanes];
+  }
+  return changed;
+}
+
 /** A stable URL identifier, insensitive to accents and punctuation. */
 export function slugify(name) {
   return String(name)
