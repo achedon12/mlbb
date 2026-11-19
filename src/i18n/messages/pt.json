@@ -1261,7 +1261,9 @@
       "category": "Categoria",
       "price": "Preço",
       "crafting": "Fabricação",
-      "similar": "Outros itens da categoria {category}"
+      "similar": "Outros itens da categoria {category}",
+      "removedTitle": "Removido do jogo.",
+      "removedText": "{name} não é mais vendido na loja. A página continua no ar para builds antigas e para os links que levam até aqui."
     },
     "emblemDetail": {
       "title": "{name} MLBB: melhores heróis e talentos (patch {v})",
@@ -1483,11 +1485,11 @@
       "latest": "Skin datada mais recente: {skin} ({date}).",
       "price": "Preço",
       "illustrationOnly": "Só a arte: raridade, data e preço ainda não estão no banco de dados.",
-      "collaboration": "Skin de colaboração: {franchise} © seus detentores de direitos, sob licença concedida à Moonton; visual © Moonton. Apenas o retrato é exibido.",
       "altIllustration": "Arte da skin {skin} de {name}",
       "altPortrait": "{name} com a skin {skin}, retrato no jogo",
       "others": "Skins de outros heróis",
-      "sheetLink": "Ver todas as {n} skins e artes"
+      "sheetLink": "Ver todas as {n} skins e artes",
+      "collaboration": "Skin de colaboração: {franchise} © seus detentores de direitos, sob licença concedida à Moonton; visual © Moonton. Apenas o retrato é exibido."
     },
     "duos": {
       "title": "Melhores duplas com {name}",
@@ -5664,6 +5666,11 @@
       "name": "Revitalize",
       "description": "Cria uma área que cura os aliados presentes.",
       "bestFor": "Suportes contra dano distribuído ao longo do tempo."
+    },
+    "flameshot": {
+      "name": "Flameshot",
+      "description": "Dispara um tiro flamejante que empurra os inimigos próximos e causa Dano Mágico que cresce com a distância.",
+      "bestFor": "Magos e atiradores que precisam finalizar de longe ou se desvencilhar."
     }
   },
   "error": {

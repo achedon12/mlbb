@@ -745,6 +745,11 @@ export interface ItemOption extends SimItem {
   image: string | null;
   /** Attributes in the page's language, for the picker. */
   text: string | null;
+  /**
+   * Taken out of the game: still read in a saved build, no longer offered
+   * in the picker.
+   */
+  removed?: boolean;
 }
 
 export interface EmblemOption extends SimEmblem {

@@ -9,6 +9,7 @@ import type {
 } from "@/components/builds-by-rank";
 import { itemsFor, type BuildPlayed, type GuidePlayer } from "./data";
 import type { MeasuredRank } from "./measured-ranks";
+import { itemFinder } from "./item-names";
 import { keySearch, mapValues } from "./utils";
 import { readableRank } from "./ranks";
 
@@ -61,17 +62,25 @@ export function spellVisual(name: string): ResolvedVisual {
 /** The API names the emblem by its role ("Marksman"), written builds by its full name. */
 export function visualEmblem(name: string): ResolvedVisual {
   const e = emblems.find((x) => x.name === name || x.role === name);
-  return e ? { name, image: V.emblems[e.key] ?? null, href: `/emblems/${slugEmblem(e)}` } : { name, image: null };
+  if (e) return { name, image: V.emblems[e.key] ?? null, href: `/emblems/${slugEmblem(e)}` };
+  return { name, image: name === COMMON_EMBLEM ? (V.emblems["common-emblem"] ?? null) : null };
 }
 
-const ITEMS_BY_NAME = new Map(itemsFor("en").map((o) => [o.name, o]));
+const findItem = itemFinder(itemsFor("en"));
 
 export function visualItem(name: string): ResolvedItem {
-  // Boots sometimes carry their enchantment ("Swift Boots - Encourage"):
-  // the visual is the boots' one.
-  const o = ITEMS_BY_NAME.get(name) ?? ITEMS_BY_NAME.get(name.split(" - ")[0]);
+  // Boots carrying an enchantment or a blessing ("Swift Boots - Encourage",
+  // "Ice Hunter's Tough Boots") show the boots' visual; an old name
+  // ("Athena's Shield") the renamed item's. See item-names.ts.
+  const o = findItem(name);
   return { name, slug: o?.slug ?? null, image: o ? (V.items[o.slug] ?? null) : null };
 }
+
+/**
+ * The common emblem: the stats API calls it "All", the emblem every role
+ * can take. It has no page of its own.
+ */
+export const COMMON_EMBLEM = "All";
 
 export function resolveBuild(b: BuildPlayed): ResolvedBuild {
   return {

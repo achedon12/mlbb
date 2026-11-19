@@ -134,8 +134,17 @@ describe("attribute reading", () => {
 
 describe("heroes", () => {
   it("reads the wiki record and its resource", () => {
-    const aamon = prepareHero((heroesJson as RawHero[]).find((h) => h.slug === "aamon")!);
-    expect(aamon).toMatchObject({ resource: "mana", damageType: "magic", hp: [2614, 4742], hpRegen: 8, movementSpeed: 250 });
+    const raw = (heroesJson as RawHero[]).find((h) => h.slug === "aamon")!;
+    const aamon = prepareHero(raw);
+    // The values follow each sync (patch notes, Liquipedia): read from the record.
+    const s = raw.stats!;
+    expect(aamon).toMatchObject({
+      resource: "mana",
+      damageType: "magic",
+      hp: [Number(s.hp1), Number(s.hp15)],
+      hpRegen: Number(s.hp_regen1),
+      movementSpeed: Number(s.movement_spd),
+    });
     const fanny = prepareHero((heroesJson as RawHero[]).find((h) => h.slug === "fanny")!);
     expect(fanny).toMatchObject({ resource: "energy", mana: null });
     expect(prepareHero({ slug: "dori", name: "Dori", damageType: "Magic", resource: "Mana", stats: {} }).hp).toBeNull();

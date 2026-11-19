@@ -9,6 +9,7 @@
  *     npm run sync            data only
  *     npm run sync -- --images   data + visuals download
  *     npm run sync -- --patches  patch list and notes only (Fandom + Liquipedia)
+ *     npm run sync -- --heroes   heroes, base stats and skills only
  *
  * The output is written to `src/data/game/`. Visuals go to `public/visuels/`,
  * versioned with the repository: the image build needs no access to the wiki.
@@ -29,6 +30,10 @@ import {
 import { heroAdjustments, summary } from "./patch-parser.mjs";
 import { compareVersions, readVersion } from "./patch-version.mjs";
 import * as liquipedia from "./liquipedia.mjs";
+import { heroStatsFromInfobox, itemFromInfobox, liquipediaInfoboxes } from "./liquipedia-game.mjs";
+import { mergeHeroStats, patchAttributes } from "./hero-stats.mjs";
+import { levelValues, matchOfficial, mergeSkills, officialSkills } from "./skills.mjs";
+import { itemRemoved, liquipediaItemTitle, officialItemNames, priceGaps } from "./items.mjs";
 import { liquipediaDetail, liquipediaList, liquipediaPages, mergeDetail, mergeLists } from "./liquipedia-patches.mjs";
 import {
   distinctSkinIds,
@@ -183,7 +188,10 @@ function normalizeItems(raw) {
       passive: clean(o.passive),
       active: clean(o.active),
       recipe: clean(o.recipe)?.split(",").map((x) => x.trim()).filter(Boolean) ?? [],
-      bestFor: clean(o.availability),
+      // The same wiki field says who may buy the item and whether it is
+      // still sold: the status is read apart (see `itemsInGame`).
+      bestFor: /^removed$/i.test(clean(o.availability) ?? "") ? null : clean(o.availability),
+      availability: clean(o.availability),
     }))
     .sort((a, b) => a.name.localeCompare(b.name, "fr"));
 }
@@ -439,6 +447,9 @@ function planFiles(urls, folder) {
 const EMBLEMS = [
   "Tank Emblem", "Fighter Emblem", "Assassin Emblem",
   "Mage Emblem", "Marksman Emblem", "Support Emblem",
+  // The emblem every role can take, "All" in the played builds. The wiki has
+  // no file under this name yet: it is resolved as soon as one appears.
+  "Common Emblem",
 ];
 
 // Lane icons, under the names the wiki gives them. The site's lane tokens
@@ -459,7 +470,7 @@ const TALENTS = [
 
 const SPELLS = [
   "Flicker", "Execute", "Retribution", "Purify", "Inspire", "Sprint",
-  "Petrify", "Arrival", "Vengeance", "Aegis", "Revitalize",
+  "Petrify", "Arrival", "Vengeance", "Aegis", "Revitalize", "Flameshot",
 ];
 
 // ─────────────────────────────────────────────────────────────
@@ -543,6 +554,9 @@ function extractFromPage(wikitext) {
         // the "=" is limited to the line so the next field is not captured
         // when the value is empty.
         image: body.match(/\|\s*image\s*=[ \t]*(.+)/i)?.[1]?.trim() || null,
+        // Per-level figures, kept when the official sheet has none.
+        cooldown: levelValues(body.match(/\|\s*cooldown\s*=[ \t]*(.+)/i)?.[1]),
+        cost: levelValues(body.match(/\|\s*(?:mana|energy)-cost\s*=[ \t]*(.+)/i)?.[1]),
       };
     }),
   ].sort((a, b) => a.position - b.position);
@@ -562,6 +576,8 @@ function extractFromPage(wikitext) {
           name: next.value,
           description: next.description,
           image: next.image ?? null,
+          cooldown: next.cooldown ?? null,
+          cost: next.cost ?? null,
         };
         break;
       }
@@ -1673,24 +1689,10 @@ async function readJson(path) {
   }
 }
 
-/** Cleans a skill description returned by the API (tags, line breaks). */
-function cleanSkillDesc(raw) {
-  return withoutTags(String(raw ?? "").replace(/<br\s*\/?>/gi, " "))
-    .replace(/&nbsp;/g, " ")
-    .replace(/&amp;/g, "&")
-    .replace(/\r/g, "")
-    .replace(/\n+/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
 /**
- * Skills from the community API, as a fallback for the wiki.
- *
- * Some wiki pages do not expose their skills — name, description or icon
- * missing. The API provides them all: name, in-game text and official icon.
- * They are fetched to fill in what the wiki leaves out, without ever
- * overwriting what it already provides.
+ * Official hero sheets, from the community API: Moonton's in-game text for
+ * every skill (name, description, cooldown, cost, icon), every form included.
+ * See `skills.mjs` for how they meet the wiki's.
  */
 async function fetchArenaSkills(heroes) {
   const output = {};
@@ -1699,29 +1701,13 @@ async function fetchArenaSkills(heroes) {
   const taglines = {};
 
   for (const [i, h] of heroes.entries()) {
-    try {
-      const rep = await fetch(`${STATS}/heroes/${encodeURIComponent(h.name)}?lang=en`, {
-        headers: { "User-Agent": UA },
-        signal: AbortSignal.timeout(20000),
-      });
-      if (rep.ok) {
-        const data = (await rep.json())?.data?.records?.[0]?.data?.hero?.data;
-        const skills = (data?.heroskilllist ?? []).flatMap((g) => g.skilllist ?? []);
-        if (skills.length > 0) {
-          output[h.slug] = skills.map((s) => ({
-            // Game identifier: combos refer to the skill through it.
-            id: s.skillid ?? null,
-            name: String(s.skillname ?? "").trim(),
-            description: cleanSkillDesc(s.skilldesc) || null,
-            icon: s.skillicon ? String(s.skillicon) : null,
-          }));
-        }
-        const tagline = String(data?.story ?? "").trim();
-        if (tagline) taglines[h.slug] = tagline;
-      }
-    } catch {
-      // A failed hero must not interrupt the synchronization.
-    }
+    // A transient error (an HTML error page instead of JSON) gets two more
+    // attempts: a hero left out falls back on the wiki's older text.
+    const data = (await jsonFrom(`${STATS}/heroes/${encodeURIComponent(h.name)}?lang=en`))?.data?.records?.[0]?.data?.hero?.data;
+    const skills = officialSkills(data);
+    if (skills.length > 0) output[h.slug] = skills;
+    const tagline = String(data?.story ?? "").trim();
+    if (tagline) taglines[h.slug] = tagline;
 
     process.stdout.write(`\r    arena skills ${i + 1}/${heroes.length}`);
     await pause(200);
@@ -2019,6 +2005,129 @@ async function pruneVisuals({ heroes, hidden, withdrawn, planned, manifest }) {
 // Execution
 // ─────────────────────────────────────────────────────────────
 
+/**
+ * Hero pages (wiki) and official sheets (API), merged slot by slot: see
+ * `skills.mjs`. `matched` is the official skill of each slot, for its icon.
+ */
+async function heroSkills(heroes, read = null) {
+  if (!read) console.log("Reading hero pages…");
+  const pages = read ?? (await heroPages(heroes));
+  const nbSkills = Object.values(pages).reduce((n, p) => n + p.skills.filter(Boolean).length, 0);
+  const nbIllustrations = Object.values(pages).reduce((n, p) => n + p.illustrations.length, 0);
+  console.log(`  ${nbSkills} wiki skills, ${nbIllustrations} illustrations`);
+
+  console.log("Official hero sheets (API)…");
+  const { skills: skillsArena, taglines } = await fetchArenaSkills(heroes);
+  console.log(`  ${Object.keys(skillsArena).length} heroes covered by the API`);
+
+  // As a last resort, whatever the last run wrote is kept: an outage of both
+  // sources must not erase a hero's skills.
+  const skillsExisting = await readJson(`${OUTPUT}/skills.json`);
+  const finalSkills = {};
+  const matched = {};
+  let official = 0;
+  let withNumbers = 0;
+  let withCooldown = 0;
+  for (const h of heroes) {
+    const wiki = pages[h.slug]?.skills ?? [];
+    const arena = skillsArena[h.slug] ?? [];
+    matched[h.slug] = matchOfficial(wiki, arena);
+    const list = mergeSkills({ wiki, official: arena, previous: skillsExisting[h.slug] ?? [] });
+    if (!list.length) continue;
+    finalSkills[h.slug] = list;
+    official += matched[h.slug].filter(Boolean).length;
+    withNumbers += list.filter((c) => /\d/.test(c?.description ?? "")).length;
+    withCooldown += list.filter((c) => c?.cooldown).length;
+  }
+  const total = Object.values(finalSkills).reduce((n, l) => n + l.filter(Boolean).length, 0);
+  console.log(`  ${total} skills: ${official} with the official text, ${withNumbers} with figures, ${withCooldown} with a cooldown`);
+  return { pages, skillsArena, taglines, finalSkills, matched };
+}
+
+const LIQUIPEDIA_GAME_CACHE = "scripts/liquipedia-game-cache.json";
+
+/**
+ * Corrects each hero's `stats` in place: Liquipedia's level-1 attributes and
+ * the official patch notes over the Fandom module, field by field (see
+ * `hero-stats.mjs`). Without Liquipedia, the patch notes still apply.
+ */
+async function heroBaseStats(heroes, patchDetails) {
+  const cache = await readJson(LIQUIPEDIA_GAME_CACHE);
+  let pages = new Map();
+  try {
+    pages = await liquipediaInfoboxes(liquipedia, heroes.map((h) => h.name), cache, "heroes", heroStatsFromInfobox);
+    await writeFile(LIQUIPEDIA_GAME_CACHE, `${JSON.stringify(cache, null, 1)}\n`);
+  } catch (error) {
+    console.warn(`  Liquipedia unavailable (${error.message}): patch notes and Fandom only`);
+  }
+  const fromPatches = patchAttributes(patchDetails);
+  let fromLiquipedia = 0;
+  let changed = 0;
+  const conflicts = [];
+  for (const h of heroes) {
+    const lp = pages.get(h.name)?.data ?? null;
+    if (lp) fromLiquipedia += 1;
+    const merged = mergeHeroStats({ fandom: h.stats, liquipedia: lp, patch: fromPatches[h.slug] });
+    for (const c of merged.conflicts) conflicts.push(`${h.name} ${c.field}: Liquipedia ${c.liquipedia}, patch ${c.version} ${c.patch}`);
+    if (JSON.stringify(merged.stats) !== JSON.stringify(h.stats)) changed += 1;
+    h.stats = merged.stats;
+  }
+  console.log(`  ${fromLiquipedia}/${heroes.length} heroes on Liquipedia, ${Object.keys(fromPatches).length} with attributes in the patch notes, ${changed} corrected`);
+  // The official note wins; the gap is worth a look in game.
+  if (conflicts.length) console.warn(`  Liquipedia behind the patch notes (${conflicts.length}):\n    ${conflicts.join("\n    ")}`);
+}
+
+/**
+ * `--heroes`: re-reads only the hero catalogue, base stats and skills (wiki,
+ * official sheets, Liquipedia), on the patch notes already synchronized.
+ * Writes `heroes.json`, `skills.json` and the English skills the site reads.
+ */
+async function heroesOnly() {
+  // Only the heroes already listed: a new or unreleased hero enters through
+  // the full sync, which checks the official list.
+  const previous = await readJson(`${OUTPUT}/heroes.json`);
+  const listed = new Set((Array.isArray(previous) ? previous : []).filter((h) => isReleasedHero(h)).map((h) => h.slug));
+  const heroes = normalizeHeroes(await moduleLua("Module:Hero/data"), previous)
+    .filter((h) => listed.has(h.slug))
+    .map((h) => ({ ...h, released: true }));
+  const { finalSkills } = await heroSkills(heroes);
+  console.log("Hero base stats (Liquipedia, patch notes)…");
+  await heroBaseStats(heroes, (await readJson(`${OUTPUT}/patches.json`)).details ?? {});
+  const write = (name, data) => writeFile(`${OUTPUT}/${name}.json`, JSON.stringify(data, null, 2) + "\n");
+  await Promise.all([write("heroes", heroes), write("skills", finalSkills), write("skills/en", finalSkills)]);
+  console.log(`\nWritten to ${OUTPUT}/: heroes.json, skills.json, skills/en.json`);
+}
+
+/**
+ * Marks the items out of the game (`removed: true`), from Liquipedia's status
+ * and the official catalogue (see `items.mjs`), and reports the prices the
+ * wiki and Liquipedia disagree on. Drops the wiki's raw `availability`.
+ */
+async function itemsInGame(items) {
+  const official = await jsonFrom(`${STATS}/academy/equipment?size=500`);
+  const names = official?.data?.records?.length ? officialItemNames(official.data.records) : null;
+  const cache = await readJson(LIQUIPEDIA_GAME_CACHE);
+  let pages = new Map();
+  try {
+    pages = await liquipediaInfoboxes(liquipedia, items.map((o) => liquipediaItemTitle(o.name)), cache, "items", itemFromInfobox);
+    await writeFile(LIQUIPEDIA_GAME_CACHE, `${JSON.stringify(cache, null, 1)}\n`);
+  } catch (error) {
+    console.warn(`  Liquipedia unavailable (${error.message}): wiki status and official catalogue only`);
+  }
+  const byName = new Map(items.map((o) => [o.name, pages.get(liquipediaItemTitle(o.name))?.data ?? null]));
+  for (const o of items) {
+    const removed = itemRemoved({ name: o.name, availability: o.availability, liquipedia: byName.get(o.name), official: names });
+    delete o.availability;
+    if (removed) o.removed = true;
+  }
+  const removed = items.filter((o) => o.removed).map((o) => o.name);
+  console.log(`  ${removed.length} removed from the game: ${removed.join(", ") || "none"}` + (names ? "" : " (official catalogue unavailable)"));
+  const gaps = priceGaps(items.filter((o) => !o.removed), byName);
+  if (gaps.length) {
+    console.warn(`  prices differing on Liquipedia (wiki kept, to check in game):\n    ${gaps.map((g) => `${g.name}: wiki ${g.wiki}, Liquipedia ${g.liquipedia}`).join("\n    ")}`);
+  }
+}
+
 async function main() {
   await mkdir(OUTPUT, { recursive: true });
 
@@ -2086,32 +2195,10 @@ async function main() {
     `  ${nbSkills} skills (${nbDescriptions} described), ${nbIllustrations} illustrations`,
   );
 
-  console.log("Fallback skills (API)…");
-  const { skills: skillsArena, taglines } = await fetchArenaSkills(heroes);
-  console.log(`  ${Object.keys(skillsArena).length} heroes covered by the API`);
+  console.log("Items still in the game (Liquipedia, official catalogue)…");
+  await itemsInGame(items);
 
-  // Wiki + API merge: the wiki wins, the API fills in missing name,
-  // description and icon. Both lists follow the same order (passive →
-  // ultimate). As a last resort, whatever was already filled in is kept: an
-  // API outage must not erase enrichment obtained during a previous run.
-  const skillsExisting = await readJson(`${OUTPUT}/skills.json`);
-  const finalSkills = {};
-  for (const h of heroes) {
-    const wiki = pages[h.slug]?.skills ?? [];
-    const arena = skillsArena[h.slug] ?? [];
-    const old = skillsExisting[h.slug] ?? [];
-    const n = Math.max(wiki.length, arena.length, old.length);
-    if (n === 0) continue;
-
-    const list = [];
-    for (let i = 0; i < n; i += 1) {
-      const name = wiki[i]?.name ?? arena[i]?.name ?? old[i]?.name ?? null;
-      const description =
-        wiki[i]?.description ?? arena[i]?.description ?? old[i]?.description ?? null;
-      list.push(name || description ? { name, description } : null);
-    }
-    finalSkills[h.slug] = list;
-  }
+  const { skillsArena, taglines, finalSkills, matched } = await heroSkills(heroes, pages);
 
   // ── Hero stories ───────────────────────────────────────────────────
   // Two complementary sources: the API's one-line tagline and the wiki's long
@@ -2195,6 +2282,9 @@ async function main() {
 
   const { list: patchList, details: patchDetails } = await syncPatches();
 
+  console.log("Hero base stats (Liquipedia, patch notes)…");
+  await heroBaseStats(heroes, patchDetails);
+
   console.log("Rank emblems…");
   const emblemsRanks = await ranks();
   console.log(`  ${Object.keys(emblemsRanks.images).length} emblems`);
@@ -2258,7 +2348,12 @@ async function main() {
   // The icon file takes the name from the template's "image" field when it
   // exists, often different from the displayed name ("Contract Transform" for
   // the skill "Contract: Transform"); otherwise it falls back on the name.
-  const fileIcon = (slug, i, name) => pages[slug]?.skills?.[i]?.image ?? name;
+  // A slot renamed by the official sheet (a revamp) has a new icon: the wiki
+  // file of the old skill is not used for it.
+  const fileIcon = (slug, i, name) => {
+    const wiki = pages[slug]?.skills?.[i];
+    return wiki?.name === name ? (wiki.image ?? name) : name;
+  };
   const namesSkills = [
     ...new Set(
       Object.entries(finalSkills).flatMap(([slug, cs]) =>
@@ -2274,7 +2369,7 @@ async function main() {
   let iconsArena = 0;
   const visualsSkills = {};
   for (const [slug, comps] of Object.entries(finalSkills)) {
-    const arena = skillsArena[slug] ?? [];
+    const arena = matched[slug] ?? [];
     const icons = {};
     comps.forEach((skill, i) => {
       const name = skill?.name;
@@ -2538,6 +2633,10 @@ async function main() {
     write("skins", skins),
     write("items", items),
     write("skills", finalSkills),
+    // The files the site reads in English, and the translations' source:
+    // without them, a sync never reached the pages.
+    write("items/en", items),
+    write("skills/en", finalSkills),
     write("modes", modes),
     write("stories", stories),
     write("ranks", emblemsRanks),
@@ -2586,6 +2685,8 @@ await (process.argv.includes("--measures")
   ? measuresDaily()
   : process.argv.includes("--patches")
   ? patchesOnly()
+  : process.argv.includes("--heroes")
+  ? heroesOnly()
   : process.argv.includes("--evolution")
   ? evolutionSingle()
   : process.argv.includes("--combos")

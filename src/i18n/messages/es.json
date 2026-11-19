@@ -1261,7 +1261,9 @@
       "category": "Categoría",
       "price": "Precio",
       "crafting": "Fabricación",
-      "similar": "Otros objetos de la categoría {category}"
+      "similar": "Otros objetos de la categoría {category}",
+      "removedTitle": "Retirado del juego.",
+      "removedText": "{name} ya no se vende en la tienda. Su ficha sigue en línea para las builds antiguas y los enlaces que llevan aquí."
     },
     "emblemDetail": {
       "title": "{name} MLBB: mejores héroes y talentos (parche {v})",
@@ -1483,11 +1485,11 @@
       "latest": "Skin con fecha más reciente: {skin} ({date}).",
       "price": "Precio",
       "illustrationOnly": "Solo ilustración: la rareza, la fecha y el precio aún no están en la base de datos.",
-      "collaboration": "Skin de colaboración: {franchise} © sus titulares de derechos, bajo licencia otorgada a Moonton; visual © Moonton. Sólo se muestra el retrato.",
       "altIllustration": "Ilustración de la skin {skin} — {name}",
       "altPortrait": "{name} con la skin {skin}, retrato en el juego",
       "others": "Skins de los demás héroes",
-      "sheetLink": "Ver las {n} skins e ilustraciones"
+      "sheetLink": "Ver las {n} skins e ilustraciones",
+      "collaboration": "Skin de colaboración: {franchise} © sus titulares de derechos, bajo licencia otorgada a Moonton; visual © Moonton. Sólo se muestra el retrato."
     },
     "duos": {
       "title": "Mejores dúos con {name}",
@@ -5664,6 +5666,11 @@
       "name": "Revitalize",
       "description": "Crea una zona que cura a los aliados que están dentro.",
       "bestFor": "Soportes frente a daño repartido en el tiempo."
+    },
+    "flameshot": {
+      "name": "Flameshot",
+      "description": "Dispara un proyectil de fuego que empuja a los enemigos cercanos e inflige daño mágico que crece con la distancia.",
+      "bestFor": "Magos y tiradores que deben rematar a distancia o despejarse."
     }
   },
   "error": {
