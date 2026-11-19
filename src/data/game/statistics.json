@@ -1,6 +1,6 @@
 {
   "rankings": {
-    "measuredAt": "2026-11-19T12:53:36.522Z",
+    "measuredAt": "2026-11-19T16:59:03.060Z",
     "rates": {
       "masha": {
         "winRate": 58.44,
@@ -48753,56 +48753,6 @@
             "winRate": 56.9,
             "pickRate": 2.28
           }
-        ],
-        "glory": [
-          {
-            "items": [
-              "Genius Wand",
-              "Holy Crystal",
-              "Divine Glaive"
-            ],
-            "emblem": "Mage",
-            "talents": [
-              "Thrill",
-              "Seasoned Hunter",
-              "Killing Spree"
-            ],
-            "spell": "Retribution",
-            "winRate": 54.94,
-            "pickRate": 7.84
-          },
-          {
-            "items": [
-              "Genius Wand",
-              "Feather of Heaven",
-              "Holy Crystal"
-            ],
-            "emblem": "Mage",
-            "talents": [
-              "Thrill",
-              "Seasoned Hunter",
-              "Killing Spree"
-            ],
-            "spell": "Retribution",
-            "winRate": 57.63,
-            "pickRate": 3.04
-          },
-          {
-            "items": [
-              "Genius Wand",
-              "Holy Crystal",
-              "Feather of Heaven"
-            ],
-            "emblem": "Mage",
-            "talents": [
-              "Thrill",
-              "Seasoned Hunter",
-              "Killing Spree"
-            ],
-            "spell": "Retribution",
-            "winRate": 55.92,
-            "pickRate": 2.81
-          }
         ]
       }
     },
@@ -51082,56 +51032,6 @@
             "pickRate": 3.75
           }
         ],
-        "mythic": [
-          {
-            "items": [
-              "Flask of the Oasis",
-              "Glowing Wand",
-              "Enchanted Talisman"
-            ],
-            "emblem": "Support",
-            "talents": [
-              "Inspire",
-              "Bargain Hunter",
-              "Focusing Mark"
-            ],
-            "spell": "Flicker",
-            "winRate": 56.75,
-            "pickRate": 16.6
-          },
-          {
-            "items": [
-              "Flask of the Oasis",
-              "Fleeting Time",
-              "Glowing Wand"
-            ],
-            "emblem": "Support",
-            "talents": [
-              "Inspire",
-              "Bargain Hunter",
-              "Focusing Mark"
-            ],
-            "spell": "Flicker",
-            "winRate": 55.44,
-            "pickRate": 7.46
-          },
-          {
-            "items": [
-              "Flask of the Oasis",
-              "Glowing Wand",
-              "Enchanted Talisman"
-            ],
-            "emblem": "Support",
-            "talents": [
-              "Inspire",
-              "Bargain Hunter",
-              "Focusing Mark"
-            ],
-            "spell": "Revitalize",
-            "winRate": 55.73,
-            "pickRate": 2.99
-          }
-        ],
         "honor": [
           {
             "items": [
@@ -52698,6 +52598,56 @@
             "spell": "Flicker",
             "winRate": 54.29,
             "pickRate": 2.39
+          }
+        ],
+        "glory": [
+          {
+            "items": [
+              "Glowing Wand",
+              "Lightning Truncheon",
+              "Wishing Lantern"
+            ],
+            "emblem": "Mage",
+            "talents": [
+              "Rupture",
+              "Wilderness Blessing",
+              "Impure Rage"
+            ],
+            "spell": "Flicker",
+            "winRate": 54.57,
+            "pickRate": 13.68
+          },
+          {
+            "items": [
+              "Glowing Wand",
+              "Lightning Truncheon",
+              "Magic Wand"
+            ],
+            "emblem": "Mage",
+            "talents": [
+              "Rupture",
+              "Wilderness Blessing",
+              "Impure Rage"
+            ],
+            "spell": "Flicker",
+            "winRate": 40.47,
+            "pickRate": 3.97
+          },
+          {
+            "items": [
+              "Glowing Wand",
+              "Lightning Truncheon",
+              "Divine Glaive"
+            ],
+            "emblem": "Mage",
+            "talents": [
+              "Rupture",
+              "Wilderness Blessing",
+              "Impure Rage"
+            ],
+            "spell": "Flicker",
+            "winRate": 54.69,
+            "pickRate": 3.27
           }
         ]
       }
@@ -60705,106 +60655,6 @@
             "pickRate": 2.29
           }
         ],
-        "legend": [
-          {
-            "items": [
-              "War Axe",
-              "Hunter Strike",
-              "Rose Gold Meteor"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Thrill",
-              "Seasoned Hunter",
-              "Killing Spree"
-            ],
-            "spell": "Retribution",
-            "winRate": 55.04,
-            "pickRate": 3.27
-          },
-          {
-            "items": [
-              "Blade of the Heptaseas",
-              "Hunter Strike",
-              "Malefic Roar"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Rupture",
-              "Seasoned Hunter",
-              "Lethal Ignition"
-            ],
-            "spell": "Retribution",
-            "winRate": 53.95,
-            "pickRate": 2.65
-          },
-          {
-            "items": [
-              "War Axe",
-              "Rose Gold Meteor",
-              "Brute Force Breastplate"
-            ],
-            "emblem": "Fighter",
-            "talents": [
-              "Thrill",
-              "Master Assassin",
-              "Brave Smite"
-            ],
-            "spell": "Retribution",
-            "winRate": 54.97,
-            "pickRate": 2.52
-          }
-        ],
-        "mythic": [
-          {
-            "items": [
-              "Blade of the Heptaseas",
-              "Hunter Strike",
-              "Malefic Roar"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Rupture",
-              "Seasoned Hunter",
-              "Lethal Ignition"
-            ],
-            "spell": "Retribution",
-            "winRate": 53.89,
-            "pickRate": 3.66
-          },
-          {
-            "items": [
-              "War Axe",
-              "Hunter Strike",
-              "Rose Gold Meteor"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Thrill",
-              "Seasoned Hunter",
-              "Killing Spree"
-            ],
-            "spell": "Retribution",
-            "winRate": 54.96,
-            "pickRate": 3.18
-          },
-          {
-            "items": [
-              "Blade of the Heptaseas",
-              "Sky Piercer",
-              "Hunter Strike"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Rupture",
-              "Master Assassin",
-              "Lethal Ignition"
-            ],
-            "spell": "Retribution",
-            "winRate": 53.2,
-            "pickRate": 2.76
-          }
-        ],
         "honor": [
           {
             "items": [
@@ -64801,56 +64651,6 @@
             "spell": "Revitalize",
             "winRate": 51.04,
             "pickRate": 1.67
-          }
-        ],
-        "glory": [
-          {
-            "items": [
-              "Dominance Ice",
-              "Antique Cuirass",
-              "Radiant Armor"
-            ],
-            "emblem": "Tank",
-            "talents": [
-              "Vitality",
-              "Tenacity",
-              "Concussive Blast"
-            ],
-            "spell": "Revitalize",
-            "winRate": 48.64,
-            "pickRate": 2.79
-          },
-          {
-            "items": [
-              "Thunder Belt",
-              "Dominance Ice",
-              "Queen's Wings"
-            ],
-            "emblem": "Tank",
-            "talents": [
-              "Vitality",
-              "Tenacity",
-              "Concussive Blast"
-            ],
-            "spell": "Revitalize",
-            "winRate": 50.82,
-            "pickRate": 2.37
-          },
-          {
-            "items": [
-              "Dominance Ice",
-              "Antique Cuirass",
-              "Chastise Pauldron"
-            ],
-            "emblem": "Tank",
-            "talents": [
-              "Vitality",
-              "Tenacity",
-              "Concussive Blast"
-            ],
-            "spell": "Revitalize",
-            "winRate": 49.7,
-            "pickRate": 1.84
           }
         ]
       },
@@ -69354,6 +69154,56 @@
             "winRate": 53.89,
             "pickRate": 8.55
           }
+        ],
+        "glory": [
+          {
+            "items": [
+              "Hunter Strike",
+              "Sky Piercer",
+              "War Axe"
+            ],
+            "emblem": "Assassin",
+            "talents": [
+              "Thrill",
+              "Seasoned Hunter",
+              "War Cry"
+            ],
+            "spell": "Retribution",
+            "winRate": 55.32,
+            "pickRate": 13.92
+          },
+          {
+            "items": [
+              "Hunter Strike",
+              "War Axe",
+              "Malefic Roar"
+            ],
+            "emblem": "Assassin",
+            "talents": [
+              "Thrill",
+              "Seasoned Hunter",
+              "War Cry"
+            ],
+            "spell": "Retribution",
+            "winRate": 51.63,
+            "pickRate": 13.49
+          },
+          {
+            "items": [
+              "Hunter Strike",
+              "Sky Piercer",
+              "Endless Battle"
+            ],
+            "emblem": "Assassin",
+            "talents": [
+              "Thrill",
+              "Seasoned Hunter",
+              "War Cry"
+            ],
+            "spell": "Retribution",
+            "winRate": 53.85,
+            "pickRate": 6.99
+          }
         ]
       }
     },
@@ -71841,256 +71691,6 @@
             "spell": "Flicker",
             "winRate": 50.69,
             "pickRate": 2.9
-          }
-        ],
-        "epic": [
-          {
-            "items": [
-              "Blade of the Heptaseas",
-              "Hunter Strike",
-              "Malefic Roar"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Agility",
-              "Master Assassin",
-              "Lethal Ignition"
-            ],
-            "spell": "Flicker",
-            "winRate": 55.84,
-            "pickRate": 3.51
-          },
-          {
-            "items": [
-              "Hunter Strike",
-              "Sea Halberd",
-              "Dominance Ice"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Agility",
-              "Seasoned Hunter",
-              "Killing Spree"
-            ],
-            "spell": "Flicker",
-            "winRate": 52.33,
-            "pickRate": 3.37
-          },
-          {
-            "items": [
-              "Blade of the Heptaseas",
-              "Hunter Strike",
-              "Malefic Roar"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Agility",
-              "Master Assassin",
-              "Lethal Ignition"
-            ],
-            "spell": "Petrify",
-            "winRate": 53.08,
-            "pickRate": 3.19
-          }
-        ],
-        "legend": [
-          {
-            "items": [
-              "Blade of the Heptaseas",
-              "Hunter Strike",
-              "Malefic Roar"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Agility",
-              "Master Assassin",
-              "Lethal Ignition"
-            ],
-            "spell": "Flicker",
-            "winRate": 56.2,
-            "pickRate": 4.68
-          },
-          {
-            "items": [
-              "Blade of the Heptaseas",
-              "Hunter Strike",
-              "Malefic Roar"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Agility",
-              "Master Assassin",
-              "Lethal Ignition"
-            ],
-            "spell": "Petrify",
-            "winRate": 54.95,
-            "pickRate": 3.9
-          },
-          {
-            "items": [
-              "Hunter Strike",
-              "Sea Halberd",
-              "Dominance Ice"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Agility",
-              "Seasoned Hunter",
-              "Killing Spree"
-            ],
-            "spell": "Flicker",
-            "winRate": 51.1,
-            "pickRate": 3.62
-          }
-        ],
-        "mythic": [
-          {
-            "items": [
-              "Blade of the Heptaseas",
-              "Hunter Strike",
-              "Malefic Roar"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Agility",
-              "Master Assassin",
-              "Lethal Ignition"
-            ],
-            "spell": "Flicker",
-            "winRate": 56.58,
-            "pickRate": 5.08
-          },
-          {
-            "items": [
-              "Blade of the Heptaseas",
-              "Hunter Strike",
-              "Malefic Roar"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Agility",
-              "Master Assassin",
-              "Lethal Ignition"
-            ],
-            "spell": "Petrify",
-            "winRate": 55.53,
-            "pickRate": 4.41
-          },
-          {
-            "items": [
-              "Hunter Strike",
-              "Sea Halberd",
-              "Dominance Ice"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Agility",
-              "Seasoned Hunter",
-              "Killing Spree"
-            ],
-            "spell": "Flicker",
-            "winRate": 50.03,
-            "pickRate": 3.27
-          }
-        ],
-        "honor": [
-          {
-            "items": [
-              "Blade of the Heptaseas",
-              "Hunter Strike",
-              "Malefic Roar"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Agility",
-              "Master Assassin",
-              "Lethal Ignition"
-            ],
-            "spell": "Flicker",
-            "winRate": 56.97,
-            "pickRate": 5.49
-          },
-          {
-            "items": [
-              "Blade of the Heptaseas",
-              "Hunter Strike",
-              "Malefic Roar"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Agility",
-              "Master Assassin",
-              "Lethal Ignition"
-            ],
-            "spell": "Petrify",
-            "winRate": 55.35,
-            "pickRate": 4.24
-          },
-          {
-            "items": [
-              "Hunter Strike",
-              "Sea Halberd",
-              "Dominance Ice"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Agility",
-              "Seasoned Hunter",
-              "Killing Spree"
-            ],
-            "spell": "Flicker",
-            "winRate": 51.08,
-            "pickRate": 2.96
-          }
-        ],
-        "glory": [
-          {
-            "items": [
-              "Blade of the Heptaseas",
-              "Hunter Strike",
-              "Malefic Roar"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Agility",
-              "Master Assassin",
-              "Lethal Ignition"
-            ],
-            "spell": "Flicker",
-            "winRate": 56.78,
-            "pickRate": 5.72
-          },
-          {
-            "items": [
-              "Blade of the Heptaseas",
-              "Hunter Strike",
-              "Malefic Roar"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Agility",
-              "Master Assassin",
-              "Lethal Ignition"
-            ],
-            "spell": "Petrify",
-            "winRate": 55.18,
-            "pickRate": 4.05
-          },
-          {
-            "items": [
-              "Hunter Strike",
-              "Sea Halberd",
-              "Dominance Ice"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Agility",
-              "Seasoned Hunter",
-              "Killing Spree"
-            ],
-            "spell": "Flicker",
-            "winRate": 49.77,
-            "pickRate": 2.04
           }
         ]
       },
@@ -77201,56 +76801,6 @@
             "spell": "Retribution",
             "winRate": 48.17,
             "pickRate": 6.99
-          }
-        ],
-        "glory": [
-          {
-            "items": [
-              "War Axe",
-              "Brute Force Breastplate",
-              "Endless Battle"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Thrill",
-              "Seasoned Hunter",
-              "Killing Spree"
-            ],
-            "spell": "Retribution",
-            "winRate": 47.81,
-            "pickRate": 12.16
-          },
-          {
-            "items": [
-              "War Axe",
-              "Endless Battle",
-              "Brute Force Breastplate"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Thrill",
-              "Seasoned Hunter",
-              "Killing Spree"
-            ],
-            "spell": "Retribution",
-            "winRate": 49.45,
-            "pickRate": 8.74
-          },
-          {
-            "items": [
-              "War Axe",
-              "Brute Force Breastplate",
-              "Endless Battle"
-            ],
-            "emblem": "Fighter",
-            "talents": [
-              "Thrill",
-              "Seasoned Hunter",
-              "Killing Spree"
-            ],
-            "spell": "Retribution",
-            "winRate": 47.24,
-            "pickRate": 6.08
           }
         ]
       }
@@ -82731,106 +82281,6 @@
             "spell": "Flicker",
             "winRate": 60.57,
             "pickRate": 2.44
-          }
-        ],
-        "epic": [
-          {
-            "items": [
-              "Corrosion Scythe",
-              "Demon Hunter Sword",
-              "Golden Staff"
-            ],
-            "emblem": "Marksman",
-            "talents": [
-              "Swift",
-              "Festival of Blood",
-              "Weakness Finder"
-            ],
-            "spell": "Flicker",
-            "winRate": 61.79,
-            "pickRate": 9.79
-          },
-          {
-            "items": [
-              "Corrosion Scythe",
-              "Demon Hunter Sword",
-              "Golden Staff"
-            ],
-            "emblem": "Fighter",
-            "talents": [
-              "Swift",
-              "Master Assassin",
-              "Weakness Finder"
-            ],
-            "spell": "Flicker",
-            "winRate": 58.99,
-            "pickRate": 9.71
-          },
-          {
-            "items": [
-              "Corrosion Scythe",
-              "Demon Hunter Sword",
-              "Golden Staff"
-            ],
-            "emblem": "All",
-            "talents": [
-              "Thrill",
-              "Wilderness Blessing",
-              "Impure Rage"
-            ],
-            "spell": "Flicker",
-            "winRate": 57.82,
-            "pickRate": 1.94
-          }
-        ],
-        "legend": [
-          {
-            "items": [
-              "Corrosion Scythe",
-              "Demon Hunter Sword",
-              "Golden Staff"
-            ],
-            "emblem": "Marksman",
-            "talents": [
-              "Swift",
-              "Festival of Blood",
-              "Weakness Finder"
-            ],
-            "spell": "Flicker",
-            "winRate": 60.28,
-            "pickRate": 11.38
-          },
-          {
-            "items": [
-              "Corrosion Scythe",
-              "Demon Hunter Sword",
-              "Golden Staff"
-            ],
-            "emblem": "Fighter",
-            "talents": [
-              "Swift",
-              "Master Assassin",
-              "Weakness Finder"
-            ],
-            "spell": "Flicker",
-            "winRate": 59.07,
-            "pickRate": 10.02
-          },
-          {
-            "items": [
-              "Corrosion Scythe",
-              "Windtalker",
-              "Golden Staff"
-            ],
-            "emblem": "Fighter",
-            "talents": [
-              "Swift",
-              "Weapons Master",
-              "Weakness Finder"
-            ],
-            "spell": "Flicker",
-            "winRate": 57.76,
-            "pickRate": 1.57
           }
         ],
         "mythic": [
@@ -88957,56 +88407,6 @@
             "pickRate": 1.98
           }
         ],
-        "honor": [
-          {
-            "items": [
-              "Hunter Strike",
-              "War Axe",
-              "Endless Battle"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Thrill",
-              "Seasoned Hunter",
-              "Temporal Reign"
-            ],
-            "spell": "Retribution",
-            "winRate": 58.94,
-            "pickRate": 19.7
-          },
-          {
-            "items": [
-              "Hunter Strike",
-              "War Axe",
-              "Brute Force Breastplate"
-            ],
-            "emblem": "Fighter",
-            "talents": [
-              "Thrill",
-              "Seasoned Hunter",
-              "Temporal Reign"
-            ],
-            "spell": "Retribution",
-            "winRate": 56.02,
-            "pickRate": 3.65
-          },
-          {
-            "items": [
-              "Hunter Strike",
-              "Sky Piercer",
-              "War Axe"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Thrill",
-              "Seasoned Hunter",
-              "Temporal Reign"
-            ],
-            "spell": "Retribution",
-            "winRate": 61.62,
-            "pickRate": 1.92
-          }
-        ],
         "glory": [
           {
             "items": [
@@ -90019,56 +89419,6 @@
             "spell": "Flicker",
             "winRate": 54.35,
             "pickRate": 3.01
-          }
-        ],
-        "epic": [
-          {
-            "items": [
-              "Queen's Wings",
-              "Oracle",
-              "Dominance Ice"
-            ],
-            "emblem": "Fighter",
-            "talents": [
-              "Vitality",
-              "Festival of Blood",
-              "Concussive Blast"
-            ],
-            "spell": "Flicker",
-            "winRate": 54.25,
-            "pickRate": 9.03
-          },
-          {
-            "items": [
-              "Queen's Wings",
-              "Oracle",
-              "Chastise Pauldron"
-            ],
-            "emblem": "Fighter",
-            "talents": [
-              "Vitality",
-              "Festival of Blood",
-              "Concussive Blast"
-            ],
-            "spell": "Flicker",
-            "winRate": 56.76,
-            "pickRate": 7.06
-          },
-          {
-            "items": [
-              "War Axe",
-              "Queen's Wings",
-              "Brute Force Breastplate"
-            ],
-            "emblem": "Fighter",
-            "talents": [
-              "Vitality",
-              "Festival of Blood",
-              "Brave Smite"
-            ],
-            "spell": "Flicker",
-            "winRate": 53.99,
-            "pickRate": 3.11
           }
         ],
         "legend": [
@@ -91129,56 +90479,6 @@
             "spell": "Retribution",
             "winRate": 57.78,
             "pickRate": 7.37
-          }
-        ],
-        "glory": [
-          {
-            "items": [
-              "Hunter Strike",
-              "War Axe",
-              "Queen's Wings"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Thrill",
-              "Seasoned Hunter",
-              "Impure Rage"
-            ],
-            "spell": "Retribution",
-            "winRate": 53.08,
-            "pickRate": 19.99
-          },
-          {
-            "items": [
-              "Hunter Strike",
-              "Sky Piercer",
-              "War Axe"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Thrill",
-              "Seasoned Hunter",
-              "Impure Rage"
-            ],
-            "spell": "Retribution",
-            "winRate": 54.92,
-            "pickRate": 14.27
-          },
-          {
-            "items": [
-              "Hunter Strike",
-              "Sky Piercer",
-              "War Axe"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Thrill",
-              "Seasoned Hunter",
-              "Killing Spree"
-            ],
-            "spell": "Retribution",
-            "winRate": 55.98,
-            "pickRate": 8.97
           }
         ]
       }
@@ -92344,6 +91644,56 @@
             "winRate": 49.17,
             "pickRate": 3.24
           }
+        ],
+        "glory": [
+          {
+            "items": [
+              "Dominance Ice",
+              "Fleeting Time",
+              "Athena's Shield"
+            ],
+            "emblem": "Tank",
+            "talents": [
+              "Agility",
+              "Pull Yourself Together",
+              "Concussive Blast"
+            ],
+            "spell": "Flicker",
+            "winRate": 48.89,
+            "pickRate": 8.14
+          },
+          {
+            "items": [
+              "Fleeting Time",
+              "Dominance Ice",
+              "Athena's Shield"
+            ],
+            "emblem": "Tank",
+            "talents": [
+              "Agility",
+              "Pull Yourself Together",
+              "Concussive Blast"
+            ],
+            "spell": "Flicker",
+            "winRate": 48.54,
+            "pickRate": 5.48
+          },
+          {
+            "items": [
+              "Fleeting Time",
+              "Dominance Ice",
+              "Radiant Armor"
+            ],
+            "emblem": "Tank",
+            "talents": [
+              "Agility",
+              "Pull Yourself Together",
+              "Concussive Blast"
+            ],
+            "spell": "Flicker",
+            "winRate": 48.92,
+            "pickRate": 3.14
+          }
         ]
       }
     },
@@ -92957,56 +92307,6 @@
     },
     "valentina": {
       "Mid": {
-        "all": [
-          {
-            "items": [
-              "Glowing Wand",
-              "Lightning Truncheon",
-              "Divine Glaive"
-            ],
-            "emblem": "Mage",
-            "talents": [
-              "Inspire",
-              "Wilderness Blessing",
-              "Impure Rage"
-            ],
-            "spell": "Flicker",
-            "winRate": 51.27,
-            "pickRate": 8.46
-          },
-          {
-            "items": [
-              "Glowing Wand",
-              "Lightning Truncheon",
-              "Blood Wings"
-            ],
-            "emblem": "Mage",
-            "talents": [
-              "Inspire",
-              "Wilderness Blessing",
-              "Impure Rage"
-            ],
-            "spell": "Flicker",
-            "winRate": 52.98,
-            "pickRate": 5.27
-          },
-          {
-            "items": [
-              "Glowing Wand",
-              "Lightning Truncheon",
-              "Divine Glaive"
-            ],
-            "emblem": "Mage",
-            "talents": [
-              "Inspire",
-              "Bargain Hunter",
-              "Impure Rage"
-            ],
-            "spell": "Flicker",
-            "winRate": 49.27,
-            "pickRate": 4.83
-          }
-        ],
         "epic": [
           {
             "items": [
