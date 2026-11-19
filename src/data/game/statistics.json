@@ -1,6 +1,6 @@
 {
   "rankings": {
-    "measuredAt": "2026-11-19T10:51:59.975Z",
+    "measuredAt": "2026-11-19T12:53:36.522Z",
     "rates": {
       "masha": {
         "winRate": 58.44,
@@ -48753,6 +48753,56 @@
             "winRate": 56.9,
             "pickRate": 2.28
           }
+        ],
+        "glory": [
+          {
+            "items": [
+              "Genius Wand",
+              "Holy Crystal",
+              "Divine Glaive"
+            ],
+            "emblem": "Mage",
+            "talents": [
+              "Thrill",
+              "Seasoned Hunter",
+              "Killing Spree"
+            ],
+            "spell": "Retribution",
+            "winRate": 54.94,
+            "pickRate": 7.84
+          },
+          {
+            "items": [
+              "Genius Wand",
+              "Feather of Heaven",
+              "Holy Crystal"
+            ],
+            "emblem": "Mage",
+            "talents": [
+              "Thrill",
+              "Seasoned Hunter",
+              "Killing Spree"
+            ],
+            "spell": "Retribution",
+            "winRate": 57.63,
+            "pickRate": 3.04
+          },
+          {
+            "items": [
+              "Genius Wand",
+              "Holy Crystal",
+              "Feather of Heaven"
+            ],
+            "emblem": "Mage",
+            "talents": [
+              "Thrill",
+              "Seasoned Hunter",
+              "Killing Spree"
+            ],
+            "spell": "Retribution",
+            "winRate": 55.92,
+            "pickRate": 2.81
+          }
         ]
       }
     },
@@ -52043,6 +52093,56 @@
             "winRate": 63.43,
             "pickRate": 2.99
           }
+        ],
+        "glory": [
+          {
+            "items": [
+              "War Axe",
+              "Brute Force Breastplate",
+              "Malefic Roar"
+            ],
+            "emblem": "Fighter",
+            "talents": [
+              "Rupture",
+              "Seasoned Hunter",
+              "Killing Spree"
+            ],
+            "spell": "Retribution",
+            "winRate": 58.76,
+            "pickRate": 13.26
+          },
+          {
+            "items": [
+              "War Axe",
+              "Brute Force Breastplate",
+              "Malefic Roar"
+            ],
+            "emblem": "Assassin",
+            "talents": [
+              "Thrill",
+              "Seasoned Hunter",
+              "Killing Spree"
+            ],
+            "spell": "Retribution",
+            "winRate": 61.74,
+            "pickRate": 12.45
+          },
+          {
+            "items": [
+              "War Axe",
+              "Brute Force Breastplate",
+              "Malefic Roar"
+            ],
+            "emblem": "Fighter",
+            "talents": [
+              "Thrill",
+              "Seasoned Hunter",
+              "Killing Spree"
+            ],
+            "spell": "Retribution",
+            "winRate": 61.22,
+            "pickRate": 4.25
+          }
         ]
       },
       "Exp": {
@@ -52294,6 +52394,56 @@
             "spell": "Vengeance",
             "winRate": 60.68,
             "pickRate": 2.29
+          }
+        ],
+        "glory": [
+          {
+            "items": [
+              "War Axe",
+              "Brute Force Breastplate",
+              "Malefic Roar"
+            ],
+            "emblem": "Assassin",
+            "talents": [
+              "Thrill",
+              "Seasoned Hunter",
+              "Killing Spree"
+            ],
+            "spell": "Vengeance",
+            "winRate": 53.03,
+            "pickRate": 2.93
+          },
+          {
+            "items": [
+              "War Axe",
+              "Brute Force Breastplate",
+              "Rose Gold Meteor"
+            ],
+            "emblem": "Fighter",
+            "talents": [
+              "Thrill",
+              "Festival of Blood",
+              "Killing Spree"
+            ],
+            "spell": "Vengeance",
+            "winRate": 59.59,
+            "pickRate": 2.83
+          },
+          {
+            "items": [
+              "War Axe",
+              "Brute Force Breastplate",
+              "Rose Gold Meteor"
+            ],
+            "emblem": "Assassin",
+            "talents": [
+              "Thrill",
+              "Festival of Blood",
+              "Killing Spree"
+            ],
+            "spell": "Vengeance",
+            "winRate": 58.1,
+            "pickRate": 2.01
           }
         ]
       }
@@ -52548,56 +52698,6 @@
             "spell": "Flicker",
             "winRate": 54.29,
             "pickRate": 2.39
-          }
-        ],
-        "glory": [
-          {
-            "items": [
-              "Glowing Wand",
-              "Lightning Truncheon",
-              "Wishing Lantern"
-            ],
-            "emblem": "Mage",
-            "talents": [
-              "Rupture",
-              "Wilderness Blessing",
-              "Impure Rage"
-            ],
-            "spell": "Flicker",
-            "winRate": 54.57,
-            "pickRate": 13.68
-          },
-          {
-            "items": [
-              "Glowing Wand",
-              "Lightning Truncheon",
-              "Magic Wand"
-            ],
-            "emblem": "Mage",
-            "talents": [
-              "Rupture",
-              "Wilderness Blessing",
-              "Impure Rage"
-            ],
-            "spell": "Flicker",
-            "winRate": 40.47,
-            "pickRate": 3.97
-          },
-          {
-            "items": [
-              "Glowing Wand",
-              "Lightning Truncheon",
-              "Divine Glaive"
-            ],
-            "emblem": "Mage",
-            "talents": [
-              "Rupture",
-              "Wilderness Blessing",
-              "Impure Rage"
-            ],
-            "spell": "Flicker",
-            "winRate": 54.69,
-            "pickRate": 3.27
           }
         ]
       }
@@ -69254,56 +69354,6 @@
             "winRate": 53.89,
             "pickRate": 8.55
           }
-        ],
-        "glory": [
-          {
-            "items": [
-              "Hunter Strike",
-              "Sky Piercer",
-              "War Axe"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Thrill",
-              "Seasoned Hunter",
-              "War Cry"
-            ],
-            "spell": "Retribution",
-            "winRate": 55.32,
-            "pickRate": 13.92
-          },
-          {
-            "items": [
-              "Hunter Strike",
-              "War Axe",
-              "Malefic Roar"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Thrill",
-              "Seasoned Hunter",
-              "War Cry"
-            ],
-            "spell": "Retribution",
-            "winRate": 51.63,
-            "pickRate": 13.49
-          },
-          {
-            "items": [
-              "Hunter Strike",
-              "Sky Piercer",
-              "Endless Battle"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Thrill",
-              "Seasoned Hunter",
-              "War Cry"
-            ],
-            "spell": "Retribution",
-            "winRate": 53.85,
-            "pickRate": 6.99
-          }
         ]
       }
     },
@@ -79887,56 +79937,6 @@
             "spell": "Flicker",
             "winRate": 54.47,
             "pickRate": 3.01
-          }
-        ],
-        "glory": [
-          {
-            "items": [
-              "Sky Piercer",
-              "Divine Glaive",
-              "Genius Wand"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Rupture",
-              "Bargain Hunter",
-              "Impure Rage"
-            ],
-            "spell": "Flicker",
-            "winRate": 54.06,
-            "pickRate": 4.23
-          },
-          {
-            "items": [
-              "Sky Piercer",
-              "Glowing Wand",
-              "Divine Glaive"
-            ],
-            "emblem": "Mage",
-            "talents": [
-              "Rupture",
-              "Bargain Hunter",
-              "Impure Rage"
-            ],
-            "spell": "Flicker",
-            "winRate": 55.14,
-            "pickRate": 4.1
-          },
-          {
-            "items": [
-              "Sky Piercer",
-              "Glowing Wand",
-              "Divine Glaive"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Rupture",
-              "Bargain Hunter",
-              "Impure Rage"
-            ],
-            "spell": "Flicker",
-            "winRate": 54.94,
-            "pickRate": 2.38
           }
         ]
       }
@@ -92343,56 +92343,6 @@
             "spell": "Flicker",
             "winRate": 49.17,
             "pickRate": 3.24
-          }
-        ],
-        "glory": [
-          {
-            "items": [
-              "Dominance Ice",
-              "Fleeting Time",
-              "Athena's Shield"
-            ],
-            "emblem": "Tank",
-            "talents": [
-              "Agility",
-              "Pull Yourself Together",
-              "Concussive Blast"
-            ],
-            "spell": "Flicker",
-            "winRate": 48.89,
-            "pickRate": 8.14
-          },
-          {
-            "items": [
-              "Fleeting Time",
-              "Dominance Ice",
-              "Athena's Shield"
-            ],
-            "emblem": "Tank",
-            "talents": [
-              "Agility",
-              "Pull Yourself Together",
-              "Concussive Blast"
-            ],
-            "spell": "Flicker",
-            "winRate": 48.54,
-            "pickRate": 5.48
-          },
-          {
-            "items": [
-              "Fleeting Time",
-              "Dominance Ice",
-              "Radiant Armor"
-            ],
-            "emblem": "Tank",
-            "talents": [
-              "Agility",
-              "Pull Yourself Together",
-              "Concussive Blast"
-            ],
-            "spell": "Flicker",
-            "winRate": 48.92,
-            "pickRate": 3.14
           }
         ]
       }
