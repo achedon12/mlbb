@@ -1,13 +1,12 @@
 /**
- * What the Discord profile card shows, saved once from the game's services.
+ * What the Discord profile card shows, as last read from the game's services.
  *
- * The player statistics service only answers with the player's own token,
- * which the site never keeps (it lives in the session cookie): there is no
- * way to read a player's figures later, from the bot, without them. So when
- * the player links their Discord account, or refreshes the card, the site
- * reads their profile and their season's heroes with the token of that
- * request and keeps this snapshot, and nothing else. The bot's /profile
- * draws the card from it.
+ * The player statistics service only answers with the player's own token.
+ * When the player links their Discord account, or refreshes the card, the
+ * site reads their figures with the token of that request and keeps this
+ * snapshot, with the token sealed (`token.ts`) until it expires: the bot's
+ * /profile then reads the figures again with it (`freshCard` in the bot's
+ * route), and draws this snapshot when the token is gone or the game down.
  *
  * Pure: the account page and the route build it from responses already read
  * by `mlbb-auth`; the tests build it from samples.
@@ -128,6 +127,12 @@ export function buildSnapshot(o: {
     heroes,
   };
   return readSnapshot(snapshot);
+}
+
+/** The profile part of `fresh`, with the season figures and heroes of `previous`. */
+export function keepFigures(fresh: ProfileSnapshot, previous: ProfileSnapshot): ProfileSnapshot {
+  const { season, matches, wins, full, mvp, heroes } = previous;
+  return { ...fresh, season, matches, wins, full, mvp, heroes };
 }
 
 /**

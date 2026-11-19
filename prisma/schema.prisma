@@ -438,8 +438,10 @@ model SkinCollection {
 /// once, which proves they own both. `discordKey` is a hash of the Discord id
 /// and `accountId` the community's hash of the in-game id and server: neither
 /// id is stored in plain text here. `snapshot` holds the figures read from
-/// the game's services when the player linked or last refreshed, with no
-/// token kept to read them again; it is deleted 30 days after `snapshotAt`.
+/// the game's services at the last refresh; it is deleted 30 days after
+/// `snapshotAt`. `token` is the player's game token, sealed (AES-256-GCM),
+/// kept until it expires (7 days at most) so /profile reads fresh figures;
+/// null once expired.
 /// `public`: other members may post the card with /profile user:@them.
 /// `showId`: the card shows the in-game id and server.
 model ProfileCard {
@@ -449,6 +451,7 @@ model ProfileCard {
   showId     Boolean  @default(true)
   snapshot   Json
   snapshotAt DateTime
+  token      String?
   linkedAt   DateTime @default(now())
 
   @@index([snapshotAt])

@@ -4718,13 +4718,13 @@
       "intro": "Mostra il tuo rango, la percentuale di vittorie e gli eroi più giocati come immagine su Discord, con il comando /profile del bot MLBBDex.",
       "needDiscord": "Per collegarla, accedi anche con l'account Discord che usi sui tuoi server.",
       "discordButton": "Accedi con Discord",
-      "linkOffer": "Collega l'account Discord {name} a questo account di gioco. I tuoi dati attuali vengono salvati per la scheda.",
+      "linkOffer": "Collega l'account Discord {name} a questo account di gioco. Le tue statistiche vengono lette ad ogni /profile.",
       "linkButton": "Collega e crea la mia scheda",
       "linked": "La tua scheda è collegata a un account Discord. Scrivi /profile in un server dove c'è il bot MLBBDex.",
       "otherDiscord": "Hai effettuato l'accesso con un altro account Discord ({name}) diverso da quello collegato. Collegarlo vi sposta la scheda.",
       "updatedAt": "Dati salvati il {date}.",
       "refresh": "Aggiorna i miei dati",
-      "noAccess": "Il sito non conserva alcun accesso al tuo account di gioco: la scheda mostra i dati salvati al tuo ultimo aggiornamento e viene eliminata dopo 30 giorni senza aggiornamenti.",
+      "noAccess": "Affinché /profile mostri le tue statistiche attuali, il sito mantiene il token di gioco crittografato fino alla sua scadenza (7 giorni al massimo); ogni connessione al sito lo rinnova. Trascorso questo tempo la tessera riporta le ultime statistiche lette, e viene cancellata dopo 30 giorni senza lettura.",
       "public": "Gli altri possono mostrare la mia scheda (/profile user:@tu)",
       "publicHint": "Disattivato per impostazione predefinita: solo tu puoi mostrarla.",
       "showId": "Mostra il mio ID di gioco e il server sulla scheda",
@@ -5094,7 +5094,7 @@
       "results": "per le classifiche delle partite giocate oggi su Discord: ID Discord e nickname dei giocatori e i loro punteggi.",
       "details": "Dettagli, periodo di conservazione ed eliminazione sono descritti nella pagina sulla privacy del bot.",
       "members": "Nulla viene conservato sui membri di un server: i loro ingressi e uscite, che Discord comunica al bot, servono solo a pubblicare i messaggi di benvenuto e di addio attivati dal server.",
-      "profile": "per la scheda /profile, se la colleghi dalla pagina del tuo account: un'impronta del tuo ID Discord e una del tuo ID di gioco e del server (mai gli ID stessi), le tue due scelte (se altri possono mostrarla, se mostra il tuo ID) e una copia dei tuoi dati al tuo ultimo aggiornamento: nickname, avatar, paese, livello, rango, partite e vittorie della stagione, tre eroi più giocati. Nessun token di gioco viene conservato. La scheda viene eliminata quando la scolleghi, o 30 giorni dopo il tuo ultimo aggiornamento;"
+      "profile": "per la scheda /profile, se la colleghi dalla pagina del tuo account: una stampa del tuo ID Discord e uno dei tuoi ID di gioco e del tuo server (mai gli ID stessi), le tue due scelte (se altri possono visualizzarlo, se mostra il tuo ID), una copia delle tue statistiche dell'ultima lettura: nickname, avatar, nazione, livello, grado, partite e vittorie della stagione, i tre eroi più giocati e il tuo token di gioco, crittografato (AES-256-GCM), fino alla scadenza (7 giorni al massimo), in modo che /profile rilegga le tue statistiche su ogni chiamata. Ogni nuova connessione al sito rinnova questo token. La carta e il gettone vengono eliminati quando li svincoli; la tessera è inoltre trascorsa 30 giorni dall'ultima lettura;"
     },
     "community": {
       "title": "Community: forum e ricerca compagni di squadra",
@@ -5199,7 +5199,7 @@
       },
       "game": {
         "title": "Accesso all'account di gioco",
-        "text": "La connessione utilizza il flusso ufficiale Moonton: indichi il tuo nome utente e il tuo server di gioco, ti viene inviato un codice di verifica in-game e il sito riceve in cambio un token temporaneo. Questi scambi passano attraverso un'API della comunità (`arena.rone.dev`) e attraverso i servizi Moonton, che ricevono il tuo identificatore, il tuo server, il codice quindi il token. Il token risiede nel cookie di sessione `mlbb_jeu` e non viene mai salvato sul server; le risposte del servizio (profilo, statistiche, giochi) vengono mantenute in memoria per qualche ora al massimo, per limitare le chiamate. Non ti viene mai richiesta una password. Il server mantiene qualcosa in modo permanente solo se usi la comunità o la raccolta, come descritto di seguito."
+        "text": "La connessione utilizza il flusso ufficiale Moonton: indichi il tuo nome utente e il tuo server di gioco, ti viene inviato un codice di verifica in-game e il sito riceve in cambio un token temporaneo. Questi scambi passano attraverso un'API della comunità (`arena.rone.dev`) e attraverso i servizi Moonton, che ricevono il tuo identificatore, il tuo server, il codice quindi il token. Il token risiede nel cookie di sessione `mlbb_jeu`; viene salvato sul server solo se colleghi una tessera /profile, crittografato e fino alla scadenza (vedi parte sul bot Discord); le risposte del servizio (profilo, statistiche, giochi) vengono mantenute in memoria per qualche ora al massimo, per limitare le chiamate. Non ti viene mai richiesta una password. Il server mantiene qualcosa in modo permanente solo se usi la comunità o la raccolta, come descritto di seguito."
       },
       "thirdParty": {
         "title": "Contenuti di terze parti",
@@ -5222,7 +5222,7 @@
       "retention": {
         "title": "Per quanto tempo vengono conservati i dati",
         "audience": "Misurazione dell'audience: dati sulle visite conservati fino alla cancellazione da parte dell'editore; cookie, vedi tabella sopra; a vostra scelta sui cookie, 6 mesi.",
-        "sessions": "Sessioni: il token dell'account di gioco fino alla sua scadenza (massimo 7 giorni); la sessione Discord, 7 giorni.",
+        "sessions": "Sessioni: il token dell'account di gioco fino alla sua scadenza (7 giorni al massimo), nel cookie e sul server se colleghi una carta /profile; la sessione Discord, 7 giorni.",
         "community": "Community: il tuo account, i tuoi messaggi, i tuoi voti, le tue segnalazioni e il registro di moderazione vengono conservati finché esiste la community, a meno che tu non richieda la cancellazione; un report conserva una copia del testo riportato. Una carta compagno di squadra viene cancellata sette giorni dopo la sua ultima registrazione.",
         "builds": "Build della community: fino all'eliminazione da parte dell'autore o su richiesta.",
         "collection": "Raccolta sincronizzata: fino allo svuotamento, oppure a richiesta.",

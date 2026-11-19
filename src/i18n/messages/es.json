@@ -4718,13 +4718,13 @@
       "intro": "Muestra tu rango, tu tasa de victorias y tus héroes más jugados como imagen en Discord, con el comando /profile del bot MLBBDex.",
       "needDiscord": "Para vincularla, inicia sesión también con la cuenta de Discord que usas en tus servidores.",
       "discordButton": "Iniciar sesión con Discord",
-      "linkOffer": "Vincula la cuenta de Discord {name} a esta cuenta de juego. Tus cifras actuales se guardan para la tarjeta.",
+      "linkOffer": "Vincula la cuenta de Discord {name} a esta cuenta de juego. Sus estadísticas se leen en cada perfil.",
       "linkButton": "Vincular y crear mi tarjeta",
       "linked": "Tu tarjeta está vinculada a una cuenta de Discord. Escribe /profile en un servidor donde esté el bot MLBBDex.",
       "otherDiscord": "Has iniciado sesión con otra cuenta de Discord ({name}) distinta de la vinculada. Vincularla mueve la tarjeta a ella.",
       "updatedAt": "Cifras guardadas el {date}.",
       "refresh": "Actualizar mis cifras",
-      "noAccess": "El sitio no conserva ningún acceso a tu cuenta de juego: la tarjeta muestra las cifras guardadas en tu última actualización y se borra tras 30 días sin actualizar.",
+      "noAccess": "Para que /profile muestre tus estadísticas actuales, el sitio mantiene tu token de juego encriptado hasta que caduque (7 días como máximo); cada conexión al sitio lo renueva. Pasado este tiempo, la tarjeta muestra las últimas estadísticas leídas, y se elimina tras 30 días sin lectura.",
       "public": "Otros pueden mostrar mi tarjeta (/profile user:@tú)",
       "publicHint": "Desactivado por defecto: solo tú puedes mostrarla.",
       "showId": "Mostrar mi ID de juego y mi servidor en la tarjeta",
@@ -5094,7 +5094,7 @@
       "results": "para las clasificaciones de los juegos jugados hoy en Discord: el ID y apodo de Discord de los jugadores y sus puntuaciones.",
       "details": "Los detalles, el período de retención y la eliminación se describen en la página de privacidad del bot.",
       "members": "No se guarda nada de los miembros de un servidor: sus entradas y salidas, que Discord comunica al bot, solo sirven para publicar los mensajes de bienvenida y despedida que el servidor activó.",
-      "profile": "para la tarjeta /profile, si la vinculas desde tu página de cuenta: una huella de tu ID de Discord y otra de tu ID de juego y servidor (nunca los ID en sí), tus dos elecciones (si otros pueden mostrarla, si muestra tu ID) y una copia de tus cifras en tu última actualización: apodo, avatar, país, nivel, rango, partidas y victorias de la temporada, tres héroes más jugados. No se conserva ningún token del juego. La tarjeta se borra cuando la desvinculas, o 30 días después de tu última actualización;"
+      "profile": "para la tarjeta /profile, si la vinculas desde la página de tu cuenta: una impresión de tu ID de Discord y una de tu ID de juego y tu servidor (nunca los ID en sí), tus dos opciones (si otros pueden mostrarlas, si muestra tu ID), una copia de tus estadísticas en la última lectura: apodo, avatar, país, nivel, rango, juegos y victorias de la temporada, tres héroes más jugados y tu token de juego, cifrado (AES-256-GCM), hasta que caduque (7 días en most), para que /profile vuelva a leer sus estadísticas en cada llamada. Cada nueva conexión al sitio renueva este token. La tarjeta y el token se eliminan cuando los desvinculas; la tarjeta también tiene 30 días después de la última lectura;"
     },
     "community": {
       "title": "Comunidad: foro y buscador de compañeros",
@@ -5199,7 +5199,7 @@
       },
       "game": {
         "title": "Conexión a la cuenta de juego",
-        "text": "La conexión utiliza el flujo oficial de Moonton: usted indica su nombre de usuario y su servidor de juego, se le envía un código de verificación en el juego y el sitio recibe un token temporal a cambio. Estos intercambios pasan por una API comunitaria (`arena.rone.dev`) y por los servicios Moonton, que reciben su identificador, su servidor, el código y luego el token. El token reside en la cookie de sesión `mlbb_jeu` y nunca se guarda en el servidor; Las respuestas del servicio (perfil, estadísticas, juegos) se guardan en la memoria durante unas horas como máximo, para limitar las llamadas. Nunca se le pide una contraseña. El servidor solo mantiene algo de forma permanente si utiliza la comunidad o colección, como se describe a continuación."
+        "text": "La conexión utiliza el flujo oficial de Moonton: usted indica su nombre de usuario y su servidor de juego, se le envía un código de verificación en el juego y el sitio recibe un token temporal a cambio. Estos intercambios pasan por una API comunitaria (`arena.rone.dev`) y por los servicios Moonton, que reciben su identificador, su servidor, el código y luego el token. El token vive en la cookie de sesión `mlbb_jeu`; solo se guarda en el servidor si vinculas una tarjeta /profile, cifrada y hasta que caduque (ver la parte sobre el bot de Discord); Las respuestas del servicio (perfil, estadísticas, juegos) se guardan en la memoria durante unas horas como máximo, para limitar las llamadas. Nunca se le pide una contraseña. El servidor solo mantiene algo de forma permanente si utiliza la comunidad o colección, como se describe a continuación."
       },
       "thirdParty": {
         "title": "Contenido de terceros",
@@ -5222,7 +5222,7 @@
       "retention": {
         "title": "¿Cuánto tiempo se conservan los datos?",
         "audience": "Medición de audiencia: datos de visitas conservados hasta que el editor los elimine; galletas, consulte la tabla anterior; tu elección en cookies, 6 meses.",
-        "sessions": "Sesiones: el token de la cuenta del juego hasta que caduque (7 días como máximo); la sesión de Discord, 7 días.",
+        "sessions": "Sesiones: el token de la cuenta del juego hasta que expire (7 días como máximo), en la cookie y en el servidor si vinculas una tarjeta /profile; la sesión de Discord, 7 días.",
         "community": "Comunidad: su cuenta, sus mensajes, sus votos, sus informes y el registro de moderación se conservan mientras exista la comunidad, a menos que solicite su eliminación; un informe guarda una copia del texto informado. Una tarjeta de compañero de equipo se elimina siete días después de su último registro.",
         "builds": "Construcciones comunitarias: hasta que las elimine su autor o previa solicitud.",
         "collection": "Colección sincronizada: hasta que la vacíes, o bajo demanda.",

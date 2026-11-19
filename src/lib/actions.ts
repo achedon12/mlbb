@@ -2,15 +2,20 @@
 
 import { redirect } from "next/navigation";
 import { z } from "zod";
-import { connect as connectGame, sendCode } from "./mlbb-auth";
+import { accountId } from "./community-builds-server";
+import { databaseConfigured } from "./db";
+import { setCardToken } from "./discord-profile/store";
+import { sealGameToken } from "./discord-profile/token";
+import { logError } from "./log";
+import { connect as connectGame, identity, sendCode } from "./mlbb-auth";
 import { closeSession, openSession } from "./session";
 
 /**
  * Login actions.
  *
  * The flow has two steps: request a code, then exchange it for a session.
- * No data is stored on the site — identity lives in the token,
- * authentication at Moonton.
+ * Identity lives in the token, authentication at Moonton. The only thing
+ * kept is the token renewed for a linked /profile card (`renewCardToken`).
  */
 export interface State {
   /** Catalogue key (`loginForm.errors.*`): the form displays it in the page's language. */
@@ -90,7 +95,21 @@ export async function checkCode(_previous: State, data: FormData): Promise<State
   }
 
   await openSession(result.token);
+  await renewCardToken(result.token);
   redirect("/account");
+}
+
+/**
+ * A new sign-in renews the token kept with the player's /profile card, if
+ * they linked one, so the card keeps reading fresh figures. Never blocks the
+ * sign-in: without a database or on a failure, the card keeps its old token.
+ */
+async function renewCardToken(token: string): Promise<void> {
+  if (!databaseConfigured()) return;
+  const me = identity(token);
+  const sealed = sealGameToken(token);
+  if (me.roleId <= 0 || !sealed) return;
+  await setCardToken(accountId(me.roleId, me.zoneId), sealed).catch((e) => logError("profile card token renewal", e));
 }
 
 export async function disconnect(): Promise<void> {

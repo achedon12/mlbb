@@ -1,13 +1,13 @@
 import { profile, seasonHeroes, seasons, statistics, type Result } from "@/lib/mlbb-auth";
-import { buildSnapshot, type ProfileSnapshot } from "./snapshot";
+import { buildSnapshot, keepFigures, type ProfileSnapshot } from "./snapshot";
 
 /**
  * Reads the signed-in player's card figures from the game's services, with
  * the token of this request: the profile (always online), then the latest
  * season's heroes and the all-seasons statistics (often down: the card then
- * keeps what was readable). The token is used here and dropped.
+ * keeps what was readable, and the figures of `previous` when none was).
  */
-export async function readCardFigures(token: string): Promise<Result<ProfileSnapshot>> {
+export async function readCardFigures(token: string, previous: ProfileSnapshot | null = null): Promise<Result<ProfileSnapshot>> {
   const [me, list, stats] = await Promise.all([profile(token), seasons(token), statistics(token)]);
   if (me.status !== "ok") return me;
   if (list.status === "expired" || stats.status === "expired") return { status: "expired" };
@@ -23,5 +23,8 @@ export async function readCardFigures(token: string): Promise<Result<ProfileSnap
     heroes: heroes?.status === "ok" ? heroes.data : null,
     stats: stats.status === "ok" ? stats.data : null,
   });
-  return snapshot ? { status: "ok", data: snapshot } : { status: "unavailable" };
+  if (!snapshot) return { status: "unavailable" };
+  // Statistics often down: the figures last read stand, rather than zeros.
+  const figuresRead = heroes?.status === "ok" || stats.status === "ok";
+  return { status: "ok", data: figuresRead || !previous ? snapshot : keepFigures(snapshot, previous) };
 }

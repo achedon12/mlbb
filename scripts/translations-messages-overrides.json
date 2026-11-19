@@ -4621,8 +4621,8 @@
       "text": "Before you choose, and if you refuse, audience measurement carries on without any cookie. Refusing does not take away any feature of the site."
     },
     "prose.gdpr.game.text": {
-      "fr": "La connexion utilise le flux officiel de Moonton : vous indiquez votre identifiant et votre serveur de jeu, un code de vérification vous est envoyé en jeu, et le site reçoit en retour un jeton temporaire. Ces échanges passent par une API communautaire (`arena.rone.dev`) et par les services de Moonton, qui reçoivent votre identifiant, votre serveur, le code puis le jeton. Le jeton vit dans le cookie de session `mlbb_jeu` et n'est jamais enregistré sur le serveur ; les réponses du service (profil, statistiques, parties) sont gardées en mémoire quelques heures au plus, pour limiter les appels. Aucun mot de passe ne vous est jamais demandé. Le serveur ne conserve durablement quelque chose que si vous utilisez la communauté ou la collection, comme décrit plus bas.",
-      "text": "Sign-in uses Moonton's official flow: you enter your game ID and server, a verification code is sent to you in the game, and the site receives a temporary token in return. These exchanges go through a community API (`arena.rone.dev`) and Moonton's services, which receive your ID, your server, the code and then the token. The token lives in the `mlbb_jeu` session cookie and is never saved on the server; the service's answers (profile, statistics, matches) are kept in memory for a few hours at most, to limit calls. You are never asked for a password. The server only keeps anything long-term if you use the community or the collection, as described below."
+      "fr": "La connexion utilise le flux officiel de Moonton : vous indiquez votre identifiant et votre serveur de jeu, un code de vérification vous est envoyé en jeu, et le site reçoit en retour un jeton temporaire. Ces échanges passent par une API communautaire (`arena.rone.dev`) et par les services de Moonton, qui reçoivent votre identifiant, votre serveur, le code puis le jeton. Le jeton vit dans le cookie de session `mlbb_jeu` ; il n'est enregistré sur le serveur que si vous reliez une carte /profile, chiffré et jusqu'à son expiration (voir la partie sur le bot Discord) ; les réponses du service (profil, statistiques, parties) sont gardées en mémoire quelques heures au plus, pour limiter les appels. Aucun mot de passe ne vous est jamais demandé. Le serveur ne conserve durablement quelque chose que si vous utilisez la communauté ou la collection, comme décrit plus bas.",
+      "text": "Sign-in uses Moonton's official flow: you enter your game ID and server, a verification code is sent to you in the game, and the site receives a temporary token in return. These exchanges go through a community API (`arena.rone.dev`) and Moonton's services, which receive your ID, your server, the code and then the token. The token lives in the `mlbb_jeu` session cookie; it is saved on the server only if you link a /profile card, encrypted and until it expires (see the Discord bot section); the service's answers (profile, statistics, matches) are kept in memory for a few hours at most, to limit calls. You are never asked for a password. The server only keeps anything long-term if you use the community or the collection, as described below."
     },
     "prose.gdpr.recipients.discord": {
       "fr": "Discord Inc. : connexion avec Discord, bot et son tableau de bord ;",
@@ -4943,6 +4943,22 @@
     "pages.account.levelCelestial": {
       "fr": "Niveau céleste {n}",
       "text": "Celestial level {n}"
+    },
+    "pages.discordCard.noAccess": {
+      "fr": "Pour que /profile montre vos statistiques du moment, le site garde votre jeton de jeu chiffré jusqu'à son expiration (7 jours au plus) ; chaque connexion au site le renouvelle. Passé ce délai, la carte montre les dernières statistiques lues, et elle est supprimée après 30 jours sans lecture.",
+      "text": "So that /profile shows your current figures, the site keeps your game token, encrypted, until it expires (7 days at most); each sign-in to the site renews it. After that, the card shows the last figures read, and is deleted after 30 days without a read."
+    },
+    "pages.discordCard.linkOffer": {
+      "fr": "Reliez le compte Discord {name} à ce compte de jeu. Vos statistiques sont relues à chaque /profile.",
+      "text": "Link the Discord account {name} to this game account. Your figures are read again on every /profile."
+    },
+    "prose.bot.profile": {
+      "fr": "pour la carte /profile, si vous la reliez depuis votre page de compte : une empreinte de votre ID Discord et une de votre ID de jeu et de votre serveur (jamais les ID eux-mêmes), vos deux choix (si d'autres peuvent l'afficher, si elle montre votre ID), une copie de vos statistiques à la dernière lecture : pseudo, avatar, pays, niveau, rang, parties et victoires de la saison, trois héros les plus joués, et votre jeton de jeu, chiffré (AES-256-GCM), jusqu'à son expiration (7 jours au plus), pour que /profile relise vos statistiques à chaque appel. Chaque nouvelle connexion au site renouvelle ce jeton. La carte et le jeton sont supprimés quand vous la déliez ; la carte l'est aussi 30 jours après la dernière lecture ;",
+      "text": "for the /profile card, if you link it from your account page: a fingerprint of your Discord ID and one of your game ID and server (never the IDs themselves), your two choices (whether others may post it, whether it shows your ID), a copy of your figures at the last read: nickname, avatar, country, level, rank, season matches and wins, three most played heroes, and your game token, encrypted (AES-256-GCM), until it expires (7 days at most), so that /profile reads your figures again on every call. Each new sign-in to the site renews this token. The card and the token are deleted when you unlink it; the card is also deleted 30 days after the last read;"
+    },
+    "prose.gdpr.retention.sessions": {
+      "fr": "Sessions : le jeton du compte de jeu jusqu'à son expiration (7 jours au plus), dans le cookie, et sur le serveur si vous reliez une carte /profile ; la session Discord, 7 jours.",
+      "text": "Sessions: the game account token until it expires (7 days at most), in the cookie, and on the server if you link a /profile card; the Discord session, 7 days."
     }
   },
   "es": {

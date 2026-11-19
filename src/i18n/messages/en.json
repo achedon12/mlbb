@@ -4718,13 +4718,13 @@
       "intro": "Post your rank, win rate and most played heroes as an image in Discord, with the MLBBDex bot's /profile command.",
       "needDiscord": "To link it, also sign in with the Discord account you use on your servers.",
       "discordButton": "Sign in with Discord",
-      "linkOffer": "Link the Discord account {name} to this game account. Your current figures are saved for the card.",
+      "linkOffer": "Link the Discord account {name} to this game account. Your figures are read again on every /profile.",
       "linkButton": "Link and create my card",
       "linked": "Your card is linked to a Discord account. Type /profile in a server where the MLBBDex bot is.",
       "otherDiscord": "You are signed in with another Discord account ({name}) than the linked one. Linking it moves the card there.",
       "updatedAt": "Figures saved on {date}.",
       "refresh": "Update my figures",
-      "noAccess": "The site keeps no access to your game account: the card shows the figures saved at your last update, and is deleted after 30 days without one.",
+      "noAccess": "So that /profile shows your current figures, the site keeps your game token, encrypted, until it expires (7 days at most); each sign-in to the site renews it. After that, the card shows the last figures read, and is deleted after 30 days without a read.",
       "public": "Others can post my card (/profile user:@you)",
       "publicHint": "Off by default: only you can post it.",
       "showId": "Show my game ID and server on the card",
@@ -5094,7 +5094,7 @@
       "results": "for the leaderboards of the daily games played in Discord: the players' Discord id and name and their scores.",
       "details": "The details, the retention period and deletion are on the bot's privacy page.",
       "members": "Nothing is kept about a server's members: their joins and leaves, which Discord reports to the bot, are only used to post the welcome and goodbye messages the server turned on.",
-      "profile": "for the /profile card, if you link it from your account page: a fingerprint of your Discord ID and one of your game ID and server (never the IDs themselves), your two choices (whether others may post it, whether it shows your ID) and a copy of your figures at your last update: nickname, avatar, country, level, rank, season matches and wins, three most played heroes. No game token is kept. The card is deleted when you unlink it, or 30 days after your last update;"
+      "profile": "for the /profile card, if you link it from your account page: a fingerprint of your Discord ID and one of your game ID and server (never the IDs themselves), your two choices (whether others may post it, whether it shows your ID), a copy of your figures at the last read: nickname, avatar, country, level, rank, season matches and wins, three most played heroes, and your game token, encrypted (AES-256-GCM), until it expires (7 days at most), so that /profile reads your figures again on every call. Each new sign-in to the site renews this token. The card and the token are deleted when you unlink it; the card is also deleted 30 days after the last read;"
     },
     "community": {
       "title": "Community: forum and teammate finder",
@@ -5199,7 +5199,7 @@
       },
       "game": {
         "title": "Game account login",
-        "text": "Sign-in uses Moonton's official flow: you enter your game ID and server, a verification code is sent to you in the game, and the site receives a temporary token in return. These exchanges go through a community API (`arena.rone.dev`) and Moonton's services, which receive your ID, your server, the code and then the token. The token lives in the `mlbb_jeu` session cookie and is never saved on the server; the service's answers (profile, statistics, matches) are kept in memory for a few hours at most, to limit calls. You are never asked for a password. The server only keeps anything long-term if you use the community or the collection, as described below."
+        "text": "Sign-in uses Moonton's official flow: you enter your game ID and server, a verification code is sent to you in the game, and the site receives a temporary token in return. These exchanges go through a community API (`arena.rone.dev`) and Moonton's services, which receive your ID, your server, the code and then the token. The token lives in the `mlbb_jeu` session cookie; it is saved on the server only if you link a /profile card, encrypted and until it expires (see the Discord bot section); the service's answers (profile, statistics, matches) are kept in memory for a few hours at most, to limit calls. You are never asked for a password. The server only keeps anything long-term if you use the community or the collection, as described below."
       },
       "thirdParty": {
         "title": "Third-party content",
@@ -5222,7 +5222,7 @@
       "retention": {
         "title": "How long data is kept",
         "audience": "Audience measurement: visit data kept until deleted by the publisher; cookies, see table above; your choice on cookies, 6 months.",
-        "sessions": "Sessions: the game account token until it expires (7 days at most); the Discord session, 7 days.",
+        "sessions": "Sessions: the game account token until it expires (7 days at most), in the cookie, and on the server if you link a /profile card; the Discord session, 7 days.",
         "community": "Community: your account, posts, votes, reports and the moderation log are kept for as long as the community exists, unless you ask for them to be erased; a report keeps a copy of the reported text. A teammate card is deleted seven days after it was last saved.",
         "builds": "Community builds: until deleted by their author, or upon request.",
         "collection": "Synced collection: until you empty it, or on request.",
