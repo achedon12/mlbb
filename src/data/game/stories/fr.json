@@ -1766,7 +1766,7 @@
     "profile": {
       "fullName": null,
       "title": null,
-      "species": "cyclope",
+      "species": "Cyclops",
       "gender": "Homme",
       "age": null,
       "origin": null,
@@ -2472,7 +2472,7 @@
         "Bane, Atlas (ennemis)",
         "Popol and Kupa (compagnons)",
         "Hilda (sauvé)",
-        "Aurore"
+        "Aurora"
       ],
       "powers": [
         "Amener les guerriers tombés au combat au Valhalla",
@@ -2568,9 +2568,9 @@
         "Marais d'ombre"
       ],
       "relations": [
-        "Karine",
+        "Karina",
         "Miya",
-        "Eudore"
+        "Eudora"
       ],
       "powers": []
     }
@@ -6100,7 +6100,7 @@
       "relations": [
         "Ruby (compagnon)",
         "Croc Blanc (ennemi)",
-        "Changement"
+        "Chang'e"
       ],
       "powers": []
     }

@@ -1,6 +1,6 @@
 {
   "rankings": {
-    "measuredAt": "2026-11-19T17:32:07.939Z",
+    "measuredAt": "2026-11-19T18:23:42.836Z",
     "rates": {
       "masha": {
         "winRate": 58.44,
@@ -5893,6 +5893,61 @@
         ],
         "winRate": 49.1
       },
+      "mythic": {
+        "strong": [
+          {
+            "slug": "phoveus",
+            "advantage": 3.7
+          },
+          {
+            "slug": "barats",
+            "advantage": 2.8
+          },
+          {
+            "slug": "hilda",
+            "advantage": 2.5
+          },
+          {
+            "slug": "johnson",
+            "advantage": 2.4
+          },
+          {
+            "slug": "odette",
+            "advantage": 2.4
+          },
+          {
+            "slug": "fredrinn",
+            "advantage": 2.3
+          }
+        ],
+        "weak": [
+          {
+            "slug": "diggie",
+            "advantage": -3.5
+          },
+          {
+            "slug": "benedetta",
+            "advantage": -2.9
+          },
+          {
+            "slug": "x-borg",
+            "advantage": -2.7
+          },
+          {
+            "slug": "valir",
+            "advantage": -2.5
+          },
+          {
+            "slug": "angela",
+            "advantage": -2.2
+          },
+          {
+            "slug": "rafaela",
+            "advantage": -2
+          }
+        ],
+        "winRate": 48.6
+      },
       "honor": {
         "strong": [
           {
@@ -11482,6 +11537,61 @@
         ],
         "winRate": 52.3
       },
+      "mythic": {
+        "strong": [
+          {
+            "slug": "wanwan",
+            "advantage": 3.7
+          },
+          {
+            "slug": "irithel",
+            "advantage": 2.9
+          },
+          {
+            "slug": "fanny",
+            "advantage": 2.7
+          },
+          {
+            "slug": "marcel",
+            "advantage": 2.6
+          },
+          {
+            "slug": "masha",
+            "advantage": 2.6
+          },
+          {
+            "slug": "ling",
+            "advantage": 2.5
+          }
+        ],
+        "weak": [
+          {
+            "slug": "lolita",
+            "advantage": -4.2
+          },
+          {
+            "slug": "lesley",
+            "advantage": -2.9
+          },
+          {
+            "slug": "yve",
+            "advantage": -2.2
+          },
+          {
+            "slug": "aamon",
+            "advantage": -2.1
+          },
+          {
+            "slug": "valentina",
+            "advantage": -2.1
+          },
+          {
+            "slug": "barats",
+            "advantage": -1.9
+          }
+        ],
+        "winRate": 52.8
+      },
       "honor": {
         "strong": [
           {
@@ -14968,6 +15078,61 @@
           }
         ],
         "winRate": 49.4
+      },
+      "epic": {
+        "strong": [
+          {
+            "slug": "esmeralda",
+            "advantage": 1.9
+          },
+          {
+            "slug": "baxia",
+            "advantage": 1.4
+          },
+          {
+            "slug": "uranus",
+            "advantage": 1.4
+          },
+          {
+            "slug": "natalia",
+            "advantage": 1.2
+          },
+          {
+            "slug": "alice",
+            "advantage": 1.1
+          },
+          {
+            "slug": "leomord",
+            "advantage": 1
+          }
+        ],
+        "weak": [
+          {
+            "slug": "minsitthar",
+            "advantage": -1.2
+          },
+          {
+            "slug": "silvanna",
+            "advantage": -0.8
+          },
+          {
+            "slug": "ixia",
+            "advantage": -0.8
+          },
+          {
+            "slug": "valir",
+            "advantage": -0.7
+          },
+          {
+            "slug": "gusion",
+            "advantage": -0.7
+          },
+          {
+            "slug": "diggie",
+            "advantage": -0.6
+          }
+        ],
+        "winRate": 47.7
       },
       "legend": {
         "strong": [
@@ -27085,6 +27250,61 @@
           }
         ],
         "winRate": 49.8
+      },
+      "glory": {
+        "strong": [
+          {
+            "slug": "fanny",
+            "advantage": 2.3
+          },
+          {
+            "slug": "valentina",
+            "advantage": 1.7
+          },
+          {
+            "slug": "lolita",
+            "advantage": 1.7
+          },
+          {
+            "slug": "yve",
+            "advantage": 1.7
+          },
+          {
+            "slug": "helcurt",
+            "advantage": 1.6
+          },
+          {
+            "slug": "arlott",
+            "advantage": 1.5
+          }
+        ],
+        "weak": [
+          {
+            "slug": "hanabi",
+            "advantage": -2.6
+          },
+          {
+            "slug": "phoveus",
+            "advantage": -2.2
+          },
+          {
+            "slug": "balmond",
+            "advantage": -2
+          },
+          {
+            "slug": "miya",
+            "advantage": -1.8
+          },
+          {
+            "slug": "tigreal",
+            "advantage": -1.8
+          },
+          {
+            "slug": "hanzo",
+            "advantage": -1.8
+          }
+        ],
+        "winRate": 51.2
       }
     },
     "karina": {
@@ -28580,6 +28800,61 @@
           }
         ],
         "winRate": 48
+      },
+      "mythic": {
+        "strong": [
+          {
+            "slug": "hylos",
+            "advantage": 2.6
+          },
+          {
+            "slug": "sun",
+            "advantage": 2.5
+          },
+          {
+            "slug": "atlas",
+            "advantage": 2.3
+          },
+          {
+            "slug": "uranus",
+            "advantage": 2.2
+          },
+          {
+            "slug": "fredrinn",
+            "advantage": 2.1
+          },
+          {
+            "slug": "yin",
+            "advantage": 2.1
+          }
+        ],
+        "weak": [
+          {
+            "slug": "lolita",
+            "advantage": -4.5
+          },
+          {
+            "slug": "karina",
+            "advantage": -3
+          },
+          {
+            "slug": "yve",
+            "advantage": -2.6
+          },
+          {
+            "slug": "arlott",
+            "advantage": -2.4
+          },
+          {
+            "slug": "natalia",
+            "advantage": -2.4
+          },
+          {
+            "slug": "baxia",
+            "advantage": -2.3
+          }
+        ],
+        "winRate": 47.8
       },
       "honor": {
         "strong": [
@@ -43134,6 +43409,61 @@
         ],
         "winRate": 51
       },
+      "mythic": {
+        "strong": [
+          {
+            "slug": "argus",
+            "advantage": 3.8
+          },
+          {
+            "slug": "chip",
+            "advantage": 2.9
+          },
+          {
+            "slug": "lolita",
+            "advantage": 2.8
+          },
+          {
+            "slug": "barats",
+            "advantage": 2.8
+          },
+          {
+            "slug": "yi-sun-shin",
+            "advantage": 2.6
+          },
+          {
+            "slug": "granger",
+            "advantage": 2.3
+          }
+        ],
+        "weak": [
+          {
+            "slug": "karrie",
+            "advantage": -3.9
+          },
+          {
+            "slug": "angela",
+            "advantage": -3.3
+          },
+          {
+            "slug": "dyrroth",
+            "advantage": -2.8
+          },
+          {
+            "slug": "luo-yi",
+            "advantage": -2.6
+          },
+          {
+            "slug": "baxia",
+            "advantage": -2.6
+          },
+          {
+            "slug": "aldous",
+            "advantage": -2.6
+          }
+        ],
+        "winRate": 50.3
+      },
       "honor": {
         "strong": [
           {
@@ -49797,56 +50127,6 @@
             "pickRate": 2.19
           }
         ],
-        "legend": [
-          {
-            "items": [
-              "War Axe",
-              "Sky Piercer",
-              "Queen's Wings"
-            ],
-            "emblem": "Fighter",
-            "talents": [
-              "Thrill",
-              "Seasoned Hunter",
-              "Impure Rage"
-            ],
-            "spell": "Retribution",
-            "winRate": 58.34,
-            "pickRate": 13.37
-          },
-          {
-            "items": [
-              "War Axe",
-              "Sky Piercer",
-              "Queen's Wings"
-            ],
-            "emblem": "Assassin",
-            "talents": [
-              "Thrill",
-              "Seasoned Hunter",
-              "Killing Spree"
-            ],
-            "spell": "Retribution",
-            "winRate": 58.16,
-            "pickRate": 3.43
-          },
-          {
-            "items": [
-              "War Axe",
-              "Sky Piercer",
-              "Queen's Wings"
-            ],
-            "emblem": "Fighter",
-            "talents": [
-              "Thrill",
-              "Festival of Blood",
-              "Killing Spree"
-            ],
-            "spell": "Retribution",
-            "winRate": 58.95,
-            "pickRate": 2.9
-          }
-        ],
         "mythic": [
           {
             "items": [
@@ -56432,6 +56712,56 @@
             "pickRate": 3.97
           }
         ],
+        "epic": [
+          {
+            "items": [
+              "Haas' Claws",
+              "Berserker's Fury",
+              "Malefic Gun"
+            ],
+            "emblem": "Marksman",
+            "talents": [
+              "Fatal",
+              "Master Assassin",
+              "Quantum Charge"
+            ],
+            "spell": "Aegis",
+            "winRate": 61.77,
+            "pickRate": 9.13
+          },
+          {
+            "items": [
+              "Haas' Claws",
+              "Berserker's Fury",
+              "Malefic Gun"
+            ],
+            "emblem": "Marksman",
+            "talents": [
+              "Fatal",
+              "Master Assassin",
+              "Quantum Charge"
+            ],
+            "spell": "Flicker",
+            "winRate": 58.77,
+            "pickRate": 4.98
+          },
+          {
+            "items": [
+              "Haas' Claws",
+              "Berserker's Fury",
+              "Malefic Gun"
+            ],
+            "emblem": "Marksman",
+            "talents": [
+              "Fatal",
+              "Master Assassin",
+              "Quantum Charge"
+            ],
+            "spell": "Inspire",
+            "winRate": 59.33,
+            "pickRate": 4.17
+          }
+        ],
         "legend": [
           {
             "items": [
@@ -57696,6 +58026,56 @@
             "spell": "Flicker",
             "winRate": 48.74,
             "pickRate": 2.84
+          }
+        ],
+        "mythic": [
+          {
+            "items": [
+              "Fleeting Time",
+              "Chastise Pauldron",
+              "Antique Cuirass"
+            ],
+            "emblem": "Support",
+            "talents": [
+              "Inspire",
+              "Tenacity",
+              "Concussive Blast"
+            ],
+            "spell": "Flicker",
+            "winRate": 52.83,
+            "pickRate": 10.67
+          },
+          {
+            "items": [
+              "Fleeting Time",
+              "Chastise Pauldron",
+              "Antique Cuirass"
+            ],
+            "emblem": "Support",
+            "talents": [
+              "Inspire",
+              "Wilderness Blessing",
+              "Concussive Blast"
+            ],
+            "spell": "Flicker",
+            "winRate": 53.08,
+            "pickRate": 2.57
+          },
+          {
+            "items": [
+              "Fleeting Time",
+              "Chastise Pauldron",
+              "Antique Cuirass"
+            ],
+            "emblem": "Tank",
+            "talents": [
+              "Inspire",
+              "Wilderness Blessing",
+              "Concussive Blast"
+            ],
+            "spell": "Flicker",
+            "winRate": 54.98,
+            "pickRate": 2.55
           }
         ],
         "honor": [
@@ -59265,6 +59645,56 @@
             "winRate": 52.01,
             "pickRate": 3.38
           }
+        ],
+        "glory": [
+          {
+            "items": [
+              "Endless Battle",
+              "Sky Piercer",
+              "Malefic Gun"
+            ],
+            "emblem": "Assassin",
+            "talents": [
+              "Rupture",
+              "Weapons Master",
+              "Quantum Charge"
+            ],
+            "spell": "Flicker",
+            "winRate": 56.39,
+            "pickRate": 5.53
+          },
+          {
+            "items": [
+              "Endless Battle",
+              "Sky Piercer",
+              "Malefic Gun"
+            ],
+            "emblem": "Fighter",
+            "talents": [
+              "Thrill",
+              "Weapons Master",
+              "Quantum Charge"
+            ],
+            "spell": "Flicker",
+            "winRate": 56.13,
+            "pickRate": 4.35
+          },
+          {
+            "items": [
+              "Hunter Strike",
+              "Endless Battle",
+              "Malefic Gun"
+            ],
+            "emblem": "Assassin",
+            "talents": [
+              "Rupture",
+              "Weapons Master",
+              "Quantum Charge"
+            ],
+            "spell": "Flicker",
+            "winRate": 52.34,
+            "pickRate": 3.04
+          }
         ]
       }
     },
@@ -59318,56 +59748,6 @@
             "spell": "Flicker",
             "winRate": 57.58,
             "pickRate": 4.04
-          }
-        ],
-        "epic": [
-          {
-            "items": [
-              "Enchanted Talisman",
-              "Concentrated Energy",
-              "Queen's Wings"
-            ],
-            "emblem": "Mage",
-            "talents": [
-              "Inspire",
-              "Seasoned Hunter",
-              "Impure Rage"
-            ],
-            "spell": "Flicker",
-            "winRate": 57.82,
-            "pickRate": 4.87
-          },
-          {
-            "items": [
-              "Enchanted Talisman",
-              "Concentrated Energy",
-              "Queen's Wings"
-            ],
-            "emblem": "Mage",
-            "talents": [
-              "Inspire",
-              "Festival of Blood",
-              "Impure Rage"
-            ],
-            "spell": "Flicker",
-            "winRate": 60.91,
-            "pickRate": 3.52
-          },
-          {
-            "items": [
-              "Enchanted Talisman",
-              "Concentrated Energy",
-              "Glowing Wand"
-            ],
-            "emblem": "Mage",
-            "talents": [
-              "Inspire",
-              "Festival of Blood",
-              "Impure Rage"
-            ],
-            "spell": "Flicker",
-            "winRate": 58.77,
-            "pickRate": 3.34
           }
         ],
         "legend": [
@@ -62004,6 +62384,56 @@
     },
     "faramis": {
       "Mid": {
+        "all": [
+          {
+            "items": [
+              "Glowing Wand",
+              "Lightning Truncheon",
+              "Divine Glaive"
+            ],
+            "emblem": "Mage",
+            "talents": [
+              "Rupture",
+              "Weapons Master",
+              "Lethal Ignition"
+            ],
+            "spell": "Flicker",
+            "winRate": 57.54,
+            "pickRate": 2.44
+          },
+          {
+            "items": [
+              "Glowing Wand",
+              "Holy Crystal",
+              "Blood Wings"
+            ],
+            "emblem": "Assassin",
+            "talents": [
+              "Rupture",
+              "Weapons Master",
+              "Impure Rage"
+            ],
+            "spell": "Flicker",
+            "winRate": 58.13,
+            "pickRate": 2.04
+          },
+          {
+            "items": [
+              "Glowing Wand",
+              "Lightning Truncheon",
+              "Genius Wand"
+            ],
+            "emblem": "Mage",
+            "talents": [
+              "Rupture",
+              "Weapons Master",
+              "Lethal Ignition"
+            ],
+            "spell": "Flicker",
+            "winRate": 56.7,
+            "pickRate": 1.85
+          }
+        ],
         "epic": [
           {
             "items": [
@@ -62052,6 +62482,206 @@
             "spell": "Flicker",
             "winRate": 57.46,
             "pickRate": 1.84
+          }
+        ],
+        "legend": [
+          {
+            "items": [
+              "Glowing Wand",
+              "Holy Crystal",
+              "Blood Wings"
+            ],
+            "emblem": "Assassin",
+            "talents": [
+              "Rupture",
+              "Weapons Master",
+              "Impure Rage"
+            ],
+            "spell": "Flicker",
+            "winRate": 57.41,
+            "pickRate": 3.78
+          },
+          {
+            "items": [
+              "Sky Piercer",
+              "Glowing Wand",
+              "Enchanted Talisman"
+            ],
+            "emblem": "Mage",
+            "talents": [
+              "Rupture",
+              "Wilderness Blessing",
+              "Lethal Ignition"
+            ],
+            "spell": "Purify",
+            "winRate": 51.84,
+            "pickRate": 3
+          },
+          {
+            "items": [
+              "Sky Piercer",
+              "Glowing Wand",
+              "Enchanted Talisman"
+            ],
+            "emblem": "Mage",
+            "talents": [
+              "Rupture",
+              "Wilderness Blessing",
+              "Lethal Ignition"
+            ],
+            "spell": "Flicker",
+            "winRate": 51.34,
+            "pickRate": 1.8
+          }
+        ],
+        "mythic": [
+          {
+            "items": [
+              "Glowing Wand",
+              "Holy Crystal",
+              "Blood Wings"
+            ],
+            "emblem": "Assassin",
+            "talents": [
+              "Rupture",
+              "Weapons Master",
+              "Impure Rage"
+            ],
+            "spell": "Flicker",
+            "winRate": 56.29,
+            "pickRate": 3.23
+          },
+          {
+            "items": [
+              "Sky Piercer",
+              "Glowing Wand",
+              "Enchanted Talisman"
+            ],
+            "emblem": "Mage",
+            "talents": [
+              "Rupture",
+              "Wilderness Blessing",
+              "Lethal Ignition"
+            ],
+            "spell": "Purify",
+            "winRate": 55.48,
+            "pickRate": 2.4
+          },
+          {
+            "items": [
+              "Glowing Wand",
+              "Lightning Truncheon",
+              "Divine Glaive"
+            ],
+            "emblem": "Mage",
+            "talents": [
+              "Rupture",
+              "Weapons Master",
+              "Lethal Ignition"
+            ],
+            "spell": "Flicker",
+            "winRate": 56.11,
+            "pickRate": 1.73
+          }
+        ],
+        "honor": [
+          {
+            "items": [
+              "Glowing Wand",
+              "Holy Crystal",
+              "Blood Wings"
+            ],
+            "emblem": "Assassin",
+            "talents": [
+              "Rupture",
+              "Weapons Master",
+              "Impure Rage"
+            ],
+            "spell": "Flicker",
+            "winRate": 57.81,
+            "pickRate": 2.76
+          },
+          {
+            "items": [
+              "Glowing Wand",
+              "Lightning Truncheon",
+              "Divine Glaive"
+            ],
+            "emblem": "Mage",
+            "talents": [
+              "Rupture",
+              "Weapons Master",
+              "Lethal Ignition"
+            ],
+            "spell": "Flicker",
+            "winRate": 58.23,
+            "pickRate": 1.95
+          },
+          {
+            "items": [
+              "Glowing Wand",
+              "Lightning Truncheon",
+              "Genius Wand"
+            ],
+            "emblem": "Mage",
+            "talents": [
+              "Rupture",
+              "Weapons Master",
+              "Lethal Ignition"
+            ],
+            "spell": "Flicker",
+            "winRate": 55.98,
+            "pickRate": 1.87
+          }
+        ],
+        "glory": [
+          {
+            "items": [
+              "Glowing Wand",
+              "Lightning Truncheon",
+              "Divine Glaive"
+            ],
+            "emblem": "Mage",
+            "talents": [
+              "Rupture",
+              "Weapons Master",
+              "Lethal Ignition"
+            ],
+            "spell": "Flicker",
+            "winRate": 57.48,
+            "pickRate": 2.74
+          },
+          {
+            "items": [
+              "Glowing Wand",
+              "Lightning Truncheon",
+              "Genius Wand"
+            ],
+            "emblem": "Mage",
+            "talents": [
+              "Rupture",
+              "Weapons Master",
+              "Lethal Ignition"
+            ],
+            "spell": "Flicker",
+            "winRate": 57.14,
+            "pickRate": 1.93
+          },
+          {
+            "items": [
+              "Glowing Wand",
+              "Holy Crystal",
+              "Blood Wings"
+            ],
+            "emblem": "Assassin",
+            "talents": [
+              "Rupture",
+              "Weapons Master",
+              "Impure Rage"
+            ],
+            "spell": "Flicker",
+            "winRate": 58.88,
+            "pickRate": 1.58
           }
         ]
       },
@@ -62408,6 +63038,56 @@
             "spell": "Revitalize",
             "winRate": 55.47,
             "pickRate": 8.5
+          }
+        ],
+        "epic": [
+          {
+            "items": [
+              "Lantern of Hope",
+              "Flask of the Oasis",
+              "Fleeting Time"
+            ],
+            "emblem": "Support",
+            "talents": [
+              "Inspire",
+              "Wilderness Blessing",
+              "Focusing Mark"
+            ],
+            "spell": "Flicker",
+            "winRate": 55.81,
+            "pickRate": 16.13
+          },
+          {
+            "items": [
+              "Lantern of Hope",
+              "Flask of the Oasis",
+              "Fleeting Time"
+            ],
+            "emblem": "Support",
+            "talents": [
+              "Inspire",
+              "Wilderness Blessing",
+              "Focusing Mark"
+            ],
+            "spell": "Revitalize",
+            "winRate": 57.54,
+            "pickRate": 9.45
+          },
+          {
+            "items": [
+              "Lantern of Hope",
+              "Flask of the Oasis",
+              "Fleeting Time"
+            ],
+            "emblem": "Support",
+            "talents": [
+              "Agility",
+              "Wilderness Blessing",
+              "Focusing Mark"
+            ],
+            "spell": "Flicker",
+            "winRate": 57.2,
+            "pickRate": 7.57
           }
         ],
         "legend": [
@@ -65746,6 +66426,56 @@
             "spell": "Flicker",
             "winRate": 53.18,
             "pickRate": 3.48
+          }
+        ],
+        "legend": [
+          {
+            "items": [
+              "Thunder Belt",
+              "Radiant Armor",
+              "Chastise Pauldron"
+            ],
+            "emblem": "Tank",
+            "talents": [
+              "Agility",
+              "Wilderness Blessing",
+              "Concussive Blast"
+            ],
+            "spell": "Flicker",
+            "winRate": 51.84,
+            "pickRate": 6.17
+          },
+          {
+            "items": [
+              "Thunder Belt",
+              "Dominance Ice",
+              "Blade Armor"
+            ],
+            "emblem": "Tank",
+            "talents": [
+              "Agility",
+              "Wilderness Blessing",
+              "Concussive Blast"
+            ],
+            "spell": "Flicker",
+            "winRate": 54.94,
+            "pickRate": 5.51
+          },
+          {
+            "items": [
+              "Athena's Shield",
+              "Chastise Pauldron",
+              "Antique Cuirass"
+            ],
+            "emblem": "Tank",
+            "talents": [
+              "Agility",
+              "Wilderness Blessing",
+              "Concussive Blast"
+            ],
+            "spell": "Flicker",
+            "winRate": 50.05,
+            "pickRate": 3.75
           }
         ],
         "mythic": [
@@ -82919,6 +83649,256 @@
             "winRate": 29.91,
             "pickRate": 2.57
           }
+        ],
+        "epic": [
+          {
+            "items": [
+              "Glowing Wand",
+              "Divine Glaive",
+              "Wishing Lantern"
+            ],
+            "emblem": "Mage",
+            "talents": [
+              "Rupture",
+              "Weapons Master",
+              "Lethal Ignition"
+            ],
+            "spell": "Flameshot",
+            "winRate": 53.77,
+            "pickRate": 12.26
+          },
+          {
+            "items": [
+              "Blood Wings",
+              "Lightning Truncheon",
+              "Genius Wand"
+            ],
+            "emblem": "Mage",
+            "talents": [
+              "Rupture",
+              "Bargain Hunter",
+              "Impure Rage"
+            ],
+            "spell": "Flameshot",
+            "winRate": 54.51,
+            "pickRate": 5.55
+          },
+          {
+            "items": [
+              "Blood Wings",
+              "Lightning Truncheon",
+              "Genius Wand"
+            ],
+            "emblem": "All",
+            "talents": [
+              "Thrill",
+              "Wilderness Blessing",
+              "Impure Rage"
+            ],
+            "spell": "Flameshot",
+            "winRate": 53.58,
+            "pickRate": 4.22
+          }
+        ],
+        "legend": [
+          {
+            "items": [
+              "Glowing Wand",
+              "Divine Glaive",
+              "Wishing Lantern"
+            ],
+            "emblem": "Mage",
+            "talents": [
+              "Rupture",
+              "Weapons Master",
+              "Lethal Ignition"
+            ],
+            "spell": "Flameshot",
+            "winRate": 52.01,
+            "pickRate": 16.38
+          },
+          {
+            "items": [
+              "Blood Wings",
+              "Lightning Truncheon",
+              "Genius Wand"
+            ],
+            "emblem": "Mage",
+            "talents": [
+              "Rupture",
+              "Bargain Hunter",
+              "Impure Rage"
+            ],
+            "spell": "Flameshot",
+            "winRate": 53.01,
+            "pickRate": 4.3
+          },
+          {
+            "items": [
+              "Glowing Wand",
+              "Divine Glaive",
+              "Magic Wand"
+            ],
+            "emblem": "Mage",
+            "talents": [
+              "Rupture",
+              "Weapons Master",
+              "Lethal Ignition"
+            ],
+            "spell": "Flameshot",
+            "winRate": 29.5,
+            "pickRate": 1.93
+          }
+        ],
+        "mythic": [
+          {
+            "items": [
+              "Glowing Wand",
+              "Divine Glaive",
+              "Wishing Lantern"
+            ],
+            "emblem": "Mage",
+            "talents": [
+              "Rupture",
+              "Weapons Master",
+              "Lethal Ignition"
+            ],
+            "spell": "Flameshot",
+            "winRate": 51.19,
+            "pickRate": 16.31
+          },
+          {
+            "items": [
+              "Blood Wings",
+              "Lightning Truncheon",
+              "Genius Wand"
+            ],
+            "emblem": "Mage",
+            "talents": [
+              "Rupture",
+              "Bargain Hunter",
+              "Impure Rage"
+            ],
+            "spell": "Flameshot",
+            "winRate": 51.92,
+            "pickRate": 2.96
+          },
+          {
+            "items": [
+              "Glowing Wand",
+              "Divine Glaive",
+              "Magic Wand"
+            ],
+            "emblem": "Mage",
+            "talents": [
+              "Rupture",
+              "Weapons Master",
+              "Lethal Ignition"
+            ],
+            "spell": "Flameshot",
+            "winRate": 28.91,
+            "pickRate": 2.36
+          }
+        ],
+        "honor": [
+          {
+            "items": [
+              "Glowing Wand",
+              "Divine Glaive",
+              "Wishing Lantern"
+            ],
+            "emblem": "Mage",
+            "talents": [
+              "Rupture",
+              "Weapons Master",
+              "Lethal Ignition"
+            ],
+            "spell": "Flameshot",
+            "winRate": 50.61,
+            "pickRate": 16.48
+          },
+          {
+            "items": [
+              "Glowing Wand",
+              "Divine Glaive",
+              "Magic Wand"
+            ],
+            "emblem": "Mage",
+            "talents": [
+              "Rupture",
+              "Weapons Master",
+              "Lethal Ignition"
+            ],
+            "spell": "Flameshot",
+            "winRate": 29.15,
+            "pickRate": 3.03
+          },
+          {
+            "items": [
+              "Glowing Wand",
+              "Divine Glaive",
+              "Wishing Lantern"
+            ],
+            "emblem": "Mage",
+            "talents": [
+              "Rupture",
+              "Weapons Master",
+              "Lethal Ignition"
+            ],
+            "spell": "Flicker",
+            "winRate": 51.76,
+            "pickRate": 2.26
+          }
+        ],
+        "glory": [
+          {
+            "items": [
+              "Glowing Wand",
+              "Divine Glaive",
+              "Wishing Lantern"
+            ],
+            "emblem": "Mage",
+            "talents": [
+              "Rupture",
+              "Weapons Master",
+              "Lethal Ignition"
+            ],
+            "spell": "Flameshot",
+            "winRate": 50.34,
+            "pickRate": 15.29
+          },
+          {
+            "items": [
+              "Glowing Wand",
+              "Divine Glaive",
+              "Magic Wand"
+            ],
+            "emblem": "Mage",
+            "talents": [
+              "Rupture",
+              "Weapons Master",
+              "Lethal Ignition"
+            ],
+            "spell": "Flameshot",
+            "winRate": 30.74,
+            "pickRate": 3.61
+          },
+          {
+            "items": [
+              "Glowing Wand",
+              "Divine Glaive",
+              "Wishing Lantern"
+            ],
+            "emblem": "Mage",
+            "talents": [
+              "Rupture",
+              "Weapons Master",
+              "Lethal Ignition"
+            ],
+            "spell": "Flicker",
+            "winRate": 50.65,
+            "pickRate": 2.99
+          }
         ]
       }
     },
@@ -93265,56 +94245,6 @@
     },
     "x-borg": {
       "Exp": {
-        "all": [
-          {
-            "items": [
-              "War Axe",
-              "Dominance Ice",
-              "Brute Force Breastplate"
-            ],
-            "emblem": "Tank",
-            "talents": [
-              "Agility",
-              "Festival of Blood",
-              "Impure Rage"
-            ],
-            "spell": "Flicker",
-            "winRate": 55.29,
-            "pickRate": 4.43
-          },
-          {
-            "items": [
-              "War Axe",
-              "Dominance Ice",
-              "Brute Force Breastplate"
-            ],
-            "emblem": "Tank",
-            "talents": [
-              "Thrill",
-              "Festival of Blood",
-              "Impure Rage"
-            ],
-            "spell": "Flicker",
-            "winRate": 54.83,
-            "pickRate": 3.8
-          },
-          {
-            "items": [
-              "War Axe",
-              "Sky Piercer",
-              "Immortality"
-            ],
-            "emblem": "Tank",
-            "talents": [
-              "Thrill",
-              "Seasoned Hunter",
-              "Impure Rage"
-            ],
-            "spell": "Flicker",
-            "winRate": 51.42,
-            "pickRate": 1.79
-          }
-        ],
         "epic": [
           {
             "items": [
@@ -93463,56 +94393,6 @@
             "spell": "Flicker",
             "winRate": 51.97,
             "pickRate": 2.13
-          }
-        ],
-        "honor": [
-          {
-            "items": [
-              "War Axe",
-              "Dominance Ice",
-              "Brute Force Breastplate"
-            ],
-            "emblem": "Tank",
-            "talents": [
-              "Agility",
-              "Festival of Blood",
-              "Impure Rage"
-            ],
-            "spell": "Flicker",
-            "winRate": 55.18,
-            "pickRate": 4.23
-          },
-          {
-            "items": [
-              "War Axe",
-              "Dominance Ice",
-              "Brute Force Breastplate"
-            ],
-            "emblem": "Tank",
-            "talents": [
-              "Thrill",
-              "Festival of Blood",
-              "Impure Rage"
-            ],
-            "spell": "Flicker",
-            "winRate": 54.66,
-            "pickRate": 4.05
-          },
-          {
-            "items": [
-              "War Axe",
-              "Sky Piercer",
-              "Immortality"
-            ],
-            "emblem": "Tank",
-            "talents": [
-              "Thrill",
-              "Seasoned Hunter",
-              "Impure Rage"
-            ],
-            "spell": "Flicker",
-            "winRate": 51.2,
-            "pickRate": 1.79
           }
         ],
         "glory": [

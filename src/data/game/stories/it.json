@@ -586,7 +586,7 @@
     "lore": [
       "Un guerriero Leonin che ha ereditato la risolutezza del suo predecessore, aprendo la propria strada con ardente ferocia. Da cucciolo determinato a guerriero temprato dalla battaglia, il cuore di questo giovane Leonin è sempre ardeto di una fiamma feroce. Quando alla fine ha preso in mano l'ascia da guerra di Aulus, non è stato per vivere come la sua ombra, ma per tracciare una propria scia.",
       "Avendo percorso il cammino dell'eroe e ereditato la risolutezza dell'eroe, la gloria di \"Aulus\" brucerà luminosamente dentro entrambi.",
-      "Aulo",
+      "Aulus",
       "Il giorno in cui sono diventato \"me\" è stato il giorno in cui sono quasi morto.",
       "Allora ero solo un cucciolo e cercavo di sopravvivere da solo sui Monti Lantis. Quando le urla dei demoni squarciavano la notte, non c'era nessun posto dove scappare, quindi mi rannicchiavo e aspettavo la morte.",
       "Cioè, finché una fiamma ruggente non ha attraversato l'oscurità, rivelando l'eroe che mi ha salvato: Aulus.",
@@ -902,7 +902,7 @@
       "affiliations": [],
       "relations": [
         "Detona (compagno)",
-        "Claudio"
+        "Claude"
       ],
       "powers": []
     }
@@ -1766,7 +1766,7 @@
     "profile": {
       "fullName": null,
       "title": null,
-      "species": "Ciclope",
+      "species": "Cyclops",
       "gender": "Uomo",
       "age": null,
       "origin": null,
@@ -6100,7 +6100,7 @@
       "relations": [
         "Ruby (compagno)",
         "Zanna Bianca (nemico)",
-        "Modifica"
+        "Chang'e"
       ],
       "powers": []
     }
@@ -6779,7 +6779,7 @@
       "affiliations": [],
       "relations": [
         "Irlan (amante, deceduto)",
-        "Este",
+        "Estes",
         "Zio senza nome (deceduto)",
         "Kalon",
         "Aamon, Gusion, Marcel, Melissa, Eren (discendenti)",

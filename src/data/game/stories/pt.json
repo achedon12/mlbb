@@ -586,7 +586,7 @@
     "lore": [
       "Um guerreiro leonino que herdou a determinação de seu antecessor, abrindo seu próprio caminho com ferocidade ardente. De um filhote determinado a um guerreiro temperado pela batalha, o coração deste jovem Leonin sempre ardeu com uma chama feroz. Quando ele finalmente pegou o Machado de Guerra de Aulus, não foi para viver como sua sombra, mas para abrir seu próprio caminho.",
       "Tendo trilhado o caminho do herói e herdado a determinação de um herói, a glória de “Aulus” brilhará intensamente dentro de ambos.",
-      "Aulo",
+      "Aulus",
       "O dia em que me tornei “eu” foi o dia em que quase morri.",
       "Eu era apenas um filhote naquela época, tentando sobreviver sozinho nas montanhas Lantis. Quando os uivos dos demônios atravessaram a noite, não havia para onde correr, então me enrolei e esperei a morte.",
       "Isto é, até que uma chama crepitante cortou a escuridão, revelando o herói que me salvou—Aulus.",
@@ -902,7 +902,7 @@
       "affiliations": [],
       "relations": [
         "Detona (companheira)",
-        "Cláudio"
+        "Claude"
       ],
       "powers": []
     }
@@ -1766,7 +1766,7 @@
     "profile": {
       "fullName": null,
       "title": null,
-      "species": "Ciclope",
+      "species": "Cyclops",
       "gender": "Homem",
       "age": null,
       "origin": null,
@@ -2472,7 +2472,7 @@
         "Bane, Atlas (inimigos)",
         "Popol and Kupa (companheiros)",
         "Hilda (resgatado)",
-        "aurora"
+        "Aurora"
       ],
       "powers": [
         "Trazendo guerreiros caídos para Valhalla",
@@ -6100,7 +6100,7 @@
       "relations": [
         "Ruby (companheiro)",
         "Presa Branca (inimigo)",
-        "Mudar"
+        "Chang'e"
       ],
       "powers": []
     }

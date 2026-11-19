@@ -586,7 +586,7 @@
     "lore": [
       "Un guerrero leonino que heredó la determinación de su predecesor y se abrió camino con ardiente ferocidad. Desde un cachorro decidido hasta un guerrero templado por la batalla, el corazón de este joven Leonin siempre ha ardido con una llama feroz. Cuando finalmente tomó el hacha de guerra de Aulus, no fue para vivir como su sombra, sino para abrir su propio camino.",
       "Habiendo recorrido el camino del héroe y heredado la determinación de un héroe, la gloria de \"Aulus\" arderá brillantemente dentro de ambos.",
-      "Aulo",
+      "Aulus",
       "El día que me convertí en \"yo\" fue el día en que casi muero.",
       "En aquel entonces yo era sólo un cachorro que intentaba sobrevivir por mi cuenta en las montañas Lantis. Cuando los aullidos de los demonios atravesaban la noche, no había ningún lugar a donde huir, así que me acurruqué y esperé la muerte.",
       "Es decir, hasta que una llama rugiente atravesó la oscuridad, revelando al héroe que me salvó—Aulus.",
@@ -902,7 +902,7 @@
       "affiliations": [],
       "relations": [
         "Detona (compañero)",
-        "claudio"
+        "Claude"
       ],
       "powers": []
     }
@@ -1766,7 +1766,7 @@
     "profile": {
       "fullName": null,
       "title": null,
-      "species": "Cíclope",
+      "species": "Cyclops",
       "gender": "Hombre",
       "age": null,
       "origin": null,
@@ -2568,8 +2568,8 @@
         "Pantano de las Sombras"
       ],
       "relations": [
-        "karina",
-        "miya",
+        "Karina",
+        "Miya",
         "Eudora"
       ],
       "powers": []
@@ -5229,7 +5229,7 @@
       ],
       "relations": [
         "Rey de Minoa (padre, asesinado por Minotaur)",
-        "aldous"
+        "Aldous"
       ],
       "powers": [
         "Rabia inducida para mejorar las habilidades."
@@ -6100,7 +6100,7 @@
       "relations": [
         "Ruby (compañero)",
         "Colmillo Blanco (enemigo)",
-        "Cambiar"
+        "Chang'e"
       ],
       "powers": []
     }
