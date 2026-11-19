@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
-import { normalizeHeroes, slugify } from "../../scripts/heroes.mjs";
+import { normalizeHeroes, officialLanes, slugify, withOfficialLanes } from "../../scripts/heroes.mjs";
 import { analyzeTableLua } from "../../scripts/lua.mjs";
 
 const fixture = (name) =>
@@ -79,5 +79,31 @@ describe("slugify", () => {
     expect(slugify("Chang'e")).toBe("chang-e");
     expect(slugify("X.Borg")).toBe("x-borg");
     expect(slugify("Lapu-Lapu")).toBe("lapu-lapu");
+  });
+});
+
+describe("official lanes", () => {
+  const road = (id, title) => ({ data: { road_sort_id: id, road_sort_title: title } });
+
+  it("reads the lanes of an official sheet in the game's order", () => {
+    // Popol and Kupa's sheet, November 2026: Jungle first, then Gold Lane.
+    expect(officialLanes({ roadsort: [road("4", "Jungle"), road("5", "Gold Lane")] })).toEqual(["Jungle", "Gold"]);
+    expect(officialLanes({ roadsort: [road("1", "Exp Lane"), road("3", "")] })).toEqual(["Exp", "Roam"]);
+    // A missing id falls back on the title; an empty slot is skipped.
+    expect(officialLanes({ roadsort: [road(undefined, "Roaming"), ""] })).toEqual(["Roam"]);
+    expect(officialLanes({ roadsort: [] })).toBeNull();
+    expect(officialLanes(null)).toBeNull();
+  });
+
+  it("puts the official lanes over the wiki's, and keeps the wiki's when the sheet is missing", () => {
+    const heroes = [
+      { slug: "kimmy", name: "Kimmy", lanes: ["Gold", "Mid"] },
+      { slug: "layla", name: "Layla", lanes: ["Gold"] },
+      { slug: "sun", name: "Sun", lanes: ["Exp", "Jungle"] },
+    ];
+    const changed = withOfficialLanes(heroes, { kimmy: ["Mid", "Gold"], layla: ["Gold"], sun: [] });
+    expect(heroes.map((h) => h.lanes)).toEqual([["Mid", "Gold"], ["Gold"], ["Exp", "Jungle"]]);
+    expect(changed).toEqual([{ name: "Kimmy", wiki: ["Gold", "Mid"], official: ["Mid", "Gold"] }]);
+    expect(withOfficialLanes(heroes, undefined)).toEqual([]);
   });
 });

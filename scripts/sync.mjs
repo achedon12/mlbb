@@ -18,7 +18,7 @@ import { mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
 import { existsSync } from "node:fs";
 import { analyzeTableLua } from "./lua.mjs";
-import { clean, count, empty, normalizeHeroes, slugify } from "./heroes.mjs";
+import { clean, count, empty, normalizeHeroes, officialLanes, slugify, withOfficialLanes } from "./heroes.mjs";
 import { splitSections, cleanRender, newHeroes, toc } from "./patch-notes.mjs";
 import {
   cleanDescription,
@@ -1709,6 +1709,8 @@ async function fetchArenaSkills(heroes) {
   // The API also exposes a one-line tagline ("story"): it is collected along
   // the way, without an extra query.
   const taglines = {};
+  // So are the lanes, in the game's order (see `withOfficialLanes`).
+  const lanes = {};
 
   for (const [i, h] of heroes.entries()) {
     // A transient error (an HTML error page instead of JSON) gets two more
@@ -1718,13 +1720,15 @@ async function fetchArenaSkills(heroes) {
     if (skills.length > 0) output[h.slug] = skills;
     const tagline = String(data?.story ?? "").trim();
     if (tagline) taglines[h.slug] = tagline;
+    const official = officialLanes(data);
+    if (official) lanes[h.slug] = official;
 
     process.stdout.write(`\r    arena skills ${i + 1}/${heroes.length}`);
     await pause(200);
   }
 
   process.stdout.write("\n");
-  return { skills: output, taglines };
+  return { skills: output, taglines, lanes };
 }
 
 /**
@@ -2027,8 +2031,12 @@ async function heroSkills(heroes, read = null) {
   console.log(`  ${nbSkills} wiki skills, ${nbIllustrations} illustrations`);
 
   console.log("Official hero sheets (API)…");
-  const { skills: skillsArena, taglines } = await fetchArenaSkills(heroes);
+  const { skills: skillsArena, taglines, lanes } = await fetchArenaSkills(heroes);
   console.log(`  ${Object.keys(skillsArena).length} heroes covered by the API`);
+  // Before the builds, counters and durations, which are read per lane.
+  const relaned = withOfficialLanes(heroes, lanes);
+  console.log(`  ${Object.keys(lanes).length} heroes with the official lanes${relaned.length ? `, ${relaned.length} differing from the wiki:` : ""}`);
+  for (const d of relaned) console.log(`    ${d.name}: wiki ${d.wiki.join("/") || "none"}, official ${d.official.join("/")}`);
 
   // As a last resort, whatever the last run wrote is kept: an outage of both
   // sources must not erase a hero's skills.

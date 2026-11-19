@@ -62,6 +62,31 @@ function renderScale(params) {
 }
 
 /**
+ * Label and old value of the left part of a change, when the label was
+ * written without its colon: "Base HP 2594 → 2440" (Hanzo, 2.1.88) is
+ * "Base HP" from "2594", not a change from "Base HP 2594". Only a label made
+ * of words followed by a single value (a number, a percentage, seconds) is
+ * split; anything else stays the old value, with no label.
+ */
+export function splitUnlabelled(left) {
+  const text = String(left ?? "").trim();
+  const m = /^([A-Za-z][A-Za-z '’/()-]*?)\s+([-+]?\d+(?:[.,]\d+)?\s*(?:%|s|per second)?)$/i.exec(text);
+  return m ? { label: m[1].trim(), before: m[2].trim() } : { label: null, before: text };
+}
+
+/**
+ * Splits "label: before → after" (one arrow). The label precedes the first
+ * ":"; without one, `splitUnlabelled` decides. Null without exactly one arrow.
+ */
+export function splitChange(line) {
+  const parts = String(line).split(/\s*→\s*/);
+  if (parts.length !== 2) return null;
+  const sep = parts[0].indexOf(":");
+  if (sep !== -1) return { label: parts[0].slice(0, sep).trim(), before: parts[0].slice(sep + 1).trim(), after: parts[1].trim() };
+  return { ...splitUnlabelled(parts[0]), after: parts[1].trim() };
+}
+
+/**
  * Splits a change line into before / after when it contains them.
  *
  * "Base HP: 2440 → 2500" reads much better in two columns than as a sentence.
@@ -69,23 +94,7 @@ function renderScale(params) {
  */
 function analyzeChange(row) {
   const text = cleanRow(row);
-  const parts = text.split(/\s*(?:→)\s*/);
-
-  if (parts.length === 2) {
-    // The label precedes the first ":"; otherwise the whole left part is the
-    // old value.
-    const sep = parts[0].indexOf(":");
-    if (sep !== -1) {
-      return {
-        label: parts[0].slice(0, sep).trim(),
-        before: parts[0].slice(sep + 1).trim(),
-        after: parts[1].trim(),
-      };
-    }
-    return { label: null, before: parts[0].trim(), after: parts[1].trim() };
-  }
-
-  return { text };
+  return splitChange(text) ?? { text };
 }
 
 /** Cleans a wikitext line, keeping the arrow as a separator. */

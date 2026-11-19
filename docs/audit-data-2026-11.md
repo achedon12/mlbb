@@ -140,6 +140,43 @@ Ce qui est juste, et qu'on peut dire à la communauté :
   - Ajouter un contrôle à la synchronisation : si un patch récent donne une
     valeur et que la source en donne une autre, faire échouer la
     synchronisation ou signaler l'écart.
+- **Suivi (19 novembre 2026)** : depuis #107, la synchronisation prend la
+  valeur « après » des notes de patch, puis Liquipedia, puis Fandom (voir
+  `scripts/hero-stats.mjs`). Avec elle, 117 héros sur 133 avaient
+  exactement les valeurs de niveau 1 de Liquipedia. Les 16 autres ne sont pas
+  des erreurs de lecture : pour chacun, la valeur actuelle de Liquipedia est
+  la valeur « avant » d'une note de patch plus récente que la dernière
+  modification de ses attributs. Liquipedia est en retard, le site garde la
+  note officielle, et la synchronisation liste ces écarts (« Liquipedia
+  behind the patch notes ») :
+
+  | Héros | Attribut | Note | Site (note) | Liquipedia |
+  | --- | --- | --- | ---: | ---: |
+  | Akai | PV | 2.1.88 | 2660 | 2560 |
+  | Argus | PV / attaque | 2.1.88 | 2600 / 120 | 2450 / 111 |
+  | Atlas | PV / déf. physique | 2.1.88 | 2800 / 25 | 2710 / 21 |
+  | Chip | PV | 2.1.88 | 2600 | 2481 |
+  | Diggie | PV / déf. physique | 2.1.88 | 2320 / 15 | 2347 / 20 |
+  | Esmeralda | PV / déf. physique | 2.1.90 | 2660 / 25 | 2464 / 21 |
+  | Estes | PV | 2.1.88 | 2260 | 2221 |
+  | Fredrinn | PV | 2.1.90 | 2500 | 2600 |
+  | Grock | PV | 2.1.88 | 2700 | 2819 |
+  | Hilda | PV | 2.1.88 | 2600 | 2680 |
+  | Hylos | PV / déf. physique | 2.1.88 | 2700 / 22 | 2600 / 17 |
+  | Johnson | déf. physique | 2.1.88 | 30 | 27 |
+  | Lukas | PV / déf. physique | 2.2.23 | 2620 / 23 | 2550 / 21 |
+  | Marcel | PV / déf. physique / déf. magique | 2.1.88 | 2950 / 30 / 20 | 2740 / 25 / 15 |
+  | Phoveus | PV / attaque / déf. physique | 2.1.88 | 2550 / 120 / 22 | 2650 / 132 / 25 |
+  | Tigreal | PV / déf. physique | 2.1.88 | 2700 / 25 | 2581 / 20 |
+
+  Les pages Liquipedia de Grock (17 septembre) et de Johnson (9 juillet) ont
+  été modifiées après la 2.1.88 sans que l'attribut change : à vérifier en
+  jeu en priorité. Deux valeurs des notes n'étaient pas appliquées, par des
+  erreurs de lecture, corrigées depuis : Hanzo (« Base HP
+  2594 → 2440 », libellé sans deux-points, PV 2594 au lieu de 2440) et Marcel
+  (« Base HP Regen: 12.4 per second → 22.4 per second », libellé et unité non
+  reconnus, régénération 12,4 au lieu de 22,4). Ces deux héros s'ajoutent
+  donc aux écarts avec Liquipedia, pour la même raison.
 
 ### B3. Les compétences s'affichent sans leurs chiffres, sans recharge, et parfois périmées
 

@@ -34,6 +34,7 @@
  * Liquipedia and the patch notes are returned to the caller, which reports
  * them in the sync log: they are the values worth checking in game.
  */
+import { splitUnlabelled } from "./patch-parser.mjs";
 import { compareVersions } from "./patch-version.mjs";
 
 /** Pairs read at levels 1 and 15, by field prefix. */
@@ -53,12 +54,23 @@ const LABELS = [
   [/^(?:base )?magic defense$/i, ["magic_def1"]],
   [/^magic defense growth(?: per level|\/level)?$/i, ["magic_def_growth"]],
   [/^(?:base )?hybrid defense$/i, ["physical_def1", "magic_def1"]],
+  [/^(?:base )?hp regen(?:eration)?(?: per second|\/s)?$/i, ["hp_regen1"]],
   [/^(?:base )?movement speed$/i, ["movement_spd"]],
   [/^basic attack range$/i, ["basic_atk_range"]],
 ];
 
 const number = (v) => {
   const m = /^\s*(-?\d+(?:\.\d+)?)\s*$/.exec(String(v ?? ""));
+  return m ? Number(m[1]) : null;
+};
+
+/**
+ * A patch note value: a number, or a number followed by its unit ("22.4 per
+ * second", Marcel's HP regen in 2.1.88; "22.4/s"). A percentage or any other
+ * text is not a base value.
+ */
+const noteNumber = (v) => {
+  const m = /^\s*(-?\d+(?:\.\d+)?)\s*(?:per second|\/\s*s(?:ec(?:ond)?)?)?\s*$/i.exec(String(v ?? ""));
   return m ? Number(m[1]) : null;
 };
 
@@ -80,9 +92,13 @@ export function patchAttributes(details) {
       for (const s of a.sections ?? []) {
         if (!/^(?:base )?attributes?$/i.test(String(s?.name ?? "").trim()) || s.category) continue;
         for (const c of s.changes ?? []) {
-          const value = number(c?.after);
-          if (value === null || !c.label) continue;
-          const rule = LABELS.find(([re]) => re.test(c.label.trim()));
+          const value = noteNumber(c?.after);
+          // A label written without its colon was read as part of the old
+          // value by earlier syncs ("Base HP 2594", Hanzo in 2.1.88): it is
+          // recovered here, so the notes already stored count too.
+          const label = c?.label ?? (c?.before ? splitUnlabelled(c.before).label : null);
+          if (value === null || !label) continue;
+          const rule = LABELS.find(([re]) => re.test(label.trim()));
           if (!rule) continue;
           for (const field of rule[1]) (out[a.slug] ??= {})[field] = { value, version };
         }

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { heroAdjustments, summary } from "../../scripts/patch-parser.mjs";
+import { heroAdjustments, splitChange, splitUnlabelled, summary } from "../../scripts/patch-parser.mjs";
 
 const FORMAT_RECENT = `
 ==II. Hero Adjustments==
@@ -53,6 +53,30 @@ describe("heroAdjustments — old format (table, >> separator)", () => {
   it("normalizes the >> separator into before / after", () => {
     const change = heroes[0].sections.at(-1).changes[0];
     expect(change).toMatchObject({ before: "95-145", after: "70-110" });
+  });
+});
+
+describe("change lines", () => {
+  it("reads a label written without its colon (Hanzo, 2.1.88)", () => {
+    const [hanzo] = heroAdjustments(`
+==II. Hero Adjustments==
+:{{hi|Hanzo}} {{pci|nerf}}
+*Base HP 2594 → 2440
+*Attack Speed Growth: 2% → 1%
+== III. Battlefield Adjustments ==
+`);
+    expect(hanzo.sections[0].changes).toEqual([
+      { label: "Base HP", before: "2594", after: "2440" },
+      { label: "Attack Speed Growth", before: "2%", after: "1%" },
+    ]);
+  });
+
+  it("splits only words followed by one value", () => {
+    expect(splitUnlabelled("Base HP Regen 12.4 per second")).toEqual({ label: "Base HP Regen", before: "12.4 per second" });
+    expect(splitUnlabelled("Cooldown 10s")).toEqual({ label: "Cooldown", before: "10s" });
+    expect(splitUnlabelled("40%")).toEqual({ label: null, before: "40%" });
+    expect(splitUnlabelled("Level 1 damage 200")).toEqual({ label: null, before: "Level 1 damage 200" });
+    expect(splitChange("no arrow")).toBeNull();
   });
 });
 
