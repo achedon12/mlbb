@@ -1,7 +1,7 @@
 import { newestFirst } from "@/lib/patch-version";
 import { DiscordInvite } from "@/components/discord-invite";
 import type { Metadata } from "next";
-import { createT } from "@/i18n/translations";
+import { createT, messagesPage } from "@/i18n/translations";
 import { cleanHtml, serializeJsonLd } from "@/lib/html";
 import { BodyArticle } from "@/components/article";
 import { PatchCredit } from "@/components/patch-credit";
@@ -21,6 +21,7 @@ import { postData, metaPage, notFoundMetadata } from "@/i18n/seo";
 import { cn } from "@/lib/utils";
 import { HeroChanges, changedHeroCount } from "./hero-changes";
 import { NotFoundPage } from "@/components/not-found-page";
+import { ReportError } from "@/components/report-error";
 
 type Params = { params: Promise<{ locale: Locale; slug: string }> };
 
@@ -252,6 +253,7 @@ export default async function PatchPage({ params }: Params) {
               <PageSourcesBlock locale={locale} of={{ kind: "patch" }}>
                 <PatchCredit t={t} patch={patch} translated={translated} className="" />
               </PageSourcesBlock>
+              <ReportError messages={messagesPage(locale, ["pages.reportError"])} path={`/patch-notes/${slug}`} className="mt-6" />
             </article>
           </div>
         </div>
@@ -280,6 +282,7 @@ export default async function PatchPage({ params }: Params) {
       />
       <div className="page-wrap pb-12">
         <DiscordInvite t={t} context="patch" />
+        <ReportError messages={messagesPage(locale, ["pages.reportError"])} path={`/patch-notes/${slug}`} className="mt-6" />
       </div>
     </>
   );

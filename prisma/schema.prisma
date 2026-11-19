@@ -456,3 +456,26 @@ model ProfileCard {
 
   @@index([snapshotAt])
 }
+
+/// A visitor's report of wrong data on a hero, item, emblem, spell or patch
+/// notes page. Anonymous: no account, no address, nothing but what was
+/// typed and where. Open while `resolvedAt` is null; the moderation page
+/// lists the open ones.
+model DataReport {
+  id         Int       @id @default(autoincrement())
+  /// Page path without the locale (`/heroes/layla`).
+  path       String    @db.VarChar(200)
+  locale     String    @db.VarChar(8)
+  /// What is wrong.
+  text       String    @db.VarChar(1000)
+  /// The right value, when the visitor gave it.
+  correction String?   @db.VarChar(300)
+  /// Where the right value comes from (an http(s) address).
+  source     String?   @db.VarChar(300)
+  createdAt  DateTime  @default(now())
+  resolvedAt DateTime?
+  /// Discord id of the moderator who closed it.
+  resolvedBy String?   @db.VarChar(20)
+
+  @@index([resolvedAt, createdAt])
+}

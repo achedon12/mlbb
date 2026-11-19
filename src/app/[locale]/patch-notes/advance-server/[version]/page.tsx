@@ -14,7 +14,7 @@ import { Breadcrumb } from "@/components/breadcrumb";
 import Link from "@/components/link";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { metaPage, notFoundMetadata } from "@/i18n/seo";
-import { createT } from "@/i18n/translations";
+import { createT, messagesPage } from "@/i18n/translations";
 import {
   advanceVersion,
   advanceVersionNumbers,
@@ -28,6 +28,7 @@ import { longDate, listNames, patchCurrent } from "@/lib/freshness";
 import { serializeJsonLd } from "@/lib/html";
 import { site } from "@/lib/site";
 import { NotFoundPage } from "@/components/not-found-page";
+import { ReportError } from "@/components/report-error";
 
 type Params = { params: Promise<{ locale: Locale; version: string }> };
 
@@ -282,6 +283,7 @@ export default async function AdvanceServerVersionPage({ params }: Params) {
               messageKey={translated ? "pages.advanceServer.creditTranslated" : "pages.advanceServer.credit"}
               className="text-xs leading-relaxed text-chalk-500"
             />
+            <ReportError messages={messagesPage(locale, ["pages.reportError"])} path={`${PATH}/${version}`} />
           </div>
         </div>
       </div>

@@ -4516,7 +4516,8 @@
         "kinds": {
           "thread": "Discussion",
           "post": "Réponse",
-          "card": "Carte coéquipier"
+          "card": "Carte coéquipier",
+          "data": "Erreur sur une fiche"
         },
         "banned": "auteur banni",
         "hidden": "masqué",
@@ -4541,11 +4542,17 @@
           "unpin": "Désépingler",
           "ban": "Bannir",
           "unban": "Lever le bannissement",
-          "dismiss": "Classer sans suite"
+          "dismiss": "Classer sans suite",
+          "resolve": "Erreur traitée"
         },
         "deleted": "supprimé par son auteur",
         "reportCount": "{n} signalement(s)",
-        "asReported": "Tel que signalé"
+        "asReported": "Tel que signalé",
+        "dataReports": "Erreurs signalées sur les fiches ({n})",
+        "dataReportsLead": "Signalements anonymes envoyés depuis les fiches de héros, d'objets, d'emblèmes, de sorts et les notes de patch, du plus ancien au plus récent. Corrigez la donnée si besoin, puis marquez le signalement comme traité.",
+        "dataReportsEmpty": "Aucune erreur signalée.",
+        "dataCorrection": "Correction proposée :",
+        "dataSource": "Source :"
       }
     },
     "communityUI": {
@@ -4674,7 +4681,8 @@
         "reason": "Motif (journal)",
         "confirmBan": "Confirmer le bannissement",
         "confirmDelete": "Supprimer définitivement ce contenu ?",
-        "failed": "L'action a échoué : rechargez la page."
+        "failed": "L'action a échoué : rechargez la page.",
+        "resolve": "Marquer comme traité"
       },
       "link": {
         "offer": "Vous êtes aussi connecté avec Discord. Liez vos deux comptes pour garder un seul profil sur le forum : vous pourrez ensuite vous connecter avec l'un ou l'autre, et ce que vous avez publié avec Discord rejoindra votre compte de jeu. Vous pourrez les délier plus tard, mais ce qui a rejoint votre compte de jeu y restera.",
@@ -4764,6 +4772,27 @@
         "minimum": "Au moins : certains héros n'ont pas pu être lus",
         "region": "Région",
         "statsLater": "Les statistiques de héros reviendront dès que le service du jeu les fournira à nouveau."
+      }
+    },
+    "reportError": {
+      "open": "Signaler une erreur",
+      "title": "Une donnée est fausse sur cette page ?",
+      "intro": "Dites-nous ce qui ne va pas : chaque signalement est relu avant toute correction.",
+      "text": "Ce qui est faux",
+      "correction": "La bonne valeur, si vous la connaissez (facultatif)",
+      "source": "Une source, si vous en avez une (lien, facultatif)",
+      "privacy": "Anonyme : ni compte ni e-mail. Seuls la page, sa langue et ce que vous écrivez sont enregistrés.",
+      "send": "Envoyer le signalement",
+      "cancel": "Annuler",
+      "sent": "Merci ! Votre signalement a bien été envoyé et sera relu.",
+      "errors": {
+        "text": "Décrivez l'erreur en {min} à {max} caractères.",
+        "source": "La source doit être une adresse web commençant par http:// ou https://.",
+        "links": "Pas de lien dans la description ni dans la correction : mettez-le dans le champ source.",
+        "tooFast": "Trop de signalements d'un coup : réessayez dans une minute.",
+        "full": "Beaucoup de signalements sont déjà en attente : réessayez dans quelques jours.",
+        "invalid": "Signalement refusé : vérifiez les champs.",
+        "unavailable": "Envoi impossible pour le moment : réessayez plus tard."
       }
     }
   },
@@ -5074,7 +5103,7 @@
     "privacy": {
       "blocks": [
         {
-          "p": "Ce site est conçu pour traiter le moins de données possible. La plupart des pages fonctionnent sans compte et sans rien enregistrer sur un serveur ; seules les fonctions que vous choisissez d'utiliser (connexion au compte de jeu ou à Discord, communauté, collection, notifications, bot Discord) conservent ce qu'elles décrivent plus bas. Conformément au Règlement général sur la protection des données (RGPD) et à la loi Informatique et Libertés, cette page détaille ce qui est traité, pourquoi, combien de temps, et comment exercer vos droits."
+          "p": "Ce site est conçu pour traiter le moins de données possible. La plupart des pages fonctionnent sans compte et sans rien enregistrer sur un serveur ; seules les fonctions que vous choisissez d'utiliser (connexion au compte de jeu ou à Discord, communauté, collection, notifications, signalement d'erreur, bot Discord) conservent ce qu'elles décrivent plus bas. Conformément au Règlement général sur la protection des données (RGPD) et à la loi Informatique et Libertés, cette page détaille ce qui est traité, pourquoi, combien de temps, et comment exercer vos droits."
         },
         {
           "h": "Responsable du traitement"
@@ -5090,7 +5119,7 @@
             "Mesure d'audience sans cookie (pages vues, recherches sur le site, actions anonymes) : savoir quelles pages servent et améliorer le site. Base légale : l'intérêt légitime de l'éditeur (article 6.1.f du RGPD).",
             "Mesure d'audience avec cookies (reconnaître un visiteur qui revient) : uniquement avec votre consentement (article 6.1.a du RGPD et article 82 de la loi Informatique et Libertés), que vous pouvez retirer à tout moment.",
             "Fonctions que vous demandez (connexion au compte de jeu ou à Discord, communauté, collection de skins, notifications de patch, bot Discord et son tableau de bord) : exécution du service demandé, selon ses conditions d'utilisation (article 6.1.b du RGPD).",
-            "Sécurité et modération (limites de débit, signalements, journal de modération, journaux d'erreurs, sauvegardes) : intérêt légitime de l'éditeur à protéger le site et ses utilisateurs (article 6.1.f du RGPD).",
+            "Sécurité, modération et qualité des données (limites de débit, signalements, signalements d'erreur sur les fiches, journal de modération, journaux d'erreurs, sauvegardes) : intérêt légitime de l'éditeur à protéger le site et ses utilisateurs (article 6.1.f du RGPD).",
             "Mémorisation de vos préférences (langue, favoris, réglages des outils) : nécessaire au fonctionnement du site tel que vous l'utilisez, dans votre navigateur."
           ]
         },
@@ -5135,6 +5164,11 @@
       "data": "la même empreinte de compte que la communauté (jamais votre ID de jeu), la liste des héros et des skins cochés, et la date du dernier enregistrement ; rien d'autre, et rien n'est montré à personne.",
       "usage": "Elle sert seulement à retrouver votre collection sur vos autres appareils. Le filtre « ceux que je joue » lit vos héros de la saison auprès du service de connexion au moment où vous l'activez, sans rien conserver.",
       "deletion": "Pour vider la copie de votre compte, effacez votre collection dans l'outil en étant connecté ; pour supprimer la ligne elle-même, écrivez à {contact}."
+    },
+    "dataReports": {
+      "title": "Signalements d'erreur sur les fiches",
+      "text": "Le bouton « Signaler une erreur » des fiches (héros, objets, emblèmes, sorts, notes de patch) ne demande ni compte ni e-mail. Le serveur du site conserve dans sa base de données la page concernée, sa langue, ce que vous avez écrit (l'erreur, et la correction et la source si vous les donnez) et la date d'envoi ; rien d'autre : ni votre adresse IP, ni votre compte, ni un identifiant de votre navigateur.",
+      "usage": "Ces signalements ne sont montrés qu'aux modérateurs, qui s'en servent pour corriger les données du site. Comme ils ne sont reliés à personne, n'y écrivez pas d'informations personnelles. La limite d'envoi utilise votre adresse IP, en mémoire seulement, comme sur le reste du site."
     },
     "gdpr": {
       "cookies": {
@@ -5248,6 +5282,7 @@
         "community": "Communauté : votre compte, vos messages, vos votes, vos signalements et le journal de modération sont conservés tant que la communauté existe, sauf demande d'effacement ; un signalement garde une copie du texte signalé. Une carte de coéquipier est effacée sept jours après son dernier enregistrement.",
         "builds": "Builds de la communauté : jusqu'à leur suppression par leur auteur, ou sur demande.",
         "collection": "Collection synchronisée : jusqu'à ce que vous la vidiez, ou sur demande.",
+        "dataReports": "Signalements d'erreur sur les fiches : conservés, sans lien avec une personne, tant que le site existe, pour garder la trace des corrections ; un signalement précis peut être effacé sur demande.",
         "push": "Notifications de patch : jusqu'au désabonnement ; un abonnement devenu invalide est supprimé à la notification suivante.",
         "bot": "Pour le bot Discord : les réglages d'un serveur, et les résultats des jeux du jour qui y ont été joués, jusqu'à 30 jours après le départ du bot ; le journal des commandes slash utilisées, sans identifiant de membre, 90 jours ; les votes pour le bot, jusqu'à demande de suppression.",
         "logs": "Journaux techniques : les erreurs du serveur et celles rencontrées par le navigateur (message, page, version du site, type de navigateur, sans adresse IP ni compte) sont gardées 30 jours pour le diagnostic. Les événements de sécurité et de modération (requêtes refusées, actions des modérateurs et des administrateurs) sont gardés 6 mois. Ils sont ensuite effacés automatiquement.",

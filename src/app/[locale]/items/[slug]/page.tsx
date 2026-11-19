@@ -16,7 +16,7 @@ import { Card, PageHeader, SectionTitle } from "@/components/ui";
 import visuals from "@/data/game/visuals.json";
 import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { metaPage, notFoundMetadata } from "@/i18n/seo";
-import { createT } from "@/i18n/translations";
+import { createT, messagesPage } from "@/i18n/translations";
 import { heroesBySlug, itemsFor } from "@/lib/data";
 import { BUILDER_RULE, dataSheet, summaryRanks, topBuilders, usage } from "@/lib/usage-sheets";
 import { metaItem } from "@/lib/item-meta";
@@ -25,6 +25,7 @@ import { listNames, percentage } from "@/lib/freshness";
 import { serializeJsonLd } from "@/lib/html";
 import { cn } from "@/lib/utils";
 import { NotFoundPage } from "@/components/not-found-page";
+import { ReportError } from "@/components/report-error";
 
 type Params = { params: Promise<{ locale: Locale; slug: string }> };
 
@@ -262,6 +263,7 @@ export default async function ItemPage({ params }: Params) {
           of={{ kind: "item", name: itemsFor("en").find((x) => x.slug === slug)?.name ?? o.name }}
           className="mt-0"
         />
+        <ReportError messages={messagesPage(locale, ["pages.reportError"])} path={`/items/${slug}`} />
       </div>
     </>
   );

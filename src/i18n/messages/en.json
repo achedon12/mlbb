@@ -4516,7 +4516,8 @@
         "kinds": {
           "thread": "Thread",
           "post": "Reply",
-          "card": "Teammate card"
+          "card": "Teammate card",
+          "data": "Data page error"
         },
         "banned": "author banned",
         "hidden": "hidden",
@@ -4541,11 +4542,17 @@
           "unpin": "Unpin",
           "ban": "Ban",
           "unban": "Lift the ban",
-          "dismiss": "Dismiss"
+          "dismiss": "Dismiss",
+          "resolve": "Error resolved"
         },
         "deleted": "deleted by its author",
         "reportCount": "{n} report(s)",
-        "asReported": "As reported"
+        "asReported": "As reported",
+        "dataReports": "Errors reported on data pages ({n})",
+        "dataReportsLead": "Anonymous reports sent from hero, item, emblem and spell pages and patch notes, oldest first. Fix the data if needed, then mark the report as resolved.",
+        "dataReportsEmpty": "No errors reported.",
+        "dataCorrection": "Proposed correction:",
+        "dataSource": "Source:"
       }
     },
     "communityUI": {
@@ -4674,7 +4681,8 @@
         "reason": "Reason (log)",
         "confirmBan": "Confirm the ban",
         "confirmDelete": "Delete this content for good?",
-        "failed": "The action failed: reload the page."
+        "failed": "The action failed: reload the page.",
+        "resolve": "Mark as resolved"
       },
       "link": {
         "offer": "You are also connected with Discord. Link your two accounts to keep a single profile on the forum: you can then log in with either, and what you posted with Discord will join your game account. You can unlink them later, but what joined your game account will stay there.",
@@ -4764,6 +4772,27 @@
         "minimum": "At least: some heroes could not be read",
         "region": "Region",
         "statsLater": "Hero stats will return as soon as the game service provides them again."
+      }
+    },
+    "reportError": {
+      "open": "Report an error",
+      "title": "Something wrong on this page?",
+      "intro": "Tell us what is wrong: every report is reviewed before anything is changed.",
+      "text": "What is wrong",
+      "correction": "The correct value, if you know it (optional)",
+      "source": "A source, if you have one (link, optional)",
+      "privacy": "Anonymous: no account or email. Only the page, its language and what you write are saved.",
+      "send": "Send the report",
+      "cancel": "Cancel",
+      "sent": "Thanks! Your report has been sent and will be reviewed.",
+      "errors": {
+        "text": "Describe the error in {min} to {max} characters.",
+        "source": "The source must be a web address starting with http:// or https://.",
+        "links": "No link in the description or in the correction: put it in the source field.",
+        "tooFast": "Too many reports at once: try again in a minute.",
+        "full": "Many reports are already pending: try again in a few days.",
+        "invalid": "Report refused: check the fields.",
+        "unavailable": "Unable to send at the moment: try again later."
       }
     }
   },
@@ -5074,7 +5103,7 @@
     "privacy": {
       "blocks": [
         {
-          "p": "This site is designed to process as little data as possible. Most pages work without an account and without saving anything on a server; only the features you choose to use (game account or Discord sign-in, community, collection, notifications, Discord bot) keep what they describe below. In line with the General Data Protection Regulation (GDPR) and the French Data Protection Act (loi Informatique et Libertés), this page explains what is processed, why, for how long, and how to exercise your rights."
+          "p": "This site is designed to process as little data as possible. Most pages work without an account and without saving anything on a server; only the features you choose to use (game account or Discord sign-in, community, collection, notifications, error reports, Discord bot) keep what they describe below. In line with the General Data Protection Regulation (GDPR) and the French Data Protection Act (loi Informatique et Libertés), this page explains what is processed, why, for how long, and how to exercise your rights."
         },
         {
           "h": "Data controller"
@@ -5090,7 +5119,7 @@
             "Audience measurement without cookies (page views, site searches, anonymous actions): know which pages are used and improve the site. Legal basis: the legitimate interest of the publisher (article 6.1.f of the GDPR).",
             "Audience measurement with cookies (recognising a returning visitor): only with your consent (article 6.1.a of the GDPR and article 82 of the French Data Protection Act), which you can withdraw at any time.",
             "Features you ask for (game account or Discord sign-in, community, skin collection, patch notifications, Discord bot and its dashboard): performance of the requested service, under its terms of use (article 6.1.b of the GDPR).",
-            "Security and moderation (rate limits, reports, moderation log, error logs, backups): legitimate interest of the publisher in protecting the site and its users (article 6.1.f of the GDPR).",
+            "Security, moderation and data quality (rate limits, reports, error reports on data pages, moderation log, error logs, backups): legitimate interest of the publisher in protecting the site and its users (article 6.1.f of the GDPR).",
             "Remembering your preferences (language, favourites, tool settings): needed for the site to work the way you use it, in your browser."
           ]
         },
@@ -5135,6 +5164,11 @@
       "data": "the same account fingerprint as the community (never your game ID), the list of ticked heroes and skins, and the date of the last save; nothing else, and nothing is shown to anyone.",
       "usage": "It is only used to find your collection on your other devices. The \"the ones I play\" filter reads your heroes of the season from the login service when you turn it on, and keeps nothing.",
       "deletion": "To empty your account's copy, clear your collection in the tool while signed in; to delete the record itself, write to {contact}."
+    },
+    "dataReports": {
+      "title": "Error reports on data pages",
+      "text": "The “Report an error” button on data pages (heroes, items, emblems, spells, patch notes) asks for no account and no email. The site's server keeps in its database the page concerned, its language, what you wrote (the error, plus the correct value and the source if you give them) and the date it was sent; nothing else: not your IP address, not your account, not any identifier of your browser.",
+      "usage": "These reports are shown only to the moderators, who use them to fix the site's data. Since they are not linked to anyone, do not include personal information. The sending limit uses your IP address, in memory only, as on the rest of the site."
     },
     "gdpr": {
       "cookies": {
@@ -5248,6 +5282,7 @@
         "community": "Community: your account, posts, votes, reports and the moderation log are kept for as long as the community exists, unless you ask for them to be erased; a report keeps a copy of the reported text. A teammate card is deleted seven days after it was last saved.",
         "builds": "Community builds: until deleted by their author, or upon request.",
         "collection": "Synced collection: until you empty it, or on request.",
+        "dataReports": "Error reports on data pages: kept, unlinked to any person, for as long as the site exists, as a record of corrections; a given report can be deleted on request.",
         "push": "Patch notifications: until unsubscribed; a subscription that has become invalid is deleted upon the next notification.",
         "bot": "For the Discord bot: a server's settings, and the results of the daily games played there, until 30 days after the bot leaves; the log of slash commands used, with no member ID, 90 days; votes for the bot, until you ask for their deletion.",
         "logs": "Technical logs: server errors and those met by the browser (message, page, site version, browser type, without IP address or account) are kept for 30 days for diagnosis. Security and moderation events (refused requests, moderators' and administrators' actions) are kept for 6 months. They are then deleted automatically.",
