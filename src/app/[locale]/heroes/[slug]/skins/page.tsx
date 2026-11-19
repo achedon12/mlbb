@@ -14,6 +14,7 @@ import { formatRelease, CURRENCIES, type SkinFull } from "@/lib/skins";
 import { anchorsGallery, elide, heroGallery, heroesWithSkins, titleGallery, type HeroGallery } from "@/lib/hero-skins";
 import type { Hero } from "@/lib/types";
 import { NotFoundPage } from "@/components/not-found-page";
+import { collaborationOf } from "@/lib/collaborations";
 
 /**
  * A hero's skin gallery: each skin with its illustration, its
@@ -130,6 +131,7 @@ export default async function HeroSkinsPage({ params }: Params) {
         if (!path) return [];
         return [
           image(path, s.name, s.illustration ? altIllustration(s.name) : altPortrait(s.name), {
+            ...(collaborationOf(s) ? { copyrightNotice: `© Moonton, ${collaborationOf(s)} © its rights holders` } : {}),
             ...(s.illustration && s.portrait ? { thumbnailUrl: absolute(s.portrait) } : {}),
             ...(s.release && DATE_ISO.test(s.release) ? { datePublished: s.release } : {}),
           }),
@@ -223,6 +225,11 @@ export default async function HeroSkinsPage({ params }: Params) {
                     {s.label && <Info label={t("skinsUI.obtained")}>{tr("skinLabel", s.label)}</Info>}
                     {priceText && <Info label={t("pages.heroSkins.price")}>{priceText}</Info>}
                   </dl>
+                  {collaborationOf(s) && (
+                    <p className="mt-3 text-xs text-chalk-500">
+                      {t("pages.heroSkins.collaboration", { franchise: collaborationOf(s)! })}
+                    </p>
+                  )}
                 </SkinCard>
               </li>
             );

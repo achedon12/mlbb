@@ -14,7 +14,7 @@
  * The output is written to `src/data/game/`. Visuals go to `public/visuels/`,
  * versioned with the repository: the image build needs no access to the wiki.
  */
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
 import { existsSync } from "node:fs";
 import { analyzeTableLua } from "./lua.mjs";
@@ -35,7 +35,18 @@ import { mergeHeroStats, patchAttributes } from "./hero-stats.mjs";
 import { levelValues, matchOfficial, mergeSkills, officialSkills } from "./skills.mjs";
 import { itemRemoved, liquipediaItemTitle, officialItemNames, priceGaps } from "./items.mjs";
 import { liquipediaDetail, liquipediaList, liquipediaPages, mergeDetail, mergeLists } from "./liquipedia-patches.mjs";
-import { distinctSkinIds, extractIllustrations, normalizeNameSkin } from "./gallery.mjs";
+import {
+  distinctSkinIds,
+  extractAvatarIcons,
+  extractIllustrations,
+  fallbackFileNames,
+  isProvisionalFile,
+  normalizeNameSkin,
+} from "./gallery.mjs";
+import { isReleasedHero } from "./release.mjs";
+import { mergeSkins, parseLiquipediaSkins } from "./skin-sources.mjs";
+import { differentImages, refreshDecision } from "./visual-refresh.mjs";
+import { PAGES as SERIES_PAGES, attachHeroes, level2Section, readGallery } from "./events.mjs";
 import {
   rounded,
   chooseGuide,
@@ -65,6 +76,8 @@ const UA = "MLBB-sync/1.0 (https://mlbbdex.com; contact via github.com/achedon12
 const OUTPUT = "src/data/game";
 
 const WITH_IMAGES = process.argv.includes("--images");
+/** Wiki file and SHA-1 behind each downloaded visual (see `scripts/visual-refresh.mjs`). */
+const MANIFEST = `${OUTPUT}/visual-sources.json`;
 
 // ─────────────────────────────────────────────────────────────
 // Wiki access
@@ -188,6 +201,42 @@ function normalizeItems(raw) {
 // ─────────────────────────────────────────────────────────────
 
 /**
+ * What the wiki says of each file resolved during this run, by download URL:
+ * its title, the SHA-1 and date of its current version, and whether it is a
+ * provisional visual (see `isProvisionalFile`). `download` compares the
+ * SHA-1 with the one of the last download to refresh replaced files.
+ */
+const fileInfo = new Map();
+
+/** One query for the URL, fingerprint, upload comment, description and categories of each file. */
+const FILE_QUERY = (titles) => ({
+  action: "query",
+  titles,
+  prop: "imageinfo|categories|revisions",
+  iiprop: "url|sha1|timestamp|comment",
+  cllimit: "max",
+  rvprop: "content",
+  rvslots: "main",
+});
+
+/** Records a file page of a `FILE_QUERY` answer; returns its stable download URL. */
+function recordFile(page) {
+  const info = page.imageinfo?.[0];
+  if (!info?.url) return null;
+  // The cache suffix is useless and makes the URL unstable.
+  const url = info.url.split("/revision/")[0];
+  const categories = (page.categories ?? []).map((c) => c.title);
+  const description = page.revisions?.[0]?.slots?.main?.["*"] ?? "";
+  fileInfo.set(url, {
+    file: page.title,
+    sha1: info.sha1 ?? null,
+    timestamp: info.timestamp ?? null,
+    provisional: isProvisionalFile({ name: page.title, description, comment: info.comment, categories }),
+  });
+  return url;
+}
+
+/**
  * Resolves image URLs in batches.
  *
  * The wiki names visuals after the hero or skin identifier, the same
@@ -201,19 +250,13 @@ async function urlsImages(credentials, variant) {
     const batch = credentials.slice(i, i + 50);
     const titles = batch.map((id) => `File:Hero${id}-${variant}.png`).join("|");
 
-    const data = await api({
-      action: "query",
-      titles,
-      prop: "imageinfo",
-      iiprop: "url",
-    });
+    const data = await api(FILE_QUERY(titles));
 
     for (const page of Object.values(data.query?.pages ?? {})) {
-      const source = page.imageinfo?.[0]?.url;
+      const source = recordFile(page);
       if (!source) continue;
       const id = page.title.match(/Hero(\w+)-/)?.[1];
-      // The cache suffix is useless and makes the URL unstable.
-      if (id) found[id] = source.split("/revision/")[0];
+      if (id) found[id] = source;
     }
 
     process.stdout.write(`\r    ${variant} ${Math.min(i + 50, credentials.length)}/${credentials.length}`);
@@ -242,12 +285,7 @@ async function urlsFiles(names, extension = "png") {
     const batch = names.slice(i, i + 50);
     const titles = batch.map((n) => `File:${n}.${extension}`).join("|");
 
-    const data = await api({
-      action: "query",
-      titles,
-      prop: "imageinfo",
-      iiprop: "url",
-    });
+    const data = await api(FILE_QUERY(titles));
 
     // The wiki normalizes some titles (spaces, apostrophes): follow its
     // redirections to get back to the requested name.
@@ -256,11 +294,10 @@ async function urlsFiles(names, extension = "png") {
     );
 
     for (const page of Object.values(data.query?.pages ?? {})) {
-      const source = page.imageinfo?.[0]?.url;
+      const source = recordFile(page);
       if (!source) continue;
       const title = normalized.get(page.title) ?? page.title;
-      found[title.replace(/^File:/, "").replace(/\.[a-z]+$/i, "")] =
-        source.split("/revision/")[0];
+      found[title.replace(/^File:/, "").replace(/\.[a-z]+$/i, "")] = source;
     }
 
     await pause(300);
@@ -275,7 +312,7 @@ function isWebp(data) {
 }
 
 /**
- * Downloads a visual unless it is already present.
+ * Downloads a visual, or refreshes it when the wiki replaced it.
  *
  * The wiki's full-size illustrations weigh up to 3 MB each, across 745 files:
  * as is, they add more than 200 MB to the repository and to every clone. They
@@ -289,9 +326,18 @@ function isWebp(data) {
  * they are already WebP — re-encoding a lossy image only loses quality — and
  * converted otherwise, which is the case for the few icons that come from the
  * game's API rather than the wiki.
+ *
+ * A file already on disk is kept while the wiki's version is the one it was
+ * made from (see `refreshDecision`): `manifest` records, per local path, the
+ * wiki file and SHA-1 of the last download. Returns `ok` (new file),
+ * `refreshed` (replaced by the wiki's newer version), `exists` (kept) or
+ * `failed`.
  */
-async function download(url, path, optimize = false, width = 1280) {
-  if (existsSync(path)) return "exists";
+async function download({ url, path, optimize = false, width = 1280 }, manifest) {
+  const current = fileInfo.get(url);
+  const exists = existsSync(path);
+  const decision = refreshDecision({ exists, recorded: manifest[path], current });
+  if (decision === "keep") return "exists";
   try {
     const response = await fetch(url, {
       headers: { "User-Agent": UA },
@@ -300,25 +346,30 @@ async function download(url, path, optimize = false, width = 1280) {
     if (!response.ok) return "failed";
 
     const data = Buffer.from(await response.arrayBuffer());
-    await mkdir(dirname(path), { recursive: true });
-
+    let output = data;
     if (optimize) {
       const sharp = (await import("sharp")).default;
-      await sharp(data)
-        .resize({ width, withoutEnlargement: true })
-        .webp({ quality: 82 })
-        .toFile(path);
+      output = await sharp(data).resize({ width, withoutEnlargement: true }).webp({ quality: 82 }).toBuffer();
     } else if (path.endsWith(".webp") && !isWebp(data)) {
       // 92 is generous for a 100x100 icon with an alpha channel: a quarter of
       // the weight of the source PNG, and no visible difference at any size
       // the site displays it.
       const sharp = (await import("sharp")).default;
-      await sharp(data).webp({ quality: 92, alphaQuality: 100, effort: 6 }).toFile(path);
-    } else {
-      await writeFile(path, data);
+      output = await sharp(data).webp({ quality: 92, alphaQuality: 100, effort: 6 }).toBuffer();
     }
 
-    return "ok";
+    const record = current?.sha1 ? { file: current.file, sha1: current.sha1, timestamp: current.timestamp } : null;
+    if (decision === "verify") {
+      // Downloaded before the manifest existed: replaced only if the picture changed.
+      const changed = await differentImages(output, await readFile(path)).catch(() => true);
+      if (record) manifest[path] = record;
+      if (!changed) return "exists";
+    }
+
+    await mkdir(dirname(path), { recursive: true });
+    await writeFile(path, output);
+    if (record) manifest[path] = record;
+    return exists ? "refreshed" : "ok";
   } catch {
     return "failed";
   }
@@ -541,7 +592,15 @@ function extractFromPage(wikitext) {
   // much larger than the shop portraits.
   const illustrations = extractIllustrations(wikitext);
 
-  return { skills, illustrations, story: extractStory(wikitext) };
+  return {
+    skills,
+    illustrations,
+    // Skin ids and names of the "Avatar icons" gallery, newer than the module.
+    avatars: extractAvatarIcons(wikitext),
+    // `{{Unfinished}}`: a hero page written ahead of the hero's release.
+    unfinished: /\{\{\s*unfinished\b/i.test(wikitext),
+    story: extractStory(wikitext),
+  };
 }
 
 /** Walks through hero pages, in batches, to extract these two blocks. */
@@ -1824,6 +1883,125 @@ async function monsters() {
 }
 
 // ─────────────────────────────────────────────────────────────
+// Released content
+// ─────────────────────────────────────────────────────────────
+
+/**
+ * Slugs of the heroes the live game lists: the community API relays Moonton's
+ * own hero list; Liquipedia's hero category stands in when the API does not
+ * answer. Null when neither does: the release dates decide alone then.
+ */
+async function officialHeroes() {
+  try {
+    const answer = await jsonFrom(`${STATS}/heroes?size=200`);
+    const names = (answer?.data?.records ?? []).map((r) => r?.data?.hero?.data?.name).filter(Boolean);
+    if (names.length > 50) return { source: "arena.rone.dev", slugs: new Set(names.map(slugify)) };
+  } catch {
+    // Liquipedia below.
+  }
+  try {
+    const { query } = await liquipedia.api({
+      action: "query",
+      list: "categorymembers",
+      cmtitle: "Category:Hero",
+      cmnamespace: "0",
+      cmlimit: "500",
+    });
+    const names = (query?.categorymembers ?? []).map((m) => m.title);
+    if (names.length > 50) return { source: "Liquipedia", slugs: new Set(names.map(slugify)) };
+  } catch (error) {
+    console.warn(`  Liquipedia hero list unavailable (${error.message})`);
+  }
+  return null;
+}
+
+/**
+ * Skins of each hero's Liquipedia gallery (`Kagura/Gallery`), which follows
+ * the live game: `{ slug: [{ name, type, availability }] }`. Null when
+ * Liquipedia does not answer; a hero without a gallery page is left out.
+ */
+async function liquipediaGalleries(heroes) {
+  try {
+    const output = {};
+    for (const batch of liquipedia.chunks(heroes, 10)) {
+      const titles = batch.map((h) => `${h.name}/Gallery`);
+      const { query } = await liquipedia.api({
+        action: "query",
+        prop: "revisions",
+        rvprop: "content",
+        rvslots: "main",
+        redirects: "1",
+        titles: titles.join("|"),
+      });
+      const resolve = liquipedia.resolver(query);
+      const byTitle = new Map((query?.pages ?? []).map((p) => [p.title, p]));
+      batch.forEach((h, i) => {
+        const text = byTitle.get(resolve(titles[i]))?.revisions?.[0]?.slots?.main?.content;
+        if (text) output[h.slug] = parseLiquipediaSkins(text);
+      });
+      process.stdout.write(`\r    Liquipedia galleries ${Object.keys(output).length}/${heroes.length}`);
+    }
+    process.stdout.write("\n");
+    return output;
+  } catch (error) {
+    console.warn(`  Liquipedia galleries unavailable (${error.message}): skins confirmed by their dates only`);
+    return null;
+  }
+}
+
+/**
+ * StarLight and Collector skins dated to their month, from the two wiki
+ * pages `scripts/events.mjs` reads. When the wiki does not answer, the
+ * calendar that script wrote last time.
+ */
+async function seriesEntries(heroes) {
+  const label = { starlight: "StarLight", collector: "Collector" };
+  const entries = [];
+  try {
+    for (const [key, { title, section }] of Object.entries(SERIES_PAGES)) {
+      const data = await api({ action: "query", titles: title, prop: "revisions", rvprop: "content", rvslots: "main", redirects: "1" });
+      const text = Object.values(data.query?.pages ?? {})[0]?.revisions?.[0]?.slots?.main?.["*"] ?? "";
+      const body = level2Section(text, section);
+      if (!body) throw new Error(`section "${section}" missing from ${title}`);
+      entries.push(...attachHeroes(readGallery(body), heroes).map((e) => ({ ...e, series: label[key] })));
+      await pause(300);
+    }
+    return entries;
+  } catch (error) {
+    console.warn(`  StarLight and Collector pages unavailable (${error.message}): previous calendar used`);
+    const previous = await readJson(`${OUTPUT}/events.json`);
+    return Object.entries(label).flatMap(([key, series]) => (previous[key] ?? []).map((e) => ({ ...e, series })));
+  }
+}
+
+/**
+ * Removes the visuals of what is no longer listed: the folder of a hero
+ * that is not released (Dori's artwork, downloaded in November 2026), and
+ * the portrait and artwork of a hidden skin, or of an artwork left out as
+ * provisional with no live file to replace it. The data sync workflow
+ * commits public/visuels with `git add -A`, deletions included. `planned`
+ * holds every path this run wrote or kept: none of them is touched.
+ */
+async function pruneVisuals({ heroes, hidden, withdrawn, planned, manifest }) {
+  const removed = [];
+  const remove = async (path) => {
+    if (planned.has(path) || !existsSync(path)) return;
+    await rm(path, { recursive: true, force: true });
+    for (const key of Object.keys(manifest)) if (key === path || key.startsWith(`${path}/`)) delete manifest[key];
+    removed.push(path);
+  };
+  const listed = new Set(heroes.map((h) => h.slug));
+  const folders = existsSync("public/visuels/heros") ? await readdir("public/visuels/heros") : [];
+  for (const folder of folders) if (!listed.has(folder)) await remove(`public/visuels/heros/${folder}`);
+  for (const s of hidden) {
+    await remove(`public/visuels/heros/${s.hero}/skins/${s.id}-${slugify(s.name)}.webp`);
+    await remove(`public/visuels/heros/${s.hero}/illustrations/${slugify(s.name)}.webp`);
+  }
+  for (const path of withdrawn) await remove(path);
+  return removed;
+}
+
+// ─────────────────────────────────────────────────────────────
 // Execution
 // ─────────────────────────────────────────────────────────────
 
@@ -1831,9 +2009,9 @@ async function monsters() {
  * Hero pages (wiki) and official sheets (API), merged slot by slot: see
  * `skills.mjs`. `matched` is the official skill of each slot, for its icon.
  */
-async function heroSkills(heroes) {
-  console.log("Reading hero pages…");
-  const pages = await heroPages(heroes);
+async function heroSkills(heroes, read = null) {
+  if (!read) console.log("Reading hero pages…");
+  const pages = read ?? (await heroPages(heroes));
   const nbSkills = Object.values(pages).reduce((n, p) => n + p.skills.filter(Boolean).length, 0);
   const nbIllustrations = Object.values(pages).reduce((n, p) => n + p.illustrations.length, 0);
   console.log(`  ${nbSkills} wiki skills, ${nbIllustrations} illustrations`);
@@ -1905,7 +2083,13 @@ async function heroBaseStats(heroes, patchDetails) {
  * Writes `heroes.json`, `skills.json` and the English skills the site reads.
  */
 async function heroesOnly() {
-  const heroes = normalizeHeroes(await moduleLua("Module:Hero/data"), await readJson(`${OUTPUT}/heroes.json`));
+  // Only the heroes already listed: a new or unreleased hero enters through
+  // the full sync, which checks the official list.
+  const previous = await readJson(`${OUTPUT}/heroes.json`);
+  const listed = new Set((Array.isArray(previous) ? previous : []).filter((h) => isReleasedHero(h)).map((h) => h.slug));
+  const heroes = normalizeHeroes(await moduleLua("Module:Hero/data"), previous)
+    .filter((h) => listed.has(h.slug))
+    .map((h) => ({ ...h, released: true }));
   const { finalSkills } = await heroSkills(heroes);
   console.log("Hero base stats (Liquipedia, patch notes)…");
   await heroBaseStats(heroes, (await readJson(`${OUTPUT}/patches.json`)).details ?? {});
@@ -1955,17 +2139,66 @@ async function main() {
   ]);
 
   // The previous catalogue covers an entry an edit blanked or removed.
-  const heroes = normalizeHeroes(rawHeroes, await readJson(`${OUTPUT}/heroes.json`));
-  const skins = normalizeSkins(rawSkins);
+  const previousHeroes = await readJson(`${OUTPUT}/heroes.json`);
+  const catalogue = normalizeHeroes(rawHeroes, previousHeroes);
+  const moduleSkins = normalizeSkins(rawSkins);
   const items = normalizeItems(rawItems);
+  console.log(`  ${catalogue.length} heroes, ${Object.values(moduleSkins).flat().length} skins, ${items.length} items in the modules`);
 
+  console.log("Reading hero pages…");
+  const pages = await heroPages(catalogue);
+
+  // Only released heroes are listed: the wiki documents announced ones
+  // ahead of time (Dori, "TBA", November 2026).
+  console.log("Released heroes…");
+  const official = await officialHeroes();
+  // A hero listed last time with a past release date stays listed even if
+  // the official list skipped it this time: a released hero does not leave
+  // the game, and a partial answer must not drop half the roster.
+  const listedBefore = (Array.isArray(previousHeroes) ? previousHeroes : [])
+    .filter((h) => isReleasedHero(h))
+    .map((h) => h.slug);
+  const officialSlugs = official ? new Set([...official.slugs, ...listedBefore]) : null;
+  const heroes = catalogue
+    .filter((h) => isReleasedHero(h, { official: officialSlugs, unfinished: pages[h.slug]?.unfinished }))
+    .map((h) => ({ ...h, released: true }));
+  const unreleased = catalogue.filter((h) => !heroes.some((r) => r.slug === h.slug));
+  for (const h of unreleased) delete pages[h.slug];
+  console.log(
+    `  ${heroes.length} released (official list: ${official ? official.source : "unavailable, dates only"})` +
+      (unreleased.length ? `, left out: ${unreleased.map((h) => `${h.name} (${h.release ?? "no date"})`).join(", ")}` : ""),
+  );
+
+  // Skins: the module, completed by the hero pages, kept to released ones.
+  console.log("Skins…");
+  const merged = mergeSkins({
+    moduleSkins,
+    avatars: Object.fromEntries(Object.entries(pages).map(([slug, p]) => [slug, p.avatars])),
+    liquipedia: await liquipediaGalleries(heroes),
+    events: await seriesEntries(heroes),
+    heroes,
+  });
+  const skins = merged.skins;
   const nbSkins = Object.values(skins).reduce((n, s) => n + s.length, 0);
-  console.log(`  ${heroes.length} heroes, ${nbSkins} skins, ${items.length} items`);
+  console.log(`  ${nbSkins} skins listed, ${merged.added.length} added from the hero pages, ${merged.hidden.length} not released yet left out`);
+  for (const s of merged.hidden) console.log(`    not released: ${s.hero} ${s.name} (${s.id})`);
+  const nbSkills = Object.values(pages).reduce(
+    (n, p) => n + p.skills.filter(Boolean).length,
+    0,
+  );
+  const nbDescriptions = Object.values(pages).reduce(
+    (n, p) => n + p.skills.filter((c) => c?.description).length,
+    0,
+  );
+  const nbIllustrations = Object.values(pages).reduce((n, p) => n + p.illustrations.length, 0);
+  console.log(
+    `  ${nbSkills} skills (${nbDescriptions} described), ${nbIllustrations} illustrations`,
+  );
 
   console.log("Items still in the game (Liquipedia, official catalogue)…");
   await itemsInGame(items);
 
-  const { pages, skillsArena, taglines, finalSkills, matched } = await heroSkills(heroes);
+  const { skillsArena, taglines, finalSkills, matched } = await heroSkills(heroes, pages);
 
   // ── Hero stories ───────────────────────────────────────────────────
   // Two complementary sources: the API's one-line tagline and the wiki's long
@@ -2069,6 +2302,11 @@ async function main() {
   // square icon for compact lists.
   const portraits = await urlsImages(credentials, "portrait");
   const icons = await urlsImages(heroes.map((h) => h.id), "icon");
+  // A portrait or icon the wiki marks as provisional (test server, leak) is
+  // not the game's: the file already on disk, if any, stays as it is.
+  for (const urls of [portraits, icons]) {
+    for (const [id, url] of Object.entries(urls)) if (fileInfo.get(url)?.provisional) delete urls[id];
+  }
   console.log(`  ${Object.keys(portraits).length} portraits, ${Object.keys(icons).length} icons`);
 
   const { plan, paths } = planVisuals(heroes, skins, portraits, icons);
@@ -2177,8 +2415,21 @@ async function main() {
   console.log(`  ${Object.keys(combos).length} heroes with combos`);
 
   // ── Full-size illustrations ────────────────────────────────────────
+  // A gallery row whose file is provisional ("Thamuz (Lord Lava; unreleased
+  // revamp).jpg", "Masha Rogue Talon (Original).jpg") gives way to the live
+  // file it stands next to on the wiki, when there is one.
+  const rowsBySlug = Object.fromEntries(
+    Object.entries(pages).map(([slug, page]) => [
+      slug,
+      page.illustrations.flatMap(({ file, skin }) =>
+        isProvisionalFile({ name: file })
+          ? fallbackFileNames(file).map((f) => ({ file: f, skin, fallback: true }))
+          : [{ file, skin }],
+      ),
+    ]),
+  );
   const namesIllustrations = [
-    ...new Set(Object.values(pages).flatMap((p) => p.illustrations.map((i) => i.file))),
+    ...new Set(Object.values(rowsBySlug).flatMap((rows) => rows.map((r) => r.file))),
   ];
   // Illustrations come as .jpg as well as .png: both are queried.
   const [toJpg, toPng] = await Promise.all([
@@ -2193,21 +2444,43 @@ async function main() {
   ]);
   const urlsIllustrations = { ...toJpg, ...toPng };
 
+  const hiddenNames = new Set(merged.hidden.map((h) => `${h.hero}:${normalizeNameSkin(h.name)}`));
   const illustrations = {};
-  for (const [slug, page] of Object.entries(pages)) {
+  // Artwork paths of a provisional file with no live file to replace it.
+  const withdrawnIllustrations = [];
+  let provisionalReplaced = 0;
+  let unlisted = 0;
+  for (const [slug, rows] of Object.entries(rowsBySlug)) {
     const bySkin = {};
     // The illustration is stored under the data module's name, the one the
     // hero page uses to find it, as soon as the caption matches it.
     const namesModule = new Map(
       (skins[slug] ?? []).map((s) => [normalizeNameSkin(s.name), s.name]),
     );
-    for (const { file, skin } of page.illustrations) {
+    // Skins one of whose artworks was set aside as provisional.
+    const setAside = new Set(
+      pages[slug].illustrations.filter(({ file }) => isProvisionalFile({ name: file })).map(({ skin }) => skin),
+    );
+    for (const { file, skin, fallback } of rows) {
       const key = file.replace(/\.(jpg|png)$/, "");
       const url = urlsIllustrations[key];
       if (!url || !skin) continue;
+      if (fileInfo.get(url)?.provisional) {
+        setAside.add(skin);
+        continue;
+      }
+      // The artwork of a skin left out as not released yet is not shown. A
+      // caption the catalogue does not know otherwise (another spelling,
+      // "Exoracial Executioner" for "Exoracial Executer", a painted variant)
+      // stays a lone artwork, under the caption's name.
+      if (hiddenNames.has(`${slug}:${normalizeNameSkin(skin)}`)) {
+        unlisted += 1;
+        continue;
+      }
       const nameSkin = namesModule.get(normalizeNameSkin(skin)) ?? skin;
       // First illustration wins: the following ones are older visuals.
       if (bySkin[nameSkin]) continue;
+      if (fallback) provisionalReplaced += 1;
       const nameFile = `${slugify(nameSkin)}.webp`;
       bySkin[nameSkin] = `/visuels/heros/${slug}/illustrations/${nameFile}`;
       plan.push({
@@ -2216,10 +2489,18 @@ async function main() {
         optimize: true,
       });
     }
+    // A provisional artwork with nothing to replace it is withdrawn.
+    for (const skin of setAside) {
+      const nameSkin = namesModule.get(normalizeNameSkin(skin)) ?? skin;
+      if (!bySkin[nameSkin]) {
+        withdrawnIllustrations.push(`public/visuels/heros/${slug}/illustrations/${slugify(nameSkin)}.webp`);
+      }
+    }
     if (Object.keys(bySkin).length) illustrations[slug] = bySkin;
   }
   console.log(
-    `  ${Object.keys(urlsIllustrations).length}/${namesIllustrations.length} full-size illustrations`,
+    `  ${Object.keys(urlsIllustrations).length}/${namesIllustrations.length} full-size illustrations` +
+      `, ${provisionalReplaced} provisional replaced by the live file, ${unlisted} of unreleased skins left out`,
   );
 
   console.log("Resolving items, emblems, talents and spells…");
@@ -2274,23 +2555,42 @@ async function main() {
       `${Object.keys(spellVisuals).length} spells`,
   );
 
+  const manifest = await readJson(MANIFEST);
   if (WITH_IMAGES) {
     console.log(`Downloading ${plan.length} visuals…`);
-    let ok = 0;
-    let already = 0;
-    let failures = 0;
+    const results = { ok: 0, refreshed: 0, exists: 0, failed: 0 };
+    const refreshed = [];
 
     // In small batches: fast enough, without saturating the wiki.
     for (let i = 0; i < plan.length; i += 8) {
-      const results = await Promise.all(
-        plan.slice(i, i + 8).map((v) => download(v.url, v.path, v.optimize, v.width)),
-      );
-      ok += results.filter((r) => r === "ok").length;
-      already += results.filter((r) => r === "exists").length;
-      failures += results.filter((r) => r === "failed").length;
+      const batch = plan.slice(i, i + 8);
+      const outcomes = await Promise.all(batch.map((v) => download(v, manifest)));
+      outcomes.forEach((r, k) => {
+        results[r] += 1;
+        if (r === "refreshed") refreshed.push(batch[k].path);
+      });
       process.stdout.write(`\r    ${Math.min(i + 8, plan.length)}/${plan.length}`);
     }
-    console.log(`\n  ${ok} downloaded, ${already} already present, ${failures} failed`);
+    console.log(
+      `\n  ${results.ok} downloaded, ${results.refreshed} refreshed from a newer wiki version, ` +
+        `${results.exists} already up to date, ${results.failed} failed`,
+    );
+    for (const path of refreshed) console.log(`    refreshed: ${path}`);
+
+    const removed = await pruneVisuals({
+      heroes,
+      hidden: merged.hidden,
+      withdrawn: withdrawnIllustrations,
+      planned: new Set(plan.map((v) => v.path)),
+      manifest,
+    });
+    console.log(`  ${removed.length} visuals of unlisted content removed`);
+    for (const path of removed) console.log(`    removed: ${path}`);
+
+    await writeFile(
+      MANIFEST,
+      JSON.stringify(Object.fromEntries(Object.entries(manifest).sort(([a], [b]) => a.localeCompare(b))), null, 2) + "\n",
+    );
   } else {
     console.log("  (rerun with --images to download the visuals)");
   }
