@@ -75,6 +75,7 @@ import generatedSync from "@/data/game/sync.json";
 import generatedStatistics from "@/data/game/statistics.json";
 import generatedVisuals from "@/data/game/visuals.json";
 import { analyses } from "@/data/heroes";
+import { listedHeroes, listedSkins, shownIllustrations } from "./listed";
 import type { Locale } from "@/i18n/config";
 import type { MeasuredRank } from "./measured-ranks";
 import type { PickRates } from "./usage-builds";
@@ -107,10 +108,11 @@ const visuals = generatedVisuals.heroes as unknown as Record<string, HeroVisuals
 const skinsByHero = generatedSkins as unknown as Record<string, Skin[]>;
 const bySlugAnalysis = new Map(analyses.map((a) => [a.slug, a]));
 
-export const allHeroes: Hero[] = (generatedHeroes as unknown as GeneratedHero[]).map((h) => ({
+/** Released heroes and skins only: see `listed.ts`. */
+export const allHeroes: Hero[] = listedHeroes(generatedHeroes as unknown as GeneratedHero[]).map((h) => ({
   ...h,
   images: visuals[h.slug] ?? VISUALS_EMPTY,
-  skins: skinsByHero[h.slug] ?? [],
+  skins: listedSkins(skinsByHero[h.slug] ?? []),
   analysis: bySlugAnalysis.get(h.slug) ?? null,
 }));
 
@@ -294,11 +296,16 @@ export function stories(locale: Locale): Record<string, HeroStory> {
   return STORIES[locale] as unknown as Record<string, HeroStory>;
 }
 
-/** Full-size artwork, per hero then per skin name. */
-export const illustrations = generatedVisuals.illustrations as unknown as Record<
-  string,
-  Record<string, string>
->;
+/**
+ * Full-size artwork, per listed hero then per skin name, without the
+ * artwork of unreleased and collaboration skins (`shownIllustrations`).
+ */
+const illustrationsSynced = generatedVisuals.illustrations as unknown as Record<string, Record<string, string>>;
+export const illustrations: Record<string, Record<string, string>> = Object.fromEntries(
+  allHeroes
+    .map((h) => [h.slug, shownIllustrations(illustrationsSynced[h.slug], skinsByHero[h.slug] ?? [])] as const)
+    .filter(([, byName]) => Object.keys(byName).length > 0),
+);
 
 const ITEMS = { en: itemsEn, fr: itemsFr, it: itemsIt, es: itemsEs, id: itemsId, fil: itemsFil, th: itemsTh, pt: itemsPt, ru: itemsRu } satisfies Record<Locale, unknown>;
 export function itemsFor(locale: Locale): GeneratedItem[] {
