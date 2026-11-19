@@ -135,6 +135,27 @@ function shieldNames(text) {
     },
   };
 }
+/**
+ * Drops the cached translations that lost a hero name of their source (a
+ * translation made before the names were shielded): the next `prepare`
+ * translates them again, names shielded. Returns how many were dropped.
+ */
+function forgetLostNames(texts, sl, tl) {
+  let dropped = 0;
+  for (const text of new Set(texts.map((x) => String(x).trim()))) {
+    const key = `${sl}|${tl}|${text}`;
+    const out = cache[key];
+    if (typeof out !== "string") continue;
+    const names = text.match(NAMES_RE) ?? [];
+    if (names.some((n) => !out.includes(n))) {
+      delete cache[key];
+      dropped++;
+    }
+  }
+  if (dropped) console.log(`    ${tl}: ${dropped} translations had lost a hero name, translated again`);
+  return dropped;
+}
+
 async function heroNameRules(tl) {
   if (!heroNames.has(tl)) {
     await prepare(HERO_NAMES, "en", tl);
@@ -382,8 +403,12 @@ const GAMES = {
   items: { source: "en", texts: itemsTexts, rebuild: itemsRebuild },
   "tier-notes": { source: "fr", texts: tierNotesTexts, rebuild: tierNotesRebuild },
   analyses: { source: "fr", load: loadAnalyses, texts: collect(analysesRebuild), rebuild: analysesRebuild },
+  // `shield`: hero names hidden from the service, like in the narrative, but
+  // with the glossary still applied. Patch notes list heroes by name, and the
+  // service turned Chip into "Puce", Joy into "Joie" and Lukas into "Lucas".
   patches: {
     source: "en",
+    shield: true,
     file: "src/data/game/patches.json",
     extract: (d) => d.details,
     texts: collect(patchesRebuild),
@@ -417,7 +442,8 @@ for (const [name, cfg] of Object.entries(GAMES)) {
   console.log(`${name} (${cfg.source}): ${new Set(all.map((x) => String(x).trim())).size} unique texts`);
   await mkdir(`src/data/game/${name}`, { recursive: true });
   for (const tl of targetLocales(cfg.source)) {
-    const shield = cfg.narrative ? { shield: shieldNames } : {};
+    const shield = cfg.narrative || cfg.shield ? { shield: shieldNames } : {};
+    if (cfg.shield) forgetLostNames(all, cfg.source, tl);
     await prepare(all, cfg.source, tl, shield);
     const t = tr(cfg.source, tl);
     // Second pass: an HTML block whose translation lost its tags
