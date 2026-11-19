@@ -154,3 +154,35 @@ export function UnbanButton({ accountId }: { accountId: string }) {
     </button>
   );
 }
+
+/** Close an error report on a data page (`/api/data-reports`, PATCH): fixed, or nothing to fix. */
+export function ResolveDataReportButton({ id }: { id: number }) {
+  const t = useT();
+  const router = useRouter();
+  const [busy, setBusy] = useState(false);
+  const [failed, setFailed] = useState(false);
+  return (
+    <span className="inline-flex flex-wrap items-center gap-2">
+      <button
+        type="button"
+        disabled={busy}
+        className={cn(BUTTON, CALM)}
+        onClick={async () => {
+          setBusy(true);
+          setFailed(false);
+          const answer = await send("PATCH", "/api/data-reports", { id });
+          setBusy(false);
+          if (answer.status === 200 || answer.status === 404) router.refresh();
+          else setFailed(true);
+        }}
+      >
+        {t("pages.communityUI.moderation.resolve")}
+      </button>
+      {failed && (
+        <span role="alert" className="text-xs text-blood-400">
+          {t("pages.communityUI.moderation.failed")}
+        </span>
+      )}
+    </span>
+  );
+}

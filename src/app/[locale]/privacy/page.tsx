@@ -57,7 +57,7 @@ const STORAGE: { keys: string[]; key: string }[] = [
   { keys: ["mlbb_chatiment"], key: "retribution" },
 ];
 
-const RETENTION = ["audience", "sessions", "community", "builds", "collection", "push", "bot", "profileCard", "logs", "backups", "rateLimits"];
+const RETENTION = ["audience", "sessions", "community", "builds", "collection", "dataReports", "push", "bot", "profileCard", "logs", "backups", "rateLimits"];
 const RECIPIENTS = ["host", "matomo", "discord", "moonton", "push", "votes"];
 
 export default async function PrivacyPage({ params }: Params) {
@@ -87,6 +87,7 @@ export default async function PrivacyPage({ params }: Params) {
           { title: t("prose.push.title"), anchor: "notifications-push" },
           { title: t("prose.community.title"), anchor: "community" },
           { title: t("prose.collection.title"), anchor: "skin-collection" },
+          { title: t("prose.dataReports.title"), anchor: "error-reports" },
           ...(botPublished() ? [{ title: t("prose.bot.title"), anchor: "discord-bot" }] : []),
           { title: t("prose.gdpr.thirdParty.title"), anchor: "third-party" },
           { title: t("prose.gdpr.recipients.title"), anchor: "recipients" },
@@ -207,6 +208,10 @@ export default async function PrivacyPage({ params }: Params) {
         </ul>
         <p>{t("prose.collection.usage")}</p>
         <p>{t("prose.collection.deletion", { contact: legal.contact })}</p>
+        {/* Error reports on the data pages: anonymous, kept in the database. */}
+        <h2 id="error-reports">{t("prose.dataReports.title")}</h2>
+        <p>{t("prose.dataReports.text")}</p>
+        <p>{t("prose.dataReports.usage")}</p>
         {/* Discord bot: described when it is deployed (its id is known at build time). */}
         {botPublished() && (
           <>

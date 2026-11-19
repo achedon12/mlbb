@@ -4496,7 +4496,8 @@
         "kinds": {
           "thread": "Discussão",
           "post": "Resposta",
-          "card": "Cartão de companheiro"
+          "card": "Cartão de companheiro",
+          "data": "Erro em um arquivo"
         },
         "banned": "autor banido",
         "hidden": "oculto",
@@ -4521,11 +4522,17 @@
           "unpin": "Desafixar",
           "ban": "Banir",
           "unban": "Remover banimento",
-          "dismiss": "Descartar"
+          "dismiss": "Descartar",
+          "resolve": "Erro tratado"
         },
         "deleted": "excluído pelo seu autor",
         "reportCount": "{n} denúncia(s)",
-        "asReported": "Como foi denunciado"
+        "asReported": "Como foi denunciado",
+        "dataReports": "Erros reportados nos formulários ({n})",
+        "dataReportsLead": "Relatórios anônimos enviados de heróis, itens, emblemas, fichas de feitiços e patch notes, do mais antigo ao mais recente. Corrija os dados, se necessário, e marque o relatório como processado.",
+        "dataReportsEmpty": "Nenhum erro relatado.",
+        "dataCorrection": "Correção proposta:",
+        "dataSource": "Fonte:"
       }
     },
     "communityUI": {
@@ -4654,7 +4661,8 @@
         "reason": "Motivo (registro)",
         "confirmBan": "Confirmar o banimento",
         "confirmDelete": "Excluir este conteúdo de vez?",
-        "failed": "A ação falhou: recarregue a página."
+        "failed": "A ação falhou: recarregue a página.",
+        "resolve": "Marcar como processado"
       },
       "link": {
         "offer": "Você também está conectado ao Discord. Vincule suas duas contas para manter um único perfil no fórum: você pode então fazer login com qualquer uma delas e o que você postou no Discord será adicionado à sua conta do jogo. Você pode desvinculá-los mais tarde, mas o que entrou na sua conta do jogo permanecerá lá.",
@@ -4744,6 +4752,27 @@
         "minimum": "No mínimo: alguns heróis não puderam ser lidos",
         "region": "Região",
         "statsLater": "As estatísticas dos heróis retornarão assim que o serviço do jogo as fornecer novamente."
+      }
+    },
+    "reportError": {
+      "open": "Informar um erro",
+      "title": "Há algum dado errado nesta página?",
+      "intro": "Diga-nos o que há de errado: cada relatório é relido antes de qualquer correção.",
+      "text": "O que há de errado",
+      "correction": "O valor correto, se você souber (opcional)",
+      "source": "Uma fonte, se você tiver uma (link, opcional)",
+      "privacy": "Anônimo: sem conta ou e-mail. Apenas a página, seu idioma e o que você escreve são salvos.",
+      "send": "Enviar a denúncia",
+      "cancel": "Cancelar",
+      "sent": "OBRIGADO ! Seu relatório foi enviado e será relido.",
+      "errors": {
+        "text": "Descreva o erro em caracteres {min} a {max}.",
+        "source": "A fonte deve ser um endereço da web começando com http:// ou https://.",
+        "links": "Nenhum link na descrição ou na correção: coloque no campo fonte.",
+        "tooFast": "Muitos relatórios de uma só vez: tente novamente em um minuto.",
+        "full": "Muitos relatórios já estão pendentes: tente novamente em alguns dias.",
+        "invalid": "Relatório recusado: verifique os campos.",
+        "unavailable": "Não é possível enviar no momento: tente novamente mais tarde."
       }
     }
   },
@@ -5054,7 +5083,7 @@
     "privacy": {
       "blocks": [
         {
-          "p": "Este site foi projetado para processar o mínimo de dados possível. A maioria das páginas funciona sem conta e sem salvar nada em um servidor; apenas os recursos que você escolhe usar (conta do jogo ou login do Discord, comunidade, coleção, notificações, bot do Discord) mantêm o que descrevem abaixo. De acordo com o Regulamento Geral de Proteção de Dados (RGPD) e a Lei de Proteção de Dados, esta página detalha o que é processado, porquê, por quanto tempo e como exercer os seus direitos."
+          "p": "Este site foi projetado para processar o mínimo de dados possível. A maioria das páginas funciona sem conta e sem salvar nada em um servidor; apenas os recursos que você escolhe usar (conta do jogo ou login do Discord, comunidade, coleção, notificações, relatório de erros, bot do Discord) mantêm o que descrevem abaixo. De acordo com o Regulamento Geral de Proteção de Dados (RGPD) e a Lei de Proteção de Dados, esta página detalha o que é processado, porquê, por quanto tempo e como exercer os seus direitos."
         },
         {
           "h": "Controlador de dados"
@@ -5070,7 +5099,7 @@
             "Medição de audiência sem cookies (visualizações de páginas, pesquisas no site, ações anônimas): saiba quais páginas são utilizadas e melhore o site. Base jurídica: o interesse legítimo do editor (artigo 6.1.f do RGPD).",
             "Medição de audiência com cookies (reconhecer um visitante recorrente): apenas com o seu consentimento (artigo 6.1.a do RGPD e artigo 82 da Lei de Proteção de Dados), que pode retirar a qualquer momento.",
             "Funções que você solicita (conexão à conta do jogo ou Discord, comunidade, coleta de skins, notificações de patch, bot Discord e seu dashboard): execução do serviço solicitado, de acordo com suas condições de uso (artigo 6.1.b do GDPR).",
-            "Segurança e moderação (limites de taxas, relatórios, registo de moderação, registos de erros, backups): interesse legítimo do editor em proteger o site e os seus utilizadores (artigo 6.1.f do RGPD).",
+            "Segurança, moderação e qualidade dos dados (limites de taxas, relatórios, relatórios de erros em ficheiros, registo de moderação, registos de erros, backups): interesse legítimo do editor em proteger o site e os seus utilizadores (artigo 6.1.f do RGPD).",
             "Memorização das suas preferências (idioma, favoritos, configurações das ferramentas): necessárias para que o site funcione conforme você o utiliza, no seu navegador."
           ]
         },
@@ -5115,6 +5144,11 @@
       "data": "a mesma impressão da conta da comunidade (nunca o ID do jogo), a lista de heróis e skins verificadas e a data do último registro; nada mais e nada é mostrado a ninguém.",
       "usage": "Ele é usado apenas para encontrar sua coleção em outros dispositivos. O filtro “aqueles que eu jogo” lê seus heróis da temporada no serviço de login no momento em que você o ativa, sem salvar nada.",
       "deletion": "Para esvaziar a cópia da sua conta, exclua sua coleção na ferramenta enquanto estiver logado; Para deletar a própria linha, escreva para {contact}."
+    },
+    "dataReports": {
+      "title": "Relatórios de erros nos arquivos",
+      "text": "O botão “Reportar um erro” nos cards (heróis, itens, emblemas, feitiços, patch notes) não solicita conta ou e-mail. O servidor do site armazena em seu banco de dados a página em questão, seu idioma, o que você escreveu (o erro, a correção e a fonte se você fornecer) e a data de envio; nada mais: nem o seu endereço IP, nem a sua conta, nem um identificador do seu navegador.",
+      "usage": "Esses relatórios são mostrados apenas aos moderadores, que os utilizam para corrigir os dados do site. Como não estão vinculados a ninguém, não escreva ali informações pessoais. O limite de envio utiliza seu endereço IP, apenas na memória, como no restante do site."
     },
     "gdpr": {
       "cookies": {
@@ -5228,6 +5262,7 @@
         "community": "Comunidade: sua conta, suas mensagens, seus votos, seus relatórios e o registro de moderação são mantidos enquanto a comunidade existir, a menos que você solicite a exclusão; um relatório mantém uma cópia do texto relatado. Um cartão de companheiro de equipe é excluído sete dias após seu último registro.",
         "builds": "Builds de comunidade: até serem excluídas pelo autor ou mediante solicitação.",
         "collection": "Coleta sincronizada: até esvaziá-la ou sob demanda.",
+        "dataReports": "Relatórios de erros nos arquivos: mantidos, sem vínculo com pessoa, enquanto o site existir, para acompanhar as correções; um relatório preciso pode ser excluído mediante solicitação.",
         "push": "Notificações de patch: até cancelar a assinatura; uma assinatura que se tornou inválida será excluída na próxima notificação.",
         "bot": "Para o bot Discord: as configurações de um servidor, e os resultados dos jogos do dia ali disputados, até 30 dias após a saída do bot; log de comandos de barra utilizados, sem ID de membro, 90 dias; votos para o bot, até que seja solicitada a exclusão.",
         "logs": "Registros técnicos: erros do servidor e encontrados pelo navegador (mensagem, página, versão do site, tipo de navegador, sem endereço IP ou conta) são mantidos por 30 dias para diagnóstico. Os eventos de segurança e moderação (pedidos recusados, ações de moderadores e administradores) são mantidos por 6 meses. Eles são então excluídos automaticamente.",
