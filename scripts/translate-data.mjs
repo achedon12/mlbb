@@ -108,6 +108,7 @@ const tr = (sl, tl) => (t) => {
  */
 const HERO_NAMES = JSON.parse(await readFile("src/data/game/heroes.json", "utf8")).map((h) => h.name);
 const heroNames = new Map();
+const HERO_SET = new Set(HERO_NAMES);
 
 /**
  * Hero names hidden from the service in narrative text. In a sentence it
@@ -167,7 +168,10 @@ async function heroNameRules(tl) {
 /** Same, with the hero names restored. Hero stories stop there: a narrative. */
 const trNames = (sl, tl, names) => {
   const t = tr(sl, tl);
-  return (x) => (x ? restoreNames(t(x), x, names) : x);
+  // A text that is only a hero name stays as the game writes it: its cache
+  // entry is the service's guess at the name (Joy as "Joie", Lukas as
+  // "Lucas"), kept to recognise the name in sentences, never to show it.
+  return (x) => (x ? (HERO_SET.has(String(x).trim()) ? x : restoreNames(t(x), x, names)) : x);
 };
 
 /** Same, with the target language's game vocabulary (`translation-glossary.mjs`) applied. */
