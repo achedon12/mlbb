@@ -1,9 +1,10 @@
+import { newestFirst } from "@/lib/patch-version";
 import { DiscordInvite } from "@/components/discord-invite";
 import type { Metadata } from "next";
 import { createT } from "@/i18n/translations";
 import { cleanHtml, serializeJsonLd } from "@/lib/html";
 import { BodyArticle } from "@/components/article";
-import { WikiCredit } from "@/components/wiki-credit";
+import { PatchCredit } from "@/components/patch-credit";
 import { Foldable } from "@/components/foldable";
 import { PageHeader } from "@/components/ui";
 import { NewHero } from "@/components/new-hero";
@@ -115,7 +116,7 @@ export default async function PatchPage({ params }: Params) {
       headline: titlePatch(locale, patch),
       ...(patch.date ? { datePublished: patch.date, dateModified: patch.date } : {}),
       inLanguage: translated ? LOCALE_HTML[locale] : "en",
-      isBasedOn: patch.link,
+      isBasedOn: patch.adjustmentsSource === "liquipedia" && patch.liquipedia ? [patch.link, patch.liquipedia] : patch.link,
       publisher: { "@type": "Organization", name: site.name, url: site.url },
       mainEntityOfPage: `${site.url}/${locale}/patch-notes/${slug}`,
     };
@@ -135,7 +136,7 @@ export default async function PatchPage({ params }: Params) {
             {
               name: `Patch ${patch.version}`,
               siblings: Object.values(patchDetails)
-                .sort((a, b) => b.version.localeCompare(a.version, undefined, { numeric: true }))
+                .sort(newestFirst)
                 .map((p) => ({ name: `Patch ${p.version}`, href: `/patch-notes/${p.version}` })),
             },
           ]}
@@ -247,12 +248,7 @@ export default async function PatchPage({ params }: Params) {
                 </section>
               ))}
 
-              <WikiCredit
-                t={t}
-                href={patch.link}
-                messageKey={translated ? "pages.patchNotes.creditTranslated" : "pages.patchNotes.credit"}
-                className="mt-12 border-t border-night-800 pt-6 text-xs leading-relaxed text-chalk-500"
-              />
+              <PatchCredit t={t} patch={patch} translated={translated} />
             </article>
           </div>
         </div>

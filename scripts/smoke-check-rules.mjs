@@ -8,6 +8,7 @@
  * words a person can act on. Everything in this module is pure: no network, no
  * file system, so it can be unit tested.
  */
+import { compareVersions } from "./patch-version.mjs";
 
 // Same list as LOCALES in src/i18n/config.ts: this module stays pure (no file
 // reading), and tests/unit/translation-scripts.test.mjs checks they match.
@@ -596,17 +597,6 @@ export function sitemapPaths(xml) {
   });
 }
 
-const versionParts = (v) => v.split(".").map(Number);
-function compareVersions(a, b) {
-  const pa = versionParts(a);
-  const pb = versionParts(b);
-  for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
-    const d = (pa[i] ?? 0) - (pb[i] ?? 0);
-    if (d) return d;
-  }
-  return 0;
-}
-
 /** Esports pages whose slugs follow the covered tournaments: the first listed one is checked. */
 const ESPORTS_DISCOVERY = {
   "esports-players": /^\/esports\/[a-z0-9-]+\/players$/,
@@ -632,7 +622,7 @@ export function resolvePages(paths, table = PAGES) {
     let path = null;
     if (page.discover === "latest-patch") {
       const versions = [...english]
-        .map((p) => p.match(/^\/patch-notes\/(\d+(?:\.\d+)+)$/)?.[1])
+        .map((p) => p.match(/^\/patch-notes\/(\d+(?:\.\d+)+[a-z]?)$/)?.[1])
         .filter(Boolean)
         .sort(compareVersions);
       if (versions.length) path = `/patch-notes/${versions.at(-1)}`;

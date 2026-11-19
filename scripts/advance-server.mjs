@@ -17,6 +17,7 @@
  * and `src/data/game/advance-server/<locale>.json` for every other site language. If the wiki does not
  * answer, the script fails before writing anything: the previous data stays.
  */
+import { compareVersions } from "./patch-version.mjs";
 import { existsSync } from "node:fs";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
@@ -56,14 +57,7 @@ export function versionFromTitle(title) {
 }
 
 /** Sorts 1.8.100 after 1.8.92, which an alphabetical sort does not. */
-export function compareVersions(a, b) {
-  const x = String(a).split(".").map(Number);
-  const y = String(b).split(".").map(Number);
-  for (let i = 0; i < Math.max(x.length, y.length); i += 1) {
-    if ((x[i] ?? 0) !== (y[i] ?? 0)) return (x[i] ?? 0) - (y[i] ?? 0);
-  }
-  return 0;
-}
+export { compareVersions };
 
 export function wikiUrl(title) {
   return `${WIKI}/wiki/${encodeURIComponent(title.replace(/ /g, "_"))}`;

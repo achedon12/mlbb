@@ -229,7 +229,5 @@ export function buildMessage(
   };
 }
 
-/** Compares two patch versions ("2.1.88" > "1.9.47"). */
-export function compareVersions(a: string, b: string): number {
-  return a.localeCompare(b, undefined, { numeric: true });
-}
+/** Compares two patch versions ("2.1.88" > "1.9.47", "2.2.16a" > "2.2.16"). */
+export { compareVersions } from "@/lib/patch-version";

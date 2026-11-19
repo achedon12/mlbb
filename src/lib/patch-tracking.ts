@@ -1,3 +1,4 @@
+import { newestFirst } from "@/lib/patch-version";
 import { patchDetails } from "@/lib/data";
 import type { HeroAdjustment, AdjustmentType } from "@/lib/types";
 
@@ -7,9 +8,7 @@ import type { HeroAdjustment, AdjustmentType } from "@/lib/types";
  */
 
 /** Detailed patches, newest to oldest — in version order. */
-export const recentPatches = Object.values(patchDetails).sort((a, b) =>
-  b.version.localeCompare(a.version, undefined, { numeric: true }),
-);
+export const recentPatches = Object.values(patchDetails).sort(newestFirst);
 
 export interface AdjustmentDate {
   version: string;

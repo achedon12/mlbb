@@ -1,3 +1,5 @@
+import { LiquipediaPatchNote } from "@/components/patch-credit";
+import { newestFirst } from "@/lib/patch-version";
 import { DiscordInvite } from "@/components/discord-invite";
 import type { Metadata } from "next";
 import { ExtendMessages } from "@/i18n/provider";
@@ -260,9 +262,7 @@ export default async function HeroPage({ params }: Params) {
   };
 
   // Dated patches, for the chart markers, and the hero's adjustments.
-  const versionsRecent = Object.values(patchDetails).sort((a, b) =>
-    b.version.localeCompare(a.version, undefined, { numeric: true }),
-  );
+  const versionsRecent = Object.values(patchDetails).sort(newestFirst);
   const patchDates = versionsRecent.flatMap((p) => (p.date ? [{ version: p.version, date: p.date }] : []));
   const heroAdjustments = versionsRecent.flatMap((p) =>
     (detailedPatches(locale)[p.version] ?? p).adjustments
@@ -792,6 +792,11 @@ export default async function HeroPage({ params }: Params) {
                     {heroAdjustments.length > 0 && (
                       <HeroAdjustmentsDeferred entries={heroAdjustments} portrait={h.images.icon ?? h.images.portrait} />
                     )}
+                    <LiquipediaPatchNote
+                      t={t}
+                      patches={versionsRecent.filter((p) => heroAdjustments.some((a) => a.version === p.version))}
+                      className="mt-3"
+                    />
                     {/* Changes being tested on the Advance Server; renders nothing otherwise. */}
                     <NextPatch slug={h.slug} locale={locale} />
                   </section>
