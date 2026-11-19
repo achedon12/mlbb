@@ -48,7 +48,7 @@ import {
 import { isReleasedHero } from "./release.mjs";
 import { mergeSkins, parseLiquipediaSkins } from "./skin-sources.mjs";
 import { differentImages, refreshDecision } from "./visual-refresh.mjs";
-import { PAGES as SERIES_PAGES, attachHeroes, level2Section, readGallery } from "./events.mjs";
+import { PAGES as SERIES_PAGES, attachHeroes, currentMonthWarnings, level2Section, readGallery } from "./events.mjs";
 import {
   rounded,
   chooseGuide,
@@ -1977,7 +1977,9 @@ async function seriesEntries(heroes) {
       const text = Object.values(data.query?.pages ?? {})[0]?.revisions?.[0]?.slots?.main?.["*"] ?? "";
       const body = level2Section(text, section);
       if (!body) throw new Error(`section "${section}" missing from ${title}`);
-      entries.push(...attachHeroes(readGallery(body), heroes).map((e) => ({ ...e, series: label[key] })));
+      const read = readGallery(body);
+      for (const line of currentMonthWarnings({ [key]: read })) console.log(line);
+      entries.push(...attachHeroes(read, heroes).map((e) => ({ ...e, series: label[key] })));
       await pause(300);
     }
     return entries;
@@ -2200,6 +2202,7 @@ async function main() {
   const nbSkins = Object.values(skins).reduce((n, s) => n + s.length, 0);
   console.log(`  ${nbSkins} skins listed, ${merged.added.length} added from the hero pages, ${merged.hidden.length} not released yet left out`);
   for (const s of merged.hidden) console.log(`    not released: ${s.hero} ${s.name} (${s.id})`);
+  for (const f of merged.fixes) console.log(`    fixed: ${f.hero} ${f.name} (${f.id}): ${f.fix}`);
   const nbSkills = Object.values(pages).reduce(
     (n, p) => n + p.skills.filter(Boolean).length,
     0,

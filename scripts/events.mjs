@@ -49,6 +49,18 @@ const MONTHS = {
   october: 10,
   november: 11,
   december: 12,
+  jan: 1,
+  feb: 2,
+  mar: 3,
+  apr: 4,
+  jun: 6,
+  jul: 7,
+  aug: 8,
+  sep: 9,
+  sept: 9,
+  oct: 10,
+  nov: 11,
+  dec: 12,
 };
 
 const pause = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -80,32 +92,69 @@ const plainText = (s) =>
     .trim();
 
 /**
+ * One gallery line: file, caption (bold or not), then month and year.
+ * Between caption and month the wiki has written `<br>` (until January
+ * 2026), a few spaces (since February 2026), and at times `&nbsp;`, a comma
+ * or a bracket: any run of them is accepted, none is required. The month is
+ * a month name or its abbreviation ("Sept."), so a caption word followed by
+ * a year is not taken for one.
+ */
+const GALLERY_LINE = new RegExp(
+  String.raw`^[ \t]*(?:File:|Image:)?([^|\n]+?)[ \t]*\|[ \t]*(?:'''(.+?)'''|([^'\n<|]+?))` +
+    String.raw`(?:[ \t,(]|&nbsp;|<br\s*\/?>)*` +
+    `\\b(${Object.keys(MONTHS).sort((a, b) => b.length - a.length).join("|")})` +
+    String.raw`\.?,?[ \t]+(\d{4})\b`,
+  "gim",
+);
+
+/** Hero and skin are split by the first spaced dash: hero names never contain one. */
+const HERO_SKIN = /\s[-–—]\s/;
+
+/**
  * Entries of a monthly gallery. A line reads
- * `File:Hero106011-portrait.png|'''Hanabi - Chic Glamour'''<br>September 2025`;
+ * `File:Hero106011-portrait.png|'''Hanabi - Chic Glamour'''<br>September 2025`,
+ * or since February 2026 `…|'''Odette - Song of Devotion'''    February 2026`;
  * the portrait number is the skin's id in the wiki module. "No Collector
  * Skin Released" (portrait Hero000) states that no skin came out that month:
  * that is information, kept as such.
  */
 export function readGallery(wikitext) {
   const entries = [];
-  // Since February 2026 the wiki writes the month after a few spaces, without
-  // the `<br>`: both layouts are read.
-  const line = /^(?:File:|Image:)?([^|\n]+)\|'''(.+?)'''[ \t]*(?:<br\s*\/?>)?[ \t]*([A-Za-z]+)\.?[ \t]+(\d{4})/gm;
-  for (const [, file, caption, monthName, year] of wikitext.matchAll(line)) {
+  for (const [, file, bold, plain, monthName, year] of String(wikitext).matchAll(GALLERY_LINE)) {
     const month = MONTHS[monthName.toLowerCase()];
-    if (!month) continue;
     const key = `${year}-${String(month).padStart(2, "0")}`;
     const id = /^Hero(\d+)-portrait\./i.exec(file.trim())?.[1] ?? null;
-    const text = plainText(caption);
-    // Hero names never contain "space, dash, space": the first one splits hero from skin.
-    const cut = text.indexOf(" - ");
-    if (id === "000" || cut < 0) {
+    const text = plainText(bold ?? plain);
+    const cut = HERO_SKIN.exec(text);
+    if (id === "000" || !cut) {
       if (/^no .*released$/i.test(text)) entries.push({ month: key, none: true });
       continue;
     }
-    entries.push({ month: key, heroName: text.slice(0, cut).trim(), skin: text.slice(cut + 3).trim(), id });
+    entries.push({
+      month: key,
+      heroName: text.slice(0, cut.index).trim(),
+      skin: text.slice(cut.index + cut[0].length).trim(),
+      id,
+    });
   }
   return entries;
+}
+
+/**
+ * GitHub Actions warnings (`::warning::` lines), one per list that has no
+ * entry for the current month. The StarLight skin comes out on the 1st, and
+ * a month without a Collector skin is written down as such ("No Collector
+ * Skin Released"): a silent gap means the page changed its layout and the
+ * reader no longer understands it, as when the `<br>` went in February 2026.
+ */
+export function currentMonthWarnings(lists, now = Date.now()) {
+  const month = new Date(now).toISOString().slice(0, 7);
+  return Object.entries(lists)
+    .filter(([, entries]) => !(entries ?? []).some((e) => e.month === month))
+    .map(
+      ([key]) =>
+        `::warning::${PAGES[key]?.title ?? key}: no skin read for ${month} on the wiki page; check its layout against readGallery in scripts/events.mjs`,
+    );
 }
 
 /** Entries linked to their hero's slug; an unknown hero keeps its name, without a slug. */
@@ -188,6 +237,7 @@ async function main() {
       output[key] = entries;
       output.sources[key] = { title: page.title, url: page.url, revision: page.revision, modified: page.modified };
     }
+    for (const line of currentMonthWarnings({ [key]: output[key] })) console.log(line);
     const orphans = output[key].filter((e) => !e.none && !e.hero);
     console.log(`  ${title}: ${output[key].length} entries, up to ${output[key].at(-1)?.month ?? "—"}`);
     for (const o of orphans) console.warn(`    unknown hero: ${o.heroName} (${o.skin}, ${o.month})`);

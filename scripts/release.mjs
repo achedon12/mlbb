@@ -110,6 +110,20 @@ export function isReleasedSkin(skin, now = Date.now()) {
   return releaseState(skin.release, now) === "past";
 }
 
+/** "YYYY-MM" of a date precise to the month at least, or null. */
+function monthOf(text) {
+  const m = String(text ?? "").match(/\b(\d{4})-(\d{2})\b/);
+  return m ? `${m[1]}-${m[2]}` : null;
+}
+
+/** "MM-DD" of a date precise to the day ("2025-12-18", "18 December 2025"), or null. */
+function dayOf(text) {
+  const s = String(text ?? "").trim();
+  if (!/\d{4}-\d{2}-\d{2}|\b\d{1,2}\s+[a-z]+\.?,?\s+\d{4}|\b[a-z]+\.?\s+\d{1,2},?\s+\d{4}/i.test(s)) return null;
+  const start = releaseStart(s);
+  return start == null ? null : new Date(start).toISOString().slice(5, 10);
+}
+
 /**
  * Sync-side verdict on a skin, from every source.
  *
@@ -117,20 +131,48 @@ export function isReleasedSkin(skin, now = Date.now()) {
  *   that follows the live game;
  * - `month`: the StarLight or Collector page dates the skin to a month
  *   ("2026-11");
- * - `base`: the hero's default skin, which ships with the hero (Sora's
- *   "Azure Cloud" is dated a year late in the module, December 2026, yet
- *   Sora is out).
+ * - `base`: the hero's default skin, which ships with the hero;
+ * - `heroRelease`: the hero's release date, to read a wrong year.
  *
- * A dated month, when it has started, also replaces a missing or unreadable
- * module date ("202X"). Returns the date to show and the verdict.
+ * The date shown follows these rules:
+ *
+ * - a dated month, when it has started, replaces a missing or unreadable
+ *   module date ("202X"), and a module date of another month: the monthly
+ *   pages are reviewed month by month, the module is not (Fredrinn's
+ *   "Royal Marshal", StarLight of December 2025, is dated November 2025 in
+ *   the module);
+ * - a date still to come on a skin the other sources show as out is wrong,
+ *   and is not shown. When it falls on the hero's release day in another
+ *   year, the year is the typo and the hero's release date is used (Sora's
+ *   "Azure Cloud", sold since Sora came out on 18 December 2025, is dated
+ *   18 December 2026); otherwise the skin goes without a date.
+ *
+ * Returns the date to show, the verdict, and `dateFix`, the reason when the
+ * module's date was replaced (null otherwise).
  */
-export function skinRelease(skin, { confirmed = false, month = null, base = false, now = Date.now() } = {}) {
+export function skinRelease(
+  skin,
+  { confirmed = false, month = null, base = false, heroRelease = null, now = Date.now() } = {},
+) {
   const own = releaseState(skin.release, now);
   const monthState = month ? releaseState(month, now) : "unknown";
-  const release = own === "unknown" && monthState !== "unknown" ? month : skin.release ?? null;
+  let release = skin.release ?? null;
+  let dateFix = null;
+  if (monthState !== "unknown" && (own === "unknown" || monthOf(skin.release) !== month)) {
+    if (own !== "unknown") dateFix = "series month";
+    release = month;
+  }
 
-  if (monthState === "future") return { release, released: false };
-  if (confirmed || base || monthState === "past") return { release, released: true };
-  if (markedNotLive(skin.availability) || markedNotLive(skin.label)) return { release, released: false };
-  return { release, released: own === "past" };
+  if (monthState === "future") return { release, released: false, dateFix };
+  const out = confirmed || base || monthState === "past";
+  if (out && releaseState(release, now) === "future") {
+    // monthState is "unknown" here: a started month would have replaced the date.
+    const day = dayOf(release);
+    const typo = day && day === dayOf(heroRelease) && releaseState(heroRelease, now) === "past";
+    release = typo ? new Date(releaseStart(heroRelease)).toISOString().slice(0, 10) : null;
+    dateFix = typo ? "year typo" : "future date";
+  }
+  if (out) return { release, released: true, dateFix };
+  if (markedNotLive(skin.availability) || markedNotLive(skin.label)) return { release, released: false, dateFix };
+  return { release, released: own === "past", dateFix };
 }
