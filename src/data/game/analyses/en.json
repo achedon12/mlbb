@@ -540,7 +540,7 @@
     "builds": [
       {
         "name": "Burning and penetration",
-        "context": "The most played build, by far: Glowing Wand and Divine Glaive for burning and magical penetration, then Wishing Lantern for damage to the target's current HP from touching it. It is associated with the Flameshot spell rather than Flicker."
+        "context": "The most played build, by far: Glowing Wand and Divine Glaive for burning and magical penetration, then Wishing Lantern for damage to the target's current HP from touching it. It is associated with the spell Flameshot rather than Flicker."
       }
     ]
   },

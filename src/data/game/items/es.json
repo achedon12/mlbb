@@ -47,22 +47,6 @@
     "bestFor": "Todos los héroes"
   },
   {
-    "slug": "athena-s-shield",
-    "name": "Athena's Shield",
-    "summary": "Resiste el daño mágico explosivo",
-    "category": "Defense",
-    "price": 2150,
-    "bonus": "+900 HP, +48 Defensa Mágica, +2 Regeneración de HP",
-    "unique": null,
-    "passive": "Escudo: al recibir daño mágico de las habilidades del héroe enemigo o de los ataques básicos, reduce el daño mágico recibido en un 25% durante 3 segundos (incluido el daño que desencadena el efecto). Recupera este efecto 5 segundos después de abandonar el combate.",
-    "active": null,
-    "recipe": [
-      "Silence Robe",
-      "Vitality Crystal"
-    ],
-    "bestFor": "Todos los héroes"
-  },
-  {
     "slug": "azure-blade",
     "name": "Azure Blade",
     "summary": null,
@@ -191,7 +175,8 @@
       "Dagger",
       "Iron Hunting Bow"
     ],
-    "bestFor": "Remoto"
+    "bestFor": null,
+    "removed": true
   },
   {
     "slug": "book-of-sages",
@@ -247,7 +232,7 @@
     "passive": "Brote de esperanza: Otorgado por Floryn y Dew. El equipo revelará su verdadero poder una vez que Dew evolucione.",
     "active": null,
     "recipe": [],
-    "bestFor": "Remoto"
+    "bestFor": null
   },
   {
     "slug": "calamity-reaper",
@@ -263,7 +248,8 @@
       "Magic Wand",
       "Azure Blade"
     ],
-    "bestFor": "Remoto"
+    "bestFor": null,
+    "removed": true
   },
   {
     "slug": "chastise-pauldron",
@@ -273,7 +259,7 @@
     "price": 2100,
     "bonus": "+900 HP, +40 Defensa Física",
     "unique": null,
-    "passive": "Castigo: recibir daño reducirá la velocidad de ataque y el límite de velocidad de ataque del atacante al 75% de lo normal durante 2 segundos. @ Redención: cuando el daño recibido reduce el HP por debajo del 30%, recupera el 20% del HP máximo durante los próximos 2 segundos. Este efecto tiene un tiempo de reutilización de 60 segundos.",
+    "passive": "Castigo: Recibir daño reducirá la velocidad de ataque y el límite de velocidad de ataque del atacante al 75% de lo normal durante 2 segundos. Redención: cuando el daño recibido reduce el HP por debajo del 30%, recupera el 20% del HP máximo durante los próximos 2 segundos. Este efecto tiene un tiempo de reutilización de 60 segundos.",
     "active": null,
     "recipe": [
       "Steel Legplates",
@@ -289,7 +275,7 @@
     "price": 2030,
     "bonus": "+45 poder mágico, +400 HP, +400 maná, +10 % de reducción de tiempo de reutilización",
     "unique": null,
-    "passive": "Destino: Obtiene 4.5 (+0.5*Nivel de héroe) de Defensa híbrida durante 5 segundos al infligir daño mágico a héroes enemigos, acumulándose hasta 6 veces (puede ganar 1 acumulación cada 0.4 segundos).@ Regalo: Cuando HP cae por debajo del 50 %, recupera el 15 % de HP durante los siguientes 3 segundos. Cuando el maná cae por debajo del 50%, restaura el 15% del maná durante los siguientes 3 segundos. Enfriamiento: 60 segundos.",
+    "passive": "Destino: obtiene 4,5 (+0,5*nivel de héroe) de defensa híbrida durante 5 segundos al infligir daño mágico a héroes enemigos, acumulándose hasta 6 veces (puede ganar 1 acumulación cada 0,4 segundos). Regalo: Cuando HP cae por debajo del 50%, recupera el 15% de HP durante los siguientes 3 segundos. Cuando el maná cae por debajo del 50%, restaura el 15% del maná durante los siguientes 3 segundos. Enfriamiento: 60 segundos.",
     "active": null,
     "recipe": [
       "Elegant Gem",
@@ -323,7 +309,7 @@
     "price": 2050,
     "bonus": "+30 ataque físico, +30 % velocidad de ataque, +5 % velocidad de movimiento",
     "unique": null,
-    "passive": "Corrosivo: los ataques básicos obtienen 80 de daño físico adicional y ralentizan al objetivo en un 8% (reducido a la mitad para los ataques básicos a distancia) durante 1,5 segundos. Se acumula hasta 5 veces. @ Impulso: los ataques básicos otorgan un 6 % de velocidad de ataque adicional durante 3 segundos, con un límite de 5 acumulaciones.",
+    "passive": "Corrosivo: los ataques básicos obtienen 80 de daño físico adicional y ralentizan al objetivo en un 8% (reducido a la mitad para los ataques básicos a distancia) durante 1,5 segundos. Se acumula hasta 5 veces. Impulso: los ataques básicos otorgan un 6 % de velocidad de ataque adicional durante 3 segundos, con un límite de 5 acumulaciones.",
     "active": null,
     "recipe": [
       "Swift Crossbow",
@@ -339,7 +325,7 @@
     "price": 1910,
     "bonus": "+1200 HP, +20 Defensa Mágica",
     "unique": null,
-    "passive": "Alma ardiente: inflige (1,2 % de HP total) daño mágico a los enemigos cercanos por segundo. Este daño aumenta en un 125 (+15*Nivel de héroe)% contra creeps y súbditos.@ Maldición: Infligir daño con Burning Soul reducirá la defensa híbrida del objetivo en 3 durante 3 segundos. Se acumula hasta 3 veces.",
+    "passive": "Alma ardiente: inflige (1,2 % de HP total) daño mágico a los enemigos cercanos por segundo. Este daño aumenta en un 125 (+15*Nivel de héroe)% contra creeps y súbditos. Maldición: Infligir daño con Burning Soul reducirá la defensa híbrida del objetivo en 3 durante 3 segundos. Se acumula hasta 3 veces.",
     "active": null,
     "recipe": [
       "Molten Essence",
@@ -369,7 +355,7 @@
     "price": 2180,
     "bonus": "+35 ataque físico, +20% velocidad de ataque",
     "unique": null,
-    "passive": "Engullir: los ataques básicos infligen el 8% del HP actual del objetivo como daño físico adicional (con un límite de 60 contra súbditos).@ Devorar: cada ataque básico recupera 10 (+4*nivel de héroe) HP. Este efecto se reduce a la mitad contra los súbditos.",
+    "passive": "Engullir: los ataques básicos infligen el 8% del HP actual del objetivo como daño físico adicional (con un límite de 60 contra súbditos). Devorar: cada ataque básico recupera 10 (+4*nivel de héroe) HP. Este efecto se reduce a la mitad contra los súbditos.",
     "active": null,
     "recipe": [
       "Regular Spear",
@@ -418,7 +404,7 @@
     "price": 2010,
     "bonus": "+40 Defensa Física, +40 Defensa Mágica, +5% Velocidad de Movimiento",
     "unique": null,
-    "passive": "Escudo de fortaleza: por cada héroe enemigo dentro de 5 unidades, la defensa híbrida aumenta en 8, hasta 40. @ Lifebane: reduce los efectos de escudo y regeneración de HP de los enemigos cercanos dentro de 5 unidades al 60% de lo normal durante 1 segundo.",
+    "passive": "Escudo de fortaleza: por cada héroe enemigo dentro de 5 unidades, la defensa híbrida aumenta en 8, hasta 40. Lifebane: reduce los efectos de escudo y regeneración de HP de los enemigos cercanos dentro de 5 unidades al 60 % de lo normal durante 1 segundo.",
     "active": null,
     "recipe": [
       "Black Ice Shield",
@@ -467,7 +453,7 @@
     "price": 2070,
     "bonus": "+70 poder mágico, +300 HP, +15 % de reducción de tiempo de reutilización",
     "unique": null,
-    "passive": "Mana Spring: Regenera el 15% del Max Mana cada 10 segundos. @ Magic Mastery: La reducción máxima del tiempo de reutilización aumenta en un 5%.",
+    "passive": "Mana Spring: Regenera el 15% del Max Mana cada 10 segundos. Maestría mágica: la reducción máxima del tiempo de reutilización aumenta en un 5%.",
     "active": null,
     "recipe": [
       "Tome of Evil",
@@ -529,7 +515,7 @@
     "price": 2030,
     "bonus": "+60 de poder mágico, +20 % de velocidad de ataque, +10 % de robo de vida, +5 % de reducción de tiempo de reutilización",
     "unique": null,
-    "passive": "Aflicción: cada ataque básico inflige 50 (+30 % del poder mágico total) de daño mágico adicional. @ Impulso: los ataques básicos otorgan un 6 % de velocidad de ataque adicional durante 3 segundos, con un límite de 5 acumulaciones.",
+    "passive": "Aflicción: Cada ataque básico inflige 50 (+30% del poder mágico total) de daño mágico adicional. Impulso: los ataques básicos otorgan un 6 % de velocidad de ataque adicional durante 3 segundos, con un límite de 5 acumulaciones.",
     "active": null,
     "recipe": [
       "Swift Crossbow",
@@ -623,7 +609,7 @@
     "price": 2150,
     "bonus": "+60 poder mágico, +300 HP, +5% velocidad de movimiento",
     "unique": null,
-    "passive": "Scorch: Infligir daño mágico quema a los objetivos durante 3 segundos, y también inflige daño mágico adicional equivalente al 1 % del HP máximo del objetivo por segundo. @ Lifebane: Infligir daño al objetivo reducirá los efectos de escudo y regeneración de HP sobre ellos al 60 % de lo normal durante 3 segundos.",
+    "passive": "Scorch: Infligir daño mágico quema a los objetivos durante 3 segundos y también inflige daño mágico adicional equivalente al 1% del HP máximo del objetivo por segundo. Lifebane: Infligir daño al objetivo reducirá los efectos de Escudo y Regeneración de HP al 60% de lo normal durante 3 segundos.",
     "active": null,
     "recipe": [
       "Exotic Veil",
@@ -640,7 +626,7 @@
     "price": 2000,
     "bonus": "+55 ataque físico, +15% velocidad de ataque",
     "unique": null,
-    "passive": "Rápido: cada 1 % de probabilidad de crítico adicional obtenido se convierte en un 1 % de velocidad de ataque adicional. @ Golpe sin fin: después de cada 2 ataques básicos que no sean críticos, la velocidad de ataque del siguiente ataque básico aumenta en un 80 % (y el límite de velocidad de ataque aumenta a 500 %) y activa los efectos de ataque 2 veces adicionales.",
+    "passive": "Rápido: Cada 1% adicional de probabilidad de crítico obtenido se convierte en un 1% adicional de velocidad de ataque. Golpe sin fin: después de cada 2 ataques básicos que no sean críticos, la velocidad de ataque del siguiente ataque básico aumenta en un 80 % (y el límite de velocidad de ataque aumenta a 500 %) y activa los efectos de ataque 2 veces adicionales.",
     "active": null,
     "recipe": [
       "Regular Spear",
@@ -674,7 +660,7 @@
     "price": 2500,
     "bonus": "+1800 HP, +20 HP de regeneración",
     "unique": null,
-    "passive": "Recuperación: después de 5 segundos fuera de combate, recupera (2,5% HP total) HP por segundo. @ Defensor: al recibir más de 500 daños en una sola instancia, recupera 30 (+0,3% HP total)% HP del exceso de daño más allá de esa cantidad.",
+    "passive": "Recuperación: Después de 5 segundos fuera de combate, recupera (2.5% HP total) HP por segundo. Defensor: al recibir más de 500 de daño en una sola instancia, recupera 30 (+0,3% HP total)% HP del exceso de daño más allá de esa cantidad.",
     "active": null,
     "recipe": [
       "Ares Belt",
@@ -986,7 +972,7 @@
     "price": 2120,
     "bonus": "+40 ataque físico, +20% velocidad de ataque",
     "unique": null,
-    "passive": "Armor Buster: aumenta la penetración física en un 30 %. @ Energía maléfica: aumenta el alcance del ataque básico en un 12 %. Al golpear a un objetivo, gana un 10 % de velocidad de movimiento durante 0,5 segundos.",
+    "passive": "Armor Buster: aumenta la penetración física en un 30%. Energía maléfica: aumenta el alcance del ataque básico en un 12%. Al golpear a un objetivo, gana un 10 % de velocidad de movimiento durante 0,5 segundos.",
     "active": null,
     "recipe": [
       "Fury Hammer",
@@ -1003,7 +989,7 @@
     "price": 2060,
     "bonus": "+60 ataque físico",
     "unique": null,
-    "passive": "Armor Buster: aumenta la penetración física en un 30 %. @ Breaker: al atacar a un enemigo, obtiene un 0,1 % de penetración física adicional por cada punto de defensa física del enemigo, con un límite de 30 %.",
+    "passive": "Armor Buster: aumenta la penetración física en un 30%. Rompedor: al atacar a un enemigo, obtiene un 0,1% de penetración física adicional por cada punto de defensa física del enemigo, con un límite del 30%.",
     "active": null,
     "recipe": [
       "Legion Sword"
@@ -1061,14 +1047,15 @@
     "price": 2010,
     "bonus": "+60 poder mágico, +300 HP, +380 maná, +5 % de reducción de tiempo de reutilización",
     "unique": null,
-    "passive": "Regalo: regenera un 20% de HP y maná dentro de los 2 segundos posteriores a subir de nivel. @ Lifebane: al infligir daño al objetivo, reduce el escudo y la regeneración de HP del objetivo en un 50% durante 3 segundos.",
+    "passive": "Regalo: Regenera 20% HP y Mana dentro de los 2 segundos posteriores a subir de nivel. Lifebane: al infligir daño al objetivo, reduce el escudo y la regeneración de HP del objetivo en un 50% durante 3 segundos.",
     "active": null,
     "recipe": [
       "Book of Sages",
       "Elegant Gem",
       "Mystery Codex"
     ],
-    "bestFor": "Remoto"
+    "bestFor": null,
+    "removed": true
   },
   {
     "slug": "ogre-tomahawk",
@@ -1137,7 +1124,7 @@
     "price": 2250,
     "bonus": "+750 HP, +30 ataque adaptativo, +10 % de reducción de tiempo de reutilización, +10 % de mejora de hechizos",
     "unique": null,
-    "passive": "Demonizar: cuando HP cae por debajo del 40%, obtiene un 30% de reducción de daño durante 3 segundos y reduce los tiempos de reutilización de habilidades en 2 segundos. Este efecto tiene un tiempo de reutilización de 60 segundos.@ Defiance: Por cada 1% de HP perdido, el daño aumenta en un 0,25%, hasta un 15%.",
+    "passive": "Demonizar: cuando HP cae por debajo del 40%, obtiene un 30% de reducción de daño durante 3 segundos y reduce los tiempos de reutilización de habilidades en 2 segundos. Este efecto tiene un tiempo de reutilización de 60 segundos. Desafío: Por cada 1% de HP perdido, el daño aumenta en un 0,25%, hasta un 15%.",
     "active": null,
     "recipe": [
       "Ares Belt",
@@ -1233,7 +1220,7 @@
     "price": 2030,
     "bonus": "+30 ataque físico, +20 % velocidad de ataque, +10 % robo de vida",
     "unique": null,
-    "passive": "Escama de dragón: cada 4 ataques físicos adicionales aumenta la defensa híbrida en 1, hasta 50 (el efecto se reduce a la mitad si el rol principal no es luchador). @ Lifeline: cuando recibe daño que reduce HP por debajo del 30 %, obtiene un escudo (120*nivel de héroe) (aumenta con el nivel) y un 50 % de velocidad de movimiento que decae rápidamente en 3 segundos. Este efecto tiene un tiempo de reutilización de 60 segundos.",
+    "passive": "Escama de dragón: cada 4 ataques físicos adicionales aumenta la defensa híbrida en 1, hasta 50 (el efecto se reduce a la mitad si el rol principal no es luchador). Línea de vida: al recibir daño que reduce HP por debajo del 30%, obtiene un escudo (120*Nivel de héroe) (aumenta con el nivel) y un 50% de velocidad de movimiento que decae rápidamente en 3 segundos. Este efecto tiene un tiempo de reutilización de 60 segundos.",
     "active": null,
     "recipe": [
       "Magic Blade",
@@ -1255,7 +1242,8 @@
       "Rogue Meteor",
       "Javelin"
     ],
-    "bestFor": "Remoto"
+    "bestFor": null,
+    "removed": true
   },
   {
     "slug": "sea-halberd",
@@ -1265,7 +1253,7 @@
     "price": 2050,
     "bonus": "+80 ataque físico, +20% velocidad de ataque",
     "unique": null,
-    "passive": "Lifebane: infligir daño a un objetivo reducirá los efectos del escudo y la regeneración de HP al 60 % de lo normal durante 3 segundos. @ Castigo: aumenta el daño en un 8 % contra héroes enemigos con mayor HP adicional.",
+    "passive": "Lifebane: Infligir daño a un objetivo reducirá los efectos de Escudo y Regeneración de HP sobre él al 60% de lo normal durante 3 segundos. Castigar: aumenta el daño en un 8% contra héroes enemigos con mayor HP adicional.",
     "active": null,
     "recipe": [
       "Legion Sword",
@@ -1287,7 +1275,8 @@
       "Exotic Veil",
       "Mystic Container"
     ],
-    "bestFor": "Remoto"
+    "bestFor": null,
+    "removed": true
   },
   {
     "slug": "shimmering-lantern",
@@ -1300,7 +1289,7 @@
     "passive": "Floryn puede compartir el poder de Dew's Lantern con un héroe aliado. La Linterna aún no es lo suficientemente fuerte y puede evolucionar una vez que absorba suficiente energía en la batalla.",
     "active": null,
     "recipe": [],
-    "bestFor": "Remoto"
+    "bestFor": null
   },
   {
     "slug": "silence-robe",
@@ -1390,7 +1379,7 @@
     "price": 1000,
     "bonus": "+20% de velocidad de ataque",
     "unique": null,
-    "passive": "Ballesta: cada ataque básico inflige 40 de daño adaptativo adicional.@ Impulso: los ataques básicos otorgan un 3 % de velocidad de ataque adicional durante 3 segundos, con un límite de 5 acumulaciones.",
+    "passive": "Ballesta: cada ataque básico inflige 40 daños adaptativos adicionales. Impulso: los ataques básicos otorgan un 3 % de velocidad de ataque adicional durante 3 segundos, con un límite de 5 acumulaciones.",
     "active": null,
     "recipe": [
       "Knife",
@@ -1455,14 +1444,31 @@
     "price": 2100,
     "bonus": "+1200 HP, +15 Defensa Física",
     "unique": null,
-    "passive": "Crepúsculo: al recibir más de 500 de daño en una sola instancia, el exceso de daño más allá de esa cantidad se reduce en un 20 (+0,2% HP total)%. @ Redención: cuando el daño recibido reduce el HP por debajo del 30%, recupera el 20% de HP máximo durante los próximos 4 segundos. Este efecto tiene un tiempo de reutilización de 60 segundos.",
+    "passive": "Crepúsculo: al recibir más de 500 de daño en una sola instancia, el exceso de daño más allá de esa cantidad se reduce en un 20 (+0,2 % de HP total) %. Redención: cuando el daño recibido reduce el HP por debajo del 30%, recupera el 20% del HP máximo durante los siguientes 4 segundos. Este efecto tiene un tiempo de reutilización de 60 segundos.",
     "active": null,
     "recipe": [
       "Ares Belt",
       "Ares Belt",
       "Leather Jerkin"
     ],
-    "bestFor": "Remoto"
+    "bestFor": null,
+    "removed": true
+  },
+  {
+    "slug": "valkyrie-s-shield",
+    "name": "Valkyrie's Shield",
+    "summary": "Resiste el daño mágico explosivo",
+    "category": "Defense",
+    "price": 2150,
+    "bonus": "+900 HP, +48 Defensa Mágica, +2 Regeneración de HP",
+    "unique": null,
+    "passive": "Escudo: al recibir daño mágico de las habilidades del héroe enemigo o de los ataques básicos, reduce el daño mágico recibido en un 25% durante 3 segundos (incluido el daño que desencadena el efecto). Recupera este efecto 5 segundos después de abandonar el combate.",
+    "active": null,
+    "recipe": [
+      "Silence Robe",
+      "Vitality Crystal"
+    ],
+    "bestFor": "Todos los héroes"
   },
   {
     "slug": "vampire-mallet",

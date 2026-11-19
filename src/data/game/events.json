@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-16",
+  "updated": "2026-11-19",
   "sources": {
     "starlight": {
       "title": "StarLight",
@@ -1290,6 +1290,90 @@
       "skin": "Sunborn Monarch",
       "id": "1156",
       "hero": "xavier"
+    },
+    {
+      "month": "2026-02",
+      "heroName": "Lancelot",
+      "skin": "Blade of Devotion",
+      "id": "104713",
+      "hero": "lancelot"
+    },
+    {
+      "month": "2026-02",
+      "heroName": "Odette",
+      "skin": "Song of Devotion",
+      "id": "104610",
+      "hero": "odette"
+    },
+    {
+      "month": "2026-03",
+      "heroName": "Tigreal",
+      "skin": "Celestial General",
+      "id": "100610",
+      "hero": "tigreal"
+    },
+    {
+      "month": "2026-04",
+      "heroName": "Grock",
+      "skin": "Tremor of the Deep",
+      "id": "104410",
+      "hero": "grock"
+    },
+    {
+      "month": "2026-05",
+      "heroName": "Alice",
+      "skin": "Dreaming Monarch",
+      "id": "048",
+      "hero": "alice"
+    },
+    {
+      "month": "2026-06",
+      "heroName": "Kimmy",
+      "skin": "Starbound Sentry",
+      "id": "107110",
+      "hero": "kimmy"
+    },
+    {
+      "month": "2026-07",
+      "heroName": "Helcurt",
+      "skin": "Kaiju of the Deep",
+      "id": "518",
+      "hero": "helcurt"
+    },
+    {
+      "month": "2026-08",
+      "heroName": "Balmond",
+      "skin": "Vulcan Lionheart",
+      "id": "100211",
+      "hero": "balmond"
+    },
+    {
+      "month": "2026-09",
+      "heroName": "Argus",
+      "skin": "Raiden Maru",
+      "id": "459",
+      "hero": "argus"
+    },
+    {
+      "month": "2026-10",
+      "heroName": "Layla",
+      "skin": "Prismatic Rhythm",
+      "id": "101813",
+      "hero": "layla"
+    },
+    {
+      "month": "2026-10",
+      "heroName": "Sun",
+      "skin": "Celestial Rebel",
+      "id": "102710",
+      "hero": "sun"
+    },
+    {
+      "month": "2026-11",
+      "heroName": "Bruno",
+      "skin": "The Purifier",
+      "id": "101210",
+      "hero": "bruno"
     }
   ]
 }

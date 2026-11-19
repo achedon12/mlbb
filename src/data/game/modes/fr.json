@@ -9,7 +9,7 @@
         "elements": [
           {
             "type": "p",
-            "text": "Comme tous les jeux MOBA, l'objectif principal est de détruire la base ennemie. Cela vous oblige à défendre vos tourelles et votre base et à détruire les leurs. Chaque tourelle d'une voie spécifique doit être détruite dans une séquence pour que vos serviteurs atteignent la base. Il existe des moyens de détruire les tourelles en utilisant les sbires/creeps pour subir les dégâts des balles de la tourelle. Après avoir détruit les tourelles, vous pourrez endommager/détruire la base ennemie. Détruire la dernière tourelle d'une voie accordera des super-sbires qui infligeront des dégâts élevés aux héros et dégageront les voies plus rapidement. Parfois, les joueurs sont obligés d’accumuler des victoires contre des héros ennemis au lieu de se concentrer sur les serviteurs et les tourelles ennemis. Plus de victimes pourraient leur permettre d'obtenir le MVP et l'agriculture, mais détruire les tourelles, accéder à la base ennemie et la détruire est l'objectif principal."
+            "text": "Comme tous les jeux MOBA, l'objectif principal est de détruire la base ennemie. Cela vous oblige à défendre vos tourelles et votre base et à détruire les leurs. Chaque tourelle d'une voie spécifique doit être détruite dans une séquence pour que vos sbires atteignent la base. Il existe des moyens de détruire les tourelles en utilisant les sbires/creeps pour subir les dégâts des balles de la tourelle. Après avoir détruit les tourelles, vous pourrez endommager/détruire la base ennemie. Détruire la dernière tourelle d'une voie accordera des super-sbires qui infligeront des dégâts élevés aux héros et dégageront les voies plus rapidement. Parfois, les joueurs sont obligés d’accumuler des victoires contre des héros ennemis au lieu de se concentrer sur les sbires et les tourelles ennemis. Plus de victimes pourraient leur permettre d'obtenir le MVP et l'agriculture, mais détruire les tourelles, accéder à la base ennemie et la détruire est l'objectif principal."
           }
         ]
       },
@@ -30,7 +30,7 @@
           },
           {
             "type": "li",
-            "text": "La Voie d'Or peut également être empruntée par les Tanks qui se déplacent pour l'équipe afin d'obtenir rapidement des objets pour soutenir l'équipe."
+            "text": "La Gold lane peut également être empruntée par les Tanks qui se déplacent pour l'équipe afin d'obtenir rapidement des objets pour soutenir l'équipe."
           }
         ]
       }
@@ -71,7 +71,7 @@
           },
           {
             "type": "p",
-            "text": "Cependant, un joueur en file d'attente solo peut se retrouver en matchmaking avec des alliés de rang supérieur ou inférieur, cela peut être déclenché par les éléments suivants :"
+            "text": "However, a solo queue player may end up matchmaking with allies in higher or lower rank, this can be triggered by the following:"
           },
           {
             "type": "li",
@@ -79,19 +79,19 @@
           },
           {
             "type": "li",
-            "text": "Exemple : un joueur Epic fait équipe avec un joueur Legend et vous, un joueur Epic, pouvez les rencontrer."
+            "text": "Example: An Epic player teams with a Legend player and you, an Epic player, may meet them."
           },
           {
             "type": "li",
-            "text": "Tous les joueurs jouent en solo, mais l'équipe ennemie compte quelqu'un avec un rang similaire au vôtre."
+            "text": "All players are solo, but enemy team has someone with Rank similar to you."
           },
           {
             "type": "li",
-            "text": "Exemple : Votre rang est Légende, mais 4 de vos coéquipiers sont Mythique. Alors au moins l’un des ennemis est Legend."
+            "text": "Example: Your rank is Legend, but 4 of your teammates are Mythic. Alors au moins l’un des ennemis est Legend."
           },
           {
             "type": "li",
-            "text": "Lorsque ce phénomène se produit, il est possible qu'un seul membre de l'équipe soit dans un rang différent."
+            "text": "When this phenomenon occurs, it is possible that only one member of the team is in a different rank"
           },
           {
             "type": "li",
@@ -146,7 +146,7 @@
           },
           {
             "type": "p",
-            "text": "La levée d'étoiles permet aux joueurs de gagner une étoile supplémentaire lorsqu'un joueur atteint 100 % de points de collecte d'étoiles lors de sa prochaine victoire. 100/200/300/500/700/1000 points requis chez Warrior / Elite / Master / Grandmaster / Epic / Legend. Les points bonus d’augmentation d’étoiles ne peuvent pas être accumulés dans les rangs mythiques."
+            "text": "La levée d'étoiles permet aux joueurs de gagner une étoile supplémentaire lorsqu'un joueur atteint 100 % de points de collecte d'étoiles lors de sa prochaine victoire. 100/200/300/500/700/1000 points requis chez Warrior / Elite / Master / Grandmaster / Epic / Legend. Les points bonus d’obtention d’étoiles ne peuvent pas être accumulés dans les rangs mythiques."
           },
           {
             "type": "p",
@@ -235,7 +235,7 @@
         "elements": [
           {
             "type": "p",
-            "text": "Les héros qui meurent rarement au combat lâcheront un glyphe de guérison. (Guérit à la fois Max HP et Mana.)"
+            "text": "Les héros qui meurent rarement au combat lâcheront un glyphe de guérison. (Guérit à la fois Max PV et Mana.)"
           }
         ]
       },
@@ -248,20 +248,20 @@
           },
           {
             "type": "p",
-            "text": "La deuxième tourelle de chaque côté libère une vague qui tue tous les serviteurs une fois détruite."
+            "text": "La deuxième tourelle de chaque côté libère une vague qui tue tous les sbires une fois détruite."
           }
         ]
       },
       {
-        "title": "Minions",
+        "title": "Sbires",
         "elements": [
           {
             "type": "p",
-            "text": "L'or et l'expérience gagnés grâce aux serviteurs sont plus élevés qu'en mode classique."
+            "text": "L'or et l'expérience gagnés grâce aux sbires sont plus élevés qu'en mode classique."
           },
           {
             "type": "p",
-            "text": "Au bout de 12 minutes, les Super Minions sont déployés pour éviter de longues parties."
+            "text": "Au bout de 12 minutes, les Super Sbires sont déployés pour éviter de longues parties."
           }
         ]
       },
@@ -270,7 +270,7 @@
         "elements": [
           {
             "type": "p",
-            "text": "Il y a deux crabes sur les côtés opposés de la voie qui apparaissent à 0h30 et réapparaissent 30 secondes après leur mort. Tuer un crabe gelé régénère de petites quantités de santé, donne de l'or et un petit bouclier. Les alliés à proximité qui aident avec le crabe reçoivent également de l'or. Ce crabe peut être utilisé comme tremplin pour des héros comme Lancelot, Joy ou Natalia, interagir avec certains héros comme Vexana, Benedetta ou Yi Sun-shin, ou vérifier si l'ennemi est dans le buisson le plus proche ou se suicider pour acheter des objets lorsque sa santé est trop faible."
+            "text": "Il y a deux crabes sur les côtés opposés de la voie qui apparaissent à 0h30 et réapparaissent 30 secondes après leur mort. Tuer un crabe gelé régénère de petites quantités de santé, donne de l'or et un petit bouclier. Les alliés à proximité qui aident avec le crabe reçoivent également de l'or. This crab can be used as a stepping stone for heroes like Lancelot, Joy or Natalia, interact with certain heroes like Vexana, Benedetta or Yi Sun-shin, or check if enemy is in the nearest bush or commit suicide to buy items when health is too low."
           }
         ]
       },
@@ -279,7 +279,7 @@
         "elements": [
           {
             "type": "p",
-            "text": "Il y a deux runes de guérison sur les côtés opposés de la voie qui apparaissent à 0h30 et réapparaissent 35 secondes après avoir été récupérées. La minuterie et l'effet sonore sont visibles et audibles par tous. La rune soigne continuellement celui qui ramasse pendant le délai de 5 secondes, puis régénère un peu de santé et 40 % de mana maximum à tous les héros alliés à portée. Si celui qui récupère décède pendant le délai, la guérison est annulée."
+            "text": "Il y a deux runes de guérison sur les côtés opposés de la voie qui apparaissent à 0h30 et réapparaissent 35 secondes après avoir été récupérées. La minuterie et l'effet sonore sont visibles et audibles par tous. The rune continuously heals the one who picks up during the 5-second delay, then regenerates some health and 40% max mana to all allied heroes in range. Si celui qui récupère décède pendant le délai, la guérison est annulée."
           }
         ]
       },
@@ -292,7 +292,7 @@
           },
           {
             "type": "p",
-            "text": "Le baril rend l'utilisateur impossible à cibler sous peu, inflige des dégâts réels et a un temps de recharge de 15 secondes, ce qui rend impossible l'arrachage de deux barils à la fois. Lorsque quelqu'un ramasse un tonneau, un son est émis, audible par tout le monde sur la carte."
+            "text": "The Barrel makes the user untargetable shortly, deals impact True damage, and has a 15-second cooldown, making it impossible to snatch two barrels at once. Lorsque quelqu'un ramasse un tonneau, un son est émis, audible par tout le monde sur la carte."
           },
           {
             "type": "p",
@@ -326,7 +326,7 @@
           },
           {
             "type": "p",
-            "text": "Il existe de nombreux héros parmi lesquels choisir avec différents styles de jeu. Connaître les compétences, les forces et les faiblesses des héros ainsi que leur positionnement optimal est essentiel. Donnez la priorité aux assassins, aux mages ou aux combattants car ils infligent beaucoup de dégâts et contrôlent les foules. Évitez les Marksman car ils dépendent des objets et sont fragiles au début, à moins qu'ils ne possèdent de bonnes capacités de nettoyage des serviteurs et de zone d'effet comme Beatrix ou Granger. Évitez les équipes avec trop de Mages, trop de Tireurs d'élite ou trop de Tanks."
+            "text": "Il existe de nombreux héros parmi lesquels choisir avec différents styles de jeu. Connaître les compétences, les forces et les faiblesses des héros ainsi que leur positionnement optimal est essentiel. Donnez la priorité aux assassins, aux mages ou aux combattants car ils infligent beaucoup de dégâts et contrôlent les foules. Évitez les Marksman car ils dépendent des objets et sont fragiles au début, à moins qu'ils ne possèdent de bonnes capacités de nettoyage des sbires et de zone d'effet comme Beatrix ou Granger. Évitez les équipes avec trop de Mages, trop de Tireurs ou trop de Tanks."
           },
           {
             "type": "li",
@@ -444,15 +444,7 @@
           },
           {
             "type": "p",
-            "text": "Dernière version : v350.1 {|class=\"article-table\" !Héros!!Changements de statistiques!!Changements individuels"
-          },
-          {
-            "type": "p",
-            "text": "Gain passif : 10/4"
-          },
-          {
-            "type": "p",
-            "text": "Il y a quatre portes pour Chip, chaque côté en a une près de la base, tandis que les deux autres sont de chaque côté des buissons opposés."
+            "text": "Dernière version : v350.1"
           }
         ]
       }
@@ -525,10 +517,6 @@
           {
             "type": "p",
             "text": "Source : https://youtu.be/3mFb0EQrMXE?t=113"
-          },
-          {
-            "type": "p",
-            "text": "Catégorie :Personnalisé Catégorie :Mode de jeu"
           }
         ]
       }
@@ -566,7 +554,7 @@
           },
           {
             "type": "p",
-            "text": "Le mode Miroir utilise la même carte que le mode Bruno Cup Mayhem (en fait, la disposition de la carte, le Seigneur et les serviteurs ont le même thème), cependant, lors de la phase de sélection, dans chaque équipe, les joueurs voteront pour un parmi les six héros choisis au hasard. Celui qui obtiendra le plus de votes sera le héros choisi pour toute son équipe. Comme pour le mode Mayhem, les joueurs commenceront au niveau de héros 4 et recevront 900 pièces d’or. Comme dans tous les modes de jeu, l'objectif est de détruire la base ennemie."
+            "text": "Le mode Miroir utilise la même carte que le mode Bruno Cup Mayhem (en fait, la disposition de la carte, le Seigneur et les sbires ont le même thème), cependant, lors de la phase de sélection, dans chaque équipe, les joueurs voteront pour un parmi les six héros choisis au hasard. Celui qui obtiendra le plus de votes sera le héros choisi pour toute son équipe. Comme pour le mode Mayhem, les joueurs commenceront au niveau de héros 4 et recevront 900 pièces d’or. Comme dans tous les modes de jeu, l'objectif est de détruire la base ennemie."
           }
         ]
       },
@@ -613,7 +601,7 @@
           },
           {
             "type": "p",
-            "text": "Les produits alimentaires peuvent être trouvés à l'endroit où certains des creeps sont tués, à l'endroit où certains des serviteurs spéciaux sont tués, à l'endroit où les héros ennemis sont tués et aux points de ravitaillement à l'intérieur de la maison et de la base ennemie."
+            "text": "Les produits alimentaires peuvent être trouvés à l'endroit où certains des creeps sont tués, à l'endroit où certains des sbires spéciaux sont tués, à l'endroit où les héros ennemis sont tués et aux points de ravitaillement à l'intérieur de la maison et de la base ennemie."
           },
           {
             "type": "p",
@@ -630,11 +618,11 @@
           },
           {
             "type": "p",
-            "text": "Dans ce mode de jeu, 15 joueurs sont déposés sur une carte où ils doivent monter de niveau et évoluer en collectant des gemmes lâchées par des monstres ou apparaissant aléatoirement sur la carte, dans le but d'être le dernier joueur debout. Tuer un joueur ennemi ne l'éliminera pas, il subira plutôt une pénalité de temps de réapparition et perdra de l'expérience ; cependant, une fois que le premier joueur a atteint le niveau 15 et devient le « Diable », toute mort est permanente."
+            "text": "In this game mode, 15 players are dropped in a map where they have to level up and evolve by collecting gems that are dropped by monsters or randomly spawn around the map, aiming to be the last player standing. Killing an enemy player won't eliminate them, they'll rather suffer a respawn penalty time and lose some experience; however, once the first player has reached Level 15 and becomes the \"Devil\", any death is permanent."
           },
           {
             "type": "p",
-            "text": "Les monstres lâcheront également des gemmes colorées qui augmentent de façon permanente les statistiques : les gemmes rouges augmentent l'attaque physique, les gemmes bleues augmentent l'attaque magique et les gemmes vertes augmentent les HP. Différents monstres lâchent différentes pierres précieuses. Certains monstres de niveau supérieur lâcheront également des sorts de combat à équiper ; un seul peut être équipé à la fois, car un est déjà donné une fois atteint le niveau 6."
+            "text": "Les monstres lâcheront également des gemmes colorées qui augmentent de façon permanente les statistiques : les gemmes rouges augmentent l'attaque physique, les gemmes bleues augmentent l'attaque magique et les gemmes vertes augmentent les PV. Différents monstres lâchent différentes pierres précieuses. Certains monstres de niveau supérieur lâcheront également des sorts de combat à équiper ; un seul peut être équipé à la fois, car un est déjà donné une fois atteint le niveau 6."
           },
           {
             "type": "p",
@@ -654,11 +642,11 @@
           },
           {
             "type": "p",
-            "text": "Niveau 3 : Minions"
+            "text": "Niveau 3 : Sbires"
           },
           {
             "type": "p",
-            "text": "Une fois atteint le niveau 3, les joueurs peuvent choisir d'évoluer vers Basic Minion, Ranged Minion ou Ballista Minion."
+            "text": "Once reached Level 3, players can choose to evolve into Basic Sbire, Ranged Sbire or Ballista Sbire."
           },
           {
             "type": "p",
@@ -674,15 +662,15 @@
           },
           {
             "type": "p",
-            "text": "Les joueurs évolueront dans différents monstres en fonction du serviteur qu'ils choisiront. Les monstres mineurs auront chacun une compétence."
+            "text": "Les joueurs évolueront dans différents monstres en fonction du sbire qu'ils choisiront. Les monstres mineurs auront chacun une compétence."
           },
           {
             "type": "p",
-            "text": "Parcours physique : Si le joueur a choisi Basic Minion, il évoluera en Giant Mouth ou Crammer."
+            "text": "Parcours physique : Si le joueur a choisi Basic Sbire, il évoluera en Giant Mouth ou Crammer."
           },
           {
             "type": "p",
-            "text": ": 1. La compétence de Giant Mouth infligera des dégâts à un ennemi égaux à un pourcentage des HP max de la cible."
+            "text": ": 1. La compétence de Giant Mouth infligera des dégâts à un ennemi égaux à un pourcentage des PV max de la cible."
           },
           {
             "type": "p",
@@ -690,7 +678,7 @@
           },
           {
             "type": "p",
-            "text": "Parcours magique : Si le joueur a choisi Ranged Minion, il évoluera en Goblin ou Crimson Lizard."
+            "text": "Parcours magique : Si le joueur a choisi Ranged Sbire, il évoluera en Goblin ou Crimson Lizard."
           },
           {
             "type": "p",
@@ -702,11 +690,11 @@
           },
           {
             "type": "p",
-            "text": "Route Tank : Si le joueur a choisi Ballista Minion, il évoluera en Spinner ou Death."
+            "text": "Route Tank : Si le joueur a choisi Ballista Sbire, il évoluera en Spinner ou Death."
           },
           {
             "type": "p",
-            "text": ": 1. La compétence de Spinner régénérera instantanément une certaine quantité de HP."
+            "text": ": 1. La compétence de Spinner régénérera instantanément une certaine quantité de PV."
           },
           {
             "type": "p",
@@ -770,7 +758,7 @@
           },
           {
             "type": "p",
-            "text": "Buffs de tank : 2 % de la santé est convertie en dégâts ou récupère 300 HP toutes les 5 secondes"
+            "text": "Buffs de tank : 2 % de la santé est convertie en dégâts ou récupère 300 PV toutes les 5 secondes"
           },
           {
             "type": "p",
@@ -790,7 +778,7 @@
           },
           {
             "type": "p",
-            "text": ": Tireur d'élite : Karrie, Lesley, Bruno, Claude."
+            "text": ": Tireur : Karrie, Lesley, Bruno, Claude."
           },
           {
             "type": "p",
@@ -818,7 +806,7 @@
           },
           {
             "type": "p",
-            "text": ": Réservoir : Hylos, Uranus, Akai, Jhonson."
+            "text": ": Tank : Hylos, Uranus, Akai, Jhonson."
           },
           {
             "type": "p",
@@ -830,7 +818,7 @@
           },
           {
             "type": "p",
-            "text": "Le premier joueur à atteindre le niveau 15 deviendra le Diable. Ils deviendront plus gros et leurs statistiques augmenteront, mais ils se déplaceront plus lentement et leur position sera révélée sur la carte de tous les autres joueurs. Ils auront également la capacité de se transformer pendant un certain temps en Seigneur, acquérant de nouvelles compétences puissantes qui ressemblent à l'attaque du Seigneur provenant d'autres modes de jeu."
+            "text": "Le premier joueur à atteindre le niveau 15 deviendra le Diable. Ils deviendront plus gros et leurs statistiques augmenteront, mais ils se déplaceront plus lentement et leur position sera révélée sur la carte de tous les autres joueurs. Ils auront également la capacité de se transformer pendant un certain temps en Seigneur, acquérant ainsi de nouvelles compétences puissantes qui ressemblent à l'attaque du Seigneur provenant d'autres modes de jeu."
           },
           {
             "type": "p",
@@ -871,7 +859,7 @@
           },
           {
             "type": "p",
-            "text": "Au centre de la carte du mode Ravage se trouve le seul point de régénération HP. Une fois éliminés, les joueurs réapparaissent rapidement dans le centre de contrôle et peuvent rejoindre la bataille très rapidement. Éliminer les ennemis et récupérer leurs aigues-marines est le but de ce mode."
+            "text": "Au centre de la carte du mode Ravage se trouve le seul point de régénération PV. Une fois éliminés, les joueurs réapparaissent rapidement dans le centre de contrôle et peuvent rejoindre la bataille très rapidement. Éliminer les ennemis et récupérer leurs aigues-marines est le but de ce mode."
           },
           {
             "type": "p",
@@ -909,7 +897,7 @@
           },
           {
             "type": "p",
-            "text": "Harper, qui s'aventurait dans le sud des Abysses, entre par inadvertance dans les Abysses. Il découvre que les démons dirigés par le nom = Dyrroth se rassemblent dans les Abysses. Bientôt, ils traverseront la montagne Lantis et détruiront l'empire Moniyan. Cependant, toutes les créatures qui se trouveront sur le chemin souffriront de la catastrophe."
+            "text": "Harper, qui s'aventurait dans le sud des Abysses, entre par inadvertance dans les Abysses. Il découvre que les démons dirigés par Dyrroth se rassemblent dans les Abysses. Bientôt, ils traverseront la montagne Lantis et détruiront l'empire Moniyan. Cependant, toutes les créatures qui se trouveront sur le chemin souffriront de la catastrophe."
           },
           {
             "type": "p",
@@ -959,7 +947,7 @@
           },
           {
             "type": "p",
-            "text": "Dans Shadow Brawl, les joueurs votent pour sélectionner un héros parmi plusieurs héros apparaissant au hasard. Tous les joueurs de l’équipe utiliseront le même héros pour jouer. Les joueurs sont équipés de name=Blade of Silence qui marque la position actuelle et y connecte une chaîne. La chaîne ramènera automatiquement votre héros à la position marquée après 4 secondes. Le CD fait 20 secondes."
+            "text": "Dans Shadow Brawl, les joueurs votent pour sélectionner un héros parmi plusieurs héros apparaissant au hasard. Tous les joueurs de l’équipe utiliseront le même héros pour jouer. Les joueurs sont équipés d'une chaîne qui marque la position actuelle et y connecte une chaîne. La chaîne ramènera automatiquement votre héros à la position marquée après 4 secondes. Le CD fait 20 secondes."
           }
         ]
       },
@@ -994,10 +982,6 @@
           {
             "type": "p",
             "text": "Un concours fascinant appelé Boommander est désormais à la mode à Laladona, et de nombreux Petits Commandants sont devenus ses fans. Les règles sont simples : collectez Fluffy qui pousse dans l'oasis près de l'Arbre d'Origine et lancez ces boules explosives sur les autres. Pouvez-vous esquiver les attaques et faire exploser votre adversaire ? Rejoignez Boommander et essayez-le maintenant ! En mode Boommander, vous incarnez des petits commandants et lancez Fluffy pour s'affronter sur des cartes reconstituées avec différentes tuiles de scène."
-          },
-          {
-            "type": "p",
-            "text": "Catégorie:Mode de jeu"
           }
         ]
       }

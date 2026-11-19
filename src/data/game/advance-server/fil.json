@@ -4598,7 +4598,7 @@
         "name": "Minotaur",
         "type": "nerf",
         "tag": null,
-        "intro": "Ang aming mga nakaraang pagbabago sa Minotaur's Enrage regen ay naging napakalakas sa kanya laban sa mga hero na umaasa sa mga multi-hit na basic attack. At saka, medyo overtuned yung HP niya since CC tank siya. Kaya gumagawa kami ng mga bagong pagbabago sa kanyang Enrage regen at binabawasan ang paggaling ng kanyang Motivation Roar skill.",
+        "intro": "Ang aming mga nakaraang pagbabago sa Minotaur's Enrage regen ay naging napakalakas niya laban sa mga hero na umaasa sa multi-hit na basic attack. At saka, medyo overtuned yung HP niya since CC tank siya. Kaya gumagawa kami ng mga bagong pagbabago sa kanyang Enrage regen at binabawasan ang paggaling ng kanyang Motivation Roar skill. Skill 2",
         "sections": [
           {
             "name": null,
@@ -7149,7 +7149,7 @@
                 ]
               }
             ],
-            "slug": "athena-s-shield"
+            "slug": null
           },
           {
             "name": "Dominance Ice",

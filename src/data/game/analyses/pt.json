@@ -982,7 +982,7 @@
       },
       {
         "name": "Resistores mistos",
-        "context": "Segunda build mais jogada, associada a Vengeance: Antique Cuirass contra dano físico de habilidades, Athena's Shield contra dano mágico, quando o time adversário mistura os dois."
+        "context": "Segunda build mais jogada, associada a Vengeance: Antique Cuirass contra dano físico de habilidades, Escudo de Atena contra dano mágico, quando o time adversário mistura os dois."
       }
     ]
   },
@@ -1014,7 +1014,7 @@
       },
       {
         "name": "Contra a magia",
-        "context": "Athena's Shield no lugar de Radiant Armor, com o emblema de suporte: menos jogado, com uma taxa de vitória melhor medida. Melhor usado contra um time adversário com alto dano mágico."
+        "context": "Escudo de Atenas no lugar de Radiant Armor, com o emblema de suporte: menos jogado, com taxa de vitória melhor medida. Melhor usado contra um time adversário com alto dano mágico."
       }
     ]
   },

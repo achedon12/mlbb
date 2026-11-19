@@ -27,9 +27,9 @@
       "difficulty": 6
     },
     "stats": {
-      "hp1": "2614",
-      "hp15": "4742",
-      "hp_regen1": "8.0",
+      "hp1": "2455",
+      "hp15": "4583",
+      "hp_regen1": "8",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "115",
@@ -39,7 +39,8 @@
       "magic_def1": "15",
       "magic_def15": "38",
       "movement_spd": "250"
-    }
+    },
+    "released": true
   },
   {
     "slug": "akai",
@@ -69,8 +70,8 @@
       "difficulty": 3
     },
     "stats": {
-      "hp1": "2560",
-      "hp15": "5962",
+      "hp1": "2660",
+      "hp15": "6020",
       "hp_regen1": "8.4",
       "mana1": "500",
       "mana15": "1900",
@@ -82,7 +83,8 @@
       "magic_def15": "71",
       "movement_spd": "260",
       "basic_atk_range": "2.1"
-    }
+    },
+    "released": true
   },
   {
     "slug": "aldous",
@@ -112,8 +114,8 @@
       "difficulty": 7
     },
     "stats": {
-      "hp1": "2668",
-      "hp15": "5328",
+      "hp1": "2490",
+      "hp15": "5150",
       "hp_regen1": "9.8",
       "mana1": "500",
       "mana15": "1900",
@@ -125,7 +127,8 @@
       "magic_def15": "50",
       "movement_spd": "260",
       "basic_atk_range": "1.4"
-    }
+    },
+    "released": true
   },
   {
     "slug": "alice",
@@ -146,7 +149,7 @@
     ],
     "release": "2016",
     "year": "2016",
-    "resource": "Resource#Rage/Indicator|None",
+    "resource": "Rage",
     "damageType": "Magic",
     "attackType": "Melee",
     "region": "Abyss",
@@ -161,7 +164,7 @@
       "hp15": "5000",
       "hp_regen1": "7.2",
       "mana1": "0",
-      "mana15": "0",
+      "mana15": "2100",
       "physical_atk1": "114",
       "physical_atk15": "191",
       "physical_def1": "25",
@@ -170,7 +173,8 @@
       "magic_def15": "50",
       "movement_spd": "240",
       "basic_atk_range": "3"
-    }
+    },
+    "released": true
   },
   {
     "slug": "alpha",
@@ -213,7 +217,8 @@
       "magic_def1": "15",
       "magic_def15": "50",
       "movement_spd": "260"
-    }
+    },
+    "released": true
   },
   {
     "slug": "alucard",
@@ -257,7 +262,8 @@
       "magic_def15": "50",
       "movement_spd": "260",
       "basic_atk_range": "1.8"
-    }
+    },
+    "released": true
   },
   {
     "slug": "angela",
@@ -300,7 +306,8 @@
       "magic_def15": "50",
       "movement_spd": "240",
       "basic_atk_range": "4.9"
-    }
+    },
+    "released": true
   },
   {
     "slug": "argus",
@@ -319,7 +326,7 @@
     ],
     "release": "2017",
     "year": "2017",
-    "resource": "Resource#Rage/Indicator|None",
+    "resource": "Rage",
     "damageType": "Physical",
     "attackType": "Melee",
     "region": "Abyss",
@@ -332,7 +339,7 @@
     "stats": {
       "hp1": "2600",
       "hp15": "5372",
-      "hp_regen1": "8.0",
+      "hp_regen1": "8",
       "mana1": "0",
       "mana15": "0",
       "physical_atk1": "120",
@@ -341,9 +348,10 @@
       "physical_def15": "78",
       "magic_def1": "15",
       "magic_def15": "50",
-      "movement_spd": "240",
+      "movement_spd": "260",
       "basic_atk_range": "1.9"
-    }
+    },
+    "released": true
   },
   {
     "slug": "arlott",
@@ -374,8 +382,8 @@
       "difficulty": 7
     },
     "stats": {
-      "hp1": "2628",
-      "hp15": "5428",
+      "hp1": "2450",
+      "hp15": "5250",
       "hp_regen1": "8",
       "mana1": "0",
       "mana15": "0",
@@ -387,7 +395,8 @@
       "magic_def15": "50",
       "movement_spd": "260",
       "basic_atk_range": "2"
-    }
+    },
+    "released": true
   },
   {
     "slug": "atlas",
@@ -417,19 +426,20 @@
       "difficulty": 5
     },
     "stats": {
-      "hp1": "2710",
-      "hp15": "6639",
-      "hp_regen1": "3",
+      "hp1": "2800",
+      "hp15": "6720",
+      "hp_regen1": "8.4",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "135",
       "physical_atk15": "259",
-      "physical_def1": "21",
-      "physical_def15": "70",
+      "physical_def1": "25",
+      "physical_def15": "74",
       "magic_def1": "15",
       "magic_def15": "38",
       "movement_spd": "240"
-    }
+    },
+    "released": true
   },
   {
     "slug": "aulus",
@@ -463,15 +473,17 @@
       "hp1": "2500",
       "hp15": "5440",
       "hp_regen1": "10.2",
+      "mana1": "0",
       "physical_atk1": "90",
-      "physical_atk15": "258",
+      "physical_atk15": "202",
       "physical_def1": "20",
       "physical_def15": "83",
       "magic_def1": "15",
       "magic_def15": "50",
       "movement_spd": "250",
       "basic_atk_range": "1.9 (Default) / 2.4 (At max Fighting Spirit stacks)"
-    }
+    },
+    "released": true
   },
   {
     "slug": "aurora",
@@ -514,7 +526,8 @@
       "magic_def15": "50",
       "movement_spd": "250",
       "basic_atk_range": "4.7"
-    }
+    },
+    "released": true
   },
   {
     "slug": "badang",
@@ -545,9 +558,10 @@
       "difficulty": 3
     },
     "stats": {
-      "hp1": "2708",
-      "hp15": "5788",
+      "hp1": "2530",
+      "hp15": "5610",
       "hp_regen1": "8",
+      "mana1": "0",
       "physical_atk1": "111",
       "physical_atk15": "244",
       "physical_def1": "23",
@@ -556,7 +570,8 @@
       "magic_def15": "50",
       "movement_spd": "255",
       "basic_atk_range": "1.8"
-    }
+    },
+    "released": true
   },
   {
     "slug": "balmond",
@@ -600,7 +615,8 @@
       "magic_def15": "50",
       "movement_spd": "260",
       "basic_atk_range": "1.8"
-    }
+    },
+    "released": true
   },
   {
     "slug": "bane",
@@ -645,7 +661,8 @@
       "magic_def15": "50",
       "movement_spd": "260",
       "basic_atk_range": "1.8  / 3 (Tidal Energy)"
-    }
+    },
+    "released": true
   },
   {
     "slug": "barats",
@@ -676,20 +693,21 @@
       "difficulty": 4
     },
     "stats": {
-      "hp1": "2350",
-      "hp15": "5765",
+      "hp1": "2450",
+      "hp15": "5865",
       "hp_regen1": "8.8",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "135",
       "physical_atk15": "207",
-      "physical_def1": "18",
-      "physical_def15": "80",
+      "physical_def1": "23",
+      "physical_def15": "85",
       "magic_def1": "15",
       "magic_def15": "50",
       "movement_spd": "268",
       "basic_atk_range": "1.7"
-    }
+    },
+    "released": true
   },
   {
     "slug": "baxia",
@@ -720,8 +738,8 @@
       "difficulty": 3
     },
     "stats": {
-      "hp1": "2769",
-      "hp15": "5471",
+      "hp1": "2660",
+      "hp15": "5362",
       "hp_regen1": "8.4",
       "mana1": "500",
       "mana15": "1900",
@@ -732,7 +750,8 @@
       "magic_def1": "15",
       "magic_def15": "38",
       "movement_spd": "240"
-    }
+    },
+    "released": true
   },
   {
     "slug": "beatrix",
@@ -762,19 +781,20 @@
       "difficulty": 7
     },
     "stats": {
-      "hp1": "2550",
-      "hp15": "4699",
+      "hp1": "2380",
+      "hp15": "4620",
       "hp_regen1": "7.2",
       "mana1": "0",
       "mana15": "0",
-      "physical_atk1": "110",
-      "physical_atk15": "250",
-      "physical_def1": "20",
-      "physical_def15": "64",
+      "physical_atk1": "115",
+      "physical_atk15": "269",
+      "physical_def1": "18",
+      "physical_def15": "62",
       "magic_def1": "15",
       "magic_def15": "38",
-      "movement_spd": "257"
-    }
+      "movement_spd": "245"
+    },
+    "released": true
   },
   {
     "slug": "belerick",
@@ -817,7 +837,8 @@
       "magic_def15": "71",
       "movement_spd": "250",
       "basic_atk_range": "1.8"
-    }
+    },
+    "released": true
   },
   {
     "slug": "benedetta",
@@ -848,8 +869,8 @@
       "difficulty": 8
     },
     "stats": {
-      "hp1": "2569",
-      "hp15": "4851",
+      "hp1": "2410",
+      "hp15": "4692",
       "hp_regen1": "6.6",
       "mana1": "500",
       "mana15": "1900",
@@ -861,7 +882,8 @@
       "magic_def15": "50",
       "movement_spd": "255",
       "basic_atk_range": "1.9"
-    }
+    },
+    "released": true
   },
   {
     "slug": "brody",
@@ -891,19 +913,20 @@
       "difficulty": 5
     },
     "stats": {
-      "hp1": "2288",
-      "hp15": "4597",
+      "hp1": "2260",
+      "hp15": "4500",
       "hp_regen1": "7.2",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "105",
-      "physical_atk15": "245",
-      "physical_def1": "20",
-      "physical_def15": "66",
+      "physical_atk15": "301",
+      "physical_def1": "16",
+      "physical_def15": "62",
       "magic_def1": "15",
       "magic_def15": "38",
-      "movement_spd": "253"
-    }
+      "movement_spd": "250"
+    },
+    "released": true
   },
   {
     "slug": "bruno",
@@ -933,9 +956,9 @@
       "difficulty": 4
     },
     "stats": {
-      "hp1": "2270",
-      "hp15": "4510",
-      "hp_regen1": "6.0",
+      "hp1": "2320",
+      "hp15": "4560",
+      "hp_regen1": "6",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "145",
@@ -944,9 +967,10 @@
       "physical_def15": "77",
       "magic_def1": "15",
       "magic_def15": "50",
-      "movement_spd": "240",
+      "movement_spd": "245",
       "basic_atk_range": "4.8"
-    }
+    },
+    "released": true
   },
   {
     "slug": "carmilla",
@@ -977,8 +1001,8 @@
       "difficulty": 1
     },
     "stats": {
-      "hp1": "2528",
-      "hp15": "5706",
+      "hp1": "2419",
+      "hp15": "5597",
       "hp_regen1": "7.8",
       "mana1": "500",
       "mana15": "1900",
@@ -989,7 +1013,8 @@
       "magic_def1": "15",
       "magic_def15": "38",
       "movement_spd": "255"
-    }
+    },
+    "released": true
   },
   {
     "slug": "cecilion",
@@ -1019,19 +1044,20 @@
       "difficulty": 4
     },
     "stats": {
-      "hp1": "2456",
-      "hp15": "4451",
+      "hp1": "2380",
+      "hp15": "4375",
       "hp_regen1": "6.8",
       "mana1": "700",
       "mana15": "2660",
       "physical_atk1": "105",
       "physical_atk15": "171",
-      "physical_def1": "18",
-      "physical_def15": "62",
+      "physical_def1": "17",
+      "physical_def15": "61",
       "magic_def1": "15",
       "magic_def15": "38",
-      "movement_spd": "255"
-    }
+      "movement_spd": "250"
+    },
+    "released": true
   },
   {
     "slug": "chang-e",
@@ -1061,19 +1087,20 @@
       "difficulty": 4
     },
     "stats": {
-      "hp1": "2301",
-      "hp15": "4163",
+      "hp1": "2320",
+      "hp15": "4182",
       "hp_regen1": "6.8",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "115",
       "physical_atk15": "222",
-      "physical_def1": "16",
-      "physical_def15": "55",
+      "physical_def1": "17",
+      "physical_def15": "56",
       "magic_def1": "15",
       "magic_def15": "38",
       "movement_spd": "240"
-    }
+    },
+    "released": true
   },
   {
     "slug": "chip",
@@ -1104,8 +1131,8 @@
       "difficulty": 5
     },
     "stats": {
-      "hp1": "2690",
-      "hp15": "5378",
+      "hp1": "2600",
+      "hp15": "5750",
       "hp_regen1": "8.4",
       "mana1": "500",
       "mana15": "1900",
@@ -1117,7 +1144,8 @@
       "magic_def15": "50",
       "movement_spd": "260",
       "basic_atk_range": "1.8"
-    }
+    },
+    "released": true
   },
   {
     "slug": "chou",
@@ -1137,7 +1165,7 @@
     ],
     "release": "December 2016",
     "year": "2016",
-    "resource": "Resource#Rage/Indicator|None",
+    "resource": "Rage",
     "damageType": "Physical",
     "attackType": "Melee",
     "region": "Agelta Drylands",
@@ -1161,7 +1189,8 @@
       "magic_def15": "50",
       "movement_spd": "260",
       "basic_atk_range": "1.4"
-    }
+    },
+    "released": true
   },
   {
     "slug": "cici",
@@ -1193,7 +1222,7 @@
     "stats": {
       "hp1": "2431",
       "hp15": "5161",
-      "hp_regen1": "6.0",
+      "hp_regen1": "6",
       "mana1": "0",
       "mana15": "0",
       "physical_atk1": "129",
@@ -1204,7 +1233,8 @@
       "magic_def15": "50",
       "movement_spd": "250",
       "basic_atk_range": "3.8"
-    }
+    },
+    "released": true
   },
   {
     "slug": "claude",
@@ -1234,19 +1264,19 @@
       "difficulty": 6
     },
     "stats": {
-      "hp1": "2370",
-      "hp15": "4155",
+      "hp1": "2380",
+      "hp15": "4165",
       "hp_regen1": "8",
-      "mana1": "0",
-      "mana15": "0",
-      "physical_atk1": "97",
-      "physical_atk15": "195",
-      "physical_def1": "14",
-      "physical_def15": "56",
+      "mana1": "500",
+      "physical_atk1": "100",
+      "physical_atk15": "198",
+      "physical_def1": "18",
+      "physical_def15": "60",
       "magic_def1": "15",
       "magic_def15": "38",
       "movement_spd": "240"
-    }
+    },
+    "released": true
   },
   {
     "slug": "clint",
@@ -1276,20 +1306,21 @@
       "difficulty": 6
     },
     "stats": {
-      "hp1": "2285",
-      "hp15": "4315",
+      "hp1": "2260",
+      "hp15": "4290",
       "hp_regen1": "7.2",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "120",
       "physical_atk15": "288",
-      "physical_def1": "20",
-      "physical_def15": "80",
+      "physical_def1": "16",
+      "physical_def15": "76",
       "magic_def1": "15",
       "magic_def15": "50",
-      "movement_spd": "240",
+      "movement_spd": "245",
       "basic_atk_range": "4.8"
-    }
+    },
+    "released": true
   },
   {
     "slug": "cyclops",
@@ -1319,8 +1350,8 @@
       "difficulty": 4
     },
     "stats": {
-      "hp1": "2400",
-      "hp15": "4797",
+      "hp1": "2440",
+      "hp15": "4837",
       "hp_regen1": "7.6",
       "mana1": "500",
       "mana15": "1900",
@@ -1332,7 +1363,8 @@
       "magic_def15": "50",
       "movement_spd": "240",
       "basic_atk_range": "4.7"
-    }
+    },
+    "released": true
   },
   {
     "slug": "diggie",
@@ -1362,49 +1394,21 @@
       "difficulty": 3
     },
     "stats": {
-      "hp1": "2468",
-      "hp15": "4183",
+      "hp1": "2320",
+      "hp15": "4280",
       "hp_regen1": "7.2",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "115",
       "physical_atk15": "216",
-      "physical_def1": "20",
-      "physical_def15": "60",
+      "physical_def1": "15",
+      "physical_def15": "71",
       "magic_def1": "15",
       "magic_def15": "50",
       "movement_spd": "250",
       "basic_atk_range": "4.5"
-    }
-  },
-  {
-    "slug": "dori",
-    "name": "Dori",
-    "id": "1341",
-    "title": "Shepherd of Smiles",
-    "roles": [
-      "Mage"
-    ],
-    "lanes": [
-      "Mid"
-    ],
-    "specialties": [
-      "Poke",
-      "Control"
-    ],
-    "release": "TBA",
-    "year": "2026",
-    "resource": "Mana",
-    "damageType": "Magic",
-    "attackType": "Ranged",
-    "region": "Moniyan Empire",
-    "ratings": {
-      "offense": 1,
-      "durability": 1,
-      "abilityEffects": 1,
-      "difficulty": 1
     },
-    "stats": null
+    "released": true
   },
   {
     "slug": "dyrroth",
@@ -1424,7 +1428,7 @@
     ],
     "release": "25 June 2019",
     "year": "2019",
-    "resource": "Resource#Rage/Indicator|None",
+    "resource": "Rage",
     "damageType": "Physical",
     "attackType": "Melee",
     "region": "Abyss",
@@ -1435,8 +1439,8 @@
       "difficulty": 5
     },
     "stats": {
-      "hp1": "2758",
-      "hp15": "5768",
+      "hp1": "2580",
+      "hp15": "5590",
       "hp_regen1": "8.2",
       "mana1": "0",
       "mana15": "0",
@@ -1448,7 +1452,8 @@
       "magic_def15": "38",
       "movement_spd": "265",
       "basic_atk_range": "1.7, 2 (circle strike)"
-    }
+    },
+    "released": true
   },
   {
     "slug": "edith",
@@ -1468,7 +1473,7 @@
     ],
     "release": "24 December 2021",
     "year": "2021",
-    "resource": "Resource#Rage/Indicator|None",
+    "resource": "Rage",
     "damageType": "Mixed",
     "attackType": "Hybrid",
     "region": "Sanctum Island",
@@ -1479,9 +1484,9 @@
       "difficulty": 4
     },
     "stats": {
-      "hp1": "2549",
-      "hp15": "5489",
-      "hp_regen1": "9.0",
+      "hp1": "2440",
+      "hp15": "5380",
+      "hp_regen1": "9",
       "mana1": "0",
       "mana15": "0",
       "physical_atk1": "110",
@@ -1492,7 +1497,8 @@
       "magic_def15": "50",
       "movement_spd": "255",
       "basic_atk_range": "1.8 (Phylax) / 4.5 (Edith)"
-    }
+    },
+    "released": true
   },
   {
     "slug": "esmeralda",
@@ -1523,19 +1529,20 @@
       "difficulty": 7
     },
     "stats": {
-      "hp1": "2573",
-      "hp15": "5254",
+      "hp1": "2660",
+      "hp15": "5341",
       "hp_regen1": "7.2",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "114",
       "physical_atk15": "191",
-      "physical_def1": "21",
-      "physical_def15": "75",
+      "physical_def1": "25",
+      "physical_def15": "79",
       "magic_def1": "15",
       "magic_def15": "45",
       "movement_spd": "240"
-    }
+    },
+    "released": true
   },
   {
     "slug": "estes",
@@ -1565,8 +1572,8 @@
       "difficulty": 3
     },
     "stats": {
-      "hp1": "2221",
-      "hp15": "3950",
+      "hp1": "2260",
+      "hp15": "4150",
       "hp_regen1": "7.2",
       "mana1": "500",
       "mana15": "1900",
@@ -1578,7 +1585,8 @@
       "magic_def15": "50",
       "movement_spd": "240",
       "basic_atk_range": "4.7"
-    }
+    },
+    "released": true
   },
   {
     "slug": "eudora",
@@ -1608,20 +1616,21 @@
       "difficulty": 2
     },
     "stats": {
-      "hp1": "2403",
-      "hp15": "4771",
+      "hp1": "2440",
+      "hp15": "4808",
       "hp_regen1": "7.6",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "112",
       "physical_atk15": "193",
-      "physical_def1": "19",
-      "physical_def15": "77",
+      "physical_def1": "18",
+      "physical_def15": "76",
       "magic_def1": "15",
       "magic_def15": "50",
       "movement_spd": "250",
       "basic_atk_range": "4.5"
-    }
+    },
+    "released": true
   },
   {
     "slug": "fanny",
@@ -1651,8 +1660,8 @@
       "difficulty": 10
     },
     "stats": {
-      "hp1": "2426",
-      "hp15": "4400",
+      "hp1": "2267",
+      "hp15": "4241",
       "hp_regen1": "6.6",
       "physical_atk1": "126",
       "physical_atk15": "269",
@@ -1662,7 +1671,8 @@
       "magic_def15": "50",
       "movement_spd": "265",
       "basic_atk_range": "1.8"
-    }
+    },
+    "released": true
   },
   {
     "slug": "faramis",
@@ -1694,19 +1704,20 @@
       "difficulty": 4
     },
     "stats": {
-      "hp1": "2543",
-      "hp15": "4902",
+      "hp1": "2500",
+      "hp15": "4859",
       "hp_regen1": "6.8",
       "mana1": "500",
       "mana15": "1900",
-      "physical_atk1": "143",
-      "physical_atk15": "216",
+      "physical_atk1": "118",
+      "physical_atk15": "191",
       "physical_def1": "20",
       "physical_def15": "66",
       "magic_def1": "15",
       "magic_def15": "38",
-      "movement_spd": "245"
-    }
+      "movement_spd": "240"
+    },
+    "released": true
   },
   {
     "slug": "floryn",
@@ -1736,8 +1747,8 @@
       "difficulty": 3
     },
     "stats": {
-      "hp1": "2401",
-      "hp15": "4256",
+      "hp1": "2280",
+      "hp15": "4135",
       "hp_regen1": "7.6",
       "mana1": "500",
       "mana15": "1900",
@@ -1749,7 +1760,8 @@
       "magic_def15": "50",
       "movement_spd": "240",
       "basic_atk_range": "4.5"
-    }
+    },
+    "released": true
   },
   {
     "slug": "franco",
@@ -1792,7 +1804,8 @@
       "magic_def15": "50",
       "movement_spd": "260",
       "basic_atk_range": "1.8"
-    }
+    },
+    "released": true
   },
   {
     "slug": "fredrinn",
@@ -1823,19 +1836,20 @@
       "difficulty": 6
     },
     "stats": {
-      "hp1": "2709",
-      "hp15": "6069",
+      "hp1": "2500",
+      "hp15": "5860",
       "hp_regen1": "6.4",
       "mana1": "0",
       "mana15": "0",
-      "physical_atk1": "126",
-      "physical_atk15": "240",
+      "physical_atk1": "125",
+      "physical_atk15": "239",
       "physical_def1": "20",
       "physical_def15": "76",
       "magic_def1": "15",
       "magic_def15": "38",
       "movement_spd": "260"
-    }
+    },
+    "released": true
   },
   {
     "slug": "freya",
@@ -1879,7 +1893,8 @@
       "magic_def15": "50",
       "movement_spd": "260",
       "basic_atk_range": "1.5 / 3.5 (Valkyrie State)"
-    }
+    },
+    "released": true
   },
   {
     "slug": "gatotkaca",
@@ -1900,7 +1915,7 @@
     ],
     "release": "July 2017",
     "year": "2017",
-    "resource": "Resource#Rage/Indicator|None",
+    "resource": "Rage",
     "damageType": "Magic",
     "attackType": "Melee",
     "region": "Nebula Chronorift",
@@ -1911,20 +1926,21 @@
       "difficulty": 4
     },
     "stats": {
-      "hp1": "2629",
-      "hp15": "5569",
+      "hp1": "2600",
+      "hp15": "5540",
       "hp_regen1": "8.4",
       "mana1": "0",
       "mana15": "0",
       "physical_atk1": "128",
       "physical_atk15": "228",
-      "physical_def1": "10",
-      "physical_def15": "58",
+      "physical_def1": "15",
+      "physical_def15": "63",
       "magic_def1": "15",
       "magic_def15": "50",
       "movement_spd": "260",
       "basic_atk_range": "1.4"
-    }
+    },
+    "released": true
   },
   {
     "slug": "gloo",
@@ -1955,8 +1971,8 @@
       "difficulty": 7
     },
     "stats": {
-      "hp1": "2819",
-      "hp15": "6179",
+      "hp1": "2710",
+      "hp15": "6070",
       "hp_regen1": "12.4",
       "mana1": "500",
       "mana15": "1900",
@@ -1967,7 +1983,8 @@
       "magic_def1": "15",
       "magic_def15": "50",
       "movement_spd": "245"
-    }
+    },
+    "released": true
   },
   {
     "slug": "gord",
@@ -1997,20 +2014,21 @@
       "difficulty": 3
     },
     "stats": {
-      "hp1": "2478",
-      "hp15": "4928",
+      "hp1": "2380",
+      "hp15": "4830",
       "hp_regen1": "6.4",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "110",
       "physical_atk15": "196",
-      "physical_def1": "13",
-      "physical_def15": "69",
+      "physical_def1": "17",
+      "physical_def15": "73",
       "magic_def1": "15",
       "magic_def15": "50",
-      "movement_spd": "240",
+      "movement_spd": "250",
       "basic_atk_range": "4.5"
-    }
+    },
+    "released": true
   },
   {
     "slug": "granger",
@@ -2053,7 +2071,8 @@
       "magic_def15": "50",
       "movement_spd": "240",
       "basic_atk_range": "4.5"
-    }
+    },
+    "released": true
   },
   {
     "slug": "grock",
@@ -2073,7 +2092,7 @@
     ],
     "release": "2017",
     "year": "2017",
-    "resource": "Resource#Rage/Indicator|None",
+    "resource": "Rage",
     "damageType": "Physical",
     "attackType": "Melee",
     "region": "The Barren Lands",
@@ -2084,19 +2103,20 @@
       "difficulty": 6
     },
     "stats": {
-      "hp1": "2819",
-      "hp15": "6179",
+      "hp1": "2700",
+      "hp15": "6060",
       "hp_regen1": "8.4",
       "mana1": "0",
       "mana15": "0",
       "physical_atk1": "135",
       "physical_atk15": "250",
       "physical_def1": "21",
-      "physical_def15": "68",
+      "physical_def15": "105",
       "magic_def1": "15",
       "magic_def15": "38",
       "movement_spd": "260"
-    }
+    },
+    "released": true
   },
   {
     "slug": "guinevere",
@@ -2115,7 +2135,7 @@
     ],
     "release": "21 February 2019",
     "year": "2019",
-    "resource": "Resource#Rage/Indicator|None",
+    "resource": "Rage",
     "damageType": "Magic",
     "attackType": "Melee",
     "region": "Moniyan Empire",
@@ -2139,7 +2159,8 @@
       "magic_def15": "50",
       "movement_spd": "260",
       "basic_atk_range": "1.8"
-    }
+    },
+    "released": true
   },
   {
     "slug": "gusion",
@@ -2170,8 +2191,8 @@
       "difficulty": 8
     },
     "stats": {
-      "hp1": "2578",
-      "hp15": "4888",
+      "hp1": "2419",
+      "hp15": "4729",
       "hp_regen1": "7.8",
       "mana1": "500",
       "mana15": "1900",
@@ -2182,7 +2203,8 @@
       "magic_def1": "15",
       "magic_def15": "38",
       "movement_spd": "260"
-    }
+    },
+    "released": true
   },
   {
     "slug": "hanabi",
@@ -2214,7 +2236,7 @@
     "stats": {
       "hp1": "2260",
       "hp15": "4052",
-      "hp_regen1": "6.0",
+      "hp_regen1": "6",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "111",
@@ -2225,7 +2247,8 @@
       "magic_def15": "50",
       "movement_spd": "245",
       "basic_atk_range": "4.8"
-    }
+    },
+    "released": true
   },
   {
     "slug": "hanzo",
@@ -2257,7 +2280,7 @@
     "stats": {
       "hp1": "2594",
       "hp15": "4624",
-      "hp_regen1": "7.0",
+      "hp_regen1": "7",
       "mana1": "0",
       "mana15": "0",
       "physical_atk1": "108",
@@ -2268,7 +2291,8 @@
       "magic_def15": "50",
       "movement_spd": "260",
       "basic_atk_range": "1.8"
-    }
+    },
+    "released": true
   },
   {
     "slug": "harith",
@@ -2298,20 +2322,21 @@
       "difficulty": 6
     },
     "stats": {
-      "hp1": "2401",
-      "hp15": "4690",
+      "hp1": "2260",
+      "hp15": "4549",
       "hp_regen1": "7.2",
       "mana1": "500",
       "mana15": "1900",
-      "physical_atk1": "114",
-      "physical_atk15": "187",
-      "physical_def1": "19",
-      "physical_def15": "79",
+      "physical_atk1": "115",
+      "physical_atk15": "188",
+      "physical_def1": "17",
+      "physical_def15": "77",
       "magic_def1": "15",
       "magic_def15": "50",
       "movement_spd": "240",
-      "basic_atk_range": "4.1"
-    }
+      "basic_atk_range": "4.3"
+    },
+    "released": true
   },
   {
     "slug": "harley",
@@ -2343,8 +2368,8 @@
       "difficulty": 4
     },
     "stats": {
-      "hp1": "2501",
-      "hp15": "4356",
+      "hp1": "2380",
+      "hp15": "4235",
       "hp_regen1": "7.2",
       "mana1": "500",
       "mana15": "1900",
@@ -2356,7 +2381,8 @@
       "magic_def15": "50",
       "movement_spd": "240",
       "basic_atk_range": "4.5"
-    }
+    },
+    "released": true
   },
   {
     "slug": "hayabusa",
@@ -2386,9 +2412,10 @@
       "difficulty": 6
     },
     "stats": {
-      "hp1": "2429",
-      "hp15": "4620",
+      "hp1": "2270",
+      "hp15": "4461",
       "hp_regen1": "7.4",
+      "mana1": "100",
       "physical_atk1": "117",
       "physical_atk15": "251",
       "physical_def1": "17",
@@ -2397,7 +2424,8 @@
       "magic_def15": "50",
       "movement_spd": "260",
       "basic_atk_range": "1.8"
-    }
+    },
+    "released": true
   },
   {
     "slug": "helcurt",
@@ -2417,7 +2445,7 @@
     ],
     "release": "24 November 2017",
     "year": "2017",
-    "resource": "Resource#Rage/Indicator|None",
+    "resource": "Rage",
     "damageType": "Physical",
     "attackType": "Melee",
     "region": "Abyss",
@@ -2428,11 +2456,11 @@
       "difficulty": 4
     },
     "stats": {
-      "hp1": "2599",
-      "hp15": "4853",
-      "hp_regen1": "7.0",
-      "mana1": "500",
-      "mana15": "1900",
+      "hp1": "2440",
+      "hp15": "4694",
+      "hp_regen1": "7",
+      "mana1": "0",
+      "mana15": "1400",
       "physical_atk1": "121",
       "physical_atk15": "275",
       "physical_def1": "17",
@@ -2441,7 +2469,8 @@
       "magic_def15": "50",
       "movement_spd": "255",
       "basic_atk_range": "1.8"
-    }
+    },
+    "released": true
   },
   {
     "slug": "hilda",
@@ -2473,8 +2502,8 @@
       "difficulty": 4
     },
     "stats": {
-      "hp1": "2680",
-      "hp15": "6250",
+      "hp1": "2600",
+      "hp15": "6170",
       "hp_regen1": "8.4",
       "mana1": "0",
       "mana15": "0",
@@ -2486,7 +2515,8 @@
       "magic_def15": "71",
       "movement_spd": "260",
       "basic_atk_range": "1.8 / 2.5 (Blessing of Wilderness)"
-    }
+    },
+    "released": true
   },
   {
     "slug": "hirara",
@@ -2519,6 +2549,7 @@
       "hp1": "2440",
       "hp15": "4750",
       "hp_regen1": "6.6",
+      "mana1": "0",
       "physical_atk1": "125",
       "physical_atk15": "266",
       "physical_def1": "18",
@@ -2527,7 +2558,8 @@
       "magic_def15": "50",
       "movement_spd": "260",
       "basic_atk_range": "1.8"
-    }
+    },
+    "released": true
   },
   {
     "slug": "hylos",
@@ -2564,12 +2596,13 @@
       "mana15": "1900",
       "physical_atk1": "105",
       "physical_atk15": "198",
-      "physical_def1": "17",
-      "physical_def15": "71",
+      "physical_def1": "22",
+      "physical_def15": "99",
       "magic_def1": "15",
-      "magic_def15": "50",
+      "magic_def15": "71",
       "movement_spd": "260"
-    }
+    },
+    "released": true
   },
   {
     "slug": "irithel",
@@ -2599,20 +2632,21 @@
       "difficulty": 3
     },
     "stats": {
-      "hp1": "2300",
-      "hp15": "4540",
-      "hp_regen1": "7.0",
+      "hp1": "2260",
+      "hp15": "4500",
+      "hp_regen1": "7",
       "mana1": "0",
       "mana15": "0",
       "physical_atk1": "125",
       "physical_atk15": "244",
-      "physical_def1": "17",
-      "physical_def15": "77",
+      "physical_def1": "16",
+      "physical_def15": "76",
       "magic_def1": "15",
       "magic_def15": "50",
       "movement_spd": "260",
       "basic_atk_range": "4.9"
-    }
+    },
+    "released": true
   },
   {
     "slug": "ixia",
@@ -2642,20 +2676,21 @@
       "difficulty": 4
     },
     "stats": {
-      "hp1": "2620",
-      "hp15": "4699",
-      "hp_regen1": "8.0",
+      "hp1": "2260",
+      "hp15": "4339",
+      "hp_regen1": "8",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "100",
       "physical_atk15": "205",
-      "physical_def1": "17",
-      "physical_def15": "73",
+      "physical_def1": "16",
+      "physical_def15": "72",
       "magic_def1": "15",
       "magic_def15": "50",
-      "movement_spd": "240",
+      "movement_spd": "250",
       "basic_atk_range": "5"
-    }
+    },
+    "released": true
   },
   {
     "slug": "jawhead",
@@ -2686,8 +2721,8 @@
       "difficulty": 6
     },
     "stats": {
-      "hp1": "2658",
-      "hp15": "5780",
+      "hp1": "2480",
+      "hp15": "5602",
       "hp_regen1": "7.8",
       "mana1": "500",
       "mana15": "1900",
@@ -2699,7 +2734,8 @@
       "magic_def15": "50",
       "movement_spd": "255",
       "basic_atk_range": "1.5"
-    }
+    },
+    "released": true
   },
   {
     "slug": "johnson",
@@ -2730,20 +2766,21 @@
       "difficulty": 6
     },
     "stats": {
-      "hp1": "2809",
-      "hp15": "6099",
+      "hp1": "2700",
+      "hp15": "5990",
       "hp_regen1": "8.4",
       "mana1": "0",
       "mana15": "0",
       "physical_atk1": "120",
       "physical_atk15": "209",
-      "physical_def1": "27",
-      "physical_def15": "96",
+      "physical_def1": "30",
+      "physical_def15": "99",
       "magic_def1": "15",
       "magic_def15": "50",
       "movement_spd": "255",
       "basic_atk_range": "1.4"
-    }
+    },
+    "released": true
   },
   {
     "slug": "joy",
@@ -2773,8 +2810,8 @@
       "difficulty": 9
     },
     "stats": {
-      "hp1": "2678",
-      "hp15": "5408",
+      "hp1": "2519",
+      "hp15": "5249",
       "hp_regen1": "7.8",
       "mana1": "0",
       "mana15": "0",
@@ -2785,7 +2822,8 @@
       "magic_def1": "15",
       "magic_def15": "45",
       "movement_spd": "260"
-    }
+    },
+    "released": true
   },
   {
     "slug": "julian",
@@ -2817,8 +2855,8 @@
       "difficulty": 5
     },
     "stats": {
-      "hp1": "2878",
-      "hp15": "5664",
+      "hp1": "2700",
+      "hp15": "5486",
       "hp_regen1": "7.8",
       "mana1": "500",
       "mana15": "1900",
@@ -2829,7 +2867,8 @@
       "magic_def1": "15",
       "magic_def15": "38",
       "movement_spd": "262"
-    }
+    },
+    "released": true
   },
   {
     "slug": "kadita",
@@ -2860,8 +2899,8 @@
       "difficulty": 6
     },
     "stats": {
-      "hp1": "2370",
-      "hp15": "4691",
+      "hp1": "2440",
+      "hp15": "4761",
       "hp_regen1": "7.2",
       "mana1": "500",
       "mana15": "1900",
@@ -2871,9 +2910,10 @@
       "physical_def15": "74",
       "magic_def1": "15",
       "magic_def15": "50",
-      "movement_spd": "255",
+      "movement_spd": "240",
       "basic_atk_range": "4.5"
-    }
+    },
+    "released": true
   },
   {
     "slug": "kagura",
@@ -2903,9 +2943,9 @@
       "difficulty": 9
     },
     "stats": {
-      "hp1": "2375",
-      "hp15": "4376",
-      "hp_regen1": "7.0",
+      "hp1": "2380",
+      "hp15": "4381",
+      "hp_regen1": "7",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "118",
@@ -2915,7 +2955,8 @@
       "magic_def1": "15",
       "magic_def15": "50",
       "movement_spd": "240"
-    }
+    },
+    "released": true
   },
   {
     "slug": "kaja",
@@ -2934,7 +2975,7 @@
     ],
     "release": "25 April 2018",
     "year": "2018",
-    "resource": "Resource#Rage/Indicator|None",
+    "resource": "Rage",
     "damageType": "Magic",
     "attackType": "Melee",
     "region": "Celestial Palace",
@@ -2948,6 +2989,7 @@
       "hp1": "2440",
       "hp15": "5520",
       "hp_regen1": "10.4",
+      "mana1": "0",
       "physical_atk1": "120",
       "physical_atk15": "218",
       "physical_def1": "22",
@@ -2956,7 +2998,8 @@
       "magic_def15": "50",
       "movement_spd": "240",
       "basic_atk_range": "2.8"
-    }
+    },
+    "released": true
   },
   {
     "slug": "kalea",
@@ -3000,7 +3043,8 @@
       "magic_def15": "50",
       "movement_spd": "260",
       "basic_atk_range": "1.4"
-    }
+    },
+    "released": true
   },
   {
     "slug": "karina",
@@ -3030,8 +3074,8 @@
       "difficulty": 5
     },
     "stats": {
-      "hp1": "2633",
-      "hp15": "5262",
+      "hp1": "2474",
+      "hp15": "5103",
       "hp_regen1": "7.8",
       "mana1": "500",
       "mana15": "1900",
@@ -3043,7 +3087,8 @@
       "magic_def15": "50",
       "movement_spd": "260",
       "basic_atk_range": "1.8"
-    }
+    },
+    "released": true
   },
   {
     "slug": "karrie",
@@ -3073,8 +3118,8 @@
       "difficulty": 4
     },
     "stats": {
-      "hp1": "2278",
-      "hp15": "4588",
+      "hp1": "2320",
+      "hp15": "4630",
       "hp_regen1": "8",
       "mana1": "500",
       "mana15": "1900",
@@ -3086,7 +3131,8 @@
       "magic_def15": "50",
       "movement_spd": "240",
       "basic_atk_range": "4.4"
-    }
+    },
+    "released": true
   },
   {
     "slug": "khaleed",
@@ -3106,7 +3152,7 @@
     ],
     "release": "7 August 2020",
     "year": "2020",
-    "resource": "Resource#Rage/Indicator|None",
+    "resource": "Rage",
     "damageType": "Physical",
     "attackType": "Melee",
     "region": "Agelta Drylands",
@@ -3117,9 +3163,10 @@
       "difficulty": 5
     },
     "stats": {
-      "hp1": "2778",
-      "hp15": "5718",
+      "hp1": "2600",
+      "hp15": "5540",
       "hp_regen1": "7",
+      "mana1": "0",
       "physical_atk1": "109",
       "physical_atk15": "266",
       "physical_def1": "23",
@@ -3128,7 +3175,8 @@
       "magic_def15": "50",
       "movement_spd": "250",
       "basic_atk_range": "2"
-    }
+    },
+    "released": true
   },
   {
     "slug": "khufra",
@@ -3158,8 +3206,8 @@
       "difficulty": 5
     },
     "stats": {
-      "hp1": "2779",
-      "hp15": "6139",
+      "hp1": "2670",
+      "hp15": "6030",
       "hp_regen1": "9.4",
       "mana1": "500",
       "mana15": "1900",
@@ -3171,7 +3219,8 @@
       "magic_def15": "71",
       "movement_spd": "255",
       "basic_atk_range": "2"
-    }
+    },
+    "released": true
   },
   {
     "slug": "kimmy",
@@ -3203,17 +3252,18 @@
       "difficulty": 6
     },
     "stats": {
-      "hp1": "2450",
-      "hp15": "4095",
+      "hp1": "2380",
+      "hp15": "4025",
       "hp_regen1": "8",
-      "physical_atk1": "90",
-      "physical_atk15": "216",
-      "physical_def1": "22",
-      "physical_def15": "69",
+      "physical_atk1": "100",
+      "physical_atk15": "226",
+      "physical_def1": "17",
+      "physical_def15": "64",
       "magic_def1": "15",
       "magic_def15": "45",
       "movement_spd": "245"
-    }
+    },
+    "released": true
   },
   {
     "slug": "lancelot",
@@ -3243,9 +3293,9 @@
       "difficulty": 5
     },
     "stats": {
-      "hp1": "2549",
-      "hp15": "4607",
-      "hp_regen1": "7.0",
+      "hp1": "2390",
+      "hp15": "4448",
+      "hp_regen1": "7",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "124",
@@ -3255,7 +3305,8 @@
       "magic_def1": "15",
       "magic_def15": "38",
       "movement_spd": "260"
-    }
+    },
+    "released": true
   },
   {
     "slug": "lapu-lapu",
@@ -3274,7 +3325,7 @@
     ],
     "release": "2017",
     "year": "2017",
-    "resource": "Resource#Rage/Indicator|None",
+    "resource": "Rage",
     "damageType": "Physical",
     "attackType": "Melee",
     "region": "Vonetis Sea",
@@ -3285,8 +3336,8 @@
       "difficulty": 5
     },
     "stats": {
-      "hp1": "2628",
-      "hp15": "5614",
+      "hp1": "2450",
+      "hp15": "5436",
       "hp_regen1": "7",
       "mana1": "0",
       "mana15": "0",
@@ -3297,7 +3348,8 @@
       "magic_def1": "15",
       "magic_def15": "38",
       "movement_spd": "260"
-    }
+    },
+    "released": true
   },
   {
     "slug": "layla",
@@ -3327,20 +3379,21 @@
       "difficulty": 2
     },
     "stats": {
-      "hp1": "2250",
-      "hp15": "4378",
+      "hp1": "2320",
+      "hp15": "4448",
       "hp_regen1": "5.4",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "133",
       "physical_atk15": "252",
-      "physical_def1": "15",
-      "physical_def15": "71",
+      "physical_def1": "17",
+      "physical_def15": "73",
       "magic_def1": "15",
       "magic_def15": "50",
-      "movement_spd": "240",
+      "movement_spd": "250",
       "basic_atk_range": "4.3"
-    }
+    },
+    "released": true
   },
   {
     "slug": "leomord",
@@ -3359,7 +3412,7 @@
     ],
     "release": "3 October 2018",
     "year": "2018",
-    "resource": "Resource#Rage/Indicator|None",
+    "resource": "Rage",
     "damageType": "Physical",
     "attackType": "Melee",
     "region": "The Barren Lands",
@@ -3370,19 +3423,20 @@
       "difficulty": 3
     },
     "stats": {
-      "hp1": "2908",
-      "hp15": "5748",
-      "hp_regen1": "7.0",
+      "hp1": "2560",
+      "hp15": "5400",
+      "hp_regen1": "7",
       "mana1": "0",
       "mana15": "0",
-      "physical_atk1": "148",
-      "physical_atk15": "269",
+      "physical_atk1": "126",
+      "physical_atk15": "247",
       "physical_def1": "21",
       "physical_def15": "74",
       "magic_def1": "15",
       "magic_def15": "38",
       "movement_spd": "240"
-    }
+    },
+    "released": true
   },
   {
     "slug": "lesley",
@@ -3413,18 +3467,19 @@
       "difficulty": 5
     },
     "stats": {
-      "hp1": "2280",
-      "hp15": "4240",
+      "hp1": "2260",
+      "hp15": "4220",
       "hp_regen1": "7.2",
       "physical_atk1": "145",
       "physical_atk15": "243",
-      "physical_def1": "14",
-      "physical_def15": "72",
+      "physical_def1": "15",
+      "physical_def15": "73",
       "magic_def1": "15",
       "magic_def15": "50",
       "movement_spd": "240",
       "basic_atk_range": "4.9"
-    }
+    },
+    "released": true
   },
   {
     "slug": "ling",
@@ -3465,7 +3520,8 @@
       "magic_def15": "50",
       "movement_spd": "260",
       "basic_atk_range": "1.8"
-    }
+    },
+    "released": true
   },
   {
     "slug": "lolita",
@@ -3496,8 +3552,8 @@
       "difficulty": 5
     },
     "stats": {
-      "hp1": "2451",
-      "hp15": "4803",
+      "hp1": "2342",
+      "hp15": "4694",
       "hp_regen1": "9.6",
       "mana1": "500",
       "mana15": "1900",
@@ -3509,7 +3565,8 @@
       "magic_def15": "50",
       "movement_spd": "260",
       "basic_atk_range": "1.8"
-    }
+    },
+    "released": true
   },
   {
     "slug": "lukas",
@@ -3529,7 +3586,7 @@
     ],
     "release": "21 December 2024",
     "year": "2024",
-    "resource": "Resource#Rage/Indicator|None",
+    "resource": "Rage",
     "damageType": "Physical",
     "attackType": "Melee",
     "region": "Moniyan Empire",
@@ -3540,20 +3597,21 @@
       "difficulty": 3
     },
     "stats": {
-      "hp1": "2550",
-      "hp15": "5378",
-      "hp_regen1": "8.0",
+      "hp1": "2620",
+      "hp15": "5448",
+      "hp_regen1": "8",
       "mana1": "0",
       "mana15": "0",
       "physical_atk1": "119",
       "physical_atk15": "248",
-      "physical_def1": "21",
-      "physical_def15": "83",
+      "physical_def1": "23",
+      "physical_def15": "85",
       "magic_def1": "15",
       "magic_def15": "50",
       "movement_spd": "260",
       "basic_atk_range": "1.8  / 2.6 (Flash Strike)"
-    }
+    },
+    "released": true
   },
   {
     "slug": "lunox",
@@ -3583,8 +3641,8 @@
       "difficulty": 9
     },
     "stats": {
-      "hp1": "2880",
-      "hp15": "5655",
+      "hp1": "2440",
+      "hp15": "5215",
       "hp_regen1": "6.8",
       "mana1": "500",
       "mana15": "1900",
@@ -3595,7 +3653,8 @@
       "magic_def1": "15",
       "magic_def15": "50",
       "movement_spd": "240"
-    }
+    },
+    "released": true
   },
   {
     "slug": "luo-yi",
@@ -3625,19 +3684,20 @@
       "difficulty": 8
     },
     "stats": {
-      "hp1": "2601",
-      "hp15": "5156",
+      "hp1": "2440",
+      "hp15": "4995",
       "hp_regen1": "7.2",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "107",
       "physical_atk15": "193",
-      "physical_def1": "20",
-      "physical_def15": "74",
+      "physical_def1": "18",
+      "physical_def15": "72",
       "magic_def1": "15",
       "magic_def15": "45",
       "movement_spd": "250"
-    }
+    },
+    "released": true
   },
   {
     "slug": "lylia",
@@ -3667,8 +3727,8 @@
       "difficulty": 6
     },
     "stats": {
-      "hp1": "2501",
-      "hp15": "4384",
+      "hp1": "2380",
+      "hp15": "4263",
       "hp_regen1": "6.8",
       "mana1": "500",
       "mana15": "1900",
@@ -3679,7 +3739,8 @@
       "magic_def1": "15",
       "magic_def15": "38",
       "movement_spd": "245"
-    }
+    },
+    "released": true
   },
   {
     "slug": "marcel",
@@ -3711,7 +3772,7 @@
     "stats": {
       "hp1": "2950",
       "hp15": "5190",
-      "hp_regen1": "22.4",
+      "hp_regen1": "12.4",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "115",
@@ -3722,7 +3783,8 @@
       "magic_def15": "27",
       "movement_spd": "260",
       "basic_atk_range": "2"
-    }
+    },
+    "released": true
   },
   {
     "slug": "martis",
@@ -3753,9 +3815,10 @@
       "difficulty": 6
     },
     "stats": {
-      "hp1": "2738",
-      "hp15": "5594",
+      "hp1": "2560",
+      "hp15": "5416",
       "hp_regen1": "7",
+      "mana1": "0",
       "physical_atk1": "128",
       "physical_atk15": "250",
       "physical_def1": "25",
@@ -3763,7 +3826,8 @@
       "magic_def1": "15",
       "magic_def15": "50",
       "movement_spd": "260"
-    }
+    },
+    "released": true
   },
   {
     "slug": "masha",
@@ -3783,7 +3847,7 @@
     ],
     "release": "17 September 2019",
     "year": "2019",
-    "resource": "Resource#Rage/Indicator|None",
+    "resource": "Rage",
     "damageType": "Physical",
     "attackType": "Melee",
     "region": "Northern Vale",
@@ -3794,18 +3858,20 @@
       "difficulty": 6
     },
     "stats": {
-      "hp1": "2043",
-      "hp15": "4353",
+      "hp1": "1100",
+      "hp15": "3410",
       "hp_regen1": "3.8",
-      "physical_atk1": "91",
-      "physical_atk15": "227",
+      "mana1": "0",
+      "physical_atk1": "110",
+      "physical_atk15": "246",
       "physical_def1": "15",
       "physical_def15": "50",
       "magic_def1": "15",
       "magic_def15": "67",
       "movement_spd": "250",
       "basic_atk_range": "1.6"
-    }
+    },
+    "released": true
   },
   {
     "slug": "mathilda",
@@ -3849,7 +3915,8 @@
       "magic_def15": "50",
       "movement_spd": "252",
       "basic_atk_range": "4.1"
-    }
+    },
+    "released": true
   },
   {
     "slug": "melissa",
@@ -3879,20 +3946,21 @@
       "difficulty": 5
     },
     "stats": {
-      "hp1": "2288",
-      "hp15": "4528",
+      "hp1": "2320",
+      "hp15": "4560",
       "hp_regen1": "6.6",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "123",
       "physical_atk15": "221",
-      "physical_def1": "18",
-      "physical_def15": "78",
+      "physical_def1": "17",
+      "physical_def15": "77",
       "magic_def1": "15",
       "magic_def15": "50",
-      "movement_spd": "248",
+      "movement_spd": "240",
       "basic_atk_range": "4.6"
-    }
+    },
+    "released": true
   },
   {
     "slug": "minotaur",
@@ -3922,20 +3990,21 @@
       "difficulty": 4
     },
     "stats": {
-      "hp1": "2859",
-      "hp15": "6345",
+      "hp1": "2750",
+      "hp15": "6236",
       "hp_regen1": "8.8",
       "mana1": "0",
       "mana15": "0",
       "physical_atk1": "123",
       "physical_atk15": "195",
-      "physical_def1": "18",
-      "physical_def15": "73",
-      "magic_def1": "10",
-      "magic_def15": "45",
+      "physical_def1": "23",
+      "physical_def15": "78",
+      "magic_def1": "15",
+      "magic_def15": "50",
       "movement_spd": "260",
       "basic_atk_range": "1.8"
-    }
+    },
+    "released": true
   },
   {
     "slug": "minsitthar",
@@ -3965,8 +4034,8 @@
       "difficulty": 3
     },
     "stats": {
-      "hp1": "2698",
-      "hp15": "5470",
+      "hp1": "2520",
+      "hp15": "5292",
       "hp_regen1": "7.4",
       "mana1": "500",
       "mana15": "1900",
@@ -3978,7 +4047,8 @@
       "magic_def15": "50",
       "movement_spd": "260",
       "basic_atk_range": "1.8"
-    }
+    },
+    "released": true
   },
   {
     "slug": "miya",
@@ -4008,9 +4078,9 @@
       "difficulty": 1
     },
     "stats": {
-      "hp1": "2225",
-      "hp15": "4367",
-      "hp_regen1": "6.0",
+      "hp1": "2320",
+      "hp15": "4462",
+      "hp_regen1": "6",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "115",
@@ -4019,9 +4089,10 @@
       "physical_def15": "74",
       "magic_def1": "15",
       "magic_def15": "50",
-      "movement_spd": "240",
+      "movement_spd": "250",
       "basic_atk_range": "4.8"
-    }
+    },
+    "released": true
   },
   {
     "slug": "moskov",
@@ -4051,20 +4122,21 @@
       "difficulty": 4
     },
     "stats": {
-      "hp1": "2255",
-      "hp15": "4257",
+      "hp1": "2380",
+      "hp15": "4382",
       "hp_regen1": "6.4",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "125",
       "physical_atk15": "265",
-      "physical_def1": "16",
-      "physical_def15": "76",
+      "physical_def1": "18",
+      "physical_def15": "78",
       "magic_def1": "15",
       "magic_def15": "50",
       "movement_spd": "240",
       "basic_atk_range": "4.5"
-    }
+    },
+    "released": true
   },
   {
     "slug": "nana",
@@ -4094,8 +4166,8 @@
       "difficulty": null
     },
     "stats": {
-      "hp1": "2501",
-      "hp15": "4321",
+      "hp1": "2380",
+      "hp15": "4200",
       "hp_regen1": "6.8",
       "mana1": "500",
       "mana15": "1900",
@@ -4106,7 +4178,8 @@
       "magic_def1": "15",
       "magic_def15": "38",
       "movement_spd": "250"
-    }
+    },
+    "released": true
   },
   {
     "slug": "natalia",
@@ -4126,7 +4199,7 @@
     ],
     "release": "December 2016",
     "year": "2016",
-    "resource": "Resource#Rage/Indicator|None",
+    "resource": "Rage",
     "damageType": "Physical",
     "attackType": "Melee",
     "region": "Moniyan Empire",
@@ -4137,9 +4210,9 @@
       "difficulty": 9
     },
     "stats": {
-      "hp1": "2639",
-      "hp15": "4935",
-      "hp_regen1": "7.0",
+      "hp1": "2480",
+      "hp15": "4776",
+      "hp_regen1": "7",
       "mana1": "0",
       "mana15": "0",
       "physical_atk1": "121",
@@ -4150,7 +4223,8 @@
       "magic_def15": "50",
       "movement_spd": "260",
       "basic_atk_range": "2"
-    }
+    },
+    "released": true
   },
   {
     "slug": "natan",
@@ -4180,19 +4254,20 @@
       "difficulty": 2
     },
     "stats": {
-      "hp1": "2285",
-      "hp15": "4523",
-      "hp_regen1": "6.0",
+      "hp1": "2260",
+      "hp15": "4498",
+      "hp_regen1": "6",
       "mana1": "500",
       "mana15": "1900",
-      "physical_atk1": "110",
-      "physical_atk15": "264",
-      "physical_def1": "17",
-      "physical_def15": "63",
+      "physical_atk1": "107",
+      "physical_atk15": "261",
+      "physical_def1": "16",
+      "physical_def15": "62",
       "magic_def1": "15",
       "magic_def15": "38",
       "movement_spd": "245"
-    }
+    },
+    "released": true
   },
   {
     "slug": "nolan",
@@ -4222,9 +4297,9 @@
       "difficulty": 6
     },
     "stats": {
-      "hp1": "2549",
-      "hp15": "4607",
-      "hp_regen1": "7.0",
+      "hp1": "2390",
+      "hp15": "4448",
+      "hp_regen1": "7",
       "physical_atk1": "124",
       "physical_atk15": "289",
       "physical_def1": "16",
@@ -4233,7 +4308,8 @@
       "magic_def15": "50",
       "movement_spd": "260",
       "basic_atk_range": "2"
-    }
+    },
+    "released": true
   },
   {
     "slug": "novaria",
@@ -4275,7 +4351,8 @@
       "magic_def1": "15",
       "magic_def15": "50",
       "movement_spd": "240"
-    }
+    },
+    "released": true
   },
   {
     "slug": "obsidia",
@@ -4318,7 +4395,8 @@
       "magic_def15": "50",
       "movement_spd": "240",
       "basic_atk_range": "4.6"
-    }
+    },
+    "released": true
   },
   {
     "slug": "odette",
@@ -4361,7 +4439,8 @@
       "magic_def15": "50",
       "movement_spd": "250",
       "basic_atk_range": "4.7"
-    }
+    },
+    "released": true
   },
   {
     "slug": "paquito",
@@ -4393,8 +4472,8 @@
       "difficulty": 9
     },
     "stats": {
-      "hp1": "2798",
-      "hp15": "5458",
+      "hp1": "2620",
+      "hp15": "5280",
       "hp_regen1": "9.8",
       "mana1": "0",
       "mana15": "0",
@@ -4405,7 +4484,8 @@
       "magic_def1": "15",
       "magic_def15": "38",
       "movement_spd": "260"
-    }
+    },
+    "released": true
   },
   {
     "slug": "pharsa",
@@ -4435,20 +4515,21 @@
       "difficulty": 5
     },
     "stats": {
-      "hp1": "2421",
-      "hp15": "4255",
+      "hp1": "2320",
+      "hp15": "4154",
       "hp_regen1": "6.8",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "109",
       "physical_atk15": "199",
-      "physical_def1": "17",
-      "physical_def15": "73",
+      "physical_def1": "16",
+      "physical_def15": "72",
       "magic_def1": "15",
       "magic_def15": "50",
       "movement_spd": "240",
       "basic_atk_range": "4.7"
-    }
+    },
+    "released": true
   },
   {
     "slug": "phoveus",
@@ -4467,7 +4548,7 @@
     ],
     "release": "11 May 2021",
     "year": "2021",
-    "resource": "Resource#Rage/Indicator|None",
+    "resource": "Rage",
     "damageType": "Mixed",
     "attackType": "Melee",
     "region": "The Barren Lands",
@@ -4478,20 +4559,21 @@
       "difficulty": 4
     },
     "stats": {
-      "hp1": "2650",
-      "hp15": "5730",
+      "hp1": "2550",
+      "hp15": "5630",
       "hp_regen1": "10.8",
       "mana1": "0",
       "mana15": "0",
-      "physical_atk1": "132",
-      "physical_atk15": "240",
-      "physical_def1": "25",
-      "physical_def15": "87",
+      "physical_atk1": "120",
+      "physical_atk15": "228",
+      "physical_def1": "22",
+      "physical_def15": "84",
       "magic_def1": "15",
       "magic_def15": "50",
       "movement_spd": "252",
       "basic_atk_range": "1.4"
-    }
+    },
+    "released": true
   },
   {
     "slug": "popol-and-kupa",
@@ -4522,20 +4604,21 @@
       "difficulty": 6
     },
     "stats": {
-      "hp1": "2425",
-      "hp15": "4385",
-      "hp_regen1": "6.0",
+      "hp1": "2260",
+      "hp15": "4220",
+      "hp_regen1": "6",
       "mana1": "500",
       "mana15": "1900",
-      "physical_atk1": "95",
-      "physical_atk15": "193",
-      "physical_def1": "17",
-      "physical_def15": "67",
+      "physical_atk1": "100",
+      "physical_atk15": "198",
+      "physical_def1": "16",
+      "physical_def15": "66",
       "magic_def1": "15",
       "magic_def15": "50",
       "movement_spd": "250",
       "basic_atk_range": "4.5"
-    }
+    },
+    "released": true
   },
   {
     "slug": "rafaela",
@@ -4578,7 +4661,8 @@
       "magic_def15": "50",
       "movement_spd": "245",
       "basic_atk_range": "4.5"
-    }
+    },
+    "released": true
   },
   {
     "slug": "roger",
@@ -4622,7 +4706,8 @@
       "magic_def15": "50",
       "movement_spd": "240",
       "basic_atk_range": "4.1 (Human Form) / 1.7 (Wolf Form)"
-    }
+    },
+    "released": true
   },
   {
     "slug": "ruby",
@@ -4654,7 +4739,7 @@
     "stats": {
       "hp1": "2331",
       "hp15": "4921",
-      "hp_regen1": "6.0",
+      "hp_regen1": "6",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "129",
@@ -4665,7 +4750,8 @@
       "magic_def15": "45",
       "movement_spd": "260",
       "basic_atk_range": "2"
-    }
+    },
+    "released": true
   },
   {
     "slug": "saber",
@@ -4696,20 +4782,21 @@
       "difficulty": 3
     },
     "stats": {
-      "hp1": "2440",
-      "hp15": "4960",
+      "hp1": "2500",
+      "hp15": "5230",
       "hp_regen1": "7",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "118",
       "physical_atk15": "254",
       "physical_def1": "20",
-      "physical_def15": "77",
+      "physical_def15": "83",
       "magic_def1": "15",
       "magic_def15": "50",
       "movement_spd": "260",
       "basic_atk_range": "1.8"
-    }
+    },
+    "released": true
   },
   {
     "slug": "selena",
@@ -4740,8 +4827,8 @@
       "difficulty": 8
     },
     "stats": {
-      "hp1": "2401",
-      "hp15": "4984",
+      "hp1": "2280",
+      "hp15": "4863",
       "hp_regen1": "6.8",
       "mana1": "500",
       "mana15": "1900",
@@ -4752,7 +4839,8 @@
       "magic_def1": "15",
       "magic_def15": "50",
       "movement_spd": "240"
-    }
+    },
+    "released": true
   },
   {
     "slug": "silvanna",
@@ -4795,7 +4883,8 @@
       "magic_def15": "50",
       "movement_spd": "255",
       "basic_atk_range": "1.8"
-    }
+    },
+    "released": true
   },
   {
     "slug": "sora",
@@ -4815,7 +4904,7 @@
     ],
     "release": "18 December 2025",
     "year": "2025",
-    "resource": "Resource#Rage/Indicator|None",
+    "resource": "Rage",
     "damageType": "Physical",
     "attackType": "Melee",
     "region": "Agelta Drylands",
@@ -4826,8 +4915,8 @@
       "difficulty": 5
     },
     "stats": {
-      "hp1": "2650",
-      "hp15": "5730",
+      "hp1": "2800",
+      "hp15": "5880",
       "hp_regen1": "10.8",
       "mana1": "0",
       "mana15": "0",
@@ -4839,7 +4928,8 @@
       "magic_def15": "50",
       "movement_spd": "252",
       "basic_atk_range": "1.4 (Default & Thunder) / 1.6 (Torrent)"
-    }
+    },
+    "released": true
   },
   {
     "slug": "sun",
@@ -4871,7 +4961,7 @@
     },
     "stats": {
       "hp1": "2500",
-      "hp15": "5020",
+      "hp15": "5440",
       "hp_regen1": "8.2",
       "mana1": "500",
       "mana15": "1900",
@@ -4882,7 +4972,8 @@
       "magic_def1": "15",
       "magic_def15": "50",
       "movement_spd": "260"
-    }
+    },
+    "released": true
   },
   {
     "slug": "suyou",
@@ -4913,9 +5004,9 @@
       "difficulty": 5
     },
     "stats": {
-      "hp1": "2549",
-      "hp15": "4607",
-      "hp_regen1": "7.0",
+      "hp1": "2390",
+      "hp15": "4448",
+      "hp_regen1": "7",
       "mana1": "0",
       "mana15": "0",
       "physical_atk1": "124",
@@ -4926,7 +5017,8 @@
       "magic_def15": "56",
       "movement_spd": "225",
       "basic_atk_range": "1.7 (Mortal Form) / 2.5 (Immortal Form)"
-    }
+    },
+    "released": true
   },
   {
     "slug": "terizla",
@@ -4969,8 +5061,9 @@
       "magic_def1": "15",
       "magic_def15": "71",
       "movement_spd": "255",
-      "basic_atk_range": "2.0"
-    }
+      "basic_atk_range": "2"
+    },
+    "released": true
   },
   {
     "slug": "thamuz",
@@ -4990,7 +5083,7 @@
     ],
     "release": "18 September 2018",
     "year": "2018",
-    "resource": "Resource#Rage/Indicator|None",
+    "resource": "Rage",
     "damageType": "Physical",
     "attackType": "Melee",
     "region": "Abyss",
@@ -5001,8 +5094,8 @@
       "difficulty": 6
     },
     "stats": {
-      "hp1": "2758",
-      "hp15": "5740",
+      "hp1": "2580",
+      "hp15": "5562",
       "hp_regen1": "7.4",
       "mana1": "0",
       "mana15": "0",
@@ -5014,7 +5107,8 @@
       "magic_def15": "50",
       "movement_spd": "250",
       "basic_atk_range": "1.8"
-    }
+    },
+    "released": true
   },
   {
     "slug": "tigreal",
@@ -5043,8 +5137,8 @@
       "difficulty": 1
     },
     "stats": {
-      "hp1": "2581",
-      "hp15": "6879",
+      "hp1": "2700",
+      "hp15": "6760",
       "hp_regen1": "8.4",
       "mana1": "500",
       "mana15": "1900",
@@ -5056,7 +5150,8 @@
       "magic_def15": "71",
       "movement_spd": "260",
       "basic_atk_range": "1.8"
-    }
+    },
+    "released": true
   },
   {
     "slug": "uranus",
@@ -5085,19 +5180,20 @@
       "difficulty": 3
     },
     "stats": {
-      "hp1": "2489",
-      "hp15": "5009",
+      "hp1": "2380",
+      "hp15": "4900",
       "hp_regen1": "6.4",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "115",
       "physical_atk15": "217",
-      "physical_def1": "14",
-      "physical_def15": "47",
+      "physical_def1": "19",
+      "physical_def15": "52",
       "magic_def1": "15",
       "magic_def15": "24",
       "movement_spd": "260"
-    }
+    },
+    "released": true
   },
   {
     "slug": "vale",
@@ -5127,20 +5223,20 @@
       "difficulty": 2
     },
     "stats": {
-      "hp1": "2280",
-      "hp15": "4263",
+      "hp1": "2380",
+      "hp15": "4363",
       "hp_regen1": "6.8",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "115",
       "physical_atk15": "215",
-      "physical_def1": "15",
-      "physical_def15": "71",
+      "physical_def1": "17",
+      "physical_def15": "73",
       "magic_def1": "15",
-      "magic_def15": "15",
       "movement_spd": "250",
       "basic_atk_range": "4.7"
-    }
+    },
+    "released": true
   },
   {
     "slug": "valentina",
@@ -5170,19 +5266,20 @@
       "difficulty": 8
     },
     "stats": {
-      "hp1": "2701",
-      "hp15": "5326",
+      "hp1": "2500",
+      "hp15": "5125",
       "hp_regen1": "7.2",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "115",
       "physical_atk15": "205",
-      "physical_def1": "21",
-      "physical_def15": "75",
+      "physical_def1": "20",
+      "physical_def15": "74",
       "magic_def1": "15",
       "magic_def15": "38",
       "movement_spd": "240"
-    }
+    },
+    "released": true
   },
   {
     "slug": "valir",
@@ -5212,20 +5309,21 @@
       "difficulty": 2
     },
     "stats": {
-      "hp1": "2390",
-      "hp15": "4511",
+      "hp1": "2380",
+      "hp15": "4501",
       "hp_regen1": "6.8",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "105",
       "physical_atk15": "171",
-      "physical_def1": "20",
-      "physical_def15": "77",
+      "physical_def1": "17",
+      "physical_def15": "74",
       "magic_def1": "15",
       "magic_def15": "50",
-      "movement_spd": "245",
+      "movement_spd": "250",
       "basic_atk_range": "4.7"
-    }
+    },
+    "released": true
   },
   {
     "slug": "vexana",
@@ -5255,8 +5353,8 @@
       "difficulty": 1
     },
     "stats": {
-      "hp1": "2481",
-      "hp15": "4406",
+      "hp1": "2380",
+      "hp15": "4305",
       "hp_regen1": "7.6",
       "mana1": "500",
       "mana15": "1900",
@@ -5266,8 +5364,9 @@
       "physical_def15": "63",
       "magic_def1": "15",
       "magic_def15": "38",
-      "movement_spd": "245"
-    }
+      "movement_spd": "250"
+    },
+    "released": true
   },
   {
     "slug": "wanwan",
@@ -5297,19 +5396,20 @@
       "difficulty": 8
     },
     "stats": {
-      "hp1": "2540",
-      "hp15": "4409",
+      "hp1": "2320",
+      "hp15": "4189",
       "hp_regen1": "5.4",
       "mana1": "500",
       "mana15": "1900",
-      "physical_atk1": "95",
-      "physical_atk15": "242",
-      "physical_def1": "15",
-      "physical_def15": "59",
+      "physical_atk1": "110",
+      "physical_atk15": "257",
+      "physical_def1": "17",
+      "physical_def15": "61",
       "magic_def1": "15",
       "magic_def15": "38",
-      "movement_spd": "245"
-    }
+      "movement_spd": "240"
+    },
+    "released": true
   },
   {
     "slug": "x-borg",
@@ -5339,9 +5439,10 @@
       "difficulty": 6
     },
     "stats": {
-      "hp1": "998",
-      "hp15": "2524",
+      "hp1": "917",
+      "hp15": "2443",
       "hp_regen1": "7.8",
+      "mana1": "0",
       "physical_atk1": "117",
       "physical_atk15": "232",
       "physical_def1": "25",
@@ -5350,7 +5451,8 @@
       "magic_def15": "50",
       "movement_spd": "260",
       "basic_atk_range": "1.8 (Armored State) / 4.2 (Armorless State)"
-    }
+    },
+    "released": true
   },
   {
     "slug": "xavier",
@@ -5367,7 +5469,7 @@
       "Damage",
       "Guard"
     ],
-    "release": "[[Patch Notes/1.6.66|22 March 2022]]",
+    "release": "22 March 2022",
     "year": "2022",
     "resource": "Mana",
     "damageType": "Magic",
@@ -5380,19 +5482,20 @@
       "difficulty": 5
     },
     "stats": {
-      "hp1": "2616",
-      "hp15": "4611",
+      "hp1": "2380",
+      "hp15": "4375",
       "hp_regen1": "6.8",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "111",
       "physical_atk15": "198",
-      "physical_def1": "15",
-      "physical_def15": "59",
+      "physical_def1": "17",
+      "physical_def15": "61",
       "magic_def1": "15",
       "magic_def15": "38",
       "movement_spd": "250"
-    }
+    },
+    "released": true
   },
   {
     "slug": "yi-sun-shin",
@@ -5432,11 +5535,12 @@
       "physical_atk15": "222",
       "physical_def1": "22",
       "physical_def15": "82",
-      "magic_def1": "15",
-      "magic_def15": "45",
+      "magic_def1": "10",
+      "magic_def15": "40",
       "movement_spd": "250",
       "basic_atk_range": "4.5"
-    }
+    },
+    "released": true
   },
   {
     "slug": "yin",
@@ -5468,8 +5572,8 @@
       "difficulty": 4
     },
     "stats": {
-      "hp1": "2578",
-      "hp15": "5238",
+      "hp1": "2400",
+      "hp15": "5060",
       "hp_regen1": "9.8",
       "mana1": "0",
       "mana15": "0",
@@ -5480,7 +5584,8 @@
       "magic_def1": "15",
       "magic_def15": "38",
       "movement_spd": "252"
-    }
+    },
+    "released": true
   },
   {
     "slug": "yu-zhong",
@@ -5523,7 +5628,8 @@
       "magic_def15": "50",
       "movement_spd": "245",
       "basic_atk_range": "1.8"
-    }
+    },
+    "released": true
   },
   {
     "slug": "yve",
@@ -5553,19 +5659,20 @@
       "difficulty": 5
     },
     "stats": {
-      "hp1": "2530",
-      "hp15": "5066",
+      "hp1": "2320",
+      "hp15": "4856",
       "hp_regen1": "7.2",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "115",
       "physical_atk15": "205",
-      "physical_def1": "19",
-      "physical_def15": "66",
+      "physical_def1": "16",
+      "physical_def15": "63",
       "magic_def1": "15",
       "magic_def15": "38",
       "movement_spd": "245"
-    }
+    },
+    "released": true
   },
   {
     "slug": "zetian",
@@ -5595,20 +5702,20 @@
       "difficulty": 2
     },
     "stats": {
-      "hp1": "2550",
-      "hp15": "4440",
+      "hp1": "2380",
+      "hp15": "4270",
       "hp_regen1": "6.8",
       "mana1": "500",
       "mana15": "1900",
-      "physical_atk1": "0",
-      "physical_atk15": "0",
-      "physical_def1": "18",
-      "physical_def15": "72",
+      "physical_atk1": "95",
+      "physical_def1": "17",
+      "physical_def15": "71",
       "magic_def1": "15",
       "magic_def15": "50",
       "movement_spd": "240",
       "basic_atk_range": "5"
-    }
+    },
+    "released": true
   },
   {
     "slug": "zhask",
@@ -5638,20 +5745,21 @@
       "difficulty": 7
     },
     "stats": {
-      "hp1": "2280",
-      "hp15": "4256",
+      "hp1": "2380",
+      "hp15": "4356",
       "hp_regen1": "6.8",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "107",
       "physical_atk15": "208",
-      "physical_def1": "15",
-      "physical_def15": "63",
+      "physical_def1": "17",
+      "physical_def15": "65",
       "magic_def1": "15",
       "magic_def15": "50",
-      "movement_spd": "240",
+      "movement_spd": "250",
       "basic_atk_range": "4.5"
-    }
+    },
+    "released": true
   },
   {
     "slug": "zhuxin",
@@ -5681,20 +5789,20 @@
       "difficulty": 4
     },
     "stats": {
-      "hp1": "2280",
-      "hp15": "4256",
+      "hp1": "2440",
+      "hp15": "4416",
       "hp_regen1": "7.2",
       "mana1": "1200",
-      "mana15": "1200",
       "physical_atk1": "115",
       "physical_atk15": "205",
-      "physical_def1": "20",
-      "physical_def15": "69",
+      "physical_def1": "18",
+      "physical_def15": "67",
       "magic_def1": "15",
       "magic_def15": "50",
       "movement_spd": "245",
       "basic_atk_range": "4.7"
-    }
+    },
+    "released": true
   },
   {
     "slug": "zilong",
@@ -5727,7 +5835,7 @@
     "stats": {
       "hp1": "2511",
       "hp15": "5549",
-      "hp_regen1": "7.0",
+      "hp_regen1": "7",
       "mana1": "500",
       "mana15": "1900",
       "physical_atk1": "123",
@@ -5738,6 +5846,7 @@
       "magic_def15": "50",
       "movement_spd": "265",
       "basic_atk_range": "1.8 / 2.5 (Dragon Flurry)"
-    }
+    },
+    "released": true
   }
 ]

@@ -47,22 +47,6 @@
     "bestFor": "Lahat ng mga hero"
   },
   {
-    "slug": "athena-s-shield",
-    "name": "Athena's Shield",
-    "summary": "Labanan ang Burst Magic Damage",
-    "category": "Defense",
-    "price": 2150,
-    "bonus": "+900 HP, +48 Magic Defense, +2 HP Regen",
-    "unique": null,
-    "passive": "Shield: Sa pagkuha ng Magic Damage mula sa mga kakayahan ng hero ng kaaway o Basic Attacks, binabawasan ang Magic Damage na nakuha ng 25% sa loob ng 3 segundo (kabilang ang damage na nag-trigger ng epekto). Nabawi ang epektong ito 5 segundo pagkatapos umalis sa labanan.",
-    "active": null,
-    "recipe": [
-      "Silence Robe",
-      "Vitality Crystal"
-    ],
-    "bestFor": "Lahat ng mga hero"
-  },
-  {
     "slug": "azure-blade",
     "name": "Azure Blade",
     "summary": null,
@@ -191,7 +175,8 @@
       "Dagger",
       "Iron Hunting Bow"
     ],
-    "bestFor": "Inalis"
+    "bestFor": null,
+    "removed": true
   },
   {
     "slug": "book-of-sages",
@@ -247,7 +232,7 @@
     "passive": "Bud of Hope: Ipinagkaloob nina Floryn at Dew. Ipapakita ng kagamitan ang tunay na kapangyarihan nito sa sandaling mag-evolve si Dew.",
     "active": null,
     "recipe": [],
-    "bestFor": "Inalis"
+    "bestFor": null
   },
   {
     "slug": "calamity-reaper",
@@ -263,7 +248,8 @@
       "Magic Wand",
       "Azure Blade"
     ],
-    "bestFor": "Inalis"
+    "bestFor": null,
+    "removed": true
   },
   {
     "slug": "chastise-pauldron",
@@ -273,7 +259,7 @@
     "price": 2100,
     "bonus": "+900 HP, +40 Pisikal na Depensa",
     "unique": null,
-    "passive": "Chastise: Ang pagkuha ng damage ay magbabawas sa Attack Speed ​​at Attack Speed ​​cap ng attacker sa 75% ng normal sa loob ng 2 segundo.@ Redemption: Kapag ang papasok na damage ay bumaba sa HP nang mas mababa sa 30%, i-recover ang 20% ​​Max HP sa susunod na 2 segundo. Ang epektong ito ay may 60 segundong cooldown.",
+    "passive": "Chastise: Ang pagkuha ng damage ay magbabawas sa Attack Speed ​​at Attack Speed ​​cap ng attacker sa 75% ng normal sa loob ng 2 segundo. Pagtubos: Kapag ang papasok na damage ay binabawasan ang HP nang mas mababa sa 30%, i-recover ang 20% ​​Max HP sa susunod na 2 segundo. Ang epektong ito ay may 60 segundong cooldown.",
     "active": null,
     "recipe": [
       "Steel Legplates",
@@ -289,7 +275,7 @@
     "price": 2030,
     "bonus": "+45 Magic Power, +400 HP, +400 Mana, +10% Cooldown Reduction",
     "unique": null,
-    "passive": "Destiny: Nakakakuha ng 4.5(+0.5*Hero Level) Hybrid Defense sa loob ng 5 segundo kapag nakipag-ugnay sa Magic Damage sa mga hero ng kalaban, na stacking hanggang 6 na beses (maaaring makakuha ng 1 stack bawat 0.4 segundo).@ Regalo: Kapag bumaba ang HP sa 50%, mababawi ang 15% ng HP sa susunod na 3 segundo. Kapag bumaba ang Mana sa 50%, ire-restore ang 15% ng Mana sa susunod na 3 segundo. Cooldown: 60 segundo.",
+    "passive": "Destiny: Nakakakuha ng 4.5(+0.5*Hero Level) Hybrid Defense sa loob ng 5 segundo kapag nakipag-ugnay sa Magic Damage sa mga hero ng kalaban, na nagsasalansan ng hanggang 6 na beses (maaaring makakuha ng 1 stack bawat 0.4 segundo). Regalo: Kapag bumaba ang HP sa 50%, mababawi ang 15% ng HP sa susunod na 3 segundo. Kapag bumaba ang Mana sa 50%, ire-restore ang 15% ng Mana sa susunod na 3 segundo. Cooldown: 60 segundo.",
     "active": null,
     "recipe": [
       "Elegant Gem",
@@ -323,7 +309,7 @@
     "price": 2050,
     "bonus": "+30 Pisikal na Pag-atake, +30% Attack speed, +5% Movement speed",
     "unique": null,
-    "passive": "Corrosive: Ang Basic Attacks ay nakakakuha ng 80 dagdag na Physical Damage at nagpapabagal sa target ng 8% (halved para sa ranged Basic Attacks) sa loob ng 1.5 segundo. Mga stack hanggang 5 beses.@ Impulse: Nagbibigay ang Basic Attacks ng 6% na dagdag na Attack speed sa loob ng 3 segundo, na nilimitahan sa 5 stack.",
+    "passive": "Corrosive: Ang Basic Attacks ay nakakakuha ng 80 dagdag na Physical Damage at nagpapabagal sa target ng 8% (halved para sa ranged Basic Attacks) sa loob ng 1.5 segundo. Mga stack hanggang 5 beses. Impulse: Ang Basic Attacks ay nagbibigay ng 6% na dagdag na Attack speed sa loob ng 3 segundo, na nilimitahan sa 5 stack.",
     "active": null,
     "recipe": [
       "Swift Crossbow",
@@ -339,7 +325,7 @@
     "price": 1910,
     "bonus": "+1200 HP, +20 Magic Defense",
     "unique": null,
-    "passive": "Burning Soul: Mga Deal (1.2% Total HP) Magic Damage sa mga kalapit na kaaway sa bawat segundo. Ang pinsalang ito ay tumaas ng 125(+15*Hero Level)% laban sa mga gumagapang at minions.@ Curse: Ang pagharap sa damage sa Burning Soul ay magbabawas sa Hybrid Defense ng target ng 3 sa loob ng 3 segundo. Mga stack hanggang 3 beses.",
+    "passive": "Burning Soul: Deal (1.2% Total HP) Magic Damage sa mga kalapit na kaaway sa bawat segundo. Ang pinsalang ito ay tumaas ng 125(+15*Hero Level)% laban sa mga creep at minions. Curse: Ang pagharap ng damage sa Burning Soul ay magbabawas ng Hybrid Defense ng target ng 3 sa loob ng 3 segundo. Mga stack hanggang 3 beses.",
     "active": null,
     "recipe": [
       "Molten Essence",
@@ -369,7 +355,7 @@
     "price": 2180,
     "bonus": "+35 Pisikal na Pag-atake, +20% Attack speed",
     "unique": null,
-    "passive": "Engulf: Ang Basic Attack ay nagbibigay ng 8% ng kasalukuyang HP ng target bilang dagdag na Pisikal na Damage (nalimitahan sa 60 laban sa mga minions).@ Devour: Bawat Basic Attack ay nakakabawi ng 10(+4*Hero Level) HP. Ang epekto na ito ay hinahati laban sa mga minions.",
+    "passive": "Engulf: Ang Mga Basic Attack ay nagtatakda ng 8% ng kasalukuyang HP ng target bilang dagdag na Pisikal na Damage (nalimitahan sa 60 laban sa mga minions). Devour: Bawat Basic Attack ay nakakabawi ng 10(+4*Hero Level) HP. Ang epekto na ito ay hinahati laban sa mga minions.",
     "active": null,
     "recipe": [
       "Regular Spear",
@@ -418,7 +404,7 @@
     "price": 2010,
     "bonus": "+40 Physical Defense, +40 Magic Defense, +5% Movement Speed",
     "unique": null,
-    "passive": "Fortress Shield: Para sa bawat hero ng kaaway sa loob ng 5 unit, ang Hybrid Defense ay tataas ng 8, hanggang 40.@ Lifebane: Binabawasan ang Shield at HP Regen effect ng mga kalapit na kaaway sa loob ng 5 unit hanggang 60% ng normal sa loob ng 1 segundo.",
+    "passive": "Fortress Shield: Para sa bawat hero ng kaaway sa loob ng 5 unit, ang Hybrid Defense ay tataas ng 8, hanggang 40. Lifebane: Binabawasan ang Shield at HP Regen effect ng mga kalapit na kaaway sa loob ng 5 units hanggang 60% ng normal sa loob ng 1 segundo.",
     "active": null,
     "recipe": [
       "Black Ice Shield",
@@ -467,7 +453,7 @@
     "price": 2070,
     "bonus": "+70 Magic Power, +300 HP, +15% Cooldown Reduction",
     "unique": null,
-    "passive": "Mana Spring: Gumagawa muli ng 15% ng Max Mana bawat 10 segundo.@ Magic Mastery: Ang Max Cooldown Reduction ay tumaas ng 5%.",
+    "passive": "Mana Spring: Bumubuo muli ng 15% ng Max Mana bawat 10 segundo. Magic Mastery: Ang Max Cooldown Reduction ay tumaas ng 5%.",
     "active": null,
     "recipe": [
       "Tome of Evil",
@@ -529,7 +515,7 @@
     "price": 2030,
     "bonus": "+60 Magic Power, +20% Attack Speed, +10% Lifesteal, +5% Cooldown Reduction",
     "unique": null,
-    "passive": "Affliction: Bawat Basic Attack ay nagdudulot ng dagdag na 50 (+30% Total Magic Power) Magic Damage.@ Impulse: Basic Attacks ay nagbibigay ng 6% na dagdag na Attack speed sa loob ng 3 segundo, na nilimitahan sa 5 stack.",
+    "passive": "Affliction: Bawat Basic Attack ay may dagdag na 50 (+30% Total Magic Power) Magic Damage. Impulse: Ang Basic Attacks ay nagbibigay ng 6% na dagdag na Attack speed sa loob ng 3 segundo, na nilimitahan sa 5 stack.",
     "active": null,
     "recipe": [
       "Swift Crossbow",
@@ -623,7 +609,7 @@
     "price": 2150,
     "bonus": "+60 Magic Power, +300 HP, +5% Movement speed",
     "unique": null,
-    "passive": "Ang Scorch: Ang Dealing Magic Damage ay nasusunog ang mga target sa loob ng 3 segundo, na nagdudulot din ng dagdag na Magic Damage na katumbas ng 1% ng Max HP ng target sa bawat segundo.@ Lifebane: Ang pagharap ng damage sa target ay magbabawas sa Shield at HP Regen effect sa kanila sa 60% ng normal sa loob ng 3 segundo.",
+    "passive": "Scorch: Ang Dealing Magic Damage ay sinusunog ang mga target sa loob ng 3 segundo, na nagdudulot din ng dagdag na Magic Damage na katumbas ng 1% ng Max HP ng target bawat segundo. Lifebane: Ang pagharap ng damage sa target ay magbabawas sa Shield at HP Regen effect sa kanila sa 60% ng normal sa loob ng 3 segundo.",
     "active": null,
     "recipe": [
       "Exotic Veil",
@@ -640,7 +626,7 @@
     "price": 2000,
     "bonus": "+55 Pisikal na Pag-atake, +15% Attack speed",
     "unique": null,
-    "passive": "Swift: Bawat 1% na dagdag na Crit Chance na natamo ay na-convert sa 1% na dagdag na Attack speed.@ Walang katapusang Strike: Pagkatapos ng bawat 2 non-Crit Basic na Pag-atake, ang Attack speed ng susunod na Basic Attack ay tataas ng 80% (at ang Attack Speed ​​cap ay tataas sa 500%) at magti-trigger ng Attack Effects ng karagdagang 2 beses.",
+    "passive": "Swift: Bawat 1% na dagdag na Crit Chance na nakuha ay na-convert sa 1% na dagdag na Attack speed. Walang katapusang Strike: Pagkatapos ng bawat 2 non-Crit Basic Attack, ang Attack Speed ​​ng susunod na Basic Attack ay tataas ng 80% (at Attack Speed ​​cap ay tataas sa 500%) at magti-trigger ng Attack Effects ng karagdagang 2 (mga) beses.",
     "active": null,
     "recipe": [
       "Regular Spear",
@@ -674,7 +660,7 @@
     "price": 2500,
     "bonus": "+1800 HP, +20 HP Regen",
     "unique": null,
-    "passive": "Pagbawi: Pagkatapos ng 5 segundo sa labas ng labanan, i-recover ang (2.5% Kabuuang HP) HP bawat segundo.@ Defender: Sa pagkuha ng higit sa 500 damage sa isang pagkakataon, bawiin ang 30 (+0.3% Kabuuang HP)% HP mula sa labis na damage na lampas sa halagang iyon.",
+    "passive": "Recovery: After 5 seconds out of combat, recover (2.5% Total HP) HP per second. Defender: Upon taking more than 500 damage in a single instance, recover 30 (+0.3% Total HP)% HP from the excess damage beyond that amount.",
     "active": null,
     "recipe": [
       "Ares Belt",
@@ -986,7 +972,7 @@
     "price": 2120,
     "bonus": "+40 Pisikal na Pag-atake, +20% Attack speed",
     "unique": null,
-    "passive": "Armor Buster: Taasan ang Physical Penetration ng 30%.@ Malefic Energy: Pinapataas ng 12% ang Basic Attack range. Kapag naabot ang isang target, nakakakuha ng 10% Movement speed sa loob ng 0.5 segundo.",
+    "passive": "Armor Buster: Increase Physical Penetration by 30%. Malefic Energy: Increases Basic Attack range by 12%. When hitting a target, gains 10% Movement Speed for 0.5 seconds.",
     "active": null,
     "recipe": [
       "Fury Hammer",
@@ -1003,7 +989,7 @@
     "price": 2060,
     "bonus": "+60 Pisikal na Pag-atake",
     "unique": null,
-    "passive": "Armor Buster: Taasan ang Physical Penetration ng 30%.@ Breaker: Kapag umaatake sa isang kalaban, nakakakuha ng 0.1% na dagdag na Physical Penetration para sa bawat punto ng Physical Defense ng kalaban, na may limitasyon sa 30%.",
+    "passive": "Armor Buster: Increase Physical Penetration by 30%. Breaker: When attacking an enemy, gains 0.1% extra Physical Penetration for each point of the enemy's Physical Defense, capped at 30%.",
     "active": null,
     "recipe": [
       "Legion Sword"
@@ -1061,14 +1047,15 @@
     "price": 2010,
     "bonus": "+60 Magic Power, +300 HP, +380 Mana, +5% Cooldown Reduction",
     "unique": null,
-    "passive": "Regalo: Regens 20% HP at Mana sa loob ng 2 segundo ng pag-level up.@ Lifebane: Sa pagharap ng damage sa target, binabawasan ang Shield at HP Regen ng target ng 50% sa loob ng 3 segundo.",
+    "passive": "Gift: Regens 20% HP and Mana within 2 seconds of leveling up. Lifebane: Upon dealing damage to the target, reduces Shield and HP Regen of the target by 50% for 3 seconds.",
     "active": null,
     "recipe": [
       "Book of Sages",
       "Elegant Gem",
       "Mystery Codex"
     ],
-    "bestFor": "Inalis"
+    "bestFor": null,
+    "removed": true
   },
   {
     "slug": "ogre-tomahawk",
@@ -1137,7 +1124,7 @@
     "price": 2250,
     "bonus": "+750 HP, +30 Adaptive Attack, +10% Cooldown Reduction, +10% Spell Vamp",
     "unique": null,
-    "passive": "Magdemonyo: Kapag bumaba ang HP sa 40%, magkakaroon ng 30% Damage Reduction sa loob ng 3 segundo at binabawasan ang mga cooldown ng skill ng 2 segundo. Ang epektong ito ay may 60 segundong cooldown.@ Defiance: Para sa bawat 1% na pagkawala ng HP, ang damage ay tataas ng 0.25%, hanggang 15%.",
+    "passive": "Demonize: When HP drops below 40%, gains 30% Damage Reduction for 3 seconds and reduces skill cooldowns by 2 seconds. This effect has a 60 seconds cooldown. Defiance: For every 1% HP lost, damage is increased by 0.25%, up to 15%.",
     "active": null,
     "recipe": [
       "Ares Belt",
@@ -1233,7 +1220,7 @@
     "price": 2030,
     "bonus": "+30 Pisikal na Pag-atake, +20% Attack speed, +10% Lifesteal",
     "unique": null,
-    "passive": "Dragon Scale: Bawat 4 na dagdag na Physical Attack ay nagdaragdag ng Hybrid Defense ng 1, hanggang 50 (hinahati ang epekto kung hindi Fighter ang Pangunahing Tungkulin).@ Lifeline: Kapag kumukuha ng damage na nagpapababa ng HP sa ibaba 30%, nakakakuha ng (120*Hero Level) na shield (tumataas nang may level) at 50% Movement Speed ​​na mabilis na nabubulok sa loob ng 3 segundo. Ang epektong ito ay may 60 segundong cooldown.",
+    "passive": "Dragon Scale: Every 4 extra Physical Attack increases Hybrid Defense by 1, up to 50 (effect is halved if Main Role is not Fighter). Lifeline: When taking damage that reduces HP below 30%, gains a (120*Hero Level) shield (increases with level) and 50% Movement Speed that rapidly decays over 3 seconds. This effect has a 60 seconds cooldown.",
     "active": null,
     "recipe": [
       "Magic Blade",
@@ -1255,7 +1242,8 @@
       "Rogue Meteor",
       "Javelin"
     ],
-    "bestFor": "Inalis"
+    "bestFor": null,
+    "removed": true
   },
   {
     "slug": "sea-halberd",
@@ -1265,7 +1253,7 @@
     "price": 2050,
     "bonus": "+80 Pisikal na Pag-atake, +20% Attack speed",
     "unique": null,
-    "passive": "Lifebane: Ang pagharap ng damage sa isang target ay magbabawas sa Shield at HP Regen effects sa kanila sa 60% ng normal sa loob ng 3 segundo.@ Punish: Dagdagan ang damage ng 8% laban sa mga hero ng kaaway na may mas mataas na dagdag na HP.",
+    "passive": "Lifebane: Dealing damage to a target will reduce the Shield and HP Regen effects on them to 60% of normal for 3 seconds. Punish: Increase damage by 8% against enemy heroes with higher extra HP.",
     "active": null,
     "recipe": [
       "Legion Sword",
@@ -1287,7 +1275,8 @@
       "Exotic Veil",
       "Mystic Container"
     ],
-    "bestFor": "Inalis"
+    "bestFor": null,
+    "removed": true
   },
   {
     "slug": "shimmering-lantern",
@@ -1300,7 +1289,7 @@
     "passive": "Maaaring ibahagi ni Floryn ang kapangyarihan ng Dew's Lantern sa isang kaalyadong hero. Ang Lantern ay hindi pa sapat at maaaring mag-evolve kapag ito ay sumisipsip ng sapat na enerhiya sa labanan.",
     "active": null,
     "recipe": [],
-    "bestFor": "Inalis"
+    "bestFor": null
   },
   {
     "slug": "silence-robe",
@@ -1390,7 +1379,7 @@
     "price": 1000,
     "bonus": "+20% Attack speed",
     "unique": null,
-    "passive": "Crossbow: Bawat Basic Attack ay nagdudulot ng 40 dagdag na Adaptive Damage.@ Impulse: Ang Basic Attacks ay nagbibigay ng 3% na dagdag na Attack speed sa loob ng 3 segundo, na nilimitahan sa 5 stack.",
+    "passive": "Crossbow: Each Basic Attack deals 40 extra Adaptive Damage. Impulse: Basic Attacks grant 3% extra Attack Speed for 3 seconds, capped at 5 stacks.",
     "active": null,
     "recipe": [
       "Knife",
@@ -1455,14 +1444,31 @@
     "price": 2100,
     "bonus": "+1200 HP, +15 Pisikal na Depensa",
     "unique": null,
-    "passive": "Twilight: Sa pagkuha ng higit sa 500 damage sa isang pagkakataon, ang labis na damage na lampas sa halagang iyon ay mababawasan ng 20 (+0.2% Kabuuang HP)%.@ Pagkuha: Kapag ang papasok na damage ay bumaba sa HP nang mas mababa sa 30%, mabawi ang 20% ​​Max HP sa susunod na 4 na segundo. Ang epektong ito ay may 60 segundong cooldown.",
+    "passive": "Twilight: Upon taking more than 500 damage in a single instance, the excess damage beyond that amount is reduced by 20 (+0.2% Total HP)%. Redemption: When incoming damage reduces HP below 30%, recover 20% Max HP over the next 4 seconds. This effect has a 60 seconds cooldown.",
     "active": null,
     "recipe": [
       "Ares Belt",
       "Ares Belt",
       "Leather Jerkin"
     ],
-    "bestFor": "Inalis"
+    "bestFor": null,
+    "removed": true
+  },
+  {
+    "slug": "valkyrie-s-shield",
+    "name": "Valkyrie's Shield",
+    "summary": "Labanan ang Burst Magic Damage",
+    "category": "Defense",
+    "price": 2150,
+    "bonus": "+900 HP, +48 Magic Defense, +2 HP Regen",
+    "unique": null,
+    "passive": "Shield: Sa pagkuha ng Magic Damage mula sa mga kakayahan ng hero ng kaaway o Basic Attacks, binabawasan ang Magic Damage na nakuha ng 25% sa loob ng 3 segundo (kabilang ang damage na nag-trigger ng epekto). Nabawi ang epektong ito 5 segundo pagkatapos umalis sa labanan.",
+    "active": null,
+    "recipe": [
+      "Silence Robe",
+      "Vitality Crystal"
+    ],
+    "bestFor": "Lahat ng mga hero"
   },
   {
     "slug": "vampire-mallet",

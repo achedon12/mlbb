@@ -1,0 +1,2531 @@
+{
+ "version": 1,
+ "items": {
+  "Blade of Despair": {
+   "revid": 264971,
+   "timestamp": "2026-02-18T07:31:27Z",
+   "data": {
+    "price": 3010,
+    "status": "available"
+   }
+  },
+  "Blade of the Heptaseas": {
+   "revid": 264972,
+   "timestamp": "2026-02-18T07:31:30Z",
+   "data": {
+    "price": 1950,
+    "status": "available"
+   }
+  },
+  "Berserker's Fury": {
+   "revid": 264976,
+   "timestamp": "2026-02-18T07:33:11Z",
+   "data": {
+    "price": 2390,
+    "status": "available"
+   }
+  },
+  "Blood Wings": {
+   "revid": 264995,
+   "timestamp": "2026-02-18T07:36:00Z",
+   "data": {
+    "price": 2100,
+    "status": "available"
+   }
+  },
+  "Azure Blade": {
+   "revid": 265028,
+   "timestamp": "2026-02-18T07:51:56Z",
+   "data": {
+    "price": 600,
+    "status": "available"
+   }
+  },
+  "Arcane Boots": {
+   "revid": 265052,
+   "timestamp": "2026-02-18T08:00:01Z",
+   "data": {
+    "price": 690,
+    "status": "available"
+   }
+  },
+  "Antique Cuirass": {
+   "revid": 265041,
+   "timestamp": "2026-02-18T07:56:24Z",
+   "data": {
+    "price": 2170,
+    "status": "available"
+   }
+  },
+  "Ares Belt": {
+   "revid": 214202,
+   "timestamp": "2025-02-20T09:26:56Z",
+   "data": {
+    "price": 900,
+    "status": "available"
+   }
+  },
+  "Black Ice Shield": {
+   "revid": 214207,
+   "timestamp": "2025-02-20T09:39:36Z",
+   "data": {
+    "price": 880,
+    "status": "available"
+   }
+  },
+  "Blade Armor": {
+   "revid": 265046,
+   "timestamp": "2026-02-18T07:58:15Z",
+   "data": {
+    "price": 1910,
+    "status": "available"
+   }
+  },
+  "Bloodlust Axe": {
+   "revid": 264969,
+   "timestamp": "2026-02-18T07:31:11Z",
+   "data": {
+    "price": 1970,
+    "status": "removed"
+   }
+  },
+  "Corrosion Scythe": {
+   "revid": 264982,
+   "timestamp": "2026-02-18T07:33:28Z",
+   "data": {
+    "price": 2050,
+    "status": "available"
+   }
+  },
+  "Clock of Destiny": {
+   "revid": 265002,
+   "timestamp": "2026-02-18T07:41:08Z",
+   "data": {
+    "price": 2030,
+    "status": "available"
+   }
+  },
+  "Calamity Reaper": {
+   "revid": 265003,
+   "timestamp": "2026-02-18T07:41:48Z",
+   "data": {
+    "price": 1950,
+    "status": "removed"
+   }
+  },
+  "Concentrated Energy": {
+   "revid": 265020,
+   "timestamp": "2026-02-18T07:49:40Z",
+   "data": {
+    "price": 2020,
+    "status": "available"
+   }
+  },
+  "Book of Sages": {
+   "revid": 214213,
+   "timestamp": "2025-02-20T09:55:31Z",
+   "data": {
+    "price": 450,
+    "status": "available"
+   }
+  },
+  "Boots": {
+   "revid": 214214,
+   "timestamp": "2025-02-20T09:56:56Z",
+   "data": {
+    "price": 250,
+    "status": "available"
+   }
+  },
+  "Brute Force Breastplate": {
+   "revid": 265034,
+   "timestamp": "2026-02-18T07:54:16Z",
+   "data": {
+    "price": 1870,
+    "status": "available"
+   }
+  },
+  "Cursed Helmet": {
+   "revid": 265043,
+   "timestamp": "2026-02-18T07:57:15Z",
+   "data": {
+    "price": 1910,
+    "status": "available"
+   }
+  },
+  "Chastise Pauldron": {
+   "revid": 265033,
+   "timestamp": "2026-02-18T07:53:43Z",
+   "data": {
+    "price": 2100,
+    "status": "available"
+   }
+  },
+  "Endless Battle": {
+   "revid": 264975,
+   "timestamp": "2026-02-18T07:33:06Z",
+   "data": {
+    "price": 2330,
+    "status": "available"
+   }
+  },
+  "Demon Hunter Sword": {
+   "revid": 264983,
+   "timestamp": "2026-02-18T07:33:33Z",
+   "data": {
+    "price": 2180,
+    "status": "available"
+   }
+  },
+  "Dagger": {
+   "revid": 214225,
+   "timestamp": "2025-02-20T10:19:01Z",
+   "data": {
+    "price": 250,
+    "status": "available"
+   }
+  },
+  "Divine Glaive": {
+   "revid": 265022,
+   "timestamp": "2026-02-18T07:50:36Z",
+   "data": {
+    "price": 1970,
+    "status": "available"
+   }
+  },
+  "Enchanted Talisman": {
+   "revid": 265026,
+   "timestamp": "2026-02-18T07:51:17Z",
+   "data": {
+    "price": 1870,
+    "status": "available"
+   }
+  },
+  "Elegant Gem": {
+   "revid": 214233,
+   "timestamp": "2025-02-20T10:31:09Z",
+   "data": {
+    "price": 700,
+    "status": "available"
+   }
+  },
+  "Exotic Veil": {
+   "revid": 214237,
+   "timestamp": "2025-02-20T10:42:06Z",
+   "data": {
+    "price": 600,
+    "status": "available"
+   }
+  },
+  "Demon Boots": {
+   "revid": 265048,
+   "timestamp": "2026-02-18T07:58:55Z",
+   "data": {
+    "price": 720,
+    "status": "available"
+   }
+  },
+  "Dominance Ice": {
+   "revid": 265038,
+   "timestamp": "2026-02-18T07:55:19Z",
+   "data": {
+    "price": 2010,
+    "status": "available"
+   }
+  },
+  "Dreadnaught Armor": {
+   "revid": 214232,
+   "timestamp": "2025-02-20T10:29:18Z",
+   "data": {
+    "price": 730,
+    "status": "available"
+   }
+  },
+  "Golden Staff": {
+   "revid": 264981,
+   "timestamp": "2026-02-18T07:33:25Z",
+   "data": {
+    "price": 2000,
+    "status": "available"
+   }
+  },
+  "Fury Hammer": {
+   "revid": 264986,
+   "timestamp": "2026-02-18T07:33:37Z",
+   "data": {
+    "price": 830,
+    "status": "available"
+   }
+  },
+  "Genius Wand": {
+   "revid": 264991,
+   "timestamp": "2026-02-18T07:34:38Z",
+   "data": {
+    "price": 2000,
+    "status": "available"
+   }
+  },
+  "Fleeting Time": {
+   "revid": 264993,
+   "timestamp": "2026-02-18T07:35:30Z",
+   "data": {
+    "price": 2050,
+    "status": "available"
+   }
+  },
+  "Glowing Wand": {
+   "revid": 265004,
+   "timestamp": "2026-02-18T07:42:31Z",
+   "data": {
+    "price": 2150,
+    "status": "available"
+   }
+  },
+  "Feather of Heaven": {
+   "revid": 265024,
+   "timestamp": "2026-02-18T07:51:05Z",
+   "data": {
+    "price": 2030,
+    "status": "available"
+   }
+  },
+  "Great Dragon Spear": {
+   "revid": 265007,
+   "timestamp": "2026-02-18T07:43:51Z",
+   "data": {
+    "price": 2140,
+    "status": "available"
+   }
+  },
+  "Flask of the Oasis": {
+   "revid": 265016,
+   "timestamp": "2026-02-18T07:48:41Z",
+   "data": {
+    "price": 1850,
+    "status": "available"
+   }
+  },
+  "Flower of Hope": {
+   "revid": 214245,
+   "timestamp": "2025-02-20T10:53:33Z",
+   "data": {
+    "price": 0,
+    "status": "available"
+   }
+  },
+  "Expert Gloves": {
+   "revid": 214239,
+   "timestamp": "2025-02-20T10:44:27Z",
+   "data": {
+    "price": 500,
+    "status": "available"
+   }
+  },
+  "Hunter Strike": {
+   "revid": 264970,
+   "timestamp": "2026-02-18T07:31:24Z",
+   "data": {
+    "price": 2010,
+    "status": "available"
+   }
+  },
+  "Haas's Claws": {
+   "revid": 264977,
+   "timestamp": "2026-02-18T07:33:13Z",
+   "data": {
+    "price": 2020,
+    "status": "available"
+   }
+  },
+  "Iron Hunting Bow": {
+   "revid": 214262,
+   "timestamp": "2025-02-20T12:12:14Z",
+   "data": {
+    "price": 450,
+    "status": "available"
+   }
+  },
+  "Javelin": {
+   "revid": 214263,
+   "timestamp": "2025-02-20T12:13:24Z",
+   "data": {
+    "price": 320,
+    "status": "available"
+   }
+  },
+  "Ice Queen Wand": {
+   "revid": 265018,
+   "timestamp": "2026-02-18T07:49:30Z",
+   "data": {
+    "price": 2040,
+    "status": "available"
+   }
+  },
+  "Holy Crystal": {
+   "revid": 265021,
+   "timestamp": "2026-02-18T07:50:15Z",
+   "data": {
+    "price": 3000,
+    "status": "available"
+   }
+  },
+  "Immortality": {
+   "revid": 265037,
+   "timestamp": "2026-02-18T07:54:56Z",
+   "data": {
+    "price": 2120,
+    "status": "available"
+   }
+  },
+  "Guardian Helmet": {
+   "revid": 265042,
+   "timestamp": "2026-02-18T07:56:57Z",
+   "data": {
+    "price": 2200,
+    "status": "available"
+   }
+  },
+  "Healing Necklace": {
+   "revid": 214254,
+   "timestamp": "2025-02-20T12:01:45Z",
+   "data": {
+    "price": 140,
+    "status": "available"
+   }
+  },
+  "Hero's Ring": {
+   "revid": 214255,
+   "timestamp": "2025-02-20T12:03:08Z",
+   "data": {
+    "price": 450,
+    "status": "available"
+   }
+  },
+  "Magic Blade": {
+   "revid": 264984,
+   "timestamp": "2026-02-18T07:33:35Z",
+   "data": {
+    "price": 1050,
+    "status": "available"
+   }
+  },
+  "Legion Sword": {
+   "revid": 214303,
+   "timestamp": "2025-02-21T00:50:36Z",
+   "data": {
+    "price": 910,
+    "status": "available"
+   }
+  },
+  "Knife": {
+   "revid": 214264,
+   "timestamp": "2025-02-20T12:14:40Z",
+   "data": {
+    "price": 280,
+    "status": "available"
+   }
+  },
+  "Lightning Truncheon": {
+   "revid": 264992,
+   "timestamp": "2026-02-18T07:35:14Z",
+   "data": {
+    "price": 2250,
+    "status": "available"
+   }
+  },
+  "Magic Necklace": {
+   "revid": 214308,
+   "timestamp": "2025-02-21T01:00:18Z",
+   "data": {
+    "price": 120,
+    "status": "available"
+   }
+  },
+  "Magic Potion": {
+   "revid": 265030,
+   "timestamp": "2026-02-18T07:52:41Z",
+   "data": {
+    "price": 1500,
+    "status": "available"
+   }
+  },
+  "Magic Boots": {
+   "revid": 265053,
+   "timestamp": "2026-02-18T08:00:11Z",
+   "data": {
+    "price": 710,
+    "status": "available"
+   }
+  },
+  "Leather Jerkin": {
+   "revid": 214302,
+   "timestamp": "2025-02-21T00:47:41Z",
+   "data": {
+    "price": 220,
+    "status": "available"
+   }
+  },
+  "Magic Resist Cloak": {
+   "revid": 214310,
+   "timestamp": "2025-02-21T01:03:28Z",
+   "data": {
+    "price": 220,
+    "status": "available"
+   }
+  },
+  "Lantern of Hope": {
+   "revid": 214301,
+   "timestamp": "2025-02-21T00:46:14Z",
+   "data": {
+    "price": 0,
+    "status": "available"
+   }
+  },
+  "Malefic Roar": {
+   "revid": 264978,
+   "timestamp": "2026-02-18T07:33:15Z",
+   "data": {
+    "price": 2060,
+    "status": "available"
+   }
+  },
+  "Ogre Tomahawk": {
+   "revid": 264989,
+   "timestamp": "2026-02-18T07:34:15Z",
+   "data": {
+    "price": 650,
+    "status": "available"
+   }
+  },
+  "Necklace of Durance": {
+   "revid": 214319,
+   "timestamp": "2025-02-21T01:16:02Z",
+   "data": {
+    "price": 2010,
+    "status": "removed"
+   }
+  },
+  "Magic Wand": {
+   "revid": 214311,
+   "timestamp": "2025-02-21T01:04:47Z",
+   "data": {
+    "price": 820,
+    "status": "available"
+   }
+  },
+  "Mystic Container": {
+   "revid": 214318,
+   "timestamp": "2025-02-21T01:13:02Z",
+   "data": {
+    "price": 500,
+    "status": "available"
+   }
+  },
+  "Power Crystal": {
+   "revid": 214322,
+   "timestamp": "2025-02-21T01:21:25Z",
+   "data": {
+    "price": 220,
+    "status": "available"
+   }
+  },
+  "Mystery Codex": {
+   "revid": 214317,
+   "timestamp": "2025-02-21T01:11:35Z",
+   "data": {
+    "price": 300,
+    "status": "available"
+   }
+  },
+  "Oracle": {
+   "revid": 265040,
+   "timestamp": "2026-02-18T07:56:05Z",
+   "data": {
+    "price": 1860,
+    "status": "available"
+   }
+  },
+  "Molten Essence": {
+   "revid": 214316,
+   "timestamp": "2025-02-21T01:09:58Z",
+   "data": {
+    "price": 800,
+    "status": "available"
+   }
+  },
+  "Malefic Gun": {
+   "revid": 265006,
+   "timestamp": "2026-02-18T07:43:16Z",
+   "data": {
+    "price": 2120,
+    "status": "available"
+   }
+  },
+  "Sea Halberd": {
+   "revid": 264965,
+   "timestamp": "2026-02-18T07:30:11Z",
+   "data": {
+    "price": 2050,
+    "status": "available"
+   }
+  },
+  "Rose Gold Meteor": {
+   "revid": 264966,
+   "timestamp": "2026-02-18T07:30:13Z",
+   "data": {
+    "price": 1820,
+    "status": "available"
+   }
+  },
+  "Scarlet Phantom": {
+   "revid": 264973,
+   "timestamp": "2026-02-18T07:32:29Z",
+   "data": {
+    "price": 2020,
+    "status": "removed"
+   }
+  },
+  "Rogue Meteor": {
+   "revid": 265013,
+   "timestamp": "2026-02-18T07:47:06Z",
+   "data": {
+    "price": 900,
+    "status": "available"
+   }
+  },
+  "Regular Spear": {
+   "revid": 214327,
+   "timestamp": "2025-02-21T01:34:07Z",
+   "data": {
+    "price": 600,
+    "status": "available"
+   }
+  },
+  "Power Potion": {
+   "revid": 264990,
+   "timestamp": "2026-02-18T07:34:17Z",
+   "data": {
+    "price": 1500,
+    "status": "available"
+   }
+  },
+  "Rapid Boots": {
+   "revid": 265049,
+   "timestamp": "2026-02-18T07:59:28Z",
+   "data": {
+    "price": 750,
+    "status": "available"
+   }
+  },
+  "Rock Potion": {
+   "revid": 214328,
+   "timestamp": "2025-02-21T01:35:31Z",
+   "data": {
+    "price": 1500,
+    "status": "available"
+   }
+  },
+  "Radiant Armor": {
+   "revid": 265032,
+   "timestamp": "2026-02-18T07:53:19Z",
+   "data": {
+    "price": 1880,
+    "status": "available"
+   }
+  },
+  "Queen's Wings": {
+   "revid": 265045,
+   "timestamp": "2026-02-18T07:57:54Z",
+   "data": {
+    "price": 2250,
+    "status": "available"
+   }
+  },
+  "Shadow Twinblades": {
+   "revid": 214333,
+   "timestamp": "2025-02-21T01:46:00Z",
+   "data": {
+    "price": 1960,
+    "status": "removed"
+   }
+  },
+  "Tome of Evil": {
+   "revid": 214342,
+   "timestamp": "2025-02-21T02:03:17Z",
+   "data": {
+    "price": 950,
+    "status": "available"
+   }
+  },
+  "Swift Boots": {
+   "revid": 265050,
+   "timestamp": "2026-02-18T07:59:43Z",
+   "data": {
+    "price": 710,
+    "status": "available"
+   }
+  },
+  "Tough Boots": {
+   "revid": 265055,
+   "timestamp": "2026-02-18T08:00:29Z",
+   "data": {
+    "price": 700,
+    "status": "available"
+   }
+  },
+  "Silence Robe": {
+   "revid": 214334,
+   "timestamp": "2025-02-21T01:47:48Z",
+   "data": {
+    "price": 1020,
+    "status": "available"
+   }
+  },
+  "Steel Legplates": {
+   "revid": 214337,
+   "timestamp": "2025-02-21T01:53:52Z",
+   "data": {
+    "price": 630,
+    "status": "available"
+   }
+  },
+  "Thunder Belt": {
+   "revid": 265044,
+   "timestamp": "2026-02-18T07:57:36Z",
+   "data": {
+    "price": 1820,
+    "status": "available"
+   }
+  },
+  "Swift Crossbow": {
+   "revid": 265014,
+   "timestamp": "2026-02-18T07:47:44Z",
+   "data": {
+    "price": 1000,
+    "status": "available"
+   }
+  },
+  "Starlium Scythe": {
+   "revid": 265017,
+   "timestamp": "2026-02-18T07:49:03Z",
+   "data": {
+    "price": 2220,
+    "status": "available"
+   }
+  },
+  "Sky Piercer": {
+   "revid": 265011,
+   "timestamp": "2026-02-18T07:46:05Z",
+   "data": {
+    "price": 1500,
+    "status": "available"
+   }
+  },
+  "Windtalker": {
+   "revid": 265009,
+   "timestamp": "2026-02-18T07:44:46Z",
+   "data": {
+    "price": 1880,
+    "status": "available"
+   }
+  },
+  "War Axe": {
+   "revid": 264979,
+   "timestamp": "2026-02-18T07:33:17Z",
+   "data": {
+    "price": 2100,
+    "status": "available"
+   }
+  },
+  "Wind of Nature": {
+   "revid": 264980,
+   "timestamp": "2026-02-18T07:33:22Z",
+   "data": {
+    "price": 1910,
+    "status": "available"
+   }
+  },
+  "Vampire Mallet": {
+   "revid": 214345,
+   "timestamp": "2025-02-21T02:08:49Z",
+   "data": {
+    "price": 400,
+    "status": "available"
+   }
+  },
+  "Winter Crown": {
+   "revid": 265010,
+   "timestamp": "2026-02-18T07:45:26Z",
+   "data": {
+    "price": 1910,
+    "status": "available"
+   }
+  },
+  "Warrior Boots": {
+   "revid": 265057,
+   "timestamp": "2026-02-18T08:00:41Z",
+   "data": {
+    "price": 720,
+    "status": "available"
+   }
+  },
+  "Vitality Crystal": {
+   "revid": 214353,
+   "timestamp": "2025-02-21T02:52:13Z",
+   "data": {
+    "price": 300,
+    "status": "available"
+   }
+  },
+  "Twilight Armor": {
+   "revid": 254919,
+   "timestamp": "2025-11-13T05:33:22Z",
+   "data": {
+    "price": 2100,
+    "status": "removed"
+   }
+  },
+  "Athena's Shield": {
+   "revid": 265039,
+   "timestamp": "2026-02-18T07:55:42Z",
+   "data": {
+    "price": 2150,
+    "status": "available"
+   }
+  },
+  "Wishing Lantern": {
+   "revid": 265015,
+   "timestamp": "2026-02-18T07:48:20Z",
+   "data": {
+    "price": 2250,
+    "status": "available"
+   }
+  }
+ },
+ "heroes": {
+  "Alice": {
+   "revid": 301677,
+   "timestamp": "2026-09-27T17:06:43Z",
+   "data": {
+    "hp1": "2452",
+    "hp_regen1": "7.2",
+    "mana1": "0",
+    "physical_atk1": "114",
+    "physical_def1": "25",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Alucard": {
+   "revid": 277682,
+   "timestamp": "2026-05-02T03:59:44Z",
+   "data": {
+    "hp1": "2443",
+    "hp_regen1": "7.8",
+    "mana1": "0",
+    "physical_atk1": "123",
+    "physical_def1": "21",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Akai": {
+   "revid": 277677,
+   "timestamp": "2026-05-02T03:52:23Z",
+   "data": {
+    "hp1": "2560",
+    "hp_regen1": "8.4",
+    "mana1": "500",
+    "physical_atk1": "115",
+    "physical_def1": "24",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Atlas": {
+   "revid": 277686,
+   "timestamp": "2026-05-02T04:26:12Z",
+   "data": {
+    "hp1": "2710",
+    "hp_regen1": "8.4",
+    "mana1": "500",
+    "physical_atk1": "135",
+    "physical_def1": "21",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Alpha": {
+   "revid": 277680,
+   "timestamp": "2026-05-02T03:53:19Z",
+   "data": {
+    "hp1": "2468",
+    "hp_regen1": "7.8",
+    "mana1": "500",
+    "physical_atk1": "121",
+    "physical_def1": "25",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Argus": {
+   "revid": 277684,
+   "timestamp": "2026-05-02T04:00:20Z",
+   "data": {
+    "hp1": "2450",
+    "hp_regen1": "8",
+    "mana1": "0",
+    "physical_atk1": "111",
+    "physical_def1": "21",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Aldous": {
+   "revid": 277678,
+   "timestamp": "2026-05-02T03:52:42Z",
+   "data": {
+    "hp1": "2490",
+    "hp_regen1": "9.8",
+    "mana1": "500",
+    "physical_atk1": "129",
+    "physical_def1": "21",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Angela": {
+   "revid": 277683,
+   "timestamp": "2026-05-02T04:00:02Z",
+   "data": {
+    "hp1": "2300",
+    "hp_regen1": "6.8",
+    "mana1": "500",
+    "physical_atk1": "115",
+    "physical_def1": "15",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Aamon": {
+   "revid": 277676,
+   "timestamp": "2026-05-02T03:52:05Z",
+   "data": {
+    "hp1": "2455",
+    "hp_regen1": "8",
+    "mana1": "500",
+    "physical_atk1": "115",
+    "physical_def1": "19",
+    "magic_def1": "15",
+    "movement_spd": "250"
+   }
+  },
+  "Arlott": {
+   "revid": 277685,
+   "timestamp": "2026-05-02T04:25:53Z",
+   "data": {
+    "hp1": "2450",
+    "hp_regen1": "8",
+    "mana1": "0",
+    "physical_atk1": "120",
+    "physical_def1": "21",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Balmond": {
+   "revid": 283169,
+   "timestamp": "2026-06-04T18:33:36Z",
+   "data": {
+    "hp1": "2558",
+    "hp_regen1": "9.4",
+    "mana1": "0",
+    "physical_atk1": "119",
+    "physical_def1": "25",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Bane": {
+   "revid": 277694,
+   "timestamp": "2026-05-02T04:38:48Z",
+   "data": {
+    "hp1": "2381",
+    "hp_regen1": "8.4",
+    "mana1": "500",
+    "physical_atk1": "117",
+    "physical_def1": "23",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Belerick": {
+   "revid": 283168,
+   "timestamp": "2026-06-04T18:31:22Z",
+   "data": {
+    "hp1": "2460",
+    "hp_regen1": "8.4",
+    "mana1": "500",
+    "physical_atk1": "110",
+    "physical_def1": "15",
+    "magic_def1": "15",
+    "movement_spd": "250"
+   }
+  },
+  "Baxia": {
+   "revid": 277696,
+   "timestamp": "2026-05-02T04:40:38Z",
+   "data": {
+    "hp1": "2660",
+    "hp_regen1": "8.4",
+    "mana1": "500",
+    "physical_atk1": "125",
+    "physical_def1": "23",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Barats": {
+   "revid": 277695,
+   "timestamp": "2026-05-02T04:39:10Z",
+   "data": {
+    "hp1": "2450",
+    "hp_regen1": "8.8",
+    "mana1": "500",
+    "physical_atk1": "135",
+    "physical_def1": "23",
+    "magic_def1": "15",
+    "movement_spd": "268"
+   }
+  },
+  "Aurora": {
+   "revid": 277688,
+   "timestamp": "2026-05-02T04:29:01Z",
+   "data": {
+    "hp1": "2380",
+    "hp_regen1": "6.8",
+    "mana1": "500",
+    "physical_atk1": "110",
+    "physical_def1": "17",
+    "magic_def1": "15",
+    "movement_spd": "250"
+   }
+  },
+  "Badang": {
+   "revid": 300979,
+   "timestamp": "2026-09-22T06:46:01Z",
+   "data": {
+    "hp1": "2530",
+    "hp_regen1": "8",
+    "mana1": "0",
+    "physical_atk1": "111",
+    "physical_def1": "23",
+    "magic_def1": "15",
+    "movement_spd": "255"
+   }
+  },
+  "Aulus": {
+   "revid": 286906,
+   "timestamp": "2026-06-21T01:23:22Z",
+   "data": {
+    "hp1": "2500",
+    "hp_regen1": "10.2",
+    "mana1": "0",
+    "physical_atk1": "90",
+    "physical_def1": "20",
+    "magic_def1": "15",
+    "movement_spd": "250"
+   }
+  },
+  "Benedetta": {
+   "revid": 277700,
+   "timestamp": "2026-05-02T04:46:38Z",
+   "data": {
+    "hp1": "2410",
+    "hp_regen1": "6.6",
+    "mana1": "500",
+    "physical_atk1": "113",
+    "physical_def1": "18",
+    "magic_def1": "15",
+    "movement_spd": "255"
+   }
+  },
+  "Beatrix": {
+   "revid": 283204,
+   "timestamp": "2026-06-04T19:32:47Z",
+   "data": {
+    "hp1": "2380",
+    "hp_regen1": "7.2",
+    "mana1": "0",
+    "physical_atk1": "115",
+    "physical_def1": "18",
+    "magic_def1": "15",
+    "movement_spd": "245"
+   }
+  },
+  "Bruno": {
+   "revid": 301696,
+   "timestamp": "2026-09-27T19:21:37Z",
+   "data": {
+    "hp1": "2320",
+    "hp_regen1": "6",
+    "mana1": "500",
+    "physical_atk1": "145",
+    "physical_def1": "17",
+    "magic_def1": "15",
+    "movement_spd": "245"
+   }
+  },
+  "Clint": {
+   "revid": 300990,
+   "timestamp": "2026-09-22T07:19:52Z",
+   "data": {
+    "hp1": "2260",
+    "hp_regen1": "7.2",
+    "mana1": "500",
+    "physical_atk1": "120",
+    "physical_def1": "16",
+    "magic_def1": "15",
+    "movement_spd": "245"
+   }
+  },
+  "Chou": {
+   "revid": 283171,
+   "timestamp": "2026-06-04T18:36:16Z",
+   "data": {
+    "hp1": "2530",
+    "hp_regen1": "7.8",
+    "mana1": "0",
+    "physical_atk1": "121",
+    "physical_def1": "23",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Claude": {
+   "revid": 277711,
+   "timestamp": "2026-05-02T04:49:25Z",
+   "data": {
+    "hp1": "2380",
+    "hp_regen1": "8",
+    "mana1": "500",
+    "physical_atk1": "100",
+    "physical_def1": "18",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Carmilla": {
+   "revid": 277703,
+   "timestamp": "2026-05-02T04:47:35Z",
+   "data": {
+    "hp1": "2419",
+    "hp_regen1": "7.8",
+    "mana1": "500",
+    "physical_atk1": "126",
+    "physical_def1": "25",
+    "magic_def1": "15",
+    "movement_spd": "255"
+   }
+  },
+  "Chang'e": {
+   "revid": 277705,
+   "timestamp": "2026-05-02T04:48:11Z",
+   "data": {
+    "hp1": "2320",
+    "hp_regen1": "6.8",
+    "mana1": "500",
+    "physical_atk1": "115",
+    "physical_def1": "17",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Cecilion": {
+   "revid": 277704,
+   "timestamp": "2026-05-02T04:47:52Z",
+   "data": {
+    "hp1": "2380",
+    "hp_regen1": "6.8",
+    "mana1": "700",
+    "physical_atk1": "105",
+    "physical_def1": "17",
+    "magic_def1": "15",
+    "movement_spd": "250"
+   }
+  },
+  "Brody": {
+   "revid": 300980,
+   "timestamp": "2026-09-22T06:46:20Z",
+   "data": {
+    "hp1": "2260",
+    "hp_regen1": "7.2",
+    "mana1": "500",
+    "physical_atk1": "105",
+    "physical_def1": "16",
+    "magic_def1": "15",
+    "movement_spd": "250"
+   }
+  },
+  "Cici": {
+   "revid": 277709,
+   "timestamp": "2026-05-02T04:49:07Z",
+   "data": {
+    "hp1": "2431",
+    "hp_regen1": "6",
+    "mana1": "0",
+    "physical_atk1": "129",
+    "physical_def1": "23",
+    "magic_def1": "15",
+    "movement_spd": "250"
+   }
+  },
+  "Chip": {
+   "revid": 277707,
+   "timestamp": "2026-05-02T04:48:28Z",
+   "data": {
+    "hp1": "2481",
+    "hp_regen1": "8.4",
+    "mana1": "500",
+    "physical_atk1": "112",
+    "physical_def1": "20",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Eudora": {
+   "revid": 277720,
+   "timestamp": "2026-05-02T05:02:48Z",
+   "data": {
+    "hp1": "2440",
+    "hp_regen1": "7.6",
+    "mana1": "500",
+    "physical_atk1": "112",
+    "physical_def1": "18",
+    "magic_def1": "15",
+    "movement_spd": "250"
+   }
+  },
+  "Fanny": {
+   "revid": 301369,
+   "timestamp": "2026-09-25T14:30:44Z",
+   "data": {
+    "hp1": "2267",
+    "hp_regen1": "6.6",
+    "physical_atk1": "126",
+    "physical_def1": "16",
+    "magic_def1": "15",
+    "movement_spd": "265"
+   }
+  },
+  "Cyclops": {
+   "revid": 301670,
+   "timestamp": "2026-09-27T16:38:47Z",
+   "data": {
+    "hp1": "2440",
+    "hp_regen1": "7.6",
+    "mana1": "500",
+    "physical_atk1": "112",
+    "physical_def1": "18",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Dyrroth": {
+   "revid": 302049,
+   "timestamp": "2026-09-30T15:20:32Z",
+   "data": {
+    "hp1": "2580",
+    "hp_regen1": "8.2",
+    "mana1": "0",
+    "physical_atk1": "117",
+    "physical_def1": "22",
+    "magic_def1": "15",
+    "movement_spd": "265"
+   }
+  },
+  "Estes": {
+   "revid": 277719,
+   "timestamp": "2026-05-02T05:01:47Z",
+   "data": {
+    "hp1": "2221",
+    "hp_regen1": "7.2",
+    "mana1": "500",
+    "physical_atk1": "120",
+    "physical_def1": "13",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Diggie": {
+   "revid": 277715,
+   "timestamp": "2026-05-02T04:50:18Z",
+   "data": {
+    "hp1": "2347",
+    "hp_regen1": "7.2",
+    "mana1": "500",
+    "physical_atk1": "115",
+    "physical_def1": "20",
+    "magic_def1": "15",
+    "movement_spd": "250"
+   }
+  },
+  "Floryn": {
+   "revid": 277723,
+   "timestamp": "2026-05-02T05:14:22Z",
+   "data": {
+    "hp1": "2280",
+    "hp_regen1": "7.6",
+    "mana1": "500",
+    "physical_atk1": "119",
+    "physical_def1": "12",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Edith": {
+   "revid": 277717,
+   "timestamp": "2026-05-02T04:59:52Z",
+   "data": {
+    "hp1": "2440",
+    "hp_regen1": "9",
+    "mana1": "0",
+    "physical_atk1": "110",
+    "physical_def1": "17",
+    "magic_def1": "15",
+    "movement_spd": "255"
+   }
+  },
+  "Faramis": {
+   "revid": 301902,
+   "timestamp": "2026-09-29T18:14:35Z",
+   "data": {
+    "hp1": "2500",
+    "hp_regen1": "6.8",
+    "mana1": "500",
+    "physical_atk1": "118",
+    "physical_def1": "20",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Esmeralda": {
+   "revid": 277718,
+   "timestamp": "2026-05-02T05:01:29Z",
+   "data": {
+    "hp1": "2464",
+    "hp_regen1": "7.2",
+    "mana1": "500",
+    "physical_atk1": "114",
+    "physical_def1": "21",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Franco": {
+   "revid": 277724,
+   "timestamp": "2026-05-02T05:15:16Z",
+   "data": {
+    "hp1": "2600",
+    "hp_regen1": "9.2",
+    "mana1": "500",
+    "physical_atk1": "116",
+    "physical_def1": "25",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Freya": {
+   "revid": 301895,
+   "timestamp": "2026-09-29T17:53:22Z",
+   "data": {
+    "hp1": "2550",
+    "hp_regen1": "9.8",
+    "mana1": "0",
+    "physical_atk1": "120",
+    "physical_def1": "22",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Gord": {
+   "revid": 283187,
+   "timestamp": "2026-06-04T19:09:00Z",
+   "data": {
+    "hp1": "2380",
+    "hp_regen1": "6.4",
+    "mana1": "500",
+    "physical_atk1": "110",
+    "physical_def1": "17",
+    "magic_def1": "15",
+    "movement_spd": "250"
+   }
+  },
+  "Gatotkaca": {
+   "revid": 301566,
+   "timestamp": "2026-09-26T18:26:24Z",
+   "data": {
+    "hp1": "2600",
+    "hp_regen1": "8.4",
+    "mana1": "0",
+    "physical_atk1": "128",
+    "physical_def1": "15",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Grock": {
+   "revid": 300176,
+   "timestamp": "2026-09-17T15:36:31Z",
+   "data": {
+    "hp1": "2819",
+    "hp_regen1": "8.4",
+    "mana1": "0",
+    "physical_atk1": "135",
+    "physical_def1": "21",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Gloo": {
+   "revid": 301571,
+   "timestamp": "2026-09-26T18:47:57Z",
+   "data": {
+    "hp1": "2710",
+    "hp_regen1": "12.4",
+    "mana1": "500",
+    "physical_atk1": "120",
+    "physical_def1": "18",
+    "magic_def1": "15",
+    "movement_spd": "245"
+   }
+  },
+  "Gusion": {
+   "revid": 301163,
+   "timestamp": "2026-09-23T15:41:18Z",
+   "data": {
+    "hp1": "2419",
+    "hp_regen1": "7.8",
+    "mana1": "500",
+    "physical_atk1": "119",
+    "physical_def1": "18",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Guinevere": {
+   "revid": 277732,
+   "timestamp": "2026-05-02T05:19:26Z",
+   "data": {
+    "hp1": "2350",
+    "hp_regen1": "7.8",
+    "mana1": "0",
+    "physical_atk1": "126",
+    "physical_def1": "18",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Granger": {
+   "revid": 300170,
+   "timestamp": "2026-09-17T15:15:19Z",
+   "data": {
+    "hp1": "2260",
+    "hp_regen1": "5.4",
+    "mana1": "0",
+    "physical_atk1": "116",
+    "physical_def1": "15",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Fredrinn": {
+   "revid": 277725,
+   "timestamp": "2026-05-02T05:15:36Z",
+   "data": {
+    "hp1": "2600",
+    "hp_regen1": "6.4",
+    "mana1": "0",
+    "physical_atk1": "125",
+    "physical_def1": "20",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Hayabusa": {
+   "revid": 300172,
+   "timestamp": "2026-09-17T15:26:25Z",
+   "data": {
+    "hp1": "2270",
+    "hp_regen1": "7.4",
+    "mana1": "100",
+    "physical_atk1": "117",
+    "physical_def1": "17",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Hylos": {
+   "revid": 277741,
+   "timestamp": "2026-05-02T05:22:12Z",
+   "data": {
+    "hp1": "2600",
+    "hp_regen1": "18.4",
+    "mana1": "500",
+    "physical_atk1": "105",
+    "physical_def1": "17",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Hilda": {
+   "revid": 283172,
+   "timestamp": "2026-06-04T18:38:17Z",
+   "data": {
+    "hp1": "2680",
+    "hp_regen1": "8.4",
+    "mana1": "0",
+    "physical_atk1": "123",
+    "physical_def1": "24",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Harley": {
+   "revid": 283181,
+   "timestamp": "2026-06-04T18:57:47Z",
+   "data": {
+    "hp1": "2380",
+    "hp_regen1": "7.2",
+    "mana1": "500",
+    "physical_atk1": "114",
+    "physical_def1": "19",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Irithel": {
+   "revid": 277743,
+   "timestamp": "2026-05-02T05:22:30Z",
+   "data": {
+    "hp1": "2260",
+    "hp_regen1": "7",
+    "mana1": "0",
+    "physical_atk1": "125",
+    "physical_def1": "16",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Helcurt": {
+   "revid": 277739,
+   "timestamp": "2026-05-02T05:21:35Z",
+   "data": {
+    "hp1": "2440",
+    "hp_regen1": "7",
+    "mana1": "0",
+    "physical_atk1": "121",
+    "physical_def1": "17",
+    "magic_def1": "15",
+    "movement_spd": "255"
+   }
+  },
+  "Hanzo": {
+   "revid": 283182,
+   "timestamp": "2026-06-04T19:03:07Z",
+   "data": {
+    "hp1": "2594",
+    "hp_regen1": "7",
+    "mana1": "0",
+    "physical_atk1": "108",
+    "physical_def1": "17",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Harith": {
+   "revid": 301325,
+   "timestamp": "2026-09-25T09:57:11Z",
+   "data": {
+    "hp1": "2260",
+    "hp_regen1": "7.2",
+    "mana1": "500",
+    "physical_atk1": "115",
+    "physical_def1": "17",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Hanabi": {
+   "revid": 277734,
+   "timestamp": "2026-05-02T05:20:02Z",
+   "data": {
+    "hp1": "2260",
+    "hp_regen1": "6",
+    "mana1": "500",
+    "physical_atk1": "111",
+    "physical_def1": "17",
+    "magic_def1": "15",
+    "movement_spd": "245"
+   }
+  },
+  "Hirara": {
+   "revid": 286324,
+   "timestamp": "2026-06-17T14:27:24Z",
+   "data": {
+    "hp1": "2440",
+    "hp_regen1": "6.6",
+    "mana1": "0",
+    "physical_atk1": "125",
+    "physical_def1": "18",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Karina": {
+   "revid": 277756,
+   "timestamp": "2026-05-02T05:40:44Z",
+   "data": {
+    "hp1": "2474",
+    "hp_regen1": "7.8",
+    "mana1": "500",
+    "physical_atk1": "121",
+    "physical_def1": "20",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Kagura": {
+   "revid": 277753,
+   "timestamp": "2026-05-02T05:39:49Z",
+   "data": {
+    "hp1": "2380",
+    "hp_regen1": "7",
+    "mana1": "500",
+    "physical_atk1": "118",
+    "physical_def1": "17",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Johnson": {
+   "revid": 289102,
+   "timestamp": "2026-07-09T09:34:18Z",
+   "data": {
+    "hp1": "2700",
+    "hp_regen1": "8.4",
+    "mana1": "0",
+    "physical_atk1": "120",
+    "physical_def1": "27",
+    "magic_def1": "15",
+    "movement_spd": "255"
+   }
+  },
+  "Kadita": {
+   "revid": 301689,
+   "timestamp": "2026-09-27T17:53:30Z",
+   "data": {
+    "hp1": "2440",
+    "hp_regen1": "7.2",
+    "mana1": "500",
+    "physical_atk1": "105",
+    "physical_def1": "18",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Kaja": {
+   "revid": 301686,
+   "timestamp": "2026-09-27T17:38:48Z",
+   "data": {
+    "hp1": "2440",
+    "hp_regen1": "10.4",
+    "mana1": "0",
+    "physical_atk1": "120",
+    "physical_def1": "22",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Jawhead": {
+   "revid": 285776,
+   "timestamp": "2026-06-13T02:09:20Z",
+   "data": {
+    "hp1": "2480",
+    "hp_regen1": "7.8",
+    "mana1": "500",
+    "physical_atk1": "119",
+    "physical_def1": "24",
+    "magic_def1": "15",
+    "movement_spd": "255"
+   }
+  },
+  "Julian": {
+   "revid": 301330,
+   "timestamp": "2026-09-25T11:22:53Z",
+   "data": {
+    "hp1": "2700",
+    "hp_regen1": "7.8",
+    "mana1": "500",
+    "physical_atk1": "128",
+    "physical_def1": "24",
+    "magic_def1": "15",
+    "movement_spd": "262"
+   }
+  },
+  "Joy": {
+   "revid": 277750,
+   "timestamp": "2026-05-02T05:38:55Z",
+   "data": {
+    "hp1": "2519",
+    "hp_regen1": "7.8",
+    "mana1": "0",
+    "physical_atk1": "119",
+    "physical_def1": "20",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Ixia": {
+   "revid": 277744,
+   "timestamp": "2026-05-02T05:22:46Z",
+   "data": {
+    "hp1": "2260",
+    "hp_regen1": "8",
+    "mana1": "500",
+    "physical_atk1": "100",
+    "physical_def1": "16",
+    "magic_def1": "15",
+    "movement_spd": "250"
+   }
+  },
+  "Kalea": {
+   "revid": 283208,
+   "timestamp": "2026-06-04T19:42:44Z",
+   "data": {
+    "hp1": "2500",
+    "hp_regen1": "7.8",
+    "mana1": "0",
+    "physical_atk1": "126",
+    "physical_def1": "18",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Layla": {
+   "revid": 301168,
+   "timestamp": "2026-09-23T17:57:13Z",
+   "data": {
+    "hp1": "2320",
+    "hp_regen1": "5.4",
+    "mana1": "500",
+    "physical_atk1": "133",
+    "physical_def1": "17",
+    "magic_def1": "15",
+    "movement_spd": "250"
+   }
+  },
+  "Khufra": {
+   "revid": 277760,
+   "timestamp": "2026-05-02T05:41:40Z",
+   "data": {
+    "hp1": "2670",
+    "hp_regen1": "9.4",
+    "mana1": "500",
+    "physical_atk1": "117",
+    "physical_def1": "19",
+    "magic_def1": "15",
+    "movement_spd": "255"
+   }
+  },
+  "Lancelot": {
+   "revid": 301380,
+   "timestamp": "2026-09-25T17:37:10Z",
+   "data": {
+    "hp1": "2390",
+    "hp_regen1": "7",
+    "mana1": "500",
+    "physical_atk1": "124",
+    "physical_def1": "16",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Ling": {
+   "revid": 277767,
+   "timestamp": "2026-05-02T05:43:41Z",
+   "data": {
+    "hp1": "2369",
+    "hp_regen1": "7.8",
+    "physical_atk1": "125",
+    "physical_def1": "18",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Khaleed": {
+   "revid": 277759,
+   "timestamp": "2026-05-02T05:41:23Z",
+   "data": {
+    "hp1": "2600",
+    "hp_regen1": "7",
+    "mana1": "0",
+    "physical_atk1": "109",
+    "physical_def1": "23",
+    "magic_def1": "15",
+    "movement_spd": "250"
+   }
+  },
+  "Lapu-Lapu": {
+   "revid": 277763,
+   "timestamp": "2026-05-02T05:42:33Z",
+   "data": {
+    "hp1": "2450",
+    "hp_regen1": "7",
+    "mana1": "0",
+    "physical_atk1": "119",
+    "physical_def1": "21",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Karrie": {
+   "revid": 277757,
+   "timestamp": "2026-05-02T05:41:03Z",
+   "data": {
+    "hp1": "2320",
+    "hp_regen1": "8",
+    "mana1": "500",
+    "physical_atk1": "120",
+    "physical_def1": "17",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Leomord": {
+   "revid": 283167,
+   "timestamp": "2026-06-04T18:29:13Z",
+   "data": {
+    "hp1": "2560",
+    "hp_regen1": "7",
+    "mana1": "0",
+    "physical_atk1": "126",
+    "physical_def1": "21",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Kimmy": {
+   "revid": 283200,
+   "timestamp": "2026-06-04T19:27:39Z",
+   "data": {
+    "hp1": "2380",
+    "hp_regen1": "8",
+    "physical_atk1": "100",
+    "physical_def1": "17",
+    "magic_def1": "15",
+    "movement_spd": "245"
+   }
+  },
+  "Lesley": {
+   "revid": 277766,
+   "timestamp": "2026-05-02T05:43:23Z",
+   "data": {
+    "hp1": "2260",
+    "hp_regen1": "7.2",
+    "physical_atk1": "145",
+    "physical_def1": "15",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Lolita": {
+   "revid": 277769,
+   "timestamp": "2026-05-02T05:44:00Z",
+   "data": {
+    "hp1": "2342",
+    "hp_regen1": "9.6",
+    "mana1": "500",
+    "physical_atk1": "115",
+    "physical_def1": "20",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Martis": {
+   "revid": 301347,
+   "timestamp": "2026-09-25T12:28:29Z",
+   "data": {
+    "hp1": "2560",
+    "hp_regen1": "7",
+    "mana1": "0",
+    "physical_atk1": "128",
+    "physical_def1": "25",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Luo Yi": {
+   "revid": 300982,
+   "timestamp": "2026-09-22T06:47:05Z",
+   "data": {
+    "hp1": "2440",
+    "hp_regen1": "7.2",
+    "mana1": "500",
+    "physical_atk1": "107",
+    "physical_def1": "18",
+    "magic_def1": "15",
+    "movement_spd": "250"
+   }
+  },
+  "Mathilda": {
+   "revid": 277777,
+   "timestamp": "2026-05-02T05:46:26Z",
+   "data": {
+    "hp1": "2530",
+    "hp_regen1": "6.8",
+    "mana1": "500",
+    "physical_atk1": "120",
+    "physical_def1": "22",
+    "magic_def1": "15",
+    "movement_spd": "252"
+   }
+  },
+  "Masha": {
+   "revid": 300978,
+   "timestamp": "2026-09-22T06:45:38Z",
+   "data": {
+    "hp1": "1100",
+    "hp_regen1": "3.8",
+    "mana1": "0",
+    "physical_atk1": "110",
+    "physical_def1": "15",
+    "magic_def1": "15",
+    "movement_spd": "250"
+   }
+  },
+  "Lunox": {
+   "revid": 277771,
+   "timestamp": "2026-05-02T05:44:38Z",
+   "data": {
+    "hp1": "2440",
+    "hp_regen1": "6.8",
+    "mana1": "500",
+    "physical_atk1": "115",
+    "physical_def1": "18",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Lylia": {
+   "revid": 277773,
+   "timestamp": "2026-05-02T05:45:14Z",
+   "data": {
+    "hp1": "2380",
+    "hp_regen1": "6.8",
+    "mana1": "500",
+    "physical_atk1": "113",
+    "physical_def1": "17",
+    "magic_def1": "15",
+    "movement_spd": "245"
+   }
+  },
+  "Melissa": {
+   "revid": 301374,
+   "timestamp": "2026-09-25T14:51:42Z",
+   "data": {
+    "hp1": "2320",
+    "hp_regen1": "6.6",
+    "mana1": "500",
+    "physical_atk1": "123",
+    "physical_def1": "17",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Lukas": {
+   "revid": 301187,
+   "timestamp": "2026-09-24T06:15:35Z",
+   "data": {
+    "hp1": "2550",
+    "hp_regen1": "8",
+    "mana1": "0",
+    "physical_atk1": "119",
+    "physical_def1": "21",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Marcel": {
+   "revid": 283210,
+   "timestamp": "2026-06-04T19:46:49Z",
+   "data": {
+    "hp1": "2740",
+    "hp_regen1": "12.4",
+    "mana1": "500",
+    "physical_atk1": "115",
+    "physical_def1": "25",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Miya": {
+   "revid": 301180,
+   "timestamp": "2026-09-24T04:28:56Z",
+   "data": {
+    "hp1": "2320",
+    "hp_regen1": "6",
+    "mana1": "500",
+    "physical_atk1": "115",
+    "physical_def1": "17",
+    "magic_def1": "15",
+    "movement_spd": "250"
+   }
+  },
+  "Nana": {
+   "revid": 277784,
+   "timestamp": "2026-05-02T05:49:13Z",
+   "data": {
+    "hp1": "2380",
+    "hp_regen1": "6.8",
+    "mana1": "500",
+    "physical_atk1": "115",
+    "physical_def1": "17",
+    "magic_def1": "15",
+    "movement_spd": "250"
+   }
+  },
+  "Minotaur": {
+   "revid": 277780,
+   "timestamp": "2026-05-02T05:47:56Z",
+   "data": {
+    "hp1": "2750",
+    "hp_regen1": "8.8",
+    "mana1": "0",
+    "physical_atk1": "123",
+    "physical_def1": "23",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Natalia": {
+   "revid": 283179,
+   "timestamp": "2026-06-04T18:55:30Z",
+   "data": {
+    "hp1": "2480",
+    "hp_regen1": "7",
+    "mana1": "0",
+    "physical_atk1": "121",
+    "physical_def1": "18",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Minsitthar": {
+   "revid": 283174,
+   "timestamp": "2026-06-04T18:44:47Z",
+   "data": {
+    "hp1": "2520",
+    "hp_regen1": "7.4",
+    "mana1": "500",
+    "physical_atk1": "121",
+    "physical_def1": "23",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Moskov": {
+   "revid": 277783,
+   "timestamp": "2026-05-02T05:48:53Z",
+   "data": {
+    "hp1": "2380",
+    "hp_regen1": "6.4",
+    "mana1": "500",
+    "physical_atk1": "125",
+    "physical_def1": "18",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Natan": {
+   "revid": 277786,
+   "timestamp": "2026-05-02T05:49:50Z",
+   "data": {
+    "hp1": "2260",
+    "hp_regen1": "6",
+    "mana1": "500",
+    "physical_atk1": "107",
+    "physical_def1": "16",
+    "magic_def1": "15",
+    "movement_spd": "245"
+   }
+  },
+  "Novaria": {
+   "revid": 277788,
+   "timestamp": "2026-05-02T05:50:27Z",
+   "data": {
+    "hp1": "2260",
+    "hp_regen1": "6.8",
+    "mana1": "500",
+    "physical_atk1": "115",
+    "physical_def1": "15",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Nolan": {
+   "revid": 277787,
+   "timestamp": "2026-05-02T05:50:10Z",
+   "data": {
+    "hp1": "2390",
+    "hp_regen1": "7",
+    "physical_atk1": "124",
+    "physical_def1": "16",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Obsidia": {
+   "revid": 277789,
+   "timestamp": "2026-05-02T05:50:45Z",
+   "data": {
+    "hp1": "2320",
+    "hp_regen1": "6",
+    "mana1": "500",
+    "physical_atk1": "120",
+    "physical_def1": "17",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Saber": {
+   "revid": 277798,
+   "timestamp": "2026-05-02T05:56:11Z",
+   "data": {
+    "hp1": "2500",
+    "hp_regen1": "7",
+    "mana1": "500",
+    "physical_atk1": "118",
+    "physical_def1": "20",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Rafaela": {
+   "revid": 283205,
+   "timestamp": "2026-06-04T19:34:30Z",
+   "data": {
+    "hp1": "2320",
+    "hp_regen1": "7.2",
+    "mana1": "500",
+    "physical_atk1": "117",
+    "physical_def1": "15",
+    "magic_def1": "15",
+    "movement_spd": "245"
+   }
+  },
+  "Ruby": {
+   "revid": 277797,
+   "timestamp": "2026-05-02T05:55:53Z",
+   "data": {
+    "hp1": "2331",
+    "hp_regen1": "6",
+    "mana1": "500",
+    "physical_atk1": "129",
+    "physical_def1": "18",
+    "magic_def1": "10",
+    "movement_spd": "260"
+   }
+  },
+  "Pharsa": {
+   "revid": 277792,
+   "timestamp": "2026-05-02T05:54:22Z",
+   "data": {
+    "hp1": "2320",
+    "hp_regen1": "6.8",
+    "mana1": "500",
+    "physical_atk1": "109",
+    "physical_def1": "16",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Phoveus": {
+   "revid": 283162,
+   "timestamp": "2026-06-04T18:21:19Z",
+   "data": {
+    "hp1": "2650",
+    "hp_regen1": "10.8",
+    "mana1": "0",
+    "physical_atk1": "132",
+    "physical_def1": "25",
+    "magic_def1": "15",
+    "movement_spd": "252"
+   }
+  },
+  "Roger": {
+   "revid": 277796,
+   "timestamp": "2026-05-02T05:55:34Z",
+   "data": {
+    "hp1": "2530",
+    "hp_regen1": "7.2",
+    "mana1": "500",
+    "physical_atk1": "128",
+    "physical_def1": "22",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Odette": {
+   "revid": 301898,
+   "timestamp": "2026-09-29T18:03:05Z",
+   "data": {
+    "hp1": "2440",
+    "hp_regen1": "6.8",
+    "mana1": "500",
+    "physical_atk1": "105",
+    "physical_def1": "18",
+    "magic_def1": "15",
+    "movement_spd": "250"
+   }
+  },
+  "Paquito": {
+   "revid": 301889,
+   "timestamp": "2026-09-29T17:32:50Z",
+   "data": {
+    "hp1": "2620",
+    "hp_regen1": "9.8",
+    "mana1": "0",
+    "physical_atk1": "121",
+    "physical_def1": "22",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Selena": {
+   "revid": 277799,
+   "timestamp": "2026-05-02T05:56:30Z",
+   "data": {
+    "hp1": "2280",
+    "hp_regen1": "6.8",
+    "mana1": "500",
+    "physical_atk1": "110",
+    "physical_def1": "15",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Popol and Kupa": {
+   "revid": 310046,
+   "timestamp": "2026-11-12T11:57:48Z",
+   "data": {
+    "hp1": "2260",
+    "hp_regen1": "6",
+    "mana1": "500",
+    "physical_atk1": "100",
+    "physical_def1": "16",
+    "magic_def1": "15",
+    "movement_spd": "250"
+   }
+  },
+  "Tigreal": {
+   "revid": 277806,
+   "timestamp": "2026-05-02T05:59:23Z",
+   "data": {
+    "hp1": "2581",
+    "hp_regen1": "8.4",
+    "mana1": "500",
+    "physical_atk1": "112",
+    "physical_def1": "20",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Uranus": {
+   "revid": 301054,
+   "timestamp": "2026-09-22T15:56:53Z",
+   "data": {
+    "hp1": "2380",
+    "hp_regen1": "6.4",
+    "mana1": "500",
+    "physical_atk1": "115",
+    "physical_def1": "19",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Valentina": {
+   "revid": 277809,
+   "timestamp": "2026-05-02T06:00:17Z",
+   "data": {
+    "hp1": "2500",
+    "hp_regen1": "7.2",
+    "mana1": "500",
+    "physical_atk1": "115",
+    "physical_def1": "20",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Vale": {
+   "revid": 283193,
+   "timestamp": "2026-06-04T19:17:06Z",
+   "data": {
+    "hp1": "2380",
+    "hp_regen1": "6.8",
+    "mana1": "500",
+    "physical_atk1": "115",
+    "physical_def1": "17",
+    "magic_def1": "15",
+    "movement_spd": "250"
+   }
+  },
+  "Sun": {
+   "revid": 283166,
+   "timestamp": "2026-06-04T18:27:37Z",
+   "data": {
+    "hp1": "2500",
+    "hp_regen1": "8.2",
+    "mana1": "500",
+    "physical_atk1": "114",
+    "physical_def1": "23",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Thamuz": {
+   "revid": 277805,
+   "timestamp": "2026-05-02T05:59:06Z",
+   "data": {
+    "hp1": "2580",
+    "hp_regen1": "7.4",
+    "mana1": "0",
+    "physical_atk1": "107",
+    "physical_def1": "17",
+    "magic_def1": "15",
+    "movement_spd": "250"
+   }
+  },
+  "Terizla": {
+   "revid": 277804,
+   "timestamp": "2026-05-02T05:58:49Z",
+   "data": {
+    "hp1": "2619",
+    "hp_regen1": "10.8",
+    "mana1": "0",
+    "physical_atk1": "129",
+    "physical_def1": "19",
+    "magic_def1": "15",
+    "movement_spd": "255"
+   }
+  },
+  "Silvanna": {
+   "revid": 283175,
+   "timestamp": "2026-06-04T18:48:21Z",
+   "data": {
+    "hp1": "2650",
+    "hp_regen1": "7.8",
+    "mana1": "500",
+    "physical_atk1": "126",
+    "physical_def1": "22",
+    "magic_def1": "15",
+    "movement_spd": "255"
+   }
+  },
+  "Suyou": {
+   "revid": 283184,
+   "timestamp": "2026-06-04T19:06:00Z",
+   "data": {
+    "hp1": "2390",
+    "hp_regen1": "7",
+    "mana1": "0",
+    "physical_atk1": "124",
+    "physical_def1": "16",
+    "magic_def1": "15",
+    "movement_spd": "225"
+   }
+  },
+  "Sora": {
+   "revid": 277801,
+   "timestamp": "2026-05-02T05:57:08Z",
+   "data": {
+    "hp1": "2800",
+    "hp_regen1": "10.8",
+    "mana1": "0",
+    "physical_atk1": "132",
+    "physical_def1": "25",
+    "magic_def1": "15",
+    "movement_spd": "252"
+   }
+  },
+  "Yi Sun-shin": {
+   "revid": 301560,
+   "timestamp": "2026-09-26T18:01:49Z",
+   "data": {
+    "hp1": "2320",
+    "hp_regen1": "7.2",
+    "mana1": "500",
+    "physical_atk1": "110",
+    "physical_def1": "22",
+    "magic_def1": "10",
+    "movement_spd": "250"
+   }
+  },
+  "Wanwan": {
+   "revid": 277812,
+   "timestamp": "2026-05-02T06:01:15Z",
+   "data": {
+    "hp1": "2320",
+    "hp_regen1": "5.4",
+    "mana1": "500",
+    "physical_atk1": "110",
+    "physical_def1": "17",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Yin": {
+   "revid": 301371,
+   "timestamp": "2026-09-25T14:33:50Z",
+   "data": {
+    "hp1": "2400",
+    "hp_regen1": "9.8",
+    "mana1": "0",
+    "physical_atk1": "109",
+    "physical_def1": "21",
+    "magic_def1": "15",
+    "movement_spd": "252"
+   }
+  },
+  "X.Borg": {
+   "revid": 277813,
+   "timestamp": "2026-05-02T06:01:34Z",
+   "data": {
+    "hp1": "917",
+    "hp_regen1": "7.8",
+    "mana1": "0",
+    "physical_atk1": "117",
+    "physical_def1": "25",
+    "magic_def1": "15",
+    "movement_spd": "260"
+   }
+  },
+  "Yu Zhong": {
+   "revid": 283176,
+   "timestamp": "2026-06-04T18:49:48Z",
+   "data": {
+    "hp1": "2520",
+    "hp_regen1": "11.8",
+    "mana1": "0",
+    "physical_atk1": "129",
+    "physical_def1": "21",
+    "magic_def1": "15",
+    "movement_spd": "245"
+   }
+  },
+  "Vexana": {
+   "revid": 301903,
+   "timestamp": "2026-09-29T18:33:36Z",
+   "data": {
+    "hp1": "2380",
+    "hp_regen1": "7.6",
+    "mana1": "500",
+    "physical_atk1": "112",
+    "physical_def1": "17",
+    "magic_def1": "15",
+    "movement_spd": "250"
+   }
+  },
+  "Valir": {
+   "revid": 283191,
+   "timestamp": "2026-06-04T19:15:58Z",
+   "data": {
+    "hp1": "2380",
+    "hp_regen1": "6.8",
+    "mana1": "500",
+    "physical_atk1": "105",
+    "physical_def1": "17",
+    "magic_def1": "15",
+    "movement_spd": "250"
+   }
+  },
+  "Yve": {
+   "revid": 277818,
+   "timestamp": "2026-05-02T06:03:08Z",
+   "data": {
+    "hp1": "2320",
+    "hp_regen1": "7.2",
+    "mana1": "500",
+    "physical_atk1": "115",
+    "physical_def1": "16",
+    "magic_def1": "15",
+    "movement_spd": "245"
+   }
+  },
+  "Xavier": {
+   "revid": 277814,
+   "timestamp": "2026-05-02T06:01:53Z",
+   "data": {
+    "hp1": "2380",
+    "hp_regen1": "6.8",
+    "mana1": "500",
+    "physical_atk1": "111",
+    "physical_def1": "17",
+    "magic_def1": "15",
+    "movement_spd": "250"
+   }
+  },
+  "Zetian": {
+   "revid": 283198,
+   "timestamp": "2026-06-04T19:24:58Z",
+   "data": {
+    "hp1": "2380",
+    "hp_regen1": "6.8",
+    "mana1": "500",
+    "physical_atk1": "95",
+    "physical_def1": "17",
+    "magic_def1": "15",
+    "movement_spd": "240"
+   }
+  },
+  "Zilong": {
+   "revid": 277822,
+   "timestamp": "2026-05-02T06:04:23Z",
+   "data": {
+    "hp1": "2511",
+    "hp_regen1": "7",
+    "mana1": "500",
+    "physical_atk1": "123",
+    "physical_def1": "25",
+    "magic_def1": "15",
+    "movement_spd": "265"
+   }
+  },
+  "Zhask": {
+   "revid": 283190,
+   "timestamp": "2026-06-04T19:14:34Z",
+   "data": {
+    "hp1": "2380",
+    "hp_regen1": "6.8",
+    "mana1": "500",
+    "physical_atk1": "107",
+    "physical_def1": "17",
+    "magic_def1": "15",
+    "movement_spd": "250"
+   }
+  },
+  "Zhuxin": {
+   "revid": 283196,
+   "timestamp": "2026-06-04T19:23:54Z",
+   "data": {
+    "hp1": "2440",
+    "hp_regen1": "7.2",
+    "mana1": "1200",
+    "physical_atk1": "115",
+    "physical_def1": "18",
+    "magic_def1": "15",
+    "movement_spd": "245"
+   }
+  }
+ }
+}

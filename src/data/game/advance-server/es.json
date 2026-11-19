@@ -4598,7 +4598,7 @@
         "name": "Minotaur",
         "type": "nerf",
         "tag": null,
-        "intro": "Nuestros cambios anteriores en la regeneración de Enfurecer de Minotauro lo hicieron demasiado poderoso contra héroes que dependen de ataques básicos de múltiples golpes. Además, su HP está un poco sobreajustado ya que es un tanque CC. Por eso, haremos nuevos cambios en su regeneración de Enfurecer y reduciremos la curación de su habilidad Rugido de motivación.",
+        "intro": "Nuestros cambios anteriores en la regeneración de Enfurecer de Minotauro lo hicieron demasiado poderoso contra héroes que dependen de ataques básicos de múltiples golpes. Además, su HP está un poco sobreajustado ya que es un tanque CC. Por eso, haremos nuevos cambios en su regeneración de Enfurecer y reduciremos la curación de su habilidad Rugido de motivación. Habilidad 2",
         "sections": [
           {
             "name": null,
@@ -7149,7 +7149,7 @@
                 ]
               }
             ],
-            "slug": "athena-s-shield"
+            "slug": null
           },
           {
             "name": "Dominance Ice",

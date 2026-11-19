@@ -4598,7 +4598,7 @@
         "name": "Minotaur",
         "type": "nerf",
         "tag": null,
-        "intro": "Le nostre precedenti modifiche alla rigenerazione Furia del Minotauro lo rendevano troppo potente contro gli eroi che fanno affidamento su attacchi base a colpi multipli. Inoltre, i suoi HP sono un po' esagerati dato che è un tank CC. Quindi stiamo apportando nuove modifiche alla sua rigenerazione della rabbia e riducendo la guarigione della sua abilità Ruggito motivazionale.",
+        "intro": "Le nostre precedenti modifiche alla rigenerazione Furia del Minotauro lo hanno reso troppo potente contro gli eroi che fanno affidamento su attacchi base a colpi multipli. Inoltre, i suoi HP sono un po' esagerati dato che è un tank CC. Quindi stiamo apportando nuove modifiche alla sua rigenerazione della rabbia e riducendo la guarigione della sua abilità Ruggito motivazionale. Abilità 2",
         "sections": [
           {
             "name": null,
@@ -7149,7 +7149,7 @@
                 ]
               }
             ],
-            "slug": "athena-s-shield"
+            "slug": null
           },
           {
             "name": "Dominance Ice",
