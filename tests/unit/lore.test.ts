@@ -124,7 +124,7 @@ describe("real data", () => {
 
   it("groups House Paxley and drops hostile affiliations", () => {
     const factions = factionsLore("en");
-    expect(factions.find((f) => f.name === "Paxley House")?.heroes).toEqual(["aamon", "gusion", "marcel"]);
+    expect(factions.find((f) => f.name === "House Paxley")?.heroes).toEqual(["aamon", "gusion", "marcel"]);
     expect(factions.some((f) => /hostile|enem|former/i.test(f.name))).toBe(false);
   });
 
