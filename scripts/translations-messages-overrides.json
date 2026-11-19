@@ -4959,6 +4959,46 @@
     "prose.gdpr.retention.sessions": {
       "fr": "Sessions : le jeton du compte de jeu jusqu'à son expiration (7 jours au plus), dans le cookie, et sur le serveur si vous reliez une carte /profile ; la session Discord, 7 jours.",
       "text": "Sessions: the game account token until it expires (7 days at most), in the cookie, and on the server if you link a /profile card; the Discord session, 7 days."
+    },
+    "pages.sources.rows.heroBase": {
+      "fr": "Caractéristiques, compétences et histoire : {sources}.",
+      "text": "Attributes, skills and lore: {sources}."
+    },
+    "pages.sources.rows.heroMeasures": {
+      "fr": "Textes officiels des compétences, taux de victoire, contres et builds joués en partie classée : {sources}.",
+      "text": "Official skill texts, win rates, counters and builds played in ranked matches: {sources}."
+    },
+    "pages.sources.rows.item": {
+      "fr": "Effets, prix et statut de l'objet : {sources}.",
+      "text": "Item effects, price and status: {sources}."
+    },
+    "pages.sources.rows.usage": {
+      "fr": "Builds joués et taux par rang : {sources}.",
+      "text": "Played builds and rates by rank: {sources}."
+    },
+    "pages.sources.rows.sheet": {
+      "fr": "Description et conseils : rédigés par {site}.",
+      "text": "Description and tips: written by {site}."
+    },
+    "pages.sources.rows.rates": {
+      "fr": "Taux de victoire, de ban et de sélection des parties classées : API communautaire {sources}.",
+      "text": "Win, ban and pick rates in ranked matches: the {sources} community API."
+    },
+    "pages.sources.rows.tiers": {
+      "fr": "Paliers et tendances : calculés par {site} à partir de ces taux.",
+      "text": "Tiers and trends: computed by {site} from these rates."
+    },
+    "pages.sources.rows.patches": {
+      "fr": "Liste des patchs et notes de mise à jour : {sources}.",
+      "text": "Patch list and patch notes: {sources}."
+    },
+    "pages.sources.licence": {
+      "fr": "Textes des wikis repris sous licence CC BY-SA, avec attribution à leurs contributeurs.",
+      "text": "Wiki texts reused under the CC BY-SA licence, with attribution to their contributors."
+    },
+    "pages.sources.images": {
+      "fr": "Images © Moonton, utilisées à titre d'illustration.",
+      "text": "Images © Moonton, used for illustration purposes."
     }
   },
   "es": {
@@ -9465,6 +9505,26 @@
     "pages.account.levelCelestial": {
       "fr": "Niveau céleste {n}",
       "text": "Nivel celestial {n}"
+    },
+    "pages.sources.rows.usage": {
+      "fr": "Builds joués et taux par rang : {sources}.",
+      "text": "Builds jugadas y tasas por rango: {sources}."
+    },
+    "pages.sources.rows.rates": {
+      "fr": "Taux de victoire, de ban et de sélection des parties classées : API communautaire {sources}.",
+      "text": "Tasas de victoria, baneo y selección en partidas clasificatorias: API comunitaria {sources}."
+    },
+    "pages.sources.rows.tiers": {
+      "fr": "Paliers et tendances : calculés par {site} à partir de ces taux.",
+      "text": "Tiers y tendencias: calculados por {site} a partir de estas tasas."
+    },
+    "pages.sources.synced": {
+      "fr": "Données du jeu synchronisées le {date}",
+      "text": "Datos del juego sincronizados el {date}"
+    },
+    "pages.sources.measured": {
+      "fr": "Statistiques mesurées le {date}",
+      "text": "Estadísticas medidas el {date}"
     }
   },
   "id": {
@@ -16067,6 +16127,18 @@
     "pages.account.levelCelestial": {
       "fr": "Niveau céleste {n}",
       "text": "Level Celestial {n}"
+    },
+    "pages.sources.rows.usage": {
+      "fr": "Builds joués et taux par rang : {sources}.",
+      "text": "Build yang dimainkan dan rate per rank: {sources}."
+    },
+    "pages.sources.rows.rates": {
+      "fr": "Taux de victoire, de ban et de sélection des parties classées : API communautaire {sources}.",
+      "text": "Win rate, ban rate, dan pick rate di pertandingan ranked: API komunitas {sources}."
+    },
+    "pages.sources.rows.tiers": {
+      "fr": "Paliers et tendances : calculés par {site} à partir de ces taux.",
+      "text": "Tier dan tren: dihitung oleh {site} dari rate ini."
     }
   },
   "it": {
@@ -20621,6 +20693,38 @@
     "heroData.specialty.damage": {
       "fr": "Dégâts",
       "text": "Danno"
+    },
+    "pages.sources.rows.heroBase": {
+      "fr": "Caractéristiques, compétences et histoire : {sources}.",
+      "text": "Caratteristiche, abilità e storia: {sources}."
+    },
+    "pages.sources.rows.heroMeasures": {
+      "fr": "Textes officiels des compétences, taux de victoire, contres et builds joués en partie classée : {sources}.",
+      "text": "Testi ufficiali delle abilità, percentuali di vittoria, counter e build giocate nelle partite classificate: {sources}."
+    },
+    "pages.sources.rows.usage": {
+      "fr": "Builds joués et taux par rang : {sources}.",
+      "text": "Build giocate e percentuali per grado: {sources}."
+    },
+    "pages.sources.rows.rates": {
+      "fr": "Taux de victoire, de ban et de sélection des parties classées : API communautaire {sources}.",
+      "text": "Percentuali di vittoria, ban e scelta nelle partite classificate: API della comunità {sources}."
+    },
+    "pages.sources.rows.tiers": {
+      "fr": "Paliers et tendances : calculés par {site} à partir de ces taux.",
+      "text": "Tier e tendenze: calcolati da {site} a partire da queste percentuali."
+    },
+    "pages.sources.images": {
+      "fr": "Images © Moonton, utilisées à titre d'illustration.",
+      "text": "Immagini © Moonton, usate a scopo illustrativo."
+    },
+    "pages.sources.synced": {
+      "fr": "Données du jeu synchronisées le {date}",
+      "text": "Dati di gioco sincronizzati il {date}"
+    },
+    "pages.sources.measured": {
+      "fr": "Statistiques mesurées le {date}",
+      "text": "Statistiche misurate il {date}"
     }
   },
   "fil": {
@@ -35551,6 +35655,14 @@
     "pages.account.levelCelestial": {
       "fr": "Niveau céleste {n}",
       "text": "Celestial level {n}"
+    },
+    "pages.sources.rows.usage": {
+      "fr": "Builds joués et taux par rang : {sources}.",
+      "text": "Mga build na nilaro at mga rate bawat rank: {sources}."
+    },
+    "pages.sources.rows.rates": {
+      "fr": "Taux de victoire, de ban et de sélection des parties classées : API communautaire {sources}.",
+      "text": "Win rate, ban rate at pick rate sa mga ranked match: community API na {sources}."
     }
   },
   "th": {
@@ -49489,6 +49601,18 @@
     "pages.guides.updated": {
       "fr": "Mis à jour le {date}",
       "text": "อัปเดตเมื่อ {date}"
+    },
+    "pages.sources.rows.heroMeasures": {
+      "fr": "Textes officiels des compétences, taux de victoire, contres et builds joués en partie classée : {sources}.",
+      "text": "ข้อความสกิลอย่างเป็นทางการ อัตราชนะ เคาน์เตอร์ และบิลด์ที่เล่นในแมตช์แรงก์: {sources}"
+    },
+    "pages.sources.rows.usage": {
+      "fr": "Builds joués et taux par rang : {sources}.",
+      "text": "บิลด์ที่เล่นและอัตราตามแรงก์: {sources}"
+    },
+    "pages.sources.rows.rates": {
+      "fr": "Taux de victoire, de ban et de sélection des parties classées : API communautaire {sources}.",
+      "text": "อัตราชนะ อัตราแบน และอัตราเลือกในแมตช์แรงก์: API ชุมชน {sources}"
     }
   },
   "pt": {
@@ -61331,6 +61455,22 @@
     "pages.account.levelCelestial": {
       "fr": "Niveau céleste {n}",
       "text": "Nível celestial {n}"
+    },
+    "pages.sources.rows.usage": {
+      "fr": "Builds joués et taux par rang : {sources}.",
+      "text": "Builds jogadas e taxas por ranque: {sources}."
+    },
+    "pages.sources.rows.rates": {
+      "fr": "Taux de victoire, de ban et de sélection des parties classées : API communautaire {sources}.",
+      "text": "Taxas de vitória, banimento e escolha nas partidas ranqueadas: API da comunidade {sources}."
+    },
+    "pages.sources.rows.tiers": {
+      "fr": "Paliers et tendances : calculés par {site} à partir de ces taux.",
+      "text": "Tiers e tendências: calculados por {site} a partir dessas taxas."
+    },
+    "pages.sources.images": {
+      "fr": "Images © Moonton, utilisées à titre d'illustration.",
+      "text": "Imagens © Moonton, usadas a título ilustrativo."
     }
   },
   "ru": {
@@ -74569,6 +74709,34 @@
     "pages.communityUI.titleLabel": {
       "fr": "Titre",
       "text": "Заголовок"
+    },
+    "pages.sources.rows.heroMeasures": {
+      "fr": "Textes officiels des compétences, taux de victoire, contres et builds joués en partie classée : {sources}.",
+      "text": "Официальные описания навыков, процент побед, контрпики и сборки из рейтинговых матчей: {sources}."
+    },
+    "pages.sources.rows.usage": {
+      "fr": "Builds joués et taux par rang : {sources}.",
+      "text": "Сыгранные сборки и показатели по рангам: {sources}."
+    },
+    "pages.sources.rows.rates": {
+      "fr": "Taux de victoire, de ban et de sélection des parties classées : API communautaire {sources}.",
+      "text": "Процент побед, банов и выборов в рейтинговых матчах: API сообщества {sources}."
+    },
+    "pages.sources.rows.tiers": {
+      "fr": "Paliers et tendances : calculés par {site} à partir de ces taux.",
+      "text": "Тиры и тренды: рассчитаны {site} на основе этих показателей."
+    },
+    "pages.sources.rows.sheet": {
+      "fr": "Description et conseils : rédigés par {site}.",
+      "text": "Описание и советы: написаны {site}."
+    },
+    "pages.sources.synced": {
+      "fr": "Données du jeu synchronisées le {date}",
+      "text": "Данные игры синхронизированы {date}"
+    },
+    "pages.sources.measured": {
+      "fr": "Statistiques mesurées le {date}",
+      "text": "Статистика измерена {date}"
     }
   }
 }

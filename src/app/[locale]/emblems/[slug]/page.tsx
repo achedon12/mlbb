@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ItemIcon } from "@/components/item-sheet";
 import { ListLinks, PartsChoice, TableRanks, TableUsage } from "@/components/usage-sheet";
 import { FreshnessLine } from "@/components/freshness";
+import { PageSourcesBlock } from "@/components/page-sources";
 import { Card, PageHeader, SectionTitle } from "@/components/ui";
 import type { Locale } from "@/i18n/config";
 import { metaPage, notFoundMetadata } from "@/i18n/seo";
@@ -222,6 +223,8 @@ export default async function EmblemPage({ params }: Params) {
               })}
           />
         </section>
+
+        <PageSourcesBlock locale={locale} of={{ kind: "emblem" }} className="mt-0" />
       </div>
     </>
   );

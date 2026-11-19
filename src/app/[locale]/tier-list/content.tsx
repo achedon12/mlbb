@@ -3,6 +3,7 @@ import Link from "@/components/link";
 import { DiscordInvite } from "@/components/discord-invite";
 import type { Crumb } from "@/components/breadcrumb";
 import { freshnessFacts } from "@/components/freshness";
+import { PageSourcesBlock } from "@/components/page-sources";
 import { GuideLink } from "@/components/guide";
 import { guideOfLane } from "@/lib/guides";
 import { Foldable } from "@/components/foldable";
@@ -385,6 +386,7 @@ export function TierList({
           {t("pages.tierList.conclusion")}
         </p>
         <DiscordInvite t={t} context="tier" className="mt-8" />
+        <PageSourcesBlock locale={locale} of={{ kind: "ranking" }} className="mt-10" />
         </TierRows>
       </div>
     </>

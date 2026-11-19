@@ -1214,6 +1214,26 @@
         "description": "Berapa biaya koleksi Mobile Legends-mu? Salin skin-mu per kategori Showcase ({skins} skin di katalog), cek poin koleksimu, dan dapatkan perkiraan dalam diamond, USD, EUR, PHP, IDR, dan MYR, dengan metode yang ditampilkan."
       }
     },
+    "sources": {
+      "title": "Sumber",
+      "withPage": "{source} (halaman {page})",
+      "pair": "{a} dan {b}",
+      "rows": {
+        "heroBase": "Karakteristik, skill dan sejarah: {sources}.",
+        "heroMeasures": "Teks resmi skill, win rate, counter, dan build yang dimainkan dalam permainan peringkat: {sources}.",
+        "item": "Efek item, harga, dan status: {sources}.",
+        "usage": "Build yang dimainkan dan rate per rank: {sources}.",
+        "sheet": "Deskripsi dan saran: ditulis oleh {site}.",
+        "icons": "Ikon: {sources}.",
+        "rates": "Win rate, ban rate, dan pick rate di pertandingan ranked: API komunitas {sources}.",
+        "tiers": "Tier dan tren: dihitung oleh {site} dari rate ini.",
+        "patches": "Daftar patch dan catatan rilis: {sources}."
+      },
+      "licence": "Teks dari wiki termasuk di bawah lisensi CC BY-SA, dengan atribusi kepada kontributornya.",
+      "images": "Gambar © Moonton, digunakan untuk ilustrasi.",
+      "synced": "Data game disinkronkan pada {date}",
+      "measured": "Statistik diukur pada {date}"
+    },
     "freshness": {
       "updatedOn": "Diperbarui pada {date}",
       "patch": "Patch {v}",
