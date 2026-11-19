@@ -45,6 +45,18 @@ records no kills, deaths or assists for Mobile Legends, so there is no KDA.
 per-language versions (`stories/`, `skills/`, `modes/`, `items/`,
 `patches/`, `combos/`, `tier-notes/`, one `<language>.json` each).
 
+Hero stories and game modes are also written to `stories/en.json` and
+`modes/en.json`, the files the English pages read and the source every other
+language is translated from: the lore is never translated back into English
+from another language.
+
+Wiki markup is turned into plain text by `scripts/wikitext.mjs` (links,
+templates and their parameters, headings, tables, entities). Before writing,
+the sync checks every text it is about to save (`scripts/markup-guard.mjs`):
+a leftover such as `[[`, `{{`, `|image=`, `===` or `Resource#Rage` is
+reported with its path, as a warning annotation on the CI run, so a new wiki
+template is noticed at the first sync.
+
 The long history (`evolution.json`, key `history`) keeps the last 90 days
 day by day; older weeks are reduced to their average (under `weeks`), and
 the hero page draws them back as one continuous curve.

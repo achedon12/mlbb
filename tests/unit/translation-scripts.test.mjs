@@ -37,6 +37,19 @@ describe("translation markers", () => {
   });
 });
 
+describe("French game vocabulary", () => {
+  it("uses the site's words for lanes, roles, stats and effects", () => {
+    expect(applyGlossary("Les tireurs d'élite de la voie d'or", "fr")).toBe("Les tireurs de la Gold lane");
+    expect(applyGlossary("Gagne une immunité lente et 200 HP.", "fr")).toBe("Gagne une immunité aux ralentissements et 200 PV.");
+    expect(applyGlossary("Inflige des dégâts aux serviteurs et aux fluages.", "fr")).toBe("Inflige des dégâts aux sbires et aux creeps.");
+    expect(applyGlossary("Le Réservoir protège la voie du milieu.", "fr")).toBe("Le Tank protège la Mid lane.");
+  });
+
+  it("leaves words that only look like an abbreviation alone", () => {
+    expect(applyGlossary("Les héros hp et Phoveus", "fr")).toBe("Les héros hp et Phoveus");
+  });
+});
+
 describe("Indonesian game vocabulary", () => {
   it("puts back the English terms players use", () => {
     expect(applyGlossary("Tingkat kemenangan dan kulit pahlawan", "id")).toBe("Win rate dan skin hero");
@@ -55,7 +68,7 @@ describe("Indonesian game vocabulary", () => {
   });
 
   it("leaves languages without a glossary unchanged", () => {
-    expect(applyGlossary("Pahlawan", "fr")).toBe("Pahlawan");
+    expect(applyGlossary("Pahlawan", "it")).toBe("Pahlawan");
     expect(applyGlossary(null, "id")).toBe(null);
   });
 });

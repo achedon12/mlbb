@@ -371,8 +371,8 @@
       },
       "strengths": "Kekuatan",
       "weaknesses": "Kelemahan",
-      "analysisPending": "Analisis sedang ditulis",
-      "analysisText": "Data untuk {name} adalah yang terbaru — berasal langsung dari wiki. Yang kurang adalah komentarnya: apa yang sebenarnya dilakukan sang hero, build-nya, dan counter-nya. Ini tidak dapat diekstraksi, ada tertulis.",
+      "analysisPending": "Belum ada analisis tertulis",
+      "analysisText": "Belum ada yang menulis analisis tentang {name}: cara memainkannya, item apa yang harus dibeli, siapa yang harus dilawan. Sementara itu, tab lainnya memberikan angka yang diukur dalam permainan peringkat.",
       "analysisTranslated": "Analisis ditulis dalam bahasa Prancis dan diterjemahkan secara otomatis.",
       "contribute": "Berkontribusi pada analisis ini →",
       "countersIntro": "Berdasarkan win rate permainan: penyebaran poin menunjukkan seberapa besar perbedaan tingkat {name} terhadap setiap lawan.",
@@ -479,8 +479,8 @@
     },
     "emblems": {
       "title": "Emblem dan talent",
-      "lead": "Pertanyaan sebenarnya bukanlah bakat apa yang ada, tapi bakat mana yang harus Anda ambil untuk peran yang Anda mainkan. Pilih emblem Anda: sisa halaman akan mengatur ulang dirinya sendiri di sekitarnya.",
-      "metaDescription": "Emblem, talent, dan battle spell mana yang harus diambil, tergantung role kalian di Mobile Legends: Bang Bang. Pilih emblem Anda, halaman diatur di sekitarnya.",
+      "lead": "Pilih emblem peran Anda: halaman tersebut kemudian menampilkan bakatnya dan Battle Spell yang menyertainya.",
+      "metaDescription": "Emblem, talent, dan battle spell mana yang harus diambil, tergantung role kalian di Mobile Legends: Bang Bang. Pilih emblem Anda untuk melihat bakatnya.",
       "ogDescription": "Apa yang harus diambil tergantung pada peran Anda: emblem, talenta, dan Battle Spell."
     },
     "draft": {
@@ -1219,6 +1219,7 @@
     },
     "heroPreview": {
       "trend": "Selama {n} hari terakhir, win rate {name} telah meningkat dari {start} menjadi {end}, semua peringkat digabungkan ({gap} {pts}).",
+      "trendStable": "Selama {n} hari terakhir, win rate {name} tidak berubah: {end}, semua peringkat digabungkan.",
       "duration": "{name} menang terbanyak dalam permainan {window} ({winRate}) dan paling sedikit dalam permainan {windowLow} ({winRateLow}).",
       "ranks": "Bergantung pada peringkat, win rate {name} berkisar dari {low} di {rankLow} hingga {high} di {rankHigh}.",
       "adjustments": "Penyesuaian {name}: {n} pada patch {total} terakhir.",
@@ -4895,7 +4896,7 @@
       "play": "Main"
     },
     "startTitle": "Mulai dari mana",
-    "startLead": "Anda memainkan role, bukan katalog. Mulai dari situ.",
+    "startLead": "Pilih peran Anda untuk melihat hero yang memainkannya.",
     "latestArticles": "Artikel terbaru",
     "allNews": "Semua berita",
     "followRss": "Ikuti publikasi di RSS",
@@ -4987,7 +4988,7 @@
           "p": "Tidak ada akun yang dibuat di situs ini. Hero favorit Anda tetap ada di browser Anda. Hanya pemberitahuan, jika Anda mengaktifkannya, simpan alamat pengirim browser Anda dan daftar favorit Anda di server: halaman kerahasiaan merinci apa yang disimpan dan cara menghapusnya."
         },
         {
-          "h": "Menyumbang"
+          "h": "Berkontribusi"
         },
         {
           "p": "Kode dan konten bersifat publik. Lembar hero ada dalam file TypeScript yang diketik, artikel dalam file Markdown: Anda dapat menambahkan lembar atau memperbaiki kesalahan tanpa mengetahui sisa proyek."
@@ -5748,6 +5749,7 @@
     "resource": {
       "mana": "Mana",
       "energy": "Energi",
+      "rage": "Kemarahan",
       "none": "Tidak ada"
     },
     "damage": {

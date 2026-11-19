@@ -18,6 +18,42 @@
  * interface catalogue, where the ambiguous word can only mean the game term.
  */
 const RULES = {
+  // French is the source of the interface, but game data taken from the wiki
+  // (skills, items, modes, patches) is translated into it from English. French
+  // players keep the game's English names for lanes, spells and items, and
+  // the site's own words for roles ("Tireur", "Combattant") and stats ("PV").
+  fr: [
+    // Lanes, as players and the esports pages say them.
+    ["voie (?:d'or|dorée|de l'or)", "Gold lane"],
+    ["voie (?:d'expérience|de l'expérience|EXP)", "EXP lane"],
+    ["voie (?:du milieu|centrale)", "Mid lane"],
+    ["couloir (?:d'or|doré)", "Gold lane"],
+    ["couloir (?:d'expérience|EXP)", "EXP lane"],
+    ["couloir (?:du milieu|central)", "Mid lane"],
+    // Effects: "Slow Immunity" came back as a slow immunity.
+    ["immunité lente", "immunité aux ralentissements"],
+    ["immunité au ralentissement", "immunité aux ralentissements"],
+    ["immunité de contrôle", "immunité aux contrôles"],
+    // Roles, as the site names them.
+    ["tireurs d'élite", "tireurs"],
+    ["tireur d'élite", "tireur"],
+    ["réservoirs", "tanks"],
+    ["réservoir", "tank"],
+    // Stats: one abbreviation for hit points, the French one.
+    ["HP", "PV", { caseSensitive: true }],
+    ["PS", "PV", { caseSensitive: true }],
+    ["points de vie max", "PV max"],
+    // Lane minions are "sbires" everywhere on the site.
+    ["serviteurs", "sbires"],
+    ["serviteur", "sbire"],
+    ["minions", "sbires"],
+    ["minion", "sbire"],
+    // Jungle monsters keep the players' word.
+    ["fluages", "creeps"],
+    ["fluage", "creep"],
+    ["sorts de bataille", "sorts de combat"],
+    ["sort de bataille", "sort de combat"],
+  ],
   id: [
     // Rates first, before their parts are replaced one by one.
     ["tingkat kemenangan", "win rate"],

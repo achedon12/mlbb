@@ -23,10 +23,20 @@ function resolve(tree: Tree, key: string): string | undefined {
  * Builds a translation function. A missing key falls back on the fallback
  * tree, then on the key itself: never a blank screen.
  */
-export function createTFrom(messages: Tree, fallback?: Tree): T {
+export function createTFrom(messages: Tree, fallback?: Tree, options: { elide?: boolean } = {}): T {
   return (key, variables) => {
     const raw = resolve(messages, key) ?? (fallback ? resolve(fallback, key) : undefined) ?? key;
     if (!variables) return raw;
-    return raw.replace(/\{(\w+)\}/g, (_, name) => (name in variables ? String(variables[name]) : `{${name}}`));
+    return raw.replace(/(\b(?:[Dd]e|[Qq]ue) )?\{(\w+)\}/g, (_, before: string | undefined, name: string) => {
+      if (!(name in variables)) return `${before ?? ""}{${name}}`;
+      const value = String(variables[name]);
+      // French elides before a vowel: "les données d'Aamon", "le détail
+      // d'octobre", where the template can only write "de {name}".
+      if (before && options.elide && ELIDED.test(value)) return `${before.slice(0, -2)}'${value}`;
+      return `${before ?? ""}${value}`;
+    });
   };
 }
+
+/** A word that takes an elision in front of it: it opens on a vowel (h and y aside: "de Yu Zhong", and h aspiré is too irregular to guess). */
+const ELIDED = /^[aeiouàâäéèêëîïôöùûüœ]/i;

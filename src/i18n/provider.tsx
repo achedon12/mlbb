@@ -27,7 +27,7 @@ export function LocaleProvider({
   messages: Tree;
   children: React.ReactNode;
 }) {
-  const value = useMemo(() => ({ locale, messages, t: createTFrom(messages) }), [locale, messages]);
+  const value = useMemo(() => ({ locale, messages, t: createTFrom(messages, undefined, { elide: locale === "fr" }) }), [locale, messages]);
   return <Context.Provider value={value}>{children}</Context.Provider>;
 }
 
@@ -47,7 +47,7 @@ export function ExtendMessages({ messages, children }: { messages: Tree; childre
   const parent = useContext(Context);
   const value = useMemo(() => {
     const merged = merge(parent.messages, messages);
-    return { locale: parent.locale, messages: merged, t: createTFrom(merged) };
+    return { locale: parent.locale, messages: merged, t: createTFrom(merged, undefined, { elide: parent.locale === "fr" }) };
   }, [parent, messages]);
   return <Context.Provider value={value}>{children}</Context.Provider>;
 }

@@ -7,6 +7,8 @@
  * which heroes make it into the catalogue can be tested on saved fixtures.
  */
 
+import { plainValue } from "./wikitext.mjs";
+
 /** Wiki lane names mapped to the site's lane tokens. */
 const LANES = {
   "Gold Lane": "Gold",
@@ -59,6 +61,20 @@ function normalizeStats(stats) {
   return Object.keys(output).length ? output : null;
 }
 
+/**
+ * The resource a hero's skills use. Heroes without mana or energy carry a
+ * link to the Rage section of the wiki's Resource page,
+ * `Resource#Rage/Indicator|None`: its label, "None", hides what the section
+ * names, so the section wins.
+ */
+export function resourceOf(value) {
+  const raw = clean(value);
+  if (!raw) return null;
+  const section = raw.match(/^\[*\s*Resource#([^|/\]]+)/i);
+  if (section) return section[1].trim();
+  return plainValue(raw.includes("|") && !raw.includes("[[") ? `[[${raw}]]` : raw);
+}
+
 function normalizeHero(h) {
   return {
     slug: slugify(h.name),
@@ -68,9 +84,10 @@ function normalizeHero(h) {
     roles: list(h.role1, h.role2),
     lanes: list(h.lane1, h.lane2).map((l) => LANES[l] ?? l),
     specialties: list(h.specialty1, h.specialty2),
-    release: clean(h.release_date),
+    // "[[Patch Notes/1.6.66|22 March 2022]]": the date, not the link.
+    release: plainValue(clean(h.release_date)),
     year: clean(h.release_year) ?? extractYear(h.release_date),
-    resource: clean(h.resource),
+    resource: resourceOf(h.resource),
     damageType: clean(h.dmg_type),
     attackType: clean(h.atk_type),
     region: clean(h.region),

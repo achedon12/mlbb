@@ -371,8 +371,8 @@
       },
       "strengths": "Pontos fortes",
       "weaknesses": "Fraquezas",
-      "analysisPending": "Análise em andamento",
-      "analysisText": "Os dados de {name} estão atualizados — vêm direto da wiki. O que falta é o comentário: o que o herói realmente faz, suas builds e seus counters. Isso não dá para extrair: precisa ser escrito.",
+      "analysisPending": "Nenhuma análise escrita ainda",
+      "analysisText": "Ninguém ainda escreveu uma análise de {name}: como jogar, quais itens comprar, contra quem jogar. Enquanto isso, as outras guias fornecem os números medidos no jogo classificado.",
       "analysisTranslated": "Análise escrita em francês e traduzida automaticamente.",
       "contribute": "Contribua para esta análise →",
       "countersIntro": "Com base nas taxas de vitória do jogo: a diferença em pontos mostra quanto a taxa de vitória de {name} varia contra cada oponente.",
@@ -479,8 +479,8 @@
     },
     "emblems": {
       "title": "Emblemas e talentos",
-      "lead": "A verdadeira questão não é quais talentos existem, mas quais pegar para a função que você joga. Escolha seu emblema: o resto da página se reorganiza em torno dele.",
-      "metaDescription": "Qual emblema, talento e Feitiço de Batalha usar na sua função em Mobile Legends: Bang Bang. Escolha seu emblema e a página se organiza em torno dele.",
+      "lead": "",
+      "metaDescription": "",
       "ogDescription": "O que usar na sua função: emblemas, talentos e Feitiços de Batalha."
     },
     "draft": {
@@ -1219,6 +1219,7 @@
     },
     "heroPreview": {
       "trend": "Nos últimos {n} dias, a taxa de vitória de {name} passou de {start} para {end}, considerando todos os elos ({gap} {pts}).",
+      "trendStable": "Nos últimos {n} dias, a taxa de vitória de {name} não mudou: {end}, todas as classificações combinadas.",
       "duration": "{name} vence mais nas partidas de {window} ({winRate}) e menos nas de {windowLow} ({winRateLow}).",
       "ranks": "Conforme o elo, a taxa de vitória de {name} vai de {low} no {rankLow} a {high} no {rankHigh}.",
       "adjustments": "Ajustes de {name}: {n} nos últimos {total} patches.",
@@ -4895,7 +4896,7 @@
       "play": "Jogar"
     },
     "startTitle": "Por onde começar",
-    "startLead": "Você joga uma função, não um catálogo. Comece por aí.",
+    "startLead": "Escolha o seu papel para ver os heróis que o interpretam.",
     "latestArticles": "Artigos mais recentes",
     "allNews": "Todas as notícias",
     "followRss": "Acompanhe as novas publicações via RSS",
@@ -5748,6 +5749,7 @@
     "resource": {
       "mana": "Mana",
       "energy": "Energia",
+      "rage": "Raiva",
       "none": "Nenhum"
     },
     "damage": {

@@ -371,8 +371,8 @@
       },
       "strengths": "Mga lakas",
       "weaknesses": "Mga kahinaan",
-      "analysisPending": "Isinusulat pa ang analysis",
-      "analysisText": "Updated ang data para kay {name} — direkta itong galing sa wiki. Ang kulang ay ang komentaryo: kung ano talaga ang ginagawa ng hero, ang kanyang mga build at mga counter. Hindi ito basta makukuha; kailangan itong isulat.",
+      "analysisPending": "Wala pang nakasulat na pagsusuri",
+      "analysisText": "Wala pang nagsulat ng pagsusuri ng {name}: kung paano ito laruin, anong mga item ang bibilhin, kanino ito sasalungat. Pansamantala, ang iba pang mga tab ay nagbibigay ng mga numerong nasusukat sa ranggo na paglalaro.",
       "analysisTranslated": "Isinulat ang analysis sa French at isinalin nang awtomatiko.",
       "contribute": "Mag-ambag sa analysis na ito →",
       "countersIntro": "Batay sa in-game win rate: ipinapakita ng pagitan sa points kung gaano gumagalaw ang win rate ni {name} laban sa bawat kalaban.",
@@ -479,8 +479,8 @@
     },
     "emblems": {
       "title": "Mga emblem at talent",
-      "lead": "Ang tunay na tanong ay hindi kung anong mga talent ang meron, kundi kung alin ang kukunin para sa role na nilalaro mo. Piliin ang iyong emblem: aayusin ang natitirang bahagi ng pahina ayon dito.",
-      "metaDescription": "Aling emblem, talent at Battle Spell ang kukunin para sa iyong role sa Mobile Legends: Bang Bang. Piliin ang iyong emblem at aayusin ang pahina ayon dito.",
+      "lead": "Piliin ang emblem ng iyong tungkulin: pagkatapos ay ipinapakita ng pahina ang mga talento nito at ang mga pakikipaglaban na kasama nila.",
+      "metaDescription": "Aling emblem, talento at Battle Spell ang kukunin depende sa iyong role sa Mobile Legends: Bang Bang. Piliin ang iyong emblem para makita ang mga talento nito.",
       "ogDescription": "Ano ang kukunin para sa iyong role: mga emblem, talent at Battle Spell."
     },
     "draft": {
@@ -1219,6 +1219,7 @@
     },
     "heroPreview": {
       "trend": "Sa nakalipas na {n} araw, ang win rate ni {name} ay mula {start} naging {end} sa lahat ng rank ({gap} {pts}).",
+      "trendStable": "Sa nakalipas na {n} araw, ang win rate na {name} ay hindi nagbago: {end}, pinagsama ang lahat ng ranggo.",
       "duration": "Pinakamadalas manalo si {name} sa mga {window} na laro ({winRate}) at pinakamadalang sa mga {windowLow} na laro ({winRateLow}).",
       "ranks": "Ayon sa rank, ang win rate ni {name} ay mula {low} sa {rankLow} hanggang {high} sa {rankHigh}.",
       "adjustments": "Mga pagbabago kay {name}: {n} sa huling {total} patch.",
@@ -4895,7 +4896,7 @@
       "play": "Maglaro"
     },
     "startTitle": "Saan magsisimula",
-    "startLead": "Role ang nilalaro mo, hindi catalog. Doon ka magsimula.",
+    "startLead": "Piliin ang iyong tungkulin para makita ang mga bayaning gumaganap nito.",
     "latestArticles": "Pinakabagong artikulo",
     "allNews": "Lahat ng balita",
     "followRss": "Sundan ang mga bagong post sa RSS",
@@ -5748,6 +5749,7 @@
     "resource": {
       "mana": "Mana",
       "energy": "Energy",
+      "rage": "Galit",
       "none": "Wala"
     },
     "damage": {
