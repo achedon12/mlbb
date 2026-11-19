@@ -4,6 +4,7 @@ import { ExternalLink, FileText } from "lucide-react";
 import { ListArticles } from "@/components/article";
 import { Foldable } from "@/components/foldable";
 import { PageHeader } from "@/components/ui";
+import { PageSourcesBlock } from "@/components/page-sources";
 import { patches, patchDetails, sync } from "@/lib/data";
 import { articles } from "@/lib/content";
 import { LOCALE_INTL, type Locale } from "@/i18n/config";
@@ -125,6 +126,8 @@ export default async function PatchNotesPage({ params }: { params: Promise<{ loc
           </ul>
           </Foldable>
         </section>
+
+        <PageSourcesBlock locale={locale} of={{ kind: "patches" }} className="mt-0" />
       </div>
     </>
   );
