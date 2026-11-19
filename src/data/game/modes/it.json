@@ -176,15 +176,15 @@
         ]
       },
       {
-        "title": "Rank Reset",
+        "title": "Reimpostazione del grado",
         "elements": [
           {
             "type": "p",
-            "text": "After a season ends, all players will begin their new season with their new rank based on their rank in the previous season. They also receive the reward for having reached certain Rank."
+            "text": "Al termine di una stagione, tutti i giocatori inizieranno la nuova stagione con il nuovo grado in base al grado della stagione precedente. Ricevono anche la ricompensa per aver raggiunto un certo grado."
           },
           {
             "type": "p",
-            "text": "Rank reset is only applied when the player logs in for the first time in the new season, however their old Rank is not recorded on leaderboard."
+            "text": "Il ripristino del grado viene applicato solo quando il giocatore accede per la prima volta nella nuova stagione, tuttavia il suo vecchio grado non viene registrato nella classifica."
           }
         ]
       }
@@ -194,26 +194,26 @@
   {
     "name": "Brawl",
     "slug": "brawl",
-    "description": "Brawl is a game mode in which you are unable to choose your heroes freely. Instead each player will be given a choice between two random heroes. Fights in this mode happen only in one lane with two turrets defending the base in both teams respectively. Brawl matches usually end in a much shorter time compared to Classic Mode and Ranked. This type of match is prefered for raising lost credit scores or complete tasks.",
+    "description": "Brawl è una modalità di gioco in cui non puoi scegliere liberamente i tuoi eroi. Invece a ogni giocatore verrà data la possibilità di scegliere tra due eroi casuali. I combattimenti in questa modalità avvengono solo in una corsia con due torrette che difendono la base rispettivamente in entrambe le squadre. Le partite di rissa solitamente terminano in un tempo molto più breve rispetto alla modalità classica e alla classificata. Questo tipo di corrispondenza è preferibile per aumentare i punteggi di credito persi o completare attività.",
     "sections": [
       {
-        "title": "Main features",
+        "title": "Caratteristiche principali",
         "elements": [
           {
             "type": "li",
-            "text": "Each player is given a choice between 2 random heroes."
+            "text": "Ogni giocatore può scegliere tra 2 eroi casuali."
           },
           {
             "type": "li",
-            "text": "Players can only buy items when dead or before leaving Altar area on each respawn."
+            "text": "I giocatori possono acquistare oggetti solo quando morti o prima di lasciare l'area dell'altare ad ogni rigenerazione."
           },
           {
             "type": "li",
-            "text": "Altar no longer heals or regenerates mana. All healing effect is halved. Base no longer replenishes itself."
+            "text": "L'altare non cura più né rigenera il mana. Tutti gli effetti curativi sono dimezzati. La base non si rigenera più."
           },
           {
             "type": "li",
-            "text": "Each hero might have an additional buff or handicap."
+            "text": "Ogni eroe potrebbe avere un buff o un handicap aggiuntivo."
           }
         ]
       },
@@ -863,37 +863,37 @@
           },
           {
             "type": "p",
-            "text": "The first team to accumulate 15 Aquamarines will win this match. No laning, no destroying turrets, to kill, and ravage is the goal of this mode! Come and have fun, you will be the winner!"
+            "text": "La prima squadra ad accumulare 15 Acquamarine vincerà questa partita. Nessuna corsia, nessuna torretta distrutta, uccisione e devastazione è l'obiettivo di questa modalità! Vieni e divertiti, sarai il vincitore!"
           },
           {
             "type": "p",
-            "text": "From 7–13 August 2020, Ravage Mode came back with a new 3V3 mode. Only 3 out of 5 roles will be used and all players will start with 30,000 and hero level in 15 (max)."
+            "text": "Dal 7 al 13 agosto 2020, Ravage Mode è tornata con una nuova modalità 3V3. Verranno utilizzati solo 3 ruoli su 5 e tutti i giocatori inizieranno con 30.000 e un livello eroe su 15 (massimo)."
           }
         ]
       },
       {
-        "title": "Brawl&Mirror",
+        "title": "Rissa e specchio",
         "elements": [
           {
             "type": "p",
-            "text": "Exciting Brawl Match among the Mirrored Heroes!"
+            "text": "Emozionante incontro di rissa tra gli eroi specchiati!"
           },
           {
             "type": "p",
-            "text": "Hero Selection: In this mode, players vote for the hero they would like to use out of a random set of heroes. The hero with the most votes will become the hero that is used by the entire team."
+            "text": "Selezione dell'eroe: in questa modalità, i giocatori votano per l'eroe che vorrebbero utilizzare da un set casuale di eroi. L'eroe con più voti diventerà l'eroe utilizzato dall'intera squadra."
           },
           {
             "type": "p",
-            "text": "Hero Adjustment: In this mode, different heroes receive different attribute buffs to create more balance among heroes of different roles, thus improving the overall game experience."
+            "text": "Regolazione dell'eroe: in questa modalità, eroi diversi ricevono potenziamenti di attributi diversi per creare più equilibrio tra eroi di ruoli diversi, migliorando così l'esperienza di gioco complessiva."
           }
         ]
       },
       {
-        "title": "Chess TD",
+        "title": "TD di scacchi",
         "elements": [
           {
             "type": "p",
-            "text": "Tower Defense Battle Royale Match"
+            "text": "Partita di Battle Royale di difesa della torre"
           },
           {
             "type": "p",
@@ -909,45 +909,45 @@
           },
           {
             "type": "p",
-            "text": "Definition of Round: A round contains 4 phases: the preparation phase, the get ready phase, the battle phase, and the resolving phase. The preparation phase is for players to buy, deploy, recall, or sell heroes and upgrade the capacity. During the battle phase, one of the other players' heroes will invade your map. If these invaders successfully get to the destination before they are eliminated, you will receive relative damage."
+            "text": "Definizione di round: un round contiene 4 fasi: la fase di preparazione, la fase di preparazione, la fase di battaglia e la fase di risoluzione. La fase di preparazione prevede che i giocatori acquistino, schierino, richiamino o vendano eroi e ne migliorino la capacità. Durante la fase di battaglia, uno degli eroi degli altri giocatori invaderà la tua mappa. Se questi invasori riescono a raggiungere la destinazione prima di essere eliminati, riceverai il relativo danno."
           },
           {
             "type": "p",
-            "text": "Definition of Gold & Capacity: At the end of each round, players will get a certain amount of Gold and Interest (for every 10 gold owned, get extra 1 gold). Additionally, getting winning streaks or losing streaks will also grant an extra gold bonus. Capacity decides how many heroes you can deploy. The maximum is 9. At the end of each round, you will get 1 Capacity Exp. Also, you can choose to buy 4 Capacity Exp. with 4 golds. The chance to get elite heroes scales with the level of the capacity, at the same time, the chance to get common heroes decays with it."
+            "text": "Definizione di oro e capacità: alla fine di ogni round, i giocatori riceveranno una certa quantità di oro e interessi (per ogni 10 oro posseduti, ottengono 1 oro extra). Inoltre, ottenere serie di vittorie o sconfitte garantirà anche un bonus in oro extra. La capacità decide quanti eroi puoi schierare. Il massimo è 9. Alla fine di ogni round, otterrai 1 Esp. Capacità. Inoltre, puoi scegliere di acquistare 4 Capacità Esp. con 4 ori. La possibilità di ottenere eroi d'élite aumenta con il livello della capacità, allo stesso tempo, la possibilità di ottenere eroi comuni diminuisce con essa."
           },
           {
             "type": "p",
-            "text": "Hero Level & Star: There are 4 levels for heroes, which indicate the rarity and the cost of them. Generally speaking, high-level heroes should be more powerful. If there are 3 same heroes on the battlefield, they will upgrade into a higher-level hero. Three 1-star heroes will upgrade into a 2-star hero. Three 2-star heroes will upgrade into a 3-star hero."
+            "text": "Livello eroe e stella: ci sono 4 livelli per gli eroi, che ne indicano la rarità e il costo. In generale, gli eroi di alto livello dovrebbero essere più potenti. Se ci sono 3 eroi uguali sul campo di battaglia, diventeranno un eroe di livello superiore. Tre eroi a 1 stella diventeranno un eroe a 2 stelle. Tre eroi a 2 stelle diventeranno un eroe a 3 stelle."
           },
           {
             "type": "p",
-            "text": "Synergy: Every hero has 2 attributes: faction & role. The synergy effect will be activated if there are enough heroes with the same attributes on the battlefield (the same heroes' attributes will be counted once only). It is important to take synergy into consideration."
+            "text": "Sinergia: ogni eroe ha 2 attributi: fazione e ruolo. L'effetto sinergico verrà attivato se ci sono abbastanza eroi con gli stessi attributi sul campo di battaglia (gli attributi degli stessi eroi verranno conteggiati una sola volta). È importante prendere in considerazione la sinergia."
           }
         ]
       },
       {
-        "title": "Magic Chess",
+        "title": "Scacchi magici",
         "elements": [
           {
             "type": "p",
-            "text": "Fast-paced auto chess competition among 8 players."
+            "text": "Gara di scacchi automatica dal ritmo serrato tra 8 giocatori."
           },
           {
             "type": "p",
-            "text": "Magic Chess is an 8-player complex strategy based game mode, where players will compete against each other and random creeps in the Magic Chessboard. The goal of this game is to buy and upgrade your heroes and the little commander, customizing your lineup to trigger and counter more and stronger synergies. The victory belongs to the one stands till the last!"
+            "text": "Magic Chess è una modalità di gioco complessa basata su una strategia per 8 giocatori, in cui i giocatori si sfideranno tra loro e si insinueranno casualmente nella scacchiera magica. L'obiettivo di questo gioco è acquistare e potenziare i tuoi eroi e il piccolo comandante, personalizzando la tua formazione per innescare e contrastare sinergie sempre più forti. La vittoria appartiene a chi resiste fino all'ultimo!"
           }
         ]
       },
       {
-        "title": "Shadow Brawl",
+        "title": "Rissa d'Ombra",
         "elements": [
           {
             "type": "p",
-            "text": "The Brawl on the Bridge of Destruction."
+            "text": "La rissa sul ponte della distruzione."
           },
           {
             "type": "p",
-            "text": "In Shadow Brawl, players vote to select a hero among several randomly appearing heroes. All players in the team will use the same hero to play the game. Players are equipped with Chain which marks the current position and connects a chain to it. The chain will automatically pull your hero back to the marked position after 4s. CD is 20s."
+            "text": "In Shadow Brawl, i giocatori votano per selezionare un eroe tra diversi eroi che appaiono casualmente. Tutti i giocatori della squadra utilizzeranno lo stesso eroe per giocare. I giocatori sono dotati di Catena che segna la posizione attuale e collega ad essa una catena. La catena riporterà automaticamente il tuo eroe nella posizione contrassegnata dopo 4 secondi. Il CD è degli anni '20."
           }
         ]
       },
@@ -956,23 +956,23 @@
         "elements": [
           {
             "type": "p",
-            "text": "1v1 Auto Card Battle."
+            "text": "Battaglia automatica di carte 1v1."
           },
           {
             "type": "p",
-            "text": "A new kind of game has taken Moniyan by storm. The Little Commanders and their magical items can now be found in each and every home throughout the land. The Crystal Balls sense all kinds of life throughout the Land of Dawn and channel their Energy; which is transformed into collectible cards. There are Monster Cards and Hero Cards. Monsters are easily gained and controlled, while heroes require a heftier price and more advanced Energy. Decks are built and battles held with others; people are striving to defeat enemy's Little Commander and achieve victory."
+            "text": "Un nuovo tipo di gioco ha preso d'assalto Moniyan. I Piccoli Comandanti e i loro oggetti magici ora possono essere trovati in ogni casa del paese. Le Sfere di Cristallo percepiscono tutti i tipi di vita nella Terra dell'Alba e incanalano la loro Energia; che si trasforma in carte collezionabili. Ci sono Carte Mostro e Carte Eroe. I mostri possono essere facilmente ottenuti e controllati, mentre gli eroi richiedono un prezzo più elevato e un'energia più avanzata. Si costruiscono mazzi e si combattono battaglie con gli altri; le persone stanno cercando di sconfiggere il piccolo comandante del nemico e ottenere la vittoria."
           },
           {
             "type": "p",
-            "text": "In \"Arena\" mode, you will match up against another player in a 1v1 battle. Your goal is simple, take down your opponent's Little Commander before they take down yours. In order to do so, you will have to use cards to summon Heroes and Monsters and cast spells to fight against your opponent's troops. The battle will keep going until the Little Commander on one side is taken down. \"Shard\", the resource to summon Monsters and use spells, is generated every 3 seconds. And by spending 5 \"Shards\", the resource used to summon Heroes, \"Essence\", will be generated."
+            "text": "Nella modalità \"Arena\", affronterai un altro giocatore in una battaglia 1v1. Il tuo obiettivo è semplice: abbattere il Piccolo Comandante del tuo avversario prima che sia lui ad abbattere il tuo. Per fare ciò, dovrai utilizzare le carte per evocare Eroi e Mostri e lanciare incantesimi per combattere contro le truppe del tuo avversario. La battaglia continuerà finché il Piccolo Comandante da una parte non verrà sconfitto. \"Shard\", la risorsa per evocare mostri e usare incantesimi, viene generata ogni 3 secondi. E spendendo 5 \"Frammenti\", verrà generata la risorsa utilizzata per evocare gli Eroi, \"Essenza\"."
           },
           {
             "type": "p",
-            "text": "After entering the \"Arena\", you will be given a series of tutorials to get you started. After walking through the full tutorial, you will be rewarded 9 basic cards. As you play, you can get cards from Battle Chests and Summoning Orbs. The duplicate cards obtained will be used to upgrade the corresponding cards to give it more strength. In addition, more cards will be unlocked as you progress your rank. All cards will be unlocked when Legend is reached. There are two levels of rarity for Hero cards, Uncommon and Epic. There are two cards, Uncommon and Epic. There are two levels of rarity for Monster/Spell cards as well, Common and Uncommon."
+            "text": "Dopo essere entrato nell'\"Arena\", ti verranno forniti una serie di tutorial per iniziare. Dopo aver seguito il tutorial completo, riceverai in ricompensa 9 carte base. Mentre giochi, puoi ottenere carte dai bauli di battaglia e dalle sfere di evocazione. Le carte duplicate ottenute verranno utilizzate per potenziare le carte corrispondenti per dargli più forza. Inoltre, man mano che avanzi di grado, verranno sbloccate più carte. Tutte le carte verranno sbloccate al raggiungimento della Leggenda. Esistono due livelli di rarità per le carte Eroe, Non comune ed Epica. Ci sono due carte, Non comune ed Epica. Ci sono due livelli di rarità anche per le carte Mostro/Magia, Comune e Non comune."
           },
           {
             "type": "p",
-            "text": "You can earn Cup Points, Battle Points, and Battle Chests after each match. More cards can be unlocked with more Cup Points. You can get Battle Points or cards that are already unlocked from the Battle Chests."
+            "text": "Puoi guadagnare punti Coppa, punti battaglia e forzieri battaglia dopo ogni partita. Più carte possono essere sbloccate con più Punti Coppa. Puoi ottenere punti battaglia o carte già sbloccate dai forzieri battaglia."
           }
         ]
       },

@@ -2035,7 +2035,7 @@
   "jawhead": [
     {
       "name": "Mecha Suppression",
-      "description": "Each time Jawhead deals damage to an enemy hero or a Creep, he inflicts a stack of Mecha Suppression on them for 3s (up to 6 stacks). Each stack of Mecha Suppression increases all damage dealt to the target by 2% (limited to 50% for Creeps)."
+      "description": "แต่ละครั้งที่ Jawhead สร้างความเสียหายให้กับฮีโร่ศัตรูหรือครีป เขาจะติดสแตค Mecha Suppression ไว้กับฮีโร่เหล่านั้นเป็นเวลา 3 วินาที (สูงสุด 6 สแต็ค) แต่ละ Stack ของ Mecha Suppression จะเพิ่มความเสียหายทั้งหมดที่สร้างให้กับเป้าหมาย 2% (จำกัดไว้ที่ 50% สำหรับครีป)"
     },
     {
       "name": "Smart Missiles",
@@ -2049,7 +2049,7 @@
     },
     {
       "name": "Ejector",
-      "description": "Jawhead gains 30% Movement Speed and a 500 (+100% Total Physical Attack) shield for 5s. Use Again: Jawhead flings the nearest unit (prioritizes heroes) to the target location, dealing 300 (+80% Total Physical Attack) Physical Damage to enemies in the area and stunning them for 0.5s. Can be used on allied heroes and they will not take damage.",
+      "description": "Jawhead ได้รับความเร็วในการเคลื่อนที่ 30% และเกราะป้องกัน 500 (+100% ของการโจมตีกายภาพทั้งหมด) เป็นเวลา 5 วินาที ใช้อีกครั้ง: Jawhead เหวี่ยงยูนิตที่ใกล้ที่สุด (จัดลำดับความสำคัญของฮีโร่) ไปยังตำแหน่งเป้าหมาย สร้างความเสียหายกายภาพ 300 (+80% ของการโจมตีทางกายภาพทั้งหมด) ให้กับศัตรูในพื้นที่ และสตันพวกเขาเป็นเวลา 0.5 วินาที สามารถใช้กับฮีโร่พันธมิตรได้ และจะไม่ได้รับความเสียหาย",
       "cooldown": [
         15
       ],
@@ -2059,7 +2059,7 @@
     },
     {
       "name": "Unstoppable Force",
-      "description": "Jawhead charges into the target enemy hero, dealing 350 (+150% Total Physical Attack) Physical Damage and briefly stunning them. Enemies around the target are knocked back and dealt the same amount of damage. Jawhead is immune to control effects during the charge.",
+      "description": "Jawhead พุ่งเข้าใส่ฮีโร่ศัตรูเป้าหมาย สร้างความเสียหายกายภาพ 350 (+150% ของการโจมตีกายภาพทั้งหมด) และสตันพวกเขาเป็นเวลาสั้นๆ ศัตรูที่อยู่รอบๆ เป้าหมายจะกระเด็นถอยหลังและสร้างความเสียหายเท่ากัน Jawhead มีภูมิคุ้มกันต่อการควบคุมเอฟเฟกต์ระหว่างการชาร์จ",
       "cooldown": [
         35
       ],
@@ -2071,18 +2071,18 @@
   "johnson": [
     {
       "name": "Electro Airbag",
-      "description": "When Johnson's HP drops below 30%, he gains a 300 (+700% Total Physical Defense) shield for 10s. Cooldown: 100s."
+      "description": "เมื่อ HP ของ Johnson ลดลงต่ำกว่า 30% เขาได้รับโล่ 300 (+700% การป้องกันกายภาพทั้งหมด) เป็นเวลา 10 วินาที คูลดาวน์: 100 วินาที"
     },
     {
       "name": "Impact Wrench",
-      "description": "Johnson throws his wrench toward the target location, dealing 120 (+220% Total Physical Defense) Magic Damage to enemies in its path. Enemies around the landing point are stunned for 0.8s.",
+      "description": "Johnson ขว้างประแจไปยังพื้นที่เป้าหมาย สร้างความเสียหายเวทย์ 120 (+220% ของการป้องกันทางกายภาพทั้งหมด) ให้กับศัตรูที่อยู่ในเส้นทางของมัน ศัตรูรอบๆ จุดลงจอดจะถูกสตันเป็นเวลา 0.8 วินาที",
       "cooldown": [
         8
       ]
     },
     {
       "name": "Electromagnetic Waves",
-      "description": "Johnson raises his shield, continuously dealing 120 (+60% Total Magic Power) Magic Damage to enemies in a fan-shaped area in the target direction, reducing their Movement Speed and Magic Defense by 10% (stacks up to 3 times) for 2s. While his shield is raised, Johnson can perform Basic Attacks and cast skills.",
+      "description": "Johnson ยกโล่ขึ้น สร้างความเสียหายเวทย์ 120 (+60% รวมพลังเวทย์) อย่างต่อเนื่อง ให้กับศัตรูในพื้นที่รูปพัดในทิศทางเป้าหมาย ลดความเร็วในการเคลื่อนที่และการป้องกันเวทย์มนตร์ลง 10% (ซ้อนทับได้สูงสุด 3 ครั้ง) เป็นเวลา 2 วินาที ขณะที่โล่ของเขาถูกยกขึ้น Johnson สามารถทำการโจมตีพื้นฐานและสกิลการร่ายได้",
       "cooldown": [
         10
       ]
@@ -2555,14 +2555,14 @@
     },
     {
       "name": "Momentum",
-      "description": "Leomord begins channeling, slowing enemies in the target direction by 25%. When the channeling is complete or interrupted, he thrusts his sword in the same direction, dealing up to 500 (+180% Total Physical Attack) Physical Damage to enemies hit (scales with channeling time; increased to 140% against creeps except the Turtle and Lord) and slowing them by 40% for 1s. Use Again: Cast the skill again to cancel the channeling and immediately perform the thrust.",
+      "description": "Leomord เริ่มร่ายเวทย์ ทำให้ศัตรูในทิศทางเป้าหมายช้าลง 25% เมื่อการแชนเนลเสร็จสิ้นหรือถูกขัดจังหวะ เขาจะแทงดาบไปในทิศทางเดียวกัน สร้างความเสียหายกายภาพสูงสุด 500 (+180% ของการโจมตีกายภาพทั้งหมด) ให้กับศัตรูที่โดน (สเกลตามระยะเวลาในการแชนเนล เพิ่มเป็น 140% เมื่อเทียบกับครีปยกเว้นเต่าและลอร์ด) และทำให้พวกมันช้าลง 40% เป็นเวลา 1 วินาที ใช้อีกครั้ง: ใช้สกิลอีกครั้งเพื่อยกเลิกการแชนเนลและดำเนินการแทงทันที",
       "cooldown": [
         6
       ]
     },
     {
       "name": "Decimation Assault",
-      "description": "Leomord charges in a designated direction, dealing 300 (+50% Total Physical Attack) Physical Damage to enemies along the way and slowing them by 30% for 1s.",
+      "description": "Leomord พุ่งเข้าโจมตีในทิศทางที่กำหนด สร้างความเสียหายกายภาพ 300 (+50% ของการโจมตีกายภาพทั้งหมด) ให้กับศัตรูตลอดทาง และทำให้ศัตรูช้าลง 30% เป็นเวลา 1 วินาที",
       "cooldown": [
         12
       ]
@@ -3069,7 +3069,7 @@
     },
     {
       "name": "Hidden Moonlight",
-      "description": "Miya removes all debuffs and enters the Conceal state, gaining 65% Movement Speed for up to 2s (attacking ends the state early). Upon exiting the Conceal state, Miya gains maximum stacks of Moon Blessing.",
+      "description": "Miya ลบดีบัฟทั้งหมดและเข้าสู่สถานะซ่อนเร้น โดยได้รับความเร็วเคลื่อนที่เพิ่มขึ้น 65% เป็นเวลาสูงสุด 2 วินาที (การโจมตีจะสิ้นสุดสถานะก่อนกำหนด) เมื่อออกจากสถานะปกปิด Miya จะได้รับแต้มสะสม Moon Blessing สูงสุด",
       "cooldown": [
         30
       ],
@@ -3081,11 +3081,11 @@
   "moskov": [
     {
       "name": "Spear of Quiescence",
-      "description": "Moskov's Basic Attacks can penetrate the target and deal [(+65% (+3%*Hero Level) Physical Attack) ] to enemies behind them (inherits Attack Effects). Each Basic Attack hit reduces the cooldowns of Abyss Walker and Spear of Misery by 0.5 seconds."
+      "description": "การโจมตีพื้นฐานของ Moskov สามารถเจาะเป้าหมายและสร้าง [(+65% (+3%*ระดับฮีโร่) การโจมตีทางกายภาพ) ] ให้กับศัตรูที่อยู่ข้างหลังพวกเขา (สืบทอดเอฟเฟกต์การโจมตี) การโจมตีปกติแต่ละครั้งจะลดคูลดาวน์ของ Abyss Walker และ Spear of Misery ลง 0.5 วินาที"
     },
     {
       "name": "Abyss Walker",
-      "description": "Moskov teleports to the target location, increasing his Attack Speed to 1.15–1.5 times for 3 seconds. Meanwhile, his Basic Attack deals 10% more damage to enemies behind the primary target.",
+      "description": "Moskov เทเลพอร์ตไปยังตำแหน่งเป้าหมาย เพิ่มความเร็วในการโจมตีเป็น 1.15–1.5 เท่า เป็นเวลา 3 วินาที ในขณะเดียวกัน การโจมตีพื้นฐานของเขาจะสร้างความเสียหายเพิ่มขึ้น 10% ให้กับศัตรูที่อยู่ด้านหลังเป้าหมายหลัก",
       "cooldown": [
         10
       ],
@@ -3095,7 +3095,7 @@
     },
     {
       "name": "Spear of Misery",
-      "description": "Moskov launches a powerful strike at the target enemy hero or creep, dealing 300 (+60% Total Physical Attack) Physical Damage, knocking them back, and revealing their position for 2s. If the target collides with an enemy hero when knocked back, they'll both take 200 (+30% Total Physical Attack) Physical Damage and be stunned for 1.2s. The target is also stunned for the same duration if they collide with a wall.",
+      "description": "Moskov ปล่อยการโจมตีอันทรงพลังไปยังฮีโร่หรือครีปศัตรูเป้าหมาย สร้างความเสียหายกายภาพ 300 (+60% ของการโจมตีกายภาพทั้งหมด) ทำให้พวกเขากระเด็นไปด้านหลัง และเปิดเผยตำแหน่งของพวกเขาเป็นเวลา 2 วินาที หากเป้าหมายชนกับฮีโร่ศัตรูเมื่อถูกกระแทกกลับ พวกเขาทั้งคู่จะได้รับความเสียหายกายภาพ 200 (+30% ของการโจมตีทางกายภาพทั้งหมด) และถูกสตันเป็นเวลา 1.2 วินาที เป้าหมายจะสตันเป็นระยะเวลาเท่ากันหากชนกับกำแพง",
       "cooldown": [
         12
       ],
@@ -3105,7 +3105,7 @@
     },
     {
       "name": "Spear of Destruction",
-      "description": "After a short delay, Moskov throws the Spear of Destruction in the target direction, dealing 340 (+100% Total Physical Attack) Physical Damage to enemies in its path. Enemies behind the first enemy hero hit take 10% extra damage. All enemies hit are slowed by 50% for 1s. The slow duration increases with the spear's travel distance, up to 3s. When Spear of Destruction hits an enemy hero, it creates a shadow behind them and resets Abyss Walker's cooldown. Use Again: Moskov casts Abyss Walker from the shadow's location (shares a cooldown with Skill 1).",
+      "description": "หลังจากผ่านไปครู่หนึ่ง Moskov ขว้างหอกแห่งการทำลายล้างไปในทิศทางเป้าหมาย สร้างความเสียหายกายภาพ 340 (+100% ของการโจมตีกายภาพทั้งหมด) ให้กับศัตรูที่อยู่ในเส้นทาง ศัตรูที่อยู่ด้านหลังฮีโร่ศัตรูตัวแรกที่โดนจะได้รับความเสียหายเพิ่มเติม 10% ศัตรูทั้งหมดที่โดนจะถูกสโลว์ 50% เป็นเวลา 1 วินาที ระยะเวลาสโลว์จะเพิ่มขึ้นตามระยะการเคลื่อนที่ของหอก สูงสุด 3 วินาที เมื่อ Spear of Destruction โดนฮีโร่ศัตรู มันจะสร้างเงาข้างหลังพวกเขาและรีเซ็ตคูลดาวน์ของ Abyss Walker ใช้อีกครั้ง: Moskov ร่าย Abyss Walker จากตำแหน่งของเงา (คูลดาวน์แบ่งปันกับสกิล 1)",
       "cooldown": [
         55
       ],
@@ -3117,14 +3117,14 @@
   "nana": [
     {
       "name": "Molina's Gift",
-      "description": "Upon taking fatal damage, Molina's Gift removes all debuffs from Nana and transforms her for 2s. While transformed, Nana is immune to all damage, gains 30% Movement Speed, and recovers 10% HP per second, but cannot cast skills. This effect can trigger only once every 150s.",
+      "description": "เมื่อได้รับความเสียหายร้ายแรง Molina's Gift จะลบดีบัฟทั้งหมดออกจาก Nana และแปลงร่างเธอเป็นเวลา 2 วินาที ขณะที่แปลงร่าง นาน่าจะต้านทานความเสียหายทั้งหมด ได้รับความเร็วเคลื่อนที่ 30% และฟื้นฟู HP 10% ต่อวินาที แต่ไม่สามารถใช้สกิลได้ เอฟเฟกต์นี้สามารถเกิดขึ้นได้ทุกๆ 150 วินาทีเท่านั้น",
       "cooldown": [
         150
       ]
     },
     {
       "name": "Magic Boomerang",
-      "description": "Nana hurls her Magic Boomerang in the target direction, dealing 300 (+100% Total Magic Power) Magic Damage to enemies it hits as it travels out and returns. The first enemy hit takes full damage. Damage is reduced by 10% each additional enemy hit, up to a maximum total reduction of 70%.",
+      "description": "นาน่าขว้างบูมเมอแรงเวทย์มนตร์ของเธอไปในทิศทางเป้าหมาย สร้างความเสียหายเวทย์ 300 (+100% พลังเวทย์ทั้งหมด) ให้กับศัตรูที่โดนขณะที่มันเดินทางออกไปและกลับมา ศัตรูตัวแรกที่โดนจะได้รับความเสียหายเต็มจำนวน ความเสียหายจะลดลง 10% ในแต่ละการโจมตีของศัตรูเพิ่มเติม สูงสุดที่ลดลงทั้งหมด 70%",
       "cooldown": [
         6
       ],
@@ -3134,7 +3134,7 @@
     },
     {
       "name": "Molina Smooch",
-      "description": "Nana throws Molina at the target location, dealing 250 (+50% Total Magic Power) Magic Damage to enemies within range and Transforming enemy heroes hit into small animals. If Molina does not hit an enemy hero, she will remain on the ground and chase the nearest enemy hero that comes into range, Transforming the first enemy hero she touches. Transform: Reduces the target's Movement Speed by 50% and Magic Defense by 30% for 1.5s. Transformed heroes cannot attack or use skills.",
+      "description": "นาน่าขว้างโมลินาไปยังพื้นที่เป้าหมาย สร้างความเสียหายเวทย์ 250 (+50% พลังเวทย์ทั้งหมด) ให้กับศัตรูที่อยู่ในระยะ และเปลี่ยนฮีโร่ศัตรูที่โดนโจมตีเป็นสัตว์ตัวเล็ก ถ้าโมลินาไม่โจมตีฮีโร่ศัตรู เธอจะยังคงอยู่บนพื้นและไล่ล่าฮีโร่ศัตรูที่ใกล้ที่สุดที่เข้ามาในระยะ โดยเปลี่ยนฮีโร่ศัตรูตัวแรกที่เธอสัมผัส แปลงร่าง: ลดความเร็วในการเคลื่อนที่ของเป้าหมายลง 50% และป้องกันเวทย์มนตร์ลง 30% เป็นเวลา 1.5 วินาที ฮีโร่ที่แปลงร่างไม่สามารถโจมตีหรือใช้สกิลได้",
       "cooldown": [
         12
       ],
@@ -3144,7 +3144,7 @@
     },
     {
       "name": "Molina Blitz",
-      "description": "Nana summons Molina to strike the target area 3 times, each dealing 440 (+140% Total Magic Power) Magic Damage and slowing enemies in the area by 30% for 1s. Consecutive hits from Molina Blitz on the same enemy stun them for 1s.",
+      "description": "นาน่าเรียกโมลินาออกมาโจมตีพื้นที่เป้าหมาย 3 ครั้ง โดยแต่ละครั้งสร้างความเสียหายเวทย์ 440 (+140% พลังเวทย์ทั้งหมด) และทำให้ศัตรูในพื้นที่เคลื่อนที่ช้าลง 30% เป็นเวลา 1 วินาที การโจมตีติดต่อกันจาก Molina Blitz ใส่ศัตรูคนเดียวกัน จะทำให้พวกมันมึนงงเป็นเวลา 1 วินาที",
       "cooldown": [
         36
       ],
@@ -3156,25 +3156,25 @@
   "natalia": [
     {
       "name": "Assassin Instinct",
-      "description": "If Natalia stays in a bush without taking damage for 1s, she will enter Camouflage state and gain 15% Movement Speed. In this state, Natalia's next Basic Attack will teleport her behind her target and deal 200 (+110% Total Physical Attack) Physical Damage while silencing the target for 0.25s. Dealing damage, taking damage or using skills will immediately end the Camouflage state, but her next Basic Attack will remain enhanced for another 1s. Natalia's base Crit Damage is reduced to 150%, but her damage to Creeps is increased to 150%."
+      "description": "หาก Natalia อยู่ในพุ่มไม้โดยไม่ได้รับความเสียหายเป็นเวลา 1 วินาที เธอจะเข้าสู่สถานะพรางตัวและได้รับความเร็วเคลื่อนที่ 15% ในสถานะนี้ การโจมตีปกติครั้งต่อไปของ Natalia จะเทเลพอร์ตเธอไปด้านหลังเป้าหมาย และสร้างความเสียหายกายภาพ 200 (+110% ของการโจมตีกายภาพทั้งหมด) ในขณะที่เป้าหมายเป็นใบ้เป็นเวลา 0.25 วินาที การสร้างความเสียหาย การได้รับความเสียหาย หรือการใช้สกิลจะทำให้สถานะพรางตัวสิ้นสุดลงทันที แต่การโจมตีพื้นฐานครั้งต่อไปของเธอจะยังคงได้รับการปรับปรุงต่อไปอีก 1 วินาที ความเสียหายคริติคอลพื้นฐานของ Natalia ลดลงเหลือ 150% แต่ความเสียหายต่อครีปของเธอเพิ่มขึ้นเป็น 150%"
     },
     {
       "name": "Claw Dash",
-      "description": "Natalia dashes in the target direction, dealing 250 (+50% Total Physical Attack) Physical Damage to enemies in her path. Use Again: Hitting an enemy allows Natalia to recast this skill within 5s.",
+      "description": "Natalia พุ่งไปในทิศทางของเป้าหมาย สร้างความเสียหายกายภาพ 250 (+50% ของการโจมตีกายภาพทั้งหมด) ให้กับศัตรูที่อยู่ในเส้นทางของเธอ ใช้อีกครั้ง: การโจมตีศัตรูทำให้ Natalia สามารถใช้สกิลนี้ใหม่ได้ภายใน 5 วินาที",
       "cooldown": [
         10
       ]
     },
     {
       "name": "Smoke Bomb",
-      "description": "Natalia releases a Smoke Bomb at her location, slowing enemies within by 25% while Natalia becomes immune to enemy Basic Attacks for 4s.",
+      "description": "Natalia ปล่อยระเบิดควันไปยังตำแหน่งของเธอ ทำให้ศัตรูช้าลง 25% ในขณะที่ Natalia จะต้านทานการโจมตีพื้นฐานของศัตรูเป็นเวลา 4 วินาที",
       "cooldown": [
         12
       ]
     },
     {
       "name": "The Hunt",
-      "description": "Passive: Natalia gains 15% Crit Chance. Active: Natalia immediately enters the Assassin Instinct state. She can store up to 2 Ultimate charges, and each charge has a recharge time of 30s. Killing creeps reduces the remaining recharge time by 50% of the full recharge time.",
+      "description": "ติดตัว: Natalia ได้รับโอกาสคริติคอล 15% ใช้งาน: Natalia เข้าสู่สถานะ Assassin Instinct ทันที เธอสามารถเก็บชาร์จอัลติเมทได้สูงสุด 2 ชาร์จ และแต่ละชาร์จมีเวลาชาร์จ 30 วินาที การฆ่าครีปจะลดเวลาการชาร์จที่เหลือลง 50% ของเวลาการชาร์จเต็ม",
       "cooldown": [
         3
       ]
@@ -3183,11 +3183,11 @@
   "natan": [
     {
       "name": "Theory of Everything",
-      "description": "Natan gains a stack of Entanglement each time he or his Reverse-Clone hits an enemy with a skill (up to 6 stacks). Each stack lasts 2.5s and grants 7.5% Attack Speed and 5% Movement Speed. Natan's Basic Attack projectiles will return to Natan after reaching the maximum range, dealing an extra 30 (+50% Total Physical Attack) (+60% Total Magic Power) Magic Damage to enemies along the way (inherits a portion of Attack Effects). Hitting an enemy refreshes Entanglement's duration."
+      "description": "Natan จะได้รับสแตคของ Entanglement ทุกครั้งที่เขาหรือ Reverse-Clone โจมตีศัตรูด้วยสกิล (สูงสุด 6 สแต็ค) แต่ละสแต็คคงอยู่ 2.5 วินาทีและให้ความเร็วโจมตี 7.5% และความเร็วการเคลื่อนที่ 5% กระสุนโจมตีพื้นฐานของ Natan จะกลับมาหา Natan หลังจากถึงระยะสูงสุด สร้างความเสียหายเวทย์เพิ่มเติม 30 (+50% ของการโจมตีทางกายภาพทั้งหมด) (+60% ของพลังเวทย์ทั้งหมด) ให้กับศัตรูตลอดทาง (สืบทอดส่วนหนึ่งของเอฟเฟกต์การโจมตี) การโจมตีศัตรูจะรีเฟรชระยะเวลาของ Entanglement"
     },
     {
       "name": "Superposition",
-      "description": "Natan shoots a dense mass of energy in the target direction, dealing 225 (+100% Total Physical Attack) (+120% Total Magic Power) Magic Damage to enemies in its path.",
+      "description": "Natan ยิงมวลพลังงานหนาแน่นไปในทิศทางเป้าหมาย สร้างความเสียหายเวทย์ 225 (+100% ของการโจมตีทางกายภาพทั้งหมด) (+120% ของพลังเวทย์ทั้งหมด) ให้กับศัตรูที่อยู่ในเส้นทางของมัน",
       "cooldown": [
         8
       ],
@@ -3197,7 +3197,7 @@
     },
     {
       "name": "Interference!",
-      "description": "Natan launches a Gravitational Attractor in the target direction, dealing 150 (+50% Total Physical Attack) (+60% Total Magic Power) Magic Damage to enemies in its path and knocking them back. The Attractor detonates upon reaching the maximum range, dealing 30 (+10% Total Physical Attack) (+12% Total Magic Power) Magic Damage to nearby enemies and knocking them back.",
+      "description": "Natan ปล่อยเครื่องดึงดูดแรงโน้มถ่วงไปในทิศทางเป้าหมาย สร้างความเสียหายเวทย์ 150 (+50% ของการโจมตีทางกายภาพทั้งหมด) (+60% ของพลังเวทย์ทั้งหมด) ให้กับศัตรูที่อยู่ในเส้นทางของมัน และทำให้พวกเขากระเด็นถอยหลัง ตัวดึงดูดจะระเบิดเมื่อถึงระยะสูงสุด สร้างความเสียหายเวทย์ 30 (+10% ของการโจมตีทางกายภาพทั้งหมด) (+12% ของพลังเวทย์ทั้งหมด) ให้กับศัตรูที่อยู่ใกล้เคียง และทำให้พวกเขากระเด็นถอยหลัง",
       "cooldown": [
         12
       ],
@@ -3207,7 +3207,7 @@
     },
     {
       "name": "Entropy?",
-      "description": "Natan summons a Reverse-Clone that lasts 10s at 6 units away. The Reverse-Clone copies his moves and attacks in reverse and inherits 35% of his Basic Attack and skill damage. Use Again: Natan switches places with the Reverse-Clone. Each cast reduces other skills' remaining cooldowns by 50%. The Reverse-Clone will disappear if Natan is too far away.",
+      "description": "Natan เรียก Reverse-Clone ออกมาซึ่งคงอยู่ 10 วินาทีที่อยู่ห่างออกไป 6 ยูนิต Reverse-Clone คัดลอกการเคลื่อนไหวและการโจมตีของเขาในแบบย้อนกลับ และรับ 35% ของการโจมตีพื้นฐานและความเสียหายจากสกิลของเขา ใช้อีกครั้ง: Natan สลับตำแหน่งด้วย Reverse-Clone การร่ายแต่ละครั้งจะลดคูลดาวน์ที่เหลืออยู่ของสกิลอื่นลง 50% Reverse-Clone จะหายไปหาก Natan อยู่ไกลเกินไป",
       "cooldown": [
         24
       ],
@@ -3219,11 +3219,11 @@
   "nolan": [
     {
       "name": "Dimensional Rift",
-      "description": "Nolan's skills will leave a Rift that lasts 5 seconds and slows enemies by 30%. When a rift comes into contact with another rift, they will activate and pull enemies to their center and deal 220 (+140% Extra Physical Attack) Physical Damage after a short delay. Each time a rift activation hits an enemy hero or Creep, Nolan will gain 15 Energy and heals 150 (+120% Extra Physical Attack) for himself. If an enemy is hit by multiple rift activations, the damage after the first hit will be reduced to 40%. Cosmic Leap: If Nolan does not deal or take damage for 5 seconds, he enhances his next Basic Attack to dash to the target, dealing (+120% Total Physical Attack) Physical Damage and leaving a rift. (Damage to and from Minions or Creeps will not prevent Nolan from getting this effect.)"
+      "description": "สกิลของ Nolan จะออกจากรอยแยกซึ่งกินเวลา 5 วินาทีและทำให้ศัตรูช้าลง 30% เมื่อรอยแยกสัมผัสกับรอยแยกอื่น พวกเขาจะเปิดใช้งานและดึงศัตรูมาที่ศูนย์กลางและสร้างความเสียหายกายภาพ 220 (+140% การโจมตีกายภาพเพิ่มเติม) หลังจากดีเลย์สั้นๆ แต่ละครั้งที่ Rift โจมตีฮีโร่ศัตรูหรือครีป Nolan จะได้รับพลังงาน 15 หน่วย และรักษา 150 (+120% การโจมตีกายภาพเพิ่มเติม) สำหรับตัวเขาเอง หากศัตรูโดนโจมตีด้วยรอยแยกหลายครั้ง ความเสียหายหลังจากการโจมตีครั้งแรกจะลดลงเหลือ 40% Cosmic Leap: หาก Nolan ไม่ทำหรือรับความเสียหายเป็นเวลา 5 วินาที เขาจะเสริมการโจมตีพื้นฐานครั้งต่อไปเพื่อพุ่งไปยังเป้าหมาย สร้างความเสียหายกายภาพ (+120% การโจมตีกายภาพทั้งหมด) และออกจากรอยแยก (ความเสียหายต่อและจากมินเนี่ยนหรือครีปจะไม่ขัดขวาง Nolan จากการได้รับเอฟเฟกต์นี้)"
     },
     {
       "name": "Expansion",
-      "description": "Nolan cuts a rectangular area in front of him with his cosmic gauge, dealing 230 (+40% Total Physical Attack) Physical Damage and leaving a Rift at the first enemy hit.",
+      "description": "Nolan ตัดพื้นที่สี่เหลี่ยมตรงหน้าเขาด้วยเกจจักรวาล สร้างความเสียหายกายภาพ 230 (+40% ของการโจมตีกายภาพทั้งหมด) และทิ้งรอยแยกไว้ที่ศัตรูตัวแรกที่โดน",
       "cooldown": [
         2.5
       ],
@@ -3233,7 +3233,7 @@
     },
     {
       "name": "Gauge",
-      "description": "Nolan charges in the target direction and slashes with his cosmic gauge, dealing 70 (+13% Total Physical Attack) Physical Damage to enemies in his path and leaving a Rift.",
+      "description": "Nolan พุ่งเข้าหาเป้าหมายและฟันด้วยเกจจักรวาลของเขา สร้างความเสียหายกายภาพ 70 (+13% ของการโจมตีกายภาพทั้งหมด) ให้กับศัตรูที่อยู่ในเส้นทางของเขา และออกจากรอยแยก",
       "cooldown": [
         2.5
       ],
@@ -3243,7 +3243,7 @@
     },
     {
       "name": "Fracture",
-      "description": "Nolan slashes at the target location 3 times, dealing 120 (+50% Extra Physical Attack) Physical Damage with each slash while leaving 3 rifts and slowing the target hit by 30% for 0.5s. The rifts will be activated automatically while Nolan dashes backward.",
+      "description": "Nolan ฟันไปที่ตำแหน่งเป้าหมาย 3 ครั้ง สร้างความเสียหายกายภาพ 120 (+50% พิเศษการโจมตีกายภาพ) ในการฟันแต่ละครั้ง โดยทิ้งรอยแยกไว้ 3 จุด และลดความเร็วเป้าหมายที่โดน 30% เป็นเวลา 0.5 วินาที รอยแยกจะถูกเปิดใช้งานโดยอัตโนมัติในขณะที่ Nolan พุ่งถอยหลัง",
       "cooldown": [
         21
       ],
@@ -3255,11 +3255,11 @@
   "novaria": [
     {
       "name": "Star Trail",
-      "description": "Astral Sphere continuously slows nearby enemies by 20% and reveals their position."
+      "description": "Astral Sphere ทำให้ศัตรูที่อยู่ใกล้เคียงช้าลงอย่างต่อเนื่อง 20% และเปิดเผยตำแหน่งของพวกเขา"
     },
     {
       "name": "Astral Meteor",
-      "description": "Novaria summons an Astral Sphere at the target location, dealing 75 (+25% Total Magic Power) Magic Damage every 0.33s and continuously slowing enemies (up to 2.5 times). After 2s, the Astral Sphere explodes, dealing 260 (+50% Total Magic Power) (+ 4% target's HP) Magic Damage and slowing enemies by 2.5 times.",
+      "description": "Novaria เรียก Astral Sphere ไปยังพื้นที่เป้าหมาย สร้างความเสียหายเวทย์ 75 (+25% พลังเวทย์ทั้งหมด) ทุกๆ 0.33 วินาที และทำให้ศัตรูเคลื่อนที่ช้าลงอย่างต่อเนื่อง (สูงสุด 2.5 เท่า) หลังจากผ่านไป 2 วินาที Astral Sphere จะระเบิด สร้างความเสียหายเวทย์ 260 (+50% พลังเวทย์ทั้งหมด) (+ 4% HP ของเป้าหมาย) และทำให้ศัตรูช้าลง 2.5 เท่า",
       "cooldown": [
         8
       ],
@@ -3269,7 +3269,7 @@
     },
     {
       "name": "Astral Recall",
-      "description": "First Cast: Novaria summons an Astral Sphere at a distance and draws it toward her. She gains 80% Movement Speed (decays to 30%) and can pass through obstacles. Use Again: Upon catching the Astral Sphere, she can cast Star Shatter to launch it in the target direction within 5s. Upon hitting an enemy hero, it deals 260 (+95% Total Magic Power) (+ 5% target's HP) Magic Damage to them and nearby heroes. The damage will increase based on the Astral Sphere's travel distance (draw + launch), up to 2.2 times the original damage.",
+      "description": "ใช้ครั้งแรก: Novaria เรียก Astral Sphere จากระยะไกลและดึงมันเข้าหาเธอ เธอได้รับความเร็วในการเคลื่อนที่ 80% (ลดลงเหลือ 30%) และสามารถผ่านสิ่งกีดขวางได้ ใช้อีกครั้ง: เมื่อจับ Astral Sphere เธอสามารถใช้ Star Shatter เพื่อยิงไปในทิศทางเป้าหมายภายใน 5 วินาที เมื่อโจมตีฮีโร่ศัตรู จะสร้างความเสียหายเวทย์ 260 (+95% พลังเวทย์ทั้งหมด) (+ 5% HP ของเป้าหมาย) ให้กับพวกเขาและฮีโร่ใกล้เคียง ความเสียหายจะเพิ่มขึ้นตามระยะการเดินทางของ Astral Sphere (จั่ว + ปล่อย) มากถึง 2.2 เท่าของความเสียหายดั้งเดิม",
       "cooldown": [
         20
       ],
@@ -3279,7 +3279,7 @@
     },
     {
       "name": "Astral Echo",
-      "description": "Novaria scatters Astral Echo in the target direction, briefly slowing enemy heroes hit by 50% and applying Astral Ring on them. This increases their hitbox by 2.5 times and reveals their position for 5s.",
+      "description": "Novaria กระจาย Astral Echo ไปในทิศทางเป้าหมาย ทำให้ฮีโร่ศัตรูที่โดนโจมตีช้าลง 50% ชั่วขณะหนึ่ง และทำให้ Astral Ring ติดผลกับฮีโร่เหล่านั้น สิ่งนี้จะเพิ่ม Hitbox ของพวกเขา 2.5 เท่า และแสดงตำแหน่งของพวกเขาเป็นเวลา 5 วินาที",
       "cooldown": [
         48
       ],
@@ -3291,11 +3291,11 @@
   "obsidia": [
     {
       "name": "Return to Bone",
-      "description": "When Obsidia deals damage to enemies, she gains Bone Energy (Basic Attacks against non-hero units grant 1 Energy, against hero units grant 2 Energy, and skills grant 3 times the Energy. No Energy is gained from hitting creeps). When Bone Energy reaches 30, it forms a Bone Shard, up to 25 shards. When Obsidia uses Basic Attacks, all Bone Shards strike the target, each dealing (7% Total Physical Attack) Physical Damage and inheriting 7% Attack Effects."
+      "description": "เมื่อ Obsidia สร้างความเสียหายให้กับศัตรู เธอจะได้รับพลังงานกระดูก (การโจมตีพื้นฐานต่อยูนิตที่ไม่ใช่ฮีโร่จะได้รับพลังงาน 1 หน่วย เมื่อโจมตียูนิตฮีโร่จะได้รับพลังงาน 2 หน่วย และสกิลจะได้รับพลังงาน 3 เท่า โดยไม่ได้รับพลังงานจากการตีครีป) เมื่อพลังงานกระดูกถึง 30 มันจะสร้างชิ้นส่วนกระดูก สูงสุด 25 ชิ้น เมื่อ Obsidia ใช้การโจมตีพื้นฐาน ชิ้นส่วนกระดูกทั้งหมดจะโจมตีเป้าหมาย โดยแต่ละครั้งจะสร้างความเสียหายกายภาพ (การโจมตีทางกายภาพทั้งหมด 7%) และได้รับเอฟเฟกต์การโจมตี 7%"
     },
     {
       "name": "Abyssal Bone Needle",
-      "description": "Obsidia launches an Abyssal Bone Needle, dealing 325 (+80% Total Physical Attack) Physical Damage to enemies hit and triggering Return to Bone on the first enemy hero struck.",
+      "description": "Obsidia ปล่อย Abyssal Bone Needle สร้างความเสียหายกายภาพ 325 (+80% ของการโจมตีกายภาพทั้งหมด) ให้กับศัตรูที่โดน และกระตุ้นให้กลับสู่กระดูกเมื่อฮีโร่ศัตรูคนแรกโจมตี",
       "cooldown": [
         4.5
       ],
@@ -3305,7 +3305,7 @@
     },
     {
       "name": "Phantom Shadowmeld",
-      "description": "Obsidia descends into the Abyss and enters Shadowmeld Form, gaining 500% Movement Speed for 0.3s.",
+      "description": "Obsidia ลงสู่ Abyss และเข้าสู่ร่าง Shadowmeld โดยได้รับความเร็วเคลื่อนที่เพิ่มขึ้น 500% เป็นเวลา 0.3 วินาที",
       "cooldown": [
         4.5
       ],

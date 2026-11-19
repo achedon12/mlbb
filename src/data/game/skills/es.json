@@ -1014,11 +1014,11 @@
   "cyclops": [
     {
       "name": "Starlit Hourglass",
-      "description": "Each time Cyclops hits an enemy with his skills, all his skill cooldowns are reduced by 0.5s."
+      "description": "Cada vez que Cyclops golpea a un enemigo con sus habilidades, todos los tiempos de reutilización de sus habilidades se reducen en 0,5 s."
     },
     {
       "name": "Stardust Shock",
-      "description": "Cyclops casts two Stardust Disks in the target direction, each dealing 240 (+60% Total Magic Power) Magic Damage to enemies in its path.",
+      "description": "Cyclops lanza dos discos de polvo de estrellas en la dirección objetivo, cada uno de los cuales inflige 240 (+60% del poder mágico total) de daño mágico a los enemigos en su camino.",
       "cooldown": [
         7.5
       ],
@@ -1028,7 +1028,7 @@
     },
     {
       "name": "Planets Attack",
-      "description": "Cyclops conjures Starlit Spheres around himself, gaining 50% Movement Speed that decays over 2s. The Starlit Spheres automatically seek and attack nearby enemies (prioritizing enemy heroes), and explode on contact to deal 200 (+65% Total Magic Power) Magic Damage. Subsequent hits on the same target deal reduced damage.",
+      "description": "Cyclops conjura esferas iluminadas por las estrellas a su alrededor, ganando un 50 % de velocidad de movimiento que decae en 2 s. Las esferas iluminadas por las estrellas buscan y atacan automáticamente a los enemigos cercanos (priorizando a los héroes enemigos) y explotan al contacto para infligir 200 (+65 % del poder mágico total) de daño mágico. Los golpes posteriores al mismo objetivo infligen daño reducido.",
       "cooldown": [
         14
       ],
@@ -1038,7 +1038,7 @@
     },
     {
       "name": "Star Power Lockdown",
-      "description": "Cyclops creates a Planetary Sphere that tracks the target enemy hero or creep, dealing 500 (+120% Total Magic Power) Magic Damage and immobilizing them for 0.75-1.5s (scales with Planetary Sphere's travel distance).",
+      "description": "Cyclops crea una esfera planetaria que rastrea al héroe o creep enemigo objetivo, infligiendo 500 (+120 % del poder mágico total) de daño mágico e inmovilizándolo durante 0,75 a 1,5 s (escala con la distancia de viaje de la esfera planetaria).",
       "cooldown": [
         26
       ],
@@ -1050,11 +1050,11 @@
   "diggie": [
     {
       "name": "Young Again",
-      "description": "Upon death, Diggie reverses time and returns to egg form, allowing him to move and use a new set of skills. He is untargetable in egg form and revives at his current location."
+      "description": "Al morir, Diggie invierte el tiempo y vuelve a su forma de huevo, lo que le permite moverse y usar un nuevo conjunto de habilidades. Es inalcanzable en forma de huevo y revive en su ubicación actual."
     },
     {
       "name": "Auto Alarm Bomb",
-      "description": "Diggie flings an owl alarm to the target location that remains stationary for 25s or until it reacts to the first enemy in range, chasing them and exploding upon collision. The explosion deals 350 (+100% Total Magic Power) Magic Damage to enemies hit and slows them by 30%. Diggie gains 2 stacks of Dangerous Sparks each time an enemy hero is hit by the explosion (up to 60 stacks), each stack increasing the skill's damage by 1%. He loses half the stacks upon death, but can gain 1 stack of Dangerous Sparks each time his skill hits an enemy hero when in egg form. Up to 5 owl alarms can exist at the same time.",
+      "description": "Diggie lanza una alarma de búho a la ubicación objetivo que permanece estacionaria durante 25 segundos o hasta que reacciona ante el primer enemigo dentro del alcance, persiguiéndolo y explotando al colisionar. La explosión causa 350 (+100% del poder mágico total) de daño mágico a los enemigos golpeados y los ralentiza en un 30%. Diggie gana 2 acumulaciones de Chispas Peligrosas cada vez que un héroe enemigo es golpeado por la explosión (hasta 60 acumulaciones), cada acumulación aumenta el daño de la habilidad en un 1%. Pierde la mitad de las acumulaciones al morir, pero puede ganar 1 acumulación de Chispas Peligrosas cada vez que su habilidad golpea a un héroe enemigo cuando está en forma de huevo. Pueden existir hasta 5 alarmas de búho al mismo tiempo.",
       "cooldown": [
         8
       ],
@@ -1064,7 +1064,7 @@
     },
     {
       "name": "Reverse Time",
-      "description": "Diggie marks the target enemy hero for 4s and pulls them back to their previous location after the duration ends, dealing 150 (+100% Total Magic Power) Magic Damage and briefly slowing them by 80%. If the enemy moves out of the circle, the pull will be triggered early.",
+      "description": "Diggie marca al héroe enemigo objetivo durante 4 segundos y lo lleva de regreso a su ubicación anterior una vez finalizada la duración, lo que le inflige 150 (+100 % del poder mágico total) de daño mágico y lo ralentiza brevemente en un 80 %. Si el enemigo sale del círculo, la atracción se activará antes de tiempo.",
       "cooldown": [
         15
       ],
@@ -1074,7 +1074,7 @@
     },
     {
       "name": "Time Journey",
-      "description": "Diggie removes all debuffs on nearby allied heroes (including himself) and grants them a 650 (+300% Total Magic Power) shield and Control Immunity for 2s. He also gains 50% Movement Speed for 0.5s.",
+      "description": "Diggie elimina todas las desventajas de los héroes aliados cercanos (incluido él mismo) y les otorga un escudo de 650 (+300 % de poder mágico total) e inmunidad al control durante 2 s. También gana un 50% de velocidad de movimiento durante 0,5 s.",
       "cooldown": [
         76
       ],
@@ -1086,11 +1086,11 @@
   "dyrroth": [
     {
       "name": "Wrath of the Abyss",
-      "description": "When Dyrroth's Rage reaches 50%, he will enhance Burst Strike - Abyss Enhanced and Spectre Step - Abyss Enhanced. After each 2 Basic Attacks, Dyrroth will release Circle Strike, dealing (+160% Total Physical Attack) Physical Damage to enemies in the circle and regenerating [50 + 40% of the damage dealt HP] (Circle Strike doesn't have ATK Effect). Each time he hits an enemy hero, the CD of Burst Strike and Spectre Step will be decreased by 1 second."
+      "description": "Cuando la ira de Dyrroth alcance el 50%, mejorará Burst Strike - Abyss Enhanced y Spectre Step - Abyss Enhanced. Después de cada 2 ataques básicos, Dyrroth lanzará Circle Strike, causando (+160 % del ataque físico total) daño físico a los enemigos en el círculo y regenerando [50 + 40 % del daño infligido HP] (Circle Strike no tiene efecto ATK). Cada vez que golpea a un héroe enemigo, el CD de Burst Strike y Spectre Step disminuirá en 1 segundo."
     },
     {
       "name": "Burst Strike",
-      "description": "Dyrroth releases a burst strike in a designated direction. Each burst deals 240 (+60% Total Physical Attack) Physical Damage to enemies and slows them by 25% for 1.5s. (The damage decays against the same target and decreases to only 75% on minions.) Abyss Enhanced: Burst Strike has a longer range, deals 140% of the original damage, and its Slowing Effect is doubled.",
+      "description": "Dyrroth lanza un ataque explosivo en una dirección designada. Cada ráfaga inflige 240 (+60 % del ataque físico total) de daño físico a los enemigos y los ralentiza en un 25 % durante 1,5 s. (El daño disminuye contra el mismo objetivo y disminuye a solo el 75% en los súbditos). Abyss Enhanced: Burst Strike tiene un alcance más largo, inflige el 140% del daño original y su efecto de desaceleración se duplica.",
       "cooldown": [
         6
       ]
@@ -2924,7 +2924,7 @@
     },
     {
       "name": "Guiding Wind",
-      "description": "Mathilda leaps in the target direction and creates a field around her, gaining a 350 (+180% Total Magic Power) shield and 25% extra Movement Speed for 3s. Allied heroes who come into contact with the field will receive a 50% shield and Guiding Wind. The first allied hero that triggers Guiding Wind will be guided to Mathilda, and both of them will gain the same Movement Speed boost. When casting this skill during Circling Eagle, Mathilda won't change her position. Guiding Wind expires 2s after the hero leaves Mathilda's field.",
+      "description": "Mathilda salta en la dirección objetivo y crea un campo a su alrededor, obteniendo un escudo de 350 (+180 % de poder mágico total) y un 25 % de velocidad de movimiento adicional durante 3 s. Los héroes aliados que entren en contacto con el campo recibirán un 50 % de escudo y viento guía. El primer héroe aliado que active Guiding Wind será guiado hasta Mathilda y ambos obtendrán el mismo aumento de velocidad de movimiento. Al lanzar esta habilidad durante Circling Eagle, Mathilda no cambiará su posición. Guiding Wind expira 2 segundos después de que el héroe abandona el campo de Mathilda.",
       "cooldown": [
         13.5
       ],
@@ -2934,7 +2934,7 @@
     },
     {
       "name": "Circling Eagle",
-      "description": "Mathilda applies a Soul Mark to the target enemy hero and circles around them for up to 3.5s, during which her wisps will fly into nearby enemies, each dealing 40 (+15% Total Magic Power) Magic Damage. The Soul Mark will also slow the target by 15% and Soul Bloom will prioritize the target with Soul Mark. Within the duration, Mathilda can select an area to dash to. At the end of the duration, she'll dash at the target with Soul Mark, dealing 320 (+120% Total Magic Power) Magic Damage while knocking enemies in her path airborne for 0.6s, transferring the Soul Mark to the first enemy hero that she knocks airborne, and reducing the skill cooldown by 40%. Mathilda gains Control Immunity and a 400 (+180% Total Magic Power) shield for the skill duration.",
+      "description": "Mathilda aplica una marca de alma al héroe enemigo objetivo y lo rodea durante hasta 3,5 s, durante los cuales sus mechones volarán hacia los enemigos cercanos, cada uno de los cuales infligirá 40 (+15 % de poder mágico total) de daño mágico. Soul Mark también ralentizará al objetivo en un 15% y Soul Bloom priorizará al objetivo con Soul Mark. Durante la duración, Mathilda puede seleccionar un área para correr. Al final de la duración, se lanzará hacia el objetivo con Soul Mark, causando 320 (+120 % de poder mágico total) de daño mágico mientras lanza a los enemigos en su camino por el aire durante 0,6 s, transfiriendo Soul Mark al primer héroe enemigo que derribe en el aire y reduciendo el tiempo de reutilización de la habilidad en un 40 %. Mathilda obtiene inmunidad al control y un escudo de 400 (+180 % de poder mágico total) durante la duración de la habilidad.",
       "cooldown": [
         65
       ],
@@ -2946,7 +2946,7 @@
   "melissa": [
     {
       "name": "Doll Buster",
-      "description": "\"My tailor shop excels at fixing and 'fixing' dolls. Am I right, Muddles?\" (Melissa deals 125% damage to Minions, Creeps, and Summoned Units.)"
+      "description": "\"Mi sastrería se destaca arreglando y 'arreglando' muñecas. ¿Estoy en lo cierto, Muddles?\" (Melissa causa un 125% de daño a Minions, Creeps y Unidades Invocadas)."
     },
     {
       "name": "Falling!",
@@ -2960,7 +2960,7 @@
     },
     {
       "name": "Eyes on You!",
-      "description": "\"The plan goes like this: Throw Muddles out to pin down the bad guys, and then... I take center stage!\" \"I pierce the bad guys while Giggles hits Muddles to give them a beating too! Hee, fantastic!\" (Muddles deals 175 (+50% Total Physical Attack) Physical Damage on the first hit and links nearby enemies for up to 6s. Linked enemies are slowed by 60%, decaying over 1.5s. They can break the link by moving out of range. Muddles returns to Melissa early if no enemies are nearby, or immediately if Melissa moves too far away. When Muddles is present, attack it directly. Attacking it this way cannot trigger multi-hit damage. Giggles only hits Muddles when Melissa has a Basic Attack target. Each hit on Muddles deals 50% of that damage to linked enemies.)",
+      "description": "\"El plan es el siguiente: lanzar a Muddles para atrapar a los malos, y luego... ¡yo tomo el centro del escenario!\" \"¡Perforo a los malos mientras Giggles golpea a Muddles para darles una paliza también! Je, ¡fantástico!\" (Muddles inflige 175 (+50 % del ataque físico total) de daño físico en el primer golpe y vincula a los enemigos cercanos por hasta 6 s. Los enemigos vinculados se ralentizan en un 60 % y decaen en 1,5 s. Pueden romper el vínculo al moverse fuera del alcance. Muddles regresa a Melissa temprano si no hay enemigos cerca, o inmediatamente si Melissa se aleja demasiado. Cuando Muddles esté presente, atácalo directamente. Atacarlo de esta manera no puede provocar daño de múltiples golpes. Risitas solo golpea a Muddles cuando Melissa tiene un objetivo de ataque básico. Cada golpe a Muddles causa el 50% de ese daño a los enemigos vinculados).",
       "cooldown": [
         9
       ],
@@ -2970,7 +2970,7 @@
     },
     {
       "name": "Go Away!",
-      "description": "\"Cuddles, protect me! For 4 seconds, let no bad guys come close. Unless I say otherwise!\" (Upon activation, Melissa gains a 300 (+200% Extra Physical Attack) shield and knocks back enemies in the area, dealing 500 (+100% Total Magic Power) Magic Damage. Enemies attempting to enter the field are knocked back, taking 50 (+10% Total Magic Power) Magic Damage and slowed briefly. Movement skills are interrupted unless the target has Control Immunity. The field will move with Melissa once, when she's about to move out of the boundary.)",
+      "description": "\"¡Abrazos, protégeme! Durante 4 segundos, no dejes que ningún malo se acerque. ¡A menos que yo diga lo contrario!\" (Al activarse, Melissa obtiene un escudo de 300 (+200% de ataque físico adicional) y derriba a los enemigos en el área, causando 500 (+100% de poder mágico total) de daño mágico. Los enemigos que intentan ingresar al campo son rechazados, reciben 50 (+10% de poder mágico total) de daño mágico y se ralentizan brevemente. Las habilidades de movimiento se interrumpen a menos que el objetivo tenga inmunidad al control. El campo se moverá con Melissa una vez, cuando esté a punto de salir del límite.)",
       "cooldown": [
         50
       ],
@@ -2982,7 +2982,7 @@
   "minotaur": [
     {
       "name": "Rage Incarnate",
-      "description": "After casting a skill, Minotaur gains Motivation, recovering HP equal to 5 (+1*Hero Level)% of damage taken from enemy heroes for 3s. Enraged State: Motivation HP recovery is increased to 200%."
+      "description": "Después de lanzar una habilidad, Minotauro gana motivación y recupera HP equivalente al 5 (+1*nivel de héroe)% del daño recibido de los héroes enemigos durante 3 segundos. Estado enfurecido: la recuperación de HP de motivación aumenta al 200%."
     },
     {
       "name": "Despair Stomp",
@@ -3081,7 +3081,7 @@
   "moskov": [
     {
       "name": "Spear of Quiescence",
-      "description": "Moskov's Basic Attacks can penetrate the target and deal [(+65% (+3%*Hero Level) Physical Attack) ] to enemies behind them (inherits Attack Effects). Each Basic Attack hit reduces the cooldowns of Abyss Walker and Spear of Misery by 0.5 seconds."
+      "description": "Los ataques básicos de Moskov pueden penetrar el objetivo y causar [(+65% (+3%*Nivel de héroe) ataque físico) ] a los enemigos detrás de ellos (hereda los efectos de ataque). Cada golpe de ataque básico reduce los tiempos de reutilización de Abyss Walker y Spear of Misery en 0,5 segundos."
     },
     {
       "name": "Abyss Walker",
@@ -3467,7 +3467,7 @@
     },
     {
       "name": "Kupa, Help!",
-      "description": "Popol calls Kupa back and gains a 240 (+200% Extra Physical Attack) shield. He can then ride Kupa for 1.5s, gaining 250 Movement Speed while mounted. Kupa also continuously recovers 20% of its Max HP. Popol can use a Basic Attack to end the Mounted state early. After returning, Kupa follows Popol until Popol attacks an enemy. Alpha Wolf Form: Shield effect increases to 125%, and Kupa recovers full HP while Mounted.",
+      "description": "Popol llama a Kupa y obtiene un escudo de 240 (+200 % de ataque físico adicional). Luego puede montar a Kupa durante 1,5 s, ganando 250 de velocidad de movimiento mientras está montado. Kupa también recupera continuamente el 20% de su Max HP. Popol puede usar un ataque básico para finalizar temprano el estado montado. Después de regresar, Kupa sigue a Popol hasta que Popol ataca a un enemigo. Forma de lobo alfa: el efecto del escudo aumenta al 125% y Kupa recupera todos los HP mientras está montado.",
       "cooldown": [
         10
       ],
@@ -3477,7 +3477,7 @@
     },
     {
       "name": "We Are Angry!",
-      "description": "Popol and Kupa enter the Enraged state for 9s. During this time, Kupa turns into Alpha Wolf Form.",
+      "description": "Popol y Kupa entran en estado Enfurecido durante 9 segundos. Durante este tiempo, Kupa se convierte en Alpha Wolf Form.",
       "cooldown": [
         38
       ],
@@ -3489,7 +3489,7 @@
   "rafaela": [
     {
       "name": "Divine Resurrection",
-      "description": "Rafaela can cast a special skill every 10s. After channeling for 2.5s, she instantly resurrects an ally and increases their Movement Speed by 30% for 5s (taking damage from heroes and Legend Creeps interrupts channeling and puts the skill on base cooldown). This skill's cooldown is increased by 600% of the target's remaining respawn time, capped at 240s. This skill is not affected by Cooldown Reduction."
+      "description": "Rafaela puede lanzar una habilidad especial cada 10 segundos. Después de canalizar durante 2,5 s, resucita instantáneamente a un aliado y aumenta su velocidad de movimiento en un 30 % durante 5 s (recibir daño de héroes y Legend Creeps interrumpe la canalización y pone la habilidad en enfriamiento base). El tiempo de reutilización de esta habilidad aumenta en un 600 % del tiempo de reaparición restante del objetivo, con un límite de 240 s. Esta habilidad no se ve afectada por la reducción de tiempo de reutilización."
     },
     {
       "name": "Light of Retribution",
@@ -3667,7 +3667,7 @@
     },
     {
       "name": "Cometic Lance",
-      "description": "Silvanna dashes forward. Upon reaching the max range or hitting a non-Minion enemy, she swings her lance, dealing 250 (+100% Total Magic Power) Magic Damage to nearby enemies and stunning them for 1s.",
+      "description": "Silvanna corre hacia adelante. Al alcanzar el alcance máximo o golpear a un enemigo que no sea Minion, balancea su lanza, lo que inflige 250 (+100 % del poder mágico total) de daño mágico a los enemigos cercanos y los aturde durante 1 s.",
       "cooldown": [
         11
       ],
@@ -3677,7 +3677,7 @@
     },
     {
       "name": "Spiral Strangling",
-      "description": "Silvanna thrusts her lance in the target direction and spins it 6 times while gaining a 350 (+150% Total Magic Power) shield. Each spin deals 165 (+45% Total Magic Power) Magic Damage and slightly pulls targets toward the center. Silvanna spins 1 additional time for every 50% of extra Attack Speed she possesses. The skill deals only 50% damage against Minions. Spiral Strangling counts as a Basic Attack but cannot Crit.",
+      "description": "Silvanna empuja su lanza en la dirección del objetivo y la gira 6 veces mientras obtiene un escudo de 350 (+150 % de poder mágico total). Cada giro inflige 165 (+45 % del poder mágico total) de daño mágico y atrae ligeramente a los objetivos hacia el centro. Silvanna gira 1 vez adicional por cada 50% de velocidad de ataque adicional que posee. La habilidad causa sólo un 50% de daño contra Minions. El estrangulamiento en espiral cuenta como un ataque básico pero no puede ser crítico.",
       "cooldown": [
         5
       ],
@@ -3687,7 +3687,7 @@
     },
     {
       "name": "Imperial Justice",
-      "description": "Silvanna leaps to the target location and creates a Circle of Light upon landing, dealing 350 (+110% Total Magic Power) Magic Damage to enemies in the area, slowing them by 40% for 1.5s, and restraining the closest enemy hero to the area for 3.5s. (This skill cannot be interrupted.) Silvanna gains 100% Attack Speed and 40% Lifesteal when in the Circle.",
+      "description": "Silvanna salta a la ubicación objetivo y crea un círculo de luz al aterrizar, lo que inflige 350 (+110 % del poder mágico total) de daño mágico a los enemigos en el área, los ralentiza en un 40 % durante 1,5 s y restringe al héroe enemigo más cercano al área durante 3,5 s. (Esta habilidad no se puede interrumpir). Silvanna gana 100% de velocidad de ataque y 40% de robo de vida cuando está en el círculo.",
       "cooldown": [
         52
       ],
@@ -3699,25 +3699,25 @@
   "sora": [
     {
       "name": "Mystic Surge",
-      "description": "Sora can ascend to Thunder or Torrent by using his Ultimate. After ascending, dealing damage to heroes or summoned units grants 1 stack of Cloudstep. Upon reaching 5 stacks, he unlocks his True Art. Thunder: Adopts an assassin style, converting 30% HP into Physical Attack (Equal to 10% of HP). Torrent: Adopts a tank style, converting 30% Physical Attack into HP (Gains 10 HP for every 1 Attack)."
+      "description": "Sora puede ascender a Thunder o Torrent usando su Ultimate. Después de ascender, infligir daño a héroes o unidades convocadas otorga 1 acumulación de Cloudstep. Al alcanzar 5 acumulaciones, desbloquea su True Art. Trueno: Adopta un estilo asesino, convirtiendo el 30% de HP en ataque físico (igual al 10% de HP). Torrente: Adopta un estilo de tanque, convirtiendo el 30% del ataque físico en HP (obtiene 10 HP por cada 1 ataque)."
     },
     {
       "name": "Sundering Strike",
-      "description": "Sora strikes twice, dealing 140 (+50% Total Physical Attack) Physical Damage, then lunges forward, dealing 240 (+5% Max HP) Physical Damage. He can dash after striking.",
+      "description": "Sora ataca dos veces e inflige 140 (+50 % de ataque físico total) de daño físico, luego se lanza hacia adelante e inflige 240 (+5 % de HP máximo) de daño físico. Puede correr después de golpear.",
       "cooldown": [
         5
       ]
     },
     {
       "name": "Windstride",
-      "description": "Sora leaps forward, dealing 140 (+55% Total Physical Attack) Physical Damage. If he hits an enemy hero or reaches max range, he slams the ground, dealing an additional 140 (+8% Max HP) Physical Damage and slowing them by 40% for 0.5s. Successful hits reduce the cooldown by 2s.",
+      "description": "Sora salta hacia adelante e inflige 140 (+55 % del ataque físico total) de daño físico. Si golpea a un héroe enemigo o alcanza el alcance máximo, golpea el suelo, causando 140 (+8% HP máximo) de daño físico adicional y ralentizándolo en un 40% durante 0,5 s. Los golpes exitosos reducen el tiempo de reutilización en 2 segundos.",
       "cooldown": [
         8
       ]
     },
     {
       "name": "Shifting Skies",
-      "description": "Swipe left to ascend into Thunder for 10s. Sora gains a brief bonus Movement Speed and becomes untargetable. He then summons lightning to strike nearby enemies 3 time(s), each dealing 140 (+50% Total Physical Attack) Physical Damage. Swipe right to ascend into Torrent for 10s. Sora gains Control Immunity. After a short delay, he pulls nearby enemies in and deals 250 (+8% Max HP) Physical Damage.",
+      "description": "Deslízate hacia la izquierda para ascender a Thunder durante 10 segundos. Sora obtiene una breve velocidad de movimiento adicional y se vuelve inalcanzable. Luego invoca un rayo para golpear a los enemigos cercanos 3 veces, cada una de las cuales inflige 140 (+50 % del ataque físico total) de daño físico. Deslízate hacia la derecha para ascender a Torrent durante 10 segundos. Sora gana inmunidad de control. Después de un breve retraso, atrae a los enemigos cercanos y les inflige 250 (+8% HP máximo) de daño físico.",
       "cooldown": [
         32
       ]

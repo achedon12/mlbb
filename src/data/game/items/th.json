@@ -972,7 +972,7 @@
     "price": 2120,
     "bonus": "พลังโจมตีกายภาพ +40, ความเร็วในการโจมตี +20%",
     "unique": null,
-    "passive": "Armor Buster: Increase Physical Penetration by 30%. Malefic Energy: Increases Basic Attack range by 12%. When hitting a target, gains 10% Movement Speed for 0.5 seconds.",
+    "passive": "Armor Buster: เพิ่มการเจาะเกราะทางกายภาพ 30% พลังงานมาเลฟิก: เพิ่มระยะการโจมตีพื้นฐาน 12% เมื่อโจมตีเป้าหมาย จะได้รับความเร็วในการเคลื่อนที่ 10% เป็นเวลา 0.5 วินาที",
     "active": null,
     "recipe": [
       "Fury Hammer",
@@ -989,7 +989,7 @@
     "price": 2060,
     "bonus": "พลังโจมตีกายภาพ +60",
     "unique": null,
-    "passive": "Armor Buster: Increase Physical Penetration by 30%. Breaker: When attacking an enemy, gains 0.1% extra Physical Penetration for each point of the enemy's Physical Defense, capped at 30%.",
+    "passive": "Armor Buster: เพิ่มการเจาะเกราะทางกายภาพ 30% เบรกเกอร์: เมื่อโจมตีศัตรู ได้รับการเจาะโจมตีทางกายภาพเพิ่มเติม 0.1% สำหรับแต่ละแต้มของการป้องกันทางกายภาพของศัตรู โดยต่อยอดไว้ที่ 30%",
     "active": null,
     "recipe": [
       "Legion Sword"
@@ -1047,7 +1047,7 @@
     "price": 2010,
     "bonus": "+60 พลังเวทย์, +300 HP, +380 มานา, +5% ลดคูลดาวน์",
     "unique": null,
-    "passive": "Gift: Regens 20% HP and Mana within 2 seconds of leveling up. Lifebane: Upon dealing damage to the target, reduces Shield and HP Regen of the target by 50% for 3 seconds.",
+    "passive": "ของขวัญ: ฟื้นฟู HP และมานา 20% ภายใน 2 วินาทีหลังจากอัพเลเวล Lifebane: เมื่อสร้างความเสียหายให้กับเป้าหมาย จะลดโล่และอัตราฟื้นฟู HP ของเป้าหมายลง 50% เป็นเวลา 3 วินาที",
     "active": null,
     "recipe": [
       "Book of Sages",
@@ -1124,7 +1124,7 @@
     "price": 2250,
     "bonus": "+750 HP, +30 การโจมตีแบบปรับตัว, +10% ลดคูลดาวน์, +10% Spell Vamp",
     "unique": null,
-    "passive": "Demonize: When HP drops below 40%, gains 30% Damage Reduction for 3 seconds and reduces skill cooldowns by 2 seconds. This effect has a 60 seconds cooldown. Defiance: For every 1% HP lost, damage is increased by 0.25%, up to 15%.",
+    "passive": "Demonize: เมื่อ HP ลดลงต่ำกว่า 40% ได้รับการลดความเสียหาย 30% เป็นเวลา 3 วินาที และลดคูลดาวน์สกิลลง 2 วินาที เอฟเฟกต์นี้มีคูลดาวน์ 60 วินาที การท้าทาย: ทุกๆ 1% HP ที่สูญเสียไป ความเสียหายจะเพิ่มขึ้น 0.25% สูงสุด 15%",
     "active": null,
     "recipe": [
       "Ares Belt",
@@ -1220,7 +1220,7 @@
     "price": 2030,
     "bonus": "พลังโจมตีกายภาพ +30, ความเร็วโจมตี +20%, ดูดพลังชีวิต +10%",
     "unique": null,
-    "passive": "Dragon Scale: Every 4 extra Physical Attack increases Hybrid Defense by 1, up to 50 (effect is halved if Main Role is not Fighter). Lifeline: When taking damage that reduces HP below 30%, gains a (120*Hero Level) shield (increases with level) and 50% Movement Speed that rapidly decays over 3 seconds. This effect has a 60 seconds cooldown.",
+    "passive": "เกล็ดมังกร: ทุก ๆ การโจมตีทางกายภาพเพิ่มเติม 4 ครั้งจะเพิ่มการป้องกันแบบไฮบริด 1 สูงสุด 50 (เอฟเฟกต์จะลดลงครึ่งหนึ่งหากบทบาทหลักไม่ใช่ Fighter) เส้นชีวิต: เมื่อได้รับความเสียหายที่ลด HP ต่ำกว่า 30% จะได้รับโล่ (120*ระดับฮีโร่) (เพิ่มขึ้นตามเลเวล) และความเร็วในการเคลื่อนที่ 50% ซึ่งจะค่อยๆ ลดลงอย่างรวดเร็วในระยะเวลา 3 วินาที เอฟเฟกต์นี้มีคูลดาวน์ 60 วินาที",
     "active": null,
     "recipe": [
       "Magic Blade",
@@ -1253,7 +1253,7 @@
     "price": 2050,
     "bonus": "พลังโจมตีกายภาพ +80 ความเร็วการโจมตี +20%",
     "unique": null,
-    "passive": "Lifebane: Dealing damage to a target will reduce the Shield and HP Regen effects on them to 60% of normal for 3 seconds. Punish: Increase damage by 8% against enemy heroes with higher extra HP.",
+    "passive": "Lifebane: การสร้างความเสียหายให้กับเป้าหมายจะลดเอฟเฟกต์ของ Shield และ HP Regen ลงเหลือ 60% จากปกติเป็นเวลา 3 วินาที ลงโทษ: เพิ่มความเสียหาย 8% ต่อฮีโร่ศัตรูด้วย HP พิเศษที่สูงกว่า",
     "active": null,
     "recipe": [
       "Legion Sword",
@@ -1379,7 +1379,7 @@
     "price": 1000,
     "bonus": "ความเร็วในการโจมตี +20%",
     "unique": null,
-    "passive": "Crossbow: Each Basic Attack deals 40 extra Adaptive Damage. Impulse: Basic Attacks grant 3% extra Attack Speed for 3 seconds, capped at 5 stacks.",
+    "passive": "หน้าไม้: การโจมตีพื้นฐานแต่ละครั้งจะสร้างความเสียหายแบบปรับได้เพิ่มเติม 40 ดาเมจ แรงกระตุ้น: การโจมตีพื้นฐานจะได้รับความเร็วโจมตีเพิ่มเติม 3% เป็นเวลา 3 วินาที โดยต่อยอดที่ 5 สแต็ค",
     "active": null,
     "recipe": [
       "Knife",
@@ -1444,7 +1444,7 @@
     "price": 2100,
     "bonus": "+1200 HP, +15 พลังป้องกันกายภาพ",
     "unique": null,
-    "passive": "Twilight: Upon taking more than 500 damage in a single instance, the excess damage beyond that amount is reduced by 20 (+0.2% Total HP)%. Redemption: When incoming damage reduces HP below 30%, recover 20% Max HP over the next 4 seconds. This effect has a 60 seconds cooldown.",
+    "passive": "พลบค่ำ: เมื่อได้รับความเสียหายมากกว่า 500 ความเสียหายในครั้งเดียว ความเสียหายส่วนเกินที่เกินจำนวนนั้นจะลดลง 20 (+0.2% HP ทั้งหมด)% การไถ่ถอน: เมื่อความเสียหายที่ได้รับลด HP ต่ำกว่า 30% จะฟื้นฟู HP สูงสุด 20% ใน 4 วินาทีถัดไป เอฟเฟกต์นี้มีคูลดาวน์ 60 วินาที",
     "active": null,
     "recipe": [
       "Ares Belt",

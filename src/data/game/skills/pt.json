@@ -1905,7 +1905,7 @@
     },
     {
       "name": "Kaerazu",
-      "description": "Hirara uses Kaerazu to unleash the Crimson Maple, dealing 165 (+42% Extra Physical Attack) Physical Damage to enemies in a fan-shaped area. After a short delay, she deals damage again at the target location, dealing 2 times the initial Crimson Maple damage.",
+      "description": "Hirara usa Kaerazu para liberar o Bordo Carmesim, causando 165 (+42% de Ataque Físico Extra) de Dano Físico aos inimigos em uma área em forma de leque. Após um pequeno atraso, ela causa dano novamente no local alvo, causando 2 vezes o dano inicial do Crimson Maple.",
       "cooldown": [
         5
       ]
@@ -1918,11 +1918,11 @@
   "hylos": [
     {
       "name": "Thickened Blood",
-      "description": "Hylos gains 1 extra Max Mana for every 2.5 Extra HP gained. When out of Mana, he can consume HP to cast skills."
+      "description": "Hylos ganha 1 Max Mana extra para cada 2,5 HP extras ganhos. Quando estiver sem Mana, ele pode consumir HP para lançar habilidades."
     },
     {
       "name": "Law and Order",
-      "description": "Hylos gains 50% Movement Speed and causes his next Basic Attack within 3s to deal 300 (+80% Total Magic Power) Magic Damage to the target, knocking back and stunning them for 1s. The extra Movement Speed rapidly decays over the duration and vanishes after the next Basic Attack.",
+      "description": "Hylos ganha 50% de Velocidade de Movimento e faz com que seu próximo Ataque Básico em 3s cause 300 (+80% de Poder Mágico Total) de Dano Mágico ao alvo, repelindo-o e atordoando-o por 1s. A Velocidade de Movimento extra diminui rapidamente ao longo da duração e desaparece após o próximo Ataque Básico.",
       "cooldown": [
         12
       ],
@@ -1937,7 +1937,7 @@
     },
     {
       "name": "Ring of Punishment",
-      "description": "Hylos releases the Ring of Punishment, dealing 100 (+20% Total Magic Power) Magic Damage to nearby enemies per second while slowing them by 4% and reducing their Attack Speed by 7.5% for 2.5s (up to 8 stacks). Each stack also increases the enemy's damage taken from the Ring of Punishment by 5%. The Ring of Punishment consumes 30 Mana per second when it's active. Use Again: Hylos cancels the Ring of Punishment.",
+      "description": "Hylos libera o Anel da Punição, causando 100 (+20% de Poder Mágico Total) de Dano Mágico aos inimigos próximos por segundo, enquanto os desacelera em 4% e reduz sua Velocidade de Ataque em 7,5% por 2,5s (até 8 acúmulos). Cada pilha também aumenta o dano recebido pelo inimigo do Anel da Punição em 5%. O Anel da Punição consome 30 de Mana por segundo quando está ativo. Usar novamente: Hylos cancela o Anel da Punição.",
       "cooldown": [
         1
       ],
@@ -1952,7 +1952,7 @@
     },
     {
       "name": "Glorious Pathway",
-      "description": "Hylos creates a huge pathway in the target direction, reducing enemies' Movement Speed by 75% for 1s. The pathway lasts 6s. When on the pathway, Hylos gains Slow Immunity and recovers 3% HP per second. Allied heroes moving along the pathway gain 60% extra Movement Speed, while enemy heroes on the pathway will be slowed by 25%.",
+      "description": "Hylos cria um enorme caminho na direção alvo, reduzindo a Velocidade de Movimento dos inimigos em 75% por 1s. O caminho dura 6s. Quando está no caminho, Hylos ganha imunidade lenta e recupera 3% de HP por segundo. Os heróis aliados que se movem ao longo do caminho ganham 60% de velocidade de movimento extra, enquanto os heróis inimigos no caminho serão desacelerados em 25%.",
       "cooldown": [
         40
       ],
@@ -1966,11 +1966,11 @@
   "irithel": [
     {
       "name": "Jungle Heart",
-      "description": "Irithel and Leo's immaculate teamwork allows her to shoot while moving. Each Basic Attack will shoot 2 crossbow bolt(s) (but takes longer to refill) that deal (+55% Total Physical Attack) Physical Damage per bolt (inherits a portion [55%] of Attack Effects). Moving will build up Jungle Heart, up to a maximum of 10 units, and cause the next Basic Attack to unleash 1 additional bolt(s)."
+      "description": "O trabalho de equipe imaculado de Irithel e Leo permite que ela atire enquanto se move. Cada Ataque Básico dispara 2 virote(s) de besta (mas leva mais tempo para recarregar) que causam (+55% do Ataque Físico Total) de Dano Físico por virote (herda uma porção [55%] dos Efeitos de Ataque). Mover-se aumentará o Jungle Heart, até um máximo de 10 unidades, e fará com que o próximo Ataque Básico libere 1 raio(s) adicional(is)."
     },
     {
       "name": "Strafe",
-      "description": "Irithel launches a volley of arrows on the target area, dealing 330 (+60% Total Physical Attack) Physical Damage to enemies within and reducing their Physical Defense by 15 for 3s.",
+      "description": "Irithel lança uma saraivada de flechas na área alvo, causando 330 (+60% do Ataque Físico Total) de Dano Físico aos inimigos dentro e reduzindo sua Defesa Física em 15 por 3s.",
       "cooldown": [
         10
       ],
@@ -1980,7 +1980,7 @@
     },
     {
       "name": "Force of The Queen",
-      "description": "Leo lets out a piercing roar, dealing 200 (+60% Total Physical Attack) Physical Damage to nearby enemies and slowing them by 40% for 2s.",
+      "description": "Leo solta um rugido penetrante, causando 200 (+60% de Ataque Físico Total) de Dano Físico aos inimigos próximos e retardando-os em 40% por 2s.",
       "cooldown": [
         10
       ],
@@ -1990,7 +1990,7 @@
     },
     {
       "name": "Heavy Crossbow",
-      "description": "Irithel commands Leo to leap in the target direction and empowers her crossbow for 10s. During this time, she gains 30 Movement Speed, generates Jungle Heart faster, and fires heavy bolts with her Basic Attacks, dealing 100 (+65% Total Physical Attack) Physical Damage to the target and nearby units.",
+      "description": "Irithel ordena que Leo salte na direção do alvo e fortalece sua besta por 10s. Durante esse tempo, ela ganha 30 de Velocidade de Movimento, gera Jungle Heart mais rápido e dispara raios pesados ​​com seus Ataques Básicos, causando 100 (+65% de Ataque Físico Total) de Dano Físico ao alvo e às unidades próximas.",
       "cooldown": [
         30
       ]
@@ -2380,7 +2380,7 @@
     },
     {
       "name": "Raging Sandstorm",
-      "description": "Khaleed rides the sandstorm and charges toward a designated location, dealing 100 (+50% Total Physical Attack) Physical Damage to enemies along the way and knocking them toward his destination. Khaleed is immune to control effects during this process. Upon reaching the destination, Khaleed will smash the ground, dealing 450 (+160% Total Physical Attack) Physical Damage to enemies in the area and stunning them for 1s, and fully charge his Desert Power.",
+      "description": "Khaleed cavalga a tempestade de areia e avança em direção a um local designado, causando 100 (+50% de Ataque Físico Total) de Dano Físico aos inimigos ao longo do caminho e empurrando-os em direção ao seu destino. Khaleed é imune a efeitos de controle durante este processo. Ao chegar ao destino, Khaleed irá esmagar o chão, causando 450 (+160% de Ataque Físico Total) de Dano Físico aos inimigos na área e atordoando-os por 1s, e carregando totalmente seu Poder do Deserto.",
       "cooldown": [
         46
       ]
@@ -2389,7 +2389,7 @@
   "khufra": [
     {
       "name": "Spell Curse",
-      "description": "Khufra activates the Spell Curse left by Esmeralda every 8s, enhancing his next Basic Attack. The enhanced Basic Attack gains extra attack range and deals 100 (+120% Total Physical Attack) (+ 6% target's HP) Magic Damage. He also slows the target by 30% for 1.5s and recovers 8% of his HP on hit. Each time Khufra applies a control effect to an enemy hero with his skill, the cooldown of Spell Curse is reduced by 4s."
+      "description": "Khufra ativa a Maldição Mágica deixada por Esmeralda a cada 8s, melhorando seu próximo Ataque Básico. O Ataque Básico aprimorado ganha alcance de ataque extra e causa 100 (+120% do Ataque Físico Total) (+6% do HP do alvo) de Dano Mágico. Ele também retarda o alvo em 30% por 1,5s e recupera 8% de seu HP ao ser atingido. Cada vez que Khufra aplica um efeito de controle a um herói inimigo com sua habilidade, o recarga de Spell Curse é reduzido em 4s."
     },
     {
       "name": "Tyrant's Revenge",
@@ -2403,7 +2403,7 @@
     },
     {
       "name": "Bouncing Ball",
-      "description": "Khufra uses bandages to wrap himself into a Bouncing Ball, increasing his Hybrid Defense by 30%. Enemies trying to use mobility skills to move across Khufra will be knocked airborne. Each time the Bouncing Ball hits the ground, it deals 50 (+ 3 (+2% Extra Physical Attack)% of his HP) Magic Damage to nearby enemies and slows them by 80% for 0.2s.",
+      "description": "Khufra usa bandagens para se enrolar em uma bola saltitante, aumentando sua Defesa Híbrida em 30%. Os inimigos que tentarem usar habilidades de mobilidade para se moverem por Khufra serão lançados no ar. Cada vez que a Bola Quicante atinge o solo, ela causa 50 (+ 3 (+2% de Ataque Físico Extra)% de seu HP) de Dano Mágico aos inimigos próximos e os retarda em 80% por 0,2s.",
       "cooldown": [
         10
       ],
@@ -2515,7 +2515,7 @@
   "layla": [
     {
       "name": "Malefic Gun",
-      "description": "Layla's damage increases with distance, from 100% to 115% at 6 units or farther. This effect does not apply to Turrets."
+      "description": "O dano de Layla aumenta com a distância, de 100% para 115% a 6 unidades ou mais. Este efeito não se aplica a Torres."
     },
     {
       "name": "Malefic Bomb",
@@ -2529,7 +2529,7 @@
     },
     {
       "name": "Void Projectile",
-      "description": "Layla fires an orb of Malefic Energy at the target, dealing 170 (+65% Total Physical Attack) Physical Damage to the target and nearby enemies and applying a Magic Mark to the target for 3s. When Layla hits an enemy with a Magic Mark, she deals 100 (+35% Total Physical Attack) Physical Damage to the target and nearby enemies, stunning them for 0.25s.",
+      "description": "Layla dispara um orbe de Energia Maléfica no alvo, causando 170 (+65% do Ataque Físico Total) de Dano Físico ao alvo e aos inimigos próximos e aplicando uma Marca Mágica ao alvo por 3s. Quando Layla atinge um inimigo com uma Marca Mágica, ela causa 100 (+35% de Ataque Físico Total) de Dano Físico ao alvo e aos inimigos próximos, atordoando-os por 0,25s.",
       "cooldown": [
         7.5
       ],
@@ -2539,7 +2539,7 @@
     },
     {
       "name": "Destruction Rush",
-      "description": "Passive: The range of Void Projectile and Basic Attacks is increased by 0.6 units. Layla's sight range is slightly increased each time this skill is upgraded. Active: Layla fires a blast of Malefic Energy in the target direction, dealing 500 (+150% Total Physical Attack) Physical Damage to enemies in a line.",
+      "description": "Passivo: O alcance do Projétil do Vazio e dos Ataques Básicos é aumentado em 0,6 unidades. O alcance de visão de Layla aumenta ligeiramente cada vez que esta habilidade é atualizada. Ativo: Layla dispara uma rajada de Energia Maléfica na direção do alvo, causando 500 (+150% de Ataque Físico Total) de Dano Físico aos inimigos em linha reta.",
       "cooldown": [
         37
       ],
@@ -2551,11 +2551,11 @@
   "leomord": [
     {
       "name": "The Oath Keeper",
-      "description": "Leomord's Basic Attacks and skills grant him 25 Oath Keeper energy each time they deal damage to targets. When the energy reaches 100, his next Basic Attack deals 200% Crit Damage and restores 100 (+10*Hero Level) (+15% Extra Max HP) HP. Leomord's Basic Attacks cannot normally Crit, and every 1% Crit Chance is converted into 1% Crit Damage. Mounted State: Each Oath Keeper energy gain is increased by 200%."
+      "description": "Os ataques básicos e habilidades de Leomord concedem a ele 25 de energia do Oath Keeper cada vez que causam dano aos alvos. Quando a energia chega a 100, seu próximo Ataque Básico causa 200% de Dano Crítico e restaura 100 (+10*Nível de Herói) (+15% de HP Máximo Extra) de HP. Os ataques básicos de Leomord normalmente não podem causar críticos, e cada 1% de chance crítica é convertido em 1% de dano crítico. Estado Montado: Cada ganho de energia do Guardião do Juramento é aumentado em 200%."
     },
     {
       "name": "Momentum",
-      "description": "Leomord begins channeling, slowing enemies in the target direction by 25%. When the channeling is complete or interrupted, he thrusts his sword in the same direction, dealing up to 500 (+180% Total Physical Attack) Physical Damage to enemies hit (scales with channeling time; increased to 140% against creeps except the Turtle and Lord) and slowing them by 40% for 1s. Use Again: Cast the skill again to cancel the channeling and immediately perform the thrust.",
+      "description": "Leomord começa a canalizar, reduzindo a velocidade dos inimigos na direção alvo em 25%. Quando a canalização é completada ou interrompida, ele estoca sua espada na mesma direção, causando até 500 (+180% do Ataque Físico Total) de Dano Físico aos inimigos atingidos (escala com o tempo de canalização; aumentado para 140% contra criaturas, exceto a Tartaruga e o Lorde) e retardando-os em 40% por 1s. Usar novamente: lance a habilidade novamente para cancelar a canalização e executar o impulso imediatamente.",
       "cooldown": [
         6
       ]
@@ -2824,7 +2824,7 @@
     },
     {
       "name": "Framed Moment",
-      "description": "Clemar focuses on an area around Marcel, slowing enemy heroes within by 60%. After 2.5s, he completes the shot, dealing 300 (+50% Total Physical Attack)(+120% Total Magic Defense)(+120% Total Physical Defense) Physical Damage to enemies within.",
+      "description": "Clemar se concentra em uma área ao redor de Marcel, reduzindo a velocidade dos heróis inimigos em 60%. Após 2,5s, ele completa o tiro, causando 300 (+50% de Ataque Físico Total)(+120% de Defesa Mágica Total)(+120% de Defesa Física Total) de Dano Físico aos inimigos dentro dele.",
       "cooldown": [
         15
       ],
@@ -2844,7 +2844,7 @@
     },
     {
       "name": "Golden Hour",
-      "description": "Marcel and Clemar perform a joint shoot. After a short delay, Clemar takes a wide-angle shot of the target area for 2s. During this time, Marcel enters the Tracking Haste state while inside the area. All other units in the area are put into a Frozen Moment and are immune to all effects except from Marcel. All projectiles are also frozen and will continue after a delay (targeted projectiles will deal 50% damage). Golden Hour resets the cooldown of Platinum Snap for each enemy hero. Allied heroes with the Platinum Snap shield can move freely within the area.",
+      "description": "Marcel e Clemar fazem uma sessão fotográfica conjunta. Após um pequeno atraso, Clemar tira uma foto grande angular da área alvo por 2s. Durante este tempo, Marcel entra no estado Tracking Haste enquanto estiver dentro da área. Todas as outras unidades na área são colocadas em um Momento Congelado e ficam imunes a todos os efeitos, exceto Marcel. Todos os projéteis também são congelados e continuarão após um atraso (os projéteis direcionados causarão 50% do dano). Golden Hour redefine o recarga do Platinum Snap para cada herói inimigo. Heróis aliados com o escudo Platinum Snap podem se mover livremente dentro da área.",
       "cooldown": [
         90
       ],
@@ -2860,21 +2860,21 @@
     },
     {
       "name": "Asura Aura",
-      "description": "Martis draws enemies to a fan-shaped area in front of him and deals 350 (+130% Extra Physical Attack) Physical Damage, slowing them by 40% for 2s.",
+      "description": "Martis atrai os inimigos para uma área em forma de leque à sua frente e causa 350 (+130% de Ataque Físico Extra) de Dano Físico, retardando-os em 40% por 2s.",
       "cooldown": [
         7
       ]
     },
     {
       "name": "Mortal Coil",
-      "description": "Martis strikes in the target direction three times, each time dealing 225 (+120% Extra Physical Attack) Physical Damage to enemies hit. Enemies hit by the first and third strike are also knocked back. The attack direction can be changed once using the Joystick. Use Again: Martis leaps in the target direction, dealing 300 (+150% Extra Physical Attack) Physical Damage to enemies in his path and knocking them airborne. Martis gains Control Immunity and 60% Damage Reduction when casting this skill.",
+      "description": "Martis ataca na direção alvo três vezes, cada vez causando 225 (+120% de Ataque Físico Extra) de Dano Físico aos inimigos atingidos. Os inimigos atingidos pelo primeiro e terceiro golpes também são repelidos. A direção do ataque pode ser alterada uma vez usando o Joystick. Usar novamente: Martis salta na direção alvo, causando 300 (+150% de Ataque Físico Extra) de Dano Físico aos inimigos em seu caminho e jogando-os no ar. Martis ganha Imunidade de Controle e 60% de Redução de Dano ao lançar esta habilidade.",
       "cooldown": [
         8
       ]
     },
     {
       "name": "Decimation",
-      "description": "Martis lunges at a designated enemy hero, dealing 700 (+120% Total Physical Attack) Physical Damage (deals True Damage if the enemy's HP is below 50%). If the enemy is killed by this skill, Martis can cast the skill again within 10s and gains 100% extra Movement Speed that gradually decays over 5s. Each successive cast also increases the skill's damage by 15% (up to 30%).",
+      "description": "Martis ataca um herói inimigo designado, causando 700 (+120% de Ataque Físico Total) de Dano Físico (causa Dano Verdadeiro se o HP do inimigo estiver abaixo de 50%). Se o inimigo for morto por esta habilidade, Martis pode lançá-la novamente dentro de 10s e ganha 100% de Velocidade de Movimento extra que decai gradualmente ao longo de 5s. Cada lançamento sucessivo também aumenta o dano da habilidade em 15% (até 30%).",
       "cooldown": [
         36
       ]
@@ -2883,18 +2883,18 @@
   "masha": [
     {
       "name": "Primal Pact",
-      "description": "Bear's Blessing: Masha has 3 HP bars, each inheriting 50% of her Equipment HP bonuses. Each time an HP bar breaks, she removes control effects on herself and blocks one instance of damage. Dealing damage to enemy heroes or creeps builds Feral, which converts into HP after she leaves combat. Power of Wildness: When Masha's skills damage an enemy hero, a Wound appears on a random side of the target. Breaking a Wound with a Basic Attack puts her into the Feral state. Feral State: For 3s, Masha gains 15 (+1*Hero Level)% Resilience, Attack Speed, and Movement Speed. Her next 3 Basic Attacks become fan-shaped claw strikes, dealing extra Physical Damage equal to 3 (+0.5% Extra Physical Attack) (+0.2*Hero Level)% HP to enemies in the area (not against Turrets) and recovering 4 (+0.4*Hero Level)% HP. [C8Breaking another Wound during the Feral state refreshes the state's duration. Up to 6 claw strikes can be stored.]"
+      "description": "Bênção do Urso: Masha tem 3 barras de HP, cada uma herdando 50% dos bônus de HP de seu equipamento. Cada vez que uma barra de HP quebra, ela remove os efeitos de controle de si mesma e bloqueia uma instância de dano. Causar dano a heróis inimigos ou criaturas cria Feral, que se converte em HP depois que ela sai do combate. Power of Wildness: Quando as habilidades de Masha causam dano a um herói inimigo, um Ferimento aparece em um lado aleatório do alvo. Quebrar um Ferimento com um Ataque Básico a coloca no estado Feral. Estado Feral: Por 3s, Masha ganha 15 (+1*Nível do Herói)% de Resiliência, Velocidade de Ataque e Velocidade de Movimento. Seus próximos 3 Ataques Básicos tornam-se golpes de garras em forma de leque, causando Dano Físico extra igual a 3 (+0,5% de Ataque Físico Extra) (+0,2*Nível do Herói)% de HP aos inimigos na área (não contra Torres) e recuperando 4 (+0,4*Nível do Herói)% de HP. [C8Quebrar outro ferimento durante o estado Feral atualiza a duração do estado. Até 6 golpes de garra podem ser armazenados.]"
     },
     {
       "name": "Feral Swipe",
-      "description": "Masha releases energy forward, dealing 250 (+55% Total Physical Attack) Physical Damage to enemies in its path. It deals 150% damage to minions.",
+      "description": "Masha libera energia para frente, causando 250 (+55% de Ataque Físico Total) de Dano Físico aos inimigos em seu caminho. Causa 150% de dano aos minions.",
       "cooldown": [
         8
       ]
     },
     {
       "name": "Claw Strike",
-      "description": "Masha dashes in the target direction, dealing 120 (+80% Extra Physical Attack) Physical Damage and reducing enemy heroes' Movement Speed by 50% for 1s on hit. [C8Whenever an HP bar is depleted, the cooldown of Claw Strike resets.]",
+      "description": "Masha avança na direção alvo, causando 120 (+80% de Ataque Físico Extra) de Dano Físico e reduzindo a Velocidade de Movimento dos heróis inimigos em 50% por 1s ao acertar. [C8Sempre que uma barra de HP se esgota, o recarga do Claw Strike é reiniciado.]",
       "cooldown": [
         9
       ]
@@ -3174,7 +3174,7 @@
     },
     {
       "name": "The Hunt",
-      "description": "Passive: Natalia gains 15% Crit Chance. Active: Natalia immediately enters the Assassin Instinct state. She can store up to 2 Ultimate charges, and each charge has a recharge time of 30s. Killing creeps reduces the remaining recharge time by 50% of the full recharge time.",
+      "description": "Passivo: Natalia ganha 15% de chance crítica. Ativo: Natalia entra imediatamente no estado de Instinto Assassino. Ela pode armazenar até 2 cargas Ultimate, e cada carga tem um tempo de recarga de 30s. Matar criaturas reduz o tempo de recarga restante em 50% do tempo de recarga total.",
       "cooldown": [
         3
       ]
@@ -3183,11 +3183,11 @@
   "natan": [
     {
       "name": "Theory of Everything",
-      "description": "Natan gains a stack of Entanglement each time he or his Reverse-Clone hits an enemy with a skill (up to 6 stacks). Each stack lasts 2.5s and grants 7.5% Attack Speed and 5% Movement Speed. Natan's Basic Attack projectiles will return to Natan after reaching the maximum range, dealing an extra 30 (+50% Total Physical Attack) (+60% Total Magic Power) Magic Damage to enemies along the way (inherits a portion of Attack Effects). Hitting an enemy refreshes Entanglement's duration."
+      "description": "Natan ganha um acúmulo de Emaranhamento cada vez que ele ou seu Clone Reverso atinge um inimigo com uma habilidade (até 6 acúmulos). Cada pilha dura 2,5s e concede 7,5% de Velocidade de Ataque e 5% de Velocidade de Movimento. Os projéteis de Ataque Básico de Natan retornarão a Natan após atingir o alcance máximo, causando 30 (+50% de Ataque Físico Total) (+60% de Poder Mágico Total) de Dano Mágico extra aos inimigos ao longo do caminho (herda uma parte dos Efeitos de Ataque). Acertar um inimigo renova a duração do Entanglement."
     },
     {
       "name": "Superposition",
-      "description": "Natan shoots a dense mass of energy in the target direction, dealing 225 (+100% Total Physical Attack) (+120% Total Magic Power) Magic Damage to enemies in its path.",
+      "description": "Natan dispara uma densa massa de energia na direção do alvo, causando 225 (+100% de Ataque Físico Total) (+120% de Poder Mágico Total) de Dano Mágico aos inimigos em seu caminho.",
       "cooldown": [
         8
       ],
@@ -3197,7 +3197,7 @@
     },
     {
       "name": "Interference!",
-      "description": "Natan launches a Gravitational Attractor in the target direction, dealing 150 (+50% Total Physical Attack) (+60% Total Magic Power) Magic Damage to enemies in its path and knocking them back. The Attractor detonates upon reaching the maximum range, dealing 30 (+10% Total Physical Attack) (+12% Total Magic Power) Magic Damage to nearby enemies and knocking them back.",
+      "description": "Natan lança um Atrator Gravitacional na direção alvo, causando 150 (+50% de Ataque Físico Total) (+60% de Poder Mágico Total) de Dano Mágico aos inimigos em seu caminho e repelindo-os. O Atrator detona ao atingir o alcance máximo, causando 30 (+10% de Ataque Físico Total) (+12% de Poder Mágico Total) de Dano Mágico a inimigos próximos e repelindo-os.",
       "cooldown": [
         12
       ],
@@ -3207,7 +3207,7 @@
     },
     {
       "name": "Entropy?",
-      "description": "Natan summons a Reverse-Clone that lasts 10s at 6 units away. The Reverse-Clone copies his moves and attacks in reverse and inherits 35% of his Basic Attack and skill damage. Use Again: Natan switches places with the Reverse-Clone. Each cast reduces other skills' remaining cooldowns by 50%. The Reverse-Clone will disappear if Natan is too far away.",
+      "description": "Natan invoca um Clone Reverso que dura 10s a 6 unidades de distância. O Clone Reverso copia seus movimentos e ataques ao contrário e herda 35% de seu Ataque Básico e dano de habilidade. Use novamente: Natan troca de lugar com o Reverse-Clone. Cada lançamento reduz os tempos de recarga restantes de outras habilidades em 50%. O Reverse-Clone desaparecerá se Natan estiver muito longe.",
       "cooldown": [
         24
       ],
@@ -3219,11 +3219,11 @@
   "nolan": [
     {
       "name": "Dimensional Rift",
-      "description": "Nolan's skills will leave a Rift that lasts 5 seconds and slows enemies by 30%. When a rift comes into contact with another rift, they will activate and pull enemies to their center and deal 220 (+140% Extra Physical Attack) Physical Damage after a short delay. Each time a rift activation hits an enemy hero or Creep, Nolan will gain 15 Energy and heals 150 (+120% Extra Physical Attack) for himself. If an enemy is hit by multiple rift activations, the damage after the first hit will be reduced to 40%. Cosmic Leap: If Nolan does not deal or take damage for 5 seconds, he enhances his next Basic Attack to dash to the target, dealing (+120% Total Physical Attack) Physical Damage and leaving a rift. (Damage to and from Minions or Creeps will not prevent Nolan from getting this effect.)"
+      "description": "As habilidades de Nolan deixarão uma fenda que dura 5 segundos e retarda os inimigos em 30%. Quando uma fenda entra em contato com outra fenda, eles serão ativados e puxarão os inimigos para o centro e causarão 220 (+140% de Ataque Físico Extra) de Dano Físico após um pequeno atraso. Cada vez que uma ativação de fenda atinge um herói inimigo ou Creep, Nolan ganhará 15 de Energia e curará 150 (+120% de Ataque Físico Extra) para si mesmo. Se um inimigo for atingido por múltiplas ativações de fenda, o dano após o primeiro golpe será reduzido para 40%. Salto Cósmico: Se Nolan não causar ou receber dano por 5 segundos, ele aprimora seu próximo Ataque Básico para avançar em direção ao alvo, causando (+120% de Ataque Físico Total) de Dano Físico e deixando uma fenda. (Dano causado por Minions ou Creeps não impedirá que Nolan obtenha esse efeito.)"
     },
     {
       "name": "Expansion",
-      "description": "Nolan cuts a rectangular area in front of him with his cosmic gauge, dealing 230 (+40% Total Physical Attack) Physical Damage and leaving a Rift at the first enemy hit.",
+      "description": "Nolan corta uma área retangular à sua frente com seu medidor cósmico, causando 230 (+40% de Ataque Físico Total) de Dano Físico e deixando uma Fenda no primeiro inimigo atingido.",
       "cooldown": [
         2.5
       ],
@@ -3233,7 +3233,7 @@
     },
     {
       "name": "Gauge",
-      "description": "Nolan charges in the target direction and slashes with his cosmic gauge, dealing 70 (+13% Total Physical Attack) Physical Damage to enemies in his path and leaving a Rift.",
+      "description": "Nolan avança na direção do alvo e corta com seu medidor cósmico, causando 70 (+13% de Ataque Físico Total) de Dano Físico aos inimigos em seu caminho e deixando uma Fenda.",
       "cooldown": [
         2.5
       ],
@@ -3243,7 +3243,7 @@
     },
     {
       "name": "Fracture",
-      "description": "Nolan slashes at the target location 3 times, dealing 120 (+50% Extra Physical Attack) Physical Damage with each slash while leaving 3 rifts and slowing the target hit by 30% for 0.5s. The rifts will be activated automatically while Nolan dashes backward.",
+      "description": "Nolan corta o local alvo 3 vezes, causando 120 (+50% de Ataque Físico Extra) de Dano Físico com cada corte, deixando 3 fendas e reduzindo a velocidade do alvo atingido em 30% por 0,5s. As fendas serão ativadas automaticamente enquanto Nolan avança para trás.",
       "cooldown": [
         21
       ],
@@ -3759,49 +3759,49 @@
   "suyou": [
     {
       "name": "Transient Immortal",
-      "description": "Tap-casting any skill puts Suyou in Mortal Form, granting 40 Movement Speed and reducing the interval between his Basic Attacks. Hold-casting any skill puts Suyou in Immortal Form, increasing his Basic Attack damage to 125% and granting 20% Physical Damage Reduction. In this form, Suyou gains 1% Physical Damage Reduction for every 20 extra Physical Attack he has, up to 40%."
+      "description": "Lançar qualquer habilidade coloca Suyou na Forma Mortal, concedendo 40 de Velocidade de Movimento e reduzindo o intervalo entre seus Ataques Básicos. Conjurar qualquer habilidade coloca Suyou na Forma Imortal, aumentando seu dano de Ataque Básico para 125% e concedendo 20% de Redução de Dano Físico. Nesta forma, Suyou ganha 1% de Redução de Dano Físico para cada 20 Ataques Físicos extras que ele possui, até 40%."
     },
     {
       "name": "Blade Surge",
-      "description": "Tap: Suyou throws his weapon in the target direction, dealing 250 (+100% Extra Physical Attack) Physical Damage to enemies in its path. Suyou then blinks to the weapon's location, catches it, and performs a slash in the opposite direction, dealing 375 (+150% Extra Physical Attack) Physical Damage. Hold: Suyou channels the Immortal's power and charges in the target direction, dealing 250 (+100% Extra Physical Attack) Physical Damage to enemies along the path. When hitting an enemy hero, he stops and stuns enemies in a rectangular area in front for 0.6s. The charge distance increases with the hold time. Suyou can be controlled while charging, but the skill cannot be interrupted.",
+      "description": "Toque: Suyou lança sua arma na direção alvo, causando 250 (+100% de Ataque Físico Extra) de Dano Físico aos inimigos em seu caminho. Suyou então pisca para a localização da arma, pega-a e executa um golpe na direção oposta, causando 375 (+150% de Ataque Físico Extra) de Dano Físico. Hold: Suyou canaliza o poder do Imortal e investe na direção alvo, causando 250 (+100% de Ataque Físico Extra) de Dano Físico aos inimigos ao longo do caminho. Ao atingir um herói inimigo, ele para e atordoa os inimigos em uma área retangular à sua frente por 0,6s. A distância de carga aumenta com o recarga. Suyou pode ser controlado durante o carregamento, mas a habilidade não pode ser interrompida.",
       "cooldown": [
         8.5
       ]
     },
     {
       "name": "Soul Sever",
-      "description": "Tap: Suyou performs a sweeping attack with his weapon, dealing Physical Damage equal to 280 (+200% Extra Physical Attack) (+ 15% of target's lost HP) to enemies in a fan-shaped area. Hold: Suyou channels the power of the Immortal to perform 3 cleaves in a fan-shaped area. The first two strikes deal 225 (+80% Extra Physical Attack) Physical Damage each, while the final strike deals 360 (+128% Extra Physical Attack) Physical Damage and recovers 150 (+50% Extra Physical Attack) HP for himself.",
+      "description": "Tap: Suyou realiza um ataque abrangente com sua arma, causando Dano Físico igual a 280 (+200% de Ataque Físico Extra) (+15% do HP perdido do alvo) aos inimigos em uma área em forma de leque. Segure: Suyou canaliza o poder do Imortal para realizar 3 clivagens em uma área em forma de leque. Os dois primeiros ataques causam 225 (+80% de Ataque Físico Extra) de Dano Físico cada, enquanto o ataque final causa 360 (+128% de Ataque Físico Extra) de Dano Físico e recupera 150 (+50% de Ataque Físico Extra) de HP para si mesmo.",
       "cooldown": [
         8.5
       ]
     },
     {
       "name": "Evil Queller",
-      "description": "Tap: Suyou glides backward and swings his weapon in the target direction, dealing 420 (+120% Extra Physical Attack) Physical Damage to enemies in a rectangular area and on his path backward, and reducing their Movement Speed by 30% for 1.5s. Hold: Suyou uses the Immortal's power to shoot a deadly arrow in the target direction, dealing 580 (+165% Extra Physical Attack) Physical Damage to the target hit. The range increases with the hold time. Suyou can be controlled while charging, but the skill cannot be interrupted."
+      "description": "Toque: Suyou desliza para trás e balança sua arma na direção alvo, causando 420 (+120% de Ataque Físico Extra) de Dano Físico aos inimigos em uma área retangular e em seu caminho para trás, e reduzindo sua Velocidade de Movimento em 30% por 1,5s. Hold: Suyou usa o poder do Imortal para atirar uma flecha mortal na direção do alvo, causando 580 (+165% de Ataque Físico Extra) de Dano Físico ao alvo atingido. O alcance aumenta com o recarga. Suyou pode ser controlado durante o carregamento, mas a habilidade não pode ser interrompida."
     }
   ],
   "terizla": [
     {
       "name": "Body of Smith",
-      "description": "Terizla gains 1% extra Damage Reduction (up to 20 (+1*Hero Level)%) for every 2.5% HP lost. He cannot gain extra Attack Speed and will convert every 1% extra Attack Speed into 1 Physical Attack."
+      "description": "Terizla ganha 1% de Redução de Dano extra (até 20 (+1*Nível de Herói)%) para cada 2,5% de HP perdido. Ele não pode ganhar Velocidade de Ataque extra e converterá cada 1% de Velocidade de Ataque extra em 1 Ataque Físico."
     },
     {
       "name": "Revenge Strike",
-      "description": "Terizla strikes the ground with his hammer, sending a fissure forward that deals 300 (+80% Extra Physical Attack) Physical Damage. Upon hitting its first target, the fissure burrows into them, slowing them by 15%. Terizla also gains 15% Movement Speed for 3.5s. The fissure then explodes, dealing 300 (+80% Extra Physical Attack) (+ 20% of the target's lost HP) Physical Damage.",
+      "description": "Terizla atinge o chão com seu martelo, enviando uma fissura para frente que causa 300 (+80% de Ataque Físico Extra) de Dano Físico. Ao atingir seu primeiro alvo, a fissura penetra nele, reduzindo sua velocidade em 15%. Terizla também ganha 15% de velocidade de movimento por 3,5s. A fissura então explode, causando 300 (+80% de Ataque Físico Extra) (+20% do HP perdido do alvo) de Dano Físico.",
       "cooldown": [
         8.5
       ]
     },
     {
       "name": "Execution Strike",
-      "description": "Terizla swings his hammer in a fan-shaped area ahead. This skill can be cast up to 3 times. The first two attacks deal 90 (+135% Total Physical Attack) Physical Damage each, while the third deals 225 (+220% Total Physical Attack) Physical Damage. Enemies hit will also be slowed by 20% for 1.25s (the Slowing Effect can stack). Deals only 80% damage to Minions.",
+      "description": "Terizla balança seu martelo em uma área em forma de leque à frente. Esta habilidade pode ser lançada até 3 vezes. Os dois primeiros ataques causam 90 (+135% de Ataque Físico Total) de Dano Físico cada, enquanto o terceiro causa 225 (+220% de Ataque Físico Total) de Dano Físico. Os inimigos atingidos também serão desacelerados em 20% por 1,25s (o efeito de desaceleração pode ser acumulado). Causa apenas 80% de dano aos Minions.",
       "cooldown": [
         9
       ]
     },
     {
       "name": "Penalty Zone",
-      "description": "Terizla jumps to the designated area, dealing 300 (+100% Total Physical Attack) Physical Damage and knocking enemies airborne for 0.6s. He then summons Scaffold and slows enemies by 25%. Scaffold will send out a hook at enemy heroes in range and pull them several times while dealing 150 (+30% Total Physical Attack) Physical Damage each time.",
+      "description": "Terizla salta para a área designada, causando 300 (+100% de Ataque Físico Total) de Dano Físico e jogando os inimigos no ar por 0,6s. Ele então invoca Andaime e retarda os inimigos em 25%. O andaime lançará um gancho contra os heróis inimigos ao alcance e os puxará várias vezes enquanto causa 150 (+30% de Ataque Físico Total) de Dano Físico a cada vez.",
       "cooldown": [
         50
       ]
@@ -3810,7 +3810,7 @@
   "thamuz": [
     {
       "name": "Grand Lord Lava",
-      "description": "Thamuz's Basic Attacks have a chance of 10%–60% (scaling with Lava's Rage) to conjure Lava Energy beneath the target that erupts after a brief delay, dealing 55 (+60% Total Physical Attack)(+8*Hero Level) True Damage. Basic Attacks that don't trigger Lava Energy increase Thamuz's Lava's Rage. While Thamuz is without his Scythes, he gains 25% Movement Speed. After retrieving his Scythes, his next Basic Attack slows the target by 30% and is guaranteed to trigger Lava Energy."
+      "description": "Os Ataques Básicos de Thamuz têm uma chance de 10% a 60% (escalando com a Fúria de Lava) de conjurar Energia de Lava abaixo do alvo que irrompe após um breve atraso, causando 55 (+60% do Ataque Físico Total) (+8*Nível do Herói) de Dano Verdadeiro. Ataques básicos que não ativam Energia de Lava aumentam a Fúria de Lava de Thamuz. Enquanto Thamuz está sem suas foices, ele ganha 25% de velocidade de movimento. Depois de recuperar suas Foices, seu próximo Ataque Básico desacelera o alvo em 30% e garante a ativação de Energia Lava."
     },
     {
       "name": "Molten Scythes",
@@ -3828,7 +3828,7 @@
     },
     {
       "name": "Cauterant Inferno",
-      "description": "Thamuz spouts the lava within, dealing 300 (+80% Total Physical Attack) Physical Damage to nearby enemies and creating a Cauterant Zone around himself. The Cauterant Zone lasts 9s and deals 30 (+10% Extra Physical Attack) Physical Damage every 0.5s to enemies in the area. Meanwhile, Thamuz gains 800 (+50% Extra Max HP) HP, immediately healing for the same amount, and gains 60% Attack Speed. Each time his Basic Attacks or Scythes deal damage, he recovers 1.5% Max HP.",
+      "description": "Thamuz jorra a lava de dentro, causando 300 (+80% de Ataque Físico Total) de Dano Físico aos inimigos próximos e criando uma Zona Cauterante ao seu redor. A Zona Cauterante dura 9s e causa 30 (+10% de Ataque Físico Extra) de Dano Físico a cada 0,5s aos inimigos na área. Enquanto isso, Thamuz ganha 800 (+50% Extra Max HP) HP, curando imediatamente a mesma quantidade, e ganha 60% de Velocidade de Ataque. Cada vez que seus ataques básicos ou foices causam dano, ele recupera 1,5% do HP máximo.",
       "cooldown": [
         38
       ]
@@ -3981,7 +3981,7 @@
   "valir": [
     {
       "name": "Ashing",
-      "description": "Valir's skills apply a stack of Ablaze to enemies hit, dealing them Magic Damage equal to 1 (+0.2% Total Magic Power)% of their HP per second for 3s. At 3 stacks, the fire detonates, dealing Magic Damage equal to 5 (+1% Total Magic Power)% of the target's HP and stunning them for 1s. A target can only be stunned by Valir's skills once every 7s."
+      "description": "As habilidades de Valir aplicam uma pilha de Ablaze aos inimigos atingidos, causando-lhes Dano Mágico igual a 1 (+0,2% de Poder Mágico Total)% de seu HP por segundo durante 3s. Com 3 acúmulos, o fogo detona, causando Dano Mágico igual a 5 (+1% de Poder Mágico Total)% do HP do alvo e atordoando-o por 1s. Um alvo só pode ser atordoado pelas habilidades de Valir uma vez a cada 7s."
     },
     {
       "name": "Burst Fireball",
@@ -4097,21 +4097,21 @@
     },
     {
       "name": "Fire Missiles",
-      "description": "X.Borg sprays fire, dealing 25 (+60% Total Physical Attack) (+40% Total Magic Power) Physical Damage 7 times over 2s to enemies in front of him (75% damage to minions). Armorless State: The attack area becomes narrower but longer, while the damage is reduced to 60%.",
+      "description": "X.Borg espalha fogo, causando 25 (+60% de Ataque Físico Total) (+40% de Poder Mágico Total) de Dano Físico 7 vezes ao longo de 2s aos inimigos à sua frente (75% de dano aos minions). Estado sem armadura: A área de ataque torna-se mais estreita, porém mais longa, enquanto o dano é reduzido para 60%.",
       "cooldown": [
         4
       ]
     },
     {
       "name": "Fire Stake",
-      "description": "X.Borg fires 5 Fire Stakes forward and recalls them after 1.7s. Each stake deals 50 (+20% Total Physical Attack) Physical Damage and pulls enemies and Firaga Supplies along its path back to him. Armorless State: X.Borg adjusts the Fire Stake launcher, making the stakes travel farther and closer together.",
+      "description": "X.Borg dispara 5 Fire Stakes para frente e as recupera após 1,7s. Cada aposta causa 50 (+20% de Ataque Físico Total) de Dano Físico e puxa os inimigos e Suprimentos Firaga ao longo de seu caminho de volta para ele. Estado sem armadura: X.Borg ajusta o lançador Fire Stake, fazendo com que as estacas viajem cada vez mais longe.",
       "cooldown": [
         9
       ]
     },
     {
       "name": "Last Insanity",
-      "description": "X.Borg charges in the target direction while spinning and spraying fire (cannot pick up Firaga Supplies during this time), dealing 90 (+60% Extra Physical Attack) (+45% Total Magic Power) Physical Damage 12 times and slowing enemies hit by 25%. He stops upon touching an enemy hero and will slow them by an additional 40%. After 3s, his mecha suit detonates, dealing 300 (+ 15% target's HP) True Damage. If his armor is destroyed, it will immediately explode, but damage drops to 50%. The detonation destroys his armor, removes all control effects, and collects all nearby Firaga Supplies. Cannot be used in Armorless State. Use Again: Immediately stop spraying fire and detonate early.",
+      "description": "X.Borg ataca na direção do alvo enquanto gira e espalha fogo (não pode coletar Suprimentos Firaga durante este tempo), causando 90 (+60% de Ataque Físico Extra) (+45% de Poder Mágico Total) de Dano Físico 12 vezes e reduzindo a velocidade dos inimigos atingidos em 25%. Ele para ao tocar um herói inimigo e irá retardá-lo em mais 40%. Após 3s, seu traje mecha detona, causando 300 (+ 15% do HP do alvo) de Dano Verdadeiro. Se sua armadura for destruída, ela explodirá imediatamente, mas o dano cairá para 50%. A detonação destrói sua armadura, remove todos os efeitos de controle e coleta todos os suprimentos Firaga próximos. Não pode ser usado no estado sem armadura. Use novamente: Pare imediatamente de pulverizar fogo e detone cedo.",
       "cooldown": [
         30
       ],
@@ -4123,11 +4123,11 @@
   "xavier": [
     {
       "name": "Transcendence",
-      "description": "When Xavier's skills hit enemy heroes, he gains 60% Movement Speed for 1.2s (decays over time) and 1 energy charge. At 3 charges, his next skill triggers the Transcendence state. Transcendence: In this state, Xavier's Skills 1 and 2 have their cooldowns reduced by 4s, and his Ultimate by 36s. Transcendence lasts 5s and can be extended by 1s each time his skills hit enemies."
+      "description": "Quando as habilidades de Xavier atingem heróis inimigos, ele ganha 60% de Velocidade de Movimento por 1,2s (decai com o tempo) e 1 carga de energia. Com 3 cargas, sua próxima habilidade ativa o estado Transcendência. Transcendência: Neste estado, as Habilidades 1 e 2 de Xavier têm seus tempos de recarga reduzidos em 4s, e seu Ultimate em 36s. A transcendência dura 5s e pode ser estendida em 1s cada vez que suas habilidades atingem os inimigos."
     },
     {
       "name": "Infinite Extension",
-      "description": "Xavier fires a Mystic Bullet that deals 480 (+100% Total Magic Power) Magic Damage to enemies it passes through. The Bullet's flying distance increases each time it hits an enemy or the Mystic Barrier (up to 5 times).",
+      "description": "Xavier dispara uma Bala Mística que causa 480 (+100% de Poder Mágico Total) de Dano Mágico aos inimigos por onde passa. A distância de vôo do Bullet aumenta cada vez que atinge um inimigo ou a Barreira Mística (até 5 vezes).",
       "cooldown": [
         6.5
       ],

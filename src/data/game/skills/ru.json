@@ -42,7 +42,7 @@
     },
     {
       "name": "Headbutt",
-      "description": "Akai charges in the target direction, dealing 300 (+50% Total Physical Attack) Physical Damage to enemies along the way. Upon hitting an enemy hero, he knocks them airborne for 0.5s and can roll once in the joystick's direction. Akai can cast Headbutt during Heavy Spin to quickly reposition himself.",
+      "description": "Akai бросается в выбранном направлении, нанося 300 (+50% общей физической атаки) физического урона врагам на своем пути. При попадании во вражеского героя он подбрасывает его в воздух на 0,5 секунды и может один раз перекатиться в направлении джойстика. Akai может использовать «Удар головой» во время Heavy Spin, чтобы быстро сменить позицию.",
       "cooldown": [
         11
       ],
@@ -74,7 +74,7 @@
   "aldous": [
     {
       "name": "Contract: Transform",
-      "description": "Every 8s, Aldous gains a shield equal to 350 (+ 3 per Soul Steal stack) for 3s on his next Basic Attack. He also gains 60% Movement Speed for 1s.",
+      "description": "Каждые 8 ​​секунд Aldous получает щит, равный 350 (+ 3 за каждый стек Soul Steal) на 3 секунды при следующей базовой атаке. Он также получает 60% скорости передвижения на 1 секунду.",
       "cooldown": [
         5
       ]
@@ -91,7 +91,7 @@
     },
     {
       "name": "Contract: Explosion",
-      "description": "Aldous assumes a defensive stance, gaining 30% Damage Reduction for 2s or until canceled. He then deals 200 (+20% Total Physical Attack)-400 (+40% Total Physical Attack) Physical Damage to nearby enemies and stuns them for 0.5-1s (scales with defensive stance duration).",
+      "description": "Aldous принимает защитную стойку, получая 30% уменьшения урона на 2 секунды или до тех пор, пока не будет отменено. Затем он наносит 200 (+20% общей физической атаки)–400 (+40% общей физической атаки) физического урона ближайшим врагам и оглушает их на 0,5–1 с (зависит от продолжительности защитной стойки).",
       "cooldown": [
         9.5
       ],
@@ -101,7 +101,7 @@
     },
     {
       "name": "Contract: Chase Fate",
-      "description": "Aldous gains vision of all enemy heroes for 5s. Use Again: During this time, he dashes toward an enemy hero, dealing 250 (+ 8% target's HP) Physical Damage and knocking the target back for 1s. Aldous can interrupt the target's Recall while dashing.",
+      "description": "Aldous получает обзор всех вражеских героев на 5 секунд. Использовать повторно: в это время он бросается к вражескому герою, нанося 250 (+ 8% здоровья цели) физического урона и отбрасывая цель назад на 1 секунду. Aldous может прервать Возвращение цели во время рывка.",
       "cooldown": [
         60
       ],
@@ -113,25 +113,25 @@
   "alice": [
     {
       "name": "Crimson Blood Banquet",
-      "description": "Alice gains 1 stack(s) of Crimson each time her skill hits an enemy, lasting 4s (up to 2 stacks). Blood Banquet activates at max stacks. Blood Banquet: Every 0.5s, Alice deals 25 (+30% Total Magic Power) (+ 0.5% - 2.5% target's HP, scaling with level) Magic Damage to nearby enemies. She also recovers 10 (+3% Extra Max HP) HP and gains 8% Movement Speed. Its duration is refreshed when her skills hit an enemy hero. Damage to creeps is capped at 70 (+10*Hero Level) Magic Damage."
+      "description": "Alice получает 1 стак Багрового цвета каждый раз, когда ее умение поражает врага, длительностью 4 секунды (до 2 стаков). Кровавый банкет активируется при максимальном количестве стаков. Кровавый банкет: каждые 0,5 секунды Alice наносит 25 (+30% общей магической силы) (+0,5% - 2,5% здоровья цели, зависит от уровня) магического урона ближайшим врагам. Она также восстанавливает 10 (+3% дополнительного максимального запаса здоровья) HP и увеличивает скорость передвижения на 8%. Его продолжительность обновляется, когда ее навыки поражают вражеского героя. Урон крипам ограничен 70 (+10*уровень героя) магическим уроном."
     },
     {
       "name": "Crimson Gleam",
-      "description": "Alice shoots Blood Energy forward, dealing 100 (+50% Total Magic Power) Magic Damage to enemies. Use Again: Before Blood Energy dissipates, Alice can recast this skill as Scarlet Shadow to blink to its location.",
+      "description": "Alice выпускает Энергию Крови вперед, нанося врагам 100 (+50% общей магической силы) магического урона. Использовать повторно: прежде чем Энергия Крови рассеется, Alice может переназначить этот навык на Алую Тень, чтобы переместиться к его местоположению.",
       "cooldown": [
         12
       ]
     },
     {
       "name": "Doom Waltz",
-      "description": "Alice performs a deadly dance, dealing 350 (+130% Total Magic Power) Magic Damage to nearby enemies and slowing them by 70% for 1s. If Blood Banquet is active, the skill also scorches enemies, dealing 300% of Blood Banquet's damage and recovering the same amount of HP.",
+      "description": "Alice исполняет смертельный танец, нанося 350 (+130% общей магической силы) магического урона ближайшим врагам и замедляя их на 70% на 1 секунду. Если «Кровавый банкет» активен, умение также поджигает врагов, нанося 300% урона «Кровавого банкета» и восстанавливая такое же количество HP.",
       "cooldown": [
         4
       ]
     },
     {
       "name": "Throne of Ruin",
-      "description": "Alice surrounds herself with blood, gaining Control Immunity and 50% Damage Reduction while slowing herself by 50%. After 1.5s, she descends from above, dealing 500 (+200% Total Magic Power) (+20% Extra Max HP) Magic Damage to all enemies in range and immobilizing them for 1s. While charging her Ultimate, Alice cannot use any hero skills other than Scarlet Shadow.",
+      "description": "Alice окружает себя кровью, получая невосприимчивость к контролю и снижение урона на 50%, а также замедляя себя на 50%. Через 1,5 секунды она спускается сверху, нанося 500 (+200% общей магической силы) (+20% дополнительного максимального запаса здоровья) магического урона всем врагам в радиусе действия и обездвиживая их на 1 секунду. Во время зарядки своего Ultimate Alice не может использовать никакие навыки героя, кроме Алой Тени.",
       "cooldown": [
         60
       ]
@@ -140,11 +140,11 @@
   "alpha": [
     {
       "name": "Beta, Advance!",
-      "description": "When Alpha uses a skill, Beta will be summoned to attack. Enemies that are hit by Beta 2 time(s) will be Locked On. Locked On: After Alpha deals damage to the target, Beta will fire a laser at them, dealing 60 (+50% Total Physical Attack) (+8*Hero Level) True Damage and briefly applying a powerful slow effect. This skill only deals 75% damage to Creeps."
+      "description": "Когда Альфа использует навык, Бета будет вызван для атаки. Враги, пораженные бета-версией 2 раза, будут заблокированы. Заблокировано: после того, как Альфа нанесет урон цели, Бета выстрелит в нее лазером, нанося 60 (+50% общей физической атаки) (+8*уровень героя) чистого урона и на короткое время применяя мощный эффект замедления. Этот навык наносит крипам только 75% урона."
     },
     {
       "name": "Rotary Impact",
-      "description": "Alpha unleashes an energy wave in the target direction, dealing 100 (+90% Extra Physical Attack) Physical Damage to enemies in its path and slowing them by 40% for 1s. Beta then strafes enemies along the same path, dealing 60 (+30% Extra Physical Attack) True Damage.",
+      "description": "Альфа выпускает энергетическую волну в выбранном направлении, нанося 100 (+90% дополнительной физической атаки) физического урона противникам на своем пути и замедляя их на 40% на 1 секунду. Затем Бета обстреливает врагов по тому же пути, нанося 60 (+30% дополнительной физической атаки) чистого урона.",
       "cooldown": [
         4
       ],
@@ -2214,7 +2214,7 @@
     },
     {
       "name": "Rasho Umbrella Flee",
-      "description": "Kagura removes all debuffs on her and leaps in the target direction, while leaving the Seimei Umbrella behind.",
+      "description": "Kagura снимает с себя все отрицательные эффекты и прыгает в выбранном направлении, оставляя Зонт Сэймэй позади.",
       "cooldown": [
         12
       ],
@@ -2224,7 +2224,7 @@
     },
     {
       "name": "Yin Yang Overturn",
-      "description": "Kagura invokes the power of the Seimei Umbrella, dealing 250 (+95% Total Magic Power) Magic Damage to nearby enemies, knocking them back, and slowing them by 60% for 0.5s.",
+      "description": "Kagura использует силу Зонта Сэймэй, нанося 250 (+95% общей магической силы) магического урона ближайшим врагам, отбрасывая их назад и замедляя их на 60% на 0,5 секунды.",
       "cooldown": [
         36
       ],

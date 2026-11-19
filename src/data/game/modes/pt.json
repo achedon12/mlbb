@@ -205,11 +205,11 @@
           },
           {
             "type": "li",
-            "text": "Players can only buy items when dead or before leaving Altar area on each respawn."
+            "text": "Os jogadores só podem comprar itens quando estiverem mortos ou antes de deixar a área do Altar em cada reaparecimento."
           },
           {
             "type": "li",
-            "text": "Altar no longer heals or regenerates mana. All healing effect is halved. Base no longer replenishes itself."
+            "text": "Altar não cura mais nem regenera mana. Todo o efeito de cura é reduzido pela metade. A base não se reabastece mais."
           },
           {
             "type": "li",
@@ -313,12 +313,12 @@
           },
           {
             "type": "p",
-            "text": "Being AFK, avoiding teamfight or verbal abuse is fully punishable through reports."
+            "text": "Ficar AFK, evitar brigas de equipe ou abuso verbal é totalmente punível por meio de denúncias."
           }
         ]
       },
       {
-        "title": "Tips & Tricks",
+        "title": "Dicas e truques",
         "elements": [
           {
             "type": "li",
@@ -326,15 +326,15 @@
           },
           {
             "type": "p",
-            "text": "There are many heroes to choose from with different styles of play. Knowing the heroes' skills, strengths, and weaknesses along with optimal positioning is vital. Prioritize Assassins, Mages or Fighters as they have a lot of damage output and crowd control. Avoid Marksman as they are item-dependent and squishy early on, unless those with good minion clearing and area of effect abilities like Beatrix or Granger. Avoid teams with too many Mages, too many Marksmen or too many Tanks."
+            "text": "Existem muitos heróis para escolher com diferentes estilos de jogo. Conhecer as habilidades, pontos fortes e fracos dos heróis, juntamente com o posicionamento ideal, é vital. Priorize Assassinos, Magos ou Lutadores, pois eles causam muitos danos e controlam multidões. Evite Marksman, pois eles dependem de itens e são moles desde o início, a menos que aqueles com boa limpeza de minions e habilidades de área de efeito, como Beatrix ou Granger. Evite equipes com muitos Magos, muitos Atiradores ou muitos Tanques."
           },
           {
             "type": "li",
-            "text": "Recommended Battle Spells"
+            "text": "Feitiços de Batalha Recomendados"
           },
           {
             "type": "li",
-            "text": "Flameshot has very low cooldown and can be used to check bush, secure kills or cancel abilities."
+            "text": "Flameshot tem cooldown muito baixo e pode ser usado para verificar arbustos, garantir mortes ou cancelar habilidades."
           },
           {
             "type": "li",

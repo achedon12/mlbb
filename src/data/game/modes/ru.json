@@ -171,20 +171,20 @@
         "elements": [
           {
             "type": "p",
-            "text": "Rank Protection Cards can only be obtained from Rank Promotion Rewards. Unlike Star Protection Points/Cards, they only activate on Defeats which will cause the player to demote in ranks (e.g. A Defeat resulting in a loss of stars from Legend V 0 Stars to Epic I 4 Stars, demoting from Legend rank to Epic rank)."
+            "text": "Карты защиты ранга можно получить только за вознаграждения за повышение ранга. В отличие от очков/карт звездной защиты, они активируются только при поражениях, которые приводят к понижению игрока в рангах (например, поражение, приводящее к потере звезд с легенды V 0 звезд до эпических I 4 звезды, понижение с легенды до эпического ранга)."
           }
         ]
       },
       {
-        "title": "Rank Reset",
+        "title": "Сброс ранга",
         "elements": [
           {
             "type": "p",
-            "text": "After a season ends, all players will begin their new season with their new rank based on their rank in the previous season. They also receive the reward for having reached certain Rank."
+            "text": "После окончания сезона все игроки начнут новый сезон с новым рангом, основанным на их ранге в предыдущем сезоне. Они также получают награду за достижение определенного ранга."
           },
           {
             "type": "p",
-            "text": "Rank reset is only applied when the player logs in for the first time in the new season, however their old Rank is not recorded on leaderboard."
+            "text": "Сброс ранга применяется только тогда, когда игрок входит в систему впервые в новом сезоне, однако его старый ранг не записывается в таблицу лидеров."
           }
         ]
       }
@@ -194,26 +194,26 @@
   {
     "name": "Brawl",
     "slug": "brawl",
-    "description": "Brawl is a game mode in which you are unable to choose your heroes freely. Instead each player will be given a choice between two random heroes. Fights in this mode happen only in one lane with two turrets defending the base in both teams respectively. Brawl matches usually end in a much shorter time compared to Classic Mode and Ranked. This type of match is prefered for raising lost credit scores or complete tasks.",
+    "description": "Драка — это игровой режим, в котором вы не можете свободно выбирать героев. Вместо этого каждому игроку будет предоставлен выбор между двумя случайными героями. Бои в этом режиме происходят только на одной линии, при этом базу защищают две турели у обеих команд соответственно. Матчи потасовок обычно заканчиваются гораздо быстрее по сравнению с классическим режимом и рейтинговым режимом. Этот тип матча предпочтителен для поднятия потерянных кредитных баллов или выполнения задач.",
     "sections": [
       {
-        "title": "Main features",
+        "title": "Основные особенности",
         "elements": [
           {
             "type": "li",
-            "text": "Each player is given a choice between 2 random heroes."
+            "text": "Каждому игроку предоставляется выбор между двумя случайными героями."
           },
           {
             "type": "li",
-            "text": "Players can only buy items when dead or before leaving Altar area on each respawn."
+            "text": "Игроки могут покупать предметы только после смерти или перед тем, как покинуть Алтарь при каждом возрождении."
           },
           {
             "type": "li",
-            "text": "Altar no longer heals or regenerates mana. All healing effect is halved. Base no longer replenishes itself."
+            "text": "Алтарь больше не лечит и не восстанавливает ману. Весь лечебный эффект уменьшается вдвое. База больше не пополняется сама."
           },
           {
             "type": "li",
-            "text": "Each hero might have an additional buff or handicap."
+            "text": "У каждого героя может быть дополнительный положительный эффект или гандикап."
           }
         ]
       },
@@ -571,46 +571,46 @@
           },
           {
             "type": "p",
-            "text": "Enter into Eruditio and strive to be the last one standing."
+            "text": "Войдите в Eruditio и постарайтесь остаться последним выжившим."
           },
           {
             "type": "p",
-            "text": "In recent times, a most fascinating competition that grows in popularity by the day has taken Eruditio by storm. Known as \"Survival: Nexus\", it draws in participants from across Eruditio. Convenient terminals allow participants to control virtual Beatrix avatars using only their brainwaves, immersing themselves in a virtual realm. Here, they can take part in a tactical competition in which the last player standing receives a huge reward. Grab the chance while you can, adventurers, and join Survival: Nexus!"
+            "text": "В последнее время очень увлекательное соревнование, популярность которого растет с каждым днем, взяло штурмом Eruditio. Известная как «Survival: Nexus», она привлекает участников со всего Эрудитио. Удобные терминалы позволяют участникам управлять виртуальными аватарами Beatrix, используя только свои мозговые волны, погружаясь в виртуальный мир. Здесь они могут принять участие в тактическом соревновании, в котором последний выживший игрок получает огромную награду. Воспользуйтесь шансом, пока есть возможность, искатели приключений, и присоединяйтесь к Survival: Nexus!"
           }
         ]
       },
       {
-        "title": "Deathbattle",
+        "title": "Смертельная битва",
         "elements": [
           {
             "type": "p",
-            "text": "Play different heroes in a single-match!"
+            "text": "Играйте разными героями в одном матче!"
           },
           {
             "type": "p",
-            "text": "It is another game type on Mobile Legends, the selection is much similar to survival whereby the player must choose a hero among the randomly selected heroes, whether owned or not. In gameplay, when the hero dies, the player must choose another hero. If there are two players who chose the same hero, he/she must choose another. There are two ways to achieve victory: either to destroy the enemy base or achieve 30 kills before the enemy does. In 2019, this is released in coordination with the Spring Festival. So, the battlefield is matched to this occasion."
+            "text": "Это еще один тип игры в Mobile Legends, выбор которого во многом похож на выживание, в котором игрок должен выбрать героя среди случайно выбранных героев, независимо от того, принадлежит он ему или нет. В игровом процессе, когда герой умирает, игрок должен выбрать другого героя. Если есть два игрока, выбравшие одного и того же героя, он должен выбрать другого. Есть два способа добиться победы: либо уничтожить базу противника, либо совершить 30 убийств раньше, чем это сделает противник. В 2019 году он выпущен совместно с Весенним фестивалем. Итак, поле битвы подобрано к этому событию."
           }
         ]
       },
       {
-        "title": "Frenzy",
+        "title": "безумие",
         "elements": [
           {
             "type": "p",
-            "text": "In this mode, various food items can be found around the mode. By picking different food items up, players can get different buffs that enhances their hero abilities. Some Achievements are exclusive to Frenzy Mode and can only be achieved by playing this mode."
+            "text": "В этом режиме вокруг режима можно найти различные продукты питания. Собирая разные продукты питания, игроки могут получать различные усиления, улучшающие способности их героев. Некоторые достижения являются эксклюзивными для режима «Безумие» и могут быть получены только в этом режиме."
           },
           {
             "type": "p",
-            "text": "Food items can be found at the spot where some of the creeps are killed, a spot where some of the special minions are killed, a spot where enemy heroes are killed and supply spots inside the home and enemy base."
+            "text": "Еду можно найти в том месте, где убиты некоторые крипы, в месте, где убиты некоторые из особых миньонов, в месте, где убиты вражеские герои, а также в местах снабжения внутри дома и на вражеской базе."
           },
           {
             "type": "p",
-            "text": "Food items List"
+            "text": "Список продуктов питания"
           }
         ]
       },
       {
-        "title": "Evolve",
+        "title": "Эволюционировать",
         "elements": [
           {
             "type": "p",

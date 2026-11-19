@@ -1905,7 +1905,7 @@
     },
     {
       "name": "Kaerazu",
-      "description": "Hirara uses Kaerazu to unleash the Crimson Maple, dealing 165 (+42% Extra Physical Attack) Physical Damage to enemies in a fan-shaped area. After a short delay, she deals damage again at the target location, dealing 2 times the initial Crimson Maple damage.",
+      "description": "Hirara utilise Kaerazu pour libérer l'érable cramoisi, infligeant 165 (+42 % d'attaque physique supplémentaire) dégâts physiques aux ennemis dans une zone en forme d'éventail. Après un court délai, elle inflige à nouveau des dégâts à l'emplacement cible, infligeant 2 fois les dégâts initiaux de Crimson Maple.",
       "cooldown": [
         5
       ]
@@ -1918,11 +1918,11 @@
   "hylos": [
     {
       "name": "Thickened Blood",
-      "description": "Hylos gains 1 extra Max Mana for every 2.5 Extra PV gained. When out of Mana, he can consume PV to cast skills."
+      "description": "Hylos gagne 1 Max Mana supplémentaire pour chaque 2,5 PV supplémentaires gagnés. Lorsqu'il est à court de mana, il peut consommer des PV pour lancer des compétences."
     },
     {
       "name": "Law and Order",
-      "description": "Hylos gains 50% Movement Speed and causes his next Basic Attack within 3s to deal 300 (+80% Total Magic Power) Magic Damage to the target, knocking back and stunning them for 1s. The extra Movement Speed rapidly decays over the duration and vanishes after the next Basic Attack.",
+      "description": "Hylos gagne 50 % de vitesse de déplacement et permet à sa prochaine attaque de base dans les 3 secondes d'infliger 300 (+80 % de puissance magique totale) dégâts magiques à la cible, la repoussant et l'étourdissant pendant 1 seconde. La vitesse de déplacement supplémentaire diminue rapidement au fil de la durée et disparaît après la prochaine attaque de base.",
       "cooldown": [
         12
       ],
@@ -1937,7 +1937,7 @@
     },
     {
       "name": "Ring of Punishment",
-      "description": "Hylos releases the Ring of Punishment, dealing 100 (+20% Total Magic Power) Magic Damage to nearby enemies per second while slowing them by 4% and reducing their Attack Speed by 7.5% for 2.5s (up to 8 stacks). Each stack also increases the enemy's damage taken from the Ring of Punishment by 5%. The Ring of Punishment consumes 30 Mana per second when it's active. Use Again: Hylos cancels the Ring of Punishment.",
+      "description": "Hylos libère l'Anneau du Châtiment, infligeant 100 (+20 % de puissance magique totale) dégâts magiques aux ennemis proches par seconde tout en les ralentissant de 4 % et en réduisant leur vitesse d'attaque de 7,5 % pendant 2,5 s (jusqu'à 8 cumuls). Chaque pile augmente également les dégâts infligés à l'ennemi par l'Anneau du Châtiment de 5 %. L'Anneau du Châtiment consomme 30 Mana par seconde lorsqu'il est actif. Réutiliser : Hylos annule l'Anneau du Châtiment.",
       "cooldown": [
         1
       ],
@@ -1952,7 +1952,7 @@
     },
     {
       "name": "Glorious Pathway",
-      "description": "Hylos creates a huge pathway in the target direction, reducing enemies' Movement Speed by 75% for 1s. The pathway lasts 6s. When on the pathway, Hylos gains Slow Immunity and recovers 3% PV per second. Allied heroes moving along the pathway gain 60% extra Movement Speed, while enemy heroes on the pathway will be slowed by 25%.",
+      "description": "Hylos crée un énorme chemin dans la direction ciblée, réduisant la vitesse de déplacement des ennemis de 75 % pendant 1 seconde. Le parcours dure 6s. Sur le chemin, Hylos gagne une immunité aux ralentissements et récupère 3 % de PV par seconde. Les héros alliés se déplaçant le long du chemin gagnent 60 % de vitesse de déplacement supplémentaire, tandis que les héros ennemis sur le chemin seront ralentis de 25 %.",
       "cooldown": [
         40
       ],
@@ -1966,11 +1966,11 @@
   "irithel": [
     {
       "name": "Jungle Heart",
-      "description": "Irithel and Leo's immaculate teamwork allows her to shoot while moving. Each Basic Attack will shoot 2 crossbow bolt(s) (but takes longer to refill) that deal (+55% Total Physical Attack) Physical Damage per bolt (inherits a portion [55%] of Attack Effects). Moving will build up Jungle Heart, up to a maximum of 10 units, and cause the next Basic Attack to unleash 1 additional bolt(s)."
+      "description": "Le travail d'équipe impeccable d'Irithel et Leo lui permet de tirer en bougeant. Chaque attaque de base tirera 2 carreaux d'arbalète (mais prend plus de temps à recharger) qui infligent (+55 % de l'attaque physique totale) des dégâts physiques par carreau (hérite d'une partie [55 %] des effets d'attaque). Le déplacement construira Jungle Heart, jusqu'à un maximum de 10 unités, et fera que la prochaine attaque de base déclenchera 1 boulon(s) supplémentaire(s)."
     },
     {
       "name": "Strafe",
-      "description": "Irithel launches a volley of arrows on the target area, dealing 330 (+60% Total Physical Attack) Physical Damage to enemies within and reducing their Physical Defense by 15 for 3s.",
+      "description": "Irithel lance une volée de flèches sur la zone cible, infligeant 330 (+60 % de l'attaque physique totale) dégâts physiques aux ennemis à l'intérieur et réduisant leur défense physique de 15 pendant 3 secondes.",
       "cooldown": [
         10
       ],
@@ -1980,7 +1980,7 @@
     },
     {
       "name": "Force of The Queen",
-      "description": "Leo lets out a piercing roar, dealing 200 (+60% Total Physical Attack) Physical Damage to nearby enemies and slowing them by 40% for 2s.",
+      "description": "Léo laisse échapper un rugissement perçant, infligeant 200 (+60 % de l'attaque physique totale) dégâts physiques aux ennemis proches et les ralentissant de 40 % pendant 2 secondes.",
       "cooldown": [
         10
       ],
@@ -1990,7 +1990,7 @@
     },
     {
       "name": "Heavy Crossbow",
-      "description": "Irithel commands Leo to leap in the target direction and empowers her crossbow for 10s. During this time, she gains 30 Movement Speed, generates Jungle Heart faster, and fires heavy bolts with her Basic Attacks, dealing 100 (+65% Total Physical Attack) Physical Damage to the target and nearby units.",
+      "description": "Irithel ordonne à Leo de sauter dans la direction cible et renforce son arbalète pendant 10 secondes. Pendant ce temps, elle gagne 30 en vitesse de déplacement, génère Jungle Heart plus rapidement et tire de lourds éclairs avec ses attaques de base, infligeant 100 (+65% de l'attaque physique totale) dégâts physiques à la cible et aux unités proches.",
       "cooldown": [
         30
       ]
@@ -1999,7 +1999,7 @@
   "ixia": [
     {
       "name": "Siphon Starlium",
-      "description": "Ixia's Basic Attacks and skills apply a stack of Starlium Charge to enemies on hit. When Ixia performs a Basic Attack on an enemy with two stacks of Starlium Charge, the attack will consume the stacks and be replaced with Siphon Starlium, dealing (+150% Total Physical Attack) plus (+10*Hero Level) Physical Damage to the target. Ixia recovers PV equal to the damage dealt by Siphon Starlium (only 20% against non-hero units). Siphon Starlium can trigger on all enemies in front of Ixia that are within her Basic Attack range, but it cannot critically strike. Ixia's Basic Attacks cannot trigger Lifesteal."
+      "description": "Les attaques et compétences de base d'Ixia appliquent une pile de Starlium Charge aux ennemis lorsqu'ils sont touchés. Lorsqu'Ixia effectue une attaque de base sur un ennemi avec deux charges de Starlium Charge, l'attaque consommera les charges et sera remplacée par Siphon Starlium, infligeant (+150 % d'attaque physique totale) plus (+10*niveau de héros) dégâts physiques à la cible. Ixia récupère des PV égaux aux dégâts infligés par Siphon Starlium (seulement 20% contre les unités non-héros). Siphon Starlium peut se déclencher sur tous les ennemis devant Ixia qui se trouvent à portée de son attaque de base, mais il ne peut pas infliger de coup critique. Les attaques de base d'Ixia ne peuvent pas déclencher le vol de vie."
     },
     {
       "name": "Dual Beam",
@@ -3059,7 +3059,7 @@
     },
     {
       "name": "Arrow of Eclipse",
-      "description": "Miya calls upon the power of Moon Eclipse in the target area, dealing 270 (+45% Total Physical Attack) Physical Damage to enemies within and immobilizing them for 1.2s. The attack then splits into 6 arrows that scatter in different directions. Each arrow deals 40 (+20% Total Physical Attack) Physical Damage and slows enemies hit by 30% for 2s.",
+      "description": "Miya fait appel à la puissance d'Éclipse de Lune dans la zone cible, infligeant 270 (+45 % de l'attaque physique totale) dégâts physiques aux ennemis à l'intérieur et les immobilisant pendant 1,2 seconde. L'attaque se divise ensuite en 6 flèches qui se dispersent dans des directions différentes. Chaque flèche inflige 40 (+20 % de l'attaque physique totale) dégâts physiques et ralentit les ennemis touchés de 30 % pendant 2 secondes.",
       "cooldown": [
         8
       ],
@@ -3582,7 +3582,7 @@
     },
     {
       "name": "I'm Offended!",
-      "description": "Ruby sweeps her scythe in the target direction, dealing 600 (+200% Total Physical Attack) Physical Damage to enemies hit, pulling them toward her, and stunning them for 0.5s.",
+      "description": "Ruby balaie sa faux dans la direction ciblée, infligeant 600 (+200 % de l'attaque physique totale) dégâts physiques aux ennemis touchés, les attirant vers elle et les étourdissant pendant 0,5 seconde.",
       "cooldown": [
         40
       ],
@@ -3594,11 +3594,11 @@
   "saber": [
     {
       "name": "Enemy's Bane",
-      "description": "Each time Saber deals damage, he reduces the target's Physical Defense by 3-8 for 5s (up to 5 stacks)."
+      "description": "Chaque fois que Sabre inflige des dégâts, il réduit la défense physique de la cible de 3 à 8 pendant 5 secondes (jusqu'à 5 charges)."
     },
     {
       "name": "Orbiting Swords",
-      "description": "Saber releases 5 swords that orbit around him and deal 75 (+25% Extra Physical Attack) Physical Damage to nearby enemies on hit. The swords will retract back to him after the duration. While active, Sword attacks deal 200 (+50% Extra Physical Attack) Physical Damage to the target and 50% damage to enemies along the path (damage reduced to 50% against sbires). Each sword attack reduces the cooldowns of Orbiting Swords by 0.5s and Charge by 1s.",
+      "description": "Saber libère 5 épées qui tournent autour de lui et infligent 75 (+25 % d'attaque physique supplémentaire) dégâts physiques aux ennemis proches lorsqu'ils sont touchés. Les épées se rétracteront après la durée. Lorsqu'elles sont actives, les attaques à l'épée infligent 200 (+50 % d'attaque physique supplémentaire) de dégâts physiques à la cible et 50 % de dégâts aux ennemis le long du chemin (dégâts réduits à 50 % contre les sbires). Chaque attaque à l'épée réduit les temps de recharge des Épées orbitales de 0,5 seconde et de la Charge de 1 seconde.",
       "cooldown": [
         10
       ],
@@ -3608,7 +3608,7 @@
     },
     {
       "name": "Charge",
-      "description": "Saber dashes in the target direction, dealing 75 (+50% Extra Physical Attack) Physical Damage to enemies along the path. After the dash, he gains an Enhanced Basic Attack that allows him to charge at the target, dealing 75 (+120% Total Physical Attack) Physical Damage and slowing them by 60% for 1s.",
+      "description": "Sabre se précipite dans la direction cible, infligeant 75 (+50 % d'attaque physique supplémentaire) dégâts physiques aux ennemis le long du chemin. Après le sprint, il gagne une attaque de base améliorée qui lui permet de charger la cible, infligeant 75 (+120 % de l'attaque physique totale) dégâts physiques et la ralentissant de 60 % pendant 1 seconde.",
       "cooldown": [
         7
       ],
@@ -3618,7 +3618,7 @@
     },
     {
       "name": "Triple Sweep",
-      "description": "Saber charges at the target enemy hero, knocking them airborne for 1.2s (unaffected by Resilience). He strikes them 3 times over the duration, dealing 120 (+80% Extra Physical Attack) Physical Damage with the first 2 strikes and 240 (+160% Extra Physical Attack) Physical Damage with the third.",
+      "description": "Le sabre charge le héros ennemi ciblé, le projetant dans les airs pendant 1,2 s (non affecté par la résilience). Il les frappe 3 fois pendant la durée, infligeant 120 (+80% d'attaque physique supplémentaire) de dégâts physiques avec les 2 premières frappes et 240 (+160% d'attaque physique supplémentaire) de dégâts physiques avec la troisième.",
       "cooldown": [
         44
       ],
@@ -3630,11 +3630,11 @@
   "selena": [
     {
       "name": "Symbiosis",
-      "description": "Selena can switch freely between her two forms. Elven Form: Selena applies \"Abyssal Mark\" with her skills. The mark can stack up to 2 times. When Abyssal Trap hits an enemy, it immediately adds an \"Abyssal Mark\". Abyssal Form: All damage will consume 1 stack of \"Abyssal Mark\" to deal 225 (+15*Hero Level) (+40% Total Magic Power) extra Magic Damage. \"Abyssal Mark\" deals 285% extra damage to non-hero units."
+      "description": "Selena peut basculer librement entre ses deux formes. Forme elfique : Selena applique « Abyssal Mark » avec ses compétences. La marque peut s'empiler jusqu'à 2 fois. Lorsque Abyssal Trap touche un ennemi, il ajoute immédiatement une \"Abyssal Mark\". Forme abyssale : tous les dégâts consommeront 1 pile de \"Marque abyssale\" pour infliger 225 (+15*niveau du héros) (+40 % de puissance magique totale) dégâts magiques supplémentaires. \"Abyssal Mark\" inflige 285 % de dégâts supplémentaires aux unités non-héros."
     },
     {
       "name": "Abyssal Trap",
-      "description": "Selena summons an Abyssal Devil to lurk underground. The Abyssal Devil will attach itself to any enemy that approaches, inflicting a stack of Abyssal Mark and reducing their Movement Speed by 50% for 1s. The Abyssal Devil then explodes, dealing 350 (+150% Total Magic Power) Magic Damage to enemies in the area and reducing their Movement Speed by 50% for 1s. Each additional Abyssal Devil on an enemy increases the final damage by 50%. Each Abyssal Devil can lurk up to 60s and up to 3 Abyssal Devils can exist at the same time.",
+      "description": "Selena invoque un diable abyssal pour se cacher sous terre. Le Diable abyssal s'attachera à tout ennemi qui s'approche, lui infligeant une charge de Marque abyssale et réduisant sa vitesse de déplacement de 50 % pendant 1 seconde. Le Diable abyssal explose alors, infligeant 350 (+150 % de puissance magique totale) dégâts magiques aux ennemis dans la zone et réduisant leur vitesse de déplacement de 50 % pendant 1 seconde. Chaque Diable Abyssal supplémentaire sur un ennemi augmente les dégâts finaux de 50%. Chaque Diable Abyssal peut se cacher jusqu'à 60 ans et jusqu'à 3 Diables Abyssaux peuvent exister en même temps.",
       "cooldown": [
         8
       ],
@@ -3644,7 +3644,7 @@
     },
     {
       "name": "Abyssal Arrow",
-      "description": "Selena fires an abyssal wraith in the target direction that stops when it hits an enemy hero, Creep, or Summon, dealing 250 (+20% Total Magic Power) to 500 (+40% Total Magic Power) Magic Damage to the target hit and stunning them for 0.5s to 2.5s while revealing their locations (the damage and stun duration increase with the wraith's travel distance). The wraith will pick up Abyssal Trap as it travels over it and will apply the trap to the enemy target upon stunning them. If the wraith stuns an enemy for 0.9s or longer, Selena will gain 60% Movement Speed for 2s.",
+      "description": "Selena tire un spectre abyssal dans la direction ciblée qui s'arrête lorsqu'il touche un héros ennemi, un creep ou une invocation, infligeant de 250 (+20 % de puissance magique totale) à 500 (+40 % de puissance magique totale) dégâts magiques à la cible touchée et l'étourdissant pendant 0,5 s à 2,5 s tout en révélant leur emplacement (les dégâts et la durée de l'étourdissement augmentent avec la distance de déplacement du spectre). Le spectre ramassera le piège abyssal lorsqu'il le traversera et appliquera le piège à la cible ennemie en l'étourdissant. Si le spectre étourdit un ennemi pendant 0,9 seconde ou plus, Selena gagnera 60 % de vitesse de déplacement pendant 2 secondes.",
       "cooldown": [
         12
       ],
@@ -3654,7 +3654,7 @@
     },
     {
       "name": "Primal Darkness",
-      "description": "Passive: Selena gains 5 Magic Power. Active: Selena enters Abyssal Form and gains 20% Movement Speed for 0.8s. This also immediately resets the cooldown of Soul Eater and Garotte.",
+      "description": "Passif : Selena gagne 5 points de puissance magique. Actif : Selena entre en forme abyssale et gagne 20 % de vitesse de déplacement pendant 0,8 seconde. Cela réinitialise également immédiatement le temps de recharge de Soul Eater et Garotte.",
       "cooldown": [
         5.5
       ]
@@ -4053,11 +4053,11 @@
   "wanwan": [
     {
       "name": "Tiger Pace",
-      "description": "Enemy heroes hit by Wanwan's attacks will have their weaknesses and positions exposed for 5s. When hitting an enemy's weakness, Wanwan deals 67 (+3*Hero Level) extra True Damage and increases their damage taken from her subsequent attacks by 10% for 5s. Wanwan can dash a short distance after each arrow fired from her Basic Attack. The dash speed scales with her Attack Speed."
+      "description": "Les héros ennemis touchés par les attaques de Wanwan verront leurs faiblesses et leurs positions exposées pendant 5 secondes. Lorsqu'elle touche la faiblesse d'un ennemi, Wanwan inflige 67 (+3*niveau de héros) de vrais dégâts supplémentaires et augmente les dégâts subis par ses attaques ultérieures de 10 % pendant 5 secondes. Wanwan peut se précipiter sur une courte distance après chaque flèche tirée par son attaque de base. La vitesse du sprint évolue avec sa vitesse d'attaque."
     },
     {
       "name": "Swallow’s Path",
-      "description": "Wanwan throws a Fire Swallow in the target direction, triggering Tiger Pace while dealing 120 (+40% Total Physical Attack) Physical Damage to enemies in its path. The Fire Swallow then turns into 3 rotating Swallow Daggers. After a short delay, these Swallow Daggers will fly back to Wanwan one after another, dealing 120 (+40% Total Physical Attack) Physical Damage to enemies on their way back and slowing them by 30% for 1.5s. Enemies hit twice by the Swallow Daggers will be immobilized for 0.5s.",
+      "description": "Wanwan lance une Hirondelle de feu dans la direction ciblée, déclenchant la Vitesse du Tigre tout en infligeant 120 (+40 % de l'attaque physique totale) dégâts physiques aux ennemis sur son passage. L'hirondelle de feu se transforme alors en 3 dagues d'hirondelle rotatives. Après un court délai, ces dagues d'hirondelle reviendront à Wanwan les unes après les autres, infligeant 120 (+40 % de l'attaque physique totale) dégâts physiques aux ennemis sur le chemin du retour et les ralentissant de 30 % pendant 1,5 s. Les ennemis touchés deux fois par les Swallow Daggers seront immobilisés pendant 0,5 seconde.",
       "cooldown": [
         12
       ],
@@ -4067,7 +4067,7 @@
     },
     {
       "name": "Needles in Flowers",
-      "description": "Wanwan removes all debuffs on herself and triggers Tiger Pace. Meanwhile, she shoots Deadly Needles in all directions, dealing 150 (+60% Total Physical Attack) Physical Damage to enemies hit.",
+      "description": "Wanwan supprime tous les débuffs sur elle-même et déclenche Tiger Pace. Pendant ce temps, elle tire des Aiguilles mortelles dans toutes les directions, infligeant 150 (+60 % de l'attaque physique totale) dégâts physiques aux ennemis touchés.",
       "cooldown": [
         24
       ],
@@ -4111,7 +4111,7 @@
     },
     {
       "name": "Last Insanity",
-      "description": "X.Borg charges in the target direction while spinning and spraying fire (cannot pick up Firaga Supplies during this time), dealing 90 (+60% Extra Physical Attack) (+45% Total Magic Power) Physical Damage 12 times and slowing enemies hit by 25%. He stops upon touching an enemy hero and will slow them by an additional 40%. After 3s, his mecha suit detonates, dealing 300 (+ 15% target's PV) True Damage. If his armor is destroyed, it will immediately explode, but damage drops to 50%. The detonation destroys his armor, removes all control effects, and collects all nearby Firaga Supplies. Cannot be used in Armorless State. Use Again: Immediately stop spraying fire and detonate early.",
+      "description": "X.Borg charge dans la direction cible tout en tournant et en projetant du feu (ne peut pas récupérer les fournitures de Firaga pendant ce temps), infligeant 90 (+60 % d'attaque physique supplémentaire) (+45 % de puissance magique totale) dégâts physiques 12 fois et ralentissant les ennemis touchés de 25 %. Il s'arrête en touchant un héros ennemi et le ralentira de 40 % supplémentaires. Après 3 secondes, sa combinaison mecha explose, infligeant 300 (+ 15 % des PV de la cible) de vrais dégâts. Si son armure est détruite, elle explosera immédiatement, mais les dégâts chuteront à 50 %. La détonation détruit son armure, supprime tous les effets de contrôle et récupère toutes les fournitures Firaga à proximité. Ne peut pas être utilisé dans un état sans armure. Réutiliser : arrêtez immédiatement de pulvériser le feu et faites exploser tôt.",
       "cooldown": [
         30
       ],
@@ -4123,11 +4123,11 @@
   "xavier": [
     {
       "name": "Transcendence",
-      "description": "When Xavier's skills hit enemy heroes, he gains 60% Movement Speed for 1.2s (decays over time) and 1 energy charge. At 3 charges, his next skill triggers the Transcendence state. Transcendence: In this state, Xavier's Skills 1 and 2 have their cooldowns reduced by 4s, and his Ultimate by 36s. Transcendence lasts 5s and can be extended by 1s each time his skills hit enemies."
+      "description": "Lorsque les compétences de Xavier touchent des héros ennemis, il gagne 60 % de vitesse de déplacement pendant 1,2 s (décroissant avec le temps) et 1 charge d'énergie. A 3 charges, sa prochaine compétence déclenche l'état de Transcendance. Transcendance : Dans cet état, les Compétences 1 et 2 de Xavier voient leurs temps de recharge réduits de 4s, et son Ultime de 36s. La transcendance dure 5 secondes et peut être prolongée de 1 seconde à chaque fois que ses compétences touchent des ennemis."
     },
     {
       "name": "Infinite Extension",
-      "description": "Xavier fires a Mystic Bullet that deals 480 (+100% Total Magic Power) Magic Damage to enemies it passes through. The Bullet's flying distance increases each time it hits an enemy or the Mystic Barrier (up to 5 times).",
+      "description": "Xavier tire une balle mystique qui inflige 480 (+100 % de puissance magique totale) dégâts magiques aux ennemis traversés. La distance de vol de la Balle augmente à chaque fois qu'elle touche un ennemi ou la Barrière Mystique (jusqu'à 5 fois).",
       "cooldown": [
         6.5
       ],
@@ -4137,7 +4137,7 @@
     },
     {
       "name": "Mystic Field",
-      "description": "Xavier summons a Mystic Barrier that lasts 5s. Enemies touching the Barrier are slowed by 50%, while allies gain 50% extra Movement Speed (decays over 1.2s). When hit by Xavier's other skills, the Barrier expands into a Mystic Field for 3s, dealing 440 (+130% Total Magic Power) Magic Damage to enemies within and immobilizing them for 0.8s.",
+      "description": "Xavier invoque une barrière mystique qui dure 5 secondes. Les ennemis touchant la barrière sont ralentis de 50 %, tandis que les alliés gagnent 50 % de vitesse de déplacement supplémentaire (décroît en 1,2 s). Lorsqu'elle est touchée par les autres compétences de Xavier, la barrière s'étend dans un champ mystique pendant 3 secondes, infligeant 440 (+130 % de puissance magique totale) dégâts magiques aux ennemis à l'intérieur et les immobilisant pendant 0,8 seconde.",
       "cooldown": [
         13
       ],
@@ -4147,7 +4147,7 @@
     },
     {
       "name": "Dawning Light",
-      "description": "Xavier unleashes a beam of Mystic magic in the target direction, dealing 600 (+180% Total Magic Power) Magic Damage to all enemies along its path. Once cast, he also directly enters the Transcendence state and resets the state's duration.",
+      "description": "Xavier libère un rayon de magie mystique dans la direction ciblée, infligeant 600 (+180 % de puissance magique totale) dégâts magiques à tous les ennemis sur son passage. Une fois lancé, il entre également directement dans l'état de Transcendance et réinitialise la durée de l'état.",
       "cooldown": [
         56
       ],
@@ -4159,7 +4159,7 @@
   "yi-sun-shin": [
     {
       "name": "Heavenly Vow",
-      "description": "Yi Sun-shin attacks with his longbow or glaive based on his distance from the target. Weapon Mastery: After each weapon swap, his next 2 Basic Attacks gain extra Attack Speed and deal 70% and 55% Crit Damage respectively. He also gains 15% Movement Speed for 1s."
+      "description": "Yi Sun-shin attaque avec son arc long ou son glaive en fonction de sa distance par rapport à la cible. Maîtrise des armes : après chaque changement d'arme, ses 2 prochaines attaques de base gagnent en vitesse d'attaque supplémentaire et infligent respectivement 70 % et 55 % de dégâts critiques. Il gagne également 15 % de vitesse de déplacement pendant 1 seconde."
     },
     {
       "name": "Traceless",
@@ -4325,7 +4325,7 @@
     },
     {
       "name": "Nightmaric Spawn",
-      "description": "Zhask summons a Nightmaric Spawn that inherits 55% of his PV, Hybrid Defense, and Magic Power. It automatically fires Death Ray at nearby enemies, dealing 55 (+ 20%Magic Power) (+ 20% Extra Attack Speed) Magic Damage and slowing them by up to 30%. It disappears when Zhask moves too far away. Death Ray is considered a Basic Attack but cannot Crit. Fusion Enhanced: Nightmaric Spawn deals 180% damage and can be repositioned.",
+      "description": "Zhask invoque un Nightmaric Spawn qui hérite de 55 % de ses PV, de sa défense hybride et de sa puissance magique. Il tire automatiquement Death Ray sur les ennemis proches, infligeant 55 (+ 20 % de puissance magique) (+ 20 % de vitesse d'attaque supplémentaire) dégâts magiques et les ralentissant jusqu'à 30 %. Il disparaît lorsque Zhask s'éloigne trop. Death Ray est considéré comme une attaque de base mais ne peut pas faire de critique. Fusion améliorée : Nightmaric Spawn inflige 180 % de dégâts et peut être repositionné.",
       "cooldown": [
         13
       ],
@@ -4381,7 +4381,7 @@
     },
     {
       "name": "Crimson Beacon",
-      "description": "Zhuxin blinks to the target location, gaining a 400 (+100% Total Magic Power) shield and creating a field for 6s. The field deals 30 (+10% Total Magic Power) Magic Damage and applies 1 stack of Soul Snare to nearby enemies every 0.5s.",
+      "description": "Zhuxin clignote vers l'emplacement cible, gagnant un bouclier de 400 (+100 % de puissance magique totale) et créant un champ pendant 6 secondes. Le champ inflige 30 (+10 % de puissance magique totale) dégâts magiques et applique 1 charge de Soul Snare aux ennemis proches toutes les 0,5 s.",
       "cooldown": [
         60
       ],
@@ -4397,7 +4397,7 @@
     },
     {
       "name": "Spear Flip",
-      "description": "Zilong flings the target enemy over his head, dealing 250 (+80% Total Physical Attack) Physical Damage.",
+      "description": "Zilong projette l'ennemi ciblé par-dessus sa tête, lui infligeant 250 (+80 % de l'attaque physique totale) dégâts physiques.",
       "cooldown": [
         12
       ],
@@ -4407,7 +4407,7 @@
     },
     {
       "name": "Spear Strike",
-      "description": "Zilong lunges at the target enemy, dealing 250 (+60% Total Physical Attack) Physical Damage and reducing their Physical Defense by 15 for 2s. The cooldown of Spear Strike is reset each time Zilong kills an enemy.",
+      "description": "Zilong se jette sur l'ennemi ciblé, infligeant 250 (+60 % de l'attaque physique totale) dégâts physiques et réduisant sa défense physique de 15 pendant 2 secondes. Le temps de recharge de Spear Strike est réinitialisé chaque fois que Zilong tue un ennemi.",
       "cooldown": [
         12
       ],
@@ -4417,7 +4417,7 @@
     },
     {
       "name": "Supreme Warrior",
-      "description": "Zilong removes all slow effects on himself and gains 40% Movement Speed, 35% Attack Speed, and Slow Immunity for 7.5s. During this time, Dragon Flurry triggers every 2 attacks (instead of the previous 3).",
+      "description": "Zilong supprime tous les effets de ralentissement sur lui-même et gagne 40 % de vitesse de déplacement, 35 % de vitesse d'attaque et une immunité aux ralentissements pendant 7,5 secondes. Pendant ce temps, Dragon Flurry se déclenche toutes les 2 attaques (au lieu des 3 précédentes).",
       "cooldown": [
         35
       ],

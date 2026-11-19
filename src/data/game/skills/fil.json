@@ -2,11 +2,11 @@
   "aamon": [
     {
       "name": "Invisible Armor",
-      "description": "Aamon enters the Camouflage state each time he hits an enemy with a skill, during which he cannot be targeted, restores 25 (+15% Total Magic Power) (+3% of Aamon's Lost HP) HP every 0.6 seconds, and gains 60% extra Movement Speed that rapidly decays over 3.5 seconds. Upon leaving the Camouflage state, Aamon immediately resets his Basic Attack's cooldown and enhances his Basic Attacks within the next 2.5 seconds. Each enhanced Basic Attack deals 100 (+100% Total Physical Attack) (+65% Total Magic Power) Magic Damage and reduces Aamon's skill cooldowns by 0.5 second. The first enhanced Basic Attack's damage is increased to 120% if Aamon leaves the Camouflage state actively."
+      "description": "Pumapasok si Aamon sa Camouflage state sa tuwing tatamaan niya ang isang kaaway na may skill, kung saan hindi siya ma-target, nagre-restore ng 25 (+15% Total Magic Power) (+3% ng Nawalang HP ni Aamon) bawat 0.6 segundo, at nakakakuha ng 60% na dagdag na Movement speed na mabilis na nabubulok sa loob ng 3.5 segundo. Sa pag-alis sa Camouflage state, agad na ni-reset ni Aamon ang cooldown ng kanyang Basic Attack at pinahusay ang kanyang Basic Attack sa loob ng susunod na 2.5 segundo. Bawat pinahusay na Basic Attack ay humahakot ng 100 (+100% Kabuuang Pisikal na Pag-atake) (+65% Kabuuang Magic Power) Magic Damage at binabawasan ang mga cooldown ng skill ni Aamon ng 0.5 segundo. Ang unang pinahusay na Basic Attack's damage ay tataas sa 120% kung aktibong umalis si Aamon sa Camouflage state."
     },
     {
       "name": "Soul Shards",
-      "description": "Passive: Aamon charges his armor through enhanced Basic Attacks or while camouflaged. At 5 charges, Aamon throws 6 shards at the target on his next attack, each shard dealing 50 (+15% Total Magic Power) Magic Damage. The shards will then scatter around the target. Active: Aamon throws a shard at a nearby enemy, dealing 175 (+60% Total Magic Power) Magic Damage.",
+      "description": "Passive: Sinisingil ni Aamon ang kanyang armor sa pamamagitan ng pinahusay na Basic Attacks o habang naka-camouflag. Sa 5 singil, ibinato ni Aamon ang 6 na shards sa target sa kanyang susunod na pag-atake, bawat shard ay humahawak ng 50 (+15% Total Magic Power) Magic Damage. Ang mga shards ay magkakalat sa paligid ng target. Aktibo: Naghahagis si Aamon ng shard sa kalapit na kalaban, na humarap ng 175 (+60% Total Magic Power) Magic Damage.",
       "cooldown": [
         7
       ],
@@ -16,7 +16,7 @@
     },
     {
       "name": "Slayer Shards",
-      "description": "Aamon throws a shard forward, dealing 120 (+50% Total Magic Power) Magic Damage and slowing enemies hit by 50% for 2s. The shard returns to Aamon after a short delay, granting him the Camouflage state. If the shard hits a non-minion enemy, it returns immediately.",
+      "description": "Naghahagis si Aamon ng shard forward, na humarap ng 120 (+50% Total Magic Power) Magic Damage at nagpapabagal sa mga kaaway na natamaan ng 50% sa loob ng 2s. Bumalik ang shard kay Aamon pagkatapos ng maikling pagkaantala, na nagbigay sa kanya ng estado ng Camouflage. Kung ang shard ay tumama sa isang hindi minion na kaaway, ito ay babalik kaagad.",
       "cooldown": [
         12.5
       ],
@@ -26,7 +26,7 @@
     },
     {
       "name": "Endless Shards",
-      "description": "Aamon throws all shards at a designated enemy and slows them by 30% for 1.5s. After a short delay, the shards will fly to the enemy's location again, each dealing 35 (+10% Total Magic Power)-70 (+20% Total Magic Power) Magic Damage. The number of shards increases with Aamon's armor charges and the shards on the ground (8-25). The damage dealt increases with the target's lost HP, to the max when the target's HP is below 30%.",
+      "description": "Ibinabato ni Aamon ang lahat ng shards sa isang itinalagang kaaway at pinapabagal ang mga ito ng 30% sa loob ng 1.5s. Pagkatapos ng maikling pagkaantala, lilipad muli ang mga shards sa kinalalagyan ng kalaban, bawat isa ay magbibigay ng 35 (+10% Total Magic Power)-70 (+20% Total Magic Power) Magic Damage. Ang bilang ng mga shards ay tumataas sa mga singil ng sandata ni Aamon at ang mga shards sa lupa (8-25). Tumataas ang pinsalang natamo sa nawawalang HP ng target, hanggang sa max kapag ang HP ng target ay mas mababa sa 30%.",
       "cooldown": [
         50
       ],
@@ -38,11 +38,11 @@
   "akai": [
     {
       "name": "Tai Chi",
-      "description": "Akai gains a 25 (+5% Max HP) shield for 4s on each skill cast. His skills apply a Mark to targets. His next Basic Attack against a marked target deals 35 (+6% Max HP) extra Physical Damage."
+      "description": "Nakakuha si Akai ng 25 (+5% Max HP) shield para sa 4s sa bawat skill cast. Ang kanyang mga skill ay naglalapat ng isang Marka sa mga target. Ang kanyang susunod na Basic Attack laban sa isang minarkahang target ay may 35 (+6% Max HP) na dagdag na Pisikal na Damage."
     },
     {
       "name": "Headbutt",
-      "description": "Akai charges in the target direction, dealing 300 (+50% Total Physical Attack) Physical Damage to enemies along the way. Upon hitting an enemy hero, he knocks them airborne for 0.5s and can roll once in the joystick's direction. Akai can cast Headbutt during Heavy Spin to quickly reposition himself.",
+      "description": "Si Akai ay naniningil sa target na direksyon, na humaharap ng 300 (+50% Kabuuang Pisikal na Pag-atake) Pisikal na Damage sa mga kaaway sa daan. Kapag natamaan ang isang hero ng kaaway, ipapatok niya ito sa hangin sa loob ng 0.5s at maaaring gumulong nang isang beses sa direksyon ng joystick. Maaaring i-cast ni Akai ang Headbutt sa panahon ng Heavy Spin para mabilis na maiposisyon ang sarili.",
       "cooldown": [
         11
       ],
@@ -52,7 +52,7 @@
     },
     {
       "name": "Body Slam",
-      "description": "Akai slams his body into the ground, dealing 270 (+6% Max HP) Physical Damage to nearby enemies and slowing them by 45% for 2s.",
+      "description": "Ibinagsak ni Akai ang kanyang katawan sa lupa, na nagdulot ng 270 (+6% Max HP) na Pisikal na Damage sa mga kalapit na kaaway at nagpapabagal sa kanila ng 45% sa loob ng 2s.",
       "cooldown": [
         7
       ],
@@ -62,7 +62,7 @@
     },
     {
       "name": "Heavy Spin",
-      "description": "Akai spins for 4s, continuously dealing 100 (+50% Total Physical Attack) Physical Damage to nearby enemies and knocking them back. Knocked-back enemy heroes also knock back any enemy heroes they collide with. Upon casting, Akai removes all debuffs and gains slow immunity. While spinning, his Movement Speed gradually increases to 70%. This skill can only be interrupted by Suppression.",
+      "description": "Umiikot si Akai nang 4s, patuloy na humaharap ng 100 (+50% Kabuuang Pisikal na Pag-atake) Pisikal na Damage sa mga kalapit na kaaway at ibinabalik sila. Ang mga kalaban na hero ay nagpapatumba rin sa sinumang kalaban na hero na makakabangga nila. Sa pag-cast, inaalis ni Akai ang lahat ng debuff at nakakakuha ng mabagal na kaligtasan sa sakit. Habang umiikot, unti-unting tumataas ang kanyang Movement Speed ​​sa 70%. Ang kasanayang ito ay maaantala lamang ng Suppression.",
       "cooldown": [
         55
       ],
@@ -74,14 +74,14 @@
   "aldous": [
     {
       "name": "Contract: Transform",
-      "description": "Every 8s, Aldous gains a shield equal to 350 (+ 3 per Soul Steal stack) for 3s on his next Basic Attack. He also gains 60% Movement Speed for 1s.",
+      "description": "Tuwing 8s, nakakakuha si Aldous ng shield na katumbas ng 350 (+ 3 bawat Soul Steal stack) para sa 3s sa kanyang susunod na Basic Attack. Nakakakuha din siya ng 60% Movement Speed ​​para sa 1s.",
       "cooldown": [
         5
       ]
     },
     {
       "name": "Contract: Soul Steal",
-      "description": "Aldous enhances his next Basic Attack to deal 200 (+100% Total Physical Attack) (+ 3 per Soul Steal stack) Physical Damage. Killing a siege minion with this attack grants 12 Soul Steal stacks; killing any other non-hero unit grants 5 stacks. Hitting an enemy hero grants an extra 5 stack(s), while killing one grants 12 (up to 1000 stacks). This attack deals 300% extra Base Damage to minions and creeps. Aldous also gains 6 stack(s) when allied units eliminate a nearby enemy siege minion, and 2 stack(s) when they eliminate any other nearby non-hero unit. Aldous gains 20% Movement Speed while moving toward enemy heroes during this skill.",
+      "description": "Pinahusay ni Aldous ang kanyang susunod na Basic Attack para humarap ng 200 (+100% Total Physical Attack) (+ 3 bawat Soul Steal stack) Physical Damage. Ang pagpatay sa isang siege minion sa pag-atakeng ito ay nagbibigay ng 12 Soul Steal stack; ang pagpatay sa anumang iba pang yunit na hindi hero ay nagbibigay ng 5 stack. Ang pagtama sa isang hero ng kaaway ay nagbibigay ng dagdag na 5 stack, habang ang pagpatay sa isa ay nagbibigay ng 12 (hanggang 1000 stack). Ang pag-atakeng ito ay nagdudulot ng 300% dagdag na Base Damage sa mga minions at creep. Nagkakaroon din si Aldous ng 6 na stack kapag inalis ng mga allied unit ang isang malapit na siege minion ng kaaway, at 2 stack (mga) kapag inalis nila ang anumang kalapit na non-hero unit. Nakakuha si Aldous ng 20% ​​Movement speed habang papunta sa mga hero ng kaaway sa panahon ng kasanayang ito.",
       "cooldown": [
         4
       ],
@@ -254,14 +254,14 @@
     },
     {
       "name": "Meteoric Sword",
-      "description": "After a short charge, Argus thrusts his Meteoric Sword in the target direction, dealing 120 (+100% Total Physical Attack) Physical Damage to the target. If this hits an enemy hero, Argus stuns them for 0.3s and gains 30% Attack Speed for 3s. Meteoric Sword's damage also gains a 40% boost to Crit Chance and Crit Damage. Meteoric Sword counts as a Basic Attack and can trigger Attack Effects. Attack Speed shortens the charge time.",
+      "description": "Pagkatapos ng maikling pagsingil, itinulak ni Argus ang kanyang Meteoric Sword sa target na direksyon, na humarap ng 120 (+100% Total Physical Attack) Physical Damage sa target. Kung tatamaan nito ang isang hero ng kaaway, ma-stun sila ni Argus sa loob ng 0.3s at magkakaroon ng 30% Attack speed sa loob ng 3s. Ang damage ng Meteoric Sword ay nakakakuha din ng 40% na boost sa Crit Chance at Crit Damage. Ang Meteoric Sword ay binibilang bilang Basic Attack at maaaring mag-trigger ng Attack Effects. Ang Attack speed ay nagpapaikli sa oras ng pagsingil.",
       "cooldown": [
         8
       ]
     },
     {
       "name": "Eternal Evil",
-      "description": "Argus removes all control effects, gains Death Immunity for 4s, and deals 150 (+50% Total Physical Attack) Physical Damage to nearby enemies. This damage increases as Argus's Current HP decreases, reaching 150% when it falls below 30%. When Death Immunity ends, Argus recovers HP equal to all damage dealt to enemy heroes during its duration. Passive: If Argus takes fatal damage while Eternal Evil is not on cooldown, he removes all control effects and automatically enters Death Immunity without triggering AOE Damage.",
+      "description": "Inalis ni Argus ang lahat ng control effect, nagkakaroon ng Death Immunity sa loob ng 4s, at nagde-deal ng 150 (+50% Total Physical Attack) Physical Damage sa mga kalapit na kaaway. Tumataas ang pinsalang ito habang bumababa ang Kasalukuyang HP ni Argus, na umaabot sa 150% kapag bumaba ito sa ibaba 30%. Kapag natapos na ang Death Immunity, nabawi ni Argus ang HP na katumbas ng lahat ng pinsalang ginawa sa mga hero ng kalaban sa tagal nito. Passive: Kung si Argus ay nakakuha ng fatal damage habang ang Eternal Evil ay wala sa cooldown, aalisin niya ang lahat ng control effect at awtomatikong papasok sa Death Immunity nang hindi nagti-trigger ng AOE Damage.",
       "cooldown": [
         45
       ]
@@ -270,25 +270,25 @@
   "arlott": [
     {
       "name": "Demon Gaze",
-      "description": "Arlott possesses a demonic eye that will Mark enemy units near Arlott that become affected by control effects for 7s. The eye will also automatically Mark a nearby enemy hero in vision every 7s."
+      "description": "Si Arlott ay nagtataglay ng malademonyong mata na magmarka sa mga yunit ng kaaway malapit sa Arlott na maaapektuhan ng mga control effect sa loob ng 7s. Awtomatikong Markahan din ng mata ang isang kalapit na hero ng kaaway sa paningin tuwing 7s."
     },
     {
       "name": "Dauntless Strike",
-      "description": "Arlott swings his lance forward, dealing 200 (+60% Total Physical Attack) Physical Damage and briefly stunning targets in an area. Targets hit by the farther part of the AOE will be stunned for 1s instead.",
+      "description": "Ini-swing ni Arlott ang kanyang lance pasulong, na humarap ng 200 (+60% Total Physical Attack) Physical Damage at panandaliang nakamamanghang target sa isang lugar. Ang mga target na natamaan ng mas malayong bahagi ng AOE ay masindak sa halip na 1s.",
       "cooldown": [
         8
       ]
     },
     {
       "name": "Vengeance",
-      "description": "Arlott charges at an enemy, dealing 135 (+60% Total Physical Attack) Physical Damage (this skill cannot be interrupted during movement). If Arlott's target is Marked, he gains a brief burst of Movement Speed, and this skill will deal double damage, immediately refresh its cooldown, and recover 70 (+60% Total Physical Attack) HP to Arlott (only restores 50% of that amount when used on a non-hero unit).",
+      "description": "Si Arlott ay naniningil sa isang kalaban, na humarap ng 135 (+60% Kabuuang Pisikal na Pag-atake) Pisikal na Damage (ang kasanayang ito ay hindi maaantala habang gumagalaw). Kung ang target ni Arlott ay Marked, makakakuha siya ng maikling pagsabog ng Movement Speed, at ang skill na ito ay haharapin ang dobleng damage, agad na i-refresh ang cooldown nito, at mabawi ang 70 (+60% Total Physical Attack) HP kay Arlott (nagre-restore lang ng 50% ng halagang iyon kapag ginamit sa isang non-hero unit).",
       "cooldown": [
         10
       ]
     },
     {
       "name": "Final Slash",
-      "description": "Passive: Each level-up reduces Demon Gaze's interval by 1s. Active: Arlott cleaves forward, dealing 400 (+80% Total Physical Attack) Physical Damage to enemies in the area, knocking them back to the edge of the swing, and briefly revealing their location (can only be interrupted by Suppression).",
+      "description": "Passive: Bawat level-up ay binabawasan ng 1s ang pagitan ng Demon Gaze. Active: Arlott cleaves forward, dealing 400 (+80% Total Physical Attack) Physical Damage sa mga kaaway sa lugar, ibinabalik sila sa gilid ng swing, at panandaliang ibunyag ang kanilang lokasyon (maaari lang maputol ng Suppression).",
       "cooldown": [
         24
       ],
@@ -302,11 +302,11 @@
   "atlas": [
     {
       "name": "Frigid Breath",
-      "description": "Atlas generates Frigid Breath around him for 4s each time he casts a skill. Enemies affected by Frigid Breath will have their Movement Speed gradually reduced over 2s, after which they'll be frozen for 0.5s. Atlas gains 20 (+0.5% Extra Max HP) extra Hybrid Defense when Frigid Breath is present."
+      "description": "Ang Atlas ay bumubuo ng Frigid Breath sa paligid niya sa loob ng 4s sa bawat oras na nag-cast siya ng isang skill. Ang mga kaaway na apektado ng Frigid Breath ay unti-unting mababawasan ang Movement speed sa loob ng 2s, pagkatapos nito ay mapi-freeze sila ng 0.5s. Ang Atlas ay nakakakuha ng 20 (+0.5% Extra Max HP) na sobrang Hybrid Defense kapag naroroon ang Frigid Breath."
     },
     {
       "name": "Annihilate",
-      "description": "Atlas smashes the ground and causes 3 explosions, dealing 400 (+100% Total Magic Power) Magic Damage to enemies. Ejected State: If Atlas is ejected from his Mecha Sentry, both he and his Mecha will cast Annihilate.",
+      "description": "Binasag ng Atlas ang lupa at nagdudulot ng 3 pagsabog, na nagdulot ng 400 (+100% Total Magic Power) na Magic Damage sa mga kaaway. Na-eject na Estado: Kung ma-eject si Atlas mula sa kanyang Mecha Sentry, siya at ang kanyang Mecha ay magtatalaga ng Annihilate.",
       "cooldown": [
         7
       ],
@@ -316,7 +316,7 @@
     },
     {
       "name": "Perfect Match",
-      "description": "Atlas enters Ejected State, gaining 30% Movement Speed and immunity to Slowing Effects. In this state, the Mecha Sentry will follow the pilot at an increasing speed (can only be controlled by Suppression). Once they meet, Atlas will return to the Mecha, dealing 320 (+80% Total Magic Power) Magic Damage to enemies nearby and stunning them for 0.8s. Ejected State: Atlas and his Mecha share the same HP bar and reduce 50% of the damage taken in this state.",
+      "description": "Ang Atlas ay pumasok sa Ejected State, nakakakuha ng 30% Movement Speed ​​at immunity sa Slowing Effects. Sa ganitong estado, susundan ng Mecha Sentry ang piloto sa isang pagtaas ng bilis (maaari lamang makontrol ng Suppression). Kapag nagkita na sila, babalik ang Atlas sa Mecha, na magbibigay ng 320 (+80% Total Magic Power) na Magic Damage sa mga kalapit na kalaban at magpapasindak sa kanila sa loob ng 0.8s. Na-eject na Estado: Ang Atlas at ang kanyang Mecha ay nagbabahagi ng parehong HP bar at binabawasan ang 50% ng pinsalang nakuha sa estadong ito.",
       "cooldown": [
         0
       ],
@@ -326,7 +326,7 @@
     },
     {
       "name": "Fatal Links",
-      "description": "Atlas hurls chains around and starts to channel (can only be interrupted by Suppression), dealing 225 (+75% Total Magic Power) Magic Damage to enemy heroes hit and slowing them by 40% for 3s. Release the skill while channeling: Atlas will drag the targets toward him and plunk them down on the designated location, dealing 360 (+180% Total Magic Power) Magic Damage. Use this skill in Ejected State: The Mecha Sentry will return to Atlas immediately, but the stun effect will be replaced by 40% Slowing Effect.",
+      "description": "Ang Atlas ay naghahagis ng mga kadena sa paligid at nagsimulang mag-channel (maaari lamang maputol ng Suppression), na humarap ng 225 (+75% Kabuuang Magic Power) na Magic Damage sa mga hero ng kaaway na tumama at nagpapabagal sa kanila ng 40% sa loob ng 3s. I-release ang skill habang nagcha-channel: Kakaladkarin ng Atlas ang mga target patungo sa kanya at ibababa ang mga ito sa itinalagang lokasyon, na magbibigay ng 360 (+180% Total Magic Power) Magic Damage. Gamitin ang skill na ito sa Ejected State: Ang Mecha Sentry ay babalik kaagad sa Atlas, ngunit ang stun effect ay mapapalitan ng 40% Slowing Effect.",
       "cooldown": [
         55
       ],
@@ -866,7 +866,7 @@
     },
     {
       "name": "Overtime",
-      "description": "Chip rushes for 2s, gaining up to 65% extra Movement Speed, after which he maintains the max speed for 2s. Chip's next Basic Attack will cause him to charge at the enemy, dealing 200 (+30% Total Magic Power) Magic Damage and knocking them back slightly.",
+      "description": "Nagmamadali ang Chip para sa 2s, nakakakuha ng hanggang 65% na dagdag na Movement speed, pagkatapos nito ay pinapanatili niya ang pinakamataas na bilis para sa 2s. Ang susunod na Basic Attack ng Chip ay magdudulot sa kanya ng pagsingil sa kalaban, na magbibigay ng 200 (+30% Total Magic Power) na Magic Damage at bahagyang mapaatras ang mga ito.",
       "cooldown": [
         13
       ],
@@ -876,7 +876,7 @@
     },
     {
       "name": "Shortcut",
-      "description": "Chip drops the Main Portal on an enemy hero, dealing 200 (+60% Total Magic Power) Magic Damage and briefly slowing them by 25%. The Main Portal deals 2 times the damage and immobilizes them for 1s after a delay. Meanwhile, he creates Connecting Portals near allied heroes 10 units away and behind the allied Base. The Main Portal and Connecting Portals last up to 15s. Connecting Portal: Heroes (on both teams) can teleport from Connecting Portals to the Main Portal, and allied heroes gain Burst Movement Speed for 1.5s and a 500 shield. Main Portal: The Main Portal inherits 70% of Chip's attributes. Heroes can stand on the Main Portal for 2s to return to the Connecting Portal they came from. Casting skills or launching Basic Attacks will reset the stand time.",
+      "description": "Ibinaba ng Chip ang Main Portal sa isang hero ng kalaban, na humarap ng 200 (+60% Kabuuang Magic Power) na Magic Damage at panandaliang nagpapabagal sa kanila ng 25%. Ang Pangunahing Portal ay tumatalakay ng 2 beses ang damage at hindi kumikilos ang mga ito sa loob ng 1s pagkatapos ng pagkaantala. Samantala, gumagawa siya ng Connecting Portals malapit sa mga kaalyadong hero na 10 unit ang layo at sa likod ng kaalyadong Base. Ang Main Portal at Connecting Portal ay tumatagal ng hanggang 15s. Connecting Portal: Ang mga hero (sa magkabilang koponan) ay maaaring mag-teleport mula sa Connecting Portals sa Main Portal, at ang mga kaalyadong hero ay makakakuha ng Burst Movement Speed ​​sa loob ng 1.5s at isang 500 shield. Pangunahing Portal: Ang Pangunahing Portal ay nagmamana ng 70% ng mga katangian ng Chip. Maaaring tumayo ang mga hero sa Main Portal para sa 2s upang bumalik sa Connecting Portal kung saan sila nagmula. Ang mga skill sa pag-cast o paglulunsad ng Mga Basic Attack ay magre-reset sa stand time.",
       "cooldown": [
         70
       ],
@@ -888,25 +888,25 @@
   "chou": [
     {
       "name": "Only Fast",
-      "description": "After traveling 5 units, Chou deals 180% damage on his next Basic Attack (cannot Crit), briefly slows the target by 90%, and reduces their Physical Defense by 10 (+1*Hero Level) for 3s (up to 2 stacks)."
+      "description": "Pagkatapos maglakbay ng 5 unit, 180% ang napinsala ni Chou sa kanyang susunod na Basic Attack (hindi makapag-Crit), panandaliang pinapabagal ang target ng 90%, at binabawasan ang kanilang Physical Defense ng 10 (+1*Hero Level) para sa 3s (hanggang 2 stack)."
     },
     {
       "name": "Jeet Kune Do",
-      "description": "Chou strikes in the target direction, dealing 180 (+70% Total Physical Attack) Physical Damage to enemies hit. This skill can be cast 3 times before it goes on cooldown. On the 3rd cast, Chou also knocks enemies hit airborne. Hitting an enemy hero with the 3rd cast resets the cooldown of Shunpo.",
+      "description": "Si Chou ay tumama sa target na direksyon, na humarap ng 180 (+70% Kabuuang Pisikal na Pag-atake) Pisikal na Damage sa mga natamaan ng mga kaaway. Maaaring i-cast ang skill na ito ng 3 beses bago ito mag-cooldown. Sa 3rd cast, pinatumba din ni Chou ang mga kaaway na natamaan sa hangin. Ang paghampas sa isang hero ng kaaway kasama ang 3rd cast ay nagre-reset sa cooldown ng Shunpo.",
       "cooldown": [
         9.5
       ]
     },
     {
       "name": "Shunpo",
-      "description": "Chou charges in the target direction, gaining Control Immunity and a 200 (+200% Extra Physical Attack) shield.",
+      "description": "Si Chou ay naniningil sa target na direksyon, nakakakuha ng Control Immunity at isang 200 (+200% Extra Physical Attack) shield.",
       "cooldown": [
         5
       ]
     },
     {
       "name": "The Way of Dragon",
-      "description": "Chou strikes a roundhouse kick at the target enemy hero, dealing them 400 (+200% Extra Physical Attack) Physical Damage and knocking them back. Cast the skill again to chase up the target, dealing a total of 480 (+240% Extra Physical Attack) Physical Damage.",
+      "description": "Tinamaan ni Chou ng roundhouse na sipa ang target na kalaban na hero, na humarap sa kanila ng 400 (+200% Extra Physical Attack) Physical Damage at napaatras sila. I-cast muli ang skill para habulin ang target, na humarap ng kabuuang 480 (+240% Extra Physical Attack) Physical Damage.",
       "cooldown": [
         36
       ]
@@ -915,7 +915,7 @@
   "cici": [
     {
       "name": "Performer's Delight",
-      "description": "Cici generates a stack of Delight after dealing damage, increasing her Movement Speed by 0.75% and Spell Vamp by 1.25% per stack up to 10 times, doubling the effects at full stacks."
+      "description": "Bumubuo si Cici ng stack ng Delight pagkatapos makaranas ng damage, pinapataas ang kanyang Movement Speed ​​ng 0.75% at Spell Vamp ng 1.25% bawat stack nang hanggang 10 beses, na nagdodoble ng mga effect sa buong stack."
     },
     {
       "name": "Yo-Yo Blitz",
@@ -1164,7 +1164,7 @@
     },
     {
       "name": "Falling Starmoon",
-      "description": "Esmeralda coheres the power of Astrospace into her two weapons - Stardust and Frostmoon. The longer this skill is channeled, the longer the cast range. Use Again: Esmeralda casts Stardust at the target location, dealing 350 (+90% Total Physical Attack) Physical Damage, and then blinks to the target location and casts Frostmoon, dealing 350 (+140% Total Magic Power) Magic Damage and immobilizing enemies in the area for 1s.",
+      "description": "Pinagsasama ni Esmeralda ang kapangyarihan ng Astrospace sa kanyang dalawang armas - Stardust at Frostmoon. Kung mas matagal ang kasanayang ito ay na-channel, mas mahaba ang hanay ng cast. Use Again: Si Esmeralda ay nag-cast ng Stardust sa target na lokasyon, na humarap ng 350 (+90% Total Physical Attack) Physical Damage, at pagkatapos ay kumurap sa target na lokasyon at nag-cast ng Frostmoon, na naghahatid ng 350 (+140% Total Magic Power) Magic Damage at hindi kumikilos ang mga kaaway sa lugar sa loob ng 1s.",
       "cooldown": [
         30
       ],
@@ -1508,11 +1508,11 @@
   "gord": [
     {
       "name": "Mystic Favor",
-      "description": "After Gord hits the same target 4 times with skills in quick succession, his next skill deals 120 (+8*Hero Level) (+40% Total Magic Power) extra True Damage and slows them by 20% for 1s (the slow effect stacks up to 2 times)."
+      "description": "Pagkatapos maabot ni Gord ang parehong target ng 4 na beses na may mga skill sa mabilis na sunud-sunod, ang kanyang susunod na skill ay nakikitungo sa 120 (+8*Hero Level) (+40% Total Magic Power) ng dagdag na True Damage at nagpapabagal sa mga ito ng 20% ​​para sa 1s (ang mabagal na epekto ay sasalansan ng hanggang 2 beses)."
     },
     {
       "name": "Mystic Projectile",
-      "description": "Gord conjures a Mystic Orb that bounces in the target direction and explodes on the first enemy hit, dealing 225 (+65% Total Magic Power) Magic Damage to enemies in the area, while stunning them and revealing their locations for 1s.",
+      "description": "Nag-conjure si Gord ng Mystic Orb na tumatalbog sa target na direksyon at sumasabog sa unang hit ng kaaway, na naghahatid ng 225 (+65% Total Magic Power) na Magic Damage sa mga kaaway sa lugar, habang pinapa-stunning sila at inilalantad ang kanilang mga lokasyon sa loob ng 1s.",
       "cooldown": [
         8
       ],
@@ -1522,7 +1522,7 @@
     },
     {
       "name": "Mystic Injunction",
-      "description": "Gord creates an energy field in the target area, dealing 30 (+10% Total Magic Power) Magic Damage every 0.25s to enemies within (up to 16 times).",
+      "description": "Gumagawa si Gord ng energy field sa target area, na humaharap ng 30 (+10% Total Magic Power) Magic Damage bawat 0.25s sa mga kaaway sa loob (hanggang 16 na beses).",
       "cooldown": [
         8
       ],
@@ -1532,7 +1532,7 @@
     },
     {
       "name": "Mystic Gush",
-      "description": "Gord unleashes an energy beam in the target direction, dealing 90 (+32% Total Magic Power) Magic Damage to enemies hit every 0.2s (up to 16 times). The direction of the beam can be adjusted using the Joystick.",
+      "description": "Nagpapalabas si Gord ng isang energy beam sa target na direksyon, na nagbibigay ng 90 (+32% Kabuuang Magic Power) na Magic Damage sa mga kaaway na tumama bawat 0.2s (hanggang 16 na beses). Ang direksyon ng sinag ay maaaring iakma gamit ang Joystick.",
       "cooldown": [
         44
       ],
@@ -1544,25 +1544,25 @@
   "granger": [
     {
       "name": "Capriccio",
-      "description": "Granger's unique Demon Hunting Gun and Cannon are powered by Demonic Energy. Both his weapons start with 800 max Energy. His Gun restores 8% Energy per second while his Cannon restores 2% Energy per second. Killing a Minion / Creep permanently increases their max Energy by 6 / 6, and instantly restores their Energy by 5% / 5%, respectively. Each kill or assist on an enemy hero permanently increases both weapons' max Energy by 12 and instantly restores 10% Energy. Every 1% Cooldown Reduction converts to 2 Physical Attack. Demonic Energy costs are not affected by Energy Cost Reduction."
+      "description": "Ang natatanging Demon Hunting Gun at Cannon ni Granger ay pinalakas ng Demonic Energy. Parehong nagsisimula ang kanyang mga armas sa 800 max Energy. Ang kanyang baril ay nagbabalik ng 8% na Enerhiya bawat segundo habang ang kanyang Cannon ay nagbabalik ng 2% na Enerhiya bawat segundo. Ang pagpatay ng Minion / Creep ay permanenteng nagpapataas ng kanilang max na Enerhiya ng 6/6, at agad na nagpapanumbalik ng kanilang Enerhiya ng 5% / 5%, ayon sa pagkakabanggit. Bawat pumatay o tumulong sa isang hero ng kalaban ay permanenteng nagpapataas ng maximum na Enerhiya ng dalawang armas ng 12 at agad na nagbabalik ng 10% Enerhiya. Bawat 1% Cooldown Reduction ay nagiging 2 Physical Attack. Ang mga gastos sa Demonic Energy ay hindi apektado ng Energy Cost Reduction."
     },
     {
       "name": "Rhapsody",
-      "description": "Granger rapidly fires 6 shot(s) with his Gun, with each shot dealing 60 (+45% Total Physical Attack) Physical Damage and consuming 70 Gun Energy. The last shot is guaranteed to Crit. While firing, Granger's Movement Speed is increased by 10%. Granger stops firing when he runs out of Energy, or when the skill is cast again. Rhapsody has no cooldown and can be cast once his Gun Energy is over 420.",
+      "description": "Mabilis na nagpaputok si Granger ng 6 (mga) putok gamit ang kanyang Baril, sa bawat putok ay humahantong ng 60 (+45% Kabuuang Pisikal na Pag-atake) Pisikal na Damage at kumonsumo ng 70 Gun Energy. Ang huling shot ay garantisadong kay Crit. Habang nagpapaputok, ang Granger's Movement Speed ​​ay tumaas ng 10%. Huminto si Granger sa pagpapaputok kapag naubusan siya ng Energy, o kapag na-cast muli ang skill. Ang Rhapsody ay walang cooldown at maaaring i-cast kapag ang kanyang Gun Energy ay higit sa 420.",
       "cooldown": [
         0.3
       ]
     },
     {
       "name": "Rondo",
-      "description": "Granger uses his Demon Hunter agility to dash in the target direction, instantly restoring 15% Energy for his Gun. Rondo can be cast while channeling Rhapsody. Each time Rhapsody hits an enemy, Rondo's Cooldown is reduced by 0.5s.",
+      "description": "Ginagamit ni Granger ang kanyang Demon Hunter agility para sumugod sa target na direksyon, na agad na nagbabalik ng 15% Energy para sa kanyang Baril. Maaaring i-cast si Rondo habang nagcha-channel ng Rhapsody. Sa tuwing tatamaan ni Rhapsody ang isang kaaway, ang Cooldown ni Rondo ay nababawasan ng 0.5s.",
       "cooldown": [
         12
       ]
     },
     {
       "name": "Death Sonata",
-      "description": "Granger fires his Cannon in the target direction, dealing 150 (+110% Total Physical Attack) Physical Damage to the first enemy hero hit and other targets in the blast radius. Targets hit will be briefly slowed. Granger can roll in the Joystick's direction after each shot. Death Sonata can be cast while firing Rhapsody. Death Sonata has a brief cooldown and consumes 250 of Granger's Cannon Energy per shot.",
+      "description": "Pinaputok ni Granger ang kanyang Cannon sa target na direksyon, na humarap ng 150 (+110% Total Physical Attack) Physical Damage sa unang natamaan ng hero ng kaaway at iba pang mga target sa blast radius. Ang mga target na hit ay panandaliang babagal. Maaaring gumulong si Granger sa direksyon ng Joystick pagkatapos ng bawat shot. Maaaring i-cast ang Death Sonata habang nagpapaputok ng Rhapsody. Ang Death Sonata ay may maikling cooldown at kumokonsumo ng 250 ng Granger's Cannon Energy bawat shot.",
       "cooldown": [
         0.6
       ],
@@ -1574,7 +1574,7 @@
   "grock": [
     {
       "name": "Bastion of Stone",
-      "description": "Grock gains a shield equal to 14% HP and empowers the next Basic Attack to deal 4 (+2% Total Physical Defense)% target's HP Physical Damage (capped at 300 (+20*Hero Level) against non-hero units). Cooldown: 18s - 12s (decreases with level). This cooldown is reduced by 200% when near terrain. Grock's skills cannot be interrupted, and he gains 30 (+6*Hero Level)% extra Physical Defense while the shield is active."
+      "description": "Nakuha ni Grock ang isang shield na katumbas ng 14% HP at binibigyang kapangyarihan ang susunod na Basic Attack para harapin ang 4 (+2% Total Physical Defense)% na HP Physical Damage ng target (nalimitahan sa 300 (+20*Hero Level) laban sa mga non-hero units). Cooldown: 18s - 12s (bumababa nang may level). Ang cooldown na ito ay nababawasan ng 200% kapag malapit sa lupain. Hindi maaantala ang mga skill ni Grock, at nakakakuha siya ng 30 (+6*Hero Level)% na dagdag na Physical Defense habang aktibo ang shield."
     },
     {
       "name": "Mighty Swing",
@@ -3187,7 +3187,7 @@
     },
     {
       "name": "Superposition",
-      "description": "Natan shoots a dense mass of energy in the target direction, dealing 225 (+100% Total Physical Attack) (+120% Total Magic Power) Magic Damage to enemies in its path.",
+      "description": "Nag-shoot si Natan ng isang makapal na masa ng enerhiya sa target na direksyon, na humahantong ng 225 (+100% Total Physical Attack) (+120% Total Magic Power) Magic Damage sa mga kaaway na dinaraanan nito.",
       "cooldown": [
         8
       ],
@@ -3197,7 +3197,7 @@
     },
     {
       "name": "Interference!",
-      "description": "Natan launches a Gravitational Attractor in the target direction, dealing 150 (+50% Total Physical Attack) (+60% Total Magic Power) Magic Damage to enemies in its path and knocking them back. The Attractor detonates upon reaching the maximum range, dealing 30 (+10% Total Physical Attack) (+12% Total Magic Power) Magic Damage to nearby enemies and knocking them back.",
+      "description": "Naglulunsad si Natan ng Gravitational Attractor sa target na direksyon, na humaharap ng 150 (+50% Total Physical Attack) (+60% Total Magic Power) na Magic Damage sa mga kaaway sa dinaraanan nito at ibinabalik sila. Ang Attractor ay sumasabog kapag naabot ang maximum na range, na humahantong ng 30 (+10% Total Physical Attack) (+12% Total Magic Power) Magic Damage sa mga kalapit na kalaban at ibinabalik sila.",
       "cooldown": [
         12
       ],
@@ -3207,7 +3207,7 @@
     },
     {
       "name": "Entropy?",
-      "description": "Natan summons a Reverse-Clone that lasts 10s at 6 units away. The Reverse-Clone copies his moves and attacks in reverse and inherits 35% of his Basic Attack and skill damage. Use Again: Natan switches places with the Reverse-Clone. Each cast reduces other skills' remaining cooldowns by 50%. The Reverse-Clone will disappear if Natan is too far away.",
+      "description": "Nagpatawag si Natan ng Reverse-Clone na tumatagal ng 10s sa 6 na unit ang layo. Kinokopya ng Reverse-Clone ang kanyang mga galaw at pag-atake sa kabaligtaran at mamanahin ang 35% ng kanyang Basic Attack at skill damage. Gamitin Muli: Nagpapalit si Natan ng mga lugar gamit ang Reverse-Clone. Binabawasan ng bawat cast ang mga natitirang cooldown ng iba pang mga skill ng 50%. Mawawala ang Reverse-Clone kung masyadong malayo si Natan.",
       "cooldown": [
         24
       ],
@@ -3219,11 +3219,11 @@
   "nolan": [
     {
       "name": "Dimensional Rift",
-      "description": "Nolan's skills will leave a Rift that lasts 5 seconds and slows enemies by 30%. When a rift comes into contact with another rift, they will activate and pull enemies to their center and deal 220 (+140% Extra Physical Attack) Physical Damage after a short delay. Each time a rift activation hits an enemy hero or Creep, Nolan will gain 15 Energy and heals 150 (+120% Extra Physical Attack) for himself. If an enemy is hit by multiple rift activations, the damage after the first hit will be reduced to 40%. Cosmic Leap: If Nolan does not deal or take damage for 5 seconds, he enhances his next Basic Attack to dash to the target, dealing (+120% Total Physical Attack) Physical Damage and leaving a rift. (Damage to and from Minions or Creeps will not prevent Nolan from getting this effect.)"
+      "description": "Ang mga skill ni Nolan ay mag-iiwan ng Rift na tumatagal ng 5 segundo at nagpapabagal sa mga kaaway ng 30%. Kapag nakipag-ugnayan ang isang lamat sa isa pang lamat, ia-activate at hihilahin nila ang mga kaaway sa kanilang gitna at haharapin ang 220 (+140% Extra Physical Attack) Physical Damage pagkatapos ng maikling pagkaantala. Sa bawat oras na matamaan ng rift activation ang isang kaaway na hero o Creep, si Nolan ay magkakaroon ng 15 Energy at magpapagaling ng 150 (+120% Extra Physical Attack) para sa kanyang sarili. Kung ang isang kaaway ay tinamaan ng maraming pag-activate ng rift, ang damage pagkatapos ng unang hit ay mababawasan sa 40%. Cosmic Leap: Kung si Nolan ay hindi nakipag-deal o nagkakaroon ng damage sa loob ng 5 segundo, pinapahusay niya ang kanyang susunod na Basic Attack para sumugod sa target, na humarap sa (+120% Total Physical Attack) Physical Damage at nag-iiwan ng lamat. (Ang damage sa at mula sa Minions o Creeps ay hindi makakapigil kay Nolan na makuha ang epektong ito.)"
     },
     {
       "name": "Expansion",
-      "description": "Nolan cuts a rectangular area in front of him with his cosmic gauge, dealing 230 (+40% Total Physical Attack) Physical Damage and leaving a Rift at the first enemy hit.",
+      "description": "Pinutol ni Nolan ang isang rectangular area sa harap niya gamit ang kanyang cosmic gauge, na humarap ng 230 (+40% Total Physical Attack) Physical Damage at nag-iiwan ng Rift sa unang tama ng kaaway.",
       "cooldown": [
         2.5
       ],
@@ -3233,7 +3233,7 @@
     },
     {
       "name": "Gauge",
-      "description": "Nolan charges in the target direction and slashes with his cosmic gauge, dealing 70 (+13% Total Physical Attack) Physical Damage to enemies in his path and leaving a Rift.",
+      "description": "Si Nolan ay naniningil sa target na direksyon at nag-slash gamit ang kanyang cosmic gauge, na humarap ng 70 (+13% Total Physical Attack) Physical Damage sa mga kaaway sa kanyang landas at nag-iiwan ng Rift.",
       "cooldown": [
         2.5
       ],
@@ -3897,7 +3897,7 @@
     },
     {
       "name": "Consecration",
-      "description": "Uranus unleashes the energy stored within his body, removing slow effects on himself, recovering 200 HP, and gaining 60% Movement Speed for 8s (decays over time). Uranus directly gains 5 stacks of Radiance, increasing shields received and HP Regen by 20% for 8s.",
+      "description": "Inilalabas ni Uranus ang enerhiyang nakaimbak sa loob ng kanyang katawan, inaalis ang mabagal na epekto sa kanyang sarili, nabawi ang 200 HP, at nakakakuha ng 60% Movement speed sa loob ng 8s (nabubulok sa paglipas ng panahon). Direktang nakakakuha si Uranus ng 5 stack ng Radiance, tumataas ang mga shield na natanggap at HP Regen ng 20% ​​para sa 8s.",
       "cooldown": [
         42
       ],
@@ -3909,11 +3909,11 @@
   "vale": [
     {
       "name": "Windtalk",
-      "description": "Vale gains 1 stack of Windtalk each time he gets a kill or an assist that increases his Movement Speed by 8. This effect can stack up to 10 times."
+      "description": "Nakakakuha si Vale ng 1 stack ng Windtalk sa tuwing nakakakuha siya ng kill o isang assist na nagpapataas sa kanyang Movement Speed ​​ng 8. Ang effect na ito ay maaaring mag-stack ng hanggang 10 beses."
     },
     {
       "name": "Wind Blade",
-      "description": "Vale unleashes two wind blades toward the left and right of a target area, each dealing 250 (+80% Total Magic Power) Magic Damage to enemies hit.",
+      "description": "Ang Vale ay naglalabas ng dalawang wind blades patungo sa kaliwa at kanan ng isang target na lugar, bawat isa ay nagdudulot ng 250 (+80% Total Magic Power) na Magic Damage sa mga natamaan ng mga kaaway.",
       "cooldown": [
         6
       ],
@@ -3923,7 +3923,7 @@
     },
     {
       "name": "Windblow",
-      "description": "Vale sends a whirlwind in the target direction, dealing 350 (+100% Total Magic Power) Magic Damage to enemies hit and knocking them airborne for 0.8s (each enemy can only be knocked airborne 1 time). When the whirlwind reaches its destination, it will remain for 1.6s while continuously dealing a total of 150 (+30% Total Magic Power) Magic Damage to enemies in range.",
+      "description": "Nagpapadala si Vale ng whirlwind sa target na direksyon, na naghahatid ng 350 (+100% Total Magic Power) Magic Damage sa mga kaaway na tamaan at katok sa hangin sa loob ng 0.8s (bawat kalaban ay maaari lamang matumba sa hangin ng 1 beses). Kapag naabot na ng whirlwind ang patutunguhan nito, mananatili ito sa loob ng 1.6s habang patuloy na nagdudulot ng kabuuang 150 (+30% Total Magic Power) na Magic Damage sa mga kaaway na nasa hanay.",
       "cooldown": [
         12
       ],
@@ -4021,7 +4021,7 @@
     },
     {
       "name": "Deathly Grasp",
-      "description": "Vexana unleashes a Deathly Grasp in the target direction, dealing 200 (+60% Total Magic Power) Magic Damage to enemies in its path. It stops upon hitting an enemy hero, Terrifying and knocking them back. After a short delay, it explodes, dealing 200 (+60% Total Magic Power) Magic Damage to nearby enemies and Terrifying them for 1s.",
+      "description": "Ang Vexana ay naglalabas ng Deathly Grasp sa target na direksyon, na naghahatid ng 200 (+60% Total Magic Power) na Magic Damage sa mga kalaban na dinaraanan nito. Huminto ito kapag natamaan ang isang hero ng kalaban, Nakakatakot at napaatras sila. Pagkatapos ng maikling pagkaantala, ito ay sasabog, na magbibigay ng 200 (+60% Kabuuang Magic Power) na Magic Damage sa mga kalapit na kalaban at Nakakatakot sa kanila sa loob ng 1s.",
       "cooldown": [
         14
       ],
@@ -4031,7 +4031,7 @@
     },
     {
       "name": "Cursed Blast",
-      "description": "Vexana marks the target area with the power of the undead, striking it after a 0.8s delay and dealing 580 (+165% Total Magic Power) Magic Damage to enemies hit.",
+      "description": "Minarkahan ng Vexana ang target na lugar na may kapangyarihan ng undead, na tinamaan ito pagkatapos ng 0.8s na pagkaantala at nagdudulot ng 580 (+165% Total Magic Power) na Magic Damage sa mga natamaan ng mga kaaway.",
       "cooldown": [
         7
       ],
@@ -4041,7 +4041,7 @@
     },
     {
       "name": "Eternal Guard",
-      "description": "Vexana summons an Eternal Guard at the target location, dealing 480 (+60% Total Magic Power) Magic Damage to enemies hit and knocking them airborne for 0.8s. The Eternal Guard then joins Vexana in battle for 15s. Its attacks deal 200 (+40% Total Magic Power) (+ 5% target's HP) Magic Damage and Splash Damage in a large area.",
+      "description": "Nagpapatawag si Vexana ng Eternal Guard sa target na lokasyon, na naghahatid ng 480 (+60% Total Magic Power) na Magic Damage sa mga kalaban na tumama at kumatok sa kanila sa hangin sa loob ng 0.8s. Ang Eternal Guard pagkatapos ay sumali sa Vexana sa labanan para sa 15s. Ang mga pag-atake nito ay humaharap ng 200 (+40% Total Magic Power) (+ 5% na HP ng target) Magic Damage at Splash Damage sa isang malaking lugar.",
       "cooldown": [
         60
       ],
@@ -4053,11 +4053,11 @@
   "wanwan": [
     {
       "name": "Tiger Pace",
-      "description": "Enemy heroes hit by Wanwan's attacks will have their weaknesses and positions exposed for 5s. When hitting an enemy's weakness, Wanwan deals 67 (+3*Hero Level) extra True Damage and increases their damage taken from her subsequent attacks by 10% for 5s. Wanwan can dash a short distance after each arrow fired from her Basic Attack. The dash speed scales with her Attack Speed."
+      "description": "Ang mga hero ng kalaban na tinamaan ng mga pag-atake ni Wanwan ay malalantad ang kanilang mga kahinaan at posisyon sa loob ng 5s. Kapag natamaan ang kahinaan ng isang kaaway, si Wanwan ay magbibigay ng 67 (+3*Hero Level) na dagdag na True Damage at pinapataas ang pinsalang nakuha mula sa kanyang mga kasunod na pag-atake ng 10% sa loob ng 5s. Si Wanwan ay maaaring sumugod ng maikling distansya pagkatapos ng bawat arrow na pumutok mula sa kanyang Basic Attack. Ang bilis ng gitling ay sumasabay sa kanyang Attack speed."
     },
     {
       "name": "Swallow’s Path",
-      "description": "Wanwan throws a Fire Swallow in the target direction, triggering Tiger Pace while dealing 120 (+40% Total Physical Attack) Physical Damage to enemies in its path. The Fire Swallow then turns into 3 rotating Swallow Daggers. After a short delay, these Swallow Daggers will fly back to Wanwan one after another, dealing 120 (+40% Total Physical Attack) Physical Damage to enemies on their way back and slowing them by 30% for 1.5s. Enemies hit twice by the Swallow Daggers will be immobilized for 0.5s.",
+      "description": "Inihagis ni Wanwan ang isang Fire Swallow sa target na direksyon, na nagti-trigger ng Tiger Pace habang nagsasagawa ng 120 (+40% Total Physical Attack) Physical Damage sa mga kaaway na dinaraanan nito. Ang Fire Swallow pagkatapos ay nagiging 3 umiikot na Swallow Dagger. Pagkatapos ng maikling pagkaantala, ang mga Swallow Dagger na ito ay lilipad pabalik sa Wanwan nang sunud-sunod, na magbibigay ng 120 (+40% Kabuuang Pisikal na Pag-atake) Pisikal na Damage sa mga kaaway sa kanilang pagbabalik at pabagalin sila ng 30% sa loob ng 1.5s. Ang mga kaaway na natamaan ng dalawang beses ng Swallow Daggers ay hindi makakilos sa loob ng 0.5s.",
       "cooldown": [
         12
       ],
@@ -4067,7 +4067,7 @@
     },
     {
       "name": "Needles in Flowers",
-      "description": "Wanwan removes all debuffs on herself and triggers Tiger Pace. Meanwhile, she shoots Deadly Needles in all directions, dealing 150 (+60% Total Physical Attack) Physical Damage to enemies hit.",
+      "description": "Inalis ni Wanwan ang lahat ng debuff sa kanyang sarili at na-trigger ang Tiger Pace. Samantala, nag-shoot siya ng Deadly Needles sa lahat ng direksyon, na humarap ng 150 (+60% Total Physical Attack) Physical Damage sa mga natamaan ng mga kaaway.",
       "cooldown": [
         24
       ],
@@ -4249,11 +4249,11 @@
   "yve": [
     {
       "name": "Galactic Power",
-      "description": "When Yve deals damage to enemy heroes with her skills, she gains Galactic Power (cooldown: 0.5s), up to 3 stacks. Each stack provides Yve with a 120 (+10*Hero Level) (+50% Total Magic Power) shield for 3s."
+      "description": "Kapag napinsala ni Yve ang mga hero ng kaaway gamit ang kanyang mga skill, nagkakaroon siya ng Galactic Power (cooldown: 0.5s), hanggang 3 stack. Ang bawat stack ay nagbibigay kay Yve ng 120 (+10*Hero Level) (+50% Total Magic Power) shield para sa 3s."
     },
     {
       "name": "Void Blast",
-      "description": "Yve detonates Galactic Energy at the target location, dealing 290 (+150% Total Magic Power) Magic Damage to enemies in the area. Successfully hitting an enemy grants Yve 55% extra Movement Speed (halved if a non-hero enemy is hit) that decreases over 1s.",
+      "description": "Pinasabog ni Yve ang Galactic Energy sa target na lokasyon, na nagbibigay ng 290 (+150% Total Magic Power) na Magic Damage sa mga kaaway sa lugar. Ang matagumpay na pagtama sa isang kaaway ay nagbibigay kay Yve ng 55% na dagdag na Movement speed (kalahatiin kung ang isang hindi hero na kalaban ang natamaan) na bumababa ng higit sa 1s.",
       "cooldown": [
         3
       ],
@@ -4263,7 +4263,7 @@
     },
     {
       "name": "Void Crystal",
-      "description": "Yve summons a Void Crystal at the target location, dealing 220 (+40% Total Magic Power) Magic Damage to nearby enemies. Use Again: Yve commands the Crystal to fire materialized energy in the target direction for 2.7s, dealing 75 (+10% Total Magic Power) Magic Damage every 0.45s to enemies hit and slowing them by 20%. Enemies hit multiple times are slowed by an extra 4% for each hit after the first hit (up to 40%).",
+      "description": "Si Yve ay nagpatawag ng Void Crystal sa target na lokasyon, na nagbibigay ng 220 (+40% Total Magic Power) na Magic Damage sa mga kalapit na kalaban. Use Again: Inutusan ni Yve ang Crystal na magpaputok ng materialized energy sa target na direksyon sa loob ng 2.7s, na humarap ng 75 (+10% Total Magic Power) Magic Damage bawat 0.45s sa mga kaaway na tumama at nagpapabagal sa kanila ng 20%. Ang mga kaaway na natamaan ng maraming beses ay pinabagal ng dagdag na 4% para sa bawat hit pagkatapos ng unang hit (hanggang 40%).",
       "cooldown": [
         14
       ],
@@ -4273,7 +4273,7 @@
     },
     {
       "name": "Real World Manipulation",
-      "description": "Yve creates a Starfield that lasts 15s. Within the duration, you can Tap or Swipe the screen to attack up to 20 times. Tap: Deals 340 (+150% Total Magic Power) Magic Damage to enemies in the target area. Swipe: Deals 85 (+10% Total Magic Power) Magic Damage every 0.45s to enemies in the target area for 2.7s and slows them by 40%. Enemies leaving or entering the Starfield will be immobilized for 0.8s (only once against the same target). Yve cannot be displaced while the Starfield is active, and the Starfield will remain even if Yve is controlled (except for Suppression).",
+      "description": "Lumilikha si Yve ng Starfield na tumatagal ng 15s. Sa loob ng tagal, maaari mong I-tap o I-swipe ang screen para umatake ng hanggang 20 beses. I-tap: Mag-deal ng 340 (+150% Total Magic Power) Magic Damage sa mga kaaway sa target na lugar. Mag-swipe: Magde-deal ng 85 (+10% Kabuuang Magic Power) Magic Damage tuwing 0.45s sa mga kaaway sa target area sa loob ng 2.7s at pinapabagal sila ng 40%. Ang mga kaaway na aalis o papasok sa Starfield ay hindi makagalaw sa loob ng 0.8s (isang beses lamang laban sa parehong target). Hindi maaaring ilipat si Yve habang aktibo ang Starfield, at mananatili ang Starfield kahit na kontrolado si Yve (maliban sa Suppression).",
       "cooldown": [
         60
       ],
@@ -4289,7 +4289,7 @@
     },
     {
       "name": "Phoenix Strike",
-      "description": "Zetian unleashes a Phoenix Wave in the target direction. If it hits an enemy, she automatically casts another wave (up to 3 times). Zetian can cast other skills during this time. The waves deal 150 (+50% Total Magic Power), 150 (+50% Total Magic Power), and 360 (+120% Total Magic Power) Magic Damage, respectively. The 3rd wave has a larger area and pulls enemies toward the cast direction (not considered a control effect). The Spell Vamp ratio against minions is only 65%.",
+      "description": "Nagpakawala si Zetian ng Phoenix Wave sa target na direksyon. Kung tumama ito sa isang kaaway, awtomatiko siyang magpapawagayway (hanggang 3 beses). Maaaring mag-cast si Zetian ng iba pang mga skill sa panahong ito. Ang waves ay humaharap sa 150 (+50% Total Magic Power), 150 (+50% Total Magic Power), at 360 (+120% Total Magic Power) Magic Damage, ayon sa pagkakabanggit. Ang 3rd wave ay may mas malaking lugar at hinihila ang mga kaaway patungo sa direksyon ng cast (hindi itinuturing na control effect). Ang Spell Vamp ratio laban sa mga minions ay 65% ​​lang.",
       "cooldown": [
         5
       ],
@@ -4309,7 +4309,7 @@
     },
     {
       "name": "Fury of the Phoenix",
-      "description": "Zetian calls upon her divine mandate and the hearts of her people, granting all allied heroes 40% Movement Speed that gradually decays over 3s, while bringing divine retribution upon all enemy heroes, dealing 400 (+100% Total Magic Power) Magic Damage and stunning them for 0.8s. Zetian gains vision of all enemy heroes during this time. Zetian can cast other skills while channeling this skill.",
+      "description": "Si Zetian ay nananawagan sa kanyang banal na utos at sa puso ng kanyang mga tao, na nagbibigay sa lahat ng kaalyadong hero ng 40% Movement Speed ​​na unti-unting nabubulok sa loob ng 3s, habang nagdadala ng divine retribution sa lahat ng kaaway na hero, na humaharap ng 400 (+100% Total Magic Power) Magic Damage at nakamamangha sa kanila sa loob ng 0.8s. Nakuha ni Zetian ang paningin ng lahat ng mga hero ng kaaway sa panahong ito. Maaaring mag-cast si Zetian ng iba pang mga skill habang ini-channel ang kasanayang ito.",
       "cooldown": [
         90
       ],
@@ -4321,7 +4321,7 @@
   "zhask": [
     {
       "name": "Decimation",
-      "description": "Upon death, Zhask summons a frenzied Nightmaric Spawn on the spot, which gradually loses HP over time until death."
+      "description": "Sa pagkamatay, ipinatawag ni Zhask ang isang baliw na Nightmaric Spawn sa lugar, na unti-unting nawawalan ng HP sa paglipas ng panahon hanggang sa kamatayan."
     },
     {
       "name": "Nightmaric Spawn",
@@ -4417,7 +4417,7 @@
     },
     {
       "name": "Supreme Warrior",
-      "description": "Zilong removes all slow effects on himself and gains 40% Movement Speed, 35% Attack Speed, and Slow Immunity for 7.5s. During this time, Dragon Flurry triggers every 2 attacks (instead of the previous 3).",
+      "description": "Tinatanggal ni Zilong ang lahat ng mabagal na epekto sa kanyang sarili at nakakuha ng 40% Movement speed, 35% Attack speed, at Mabagal na Immunity sa loob ng 7.5s. Sa panahong ito, pinalitaw ng Dragon Flurry ang bawat 2 pag-atake (sa halip na ang nakaraang 3).",
       "cooldown": [
         35
       ],

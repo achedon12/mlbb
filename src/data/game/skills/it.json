@@ -966,7 +966,7 @@
     },
     {
       "name": "Blazing Duet",
-      "description": "Claude and Dexter rapidly fire at nearby enemies for 3s, dealing 40 (+40% Total Physical Attack) Physical Damage to up to two enemies with each shot (counts as Basic Attack Damage). Claude also gains a 20 (+3% Total Physical Attack) shield each time the Ultimate deals damage to an enemy.",
+      "description": "Claude e Dexter sparano rapidamente ai nemici vicini per 3 secondi, infliggendo 40 (+40% attacco fisico totale) danni fisici a un massimo di due nemici con ogni colpo (conta come attacco fisico base). Claude ottiene anche uno scudo di 20 (+3% attacco fisico totale) ogni volta che la Ultimate infligge danni a un nemico.",
       "cooldown": [
         50
       ],
@@ -978,11 +978,11 @@
   "clint": [
     {
       "name": "Double Shot",
-      "description": "After each skill cast, Clint's next Basic Attack within 4s penetrates a line of enemies, dealing 150 (+100% Total Physical Attack) Physical Damage. This damage can trigger Attack Effects, and the part affected by Physical Attack can Crit."
+      "description": "Dopo ogni abilità lanciata, il successivo attacco base di Clint entro 4 secondi penetra una linea di nemici, infliggendo 150 (+100% attacco fisico totale) danni fisici. Questo danno può innescare effetti di attacco e la parte influenzata dall'attacco fisico può colpire in modo critico."
     },
     {
       "name": "Quick Draw",
-      "description": "Clint rapidly fires 5 bullets in the target direction, each dealing 250 (+85% Total Physical Attack) Physical Damage to the enemy hit. The bullets spread evenly across a fan-shaped area. Enemies hit by multiple bullets take reduced damage from each bullet after the first.",
+      "description": "Clint spara rapidamente 5 proiettili nella direzione del bersaglio, ciascuno dei quali infligge 250 (+85% attacco fisico totale) danni fisici al nemico colpito. I proiettili si distribuiscono uniformemente su un'area a forma di ventaglio. I nemici colpiti da più proiettili subiscono danni ridotti da ogni proiettile successivo al primo.",
       "cooldown": [
         8
       ],
@@ -992,7 +992,7 @@
     },
     {
       "name": "Trapping Recoil",
-      "description": "Clint shoots a trap net in the target direction, slightly jumping back while dealing 140 (+30% Total Physical Attack) (+150% Total Magic Power) Physical Damage to the first enemy hit and immobilizing them for 1.2s. Successfully hitting an enemy reduces the cooldown of this skill by 40%.",
+      "description": "Clint lancia una rete trappola nella direzione del bersaglio, saltando leggermente indietro mentre infligge 140 (+30% attacco fisico totale) (+150% potere magico totale) danni fisici al primo nemico colpito e immobilizzandolo per 1,2 secondi. Colpire con successo un nemico riduce il tempo di recupero di questa abilità del 40%.",
       "cooldown": [
         10
       ],
@@ -1002,7 +1002,7 @@
     },
     {
       "name": "Grenade Bombardment",
-      "description": "Clint launches a grenade in the target direction that explodes on the first enemy hit, dealing 280 (+100% Total Physical Attack) Physical Damage and slowing them by 50% for 0.5s. Clint gains a grenade charge every 10s (up to 3).",
+      "description": "Clint lancia una granata nella direzione del bersaglio che esplode al primo nemico colpito, infliggendo 280 (+100% attacco fisico totale) danni fisici e rallentandolo del 50% per 0,5 secondi. Clint ottiene una carica di granata ogni 10 secondi (fino a 3).",
       "cooldown": [
         1.5
       ],
@@ -1018,7 +1018,7 @@
     },
     {
       "name": "Stardust Shock",
-      "description": "Cyclops casts two Stardust Disks in the target direction, each dealing 240 (+60% Total Magic Power) Magic Damage to enemies in its path.",
+      "description": "Ciclope lancia due dischi di polvere di stelle nella direzione bersaglio, ciascuno dei quali infligge 240 (+60% potere magico totale) danni magici ai nemici sul suo percorso.",
       "cooldown": [
         7.5
       ],
@@ -1028,7 +1028,7 @@
     },
     {
       "name": "Planets Attack",
-      "description": "Cyclops conjures Starlit Spheres around himself, gaining 50% Movement Speed that decays over 2s. The Starlit Spheres automatically seek and attack nearby enemies (prioritizing enemy heroes), and explode on contact to deal 200 (+65% Total Magic Power) Magic Damage. Subsequent hits on the same target deal reduced damage.",
+      "description": "Ciclope evoca sfere stellate attorno a sé, ottenendo il 50% di velocità di movimento che decade in 2 secondi. Le sfere stellate cercano e attaccano automaticamente i nemici vicini (dando priorità agli eroi nemici) ed esplodono al contatto per infliggere 200 (+65% potere magico totale) danni magici. I colpi successivi sullo stesso bersaglio infliggono danni ridotti.",
       "cooldown": [
         14
       ],
@@ -1038,7 +1038,7 @@
     },
     {
       "name": "Star Power Lockdown",
-      "description": "Cyclops creates a Planetary Sphere that tracks the target enemy hero or creep, dealing 500 (+120% Total Magic Power) Magic Damage and immobilizing them for 0.75-1.5s (scales with Planetary Sphere's travel distance).",
+      "description": "Ciclope crea una sfera planetaria che segue l'eroe o il mostro nemico bersaglio, infliggendo 500 (+120% potere magico totale) danni magici e immobilizzandolo per 0,75-1,5 secondi (si adatta alla distanza di viaggio della sfera planetaria).",
       "cooldown": [
         26
       ],
@@ -2707,11 +2707,11 @@
   "lunox": [
     {
       "name": "Dreamland Twist",
-      "description": "Lunox is twisted by the powers of Chaos and Order. When Lunox uses Power of Order, she gains 10% Spell Vamp. When she uses Power of Chaos, she gains 10% Magic Penetration."
+      "description": "Lunax è distorta dai poteri del Caos e dell'Ordine. Quando Lunox usa il Potere dell'Ordine, ottiene il 10% di Vampiro Magico. Quando usa il Potere del Caos, ottiene il 10% di Penetrazione magica."
     },
     {
       "name": "Starlight Pulse",
-      "description": "Lunox summons a rain of starlight upon nearby enemies, dealing 200 (+110% Total Magic Power) Magic Damage. The starlight then returns to Lunox, each recovering 75 (+30% Total Magic Power) HP to her (doubled when hitting enemy heroes). This skill shares a cooldown with Chaos Assault. It grants Power of Order and ends the Power of Chaos state.",
+      "description": "Lunax evoca una pioggia di luce stellare sui nemici vicini, infliggendo 200 (+110% potere magico totale) danni magici. La luce delle stelle ritorna quindi su Lunox, recuperando ciascuna 75 (+ 30% di potere magico totale) HP (raddoppiati quando colpiscono gli eroi nemici). Questa abilità condivide un tempo di recupero con Assalto del caos. Conferisce il Potere dell'Ordine e pone fine allo stato del Potere del Caos.",
       "cooldown": [
         2
       ],
@@ -2721,7 +2721,7 @@
     },
     {
       "name": "Chaos Assault",
-      "description": "Lunox unleashes Chaos Energy at a target enemy, dealing 250 (+120% Total Magic Power) (+ 3.5% target's HP) Magic Damage (+ 2.1% against creeps). This skill shares its cooldown with Starlight Pulse. Using it grants Power of Chaos and ends the Power of Order state.",
+      "description": "Lunox scatena l'energia del caos contro un nemico bersaglio, infliggendo 250 (+120% potenza magica totale) (+ 3,5% HP del bersaglio) danni magici (+ 2,1% contro i brividi). Questa abilità condivide il suo tempo di recupero con Starlight Pulse. Usarlo garantisce Potere del Caos e pone fine allo stato Potere dell'Ordine.",
       "cooldown": [
         2
       ],
@@ -2757,7 +2757,7 @@
     },
     {
       "name": "Rotation",
-      "description": "Luo Yi summons Fire of Yang / Aqua of Yin at the target location, dealing 250 (+50% Total Magic Power) Magic Damage to enemies hit and slowing them by 60% for 0.5s. Fire of Yang / Aqua of Yin then remains at the location for 6s, dealing 50 (+10% Total Magic Power) Magic Damage every 0.7s to nearby enemies. It can also trigger Yin-Yang Reaction with Sigils of opposite attributes. The state of this skill changes on each cast.",
+      "description": "Luo Yi evoca Fuoco di Yang / Acqua di Yin nella posizione bersaglio, infliggendo 250 (+50% Potere magico totale) danni magici ai nemici colpiti e rallentandoli del 60% per 0,5 secondi. Fuoco di Yang/Acqua di Yin rimane quindi nella posizione per 6 secondi, infliggendo 50 (+10% potere magico totale) danni magici ogni 0,7 secondi ai nemici vicini. Può anche innescare la reazione Yin-Yang con sigilli di attributi opposti. Lo stato di questa abilità cambia ad ogni lancio.",
       "cooldown": [
         12
       ],
@@ -2785,7 +2785,7 @@
     },
     {
       "name": "Magic Shockwave",
-      "description": "Lylia sends out Gloom with a shockwave, dealing 250 (+100% Total Magic Power) Magic Damage to enemies in a line and slowing them by 30% for 1.5s. If Gloom touches Shadow Energy, he will devour and detonate it.",
+      "description": "Lylia invia Gloom con un'onda d'urto, infliggendo 250 (+100% Potere magico totale) danni magici ai nemici in linea e rallentandoli del 30% per 1,5 secondi. Se Gloom tocca l'Energia dell'Ombra, la divorerà e la farà esplodere.",
       "cooldown": [
         4
       ],
@@ -2817,14 +2817,14 @@
   "marcel": [
     {
       "name": "Platinum Snap",
-      "description": "Marcel's split soul, Clemar, enters the camera to freeze the moment. His Basic Attacks deal 50 (+40% Total Physical Attack)(+40% Total Magic Defense)(+40% Total Physical Defense) Physical Damage. His Extra HP is converted into 1.5% Hybrid Defense. Clemar automatically snaps photos of enemy heroes near Marcel, causing a brief Frozen Moment and dealing 20 (+ 5% of HP) True Damage (triggers Attack Effects). It also grants a shield of the same value to Marcel and a nearby allied hero. Cooldown: 12s per target.",
+      "description": "L'anima divisa di Marcel, Clemar, entra nella telecamera per congelare il momento. I suoi attacchi base infliggono 50 (+40% attacco fisico totale)(+40% difesa magica totale)(+40% difesa fisica totale) danni fisici. I suoi HP extra vengono convertiti in 1,5% di difesa ibrida. Clemar scatta automaticamente foto degli eroi nemici vicino a Marcel, provocando un breve Momento Congelato e infliggendo 20 (+ 5% di HP) Danni Veri (attiva gli Effetti di Attacco). Fornisce inoltre uno scudo dello stesso valore a Marcel e a un eroe alleato vicino. Tempo di recupero: 12 secondi per bersaglio.",
       "cooldown": [
         12
       ]
     },
     {
       "name": "Framed Moment",
-      "description": "Clemar focuses on an area around Marcel, slowing enemy heroes within by 60%. After 2.5s, he completes the shot, dealing 300 (+50% Total Physical Attack)(+120% Total Magic Defense)(+120% Total Physical Defense) Physical Damage to enemies within.",
+      "description": "Clemar si concentra su un'area attorno a Marcel, rallentando gli eroi nemici all'interno del 60%. Dopo 2,5 secondi, completa il tiro, infliggendo 300 (+50% Attacco fisico totale)(+120% Difesa magica totale)(+120% Difesa fisica totale) danni fisici ai nemici all'interno.",
       "cooldown": [
         15
       ],
@@ -2834,7 +2834,7 @@
     },
     {
       "name": "Tracking Shot",
-      "description": "Artist inspiration time! Marcel enters the Tracking Haste state for 3s, gaining 15% Movement Speed. This bonus increases to 75% when moving toward an enemy hero. Use Again: Marcel dashes in the target direction, leaving a framing phantom behind while the Framed Moment area remains at the original location.",
+      "description": "È tempo di ispirazione per gli artisti! Marcel entra nello stato Tracking Haste per 3 secondi, guadagnando il 15% di velocità di movimento. Questo bonus aumenta al 75% quando ci si sposta verso un eroe nemico. Usa di nuovo: Marcel scatta nella direzione del bersaglio, lasciando dietro di sé un fantasma che inquadra mentre l'area del Momento incorniciato rimane nella posizione originale.",
       "cooldown": [
         15
       ],
@@ -2844,7 +2844,7 @@
     },
     {
       "name": "Golden Hour",
-      "description": "Marcel and Clemar perform a joint shoot. After a short delay, Clemar takes a wide-angle shot of the target area for 2s. During this time, Marcel enters the Tracking Haste state while inside the area. All other units in the area are put into a Frozen Moment and are immune to all effects except from Marcel. All projectiles are also frozen and will continue after a delay (targeted projectiles will deal 50% damage). Golden Hour resets the cooldown of Platinum Snap for each enemy hero. Allied heroes with the Platinum Snap shield can move freely within the area.",
+      "description": "Marcel e Clemar eseguono una ripresa congiunta. Dopo un breve ritardo, Clemar effettua una ripresa grandangolare dell'area bersaglio per 2 secondi. Durante questo periodo, Marcel entra nello stato di rapidità di tracciamento mentre si trova all'interno dell'area. Tutte le altre unità nell'area vengono messe in un Momento Congelato e sono immuni a tutti gli effetti tranne che a Marcel. Anche tutti i proiettili vengono congelati e continueranno dopo un ritardo (i proiettili mirati infliggeranno il 50% dei danni). L'Ora d'Oro reimposta il tempo di recupero di Platinum Snap per ogni eroe nemico. Gli eroi alleati con lo scudo Platinum Snap possono muoversi liberamente all'interno dell'area.",
       "cooldown": [
         90
       ],
@@ -2856,7 +2856,7 @@
   "martis": [
     {
       "name": "Asura's Wrath",
-      "description": "Each time Martis uses a skill, his Attack Speed will be increased by 30%, 120% maximum. Lasts 4s. He gains (+8*Hero Level) extra Attack at full stacks."
+      "description": "Ogni volta che Martis utilizza un'abilità, la sua velocità d'attacco aumenterà del 30%, massimo 120%. Dura 4 secondi. Guadagna (+8*Livello Eroe) Attacco extra quando gli stack sono completi."
     },
     {
       "name": "Asura Aura",
@@ -3223,7 +3223,7 @@
     },
     {
       "name": "Expansion",
-      "description": "Nolan cuts a rectangular area in front of him with his cosmic gauge, dealing 230 (+40% Total Physical Attack) Physical Damage and leaving a Rift at the first enemy hit.",
+      "description": "Nolan taglia un'area rettangolare davanti a sé con la sua barra cosmica, infliggendo 230 (+40% Total Physical Attack) danni fisici e lasciando una spaccatura al primo nemico colpito.",
       "cooldown": [
         2.5
       ],
@@ -3233,7 +3233,7 @@
     },
     {
       "name": "Gauge",
-      "description": "Nolan charges in the target direction and slashes with his cosmic gauge, dealing 70 (+13% Total Physical Attack) Physical Damage to enemies in his path and leaving a Rift.",
+      "description": "Nolan carica nella direzione del bersaglio e colpisce con la sua barra cosmica, infliggendo 70 (+13% attacco fisico totale) danni fisici ai nemici sul suo cammino e lasciando una spaccatura.",
       "cooldown": [
         2.5
       ],
@@ -3351,7 +3351,7 @@
     },
     {
       "name": "Swan Song",
-      "description": "Odette channels a dance, gaining a 1200 (+150% Total Magic Power) shield and dealing up to 2000 (+750% Total Magic Power) Magic Damage to nearby enemies in a large area for 5s. During this time, her Movement Speed is reduced by 40%, but she can move freely. Use again to cancel. Only high-level control effects can interrupt this skill.",
+      "description": "Odette canalizza una danza, ottenendo uno scudo di 1200 (+150% Potere magico totale) e infliggendo fino a 2000 (+750% Potere magico totale) danni magici ai nemici vicini in un'ampia area per 5 secondi. Durante questo periodo, la sua velocità di movimento è ridotta del 40%, ma può muoversi liberamente. Utilizzare di nuovo per annullare. Solo gli effetti di controllo di alto livello possono interrompere questa abilità.",
       "cooldown": [
         50
       ],
@@ -3367,21 +3367,21 @@
     },
     {
       "name": "Heavy Left Punch",
-      "description": "Paquito throws a punch in the target direction, dealing 210 (+50% Total Physical Attack) Physical Damage to enemies hit and gaining a 150 (+135% Total Physical Attack) shield. Champ Stance: The damage is increased to 350 (+100% Total Physical Attack) Physical Damage, and the shield value is increased to 140% for 2.5s (normal and enhanced shields can stack).",
+      "description": "Paquito sferra un pugno nella direzione del bersaglio, infliggendo 210 (+50% attacco fisico totale) danni fisici ai nemici colpiti e ottenendo uno scudo di 150 (+135% attacco fisico totale). Posizione da campione: il danno aumenta a 350 (+100% attacco fisico totale) danno fisico e il valore dello scudo aumenta al 140% per 2,5 secondi (gli scudi normali e potenziati possono accumularsi).",
       "cooldown": [
         7
       ]
     },
     {
       "name": "Jab",
-      "description": "Paquito dashes forward and throws a jab, dealing 200 (+165% Total Physical Attack) Physical Damage to enemies in his path and at the destination. Champ Stance: Paquito's jab becomes fiercer, dealing 300 (+210% Total Physical Attack) Physical Damage to enemies hit. The jab stops upon hitting a hero or creep.",
+      "description": "Paquito scatta in avanti e sferra un jab, infliggendo 200 (+165% attacco fisico totale) danni fisici ai nemici sul suo cammino e a destinazione. Posizione da campione: il jab di Paquito diventa più violento, infliggendo 300 (+210% attacco fisico totale) danni fisici ai nemici colpiti. Il jab si ferma quando colpisce un eroe o un mostro.",
       "cooldown": [
         7
       ]
     },
     {
       "name": "Knockout Strike",
-      "description": "Paquito launches an elbow strike at enemies in the target direction, dealing 250 (+50% Total Physical Attack) Physical Damage and knocking them back to the destination. He then throws a haymaker, dealing 300 (+90% Total Physical Attack) Physical Damage and slowing them by 75% for 1s, before darting backward. Champ Stance: After knocking enemies back to the destination, Paquito launches an uppercut instead, dealing 400 (+120% Total Physical Attack) Physical Damage and knocking them airborne for 0.5s.",
+      "description": "Paquito lancia un colpo di gomito contro i nemici nella direzione bersaglio, infliggendo 250 (+50% Total Physical Attack) danni fisici e respingendoli a destinazione. Quindi lancia un fienile, infliggendo 300 (+90% attacco fisico totale) danni fisici e rallentandoli del 75% per 1 secondo, prima di scattare all'indietro. Posizione da campione: dopo aver respinto i nemici verso la destinazione, Paquito lancia invece un montante, infliggendo 400 (+120% attacco fisico totale) danni fisici e lanciandoli in aria per 0,5 secondi.",
       "cooldown": [
         15
       ]
@@ -3390,14 +3390,14 @@
   "pharsa": [
     {
       "name": "Spiritual Unity",
-      "description": "Every 5s to 8s (scales with Feathered Air Strike level), Verri enters the Hunting state. On Pharsa's next attack against an enemy hero, Verri deals extra Magic Damage equal to 8% of the target's HP (+ 1% per 200 Magic Power) and slows them by 60% for 1s.",
+      "description": "Ogni 5-8 secondi (vala con il livello di Attacco Aereo Piumato), Verri entra nello stato di Caccia. Al prossimo attacco di Pharsa contro un eroe nemico, Verri infligge danni magici extra pari all'8% degli HP del bersaglio (+ 1% ogni 200 potere magico) e lo rallenta del 60% per 1 secondo.",
       "cooldown": [
         8
       ]
     },
     {
       "name": "Curse of Crow",
-      "description": "Pharsa unleashes a blast of magic at the target location, dealing 300 (+120% Total Magic Power) Magic Damage to enemies hit and marking them for 4s. When Pharsa hits a marked enemy with a Basic Attack or active skill, the mark is consumed, stunning them for 1s. Marked enemies will have their positions revealed.",
+      "description": "Pharsa scatena un'esplosione di magia nella posizione bersaglio, infliggendo 300 (+120% potere magico totale) danni magici ai nemici colpiti e marchiandoli per 4 secondi. Quando Pharsa colpisce un nemico marchiato con un attacco base o un'abilità attiva, il marchio viene consumato, stordendolo per 1s. Ai nemici marcati verrà rivelata la loro posizione.",
       "cooldown": [
         8
       ],
@@ -3407,7 +3407,7 @@
     },
     {
       "name": "Energy Impact",
-      "description": "Pharsa releases magic energy in the target direction, dealing 475 (+145% Total Magic Power) Magic Damage to enemies hit.",
+      "description": "Pharsa rilascia energia magica nella direzione del bersaglio, infliggendo 475 (+145% potenza magica totale) danni magici ai nemici colpiti.",
       "cooldown": [
         6.5
       ],
@@ -3493,7 +3493,7 @@
     },
     {
       "name": "Light of Retribution",
-      "description": "Rafaela strikes the three nearest enemies with Light of Retribution, dealing them 350 (+120% Total Magic Power) Magic Damage, briefly revealing their positions, and slowing them by 40% for 1.5s. Enemies hit by Light of Retribution again within 6s will take 20% extra damage (this effect stacks up to 3 times).",
+      "description": "Rafaela colpisce i tre nemici più vicini con Light of Retribution, infliggendo loro 350 (+120% Total Magic Power) danni magici, rivelando brevemente le loro posizioni e rallentandoli del 40% per 1,5 secondi. I nemici colpiti nuovamente da Luce della punizione entro 6 secondi subiranno il 20% di danni aggiuntivi (questo effetto si accumula fino a 3 volte).",
       "cooldown": [
         5
       ],
@@ -3503,7 +3503,7 @@
     },
     {
       "name": "Holy Healing",
-      "description": "Rafaela calls upon Holy Light, recovering 100 (+35% Total Magic Power) HP to nearby allied heroes, plus an additional 150 (+65% Total Magic Power) HP to herself and the most injured allied hero in range. She also increases the Movement Speed of nearby allied heroes by 30% and grants Slow Immunity for 1s. Every 10 Magic Power increases the Movement Speed bonus by 1%.",
+      "description": "Rafaela invoca Holy Light, recuperando 100 (+35% Total Magic Power) HP agli eroi alleati vicini, più altri 150 (+65% Total Magic Power) HP a se stessa e all'eroe alleato più ferito nel raggio d'azione. Inoltre aumenta la velocità di movimento degli eroi alleati vicini del 30% e garantisce immunità al rallentamento per 1 secondo. Ogni 10 poteri magici aumenta il bonus alla velocità di movimento dell'1%.",
       "cooldown": [
         10.5
       ],
@@ -3513,7 +3513,7 @@
     },
     {
       "name": "Holy Baptism",
-      "description": "Rafaela unleashes the true power of Holy Light in the target direction, dealing 460 (+120% Total Magic Power) Magic Damage to enemies in a line and stunning them for 1.2s.",
+      "description": "Rafaela scatena il vero potere della Luce Sacra nella direzione del bersaglio, infliggendo 460 (+120% Potere magico totale) danni magici ai nemici in linea e stordendoli per 1,2 secondi.",
       "cooldown": [
         38
       ],
@@ -3525,11 +3525,11 @@
   "roger": [
     {
       "name": "Full Moon Curse",
-      "description": "Roger can freely switch between human and wolf forms. In human form, Roger's attack deals extra damage equal to 4% of the target's current HP. In wolf form, his attack deals extra damage equal to 4% of the target's [lost C6HP]. Extra damage against creeps is capped at 60."
+      "description": "Roger può passare liberamente dalla forma umana a quella di lupo. In forma umana, l'attacco di Roger infligge danni extra pari al 4% degli HP attuali del bersaglio. In forma di lupo, il suo attacco infligge danni extra pari al 4% dei [C6HP persi] del bersaglio. Il danno extra contro i brividi è limitato a 60."
     },
     {
       "name": "Open Fire",
-      "description": "Roger fires two quick shots in the target direction, dealing a total of 250 (+125% Total Physical Attack) Physical Damage to the enemy hit. The first shot is a hunter net that slows the enemy by 80% for 1.5s. The second is a bullet that reduces the enemy's Physical Defense by 10 for 5s.",
+      "description": "Roger spara due colpi rapidi nella direzione del bersaglio, infliggendo un totale di 250 (+125% attacco fisico totale) danni fisici al nemico colpito. Il primo colpo è una rete da cacciatore che rallenta il nemico dell'80% per 1,5 s. Il secondo è un proiettile che riduce la Difesa Fisica del nemico di 10 per 5 secondi.",
       "cooldown": [
         7
       ],
@@ -3539,7 +3539,7 @@
     },
     {
       "name": "Hunter's Steps",
-      "description": "Roger gains 20% Movement Speed and 20% Attack Speed for 2.5s.",
+      "description": "Roger ottiene il 20% di velocità di movimento e il 20% di velocità di attacco per 2,5 secondi.",
       "cooldown": [
         10
       ],
@@ -3549,7 +3549,7 @@
     },
     {
       "name": "Wolf Transformation",
-      "description": "Roger lunges in the target direction and turns into wolf form, dealing 150 (+100% Extra Physical Attack) Physical Damage to enemies hit and slowing them by 90% for 0.8s. Passive: In wolf form, Roger gains 20 Hybrid Defense and 25 Movement Speed.",
+      "description": "Roger si lancia nella direzione del bersaglio e si trasforma in forma di lupo, infliggendo 150 (+100% attacco fisico extra) danni fisici ai nemici colpiti e rallentandoli del 90% per 0,8 secondi. Passiva: in forma di lupo, Roger ottiene 20 Difesa ibrida e 25 Velocità di movimento.",
       "cooldown": [
         7.5
       ]
@@ -3558,11 +3558,11 @@
   "ruby": [
     {
       "name": "Let's Dance!",
-      "description": "Ruby's skills have a 75% Spell Vamp Ratio (her Basic Attacks cannot trigger Lifesteal). For every 1% HP lost, her Spell Vamp Ratio increases by 1%, up to 150%. After each skill cast, Ruby can dash to another location and gain 8-25 Hybrid Defense (scales with level) for 4s (stacks up to 3 times)."
+      "description": "Le abilità di Ruby hanno un rapporto di vampiro magico del 75% (i suoi attacchi base non possono attivare Rubavita). Per ogni 1% di HP perso, il suo rapporto incantesimo vampiro aumenta dell'1%, fino al 150%. Dopo ogni lancio di abilità, Ruby può scattare in un'altra posizione e ottenere 8-25 Difesa ibrida (cresce con il livello) per 4 secondi (si accumula fino a 3 volte)."
     },
     {
       "name": "Be Good!",
-      "description": "Ruby swings her scythe, dealing 280 (+110% Total Physical Attack) Physical Damage to enemies hit. She then unleashes a shockwave in the same direction, dealing 140 (+55% Total Physical Attack) Physical Damage to enemies hit and slowing them by 40% for 1s.",
+      "description": "Ruby fa oscillare la sua falce, infliggendo 280 (+110% Total Physical Attack) danni fisici ai nemici colpiti. Quindi scatena un'onda d'urto nella stessa direzione, infliggendo 140 (+55% Total Physical Attack) danni fisici ai nemici colpiti e rallentandoli del 40% per 1 secondo.",
       "cooldown": [
         4
       ],
@@ -3572,7 +3572,7 @@
     },
     {
       "name": "Don't Run, Wolf King!",
-      "description": "Ruby swings her scythe around herself twice, each swing dealing 60 (+55% Total Physical Attack) Physical Damage to nearby enemies, stunning them for 0.5s, and slowly pulling them toward her.",
+      "description": "Ruby fa oscillare la sua falce attorno a sé due volte, ogni colpo infliggendo 60 (+55% Total Physical Attack) danni fisici ai nemici vicini, stordendoli per 0,5 secondi e attirandoli lentamente verso di sé.",
       "cooldown": [
         7
       ],
@@ -3677,7 +3677,7 @@
     },
     {
       "name": "Spiral Strangling",
-      "description": "Silvanna thrusts her lance in the target direction and spins it 6 times while gaining a 350 (+150% Total Magic Power) shield. Each spin deals 165 (+45% Total Magic Power) Magic Damage and slightly pulls targets toward the center. Silvanna spins 1 additional time for every 50% of extra Attack Speed she possesses. The skill deals only 50% damage against Minions. Spiral Strangling counts as a Basic Attack but cannot Crit.",
+      "description": "Silvanna lancia la sua lancia nella direzione del bersaglio e la fa girare 6 volte ottenendo uno scudo da 350 (+150% Potere magico totale). Ogni giro infligge 165 (+45% Potere magico totale) danni magici e attira leggermente i bersagli verso il centro. Silvanna gira 1 volta aggiuntiva per ogni 50% di velocità d'attacco extra che possiede. L'abilità infligge solo il 50% dei danni contro i servitori. Spirale Strangolante conta come attacco base ma non può criticare.",
       "cooldown": [
         5
       ],

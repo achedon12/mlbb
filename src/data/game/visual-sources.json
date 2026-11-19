@@ -2689,6 +2689,11 @@
     "sha1": "78d7916c374f5290ac2f3d1adcbecfd4ab0b9e99",
     "timestamp": "2025-12-25T19:22:14Z"
   },
+  "public/visuels/heros/aamon/portrait.webp": {
+    "file": "File:Hero1091-portrait.png",
+    "sha1": "c171251016690b1cae15c1a4e47b1451de605ad3",
+    "timestamp": "2025-12-25T19:22:14Z"
+  },
   "public/visuels/heros/aamon/skins/1091-duke-of-shards.webp": {
     "file": "File:Hero1091-portrait.png",
     "sha1": "c171251016690b1cae15c1a4e47b1451de605ad3",
@@ -2708,6 +2713,16 @@
     "file": "File:Hero1094-portrait.png",
     "sha1": "455b258ff5ca9e3b266686ed071692c0d9be846d",
     "timestamp": "2022-12-16T10:31:51Z"
+  },
+  "public/visuels/heros/aamon/skins/1095-vessel-of-deceit.webp": {
+    "file": "File:Hero1095-portrait.png",
+    "sha1": "873c303ec78102104eb4a0bb83f6821e0668363f",
+    "timestamp": "2024-06-19T17:29:36Z"
+  },
+  "public/visuels/heros/aamon/skins/1097-soul-reaver.webp": {
+    "file": "File:Hero1097-portrait.png",
+    "sha1": "5168c4ed245ae89b48e89d243a04ceb7de06162c",
+    "timestamp": "2026-06-02T04:08:21Z"
   },
   "public/visuels/heros/akai/icone.webp": {
     "file": "File:Hero091-icon.png",

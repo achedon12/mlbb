@@ -51,43 +51,43 @@
           },
           {
             "type": "p",
-            "text": "Players can play solo or form a team of two, three or five players to queue. Players can invite other players who are one rank higher or lower than them in the lobby. A team of four is unallowed."
+            "text": "Ang mga manlalaro ay maaaring maglaro ng solo o bumuo ng isang koponan ng dalawa, tatlo o limang manlalaro upang pumila. Ang mga manlalaro ay maaaring mag-imbita ng iba pang mga manlalaro na isang ranggo na mas mataas o mas mababa kaysa sa kanila sa lobby. Ang isang pangkat ng apat ay hindi pinapayagan."
           },
           {
             "type": "p",
-            "text": "When a team with players in different Ranks queue, this is called Flex Rank, and they will only queue matches of the person of highest rank."
+            "text": "Kapag ang isang koponan na may mga manlalaro sa iba't ibang Ranggo ay pumila, ito ay tinatawag na Flex Rank, at sila ay pumila lamang ng mga laban ng taong may pinakamataas na ranggo."
           },
           {
             "type": "p",
-            "text": "Examples:"
+            "text": "Mga halimbawa:"
           },
           {
             "type": "li",
-            "text": "A Mythic player teams with an Epic player, both will follow the draft rule of the Mythic player."
+            "text": "Ang isang Mythic player na koponan ay may isang Epic player, parehong susunod sa draft na panuntunan ng Mythic player."
           },
           {
             "type": "li",
-            "text": "A Mythic Glory player teams with a Grandmaster player and a Legend player, all of them will follow the draft rule of the Mythic player, even if Draft Pick is normally unavailable for players in rank lower than Epic."
+            "text": "Ang isang Mythic Glory player na koponan ay may isang Grandmaster player at isang Legend player, lahat sila ay susunod sa draft na panuntunan ng Mythic player, kahit na ang Draft Pick ay karaniwang hindi available para sa mga manlalaro na mas mababa ang ranggo kaysa sa Epic."
           },
           {
             "type": "p",
-            "text": "However, a solo queue player may end up matchmaking with allies in higher or lower rank, this can be triggered by the following:"
+            "text": "Gayunpaman, ang isang solong manlalaro ng pila ay maaaring magkaroon ng mga kakampi sa mas mataas o mas mababang ranggo, maaari itong ma-trigger ng mga sumusunod:"
           },
           {
             "type": "li",
-            "text": "Allies play as team, while you are solo. Among the allies in the said team is at least a player with Rank similar to you."
+            "text": "Ang mga kaalyado ay naglalaro bilang koponan, habang ikaw ay nag-iisa. Kabilang sa mga kaalyado sa nasabing koponan ay hindi bababa sa isang manlalaro na may Ranggo na katulad mo."
           },
           {
             "type": "li",
-            "text": "Example: An Epic player teams with a Legend player and you, an Epic player, may meet them."
+            "text": "Halimbawa: Ang isang Epic player na koponan ay may isang Legend player at ikaw, isang Epic player, ay maaaring makilala sila."
           },
           {
             "type": "li",
-            "text": "All players are solo, but enemy team has someone with Rank similar to you."
+            "text": "Ang lahat ng mga manlalaro ay solo, ngunit ang kaaway na koponan ay may isang tao na may Ranggo na katulad mo."
           },
           {
             "type": "li",
-            "text": "Example: Your rank is Legend, but 4 of your teammates are Mythic. Then at least one of the enemy is Legend."
+            "text": "Halimbawa: Ang iyong ranggo ay Alamat, ngunit 4 sa iyong mga kasamahan ay Mythic. At least isa sa kalaban ay Legend."
           },
           {
             "type": "li",
@@ -194,26 +194,26 @@
   {
     "name": "Brawl",
     "slug": "brawl",
-    "description": "Brawl is a game mode in which you are unable to choose your heroes freely. Instead each player will be given a choice between two random heroes. Fights in this mode happen only in one lane with two turrets defending the base in both teams respectively. Brawl matches usually end in a much shorter time compared to Classic Mode and Ranked. This type of match is prefered for raising lost credit scores or complete tasks.",
+    "description": "Ang Brawl ay isang mode ng laro kung saan hindi mo malayang mapipili ang iyong mga hero. Sa halip, ang bawat manlalaro ay bibigyan ng pagpipilian sa pagitan ng dalawang random na hero. Ang mga labanan sa mode na ito ay nangyayari lamang sa isang lane na may dalawang turret na nagtatanggol sa base sa magkabilang koponan ayon sa pagkakabanggit. Ang mga laban ng gulo ay karaniwang nagtatapos sa mas maikling oras kumpara sa Classic Mode at Rank. Ang ganitong uri ng tugma ay mas pinipili para sa pagtaas ng mga nawawalang marka ng kredito o kumpletong mga gawain.",
     "sections": [
       {
-        "title": "Main features",
+        "title": "Pangunahing tampok",
         "elements": [
           {
             "type": "li",
-            "text": "Each player is given a choice between 2 random heroes."
+            "text": "Ang bawat manlalaro ay binibigyan ng pagpipilian sa pagitan ng 2 random na hero."
           },
           {
             "type": "li",
-            "text": "Players can only buy items when dead or before leaving Altar area on each respawn."
+            "text": "Ang mga manlalaro ay maaari lamang bumili ng mga item kapag patay na o bago umalis sa lugar ng Altar sa bawat respawn."
           },
           {
             "type": "li",
-            "text": "Altar no longer heals or regenerates mana. All healing effect is halved. Base no longer replenishes itself."
+            "text": "Ang Altar ay hindi na nagpapagaling o nagpapanumbalik ng mana. Ang lahat ng nakapagpapagaling na epekto ay nahahati. Hindi na pinupunan ng base ang sarili nito."
           },
           {
             "type": "li",
-            "text": "Each hero might have an additional buff or handicap."
+            "text": "Maaaring may karagdagang buff o kapansanan ang bawat hero."
           }
         ]
       },
@@ -309,44 +309,44 @@
         "elements": [
           {
             "type": "p",
-            "text": "Unlike Classic or Ranked, there is no Rank restrictions in Brawl. Meaning you can queue matches that one side is 5 man solo queue while the other is a team of 5, or one side is 5 man Mythic Immortal while the other is someone who just downloaded the game."
+            "text": "Hindi tulad ng Classic o Rank, walang mga paghihigpit sa Ranggo sa Brawl. Ibig sabihin, maaari kang mag-queue ng mga tugma na ang isang panig ay 5 tao na solong pila habang ang isa ay isang koponan ng 5, o ang isang panig ay 5 tao na Mythic Immortal habang ang isa ay isang taong nag-download lang ng laro."
           },
           {
             "type": "p",
-            "text": "Being AFK, avoiding teamfight or verbal abuse is fully punishable through reports."
+            "text": "Ang pagiging AFK, ang pag-iwas sa teamfight o verbal abuse ay ganap na mapaparusahan sa pamamagitan ng mga ulat."
           }
         ]
       },
       {
-        "title": "Tips & Tricks",
+        "title": "Mga Tip at Trick",
         "elements": [
           {
             "type": "li",
-            "text": "Recommended Team Composition"
+            "text": "Inirerekomendang Komposisyon ng Koponan"
           },
           {
             "type": "p",
-            "text": "There are many heroes to choose from with different styles of play. Knowing the heroes' skills, strengths, and weaknesses along with optimal positioning is vital. Prioritize Assassins, Mages or Fighters as they have a lot of damage output and crowd control. Avoid Marksman as they are item-dependent and squishy early on, unless those with good minion clearing and area of effect abilities like Beatrix or Granger. Avoid teams with too many Mages, too many Marksmen or too many Tanks."
+            "text": "Maraming bayaning mapagpipilian na may iba't ibang istilo ng paglalaro. Ang pag-alam sa mga kakayahan, kalakasan, at kahinaan ng mga hero kasama ang pinakamainam na pagpoposisyon ay mahalaga. Unahin ang mga Assassin, Mage o Fighter dahil marami silang damage output at crowd control. Iwasan ang Marksman dahil sila ay nakadepende sa item at squishy nang maaga, maliban kung ang mga may mahusay na pag-clear ng minion at area of ​​effect na kakayahan tulad ng Beatrix o Granger. Iwasan ang mga koponan na may napakaraming Mage, masyadong maraming Marksmen o masyadong maraming Tank."
           },
           {
             "type": "li",
-            "text": "Recommended Battle Spells"
+            "text": "Inirerekomendang Battle Spells"
           },
           {
             "type": "li",
-            "text": "Flameshot has very low cooldown and can be used to check bush, secure kills or cancel abilities."
+            "text": "Napakababa ng cooldown ng Flameshot at maaaring gamitin upang suriin ang bush, secure na pagpatay o kanselahin ang mga kakayahan."
           },
           {
             "type": "li",
-            "text": "At least one player should bring these followng items:"
+            "text": "Hindi bababa sa isang manlalaro ang dapat magdala ng mga sumusunod na item:"
           },
           {
             "type": "li",
-            "text": "Revitalize so that their team can resustain after fight as the Altar no longer heals, especially when your team in a bad position that they cannot secure the Healing runes; and"
+            "text": "Buhayin upang mabuhay muli ang kanilang koponan pagkatapos ng laban dahil hindi na gumagaling ang Altar, lalo na kapag ang iyong koponan ay nasa isang masamang posisyon na hindi nila ma-secure ang mga rune ng Healing; at"
           },
           {
             "type": "li",
-            "text": "Purify, if your hero has good damage output but vulnerable to crowd control (CC)."
+            "text": "Purify, kung maganda ang damage output ng hero mo pero vulnerable sa crowd control (CC)."
           },
           {
             "type": "li",
@@ -533,15 +533,15 @@
         "elements": [
           {
             "type": "p",
-            "text": "Intense, Fast-pace, Exciting, 5v5 Arcade!"
+            "text": "Matindi, Mabilis, Nakatutuwang, 5v5 Arcade!"
           },
           {
             "type": "p",
-            "text": "In the past, this game didn't really have an official name. This Game Mode was first released and it was simply Summer Carnival came and had consumables to upgrade heroes skills,with modified map matching with Summer. During Halloween, this mode came back again with the same feature as Summer Carnival, Modified Skills, Candies as bonus items, and Halloween themed Map. Then Christmas came and the mode had the same features; however, while the Map was changed to fit Christmas, candies were kept as consumables. And then the Easter came out. Finally, Mayhem Mode was introduced: this time the Game Mode didn't have consumables, but it had Modified Skills and Map Changes."
+            "text": "Dati, wala talagang opisyal na pangalan ang larong ito. Ang Game Mode na ito ay unang inilabas at ito ay simpleng Summer Carnival na dumating at nagkaroon ng mga consumable para i-upgrade ang mga skill ng mga hero, na may binagong pagtutugma ng mapa sa Tag-init. Sa panahon ng Halloween, bumalik muli ang mode na ito na may parehong feature tulad ng Summer Carnival, Modified Skills, Candies bilang bonus item, at Halloween themed Map. Pagkatapos ay dumating ang Pasko at ang mode ay may parehong mga tampok; gayunpaman, habang ang Map ay binago upang magkasya sa Pasko, ang mga kendi ay itinago bilang mga consumable. At pagkatapos ay lumabas ang Pasko ng Pagkabuhay. Sa wakas, ipinakilala ang Mayhem Mode: sa pagkakataong ito ang Game Mode ay walang mga consumable, ngunit mayroon itong Mga Binagong Skill at Mga Pagbabago sa Mapa."
           },
           {
             "type": "p",
-            "text": "There are only 50 heroes available in this mode."
+            "text": "Mayroon lamang 50 mga hero na magagamit sa mode na ito."
           }
         ]
       },

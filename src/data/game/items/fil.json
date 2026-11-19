@@ -660,7 +660,7 @@
     "price": 2500,
     "bonus": "+1800 HP, +20 HP Regen",
     "unique": null,
-    "passive": "Recovery: After 5 seconds out of combat, recover (2.5% Total HP) HP per second. Defender: Upon taking more than 500 damage in a single instance, recover 30 (+0.3% Total HP)% HP from the excess damage beyond that amount.",
+    "passive": "Pagbawi: Pagkatapos ng 5 segundo sa labas ng labanan, i-recover ang (2.5% Total HP) HP bawat segundo. Defender: Kapag nakakuha ng higit sa 500 damage sa isang pagkakataon, mabawi ang 30 (+0.3% Kabuuang HP)% HP mula sa labis na damage na lampas sa halagang iyon.",
     "active": null,
     "recipe": [
       "Ares Belt",
@@ -972,7 +972,7 @@
     "price": 2120,
     "bonus": "+40 Pisikal na Pag-atake, +20% Attack speed",
     "unique": null,
-    "passive": "Armor Buster: Increase Physical Penetration by 30%. Malefic Energy: Increases Basic Attack range by 12%. When hitting a target, gains 10% Movement Speed for 0.5 seconds.",
+    "passive": "Armor Buster: Taasan ang Pisikal na Pagpasok ng 30%. Malefic Energy: Pinapataas ng 12% ang saklaw ng Basic Attack. Kapag naabot ang isang target, nakakakuha ng 10% Movement speed sa loob ng 0.5 segundo.",
     "active": null,
     "recipe": [
       "Fury Hammer",
@@ -989,7 +989,7 @@
     "price": 2060,
     "bonus": "+60 Pisikal na Pag-atake",
     "unique": null,
-    "passive": "Armor Buster: Increase Physical Penetration by 30%. Breaker: When attacking an enemy, gains 0.1% extra Physical Penetration for each point of the enemy's Physical Defense, capped at 30%.",
+    "passive": "Armor Buster: Taasan ang Pisikal na Pagpasok ng 30%. Breaker: Kapag umaatake sa isang kalaban, nakakakuha ng 0.1% dagdag na Physical Penetration para sa bawat punto ng Physical Defense ng kalaban, na nilimitahan sa 30%.",
     "active": null,
     "recipe": [
       "Legion Sword"
@@ -1047,7 +1047,7 @@
     "price": 2010,
     "bonus": "+60 Magic Power, +300 HP, +380 Mana, +5% Cooldown Reduction",
     "unique": null,
-    "passive": "Gift: Regens 20% HP and Mana within 2 seconds of leveling up. Lifebane: Upon dealing damage to the target, reduces Shield and HP Regen of the target by 50% for 3 seconds.",
+    "passive": "Regalo: Regens 20% HP at Mana sa loob ng 2 segundo ng pag-level up. Lifebane: Sa pagharap ng damage sa target, binabawasan ang Shield at HP Regen ng target ng 50% sa loob ng 3 segundo.",
     "active": null,
     "recipe": [
       "Book of Sages",
@@ -1124,7 +1124,7 @@
     "price": 2250,
     "bonus": "+750 HP, +30 Adaptive Attack, +10% Cooldown Reduction, +10% Spell Vamp",
     "unique": null,
-    "passive": "Demonize: When HP drops below 40%, gains 30% Damage Reduction for 3 seconds and reduces skill cooldowns by 2 seconds. This effect has a 60 seconds cooldown. Defiance: For every 1% HP lost, damage is increased by 0.25%, up to 15%.",
+    "passive": "Magdemonyo: Kapag bumaba ang HP sa 40%, magkakaroon ng 30% Damage Reduction sa loob ng 3 segundo at binabawasan ang mga cooldown ng skill ng 2 segundo. Ang epektong ito ay may 60 segundong cooldown. Defiance: Para sa bawat 1% na nawawalang HP, ang damage ay tataas ng 0.25%, hanggang 15%.",
     "active": null,
     "recipe": [
       "Ares Belt",
@@ -1220,7 +1220,7 @@
     "price": 2030,
     "bonus": "+30 Pisikal na Pag-atake, +20% Attack speed, +10% Lifesteal",
     "unique": null,
-    "passive": "Dragon Scale: Every 4 extra Physical Attack increases Hybrid Defense by 1, up to 50 (effect is halved if Main Role is not Fighter). Lifeline: When taking damage that reduces HP below 30%, gains a (120*Hero Level) shield (increases with level) and 50% Movement Speed that rapidly decays over 3 seconds. This effect has a 60 seconds cooldown.",
+    "passive": "Dragon Scale: Bawat 4 na dagdag na Physical Attack ay tataas ang Hybrid Defense ng 1, hanggang 50 (hinahati ang epekto kung ang Pangunahing Tungkulin ay hindi Fighter). Lifeline: Kapag nakakakuha ng damage na nagpapababa ng HP nang mas mababa sa 30%, nakakakuha ng (120*Hero Level) shield (tataas nang may level) at 50% Movement Speed ​​na mabilis na nabubulok sa loob ng 3 segundo. Ang epektong ito ay may 60 segundong cooldown.",
     "active": null,
     "recipe": [
       "Magic Blade",
@@ -1253,7 +1253,7 @@
     "price": 2050,
     "bonus": "+80 Pisikal na Pag-atake, +20% Attack speed",
     "unique": null,
-    "passive": "Lifebane: Dealing damage to a target will reduce the Shield and HP Regen effects on them to 60% of normal for 3 seconds. Punish: Increase damage by 8% against enemy heroes with higher extra HP.",
+    "passive": "Lifebane: Ang pagharap ng damage sa isang target ay magbabawas sa Shield at HP Regen effects sa kanila sa 60% ng normal sa loob ng 3 segundo. Parusahan: Dagdagan ang damage ng 8% laban sa mga hero ng kaaway na may mas mataas na dagdag na HP.",
     "active": null,
     "recipe": [
       "Legion Sword",
@@ -1379,7 +1379,7 @@
     "price": 1000,
     "bonus": "+20% Attack speed",
     "unique": null,
-    "passive": "Crossbow: Each Basic Attack deals 40 extra Adaptive Damage. Impulse: Basic Attacks grant 3% extra Attack Speed for 3 seconds, capped at 5 stacks.",
+    "passive": "Crossbow: Bawat Basic Attack ay nagdudulot ng 40 dagdag na Adaptive Damage. Impulse: Ang Basic Attacks ay nagbibigay ng 3% na dagdag na Attack speed sa loob ng 3 segundo, na nilimitahan sa 5 stack.",
     "active": null,
     "recipe": [
       "Knife",
@@ -1444,7 +1444,7 @@
     "price": 2100,
     "bonus": "+1200 HP, +15 Pisikal na Depensa",
     "unique": null,
-    "passive": "Twilight: Upon taking more than 500 damage in a single instance, the excess damage beyond that amount is reduced by 20 (+0.2% Total HP)%. Redemption: When incoming damage reduces HP below 30%, recover 20% Max HP over the next 4 seconds. This effect has a 60 seconds cooldown.",
+    "passive": "Twilight: Kapag nakakuha ng higit sa 500 damage sa isang pagkakataon, ang labis na damage na lampas sa halagang iyon ay mababawasan ng 20 (+0.2% Kabuuang HP)%. Pagtubos: Kapag ang papasok na damage ay binabawasan ang HP nang mas mababa sa 30%, i-recover ang 20% ​​Max HP sa susunod na 4 na segundo. Ang epektong ito ay may 60 segundong cooldown.",
     "active": null,
     "recipe": [
       "Ares Belt",

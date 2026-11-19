@@ -92,7 +92,7 @@
       {
         "anchor": null,
         "title": null,
-        "html": "<p>Destaques do patch 2.2.23:</p>\n<ul><li>Heróis renovados Popol e Kupa, companheiros do campo de gelo. Característica do Herói: Um atirador que luta ao lado de Kupa e usa armadilhas para controlar o campo de batalha.</li><li>Ajustes de herói</li><li>Ajustes no campo de batalha</li><li>Ajustes do sistema</li><li>Ajustes de modo</li></ul>",
+        "html": "<p>Destaques do patch 2.2.23:</p>\n<ul><li>Herói Renovado Popol and Kupa, Companheiros do Campo de Gelo. Característica do Herói: Um atirador que luta ao lado de Kupa e usa armadilhas para controlar o campo de batalha.</li><li>Ajustes de herói</li><li>Ajustes no campo de batalha</li><li>Ajustes do sistema</li><li>Ajustes de modo</li></ul>",
         "role": null
       },
       {
@@ -128,7 +128,7 @@
       {
         "anchor": "v-mode-adjustments",
         "title": "V. Ajustes de modo",
-        "html": "<h3 id=\"card-brawl\">Briga de cartas</h3>\n<p>Bem-vindo ao Card Brawl! No Necrokeep, escolha entre cartas oferecidas aleatoriamente em níveis específicos de herói, até cinco vezes. Combine cartas para fortalecer, moldar seu estilo de jogo e realizar jogadas emocionantes! Card Brawl também permite completar tarefas de atividades, ganhar cartões Bangbang e aumentar seu nível StarLight!</p>\n<h3 id=\"brawl\">Briga</h3>\n<h4 id=\"hero-balance-adjustments\">Ajustes de equilíbrio de herói</h4>\n<p>Com base nas recentes taxas de vitórias e escolhas de heróis do Brawl, fizemos os seguintes ajustes de equilíbrio.</p>\n<p><strong>▼ Nerf</strong><br>Aulus<br>DMG obtido +4% → +8%</p>\n<p>Barats<br>(Novo) DANO -2%</p>\n<p>Brody<br>(Novo) DMG obtido +2%</p>\n<p>Bruno<br>DMG -10% → -12%; (Novo) DMG obtido +4%</p>\n<p>Cici<br>DMG Tomado -8% → -4%</p>\n<p>Ciclope<br>DMG Capturado +6% → +10%</p>\n<p>Edith<br>DMG Obtido +4% → +8%</p>\n<p>Hilda<br>DMG Tomado -8% → -6%</p>\n<p>Lukas<br>DMG -2% → -6%</p>\n<p>Martis<br>DMG +6% → +4%</p>\n<p>Minotauro<br>DMG Possuído +8% → +4%; (Novo) Cura -6%</p>\n<p>Nathan<br>DMG Obtido +8% → +10%</p>\n<p>Phoveus<br>DMG Obtido +6% → +10%</p>\n<p>Popol e Kupa<br>(Novo) DMG obtido +2%</p>\n<p>Rafaela<br>DMG Obtido +10% → +12%</p>\n<p>Roger<br>DMG levado -6% → -4%</p>\n<p>Terizla<br>DMG Obtido +14% → +18%</p>\n<p>Valir<br>(Novo) DMG obtido +2%</p>\n<p>Yu Zhong<br>DMG levado -4% → -2%</p>\n<p><strong>▲ Buff</strong><br>Aamon<br>(Novo) DMG obtido -2%</p>\n<p>Chip<br>DMG +6% → +8%</p>\n<p>Franco<br>Dano de habilidade +10%</p>\n<p>Gatotkaca<br>DMG Obtido +10% → +8%</p>\n<p>Helcurt<br>DMG +10% → +12%</p>\n<p>Alegria<br>DMG +10% → +12%</p>\n<p>Lancelot<br>DMG Tomado -4% → -6%</p>\n<p>Lunox<br>(Novo) DMG obtido -2%</p>\n<p>Luo Yi<br>DMG levado -2% → -4%</p>\n<p>Masha<br>(Novo) DMG obtido -4%</p>\n<p>Melissa<br>DMG -12% → -10%</p>\n<p>Nolan<br>Reduziu o custo de energia das habilidades 1 e 2</p>\n<p>Yi Sun-shin<br>(Novo) DMG obtido -4%</p>\n<p>Zhuxin<br>DMG +16% → +20%</p>",
+        "html": "<h3 id=\"card-brawl\">Briga de cartas</h3>\n<p>Bem-vindo ao Card Brawl! No Necrokeep, escolha entre cartas oferecidas aleatoriamente em níveis específicos de herói, até cinco vezes. Combine cartas para fortalecer, moldar seu estilo de jogo e realizar jogadas emocionantes! Card Brawl também permite completar tarefas de atividades, ganhar cartões Bangbang e aumentar seu nível StarLight!</p>\n<h3 id=\"brawl\">Briga</h3>\n<h4 id=\"hero-balance-adjustments\">Ajustes de equilíbrio de herói</h4>\n<p>Com base nas recentes taxas de vitórias e escolhas de heróis do Brawl, fizemos os seguintes ajustes de equilíbrio.</p>\n<p><strong>▼ Nerf</strong><br>Aulus<br>DMG obtido +4% → +8%</p>\n<p>Barats<br>(Novo) DANO -2%</p>\n<p>Brody<br>(Novo) DMG obtido +2%</p>\n<p>Bruno<br>DMG -10% → -12%; (Novo) DMG obtido +4%</p>\n<p>Cici<br>DMG Tomado -8% → -4%</p>\n<p>Ciclope<br>DANO recebido +6% → +10%</p>\n<p>Edith<br>DMG Obtido +4% → +8%</p>\n<p>Hilda<br>DMG Tomado -8% → -6%</p>\n<p>Lukas<br>DMG -2% → -6%</p>\n<p>Martis<br>DMG +6% → +4%</p>\n<p>Minotauro<br>DMG Possuído +8% → +4%; (Novo) Cura -6%</p>\n<p>Nathan<br>DANO recebido +8% → +10%</p>\n<p>Phoveus<br>DMG Obtido +6% → +10%</p>\n<p>Popol e Kupa<br>(Novo) DMG obtido +2%</p>\n<p>Rafaela<br>DMG Obtido +10% → +12%</p>\n<p>Roger<br>DMG levado -6% → -4%</p>\n<p>Terizla<br>DMG Obtido +14% → +18%</p>\n<p>Valir<br>(Novo) DMG obtido +2%</p>\n<p>Yu Zhong<br>DMG levado -4% → -2%</p>\n<p><strong>▲ Buff</strong><br>Aamon<br>(Novo) DMG obtido -2%</p>\n<p>Chip<br>DMG +6% → +8%</p>\n<p>Franco<br>Dano de habilidade +10%</p>\n<p>Gatotkaca<br>DMG Obtido +10% → +8%</p>\n<p>Helcurt<br>DMG +10% → +12%</p>\n<p>Alegria<br>DANO +10% → +12%</p>\n<p>Lancelot<br>DMG Tomado -4% → -6%</p>\n<p>Lunox<br>(Novo) DMG obtido -2%</p>\n<p>Luo Yi<br>DMG levado -2% → -4%</p>\n<p>Masha<br>(Novo) DMG obtido -4%</p>\n<p>Melissa<br>DMG -12% → -10%</p>\n<p>Nolan<br>Reduziu o custo de energia das habilidades 1 e 2</p>\n<p>Yi Sun-shin<br>(Novo) DMG obtido -4%</p>\n<p>Zhuxin<br>DMG +16% → +20%</p>",
         "role": null
       }
     ],
@@ -138,10 +138,10 @@
         "epithet": "Icefield Companions",
         "anchor": "revamp-icefield-companions-popol-and-kupa",
         "lore": [
-          "Popol e Kupa anteriormente não tinham mobilidade e tinham potencial limitado de combinação de habilidades. Para resolver isso, aprimoramos seus ataques coordenados e permitimos que Popol montasse em Kupa para perseguir inimigos ou recuar.",
+          "Popol and Kupa anteriormente não tinha mobilidade e tinha potencial limitado de combinação de habilidades. Para resolver isso, aprimoramos seus ataques coordenados e permitimos que Popol montasse em Kupa para perseguir inimigos ou recuar.",
           "Anteriormente, Popol teve que lutar sem seu companheiro por muito tempo após a derrota de Kupa. Para resolver isso, aprimoramos o escalonamento e o HP Regen do Kupa."
         ],
-        "feature": "Um atirador que luta ao lado de Kupa e usa armadilhas para controlar o campo de batalha. Com esta reformulação, pretendemos resolver os seguintes problemas e melhorar a experiência geral de jogo de Popol e Kupa:",
+        "feature": "Um atirador que luta ao lado de Kupa e usa armadilhas para controlar o campo de batalha. Com esta reformulação, pretendemos resolver os seguintes problemas e melhorar a experiência geral de jogo de Popol and Kupa:",
         "skills": [
           {
             "role": "Passiva",
@@ -156,7 +156,7 @@
             "name": "Bite 'em, Kupa! V2",
             "description": [
               "Popol lança uma lança no inimigo alvo, causando dano, e ordena que Kupa ataque o alvo e morda-o, retardando-o bastante.",
-              "Na forma de lobo alfa, Kupa atinge a área alvo, lançando os inimigos próximos no ar e causando dano aumentado."
+              "Na forma de lobo Alpha, Kupa atinge a área alvo, lançando inimigos próximos no ar e causando dano aumentado."
             ]
           },
           {
@@ -178,7 +178,7 @@
             "role": "Final",
             "name": "We Are Angry! V2",
             "description": [
-              "Popol e Kupa entram no estado Enfurecido por 9s.",
+              "Popol and Kupa entra no estado Enfurecido por 9s.",
               "Kupa recupera imediatamente o HP total e se transforma na forma Alpha Wolf, ganhando HP máximo extra e aprimorando suas outras habilidades."
             ]
           }
@@ -1630,7 +1630,7 @@
             "type": "adjust",
             "changes": [
               {
-                "text": "Para compensar as mudanças no tempo de recarga e nos atributos do Doppelganger, ajustamos alguns valores da Passiva do Sol para manter sua eficácia geral inalterada."
+                "text": "Para compensar as mudanças no tempo de recarga e nos atributos do Doppelganger, ajustamos alguns valores da Passiva de Sun para manter sua eficácia geral inalterada."
               },
               {
                 "label": "Regeneração de HP",
@@ -1650,7 +1650,7 @@
             "type": "adjust",
             "changes": [
               {
-                "text": "O Doppelganger herda todos os atributos do Sol, mas o dano que causa é reduzido e sofre dano extra."
+                "text": "O Doppelganger herda todos os atributos de Sun, mas o dano que causa é reduzido e sofre dano extra."
               },
               {
                 "text": "Dano causado pelo Doppelganger: 60%"
@@ -1706,7 +1706,7 @@
             "type": "adjust",
             "changes": [
               {
-                "text": "O Doppelganger herda todos os atributos do Sol, mas o dano que causa é reduzido e sofre dano extra."
+                "text": "O Doppelganger herda todos os atributos de Sun, mas o dano que causa é reduzido e sofre dano extra."
               },
               {
                 "text": "Dano causado pelo Doppelganger: 80% -100%"
@@ -8154,7 +8154,7 @@
       {
         "name": "Saber",
         "type": "adjust",
-        "intro": "Corrigido um problema em que o dano perfurante da Habilidade 1 do Sabre era muito baixo contra a Tartaruga e o Lorde. ㅤ",
+        "intro": "Corrigido um problema em que o dano perfurante da Habilidade 1 de Saber era muito baixo contra a Tartaruga e o Lorde. ㅤ",
         "sections": [],
         "slug": "saber"
       },
@@ -8906,7 +8906,7 @@
       {
         "anchor": "v-mode-adjustment",
         "title": "V. Ajuste de modo",
-        "html": "<h3 id=\"overdrive-mode-returns\"><span>Retorno do modo Overdrive</span></h3>\n<p>Para atender às expectativas dos Invocadores, o Modo Overdrive retornará em breve com novos heróis.\n</p>\n<dl><dd>Tempo disponível: Acesso limitado de dia inteiro a partir de 08/02/2026.</dd></dl>\n<dl><dd>[Guia]</dd></dl>\n<ul><li>No modo Overdrive, o sistema atribuirá aleatoriamente dois heróis aos jogadores. Eles são selecionados entre heróis próprios, heróis gratuitos específicos do modo e heróis desbloqueados por cartas de teste. Os heróis serão significativamente aprimorados, ganhando alta redução de tempo de recarga, regeneração ilimitada de mana e energia, 3 slots de equipamento adicionais e um aumento de nível máximo para 100! Liberte uma velocidade de ataque insana e jogo ilimitado!</li></ul>\n<dl><dd>[Novos heróis]</dd></dl>\n<ul><li>Adicionados novos heróis aleatórios: Alice, Bane, Yi Sun-shin, Hilda, Lapu-Lapu, Karrie, Harley, Grock, Diggie, Zhask, Valir, Urano, Kaja, Selena, Lunox, Kimmy, Minsitthar, Kadita, Faramis, Khufra, Terizla, Lylia, Baxia, Masha, Gloo, Aulus, Aamon, Valentina, Fredrinn, Joy, Arlott, Ixia, Nolan, Chip, Kalea e Obsidia.</li></ul>",
+        "html": "<h3 id=\"overdrive-mode-returns\"><span>Retorno do modo Overdrive</span></h3>\n<p>Para atender às expectativas dos Invocadores, o Modo Overdrive retornará em breve com novos heróis.\n</p>\n<dl><dd>Tempo disponível: Acesso limitado de dia inteiro a partir de 08/02/2026.</dd></dl>\n<dl><dd>[Guia]</dd></dl>\n<ul><li>No modo Overdrive, o sistema atribuirá aleatoriamente dois heróis aos jogadores. Eles são selecionados entre heróis próprios, heróis gratuitos específicos do modo e heróis desbloqueados por cartas de teste. Os heróis serão significativamente aprimorados, ganhando alta redução de tempo de recarga, regeneração ilimitada de mana e energia, 3 slots de equipamento adicionais e um aumento de nível máximo para 100! Liberte uma velocidade de ataque insana e jogo ilimitado!</li></ul>\n<dl><dd>[Novos heróis]</dd></dl>\n<ul><li>Adicionados novos heróis aleatórios: Alice, Bane, Yi Sun-shin, Hilda, Lapu-Lapu, Karrie, Harley, Grock, Diggie, Zhask, Valir, Uranus, Kaja, Selena, Lunox, Kimmy, Minsitthar, Kadita, Faramis, Khufra, Terizla, Lylia, Baxia, Masha, Gloo, Aulus, Aamon, Valentina, Fredrinn, Joy, Arlott, Ixia, Nolan, Chip, Kalea e Obsidia.</li></ul>",
         "role": null
       },
       {
@@ -13026,7 +13026,7 @@
       {
         "name": "Popol and Kupa",
         "type": "nerf",
-        "intro": "Reduzimos a capacidade de explosão de Popol e Kupa no início e no meio do jogo, enquanto diminuímos ligeiramente a velocidade de eliminação de criaturas para equilibrar sua força como Jungler e Gold Laner.",
+        "intro": "Capacidade de explosão de Popol and Kupa reduzida no início e no meio do jogo, enquanto diminui ligeiramente a velocidade de eliminação de criaturas para equilibrar sua força como Jungler e Gold Laner.",
         "sections": [
           {
             "name": "Passiva",
@@ -13407,13 +13407,13 @@
       {
         "anchor": "fragment-shop-adjustments",
         "title": "Ajustes na Loja de Fragmentos",
-        "html": "<p>Ajustes na Loja de Fragmentos em 20/06 (horário do servidor)\n</p><p>um. Skins Raras\n</p><p>Adicionados: Lancelot Dark Earl, Harley Royal Magister, Zilong Eastern Warrior, Alucard Viscount, Eudora Flame Red Lips.\n</p><p>Removidos: Ciclope Resgatador do Mar Profundo, Aurora Heartbreak Empress, Martis Searing Maw, Argus Dark Draconic, Harley Naughty Joker.\n</p><p><br>\nb. Loja de heróis\n</p><p>Adicionados: Valentina, Gusion, Kadita, Aamon, Hanabi, Irithel, Leomord, Gatotkaca, Beatrix, Angela, Karrie, Lancelot.\n</p><p>Removidos: Fredrinn, Estes, Melissa, Hayabusa, Valir, Johnson, Paquito, Moskov, Granger, Alpha, Vexana, Terizla.\n</p><p>Além disso, StarLight Skins obtidos na Loja de Fragmentos serão marcados com a etiqueta StarLight.\n</p>",
+        "html": "<p>Ajustes na Loja de Fragmentos em 20/06 (horário do servidor)\n</p><p>um. Skins Raras\n</p><p>Adicionados: Lancelot Dark Earl, Harley Royal Magister, Zilong Eastern Warrior, Alucard Viscount, Eudora Flame Red Lips.\n</p><p>Removidos: Cyclops Resgatador do Mar Profundo, Aurora Imperatriz do Desgosto, Martis Searing Maw, Argus Dark Draconic, Harley Naughty Joker.\n</p><p><br>\nb. Loja de heróis\n</p><p>Adicionados: Valentina, Gusion, Kadita, Aamon, Hanabi, Irithel, Leomord, Gatotkaca, Beatrix, Angela, Karrie, Lancelot.\n</p><p>Removidos: Fredrinn, Estes, Melissa, Hayabusa, Valir, Johnson, Paquito, Moskov, Granger, Alpha, Vexana, Terizla.\n</p><p>Além disso, StarLight Skins obtidos na Loja de Fragmentos serão marcados com a etiqueta StarLight.\n</p>",
         "role": null
       },
       {
         "anchor": "free-heroes",
         "title": "Heróis Grátis",
-        "html": "<p>Horário do servidor 21/06/2024 05:01:00 a 28/06/2024 05:00:00 (toque no botão Configurações no canto superior direito da página principal para verificar.)\n</p><p>8 heróis gratuitos: Aamon, Zhask, Kadita, Lunox, Khaleed, Xavier, Alucard, Irithel\n</p><p>6 heróis extras membros da StarLight: Yve, Vale, Roger, Julian, Hanzo, Ixia\n</p><p><br>\nHorário do servidor 28/06/2024 05:01:00 a 05/07/2024 05:00:00 (toque no botão Configurações no canto superior direito da página principal para verificar.)\n</p><p>8 heróis gratuitos: Alpha, Baxia, Gatotkaca, Chou, Helcurt, Belerick, Hanabi, Joy\n</p><p>6 heróis extras membros da StarLight: Aldous, Beatrix, Chang'e, Yu Zhong, Luo Yi, Barats\n</p><p><br>\nHorário do servidor 05/07/2024 05:01:00 a 12/07/2024 05:00:00 (toque no botão Configurações no canto superior direito da página principal para verificar.)\n</p><p>8 Heróis Livres: Gusion, Valentina, Kimmy, Aamon, Floryn, Hanabi, Popol e Kupa, Novaria\n</p><p>6 heróis extras membros da StarLight: Hanzo, Minsitthar, Badang, Cyclops, Granger, Natan\n</p><p><br>\nHorário do servidor 12/07/2024 05:01:00 a 19/07/2024 05:00:00 (toque no botão Configurações no canto superior direito da página principal para verificar.)\n</p><p>8 heróis gratuitos: Joy, Kadita, Selena, Zhask, Khufra, Valir, Lolita, Johnson\n</p><p>6 heróis extras membros da StarLight: Helcurt, Esmeralda, Atlas, Edith, Martis, Akai\n</p><p><br>\nHorário do servidor 19/07/2024 05:01:00 a 26/07/2024 05:00:00 (toque no botão Configurações no canto superior direito da página principal para verificar.)\n</p><p>8 heróis livres: Floryn, Vexana, Badang, Popol e Kupa, X.Borg, Irithel, Bruno, Roger\n</p><p>6 heróis extras membros da StarLight: Granger, Ling, Dyrroth, Lylia, Valir, Diggie\n</p><p><br>\nHorário do servidor 26/07/2024 05:01:00 a 02/08/2024 05:00:00 (toque no botão Configurações no canto superior direito da página principal para verificar.)\n</p><p>8 heróis gratuitos: Wanwan, Gloo, Martis, Clint, Hayabusa, Fredrinn, Brody, Gatotkaca\n</p><p>6 Heróis Extras Membros StarLight: Rafaela, Beatrix, Moskov, Zhask, Novaria, Eudora\n</p>",
+        "html": "<p>Horário do servidor 21/06/2024 05:01:00 a 28/06/2024 05:00:00 (toque no botão Configurações no canto superior direito da página principal para verificar.)\n</p><p>8 heróis gratuitos: Aamon, Zhask, Kadita, Lunox, Khaleed, Xavier, Alucard, Irithel\n</p><p>6 heróis extras membros da StarLight: Yve, Vale, Roger, Julian, Hanzo, Ixia\n</p><p><br>\nHorário do servidor 28/06/2024 05:01:00 a 05/07/2024 05:00:00 (toque no botão Configurações no canto superior direito da página principal para verificar.)\n</p><p>8 heróis gratuitos: Alpha, Baxia, Gatotkaca, Chou, Helcurt, Belerick, Hanabi, Joy\n</p><p>6 heróis extras membros da StarLight: Aldous, Beatrix, Chang'e, Yu Zhong, Luo Yi, Barats\n</p><p><br>\nHorário do servidor 05/07/2024 05:01:00 a 12/07/2024 05:00:00 (toque no botão Configurações no canto superior direito da página principal para verificar.)\n</p><p>8 heróis grátis: Gusion, Valentina, Kimmy, Aamon, Floryn, Hanabi, Popol and Kupa, Novaria\n</p><p>6 heróis extras membros da StarLight: Hanzo, Minsitthar, Badang, Cyclops, Granger, Natan\n</p><p><br>\nHorário do servidor 12/07/2024 05:01:00 a 19/07/2024 05:00:00 (toque no botão Configurações no canto superior direito da página principal para verificar.)\n</p><p>8 heróis gratuitos: Joy, Kadita, Selena, Zhask, Khufra, Valir, Lolita, Johnson\n</p><p>6 heróis extras membros da StarLight: Helcurt, Esmeralda, Atlas, Edith, Martis, Akai\n</p><p><br>\nHorário do servidor 19/07/2024 05:01:00 a 26/07/2024 05:00:00 (toque no botão Configurações no canto superior direito da página principal para verificar.)\n</p><p>8 heróis grátis: Floryn, Vexana, Badang, Popol and Kupa, X.Borg, Irithel, Bruno, Roger\n</p><p>6 heróis extras membros da StarLight: Granger, Ling, Dyrroth, Lylia, Valir, Diggie\n</p><p><br>\nHorário do servidor 26/07/2024 05:01:00 a 02/08/2024 05:00:00 (toque no botão Configurações no canto superior direito da página principal para verificar.)\n</p><p>8 heróis gratuitos: Wanwan, Gloo, Martis, Clint, Hayabusa, Fredrinn, Brody, Gatotkaca\n</p><p>6 Heróis Extras Membros StarLight: Rafaela, Beatrix, Moskov, Zhask, Novaria, Eudora\n</p>",
         "role": null
       }
     ],
@@ -13443,7 +13443,7 @@
       {
         "name": "Aulus",
         "type": "buff",
-        "intro": "Como um lutador que depende do ataque básico e da agricultura, Aulus atualmente tem um longo período de agricultura, e sua capacidade de sobrevivência é limitada pela dependência de equipamentos que causam danos, o que o torna muito difícil de jogar e impopular. Ajustamos a experiência agrícola de Aulus e aumentamos o dano sustentado e a capacidade de sobrevivência de Aulus, ao mesmo tempo que reduzimos sua explosão de Equipamento Crítico. Esperamos que Aulus consiga manter seu excelente dano sustentado enquanto sofre mais dano em lutas de equipe para melhor se adequar às suas características. ---- Passivo - Ajuste do buff do Fighting Spirit Efeito de pilha: 3-12 Ataque Físico → 9% -15% de buff de Velocidade de Ataque Efeito Full Stack: 27-125 Dano de Ataque Básico → 42-210 Dano Físico com Ataque Básico (não pode Crítico) ---- Habilidade 1- Aulus, Carregue! buff buff Cooldown: 16-14s → 14-12s ajuste Redução de dano: 20% + 1% para cada 10 ataques físicos extras → 30% -50% (escala com nível de habilidade) ---- Habilidade 2- O poder do machado ajusta ajuste Dano de habilidade: 150-550 + 120% Ataque físico extra → 240-440 + 70% do buff de ataque físico total HP restaurado por Ataque Básico Aprimorado: 50-100 → 50-100 +1% do HP máximo novo Sem limite no número de vezes que o Ataque Básico pode ser aprimorado. Agora seus Ataques Básicos podem ser aprimorados por 3s após atingir heróis inimigos ou Creeps. nerf Removido o bônus de velocidade de ataque para ataque básico aprimorado. ----Ultimate- Buff Undying Fury ajustado Ordem de artesanato ajustada para: Blade Craft, Handle Craft e, em seguida, Hammer Craft. buff Dano físico de ataques básicos aumentado de Blade Craft: 35 → 50 no full stack buff Nível de habilidade para ativar Handle Craft: 3 → 2 ajustar Hammer Craft: Aumenta 10% de chance crítica → Aumenta 20% de penetração física; Nível de habilidade para ativar o Hammer Craft: 2 → 3 novo Novo efeito: Não pode ser interrompido ao lançar seu Ultimate. buff Dano base: 210-290 → 210-350 buff Dano sustentado: 90-130 → 90-150 buff Leomord Aumentamos seu bônus crítico para dar a ele mais opções de construção e melhoramos sua mobilidade no final do jogo quando seu Ultimate não está disponível ----Passivo- O buff do Oath Keeper Ataque Físico ganho a cada 1% de chance crítica: 1 → 2 ----Habilidade 2- Recarga do buff de assalto de dizimação: 12s em todos os níveis → 12-10s ---- Habilidade 2 (aprimorada) - Recarga do buff de assalto de dizimação: 7s em todos os níveis → buff de 7-6s Dano de habilidade: 300-400 + 50% do ataque físico total → 300-500 + 80% do buff de ban de ataque físico total Aumentou sua velocidade de jungle e capacidade de lutar contra tanques da jungle. ----Passivo- Buff Bônus de Mordida de Tubarão Dano: 100% do Ataque Físico +3,5 (Nível0,3)% do HP Máximo do alvo → 95% do Ataque Físico +4 (Nível0,4)% do HP Máximo do alvo",
+        "intro": "Como um lutador que depende de ataque básico e agricultura, Aulus atualmente tem um longo período de agricultura, e sua capacidade de sobrevivência é limitada por sua dependência de equipamentos que causam danos, o que o torna muito difícil de jogar e impopular. Ajustamos a experiência de cultivo de Aulus' e aumentamos o dano sustentado e a capacidade de sobrevivência de Aulus', ao mesmo tempo que reduzimos sua explosão de Equipamento Crítico. Esperamos que Aulus seja capaz de manter seu excelente dano sustentado enquanto sofre mais dano em lutas de equipe para melhor se adequar às suas características. ---- Passivo - Ajuste do buff do Fighting Spirit Efeito de pilha: 3-12 Ataque Físico → 9% -15% de bônus de Velocidade de Ataque Efeito Full Stack: 27-125 Dano de Ataque Básico → 42-210 Dano Físico com Ataque Básico (não pode Crítico) ---- Habilidade 1- Aulus, Carregar! buff buff Cooldown: 16-14s → 14-12s ajuste Redução de dano: 20% + 1% para cada 10 ataques físicos extras → 30% -50% (escala com nível de habilidade) ---- Habilidade 2- O poder do machado ajusta ajuste Dano de habilidade: 150-550 + 120% Ataque físico extra → 240-440 + 70% do buff de ataque físico total HP restaurado por Ataque Básico Aprimorado: 50-100 → 50-100 +1% do HP máximo novo Sem limite no número de vezes que o Ataque Básico pode ser aprimorado. Agora seus Ataques Básicos podem ser aprimorados por 3s após atingir heróis inimigos ou Creeps. nerf Removido o bônus de velocidade de ataque para ataque básico aprimorado. ----Ultimate- Buff Undying Fury ajustado Ordem de artesanato ajustada para: Blade Craft, Handle Craft e, em seguida, Hammer Craft. buff Dano físico de ataques básicos aumentado de Blade Craft: 35 → 50 no full stack buff Nível de habilidade para ativar Handle Craft: 3 → 2 ajustar Hammer Craft: Aumenta 10% de chance crítica → Aumenta 20% de penetração física; Nível de habilidade para ativar o Hammer Craft: 2 → 3 novo Novo efeito: Não pode ser interrompido ao lançar seu Ultimate. buff Dano base: 210-290 → 210-350 buff Dano sustentado: 90-130 → 90-150 Leomord buff Aumentamos seu bônus crítico para dar a ele mais opções de construção e melhoramos sua mobilidade no final do jogo quando seu Ultimate não está disponível ----Passivo- Buff do Oath Keeper Ataque físico obtido a cada 1% de chance crítica: 1 → 2 ---- Habilidade 2 - Buff de ataque de dizimação Cooldown: 12s em todos os níveis → 12-10s ---- Habilidade 2 (Aprimorado) - Buff de ataque de dizimação Cooldown: 7s em todos os níveis → buff de 7-6s Dano de habilidade: 300-400 + 50% do ataque físico total → 300-500 + 80% do ataque físico total Bane buff Aumentou sua velocidade de jungle e capacidade de lutar contra tanques da jungle. ----Passivo- Buff Bônus de Mordida de Tubarão Dano: 100% do Ataque Físico +3,5 (Nível0,3)% do HP Máximo do alvo → 95% do Ataque Físico +4 (Nível0,4)% do HP Máximo do alvo",
         "sections": [],
         "slug": "aulus"
       },

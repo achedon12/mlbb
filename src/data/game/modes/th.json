@@ -313,12 +313,12 @@
           },
           {
             "type": "p",
-            "text": "Being AFK, avoiding teamfight or verbal abuse is fully punishable through reports."
+            "text": "การเป็น AFK การหลีกเลี่ยงทีมไฟต์หรือการใช้วาจาในทางที่ผิดนั้นมีโทษอย่างเต็มที่ผ่านการรายงาน"
           }
         ]
       },
       {
-        "title": "Tips & Tricks",
+        "title": "เคล็ดลับและเทคนิค",
         "elements": [
           {
             "type": "li",
@@ -326,27 +326,27 @@
           },
           {
             "type": "p",
-            "text": "There are many heroes to choose from with different styles of play. Knowing the heroes' skills, strengths, and weaknesses along with optimal positioning is vital. Prioritize Assassins, Mages or Fighters as they have a lot of damage output and crowd control. Avoid Marksman as they are item-dependent and squishy early on, unless those with good minion clearing and area of effect abilities like Beatrix or Granger. Avoid teams with too many Mages, too many Marksmen or too many Tanks."
+            "text": "มีฮีโร่ให้เลือกมากมายพร้อมสไตล์การเล่นที่แตกต่างกัน การรู้สกิล จุดแข็ง และจุดอ่อนของฮีโร่พร้อมกับการวางตำแหน่งที่เหมาะสมเป็นสิ่งสำคัญ จัดลำดับความสำคัญของ Assassin Mage หรือ Fighter เนื่องจากพวกมันสร้างความเสียหายได้มากและสามารถควบคุมฝูงชนได้ หลีกเลี่ยง Marksman เนื่องจากพวกมันขึ้นอยู่กับไอเทมและนุ่มนวลในช่วงแรก เว้นแต่ผู้ที่มีความสามารถในการเคลียร์มินเนี่ยนที่ดีและมีความสามารถแบบพื้นที่เช่น Beatrix หรือ Granger หลีกเลี่ยงทีมที่มี Mage มากเกินไป นักแม่นปืนมากเกินไป หรือ Tank มากเกินไป"
           },
           {
             "type": "li",
-            "text": "Recommended Battle Spells"
+            "text": "Battle Spell ที่แนะนำ"
           },
           {
             "type": "li",
-            "text": "Flameshot has very low cooldown and can be used to check bush, secure kills or cancel abilities."
+            "text": "Flameshot มีคูลดาวน์ต่ำมากและสามารถใช้เพื่อตรวจสอบพุ่มไม้ ฆ่าอย่างปลอดภัย หรือยกเลิกความสามารถ"
           },
           {
             "type": "li",
-            "text": "At least one player should bring these followng items:"
+            "text": "ผู้เล่นอย่างน้อยหนึ่งคนควรนำสิ่งของต่อไปนี้:"
           },
           {
             "type": "li",
-            "text": "Revitalize so that their team can resustain after fight as the Altar no longer heals, especially when your team in a bad position that they cannot secure the Healing runes; and"
+            "text": "ฟื้นฟูเพื่อให้ทีมของพวกเขาสามารถฟื้นคืนชีพได้หลังจากการต่อสู้ เนื่องจากแท่นบูชาไม่รักษาอีกต่อไป โดยเฉพาะอย่างยิ่งเมื่อทีมของคุณอยู่ในตำแหน่งที่ไม่ดีจนไม่สามารถรักษารูนการรักษาได้ และ"
           },
           {
             "type": "li",
-            "text": "Purify, if your hero has good damage output but vulnerable to crowd control (CC)."
+            "text": "ชำระล้าง หากฮีโร่ของคุณสร้างความเสียหายได้ดีแต่เสี่ยงต่อการควบคุมฝูงชน (CC)"
           },
           {
             "type": "li",
@@ -402,49 +402,49 @@
           },
           {
             "type": "p",
-            "text": "Since it is only one lane, it is easier to guess your opponents' movements and place your hero in the best position to either defend or attack."
+            "text": "เนื่องจากมีเพียงเลนเดียว จึงง่ายกว่าที่จะคาดเดาการเคลื่อนไหวของคู่ต่อสู้ และวางฮีโร่ของคุณในตำแหน่งที่ดีที่สุดในการป้องกันหรือโจมตี"
           },
           {
             "type": "p",
-            "text": "When the enemy team has Xavier, Novaria, expect that you will be damaged or revealed while buying items at Altar or reaching the battlefield."
+            "text": "เมื่อทีมศัตรูมี Xavier, Novaria คาดว่าคุณจะได้รับความเสียหายหรือถูกเปิดเผยขณะซื้อไอเทมที่ Altar หรือเข้าสู่สนามรบ"
           },
           {
             "type": "p",
-            "text": "You can check up on enemies's items to see if they left their Altar or not."
+            "text": "คุณสามารถตรวจสอบสิ่งของของศัตรูเพื่อดูว่าพวกเขาออกจากแท่นบูชาหรือไม่"
           },
           {
             "type": "li",
-            "text": "Use natural objects"
+            "text": "ใช้วัตถุจากธรรมชาติ"
           },
           {
             "type": "p",
-            "text": "You can save up a Barrel to escape after diving in, turret dive or use it to shorten the distance with Flicker. Barrels first spawn at 20 seconds, while the first Healing Runes are at 30 seconds, it is best to secure the bush on the right and the glyph close to it, so that your team might at least disable a healing option after fight of the enemies. Use the barrel to stop the enemies when they try to secure the Healing Rune."
+            "text": "คุณสามารถเก็บลำกล้องไว้เพื่อหลบหนีหลังจากดำน้ำเข้าไป ดำน้ำป้อมปืน หรือใช้มันเพื่อลดระยะทางด้วยการกะพริบ Barrels first spawn at 20 seconds, while the first Healing Runes are at 30 seconds, it is best to secure the bush on the right and the glyph close to it, so that your team might at least disable a healing option after fight of the enemies. ใช้กระบอกปืนเพื่อหยุดศัตรูเมื่อพวกเขาพยายามรักษารูนแห่งการรักษาไว้"
           }
         ]
       },
       {
-        "title": "Battle Spells",
+        "title": "Battle Spell",
         "elements": [
           {
             "type": "p",
-            "text": "All heroes are given Flicker by default alongside another chosen battle spell."
+            "text": "ฮีโร่ทุกตัวจะได้รับไฟกะพริบตามค่าเริ่มต้นควบคู่ไปกับ Battle Spell ที่เลือกไว้"
           },
           {
             "type": "p",
-            "text": "All battle spells begin with 50% of their normal cooldown."
+            "text": "Battle Spell ทั้งหมดเริ่มต้นด้วย 50% ของคูลดาวน์ปกติ"
           }
         ]
       },
       {
-        "title": "Hero Specifications",
+        "title": "ข้อมูลจำเพาะของฮีโร่",
         "elements": [
           {
             "type": "p",
-            "text": "As some heroes will be too powerful or too disadvantageous in Brawl, some buffs or handicaps are added to some heroes as follows:"
+            "text": "เนื่องจากฮีโร่บางตัวจะแข็งแกร่งเกินไปหรือเสียเปรียบเกินไปใน Brawl บัฟหรือแต้มต่อบางตัวจะถูกเพิ่มให้กับฮีโร่บางตัวดังนี้:"
           },
           {
             "type": "p",
-            "text": "Lastest Version: v350.1"
+            "text": "เวอร์ชันล่าสุด: v350.1"
           }
         ]
       }
@@ -454,27 +454,27 @@
   {
     "name": "Vs. AI",
     "slug": "vs-ai",
-    "description": "The \"Vs A.I\" mode in Mobile Legends: Bang Bang was introduced around late 2017, shortly after the game's global release. Originally featuring only Simple and Normal difficulties, the mode underwent significant upgrades, including a Hard mode added during Project Next in 2020 and modernized, challenging A.I. training modes released around November 2023.",
+    "description": "โหมด \"Vs A.I\" ใน Mobile Legends: Bang Bang เปิดตัวประมาณปลายปี 2017 ไม่นานหลังจากเกมวางจำหน่ายทั่วโลก Originally featuring only Simple and Normal difficulties, the mode underwent significant upgrades, including a Hard mode added during Project Next in 2020 and modernized, challenging A.I. โหมดการฝึกจะออกประมาณเดือนพฤศจิกายน 2566",
     "sections": [
       {
-        "title": "Mechanics",
+        "title": "กลศาสตร์",
         "elements": [
           {
             "type": "p",
-            "text": "There are three game modes you can pick in this mode: Classic, Brawl and Draft Pick."
+            "text": "มีโหมดเกมสามโหมดที่คุณสามารถเลือกได้ในโหมดนี้: Classic, Brawl และ Draft Pick"
           }
         ]
       },
       {
-        "title": "Difficulty Levels",
+        "title": "ระดับความยาก",
         "elements": [
           {
             "type": "p",
-            "text": "There are also three difficulty settings: AI: Simple, AI: Normal and AI: Hard."
+            "text": "นอกจากนี้ยังมีการตั้งค่าความยากสามแบบ: AI: ง่าย, AI: ปกติ และ AI: ยาก"
           },
           {
             "type": "li",
-            "text": "AI:Easy has very easy AI, good for practicing a hero you have just unlocked or are not yet familiar with."
+            "text": "AI:Easy มี AI ที่ง่ายมาก เหมาะสำหรับการฝึกฝนฮีโร่ที่คุณเพิ่งปลดล็อคหรือยังไม่คุ้นเคย"
           },
           {
             "type": "li",
@@ -529,19 +529,19 @@
     "description": "โหมดอาร์เคดเป็นโหมดเกมเพิ่มเติมใน Mobile Legends: Bang Bang ที่สามารถเล่นได้เป็นครั้งคราวในช่วงกิจกรรมพิเศษ วันหยุด หรือโอกาส โหมดนี้มีเกมย่อยตามกลยุทธ์ต่างๆ ดังรายการด้านล่าง",
     "sections": [
       {
-        "title": "Mayhem",
+        "title": "ทำร้ายร่างกาย",
         "elements": [
           {
             "type": "p",
-            "text": "Intense, Fast-pace, Exciting, 5v5 Arcade!"
+            "text": "เข้มข้น รวดเร็ว น่าตื่นเต้น อาร์เคด 5v5!"
           },
           {
             "type": "p",
-            "text": "In the past, this game didn't really have an official name. This Game Mode was first released and it was simply Summer Carnival came and had consumables to upgrade heroes skills,with modified map matching with Summer. During Halloween, this mode came back again with the same feature as Summer Carnival, Modified Skills, Candies as bonus items, and Halloween themed Map. Then Christmas came and the mode had the same features; however, while the Map was changed to fit Christmas, candies were kept as consumables. And then the Easter came out. Finally, Mayhem Mode was introduced: this time the Game Mode didn't have consumables, but it had Modified Skills and Map Changes."
+            "text": "ในอดีตเกมนี้ไม่มีชื่ออย่างเป็นทางการจริงๆ โหมดเกมนี้เปิดตัวครั้งแรกและเป็นเพียงแค่เทศกาลฤดูร้อนเท่านั้นที่เข้ามาและมีของใช้เพื่ออัพเกรดสกิลฮีโร่ พร้อมแผนที่ที่ปรับเปลี่ยนให้เข้ากับฤดูร้อน ในช่วงวันฮาโลวีน โหมดนี้กลับมาอีกครั้งพร้อมกับฟีเจอร์เดียวกับเทศกาลฤดูร้อน สกิลดัดแปลง ลูกอมเป็นไอเทมโบนัส และแผนที่ธีมฮาโลวีน จากนั้นคริสต์มาสก็มาถึงและโหมดนี้ก็มีคุณสมบัติเหมือนกัน อย่างไรก็ตาม ในขณะที่แผนที่ถูกเปลี่ยนให้เหมาะกับคริสต์มาส ลูกอมก็ถูกเก็บไว้เป็นของบริโภค แล้วอีสเตอร์ก็ออกมา ในที่สุด โหมดโกลาหลก็ถูกนำมาใช้: คราวนี้โหมดเกมไม่มียุทธปัจจัย แต่มีสกิลที่ดัดแปลงและการเปลี่ยนแปลงแผนที่"
           },
           {
             "type": "p",
-            "text": "There are only 50 heroes available in this mode."
+            "text": "มีฮีโร่เพียง 50 ตัวในโหมดนี้"
           }
         ]
       },
@@ -714,11 +714,11 @@
           },
           {
             "type": "p",
-            "text": ": 1. Gargoyle's skill 1 will increase its movement speed for a while, skill 2 will increase its attack."
+            "text": ": 1. สกิล 1 ของการ์กอยล์จะเพิ่มความเร็วในการเคลื่อนที่ชั่วขณะหนึ่ง สกิล 2 จะเพิ่มการโจมตี"
           },
           {
             "type": "p",
-            "text": ": 2. Cleaver's skill 1 is a blink similar to Flicker, its skill 2 is its signature delayed wave attack from other game modes."
+            "text": ": 2. สกิลของ Cleaver 1 เป็นการกะพริบคล้ายกับ Flicker สกิล 2 คือการดีเลย์การโจมตีแบบคลื่นจากโหมดเกมอื่น"
           },
           {
             "type": "p",
@@ -726,11 +726,11 @@
           },
           {
             "type": "p",
-            "text": ": 1. Pioneer's skill 1 launches an orb that will block enemies similar to Cyclops Ultimate, skill 2 is its signature poison trap from other game modes, but in a straight line."
+            "text": ": 1. สกิลของ Pioneer 1 ปล่อยลูกแก้วที่จะบล็อกศัตรูที่คล้ายกับ Cyclops Ultimate สกิล 2 เป็นกับดักพิษอันเป็นเอกลักษณ์จากโหมดเกมอื่น แต่เป็นเส้นตรง"
           },
           {
             "type": "p",
-            "text": ": 2. Statued Chaser's skill 1 resembles Gusion's first skill (they will throw a dagger in a direction, and if it hits an enemy the skill can be used again to chase them); skill 2 will attack enemies in front of it, dealing great damage."
+            "text": ": 2. สกิลรูปปั้น Chaser 1 คล้ายกับสกิลแรกของ Gusion (พวกเขาจะขว้างกริชไปในทิศทาง และหากโจมตีโดนศัตรู คุณจะสามารถใช้สกิลอีกครั้งเพื่อไล่ล่าพวกเขาได้) สกิล 2 จะโจมตีศัตรูที่อยู่ข้างหน้า สร้างความเสียหายอย่างมาก"
           },
           {
             "type": "p",
@@ -782,19 +782,19 @@
           },
           {
             "type": "p",
-            "text": ": Assassin: Lancelot, Saber, Freya."
+            "text": ": มือสังหาร: Lancelot, Saber, Freya"
           },
           {
             "type": "p",
-            "text": "If the player has chosen Magical route, Mage or Support heroes will be available."
+            "text": "หากผู้เล่นเลือกเส้นทาง Magical ฮีโร่ Mage หรือ Support จะพร้อมใช้งาน"
           },
           {
             "type": "p",
-            "text": ": Mage: Odette, Gord, Alice, Esmeralda, Harley."
+            "text": ": Mage: Odette, Gord, Alice, Esmeralda, ฮาร์ลีย์"
           },
           {
             "type": "p",
-            "text": ": Support: Angela, Estes, Nana."
+            "text": ": สนับสนุน: Angela, Estes, นาน่า"
           },
           {
             "type": "p",

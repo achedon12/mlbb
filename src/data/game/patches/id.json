@@ -92,7 +92,7 @@
       {
         "anchor": null,
         "title": null,
-        "html": "<p>Sorotan dari patch 2.2.23:</p>\n<ul><li>Hero Popol dan Kupa yang Direvamp, Sahabat Icefield. Fitur Hero: Seorang marksman yang bertarung bersama Kupa dan menggunakan jebakan untuk mengendalikan medan perang.</li><li>Penyesuaian Hero</li><li>Penyesuaian Medan Perang</li><li>Penyesuaian Sistem</li><li>Penyesuaian Modus</li></ul>",
+        "html": "<p>Sorotan dari patch 2.2.23:</p>\n<ul><li>Hero yang Dirombak Popol and Kupa, Sahabat di Lapangan Es. Fitur Hero: Seorang marksman yang bertarung bersama Kupa dan menggunakan jebakan untuk mengendalikan medan perang.</li><li>Penyesuaian Hero</li><li>Penyesuaian Medan Perang</li><li>Penyesuaian Sistem</li><li>Penyesuaian Modus</li></ul>",
         "role": null
       },
       {
@@ -128,7 +128,7 @@
       {
         "anchor": "v-mode-adjustments",
         "title": "V. Penyesuaian Mode",
-        "html": "<h3 id=\"card-brawl\">Perkelahian Kartu</h3>\n<p>Selamat datang di Perkelahian Kartu! Di Necrokeep, pilih dari kartu yang ditawarkan secara acak pada level hero tertentu, hingga lima kali. Gabungkan kartu untuk menambah kekuatan, membentuk gaya bermain Anda, dan melakukan permainan yang menarik! Card Brawl juga memungkinkan Anda menyelesaikan tugas aktivitas, mendapatkan Kartu Bangbang, dan meningkatkan level StarLight Anda!</p>\n<h3 id=\"brawl\">Ribut</h3>\n<h4 id=\"hero-balance-adjustments\">Penyesuaian Saldo Hero</h4>\n<p>Berdasarkan win rate dan pemilihan hero Brawl baru-baru ini, kami telah melakukan penyesuaian saldo berikut.</p>\n<p><strong>▼ Nerf</strong><br>Aulus<br>DMG Diambil +4% → +8%</p>\n<p>Barats<br>(Baru) DMG -2%</p>\n<p>Brody<br>(Baru) DMG Diterima +2%</p>\n<p>Bruno<br>DMG -10% → -12%; (Baru) DMG Diterima +4%</p>\n<p>Cici<br>DMG Diambil -8% → -4%</p>\n<p>Cyclops<br>DMG Diambil +6% → +10%</p>\n<p>Edith<br>DMG Diambil +4% → +8%</p>\n<p>Hilda<br>DMG Diambil -8% → -6%</p>\n<p>Lukas<br>DMG -2% → -6%</p>\n<p>Martis<br>DMG +6% → +4%</p>\n<p>Minotaur<br>DMG Diambil +8% → +4%; (Baru) Penyembuhan -6%</p>\n<p>Natan<br>DMG Diambil +8% → +10%</p>\n<p>Phoveus<br>DMG Diambil +6% → +10%</p>\n<p>Popol dan Kupa<br>(Baru) DMG Diterima +2%</p>\n<p>Rafaela<br>DMG Diambil +10% → +12%</p>\n<p>Roger<br>DMG Diambil -6% → -4%</p>\n<p>Terizla<br>DMG Diambil +14% → +18%</p>\n<p>Valir<br>(Baru) DMG Diterima +2%</p>\n<p>Yu Zhong<br>DMG Diambil -4% → -2%</p>\n<p><strong>▲ Buff</strong><br>Aamon<br>(Baru) DMG Diambil -2%</p>\n<p>Chip<br>DMG +6% → +8%</p>\n<p>Franco<br>DMG Skill +10%</p>\n<p>Gatotkaca<br>DMG Diambil +10% → +8%</p>\n<p>Helcurt<br>DMG +10% → +12%</p>\n<p>Kegembiraan<br>DMG +10% → +12%</p>\n<p>Lancelot<br>DMG Diambil -4% → -6%</p>\n<p>Lunox<br>(Baru) DMG Diambil -2%</p>\n<p>Luo Yi<br>DMG Diambil -2% → -4%</p>\n<p>Masha<br>(Baru) DMG Diambil -4%</p>\n<p>Melissa<br>DMG -12% → -10%</p>\n<p>Nolan<br>Mengurangi Biaya Energi Skill 1 dan 2</p>\n<p>Yi Sun-shin<br>(Baru) DMG Diterima -4%</p>\n<p>Zhuxin<br>DMG +16% → +20%</p>",
+        "html": "<h3 id=\"card-brawl\">Perkelahian Kartu</h3>\n<p>Selamat datang di Perkelahian Kartu! Di Necrokeep, pilih dari kartu yang ditawarkan secara acak pada level hero tertentu, hingga lima kali. Gabungkan kartu untuk menambah kekuatan, membentuk gaya bermain Anda, dan melakukan permainan yang menarik! Card Brawl juga memungkinkan Anda menyelesaikan tugas aktivitas, mendapatkan Kartu Bangbang, dan meningkatkan level StarLight Anda!</p>\n<h3 id=\"brawl\">Ribut</h3>\n<h4 id=\"hero-balance-adjustments\">Penyesuaian Saldo Hero</h4>\n<p>Berdasarkan win rate dan pemilihan hero Brawl baru-baru ini, kami telah melakukan penyesuaian saldo berikut.</p>\n<p><strong>▼ Nerf</strong><br>Aulus<br>DMG Diambil +4% → +8%</p>\n<p>Barats<br>(Baru) DMG -2%</p>\n<p>Brody<br>(Baru) DMG Diterima +2%</p>\n<p>Bruno<br>DMG -10% → -12%; (Baru) DMG Diterima +4%</p>\n<p>Cici<br>DMG Diambil -8% → -4%</p>\n<p>Cyclops<br>DMG Diambil +6% → +10%</p>\n<p>Edith<br>DMG Diambil +4% → +8%</p>\n<p>Hilda<br>DMG Diambil -8% → -6%</p>\n<p>Lukas<br>DMG -2% → -6%</p>\n<p>Martis<br>DMG +6% → +4%</p>\n<p>Minotaur<br>DMG Diambil +8% → +4%; (Baru) Penyembuhan -6%</p>\n<p>Natan<br>DMG Diambil +8% → +10%</p>\n<p>Phoveus<br>DMG Diambil +6% → +10%</p>\n<p>Popol dan Kupa<br>(Baru) DMG Diterima +2%</p>\n<p>Rafaela<br>DMG Diambil +10% → +12%</p>\n<p>Roger<br>DMG Diambil -6% → -4%</p>\n<p>Terizla<br>DMG Diambil +14% → +18%</p>\n<p>Valir<br>(Baru) DMG Diterima +2%</p>\n<p>Yu Zhong<br>DMG Diambil -4% → -2%</p>\n<p><strong>▲ Buff</strong><br>Aamon<br>(Baru) DMG Diambil -2%</p>\n<p>Chip<br>DMG +6% → +8%</p>\n<p>Franco<br>DMG Skill +10%</p>\n<p>Gatotkaca<br>DMG Diambil +10% → +8%</p>\n<p>Helcurt<br>DMG +10% → +12%</p>\n<p>Sukacita<br>Damage +10% → +12%</p>\n<p>Lancelot<br>DMG Diambil -4% → -6%</p>\n<p>Lunox<br>(Baru) DMG Diambil -2%</p>\n<p>Luo Yi<br>DMG Diambil -2% → -4%</p>\n<p>Masha<br>(Baru) DMG Diambil -4%</p>\n<p>Melissa<br>DMG -12% → -10%</p>\n<p>Nolan<br>Mengurangi Biaya Energi Skill 1 dan 2</p>\n<p>Yi Sun-shin<br>(Baru) DMG Diterima -4%</p>\n<p>Zhuxin<br>DMG +16% → +20%</p>",
         "role": null
       }
     ],
@@ -138,10 +138,10 @@
         "epithet": "Icefield Companions",
         "anchor": "revamp-icefield-companions-popol-and-kupa",
         "lore": [
-          "Popol dan Kupa sebelumnya kurang memiliki mobilitas dan potensi kombo skill yang terbatas. Untuk mengatasi hal ini, kami telah meningkatkan serangan terkoordinasi mereka dan memungkinkan Popol mengendarai Kupa untuk mengejar musuh atau mundur.",
+          "Popol and Kupa sebelumnya tidak memiliki mobilitas dan memiliki potensi kombo skill yang terbatas. Untuk mengatasi hal ini, kami telah meningkatkan serangan terkoordinasi mereka dan memungkinkan Popol mengendarai Kupa untuk mengejar musuh atau mundur.",
           "Sebelumnya Popol harus bertarung terlalu lama tanpa rekannya setelah Kupa dikalahkan. Untuk mengatasi hal ini, kami telah meningkatkan skala Kupa dan Regen HP."
         ],
-        "feature": "Seorang marksman yang bertarung bersama Kupa dan menggunakan jebakan untuk mengendalikan medan perang. Dengan perombakan ini, kami bertujuan untuk mengatasi masalah berikut dan meningkatkan pengalaman gameplay Popol dan Kupa secara keseluruhan:",
+        "feature": "Seorang marksman yang bertarung bersama Kupa dan menggunakan jebakan untuk mengendalikan medan perang. Dengan perombakan ini, kami bertujuan untuk mengatasi masalah berikut dan meningkatkan pengalaman bermain game Popol and Kupa secara keseluruhan:",
         "skills": [
           {
             "role": "Pasif",
@@ -156,7 +156,7 @@
             "name": "Bite 'em, Kupa! V2",
             "description": [
               "Popol melemparkan tombak ke arah musuh yang dituju, memberikan damage, dan memerintahkan Kupa untuk menyerang target dan menggigit mereka, menyebabkan efek slow yang sangat besar kepada mereka.",
-              "Dalam Bentuk Serigala Alfa, Kupa menyerang area target, menjatuhkan musuh di sekitar ke udara dan menimbulkan peningkatan damage."
+              "Dalam Alpha Bentuk Serigala, Kupa menyerang area target, menjatuhkan musuh di sekitar ke udara dan menimbulkan peningkatan damage."
             ]
           },
           {
@@ -164,7 +164,7 @@
             "name": "Kupa, Help! V2",
             "description": [
               "Popol memanggil Kupa kembali ke sisinya, mendapatkan perisai. Dia kemudian dapat menunggangi Kupa untuk bergerak cepat, dan selama itu Kupa memulihkan HP secara terus menerus.",
-              "Dalam Bentuk Serigala Alfa, Popol memperoleh perisai yang lebih kuat, dan Kupa memulihkan HP penuhnya saat dipasang."
+              "Dalam Alpha Bentuk Serigala, Popol memperoleh perisai yang lebih kuat, dan Kupa memulihkan HP penuhnya saat dipasang."
             ]
           },
           {
@@ -178,7 +178,7 @@
             "role": "Terakhir",
             "name": "We Are Angry! V2",
             "description": [
-              "Popol dan Kupa memasuki kondisi Marah selama 9 detik.",
+              "Popol and Kupa memasuki kondisi Marah selama 9 detik.",
               "Kupa segera memulihkan HP penuhnya dan berubah menjadi Alpha Wolf Form, memperoleh tambahan Max HP dan meningkatkan skill lainnya."
             ]
           }
@@ -13026,7 +13026,7 @@
       {
         "name": "Popol and Kupa",
         "type": "nerf",
-        "intro": "Mengurangi kemampuan burst Popol dan Kupa di early hingga mid game sekaligus sedikit menurunkan kecepatan pembersihan creep untuk menyeimbangkan kekuatan mereka sebagai Jungler dan Gold Laner.",
+        "intro": "Mengurangi kemampuan burst Popol and Kupa di awal hingga pertengahan game sambil sedikit menurunkan kecepatan pembersihan creep untuk menyeimbangkan kekuatan mereka sebagai Jungler dan Gold Laner.",
         "sections": [
           {
             "name": "Pasif",
@@ -13413,7 +13413,7 @@
       {
         "anchor": "free-heroes",
         "title": "Hero Gratis",
-        "html": "<p>Waktu Server 21/06/2024 05:01:00 hingga 28/06/2024 05:00:00 (Ketuk tombol Pengaturan di sudut kanan atas halaman utama untuk memeriksa.)\n</p><p>8 Hero Gratis: Aamon, Zhask, Kadita, Lunox, Khaleed, Xavier, Alucard, Irithel\n</p><p>6 Hero Ekstra Anggota StarLight: Yve, Vale, Roger, Julian, Hanzo, Ixia\n</p><p><br>\nWaktu Server 28/06/2024 05:01:00 hingga 05/07/2024 05:00:00 (Ketuk tombol Pengaturan di sudut kanan atas halaman utama untuk memeriksa.)\n</p><p>8 Hero Gratis: Alpha, Baxia, Gatotkaca, Chou, Helcurt, Belerick, Hanabi, Joy\n</p><p>6 Hero Ekstra StarLight Member: Aldous, Beatrix, Chang'e, Yu Zhong, Luo Yi, Barats\n</p><p><br>\nWaktu Server 05/07/2024 05:01:00 hingga 12/07/2024 05:00:00 (Ketuk tombol Pengaturan di sudut kanan atas halaman utama untuk memeriksa.)\n</p><p>8 Hero Gratis: Gusion, Valentina, Kimmy, Aamon, Floryn, Hanabi, Popol dan Kupa, Novaria\n</p><p>6 Hero Ekstra Anggota StarLight: Hanzo, Minsitthar, Badang, Cyclops, Granger, Natan\n</p><p><br>\nWaktu Server 12/07/2024 05:01:00 hingga 19/07/2024 05:00:00 (Ketuk tombol Pengaturan di sudut kanan atas halaman utama untuk memeriksa.)\n</p><p>8 Hero Gratis: Joy, Kadita, Selena, Zhask, Khufra, Valir, Lolita, Johnson\n</p><p>6 Hero Ekstra Anggota StarLight: Helcurt, Esmeralda, Atlas, Edith, Martis, Akai\n</p><p><br>\nWaktu Server 19/07/2024 05:01:00 hingga 26/07/2024 05:00:00 (Ketuk tombol Pengaturan di sudut kanan atas halaman utama untuk memeriksa.)\n</p><p>8 Hero Gratis: Floryn, Vexana, Badang, Popol dan Kupa, X.Borg, Irithel, Bruno, Roger\n</p><p>6 Hero Ekstra Anggota StarLight: Granger, Ling, Dyrroth, Lylia, Valir, Diggie\n</p><p><br>\nWaktu Server 26/07/2024 05:01:00 hingga 02/08/2024 05:00:00 (Ketuk tombol Pengaturan di sudut kanan atas halaman utama untuk memeriksa.)\n</p><p>8 Hero Gratis: Wanwan, Gloo, Martis, Clint, Hayabusa, Fredrinn, Brody, Gatotkaca\n</p><p>6 Hero Ekstra StarLight Member : Rafaela, Beatrix, Moskov, Zhask, Novaria, Eudora\n</p>",
+        "html": "<p>Waktu Server 21/06/2024 05:01:00 hingga 28/06/2024 05:00:00 (Ketuk tombol Pengaturan di sudut kanan atas halaman utama untuk memeriksa.)\n</p><p>8 Hero Gratis: Aamon, Zhask, Kadita, Lunox, Khaleed, Xavier, Alucard, Irithel\n</p><p>6 Hero Ekstra Anggota StarLight: Yve, Vale, Roger, Julian, Hanzo, Ixia\n</p><p><br>\nWaktu Server 28/06/2024 05:01:00 hingga 05/07/2024 05:00:00 (Ketuk tombol Pengaturan di sudut kanan atas halaman utama untuk memeriksa.)\n</p><p>8 Hero Gratis: Alpha, Baxia, Gatotkaca, Chou, Helcurt, Belerick, Hanabi, Joy\n</p><p>6 Hero Ekstra StarLight Member: Aldous, Beatrix, Chang'e, Yu Zhong, Luo Yi, Barats\n</p><p><br>\nWaktu Server 05/07/2024 05:01:00 hingga 12/07/2024 05:00:00 (Ketuk tombol Pengaturan di sudut kanan atas halaman utama untuk memeriksa.)\n</p><p>8 Hero Gratis: Gusion, Valentina, Kimmy, Aamon, Floryn, Hanabi, Popol and Kupa, Novaria\n</p><p>6 Hero Ekstra Anggota StarLight: Hanzo, Minsitthar, Badang, Cyclops, Granger, Natan\n</p><p><br>\nWaktu Server 12/07/2024 05:01:00 hingga 19/07/2024 05:00:00 (Ketuk tombol Pengaturan di sudut kanan atas halaman utama untuk memeriksa.)\n</p><p>8 Hero Gratis: Joy, Kadita, Selena, Zhask, Khufra, Valir, Lolita, Johnson\n</p><p>6 Hero Ekstra Anggota StarLight: Helcurt, Esmeralda, Atlas, Edith, Martis, Akai\n</p><p><br>\nWaktu Server 19/07/2024 05:01:00 hingga 26/07/2024 05:00:00 (Ketuk tombol Pengaturan di sudut kanan atas halaman utama untuk memeriksa.)\n</p><p>8 Hero Gratis: Floryn, Vexana, Badang, Popol and Kupa, X.Borg, Irithel, Bruno, Roger\n</p><p>6 Hero Ekstra Anggota StarLight: Granger, Ling, Dyrroth, Lylia, Valir, Diggie\n</p><p><br>\nWaktu Server 26/07/2024 05:01:00 hingga 02/08/2024 05:00:00 (Ketuk tombol Pengaturan di sudut kanan atas halaman utama untuk memeriksa.)\n</p><p>8 Hero Gratis: Wanwan, Gloo, Martis, Clint, Hayabusa, Fredrinn, Brody, Gatotkaca\n</p><p>6 Hero Ekstra StarLight Member : Rafaela, Beatrix, Moskov, Zhask, Novaria, Eudora\n</p>",
         "role": null
       }
     ],
@@ -13576,7 +13576,7 @@
       {
         "name": "Wanwan",
         "type": "buff",
-        "intro": "Karena mekanisme unik \"bergerak setelah setiap serangan\" dari Wan Wan, damage yang diterimanya lebih lemah dibandingkan kebanyakan Marksman. Kami telah meningkatkan Kecepatan Serangannya untuk mengimbangi hal ini. ---- Buff atribut Kecepatan Serangan Dasar: 0,98 → 1,08 buff Pertumbuhan Kecepatan Serangan: 1% → 2%",
+        "intro": "Karena mekanisme unik \"gerakan setelah setiap serangan\" Wanwan, damage yang diterimanya lebih lemah daripada kebanyakan Marksman. Kami telah meningkatkan Kecepatan Serangannya untuk mengimbangi hal ini. ---- Buff atribut Kecepatan Serangan Dasar: 0,98 → 1,08 buff Pertumbuhan Kecepatan Serangan: 1% → 2%",
         "sections": [],
         "slug": "wanwan"
       },
