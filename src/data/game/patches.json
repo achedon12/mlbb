@@ -1,1397 +1,3313 @@
 {
   "list": [
     {
+      "version": "2.2.23",
+      "title": "Patch 2.2.23",
+      "link": "https://liquipedia.net/mobilelegends/Patch_2.2.23",
+      "date": "2026-11-11",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.2.23"
+    },
+    {
+      "version": "2.2.16a",
+      "title": "Patch 2.2.16a",
+      "link": "https://liquipedia.net/mobilelegends/Patch_2.2.16a",
+      "date": "2026-10-14",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.2.16a"
+    },
+    {
       "version": "2.2.16",
       "title": "Patch Notes 2.2.16",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_2.2.16"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_2.2.16",
+      "date": "2026-09-16",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.2.16"
+    },
+    {
+      "version": "2.1.95a",
+      "title": "Patch 2.1.95a",
+      "link": "https://liquipedia.net/mobilelegends/Patch_2.1.95a",
+      "date": "2026-08-26",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.95a"
+    },
+    {
+      "version": "2.1.95",
+      "title": "Patch 2.1.95",
+      "link": "https://liquipedia.net/mobilelegends/Patch_2.1.95",
+      "date": "2026-08-04",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.95"
     },
     {
       "version": "2.1.90",
       "title": "Patch Notes 2.1.90",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_2.1.90"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_2.1.90",
+      "date": "2026-07-02",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.90"
     },
     {
       "version": "2.1.88",
       "title": "Patch Notes 2.1.88",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_2.1.88"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_2.1.88",
+      "date": "2026-06-17",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.88"
+    },
+    {
+      "version": "2.1.67a",
+      "title": "Patch 2.1.67a",
+      "link": "https://liquipedia.net/mobilelegends/Patch_2.1.67a",
+      "date": "2026-05-13",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.67a"
     },
     {
       "version": "2.1.67",
       "title": "Patch Notes 2.1.67",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_2.1.67"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_2.1.67",
+      "date": "2026-04-22",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.67"
     },
     {
       "version": "2.1.61",
       "title": "Patch Notes 2.1.61",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_2.1.61"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_2.1.61",
+      "date": "2026-03-11",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.61"
     },
     {
       "version": "2.1.47",
       "title": "Patch Notes 2.1.47",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_2.1.47"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_2.1.47",
+      "date": "2026-01-28",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.47"
+    },
+    {
+      "version": "2.1.40a",
+      "title": "Patch 2.1.40a",
+      "link": "https://liquipedia.net/mobilelegends/Patch_2.1.40a",
+      "date": "2025-12-31",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.40a"
     },
     {
       "version": "2.1.40",
       "title": "Patch Notes 2.1.40",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_2.1.40"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_2.1.40",
+      "date": "2025-12-18",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.40"
+    },
+    {
+      "version": "2.1.30a",
+      "title": "Patch 2.1.30a",
+      "link": "https://liquipedia.net/mobilelegends/Patch_2.1.30a",
+      "date": "2025-11-27",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.30a"
+    },
+    {
+      "version": "2.1.30",
+      "title": "Patch 2.1.30",
+      "link": "https://liquipedia.net/mobilelegends/Patch_2.1.30",
+      "date": "2025-11-04",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.30"
+    },
+    {
+      "version": "2.1.18b",
+      "title": "Patch 2.1.18b",
+      "link": "https://liquipedia.net/mobilelegends/Patch_2.1.18b",
+      "date": "2025-10-24",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.18b"
+    },
+    {
+      "version": "2.1.18a",
+      "title": "Patch 2.1.18a",
+      "link": "https://liquipedia.net/mobilelegends/Patch_2.1.18a",
+      "date": "2025-09-29",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.18a"
+    },
+    {
+      "version": "2.1.18",
+      "title": "Patch 2.1.18",
+      "link": "https://liquipedia.net/mobilelegends/Patch_2.1.18",
+      "date": "2025-09-17",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.18"
+    },
+    {
+      "version": "1.9.99a",
+      "title": "Patch 1.9.99a",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.9.99a",
+      "date": "2025-08-26",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.9.99a"
+    },
+    {
+      "version": "1.9.99",
+      "title": "Patch 1.9.99",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.9.99",
+      "date": "2025-08-05",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.9.99"
+    },
+    {
+      "version": "1.9.91",
+      "title": "Patch 1.9.91",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.9.91",
+      "date": "2025-07-02",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.9.91"
+    },
+    {
+      "version": "1.9.90",
+      "title": "Patch 1.9.90",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.9.90",
+      "date": "2025-06-18",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.9.90"
+    },
+    {
+      "version": "1.9.64c",
+      "title": "Patch 1.9.64C",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.9.64C",
+      "date": "2025-05-14",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.9.64C"
+    },
+    {
+      "version": "1.9.64b",
+      "title": "Patch 1.9.64B",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.9.64B",
+      "date": "2025-04-22",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.9.64B"
+    },
+    {
+      "version": "1.9.64",
+      "title": "Patch 1.9.64",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.9.64",
+      "date": "2025-03-18",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.9.64"
     },
     {
       "version": "1.9.47",
       "title": "Patch Notes 1.9.47",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.9.47"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.9.47",
+      "date": "2025-02-17",
+      "liquipedia": null
+    },
+    {
+      "version": "1.9.42e",
+      "title": "Patch 1.9.42E",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.9.42E",
+      "date": "2025-02-13",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.9.42E"
+    },
+    {
+      "version": "1.9.42d",
+      "title": "Patch 1.9.42D",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.9.42D",
+      "date": "2025-02-07",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.9.42D"
+    },
+    {
+      "version": "1.9.42c",
+      "title": "Patch 1.9.42C",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.9.42C",
+      "date": "2025-02-01",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.9.42C"
+    },
+    {
+      "version": "1.9.42b",
+      "title": "Patch 1.9.42B",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.9.42B",
+      "date": "2025-01-01",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.9.42B"
     },
     {
       "version": "1.9.42",
       "title": "Patch Notes 1.9.42",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.9.42"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.9.42",
+      "date": "2024-12-18",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.9.42"
+    },
+    {
+      "version": "1.9.20e",
+      "title": "Patch 1.9.20E",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.9.20E",
+      "date": "2024-11-12",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.9.20E"
+    },
+    {
+      "version": "1.9.20d",
+      "title": "Patch 1.9.20D",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.9.20D",
+      "date": "2024-11-05",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.9.20D"
+    },
+    {
+      "version": "1.9.20c",
+      "title": "Patch 1.9.20C",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.9.20C",
+      "date": "2024-10-10",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.9.20C"
+    },
+    {
+      "version": "1.9.20b",
+      "title": "Patch 1.9.20B",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.9.20B",
+      "date": "2024-09-25",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.9.20B"
     },
     {
       "version": "1.9.20",
       "title": "Patch Notes 1.9.20",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.9.20"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.9.20",
+      "date": "2024-09-18",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.9.20"
+    },
+    {
+      "version": "1.9.06c",
+      "title": "Patch 1.9.06C",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.9.06C",
+      "date": "2024-08-08",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.9.06C"
+    },
+    {
+      "version": "1.9.06b",
+      "title": "Patch 1.9.06B",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.9.06B",
+      "date": "2024-08-05",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.9.06B"
+    },
+    {
+      "version": "1.9.06",
+      "title": "Patch 1.9.06",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.9.06",
+      "date": "2024-07-31",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.9.06"
+    },
+    {
+      "version": "1.8.92c",
+      "title": "Patch 1.8.92C",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.8.92C",
+      "date": "2024-07-22",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.8.92C"
+    },
+    {
+      "version": "1.8.92b",
+      "title": "Patch 1.8.92B",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.8.92B",
+      "date": "2024-06-26",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.8.92B"
     },
     {
       "version": "1.8.92",
       "title": "Patch Notes 1.8.92",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.92"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.92",
+      "date": "2024-06-19",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.8.92"
     },
     {
       "version": "1.8.90",
       "title": "Patch Notes 1.8.90 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.90_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.90_(Advanced_Server)",
+      "date": "2024-06-15",
+      "liquipedia": null
     },
     {
       "version": "1.8.88",
       "title": "Patch Notes 1.8.88 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.88_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.88_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.8.86",
       "title": "Patch Notes 1.8.86 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.86_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.86_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.8.84",
       "title": "Patch Notes 1.8.84 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.84_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.84_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.8.82",
       "title": "Patch Notes 1.8.82 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.82_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.82_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.8.80",
       "title": "Patch Notes 1.8.80",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.80"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.80",
+      "date": null,
+      "liquipedia": null
+    },
+    {
+      "version": "1.8.78c",
+      "title": "Patch 1.8.78C",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.8.78C",
+      "date": "2024-05-27",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.8.78C"
+    },
+    {
+      "version": "1.8.78b",
+      "title": "Patch 1.8.78B",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.8.78B",
+      "date": "2024-04-30",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.8.78B"
     },
     {
       "version": "1.8.78",
       "title": "Patch Notes 1.8.78",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.78"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.78",
+      "date": "2024-04-23",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.8.78"
     },
     {
       "version": "1.8.76",
       "title": "Patch Notes 1.8.76 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.76_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.76_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.8.74",
       "title": "Patch Notes 1.8.74 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.74_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.74_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.8.72",
       "title": "Patch Notes 1.8.72 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.72_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.72_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.8.70",
       "title": "Patch Notes 1.8.70 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.70_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.70_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.8.68",
       "title": "Patch Notes 1.8.68 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.68_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.68_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
+    },
+    {
+      "version": "1.8.66b",
+      "title": "Patch 1.8.66B",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.8.66B",
+      "date": "2024-03-28",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.8.66B"
     },
     {
       "version": "1.8.66",
       "title": "Patch Notes 1.8.66",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.66"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.66",
+      "date": "2024-03-13",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.8.66"
     },
     {
       "version": "1.8.62",
       "title": "Patch Notes 1.8.62 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.62_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.62_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.8.60",
       "title": "Patch Notes 1.8.60 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.60_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.60_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.8.58",
       "title": "Patch Notes 1.8.58 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.58_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.58_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
+    },
+    {
+      "version": "1.8.56b",
+      "title": "Patch 1.8.56B",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.8.56B",
+      "date": "2024-02-26",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.8.56B"
     },
     {
       "version": "1.8.56",
       "title": "Patch Notes 1.8.56",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.56"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.56",
+      "date": "2024-01-31",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.8.56"
+    },
+    {
+      "version": "1.8.47b",
+      "title": "Patch 1.8.47B",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.8.47B",
+      "date": "2024-01-10",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.8.47B"
     },
     {
       "version": "1.8.47",
       "title": "Patch Notes 1.8.47",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.47"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.47",
+      "date": "2023-12-27",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.8.47"
+    },
+    {
+      "version": "1.8.44",
+      "title": "Patch 1.8.44",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.8.44",
+      "date": "2023-12-20",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.8.44"
     },
     {
       "version": "1.8.38",
       "title": "Patch Notes 1.8.38 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.38_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.38_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.8.36",
       "title": "Patch Notes 1.8.36 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.36_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.36_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.8.32",
       "title": "Patch Notes 1.8.32 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.32_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.32_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
+    },
+    {
+      "version": "1.8.30b",
+      "title": "Patch 1.8.30B",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.8.30B",
+      "date": "2023-11-14",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.8.30B"
     },
     {
       "version": "1.8.30",
       "title": "Patch Notes 1.8.30",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.30"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.30",
+      "date": "2023-11-07",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.8.30"
     },
     {
       "version": "1.8.28",
       "title": "Patch Notes 1.8.28 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.28_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.28_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.8.26",
       "title": "Patch Notes 1.8.26 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.26_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.26_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.8.24",
       "title": "Patch Notes 1.8.24 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.24_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.24_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.8.22",
       "title": "Patch Notes 1.8.22 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.22_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.22_(Advanced_Server)",
+      "date": "2023-10-19",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.8.22"
+    },
+    {
+      "version": "1.8.20b",
+      "title": "Patch 1.8.20B",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.8.20B",
+      "date": "2023-10-18",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.8.20B"
     },
     {
       "version": "1.8.20",
       "title": "Patch Notes 1.8.20",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.20"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.20",
+      "date": "2023-09-19",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.8.20"
     },
     {
       "version": "1.8.18",
       "title": "Patch Notes 1.8.18 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.18_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.18_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.8.08",
       "title": "Patch Notes 1.8.08",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.08"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.08",
+      "date": "2023-08-08",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.8.08"
+    },
+    {
+      "version": "1.7.94",
+      "title": "Patch 1.7.94",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.7.94",
+      "date": "2023-06-26",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.7.94"
+    },
+    {
+      "version": "1.7.82b",
+      "title": "Patch 1.7.82B",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.7.82B",
+      "date": "2023-06-04",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.7.82B"
     },
     {
       "version": "1.7.82",
       "title": "Patch Notes 1.7.82",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.7.82"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.7.82",
+      "date": "2023-05-16",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.7.82"
+    },
+    {
+      "version": "1.7.68",
+      "title": "Patch 1.7.68",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.7.68",
+      "date": "2023-03-22",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.7.68"
+    },
+    {
+      "version": "1.7.58",
+      "title": "Patch 1.7.58",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.7.58",
+      "date": "2023-02-14",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.7.58"
+    },
+    {
+      "version": "1.7.44c",
+      "title": "Patch 1.7.44C",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.7.44C",
+      "date": "2022-12-28",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.7.44C"
+    },
+    {
+      "version": "1.7.44b",
+      "title": "Patch 1.7.44B",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.7.44B",
+      "date": "2022-12-23",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.7.44B"
     },
     {
       "version": "1.7.44",
       "title": "Patch Notes 1.7.44",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.7.44"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.7.44",
+      "date": "2022-12-20",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.7.44"
     },
     {
       "version": "1.7.40",
       "title": "Patch Notes 1.7.40 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.7.40_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.7.40_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
+    },
+    {
+      "version": "1.7.32c",
+      "title": "Patch 1.7.32C",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.7.32C",
+      "date": "2022-11-30",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.7.32C"
+    },
+    {
+      "version": "1.7.32b",
+      "title": "Patch 1.7.32B",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.7.32B",
+      "date": "2022-11-11",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.7.32B"
     },
     {
       "version": "1.7.32",
       "title": "Patch Notes 1.7.32",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.7.32"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.7.32",
+      "date": "2022-11-07",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.7.32"
+    },
+    {
+      "version": "1.7.20b",
+      "title": "Patch 1.7.20B",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.7.20B",
+      "date": "2022-10-24",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.7.20B"
+    },
+    {
+      "version": "1.7.20",
+      "title": "Patch 1.7.20",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.7.20",
+      "date": "2022-09-20",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.7.20"
+    },
+    {
+      "version": "1.7.08",
+      "title": "Patch 1.7.08",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.7.08",
+      "date": "2022-08-09",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.7.08"
+    },
+    {
+      "version": "1.6.94b",
+      "title": "Patch 1.6.94B",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.6.94B",
+      "date": "2022-07-12",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.6.94B"
+    },
+    {
+      "version": "1.6.94",
+      "title": "Patch 1.6.94",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.6.94",
+      "date": "2022-06-28",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.6.94"
     },
     {
       "version": "1.6.84",
       "title": "Patch Notes 1.6.84",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.84"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.84",
+      "date": "2022-05-23",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.6.84"
     },
     {
       "version": "1.6.78",
       "title": "Patch Notes 1.6.78 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.78_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.78_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.6.76",
       "title": "Patch Notes 1.6.76 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.76_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.76_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.6.74",
       "title": "Patch Notes 1.6.74 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.74_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.74_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.6.72",
       "title": "Patch Notes 1.6.72",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.72"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.72",
+      "date": "2022-04-11",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.6.72"
     },
     {
       "version": "1.6.70",
       "title": "Patch Notes 1.6.70 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.70_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.70_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.6.68",
       "title": "Patch Notes 1.6.68 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.68_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.68_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
+    },
+    {
+      "version": "1.6.66b",
+      "title": "Patch 1.6.66B",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.6.66B",
+      "date": "2022-03-29",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.6.66B"
     },
     {
       "version": "1.6.66",
       "title": "Patch Notes 1.6.66",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.66"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.66",
+      "date": "2022-03-21",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.6.66"
     },
     {
       "version": "1.6.64",
       "title": "Patch Notes 1.6.64 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.64_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.64_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.6.62",
       "title": "Patch Notes 1.6.62 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.62_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.62_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.6.60",
       "title": "Patch Notes 1.6.60 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.60_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.60_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.6.58",
       "title": "Patch Notes 1.6.58",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.58"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.58",
+      "date": "2022-02-21",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.6.58"
     },
     {
       "version": "1.6.56",
       "title": "Patch Notes 1.6.56 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.56_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.56_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.6.54",
       "title": "Patch Notes 1.6.54 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.54_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.54_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.6.52",
       "title": "Patch Notes 1.6.52 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.52_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.52_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
+    },
+    {
+      "version": "1.6.50b",
+      "title": "Patch 1.6.50B",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.6.50B",
+      "date": "2022-01-27",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.6.50B"
     },
     {
       "version": "1.6.50",
       "title": "Patch Notes 1.6.50",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.50"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.50",
+      "date": "2022-01-17",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.6.50"
     },
     {
       "version": "1.6.48",
       "title": "Patch Notes 1.6.48 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.48_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.48_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.6.46",
       "title": "Patch Notes 1.6.46 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.46_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.46_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.6.44",
       "title": "Patch Notes 1.6.44 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.44_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.44_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.6.42",
       "title": "Patch Notes 1.6.42",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.42"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.42",
+      "date": "2021-12-21",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.6.42"
     },
     {
       "version": "1.6.40",
       "title": "Patch Notes 1.6.40 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.40_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.40_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.6.34",
       "title": "Patch Notes 1.6.34",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.34"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.34",
+      "date": "2021-11-25",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.6.34"
+    },
+    {
+      "version": "1.6.26b",
+      "title": "Patch 1.6.26B",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.6.26B",
+      "date": "2021-11-01",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.6.26B"
     },
     {
       "version": "1.6.26",
       "title": "Patch Notes 1.6.26",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.26"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.26",
+      "date": "2021-10-26",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.6.26"
+    },
+    {
+      "version": "1.6.18b",
+      "title": "Patch 1.6.18B",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.6.18B",
+      "date": "2021-09-27",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.6.18B"
     },
     {
       "version": "1.6.18",
       "title": "Patch Notes 1.6.18",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.18"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.18",
+      "date": "2021-09-21",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.6.18"
     },
     {
       "version": "1.6.10",
       "title": "Patch Notes 1.6.10",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.10"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.6.10",
+      "date": "2021-08-23",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.6.10"
     },
     {
       "version": "1.5.96",
       "title": "Patch Notes 1.5.96",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.96"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.96",
+      "date": "2021-07-19",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.5.96"
+    },
+    {
+      "version": "1.5.88b",
+      "title": "Patch 1.5.88B",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.5.88B",
+      "date": "2021-07-09",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.5.88B"
     },
     {
       "version": "1.5.88",
       "title": "Patch Notes 1.5.88",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.88"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.88",
+      "date": "2021-06-14",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.5.88"
     },
     {
       "version": "1.5.78",
       "title": "Patch Notes 1.5.78",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.78"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.78",
+      "date": "2021-05-10",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.5.78"
     },
     {
       "version": "1.5.70",
       "title": "Patch Notes 1.5.70",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.70"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.70",
+      "date": "2021-04-12",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.5.70"
+    },
+    {
+      "version": "1.5.62b",
+      "title": "Patch 1.5.62B",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.5.62B",
+      "date": "2021-03-24",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.5.62B"
     },
     {
       "version": "1.5.62",
       "title": "Patch Notes 1.5.62",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.62"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.62",
+      "date": "2021-03-15",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.5.62"
     },
     {
       "version": "1.5.52",
       "title": "Patch Notes 1.5.52",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.52"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.52",
+      "date": "2021-02-01",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.5.52"
     },
     {
       "version": "1.5.46",
       "title": "Patch Notes 1.5.46",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.46"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.46",
+      "date": "2021-01-12",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.5.46"
     },
     {
       "version": "1.5.44",
       "title": "Patch Notes 1.5.44",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.44"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.44",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.5.42",
       "title": "Patch Notes 1.5.42 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.42_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.42_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.5.40",
       "title": "Patch Notes 1.5.40 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.40_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.40_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
+    },
+    {
+      "version": "1.5.38b",
+      "title": "Patch 1.5.38B",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.5.38B",
+      "date": "2021-01-04",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.5.38B"
     },
     {
       "version": "1.5.38",
       "title": "Patch Notes 1.5.38",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.38"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.38",
+      "date": "2020-12-15",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.5.38"
     },
     {
       "version": "1.5.36",
       "title": "Patch Notes 1.5.36 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.36_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.36_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.5.34",
       "title": "Patch Notes 1.5.34 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.34_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.34_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.5.32",
       "title": "Patch Notes 1.5.32",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.32"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.32",
+      "date": "2020-11-24",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.5.32"
     },
     {
       "version": "1.5.30",
       "title": "Patch Notes 1.5.30 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.30_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.30_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.5.28",
       "title": "Patch Notes 1.5.28 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.28_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.28_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.5.26",
       "title": "Patch Notes 1.5.26 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.26_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.26_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
+    },
+    {
+      "version": "1.5.24b",
+      "title": "Patch 1.5.24B",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.5.24B",
+      "date": "2020-11-05",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.5.24B"
     },
     {
       "version": "1.5.24",
       "title": "Patch Notes 1.5.24",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.24"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.24",
+      "date": "2020-10-25",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.5.24"
     },
     {
       "version": "1.5.22",
       "title": "Patch Notes 1.5.22 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.22_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.22_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.5.20",
       "title": "Patch Notes 1.5.20 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.20_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.20_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.5.18",
       "title": "User blog:Syafrilzein/Patch Notes 1.5.18 October 12, 2020",
-      "link": "https://mobilelegends.fandom.com/wiki/User_blog%3ASyafrilzein%2FPatch_Notes_1.5.18_October_12%2C_2020"
+      "link": "https://mobilelegends.fandom.com/wiki/User_blog%3ASyafrilzein%2FPatch_Notes_1.5.18_October_12%2C_2020",
+      "date": null,
+      "liquipedia": null
+    },
+    {
+      "version": "1.5.16b",
+      "title": "Patch 1.5.16B",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.5.16B",
+      "date": "2020-10-11",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.5.16B"
     },
     {
       "version": "1.5.16",
       "title": "Patch Notes 1.5.16",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.16"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.16",
+      "date": "2020-09-20",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.5.16"
     },
     {
       "version": "1.5.14",
       "title": "Patch Notes 1.5.14 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.14_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.14_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.5.12",
       "title": "Patch Notes 1.5.12 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.12_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.12_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.5.10",
       "title": "Patch Notes 1.5.10 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.10_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.10_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.5.08",
       "title": "Patch Notes 1.5.08",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.08"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.08",
+      "date": "2020-08-25",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.5.08"
     },
     {
       "version": "1.5.06",
       "title": "Patch Notes 1.5.06 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.06_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.06_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.5.04",
       "title": "Patch Notes 1.5.04 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.04_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.04_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.5.00",
       "title": "Patch Notes 1.5.00 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.00_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.5.00_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.98",
       "title": "Patch Notes 1.4.98 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.98_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.98_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.96",
       "title": "Patch Notes 1.4.96 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.96_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.96_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
+    },
+    {
+      "version": "1.4.94b",
+      "title": "Patch 1.4.94B",
+      "link": "https://liquipedia.net/mobilelegends/Patch_1.4.94B",
+      "date": "2020-07-30",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.4.94B"
     },
     {
       "version": "1.4.94",
       "title": "Patch Notes 1.4.94",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.94"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.94",
+      "date": "2020-07-14",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.4.94"
     },
     {
       "version": "1.4.92",
       "title": "Patch Notes 1.4.92 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.92_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.92_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.90",
       "title": "Patch Notes 1.4.90 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.90_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.90_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.88",
       "title": "Patch Notes 1.4.88 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.88_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.88_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.86",
       "title": "Patch Notes 1.4.86",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.86"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.86",
+      "date": "2020-06-16",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.4.86"
     },
     {
       "version": "1.4.84",
       "title": "Patch Notes 1.4.84 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.84_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.84_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.82",
       "title": "Patch Notes 1.4.82 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.82_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.82_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.80",
       "title": "Patch Notes 1.4.80 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.80_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.80_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.78",
       "title": "Patch Notes 1.4.78 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.78_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.78_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.76",
       "title": "Patch Notes 1.4.76",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.76"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.76",
+      "date": "2020-05-12",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.4.76"
     },
     {
       "version": "1.4.74",
       "title": "Patch Notes 1.4.74 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.74_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.74_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.72",
       "title": "Patch Notes 1.4.72 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.72_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.72_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.70",
       "title": "Patch Notes 1.4.70",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.70"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.70",
+      "date": "2020-04-21",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.4.70"
     },
     {
       "version": "1.4.68",
       "title": "Patch Notes 1.4.68 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.68_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.68_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.66",
       "title": "Patch Notes 1.4.66 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.66_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.66_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.64",
       "title": "Patch Notes 1.4.64 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.64_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.64_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.62",
       "title": "Patch Notes 1.4.62 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.62_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.62_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.60",
       "title": "Patch Notes 1.4.60",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.60"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.60",
+      "date": "2020-03-18",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.4.60"
     },
     {
       "version": "1.4.58",
       "title": "Patch Notes 1.4.58 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.58_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.58_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.56",
       "title": "Patch Notes 1.4.56 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.56_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.56_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.54",
       "title": "Patch Notes 1.4.54 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.54_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.54_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.52",
       "title": "Patch Notes 1.4.52 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.52_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.52_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.50",
       "title": "Patch Notes 1.4.50",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.50"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.50",
+      "date": "2020-02-11",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.4.50"
     },
     {
       "version": "1.4.48",
       "title": "Patch Notes 1.4.48 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.48_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.48_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.46",
       "title": "Patch Notes 1.4.46 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.46_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.46_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.44",
       "title": "Patch Notes 1.4.44",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.44"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.44",
+      "date": "2020-01-14",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.4.44"
     },
     {
       "version": "1.4.42",
       "title": "Patch Notes 1.4.42 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.42_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.42_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.40",
       "title": "Patch Notes 1.4.40 (Advanced Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.40_(Advanced_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.40_(Advanced_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.36",
       "title": "Patch Notes 1.4.36",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.36"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.36",
+      "date": "2019-12-17",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.4.36"
     },
     {
       "version": "1.4.28",
       "title": "Patch Notes 1.4.28",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.28"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.28",
+      "date": "2019-11-19",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.4.28"
     },
     {
       "version": "1.4.22",
       "title": "Patch Notes 1.4.22",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.22"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.22",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.20",
       "title": "Patch Notes 1.4.20",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.20"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.20",
+      "date": "2019-10-15",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.4.20"
     },
     {
       "version": "1.4.18",
       "title": "Patch Notes 1.4.18",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.18"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.18",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.16",
       "title": "Patch Notes 1.4.16",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.16"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.16",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.14",
       "title": "Patch Notes 1.4.14",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.14"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.14",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.12",
       "title": "Patch Notes 1.4.12",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.12"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.12",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.10",
       "title": "Patch Notes 1.4.10",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.10"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.10",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.08",
       "title": "Patch Notes 1.4.08",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.08"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.08",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.06",
       "title": "Patch Notes 1.4.06",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.06"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.06",
+      "date": "2019-08-20",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.4.06"
     },
     {
       "version": "1.4.04",
       "title": "Patch Notes 1.4.04",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.04"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.04",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.4.02",
       "title": "Patch Notes 1.4.02",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.02"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.4.02",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.98",
       "title": "Patch Notes 1.3.98",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.98"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.98",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.96",
       "title": "Patch Notes 1.3.96",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.96"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.96",
+      "date": "2019-07-23",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.3.96"
     },
     {
       "version": "1.3.94",
       "title": "Patch Notes 1.3.94",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.94"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.94",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.92",
       "title": "Patch Notes 1.3.92",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.92"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.92",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.90",
       "title": "Patch Notes 1.3.90",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.90"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.90",
+      "date": "2019-06-27",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.3.90"
     },
     {
       "version": "1.3.88",
       "title": "Patch Notes 1.3.88",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.88"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.88",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.86",
       "title": "Patch Notes 1.3.86",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.86"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.86",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.84",
       "title": "Patch Notes 1.3.84",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.84"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.84",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.82",
       "title": "Patch Notes 1.3.82",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.82"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.82",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.80",
       "title": "Patch Notes 1.3.80",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.80"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.80",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.78",
       "title": "Patch Notes 1.3.78",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.78"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.78",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.76",
       "title": "Patch Notes 1.3.76",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.76"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.76",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.74",
       "title": "Patch Notes 1.3.74",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.74"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.74",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.72",
       "title": "Patch Notes 1.3.72",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.72"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.72",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.70",
       "title": "Patch Notes 1.3.70",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.70"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.70",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.68",
       "title": "Patch Notes 1.3.68",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.68"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.68",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.66",
       "title": "Patch Notes 1.3.66",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.66"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.66",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.64",
       "title": "Patch Notes 1.3.64",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.64"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.64",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.62",
       "title": "Patch Notes 1.3.62",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.62"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.62",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.60",
       "title": "Patch Notes 1.3.60",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.60"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.60",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.58",
       "title": "Patch Notes 1.3.58",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.58"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.58",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.56",
       "title": "Patch Notes 1.3.56",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.56"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.56",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.54",
       "title": "Patch Notes 1.3.54",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.54"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.54",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.52",
       "title": "Patch Notes 1.3.52 (Advance Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.52_(Advance_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.52_(Advance_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.50",
       "title": "Patch Notes 1.3.50",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.50"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.50",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.48",
       "title": "Patch Notes 1.3.48",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.48"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.48",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.46",
       "title": "Patch Notes 1.3.46",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.46"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.46",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.44",
       "title": "Patch Notes 1.3.44",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.44"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.44",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.42",
       "title": "Patch Notes 1.3.42",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.42"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.42",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.38",
       "title": "Patch Notes 1.3.38",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.38"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.38",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.36",
       "title": "Patch Notes 1.3.36",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.36"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.36",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.34",
       "title": "Patch Notes 1.3.34",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.34"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.34",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.32",
       "title": "Patch Notes 1.3.32",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.32"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.32",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.30",
       "title": "Patch Notes 1.3.30",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.30"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.30",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.26",
       "title": "Patch Notes 1.3.26",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.26"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.26",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.24",
       "title": "Patch Notes 1.3.24",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.24"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.24",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.22",
       "title": "Patch Notes 1.3.22",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.22"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.22",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.20",
       "title": "Patch Notes 1.3.20",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.20"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.20",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.18",
       "title": "Patch Notes 1.3.18",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.18"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.18",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.16",
       "title": "Patch Notes 1.3.16",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.16"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.16",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.14",
       "title": "Patch Notes 1.3.14",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.14"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.14",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.12",
       "title": "Patch Notes 1.3.12",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.12"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.12",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.10",
       "title": "Patch Notes 1.3.10 (Advance Server)",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.10_(Advance_Server)"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.10_(Advance_Server)",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.08",
       "title": "Patch Notes 1.3.08",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.08"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.08",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.06",
       "title": "Patch Notes 1.3.06",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.06"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.06",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.04",
       "title": "Patch Notes 1.3.04",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.04"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.04",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.3.02",
       "title": "Patch Notes 1.3.02",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.02"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.3.02",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.98",
       "title": "Patch Notes 1.2.98",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.98"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.98",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.96",
       "title": "Patch Notes 1.2.96",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.96"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.96",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.94",
       "title": "Patch Notes 1.2.94",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.94"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.94",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.92",
       "title": "Patch Notes 1.2.92",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.92"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.92",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.90",
       "title": "Patch Notes 1.2.90",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.90"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.90",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.88",
       "title": "Patch Notes 1.2.88",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.88"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.88",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.86",
       "title": "Patch Notes 1.2.86",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.86"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.86",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.84",
       "title": "Patch Notes 1.2.84",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.84"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.84",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.82",
       "title": "Patch Notes 1.2.82",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.82"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.82",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.80",
       "title": "Patch Notes 1.2.80",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.80"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.80",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.78",
       "title": "Patch Notes 1.2.78",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.78"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.78",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.76",
       "title": "Patch Notes 1.2.76",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.76"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.76",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.74",
       "title": "Patch Notes 1.2.74",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.74"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.74",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.72",
       "title": "Patch Notes 1.2.72",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.72"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.72",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.70",
       "title": "Patch Notes 1.2.70",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.70"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.70",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.68",
       "title": "Patch Notes 1.2.68",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.68"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.68",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.66",
       "title": "Patch Notes 1.2.66",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.66"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.66",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.64",
       "title": "Patch Notes 1.2.64",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.64"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.64",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.62",
       "title": "Patch Notes 1.2.62",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.62"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.62",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.60",
       "title": "Patch Notes 1.2.60",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.60"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.60",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.58",
       "title": "Patch Notes 1.2.58",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.58"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.58",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.56",
       "title": "Patch Notes 1.2.56",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.56"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.56",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.54",
       "title": "Patch Notes 1.2.54",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.54"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.54",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.52",
       "title": "Patch Notes 1.2.52",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.52"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.52",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.50",
       "title": "Patch Notes 1.2.50",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.50"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.50",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.48",
       "title": "Patch Notes 1.2.48",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.48"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.48",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.46",
       "title": "Patch Notes 1.2.46",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.46"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.46",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.44",
       "title": "Patch Notes 1.2.44",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.44"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.44",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.42",
       "title": "Patch Notes 1.2.42",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.42"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.42",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.40",
       "title": "Patch Notes 1.2.40",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.40"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.40",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.38",
       "title": "Patch Notes 1.2.38",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.38"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.38",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.36",
       "title": "Patch Notes 1.2.36",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.36"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.36",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.34",
       "title": "Patch Notes 1.2.34",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.34"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.34",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.32",
       "title": "Patch Notes 1.2.32",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.32"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.32",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.30",
       "title": "Patch Notes 1.2.30",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.30"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.30",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.28",
       "title": "Patch Notes 1.2.28",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.28"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.28",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.26",
       "title": "Patch Notes 1.2.26",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.26"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.26",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.24",
       "title": "Patch Notes 1.2.24",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.24"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.24",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.22",
       "title": "Patch Notes 1.2.22",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.22"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.22",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.20",
       "title": "Patch Notes 1.2.20",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.20"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.20",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.18",
       "title": "Patch Notes 1.2.18",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.18"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.18",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.16",
       "title": "Patch Notes 1.2.16",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.16"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.16",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.14",
       "title": "Patch Notes 1.2.14",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.14"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.14",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.12",
       "title": "Patch Notes 1.2.12",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.12"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.12",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.10",
       "title": "Patch Notes 1.2.10",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.10"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.10",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.08",
       "title": "Patch Notes 1.2.08",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.08"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.08",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.06",
       "title": "Patch Notes 1.2.06",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.06"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.06",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.04",
       "title": "Patch Notes 1.2.04",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.04"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.04",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.2.02",
       "title": "Patch Notes 1.2.02",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.02"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.2.02",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.98",
       "title": "Patch Notes 1.1.98",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.98"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.98",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.96",
       "title": "Patch Notes 1.1.96",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.96"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.96",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.94",
       "title": "Patch Notes 1.1.94",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.94"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.94",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.92",
       "title": "Patch Notes 1.1.92",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.92"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.92",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.90",
       "title": "Patch Notes 1.1.90",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.90"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.90",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.88",
       "title": "Patch Notes 1.1.88",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.88"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.88",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.86",
       "title": "Patch Notes 1.1.86",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.86"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.86",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.85",
       "title": "Patch Notes 1.1.85",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.85"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.85",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.84",
       "title": "Patch Notes 1.1.84",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.84"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.84",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.83",
       "title": "Patch Notes 1.1.83",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.83"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.83",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.82",
       "title": "Patch Notes 1.1.82",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.82"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.82",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.80",
       "title": "Patch Notes 1.1.80",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.80"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.80",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.78",
       "title": "Patch Notes 1.1.78",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.78"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.78",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.76",
       "title": "Patch Notes 1.1.76",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.76"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.76",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.74",
       "title": "Patch Notes 1.1.74",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.74"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.74",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.72",
       "title": "Patch Notes 1.1.72",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.72"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.72",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.70",
       "title": "Patch Notes 1.1.70",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.70"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.70",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.68",
       "title": "Patch Notes 1.1.68",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.68"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.68",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.66",
       "title": "Patch Notes 1.1.66",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.66"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.66",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.64",
       "title": "Patch Notes 1.1.64",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.64"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.64",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.62",
       "title": "Patch Notes 1.1.62",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.62"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.62",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.60",
       "title": "Patch Notes 1.1.60",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.60"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.60",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.58",
       "title": "Patch Notes 1.1.58",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.58"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.58",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.56",
       "title": "Patch Notes 1.1.56",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.56"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.56",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.54",
       "title": "Patch Notes 1.1.54",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.54"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.54",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.52",
       "title": "Patch Notes 1.1.52",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.52"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.52",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.50",
       "title": "Patch Notes 1.1.50",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.50"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.50",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.48",
       "title": "Patch Notes 1.1.48",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.48"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.48",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.46",
       "title": "Patch Notes 1.1.46",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.46"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.46",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.44",
       "title": "Patch Notes 1.1.44",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.44"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.44",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.42",
       "title": "Patch Notes 1.1.42",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.42"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.42",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.40",
       "title": "Patch Notes 1.1.40",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.40"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.40",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.38",
       "title": "Patch Notes 1.1.38.125.1",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.38.125.1"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.38.125.1",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.34",
       "title": "Patch Notes 1.1.34.122.1",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.34.122.1"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.34.122.1",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.32",
       "title": "Patch Notes 1.1.32.118.1",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.32.118.1"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.32.118.1",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.29",
       "title": "Patch Notes 1.1.29.115.1",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.29.115.1"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.29.115.1",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.28",
       "title": "Patch Notes 1.1.28.114.1",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.28.114.1"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.28.114.1",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.24",
       "title": "Patch Notes 1.1.24.110.1",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.24.110.1"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.24.110.1",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.23",
       "title": "Patch Notes 1.1.23.109.1",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.23.109.1"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.23.109.1",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.22",
       "title": "Patch Notes 1.1.22.108.1",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.22.108.1"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.22.108.1",
+      "date": null,
+      "liquipedia": null
     },
     {
       "version": "1.1.21",
       "title": "Patch Notes 1.1.21.107.1",
-      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.21.107.1"
+      "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.1.21.107.1",
+      "date": null,
+      "liquipedia": null
     }
   ],
   "details": {
+    "2.2.23": {
+      "version": "2.2.23",
+      "title": "Patch 2.2.23",
+      "date": "2026-11-11",
+      "link": "https://liquipedia.net/mobilelegends/Patch_2.2.23",
+      "source": "liquipedia",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.2.23",
+      "toc": [
+        {
+          "level": 2,
+          "title": "From The Designers",
+          "anchor": "from-the-designers"
+        },
+        {
+          "level": 2,
+          "title": "I. Revamped Hero",
+          "anchor": "i-revamped-hero"
+        },
+        {
+          "level": 2,
+          "title": "II. Hero Adjustments",
+          "anchor": "ii-hero-adjustments"
+        },
+        {
+          "level": 2,
+          "title": "III. Battlefield Adjustments",
+          "anchor": "iii-battlefield-adjustments"
+        },
+        {
+          "level": 3,
+          "title": "Equipment",
+          "anchor": "equipment"
+        },
+        {
+          "level": 3,
+          "title": "Talents",
+          "anchor": "talents"
+        },
+        {
+          "level": 3,
+          "title": "Battle Spell",
+          "anchor": "battle-spell"
+        },
+        {
+          "level": 3,
+          "title": "Mythical Honor Battlefield",
+          "anchor": "mythical-honor-battlefield"
+        },
+        {
+          "level": 3,
+          "title": "Battlefield Effects",
+          "anchor": "battlefield-effects"
+        },
+        {
+          "level": 2,
+          "title": "IV. System Adjustments",
+          "anchor": "iv-system-adjustments"
+        },
+        {
+          "level": 3,
+          "title": "Auction House Optimizations",
+          "anchor": "auction-house-optimizations"
+        },
+        {
+          "level": 3,
+          "title": "New Mode Selection Screen Available",
+          "anchor": "new-mode-selection-screen-available"
+        },
+        {
+          "level": 3,
+          "title": "Tablet Support",
+          "anchor": "tablet-support"
+        },
+        {
+          "level": 2,
+          "title": "V. Mode Adjustments",
+          "anchor": "v-mode-adjustments"
+        },
+        {
+          "level": 3,
+          "title": "Card Brawl",
+          "anchor": "card-brawl"
+        },
+        {
+          "level": 3,
+          "title": "Brawl",
+          "anchor": "brawl"
+        }
+      ],
+      "sections": [
+        {
+          "anchor": null,
+          "title": null,
+          "html": "<p>Highlights of patch 2.2.23:</p>\n<ul><li>Revamped Hero Popol and Kupa, Icefield Companions. Hero Feature: A marksman who fights alongside Kupa and uses traps to control the battlefield.</li><li>Hero Adjustments</li><li>Battlefield Adjustments</li><li>System Adjustments</li><li>Mode Adjustments</li></ul>",
+          "role": null
+        },
+        {
+          "anchor": "from-the-designers",
+          "title": "From The Designers",
+          "html": "<p>In this patch, we've made adjustments to some overly strong heroes and optimized a few underused heroes.</p>\n<p>We've also made changes in response to a growing trend in high-rank matches, where Fighters take the Gold Lane and Roaming Tanks take the EXP Lane.</p>\n<p>These changes aim to help the traditional heroes in both lanes reclaim their positions. We'll continue to monitor the impact of these changes.</p>",
+          "role": null
+        },
+        {
+          "anchor": "i-revamped-hero",
+          "title": "I. Revamped Hero",
+          "html": "",
+          "role": "newHeroes"
+        },
+        {
+          "anchor": "ii-hero-adjustments",
+          "title": "II. Hero Adjustments",
+          "html": "",
+          "role": "adjustments"
+        },
+        {
+          "anchor": "iii-battlefield-adjustments",
+          "title": "III. Battlefield Adjustments",
+          "html": "<h3 id=\"equipment\">Equipment</h3>\n<p><b>Chastise Pauldron</b> <strong>▼ Nerf</strong></p>\n<p><i>This equipment was too effective at countering Attack Speed-based heroes.</i></p>\n<p><b>Unique Passive - Chastise</b> <strong>▼ Nerf</strong><br>Reduces the attacker's Attack Speed and Attack Speed cap to 75% → 80%.</p>\n<p><b>Antique Cuirass</b> <strong>▲ Buff</strong></p>\n<p><i>This equipment underperformed compared to Chastise Pauldron.</i></p>\n<p><b>Unique Passive - Deter</b> <strong>▲ Buff</strong><br>Reduces the attacker's Physical Damage by 6% → 8%.</p>\n<h3 id=\"talents\">Talents</h3>\n<p><b>Concussive Blast</b> <strong>◆ Adjusted</strong></p>\n<p><i>We found that an increasing number of roaming tank heroes are moving to the Exp Lane. In the early-to-mid game, they have stronger control and durability than most fighters, while dealing nearly as much damage.</i></p>\n<p>We're reducing certain tank heroes' minion-clearing ability to bring fighters back to the Exp Lane.<br>Damage: 100 (+7% Total HP) → 100 (+8% Total HP) (deals 50% less damage to minions)</p>\n<h3 id=\"battle-spell\">Battle Spell</h3>\n<p><b>Sprint</b> <strong>▲ Buff</strong></p>\n<p>Cooldown: 100s → 75s</p>\n<h3 id=\"mythical-honor-battlefield\">Mythical Honor Battlefield</h3>\n<p>Gold Lane Siege Minion <strong>▲ Buff</strong><br>We've noticed that fighters have been taking over the Gold Lane in both high-tier Ranked and professional matches. To help marksmen farm faster, we've increased the Gold provided by the Gold Lane in the early game.</p>\n<p>Extra Gold: 40% → 60%</p>\n<h3 id=\"battlefield-effects\">Battlefield Effects</h3>\n<p><b>Golden Turret</b> <strong>◆ Adjusted</strong></p>\n<p><i>We've noticed that teams that are behind have difficulty making a comeback with this battlefield effect. We've adjusted some values while preserving its unique features.</i></p>\n<p>Base Turret's HP Increase: 1,000 → 2,000<br>Team Gold provided by the Outer Turret: 100 → 90<br>Team Gold provided by the Inner Turret: 140 → 120</p>\n<p><b>Healing Turtle</b> <strong>◆ Adjusted</strong></p>\n<p><i>We've noticed that the income from killing the Turtle in a lane was significantly lower than that from a minion wave, leaving the defending team at an additional economic disadvantage. Therefore, we've significantly increased the Gold and EXP from killing an enemy Turtle. This income is shared among allied heroes within range and now roughly matches that of a minion wave.</i></p>\n<p>Therefore, we've significantly increased the Gold and EXP from killing an enemy Turtle. This income is shared among allied heroes within range and now roughly matches that of a minion wave.</p>",
+          "role": null
+        },
+        {
+          "anchor": "iv-system-adjustments",
+          "title": "IV. System Adjustments",
+          "html": "<h3 id=\"auction-house-optimizations\">Auction House Optimizations</h3>\n<p>Added an Auction House Item Sources entry to the Auction House screen, showing a list of Auction House items available from the Bang Bang Card event.</p>\n<h3 id=\"new-mode-selection-screen-available\">New Mode Selection Screen Available</h3>\n<p>To make it easier to enjoy Arcade mode, we've optimized the mode selection screen. The new interface still lets you quickly access standard modes, as well as easily find the Arcade mode you want to play.</p>\n<h3 id=\"tablet-support\">Tablet Support</h3>\n<p>Optimized interface layouts on tablet devices.</p>",
+          "role": null
+        },
+        {
+          "anchor": "v-mode-adjustments",
+          "title": "V. Mode Adjustments",
+          "html": "<h3 id=\"card-brawl\">Card Brawl</h3>\n<p>Welcome to Card Brawl! In Necrokeep, choose from randomly offered cards at specific hero levels, up to five times. Combine cards to power up, shape your playstyle, and pull off exciting plays! Card Brawl also lets you complete activity tasks, earn Bangbang Cards, and increase your StarLight level!</p>\n<h3 id=\"brawl\">Brawl</h3>\n<h4 id=\"hero-balance-adjustments\">Hero Balance Adjustments</h4>\n<p>Based on recent Brawl hero win and pick rates, we've made the following balance adjustments.</p>\n<p><strong>▼ Nerf</strong><br>Aulus<br>DMG Taken +4% → +8%</p>\n<p>Barats<br>(New) DMG -2%</p>\n<p>Brody<br>(New) DMG Taken +2%</p>\n<p>Bruno<br>DMG -10% → -12%; (New) DMG Taken +4%</p>\n<p>Cici<br>DMG Taken -8% → -4%</p>\n<p>Cyclops<br>DMG Taken +6% → +10%</p>\n<p>Edith<br>DMG Taken +4% → +8%</p>\n<p>Hilda<br>DMG Taken -8% → -6%</p>\n<p>Lukas<br>DMG -2% → -6%</p>\n<p>Martis<br>DMG +6% → +4%</p>\n<p>Minotaur<br>DMG Taken +8% → +4%; (New) Healing -6%</p>\n<p>Natan<br>DMG Taken +8% → +10%</p>\n<p>Phoveus<br>DMG Taken +6% → +10%</p>\n<p>Popol and Kupa<br>(New) DMG Taken +2%</p>\n<p>Rafaela<br>DMG Taken +10% → +12%</p>\n<p>Roger<br>DMG Taken -6% → -4%</p>\n<p>Terizla<br>DMG Taken +14% → +18%</p>\n<p>Valir<br>(New) DMG Taken +2%</p>\n<p>Yu Zhong<br>DMG Taken -4% → -2%</p>\n<p><strong>▲ Buff</strong><br>Aamon<br>(New) DMG Taken -2%</p>\n<p>Chip<br>DMG +6% → +8%</p>\n<p>Franco<br>Skill DMG +10%</p>\n<p>Gatotkaca<br>DMG Taken +10% → +8%</p>\n<p>Helcurt<br>DMG +10% → +12%</p>\n<p>Joy<br>DMG +10% → +12%</p>\n<p>Lancelot<br>DMG Taken -4% → -6%</p>\n<p>Lunox<br>(New) DMG Taken -2%</p>\n<p>Luo Yi<br>DMG Taken -2% → -4%</p>\n<p>Masha<br>(New) DMG Taken -4%</p>\n<p>Melissa<br>DMG -12% → -10%</p>\n<p>Nolan<br>Reduced the Energy Cost of Skills 1 and 2</p>\n<p>Yi Sun-shin<br>(New) DMG Taken -4%</p>\n<p>Zhuxin<br>DMG +16% → +20%</p>",
+          "role": null
+        }
+      ],
+      "newHeroes": [
+        {
+          "name": "Popol and Kupa",
+          "epithet": "Icefield Companions",
+          "anchor": "revamp-icefield-companions-popol-and-kupa",
+          "lore": [
+            "Popol and Kupa previously lacked mobility and had limited skill combo potential. To address this, we've enhanced their coordinated attacks and enabled Popol to ride Kupa to pursue enemies or retreat.",
+            "Previously, Popol had to fight without his companion for too long after Kupa was defeated. To address this, we've enhanced Kupa's scaling and HP Regen."
+          ],
+          "feature": "A marksman who fights alongside Kupa and uses traps to control the battlefield. With this revamp, we aim to address the following issues and improve Popol and Kupa's overall gameplay experience:",
+          "skills": [
+            {
+              "role": "Passive",
+              "name": "We are friends V2",
+              "description": [
+                "Kupa's HP scales with Popol's level, and it inherits Popol's other attributes and equipment effects.",
+                "Kupa continuously recovers HP while out of combat. If Kupa falls, Popol can pray to bring Kupa back to the battlefield. Kupa deals extra True Damage to creeps."
+              ]
+            },
+            {
+              "role": "Skill 1",
+              "name": "Bite 'em, Kupa! V2",
+              "description": [
+                "Popol throws a spear at the target enemy, dealing damage, and commands Kupa to lunge at the target and bite them, greatly slowing them.",
+                "In Alpha Wolf Form, Kupa strikes the target area, knocking nearby enemies airborne and dealing increased damage."
+              ]
+            },
+            {
+              "role": "Skill 2",
+              "name": "Kupa, Help! V2",
+              "description": [
+                "Popol calls Kupa back to his side, gaining a shield. He can then ride Kupa to move rapidly, during which Kupa continuously recovers HP.",
+                "In Alpha Wolf Form, Popol gains a stronger shield, and Kupa recovers to full HP while mounted."
+              ]
+            },
+            {
+              "role": "Skill 3",
+              "name": "Popol's Surprise V2",
+              "description": [
+                "Popol sets a trap at the target location that briefly immobilizes the enemy who steps on it. It then explodes and creates a frost zone that slows enemies within."
+              ]
+            },
+            {
+              "role": "Ultimate",
+              "name": "We Are Angry! V2",
+              "description": [
+                "Popol and Kupa enter the Enraged state for 9s.",
+                "Kupa immediately recovers to full HP and transforms into Alpha Wolf Form, gaining extra Max HP and enhancing his other skills."
+              ]
+            }
+          ],
+          "slug": "popol-and-kupa"
+        }
+      ],
+      "adjustments": [
+        {
+          "name": "Aldous",
+          "type": "buff",
+          "intro": "Reduced Aldous's downtime between trades during the laning phase and increased his late-game Damage Reduction.",
+          "sections": [
+            {
+              "name": "Contract: Explosion",
+              "category": "Skill 2",
+              "type": "buff",
+              "changes": [
+                {
+                  "label": "Cooldown",
+                  "before": "12-9.5s",
+                  "after": "8s at all levels"
+                },
+                {
+                  "label": "Damage Reduction",
+                  "before": "30% at all levels",
+                  "after": "30%-55%"
+                }
+              ]
+            }
+          ],
+          "slug": "aldous"
+        },
+        {
+          "name": "Atlas",
+          "type": "nerf",
+          "intro": "Atlas's Passive was freezing enemies too often, so we've shortened Frigid Breath's duration and increased the freeze cooldown. To compensate, we've increased his Physical and Magic Defense bonuses to help him withstand more damage after engaging.",
+          "sections": [
+            {
+              "name": "Frigid Breath",
+              "category": "Passive",
+              "type": "nerf",
+              "changes": [
+                {
+                  "label": "Frigid Breath Duration",
+                  "before": "5s",
+                  "after": "4s"
+                },
+                {
+                  "label": "Freeze Cooldown",
+                  "before": "2.5s",
+                  "after": "4s"
+                },
+                {
+                  "label": "Physical & Magic Defense gained during Frigid Breath",
+                  "before": "20 (+0.5% Extra HP)",
+                  "after": "20 (+0.7% Extra HP)"
+                }
+              ]
+            }
+          ],
+          "slug": "atlas"
+        },
+        {
+          "name": "Freya",
+          "type": "buff",
+          "intro": "",
+          "sections": [
+            {
+              "name": "Power of Einherjar",
+              "category": "Passive",
+              "type": "buff",
+              "changes": [
+                {
+                  "text": "Consuming a Sacred Orb causes the next Basic Attack to recover 20 (+3* Hero Level) (+20% Total Physical Attack) HP."
+                }
+              ]
+            },
+            {
+              "name": "Valkyrie Descent",
+              "category": "Ultimate",
+              "type": "nerf",
+              "changes": [
+                {
+                  "label": "Cooldown",
+                  "before": "44-28s",
+                  "after": "60-44s"
+                },
+                {
+                  "text": "Removed the HP Regen effect from Basic Attacks during the Ultimate."
+                },
+                {
+                  "label": "Damage of Enhanced Basic Attack (During Ultimate)",
+                  "before": "30-60 (+100% Total Physical Attack)",
+                  "after": "100-200 (+70% Total Physical Attack)"
+                },
+                {
+                  "text": "New Effect: Gains 30 Movement Speed while the Ultimate is active."
+                }
+              ]
+            }
+          ],
+          "slug": "freya"
+        },
+        {
+          "name": "Gloo",
+          "type": "nerf",
+          "intro": "",
+          "sections": [
+            {
+              "name": "Slam, Slam",
+              "category": "Skill 1",
+              "type": "nerf",
+              "changes": [
+                {
+                  "label": "Immobilizing Time",
+                  "before": "0.8s",
+                  "after": "0.6s"
+                },
+                {
+                  "label": "Explosion Damage",
+                  "before": "250-400 (+12% Extra HP)",
+                  "after": "230-380 (+11% Extra HP)"
+                }
+              ]
+            },
+            {
+              "name": "Split, Split",
+              "category": "Skill 3",
+              "type": "nerf",
+              "changes": [
+                {
+                  "label": "Damage Transfer Ratio",
+                  "before": "80%",
+                  "after": "60%"
+                }
+              ]
+            }
+          ],
+          "slug": "gloo"
+        },
+        {
+          "name": "Kagura",
+          "type": "adjust",
+          "intro": "",
+          "sections": [
+            {
+              "name": "Seimei Umbrella Open",
+              "category": "Skill 1",
+              "type": "adjust",
+              "changes": [
+                {
+                  "text": "Optimized the visual indicator for the maximum separation distance between the Seimei Umbrella and Kagura."
+                }
+              ]
+            }
+          ],
+          "slug": "kagura"
+        },
+        {
+          "name": "Kaja",
+          "type": "buff",
+          "intro": "Adjusted how enemy heroes can respond to Kaja's Ultimate. They now have more time to leave the area before the Ultimate takes effect, but can no longer use Control Immunity skills to avoid the area restriction. We've added more ways for Kaja to stay in his Soaring state longer and increased his mobility while Soaring.",
+          "sections": [
+            {
+              "name": "Soaring Wings",
+              "category": "Skill 2",
+              "type": "buff",
+              "changes": [
+                {
+                  "text": "Increased Kaja's turning speed while Soaring for more responsive controls."
+                },
+                {
+                  "text": "New Effect: While Soaring, enhanced Basic Attacks extend the state's duration slightly when they hit enemies."
+                },
+                {
+                  "text": "New Effect: While Soaring, hitting enemy minions with Skill 2 now also extends the state's duration."
+                }
+              ]
+            },
+            {
+              "name": "Divine Binding",
+              "category": "Ultimate",
+              "type": "adjust",
+              "changes": [
+                {
+                  "text": "Slightly increased the Ultimate's delay."
+                },
+                {
+                  "text": "New Effect: Targets with Control Immunity can no longer escape the Ultimate's area when it takes effect."
+                }
+              ]
+            }
+          ],
+          "slug": "kaja"
+        },
+        {
+          "name": "Karrie",
+          "type": "adjust",
+          "intro": "Improved Karrie's combat ability during her Ultimate, and adjusted Skill 1 to focus more on slowing enemies and forcing them to reposition in the late game. We also improved the clarity and trigger logic of some of her skills.",
+          "sections": [
+            {
+              "name": "Spinning Light Wheel",
+              "category": "Skill 1",
+              "type": "nerf",
+              "changes": [
+                {
+                  "text": "Optimized the sphere's visual effects and collision detection frequency, making it easier for both allies and enemies to tell whether Skill 1 will hit them."
+                },
+                {
+                  "label": "Physical Attack Bonus (Base Damage)",
+                  "before": "90%",
+                  "after": "20%"
+                },
+                {
+                  "label": "Physical Attack Bonus (Sustained Damage)",
+                  "before": "20%",
+                  "after": "10%"
+                }
+              ]
+            },
+            {
+              "name": "Phantom Step",
+              "category": "Skill 2",
+              "type": "buff",
+              "changes": [
+                {
+                  "text": "Now detects nearby enemy heroes throughout the dash. If no enemy heroes are detected, it detects creeps and minions at the end of the dash."
+                }
+              ]
+            },
+            {
+              "name": "Speedy Lightwheel",
+              "category": "Ultimate",
+              "type": "buff",
+              "changes": [
+                {
+                  "label": "Base Damage per Lightwheel",
+                  "before": "40",
+                  "after": "50"
+                },
+                {
+                  "label": "Movement Speed Boost during Ultimate",
+                  "before": "20%",
+                  "after": "30%"
+                }
+              ]
+            }
+          ],
+          "slug": "karrie"
+        },
+        {
+          "name": "Lukas",
+          "type": "adjust",
+          "intro": "Despite being a fighter, Lukas relied too heavily on full-damage builds and played more like an assassin. We've increased his base damage and reduced his Physical Attack scaling to make defensive builds more viable and encourage a fighter playstyle.",
+          "sections": [
+            {
+              "name": "Attributes",
+              "category": null,
+              "type": "buff",
+              "changes": [
+                {
+                  "label": "Base HP",
+                  "before": "2550",
+                  "after": "2620"
+                },
+                {
+                  "label": "Base Physical Defense",
+                  "before": "21",
+                  "after": "23"
+                }
+              ]
+            },
+            {
+              "name": "Flash Combo",
+              "category": "Skill 1",
+              "type": "adjust",
+              "changes": [
+                {
+                  "label": "Pulverize Damage",
+                  "before": "280-580 (+120% Total Physical Attack)",
+                  "after": "400-800 (+60% Total Physical Attack)"
+                },
+                {
+                  "label": "Spin Damage",
+                  "before": "80-180 (+45% Total Physical Attack)",
+                  "after": "95-235 (+25% Total Physical Attack)"
+                },
+                {
+                  "label": "HP Regen",
+                  "before": "6% of Max HP",
+                  "after": "8% of Max HP"
+                }
+              ]
+            }
+          ],
+          "slug": "lukas"
+        },
+        {
+          "name": "Lunox",
+          "type": "buff",
+          "intro": "Lunox's Passive had little impact until the late game, and few equipment options worked well with its stat conversion. We've adjusted it accordingly. We've also increased the early-game damage of Lunox's Skill 2 and improved the control feel of her Ultimate. These changes aim to ensure she has enough damage output in the early-to-mid game.",
+          "sections": [
+            {
+              "name": "Dreamland Twist",
+              "category": "Passive",
+              "type": "buff",
+              "changes": [
+                {
+                  "text": "When the balance is shifted to the Power of Order, immediately gain 10% Spell Vamp."
+                },
+                {
+                  "text": "When the balance is shifted to the Power of Chaos, immediately gain 10% Magic Penetration."
+                }
+              ]
+            },
+            {
+              "name": "Chaos Assault",
+              "category": "Skill 2",
+              "type": "buff",
+              "changes": [
+                {
+                  "label": "Extra Percentage Damage",
+                  "before": "2.5%-5%",
+                  "after": "3.5%-5%"
+                },
+                {
+                  "label": "Percentage of Extra Damage to Creeps",
+                  "before": "1.5%-3%",
+                  "after": "2.1%-3%"
+                }
+              ]
+            },
+            {
+              "name": "Power of Chaos: Darkening",
+              "category": "Ultimate",
+              "type": "nerf",
+              "changes": [
+                {
+                  "text": "Reduced the dash's foreswing time by 50%."
+                },
+                {
+                  "label": "Damage",
+                  "before": "250-450 (+100% Total Magic Power)",
+                  "after": "150-300 (+135% Total Magic Power)"
+                }
+              ]
+            }
+          ],
+          "slug": "lunox"
+        },
+        {
+          "name": "Masha",
+          "type": "nerf",
+          "intro": "To improve Masha's lane clear and help her push minion waves faster, we've moved the slow effect to Skill 2. This lets her keep chasing after dashing to an enemy and follow up with Basic Attacks to deal damage by breaking Wounds. We've also narrowed Skill 2's path to reduce cases where nearby enemies block her dash when retreating. To balance this, we've reduced Skill 1's and Skill 2's damage. We've also optimized how Wounds are triggered. We've slightly reduced the effectiveness of her claw strikes.",
+          "sections": [
+            {
+              "name": "Primal Pact",
+              "category": "Passive",
+              "type": "adjust",
+              "changes": [
+                {
+                  "text": "New Effect: Skill hits randomly replace one of the target's existing Wounds with a new one in the direction of the hit."
+                },
+                {
+                  "label": "Extra Physical Damage",
+                  "before": "(3 + 1% Extra Physical Attack + 0.3 * Hero Level)% Max HP",
+                  "after": "(2 + 0.5% Extra Physical Attack + 0.2 * Hero Level)% Max HP"
+                },
+                {
+                  "label": "HP Regen",
+                  "before": "4-10% Max HP",
+                  "after": "3-6% Max HP"
+                }
+              ]
+            },
+            {
+              "name": "Feral Swipe",
+              "category": "Skill 1",
+              "type": "adjust",
+              "changes": [
+                {
+                  "label": "Damage Bonus",
+                  "before": "70%",
+                  "after": "55%"
+                },
+                {
+                  "label": "Damage to Minions",
+                  "before": "100%-150%",
+                  "after": "150%-200%"
+                },
+                {
+                  "text": "Removed Effect: Hitting an enemy hero slowed them by 50% for 1s."
+                }
+              ]
+            },
+            {
+              "name": "Claw Strike",
+              "category": "Skill 2",
+              "type": "buff",
+              "changes": [
+                {
+                  "text": "New Effect: Hitting an enemy hero with the slash slows them by 50% for 1s."
+                },
+                {
+                  "text": "Effect Adjustment: Reduced Skill 2's path width by 20%."
+                },
+                {
+                  "label": "Damage",
+                  "before": "120-240 (+80% Extra Physical Attack)",
+                  "after": "60-240 (+40% Extra Physical Attack)"
+                }
+              ]
+            }
+          ],
+          "slug": "masha"
+        },
+        {
+          "name": "Melissa",
+          "type": "buff",
+          "intro": "Last patch's adjustments weakened Melissa more than intended, so we're partially rolling them back. This should keep her early-game strength in check while preserving her late-game damage.",
+          "sections": [
+            {
+              "name": "Eyes on You!",
+              "category": "Skill 2",
+              "type": "buff",
+              "changes": [
+                {
+                  "label": "Muddles's Damage Transfer",
+                  "before": "52% at all levels",
+                  "after": "50%-60%"
+                },
+                {
+                  "label": "Attack Effect Inheritance Ratio",
+                  "before": "52% at all levels",
+                  "after": "50%-60% (matches the Basic Attack Damage transfer ratio)"
+                }
+              ]
+            }
+          ],
+          "slug": "melissa"
+        },
+        {
+          "name": "Uranus",
+          "type": "adjust",
+          "intro": "",
+          "sections": [
+            {
+              "name": "Attributes",
+              "category": null,
+              "type": "adjust",
+              "changes": [
+                {
+                  "text": "Changed Basic Attack's Splash Damage to Magic Damage."
+                }
+              ]
+            }
+          ],
+          "slug": "uranus"
+        },
+        {
+          "name": "Xavier",
+          "type": "buff",
+          "intro": "To help Xavier deal more substantial AOE damage in team fights, we've shifted the damage of Skill 2 (Mystic Barrier) to the activation of Mystic Field. We've also smoothed out the feel of his skills to improve his mobility.",
+          "sections": [
+            {
+              "name": "Transcendence",
+              "category": "Passive",
+              "type": "buff",
+              "changes": [
+                {
+                  "label": "Movement Speed Bonus",
+                  "before": "50%",
+                  "after": "60%. The bonus now decays more slowly."
+                }
+              ]
+            },
+            {
+              "name": "Infinite Extension",
+              "category": "Skill 1",
+              "type": "buff",
+              "changes": [
+                {
+                  "text": "Reduced the backswing time by 50%."
+                }
+              ]
+            },
+            {
+              "name": "Mystic Field",
+              "category": "Skill 2",
+              "type": "buff",
+              "changes": [
+                {
+                  "text": "Reduced the backswing time by 50%."
+                },
+                {
+                  "text": "Removed Mystic Barrier's direct damage."
+                },
+                {
+                  "label": "Mystic Field Damage",
+                  "before": "220-345 (+65% Total Magic Power)",
+                  "after": "440-690 (+130% Total Magic Power)"
+                },
+                {
+                  "text": "Fixed an issue where Mystic Field Damage could not trigger the passive's Movement Speed bonus."
+                }
+              ]
+            }
+          ],
+          "slug": "xavier"
+        }
+      ],
+      "balance": {
+        "buff": 6,
+        "nerf": 3,
+        "adjust": 4
+      }
+    },
+    "2.2.16a": {
+      "version": "2.2.16a",
+      "title": "Patch 2.2.16a",
+      "date": "2026-10-14",
+      "link": "https://liquipedia.net/mobilelegends/Patch_2.2.16a",
+      "source": "liquipedia",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.2.16a",
+      "toc": [
+        {
+          "level": 2,
+          "title": "I. Hero Adjustments",
+          "anchor": "i-hero-adjustments"
+        }
+      ],
+      "sections": [
+        {
+          "anchor": null,
+          "title": null,
+          "html": "<p>Highlights of patch 2.2.16a:</p>\n<ul><li>Hero Adjustments</li></ul>",
+          "role": null
+        },
+        {
+          "anchor": "i-hero-adjustments",
+          "title": "I. Hero Adjustments",
+          "html": "",
+          "role": "adjustments"
+        }
+      ],
+      "newHeroes": [],
+      "adjustments": [
+        {
+          "name": "Aulus",
+          "type": "nerf",
+          "intro": "Reduced Aulus's sustainability while retaining his early-to-mid game burst potential.",
+          "sections": [
+            {
+              "name": "Fighting Spirit",
+              "category": "Passive",
+              "type": "nerf",
+              "changes": [
+                {
+                  "label": "Attack Speed of Enhanced Basic Attack",
+                  "before": "20% (+ 2% * Hero Level)",
+                  "after": "20% at all levels"
+                },
+                {
+                  "label": "Enhanced Basic Attack's Base Damage",
+                  "before": "135 (+ 15*Hero Level)",
+                  "after": "120 (+ 12*Hero Level)"
+                },
+                {
+                  "label": "HP Regen from Enhanced Basic Attacks",
+                  "before": "30 (+ 15% Total Physical Attack)",
+                  "after": "15 (+ 20% Total Physical Attack)"
+                }
+              ]
+            },
+            {
+              "name": "Aulus, Charge!",
+              "category": "Skill 1",
+              "type": "nerf",
+              "changes": [
+                {
+                  "label": "Cooldown",
+                  "before": "14-12s",
+                  "after": "15s at all levels"
+                }
+              ]
+            },
+            {
+              "name": "Undying Fury",
+              "category": "Ultimate",
+              "type": "buff",
+              "changes": [
+                {
+                  "label": "Base Damage (First 4 Strikes)",
+                  "before": "110-270",
+                  "after": "150-230"
+                },
+                {
+                  "label": "Base Damage (Last Slash)",
+                  "before": "330-810",
+                  "after": "450-690"
+                },
+                {
+                  "text": "Reduced the foreswing of the final hit."
+                }
+              ]
+            }
+          ],
+          "slug": "aulus"
+        },
+        {
+          "name": "Hirara",
+          "type": "nerf",
+          "intro": "Hirara could use her invincibility skill too frequently, making her difficult to deal with. We've reduced how often she can use her skills but slightly increased the burst damage of her full combo in the mid-to-late game.",
+          "sections": [
+            {
+              "name": "Meisen-e",
+              "category": "Skill 1",
+              "type": "nerf",
+              "changes": [
+                {
+                  "label": "Cooldown",
+                  "before": "9-5.5s",
+                  "after": "10-6.5s"
+                }
+              ]
+            },
+            {
+              "name": "Kaerazu",
+              "category": "Skill 2",
+              "type": "buff",
+              "changes": [
+                {
+                  "label": "Damage",
+                  "before": "150-255 (+ 65% Extra Physical Attack)",
+                  "after": "165-270 (+ 42%-70% Extra Physical Attack)"
+                }
+              ]
+            }
+          ],
+          "slug": "hirara"
+        },
+        {
+          "name": "Eudora",
+          "type": "nerf",
+          "intro": "Eudora was too oppressive in the early to mid game, so we've slightly reduced her Ultimate's damage at all levels.",
+          "sections": [
+            {
+              "name": "Thunder's Wrath",
+              "category": "Ultimate",
+              "type": "nerf",
+              "changes": [
+                {
+                  "label": "Center Area Damage",
+                  "before": "600-1000 (+ 160% Total Magic Power)",
+                  "after": "540-900 (+ 145% Total Magic Power)"
+                },
+                {
+                  "label": "Damage Outside the Center Area",
+                  "before": "300-500 (+ 100% Total Magic Power)",
+                  "after": "270-450 (+ 90% Total Magic Power)"
+                },
+                {
+                  "label": "Delayed Damage",
+                  "before": "330-550 (+ 110% Magic Power)",
+                  "after": "300-500 (+ 100% Magic Power)"
+                }
+              ]
+            }
+          ],
+          "slug": "eudora"
+        },
+        {
+          "name": "Rafaela",
+          "type": "nerf",
+          "intro": "Rafaela's frequent skill casts provided excessive poke and team utility, so we've increased the cooldowns of Skills 1 and 2 at higher skill levels.",
+          "sections": [
+            {
+              "name": "Light of Retribution",
+              "category": "Skill 1",
+              "type": "nerf",
+              "changes": [
+                {
+                  "label": "Cooldown",
+                  "before": "5-3s",
+                  "after": "5s at all levels"
+                }
+              ]
+            },
+            {
+              "name": "Holy Healing",
+              "category": "Skill 2",
+              "type": "nerf",
+              "changes": [
+                {
+                  "label": "Cooldown",
+                  "before": "10.5-8.5s",
+                  "after": "10.5-9.5s"
+                }
+              ]
+            }
+          ],
+          "slug": "rafaela"
+        },
+        {
+          "name": "Kalea",
+          "type": "buff",
+          "intro": "Kalea couldn't effectively threaten the enemy backline on her own and remained heavily reliant on her allies. Therefore, we've increased her solo kill potential.",
+          "sections": [
+            {
+              "name": "Surge of Life",
+              "category": "Passive",
+              "type": "buff",
+              "changes": [
+                {
+                  "label": "Damage of Enhanced Third Basic Attack",
+                  "before": "70 (+ 4*Hero Level)",
+                  "after": "120 (+ 12*Hero Level)"
+                },
+                {
+                  "text": "New Effect: Gains 60% Movement Speed for 1s when absorbing the Water Zone."
+                }
+              ]
+            },
+            {
+              "name": "Tidal Strike",
+              "category": "Skill 3",
+              "type": "buff",
+              "changes": [
+                {
+                  "label": "Damage Bonus",
+                  "before": "8% of Max HP",
+                  "after": "14% of Max HP"
+                }
+              ]
+            }
+          ],
+          "slug": "kalea"
+        }
+      ],
+      "balance": {
+        "buff": 1,
+        "nerf": 4,
+        "adjust": 0
+      }
+    },
     "2.2.16": {
       "version": "2.2.16",
       "title": "Patch Notes 2.2.16",
@@ -2667,7 +4583,423 @@
         "nerf": 6,
         "adjust": 5
       },
-      "date": "2026-10-03"
+      "date": "2026-09-16",
+      "source": "fandom",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.2.16"
+    },
+    "2.1.95a": {
+      "version": "2.1.95a",
+      "title": "Patch 2.1.95a",
+      "date": "2026-08-26",
+      "link": "https://liquipedia.net/mobilelegends/Patch_2.1.95a",
+      "source": "liquipedia",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.95a",
+      "toc": [
+        {
+          "level": 2,
+          "title": "From The Designers",
+          "anchor": "from-the-designers"
+        },
+        {
+          "level": 2,
+          "title": "I. Hero Adjustments",
+          "anchor": "i-hero-adjustments"
+        },
+        {
+          "level": 2,
+          "title": "II. Battlefield Adjustments",
+          "anchor": "ii-battlefield-adjustments"
+        },
+        {
+          "level": 3,
+          "title": "Equipment Adjustments",
+          "anchor": "equipment-adjustments"
+        }
+      ],
+      "sections": [
+        {
+          "anchor": null,
+          "title": null,
+          "html": "<p>Highlights of patch 2.1.95a:</p>\n<ul><li>Hero Adjustments</li><li>Battlefield Adjustments</li></ul>",
+          "role": null
+        },
+        {
+          "anchor": "from-the-designers",
+          "title": "From The Designers",
+          "html": "<p>Hero adjustments have been made based on recent Ranked and professional matches. More adjustments will arrive in the next patch.</p>\n<p>Good luck ranking up on the battlefield!</p>",
+          "role": null
+        },
+        {
+          "anchor": "i-hero-adjustments",
+          "title": "I. Hero Adjustments",
+          "html": "",
+          "role": "adjustments"
+        },
+        {
+          "anchor": "ii-battlefield-adjustments",
+          "title": "II. Battlefield Adjustments",
+          "html": "<h3 id=\"equipment-adjustments\">Equipment Adjustments</h3>\n<p><b>Thunderbelt</b> <strong>▼ Nerf</strong></p>\n<p>We've noticed that some Assassins were benefiting too much from Thunder Belt, so we've added the Assassin role to the item's role restrictions.</p>\n<p>Effect Adjustment: 50% Effect for Marksman/Mage → 50% Effect for Marksman/Mage/Assassin</p>",
+          "role": null
+        }
+      ],
+      "newHeroes": [],
+      "adjustments": [
+        {
+          "name": "Atlas",
+          "type": "nerf",
+          "intro": "Atlas's Skill 2 Movement Speed Bonus was too high, giving him excessive ganking capabilities. We've slightly toned down Skill 2 to reduce his pursuit and engage frequency.",
+          "sections": [
+            {
+              "name": "Perfect Match",
+              "category": "Skill 2",
+              "type": "nerf",
+              "changes": [
+                {
+                  "label": "Movement Speed Boost",
+                  "before": "40%",
+                  "after": "30%"
+                },
+                {
+                  "label": "Cooldown",
+                  "before": "12-10s",
+                  "after": "13-11s"
+                }
+              ]
+            }
+          ],
+          "slug": "atlas"
+        },
+        {
+          "name": "Hanzo",
+          "type": "nerf",
+          "intro": "Tanky Hanzo builds had excessive durability and HP Regen. His HP Regen now scales with Physical Attack, reducing the benefits of half-tank builds and encouraging attack-focused equipment.",
+          "sections": [
+            {
+              "name": "Ninjutsu: Demon Feast",
+              "category": "Skill 1",
+              "type": "adjust",
+              "changes": [
+                {
+                  "label": "HP Regen When Targeting the Turtle, Lord, or Enemy Heroes",
+                  "before": "10%-20% HP",
+                  "after": "150-450 (+80% Total Physical Attack)"
+                },
+                {
+                  "label": "Hanekage's Extra Damage at Max Passive Stacks",
+                  "before": "15 (+2% Extra Physical Attack)",
+                  "after": "12 (+3% Extra Physical Attack)"
+                }
+              ]
+            },
+            {
+              "name": "Kinjutsu: Pinnacle Ninja",
+              "category": "Ultimate",
+              "type": "adjust",
+              "changes": [
+                {
+                  "label": "HP Regen Upon Returning to Hanzo's Body",
+                  "before": "16% HP at all levels",
+                  "after": "360-520 (+100% Extra Physical Attack)"
+                }
+              ]
+            }
+          ],
+          "slug": "hanzo"
+        },
+        {
+          "name": "Hayabusa",
+          "type": "adjust",
+          "intro": "Hayabusa's Skill 1 damage was slightly low and Skill 2 was difficult to land. We've adjusted his skills to improve his early damage and execution while reducing his reliance on Ultimate burst.",
+          "sections": [
+            {
+              "name": "Ninjutsu: Phantom Shuriken",
+              "category": "Skill 1",
+              "type": "buff",
+              "changes": [
+                {
+                  "label": "Damage",
+                  "before": "220-280 (+75% Extra Physical Attack)",
+                  "after": "220-300 (+75%-85% Extra Physical Attack)"
+                }
+              ]
+            },
+            {
+              "name": "Ninjutsu: Quad Shadow",
+              "category": "Skill 2",
+              "type": "buff",
+              "changes": [
+                {
+                  "label": "Phantom's Hitbox Width",
+                  "before": "0.8",
+                  "after": "1.0"
+                },
+                {
+                  "text": "Experience Optimization: Increased the aim panning for Skill 2."
+                }
+              ]
+            },
+            {
+              "name": "Ougi: Shadow Kill",
+              "category": "Ultimate",
+              "type": "nerf",
+              "changes": [
+                {
+                  "label": "Attack Damage",
+                  "before": "140 (+32% Extra Physical Attack)",
+                  "after": "130 (+30% Extra Physical Attack)"
+                },
+                {
+                  "label": "Extra Damage With Shadow Mark",
+                  "before": "90-150 (+40%-60% Extra Physical Attack)",
+                  "after": "90-120 (+40%-50% Extra Physical Attack)"
+                }
+              ]
+            }
+          ],
+          "slug": "hayabusa"
+        },
+        {
+          "name": "Obsidia",
+          "type": "adjust",
+          "intro": "To improve her weak early-to-mid game performance as a Marksman, we've increased her Attack Speed Growth and allowed Turrets to trigger her Passive. We've also changed the Ultimate's on-hit bonus from Attack Speed to a shield to enhance her survivability.",
+          "sections": [
+            {
+              "name": "Return to Bone",
+              "category": "Passive",
+              "type": "buff",
+              "changes": [
+                {
+                  "text": "New Effect: Obsidia also gains 2 Bone Energy when her Basic Attacks hit a Turret."
+                }
+              ]
+            },
+            {
+              "name": "Hunt of Bone",
+              "category": "Ultimate",
+              "type": "adjust",
+              "changes": [
+                {
+                  "text": "Removed Effect: Gains 30% Attack Speed after hitting an enemy."
+                },
+                {
+                  "text": "New Effect: Gains a shield after hitting an enemy."
+                },
+                {
+                  "text": "Shield: 200 (+25 per Bone Shard)"
+                }
+              ]
+            }
+          ],
+          "slug": "obsidia"
+        }
+      ],
+      "balance": {
+        "buff": 0,
+        "nerf": 2,
+        "adjust": 2
+      }
+    },
+    "2.1.95": {
+      "version": "2.1.95",
+      "title": "Patch 2.1.95",
+      "date": "2026-08-04",
+      "link": "https://liquipedia.net/mobilelegends/Patch_2.1.95",
+      "source": "liquipedia",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.95",
+      "toc": [
+        {
+          "level": 2,
+          "title": "From The Designers",
+          "anchor": "from-the-designers"
+        },
+        {
+          "level": 2,
+          "title": "I. Revamped Hero",
+          "anchor": "i-revamped-hero"
+        },
+        {
+          "level": 2,
+          "title": "II. Hero Adjustments",
+          "anchor": "ii-hero-adjustments"
+        },
+        {
+          "level": 2,
+          "title": "III. Hero Adjustments",
+          "anchor": "iii-hero-adjustments"
+        },
+        {
+          "level": 2,
+          "title": "IV. System Adjustments",
+          "anchor": "iv-system-adjustments"
+        },
+        {
+          "level": 3,
+          "title": "A. Highlight Icons",
+          "anchor": "a-highlight-icons"
+        },
+        {
+          "level": 3,
+          "title": "B. Season Achievements",
+          "anchor": "b-season-achievements"
+        },
+        {
+          "level": 3,
+          "title": "C. Battle Achievement Interface",
+          "anchor": "c-battle-achievement-interface"
+        },
+        {
+          "level": 3,
+          "title": "C. Main Interface Clarity Optimizations",
+          "anchor": "c-main-interface-clarity-optimizations"
+        }
+      ],
+      "sections": [
+        {
+          "anchor": null,
+          "title": null,
+          "html": "<p>Highlights of patch 2.1.95:</p>\n<ul><li>Revamped Hero Kaja, Nazar King. A highly mobile control Support who masters Primal Lightning to soar freely across the battlefield.</li><li>Hero Adjustments</li><li>Battlefield Adjustments</li><li>System Adjustments</li><li>Mode Adjustments</li></ul>",
+          "role": null
+        },
+        {
+          "anchor": "from-the-designers",
+          "title": "From The Designers",
+          "html": "<p>In this patch, we focused on adjusting the strength of some heroes in Brawl to balance their performance in this mode.</p>\n<p>Additionally, the long-awaited Chaos Clash returns in a revamped form. We've fully upgraded its map, core mechanics, and buff system. Jump in and check it out!</p>\n<p>In the next patch, we will make balance adjustments based on hero performance in mid-to-late-season ranked matches and pick rates from the recently concluded MSC.</p>\n<p>Good luck climbing the ranks!</p>",
+          "role": null
+        },
+        {
+          "anchor": "i-revamped-hero",
+          "title": "I. Revamped Hero",
+          "html": "",
+          "role": "newHeroes"
+        },
+        {
+          "anchor": "ii-hero-adjustments",
+          "title": "II. Hero Adjustments",
+          "html": "",
+          "role": "adjustments"
+        },
+        {
+          "anchor": "iii-hero-adjustments",
+          "title": "III. Hero Adjustments",
+          "html": "<h4 id=\"bug-fixes\">Bug Fixes</h4>\n<p>Fixed an issue where using Purify would grant immunity to Clint's skill 1 damage in certain situations.</p>",
+          "role": null
+        },
+        {
+          "anchor": "iv-system-adjustments",
+          "title": "IV. System Adjustments",
+          "html": "<h3 id=\"a-highlight-icons\">A. Highlight Icons</h3>\n<p>When more than 3 match result icons are obtained, they will be collapsed, and only the amount will be displayed.</p>\n<h3 id=\"b-season-achievements\">B. Season Achievements</h3>\n<p>Added the [Claim All] feature, allowing you to claim multiple task rewards at once.</p>\n<h3 id=\"c-battle-achievement-interface\">C. Battle Achievement Interface</h3>\n<p>Battle Achievements will now be categorized. When multiple Highlight achievements of the same type are obtained, the one with the highest level will be displayed by default.</p>\n<p>We've added some new match results achievements and adjusted their requirements accordingly.</p>\n<h3 id=\"c-main-interface-clarity-optimizations\">C. Main Interface Clarity Optimizations</h3>\n<p>1. To make the main interface cleaner and more intuitive, we have made the following optimizations.</p>\n<p>2. Simplified the status information in the main interface's friend list.</p>\n<p>3. Simplified the display of the resource bar at the top of the main interface:</p>\n<p>a. Tickets are no longer displayed. They can now be viewed in the Shop.</p>\n<p>b. When the amount of Gold and the number of owned heroes reach their respective thresholds, the Gold display is collapsed by default but can be expanded manually.</p>",
+          "role": null
+        }
+      ],
+      "newHeroes": [
+        {
+          "name": "Kaja",
+          "epithet": "Nazar King",
+          "anchor": "revamp-nazar-king-kaja",
+          "lore": [],
+          "feature": "A highly mobile control Support who masters Primal Lightning to soar freely across the battlefield.",
+          "skills": [
+            {
+              "role": "Passive",
+              "name": "Wings of Lightning",
+              "description": [
+                "Kaja's skill damage inflicts [Paralysis] on enemies, briefly slowing them and reducing their damage."
+              ]
+            },
+            {
+              "role": "Skill 1",
+              "name": "Ring of Order v2",
+              "description": [
+                "Kaja summons a ring of Primal Lightning, dealing damage to enemies while recovering HP."
+              ]
+            },
+            {
+              "role": "Skill 2",
+              "name": "Soaring Wings",
+              "description": [
+                "Kaja dashes to the target, dealing damage and knocking them back before entering the [Soaring] state, which reduces this skill's cooldown. Hitting a hero or creep extends the state's duration."
+              ]
+            },
+            {
+              "role": "Ultimate",
+              "name": "Divine Binding",
+              "description": [
+                "Kaja hurls a lasso at the target area, restraining enemy heroes within. Can drag to shrink its radius while the skill is active."
+              ]
+            }
+          ],
+          "slug": "kaja"
+        }
+      ],
+      "adjustments": [
+        {
+          "name": "Gord",
+          "type": "nerf",
+          "intro": "Slightly reduced his early-to-mid-game damage output.",
+          "sections": [
+            {
+              "name": "Mystic Favor",
+              "category": "Passive",
+              "type": "nerf",
+              "changes": [
+                {
+                  "label": "Base Damage",
+                  "before": "140",
+                  "after": "120"
+                }
+              ]
+            },
+            {
+              "name": "Mystic Gush",
+              "category": "Ultimate",
+              "type": "nerf",
+              "changes": [
+                {
+                  "label": "Base Damage",
+                  "before": "110-210",
+                  "after": "90-160"
+                }
+              ]
+            }
+          ],
+          "slug": "gord"
+        },
+        {
+          "name": "Novaria",
+          "type": "buff",
+          "intro": "We've noticed that Novaria's Skill 2 had too large a gap between average and high-level performance. To address this, we've made it easier to use effectively without lowering its high-end potential.",
+          "sections": [
+            {
+              "name": "Astral Recall",
+              "category": "Skill 2",
+              "type": "buff",
+              "changes": [
+                {
+                  "label": "Movement Speed Boost",
+                  "before": "20% initially and 60% after passing through obstacles",
+                  "after": "80% initially, then gradually decays to 30%"
+                },
+                {
+                  "label": "Base Damage",
+                  "before": "230-380 (+90% Total Magic Power) (+ 4% target's Max HP)",
+                  "after": "260-410 (+95% Total Magic Power) (+ 5% target's Max HP)"
+                },
+                {
+                  "label": "Max Extra Damage Increase",
+                  "before": "150%",
+                  "after": "120% (damage increase per buff stack remains at 15%)"
+                }
+              ]
+            }
+          ],
+          "slug": "novaria"
+        }
+      ],
+      "balance": {
+        "buff": 1,
+        "nerf": 1,
+        "adjust": 0
+      }
     },
     "2.1.90": {
       "version": "2.1.90",
@@ -2727,13 +5059,344 @@
         }
       ],
       "newHeroes": [],
-      "adjustments": [],
+      "adjustments": [
+        {
+          "name": "Akai",
+          "type": "nerf",
+          "intro": "Reduced Akai's jungling speed, but increased his burst damage as compensation.",
+          "sections": [
+            {
+              "name": "Tai Chi",
+              "category": "Passive",
+              "type": "nerf",
+              "changes": [
+                {
+                  "text": "New Effect: Basic Attacks against marked targets remove the mark."
+                },
+                {
+                  "label": "Extra Damage",
+                  "before": "25 (+ 5% Total HP)",
+                  "after": "35 (+6% Total HP)"
+                }
+              ]
+            }
+          ],
+          "slug": "akai"
+        },
+        {
+          "name": "Argus",
+          "type": "nerf",
+          "intro": "We've decided to improve Argus's early-to-mid game combat and laning capabilities. The mighty \"Fallen Angel\" shouldn't be limited to the late game.",
+          "sections": [
+            {
+              "name": "Warmonger",
+              "category": "Passive",
+              "type": "nerf",
+              "changes": [
+                {
+                  "label": "Demonic Slash Damage",
+                  "before": "80 (+50% Total Physical Attack)",
+                  "after": "120 (+25% Total Physical Attack)"
+                },
+                {
+                  "label": "Demonic Slash Regen",
+                  "before": "100 (+10% Total Physical Attack)",
+                  "after": "140"
+                }
+              ]
+            },
+            {
+              "name": "Meteoric Sword",
+              "category": "Skill 2",
+              "type": "buff",
+              "changes": [
+                {
+                  "label": "Base Damage",
+                  "before": "60-180",
+                  "after": "120-180"
+                }
+              ]
+            }
+          ],
+          "slug": "argus"
+        },
+        {
+          "name": "Aulus",
+          "type": "buff",
+          "intro": "To reinforce his role as a Fighter reliant on sustained Basic Attacks, we've improved Aulus's sustainability and ability to stay on targets, while slightly reducing his mid-to-late game damage for balance.",
+          "sections": [
+            {
+              "name": "Fighting Spirit",
+              "category": "Passive",
+              "type": "nerf",
+              "changes": [
+                {
+                  "text": "New Effect: Enhanced Basic Attack reduces the target's Movement Speed by 15% for 1s."
+                },
+                {
+                  "label": "Enhanced Basic Attack's Base Damage",
+                  "before": "135 (+ 20* Hero Level)",
+                  "after": "135 (+ 15* Hero Level)"
+                }
+              ]
+            },
+            {
+              "name": "The Power of Axe",
+              "category": "Skill 2",
+              "type": "buff",
+              "changes": [
+                {
+                  "text": "New Effect: The first phase of fan-shaped damage grants 20% Hybrid Lifesteal for 2.5s on hit."
+                },
+                {
+                  "text": "Removed Effect: The first phase of fan-shaped damage reduces the target's Movement Speed on hit."
+                },
+                {
+                  "label": "Cooldown",
+                  "before": "5s",
+                  "after": "7s"
+                }
+              ]
+            },
+            {
+              "name": "Cleaving Axe",
+              "category": "Ultimate",
+              "type": "buff",
+              "changes": [
+                {
+                  "text": "Slightly reduced the backswing time."
+                }
+              ]
+            }
+          ],
+          "slug": "aulus"
+        },
+        {
+          "name": "Baxia",
+          "type": "buff",
+          "intro": "Reduced Baxia's damage output and jungling speed.",
+          "sections": [
+            {
+              "name": "Shield of Spirit",
+              "category": "Skill 2",
+              "type": "nerf",
+              "changes": [
+                {
+                  "label": "Damage",
+                  "before": "140-265 (+120% Magic Power) (+ 6% target's Max HP)",
+                  "after": "120-220 (+100% Magic Power) (+ 5% target's Max HP)"
+                },
+                {
+                  "label": "New Effect",
+                  "before": "Max Damage to Creeps: 350-800",
+                  "after": "250-575"
+                }
+              ]
+            }
+          ],
+          "slug": "baxia"
+        },
+        {
+          "name": "Esmeralda",
+          "type": "buff",
+          "intro": "Slightly increased Esmeralda's early-to-mid game performance.",
+          "sections": [
+            {
+              "name": "Attributes",
+              "category": null,
+              "type": "buff",
+              "changes": [
+                {
+                  "label": "Base HP",
+                  "before": "2464",
+                  "after": "2660"
+                },
+                {
+                  "label": "Base Physical Defense",
+                  "before": "21",
+                  "after": "25"
+                }
+              ]
+            },
+            {
+              "name": "Frostmoon Shield",
+              "category": "Skill 1",
+              "type": "buff",
+              "changes": [
+                {
+                  "label": "Cooldown",
+                  "before": "8.5s",
+                  "after": "8s"
+                },
+                {
+                  "label": "Base Shield",
+                  "before": "400-900",
+                  "after": "500-1000"
+                }
+              ]
+            },
+            {
+              "name": "Stardust Dance",
+              "category": "Skill 2",
+              "type": "nerf",
+              "changes": [
+                {
+                  "label": "Slow Effect",
+                  "before": "10%",
+                  "after": "20%"
+                }
+              ]
+            }
+          ],
+          "slug": "esmeralda"
+        },
+        {
+          "name": "Eudora",
+          "type": "buff",
+          "intro": "Slightly reduced the hero's Mana Cost.",
+          "sections": [
+            {
+              "name": "Forked Lightning",
+              "category": "Skill 1",
+              "type": "buff",
+              "changes": [
+                {
+                  "label": "Mana Cost",
+                  "before": "60-90",
+                  "after": "40-65"
+                }
+              ]
+            }
+          ],
+          "slug": "eudora"
+        },
+        {
+          "name": "Fredrinn",
+          "type": "nerf",
+          "intro": "Slightly reduced Fredrinn's jungle clear speed and early-game durability.",
+          "sections": [
+            {
+              "name": "Attributes",
+              "category": null,
+              "type": "nerf",
+              "changes": [
+                {
+                  "label": "Base HP",
+                  "before": "2600",
+                  "after": "2500"
+                }
+              ]
+            },
+            {
+              "name": "Piercing Strike",
+              "category": "Skill 1",
+              "type": "nerf",
+              "changes": [
+                {
+                  "label": "Damage Increase Against Creeps",
+                  "before": "200%",
+                  "after": "170%"
+                }
+              ]
+            }
+          ],
+          "slug": "fredrinn"
+        },
+        {
+          "name": "Melissa",
+          "type": "buff",
+          "intro": "Slightly reduced the hero's Mana Cost.",
+          "sections": [
+            {
+              "name": "Eyes on You!",
+              "category": "Skill 2",
+              "type": "buff",
+              "changes": [
+                {
+                  "label": "Mana Cost",
+                  "before": "90",
+                  "after": "70"
+                }
+              ]
+            }
+          ],
+          "slug": "melissa"
+        },
+        {
+          "name": "Minsitthar",
+          "type": "buff",
+          "intro": "Reduced the Ultimate's early-to-mid game cooldown and increased its late-game damage.",
+          "sections": [
+            {
+              "name": "King's Calling",
+              "category": "Ultimate",
+              "type": "buff",
+              "changes": [
+                {
+                  "label": "Cooldown",
+                  "before": "55-45s",
+                  "after": "45s at all levels"
+                },
+                {
+                  "label": "Ultimate's Physical Bonus & Attack Effect Ratio",
+                  "before": "40% at all levels",
+                  "after": "30%-50%"
+                }
+              ]
+            }
+          ],
+          "slug": "minsitthar"
+        },
+        {
+          "name": "Nolan",
+          "type": "buff",
+          "intro": "Slightly increased Nolan's sustainability.",
+          "sections": [
+            {
+              "name": "Dimensional Rift",
+              "category": "Passive",
+              "type": "buff",
+              "changes": [
+                {
+                  "label": "Energy Regen Upon Hitting an Enemy with a Rift",
+                  "before": "20",
+                  "after": "25"
+                }
+              ]
+            }
+          ],
+          "slug": "nolan"
+        },
+        {
+          "name": "Zhuxin",
+          "type": "nerf",
+          "intro": "Slightly reduced Skill 2's cast range.",
+          "sections": [
+            {
+              "name": "Lantern Flare",
+              "category": "Skill 2",
+              "type": "nerf",
+              "changes": [
+                {
+                  "label": "Cast Range",
+                  "before": "4.5",
+                  "after": "4.2"
+                }
+              ]
+            }
+          ],
+          "slug": "zhuxin"
+        }
+      ],
       "balance": {
-        "buff": 0,
-        "nerf": 0,
+        "buff": 7,
+        "nerf": 4,
         "adjust": 0
       },
-      "date": "2026-07-15"
+      "date": "2026-07-02",
+      "source": "fandom",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.90",
+      "adjustmentsSource": "liquipedia"
     },
     "2.1.88": {
       "version": "2.1.88",
@@ -4726,7 +7389,213 @@
         "nerf": 11,
         "adjust": 5
       },
-      "date": "2026-06-18"
+      "date": "2026-06-17",
+      "source": "fandom",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.88"
+    },
+    "2.1.67a": {
+      "version": "2.1.67a",
+      "title": "Patch 2.1.67a",
+      "date": "2026-05-13",
+      "link": "https://liquipedia.net/mobilelegends/Patch_2.1.67a",
+      "source": "liquipedia",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.67a",
+      "toc": [
+        {
+          "level": 2,
+          "title": "From The Designers",
+          "anchor": "from-the-designers"
+        },
+        {
+          "level": 2,
+          "title": "I. Hero Adjustments",
+          "anchor": "i-hero-adjustments"
+        }
+      ],
+      "sections": [
+        {
+          "anchor": null,
+          "title": null,
+          "html": "<p>Highlights of patch 2.1.67a:</p>\n<ul><li>Hero Adjustments</li></ul>",
+          "role": null
+        },
+        {
+          "anchor": "from-the-designers",
+          "title": "From The Designers",
+          "html": "<p>We have adjusted some heroes based on the data from the New Patch. We also aim to increase the survivability of a few roaming Tanks and will make further adjustments to more Roamers in future patches.</p>",
+          "role": null
+        },
+        {
+          "anchor": "i-hero-adjustments",
+          "title": "I. Hero Adjustments",
+          "html": "",
+          "role": "adjustments"
+        }
+      ],
+      "newHeroes": [],
+      "adjustments": [
+        {
+          "name": "Aulus",
+          "type": "buff",
+          "intro": "Reduced the time Aulus needs to reach max Fighting Spirit stacks, while reducing his combat capability at max stacks for balance.",
+          "sections": [
+            {
+              "name": "Fighting Spirit",
+              "category": "Passive",
+              "type": "buff",
+              "changes": [
+                {
+                  "label": "Max Stacks",
+                  "before": "6",
+                  "after": "4"
+                }
+              ]
+            },
+            {
+              "name": "Cleaving Axe",
+              "category": "Ultimate",
+              "type": "nerf",
+              "changes": [
+                {
+                  "text": "Removed the Control Immunity effect during the wider slash."
+                }
+              ]
+            }
+          ],
+          "slug": "aulus"
+        },
+        {
+          "name": "Belerick",
+          "type": "buff",
+          "intro": "Compared to similar skills, Belerick's Skill 1 has a long delay. We've slightly reduced its delay to improve the hit rate.",
+          "sections": [
+            {
+              "name": "Ancient Seed",
+              "category": "Skill 1",
+              "type": "buff",
+              "changes": [
+                {
+                  "label": "Taunt Delay",
+                  "before": "1s",
+                  "after": "0.8s"
+                }
+              ]
+            }
+          ],
+          "slug": "belerick"
+        },
+        {
+          "name": "Chou",
+          "type": "buff",
+          "intro": "We've optimized the responsiveness of weaving Basic Attacks between skills, enhanced the late-game strength of his Ultimate, and slightly reduced the second-phase knockback distance to ensure Chou can immediately follow up with an enhanced Basic Attack.",
+          "sections": [
+            {
+              "name": "Jeet Kune Do",
+              "category": "Skill 1",
+              "type": "buff",
+              "changes": [
+                {
+                  "text": "Removed the backswing. A Basic Attack can now be used immediately after the skill."
+                }
+              ]
+            },
+            {
+              "name": "The Way of Dragon",
+              "category": "Ultimate",
+              "type": "buff",
+              "changes": [
+                {
+                  "label": "Cooldown",
+                  "before": "34s at all levels",
+                  "after": "36-30s"
+                },
+                {
+                  "label": "Base Damage",
+                  "before": "400-500",
+                  "after": "400-600"
+                },
+                {
+                  "label": "Chase Damage",
+                  "before": "480-580",
+                  "after": "480-680"
+                },
+                {
+                  "label": "Second-Phase Knockback Distance",
+                  "before": "1.5",
+                  "after": "1.15"
+                }
+              ]
+            }
+          ],
+          "slug": "chou"
+        },
+        {
+          "name": "Harley",
+          "type": "nerf",
+          "intro": "Reduced the hero's mid-game burst damage to lower his snowball potential.",
+          "sections": [
+            {
+              "name": "Poker Trick",
+              "category": "Skill 1",
+              "type": "nerf",
+              "changes": [
+                {
+                  "label": "Base Damage per Card",
+                  "before": "130-210",
+                  "after": "120-180"
+                }
+              ]
+            }
+          ],
+          "slug": "harley"
+        },
+        {
+          "name": "Paquito",
+          "type": "buff",
+          "intro": "As an agile boxer, Paquito is meant to excel at kiting in lane and engaging teamfights in the late game. Therefore, we've increased his skill ceiling and lane-pushing capabilities.",
+          "sections": [
+            {
+              "name": "Champ Stance",
+              "category": "Passive",
+              "type": "buff",
+              "changes": [
+                {
+                  "text": "Removed Effect: Each Basic Attack only deals 85% Total Physical Attack."
+                },
+                {
+                  "text": "New Effect: Paquito's enhanced skills deal 10%-30% extra damage (scales with level) to minions."
+                },
+                {
+                  "label": "Enhanced Skill Movement Speed Boost",
+                  "before": "60% extra Movement Speed that decays over 1.8s",
+                  "after": "60% extra Movement Speed that decays over 1.2s"
+                },
+                {
+                  "text": "New Effect: Using an enhanced skill grants 10%-30% Damage Reduction (scales with level) for 1.2s."
+                }
+              ]
+            },
+            {
+              "name": "Heavy Left Punch",
+              "category": "Skill 1",
+              "type": "buff",
+              "changes": [
+                {
+                  "label": "Adjustment",
+                  "before": "Hitting a hero or creep grants a shield",
+                  "after": "Hitting an enemy grants a shield"
+                }
+              ]
+            }
+          ],
+          "slug": "paquito"
+        }
+      ],
+      "balance": {
+        "buff": 4,
+        "nerf": 1,
+        "adjust": 0
+      }
     },
     "2.1.67": {
       "version": "2.1.67",
@@ -6216,7 +9085,9 @@
         "nerf": 5,
         "adjust": 14
       },
-      "date": "2026-05-01"
+      "date": "2026-04-22",
+      "source": "fandom",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.67"
     },
     "2.1.61": {
       "version": "2.1.61",
@@ -8283,7 +11154,9 @@
         "nerf": 6,
         "adjust": 17
       },
-      "date": "2026-05-01"
+      "date": "2026-03-11",
+      "source": "fandom",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.61"
     },
     "2.1.47": {
       "version": "2.1.47",
@@ -8718,7 +11591,240 @@
         "nerf": 4,
         "adjust": 0
       },
-      "date": "2026-05-03"
+      "date": "2026-01-28",
+      "source": "fandom",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.47"
+    },
+    "2.1.40a": {
+      "version": "2.1.40a",
+      "title": "Patch 2.1.40a",
+      "date": "2025-12-31",
+      "link": "https://liquipedia.net/mobilelegends/Patch_2.1.40a",
+      "source": "liquipedia",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.40a",
+      "toc": [
+        {
+          "level": 2,
+          "title": "I. Hero Adjustments",
+          "anchor": "i-hero-adjustments"
+        },
+        {
+          "level": 2,
+          "title": "II. Battlefield Adjustments",
+          "anchor": "ii-battlefield-adjustments"
+        },
+        {
+          "level": 2,
+          "title": "III. Equipment Adjustments",
+          "anchor": "iii-equipment-adjustments"
+        }
+      ],
+      "sections": [
+        {
+          "anchor": null,
+          "title": null,
+          "html": "<p>Highlights of patch 2.1.40a:</p>\n<ul><li>Hero Adjustments</li><li>Battlefield Adjustments</li><li>Equipment Adjustments</li></ul>",
+          "role": null
+        },
+        {
+          "anchor": "i-hero-adjustments",
+          "title": "I. Hero Adjustments",
+          "html": "",
+          "role": "adjustments"
+        },
+        {
+          "anchor": "ii-battlefield-adjustments",
+          "title": "II. Battlefield Adjustments",
+          "html": "<h4 id=\"creeps\">Creeps</h4>\n<p>Reduced Gold rewards from legend creeps in the early and mid game to provide more room for growth for late-game lineups.</p>\n<h4 id=\"lord\">Lord</h4>\n<p>Base Gold Reward: 80 → 50</p>\n<p>Gold Reward Increase Per Minute: 8 → 10</p>\n<h4 id=\"minions\">Minions</h4>\n<p>Increased the farming speed of Mid Lane heroes in the early to mid game to provide more viability for damage Mages.</p>\n<h4 id=\"minions-2\">Minions</h4>\n<p>Ranged Minion Base Gold Reward: 21 → 25</p>\n<h4 id=\"turtle\">Turtle</h4>\n<p>Base Gold Reward: 40 → 30</p>",
+          "role": null
+        },
+        {
+          "anchor": "iii-equipment-adjustments",
+          "title": "III. Equipment Adjustments",
+          "html": "<p><b>Genius Wand</b> <strong>▲ Buff</strong></p>\n<p><i>The late-game Magic Defense of some heroes has increased in recent patches, so we've increased this equipment's Magic Defense reduction effect in the late game.</i></p>\n<p><b>Unique Passive - Magic</b> - <strong>▲ Buff</strong><br>Magic Defense Reduction per Stack: 3 + (0.3*Hero Level) → 2.5 + (0.5*Hero Level)</p>\n<p><b>Glowing Wand</b> <strong>▼ Nerf</strong></p>\n<p><i>It is a bit too well-rounded as a utility Magic equipment, so we've reduced its damage capability.</i></p>\n<p><b>Attribute</b> - <strong>▼ Nerf</strong><br>Magic Power: 75 → 50</p>\n<p><b>Lightning Truncheon</b> <strong>▲ Buff</strong></p>\n<p><i>Compared to Wishing Lantern, Lightning Truncheon deals lower damage most of the time. Therefore, we've increased its damage in the early to mid game.</i></p>\n<p><b>Unique Passive - Magic</b> - <strong>▲ Buff</strong><br>Base Damage: 170 → 255</p>\n<p><b>War Axe</b> <strong>▼ Nerf</strong></p>\n<p><i>War Axe was too well-rounded, providing Attack, HP, Cooldown Reduction, extra damage, and sustainability. Therefore, we've reduced its sustainability.</i></p>\n<p><b>Attributes</b> <strong>▼ Nerf</strong><br>12% Spell Vamp → 8% Spell Vamp</p>\n<p><b>Wishing Lantern</b> <strong>▼ Nerf</strong></p>\n<p><i>Reduced damage potential against low HP heroes.</i></p>\n<p><b>Unique Passive - Magic]</b> <strong>▼ Nerf</strong><br>Damage required to trigger Butterfly Goddess: 800 → 900</p>",
+          "role": null
+        }
+      ],
+      "newHeroes": [],
+      "adjustments": [
+        {
+          "name": "Akai",
+          "type": "buff",
+          "intro": "Slightly improved the hero's flexibility.",
+          "sections": [
+            {
+              "name": "Headbutt",
+              "category": "Skill 1",
+              "type": "buff",
+              "changes": [
+                {
+                  "label": "Cooldown",
+                  "before": "13-10s",
+                  "after": "11-8.5s"
+                }
+              ]
+            }
+          ],
+          "slug": "akai"
+        },
+        {
+          "name": "Barats",
+          "type": "buff",
+          "intro": "",
+          "sections": [
+            {
+              "name": "Detona's Welcome",
+              "category": "Ultimate",
+              "type": "buff",
+              "changes": [
+                {
+                  "label": "Cooldown",
+                  "before": "60-50s",
+                  "after": "50-40s"
+                }
+              ]
+            }
+          ],
+          "slug": "barats"
+        },
+        {
+          "name": "Baxia",
+          "type": "nerf",
+          "intro": "Slightly reduced this hero's damage in the early game.",
+          "sections": [
+            {
+              "name": "Shield of Spirit",
+              "category": "Skill 2",
+              "type": "nerf",
+              "changes": [
+                {
+                  "label": "Base Damage",
+                  "before": "180-255",
+                  "after": "140-265"
+                }
+              ]
+            }
+          ],
+          "slug": "baxia"
+        },
+        {
+          "name": "Kalea",
+          "type": "nerf",
+          "intro": "Kalea's Ultimate is difficult to counter, so we've reduced its casting frequency.",
+          "sections": [
+            {
+              "name": "Tsunami Slam",
+              "category": "Ultimate",
+              "type": "nerf",
+              "changes": [
+                {
+                  "label": "Cooldown",
+                  "before": "50-40s",
+                  "after": "56-48s"
+                }
+              ]
+            }
+          ],
+          "slug": "kalea"
+        },
+        {
+          "name": "Lancelot",
+          "type": "nerf",
+          "intro": "After several nerfs, Lancelot remains too strong. We've reduced his Ultimate casting frequency to tone him down.",
+          "sections": [
+            {
+              "name": "Phantom Execution",
+              "category": "Ultimate",
+              "type": "nerf",
+              "changes": [
+                {
+                  "label": "Cooldown",
+                  "before": "27-21s",
+                  "after": "36-28s"
+                }
+              ]
+            }
+          ],
+          "slug": "lancelot"
+        },
+        {
+          "name": "Lapu-Lapu",
+          "type": "nerf",
+          "intro": "Lapu-Lapu becomes extremely powerful after activating his Ultimate. This adjustment aims to preserve this highlight experience while reducing the frequency of his Ultimate.",
+          "sections": [
+            {
+              "name": "Bravest Fighter",
+              "category": "Ultimate",
+              "type": "nerf",
+              "changes": [
+                {
+                  "label": "Cooldown",
+                  "before": "20-15s",
+                  "after": "30-24s"
+                }
+              ]
+            }
+          ],
+          "slug": "lapu-lapu"
+        },
+        {
+          "name": "Ling",
+          "type": "buff",
+          "intro": "Increased Ling's combat capability in the mid to late game.",
+          "sections": [],
+          "slug": "ling"
+        },
+        {
+          "name": "Minsitthar",
+          "type": "buff",
+          "intro": "To allow Minsitthar to better restrict highly mobile heroes, we've enhanced the hero's utility and increased the cast frequency of his Ultimate.",
+          "sections": [
+            {
+              "name": "King's Calling",
+              "category": "Ultimate",
+              "type": "buff",
+              "changes": [
+                {
+                  "label": "Slow Effect",
+                  "before": "20%",
+                  "after": "30%"
+                },
+                {
+                  "label": "Cooldown",
+                  "before": "60s-50s",
+                  "after": "55s-45s"
+                }
+              ]
+            }
+          ],
+          "slug": "minsitthar"
+        },
+        {
+          "name": "Yve",
+          "type": "nerf",
+          "intro": "Yve's long cast range and Movement Speed Boost gave her excessive kiting ability, so we've made some adjustments.",
+          "sections": [
+            {
+              "name": "Void Blast",
+              "category": "Skill 1",
+              "type": "nerf",
+              "changes": [
+                {
+                  "label": "Cast Range",
+                  "before": "5.7",
+                  "after": "5.5"
+                }
+              ]
+            }
+          ],
+          "slug": "yve"
+        }
+      ],
+      "balance": {
+        "buff": 4,
+        "nerf": 5,
+        "adjust": 0
+      }
     },
     "2.1.40": {
       "version": "2.1.40",
@@ -9861,7 +12967,9 @@
         "nerf": 5,
         "adjust": 3
       },
-      "date": "2026-05-04"
+      "date": "2025-12-18",
+      "source": "fandom",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.40"
     },
     "1.9.47": {
       "version": "1.9.47",
@@ -10971,7 +14079,9 @@
         "nerf": 9,
         "adjust": 2
       },
-      "date": "2025-02-17"
+      "date": "2025-02-17",
+      "source": "fandom",
+      "liquipedia": null
     },
     "1.9.42": {
       "version": "1.9.42",
@@ -11734,7 +14844,9 @@
         "nerf": 3,
         "adjust": 1
       },
-      "date": "2026-11-04"
+      "date": "2024-12-18",
+      "source": "fandom",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.9.42"
     },
     "1.9.20": {
       "version": "1.9.20",
@@ -12553,7 +15665,9 @@
         "nerf": 8,
         "adjust": 5
       },
-      "date": "2026-11-11"
+      "date": "2024-09-18",
+      "source": "fandom",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.9.20"
     },
     "1.8.92": {
       "version": "1.8.92",
@@ -12876,7 +15990,9 @@
         "nerf": 7,
         "adjust": 4
       },
-      "date": "2024-08-31"
+      "date": "2024-06-19",
+      "source": "fandom",
+      "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.8.92"
     },
     "1.8.90": {
       "version": "1.8.90",
@@ -13264,7 +16380,9 @@
         "nerf": 4,
         "adjust": 2
       },
-      "date": "2024-06-15"
+      "date": "2024-06-15",
+      "source": "fandom",
+      "liquipedia": null
     }
   }
 }

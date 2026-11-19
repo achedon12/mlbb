@@ -1,4 +1,930 @@
 {
+  "2.2.23": {
+    "version": "2.2.23",
+    "title": "Patch 2.2.23",
+    "date": "2026-11-11",
+    "link": "https://liquipedia.net/mobilelegends/Patch_2.2.23",
+    "source": "liquipedia",
+    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.2.23",
+    "toc": [
+      {
+        "level": 2,
+        "title": "Dari Para Desainer",
+        "anchor": "from-the-designers"
+      },
+      {
+        "level": 2,
+        "title": "I. Hero yang Dirubah",
+        "anchor": "i-revamped-hero"
+      },
+      {
+        "level": 2,
+        "title": "II. Penyesuaian Hero",
+        "anchor": "ii-hero-adjustments"
+      },
+      {
+        "level": 2,
+        "title": "AKU AKU AKU. Penyesuaian Medan Perang",
+        "anchor": "iii-battlefield-adjustments"
+      },
+      {
+        "level": 3,
+        "title": "Peralatan",
+        "anchor": "equipment"
+      },
+      {
+        "level": 3,
+        "title": "Bakat",
+        "anchor": "talents"
+      },
+      {
+        "level": 3,
+        "title": "Battle Spell",
+        "anchor": "battle-spell"
+      },
+      {
+        "level": 3,
+        "title": "Medan Perang Kehormatan Mistis",
+        "anchor": "mythical-honor-battlefield"
+      },
+      {
+        "level": 3,
+        "title": "Efek Medan Perang",
+        "anchor": "battlefield-effects"
+      },
+      {
+        "level": 2,
+        "title": "IV. Penyesuaian Sistem",
+        "anchor": "iv-system-adjustments"
+      },
+      {
+        "level": 3,
+        "title": "Optimasi Rumah Lelang",
+        "anchor": "auction-house-optimizations"
+      },
+      {
+        "level": 3,
+        "title": "Layar Pemilihan Mode Baru Tersedia",
+        "anchor": "new-mode-selection-screen-available"
+      },
+      {
+        "level": 3,
+        "title": "Dukungan Tablet",
+        "anchor": "tablet-support"
+      },
+      {
+        "level": 2,
+        "title": "V. Penyesuaian Mode",
+        "anchor": "v-mode-adjustments"
+      },
+      {
+        "level": 3,
+        "title": "Perkelahian Kartu",
+        "anchor": "card-brawl"
+      },
+      {
+        "level": 3,
+        "title": "Ribut",
+        "anchor": "brawl"
+      }
+    ],
+    "sections": [
+      {
+        "anchor": null,
+        "title": null,
+        "html": "<p>Sorotan dari patch 2.2.23:</p>\n<ul><li>Hero Popol dan Kupa yang Direvamp, Sahabat Icefield. Fitur Hero: Seorang marksman yang bertarung bersama Kupa dan menggunakan jebakan untuk mengendalikan medan perang.</li><li>Penyesuaian Hero</li><li>Penyesuaian Medan Perang</li><li>Penyesuaian Sistem</li><li>Penyesuaian Modus</li></ul>",
+        "role": null
+      },
+      {
+        "anchor": "from-the-designers",
+        "title": "Dari Para Desainer",
+        "html": "<p>Pada patch kali ini, kami melakukan penyesuaian pada beberapa hero yang terlalu kuat dan mengoptimalkan beberapa hero yang kurang digunakan.</p>\n<p>Kami juga melakukan perubahan sebagai respons terhadap tren yang berkembang dalam pertandingan peringkat tinggi, di mana Fighter mengambil Gold Lane dan Tank Roaming mengambil EXP Lane.</p>\n<p>Perubahan ini bertujuan untuk membantu para hero tradisional di kedua lane mendapatkan kembali posisi mereka. Kami akan terus memantau dampak perubahan ini.</p>",
+        "role": null
+      },
+      {
+        "anchor": "i-revamped-hero",
+        "title": "I. Hero yang Dirubah",
+        "html": "",
+        "role": "newHeroes"
+      },
+      {
+        "anchor": "ii-hero-adjustments",
+        "title": "II. Penyesuaian Hero",
+        "html": "",
+        "role": "adjustments"
+      },
+      {
+        "anchor": "iii-battlefield-adjustments",
+        "title": "AKU AKU AKU. Penyesuaian Medan Perang",
+        "html": "<h3 id=\"equipment\">Peralatan</h3>\n<p><b>Menghukum Pauldron</b> <strong>▼ Nerf</strong></p>\n<p><i>Peralatan ini terlalu efektif dalam melawan hero berbasis Kecepatan Serangan.</i></p>\n<p><b>Pasif Unik - Chastise</b> <strong>▼ Nerf</strong><br>Mengurangi Batas Kecepatan Serangan dan Kecepatan Serangan penyerang menjadi 75% → 80%.</p>\n<p><b>Lapisan Antik</b> <strong>▲ Penggemar</strong></p>\n<p><i>Peralatan ini berkinerja buruk dibandingkan dengan Chastise Pauldron.</i></p>\n<p><b>Pasif Unik - Deter</b> <strong>▲ Buff</strong><br>Mengurangi Damage Fisik penyerang sebesar 6% → 8%.</p>\n<h3 id=\"talents\">Bakat</h3>\n<p><b>Ledakan Konkusif</b> <strong>◆ Disesuaikan</strong></p>\n<p><i>Kami menemukan bahwa semakin banyak hero tank roaming yang berpindah ke Exp Lane. Di awal hingga pertengahan game, mereka memiliki kontrol dan daya tahan yang lebih kuat dibandingkan kebanyakan fighter, sekaligus menghasilkan damage yang hampir sama besarnya.</i></p>\n<p>Kami mengurangi kemampuan membersihkan minion hero tank tertentu untuk mengembalikan fighter ke EXP Lane.<br>Damage: 100 (+7% Total HP) → 100 (+8% Total HP) (menimbulkan 50% lebih sedikit damage pada minion)</p>\n<h3 id=\"battle-spell\">Battle Spell</h3>\n<p><b>Sprint</b> <strong>▲ Penggemar</strong></p>\n<p>Waktu Jeda: 100 detik → 75 detik</p>\n<h3 id=\"mythical-honor-battlefield\">Medan Perang Kehormatan Mistis</h3>\n<p>Minion Pengepungan Gold Lane <strong>▲ Buff</strong><br>Kami memperhatikan bahwa para fighter telah mengambil alih Gold Lane baik dalam pertandingan Peringkat tingkat tinggi maupun profesional. Untuk membantu marksman bertani lebih cepat, kami telah meningkatkan Emas yang disediakan oleh Gold Lane di awal permainan.</p>\n<p>Ekstra Emas: 40% → 60%</p>\n<h3 id=\"battlefield-effects\">Efek Medan Perang</h3>\n<p><b>Menara Emas</b> <strong>◆ Disesuaikan</strong></p>\n<p><i>Kami memperhatikan bahwa tim yang tertinggal akan kesulitan melakukan comeback dengan efek medan perang ini. Kami telah menyesuaikan beberapa nilai sambil mempertahankan fitur uniknya.</i></p>\n<p>Peningkatan HP Base Turret: 1.000 → 2.000<br>Team Gold yang disediakan oleh Outer Turret: 100 → 90<br>Team Gold yang disediakan oleh Inner Turret: 140 → 120</p>\n<p><b>Penyembuhan Turtle</b> <strong>◆ Disesuaikan</strong></p>\n<p><i>Kami memperhatikan bahwa pendapatan dari membunuh Turtle di lane jauh lebih rendah dibandingkan pendapatan dari gelombang minion, sehingga membuat tim yang bertahan semakin dirugikan secara ekonomi. Oleh karena itu, kami telah meningkatkan Emas dan EXP secara signifikan dari membunuh Turtle musuh. Pendapatan ini dibagi di antara hero sekutu dalam jangkauan dan sekarang kira-kira sama dengan pendapatan gelombang minion.</i></p>\n<p>Oleh karena itu, kami telah meningkatkan Emas dan EXP secara signifikan dari membunuh Turtle musuh. Pendapatan ini dibagi di antara hero sekutu dalam jangkauan dan sekarang kira-kira sama dengan pendapatan gelombang minion.</p>",
+        "role": null
+      },
+      {
+        "anchor": "iv-system-adjustments",
+        "title": "IV. Penyesuaian Sistem",
+        "html": "<h3 id=\"auction-house-optimizations\">Optimasi Rumah Lelang</h3>\n<p>Menambahkan entri Sumber Item Rumah Lelang ke layar Rumah Lelang, menampilkan daftar item Rumah Lelang yang tersedia dari acara Kartu Bang Bang.</p>\n<h3 id=\"new-mode-selection-screen-available\">Layar Pemilihan Mode Baru Tersedia</h3>\n<p>Untuk mempermudah menikmati mode Arkade, kami telah mengoptimalkan layar pemilihan mode. Antarmuka baru masih memungkinkan Anda mengakses mode standar dengan cepat, serta dengan mudah menemukan mode Arkade yang ingin Anda mainkan.</p>\n<h3 id=\"tablet-support\">Dukungan Tablet</h3>\n<p>Tata letak antarmuka yang dioptimalkan pada perangkat tablet.</p>",
+        "role": null
+      },
+      {
+        "anchor": "v-mode-adjustments",
+        "title": "V. Penyesuaian Mode",
+        "html": "<h3 id=\"card-brawl\">Perkelahian Kartu</h3>\n<p>Selamat datang di Perkelahian Kartu! Di Necrokeep, pilih dari kartu yang ditawarkan secara acak pada level hero tertentu, hingga lima kali. Gabungkan kartu untuk menambah kekuatan, membentuk gaya bermain Anda, dan melakukan permainan yang menarik! Card Brawl juga memungkinkan Anda menyelesaikan tugas aktivitas, mendapatkan Kartu Bangbang, dan meningkatkan level StarLight Anda!</p>\n<h3 id=\"brawl\">Ribut</h3>\n<h4 id=\"hero-balance-adjustments\">Penyesuaian Saldo Hero</h4>\n<p>Berdasarkan win rate dan pemilihan hero Brawl baru-baru ini, kami telah melakukan penyesuaian saldo berikut.</p>\n<p><strong>▼ Nerf</strong><br>Aulus<br>DMG Diambil +4% → +8%</p>\n<p>Barats<br>(Baru) DMG -2%</p>\n<p>Brody<br>(Baru) DMG Diterima +2%</p>\n<p>Bruno<br>DMG -10% → -12%; (Baru) DMG Diterima +4%</p>\n<p>Cici<br>DMG Diambil -8% → -4%</p>\n<p>Cyclops<br>DMG Diambil +6% → +10%</p>\n<p>Edith<br>DMG Diambil +4% → +8%</p>\n<p>Hilda<br>DMG Diambil -8% → -6%</p>\n<p>Lukas<br>DMG -2% → -6%</p>\n<p>Martis<br>DMG +6% → +4%</p>\n<p>Minotaur<br>DMG Diambil +8% → +4%; (Baru) Penyembuhan -6%</p>\n<p>Natan<br>DMG Diambil +8% → +10%</p>\n<p>Phoveus<br>DMG Diambil +6% → +10%</p>\n<p>Popol dan Kupa<br>(Baru) DMG Diterima +2%</p>\n<p>Rafaela<br>DMG Diambil +10% → +12%</p>\n<p>Roger<br>DMG Diambil -6% → -4%</p>\n<p>Terizla<br>DMG Diambil +14% → +18%</p>\n<p>Valir<br>(Baru) DMG Diterima +2%</p>\n<p>Yu Zhong<br>DMG Diambil -4% → -2%</p>\n<p><strong>▲ Buff</strong><br>Aamon<br>(Baru) DMG Diambil -2%</p>\n<p>Chip<br>DMG +6% → +8%</p>\n<p>Franco<br>DMG Skill +10%</p>\n<p>Gatotkaca<br>DMG Diambil +10% → +8%</p>\n<p>Helcurt<br>DMG +10% → +12%</p>\n<p>Kegembiraan<br>DMG +10% → +12%</p>\n<p>Lancelot<br>DMG Diambil -4% → -6%</p>\n<p>Lunox<br>(Baru) DMG Diambil -2%</p>\n<p>Luo Yi<br>DMG Diambil -2% → -4%</p>\n<p>Masha<br>(Baru) DMG Diambil -4%</p>\n<p>Melissa<br>DMG -12% → -10%</p>\n<p>Nolan<br>Mengurangi Biaya Energi Skill 1 dan 2</p>\n<p>Yi Sun-shin<br>(Baru) DMG Diterima -4%</p>\n<p>Zhuxin<br>DMG +16% → +20%</p>",
+        "role": null
+      }
+    ],
+    "newHeroes": [
+      {
+        "name": "Popol and Kupa",
+        "epithet": "Icefield Companions",
+        "anchor": "revamp-icefield-companions-popol-and-kupa",
+        "lore": [
+          "Popol dan Kupa sebelumnya kurang memiliki mobilitas dan potensi kombo skill yang terbatas. Untuk mengatasi hal ini, kami telah meningkatkan serangan terkoordinasi mereka dan memungkinkan Popol mengendarai Kupa untuk mengejar musuh atau mundur.",
+          "Sebelumnya Popol harus bertarung terlalu lama tanpa rekannya setelah Kupa dikalahkan. Untuk mengatasi hal ini, kami telah meningkatkan skala Kupa dan Regen HP."
+        ],
+        "feature": "Seorang marksman yang bertarung bersama Kupa dan menggunakan jebakan untuk mengendalikan medan perang. Dengan perombakan ini, kami bertujuan untuk mengatasi masalah berikut dan meningkatkan pengalaman gameplay Popol dan Kupa secara keseluruhan:",
+        "skills": [
+          {
+            "role": "Pasif",
+            "name": "We are friends V2",
+            "description": [
+              "HP Kupa berskala sesuai level Popol, dan mewarisi atribut dan efek peralatan Popol lainnya.",
+              "Kupa terus memulihkan HP saat berada di luar pertempuran. Jika Kupa terjatuh, Popol bisa berdoa untuk membawa Kupa kembali ke medan perang. Kupa memberikan True Damage tambahan kepada creep."
+            ]
+          },
+          {
+            "role": "Skill 1",
+            "name": "Bite 'em, Kupa! V2",
+            "description": [
+              "Popol melemparkan tombak ke arah musuh yang dituju, memberikan damage, dan memerintahkan Kupa untuk menyerang target dan menggigit mereka, menyebabkan efek slow yang sangat besar kepada mereka.",
+              "Dalam Bentuk Serigala Alfa, Kupa menyerang area target, menjatuhkan musuh di sekitar ke udara dan menimbulkan peningkatan damage."
+            ]
+          },
+          {
+            "role": "Skill 2",
+            "name": "Kupa, Help! V2",
+            "description": [
+              "Popol memanggil Kupa kembali ke sisinya, mendapatkan perisai. Dia kemudian dapat menunggangi Kupa untuk bergerak cepat, dan selama itu Kupa memulihkan HP secara terus menerus.",
+              "Dalam Bentuk Serigala Alfa, Popol memperoleh perisai yang lebih kuat, dan Kupa memulihkan HP penuhnya saat dipasang."
+            ]
+          },
+          {
+            "role": "Skill 3",
+            "name": "Popol's Surprise V2",
+            "description": [
+              "Popol memasang jebakan di lokasi target yang akan membuat musuh yang menginjaknya tidak bisa bergerak sebentar. Kemudian meledak dan menciptakan zona beku yang memperlambat musuh di dalamnya."
+            ]
+          },
+          {
+            "role": "Terakhir",
+            "name": "We Are Angry! V2",
+            "description": [
+              "Popol dan Kupa memasuki kondisi Marah selama 9 detik.",
+              "Kupa segera memulihkan HP penuhnya dan berubah menjadi Alpha Wolf Form, memperoleh tambahan Max HP dan meningkatkan skill lainnya."
+            ]
+          }
+        ],
+        "slug": "popol-and-kupa"
+      }
+    ],
+    "adjustments": [
+      {
+        "name": "Aldous",
+        "type": "buff",
+        "intro": "Mengurangi waktu henti Aldous di antara pertukaran selama fase laning dan meningkatkan Pengurangan Damage di akhir permainan.",
+        "sections": [
+          {
+            "name": "Contract: Explosion",
+            "category": "Skill 2",
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Pendinginan",
+                "before": "12-9.5s",
+                "after": "8s at all levels"
+              },
+              {
+                "label": "Pengurangan Damage",
+                "before": "30% at all levels",
+                "after": "30%-55%"
+              }
+            ]
+          }
+        ],
+        "slug": "aldous"
+      },
+      {
+        "name": "Atlas",
+        "type": "nerf",
+        "intro": "Pasif Atlas terlalu sering membekukan musuh, jadi kami mempersingkat durasi Frigid Breath dan meningkatkan cooldown pembekuan. Sebagai kompensasinya, kami telah meningkatkan bonus Pertahanan Fisik dan Sihirnya untuk membantunya menahan lebih banyak damage setelah terlibat.",
+        "sections": [
+          {
+            "name": "Frigid Breath",
+            "category": "Pasif",
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Durasi Nafas Dingin",
+                "before": "5s",
+                "after": "4s"
+              },
+              {
+                "label": "Bekukan Pendinginan",
+                "before": "2.5s",
+                "after": "4s"
+              },
+              {
+                "label": "Pertahanan Fisik & Sihir diperoleh selama Nafas Dingin",
+                "before": "20 (+0.5% Extra HP)",
+                "after": "20 (+0.7% Extra HP)"
+              }
+            ]
+          }
+        ],
+        "slug": "atlas"
+      },
+      {
+        "name": "Freya",
+        "type": "buff",
+        "intro": "",
+        "sections": [
+          {
+            "name": "Power of Einherjar",
+            "category": "Pasif",
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Mengkonsumsi Sacred Orb menyebabkan Basic Attack berikutnya memulihkan 20 (+3* Level Hero) (+20% Total Serangan Fisik) HP."
+              }
+            ]
+          },
+          {
+            "name": "Valkyrie Descent",
+            "category": "Terakhir",
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Pendinginan",
+                "before": "44-28s",
+                "after": "60-44s"
+              },
+              {
+                "text": "Menghapus efek Regen HP dari Basic Attack saat Ultimate."
+              },
+              {
+                "label": "Damage dari Basic Attack yang Ditingkatkan (Saat Ultimate)",
+                "before": "30-60 (+100% Total Physical Attack)",
+                "after": "100-200 (+70% Total Physical Attack)"
+              },
+              {
+                "text": "Efek Baru: Mendapat 30 Kecepatan Gerakan saat Ultimate aktif."
+              }
+            ]
+          }
+        ],
+        "slug": "freya"
+      },
+      {
+        "name": "Gloo",
+        "type": "nerf",
+        "intro": "",
+        "sections": [
+          {
+            "name": "Slam, Slam",
+            "category": "Skill 1",
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Melumpuhkan Waktu",
+                "before": "0.8s",
+                "after": "0.6s"
+              },
+              {
+                "label": "Damage Akibat Ledakan",
+                "before": "250-400 (+12% Extra HP)",
+                "after": "230-380 (+11% Extra HP)"
+              }
+            ]
+          },
+          {
+            "name": "Split, Split",
+            "category": "Skill 3",
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Rasio Transfer Damage",
+                "before": "80%",
+                "after": "60%"
+              }
+            ]
+          }
+        ],
+        "slug": "gloo"
+      },
+      {
+        "name": "Kagura",
+        "type": "adjust",
+        "intro": "",
+        "sections": [
+          {
+            "name": "Seimei Umbrella Open",
+            "category": "Skill 1",
+            "type": "adjust",
+            "changes": [
+              {
+                "text": "Mengoptimalkan indikator visual untuk jarak pemisahan maksimum antara Payung Seimei dan Kagura."
+              }
+            ]
+          }
+        ],
+        "slug": "kagura"
+      },
+      {
+        "name": "Kaja",
+        "type": "buff",
+        "intro": "Menyesuaikan respon hero musuh terhadap Ultimate Kaja. Mereka sekarang memiliki lebih banyak waktu untuk meninggalkan area tersebut sebelum Ultimate berlaku, namun tidak dapat lagi menggunakan skill Control Immunity untuk menghindari pembatasan area. Kami telah menambahkan lebih banyak cara bagi Kaja untuk bertahan dalam kondisi Melonjak lebih lama dan meningkatkan mobilitasnya saat Melonjak.",
+        "sections": [
+          {
+            "name": "Soaring Wings",
+            "category": "Skill 2",
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Meningkatkan kecepatan belok Kaja sambil Melonjak untuk kontrol yang lebih responsif."
+              },
+              {
+                "text": "Efek Baru: Saat Melonjak, Serangan Dasar yang ditingkatkan sedikit memperpanjang durasi status saat mengenai musuh."
+              },
+              {
+                "text": "Efek Baru: Saat Melonjak, memukul minion musuh dengan Skill 2 kini juga memperpanjang durasi status."
+              }
+            ]
+          },
+          {
+            "name": "Divine Binding",
+            "category": "Terakhir",
+            "type": "adjust",
+            "changes": [
+              {
+                "text": "Sedikit meningkatkan penundaan Ultimate."
+              },
+              {
+                "text": "Efek Baru: Target dengan Kekebalan Kontrol tidak dapat lagi keluar dari area Ultimate saat efek tersebut diterapkan."
+              }
+            ]
+          }
+        ],
+        "slug": "kaja"
+      },
+      {
+        "name": "Karrie",
+        "type": "adjust",
+        "intro": "Meningkatkan kemampuan bertarung Karrie saat Ultimate-nya, dan menyesuaikan Skill 1 agar lebih fokus dalam memperlambat musuh dan memaksa mereka untuk melakukan reposisi di late game. Kami juga meningkatkan kejelasan dan logika pemicu dari beberapa keahliannya.",
+        "sections": [
+          {
+            "name": "Spinning Light Wheel",
+            "category": "Skill 1",
+            "type": "nerf",
+            "changes": [
+              {
+                "text": "Mengoptimalkan efek visual bola dan frekuensi deteksi tabrakan, sehingga memudahkan sekutu dan musuh mengetahui apakah Skill 1 akan mengenai mereka."
+              },
+              {
+                "label": "Bonus Serangan Fisik (Damage Dasar)",
+                "before": "90%",
+                "after": "20%"
+              },
+              {
+                "label": "Bonus Serangan Fisik (Damage Berkelanjutan)",
+                "before": "20%",
+                "after": "10%"
+              }
+            ]
+          },
+          {
+            "name": "Phantom Step",
+            "category": "Skill 2",
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Sekarang mendeteksi hero musuh di sekitar sepanjang dasbor. Jika tidak ada hero musuh yang terdeteksi, ia akan mendeteksi creep dan minion di akhir dasbor."
+              }
+            ]
+          },
+          {
+            "name": "Speedy Lightwheel",
+            "category": "Terakhir",
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Damage Dasar per Lightwheel",
+                "before": "40",
+                "after": "50"
+              },
+              {
+                "label": "Peningkatan Kecepatan Gerakan saat Ultimate",
+                "before": "20%",
+                "after": "30%"
+              }
+            ]
+          }
+        ],
+        "slug": "karrie"
+      },
+      {
+        "name": "Lukas",
+        "type": "adjust",
+        "intro": "Meski berstatus sebagai Fighter, Lukas terlalu mengandalkan build full damage dan bermain lebih seperti Assassin. Kami telah meningkatkan damage dasarnya dan mengurangi skala Serangan Fisiknya untuk membuat bangunan pertahanan lebih efektif dan mendorong gaya bermain fighter.",
+        "sections": [
+          {
+            "name": "Atribut",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "HP Dasar",
+                "before": "2550",
+                "after": "2620"
+              },
+              {
+                "label": "Pangkalan Pertahanan Fisik",
+                "before": "21",
+                "after": "23"
+              }
+            ]
+          },
+          {
+            "name": "Flash Combo",
+            "category": "Skill 1",
+            "type": "adjust",
+            "changes": [
+              {
+                "label": "Hancurkan Damage",
+                "before": "280-580 (+120% Total Physical Attack)",
+                "after": "400-800 (+60% Total Physical Attack)"
+              },
+              {
+                "label": "Damage Putaran",
+                "before": "80-180 (+45% Total Physical Attack)",
+                "after": "95-235 (+25% Total Physical Attack)"
+              },
+              {
+                "label": "Regenerasi HP",
+                "before": "6% of Max HP",
+                "after": "8% of Max HP"
+              }
+            ]
+          }
+        ],
+        "slug": "lukas"
+      },
+      {
+        "name": "Lunox",
+        "type": "buff",
+        "intro": "Pasif Lunox memiliki dampak yang kecil hingga akhir permainan, dan hanya sedikit opsi peralatan yang bekerja dengan baik dengan konversi statnya. Kami telah menyesuaikannya. Kami juga meningkatkan damage di awal game dari Skill 2 Lunox dan meningkatkan rasa kontrol dari Ultimate-nya. Perubahan ini bertujuan untuk memastikan dia memiliki damage yang cukup di awal hingga pertengahan game.",
+        "sections": [
+          {
+            "name": "Dreamland Twist",
+            "category": "Pasif",
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Saat saldo dialihkan ke Power of Order, segera dapatkan 10% Spell Vamp."
+              },
+              {
+                "text": "Saat saldo dialihkan ke Power of Chaos, segera dapatkan 10% Magic Penetration."
+              }
+            ]
+          },
+          {
+            "name": "Chaos Assault",
+            "category": "Skill 2",
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Persentase Damage Ekstra",
+                "before": "2.5%-5%",
+                "after": "3.5%-5%"
+              },
+              {
+                "label": "Persentase Damage Ekstra pada Creep",
+                "before": "1.5%-3%",
+                "after": "2.1%-3%"
+              }
+            ]
+          },
+          {
+            "name": "Power of Chaos: Darkening",
+            "category": "Terakhir",
+            "type": "nerf",
+            "changes": [
+              {
+                "text": "Mengurangi waktu gerak maju dasbor sebesar 50%."
+              },
+              {
+                "label": "Damage",
+                "before": "250-450 (+100% Total Magic Power)",
+                "after": "150-300 (+135% Total Magic Power)"
+              }
+            ]
+          }
+        ],
+        "slug": "lunox"
+      },
+      {
+        "name": "Masha",
+        "type": "nerf",
+        "intro": "Untuk meningkatkan pembersihan lane Masha dan membantunya mendorong gelombang minion lebih cepat, kami telah memindahkan efek lambat ke Skill 2. Hal ini memungkinkan dia terus mengejar setelah berlari ke arah musuh dan menindaklanjutinya dengan Serangan Dasar untuk menghasilkan damage dengan mematahkan Luka. Kami juga mempersempit lane Skill 2 untuk mengurangi kasus di mana musuh di sekitar memblokir dasbornya saat mundur. Untuk menyeimbangkannya, kami telah mengurangi damage Skill 1 dan Skill 2. Kami juga telah mengoptimalkan cara Luka dipicu. Kami sedikit mengurangi efektivitas serangan cakarnya.",
+        "sections": [
+          {
+            "name": "Primal Pact",
+            "category": "Pasif",
+            "type": "adjust",
+            "changes": [
+              {
+                "text": "Efek Baru: Skill yang mengenai secara acak menggantikan salah satu Luka target yang ada dengan yang baru sesuai arah pukulan."
+              },
+              {
+                "label": "Damage Fisik Ekstra",
+                "before": "(3 + 1% Extra Physical Attack + 0.3 * Hero Level)% Max HP",
+                "after": "(2 + 0.5% Extra Physical Attack + 0.2 * Hero Level)% Max HP"
+              },
+              {
+                "label": "Regenerasi HP",
+                "before": "4-10% Max HP",
+                "after": "3-6% Max HP"
+              }
+            ]
+          },
+          {
+            "name": "Feral Swipe",
+            "category": "Skill 1",
+            "type": "adjust",
+            "changes": [
+              {
+                "label": "Bonus Damage",
+                "before": "70%",
+                "after": "55%"
+              },
+              {
+                "label": "Damage pada Minion",
+                "before": "100%-150%",
+                "after": "150%-200%"
+              },
+              {
+                "text": "Efek yang Dihapus: Memukul hero musuh akan memperlambat mereka sebesar 50% selama 1 d."
+              }
+            ]
+          },
+          {
+            "name": "Claw Strike",
+            "category": "Skill 2",
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Efek Baru: Memukul hero musuh dengan tebasan akan memperlambat mereka sebesar 50% selama 1 d."
+              },
+              {
+                "text": "Penyesuaian Efek: Mengurangi lebar lane Skill 2 sebesar 20%."
+              },
+              {
+                "label": "Damage",
+                "before": "120-240 (+80% Extra Physical Attack)",
+                "after": "60-240 (+40% Extra Physical Attack)"
+              }
+            ]
+          }
+        ],
+        "slug": "masha"
+      },
+      {
+        "name": "Melissa",
+        "type": "buff",
+        "intro": "Penyesuaian patch terakhir melemahkan Melissa lebih dari yang diharapkan, jadi kami mengembalikannya sebagian. Ini akan menjaga kekuatannya di awal permainan sambil menjaga damage di akhir permainan.",
+        "sections": [
+          {
+            "name": "Eyes on You!",
+            "category": "Skill 2",
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Transfer Damage Muddles",
+                "before": "52% at all levels",
+                "after": "50%-60%"
+              },
+              {
+                "label": "Rasio Warisan Efek Serangan",
+                "before": "52% at all levels",
+                "after": "50%-60% (matches the Basic Attack Damage transfer ratio)"
+              }
+            ]
+          }
+        ],
+        "slug": "melissa"
+      },
+      {
+        "name": "Uranus",
+        "type": "adjust",
+        "intro": "",
+        "sections": [
+          {
+            "name": "Atribut",
+            "category": null,
+            "type": "adjust",
+            "changes": [
+              {
+                "text": "Mengubah Splash Damage Basic Attack menjadi Magic Damage."
+              }
+            ]
+          }
+        ],
+        "slug": "uranus"
+      },
+      {
+        "name": "Xavier",
+        "type": "buff",
+        "intro": "Untuk membantu Xavier menghasilkan damage AOE yang lebih besar dalam pertarungan tim, kami telah mengalihkan damage Skill 2 (Mystic Barrier) ke aktivasi Mystic Field. Kami juga memperhalus kesan skillnya untuk meningkatkan mobilitasnya.",
+        "sections": [
+          {
+            "name": "Transcendence",
+            "category": "Pasif",
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Bonus Kecepatan Gerakan",
+                "before": "50%",
+                "after": "60%. The bonus now decays more slowly."
+              }
+            ]
+          },
+          {
+            "name": "Infinite Extension",
+            "category": "Skill 1",
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Mengurangi waktu ayunan mundur sebesar 50%."
+              }
+            ]
+          },
+          {
+            "name": "Mystic Field",
+            "category": "Skill 2",
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Mengurangi waktu ayunan mundur sebesar 50%."
+              },
+              {
+                "text": "Menghapus damage langsung Mystic Barrier."
+              },
+              {
+                "label": "Damage Bidang Mistik",
+                "before": "220-345 (+65% Total Magic Power)",
+                "after": "440-690 (+130% Total Magic Power)"
+              },
+              {
+                "text": "Memperbaiki masalah di mana Mystic Field Damage tidak dapat memicu bonus Kecepatan Gerakan pasif."
+              }
+            ]
+          }
+        ],
+        "slug": "xavier"
+      }
+    ],
+    "balance": {
+      "buff": 6,
+      "nerf": 3,
+      "adjust": 4
+    }
+  },
+  "2.2.16a": {
+    "version": "2.2.16a",
+    "title": "Patch 2.2.16a",
+    "date": "2026-10-14",
+    "link": "https://liquipedia.net/mobilelegends/Patch_2.2.16a",
+    "source": "liquipedia",
+    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.2.16a",
+    "toc": [
+      {
+        "level": 2,
+        "title": "I. Penyesuaian Hero",
+        "anchor": "i-hero-adjustments"
+      }
+    ],
+    "sections": [
+      {
+        "anchor": null,
+        "title": null,
+        "html": "<p>Sorotan dari patch 2.2.16a:</p>\n<ul><li>Penyesuaian Hero</li></ul>",
+        "role": null
+      },
+      {
+        "anchor": "i-hero-adjustments",
+        "title": "I. Penyesuaian Hero",
+        "html": "",
+        "role": "adjustments"
+      }
+    ],
+    "newHeroes": [],
+    "adjustments": [
+      {
+        "name": "Aulus",
+        "type": "nerf",
+        "intro": "Mengurangi keberlanjutan Aulus sambil mempertahankan potensi ledakan permainannya di awal hingga pertengahan.",
+        "sections": [
+          {
+            "name": "Fighting Spirit",
+            "category": "Pasif",
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Kecepatan Serangan dari Serangan Dasar yang Ditingkatkan",
+                "before": "20% (+ 2% * Hero Level)",
+                "after": "20% at all levels"
+              },
+              {
+                "label": "Meningkatkan Damage Dasar Serangan Dasar",
+                "before": "135 (+ 15*Hero Level)",
+                "after": "120 (+ 12*Hero Level)"
+              },
+              {
+                "label": "HP Regen dari Enhanced Basic Attack",
+                "before": "30 (+ 15% Total Physical Attack)",
+                "after": "15 (+ 20% Total Physical Attack)"
+              }
+            ]
+          },
+          {
+            "name": "Aulus, Charge!",
+            "category": "Skill 1",
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Pendinginan",
+                "before": "14-12s",
+                "after": "15s at all levels"
+              }
+            ]
+          },
+          {
+            "name": "Undying Fury",
+            "category": "Terakhir",
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Damage Dasar (4 Serangan Pertama)",
+                "before": "110-270",
+                "after": "150-230"
+              },
+              {
+                "label": "Damage Dasar (Tebasan Terakhir)",
+                "before": "330-810",
+                "after": "450-690"
+              },
+              {
+                "text": "Mengurangi pukulan depan dari pukulan terakhir."
+              }
+            ]
+          }
+        ],
+        "slug": "aulus"
+      },
+      {
+        "name": "Hirara",
+        "type": "nerf",
+        "intro": "Hirara bisa terlalu sering menggunakan skill tak terkalahkannya, membuatnya sulit untuk dihadapi. Kami telah mengurangi seberapa sering dia dapat menggunakan skillnya, tetapi sedikit meningkatkan damage ledakan dari kombo penuhnya di pertengahan hingga akhir permainan.",
+        "sections": [
+          {
+            "name": "Meisen-e",
+            "category": "Skill 1",
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Pendinginan",
+                "before": "9-5.5s",
+                "after": "10-6.5s"
+              }
+            ]
+          },
+          {
+            "name": "Kaerazu",
+            "category": "Skill 2",
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Damage",
+                "before": "150-255 (+ 65% Extra Physical Attack)",
+                "after": "165-270 (+ 42%-70% Extra Physical Attack)"
+              }
+            ]
+          }
+        ],
+        "slug": "hirara"
+      },
+      {
+        "name": "Eudora",
+        "type": "nerf",
+        "intro": "Eudora terlalu menekan di awal hingga pertengahan game, jadi kami sedikit mengurangi damage Ultimate-nya di semua level.",
+        "sections": [
+          {
+            "name": "Thunder's Wrath",
+            "category": "Terakhir",
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Damage Area Tengah",
+                "before": "600-1000 (+ 160% Total Magic Power)",
+                "after": "540-900 (+ 145% Total Magic Power)"
+              },
+              {
+                "label": "Damage di Luar Area Tengah",
+                "before": "300-500 (+ 100% Total Magic Power)",
+                "after": "270-450 (+ 90% Total Magic Power)"
+              },
+              {
+                "label": "Damage Tertunda",
+                "before": "330-550 (+ 110% Magic Power)",
+                "after": "300-500 (+ 100% Magic Power)"
+              }
+            ]
+          }
+        ],
+        "slug": "eudora"
+      },
+      {
+        "name": "Rafaela",
+        "type": "nerf",
+        "intro": "Penggunaan skill Rafaela yang sering memberikan poke dan utilitas tim yang berlebihan, jadi kami meningkatkan cooldown Skill 1 dan 2 pada level skill yang lebih tinggi.",
+        "sections": [
+          {
+            "name": "Light of Retribution",
+            "category": "Skill 1",
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Pendinginan",
+                "before": "5-3s",
+                "after": "5s at all levels"
+              }
+            ]
+          },
+          {
+            "name": "Holy Healing",
+            "category": "Skill 2",
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Pendinginan",
+                "before": "10.5-8.5s",
+                "after": "10.5-9.5s"
+              }
+            ]
+          }
+        ],
+        "slug": "rafaela"
+      },
+      {
+        "name": "Kalea",
+        "type": "buff",
+        "intro": "Kalea tidak bisa secara efektif mengancam lini belakang musuh sendirian dan tetap sangat bergantung pada sekutunya. Oleh karena itu, kami telah meningkatkan potensi pembunuhan solonya.",
+        "sections": [
+          {
+            "name": "Surge of Life",
+            "category": "Pasif",
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Damage Serangan Dasar Ketiga yang Ditingkatkan",
+                "before": "70 (+ 4*Hero Level)",
+                "after": "120 (+ 12*Hero Level)"
+              },
+              {
+                "text": "Efek Baru: Mendapat 60% Kecepatan Gerakan selama 1 d saat menyerap Zona Air."
+              }
+            ]
+          },
+          {
+            "name": "Tidal Strike",
+            "category": "Skill 3",
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Bonus Damage",
+                "before": "8% of Max HP",
+                "after": "14% of Max HP"
+              }
+            ]
+          }
+        ],
+        "slug": "kalea"
+      }
+    ],
+    "balance": {
+      "buff": 1,
+      "nerf": 4,
+      "adjust": 0
+    }
+  },
   "2.2.16": {
     "version": "2.2.16",
     "title": "Patch Notes 2.2.16",
@@ -1274,7 +2200,423 @@
       "nerf": 6,
       "adjust": 5
     },
-    "date": "2026-10-03"
+    "date": "2026-09-16",
+    "source": "fandom",
+    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.2.16"
+  },
+  "2.1.95a": {
+    "version": "2.1.95a",
+    "title": "Patch 2.1.95a",
+    "date": "2026-08-26",
+    "link": "https://liquipedia.net/mobilelegends/Patch_2.1.95a",
+    "source": "liquipedia",
+    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.95a",
+    "toc": [
+      {
+        "level": 2,
+        "title": "Dari Para Desainer",
+        "anchor": "from-the-designers"
+      },
+      {
+        "level": 2,
+        "title": "I. Penyesuaian Hero",
+        "anchor": "i-hero-adjustments"
+      },
+      {
+        "level": 2,
+        "title": "II. Penyesuaian Medan Perang",
+        "anchor": "ii-battlefield-adjustments"
+      },
+      {
+        "level": 3,
+        "title": "Penyesuaian Peralatan",
+        "anchor": "equipment-adjustments"
+      }
+    ],
+    "sections": [
+      {
+        "anchor": null,
+        "title": null,
+        "html": "<p>Sorotan dari patch 2.1.95a:</p>\n<ul><li>Penyesuaian Hero</li><li>Penyesuaian Medan Perang</li></ul>",
+        "role": null
+      },
+      {
+        "anchor": "from-the-designers",
+        "title": "Dari Para Desainer",
+        "html": "<p>Penyesuaian hero telah dilakukan berdasarkan peringkat terkini dan pertandingan profesional. Penyesuaian lebih lanjut akan hadir di patch berikutnya.</p>\n<p>Semoga berhasil naik peringkat di medan perang!</p>",
+        "role": null
+      },
+      {
+        "anchor": "i-hero-adjustments",
+        "title": "I. Penyesuaian Hero",
+        "html": "",
+        "role": "adjustments"
+      },
+      {
+        "anchor": "ii-battlefield-adjustments",
+        "title": "II. Penyesuaian Medan Perang",
+        "html": "<h3 id=\"equipment-adjustments\">Penyesuaian Peralatan</h3>\n<p><b>Sabuk Petir</b> <strong>▼ Nerf</strong></p>\n<p>Kami memperhatikan bahwa beberapa Assassin mendapat manfaat terlalu banyak dari Thunder Belt, jadi kami menambahkan peran Assassin ke batasan peran item tersebut.</p>\n<p>Penyesuaian Efek: 50% Efek untuk Marksman/Mage → 50% Efek untuk Marksman/Mage/Assassin</p>",
+        "role": null
+      }
+    ],
+    "newHeroes": [],
+    "adjustments": [
+      {
+        "name": "Atlas",
+        "type": "nerf",
+        "intro": "Bonus Kecepatan Gerakan Skill 2 Atlas terlalu tinggi, sehingga memberinya kemampuan ganking yang berlebihan. Kami sedikit mengurangi Skill 2 untuk mengurangi frekuensi pengejaran dan keterlibatannya.",
+        "sections": [
+          {
+            "name": "Perfect Match",
+            "category": "Skill 2",
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Peningkatan Kecepatan Gerakan",
+                "before": "40%",
+                "after": "30%"
+              },
+              {
+                "label": "Pendinginan",
+                "before": "12-10s",
+                "after": "13-11s"
+              }
+            ]
+          }
+        ],
+        "slug": "atlas"
+      },
+      {
+        "name": "Hanzo",
+        "type": "nerf",
+        "intro": "Build Tanky Hanzo memiliki durabilitas dan Regen HP yang berlebihan. Regen HP-nya kini ditingkatkan dengan Serangan Fisik, mengurangi manfaat build setengah tank dan mendorong perlengkapan yang berfokus pada serangan.",
+        "sections": [
+          {
+            "name": "Ninjutsu: Demon Feast",
+            "category": "Skill 1",
+            "type": "adjust",
+            "changes": [
+              {
+                "label": "Regen HP Saat Mengincar Hero Turtle, Lord, atau Musuh",
+                "before": "10%-20% HP",
+                "after": "150-450 (+80% Total Physical Attack)"
+              },
+              {
+                "label": "Damage Ekstra Hanekage pada Tumpukan Pasif Maks",
+                "before": "15 (+2% Extra Physical Attack)",
+                "after": "12 (+3% Extra Physical Attack)"
+              }
+            ]
+          },
+          {
+            "name": "Kinjutsu: Pinnacle Ninja",
+            "category": "Terakhir",
+            "type": "adjust",
+            "changes": [
+              {
+                "label": "HP Regen Setelah Kembali ke Tubuh Hanzo",
+                "before": "16% HP at all levels",
+                "after": "360-520 (+100% Extra Physical Attack)"
+              }
+            ]
+          }
+        ],
+        "slug": "hanzo"
+      },
+      {
+        "name": "Hayabusa",
+        "type": "adjust",
+        "intro": "Damage Skill 1 Hayabusa sedikit rendah dan Skill 2 sulit untuk mendarat. Kami telah menyesuaikan skillnya untuk meningkatkan damage awal dan eksekusinya sekaligus mengurangi ketergantungannya pada ledakan Ultimate.",
+        "sections": [
+          {
+            "name": "Ninjutsu: Phantom Shuriken",
+            "category": "Skill 1",
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Damage",
+                "before": "220-280 (+75% Extra Physical Attack)",
+                "after": "220-300 (+75%-85% Extra Physical Attack)"
+              }
+            ]
+          },
+          {
+            "name": "Ninjutsu: Quad Shadow",
+            "category": "Skill 2",
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Lebar Hitbox Phantom",
+                "before": "0.8",
+                "after": "1.0"
+              },
+              {
+                "text": "Pengoptimalan Pengalaman: Meningkatkan tujuan mendulang Skill 2."
+              }
+            ]
+          },
+          {
+            "name": "Ougi: Shadow Kill",
+            "category": "Terakhir",
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Damage Serangan",
+                "before": "140 (+32% Extra Physical Attack)",
+                "after": "130 (+30% Extra Physical Attack)"
+              },
+              {
+                "label": "Damage Ekstra Dengan Tanda Bayangan",
+                "before": "90-150 (+40%-60% Extra Physical Attack)",
+                "after": "90-120 (+40%-50% Extra Physical Attack)"
+              }
+            ]
+          }
+        ],
+        "slug": "hayabusa"
+      },
+      {
+        "name": "Obsidia",
+        "type": "adjust",
+        "intro": "Untuk meningkatkan performa lemahnya di awal hingga pertengahan game sebagai Marksman, kami telah meningkatkan Pertumbuhan Kecepatan Serangannya dan mengizinkan Turret untuk memicu Pasifnya. Kami juga mengubah bonus serangan Ultimate dari Kecepatan Serangan menjadi perisai untuk meningkatkan kemampuan bertahannya.",
+        "sections": [
+          {
+            "name": "Return to Bone",
+            "category": "Pasif",
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Efek Baru: Obsidia juga memperoleh 2 Bone Energy ketika Basic Attack-nya mengenai Turret."
+              }
+            ]
+          },
+          {
+            "name": "Hunt of Bone",
+            "category": "Terakhir",
+            "type": "adjust",
+            "changes": [
+              {
+                "text": "Efek yang Dihapus: Mendapat 30% Kecepatan Serangan setelah mengenai musuh."
+              },
+              {
+                "text": "Efek Baru: Mendapatkan perisai setelah mengenai musuh."
+              },
+              {
+                "text": "Perisai: 200 (+25 per Pecahan Tulang)"
+              }
+            ]
+          }
+        ],
+        "slug": "obsidia"
+      }
+    ],
+    "balance": {
+      "buff": 0,
+      "nerf": 2,
+      "adjust": 2
+    }
+  },
+  "2.1.95": {
+    "version": "2.1.95",
+    "title": "Patch 2.1.95",
+    "date": "2026-08-04",
+    "link": "https://liquipedia.net/mobilelegends/Patch_2.1.95",
+    "source": "liquipedia",
+    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.95",
+    "toc": [
+      {
+        "level": 2,
+        "title": "Dari Para Desainer",
+        "anchor": "from-the-designers"
+      },
+      {
+        "level": 2,
+        "title": "I. Hero yang Dirubah",
+        "anchor": "i-revamped-hero"
+      },
+      {
+        "level": 2,
+        "title": "II. Penyesuaian Hero",
+        "anchor": "ii-hero-adjustments"
+      },
+      {
+        "level": 2,
+        "title": "AKU AKU AKU. Penyesuaian Hero",
+        "anchor": "iii-hero-adjustments"
+      },
+      {
+        "level": 2,
+        "title": "IV. Penyesuaian Sistem",
+        "anchor": "iv-system-adjustments"
+      },
+      {
+        "level": 3,
+        "title": "A. Sorot Ikon",
+        "anchor": "a-highlight-icons"
+      },
+      {
+        "level": 3,
+        "title": "B. Prestasi Musim",
+        "anchor": "b-season-achievements"
+      },
+      {
+        "level": 3,
+        "title": "C. Antarmuka Pencapaian Pertempuran",
+        "anchor": "c-battle-achievement-interface"
+      },
+      {
+        "level": 3,
+        "title": "C. Optimasi Kejelasan Antarmuka Utama",
+        "anchor": "c-main-interface-clarity-optimizations"
+      }
+    ],
+    "sections": [
+      {
+        "anchor": null,
+        "title": null,
+        "html": "<p>Sorotan dari patch 2.1.95:</p>\n<ul><li>Hero Kaja yang Dirombak, Raja Nazar. Dukungan kontrol yang sangat mobile yang menguasai Primal Lightning untuk terbang bebas melintasi medan perang.</li><li>Penyesuaian Hero</li><li>Penyesuaian Medan Perang</li><li>Penyesuaian Sistem</li><li>Penyesuaian Modus</li></ul>",
+        "role": null
+      },
+      {
+        "anchor": "from-the-designers",
+        "title": "Dari Para Desainer",
+        "html": "<p>Pada patch kali ini, kami fokus untuk menyesuaikan kekuatan beberapa hero di Brawl untuk menyeimbangkan performanya di mode ini.</p>\n<p>Selain itu, Chaos Clash yang telah lama ditunggu-tunggu kembali dalam bentuk yang diperbarui. Kami telah sepenuhnya meningkatkan peta, mekanisme inti, dan sistem buffnya. Masuk dan lihatlah!</p>\n<p>Pada patch berikutnya, kami akan melakukan penyesuaian keseimbangan berdasarkan performa hero di pertandingan peringkat pertengahan hingga akhir musim dan pick rate dari MSC yang baru saja selesai.</p>\n<p>Semoga berhasil naik peringkat!</p>",
+        "role": null
+      },
+      {
+        "anchor": "i-revamped-hero",
+        "title": "I. Hero yang Dirubah",
+        "html": "",
+        "role": "newHeroes"
+      },
+      {
+        "anchor": "ii-hero-adjustments",
+        "title": "II. Penyesuaian Hero",
+        "html": "",
+        "role": "adjustments"
+      },
+      {
+        "anchor": "iii-hero-adjustments",
+        "title": "AKU AKU AKU. Penyesuaian Hero",
+        "html": "<h4 id=\"bug-fixes\">Perbaikan Bug</h4>\n<p>Memperbaiki masalah di mana penggunaan Purify akan memberikan kekebalan terhadap damage skill 1 Clint dalam situasi tertentu.</p>",
+        "role": null
+      },
+      {
+        "anchor": "iv-system-adjustments",
+        "title": "IV. Penyesuaian Sistem",
+        "html": "<h3 id=\"a-highlight-icons\">A. Sorot Ikon</h3>\n<p>Jika diperoleh lebih dari 3 ikon hasil pertandingan, ikon tersebut akan diciutkan, dan hanya jumlahnya yang ditampilkan.</p>\n<h3 id=\"b-season-achievements\">B. Prestasi Musim</h3>\n<p>Menambahkan fitur [Klaim Semua], memungkinkan Anda mengklaim beberapa hadiah tugas sekaligus.</p>\n<h3 id=\"c-battle-achievement-interface\">C. Antarmuka Pencapaian Pertempuran</h3>\n<p>Prestasi Pertempuran sekarang akan dikategorikan. Ketika beberapa pencapaian Sorotan dengan jenis yang sama diperoleh, pencapaian dengan level tertinggi akan ditampilkan secara default.</p>\n<p>Kami telah menambahkan beberapa pencapaian hasil pertandingan baru dan menyesuaikan persyaratannya.</p>\n<h3 id=\"c-main-interface-clarity-optimizations\">C. Optimasi Kejelasan Antarmuka Utama</h3>\n<p>1. Untuk membuat antarmuka utama lebih bersih dan intuitif, kami telah melakukan optimasi berikut.</p>\n<p>2. Menyederhanakan informasi status di daftar teman antarmuka utama.</p>\n<p>3. Menyederhanakan tampilan bilah sumber daya di bagian atas antarmuka utama:</p>\n<p>A. Tiket tidak lagi ditampilkan. Mereka sekarang dapat dilihat di Toko.</p>\n<p>B. Ketika jumlah Emas dan jumlah hero yang dimiliki mencapai ambang batasnya masing-masing, tampilan Emas akan diciutkan secara default tetapi dapat diperluas secara manual.</p>",
+        "role": null
+      }
+    ],
+    "newHeroes": [
+      {
+        "name": "Kaja",
+        "epithet": "Nazar King",
+        "anchor": "revamp-nazar-king-kaja",
+        "lore": [],
+        "feature": "Dukungan kontrol yang sangat mobile yang menguasai Primal Lightning untuk terbang bebas melintasi medan perang.",
+        "skills": [
+          {
+            "role": "Pasif",
+            "name": "Wings of Lightning",
+            "description": [
+              "Damage skill Kaja menimbulkan [Paralysis] pada musuh, memperlambat mereka sebentar dan mengurangi damagenya."
+            ]
+          },
+          {
+            "role": "Skill 1",
+            "name": "Ring of Order v2",
+            "description": [
+              "Kaja memanggil cincin Primal Lightning, memberikan damage pada musuh sambil memulihkan HP."
+            ]
+          },
+          {
+            "role": "Skill 2",
+            "name": "Soaring Wings",
+            "description": [
+              "Kaja berlari ke arah target, memberikan damage dan memukul mundur mereka sebelum memasuki kondisi [Soaring], yang mengurangi cooldown skill ini. Memukul hero atau creep akan memperpanjang durasi status."
+            ]
+          },
+          {
+            "role": "Terakhir",
+            "name": "Divine Binding",
+            "description": [
+              "Kaja melemparkan laso ke area target, menahan hero musuh yang berada di dalamnya. Dapat melakukan drag untuk memperkecil radiusnya saat skill aktif."
+            ]
+          }
+        ],
+        "slug": "kaja"
+      }
+    ],
+    "adjustments": [
+      {
+        "name": "Gord",
+        "type": "nerf",
+        "intro": "Sedikit mengurangi hasil damagenya di awal hingga pertengahan permainan.",
+        "sections": [
+          {
+            "name": "Mystic Favor",
+            "category": "Pasif",
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Damage Dasar",
+                "before": "140",
+                "after": "120"
+              }
+            ]
+          },
+          {
+            "name": "Mystic Gush",
+            "category": "Terakhir",
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Damage Dasar",
+                "before": "110-210",
+                "after": "90-160"
+              }
+            ]
+          }
+        ],
+        "slug": "gord"
+      },
+      {
+        "name": "Novaria",
+        "type": "buff",
+        "intro": "Kami memperhatikan bahwa Skill 2 Novaria memiliki kesenjangan yang terlalu besar antara performa rata-rata dan level tinggi. Untuk mengatasi hal ini, kami telah membuatnya lebih mudah untuk digunakan secara efektif tanpa menurunkan potensi high-endnya.",
+        "sections": [
+          {
+            "name": "Astral Recall",
+            "category": "Skill 2",
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Peningkatan Kecepatan Gerakan",
+                "before": "20% initially and 60% after passing through obstacles",
+                "after": "80% initially, then gradually decays to 30%"
+              },
+              {
+                "label": "Damage Dasar",
+                "before": "230-380 (+90% Total Magic Power) (+ 4% target's Max HP)",
+                "after": "260-410 (+95% Total Magic Power) (+ 5% target's Max HP)"
+              },
+              {
+                "label": "Peningkatan Damage Ekstra Maks",
+                "before": "150%",
+                "after": "120% (damage increase per buff stack remains at 15%)"
+              }
+            ]
+          }
+        ],
+        "slug": "novaria"
+      }
+    ],
+    "balance": {
+      "buff": 1,
+      "nerf": 1,
+      "adjust": 0
+    }
   },
   "2.1.90": {
     "version": "2.1.90",
@@ -1334,13 +2676,344 @@
       }
     ],
     "newHeroes": [],
-    "adjustments": [],
+    "adjustments": [
+      {
+        "name": "Akai",
+        "type": "nerf",
+        "intro": "Mengurangi kecepatan jungling Akai, namun meningkatkan damage burstnya sebagai kompensasi.",
+        "sections": [
+          {
+            "name": "Tai Chi",
+            "category": "Pasif",
+            "type": "nerf",
+            "changes": [
+              {
+                "text": "Efek Baru: Serangan Dasar terhadap target yang ditandai menghilangkan tanda tersebut."
+              },
+              {
+                "label": "Damage Ekstra",
+                "before": "25 (+ 5% Total HP)",
+                "after": "35 (+6% Total HP)"
+              }
+            ]
+          }
+        ],
+        "slug": "akai"
+      },
+      {
+        "name": "Argus",
+        "type": "nerf",
+        "intro": "Kami memutuskan untuk meningkatkan kemampuan pertarungan dan laning Argus di awal hingga pertengahan game. \"Malaikat Jatuh\" yang perkasa tidak boleh terbatas pada late game.",
+        "sections": [
+          {
+            "name": "Warmonger",
+            "category": "Pasif",
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Damage Tebasan Setan",
+                "before": "80 (+50% Total Physical Attack)",
+                "after": "120 (+25% Total Physical Attack)"
+              },
+              {
+                "label": "Regen Tebasan Iblis",
+                "before": "100 (+10% Total Physical Attack)",
+                "after": "140"
+              }
+            ]
+          },
+          {
+            "name": "Meteoric Sword",
+            "category": "Skill 2",
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Damage Dasar",
+                "before": "60-180",
+                "after": "120-180"
+              }
+            ]
+          }
+        ],
+        "slug": "argus"
+      },
+      {
+        "name": "Aulus",
+        "type": "buff",
+        "intro": "Untuk memperkuat perannya sebagai Fighter yang bergantung pada Serangan Dasar berkelanjutan, kami telah meningkatkan ketahanan dan kemampuan Aulus untuk tetap mengenai target, sekaligus sedikit mengurangi damage di pertengahan hingga akhir game demi keseimbangan.",
+        "sections": [
+          {
+            "name": "Fighting Spirit",
+            "category": "Pasif",
+            "type": "nerf",
+            "changes": [
+              {
+                "text": "Efek Baru: Peningkatan Serangan Dasar mengurangi Kecepatan Gerakan target sebesar 15% selama 1 d."
+              },
+              {
+                "label": "Meningkatkan Damage Dasar Serangan Dasar",
+                "before": "135 (+ 20* Hero Level)",
+                "after": "135 (+ 15* Hero Level)"
+              }
+            ]
+          },
+          {
+            "name": "The Power of Axe",
+            "category": "Skill 2",
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Efek Baru: Fase pertama dari damage berbentuk kipas memberikan 20% Hybrid Lifesteal selama 2,5 detik saat terkena."
+              },
+              {
+                "text": "Efek yang Dihapus: Fase pertama dari damage berbentuk kipas mengurangi Kecepatan Gerakan target saat terkena."
+              },
+              {
+                "label": "Pendinginan",
+                "before": "5s",
+                "after": "7s"
+              }
+            ]
+          },
+          {
+            "name": "Cleaving Axe",
+            "category": "Terakhir",
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Sedikit mengurangi waktu ayunan ke belakang."
+              }
+            ]
+          }
+        ],
+        "slug": "aulus"
+      },
+      {
+        "name": "Baxia",
+        "type": "buff",
+        "intro": "Mengurangi damage output dan kecepatan jungling Baxia.",
+        "sections": [
+          {
+            "name": "Shield of Spirit",
+            "category": "Skill 2",
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Damage",
+                "before": "140-265 (+120% Magic Power) (+ 6% target's Max HP)",
+                "after": "120-220 (+100% Magic Power) (+ 5% target's Max HP)"
+              },
+              {
+                "label": "Efek Baru",
+                "before": "Max Damage to Creeps: 350-800",
+                "after": "250-575"
+              }
+            ]
+          }
+        ],
+        "slug": "baxia"
+      },
+      {
+        "name": "Esmeralda",
+        "type": "buff",
+        "intro": "Sedikit meningkatkan performa Esmeralda di early hingga mid game.",
+        "sections": [
+          {
+            "name": "Atribut",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "HP Dasar",
+                "before": "2464",
+                "after": "2660"
+              },
+              {
+                "label": "Pangkalan Pertahanan Fisik",
+                "before": "21",
+                "after": "25"
+              }
+            ]
+          },
+          {
+            "name": "Frostmoon Shield",
+            "category": "Skill 1",
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Pendinginan",
+                "before": "8.5s",
+                "after": "8s"
+              },
+              {
+                "label": "Perisai Dasar",
+                "before": "400-900",
+                "after": "500-1000"
+              }
+            ]
+          },
+          {
+            "name": "Stardust Dance",
+            "category": "Skill 2",
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Efek Lambat",
+                "before": "10%",
+                "after": "20%"
+              }
+            ]
+          }
+        ],
+        "slug": "esmeralda"
+      },
+      {
+        "name": "Eudora",
+        "type": "buff",
+        "intro": "Sedikit mengurangi Mana Cost hero.",
+        "sections": [
+          {
+            "name": "Forked Lightning",
+            "category": "Skill 1",
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Biaya Mana",
+                "before": "60-90",
+                "after": "40-65"
+              }
+            ]
+          }
+        ],
+        "slug": "eudora"
+      },
+      {
+        "name": "Fredrinn",
+        "type": "nerf",
+        "intro": "Sedikit mengurangi kecepatan membersihkan hutan dan daya tahan permainan awal Fredrinn.",
+        "sections": [
+          {
+            "name": "Atribut",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "HP Dasar",
+                "before": "2600",
+                "after": "2500"
+              }
+            ]
+          },
+          {
+            "name": "Piercing Strike",
+            "category": "Skill 1",
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Damage Meningkat Terhadap Creep",
+                "before": "200%",
+                "after": "170%"
+              }
+            ]
+          }
+        ],
+        "slug": "fredrinn"
+      },
+      {
+        "name": "Melissa",
+        "type": "buff",
+        "intro": "Sedikit mengurangi Mana Cost hero.",
+        "sections": [
+          {
+            "name": "Eyes on You!",
+            "category": "Skill 2",
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Biaya Mana",
+                "before": "90",
+                "after": "70"
+              }
+            ]
+          }
+        ],
+        "slug": "melissa"
+      },
+      {
+        "name": "Minsitthar",
+        "type": "buff",
+        "intro": "Mengurangi cooldown Ultimate di awal hingga pertengahan game dan meningkatkan damage di akhir game.",
+        "sections": [
+          {
+            "name": "King's Calling",
+            "category": "Terakhir",
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Pendinginan",
+                "before": "55-45s",
+                "after": "45s at all levels"
+              },
+              {
+                "label": "Rasio Bonus Fisik & Efek Serangan Ultimate",
+                "before": "40% at all levels",
+                "after": "30%-50%"
+              }
+            ]
+          }
+        ],
+        "slug": "minsitthar"
+      },
+      {
+        "name": "Nolan",
+        "type": "buff",
+        "intro": "Sedikit meningkatkan keberlanjutan Nolan.",
+        "sections": [
+          {
+            "name": "Dimensional Rift",
+            "category": "Pasif",
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Pemulihan Energi Saat Menyerang Musuh dengan Rift",
+                "before": "20",
+                "after": "25"
+              }
+            ]
+          }
+        ],
+        "slug": "nolan"
+      },
+      {
+        "name": "Zhuxin",
+        "type": "nerf",
+        "intro": "Jarak penggunaan Skill 2 sedikit berkurang.",
+        "sections": [
+          {
+            "name": "Lantern Flare",
+            "category": "Skill 2",
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Rentang Pemeran",
+                "before": "4.5",
+                "after": "4.2"
+              }
+            ]
+          }
+        ],
+        "slug": "zhuxin"
+      }
+    ],
     "balance": {
-      "buff": 0,
-      "nerf": 0,
+      "buff": 7,
+      "nerf": 4,
       "adjust": 0
     },
-    "date": "2026-07-15"
+    "date": "2026-07-02",
+    "source": "fandom",
+    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.90",
+    "adjustmentsSource": "liquipedia"
   },
   "2.1.88": {
     "version": "2.1.88",
@@ -3333,7 +5006,213 @@
       "nerf": 11,
       "adjust": 5
     },
-    "date": "2026-06-18"
+    "date": "2026-06-17",
+    "source": "fandom",
+    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.88"
+  },
+  "2.1.67a": {
+    "version": "2.1.67a",
+    "title": "Patch 2.1.67a",
+    "date": "2026-05-13",
+    "link": "https://liquipedia.net/mobilelegends/Patch_2.1.67a",
+    "source": "liquipedia",
+    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.67a",
+    "toc": [
+      {
+        "level": 2,
+        "title": "Dari Para Desainer",
+        "anchor": "from-the-designers"
+      },
+      {
+        "level": 2,
+        "title": "I. Penyesuaian Hero",
+        "anchor": "i-hero-adjustments"
+      }
+    ],
+    "sections": [
+      {
+        "anchor": null,
+        "title": null,
+        "html": "<p>Sorotan dari patch 2.1.67a:</p>\n<ul><li>Penyesuaian Hero</li></ul>",
+        "role": null
+      },
+      {
+        "anchor": "from-the-designers",
+        "title": "Dari Para Desainer",
+        "html": "<p>Beberapa hero telah kami sesuaikan berdasarkan data dari Patch Baru. Kami juga bertujuan untuk meningkatkan kemampuan bertahan hidup beberapa Tank yang berkeliaran dan akan melakukan penyesuaian lebih lanjut terhadap lebih banyak Roamer di patch mendatang.</p>",
+        "role": null
+      },
+      {
+        "anchor": "i-hero-adjustments",
+        "title": "I. Penyesuaian Hero",
+        "html": "",
+        "role": "adjustments"
+      }
+    ],
+    "newHeroes": [],
+    "adjustments": [
+      {
+        "name": "Aulus",
+        "type": "buff",
+        "intro": "Mengurangi waktu yang dibutuhkan Aulus untuk mencapai tumpukan maksimal Fighting Spirit, sekaligus mengurangi kemampuan tempurnya pada tumpukan maksimal untuk keseimbangan.",
+        "sections": [
+          {
+            "name": "Fighting Spirit",
+            "category": "Pasif",
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Tumpukan Maks",
+                "before": "6",
+                "after": "4"
+              }
+            ]
+          },
+          {
+            "name": "Cleaving Axe",
+            "category": "Terakhir",
+            "type": "nerf",
+            "changes": [
+              {
+                "text": "Menghapus efek Imunitas Kontrol selama tebasan yang lebih luas."
+              }
+            ]
+          }
+        ],
+        "slug": "aulus"
+      },
+      {
+        "name": "Belerick",
+        "type": "buff",
+        "intro": "Dibandingkan dengan skill serupa, Skill 1 Belerick memiliki delay yang cukup lama. Kami telah sedikit mengurangi penundaannya untuk meningkatkan tingkat hit.",
+        "sections": [
+          {
+            "name": "Ancient Seed",
+            "category": "Skill 1",
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Penundaan Ejekan",
+                "before": "1s",
+                "after": "0.8s"
+              }
+            ]
+          }
+        ],
+        "slug": "belerick"
+      },
+      {
+        "name": "Chou",
+        "type": "buff",
+        "intro": "Kami telah mengoptimalkan responsivitas dalam menyusun Serangan Dasar antar skill, meningkatkan kekuatan Ultimate-nya di akhir permainan, dan sedikit mengurangi jarak knockback fase kedua untuk memastikan Chou dapat segera menindaklanjutinya dengan Serangan Dasar yang ditingkatkan.",
+        "sections": [
+          {
+            "name": "Jeet Kune Do",
+            "category": "Skill 1",
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Menghapus ayunan ke belakang. Basic Attack sekarang dapat digunakan segera setelah skill dikeluarkan."
+              }
+            ]
+          },
+          {
+            "name": "The Way of Dragon",
+            "category": "Terakhir",
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Pendinginan",
+                "before": "34s at all levels",
+                "after": "36-30s"
+              },
+              {
+                "label": "Damage Dasar",
+                "before": "400-500",
+                "after": "400-600"
+              },
+              {
+                "label": "Mengejar Damage",
+                "before": "480-580",
+                "after": "480-680"
+              },
+              {
+                "label": "Jarak Knockback Fase Kedua",
+                "before": "1.5",
+                "after": "1.15"
+              }
+            ]
+          }
+        ],
+        "slug": "chou"
+      },
+      {
+        "name": "Harley",
+        "type": "nerf",
+        "intro": "Mengurangi damage burst hero di tengah permainan untuk menurunkan potensi bola saljunya.",
+        "sections": [
+          {
+            "name": "Poker Trick",
+            "category": "Skill 1",
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Damage Dasar per Kartu",
+                "before": "130-210",
+                "after": "120-180"
+              }
+            ]
+          }
+        ],
+        "slug": "harley"
+      },
+      {
+        "name": "Paquito",
+        "type": "buff",
+        "intro": "Sebagai petinju yang lincah, Paquito diharapkan unggul dalam melakukan kiting di lane dan melakukan teamfight di late game. Oleh karena itu, kami telah meningkatkan batas maksimum skill dan kemampuan mendorong lanenya.",
+        "sections": [
+          {
+            "name": "Champ Stance",
+            "category": "Pasif",
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Efek yang Dihapus: Setiap Basic Attack hanya menghasilkan 85% Total Physical Attack."
+              },
+              {
+                "text": "Efek Baru: Skill Paquito yang ditingkatkan memberikan 10%-30% damage ekstra (berskala seiring level) ke minion."
+              },
+              {
+                "label": "Peningkatan Kecepatan Gerakan Skill",
+                "before": "60% extra Movement Speed that decays over 1.8s",
+                "after": "60% extra Movement Speed that decays over 1.2s"
+              },
+              {
+                "text": "Efek Baru: Menggunakan skill yang ditingkatkan memberikan 10%-30% Pengurangan Damage (berskala sesuai level) selama 1,2 detik."
+              }
+            ]
+          },
+          {
+            "name": "Heavy Left Punch",
+            "category": "Skill 1",
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Pengaturan",
+                "before": "Hitting a hero or creep grants a shield",
+                "after": "Hitting an enemy grants a shield"
+              }
+            ]
+          }
+        ],
+        "slug": "paquito"
+      }
+    ],
+    "balance": {
+      "buff": 4,
+      "nerf": 1,
+      "adjust": 0
+    }
   },
   "2.1.67": {
     "version": "2.1.67",
@@ -4823,7 +6702,9 @@
       "nerf": 5,
       "adjust": 14
     },
-    "date": "2026-05-01"
+    "date": "2026-04-22",
+    "source": "fandom",
+    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.67"
   },
   "2.1.61": {
     "version": "2.1.61",
@@ -6890,7 +8771,9 @@
       "nerf": 6,
       "adjust": 17
     },
-    "date": "2026-05-01"
+    "date": "2026-03-11",
+    "source": "fandom",
+    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.61"
   },
   "2.1.47": {
     "version": "2.1.47",
@@ -7325,7 +9208,240 @@
       "nerf": 4,
       "adjust": 0
     },
-    "date": "2026-05-03"
+    "date": "2026-01-28",
+    "source": "fandom",
+    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.47"
+  },
+  "2.1.40a": {
+    "version": "2.1.40a",
+    "title": "Patch 2.1.40a",
+    "date": "2025-12-31",
+    "link": "https://liquipedia.net/mobilelegends/Patch_2.1.40a",
+    "source": "liquipedia",
+    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.40a",
+    "toc": [
+      {
+        "level": 2,
+        "title": "I. Penyesuaian Hero",
+        "anchor": "i-hero-adjustments"
+      },
+      {
+        "level": 2,
+        "title": "II. Penyesuaian Medan Perang",
+        "anchor": "ii-battlefield-adjustments"
+      },
+      {
+        "level": 2,
+        "title": "AKU AKU AKU. Penyesuaian Peralatan",
+        "anchor": "iii-equipment-adjustments"
+      }
+    ],
+    "sections": [
+      {
+        "anchor": null,
+        "title": null,
+        "html": "<p>Sorotan dari patch 2.1.40a:</p>\n<ul><li>Penyesuaian Hero</li><li>Penyesuaian Medan Perang</li><li>Penyesuaian Peralatan</li></ul>",
+        "role": null
+      },
+      {
+        "anchor": "i-hero-adjustments",
+        "title": "I. Penyesuaian Hero",
+        "html": "",
+        "role": "adjustments"
+      },
+      {
+        "anchor": "ii-battlefield-adjustments",
+        "title": "II. Penyesuaian Medan Perang",
+        "html": "<h4 id=\"creeps\">Gigil</h4>\n<p>Mengurangi hadiah Emas dari creep legenda di awal dan pertengahan game untuk memberikan lebih banyak ruang untuk pertumbuhan bagi susunan pemain di akhir game.</p>\n<h4 id=\"lord\">Yang mulia</h4>\n<p>Hadiah Emas Dasar: 80 → 50</p>\n<p>Peningkatan Hadiah Emas Per Menit: 8 → 10</p>\n<h4 id=\"minions\">minion</h4>\n<p>Meningkatkan kecepatan farming hero Mid Lane di awal hingga pertengahan game untuk memberikan lebih banyak viabilitas bagi Mage yang memberikan damage.</p>\n<h4 id=\"minions-2\">minion</h4>\n<p>Hadiah Emas Basis Minion Jarak Jauh: 21 → 25</p>\n<h4 id=\"turtle\">Turtle</h4>\n<p>Hadiah Emas Dasar: 40 → 30</p>",
+        "role": null
+      },
+      {
+        "anchor": "iii-equipment-adjustments",
+        "title": "AKU AKU AKU. Penyesuaian Peralatan",
+        "html": "<p><b>Tongkat Jenius</b> <strong>▲ Penggemar</strong></p>\n<p><i>Pertahanan Sihir di akhir game pada beberapa hero telah meningkat di patch baru-baru ini, jadi kami meningkatkan efek pengurangan Pertahanan Sihir peralatan ini di akhir game.</i></p>\n<p><b>Pasif Unik - Sihir</b> - <strong>▲ Buff</strong><br>Pengurangan Pertahanan Sihir per Tumpukan: 3 + (0,3*Level Hero) → 2,5 + (0,5*Level Hero)</p>\n<p><b>Tongkat Bercahaya</b> <strong>▼ Nerf</strong></p>\n<p><i>Ini agak terlalu lengkap sebagai peralatan Sihir utilitas, jadi kami telah mengurangi kemampuan damagenya.</i></p>\n<p><b>Atribut</b> - <strong>▼ Nerf</strong><br>Kekuatan Sihir: 75 → 50</p>\n<p><b>Pentungan Petir</b> <strong>▲ Penggemar</strong></p>\n<p><i>Dibandingkan dengan Wishing Lantern, Lightning Truncheon sering kali menghasilkan damage yang lebih rendah. Oleh karena itu, kami telah meningkatkan damagenya di awal hingga pertengahan permainan.</i></p>\n<p><b>Pasif Unik - Sihir</b> - <strong>▲ Buff</strong><br>Damage Dasar: 170 → 255</p>\n<p><b>Kapak Perang</b> <strong>▼ Nerf</strong></p>\n<p><i>War Axe terlalu lengkap, memberikan Serangan, HP, Pengurangan Cooldown, damage ekstra, dan keberlanjutan. Oleh karena itu, kami telah mengurangi keberlanjutannya.</i></p>\n<p><b>Atribut</b> <strong>▼ Nerf</strong><br>12% Spell Vamp → 8% Spell Vamp</p>\n<p><b>Lentera Harapan</b> <strong>▼ Nerf</strong></p>\n<p><i>Mengurangi potensi damage terhadap hero dengan HP rendah.</i></p>\n<p><b>Pasif Unik - Sihir]</b> <strong>▼ Nerf</strong><br>Damage diperlukan untuk memicu Butterfly Goddess: 800 → 900</p>",
+        "role": null
+      }
+    ],
+    "newHeroes": [],
+    "adjustments": [
+      {
+        "name": "Akai",
+        "type": "buff",
+        "intro": "Sedikit meningkatkan fleksibilitas hero.",
+        "sections": [
+          {
+            "name": "Headbutt",
+            "category": "Skill 1",
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Pendinginan",
+                "before": "13-10s",
+                "after": "11-8.5s"
+              }
+            ]
+          }
+        ],
+        "slug": "akai"
+      },
+      {
+        "name": "Barats",
+        "type": "buff",
+        "intro": "",
+        "sections": [
+          {
+            "name": "Detona's Welcome",
+            "category": "Terakhir",
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Pendinginan",
+                "before": "60-50s",
+                "after": "50-40s"
+              }
+            ]
+          }
+        ],
+        "slug": "barats"
+      },
+      {
+        "name": "Baxia",
+        "type": "nerf",
+        "intro": "Sedikit mengurangi damage hero ini di early game.",
+        "sections": [
+          {
+            "name": "Shield of Spirit",
+            "category": "Skill 2",
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Damage Dasar",
+                "before": "180-255",
+                "after": "140-265"
+              }
+            ]
+          }
+        ],
+        "slug": "baxia"
+      },
+      {
+        "name": "Kalea",
+        "type": "nerf",
+        "intro": "Ultimate Kalea sulit dilawan, jadi kami mengurangi frekuensi castingnya.",
+        "sections": [
+          {
+            "name": "Tsunami Slam",
+            "category": "Terakhir",
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Pendinginan",
+                "before": "50-40s",
+                "after": "56-48s"
+              }
+            ]
+          }
+        ],
+        "slug": "kalea"
+      },
+      {
+        "name": "Lancelot",
+        "type": "nerf",
+        "intro": "Setelah beberapa kali di-nerf, Lancelot masih terlalu kuat. Kami telah mengurangi frekuensi casting Ultimate-nya untuk meredamnya.",
+        "sections": [
+          {
+            "name": "Phantom Execution",
+            "category": "Terakhir",
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Pendinginan",
+                "before": "27-21s",
+                "after": "36-28s"
+              }
+            ]
+          }
+        ],
+        "slug": "lancelot"
+      },
+      {
+        "name": "Lapu-Lapu",
+        "type": "nerf",
+        "intro": "Lapu-Lapu menjadi sangat kuat setelah mengaktifkan Ultimate-nya. Penyesuaian ini bertujuan untuk mempertahankan pengalaman sorotan ini sekaligus mengurangi frekuensi Ultimate-nya.",
+        "sections": [
+          {
+            "name": "Bravest Fighter",
+            "category": "Terakhir",
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Pendinginan",
+                "before": "20-15s",
+                "after": "30-24s"
+              }
+            ]
+          }
+        ],
+        "slug": "lapu-lapu"
+      },
+      {
+        "name": "Ling",
+        "type": "buff",
+        "intro": "Meningkatkan kemampuan tempur Ling pada mid hingga late game.",
+        "sections": [],
+        "slug": "ling"
+      },
+      {
+        "name": "Minsitthar",
+        "type": "buff",
+        "intro": "Agar Minsitthar dapat membatasi hero dengan mobilitas tinggi dengan lebih baik, kami telah meningkatkan utilitas hero tersebut dan meningkatkan frekuensi penggunaan Ultimate-nya.",
+        "sections": [
+          {
+            "name": "King's Calling",
+            "category": "Terakhir",
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Efek Lambat",
+                "before": "20%",
+                "after": "30%"
+              },
+              {
+                "label": "Pendinginan",
+                "before": "60s-50s",
+                "after": "55s-45s"
+              }
+            ]
+          }
+        ],
+        "slug": "minsitthar"
+      },
+      {
+        "name": "Yve",
+        "type": "nerf",
+        "intro": "Jarak cast Yve yang jauh dan Movement Speed ​​Boost memberinya kemampuan kiting yang berlebihan, jadi kami melakukan beberapa penyesuaian.",
+        "sections": [
+          {
+            "name": "Void Blast",
+            "category": "Skill 1",
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Rentang Pemeran",
+                "before": "5.7",
+                "after": "5.5"
+              }
+            ]
+          }
+        ],
+        "slug": "yve"
+      }
+    ],
+    "balance": {
+      "buff": 4,
+      "nerf": 5,
+      "adjust": 0
+    }
   },
   "2.1.40": {
     "version": "2.1.40",
@@ -8468,7 +10584,9 @@
       "nerf": 5,
       "adjust": 3
     },
-    "date": "2026-05-04"
+    "date": "2025-12-18",
+    "source": "fandom",
+    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_2.1.40"
   },
   "1.9.47": {
     "version": "1.9.47",
@@ -9578,7 +11696,9 @@
       "nerf": 9,
       "adjust": 2
     },
-    "date": "2025-02-17"
+    "date": "2025-02-17",
+    "source": "fandom",
+    "liquipedia": null
   },
   "1.9.42": {
     "version": "1.9.42",
@@ -10341,7 +12461,9 @@
       "nerf": 3,
       "adjust": 1
     },
-    "date": "2026-11-04"
+    "date": "2024-12-18",
+    "source": "fandom",
+    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.9.42"
   },
   "1.9.20": {
     "version": "1.9.20",
@@ -11160,7 +13282,9 @@
       "nerf": 8,
       "adjust": 5
     },
-    "date": "2026-11-11"
+    "date": "2024-09-18",
+    "source": "fandom",
+    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.9.20"
   },
   "1.8.92": {
     "version": "1.8.92",
@@ -11483,7 +13607,9 @@
       "nerf": 7,
       "adjust": 4
     },
-    "date": "2024-08-31"
+    "date": "2024-06-19",
+    "source": "fandom",
+    "liquipedia": "https://liquipedia.net/mobilelegends/Patch_1.8.92"
   },
   "1.8.90": {
     "version": "1.8.90",
@@ -11871,6 +13997,8 @@
       "nerf": 4,
       "adjust": 2
     },
-    "date": "2024-06-15"
+    "date": "2024-06-15",
+    "source": "fandom",
+    "liquipedia": null
   }
 }
