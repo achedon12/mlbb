@@ -4,6 +4,7 @@ import { LOCALES, argsWithoutLocale, readLocales, targetLocales } from "../../sc
 import { applyGlossary, nameRules, restoreNames } from "../../scripts/translation-glossary.mjs";
 import { fromWire, toWire } from "../../scripts/translation-google.mjs";
 import { LOCALES as SMOKE_LOCALES } from "../../scripts/smoke-check-rules.mjs";
+import { isHandWritten } from "../../scripts/handwritten.mjs";
 
 const PRIVATE = String.fromCharCode(0xe000);
 
@@ -130,5 +131,20 @@ describe("hero names", () => {
       "th",
     );
     expect(restoreNames("คูฟราใช้สกิล เวลา 5 วินาที", "Khufra, Vale", th)).toBe("Khufra ใช้สกิล เวลา 5 วินาที");
+  });
+});
+
+describe("hand-written article translations", () => {
+  it("are recognised by the handwritten flag in the front matter", () => {
+    expect(isHandWritten('---\ntitle: "Patch"\nhandwritten: true\n---\nBody.\n')).toBe(true);
+    expect(isHandWritten('---\r\nhandwritten: "true"\r\n---\r\nBody.\r\n')).toBe(true);
+    expect(isHandWritten('---\ntitle: "Patch"\n---\nBody.\n')).toBe(false);
+    expect(isHandWritten('---\nhandwritten: false\n---\nBody.\n')).toBe(false);
+    // Only the front matter counts, not a line of the body.
+    expect(isHandWritten('---\ntitle: "Patch"\n---\nhandwritten: true\n')).toBe(false);
+  });
+
+  it("include the English patch 2.2.23 analysis", () => {
+    expect(isHandWritten(readFileSync("content/en/news/2026-11-19-analyse-patch-2-2-23.md", "utf8"))).toBe(true);
   });
 });
