@@ -6,7 +6,7 @@ import { PageSourcesBlock } from "@/components/page-sources";
 import { Card, PageHeader, SectionTitle } from "@/components/ui";
 import type { Locale } from "@/i18n/config";
 import { metaPage, notFoundMetadata } from "@/i18n/seo";
-import { createT } from "@/i18n/translations";
+import { createT, messagesPage } from "@/i18n/translations";
 import { heroesBySlug } from "@/lib/data";
 import {
   dataSheet,
@@ -20,6 +20,7 @@ import {
 import { longDate, listNames, patchCurrent, percentage } from "@/lib/freshness";
 import { serializeJsonLd } from "@/lib/html";
 import { NotFoundPage } from "@/components/not-found-page";
+import { ReportError } from "@/components/report-error";
 
 type Params = { params: Promise<{ locale: Locale; slug: string }> };
 
@@ -199,6 +200,7 @@ export default async function SpellPage({ params }: Params) {
         </section>
 
         <PageSourcesBlock locale={locale} of={{ kind: "spell" }} className="mt-0" />
+        <ReportError messages={messagesPage(locale, ["pages.reportError"])} path={`/spells/${slug}`} />
       </div>
     </>
   );

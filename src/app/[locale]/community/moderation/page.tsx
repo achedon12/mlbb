@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LoginPanel, UserBar } from "@/components/bot/dashboard-parts";
-import { ModerationActions, UnbanButton } from "@/components/community/moderation-actions";
+import { ModerationActions, ResolveDataReportButton, UnbanButton } from "@/components/community/moderation-actions";
 import { ago, Unavailable } from "@/components/community/parts";
 import Link from "@/components/link";
 import { PageHeader } from "@/components/ui";
@@ -13,12 +13,14 @@ import { currentDiscordUser } from "@/lib/bot/session";
 import { plainText } from "@/lib/community/markdown";
 import { bannedMembers, moderationQueue, recentLog } from "@/lib/community/store";
 import { requestTime } from "@/lib/community/server";
+import { openDataReports } from "@/lib/data-reports-server";
 import { databaseConfigured } from "@/lib/db";
 
 /**
  * Moderation queue of the community: open reports, one entry per target,
- * the most reported first, with the decisions at hand; the accounts banned;
- * the log of what moderators did. Moderators are the bot's super admins
+ * the most reported first, with the decisions at hand; the error reports
+ * on the data pages, oldest first; the accounts banned; the log of what
+ * moderators did. Moderators are the bot's super admins
  * (Discord login, BOT_SUPER_ADMIN_IDS), checked on every request; anyone
  * else gets the same 404 as a missing page.
  */
@@ -55,7 +57,7 @@ export default async function ModerationPage({ params, searchParams }: Params) {
   if (!isSuperAdmin(config, user.id)) notFound();
 
   const now = await requestTime();
-  const data = await Promise.all([moderationQueue(50, now), bannedMembers(now), recentLog(40)]).catch(() => null);
+  const data = await Promise.all([moderationQueue(50, now), bannedMembers(now), recentLog(40), openDataReports(100)]).catch(() => null);
 
   return (
     <>
@@ -121,6 +123,46 @@ export default async function ModerationPage({ params, searchParams }: Params) {
                           authorBanned={e.authorBanned}
                           reported
                         />
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+
+              <section aria-labelledby="data-reports-title">
+                <h2 id="data-reports-title" className={sectionTitle}>
+                  {t("pages.community.moderation.dataReports", { n: data[3].length })}
+                </h2>
+                <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+                <p className="mt-3 text-sm text-chalk-400">{t("pages.community.moderation.dataReportsLead")}</p>
+                {data[3].length === 0 ? (
+                  <p className="mt-5 text-sm text-chalk-400">{t("pages.community.moderation.dataReportsEmpty")}</p>
+                ) : (
+                  <ul className="mt-5 space-y-4">
+                    {data[3].map((r) => (
+                      <li key={r.id} className="bevel space-y-2 border border-night-800 bg-night-900/60 p-4">
+                        <div className="flex flex-wrap items-baseline justify-between gap-2">
+                          <p className="text-sm text-chalk-300">
+                            <Link href={r.path} className="font-semibold text-azure-400 underline underline-offset-4">
+                              {r.path}
+                            </Link>
+                            <span className="ml-2 text-xs text-chalk-500">
+                              {r.locale} · {ago(locale, r.createdAt, now)}
+                            </span>
+                          </p>
+                          <ResolveDataReportButton id={r.id} />
+                        </div>
+                        <p className="whitespace-pre-line break-words text-sm text-chalk-200">{r.text}</p>
+                        {r.correction && (
+                          <p className="break-words text-sm text-chalk-300">
+                            <span className="font-semibold text-gold-400">{t("pages.community.moderation.dataCorrection")}</span> {r.correction}
+                          </p>
+                        )}
+                        {r.source && (
+                          <p className="break-all text-xs text-chalk-400">
+                            <span className="font-semibold text-chalk-300">{t("pages.community.moderation.dataSource")}</span> {r.source}
+                          </p>
+                        )}
                       </li>
                     ))}
                   </ul>

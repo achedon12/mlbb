@@ -4516,7 +4516,8 @@
         "kinds": {
           "thread": "Diskusi",
           "post": "Balasan",
-          "card": "Kartu rekan tim"
+          "card": "Kartu rekan tim",
+          "data": "Kesalahan pada file"
         },
         "banned": "penulis diblokir",
         "hidden": "disembunyikan",
@@ -4541,11 +4542,17 @@
           "unpin": "Lepas sematan",
           "ban": "Blokir",
           "unban": "Cabut blokir",
-          "dismiss": "Abaikan"
+          "dismiss": "Abaikan",
+          "resolve": "Kesalahan ditangani"
         },
         "deleted": "dihapus oleh penulisnya",
         "reportCount": "{n} laporan",
-        "asReported": "Saat dilaporkan"
+        "asReported": "Saat dilaporkan",
+        "dataReports": "Kesalahan dilaporkan pada formulir ({n})",
+        "dataReportsLead": "Laporan anonim dikirim dari hero, item, emblem, spell sheet, dan patch note, dari yang terlama hingga terbaru. Perbaiki data jika perlu, lalu tandai laporan sebagai diproses.",
+        "dataReportsEmpty": "Tidak ada kesalahan yang dilaporkan.",
+        "dataCorrection": "Koreksi yang diusulkan:",
+        "dataSource": "Sumber :"
       }
     },
     "communityUI": {
@@ -4674,7 +4681,8 @@
         "reason": "Alasan (log)",
         "confirmBan": "Konfirmasi blokir",
         "confirmDelete": "Hapus konten ini secara permanen?",
-        "failed": "Tindakan gagal: muat ulang halaman."
+        "failed": "Tindakan gagal: muat ulang halaman.",
+        "resolve": "Tandai sebagai sudah diproses"
       },
       "link": {
         "offer": "Anda juga terhubung dengan Discord. Tautkan kedua akun Anda untuk menyimpan satu profil di forum: Anda kemudian dapat masuk dengan salah satu akun tersebut, dan apa yang Anda posting dengan Discord akan bergabung dengan akun game Anda. Anda dapat membatalkan tautannya nanti, tetapi apa yang bergabung dengan akun game Anda akan tetap ada di sana.",
@@ -4764,6 +4772,27 @@
         "minimum": "Minimal: beberapa hero tidak terbaca",
         "region": "Region",
         "statsLater": "Statistik hero akan kembali segera setelah layanan game menyediakannya lagi."
+      }
+    },
+    "reportError": {
+      "open": "Laporkan kesalahan",
+      "title": "Apakah ada data yang salah di halaman ini?",
+      "intro": "Beritahu kami apa yang salah: setiap laporan dibaca ulang sebelum dikoreksi.",
+      "text": "Apa yang salah",
+      "correction": "Nilai yang benar, jika Anda mengetahuinya (opsional)",
+      "source": "Sumber, jika ada (tautan, opsional)",
+      "privacy": "Anonim: tidak ada akun atau email. Hanya halaman, bahasanya, dan apa yang Anda tulis yang disimpan.",
+      "send": "Kirim laporan",
+      "cancel": "Batal",
+      "sent": "TERIMA KASIH ! Laporan Anda telah dikirim dan akan dibaca ulang.",
+      "errors": {
+        "text": "Jelaskan kesalahan dalam karakter {min} hingga {max}.",
+        "source": "Sumber harus berupa alamat web yang dimulai dengan http:// atau https://.",
+        "links": "Tidak ada link di deskripsi atau di koreksi: letakkan di kolom sumber.",
+        "tooFast": "Terlalu banyak laporan sekaligus: coba lagi sebentar lagi.",
+        "full": "Banyak laporan yang menunggu keputusan: coba lagi dalam beberapa hari.",
+        "invalid": "Laporan ditolak: periksa kolomnya.",
+        "unavailable": "Tidak dapat mengirim saat ini: coba lagi nanti."
       }
     }
   },
@@ -5074,7 +5103,7 @@
     "privacy": {
       "blocks": [
         {
-          "p": "Situs ini dirancang untuk memproses data sesedikit mungkin. Sebagian besar halaman berfungsi tanpa akun dan tanpa menyimpan apa pun di server; hanya fitur yang Anda pilih untuk digunakan (akun game atau login Discord, komunitas, koleksi, notifikasi, bot Discord) yang mempertahankan apa yang dijelaskan di bawah. Sesuai dengan Peraturan Perlindungan Data Umum (GDPR) dan Undang-Undang Perlindungan Data, halaman ini merinci apa yang diproses, alasannya, untuk berapa lama, dan bagaimana menggunakan hak Anda."
+          "p": "Situs ini dirancang untuk memproses data sesedikit mungkin. Sebagian besar halaman berfungsi tanpa akun dan tanpa menyimpan apa pun di server; hanya fitur yang Anda pilih untuk digunakan (akun game atau login Discord, komunitas, koleksi, notifikasi, pelaporan kesalahan, bot Discord) yang mempertahankan apa yang dijelaskan di bawah. Sesuai dengan Peraturan Perlindungan Data Umum (GDPR) dan Undang-Undang Perlindungan Data, halaman ini merinci apa yang diproses, alasannya, untuk berapa lama, dan bagaimana menggunakan hak Anda."
         },
         {
           "h": "Pengontrol data"
@@ -5090,7 +5119,7 @@
             "Pengukuran audiens tanpa cookie (tampilan halaman, pencarian situs, tindakan anonim): mengetahui halaman mana yang digunakan dan meningkatkan situs. Dasar hukum: kepentingan sah penerbit (pasal 6.1.f GDPR).",
             "Pengukuran audiens dengan cookie (kenali pengunjung yang kembali): hanya dengan persetujuan Anda (pasal 6.1.a GDPR dan pasal 82 Undang-Undang Perlindungan Data), yang dapat Anda tarik kapan saja.",
             "Fungsi yang Anda minta (koneksi ke akun game atau Discord, komunitas, koleksi skin, notifikasi patch, bot Discord dan dasbornya): pelaksanaan layanan yang diminta, sesuai dengan ketentuan penggunaannya (pasal 6.1.b GDPR).",
-            "Keamanan dan moderasi (batas kecepatan, laporan, log moderasi, log kesalahan, cadangan): kepentingan sah penerbit dalam melindungi situs dan penggunanya (pasal 6.1.f GDPR).",
+            "Keamanan, moderasi, dan kualitas data (batas kecepatan, laporan, laporan kesalahan pada file, log moderasi, log kesalahan, cadangan): kepentingan sah penerbit dalam melindungi situs dan penggunanya (pasal 6.1.f GDPR).",
             "Menghafal preferensi Anda (bahasa, favorit, pengaturan alat): diperlukan agar situs berfungsi saat Anda menggunakannya, di browser Anda."
           ]
         },
@@ -5135,6 +5164,11 @@
       "data": "sidik akun yang sama dengan komunitas (tidak pernah ID game Anda), daftar hero dan skin yang dicentang, serta tanggal penyimpanan terakhir; tidak ada yang lain, dan tidak ditampilkan kepada siapa pun.",
       "usage": "Data ini hanya dipakai agar koleksi Anda bisa dibuka di perangkat lain. Filter \"yang saya mainkan\" membaca hero musim ini dari layanan login saat Anda mengaktifkannya, tanpa menyimpan apa pun.",
       "deletion": "Untuk mengosongkan salinan di akun Anda, hapus koleksi di alat saat masuk; untuk menghapus datanya sepenuhnya, tulis ke {contact}."
+    },
+    "dataReports": {
+      "title": "Laporan kesalahan pada file",
+      "text": "Tombol “Laporkan kesalahan” pada kartu (hero, item, emblem, spell, patch notes) tidak meminta akun atau email. Server situs menyimpan dalam databasenya halaman terkait, bahasanya, apa yang Anda tulis (kesalahan, dan koreksi serta sumbernya jika Anda memberikannya) dan tanggal pengiriman; tidak ada yang lain: baik alamat IP Anda, akun Anda, maupun pengenal browser Anda.",
+      "usage": "Laporan ini hanya ditampilkan kepada moderator, yang menggunakannya untuk mengoreksi data situs. Karena mereka tidak terhubung dengan siapa pun, jangan menulis informasi pribadi di sana. Batas pengiriman menggunakan alamat IP Anda, hanya di memori, seperti di situs lainnya."
     },
     "gdpr": {
       "cookies": {
@@ -5248,6 +5282,7 @@
         "community": "Komunitas: akun Anda, pesan Anda, suara Anda, laporan Anda, dan log moderasi disimpan selama komunitas tersebut ada, kecuali Anda meminta penghapusan; laporan menyimpan salinan teks yang dilaporkan. Kartu rekan satu tim dihapus tujuh hari setelah pendaftaran terakhirnya.",
         "builds": "Build komunitas: hingga dihapus oleh penulisnya, atau berdasarkan permintaan.",
         "collection": "Koleksi tersinkronisasi: hingga Anda mengosongkannya, atau sesuai permintaan.",
+        "dataReports": "Laporan kesalahan pada file: disimpan, tanpa tautan ke seseorang, selama situs tersebut ada, untuk melacak koreksi; laporan yang tepat dapat dihapus berdasarkan permintaan.",
         "push": "Pemberitahuan patch: sampai berhenti berlangganan; langganan yang menjadi tidak valid akan dihapus pada pemberitahuan berikutnya.",
         "bot": "Untuk bot Discord: pengaturan server, dan hasil permainan hari itu yang dimainkan di sana, hingga 30 hari setelah bot keluar; log perintah garis miring yang digunakan, tanpa ID anggota, 90 hari; memilih bot, hingga diminta untuk menghapus.",
         "logs": "Log teknis: kesalahan server dan kesalahan yang ditemukan oleh browser (pesan, halaman, versi situs, jenis browser, tanpa alamat IP atau akun) disimpan selama 30 hari untuk diagnosis. Peristiwa keamanan dan moderasi (permintaan ditolak, tindakan moderator dan administrator) disimpan selama 6 bulan. Mereka kemudian dihapus secara otomatis.",

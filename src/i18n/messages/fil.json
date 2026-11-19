@@ -4516,7 +4516,8 @@
         "kinds": {
           "thread": "Thread",
           "post": "Reply",
-          "card": "Card ng teammate"
+          "card": "Card ng teammate",
+          "data": "Error sa isang file"
         },
         "banned": "naka-ban ang gumawa",
         "hidden": "nakatago",
@@ -4541,11 +4542,17 @@
           "unpin": "I-unpin",
           "ban": "I-ban",
           "unban": "Alisin ang ban",
-          "dismiss": "I-dismiss"
+          "dismiss": "I-dismiss",
+          "resolve": "Nahawakan ang error"
         },
         "deleted": "binura ng gumawa",
         "reportCount": "{n} report",
-        "asReported": "Gaya ng iniulat"
+        "asReported": "Gaya ng iniulat",
+        "dataReports": "Mga error na iniulat sa mga form ({n})",
+        "dataReportsLead": "Mga hindi kilalang ulat na ipinadala mula sa hero, item, emblem, spell sheet, at patch notes, mula sa pinakaluma hanggang sa pinakabago. Iwasto ang data kung kinakailangan, pagkatapos ay markahan ang ulat bilang naproseso.",
+        "dataReportsEmpty": "Walang naiulat na mga error.",
+        "dataCorrection": "Iminungkahing pagwawasto:",
+        "dataSource": "Source:"
       }
     },
     "communityUI": {
@@ -4674,7 +4681,8 @@
         "reason": "Dahilan (log)",
         "confirmBan": "Kumpirmahin ang ban",
         "confirmDelete": "Permanenteng i-delete ang content na ito?",
-        "failed": "Nabigo ang aksyon: i-reload ang page."
+        "failed": "Nabigo ang aksyon: i-reload ang page.",
+        "resolve": "Markahan bilang naproseso"
       },
       "link": {
         "offer": "Nakakonekta ka rin sa Discord. I-link ang iyong dalawang account upang mapanatili ang isang profile sa forum: maaari kang mag-log in gamit ang alinman, at kung ano ang iyong nai-post sa Discord ay sasali sa iyong account sa laro. Maaari mong i-unlink ang mga ito sa ibang pagkakataon, ngunit kung ano ang sumali sa iyong game account ay mananatili doon.",
@@ -4764,6 +4772,27 @@
         "minimum": "Hindi bababa rito: may mga hero na hindi nabasa",
         "region": "Region",
         "statsLater": "Babalik ang mga hero stats sa sandaling maibigay muli ng serbisyo ng laro ang mga ito."
+      }
+    },
+    "reportError": {
+      "open": "Mag-ulat ng error",
+      "title": "May mali bang data sa page na ito?",
+      "intro": "Sabihin sa amin kung ano ang mali: ang bawat ulat ay muling binabasa bago ang anumang pagwawasto.",
+      "text": "Ano ang mali",
+      "correction": "Ang tamang halaga, kung alam mo ito (opsyonal)",
+      "source": "Isang pinagmulan, kung mayroon kang isa (link, opsyonal)",
+      "privacy": "Anonymous: walang account o email. Ang pahina lamang, ang wika nito at kung ano ang iyong isinulat ang nai-save.",
+      "send": "Ipadala ang report",
+      "cancel": "Kanselahin",
+      "sent": "SALAMAT! Naipadala na ang iyong ulat at muling babasahin.",
+      "errors": {
+        "text": "Ilarawan ang error sa {min} hanggang {max} character.",
+        "source": "Ang pinagmulan ay dapat na isang web address na nagsisimula sa http:// o https://.",
+        "links": "Walang link sa paglalarawan o sa pagwawasto: ilagay ito sa source field.",
+        "tooFast": "Napakaraming ulat nang sabay-sabay: subukang muli sa isang minuto.",
+        "full": "Maraming mga ulat ang nakabinbin: subukang muli sa loob ng ilang araw.",
+        "invalid": "Tinanggihan ang ulat: suriin ang mga patlang.",
+        "unavailable": "Hindi maipadala sa ngayon: subukang muli sa ibang pagkakataon."
       }
     }
   },
@@ -5074,7 +5103,7 @@
     "privacy": {
       "blocks": [
         {
-          "p": "Ang site na ito ay idinisenyo upang iproseso ang pinakamaliit na data hangga't maaari. Karamihan sa mga pahina ay gumagana nang walang account at hindi nagse-save ng anuman sa isang server; tanging ang mga feature na pipiliin mong gamitin (game account o Discord login, komunidad, koleksyon, notification, Discord bot) ang nagpapanatili sa kung ano ang inilalarawan nila sa ibaba. Alinsunod sa General Data Protection Regulation (GDPR) at Data Protection Act, ang pahinang ito ay nagdedetalye kung ano ang pinoproseso, bakit, gaano katagal, at kung paano gamitin ang iyong mga karapatan."
+          "p": "Ang site na ito ay idinisenyo upang iproseso ang pinakamaliit na data hangga't maaari. Karamihan sa mga pahina ay gumagana nang walang account at hindi nagse-save ng anuman sa isang server; tanging ang mga feature na pipiliin mong gamitin (game account o Discord login, komunidad, koleksyon, notification, pag-uulat ng error, Discord bot) ang nagpapanatili ng inilalarawan nila sa ibaba. Alinsunod sa General Data Protection Regulation (GDPR) at Data Protection Act, ang pahinang ito ay nagdedetalye kung ano ang pinoproseso, bakit, gaano katagal, at kung paano gamitin ang iyong mga karapatan."
         },
         {
           "h": "Controller ng data"
@@ -5090,7 +5119,7 @@
             "Pagsusukat ng madla nang walang cookies (mga page view, paghahanap sa site, anonymous na pagkilos): alamin kung aling mga page ang ginagamit at pagbutihin ang site. Legal na batayan: ang lehitimong interes ng publisher (artikulo 6.1.f ng GDPR).",
             "Pagsukat ng madla gamit ang cookies (kilalain ang isang bumabalik na bisita): lamang sa iyong pahintulot (artikulo 6.1.a ng GDPR at artikulo 82 ng Data Protection Act), na maaari mong bawiin anumang oras.",
             "Mga function na hinihiling mo (koneksyon sa game account o Discord, komunidad, koleksyon ng mga skin, patch notification, Discord bot at dashboard nito): pagpapatupad ng hiniling na serbisyo, ayon sa mga kondisyon ng paggamit nito (artikulo 6.1.b ng GDPR).",
-            "Seguridad at pagmo-moderate (mga limitasyon sa rate, mga ulat, log ng pagmo-moderate, mga log ng error, mga backup): lehitimong interes ng publisher sa pagprotekta sa site at sa mga user nito (artikulo 6.1.f ng GDPR).",
+            "Seguridad, pagmo-moderate at kalidad ng data (mga limitasyon sa rate, mga ulat, mga ulat ng error sa mga file, log ng pagmo-moderate, mga log ng error, mga backup): lehitimong interes ng publisher sa pagprotekta sa site at sa mga user nito (artikulo 6.1.f ng GDPR).",
             "Ang pagsasaulo ng iyong mga kagustuhan (wika, mga paborito, mga setting ng tool): kinakailangan para gumana ang site habang ginagamit mo ito, sa iyong browser."
           ]
         },
@@ -5135,6 +5164,11 @@
       "data": "ang parehong account imprint bilang komunidad (hindi kailanman ang iyong ID ng laro), ang listahan ng mga hero at mga skin na nasuri, at ang petsa ng huling pagpaparehistro; walang iba, at walang ipinapakita sa sinuman.",
       "usage": "Ginagamit lang ito para mahanap ang iyong koleksyon sa iba mo pang device. Binabasa ng filter na \"mga nilalaro ko\" ang iyong mga hero ng season mula sa serbisyo sa pag-login sa sandaling i-activate mo ito, nang walang nai-save na anuman.",
       "deletion": "Upang alisan ng laman ang kopya ng iyong account, tanggalin ang iyong koleksyon sa tool habang naka-log in; Upang tanggalin ang mismong linya, sumulat sa {contact}."
+    },
+    "dataReports": {
+      "title": "Mga ulat ng error sa mga file",
+      "text": "Ang button na “Mag-ulat ng error” sa mga card (mga hero, item, emblem, spells, patch notes) ay hindi humihiling ng account o email. Iniimbak ng server ng site sa database nito ang pahinang may kinalaman, ang wika nito, kung ano ang iyong isinulat (ang error, at ang pagwawasto at ang pinagmulan kung bibigyan mo sila) at ang petsa ng pagpapadala; wala nang iba: ni ang iyong IP address, o ang iyong account, o ang isang identifier ng iyong browser.",
+      "usage": "Ang mga ulat na ito ay ipinapakita lamang sa mga moderator, na gumagamit ng mga ito upang itama ang data ng site. Dahil hindi sila naka-link sa sinuman, huwag magsulat ng personal na impormasyon doon. Ginagamit ng limitasyon sa pagpapadala ang iyong IP address, sa memorya lamang, tulad ng sa ibang bahagi ng site."
     },
     "gdpr": {
       "cookies": {
@@ -5248,6 +5282,7 @@
         "community": "Komunidad: ang iyong account, ang iyong mga mensahe, ang iyong mga boto, ang iyong mga ulat at ang log ng pag-moderate ay pinapanatili hangga't umiiral ang komunidad, maliban kung humiling ka ng pagtanggal; ang isang ulat ay nagpapanatili ng isang kopya ng iniulat na teksto. Ang isang teammate card ay tatanggalin pitong araw pagkatapos ng huling pagpaparehistro nito.",
         "builds": "Mga build ng komunidad: hanggang sa tanggalin ng kanilang may-akda, o kapag hiniling.",
         "collection": "Naka-synchronize na koleksyon: hanggang sa walang laman ito, o on demand.",
+        "dataReports": "Mga ulat ng error sa mga file: itinatago, nang walang link sa isang tao, hangga't umiiral ang site, upang subaybayan ang mga pagwawasto; ang isang tumpak na ulat ay maaaring tanggalin kapag hiniling.",
         "push": "Mga notification ng patch: hanggang sa mag-unsubscribe; ang isang subscription na naging hindi wasto ay tatanggalin sa susunod na abiso.",
         "bot": "Para sa Discord bot: ang mga setting ng isang server, at ang mga resulta ng mga laro sa araw na nilalaro doon, hanggang 30 araw pagkatapos ng pag-alis ng bot; log ng slash command na ginamit, walang ID ng miyembro, 90 araw; boto para sa bot, hanggang hiniling na tanggalin.",
         "logs": "Mga teknikal na log: ang mga error sa server at ang mga nakatagpo ng browser (mensahe, pahina, bersyon ng site, uri ng browser, nang walang IP address o account) ay pinananatili sa loob ng 30 araw para sa diagnosis. Ang mga kaganapan sa seguridad at pag-moderate (mga kahilingan ay tinanggihan, mga aksyon ng mga moderator at administrator) ay pinananatili sa loob ng 6 na buwan. Pagkatapos ay awtomatikong tatanggalin ang mga ito.",

@@ -4701,8 +4701,8 @@
       "text": "Some optional features involve services located outside the European Union: Discord, in the United States, if you sign in with Discord or use the bot (transfers covered by the EU–US Data Privacy Framework or the European Commission's standard contractual clauses); Moonton, in Asia, and the community API `arena.rone.dev`, if you connect your game account; your browser's notification service, if you turn on notifications. These transfers only happen if you use these features."
     },
     "prose.privacy.blocks.0.p": {
-      "fr": "Ce site est conçu pour traiter le moins de données possible. La plupart des pages fonctionnent sans compte et sans rien enregistrer sur un serveur ; seules les fonctions que vous choisissez d'utiliser (connexion au compte de jeu ou à Discord, communauté, collection, notifications, bot Discord) conservent ce qu'elles décrivent plus bas. Conformément au Règlement général sur la protection des données (RGPD) et à la loi Informatique et Libertés, cette page détaille ce qui est traité, pourquoi, combien de temps, et comment exercer vos droits.",
-      "text": "This site is designed to process as little data as possible. Most pages work without an account and without saving anything on a server; only the features you choose to use (game account or Discord sign-in, community, collection, notifications, Discord bot) keep what they describe below. In line with the General Data Protection Regulation (GDPR) and the French Data Protection Act (loi Informatique et Libertés), this page explains what is processed, why, for how long, and how to exercise your rights."
+      "fr": "Ce site est conçu pour traiter le moins de données possible. La plupart des pages fonctionnent sans compte et sans rien enregistrer sur un serveur ; seules les fonctions que vous choisissez d'utiliser (connexion au compte de jeu ou à Discord, communauté, collection, notifications, signalement d'erreur, bot Discord) conservent ce qu'elles décrivent plus bas. Conformément au Règlement général sur la protection des données (RGPD) et à la loi Informatique et Libertés, cette page détaille ce qui est traité, pourquoi, combien de temps, et comment exercer vos droits.",
+      "text": "This site is designed to process as little data as possible. Most pages work without an account and without saving anything on a server; only the features you choose to use (game account or Discord sign-in, community, collection, notifications, error reports, Discord bot) keep what they describe below. In line with the General Data Protection Regulation (GDPR) and the French Data Protection Act (loi Informatique et Libertés), this page explains what is processed, why, for how long, and how to exercise your rights."
     },
     "prose.privacy.blocks.2.p": {
       "fr": "Le responsable du traitement est {publisher}, qui édite ce site à titre personnel et sans but lucratif (voir les [mentions légales](/legal)). Pour toute question ou demande sur vos données : [{contact}](mailto:{contact}).",
@@ -4999,6 +4999,58 @@
     "pages.sources.images": {
       "fr": "Images © Moonton, utilisées à titre d'illustration.",
       "text": "Images © Moonton, used for illustration purposes."
+    },
+    "prose.privacy.blocks.4.ul.3": {
+      "fr": "Sécurité, modération et qualité des données (limites de débit, signalements, signalements d'erreur sur les fiches, journal de modération, journaux d'erreurs, sauvegardes) : intérêt légitime de l'éditeur à protéger le site et ses utilisateurs (article 6.1.f du RGPD).",
+      "text": "Security, moderation and data quality (rate limits, reports, error reports on data pages, moderation log, error logs, backups): legitimate interest of the publisher in protecting the site and its users (article 6.1.f of the GDPR)."
+    },
+    "prose.dataReports.title": {
+      "fr": "Signalements d'erreur sur les fiches",
+      "text": "Error reports on data pages"
+    },
+    "prose.dataReports.text": {
+      "fr": "Le bouton « Signaler une erreur » des fiches (héros, objets, emblèmes, sorts, notes de patch) ne demande ni compte ni e-mail. Le serveur du site conserve dans sa base de données la page concernée, sa langue, ce que vous avez écrit (l'erreur, et la correction et la source si vous les donnez) et la date d'envoi ; rien d'autre : ni votre adresse IP, ni votre compte, ni un identifiant de votre navigateur.",
+      "text": "The “Report an error” button on data pages (heroes, items, emblems, spells, patch notes) asks for no account and no email. The site's server keeps in its database the page concerned, its language, what you wrote (the error, plus the correct value and the source if you give them) and the date it was sent; nothing else: not your IP address, not your account, not any identifier of your browser."
+    },
+    "prose.dataReports.usage": {
+      "fr": "Ces signalements ne sont montrés qu'aux modérateurs, qui s'en servent pour corriger les données du site. Comme ils ne sont reliés à personne, n'y écrivez pas d'informations personnelles. La limite d'envoi utilise votre adresse IP, en mémoire seulement, comme sur le reste du site.",
+      "text": "These reports are shown only to the moderators, who use them to fix the site's data. Since they are not linked to anyone, do not include personal information. The sending limit uses your IP address, in memory only, as on the rest of the site."
+    },
+    "prose.gdpr.retention.dataReports": {
+      "fr": "Signalements d'erreur sur les fiches : conservés, sans lien avec une personne, tant que le site existe, pour garder la trace des corrections ; un signalement précis peut être effacé sur demande.",
+      "text": "Error reports on data pages: kept, unlinked to any person, for as long as the site exists, as a record of corrections; a given report can be deleted on request."
+    },
+    "pages.reportError.title": {
+      "fr": "Une donnée est fausse sur cette page ?",
+      "text": "Something wrong on this page?"
+    },
+    "pages.reportError.intro": {
+      "fr": "Dites-nous ce qui ne va pas : chaque signalement est relu avant toute correction.",
+      "text": "Tell us what is wrong: every report is reviewed before anything is changed."
+    },
+    "pages.reportError.sent": {
+      "fr": "Merci ! Votre signalement a bien été envoyé et sera relu.",
+      "text": "Thanks! Your report has been sent and will be reviewed."
+    },
+    "pages.community.moderation.kinds.data": {
+      "fr": "Erreur sur une fiche",
+      "text": "Data page error"
+    },
+    "pages.community.moderation.actions.resolve": {
+      "fr": "Erreur traitée",
+      "text": "Error resolved"
+    },
+    "pages.community.moderation.dataReports": {
+      "fr": "Erreurs signalées sur les fiches ({n})",
+      "text": "Errors reported on data pages ({n})"
+    },
+    "pages.community.moderation.dataReportsLead": {
+      "fr": "Signalements anonymes envoyés depuis les fiches de héros, d'objets, d'emblèmes, de sorts et les notes de patch, du plus ancien au plus récent. Corrigez la donnée si besoin, puis marquez le signalement comme traité.",
+      "text": "Anonymous reports sent from hero, item, emblem and spell pages and patch notes, oldest first. Fix the data if needed, then mark the report as resolved."
+    },
+    "pages.communityUI.moderation.resolve": {
+      "fr": "Marquer comme traité",
+      "text": "Mark as resolved"
     }
   },
   "es": {
