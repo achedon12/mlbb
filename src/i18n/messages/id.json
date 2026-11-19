@@ -620,7 +620,11 @@
       "archives": "Arsip",
       "credit": "Catatan diambil dari {link}, di bawah lisensi CC BY-SA. Teks aslinya diterbitkan oleh Moonton; situs ini tidak mengubah isinya.",
       "creditTranslated": "Catatan diambil dari {link}, di bawah lisensi CC BY-SA, dan diterjemahkan secara otomatis dari bahasa Inggris. Teks aslinya diterbitkan oleh Moonton.",
-      "publishedOn": "Catatan diterbitkan pada {date}",
+      "creditLiquipedia": "Catatan diambil dari {source} ({page}), diterbitkan di bawah lisensi {license}. Teks aslinya diterbitkan oleh Moonton; situs ini tidak mengubah isinya.",
+      "creditLiquipediaTranslated": "Catatan diambil dari {source} ({page}), diterbitkan di bawah lisensi {license}, dan diterjemahkan secara otomatis dari bahasa Inggris. Teks aslinya diterbitkan oleh Moonton.",
+      "creditHeroesLiquipedia": "Perubahan hero berasal dari {source} ({page}), dirilis di bawah lisensi {license}.",
+      "creditShortLiquipedia": "Patch notes {versions} diambil dari {source}, dirilis di bawah lisensi {license}.",
+      "publishedOn": "Dirilis pada {date}",
       "changes": {
         "title": "Semua perubahan hero di patch {v}",
         "summary": {

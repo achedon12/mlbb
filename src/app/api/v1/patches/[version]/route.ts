@@ -15,5 +15,6 @@ export async function GET(request: Request, { params }: { params: Promise<{ vers
   if (!patchDetails[version]) return notFound("Patch");
   const requested = new URL(request.url).searchParams.get("locale") ?? "en";
   const locale = isLocale(requested) ? requested : "en";
-  return responseApi(detailedPatches(locale)[version]);
+  const patch = detailedPatches(locale)[version];
+  return responseApi(patch, { liquipedia: patch?.source === "liquipedia" || patch?.adjustmentsSource === "liquipedia" });
 }
