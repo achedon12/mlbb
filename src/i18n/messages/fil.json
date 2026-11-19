@@ -1214,6 +1214,26 @@
         "description": "Magkano ang nagastos sa iyong Mobile Legends collection? Kopyahin ang iyong mga skin ayon sa tier ng Showcase ({skins} skin sa catalog), suriin ang iyong collection points at kumuha ng tantiya sa diamonds, USD, EUR, PHP, IDR at MYR, kasama ang paraang ginamit."
       }
     },
+    "sources": {
+      "title": "Mga source",
+      "withPage": "{source} (pahina {page})",
+      "pair": "{a} at {b}",
+      "rows": {
+        "heroBase": "Mga katangian, skill at kasaysayan: {sources}.",
+        "heroMeasures": "Mga opisyal na teksto ng mga skill, mga win rate, mga counter at mga build na nilalaro sa ranggo na paglalaro: {sources}.",
+        "item": "Mga epekto, presyo, at status ng item: {sources}.",
+        "usage": "Mga build na nilaro at mga rate bawat rank: {sources}.",
+        "sheet": "Paglalarawan at payo: isinulat ni {site}.",
+        "icons": "Mga icon: {sources}.",
+        "rates": "Win rate, ban rate at pick rate sa mga ranked match: community API na {sources}.",
+        "tiers": "Mga antas at trend: kinakalkula ng {site} mula sa mga rate na ito.",
+        "patches": "Listahan ng mga patch at release note: {sources}."
+      },
+      "licence": "Mga teksto mula sa mga wiki na kasama sa ilalim ng lisensya ng CC BY-SA, na may pagpapatungkol sa kanilang mga nag-ambag.",
+      "images": "Mga Larawan © Moonton, ginamit para sa paglalarawan.",
+      "synced": "Naka-sync ang data ng laro sa {date}",
+      "measured": "Sinusukat ang mga istatistika sa {date}"
+    },
     "freshness": {
       "updatedOn": "Na-update noong {date}",
       "patch": "Patch {v}",

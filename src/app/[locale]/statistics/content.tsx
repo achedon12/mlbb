@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "@/components/link";
 import { freshnessFacts } from "@/components/freshness";
+import { PageSourcesBlock } from "@/components/page-sources";
 import { Foldable } from "@/components/foldable";
 import { StatisticsTable } from "@/components/statistics-table";
 import { PageHeader } from "@/components/ui";
@@ -240,6 +241,7 @@ export function Statistics({ locale, rank, page = 1 }: { locale: Locale; rank: M
             </Link>
           </span>
         </p>
+        <PageSourcesBlock locale={locale} of={{ kind: "ranking" }} className="mt-10" />
       </div>
     </>
   );

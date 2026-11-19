@@ -1214,6 +1214,26 @@
         "description": "How much did your Mobile Legends collection cost? Copy your skins by Showcase tier ({skins} skins in the catalogue), check your collection points and get an order of magnitude in diamonds, USD, EUR, PHP, IDR and MYR, with the method shown."
       }
     },
+    "sources": {
+      "title": "Sources",
+      "withPage": "{source} (page {page})",
+      "pair": "{a} and {b}",
+      "rows": {
+        "heroBase": "Attributes, skills and lore: {sources}.",
+        "heroMeasures": "Official skill texts, win rates, counters and builds played in ranked matches: {sources}.",
+        "item": "Item effects, price and status: {sources}.",
+        "usage": "Played builds and rates by rank: {sources}.",
+        "sheet": "Description and tips: written by {site}.",
+        "icons": "Icons: {sources}.",
+        "rates": "Win, ban and pick rates in ranked matches: the {sources} community API.",
+        "tiers": "Tiers and trends: computed by {site} from these rates.",
+        "patches": "Patch list and patch notes: {sources}."
+      },
+      "licence": "Wiki texts reused under the CC BY-SA licence, with attribution to their contributors.",
+      "images": "Images © Moonton, used for illustration purposes.",
+      "synced": "Game data synced on {date}",
+      "measured": "Statistics measured on {date}"
+    },
     "freshness": {
       "updatedOn": "Updated {date}",
       "patch": "Patch {v}",
