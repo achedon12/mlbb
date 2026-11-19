@@ -650,9 +650,9 @@ export async function renderCard(snapshot: ProfileSnapshot, labels: CardLabels, 
               </div>
             )}
           </div>
-          <div style={{ display: "flex", justifyContent: "space-between", marginTop: 12, fontSize: 18, fontWeight: 600 }}>
+          {/* No date: /profile reads the figures again on every call. */}
+          <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 12, fontSize: 18, fontWeight: 600 }}>
             <div style={{ display: "flex", color: C.gold500, letterSpacing: 1 }}>mlbbdex.com</div>
-            <div style={{ display: "flex", color: C.chalk500 }}>{labels.updated(format.date(options.updatedAt))}</div>
           </div>
         </div>
         {!snapshot.full && hasHeroes && (
