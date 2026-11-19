@@ -4741,7 +4741,9 @@
         "wins": "Menang",
         "heroMatches": "{n} pertandingan",
         "updated": "Diperbarui {date}",
-        "minimum": "Minimal: beberapa hero tidak terbaca"
+        "minimum": "Minimal: beberapa hero tidak terbaca",
+        "region": "Region",
+        "statsLater": "Statistik hero akan kembali segera setelah layanan game menyediakannya lagi."
       }
     }
   },
