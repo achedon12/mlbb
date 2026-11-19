@@ -1,6 +1,10 @@
 import { resolve } from "node:path";
 import type { NextConfig } from "next";
 import { version } from "./package.json";
+import advance from "./src/data/game/advance-server.json";
+
+/** Date of the latest documented Advance Server version (see src/lib/advance-fresh.ts). */
+const advanceLatest = advance.versions.map((v: { date?: string | null }) => v.date ?? "").filter(Boolean).sort().at(-1) ?? "";
 
 /**
  * Content Security Policy, sent as a header on every response.
@@ -103,7 +107,7 @@ const nextConfig: NextConfig = {
   compress: true,
   // Site version, read from package.json at build time: the footer shows it
   // without having to copy it by hand.
-  env: { VERSION_SITE: version },
+  env: { VERSION_SITE: version, ADVANCE_LATEST: advanceLatest },
 
   images: {
     // Game visuals are copied locally (public/visuels) by the sync. The wiki
@@ -143,6 +147,13 @@ const nextConfig: NextConfig = {
       // addresses are public — the image sitemap handed them to Google Images,
       // and service workers keep them — so they redirect for good.
       { source: "/visuels/:path(.*)\\.png", destination: "/visuels/:path.webp", permanent: true },
+      // Three September articles withdrawn after review (errors, no sources):
+      // their addresses lead to the news list.
+      {
+        source: "/:locale/news/:slug(khufra-domine-la-file-classee|comprendre-la-reduction-de-soins|lane-experience-gagner-sans-tuer)",
+        destination: "/:locale/news",
+        permanent: true,
+      },
     ];
   },
 
