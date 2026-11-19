@@ -4935,6 +4935,14 @@
     "emblemsUI.spells": {
       "fr": "Sorts de combat",
       "text": "Battle Spells"
+    },
+    "pages.account.levelCelestialLabel": {
+      "fr": "Niveau céleste",
+      "text": "Celestial level"
+    },
+    "pages.account.levelCelestial": {
+      "fr": "Niveau céleste {n}",
+      "text": "Celestial level {n}"
     }
   },
   "es": {
@@ -9433,6 +9441,14 @@
     "pages.botUI.saveFailed": {
       "fr": "L'enregistrement a échoué. Réessayez.",
       "text": "El registro falló. Intentar otra vez."
+    },
+    "pages.account.levelCelestialLabel": {
+      "fr": "Niveau céleste",
+      "text": "Nivel celestial"
+    },
+    "pages.account.levelCelestial": {
+      "fr": "Niveau céleste {n}",
+      "text": "Nivel celestial {n}"
     }
   },
   "id": {
@@ -16027,6 +16043,14 @@
     "draftUI.laneFilter": {
       "fr": "Position",
       "text": "Posisi"
+    },
+    "pages.account.levelCelestialLabel": {
+      "fr": "Niveau céleste",
+      "text": "Level Celestial"
+    },
+    "pages.account.levelCelestial": {
+      "fr": "Niveau céleste {n}",
+      "text": "Level Celestial {n}"
     }
   },
   "it": {
@@ -35503,6 +35527,14 @@
     "emblemsUI.spells": {
       "fr": "Sorts de combat",
       "text": "Battle Spells"
+    },
+    "pages.account.levelCelestialLabel": {
+      "fr": "Niveau céleste",
+      "text": "Celestial level"
+    },
+    "pages.account.levelCelestial": {
+      "fr": "Niveau céleste {n}",
+      "text": "Celestial level {n}"
     }
   },
   "th": {
@@ -61275,6 +61307,14 @@
     "pages.buildSimulatorUI.copyLink": {
       "fr": "Copier le lien",
       "text": "Copiar link"
+    },
+    "pages.account.levelCelestialLabel": {
+      "fr": "Niveau céleste",
+      "text": "Nível celestial"
+    },
+    "pages.account.levelCelestial": {
+      "fr": "Niveau céleste {n}",
+      "text": "Nível celestial {n}"
     }
   },
   "ru": {

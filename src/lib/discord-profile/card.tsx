@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element -- drawn by the image engine (satori), not a page: next/image has no place here. */
 import { readFile } from "node:fs/promises";
+import { celestialLevel } from "@/lib/account-level";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import sharp from "sharp";
@@ -76,7 +77,10 @@ export function cardLabels(locale: Locale): CardLabels {
     allSeasons: t("pages.accountProfile.overAllSeasons"),
     rank: (key) => t(`rankNames.${key}`),
     highest: t("pages.account.bestRank"),
-    level: (n) => t("pages.account.levelX", { n }),
+    level: (n) => {
+      const celestial = celestialLevel(n);
+      return celestial === null ? t("pages.account.levelX", { n }) : t("pages.account.levelCelestial", { n: celestial });
+    },
     heroesTitle: t("pages.accountProfile.heroesTitle"),
     noHeroes: t("pages.accountProfile.heroesEmpty"),
     heroMatches: (n) => t("pages.discordCard.card.heroMatches", { n }),
