@@ -3688,8 +3688,8 @@
             "type": "nerf",
             "changes": [
               {
-                "label": null,
-                "before": "Base HP 2594",
+                "label": "PV de base",
+                "before": "2594",
                 "after": "2440"
               },
               {

@@ -6071,8 +6071,8 @@
               "type": "nerf",
               "changes": [
                 {
-                  "label": null,
-                  "before": "Base HP 2594",
+                  "label": "Base HP",
+                  "before": "2594",
                   "after": "2440"
                 },
                 {

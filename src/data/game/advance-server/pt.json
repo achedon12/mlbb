@@ -645,8 +645,8 @@
                 "generic": true,
                 "changes": [
                   {
-                    "label": null,
-                    "before": "Within 5s",
+                    "label": "Dentro de",
+                    "before": "5s",
                     "after": "3s of using a healing or shield skill, targets with less than 35% HP gain a shield"
                   }
                 ]
@@ -1695,8 +1695,8 @@
             "generic": false,
             "changes": [
               {
-                "label": null,
-                "before": "Slow Effect 50%",
+                "label": "Efeito Lento",
+                "before": "50%",
                 "after": "30%"
               },
               {
@@ -6022,8 +6022,8 @@
             "generic": false,
             "changes": [
               {
-                "label": null,
-                "before": "HP Cost 34%",
+                "label": "Custo HP",
+                "before": "34%",
                 "after": "34%-24%"
               }
             ]
@@ -6089,8 +6089,8 @@
             "generic": false,
             "changes": [
               {
-                "label": null,
-                "before": "Casting the enhanced skill makes his Basic Attacks deal more damage for 5s",
+                "label": "Lançar a habilidade aprimorada faz com que seus Ataques Básicos causem mais dano por",
+                "before": "5s",
                 "after": "Casting any skills enhances his Basic Attacks for 2s, the effect duration can stack."
               }
             ]
@@ -8303,8 +8303,8 @@
                 "generic": true,
                 "changes": [
                   {
-                    "label": null,
-                    "before": "Loses 8",
+                    "label": "Perde",
+                    "before": "8",
                     "after": "30% current stack(s) of Lethality for each death."
                   }
                 ]
@@ -8398,8 +8398,8 @@
                     "text": "Agora entra em vigor quando o herói causa dano de habilidade ao herói inimigo."
                   },
                   {
-                    "label": null,
-                    "before": "Dealing skill damage recovers 4%",
+                    "label": "Causar dano de habilidade se recupera",
+                    "before": "4%",
                     "after": "5% of Max HP."
                   }
                 ]
@@ -13389,8 +13389,8 @@
             "type": null
           },
           {
-            "label": null,
-            "before": "Damage taken from Creeps is reduced by 40%",
+            "label": "O dano recebido de Creeps é reduzido em",
+            "before": "40%",
             "after": "Damage taken from basic Creeps is reduced by 40% (Lord and Turtle are not considered basic Creeps)",
             "level": 1,
             "type": null
@@ -14839,8 +14839,8 @@
                 "after": "160 + 100% Total Physical Attack"
               },
               {
-                "label": null,
-                "before": "Demonic Slash ignores 50%",
+                "label": "Corte Demoníaco ignora",
+                "before": "50%",
                 "after": "40% of the target's Physical Defense"
               },
               {
@@ -15065,8 +15065,8 @@
                 "generic": false,
                 "changes": [
                   {
-                    "label": null,
-                    "before": "Adaptive Penetration 16",
+                    "label": "Penetração Adaptativa",
+                    "before": "16",
                     "after": "14"
                   }
                 ]
@@ -15088,8 +15088,8 @@
                 "generic": false,
                 "changes": [
                   {
-                    "label": null,
-                    "before": "Movement Speed Boost 15%",
+                    "label": "Aumento de velocidade de movimento",
+                    "before": "15%",
                     "after": "10%"
                   }
                 ]
@@ -15111,8 +15111,8 @@
                 "generic": false,
                 "changes": [
                   {
-                    "label": null,
-                    "before": "Damage Increase 5%",
+                    "label": "Aumento de dano",
+                    "before": "5%",
                     "after": "6%"
                   }
                 ]
@@ -15134,8 +15134,8 @@
                 "generic": false,
                 "changes": [
                   {
-                    "label": null,
-                    "before": "Movement Speed Boost 15%",
+                    "label": "Aumento de velocidade de movimento",
+                    "before": "15%",
                     "after": "20%"
                   }
                 ]

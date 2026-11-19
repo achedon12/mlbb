@@ -377,8 +377,7 @@
         "269": "/visuels/heros/chou/skins/269-s-t-u-n-chou.webp",
         "102610": "/visuels/heros/chou/skins/102610-dragon-shiryu.webp",
         "102611": "/visuels/heros/chou/skins/102611-libra-shiryu.webp",
-        "102612": "/visuels/heros/chou/skins/102612-echo.webp",
-        "102614": "/visuels/heros/chou/skins/102614-starforger-s-glory.webp"
+        "102612": "/visuels/heros/chou/skins/102612-echo.webp"
       }
     },
     "cici": {
@@ -1421,7 +1420,8 @@
       "skins": {
         "1301": "/visuels/heros/obsidia/skins/1301-sovereign-of-dark-s-end.webp",
         "1302": "/visuels/heros/obsidia/skins/1302-undying-remnants.webp",
-        "1303": "/visuels/heros/obsidia/skins/1303-imperatrix-arashi.webp"
+        "1303": "/visuels/heros/obsidia/skins/1303-magitech-wraith.webp",
+        "1304": "/visuels/heros/obsidia/skins/1304-imperatrix-arashi.webp"
       }
     },
     "odette": {
@@ -2153,7 +2153,6 @@
       "Dragon Shiryu": "/visuels/heros/chou/illustrations/dragon-shiryu.webp",
       "Libra Shiryu": "/visuels/heros/chou/illustrations/libra-shiryu.webp",
       "ECHO": "/visuels/heros/chou/illustrations/echo.webp",
-      "Ken (Outfit 2)": "/visuels/heros/chou/illustrations/ken-outfit-2.webp",
       "Starforger's Glory": "/visuels/heros/chou/illustrations/starforger-s-glory.webp"
     },
     "cici": {

@@ -648,8 +648,8 @@
                   "generic": true,
                   "changes": [
                     {
-                      "label": null,
-                      "before": "Within 5s",
+                      "label": "Within",
+                      "before": "5s",
                       "after": "3s of using a healing or shield skill, targets with less than 35% HP gain a shield"
                     }
                   ]
@@ -1698,8 +1698,8 @@
               "generic": false,
               "changes": [
                 {
-                  "label": null,
-                  "before": "Slow Effect 50%",
+                  "label": "Slow Effect",
+                  "before": "50%",
                   "after": "30%"
                 },
                 {
@@ -6025,8 +6025,8 @@
               "generic": false,
               "changes": [
                 {
-                  "label": null,
-                  "before": "HP Cost 34%",
+                  "label": "HP Cost",
+                  "before": "34%",
                   "after": "34%-24%"
                 }
               ]
@@ -6092,8 +6092,8 @@
               "generic": false,
               "changes": [
                 {
-                  "label": null,
-                  "before": "Casting the enhanced skill makes his Basic Attacks deal more damage for 5s",
+                  "label": "Casting the enhanced skill makes his Basic Attacks deal more damage for",
+                  "before": "5s",
                   "after": "Casting any skills enhances his Basic Attacks for 2s, the effect duration can stack."
                 }
               ]
@@ -8306,8 +8306,8 @@
                   "generic": true,
                   "changes": [
                     {
-                      "label": null,
-                      "before": "Loses 8",
+                      "label": "Loses",
+                      "before": "8",
                       "after": "30% current stack(s) of Lethality for each death."
                     }
                   ]
@@ -8401,8 +8401,8 @@
                       "text": "Now takes effect when the hero deals skill damage to the enemy hero."
                     },
                     {
-                      "label": null,
-                      "before": "Dealing skill damage recovers 4%",
+                      "label": "Dealing skill damage recovers",
+                      "before": "4%",
                       "after": "5% of Max HP."
                     }
                   ]
@@ -13392,8 +13392,8 @@
               "type": null
             },
             {
-              "label": null,
-              "before": "Damage taken from Creeps is reduced by 40%",
+              "label": "Damage taken from Creeps is reduced by",
+              "before": "40%",
               "after": "Damage taken from basic Creeps is reduced by 40% (Lord and Turtle are not considered basic Creeps)",
               "level": 1,
               "type": null
@@ -14842,8 +14842,8 @@
                   "after": "160 + 100% Total Physical Attack"
                 },
                 {
-                  "label": null,
-                  "before": "Demonic Slash ignores 50%",
+                  "label": "Demonic Slash ignores",
+                  "before": "50%",
                   "after": "40% of the target's Physical Defense"
                 },
                 {
@@ -15068,8 +15068,8 @@
                   "generic": false,
                   "changes": [
                     {
-                      "label": null,
-                      "before": "Adaptive Penetration 16",
+                      "label": "Adaptive Penetration",
+                      "before": "16",
                       "after": "14"
                     }
                   ]
@@ -15091,8 +15091,8 @@
                   "generic": false,
                   "changes": [
                     {
-                      "label": null,
-                      "before": "Movement Speed Boost 15%",
+                      "label": "Movement Speed Boost",
+                      "before": "15%",
                       "after": "10%"
                     }
                   ]
@@ -15114,8 +15114,8 @@
                   "generic": false,
                   "changes": [
                     {
-                      "label": null,
-                      "before": "Damage Increase 5%",
+                      "label": "Damage Increase",
+                      "before": "5%",
                       "after": "6%"
                     }
                   ]
@@ -15137,8 +15137,8 @@
                   "generic": false,
                   "changes": [
                     {
-                      "label": null,
-                      "before": "Movement Speed Boost 15%",
+                      "label": "Movement Speed Boost",
+                      "before": "15%",
                       "after": "20%"
                     }
                   ]

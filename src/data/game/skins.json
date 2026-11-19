@@ -488,7 +488,7 @@
     {
       "id": "288",
       "name": "Mecha-King Perseus",
-      "release": "2024-04-03",
+      "release": "2024-05",
       "availability": "Limited",
       "rarity": "Exquisite",
       "label": "Collector",
@@ -742,7 +742,7 @@
     {
       "id": "557",
       "name": "Floral Elf",
-      "release": "2024-04-24",
+      "release": "2021-04",
       "availability": "Limited",
       "rarity": "Exquisite",
       "label": "Collector",
@@ -882,7 +882,7 @@
     {
       "id": "1203",
       "name": "Fury of the Deep",
-      "release": "2023-10-12",
+      "release": "2023-12",
       "availability": "Limited",
       "rarity": "Exceptional",
       "label": "StarLight",
@@ -894,7 +894,7 @@
     {
       "id": "1204",
       "name": "Aeon of Twilight",
-      "release": "2025",
+      "release": "2025-08",
       "availability": "Limited",
       "rarity": "Exquisite",
       "label": "Collector",
@@ -965,7 +965,7 @@
     {
       "id": "936",
       "name": "Mecha Infernus",
-      "release": "2023-09-03",
+      "release": "2024-09",
       "availability": "Limited",
       "rarity": "Exquisite",
       "label": "Collector",
@@ -1220,7 +1220,7 @@
     {
       "id": "776",
       "name": "Fist of Zen",
-      "release": "2021-04-03",
+      "release": "2020-07",
       "availability": "Limited",
       "rarity": "Exquisite",
       "label": "Collector",
@@ -1315,7 +1315,7 @@
     {
       "id": "025",
       "name": "God of Mountains",
-      "release": "2021",
+      "release": "2021-08",
       "availability": "Limited",
       "rarity": "Exquisite",
       "label": "Collector",
@@ -1371,12 +1371,12 @@
     {
       "id": "100210",
       "name": "Ironhide Berserker",
-      "release": "2026-12-18",
+      "release": null,
       "availability": "Limited",
       "rarity": "Common",
       "label": "S39",
       "price": {
-        "other": "Season 31"
+        "other": "Season 39"
       },
       "released": true
     },
@@ -2481,7 +2481,7 @@
       "released": true
     },
     {
-      "id": "102614",
+      "id": "102615",
       "name": "Starforger's Glory",
       "release": "2026-09-18",
       "availability": "Limited",
@@ -2925,7 +2925,7 @@
     {
       "id": "139",
       "name": "Crimson Blast",
-      "release": "2022",
+      "release": "2023-05",
       "availability": "Limited",
       "rarity": "Exquisite",
       "label": "Collector",
@@ -3186,7 +3186,7 @@
     {
       "id": "857",
       "name": "Naraka Flame",
-      "release": "2022-01-05",
+      "release": "2023-01",
       "availability": "Limited",
       "rarity": "Exquisite",
       "label": "Collector",
@@ -3233,19 +3233,19 @@
     {
       "id": "1113",
       "name": "Ancient Warden",
-      "release": "2023-02-01",
+      "release": "2023-04",
       "availability": "Limited",
       "rarity": "Exceptional",
       "label": "StarLight",
       "price": {
-        "other": "2023/02 StarLight Member"
+        "other": "2023/04 StarLight Member"
       },
       "released": true
     },
     {
       "id": "1114",
       "name": "Red Bastion",
-      "release": "2023-11-01",
+      "release": "2024-04",
       "availability": "Limited",
       "rarity": "Exquisite",
       "label": "Collector",
@@ -3360,7 +3360,7 @@
     {
       "id": "818",
       "name": "Light Envoy",
-      "release": "2022-04-03",
+      "release": "2022-06",
       "availability": "Limited",
       "rarity": "Exquisite",
       "label": "Collector",
@@ -4088,12 +4088,12 @@
     {
       "id": "1176",
       "name": "Royal Marshal",
-      "release": "2025-11-01",
+      "release": "2025-12",
       "availability": "Limited",
       "rarity": "Exceptional",
       "label": "StarLight",
       "price": {
-        "other": "2025/11 StarLight Member"
+        "other": "2025/12 StarLight Member"
       },
       "released": true
     }
@@ -5001,7 +5001,7 @@
     {
       "id": "569",
       "name": "Night Owl",
-      "release": "2020-01-03",
+      "release": "2021-03",
       "availability": "Limited",
       "rarity": "Exquisite",
       "label": "Collector",
@@ -5023,7 +5023,7 @@
     {
       "id": "106011",
       "name": "Chic Glamour",
-      "release": "2025-01",
+      "release": "2025-09",
       "availability": "Limited",
       "rarity": "Exceptional",
       "label": "StarLight",
@@ -5314,7 +5314,7 @@
     {
       "id": "737",
       "name": "Psychic",
-      "release": "2023-02-18",
+      "release": "2024-06",
       "availability": "Limited",
       "rarity": "Exquisite",
       "label": "Collector",
@@ -5433,7 +5433,7 @@
     {
       "id": "427",
       "name": "Dream Caster",
-      "release": "2020-09-05",
+      "release": "2021-10",
       "availability": "Limited",
       "rarity": "Exquisite",
       "label": "Collector",
@@ -5677,7 +5677,7 @@
     {
       "id": "518",
       "name": "Kaiju of the Deep",
-      "release": "2025",
+      "release": "2026-07",
       "availability": "Limited",
       "rarity": "Exquisite",
       "label": "Collector",
@@ -6101,7 +6101,7 @@
     {
       "id": "546",
       "name": "Samurai Mech",
-      "release": "2024-04-24",
+      "release": "2020-12",
       "availability": "Limited",
       "rarity": "Exquisite",
       "label": "Collector",
@@ -6369,7 +6369,7 @@
       "rarity": "Grand",
       "label": "HUNTER×HUNTER",
       "price": {
-        "other": "Obtain via the MLBB & HUNTER×HUNTER collab event"
+        "other": "Obtained via the MLBB & HUNTER×HUNTER collab event"
       },
       "released": true
     },
@@ -6963,7 +6963,7 @@
       "release": "2020-11-21",
       "availability": "Limited",
       "rarity": "Exquisite",
-      "label": "Annual Starlight",
+      "label": "Annual StarLight",
       "price": {
         "other": "2020 StarLight Fest"
       },
@@ -7481,7 +7481,7 @@
     {
       "id": "377",
       "name": "Adlaw's Chosen",
-      "release": "2024-03-03",
+      "release": "2024-01",
       "availability": "Limited",
       "rarity": "Exquisite",
       "label": "Collector",
@@ -7762,7 +7762,7 @@
       "release": "2021-11-21",
       "availability": "Limited",
       "rarity": "Exquisite",
-      "label": "Annual Starlight",
+      "label": "Annual StarLight",
       "price": {
         "other": "2021 StarLight Fest"
       },
@@ -7894,7 +7894,7 @@
     {
       "id": "539",
       "name": "Falcon Mistress",
-      "release": "2020-11-03",
+      "release": "2021-11",
       "availability": "Limited",
       "rarity": "Exquisite",
       "label": "Collector",
@@ -8761,7 +8761,7 @@
       "rarity": "Exceptional",
       "label": "Special",
       "price": {
-        "other": "Avaliable via the Bang Bang Card"
+        "other": "Available via the Bang Bang Card"
       },
       "released": true
     },
@@ -8985,7 +8985,7 @@
     {
       "id": "746",
       "name": "Sol Invictus",
-      "release": "2024-04-03",
+      "release": "2024-03",
       "availability": "Limited",
       "rarity": "Exquisite",
       "label": "Collector",
@@ -9127,7 +9127,7 @@
     {
       "id": "100111",
       "name": "Doom Catalyst",
-      "release": "2022",
+      "release": "2022-09",
       "availability": "Limited",
       "rarity": "Exquisite",
       "label": "Collector",
@@ -9385,7 +9385,7 @@
     {
       "id": "058",
       "name": "Aqua Pura",
-      "release": "2021",
+      "release": "2021-12",
       "availability": "Limited",
       "rarity": "Exquisite",
       "label": "Collector",
@@ -9751,6 +9751,16 @@
     },
     {
       "id": "1303",
+      "name": "Magitech Wraith",
+      "release": "2026-05",
+      "availability": "Limited",
+      "rarity": null,
+      "label": "StarLight",
+      "price": {},
+      "released": true
+    },
+    {
+      "id": "1304",
       "name": "Imperatrix Arashi",
       "release": "2026-10-09",
       "availability": "Limited",
@@ -9948,7 +9958,7 @@
     {
       "id": "1037",
       "name": "Blazing Tiger",
-      "release": "2023-06-03",
+      "release": "2023-07",
       "availability": "Limited",
       "rarity": "Exquisite",
       "label": "Collector",
@@ -10193,12 +10203,12 @@
     {
       "id": "944",
       "name": "Trouble Makers",
-      "release": "2021-11-01",
+      "release": "2022-11",
       "availability": "Limited",
       "rarity": "Exceptional",
       "label": "StarLight",
       "price": {
-        "other": "2021/11 StarLight Member"
+        "other": "2022/11 StarLight Member"
       },
       "released": true
     },
@@ -10556,7 +10566,7 @@
     {
       "id": "297",
       "name": "Prismatic Plume",
-      "release": "2022",
+      "release": "2023-09",
       "availability": "Limited",
       "rarity": "Exquisite",
       "label": "Collector",
@@ -10948,7 +10958,7 @@
     {
       "id": "1312",
       "name": "Azure Cloud",
-      "release": "2026-12-18",
+      "release": "2025-12-18",
       "availability": "Available",
       "rarity": "Common",
       "label": null,
@@ -11664,9 +11674,7 @@
       "availability": "Limited",
       "rarity": "Common",
       "label": "S37",
-      "price": {
-        "other": "Season 42"
-      },
+      "price": {},
       "released": true
     }
   ],
@@ -11755,7 +11763,7 @@
     {
       "id": "576",
       "name": "Demonlord",
-      "release": "2020-01-03",
+      "release": "2021-01",
       "availability": "Limited",
       "rarity": "Exquisite",
       "label": "Collector",
@@ -12230,12 +12238,12 @@
     {
       "id": "306",
       "name": "Azure Sentry",
-      "release": "2025-02-01",
+      "release": "2021-05",
       "availability": "Limited",
       "rarity": "Exceptional",
       "label": "StarLight",
       "price": {
-        "other": "2025/02 StarLight Member"
+        "other": "2021/05 StarLight Member"
       },
       "released": true
     },
@@ -12648,7 +12656,7 @@
     {
       "id": "101610",
       "name": "Empyrean Paladin",
-      "release": "2022",
+      "release": "2022-02",
       "availability": "Limited",
       "rarity": "Exquisite",
       "label": "Collector",
