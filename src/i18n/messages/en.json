@@ -102,7 +102,7 @@
       "desc": "Stars, divisions and rewards"
     },
     "retribution": {
-      "label": "Retribution test",
+      "label": "Retribution Test",
       "desc": "Practice your timing"
     },
     "quiz": {
@@ -371,8 +371,8 @@
       },
       "strengths": "Strengths",
       "weaknesses": "Weaknesses",
-      "analysisPending": "Analysis in progress",
-      "analysisText": "The data for {name} is up to date — it comes straight from the wiki. What's missing is the commentary: what the hero actually does, their builds and their counters. That can't be extracted; it has to be written.",
+      "analysisPending": "No written analysis yet",
+      "analysisText": "No one has written an analysis of {name} yet: how to play them, what to build, who to pick them against. Meanwhile, the other tabs show the figures measured in ranked games.",
       "analysisTranslated": "Analysis written in French and machine-translated.",
       "contribute": "Contribute to this analysis →",
       "countersIntro": "Based on in-game win rates: the gap in points shows how much {name}'s win rate shifts against each opponent.",
@@ -479,8 +479,8 @@
     },
     "emblems": {
       "title": "Emblems and talents",
-      "lead": "The real question isn't which talents exist, but which ones to take for the role you play. Pick your emblem: the rest of the page reorganizes around it.",
-      "metaDescription": "Which emblem, talent and Battle Spell to take for your role in Mobile Legends: Bang Bang. Pick your emblem and the page organizes itself around it.",
+      "lead": "Pick your role's emblem: the page then shows its talents and the battle spells that go with it.",
+      "metaDescription": "Which emblem, talent and battle spell to take for your role in Mobile Legends: Bang Bang. Pick your emblem to see its talents.",
       "ogDescription": "What to take for your role: emblems, talents and Battle Spells."
     },
     "draft": {
@@ -1120,8 +1120,8 @@
         "descriptionSimple": "The {n} Mobile Legends ranks from Warrior to Mythical Immortal: divisions, stars per division, Mythic points, draft pick and season rewards."
       },
       "retribution": {
-        "title": "MLBB Retribution Test: Practice Your Timing",
-        "description": "Free Mobile Legends Retribution trainer: secure the Turtle, Lord and buffs before the enemy jungler. Real Retribution damage by level, 4 difficulties, local records and a shareable result card. Works offline."
+        "title": "MLBB Retribution Test: train your timing",
+        "description": "Free Retribution trainer for Mobile Legends: secure Turtle, Lord and buffs before the opposing jungler. Real Retribution damage per level, 4 difficulties, records on the device and result card to share. Works offline."
       },
       "quiz": {
         "title": "MLBB Quiz: Daily Hero Guessing Game",
@@ -1219,6 +1219,7 @@
     },
     "heroPreview": {
       "trend": "Over the last {n} days, {name}'s win rate went from {start} to {end} across all ranks ({gap} {pts}).",
+      "trendStable": "Over the last {n} days, {name}'s win rate has not moved: {end} across all ranks.",
       "duration": "{name} wins most in {window} games ({winRate}) and least in {windowLow} games ({winRateLow}).",
       "ranks": "By rank, {name}'s win rate ranges from {low} in {rankLow} to {high} in {rankHigh}.",
       "adjustments": "Changes to {name}: {n} in the last {total} patches.",
@@ -1637,15 +1638,15 @@
       "seasonsNote": "Dates in server time (UTC−8), read in the patch notes and checked on {date}. A season lasts about three months, but no date is estimated: an end that is not announced stays blank."
     },
     "retribution": {
-      "title": "Retribution test",
-      "lead": "Train the jungler's reflex: the health bar of the Turtle, the Lord or a buff melts under your team's hits, and you strike as soon as it drops below your Retribution damage, before the enemy jungler does.",
+      "title": "Retribution Test",
+      "lead": "Train the jungler's reflex: the life bar of the Turtle, the Lord or a buff melts under the blows, and you strike as soon as it passes under the damage of your Retribution, before the opposing jungler.",
       "rulesTitle": "How it works",
-      "rule1": "Pick an objective, a difficulty and your hero level. The health bar melts under your team's hits; strike (big button, Space or Enter) as soon as HP drops below your Retribution damage.",
-      "rule2": "Too early, Retribution doesn't kill and takes {recharge} s to recharge: the objective is lost. Too slow, the enemy jungler strikes first, or the monster dies without you.",
+      "rule1": "Choose an objective, a difficulty and the level of your hero. The life bar melts under the blows of your team; hit (big button, Space or Enter) as soon as the HP falls under the damage of your Retribution.",
+      "rule2": "Too early, Retribution does not kill and recharges in {recharge} s: the objective is lost. Too slow, the opposing jungler strikes in your place, or the monster falls without you.",
       "rule3": "A successful strike is worth up to 1,000 points: {precision} for precision (the share of below-threshold HP still there when you strike) and {speed} for speed, full under {full} ms and zero beyond {zero} ms.",
       "rule4": "A run has {n} rounds. Your best total per objective and difficulty, and your longest streak of successes, stay in your browser. Once the page has been opened, the trainer also works offline.",
       "valuesTitle": "The values used",
-      "damageIntro": "Retribution deals {base} true damage, plus {perLevel} per hero level, to creeps and minions. By level:",
+      "damageIntro": "Retribution deals {base} true damage, plus {perLevel} per hero level, to creatures and minions. By level:",
       "level": "Lv. {n}",
       "monstersTitle": "Objective HP",
       "colSegment": "HP per bar segment",
@@ -1658,7 +1659,7 @@
       "colHpNumbers": "HP shown",
       "yes": "Yes",
       "no": "No",
-      "trainingValues": "Hit rhythm, team damage, bursts and enemy jungler reaction are training values, tuned to feel like a real fight: the game doesn't publish these numbers. Retribution damage and monster HP, however, come from the wiki.",
+      "trainingValues": "Hit rate, team damage, bursts and reaction of the opposing jungler are training values, tuned to resemble real combat: the game does not publish these numbers. Retribution damage and monster HP come from the wiki.",
       "sourcesTitle": "Sources",
       "sourceRetribution": "Fandom wiki, “Retribution” spell: damage by level and cooldown",
       "sourceMonsters": "Fandom wiki, “Turtle”, “Lord”, “Thunder Fenrir” and “Molten Fiend” pages: initial and 12-minute HP, health bar segments"
@@ -3089,7 +3090,7 @@
       "usage3": "Vibration and beep (off by default) warn you {soon} then {urgent} seconds before each return, and the screen can stay on. Everything runs in the browser: once the page is open, the timer works offline, and the match stays in the tab if you reload.",
       "usage4": "The timer does not read the match: it only knows what you tell it. Resync it as soon as it drifts by more than a second or two.",
       "mapLink": "Map guide: camps, Turtle, Lord and rotations",
-      "retributionLink": "Practise Retribution",
+      "retributionLink": "Training for Retribution",
       "sourcesTitle": "Sources",
       "sourcesIntro": "Mobile Legends wiki pages (Fandom), checked on {date}:",
       "sourcesNote": "When two wiki values disagree (Lord respawn after {lateFrom}, Crab arrival), the timer shows the window between them instead of picking one.",
@@ -3174,7 +3175,7 @@
       "healReward": "Healing buff: {hp} HP and {mana}% mana over {duration} s",
       "wavesValue": "First wave at {first}, then every {interval} s",
       "timerLink": "Objective timer",
-      "retributionLink": "Retribution test",
+      "retributionLink": "Retribution Test",
       "tierLink": "Tier list: {role}",
       "timerCta": "Track Turtle, Lord and buffs in a match with the timer",
       "sourcesTitle": "Sources",
@@ -3265,7 +3266,7 @@
           "bonus": "First {waves} waves: {lancers} lancers and {infantry} infantry"
         },
         "gold-lane": {
-          "name": "Gold lane",
+          "name": "gold lane",
           "role": "The lane away from the first Turtle. Usually held by a Marksman, who needs items as soon as possible.",
           "bonus": "First {waves} waves (until {end}): the cannon minion gives {bonus}% extra gold"
         }
@@ -3277,7 +3278,7 @@
           "title": "Jungle",
           "step1": "Start with the buff closest to the EXP lane (orange at {orange}, purple at {purple}): the clear leaves you level 4 near the Gold lane, ready to gank.",
           "step2": "Chain the other buff and the small camps on that side; the Lithowanderer ({litho}, near mid) helps you reach level 4.",
-          "step3": "Be at the Turtle for {turtle} with Retribution ready. Buffs return {buff} s after they die: log them in the timer.",
+          "step3": "Be at the Turtle for {turtle}, Retribution available. Buffs return {buff} s after their death: note them in the timer.",
           "step4": "Leave lane minions to your laners early on. Secure at least one of three: buffs, kills or Turtle."
         },
         "roam": {
@@ -3288,7 +3289,7 @@
           "step4": "From {share}, your minion and creep rewards are shared with the team: stay grouped."
         },
         "gold": {
-          "title": "Gold lane",
+          "title": "gold lane",
           "step1": "For the first {waves} waves (until {end}), your lane's cannon minion is worth {goldBonus}% more gold: don't miss its last hit.",
           "step2": "The Crab, in the river near the side lanes, gives {crabGold} gold over {crabDuration} s; the Little Crab shows up from {littleCrab}.",
           "step3": "Your jungler does not take your minions: they are yours early on.",
@@ -3697,7 +3698,7 @@
         "help": "The commands by category, with an example for each.",
         "invite": "The link to add the bot to another server.",
         "about": "Version, server count, links to the site, the support server and voting.",
-        "profile": "Your Mobile Legends profile as an image: rank, win rate and most played heroes (linked once on the site)."
+        "profile": "Your Mobile Legends profile in pictures: rank, victory rate and most played heroes (to be linked once on the site)."
       },
       "permissionsTitle": "Permissions requested",
       "permissionsText": "Only what replying and posting need: never Administrator, and no access to message content. The Server Members intent only serves the welcome and goodbye messages: nothing about members is stored.",
@@ -3755,7 +3756,7 @@
       "roleMenus": "Role menus: for each menu, the server's choice of channel, title, text, roles with their labels and emojis, the id of the published message and the Discord id of the manager who set it up are stored. When a member uses one, the bot gives or removes the role and keeps nothing about them, apart from an in-memory counter, a few seconds long, that limits changes made too close together.",
       "tempVoice": "Temporary voice channels: the server stores its join-to-create channels with their user limit and name template. For each voice channel the bot creates, it keeps the ids of the channel, of the join-to-create channel and of the member it was created for, until the channel is deleted, which happens as soon as it is empty. To know who is in which voice channel, the bot receives Discord's voice states (the \"Guild Voice States\" intent), keeps them in memory and stores none of them.",
       "pseudonymous": "On the site, the forum and the collection do not keep your Discord ID or your game ID in plain text, but a hash of it (SHA-256, unsalted). This is pseudonymous data, not anonymous: anyone who knows the ID can compute the hash again, so it remains personal data and is protected as such. The bot itself keeps Discord IDs in plain text (results, votes, role menus).",
-      "storedProfile": "For the /profile card, only if the player links it on the site: a hash of their Discord id and one of their game id and server, their two choices (shown to others, id shown) and their figures as of their last update (nickname, avatar, country, level, rank, season matches and wins, three most played heroes). Deleted on unlinking, or 30 days after the last update. The drawn image stays in the site's memory for ten minutes."
+      "storedProfile": "For the /profile card, only if the player links it to the site: a print of his Discord ID and one of his game ID and his server, his two choices (visible to others, id displayed) and his numbers at his last update (nickname, avatar, country, level, rank, games and victories of the season, three most played heroes). Deleted when unlinked, or 30 days after the last update. The drawn image remains in the site's memory for ten minutes."
     },
     "botTerms": {
       "title": "Discord bot terms of use",
@@ -4709,28 +4710,28 @@
     },
     "discordCard": {
       "title": "Discord profile card",
-      "intro": "Post your rank, win rate and most played heroes as an image in Discord, with the MLBBDex bot's /profile command.",
-      "needDiscord": "To link it, also sign in with the Discord account you use on your servers.",
-      "discordButton": "Sign in with Discord",
-      "linkOffer": "Link the Discord account {name} to this game account. Your current figures are saved for the card.",
-      "linkButton": "Link and create my card",
-      "linked": "Your card is linked to a Discord account. Type /profile in a server where the MLBBDex bot is.",
-      "otherDiscord": "You are signed in with another Discord account ({name}) than the linked one. Linking it moves the card there.",
-      "updatedAt": "Figures saved on {date}.",
-      "refresh": "Update my figures",
-      "noAccess": "The site keeps no access to your game account: the card shows the figures saved at your last update, and is deleted after 30 days without one.",
-      "public": "Others can post my card (/profile user:@you)",
-      "publicHint": "Off by default: only you can post it.",
-      "showId": "Show my game ID and server on the card",
+      "intro": "Display your rank, win rate and most played heroes in pictures on Discord, with the /profile command from the MLBBDex bot.",
+      "needDiscord": "To link it, also connect with the Discord account you use on your servers.",
+      "discordButton": "Log in with Discord",
+      "linkOffer": "Link the Discord account {name} to this game account. Your current numbers are saved for the card.",
+      "linkButton": "Link and create my map",
+      "linked": "Your card is linked to a Discord account. Type /profile on a server where the MLBBDex bot is located.",
+      "otherDiscord": "You are connected with a different Discord account ({name}) than the one linked. Connecting it moves the card there.",
+      "updatedAt": "Digits recorded on {date}.",
+      "refresh": "Update my numbers",
+      "noAccess": "The site does not keep any access to your game account: the card shows the numbers saved during your last update, and it is deleted after 30 days without updating.",
+      "public": "Others can view my card (/profile user:@you)",
+      "publicHint": "Off by default: Only you can display it.",
+      "showId": "Show my game ID and server on the map",
       "unlink": "Unlink and delete my card",
-      "unlinkConfirm": "The card and the link are deleted at once. You can create them again later.",
-      "unlinkButton": "Delete",
-      "cancel": "Cancel",
-      "preview": "Preview of your card",
-      "done": "Saved.",
-      "errorDown": "The game's service is not answering: try again in a few minutes.",
-      "errorExpired": "Your game session has expired: log in again.",
-      "error": "Something went wrong. Try again in a moment.",
+      "unlinkConfirm": "The card and the link are deleted immediately. You can recreate them later.",
+      "unlinkButton": "DELETE",
+      "cancel": "Undo",
+      "preview": "Overview of your card",
+      "done": "Registered.",
+      "errorDown": "The game service is not responding: try again in a few minutes.",
+      "errorExpired": "Your game session has expired: log back in.",
+      "error": "An error has occurred. Try again in a moment.",
       "card": {
         "wins": "Wins",
         "heroMatches": "{n} matches",
@@ -4774,9 +4775,9 @@
     "Support": "Support"
   },
   "lanes": {
-    "Gold": "Gold Lane",
-    "Exp": "EXP Lane",
-    "Mid": "Mid Lane",
+    "Gold": "Gold",
+    "Exp": "EXP",
+    "Mid": "Mid",
     "Jungle": "Jungle",
     "Roam": "Roam"
   },
@@ -4892,7 +4893,7 @@
       "play": "Play"
     },
     "startTitle": "Where to start",
-    "startLead": "You play a role, not a catalog. Start from there.",
+    "startLead": "Choose your role to see the heroes who play it.",
     "latestArticles": "Latest articles",
     "allNews": "All news",
     "followRss": "Follow new posts via RSS",
@@ -5088,7 +5089,7 @@
       "results": "for the leaderboards of the daily games played in Discord: the players' Discord id and name and their scores.",
       "details": "The details, the retention period and deletion are on the bot's privacy page.",
       "members": "Nothing is kept about a server's members: their joins and leaves, which Discord reports to the bot, are only used to post the welcome and goodbye messages the server turned on.",
-      "profile": "for the /profile card, if you link it from your account page: a fingerprint of your Discord ID and one of your game ID and server (never the IDs themselves), your two choices (whether others may post it, whether it shows your ID) and a copy of your figures at your last update: nickname, avatar, country, level, rank, season matches and wins, three most played heroes. No game token is kept. The card is deleted when you unlink it, or 30 days after your last update;"
+      "profile": "for the /profile card, if you link it from your account page: a print of your Discord ID and one of your game and server IDs (never the IDs themselves), your two choices (if others can display it, if it shows your ID) and a copy of your numbers from your last update: nickname, avatar, country, level, rank, games and victories of the season, three most played heroes. No game tokens are retained. The card is deleted when you unbind it, or 30 days after your last update;"
     },
     "community": {
       "title": "Community: forum and teammate finder",
@@ -5225,7 +5226,7 @@
         "logs": "Technical logs: server errors and those met by the browser (message, page, site version, browser type, without IP address or account) are kept for 30 days for diagnosis. Security and moderation events (refused requests, moderators' and administrators' actions) are kept for 6 months. They are then deleted automatically.",
         "backups": "Backups: a daily copy of the database; only the three most recent are kept, so that deleted data disappears from the backups in three days.",
         "rateLimits": "Rate limits: your IP address, in memory only, never written to disk.",
-        "profileCard": "Discord profile card: until you unlink it, and at most 30 days after your last update."
+        "profileCard": "Discord profile card: until you unlink it, and no more than 30 days after your last update."
       },
       "rights": {
         "title": "Your rights",
@@ -5233,7 +5234,7 @@
         "browser": "What lives in your browser (favorites, collection, preferences, choices on cookies) is in your hands: clearing the site data deletes it.",
         "contact": "For the rest (community, synchronized collection, notifications, bot), write to [{contact}](mailto:{contact}), specifying the account concerned (game nickname or Discord name) so that it can be found. You will receive a response within one month.",
         "cnil": "If you consider, after contacting the publisher, that your rights are not respected, you can send a complaint to the CNIL ([cnil.fr](https://www.cnil.fr/fr/plaintes)) or to the data protection authority in your country.",
-        "updated": "Last updated: 19 November 2026."
+        "updated": "Last updated: November 19, 2026."
       }
     }
   },
@@ -5740,6 +5741,7 @@
     "resource": {
       "mana": "Mana",
       "energy": "Energy",
+      "rage": "Rage",
       "none": "None"
     },
     "damage": {
@@ -5969,10 +5971,10 @@
       "outcomeStolen": "Stolen by the enemy",
       "outcomeMissed": "Too late",
       "detailSecured": "Precision {precision} · reaction {reaction} ms · +{points} points",
-      "detailTooEarly": "{remaining} HP were left after your Retribution, and it takes {recharge} s to recharge: the objective is lost.",
+      "detailTooEarly": "There were {remaining} HP remaining after your Retribution, and it recharges in {recharge} s: the objective is lost.",
       "detailStolen": "The enemy jungler struck {reaction} ms after the HP dropped below the threshold.",
-      "detailMissed": "The monster died to your team's hits before your Retribution.",
-      "mapTitle": "Retribution test",
+      "detailMissed": "The monster fell to the blows without your Retribution.",
+      "mapTitle": "Retribution Test",
       "levelShort": "level {n}",
       "points": "points",
       "secured": "Secured",
@@ -5981,7 +5983,7 @@
       "newRecord": "New record!",
       "announceSummary": "Run complete: {points} points.",
       "announceRound": "Round {n} of {total}: {objective}. Get ready.",
-      "shareText": "MLBB Retribution test — {objective}, {difficulty}: {points} points, {secured}/{rounds} secured. Your turn:",
+      "shareText": "MLBB Retribution Test — {objective}, {difficulty}: {points} points, {secured}/{rounds} secured. To you:",
       "start": "Start",
       "ready": "Get ready…",
       "smite": "Retribution!",
@@ -5992,7 +5994,7 @@
       "difficultyLabel": "Difficulty",
       "levelLabel": "Hero level",
       "levelOption": "Level {n} — {damage} damage",
-      "thresholdSentence": "Your Retribution deals {damage} true damage: strike when HP drops below that. Suggested level for this objective: {suggested}.",
+      "thresholdSentence": "Your Retribution deals {damage} real damage: strike when HP drops below. Recommended level for this objective: {suggested}.",
       "maxHp": "{hp} HP",
       "round": "Round",
       "score": "Score",
@@ -6004,7 +6006,7 @@
       "noMarker": "No marker",
       "rounds": "Rounds in this run",
       "toPlay": "to play",
-      "help": "Space or Enter to strike. Strike when HP drops below your Retribution damage.",
+      "help": "Space or Enter to hit. Strike when HP drops below your Retribution damage.",
       "summaryTitle": "Run complete",
       "share": "Share",
       "copy": "Copy result",

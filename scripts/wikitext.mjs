@@ -27,29 +27,17 @@ export function cleanDescription(raw) {
     String(raw)
       // Scaling annotations: they describe a formula, not an effect.
       .replace(/\{\{scale\|[^}]*\}\}/gi, "")
-      // Emphasis templates: only the text matters.
-      .replace(/\{\{[Bb]\|([^}]*)\}\}/g, "$1")
-      .replace(/\{\{(?:hi|ii|Hi|II)\|([^}]*)\}\}/g, "$1")
-      // Internal links, with or without a label.
-      .replace(/\[\[[^\]|]*\|([^\]]*)\]\]/g, "$1")
-      .replace(/\[\[([^\]]*)\]\]/g, "$1")
       .replace(/<nowiki>([\s\S]*?)<\/nowiki>/g, "$1")
       .replace(/<br\s*\/?>/gi, " "),
   );
   return (
-    withoutHtml
+    decodeEntities(expandTemplates(plainLinks(withoutTables(withoutHtml))))
       // Wikitext italics and bold.
       .replace(/'{2,}/g, "")
-      .replace(/&ndash;/g, "–")
-      .replace(/&nbsp;/g, " ")
-      .replace(/&amp;/g, "&")
-      // Unknown template: keep its first argument, which is the displayed text
-      // by convention. Taking everything after the first pipe would leave the
-      // separators of multi-argument templates —
-      // "cannot be targeted|untargetable" instead of "cannot be targeted".
-      .replace(/\{\{[^}|]*\|([^}|]*)(?:\|[^}]*)?\}\}/g, "$1")
-      // Template without arguments: it carries no text.
-      .replace(/\{\{[^}]*\}\}/g, "")
+      // Behaviour switches (`__NOTOC__`) display nothing.
+      .replace(/__[A-Z]+__/g, "")
+      // A heading left inside a flat text keeps its words, not its markers.
+      .replace(/={2,}\s*([^=]*?)\s*={2,}/g, "$1")
       .replace(/\s+/g, " ")
       // Removing annotations leaves a space before the percent sign.
       .replace(/\s+%/g, "%")
@@ -58,13 +46,125 @@ export function cleanDescription(raw) {
   );
 }
 
+/** Named and numeric HTML entities the wiki writes in its text. */
+const ENTITIES = {
+  nbsp: " ", ndash: "–", mdash: "—", hellip: "…", quot: '"', apos: "'", lt: "<", gt: ">",
+  lsquo: "‘", rsquo: "’", ldquo: "“", rdquo: "”", laquo: "«", raquo: "»", sect: "§",
+  times: "×", deg: "°", middot: "·", bull: "•", eacute: "é", egrave: "è", approx: "≈",
+};
+
+/** Turns entities into characters; `&amp;` last, so `&amp;lt;` stays the text "&lt;". */
+export function decodeEntities(text) {
+  return String(text)
+    .replace(/&#(\d+);/g, (m, n) => safeCodePoint(Number(n)) ?? m)
+    .replace(/&#x([0-9a-f]+);/gi, (m, n) => safeCodePoint(parseInt(n, 16)) ?? m)
+    .replace(/&([a-z]+);/gi, (m, name) => ENTITIES[name.toLowerCase()] ?? m)
+    .replace(/&amp;/g, "&");
+}
+
+function safeCodePoint(n) {
+  return Number.isInteger(n) && n > 0 && n <= 0x10ffff ? String.fromCodePoint(n) : null;
+}
+
+/**
+ * Internal links become their label, innermost first: `[[Target|Label]]`
+ * gives "Label", `[[Target#Section]]` gives "Target". Category, file and
+ * interlanguage links display nothing in the text, so they are dropped. A
+ * bracket pair left unmatched by a broken edit on the wiki goes too.
+ */
+export function plainLinks(text) {
+  let output = String(text);
+  let before;
+  do {
+    before = output;
+    output = output.replace(/\[\[([^[\]]*)\]\]/g, (_, inner) => {
+      const [target, ...labels] = inner.split("|");
+      const page = target.trim();
+      if (/^:?(?:Category|File|Image|Media):/i.test(page) || /^[a-z]{2,3}(?:-[a-z]+)?:/.test(page)) return "";
+      const label = labels.length ? labels.at(-1).trim() : "";
+      if (label) return label;
+      return page.replace(/^:/, "").split("#")[0].trim() || page.split("#").pop().trim();
+    });
+  } while (output !== before);
+  return output
+    // External links: keep the label, drop the URL.
+    .replace(/\[https?:\/\/\S+\s+([^\]]*)\]/g, "$1")
+    .replace(/\[https?:\/\/\S+\]/g, "")
+    .replace(/\[\[|\]\]/g, "");
+}
+
+/** Templates that only lay out or annotate the page: they show no text. */
+const SILENT_TEMPLATES = new Set([
+  "clr", "clear", "cite", "cite web", "retcon", "translation", "main", "see also", "scale",
+  "reflist", "toc", "notoc", "stub", "spoiler", "anchor", "-",
+]);
+
+/**
+ * The text a template shows in place, by convention.
+ *
+ * - `{{b|Locked On|mark}}`, `{{hi|Alpha|Alpha}}`: the first unnamed argument.
+ * - `{{ai|name=Basic Attack|Basic Attacks}}`: an unnamed argument wins over
+ *   the `name=` one, which only picks the icon.
+ * - `{{Hi|name=Lunox|image=Lunox}}`: no unnamed argument, so the `name`
+ *   (or `text`, `label`) parameter. Other parameters (`image=`, `size=`)
+ *   never reach the text.
+ * - `{{icon|a|Contract Soul Steal|Soul Steal}}`: icon templates put the label
+ *   last.
+ * - A template laid out on several lines (`{{Infobox character\n| name = …`)
+ *   is a data block, not a word: it shows nothing.
+ */
+function renderTemplate(body) {
+  if (/\n\s*\|/.test(body)) return "";
+  const parts = body.split("|");
+  const name = parts[0].trim().toLowerCase().replace(/_/g, " ");
+  // Parser functions (`{{#if:…}}`) and magic words (`{{PAGENAME}}`) only
+  // make sense on the wiki.
+  const magic = parts.length === 1 && /^[A-Z]{3,}$/.test(parts[0].trim());
+  if (!name || SILENT_TEMPLATES.has(name) || name.startsWith("#") || magic) return "";
+  const positional = [];
+  const named = {};
+  for (const part of parts.slice(1)) {
+    const m = part.match(/^\s*([a-z][\w -]*?)\s*=([\s\S]*)$/i);
+    if (m) named[m[1].toLowerCase()] = m[2].trim();
+    else if (part.trim()) positional.push(part.trim());
+  }
+  if (name === "icon" && positional.length) return positional.at(-1);
+  if (positional.length) return positional[0];
+  return named.name ?? named.text ?? named.label ?? named.title ?? named["1"] ?? "";
+}
+
+/** Expands every `{{…}}`, innermost first, so a nested template is resolved before its parent splits on pipes. */
+export function expandTemplates(text) {
+  let output = String(text);
+  let before;
+  do {
+    before = output;
+    output = output.replace(/\{\{([^{}]*)\}\}/g, (_, body) => renderTemplate(body));
+  } while (output !== before);
+  // An unbalanced brace pair from a broken edit carries no text either.
+  return output.replace(/\{\{|\}\}/g, "");
+}
+
+/**
+ * A short field taken from a wiki module (a release date, a resource, a skin's
+ * acquisition note), as plain text: `[[Patch Notes/1.6.66|22 March 2022]]`
+ * gives "22 March 2022".
+ */
+export function plainValue(value) {
+  if (value === null || value === undefined) return null;
+  const text = cleanDescription(String(value));
+  return text || null;
+}
+
 // ─────────────────────────────────────────────────────────────
 // Hero story: lore, story sheet, trivia
 // ─────────────────────────────────────────────────────────────
 
+// The story is kept in English, the wiki's language: the translation step
+// derives every other language from it.
 const MONTH = [
-  "janvier", "fevrier", "mars", "avril", "mai", "juin",
-  "juillet", "aout", "septembre", "octobre", "novembre", "decembre",
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
 ];
 
 /**
@@ -121,36 +221,82 @@ function removeLinksFile(text) {
   return output;
 }
 
-/** Removes a `{{Name ...}}` template from the text entirely, nested ones included. */
-function removeTemplate(text, name) {
-  const re = new RegExp(`\\{\\{${name}\\b`, "i");
-  const m = re.exec(text);
-  if (!m) return text;
-  const start = m.index;
-  let depth = 0;
-  for (let k = start; k < text.length; k += 1) {
-    if (text[k] === "{" && text[k + 1] === "{") { depth += 1; k += 1; }
-    else if (text[k] === "}" && text[k + 1] === "}") {
-      depth -= 1;
-      k += 1;
-      if (depth === 0) return text.slice(0, start) + text.slice(k + 1);
+/**
+ * Removes every template laid out on several lines, one `| field = value`
+ * per line (`{{Infobox hero story`, `{{Infobox character`): a data block, not
+ * prose. Braces are counted, so nested templates go with their parent. It runs
+ * before the text is cut into lines, which would split such a block apart and
+ * leave its fields (`| name = Detona`) as sentences.
+ */
+function removeBlockTemplates(text) {
+  let output = String(text);
+  let from = 0;
+  for (;;) {
+    const start = output.indexOf("{{", from);
+    if (start === -1) return output;
+    let depth = 0;
+    let end = -1;
+    for (let k = start; k < output.length; k += 1) {
+      if (output[k] === "{" && output[k + 1] === "{") { depth += 1; k += 1; }
+      else if (output[k] === "}" && output[k + 1] === "}") {
+        depth -= 1;
+        k += 1;
+        if (depth === 0) { end = k + 1; break; }
+      }
+    }
+    if (end === -1) return output;
+    if (/\n\s*\|/.test(output.slice(start, end))) output = output.slice(0, start) + output.slice(end);
+    else from = start + 2;
+  }
+}
+
+/** A heading line, `=== Duke of Shards ===`, with or without spaces. */
+const HEADING = /^\s*={2,6}\s*(.*?)\s*=+\s*$/;
+
+/**
+ * A hero's lore as a sequence of blocks: paragraphs (`p`) and the headings
+ * (`h`) the wiki puts between chapters ("Duke of Shards", "Fate Deniers").
+ *
+ * The text is read line by line. A blank line ends a paragraph; a heading line
+ * ends it too and becomes a block of its own, so its `===` markers never end
+ * up in the middle of a sentence. Every block is cleaned like a description.
+ */
+export function loreBlocks(raw) {
+  const blocks = [];
+  let paragraph = [];
+  const flush = () => {
+    if (!paragraph.length) return;
+    const text = cleanDescription(paragraph.join("\n"));
+    if (text && text.length > 1) blocks.push({ type: "p", text });
+    paragraph = [];
+  };
+  for (const line of removeBlockTemplates(withoutCruft(raw)).split("\n")) {
+    const heading = line.match(HEADING);
+    if (heading) {
+      flush();
+      const text = cleanDescription(heading[1]);
+      if (text) blocks.push({ type: "h", text });
+    } else if (!line.trim()) {
+      flush();
+    } else {
+      // A list or indent marker opening a line is layout, not text.
+      paragraph.push(line.replace(/^\s*[*#:]+\s*/, ""));
     }
   }
-  return text;
+  flush();
+  // A heading followed by nothing to read is dropped, as is the first of two
+  // headings in a row: neither introduces any text.
+  return blocks.filter((b, i) => b.type === "p" || blocks[i + 1]?.type === "p");
 }
 
 /**
- * A hero's lore, rendered as readable paragraphs.
+ * A hero's lore, rendered as readable paragraphs (headings left out).
  *
- * We first split on blank lines, then clean each paragraph like a
- * description: paragraph breaks survive the process, where `cleanDescription`
- * alone would flatten everything onto one line.
+ * Paragraph breaks survive the process, where `cleanDescription` alone would
+ * flatten everything onto one line.
  */
 export function cleanLore(raw) {
-  return withoutCruft(raw)
-    .split(/\n{2,}/)
-    .map((p) => cleanDescription(p))
-    .filter((p) => p && p.length > 1);
+  return loreBlocks(raw).filter((b) => b.type === "p").map((b) => b.text);
 }
 
 /**
@@ -216,7 +362,9 @@ function fieldsTemplate(body) {
 function elementsList(value) {
   if (!value) return [];
   const raw = withoutCruft(value);
-  if (/^\s*\*/.test(raw)) {
+  // A list may start on the field's own line ("Azrya Woodlands\n*The Abyss"):
+  // any line starting with a star opens an item.
+  if (/(?:^|\n)\s*\*/.test(raw)) {
     return raw
       .split(/\n(?=\s*\*)/)
       .map((l) => cleanDescription(l.replace(/^\s*\*+\s*/, "")))
@@ -226,19 +374,19 @@ function elementsList(value) {
   return alone ? [alone] : [];
 }
 
-/** `{{birthday|7|28}}` becomes "28 juillet"; other forms stay raw. */
+/** `{{birthday|7|28}}` becomes "July 28"; other forms stay raw. */
 function anniversary(value) {
   if (!value) return null;
   const m = value.match(/\{\{birthday\|(\d{1,2})\|(\d{1,2})\}\}/i);
   if (m) {
     const month = MONTH[Number(m[1]) - 1];
-    if (month) return `${Number(m[2])} ${month}`;
+    if (month) return `${month} ${Number(m[2])}`;
   }
   const light = cleanDescription(withoutCruft(value));
   return light || null;
 }
 
-const GENRES = { male: "Homme", female: "Femme", "n/a": null, none: null };
+const GENRES = { male: "Male", female: "Female", "n/a": null, none: null };
 
 /** Localises the sheet entries: the raw value first, otherwise nothing. */
 function textField(value) {
@@ -306,10 +454,14 @@ export function sectionWiki(wikitext, titles) {
  */
 export function extractStory(wikitext) {
   // The prose lives in the "Lore" subsection. Failing that, some heroes put
-  // it directly under "Story", mixed with the sheet template: we strip the
-  // template to keep only the narrative.
+  // it directly under "Story", mixed with the sheet template, which
+  // `loreBlocks` strips with every other data block.
   const rawLore = sectionWiki(wikitext, ["Lore", "Story"]);
-  const lore = rawLore ? cleanLore(removeTemplate(rawLore, "Infobox hero story")) : [];
+  const blocks = rawLore ? loreBlocks(rawLore) : [];
+  // `lore` stays a list of strings, the shape every language file shares;
+  // `headings` lists the entries that are chapter titles, not paragraphs.
+  const lore = blocks.map((b) => b.text);
+  const headings = blocks.flatMap((b, i) => (b.type === "h" ? [i] : []));
 
   const rawTrivia = sectionWiki(wikitext, ["Trivia"]);
   const trivia = rawTrivia
@@ -322,14 +474,17 @@ export function extractStory(wikitext) {
   const sheet = sheetStory(wikitext);
 
   if (!lore.length && !trivia.length && !sheet) return null;
-  return { lore, sheet, trivia };
+  return { lore, headings, sheet, trivia };
 }
 
 // ─────────────────────────────────────────────────────────────
 // Page sections (game modes)
 // ─────────────────────────────────────────────────────────────
 
-/** Strips wiki tables `{| … |}`, nested ones included. */
+/**
+ * Strips wiki tables `{| … |}`, nested ones included. A table the page never
+ * closes (the Brawl page's hero table) runs to the end of the text.
+ */
 function withoutTables(text) {
   let output = String(text);
   let before;
@@ -337,7 +492,7 @@ function withoutTables(text) {
     before = output;
     output = output.replace(/\{\|(?:[^{]|\{(?!\|))*?\|\}/g, "");
   } while (output !== before);
-  return output;
+  return output.replace(/\{\|[\s\S]*$/, "");
 }
 
 /**

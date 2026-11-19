@@ -25,7 +25,9 @@ import {
   extractStory,
   sectionsPage,
   cleanLore,
+  plainValue,
 } from "./wikitext.mjs";
+import { reportMarkup } from "./markup-guard.mjs";
 import { heroAdjustments, summary } from "./patch-parser.mjs";
 import { compareVersions, readVersion } from "./patch-version.mjs";
 import * as liquipedia from "./liquipedia.mjs";
@@ -135,7 +137,8 @@ function normalizeSkins(raw) {
         label: clean(s.tag),
         price: Object.fromEntries(
           Object.entries(s.price ?? {})
-            .map(([m, v]) => [m, clean(v)])
+            // "Obtained via the [[MLBB × Transformers]] event": the link's label.
+            .map(([m, v]) => [m, plainValue(clean(v))])
             .filter(([, v]) => v),
         ),
       }))
@@ -146,6 +149,13 @@ function normalizeSkins(raw) {
 
   return byHero;
 }
+
+/**
+ * An item effect as plain text. The module joins an item's two passives with
+ * an "@" ("…for 2 seconds.@ Redemption: …"), a separator its own template
+ * turns into a line break: here, the sentences simply follow each other.
+ */
+const effectText = (v) => plainValue(clean(v)?.replace(/\s*@\s*/g, " "));
 
 function normalizeItems(raw) {
   return Object.entries(raw)
@@ -166,9 +176,9 @@ function normalizeItems(raw) {
       category: clean(o.type) ?? "Autre",
       price: count(o.price),
       bonus: clean(o.bonus),
-      unique: clean(o.unique),
-      passive: clean(o.passive),
-      active: clean(o.active),
+      unique: effectText(o.unique),
+      passive: effectText(o.passive),
+      active: effectText(o.active),
       recipe: clean(o.recipe)?.split(",").map((x) => x.trim()).filter(Boolean) ?? [],
       bestFor: clean(o.availability),
     }))
@@ -1913,6 +1923,8 @@ async function main() {
     stories[h.slug] = {
       tagline,
       lore: story?.lore ?? [],
+      // Positions in `lore` of the chapter titles ("Duke of Shards").
+      headings: story?.headings ?? [],
       profile: story?.sheet ?? null,
       trivia: story?.trivia ?? [],
     };
@@ -2253,6 +2265,12 @@ async function main() {
   // Name-by-slug table, shipped client-side without the rest of the catalog.
   const names = Object.fromEntries(heroes.map((h) => [h.slug, h.name]));
 
+  // Wiki markup that got through the cleanup ("[[", "{{", "|image=", "===")
+  // would show as is on the pages: every text about to be written is checked,
+  // and each leftover reported, so a new wiki template is noticed at the
+  // first sync rather than by a reader.
+  reportMarkup({ heroes, skins, items, skills: finalSkills, modes, stories });
+
   await Promise.all([
     // Catalogue
     write("heroes", heroes),
@@ -2261,6 +2279,11 @@ async function main() {
     write("skills", finalSkills),
     write("modes", modes),
     write("stories", stories),
+    // The English pages read `<dataset>/en.json`, the source every other
+    // language is translated from (`translate-data.mjs`): written here, from
+    // the wiki, so a sync reaches the pages instead of a frozen copy.
+    write("stories/en", stories),
+    write("modes/en", modes),
     write("ranks", emblemsRanks),
     write("names", names),
     writeEvolution(complementary),

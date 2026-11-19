@@ -371,8 +371,8 @@
       },
       "strengths": "Pontos fortes",
       "weaknesses": "Fraquezas",
-      "analysisPending": "Análise em andamento",
-      "analysisText": "Os dados de {name} estão atualizados — vêm direto da wiki. O que falta é o comentário: o que o herói realmente faz, suas builds e seus counters. Isso não dá para extrair: precisa ser escrito.",
+      "analysisPending": "Nenhuma análise escrita ainda",
+      "analysisText": "Ninguém ainda escreveu uma análise de {name}: como jogar, quais itens comprar, contra quem jogar. Enquanto isso, as outras guias fornecem os números medidos no jogo classificado.",
       "analysisTranslated": "Análise escrita em francês e traduzida automaticamente.",
       "contribute": "Contribua para esta análise →",
       "countersIntro": "Com base nas taxas de vitória do jogo: a diferença em pontos mostra quanto a taxa de vitória de {name} varia contra cada oponente.",
@@ -479,8 +479,8 @@
     },
     "emblems": {
       "title": "Emblemas e talentos",
-      "lead": "A verdadeira questão não é quais talentos existem, mas quais pegar para a função que você joga. Escolha seu emblema: o resto da página se reorganiza em torno dele.",
-      "metaDescription": "Qual emblema, talento e Feitiço de Batalha usar na sua função em Mobile Legends: Bang Bang. Escolha seu emblema e a página se organiza em torno dele.",
+      "lead": "",
+      "metaDescription": "",
       "ogDescription": "O que usar na sua função: emblemas, talentos e Feitiços de Batalha."
     },
     "draft": {
@@ -1219,6 +1219,7 @@
     },
     "heroPreview": {
       "trend": "Nos últimos {n} dias, a taxa de vitória de {name} passou de {start} para {end}, considerando todos os elos ({gap} {pts}).",
+      "trendStable": "Nos últimos {n} dias, a taxa de vitória de {name} não mudou: {end}, todas as classificações combinadas.",
       "duration": "{name} vence mais nas partidas de {window} ({winRate}) e menos nas de {windowLow} ({winRateLow}).",
       "ranks": "Conforme o elo, a taxa de vitória de {name} vai de {low} no {rankLow} a {high} no {rankHigh}.",
       "adjustments": "Ajustes de {name}: {n} nos últimos {total} patches.",
@@ -3697,7 +3698,7 @@
         "help": "Os comandos por categoria, com um exemplo para cada um.",
         "invite": "O link para adicionar o bot a outro servidor.",
         "about": "Versão, número de servidores, links para o site, o servidor de suporte e a votação.",
-        "profile": "Seu perfil de Mobile Legends como imagem: elo, taxa de vitória e heróis mais jogados (vinculado uma vez no site)."
+        "profile": "Seu perfil do Mobile Legends em fotos: classificação, taxa de vitória e heróis mais jogados (a serem vinculados uma vez no site)."
       },
       "permissionsTitle": "Permissões solicitadas",
       "permissionsText": "Apenas o necessário para responder e publicar: nunca Administrador, e nenhum acesso ao conteúdo das mensagens. O intent “Server Members” serve só para as mensagens de boas-vindas e despedida: nada sobre os membros é guardado.",
@@ -3755,7 +3756,7 @@
       "roleMenus": "Menus de cargos: para cada menu, são armazenados o canal, o título, o texto e os cargos escolhidos pelo servidor, com seus rótulos e emojis, o ID da mensagem publicada e o ID do Discord do gestor que o configurou. Quando um membro o utiliza, o bot atribui ou remove o cargo e não guarda nada sobre essa pessoa, exceto um contador em memória, de alguns segundos, que limita alterações feitas em intervalos muito curtos.",
       "tempVoice": "Canais de voz temporários: o servidor guarda os canais de entrada com o limite de usuários e o modelo de nome. Para cada canal de voz que cria, o bot guarda o identificador do canal, do canal de entrada e do membro para quem o criou, até o canal ser apagado, o que acontece assim que ele fica vazio. Para saber quem está em cada canal de voz, o bot recebe os estados de voz do Discord (intent \"Guild Voice States\"), mantém esses dados na memória e não grava nenhum.",
       "pseudonymous": "No site, no fórum e no acervo não guardam o seu Discord ID ou o seu ID do jogo em texto simples, mas sim uma impressão digital (SHA-256, sem sal). São dados pseudónimos, não anónimos: qualquer pessoa que conheça o identificador pode recalcular a impressão digital e, portanto, continua a ser um dado pessoal, protegido como tal. O bot mantém os identificadores do Discord em texto simples (resultados, votos, menus de funções).",
-      "storedProfile": "Para o cartão /profile, só se o jogador o vincular no site: um hash do seu id do Discord e outro do seu id do jogo e servidor, suas duas escolhas (visível para outros, id mostrado) e seus números na última atualização (apelido, avatar, país, nível, elo, partidas e vitórias da temporada, três heróis mais jogados). Apagados ao desvincular, ou 30 dias após a última atualização. A imagem desenhada fica dez minutos na memória do site."
+      "storedProfile": "Para o cartão /profile, somente se o jogador linká-lo ao site: um print de seu Discord ID e um de seu ID de jogo e seu servidor, suas duas escolhas (visíveis para outros, id exibido) e seus números em sua última atualização (apelido, avatar, país, nível, rank, jogos e vitórias da temporada, três heróis mais jogados). Excluído quando desvinculado ou 30 dias após a última atualização. A imagem desenhada permanece na memória do site por dez minutos."
     },
     "botTerms": {
       "title": "Termos de uso do bot de Discord",
@@ -4709,33 +4710,33 @@
     },
     "discordCard": {
       "title": "Cartão de perfil do Discord",
-      "intro": "Mostre seu elo, sua taxa de vitória e seus heróis mais jogados como imagem no Discord, com o comando /profile do bot MLBBDex.",
-      "needDiscord": "Para vinculá-lo, entre também com a conta do Discord que você usa nos seus servidores.",
-      "discordButton": "Entrar com o Discord",
-      "linkOffer": "Vincule a conta do Discord {name} a esta conta do jogo. Seus números atuais são salvos para o cartão.",
-      "linkButton": "Vincular e criar meu cartão",
-      "linked": "Seu cartão está vinculado a uma conta do Discord. Digite /profile em um servidor onde o bot MLBBDex está.",
-      "otherDiscord": "Você entrou com outra conta do Discord ({name}) diferente da vinculada. Vinculá-la move o cartão para ela.",
-      "updatedAt": "Números salvos em {date}.",
+      "intro": "Exiba sua classificação, taxa de vitória e heróis mais jogados em imagens no Discord, com o comando /profile do bot MLBBDex.",
+      "needDiscord": "Para vinculá-lo, conecte-se também à conta Discord que você usa em seus servidores.",
+      "discordButton": "Conecte-se com o Discord",
+      "linkOffer": "Vincule a conta Discord {name} a esta conta do jogo. Seus números atuais são salvos no cartão.",
+      "linkButton": "Vincular e criar meu mapa",
+      "linked": "Seu cartão está vinculado a uma conta Discord. Digite /profile em um servidor onde o bot MLBBDex está localizado.",
+      "otherDiscord": "Você está conectado a uma conta Discord diferente ({name}) daquela vinculada. Conectá-lo move o cartão para lá.",
+      "updatedAt": "Dígitos registrados em {date}.",
       "refresh": "Atualizar meus números",
-      "noAccess": "O site não guarda nenhum acesso à sua conta do jogo: o cartão mostra os números salvos na sua última atualização e é apagado após 30 dias sem atualização.",
-      "public": "Outros podem mostrar meu cartão (/profile user:@você)",
-      "publicHint": "Desativado por padrão: só você pode mostrá-lo.",
-      "showId": "Mostrar meu ID do jogo e meu servidor no cartão",
-      "unlink": "Desvincular e apagar meu cartão",
-      "unlinkConfirm": "O cartão e o vínculo são apagados na hora. Você pode criá-los de novo depois.",
-      "unlinkButton": "Apagar",
+      "noAccess": "O site não mantém nenhum acesso à sua conta do jogo: o cartão mostra os números salvos na sua última atualização e é excluído após 30 dias sem atualização.",
+      "public": "Outras pessoas podem ver meu cartão (/perfil usuário:@você)",
+      "publicHint": "Desativado por padrão: somente você pode exibi-lo.",
+      "showId": "Mostrar meu ID de jogo e servidor no mapa",
+      "unlink": "Desvincular e excluir meu cartão",
+      "unlinkConfirm": "O cartão e o link são excluídos imediatamente. Você pode recriá-los mais tarde.",
+      "unlinkButton": "EXCLUIR",
       "cancel": "Cancelar",
-      "preview": "Prévia do seu cartão",
-      "done": "Salvo.",
-      "errorDown": "O serviço do jogo não está respondendo: tente de novo em alguns minutos.",
-      "errorExpired": "Sua sessão do jogo expirou: entre de novo.",
-      "error": "Algo deu errado. Tente de novo em instantes.",
+      "preview": "Visão geral do seu cartão",
+      "done": "Registrado.",
+      "errorDown": "O serviço de jogo não está respondendo: tente novamente em alguns minutos.",
+      "errorExpired": "Sua sessão de jogo expirou: faça login novamente.",
+      "error": "Ocorreu um erro. Tente novamente em alguns instantes.",
       "card": {
         "wins": "Vitórias",
-        "heroMatches": "{n} partidas",
+        "heroMatches": "{n} peças",
         "updated": "Atualizado em {date}",
-        "minimum": "No mínimo: alguns heróis não puderam ser lidos"
+        "minimum": "Pelo menos: alguns heróis não puderam ser lidos"
       }
     }
   },
@@ -4892,7 +4893,7 @@
       "play": "Jogar"
     },
     "startTitle": "Por onde começar",
-    "startLead": "Você joga uma função, não um catálogo. Comece por aí.",
+    "startLead": "Escolha o seu papel para ver os heróis que o interpretam.",
     "latestArticles": "Artigos mais recentes",
     "allNews": "Todas as notícias",
     "followRss": "Acompanhe as novas publicações via RSS",
@@ -5088,7 +5089,7 @@
       "results": "para os rankings dos jogos do dia jogados no Discord: o ID e o nome no Discord dos jogadores e suas pontuações.",
       "details": "Os detalhes, o prazo de armazenamento e a exclusão estão descritos na página de privacidade do bot.",
       "members": "Nada é guardado sobre os membros de um servidor: as entradas e saídas deles, que o Discord informa ao bot, servem apenas para publicar as mensagens de boas-vindas e de despedida que o servidor ativou.",
-      "profile": "para o cartão /profile, se você o vincular pela sua página de conta: uma impressão do seu ID do Discord e outra do seu ID do jogo e servidor (nunca os próprios IDs), suas duas escolhas (se outros podem mostrá-lo, se ele mostra seu ID) e uma cópia dos seus números na sua última atualização: apelido, avatar, país, nível, elo, partidas e vitórias da temporada, três heróis mais jogados. Nenhum token do jogo é guardado. O cartão é apagado quando você o desvincula, ou 30 dias após sua última atualização;"
+      "profile": "para o cartão /profile, se você vinculá-lo na página da sua conta: uma impressão do seu ID do Discord e um dos seus IDs de jogo e servidor (nunca os próprios IDs), suas duas escolhas (se outras pessoas puderem exibi-lo, se mostrar seu ID) e uma cópia dos seus números da sua última atualização: apelido, avatar, país, nível, classificação, jogos e vitórias da temporada, três heróis mais jogados. Nenhum token de jogo é retido. O cartão é excluído quando você o desvincula ou 30 dias após sua última atualização;"
     },
     "community": {
       "title": "Comunidade: fórum e busca de companheiros de equipe",
@@ -5225,7 +5226,7 @@
         "logs": "Registros técnicos: erros do servidor e encontrados pelo navegador (mensagem, página, versão do site, tipo de navegador, sem endereço IP ou conta) são mantidos por 30 dias para diagnóstico. Os eventos de segurança e moderação (pedidos recusados, ações de moderadores e administradores) são mantidos por 6 meses. Eles são então excluídos automaticamente.",
         "backups": "Backups: uma cópia diária do banco de dados; apenas os três mais recentes são mantidos, de modo que os dados excluídos desaparecem dos backups em três dias.",
         "rateLimits": "Limites de Taxa: Seu endereço IP, somente na memória, nunca gravado em disco.",
-        "profileCard": "Cartão de perfil do Discord: até você desvinculá-lo, e no máximo 30 dias após sua última atualização."
+        "profileCard": "Cartão de perfil do Discord: até você desvinculá-lo e no máximo 30 dias após sua última atualização."
       },
       "rights": {
         "title": "Seus direitos",
@@ -5740,6 +5741,7 @@
     "resource": {
       "mana": "Mana",
       "energy": "Energia",
+      "rage": "Raiva",
       "none": "Nenhum"
     },
     "damage": {

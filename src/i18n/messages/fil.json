@@ -371,8 +371,8 @@
       },
       "strengths": "Mga lakas",
       "weaknesses": "Mga kahinaan",
-      "analysisPending": "Isinusulat pa ang analysis",
-      "analysisText": "Updated ang data para kay {name} — direkta itong galing sa wiki. Ang kulang ay ang komentaryo: kung ano talaga ang ginagawa ng hero, ang kanyang mga build at mga counter. Hindi ito basta makukuha; kailangan itong isulat.",
+      "analysisPending": "Wala pang nakasulat na pagsusuri",
+      "analysisText": "Wala pang nagsulat ng pagsusuri ng {name}: kung paano ito laruin, anong mga item ang bibilhin, kanino ito sasalungat. Pansamantala, ang iba pang mga tab ay nagbibigay ng mga numerong nasusukat sa ranggo na paglalaro.",
       "analysisTranslated": "Isinulat ang analysis sa French at isinalin nang awtomatiko.",
       "contribute": "Mag-ambag sa analysis na ito →",
       "countersIntro": "Batay sa in-game win rate: ipinapakita ng pagitan sa points kung gaano gumagalaw ang win rate ni {name} laban sa bawat kalaban.",
@@ -479,8 +479,8 @@
     },
     "emblems": {
       "title": "Mga emblem at talent",
-      "lead": "Ang tunay na tanong ay hindi kung anong mga talent ang meron, kundi kung alin ang kukunin para sa role na nilalaro mo. Piliin ang iyong emblem: aayusin ang natitirang bahagi ng pahina ayon dito.",
-      "metaDescription": "Aling emblem, talent at Battle Spell ang kukunin para sa iyong role sa Mobile Legends: Bang Bang. Piliin ang iyong emblem at aayusin ang pahina ayon dito.",
+      "lead": "Piliin ang emblem ng iyong tungkulin: pagkatapos ay ipinapakita ng pahina ang mga talento nito at ang mga pakikipaglaban na kasama nila.",
+      "metaDescription": "Aling emblem, talento at Battle Spell ang kukunin depende sa iyong role sa Mobile Legends: Bang Bang. Piliin ang iyong emblem para makita ang mga talento nito.",
       "ogDescription": "Ano ang kukunin para sa iyong role: mga emblem, talent at Battle Spell."
     },
     "draft": {
@@ -1219,6 +1219,7 @@
     },
     "heroPreview": {
       "trend": "Sa nakalipas na {n} araw, ang win rate ni {name} ay mula {start} naging {end} sa lahat ng rank ({gap} {pts}).",
+      "trendStable": "Sa nakalipas na {n} araw, ang win rate na {name} ay hindi nagbago: {end}, pinagsama ang lahat ng ranggo.",
       "duration": "Pinakamadalas manalo si {name} sa mga {window} na laro ({winRate}) at pinakamadalang sa mga {windowLow} na laro ({winRateLow}).",
       "ranks": "Ayon sa rank, ang win rate ni {name} ay mula {low} sa {rankLow} hanggang {high} sa {rankHigh}.",
       "adjustments": "Mga pagbabago kay {name}: {n} sa huling {total} patch.",
@@ -3697,7 +3698,7 @@
         "help": "Ang mga command ayon sa kategorya, may halimbawa para sa bawat isa.",
         "invite": "Ang link upang idagdag ang bot sa isa pang server.",
         "about": "Bersyon, bilang ng server, mga link sa site, sa support server at sa pagboto.",
-        "profile": "Ang Mobile Legends profile mo bilang larawan: rank, win rate at pinakamadalas laruing hero (i-link nang isang beses sa site)."
+        "profile": "Ang iyong profile sa Mobile Legends sa mga larawan: ranggo, win rate at pinakamaraming nilalaro na hero (na mai-link nang isang beses sa site)."
       },
       "permissionsTitle": "Mga hinihinging permission",
       "permissionsText": "Ang kailangan lang para sumagot at mag-post: hindi kailanman Administrator, at walang access sa nilalaman ng mga mensahe. Ginagamit lang ang Server Members intent para sa mga welcome at goodbye message: walang iniimbak tungkol sa mga member.",
@@ -3755,7 +3756,7 @@
       "roleMenus": "Role menus: para sa bawat menu, iniimbak ang piniling channel ng server, title, text, mga role kasama ang kanilang label at emoji, ang ID ng nai-post na mensahe at ang Discord ID ng manager na nag-set up nito. Kapag gumamit nito ang isang member, ibinibigay o inaalis ng bot ang role at walang itinatago tungkol sa kanya, maliban sa isang counter sa memory na tumatagal nang ilang segundo, na naglilimita sa mga pagbabagong masyadong magkakalapit.",
       "tempVoice": "Mga pansamantalang voice channel: sine-save ng server ang mga join-to-create channel nito kasama ang user limit at template ng pangalan. Para sa bawat voice channel na ginagawa ng bot, iniingatan nito ang ID ng channel, ng join-to-create channel at ng member na pinaggawan nito, hanggang mabura ang channel, na nangyayari kapag wala nang tao. Para malaman kung sino ang nasa aling voice channel, tumatanggap ang bot ng voice states mula sa Discord (\"Guild Voice States\" intent), itinatago ang mga ito sa memory at wala itong sine-save.",
       "pseudonymous": "Sa site, hindi pinapanatili ng forum at koleksyon ang iyong Discord ID o ang iyong ID ng laro sa plain text, ngunit isang fingerprint (SHA-256, walang asin). Ito ay pseudonymous na data, hindi anonymous: sinumang nakakaalam sa identifier ay maaaring muling kalkulahin ang fingerprint, at samakatuwid ito ay nananatiling personal na data, na protektado tulad nito. Pinapanatili ng bot ang mga pagkakakilanlan ng Discord sa plain text (mga resulta, mga boto, mga menu ng tungkulin).",
-      "storedProfile": "Para sa /profile card, kung ili-link lang ito ng player sa site: isang hash ng kanyang Discord id at isa ng kanyang game id at server, ang dalawa niyang pinili (nakikita ng iba, ipinapakita ang id) at ang mga numero niya sa huling update (nickname, avatar, bansa, level, rank, mga laban at panalo sa season, tatlong pinakamadalas laruing hero). Buburahin kapag in-unlink, o 30 araw pagkatapos ng huling update. Nananatili nang sampung minuto sa memory ng site ang iginuhit na larawan."
+      "storedProfile": "Para sa /profile card, kung ili-link lang ito ng player sa site: isang print ng kanyang Discord ID at isa sa kanyang game ID at kanyang server, ang kanyang dalawang pagpipilian (nakikita ng iba, ipinapakita ang id) at ang kanyang mga numero sa kanyang huling update (palayaw, avatar, bansa, antas, ranggo, mga laro at tagumpay ng season, tatlong hero na pinakapinaglaruan). Tinanggal kapag na-unlink, o 30 araw pagkatapos ng huling update. Ang iginuhit na imahe ay nananatili sa memorya ng site sa loob ng sampung minuto."
     },
     "botTerms": {
       "title": "Terms of use ng Discord bot",
@@ -4709,33 +4710,33 @@
     },
     "discordCard": {
       "title": "Discord profile card",
-      "intro": "Ipakita ang rank, win rate at pinakamadalas mong laruing hero bilang larawan sa Discord, gamit ang /profile command ng MLBBDex bot.",
-      "needDiscord": "Para i-link ito, mag-sign in din gamit ang Discord account na ginagamit mo sa mga server mo.",
-      "discordButton": "Mag-sign in gamit ang Discord",
-      "linkOffer": "I-link ang Discord account na {name} sa game account na ito. Ise-save ang kasalukuyan mong mga numero para sa card.",
-      "linkButton": "I-link at gawin ang card ko",
-      "linked": "Naka-link ang card mo sa isang Discord account. I-type ang /profile sa server kung nasaan ang MLBBDex bot.",
-      "otherDiscord": "Naka-sign in ka gamit ang ibang Discord account ({name}) kaysa sa naka-link. Kapag ni-link ito, doon malilipat ang card.",
-      "updatedAt": "Na-save ang mga numero noong {date}.",
-      "refresh": "I-update ang mga numero ko",
-      "noAccess": "Walang itinatagong access ang site sa game account mo: ipinapakita ng card ang mga numerong na-save sa huli mong update, at buburahin ito pagkalipas ng 30 araw na walang update.",
-      "public": "Puwedeng ipakita ng iba ang card ko (/profile user:@ikaw)",
-      "publicHint": "Naka-off bilang default: ikaw lang ang puwedeng magpakita nito.",
-      "showId": "Ipakita ang game ID at server ko sa card",
-      "unlink": "I-unlink at burahin ang card ko",
-      "unlinkConfirm": "Agad na buburahin ang card at ang link. Puwede mo silang gawin ulit mamaya.",
-      "unlinkButton": "Burahin",
+      "intro": "Ipakita ang iyong ranggo, win rate at pinakamaraming nilalaro na hero sa mga larawan sa Discord, gamit ang utos na /profile mula sa MLBBEx bot.",
+      "needDiscord": "Para i-link ito, kumonekta din sa Discord account na ginagamit mo sa iyong mga server.",
+      "discordButton": "Kumonekta sa Discord",
+      "linkOffer": "I-link ang Discord account {name} sa game account na ito. Ang iyong mga kasalukuyang numero ay naka-save para sa card.",
+      "linkButton": "I-link at gawin ang aking mapa",
+      "linked": "Naka-link ang iyong card sa isang Discord account. I-type ang /profile sa isang server kung saan matatagpuan ang MLBBEx bot.",
+      "otherDiscord": "Nakakonekta ka sa ibang Discord account ({name}) kaysa sa naka-link. Ang pagkonekta nito ay inililipat ang card doon.",
+      "updatedAt": "Naitala ang mga digit noong {date}.",
+      "refresh": "I-update ang aking mga numero",
+      "noAccess": "Ang site ay hindi nagpapanatili ng anumang access sa iyong game account: ipinapakita ng card ang mga numerong na-save sa iyong huling pag-update, at ito ay tatanggalin pagkatapos ng 30 araw nang hindi nag-a-update.",
+      "public": "Maaaring tingnan ng iba ang aking card (/profile user:@you)",
+      "publicHint": "Naka-off bilang default: Ikaw lang ang makakapagpakita nito.",
+      "showId": "Ipakita ang aking game ID at server sa mapa",
+      "unlink": "I-unlink at tanggalin ang aking card",
+      "unlinkConfirm": "Ang card at ang link ay tinanggal kaagad. Maaari mong muling likhain ang mga ito sa ibang pagkakataon.",
+      "unlinkButton": "I-DELETE",
       "cancel": "Kanselahin",
-      "preview": "Preview ng card mo",
-      "done": "Na-save.",
-      "errorDown": "Hindi sumasagot ang serbisyo ng laro: subukan ulit pagkalipas ng ilang minuto.",
-      "errorExpired": "Nag-expire na ang game session mo: mag-log in ulit.",
-      "error": "May nangyaring mali. Subukan ulit mamaya.",
+      "preview": "Pangkalahatang-ideya ng iyong card",
+      "done": "Nakarehistro.",
+      "errorDown": "Ang serbisyo ng laro ay hindi tumutugon: subukang muli sa loob ng ilang minuto.",
+      "errorExpired": "Ang iyong session ng laro ay nag-expire na: mag-log in muli.",
+      "error": "May naganap na error. Subukan muli sa isang sandali.",
       "card": {
-        "wins": "Panalo",
-        "heroMatches": "{n} laban",
-        "updated": "Na-update {date}",
-        "minimum": "Hindi bababa rito: may mga hero na hindi nabasa"
+        "wins": "Mga tagumpay",
+        "heroMatches": "{n} bahagi",
+        "updated": "Na-update noong {date}",
+        "minimum": "Hindi bababa sa: ilang mga hero ay hindi mabasa"
       }
     }
   },
@@ -4892,7 +4893,7 @@
       "play": "Maglaro"
     },
     "startTitle": "Saan magsisimula",
-    "startLead": "Role ang nilalaro mo, hindi catalog. Doon ka magsimula.",
+    "startLead": "Piliin ang iyong tungkulin para makita ang mga bayaning gumaganap nito.",
     "latestArticles": "Pinakabagong artikulo",
     "allNews": "Lahat ng balita",
     "followRss": "Sundan ang mga bagong post sa RSS",
@@ -5088,7 +5089,7 @@
       "results": "para sa mga leaderboard ng mga daily game na nilalaro sa Discord: ang Discord ID at pangalan ng mga player at ang kanilang mga score.",
       "details": "Ang mga detalye, ang tagal ng pag-iimbak at ang pagbura ay nasa privacy page ng bot.",
       "members": "Walang iniimbak tungkol sa mga member ng server: ang kanilang pagsali at pag-alis, na ipinapaalam ng Discord sa bot, ay ginagamit lang para i-post ang mga welcome at goodbye message na in-on ng server.",
-      "profile": "para sa /profile card, kung ili-link mo ito mula sa account page mo: isang fingerprint ng Discord ID mo at isa ng game ID at server mo (hindi kailanman ang mismong mga ID), ang dalawa mong pinili (kung puwedeng ipakita ito ng iba, kung ipinapakita nito ang ID mo) at kopya ng mga numero mo sa huli mong update: nickname, avatar, bansa, level, rank, mga laban at panalo sa season, tatlong pinakamadalas laruing hero. Walang game token na itinatago. Buburahin ang card kapag in-unlink mo ito, o 30 araw pagkatapos ng huli mong update;"
+      "profile": "para sa /profile card, kung ili-link mo ito mula sa pahina ng iyong account: isang print ng iyong Discord ID at isa sa iyong mga laro at server ID (hindi kailanman ang mga ID mismo), ang iyong dalawang pagpipilian (kung maipapakita ito ng iba, kung ito ay nagpapakita ng iyong ID) at isang kopya ng iyong mga numero mula sa iyong huling update: nickname, avatar, bansa, antas, ranggo, mga laro at mga tagumpay ng season, tatlong hero na pinakapinaglaruan. Walang mga token ng laro ang nananatili. Ang card ay tatanggalin kapag tinanggal mo ito, o 30 araw pagkatapos ng iyong huling pag-update;"
     },
     "community": {
       "title": "Community: forum at teammate finder",
@@ -5225,7 +5226,7 @@
         "logs": "Mga teknikal na log: ang mga error sa server at ang mga nakatagpo ng browser (mensahe, pahina, bersyon ng site, uri ng browser, nang walang IP address o account) ay pinananatili sa loob ng 30 araw para sa diagnosis. Ang mga kaganapan sa seguridad at pag-moderate (mga kahilingan ay tinanggihan, mga aksyon ng mga moderator at administrator) ay pinananatili sa loob ng 6 na buwan. Pagkatapos ay awtomatikong tatanggalin ang mga ito.",
         "backups": "Mga backup: araw-araw na kopya ng database; ang tatlong pinakabago lamang ang pinananatili, upang ang mga tinanggal na data ay mawala sa mga backup sa loob ng tatlong araw.",
         "rateLimits": "Mga Limitasyon sa Rate: Ang iyong IP address, sa memorya lamang, ay hindi kailanman nakasulat sa disk.",
-        "profileCard": "Discord profile card: hanggang i-unlink mo ito, at hanggang 30 araw lang pagkatapos ng huli mong update."
+        "profileCard": "Discord profile card: hanggang sa i-unlink mo ito, at hindi hihigit sa 30 araw pagkatapos ng iyong huling update."
       },
       "rights": {
         "title": "Ang iyong mga karapatan",
@@ -5740,6 +5741,7 @@
     "resource": {
       "mana": "Mana",
       "energy": "Energy",
+      "rage": "Galit",
       "none": "Wala"
     },
     "damage": {
@@ -5984,7 +5986,7 @@
       "shareText": "MLBB Retribution test — {objective}, {difficulty}: {points} puntos, {secured}/{rounds} nakuha. Ikaw naman:",
       "start": "Simulan",
       "ready": "Humanda…",
-      "smite": "Retribution!",
+      "smite": "Paghihiganti!",
       "next": "Susunod na round",
       "newRun": "Bagong run",
       "settings": "Settings ng training",

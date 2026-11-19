@@ -1,12 +1,15 @@
 /**
  * Translates the content data into the other languages.
  *
- * Each dataset has a source language (French for what is
- * extracted from the wiki then translated, English for raw items and patches);
- * the other site languages are derived from it. Everything is cached
+ * Each dataset has a source language: English for everything taken from the
+ * wiki and the game (stories, skills, modes, items, patches, combos), French
+ * for what the site writes itself (tier notes, hero analyses). The other site
+ * languages are derived from it, never from one another. Everything is cached
  * (`scripts/translations-data.json`, key source+target+text): a sentence
- * already translated never goes back over the network. This script only runs by
- * hand or in CI; the application translates nothing.
+ * already translated never goes back over the network, and a sentence the
+ * sync rewrote (a cleanup fix, a wiki edit) is a new key, so it is translated
+ * again. This script only runs by hand or in CI; the application translates
+ * nothing.
  *
  * `node scripts/translate-data.mjs patches combos` only processes the named
  * datasets; with no argument, all of them. `--locale id` narrows the run to the
@@ -46,16 +49,27 @@ function batches(texts) {
   return groups;
 }
 
-async function prepare(texts, sl, tl) {
+/**
+ * Translates the texts not in the cache yet. `shield` (optional) hides parts
+ * of a text from the service and puts them back in its answer; the cache key
+ * stays the original text. A text whose hidden parts did not come back is
+ * sent again as is, rather than cached with a part missing.
+ */
+async function prepare(texts, sl, tl, { shield } = {}) {
   const unique = [...new Set(texts.map((t) => String(t).trim()).filter(Boolean))];
   const missing = unique.filter((t) => !(`${sl}|${tl}|${t}` in cache));
   const groups = batches(missing);
+  const lost = [];
   for (const [i, batch] of groups.entries()) {
-    const outputs = await translateBatch(batch, sl, tl);
+    const sent = shield ? batch.map(shield) : null;
+    const outputs = await translateBatch(sent ? sent.map((s) => s.text) : batch, sl, tl);
     // An empty answer is not cached: the text stays in the source language
     // until a later run gets a real translation.
     batch.forEach((o, k) => {
-      if (outputs[k]?.trim()) cache[`${sl}|${tl}|${o}`] = outputs[k];
+      if (!outputs[k]?.trim()) return;
+      const out = sent ? sent[k].restore(outputs[k]) : outputs[k];
+      if (out === null) lost.push(o);
+      else cache[`${sl}|${tl}|${o}`] = out;
     });
     process.stdout.write(`\r    ${sl}->${tl} ${i + 1}/${groups.length} batches`);
     // A long run (the patches) does not lose everything on a network drop.
@@ -63,9 +77,30 @@ async function prepare(texts, sl, tl) {
     await pause(200);
   }
   if (groups.length) process.stdout.write("\n");
+  if (lost.length) await prepare(lost, sl, tl);
 }
 
-const tr = (sl, tl) => (t) => (t ? (cache[`${sl}|${tl}|${String(t).trim()}`] ?? t) : t);
+/**
+ * Short values the service gets wrong out of context: a story sheet's
+ * "Female" came back as "Femelle", an animal's sex. They are set here per
+ * language, ahead of the cache.
+ */
+const FIXED = {
+  fr: { Male: "Homme", Female: "Femme" },
+  it: { Male: "Uomo", Female: "Donna" },
+  es: { Male: "Hombre", Female: "Mujer" },
+  pt: { Male: "Homem", Female: "Mulher" },
+  id: { Male: "Laki-laki", Female: "Perempuan" },
+  fil: { Male: "Lalaki", Female: "Babae" },
+  th: { Male: "ชาย", Female: "หญิง" },
+  ru: { Male: "Мужской", Female: "Женский" },
+};
+
+const tr = (sl, tl) => (t) => {
+  if (!t) return t;
+  const key = String(t).trim();
+  return (sl === "en" ? FIXED[tl]?.[key] : undefined) ?? cache[`${sl}|${tl}|${key}`] ?? t;
+};
 
 /**
  * Hero names as the service writes them in each language, to put the game's
@@ -73,6 +108,33 @@ const tr = (sl, tl) => (t) => (t ? (cache[`${sl}|${tl}|${String(t).trim()}`] ?? 
  */
 const HERO_NAMES = JSON.parse(await readFile("src/data/game/heroes.json", "utf8")).map((h) => h.name);
 const heroNames = new Map();
+
+/**
+ * Hero names hidden from the service in narrative text. In a sentence it
+ * translates them like words ("Novaria (teacher)" came back as "Novarie
+ * (enseignant)"), which no rule on its answer can reliably undo in a Latin
+ * alphabet. Behind numbered markers, the name comes back as the game writes it.
+ */
+const NAMES_RE = new RegExp(
+  `(?<![\\p{L}\\p{N}])(?:${[...HERO_NAMES].sort((a, b) => b.length - a.length).map((n) => n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})(?![\\p{L}\\p{N}])`,
+  "gu",
+);
+const MARK = String.fromCharCode(0xe000);
+function shieldNames(text) {
+  const names = [];
+  const shielded = String(text).replace(NAMES_RE, (m) => `${MARK}${names.push(m) - 1}${MARK}`);
+  return {
+    text: shielded,
+    restore(output) {
+      const found = new Set();
+      const back = output.replace(new RegExp(`${MARK}\\s*(\\d+)\\s*${MARK}`, "g"), (_, n) => {
+        found.add(Number(n));
+        return names[Number(n)] ?? "";
+      });
+      return found.size === names.length ? back : null;
+    },
+  };
+}
 async function heroNameRules(tl) {
   if (!heroNames.has(tl)) {
     await prepare(HERO_NAMES, "en", tl);
@@ -124,6 +186,7 @@ function storiesRebuild(d, t) {
     o[slug] = {
       tagline: t(h.tagline),
       lore: tl_(h.lore),
+      headings: h.headings ?? [],
       trivia: tl_(h.trivia),
       profile: f
         ? {
@@ -133,7 +196,8 @@ function storiesRebuild(d, t) {
             gender: t(f.gender),
             age: t(f.age),
             origin: t(f.origin),
-            birthday: f.birthday,
+            // "December 29", written in English by the sync.
+            birthday: t(f.birthday),
             affiliations: tl_(f.affiliations),
             relations: tl_(f.relations),
             powers: tl_(f.powers),
@@ -305,9 +369,14 @@ function descriptionsRebuild(d, t) {
  */
 const GAMES = {
   // `narrative`: prose where game words are ordinary words, no glossary.
-  stories: { source: "fr", narrative: true, texts: storiesTexts, rebuild: storiesRebuild },
+  // Stories and modes: English source, which the sync writes to
+  // `stories/en.json` and `modes/en.json` from the wiki. Every other language,
+  // French included, is translated from it, never from another translation:
+  // English rebuilt from the French turned "The aloof Duke of Castle
+  // Aberleen" into "The distant Duke of Aberleen Castle".
+  stories: { source: "en", narrative: true, texts: storiesTexts, rebuild: storiesRebuild },
   skills: { source: "fr", texts: skillsTexts, rebuild: skillsRebuild },
-  modes: { source: "fr", texts: modesTexts, rebuild: modesRebuild },
+  modes: { source: "en", texts: modesTexts, rebuild: modesRebuild },
   items: { source: "en", texts: itemsTexts, rebuild: itemsRebuild },
   "tier-notes": { source: "fr", texts: tierNotesTexts, rebuild: tierNotesRebuild },
   analyses: { source: "fr", load: loadAnalyses, texts: collect(analysesRebuild), rebuild: analysesRebuild },
@@ -346,7 +415,8 @@ for (const [name, cfg] of Object.entries(GAMES)) {
   console.log(`${name} (${cfg.source}): ${new Set(all.map((x) => String(x).trim())).size} unique texts`);
   await mkdir(`src/data/game/${name}`, { recursive: true });
   for (const tl of targetLocales(cfg.source)) {
-    await prepare(all, cfg.source, tl);
+    const shield = cfg.narrative ? { shield: shieldNames } : {};
+    await prepare(all, cfg.source, tl, shield);
     const t = tr(cfg.source, tl);
     // Second pass: an HTML block whose translation lost its tags
     // falls back to its texts one by one, which then need translating too.
@@ -355,7 +425,7 @@ for (const [name, cfg] of Object.entries(GAMES)) {
       if (x && !(`${cfg.source}|${tl}|${String(x).trim()}` in cache)) missing.push(x);
       return t(x);
     });
-    await prepare(missing, cfg.source, tl);
+    await prepare(missing, cfg.source, tl, shield);
     const names = await heroNameRules(tl);
     const tree = cfg.rebuild(source, cfg.narrative ? trNames(cfg.source, tl, names) : trGame(cfg.source, tl, names));
     await writeFile(`src/data/game/${name}/${tl}.json`, JSON.stringify(tree, null, 2) + "\n");
