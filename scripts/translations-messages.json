@@ -36130,5 +36130,21 @@
   "th|{name} n'est plus en vente dans la boutique. Sa fiche reste en ligne pour les anciens builds et les liens qui y mènent.": "{name} ไม่มีขายในร้านค้าแล้ว หน้านี้ยังคงอยู่สำหรับบิลด์เก่าและลิงก์ที่พามาที่นี่",
   "th|Flameshot": "Flameshot",
   "th|Tire une boule de feu qui repousse les ennemis proches et inflige des dégâts magiques croissants avec la distance.": "ยิงลูกไฟที่ผลักศัตรูใกล้เคียงออกไปและสร้าง Magic Damage ที่เพิ่มขึ้นตามระยะทาง",
-  "th|Mages et tireurs qui doivent achever à distance ou se dégager.": "Mage และ Marksman ที่ต้องปิดเกมจากระยะไกลหรือหนีออกมา"
+  "th|Mages et tireurs qui doivent achever à distance ou se dégager.": "Mage และ Marksman ที่ต้องปิดเกมจากระยะไกลหรือหนีออกมา",
+  "en|Niveau céleste": "",
+  "en|Niveau céleste {n}": "Heavenly Level {n}",
+  "it|Niveau céleste": "Livello celeste",
+  "it|Niveau céleste {n}": "Livello celeste {n}",
+  "es|Niveau céleste": "nivel celestial",
+  "es|Niveau céleste {n}": "Nivel celestial {n}",
+  "id|Niveau céleste": "",
+  "id|Niveau céleste {n}": "Tingkat Surgawi {n}",
+  "fil|Niveau céleste": "",
+  "fil|Niveau céleste {n}": "Antas ng Langit {n}",
+  "th|Niveau céleste": "ระดับสวรรค์",
+  "th|Niveau céleste {n}": "ระดับสวรรค์ {n}",
+  "pt|Niveau céleste": "Nível celestial",
+  "pt|Niveau céleste {n}": "Nível Celestial {n}",
+  "ru|Niveau céleste": "Небесный уровень",
+  "ru|Niveau céleste {n}": "Небесный уровень {n}"
 }

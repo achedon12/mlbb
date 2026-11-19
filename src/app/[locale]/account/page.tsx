@@ -1,5 +1,6 @@
 import { Breadcrumb } from "@/components/breadcrumb";
 import { metaLocales } from "@/i18n/seo";
+import { celestialLevel } from "@/lib/account-level";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { redirect } from "next/navigation";
@@ -101,7 +102,11 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
             <RankBadge rank={rank} size="sm" />
           </div>
           <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-chalk-500">
-            <span>{t("pages.account.levelX", { n: profile.level })}</span>
+            <span>
+              {celestialLevel(profile.level) === null
+                ? t("pages.account.levelX", { n: profile.level })
+                : t("pages.account.levelCelestial", { n: celestialLevel(profile.level) ?? 0 })}
+            </span>
             <span>{countryName(profile.country, locale)}</span>
             <span>ID {profile.roleId} ({profile.zoneId})</span>
           </div>
@@ -132,7 +137,10 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
             <RankBadge rank={rankMax} size="lg" />
           </dd>
         </div>
-        <Figure label={t("pages.account.level")} value={profile.level} />
+        <Figure
+          label={celestialLevel(profile.level) === null ? t("pages.account.level") : t("pages.account.levelCelestialLabel")}
+          value={celestialLevel(profile.level) ?? profile.level}
+        />
         <Figure label={t("pages.account.friends")} value={friendList.status === "ok" ? friendList.data.length : "—"} />
       </dl>
 
