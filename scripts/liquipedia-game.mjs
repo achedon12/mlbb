@@ -22,6 +22,17 @@ export const CACHE_VERSION = 1;
  * and brackets: values nest other templates (`{{Recipe ...}}`) and links whose
  * pipes are not field separators.
  */
+/** Removes wiki comments, again until none is left. */
+function withoutComments(text) {
+  let prev;
+  let s = text;
+  do {
+    prev = s;
+    s = s.replace(/<!--[\s\S]*?-->/g, "");
+  } while (s !== prev);
+  return s;
+}
+
 export function infoboxFields(text, name) {
   const start = String(text ?? "").search(new RegExp(`\\{\\{\\s*${name}\\b`, "i"));
   if (start < 0) return null;
@@ -34,7 +45,7 @@ export function infoboxFields(text, name) {
     const eq = current.indexOf("=");
     if (eq > 0) {
       const key = current.slice(0, eq).trim().toLowerCase();
-      if (key && !(key in fields)) fields[key] = current.slice(eq + 1).replace(/<!--[\s\S]*?-->/g, "").trim();
+      if (key && !(key in fields)) fields[key] = withoutComments(current.slice(eq + 1)).trim();
     }
   };
   for (let i = start; i < text.length; i += 1) {
