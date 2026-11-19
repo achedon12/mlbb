@@ -47,6 +47,7 @@ import {
 import { LANES, ROLES } from "./draft";
 import { pathRole, SLUGS_LANE, SLUGS_ROLE } from "./tier-list-filters";
 import { MEASURED_RANKS } from "./measured-ranks";
+import { advanceDocumented } from "./advance-fresh";
 import { botPublished } from "./bot/public";
 
 /**
@@ -232,7 +233,7 @@ export const SECTIONS: Section[] = [
     hub: "/news",
     match: ["/news", "/patch-notes", "/events", "/watch", "/esports"],
     columns: [
-      { key: "news", entries: [NEWS_PAGE, PATCH_NOTES, ADVANCE, WATCH] },
+      { key: "news", entries: [NEWS_PAGE, PATCH_NOTES, ...(advanceDocumented() ? [ADVANCE] : []), WATCH] },
       { key: "esports", entries: [ESPORTS] },
     ],
   },
