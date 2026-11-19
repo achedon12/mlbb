@@ -620,7 +620,11 @@
       "archives": "Archive",
       "credit": "Mga notes na kinuha mula sa {link}, sa ilalim ng CC BY-SA license. Ang orihinal na teksto ay inilathala ng Moonton; hindi binabago ng site na ito ang laman nito.",
       "creditTranslated": "Mga notes na kinuha mula sa {link}, sa ilalim ng CC BY-SA license, at awtomatikong isinalin mula sa English. Ang orihinal na teksto ay inilathala ng Moonton.",
-      "publishedOn": "Notes na inilathala noong {date}",
+      "creditLiquipedia": "Mga tala na kinuha mula sa {source} ({page}), na-publish sa ilalim ng lisensyang {license}. Ang orihinal na teksto ay inilathala ni Moonton; hindi binabago ng site na ito ang nilalaman nito.",
+      "creditLiquipediaTranslated": "Mga tala na kinuha mula sa {source} ({page}), na-publish sa ilalim ng lisensyang {license}, at awtomatikong isinalin mula sa English. Ang orihinal na teksto ay inilathala ni Moonton.",
+      "creditHeroesLiquipedia": "Ang mga pagbabago sa hero ay nagmula sa {source} ({page}), na inilabas sa ilalim ng lisensyang {license}.",
+      "creditShortLiquipedia": "Patch notes {versions} kinuha mula sa {source}, inilabas sa ilalim ng lisensya {license}.",
+      "publishedOn": "Inilabas noong {date}",
       "changes": {
         "title": "Lahat ng pagbabago sa hero sa patch {v}",
         "summary": {

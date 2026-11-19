@@ -1,3 +1,4 @@
+import { newestFirst } from "./patch-version";
 import { buildsPlayed, itemsFor, patchDetails } from "./data";
 import { measure } from "./tier-list";
 import { visualItem } from "./build-visuals";
@@ -21,9 +22,7 @@ export function countAdjustments(adjustments: { type: AdjustmentType | null }[])
  */
 
 /** Latest detailed patch, by version number. */
-export const patchCurrent = Object.values(patchDetails).sort((a, b) =>
-  b.version.localeCompare(a.version, undefined, { numeric: true }),
-)[0];
+export const patchCurrent = Object.values(patchDetails).sort(newestFirst)[0];
 
 /** Rate measurement date, ISO: the "updated" date of the data pages. */
 export const dateMeasure = measure;

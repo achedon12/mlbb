@@ -8,6 +8,7 @@
  *
  *     npm run sync            data only
  *     npm run sync -- --images   data + visuals download
+ *     npm run sync -- --patches  patch list and notes only (Fandom + Liquipedia)
  *
  * The output is written to `src/data/game/`. Visuals go to `public/visuels/`,
  * versioned with the repository: the image build needs no access to the wiki.
@@ -26,6 +27,9 @@ import {
   cleanLore,
 } from "./wikitext.mjs";
 import { heroAdjustments, summary } from "./patch-parser.mjs";
+import { compareVersions, readVersion } from "./patch-version.mjs";
+import * as liquipedia from "./liquipedia.mjs";
+import { liquipediaDetail, liquipediaList, liquipediaPages, mergeDetail, mergeLists } from "./liquipedia-patches.mjs";
 import { distinctSkinIds, extractIllustrations, normalizeNameSkin } from "./gallery.mjs";
 import {
   rounded,
@@ -1380,7 +1384,8 @@ async function patches() {
   const byVersion = new Map();
 
   for (const m of members) {
-    const version = m.title.match(/(\d+\.\d+\.\d+)/)?.[1];
+    // "2.2.16a" stays a hotfix of its own; "1.5.0.2" keeps its first three parts, as before.
+    const version = readVersion(m.title) ?? m.title.match(/(\d+\.\d+\.\d+)/)?.[1];
     if (!version) continue;
 
     const candidate = {
@@ -1504,13 +1509,101 @@ async function contentPatches(list) {
   return contents;
 }
 
-/** Sorts 1.9.40 after 1.9.9, which an alphabetical sort does not. */
-function compareVersions(a, b) {
-  const x = a.split(".").map(Number);
-  const y = b.split(".").map(Number);
-  for (let i = 0; i < 3; i += 1) if (x[i] !== y[i]) return (x[i] ?? 0) - (y[i] ?? 0);
-  return 0;
+const LIQUIPEDIA_CACHE = "scripts/patches-cache.json";
+
+/**
+ * Patch list and notes, from both wikis.
+ *
+ * Liquipedia decides which patches exist, when each one was released and
+ * which one is live: the Fandom wiki stopped at 2.2.16 and never listed the
+ * hotfixes. The notes of the most recent patches come from the Fandom page
+ * when there is one (it is what the site always showed), from Liquipedia's
+ * otherwise; Liquipedia also fills the hero changes a Fandom page lacks. See
+ * `liquipedia-patches.mjs` for the merge. Nothing already published is
+ * dropped: a patch detailed before stays detailed, a source that does not
+ * answer leaves the previous data in place.
+ */
+async function syncPatches() {
+  const before = await readJson(`${OUTPUT}/patches.json`);
+  const previous = before.details ?? {};
+
+  console.log("Patch list (Fandom wiki)…");
+  let fandomList = [];
+  try {
+    fandomList = await patches();
+    console.log(`  ${fandomList.length} pages`);
+  } catch (error) {
+    console.warn(`  Fandom wiki unavailable (${error.message}): previous list kept`);
+  }
+
+  console.log("Patch list (Liquipedia)…");
+  const cache = await readJson(LIQUIPEDIA_CACHE);
+  let lpList = [];
+  try {
+    const pages = await liquipediaPages(liquipedia, cache);
+    lpList = liquipediaList(pages, { today: new Date().toISOString().slice(0, 10), url: liquipedia.pageUrl });
+    await writeFile(LIQUIPEDIA_CACHE, `${JSON.stringify(cache, null, 1)}\n`);
+    console.log(`  ${lpList.length} released patches, latest ${lpList[0]?.version ?? "?"} (${lpList[0]?.date ?? "?"})`);
+  } catch (error) {
+    console.warn(`  Liquipedia unavailable (${error.message}): Fandom list only`);
+  }
+
+  const list = mergeLists(fandomList, lpList, before.list ?? []);
+  const window = list.slice(0, DETAILED_PATCHES).map((p) => p.version);
+
+  console.log("Recent patch notes (Fandom wiki)…");
+  const fandomByVersion = new Map(fandomList.map((p) => [p.version, p]));
+  const fandomDetails = await contentPatches(window.flatMap((v) => fandomByVersion.get(v) ?? []));
+  await datePatches(fandomDetails);
+
+  console.log("Recent patch notes (Liquipedia)…");
+  const lpByVersion = new Map(lpList.map((p) => [p.version, p]));
+  const lpDetails = {};
+  try {
+    const wanted = window.flatMap((v) => lpByVersion.get(v) ?? []);
+    const texts = await liquipedia.contents(wanted.map((p) => p.title));
+    for (const p of wanted) {
+      const text = texts.get(p.title)?.text;
+      if (!text) continue;
+      const d = liquipediaDetail(text, { version: p.version, title: p.title, link: p.link });
+      lpDetails[p.version] = {
+        ...d,
+        date: d.date ?? p.date,
+        newHeroes: d.newHeroes.map((h) => ({ ...h, slug: slugify(h.name) })),
+        adjustments: d.adjustments.map((a) => ({ ...a, slug: slugify(a.name) })),
+      };
+    }
+    console.log(`  ${Object.keys(lpDetails).length} pages read`);
+  } catch (error) {
+    console.warn(`  Liquipedia notes unavailable (${error.message})`);
+  }
+
+  const details = {};
+  for (const v of window) {
+    const d = mergeDetail(fandomDetails[v], lpDetails[v]) ?? previous[v];
+    if (d) details[v] = d;
+  }
+  // Patches detailed by an earlier run stay detailed, with the release date
+  // Liquipedia gives them.
+  for (const [v, d] of Object.entries(previous)) {
+    if (details[v]) continue;
+    const lp = lpByVersion.get(v);
+    details[v] = { ...d, source: d.source ?? "fandom", date: lp?.date ?? d.date ?? null, liquipedia: lp?.link ?? d.liquipedia ?? null };
+  }
+
+  const fromLiquipedia = Object.values(details).filter((d) => d.source === "liquipedia").map((d) => d.version);
+  console.log(`  ${Object.keys(details).length} detailed patches (${fromLiquipedia.length} from Liquipedia: ${fromLiquipedia.join(", ") || "none"})`);
+  return { list: list.map((p) => ({ ...p, date: p.date ?? details[p.version]?.date ?? null })), details };
 }
+
+/** `--patches`: re-reads only the patch list and notes. No other file is rewritten. */
+async function patchesOnly() {
+  const result = await syncPatches();
+  await writeFile(`${OUTPUT}/patches.json`, JSON.stringify(result, null, 2) + "\n");
+  const live = result.list[0];
+  console.log(`\nWritten to ${OUTPUT}/patches.json: ${result.list.length} patches, live ${live?.version} (${live?.date ?? "no date"})`);
+}
+
 
 /** Reads an already generated JSON, or an empty object if it does not exist yet. */
 async function readJson(path) {
@@ -1888,14 +1981,7 @@ async function main() {
     console.warn(`  relations unavailable (${error.message}) — unchanged`);
   }
 
-  console.log("Patch list…");
-  const patchList = await patches();
-  console.log(`  ${patchList.length} patches`);
-
-  console.log("Recent patch content…");
-  const patchDetails = await contentPatches(patchList);
-  await datePatches(patchDetails);
-  console.log(`  ${Object.keys(patchDetails).length} detailed patches`);
+  const { list: patchList, details: patchDetails } = await syncPatches();
 
   console.log("Rank emblems…");
   const emblemsRanks = await ranks();
@@ -2204,9 +2290,11 @@ async function main() {
       rankings: stats ? Object.keys(stats.all).length : null,
       counters: counters ? Object.keys(counters).length : null,
       builds: builds ? Object.keys(builds).length : null,
-      // The wiki provides the catalog; the community API provides the measurements.
+      // The wiki provides the catalog; Liquipedia the patch list and the
+      // notes the wiki lacks; the community API provides the measurements.
       sources: [
         "https://mobilelegends.fandom.com",
+        "https://liquipedia.net/mobilelegends",
         "https://arena.rone.dev",
       ],
     }),
@@ -2217,6 +2305,8 @@ async function main() {
 
 await (process.argv.includes("--measures")
   ? measuresDaily()
+  : process.argv.includes("--patches")
+  ? patchesOnly()
   : process.argv.includes("--evolution")
   ? evolutionSingle()
   : process.argv.includes("--combos")
@@ -2224,3 +2314,7 @@ await (process.argv.includes("--measures")
     : process.argv.includes("--duos")
       ? duosOnly()
       : main());
+
+// The wiki keeps idle connections open for minutes after the last request:
+// everything is written, nothing is left to wait for.
+process.exit();

@@ -5,5 +5,5 @@ import { responseApi } from "@/lib/api";
 export const dynamic = "force-static";
 
 export function GET() {
-  return responseApi(patches, { total: patches.length });
+  return responseApi(patches, { total: patches.length, liquipedia: true });
 }

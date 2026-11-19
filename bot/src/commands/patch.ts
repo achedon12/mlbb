@@ -5,11 +5,14 @@ import { inviteFor } from "./shared.js";
 import { patchEmbed } from "../embeds/game.js";
 import type { Patch } from "../site/game-data.js";
 
-/** Accepts "2.1.90", "v2.1.90" or "Patch 2.1.90"; null when no version can be read. */
+/**
+ * Accepts "2.1.90", "v2.1.90", "Patch 2.1.90" or a hotfix, "2.2.16a" (the
+ * site writes the letter in lower case); null when no version can be read.
+ */
 export function parseVersion(input: string | null): string | null {
   if (!input) return null;
-  const m = /(\d+(?:\.\d+){1,3})/.exec(input);
-  return m ? m[1]! : null;
+  const m = /(\d+(?:\.\d+){1,3})([a-z])?(?![\da-z])/i.exec(input);
+  return m ? `${m[1]!}${(m[2] ?? "").toLowerCase()}` : null;
 }
 
 export function findPatch(patches: Patch[], version: string | null): Patch | null {
@@ -23,7 +26,7 @@ export const patch: Command = {
   async autocomplete(interaction, ctx) {
     const query = String(interaction.options.getFocused()).trim();
     return (await ctx.services.data.patches())
-      .filter((p) => p.version.startsWith(query.replace(/^v/i, "")))
+      .filter((p) => p.version.startsWith(query.replace(/^v/i, "").toLowerCase()))
       .slice(0, 25)
       .map((p) => ({ name: p.title.slice(0, 100), value: p.version }));
   },

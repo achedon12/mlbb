@@ -620,7 +620,11 @@
       "archives": "Archives",
       "credit": "Notes reprises du {link}, sous licence CC BY-SA. Le texte original est publié par Moonton ; ce site n'en modifie pas le contenu.",
       "creditTranslated": "Notes reprises du {link}, sous licence CC BY-SA, et traduites automatiquement de l'anglais. Le texte original est publié par Moonton.",
-      "publishedOn": "Notes publiées le {date}",
+      "creditLiquipedia": "Notes reprises de {source} ({page}), publiées sous la licence {license}. Le texte original est publié par Moonton ; ce site n'en modifie pas le contenu.",
+      "creditLiquipediaTranslated": "Notes reprises de {source} ({page}), publiées sous la licence {license}, et traduites automatiquement de l'anglais. Le texte original est publié par Moonton.",
+      "creditHeroesLiquipedia": "Les changements de héros viennent de {source} ({page}), publiés sous la licence {license}.",
+      "creditShortLiquipedia": "Notes du patch {versions} reprises de {source}, publiées sous la licence {license}.",
+      "publishedOn": "Sorti le {date}",
       "changes": {
         "title": "Toutes les modifications de héros du patch {v}",
         "summary": {

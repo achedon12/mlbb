@@ -1,3 +1,4 @@
+import { compareVersions } from "@/lib/patch-version";
 import type { AnnouncementType } from "./settings";
 
 /**
@@ -38,15 +39,8 @@ export const MAX_SKINS = 12;
 const day = (iso: string) => iso.slice(0, 10);
 const shift = (date: string, days: number) => new Date(Date.parse(`${date}T00:00:00Z`) + days * 86_400_000).toISOString().slice(0, 10);
 
-/** Live version comparison, numeric part by part (1.8.100 after 1.8.92). */
-export function compareVersions(a: string, b: string): number {
-  const x = a.split(".").map(Number);
-  const y = b.split(".").map(Number);
-  for (let i = 0; i < Math.max(x.length, y.length); i += 1) {
-    if ((x[i] ?? 0) !== (y[i] ?? 0)) return (x[i] ?? 0) - (y[i] ?? 0);
-  }
-  return 0;
-}
+/** Live version comparison, numeric part by part (1.8.100 after 1.8.92), hotfix letters last. */
+export { compareVersions };
 
 /** Every candidate in the data, as of `today` (YYYY-MM-DD). */
 export function detect(sources: Sources, today: string): Candidate[] {

@@ -1,3 +1,4 @@
+import { compareVersions } from "@/lib/patch-version";
 import advanceEn from "@/data/game/advance-server.json";
 import advanceFr from "@/data/game/advance-server/fr.json";
 import advanceIt from "@/data/game/advance-server/it.json";
@@ -104,15 +105,8 @@ const TRANSLATIONS = { fr: advanceFr, it: advanceIt, es: advanceEs, id: advanceI
   Record<string, AdvanceVersion>
 >;
 
-/** Sorts 1.8.100 after 1.8.92, which an alphabetical sort does not. */
-export function compareVersions(a: string, b: string): number {
-  const x = a.split(".").map(Number);
-  const y = b.split(".").map(Number);
-  for (let i = 0; i < Math.max(x.length, y.length); i += 1) {
-    if ((x[i] ?? 0) !== (y[i] ?? 0)) return (x[i] ?? 0) - (y[i] ?? 0);
-  }
-  return 0;
-}
+/** Version order, hotfix letters included (2.2.16 < 2.2.16a < 2.2.23). */
+export { compareVersions };
 
 /**
  * A test build is still ahead of the live game only while its number is

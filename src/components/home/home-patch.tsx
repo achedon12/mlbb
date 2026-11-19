@@ -1,3 +1,4 @@
+import { LiquipediaPatchNote } from "@/components/patch-credit";
 import { FlaskConical, Minus, Sparkles, TrendingDown, TrendingUp } from "lucide-react";
 import Link from "@/components/link";
 import { HeroPortrait } from "@/components/hero-portrait";
@@ -135,7 +136,10 @@ export function HomePatch({ locale, className }: { locale: Locale; className?: s
         </div>
 
         <div className="mt-4 flex flex-col gap-2 text-xs leading-relaxed text-chalk-500 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
-          {hasImpacts && <p className="max-w-2xl">{t("home.patch.impactNote", { n: DAYS_IMPACT })}</p>}
+          <div className="max-w-2xl space-y-1">
+            {hasImpacts && <p>{t("home.patch.impactNote", { n: DAYS_IMPACT })}</p>}
+            <LiquipediaPatchNote t={t} patches={[patch]} />
+          </div>
           <p className="flex shrink-0 flex-wrap gap-x-4 gap-y-1 text-sm">
             <Link href="/meta" className="font-semibold text-gold-400 hover:text-gold-500">
               {t("home.patch.metaReport")}

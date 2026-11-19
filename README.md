@@ -104,7 +104,8 @@ site is running.
 
 | Data | Source | Updated |
 | --- | --- | --- |
-| Heroes, skins, items, patches, visuals | Community wiki, Lua modules | **Automatically**, every Monday |
+| Heroes, skins, items, visuals | Community wiki, Lua modules | **Automatically**, every Monday |
+| Patch list, release dates, patch notes | Liquipedia (list, dates, notes the wiki lacks) and the community wiki (notes) | **Automatically**, every night |
 | Win rates, counters, ranking, rank emblems | Community API `arena.rone.dev` | **Automatically**, every Monday |
 | Trends, teammates, win rates by game length | Community API `arena.rone.dev` | **Automatically**, every night |
 | Hero analyses, tier list notes, emblems | Written by hand | By pull request |
@@ -266,6 +267,8 @@ request.
 
 Factual data comes from the
 [Mobile Legends wiki](https://mobilelegends.fandom.com), under the
-CC BY-SA license.
+CC BY-SA license. The patch list and some patch notes, as well as the esports
+data, come from [Liquipedia](https://liquipedia.net/mobilelegends/), under the
+CC BY-SA 3.0 license.
 
 Code and texts under the MIT license: see [LICENSE](LICENSE).
