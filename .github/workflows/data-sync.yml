@@ -266,3 +266,27 @@ jobs:
       SYNC_DEPLOY_KEY: ${{ secrets.SYNC_DEPLOY_KEY }}
     permissions:
       contents: write
+
+  # Moonton ships a patch every three to six weeks. A live patch older than
+  # six weeks means the patch sources stopped following: the job fails, and
+  # GitHub emails the failure, instead of a moderator noticing it first.
+  patch-freshness:
+    needs: sync
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - name: Live patch not older than six weeks
+        env:
+          REPO: ${{ github.repository }}
+        run: |
+          json=$(curl -fsSL "https://raw.githubusercontent.com/$REPO/main/src/data/game/patches.json")
+          read -r version date < <(echo "$json" | jq -r '[.list[] | select(.date != null)][0] | "\(.version) \(.date)"')
+          age=$(( ( $(date -u +%s) - $(date -u -d "$date" +%s) ) / 86400 ))
+          echo "Live patch $version, released $date ($age days ago)"
+          if [ "$age" -gt 42 ]; then
+            echo "::error::Live patch $version is $age days old: check Liquipedia (Portal:Patches) and the Fandom wiki, a newer patch may be missing."
+            exit 1
+          fi
