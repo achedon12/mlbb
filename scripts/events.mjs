@@ -88,7 +88,9 @@ const plainText = (s) =>
  */
 export function readGallery(wikitext) {
   const entries = [];
-  const line = /^(?:File:|Image:)?([^|\n]+)\|'''(.+?)'''\s*<br\s*\/?>\s*([A-Za-z]+)\.?\s+(\d{4})/gm;
+  // Since February 2026 the wiki writes the month after a few spaces, without
+  // the `<br>`: both layouts are read.
+  const line = /^(?:File:|Image:)?([^|\n]+)\|'''(.+?)'''[ \t]*(?:<br\s*\/?>)?[ \t]*([A-Za-z]+)\.?[ \t]+(\d{4})/gm;
   for (const [, file, caption, monthName, year] of wikitext.matchAll(line)) {
     const month = MONTHS[monthName.toLowerCase()];
     if (!month) continue;

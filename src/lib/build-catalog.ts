@@ -1,4 +1,3 @@
-import generatedHeroes from "@/data/game/heroes.json";
 import visuals from "@/data/game/visuals.json";
 import { emblems } from "@/data/emblems";
 import { EMBLEM_SETS, TALENT_FIGURES } from "@/data/emblem-attributes";
@@ -20,7 +19,6 @@ import { isComplete, type DamageCalculatorData } from "./damage-calculator";
 import { buildsPlayed, allHeroes, itemsFor } from "./data";
 import { imageTalent, nameTalent, spellSheets, textChoice } from "./usage-sheets";
 import { MEASURED_RANKS } from "./measured-ranks";
-import type { GeneratedHero } from "./types";
 import { visualItem } from "./build-visuals";
 
 /**
@@ -41,7 +39,8 @@ const isPurchasable = (o: { price: number | null; passive: string | null }) =>
 const englishItems = itemsFor("en").filter(isPurchasable);
 
 export const simCatalog: SimCatalog = {
-  heroes: new Map((generatedHeroes as unknown as GeneratedHero[]).map((h) => [h.slug, prepareHero(h)])),
+  // Released heroes only, like every list of the site (see `listedHeroes`).
+  heroes: new Map(allHeroes.map((h) => [h.slug, prepareHero(h)])),
   items: new Map(englishItems.map((o) => [o.slug, prepareItem(o)])),
   emblems: new Map(EMBLEM_SETS.map((e) => [e.key, prepareEmblem(e.key, e.attributes)])),
   talents: new Map(TALENT_FIGURES.map((t) => [t.key, prepareTalent(t)])),
