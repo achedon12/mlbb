@@ -3,6 +3,7 @@ import { recordAnnouncements } from "./announcement-store";
 import { flushAnnouncements } from "./client";
 import { botConfig } from "./config";
 import { purgeExpired } from "./guild-store";
+import { purgeStaleCards } from "@/lib/discord-profile/store";
 
 /**
  * Bot chores of the site process: at startup (a data sync arrives through
@@ -12,7 +13,8 @@ import { purgeExpired } from "./guild-store";
  * - record the announcements found in the data, and ask the bot to post the
  *   new ones right away (the bot also polls; a bot still starting just
  *   delivers them later);
- * - delete the servers gone for 30 days and the old command logs.
+ * - delete the servers gone for 30 days and the old command logs, and the
+ *   /profile cards whose figures are older than 30 days.
  *
  * Never throws: a database that is down only costs a log line.
  */
@@ -33,7 +35,8 @@ async function chores(): Promise<void> {
       });
     }
     const purged = await purgeExpired();
-    if (purged.guilds || purged.logs) await log("info", "discord bot: retention", purged);
+    const cards = await purgeStaleCards();
+    if (purged.guilds || purged.logs || cards) await log("info", "discord bot: retention", { ...purged, cards });
   } catch (error) {
     await logError("discord bot: startup chores failed", error);
   }

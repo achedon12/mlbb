@@ -3692,7 +3692,8 @@
         "setup": "Link ke dasbor server (perlu izin Kelola Server).",
         "help": "Perintah per kategori, masing-masing dengan contoh.",
         "invite": "Link untuk menambahkan bot ke server lain.",
-        "about": "Versi, jumlah server, link ke situs, server bantuan, dan vote."
+        "about": "Versi, jumlah server, link ke situs, server bantuan, dan vote.",
+        "profile": "Profil Mobile Legends-mu sebagai gambar: rank, win rate, dan hero yang paling sering dimainkan (ditautkan sekali di situs)."
       },
       "permissionsTitle": "Izin diminta",
       "permissionsText": "Hanya yang dibutuhkan untuk membalas dan memposting: tidak pernah Administrator, dan tanpa akses ke isi pesan. Intent Server Members hanya dipakai untuk pesan sambutan dan perpisahan: tidak ada data anggota yang disimpan.",
@@ -3749,7 +3750,8 @@
       "autoRoles": "Peran otomatis: jika server memilihnya, bot memberikan peran tersebut kepada siapa pun yang bergabung, dengan izin Kelola Peran yang diberikan admin server; anggota yang masih harus menerima aturan server hanya diingat (ID-nya, di memori, paling lama 24 jam) sampai ia menerimanya, dan tidak ada yang disimpan.",
       "roleMenus": "Menu role: untuk setiap menu disimpan channel, judul, teks, role beserta label dan emoji-nya, ID pesan yang diterbitkan, dan ID Discord pengelola yang mengaturnya. Saat anggota memakainya, bot memberi atau melepas role dan tidak menyimpan apa pun tentang anggota itu, kecuali penghitung di memori selama beberapa detik untuk membatasi perubahan yang terlalu rapat.",
       "tempVoice": "Channel suara sementara: server menyimpan channel hub-nya beserta batas pengguna dan templat namanya. Untuk setiap channel suara yang dibuat bot, bot menyimpan ID channel, ID channel hub, dan ID member yang dibuatkan channel itu, sampai channel dihapus, yaitu begitu channel kosong. Untuk mengetahui siapa berada di channel suara mana, bot menerima status suara dari Discord (intent \"Guild Voice States\"), menyimpannya di memori, dan tidak merekam satu pun.",
-      "pseudonymous": "Di situs, forum dan koleksinya tidak menyimpan ID Discord atau ID game Anda dalam teks biasa, tetapi sidik jari (SHA-256, tanpa garam). Ini adalah data pseudonim, bukan anonim: siapa pun yang mengetahui pengenalnya dapat menghitung ulang sidik jarinya, dan oleh karena itu, data tersebut tetap merupakan data pribadi yang dilindungi. Bot menyimpan pengidentifikasi Discord dalam teks biasa (hasil, suara, menu peran)."
+      "pseudonymous": "Di situs, forum dan koleksinya tidak menyimpan ID Discord atau ID game Anda dalam teks biasa, tetapi sidik jari (SHA-256, tanpa garam). Ini adalah data pseudonim, bukan anonim: siapa pun yang mengetahui pengenalnya dapat menghitung ulang sidik jarinya, dan oleh karena itu, data tersebut tetap merupakan data pribadi yang dilindungi. Bot menyimpan pengidentifikasi Discord dalam teks biasa (hasil, suara, menu peran).",
+      "storedProfile": "Untuk kartu /profile, hanya jika pemain menautkannya di situs: hash dari id Discord-nya dan satu dari id game dan server-nya, dua pilihannya (terlihat oleh orang lain, id ditampilkan) dan angkanya pada pembaruan terakhir (nama, avatar, negara, level, rank, pertandingan dan kemenangan musim ini, tiga hero yang paling sering dimainkan). Dihapus saat tautannya dilepas, atau 30 hari setelah pembaruan terakhir. Gambar yang dibuat disimpan di memori situs selama sepuluh menit."
     },
     "botTerms": {
       "title": "Ketentuan Layanan Bot Perselisihan",
@@ -4700,6 +4702,37 @@
       "metaTitle": "Alat MLBB: draft, build, damage, dan akun",
       "metaDescription": "Simulator draft, analisis tim, simulator build, kalkulator damage, nilai akun, timer objektif, dan game harian untuk Mobile Legends: Bang Bang.",
       "nTools": "{n} alat"
+    },
+    "discordCard": {
+      "title": "Kartu profil Discord",
+      "intro": "Tampilkan rank, win rate, dan hero yang paling sering kamu mainkan sebagai gambar di Discord, dengan perintah /profile dari bot MLBBDex.",
+      "needDiscord": "Untuk menautkannya, masuk juga dengan akun Discord yang kamu pakai di servermu.",
+      "discordButton": "Masuk dengan Discord",
+      "linkOffer": "Tautkan akun Discord {name} ke akun game ini. Angka-angkamu saat ini disimpan untuk kartu.",
+      "linkButton": "Tautkan dan buat kartuku",
+      "linked": "Kartumu tertaut ke akun Discord. Ketik /profile di server yang ada bot MLBBDex.",
+      "otherDiscord": "Kamu masuk dengan akun Discord lain ({name}) dari yang tertaut. Menautkannya akan memindahkan kartu ke sana.",
+      "updatedAt": "Angka disimpan pada {date}.",
+      "refresh": "Perbarui angkaku",
+      "noAccess": "Situs tidak menyimpan akses apa pun ke akun game-mu: kartu menampilkan angka yang disimpan saat pembaruan terakhirmu, dan dihapus setelah 30 hari tanpa pembaruan.",
+      "public": "Orang lain boleh menampilkan kartuku (/profile user:@kamu)",
+      "publicHint": "Nonaktif secara bawaan: hanya kamu yang bisa menampilkannya.",
+      "showId": "Tampilkan ID game dan server-ku di kartu",
+      "unlink": "Lepas tautan dan hapus kartuku",
+      "unlinkConfirm": "Kartu dan tautannya langsung dihapus. Kamu bisa membuatnya lagi nanti.",
+      "unlinkButton": "Hapus",
+      "cancel": "Batal",
+      "preview": "Pratinjau kartumu",
+      "done": "Tersimpan.",
+      "errorDown": "Layanan game tidak merespons: coba lagi dalam beberapa menit.",
+      "errorExpired": "Sesi game-mu sudah berakhir: masuk lagi.",
+      "error": "Terjadi kesalahan. Coba lagi sebentar lagi.",
+      "card": {
+        "wins": "Menang",
+        "heroMatches": "{n} pertandingan",
+        "updated": "Diperbarui {date}",
+        "minimum": "Minimal: beberapa hero tidak terbaca"
+      }
     }
   },
   "modeSheet": {
@@ -5050,7 +5083,8 @@
       "servers": "untuk setiap server tempat bot berada: nama, bahasa, dan pengaturannya;",
       "results": "untuk peringkat game hari ini yang dimainkan di Discord: ID Discord para pemain dan nama panggilan serta skor mereka.",
       "details": "Detail, periode penyimpanan, dan penghapusan dijelaskan di halaman privasi bot.",
-      "members": "Tidak ada data anggota server yang disimpan: bergabung dan keluarnya mereka, yang diberitahukan Discord ke bot, hanya dipakai untuk memposting pesan sambutan dan perpisahan yang diaktifkan server."
+      "members": "Tidak ada data anggota server yang disimpan: bergabung dan keluarnya mereka, yang diberitahukan Discord ke bot, hanya dipakai untuk memposting pesan sambutan dan perpisahan yang diaktifkan server.",
+      "profile": "untuk kartu /profile, jika kamu menautkannya dari halaman akunmu: sidik dari ID Discord-mu dan satu dari ID game dan server-mu (tidak pernah ID-nya sendiri), dua pilihanmu (apakah orang lain boleh menampilkannya, apakah ID-mu ditampilkan) dan salinan angkamu pada pembaruan terakhir: nama, avatar, negara, level, rank, pertandingan dan kemenangan musim ini, tiga hero yang paling sering dimainkan. Tidak ada token game yang disimpan. Kartu dihapus saat kamu melepas tautannya, atau 30 hari setelah pembaruan terakhirmu;"
     },
     "community": {
       "title": "Komunitas: forum dan pencari rekan tim",
@@ -5186,7 +5220,8 @@
         "bot": "Untuk bot Discord: pengaturan server, dan hasil permainan hari itu yang dimainkan di sana, hingga 30 hari setelah bot keluar; log perintah garis miring yang digunakan, tanpa ID anggota, 90 hari; memilih bot, hingga diminta untuk menghapus.",
         "logs": "Log teknis: kesalahan server dan kesalahan yang ditemukan oleh browser (pesan, halaman, versi situs, jenis browser, tanpa alamat IP atau akun) disimpan selama 30 hari untuk diagnosis. Peristiwa keamanan dan moderasi (permintaan ditolak, tindakan moderator dan administrator) disimpan selama 6 bulan. Mereka kemudian dihapus secara otomatis.",
         "backups": "Cadangan: salinan harian database; hanya tiga data terbaru yang disimpan, sehingga data yang dihapus akan hilang dari cadangan dalam tiga hari.",
-        "rateLimits": "Batasan Nilai: Alamat IP Anda, hanya di memori, tidak pernah ditulis ke disk."
+        "rateLimits": "Batasan Nilai: Alamat IP Anda, hanya di memori, tidak pernah ditulis ke disk.",
+        "profileCard": "Kartu profil Discord: sampai kamu melepas tautannya, dan paling lama 30 hari setelah pembaruan terakhirmu."
       },
       "rights": {
         "title": "Hak Anda",
@@ -5194,7 +5229,7 @@
         "browser": "Apa yang ada di browser Anda (favorit, koleksi, preferensi, pilihan cookie) ada di tangan Anda: menghapus data situs akan menghapusnya.",
         "contact": "Selebihnya (komunitas, koleksi tersinkronisasi, notifikasi, bot), tulis ke [{contact}](mailto:{contact}), sebutkan akun yang bersangkutan (nama panggilan game atau nama Discord) sehingga dapat ditemukan. Anda akan menerima tanggapan dalam waktu satu bulan.",
         "cnil": "Jika Anda menganggap, setelah menghubungi penerbit, bahwa hak Anda tidak dihormati, Anda dapat mengirimkan keluhan ke CNIL ([cnil.fr](https://www.cnil.fr/fr/plaintes)) atau ke otoritas perlindungan data di negara Anda.",
-        "updated": "Terakhir diperbarui: 15 November 2026."
+        "updated": "Terakhir diperbarui: 19 November 2026."
       }
     }
   },

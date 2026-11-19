@@ -14,6 +14,7 @@ import { leaderboard } from "./leaderboard.js";
 import { mlbbdle } from "./mlbbdle.js";
 import { nickname, nicknameMenu } from "./nickname.js";
 import { patch } from "./patch.js";
+import { profile } from "./profile.js";
 import { quiz, quizButtonsHandler } from "./quiz.js";
 import { roleMenuHandler } from "./role-menu.js";
 import { servertime } from "./servertime.js";
@@ -25,7 +26,7 @@ import { tierlist } from "./tierlist.js";
 /** Every slash command, registered globally by `npm run deploy-commands`. */
 export const COMMANDS: Command[] = [
   hero, build, counter, tierlist, compare, item, emblem, spell, patch, skins, events,
-  nickname, mlbbdle, quiz, leaderboard, servertime, setup, help, invite, about,
+  nickname, mlbbdle, quiz, leaderboard, servertime, profile, setup, help, invite, about,
 ];
 
 export const COMPONENTS: ComponentHandler[] = [heroButtonsHandler, nicknameMenu, quizButtonsHandler, dailyPlayHandler, helpMenu, roleMenuHandler];

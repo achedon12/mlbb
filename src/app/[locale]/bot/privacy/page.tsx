@@ -44,6 +44,7 @@ export default async function BotPrivacyPage({ params }: Params) {
           <li>{p("storedResults")}</li>
           <li>{p("storedCommands")}</li>
           <li>{p("storedVotes")}</li>
+          <li>{p("storedProfile")}</li>
         </ul>
         <h2>{t("pages.botPrivacy.notStoredTitle")}</h2>
         <p>{p("notStored")}</p>

@@ -2,7 +2,7 @@ import type { z } from "zod";
 import { TtlCache } from "../cache.js";
 import type { Locale } from "../i18n/index.js";
 import { signedHeaders } from "../security/signing.js";
-import { NotFoundError, requestJson, SiteUnavailableError, type FetchLike } from "./http.js";
+import { NotFoundError, requestBinary, requestJson, SiteUnavailableError, type FetchLike } from "./http.js";
 import {
   anyBody,
   daily,
@@ -12,6 +12,7 @@ import {
   leaderboard,
   pendingAnnouncements,
   PERIODS,
+  profileRefusal,
   roleMenuList,
   tempVoiceChannelsPage,
   type Announcement,
@@ -23,6 +24,7 @@ import {
   type GuildSettings,
   type Leaderboard,
   type Period,
+  type ProfileReason,
   type RoleMenu,
   type TempVoiceChannel,
 } from "./schemas.js";
@@ -80,6 +82,12 @@ const DAILY_TTL_MS = 10 * 60 * 1000;
  * clears that server's boards for its game, so a player sees their score.
  */
 const LEADERBOARD_TTL_MS = 30 * 1000;
+
+/** /profile: the card's PNG, or why there is none to show. */
+export type ProfileCard = { png: Buffer } | { reason: ProfileReason };
+
+/** Drawing a card takes the site a moment the first time: more than the usual five seconds. */
+const PROFILE_TIMEOUT_MS = 20_000;
 
 export class SiteClient {
   private readonly settingsCache = new TtlCache<GuildSettings>(SETTINGS_TTL_MS, 2000);
@@ -281,6 +289,37 @@ export class SiteClient {
     const stored = await this.request("POST", "/api/bot/daily/results", anyBody, results);
     for (const r of results) for (const period of PERIODS) this.leaderboardCache.delete(`${r.guildId}:${r.game}:${period}`);
     return stored;
+  }
+
+  /**
+   * The /profile card of `user`, asked by `viewer`, in a site language. The
+   * site decides who may see what (one's own card once linked, someone
+   * else's only when made public) and draws the PNG; nothing is cached
+   * here, the site keeps the drawn cards a few minutes.
+   */
+  async profileCard(user: string, viewer: string, locale: Locale): Promise<ProfileCard> {
+    const path = `/api/bot/profile?user=${user}&viewer=${viewer}&locale=${locale}`;
+    const send = () =>
+      requestBinary(
+        this.fetchImpl,
+        `${this.baseUrl}${path}`,
+        /^image\/png$/,
+        { method: "GET", headers: { accept: "image/png, application/json", ...signedHeaders(this.secret, "GET", path, "") } },
+        PROFILE_TIMEOUT_MS,
+      );
+    let answer;
+    try {
+      answer = await send();
+    } catch (error) {
+      // Same retry as `request`: two identical calls in one second sign the same bytes.
+      if (!(error instanceof SiteUnavailableError) || error.status !== 401) throw error;
+      await new Promise((resolve) => setTimeout(resolve, this.retryDelayMs));
+      answer = await send();
+    }
+    if (answer.kind === "binary") return { png: answer.bytes };
+    const parsed = profileRefusal.safeParse(answer.json);
+    if (!parsed.success) throw new SiteUnavailableError("unexpected profile answer");
+    return { reason: parsed.data.reason };
   }
 
   leaderboard(guildId: string, game: Game, period: Period): Promise<Leaderboard> {

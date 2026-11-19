@@ -90,6 +90,7 @@ plus a daily hero-guessing game for your community.
 | `/skins`, `/events` | Newest skins, a hero's skins, current events |
 | `/mlbbdle`, `/quiz`, `/leaderboard` | Daily games and this server's rankings |
 | `/nickname`, `/servertime` | Stylish nickname, server time and resets |
+| `/profile` | Your Mobile Legends profile card: rank, win rate, top heroes |
 | `/setup` | This server's dashboard (Manage Server only) |
 | `/help`, `/invite`, `/about` | Help by category, invite link, about |
 
@@ -174,7 +175,7 @@ The free Mobile Legends: Bang Bang knowledge bot, companion of
 **Patch & news** — `/patch`, `/events`, plus automatic announcements of patches, skins,
 events, Advance Server and esports results
 **Games** — `/mlbbdle` (guess today's hero), `/quiz`, `/leaderboard`
-**Tools** — `/nickname` (21 fonts), `/servertime`
+**Tools** — `/nickname` (21 fonts), `/servertime`, `/profile` (your rank and top heroes as an image)
 **Server setup** — `/setup` (dashboard on mlbbdex.com), `/help`, `/invite`, `/about`
 
 ![Hero sheet](https://mlbbdex.com/bot/screenshot-hero.webp)

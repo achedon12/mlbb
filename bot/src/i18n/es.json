@@ -174,6 +174,16 @@
       "name": "hora-servidor",
       "description": "Hora del servidor de MLBB y cuenta atrás de los reinicios diario y semanal"
     },
+    "profile": {
+      "name": "perfil",
+      "description": "Una tarjeta de perfil de Mobile Legends: rango, tasa de victorias, héroes más jugados",
+      "options": {
+        "user": {
+          "name": "usuario",
+          "description": "De quién es la tarjeta (debe haberla hecho pública en MLBBDex)"
+        }
+      }
+    },
     "setup": {
       "name": "configurar",
       "description": "Configura MLBBDex aquí: idioma, avisos de parches y skins, juegos diarios, bienvenidas"
@@ -416,6 +426,17 @@
       "daily": "Reinicio diario",
       "weekly": "Reinicio semanal",
       "starlight": "Nuevo Starlight"
+    },
+    "profile": {
+      "alt": "Tarjeta de perfil de Mobile Legends de {name}",
+      "notLinked": "Todavía no has vinculado tu cuenta de juego. En MLBBDex, inicia sesión con tu cuenta de juego (un código enviado en el juego, sin contraseña) y con esta cuenta de Discord, y crea tu tarjeta. Tarda un minuto.",
+      "stale": "Las cifras de tu tarjeta tienen más de 30 días, así que ya no se muestra. Actualízalas en MLBBDex, con la sesión de tu cuenta de juego iniciada.",
+      "unavailable": "{name} no tiene tarjeta pública. Cada miembro elige en MLBBDex si otros pueden mostrar la suya.",
+      "rateLimited": "Con calma: inténtalo de nuevo en un minuto.",
+      "linkButton": "Vincular mi cuenta",
+      "updateButton": "Actualizar mi tarjeta",
+      "manageButton": "Mi tarjeta en MLBBDex",
+      "getYours": "Crea tu tarjeta"
     },
     "setup": {
       "body": "Elige el idioma, los canales de anuncios y los juegos del día de este servidor en el panel.",

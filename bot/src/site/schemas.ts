@@ -419,3 +419,11 @@ export const dailyGuildsPage = unwrap(
 export type DailyGuild = z.infer<typeof dailyGuildsPage>["guilds"][number];
 
 export const anyBody = z.unknown();
+
+/**
+ * `GET /api/bot/profile` when it has no card to give: why. An unknown reason
+ * (a newer site) reads as "unavailable", the answer that tells the least.
+ */
+export const PROFILE_REASONS = ["notLinked", "stale", "unavailable", "rateLimited"] as const;
+export type ProfileReason = (typeof PROFILE_REASONS)[number];
+export const profileRefusal = z.object({ reason: z.enum(PROFILE_REASONS).catch("unavailable") });

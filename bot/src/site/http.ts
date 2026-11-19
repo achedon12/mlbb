@@ -55,3 +55,44 @@ export async function requestJson<T>(
   }
   return parsed.data;
 }
+
+/** A binary answer (an image), or the JSON the site sent instead of it. */
+export type BinaryOrJson = { kind: "binary"; bytes: Buffer; contentType: string } | { kind: "json"; json: unknown };
+
+/**
+ * Like `requestJson`, for a route that answers either a file or, when it has
+ * none to give, a JSON object: the content type tells them apart.
+ */
+export async function requestBinary(
+  fetchImpl: FetchLike,
+  url: string,
+  accept: RegExp,
+  init: RequestInit = {},
+  timeoutMs = DEFAULT_TIMEOUT_MS,
+): Promise<BinaryOrJson> {
+  let response: Response;
+  try {
+    response = await fetchImpl(url, { ...init, signal: AbortSignal.timeout(timeoutMs) });
+  } catch (error) {
+    throw new SiteUnavailableError(`request failed: ${(error as Error).message}`);
+  }
+  if (response.status === 404) throw new NotFoundError(new URL(url).pathname);
+  if (!response.ok) throw new SiteUnavailableError(`HTTP ${response.status}`, response.status);
+  if (Number(response.headers.get("content-length") ?? 0) > MAX_RESPONSE_BYTES) throw new SiteUnavailableError("response too large");
+  const contentType = (response.headers.get("content-type") ?? "").split(";")[0]!.trim().toLowerCase();
+  if (accept.test(contentType)) {
+    let bytes: Buffer;
+    try {
+      bytes = Buffer.from(await response.arrayBuffer());
+    } catch {
+      throw new SiteUnavailableError("unreadable body");
+    }
+    if (bytes.length > MAX_RESPONSE_BYTES) throw new SiteUnavailableError("response too large");
+    return { kind: "binary", bytes, contentType };
+  }
+  try {
+    return { kind: "json", json: await response.json() };
+  } catch {
+    throw new SiteUnavailableError("invalid JSON");
+  }
+}
