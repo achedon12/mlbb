@@ -4718,13 +4718,13 @@
       "intro": "Affichez votre rang, votre taux de victoire et vos héros les plus joués en image sur Discord, avec la commande /profile du bot MLBBDex.",
       "needDiscord": "Pour la relier, connectez-vous aussi avec le compte Discord que vous utilisez sur vos serveurs.",
       "discordButton": "Se connecter avec Discord",
-      "linkOffer": "Reliez le compte Discord {name} à ce compte de jeu. Vos chiffres actuels sont enregistrés pour la carte.",
+      "linkOffer": "Reliez le compte Discord {name} à ce compte de jeu. Vos statistiques sont relues à chaque /profile.",
       "linkButton": "Relier et créer ma carte",
       "linked": "Votre carte est reliée à un compte Discord. Tapez /profile sur un serveur où se trouve le bot MLBBDex.",
       "otherDiscord": "Vous êtes connecté avec un autre compte Discord ({name}) que celui relié. Le relier y déplace la carte.",
       "updatedAt": "Chiffres enregistrés le {date}.",
       "refresh": "Mettre à jour mes chiffres",
-      "noAccess": "Le site ne garde aucun accès à votre compte de jeu : la carte montre les chiffres enregistrés lors de votre dernière mise à jour, et elle est supprimée après 30 jours sans mise à jour.",
+      "noAccess": "Pour que /profile montre vos statistiques du moment, le site garde votre jeton de jeu chiffré jusqu'à son expiration (7 jours au plus) ; chaque connexion au site le renouvelle. Passé ce délai, la carte montre les dernières statistiques lues, et elle est supprimée après 30 jours sans lecture.",
       "public": "Les autres peuvent afficher ma carte (/profile user:@vous)",
       "publicHint": "Désactivé par défaut : vous seul pouvez l'afficher.",
       "showId": "Afficher mon ID de jeu et mon serveur sur la carte",
@@ -5094,7 +5094,7 @@
       "results": "pour les classements des jeux du jour joués dans Discord : l'identifiant et le pseudo Discord des joueurs et leurs scores.",
       "details": "Le détail, la durée de conservation et la suppression sont décrits sur la page de confidentialité du bot.",
       "members": "Rien n'est conservé sur les membres d'un serveur : leurs arrivées et départs, que Discord signale au bot, servent seulement à publier les messages de bienvenue et de départ que le serveur a activés.",
-      "profile": "pour la carte /profile, si vous la reliez depuis votre page de compte : une empreinte de votre ID Discord et une de votre ID de jeu et de votre serveur (jamais les ID eux-mêmes), vos deux choix (si d'autres peuvent l'afficher, si elle montre votre ID) et une copie de vos chiffres à votre dernière mise à jour : pseudo, avatar, pays, niveau, rang, parties et victoires de la saison, trois héros les plus joués. Aucun jeton de jeu n'est conservé. La carte est supprimée quand vous la déliez, ou 30 jours après votre dernière mise à jour ;"
+      "profile": "pour la carte /profile, si vous la reliez depuis votre page de compte : une empreinte de votre ID Discord et une de votre ID de jeu et de votre serveur (jamais les ID eux-mêmes), vos deux choix (si d'autres peuvent l'afficher, si elle montre votre ID), une copie de vos statistiques à la dernière lecture : pseudo, avatar, pays, niveau, rang, parties et victoires de la saison, trois héros les plus joués, et votre jeton de jeu, chiffré (AES-256-GCM), jusqu'à son expiration (7 jours au plus), pour que /profile relise vos statistiques à chaque appel. Chaque nouvelle connexion au site renouvelle ce jeton. La carte et le jeton sont supprimés quand vous la déliez ; la carte l'est aussi 30 jours après la dernière lecture ;"
     },
     "community": {
       "title": "Communauté : forum et recherche de coéquipiers",
@@ -5199,7 +5199,7 @@
       },
       "game": {
         "title": "Connexion au compte de jeu",
-        "text": "La connexion utilise le flux officiel de Moonton : vous indiquez votre identifiant et votre serveur de jeu, un code de vérification vous est envoyé en jeu, et le site reçoit en retour un jeton temporaire. Ces échanges passent par une API communautaire (`arena.rone.dev`) et par les services de Moonton, qui reçoivent votre identifiant, votre serveur, le code puis le jeton. Le jeton vit dans le cookie de session `mlbb_jeu` et n'est jamais enregistré sur le serveur ; les réponses du service (profil, statistiques, parties) sont gardées en mémoire quelques heures au plus, pour limiter les appels. Aucun mot de passe ne vous est jamais demandé. Le serveur ne conserve durablement quelque chose que si vous utilisez la communauté ou la collection, comme décrit plus bas."
+        "text": "La connexion utilise le flux officiel de Moonton : vous indiquez votre identifiant et votre serveur de jeu, un code de vérification vous est envoyé en jeu, et le site reçoit en retour un jeton temporaire. Ces échanges passent par une API communautaire (`arena.rone.dev`) et par les services de Moonton, qui reçoivent votre identifiant, votre serveur, le code puis le jeton. Le jeton vit dans le cookie de session `mlbb_jeu` ; il n'est enregistré sur le serveur que si vous reliez une carte /profile, chiffré et jusqu'à son expiration (voir la partie sur le bot Discord) ; les réponses du service (profil, statistiques, parties) sont gardées en mémoire quelques heures au plus, pour limiter les appels. Aucun mot de passe ne vous est jamais demandé. Le serveur ne conserve durablement quelque chose que si vous utilisez la communauté ou la collection, comme décrit plus bas."
       },
       "thirdParty": {
         "title": "Contenus tiers",
@@ -5222,7 +5222,7 @@
       "retention": {
         "title": "Combien de temps les données sont conservées",
         "audience": "Mesure d'audience : données de visite conservées jusqu'à leur suppression par l'éditeur ; cookies, voir le tableau plus haut ; votre choix sur les cookies, 6 mois.",
-        "sessions": "Sessions : le jeton du compte de jeu jusqu'à son expiration (7 jours au plus) ; la session Discord, 7 jours.",
+        "sessions": "Sessions : le jeton du compte de jeu jusqu'à son expiration (7 jours au plus), dans le cookie, et sur le serveur si vous reliez une carte /profile ; la session Discord, 7 jours.",
         "community": "Communauté : votre compte, vos messages, vos votes, vos signalements et le journal de modération sont conservés tant que la communauté existe, sauf demande d'effacement ; un signalement garde une copie du texte signalé. Une carte de coéquipier est effacée sept jours après son dernier enregistrement.",
         "builds": "Builds de la communauté : jusqu'à leur suppression par leur auteur, ou sur demande.",
         "collection": "Collection synchronisée : jusqu'à ce que vous la vidiez, ou sur demande.",

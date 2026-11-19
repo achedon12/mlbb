@@ -10,7 +10,7 @@ import { createCipheriv, createDecipheriv, hkdfSync, randomBytes } from "node:cr
  * the cookie's: a copied cookie stops working at the same time.
  */
 
-export type Purpose = "session" | "oauth";
+export type Purpose = "session" | "oauth" | "gameToken";
 
 const keyOf = (secret: string, purpose: Purpose) =>
   Buffer.from(hkdfSync("sha256", secret, "mlbbdex-bot", `cookie:${purpose}`, 32));

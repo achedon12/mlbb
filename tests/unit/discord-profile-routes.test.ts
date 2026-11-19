@@ -214,3 +214,54 @@ describe("the account page's card route", () => {
     expect((await call("DELETE")).status).toBe(401);
   });
 });
+
+const { sealGameToken } = await import("@/lib/discord-profile/token");
+
+describe("the card read again on /profile", () => {
+  // One member per call: the per-member limit is not what is tested here.
+  let n = 0;
+  const viewer = () => `55555555555555${String(++n).padStart(4, "0")}`;
+  const old = () => new Date(Date.now() - 5 * 60_000);
+  const withToken = (o: Partial<Row> = {}) => linked(OWNER, { public: true, snapshotAt: old(), ...o, token: sealGameToken(`header.e30.${game.roleId}`) } as Partial<Row>);
+
+  it("keeps the sealed token on link, never the token itself", async () => {
+    jar.game = `header.e30.${game.roleId}`;
+    jar.discord = sealSession(config, { id: OWNER, name: "Leo", avatar: null });
+    await accountRoute.POST(new Request(`${BASE}/api/discord-profile`, { method: "POST", headers: { origin: "https://mlbbdex.com", "content-type": "application/json", "x-forwarded-for": "203.0.113.7" }, body: JSON.stringify({ action: "link" }) }));
+    const kept = (table.rows[0] as Row & { token?: string }).token;
+    expect(kept).toBeTruthy();
+    expect(kept).not.toContain(String(game.roleId));
+  });
+
+  it("reads fresh figures with the kept token when over a minute old", async () => {
+    withToken();
+    const before = table.rows[0]!.snapshotAt.getTime();
+    expect((await botGET(botRequest(OWNER, viewer()))).headers.get("content-type")).toBe("image/png");
+    expect(table.rows[0]!.snapshotAt.getTime()).toBeGreaterThan(before);
+    // Statistics down in this test: the figures last read stand.
+    expect(table.rows[0]!.snapshot).toMatchObject({ season: 40, matches: 0, roleId: game.roleId });
+  });
+
+  it("does not ask the game again within the minute", async () => {
+    withToken({ snapshotAt: new Date() });
+    const before = table.rows[0]!.snapshotAt.getTime();
+    await botGET(botRequest(OWNER, viewer()));
+    expect(table.rows[0]!.snapshotAt.getTime()).toBe(before);
+  });
+
+  it("forgets an expired token and draws the last figures", async () => {
+    withToken();
+    const before = table.rows[0]!.snapshotAt.getTime();
+    game.status = "expired";
+    expect((await botGET(botRequest(OWNER, viewer()))).headers.get("content-type")).toBe("image/png");
+    expect((table.rows[0] as Row & { token?: string | null }).token).toBeNull();
+    expect(table.rows[0]!.snapshotAt.getTime()).toBe(before);
+  });
+
+  it("draws the last figures without a token", async () => {
+    linked(OWNER, { public: true, snapshotAt: old() });
+    const before = table.rows[0]!.snapshotAt.getTime();
+    expect((await botGET(botRequest(OWNER, viewer()))).headers.get("content-type")).toBe("image/png");
+    expect(table.rows[0]!.snapshotAt.getTime()).toBe(before);
+  });
+});
