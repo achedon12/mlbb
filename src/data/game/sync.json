@@ -1,15 +1,16 @@
 {
-  "date": "2026-11-16T12:12:34.290Z",
+  "date": "2026-11-19T10:52:00.063Z",
   "source": "https://mobilelegends.fandom.com",
-  "heroes": 134,
-  "skins": 1062,
+  "heroes": 133,
+  "skins": 1090,
   "items": 102,
-  "patches": 278,
+  "patches": 340,
   "rankings": 133,
   "counters": 133,
   "builds": 133,
   "sources": [
     "https://mobilelegends.fandom.com",
+    "https://liquipedia.net/mobilelegends",
     "https://arena.rone.dev"
   ]
 }

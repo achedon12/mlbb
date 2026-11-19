@@ -5,8 +5,8 @@
       "description": "ใช้สกิลและการโจมตีพื้นฐานที่ได้รับการปรับปรุงเพื่อประสิทธิภาพในการป่าที่สูงมาก",
       "skills": [
         {
-          "name": null,
-          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_db82969869000375f7e6f1ab7ae895b3.png"
+          "name": "Slayer Shards",
+          "icon": "/visuels/competences/slayer-shards.webp"
         },
         {
           "name": null,
@@ -14,8 +14,8 @@
           "basicAttack": true
         },
         {
-          "name": null,
-          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_51b68183615922a3891919cd0a0d5536.png"
+          "name": "Soul Shards",
+          "icon": "/visuels/competences/soul-shards.webp"
         },
         {
           "name": null,
@@ -29,8 +29,8 @@
       "description": "ใช้สกิลที่ 2 เพื่อพรางตัวและขนาบข้างศัตรู สร้างความเสียหายด้วยสกิลแรกและการโจมตีพื้นฐานของเขา และท่าไม้ตายเพื่อกำจัดฮีโร่แนวหลัง",
       "skills": [
         {
-          "name": null,
-          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_db82969869000375f7e6f1ab7ae895b3.png"
+          "name": "Slayer Shards",
+          "icon": "/visuels/competences/slayer-shards.webp"
         },
         {
           "name": null,
@@ -38,8 +38,8 @@
           "basicAttack": true
         },
         {
-          "name": null,
-          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_51b68183615922a3891919cd0a0d5536.png"
+          "name": "Soul Shards",
+          "icon": "/visuels/competences/soul-shards.webp"
         },
         {
           "name": null,
@@ -47,8 +47,8 @@
           "basicAttack": true
         },
         {
-          "name": null,
-          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_2fe1e567c14d3bd648184285b7d9d427.png"
+          "name": "Endless Shards",
+          "icon": "/visuels/competences/endless-shards.webp"
         }
       ]
     }
@@ -684,7 +684,7 @@
       "skills": [
         {
           "name": "Sea Ink",
-          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_c202bb567a0c80d5707288e75fdacfb8.png"
+          "icon": "/visuels/competences/sea-ink.webp"
         },
         {
           "name": null,
@@ -702,7 +702,7 @@
         },
         {
           "name": "Sea Ink",
-          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_c202bb567a0c80d5707288e75fdacfb8.png"
+          "icon": "/visuels/competences/sea-ink.webp"
         },
         {
           "name": null,
@@ -717,7 +717,7 @@
       "skills": [
         {
           "name": "Sea Ink",
-          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_c202bb567a0c80d5707288e75fdacfb8.png"
+          "icon": "/visuels/competences/sea-ink.webp"
         },
         {
           "name": "Deadly Catch",
@@ -730,7 +730,7 @@
         },
         {
           "name": "Sea Ink",
-          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_c202bb567a0c80d5707288e75fdacfb8.png"
+          "icon": "/visuels/competences/sea-ink.webp"
         },
         {
           "name": null,
@@ -822,7 +822,7 @@
           "icon": "/visuels/competences/baxia-shield-unity.webp"
         },
         {
-          "name": "Tortoise's Puissance",
+          "name": "Tortoise’s Puissance",
           "icon": "/visuels/competences/tortoise-s-puissance.webp"
         },
         {
@@ -873,7 +873,7 @@
       "skills": [
         {
           "name": "Bennett's Rage",
-          "icon": "/visuels/competences/bennett-s-rage.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_0cafa22d656d6a2c14cf5259d91762fa.png"
         },
         {
           "name": "Masterful Gunner",
@@ -881,7 +881,7 @@
         },
         {
           "name": "Nibiru's Passion",
-          "icon": "/visuels/competences/nibiru-s-passion.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_c3b4d741305b9662e5295a0425b2a1a7.png"
         },
         {
           "name": null,
@@ -1615,11 +1615,11 @@
         },
         {
           "name": "Lightning Bolt",
-          "icon": "/visuels/competences/lightning-bolt.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_bc15a9e8821ea55e507269a984459154.png"
         },
         {
           "name": "Divine Retribution",
-          "icon": "/visuels/competences/divine-retribution.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_0afd44b80c98596aaf29cafb3b3a8a1f.png"
         },
         {
           "name": null,
@@ -1730,7 +1730,7 @@
           "icon": "/visuels/competences/ball-lightning.webp"
         },
         {
-          "name": "Thunder's Wrath",
+          "name": "Thunder’s Wrath",
           "icon": "/visuels/competences/thunder-s-wrath.webp"
         },
         {
@@ -1752,7 +1752,7 @@
           "icon": "/visuels/competences/ball-lightning.webp"
         },
         {
-          "name": "Thunder's Wrath",
+          "name": "Thunder’s Wrath",
           "icon": "/visuels/competences/thunder-s-wrath.webp"
         },
         {
@@ -1975,7 +1975,7 @@
         },
         {
           "name": "Appraiser's Wrath",
-          "icon": "/visuels/competences/appraiser-s-wrath.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_775f49d622b6611bc97a10108ead401c.png"
         }
       ]
     }
@@ -2454,7 +2454,7 @@
       "skills": [
         {
           "name": "Forbidden Ninjutsu: Black Mist",
-          "icon": "/visuels/competences/forbidden-ninjutsu-black-mist.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_2e6bdaf0784cffb7c0a636b77dce95e7.png"
         },
         {
           "name": null,
@@ -2463,7 +2463,7 @@
         },
         {
           "name": "Forbidden Ninjutsu: Soul Snatch",
-          "icon": "/visuels/competences/forbidden-ninjutsu-soul-snatch.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_74eb2011217392bd06c2dc2cf9434731.png"
         }
       ]
     },
@@ -2477,7 +2477,7 @@
         },
         {
           "name": "Forbidden Ninjutsu: Black Mist",
-          "icon": "/visuels/competences/forbidden-ninjutsu-black-mist.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_2e6bdaf0784cffb7c0a636b77dce95e7.png"
         },
         {
           "name": null,
@@ -2486,7 +2486,7 @@
         },
         {
           "name": "Forbidden Ninjutsu: Soul Snatch",
-          "icon": "/visuels/competences/forbidden-ninjutsu-soul-snatch.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_74eb2011217392bd06c2dc2cf9434731.png"
         }
       ]
     }
@@ -2751,11 +2751,11 @@
         },
         {
           "name": "Infernal Torrent",
-          "icon": "/visuels/competences/infernal-torrent.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_91ebdff8ef41201f5aec33240ea632f8.png"
         },
         {
           "name": "Falling Maple",
-          "icon": "/visuels/competences/falling-maple.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_1f6a0ce72a450b74c732bcb3a7a8d686.png"
         },
         {
           "name": "Kaerazu",
@@ -2773,11 +2773,11 @@
         },
         {
           "name": "Infernal Torrent",
-          "icon": "/visuels/competences/infernal-torrent.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_91ebdff8ef41201f5aec33240ea632f8.png"
         },
         {
           "name": "Falling Maple",
-          "icon": "/visuels/competences/falling-maple.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_1f6a0ce72a450b74c732bcb3a7a8d686.png"
         }
       ]
     }
@@ -2841,7 +2841,7 @@
           "basicAttack": true
         },
         {
-          "name": "Force of the Queen",
+          "name": "Force of The Queen",
           "icon": "/visuels/competences/force-of-the-queen.webp"
         },
         {
@@ -2878,7 +2878,7 @@
           "basicAttack": true
         },
         {
-          "name": "Force of the Queen",
+          "name": "Force of The Queen",
           "icon": "/visuels/competences/force-of-the-queen.webp"
         }
       ]
@@ -3063,7 +3063,7 @@
         },
         {
           "name": "Enhanced Scythe",
-          "icon": "/visuels/competences/enhanced-scythe.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_0a8cc82e7f9998f630f34f04c61d3595.png"
         },
         {
           "name": null,
@@ -3086,7 +3086,7 @@
         },
         {
           "name": "Enhanced Chain",
-          "icon": "/visuels/competences/enhanced-chain.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_3b0519e2fe149c133739e4ba3acd8475.png"
         }
       ]
     }
@@ -3582,15 +3582,15 @@
         },
         {
           "name": "Raging Slash",
-          "icon": "/visuels/competences/raging-slash.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_77042b1a4020eef7c59fc51ac080a91c.png"
         },
         {
           "name": "Storm Sword",
-          "icon": "/visuels/competences/storm-sword.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_d09db3b0fb47d66e6ce2c80371141c68.png"
         },
         {
           "name": "Land Shaker",
-          "icon": "/visuels/competences/land-shaker.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_314a8fc8ae1bed40e359345d5f4d31a0.png"
         }
       ]
     }
@@ -3899,7 +3899,7 @@
         },
         {
           "name": "Shockwave Blast",
-          "icon": "/visuels/competences/shockwave-blast.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_c751fb684db1294450cb37cb333ca558.png"
         }
       ]
     }
@@ -3911,7 +3911,7 @@
       "skills": [
         {
           "name": "Cosmic Fission",
-          "icon": "/visuels/competences/cosmic-fission.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_d67ac23319eff91169044a7d89484d77.png"
         },
         {
           "name": "Chaos Assault",
@@ -3929,7 +3929,7 @@
       "skills": [
         {
           "name": "Cosmic Fission",
-          "icon": "/visuels/competences/cosmic-fission.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_d67ac23319eff91169044a7d89484d77.png"
         },
         {
           "name": "Chaos Assault",
@@ -3937,7 +3937,7 @@
         },
         {
           "name": "Power of Chaos: Darkening",
-          "icon": "/visuels/competences/power-of-chaos-darkening.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_3673d187cf12182b09ba1a0054ca0742.png"
         },
         {
           "name": "Chaos Assault",
@@ -3949,7 +3949,7 @@
         },
         {
           "name": "Power of Order: Brilliance",
-          "icon": "/visuels/competences/power-of-order-brilliance.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_928f5ae97116806edf7fd06522aee9e9.png"
         }
       ]
     }
@@ -4898,7 +4898,7 @@
       "skills": [
         {
           "name": "Wings by Wings",
-          "icon": "/visuels/competences/wings-by-wings.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_566a1f86bd9177eb7b75f0fb0a0c762c.png"
         },
         {
           "name": "Curse of Crow",
@@ -4978,7 +4978,7 @@
         },
         {
           "name": "Popol's Surprise",
-          "icon": "/visuels/competences/popol-s-surprise.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_7db33104991653d4a6263db544dedc53.png"
         },
         {
           "name": null,
@@ -5009,7 +5009,7 @@
         },
         {
           "name": "Popol's Surprise",
-          "icon": "/visuels/competences/popol-s-surprise.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_7db33104991653d4a6263db544dedc53.png"
         },
         {
           "name": null,
@@ -5072,7 +5072,7 @@
         },
         {
           "name": "Bloodthirsty Howl",
-          "icon": "/visuels/competences/bloodthirsty-howl.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_c593ba4f2bebc21c6e099256e94ef2ec.png"
         },
         {
           "name": null,
@@ -5081,7 +5081,7 @@
         },
         {
           "name": "Lycan Pounce",
-          "icon": "/visuels/competences/lycan-pounce.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_3c6152c1e1bb2ceae95818e06bcfed86.png"
         }
       ]
     },
@@ -5103,11 +5103,11 @@
         },
         {
           "name": "Bloodthirsty Howl",
-          "icon": "/visuels/competences/bloodthirsty-howl.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_c593ba4f2bebc21c6e099256e94ef2ec.png"
         },
         {
           "name": "Lycan Pounce",
-          "icon": "/visuels/competences/lycan-pounce.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_3c6152c1e1bb2ceae95818e06bcfed86.png"
         }
       ]
     }
@@ -5226,15 +5226,15 @@
         },
         {
           "name": "Garotte",
-          "icon": "/visuels/competences/garotte.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_c2a0d728e05af9460c1cfa97bd0acd56.png"
         },
         {
           "name": "Soul Eater",
-          "icon": "/visuels/competences/soul-eater.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_beba48ddc774a4267f72ba8a93666998.png"
         },
         {
           "name": "Garotte",
-          "icon": "/visuels/competences/garotte.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_c2a0d728e05af9460c1cfa97bd0acd56.png"
         }
       ]
     }
@@ -5822,7 +5822,7 @@
           "basicAttack": true
         },
         {
-          "name": "Swallow's Path",
+          "name": "Swallow’s Path",
           "icon": "/visuels/competences/swallow-s-path.webp"
         },
         {
@@ -5841,7 +5841,7 @@
       "description": "ในการต่อสู้เป็นทีม ใช้การโจมตีพื้นฐานเพื่อพุ่งด้วย Passive ของเธอ และปรับตำแหน่งเพื่อสร้างความเสียหาย จากนั้นโจมตีให้มากที่สุดเท่าที่จะเป็นไปได้ด้วยสกิลแรกของเธอ หลังจากโจมตีจุดอ่อนทั้งหมดแล้ว ให้เก็บเกี่ยวการสังหารด้วยท่าไม้ตายของเธอ",
       "skills": [
         {
-          "name": "Swallow's Path",
+          "name": "Swallow’s Path",
           "icon": "/visuels/competences/swallow-s-path.webp"
         },
         {
@@ -6051,7 +6051,7 @@
         },
         {
           "name": "Frenzy Strike",
-          "icon": "/visuels/competences/frenzy-strike.webp"
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_e34f614b0fe2d29abc6364e3a2ab4969.png"
         }
       ]
     }

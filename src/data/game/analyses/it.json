@@ -540,7 +540,7 @@
     "builds": [
       {
         "name": "Bruciore e penetrazione",
-        "context": "La build di gran lunga più giocata: Glowing Wand e Divine Glaive per il fuoco e la penetrazione magica, quindi Wishing Lantern per i danni agli HP attuali del bersaglio derivanti dal contatto con esso. È associato all'incantesimo Flameshot anziché a Flicker."
+        "context": "Le build le plus joué, de loin : Glowing Wand et Divine Glaive pour la brûlure et la pénétration magique, puis Wishing Lantern pour des dégâts sur les PV actuels de la cible à force de la toucher. Il est associé au sort Flameshot plutôt qu'à Flicker."
       }
     ]
   },
@@ -982,7 +982,7 @@
       },
       {
         "name": "Resistori misti",
-        "context": "Seconda build più giocata, associata a Vengeance: Antique Cuirass contro i danni fisici delle abilità, Athena's Shield contro i danni magici, quando la squadra avversaria mescola i due."
+        "context": "Deuxième build le plus joué, associé à Vengeance : Antique Cuirass contre les dégâts physiques des compétences, Athena's Shield contre les dégâts magiques, quand l'équipe adverse mélange les deux."
       }
     ]
   },
@@ -1014,7 +1014,7 @@
       },
       {
         "name": "Contro la magia",
-        "context": "Athena's Shield al posto di Radiant Armor, con l'emblema di supporto: meno giocato, con una percentuale di vincita meglio misurata. Ideale contro una squadra avversaria con danni magici elevati."
+        "context": "Athena's Shield à la place de Radiant Armor, avec l'emblème de soutien : moins jouée, avec un meilleur taux de victoire mesuré. À préférer contre une équipe adverse aux dégâts magiques élevés."
       }
     ]
   },

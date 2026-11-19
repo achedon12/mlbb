@@ -4598,7 +4598,7 @@
         "name": "Minotaur",
         "type": "nerf",
         "tag": null,
-        "intro": "Perubahan kami sebelumnya pada regen Enrage Minotaur membuatnya terlalu kuat melawan hero yang mengandalkan serangan dasar multi-hit. Selain itu, HP-nya agak overtun karena merupakan tank CC. Jadi kami membuat perubahan baru pada regen Enrage-nya dan mengurangi penyembuhan skill Motivation Roar-nya.",
+        "intro": "Perubahan kami sebelumnya pada regen Enrage Minotaur membuatnya terlalu kuat melawan hero yang mengandalkan serangan dasar multi-hit. Selain itu, HP-nya agak overtun karena merupakan tank CC. Jadi kami membuat perubahan baru pada regen Enrage-nya dan mengurangi penyembuhan skill Motivation Roar-nya. Skill 2",
         "sections": [
           {
             "name": null,
@@ -7149,7 +7149,7 @@
                 ]
               }
             ],
-            "slug": "athena-s-shield"
+            "slug": null
           },
           {
             "name": "Dominance Ice",

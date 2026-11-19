@@ -982,7 +982,7 @@
       },
       {
         "name": "Resistencias mixtas",
-        "context": "Segunda configuración más jugada, asociada con Vengeance: Antique Cuirass contra daño físico de habilidades, Athena's Shield contra daño mágico, cuando el equipo contrario mezcla los dos."
+        "context": "Segunda configuración más jugada, asociada con Vengeance: Antique Cuirass contra daño físico de habilidades, Escudo de Atenea contra daño mágico, cuando el equipo contrario mezcla los dos."
       }
     ]
   },
@@ -1014,7 +1014,7 @@
       },
       {
         "name": "Contra la magia",
-        "context": "Athena's Shield en lugar de Radiant Armor, con el emblema de apoyo: menos jugado, con una tasa de victorias mejor medida. Se utiliza mejor contra un equipo contrario con un gran daño mágico."
+        "context": "Escudo de Atenea en lugar de Radiant Armor, con el emblema de apoyo: menos jugado, con una tasa de victorias mejor medida. Se utiliza mejor contra un equipo contrario con un gran daño mágico."
       }
     ]
   },

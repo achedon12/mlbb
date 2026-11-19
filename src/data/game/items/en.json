@@ -47,22 +47,6 @@
     "bestFor": "All heroes"
   },
   {
-    "slug": "athena-s-shield",
-    "name": "Athena's Shield",
-    "summary": "Resist Burst Magic Damage",
-    "category": "Defense",
-    "price": 2150,
-    "bonus": "+900 HP, +48 Magic Defense, +2 HP Regen",
-    "unique": null,
-    "passive": "Shield: Upon taking Magic Damage from enemy hero skills or Basic Attacks, reduces Magic Damage taken by 25% for 3 seconds (including the damage that triggers the effect)s. Regains this effect 5 seconds after leaving combat.",
-    "active": null,
-    "recipe": [
-      "Silence Robe",
-      "Vitality Crystal"
-    ],
-    "bestFor": "All heroes"
-  },
-  {
     "slug": "azure-blade",
     "name": "Azure Blade",
     "summary": null,
@@ -191,7 +175,8 @@
       "Dagger",
       "Iron Hunting Bow"
     ],
-    "bestFor": "Removed"
+    "bestFor": null,
+    "removed": true
   },
   {
     "slug": "book-of-sages",
@@ -247,7 +232,7 @@
     "passive": "Bud of Hope: Granted by Floryn and Dew. The equipment will reveal its true power once Dew evolves.",
     "active": null,
     "recipe": [],
-    "bestFor": "Removed"
+    "bestFor": null
   },
   {
     "slug": "calamity-reaper",
@@ -263,7 +248,8 @@
       "Magic Wand",
       "Azure Blade"
     ],
-    "bestFor": "Removed"
+    "bestFor": null,
+    "removed": true
   },
   {
     "slug": "chastise-pauldron",
@@ -273,7 +259,7 @@
     "price": 2100,
     "bonus": "+900 HP, +40 Physical Defense",
     "unique": null,
-    "passive": "Chastise: Taking damage will reduce the Attack Speed and Attack Speed cap of the attacker to 75% of normal for 2 seconds.@ Redemption: When incoming damage reduces HP below 30%, recover 20% Max HP over the next 2 seconds. This effect has a 60 seconds cooldown.",
+    "passive": "Chastise: Taking damage will reduce the Attack Speed and Attack Speed cap of the attacker to 75% of normal for 2 seconds. Redemption: When incoming damage reduces HP below 30%, recover 20% Max HP over the next 2 seconds. This effect has a 60 seconds cooldown.",
     "active": null,
     "recipe": [
       "Steel Legplates",
@@ -289,7 +275,7 @@
     "price": 2030,
     "bonus": "+45 Magic Power, +400 HP, +400 Mana, +10% Cooldown Reduction",
     "unique": null,
-    "passive": "Destiny: Gains 4.5(+0.5*Hero Level) Hybrid Defense for 5 seconds when dealing Magic Damage to enemy heroes, stacking up to 6 times (can gain 1 stack every 0.4 seconds).@ Gift: When HP drops below 50%, recovers 15% of HP over the next 3 seconds. When Mana drops below 50%, restores 15% of Mana over the next 3 seconds. Cooldown: 60 seconds.",
+    "passive": "Destiny: Gains 4.5(+0.5*Hero Level) Hybrid Defense for 5 seconds when dealing Magic Damage to enemy heroes, stacking up to 6 times (can gain 1 stack every 0.4 seconds). Gift: When HP drops below 50%, recovers 15% of HP over the next 3 seconds. When Mana drops below 50%, restores 15% of Mana over the next 3 seconds. Cooldown: 60 seconds.",
     "active": null,
     "recipe": [
       "Elegant Gem",
@@ -323,7 +309,7 @@
     "price": 2050,
     "bonus": "+30 Physical Attack, +30% Attack Speed, +5% Movement Speed",
     "unique": null,
-    "passive": "Corrosive: Basic Attacks gain 80 extra Physical Damage and slow the target by 8% (halved for ranged Basic Attacks) for 1.5 seconds. Stacks up to 5 times.@ Impulse: Basic Attacks grant 6% extra Attack Speed for 3 seconds, capped at 5 stacks.",
+    "passive": "Corrosive: Basic Attacks gain 80 extra Physical Damage and slow the target by 8% (halved for ranged Basic Attacks) for 1.5 seconds. Stacks up to 5 times. Impulse: Basic Attacks grant 6% extra Attack Speed for 3 seconds, capped at 5 stacks.",
     "active": null,
     "recipe": [
       "Swift Crossbow",
@@ -339,7 +325,7 @@
     "price": 1910,
     "bonus": "+1200 HP, +20 Magic Defense",
     "unique": null,
-    "passive": "Burning Soul: Deals (1.2% Total HP) Magic Damage to nearby enemies per second. This damage is increased by 125(+15*Hero Level)% against creeps and minions.@ Curse: Dealing damage with Burning Soul will reduce the target's Hybrid Defense by 3 for 3 seconds. Stacks up to 3 times.",
+    "passive": "Burning Soul: Deals (1.2% Total HP) Magic Damage to nearby enemies per second. This damage is increased by 125(+15*Hero Level)% against creeps and minions. Curse: Dealing damage with Burning Soul will reduce the target's Hybrid Defense by 3 for 3 seconds. Stacks up to 3 times.",
     "active": null,
     "recipe": [
       "Molten Essence",
@@ -369,7 +355,7 @@
     "price": 2180,
     "bonus": "+35 Physical Attack, +20% Attack Speed",
     "unique": null,
-    "passive": "Engulf: Basic Attacks deal 8% of the target's current HP as extra Physical Damage (capped at 60 against minions).@ Devour: Each Basic Attack recovers 10(+4*Hero Level) HP. This effect is halved against minions.",
+    "passive": "Engulf: Basic Attacks deal 8% of the target's current HP as extra Physical Damage (capped at 60 against minions). Devour: Each Basic Attack recovers 10(+4*Hero Level) HP. This effect is halved against minions.",
     "active": null,
     "recipe": [
       "Regular Spear",
@@ -418,7 +404,7 @@
     "price": 2010,
     "bonus": "+40 Physical Defense, +40 Magic Defense, +5% Movement Speed",
     "unique": null,
-    "passive": "Fortress Shield: For each enemy hero within 5 units, Hybrid Defense is increased by 8, up to 40.@ Lifebane: Reduces Shield and HP Regen effects of nearby enemies within 5 units to 60% of normal for 1 second.",
+    "passive": "Fortress Shield: For each enemy hero within 5 units, Hybrid Defense is increased by 8, up to 40. Lifebane: Reduces Shield and HP Regen effects of nearby enemies within 5 units to 60% of normal for 1 second.",
     "active": null,
     "recipe": [
       "Black Ice Shield",
@@ -467,7 +453,7 @@
     "price": 2070,
     "bonus": "+70 Magic Power, +300 HP, +15% Cooldown Reduction",
     "unique": null,
-    "passive": "Mana Spring: Regenerates 15% of Max Mana every 10 seconds.@ Magic Mastery: Max Cooldown Reduction is increased by 5%.",
+    "passive": "Mana Spring: Regenerates 15% of Max Mana every 10 seconds. Magic Mastery: Max Cooldown Reduction is increased by 5%.",
     "active": null,
     "recipe": [
       "Tome of Evil",
@@ -529,7 +515,7 @@
     "price": 2030,
     "bonus": "+60 Magic Power, +20% Attack Speed, +10% Lifesteal, +5% Cooldown Reduction",
     "unique": null,
-    "passive": "Affliction: Each Basic Attack deals extra 50 (+30% Total Magic Power) Magic Damage.@ Impulse: Basic Attacks grant 6% extra Attack Speed for 3 seconds, capped at 5 stacks.",
+    "passive": "Affliction: Each Basic Attack deals extra 50 (+30% Total Magic Power) Magic Damage. Impulse: Basic Attacks grant 6% extra Attack Speed for 3 seconds, capped at 5 stacks.",
     "active": null,
     "recipe": [
       "Swift Crossbow",
@@ -623,7 +609,7 @@
     "price": 2150,
     "bonus": "+60 Magic Power, +300 HP, +5% Movement Speed",
     "unique": null,
-    "passive": "Scorch: Dealing Magic Damage burns the targets for 3 seconds, also dealing extra Magic Damage equal to 1% of the target's Max HP per second.@ Lifebane: Dealing damage to the target will reduce the Shield and HP Regen effects on them to 60% of normal for 3 seconds.",
+    "passive": "Scorch: Dealing Magic Damage burns the targets for 3 seconds, also dealing extra Magic Damage equal to 1% of the target's Max HP per second. Lifebane: Dealing damage to the target will reduce the Shield and HP Regen effects on them to 60% of normal for 3 seconds.",
     "active": null,
     "recipe": [
       "Exotic Veil",
@@ -640,7 +626,7 @@
     "price": 2000,
     "bonus": "+55 Physical Attack, +15% Attack Speed",
     "unique": null,
-    "passive": "Swift: Every 1% extra Crit Chance gained is converted into 1% extra Attack Speed.@ Endless Strike: After every 2 non-Crit Basic Attacks, the Attack Speed of the next Basic Attack is increased by 80% (and Attack Speed cap is increased to 500%) and triggers Attack Effects an additional 2 time(s).",
+    "passive": "Swift: Every 1% extra Crit Chance gained is converted into 1% extra Attack Speed. Endless Strike: After every 2 non-Crit Basic Attacks, the Attack Speed of the next Basic Attack is increased by 80% (and Attack Speed cap is increased to 500%) and triggers Attack Effects an additional 2 time(s).",
     "active": null,
     "recipe": [
       "Regular Spear",
@@ -674,7 +660,7 @@
     "price": 2500,
     "bonus": "+1800 HP, +20 HP Regen",
     "unique": null,
-    "passive": "Recovery: After 5 seconds out of combat, recover (2.5% Total HP) HP per second.@ Defender: Upon taking more than 500 damage in a single instance, recover 30 (+0.3% Total HP)% HP from the excess damage beyond that amount.",
+    "passive": "Recovery: After 5 seconds out of combat, recover (2.5% Total HP) HP per second. Defender: Upon taking more than 500 damage in a single instance, recover 30 (+0.3% Total HP)% HP from the excess damage beyond that amount.",
     "active": null,
     "recipe": [
       "Ares Belt",
@@ -986,7 +972,7 @@
     "price": 2120,
     "bonus": "+40 Physical Attack, +20% Attack Speed",
     "unique": null,
-    "passive": "Armor Buster: Increase Physical Penetration by 30%.@ Malefic Energy: Increases Basic Attack range by 12%. When hitting a target, gains 10% Movement Speed for 0.5 seconds.",
+    "passive": "Armor Buster: Increase Physical Penetration by 30%. Malefic Energy: Increases Basic Attack range by 12%. When hitting a target, gains 10% Movement Speed for 0.5 seconds.",
     "active": null,
     "recipe": [
       "Fury Hammer",
@@ -1003,7 +989,7 @@
     "price": 2060,
     "bonus": "+60 Physical Attack",
     "unique": null,
-    "passive": "Armor Buster: Increase Physical Penetration by 30%.@ Breaker: When attacking an enemy, gains 0.1% extra Physical Penetration for each point of the enemy's Physical Defense, capped at 30%.",
+    "passive": "Armor Buster: Increase Physical Penetration by 30%. Breaker: When attacking an enemy, gains 0.1% extra Physical Penetration for each point of the enemy's Physical Defense, capped at 30%.",
     "active": null,
     "recipe": [
       "Legion Sword"
@@ -1061,14 +1047,15 @@
     "price": 2010,
     "bonus": "+60 Magic Power, +300 HP, +380 Mana, +5% Cooldown Reduction",
     "unique": null,
-    "passive": "Gift: Regens 20% HP and Mana within 2 seconds of leveling up.@ Lifebane: Upon dealing damage to the target, reduces Shield and HP Regen of the target by 50% for 3 seconds.",
+    "passive": "Gift: Regens 20% HP and Mana within 2 seconds of leveling up. Lifebane: Upon dealing damage to the target, reduces Shield and HP Regen of the target by 50% for 3 seconds.",
     "active": null,
     "recipe": [
       "Book of Sages",
       "Elegant Gem",
       "Mystery Codex"
     ],
-    "bestFor": "Removed"
+    "bestFor": null,
+    "removed": true
   },
   {
     "slug": "ogre-tomahawk",
@@ -1137,7 +1124,7 @@
     "price": 2250,
     "bonus": "+750 HP, +30 Adaptive Attack, +10% Cooldown Reduction, +10% Spell Vamp",
     "unique": null,
-    "passive": "Demonize: When HP drops below 40%, gains 30% Damage Reduction for 3 seconds and reduces skill cooldowns by 2 seconds. This effect has a 60 seconds cooldown.@ Defiance: For every 1% HP lost, damage is increased by 0.25%, up to 15%.",
+    "passive": "Demonize: When HP drops below 40%, gains 30% Damage Reduction for 3 seconds and reduces skill cooldowns by 2 seconds. This effect has a 60 seconds cooldown. Defiance: For every 1% HP lost, damage is increased by 0.25%, up to 15%.",
     "active": null,
     "recipe": [
       "Ares Belt",
@@ -1233,7 +1220,7 @@
     "price": 2030,
     "bonus": "+30 Physical Attack, +20% Attack Speed, +10% Lifesteal",
     "unique": null,
-    "passive": "Dragon Scale: Every 4 extra Physical Attack increases Hybrid Defense by 1, up to 50 (effect is halved if Main Role is not Fighter).@ Lifeline: When taking damage that reduces HP below 30%, gains a (120*Hero Level) shield (increases with level) and 50% Movement Speed that rapidly decays over 3 seconds. This effect has a 60 seconds cooldown.",
+    "passive": "Dragon Scale: Every 4 extra Physical Attack increases Hybrid Defense by 1, up to 50 (effect is halved if Main Role is not Fighter). Lifeline: When taking damage that reduces HP below 30%, gains a (120*Hero Level) shield (increases with level) and 50% Movement Speed that rapidly decays over 3 seconds. This effect has a 60 seconds cooldown.",
     "active": null,
     "recipe": [
       "Magic Blade",
@@ -1255,7 +1242,8 @@
       "Rogue Meteor",
       "Javelin"
     ],
-    "bestFor": "Removed"
+    "bestFor": null,
+    "removed": true
   },
   {
     "slug": "sea-halberd",
@@ -1265,7 +1253,7 @@
     "price": 2050,
     "bonus": "+80 Physical Attack, +20% Attack Speed",
     "unique": null,
-    "passive": "Lifebane: Dealing damage to a target will reduce the Shield and HP Regen effects on them to 60% of normal for 3 seconds.@ Punish: Increase damage by 8% against enemy heroes with higher extra HP.",
+    "passive": "Lifebane: Dealing damage to a target will reduce the Shield and HP Regen effects on them to 60% of normal for 3 seconds. Punish: Increase damage by 8% against enemy heroes with higher extra HP.",
     "active": null,
     "recipe": [
       "Legion Sword",
@@ -1287,7 +1275,8 @@
       "Exotic Veil",
       "Mystic Container"
     ],
-    "bestFor": "Removed"
+    "bestFor": null,
+    "removed": true
   },
   {
     "slug": "shimmering-lantern",
@@ -1300,7 +1289,7 @@
     "passive": "Floryn can share the power of Dew's Lantern with an allied hero. The Lantern is not strong enough yet and can evolve once it absorbs enough energy in battle.",
     "active": null,
     "recipe": [],
-    "bestFor": "Removed"
+    "bestFor": null
   },
   {
     "slug": "silence-robe",
@@ -1390,7 +1379,7 @@
     "price": 1000,
     "bonus": "+20% Attack Speed",
     "unique": null,
-    "passive": "Crossbow: Each Basic Attack deals 40 extra Adaptive Damage.@ Impulse: Basic Attacks grant 3% extra Attack Speed for 3 seconds, capped at 5 stacks.",
+    "passive": "Crossbow: Each Basic Attack deals 40 extra Adaptive Damage. Impulse: Basic Attacks grant 3% extra Attack Speed for 3 seconds, capped at 5 stacks.",
     "active": null,
     "recipe": [
       "Knife",
@@ -1455,14 +1444,31 @@
     "price": 2100,
     "bonus": "+1200 HP, +15 Physical Defense",
     "unique": null,
-    "passive": "Twilight: Upon taking more than 500 damage in a single instance, the excess damage beyond that amount is reduced by 20 (+0.2% Total HP)%.@ Redemption: When incoming damage reduces HP below 30%, recover 20% Max HP over the next 4 seconds. This effect has a 60 seconds cooldown.",
+    "passive": "Twilight: Upon taking more than 500 damage in a single instance, the excess damage beyond that amount is reduced by 20 (+0.2% Total HP)%. Redemption: When incoming damage reduces HP below 30%, recover 20% Max HP over the next 4 seconds. This effect has a 60 seconds cooldown.",
     "active": null,
     "recipe": [
       "Ares Belt",
       "Ares Belt",
       "Leather Jerkin"
     ],
-    "bestFor": "Removed"
+    "bestFor": null,
+    "removed": true
+  },
+  {
+    "slug": "valkyrie-s-shield",
+    "name": "Valkyrie's Shield",
+    "summary": "Resist Burst Magic Damage",
+    "category": "Defense",
+    "price": 2150,
+    "bonus": "+900 HP, +48 Magic Defense, +2 HP Regen",
+    "unique": null,
+    "passive": "Shield: Upon taking Magic Damage from enemy hero skills or Basic Attacks, reduces Magic Damage taken by 25% for 3 seconds (including the damage that triggers the effect)s. Regains this effect 5 seconds after leaving combat.",
+    "active": null,
+    "recipe": [
+      "Silence Robe",
+      "Vitality Crystal"
+    ],
+    "bestFor": "All heroes"
   },
   {
     "slug": "vampire-mallet",

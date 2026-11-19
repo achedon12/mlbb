@@ -46,7 +46,7 @@
             "generic": false,
             "changes": [
               {
-                "text": "Golden Staff peut désormais déclencher la régénération HP par des attaques de base améliorées."
+                "text": "Golden Staff peut désormais déclencher la régénération PV par des attaques de base améliorées."
               }
             ]
           }
@@ -231,7 +231,7 @@
             "name": "Custom Marksman Emblem",
             "type": "buff",
             "tag": null,
-            "intro": "De nombreux tireurs d'élite ont progressivement commencé à utiliser l'emblème d'assassin personnalisé avec des mises à jour de correctifs. Nous pensons que les emblèmes devraient jouer un rôle en début de partie par rapport à l'équipement, qui peut être modifié au cours du match. Par conséquent, nous avons ajusté l'emblème du tireur d'élite personnalisé pour fournir des attributs plus puissants en début et en milieu de partie.",
+            "intro": "De nombreux tireurs ont progressivement commencé à utiliser l'emblème d'assassin personnalisé avec des mises à jour de correctifs. Nous pensons que les emblèmes devraient jouer un rôle en début de partie par rapport à l'équipement, qui peut être modifié au cours du match. Par conséquent, nous avons ajusté l'emblème du tireur personnalisé pour fournir des attributs plus puissants en début et en milieu de partie.",
             "sections": [
               {
                 "name": "Attributs de l'emblème",
@@ -747,7 +747,7 @@
       },
       {
         "category": "items",
-        "title": "Ajustements des serviteurs et des Creeps",
+        "title": "Ajustements des sbires et des Creeps",
         "entries": [
           {
             "name": "Lord (Neutral)",
@@ -786,7 +786,7 @@
                 "generic": false,
                 "changes": [
                   {
-                    "label": "HP",
+                    "label": "PV",
                     "before": "+20%",
                     "after": "+30%"
                   }
@@ -930,7 +930,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dégâts physiques basés sur les HP maximum",
+                "label": "Dégâts physiques basés sur les PV maximum",
                 "before": "8-14%",
                 "after": "6-10%"
               }
@@ -943,7 +943,7 @@
         "name": "Zhuxin",
         "type": "adjust",
         "tag": null,
-        "intro": "Affaiblissement de ses capacités de contrôle tout en améliorant l'expérience d'élimination des serviteurs avec Lantern Flare ou d'être contrôlé par des ennemis.",
+        "intro": "Affaiblissement de ses capacités de contrôle tout en améliorant l'expérience d'élimination des sbires avec Lantern Flare ou d'être contrôlé par des ennemis.",
         "sections": [
           {
             "name": "Attributs",
@@ -967,7 +967,7 @@
             "generic": false,
             "changes": [
               {
-                "text": "Nouvel effet : inflige 20 % de dégâts supplémentaires aux serviteurs."
+                "text": "Nouvel effet : inflige 20 % de dégâts supplémentaires aux sbires."
               },
               {
                 "text": "Nouvel effet : désormais, lorsque la compétence est interrompue par des effets de contrôle, l'indicateur de compétence s'arrêtera à sa position d'origine. Une fois le contrôle terminé, vous n'avez plus besoin de « faire glisser » à nouveau l'indicateur de compétence."
@@ -1327,7 +1327,7 @@
       },
       {
         "category": "items",
-        "title": "Ajustements des serviteurs et des Creeps",
+        "title": "Ajustements des sbires et des Creeps",
         "entries": [
           {
             "name": "Lord (Neutral)",
@@ -1542,7 +1542,7 @@
                 "after": "9.5-7s"
               },
               {
-                "label": "Durée de l’immunité de contrôle",
+                "label": "Durée de l’immunité aux contrôles",
                 "before": "1s",
                 "after": "0.4s (match the displacement duration)"
               }
@@ -1569,7 +1569,7 @@
         "name": "Chou",
         "type": "buff",
         "tag": null,
-        "intro": "Désormais, Chou a progressivement perdu la capacité d'affronter directement d'autres combattants dans la voie Exp et ne peut que chercher des occasions de donner un coup de pied aux ennemis dans la tourelle pour obtenir un avantage. Nous espérons que les ajustements suivants pourront résoudre ce problème.",
+        "intro": "Désormais, Chou a progressivement perdu la capacité d'affronter directement d'autres combattants dans la EXP lane et ne peut que chercher des occasions de donner un coup de pied aux ennemis dans la tourelle pour obtenir un avantage. Nous espérons que les ajustements suivants pourront résoudre ce problème.",
         "sections": [
           {
             "name": "Only Fast",
@@ -1870,7 +1870,7 @@
                 "text": "Ajustement de l'effet : récupère 4 % des PV maximum lorsque l'explosion atteint une cible."
               },
               {
-                "text": "Ajustement de l'effet : doublez la quantité de HP récupérés (de 6 % à 8 % des HP Max) lorsque l'explosion frappe un héros."
+                "text": "Ajustement de l'effet : doublez la quantité de PV récupérés (de 6 % à 8 % des PV Max) lorsque l'explosion frappe un héros."
               }
             ]
           }
@@ -2624,7 +2624,7 @@
         "name": "Wanwan",
         "type": "buff",
         "tag": null,
-        "intro": "En raison du mécanisme unique de « mouvement après chaque attaque » de Wanwan, ses dégâts subis sont plus faibles que ceux de la plupart des tireurs d'élite. Nous avons augmenté sa vitesse d'attaque pour compenser cela.",
+        "intro": "En raison du mécanisme unique de « mouvement après chaque attaque » de Wanwan, ses dégâts subis sont plus faibles que ceux de la plupart des tireurs. Nous avons augmenté sa vitesse d'attaque pour compenser cela.",
         "sections": [
           {
             "name": "Attributs",
@@ -2863,7 +2863,7 @@
         "entries": [],
         "lines": [
           {
-            "text": "Optimisation de la vitesse de régénération HP de Spawn Point. La vitesse de régénération est doublée, mais la quantité de PV récupérés à chaque fois a été réduite de moitié (le temps total de régénération reste inchangé).",
+            "text": "Optimisation de la vitesse de régénération PV de Spawn Point. La vitesse de régénération est doublée, mais la quantité de PV récupérés à chaque fois a été réduite de moitié (le temps total de régénération reste inchangé).",
             "level": 0,
             "type": null
           }
@@ -2983,7 +2983,7 @@
                 "after": "240-440 +70 AD suppl."
               },
               {
-                "label": "HP restaurés par une attaque de base améliorée",
+                "label": "PV restaurés par une attaque de base améliorée",
                 "before": "50-100",
                 "after": "50-100 +1 max-hp"
               },
@@ -3287,7 +3287,7 @@
         "name": "Harith",
         "type": "nerf",
         "tag": null,
-        "intro": "La suppression d'Harith dans la Voie d'Or était un peu trop élevée, nous avons donc réduit sa capacité de survie.",
+        "intro": "La suppression d'Harith dans la Gold lane était un peu trop élevée, nous avons donc réduit sa capacité de survie.",
         "sections": [
           {
             "name": "Attributs",
@@ -3528,7 +3528,7 @@
             "type": null
           },
           {
-            "text": "Pour réduire le nombre de fois où l'équipe avantagée partirait avant de tuer le crabe charognard et que l'équipe adverse terminerait facilement le travail, nous avons réduit l'intervalle de régénération de HP du crabe charognard et augmenté son efficacité de régénération de HP à la sortie du combat.",
+            "text": "Pour réduire le nombre de fois où l'équipe avantagée partirait avant de tuer le crabe charognard et que l'équipe adverse terminerait facilement le travail, nous avons réduit l'intervalle de régénération de PV du crabe charognard et augmenté son efficacité de régénération de PV à la sortie du combat.",
             "level": 0,
             "type": null
           }
@@ -3756,7 +3756,7 @@
         "name": "Roger",
         "type": "nerf",
         "tag": null,
-        "intro": "Roger dominait en laning contre d'autres tireurs d'élite avec son Lifesteal extrêmement élevé en début de partie, tandis que d'autres étaient nerfés. Nous avons réduit son vol de vie, mais avons également assuré sa capacité de survie sous sa forme de loup en début de partie.",
+        "intro": "Roger dominait en laning contre d'autres tireurs avec son Lifesteal extrêmement élevé en début de partie, tandis que d'autres étaient nerfés. Nous avons réduit son vol de vie, mais avons également assuré sa capacité de survie sous sa forme de loup en début de partie.",
         "sections": [
           {
             "name": "Attributs",
@@ -3920,16 +3920,16 @@
     "sections": [
       {
         "category": "system",
-        "title": "Ajustements des serviteurs",
+        "title": "Ajustements des sbires",
         "entries": [],
         "lines": [
           {
-            "text": "Nous avons remarqué que les Mages ont désormais des difficultés à dégager les voies en fin de partie (surtout face aux Super Minions après la destruction des Tourelles de Base). Pour changer cela, nous avons réduit la défense magique de certains serviteurs tout en augmentant la défense du seigneur allié en fin de partie pour équilibrer la durée globale du match.",
+            "text": "Nous avons remarqué que les Mages ont désormais des difficultés à dégager les voies en fin de partie (surtout face aux Super Sbires après la destruction des Tourelles de Base). Pour changer cela, nous avons réduit la défense magique de certains sbires tout en augmentant la défense du seigneur allié en fin de partie pour équilibrer la durée globale du match.",
             "level": 0,
             "type": null
           },
           {
-            "text": "Réduction de la défense magique de base des serviteurs de siège et des serviteurs de siège spéciaux de 20, ainsi que de leur croissance de défense magique par minute de 1.",
+            "text": "Réduction de la défense magique de base des sbires de siège et des sbires de siège spéciaux de 20, ainsi que de leur croissance de défense magique par minute de 1.",
             "level": 1,
             "type": null
           },
@@ -4037,7 +4037,7 @@
                 "generic": true,
                 "changes": [
                   {
-                    "text": "Infliger des dégâts à une cible réduira les effets de bouclier et de régénération de HP de 50 % pendant 3 secondes."
+                    "text": "Infliger des dégâts à une cible réduira les effets de bouclier et de régénération de PV de 50 % pendant 3 secondes."
                   }
                 ]
               },
@@ -4126,7 +4126,7 @@
                 "generic": true,
                 "changes": [
                   {
-                    "text": "Cet effet est réduit à 50 % pour les tireurs d'élite et les mages."
+                    "text": "Cet effet est réduit à 50 % pour les tireurs et les mages."
                   }
                 ]
               }
@@ -4375,7 +4375,7 @@
                 "generic": true,
                 "changes": [
                   {
-                    "text": "Lorsque les HP descendent en dessous de 50 %, récupère 15 % des HP au cours des 2 prochaines secondes. Lorsque le mana tombe en dessous de 50 %, restaure 15 % du mana au cours des 2 prochaines secondes. Temps de recharge : 40 s."
+                    "text": "Lorsque les PV descendent en dessous de 50 %, récupère 15 % des PV au cours des 2 prochaines secondes. Lorsque le mana tombe en dessous de 50 %, restaure 15 % du mana au cours des 2 prochaines secondes. Temps de recharge : 40 s."
                   }
                 ]
               }
@@ -4551,7 +4551,7 @@
         "name": "Masha",
         "type": "adjust",
         "tag": null,
-        "intro": "Nous sommes heureux de voir Masha être davantage utilisée après les ajustements précédents. Maintenant que les joueurs sont plus à l'aise avec elle, nous avons constaté qu'elle est trop faible en début et en milieu de partie. Masha est obligée de jouer défensivement contre la plupart des autres héros sur la voie EXP jusqu'au niveau 4, puis s'appuie sur les héros tués pour grandir suffisamment pour éliminer les héros spongieux de l'ennemi en fin de partie. Pour remédier à cela, nous voulons essayer d'augmenter leur potentiel de lane pour un début et un milieu de partie plus fluides, tout en nerfant légèrement leur potentiel de burst en fin de partie.",
+        "intro": "Nous sommes heureux de voir Masha être davantage utilisée après les ajustements précédents. Maintenant que les joueurs sont plus à l'aise avec elle, nous avons constaté qu'elle est trop faible en début et en milieu de partie. Masha est obligée de jouer défensivement contre la plupart des autres héros sur la EXP lane jusqu'au niveau 4, puis s'appuie sur les héros tués pour grandir suffisamment pour éliminer les héros spongieux de l'ennemi en fin de partie. Pour remédier à cela, nous voulons essayer d'augmenter leur potentiel de lane pour un début et un milieu de partie plus fluides, tout en nerfant légèrement leur potentiel de burst en fin de partie.",
         "sections": [
           {
             "name": "Wild Power",
@@ -4598,7 +4598,7 @@
         "name": "Minotaur",
         "type": "nerf",
         "tag": null,
-        "intro": "Nos modifications précédentes apportées à la régénération Enragement du Minotaure le rendaient trop puissant contre les héros qui s'appuient sur des attaques de base à plusieurs coups. De plus, ses HP sont un peu excessifs puisqu'il s'agit d'un tank CC. Nous apportons donc de nouveaux changements à sa régénération Enrage et réduisons les soins de sa compétence Motivation Roar.",
+        "intro": "Nos modifications précédentes apportées à la régénération Enragement du Minotaure le rendaient trop puissant contre les héros qui s'appuient sur des attaques de base à plusieurs coups. De plus, ses PV sont un peu excessifs puisqu'il s'agit d'un tank CC. Nous apportons donc de nouveaux changements à sa régénération Enrage et réduisons les soins de sa compétence Motivation Roar. Compétence 2",
         "sections": [
           {
             "name": null,
@@ -4613,7 +4613,7 @@
                 "after": "220-320 +60 MP"
               },
               {
-                "label": "Régénération HP",
+                "label": "Régénération PV",
                 "before": "Recovers HP equal to 200-450 +100 MP when hit by enemy heroes' Basic Attacks",
                 "after": "Recovers HP equal to 100% of Basic Attack Damage taken from enemy heroes"
               }
@@ -5007,7 +5007,7 @@
             "name": "Wishing Lantern",
             "type": "buff",
             "tag": null,
-            "intro": "Les dégâts infligés par cet équipement aux héros à HP élevé ont considérablement augmenté.",
+            "intro": "Les dégâts infligés par cet équipement aux héros à PV élevé ont considérablement augmenté.",
             "sections": [
               {
                 "name": "Passif unique – Chercheur",
@@ -5267,7 +5267,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Régénération HP de l'état Enragé",
+                "label": "Régénération PV de l'état Enragé",
                 "before": "Recovers HP equal to 200% of Basic Attack Damage taken",
                 "after": "Recovers HP equal to 200-450 +100 MP when hit by enemy heroes' Basic Attacks"
               }
@@ -5571,7 +5571,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Régénération HP",
+                "label": "Régénération PV",
                 "before": "300 +15% of Lost HP",
                 "after": "300+45% of Lost HP"
               }
@@ -5767,7 +5767,7 @@
         "name": "Gloo",
         "type": "buff",
         "tag": null,
-        "intro": "Étant donné que la régénération de HP de Goo est extrêmement puissante en lane, mais insignifiante dans les combats en équipe, nous avons décidé de rendre l'utilisation de Goo par Gloo beaucoup plus gratifiante.",
+        "intro": "Étant donné que la régénération de PV de Goo est extrêmement puissante en lane, mais insignifiante dans les combats en équipe, nous avons décidé de rendre l'utilisation de Goo par Gloo beaucoup plus gratifiante.",
         "sections": [
           {
             "name": "Slam, Slam",
@@ -5958,7 +5958,7 @@
         "name": "Masha",
         "type": "buff",
         "tag": null,
-        "intro": "Avec l'immunité de contrôle lorsque sa dernière barre HP est retirée, Masha peut être facilement contrôlée en permanence, ce qui n'est pas agréable. De plus, son coût élevé en HP lui rend difficile la préparation des combats en équipe en fin de partie. Pour remédier à cela, nous annulons certaines modifications apportées à ses statistiques de base.",
+        "intro": "Avec l'immunité aux contrôles lorsque sa dernière barre PV est retirée, Masha peut être facilement contrôlée en permanence, ce qui n'est pas agréable. De plus, son coût élevé en PV lui rend difficile la préparation des combats en équipe en fin de partie. Pour remédier à cela, nous annulons certaines modifications apportées à ses statistiques de base.",
         "sections": [
           {
             "name": "Attributs",
@@ -5994,7 +5994,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Coût en HP",
+                "label": "Coût en PV",
                 "before": "24%",
                 "after": "24%-16%"
               }
@@ -6008,7 +6008,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Coût en HP",
+                "label": "Coût en PV",
                 "before": "24%",
                 "after": "24%-16%"
               }
@@ -7149,7 +7149,7 @@
                 ]
               }
             ],
-            "slug": "athena-s-shield"
+            "slug": null
           },
           {
             "name": "Dominance Ice",
@@ -7765,7 +7765,7 @@
         "name": "Joy",
         "type": "adjust",
         "tag": null,
-        "intro": "Changements expérimentaux : Le gameplay de Joy est trop facile à jouer dans des matchs de haut rang et de haut niveau, nous avons donc supprimé son immunité de contrôle mais avons considérablement augmenté ses dégâts.",
+        "intro": "Changements expérimentaux : Le gameplay de Joy est trop facile à jouer dans des matchs de haut rang et de haut niveau, nous avons donc supprimé son immunité aux contrôles mais avons considérablement augmenté ses dégâts.",
         "sections": [
           {
             "name": "Ha, Electrifying Beats!",
@@ -7826,7 +7826,7 @@
         "name": "Masha",
         "type": "buff",
         "tag": null,
-        "intro": "La suppression de l'immunité de contrôle facilite le kite de Masha dans certaines situations. Nous avons donc augmenté sa portée d'attaque de base et réduit le temps de recharge de ses dégâts à distance pour lui donner plus de marge de manœuvre.",
+        "intro": "La suppression de l'immunité aux contrôles facilite le kite de Masha dans certaines situations. Nous avons donc augmenté sa portée d'attaque de base et réduit le temps de recharge de ses dégâts à distance pour lui donner plus de marge de manœuvre.",
         "sections": [
           {
             "name": "Attributs",
@@ -8465,7 +8465,7 @@
             "intro": "Certains héros ont besoin de moins compter sur les buffs violets, nous avons donc réduit les effets des buffs et le coût en mana ou en énergie pour certains héros.",
             "sections": [
               {
-                "name": "Récompense de fluage",
+                "name": "Récompense de creep",
                 "slot": null,
                 "type": null,
                 "tag": null,
@@ -8575,7 +8575,7 @@
                     "text": "Après avoir infligé des dégâts à un héros ennemi, exécute le héros si ses PV sont inférieurs à 5%."
                   },
                   {
-                    "text": "Gagne 10 charges de létalité pour chaque mort et perd 8 charges pour chaque mort. Chaque cumul de Létalité augmente le seuil de HP de l'effet d'exécution de 0,1%, cumulable 70 fois."
+                    "text": "Gagne 10 charges de létalité pour chaque mort et perd 8 charges pour chaque mort. Chaque cumul de Létalité augmente le seuil de PV de l'effet d'exécution de 0,1%, cumulable 70 fois."
                   }
                 ]
               }
@@ -8586,7 +8586,7 @@
             "name": "Malefic Gun",
             "type": null,
             "tag": "new",
-            "intro": "Nous souhaitons optimiser l'expérience d'attaque de base des tireurs d'élite et permettre à certains d'utiliser leur portée d'attaque et leurs mouvements pour infliger des dégâts lors des combats d'équipe en toute sécurité.",
+            "intro": "Nous souhaitons optimiser l'expérience d'attaque de base des tireurs et permettre à certains d'utiliser leur portée d'attaque et leurs mouvements pour infliger des dégâts lors des combats d'équipe en toute sécurité.",
             "sections": [
               {
                 "name": "Attributs de l'équipement",
@@ -8683,7 +8683,7 @@
                 "generic": true,
                 "changes": [
                   {
-                    "text": "Infliger des dégâts à une cible réduira les effets de bouclier et de régénération de HP à 50 % de la normale pendant 3 secondes."
+                    "text": "Infliger des dégâts à une cible réduira les effets de bouclier et de régénération de PV à 50 % de la normale pendant 3 secondes."
                   }
                 ]
               },
@@ -8708,7 +8708,7 @@
             "name": "Queen's Wings & Bloodlust Axe",
             "type": null,
             "tag": "merge",
-            "intro": "Nous avons supprimé Bloodlust Axe et ajouté ses effets aux Queen's Wings, qui, espérons-le, pourront accueillir davantage de combattants et les aider à réaliser des performances à faible HP.",
+            "intro": "Nous avons supprimé Bloodlust Axe et ajouté ses effets aux Queen's Wings, qui, espérons-le, pourront accueillir davantage de combattants et les aider à réaliser des performances à faible PV.",
             "sections": [
               {
                 "name": "Attributs de l'équipement",
@@ -8898,7 +8898,7 @@
                 "generic": true,
                 "changes": [
                   {
-                    "text": "Régénère 20 % de HP et de Mana dans les 2 secondes suivant la mise à niveau."
+                    "text": "Régénère 20 % de PV et de Mana dans les 2 secondes suivant la mise à niveau."
                   }
                 ]
               }
@@ -8909,7 +8909,7 @@
             "name": "Dominance Ice",
             "type": "adjust",
             "tag": null,
-            "intro": "Nous voulons qu'il ait des contre-effets similaires pour les combattants et les tireurs d'élite qui dépendent de la vitesse d'attaque.",
+            "intro": "Nous voulons qu'il ait des contre-effets similaires pour les combattants et les tireurs qui dépendent de la vitesse d'attaque.",
             "sections": [
               {
                 "name": "Passif unique – Froid arctique",
@@ -9097,7 +9097,7 @@
                     "after": "+90 Magic Power"
                   },
                   {
-                    "text": "Suppression de +500 HP maximum"
+                    "text": "Suppression de +500 PV maximum"
                   }
                 ]
               },
@@ -9337,9 +9337,9 @@
     "url": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.62_(Advanced_Server)",
     "date": "2024-02-24",
     "dateSource": "notes",
-    "summary": "Nouveaux paramètres de contrôle, Nerf de Nana, Nerf d'Aurora, Buff de Fredrinn, ajustements des tireurs d'élite, Nerf de l'équipement physique",
+    "summary": "Nouveaux paramètres de contrôle, Nerf de Nana, Nerf d'Aurora, Buff de Fredrinn, ajustements des tireurs, Nerf de l'équipement physique",
     "designerNotes": [
-      "Dans ce patch, nous continuons d'optimiser plusieurs héros qui ont été considérablement ajustés, ainsi que le nouveau héros sur le serveur avancé. Dans le même temps, nous avons apporté quelques ajustements supplémentaires à certains des héros tireurs d'élite qui avaient été ajustés dans le patch précédent.",
+      "Dans ce patch, nous continuons d'optimiser plusieurs héros qui ont été considérablement ajustés, ainsi que le nouveau héros sur le serveur avancé. Dans le même temps, nous avons apporté quelques ajustements supplémentaires à certains des héros tireurs qui avaient été ajustés dans le patch précédent.",
       "Dans le même temps, nous avons supprimé la réduction de 10 % de la vitesse d'attaque de base pour tous les héros, qui était utilisée conjointement avec l'optimisation des contrôles dans le patch précédent. Au lieu de cela, nous équilibrons les ajustements avec l'équipement."
     ],
     "newHeroes": [],
@@ -9407,7 +9407,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dégâts sur les serviteurs",
+                "label": "Dégâts sur les sbires",
                 "before": "200%",
                 "after": "150% (a buff during laning)"
               }
@@ -9420,7 +9420,7 @@
         "name": "Masha",
         "type": "nerf",
         "tag": null,
-        "intro": "Avec autant de nouvelles mécaniques, la résilience et l'immunité de contrôle de Masha semblaient extrêmement puissantes, et ses compétences sans mana lancées sur ses derniers PV avec l'immunité de contrôle empêchaient les adversaires de Masha de la combattre. Nous avons décidé de supprimer ce passif.",
+        "intro": "Avec autant de nouvelles mécaniques, la résilience et l'immunité aux contrôles de Masha semblaient extrêmement puissantes, et ses compétences sans mana lancées sur ses derniers PV avec l'immunité aux contrôles empêchaient les adversaires de Masha de la combattre. Nous avons décidé de supprimer ce passif.",
         "sections": [
           {
             "name": "Ancient Strength",
@@ -10068,10 +10068,10 @@
     "url": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.60_(Advanced_Server)",
     "date": "2024-02-07",
     "dateSource": "notes",
-    "summary": "Contrôle des mouvements et des attaques amélioré, Masha remanié, Nerf de Guenièvre, ajustements des tireurs d'élite",
+    "summary": "Contrôle des mouvements et des attaques amélioré, Masha remanié, Nerf de Guenièvre, ajustements des tireurs",
     "designerNotes": [
       "Dans ce patch, nous avons amélioré l'expérience de contrôle des mouvements et des attaques. Il est désormais plus fluide de se déplacer et d'attaquer avec le même DPS. Pendant ce temps, de nombreux héros spécialisés dans les attaques de base ont vu leurs dégâts augmentés, nécessitant des nerfs pour l'équilibre.",
-      "De plus, nous espérons augmenter les dégâts des attaques de base des tireurs d'élite en début de partie, tout en réduisant leurs PV en début de partie pour maintenir l'équilibre."
+      "De plus, nous espérons augmenter les dégâts des attaques de base des tireurs en début de partie, tout en réduisant leurs PV en début de partie pour maintenir l'équilibre."
     ],
     "newHeroes": [],
     "heroes": [
@@ -10079,7 +10079,7 @@
         "name": "Masha",
         "type": "adjust",
         "tag": null,
-        "intro": "Ajustements expérimentaux : Les ajustements précédents n'ont pas répondu à nos attentes, et nous essayons toujours de faire de Masha celle qui mène la charge et se bat courageusement dans la foule. Même si elle infligeait des dégâts élevés, elle ne pouvait pas tirer grand-chose de son équipement de défense, ce qui la rendait très vulnérable lorsqu'elle était la plus forte sur sa dernière barre de HP. Dans ce patch, Masha s'améliorera à chaque fois qu'elle perdra une barre de HP et réinitialisera son Ultimate afin de pouvoir spammer ses compétences. Nous avons également optimisé sa régénération d'énergie pour lui donner un meilleur contrôle sur ses HP.",
+        "intro": "Ajustements expérimentaux : Les ajustements précédents n'ont pas répondu à nos attentes, et nous essayons toujours de faire de Masha celle qui mène la charge et se bat courageusement dans la foule. Même si elle infligeait des dégâts élevés, elle ne pouvait pas tirer grand-chose de son équipement de défense, ce qui la rendait très vulnérable lorsqu'elle était la plus forte sur sa dernière barre de PV. Dans ce patch, Masha s'améliorera à chaque fois qu'elle perdra une barre de PV et réinitialisera son Ultimate afin de pouvoir spammer ses compétences. Nous avons également optimisé sa régénération d'énergie pour lui donner un meilleur contrôle sur ses PV.",
         "sections": [
           {
             "name": "Ancient Strength",
@@ -10089,7 +10089,7 @@
             "generic": false,
             "changes": [
               {
-                "text": "Lorsqu'il ne reste plus à Masha que deux barres de PV, la durée des effets de contrôle sur elle sera réduite de 50 % et les compétences ne nécessiteront que la moitié de leur coût de HP d'origine pour être lancées."
+                "text": "Lorsqu'il ne reste plus à Masha que deux barres de PV, la durée des effets de contrôle sur elle sera réduite de 50 % et les compétences ne nécessiteront que la moitié de leur coût de PV d'origine pour être lancées."
               },
               {
                 "text": "Lorsqu'il ne reste plus qu'une seule barre de PV à Masha, elle devient immunisée contre les effets de contrôle et n'a pas besoin de dépenser des PV pour lancer des compétences."
@@ -10119,7 +10119,7 @@
             "generic": false,
             "changes": [
               {
-                "text": "Masha dépense quelques HP pour rugir sur les ennemis, infligeant des dégâts physiques et réduisant leur vitesse d'attaque."
+                "text": "Masha dépense quelques PV pour rugir sur les ennemis, infligeant des dégâts physiques et réduisant leur vitesse d'attaque."
               }
             ]
           },
@@ -10134,7 +10134,7 @@
                 "text": "Masha dépense quelques PV pour se jeter sur un héros ennemi (immunisé contre les effets de contrôle pendant la fente), lui infligeant des dégâts physiques, le ralentissant et repoussant les ennemis proches."
               },
               {
-                "text": "Le temps de recharge de cette compétence sera réinitialisé à chaque fois que Masha perdra une barre de HP."
+                "text": "Le temps de recharge de cette compétence sera réinitialisé à chaque fois que Masha perdra une barre de PV."
               }
             ]
           },
@@ -10222,7 +10222,7 @@
             "generic": false,
             "changes": [
               {
-                "text": "HP Regen en mode furtif : suppression de 20 HP Regen de base"
+                "text": "PV Regen en mode furtif : suppression de 20 PV Regen de base"
               }
             ]
           },
@@ -10320,7 +10320,7 @@
         "name": "Edith",
         "type": "adjust",
         "tag": null,
-        "intro": "Nous avons résolu le problème où le passif d'Edith « Dégâts sur les serviteurs augmentés à 300 % » ne fonctionnait pas. Dans le dernier patch, nous avons considérablement augmenté les dégâts de son passif, donc le bonus de dégâts des serviteurs a été modifié en conséquence.",
+        "intro": "Nous avons résolu le problème où le passif d'Edith « Dégâts sur les sbires augmentés à 300 % » ne fonctionnait pas. Dans le dernier patch, nous avons considérablement augmenté les dégâts de son passif, donc le bonus de dégâts des sbires a été modifié en conséquence.",
         "sections": [
           {
             "name": "Overload",
@@ -10330,7 +10330,7 @@
             "generic": false,
             "changes": [
               {
-                "text": "Dégâts sur les serviteurs augmentés à 200 % (un buff pendant le laning)"
+                "text": "Dégâts sur les sbires augmentés à 200 % (un buff pendant le laning)"
               }
             ]
           }
@@ -10434,7 +10434,7 @@
                 "after": "2225"
               },
               {
-                "label": "Croissance des HP",
+                "label": "Croissance des PV",
                 "before": "138.5",
                 "after": "153"
               }
@@ -10489,7 +10489,7 @@
                 "after": "2250"
               },
               {
-                "label": "Croissance des HP",
+                "label": "Croissance des PV",
                 "before": "133.5",
                 "after": "152"
               }
@@ -10531,7 +10531,7 @@
                 "after": "2270"
               },
               {
-                "label": "Croissance des HP",
+                "label": "Croissance des PV",
                 "before": "142.5",
                 "after": "160"
               }
@@ -10569,7 +10569,7 @@
                 "after": "2285"
               },
               {
-                "label": "Croissance des HP",
+                "label": "Croissance des PV",
                 "before": "152.8",
                 "after": "170"
               }
@@ -10597,7 +10597,7 @@
                 "after": "2278"
               },
               {
-                "label": "Croissance des HP",
+                "label": "Croissance des PV",
                 "before": "155.5",
                 "after": "165"
               }
@@ -10635,7 +10635,7 @@
                 "after": "2300"
               },
               {
-                "label": "Croissance des HP",
+                "label": "Croissance des PV",
                 "before": "142.7",
                 "after": "160"
               }
@@ -10668,7 +10668,7 @@
                 "after": "2280"
               },
               {
-                "label": "Croissance des HP",
+                "label": "Croissance des PV",
                 "before": "125.5",
                 "after": "140"
               }
@@ -10706,7 +10706,7 @@
                 "after": "2260"
               },
               {
-                "label": "Croissance des HP",
+                "label": "Croissance des PV",
                 "before": "110.5",
                 "after": "128"
               }
@@ -10739,7 +10739,7 @@
                 "after": "2250"
               },
               {
-                "label": "Croissance des HP",
+                "label": "Croissance des PV",
                 "before": "127.5",
                 "after": "133"
               }
@@ -10772,7 +10772,7 @@
                 "after": "2260"
               },
               {
-                "label": "Croissance des HP",
+                "label": "Croissance des PV",
                 "before": "133.5",
                 "after": "146"
               }
@@ -10810,7 +10810,7 @@
                 "after": "2300"
               },
               {
-                "label": "Croissance des HP",
+                "label": "Croissance des PV",
                 "before": "133.5",
                 "after": "150"
               }
@@ -10866,7 +10866,7 @@
                 "after": "2290"
               },
               {
-                "label": "Croissance des HP",
+                "label": "Croissance des PV",
                 "before": "150.5",
                 "after": "165"
               }
@@ -10904,7 +10904,7 @@
                 "after": "2280"
               },
               {
-                "label": "Croissance des HP",
+                "label": "Croissance des PV",
                 "before": "153.5",
                 "after": "170"
               }
@@ -10942,7 +10942,7 @@
                 "after": "2285"
               },
               {
-                "label": "Croissance des HP",
+                "label": "Croissance des PV",
                 "before": "142.4",
                 "after": "160"
               }
@@ -10975,7 +10975,7 @@
                 "after": "2288"
               },
               {
-                "label": "Croissance des HP",
+                "label": "Croissance des PV",
                 "before": "148",
                 "after": "160"
               }
@@ -11008,7 +11008,7 @@
                 "after": "2320"
               },
               {
-                "label": "Croissance des HP",
+                "label": "Croissance des PV",
                 "before": "148.5",
                 "after": "170"
               }
@@ -11142,7 +11142,7 @@
     "url": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.58_(Advanced_Server)",
     "date": "2024-02-07",
     "dateSource": "notes",
-    "summary": "Helcurt remanié, Aurora Nerf, ajustements du coût en mana des quatre tireurs d'élite, ajustements des puces",
+    "summary": "Helcurt remanié, Aurora Nerf, ajustements du coût en mana des quatre tireurs, ajustements des puces",
     "designerNotes": [],
     "newHeroes": [
       {
@@ -11184,7 +11184,7 @@
         "name": "Melissa",
         "type": "buff",
         "tag": null,
-        "intro": "Nous avons réduit les coûts de mana pour certains tireurs d'élite en fonction de la vitesse d'attaque.",
+        "intro": "Nous avons réduit les coûts de mana pour certains tireurs en fonction de la vitesse d'attaque.",
         "sections": [
           {
             "name": "Falling!",
@@ -11305,7 +11305,7 @@
                 "after": "4 Bites"
               },
               {
-                "label": "Régénération HP",
+                "label": "Régénération PV",
                 "before": "10% Max HP",
                 "after": "150 +15 lost-hp"
               }
@@ -11327,7 +11327,7 @@
                 "after": "Slows enemy after a delay"
               },
               {
-                "label": "[Portail principal] Hérite des HP de Chip",
+                "label": "[Portail principal] Hérite des PV de Chip",
                 "before": "80%",
                 "after": "70%"
               }
@@ -11420,7 +11420,7 @@
                 "after": "30%"
               },
               {
-                "text": "Nouvel effet : Nana transforme tous les héros ennemis dans la zone cible, et s'il n'y en a aucun à portée, elle y laissera le serviteur de Molina qui dure 5s."
+                "text": "Nouvel effet : Nana transforme tous les héros ennemis dans la zone cible, et s'il n'y en a aucun à portée, elle y laissera le sbire de Molina qui dure 5s."
               }
             ]
           },
@@ -11458,7 +11458,7 @@
                 "after": "2609"
               },
               {
-                "label": "Croissance des HP",
+                "label": "Croissance des PV",
                 "before": "170",
                 "after": "180"
               }
@@ -11553,12 +11553,12 @@
                 "after": "30%-50%"
               },
               {
-                "label": "Régénération de HP de base",
+                "label": "Régénération de PV de base",
                 "before": "60-100",
                 "after": "40-100"
               },
               {
-                "label": "Régénération de HP de puissance magique",
+                "label": "Régénération de PV de puissance magique",
                 "before": "30%",
                 "after": "30%-50%"
               }
@@ -11684,7 +11684,7 @@
             "type": null
           },
           {
-            "text": "2. Recherche de faiblesses optimisée. Désormais, il ne se déclenche plus sur les serviteurs après le temps de recharge.",
+            "text": "2. Recherche de faiblesses optimisée. Désormais, il ne se déclenche plus sur les sbires après le temps de recharge.",
             "level": 0,
             "type": null
           },
@@ -12157,7 +12157,7 @@
                 "generic": true,
                 "changes": [
                   {
-                    "text": "Infliger des dégâts aux héros confère 16 attaques physiques supplémentaires par seconde pendant 4 secondes, jusqu'à 6 charges. Gagnez 15 % de dégâts supplémentaires et Spell Vamp à pleine charge. (Cet effet est réduit à 50 % d'attaque physique supplémentaire pour les tireurs d'élite/mages/supports.)"
+                    "text": "Infliger des dégâts aux héros confère 16 attaques physiques supplémentaires par seconde pendant 4 secondes, jusqu'à 6 charges. Gagnez 15 % de dégâts supplémentaires et Spell Vamp à pleine charge. (Cet effet est réduit à 50 % d'attaque physique supplémentaire pour les tireurs/mages/supports.)"
                   }
                 ]
               }
@@ -12408,7 +12408,7 @@
                 "after": "40-120"
               },
               {
-                "label": "Bonus de régénération HP de Magic Power",
+                "label": "Bonus de régénération PV de Magic Power",
                 "before": "10%",
                 "after": "30%"
               }
@@ -12651,7 +12651,7 @@
             "generic": false,
             "changes": [
               {
-                "text": "Nouvel effet : les marques peuvent désormais être appliquées aux serviteurs."
+                "text": "Nouvel effet : les marques peuvent désormais être appliquées aux sbires."
               },
               {
                 "text": "Les ajustements des dégâts des unités non-héros sont les mêmes que ceux des héros."
@@ -12965,7 +12965,7 @@
     "url": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.30_(Advanced_Server)",
     "date": "2023-10-27",
     "dateSource": "notes",
-    "summary": "Argus et Lesley Buffs, suppression des bonus de dégâts d'Angela et Rafaela contre les serviteurs et les Creeps, Irithel et Cici Nerfs",
+    "summary": "Argus et Lesley Buffs, suppression des bonus de dégâts d'Angela et Rafaela contre les sbires et les Creeps, Irithel et Cici Nerfs",
     "designerNotes": [],
     "newHeroes": [],
     "heroes": [
@@ -13266,7 +13266,7 @@
             "generic": false,
             "changes": [
               {
-                "text": "Suppression du bonus de dégâts contre les serviteurs et les Creeps."
+                "text": "Suppression du bonus de dégâts contre les sbires et les Creeps."
               }
             ]
           }
@@ -13287,7 +13287,7 @@
             "generic": false,
             "changes": [
               {
-                "text": "Suppression du bonus de dégâts contre les serviteurs et les Creeps."
+                "text": "Suppression du bonus de dégâts contre les sbires et les Creeps."
               }
             ]
           }
@@ -13348,7 +13348,7 @@
         "entries": [],
         "lines": [
           {
-            "text": "Nous voulons que les joueurs, quel que soit leur poste, puissent atteindre le niveau 2 dans un délai raisonnable. Les joueurs actuellement en lane atteindront toujours le niveau 2 après avoir éliminé la 1ère vague de serviteurs, nous avons donc apporté les modifications suivantes.",
+            "text": "Nous voulons que les joueurs, quel que soit leur poste, puissent atteindre le niveau 2 dans un délai raisonnable. Les joueurs actuellement en lane atteindront toujours le niveau 2 après avoir éliminé la 1ère vague de sbires, nous avons donc apporté les modifications suivantes.",
             "level": 0,
             "type": null
           }
@@ -13356,11 +13356,11 @@
       },
       {
         "category": "system",
-        "title": "Les 10 premiers serviteurs de siège dans Exp Lane",
+        "title": "Les 10 premiers sbires de siège dans Exp Lane",
         "entries": [],
         "lines": [
           {
-            "text": "Nous avons réduit l'EXP de base donnée par les serviteurs de siège dans Exp Lane tout en augmentant leur croissance d'EXP. Le montant total d'expérience gagné grâce aux 10 premiers serviteurs de siège dans la voie Exp reste le même.",
+            "text": "Nous avons réduit l'EXP de base donnée par les sbires de siège dans Exp Lane tout en augmentant leur croissance d'EXP. Le montant total d'expérience gagné grâce aux 10 premiers sbires de siège dans la EXP lane reste le même.",
             "level": 0,
             "type": null
           }
@@ -13384,7 +13384,7 @@
         "entries": [],
         "lines": [
           {
-            "text": "Nous ne voulons pas que les ajustements de la Jungle affectent les non-Junglers. Nous allons donc commencer par le sort de bataille de rétribution.",
+            "text": "Nous ne voulons pas que les ajustements de la Jungle affectent les non-Junglers. Nous allons donc commencer par le sort de combat de rétribution.",
             "level": 1,
             "type": null
           },
@@ -14030,7 +14030,7 @@
             "type": null
           },
           {
-            "label": "Serviteur de siège de Gold Lane",
+            "label": "Sbire de siège de Gold Lane",
             "before": "Gold Boost 25%",
             "after": "35%",
             "level": 0,
@@ -14130,7 +14130,7 @@
             "type": null
           },
           {
-            "text": "Optimisation du bouton \"Fermer la voie\". Appuyer sur le bouton tue désormais également tous les serviteurs sur le champ de bataille.",
+            "text": "Optimisation du bouton \"Fermer la voie\". Appuyer sur le bouton tue désormais également tous les sbires sur le champ de bataille.",
             "level": 1,
             "type": null
           },
@@ -14183,7 +14183,7 @@
     "url": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.26_(Advanced_Server)",
     "date": "2023-10-13",
     "dateSource": "notes",
-    "summary": "Refonte de Roger, buffs YSS et Harith, nerfs Mathilda Fredrinn Mash, emblème remanié Weakness Finder, nerf des revenus d'or de la voie de l'or",
+    "summary": "Refonte de Roger, buffs YSS et Harith, nerfs Mathilda Fredrinn Mash, emblème remanié Weakness Finder, nerf des revenus d'or de la Gold lane",
     "designerNotes": [],
     "newHeroes": [],
     "heroes": [
@@ -14428,7 +14428,7 @@
             "generic": false,
             "changes": [
               {
-                "text": "Ajustement de la façon dont Masha récupère ses HP à la fontaine. Désormais, vous n'avez plus besoin d'appuyer sur aucun bouton pour récupérer complètement toutes ses barres HP."
+                "text": "Ajustement de la façon dont Masha récupère ses PV à la fontaine. Désormais, vous n'avez plus besoin d'appuyer sur aucun bouton pour récupérer complètement toutes ses barres PV."
               }
             ]
           }
@@ -14498,7 +14498,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Régénération HP",
+                "label": "Régénération PV",
                 "before": "60-90 + 20% Magic Power",
                 "after": "70-120 + 30% Magic Power"
               }
@@ -14587,7 +14587,7 @@
             "generic": false,
             "changes": [
               {
-                "text": "Taux de conversion de l'énergie cristalline en HP : 25 % → 20 % (Pour les dégâts infligés aux serviteurs : 15 % → 10 %)"
+                "text": "Taux de conversion de l'énergie cristalline en PV : 25 % → 20 % (Pour les dégâts infligés aux sbires : 15 % → 10 %)"
               }
             ]
           },
@@ -14673,7 +14673,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Vitesse de déplacement et durée de l'immunité lente",
+                "label": "Vitesse de déplacement et durée de l'immunité aux ralentissements",
                 "before": "1.5s",
                 "after": "1s"
               },
@@ -14844,7 +14844,7 @@
                 "after": "40% of the target's Physical Defense"
               },
               {
-                "label": "Régénération HP",
+                "label": "Régénération PV",
                 "before": "65 + 40% Total Physical Attack",
                 "after": "200 + 10% Total Physical Attack"
               }
@@ -15163,7 +15163,7 @@
             "type": null
           },
           {
-            "label": "Serviteur de siège de Gold Lane",
+            "label": "Sbire de siège de Gold Lane",
             "before": "Gold Boost 45%",
             "after": "25%",
             "level": 0,
@@ -15585,7 +15585,7 @@
                 "after": "12.5"
               },
               {
-                "label": "Croissance des HP",
+                "label": "Croissance des PV",
                 "before": "143",
                 "after": "128"
               }
@@ -15941,7 +15941,7 @@
         "name": "Rafaela",
         "type": "nerf",
         "tag": null,
-        "intro": "Une fois que Rafaela a l'immunité lente, son propre effet bonus de vitesse de déplacement est un peu trop élevé. Nous avons décidé de diminuer le bonus de base en vitesse de déplacement et d'augmenter légèrement le bonus de puissance magique.",
+        "intro": "Une fois que Rafaela a l'immunité aux ralentissements, son propre effet bonus de vitesse de déplacement est un peu trop élevé. Nous avons décidé de diminuer le bonus de base en vitesse de déplacement et d'augmenter légèrement le bonus de puissance magique.",
         "sections": [
           {
             "name": "Holy Healing",
@@ -16326,7 +16326,7 @@
             "generic": false,
             "changes": [
               {
-                "text": "Nouvel effet : les marques peuvent désormais être appliquées aux serviteurs."
+                "text": "Nouvel effet : les marques peuvent désormais être appliquées aux sbires."
               },
               {
                 "text": "Les ajustements des dégâts sur les cibles non-héros sont les mêmes que sur les héros."

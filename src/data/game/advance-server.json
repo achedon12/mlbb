@@ -1,6 +1,6 @@
 {
   "source": "https://mobilelegends.fandom.com/wiki/Advanced_Server",
-  "syncedAt": "2026-09-11",
+  "syncedAt": "2026-11-19",
   "versions": [
     {
       "version": "1.8.92",
@@ -4601,7 +4601,7 @@
           "name": "Minotaur",
           "type": "nerf",
           "tag": null,
-          "intro": "Our previous changes to Minotaur's Enrage regen made him too powerful against heroes that rely on multi-hit basic attacks. In addition, his HP is a bit overtuned since he's a CC tank. So we're making new changes to his Enrage regen and reducing the healing of his Motivation Roar skill.",
+          "intro": "Our previous changes to Minotaur's Enrage regen made him too powerful against heroes that rely on multi-hit basic attacks. In addition, his HP is a bit overtuned since he's a CC tank. So we're making new changes to his Enrage regen and reducing the healing of his Motivation Roar skill. Skill 2",
           "sections": [
             {
               "name": null,
@@ -7152,7 +7152,7 @@
                   ]
                 }
               ],
-              "slug": "athena-s-shield"
+              "slug": null
             },
             {
               "name": "Dominance Ice",

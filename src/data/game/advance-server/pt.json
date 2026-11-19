@@ -4598,7 +4598,7 @@
         "name": "Minotaur",
         "type": "nerf",
         "tag": null,
-        "intro": "Nossas mudanças anteriores na regeneração de Fúria do Minotauro o tornaram muito poderoso contra heróis que dependem de ataques básicos de múltiplos golpes. Além disso, seu HP está um pouco exagerado, já que ele é um tanque CC. Portanto, estamos fazendo novas mudanças em sua regeneração de Fúria e reduzindo a cura de sua habilidade Rugido de Motivação.",
+        "intro": "Nossas mudanças anteriores na regeneração de Fúria do Minotauro o tornaram muito poderoso contra heróis que dependem de ataques básicos de múltiplos golpes. Além disso, seu HP está um pouco exagerado, já que ele é um tanque CC. Portanto, estamos fazendo novas mudanças em sua regeneração de Fúria e reduzindo a cura de sua habilidade Rugido de Motivação. Habilidade 2",
         "sections": [
           {
             "name": null,
@@ -7149,7 +7149,7 @@
                 ]
               }
             ],
-            "slug": "athena-s-shield"
+            "slug": null
           },
           {
             "name": "Dominance Ice",

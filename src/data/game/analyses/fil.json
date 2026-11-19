@@ -540,7 +540,7 @@
     "builds": [
       {
         "name": "Pagsunog at pagtagos",
-        "context": "Ang pinakamaraming nilalaro na build, sa ngayon: Glowing Wand at Divine Glaive para sa pagsunog at mahiwagang penetration, pagkatapos ay Wishing Lantern para sa damage sa kasalukuyang HP ng target mula sa paghawak nito. Ito ay nauugnay sa Flameshot spell sa halip na Flicker."
+        "context": "Ang pinakamaraming nilalaro na build, sa ngayon: Glowing Wand at Divine Glaive para sa pagsunog at mahiwagang penetration, pagkatapos ay Wishing Lantern para sa damage sa kasalukuyang HP ng target mula sa paghawak nito. Ito ay nauugnay sa spell na Flameshot sa halip na Flicker."
       }
     ]
   },
@@ -1014,7 +1014,7 @@
       },
       {
         "name": "Laban sa magic",
-        "context": "Athena's Shield kapalit ng Radiant Armor, na may emblem ng suporta: hindi gaanong nilalaro, na may mas mahusay na nasusukat na win rate. Pinakamahusay na gamitin laban sa isang kalabang koponan na may mataas na magic damage."
+        "context": "Athena's Shield kapalit ng Radiant Armor, na may suportang emblem: hindi gaanong nilalaro, na may mas mahusay na nasusukat na win rate. Pinakamahusay na gamitin laban sa isang kalabang koponan na may mataas na magic damage."
       }
     ]
   },

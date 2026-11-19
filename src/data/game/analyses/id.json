@@ -540,7 +540,7 @@
     "builds": [
       {
         "name": "Pembakaran dan penetrasi",
-        "context": "Build yang paling banyak dimainkan, sejauh ini: Glowing Wand dan Divine Glaive untuk pembakaran dan penetrasi magis, lalu Wishing Lantern untuk damage pada HP target saat ini karena menyentuhnya. Ini dikaitkan dengan spell Flameshot, bukan Flicker."
+        "context": "Build yang paling banyak dimainkan, sejauh ini: Glowing Wand dan Divine Glaive untuk pembakaran dan penetrasi magis, lalu Wishing Lantern untuk damage pada HP target saat ini karena menyentuhnya. Ini dikaitkan dengan spell Flameshot daripada Flicker."
       }
     ]
   },
@@ -982,7 +982,7 @@
       },
       {
         "name": "Resistor campuran",
-        "context": "Build kedua yang paling sering dimainkan, dikaitkan dengan Vengeance: Antique Cuirass melawan damage fisik dari skill, Athena's Shield melawan damage sihir, ketika tim lawan menggabungkan keduanya."
+        "context": "Build kedua yang paling sering dimainkan, terkait dengan Vengeance: Antique Cuirass melawan damage fisik dari skill, Perisai Athena melawan damage sihir, ketika tim lawan menggabungkan keduanya."
       }
     ]
   },
@@ -1014,7 +1014,7 @@
       },
       {
         "name": "Melawan sihir",
-        "context": "Athena's Shield menggantikan Radiant Armor, dengan emblem dukungan: lebih jarang dimainkan, dengan win rate terukur yang lebih baik. Paling baik digunakan melawan tim lawan dengan damage sihir tinggi."
+        "context": "Athena's Shield menggantikan Radiant Armor, dengan emblem dukungan: lebih sedikit dimainkan, dengan win rate terukur yang lebih baik. Paling baik digunakan melawan tim lawan dengan damage sihir tinggi."
       }
     ]
   },
