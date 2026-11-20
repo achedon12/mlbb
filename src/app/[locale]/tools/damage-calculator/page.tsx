@@ -44,7 +44,10 @@ export default async function DamageCalculatorPage({ params }: Params) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
       <ToolHeader
-        path="/tools/damage-calculator" title={t("pages.damageCalculator.title")} lead={t("pages.damageCalculator.lead")} />
+        path="/tools/damage-calculator"
+        title={t("pages.damageCalculator.title")}
+        lead={t("pages.damageCalculator.lead")}
+      />
       <div className="tool-enter page-wrap space-y-12 py-8">
         {/* The stat labels and the item picker's come from the build simulator's section. */}
         <ExtendMessages messages={messagesPage(locale, ["pages.damageCalculatorUI", "pages.buildSimulatorUI", "draftUI"])}>

@@ -127,7 +127,10 @@ export default async function TimerPage({ params }: Params) {
     <ExtendMessages messages={messagesPage(locale, ["pages.timerUI"])}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
       <ToolHeader
-        path="/tools/timer" title={t("pages.timer.title")} lead={t("pages.timer.lead", THRESHOLDS)} />
+        path="/tools/timer"
+        title={t("pages.timer.title")}
+        lead={t("pages.timer.lead", THRESHOLDS)}
+      />
       <ToolLayout
         className="pb-10 pt-6"
         aside={

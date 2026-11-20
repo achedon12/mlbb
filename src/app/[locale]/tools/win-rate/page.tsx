@@ -38,7 +38,10 @@ export default async function WinRateToolPage({ params }: Params) {
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
       />
       <ToolHeader
-        path="/tools/win-rate" title={t("pages.winRate.title")} lead={t("pages.winRate.lead")} />
+        path="/tools/win-rate"
+        title={t("pages.winRate.title")}
+        lead={t("pages.winRate.lead")}
+      />
       <ToolLayout
         className="py-12"
         aside={

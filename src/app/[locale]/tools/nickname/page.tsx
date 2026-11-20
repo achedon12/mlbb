@@ -52,7 +52,10 @@ export default async function NicknamePage({ params }: Params) {
     <ExtendMessages messages={messagesPage(locale, ["pages.nicknameUI"])}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
       <ToolHeader
-        path="/tools/nickname" title={t("pages.nickname.title")} lead={t("pages.nickname.lead", { n: STYLES.length })} />
+        path="/tools/nickname"
+        title={t("pages.nickname.title")}
+        lead={t("pages.nickname.lead", { n: STYLES.length })}
+      />
       <ToolLayout
         className="py-10"
         aside={

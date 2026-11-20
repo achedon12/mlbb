@@ -126,7 +126,10 @@ export default async function ServerTimePage({ params }: Params) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
       <ToolHeader
-        path="/tools/server-time" title={t("pages.serverTime.title")} lead={t("pages.serverTime.lead", { utc })} />
+        path="/tools/server-time"
+        title={t("pages.serverTime.title")}
+        lead={t("pages.serverTime.lead", { utc })}
+      />
       <ToolLayout
         className="pb-10 pt-6"
         aside={

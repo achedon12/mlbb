@@ -65,7 +65,10 @@ export default async function RetributionPage({ params }: Params) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
       <ToolHeader
-        path="/tools/retribution" title={t("pages.retribution.title")} lead={t("pages.retribution.lead")} />
+        path="/tools/retribution"
+        title={t("pages.retribution.title")}
+        lead={t("pages.retribution.lead")}
+      />
       <ToolLayout
         className="py-10"
         aside={

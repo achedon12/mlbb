@@ -50,7 +50,10 @@ export default async function BuildSimulatorPage({ params }: Params) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
       <ToolHeader
-        path="/tools/build" title={t("pages.buildSimulator.title")} lead={t("pages.buildSimulator.lead")} />
+        path="/tools/build"
+        title={t("pages.buildSimulator.title")}
+        lead={t("pages.buildSimulator.lead")}
+      />
       <div className="tool-enter page-wrap space-y-10 py-6">
         <ExtendMessages messages={messagesPage(locale, ["pages.buildSimulatorUI", "pages.communityBuildsUI", "draftUI"])}>
           <BuildSimulatorWithPublishing data={data} pageUrl={`${site.url}/${locale}${PATH}`} measuredDate={longDate(locale)} />

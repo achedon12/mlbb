@@ -91,7 +91,10 @@ export default async function MatchupsPage({ params }: Params) {
     <ExtendMessages messages={messagesPage(locale, ["pages.matchupsUI", "draftUI"])}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
       <ToolHeader
-        path="/tools/matchups" title={t("pages.matchups.title")} lead={t("pages.matchups.lead")} />
+        path="/tools/matchups"
+        title={t("pages.matchups.title")}
+        lead={t("pages.matchups.lead")}
+      />
       <ToolLayout
         className="py-10"
         aside={

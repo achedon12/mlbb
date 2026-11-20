@@ -35,7 +35,10 @@ export default async function TeamPage({ params }: Params) {
   return (
     <>
       <ToolHeader
-        path="/tools/team" title={t("pages.team.title")} lead={t("pages.team.lead")}>
+        path="/tools/team"
+        title={t("pages.team.title")}
+        lead={t("pages.team.lead")}
+      >
         <Link
           href="/draft"
           className="mt-5 inline-block text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500"

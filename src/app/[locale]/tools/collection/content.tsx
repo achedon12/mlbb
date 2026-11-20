@@ -55,7 +55,10 @@ export function Collection({ locale, page = 1 }: { locale: Locale; page?: number
     <ExtendMessages messages={messagesPage(locale, ["pages.collectionUI"])}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
       <ToolHeader
-        path="/tools/collection" title={t("pages.collection.title")} lead={t("pages.collection.lead")}>
+        path="/tools/collection"
+        title={t("pages.collection.title")}
+        lead={t("pages.collection.lead")}
+      >
         <FreshnessLine locale={locale} className="mt-4" />
       </ToolHeader>
 
