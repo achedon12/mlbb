@@ -15,16 +15,17 @@ import { longDate } from "@/lib/freshness";
  * script it brings is the vote button.
  *
  * Title, notes and author name are user text: rendered as React text nodes,
- * never as HTML. The bevel sits on a background layer so it clips nothing.
+ * never as HTML. The card is a bevelled night surface, no frame; with the
+ * hero shown, its portrait runs down the left side and zooms a little on hover.
  */
 
 const SUMMARY: StatKey[] = ["hp", "physicalAttack", "magicPower", "physicalDefense", "magicDefense", "cooldownReduction"];
 
 function Icon({ src, label, round = false }: { src: string | null; label: string; round?: boolean }) {
   return (
-    <span title={label} className={`relative block size-9 shrink-0 overflow-hidden bg-night-800 ${round ? "rounded-full" : ""}`}>
+    <span title={label} className={`relative block size-10 shrink-0 overflow-hidden bg-night-800 ${round ? "rounded-full" : "bevel-sm"}`}>
       {src ? (
-        <Image src={src} alt={label} width={36} height={36} className="size-full object-contain" />
+        <Image src={src} alt={label} width={40} height={40} className="size-full object-contain" />
       ) : (
         <span className="grid size-full place-items-center text-xs text-chalk-500">
           {label.charAt(0)}
@@ -47,7 +48,8 @@ export function CommunityBuildCard({
   build: PublicBuild;
   t: T;
   locale: Locale;
-  hero: { name: string; icon: string | null };
+  /** `portrait`: the tall portrait, drawn down the card's side when the hero is shown. */
+  hero: { name: string; icon: string | null; portrait?: string | null };
   itemNames: Record<string, string>;
   signedIn: boolean;
   showHero?: boolean;
@@ -58,20 +60,42 @@ export function CommunityBuildCard({
   const b = build.build;
   const talents = b.talents.filter((k): k is string => k !== null);
 
+  const portrait = showHero ? (hero.portrait ?? hero.icon) : null;
+
   return (
-    <article className="relative">
-      <div aria-hidden className="bevel absolute inset-0 border border-night-700/70 bg-night-900/60" />
-      <div className="relative space-y-3 p-4">
+    <article className="bevel group/card flex bg-night-900">
+      {portrait && (
+        <Link
+          href={`/builds/${build.hero}`}
+          aria-label={hero.name}
+          className="relative hidden w-28 shrink-0 overflow-hidden bg-night-800 min-[420px]:block"
+        >
+          <Image
+            src={portrait}
+            alt=""
+            fill
+            sizes="7rem"
+            className="object-cover object-top transition-transform duration-300 group-hover/card:scale-[1.04]"
+          />
+          <span aria-hidden className="absolute inset-0 bg-linear-to-r from-transparent from-50% to-night-900" />
+        </Link>
+      )}
+      <div className="min-w-0 flex-1 space-y-3 p-4">
         <header className="flex items-start gap-3">
-          {showHero && <HeroPortrait source={hero.icon} name={hero.name} size="icon" decorative />}
+          {showHero && (
+            <span className="min-[420px]:hidden">
+              <HeroPortrait source={hero.icon} name={hero.name} size="icon" decorative />
+            </span>
+          )}
           <div className="min-w-0 flex-1">
-            <h3 className="font-heading text-lg font-bold leading-tight text-chalk-100">
-              <Link href={`/builds/${build.hero}/${build.id}`} className="break-words transition-colors hover:text-gold-400">
+            {showHero && <p className="font-heading text-sm font-bold uppercase text-gold-400">{hero.name}</p>}
+            <h3 className="display-caps text-[1.7rem] text-chalk-100">
+              <Link href={`/builds/${build.hero}/${build.id}`} className="break-words transition-colors hover:text-gold-300">
                 {build.title}
               </Link>
             </h3>
-            <p className="mt-0.5 text-xs text-chalk-500">
-              {showHero ? `${hero.name} - ` : ""}
+            <p className="mt-1 text-xs text-chalk-500">
+              {showHero ? <span className="sr-only">{`${hero.name} - `}</span> : null}
               {t("pages.communityBuilds.byLine", { name: build.authorName, date: longDate(locale, build.createdAt) })}
             </p>
           </div>
@@ -101,7 +125,7 @@ export function CommunityBuildCard({
               return (
                 <div key={key} className="flex justify-between gap-2 border-b border-night-800 py-1">
                   <dt className="text-chalk-500">{t(`pages.buildSimulatorUI.stats.${key}`)}</dt>
-                  <dd className="tabular-nums text-chalk-100">
+                  <dd className="font-heading text-sm font-bold tabular-nums text-chalk-100">
                     {v === null ? "-" : key === "cooldownReduction" ? percent.format(v / 100) : whole.format(v)}
                   </dd>
                 </div>

@@ -7,7 +7,14 @@ import { PageSourcesBlock } from "@/components/page-sources";
 import { GuideLink } from "@/components/guide";
 import { guideOfLane } from "@/lib/guides";
 import { Foldable } from "@/components/foldable";
-import { BadgeTier, PageHeader } from "@/components/ui";
+import { ActionLink, BadgeTier } from "@/components/ui";
+import { HeroTile } from "@/components/hero-tile";
+import { LightImage } from "@/components/light-image";
+import { MetaPoster, artOf } from "@/components/meta/meta-poster";
+import { MethodFold } from "@/components/meta/method-fold";
+import { PosterHero } from "@/components/meta/poster-hero";
+import { usualPortrait } from "@/components/meta/portraits";
+import { cn } from "@/lib/utils";
 import { trendsOf } from "@/lib/evolution";
 import {
   pathFilter,
@@ -31,6 +38,12 @@ import { tierNotes as tierNotesOf } from "@/lib/data";
 import { imageLane, imageRank, imageRole } from "@/lib/emblems";
 import { TierLines, type RowTier } from "./tier-lines";
 import { TierRows, type TierRow } from "./tier-rows";
+import { TierTiles } from "./tier-tiles";
+
+/** Faces shown on the head of a folded tier. */
+const FACES = 10;
+/** A tier as an id fragment: "S+" is not a valid one. */
+const tierId = (tier: Tier) => tier.replace("+", "-plus").toLowerCase();
 
 /**
  * Tier list of a rank slice, a lane or a role. The main page
@@ -202,6 +215,7 @@ export function TierList({
       slug: e.hero.slug,
       name: e.hero.name,
       ...(icon === usualIcon(e.hero.slug) ? {} : { icon }),
+      ...(e.hero.images.portrait === usualPortrait(e.hero.slug) ? {} : { portrait: e.hero.images.portrait ?? null }),
       lanes: e.hero.lanes.map((l) => t(`lanes.${l}`)).join(" · ") || "—",
       win: rate(e.winRate),
       ban: rate(e.banRate),
@@ -286,45 +300,90 @@ export function TierList({
     },
   ];
 
+  const first = ranking[0];
+  const podium = ranking.slice(1, 3);
+  const portraitOf = (e: RankedEntry) => e.hero.images.portrait ?? e.hero.images.icon;
+  const feature = first && (
+    <PosterHero
+      href={`/heroes/${first.hero.slug}`}
+      kicker={t("pages.tierList.poster.kicker")}
+      name={first.hero.name}
+      tier={first.tier}
+      figure={percent.format(first.winRate)}
+      caption={t("pages.heroDetail.stat.winRate")}
+      second={{ value: percent.format(first.banRate), caption: t("pages.heroDetail.stat.banRate") }}
+      label={t("pages.tierList.poster.label", {
+        name: first.hero.name,
+        tier: first.tier,
+        win: rate(first.winRate),
+        ban: rate(first.banRate),
+      })}
+    >
+      {podium.length > 0 && (
+        <ol start={2} className="mt-6 flex gap-2 max-sm:hidden sm:gap-3">
+          {podium.map((e, i) => (
+            <li key={e.hero.slug} className="w-[6.5rem] sm:w-28">
+              <HeroTile
+                href={`/heroes/${e.hero.slug}`}
+                name={e.hero.name}
+                portrait={portraitOf(e)}
+                rank={i + 2}
+                figure={percent.format(e.winRate)}
+                label={t("home.winRate", { value: rate(e.winRate) })}
+                sizes="7rem"
+              />
+            </li>
+          ))}
+        </ol>
+      )}
+    </PosterHero>
+  );
+
+  // Position of a tier's first hero in the whole ranking, for the cards' numbers.
+  const offsets = new Map<Tier, number>();
+  let before = 0;
+  for (const tier of ORDER_TIERS) {
+    offsets.set(tier, before);
+    before += byTier.get(tier)?.length ?? 0;
+  }
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
       />
-      <PageHeader
+      <MetaPoster
         title={title}
         lead={lead}
         crumbs={crumbs}
-        meta={freshnessFacts(locale, t("pages.freshness.heroesRanked", { n: ranking.length }))}
+        facts={freshnessFacts(locale, t("pages.freshness.heroesRanked", { n: ranking.length }))}
+        art={first ? artOf(first.hero.slug) : null}
+        portrait={first?.hero.images.portrait ?? null}
+        feature={feature}
         actions={
-          <Link
-            href={rank === "all" ? "/statistics" : `/statistics/${rank}`}
-            className="text-sm font-semibold text-gold-400 hover:text-gold-500"
-          >
-            {t("pages.statistics.fromTierListLink")} →
-          </Link>
+          <ActionLink href={rank === "all" ? "/statistics" : `/statistics/${rank}`}>
+            {t("pages.statistics.fromTierListLink")}
+          </ActionLink>
         }
-        details={{
-          // The reader must be able to challenge the ranking: we show the rule.
-          label: t("pages.tierList.howCalculated"),
-          content: (
-            <div className="space-y-3">
-              <p>
-                {t("pages.tierList.scorePre")}<strong className="text-chalk-100">{t("pages.tierList.scoreBold")}</strong>.
-              </p>
-              <p>{t("pages.tierList.p2")}</p>
-              <p>
-                {t("pages.tierList.p3pre")}
-                <span className="text-gold-400">{t("pages.tierList.asterisk")}</span>{t("pages.tierList.p3post")}
-              </p>
-              <p>{t("pages.tierList.trends", { threshold: percent.format(THRESHOLD_NOTABLE) })}</p>
-            </div>
-          ),
-        }}
       />
 
-      <div className="page-wrap pb-12 pt-4">
+      <div className="page-wrap pb-12 pt-6">
+        {/* The reader must be able to challenge the ranking: we show the rule. */}
+        <MethodFold label={t("pages.tierList.howCalculated")} className="mb-8">
+          <div className="space-y-3">
+            <p>
+              {t("pages.tierList.scorePre")}<strong className="text-chalk-100">{t("pages.tierList.scoreBold")}</strong>.
+            </p>
+            <p>{t("pages.tierList.p2")}</p>
+            <p>
+              {t("pages.tierList.p3pre")}
+              <span className="text-gold-400">{t("pages.tierList.asterisk")}</span>{t("pages.tierList.p3post")}
+            </p>
+            <p>{t("pages.tierList.trends", { threshold: percent.format(THRESHOLD_NOTABLE) })}</p>
+          </div>
+        </MethodFold>
+
         <TierRows rows={tierRows} home="/tier-list">
         {filter && (
           <p className="mb-6 text-sm leading-relaxed text-chalk-500">
@@ -346,35 +405,53 @@ export function TierList({
           </p>
         )}
 
-        <div className="space-y-8">
+        <div className="space-y-12 sm:space-y-14">
           {ORDER_TIERS.map((tier) => {
             const entries = byTier.get(tier) ?? [];
             if (entries.length === 0) return null;
-            const lines = <TierLines rows={entries.map(row)} labels={labels} />;
+            const unfolded = open.has(tier);
+            const rows = entries.map(row);
 
             return (
-              <section key={tier}>
-                <div className="flex items-center gap-4">
-                  <BadgeTier tier={tier} />
-                  <div>
-                    <h2 className="font-heading text-xl font-bold text-chalk-100">
+              <section key={tier} aria-labelledby={`tier-${tierId(tier)}`}>
+                <div className="flex flex-wrap items-end gap-x-5 gap-y-3">
+                  <BadgeTier tier={tier} size={unfolded ? "lg" : "md"} />
+                  <div className="min-w-0 flex-1">
+                    <h2
+                      id={`tier-${tierId(tier)}`}
+                      className={cn(
+                        "display-caps text-chalk-100",
+                        unfolded ? "text-[clamp(2.25rem,1.65rem+2vw,3.25rem)]" : "text-[2rem]",
+                      )}
+                    >
                       {t("pages.tierList.tier", { p: tier })}
-                      <span className="ml-2 text-sm font-medium text-chalk-500">{entries.length}</span>
+                      <span className="score score-outline ml-3 text-[0.7em]">{entries.length}</span>
                     </h2>
-                    <p className="text-sm text-chalk-500">{t(`pages.tierList.legend.${tier}`)}</p>
+                    <p className="mt-1.5 text-sm text-chalk-400 sm:text-base">{t(`pages.tierList.legend.${tier}`)}</p>
                   </div>
+                  {!unfolded && (
+                    // A face for each of the first heroes: a folded tier still shows who is in it.
+                    <span aria-hidden className="tier-faces">
+                      {entries.slice(0, FACES).map((e) => (
+                        <LightImage
+                          key={e.hero.slug}
+                          src={e.hero.images.icon ?? usualIcon(e.hero.slug)}
+                          alt=""
+                          width={40}
+                          height={40}
+                        />
+                      ))}
+                    </span>
+                  )}
                 </div>
 
-                {open.has(tier) ? (
-                  lines
+                {unfolded ? (
+                  <TierTiles rows={rows} labels={labels} start={offsets.get(tier) ?? 0} />
                 ) : (
                   // The rows stay in the document, closed: a crawler and the
                   // page's search still read all of them.
-                  <Foldable
-                    label={t("pages.tierList.openTier", { n: entries.length, p: tier })}
-                    className="mt-4 border-0 bg-transparent [&>summary]:px-0 [&>div]:border-0 [&>div]:px-0 [&>div]:pb-0 [&>div]:pt-0"
-                  >
-                    {lines}
+                  <Foldable label={t("pages.tierList.openTier", { n: entries.length, p: tier })} className="mt-4">
+                    <TierLines rows={rows} labels={labels} />
                   </Foldable>
                 )}
               </section>
@@ -382,9 +459,8 @@ export function TierList({
           })}
         </div>
 
-        <p className="mt-14 border-t border-night-800 pt-6 text-sm leading-relaxed text-chalk-500">
-          {t("pages.tierList.conclusion")}
-        </p>
+        <div aria-hidden className="eclat-rule mt-14" />
+        <p className="mt-6 max-w-3xl text-sm leading-relaxed text-chalk-400">{t("pages.tierList.conclusion")}</p>
         <DiscordInvite t={t} context="tier" className="mt-8" />
         <PageSourcesBlock locale={locale} of={{ kind: "ranking" }} className="mt-10" />
         </TierRows>

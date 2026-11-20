@@ -4,8 +4,9 @@ import { notFound, permanentRedirect } from "next/navigation";
 import { BuildStats } from "@/components/build-stats";
 import { DeleteBuildButton, VoteButton } from "@/components/community-build-actions";
 import Link from "@/components/link";
-import { HeroPortrait } from "@/components/hero-portrait";
-import { PageHeader } from "@/components/ui";
+import { DexSays } from "@/components/mascot";
+import { MetaPoster, artOf } from "@/components/meta/meta-poster";
+import { PosterHero } from "@/components/meta/poster-hero";
 import type { Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { metaPage, notFoundMetadata } from "@/i18n/seo";
@@ -57,10 +58,10 @@ export default async function CommunityBuildPage({ params }: Params) {
   if (stored === null) notFound();
   if (stored === undefined) {
     return (
-      <div className="mx-auto max-w-3xl px-4 py-16">
-        <p role="alert" className="border border-blood-500/40 p-4 text-chalk-300">
-          {t("pages.communityBuilds.unavailable")}
-        </p>
+      <div className="page-wrap py-16">
+        <DexSays pose="surpris">
+          <p role="alert">{t("pages.communityBuilds.unavailable")}</p>
+        </DexSays>
       </div>
     );
   }
@@ -76,17 +77,17 @@ export default async function CommunityBuildPage({ params }: Params) {
   const b = build.build;
 
   const choice = (src: string | null, label: string, round = false) => (
-    <span className="flex min-w-0 items-center gap-2">
-      <span className={`relative size-9 shrink-0 overflow-hidden bg-night-800 ${round ? "rounded-full" : ""}`}>
-        {src && <Image src={src} alt="" width={36} height={36} className="size-full object-contain" />}
+    <span className="flex min-w-0 items-center gap-3">
+      <span className={`relative size-12 shrink-0 overflow-hidden bg-night-800 ${round ? "rounded-full" : "bevel-sm"}`}>
+        {src && <Image src={src} alt="" width={48} height={48} className="size-full object-contain" />}
       </span>
-      <span className="min-w-0 text-sm text-chalk-200">{label}</span>
+      <span className="min-w-0 font-heading text-base font-bold leading-tight text-chalk-100">{label}</span>
     </span>
   );
 
   return (
     <>
-      <PageHeader
+      <MetaPoster
         title={build.title}
         lead={t("pages.communityBuilds.buildLead", {
           hero: heroName,
@@ -98,17 +99,19 @@ export default async function CommunityBuildPage({ params }: Params) {
           { name: heroName, href: `/builds/${build.hero}` },
           { name: build.title },
         ]}
-        icon={h ? <HeroPortrait source={h.images.icon} name={heroName} size="thumb" decorative /> : undefined}
+        art={h ? artOf(h.slug) : null}
+        portrait={h?.images.portrait ?? null}
+        compact
+        feature={
+          <PosterHero href={`/builds/${build.hero}`} kicker={t("pages.communityBuilds.title")} name={heroName} />
+        }
       />
       <ExtendMessages messages={messagesPage(locale, ["pages.buildSimulatorUI", "pages.communityBuildsUI"])}>
         <div className="page-wrap grid gap-10 py-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)]">
           <div className="min-w-0 space-y-8">
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
               <VoteButton id={build.id} votes={build.votes} voted={build.voted} own={build.own} signedIn={viewer !== null} />
-              <Link
-                href={`/tools/build?${build.code}`}
-                className="bevel-sm inline-flex min-h-11 items-center bg-gold-500 px-4 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400"
-              >
+              <Link href={`/tools/build?${build.code}`} className="btn btn-primary">
                 {t("pages.communityBuilds.openSimulator")}
               </Link>
               {build.own && <DeleteBuildButton id={build.id} hero={build.hero} />}
@@ -118,16 +121,19 @@ export default async function CommunityBuildPage({ params }: Params) {
             )}
 
             <section aria-labelledby="choices-title" className="space-y-4">
-              <h2 id="choices-title" className="font-heading text-xl font-bold text-chalk-100">
+              <h2 id="choices-title" className="type-section text-chalk-100">
                 {t("pages.communityBuilds.choicesTitle")}
               </h2>
               <p className="text-sm text-chalk-400">{t("pages.communityBuilds.level", { level: b.level })}</p>
               <div>
-                <h3 className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.communityBuilds.items")}</h3>
-                <ol className="mt-2 grid grid-cols-1 gap-2 min-[400px]:grid-cols-2 sm:grid-cols-3">
+                <h3 className="font-heading text-base font-bold text-chalk-300">{t("pages.communityBuilds.items")}</h3>
+                <ol className="mt-3 grid grid-cols-1 gap-2 min-[400px]:grid-cols-2 sm:grid-cols-3">
                   {b.items.map((slug, i) => (
                     <li key={`${slug}-${i}`}>
-                      <Link href={`/items/${slug}`} className="flex min-h-11 items-center hover:text-gold-400">
+                      <Link
+                        href={`/items/${slug}`}
+                        className="card-link flex min-h-11 items-center p-2 [&_span]:transition-colors hover:[&_span]:text-gold-300"
+                      >
                         {choice(itemImage(slug), names.items[slug] ?? slug)}
                       </Link>
                     </li>
@@ -136,11 +142,11 @@ export default async function CommunityBuildPage({ params }: Params) {
               </div>
               <div className="grid gap-4 sm:grid-cols-3">
                 <div>
-                  <h3 className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.communityBuilds.emblem")}</h3>
+                  <h3 className="font-heading text-base font-bold text-chalk-300">{t("pages.communityBuilds.emblem")}</h3>
                   <div className="mt-2">{b.emblem ? choice(emblemImage(b.emblem), emblemName(t, b.emblem), true) : "-"}</div>
                 </div>
                 <div>
-                  <h3 className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.communityBuilds.talents")}</h3>
+                  <h3 className="font-heading text-base font-bold text-chalk-300">{t("pages.communityBuilds.talents")}</h3>
                   <ul className="mt-2 space-y-2">
                     {b.talents.map((k, i) => (
                       <li key={i}>{k ? choice(talentImage(k), talentName(t, k), true) : "-"}</li>
@@ -148,7 +154,7 @@ export default async function CommunityBuildPage({ params }: Params) {
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.communityBuilds.spell")}</h3>
+                  <h3 className="font-heading text-base font-bold text-chalk-300">{t("pages.communityBuilds.spell")}</h3>
                   <div className="mt-2">{b.spell ? choice(spellImage(b.spell), spellName(t, b.spell), true) : "-"}</div>
                 </div>
               </div>
@@ -156,7 +162,7 @@ export default async function CommunityBuildPage({ params }: Params) {
 
             {build.notes && (
               <section aria-labelledby="notes-title">
-                <h2 id="notes-title" className="font-heading text-xl font-bold text-chalk-100">
+                <h2 id="notes-title" className="type-subtitle text-chalk-100">
                   {t("pages.communityBuilds.notesTitle")}
                 </h2>
                 <p className="mt-3 whitespace-pre-line break-words leading-relaxed text-chalk-300">{build.notes}</p>
@@ -174,7 +180,7 @@ export default async function CommunityBuildPage({ params }: Params) {
           </div>
 
           <aside aria-labelledby="stats-title" className="min-w-0 space-y-4">
-            <h2 id="stats-title" className="font-heading text-xl font-bold text-chalk-100">
+            <h2 id="stats-title" className="type-subtitle text-chalk-100">
               {t("pages.communityBuilds.statsTitle")}
             </h2>
             {result && simHero ? (
