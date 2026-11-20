@@ -28,7 +28,7 @@ La [guida al percorso di farm e agli obiettivi](/guides/jungle-objectives) detta
 
 <!-- guide:heroes -->
 
-I jungler sono divisi in tre famiglie. Gli assassini, come [Ling](/heroes/ling), [Lancelot](/heroes/lancelot) o [Hayabusa](/heroes/hayabusa), eliminano un bersaglio isolato; i combattenti, come [Martis](/heroes/martis) o [Balmond](/heroes/balmond), durano lunghi combattimenti; I tank della jungle, come [Fredrinn](/heroes/fredrinn) o [Baxia](/heroes/baxia), lasciano l'oro agli altri e si impegnano. La scelta giusta dipende da cosa manca alla tua squadra.
+I jungler sono divisi in tre famiglie. Gli assassini, come [Ling](/heroes/ling), [Lancelot](/heroes/lancelot) o [Hayabusa](/heroes/hayabusa), eliminano un bersaglio isolato; i combattenti, come [Martis](/heroes/martis) o [Barats](/heroes/barats), durano lunghi combattimenti; I tank della jungle, come [Fredrinn](/heroes/fredrinn) o [Baxia](/heroes/baxia), lasciano l'oro agli altri e si impegnano. La scelta giusta dipende da cosa manca alla tua squadra.
 
 ## Oggetti, emblemi e incantesimi più giocati
 

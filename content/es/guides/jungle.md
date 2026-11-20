@@ -28,7 +28,7 @@ La [guía de la ruta de farmeo y los objetivos](/guides/jungle-objectives) detal
 
 <!-- guide:heroes -->
 
-Los junglas se dividen en tres familias. Los asesinos, como [Ling](/heroes/ling), [Lancelot](/heroes/lancelot) o [Hayabusa](/heroes/hayabusa), eliminan un objetivo aislado; los luchadores, como [Martis](/heroes/martis) o [Balmond](/heroes/balmond), duran peleas largas; Los tanques de la jungla, como [Fredrinn](/heroes/fredrinn) o [Baxia](/heroes/baxia), dejan el oro para los demás y participan. La elección correcta depende de lo que le falta a tu equipo.
+Los junglas se dividen en tres familias. Los asesinos, como [Ling](/heroes/ling), [Lancelot](/heroes/lancelot) o [Hayabusa](/heroes/hayabusa), eliminan un objetivo aislado; los luchadores, como [Martis](/heroes/martis) o [Barats](/heroes/barats), duran peleas largas; Los tanques de la jungla, como [Fredrinn](/heroes/fredrinn) o [Baxia](/heroes/baxia), dejan el oro para los demás y participan. La elección correcta depende de lo que le falta a tu equipo.
 
 ## Objetos, emblemas y hechizos más jugados
 

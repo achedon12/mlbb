@@ -17,202 +17,19 @@
  * takes a capital when the translated word had one. `scope: "messages"` limits a rule to the
  * interface catalogue, where the ambiguous word can only mean the game term.
  */
-
-/**
- * French skins: "apparence", the word of the game's French client, which
- * the official community expects ("Nouvelle peau" got the site turned down).
- * The service writes "peau" (the organ) or the anglicism "skin", which is
- * masculine: its articles and adjectives are rewritten to agree with
- * "apparence", a feminine noun. Not in a link, an anchor or a variable ("/skins",
- * "#new-skins", "{skins}"), nor in an English event name ("Skin Label").
- */
-const SKIN = "(?<![/#={\"_-])(?<!MLabel\\s)skin";
-const SKIN_END = "(?!\\s+(?:Label|Giveaway|Draw|Pack|Box|Shop)\\b)(?![-_])";
-const skin = (plural) => `${SKIN}${plural ? "s" : ""}${SKIN_END}`;
-const FR_BEFORE = [
-  // Determiner + adjective in front: "le nouveau skin" → "la nouvelle apparence".
-  ...[
-    ["le", "la"],
-    ["un", "une"],
-    ["ce", "cette"],
-    ["du", "de la"],
-    ["au", "à la"],
-    ["son", "sa"],
-    ["mon", "ma"],
-    ["ton", "ta"],
-    ["votre", "votre"],
-    ["leur", "leur"],
-  ].flatMap(([d, f]) =>
-    [
-      ["tout nouveau", "toute nouvelle"],
-      ["nouveau", "nouvelle"],
-      ["dernier", "dernière"],
-      ["premier", "première"],
-      ["prochain", "prochaine"],
-      ["seul", "seule"],
-      ["meilleur", "meilleure"],
-    ].map(([a, b]) => [`${d} ${a} ${skin(false)}`, `${f} ${b} apparence`]),
-  ),
-  ["tous les nouveaux", "toutes les nouvelles"],
-  ["tous les", "toutes les"],
-  ["tous leurs", "toutes leurs"],
-  ["tous vos", "toutes vos"],
-  ["tous ses", "toutes ses"],
-  ["tous ces", "toutes ces"],
-].map(([a, b]) => (a.includes(SKIN) ? [a, b] : [`${a} ${skin(true)}`, `${b} apparences`]));
-const FR_ADJECTIVES = [
-  ["tout nouveau", "toute nouvelle", "tout nouveaux", "toutes nouvelles"],
-  ["nouveau", "nouvelle", "nouveaux", "nouvelles"],
-  ["dernier", "dernière", "derniers", "dernières"],
-  ["premier", "première", "premiers", "premières"],
-  ["prochain", "prochaine", "prochains", "prochaines"],
-  ["seul", "seule", "seuls", "seules"],
-  ["meilleur", "meilleure", "meilleurs", "meilleures"],
-  ["beau", "belle", "beaux", "belles"],
-  ["quel", "quelle", "quels", "quelles"],
-  ["aucun", "aucune", null, null],
-  ["certain", "certaine", "certains", "certaines"],
-];
-const FR_AFTER = [
-  ["exclusif", "exclusive", "exclusifs", "exclusives"],
-  ["spécial", "spéciale", "spéciaux", "spéciales"],
-  ["original", "originale", "originaux", "originales"],
-  ["saisonnier", "saisonnière", "saisonniers", "saisonnières"],
-  ["officiel", "officielle", "officiels", "officielles"],
-  ["complet", "complète", "complets", "complètes"],
-  ...[
-    "limité",
-    "gratuit",
-    "permanent",
-    "offert",
-    "sorti",
-    "daté",
-    "connu",
-    "annoncé",
-    "prévu",
-    "possédé",
-    "acheté",
-    "obtenu",
-    "payant",
-    "éclatant",
-    "coloré",
-    "inédit",
-    "lancé",
-    "affiché",
-    "compté",
-    "vendu",
-    "débloqué",
-    "équipé",
-  ].map((a) => (a.endsWith("e") ? [a, a, `${a}s`, `${a}s`] : [a, `${a}e`, `${a}s`, `${a}es`])),
-];
-const FR_FEMININE = new Map(
-  FR_AFTER.flatMap(([m, f, mp, fp]) => [
-    [m, f],
-    [mp, fp],
-  ]),
-);
-const SKIN_FR = [
-  // The client's names: painted ("peint") and shining ("resplendissant") skins.
-  [`${skin(true)} (?:peints|colorés)`, "apparences colorées"],
-  [`${skin(false)} (?:peint|coloré)`, "apparence colorée"],
-  [`${skin(true)} (?:resplendissants|éclatants|brillants)`, "apparences éclatantes"],
-  [`${skin(false)} (?:resplendissant|éclatant|brillant)`, "apparence éclatante"],
-  ...FR_BEFORE,
-  ...FR_ADJECTIVES.flatMap(([m, f, mp, fp]) => [
-    [`${m} ${skin(false)}`, `${f} apparence`],
-    ...(mp ? [[`${mp} ${skin(true)}`, `${fp} apparences`]] : []),
-  ]),
-  ["(?:le|la) " + skin(false), "l'apparence"],
-  ["du " + skin(false), "de l'apparence"],
-  ["au " + skin(false), "à l'apparence"],
-  ["un " + skin(false), "une apparence"],
-  ["(?:ce|cet) " + skin(false), "cette apparence"],
-  ["de " + skin(true), "d'apparences"],
-  ["de " + skin(false), "d'apparence"],
-  [skin(true), "apparences"],
-  [skin(false), "apparence"],
-  // "Peau", the organ, feminine like "apparence": only the elisions change.
-  ["de la peau", "de l'apparence"],
-  ["la peau", "l'apparence"],
-  ["de peaux", "d'apparences"],
-  ["de peau", "d'apparence"],
-  ["sa peau", "son apparence"],
-  ["peaux", "apparences"],
-  ["peau", "apparence"],
-  // An article the rules above left masculine: "le skin peint" became "le
-  // apparence colorée".
-  ["le apparence", "l'apparence"],
-  ["un apparence", "une apparence"],
-  ["ce apparence", "cette apparence"],
-  ["du apparence", "de l'apparence"],
-  ["au apparence", "à l'apparence"],
-  ["de apparences", "d'apparences"],
-  ["de apparence", "d'apparence"],
-  // Adjectives after the noun, made to agree, also past a series name: "une
-  // apparence Epic gratuit", "les apparences StarLight obtenus".
-  [
-    `[Aa]pparences? (?:\\p{Lu}[\\p{L}-]*\\s+){0,3}(?:${[...FR_FEMININE.keys()].join("|")})`,
-    (words) => words.replace(/\S+$/u, (a) => FR_FEMININE.get(a) ?? a),
-    { caseSensitive: true },
-  ],
-];
-
 const RULES = {
   // French is the source of the interface, but game data taken from the wiki
   // (skills, items, modes, patches) is translated into it from English. French
   // players keep the game's English names for lanes, spells and items, and
   // the site's own words for roles ("Tireur", "Combattant") and stats ("PV").
   fr: [
-    // The game's own name is never translated ("Légendes mobiles : Bang
-    // Bang"), and keeps its colon without the French space before it.
-    ["Légendes mobiles\\s*: Bang Bang", "Mobile Legends: Bang Bang"],
-    ["Légendes mobiles", "Mobile Legends"],
-    ["Mobile Legends\\s+: Bang Bang", "Mobile Legends: Bang Bang", { caseSensitive: true }],
-    // Skins: "apparence", the French client's word, everywhere on the site.
-    // "Peau" (the organ, feminine like "apparence") came back for "skin";
-    // "skin" (masculine) is the anglicism, rewritten with its articles and
-    // adjectives. The client's own names for the painted and shining skins
-    // come first. An English event name ("Skin Label") stays as it is.
-    ...SKIN_FR,
-    // Stats: patch notes abbreviate damage ("DMG Taken +4%"), which came
-    // back as "DÉG", "DMG pris", "DMG Prise".
-    ["(?:DMG|DÉG|DEG) (?:pris|prise|subis)", "Dégâts subis"],
-    ["(?:DMG|DÉG|DEG) infligés", "Dégâts infligés"],
-    ["DMG", "Dégâts", { caseSensitive: true }],
-    ["DÉG", "Dégâts", { caseSensitive: true }],
-    // Battle spells keep their English names, like on the spell pages.
-    ["Rétribution", "Retribution", { caseSensitive: true }],
-    // Modes, as the site's menu names them ("Classique, Classé, Baston").
-    ["Bagarre", "Baston", { caseSensitive: true }],
-    // "Tank" came back as an armoured vehicle, "Roaming" as wandering.
-    ["semi-chars", "semi-tanks"],
-    ["semi-char", "semi-tank"],
-    ["demi-chars", "semi-tanks"],
-    ["demi-char", "semi-tank"],
-    ["chars itinérants", "tanks roamers"],
-    ["char itinérant", "tank roamer"],
-    ["chars", "tanks"],
-    ["char", "tank"],
-    ["héros itinérants", "roamers"],
-    ["héros itinérant", "roamer"],
-    ["bénédictions itinérantes", "Roaming Blessings"],
-    ["bénédiction itinérante", "Roaming Blessing"],
-    ["Itinérance", "Roam", { caseSensitive: true }],
-    ["itinérance", "roam", { caseSensitive: true }],
     // Lanes, as players and the esports pages say them.
-    ["voie médiane", "Mid lane"],
-    ["voie de l'EXP", "EXP lane"],
     ["voie (?:d'or|dorée|de l'or)", "Gold lane"],
     ["voie (?:d'expérience|de l'expérience|EXP)", "EXP lane"],
     ["voie (?:du milieu|centrale)", "Mid lane"],
     ["couloir (?:d'or|doré)", "Gold lane"],
     ["couloir (?:d'expérience|EXP)", "EXP lane"],
     ["couloir (?:du milieu|central)", "Mid lane"],
-    // Any other lane: "lane", feminine like "voie". Not a path a mode
-    // offers ("la voie physique").
-    ["voies(?!\\s+(?:physiques?|magiques?)\\b)", "lanes"],
-    ["(?<!\\ben\\s)voie(?!\\s+(?:physique|magique)\\b)", "lane"],
-    ["la EXP lane", "l'EXP lane"],
     // Effects: "Slow Immunity" came back as a slow immunity.
     ["immunité lente", "immunité aux ralentissements"],
     ["immunité au ralentissement", "immunité aux ralentissements"],
@@ -238,9 +55,6 @@ const RULES = {
     ["sort de bataille", "sort de combat"],
   ],
   id: [
-    // The game's own name is never translated.
-    ["Legenda Seluler\\s*: Bang Bang", "Mobile Legends: Bang Bang"],
-    ["Legenda Seluler", "Mobile Legends"],
     // Rates first, before their parts are replaced one by one.
     ["tingkat kemenangan", "win rate"],
     ["tingkat larangan", "ban rate"],
@@ -354,7 +168,6 @@ const RULES = {
   // terms only; docs/glossary/th.md.
   th: [
     ["ตำนานมือถือ", "Mobile Legends"],
-    ["Mobile Legends: ปังปัง", "Mobile Legends: Bang Bang"],
     ["อัตราการชนะ", "Win Rate"],
     ["อัตราการแบน", "Ban Rate"],
     ["อัตราการเลือก", "Pick Rate"],
@@ -469,25 +282,6 @@ const RULES = {
     ["lustre", "buff", { scope: "messages" }],
   ],
 
-  // Spanish and Italian players say "skin" (feminine, "la skin"), as the
-  // site's interface does. The service wrote "piel"/"pelle" (the organ) and
-  // "aspecto", which also means an aspect: "aspectos destacados" (the
-  // highlights) stays.
-  es: [
-    ["Leyendas móviles\\s*: Bang Bang", "Mobile Legends: Bang Bang"],
-    ["Leyendas móviles", "Mobile Legends"],
-    ["pieles", "skins"],
-    ["piel", "skin"],
-    ["aspectos(?!\\s+(?:más\\s+)?destacad)", "skins"],
-    ["aspecto(?!\\s+(?:más\\s+)?destacad)", "skin"],
-  ],
-  it: [
-    ["Leggende mobili\\s*: Bang Bang", "Mobile Legends: Bang Bang"],
-    ["Leggende mobili", "Mobile Legends"],
-    ["pelli", "skin"],
-    ["pelle", "skin"],
-  ],
-
   // Russian players use the community's words: "контрпик", "тир-лист",
   // "лес", "скин", "патч-ноуты". Russian declines its nouns, so each form
   // the service returns is listed; docs/glossary/ru.md.
@@ -496,12 +290,6 @@ const RULES = {
     ["мобильных легенд: Bang Bang", "Mobile Legends: Bang Bang"],
     ["мобильных легенд", "Mobile Legends"],
     ["Мобильные легенды", "Mobile Legends"],
-    // A skin is "скин", not "облик": only next to the adjectives the patch
-    // notes use, since "в человеческом облике" (in human form) is no skin.
-    ["сезонный облик", "сезонный скин"],
-    ["новый облик", "новый скин"],
-    ["эксклюзивный облик", "эксклюзивный скин"],
-    ["бесплатный облик", "бесплатный скин"],
     ["список уровней", "тир-лист"],
     ["списка уровней", "тир-листа"],
     ["списке уровней", "тир-листе"],
@@ -622,9 +410,7 @@ function rulesFor(locale, scope) {
         const before = THAI.test(pattern.at(0)) ? "" : "(?<![\\p{L}\\p{N}])";
         const after = THAI.test(pattern.at(-1)) ? "" : "(?![\\p{L}\\p{N}])";
         return {
-          // Either apostrophe, outside a character class: the service
-          // writes "d'or" or "d’or".
-          re: new RegExp(`${before}(${pattern.replace(/ /g, "\\s+").replace(/['’](?![^[]*\])/g, "['’]")})${suffix}${after}`, o?.caseSensitive ? "gu" : "giu"),
+          re: new RegExp(`${before}(${pattern.replace(/ /g, "\\s+")})${suffix}${after}`, o?.caseSensitive ? "gu" : "giu"),
           replacement,
         };
       });
@@ -643,9 +429,8 @@ export function applyGlossary(text, locale, scope = "data") {
   let output = text;
   for (const { re, replacement } of rulesFor(locale, scope)) {
     output = output.replace(re, (match, word, suffix = "", offset, whole) => {
-      // A function rewrites the matched words itself, case included.
-      let out = typeof replacement === "function" ? replacement(word) : replacement;
-      if (typeof replacement === "string" && /^\p{Lu}/u.test(word) && /^\p{Ll}/u.test(replacement)) {
+      let out = replacement;
+      if (/^\p{Lu}/u.test(word) && /^\p{Ll}/u.test(replacement)) {
         // "Tingkat Kemenangan" in a title: "Win Rate"; "Tingkat kemenangan": "Win rate".
         const title = word.split(/\s+/).length > 1 && word.split(/\s+/).every((w) => /^\p{Lu}/u.test(w));
         const upper = (w) => w[0].toUpperCase() + w.slice(1);

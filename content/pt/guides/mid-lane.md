@@ -35,7 +35,7 @@ Nem todos os magos jogam da mesma maneira. Alguns, como [Yve](/heroes/yve) ou [V
 A construção do mago segue a defesa mágica do oponente:
 
 - **contra heróis que acumulam defesa mágica**, um item de penetração como [Divine Glaive](/items/divine-glaive);
-- **contra uma equipe que cura**, a redução de cura de [Glowing Wand](/items/glowing-wand);
+- **contra uma equipe que cura**, a redução de cura de [Colar de Durança](/items/necklace-of-durance);
 - **contra mergulhadores**, um item de sobrevivência como [Winter Crown](/items/winter-crown), que brevemente o torna intocável.
 
 A [calculadora de dano](/tools/damage-calculator) mostra o efeito da penetração em um acerto real. Do lado dos feitiços, [Flicker](/spells/flicker) continua sendo a escolha mais comum; [Flameshot](/spells/flameshot) ataca de longe para acabar com um alvo em fuga.

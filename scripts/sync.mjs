@@ -38,13 +38,11 @@ import { levelValues, matchOfficial, mergeSkills, officialSkills } from "./skill
 import { itemRemoved, liquipediaItemTitle, officialItemNames, priceGaps } from "./items.mjs";
 import { liquipediaDetail, liquipediaList, liquipediaPages, mergeDetail, mergeLists } from "./liquipedia-patches.mjs";
 import {
-  alteredArtwork,
-  candidateRows,
   distinctSkinIds,
   extractAvatarIcons,
   extractIllustrations,
+  fallbackFileNames,
   isProvisionalFile,
-  isWithheldArtwork,
   normalizeNameSkin,
 } from "./gallery.mjs";
 import { isReleasedHero } from "./release.mjs";
@@ -225,7 +223,7 @@ const FILE_QUERY = (titles) => ({
   action: "query",
   titles,
   prop: "imageinfo|categories|revisions",
-  iiprop: "url|sha1|timestamp|comment|size",
+  iiprop: "url|sha1|timestamp|comment",
   cllimit: "max",
   rvprop: "content",
   rvslots: "main",
@@ -244,15 +242,6 @@ function recordFile(page) {
     sha1: info.sha1 ?? null,
     timestamp: info.timestamp ?? null,
     provisional: isProvisionalFile({ name: page.title, description, comment: info.comment, categories }),
-    // Only held against full-size artwork (see `alteredArtwork`).
-    altered: alteredArtwork({
-      name: page.title,
-      description,
-      comment: info.comment,
-      categories,
-      width: info.width,
-      height: info.height,
-    }),
   });
   return url;
 }
@@ -2450,16 +2439,16 @@ async function main() {
 
   // ── Full-size illustrations ────────────────────────────────────────
   // A gallery row whose file is provisional ("Thamuz (Lord Lava; unreleased
-  // revamp).jpg", "Masha Rogue Talon (Original).jpg") or altered (an edit, a
-  // crop) gives way to the live file it stands next to on the wiki, or to
-  // the hero's file under the usual name; a row showing another hero's
-  // artwork tries the hero's own first (see `candidateRows`).
-  const heroNames = heroes.map((h) => h.name);
-  const nameBySlug = new Map(heroes.map((h) => [h.slug, h.name]));
+  // revamp).jpg", "Masha Rogue Talon (Original).jpg") gives way to the live
+  // file it stands next to on the wiki, when there is one.
   const rowsBySlug = Object.fromEntries(
     Object.entries(pages).map(([slug, page]) => [
       slug,
-      candidateRows(page.illustrations, nameBySlug.get(slug) ?? slug, heroNames),
+      page.illustrations.flatMap(({ file, skin }) =>
+        isProvisionalFile({ name: file })
+          ? fallbackFileNames(file).map((f) => ({ file: f, skin, fallback: true }))
+          : [{ file, skin }],
+      ),
     ]),
   );
   const namesIllustrations = [
@@ -2493,16 +2482,13 @@ async function main() {
     );
     // Skins one of whose artworks was set aside as provisional.
     const setAside = new Set(
-      pages[slug].illustrations
-        .filter(({ file }) => isProvisionalFile({ name: file }) || alteredArtwork({ name: file }))
-        .map(({ skin }) => skin),
+      pages[slug].illustrations.filter(({ file }) => isProvisionalFile({ name: file })).map(({ skin }) => skin),
     );
     for (const { file, skin, fallback } of rows) {
       const key = file.replace(/\.(jpg|png)$/, "");
       const url = urlsIllustrations[key];
       if (!url || !skin) continue;
-      const info = fileInfo.get(url);
-      if (info?.provisional || info?.altered || isWithheldArtwork(slug, file)) {
+      if (fileInfo.get(url)?.provisional) {
         setAside.add(skin);
         continue;
       }
@@ -2537,7 +2523,7 @@ async function main() {
   }
   console.log(
     `  ${Object.keys(urlsIllustrations).length}/${namesIllustrations.length} full-size illustrations` +
-      `, ${provisionalReplaced} replaced by another file (provisional, altered or another hero's), ${unlisted} of unreleased skins left out`,
+      `, ${provisionalReplaced} provisional replaced by the live file, ${unlisted} of unreleased skins left out`,
   );
 
   console.log("Resolving items, emblems, talents and spells…");

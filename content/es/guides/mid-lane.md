@@ -35,7 +35,7 @@ No todos los magos juegan de la misma manera. Algunos, como [Yve](/heroes/yve) o
 La constitución del mago sigue la defensa mágica del oponente:
 
 - **contra héroes que acumulan defensa mágica**, un objeto de penetración como [Divine Glaive](/items/divine-glaive);
-- **contra un equipo que cura**, la reducción de curación de [Glowing Wand](/items/glowing-wand);
+- **contra un equipo que cura**, la reducción de curación de [Necklace of Durance](/items/necklace-of-durance);
 - **contra iniciadores**, un objeto de supervivencia como [Winter Crown](/items/winter-crown), que te hace brevemente intocable.
 
 La [calculadora de daños](/tools/damage-calculator) muestra el efecto de la penetración en un golpe real. En cuanto a los hechizos, [Flicker](/spells/flicker) sigue siendo la opción más común; [Flameshot](/spells/flameshot) ataca desde lejos para rematar a un objetivo que huye.

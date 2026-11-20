@@ -35,7 +35,7 @@ Non tutti i maghi giocano allo stesso modo. Alcuni, come [Yve](/heroes/yve) o [V
 La build del mago segue la difesa magica dell'avversario:
 
 - **contro gli eroi che accumulano difesa magica**, un oggetto di penetrazione come [Divine Glaive](/items/divine-glaive);
-- **contro una squadra che cura**, la riduzione della guarigione di [Glowing Wand](/items/glowing-wand);
+- **contro una squadra che cura**, la riduzione della guarigione di [Necklace of Durance](/items/necklace-of-durance);
 - **contro i diver**, un oggetto di sopravvivenza come [Winter Crown](/items/winter-crown), che ti rende per breve tempo intoccabile.
 
 Il [calcolatore dei danni](/tools/damage-calculator) mostra l'effetto della penetrazione su un colpo reale. Per quanto riguarda gli incantesimi, [Flicker](/spells/flicker) rimane la scelta più comune; [Flameshot](/spells/flameshot) colpisce da lontano per finire un bersaglio in fuga.
