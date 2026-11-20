@@ -48,7 +48,11 @@ export function Dex({ pose = "salut", height = 160, className, alt = "", priorit
   );
 }
 
-/** Dex with a speech bubble: tips, empty states, small explanations. */
+/**
+ * Dex with a speech bubble: tips, empty states, small explanations. The
+ * bubble pops in just after Dex and floats; three little bubbles rise
+ * between them, like a thought (animations in globals.css).
+ */
 export function DexSays({ pose = "reflexion", height = 120, children, side = "left", className }: {
   pose?: DexPose;
   height?: number;
@@ -59,6 +63,7 @@ export function DexSays({ pose = "reflexion", height = 120, children, side = "le
   return (
     <div className={cn("dex-says", side === "right" && "dex-says-right", className)}>
       <Dex pose={pose} height={height} />
+      <span className="dex-trail" aria-hidden="true"><i /><i /><i /></span>
       <div className="dex-bubble">{children}</div>
     </div>
   );

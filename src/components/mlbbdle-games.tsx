@@ -165,7 +165,7 @@ function Board({
             >
               {question}
             </h3>
-            <p className="game-bubble mt-3 inline-block text-sm">{t(`pages.mlbbdleUI.dex.${mood}`)}</p>
+            <p key={mood} className="game-bubble mt-3 inline-block text-sm">{t(`pages.mlbbdleUI.dex.${mood}`)}</p>
           </div>
           <GameDex mood={mood} beat={guesses} height={88} className="sm:hidden" />
           <GameDex mood={mood} beat={guesses} height={132} className="max-sm:hidden" />

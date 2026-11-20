@@ -177,6 +177,7 @@ export function DexNote({
   return (
     <div role={role} className={cn("dex-host flex items-end gap-3 sm:gap-5", className)}>
       <Dex pose={pose} height={height} still className="shrink-0" />
+      <span className="dex-trail max-sm:hidden" aria-hidden="true"><i /><i /><i /></span>
       <div className="dex-bubble min-w-0 flex-1 sm:flex-none">
         {title && <p className="font-heading text-lg font-bold uppercase leading-tight text-chalk-100">{title}</p>}
         <div className={cn("text-sm leading-relaxed text-chalk-300", title && "mt-1")}>{children}</div>
