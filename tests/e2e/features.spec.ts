@@ -340,7 +340,7 @@ test("the PWA manifest declares a maskable icon", async ({ request }) => {
 
 test.describe("language picker", () => {
   const NAMES = ["English", "Français", "Italiano", "Español", "Bahasa Indonesia", "Filipino", "ไทย", "Português (Brasil)", "Русский"];
-  const exact = new RegExp(`^(${NAMES.map((n) => n.replace(/[()]/g, "\\$&")).join("|")})$`);
+  const exact = new RegExp(`^(${NAMES.map((n) => n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})$`);
   // The picker's entries, not the navigation's section buttons.
   const options = (page: Page) => page.locator("header li").getByRole("button").filter({ hasText: exact });
 
