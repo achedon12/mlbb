@@ -42,7 +42,8 @@ function GithubMark() {
 }
 
 /**
- * Site footer: the site's map, in six columns, and its credits.
+ * Site footer: the brand's signature (Dex, a line, his page and the
+ * Discord), the site's map in six columns, and its credits.
  *
  * Rendered in the browser's bundle rather than on the server: the same
  * forty links in every page wrote their markup out twice, in the HTML and
@@ -59,12 +60,37 @@ export function Footer({ locale, year }: { locale: Locale; year: number }) {
     <footer className="mt-16 bg-night-900">
       {/* The éclat closes the page, as it separates its sections. */}
       <div aria-hidden className="eclat-rule" />
-      <div className="page-wrap grid gap-x-12 gap-y-8 py-10 sm:py-14 xl:grid-cols-[minmax(16rem,22rem)_minmax(0,1fr)]">
-        <div className="relative">
-          {/* Dex sees the visitor off, from a tablet up; still, the page has had its moment. */}
-          <span aria-hidden className="dex-host pointer-events-auto absolute -top-3 right-0 hidden sm:block xl:hidden">
-            <Dex pose="salut" height={92} still />
+      {/* The brand's signature: Dex sees the visitor off (still: the page has had its moment), with the way to his page and to the server. */}
+      <div className="page-wrap flex items-end gap-4 pt-8 sm:gap-6 sm:pt-10">
+        <span className="dex-host shrink-0">
+          <span className="block sm:hidden">
+            <Dex pose="salut" height={76} still />
           </span>
+          <span className="hidden sm:block">
+            <Dex pose="salut" height={100} still />
+          </span>
+        </span>
+        <div className="min-w-0 flex-1 pb-1">
+          <p className="display-caps text-[1.6rem] leading-none text-chalk-100 sm:text-[2.25rem]">{t("brandSignature.tagline")}</p>
+          <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2">
+            <Link href="/dex" className="text-sm font-semibold text-gold-400 transition-colors hover:text-gold-300">
+              {t("brandSignature.dexLink")} →
+            </Link>
+            {discord && (
+              <DiscordJoinLink
+                href={discord}
+                placement="Footer"
+                className="bevel-sm flex min-h-9 items-center gap-2 bg-night-800 px-3 text-sm text-chalk-300 transition-[color,background-color,translate] hover:-translate-y-px hover:bg-night-700 hover:text-gold-300"
+              >
+                <DiscordMark />
+                {t("footer.discord")}
+              </DiscordJoinLink>
+            )}
+          </div>
+        </div>
+      </div>
+      <div className="page-wrap grid gap-x-12 gap-y-8 py-10 sm:py-12 xl:grid-cols-[minmax(16rem,22rem)_minmax(0,1fr)]">
+        <div className="relative">
           <Link href={`/${locale}`} aria-label={site.name} className="group flex w-fit items-center">
             <BrandMark />
           </Link>
@@ -88,16 +114,6 @@ export function Footer({ locale, year }: { locale: Locale; year: number }) {
               <Rss size={16} aria-hidden />
               RSS
             </Link>
-            {discord && (
-              <DiscordJoinLink
-                href={discord}
-                placement="Footer"
-                className="bevel-sm flex min-h-9 items-center gap-2 bg-night-800 px-3 text-sm text-chalk-300 transition-[color,background-color,translate] hover:-translate-y-px hover:bg-night-700 hover:text-gold-300"
-              >
-                <DiscordMark />
-                {t("footer.discord")}
-              </DiscordJoinLink>
-            )}
           </div>
         </div>
 

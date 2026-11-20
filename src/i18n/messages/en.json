@@ -671,7 +671,8 @@
       "title": "About",
       "lead": "An independent, open project that is deliberately upfront about its limits.",
       "metaDescription": "What this site is, what it contains, what it can't contain, and how to contribute.",
-      "dexLine": "I'm Dex! I guide you through the site: heroes, meta, tools and community."
+      "dexLine": "I'm Dex! I guide you through the site: heroes, meta, tools and community.",
+      "dexLink": "My story"
     },
     "legal": {
       "title": "Legal notice",
@@ -3692,14 +3693,14 @@
       "average": "On average, with {chance} crit chance: {damage} damage per basic attack."
     },
     "bot": {
-      "title": "MLBBDex — the Mobile Legends Discord bot",
+      "title": "Dex MLBB — the Mobile Legends Discord bot",
       "breadcrumb": "Discord bot",
-      "metaTitle": "Mobile Legends (MLBB) Discord bot: builds, counters, tier list",
-      "metaDescription": "MLBBDex, the free Discord bot for Mobile Legends: builds and counters measured on ranked matches, tier list, patch notes, skin alerts and the daily MLBBdle, in five languages.",
+      "metaTitle": "Dex MLBB, the Mobile Legends Discord bot: builds, counters, tier list",
+      "metaDescription": "Dex MLBB, MLBBDex's free Discord bot for Mobile Legends: builds and counters measured on ranked matches, tier list, patch notes, skin alerts and the daily MLBBdle, in five languages.",
       "lead": "Mobile Legends: Bang Bang builds, counters, tier list and patch notes, measured on ranked matches and updated daily, on your server. Plus a daily MLBBdle for your community. Free, in five languages.",
       "add": "Add to Discord",
       "join": "Join the server",
-      "vote": "Vote for MLBBDex",
+      "vote": "Vote for Dex MLBB",
       "dashboard": "Dashboard",
       "servers": "In {count} servers",
       "free": "100% free",
@@ -3782,7 +3783,7 @@
       "faqTitle": "Frequently asked questions",
       "faq1q": "Is the bot free?",
       "faq1a": "Yes, entirely: no subscription, no locked feature, no vote lock, no ads. Like the site, it is paid for by its author.",
-      "faq2q": "How do I add MLBBDex to my server?",
+      "faq2q": "How do I add Dex MLBB to my server?",
       "faq2a": "Click \"Add to Discord\", pick a server where you have the Manage Server permission, and confirm. The commands show up as soon as you type / in a channel.",
       "faq3q": "How do I set up announcements?",
       "faq3a": "Open the dashboard with your Discord account (or type /setup): for each announcement type, pick a channel and, if you want, a role to mention. You need the Manage Server permission.",
@@ -3796,11 +3797,12 @@
       "faq7a": "Your server's name and settings, what it already posted, and, for the leaderboards, the Discord id and name of the daily game players. The details are on the bot's privacy page.",
       "faq8q": "Is the Discord MLBBdle the same as the site's?",
       "faq8a": "Yes: the same hero, the same skill and the same quiz rounds every UTC day, in every language.",
-      "ctaTitle": "Add MLBBDex to your server",
-      "ctaText": "One minute to add, nothing to pay. Questions or an idea? The MLBBDex server is waiting for you.",
+      "ctaTitle": "Add Dex MLBB to your server",
+      "ctaText": "One minute to add it, nothing to pay. Questions or an idea? The community server is waiting for you.",
       "privacy": "Bot privacy",
       "terms": "Terms of use",
-      "dexLine": "MLBBDex files, directly on your Discord server."
+      "dexLine": "Hi, I'm Dex! On Discord I go by Dex MLBB: type /hero, /build or /tierlist and I answer with the site's pages and figures.",
+      "dexLink": "Who is Dex?"
     },
     "botPrivacy": {
       "title": "Discord bot privacy",
@@ -4871,6 +4873,121 @@
         "invalid": "Report refused: check the fields.",
         "unavailable": "Unable to send at the moment: try again later."
       }
+    },
+    "dexPage": {
+      "title": "Dex",
+      "metaTitle": "Dex, the MLBBDex mascot",
+      "metaDescription": "Who is Dex, the little owl-fox spirit of the Land of Dawn who guides you on MLBBDex and answers you on Discord as the Dex MLBB bot.",
+      "kicker": "The MLBBDex mascot",
+      "lead": "A little spirit of the Land of Dawn, half owl, half fox, who has watched enough games to remember everything. He guides you on the site and answers you on Discord.",
+      "hello": "Hi, I'm Dex! Click on me: I always have a tip in reserve.",
+      "seePoses": "See Dex's six poses",
+      "originTitle": "Where he comes from",
+      "origin1": "Dex was born in the Land of Dawn, the day a shard broke off a base crystal, right between the two sides. Half blue, half red: he never picks a team. He wears that shard as a pendant.",
+      "origin2": "Owl for his big eyes that see clearly in the night, fox for cunning, he spent seasons perched in the jungle watching the fights, counting the builds and noting who beats who.",
+      "origin3": "Everything he remembered, he stored in a large index: the Dex. It became his name, then that of the site.",
+      "traitsTitle": "Distinctive signs",
+      "traits": {
+        "color": "Midnight blue, like the background of the site",
+        "tufts": "Two gold ear tufts shaped like blades",
+        "crystal": "The base crystal, blue and red, as a pendant",
+        "cape": "A cape lined with gold"
+      },
+      "doesTitle": "What he does",
+      "siteTitle": "On the site",
+      "siteText": "Dex greets you at the top of the pages, slips you a tip when you click him, keeps you company when a page is empty and cheers your MLBBdle wins. He never talks for nothing: three tips per page at most.",
+      "discordTitle": "On Discord",
+      "discordText": "Over there, Dex goes by Dex MLBB: the bot that answers /hero, /build or /tierlist with the same figures as the site. He is also the icon of the community server.",
+      "botLink": "Discover the Dex MLBB bot",
+      "posesTitle": "His six poses",
+      "posesLead": "A pose for every moment of your visit. Hover over them, click on them: they are alive.",
+      "poses": {
+        "salut": {
+          "name": "Hello",
+          "text": "To welcome you, on the first screens."
+        },
+        "reflexion": {
+          "name": "Thinking",
+          "text": "For advice or an explanation."
+        },
+        "idee": {
+          "name": "Idea",
+          "text": "When he has a suggestion or a tool to show you."
+        },
+        "surpris": {
+          "name": "Surprised",
+          "text": "On an empty page, not found or in error."
+        },
+        "victoire": {
+          "name": "Victory",
+          "text": "When you win, find or save something."
+        },
+        "carte": {
+          "name": "Map",
+          "text": "In the guides, on the map and for strategy."
+        }
+      },
+      "kitLink": "His poses as PNG are in the brand kit",
+      "joinTitle": "Come say hello to him",
+      "joinText": "On the Discord server, Dex is waiting for you with patch alerts, today's MLBBdle and players of your rank.",
+      "join": "Join the Discord",
+      "aboutLink": "The project's story"
+    },
+    "brandKit": {
+      "title": "Brand kit",
+      "metaTitle": "MLBBDex Branding and Press Kit",
+      "metaDescription": "Colors and their codes, typographies, rules of use and poses of Dex in PNG: everything you need to talk about MLBBDex.",
+      "lead": "To talk about MLBBDex in an article, video or stream: the name, colors, fonts, rules and Dex in PNG.",
+      "dexLine": "Take what you need. Just one request: don't paint me purple.",
+      "nameTitle": "The name",
+      "nameText": "MLBBDex is written in one word, “Dex” in gold. The Discord bot is called Dex MLBB, like the mascot.",
+      "logoPending": "The logo is being redesigned and has not yet been validated. In the meantime, use the text logotype: the name, in the title font.",
+      "colorsTitle": "The colors",
+      "colorsLead": "Night for backgrounds, gold for accent, blue and red for both camps. Nothing else.",
+      "copy": "Copy {hex}",
+      "copied": "Copy",
+      "colors": {
+        "night950": "Night, background",
+        "night900": "Night, surfaces",
+        "night800": "Night, relief",
+        "gold400": "Gold, accent and numbers",
+        "gold600": "Dark gold",
+        "azure400": "Allied blue, what goes up",
+        "blood400": "Enemy red, dropping",
+        "chalk100": "Chalk, text",
+        "chalk400": "Chalk, secondary text"
+      },
+      "typeTitle": "Typographies",
+      "type": {
+        "display": "Titles, names of heroes, large numbers: weight 800 or 900, inclined, in capitals.",
+        "heading": "Intertitles, buttons, menus: fat 600 or 700, right.",
+        "body": "Running text, tabular figures in tables."
+      },
+      "sample": "The battle, in a big way",
+      "fontsNote": "All three are open source and free, on Google Fonts.",
+      "rulesTitle": "The rules",
+      "doTitle": "Yes",
+      "dontTitle": "No",
+      "do1": "Keep Dex as he is: midnight blue, gold egrets, crystal blue and red.",
+      "do2": "Place it on a dark background, with air around it.",
+      "do3": "Write MLBBDex in one word, and Dex MLBB for the bot.",
+      "do4": "Clarify that MLBBDex is an independent fan project.",
+      "dont1": "Recolor it, distort it or add accessories.",
+      "dont2": "Make him speak on behalf of Moonton or another site.",
+      "dont3": "Present an MLBBDex logo: the one being redesigned is not validated.",
+      "dont4": "Out of the palette: no purple, no rainbow gradient.",
+      "dexTitle": "Dex to PNG",
+      "dexLead": "Transparent background, at its size, or centered on a 512 px square for an avatar or an emoji.",
+      "download": "PNG",
+      "downloadSquare": "Square 512 px",
+      "downloadLabel": "Download Dex, pose {pose}, in PNG",
+      "downloadSquareLabel": "Download Dex, pose {pose}, in 512 px square PNG",
+      "pressTitle": "Press and contact",
+      "pressText": "A question, an interview, a partnership? Write to us on the Discord, or open a ticket on the project repository.",
+      "repo": "Submission of the project",
+      "discord": "The Discord",
+      "legal": "Mobile Legends: Bang Bang, its heroes and its visuals are trademarks of Shanghai Moonton Technology Co., Ltd. MLBBDex is neither affiliated with nor endorsed by Moonton: do not use their visuals as our own.",
+      "dexPageLink": "Who is Dex?"
     }
   },
   "modeSheet": {
@@ -5098,6 +5215,15 @@
         },
         {
           "p": "The visuals belong to Moonton and, for collaboration skins, to the rights holders of the characters and brands involved. Portraits, icons and skin artwork come from the community wiki and are served by this site so nothing depends on a third-party domain. They remain Moonton's property, are shown for illustration purposes and will be removed at the rights holder's request. The site's look (midnight blue, gold, cut corners) draws on the game's without reusing its interface files."
+        },
+        {
+          "h": "The name and brand"
+        },
+        {
+          "p": "“Dex” comes from index: the site stores in one place everything that the game publishes and everything that ranked games measure. Its identity, the Land of Dawn, takes up the night, the gold and the diagonal cuts of the game interface, so that we recognize a page of MLBBDex without seeing its name."
+        },
+        {
+          "p": "Dex, the site's mascot, comes from that land. He welcomes visitors on the site and, as Dex MLBB, answers on Discord when you type /hero or /build. [His story and his poses are on his page.](/dex) Colours, fonts, usage rules and Dex as PNG: [the brand kit](/brand)."
         },
         {
           "h": "The roundup"
@@ -6319,5 +6445,11 @@
     "skins1": "Appearances are ordered by rarity.",
     "skins2": "The calendar shows the StarLights and Collectors of each month.",
     "skins3": "Check your appearances in the Collection tool to estimate your count."
+  },
+  "brandSignature": {
+    "tagline": "All Mobile Legends, measured every day. Dex watches.",
+    "dexLink": "Who is Dex?",
+    "dex": "Dex, the mascot",
+    "brandKit": "Brand kit"
   }
 }

@@ -671,7 +671,8 @@
       "title": "Informazioni",
       "lead": "Un progetto indipendente, aperto e volutamente esplicito sui propri limiti.",
       "metaDescription": "Cos'è questo sito, cosa contiene, cosa non può contenere e come contribuire.",
-      "dexLine": "Sono Dex! Ti guido attraverso il sito: eroi, meta, strumenti e community."
+      "dexLine": "Sono Dex! Ti guido attraverso il sito: eroi, meta, strumenti e community.",
+      "dexLink": "La mia storia"
     },
     "legal": {
       "title": "Note legali",
@@ -3692,14 +3693,14 @@
       "average": "In media, con {chance} probabilità critica: {damage} danno per attacco base."
     },
     "bot": {
-      "title": "MLBBDex — il bot Discord di Mobile Legends",
+      "title": "Dex MLBB: il bot di Discord Mobile Legends",
       "breadcrumb": "Bot Discord",
-      "metaTitle": "Bot Discord di Mobile Legends (MLBB): build, counter, tier list",
-      "metaDescription": "MLBBDex, il bot Discord gratuito per Mobile Legends: build e counter misurati sulle partite classificate, tier list, note delle patch, avvisi sulle skin e MLBBdle del giorno, in cinque lingue.",
+      "metaTitle": "Dex MLBB, il bot Discord Mobile Legends: build, contatori, elenco dei livelli",
+      "metaDescription": "Dex MLBB, il bot MLBBDex Discord gratuito per Mobile Legends: build e contatori misurati in partite classificate, elenco dei livelli, note sulla patch, avvisi skin e MLBBdle del giorno, in cinque lingue.",
       "lead": "Build, counter, tier list e note delle patch di Mobile Legends: Bang Bang, misurati sulle partite classificate e aggiornati ogni giorno, direttamente nel tuo server. In più un MLBBdle quotidiano per la tua community. Gratuito, in cinque lingue.",
       "add": "Aggiungi a Discord",
       "join": "Entra nel server",
-      "vote": "Vota MLBBDex",
+      "vote": "Vota per Dex MLBB",
       "dashboard": "Pannello di controllo",
       "servers": "Presente in {count} server",
       "free": "100% gratuito",
@@ -3782,7 +3783,7 @@
       "faqTitle": "Domande frequenti",
       "faq1q": "Il bot è gratuito?",
       "faq1a": "Sì, del tutto: niente abbonamento, nessuna funzione riservata, nessun voto obbligatorio, nessuna pubblicità. Come il sito, lo paga il suo autore.",
-      "faq2q": "Come aggiungo MLBBDex al mio server?",
+      "faq2q": "Come posso aggiungere Dex MLBB al mio server?",
       "faq2a": "Clicca su \"Aggiungi a Discord\", scegli un server in cui hai il permesso Gestisci server e conferma. I comandi compaiono appena scrivi / in un canale.",
       "faq3q": "Come configuro gli annunci?",
       "faq3a": "Apri il pannello di controllo con il tuo account Discord (o scrivi /setup): scegli un canale, e se vuoi un ruolo da menzionare, per ogni tipo di annuncio. Serve il permesso Gestisci server.",
@@ -3796,11 +3797,12 @@
       "faq7a": "Il nome e le impostazioni del tuo server, ciò che ha già pubblicato e, per le classifiche, l'id e il nome Discord dei giocatori dei giochi del giorno. I dettagli sono nella pagina sulla privacy del bot.",
       "faq8q": "L'MLBBdle su Discord è lo stesso del sito?",
       "faq8a": "Sì: stesso eroe, stessa abilità e stessi round del quiz ogni giorno UTC, in tutte le lingue.",
-      "ctaTitle": "Aggiungi MLBBDex al tuo server",
-      "ctaText": "Un minuto per aggiungerlo, niente da pagare. Domande o un'idea? Il server di MLBBDex ti aspetta.",
+      "ctaTitle": "Aggiungi Dex MLBB al tuo server",
+      "ctaText": "Un minuto per aggiungerlo, niente da pagare. Domande o un'idea? Il server della comunità ti sta aspettando.",
       "privacy": "Privacy del bot",
       "terms": "Condizioni d'uso",
-      "dexLine": "File MLBBDex, direttamente sul tuo server Discord."
+      "dexLine": "Ciao, sono Dex! Su Discord mi chiamo Dex MLBB: digita /hero, /build o /tierlist e ti risponderò con i file e le cifre del sito.",
+      "dexLink": "Chi è Dex?"
     },
     "botPrivacy": {
       "title": "Privacy del bot Discord",
@@ -4871,6 +4873,121 @@
         "invalid": "Segnalazione rifiutata: controlla i campi.",
         "unavailable": "Impossibile inviare al momento: riprova più tardi."
       }
+    },
+    "dexPage": {
+      "title": "Dex",
+      "metaTitle": "Dex, la mascotte dell'MLBBDex",
+      "metaDescription": "Chi è Dex, il piccolo spirito gufo-volpe della Terra dell'Alba che ti guida su MLBBDex e ti risponde su Discord con il bot Dex MLBB.",
+      "kicker": "La mascotte dell'MLBBDex",
+      "lead": "Un piccolo spirito della Terra dell'Alba, metà gufo e metà volpe, che ha guardato abbastanza partite da ricordare tutto. Ti guida nel sito e ti risponde su Discord.",
+      "hello": "Ciao, sono Dex! Clicca su di me: ho sempre una mancia in riserva.",
+      "seePoses": "Guarda tutte e sei le pose di Dex",
+      "originTitle": "Da dove viene",
+      "origin1": "Dex è nato nella Terra dell'Alba, il giorno in cui un frammento si staccò da un cristallo di base, proprio tra i due campi. Metà blu e metà rosso: non sceglie mai una squadra. Indossa questo frammento come ciondolo.",
+      "origin2": "Gufo per i suoi grandi occhi che vedono chiaramente nella notte, volpe per l'astuzia, trascorreva stagioni appollaiato nella giungla osservando i combattimenti, contando le build e annotando chi batte chi.",
+      "origin3": "Tutto ciò che ricordava, lo archiviava in un grande indice: il Dex. Divenne il suo nome, poi quello del sito.",
+      "traitsTitle": "Segni distintivi",
+      "traits": {
+        "color": "Blu notte, come lo sfondo del sito",
+        "tufts": "Due garzette dorate a forma di lama",
+        "crystal": "Il cristallo base, blu e rosso, come pendente",
+        "cape": "Un mantello foderato d'oro"
+      },
+      "doesTitle": "Cosa fa",
+      "siteTitle": "Sul sito",
+      "siteText": "Dex ti dà il benvenuto in cima alle pagine, inserisce un suggerimento quando fai clic su di lui, rimane con te quando una pagina è vuota e celebra le tue vittorie in MLBBdle. Non parla mai per niente: tre consigli al massimo per pagina.",
+      "discordTitle": "Sulla Discordia",
+      "discordText": "Lì Dex si chiama Dex MLBB: è il bot che risponde a /hero, /build o /tierlist con gli stessi numeri del sito. È anche l'icona del server della comunità.",
+      "botLink": "Scopri il bot Dex MLBB",
+      "posesTitle": "Le sue sei pose",
+      "posesLead": "Una posa per ogni momento della tua visita. Passa il mouse sopra di loro, cliccaci sopra: sono vivi.",
+      "poses": {
+        "salut": {
+          "name": "CIAO",
+          "text": "Ad accogliervi, sui primi schermi."
+        },
+        "reflexion": {
+          "name": "Riflessione",
+          "text": "Per un consiglio o una spiegazione."
+        },
+        "idee": {
+          "name": "Idea",
+          "text": "Quando ha un suggerimento o uno strumento da mostrarti."
+        },
+        "surpris": {
+          "name": "Sorpreso",
+          "text": "In una pagina vuota, non trovata o in errore."
+        },
+        "victoire": {
+          "name": "Vittoria",
+          "text": "Quando vinci, trova o salva qualcosa."
+        },
+        "carte": {
+          "name": "Mappa",
+          "text": "Nelle guide, sulla mappa e per la strategia."
+        }
+      },
+      "kitLink": "Le sue pose PNG sono nel kit del marchio",
+      "joinTitle": "Vieni a salutarlo",
+      "joinText": "Sul server Discord, Dex ti aspetta con avvisi di patch, MLBBdle di oggi e giocatori del tuo grado.",
+      "join": "Unisciti al Discord",
+      "aboutLink": "La storia del progetto"
+    },
+    "brandKit": {
+      "title": "Kit di marca",
+      "metaTitle": "Marchio MLBBDex e cartella stampa",
+      "metaDescription": "Colori e relativi codici, tipografie, regole d'uso e pose di Dex in PNG: tutto quello che serve per parlare di MLBBDex.",
+      "lead": "Per parlare di MLBBDex in un articolo, video o streaming: il nome, i colori, i font, le regole e il Dex in PNG.",
+      "dexLine": "Prendi quello che ti serve. Solo una preghiera: non dipingermi di viola.",
+      "nameTitle": "Il nome",
+      "nameText": "MLBBDex è scritto in una parola, \"Dex\" in oro. Il bot Discord si chiama Dex MLBB, come la mascotte.",
+      "logoPending": "Il logo è in fase di riprogettazione e non è stato ancora convalidato. Nel frattempo usate il logotipo del testo: il nome, nel font del titolo.",
+      "colorsTitle": "I colori",
+      "colorsLead": "Notte per gli sfondi, oro per l'accento, blu e rosso per entrambi i campi. Nient'altro.",
+      "copy": "Copia {hex}",
+      "copied": "Copia",
+      "colors": {
+        "night950": "Notte, sfondo",
+        "night900": "Notte, superfici",
+        "night800": "Notte, sollievo",
+        "gold400": "Oro, accento e numeri",
+        "gold600": "Oro scuro",
+        "azure400": "Blu alleato, cosa sale",
+        "blood400": "Rosso nemico, in caduta",
+        "chalk100": "Gesso, testo",
+        "chalk400": "Gesso, testo secondario"
+      },
+      "typeTitle": "Tipografie",
+      "type": {
+        "display": "Titoli, nomi di eroi, numeri grandi: peso 800 o 900, inclinato, in maiuscolo.",
+        "heading": "Didascalie, pulsanti, menu: fat 600 o 700, giusto.",
+        "body": "Testo corrente, figure tabulari nelle tabelle."
+      },
+      "sample": "La battaglia, in grande stile",
+      "fontsNote": "Tutti e tre sono open source e gratuiti, su Google Fonts.",
+      "rulesTitle": "Le regole",
+      "doTitle": "Sì",
+      "dontTitle": "No",
+      "do1": "Mantieni Dex così com'è: blu notte, garzette dorate, blu cristallo e rosso.",
+      "do2": "Posizionalo su uno sfondo scuro, con aria attorno.",
+      "do3": "Scrivi MLBBDex in una parola e Dex MLBB per il bot.",
+      "do4": "Chiarire che MLBBDex è un progetto di fan indipendente.",
+      "dont1": "Ricoloralo, distorcilo o aggiungi accessori.",
+      "dont2": "Fallo parlare a nome di Moonton o di un altro sito.",
+      "dont3": "Presentare un logo MLBBDex: quello in fase di riprogettazione non è validato.",
+      "dont4": "Fuori tavolozza: niente viola, niente gradiente arcobaleno.",
+      "dexTitle": "Dex in PNG",
+      "dexLead": "Sfondo trasparente, alle sue dimensioni, o centrato su un quadrato di 512 px per un avatar o un emoji.",
+      "download": "PNG",
+      "downloadSquare": "Quadrato 512 px",
+      "downloadLabel": "Scarica Dex, posa {pose}, in PNG",
+      "downloadSquareLabel": "Scarica Dex, posa {pose}, in formato PNG quadrato da 512 px",
+      "pressTitle": "Stampa e contatta",
+      "pressText": "Una domanda, un'intervista, una partnership? Scrivici su Discord o apri un ticket sul repository del progetto.",
+      "repo": "Presentazione del progetto",
+      "discord": "La Discordia",
+      "legal": "Mobile Legends: Bang Bang, i suoi eroi e le sue immagini sono marchi di Shanghai Moonton Technology Co., Ltd. MLBBDex non è né affiliato né approvato da Moonton: non utilizzare le loro immagini come nostre.",
+      "dexPageLink": "Chi è Dex?"
     }
   },
   "modeSheet": {
@@ -5098,6 +5215,15 @@
         },
         {
           "p": "Le immagini appartengono a Moonton e, per le skin in collaborazione, ai titolari dei diritti dei personaggi e dei marchi interessati. Ritratti, icone e illustrazioni di skin provengono dalla wiki della comunità e sono serviti da questo sito in modo che nulla dipenda da un dominio di terze parti. Rimangono di proprietà di Moonton, sono presenti a scopo illustrativo e verranno rimossi su richiesta del titolare dei diritti. L'identità visiva del sito (blu scuro, oro, angoli tagliati) si ispira a quella del gioco senza utilizzare i file dell'interfaccia."
+        },
+        {
+          "h": "Il nome e il marchio"
+        },
+        {
+          "p": "\"Dex\" deriva da indice: il sito memorizza in un unico posto tutto ciò che il gioco pubblica e tutto ciò che misura i giochi classificati. La sua identità, Land of Dawn, riprende la notte, l'oro e i tagli diagonali dell'interfaccia di gioco, tanto che riconosciamo una pagina di MLBBDex senza vederne il nome."
+        },
+        {
+          "p": "Dex, la mascotte del sito, viene da questa terra. Dà il benvenuto ai visitatori del sito e, sotto il nome Dex MLBB, risponde su Discord quando digiti /hero o /build. [La sua storia e le sue pose sono sulla sua pagina.](/dex) Colori, font, regole d'uso e Dex in PNG: [il brand kit](/brand)."
         },
         {
           "h": "La rassegna"
@@ -6319,5 +6445,11 @@
     "skins1": "Gli aspetti sono ordinati per rarità.",
     "skins2": "Il calendario mostra gli StarLights e i Collectors di ogni mese.",
     "skins3": "Controlla le tue apparizioni nello strumento Raccolta per stimare il tuo conteggio."
+  },
+  "brandSignature": {
+    "tagline": "Tutte le Mobile Legends, misurate ogni giorno. Dex osserva.",
+    "dexLink": "Chi è Dex?",
+    "dex": "Dex, la mascotte",
+    "brandKit": "Kit di marca"
   }
 }
