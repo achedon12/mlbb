@@ -1,0 +1,53 @@
+{
+  "tagline": "Prince minoen résolu à restaurer sa terre natale.",
+  "lore": [
+    "Jadis, les Minoens fondèrent dans les Terres arides d'Agelta un royaume mystérieux et prospère, nommé Minoa.",
+    "La Route d'Émeraude, autrefois animée, reliait Minoa aux autres cités de l'Ouest et formait un réseau de routes commerciales, tandis que Minoa, par sa civilisation avancée et ses traditions martiales, dominait toutes les autres.",
+    "Le prince Minotaur de Minoa était alors le guerrier le plus estimé. Passionné de combat, souvent porté par sa rage, Minotaur faisait preuve au combat d'accès de force terrifiants. Rares étaient ceux qui pouvaient seulement espérer tenir plus de quelques reprises face à lui.",
+    "Le peuple en vint à vénérer Minotaur, mais son père s'inquiétait profondément à son sujet. Si Minotaur remportait de grands succès sur le champ de bataille, sa sauvagerie et son impulsivité ne seyaient pas à l'héritier du royaume.",
+    "Pour faire de Minotaur un héritier digne du trône, le vieux roi organisa une épreuve particulière : pour mériter le trône de Minoa, le prince devait vaincre un mystérieux inconnu venu de terres étrangères.",
+    "Minotaur accepta sans hésiter ce duel à mains nues. Il entra dans l'arène la tête haute et tenta d'écraser son adversaire par la force brute, comme il l'avait toujours fait. Mais cette fois, son adversaire était bien plus coriace, et Minotaur s'épuisa vite, perdant son avantage.",
+    "Pour finir, l'inconnu mystérieux vainquit l'« invincible » Minotaur par des contre-attaques mesurées.",
+    "La foule acclama le vainqueur, aussi fort que gracieux, tandis que Minotaur était submergé par la rage et la honte.",
+    "Et lorsque l'inconnu lui tendit la main pour l'aider à se relever, Minotaur saisit cette main sans méfiance, plaqua l'inconnu au sol et le roua de coups de poing féroces.",
+    "Alors que ses poings étaient couverts de sang et que l'inconnu ne se débattait plus, Minotaur lui arracha son masque sous les huées de la foule, et c'est alors que tout son corps se figea. L'homme grièvement blessé, à terre, n'était autre que son père !",
+    "Le vieux roi saisit la main de Minotaur dans un dernier effort et adressa à son fils ses ultimes recommandations : « Tu dois apprendre à porter les responsabilités d'un roi et perpétuer la gloire de Minoa… »",
+    "Rongé par la honte et le remords, Minotaur se rendit au Labyrinthe minoen, le lieu de sépulture des ancêtres minoens, et y commença son entraînement et sa pénitence.",
+    "Avec le temps, Minotaur parvint peu à peu à maîtriser sa rage, au point de pouvoir puiser à volonté dans sa puissance furieuse.",
+    "Alors que Minotaur se consacrait à cet entraînement exigeant, une catastrophe inattendue survint. Minoa tout entière fut rasée par l'explosion de l'Orbe du Crépuscule ; seul Minotaur, protégé par le Labyrinthe, resta indemne. Minotaur se précipita vers le royaume au milieu des secousses pour découvrir ce qui s'était passé, lorsqu'un fragment de l'Orbe du Crépuscule s'abattit sur le Labyrinthe et le scella entièrement. Minotaur, qui n'avait fait qu'un demi-pas hors du Labyrinthe, fut scellé avec lui et plongé dans un profond sommeil.",
+    "La catastrophe effaça toute trace de la civilisation minoenne, à l'exception du Labyrinthe minoen, à demi enfoui dans le sable. Après d'innombrables jours et d'innombrables nuits, le fragment de l'Orbe du Crépuscule devint Lunox et s'en alla.",
+    "Le sceau fut alors levé. Le temps se remit à s'écouler dans le Labyrinthe, et Minotaur ouvrit lentement les yeux…",
+    "Aldous, le gardien du Labyrinthe, apprit à Minotaur que son royaume était depuis longtemps réduit en poussière, et qu'il n'en restait que lui et ses souvenirs. Mais Minotaur refusa de croire un seul mot de tout cela.",
+    "Les dernières volontés de son père encore vives dans son esprit, le prince se jura de retrouver les siens disparus et de rebâtir la civilisation minoenne.",
+    "Dans l'immensité des sables, une file d'empreintes de sabots s'étirait jusqu'à l'horizon…"
+  ],
+  "headings": [],
+  "trivia": [
+    "Son nom vient du Minotaure, créature légendaire de la mythologie grecque au corps d'homme et à la tête de taureau.",
+    "Le vrai nom de Minotaur est Asterion, inspiré d'Astraeus. Il reçut le nom de Minotaur lorsqu'il devint le Minotaure le plus puissant de Minoa.",
+    "Le nom Astraeus vient du grec « Ἀστερίων », « l'Étoilé », ce qui évoque la constellation du Taureau et explique le nom de son skin.",
+    "Minotaur est le seul tank capable de soigner ses alliés.",
+    "Son skin Orbiter s'appelait à l'origine Taurus, mais il a été renommé pour éviter la confusion avec son skin du Zodiaque, également nommé Taurus.",
+    "Les premiers croquis lui donnaient un marteau de pierre plus primitif ; les versions suivantes l'ont rendu plus raffiné et enchanté, laissant peut-être deviner une origine magique.",
+    "C'est le premier héros de MLBB doté d'une « jauge de rage ». Contrairement à la plupart des héros, qui utilisent du mana ou de l'énergie, Minotaur voyait ses compétences renforcées lorsque sa jauge de rage était pleine, ce qui en faisait un tank à part. Ce système a depuis été revu : ses compétences sont désormais renforcées lorsqu'il utilise son ultime, auparavant renforcé."
+  ],
+  "profile": {
+    "fullName": "Prince Minotaur de Minoa (anciennement)",
+    "title": "Prince de Minoa (anciennement)",
+    "species": null,
+    "gender": "Homme",
+    "age": null,
+    "origin": "Minoa, Terres arides d'Agelta",
+    "birthday": "3 mai",
+    "affiliations": [
+      "Minoa (anciennement)"
+    ],
+    "relations": [
+      "Roi de Minoa (père, tué par Minotaur)",
+      "Aldous"
+    ],
+    "powers": [
+      "Rage provoquée pour renforcer ses compétences"
+    ]
+  }
+}
