@@ -6459,5 +6459,25 @@
     "loadingTeammates": "Aku sedang mencari rekan satu timmu di masa depan...",
     "errorTitle": "Ups, macet",
     "noneTitle": "Tidak ada apa-apa di sekitar sini"
+  },
+  "og": {
+    "homeLine": "Hero, build, tier list, item, dan catatan patch, diperbarui pada setiap patch.",
+    "patch": "Patch {v}",
+    "splusHeroes": "hero di S+",
+    "bestWin": "win rate terbaik: {hero}",
+    "itemsInGame": "item dalam game",
+    "heroesUsing": "hero memakainya",
+    "builtBy": "Di build {heroes}",
+    "minutes": "{n} menit membaca",
+    "skinsCount": "skin",
+    "latestSkin": "Rilisan terbaru: {skin} ({hero})",
+    "starlight": "StarLight bulan ini: {skin} ({hero})",
+    "games": "pertandingan dianalisis",
+    "picked": "Paling dipilih",
+    "banned": "Paling di-ban",
+    "champion": "Pemenang: {team}",
+    "tool": "Alat gratis",
+    "game": "Permainan hari ini",
+    "toolsKicker": "Alat gratis"
   }
 }

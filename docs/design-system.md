@@ -144,3 +144,16 @@ spinner, a grey rounded skeleton or a bare red line.
   rounded corners (`rounded-*`).
 - Artwork in small aligned thumbnails when it can be large.
 - Violet, rainbow gradients, any colour outside the palette.
+
+## Share images
+
+Every important page has its own Open Graph / Twitter card, drawn in the same
+frame (`src/lib/og/frame.tsx`): night ground, the artwork behind the bevel
+cut, the éclat along the cut, the "MLBBDEX" wordmark in text, the title in
+slanted condensed capitals (Saira Extra Condensed, Barlow Condensed for the
+lines, Fira Sans Extra Condensed for Russian, Chakra Petch for Thai; TTF in
+`public/fonts`), and Dex in the page's pose. Each card is built from the
+page's own data in `src/lib/og/cards.tsx`, served by an `opengraph-image.tsx`
+next to the page, rendered on first request and kept a week. A page points to
+its card with `metaPage(…, { card: true })`; any other page gets its
+language's home card.

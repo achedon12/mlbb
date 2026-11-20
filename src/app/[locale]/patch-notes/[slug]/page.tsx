@@ -87,6 +87,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
         : t("pages.patchNotes.officialDescription", { version: patch.version }),
       share: t("pages.patchNotes.officialShare", { version: patch.version }),
       path: `/patch-notes/${slug}`,
+      card: true,
       type: "article",
       published: patch.date ?? undefined,
     });
@@ -99,6 +100,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: a.title,
     description: a.summary,
     path: `/patch-notes/${slug}`,
+    card: true,
     type: "article",
     keywords: a.keywords,
     published: a.date,

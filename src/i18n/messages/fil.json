@@ -6459,5 +6459,25 @@
     "loadingTeammates": "Hinahanap ko ang mga magiging teammate mo...",
     "errorTitle": "Oops, natigil ito",
     "noneTitle": "Wala sa paligid"
+  },
+  "og": {
+    "homeLine": "Mga hero, build, tier list, mga item at patch notes, na na-update sa bawat patch.",
+    "patch": "Patch {v}",
+    "splusHeroes": "hero sa S+",
+    "bestWin": "pinakamataas na win rate: {hero}",
+    "itemsInGame": "item sa laro",
+    "heroesUsing": "hero ang gumagamit",
+    "builtBy": "Sa mga build ni {heroes}",
+    "minutes": "{n} min basahin",
+    "skinsCount": "skin",
+    "latestSkin": "Pinakabagong labas: {skin} ({hero})",
+    "starlight": "StarLight ng buwan: {skin} ({hero})",
+    "games": "larong nasuri",
+    "picked": "Pinakapinili",
+    "banned": "Pinaka-banned",
+    "champion": "Nagwagi: {team}",
+    "tool": "Libreng tool",
+    "game": "Laro ng araw",
+    "toolsKicker": "Libreng mga tool"
   }
 }

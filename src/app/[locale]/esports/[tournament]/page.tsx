@@ -96,6 +96,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: seoTitle(t, turn),
     description: seoDescription(t, locale, turn),
     path: `/esports/${turn.slug}`,
+    card: true,
   });
 }
 

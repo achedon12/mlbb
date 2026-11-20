@@ -16,6 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
     description: t("pages.news.metaDescription", { language: languageName(locale) }),
     share: t("pages.news.ogDescription", { language: languageName(locale) }),
     path: "/news",
+    card: true,
   });
   return {
     ...meta,

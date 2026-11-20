@@ -21,6 +21,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: t("pages.toolsHub.metaTitle"),
     description: t("pages.toolsHub.metaDescription"),
     path: "/tools",
+    card: true,
   });
 }
 

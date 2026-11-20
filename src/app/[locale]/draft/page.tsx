@@ -44,6 +44,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
     description: descriptionDraft(locale),
     share: t("pages.draft.simulatorOg"),
     path: "/draft",
+    card: true,
     keywords: ["draft simulator", "ban pick", "MPL", "ranked draft", "counter pick", "Mobile Legends", "MLBB"],
   });
 }

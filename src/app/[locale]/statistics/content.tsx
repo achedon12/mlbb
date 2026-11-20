@@ -123,6 +123,7 @@ export function metaStatistics(locale: Locale, rank: MeasuredRank, page = 1): Me
       title: t(all ? "pages.statistics.metaTitle" : "pages.statistics.metaTitleRank", v),
       description: t(all ? "pages.statistics.metaDescription" : "pages.statistics.metaDescriptionRank", v),
       path,
+      card: true,
     }),
     locale,
     path,

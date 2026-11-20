@@ -6459,5 +6459,25 @@
     "loadingTeammates": "Je cherche tes futurs coéquipiers…",
     "errorTitle": "Oups, ça a coincé",
     "noneTitle": "Rien par ici"
+  },
+  "og": {
+    "homeLine": "Héros, builds, tier list, objets et patch notes, à jour à chaque patch.",
+    "patch": "Patch {v}",
+    "splusHeroes": "héros en S+",
+    "bestWin": "meilleur taux de victoire : {hero}",
+    "itemsInGame": "objets en jeu",
+    "heroesUsing": "héros la prennent",
+    "builtBy": "Dans les builds de {heroes}",
+    "minutes": "{n} min de lecture",
+    "skinsCount": "apparences",
+    "latestSkin": "Dernière sortie : {skin} ({hero})",
+    "starlight": "StarLight du mois : {skin} ({hero})",
+    "games": "matchs analysés",
+    "picked": "Le plus choisi",
+    "banned": "Le plus banni",
+    "champion": "Vainqueur : {team}",
+    "tool": "Outil gratuit",
+    "game": "Jeu du jour",
+    "toolsKicker": "Outils gratuits"
   }
 }

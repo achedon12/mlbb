@@ -29,6 +29,7 @@ export function metaItems(locale: Locale, page = 1): Metadata {
         : t("pages.items.metaDescription", { n: countItems }),
       share: t("pages.items.ogDescription", { n: countItems }),
       path: PATH_ITEMS,
+      card: true,
     }),
     locale,
     PATH_ITEMS,

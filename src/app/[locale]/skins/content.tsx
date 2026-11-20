@@ -56,6 +56,7 @@ export function metaSkins(locale: Locale, page = 1): Metadata {
         hero: last?.hero.name ?? "—",
       }),
       path: PATH_SKINS,
+      card: true,
     }),
     locale,
     PATH_SKINS,

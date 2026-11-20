@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: t("pages.seo.mlbbdle.title"),
     description: t("pages.seo.mlbbdle.description"),
     path: "/mlbbdle",
+    card: true,
     keywords: ["mlbbdle", "mobile legends wordle", "guess the MLBB hero", "MLBB loldle", "daily hero guessing game"],
   });
 }

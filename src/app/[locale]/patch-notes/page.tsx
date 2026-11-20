@@ -38,6 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
       : t("pages.patchNotes.metaDescription", { n: patches.length }),
     share: t("pages.patchNotes.ogDescription", { n: patches.length }),
     path: "/patch-notes",
+    card: true,
   });
 }
 

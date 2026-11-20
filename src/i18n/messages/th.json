@@ -6459,5 +6459,25 @@
     "loadingTeammates": "ฉันกำลังมองหาเพื่อนร่วมทีมในอนาคตของคุณ...",
     "errorTitle": "อ่อ มันติดอยู่",
     "noneTitle": "ไม่มีอะไรแถวนี้"
+  },
+  "og": {
+    "homeLine": "ฮีโร่ โครงสร้าง Tier List ไอเทม และแพตช์โน้ต อัปเดตในแต่ละแพตช์",
+    "patch": "แพตช์ {v}",
+    "splusHeroes": "ฮีโร่ระดับ S+",
+    "bestWin": "Win Rate สูงสุด: {hero}",
+    "itemsInGame": "ไอเทมในเกม",
+    "heroesUsing": "ฮีโร่ที่ใช้",
+    "builtBy": "อยู่ในบิลด์ของ {heroes}",
+    "minutes": "อ่าน {n} นาที",
+    "skinsCount": "สกิน",
+    "latestSkin": "ออกล่าสุด: {skin} ({hero})",
+    "starlight": "StarLight ประจำเดือน: {skin} ({hero})",
+    "games": "เกมที่วิเคราะห์",
+    "picked": "ถูกเลือกมากสุด",
+    "banned": "ถูกแบนมากสุด",
+    "champion": "ผู้ชนะ: {team}",
+    "tool": "เครื่องมือฟรี",
+    "game": "เกมประจำวันนี้",
+    "toolsKicker": "เครื่องมือฟรี"
   }
 }
