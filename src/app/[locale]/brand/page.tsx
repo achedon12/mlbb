@@ -21,9 +21,9 @@ type Params = { params: Promise<{ locale: Locale }> };
  * button), the three typefaces, the short rules, and Dex's poses as PNG
  * (`public/mascot/*.png`, from `scripts/mascot-png.mjs`).
  *
- * No logo on purpose: the mark is being redrawn and is not validated, so
- * the kit shows only the current text wordmark. The palette mirrors the
- * tokens of `globals.css` (docs/design-system.md).
+ * The logo (`public/brand/`, docs/logo-brief.md) is shown with its SVG
+ * files to download: the emblem, the horizontal and the stacked logo. The
+ * palette mirrors the tokens of `globals.css` (docs/design-system.md).
  */
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
@@ -85,13 +85,21 @@ export default async function BrandPage({ params }: Params) {
           </h2>
           <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
           <div className="mt-6 grid items-center gap-6 md:grid-cols-[auto_minmax(0,1fr)] md:gap-12">
-            {/* The text wordmark only: the drawn logo is being redone and is not shown until validated. */}
-            <div className="bevel-lg bg-night-900 px-10 py-8">
-              <Wordmark className="text-[3.5rem] sm:text-[4.5rem]" />
+            <div className="bevel-lg flex items-center gap-6 bg-night-900 px-8 py-7">
+              {/* eslint-disable-next-line @next/next/no-img-element -- an SVG shown at a fixed size */}
+              <img src="/brand/emblem.svg" alt={t("pages.brandKit.logoAlt")} width={108} height={104} className="shrink-0" />
+              <Wordmark className="text-[3rem] sm:text-[4rem]" />
             </div>
             <div className="max-w-xl space-y-3 leading-relaxed text-chalk-300">
               <p>{t("pages.brandKit.nameText")}</p>
-              <p className="text-chalk-400">{t("pages.brandKit.logoPending")}</p>
+              <p className="text-chalk-400">{t("pages.brandKit.logoText")}</p>
+              <p className="flex flex-wrap gap-2 pt-1">
+                {(["emblem", "logo", "logo-stacked"] as const).map((file) => (
+                  <a key={file} href={`/brand/${file}.svg`} download className="bevel-sm inline-flex items-center gap-1.5 bg-night-800 px-3 py-1.5 text-sm font-semibold text-gold-300 shadow-[inset_0_0_0_1px_var(--color-night-600)] hover:text-gold-200">
+                    {t(`pages.brandKit.logoFile.${file === "logo-stacked" ? "stacked" : file}`)}
+                  </a>
+                ))}
+              </p>
             </div>
           </div>
         </section>

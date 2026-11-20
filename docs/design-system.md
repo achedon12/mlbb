@@ -85,7 +85,7 @@ One `<h1>` per page.
   on the image. Never a caption under the image.
 - **Chips / filters**: `Chip` — night fill, gold when active.
 - **Section head**: `SectionTitle` (title, éclat, lead, `ActionLink`).
-- **Brand**: `BrandMark` renders `/brand/mark.svg` and the wordmark; it is
+- **Brand**: `BrandMark` renders `/brand/emblem.svg` (the crystal in the winged crest) and the wordmark; it is
   the only place the logo is drawn.
 - **Brand kit**: `/brand` repeats this palette and the three typefaces for
   the press (change both together) and serves Dex's poses as PNG, written

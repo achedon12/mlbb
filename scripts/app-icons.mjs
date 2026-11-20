@@ -1,7 +1,8 @@
 /**
  * Web app icons, drawn from the brand files in `public/brand/` (see
- * `docs/logo-brief.md`): the sliced gold "M" on the night tile whose two
- * bevelled corners are the two bases.
+ * `docs/logo-brief.md`): the emblem without its wings (the crystal in its
+ * crest, `emblem-small.svg`) on the night tile whose two bevelled corners
+ * are the two bases.
  *
  *   node scripts/app-icons.mjs
  *
@@ -23,10 +24,11 @@ import sharp from "sharp";
 
 const NIGHT = "#0b1020";
 const GOLD = "#f5c451";
-const inner = (svg) => svg.replace(/^<svg[^>]*>/, "").replace(/<\/svg>$/, "");
+const inner = (svg) => svg.trim().replace(/^<svg[^>]*>/, "").replace(/<\/svg>$/, "");
 const tile = await readFile("public/brand/icon.svg", "utf8");
-const mark = inner(await readFile("public/brand/mark.svg", "utf8"));
-const white = inner(await readFile("public/brand/mark-white.svg", "utf8"));
+/** The crystal in its crest, drawn on the 44 0 112 200 box. */
+const mark = inner(await readFile("public/brand/emblem-small.svg", "utf8"));
+const MARK_BOX = "44 0 112 200";
 
 /** The favicon tile. */
 const anyIcon = tile;
@@ -34,12 +36,12 @@ const anyIcon = tile;
 /** Full bleed: launchers crop to a circle, a squircle or a rounded square. */
 const maskableIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <rect width="512" height="512" fill="${NIGHT}"/>
-  <svg x="136" y="136" width="240" height="240" viewBox="-4 -4 108 108">${mark}</svg>
+  <svg x="172" y="106" width="168" height="300" viewBox="${MARK_BOX}">${mark}</svg>
 </svg>`;
 
-/** Themed icons: Android tints the alpha channel, inside the 66% safe zone. */
+/** Themed icons: Android tints the alpha channel only, inside the 66% safe zone. */
 const monochromeIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <svg x="156" y="156" width="200" height="200" viewBox="-4 -4 108 108">${white}</svg>
+  <svg x="189" y="136" width="134" height="240" viewBox="${MARK_BOX}">${mark}</svg>
 </svg>`;
 
 /** Lucide glyphs (ISC license), read from the package the site already uses. */
