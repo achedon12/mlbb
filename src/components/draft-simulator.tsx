@@ -1,5 +1,6 @@
 "use client";
 
+import { DexHead } from "@/components/dex-states";
 import { useDiscordMoment } from "@/components/discord-moment";
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
@@ -593,7 +594,10 @@ export function DraftSimulator({
                 );
               })}
               {results.length === 0 && (
-                <li className="col-span-full py-6 text-center text-sm text-chalk-500">{t("draftUI.noHero")}</li>
+                <li className="col-span-full flex items-center justify-center gap-2.5 py-6 text-sm text-chalk-400">
+                  <DexHead pose="surpris" size={32} />
+                  {t("draftUI.noHero")}
+                </li>
               )}
             </ul>
 

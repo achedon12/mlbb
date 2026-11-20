@@ -1,5 +1,6 @@
 "use client";
 
+import { BrandSpinner, DexHead } from "@/components/dex-states";
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { ChevronDown, Plus, X } from "lucide-react";
 import { RateCurve, type SeriesCurve } from "@/components/rate-curve";
@@ -410,18 +411,28 @@ function ComparedCurves({ heroes, rank }: { heroes: HeroComparable[]; rank: Meas
       {t("compareUI.curves", { n: DAYS_CURVE })}
     </h2>
   );
-  const message = (text: string) => (
+  const message = (text: string, state: "loading" | "error" | "empty" = "empty") => (
     <section className="mt-8">
       {title}
-      <p role="status" className="bevel mt-3 grid h-[200px] place-items-center bg-night-900 px-4 text-center text-sm text-chalk-500">
-        {text}
-      </p>
+      <div role="status" className="bevel mt-3 grid h-[200px] place-items-center bg-night-900 px-4 text-center text-sm text-chalk-500">
+        {state === "loading" ? (
+          <span className="inline-flex items-center gap-2">
+            <BrandSpinner className="text-gold-400" />
+            {text}
+          </span>
+        ) : (
+          <span className="inline-flex items-center gap-3">
+            <DexHead pose={state === "error" ? "surpris" : "reflexion"} size={40} />
+            {text}
+          </span>
+        )}
+      </div>
     </section>
   );
 
   const data = heroes.map((h) => charges[h.slug]);
-  if (data.some((d) => d === undefined)) return message(t("compareUI.loading"));
-  if (data.some((d) => d === "error")) return message(t("compareUI.curvesError"));
+  if (data.some((d) => d === undefined)) return message(t("compareUI.loading"), "loading");
+  if (data.some((d) => d === "error")) return message(t("compareUI.curvesError"), "error");
   const series30 = data as TrendsWin[];
 
   const byHero = series30.map((d) => MEASURED_RANKS.filter((r) => measures(d[r]).length > 1));
@@ -614,7 +625,10 @@ function Picker({
           className="absolute z-20 mt-1 max-h-72 w-full overflow-y-auto border border-night-600 bg-night-900 py-1 shadow-xl shadow-black/40"
         >
           {results.length === 0 ? (
-            <li className="px-3 py-2 text-sm text-chalk-500">{t("compareUI.none")}</li>
+            <li className="flex items-center gap-2 px-3 py-2 text-sm text-chalk-400">
+              <DexHead pose="surpris" size={24} />
+              {t("compareUI.none")}
+            </li>
           ) : (
             results.map((h, i) => (
               <li

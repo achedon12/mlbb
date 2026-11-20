@@ -35,7 +35,7 @@ export function Foldable({
       open={open}
       className={cn("foldable bevel group border border-night-700/70 bg-night-900/60", className)}
     >
-      <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-3 font-heading text-sm font-bold text-gold-400 outline-none transition-colors hover:text-gold-500 focus-visible:ring-2 focus-visible:ring-gold-500 sm:text-base [&::-webkit-details-marker]:hidden">
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-3 font-heading text-sm font-bold text-gold-400 outline-none transition-colors hover:text-gold-500 focus-visible:ring-2 focus-visible:ring-gold-400 sm:text-base [&::-webkit-details-marker]:hidden">
         <span>{label}</span>
         <ChevronDown
           size={18}

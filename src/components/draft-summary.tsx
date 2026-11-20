@@ -1,5 +1,6 @@
 "use client";
 
+import { BrandSpinner, Flash } from "@/components/dex-states";
 import { GameDex } from "@/components/game-dex";
 import { useMemo, useState } from "react";
 import { AlertTriangle, Check, Link2, RotateCcw, Settings2 } from "lucide-react";
@@ -139,8 +140,15 @@ export function DraftSummary({
           <span className="text-blood-500">{t("pages.draftSimulatorUI.sides.red")}</span>
         </div>
         {!measures && (
-          <p role="status" className="mt-2 text-xs text-chalk-500">
-            {failed ? t("teamUI.error") : t("teamUI.loading")}
+          <p role="status" className="mt-2 flex items-center gap-2 text-xs text-chalk-400">
+            {failed ? (
+              <Flash tone="error">{t("teamUI.error")}</Flash>
+            ) : (
+              <>
+                <BrandSpinner className="text-gold-400" />
+                {t("teamUI.loading")}
+              </>
+            )}
           </p>
         )}
         <EstimateDetails estimate={estimate} nameOf={nameOf} f={f} rank={rank} className="mt-4" />
@@ -218,9 +226,8 @@ export function DraftSummary({
             <Link2 size={15} aria-hidden />
             {t("teamUI.copy")}
           </button>
-          <span role="status" className="text-xs text-chalk-300">
-            {copied === "ok" && t("teamUI.linkCopied")}
-            {copied === "error" && t("teamUI.copyFailed")}
+          <span role="status" className="text-xs">
+            {copied && <Flash tone={copied}>{t(copied === "ok" ? "teamUI.linkCopied" : "teamUI.copyFailed")}</Flash>}
           </span>
         </div>
         <div className="mt-4 flex flex-wrap gap-2">

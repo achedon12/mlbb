@@ -1,7 +1,8 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { Cloud, CloudOff, Download, HardDrive, Loader2, Upload, X } from "lucide-react";
+import { Cloud, CloudOff, Download, HardDrive, Upload, X } from "lucide-react";
+import { BrandSpinner } from "@/components/dex-states";
 import Link from "@/components/link";
 import { classesChip } from "@/components/chip";
 import { useT } from "@/i18n/provider";
@@ -17,11 +18,9 @@ import { cn } from "@/lib/utils";
  * which is long enough.
  */
 
-const ICON: Record<SyncStatus, typeof Cloud> = {
-  checking: Loader2,
+const ICON: Record<Exclude<SyncStatus, "checking" | "saving">, typeof Cloud> = {
   browser: HardDrive,
   signedOut: HardDrive,
-  saving: Loader2,
   saved: Cloud,
   offline: CloudOff,
   retrying: CloudOff,
@@ -30,19 +29,15 @@ const ICON: Record<SyncStatus, typeof Cloud> = {
 
 export function SyncLine({ status, notice, onDismiss }: { status: SyncStatus; notice: SyncNotice; onDismiss: () => void }) {
   const t = useT();
-  const Icon = ICON[status];
+  const Icon = status === "saving" || status === "checking" ? null : ICON[status];
   return (
     <div className="space-y-2 text-sm">
       <p role="status" className="flex items-start gap-2 text-chalk-400">
-        <Icon
-          size={16}
-          aria-hidden
-          className={cn(
-            "mt-0.5 shrink-0",
-            status === "saved" ? "text-gold-400" : "text-chalk-500",
-            (status === "saving" || status === "checking") && "motion-safe:animate-spin",
-          )}
-        />
+        {Icon ? (
+          <Icon size={16} aria-hidden className={cn("mt-0.5 shrink-0", status === "saved" ? "text-gold-400" : "text-chalk-500")} />
+        ) : (
+          <BrandSpinner className="mt-0.5 w-4 text-gold-400" />
+        )}
         <span>
           {t(`pages.collectionUI.sync_${status}`)}
           {status === "signedOut" && (

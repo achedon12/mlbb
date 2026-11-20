@@ -2,6 +2,7 @@ import { CircleAlert, ShieldAlert, ThumbsDown, Trophy } from "lucide-react";
 import { RankBadge } from "@/components/rank-badge";
 import Link from "@/components/link";
 import { Dex } from "@/components/mascot";
+import { BrandSpinner } from "@/components/dex-states";
 import { HeroPortrait } from "@/components/hero-portrait";
 import { classesChip } from "@/components/chip";
 import { Card } from "@/components/ui";
@@ -491,8 +492,9 @@ export function ListNemeses({
  */
 export function AnalysisInProgress({ t, text, className }: { t: T; text?: string; className?: string }) {
   return (
-    <p role="status" className={cn("animate-pulse text-sm text-chalk-500", className)}>
-      {text ?? t("pages.accountProfile.analysisPending")}
+    <p role="status" className={cn("flex items-start gap-2.5 text-sm text-chalk-400", className)}>
+      <BrandSpinner className="mt-0.5 text-gold-400" />
+      <span>{text ?? t("pages.accountProfile.analysisPending")}</span>
     </p>
   );
 }

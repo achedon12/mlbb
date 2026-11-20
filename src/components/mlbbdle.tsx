@@ -1,5 +1,8 @@
 "use client";
 
+import { DexNotice } from "@/components/dex-states";
+import { DexLoading } from "@/components/dex-loading";
+import { Flash } from "@/components/dex-states";
 import Image from "next/image";
 import { useDiscordMoment } from "@/components/discord-moment";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -168,16 +171,16 @@ export function Mlbbdle({ heroes, labels }: { heroes: MlbbdleHero[]; labels: Rec
       {mode !== "practice" &&
         (puzzle === null || !day ? (
           // About the height of the guess form once drawn: no jump below it.
-          <p role="status" className="grid min-h-[17rem] place-items-center text-center text-sm text-chalk-500 sm:min-h-[12rem]">
-            {t("pages.mlbbdleUI.loading")}
-          </p>
+          <div className="grid min-h-[17rem] place-items-center sm:min-h-[12rem]">
+            <DexLoading dex={false} label={t("pages.mlbbdleUI.loading")} />
+          </div>
         ) : puzzle === "error" ? (
-          <div role="alert" className="bevel border border-blood-500/40 bg-night-900/60 p-5 text-sm text-chalk-300">
+          <DexNotice role="alert" tone="error" title={t("dexStates.errorTitle")}>
             <p>{t("pages.mlbbdleUI.loadError")}</p>
             <button type="button" onClick={() => setAttempt((n) => n + 1)} className={cn(secondaryButton, "mt-3")}>
               {t("pages.mlbbdleUI.retry")}
             </button>
-          </div>
+          </DexNotice>
         ) : (
           <DailyPuzzle
             key={`${puzzle.day}-${mode}`}
@@ -370,14 +373,12 @@ function WinPanel({
               <Share2 size={16} aria-hidden />
               {t("pages.mlbbdleUI.share")}
             </button>
-            <p aria-live="polite" className="min-h-5 text-sm text-chalk-300">
-              {status === "copied"
-                ? t("pages.mlbbdleUI.copied")
-                : status === "shared"
-                  ? t("pages.mlbbdleUI.shared")
-                  : status === "error"
-                    ? t("pages.mlbbdleUI.copyError")
-                    : ""}
+            <p aria-live="polite" className="min-h-5 text-sm">
+              {status && (
+                <Flash tone={status === "error" ? "error" : "ok"}>
+                  {status === "copied" ? t("pages.mlbbdleUI.copied") : status === "shared" ? t("pages.mlbbdleUI.shared") : t("pages.mlbbdleUI.copyError")}
+                </Flash>
+              )}
             </p>
             <NextPuzzle day={puzzle.day} onNewDay={onNewDay} />
             <div className="flex flex-wrap gap-2">
@@ -649,16 +650,16 @@ function Practice({ catalog }: { catalog: MlbbdleCatalog }) {
       </dl>
 
       {kind === "skill" && skills === "error" ? (
-        <div role="alert" className="bevel border border-blood-500/40 bg-night-900/60 p-5 text-sm text-chalk-300">
+        <DexNotice role="alert" tone="error" title={t("dexStates.errorTitle")}>
           <p>{t("pages.mlbbdleUI.loadError")}</p>
           <button type="button" onClick={() => setSkills(null)} className={cn(secondaryButton, "mt-3")}>
             {t("pages.mlbbdleUI.retry")}
           </button>
-        </div>
+        </DexNotice>
       ) : !current || !target ? (
-        <p role="status" className="py-10 text-center text-sm text-chalk-500">
-          {t("pages.mlbbdleUI.loading")}
-        </p>
+        <div className="grid place-items-center py-10">
+          <DexLoading dex={false} label={t("pages.mlbbdleUI.loading")} />
+        </div>
       ) : (
         <>
           {current.mode === "classic" ? (

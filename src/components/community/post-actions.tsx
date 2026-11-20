@@ -1,5 +1,6 @@
 "use client";
 
+import { Flash } from "@/components/dex-states";
 import { useId, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowBigUp, Flag, Pencil, Trash2 } from "lucide-react";
@@ -75,8 +76,8 @@ export function VoteButton({
         <span className="tabular-nums">{state.score}</span>
       </button>
       {error && (
-        <span role="alert" className="ml-2 text-xs text-blood-400">
-          {error}
+        <span role="alert" className="ml-2">
+          <Flash tone="error" className="text-xs">{error}</Flash>
         </span>
       )}
     </span>
@@ -152,8 +153,8 @@ export function ReportButton({ kind, id, signedIn }: { kind: TargetKind; id: num
             </button>
           </div>
           {state.type === "error" && (
-            <p role="alert" className="text-sm text-blood-400">
-              {state.message}
+            <p role="alert">
+              <Flash tone="error">{state.message}</Flash>
             </p>
           )}
         </form>
@@ -187,8 +188,8 @@ export function DeleteButton({ kind, id, after }: { kind: "thread" | "post"; id:
         {t("pages.communityUI.delete")}
       </button>
       {error && (
-        <span role="alert" className="basis-full text-xs text-blood-400">
-          {error}
+        <span role="alert" className="basis-full">
+          <Flash tone="error" className="text-xs">{error}</Flash>
         </span>
       )}
     </>

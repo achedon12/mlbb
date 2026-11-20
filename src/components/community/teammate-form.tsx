@@ -1,5 +1,6 @@
 "use client";
 
+import { Flash } from "@/components/dex-states";
 import { useId, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Send, Trash2 } from "lucide-react";
@@ -175,8 +176,8 @@ export function TeammateForm({ heroes, card }: { heroes: HeroOption[]; card: Own
         </p>
       )}
       {message && (
-        <p role={message.ok ? "status" : "alert"} className={cn("text-sm", message.ok ? "text-chalk-200" : "text-blood-400")}>
-          {message.text}
+        <p role={message.ok ? "status" : "alert"}>
+          <Flash tone={message.ok ? "ok" : "error"}>{message.text}</Flash>
         </p>
       )}
       {open && (

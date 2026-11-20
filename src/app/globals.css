@@ -940,3 +940,79 @@ body {
 }
 /* livelier bubbles overall */
 @keyframes bubble-float { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-7px) rotate(-0.6deg); } }
+
+/* ══ Brand micro-states (src/components/dex-states.tsx, dex-loading.tsx) ═════
+ * The small states that make or break the brand: the wait (Dex hopping, a
+ * blade sweeping a bevelled track, bevelled skeletons), the confirmations
+ * (a bevelled gold flash with Dex's head), and the finishing of the whole
+ * site (selection, scrollbars, pointer). Nothing moves under
+ * prefers-reduced-motion: the wait is then a still Dex and a still blade.
+ */
+@layer base {
+  ::selection { background: var(--color-gold-400); color: var(--color-night-950); }
+  /* Thin scrollbars, night track and gold thumb (Firefox and Chromium read the standard properties, Safari the pseudo-elements). */
+  html { scrollbar-color: var(--color-gold-600) var(--color-night-950); }
+  * { scrollbar-width: thin; scrollbar-color: var(--color-night-600) transparent; }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: var(--color-night-950); }
+  ::-webkit-scrollbar-thumb { background: var(--color-night-600); border: 2px solid var(--color-night-950); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--color-gold-600); }
+  html::-webkit-scrollbar-thumb { background: var(--color-gold-600); }
+  html::-webkit-scrollbar-thumb:hover { background: var(--color-gold-400); }
+  /* Everything clickable says so; what is not available says that too. */
+  button:not(:disabled), [role="button"]:not([aria-disabled="true"]), summary, select:not(:disabled), label:has(> input[type="checkbox"], > input[type="radio"]) { cursor: pointer; }
+  button:disabled, [aria-disabled="true"] { cursor: not-allowed; }
+  /* A bevelled button presses in on click, like .btn. */
+  button:is(.bevel, .bevel-sm, .bevel-lg):not(:disabled):active { transform: translateY(1px) scale(0.98); }
+}
+
+@layer components {
+/* The wait: Dex hops on his shadow while a blade sweeps the track under the line. */
+.dex-loading { display: flex; align-items: flex-end; gap: 1rem; }
+.dex-loading-dex { position: relative; display: block; flex: none; isolation: isolate; }
+.dex-loading-dex img { position: relative; display: block; width: 100%; height: 100%; object-fit: contain; transform-origin: 50% 100%; filter: drop-shadow(0 4px 10px rgb(0 0 0 / 0.45)); }
+.dex-loading-dex::after { content: ""; position: absolute; left: 18%; right: 18%; bottom: -3px; height: 6px; border-radius: 50%; background: rgb(0 0 0 / 0.45); z-index: -1; }
+.dex-loading-track { position: relative; display: block; height: 4px; margin-top: 0.6rem; overflow: hidden; background: var(--color-night-800); clip-path: polygon(0.3rem 0, 100% 0, calc(100% - 0.3rem) 100%, 0 100%); }
+.dex-loading-track::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 40%; background: linear-gradient(90deg, transparent, var(--color-gold-600), var(--color-gold-300) 60%, #fff3cf 70%, transparent); clip-path: polygon(0.3rem 0, 100% 0, calc(100% - 0.3rem) 100%, 0 100%); }
+@keyframes dex-loading-hop { 0%, 100% { transform: translateY(0) scale(1.06, 0.94); } 15% { transform: translateY(0) scale(0.96, 1.05); } 50% { transform: translateY(-14px) scale(0.98, 1.03) rotate(-3deg); } 85% { transform: translateY(0) scale(1.08, 0.92); } }
+@keyframes dex-loading-shadow { 0%, 15%, 85%, 100% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(0.6); opacity: 0.4; } }
+@keyframes dex-loading-sweep { from { transform: translateX(-100%); } to { transform: translateX(250%); } }
+/* A small inline wait (a button, a status line): three slanted blades lighting up in turn. */
+.brand-spin { display: inline-flex; flex: none; align-items: center; gap: 2px; height: 1em; }
+.brand-spin i { display: block; width: 0.28em; height: 0.85em; background: currentColor; opacity: 0.35; transform: skewX(-18deg); }
+.brand-spin i:nth-child(2) { animation-delay: 0.15s; }
+.brand-spin i:nth-child(3) { animation-delay: 0.3s; }
+@keyframes brand-spin-blade { 0%, 100% { opacity: 0.3; transform: skewX(-18deg) scaleY(0.8); } 40% { opacity: 1; transform: skewX(-18deg) scaleY(1.1); } }
+/* Skeletons: bevelled night shapes the blade passes over, never grey rounded bars. */
+.skeleton { position: relative; display: block; overflow: hidden; background: var(--color-night-800); --cut: 0.45rem; clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, var(--cut) 100%, 0 calc(100% - var(--cut))); }
+.skeleton::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, transparent 30%, rgb(245 196 81 / 0.09) 45%, rgb(255 243 207 / 0.14) 50%, rgb(245 196 81 / 0.09) 55%, transparent 70%); transform: translateX(-100%); }
+@keyframes skeleton-sweep { to { transform: translateX(100%); } }
+@media (prefers-reduced-motion: no-preference) {
+  .dex-loading-dex img { animation: dex-loading-hop 0.9s cubic-bezier(.45, 0, .55, 1) infinite; }
+  .dex-loading-dex::after { animation: dex-loading-shadow 0.9s cubic-bezier(.45, 0, .55, 1) infinite; }
+  .dex-loading-track::before { animation: dex-loading-sweep 1.3s cubic-bezier(.6, 0, .4, 1) infinite; }
+  .brand-spin i { animation: brand-spin-blade 0.9s ease-in-out infinite; }
+  .skeleton::after { animation: skeleton-sweep 1.6s ease-in-out infinite; }
+}
+@media (prefers-reduced-motion: reduce) { .dex-loading-track::before { left: 30%; } }
+
+/* Dex's head in a bevelled medallion: the bust of the full pose, zoomed from the top. */
+.dex-head { position: relative; display: inline-block; flex: none; overflow: hidden; background: var(--color-night-900); --cut: 0.3rem; clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, var(--cut) 100%, 0 calc(100% - var(--cut))); }
+.dex-head img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; transform: scale(1.5) translateY(4%); transform-origin: 50% 0; }
+
+/* A notice where a full Dex would be one too many (a tool under its header's Dex): his head, a line, the next step. */
+.dex-notice { display: flex; align-items: flex-start; gap: 0.875rem; padding: 1rem 1.125rem; background: var(--color-night-900); box-shadow: inset 3px 0 0 var(--color-gold-400); --cut: 0.75rem; clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, var(--cut) 100%, 0 calc(100% - var(--cut))); }
+.dex-notice-error { box-shadow: inset 3px 0 0 var(--color-blood-400); }
+.dex-notice .dex-head { width: 2.75rem; height: 2.75rem; background: var(--color-night-800); }
+/* A confirmation (copied, saved, voted…) or a small failure: a bevelled flash, gold edge, Dex's head. */
+.brand-flash { display: inline-flex; align-items: center; gap: 0.5rem; max-width: 100%; padding: 0.3rem 0.75rem 0.3rem 0.3rem; font-size: 0.875rem; line-height: 1.3; color: var(--color-chalk-100); background: linear-gradient(90deg, rgb(245 196 81 / 0.16), rgb(245 196 81 / 0.04) 70%), var(--color-night-800); box-shadow: inset 3px 0 0 var(--color-gold-400); --cut: 0.45rem; clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, var(--cut) 100%, 0 calc(100% - var(--cut))); }
+.brand-flash-error { background: linear-gradient(90deg, rgb(255 77 77 / 0.14), rgb(255 77 77 / 0.03) 70%), var(--color-night-800); box-shadow: inset 3px 0 0 var(--color-blood-400); }
+.brand-flash .dex-head { width: 1.75rem; height: 1.75rem; }
+@keyframes brand-flash-in { 0% { opacity: 0; transform: translateY(6px) scale(0.92); } 60% { opacity: 1; transform: translateY(-1px) scale(1.02); } 100% { transform: none; } }
+@keyframes brand-flash-head { 0%, 100% { transform: none; } 40% { transform: translateY(-3px) rotate(-6deg); } }
+@media (prefers-reduced-motion: no-preference) {
+  .brand-flash { animation: brand-flash-in 0.35s cubic-bezier(.2, 1.4, .4, 1) both; }
+  .brand-flash .dex-head { animation: brand-flash-head 0.6s ease-out 0.2s both; }
+}
+}
+/* ══ end of the brand micro-states ═══════════════════════════════════════════ */

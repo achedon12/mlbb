@@ -1,5 +1,6 @@
 "use client";
 
+import { DexNotice } from "@/components/dex-states";
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "@/components/link";
 import { CardsTable, type CardsColumn } from "@/components/cards-table";
@@ -165,7 +166,11 @@ export function StatisticsTable({
                 sort={state.sort}
                 order={state.order}
                 onSort={sort}
-                empty={t("pages.heroesList.none")}
+                empty={
+                  <DexNotice role="status" title={t("dexStates.noneTitle")} className="mx-auto max-w-lg text-left">
+                    {t("pages.heroesList.none")}
+                  </DexNotice>
+                }
                 t={t}
               />
             </div>

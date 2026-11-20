@@ -1,5 +1,6 @@
 "use client";
 
+import { Flash } from "@/components/dex-states";
 import { useEffect, useId, useMemo, useState } from "react";
 import { ChevronRight, Download, RotateCcw, Share2 } from "lucide-react";
 import { Chip, FilterGroup, classesChip } from "@/components/chip";
@@ -395,8 +396,8 @@ export function AccountValueEstimator({ model, assumptions }: { model: Model; as
                 <RotateCcw size={15} aria-hidden />
                 {t("pages.accountValueUI.reset")}
               </button>
-              <p aria-live="polite" className="w-full text-xs text-chalk-500">
-                {share && t(`pages.accountValueUI.share_${share}`)}
+              <p aria-live="polite" className="w-full text-xs">
+                {share && <Flash tone={share === "failed" ? "error" : "ok"}>{t(`pages.accountValueUI.share_${share}`)}</Flash>}
               </p>
             </div>
           )}
@@ -418,7 +419,7 @@ export function AccountValueEstimator({ model, assumptions }: { model: Model; as
               {t("pages.accountValueUI.import")}
             </button>
             <div aria-live="polite" className="w-full space-y-0.5 text-xs text-chalk-500 empty:hidden">
-              {importing === "failed" && <p>{t("pages.accountValueUI.import_failed")}</p>}
+              {importing === "failed" && <p><Flash tone="error">{t("pages.accountValueUI.import_failed")}</Flash></p>}
               {importing === "done" && (
                 <>
                   <p>{t("pages.accountValueUI.import_done", { n: count.format(imported.n) })}</p>

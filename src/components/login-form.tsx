@@ -1,5 +1,6 @@
 "use client";
 
+import { Flash } from "@/components/dex-states";
 import Link from "@/components/link";
 import { useActionState } from "react";
 import { ArrowLeft, KeyRound, Send } from "lucide-react";
@@ -178,8 +179,8 @@ function CodeForm({ roleId, zoneId }: { roleId: string; zoneId: string }) {
 
 function Error({ children }: { children: React.ReactNode }) {
   return (
-    <p role="alert" className="bevel-sm border border-blood-500/40 bg-blood-500/10 px-4 py-3 text-sm text-blood-500">
-      {children}
+    <p role="alert">
+      <Flash tone="error">{children}</Flash>
     </p>
   );
 }

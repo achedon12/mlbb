@@ -1,5 +1,6 @@
 "use client";
 
+import { DexHead } from "@/components/dex-states";
 import { useEffect, useMemo, useState } from "react";
 import { X } from "lucide-react";
 import { SearchField } from "@/components/search-field";
@@ -160,7 +161,10 @@ export function HeroSelector({
             </li>
           ))}
           {results.length === 0 && (
-            <li className="col-span-full py-6 text-center text-sm text-chalk-500">{t("draftUI.noHero")}</li>
+            <li className="col-span-full flex items-center justify-center gap-2.5 py-6 text-sm text-chalk-400">
+              <DexHead pose="surpris" size={32} />
+              {t("draftUI.noHero")}
+            </li>
           )}
         </ul>
       </div>

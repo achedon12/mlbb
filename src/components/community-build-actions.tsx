@@ -1,5 +1,6 @@
 "use client";
 
+import { Flash } from "@/components/dex-states";
 import { useEffect, useId, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Send, ThumbsUp, Trash2 } from "lucide-react";
@@ -88,8 +89,8 @@ export function VoteButton({
         <span className="score text-xl">{state.votes}</span>
       </button>
       {error && (
-        <span role="alert" className="mt-1 text-xs text-blood-500">
-          {error}
+        <span role="alert" className="mt-1.5">
+          <Flash tone="error" className="text-xs">{error}</Flash>
         </span>
       )}
     </span>
@@ -134,8 +135,8 @@ export function DeleteBuildButton({ id, hero }: { id: string; hero: string }) {
         {t("pages.communityBuildsUI.delete")}
       </button>
       {error && (
-        <span role="alert" className="mt-1 text-xs text-blood-500">
-          {error}
+        <span role="alert" className="mt-1">
+          <Flash tone="error" className="text-xs">{error}</Flash>
         </span>
       )}
     </span>
@@ -274,16 +275,18 @@ export function PublishBuild({ build }: { build: BuildCode }) {
             {status.type === "sending" ? t("pages.communityBuildsUI.publishing") : t("pages.communityBuildsUI.publish")}
           </button>
           {status.type === "done" && (
-            <p role="status" className="text-sm text-chalk-200">
-              {t("pages.communityBuildsUI.published")}{" "}
-              <Link href={`/builds/${status.hero}/${status.id}`} className="text-gold-400 underline underline-offset-4 hover:text-gold-500">
-                {t("pages.communityBuildsUI.viewBuild")}
-              </Link>
+            <p role="status">
+              <Flash>
+                {t("pages.communityBuildsUI.published")}{" "}
+                <Link href={`/builds/${status.hero}/${status.id}`} className="text-gold-400 underline underline-offset-4 hover:text-gold-500">
+                  {t("pages.communityBuildsUI.viewBuild")}
+                </Link>
+              </Flash>
             </p>
           )}
           {status.type === "error" && (
-            <p role="alert" className="text-sm text-blood-500">
-              {status.message}
+            <p role="alert">
+              <Flash tone="error">{status.message}</Flash>
             </p>
           )}
         </form>

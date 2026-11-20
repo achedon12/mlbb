@@ -249,7 +249,7 @@ export default async function TeamPage({ params }: Params) {
                         <summary
                           className={cn(
                             row,
-                            "cursor-pointer list-none outline-none transition-colors hover:bg-night-800 focus-visible:ring-2 focus-visible:ring-gold-500 [&::-webkit-details-marker]:hidden",
+                            "cursor-pointer list-none outline-none transition-colors hover:bg-night-800 focus-visible:ring-2 focus-visible:ring-gold-400 [&::-webkit-details-marker]:hidden",
                           )}
                         >
                           {line}
