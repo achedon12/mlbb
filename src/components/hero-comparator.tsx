@@ -6,7 +6,8 @@ import { RateCurve, type SeriesCurve } from "@/components/rate-curve";
 import { HeroPortrait } from "@/components/hero-portrait";
 import { FilterGroup, Chip } from "@/components/chip";
 import { AXES_RADAR, HeroRadar, SERIES_STYLES, TraitLegend, valuesRadar, type PatternTrait } from "@/components/hero-radar";
-import Link from "@/components/link";
+import { VersusPoster } from "@/components/compare/versus-poster";
+import { BadgeTier } from "@/components/ui";
 import { MEASURED_RANKS, type MeasuredRank } from "@/lib/measured-ranks";
 import { alignSeries, type WinStreak } from "@/lib/trends";
 import type { Tier } from "@/lib/types";
@@ -20,6 +21,10 @@ export interface HeroComparable {
   slug: string;
   name: string;
   icon: string | null;
+  /** Tall portrait, for the versus when the hero has no artwork. */
+  portrait: string | null;
+  /** Landscape artwork, the versus panel's image. */
+  art: string | null;
   roles: string[];
   lanes: string[];
   notes: {
@@ -39,13 +44,6 @@ export interface BoundsRank {
   ban: [number, number];
 }
 
-const COLOR_TIER: Record<Tier, string> = {
-  "S+": "border-blood-500/40 text-blood-500",
-  S: "border-gold-500/40 text-gold-400",
-  A: "border-emerald-500/40 text-emerald-400",
-  B: "border-azure-500/40 text-azure-400",
-  C: "border-night-600 text-chalk-500",
-};
 const ORDER_TIERS: Tier[] = ["S+", "S", "A", "B", "C"];
 
 /** Translation key of each in-game rating. */
@@ -141,11 +139,38 @@ export function HeroComparator({
 
   const chosen = choice.map((s) => bySlug.get(s)).filter((h): h is HeroComparable => h !== undefined);
   const labels = [t("compareUI.first"), t("compareUI.second"), t("compareUI.third")];
-  const three = chosen.length === MAX_HEROES;
+
+  const locale = useLocale();
+  const decimal = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  const percent = new Intl.NumberFormat(locale, { style: "percent", minimumFractionDigits: 1, maximumFractionDigits: 1 });
 
   return (
     <div>
-      <div className={cn("grid gap-3 sm:gap-5", choice.length === MAX_HEROES ? "sm:grid-cols-3" : "grid-cols-2")}>
+      {/* The versus: the chosen heroes' artworks facing each other, the one strong moment of the page. */}
+      {chosen.length >= 2 && (
+        <VersusPoster
+          priority
+          className="bevel-lg"
+          sides={chosen.map((h, i) => {
+            const x = h.rate[rank];
+            return {
+              slug: h.slug,
+              name: h.name,
+              art: h.art,
+              portrait: h.portrait,
+              tier: x?.[2] ?? null,
+              win: x ? decimal.format(x[0]) : null,
+              winLabel: x ? `${t("compareUI.winRate")} : ${percent.format(x[0] / 100)}` : undefined,
+              sub: [h.roles.map((r) => t(`roles.${r}`)).join(" · "), h.lanes.map((l) => t(`lanes.${l}`)).join(" · ")]
+                .filter(Boolean)
+                .join(" — "),
+              legend: <TraitLegend {...SERIES_STYLES[i]} />,
+            };
+          })}
+        />
+      )}
+
+      <div className={cn("mt-4 grid gap-3 sm:mt-5 sm:gap-5", choice.length === MAX_HEROES ? "sm:grid-cols-3" : "grid-cols-2")}>
         {choice.map((slug, i) => (
           <Picker
             key={i}
@@ -160,12 +185,7 @@ export function HeroComparator({
         ))}
       </div>
       {choice.length < MAX_HEROES && (
-        <button
-          ref={buttonAdd}
-          type="button"
-          onClick={add}
-          className="bevel-sm mt-3 inline-flex items-center gap-2 border border-dashed border-night-600 px-3 py-1.5 text-sm text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400"
-        >
+        <button ref={buttonAdd} type="button" onClick={add} className="btn btn-secondary btn-sm mt-3">
           <Plus size={15} aria-hidden />
           {t("compareUI.add")}
         </button>
@@ -173,14 +193,8 @@ export function HeroComparator({
 
       {chosen.length >= 2 && (
         <div className="mt-8">
-          <div className={cn("grid gap-2 sm:gap-5", three ? "grid-cols-3" : "grid-cols-2")}>
-            {chosen.map((h, i) => (
-              <HeroHeader key={h.slug} hero={h} rank={rank} style={SERIES_STYLES[i]} compact={three} />
-            ))}
-          </div>
-
           {ranks.length > 1 && (
-            <FilterGroup legend={t("measuredRanks.label")} widthLegend="" className="mt-6 justify-center">
+            <FilterGroup legend={t("measuredRanks.label")} widthLegend="" className="justify-center">
               {ranks.map((r) => (
                 <Chip key={r} dense active={r === rank} onClick={() => setRank(r)}>
                   {t(`measuredRanks.${r}`)}
@@ -219,7 +233,7 @@ function Profile({ heroes, rank, bounds }: { heroes: HeroComparable[]; rank: Mea
   });
   return (
     <section className="mt-8" aria-labelledby={`${id}-h`}>
-      <h2 id={`${id}-h`} className="text-center text-xs uppercase tracking-wide text-chalk-500">
+      <h2 id={`${id}-h`} className="type-subtitle text-chalk-100">
         {title}
       </h2>
       <HeroRadar
@@ -228,9 +242,9 @@ function Profile({ heroes, rank, bounds }: { heroes: HeroComparable[]; rank: Mea
         series={series}
         title={title}
         summary={t("compareUI.radarSummary")}
-        className="bevel mt-3 border border-night-700/70 bg-night-900/60 p-3 sm:p-4"
+        className="bevel mt-3 bg-night-900 p-3 sm:p-4"
       />
-      <p className="mt-2 text-center text-xs text-chalk-500">{t("compareUI.radarScale")}</p>
+      <p className="mt-2 text-xs text-chalk-500">{t("compareUI.radarScale")}</p>
     </section>
   );
 }
@@ -268,9 +282,7 @@ function ComparisonTable({ heroes, rank }: { heroes: HeroComparable[]; rank: Mea
       label: t("compareUI.tier"),
       values: rate.map((x) => (x ? ORDER_TIERS.length - ORDER_TIERS.indexOf(x[2]) : null)),
       shown: (_, i) => (
-        <span className={cn("bevel-sm inline-block border px-1.5 py-0.5 text-[0.7rem] font-bold", COLOR_TIER[rate[i]![2]])}>
-          {rate[i]![2]}
-        </span>
+        <BadgeTier tier={rate[i]![2]} size="sm" className="align-middle" />
       ),
       direction: 1,
     },
@@ -298,16 +310,16 @@ function ComparisonTable({ heroes, rank }: { heroes: HeroComparable[]; rank: Mea
   const names = new Intl.ListFormat(locale, { style: "long", type: "conjunction" }).format(heroes.map((h) => h.name));
 
   return (
-    <div className="bevel mt-6 relative overflow-x-auto border border-night-700/70 bg-night-900/60 px-3 py-2 sm:px-4">
+    <div className="bevel relative mt-8 overflow-x-auto bg-night-900 px-3 py-2 sm:px-5 sm:py-3">
       <table className="w-full text-sm">
         <caption className="sr-only">{t("compareUI.table", { names: names, rank: t(`measuredRanks.${rank}`) })}</caption>
         <thead>
-          <tr className="border-b border-night-800">
+          <tr className="border-b border-night-700">
             <th scope="col" className="py-2">
               <span className="sr-only">{t("compareUI.criterion")}</span>
             </th>
             {heroes.map((h, i) => (
-              <th scope="col" key={h.slug} className="px-1.5 py-2 text-right font-heading font-bold text-chalk-100">
+              <th scope="col" key={h.slug} className="px-1.5 py-2.5 text-right font-heading text-base font-bold uppercase text-chalk-100">
                 <span className="inline-flex items-center justify-end gap-1.5">
                   <TraitLegend {...SERIES_STYLES[i]} className="hidden min-[420px]:block" />
                   {h.name}
@@ -324,7 +336,7 @@ function ComparisonTable({ heroes, rank }: { heroes: HeroComparable[]; rank: Mea
             const tieBreak = l.direction !== 0 && measured.length > 1 && new Set(measured).size > 1;
             return (
               <tr key={l.key}>
-                <th scope="row" className="py-2 pr-2 text-left text-xs font-medium uppercase tracking-wide text-chalk-500">
+                <th scope="row" className="py-2.5 pr-2 text-left font-heading text-sm font-bold uppercase text-chalk-400">
                   {l.label}
                 </th>
                 {l.values.map((v, i) => {
@@ -332,7 +344,7 @@ function ComparisonTable({ heroes, rank }: { heroes: HeroComparable[]; rank: Mea
                   return (
                     <td
                       key={i}
-                      className={cn("px-1.5 py-2 text-right font-semibold tabular-nums", best ? "text-gold-400" : "text-chalk-300")}
+                      className={cn("px-1.5 py-2.5 text-right font-semibold tabular-nums", best ? "font-heading text-lg font-bold text-gold-400" : "text-chalk-300")}
                     >
                       {v === null ? "—" : l.shown(v, i)}
                       {best && <span className="sr-only"> ({t("compareUI.best")})</span>}
@@ -394,14 +406,14 @@ function ComparedCurves({ heroes, rank }: { heroes: HeroComparable[]; rank: Meas
   }, [key]);
 
   const title = (
-    <h2 className="text-center text-xs uppercase tracking-wide text-chalk-500">
+    <h2 className="type-subtitle text-chalk-100">
       {t("compareUI.curves", { n: DAYS_CURVE })}
     </h2>
   );
   const message = (text: string) => (
     <section className="mt-8">
       {title}
-      <p role="status" className="bevel mt-3 grid h-[200px] place-items-center border border-night-700/70 bg-night-900/60 px-4 text-center text-sm text-chalk-500">
+      <p role="status" className="bevel mt-3 grid h-[200px] place-items-center bg-night-900 px-4 text-center text-sm text-chalk-500">
         {text}
       </p>
     </section>
@@ -445,11 +457,11 @@ function ComparedCurves({ heroes, rank }: { heroes: HeroComparable[]; rank: Meas
     <section className="mt-8">
       {title}
       {chosen !== rank && (
-        <p className="mt-2 text-center text-xs text-chalk-500">
+        <p className="mt-2 text-xs text-chalk-500">
           {t("compareUI.curvesOtherRank", { rank: t(`measuredRanks.${chosen}`) })}
         </p>
       )}
-      <div className="bevel mt-3 border border-night-700/70 bg-night-900/60 p-3 sm:p-4">
+      <div className="bevel mt-3 bg-night-900 p-3 sm:p-4">
         <RateCurve
           dates={dates.slice(from)}
           series={series}
@@ -541,7 +553,7 @@ function Picker({
   return (
     <div className="relative">
       <div className="mb-1.5 flex items-center justify-between gap-2">
-        <label htmlFor={`${id}-field`} className="flex items-center gap-2 text-xs uppercase tracking-wide text-chalk-500">
+        <label htmlFor={`${id}-field`} className="flex items-center gap-2 font-heading text-sm font-bold uppercase text-chalk-300">
           <TraitLegend color={pattern.color} pattern={pattern.pattern} />
           {label}
         </label>
@@ -550,13 +562,13 @@ function Picker({
             type="button"
             onClick={remove}
             aria-label={t("compareUI.remove", { name: chosen?.name ?? label })}
-            className="-my-1 rounded-sm p-1 text-chalk-500 transition-colors hover:text-blood-500"
+            className="-my-1 p-1 text-chalk-500 transition-colors hover:text-blood-400"
           >
             <X size={15} aria-hidden />
           </button>
         )}
       </div>
-      <div className="bevel-sm flex items-center gap-2 border border-night-700 bg-night-900 px-2.5 transition-colors focus-within:border-gold-500">
+      <div className="bevel-sm flex items-center gap-2 bg-night-800 px-2.5 shadow-[inset_0_0_0_1px_var(--color-night-600)] transition-shadow focus-within:shadow-[inset_0_0_0_1px_var(--color-gold-400)]">
         {!open && chosen && (
           <HeroPortrait source={chosen.icon} name={chosen.name} size="micro" decorative />
         )}
@@ -599,7 +611,7 @@ function Picker({
           id={`${id}-list`}
           role="listbox"
           aria-label={label}
-          className="absolute z-20 mt-1 max-h-72 w-full overflow-y-auto border border-night-700 bg-night-900 py-1 shadow-xl shadow-black/40"
+          className="absolute z-20 mt-1 max-h-72 w-full overflow-y-auto border border-night-600 bg-night-900 py-1 shadow-xl shadow-black/40"
         >
           {results.length === 0 ? (
             <li className="px-3 py-2 text-sm text-chalk-500">{t("compareUI.none")}</li>
@@ -627,49 +639,6 @@ function Picker({
           )}
         </ul>
       )}
-    </div>
-  );
-}
-
-function HeroHeader({
-  hero: heroes,
-  rank,
-  style,
-  compact,
-}: {
-  hero: HeroComparable;
-  rank: MeasuredRank;
-  style: { color: string; pattern: PatternTrait };
-  /** Three heroes side by side: portrait above the name on small screens. */
-  compact: boolean;
-}) {
-  const t = useT();
-  const tier = heroes.rate[rank]?.[2] ?? null;
-  return (
-    <div className={cn("bevel min-w-0 border border-night-700/70 bg-night-900/60", compact ? "p-2.5 sm:p-4" : "p-4")}>
-      <div className={cn("flex gap-3", compact ? "flex-col items-center text-center sm:flex-row sm:text-left" : "items-center")}>
-        <HeroPortrait source={heroes.icon} name={heroes.name} size={compact ? "medium" : "thumb"} />
-        <div className="min-w-0 max-w-full">
-          <div className={cn("flex flex-wrap items-center gap-x-2 gap-y-1", compact && "justify-center sm:justify-start")}>
-            <Link
-              href={`/heroes/${heroes.slug}`}
-              className={cn("font-heading font-bold text-chalk-100 hover:text-gold-400", compact ? "text-base sm:text-lg" : "truncate text-lg")}
-            >
-              {heroes.name}
-            </Link>
-            {tier && (
-              <span className={cn("bevel-sm shrink-0 border px-1.5 py-0.5 text-[0.7rem] font-bold", COLOR_TIER[tier])}>
-                {tier}
-              </span>
-            )}
-          </div>
-          <p className={cn("mt-0.5 text-xs text-chalk-500", compact ? "line-clamp-2 sm:truncate" : "truncate")}>
-            {heroes.roles.map((r) => t(`roles.${r}`)).join(" · ")}
-            {heroes.lanes.length > 0 && ` — ${heroes.lanes.map((l) => t(`lanes.${l}`)).join(" · ")}`}
-          </p>
-          <TraitLegend color={style.color} pattern={style.pattern} className={cn("mt-1.5", compact && "mx-auto sm:mx-0")} />
-        </div>
-      </div>
     </div>
   );
 }
