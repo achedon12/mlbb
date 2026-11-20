@@ -253,7 +253,7 @@ export function RoundQuiz({
       >
         {t(`pages.quizUI.questions.${round.type}`)}
       </h3>
-      <p className="game-bubble mt-3 inline-block text-sm">{t(`pages.quizUI.dex.${mood}`)}</p>
+      <p key={mood} className="game-bubble mt-3 inline-block text-sm">{t(`pages.quizUI.dex.${mood}`)}</p>
       </div>
       <GameDex mood={mood} beat={attempts.length} height={88} className="sm:hidden" />
       <GameDex mood={mood} beat={attempts.length} height={132} className="max-sm:hidden" />

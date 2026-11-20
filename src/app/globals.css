@@ -861,3 +861,20 @@ body {
 /* Editorial pages (about, legal, privacy, contribute, api-doc): a sticky contents rail beside the text. */
 .editorial-rail a[aria-current="true"] { color: var(--color-gold-400); }
 /* ══ end of the community, account, bot and site pages ═══════════════════════ */
+
+/* ── Dex's bubbles: pop in after Dex, then float (mascot.tsx, tools.css) ── */
+.dex-bubble, .game-bubble { transform-origin: 0% 100%; animation: bubble-pop 0.55s cubic-bezier(.2, 1.5, .4, 1) 0.25s both, bubble-float 4.6s ease-in-out 0.9s infinite; }
+.dex-says-right .dex-bubble { transform-origin: 100% 100%; }
+@keyframes bubble-pop { from { opacity: 0; transform: translateY(10px) scale(0.7); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes bubble-float { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-5px) rotate(-0.4deg); } }
+/* the thought trail: three little bubbles rising from Dex to his bubble */
+.dex-trail { display: inline-flex; flex-direction: column-reverse; align-items: flex-start; gap: 4px; align-self: flex-end; margin-bottom: 0.6rem; flex: none; }
+.dex-says-right .dex-trail { align-items: flex-end; }
+.dex-trail i { display: block; border-radius: 999px; background: var(--color-night-800); box-shadow: inset 0 0 0 1px var(--color-night-600); animation: trail-rise 2.4s ease-in-out infinite both; }
+.dex-trail i:nth-child(1) { width: 6px; height: 6px; animation-delay: 0s; }
+.dex-trail i:nth-child(2) { width: 9px; height: 9px; margin-left: 6px; animation-delay: 0.25s; }
+.dex-trail i:nth-child(3) { width: 12px; height: 12px; margin-left: 13px; animation-delay: 0.5s; }
+.dex-says-right .dex-trail i:nth-child(2) { margin-left: 0; margin-right: 6px; }
+.dex-says-right .dex-trail i:nth-child(3) { margin-left: 0; margin-right: 13px; }
+@keyframes trail-rise { 0% { opacity: 0; transform: translateY(6px) scale(0.6); } 25%, 75% { opacity: 1; transform: translateY(0) scale(1); } 100% { opacity: 0; transform: translateY(-6px) scale(0.8); } }
+@media (prefers-reduced-motion: reduce) { .dex-bubble, .game-bubble, .dex-trail i { animation: none; } }
