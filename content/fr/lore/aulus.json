@@ -84,7 +84,7 @@
     ],
     "relations": [
       "Aulus (mentor, prédécesseur, sauveur)",
-      "Benedetta, Brody (alliés)",
+      "Benedetta, Brody (compagnons)",
       "Thamuz (ennemi)"
     ],
     "powers": [
@@ -96,7 +96,7 @@
     "Il parle avec un accent écossais.",
     "Son arme est l'objet War Axe. Si vous revendez la War Axe en partie, il lance : « Goodbye old friend » (« Adieu, vieille amie »).",
     "La refonte d'Aulus est unique : l'ancien et le nouvel Aulus sont deux personnages distincts. Après la refonte, l'ancien Aulus a pris sa retraite pour de bon et a transmis sa Hache de guerre au nouvel Aulus, son successeur.",
-    "Le skin de base « Berserker » de la refonte porte la même arme que son skin de base d'avant la refonte. C'est le seul skin dont l'arme, la War Axe, n'a pas été remodelée, contrairement à son skin par défaut actuel.",
-    "Ses autres skins de la refonte (sauf son skin de base) gardent l'animation d'entrée d'avant la refonte, avec le nouveau modèle d'Aulus."
+    "L'apparence de base « Berserker » de la refonte porte la même arme que son apparence de base d'avant la refonte. C'est la seule apparence dont l'arme, la War Axe, n'a pas été remodelée, contrairement à son apparence par défaut actuelle.",
+    "Ses autres apparences de la refonte (sauf son apparence de base) gardent l'animation d'entrée d'avant la refonte, avec le nouveau modèle d'Aulus."
   ]
 }
