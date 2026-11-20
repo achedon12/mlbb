@@ -42,7 +42,7 @@ Ranked wears patience more than reflexes. A few rules protect your points:
 
 - **stop after two defeats in a row**: the third game is often played angry, and it is the one that costs the most;
 - **do not reply in the chat**: each message written is a second where we do not look at the map;
-- **a game is never lost before the inhibitor**: endgame Lords return situations that seemed lost;
+- **a game is never lost while your base stands**: endgame Lords turn around games that looked lost;
 - **play rested**: hours of fatigue are when small errors accumulate.
 
 ## Learn from your defeats

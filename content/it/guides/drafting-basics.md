@@ -16,7 +16,7 @@ Nelle partite classificate, il draft si apre dal rango Epico: ogni squadra bandi
 
 ## Come funziona una draft classificata?
 
-- **Divieti**: entrambe le squadre vengono squalificate contemporaneamente. Il numero di ban dipende dal rango più alto nel gioco. Entrambe le squadre possono bannare lo stesso eroe, il che spreca un ban: concordare preventivamente nella chat evita questa duplicazione.
+- **Ban**: le due squadre bannano nello stesso momento. Il numero di ban dipende dal rango più alto della partita. Niente impedisce agli avversari di bannare lo stesso eroe che bannate voi, e questa coincidenza non si può prevedere. Accordarsi in chat serve a dividere i ban dentro la tua squadra: ognuno sa quale minaccia toglie, e i vostri ban coprono le minacce principali invece di lasciar passare un eroe pericoloso perché ognuno contava su un altro.
 - **Le scelte**: la squadra blu sceglie un eroe, i due rossi, i due blu, i due rossi, i due blu, poi il rosso l'ultimo.
 - **Ciò che conta**: un eroe scelto per primo è visibile a tutti, un eroe scelto per ultimo può rispondere a tutto il resto.
 

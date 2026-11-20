@@ -15,6 +15,7 @@ Une seule traduction par terme, pour les 133 fiches de ce dossier. Priorité : l
 | Liens (relations) | accordés au genre de la personne citée ; pluriel masculin si le groupe est mixte | Cici (compagne), Belerick, Lunox, Natan (compagnons) |
 | Skin cité dans le texte | apparence (jamais « skin » ni « peau ») | son apparence Starlight, l'apparence Collector de Natalia |
 | Rangs d'apparence | Épique, Élite, Spéciale, Légende ; Starlight, Collector, Zenith, Mythic restent tels quels | une apparence Élite |
+| Factions nommées par le jeu (escouades de héros) | nom anglais du jeu, jamais traduit | les Lightborn, membres de Forsaken Light |
 | Noms de compétences dans les anecdotes | en anglais, comme sur le site | Phantom Steed, Pride of Ice, Fury of the Phoenix |
 | Noms d'apparences, de collaborations, de jeux | en anglais, entre guillemets français si la phrase en a besoin | « Twisted Fairytale », Magic Rush: Heroes |
 | Typographie | « guillemets », espace avant : ; ! ?, points de suspension « … » | |
@@ -75,7 +76,7 @@ Une seule traduction par terme, pour les 133 fiches de ce dossier. Priorité : l
 | Church of Light | Église de la Lumière |
 | Light's Order / Knights of Light | Ordre de la Lumière / Chevaliers de la Lumière |
 | Lightborn | Lightborn (les Lightborn, membres des Lightborn) |
-| Forsaken Light | Lumière déchue |
+| Forsaken Light | Forsaken Light (membres de Forsaken Light) |
 | Eruditio Rangers | Rangers d'Eruditio |
 | Scholar's Union | Union des Érudits |
 | Free Smiths' Guild | Guilde des forgerons libres |
@@ -136,7 +137,7 @@ Une seule traduction par terme, pour les 133 fiches de ce dossier. Priorité : l
 | relative | parent, parente |
 | older / younger brother, sister | frère aîné, frère cadet, sœur aînée, sœur cadette |
 | Lightborn co-members | membres des Lightborn |
-| Forsaken Light co-members | membres de la Lumière déchue |
+| Forsaken Light co-members | membres de Forsaken Light |
 | co-Oriental Fighters | Combattants d'Orient comme lui (ou comme elle) |
 | passing acquaintance | connaissance de passage |
 | deceased | décédé, décédée, décédés |

@@ -44,7 +44,7 @@ Gumagana ito kapag natugunan ang tatlong kundisyon:
 2. **Ang natitirang bahagi ng koponan ay hindi lumalaban**: hawak nila ang isang defensive na posisyon, sa ilalim ng isang turret o malapit sa isang layunin, nang hindi tumatanggap ng apat-sa-limang labanan.
 3. **Ang mga alon ay pinamamahalaan**: ang isang lane na itinutulak sa harap ng iyong koponan ay nagpapanatili ng presyon habang ikaw ay nasa ibang lugar.
 
-Ang mga hero na idinisenyo para dito ay mabilis na sumisira ng turret at madaling umalis sa lane: [Sun](/heroes/sun), [Zilong](/heroes/zilong) o [Masha](/heroes/masha) ay kilalang mga halimbawa.
+Ang mahuhusay na split pusher ay mabilis magpabagsak ng turret at may paraan para makatakas. Si [Sun](/heroes/sun) ay nagiging tungkod, nagtatago at lumilitaw sa mas malayo gamit ang Swift Exchange; si [Zilong](/heroes/zilong) ay nagkakaroon ng movement speed at hindi tinatablan ng slow gamit ang Supreme Warrior. Si [Masha](/heroes/masha) naman ay may iisang dash lang (Claw Strike) para umalis: kailangan niyang bantayan ang minimap at umalis sa lane bago dumating ang mga depensa.
 
 ## Kapag hindi hati push
 

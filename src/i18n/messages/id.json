@@ -3225,7 +3225,7 @@
         },
         "lord": {
           "name": "Yang mulia",
-          "role": "Monster paling kuat di peta. Tim yang membunuhnya memanggilnya: dia mendorong lane terlemah lawan dan memperkuat gelombang minion berikutnya.",
+          "role": "Monster terkuat di peta. Tim yang membunuhnya akan memanggilnya: Lord mendorong satu lane bersama tim itu dan memperkuat wave minion berikutnya.",
           "firstSpawn": "{after} menit setelah Turtle terakhir, atau antara {from} dan {latest} jika Turtle masih hidup",
           "respawn": "{respawn} s setelah kematiannya; setelah {lateFrom}, {late} s menurut teks wiki, {infobox} menurut kotaknya",
           "reward": "Gelombang minion berikutnya diperkuat; Tuan yang dipanggil mendorong bersama timmu, dan sekutu di sekitar menimbulkan {bonus} damage sihir dasar tambahan (cooldown {cooldown} detik)",
@@ -5008,7 +5008,7 @@
           "p": "Roster lengkap, skin tiap hero, item, emblem, battle spell, dan daftar patchnya. Data ini secara otomatis diambil dari wiki komunitas setiap minggu: hero baru muncul di sini tanpa ada yang harus memasukkannya."
         },
         {
-          "p": "Selain itu, tidak ada ekstraksi yang akan menghasilkan: analisis yang ditulis untuk beberapa hero (apa yang mereka lakukan, build mereka, counter mereka), tier list di mana setiap penempatan diperdebatkan, dan panduan latar belakang."
+          "p": "Ditambah lagi hal yang tidak akan dihasilkan oleh ekstraksi mana pun: analisis tertulis untuk sebagian hero (apa yang mereka lakukan, build, dan counter mereka), komentar tertulis untuk sebagian hero di tier list, dan panduan mendalam. Peringkat tier list sendiri bukan opini: peringkat itu dihitung dari win rate dan ban rate."
         },
         {
           "h": "Apa yang tidak dikandungnya, dan mengapa"
@@ -5017,7 +5017,7 @@
           "p": "Tidak ada peringkat pemain atau “MMR”. Moonton tidak mempublikasikan API resmi apa pun: statistik yang ditampilkan di sini (win rate, ban dan pengambilan, counter, build, tren) berasal dari API komunitas arena.rone.dev, yang menggabungkan game yang diberi peringkat berdasarkan peringkat. Situs yang menampilkan “MMR” untuk Mobile Legends memperkirakannya: mereka tidak membacanya di mana pun."
         },
         {
-          "p": "Jika Anda masuk dengan kode verifikasi game, Anda akan melihat profil Anda sendiri (musim, hero yang dimainkan, pertandingan terkini), dibaca sesuai permintaan melalui API yang sama dan hanya dapat dilihat oleh Anda. Itu tidak dipublikasikan atau disimpan melebihi cache beberapa menit."
+          "p": "Jika kamu masuk dengan kode verifikasi game, kamu melihat profilmu sendiri (season, hero yang dimainkan, pertandingan terakhir), dibaca saat diminta melalui API yang sama dan hanya terlihat olehmu. Profil itu tidak dipublikasikan. Agar tidak meminta semuanya lagi di setiap kunjungan, jawaban dari game disimpan sementara di memori server, tidak pernah di disk: dari dua menit hingga enam jam, tergantung datanya. Satu-satunya pengecualian adalah kartu /profile dari bot Discord, jika kamu menautkannya: situs menyimpan token game-mu dalam bentuk terenkripsi paling lama 7 hari, dan angka di kartu, yang dihapus 30 hari setelah pembaruan terakhir atau begitu kamu melepas tautannya."
         },
         {
           "p": "Visualnya adalah milik Moonton dan, untuk skin kolaborasi, milik pemegang hak karakter dan merek yang bersangkutan. Potret, ikon, dan ilustrasi skin berasal dari wiki komunitas dan disajikan oleh situs ini sehingga tidak ada yang bergantung pada domain pihak ketiga. Mereka tetap menjadi milik Moonton, hadir untuk tujuan ilustrasi dan akan dihapus atas permintaan pemegang hak. Identitas visual situs (biru tua, emas, jalan pintas) terinspirasi oleh permainan tanpa menggunakan file antarmuka."

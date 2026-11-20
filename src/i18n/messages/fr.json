@@ -3225,7 +3225,7 @@
         },
         "lord": {
           "name": "Seigneur",
-          "role": "Le monstre le plus puissant de la carte. L'équipe qui le tue l'invoque : il pousse la lane la plus faible de l'adversaire et renforce la prochaine vague de sbires.",
+          "role": "Le monstre le plus puissant de la carte. L'équipe qui le tue l'invoque : il pousse une lane avec elle et renforce la prochaine vague de sbires.",
           "firstSpawn": "{after} min après la dernière Tortue, ou entre {from} et {latest} si une Tortue est encore en vie",
           "respawn": "{respawn} s après sa mort ; après {lateFrom}, {late} s selon le texte du wiki, {infobox} selon son encadré",
           "reward": "Prochaine vague de sbires renforcée ; le Seigneur invoqué pousse avec votre équipe, et les alliés proches infligent {bonus} dégâts magiques de base en plus (recharge {cooldown} s)",
@@ -5008,7 +5008,7 @@
           "p": "Le roster complet, les apparences de chaque héros, les objets, les emblèmes, les sorts de combat et la liste des patchs. Ces données sont extraites automatiquement du wiki communautaire chaque semaine : un nouveau héros apparaît ici sans que personne ait à le saisir."
         },
         {
-          "p": "S'y ajoute ce qu'aucune extraction ne produira : une analyse rédigée pour une partie des héros (ce qu'ils font, leurs builds, leurs contres), une tier list dont chaque placement est argumenté, et des guides de fond."
+          "p": "S'y ajoute ce qu'aucune extraction ne produira : une analyse rédigée pour une partie des héros (ce qu'ils font, leurs builds, leurs contres), un commentaire rédigé pour une partie des héros de la tier list, et des guides de fond. Le classement de la tier list, lui, ne donne pas d'avis : il est calculé à partir des taux de victoire et de ban."
         },
         {
           "h": "Ce qu'il ne contient pas, et pourquoi"
@@ -5017,7 +5017,7 @@
           "p": "Pas de classement de joueurs ni de « MMR ». Moonton ne publie aucune API officielle : les statistiques affichées ici (taux de victoire, de ban et de pick, contres, builds, tendances) viennent de l'API communautaire arena.rone.dev, qui agrège les parties classées par rang. Les sites qui affichent un « MMR » pour Mobile Legends l'estiment : ils ne le lisent nulle part."
         },
         {
-          "p": "Si vous vous connectez avec le code de vérification du jeu, vous voyez votre propre profil (saison, héros joués, parties récentes), lu à la demande via la même API et visible par vous seul. Il n'est ni publié ni conservé au-delà d'un cache de quelques minutes."
+          "p": "Si vous vous connectez avec le code de vérification du jeu, vous voyez votre propre profil (saison, héros joués, parties récentes), lu à la demande via la même API et visible par vous seul. Il n'est pas publié. Pour ne pas tout redemander à chaque visite, les réponses du jeu restent un temps dans la mémoire du serveur, jamais sur disque : de deux minutes à six heures selon la donnée. Seule exception, la carte /profile du bot Discord, si vous la reliez : le site garde alors votre jeton de jeu chiffré, au plus 7 jours, et les chiffres de la carte, effacés 30 jours après leur dernière mise à jour ou dès que vous la déliez."
         },
         {
           "p": "Les visuels appartiennent à Moonton et, pour les apparences de collaboration, aux ayants droit des personnages et des marques concernés. Portraits, icônes et illustrations d'apparences proviennent du wiki communautaire et sont servis par ce site pour que rien ne dépende d'un domaine tiers. Ils restent la propriété de Moonton, sont présents à des fins d'illustration et seront retirés sur demande de l'ayant droit. L'identité visuelle du site (bleu nuit, or, angles coupés) s'inspire de celle du jeu sans en reprendre les fichiers d'interface."

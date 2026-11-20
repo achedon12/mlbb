@@ -42,7 +42,7 @@ A classificação exige mais paciência do que reflexos. Algumas regras protegem
 
 - **parar após duas derrotas seguidas**: o terceiro jogo costuma ser jogado com raiva e é o que custa mais;
 - **não responda no chat**: cada mensagem escrita é um segundo onde não olhamos o cartão;
-- **um jogo nunca está perdido antes do inibidor**: os Lordes do final do jogo devolvem situações que pareciam perdidas;
+- **uma partida nunca está perdida enquanto a base resistir**: os Lordes do fim de jogo viram partidas que pareciam perdidas;
 - **jogue descansado**: horas de cansaço são quando pequenos erros se acumulam.
 
 ## Aprenda com suas derrotas

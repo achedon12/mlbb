@@ -3225,7 +3225,7 @@
         },
         "lord": {
           "name": "Lord",
-          "role": "Il mostro più forte della mappa. La squadra che lo uccide lo evoca: spinge la lane più debole dell'avversario e potenzia la prossima ondata di minion.",
+          "role": "Il mostro più potente della mappa. La squadra che lo uccide lo evoca: spinge una lane insieme a quella squadra e rafforza la prossima ondata di minion.",
           "firstSpawn": "{after} min dopo l'ultima Tartaruga, oppure tra {from} e {latest} se una Tartaruga è ancora viva",
           "respawn": "{respawn} s dopo la morte; dopo il minuto {lateFrom}, {late} s secondo il testo della wiki, {infobox} secondo il riquadro",
           "reward": "Prossima ondata di minion potenziata; il Lord evocato spinge con la tua squadra e gli alleati vicini infliggono {bonus} danni magici base in più (ricarica {cooldown} s)",
@@ -5008,7 +5008,7 @@
           "p": "Il roster completo, le skin di ogni eroe, gli oggetti, gli emblemi, i Battle Spell e l'elenco delle patch. Questi dati vengono estratti automaticamente dal wiki della community ogni settimana: un nuovo eroe compare qui senza che nessuno debba inserirlo."
         },
         {
-          "p": "A questo si aggiunge ciò che nessuna estrazione produrrà: un'analisi scritta per alcuni eroi (cosa fanno, le loro build, i loro contatori), un elenco di livelli in cui viene discusso ogni posizionamento e guide di base."
+          "p": "A questo si aggiunge ciò che nessuna estrazione produrrà: un'analisi scritta per una parte degli eroi (cosa fanno, le loro build, i loro counter), un commento scritto per una parte degli eroi della tier list e guide approfondite. La classifica della tier list, invece, non è un'opinione: è calcolata a partire dai tassi di vittoria e di ban."
         },
         {
           "h": "Cosa non contiene, e perché"
@@ -5017,7 +5017,7 @@
           "p": "Nessuna classifica dei giocatori o “MMR”. Moonton does not publish any official API: the statistics displayed here (win, ban and pick rates, counters, builds, trends) come from the arena.rone.dev community API, which aggregates games ranked by rank. I siti che mostrano un “MMR” per Mobile Legends lo stimano: non lo leggono da nessuna parte."
         },
         {
-          "p": "Se accedi con il codice di verifica del gioco, vedrai il tuo profilo (stagione, eroi giocati, partite recenti), letto on demand tramite la stessa API e visibile solo a te. Non viene né pubblicato né conservato oltre una cache di pochi minuti."
+          "p": "Se accedi con il codice di verifica del gioco, vedi il tuo profilo (stagione, eroi giocati, partite recenti), letto su richiesta tramite la stessa API e visibile solo a te. Non viene pubblicato. Per non richiedere tutto a ogni visita, le risposte del gioco restano per un po' nella memoria del server, mai su disco: da due minuti a sei ore a seconda del dato. L'unica eccezione è la scheda /profile del bot Discord, se la colleghi: il sito conserva allora il tuo token di gioco cifrato, per 7 giorni al massimo, e i numeri della scheda, cancellati 30 giorni dopo l'ultimo aggiornamento o appena la scolleghi."
         },
         {
           "p": "Le immagini appartengono a Moonton e, per le skin in collaborazione, ai titolari dei diritti dei personaggi e dei marchi interessati. Ritratti, icone e illustrazioni di skin provengono dalla wiki della comunità e sono serviti da questo sito in modo che nulla dipenda da un dominio di terze parti. Rimangono di proprietà di Moonton, sono presenti a scopo illustrativo e verranno rimossi su richiesta del titolare dei diritti. L'identità visiva del sito (blu scuro, oro, angoli tagliati) si ispira a quella del gioco senza utilizzare i file dell'interfaccia."

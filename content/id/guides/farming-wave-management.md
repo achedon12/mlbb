@@ -16,10 +16,10 @@ Gold Lane diberi nama yang tepat: lane ini menghasilkan emas paling banyak, dan 
 
 ## Setiap minion penting
 
-Wave Minion datang setiap tiga puluh detik. Wave pertama lane samping memberikan bonus, membuat setiap minion yang gagal di awal permainan menjadi lebih mahal.
+Satu wave minion muncul setiap tiga puluh detik, yang pertama pada 0:10. Selama sepuluh wave pertama (hingga 5:10), minion meriam memberi 45% gold lebih banyak di Gold lane dan 35% EXP lebih banyak di EXP lane: di awal game, melewatkan meriam lebih merugikan daripada melewatkan minion lain.
 
-- **Hancurkan minion** daripada memukul secara acak: pukulan terakhir akan menghasilkan emas, dan marksman yang hanya menargetkan minion yang hampir mati juga akan mempertahankan poin nyawanya.
-- **Jangan biarkan minion pengepungan mati** tanpa menghabisinya: mereka lebih berharga daripada yang lain.
+- **Habisi minion** alih-alih memukul sembarangan: marksman yang hanya memukul minion yang hampir mati menjaga HP-nya dan tidak mendorong wave tanpa sengaja.
+- **Ambil last hit pada minion meriam**, terutama selama sepuluh wave pertama: minion itulah yang membawa bonus.
 - **Pelajari ritme hero Anda**: kecepatan serangan dan damagenya di level 1 tidak sama dengan di level 6. Tindakan penyelesaian yang tadinya mudah menjadi terlalu banyak satu pukulan.
 
 ## Push, freeze, atau biarkan datang

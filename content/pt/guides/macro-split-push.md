@@ -44,7 +44,7 @@ Funciona quando três condições são atendidas:
 2. **O resto da equipe não luta**: mantém uma posição defensiva, sob uma torre ou perto de um objetivo, sem aceitar o combate quatro contra cinco.
 3. **As ondas são gerenciadas**: uma lane empurrada na frente de sua equipe mantém a pressão enquanto você está em outro lugar.
 
-Heróis projetados para isso destroem uma torre rapidamente e saem da lane facilmente: [Sun](/heroes/sun), [Zilong](/heroes/zilong) ou [Masha](/heroes/masha) são exemplos conhecidos.
+Os bons heróis de split push derrubam uma torre rápido e têm como escapar. [Sun](/heroes/sun) vira o seu bastão, se esconde e reaparece mais longe com Swift Exchange; [Zilong](/heroes/zilong) ganha velocidade de movimento e ignora lentidões com Supreme Warrior. Já [Masha](/heroes/masha) só tem uma investida (Claw Strike) para sair: ela precisa vigiar o minimapa e deixar a lane antes que os defensores cheguem.
 
 ## Quando não dividir push
 

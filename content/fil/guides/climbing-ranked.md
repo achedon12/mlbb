@@ -42,7 +42,7 @@ Ang ranggo ay nagsusuot ng pasensya kaysa sa mga reflexes. Pinoprotektahan ng il
 
 - **huminto pagkatapos ng dalawang magkasunod na pagkatalo**: ang ikatlong laro ay madalas na nilalaro ng galit, at ito ang pinakamamahal;
 - **huwag tumugon sa chat**: bawat mensaheng nakasulat ay isang segundo kung saan hindi namin tinitingnan ang card;
-- **isang laro ay hindi kailanman mawawala bago ang inhibitor**: endgame Lords ibalik ang mga sitwasyon na tila nawala;
+- **hindi pa talo ang laro hangga't nakatayo ang base ninyo**: binabaligtad ng mga Lord sa huling bahagi ng laro ang mga larong mukhang talo na;
 - **play rested**: ang mga oras ng pagod ay kapag naipon ang maliliit na error.
 
 ## Matuto sa iyong mga pagkatalo

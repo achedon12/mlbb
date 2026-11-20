@@ -44,7 +44,7 @@ Funciona cuando se cumplen tres condiciones:
 2. **El resto del equipo no pelea**: mantienen una posición defensiva, bajo una torreta o cerca de un objetivo, sin aceptar el combate cuatro contra cinco.
 3. **Las oleadas se gestionan**: una línea situado delante de tu equipo mantiene la presión mientras estás en otro lugar.
 
-Los héroes diseñados para esto destruyen una torreta rápidamente y abandonan la línea fácilmente: [Sun](/heroes/sun), [Zilong](/heroes/zilong) o [Masha](/heroes/masha) son ​​ejemplos conocidos.
+Los buenos héroes de split push derriban rápido una torreta y tienen cómo escapar. [Sun](/heroes/sun) se convierte en su bastón, se oculta y reaparece más lejos con Swift Exchange; [Zilong](/heroes/zilong) gana velocidad de movimiento e ignora las ralentizaciones con Supreme Warrior. [Masha](/heroes/masha), en cambio, solo tiene una embestida (Claw Strike) para irse: debe vigilar el minimapa y dejar la línea antes de que lleguen los defensores.
 
 ## Cuándo no hacer split push
 

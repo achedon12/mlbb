@@ -18,7 +18,7 @@ Ang Mobile Legends ay walang vision tag na ilalagay: vision ay nagmumula sa mga 
 
 - **Ang mga hero, kampon, at turret** ay nagpapakita kung ano ang nasa paligid nila, ngunit hindi ang loob ng isang bush.
 - **Bushes** itago ang isang hero hangga't walang kaaway na papasok sa kanila o ibunyag ang mga ito sa pamamagitan ng isang epekto.
-- **Ang Lithowanderer**, isang maliit na nilalang sa ilog, ay nag-iiwan ng isang stone sentry na nagsenyas sa mga kaaway sa loob ng ilang sampu-sampung segundo sa koponan na natapos ito.
+- **Ang Lithowanderer**, maliit na nilalang sa ilog, ay nagpapalabas ng batong bantay na nagpapakita ng mga kalaban sa team na tumapos dito.
 - **Ang ilang partikular na skill** ay nagpapakita ng isang lugar o isang hero: kadalasang mas nagkakahalaga sila sa simula ng laro kaysa sa kanilang damage.
 
 Hinahanap ng [gabay sa mapa](/map) ang mga palumpong, ilog at mga kampo, at ibinibigay ang mga oras ng bawat nilalang.
@@ -54,7 +54,7 @@ Ang bush na hawak ng isang engagement tank tulad ng [Tigreal](/heroes/tigreal), 
 
 Pangunahing ginagamit ang pangitain upang sagutin ang isang tanong bago ang bawat layunin: nasaan ang mga kalaban? Ang roamer at ang jungler ay dapat na makasagot sa kanila nang magkasama.
 
-- **Before the Turtle or the Lord**, bilangin ang mga kalaban na makikita sa mini-map. Tatlong nakikitang malayo sa layunin: maaari tayong magsimula. Wala pang dalawang nakikita: sinusuri muna namin ang mga palumpong.
+- **Bago ang Turtle o ang Lord**, bilangin ang mga kalabang nakikita sa minimap. Hindi bababa sa tatlong nakikita, malayo sa objective: puwede nang magsimula. Dalawa o mas kaunti, o may kalabang nakikita malapit sa objective: silipin muna ang mga damuhan, o maghintay hanggang mas marami kayong alam.
 - **Sa panahon ng layunin**, inilalagay ng roamer ang kanyang sarili sa pagitan ng layunin at ang landas ng pagdating ng kalaban, hindi sa mismong layunin.
 - **Pagkatapos ng isang layunin**, binabantayan niya ang ilog habang umaatras o nagtutulak ang koponan.
 
