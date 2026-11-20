@@ -6031,6 +6031,322 @@
     "visualStatus.provisionalNote": {
       "fr": "Visuel provisoire : cette apparence n'est pas encore confirmée dans le jeu, l'illustration peut encore changer.",
       "text": "Provisional visual: this skin is not yet confirmed in the game, its artwork may still change."
+    },
+    "why.title": {
+      "fr": "Pourquoi MLBBDex",
+      "text": "Why MLBBDex"
+    },
+    "why.lead": {
+      "fr": "Ce que le site mesure, garde et calcule lui-même, avec la page où le vérifier.",
+      "text": "What the site measures, keeps and computes itself, with the page where you can check it."
+    },
+    "why.figure": {
+      "fr": "jours de taux gardés par le site, depuis le {date}",
+      "text": "days of rates kept by the site, since {date}"
+    },
+    "why.daily.title": {
+      "fr": "Des taux relevés chaque jour",
+      "text": "Rates recorded every day"
+    },
+    "why.daily.text": {
+      "fr": "Victoire, ban et sélection de {n} héros en partie classée, tous rangs confondus et rang par rang. Dernier relevé le {date}.",
+      "text": "Win, ban and pick rates of {n} heroes in ranked games, across all ranks and rank by rank. Last recorded on {date}."
+    },
+    "why.daily.link": {
+      "fr": "Les statistiques",
+      "text": "Statistics"
+    },
+    "why.history.title": {
+      "fr": "Un historique que la source ne garde pas",
+      "text": "A history the source does not keep"
+    },
+    "why.history.text": {
+      "fr": "L'API de statistiques ne sert que les trente derniers jours. Le site garde chaque relevé depuis le {date} : jour par jour sur {daily} jours, puis en moyenne par semaine.",
+      "text": "The statistics API only serves the last thirty days. The site keeps every reading since {date}: day by day over {daily} days, then as weekly averages."
+    },
+    "why.history.link": {
+      "fr": "L'historique de {hero}",
+      "text": "{hero}'s history"
+    },
+    "why.tierList.title": {
+      "fr": "Une tier list calculée, règle affichée",
+      "text": "A computed tier list, rule shown"
+    },
+    "why.tierList.text": {
+      "fr": "Score = {formula}. Les seuils des paliers sont publiés et le même calcul est refait pour chaque rang, chaque lane et chaque rôle.",
+      "text": "Score = {formula}. The tier thresholds are published, and the same computation is run again for each rank, lane and role."
+    },
+    "why.tierList.link": {
+      "fr": "La règle et le classement",
+      "text": "The rule and the ranking"
+    },
+    "why.patch.title": {
+      "fr": "L'effet mesuré de chaque patch",
+      "text": "The measured effect of each patch"
+    },
+    "why.patch.text": {
+      "fr": "Pour chaque héros modifié, l'écart entre son taux de victoire moyen des {days} jours avant et des {days} jours après le patch. Patch {version} : {n} héros mesurés sur {changed} modifiés.",
+      "text": "For each changed hero, the gap between its average win rate over the {days} days before and the {days} days after the patch. Patch {version}: {n} heroes measured out of {changed} changed."
+    },
+    "why.patch.textPending": {
+      "fr": "Pour chaque héros modifié, l'écart entre son taux de victoire moyen des {days} jours avant et des {days} jours après le patch. Patch {version} : pas encore assez de jours mesurés depuis sa sortie.",
+      "text": "For each changed hero, the gap between its average win rate over the {days} days before and the {days} days after the patch. Patch {version}: not enough days measured since its release yet."
+    },
+    "why.patch.link": {
+      "fr": "Les notes du patch {version}",
+      "text": "Patch {version} notes"
+    },
+    "why.draft.title": {
+      "fr": "Un assistant de draft",
+      "text": "A draft assistant"
+    },
+    "why.draft.text": {
+      "fr": "Il propose des picks à partir des contres, des synergies, des coéquipiers qui gagnent le plus ensemble en partie classée et du taux de victoire de chaque héros.",
+      "text": "It suggests picks from counters, synergies, the teammates who win most together in ranked games, and each hero's win rate."
+    },
+    "why.draft.link": {
+      "fr": "Préparer une draft",
+      "text": "Prepare a draft"
+    },
+    "why.games.title": {
+      "fr": "Des jeux tirés de la base",
+      "text": "Games built from the database"
+    },
+    "why.games.text": {
+      "fr": "Un héros secret et un défi par jour depuis le {date}, construits à partir des compétences, apparences, histoires, objets et taux du site. Les mêmes pour tous les joueurs.",
+      "text": "A secret hero and a challenge every day since {date}, built from the site's skills, skins, stories, items and rates. The same for every player."
+    },
+    "why.builds.title": {
+      "fr": "Les builds des joueurs",
+      "text": "Players' builds"
+    },
+    "why.builds.text": {
+      "fr": "Publiés par des joueurs connectés au site et classés par leurs votes.",
+      "text": "Published by players signed in to the site and ranked by their votes."
+    },
+    "why.builds.link": {
+      "fr": "Les builds de la communauté",
+      "text": "Community builds"
+    },
+    "why.bot.title": {
+      "fr": "Un bot Discord",
+      "text": "A Discord bot"
+    },
+    "why.bot.text": {
+      "fr": "Dex MLBB répond sur Discord (/hero, /build, /tierlist, /counter…) avec les données de l'API publique du site.",
+      "text": "Dex MLBB answers on Discord (/hero, /build, /tierlist, /counter…) with the data of the site's public API."
+    },
+    "why.bot.link": {
+      "fr": "Le bot",
+      "text": "The bot"
+    },
+    "why.languages.title": {
+      "fr": "{n} langues",
+      "text": "{n} languages"
+    },
+    "why.languages.text": {
+      "fr": "Écrit en français et traduit automatiquement dans {others} autres langues. Ce qui est traduit, et comment, est détaillé sur la page des sources.",
+      "text": "Written in French and machine-translated into {others} other languages. What is translated, and how, is detailed on the sources page."
+    },
+    "editorial.original": {
+      "fr": "Texte original en français, non traduit.",
+      "text": "Original French text, not translated."
+    },
+    "editorial.note.titlePatch": {
+      "fr": "L'avis de l'auteur sur le patch {version}",
+      "text": "The author's take on patch {version}"
+    },
+    "editorial.note.titleTierList": {
+      "fr": "L'avis de l'auteur sur cette tier list",
+      "text": "The author's take on this tier list"
+    },
+    "editorial.note.rank": {
+      "fr": "Rang {rank}",
+      "text": "Rank: {rank}"
+    },
+    "editorial.note.written": {
+      "fr": "écrit le {date}",
+      "text": "written on {date}"
+    },
+    "editorial.author.title": {
+      "fr": "Qui fait MLBBDex",
+      "text": "Who makes MLBBDex"
+    },
+    "editorial.author.role": {
+      "fr": "Rôle",
+      "text": "Role"
+    },
+    "editorial.author.rank": {
+      "fr": "Rang",
+      "text": "Rank"
+    },
+    "editorial.author.why": {
+      "fr": "Pourquoi ce site",
+      "text": "Why this site"
+    },
+    "editorial.author.heroes": {
+      "fr": "Héros favoris",
+      "text": "Favourite heroes"
+    },
+    "editorial.author.contact": {
+      "fr": "Contact :",
+      "text": "Contact:"
+    },
+    "editorial.author.updated": {
+      "fr": "Mis à jour le {date}",
+      "text": "Updated on {date}"
+    },
+    "editorial.methodology.title": {
+      "fr": "Méthode et sources",
+      "text": "Methodology and sources"
+    },
+    "editorial.methodology.lead": {
+      "fr": "D'où vient chaque donnée, ce que le site calcule lui-même et avec quels seuils, ce qui est traduit automatiquement, et comment signaler une erreur.",
+      "text": "Where each piece of data comes from, what the site computes itself and with which thresholds, what is machine-translated, and how to report an error."
+    },
+    "editorial.methodology.metaDescription": {
+      "fr": "Les sources de MLBBDex (wiki Fandom, Liquipedia, API arena.rone.dev), les formules de la tier list et de l'effet des patchs, ce qui est traduit automatiquement et comment signaler une erreur.",
+      "text": "MLBBDex's sources (Fandom wiki, Liquipedia, arena.rone.dev API), the tier list and patch effect formulas, what is machine-translated and how to report an error."
+    },
+    "prose.methodology.blocks.0.h": {
+      "fr": "D'où viennent les données",
+      "text": "Where the data comes from"
+    },
+    "prose.methodology.blocks.1.p": {
+      "fr": "MLBBDex n'a accès à aucune donnée privée de Moonton. Tout ce qu'il affiche vient de sources publiques, relues par des scripts du dépôt, ou de ce que le site calcule et écrit lui-même.",
+      "text": "MLBBDex has no access to any private Moonton data. Everything it shows comes from public sources, read by scripts in the repository, or from what the site computes and writes itself."
+    },
+    "prose.methodology.blocks.2.ul.0": {
+      "fr": "[Le wiki Mobile Legends (Fandom)]({fandom}) : la liste des héros et leurs fiches, les compétences, les histoires, les apparences, les objets, les visuels et une partie des notes de patch. Le site lit les modules de données du wiki (`Module:Hero/data`, `Module:Equipment/data`) plutôt que ses pages affichées. Relu chaque lundi.",
+      "text": "[The Mobile Legends wiki (Fandom)]({fandom}): the hero list and hero sheets, skills, stories, skins, items, artwork and part of the patch notes. The site reads the wiki's data modules (`Module:Hero/data`, `Module:Equipment/data`) rather than its rendered pages. Read again every Monday."
+    },
+    "prose.methodology.blocks.2.ul.1": {
+      "fr": "[Liquipedia]({liquipedia}) : les caractéristiques de base des héros, le prix des objets et ceux qui ont été retirés, la liste des patchs et les notes que le wiki n'a pas encore, et l'esport (tournois, compositions, héros pris et bannis en compétition). La liste des patchs est relue chaque jour, le reste chaque lundi.",
+      "text": "[Liquipedia]({liquipedia}): heroes' base attributes, item prices and removed items, the patch list and the notes the wiki does not have yet, and esports (tournaments, line-ups, heroes picked and banned in competition). The patch list is read again every day, the rest every Monday."
+    },
+    "prose.methodology.blocks.2.ul.2": {
+      "fr": "[L'API communautaire arena.rone.dev]({stats}) : les taux de victoire, de ban et de sélection des parties classées, par rang, les contres, les builds les plus joués, les coéquipiers et les textes officiels des compétences. Relue chaque jour.",
+      "text": "[The arena.rone.dev community API]({stats}): win, ban and pick rates of ranked games, by rank, counters, most played builds, teammates and the official skill texts. Read again every day."
+    },
+    "prose.methodology.blocks.2.ul.3": {
+      "fr": "La page Veille rassemble les titres, dates et courts extraits de deux flux publics, r/MobileLegendsGame (Reddit) et Esports.gg, toujours avec le lien vers l'éditeur d'origine.",
+      "text": "The Roundup page gathers the titles, dates and short excerpts of two public feeds, r/MobileLegendsGame (Reddit) and Esports.gg, always linking to the original publisher."
+    },
+    "prose.methodology.blocks.2.ul.4": {
+      "fr": "Votre profil de joueur, si vous vous connectez, est lu à la demande avec le code de vérification envoyé par le jeu. Il n'est visible que par vous.",
+      "text": "Your player profile, if you sign in, is read on demand with the verification code the game sends you. Only you can see it."
+    },
+    "prose.methodology.blocks.2.ul.5": {
+      "fr": "Quelques fichiers sont tenus à la main dans le dépôt, avec leur date de vérification : la rotation gratuite de la semaine, les dates des saisons classées et les hypothèses de l'estimateur de valeur de compte. Les descriptions des emblèmes et des sorts sont écrites pour le site.",
+      "text": "A few files are kept by hand in the repository, each with the date it was checked: the week's free hero rotation, the ranked season dates and the account value estimator's assumptions. The emblem and spell descriptions are written for the site."
+    },
+    "prose.methodology.blocks.3.p": {
+      "fr": "Chaque page de données indique en bas ses sources et ses dates. Dernière synchronisation complète : {synced}. Derniers taux relevés : {measured}. Les textes repris des wikis restent sous licence CC BY-SA, avec attribution à leurs contributeurs ; les images et les noms appartiennent à Moonton.",
+      "text": "Every data page lists its sources and dates at the bottom. Last full sync: {synced}. Latest rates recorded: {measured}. Texts taken from the wikis remain under the CC BY-SA licence, credited to their contributors; images and names belong to Moonton."
+    },
+    "prose.methodology.blocks.4.h": {
+      "fr": "Ce que le site calcule lui-même",
+      "text": "What the site computes itself"
+    },
+    "prose.methodology.blocks.5.p": {
+      "fr": "Ces règles sont celles du code : les chiffres de cette page sont lus dans les mêmes constantes que le calcul, ils ne peuvent pas diverger.",
+      "text": "These are the code's rules: the figures on this page are read from the same constants as the computation, so they cannot drift apart."
+    },
+    "prose.methodology.blocks.6.ul.0": {
+      "fr": "Paliers de la tier list : score = taux de victoire + {weightBan} × taux de ban. S+ à partir de {tierSPlus} points, S à partir de {tierS}, A à partir de {tierA}, B à partir de {tierB}, C en dessous. Le taux de sélection n'entre pas dans le score.",
+      "text": "Tier list tiers: score = win rate + {weightBan} × ban rate. S+ from {tierSPlus} points, S from {tierS}, A from {tierA}, B from {tierB}, C below. The pick rate is not part of the score."
+    },
+    "prose.methodology.blocks.6.ul.1": {
+      "fr": "Le même calcul est refait pour chaque tranche de rang (Épique, Légende, Mythique, Honneur mythique, Gloire mythique), pour chaque lane et pour chaque rôle.",
+      "text": "The same computation is run again for each rank bracket (Epic, Legend, Mythic, Mythical Honor, Mythical Glory), for each lane and for each role."
+    },
+    "prose.methodology.blocks.6.ul.2": {
+      "fr": "Fiabilité : un héros choisi dans moins de {reliability} % des parties reste classé, mais il est marqué d'un astérisque, ses taux étant trop instables.",
+      "text": "Reliability: a hero picked in fewer than {reliability}% of games stays ranked but is marked with an asterisk, as its rates are too unstable."
+    },
+    "prose.methodology.blocks.6.ul.3": {
+      "fr": "Tendances : l'évolution du taux de victoire sur sept jours n'est affichée qu'à partir de {notable} point d'écart ; en dessous, elle se confond avec l'arrondi.",
+      "text": "Trends: the seven-day change in win rate is only shown from a {notable}-point gap; below that, it is lost in rounding."
+    },
+    "prose.methodology.blocks.6.ul.4": {
+      "fr": "Effet d'un patch : pour chaque héros modifié, le taux de victoire moyen des {daysImpact} jours qui suivent le patch, comparé à celui des {daysImpact} jours qui le précèdent, sans le jour même. Il faut au moins {minImpact} jours mesurés de chaque côté ; un écart de moins de {thresholdImpact} point est affiché en gris, comme non significatif.",
+      "text": "Effect of a patch: for each changed hero, the average win rate over the {daysImpact} days after the patch, compared with the {daysImpact} days before it, leaving out the day itself. At least {minImpact} measured days are needed on each side; a gap under {thresholdImpact} points is shown in grey, as not significant."
+    },
+    "prose.methodology.blocks.6.ul.5": {
+      "fr": "Historique : l'API ne sert que les trente derniers jours. Le site garde chaque relevé depuis le {historyStart}, jour par jour sur les {dailyDays} derniers jours, puis en moyenne par semaine. Les semaines anciennes ne servent pas à mesurer l'effet d'un patch.",
+      "text": "History: the API only serves the last thirty days. The site keeps every reading since {historyStart}, day by day over the last {dailyDays} days, then as weekly averages. The older weeks are never used to measure a patch's effect."
+    },
+    "prose.methodology.blocks.6.ul.6": {
+      "fr": "Draft : les suggestions combinent les contres et les synergies décrits par le wiki, les coéquipiers qui gagnent le plus avec chaque héros en partie classée et son taux de victoire.",
+      "text": "Draft: the suggestions combine the counters and synergies described by the wiki, the teammates who win most with each hero in ranked games, and its win rate."
+    },
+    "prose.methodology.blocks.6.ul.7": {
+      "fr": "MLBBdle et quiz : le héros secret et le défi du jour sont tirés de la base du site à partir de la date, sans intervention ; ils sont les mêmes pour tous les joueurs et dans toutes les langues.",
+      "text": "MLBBdle and quiz: the day's secret hero and challenge are drawn from the site's database from the date alone, with no one picking them; they are the same for every player and in every language."
+    },
+    "prose.methodology.blocks.7.h": {
+      "fr": "Ce qui est écarté",
+      "text": "What is left out"
+    },
+    "prose.methodology.blocks.8.ul.0": {
+      "fr": "Les héros et les apparences annoncés mais pas encore sortis : le wiki les documente à l'avance, le site attend leur sortie.",
+      "text": "Heroes and skins announced but not released yet: the wiki documents them ahead of time, the site waits for their release."
+    },
+    "prose.methodology.blocks.8.ul.1": {
+      "fr": "Les visuels d'avant-sortie, retouchés, filigranés ou au mauvais format, écartés à la synchronisation. Les affiches et les quiz n'utilisent que les illustrations d'apparences sorties ; une illustration récente qu'aucune apparence sortie ne revendique reste dans la galerie du héros, marquée « Provisoire ».",
+      "text": "Pre-release, edited, watermarked or wrongly shaped images, dropped during the sync. Posters and quizzes only use the artwork of released skins; a recent artwork that no released skin claims stays in the hero's gallery, marked \"Provisional\"."
+    },
+    "prose.methodology.blocks.8.ul.2": {
+      "fr": "Les mesures d'un jour où l'API ne répond pas : les relevés précédents sont gardés, rien n'est estimé à leur place.",
+      "text": "The measures of a day when the API does not answer: the previous readings are kept, nothing is estimated in their place."
+    },
+    "prose.methodology.blocks.8.ul.3": {
+      "fr": "Le « MMR » et les classements de joueurs : Moonton ne les publie pas, le site ne les invente pas.",
+      "text": "\"MMR\" and player rankings: Moonton does not publish them, and the site does not make them up."
+    },
+    "prose.methodology.blocks.9.h": {
+      "fr": "Ce qui est traduit automatiquement",
+      "text": "What is machine-translated"
+    },
+    "prose.methodology.blocks.10.p": {
+      "fr": "Le site est écrit en français et existe en {languages} langues. Les traductions sont faites par un service de traduction automatique (Google Traduction), par des scripts lancés à la main ou par l'intégration continue ; le site ne traduit rien pendant que vous le lisez.",
+      "text": "The site is written in French and available in {languages} languages. Translations are made by a machine translation service (Google Translate), through scripts run by hand or by continuous integration; the site translates nothing while you read it."
+    },
+    "prose.methodology.blocks.11.ul.0": {
+      "fr": "L'interface est traduite du français vers les {others} autres langues. Des corrections enregistrées dans le dépôt remplacent la traduction automatique là où elle était fausse.",
+      "text": "The interface is translated from French into the {others} other languages. Corrections stored in the repository replace the machine translation where it was wrong."
+    },
+    "prose.methodology.blocks.11.ul.1": {
+      "fr": "Les contenus repris du wiki (histoires, compétences, objets, modes de jeu, notes de patch) sont traduits de l'anglais. Les notes de patch le disent sur leur page. En français, les histoires des héros sont remplacées par des versions corrigées, rangées dans `content/fr/lore`.",
+      "text": "Content taken from the wiki (stories, skills, items, game modes, patch notes) is translated from English. Patch notes say so on their page. In French, the hero stories are replaced by corrected versions, stored in `content/fr/lore`."
+    },
+    "prose.methodology.blocks.11.ul.2": {
+      "fr": "Les analyses de héros, les commentaires de la tier list, les guides et les articles sont écrits en français puis traduits automatiquement. Une analyse traduite porte la mention « traduite automatiquement ».",
+      "text": "Hero analyses, tier list comments, guides and articles are written in French, then machine-translated. A translated analysis carries the note \"machine-translated\"."
+    },
+    "prose.methodology.blocks.11.ul.3": {
+      "fr": "Les textes signés par l'auteur du site (son avis sur un patch, sur la tier list, sa présentation) ne passent jamais par la traduction automatique : ils sont affichés en français dans toutes les langues, avec la mention « Texte original en français, non traduit ».",
+      "text": "Texts signed by the site's author (their take on a patch or on the tier list, their introduction) never go through machine translation: they are shown in French in every language, with the note \"Original French text, not translated\"."
+    },
+    "prose.methodology.blocks.12.h": {
+      "fr": "Signaler une erreur",
+      "text": "Report an error"
+    },
+    "prose.methodology.blocks.13.ul.0": {
+      "fr": "Sur les pages des héros, des objets, des emblèmes, des sorts et des notes de patch, le bouton « Signaler une erreur » en bas de page envoie un signalement anonyme : la page, sa langue et ce que vous écrivez. Chaque signalement est relu avant toute correction.",
+      "text": "On hero, item, emblem, spell and patch note pages, the \"Report an error\" button at the bottom sends an anonymous report: the page, its language and what you write. Every report is read before anything is corrected."
+    },
+    "prose.methodology.blocks.13.ul.1": {
+      "fr": "Pour tout le reste, ouvrez un ticket sur [le dépôt du projet]({issues}) ou écrivez à [{contact}](mailto:{contact}).",
+      "text": "For anything else, open an issue on [the project's repository]({issues}) or write to [{contact}](mailto:{contact})."
+    },
+    "prose.methodology.blocks.13.ul.2": {
+      "fr": "Une erreur venue d'une source (wiki, Liquipedia, API) peut aussi être corrigée à la source : le site la reprend à la synchronisation suivante.",
+      "text": "An error that comes from a source (wiki, Liquipedia, API) can also be fixed at the source: the site picks the fix up at the next sync."
+    },
+    "footer.methodology": {
+      "fr": "Méthode et sources",
+      "text": "Methodology and sources"
     }
   },
   "es": {
@@ -36927,6 +37243,14 @@
     "og.banned": {
       "fr": "Le plus banni",
       "text": "Pinaka-banned"
+    },
+    "editorial.author.title": {
+      "fr": "Qui fait MLBBDex",
+      "text": "Sino ang gumagawa ng MLBBDex"
+    },
+    "prose.methodology.blocks.1.p": {
+      "fr": "MLBBDex n'a accès à aucune donnée privée de Moonton. Tout ce qu'il affiche vient de sources publiques, relues par des scripts du dépôt, ou de ce que le site calcule et écrit lui-même.",
+      "text": "Walang access ang MLBBDex sa anumang pribadong data ng Moonton. Lahat ng ipinapakita nito ay nagmumula sa mga pampublikong mapagkukunan, muling binasa ng mga script mula sa repositoryo, o mula sa kung ano ang kinakalkula at isinusulat mismo ng site."
     }
   },
   "th": {

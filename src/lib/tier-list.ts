@@ -55,21 +55,21 @@ const RATE = RANKING.rates;
 export const measure = RANKING.measuredAt;
 
 /** Below this pick rate, measurements become noisy. */
-const THRESHOLD_RELIABILITY = 0.3;
+export const THRESHOLD_RELIABILITY = 0.3;
 
 /**
  * A ban costs the enemy team a pick: a hero banned one game in two
  * weighs as much as a hero winning a few more points. A quarter is the
  * ratio that best reproduces the priorities observed in ranked queue.
  */
-const WEIGHT_BAN = 0.25;
+export const WEIGHT_BAN = 0.25;
 
 function score(t: Pick<Rate, "winRate" | "banRate">): number {
   return t.winRate + t.banRate * WEIGHT_BAN;
 }
 
 /** Tier bounds, in score points. */
-const TIERS: [Tier, number][] = [
+export const TIERS: [Tier, number][] = [
   ["S+", 56],
   ["S", 53],
   ["A", 50.5],
