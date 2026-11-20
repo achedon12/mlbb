@@ -49,7 +49,7 @@
     },
     "gameModes": {
       "label": "Modes de jeu",
-      "desc": "Classique, Classé, Baston…"
+      "desc": "Classique, Classé, Brawl…"
     },
     "items": {
       "label": "Objets",
@@ -309,7 +309,7 @@
   "pages": {
     "modes": {
       "title": "Modes de jeu",
-      "lead": "Du 5 contre 5 classique aux parties rapides en Baston, chaque mode change les règles. Choisissez-en un pour en découvrir le détail.",
+      "lead": "Du 5 contre 5 classique aux parties rapides en Brawl, chaque mode change les règles. Choisissez-en un pour en découvrir le détail.",
       "discover": "Découvrir le mode",
       "metaDescription": "Les modes de jeu de Mobile Legends: Bang Bang et leurs règles, mode par mode.",
       "ogDescription": "Les modes de jeu de Mobile Legends: Bang Bang et ce qui les distingue.",
@@ -322,8 +322,8 @@
     "heroes": {
       "title": "Héros",
       "lead": "Les {heroes} héros du jeu et leurs {skins} apparences, filtrables par rôle et par position. Les {analyses} fiches marquées « Analyse » contiennent en plus un commentaire, des builds et des contres.",
-      "metaDescription": "Les {heroes} héros de Mobile Legends: Bang Bang, filtrables par rôle et par position : portraits, skins, statistiques et {analyses} analyses rédigées.",
-      "ogDescription": "Les {heroes} héros de Mobile Legends: Bang Bang, avec leurs {skins} skins.",
+      "metaDescription": "Les {heroes} héros de Mobile Legends: Bang Bang, filtrables par rôle et par position : portraits, apparences, statistiques et {analyses} analyses rédigées.",
+      "ogDescription": "Les {heroes} héros de Mobile Legends: Bang Bang, avec leurs {skins} apparences.",
       "listLd": "Héros de Mobile Legends: Bang Bang"
     },
     "heroesList": {
@@ -372,7 +372,7 @@
       "strengths": "Forces",
       "weaknesses": "Faiblesses",
       "analysisPending": "Pas encore d'analyse écrite",
-      "analysisText": "Personne n'a encore écrit d'analyse de {name} : comment le jouer, quels objets acheter, contre qui le prendre. En attendant, les autres onglets donnent les chiffres mesurés en partie classée.",
+      "analysisText": "Personne n'a encore écrit d'analyse de {name} : façon de jouer, objets à acheter, matchups favorables. En attendant, les autres onglets donnent les chiffres mesurés en partie classée.",
       "analysisTranslated": "Analyse rédigée en français, traduite automatiquement.",
       "contribute": "Contribuer à cette analyse →",
       "countersIntro": "Calculé à partir des taux de victoire du jeu : l'écart en points indique de combien le taux de victoire de {name} varie face à chaque adversaire.",
@@ -381,7 +381,7 @@
       "matchupsIntro": "Les duels commentés à la main, au-delà des chiffres.",
       "comfortable": "{name} est à l'aise contre",
       "difficulty2": "{name} est en difficulté contre",
-      "metaDescription": "{name} : {roles} de Mobile Legends: Bang Bang, joué en {lanes}. Contres et builds par rang, compétences, histoire et {skins} skins.",
+      "metaDescription": "{name} : {roles} de Mobile Legends: Bang Bang, qui se joue en {lanes}. Contres et builds par rang, compétences, histoire et {skins} apparences.",
       "compare": "Comparer",
       "titleSheet": "{name} : build, contres et stats",
       "ogTagline": "Builds, contres et stats par rang",
@@ -521,7 +521,7 @@
         "botTitle": "Le bot",
         "bot": "Le bot bannit dans le haut du classement du rang choisi, qui combine taux de victoire et taux de ban. Pour ses picks, il ne retient que les héros qui ajoutent une lane à son équipe et les classe sur nos mesures du rang : contres face à vos picks, duos avec les siens, taux de victoire. Chaque choix est expliqué en une ligne.",
         "advantageTitle": "Les chances de victoire estimées",
-        "advantage": "Pendant le draft, une barre estime les chances de chaque équipe à partir de cinq facteurs, comptés en points de taux de victoire : la force des héros au rang, les duels entre les deux équipes et les duos de chacune (mesurés en partie classée, sinon relevés par le wiki), une lane en double ou l'absence de tank, et des dégâts d'un seul type. Les trois premiers comptent pour moitié, car ils se recoupent. Leur somme passe par une courbe logistique : deux équipes égales sont à 50 %, et le résultat reste entre 25 et 75 %. Les picks suggérés sont ceux qui font le plus monter cette estimation. C'est un repère, pas une prédiction.",
+        "advantage": "Pendant la draft, une barre estime les chances de chaque équipe à partir de cinq facteurs, comptés en points de taux de victoire : la force des héros au rang, les duels entre les deux équipes et les duos de chacune (mesurés en partie classée, sinon relevés par le wiki), une lane en double ou l'absence de tank, et des dégâts d'un seul type. Les trois premiers comptent pour moitié, car ils se recoupent. Leur somme passe par une courbe logistique : deux équipes égales sont à 50 %, et le résultat reste entre 25 et 75 %. Les picks suggérés sont ceux qui font le plus monter cette estimation. C'est un repère, pas une prédiction.",
         "sources": "Sources",
         "sourceRef": "Source : {site}, {page}"
       },
@@ -654,7 +654,7 @@
       "perks": {
         "profile": "Votre profil, vos rangs et vos héros les plus joués",
         "community": "Le forum et la recherche de coéquipiers",
-        "collection": "Votre collection de skins sur tous vos appareils"
+        "collection": "Votre collection d'apparences sur tous vos appareils"
       }
     },
     "watch": {
@@ -710,7 +710,7 @@
     "apiDoc": {
       "title": "API publique",
       "lead": "Les données du site sont accessibles en JSON, sans clé ni inscription. Servez-vous : la seule contrainte est de citer la source, qui accompagne chaque réponse.",
-      "metaDescription": "Une API JSON ouverte sur les données Mobile Legends: Bang Bang du site : héros, compétences, skins, objets, patchs et classement. Sans clé, sans inscription.",
+      "metaDescription": "Une API JSON ouverte sur les données Mobile Legends: Bang Bang du site : héros, compétences, apparences, objets, patchs et classement. Sans clé, sans inscription.",
       "ogDescription": "Héros, objets, patchs et classement en JSON, sans clé.",
       "statHeroes": "Héros",
       "statItems": "Objets",
@@ -1063,8 +1063,8 @@
       "hero": {
         "title": "{name} : build, emblème, counters (palier {tier}, patch {v})",
         "titleNoTier": "{name} : build, emblème, counters (patch {v})",
-        "counters": "{name} est surtout contré par {counters} en {rank}.",
-        "countersAll": "{name} est surtout contré par {counters}, tous rangs confondus.",
+        "counters": "Meilleurs contres de {name} en {rank} : {counters}.",
+        "countersAll": "Meilleurs contres de {name}, tous rangs confondus : {counters}.",
         "build": "Build le plus joué : {items}.",
         "buildEmblem": "Build le plus joué : {items}, emblème {emblem}.",
         "rate": "{winRate} de victoires, palier {tier}."
@@ -1077,7 +1077,7 @@
       },
       "heroes": {
         "title": "Les {n} héros MLBB : rôles, lanes et paliers (patch {v})",
-        "description": "Les {n} héros de Mobile Legends: Bang Bang avec rôle, lane, palier et taux de victoire (patch {v}, données du {date}). Les plus forts du moment : {top}. S'y ajoutent {skins} skins et {analyses} analyses rédigées."
+        "description": "Les {n} héros de Mobile Legends: Bang Bang avec rôle, lane, palier et taux de victoire (patch {v}, données du {date}). Les plus forts du moment : {top}. S'y ajoutent {skins} apparences et {analyses} analyses rédigées."
       },
       "items": {
         "title": "Les {n} objets MLBB : stats, recettes et prix (patch {v})",
@@ -1135,7 +1135,7 @@
         "description": "Rapport méta MLBB du {date} (patch {v}) : {first} en tête de la tier list, {banned} le plus banni ({ban}). Hausses et baisses de la semaine, changements de palier, bans, picks et meilleurs héros par lane."
       },
       "serverTime": {
-        "title": "Heure serveur MLBB : reset quotidien et compte à rebours",
+        "title": "Heure serveur MLBB : remise quotidienne et compte à rebours",
         "description": "Heure du serveur de Mobile Legends (UTC−8) en direct, avec le compte à rebours de la remise quotidienne ({utc} UTC), de la remise hebdomadaire du lundi, du prochain StarLight et de la fin de saison, et l'heure locale de la remise dans votre pays."
       },
       "ranks": {
@@ -1149,7 +1149,7 @@
       },
       "quiz": {
         "title": "Quiz MLBB : devinez le héros du jour",
-        "description": "Un nouveau défi Mobile Legends: Bang Bang chaque jour : devinez le héros d'après une compétence, un détail de skin ou un extrait de son histoire, trouvez l'objet d'après ses stats et choisissez le meilleur taux de victoire. Indices à chaque erreur, séries et grille sans spoiler à partager. Gratuit, sans inscription."
+        "description": "Un nouveau défi Mobile Legends: Bang Bang chaque jour : devinez le héros d'après une compétence, un détail d'apparence ou un extrait de son histoire, trouvez l'objet d'après ses stats et choisissez le meilleur taux de victoire. Indices à chaque erreur, séries et grille sans spoiler à partager. Gratuit, sans inscription."
       },
       "tierMaker": {
         "title": "Créateur de tier list MLBB : créez et partagez la vôtre",
@@ -1164,20 +1164,20 @@
         "description": "{region} : {n} héros de Mobile Legends: Bang Bang, dont {names}. Leurs histoires, leurs factions et les liens qui les unissent, tirés de leurs fiches."
       },
       "skinsCalendar": {
-        "title": "Calendrier des skins MLBB : tous les skins par date de sortie",
-        "description": "{n} skins de Mobile Legends: Bang Bang sortis de {start} à {end}, mois par mois, avec héros, rareté, série (Collector, StarLight, Épique, Légende…) et prix. Le plus récent dans nos données : {latest} ({date})."
+        "title": "Calendrier des apparences MLBB : toutes les apparences par date de sortie",
+        "description": "{n} apparences de Mobile Legends: Bang Bang sorties de {start} à {end}, mois par mois, avec héros, rareté, série (Collector, StarLight, Épique, Légende…) et prix. La plus récente dans nos données : {latest} ({date})."
       },
       "calendarYear": {
-        "title": "Skins MLBB sortis en {year} : la liste mois par mois",
-        "description": "Skins de Mobile Legends: Bang Bang sortis en {year} ({n}), mois par mois, avec rareté et prix. Séries principales : {series}. Héros le plus servi : {hero}."
+        "title": "Apparences MLBB sorties en {year} : la liste mois par mois",
+        "description": "Apparences de Mobile Legends: Bang Bang sorties en {year} ({n}), mois par mois, avec rareté et prix. Séries principales : {series}. Héros le plus servi : {hero}."
       },
       "collection": {
         "title": "Calculateur de valeur de collection MLBB (diamants)",
-        "description": "Cochez les héros et skins que vous possédez parmi {heroes} héros et {skins} skins : voyez ce qu'ils coûtent au prix de la boutique de Mobile Legends: Bang Bang, en diamants, par rareté et par série. Gratuit, sans inscription, enregistré dans votre navigateur."
+        "description": "Cochez les héros et les apparences que vous possédez parmi {heroes} héros et {skins} apparences : voyez ce qu'ils coûtent au prix de la boutique de Mobile Legends: Bang Bang, en diamants, par rareté et par série. Gratuit, sans inscription, enregistré dans votre navigateur."
       },
       "events": {
-        "title": "Événements MLBB : StarLight, Collector et skins du mois",
-        "description": "Le calendrier des événements de Mobile Legends: Bang Bang, de {start} à {end} ({n} mois) : skin StarLight, skins Collector, tirages et boutique. Dernier StarLight connu : {latest}."
+        "title": "Événements MLBB : StarLight, Collector et apparences du mois",
+        "description": "Le calendrier des événements de Mobile Legends: Bang Bang, de {start} à {end} ({n} mois) : apparence StarLight, apparences Collector, tirages et boutique. Dernier StarLight connu : {latest}."
       },
       "eventsMonth": {
         "metaDescription": "Mobile Legends: Bang Bang en {month} : {summary}"
@@ -1188,7 +1188,7 @@
       },
       "drawCalculator": {
         "title": "Calculateur de tirages MLBB : diamants et chances",
-        "description": "Combien de diamants pour un skin d'événement MLBB ? Chances selon votre budget, nombre moyen de tirages avec garantie, seuils de 50, 90 et 99 % et courbe. Gratuit, dans le navigateur, préréglages sourcés."
+        "description": "Combien de diamants pour une apparence d'événement MLBB ? Chances selon votre budget, nombre moyen de tirages avec garantie, seuils de 50, 90 et 99 % et courbe. Gratuit, dans le navigateur, préréglages sourcés."
       },
       "mlbbdle": {
         "title": "MLBBdle : le jeu quotidien pour deviner le héros Mobile Legends",
@@ -1233,7 +1233,7 @@
       },
       "accountValue": {
         "title": "Estimation de la valeur d'un compte MLBB",
-        "description": "Combien a coûté votre collection Mobile Legends ? Recopiez vos skins par catégorie de la Vitrine ({skins} skins au catalogue), vérifiez vos points de collection et obtenez un ordre de grandeur en diamants, USD, EUR, PHP, IDR et MYR, avec une méthode affichée."
+        "description": "Combien a coûté votre collection Mobile Legends ? Recopiez vos apparences par catégorie de la Vitrine ({skins} apparences au catalogue), vérifiez vos points de collection et obtenez un ordre de grandeur en diamants, USD, EUR, PHP, IDR et MYR, avec une méthode affichée."
       }
     },
     "sources": {
@@ -1378,7 +1378,7 @@
         "none": "Aucune règle d'équipement ne s'applique à {name}."
       },
       "duration": {
-        "title": "Quand {name} est le plus faible",
+        "title": "Quand {name} gagne le moins",
         "sentence": "{name} gagne le moins dans les parties de {weak} ({weakRate}) et le plus dans celles de {strong} ({strongRate}).",
         "rank": "Rang : {rank}",
         "none": "Pas encore de mesure par durée de partie pour {name}."
@@ -1506,8 +1506,8 @@
     "skins": {
       "title": "Apparences MLBB",
       "lead": "Les {n} apparences des {h} héros de Mobile Legends, rangées par héros. Ouvrez un héros pour voir chaque illustration avec sa rareté, sa date de sortie et son prix.",
-      "metaTitle": "Skins MLBB : les {n} skins et illustrations des héros",
-      "metaDescription": "Tous les skins de Mobile Legends: Bang Bang, héros par héros : {n} skins pour {h} héros, avec illustrations, rareté, date de sortie et prix. Dernier en date : {latest} ({hero}).",
+      "metaTitle": "Apparences MLBB : les {n} apparences et illustrations des héros",
+      "metaDescription": "Toutes les apparences de Mobile Legends: Bang Bang, héros par héros : {n} apparences pour {h} héros, avec illustrations, rareté, date de sortie et prix. Dernière en date : {latest} ({hero}).",
       "updatedOn": "Mis à jour le {date}",
       "latest": "Dernières apparences",
       "latestIntro": "Les sorties les plus récentes dont la date est connue, apparences à venir comprises.",
@@ -1527,9 +1527,9 @@
     "heroSkins": {
       "title": "Apparences de {name}",
       "titleElision": "Apparences d'{name}",
-      "metaTitle": "Skins de {name} : les {n} skins et illustrations",
-      "metaTitleElision": "Skins d'{name} : les {n} skins et illustrations",
-      "metaDescription": "{name} : les {n} skins de Mobile Legends: Bang Bang, avec illustrations, rareté, date de sortie, disponibilité et prix.",
+      "metaTitle": "Apparences de {name} : les {n} apparences et illustrations",
+      "metaTitleElision": "Apparences d'{name} : les {n} apparences et illustrations",
+      "metaDescription": "{name} : les {n} apparences de Mobile Legends: Bang Bang, avec illustrations, rareté, date de sortie, disponibilité et prix.",
       "lead": "{name} compte {n} apparences. Chaque carte montre l'illustration, la rareté, la date de sortie, la disponibilité et le prix quand ils sont connus.",
       "latest": "Dernière apparence datée : {skin} ({date}).",
       "price": "Prix",
@@ -1648,7 +1648,7 @@
     },
     "serverTime": {
       "title": "Heure du serveur MLBB et remises à zéro",
-      "lead": "L'heure du serveur de Mobile Legends en direct, et le temps qui reste avant chaque remise : quotidienne à 00:00 heure serveur ({utc} UTC), hebdomadaire le lundi, Starlight le 1er du mois.",
+      "lead": "L'heure du serveur de Mobile Legends en direct, et le temps qui reste avant chaque remise : quotidienne à 00:00 heure serveur ({utc} UTC), hebdomadaire le lundi, StarLight le 1er du mois.",
       "rulesTitle": "Les horaires à connaître",
       "timezoneTitle": "Fuseau du serveur",
       "timezoneText": "UTC−8 toute l'année : l'heure du serveur ne passe jamais à l'heure d'été.",
@@ -1656,8 +1656,8 @@
       "dailyText": "Chaque jour à 00:00 heure serveur, soit {utc} UTC : tâches quotidiennes, nouvelles offres et nouveaux événements.",
       "weeklyTitle": "Remise hebdomadaire",
       "weeklyText": "Chaque lundi à 00:00 heure serveur, soit {utc} UTC : les tâches hebdomadaires repartent.",
-      "starlightTitle": "Starlight",
-      "starlightText": "Le 1er de chaque mois à 00:00 heure serveur ({utc} UTC) : un nouveau Starlight commence, avec ses récompenses, ses tâches et sa boutique remises à zéro.",
+      "starlightTitle": "StarLight",
+      "starlightText": "Le 1er de chaque mois à 00:00 heure serveur ({utc} UTC) : un nouveau StarLight commence, avec ses récompenses, ses tâches et sa boutique remises à zéro.",
       "seasonTitle": "Fin de saison",
       "seasonText": "Les notes de patch en donnent la date, à l'heure du serveur (« la saison 31 se termine le 15/3 à 23:59:59 »). Le compte à rebours l'affiche dès qu'elle y figure.",
       "updateTitle": "Mises à jour",
@@ -1672,7 +1672,7 @@
       "ranksLink": "Comprendre le système de rangs",
       "sourcesTitle": "Sources",
       "sourceServer": "Wiki Fandom, page « Server time » : fuseau du serveur, remises quotidienne et hebdomadaire, horaires des mises à jour",
-      "sourceStarlight": "Wiki Fandom, page « StarLight » : nouveau Starlight le 1er du mois à 00:00 heure serveur",
+      "sourceStarlight": "Wiki Fandom, page « StarLight » : nouveau StarLight le 1er du mois à 00:00 heure serveur",
       "sourcePatch": "Notes du patch {v} : dates de saison à l'heure du serveur",
       "seasonsTitle": "Calendrier des saisons classées",
       "seasonsCurrent": "La saison {n} est en cours.",
@@ -2006,10 +2006,10 @@
       "sharedLoaded": "Liste partagée chargée.",
       "sharedBanner": "Vous consultez une liste partagée. Elle s'affiche à la place de la vôtre, qui reste gardée de côté.",
       "backToMyList": "Revenir à ma liste",
-      "announceSelect": "{name} sélectionné : choisissez une rangée.",
+      "announceSelect": "Sélection : {name}. Choisissez une rangée.",
       "announceDeselect": "Sélection annulée.",
-      "announcePlaced": "{name} placé en {row}, position {position} sur {n}.",
-      "announceBench": "{name} remis en réserve.",
+      "announcePlaced": "{name} : en {row}, position {position} sur {n}.",
+      "announceBench": "{name} : retour en réserve.",
       "announceMoved": "{name} en position {position} sur {n}.",
       "announceMeta": "Tier list {rank} chargée.",
       "announceEmpty": "Tous les héros sont revenus en réserve.",
@@ -2043,7 +2043,7 @@
         "lead": "{region} à travers les fiches de ses héros : qui ils sont, leurs factions et les liens qui les unissent.",
         "inBriefTitle": "En bref",
         "factRoles": "Héros de cette région : {n}. Rôles les plus représentés : {roles}.",
-        "factArrivals": "Premier arrivé dans le jeu : {first} ({firstDate}) ; le plus récent : {latest} ({lastDate}).",
+        "factArrivals": "Première arrivée dans le jeu : {first} ({firstDate}) ; la plus récente : {latest} ({lastDate}).",
         "factArrival": "Arrivée dans le jeu : {name} ({date}).",
         "factFactions": "Factions partagées par plusieurs de ses héros : {list}.",
         "factSpecies": "Espèces les plus fréquentes : {list}.",
@@ -2075,7 +2075,7 @@
       "crumb": "Calendrier",
       "crumbSkins": "Apparences",
       "lead": "Toutes les apparences de Mobile Legends par mois de sortie, de {start} à {end} : {n} apparences avec leur héros, leur rareté, leur série et leur prix. Filtrez par héros, rôle, série, rareté ou année.",
-      "thisMonthTitle": "Sortis en {month}",
+      "thisMonthTitle": "Sorties en {month}",
       "thisMonthEmpty": "Aucune apparence datée de {month} dans nos données pour l'instant. Le mois le plus récent recensé par le wiki communautaire est {latest}.",
       "seeLatest": "Voir les dernières apparences",
       "latestTitle": "Dernières apparences",
@@ -2185,7 +2185,7 @@
       "colOwned": "Possédés",
       "colDiamonds": "Diamants",
       "raresTitle": "Vos apparences les plus rares",
-      "raresHelp": "Classés par rareté, puis éditions limitées et plus petites séries en premier.",
+      "raresHelp": "Classées par rareté, puis éditions limitées et plus petites séries en premier.",
       "seriesTitle": "Avancement par série",
       "seriesHelp": "Les séries entamées d'abord, les plus complètes en tête.",
       "showAllSeries": "Voir toutes les séries ({n})",
@@ -2247,7 +2247,7 @@
     "events": {
       "title": "Calendrier des événements MLBB : StarLight, Collector et apparences du mois",
       "breadcrumb": "Événements",
-      "lead": "Chaque mois de Mobile Legends: Bang Bang, le plus récent en tête : l'apparence StarLight, les apparences Collector et les apparences d'événement, de tirage ou de boutique sortis ce mois-là. {n} mois documentés, de {start} à {end}.",
+      "lead": "Chaque mois de Mobile Legends: Bang Bang, le plus récent en tête : l'apparence StarLight, les apparences Collector et les apparences d'événement, de tirage ou de boutique sorties ce mois-là. {n} mois documentés, de {start} à {end}.",
       "thisMonthTitle": "Ce mois-ci : {month}",
       "thisMonthEmpty": "Aucune apparence de {month} dans nos données pour l'instant : le wiki communautaire complète ses listes après la sortie. Dernier mois documenté : {latest}.",
       "seeMonth": "Voir {month}",
@@ -2272,7 +2272,7 @@
       "modes": {
         "starlight": {
           "title": "Apparence StarLight",
-          "desc": "Réservé aux membres StarLight du mois : il s'obtient avec l'abonnement mensuel, sans tirage."
+          "desc": "Réservée aux membres StarLight du mois : elle s'obtient avec l'abonnement mensuel, sans tirage."
         },
         "collector": {
           "title": "Apparences Collector",
@@ -2312,7 +2312,7 @@
       "calendarLink": "Calendrier de toutes les apparences, année par année",
       "source": "Listes StarLight et Collector, dates, raretés et prix repris du {link}, sous licence CC BY-SA.",
       "month": {
-        "title": "StarLight et événements MLBB {month} : skins et prix",
+        "title": "StarLight MLBB {month} : événements et apparences",
         "announced": "Mois annoncé : ces apparences figurent sur une liste du wiki communautaire avant leur sortie en jeu. Dates et prix restent à confirmer.",
         "navMonths": "Mois précédent et suivant",
         "allMonths": "Tous les mois",
@@ -2437,7 +2437,7 @@
         "newArrivalSkin": "une apparence",
         "newArrivalHero": "un héros"
       },
-      "presetNote": "Valeurs du wiki MLBB, page modifiée le {date} : chance d'obtenir {prize} parmi ceux proposés, pas un en particulier. Vérifiez les règles dans le jeu, elles changent.",
+      "presetNote": "Valeurs du wiki MLBB, page modifiée le {date} : chance d'obtenir {prize} parmi les lots proposés, et non un lot précis. Vérifiez les règles dans le jeu, elles changent.",
       "wikiLink": "Voir la page",
       "cost": "Prix d'un tirage (diamants)",
       "tenCost": "Prix du tirage x10 (facultatif)",
@@ -2506,7 +2506,7 @@
         "damage": "Physiques, magiques ou mixtes. Des dégâts mixtes face à des physiques ou des magiques donnent une case orange.",
         "range": "Mêlée, distance ou hybride. Une portée hybride face à la mêlée ou à la distance donne une case orange.",
         "resource": "Ce que consomment les compétences : mana, énergie ou rien du tout.",
-        "region": "La terre d'origine du héros dans l'univers de Mobile Legends (Empire de Moniyan, Eruditio, Abysse…).",
+        "region": "La terre d'origine du héros dans l'univers de Mobile Legends (Empire de Moniyan, Eruditio, Abysses…).",
         "year": "L'année de sortie. La flèche indique si le héros secret est plus récent ou plus ancien."
       },
       "modesTitle": "Les trois modes",
@@ -2625,7 +2625,7 @@
         "start": "À vous ! Je garde le secret.",
         "miss": "Raté… les couleurs montrent la voie.",
         "close": "Ça chauffe ! Certaines cases concordent.",
-        "won": "Bien joué, c'est lui !",
+        "won": "Bien joué, c'est la bonne réponse !",
         "over": "Dommage ! Une autre manche ?"
       }
     },
@@ -2705,7 +2705,7 @@
       "next": {
         "title": "En test sur le serveur Advance",
         "intro": "Changements de {name} testés sur le serveur Advance. Ils peuvent encore évoluer, ou ne jamais arriver sur le serveur officiel.",
-        "announcedNew": "{name} est présenté comme nouveau héros dans la version {v}.",
+        "announcedNew": "Nouveau héros présenté dans la version {v} : {name}.",
         "announcedRevamp": "Une refonte de {name} est présentée dans la version {v}.",
         "readVersion": "Toutes les notes de la version {v}"
       }
@@ -3040,7 +3040,7 @@
       "heroGrid": "Héros",
       "banHero": "Bannir {name}",
       "pickHero": "Choisir {name}",
-      "unavailable": "{name} : déjà banni ou choisi",
+      "unavailable": "{name} : héros déjà banni ou choisi",
       "hints": {
         "ban": "Pistes pour ce ban",
         "pick": "Pistes pour ce pick",
@@ -3148,7 +3148,7 @@
       "buffsTitle": "Buffs violet et orange",
       "buffsText": "Buff orange à {orange}, buff violet à {purple}. Chacun revient {respawn} s après sa mort et son effet dure {duration} s. Chaque jungle a les siens : le chrono suit votre buff et celui de l'adversaire à part.",
       "campsTitle": "Autres camps",
-      "campsText": "Lithowanderer à {litho} (retour {lithoRespawn} s après sa mort), Yeux du Cyclone à {cyclone} (recharge de {cycloneRecharge} s), petit Crabe à {littleCrab} (toutes les {littleCrabRespawn} s). Le Crabe arrive à {crab} selon sa fiche, à {crabGuide} selon le guide du wiki, puis revient {crabRespawn} s après sa mort. Le chrono les affiche en début de partie, sans alerte.",
+      "campsText": "Lithowanderer à {litho} (retour {lithoRespawn} s après sa mort), Œil du Cyclone à {cyclone} (recharge de {cycloneRecharge} s), petit Crabe à {littleCrab} (toutes les {littleCrabRespawn} s). Le Crabe arrive à {crab} selon sa fiche, à {crabGuide} selon le guide du wiki, puis revient {crabRespawn} s après sa mort. Le chrono les affiche en début de partie, sans alerte.",
       "usageTitle": "S'en servir en partie",
       "usage1": "Posez le téléphone à côté de l'écran et touchez « {start} » au coup d'envoi. Déjà en partie ? Tapez le temps affiché en jeu (345 pour 3:45) puis « {apply} ».",
       "usage2": "À chaque mort d'objectif, touchez son bouton : le retour se calcule à partir de la seconde affichée. Un toucher de travers s'annule d'un geste.",
@@ -3187,7 +3187,7 @@
         "purple-buff": "Buff violet",
         "orange-buff": "Buff orange",
         "lithowanderer": "Lithowanderer",
-        "cyclone": "Yeux du Cyclone",
+        "cyclone": "Œil du Cyclone",
         "little-crab": "Petit Crabe",
         "crab": "Crabe",
         "last-turtle": "Dernière Tortue possible",
@@ -3696,7 +3696,7 @@
       "title": "Dex MLBB — le bot Discord Mobile Legends",
       "breadcrumb": "Bot Discord",
       "metaTitle": "Dex MLBB, le bot Discord Mobile Legends : builds, contres, tier list",
-      "metaDescription": "Dex MLBB, le bot Discord gratuit de MLBBDex pour Mobile Legends : builds et contres mesurés sur les parties classées, tier list, patch notes, alertes skins et MLBBdle du jour, en cinq langues.",
+      "metaDescription": "Dex MLBB, le bot Discord gratuit de MLBBDex pour Mobile Legends : builds et contres mesurés sur les parties classées, tier list, patch notes, alertes de nouvelles apparences et MLBBdle du jour, en cinq langues.",
       "lead": "Builds, contres, tier list et patch notes de Mobile Legends: Bang Bang, mesurés sur les parties classées et mis à jour chaque jour, sur votre serveur. Plus un MLBBdle quotidien pour votre communauté. Gratuit, en cinq langues.",
       "add": "Ajouter à Discord",
       "join": "Rejoindre le serveur",
@@ -3718,7 +3718,7 @@
         "metaText": "/tierlist calcule la tier list à partir des taux de victoire, de sélection et de ban, tous rangs confondus ou d'Épique à Gloire mythique, par lane ou par rôle.",
         "metaAlt": "La réponse de /tierlist dans Discord : les paliers S+, S et A",
         "newsTitle": "Patchs et annonces automatiques",
-        "newsText": "/patch résume le dernier patch : buffs, nerfs et héros modifiés. Le bot peut aussi publier seul les nouveaux patchs, apparences, événements, serveur avancé et résultats esport dans les salons de votre choix, avec un rôle à mentionner.",
+        "newsText": "/patch résume le dernier patch : buffs, nerfs et héros modifiés. Le bot peut aussi publier seul les nouveaux patchs, apparences, événements, serveur Advance et résultats esport dans les salons de votre choix, avec un rôle à mentionner.",
         "newsAlt": "La réponse de /patch dans Discord : buffs, nerfs et héros modifiés",
         "dailyTitle": "MLBBdle et quiz du jour",
         "dailyText": "Devinez le héros du jour en mode classique ou compétence, le même que sur le site, puis comparez-vous dans le classement du serveur. Le bot peut publier le jeu chaque jour à l'heure choisie.",
@@ -3729,7 +3729,7 @@
         "welcomeTitle": "Messages d'accueil",
         "welcomeText": "Messages de bienvenue et de départ dans le salon choisi, avec votre texte ou le nôtre, et un seul message groupé en cas de raid.",
         "toolsTitle": "Outils",
-        "toolsText": "Générateur de pseudo stylisé (21 polices), heure du serveur de jeu et comptes à rebours des resets.",
+        "toolsText": "Générateur de pseudo stylé (21 styles), heure du serveur de jeu et comptes à rebours des remises à zéro.",
         "languagesTitle": "Cinq langues",
         "languagesText": "Commandes et réponses en anglais, français, italien, espagnol et indonésien, selon la langue du serveur ou de chaque membre.",
         "freeTitle": "Gratuit pour de bon",
@@ -3757,11 +3757,11 @@
         "patch": "Résumé du dernier patch, ou d'une version donnée : buffs, nerfs, héros modifiés.",
         "skins": "Les dernières apparences sorties, ou toutes celles d'un héros.",
         "events": "Les événements en cours et à venir.",
-        "nickname": "Un pseudo stylisé, avec 21 polices au choix.",
+        "nickname": "Un pseudo stylé, avec 21 styles au choix.",
         "mlbbdle": "Le MLBBdle du jour, en mode classique ou compétence.",
         "quiz": "Le quiz du jour, avec des boutons pour répondre.",
         "leaderboard": "Le classement du serveur aux jeux du jour : du jour, de la semaine ou depuis le début.",
-        "servertime": "L'heure du serveur de jeu et les comptes à rebours des resets.",
+        "servertime": "L'heure du serveur de jeu et les comptes à rebours des remises à zéro.",
         "setup": "Lien vers le tableau de bord du serveur (permission Gérer le serveur requise).",
         "help": "Les commandes par catégorie, avec un exemple pour chacune.",
         "invite": "Le lien pour ajouter le bot à un autre serveur.",
@@ -3884,7 +3884,7 @@
         "patches": "Patch notes",
         "skins": "Nouvelles apparences",
         "events": "Événements",
-        "advanceServer": "Serveur avancé",
+        "advanceServer": "Serveur Advance",
         "esports": "Esport"
       },
       "dailyTitle": "Jeux du jour",
@@ -4014,7 +4014,7 @@
         "descriptionHelp": "Facultatif, 1 000 caractères au plus. Vide : une phrase par défaut, dans la langue du serveur.",
         "options": "Rôles du menu ({count}/{max})",
         "optionsList": "Rôles du menu",
-        "optionsHelp": "Le libellé et l'emoji s'affichent dans le menu. Quand un emoji du serveur porte le nom du rôle (rank_legend pour Legend), il est choisi d'office.",
+        "optionsHelp": "Le libellé et l'emoji s'affichent dans le menu. Quand un emoji du serveur porte le nom du rôle (rank_legend pour Légende), il est choisi d'office.",
         "addRole": "Ajouter un rôle…",
         "label": "Libellé",
         "emoji": "Emoji",
@@ -4322,7 +4322,7 @@
       "warning": "Acheter, vendre ou échanger un compte enfreint les conditions d'utilisation de Moonton : le compte peut être banni ou récupéré par son ancien propriétaire, et les arnaques sont fréquentes. Cette estimation sert à mesurer ce qu'une collection a coûté, pas à fixer un prix. Rien n'est envoyé à un serveur.",
       "methodTitle": "La méthode, chiffre par chiffre",
       "methodPoints": "Les catégories sont celles de la Vitrine du jeu, avec les points de collection que le jeu donne à chaque apparence. La somme des points sert de vérification : elle doit retomber sur le total affiché dans le jeu.",
-      "methodCost": "Chaque apparence compte pour le coût typique de sa catégorie. Premium, Exceptionnelle et Commun se vendent en boutique : leur coût est le prix médian en diamants des apparences de la catégorie, relevé dans les données du jeu. Légende, Grandiose et Exquis s'obtiennent par tirage : leur coût est la médiane arrondie des coûts publiés par des guides de joueurs, et ces coûts varient beaucoup d'un événement et d'un joueur à l'autre. Une apparence colorée compte pour une valeur symbolique.",
+      "methodCost": "Chaque apparence compte pour le coût typique de sa catégorie. Premium, Exceptionnel et Commun se vendent en boutique : leur coût est le prix médian en diamants des apparences de la catégorie, relevé dans les données du jeu. Légende, Grandiose et Exquis s'obtiennent par tirage : leur coût est la médiane arrondie des coûts publiés par des guides de joueurs, et ces coûts varient beaucoup d'un événement et d'un joueur à l'autre. Une apparence colorée compte pour une valeur symbolique.",
       "tableCaption": "Points et coût comptés par apparence, par catégorie",
       "colTier": "Catégorie",
       "colPoints": "Points",
@@ -4332,7 +4332,7 @@
       "basisShop": "Prix médian en boutique ({n} prix relevés)",
       "basisDraw": "Médiane estimée d'un tirage",
       "basisFlat": "Valeur symbolique",
-      "notListed": "non listés",
+      "notListed": "non listées",
       "catalogNote": "Le catalogue suit le wiki et compte parfois quelques apparences de moins que le jeu, le temps que les nouveautés y soient ajoutées : les cases n'ont donc pas de maximum.",
       "drawSources": "Sources des coûts de tirage :",
       "methodMoney": "Les diamants sont convertis en dollars au tarif d'une recharge courante, sans bonus de première recharge : {usd} USD le diamant, soit {per100} USD les cent. Les diamants encore sur le compte s'ajoutent au total.",
@@ -4400,14 +4400,14 @@
         "grand": "Grandiose",
         "exquisite": "Exquis",
         "deluxe": "Premium",
-        "exceptional": "Exceptionnelle",
+        "exceptional": "Exceptionnel",
         "common": "Commun",
         "painted": "Apparences colorées"
       },
-      "pointsEach": "{points} points l'un",
-      "costShop": "≈ {n} diamants l'un (boutique)",
-      "costDraw": "≈ {n} diamants l'un (tirage estimé)",
-      "costFlat": "≈ {n} diamants l'un (valeur symbolique)",
+      "pointsEach": "{points} points l'une",
+      "costShop": "≈ {n} diamants l'une (boutique)",
+      "costDraw": "≈ {n} diamants l'une (tirage estimé)",
+      "costFlat": "≈ {n} diamants l'une (valeur symbolique)",
       "pointsTitle": "Points de collection",
       "pointsCheck": "Comparez avec le total de votre Vitrine, sous votre titre de collectionneur : s'il est identique, vos nombres sont justes.",
       "accountTitle": "Votre compte",
@@ -5003,7 +5003,7 @@
     },
     "ranked": {
       "tagline": "Grimpez les rangs",
-      "text": "La file compétitive. Chaque victoire rapporte des étoiles pour monter de Guerrier jusqu'à Gloire mythique, avec bans et draft à partir d'Épique."
+      "text": "La file compétitive. Chaque victoire rapporte des étoiles pour monter de Guerrier jusqu'à Immortel mythique, avec bans et draft à partir d'Épique."
     },
     "brawl": {
       "tagline": "Une seule lane, tout de suite",
@@ -5019,7 +5019,7 @@
     },
     "arcade-mode": {
       "tagline": "Les modes éphémères",
-      "text": "Des modes spéciaux proposés pour une durée limitée, en rotation : Chasse Magique, Survie et d'autres variantes."
+      "text": "Des modes spéciaux proposés pour une durée limitée, en rotation : Magic Chess, Survie et d'autres variantes."
     }
   },
   "roles": {
@@ -5089,7 +5089,7 @@
       "esportsNext": "Prochain tournoi, le {date}",
       "starlight": "StarLight de {month}",
       "serverTime": "Heure serveur",
-      "reset": "reset dans"
+      "reset": "remise dans"
     },
     "meta": {
       "title": "La méta du patch {version}",
@@ -5370,7 +5370,7 @@
     "collection": {
       "title": "Collection d'apparences",
       "intro": "L'outil de collection garde les héros et les apparences que vous cochez dans votre navigateur (stockage local). Si vous êtes connecté avec votre compte de jeu, le serveur du site conserve aussi, dans sa base de données :",
-      "data": "la même empreinte de compte que la communauté (jamais votre ID de jeu), la liste des héros et des apparences cochées, et la date du dernier enregistrement ; rien d'autre, et rien n'est montré à personne.",
+      "data": "la même empreinte de compte que la communauté (jamais votre ID de jeu), la liste des héros et des apparences cochés, et la date du dernier enregistrement ; rien d'autre, et rien n'est montré à personne.",
       "usage": "Cette copie sert seulement à retrouver votre collection sur vos autres appareils. Le filtre « ceux que je joue » lit vos héros de la saison auprès du service de connexion au moment où vous l'activez, sans rien conserver.",
       "deletion": "Pour vider la copie de votre compte, effacez votre collection dans l'outil en étant connecté ; pour supprimer la ligne elle-même, écrivez à {contact}."
     },
@@ -5771,7 +5771,7 @@
       "bestFor": "Tireurs de la Gold lane."
     },
     "support-emblem": {
-      "name": "Emblème de soutien",
+      "name": "Emblème de support",
       "bonus": "Réduction de recharge et vitesse de déplacement",
       "bestFor": "Supports et roamers non tanks."
     },
@@ -5827,7 +5827,7 @@
     },
     "impure-rage": {
       "name": "Impure Rage",
-      "description": "La prochaine compétence inflige des dégâts supplémentaires et restaure de la mana.",
+      "description": "La prochaine compétence inflige des dégâts supplémentaires et restaure du mana.",
       "bestFor": "Mages à compétences fréquentes."
     },
     "quantum-charge": {
@@ -6194,7 +6194,7 @@
       "deadline": {
         "daily": "Remise quotidienne",
         "weekly": "Remise hebdomadaire",
-        "starlight": "Nouveau Starlight",
+        "starlight": "Nouveau StarLight",
         "season": "Fin de la saison classée"
       },
       "on": "Le {date} ({zone})",
@@ -6333,7 +6333,7 @@
     },
     "patch": {
       "title": "Prévenu dès le prochain patch",
-      "text": "Notes de patch, serveur avancé et nouvelles apparences publiées automatiquement sur le Discord."
+      "text": "Notes de patch, serveur Advance et nouvelles apparences publiées automatiquement sur le Discord."
     },
     "daily": {
       "title": "Le MLBBdle et le quiz, entre joueurs",
@@ -6349,7 +6349,7 @@
     },
     "skins": {
       "title": "Soyez prévenu des nouvelles apparences",
-      "text": "Les nouvelles apparences, la StarLight et les tirages arrivent sur le Discord dès leur sortie."
+      "text": "Les nouvelles apparences, le StarLight et les tirages arrivent sur le Discord dès leur sortie."
     },
     "tools": {
       "title": "Préparez vos drafts avec votre équipe",
@@ -6413,7 +6413,7 @@
     "heroes2": "Les cartes sont triées par palier : S+ en premier.",
     "heroes3": "Une étoile sur une carte ? C'est un de tes favoris.",
     "hero1": "Change de rang en haut de la fiche : les taux, contres et builds suivent.",
-    "hero2": "L'onglet Contres te dit qui le bat et qui il bat.",
+    "hero2": "L'onglet Contres montre ses pires et ses meilleurs duels.",
     "hero3": "Ajoute-le en favori pour être prévenu à chaque patch.",
     "tierList1": "Le palier combine le taux de victoire et le quart du taux de ban.",
     "tierList2": "Filtre par rang : la méta d'Épique n'est pas celle de Gloire mythique.",
@@ -6441,10 +6441,10 @@
     "games3": "Ta série de victoires est gardée dans ce navigateur.",
     "patch1": "Bleu : renforcé. Rouge : affaibli. Gris : ajusté.",
     "patch2": "L'écart de victoire compare avant et après le patch.",
-    "patch3": "Le serveur avancé montre ce qui arrive bientôt.",
+    "patch3": "Le serveur Advance montre ce qui arrive bientôt.",
     "esports1": "La méta pro n'est pas celle du classé : compare-les.",
     "esports2": "Clique sur un tournoi pour voir son tableau.",
-    "esports3": "Les drafts des matchs sont repliés, ouvre-les.",
+    "esports3": "Les drafts des matchs sont repliées, ouvre-les.",
     "community1": "Connecte-toi pour publier un message ou un build.",
     "community2": "Les coéquipiers se filtrent par rang, lane et langue.",
     "community3": "Un message gênant ? Signale-le, les modérateurs veillent.",
@@ -6472,7 +6472,7 @@
     "splusHeroes": "héros en S+",
     "bestWin": "meilleur taux de victoire : {hero}",
     "itemsInGame": "objets en jeu",
-    "heroesUsing": "héros la prennent",
+    "heroesUsing": "héros le prennent",
     "builtBy": "Dans les builds de {heroes}",
     "minutes": "{n} min de lecture",
     "skinsCount": "apparences",
