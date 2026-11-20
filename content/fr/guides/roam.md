@@ -46,7 +46,7 @@ Côté sorts, [Flicker](/spells/flicker) permet aux tanks d'engager par surprise
 
 ### Début de partie
 
-Le roamer protège le premier buff de son jungleur, puis aide la gold lane ou la mid lane pendant les premières vagues. Vers 1:45, il descend dans la rivière pour préparer la Tortue, qui apparaît à 2:00 près de l'EXP lane.
+Le roamer protège le premier buff de son jungleur, puis aide la Gold lane ou la Mid lane pendant les premières vagues. Vers 1:45, il descend dans la rivière pour préparer la Tortue, qui apparaît à 2:00 près de l'EXP lane.
 
 ### Milieu de partie
 

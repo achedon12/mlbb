@@ -27,6 +27,7 @@ import { pause, translateBatch } from "./translation-google.mjs";
 import { cleanDescription } from "./wikitext.mjs";
 import { targetLocales } from "./locales.mjs";
 import { applyGlossary, nameRules, restoreNames } from "./translation-glossary.mjs";
+import { forgetUntranslated, polishFrench } from "./translation-fr-polish.mjs";
 import { combineShields, forgetLost, namesPattern, restoreListLabel, shieldLabels, shieldWith } from "./translation-shield.mjs";
 
 /**
@@ -663,6 +664,8 @@ async function translate(versions) {
   for (const tl of targetLocales("en")) {
     // A translation cached before the game's name was shielded goes back.
     forgetLost(cache, texts, "en", tl, GAME_NAME_RE);
+    // French: a translation that left an English sentence goes back too.
+    if (tl === "fr") forgetUntranslated(cache, texts, "en", tl);
     const missing = texts.filter((x) => !(`en|${tl}|${x}` in cache));
     const groups = batches(missing);
     for (const [i, batch] of groups.entries()) {
@@ -693,8 +696,10 @@ async function translate(versions) {
 
     // Hero names, list labels and game vocabulary applied on output; the cache keeps the raw translation.
     const names = nameRules(new Map(heroes.map((n) => [n, cache[`en|${tl}|${n}`]])), tl);
-    const t = (x) =>
+    const glossed = (x) =>
       applyGlossary(restoreListLabel(restoreNames(cache[`en|${tl}|${String(x).trim()}`] ?? x, x, names), x), tl, "data");
+    // French: the proofreading pass of `translation-fr-polish.mjs` (labels, stats, ranks).
+    const t = tl === "fr" ? (x) => (x ? polishFrench(glossed(x), x) : x) : glossed;
     const translated = Object.fromEntries(versions.map((v) => [v.version, translateVersion(v, t)]));
     await writeFile(`${TRANSLATIONS_DIR}/${tl}.json`, JSON.stringify(translated, null, 2) + "\n");
     console.log(`  ${TRANSLATIONS_DIR}/${tl}.json`);

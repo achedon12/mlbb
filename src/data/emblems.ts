@@ -22,11 +22,11 @@ export interface Emblem {
 }
 
 export const emblems: Emblem[] = [
-  { key: "tank-emblem", role: "Tank", name: "Emblème de tank", bonus: "PV et résistances", bestFor: "Tanks d'engagement et tanks de lane d'expérience." },
-  { key: "fighter-emblem", role: "Fighter", name: "Emblème de combattant", bonus: "Dégâts d'attaque et vol de vie", bestFor: "Combattants de lane d'expérience qui doivent gagner leur duel." },
+  { key: "tank-emblem", role: "Tank", name: "Emblème de tank", bonus: "PV et résistances", bestFor: "Tanks d'engagement et tanks d'EXP lane." },
+  { key: "fighter-emblem", role: "Fighter", name: "Emblème de combattant", bonus: "Dégâts d'attaque et vol de vie", bestFor: "Combattants d'EXP lane qui doivent gagner leur duel." },
   { key: "assassin-emblem", role: "Assassin", name: "Emblème d'assassin", bonus: "Dégâts d'attaque et pénétration physique", bestFor: "Jungleurs physiques et assassins." },
-  { key: "mage-emblem", role: "Mage", name: "Emblème de mage", bonus: "Puissance magique et pénétration magique", bestFor: "Mages de la lane du milieu." },
-  { key: "marksman-emblem", role: "Marksman", name: "Emblème de tireur", bonus: "Vitesse d'attaque et dégâts d'attaque", bestFor: "Tireurs de la lane d'or." },
+  { key: "mage-emblem", role: "Mage", name: "Emblème de mage", bonus: "Puissance magique et pénétration magique", bestFor: "Mages de la Mid lane." },
+  { key: "marksman-emblem", role: "Marksman", name: "Emblème de tireur", bonus: "Vitesse d'attaque et dégâts d'attaque", bestFor: "Tireurs de la Gold lane." },
   { key: "support-emblem", role: "Support", name: "Emblème de soutien", bonus: "Réduction de recharge et vitesse de déplacement", bestFor: "Soutiens et roamers non tanks." },
 ];
 
@@ -63,9 +63,9 @@ export const talents: Talent[] = [
   { key: "weapon-master", name: "Weapon Master", decisive: true, description: "Augmente tous les bonus d'attaque reçus des objets.", bestFor: "Combattants dont les dégâts viennent des compétences.", roles: ["Fighter"] },
   { key: "lethal-ignition", name: "Lethal Ignition", decisive: true, description: "Inflige des dégâts supplémentaires à une cible fortement blessée.", bestFor: "Porteurs qui doivent conclure vite.", roles: ["Assassin", "Marksman", "Mage"] },
   { key: "concussive-blast", name: "Concussive Blast", decisive: true, description: "Inflige des dégâts de zone basés sur les PV maximum.", bestFor: "Tanks d'engagement : Tigreal, Khufra, Atlas.", roles: ["Tank"] },
-  { key: "wilderness-blessing", name: "Wilderness Blessing", decisive: true, description: "Augmente la vitesse de déplacement hors combat et dans l'herbe.", bestFor: "Roamers qui vivent dans les buissons, comme Franco.", roles: ["Support", "Tank"] },
+  { key: "wilderness-blessing", name: "Wilderness Blessing", decisive: true, description: "Augmente la vitesse de déplacement hors combat et dans les buissons.", bestFor: "Roamers qui vivent dans les buissons, comme Franco.", roles: ["Support", "Tank"] },
   { key: "focusing-mark", name: "Focusing Mark", decisive: true, description: "Les cibles touchées subissent davantage de dégâts des alliés.", bestFor: "Soutiens et tanks qui jouent pour leur porteur.", roles: ["Support", "Tank"] },
-  { key: "brave-smite", name: "Brave Smite", decisive: true, description: "Toucher un ennemi avec une compétence restaure des PV.", bestFor: "Combattants de lane d'expérience.", roles: ["Fighter"] },
+  { key: "brave-smite", name: "Brave Smite", decisive: true, description: "Toucher un ennemi avec une compétence restaure des PV.", bestFor: "Combattants d'EXP lane.", roles: ["Fighter"] },
   { key: "killing-spree", name: "Killing Spree", decisive: true, description: "Une élimination restaure des PV et accélère.", bestFor: "Assassins qui enchaînent les cibles.", roles: ["Assassin"] },
   { key: "festival-of-blood", name: "Festival of Blood", decisive: true, description: "Les dégâts de compétence appliquent un vol de vie.", bestFor: "Mages de combat prolongé.", roles: ["Mage"] },
   { key: "bargain-hunter", name: "Bargain Hunter", decisive: true, description: "Réduit le prix des objets.", bestFor: "Roamers, dont le revenu est le plus faible de l'équipe.", roles: ["Support", "Tank"] },
@@ -91,7 +91,7 @@ export const battleSpells: BattleSpell[] = [
   { key: "sprint", name: "Sprint", cooldown: 100, description: "Augmente la vitesse de déplacement et retire les ralentissements.", bestFor: "Héros sans mobilité qui doivent se repositionner.", roles: ["Marksman", "Mage"] },
   { key: "petrify", name: "Petrify", cooldown: 60, description: "Ralentit puis immobilise les ennemis proches.", bestFor: "Tanks sans contrôle fiable.", roles: ["Tank", "Support"] },
   { key: "arrival", name: "Arrival", cooldown: 90, description: "Téléporte le héros vers une tourelle ou un sbire allié.", bestFor: "Lanes solo qui doivent revenir vite après un retour à la base.", roles: ["Fighter", "Tank"] },
-  { key: "vengeance", name: "Vengeance", cooldown: 75, description: "Renvoie une partie des dégâts subis pendant la durée.", bestFor: "Combattants de lane d'expérience.", roles: ["Fighter", "Tank"] },
+  { key: "vengeance", name: "Vengeance", cooldown: 75, description: "Renvoie une partie des dégâts subis pendant la durée.", bestFor: "Combattants d'EXP lane.", roles: ["Fighter", "Tank"] },
   { key: "aegis", name: "Aegis", cooldown: 75, description: "Accorde un bouclier à soi-même et aux alliés proches.", bestFor: "Soutiens et tanks protecteurs.", roles: ["Support", "Tank"] },
   { key: "flameshot", name: "Flameshot", cooldown: 50, description: "Tire une boule de feu qui repousse les ennemis proches et inflige des dégâts magiques croissants avec la distance.", bestFor: "Mages et tireurs qui doivent achever à distance ou se dégager.", roles: ["Mage", "Marksman"] },
   { key: "revitalize", name: "Revitalize", cooldown: 60, description: "Crée une zone qui soigne les alliés présents.", bestFor: "Soutiens face à des dégâts étalés dans le temps.", roles: ["Support"] },

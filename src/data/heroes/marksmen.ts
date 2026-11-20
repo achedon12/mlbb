@@ -11,13 +11,13 @@ export const marksmen: HeroAnalysis[] = [
     skills: [
       {
         type: "Passive",
-        name: "Chargeur",
+        name: "Capriccio",
         description:
           "Son arme contient six balles. La dernière balle du chargeur inflige toujours un coup critique.",
       },
       {
         type: "Skill 1",
-        name: "Rafale",
+        name: "Rhapsody",
         description:
           "Tire une salve en cône qui traverse les ennemis, avec des dégâts accrus sur la première cible touchée.",
         cooldown: [10, 9.2, 8.4, 7.6, 6.8, 6],
@@ -25,7 +25,7 @@ export const marksmen: HeroAnalysis[] = [
       },
       {
         type: "Skill 2",
-        name: "Rythme",
+        name: "Rondo",
         description:
           "Se déplace rapidement et recharge instantanément son arme, en gagnant de la vitesse d'attaque.",
         cooldown: [14, 13, 12, 11, 10, 9],
@@ -33,7 +33,7 @@ export const marksmen: HeroAnalysis[] = [
       },
       {
         type: "Ultimate",
-        name: "Symphonie mortelle",
+        name: "Death Sonata",
         description:
           "Équipe un canon à longue portée tirant des obus explosifs à travers la carte.",
         cooldown: [45, 40, 35],
@@ -43,7 +43,7 @@ export const marksmen: HeroAnalysis[] = [
     strengths: [
       "Pic de puissance très précoce",
       "Dégâts à longue portée avec l'ultime",
-      "Fonctionne en jungle comme en lane d'or",
+      "Fonctionne en jungle comme en Gold lane",
     ],
     weaknesses: [
       "Aucun contrôle",
@@ -54,7 +54,7 @@ export const marksmen: HeroAnalysis[] = [
     weakAgainst: ["khufra", "franco", "ling", "natalia"],
     builds: [
       {
-        name: "Or dégâts bruts",
+        name: "Gold lane, dégâts bruts",
         context:
           "La vitesse d'attaque n'apporte rien à son passif : on empile les dégâts d'attaque et la pénétration.",
         items: [
@@ -76,31 +76,31 @@ export const marksmen: HeroAnalysis[] = [
     summary:
       "Tireuse à quatre armes, chacune avec son propre ultime : elle change de rôle selon l'arme portée.",
     analysis:
-      "Beatrix est en réalité quatre héros. Elle porte deux armes à la fois parmi quatre, et chacune redéfinit sa portée, sa cadence et son ultime : un fusil de précision à très longue portée, un fusil à pompe explosif, un fusil d'assaut à cadence rapide, un lance-grenades de zone.\n\nLe niveau de jeu consiste à choisir la bonne paire avant la partie, puis à alterner en combat. C'est ce qui la rend à la fois très forte en compétition et très punitive en file classée : une mauvaise paire, ou un mauvais changement au mauvais moment, et elle n'a plus de dégâts du tout.",
+      "Beatrix est en réalité quatre héros. Elle porte deux armes à la fois parmi quatre, et chacune redéfinit sa portée, sa cadence et son ultime : un fusil de précision à très longue portée, un fusil à pompe explosif, un fusil d'assaut à cadence rapide, un lance-grenades de zone.\n\nLe niveau de jeu consiste à choisir la bonne paire avant la partie, puis à alterner en combat. C'est ce qui la rend à la fois très forte en compétition et très punitive en partie classée : une mauvaise paire, ou un mauvais changement au mauvais moment, et elle n'a plus de dégâts du tout.",
     skills: [
       {
         type: "Passive",
-        name: "Armurerie",
+        name: "Mechanical Genius",
         description:
           "Beatrix porte deux armes parmi quatre. Chaque arme modifie ses attaques de base et remplace son ultime.",
       },
       {
         type: "Skill 1",
-        name: "Bombe fumigène",
+        name: "Masterful Gunner",
         description:
           "Se déplace et laisse une fumée qui la dissimule brièvement.",
         cooldown: [13, 12, 11, 10, 9, 8],
       },
       {
         type: "Skill 2",
-        name: "Changement d'arme",
+        name: "Tactical Reposition",
         description:
           "Échange l'arme active contre la seconde arme portée, en rechargeant l'ultime correspondant.",
         cooldown: [3, 3, 3, 3, 3, 3],
       },
       {
         type: "Ultimate",
-        name: "Tir de l'arme active",
+        name: "Renner's Apathy",
         description:
           "Dépend de l'arme portée : tir de précision longue portée, salve explosive, rafale rapide ou grenades de zone.",
       },
@@ -119,7 +119,7 @@ export const marksmen: HeroAnalysis[] = [
     weakAgainst: ["ling", "fanny", "khufra", "natalia"],
     builds: [
       {
-        name: "Or longue portée",
+        name: "Gold lane, longue portée",
         context:
           "Paire fusil de précision et lance-grenades : on tient la distance et on frappe les objectifs.",
         items: [
@@ -145,13 +145,13 @@ export const marksmen: HeroAnalysis[] = [
     skills: [
       {
         type: "Passive",
-        name: "Poupées",
+        name: "Doll Buster",
         description:
           "Ses dégâts augmentent contre les cibles proches ou éloignées selon la distance, et ses attaques ralentissent brièvement.",
       },
       {
         type: "Skill 1",
-        name: "Coup de balai",
+        name: "Falling!",
         description:
           "Se déplace en projetant une poupée qui inflige des dégâts de zone.",
         cooldown: [9, 8.4, 7.8, 7.2, 6.6, 6],
@@ -159,7 +159,7 @@ export const marksmen: HeroAnalysis[] = [
       },
       {
         type: "Skill 2",
-        name: "Poupée mécanique",
+        name: "Eyes on You!",
         description:
           "Invoque une poupée qui poursuit les ennemis et les ralentit.",
         cooldown: [12, 11, 10, 9, 8, 7],
@@ -167,7 +167,7 @@ export const marksmen: HeroAnalysis[] = [
       },
       {
         type: "Ultimate",
-        name: "Cercle protecteur",
+        name: "Go Away!",
         description:
           "Crée une zone que les ennemis au corps à corps ne peuvent pas franchir et dans laquelle leurs dégâts sont fortement réduits.",
         cooldown: [50, 45, 40],
@@ -188,7 +188,7 @@ export const marksmen: HeroAnalysis[] = [
     weakAgainst: ["pharsa", "cecilion", "beatrix", "kimmy"],
     builds: [
       {
-        name: "Or standard",
+        name: "Gold lane standard",
         context:
           "Vitesse d'attaque et critique : Melissa tire en continu tant qu'elle n'est pas touchée.",
         items: [
@@ -211,7 +211,7 @@ export const marksmen: HeroAnalysis[] = [
       "Tireuse d'attaques de base pure : elle gagne en cadence tant qu'elle frappe, et son ultime la fait disparaître au moment où on la vise.",
     analysis:
       "Miya fonde tout sur l'attaque de base. Son passif empile de la vitesse d'attaque à chaque tir qui touche, la compétence 1 ajoute des flèches supplémentaires qui blessent aussi les cibles voisines, et la compétence 2 immobilise une zone avant de ralentir ce qui l'entoure. Son ultime retire les effets négatifs, la rend invisible et la fait sortir de cet état avec son passif déjà à pleine charge : il sert autant à fuir qu'à revenir dans l'échange en pleine cadence. Son taux de victoire mesuré progresse légèrement avec la durée de la partie.\n\n" +
-      "Elle n'a aucun déplacement instantané. Une fois l'ultime utilisé, il ne lui reste que la compétence 2 pour ralentir un assaillant, et sa cadence retombe dès qu'elle cesse de toucher une cible. Les mesures de contres la placent en difficulté face à Beatrix, Granger, Gatotkaca, Karina et Belerick, avec un écart qui se retrouve du rang Mythic au rang Mythic Glory.",
+      "Elle n'a aucun déplacement instantané. Une fois l'ultime utilisé, il ne lui reste que la compétence 2 pour ralentir un assaillant, et sa cadence retombe dès qu'elle cesse de toucher une cible. Les mesures de contres la placent en difficulté face à Beatrix, Granger, Gatotkaca, Karina et Belerick, avec un écart qui se retrouve du rang Mythique au rang Gloire mythique.",
     skills: [
       {
         type: "Passive",
@@ -256,7 +256,7 @@ export const marksmen: HeroAnalysis[] = [
       {
         name: "Critique",
         context:
-          "Le build le plus joué en lane d'or, tous rangs confondus comme en Mythic Glory : la chance de critique alimente Berserker's Fury et déclenche la vitesse d'attaque de Haas' Claws, qui apporte aussi le vol de vie.",
+          "Le build le plus joué en Gold lane, tous rangs confondus comme en Gloire mythique : la chance de critique alimente Berserker's Fury et déclenche la vitesse d'attaque de Haas' Claws, qui apporte aussi le vol de vie.",
         items: ["Windtalker", "Berserker's Fury", "Haas' Claws"],
         emblem: "Emblème de tireur",
         talent: "Weakness Finder",
@@ -265,7 +265,7 @@ export const marksmen: HeroAnalysis[] = [
       {
         name: "Dégâts à l'impact",
         context:
-          "Moins jouée que la version critique, avec un taux de victoire mesuré un peu supérieur : Corrosion Scythe et Demon Hunter Sword ajoutent des dégâts à chaque attaque de base, ce qui convient face à des cibles à beaucoup de PV.",
+          "Moins joué que la version critique, avec un taux de victoire mesuré un peu supérieur : Corrosion Scythe et Demon Hunter Sword ajoutent des dégâts à chaque attaque de base, ce qui convient face à des cibles à beaucoup de PV.",
         items: ["Corrosion Scythe", "Demon Hunter Sword", "Golden Staff"],
         emblem: "Emblème de tireur",
         talent: "Quantum Charge",
@@ -279,7 +279,7 @@ export const marksmen: HeroAnalysis[] = [
       "Tireuse de dégâts en rebond, que les contrôles ne touchent pas tant qu'elle porte un bouclier.",
     analysis:
       "Hanabi inflige ses dégâts par ricochet : chaque attaque de base ou compétence qui touche renvoie des lames sur les ennemis voisins, ce qui la rend efficace dans les combats groupés et sur les vagues. Sa compétence 1 lui donne un bouclier, et tant qu'un bouclier la protège, les effets de contrôle n'ont aucune prise sur elle ; une partie des dégâts qu'elle inflige vient en plus recharger ce bouclier. Son ultime immobilise le premier héros touché avant d'exploser autour de lui.\n\n" +
-      "Elle n'a en revanche aucun déplacement instantané : si le bouclier tombe, elle redevient une cible facile à atteindre. Son taux de victoire mesuré est le plus haut dans les parties courtes et recule nettement à mesure qu'elles s'allongent, jusqu'à passer sous les cinquante pour cent après la dix-huitième minute. Au rang Mythic Glory, les mesures la placent en difficulté face à Lolita, Joy, Beatrix, Wanwan et Ixia.",
+      "Elle n'a en revanche aucun déplacement instantané : si le bouclier tombe, elle redevient une cible facile à atteindre. Son taux de victoire mesuré est le plus haut dans les parties courtes et recule nettement à mesure qu'elles s'allongent, jusqu'à passer sous les cinquante pour cent après la dix-huitième minute. Au rang Gloire mythique, les mesures la placent en difficulté face à Lolita, Joy, Beatrix, Wanwan et Ixia.",
     skills: [
       {
         type: "Passive",
@@ -324,7 +324,7 @@ export const marksmen: HeroAnalysis[] = [
       {
         name: "Attaques renforcées",
         context:
-          "Le build de loin le plus joué en lane d'or : Corrosion Scythe, Demon Hunter Sword et Golden Staff renforcent chaque attaque de base, dont les rebonds reprennent une partie des effets. Il est le plus souvent associé à l'emblème de combattant et au sort Aegis, dont le bouclier la rend aussi insensible aux contrôles.",
+          "Le build de loin le plus joué en Gold lane : Corrosion Scythe, Demon Hunter Sword et Golden Staff renforcent chaque attaque de base, dont les rebonds reprennent une partie des effets. Il est le plus souvent associé à l'emblème de combattant et au sort Aegis, dont le bouclier la rend aussi insensible aux contrôles.",
         items: ["Corrosion Scythe", "Demon Hunter Sword", "Golden Staff"],
         emblem: "Emblème de combattant",
         talent: "Weakness Finder",
@@ -392,7 +392,7 @@ export const marksmen: HeroAnalysis[] = [
       {
         name: "Sans réduction de soins",
         context:
-          "La même base avec Blade of Despair à la place de Sea Halberd : bien moins jouée, avec un meilleur taux de victoire mesuré. À réserver aux parties où l'équipe adverse ne compte ni sur les soins ni sur les boucliers.",
+          "La même base avec Blade of Despair à la place de Sea Halberd : bien moins joué, avec un meilleur taux de victoire mesuré. À réserver aux parties où l'équipe adverse ne compte ni sur les soins ni sur les boucliers.",
         items: ["Berserker's Fury", "Malefic Gun", "Blade of Despair"],
         emblem: "Emblème de tireur",
         talent: "Quantum Charge",
