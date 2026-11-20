@@ -73,7 +73,7 @@ test.describe("build simulator", () => {
 
     // The share field carries the same build code as the address.
     const code = new URL(page.url()).search;
-    await expect(aside.getByRole("textbox", { name: /lien du build/i })).toHaveValue(new RegExp(`${code.replace(/[?.]/g, "\\$&")}$`));
+    await expect(aside.getByRole("textbox", { name: /lien du build/i })).toHaveValue(new RegExp(`${code.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`));
     const withItems = figure(await attack.textContent());
 
     // A reload decodes the build from the address.
