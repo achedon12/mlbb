@@ -1496,7 +1496,7 @@
       },
       "seeAll": "Tutte le skin",
       "seeMore": "Mostra altri eroi ({n} rimanenti)",
-      "alt": "{hero}, pelle {skin}"
+      "alt": "{hero}, skin {skin}"
     },
     "heroSkins": {
       "title": "Skin di {name}",
@@ -1508,7 +1508,7 @@
       "latest": "Ultima skin datata: {skin} ({date}).",
       "price": "Prezzo",
       "illustrationOnly": "Solo illustrazione: rarità, data e prezzo non sono ancora nel database.",
-      "altIllustration": "{name}: illustrazione della pelle {skin}",
+      "altIllustration": "{name}: illustrazione della skin {skin}",
       "altPortrait": "{name} con la skin {skin}, ritratto in gioco",
       "others": "Skin degli altri eroi",
       "sheetLink": "Vedi tutte le {n} skin e illustrazioni",
@@ -4374,7 +4374,7 @@
         "social": "Solo social",
         "none": "Ospite, non collegato"
       },
-      "skinsLegend": "Pelli per categoria",
+      "skinsLegend": "Skin per categoria",
       "pointsLegend": "Contato in punti",
       "pointsLead": "Questi oggetti valgono punti molto diversi l'uno dall'altro: indica il totale dei punti mostrato dal gioco.",
       "group": {
