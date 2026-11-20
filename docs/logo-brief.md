@@ -24,8 +24,9 @@ La marque est ce carré, réduit à l'essentiel :
 
 Un M en italique, aux jambes coupées en biais comme une lame et à pointes
 biseautées, tranché par une diagonale. Les deux moitiés sont décalées le long de
-la coupe, l'or profond en bas, l'or clair en haut, et un trait de lumière blanc,
-effilé aux deux bouts, traverse la coupe et dépasse de la lettre : la trace de
+la coupe, l'or profond en bas, l'or clair en haut. Chaque trait est taillé en
+biseau, une face éclairée et une face dans l'ombre, comme un emblème forgé ; et un trait de lumière blanc,
+effilé aux deux bouts et plus épais vers la sortie, traverse la coupe et dépasse de la lettre : la trace de
 la lame, et la lane du milieu entre les deux bases.
 
 ## Contraintes
