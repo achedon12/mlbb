@@ -1,0 +1,57 @@
+{
+  "tagline": "Princesse de l'Empire de Moniyan et reine régente.",
+  "lore": [
+    "Le prince avait disparu, et nul ne savait s'il était mort ou vivant ! Pour le bien du pays et la sécurité de son peuple, le roi Aurelius II avait décrété l'agrandissement de l'Ordre des chevaliers impériaux et fait bâtir des forteresses aux confins de Moniyan, afin de renforcer les défenses de l'Empire. Dans le même temps, les chevaliers impériaux poursuivaient leurs recherches, en quête du moindre indice, de la moindre trace du prince. Les chevaliers impériaux cherchèrent jour et nuit. Ils avaient sillonné presque toute la Terre de l'Aube, mais ils n'avaient trouvé qu'une attente sans fin. La famille royale d'Aurelius était noyée de chagrin. Pour la jeune Silvanna, le souvenir tragique de cette époque était un fardeau trop lourd. Dès son plus jeune âge, la princesse avait toujours eu le cœur juste et compatissant. Après la disparition de son frère, elle tint compagnie à la reine presque chaque jour. Des années durant, toutes deux attendirent qu'un miracle se produisît au château impérial. Mais à force d'attendre, jour après jour, année après année, la reine finit par tomber malade et s'aliter, épuisée de corps et d'esprit.",
+    "Dix ans s'étaient écoulés depuis le drame. Tandis que la reine et le roi vieillissaient, la princesse Silvanna, devenue une adulte accomplie, avait toujours voulu faire quelque chose pour son empire. Elle voulait laisser son chagrin derrière elle, mais chaque fois qu'elle pensait à son frère, la tristesse et l'amertume la submergeaient de nouveau. Chaque nuit, en rêve, Silvanna avait l'impression que son frère était à portée de main, sans jamais parvenir à le retenir. Peu après, le jour de la cérémonie de sa majorité, elle décida de faire fi de son rang de princesse et d'entrer chez les chevaliers impériaux. C'était peut-être pour elle le seul moyen de supporter la douleur ! Au sein de l'Ordre des chevaliers, Silvanna devrait se plier à un entraînement rigoureux. Elle ne serait plus traitée en membre de la famille royale. Silvanna avait une foi solide et travaillait plus dur que les autres. Sa foi la rendait de plus en plus puissante. Toutes les cicatrices qui marquaient son corps étaient les meilleures preuves du chemin parcouru à l'entraînement. Bientôt, elle devint la plus puissante chevalière parmi les chevaliers impériaux. Mais malgré cela, Silvanna ne parvenait toujours pas à obtenir l'approbation particulière de Tigreal. Tigreal connaissait la cruauté des vrais champs de bataille et savait qu'on n'y avait pas droit à l'erreur. Au fond de lui, Tigreal voyait bien que Silvanna maîtrisait déjà toutes les compétences d'un chevalier. Il voyait aussi sa détermination. Mais elle restait, après tout, un membre de la famille royale. Tigreal ne voulait pas qu'une autre héritière de l'Empire courût le moindre danger.",
+    "Mais un jour, sans crier gare, l'armée des démons surgit aux portes de l'Empire… Moniyan était au bord du désastre et de la guerre. Tigreal ordonna à Silvanna de rester dans l'Empire tandis qu'il menait tout l'Ordre des chevaliers au combat.",
+    "En chemin, Tigreal reçut un rapport de l'Ordre des chevaliers : pour faire ses preuves, Silvanna avait pénétré dans la zone interdite, le Sanctuaire impérial, où rôdaient d'innombrables créatures inconnues. Même Tigreal n'était pas certain de pouvoir la traverser sans dommage. À cet instant, un cri perçant retentit au loin et fit frissonner Tigreal. Il ramena aussitôt l'élite de l'Ordre vers le Sanctuaire impérial, tandis que le reste des chevaliers marchait vers les confins de l'Empire pour combattre les démons. En route, il pria pour arriver à temps. Il pria pour que ses craintes ne fussent pas fondées.",
+    "Devant les dieux du Sanctuaire impérial, une silhouette gigantesque s'approchait lentement de la chevalière blessée. La Graine de Lumière brillait au loin, et son redoutable adversaire avançait. Dans les archives impériales, Silvanna avait lu autrefois une légende au sujet de la Graine de Lumière du Sanctuaire impérial. Mais la puissante créature qui gardait la Graine de Lumière devant elle était devenue un obstacle qu'elle ne pouvait surmonter. Silvanna savait pourtant que ce n'était qu'en étant protégée par le Seigneur de la Lumière qu'elle pourrait devenir véritablement la Sainte Chevalière et mener l'Empire à la victoire. Et pour cela, elle était prête à sacrifier sa vie…",
+    "Mais il n'en fut pas besoin : la détermination de Silvanna toucha le Dieu de la Lumière, qui lui transmit une part de ses pouvoirs magiques. Forte de ce pouvoir, elle triompha du Gardien et mit fin à l'armée du chaos. La bataille gagnée et la paix revenue, le courage de Silvanna lui valut une grande renommée.",
+    "Avec la puissance, le courage et le sang royal qui coulait dans ses veines, elle assuma son rôle de princesse de l'Empire de Moniyan et peut-être… aussi celui de sa protectrice."
+  ],
+  "headings": [],
+  "profile": {
+    "fullName": "Princesse Silvanna de l'Empire de Moniyan",
+    "title": "Princesse de l'Empire de Moniyan",
+    "species": "Humaine",
+    "gender": "Femme",
+    "age": null,
+    "origin": "Cité de Lumina, Empire de Moniyan",
+    "birthday": "16 août",
+    "affiliations": [
+      "Empire de Moniyan",
+      "Ordre des chevaliers impériaux",
+      "Lightborn (meneuse/escouade)"
+    ],
+    "relations": [
+      "Aurelius II (père)",
+      "Mère sans nom",
+      "Dyrroth (frère cadet/ennemi)",
+      "Alucard, Fanny, Granger, Harith, Tigreal (membres des Lightborn)",
+      "Lukas (compagnon)",
+      "Gaius Alvin (ancêtre)",
+      "Odette (cousine issue de germain)",
+      "Vexana (parente)",
+      "Seigneur Gaius (parent)",
+      "Sirius IV (grand-père)",
+      "Prince Alvin Ier (grand-oncle)",
+      "Prince Alvin II (oncle à la mode de Bretagne)",
+      "Oncle sans nom d'Odette (oncle à la mode de Bretagne)",
+      "Alice, Thamuz (ennemis)"
+    ],
+    "powers": [
+      "Lumière sacrée"
+    ]
+  },
+  "trivia": [
+    "Le prénom Silvanna est une variante des prénoms féminins Silvana ou Sylvana, qui signifient en latin « celle qui vit dans la forêt ».",
+    "Silvana est aussi un prénom féminin italien, pendant de Silvano, prénom masculin italien.",
+    "Silvanna est la seule héroïne capable d'infliger l'état Restrain.",
+    "Silvanna est la première héroïne à avoir reçu une apparence liée au score de crédit des joueurs.",
+    "Au début de sa conception, Silvanna devait être un mélange de tank et de combattante, mais les développeurs ont préféré mettre l'accent sur son identité de combattante magique.",
+    "L'armure et la lance de Silvanna rappellent celles des chevaliers européens du Moyen Âge, alliant l'esthétique du guerrier sacré à la puissance magique. Son apparence s'inspire de la culture chevaleresque médiévale.",
+    "Sa réplique en jeu « Moniyan warriors, show your teeth » (« Guerriers de Moniyan, montrez les dents ») est une expression idiomatique qui signifie montrer sa force, ou être prêt à se battre (comme un animal qui montre les crocs). La tournure relève de l'anglais britannique, couramment employé en Europe, l'Empire de Moniyan s'inspirant de l'Europe.",
+    "Le fait que la dynastie régnante n'ait jamais changé révèle sa parenté avec Odette et Vexana.",
+    "Silvanna partage sa doubleuse japonaise, Takada Sakie, avec Carmilla et Lesley, deux autres héroïnes de Moniyan."
+  ]
+}

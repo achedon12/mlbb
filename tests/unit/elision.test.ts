@@ -28,6 +28,6 @@ describe("French elision in interpolated messages", () => {
   });
 
   it("is on for the French catalogue", () => {
-    expect(createT("fr")("pages.heroPreview.skins", { name: "Aamon", n: 3 })).toBe("Skins d'Aamon (3) :");
+    expect(createT("fr")("pages.heroPreview.skins", { name: "Aamon", n: 3 })).toBe("Apparences d'Aamon (3) :");
   });
 });

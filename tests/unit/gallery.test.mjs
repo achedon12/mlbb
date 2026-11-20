@@ -1,10 +1,15 @@
 import { describe, expect, it } from "vitest";
 import {
+  WITHHELD_ARTWORKS,
+  alteredArtwork,
+  candidateRows,
   distinctSkinIds,
   extractAvatarIcons,
   extractIllustrations,
   fallbackFileNames,
+  heroOfFile,
   isProvisionalFile,
+  isWithheldArtwork,
   normalizeNameSkin,
 } from "../../scripts/gallery.mjs";
 
@@ -131,5 +136,101 @@ describe("fallbackFileNames", () => {
       "Masha (Rogue Talon).jpg",
     ]);
     expect(fallbackFileNames("Kagura (Feast of Eternity).jpg")).toEqual([]);
+  });
+});
+
+describe("alteredArtwork", () => {
+  it("flags edits, beta or unfinished versions, crops and retired versions by name", () => {
+    expect(alteredArtwork({ name: "File:Aldous Death-picsay.png" })).toBe("altered");
+    expect(alteredArtwork({ name: "File:Atlas HQHeroAtlas451 add-qlpicsay.png" })).toBe("altered");
+    expect(alteredArtwork({ name: "File:Arlott Splash Art Unfinished.png" })).toBe("altered");
+    expect(alteredArtwork({ name: "File:Lylia (Beta).jpg" })).toBe("altered");
+    expect(alteredArtwork({ name: "x.jpg", comment: "cropped from the trailer" })).toBe("altered");
+    expect(alteredArtwork({ name: "x.jpg", description: "Upscaled by me" })).toBe("altered");
+    expect(alteredArtwork({ name: "File:Kadita (Ocean Goddess; 2018-2026).jpg" })).toBe("altered");
+    expect(alteredArtwork({ name: "File:Angela (Floral Elf) (2021-2026).jpg" })).toBe("altered");
+  });
+
+  it("flags a picture too small or of the wrong shape to be the artwork", () => {
+    expect(alteredArtwork({ name: "File:Miya (Captain Thorns).jpg", width: 554, height: 334 })).toBe("low-resolution");
+    expect(alteredArtwork({ name: "File:Akai (Street Enforcer).jpg", width: 696, height: 392 })).toBe("low-resolution");
+    // A portrait poster, not the 16:9 splash art.
+    expect(alteredArtwork({ name: "File:The Pale Phantom.jpg", width: 1083, height: 1900 })).toBe("low-resolution");
+  });
+
+  it("leaves the published artwork alone", () => {
+    expect(alteredArtwork({ name: "File:Kagura (Feast of Eternity).jpg", width: 1920, height: 1080 })).toBeNull();
+    expect(alteredArtwork({ name: "File:Akai (Monk).jpg", width: 1780, height: 1000 })).toBeNull();
+    expect(alteredArtwork({ name: "File:Beatrix (Sky Force Maverick).jpg", width: 960, height: 540 })).toBeNull();
+    // A revamp is the current artwork, and Edith is a hero, not an edit.
+    expect(alteredArtwork({ name: "File:Zhask-Cancer-Revamp.jpg", description: "Revamped" })).toBeNull();
+    expect(alteredArtwork({ name: "File:Edith (Ancient Guard).jpg", categories: ["Category:Edith"] })).toBeNull();
+    // Size unknown: not held against the file.
+    expect(alteredArtwork({ name: "File:Aamon (Soul Reaper).jpg" })).toBeNull();
+  });
+});
+
+describe("heroOfFile", () => {
+  const names = ["Selena", "Karina", "Yu Zhong", "Yin", "Yi Sun-shin", "Benedetta", "Aamon"];
+  it("names the hero a file is named after, the longest match first", () => {
+    expect(heroOfFile("File:Selena (Gemini - Shadow).jpg", names)).toBe("Selena");
+    expect(heroOfFile("Yu zhong b.png", names)).toBe("Yu Zhong");
+    expect(heroOfFile("Yi Sun-shin (Azure Sentry).jpg", names)).toBe("Yi Sun-shin");
+    expect(heroOfFile("Benedetta(Street Blow).jpg", names)).toBe("Benedetta");
+  });
+
+  it("does not take a word prefix for a hero", () => {
+    expect(heroOfFile("Yindra (Test).jpg", names)).toBeNull();
+    expect(heroOfFile("(Night's Edge).jpg", names)).toBeNull();
+  });
+});
+
+describe("candidateRows", () => {
+  const heroes = ["Karina", "Selena", "Freya", "Zilong", "Alice", "Atlas", "Thamuz", "Aamon"];
+
+  it("tries the hero's own file before another hero's artwork, and keeps the shared one after it", () => {
+    expect(candidateRows([{ file: "Selena (Gemini - Shadow).jpg", skin: "Gemini - Halo" }], "Karina", heroes)).toEqual([
+      { file: "Karina (Gemini - Halo).jpg", skin: "Gemini - Halo", fallback: true },
+      { file: "Selena (Gemini - Shadow).jpg", skin: "Gemini - Halo" },
+    ]);
+  });
+
+  it("replaces an altered copy by the usual name", () => {
+    expect(candidateRows([{ file: "Atlas HQHeroAtlas451 add-qlpicsay.png", skin: "Jade Empress" }], "Alice", heroes)).toEqual([
+      { file: "Alice (Jade Empress).jpg", skin: "Jade Empress", fallback: true },
+    ]);
+  });
+
+  it("replaces a provisional file by the live one, once", () => {
+    expect(candidateRows([{ file: "Thamuz (Lord Lava; unreleased revamp).jpg", skin: "Lord Lava" }], "Thamuz", heroes)).toEqual([
+      { file: "Thamuz (Lord Lava).jpg", skin: "Lord Lava", fallback: true },
+    ]);
+  });
+
+  it("tries the gallery's file first, the usual name only after it", () => {
+    expect(candidateRows([{ file: "Aamon (Soul Reaper).jpg", skin: "Soul Reaver" }], "Aamon", heroes)).toEqual([
+      { file: "Aamon (Soul Reaper).jpg", skin: "Soul Reaver" },
+      { file: "Aamon (Soul Reaver).jpg", skin: "Soul Reaver", fallback: true },
+    ]);
+    expect(candidateRows([{ file: "Aamon (Duke of Shards).jpg", skin: "Duke of Shards" }], "Aamon", heroes)).toEqual([
+      { file: "Aamon (Duke of Shards).jpg", skin: "Duke of Shards" },
+    ]);
+  });
+});
+
+describe("isWithheldArtwork", () => {
+  it("matches the hand-checked list by hero and file, with or without the File: prefix", () => {
+    expect(isWithheldArtwork("karina", "File:Selena (Gemini - Shadow).jpg")).toBe(true);
+    expect(isWithheldArtwork("karina", "Selena (Gemini - Shadow).jpg")).toBe(true);
+    // The same file stays Selena's own artwork.
+    expect(isWithheldArtwork("selena", "File:Selena (Gemini - Shadow).jpg")).toBe(false);
+  });
+
+  it("gives evidence for every entry", () => {
+    for (const w of WITHHELD_ARTWORKS) {
+      expect(w.file).toMatch(/^File:/);
+      expect(w.evidence).toMatch(/^https:\/\/mobile-legends\.fandom\.com\/wiki\/File:/);
+      expect(w.reason).toBeTruthy();
+    }
   });
 });

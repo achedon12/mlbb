@@ -1,0 +1,40 @@
+{
+  "tagline": "Jeune Léonin venu d'Azrya dans l'Empire de Moniyan.",
+  "lore": [
+    "La légende raconte qu'un antique peuple d'elfes vit dans la Forêt enchantée de la Terre de l'Aube. Les récits dépeignent souvent ce peuple félin comme petit, agile, joueur, indépendant et très intelligent. Mais rares sont ceux qui connaissent la vieille alliance qui unit les Elfes léonins aux Elfes de la Lune.",
+    "Dès son plus jeune âge, Harith surpassa ses pairs en talent et en sagesse. Il devint vite le plus puissant mage des Léonins, peut-être aussi puissant que les plus grands de la Terre de l'Aube. Pourtant, les Léonins ne mettent jamais le pied hors de la Forêt enchantée et vivent entre eux une vie paisible et sûre. Ils s'étaient tant complu dans cette existence heureuse qu'ils avaient cessé de cultiver les arts magiques, qui faisaient pourtant la renommée de leur peuple. Cette évolution déplaisait profondément à Harith, qui, à seulement 15 ans, quitta avec assurance la Forêt enchantée pour découvrir le monde extérieur. Porté par sa passion pour les arts magiques, il rêvait de devenir le maître de la magie de son peuple.",
+    "Harith arriva dans l'Empire de Moniyan, où il s'engagea dans l'armée pour repousser les tribus orques qui l'envahissaient. Il fit ses preuves au combat et gagna la reconnaissance de Tigreal, qui finit par apprécier sa belle âme et ses grandes capacités. On dit que Harith reçut le grade de lieutenant et sera bientôt nommé Maître impérial de la magie de l'Empire de Moniyan. Il dispose ainsi de l'autorisation impériale d'user de la magie pour maîtriser l'espace et le temps, et percer les Secrets de l'Aube afin de sceller le mal et de protéger la justice.",
+    "Plein d'enthousiasme et de ferveur, Harith savait aussi qu'une fois nommé Maître de la magie, il deviendrait la cible des critiques. Résolu à devenir le maître de la magie de son peuple, il avança seul, sans crainte. Avec le temps, Harith se rendit compte que sa mission et l'empire dévoraient sa vie. Il devint peu à peu solitaire et renfermé. Même lorsqu'il retrouva Nana, une Léonine comme lui, il fut incapable de tenir une conversation normale. Bien que Nana lui montre de l'affection, il ne parvenait pas à exprimer ses sentiments, persuadé que le meilleur moyen de la protéger des critiques était de rester seul. Après tout, chaque fois que l'empire avait besoin d'aide magique, le Maître de la magie était à son poste pour sceller les dangers du mal."
+  ],
+  "headings": [],
+  "trivia": [
+    "Le passif de Harith, Key Insight, pouvait autrefois augmenter sa résilience.",
+    "Bien que Harith soit un mage, on le joue souvent en Gold Lane plutôt qu'en Mid Lane.",
+    "Harith est le premier héros à avoir reçu une apparence exclusive de champion des M-Series, après la victoire d'EVOS Legends au championnat du monde M1. Lancelot, Estes, Chou, Brody et Joy ont aussi une apparence des M-Series.",
+    "Harith a aussi une apparence de la collaboration Hunter × Hunter à l'effigie de Killua, dont la voix anglaise dans l'anime de 2011, Cristina Vee, est aussi celle de l'annonceur du jeu et des anciennes versions de Kagura et de Lolita."
+  ],
+  "profile": {
+    "fullName": null,
+    "title": "Voyageur temporel",
+    "species": "Léonin",
+    "gender": "Homme",
+    "age": "15 ans",
+    "origin": "Forêt enchantée, Bois d'Azrya",
+    "birthday": "8 février",
+    "affiliations": [
+      "Lightborn (escouade)"
+    ],
+    "relations": [
+      "Nana (amie)",
+      "Silvanna (cheffe des Lightborn, compagne)",
+      "Joy (compagne)",
+      "Tigreal, Fanny, Granger (membres des Lightborn)",
+      "Alucard (sauveur, membre des Lightborn)",
+      "Claude, Clint (alliés)",
+      "Alice, Dyrroth, Thamuz, Balmond, Helcurt (ennemis)"
+    ],
+    "powers": [
+      "Maîtrise de l'espace et du temps"
+    ]
+  }
+}
