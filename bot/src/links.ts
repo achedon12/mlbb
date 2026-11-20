@@ -1,4 +1,5 @@
 import { PermissionFlagsBits } from "discord.js";
+import { DEFAULT_SITE_URL } from "./config.js";
 import type { Locale } from "./i18n/index.js";
 
 /**
@@ -28,6 +29,20 @@ export function assetUrl(siteUrl: string, path: string | null | undefined): stri
   if (/^https:\/\//.test(path)) return path;
   if (path.startsWith("/") && !path.startsWith("//")) return `${siteUrl}${encodeURI(path)}`;
   return undefined;
+}
+
+/**
+ * Dex, the site's mascot (`src/components/mascot.tsx`), one pose per moment:
+ * `victoire` for a success, `surpris` for an error or an empty answer,
+ * `reflexion` for help and explanations, `idee` for a recommendation,
+ * `carte` for news and the meta, `salut` for a greeting.
+ */
+export const DEX_POSES = ["salut", "reflexion", "idee", "surpris", "victoire", "carte"] as const;
+export type DexPose = (typeof DEX_POSES)[number];
+
+/** Dex's picture in one pose, served by the site (`public/mascot/`). */
+export function dexImage(pose: DexPose, siteUrl: string = DEFAULT_SITE_URL): string {
+  return `${siteUrl.replace(/\/+$/, "")}/mascot/dex-${pose}.webp`;
 }
 
 /**

@@ -1,6 +1,6 @@
 import { choiceOption, optionName, slash } from "../discord/builders.js";
 import type { Command } from "../discord/types.js";
-import { baseEmbed, COLORS } from "../embeds/common.js";
+import { dexNote } from "../embeds/common.js";
 import { leaderboardEmbed } from "../embeds/daily.js";
 import { GAMES, PERIODS, type Game, type Period } from "../site/schemas.js";
 
@@ -25,7 +25,7 @@ export const leaderboard: Command = {
       interaction.options.getString(optionName("leaderboard", "period")),
     );
     if (!interaction.guildId || !ctx.services.site) {
-      await interaction.editReply({ embeds: [baseEmbed(ctx, COLORS.slate).setDescription(ctx.t("ui.common.siteDown"))] });
+      await interaction.editReply({ embeds: [dexNote(ctx, ctx.t("ui.common.siteDown"))] });
       return;
     }
     const board = await ctx.services.site.leaderboard(interaction.guildId, game, period);

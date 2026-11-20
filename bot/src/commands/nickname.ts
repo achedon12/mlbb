@@ -1,7 +1,7 @@
 import { ActionRowBuilder, StringSelectMenuBuilder, type EmbedBuilder } from "discord.js";
 import { choiceOption, optionName, slash, stringOption } from "../discord/builders.js";
 import type { Command, ComponentHandler } from "../discord/types.js";
-import { baseEmbed, FAMILY_COLORS, linkButton, plain, type View } from "../embeds/common.js";
+import { baseEmbed, FAMILY_COLORS, linkButton, plain, withDex, type View } from "../embeds/common.js";
 import { measure, sanitize, STYLES, stylize, type Style } from "../games/nicknames.js";
 
 /**
@@ -19,12 +19,13 @@ const PREFIX = "nick:";
 export function nicknameEmbed(view: View, text: string, style: Style): EmbedBuilder {
   const styled = stylize(text, style);
   const { codePoints } = measure(styled);
-  return baseEmbed(view, FAMILY_COLORS.tools)
+  const embed = baseEmbed(view, FAMILY_COLORS.tools)
     .setTitle(view.t("ui.nickname.title"))
     .setDescription(`# ${plain(styled)}\n${view.t("ui.nickname.copy")}`)
     .addFields(
       { name: view.t(`choices.style.${style}`), value: view.t("ui.nickname.length", { n: codePoints }), inline: true },
     );
+  return withDex(view, embed, "idee");
 }
 
 export function nicknameComponents(view: View, text: string, style: Style) {

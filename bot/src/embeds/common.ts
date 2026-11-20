@@ -1,6 +1,6 @@
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder, escapeMarkdown } from "discord.js";
 import { formatPercent, translator, type Locale, type Translator } from "../i18n/index.js";
-import { assetUrl, siteLink } from "../links.js";
+import { assetUrl, dexImage, siteLink, type DexPose } from "../links.js";
 
 /** Site palette (`src/app/globals.css`): gold for the brand, the rest by meaning. */
 export const COLORS = {
@@ -43,6 +43,8 @@ export interface View {
   link: (path: string) => string;
   asset: (path: string | null | undefined) => string | undefined;
   percent: (value: number | null | undefined) => string;
+  /** Dex's picture in a pose, on the same site as the links. */
+  dex: (pose: DexPose) => string;
 }
 
 export function makeView(locale: Locale, siteUrl: string, campaign?: string): View {
@@ -52,6 +54,7 @@ export function makeView(locale: Locale, siteUrl: string, campaign?: string): Vi
     link: (path) => siteLink(siteUrl, locale, path, campaign),
     asset: (path) => assetUrl(siteUrl, path),
     percent: (value) => formatPercent(locale, value),
+    dex: (pose) => dexImage(pose, siteUrl),
   };
 }
 
@@ -81,12 +84,38 @@ export function notFoundEmbed(view: View, query: string, suggestions: string[] =
   const hint = suggestions.length
     ? view.t("ui.common.didYouMean", { names: suggestions.slice(0, 3).map((s) => `**${plain(s)}**`).join(", ") })
     : view.t("ui.common.pickSuggestion");
-  return baseEmbed(view, COLORS.slate).setDescription(`${view.t("ui.common.notFound", { query: plain(query.slice(0, 100)) })}\n${hint}`);
+  return withDex(view, baseEmbed(view, COLORS.slate).setDescription(`${view.t("ui.common.notFound", { query: plain(query.slice(0, 100)) })}\n${hint}`), "surpris");
 }
 
 /** The reply when something failed: the site down (with when to retry) or anything else. */
 export function errorEmbed(view: View, siteDown: boolean): EmbedBuilder {
-  return baseEmbed(view, COLORS.slate).setDescription(view.t(siteDown ? "ui.common.siteDown" : "ui.common.error"));
+  return withDex(view, baseEmbed(view, COLORS.slate).setDescription(view.t(siteDown ? "ui.common.siteDown" : "ui.common.error")), "surpris");
+}
+
+/** A short reply in Dex's voice: the error and empty states, in the slate colour. */
+export function dexNote(view: View, text: string, pose: DexPose = "surpris"): EmbedBuilder {
+  return withDex(view, baseEmbed(view, COLORS.slate).setDescription(text), pose);
+}
+
+/** The name shown next to Dex when he sits in the author line. */
+export const DEX_NAME = "Dex";
+
+/**
+ * Dex, small, in the corner of a reply. He takes the thumbnail when it is
+ * free; when it already shows a hero, an item or an avatar (pictures that
+ * carry the answer), he moves to the author line's icon instead, keeping
+ * the author text when there is one. `place: "author"` asks for the author
+ * line in any case. Call it once the embed's own pictures are set.
+ */
+export function withDex(view: View, embed: EmbedBuilder, pose: DexPose, place: "auto" | "author" = "auto"): EmbedBuilder {
+  const url = view.dex(pose);
+  const author = embed.data.author;
+  if (place === "author" || embed.data.thumbnail?.url) {
+    // An author icon already set is information too: left alone.
+    if (author?.icon_url) return embed;
+    return embed.setAuthor({ name: author?.name ?? DEX_NAME, iconURL: url, ...(author?.url ? { url: author.url } : {}) });
+  }
+  return embed.setThumbnail(url);
 }
 
 /** Every reply's frame: the family's colour, and the source with the site's name in the footer. */

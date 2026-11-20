@@ -1,6 +1,6 @@
 import { optionName, slash, stringOption } from "../discord/builders.js";
 import type { Command } from "../discord/types.js";
-import { baseEmbed, COLORS, openRow } from "../embeds/common.js";
+import { dexNote, openRow } from "../embeds/common.js";
 import { compareEmbed } from "../embeds/game.js";
 import { heroChoices, heroOrReply, rankingOf } from "./shared.js";
 
@@ -24,7 +24,7 @@ export const compare: Command = {
     const b = await heroOrReply(interaction, ctx, interaction.options.getString(optionName("compare", "second"), true));
     if (!b) return;
     if (a.slug === b.slug) {
-      await interaction.editReply({ embeds: [baseEmbed(ctx, COLORS.slate).setDescription(ctx.t("ui.compare.same"))] });
+      await interaction.editReply({ embeds: [dexNote(ctx, ctx.t("ui.compare.same"))] });
       return;
     }
     const [ra, rb] = await Promise.all([rankingOf(ctx, a.slug), rankingOf(ctx, b.slug)]);

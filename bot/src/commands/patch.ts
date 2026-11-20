@@ -1,6 +1,6 @@
 import { optionName, slash, stringOption } from "../discord/builders.js";
 import type { Command } from "../discord/types.js";
-import { baseEmbed, COLORS, openRow, plain, replyRow } from "../embeds/common.js";
+import { dexNote, openRow, plain, replyRow } from "../embeds/common.js";
 import { inviteFor } from "./shared.js";
 import { patchEmbed } from "../embeds/game.js";
 import type { Patch } from "../site/game-data.js";
@@ -40,7 +40,7 @@ export const patch: Command = {
       const recent = patches.slice(0, 5).map((p) => `\`${p.version}\``);
       await interaction.editReply({
         embeds: [
-          baseEmbed(ctx, COLORS.slate).setDescription(recent.length ? `${unknown}\n${ctx.t("ui.patch.recent", { versions: recent.join(", ") })}` : unknown),
+          dexNote(ctx, recent.length ? `${unknown}\n${ctx.t("ui.patch.recent", { versions: recent.join(", ") })}` : unknown),
         ],
         components: [openRow(ctx, "/patch-notes")],
       });

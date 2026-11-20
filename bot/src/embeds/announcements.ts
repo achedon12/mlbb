@@ -1,7 +1,7 @@
 import type { RESTPostAPIChannelMessageJSONBody } from "discord.js";
 import type { Locale } from "../i18n/index.js";
 import { PAYLOADS, type AnnouncementType } from "../site/schemas.js";
-import { baseEmbed, clip, COLORS, openRow, type View, makeView } from "./common.js";
+import { baseEmbed, clip, COLORS, openRow, withDex, type View, makeView } from "./common.js";
 
 /**
  * Announcement messages, posted by the manager over REST (no gateway needed).
@@ -99,12 +99,14 @@ export function announcementMessage(
     }
   }
   embed.setURL(view.link(path));
+  withDex(view, embed, "carte");
   return withRole(roleId, { embeds: [embed.toJSON()], components: [openRow(view, path).toJSON()] });
 }
 
 /** The dashboard's "send a test" post. */
 export function testMessage(view: View): RESTPostAPIChannelMessageJSONBody {
   return withRole(null, {
-    embeds: [baseEmbed(view).setTitle(view.t("ui.announce.testTitle")).setDescription(view.t("ui.announce.testBody")).setURL(view.link("/bot")).toJSON()],
+    // The dashboard's settings work: Dex celebrates.
+    embeds: [withDex(view, baseEmbed(view).setTitle(view.t("ui.announce.testTitle")).setDescription(view.t("ui.announce.testBody")).setURL(view.link("/bot")), "victoire").toJSON()],
   });
 }

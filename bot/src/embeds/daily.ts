@@ -2,7 +2,7 @@ import { ActionRowBuilder, ButtonBuilder, ButtonStyle, escapeMarkdown, type Embe
 import { emojiRow, nextClue, unlockedClues, yearHint, type Mode } from "../games/mlbbdle.js";
 import type { Step } from "../games/quiz.js";
 import type { Game, Leaderboard, MlbbdleHero, Period, SkillPuzzle } from "../site/schemas.js";
-import { baseEmbed, clip, COLORS, FAMILY_COLORS, linkButton, listOr, plain, roleLabels, type View } from "./common.js";
+import { baseEmbed, clip, COLORS, FAMILY_COLORS, linkButton, listOr, plain, roleLabels, withDex, type View } from "./common.js";
 
 /** Embeds of the daily games: MLBBdle, quiz, leaderboards, and the daily post. */
 
@@ -25,7 +25,7 @@ export function mlbbdleClassicEmbed(view: View, number: number, guesses: Mlbbdle
   ];
   // The count once, under the grid: the solve line already says it when found.
   if (guesses.length && !solved) lines.push(`-# ${view.t("ui.mlbbdle.guesses", { n: guesses.length })}`);
-  return embed.setDescription(clip(lines.join("\n"), 4096));
+  return withDex(view, embed, solved ? "victoire" : "reflexion").setDescription(clip(lines.join("\n"), 4096));
 }
 
 export function mlbbdleSkillEmbed(
@@ -49,7 +49,7 @@ export function mlbbdleSkillEmbed(
   if (wrong.length) lines.push("", `🟥 ${wrong.slice(-MAX_ROWS).map((w) => escapeMarkdown(w)).join(", ")}`);
   const next = solved ? null : nextClue(wrong.length);
   if (next) lines.push("", `-# ${view.t("ui.mlbbdle.nextClue", { n: next.remaining })}`);
-  return embed.setDescription(clip(lines.join("\n"), 4096));
+  return withDex(view, embed, solved ? "victoire" : "reflexion").setDescription(clip(lines.join("\n"), 4096));
 }
 
 /** The public "solved" line: the grid of squares, never the hero's name. */
@@ -86,6 +86,7 @@ export function quizStepEmbed(view: View, number: number, step: Step, index: num
       if (r.passif) lines.push("", `> ${r.passif}`);
     }
   }
+  withDex(view, embed, "reflexion");
   return embed.setDescription(clip(lines.join("\n"), 4096));
 }
 
@@ -99,17 +100,19 @@ export function quizButtons(day: string, index: number, step: Step): ActionRowBu
 }
 
 export function quizFinishedEmbed(view: View, number: number, points: number, max: number, feedback: string | null): EmbedBuilder {
-  return baseEmbed(view, COLORS.green)
+  const embed = baseEmbed(view, COLORS.green)
     .setTitle(view.t("ui.quiz.title", { number }))
     .setURL(view.link("/quiz"))
     .setDescription([feedback, view.t("ui.quiz.finished", { points, max })].filter(Boolean).join("\n\n"));
+  return withDex(view, embed, "victoire");
 }
 
 export function leaderboardEmbed(view: View, game: Game, period: Period, board: Leaderboard): EmbedBuilder {
   const embed = baseEmbed(view, FAMILY_COLORS.games)
     .setTitle(view.t("ui.leaderboard.title", { game: view.t(`choices.game.${game}`), period: view.t(`choices.period.${period}`) }))
     .setURL(view.link(game === "quiz" ? "/quiz" : "/mlbbdle"));
-  if (!board.entries.length) return embed.setDescription(view.t("ui.leaderboard.empty"));
+  if (!board.entries.length) return withDex(view, embed, "surpris").setDescription(view.t("ui.leaderboard.empty"));
+  withDex(view, embed, "victoire");
   const medal = ["🥇", "🥈", "🥉"];
   const lines = board.entries.slice(0, 10).map((e, i) => {
     const rank = e.rank ?? i + 1;
@@ -129,6 +132,7 @@ export function dailyPost(view: View, game: "mlbbdle" | "quiz", day: string, num
     .setTitle(view.t(`ui.${game}.dailyTitle`, { number }))
     .setDescription(view.t(`ui.${game}.dailyBody`))
     .setURL(view.link(`/${game}`));
+  withDex(view, embed, "salut");
   const row = new ActionRowBuilder<ButtonBuilder>().addComponents(
     new ButtonBuilder().setCustomId(`daily:${game}:${day}`).setStyle(ButtonStyle.Success).setLabel(view.t("ui.mlbbdle.play")),
     linkButton(view.t("ui.mlbbdle.playOnSite"), view.link(`/${game}`)),
