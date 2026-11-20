@@ -59,6 +59,8 @@ describe("French patch notes, as the official community read them", () => {
     expect(correct("Le mode Chaos revient", "Mayhem returns")).toBe("Le mode Mayhem revient");
     // Classic and Ranked have French names on the site: they stay.
     expect(correct("les modes Classique et Classé", "Classic and Ranked modes")).toBe("les modes Classique et Classé");
+    // Arcade's sub-modes keep the game's names.
+    expect(correct("A. Boummandre et Échecs TD", "A. Boommander and Chess TD")).toBe("A. Boommander et Chess TD");
     // A brawl in lowercase, an ordinary word.
     expect(correct("une bagarre générale", "a brawl")).toBe("une bagarre générale");
   });
