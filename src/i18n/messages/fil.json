@@ -600,7 +600,11 @@
       "leadRole": "Lahat ng {n} {plural} sa laro, main o secondary role, niraranggo sa parehong patakaran ng main tier list: win at ban rate, lahat ng rank pinagsama.",
       "filterNote": "Ranking ng lahat ng rank pinagsama. Ang mga listahan ayon sa rank naman ay sumasaklaw sa bawat lane at bawat role.",
       "seeRole": "Lahat ng {plural} at ang kanilang lane",
-      "openTier": "Ipakita ang {n} hero sa tier {p}"
+      "openTier": "Ipakita ang {n} hero sa tier {p}",
+      "poster": {
+        "kicker": "Nangunguna sa ranking na ito",
+        "label": "{name}, nangunguna sa ranking na ito: tier {tier}, {win} win rate, {ban} ban rate"
+      }
     },
     "patchNotes": {
       "title": "Patch notes",
@@ -1430,6 +1434,10 @@
           "banRate": "% na-ban",
           "pickRate": "% na-pick"
         }
+      },
+      "poster": {
+        "kicker": "Pinakamalaking pag-akyat ngayong linggo",
+        "caption": "puntos ng win rate sa {days} araw"
       }
     },
     "statistics": {
@@ -3582,7 +3590,10 @@
       "notesTitle": "Notes ng gumawa",
       "backToHero": "Lahat ng build ni {hero}",
       "statsTitle": "Kinuwentang stats",
-      "statsMissing": "Walang stats para sa hero na ito."
+      "statsMissing": "Walang stats para sa hero na ito.",
+      "poster": {
+        "kicker": "Hero na may pinakamaraming build"
+      }
     },
     "damageCalculator": {
       "title": "Damage calculator",
