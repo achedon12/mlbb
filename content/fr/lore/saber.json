@@ -3,9 +3,9 @@
   "lore": [
     "Un épéiste en quête d'invincibilité, instrumentalisé par le Laboratoire 1718. Autrefois nommé Duan Meng et obsédé par l'art du sabre, Saber vint au Laboratoire 1718 pour s'y faire transformer et atteindre la perfection, mais sa mémoire fut effacée et l'on fit de lui une machine à tuer. Le supplice de ses souvenirs le poussa finalement à détruire le laboratoire et à partir en quête de son passé.",
     "Histoire",
-    "Au cœur des montagnes du nord des Terres fluviales de Cadia se niche un village calme et paisible. Ce village abrite la légendaire secte des Maîtres d'épée de Tianyin ; c'est aussi là que Duan Meng passa son enfance à perfectionner sa technique.",
+    "Au cœur des montagnes du nord des Terres fluviales de Cadia se niche un village calme et paisible. Ce village abrite la légendaire Secte des maîtres d'épée de Tianyin ; c'est aussi là que Duan Meng passa son enfance à perfectionner sa technique.",
     "Dès qu'il fut assez grand pour tenir un sabre de bambou, Duan Meng se jura de devenir un grand maître d'armes. Quand tous dormaient encore, il s'entraînait déjà avec ardeur, et il ne s'arrêtait qu'une fois le soleil couché et la lune claire et brillante dans le ciel.",
-    "Il savait qu'entrer dans la secte des Maîtres d'épée de Tianyin exigeait beaucoup ; aussi, après d'innombrables jours et nuits d'entraînement dans le vent, la pluie et la neige, les portes du temple sacré finirent par s'ouvrir devant lui. Bientôt, son talent hors du commun et son obsession de l'escrime attirèrent l'attention du chef de la secte, maître Longma, ancien disciple du Grand Dragon et guide spirituel de la secte des Maîtres d'épée de Tianyin. Sous la conduite de maître Longma, Duan Meng surpassa rapidement ses pairs et devint la figure de proue de la nouvelle génération d'élèves.",
+    "Il savait qu'entrer dans la Secte des maîtres d'épée de Tianyin exigeait beaucoup ; aussi, après d'innombrables jours et nuits d'entraînement dans le vent, la pluie et la neige, les portes du temple sacré finirent par s'ouvrir devant lui. Bientôt, son talent hors du commun et son obsession de l'escrime attirèrent l'attention du chef de la secte, maître Longma, ancien disciple du Grand Dragon et guide spirituel de la Secte des maîtres d'épée de Tianyin. Sous la conduite de maître Longma, Duan Meng surpassa rapidement ses pairs et devint la figure de proue de la nouvelle génération d'élèves.",
     "Avec le temps, Duan Meng se lassa de l'austère vie d'ascèse qu'il menait dans les montagnes. Son obsession du sabre et son ambition innée lui donnaient soif d'affronter des adversaires plus forts, afin de forger sa propre légende et de la répandre à travers le monde, comme ces épéistes légendaires qui avaient inspiré son propre chemin. Maître Longma lui refusa pourtant la permission de descendre de la montagne.",
     "« Il n'est pas encore temps. Tu n'es pas encore devenu un épéiste véritablement invincible. » Jeune et fougueux, Duan Meng refusa de se ranger à l'avis de son maître. Il avait suffisamment confiance en ses capacités et comptait perfectionner son art par le seul combat, encore et toujours.",
     "Les années suivantes, Duan Meng parcourut les Terres fluviales de Cadia en tous sens, terrassant un épéiste après l'autre, adeptes de l'Autel du Dragon compris. Sans subir une seule défaite, il se rapprochait toujours davantage du titre de « Meilleur épéiste ».",
@@ -29,12 +29,12 @@
     "title": null,
     "species": "Cyborg",
     "gender": "Homme",
-    "age": "24",
+    "age": "24 ans",
     "origin": "Duan Meng ou Duanmeng Village sans nom, Terres fluviales de Cadia",
     "birthday": "31 décembre",
     "affiliations": [
       "Laboratoire 1718 (hostile)",
-      "Secte des maîtres d'armes de Tianyin (anciennement)"
+      "Secte des maîtres d'épée de Tianyin (anciennement)"
     ],
     "relations": [
       "Longma (maître)",
@@ -47,10 +47,10 @@
   },
   "trivia": [
     "Dans les premières versions du jeu, l'une des répliques de Saber indiquait que son sport préféré était le baseball.",
-    "Son skin « Force Warrior » est le tout premier skin Starlight Membership, et son skin « Iron Hound » est le premier skin de la Starlight Membership remaniée.",
+    "Son apparence « Force Warrior » est la toute première apparence Starlight Membership, et son apparence « Iron Hound » est la première apparence de la Starlight Membership remaniée.",
     "Il fait partie des rares héros à manier deux armes, aux côtés de Fanny, Lapu-Lapu, Karina et Martis.",
     "Dans les premières versions, il portait un casque frappé de la lettre H, qui représentait le professeur Henry.",
-    "Son skin « Codename Storm » est le tout premier skin Légende.",
+    "Son apparence « Codename Storm » est la toute première apparence Légende.",
     "C'est le premier Assassin du jeu.",
     "Dans l'ancienne histoire, Saber et Alpha étaient comme des frères ; ils s'étaient échappés du laboratoire avec Beta, qui fut tué."
   ]

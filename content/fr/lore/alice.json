@@ -28,7 +28,7 @@
     2
   ],
   "profile": {
-    "fullName": "*Reine Alice Antalus",
+    "fullName": "Reine Alice Antalus",
     "title": "Reine des Démons de sang",
     "species": "Démon de sang, anciennement humaine",
     "gender": "Femme",
@@ -39,7 +39,7 @@
       "Abysses",
       "Armée orque",
       "Elfes noirs",
-      "Peuple corbeau, Empire de Moniyan, Elfes de la Lune, Necrokeep, Forsaken Light (ennemis)"
+      "Peuple corbeau, Empire de Moniyan, Elfes de la Lune, Necrokeep, Lumière déchue (ennemis)"
     ],
     "relations": [
       "Brun (père)",
@@ -47,11 +47,11 @@
       "Démon sans nom",
       "Thamuz (coopération et conflit)",
       "Balmond (exploitation mutuelle)",
-      "Terizla (alliés)",
+      "Terizla (compagnon)",
       "Dyrroth (enlevé, devenu allié)",
       "Selena, Carmilla, Cecilion, Estes, Khaleed, Miya, Pharsa, Vexana, Leomord, Lunox, Belerick, Claude, Clint, Esmeralda, Natalia (ennemis)",
       "Alucard, Fanny, Granger, Harith, Silvanna, Tigreal (ennemis, membres des Lightborn)",
-      "Yin, Melissa, Xavier, Julian (ennemis, membres de Forsaken Light)",
+      "Yin, Melissa, Xavier, Julian (ennemis, membres de la Lumière déchue)",
       "Arlott (ancien allié, ennemi)"
     ],
     "powers": [
