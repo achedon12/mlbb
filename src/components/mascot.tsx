@@ -1,6 +1,6 @@
-import Image from "next/image";
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { DexLive } from "@/components/dex-live";
 
 /**
  * Dex, the site's mascot: a small owl-fox spirit of the Land of Dawn, midnight
@@ -42,8 +42,8 @@ export function Dex({ pose = "salut", height = 160, className, alt = "", priorit
   const [w, h] = SIZE[pose];
   const width = Math.round((w / h) * height);
   return (
-    <span className={cn("dex", !still && "dex-idle", className)} style={{ width, height }}>
-      <Image src={`/mascot/dex-${pose}.webp`} alt={alt} width={width} height={height} priority={priority} sizes={`${width}px`} />
+    <span className={cn("dex", className)} style={{ width, height }}>
+      <DexLive pose={pose} width={width} height={height} alt={alt} priority={priority} still={still} />
     </span>
   );
 }

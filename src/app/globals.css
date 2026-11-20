@@ -879,20 +879,15 @@ body {
 @keyframes trail-rise { 0% { opacity: 0; transform: translateY(6px) scale(0.6); } 25%, 75% { opacity: 1; transform: translateY(0) scale(1); } 100% { opacity: 0; transform: translateY(-6px) scale(0.8); } }
 @media (prefers-reduced-motion: reduce) { .dex-bubble, .game-bubble, .dex-trail i { animation: none; } }
 
-/* ── Dex, the companion (dex-companion.tsx): bottom-left, tips, rising bubbles ── */
-.dex-companion { position: fixed; left: max(0.75rem, env(safe-area-inset-left)); bottom: max(0.75rem, env(safe-area-inset-bottom)); z-index: 35; display: flex; flex-direction: column; align-items: flex-start; gap: 0.5rem; pointer-events: none; }
-.dex-companion > * { pointer-events: auto; }
-.dex-companion-body { position: relative; }
-.dex-companion-btn { display: block; cursor: pointer; background: none; border: 0; padding: 0; animation: dex-arrive 0.7s cubic-bezier(.2, 1.4, .4, 1) both; }
-.dex-companion-btn:focus-visible { outline: 2px solid var(--color-gold-400); outline-offset: 4px; }
-.dex-companion-hide { position: absolute; top: -4px; right: -10px; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 999px; background: var(--color-night-800); color: var(--color-chalk-400); box-shadow: inset 0 0 0 1px var(--color-night-600); opacity: 0; transition: opacity .2s; }
-.dex-companion-body:hover .dex-companion-hide, .dex-companion-hide:focus-visible { opacity: 1; }
-.dex-companion-bubble { max-width: min(18rem, calc(100vw - 2rem)); font-size: 0.875rem; line-height: 1.4; padding-right: 2rem; margin-left: 2.5rem; }
-.dex-companion-x { position: absolute; top: 6px; right: 6px; color: var(--color-chalk-500); }
-.dex-companion-x:hover { color: var(--color-chalk-100); }
-@keyframes dex-arrive { from { opacity: 0; transform: translateY(40px) scale(0.6); } to { opacity: 1; transform: translateY(0) scale(1); } }
-/* bubbles rising from Dex, soap-bubble style, then popping */
-.dex-rise, .dex-burst { position: absolute; left: 50%; bottom: 60%; width: 0; height: 0; }
+/* ── Dex alive (dex-live.tsx): rising bubbles, click burst, his own tips ── */
+.dex-live { position: relative; display: block; }
+.dex-live-btn { display: block; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: pointer; }
+.dex-live-btn:focus-visible { outline: 2px solid var(--color-gold-400); outline-offset: 4px; }
+.dex-live-btn img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 6px 14px rgb(0 0 0 / 0.45)); }
+.dex-hopping { animation: dex-hop 0.55s cubic-bezier(.3, 1.6, .5, 1); }
+.dex-live-bubble { position: absolute; z-index: 5; left: 50%; bottom: calc(100% + 0.5rem); width: max-content; max-width: min(17rem, 70vw); font-size: 0.875rem; line-height: 1.4; text-align: left; translate: -20% 0; pointer-events: none; }
+/* soap bubbles rising from Dex, then popping */
+.dex-rise, .dex-burst { position: absolute; left: 50%; bottom: 62%; width: 0; height: 0; pointer-events: none; z-index: 1; }
 .dex-rise i, .dex-burst i { position: absolute; display: block; border-radius: 999px; background: radial-gradient(circle at 35% 35%, rgb(255 255 255 / 0.85), rgb(61 139 255 / 0.35) 45%, rgb(245 196 81 / 0.15) 70%, transparent 72%); box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.35); }
 .dex-rise i { animation: dex-bubble-up 5.5s ease-in infinite; opacity: 0; }
 .dex-rise i:nth-child(1) { width: 10px; height: 10px; left: -14px; animation-delay: 0s; }
@@ -905,7 +900,6 @@ body {
 .dex-burst i:nth-child(1) { --x: -40px; --y: -50px; } .dex-burst i:nth-child(2) { --x: 30px; --y: -60px; } .dex-burst i:nth-child(3) { --x: -55px; --y: -15px; }
 .dex-burst i:nth-child(4) { --x: 50px; --y: -20px; } .dex-burst i:nth-child(5) { --x: -10px; --y: -75px; width: 13px; height: 13px; } .dex-burst i:nth-child(6) { --x: 18px; --y: -38px; width: 6px; height: 6px; }
 @keyframes dex-burst { 0% { opacity: 0; transform: translate(0, 0) scale(0.3); } 30% { opacity: 1; } 100% { opacity: 0; transform: translate(var(--x), var(--y)) scale(1.3); } }
+@media (prefers-reduced-motion: reduce) { .dex-hopping, .dex-rise i, .dex-burst i { animation: none; opacity: 0; } }
 /* livelier bubbles overall */
 @keyframes bubble-float { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-7px) rotate(-0.6deg); } }
-@media (max-width: 640px) { .dex-companion .dex { width: 52px !important; height: 60px !important; } }
-@media (prefers-reduced-motion: reduce) { .dex-companion-btn, .dex-rise i, .dex-burst i { animation: none; opacity: 0; } }
