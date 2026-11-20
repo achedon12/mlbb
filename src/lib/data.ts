@@ -77,6 +77,7 @@ import generatedVisuals from "@/data/game/visuals.json";
 import { analyses } from "@/data/heroes";
 import { currentItemName } from "./item-names";
 import { listedHeroes, listedSkins, shownIllustrations } from "./listed";
+import { applyOverrides, overridesFolder, readOverrides } from "./lore-overrides";
 import type { Locale } from "@/i18n/config";
 import type { MeasuredRank } from "./measured-ranks";
 import type { PickRates } from "./usage-builds";
@@ -321,10 +322,20 @@ export function modeBySlug(locale: Locale, slug: string): GameMode | undefined {
 /** Mode slugs, language-independent — for the sitemap and params. */
 export const modesSlugs = (modesFr as unknown as GameMode[]).map((m) => m.slug);
 
-/** A hero's story per language: hook, lore, narrative profile, trivia. */
+/**
+ * A hero's story per language: hook, lore, narrative profile, trivia. The
+ * hand-written stories of `content/<locale>/lore/` replace the machine
+ * translation key by key (`lore-overrides.ts`), read once per language.
+ */
 const STORIES = { en: storiesEn, fr: storiesFr, it: storiesIt, es: storiesEs, id: storiesId, fil: storiesFil, th: storiesTh, pt: storiesPt, ru: storiesRu } satisfies Record<Locale, unknown>;
+const storiesByLocale = new Map<Locale, Record<string, HeroStory>>();
 export function stories(locale: Locale): Record<string, HeroStory> {
-  return STORIES[locale] as unknown as Record<string, HeroStory>;
+  let list = storiesByLocale.get(locale);
+  if (!list) {
+    list = applyOverrides(STORIES[locale] as unknown as Record<string, HeroStory>, readOverrides(overridesFolder(locale)));
+    storiesByLocale.set(locale, list);
+  }
+  return list;
 }
 
 /**
