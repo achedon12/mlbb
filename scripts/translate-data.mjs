@@ -21,7 +21,15 @@ import { patchesRebuild } from "./patch-translation.mjs";
 import { existsSync } from "node:fs";
 import { argsWithoutLocale, targetLocales } from "./locales.mjs";
 import { applyGlossary, nameRules, restoreNames } from "./translation-glossary.mjs";
-import { forgetLost, namesPattern, shieldWith } from "./translation-shield.mjs";
+import {
+  combineShields,
+  forgetLost,
+  forgetLostLabels,
+  namesPattern,
+  restoreListLabel,
+  shieldLabels,
+  shieldWith,
+} from "./translation-shield.mjs";
 
 const CACHE = "scripts/translations-data.json";
 
@@ -150,10 +158,15 @@ const trNames = (sl, tl, names) => {
   return (x) => (x ? (HERO_SET.has(String(x).trim()) ? x : restoreNames(t(x), x, names)) : x);
 };
 
-/** Same, with the target language's game vocabulary (`translation-glossary.mjs`) applied. */
+/**
+ * Same, corrected after the cache: the source's list label put back ("un."
+ * for "a."), then the target language's game vocabulary
+ * (`translation-glossary.mjs`) applied. A translation cached before a rule
+ * existed comes out corrected, with no new request.
+ */
 const trGame = (sl, tl, names) => {
   const t = trNames(sl, tl, names);
-  return (x) => (x ? applyGlossary(t(x), tl, "data") : x);
+  return (x) => (x ? applyGlossary(restoreListLabel(t(x), x), tl, "data") : x);
 };
 
 /** Texts to translate for a dataset: those its rebuild asks for, in order. */
@@ -310,6 +323,12 @@ const TERMS_RE = namesPattern(GAME_TERMS);
 const GAME_RE = namesPattern([...HERO_NAMES, ...GAME_TERMS]);
 const shieldGame = shieldWith(GAME_RE);
 /**
+ * Patch notes also number their headings and lists ("a. Rare Skins"), a
+ * letter the service read as a word ("un. Peaux rares"): the label travels
+ * behind a marker too.
+ */
+const shieldPatches = combineShields(shieldGame, shieldLabels);
+/**
  * Names whose loss sends a cached game text back to the service. A Latin
  * alphabet that lost a hero name translated it ("Joie" for Joy); Russian and
  * Thai write the names in their own alphabet, which `restoreNames` undoes, so
@@ -409,10 +428,12 @@ const GAMES = {
   analyses: { source: "fr", load: loadAnalyses, texts: collect(analysesRebuild), rebuild: analysesRebuild },
   // Patch notes list heroes by name, and the service turned Chip into "Puce",
   // Joy into "Joie" and Lukas into "Lucas": every protected name counts.
+  // `labels`: a cached translation that lost its list label goes back too.
   patches: {
     source: "en",
-    shield: shieldGame,
+    shield: shieldPatches,
     forget: GAME_RE,
+    labels: true,
     file: "src/data/game/patches.json",
     extract: (d) => d.details,
     texts: collect(patchesRebuild),
@@ -451,6 +472,10 @@ for (const [name, cfg] of Object.entries(GAMES)) {
     const shield = cfg.shield ? { shield: cfg.shield } : {};
     const forget = typeof cfg.forget === "function" ? cfg.forget(tl) : cfg.forget;
     if (forget) forgetLostNames(all, cfg.source, tl, forget);
+    if (cfg.labels) {
+      const dropped = forgetLostLabels(cache, all, cfg.source, tl).length;
+      if (dropped) console.log(`    ${tl}: ${dropped} translations had lost a list label, translated again`);
+    }
     await prepare(all, cfg.source, tl, shield);
     const t = tr(cfg.source, tl);
     // Second pass: an HTML block whose translation lost its tags
