@@ -3,11 +3,16 @@ import { WikiCredit } from "@/components/wiki-credit";
 import { MonthContent, SourceList, heroName, monthLabel, monthSummary, monthText } from "@/components/event-month";
 import { FreshnessLine } from "@/components/freshness";
 import Link from "@/components/link";
-import { PageHeader } from "@/components/ui";
+import { eventArt } from "@/components/events/event-feature";
+import { MonthNav } from "@/components/events/month-nav";
+import { heroArt } from "@/components/hero-art";
+import { ENTRANCE, PosterHeader } from "@/components/poster-header";
+import { Score } from "@/components/ui";
 import type { Locale } from "@/i18n/config";
 import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
 import { linkSkin } from "@/lib/skin-catalog";
+import { LOCALE_INTL } from "@/i18n/config";
 import { calendarYears, dataListSkins } from "@/lib/skin-catalog-server";
 import { sync } from "@/lib/data";
 import { OTHER_MODES, monthStatus, neighbours } from "@/lib/events";
@@ -63,7 +68,15 @@ export default async function EventMonthPage({ params }: Params) {
   const title = t("pages.events.month.title", { month: monthText(locale, m.month) });
   const summary = monthSummary(t, locale, m);
   const link = "font-semibold text-gold-400 transition-colors hover:text-gold-500";
+  const monthArt = (key: string) => {
+    const x = monthByKey(key);
+    return x ? ([...x.starlight, ...x.collector].map(eventArt).find(Boolean) ?? null) : null;
+  };
   const skins = [...m.starlight, ...m.collector, ...OTHER_MODES.flatMap((k) => m.others[k])];
+  // The poster: the month's StarLight skin, else its first headline skin with an artwork.
+  const headline = [...m.starlight, ...m.collector, ...skins];
+  const art = headline.map(eventArt).find(Boolean) ?? (headline[0] ? heroArt(headline[0].hero) : null);
+  const numbers = new Intl.NumberFormat(LOCALE_INTL[locale]);
 
   const structuredData = dataListSkins(locale, {
     name: title,
@@ -78,7 +91,7 @@ export default async function EventMonthPage({ params }: Params) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
-      <PageHeader
+      <PosterHeader
         title={title}
         lead={summary.join(" ")}
         crumbs={[
@@ -91,16 +104,20 @@ export default async function EventMonthPage({ params }: Params) {
               .map((k) => ({ name: monthLabel(locale, k), href: `/events/${k}` })),
           },
         ]}
-      >
-        {status !== "past" && (
-          <p className="mt-4">
-            <span className="bevel-sm inline-block bg-gold-500 px-2 py-0.5 text-xs font-semibold text-night-950">
-              {t(`pages.events.status.${status}`)}
+        art={art}
+        tall
+        kicker={status !== "past" ? t(`pages.events.status.${status}`) : undefined}
+        aside={
+          <p className="flex items-end gap-3 lg:flex-col lg:items-end lg:gap-1">
+            <Score value={numbers.format(m.total)} className="text-[clamp(4.5rem,2.6rem+5vw,8rem)]" />
+            <span className="pb-2 text-sm text-chalk-300 lg:pb-0">
+              {t(m.total === 1 ? "pages.skinsCalendar.nSkins1" : "pages.skinsCalendar.nSkins", { n: numbers.format(m.total) })}
             </span>
           </p>
-        )}
+        }
+      >
         <FreshnessLine locale={locale} className="mt-4" />
-      </PageHeader>
+      </PosterHeader>
 
       <div className="page-wrap space-y-14 py-12">
         {status === "announced" && (
@@ -110,30 +127,16 @@ export default async function EventMonthPage({ params }: Params) {
           </div>
         )}
 
-        <MonthContent month={m} t={t} locale={locale} variant="page" />
+        <div className={ENTRANCE}>
+          <MonthContent month={m} t={t} locale={locale} variant="page" />
+        </div>
 
-        <nav
-          aria-label={t("pages.events.month.navMonths")}
-          className="flex flex-wrap items-center justify-between gap-3 border-t border-night-800 pt-6 text-sm"
-        >
-          {previous ? (
-            <Link href={`/events/${previous}`} rel="prev" className={link}>
-              ← {monthLabel(locale, previous)}
-            </Link>
-          ) : (
-            <span />
-          )}
-          <Link href="/events" className="text-chalk-300 transition-colors hover:text-gold-400">
-            {t("pages.events.month.allMonths")}
-          </Link>
-          {next ? (
-            <Link href={`/events/${next}`} rel="next" className={link}>
-              {monthLabel(locale, next)} →
-            </Link>
-          ) : (
-            <span />
-          )}
-        </nav>
+        <MonthNav
+          label={t("pages.events.month.navMonths")}
+          all={t("pages.events.month.allMonths")}
+          previous={previous ? { href: `/events/${previous}`, name: monthLabel(locale, previous), art: monthArt(previous) } : null}
+          next={next ? { href: `/events/${next}`, name: monthLabel(locale, next), art: monthArt(next) } : null}
+        />
 
         <section className="space-y-3">
           <SourceList sources={sourcesForMonth(m.month)} t={t} locale={locale} />

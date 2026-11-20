@@ -8,7 +8,11 @@ import { FreshnessLine } from "@/components/freshness";
 import Link from "@/components/link";
 import { Pager } from "@/components/pager";
 import { Foldable } from "@/components/foldable";
-import { PageHeader, SectionTitle } from "@/components/ui";
+import { Score, SectionTitle } from "@/components/ui";
+import { heroArt, skinArt } from "@/components/hero-art";
+import { DexSays } from "@/components/mascot";
+import { ENTRANCE, PosterHeader } from "@/components/poster-header";
+import { RarityGem, SkinArtTile } from "@/components/skins/skin-tile";
 import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { metaPage, metaPaged } from "@/i18n/seo";
@@ -46,6 +50,8 @@ export const SERIES_LISTED = 24;
 export const pagesCalendar = () => pageCount(SERIES_LISTED, SERIES_BY_PAGE);
 
 const PATH = "/skins/calendar";
+/** Up to this many skins, the month's own are shown as full artworks. */
+const MONTH_POSTERS = 3;
 
 function description(locale: Locale): string {
   const t = createT(locale);
@@ -104,6 +110,21 @@ export function SkinsCalendar({ locale, page = 1 }: { locale: Locale; page?: num
   const viewSeries = paging(seriesListed.length, page, SERIES_BY_PAGE);
   const seriesPage = slicePage(seriesListed, viewSeries.page, SERIES_BY_PAGE);
   const lastMonth = recent[0]?.release?.slice(0, 7) ?? null;
+  // The poster: the latest artworks as slanted panels.
+  const poster = recent.flatMap((s) => skinArt(s.hero, s.name) ?? []).slice(0, 5);
+  // Each series shows the artwork of its most recent skin that has one.
+  const seriesArt = new Map<string, string>();
+  for (const s of newest(released, released.length)) {
+    if (!s.series || seriesArt.has(s.series)) continue;
+    const art = skinArt(s.hero, s.name);
+    if (art) seriesArt.set(s.series, art);
+  }
+  // A series none of whose skins has its own artwork shows its hero's.
+  for (const s of released) {
+    if (!s.series || seriesArt.has(s.series)) continue;
+    const art = heroArt(s.hero);
+    if (art) seriesArt.set(s.series, art);
+  }
 
   // Excluded, and counted to say so: announced skins, or dates after the measurement.
   const others = catalogSkins().skins.filter((s) => !isOrigin(s) && !released.includes(s));
@@ -136,8 +157,10 @@ export function SkinsCalendar({ locale, page = 1 }: { locale: Locale; page?: num
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
-      <PageHeader
+      <PosterHeader
         title={t("pages.skinsCalendar.title")}
+        art={poster}
+        tall
         lead={t("pages.skinsCalendar.lead", {
           n: count.format(released.length),
           start: years.at(-1) ?? "",
@@ -146,25 +169,55 @@ export function SkinsCalendar({ locale, page = 1 }: { locale: Locale; page?: num
         crumbs={[{ name: t("pages.skinsCalendar.crumbSkins"), href: "/skins" }, { name: t("pages.skinsCalendar.crumb") }]}
       >
         <FreshnessLine locale={locale} className="mt-4" />
-      </PageHeader>
+      </PosterHeader>
 
       {/* Section anchors before they were named in English, still found in shared links. */}
       <OpenAnchor aliases={{ "ce-mois": "this-month", derniers: "latest", explorateur: "explorer" }} />
-      <div className="page-wrap space-y-8 pb-10 pt-5 sm:space-y-16">
-        <section id="this-month" className="scroll-mt-24">
+      <div className="page-wrap space-y-12 pb-10 pt-8 sm:space-y-20 sm:pt-12">
+        <section id="this-month" className={`scroll-mt-24 ${ENTRANCE}`}>
           <SectionTitle>{t("pages.skinsCalendar.thisMonthTitle", { month: monthYear(locale, dateReference) })}</SectionTitle>
-          {ceMonth.length > 0 ? (
+          {ceMonth.length > 0 && ceMonth.length <= MONTH_POSTERS ? (
+            // A short month gets its artworks in full, not a row of thumbnails.
+            <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {ceMonth.map((s) => {
+                const art = skinArt(s.hero, s.name);
+                const card = propsCardSkin(s, heroes.get(s.hero)?.name ?? s.hero, t, localeHtml, count);
+                return (
+                  <li key={s.id} className={ceMonth.length === 1 ? "sm:col-span-2" : undefined}>
+                    <SkinArtTile
+                      href={card.href}
+                      art={art ?? s.image}
+                      position={art ? "50% 25%" : "50% 15%"}
+                      name={s.name}
+                      color={card.color}
+                      priority
+                      kicker={
+                        <>
+                          <RarityGem color={card.color} />
+                          {card.hero} · {card.rarity}
+                        </>
+                      }
+                    >
+                      {card.details.length > 0 && <span className="mt-1 block truncate text-xs text-chalk-300">{card.details.join(" · ")}</span>}
+                    </SkinArtTile>
+                  </li>
+                );
+              })}
+            </ul>
+          ) : ceMonth.length > 0 ? (
             grid(ceMonth)
           ) : (
-            <p className="max-w-2xl leading-relaxed text-chalk-300">
-              {t("pages.skinsCalendar.thisMonthEmpty", {
-                month: monthYear(locale, dateReference),
-                latest: lastMonth ? monthYear(locale, `${lastMonth}-01`) : "—",
-              })}{" "}
-              <a href="#latest" className="font-semibold text-gold-400 hover:text-gold-500">
-                {t("pages.skinsCalendar.seeLatest")}
-              </a>
-            </p>
+            <DexSays pose="surpris" height={110}>
+              <p className="leading-relaxed text-chalk-200">
+                {t("pages.skinsCalendar.thisMonthEmpty", {
+                  month: monthYear(locale, dateReference),
+                  latest: lastMonth ? monthYear(locale, `${lastMonth}-01`) : "—",
+                })}{" "}
+                <a href="#latest" className="font-semibold text-gold-400 hover:text-gold-500">
+                  {t("pages.skinsCalendar.seeLatest")}
+                </a>
+              </p>
+            </DexSays>
           )}
         </section>
 
@@ -237,12 +290,12 @@ export function SkinsCalendar({ locale, page = 1 }: { locale: Locale; page?: num
                                     href={`${PATH}/${a.year}#m-${String(i + 1).padStart(2, "0")}`}
                                     aria-label={label}
                                     title={label}
-                                    className={cn("block py-1.5 tabular-nums hover:outline hover:outline-gold-400 sm:min-w-6", tint(n, maxMonth))}
+                                    className={cn("bevel-sm block py-1.5 tabular-nums transition-[background-color,color] hover:bg-gold-300 hover:text-night-950 sm:min-w-6", tint(n, maxMonth))}
                                   >
                                     {n}
                                   </Link>
                                 ) : (
-                                  <span className={cn("block py-1.5 sm:min-w-6", tint(0, maxMonth))} aria-label={label} />
+                                  <span className={cn("bevel-sm block py-1.5 sm:min-w-6", tint(0, maxMonth))} aria-label={label} />
                                 )}
                               </td>
                             );
@@ -261,28 +314,30 @@ export function SkinsCalendar({ locale, page = 1 }: { locale: Locale; page?: num
 
         <section id="series" className="scroll-mt-24">
           <SectionTitle lead={t("pages.skinsCalendar.seriesLead")}>{t("pages.skinsCalendar.seriesTitle")}</SectionTitle>
-          <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-4">
             {seriesPage.map((s) => {
               const start = readRelease(s.first)?.year;
               const end = readRelease(s.last)?.year;
               return (
-                <li
-                  key={s.series}
-                  className="bevel-sm flex items-baseline justify-between gap-3 border border-night-700/60 bg-night-900/40 px-3 py-2"
-                >
+                <li key={s.series}>
                   {/* Plain link: the explorer reads its filters from the address on load. */}
-                  <a
+                  <SkinArtTile
+                    plain
                     href={`?serie=${encodeURIComponent(s.series)}#explorer`}
-                    className="truncate font-semibold text-chalk-100 hover:text-gold-400"
+                    art={seriesArt.get(s.series) ?? null}
+                    name={seriesLabel(t, s.series)}
+                    aspect="aspect-[4/3] sm:aspect-[16/8]"
+                    nameClassName="text-[clamp(1.3rem,0.9rem+1.4vw,2.25rem)]"
+                    sizes="(min-width: 1024px) 24vw, 48vw"
+                    figure={<Score value={count.format(s.total)} className="text-[1.9rem] sm:text-[2.6rem]" />}
                   >
-                    {seriesLabel(t, s.series)}
-                  </a>
-                  <span className="shrink-0 text-xs tabular-nums text-chalk-500">
-                    {t("pages.skinsCalendar.seriesDetail", {
-                      n: nSkins(s.total),
-                      period: start && end && start !== end ? `${start}–${end}` : String(start ?? end ?? "—"),
-                    })}
-                  </span>
+                    <span className="mt-1 block text-xs tabular-nums text-chalk-300">
+                      {t("pages.skinsCalendar.seriesDetail", {
+                        n: nSkins(s.total),
+                        period: start && end && start !== end ? `${start}–${end}` : String(start ?? end ?? "—"),
+                      })}
+                    </span>
+                  </SkinArtTile>
                 </li>
               );
             })}

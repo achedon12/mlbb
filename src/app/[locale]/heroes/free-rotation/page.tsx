@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { CalendarClock } from "lucide-react";
+import Image from "next/image";
 import Link from "@/components/link";
-import { HeroPortrait } from "@/components/hero-portrait";
-import { Card, PageHeader, SectionTitle } from "@/components/ui";
+import { heroArt } from "@/components/hero-art";
+import { Dex } from "@/components/mascot";
+import { ArtTile, ENTRANCE, PosterHeader } from "@/components/poster-header";
+import { Score, SectionTitle } from "@/components/ui";
 import type { Locale } from "@/i18n/config";
 import { heroListData, metaPage } from "@/i18n/seo";
 import { createT, type T } from "@/i18n/translations";
@@ -11,6 +13,8 @@ import { STALE_DAYS, type FreeRotation } from "@/lib/free-rotation";
 import { currentFreeRotation, PATH_FREE_ROTATION } from "@/lib/free-rotation-server";
 import { longDate } from "@/lib/freshness";
 import { serializeJsonLd } from "@/lib/html";
+import { rankingFull } from "@/lib/tier-list";
+import { cn } from "@/lib/utils";
 
 type Params = { params: Promise<{ locale: Locale }> };
 
@@ -41,6 +45,10 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
  * The week's free heroes, from the editorial file. A missing or stale list
  * is said in words — when it was last filled, and where the game shows it —
  * rather than showing an old week as if it were this one.
+ *
+ * The week's heroes stand as a row of posters, their official artwork
+ * cropped tall; without a list, Dex says why, over a poster of the patch's
+ * strongest heroes.
  */
 export default async function FreeRotationPage({ params }: Params) {
   const { locale } = await params;
@@ -68,41 +76,57 @@ export default async function FreeRotationPage({ params }: Params) {
         ]
       : [];
 
+  // The poster: the week's heroes, or, without a list, the patch's strongest.
+  const poster = (heroes.length > 0 ? heroes.map((h) => h.slug) : rankingFull.slice(0, 5).map((e) => e.hero.slug))
+    .slice(0, 5)
+    .map(heroArt);
+
   return (
     <>
       {structuredData && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
       )}
-      <PageHeader
+      <PosterHeader
         title={title}
         lead={t("pages.freeRotation.lead")}
         crumbs={[{ name: t("pages.heroes.title"), href: "/heroes" }, { name: title }]}
         meta={facts}
+        art={poster}
+        aside={
+          heroes.length > 0 && (
+            <p className="hidden text-right lg:block">
+              <Score value={heroes.length} className="text-[clamp(5rem,3rem+5vw,8.5rem)]" />
+              <span className="sr-only"> {t("pages.freeRotation.teaser", { n: heroes.length })}</span>
+            </p>
+          )
+        }
       />
 
-      <div className="page-wrap space-y-8 pb-10 pt-6 sm:space-y-14">
+      <div className="page-wrap space-y-12 pb-14 pt-8 sm:space-y-16">
         {rotation.state === "current" ? (
           <section aria-labelledby="rotation-title">
             <SectionTitle id="rotation-title" lead={t("pages.freeRotation.listLead", { n: heroes.length })}>
               {t("pages.freeRotation.listTitle")}
             </SectionTitle>
-            <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-              {heroes.map((h) => (
+            {/* A row of posters: the artwork cropped tall, the name over its foot. */}
+            <ul className={cn("grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5", ENTRANCE)}>
+              {heroes.map((h, i) => (
                 <li key={h.slug}>
-                  <Link
+                  <ArtTile
                     href={`/heroes/${h.slug}`}
-                    className="bevel group flex items-center gap-3 border border-night-700/70 bg-night-900/60 p-3 transition-colors hover:border-gold-500/60"
-                  >
-                    <HeroPortrait source={h.images.icon ?? h.images.portrait} name={h.name} size="icon" decorative />
-                    <span className="min-w-0">
-                      <span className="block truncate font-heading font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
-                        {h.name}
-                      </span>
-                      <span className="block truncate text-xs text-chalk-500">
-                        {h.roles.map((r) => t(`roles.${r}`)).join(" · ")}
-                      </span>
-                    </span>
-                  </Link>
+                    art={heroArt(h.slug)}
+                    name={h.name}
+                    heading="h3"
+                    kicker={h.roles.map((r) => t(`roles.${r}`)).join(" · ")}
+                    aspect="aspect-[3/4.4]"
+                    position={i % 2 ? "60% 20%" : "42% 20%"}
+                    sizes="(min-width: 1280px) 16vw, (min-width: 640px) 30vw, 46vw"
+                    fallback={
+                      h.images.portrait && (
+                        <Image src={h.images.portrait} alt="" fill sizes="(min-width: 640px) 16vw, 46vw" className="object-cover object-top" />
+                      )
+                    }
+                  />
                 </li>
               ))}
             </ul>
@@ -115,37 +139,53 @@ export default async function FreeRotationPage({ params }: Params) {
             )}
           </section>
         ) : (
-          <Card role="status" className="max-w-3xl">
-            <p className="flex items-start gap-2 font-heading text-lg font-bold text-chalk-100">
-              <CalendarClock size={18} aria-hidden className="mt-1 shrink-0 text-gold-400" />
-              {t("pages.freeRotation.unavailableTitle")}
-            </p>
-            <p className="mt-2 text-sm leading-relaxed text-chalk-300">
-              {rotation.state === "stale"
-                ? t("pages.freeRotation.stale", { date: longDate(locale, rotation.weekStart), days: STALE_DAYS })
-                : t("pages.freeRotation.empty")}
-            </p>
-            <p className="mt-2 text-sm leading-relaxed text-chalk-300">{t("pages.freeRotation.inGame")}</p>
-          </Card>
+          <div role="status" className={cn("dex-says max-w-3xl", ENTRANCE)}>
+            <Dex pose="surpris" height={150} />
+            <div className="dex-bubble">
+              <p className="font-heading text-xl font-bold text-chalk-100">{t("pages.freeRotation.unavailableTitle")}</p>
+              <p className="mt-2 text-sm leading-relaxed text-chalk-300">
+                {rotation.state === "stale"
+                  ? t("pages.freeRotation.stale", { date: longDate(locale, rotation.weekStart), days: STALE_DAYS })
+                  : t("pages.freeRotation.empty")}
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-chalk-300">{t("pages.freeRotation.inGame")}</p>
+            </div>
+          </div>
         )}
 
-        <section aria-labelledby="rotation-how" className="max-w-3xl">
-          <SectionTitle id="rotation-how">{t("pages.freeRotation.howTitle")}</SectionTitle>
-          <div className="space-y-3 leading-relaxed text-chalk-300">
-            <p>{t("pages.freeRotation.how1")}</p>
-            <p>{t("pages.freeRotation.how2")}</p>
+        <div aria-hidden className="eclat-rule" />
+
+        <section aria-labelledby="rotation-how" className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)] lg:items-start lg:gap-14">
+          <div className="max-w-3xl">
+            <SectionTitle id="rotation-how">{t("pages.freeRotation.howTitle")}</SectionTitle>
+            <div className="space-y-3 leading-relaxed text-chalk-300">
+              <p>{t("pages.freeRotation.how1")}</p>
+              <p>{t("pages.freeRotation.how2")}</p>
+            </div>
           </div>
-          <p className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-            <Link href="/heroes" className="font-semibold text-gold-400 transition-colors hover:text-gold-500">
-              {t("pages.freeRotation.heroesLink")} →
-            </Link>
-            <Link href="/tier-list" className="font-semibold text-gold-400 transition-colors hover:text-gold-500">
-              {t("pages.freeRotation.tierListLink")} →
-            </Link>
-            <Link href="/tools/server-time" className="font-semibold text-gold-400 transition-colors hover:text-gold-500">
-              {t("pages.freeRotation.resetLink")} →
-            </Link>
-          </p>
+          {/* Where to go from here: three doors, the first one the catalogue. */}
+          <ul className="grid gap-2">
+            {[
+              { href: "/heroes", label: t("pages.freeRotation.heroesLink") },
+              { href: "/tier-list", label: t("pages.freeRotation.tierListLink") },
+              { href: "/tools/server-time", label: t("pages.freeRotation.resetLink") },
+            ].map((l, i) => (
+              <li key={l.href}>
+                <Link
+                  href={l.href}
+                  className={cn(
+                    "card-link eclat-under group flex items-center justify-between gap-3 px-5 py-4 font-heading text-lg font-bold uppercase",
+                    i === 0 ? "text-gold-400" : "text-chalk-100",
+                  )}
+                >
+                  {l.label}
+                  <span aria-hidden className="text-gold-400 transition-transform group-hover:translate-x-1">
+                    →
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </section>
       </div>
     </>

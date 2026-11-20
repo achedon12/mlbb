@@ -5,7 +5,11 @@ import { HeroSubLayout } from "@/components/hero-side-card";
 import { FreshnessLine } from "@/components/freshness";
 import { CardsTable } from "@/components/cards-table";
 import { HeroPortrait } from "@/components/hero-portrait";
-import { Card, PageHeader } from "@/components/ui";
+import { Card } from "@/components/ui";
+import { HeroTileRow } from "@/components/compare/hero-tile-row";
+import { heroArt } from "@/components/hero-art";
+import { DexSays } from "@/components/mascot";
+import { ENTRANCE, PosterHeader } from "@/components/poster-header";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT, type T } from "@/i18n/translations";
@@ -112,6 +116,9 @@ export default async function DuosPage({ params }: Params) {
   const t = createT(locale);
   const n = names(h.name);
   const gap = (v: number) => formatGap(locale, t, v);
+  const signed = new Intl.NumberFormat(locale, { signDisplay: "exceptZero", minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  const tiles = (rows: AggregatedCounter[], tone: "ally" | "enemy") =>
+    rows.map((c) => ({ slug: c.slug, figure: signed.format(c.average), label: `${nameOf(c.slug)} : ${gap(c.average)}`, tone }));
 
   const byRank = duosOf(slug);
   const { rank: rankMain, sentence } = summary(locale, h);
@@ -197,14 +204,13 @@ export default async function DuosPage({ params }: Params) {
     ],
   };
 
-  const chip =
-    "bevel-sm inline-block border border-night-700 px-3 py-1.5 font-medium text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400";
-
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
 
-      <PageHeader
+      <PosterHeader
+        art={heroArt(slug)}
+        kicker={h.title}
         title={title}
         lead={sentence}
         crumbs={[
@@ -219,46 +225,59 @@ export default async function DuosPage({ params }: Params) {
         ]}
       >
         <FreshnessLine locale={locale} before={t("pages.duos.window", { n: DAYS_DUOS })} className="mt-4" />
-        <ul className="mt-5 flex flex-wrap gap-2 text-sm">
+        <ul className="mt-5 flex flex-wrap gap-2">
           {links.map((l) => (
             <li key={l.href}>
-              <Link href={l.href} className={chip}>
+              <Link href={l.href} className="btn btn-secondary btn-sm">
                 {l.label}
               </Link>
             </li>
           ))}
         </ul>
-      </PageHeader>
+      </PosterHeader>
 
       <HeroSubLayout slug={slug} locale={locale} current={`/heroes/${slug}/duos`} className="space-y-6 pb-8 pt-5 sm:space-y-14">
-        {/* ── Summary, all ranks combined ───────────────────────────── */}
-        {(best.length > 0 || worst.length > 0) && (
-          <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
+        {/* ── Summary, all ranks combined: portraits first, the table beside ── */}
+        {!(best.length === 0 && worst.length === 0) && (
+          <div className={cn("space-y-12 sm:space-y-16", ENTRANCE)}>
             {best.length > 0 && (
               <section aria-labelledby="best" className="min-w-0">
-                <h2 id="best" className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
+                <h2 id="best" className="type-section text-chalk-100">
                   {t("pages.duos.best", n)}
                 </h2>
-                <p className="mt-2 mb-4 text-sm leading-relaxed text-chalk-500">{t("pages.duos.bestIntro", n)}</p>
-                <AggregatedTable t={t} rows={best} tone="good" total={bucketsMeasured} slug={slug} gap={gap} />
+                <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
+                <p className="mb-5 mt-3 max-w-3xl text-sm leading-snug text-chalk-400 sm:text-base sm:leading-relaxed">{t("pages.duos.bestIntro", n)}</p>
+                <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start lg:gap-8">
+                  <HeroTileRow items={tiles(best, "ally")} />
+                  <AggregatedTable t={t} rows={best} tone="good" total={bucketsMeasured} slug={slug} gap={gap} />
+                </div>
               </section>
             )}
             {worst.length > 0 && (
               <section aria-labelledby="worst" className="min-w-0">
-                <h2 id="worst" className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
+                <h2 id="worst" className="type-section text-chalk-100">
                   {t("pages.duos.worst", n)}
                 </h2>
-                <p className="mt-2 mb-4 text-sm leading-relaxed text-chalk-500">{t("pages.duos.worstIntro", n)}</p>
-                <AggregatedTable t={t} rows={worst} tone="bad" total={bucketsMeasured} slug={slug} gap={gap} />
+                <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
+                <p className="mb-5 mt-3 max-w-3xl text-sm leading-snug text-chalk-400 sm:text-base sm:leading-relaxed">{t("pages.duos.worstIntro", n)}</p>
+                <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start lg:gap-8">
+                  <HeroTileRow items={tiles(worst, "enemy")} />
+                  <AggregatedTable t={t} rows={worst} tone="bad" total={bucketsMeasured} slug={slug} gap={gap} />
+                </div>
               </section>
             )}
           </div>
+        )}
+        {best.length === 0 && worst.length === 0 && (
+          <DexSays pose="surpris" className={ENTRANCE}>
+            <p className="leading-relaxed">{sentence}</p>
+          </DexSays>
         )}
 
         {/* ── By game length ───────────────────────────────────────── */}
         {rankMain && byPhase.length > 0 && (
           <section aria-labelledby="phases">
-            <h2 id="phases" className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
+            <h2 id="phases" className="type-section text-chalk-100">
               {t("pages.duos.phases.title", n)}
             </h2>
             <p className="mt-2 max-w-3xl text-sm leading-relaxed text-chalk-500">
@@ -283,7 +302,7 @@ export default async function DuosPage({ params }: Params) {
                       {p.gain !== null && (
                         <>
                           {" · "}
-                          <span className={cn("font-semibold tabular-nums", p.gain >= 0 ? "text-emerald-400" : "text-blood-500")}>
+                          <span className={cn("font-semibold tabular-nums", p.gain >= 0 ? "text-azure-400" : "text-blood-400")}>
                             {t("pages.duos.phases.gainAlone", { gap: gap(p.gain), name: h.name })}
                           </span>
                         </>
@@ -302,7 +321,7 @@ export default async function DuosPage({ params }: Params) {
         {/* ── Rank by rank ─────────────────────────────────────────── */}
         {ranks.length > 0 && (
           <section aria-labelledby="by-rank">
-            <h2 id="by-rank" className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
+            <h2 id="by-rank" className="type-section text-chalk-100">
               {t("pages.duos.byRank")}
             </h2>
             <p className="mt-2 max-w-3xl text-sm leading-relaxed text-chalk-500">{t("pages.duos.byRankIntro", n)}</p>
@@ -314,7 +333,7 @@ export default async function DuosPage({ params }: Params) {
                   <details
                     key={r}
                     id={`rank-${r}`}
-                    className="bevel group scroll-mt-24 border border-night-700/70 bg-night-900/60"
+                    className="bevel group scroll-mt-24 bg-night-900"
                   >
                     <summary className="flex cursor-pointer list-none flex-wrap items-center gap-x-3 gap-y-1 p-4 [&::-webkit-details-marker]:hidden">
                       <ChevronDown
@@ -322,7 +341,7 @@ export default async function DuosPage({ params }: Params) {
                         aria-hidden
                         className="shrink-0 text-chalk-500 transition-transform group-open:rotate-180"
                       />
-                      <h3 className="font-heading text-lg font-bold text-chalk-100">{t(`measuredRanks.${r}`)}</h3>
+                      <h3 className="display-caps text-2xl text-chalk-100 group-open:text-gold-400">{t(`measuredRanks.${r}`)}</h3>
                       {(d.winRate ?? s?.winRate) != null && (
                         <span className="text-sm text-chalk-500">
                           {t("pages.duos.rateAlone", { rate: percentage(locale, d.winRate ?? s!.winRate) })}
@@ -331,7 +350,7 @@ export default async function DuosPage({ params }: Params) {
                     </summary>
                     <div className="grid gap-6 border-t border-night-800 p-4 md:grid-cols-[3fr_2fr]">
                       <div className="min-w-0">
-                        <h4 className="flex items-center gap-2 font-heading font-bold text-emerald-400">
+                        <h4 className="flex items-center gap-2 font-heading font-bold text-azure-400">
                           <Users size={16} aria-hidden />
                           {t("pages.duos.bestShort")}
                         </h4>
@@ -348,7 +367,7 @@ export default async function DuosPage({ params }: Params) {
                       </div>
                       {known(d.worst).length > 0 && (
                         <div className="min-w-0">
-                          <h4 className="flex items-center gap-2 font-heading font-bold text-blood-500">
+                          <h4 className="flex items-center gap-2 font-heading font-bold text-blood-400">
                             <ThumbsDown size={16} aria-hidden />
                             {t("pages.duos.worstShort")}
                           </h4>
@@ -367,7 +386,7 @@ export default async function DuosPage({ params }: Params) {
         {/* ── Fallback: academy teammates ──────────────────────────── */}
         {academy.length > 0 && (
           <section aria-labelledby="academy">
-            <h2 id="academy" className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
+            <h2 id="academy" className="type-section text-chalk-100">
               {t("pages.duos.academy.title", n)}
             </h2>
             <p className="mt-2 max-w-3xl text-sm leading-relaxed text-chalk-500">{t("pages.duos.academy.intro", n)}</p>
@@ -383,13 +402,15 @@ export default async function DuosPage({ params }: Params) {
         )}
 
         {ranks.length === 0 && academy.length === 0 && (
-          <p className="text-sm text-chalk-400">{t("pages.duos.noMeasure", n)}</p>
+          <DexSays pose="reflexion">
+            <p className="text-sm leading-relaxed">{t("pages.duos.noMeasure", n)}</p>
+          </DexSays>
         )}
 
         {/* ── Other duos pages, same lane ──────────────────────────── */}
         {neighbours.length > 0 && laneMain && (
           <section aria-labelledby="others">
-            <h2 id="others" className="font-heading text-xl font-bold text-chalk-100">
+            <h2 id="others" className="type-subtitle text-chalk-100">
               {t("pages.duos.others", { lane: t(`lanes.${laneMain}`) })}
             </h2>
             <ul className="mt-4 flex flex-wrap gap-2 text-sm">
@@ -397,7 +418,7 @@ export default async function DuosPage({ params }: Params) {
                 <li key={x.slug}>
                   <Link
                     href={`/heroes/${x.slug}/duos`}
-                    className="bevel-sm inline-block border border-night-700 px-2.5 py-1 text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400"
+                    className="btn btn-secondary btn-sm"
                   >
                     {t("pages.duos.title", names(x.name))}
                   </Link>
@@ -435,7 +456,7 @@ function AggregatedTable({
     // The four columns were put in a sideways scroller and overflowed a
     // 390 px screen; they fit as a table once the cells stop reserving a
     // minimum width, and a partner still reads on one line.
-    <div className="bevel border border-night-700/70 bg-night-900/60 p-3">
+    <div className="bevel bg-night-900 p-3">
       <CardsTable
         t={t}
         cards={false}
@@ -459,7 +480,7 @@ function AggregatedTable({
             key: "gain",
             label: t("pages.duos.colGain"),
             cell: (c) => (
-              <span className={cn("font-semibold", tone === "good" ? "text-emerald-400" : "text-blood-500")}>
+              <span className={cn("font-semibold", tone === "good" ? "text-azure-400" : "text-blood-400")}>
                 {gap(c.average)}
               </span>
             ),
@@ -528,7 +549,7 @@ function TablePhases({
   const cell = (p: PhaseDuo | undefined) => {
     if (!p) return "—";
     if (p.gain === null) return percentage(locale, p.win);
-    return <span className={p.gain >= 0 ? "text-emerald-400" : "text-blood-500"}>{gap(p.gain)}</span>;
+    return <span className={p.gain >= 0 ? "text-azure-400" : "text-blood-400"}>{gap(p.gain)}</span>;
   };
   return (
     <table
@@ -562,7 +583,7 @@ function TablePhases({
                 <span className="truncate">{nameOf(d.slug)}</span>
               </Link>
             </td>
-            {compact && <td className="font-semibold text-emerald-400">{gap(d.advantage)}</td>}
+            {compact && <td className="font-semibold text-azure-400">{gap(d.advantage)}</td>}
             {PHASES.map((p) => (
               <td key={p}>{cell(phases.get(p))}</td>
             ))}
@@ -592,7 +613,7 @@ function ListGaps({ t, rows, gap }: { t: T; rows: { slug: string; advantage: num
                 {nameOf(e.slug)}
               </Link>
             </td>
-            <td className={cn("font-semibold", e.advantage >= 0 ? "text-emerald-400" : "text-blood-500")}>{gap(e.advantage)}</td>
+            <td className={cn("font-semibold", e.advantage >= 0 ? "text-azure-400" : "text-blood-400")}>{gap(e.advantage)}</td>
           </tr>
         ))}
       </tbody>
