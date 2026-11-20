@@ -1,0 +1,122 @@
+/*
+ * A guide's text, on top of the site's article styling (`.prose-mlbb`,
+ * globals.css): a guide is an illustrated article, so its section titles
+ * take the display face with the éclat under them, its numbered steps show
+ * their number as an outlined score figure, and its bullets are small gold
+ * blades. Scoped to the guides: news, legal and about pages keep the plain
+ * article styling.
+ */
+
+.body:global(.prose-mlbb) h2 {
+  margin-top: 3rem;
+  padding-bottom: 0;
+  border-bottom: 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(1.9rem, 1.5rem + 1.4vw, 2.6rem);
+  line-height: 0.95;
+  letter-spacing: 0;
+  color: var(--color-chalk-100);
+}
+.body:global(.prose-mlbb) h2::before {
+  content: none;
+}
+.body:global(.prose-mlbb) h2::after {
+  content: "";
+  display: block;
+  width: 4.5rem;
+  height: 3px;
+  margin-top: 0.7rem;
+  background: linear-gradient(90deg, var(--color-gold-600), var(--color-gold-300) 45%, #fff3cf 60%, var(--color-gold-400) 75%, transparent);
+  clip-path: polygon(0.4rem 0, 100% 0, calc(100% - 0.4rem) 100%, 0 100%);
+}
+.body:global(.prose-mlbb) > h2:first-child {
+  margin-top: 0;
+}
+
+.body:global(.prose-mlbb) h3 {
+  margin-top: 2rem;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-gold-300);
+}
+
+.body:global(.prose-mlbb) p,
+.body:global(.prose-mlbb) li {
+  color: var(--color-chalk-200);
+}
+.body:global(.prose-mlbb) strong {
+  color: var(--color-chalk-100);
+  font-weight: 700;
+  background: linear-gradient(transparent 62%, rgb(245 196 81 / 0.22) 62%);
+}
+
+/* Bullets: a small slanted gold blade. */
+.body:global(.prose-mlbb) ul {
+  list-style: none;
+  padding-left: 1.4rem;
+}
+.body:global(.prose-mlbb) ul > li {
+  position: relative;
+}
+.body:global(.prose-mlbb) ul > li::before {
+  content: "";
+  position: absolute;
+  left: -1.2rem;
+  top: 0.72em;
+  width: 0.7rem;
+  height: 3px;
+  background: var(--color-gold-400);
+  clip-path: polygon(2px 0, 100% 0, calc(100% - 2px) 100%, 0 100%);
+}
+
+/* Numbered steps: the number pulled out large, outlined in gold. */
+.body:global(.prose-mlbb) ol {
+  list-style: none;
+  padding-left: 0;
+  counter-reset: step;
+}
+.body:global(.prose-mlbb) ol > li {
+  position: relative;
+  min-height: 2.6rem;
+  padding: 0.55rem 0.9rem 0.6rem 3.6rem;
+  counter-increment: step;
+  background: var(--color-night-900);
+  clip-path: polygon(0 0, calc(100% - 0.6rem) 0, 100% 0.6rem, 100% 100%, 0.6rem 100%, 0 calc(100% - 0.6rem));
+}
+.body:global(.prose-mlbb) ol > li + li {
+  margin-top: 0.5rem;
+}
+.body:global(.prose-mlbb) ol > li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0.85rem;
+  top: 0.35rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 900;
+  font-size: 2.3rem;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--color-gold-400);
+}
+
+.body:global(.prose-mlbb) a {
+  color: var(--color-gold-300);
+  text-decoration-color: rgb(245 196 81 / 0.45);
+}
+.body:global(.prose-mlbb) a:hover {
+  color: var(--color-gold-400);
+  text-decoration-color: currentColor;
+}
+
+/* A table of the guide: night rows, condensed capital headers. */
+.body:global(.prose-mlbb) th {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--color-gold-300);
+}

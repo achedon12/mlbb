@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { serializeJsonLd } from "@/lib/html";
 import { modeBySlug, modesSlugs } from "@/lib/data";
-import { ACCENT_MODE_DEFAULT, ACCENTS_MODES } from "@/lib/modes";
+import { DexSays } from "@/components/mascot";
 import { createT } from "@/i18n/translations";
 import { WikiCredit } from "@/components/wiki-credit";
 import { site } from "@/lib/site";
@@ -40,10 +40,10 @@ function renderElements(elements: ModeSection["elements"]) {
   const clearList = (key: number) => {
     if (!list.length) return;
     blocks.push(
-      <ul key={`ul-${key}`} className="space-y-2.5">
+      <ul key={`ul-${key}`} className="space-y-2">
         {list.map((text, i) => (
-          <li key={i} className="flex gap-2.5 text-sm leading-relaxed text-chalk-300">
-            <span aria-hidden className="mt-2 size-1 shrink-0 bg-gold-500" />
+          <li key={i} className="bevel-sm flex gap-3 bg-night-900 px-4 py-3 leading-relaxed text-chalk-200">
+            <span aria-hidden className="mt-2.5 h-[3px] w-3 shrink-0 -skew-x-[25deg] bg-gold-400" />
             {text}
           </li>
         ))}
@@ -58,7 +58,7 @@ function renderElements(elements: ModeSection["elements"]) {
     } else {
       clearList(i);
       blocks.push(
-        <p key={`p-${i}`} className="text-sm leading-relaxed text-chalk-300">
+        <p key={`p-${i}`} className="leading-relaxed text-chalk-200">
           {e.text}
         </p>,
       );
@@ -74,7 +74,6 @@ export default async function GameModePage({ params }: Params) {
   if (!mode) return <NotFoundPage />;
 
   const t = createT(locale);
-  const [dark, light] = ACCENTS_MODES[slug] ?? ACCENT_MODE_DEFAULT;
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -92,27 +91,27 @@ export default async function GameModePage({ params }: Params) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
 
-      {/* Top banner, using the mode's accent. */}
-      <div className="relative isolate overflow-hidden border-b border-night-700/70">
-        <div
-          aria-hidden
-          className="absolute inset-0 -z-20"
-          style={{ background: `linear-gradient(115deg, ${dark} 0%, #0a0e1a 58%, #06080f 100%)` }}
-        />
+      {/*
+        Poster of the mode: its artwork shown whole on the right, the name
+        in giant slanted capitals over the night, the tagline above it.
+      */}
+      <section aria-labelledby="mode-title" className="relative isolate overflow-hidden">
+        <span aria-hidden className="absolute inset-0 -z-20 bg-[linear-gradient(115deg,var(--color-night-800),var(--color-night-900)_50%,var(--color-night-950))]" />
         {mode.image && (
-          <Image
-            aria-hidden
-            src={mode.image}
-            alt=""
-            width={520}
-            height={520}
-            priority
-            className="pointer-events-none absolute -right-10 top-1/2 -z-10 h-[150%] w-auto -translate-y-1/2 object-contain opacity-25 blur-[1px] sm:opacity-30"
-          />
+          <span aria-hidden className="absolute -right-10 bottom-0 top-16 -z-10 w-[85%] opacity-60 sm:right-[4%] sm:top-10 sm:w-[46%] sm:opacity-100">
+            <Image
+              src={mode.image}
+              alt=""
+              fill
+              priority
+              sizes="(min-width: 640px) 46vw, 85vw"
+              className="affiche-art object-contain object-right-bottom drop-shadow-[0_24px_40px_rgb(0_0_0/0.6)]"
+            />
+          </span>
         )}
-        <div aria-hidden className="absolute inset-0 -z-10 bg-linear-to-r from-night-950/90 via-night-950/50 to-transparent" />
+        <div aria-hidden className="absolute inset-0 -z-10 bg-linear-to-r from-night-950/90 via-night-950/40 to-transparent" />
 
-        <div className="mx-auto max-w-4xl px-4 py-12">
+        <div className="page-wrap pb-10 pt-3 sm:pb-16 sm:pt-5">
           <Breadcrumb
             crumbs={[
               { name: t("nav.gameModes.label"), href: "/game-modes" },
@@ -121,34 +120,41 @@ export default async function GameModePage({ params }: Params) {
                 siblings: modesSlugs.map((s) => ({ name: modeBySlug(locale, s)?.name ?? s, href: `/game-modes/${s}` })),
               },
             ]}
+            className="[&_ol]:flex-nowrap [&_ol]:px-2 [&_ol]:py-1 [&_ol]:text-xs"
           />
-          <p className="mt-6 font-heading text-xs font-bold uppercase tracking-[0.2em]" style={{ color: light }}>
-            {t(`modeSheet.${slug}.tagline`)}
-          </p>
-          <h1 className="mt-2 font-heading text-4xl font-bold text-chalk-100 sm:text-5xl">{mode.name}</h1>
-          <p className="mt-4 max-w-2xl leading-relaxed text-chalk-200">{t(`modeSheet.${slug}.text`)}</p>
+          <div className="mt-16 max-w-2xl sm:mt-24 lg:mt-32">
+            <p className="font-heading text-lg font-bold uppercase text-gold-400">{t(`modeSheet.${slug}.tagline`)}</p>
+            <h1 id="mode-title" className="affiche-name type-giant mt-1 break-words text-chalk-100">
+              {mode.name}
+            </h1>
+            <div aria-hidden className="eclat mt-5 h-[3px] w-28" />
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-chalk-200 sm:text-lg">{t(`modeSheet.${slug}.text`)}</p>
+          </div>
         </div>
-      </div>
+        <div aria-hidden className="eclat-rule" />
+      </section>
 
-      <article className="mx-auto max-w-3xl px-4 py-12">
+      <article className="page-wrap max-w-4xl py-10 sm:py-14">
         {mode.description && mode.description !== t(`modeSheet.${slug}.text`) && (
-          <p className="mb-10 border-l-2 pl-4 leading-relaxed text-chalk-300" style={{ borderColor: light }}>
-            {mode.description}
-          </p>
+          <DexSays pose="reflexion" height={120} className="mb-12">
+            <p className="leading-relaxed">{mode.description}</p>
+          </DexSays>
         )}
 
         {mode.sections.length > 0 ? (
-          <div className="space-y-10">
+          <div className="space-y-12">
             {mode.sections.map((section) => (
               <section key={section.title}>
-                <h2 className="font-heading text-xl font-bold text-chalk-100">{section.title}</h2>
-                <div aria-hidden className="gold-rule mt-2 h-0.5 w-12" />
-                <div className="mt-4 space-y-4">{renderElements(section.elements)}</div>
+                <h2 className="display-caps text-[clamp(1.9rem,1.5rem+1.4vw,2.6rem)] text-chalk-100">{section.title}</h2>
+                <div aria-hidden className="eclat mt-3 h-[3px] w-20" />
+                <div className="mt-5 space-y-4">{renderElements(section.elements)}</div>
               </section>
             ))}
           </div>
         ) : (
-          <p className="leading-relaxed text-chalk-500">{t("pages.modeDetail.undocumented")}</p>
+          <DexSays pose="surpris" height={110}>
+            <p>{t("pages.modeDetail.undocumented")}</p>
+          </DexSays>
         )}
 
         <WikiCredit t={t} href="https://mobilelegends.fandom.com/wiki/Game_Modes" className="mt-12 border-t border-night-800 pt-6 text-xs leading-relaxed text-chalk-500" />

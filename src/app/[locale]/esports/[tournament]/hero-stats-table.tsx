@@ -68,12 +68,12 @@ export function HeroStatsTable({ rows, name }: { rows: HeroStatRow[]; name: stri
 
   return (
     <div>
-      <div className="relative overflow-x-auto border border-night-700/70">
+      <div className="bevel relative overflow-x-auto bg-night-900">
         <table className="w-full min-w-[36rem] border-collapse text-sm tabular-nums">
           <caption className="sr-only">{t("pages.esportsUI.caption", { name })}</caption>
-          <thead className="bg-night-900 text-xs text-chalk-500">
+          <thead className="bg-night-800 font-heading text-sm text-chalk-400">
             <tr>
-              <SortHeader column="hero" sort={sort} onSort={onSort} className="sticky left-0 z-10 bg-night-900 text-left">
+              <SortHeader column="hero" sort={sort} onSort={onSort} className="sticky left-0 z-10 bg-night-800 text-left">
                 {t("pages.esportsUI.hero")}
               </SortHeader>
               {NUMERIC.map((c) => (
@@ -88,7 +88,7 @@ export function HeroStatsTable({ rows, name }: { rows: HeroStatRow[]; name: stri
               <tr key={r.slug} className="group border-t border-night-800">
                 <th
                   scope="row"
-                  className="sticky left-0 z-10 w-44 max-w-44 bg-night-950 px-3 py-1.5 text-left font-normal group-hover:bg-night-900"
+                  className="sticky left-0 z-10 w-44 max-w-44 bg-night-900 px-3 py-1.5 text-left font-normal group-hover:bg-night-800"
                 >
                   <Link href={`/heroes/${r.slug}`} prefetch={false} className="flex items-center gap-2.5">
                     <LightImage
@@ -104,14 +104,14 @@ export function HeroStatsTable({ rows, name }: { rows: HeroStatRow[]; name: stri
                     </b>
                   </Link>
                 </th>
-                <td className="px-3 py-1.5 text-right text-chalk-100 group-hover:bg-night-900">{r.picks}</td>
-                <td className="px-3 py-1.5 text-right text-chalk-100 group-hover:bg-night-900">{r.bans}</td>
-                <td className="px-3 py-1.5 text-right font-semibold text-gold-400 group-hover:bg-night-900">
+                <td className="px-3 py-1.5 text-right text-chalk-100 group-hover:bg-night-800">{r.picks}</td>
+                <td className="px-3 py-1.5 text-right text-chalk-100 group-hover:bg-night-800">{r.bans}</td>
+                <td className="px-3 py-1.5 text-right font-semibold text-gold-400 group-hover:bg-night-800">
                   {percent.format(r.presence / 100)}
                 </td>
-                <td className="px-3 py-1.5 text-right text-chalk-300 group-hover:bg-night-900">{r.wins}</td>
-                <td className="px-3 py-1.5 text-right text-chalk-300 group-hover:bg-night-900">{r.losses}</td>
-                <td className="px-3 py-1.5 text-right text-chalk-100 group-hover:bg-night-900">
+                <td className="px-3 py-1.5 text-right text-chalk-300 group-hover:bg-night-800">{r.wins}</td>
+                <td className="px-3 py-1.5 text-right text-chalk-300 group-hover:bg-night-800">{r.losses}</td>
+                <td className="px-3 py-1.5 text-right text-chalk-100 group-hover:bg-night-800">
                   {r.winRate === null ? (
                     <>
                       <span aria-hidden>—</span>
@@ -131,7 +131,7 @@ export function HeroStatsTable({ rows, name }: { rows: HeroStatRow[]; name: stri
           type="button"
           aria-expanded={all}
           onClick={() => setAll(!all)}
-          className="mt-3 text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500"
+          className="btn btn-secondary btn-sm mt-4"
         >
           {all ? t("pages.esportsUI.showFewer") : t("pages.esportsUI.showAll", { n: rows.length })}
         </button>
@@ -166,7 +166,7 @@ function SortHeader({
         type="button"
         onClick={() => onSort(column)}
         className={cn(
-          "inline-flex items-center gap-1 whitespace-nowrap uppercase tracking-wide transition-colors hover:text-gold-400",
+          "inline-flex items-center gap-1 whitespace-nowrap font-bold uppercase transition-colors hover:text-gold-400",
           active && "text-gold-400",
         )}
       >

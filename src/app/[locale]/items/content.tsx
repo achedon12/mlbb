@@ -77,7 +77,7 @@ export async function Items({ locale, page = 1 }: { locale: Locale; page?: numbe
   const heroThumbs: Record<string, HeroThumb> = {};
   for (const slug of new Set(Object.values(usedBy).flat())) {
     const h = heroesBySlug.get(slug);
-    if (h) heroThumbs[slug] = { name: h.name, portrait: h.images.icon ?? h.images.portrait };
+    if (h) heroThumbs[slug] = { name: h.name, portrait: h.images.portrait ?? h.images.icon, icon: h.images.icon ?? h.images.portrait };
   }
 
   return (

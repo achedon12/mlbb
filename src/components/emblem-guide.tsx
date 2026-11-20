@@ -7,14 +7,16 @@ import { slugEmblem, type Emblem, type BattleSpell, type Talent } from "@/data/e
 import { useT } from "@/i18n/provider";
 import type { Role } from "@/lib/types";
 import { cn } from "@/lib/utils";
+import { DexSays } from "@/components/mascot";
+import motion from "@/components/catalogue-motion.module.css";
 
 /**
  * Emblem guide.
  *
- * Laid out as a reference document rather than a showcase: a role rail always
- * visible on the left, and dense rows on the right. A card grid forced a
- * zigzag scan of the page to compare two talents; aligned, they read in a
- * single vertical sweep.
+ * The six emblems open the page, large: choosing one is choosing a role.
+ * Below, the talents, attributes and spells as aligned rows, each with its
+ * icon on a night tile. A card grid forced a zigzag scan of the page to
+ * compare two talents; aligned, they read in a single sweep.
  *
  * The chosen role does not filter, it orders: what you don't pick stays
  * visible, dimmed. Hiding it would deprive the reader of the comparison that
@@ -51,73 +53,82 @@ export function EmblemGuide({
   const chosen = role ? emblems.find((e) => e.role === role) : undefined;
 
   return (
-    <div className="gap-10 lg:grid lg:grid-cols-[13rem_minmax(0,1fr)]">
-      {/* ── Role rail ────────────────────────────────────────────────── */}
-      <aside className="mb-10 lg:mb-0">
-        <div className="lg:sticky lg:top-24">
-          <p className="font-heading text-xs font-semibold uppercase tracking-wider text-chalk-500">
-            {t("emblemsUI.yourRole")}
-          </p>
-
-          <ul className="mt-3 flex gap-1.5 relative overflow-x-auto lg:flex-col lg:overflow-visible">
+    <div>
+      {/* ── The emblems, large: picking one is picking a role ─────────────── */}
+      <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+        <div className="min-w-0">
+          <h2 className="type-subtitle text-chalk-100">{t("emblemsUI.yourRole")}</h2>
+          <ul className={cn("mt-3 grid grid-cols-3 gap-2 sm:grid-cols-6 sm:gap-3", motion.rise)}>
             {emblems.map((e) => {
-              const chosen = role === e.role;
+              const on = role === e.role;
               return (
-                <li key={e.key} className="shrink-0 lg:shrink">
+                <li key={e.key}>
                   <button
                     type="button"
-                    onClick={() => setRole(chosen ? null : e.role)}
-                    aria-pressed={chosen}
+                    onClick={() => setRole(on ? null : e.role)}
+                    aria-pressed={on}
                     title={textEmb(t, e.key, "bestFor", e.bestFor)}
                     className={cn(
-                      "flex w-full items-center gap-2.5 border-l-2 px-2.5 py-2 text-left transition-colors",
-                      chosen
-                        ? "border-gold-500 bg-gold-500/10 text-chalk-100"
-                        : "border-transparent text-chalk-500 hover:border-night-600 hover:text-chalk-300",
+                      "eclat-under bevel group flex w-full flex-col items-center gap-2 px-2 pb-3.5 pt-4 text-center",
+                      motion.lift,
+                      on
+                        ? "is-active bg-night-800 shadow-[inset_0_3px_0_var(--color-gold-400)]"
+                        : "bg-night-900 hover:bg-night-850",
                     )}
                   >
-                    <Visual source={images[e.key]} size={28} />
-                    <span className="hidden text-sm font-medium lg:block">{t(`roles.${e.role}`)}</span>
+                    <span key={on ? "on" : "off"} className={cn("relative grid place-items-center", motion.zoom, on && motion.flash)}>
+                      <Visual source={images[e.key]} size={72} className={motion.glyphImage} />
+                    </span>
+                    <span
+                      className={cn(
+                        "display-caps text-xl transition-colors sm:text-2xl",
+                        on ? "text-gold-400" : role ? "text-chalk-500 group-hover:text-chalk-100" : "text-chalk-100 group-hover:text-gold-300",
+                      )}
+                    >
+                      {t(`roles.${e.role}`)}
+                    </span>
                   </button>
                 </li>
               );
             })}
           </ul>
-
-          {role && (
-            <button
-              type="button"
-              onClick={() => setRole(null)}
-              className="mt-3 px-2.5 text-xs text-chalk-500 underline underline-offset-4 hover:text-gold-400"
-            >
-              {t("emblemsUI.removeFilter")}
-            </button>
-          )}
-
-          {/* The chosen emblem has its own page: heroes who play it, talents taken with it. */}
-          {chosen && (
-            <Link
-              href={`/emblems/${slugEmblem(chosen)}`}
-              className="mt-2 block px-2.5 text-xs font-semibold text-gold-400 underline underline-offset-4 hover:text-gold-500"
-            >
-              {t("emblemsUI.seePage", { name: textEmb(t, chosen.key, "name", chosen.name) })} →
-            </Link>
-          )}
-
-          <p className="mt-6 hidden max-w-48 text-xs leading-relaxed text-chalk-500 lg:block">
-            {t("emblemsUI.roleHelp")}
-          </p>
+          <div className="mt-3 flex min-h-6 flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+            {/* The chosen emblem has its own page: heroes who play it, talents taken with it. */}
+            {chosen && (
+              <Link
+                href={`/emblems/${slugEmblem(chosen)}`}
+                className="font-heading text-base font-bold uppercase text-gold-400 transition-colors hover:text-gold-300"
+              >
+                {t("emblemsUI.seePage", { name: textEmb(t, chosen.key, "name", chosen.name) })} →
+              </Link>
+            )}
+            {role && (
+              <button
+                type="button"
+                onClick={() => setRole(null)}
+                className="text-chalk-400 underline underline-offset-4 transition-colors hover:text-gold-400"
+              >
+                {t("emblemsUI.removeFilter")}
+              </button>
+            )}
+          </div>
         </div>
-      </aside>
+        <DexSays pose="idee" height={118} className="hidden lg:flex lg:max-w-sm">
+          <p className="text-sm leading-relaxed">{t("emblemsUI.roleHelp")}</p>
+        </DexSays>
+      </div>
+
+      <div aria-hidden className="eclat-rule my-10 sm:my-14" />
 
       {/* ── Content ──────────────────────────────────────────────────── */}
-      <div className="min-w-0 space-y-8 sm:space-y-12">
+      <div className="min-w-0 space-y-12 sm:space-y-16">
         <Section
           title={t("emblemsUI.talents")}
           lead={t("emblemsUI.talentsDesc")}
           entries={order(talents.filter((t) => t.decisive))}
           images={images}
           adapted={adapted}
+          large
         />
         <Section
           title={t("emblemsUI.attributes")}
@@ -155,6 +166,7 @@ function Section({
   images,
   adapted,
   link,
+  large = false,
 }: {
   title: string;
   lead: string;
@@ -163,35 +175,40 @@ function Section({
   adapted: (roles: Role[]) => boolean;
   /** Page address of each entry, when it has one (spells). */
   link?: (key: string) => string;
+  /** The decisive talents: the bigger icons. */
+  large?: boolean;
 }) {
   const t = useT();
   return (
     <section>
-      <div className="flex items-baseline gap-3">
-        <h2 className="font-heading text-xl font-bold text-chalk-100">{title}</h2>
-        <span className="text-sm text-chalk-500">{entries.length}</span>
+      <div className="flex items-end gap-4">
+        <h2 className="type-section text-chalk-100">{title}</h2>
+        <span className="score score-outline pb-0.5 text-[2.25rem]">{entries.length}</span>
       </div>
-      <p className="mt-1 text-sm text-chalk-500">{lead}</p>
+      <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
+      <p className="mt-3 max-w-2xl text-chalk-400">{lead}</p>
 
       {/* Rows rather than cards: two entries compare side by side. */}
-      <ul className="mt-3 divide-y divide-night-800 border-y border-night-800">
+      <ul className="mt-5 grid gap-2 xl:grid-cols-2">
         {entries.map((e) => {
           const kept = adapted(e.roles);
           return (
             <li
               key={e.key}
               className={cn(
-                "flex gap-3 py-2.5 transition-opacity sm:gap-4",
+                "bevel flex gap-3 bg-night-900 p-3 transition-opacity sm:gap-4 sm:p-4",
                 kept ? "" : "opacity-40",
               )}
             >
-              <Visual source={images[e.key]} size={40} />
+              <span className={cn("bevel-sm grid shrink-0 place-items-center bg-night-800", large ? "size-16 sm:size-20" : "size-14 sm:size-16")}>
+                <Visual source={images[e.key]} size={large ? 60 : 48} />
+              </span>
 
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-baseline gap-x-3">
-                  <h3 className="font-heading font-bold leading-tight text-chalk-100">
+                  <h3 className="font-heading text-lg font-bold leading-tight text-chalk-100">
                     {link ? (
-                      <Link href={link(e.key)} className="underline-offset-4 hover:text-gold-400 hover:underline">
+                      <Link href={link(e.key)} className="underline-offset-4 transition-colors hover:text-gold-400 hover:underline">
                         {textEmb(t, e.key, "name", e.name)}
                       </Link>
                     ) : (
@@ -199,24 +216,24 @@ function Section({
                     )}
                   </h3>
                   {e.cooldown !== undefined && (
-                    <span className="text-xs tabular-nums text-gold-400">
+                    <span className="score text-lg">
                       {e.cooldown} s
                     </span>
                   )}
                 </div>
                 {e.description && (
-                  <p className="mt-0.5 text-sm leading-snug text-chalk-300">
+                  <p className="mt-1 text-sm leading-snug text-chalk-300">
                     {textEmb(t, e.key, "description", e.description)}
                   </p>
                 )}
-                <p className="mt-0.5 text-xs leading-snug text-chalk-500">{textEmb(t, e.key, "bestFor", e.bestFor)}</p>
+                <p className="mt-1 text-xs leading-snug text-chalk-500">{textEmb(t, e.key, "bestFor", e.bestFor)}</p>
               </div>
 
-              <ul className="hidden shrink-0 flex-wrap content-start gap-1 sm:flex sm:w-40">
+              <ul className="hidden shrink-0 flex-col content-start items-end gap-1 sm:flex">
                 {e.roles.map((r) => (
                   <li
                     key={r}
-                    className="border border-night-700 px-1.5 py-0.5 text-[0.65rem] uppercase tracking-wide text-chalk-500"
+                    className="bevel-sm bg-night-800 px-2 py-0.5 font-heading text-xs font-bold text-chalk-400"
                   >
                     {t(`roles.${r}`)}
                   </li>
@@ -230,10 +247,10 @@ function Section({
   );
 }
 
-function Visual({ source, size }: { source?: string; size: number }) {
+function Visual({ source, size, className }: { source?: string; size: number; className?: string }) {
   return (
     <span
-      className="relative shrink-0"
+      className={cn("relative shrink-0", className)}
       style={{ width: size, height: size }}
     >
       {source ? (

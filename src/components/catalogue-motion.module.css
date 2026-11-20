@@ -1,0 +1,145 @@
+/*
+ * Motion of the catalogue and guide pages (items, emblems, spells, guides,
+ * map, game modes, ranks). Same rules as the rest of the site: one short
+ * entrance on the page's main block, the éclat crossing the selected
+ * element once, hover lifts. Transforms only for the entrance (the text is
+ * painted from the first frame), nothing tied to the scroll, and nothing at
+ * all under `prefers-reduced-motion`.
+ */
+
+@keyframes rise {
+  from {
+    transform: translateY(0.9rem);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes blade {
+  from {
+    transform: translateX(-70%) rotate(-28deg);
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+  }
+  to {
+    transform: translateX(0) rotate(-28deg);
+    opacity: 0.85;
+  }
+}
+
+@keyframes glyph-in {
+  from {
+    transform: scale(0.86) rotate(-6deg);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes step-up {
+  from {
+    transform: translateY(1.5rem);
+  }
+  to {
+    transform: none;
+  }
+}
+
+/* The éclat crossing a glyph panel: a slanted blade of the site's gold. */
+.blade {
+  position: absolute;
+  left: -20%;
+  top: 56%;
+  width: 140%;
+  height: 3px;
+  transform: rotate(-28deg);
+  opacity: 0.85;
+  background: linear-gradient(90deg, transparent, var(--color-gold-600) 20%, var(--color-gold-300) 48%, #fff3cf 58%, var(--color-gold-400) 72%, transparent);
+  pointer-events: none;
+}
+
+/* A second, thinner blade, parallel to the first. */
+.bladeThin {
+  position: absolute;
+  left: -20%;
+  top: 64%;
+  width: 140%;
+  height: 1px;
+  transform: rotate(-28deg);
+  opacity: 0.45;
+  background: linear-gradient(90deg, transparent, var(--color-gold-400) 40%, transparent 80%);
+  pointer-events: none;
+}
+
+/* Icon of an item, emblem or spell in a tile: zooms a little on hover. */
+.zoom img {
+  transition: transform 0.3s ease-out;
+}
+:is(a, button):hover .zoom img,
+.zoom:hover img {
+  transform: scale(1.08);
+}
+
+/* A tile of a grid: rises 2 px on hover. */
+.lift {
+  transition: translate 0.2s ease-out, background-color 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+.lift:hover {
+  translate: 0 -2px;
+}
+
+/* A hero artwork in a frame: zooms 3 % on hover, like the hero tiles. */
+.art img {
+  transition: transform 0.4s ease-out;
+}
+:is(a):hover .art img,
+.art:hover img {
+  transform: scale(1.03);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rise {
+    animation: rise 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  .riseLate {
+    animation: rise 0.55s 0.08s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  .flash .blade {
+    animation: blade 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  .flash .glyphImage {
+    animation: glyph-in 0.45s cubic-bezier(0.2, 0.7, 0.2, 1.2) both;
+  }
+  .ladder > li {
+    animation: step-up 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  .ladder > li:nth-child(2) { animation-delay: 0.04s; }
+  .ladder > li:nth-child(3) { animation-delay: 0.08s; }
+  .ladder > li:nth-child(4) { animation-delay: 0.12s; }
+  .ladder > li:nth-child(5) { animation-delay: 0.16s; }
+  .ladder > li:nth-child(6) { animation-delay: 0.2s; }
+  .ladder > li:nth-child(7) { animation-delay: 0.24s; }
+  .ladder > li:nth-child(8) { animation-delay: 0.28s; }
+  .ladder > li:nth-child(9) { animation-delay: 0.32s; }
+  .ladder > li:nth-child(n + 10) { animation-delay: 0.36s; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zoom img,
+  .art img,
+  .lift {
+    transition: none;
+  }
+  :is(a, button):hover .zoom img,
+  .zoom:hover img,
+  :is(a):hover .art img,
+  .art:hover img {
+    transform: none;
+  }
+  .lift:hover {
+    translate: none;
+  }
+}
