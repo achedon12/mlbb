@@ -1,4 +1,5 @@
 import { newestFirst } from "@/lib/patch-version";
+import { AuthorNote } from "@/components/author-note";
 import { DiscordInvite } from "@/components/discord-invite";
 import type { Metadata } from "next";
 import { createT, messagesPage } from "@/i18n/translations";
@@ -185,6 +186,8 @@ export default async function PatchPage({ params }: Params) {
         </EditorialPoster>
 
         <div className={cn("page-wrap pb-12 pt-8 sm:pt-12", ENTRANCE)}>
+          {/* The author's signed opinion on this patch, when there is one. */}
+          <AuthorNote kind="patchs" version={patch.version} locale={locale} className="mb-10 sm:mb-14" />
           {patch.adjustments.length > 0 && (
             <HeroChanges
               patch={patch}

@@ -82,7 +82,8 @@ ${botPublished() ? `
 ` : ""}
 ## Optional
 
-- [About](${link("/about")}): sources, methodology and what the site does not contain.
+- [About](${link("/about")}): what the site contains and what it does not.
+- [Methodology and sources](${link("/methodology")}): where each piece of data comes from, the tier list and patch effect formulas with their thresholds, what is machine translated, and how to report an error.
 - [Sitemap](${site.url}/sitemap.xml)
 `;
   return new Response(text, {

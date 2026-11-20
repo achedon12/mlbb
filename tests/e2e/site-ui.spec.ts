@@ -1,4 +1,5 @@
 import type { Page } from "@playwright/test";
+import { readAuthor, readNote } from "../../src/lib/editorial";
 import { expect, test } from "./visitor";
 
 /**
@@ -316,4 +317,70 @@ test.describe("machine-readable outputs", () => {
       }
     });
   }
+});
+
+test.describe("what the site does itself, and where it comes from", () => {
+  test("the home page lists it, each point with the page that shows it", async ({ page }) => {
+    await page.goto("/fr");
+    await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
+    const why = page.locator("[data-home-why]");
+    await expect(why.getByRole("heading", { level: 2, name: /pourquoi mlbbdex/i })).toBeVisible();
+    await expect(why.getByRole("link", { name: /^les statistiques/i })).toHaveAttribute("href", /\/fr\/statistics$/);
+    await expect(why.getByRole("link", { name: /la r[èe]gle et le classement/i })).toHaveAttribute("href", /\/fr\/tier-list$/);
+    await expect(why.getByRole("link", { name: /pr[ée]parer une draft/i })).toHaveAttribute("href", /\/fr\/draft$/);
+    await expect(why.getByRole("link", { name: /^l'historique de /i })).toHaveAttribute("href", /\/fr\/heroes\/[a-z-]+#stats$/);
+    await expect(why.getByRole("link", { name: /m[ée]thode et sources/i }).first()).toHaveAttribute("href", /\/fr\/methodology$/);
+    // Live figures, never a placeholder.
+    await expect(why).not.toContainText("{");
+  });
+
+  test("the methodology page credits its sources and prints the rules with their figures", async ({ page }) => {
+    await page.goto("/fr/methodology");
+    await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(/m[ée]thode et sources/i);
+    for (const name of [/d'o[ùu] viennent les donn[ée]es/i, /ce que le site calcule/i, /traduit automatiquement/i, /signaler une erreur/i]) {
+      await expect(page.getByRole("heading", { level: 2, name })).toBeVisible();
+    }
+    const main = page.getByRole("main");
+    await expect(main.getByRole("link", { name: /fandom/i }).first()).toHaveAttribute("href", "https://mobilelegends.fandom.com");
+    await expect(main.getByRole("link", { name: /liquipedia/i }).first()).toHaveAttribute("href", "https://liquipedia.net/mobilelegends");
+    await expect(main).toContainText(/S\+ à partir de \d+/);
+    await expect(main).not.toContainText("{");
+  });
+
+  test("the footer and the about page lead to it", async ({ page }) => {
+    await page.goto("/fr/about");
+    await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
+    await expect(page.getByRole("main").getByRole("link", { name: /m[ée]thode et sources/i }).first()).toHaveAttribute("href", /\/fr\/methodology$/);
+    await expect(page.getByRole("contentinfo").getByRole("link", { name: /m[ée]thode et sources/i })).toHaveAttribute("href", /\/fr\/methodology$/);
+  });
+});
+
+test.describe("the author's signed texts", () => {
+  // Shown only when content/fr/editorial/ holds a complete text: the pages
+  // must match the folder, never show a placeholder.
+  test("appear on the tier list, a patch note and the about page only when written", async ({ page }) => {
+    await page.goto("/fr");
+    const notes = await page.locator("[data-home-why]").getByRole("link", { name: /^les notes du patch/i }).getAttribute("href");
+    const version = notes?.split("/").pop() ?? "";
+    expect(version).toMatch(/^\d+(\.\d+)+$/);
+
+    await page.goto("/fr/tier-list");
+    await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
+    await expect(page.locator("[data-author-note]")).toHaveCount(readNote("tier-list", version) ? 1 : 0);
+
+    await page.goto(`/fr/patch-notes/${version}`);
+    await expect(page.locator("[data-author-note]")).toHaveCount(readNote("patchs", version) ? 1 : 0);
+
+    await page.goto("/fr/about");
+    await expect(page.locator("[data-author-profile]")).toHaveCount(readAuthor() ? 1 : 0);
+  });
+
+  test("stay in French in another language, marked as such", async ({ page }) => {
+    await page.goto("/en/tier-list");
+    const note = page.locator("[data-author-note]");
+    test.skip((await note.count()) === 0, "no signed text on this patch's tier list yet");
+    await expect(note.locator('[lang="fr"]')).toHaveCount(1);
+    await expect(note).toContainText(/original french text/i);
+  });
 });
