@@ -1,0 +1,38 @@
+{
+  "tagline": "Humaine artificielle créée au Laboratoire 1718.",
+  "lore": [
+    "Le Dr Baker fut l'un des cofondateurs du Laboratoire 1718, une institution créée pour apporter la paix au monde. Mais à mesure que ses collègues, les autres scientifiques, s'enfonçaient dans leurs expériences dépravées visant à faire des humains des armes, le Dr Baker comprit qu'il n'avait d'autre choix que de tout abandonner pour se consacrer à un nouveau projet. Renonçant à l'éthique douteuse de l'expérimentation humaine, il entreprit de créer une nouvelle forme de vie, faite uniquement d'un squelette mécanique, de fils de marionnette et de peau synthétique. Une nouvelle génération de vie artificielle vit enfin le jour. Le Dr Baker était persuadé que l'amour et l'espoir étaient les plus belles inventions de l'humanité. Il grava donc dans le cœur de sa création les histoires les plus émouvantes du monde, et fit d'elle une androïde destinée à venir en aide aux autres.",
+    "Par un matin radieux, le Prototype d'androïde de la paix n° 1 s'éveilla dans son lit, et le Dr Baker donna à ce charmant ange mécanique le nom d'Angela. Angela suivait l'enseignement du Dr Baker et étudiait avec ardeur pour comprendre le monde, dans l'espoir d'être à la hauteur des attentes de son inventeur. Mais leur vie paisible fut bientôt interrompue. Quand les savants fous du Laboratoire 1718 apprirent par la rumeur que le Dr Baker avait créé une âme vivante hors d'un corps humain, ce qui allait à l'encontre de leur projet de fabriquer des armes de chair, ils refusèrent d'y croire. Persuadés que Baker les avait trahis en gardant ce savoir pour lui avant de s'enfuir, ils ordonnèrent à ses anciennes créations, Alpha et Beta, de traquer le Dr Baker et sa créature. Alors que leurs poursuivants allaient les rattraper, le Dr Baker plaça Angela dans une capsule de vol et lui ordonna de partir à la recherche de son grand ami Rooney."
+  ],
+  "headings": [],
+  "profile": {
+    "fullName": "Prototype d'androïde de la paix n° 1",
+    "title": null,
+    "species": "Androïde",
+    "gender": "Femme",
+    "age": null,
+    "origin": "Laboratoire 1718, île Baker",
+    "birthday": "13 mars",
+    "affiliations": [
+      "Eruditio"
+    ],
+    "relations": [
+      "Dr Baker (créateur)",
+      "Alpha (ennemi)",
+      "Saber (allié)",
+      "Chip (confident, frère adoptif)"
+    ],
+    "powers": [
+      "Cœur intelligent",
+      "Libère une énergie d'amour",
+      "S'attache à un allié"
+    ]
+  },
+  "trivia": [
+    "Angela est un prénom féminin. Il vient du grec ángelos (ἄγγελος), qui désigne l'ange dans les croyances grecques.",
+    "Elle est la première héroïne capable de s'attacher à un autre héros grâce à son ultime ; le second est Gloo.",
+    "Pour chaque apparence, elle porte une poupée à son image, visible sur l'écran de sélection des héros. Pendant son développement, elle lançait cette poupée en attaque de base, mais l'animation a finalement été remplacée par de simples projectiles en forme de cœur. On ne voit désormais la poupée en jeu que lorsqu'elle utilise Heartguard pour s'attacher à un allié : elle apparaît alors au-dessus du héros allié.",
+    "Certains joueurs trouvant ses anciens yeux dérangeants, voire angoissants, son illustration officielle a été retouchée.",
+    "Son apparence Starlight, d'abord nommée China Doll, a été rebaptisée Shanghai Maiden."
+  ]
+}

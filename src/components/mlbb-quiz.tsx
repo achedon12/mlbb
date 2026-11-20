@@ -1,9 +1,13 @@
 "use client";
 
+import { DexNotice } from "@/components/dex-states";
+import { DexLoading } from "@/components/dex-loading";
+import { Flash } from "@/components/dex-states";
 import { useDiscordMoment } from "@/components/discord-moment";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Palette, Scale, ScrollText, Share2, Shield, Sparkles, Trophy, type LucideIcon } from "lucide-react";
 import { FilterGroup, Chip } from "@/components/chip";
+import { GameDex } from "@/components/game-dex";
 import { RoundQuiz, type CatalogQuiz } from "@/components/quiz-round";
 import { LOCALE_INTL } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
@@ -171,19 +175,19 @@ function ChallengeOfDay({ catalog, onPractice }: { catalog: CatalogQuiz; onPract
   if (state === null || !day) {
     // About the height of a round once drawn: the rules below stay put.
     return (
-      <p role="status" className="grid min-h-[36rem] place-items-center text-center text-sm text-chalk-500 sm:min-h-[32rem]">
-        {t("pages.quizUI.loading")}
-      </p>
+      <div className="grid min-h-[36rem] place-items-center sm:min-h-[32rem]">
+        <DexLoading dex={false} label={t("pages.quizUI.loading")} />
+      </div>
     );
   }
   if (state === "error") {
     return (
-      <div role="alert" className="bevel border border-blood-500/40 bg-night-900/60 p-5 text-sm text-chalk-300">
+      <DexNotice role="alert" tone="error" title={t("dexStates.errorTitle")}>
         <p>{t("pages.quizUI.loadError")}</p>
         <button type="button" onClick={() => setTentative((n) => n + 1)} className={cn(secondaryButton, "mt-3")}>
           {t("pages.quizUI.retry")}
         </button>
-      </div>
+      </DexNotice>
     );
   }
 
@@ -375,10 +379,20 @@ function Summary({
   }
 
   return (
-    <section className="bevel border border-gold-500/40 bg-night-900/60 p-4 sm:p-6">
-      <h3 ref={refTitle} tabIndex={-1} className="font-heading text-2xl font-bold text-chalk-100 outline-none">
-        {t("pages.quizUI.summaryTitle", { points, max })}
-      </h3>
+    <section data-mood={points * 2 >= max ? "won" : undefined} className="win-panel relative p-4 sm:p-6">
+      <div aria-hidden className="game-stage absolute inset-0 shadow-[inset_0_3px_0_var(--color-gold-400)]" />
+      <div className="relative">
+      <div className="flex items-start justify-between gap-4">
+        <h3
+          ref={refTitle}
+          tabIndex={-1}
+          className="win-punch display-caps text-[2.2rem] text-gold-400 outline-none sm:text-[3rem]"
+        >
+          {t("pages.quizUI.summaryTitle", { points, max })}
+        </h3>
+        {/* Half the points or more is a won challenge; below, Dex thinks it over. */}
+        <GameDex mood={points * 2 >= max ? "won" : "close"} beat={0} height={110} />
+      </div>
 
       <div className="mt-4 flex flex-col gap-5 sm:flex-row sm:items-start">
         <div>
@@ -396,14 +410,12 @@ function Summary({
             <Share2 size={16} aria-hidden />
             {t("pages.quizUI.share")}
           </button>
-          <p aria-live="polite" className="min-h-5 text-sm text-chalk-300">
-            {status === "copied"
-              ? t("pages.quizUI.copied")
-              : status === "shared"
-                ? t("pages.quizUI.shared")
-                : status === "error"
-                  ? t("pages.quizUI.copyError")
-                  : ""}
+          <p aria-live="polite" className="min-h-5 text-sm">
+            {status && (
+              <Flash tone={status === "error" ? "error" : "ok"}>
+                {status === "copied" ? t("pages.quizUI.copied") : status === "shared" ? t("pages.quizUI.shared") : t("pages.quizUI.copyError")}
+              </Flash>
+            )}
           </p>
           <NextChallenge day={day} onNewDay={onNewDay} />
           <button type="button" onClick={onPractice} className={secondaryButton}>
@@ -445,6 +457,7 @@ function Summary({
           </li>
         ))}
       </ol>
+      </div>
     </section>
   );
 }
@@ -546,19 +559,19 @@ function Practice({ catalog }: { catalog: CatalogQuiz }) {
 
   if (pool === null) {
     return (
-      <p role="status" className="py-10 text-center text-sm text-chalk-500">
-        {t("pages.quizUI.loading")}
-      </p>
+      <div className="grid place-items-center py-10">
+        <DexLoading dex={false} label={t("pages.quizUI.loading")} />
+      </div>
     );
   }
   if (pool === "error" || !round) {
     return (
-      <div role="alert" className="bevel border border-blood-500/40 bg-night-900/60 p-5 text-sm text-chalk-300">
+      <DexNotice role="alert" tone="error" title={t("dexStates.errorTitle")}>
         <p>{t("pages.quizUI.loadError")}</p>
         <button type="button" onClick={() => setTentative((n) => n + 1)} className={cn(secondaryButton, "mt-3")}>
           {t("pages.quizUI.retry")}
         </button>
-      </div>
+      </DexNotice>
     );
   }
 

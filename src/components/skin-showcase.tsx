@@ -22,6 +22,8 @@ export type { SkinFull };
 
 interface Context {
   active: SkinFull;
+  /** Whether the visitor has picked a skin other than the first one. */
+  chosen: boolean;
   choose: (id: string) => void;
 }
 
@@ -53,6 +55,7 @@ export function ShowcaseProvider({
       portrait: portraitDefault,
       illustration: null,
     },
+    chosen: !!active && active.id !== skins[0]?.id,
     choose: setActiveId,
   };
 
@@ -63,6 +66,25 @@ function useSkin() {
   const ctx = useContext(SkinContext);
   if (!ctx) throw new Error("useSkin outside a ShowcaseProvider");
   return ctx;
+}
+
+/**
+ * The artwork of the hero page's poster. The server renders the default
+ * illustration, loaded first; once the visitor picks a skin in the showcase,
+ * the poster takes that skin's illustration, in the same frame (no shift).
+ */
+export function ShowcaseArt({
+  fallback,
+  sizes,
+  className,
+}: {
+  fallback: string;
+  sizes: string;
+  className?: string;
+}) {
+  const { active, chosen } = useSkin();
+  const source = chosen ? (active.illustration ?? fallback) : fallback;
+  return <Image key={source} src={source} alt="" fill priority={!chosen} sizes={sizes} className={className} />;
 }
 
 /**

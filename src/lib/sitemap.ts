@@ -213,6 +213,8 @@ export function sitemapEntries(): MetadataRoute.Sitemap {
     { path: "/api-doc", changeFrequency: "monthly", priority: 0.5, lastModified: synced },
     { path: "/contribute", changeFrequency: "monthly", priority: 0.4, lastModified: synced },
     { path: "/about", changeFrequency: "yearly", priority: 0.3 },
+    { path: "/dex", changeFrequency: "yearly", priority: 0.4 },
+    { path: "/brand", changeFrequency: "yearly", priority: 0.3 },
     { path: "/legal", changeFrequency: "yearly", priority: 0.2 },
     { path: "/privacy", changeFrequency: "yearly", priority: 0.2 },
     // The Discord bot's pages exist only when it is deployed.

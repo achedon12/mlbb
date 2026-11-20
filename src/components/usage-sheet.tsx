@@ -10,6 +10,8 @@ import { heroesBySlug } from "@/lib/data";
 import { imageRank } from "@/lib/emblems";
 import { percentage } from "@/lib/freshness";
 import type { SummaryRank, UsageHero } from "@/lib/usage-builds";
+import { cn } from "@/lib/utils";
+import motion from "@/components/catalogue-motion.module.css";
 
 /**
  * Blocks shared by the item, emblem and spell pages, rendered on the server:
@@ -169,26 +171,31 @@ export interface EntryPart {
   href?: string;
 }
 
-/** Associated choices (talents, spells, emblems), each with its share as a bar. */
+/**
+ * Associated choices (talents, spells, emblems), each with its share as a
+ * slanted gauge; the first one, the most taken, gets its icon large.
+ */
 export function PartsChoice({ entries, locale }: { entries: EntryPart[]; locale: Locale }) {
   return (
-    <ul className="space-y-3">
-      {entries.map((e) => (
-        <li key={e.key} className="flex items-center gap-2.5">
-          <ItemIcon image={e.image} size={28} />
+    <ul className="space-y-2">
+      {entries.map((e, i) => (
+        <li key={e.key} className={cn("bevel-sm flex items-center gap-3 bg-night-900 p-2.5 pr-3.5", i === 0 && "bg-night-800")}>
+          <span className={cn("grid shrink-0 place-items-center", motion.zoom)}>
+            <ItemIcon image={e.image} size={i === 0 ? 52 : 40} />
+          </span>
           <div className="min-w-0 flex-1">
-            <div className="flex items-baseline justify-between gap-2 text-sm">
+            <div className="flex items-baseline justify-between gap-2">
               {e.href ? (
-                <Link href={e.href} className="truncate text-chalk-100 underline-offset-4 hover:text-gold-400 hover:underline">
+                <Link href={e.href} className="truncate font-heading text-base font-bold text-chalk-100 transition-colors hover:text-gold-400">
                   {e.name}
                 </Link>
               ) : (
-                <span className="truncate text-chalk-100">{e.name}</span>
+                <span className="truncate font-heading text-base font-bold text-chalk-100">{e.name}</span>
               )}
-              <span className="shrink-0 tabular-nums text-chalk-300">{percentage(locale, e.part)}</span>
+              <span className={cn("score shrink-0", i === 0 ? "text-2xl" : "text-xl text-chalk-200")}>{percentage(locale, e.part)}</span>
             </div>
-            <span aria-hidden className="mt-1 block h-1 bg-night-700">
-              <span className="block h-full bg-gold-400" style={{ width: `${Math.min(100, e.part)}%` }} />
+            <span aria-hidden className="mt-1.5 block h-1.5 -skew-x-[25deg] bg-night-700">
+              <span className={cn("block h-full", i === 0 ? "bg-gold-400" : "bg-chalk-400")} style={{ width: `${Math.min(100, e.part)}%` }} />
             </span>
           </div>
         </li>
@@ -210,17 +217,21 @@ export function ListLinks({
 }) {
   const List = ordered ? "ol" : "ul";
   return (
-    <List className="grid grid-cols-[repeat(auto-fill,minmax(9.5rem,1fr))] gap-2">
+    <List className="grid grid-cols-2 gap-2 sm:grid-cols-[repeat(auto-fill,minmax(10.5rem,1fr))] sm:gap-3">
       {links.map((l) => (
         <li key={l.href}>
           <Link
             href={l.href}
-            className="bevel-sm group flex h-full items-center gap-2 border border-night-700/70 bg-night-900/60 p-2 transition-colors hover:border-gold-500/60"
+            className={cn("bevel group flex h-full flex-col items-center gap-2 bg-night-900 px-2 pb-3 pt-4 text-center hover:bg-night-800", motion.lift)}
           >
-            <ItemIcon image={l.image} size={32} />
-            <span className="min-w-0">
-              <span className="block truncate text-sm text-chalk-100 group-hover:text-gold-400">{l.name}</span>
-              {l.detail && <span className="block text-xs tabular-nums text-gold-400">{l.detail}</span>}
+            <span className={motion.zoom}>
+              <ItemIcon image={l.image} size={56} />
+            </span>
+            <span className="min-w-0 max-w-full">
+              <span className="block truncate font-heading text-base font-bold leading-tight text-chalk-100 transition-colors group-hover:text-gold-400">
+                {l.name}
+              </span>
+              {l.detail && <span className="mt-0.5 block text-xs tabular-nums text-gold-400">{l.detail}</span>}
             </span>
           </Link>
         </li>

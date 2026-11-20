@@ -64,7 +64,7 @@ Ang pinakaligtas na pagkakasunud-sunod ng priyoridad:
 2. ang hero na nagpapagaling o nagpoprotekta, kung nasa loob siya;
 3. ang iba, simula sa pinakamalapit.
 
-Laban sa isang team na gumagaling nang husto, binabago ng healing reduction item ang resulta ng mahabang laban: [Sea Halberd](/items/sea-halberd) para sa pisikal na damage, [Necklace of Durance](/items/necklace-of-durance) para sa magic damage, [Dominance Ice](/items/dominance-ice) para sa isang tank. Ang [item catalog](/items) ay nagpapahiwatig kung sino ang bubuo sa kanila.
+Laban sa isang team na gumagaling nang husto, binabago ng healing reduction item ang resulta ng mahabang laban: [Sea Halberd](/items/sea-halberd) para sa pisikal na damage, [Glowing Wand](/items/glowing-wand) para sa magic damage, [Dominance Ice](/items/dominance-ice) para sa isang tank. Ang [item catalog](/items) ay nagpapahiwatig kung sino ang bubuo sa kanila.
 
 ## Ang pinakakaraniwang pagkakamali
 

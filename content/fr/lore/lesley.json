@@ -1,0 +1,43 @@
+{
+  "tagline": "Fille adoptive de la maison Vance, tireuse d'élite de l'ombre.",
+  "lore": [
+    "Lesley grandit dans la demeure des Vance, où son père dirigeait la sécurité de la noble famille. Lors d'une attaque inattendue d'une famille rivale, il fut tué. Tandis que les assaillants approchaient de la demeure des Vance, Lesley prit le long fusil noir de son père et accomplit la mission du défunt. Les larmes coulaient sur ses joues tandis qu'elle tirait coup sur coup, et chaque balle, contre toute attente, abattait un assassin. Sa dernière larme tomba au moment où son dernier tir abattait le dernier des hommes de la famille rivale.",
+    "Lesley fut adoptée par les Vance, et le patriarche de la noble maison alla jusqu'à lui confier la garde de leur unique héritier, Harley. Harley était un fauteur de troubles né, dont les talents pour la magie causaient, sans qu'il le veuille, bien des soucis à la maison Vance. Seule Lesley savait le tenir. Les bêtises de Harley étaient la dernière parcelle de chaleur qui subsistait dans le cœur de Lesley.",
+    "Lorsqu'elle apprit qu'après avoir vaincu le Maître de la magie noire, Harley était parti pour la dangereuse Terre de l'Aube, Lesley le suivit, accompagnée de son fidèle fusil de famille. Après un long et pénible voyage, elle retrouva Harley et découvrit que le petit garçon immature d'autrefois avait changé au fil des nombreuses épreuves qu'il avait traversées. Elle jugea préférable de laisser son petit frère adoptif s'aguerrir seul, tandis qu'elle le protégerait en silence, depuis l'ombre. Dès lors, chaque monstre frappé par la magie de Harley recevait aussi une balle noire qui lui transperçait le cœur avec une précision parfaite. L'histoire du jeune magicien suivi par une mystérieuse tireuse d'élite vêtue de noir se répandit bientôt dans toute la Terre de l'Aube comme une traînée de poudre."
+  ],
+  "headings": [],
+  "trivia": [
+    "Le prénom Lesley est d'origine écossaise et signifie « jardin de houx » ou « forteresse de houx ». Il vient du nom de famille écossais Leslie, lui-même tiré d'un nom de lieu en Écosse. Son prénom pourrait symboliser sa précision, sa discrétion et sa résilience, comme une forteresse inébranlable ou une tireuse d'élite tapie dans l'ombre.",
+    "Contrairement aux autres tireurs, Lesley ne compte pas sur la vitesse d'attaque : elle mise sur les gros dégâts en rafale de ses coups critiques.",
+    "Lesley est l'une des rares tireuses du jeu à utiliser de l'énergie plutôt que du mana.",
+    "Son passif, Lethal Shot, lui permet d'infliger 100 % de dégâts critiques après avoir accumulé de l'énergie supplémentaire, ce qui fait d'elle une tireuse d'élite plutôt qu'un ADC (Attack Damage Carry) classique.",
+    "Le nom de la maison royale de Lesley et de Harley, « Vance », signifie « marais, boue et tourbière » en vieil anglais. C'est aussi un prénom masculin et un nom de famille, surtout utilisés aux États-Unis.",
+    "La réplique de Lesley « L'ennemi est à portée, et toi aussi. » fait référence aux lois de Murphy du combat.",
+    "Lesley est la première et, à ce jour, la seule héroïne tireuse/assassin du jeu, tandis que Yi Sun-shin, qui partage son doubleur japonais avec Gusion, l'objet de son béguin dans le lore, est un assassin/tireur.",
+    "Lesley partage aussi sa doubleuse japonaise, Takada Sakie, avec deux autres héroïnes de Moniyan, Carmilla et Silvanna.",
+    "Dans ses premières versions, elle avait les cheveux plus courts et une tenue de style plus militaire. Les développeurs lui ont ensuite donné un long manteau et une allure plus proche d'une assassin, plus élégante et plus redoutable."
+  ],
+  "profile": {
+    "fullName": "Lesley de la maison Vance",
+    "title": null,
+    "species": "Humaine",
+    "gender": "Femme",
+    "age": "20 ans",
+    "origin": null,
+    "birthday": "10 septembre",
+    "affiliations": [
+      "Maison Vance"
+    ],
+    "relations": [
+      "Père biologique sans nom (décédé)",
+      "Duc Vance II (père adoptif)",
+      "Fredrinn (oncle)",
+      "Harley (petit frère adoptif)",
+      "Gusion (béguin)"
+    ],
+    "powers": [
+      "Camouflage",
+      "Maîtrise du fusil de précision"
+    ]
+  }
+}

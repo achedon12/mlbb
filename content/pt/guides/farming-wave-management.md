@@ -16,10 +16,10 @@ A lane do ouro tem um nome apropriado: é a lane que rende mais ouro, e o atirad
 
 ## Cada minion conta
 
-Ondas de Minions chegam a cada trinta segundos. As primeiras ondas de rotas laterais fornecem um bônus, tornando cada minion que falhou no início do jogo ainda mais caro.
+Uma onda de minions sai a cada trinta segundos, a primeira aos 0:10. Durante as dez primeiras ondas (até 5:10), o canhão dá 45% mais ouro na Gold lane e 35% mais EXP na EXP lane: no início da partida, perder um canhão custa mais do que perder outro minion.
 
-- **Acabe com os minions** em vez de acertar aleatoriamente: o golpe final traz ouro, e um atirador que mira apenas em minions quase mortos também mantém seus pontos vitais.
-- **Não deixe os minions de cerco morrerem** sem acabar com eles: eles valem mais que os outros.
+- **Finalize os minions** em vez de bater ao acaso: um atirador que só bate nos minions quase mortos preserva seus PV e não empurra a onda sem querer.
+- **Garanta o último golpe no canhão**, principalmente durante as dez primeiras ondas: é o minion que carrega o bônus.
 - **Aprenda o ritmo do seu herói**: sua velocidade de ataque e dano no nível 1 não são os do nível 6. O que era um movimento final fácil se torna um golpe a mais.
 
 ## Cresça, congele ou deixe acontecer

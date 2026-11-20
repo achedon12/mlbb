@@ -1,5 +1,6 @@
 "use client";
 
+import { DexHead } from "@/components/dex-states";
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   Download,
@@ -676,7 +677,10 @@ export function StrategyPlanner({ heroes, markers }: { heroes: PlannerHero[]; ma
               );
             })}
             {results.length === 0 && (
-              <li className="col-span-full py-4 text-center text-sm text-chalk-500">{t("pages.strategyPlannerUI.noHero")}</li>
+              <li className="col-span-full flex items-center justify-center gap-2.5 py-4 text-sm text-chalk-400">
+                <DexHead pose="surpris" size={32} />
+                {t("pages.strategyPlannerUI.noHero")}
+              </li>
             )}
           </ul>
         </section>

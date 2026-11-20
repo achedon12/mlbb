@@ -1,5 +1,7 @@
 "use client";
 
+import { DexLoading } from "@/components/dex-loading";
+import { Flash } from "@/components/dex-states";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { AlertTriangle, Check, Link2, Plus, RotateCcw, X } from "lucide-react";
 import { DurationBars } from "@/components/duration-bars";
@@ -120,7 +122,10 @@ export function TeamAnalysis({
 
   const state = charges[rank];
   const measures = state && state !== "error" ? state : null;
-  const analysis = useMemo(() => analyzeTeam({ catalog: heroes, slugs, measures }), [heroes, slugs, measures]);
+  const analysis = useMemo(
+    () => analyzeTeam({ catalog: heroes, slugs, measures, locale: LOCALE_INTL[siteLocale] }),
+    [heroes, slugs, measures, siteLocale],
+  );
 
   const formats = useMemo<Formats>(() => {
     const locale = LOCALE_INTL[siteLocale];
@@ -212,9 +217,8 @@ export function TeamAnalysis({
                 <RotateCcw size={14} aria-hidden />
                 {t("draftUI.clearAll")}
               </button>
-              <span role="status" className="text-xs text-chalk-300">
-                {copy === "ok" && t("teamUI.linkCopied")}
-                {copy === "error" && t("teamUI.copyFailed")}
+              <span role="status" className="text-xs">
+                {copy && <Flash tone={copy}>{t(copy === "ok" ? "teamUI.linkCopied" : "teamUI.copyFailed")}</Flash>}
               </span>
             </div>
           )}
@@ -608,12 +612,13 @@ function Results({
             </div>
           </>
         ) : (
-          <p
-            role="status"
-            className="bevel-sm border border-dashed border-night-700 px-4 py-3 text-sm text-chalk-500"
-          >
-            {error ? t("teamUI.error") : t("teamUI.loading")}
-          </p>
+          error ? (
+            <p role="status">
+              <Flash tone="error">{t("teamUI.error")}</Flash>
+            </p>
+          ) : (
+            <DexLoading dex={false} label={t("teamUI.loading")} />
+          )
         )}
       </section>
 

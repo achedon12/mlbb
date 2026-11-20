@@ -1,6 +1,8 @@
 import { CircleAlert, ShieldAlert, ThumbsDown, Trophy } from "lucide-react";
 import { RankBadge } from "@/components/rank-badge";
 import Link from "@/components/link";
+import { Dex } from "@/components/mascot";
+import { BrandSpinner } from "@/components/dex-states";
 import { HeroPortrait } from "@/components/hero-portrait";
 import { classesChip } from "@/components/chip";
 import { Card } from "@/components/ui";
@@ -44,11 +46,11 @@ export function SectionProfile({
   children: React.ReactNode;
 }) {
   return (
-    <section aria-labelledby={id} className="mt-12">
-      <h2 id={id} className="font-heading text-2xl font-bold text-chalk-100">
+    <section aria-labelledby={id} className="mt-14 sm:mt-20">
+      <h2 id={id} className="type-section text-chalk-100">
         {title}
       </h2>
-      <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+      <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
       {lead && <p className="mt-3 max-w-2xl text-sm leading-relaxed text-chalk-500">{lead}</p>}
       {children}
     </section>
@@ -67,18 +69,19 @@ export function StateProfile({ type, t }: { type: "expired" | "unavailable" | "e
   }[type];
 
   return (
-    <Card className="border-gold-500/30">
-      <h1 className="flex items-center gap-2 font-heading text-xl font-bold text-gold-400">
-        <CircleAlert size={20} aria-hidden />
+    <Card className="dex-host flex flex-wrap items-end gap-5 bg-night-800 p-6 sm:flex-nowrap sm:p-8">
+      <span aria-hidden className="shrink-0">
+        <Dex pose={type === "expired" ? "reflexion" : "surpris"} height={150} still />
+      </span>
+      <div className="min-w-0">
+      <h1 className="display-caps flex items-center gap-2 text-[clamp(2rem,1.5rem+2vw,3rem)] text-gold-400">
+        <CircleAlert size={26} aria-hidden className="shrink-0" />
         {t(`pages.accountProfile.${keys[0]}`)}
       </h1>
       <p className="mt-3 leading-relaxed text-chalk-300">{t(`pages.accountProfile.${keys[1]}`)}</p>
       {type === "expired" ? (
         <SignOutForm action={reconnect} className="mt-5">
-          <button
-            type="submit"
-            className="bevel-sm bg-gold-500 px-4 py-2 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400"
-          >
+          <button type="submit" className="btn btn-primary">
             {t("pages.accountProfile.signInAgain")}
           </button>
         </SignOutForm>
@@ -90,6 +93,7 @@ export function StateProfile({ type, t }: { type: "expired" | "unavailable" | "e
           {t("pages.accountProfile.backToAccount")}
         </Link>
       )}
+      </div>
     </Card>
   );
 }
@@ -269,7 +273,7 @@ export function HeroTable({
               const color = !reliable
                 ? "text-chalk-400"
                 : l.gap! >= MARGIN_POINTS
-                  ? "text-emerald-400"
+                  ? "text-azure-400"
                   : l.gap! <= -MARGIN_POINTS
                     ? "text-blood-500"
                     : "text-chalk-300";
@@ -327,7 +331,7 @@ function WithoutMeasure({ t }: { t: T }) {
   );
 }
 
-const TONES = { good: "text-emerald-400", bad: "text-blood-500", alert: "text-gold-400" } as const;
+const TONES = { good: "text-azure-400", bad: "text-blood-500", alert: "text-gold-400" } as const;
 
 function CardTip({
   title,
@@ -488,8 +492,9 @@ export function ListNemeses({
  */
 export function AnalysisInProgress({ t, text, className }: { t: T; text?: string; className?: string }) {
   return (
-    <p role="status" className={cn("animate-pulse text-sm text-chalk-500", className)}>
-      {text ?? t("pages.accountProfile.analysisPending")}
+    <p role="status" className={cn("flex items-start gap-2.5 text-sm text-chalk-400", className)}>
+      <BrandSpinner className="mt-0.5 text-gold-400" />
+      <span>{text ?? t("pages.accountProfile.analysisPending")}</span>
     </p>
   );
 }

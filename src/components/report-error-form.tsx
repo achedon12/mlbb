@@ -1,5 +1,6 @@
 "use client";
 
+import { Flash } from "@/components/dex-states";
 import { useEffect, useId, useState } from "react";
 import { Flag } from "lucide-react";
 import { useLocale, useT } from "@/i18n/provider";
@@ -155,8 +156,8 @@ export function ReportErrorForm({ path, className }: { path: string; className?:
             </button>
           </div>
           {state.type === "error" && (
-            <p role="alert" className="text-sm text-blood-400">
-              {state.message}
+            <p role="alert">
+              <Flash tone="error">{state.message}</Flash>
             </p>
           )}
         </form>

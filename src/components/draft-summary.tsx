@@ -1,5 +1,7 @@
 "use client";
 
+import { BrandSpinner, Flash } from "@/components/dex-states";
+import { GameDex } from "@/components/game-dex";
 import { useMemo, useState } from "react";
 import { AlertTriangle, Check, Link2, RotateCcw, Settings2 } from "lucide-react";
 import { HeroThumb } from "@/components/hero-picker";
@@ -115,12 +117,16 @@ export function DraftSummary({
 
   return (
     <section aria-labelledby="summary-title" className="space-y-8">
-      <div>
-        <h2 id="summary-title" className="font-heading text-2xl font-bold text-chalk-100">
-          {t("pages.draftSimulatorUI.summary.title")}
-        </h2>
-        <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
-        <p className="mt-3 text-sm text-chalk-500">{t("pages.draftSimulatorUI.summary.intro", { rank: rankName })}</p>
+      {/* The draft is done: Dex cheers it, once, and the title comes in. */}
+      <div className="win-panel flex items-end justify-between gap-4">
+        <div className="min-w-0">
+          <h2 id="summary-title" className="win-punch type-section text-gold-400">
+            {t("pages.draftSimulatorUI.summary.title")}
+          </h2>
+          <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
+          <p className="mt-3 text-sm text-chalk-400">{t("pages.draftSimulatorUI.summary.intro", { rank: rankName })}</p>
+        </div>
+        <GameDex mood="won" beat={0} height={120} />
       </div>
 
       {/* -- Estimated win probability ------------------------------ */}
@@ -134,8 +140,15 @@ export function DraftSummary({
           <span className="text-blood-500">{t("pages.draftSimulatorUI.sides.red")}</span>
         </div>
         {!measures && (
-          <p role="status" className="mt-2 text-xs text-chalk-500">
-            {failed ? t("teamUI.error") : t("teamUI.loading")}
+          <p role="status" className="mt-2 flex items-center gap-2 text-xs text-chalk-400">
+            {failed ? (
+              <Flash tone="error">{t("teamUI.error")}</Flash>
+            ) : (
+              <>
+                <BrandSpinner className="text-gold-400" />
+                {t("teamUI.loading")}
+              </>
+            )}
           </p>
         )}
         <EstimateDetails estimate={estimate} nameOf={nameOf} f={f} rank={rank} className="mt-4" />
@@ -213,9 +226,8 @@ export function DraftSummary({
             <Link2 size={15} aria-hidden />
             {t("teamUI.copy")}
           </button>
-          <span role="status" className="text-xs text-chalk-300">
-            {copied === "ok" && t("teamUI.linkCopied")}
-            {copied === "error" && t("teamUI.copyFailed")}
+          <span role="status" className="text-xs">
+            {copied && <Flash tone={copied}>{t(copied === "ok" ? "teamUI.linkCopied" : "teamUI.copyFailed")}</Flash>}
           </span>
         </div>
         <div className="mt-4 flex flex-wrap gap-2">

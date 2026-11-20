@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import Link from "@/components/link";
+import { DuelTile } from "@/components/compare/hero-tile-row";
+import { heroArt } from "@/components/hero-art";
 import { HeroComparator, type BoundsRank, type HeroComparable, type RateRank } from "@/components/hero-comparator";
-import { PageHeader } from "@/components/ui";
+import { PageHeader, SectionTitle } from "@/components/ui";
 import { counters, allHeroes, heroesBySlug } from "@/lib/data";
 import { rankingFull, rankingOfRank, RANKS_CLASSES, statsByRank } from "@/lib/tier-list";
 import { longDate, patchCurrent } from "@/lib/freshness";
@@ -39,6 +40,8 @@ const comparables: HeroComparable[] = allHeroes.map((h) => ({
   slug: h.slug,
   name: h.name,
   icon: h.images.icon ?? h.images.portrait,
+  portrait: h.images.portrait ?? h.images.icon,
+  art: heroArt(h.slug),
   roles: h.roles,
   lanes: h.lanes,
   notes: h.ratings,
@@ -90,8 +93,6 @@ export default async function ComparePage({ params }: { params: Promise<{ locale
     category: "GameApplication",
   });
 
-  const link = "bevel-sm inline-block border border-night-700 px-2.5 py-1 text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400";
-
   return (
     <>
       <script
@@ -102,22 +103,20 @@ export default async function ComparePage({ params }: { params: Promise<{ locale
         title={t("pages.compare.title")}
         lead={t("pages.compare.leadThree")}
       />
-      <div className="page-wrap py-12">
+      <div className="page-wrap pb-14 pt-6 sm:pt-8">
         <ExtendMessages messages={messagesPage(locale, ["compareUI"])}>
           <HeroComparator heroes={comparables} ranks={[...RANKS_CLASSES]} bounds={bounds} />
         </ExtendMessages>
 
-        <section aria-labelledby="duels" className="mt-14">
-          <h2 id="duels" className="font-heading text-xl font-bold text-chalk-100">
+        <div aria-hidden className="eclat-rule mt-14 sm:mt-20" />
+        <section aria-labelledby="duels" className="mt-10 sm:mt-14">
+          <SectionTitle id="duels" lead={t("pages.compare.duels.intro")}>
             {t("pages.compare.duels.title")}
-          </h2>
-          <p className="mt-2 text-sm leading-relaxed text-chalk-500">{t("pages.compare.duels.intro")}</p>
-          <ul className="mt-4 flex flex-wrap gap-2 text-sm">
+          </SectionTitle>
+          <ul className="grid grid-cols-2 gap-2.5 sm:gap-4 lg:grid-cols-3 2xl:grid-cols-4">
             {featuredDuels().map(({ a, b }) => (
               <li key={segmentPair(a, b)}>
-                <Link href={pathPair(a, b)} className={link}>
-                  {t("pages.versus.title", { a: nameOf(a), b: nameOf(b) })}
-                </Link>
+                <DuelTile href={pathPair(a, b)} a={a} b={b} label={t("pages.versus.title", { a: nameOf(a), b: nameOf(b) })} />
               </li>
             ))}
           </ul>

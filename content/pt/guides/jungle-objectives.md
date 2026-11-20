@@ -52,11 +52,11 @@ Se a resposta à primeira pergunta for “Não sei”, leve a Tartaruga com a eq
 
 ## O Lorde: o objetivo que encerra os jogos
 
-O Lorde empurra a rota mais fraca do oponente com seu time e fortalece sua próxima onda. É o objetivo que decompõe os inibidores.
+Depois de abatido, o Lorde é invocado para a sua equipe: ele empurra uma lane com vocês, e a próxima onda de minions vem reforçada. É o objetivo que mais ajuda a derrubar as últimas torres.
 
 - **Nunca comece sem saber onde estão pelo menos três oponentes.** Um Lorde é levado devagar, e um time que chega bem no meio quase sempre vence a luta.
 - **O melhor momento é logo após uma luta vencida**: dois ou três oponentes mortos e o Lorde está seguro.
-- **Um Lorde não substitui uma onda**: mande-o para a lane onde seus minions já estão empurrados, para que ele chegue com eles.
+- **Um Lorde sozinho não basta**: agrupem-se e avancem com ele e com a onda reforçada, para que ele chegue às torres inimigas com a equipe inteira.
 
 ## Retribution e o duelo de objetivos
 
@@ -78,4 +78,4 @@ Uma vez capturada a Tartaruga, o jungler retorna aos seus buffs e depois aos do 
 - Cultive sua jungle enquanto a equipe luta pela Tartaruga: o jungler é o único com Retribution.
 - Iniciar um objetivo sem visão, esperando ir rápido: esse é o cenário preferido do jungler adversário.
 - Desperdice Retribution para acabar com um herói ou um pequeno acampamento quando um objetivo chegar.
-- Pegue o Lorde quando a onda aliada estiver sob sua própria torre: ele empurrará sozinho e o oponente o defenderá sem dificuldade.
+- Deixar o Lorde empurrar sozinho enquanto a equipe farma em outro lugar: sem escolta, o adversário o defende sem dificuldade.

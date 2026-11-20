@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useRef, useSyncExternalStore } from "react";
 import Link from "@/components/link";
+import { Dex } from "@/components/mascot";
 import { useT } from "@/i18n/provider";
 import { analyticsEnabled } from "@/lib/analytics";
 import {
@@ -67,11 +68,15 @@ export function ConsentBanner() {
           onKeyDown={(e) => {
             if (e.key === "Escape" && open) closeConsent();
           }}
-          className="fixed inset-x-0 bottom-0 z-50 border-t border-gold-500/40 bg-night-900/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-8px_24px_rgba(0,0,0,0.45)] backdrop-blur-sm"
+          className="fixed inset-x-0 bottom-0 z-50 bg-night-900 pb-[env(safe-area-inset-bottom)] shadow-[0_-12px_32px_rgb(0_0_0/0.5)]"
         >
+          <div aria-hidden className="eclat-rule" />
           <div className="page-wrap flex flex-col gap-3 py-3 sm:py-4 md:flex-row md:items-center md:gap-6">
+            <span aria-hidden className="-my-2 hidden shrink-0 self-end md:block">
+              <Dex pose="idee" height={84} still />
+            </span>
             <div className="min-w-0 flex-1">
-              <p id={title} className="font-heading text-base font-bold text-chalk-100">
+              <p id={title} className="font-heading text-lg font-bold uppercase text-chalk-100">
                 {t("consent.title")}
               </p>
               <p id={text} className="mt-1 text-sm leading-snug text-chalk-300">
@@ -94,14 +99,14 @@ export function ConsentBanner() {
                 ref={first}
                 type="button"
                 onClick={() => chooseConsent("denied")}
-                className="bevel-sm border border-gold-500/60 bg-night-800 px-4 py-2 text-sm font-semibold text-chalk-100 transition-colors hover:bg-night-700"
+                className="btn btn-secondary btn-sm"
               >
                 {t("consent.refuse")}
               </button>
               <button
                 type="button"
                 onClick={() => chooseConsent("granted")}
-                className="bevel-sm border border-gold-500/60 bg-night-800 px-4 py-2 text-sm font-semibold text-chalk-100 transition-colors hover:bg-night-700"
+                className="btn btn-secondary btn-sm"
               >
                 {t("consent.accept")}
               </button>

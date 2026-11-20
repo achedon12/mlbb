@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { ItemIcon } from "@/components/item-sheet";
 import { ListLinks, PartsChoice, TableRanks, TableUsage } from "@/components/usage-sheet";
 import { FreshnessLine } from "@/components/freshness";
 import { PageSourcesBlock } from "@/components/page-sources";
-import { Card, PageHeader, SectionTitle } from "@/components/ui";
+import { SectionTitle } from "@/components/ui";
+import { artOf, HeroArtRow, SheetPoster } from "@/components/sheet-poster";
 import type { Locale } from "@/i18n/config";
 import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT, messagesPage } from "@/i18n/translations";
@@ -78,7 +78,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, slug } = await params;
   const f = sheet(locale, slug);
   if (!f) return notFoundMetadata(locale);
-  return metaPage(locale, { title: f.title, description: f.description, path: `/spells/${slug}` });
+  return metaPage(locale, { title: f.title, description: f.description, path: `/spells/${slug}`, card: true });
 }
 
 export default async function SpellPage({ params }: Params) {
@@ -118,10 +118,12 @@ export default async function SpellPage({ params }: Params) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(data) }} />
-      <PageHeader
+      <SheetPoster
         title={name}
         lead={fi.lead}
-        icon={s.image ? <ItemIcon image={s.image} size={64} /> : undefined}
+        image={s.image}
+        art={artOf(heroes[0]?.slug)}
+        figure={s.cooldown !== null ? { value: String(s.cooldown), unit: "s", label: t("pages.spellDetail.cooldown") } : null}
         crumbs={[
           { name: t("nav.emblems.label"), href: "/emblems" },
           {
@@ -131,34 +133,35 @@ export default async function SpellPage({ params }: Params) {
         ]}
       >
         <FreshnessLine locale={locale} className="mt-4" />
-      </PageHeader>
+      </SheetPoster>
 
-      <div className="page-wrap space-y-14 py-10">
-        <Card>
-          <dl className="grid gap-4 text-sm sm:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
+      <div className="page-wrap space-y-14 py-10 sm:space-y-20 sm:py-14">
+        <dl className="bevel-lg grid gap-x-10 gap-y-5 bg-night-900 p-5 sm:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] sm:p-7">
+          <div>
+            <dt className="font-heading text-sm font-bold text-gold-400">{t("pages.spellDetail.effect")}</dt>
+            <dd className="mt-1.5 text-lg leading-relaxed text-chalk-100">
+              {fi.effect ?? <span className="text-base text-chalk-500">{t("pages.spellDetail.noDescription")}</span>}
+            </dd>
+          </div>
+          {fi.bestFor && (
             <div>
-              <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.spellDetail.effect")}</dt>
-              <dd className="mt-1 leading-relaxed text-chalk-100">
-                {fi.effect ?? <span className="text-chalk-500">{t("pages.spellDetail.noDescription")}</span>}
-              </dd>
+              <dt className="font-heading text-sm font-bold text-gold-400">{t("pages.sheets.bestFor")}</dt>
+              <dd className="mt-1.5 leading-relaxed text-chalk-300">{fi.bestFor}</dd>
             </div>
-            {s.cooldown !== null && (
-              <div>
-                <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.spellDetail.cooldown")}</dt>
-                <dd className="mt-1 font-heading tabular-nums text-gold-400">{t("pages.spellDetail.seconds", { n: s.cooldown })}</dd>
-              </div>
-            )}
-            {fi.bestFor && (
-              <div className="sm:col-span-2">
-                <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.sheets.bestFor")}</dt>
-                <dd className="mt-1 leading-relaxed text-chalk-300">{fi.bestFor}</dd>
-              </div>
-            )}
-          </dl>
-        </Card>
+          )}
+        </dl>
 
         <section>
           <SectionTitle lead={t("pages.sheets.help")}>{heroTitle}</SectionTitle>
+          <HeroArtRow
+            className="mb-6"
+            heroes={heroes.slice(0, 6).map((h) => ({
+              slug: h.slug,
+              href: `/heroes/${h.slug}#builds`,
+              figure: h.win === null ? undefined : percentage(locale, h.win),
+              label: h.win === null ? undefined : `${t("pages.heroDetail.stat.winRate")} ${percentage(locale, h.win)}`,
+            }))}
+          />
           {heroes.length > 0 ? (
             <TableUsage rows={heroes} legend={heroTitle} t={t} locale={locale} />
           ) : (
@@ -169,7 +172,7 @@ export default async function SpellPage({ params }: Params) {
         {emblems.length > 0 && (
           <section>
             <SectionTitle lead={t("pages.spellDetail.emblemsIntro")}>{t("pages.spellDetail.emblemsTitle")}</SectionTitle>
-            <div className="max-w-md">
+            <div className="max-w-xl">
               <PartsChoice locale={locale} entries={emblems} />
             </div>
           </section>

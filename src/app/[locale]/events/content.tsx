@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { WikiCredit } from "@/components/wiki-credit";
 import { MonthContent, SourceList, heroName, monthLabel, monthText } from "@/components/event-month";
 import { FreshnessLine } from "@/components/freshness";
 import Link from "@/components/link";
 import { Foldable } from "@/components/foldable";
 import { Pager } from "@/components/pager";
-import { Card, PageHeader, SectionTitle } from "@/components/ui";
+import { eventArt } from "@/components/events/event-feature";
+import { DexSays } from "@/components/mascot";
+import { ENTRANCE, PosterHeader } from "@/components/poster-header";
+import { SectionTitle } from "@/components/ui";
 import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { metaPage, metaPaged } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
@@ -61,6 +65,7 @@ export function metaEvents(locale: Locale, page = 1): Metadata {
       title: t("pages.seo.events.title"),
       description: description(locale),
       path: PATH,
+      card: true,
       keywords: ["MLBB events", "MLBB Starlight", "Starlight skin this month", "MLBB Collector skin", "Grand Collection", "Mobile Legends"],
     }),
     locale,
@@ -82,6 +87,9 @@ export function Events({ locale, page = 1 }: { locale: Locale; page?: number }) 
   const view = paging(recent.length, page, BY_PAGE);
   const timeline = slicePage(recent, view.page, BY_PAGE);
   const latest = past[0];
+  // The poster: this month's StarLight artwork, else the latest month's.
+  const posterArt =
+    [thisMonth, latest].flatMap((m) => (m ? [...m.starlight, ...m.collector] : [])).map(eventArt).find(Boolean) ?? null;
   const link = "font-semibold text-gold-400 transition-colors hover:text-gold-500";
   const externalLink = "font-semibold text-gold-400 hover:underline";
   const skinCount = (n: number) =>
@@ -97,32 +105,43 @@ export function Events({ locale, page = 1 }: { locale: Locale; page?: number }) 
 
   const badge = (status: MonthStatus) =>
     status !== "past" && (
-      <span className="bevel-sm inline-block bg-gold-500 px-2 py-0.5 text-xs font-semibold text-night-950">
+      <span className="bevel-sm inline-block bg-gold-400 px-2 py-0.5 font-heading text-sm font-bold uppercase text-night-950">
         {t(`pages.events.status.${status}`)}
       </span>
     );
 
-  const monthBlock = (m: EventMonth, status: MonthStatus) => (
-    <Card className={cn(status !== "past" && "border-gold-500/60")}>
+  /*
+   * A month of the timeline: its title over a band of its StarLight artwork,
+   * then its skins. No frame: the band and the space around set it apart.
+   */
+  const monthBlock = (m: EventMonth, status: MonthStatus) => {
+    const art = [...m.starlight, ...m.collector].map(eventArt).find(Boolean) ?? null;
+    return (
       <article aria-labelledby={`m-${m.month}`}>
-        <header className="mb-6 flex flex-wrap items-center gap-x-4 gap-y-2">
-          <h3 id={`m-${m.month}`} className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
-            <Link href={`${PATH}/${m.month}`} className="transition-colors hover:text-gold-400">
+        <header className="bevel relative isolate mb-6 flex min-h-28 flex-wrap items-end gap-x-4 gap-y-2 overflow-hidden bg-night-900 p-4 sm:min-h-36 sm:p-6">
+          {art && (
+            <span aria-hidden className="absolute inset-y-0 right-0 -z-10 w-full sm:w-2/3">
+              <Image src={art} alt="" fill sizes="(min-width: 640px) 66vw, 100vw" className="object-cover object-[50%_25%] opacity-80" />
+              <span className="absolute inset-0 bg-linear-to-r from-night-900 via-night-900/60 to-transparent" />
+            </span>
+          )}
+          <h3 id={`m-${m.month}`} className="display-caps text-[clamp(2.2rem,1.6rem+2vw,3.5rem)] text-chalk-100">
+            <Link href={`${PATH}/${m.month}`} className="transition-colors hover:text-gold-300">
               {monthLabel(locale, m.month)}
             </Link>
           </h3>
           {badge(status)}
-          <span className="text-sm text-chalk-500">{skinCount(m.total)}</span>
+          <span className="pb-1 text-sm text-chalk-300">{skinCount(m.total)}</span>
         </header>
         <MonthContent month={m} t={t} locale={locale} variant="timeline" />
-        <p className="mt-6 text-sm">
-          <Link href={`${PATH}/${m.month}`} className={link}>
+        <p className="mt-6">
+          <Link href={`${PATH}/${m.month}`} className="font-heading text-base font-bold uppercase text-gold-400 transition-colors hover:text-gold-300">
             {t("pages.events.monthDetails", { month: monthText(locale, m.month) })} →
           </Link>
         </p>
       </article>
-    </Card>
-  );
+    );
+  };
 
   const structuredData = dataListSkins(locale, {
     name: t("pages.events.title"),
@@ -137,7 +156,7 @@ export function Events({ locale, page = 1 }: { locale: Locale; page?: number }) 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
-      <PageHeader
+      <PosterHeader
         title={t("pages.events.title")}
         lead={t("pages.events.lead", {
           n: numbers.format(all.length),
@@ -145,15 +164,18 @@ export function Events({ locale, page = 1 }: { locale: Locale; page?: number }) 
           end: all.length ? monthText(locale, all[0].month) : "—",
         })}
         crumbs={[{ name: t("pages.events.breadcrumb") }]}
+        art={posterArt}
+        tall
+        kicker={monthLabel(locale, currentMonth)}
       >
         <FreshnessLine locale={locale} className="mt-4" />
-      </PageHeader>
+      </PosterHeader>
 
       <div className="page-wrap space-y-16 py-12">
-        <section id="this-month" className="scroll-mt-24">
+        <section id="this-month" className={cn("scroll-mt-24", ENTRANCE)}>
           <SectionTitle>{t("pages.events.thisMonthTitle", { month: monthText(locale, currentMonth) })}</SectionTitle>
-          <Card className="border-gold-500/60">
-            <div className="mb-6">{badge("current")}</div>
+          <div className="mb-6">{badge("current")}</div>
+          <div className="xl:grid xl:grid-cols-[minmax(0,1fr)_30rem] xl:items-start xl:gap-10">
             {thisMonth ? (
               <MonthContent month={thisMonth} t={t} locale={locale} variant="timeline" />
             ) : (
@@ -169,8 +191,9 @@ export function Events({ locale, page = 1 }: { locale: Locale; page?: number }) 
                 )}
               </p>
             )}
-            <h3 className="mt-8 font-heading text-lg font-semibold text-chalk-100">{t("pages.events.everyMonthTitle")}</h3>
-            <ul className="mt-3 list-disc space-y-3 pl-5 leading-relaxed text-chalk-300 marker:text-gold-400">
+            <DexSays pose="reflexion" height={110} className="mt-10 max-w-3xl xl:mt-0">
+            <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.events.everyMonthTitle")}</h3>
+            <ul className="mt-2 list-disc space-y-2.5 pl-5 text-sm leading-relaxed text-chalk-300 marker:text-gold-400">
               <li>
                 {t("pages.events.ruleStarlight")}{" "}
                 <a
@@ -198,7 +221,8 @@ export function Events({ locale, page = 1 }: { locale: Locale; page?: number }) 
                 </a>
               </li>
             </ul>
-          </Card>
+            </DexSays>
+          </div>
         </section>
 
         <section id="upcoming" className="scroll-mt-24">
@@ -208,7 +232,7 @@ export function Events({ locale, page = 1 }: { locale: Locale; page?: number }) 
               : t("pages.events.nextMonthTitle", { month: monthText(locale, nextMonth) })}
           </SectionTitle>
           {announced.length > 0 ? (
-            <ol className="space-y-6">
+            <ol className="space-y-14">
               {announced.map((m) => (
                 <li key={m.month} className="space-y-3">
                   {monthBlock(m, "announced")}
@@ -229,7 +253,7 @@ export function Events({ locale, page = 1 }: { locale: Locale; page?: number }) 
             <SectionTitle lead={t("pages.events.recentLead", { n: recent.length })}>
               {t("pages.events.recentTitle")}
             </SectionTitle>
-            <ol className="space-y-6">
+            <ol className="space-y-14">
               {timeline.map((m) => (
                 <li key={m.month}>{monthBlock(m, "past")}</li>
               ))}

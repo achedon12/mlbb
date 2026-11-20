@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Trophy } from "lucide-react";
+import { TeamCrest } from "@/components/esports-broadcast";
+import { EditorialPoster, ENTRANCE, firstWithArt } from "@/components/editorial-poster";
+import { Foldable } from "@/components/foldable";
+import { PageLead } from "@/components/page-lead";
 import { shortDate, SourceCredit, stageName } from "@/components/esports-parts";
 import { PlayerLink, percentText, ProGameDraft, roleText, teamName } from "@/components/esports-pro";
 import Link from "@/components/link";
-import { PageHeader, SectionTitle } from "@/components/ui";
+import { Score, SectionTitle } from "@/components/ui";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
@@ -51,6 +55,15 @@ export default async function TeamPage({ params }: Params) {
   const titles = p.records.filter((r) => r.champion).length;
   const sources = p.records.flatMap((r) => r.turn.sources.slice(0, 1));
   const record = (r: [number, number]) => t("pages.esports.pro.record", { wins: r[0], losses: r[1] });
+  const gameRate = rate(p.games[0], p.games[0] + p.games[1]);
+  // The team's most drafted hero gives the poster its art.
+  const picks = new Map<string, number>();
+  for (const m of p.matches) {
+    const side = m.teams.indexOf(slug);
+    if (side < 0) continue;
+    for (const g of m.games) for (const hero of g.picks[side] ?? []) picks.set(hero, (picks.get(hero) ?? 0) + 1);
+  }
+  const art = firstWithArt([...picks].sort((a, b) => b[1] - a[1]).map(([hero]) => hero))?.art ?? null;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -82,23 +95,46 @@ export default async function TeamPage({ params }: Params) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }} />
-      <PageHeader
-        title={p.team.name}
-        lead={t("pages.esports.pro.team.lead", { name: p.team.name })}
+      <EditorialPoster
+        art={art}
         crumbs={[{ name: t("pages.esports.title"), href: "/esports" }, { name: p.team.name }]}
-        details={{ label: t("pages.esports.pro.methodLabel"), content: <p>{t("pages.esports.pro.method")}</p> }}
+        aside={
+          gameRate !== null ? (
+            <p className="lg:text-right">
+              <Score value={new Intl.NumberFormat(locale, { maximumFractionDigits: 0 }).format(gameRate)} unit="%" className="text-[clamp(4rem,2.5rem+5vw,8rem)]" />
+              <span className="mt-2 block text-sm text-chalk-300">{t("pages.esports.pro.columns.winRate")}</span>
+            </p>
+          ) : undefined
+        }
       >
-        <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-4">
+        <div className="flex flex-wrap items-end gap-5 sm:gap-8">
+          <TeamCrest name={p.team.name} size="xl" champion={titles > 0} />
+          <div className="min-w-0">
+            {titles > 0 && (
+              <p className="flex items-center gap-1.5 font-heading text-base font-bold uppercase text-gold-400">
+                <Trophy size={16} aria-hidden />
+                {t("pages.esports.pro.team.champion")} × {titles}
+              </p>
+            )}
+            <h1 className="affiche-name type-giant mt-1 break-words text-chalk-100">{p.team.name}</h1>
+          </div>
+        </div>
+        <div aria-hidden className="eclat mt-5 h-[3px] w-24" />
+        <PageLead lead={t("pages.esports.pro.team.lead", { name: p.team.name })} />
+        <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-4 sm:flex sm:flex-wrap sm:gap-x-10">
           {facts.map(([label, value]) => (
             <div key={label} className="min-w-0">
-              <dt className="text-xs uppercase tracking-wide text-chalk-500">{label}</dt>
-              <dd className="mt-1 text-sm font-semibold tabular-nums text-chalk-100">{value}</dd>
+              <dt className="text-xs text-chalk-400">{label}</dt>
+              <dd className="display-caps mt-1 text-3xl text-chalk-100">{value}</dd>
             </div>
           ))}
         </dl>
-      </PageHeader>
+        <Foldable label={t("pages.esports.pro.methodLabel")} className="mt-5 max-w-2xl">
+          <p>{t("pages.esports.pro.method")}</p>
+        </Foldable>
+      </EditorialPoster>
 
-      <div className="page-wrap space-y-14 py-12">
+      <div className={cn("page-wrap space-y-14 py-10 sm:space-y-20 sm:py-14", ENTRANCE)}>
         {latest && latest.roster.length > 0 && (
           <section>
             <SectionTitle lead={t("pages.esports.pro.team.rosterIntro", { name: latest.turn.name })}>
@@ -108,10 +144,10 @@ export default async function TeamPage({ params }: Params) {
               {latest.roster.map((r) => (
                 <li
                   key={r.player.slug}
-                  className={cn("border border-night-700/70 bg-night-900/60 px-3 py-2.5", r.status && "opacity-80")}
+                  className={cn("bevel relative bg-night-900 px-4 pb-4 pt-3 transition-[translate] duration-200 hover:-translate-y-0.5", r.status && "opacity-75")}
                 >
-                  <p className="text-xs uppercase tracking-wide text-gold-400">{roleText(t, r.role)}</p>
-                  <PlayerLink slug={r.player.slug} className="mt-0.5 block truncate font-heading text-lg font-bold text-chalk-100" />
+                  <p className="font-heading text-sm font-bold uppercase text-gold-400">{roleText(t, r.role)}</p>
+                  <PlayerLink slug={r.player.slug} className="display-caps mt-1 block truncate text-3xl text-chalk-100 sm:text-4xl" />
                   <p className="text-xs text-chalk-500">
                     {r.status ? `${t(`pages.esports.pro.status.${r.status}`)} · ` : ""}
                     {t("pages.esports.pro.team.gamesPlayed", { n: r.games })}
@@ -124,9 +160,9 @@ export default async function TeamPage({ params }: Params) {
 
         <section>
           <SectionTitle>{t("pages.esports.pro.team.recordsTitle")}</SectionTitle>
-          <div className="relative overflow-x-auto border border-night-700/70">
+          <div className="bevel relative overflow-x-auto bg-night-900">
             <table className="w-full min-w-[30rem] border-collapse text-sm tabular-nums">
-              <thead className="bg-night-900 text-xs uppercase tracking-wide text-chalk-500">
+              <thead className="bg-night-800 font-heading text-sm uppercase text-chalk-400">
                 <tr>
                   <th scope="col" className="px-3 py-2 text-left font-medium">{t("pages.esports.pro.columns.tournament")}</th>
                   <th scope="col" className="px-3 py-2 text-right font-medium">{t("pages.esports.pro.team.facts.series")}</th>
@@ -142,7 +178,8 @@ export default async function TeamPage({ params }: Params) {
                         {r.turn.name}
                       </Link>
                       {r.champion && (
-                        <span className="ml-2 border border-gold-500/50 px-1.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide text-gold-400">
+                        <span className="bevel-sm ml-2 inline-flex items-center gap-1 bg-gold-400 px-1.5 py-0.5 font-heading text-xs font-bold uppercase text-night-950">
+                          <Trophy size={11} aria-hidden />
                           {t("pages.esports.pro.team.champion")}
                         </span>
                       )}
@@ -176,7 +213,7 @@ export default async function TeamPage({ params }: Params) {
                     <span
                       className={cn(
                         "w-28 shrink-0 whitespace-nowrap text-xs font-semibold uppercase tracking-wide",
-                        won ? "text-emerald-400" : "text-blood-500",
+                        won ? "text-azure-400" : "text-blood-400",
                       )}
                     >
                       {won ? t("pages.esports.pro.win") : t("pages.esports.pro.loss")}
@@ -203,16 +240,16 @@ export default async function TeamPage({ params }: Params) {
                   <li key={i}>
                     {m.games.length === 0 ? (
                       // A forfeit: no game, nothing to open.
-                      <div className={cn(row, "border border-night-700/70 bg-night-900/60")}>
+                      <div className={cn(row, "bevel-sm bg-night-900")}>
                         {line}
                         <span className="text-xs text-chalk-500">{t("pages.esports.pro.team.forfeit")}</span>
                       </div>
                     ) : (
-                      <details className="group border border-night-700/70 bg-night-900/60">
+                      <details className="bevel-sm group bg-night-900">
                         <summary
                           className={cn(
                             row,
-                            "cursor-pointer list-none outline-none transition-colors hover:bg-night-900 focus-visible:ring-2 focus-visible:ring-gold-500 [&::-webkit-details-marker]:hidden",
+                            "cursor-pointer list-none outline-none transition-colors hover:bg-night-800 focus-visible:ring-2 focus-visible:ring-gold-400 [&::-webkit-details-marker]:hidden",
                           )}
                         >
                           {line}

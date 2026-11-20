@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "@/components/link";
 import { SkinGallery } from "@/components/skin-gallery";
 import { Foldable } from "@/components/foldable";
-import { LightImage } from "@/components/light-image";
-import { PageHeader } from "@/components/ui";
+import { heroArt } from "@/components/hero-art";
+import { ENTRANCE, PosterHeader } from "@/components/poster-header";
+import { RarityGem, SkinArtTile, SkinTile } from "@/components/skins/skin-tile";
+import { SectionTitle } from "@/components/ui";
 import { ExtendMessages } from "@/i18n/provider";
 import { LOCALE_HTML, LOCALE_INTL, type Locale } from "@/i18n/config";
 import { metaPage, metaPaged } from "@/i18n/seo";
@@ -30,6 +32,8 @@ import { anchorsGallery, lastSkins, heroGallery, groupsSkins, heroesWithSkins, g
 export const PATH_SKINS = "/skins";
 
 const LAST = 12;
+/** Skins on the wall of the latest: the feature and sixteen portraits. */
+const WALL = 17;
 /** Hero galleries per page; the same number the gallery itself uses. */
 export const BY_PAGE_SKINS = 4;
 
@@ -52,6 +56,7 @@ export function metaSkins(locale: Locale, page = 1): Metadata {
         hero: last?.hero.name ?? "—",
       }),
       path: PATH_SKINS,
+      card: true,
     }),
     locale,
     PATH_SKINS,
@@ -66,6 +71,16 @@ export function Skins({ locale, page = 1 }: { locale: Locale; page?: number }) {
   const sorted = [...heroesWithSkins].sort((a, b) => a.name.localeCompare(b.name, "en"));
   const lead = t("pages.skins.lead", { n, h: sorted.length });
   const absolute = (path: string) => new URL(path, site.url).toString();
+  // The newest in its artwork and sixteen portraits: two rows beside it, one under (twelve on a phone).
+  const wall = lastSkins(WALL);
+  // The poster: the latest artworks side by side, as slanted panels.
+  const poster = last.flatMap(({ skin: s }) => s.illustration ?? []).slice(0, 5);
+  const arts = Object.fromEntries(
+    heroesWithSkins.flatMap((h) => {
+      const art = heroArt(h.slug);
+      return art ? [[h.slug, art]] : [];
+    }),
+  );
 
   // Only the latest skins: each hero gallery carries its own,
   // and the list of the 132 galleries doubled the page weight.
@@ -104,50 +119,70 @@ export function Skins({ locale, page = 1 }: { locale: Locale; page?: number }) {
   return (
     <ExtendMessages messages={messagesPage(locale, ["pages.heroesList", "pages.skinsGallery"])}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(data) }} />
-      <PageHeader title={t("pages.skins.title")} lead={lead}>
-        <p className="mt-6 text-sm text-chalk-500">
-          <time dateTime={sync.date}>{t("pages.skins.updatedOn", { date: longDate(locale, sync.date) })}</time>
-        </p>
-      </PageHeader>
+      <PosterHeader
+        title={t("pages.skins.title")}
+        lead={lead}
+        art={poster}
+        tall
+        kicker={<time dateTime={sync.date}>{t("pages.skins.updatedOn", { date: longDate(locale, sync.date) })}</time>}
+      />
 
-      <div className="page-wrap space-y-14 py-10">
-        <section aria-labelledby="latest-skins">
-          <h2 id="latest-skins" className="font-heading text-2xl font-bold text-chalk-100">
+      <div className="page-wrap space-y-14 py-10 sm:space-y-20 sm:py-14">
+        {/*
+          The latest skins as one wall: the newest in its full artwork, the
+          others as portraits framed by rarity, names on the art.
+        */}
+        <section aria-labelledby="latest-skins" className={ENTRANCE}>
+          <SectionTitle id="latest-skins" lead={t("pages.skins.latestIntro")}>
             {t("pages.skins.latest")}
-          </h2>
-          <p className="mt-1 text-sm text-chalk-500">{t("pages.skins.latestIntro")}</p>
-          {/* Four thumbnails per row on a phone, as in the gallery below. */}
-          <ul className="mt-5 grid grid-cols-4 gap-3 sm:grid-cols-4 lg:grid-cols-6">
-            {last.map(({ hero: h, skin: s }, i) => {
+          </SectionTitle>
+          <ul className="grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-3 lg:grid-cols-8">
+            {wall.map(({ hero: h, skin: s }, i) => {
               const g = heroGallery(h);
+              const href = `/heroes/${h.slug}/skins#${anchorsGallery(g)[g.skins.indexOf(s)]}`;
+              const r = rarity(s.rarity);
+              const date = <time dateTime={s.release!}>{formatRelease(s.release!, LOCALE_INTL[locale])}</time>;
+              if (i === 0 && s.illustration) {
+                return (
+                  <li key={`${h.slug}-${s.id}`} className="col-span-3 sm:col-span-4 lg:row-span-2">
+                    <SkinArtTile
+                      href={href}
+                      art={s.illustration}
+                      name={s.name}
+                      color={r.color}
+                      priority
+                      aspect="aspect-[16/10] lg:aspect-auto lg:h-full"
+                      className="lg:h-full"
+                      sizes="(min-width: 1024px) 50vw, 100vw"
+                      nameClassName="text-[clamp(2.25rem,1.4rem+3vw,4.5rem)]"
+                      kicker={
+                        <>
+                          <RarityGem color={r.color} />
+                          {h.name} · {date}
+                        </>
+                      }
+                    >
+                      <span className="sr-only">{t("pages.heroSkins.altIllustration", { skin: s.name, name: h.name })}</span>
+                    </SkinArtTile>
+                  </li>
+                );
+              }
               const image = s.portrait ?? s.illustration;
               return (
-                <li key={`${h.slug}-${s.id}`}>
-                  <Link href={`/heroes/${h.slug}/skins#${anchorsGallery(g)[g.skins.indexOf(s)]}`} className="group block">
-                    <span
-                      className="bevel-sm relative block aspect-[240/390] overflow-hidden border-2 bg-night-800"
-                      style={{ borderColor: rarity(s.rarity).color }}
-                    >
-                      {image && (
-                        <LightImage
-                          src={image}
-                          alt={t("pages.heroSkins.altPortrait", { skin: s.name, name: h.name })}
-                          width={120}
-                          height={195}
-                          immediate={i < IMMEDIATE_COUNT}
-                          className="size-full object-cover"
-                        />
-                      )}
-                    </span>
-                    {/* Four per row leaves little width: the name wraps over
-                        two lines rather than being cut after eight letters. */}
-                    <span className="mt-1.5 line-clamp-2 block text-sm font-semibold leading-tight text-chalk-100 group-hover:text-gold-400">
-                      {s.name}
-                    </span>
-                    <span className="block truncate text-xs text-chalk-500">
-                      {h.name} · <time dateTime={s.release!}>{formatRelease(s.release!, LOCALE_INTL[locale])}</time>
-                    </span>
-                  </Link>
+                <li key={`${h.slug}-${s.id}`} className={i > 12 ? "max-sm:hidden" : undefined}>
+                  <SkinTile
+                    href={href}
+                    src={image}
+                    name={s.name}
+                    sub={
+                      <>
+                        {h.name} · {date}
+                      </>
+                    }
+                    alt={t("pages.heroSkins.altPortrait", { skin: s.name, name: h.name })}
+                    color={r.color}
+                    immediate={i < IMMEDIATE_COUNT}
+                  />
                 </li>
               );
             })}
@@ -155,12 +190,8 @@ export function Skins({ locale, page = 1 }: { locale: Locale; page?: number }) {
         </section>
 
         <section aria-labelledby="skins-gallery">
-          <h2 id="skins-gallery" className="font-heading text-2xl font-bold text-chalk-100">
-            {t("pages.skins.gallery")}
-          </h2>
-          <div className="mt-5">
-            <SkinGallery groups={groupsSkins()} page={page} />
-          </div>
+          <SectionTitle id="skins-gallery">{t("pages.skins.gallery")}</SectionTitle>
+          <SkinGallery groups={groupsSkins()} arts={arts} page={page} />
         </section>
 
         {/* Every gallery as plain links: engines and readers reach each hero

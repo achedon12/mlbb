@@ -16,7 +16,7 @@ Sa ranggo na paglalaro, bubukas ang draft mula sa Epic rank: ipinagbabawal ng ba
 
 ## Paano gumagana ang isang ranggo na draft?
 
-- **Bawal**: ang parehong mga koponan ay pinagbawalan sa parehong oras. Ang bilang ng mga pagbabawal ay depende sa pinakamataas na ranggo sa laro. Ang parehong mga koponan ay maaaring i-ban ang parehong hero, na nag-aaksaya ng pagbabawal: ang pagsang-ayon sa chat muna ay maiiwasan ang pagdoble na ito.
+- **Ban**: sabay na nagba-ban ang dalawang team. Nakadepende ang bilang ng ban sa pinakamataas na rank sa laro. Walang pumipigil sa kalaban na i-ban ang parehong hero na binan mo, at hindi ito mapaplano. Ang naibibigay ng pag-uusap sa chat ay ang paghahati ng ban sa loob ng team mo: alam ng bawat isa kung aling banta ang tinatanggal niya, kaya natatakpan ng mga ban ninyo ang pangunahing banta sa halip na makalusot ang isang mapanganib na hero dahil umasa ang bawat isa sa iba.
 - **Ang mga pinili**: pipili ang asul na koponan ng isang hero, ang pula na dalawa, ang asul na dalawa, ang pula na dalawa, ang asul na dalawa, pagkatapos ang pula ang huli.
 - **Ang mahalaga**: ang isang hero na unang napili ay makikita ng lahat, ang isang hero na huling napili ay maaaring tumugon sa lahat ng iba pa.
 

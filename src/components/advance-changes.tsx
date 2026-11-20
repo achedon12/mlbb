@@ -1,6 +1,9 @@
 import { ArrowRight, FlaskConical, Minus, TrendingDown, TrendingUp } from "lucide-react";
 import Link from "@/components/link";
 import { HeroPortrait } from "@/components/hero-portrait";
+import { HeroTile } from "@/components/hero-tile";
+import { Dex } from "@/components/mascot";
+import { BalanceFigures } from "@/components/patch-visuals";
 import type { Locale } from "@/i18n/config";
 import type { T } from "@/i18n/translations";
 import {
@@ -26,10 +29,11 @@ import { cn } from "@/lib/utils";
  * demand: test notes are short, and a reader comes for the details.
  */
 
-const DIRECTION_STYLE: Record<ChangeDirection, { text: string; border: string; Icon: typeof TrendingUp }> = {
-  buff: { text: "text-emerald-400", border: "border-emerald-500/30", Icon: TrendingUp },
-  nerf: { text: "text-blood-500", border: "border-blood-500/30", Icon: TrendingDown },
-  adjust: { text: "text-azure-400", border: "border-azure-500/30", Icon: Minus },
+/** Ally blue for buffs, enemy red for nerfs, chalk for the plain adjustments; `edge` marks a card's left side. */
+const DIRECTION_STYLE: Record<ChangeDirection, { text: string; edge: string; Icon: typeof TrendingUp }> = {
+  buff: { text: "text-azure-400", edge: "shadow-[inset_3px_0_0_var(--color-azure-400)]", Icon: TrendingUp },
+  nerf: { text: "text-blood-400", edge: "shadow-[inset_3px_0_0_var(--color-blood-400)]", Icon: TrendingDown },
+  adjust: { text: "text-chalk-300", edge: "shadow-[inset_3px_0_0_var(--color-chalk-400)]", Icon: Minus },
 };
 
 const DIRECTION_OF = Object.fromEntries(
@@ -50,7 +54,7 @@ export function DirectionBadge({ type, t }: { type: ChangeDirection; t: T }) {
 /** "New", "Removed", "Rework"… as marked by the notes. */
 export function TagBadge({ tag, t }: { tag: ChangeTag; t: T }) {
   return (
-    <span className="inline-block border border-gold-500/40 bg-gold-500/10 px-1.5 py-0.5 text-[0.7rem] font-semibold uppercase tracking-wide text-gold-400">
+    <span className="bevel-sm inline-block bg-gold-400 px-1.5 py-0.5 font-heading text-xs font-bold uppercase text-night-950">
       {t(`pages.advanceServer.tags.${tag}`)}
     </span>
   );
@@ -59,12 +63,12 @@ export function TagBadge({ tag, t }: { tag: ChangeTag; t: T }) {
 /** "Under test" when the build is ahead of the live patch, otherwise "Older than patch X". */
 export function StatusBadge({ underTest, live, t }: { underTest: boolean; live: string; t: T }) {
   return underTest ? (
-    <span className="inline-flex items-center gap-1 border border-emerald-500/40 bg-emerald-500/10 px-2 py-0.5 text-xs font-semibold text-emerald-400">
+    <span className="bevel-sm inline-flex items-center gap-1 bg-azure-400 px-2 py-0.5 font-heading text-sm font-bold uppercase text-night-950">
       <FlaskConical size={12} aria-hidden />
       {t("pages.advanceServer.badgeUnderTest")}
     </span>
   ) : (
-    <span className="inline-block border border-night-700 px-2 py-0.5 text-xs font-medium text-chalk-500">
+    <span className="bevel-sm inline-block bg-night-800 px-2 py-0.5 text-xs font-medium text-chalk-400">
       {t("pages.advanceServer.badgeOlder", { live })}
     </span>
   );
@@ -88,13 +92,13 @@ export function VersionDate({
 /** Warning shown wherever test changes appear: they may change or never ship. */
 export function TestNotice({ t, children }: { t: T; children?: React.ReactNode }) {
   return (
-    <div
-      role="note"
-      className="flex gap-3 border border-gold-500/40 bg-gold-500/5 p-4 text-sm leading-relaxed text-chalk-300"
-    >
-      <FlaskConical size={20} aria-hidden className="mt-0.5 shrink-0 text-gold-400" />
-      <div className="min-w-0">
-        <p className="font-semibold text-chalk-100">{t("pages.advanceServer.warningTitle")}</p>
+    <div role="note" className="flex items-end gap-3 text-sm leading-relaxed text-chalk-300 sm:gap-4">
+      <Dex pose="reflexion" height={110} className="hidden sm:inline-block" />
+      <div className="dex-bubble min-w-0 flex-1">
+        <p className="flex items-center gap-2 font-heading text-base font-bold uppercase text-gold-400">
+          <FlaskConical size={16} aria-hidden />
+          {t("pages.advanceServer.warningTitle")}
+        </p>
         <p className="mt-1">{t("pages.advanceServer.warning")}</p>
         {children}
       </div>
@@ -102,27 +106,16 @@ export function TestNotice({ t, children }: { t: T; children?: React.ReactNode }
   );
 }
 
-/** Heroes per direction: three counters. */
-export function BalanceSummary({ balance, t }: { balance: AdvanceVersion["balance"]; t: T }) {
-  return (
-    <ul className="flex flex-wrap gap-x-5 gap-y-1 text-sm">
-      {(Object.keys(DIRECTION_STYLE) as ChangeDirection[]).map((type) => {
-        const { text, Icon } = DIRECTION_STYLE[type];
-        return (
-          <li key={type} className="flex items-center gap-1.5">
-            <Icon size={14} aria-hidden className={text} />
-            <span className="font-semibold tabular-nums text-chalk-100">{balance[type]}</span>
-            <span className="text-chalk-500">{t(`patchHeroes.plural.${LIVE_TYPE[type]}`)}</span>
-          </li>
-        );
-      })}
-    </ul>
-  );
+/** Heroes per direction: three figures in the display face, coloured by direction. */
+export function BalanceSummary({ balance, t, size = "md" }: { balance: AdvanceVersion["balance"]; t: T; size?: "sm" | "md" | "lg" }) {
+  return <BalanceFigures balance={{ buff: balance.buff, nerf: balance.nerf, adjust: balance.adjust }} t={t} size={size} />;
 }
 
 /**
- * Changed heroes in three lists (buffed, nerfed, adjusted), each hero linking
- * to its page when the site has one. A hero named twice appears once.
+ * Changed heroes in three groups (buffed, nerfed, adjusted): buffs and nerfs
+ * as rows of portraits with the direction's arrow in its colour, the plain
+ * adjustments as a line of names. Each hero links to its page when the site
+ * has one. A hero named twice appears once.
  */
 export function HeroChips({
   heroes,
@@ -136,45 +129,75 @@ export function HeroChips({
   const Heading = `h${headingLevel}` as const;
   const groups = groupAdjustments(heroes.map((h) => ({ ...h, type: h.type ? LIVE_TYPE[h.type] : null })));
   return (
-    <div className="space-y-5">
+    <div className="space-y-8">
       {ADJUSTMENT_DIRECTIONS.map((direction) => {
         if (groups[direction].length === 0) return null;
-        const { text, border, Icon } = DIRECTION_STYLE[DIRECTION_OF[direction]];
+        const { text, Icon } = DIRECTION_STYLE[DIRECTION_OF[direction]];
         return (
           <div key={direction}>
-            <Heading className={cn("flex items-center gap-2 font-heading text-base font-bold", text)}>
-              <Icon size={16} aria-hidden />
+            <Heading className={cn("flex items-center gap-2 type-subtitle", text)}>
+              <Icon size={18} aria-hidden />
               {t(`patchHeroes.plural.${direction}`)}
-              <span className="text-sm font-medium text-chalk-500">{groups[direction].length}</span>
+              <span className="font-heading text-base font-bold text-chalk-500">{groups[direction].length}</span>
             </Heading>
-            <ul className="mt-2 flex flex-wrap gap-2">
-              {groups[direction].map((h) => {
-                const page = heroesBySlug.get(h.slug);
-                const content = (
-                  <>
-                    <HeroPortrait
-                      source={page?.images.icon ?? page?.images.portrait ?? null}
-                      name={page?.name ?? h.name}
-                      size="micro"
-                      decorative
-                    />
-                    <span className="font-medium text-chalk-100">{page?.name ?? h.name}</span>
-                  </>
-                );
-                const classes = cn("flex items-center gap-2 border bg-night-900/60 py-1 pl-1 pr-2.5 text-sm", border);
-                return (
-                  <li key={h.slug}>
-                    {page ? (
-                      <Link href={`/heroes/${h.slug}`} className={cn(classes, "transition-colors hover:border-gold-500/60")}>
-                        {content}
-                      </Link>
-                    ) : (
-                      <span className={classes}>{content}</span>
-                    )}
-                  </li>
-                );
-              })}
-            </ul>
+            {direction === "adjust" ? (
+              <ul className="mt-3 flex flex-wrap gap-2">
+                {groups[direction].map((h) => {
+                  const page = heroesBySlug.get(h.slug);
+                  const content = (
+                    <>
+                      <HeroPortrait
+                        source={page?.images.icon ?? page?.images.portrait ?? null}
+                        name={page?.name ?? h.name}
+                        size="small"
+                        decorative
+                      />
+                      <span className="font-heading font-bold uppercase text-chalk-200 transition-colors group-hover:text-gold-400">
+                        {page?.name ?? h.name}
+                      </span>
+                    </>
+                  );
+                  const classes = "bevel-sm group flex items-center gap-2 bg-night-900 py-1 pl-1 pr-3";
+                  return (
+                    <li key={h.slug}>
+                      {page ? (
+                        <Link href={`/heroes/${h.slug}`} className={cn(classes, "transition-colors hover:bg-night-800")}>
+                          {content}
+                        </Link>
+                      ) : (
+                        <span className={classes}>{content}</span>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            ) : (
+              <ul className="mt-3 grid grid-cols-4 gap-2 sm:grid-cols-6 sm:gap-3 lg:grid-cols-8">
+                {groups[direction].map((h) => {
+                  const page = heroesBySlug.get(h.slug);
+                  const name = page?.name ?? h.name;
+                  return (
+                    <li key={h.slug}>
+                      {page ? (
+                        <HeroTile
+                          href={`/heroes/${h.slug}`}
+                          name={name}
+                          portrait={page.images.portrait ?? page.images.icon ?? null}
+                          figure={direction === "buff" ? "▲" : "▼"}
+                          label={t(`patchHeroes.${direction}`)}
+                          tone={direction === "buff" ? "ally" : "enemy"}
+                          sizes="(min-width: 1024px) 8vw, (min-width: 640px) 15vw, 23vw"
+                        />
+                      ) : (
+                        <span className="bevel grid aspect-[3/4] place-items-center bg-night-800 p-2 text-center font-heading font-bold uppercase text-chalk-200">
+                          {name}
+                        </span>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
           </div>
         );
       })}
@@ -189,7 +212,7 @@ function ChangeItem({ change, t }: { change: AdvanceChange; t: T }) {
     <span className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
       {change.label && <span className="text-chalk-500">{t("patchHeroes.label", { label: change.label })}</span>}
       <span className="sr-only">{t("pages.advanceServer.before")}</span>
-      <span className="text-chalk-500 line-through decoration-blood-500/50">{change.before}</span>
+      <span className="text-chalk-500 line-through decoration-blood-400/60">{change.before}</span>
       <ArrowRight size={12} aria-hidden className="shrink-0 self-center text-chalk-500" />
       <span className="sr-only">{t("pages.advanceServer.after")}</span>
       <span className="font-medium text-chalk-100">{change.after}</span>
@@ -261,12 +284,12 @@ export function EntryCard({
   return (
     <article
       id={id}
-      className={cn("bevel scroll-mt-24 border bg-night-900/60 p-4", style?.border ?? "border-night-700/70")}
+      className={cn("bevel scroll-mt-24 bg-night-900 p-4 sm:p-5", style?.edge)}
     >
       <div className="flex items-center gap-3">
         {portrait !== undefined && <HeroPortrait source={portrait} name={entry.name} size="medium" decorative />}
         <div className="min-w-0 flex-1">
-          <Heading className="break-words font-heading text-lg font-bold text-chalk-100">{entry.name}</Heading>
+          <Heading className="display-caps break-words text-[1.75rem] font-extrabold text-chalk-100">{entry.name}</Heading>
           {(entry.type || entry.tag) && (
             <div className="mt-0.5 flex flex-wrap items-center gap-2">
               {entry.type && <DirectionBadge type={entry.type} t={t} />}
@@ -303,7 +326,7 @@ export function LineList({ lines, t }: { lines: AdvanceLine[]; t: T }) {
           key={i}
           className={cn(
             "break-words",
-            line.level > 0 && "relative pl-4 before:absolute before:left-0 before:top-[0.6em] before:size-1.5 before:bg-gold-500/60",
+            line.level > 0 && "relative pl-4 before:absolute before:left-0 before:top-[0.6em] before:size-1.5 before:-skew-x-[25deg] before:bg-gold-400",
             line.level === 2 && "ml-4",
           )}
         >

@@ -6,7 +6,8 @@ import { CardSuggestion, HeroSelector, HeroThumb } from "@/components/hero-picke
 import { LightImage } from "@/components/light-image";
 import { imageLane } from "@/lib/emblems";
 import { LANES, splitSuggestions, suggest, type DraftHero, type SplitSuggestions } from "@/lib/draft";
-import { useT } from "@/i18n/provider";
+import { LOCALE_INTL } from "@/i18n/config";
+import { useLocale, useT } from "@/i18n/provider";
 import type { Lane } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -41,6 +42,7 @@ const NONE: SplitSuggestions = { head: [], tail: [] };
 
 export function DraftTool({ heroes }: { heroes: DraftHero[] }) {
   const t = useT();
+  const locale = LOCALE_INTL[useLocale()];
   const [enemies, setEnemies] = useState<Record<Lane, string | null>>(EMPTY);
   const [allies, setAllies] = useState<Record<Lane, string | null>>(EMPTY);
   const [open, setOpen] = useState<{ camp: Camp; lane: Lane } | null>(null);
@@ -61,13 +63,13 @@ export function DraftTool({ heroes }: { heroes: DraftHero[] }) {
         !known || allies[lane]
           ? NONE
           : splitSuggestions(
-              suggest({ candidates: heroes, lane, enemies: listEnemies, allies: listAllies, limit: CANDIDATES }),
+              suggest({ candidates: heroes, lane, enemies: listEnemies, allies: listAllies, limit: CANDIDATES, locale }),
               SHOWN,
             ),
       );
     }
     return map;
-  }, [heroes, known, allies, listEnemies, listAllies]);
+  }, [heroes, known, allies, listEnemies, listAllies, locale]);
 
   function choose(camp: Camp, lane: Lane, slug: string | null) {
     const apply = camp === "enemies" ? setEnemies : setAllies;

@@ -4,7 +4,8 @@ import { Foldable } from "@/components/foldable";
 import { GuideLink } from "@/components/guide";
 import Link from "@/components/link";
 import { OpenAnchor } from "@/components/open-anchor";
-import { Card, PageHeader } from "@/components/ui";
+import { Card } from "@/components/ui";
+import { ToolHeader } from "@/components/tool-header";
 import type { Locale } from "@/i18n/config";
 import { heroLabel } from "@/i18n/hero-data";
 import { ExtendMessages } from "@/i18n/provider";
@@ -43,6 +44,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
     description: descriptionDraft(locale),
     share: t("pages.draft.simulatorOg"),
     path: "/draft",
+    card: true,
     keywords: ["draft simulator", "ban pick", "MPL", "ranked draft", "counter pick", "Mobile Legends", "MLBB"],
   });
 }
@@ -117,7 +119,8 @@ export default async function DraftPage({ params }: { params: Promise<{ locale: 
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
       />
-      <PageHeader
+      <ToolHeader
+        path="/draft"
         title={t("pages.draft.toolsTitle")}
         lead={t("pages.draft.toolsLead")}
         meta={[t("draftUI.account", { n: allHeroes.length }), t("pages.freshness.patch", { v: patchCurrent.version })]}
@@ -131,7 +134,7 @@ export default async function DraftPage({ params }: { params: Promise<{ locale: 
         }
       />
       <OpenAnchor />
-      <div className="page-wrap py-6">
+      <div className="tool-enter page-wrap py-6">
         <ExtendMessages messages={messagesPage(locale, ["pages.draftSimulatorUI", "draftUI", "teamUI", "compareUI"])}>
           <DraftModes
             heroes={simulationHeroes()}

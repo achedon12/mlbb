@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import Image from "next/image";
 import { ArrowDown, ArrowUp, Check, Flag, LayoutGrid, Lock, X } from "lucide-react";
+import { GameDex, type GameMood } from "@/components/game-dex";
 import { GuessField, type GuessOption } from "@/components/guess-field";
 import { HeroSelector, type HeroPickable } from "@/components/hero-picker";
 import Link from "@/components/link";
@@ -185,6 +186,20 @@ export function RoundQuiz({
   const excluded = useMemo(() => new Set(attempts), [attempts]);
 
   const announcement = announcementOf();
+  const mood = moodOf();
+
+  /** How the round goes, for Dex: he reacts to the last answer. */
+  function moodOf(): GameMood {
+    const last = attempts.at(-1);
+    if (last === undefined) return "start";
+    if (round.type === "duel") {
+      const right = responsesDuel(round);
+      if (finished) return attempts.every((a, i) => a === right[i]) ? "won" : "over";
+      return last === right[attempts.length - 1] ? "good" : "miss";
+    }
+    if (last === round.reponse) return "won";
+    return finished ? "over" : "miss";
+  }
 
   function announcementOf(): string {
     const last = attempts.at(-1);
@@ -210,14 +225,17 @@ export function RoundQuiz({
   }
 
   return (
-    <section className="relative p-4 sm:p-6">
+    <section data-mood={mood} className="relative p-4 sm:p-6">
       {/*
         The bevel (clip-path) is carried by a background layer: set on the
         section, it clipped the field's suggestion list and hid the
         "Browse heroes" window, even though it is fixed-positioned.
       */}
-      <div aria-hidden className="bevel absolute inset-0 border border-night-700/70 bg-night-900/60" />
+      <div aria-hidden className="game-stage absolute inset-0" />
+      <div aria-hidden className="eclat absolute left-6 top-0 h-[3px] w-24" />
       <div className="relative">
+      <div className="flex items-start gap-3 sm:gap-5">
+      <div className="min-w-0 flex-1">
       <div className="flex flex-wrap items-baseline justify-between gap-2 text-xs uppercase tracking-wide text-chalk-500">
         <span>
           {roundLabel} · {t(`pages.quizUI.types.${round.type}`)}
@@ -231,10 +249,15 @@ export function RoundQuiz({
       <h3
         ref={refTitle}
         tabIndex={-1}
-        className="mt-2 font-heading text-xl font-bold text-chalk-100 outline-none sm:text-2xl"
+        className="display-caps mt-2 text-[1.9rem] text-chalk-100 outline-none sm:text-[2.6rem]"
       >
         {t(`pages.quizUI.questions.${round.type}`)}
       </h3>
+      <p key={mood} className="game-bubble mt-3 inline-block text-sm">{t(`pages.quizUI.dex.${mood}`)}</p>
+      </div>
+      <GameDex mood={mood} beat={attempts.length} height={88} className="sm:hidden" />
+      <GameDex mood={mood} beat={attempts.length} height={132} className="max-sm:hidden" />
+      </div>
 
       <div className="mt-4">
         <Statement round={round} nbErrors={nbErrors} finished={finished} formatPrice={formatPrice} t={t} />
@@ -496,15 +519,15 @@ function Result({
     <div
       className={cn(
         "bevel mt-5 flex flex-wrap items-center gap-4 border p-4",
-        found ? "border-emerald-500/60 bg-emerald-500/10" : "border-blood-500/50 bg-blood-500/10",
+        found ? "win-panel border-gold-400/60 bg-gold-400/10" : "border-blood-500/50 bg-blood-500/10",
       )}
     >
       <HeroPortrait source={target.icone} name={target.nom} size="thumb" decorative />
       <div className="min-w-0 flex-1">
-        <p className={cn("text-sm font-semibold", found ? "text-emerald-300" : "text-blood-500")}>
+        <p className={cn("text-sm font-semibold", found ? "win-punch text-gold-300" : "text-blood-500")}>
           {found ? t("pages.quizUI.found", { n: attempts, max: attemptsMax(round) }) : t("pages.quizUI.missed")}
         </p>
-        <p className="font-heading text-xl font-bold text-chalk-100">{target.nom}</p>
+        <p className="display-caps text-[2rem] text-chalk-100">{target.nom}</p>
         {round.type === "skin" && (
           <p className="text-sm text-chalk-300">{t("pages.quizUI.skinName", { name: round.skin })}</p>
         )}

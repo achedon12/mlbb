@@ -1,46 +1,74 @@
 @import "tailwindcss";
 
 /*
- * Visual direction.
+ * Visual direction: "the battle, writ large" (docs/design-brief.md, rules in
+ * docs/design-system.md).
  *
- * The game uses a deep midnight blue, gold, and bevel-cut shapes — we
- * borrow these three ideas without copying its graphic assets,
- * which belong to Moonton. No game image is redistributed here:
- * the colors and the angles are enough to set the universe.
+ * Night backgrounds, MLBB gold for what matters, ally blue for what wins and
+ * enemy red for what loses, chalk for text. The game's interface lends its
+ * bevel cut, its gold and its skill flash ("éclat"); the official artwork,
+ * shown large, does the rest. No other colour, except the tier and rarity
+ * colours, which are information.
  */
 @theme {
+  /* Night: the three grounds of the brief, plus two lines drawn from them. */
   --color-night-950: #06080f;
-  --color-night-900: #0a0e1a;
-  --color-night-850: #0e1424;
-  --color-night-800: #131b30;
-  --color-night-700: #1c2742;
-  --color-night-600: #2a3758;
+  --color-night-900: #0b1020;
+  --color-night-850: #0f1529;
+  --color-night-800: #141b33;
+  --color-night-700: #1f2847;
+  --color-night-600: #2e3a5f;
 
+  /* MLBB gold: 400 is the gold, 600 its dark side; 300 lights a hover. */
+  --color-gold-300: #ffd87a;
   --color-gold-400: #f5c451;
-  --color-gold-500: #e0a92e;
-  --color-gold-600: #b8871f;
+  --color-gold-500: #e2ab38;
+  --color-gold-600: #c8901e;
 
-  --color-azure-400: #4da3ff;
-  --color-azure-500: #2b7fe0;
+  /* Ally blue: buffs, rises, what wins (6:1 on night). */
+  --color-azure-300: #80b3ff;
+  --color-azure-400: #3d8bff;
+  --color-azure-500: #3d8bff;
+  --color-azure-600: #2a6fd6;
 
-  /* 400: text on night (5.6:1); 500 is for fills and borders. */
-  --color-blood-400: #ef6b6b;
-  --color-blood-500: #d94848;
+  /* Enemy red: nerfs, drops, bans (5.9:1 on night). */
+  --color-blood-300: #ff8080;
+  --color-blood-400: #ff4d4d;
+  --color-blood-500: #ff4d4d;
+  --color-blood-600: #d93636;
 
-  /* Discord's own blurple, kept for what leads to the community server. */
-  /* 400: the glyph on night (6:1). */
-  --color-blurple-400: #8c95ff;
-  --color-blurple-500: #5865f2;
-  --color-blurple-600: #4752c4;
+  /*
+   * Legacy aliases. "Emerald" meant "good" across the site (rises, strong
+   * against, buffs): it is now the ally blue, so no page carries a green the
+   * palette does not have. Discord's blurple sat too close to violet: the
+   * invitations take the ally blue as well.
+   */
+  --color-emerald-300: #80b3ff;
+  --color-emerald-400: #3d8bff;
+  --color-emerald-500: #3d8bff;
+  --color-emerald-600: #2a6fd6;
+  --color-blurple-400: #80b3ff;
+  --color-blurple-500: #3d8bff;
+  --color-blurple-600: #2a6fd6;
 
+  /* Chalk: 100 is the text, 400 the secondary text. */
   --color-chalk-100: #eef2fb;
-  --color-chalk-200: #dbe2f0;
-  --color-chalk-300: #b7c2da;
-  --color-chalk-400: #99a4c0;
-  --color-chalk-500: #7b88a6;
-  --color-chalk-600: #66728f;
+  --color-chalk-200: #d7deec;
+  --color-chalk-300: #bac4da;
+  --color-chalk-400: #9aa6c2;
+  --color-chalk-500: #8691ae;
+  --color-chalk-600: #6d7895;
 
-  --font-heading: var(--heading-font), "Segoe UI", system-ui, sans-serif;
+  /* Tiers: information, so they keep colours of their own. */
+  --color-tier-splus: #ff7a3d;
+  --color-tier-s: #f5c451;
+  --color-tier-a: #3d8bff;
+  --color-tier-b: #9aa6c2;
+  --color-tier-c: #3a4566;
+
+  /* Condensed faces: Barlow upright for headings and labels, Saira slanted for display. */
+  --font-heading: var(--heading-font), "Arial Narrow", system-ui, sans-serif;
+  --font-display: var(--display-font), var(--heading-font), "Arial Narrow", system-ui, sans-serif;
   --font-body: var(--body-font), system-ui, -apple-system, sans-serif;
 }
 
@@ -53,55 +81,67 @@ html {
 }
 
 body {
-  background:
-    radial-gradient(ellipse 90rem 45rem at 50% -12rem, #16213c 0%, transparent 62%),
-    var(--color-night-950);
+  background: var(--color-night-950);
   color: var(--color-chalk-100);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
 }
 
 /*
- * Rajdhani has no Cyrillic or Thai letters, and Inter no Thai: without these,
- * Russian and Thai headings fell back on Arial or whatever the system had.
- * The script's own font comes first, so a heading keeps one face for its
- * Latin words (hero names) as well.
+ * Barlow Condensed has no Cyrillic or Thai letters, and Inter no Thai: the
+ * script's own condensed face comes first, so a heading keeps one face for
+ * its Latin words (hero names) as well.
  */
 :root:lang(ru) {
-  --font-heading: var(--heading-font-cyrillic), var(--heading-font), "Segoe UI", system-ui, sans-serif;
+  --font-heading: var(--heading-font-cyrillic), var(--heading-font), "Arial Narrow", system-ui, sans-serif;
+  --font-display: var(--display-font-cyrillic), var(--display-font), "Arial Narrow", system-ui, sans-serif;
 }
 
 :root:lang(th) {
   --font-heading: var(--heading-font-thai), var(--heading-font), "Segoe UI", system-ui, sans-serif;
+  --font-display: var(--display-font-thai), var(--display-font), "Segoe UI", system-ui, sans-serif;
   /* Inter for Latin, Noto Sans Thai for the Thai script. */
   --font-body: var(--body-font), var(--body-font-thai), system-ui, -apple-system, sans-serif;
 }
 
-h1, h2, h3, h4 {
-  font-family: var(--font-heading);
-  letter-spacing: 0.01em;
+/* In the base layer, so that a heading's own utilities (the display face) win. */
+@layer base {
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    letter-spacing: 0.01em;
+  }
 }
 
 /*
- * Visible keyboard focus.
- *
- * Without an indicator, keyboard users lose track of where they are. An
- * offset golden ring stays readable on the dark background as on cards,
- * and `:focus-visible` keeps it for the keyboard — the mouse does not trigger it.
+ * Visible keyboard focus: an offset golden ring. A bevelled shape clips
+ * anything drawn outside it, so its ring is drawn inside instead.
  */
 :focus-visible {
   outline: 2px solid var(--color-gold-400);
   outline-offset: 2px;
-  border-radius: 2px;
+}
+:is(.bevel, .bevel-sm, .bevel-lg, .btn, .crest, .card):focus-visible {
+  outline-offset: -3px;
 }
 
-/* Beveled corner, a recurring pattern of the game's interface. */
+/*
+ * The bevel cut: ONE rule for the whole site. Top-right and bottom-left
+ * corners cut at 45°, never rounded; only the size of the cut changes with
+ * the size of the shape (`--cut`).
+ */
 @utility bevel {
-  clip-path: polygon(0 0, calc(100% - 0.75rem) 0, 100% 0.75rem, 100% 100%, 0.75rem 100%, 0 calc(100% - 0.75rem));
+  --cut: 0.75rem;
+  clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, var(--cut) 100%, 0 calc(100% - var(--cut)));
 }
 
 @utility bevel-sm {
-  clip-path: polygon(0 0, calc(100% - 0.45rem) 0, 100% 0.45rem, 100% 100%, 0.45rem 100%, 0 calc(100% - 0.45rem));
+  --cut: 0.45rem;
+  clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, var(--cut) 100%, 0 calc(100% - var(--cut)));
+}
+
+@utility bevel-lg {
+  --cut: 1.75rem;
+  clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, var(--cut) 100%, 0 calc(100% - var(--cut)));
 }
 
 /*
@@ -119,9 +159,237 @@ h1, h2, h3, h4 {
   padding-inline: clamp(1rem, 0.4rem + 2.4vw, 3rem);
 }
 
-/* Golden rule used to underline section headings. */
+/*
+ * The éclat: a slanted blade of light, the site's only luminous effect. It
+ * separates sections and marks the active element. `gold-rule`, its old
+ * name, draws the same blade wherever pages still use it.
+ */
+@utility eclat {
+  background: linear-gradient(90deg, var(--color-gold-600), var(--color-gold-300) 45%, #fff3cf 60%, var(--color-gold-400) 75%, transparent);
+  clip-path: polygon(0.4rem 0, 100% 0, calc(100% - 0.4rem) 100%, 0 100%);
+}
 @utility gold-rule {
-  background: linear-gradient(90deg, var(--color-gold-500), transparent);
+  background: linear-gradient(90deg, var(--color-gold-600), var(--color-gold-300) 45%, #fff3cf 60%, var(--color-gold-400) 75%, transparent);
+  clip-path: polygon(0.4rem 0, 100% 0, calc(100% - 0.4rem) 100%, 0 100%);
+}
+
+/* Heavy extra-condensed, slanted like the wordmark (the browser slants Saira, which has no italic), always in capitals: hero names and big titles. */
+@utility display-caps {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 0.86;
+  letter-spacing: -0.005em;
+}
+
+@layer components {
+  /* ── Type scale (fixed): giant · section · subtitle · text ───────────── */
+  .type-giant {
+    @apply display-caps;
+    font-size: clamp(5rem, 1.5rem + 12vw, 9rem);
+  }
+  .type-section {
+    @apply display-caps;
+    font-weight: 800;
+    font-size: clamp(2.25rem, 1.65rem + 2vw, 3.5rem);
+    line-height: 0.92;
+  }
+  .type-subtitle {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.15;
+  }
+
+  /*
+   * The score figure: very large, condensed, gold. One per screen; the
+   * secondary figure beside it is outlined, not filled.
+   */
+  .score {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 900;
+    line-height: 0.8;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-gold-400);
+  }
+  .score-outline {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--color-gold-400);
+  }
+
+  /*
+   * The blade under an element: hidden at rest, it slides in under the
+   * hovered element and stays under the active one (aria-current,
+   * aria-selected, `.is-active`).
+   */
+  .eclat-under {
+    position: relative;
+  }
+  .eclat-under::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0.5rem;
+    bottom: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-gold-600), var(--color-gold-300) 45%, #fff3cf 60%, var(--color-gold-400) 80%, var(--color-gold-600));
+    clip-path: polygon(3px 0, 100% 0, calc(100% - 3px) 100%, 0 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    opacity: 0.7;
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+    pointer-events: none;
+  }
+  .eclat-under:hover::after {
+    transform: scaleX(1);
+  }
+  .eclat-under:is([aria-current], [aria-selected="true"], .is-active)::after {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+
+  /* Section divider: a hairline with the blade at its start. */
+  .eclat-rule {
+    position: relative;
+    height: 1px;
+    background: linear-gradient(90deg, var(--color-night-700), transparent);
+  }
+  .eclat-rule::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -1px;
+    width: min(10rem, 40%);
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-gold-600), var(--color-gold-300) 45%, #fff3cf 60%, var(--color-gold-400) 75%, transparent);
+    clip-path: polygon(3px 0, 100% 0, calc(100% - 3px) 100%, 0 100%);
+  }
+
+  /*
+   * Tier crest: a bevelled shield, coloured by tier, the letter in heavy
+   * italic. `data-tier` picks the colour.
+   */
+  .crest {
+    --cut: 30%;
+    display: inline-grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.6rem;
+    padding-bottom: 0.3rem;
+    clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 74%, 50% 100%, 0 74%);
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 900;
+    font-size: 1.05rem;
+    line-height: 1;
+    color: var(--color-night-950);
+    background: linear-gradient(160deg, rgb(255 255 255 / 0.28), transparent 55%), var(--crest, var(--color-tier-c));
+  }
+  .crest-sm {
+    width: 1.6rem;
+    height: 1.85rem;
+    padding-bottom: 0.2rem;
+    font-size: 0.78rem;
+  }
+  .crest-lg {
+    width: 4.25rem;
+    height: 4.9rem;
+    padding-bottom: 0.6rem;
+    font-size: 2.1rem;
+  }
+  .crest[data-tier="S+"] { --crest: var(--color-tier-splus); }
+  .crest[data-tier="S"] { --crest: var(--color-tier-s); }
+  .crest[data-tier="A"] { --crest: var(--color-tier-a); }
+  .crest[data-tier="B"] { --crest: var(--color-tier-b); }
+  .crest[data-tier="C"] { --crest: var(--color-tier-c); color: var(--color-chalk-100); }
+
+  /* ── Buttons: primary gold, secondary outlined; both press in on click. ── */
+  .btn {
+    @apply bevel-sm inline-flex min-h-11 select-none items-center justify-center gap-2 px-5 font-heading text-base font-bold uppercase tracking-wide;
+    transition: background-color 0.15s, color 0.15s, box-shadow 0.15s, transform 0.1s;
+  }
+  .btn:active {
+    transform: translateY(1px) scale(0.98);
+  }
+  .btn-sm {
+    @apply min-h-9 gap-1.5 px-3.5 text-sm;
+  }
+  .btn-primary {
+    @apply bg-gold-400 text-night-950 hover:bg-gold-300 active:bg-gold-600;
+  }
+  .btn-secondary {
+    @apply bg-night-800 text-chalk-100 hover:text-gold-300 active:bg-night-850;
+    box-shadow: inset 0 0 0 1px var(--color-night-600);
+  }
+  .btn-secondary:hover {
+    box-shadow: inset 0 0 0 1px rgb(245 196 81 / 0.6);
+  }
+  .btn-secondary[aria-pressed="true"] {
+    @apply text-gold-400;
+    box-shadow: inset 0 0 0 1px var(--color-gold-400);
+  }
+
+  /*
+   * Cards: a bevelled night surface, no frame. A card that is a link lifts
+   * 2 px on hover and the blade passes under it.
+   */
+  .card {
+    @apply bevel bg-night-900 p-5;
+  }
+  .card-link {
+    @apply bevel bg-night-900 transition-[translate,background-color] duration-200 hover:-translate-y-0.5 hover:bg-night-850;
+  }
+
+  /*
+   * Hero tile: the bevelled portrait with its key figure in gold over it.
+   * The portrait zooms 3 % inside its frame on hover.
+   */
+  .hero-tile {
+    @apply relative block transition-[translate] duration-200 hover:-translate-y-0.5;
+  }
+  .hero-tile-art {
+    @apply bevel relative block aspect-[3/4] overflow-hidden bg-night-800;
+  }
+  .hero-tile-art img {
+    transition: transform 0.35s ease-out;
+  }
+  .hero-tile:hover .hero-tile-art img {
+    transform: scale(1.03);
+  }
+}
+
+/*
+ * The affiche's one strong moment: on arrival the artwork slides very
+ * slightly and the name comes in on the slant. Transforms only — the name is
+ * painted from the first frame, so it never holds the page's largest paint
+ * back. Nothing moves on scroll.
+ */
+@keyframes affiche-art {
+  from {
+    transform: scale(1.05) translateX(1.5%);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes affiche-name {
+  from {
+    transform: translateX(-0.35em) skewX(-9deg);
+  }
+  to {
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .affiche-art {
+    animation: affiche-art 0.65s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  .affiche-name {
+    animation: affiche-name 0.5s 0.05s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
 }
 
 /*
@@ -521,3 +789,230 @@ h1, h2, h3, h4 {
     @apply text-chalk-300 transition-colors hover:text-gold-400;
   }
 }
+
+/* ── Dex, the mascot (src/components/mascot.tsx) ───────────────────────── */
+.dex { display: inline-block; position: relative; flex: none; }
+.dex img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 6px 14px rgb(0 0 0 / 0.45)); }
+.dex-idle { animation: dex-breathe 3.4s ease-in-out infinite; transform-origin: 50% 100%; }
+@keyframes dex-breathe { 0%, 100% { transform: translateY(0) scale(1, 1); } 50% { transform: translateY(-4px) scale(1.015, 0.985); } }
+@keyframes dex-hop { 0% { transform: translateY(0) rotate(0); } 40% { transform: translateY(-10px) rotate(-4deg); } 100% { transform: translateY(0) rotate(0); } }
+.dex-says { display: flex; align-items: flex-end; gap: 0.75rem; }
+.dex-says-right { flex-direction: row-reverse; }
+.dex-bubble { position: relative; max-width: 34rem; padding: 0.875rem 1.125rem; background: var(--color-night-800); border: 1px solid var(--color-night-600); color: var(--color-chalk-200); clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px)); }
+@media (prefers-reduced-motion: reduce) { .dex-idle { animation: none; } }
+
+/* ══ Community, account, bot and site pages (src/components/stage.tsx) ═══════
+ * The stage: the opening of the pages where people meet (forum, account,
+ * bot, about…), an official artwork on the right with Dex at its edge. One
+ * short entrance for the page's main block, a hover lift on the tiles and a
+ * small hop of Dex when it is pointed at. Nothing moves on scroll, nothing
+ * moves at all under prefers-reduced-motion.
+ */
+@keyframes stage-rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes stage-dex {
+  from { opacity: 0; transform: translateY(18px) rotate(-3deg); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .stage-enter { animation: stage-rise 0.45s 0.08s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  .stage-dex { animation: stage-dex 0.55s 0.12s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+}
+
+/* An artwork tile (category, top hero, door): the art zooms 3 % in its frame on hover. */
+.art-tile { position: relative; isolation: isolate; overflow: hidden; }
+.art-tile-img { transition: transform 0.4s ease-out, opacity 0.3s; }
+.art-tile:hover .art-tile-img, .art-tile:focus-visible .art-tile-img { transform: scale(1.03); }
+
+/* Night fields: the one input look of these pages, a bevelled night fill with a gold line on focus. */
+@layer components {
+.field {
+  @apply bevel-sm block w-full bg-night-900 px-3.5 text-chalk-100 outline-none transition-shadow placeholder:text-chalk-600;
+  min-height: 2.75rem;
+  box-shadow: inset 0 0 0 1px var(--color-night-700);
+}
+.field:focus, .field:focus-visible { box-shadow: inset 0 0 0 1px var(--color-gold-400); outline: none; }
+}
+
+/* A numbered step (sign-in): the number in the display face inside a small crest. */
+.step-crest {
+  --cut: 30%;
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2.3rem;
+  padding-bottom: 0.25rem;
+  flex: none;
+  clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 74%, 50% 100%, 0 74%);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 900;
+  font-size: 1.05rem;
+  background: var(--color-night-700);
+  color: var(--color-chalk-400);
+}
+.step-crest[data-state="active"] { background: var(--color-gold-400); color: var(--color-night-950); }
+.step-crest[data-state="done"] { background: var(--color-azure-400); color: var(--color-night-950); }
+
+/* Editorial pages (about, legal, privacy, contribute, api-doc): a sticky contents rail beside the text. */
+.editorial-rail a[aria-current="true"] { color: var(--color-gold-400); }
+/* ══ end of the community, account, bot and site pages ═══════════════════════ */
+
+/* ── Dex's bubbles: pop in after Dex, then float (mascot.tsx, tools.css) ── */
+.dex-bubble, .game-bubble { transform-origin: 0% 100%; animation: bubble-pop 0.55s cubic-bezier(.2, 1.5, .4, 1) 0.25s both, bubble-float 4.6s ease-in-out 0.9s infinite; }
+.dex-says-right .dex-bubble { transform-origin: 100% 100%; }
+@keyframes bubble-pop { from { opacity: 0; transform: translateY(10px) scale(0.7); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes bubble-float { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-5px) rotate(-0.4deg); } }
+/* the thought trail: three little bubbles rising from Dex to his bubble */
+.dex-trail { display: inline-flex; flex-direction: column-reverse; align-items: flex-start; gap: 4px; align-self: flex-end; margin-bottom: 0.6rem; flex: none; }
+.dex-says-right .dex-trail { align-items: flex-end; }
+.dex-trail i { display: block; border-radius: 999px; background: var(--color-night-800); box-shadow: inset 0 0 0 1px var(--color-night-600); animation: trail-rise 2.4s ease-in-out infinite both; }
+.dex-trail i:nth-child(1) { width: 6px; height: 6px; animation-delay: 0s; }
+.dex-trail i:nth-child(2) { width: 9px; height: 9px; margin-left: 6px; animation-delay: 0.25s; }
+.dex-trail i:nth-child(3) { width: 12px; height: 12px; margin-left: 13px; animation-delay: 0.5s; }
+.dex-says-right .dex-trail i:nth-child(2) { margin-left: 0; margin-right: 6px; }
+.dex-says-right .dex-trail i:nth-child(3) { margin-left: 0; margin-right: 13px; }
+@keyframes trail-rise { 0% { opacity: 0; transform: translateY(6px) scale(0.6); } 25%, 75% { opacity: 1; transform: translateY(0) scale(1); } 100% { opacity: 0; transform: translateY(-6px) scale(0.8); } }
+@media (prefers-reduced-motion: reduce) { .dex-bubble, .game-bubble, .dex-trail i { animation: none; } }
+
+/* ── Dex alive (dex-live.tsx): rising bubbles, click burst, his own tips ── */
+.dex-live { position: relative; display: block; }
+/* layers: float+sway > lean toward the cursor > actions (squash, jump…) > the two faces */
+.dex-live .dex-float { position: absolute; inset: 0; display: block; transform-origin: 50% 100%; }
+.dex-live .dex-idle { animation: dex-float 4.2s ease-in-out infinite; }
+.dex-tilt { display: block; width: 100%; height: 100%; transform-origin: 50% 100%; transform: translateX(var(--dex-look, 0)) rotate(var(--dex-lean, 0)) scale(var(--dex-perk, 1)); transition: transform 0.45s cubic-bezier(.3, 1.4, .5, 1); }
+.dex-live:hover .dex-tilt { --dex-perk: 1.06; }
+.dex-live-btn { position: relative; display: block; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: pointer; transform-origin: 50% 100%; }
+.dex-live-btn:focus-visible { outline: 2px solid var(--color-gold-400); outline-offset: 4px; }
+.dex-face { position: absolute; inset: 0; display: block; transform-origin: 50% 100%; transition: opacity 0.18s; }
+.dex-idle .dex-face { animation: dex-breathe-in 3.4s ease-in-out infinite; }
+.dex-face-off { opacity: 0; }
+.dex-face img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 6px 14px rgb(0 0 0 / 0.45)); }
+@keyframes dex-float { 0%, 100% { transform: translateY(0) rotate(-1.2deg); } 50% { transform: translateY(-7px) rotate(1.2deg); } }
+@keyframes dex-breathe-in { 0%, 100% { transform: scale(1, 1); } 50% { transform: scale(1.025, 0.975); } }
+/* his shadow on the ground follows the float */
+.dex-shadow { position: absolute; left: 18%; right: 18%; bottom: -4px; height: 10px; border-radius: 50%; background: radial-gradient(closest-side, rgb(0 0 0 / 0.55), transparent); animation: dex-shadow 4.2s ease-in-out infinite; }
+@keyframes dex-shadow { 0%, 100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(0.8); opacity: 0.5; } }
+/* arrival, the first time he comes into view */
+.dex-live:not(.dex-seen) .dex-float { opacity: 0; }
+.dex-seen .dex-float { animation: dex-drop 0.8s cubic-bezier(.3, 1.2, .5, 1) both, dex-float 4.2s ease-in-out 0.8s infinite; }
+.dex-seen .dex-float:not(.dex-idle) { animation: dex-drop 0.8s cubic-bezier(.3, 1.2, .5, 1) both; }
+.dex-seen .dex-shadow { animation: dex-shadow-in 0.8s ease-out both, dex-shadow 4.2s ease-in-out 0.8s infinite; }
+@keyframes dex-drop { 0% { opacity: 0; transform: translateY(-36px) scale(0.85, 1.12); } 45% { opacity: 1; transform: translateY(0) scale(0.95, 1.06); } 62% { transform: translateY(0) scale(1.14, 0.86); } 78% { transform: translateY(-6px) scale(0.97, 1.04); } 100% { transform: translateY(0) scale(1, 1); } }
+@keyframes dex-shadow-in { from { transform: scale(0.3); opacity: 0; } to { transform: scale(1); opacity: 0.8; } }
+@media (scripting: none) { .dex-live:not(.dex-seen) .dex-float { opacity: 1; } }
+/* actions: the click jump and the idle fidgets */
+.dex-do-jump { animation: dex-do-jump 0.8s cubic-bezier(.3, .9, .4, 1); }
+@keyframes dex-do-jump { 0% { transform: none; } 14% { transform: scale(1.16, 0.82); } 42% { transform: translateY(-30px) scale(0.9, 1.12) rotate(-7deg); } 62% { transform: translateY(-34px) scale(0.98, 1.02) rotate(4deg); } 80% { transform: translateY(0) scale(1.14, 0.86); } 90% { transform: translateY(-3px) scale(0.97, 1.03); } 100% { transform: none; } }
+.dex-do-hop { animation: dex-do-hop 0.6s cubic-bezier(.3, .9, .4, 1); }
+@keyframes dex-do-hop { 0% { transform: none; } 20% { transform: scale(1.08, 0.9); } 50% { transform: translateY(-14px) scale(0.96, 1.05); } 78% { transform: scale(1.06, 0.94); } 100% { transform: none; } }
+.dex-do-wiggle { animation: dex-do-wiggle 0.8s ease-in-out; }
+@keyframes dex-do-wiggle { 0%, 100% { transform: none; } 15% { transform: rotate(-7deg); } 35% { transform: rotate(6deg); } 55% { transform: rotate(-4deg); } 75% { transform: rotate(2deg); } }
+.dex-do-look { animation: dex-do-look 1.6s ease-in-out; }
+@keyframes dex-do-look { 0%, 100% { transform: none; } 20%, 40% { transform: translateX(-4px) rotate(-5deg) skewX(2deg); } 60%, 80% { transform: translateX(4px) rotate(5deg) skewX(-2deg); } }
+.dex-do-spin { animation: dex-do-spin 0.9s cubic-bezier(.4, 0, .3, 1); }
+@keyframes dex-do-spin { 0% { transform: none; } 15% { transform: scale(1.08, 0.9); } 50% { transform: translateY(-16px) rotateY(180deg); } 85% { transform: translateY(0) rotateY(360deg) scale(1.08, 0.92); } 100% { transform: rotateY(360deg); } }
+/* he bobs as he speaks */
+.dex-talking:not([class*="dex-do-"]) { animation: dex-talk 0.42s ease-in-out 6; }
+@keyframes dex-talk { 0%, 100% { transform: none; } 50% { transform: translateY(-3px) scale(1.02, 0.98); } }
+.dex-live-bubble { position: absolute; z-index: 5; left: 50%; bottom: calc(100% + 0.5rem); width: max-content; max-width: min(17rem, 70vw); font-size: 0.875rem; line-height: 1.4; text-align: left; translate: -20% 0; pointer-events: none; }
+/* soap bubbles rising from Dex, then popping */
+.dex-rise, .dex-burst { position: absolute; left: 50%; bottom: 62%; width: 0; height: 0; pointer-events: none; z-index: 1; }
+.dex-rise i, .dex-burst i { position: absolute; display: block; border-radius: 999px; background: radial-gradient(circle at 35% 35%, rgb(255 255 255 / 0.85), rgb(61 139 255 / 0.35) 45%, rgb(245 196 81 / 0.15) 70%, transparent 72%); box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.35); }
+.dex-rise i { animation: dex-bubble-up 5.5s ease-in infinite; opacity: 0; }
+.dex-rise i:nth-child(1) { width: 10px; height: 10px; left: -14px; animation-delay: 0s; }
+.dex-rise i:nth-child(2) { width: 7px; height: 7px; left: 6px; animation-delay: 1.1s; }
+.dex-rise i:nth-child(3) { width: 12px; height: 12px; left: -4px; animation-delay: 2.3s; }
+.dex-rise i:nth-child(4) { width: 6px; height: 6px; left: 14px; animation-delay: 3.4s; }
+.dex-rise i:nth-child(5) { width: 9px; height: 9px; left: -20px; animation-delay: 4.4s; }
+@keyframes dex-bubble-up { 0% { opacity: 0; transform: translate(0, 0) scale(0.4); } 15% { opacity: 1; } 70% { opacity: 1; transform: translate(8px, -70px) scale(1); } 85% { opacity: 0.9; transform: translate(-4px, -90px) scale(1.15); } 100% { opacity: 0; transform: translate(-4px, -96px) scale(1.6); } }
+.dex-burst i { width: 9px; height: 9px; animation: dex-burst 0.9s ease-out both; }
+.dex-burst i:nth-child(1) { --x: -40px; --y: -50px; } .dex-burst i:nth-child(2) { --x: 30px; --y: -60px; } .dex-burst i:nth-child(3) { --x: -55px; --y: -15px; }
+.dex-burst i:nth-child(4) { --x: 50px; --y: -20px; } .dex-burst i:nth-child(5) { --x: -10px; --y: -75px; width: 13px; height: 13px; } .dex-burst i:nth-child(6) { --x: 18px; --y: -38px; width: 6px; height: 6px; }
+@keyframes dex-burst { 0% { opacity: 0; transform: translate(0, 0) scale(0.3); } 30% { opacity: 1; } 100% { opacity: 0; transform: translate(var(--x), var(--y)) scale(1.3); } }
+@media (prefers-reduced-motion: reduce) {
+  .dex-live .dex-float, .dex-seen .dex-float, .dex-shadow, .dex-face, .dex-live-btn, .dex-rise i, .dex-burst i { animation: none !important; }
+  .dex-live:not(.dex-seen) .dex-float { opacity: 1; }
+  .dex-rise i, .dex-burst i { opacity: 0; }
+  .dex-tilt { transition: none; transform: none; }
+}
+/* livelier bubbles overall */
+@keyframes bubble-float { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-7px) rotate(-0.6deg); } }
+
+/* ══ Brand micro-states (src/components/dex-states.tsx, dex-loading.tsx) ═════
+ * The small states that make or break the brand: the wait (Dex hopping, a
+ * blade sweeping a bevelled track, bevelled skeletons), the confirmations
+ * (a bevelled gold flash with Dex's head), and the finishing of the whole
+ * site (selection, scrollbars, pointer). Nothing moves under
+ * prefers-reduced-motion: the wait is then a still Dex and a still blade.
+ */
+@layer base {
+  ::selection { background: var(--color-gold-400); color: var(--color-night-950); }
+  /* Thin scrollbars, night track and gold thumb (Firefox and Chromium read the standard properties, Safari the pseudo-elements). */
+  html { scrollbar-color: var(--color-gold-600) var(--color-night-950); }
+  * { scrollbar-width: thin; scrollbar-color: var(--color-night-600) transparent; }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: var(--color-night-950); }
+  ::-webkit-scrollbar-thumb { background: var(--color-night-600); border: 2px solid var(--color-night-950); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--color-gold-600); }
+  html::-webkit-scrollbar-thumb { background: var(--color-gold-600); }
+  html::-webkit-scrollbar-thumb:hover { background: var(--color-gold-400); }
+  /* Everything clickable says so; what is not available says that too. */
+  button:not(:disabled), [role="button"]:not([aria-disabled="true"]), summary, select:not(:disabled), label:has(> input[type="checkbox"], > input[type="radio"]) { cursor: pointer; }
+  button:disabled, [aria-disabled="true"] { cursor: not-allowed; }
+  /* A bevelled button presses in on click, like .btn. */
+  button:is(.bevel, .bevel-sm, .bevel-lg):not(:disabled):active { transform: translateY(1px) scale(0.98); }
+}
+
+@layer components {
+/* The wait: Dex hops on his shadow while a blade sweeps the track under the line. */
+.dex-loading { display: flex; align-items: flex-end; gap: 1rem; }
+.dex-loading-dex { position: relative; display: block; flex: none; isolation: isolate; }
+.dex-loading-dex img { position: relative; display: block; width: 100%; height: 100%; object-fit: contain; transform-origin: 50% 100%; filter: drop-shadow(0 4px 10px rgb(0 0 0 / 0.45)); }
+.dex-loading-dex::after { content: ""; position: absolute; left: 18%; right: 18%; bottom: -3px; height: 6px; border-radius: 50%; background: rgb(0 0 0 / 0.45); z-index: -1; }
+.dex-loading-track { position: relative; display: block; height: 4px; margin-top: 0.6rem; overflow: hidden; background: var(--color-night-800); clip-path: polygon(0.3rem 0, 100% 0, calc(100% - 0.3rem) 100%, 0 100%); }
+.dex-loading-track::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 40%; background: linear-gradient(90deg, transparent, var(--color-gold-600), var(--color-gold-300) 60%, #fff3cf 70%, transparent); clip-path: polygon(0.3rem 0, 100% 0, calc(100% - 0.3rem) 100%, 0 100%); }
+@keyframes dex-loading-hop { 0%, 100% { transform: translateY(0) scale(1.06, 0.94); } 15% { transform: translateY(0) scale(0.96, 1.05); } 50% { transform: translateY(-14px) scale(0.98, 1.03) rotate(-3deg); } 85% { transform: translateY(0) scale(1.08, 0.92); } }
+@keyframes dex-loading-shadow { 0%, 15%, 85%, 100% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(0.6); opacity: 0.4; } }
+@keyframes dex-loading-sweep { from { transform: translateX(-100%); } to { transform: translateX(250%); } }
+/* A small inline wait (a button, a status line): three slanted blades lighting up in turn. */
+.brand-spin { display: inline-flex; flex: none; align-items: center; gap: 2px; height: 1em; }
+.brand-spin i { display: block; width: 0.28em; height: 0.85em; background: currentColor; opacity: 0.35; transform: skewX(-18deg); }
+.brand-spin i:nth-child(2) { animation-delay: 0.15s; }
+.brand-spin i:nth-child(3) { animation-delay: 0.3s; }
+@keyframes brand-spin-blade { 0%, 100% { opacity: 0.3; transform: skewX(-18deg) scaleY(0.8); } 40% { opacity: 1; transform: skewX(-18deg) scaleY(1.1); } }
+/* Skeletons: bevelled night shapes the blade passes over, never grey rounded bars. */
+.skeleton { position: relative; display: block; overflow: hidden; background: var(--color-night-800); --cut: 0.45rem; clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, var(--cut) 100%, 0 calc(100% - var(--cut))); }
+.skeleton::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, transparent 30%, rgb(245 196 81 / 0.09) 45%, rgb(255 243 207 / 0.14) 50%, rgb(245 196 81 / 0.09) 55%, transparent 70%); transform: translateX(-100%); }
+@keyframes skeleton-sweep { to { transform: translateX(100%); } }
+@media (prefers-reduced-motion: no-preference) {
+  .dex-loading-dex img { animation: dex-loading-hop 0.9s cubic-bezier(.45, 0, .55, 1) infinite; }
+  .dex-loading-dex::after { animation: dex-loading-shadow 0.9s cubic-bezier(.45, 0, .55, 1) infinite; }
+  .dex-loading-track::before { animation: dex-loading-sweep 1.3s cubic-bezier(.6, 0, .4, 1) infinite; }
+  .brand-spin i { animation: brand-spin-blade 0.9s ease-in-out infinite; }
+  .skeleton::after { animation: skeleton-sweep 1.6s ease-in-out infinite; }
+}
+@media (prefers-reduced-motion: reduce) { .dex-loading-track::before { left: 30%; } }
+
+/* Dex's head in a bevelled medallion: the bust of the full pose, zoomed from the top. */
+.dex-head { position: relative; display: inline-block; flex: none; overflow: hidden; background: var(--color-night-900); --cut: 0.3rem; clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, var(--cut) 100%, 0 calc(100% - var(--cut))); }
+.dex-head img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; transform: scale(1.5) translateY(4%); transform-origin: 50% 0; }
+
+/* A notice where a full Dex would be one too many (a tool under its header's Dex): his head, a line, the next step. */
+.dex-notice { display: flex; align-items: flex-start; gap: 0.875rem; padding: 1rem 1.125rem; background: var(--color-night-900); box-shadow: inset 3px 0 0 var(--color-gold-400); --cut: 0.75rem; clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, var(--cut) 100%, 0 calc(100% - var(--cut))); }
+.dex-notice-error { box-shadow: inset 3px 0 0 var(--color-blood-400); }
+.dex-notice .dex-head { width: 2.75rem; height: 2.75rem; background: var(--color-night-800); }
+/* A confirmation (copied, saved, voted…) or a small failure: a bevelled flash, gold edge, Dex's head. */
+.brand-flash { display: inline-flex; align-items: center; gap: 0.5rem; max-width: 100%; padding: 0.3rem 0.75rem 0.3rem 0.3rem; font-size: 0.875rem; line-height: 1.3; color: var(--color-chalk-100); background: linear-gradient(90deg, rgb(245 196 81 / 0.16), rgb(245 196 81 / 0.04) 70%), var(--color-night-800); box-shadow: inset 3px 0 0 var(--color-gold-400); --cut: 0.45rem; clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, var(--cut) 100%, 0 calc(100% - var(--cut))); }
+.brand-flash-error { background: linear-gradient(90deg, rgb(255 77 77 / 0.14), rgb(255 77 77 / 0.03) 70%), var(--color-night-800); box-shadow: inset 3px 0 0 var(--color-blood-400); }
+.brand-flash .dex-head { width: 1.75rem; height: 1.75rem; }
+@keyframes brand-flash-in { 0% { opacity: 0; transform: translateY(6px) scale(0.92); } 60% { opacity: 1; transform: translateY(-1px) scale(1.02); } 100% { transform: none; } }
+@keyframes brand-flash-head { 0%, 100% { transform: none; } 40% { transform: translateY(-3px) rotate(-6deg); } }
+@media (prefers-reduced-motion: no-preference) {
+  .brand-flash { animation: brand-flash-in 0.35s cubic-bezier(.2, 1.4, .4, 1) both; }
+  .brand-flash .dex-head { animation: brand-flash-head 0.6s ease-out 0.2s both; }
+}
+}
+/* ══ end of the brand micro-states ═══════════════════════════════════════════ */

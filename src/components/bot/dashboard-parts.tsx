@@ -1,4 +1,6 @@
 import { DiscordMark } from "@/components/bot/discord-mark";
+import { Flash } from "@/components/dex-states";
+import { Dex } from "@/components/mascot";
 import type { Locale } from "@/i18n/config";
 import type { T } from "@/i18n/translations";
 import { discordImage } from "@/lib/bot/public";
@@ -16,22 +18,27 @@ export const BUTTON = "bevel-sm inline-flex min-h-11 items-center justify-center
 export function LoginPanel({ t, locale, next, failed }: { t: T; locale: Locale; next: "dashboard" | "admin" | "moderation"; failed: boolean }) {
   const href = `/api/discord/login?locale=${locale}&next=${next}`;
   return (
-    <div className="bevel max-w-2xl border border-night-700 bg-night-900/80 p-6 sm:p-8">
-      <span aria-hidden className="bevel-sm grid size-12 place-items-center bg-blurple-500/20 text-chalk-100">
+    <div className="stage-enter dex-host bevel-lg flex max-w-3xl items-end gap-6 bg-night-800 p-6 shadow-[inset_0_3px_0_var(--color-azure-400)] sm:p-8">
+      <div className="min-w-0 flex-1">
+      <span aria-hidden className="bevel-sm grid size-12 place-items-center bg-azure-500 text-night-950">
         <DiscordMark />
       </span>
-      <h2 className="mt-4 font-heading text-2xl font-bold text-chalk-100">{t("pages.botDashboard.loginTitle")}</h2>
+      <h2 className="type-section mt-4 text-chalk-100">{t("pages.botDashboard.loginTitle")}</h2>
       {failed && (
-        <p role="alert" className="mt-3 border-l-4 border-blood-400 bg-blood-500/10 px-3 py-2 text-sm text-chalk-100">
-          {t("pages.botDashboard.loginFailed")}
+        <p role="alert" className="mt-3">
+          <Flash tone="error">{t("pages.botDashboard.loginFailed")}</Flash>
         </p>
       )}
       <p className="mt-3 max-w-prose text-base leading-relaxed text-chalk-300">{t("pages.botDashboard.loginLead")}</p>
       {/* A plain link: the route sets the OAuth cookie and redirects to Discord. */}
-      <a href={href} rel="nofollow" className={`${BUTTON} mt-5 bg-gold-500 px-6 text-base text-night-950 hover:bg-gold-400`}>
+      <a href={href} rel="nofollow" className="btn btn-primary mt-5">
         <DiscordMark />
         {t("pages.botDashboard.login")}
       </a>
+      </div>
+      <span aria-hidden className="hidden shrink-0 sm:block">
+        <Dex pose="salut" height={170} still />
+      </span>
     </div>
   );
 }

@@ -2,7 +2,8 @@
 
 import { useDiscordMoment } from "@/components/discord-moment";
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
-import { ImageUp, LoaderCircle } from "lucide-react";
+import { ImageUp } from "lucide-react";
+import { BrandSpinner, Flash } from "@/components/dex-states";
 import { classesChip } from "@/components/chip";
 import { LOCALE_INTL } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
@@ -142,7 +143,7 @@ export function ShowcaseScan({
           disabled={busy}
           className={cn(classesChip(true), "inline-flex items-center gap-2 disabled:opacity-60")}
         >
-          {busy ? <LoaderCircle size={15} aria-hidden className="animate-spin" /> : <ImageUp size={15} aria-hidden />}
+          {busy ? <BrandSpinner /> : <ImageUp size={15} aria-hidden />}
           {t(panel || state.step === "failed" ? "pages.accountValueUI.scan.retry" : "pages.accountValueUI.scan.button")}
         </button>
         <p className="min-w-0 basis-full text-xs leading-relaxed text-chalk-400 sm:basis-0 sm:flex-1">
@@ -151,8 +152,8 @@ export function ShowcaseScan({
         </p>
         <div aria-live="polite" className="w-full space-y-0.5 text-xs empty:hidden">
           {busy && <p className="text-chalk-300">{t(`pages.accountValueUI.scan.${state.step}`)}</p>}
-          {state.step === "failed" && <p className="text-gold-400">{t("pages.accountValueUI.scan.failed")}</p>}
-          {state.step === "error" && <p className="text-gold-400">{t("pages.accountValueUI.scan.error")}</p>}
+          {state.step === "failed" && <p><Flash tone="error" className="text-xs">{t("pages.accountValueUI.scan.failed")}</Flash></p>}
+          {state.step === "error" && <p><Flash tone="error" className="text-xs">{t("pages.accountValueUI.scan.error")}</Flash></p>}
           {panel && (
             <>
               <p className="font-semibold text-gold-400">

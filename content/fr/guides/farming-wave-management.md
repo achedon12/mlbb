@@ -6,7 +6,7 @@ updated: "2026-11-14"
 kind: "strategy"
 order: 7
 author: "achedon12"
-summary: "Le tireur gagne la partie avec son or, et son or vient des vagues. Achever les sbires, geler, pousser ou laisser filer une vague : les bases de la gestion de lane, puis du farm au-delà de la lane."
+summary: "Le tireur gagne la partie avec son or, et son or vient des vagues. Achever les sbires, pousser, geler ou laisser venir une vague : les bases de la gestion de lane, puis du farm au-delà de la lane."
 keywords: ["farm", "gestion des vagues", "gold lane", "last hit", "tireur", "guide mlbb"]
 related: ["gold-lane", "laning-phase", "macro-split-push"]
 tools: ["/tools/build", "/items", "/map"]
@@ -16,11 +16,11 @@ La gold lane porte bien son nom : c'est la lane qui rapporte le plus d'or, et le
 
 ## Chaque sbire compte
 
-Les vagues de sbires arrivent toutes les trente secondes. Les premières vagues des lanes latérales rapportent un bonus, ce qui rend chaque sbire raté en début de partie encore plus coûteux.
+Une vague de sbires part toutes les trente secondes, la première à 0:10. Pendant les dix premières vagues (jusqu'à 5:10), le canon de la gold lane rapporte 45 % d'or en plus, et celui de l'EXP lane 35 % d'EXP en plus : en début de partie, rater un canon coûte plus cher que rater un autre sbire.
 
-- **Achevez les sbires** plutôt que de frapper au hasard : le coup final rapporte l'or, et un tireur qui ne vise que les sbires presque morts garde aussi ses points de vie.
-- **Ne laissez pas mourir les sbires de siège** sans les achever : ils valent plus que les autres.
-- **Apprenez le rythme de votre héros** : sa vitesse d'attaque et ses dégâts au niveau 1 ne sont pas ceux du niveau 6. Ce qui était un coup final facile devient un coup de trop.
+- **Achevez les sbires** plutôt que de frapper au hasard : un tireur qui ne frappe que les sbires presque morts garde ses points de vie et ne pousse pas la vague sans le vouloir.
+- **Gardez le dernier coup du canon**, surtout pendant les dix premières vagues : c'est lui qui porte le bonus.
+- **Apprenez le rythme de votre héros** : sa vitesse d'attaque et ses dégâts au niveau 1 ne sont pas ceux du niveau 6. Le bon moment pour achever un sbire change avec les niveaux et les objets.
 
 ## Pousser, geler ou laisser venir
 
@@ -28,11 +28,11 @@ La position de la vague dans la lane décide de qui est en sécurité. Il y a tr
 
 ### Pousser
 
-Vous tuez les sbires adverses le plus vite possible et votre vague avance vers la tourelle ennemie. C'est le bon choix quand vous voulez partir de la lane (retour à la base, objectif, aide), parce que l'adversaire doit rester pour défendre. C'est un mauvais choix quand le jungleur adverse est invisible : vous êtes loin de votre tourelle.
+Vous tuez les sbires adverses le plus vite possible et votre vague avance vers la tourelle ennemie. C'est le bon choix quand vous voulez quitter la lane (retour à la base, objectif, aide), parce que l'adversaire doit rester pour défendre. C'est un mauvais choix tant que le jungleur adverse n'a pas été vu : vous êtes loin de votre tourelle.
 
 ### Geler
 
-Vous achevez seulement les sbires prêts à mourir, et la vague reste près de votre tourelle. L'adversaire doit s'avancer pour farmer, à portée de votre tourelle et de votre jungleur. C'est le bon choix quand votre adversaire est plus fort que vous en début de partie.
+Vous n'achevez que les sbires sur le point de mourir, et la vague reste près de votre tourelle. L'adversaire doit s'avancer pour farmer, à portée de votre tourelle et de votre jungleur. C'est le bon choix quand votre adversaire est plus fort que vous en début de partie.
 
 ### Laisser venir
 

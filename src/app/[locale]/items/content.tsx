@@ -29,6 +29,7 @@ export function metaItems(locale: Locale, page = 1): Metadata {
         : t("pages.items.metaDescription", { n: countItems }),
       share: t("pages.items.ogDescription", { n: countItems }),
       path: PATH_ITEMS,
+      card: true,
     }),
     locale,
     PATH_ITEMS,
@@ -77,7 +78,7 @@ export async function Items({ locale, page = 1 }: { locale: Locale; page?: numbe
   const heroThumbs: Record<string, HeroThumb> = {};
   for (const slug of new Set(Object.values(usedBy).flat())) {
     const h = heroesBySlug.get(slug);
-    if (h) heroThumbs[slug] = { name: h.name, portrait: h.images.icon ?? h.images.portrait };
+    if (h) heroThumbs[slug] = { name: h.name, portrait: h.images.portrait ?? h.images.icon, icon: h.images.icon ?? h.images.portrait };
   }
 
   return (

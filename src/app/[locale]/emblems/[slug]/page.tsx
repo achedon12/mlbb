@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { ItemIcon } from "@/components/item-sheet";
 import { ListLinks, PartsChoice, TableRanks, TableUsage } from "@/components/usage-sheet";
 import { FreshnessLine } from "@/components/freshness";
 import { PageSourcesBlock } from "@/components/page-sources";
-import { Card, PageHeader, SectionTitle } from "@/components/ui";
+import { SectionTitle } from "@/components/ui";
+import { artOf, HeroArtRow, SheetPoster } from "@/components/sheet-poster";
 import type { Locale } from "@/i18n/config";
 import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import type { T } from "@/i18n/t";
@@ -21,7 +21,7 @@ import {
   textChoice,
   usage,
 } from "@/lib/usage-sheets";
-import { longDate, listNames, patchCurrent } from "@/lib/freshness";
+import { longDate, listNames, patchCurrent, percentage } from "@/lib/freshness";
 import { serializeJsonLd } from "@/lib/html";
 import { NotFoundPage } from "@/components/not-found-page";
 import { ReportError } from "@/components/report-error";
@@ -87,7 +87,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, slug } = await params;
   const f = sheet(locale, slug);
   if (!f) return notFoundMetadata(locale);
-  return metaPage(locale, { title: f.title, description: f.description, path: `/emblems/${slug}` });
+  return metaPage(locale, { title: f.title, description: f.description, path: `/emblems/${slug}`, card: true });
 }
 
 export default async function EmblemPage({ params }: Params) {
@@ -130,34 +130,43 @@ export default async function EmblemPage({ params }: Params) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(data) }} />
-      <PageHeader
+      <SheetPoster
         title={name}
         lead={fi.lead}
-        icon={f.image ? <ItemIcon image={f.image} size={64} /> : undefined}
+        image={f.image}
+        art={artOf(heroes[0]?.slug)}
+        figure={heroes.length > 0 ? { value: String(heroes.length), label: t("pages.sheets.heroCount") } : null}
         crumbs={[
           { name: t("nav.emblems.label"), href: "/emblems" },
           { name, siblings: emblemsSheets.map((e) => ({ name: nameEmblem(t, e), href: `/emblems/${e.slug}` })) },
         ]}
       >
         <FreshnessLine locale={locale} className="mt-4" />
-      </PageHeader>
+      </SheetPoster>
 
-      <div className="page-wrap space-y-14 py-10">
-        <Card>
-          <dl className="grid gap-4 text-sm sm:grid-cols-2">
-            <div>
-              <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.emblemDetail.bonus")}</dt>
-              <dd className="mt-1 text-chalk-100">{fi.bonus}</dd>
-            </div>
-            <div>
-              <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.sheets.bestFor")}</dt>
-              <dd className="mt-1 leading-relaxed text-chalk-300">{fi.bestFor}</dd>
-            </div>
-          </dl>
-        </Card>
+      <div className="page-wrap space-y-14 py-10 sm:space-y-20 sm:py-14">
+        <dl className="bevel-lg grid gap-x-10 gap-y-5 bg-night-900 p-5 sm:grid-cols-2 sm:p-7">
+          <div>
+            <dt className="font-heading text-sm font-bold text-gold-400">{t("pages.emblemDetail.bonus")}</dt>
+            <dd className="mt-1.5 font-heading text-xl font-semibold leading-snug text-chalk-100">{fi.bonus}</dd>
+          </div>
+          <div>
+            <dt className="font-heading text-sm font-bold text-gold-400">{t("pages.sheets.bestFor")}</dt>
+            <dd className="mt-1.5 leading-relaxed text-chalk-300">{fi.bestFor}</dd>
+          </div>
+        </dl>
 
         <section>
           <SectionTitle lead={t("pages.sheets.help")}>{heroTitle}</SectionTitle>
+          <HeroArtRow
+            className="mb-6"
+            heroes={heroes.slice(0, 6).map((h) => ({
+              slug: h.slug,
+              href: `/heroes/${h.slug}#builds`,
+              figure: h.win === null ? undefined : percentage(locale, h.win),
+              label: h.win === null ? undefined : `${t("pages.heroDetail.stat.winRate")} ${percentage(locale, h.win)}`,
+            }))}
+          />
           {heroes.length > 0 ? (
             <TableUsage rows={heroes} legend={heroTitle} t={t} locale={locale} />
           ) : (
@@ -171,7 +180,7 @@ export default async function EmblemPage({ params }: Params) {
             <div className="grid gap-8 md:grid-cols-3">
               {talents.map((parts, i) => (
                 <div key={levels[i]}>
-                  <h3 className="mb-3 font-heading font-bold text-chalk-100">{levels[i]}</h3>
+                  <h3 className="display-caps mb-3 text-2xl text-chalk-100">{levels[i]}</h3>
                   <PartsChoice
                     locale={locale}
                     entries={parts.slice(0, 4).map((p) => ({
@@ -190,7 +199,7 @@ export default async function EmblemPage({ params }: Params) {
         {spells.length > 0 && (
           <section>
             <SectionTitle lead={t("pages.emblemDetail.spellsIntro")}>{t("pages.emblemDetail.spellsTitle")}</SectionTitle>
-            <div className="max-w-md">
+            <div className="max-w-xl">
               <PartsChoice locale={locale} entries={spells} />
             </div>
           </section>

@@ -19,6 +19,8 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   },
   category: "games",
+  // Installed on iOS, the status bar takes the night ground too (theme-color covers the other browsers).
+  appleWebApp: { title: site.name, statusBarStyle: "black" },
 };
 
 export const viewport: Viewport = {

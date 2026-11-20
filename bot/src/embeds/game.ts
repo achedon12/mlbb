@@ -1,7 +1,7 @@
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle, type EmbedBuilder } from "discord.js";
 import type { CatalogEntry } from "../catalog.js";
 import type { BuildPlayed, EventEntry, HeroDetail, Item, NamedEntry, Patch, PatchDetail, RankingEntry, SkinEntry } from "../site/game-data.js";
-import { baseEmbed, clip, COLORS, FAMILY_COLORS, label, laneLabels, linkButton, listMore, listOr, roleLabels, TIER_COLORS, type View } from "./common.js";
+import { baseEmbed, clip, COLORS, FAMILY_COLORS, label, laneLabels, linkButton, listMore, listOr, roleLabels, TIER_COLORS, withDex, type View } from "./common.js";
 
 /**
  * Embeds of the game-data commands. Pure functions of the data: the commands
@@ -117,7 +117,8 @@ export function buildEmbed(view: View, hero: HeroRef, builds: BuildView[], measu
     .setURL(view.link(`/builds/${hero.slug}`));
   const thumbnail = heroThumbnail(view, hero);
   if (thumbnail) embed.setThumbnail(thumbnail);
-  if (!builds.length) return embed.setDescription(view.t("ui.build.none"));
+  if (!builds.length) return withDex(view, embed, "surpris").setDescription(view.t("ui.build.none"));
+  withDex(view, embed, "idee");
   embed.setDescription(
     measuredRank ? view.t("ui.build.measured", { rank: view.t(`choices.rank.${measuredRank}`) }) : view.t("ui.build.written"),
   );
@@ -154,7 +155,8 @@ export function counterEmbed(view: View, hero: HeroRef, counters: CounterView): 
     .setURL(view.link(`/heroes/${hero.slug}/counters`));
   const thumbnail = heroThumbnail(view, hero);
   if (thumbnail) embed.setThumbnail(thumbnail);
-  if (!counters.strong.length && !counters.weak.length) return embed.setDescription(view.t("ui.counter.none"));
+  if (!counters.strong.length && !counters.weak.length) return withDex(view, embed, "surpris").setDescription(view.t("ui.counter.none"));
+  withDex(view, embed, "idee");
   const measured = [...counters.strong, ...counters.weak].some((c) => c.advantage !== undefined);
   return embed
     .setDescription(view.t(measured ? "ui.counter.measured" : "ui.counter.written"))
@@ -170,7 +172,8 @@ export function tierlistEmbed(view: View, entries: RankingEntry[], filter: strin
   const embed = baseEmbed(view, FAMILY_COLORS.meta)
     .setTitle(filter ? view.t("ui.tierlist.filtered", { filter }) : view.t("ui.tierlist.title"))
     .setURL(view.link(path));
-  if (!entries.length) return embed.setDescription(view.t("ui.tierlist.empty"));
+  if (!entries.length) return withDex(view, embed, "surpris").setDescription(view.t("ui.tierlist.empty"));
+  withDex(view, embed, "carte");
   // The top three tiers: below that, a list in a chat window stops being read.
   for (const tier of TIER_ORDER.slice(0, 3)) {
     const names = entries.filter((e) => e.tier === tier).map((e) => e.name);
@@ -195,13 +198,14 @@ export function compareEmbed(
       `**${view.t("ui.hero.pickRate")}**: ${view.percent(x.ranking?.pickRate)}`,
       `**${view.t("ui.hero.banRate")}**: ${view.percent(x.ranking?.banRate)}`,
     ].join("\n");
-  return baseEmbed(view, FAMILY_COLORS.meta)
+  const embed = baseEmbed(view, FAMILY_COLORS.meta)
     .setTitle(view.t("ui.compare.title", { a: a.hero.name, b: b.hero.name }))
     .setURL(view.link(path))
     .addFields(
       { name: a.hero.name, value: clip(column(a)), inline: true },
       { name: b.hero.name, value: clip(column(b)), inline: true },
     );
+  return withDex(view, embed, "idee");
 }
 
 export function itemEmbed(view: View, item: Item): EmbedBuilder {
@@ -217,7 +221,7 @@ export function itemEmbed(view: View, item: Item): EmbedBuilder {
   if (item.passive) embed.addFields({ name: view.t("ui.item.passive"), value: clip(item.passive) });
   if (item.active) embed.addFields({ name: view.t("ui.item.active"), value: clip(item.active) });
   if (item.recipe.length) embed.addFields({ name: view.t("ui.item.recipe"), value: listOr(view, item.recipe, " + ") });
-  return embed;
+  return withDex(view, embed, "idee");
 }
 
 export function emblemEmbed(view: View, emblem: CatalogEntry, details: NamedEntry | null): EmbedBuilder {
@@ -227,7 +231,7 @@ export function emblemEmbed(view: View, emblem: CatalogEntry, details: NamedEntr
     .setThumbnail(view.asset(ICON_PATHS.emblem(emblem.slug)) ?? null)
     .addFields({ name: view.t("ui.emblem.role"), value: listOr(view, roleLabels(view, emblem.roles)) });
   if (details?.description) embed.setDescription(clip(details.description, 4096));
-  return embed;
+  return withDex(view, embed, "idee");
 }
 
 export function spellEmbed(view: View, spell: CatalogEntry, details: NamedEntry | null): EmbedBuilder {
@@ -239,7 +243,7 @@ export function spellEmbed(view: View, spell: CatalogEntry, details: NamedEntry 
     .addFields({ name: view.t("ui.spell.roles"), value: listOr(view, roleLabels(view, spell.roles)) });
   if (cooldown) embed.addFields({ name: view.t("ui.spell.cooldown"), value: view.t("ui.spell.seconds", { n: cooldown }), inline: true });
   if (details?.description) embed.setDescription(clip(details.description, 4096));
-  return embed;
+  return withDex(view, embed, "idee");
 }
 
 /** Changed heroes listed in a patch reply: past that, the page has the rest. */
@@ -250,6 +254,7 @@ export function patchEmbed(view: View, patch: Patch, detail: PatchDetail | null,
     .setTitle(clip(detail?.title ?? patch.title, 256))
     .setURL(view.link(`/patch-notes/${patch.version}`));
   if (latest) embed.setAuthor({ name: view.t("ui.patch.latest") });
+  withDex(view, embed, "carte");
   if (detail?.date) embed.setDescription(view.t("ui.patch.released", { date: detail.date }));
   if (detail?.balance) {
     embed.addFields(
@@ -277,7 +282,8 @@ export function heroSkinsEmbed(view: View, hero: HeroDetail): EmbedBuilder {
     .setURL(view.link(`/heroes/${hero.slug}/skins`));
   const thumbnail = heroThumbnail(view, hero);
   if (thumbnail) embed.setThumbnail(thumbnail);
-  if (!hero.skins.length) return embed.setDescription(view.t("ui.skins.none"));
+  if (!hero.skins.length) return withDex(view, embed, "surpris").setDescription(view.t("ui.skins.none"));
+  withDex(view, embed, "carte");
   // Newest first: the wiki lists skins in release order.
   const skins = [...hero.skins].reverse();
   const shown = skins.slice(0, 25);
@@ -301,7 +307,8 @@ export function heroSkinsEmbed(view: View, hero: HeroDetail): EmbedBuilder {
 
 export function newestSkinsEmbed(view: View, skins: SkinEntry[], heroName: (slug: string) => string): EmbedBuilder {
   const embed = baseEmbed(view, FAMILY_COLORS.news).setTitle(view.t("ui.skins.newest")).setURL(view.link("/skins"));
-  if (!skins.length) return embed.setDescription(view.t("ui.skins.none"));
+  if (!skins.length) return withDex(view, embed, "surpris").setDescription(view.t("ui.skins.none"));
+  withDex(view, embed, "carte");
   embed.setDescription(
     clip(skins.slice(0, 15).map((s) => `• **${s.name}** — ${heroName(s.hero)}${s.release ? ` (${s.release})` : ""}`).join("\n"), 4096),
   );
@@ -318,7 +325,8 @@ export function eventsEmbed(view: View, events: EventEntry[], now = Date.now()):
   // Discord timestamps render in each reader's own timezone and language.
   const stamp = (ms: number | null, style: "R" | "d") => (ms === null ? "" : ` — <t:${Math.floor(ms / 1000)}:${style}>`);
   const line = (e: EventEntry) => `• ${e.name}${current.includes(e) ? stamp(time(e.end), "R") : stamp(time(e.start), "d")}`;
-  if (!current.length && !upcoming.length) return embed.setDescription(view.t("ui.events.none"));
+  if (!current.length && !upcoming.length) return withDex(view, embed, "surpris").setDescription(view.t("ui.events.none"));
+  withDex(view, embed, "carte");
   if (current.length) embed.addFields({ name: view.t("ui.events.current"), value: listMore(view, current.map(line), "\n", 12) });
   if (upcoming.length) embed.addFields({ name: view.t("ui.events.upcoming"), value: listMore(view, upcoming.map(line), "\n", 12) });
   return embed;
@@ -326,5 +334,5 @@ export function eventsEmbed(view: View, events: EventEntry[], now = Date.now()):
 
 /** The "not in Discord yet" answer: a sentence and the page that has it. */
 export function unavailableEmbed(view: View, path: string): EmbedBuilder {
-  return baseEmbed(view, COLORS.slate).setDescription(view.t("ui.common.unavailable")).setURL(view.link(path));
+  return withDex(view, baseEmbed(view, COLORS.slate).setDescription(view.t("ui.common.unavailable")).setURL(view.link(path)), "surpris");
 }

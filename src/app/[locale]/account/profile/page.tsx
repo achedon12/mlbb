@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { RankBadge } from "@/components/rank-badge";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { RecentMatches } from "@/components/recent-matches";
+import { PlayerTopHeroes } from "@/components/player-top-heroes";
 import {
   AnalysisInProgress,
   PlayerSummary,
@@ -88,7 +89,7 @@ export default async function PlayerProfilePage({
 
   const frame = (content: React.ReactNode) => (
     <ExtendMessages messages={messagesPage(locale, ["pages.accountProfile"])}>
-      <div className="mx-auto max-w-4xl px-4 py-14">
+      <div className="mx-auto max-w-5xl px-4 py-10 sm:py-14">
         <Breadcrumb
           crumbs={[{ name: t("pages.account.metaTitle"), href: "/account" }, { name: t("pages.accountProfile.title") }]}
           className="mb-8"
@@ -141,14 +142,20 @@ export default async function PlayerProfilePage({
     <>
       <header className="flex flex-wrap items-end justify-between gap-4">
         <div className="min-w-0">
-          <h1 className="font-heading text-3xl font-bold text-chalk-100">{t("pages.accountProfile.title")}</h1>
-          <div aria-hidden className="gold-rule mt-3 h-0.5 w-16" />
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-chalk-500">
+          <h1 className="affiche-name display-caps text-[clamp(2.6rem,1.7rem+3.4vw,4.75rem)] text-chalk-100">{t("pages.accountProfile.title")}</h1>
+          <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-chalk-300 sm:text-base">
             {t("pages.accountProfile.lead", { name: profile.name })}
           </p>
         </div>
-        <RankBadge rank={rank} size="sm" />
+        <RankBadge rank={rank} size="xl" />
       </header>
+
+      {seasonHeroList.status === "ok" && seasonHeroList.data.heroes.length > 0 && (
+        <div className="stage-enter mt-8">
+          <PlayerTopHeroes heroes={seasonHeroList.data.heroes} t={t} locale={locale} />
+        </div>
+      )}
 
       {sids.length > 1 && <NavSeasons seasons={sids} current={season} t={t} />}
 

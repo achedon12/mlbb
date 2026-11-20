@@ -1,5 +1,6 @@
 "use client";
 
+import { DexNotice } from "@/components/dex-states";
 import { useSyncExternalStore } from "react";
 import { useT } from "@/i18n/provider";
 import Link from "@/components/link";
@@ -29,7 +30,7 @@ function NoteRange() {
 }
 
 const TREND: Record<AdjustmentType, { icon: LucideIcon; color: string }> = {
-  buff: { icon: TrendingUp, color: "text-emerald-400" },
+  buff: { icon: TrendingUp, color: "text-azure-400" },
   nerf: { icon: TrendingDown, color: "text-blood-500" },
   adjust: { icon: Minus, color: "text-azure-400" },
 };
@@ -99,13 +100,13 @@ export function AccountFavourites({ lastPatch = null }: { lastPatch?: SummaryPat
   if (favourites.length === 0) {
     return (
       <div>
-        <p className="mt-6 text-sm leading-relaxed text-chalk-500">
+        <DexNotice pose="idee" className="mt-6 max-w-2xl">
           {t("favourites.nonePre")}
           <Link href="/heroes" className="text-gold-400 underline underline-offset-4">
             {t("favourites.noLink")}
           </Link>
           {t("favourites.nonePost")}
-        </p>
+        </DexNotice>
         <NotificationToggle favourites={favourites} />
         <NoteRange />
       </div>

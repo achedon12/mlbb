@@ -11,7 +11,11 @@ import { HeroPortrait } from "@/components/hero-portrait";
 import { Foldable } from "@/components/foldable";
 import { LightImage } from "@/components/light-image";
 import { imageLane } from "@/lib/emblems";
-import { Card, PageHeader } from "@/components/ui";
+import { Card } from "@/components/ui";
+import { HeroTileRow } from "@/components/compare/hero-tile-row";
+import { heroArt } from "@/components/hero-art";
+import { DexSays } from "@/components/mascot";
+import { ENTRANCE, PosterHeader } from "@/components/poster-header";
 import statistics from "@/data/game/statistics.json";
 import visuals from "@/data/game/visuals.json";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
@@ -133,6 +137,9 @@ export default async function CountersPage({ params }: Params) {
   const t = createT(locale);
   const n = names(h.name);
   const gap = (v: number) => formatGap(locale, t, v);
+  const signed = new Intl.NumberFormat(locale, { signDisplay: "exceptZero", minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  const tiles = (rows: AggregatedCounter[], tone: "ally" | "enemy") =>
+    rows.map((c) => ({ slug: c.slug, figure: signed.format(c.average), label: `${nameOf(c.slug)} : ${gap(c.average)}`, tone }));
   const decimal = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 
   const byRank = counters[slug] ?? {};
@@ -252,7 +259,9 @@ export default async function CountersPage({ params }: Params) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
 
-      <PageHeader
+      <PosterHeader
+        art={heroArt(slug)}
+        kicker={h.title}
         title={title}
         lead={sentence}
         crumbs={[
@@ -264,46 +273,56 @@ export default async function CountersPage({ params }: Params) {
         ]}
       >
         <FreshnessLine locale={locale} className="mt-2.5" />
-        <ul className="mt-3 flex flex-wrap gap-2 text-sm">
+        <ul className="mt-5 flex flex-wrap gap-2">
           {links.map((l) => (
             <li key={l.href}>
               <Link
                 href={l.href}
-                className="bevel-sm inline-block border border-night-700 px-3 py-1.5 font-medium text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400"
+                className="btn btn-secondary btn-sm"
               >
                 {l.label}
               </Link>
             </li>
           ))}
         </ul>
-      </PageHeader>
+      </PosterHeader>
 
       <HeroSubLayout slug={slug} locale={locale} current={`/heroes/${slug}/counters`} className="space-y-6 pb-8 pt-5 sm:space-y-14">
-        {/* ── Summary, all ranks combined ───────────────────────────── */}
-        {(best.length > 0 || victims.length > 0) && (
-          <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
-            {/* min-w-0: without it, the grid track widens to the table's width and overflows at 390 px. */}
+        {/* ── Summary, all ranks combined: portraits first, the table beside ── */}
+        {!(best.length === 0 && victims.length === 0) && (
+          <div className={cn("space-y-12 sm:space-y-16", ENTRANCE)}>
             {best.length > 0 && (
               <section aria-labelledby="best" className="min-w-0">
-                <h2 id="best" className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
+                <h2 id="best" className="type-section text-chalk-100">
                   {t("pages.heroCounters.bestCounters", n)}
                 </h2>
-                <p className="mb-3 mt-1.5 text-sm leading-snug text-chalk-500 sm:leading-relaxed">
-                  {t("pages.heroCounters.bestCountersIntro", n)}
-                </p>
-                <AggregatedTable t={t} rows={best} tone="bad" total={bucketsMeasured} slug={slug} gap={gap} />
+                <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
+                <p className="mb-5 mt-3 max-w-3xl text-sm leading-snug text-chalk-400 sm:text-base sm:leading-relaxed">{t("pages.heroCounters.bestCountersIntro", n)}</p>
+                <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start lg:gap-8">
+                  <HeroTileRow items={tiles(best, "enemy")} />
+                  <AggregatedTable t={t} rows={best} tone="bad" total={bucketsMeasured} slug={slug} gap={gap} />
+                </div>
               </section>
             )}
             {victims.length > 0 && (
               <section aria-labelledby="victims" className="min-w-0">
-                <h2 id="victims" className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
+                <h2 id="victims" className="type-section text-chalk-100">
                   {t("pages.heroCounters.victims", n)}
                 </h2>
-                <p className="mb-3 mt-1.5 text-sm leading-snug text-chalk-500 sm:leading-relaxed">{t("pages.heroCounters.victimsIntro", n)}</p>
-                <AggregatedTable t={t} rows={victims} tone="good" total={bucketsMeasured} slug={slug} gap={gap} />
+                <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
+                <p className="mb-5 mt-3 max-w-3xl text-sm leading-snug text-chalk-400 sm:text-base sm:leading-relaxed">{t("pages.heroCounters.victimsIntro", n)}</p>
+                <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start lg:gap-8">
+                  <HeroTileRow items={tiles(victims, "ally")} />
+                  <AggregatedTable t={t} rows={victims} tone="good" total={bucketsMeasured} slug={slug} gap={gap} />
+                </div>
               </section>
             )}
           </div>
+        )}
+        {best.length === 0 && victims.length === 0 && (
+          <DexSays pose="surpris" className={ENTRANCE}>
+            <p className="leading-relaxed">{sentence}</p>
+          </DexSays>
         )}
 
         {/* Opens the rank targeted by an anchor ("#rank-mythic"): Chromium does not do it on its own.
@@ -313,7 +332,7 @@ export default async function CountersPage({ params }: Params) {
         {/* ── Rank by rank ─────────────────────────────────────────── */}
         {ranks.length > 0 && (
           <section aria-labelledby="by-rank">
-            <h2 id="by-rank" className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
+            <h2 id="by-rank" className="type-section text-chalk-100">
               {t("pages.heroCounters.byRank")}
             </h2>
             <p className="mt-1.5 max-w-3xl text-sm leading-snug text-chalk-500 sm:leading-relaxed">
@@ -325,7 +344,7 @@ export default async function CountersPage({ params }: Params) {
                   <li key={r}>
                     <a
                       href={`#rank-${r}`}
-                      className="bevel-sm inline-block border border-night-700 px-2.5 py-1 text-chalk-300 hover:border-gold-500/60 hover:text-gold-400"
+                      className="btn btn-secondary btn-sm"
                     >
                       {t(`measuredRanks.${r}`)}
                     </a>
@@ -342,7 +361,7 @@ export default async function CountersPage({ params }: Params) {
                   <details
                     key={r}
                     id={`rank-${r}`}
-                    className="bevel group scroll-mt-24 border border-night-700/70 bg-night-900/60"
+                    className="bevel group scroll-mt-24 bg-night-900"
                   >
                     <summary className="flex cursor-pointer list-none flex-wrap items-center gap-x-3 gap-y-1 p-3 sm:p-4 [&::-webkit-details-marker]:hidden">
                       <ChevronDown
@@ -350,7 +369,7 @@ export default async function CountersPage({ params }: Params) {
                         aria-hidden
                         className="shrink-0 text-chalk-500 transition-transform group-open:rotate-180"
                       />
-                      <h3 className="font-heading text-lg font-bold text-chalk-100">{t(`measuredRanks.${r}`)}</h3>
+                      <h3 className="display-caps text-2xl text-chalk-100 group-open:text-gold-400">{t(`measuredRanks.${r}`)}</h3>
                       {s && (
                         <span className="text-sm text-chalk-500">
                           {t("pages.heroDetail.tier", { p: s.tier })} ·{" "}
@@ -401,7 +420,7 @@ export default async function CountersPage({ params }: Params) {
 
         {/* ── How to counter it ────────────────────────────────────── */}
         <section aria-labelledby="how-to-counter">
-          <h2 id="how-to-counter" className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
+          <h2 id="how-to-counter" className="type-section text-chalk-100">
             {t("pages.heroCounters.howToCounter", n)}
           </h2>
           <p className="mt-1.5 max-w-3xl text-sm leading-snug text-chalk-500 sm:leading-relaxed">
@@ -502,7 +521,7 @@ export default async function CountersPage({ params }: Params) {
                         )}
                         {t(`lanes.${g.lane}`)}
                         {h.lanes.includes(g.lane) && (
-                          <span className="bevel-sm border border-blood-500/40 px-1.5 py-px text-[0.65rem] text-blood-500">
+                          <span className="bevel-sm border border-blood-500/40 px-1.5 py-px text-[0.65rem] text-blood-400">
                             {t("pages.heroCounters.lanes.direct")}
                           </span>
                         )}
@@ -516,7 +535,7 @@ export default async function CountersPage({ params }: Params) {
                                 className="bevel-sm inline-flex gap-1.5 border border-night-700 px-2 py-0.5 text-chalk-300 hover:border-gold-500/60"
                               >
                                 {nameOf(c.slug)}
-                                <span className="tabular-nums text-blood-500">{gap(c.average)}</span>
+                                <span className="tabular-nums text-blood-400">{gap(c.average)}</span>
                               </Link>
                             </li>
                           ))}
@@ -535,7 +554,7 @@ export default async function CountersPage({ params }: Params) {
         {/* ── Wiki relations ───────────────────────────────────────── */}
         {hasWiki && (
           <section aria-labelledby="wiki">
-            <h2 id="wiki" className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
+            <h2 id="wiki" className="type-section text-chalk-100">
               {t("pages.heroCounters.wiki.title")}
             </h2>
             <p className="mt-1.5 text-sm text-chalk-500">{t("pages.heroCounters.wiki.intro")}</p>
@@ -555,8 +574,8 @@ export default async function CountersPage({ params }: Params) {
                             className={cn(
                               "bevel-sm inline-block border px-2.5 py-1 text-sm transition-colors",
                               w.tone === "good"
-                                ? "border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10"
-                                : "border-blood-500/30 text-blood-500 hover:bg-blood-500/10",
+                                ? "border-emerald-500/30 text-azure-400 hover:bg-emerald-500/10"
+                                : "border-blood-500/30 text-blood-400 hover:bg-blood-500/10",
                             )}
                           >
                             {nameOf(s)}
@@ -574,7 +593,7 @@ export default async function CountersPage({ params }: Params) {
         {/* ── Other counters pages, same lane ──────────────────────── */}
         {neighbours.length > 0 && laneMain && (
           <section aria-labelledby="others">
-            <h2 id="others" className="font-heading text-xl font-bold text-chalk-100">
+            <h2 id="others" className="type-subtitle text-chalk-100">
               {t("pages.heroCounters.others.title", { lane: t(`lanes.${laneMain}`) })}
             </h2>
             <ul className="mt-3 flex flex-wrap gap-2 text-sm">
@@ -582,7 +601,7 @@ export default async function CountersPage({ params }: Params) {
                 <li key={x.slug}>
                   <Link
                     href={`/heroes/${x.slug}/counters`}
-                    className="bevel-sm inline-block border border-night-700 px-2.5 py-1 text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400"
+                    className="btn btn-secondary btn-sm"
                   >
                     {t("pages.heroCounters.title", names(x.name))}
                   </Link>
@@ -621,7 +640,7 @@ function AggregatedTable({
     // context from it, without an aria-label repeated on each link. The
     // ranks column says nothing a phone has room for and is dropped there;
     // the rest fits as a table, without the sideways scroller it had.
-    <div className="bevel border border-night-700/70 bg-night-900/60 p-3">
+    <div className="bevel bg-night-900 p-3">
       <CardsTable
         t={t}
         cards={false}
@@ -645,7 +664,7 @@ function AggregatedTable({
             key: "gap",
             label: t("pages.heroCounters.colGap"),
             cell: (c) => (
-              <span className={cn("font-semibold", tone === "good" ? "text-emerald-400" : "text-blood-500")}>
+              <span className={cn("font-semibold", tone === "good" ? "text-azure-400" : "text-blood-400")}>
                 {gap(c.average)}
               </span>
             ),
@@ -713,7 +732,7 @@ function TableRank({
   pageCounters?: boolean;
 }) {
   if (rows.length === 0) return null;
-  const color = tone === "good" ? "text-emerald-400" : "text-blood-500";
+  const color = tone === "good" ? "text-azure-400" : "text-blood-400";
   return (
     <div>
       <h4 className={cn("flex items-center gap-2 font-heading font-bold", color)}>

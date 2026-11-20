@@ -30,16 +30,20 @@ const TEXTS: Record<Locale, string> = {
 export default function GlobalNotFoundPage() {
   return (
     <html lang="en">
-      <body className="flex min-h-screen flex-col items-center justify-center bg-night-950 px-4 text-center text-chalk-100">
-        <p className="font-heading text-7xl font-bold text-gold-400">404</p>
-        <h1 className="mt-4 font-heading text-2xl font-bold">{TEXTS.en}</h1>
+      <body className="flex min-h-screen flex-col items-center justify-center bg-night-950 px-4 py-12 text-center text-chalk-100">
+        {/* A plain image: this document has none of the site's layout around it. */}
+        {/* eslint-disable-next-line @next/next/no-img-element -- see above */}
+        <img src="/mascot/dex-surpris.webp" alt="" width={190} height={250} className="dex-idle" />
+        <p aria-hidden className="score score-outline mt-2 text-[7rem]">404</p>
+        <h1 className="display-caps mt-3 text-5xl">{TEXTS.en}</h1>
+        <div aria-hidden className="eclat mt-4 h-[3px] w-24" />
         <ul className="mt-8 flex flex-wrap justify-center gap-3">
           {LOCALES.map((l) => (
             <li key={l}>
               <a
                 href={`/${l}`}
                 hrefLang={LOCALE_HTML[l]}
-                className="bevel-sm inline-block border border-night-600 px-4 py-2 text-sm font-semibold text-chalk-100 transition-colors hover:border-gold-500/60 hover:text-gold-400"
+                className="btn btn-secondary btn-sm"
               >
                 {TEXTS[l]} · {l.toUpperCase()}
               </a>

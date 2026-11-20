@@ -1,11 +1,14 @@
 "use client";
 
+import { DexHead } from "@/components/dex-states";
 import { useDiscordMoment } from "@/components/discord-moment";
 import { useEffect, useMemo, useRef, useState } from "react";
+import Image from "next/image";
 import { ListOrdered, Play, RotateCcw, Settings2, SkipForward, Undo2 } from "lucide-react";
 import { SearchField } from "@/components/search-field";
 import { Drawer } from "@/components/drawer";
 import { HeroThumb } from "@/components/hero-picker";
+import { Dex } from "@/components/mascot";
 import { DraftSummary, useNumberFormats, type NumberFormats } from "@/components/draft-summary";
 import { EstimateBar, EstimateDetails, pickReasonText } from "@/components/draft-estimate";
 import { ChipEmblem, classesChip } from "@/components/chip";
@@ -362,7 +365,7 @@ export function DraftSimulator({
           "border-b border-night-700/70 pb-3 pt-2",
           // No negative margin: it would make every ancestor wider than the
           // viewport, which reads as a horizontal overflow.
-          turn && "sticky top-16 z-30 bg-night-950/95 backdrop-blur",
+          turn && "sticky top-16 z-30 bg-night-950",
         )}
       >
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
@@ -409,8 +412,13 @@ export function DraftSimulator({
 
         {turn?.simultaneous && <p className="mt-1.5 text-xs text-chalk-500">{t("pages.draftSimulatorUI.simultaneous")}</p>}
 
-        <div className="mt-2 grid grid-cols-2 gap-2 sm:gap-3">
-          {SIDES.map((side) => (
+        <div className="mt-2 grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-1.5 sm:gap-3">
+          {SIDES.map((side, i) => [
+            i === 1 && (
+              <span key="vs" aria-hidden className="draft-vs text-lg sm:text-3xl">
+                VS
+              </span>
+            ),
             <TeamColumn
               key={side}
               side={side}
@@ -422,8 +430,8 @@ export function DraftSimulator({
               isPlayer={isHuman(turns.find((tr) => tr.side === side)!)}
               hidden={hidden}
               compact={turn !== null}
-            />
-          ))}
+            />,
+          ])}
         </div>
         {turn && (
           <div className="mt-1.5">
@@ -498,7 +506,7 @@ export function DraftSimulator({
                           onClick={() => playerMove(c.slug)}
                           aria-label={t(isBan ? "pages.draftSimulatorUI.banHero" : "pages.draftSimulatorUI.pickHero", { name: nameOf(c.slug) })}
                           aria-describedby={`hint-${c.slug}`}
-                          className="bevel-sm flex min-h-11 w-full items-center gap-2 border border-night-700/70 bg-night-900/60 p-1.5 text-left transition-colors hover:border-gold-500/60"
+                          className="roster-pick bevel-sm flex min-h-11 w-full items-center gap-2 border border-gold-500/30 bg-night-850 p-1.5 text-left hover:border-gold-400"
                         >
                           {h && <HeroThumb hero={h} small />}
                           <span className="min-w-0 flex-1">
@@ -573,7 +581,7 @@ export function DraftSimulator({
                           : t(isBan ? "pages.draftSimulatorUI.banHero" : "pages.draftSimulatorUI.pickHero", { name: h.name })
                       }
                       className={cn(
-                        "bevel-sm flex min-h-11 w-full flex-col items-center gap-1 border border-night-700/70 p-1.5 text-center transition-colors",
+                        "roster-pick bevel-sm flex min-h-11 w-full flex-col items-center gap-1 border border-night-700/70 p-1.5 text-center",
                         "enabled:hover:border-gold-500/60 enabled:hover:bg-night-850 disabled:cursor-not-allowed",
                         taken && "opacity-30 grayscale",
                         !taken && !mine && "opacity-60",
@@ -586,7 +594,10 @@ export function DraftSimulator({
                 );
               })}
               {results.length === 0 && (
-                <li className="col-span-full py-6 text-center text-sm text-chalk-500">{t("draftUI.noHero")}</li>
+                <li className="col-span-full flex items-center justify-center gap-2.5 py-6 text-sm text-chalk-400">
+                  <DexHead pose="surpris" size={32} />
+                  {t("draftUI.noHero")}
+                </li>
               )}
             </ul>
 
@@ -700,11 +711,16 @@ function SettingsScreen({
 
   return (
     <section aria-labelledby="settings-title" className="space-y-7">
-      <div>
-        <h2 id="settings-title" className="font-heading text-2xl font-bold text-chalk-100">
-          {t("pages.draftSimulatorUI.settings.title")}
-        </h2>
-        <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+      <div className="flex items-end justify-between gap-4">
+        <div>
+          <h2 id="settings-title" className="type-section text-chalk-100">
+            {t("pages.draftSimulatorUI.settings.title")}
+          </h2>
+          <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
+        </div>
+        <span className="shrink-0 max-sm:hidden">
+          <Dex pose="carte" height={96} still />
+        </span>
       </div>
 
       <fieldset>
@@ -717,8 +733,8 @@ function SettingsScreen({
               aria-pressed={settings.format === f}
               onClick={() => onChange({ format: f, rank: rankForFormat(f, settings.rank) })}
               className={cn(
-                "bevel-sm min-h-11 border px-4 py-3 text-left transition-colors",
-                settings.format === f ? "border-gold-500 bg-night-850" : "border-night-700 hover:border-gold-500/60",
+                "lift bevel-sm min-h-11 border px-4 py-3 text-left",
+                settings.format === f ? "border-gold-500 bg-night-850 shadow-[inset_0_3px_0_var(--color-gold-400)]" : "border-night-700 hover:border-gold-500/60",
               )}
             >
               <span className="block font-heading font-bold text-chalk-100">{t(`pages.draftSimulatorUI.formats.${f}`)}</span>
@@ -795,7 +811,7 @@ function SettingsScreen({
       <button
         type="button"
         onClick={onStart}
-        className="bevel-sm inline-flex min-h-11 items-center gap-2 bg-gold-500 px-5 py-2.5 font-semibold text-night-950 transition-colors hover:bg-gold-400"
+        className="btn btn-primary min-h-12 px-7 text-lg"
       >
         <Play size={16} aria-hidden />
         {t("pages.draftSimulatorUI.settings.start")}
@@ -867,6 +883,18 @@ function ChoiceRow<V extends string>({
 
 // -- Board ----------------------------------------------------------------
 
+/** The tall portrait of a hero, next to its icon under the same name. */
+function portraitOf(icon: string | null): string | null {
+  const portrait = icon?.replace(/icone\.webp$/, "portrait.webp") ?? null;
+  return portrait && portrait !== icon ? portrait : null;
+}
+
+/**
+ * One side of the pick/ban stage, as in the game's lobby: the side's colour
+ * from its outer edge, the bans as small crossed-out squares, the picks as
+ * tall portrait slots. The slot on turn carries the gold light; the red
+ * side reads from the right, facing the blue one.
+ */
 function TeamColumn({
   side,
   turns,
@@ -888,9 +916,9 @@ function TeamColumn({
   isPlayer: boolean;
   hidden: (i: number) => boolean;
   /**
-   * Picks on a single row of thumbnails instead of named rows: the board then
-   * fits under the header without eating the roster's room. Every name stays
-   * readable, as a tooltip and for screen readers.
+   * Smaller slots, names hidden on a phone: the board then fits under the
+   * header without eating the roster's room. Every name stays readable, as a
+   * tooltip and for screen readers.
    */
   compact?: boolean;
 }) {
@@ -899,31 +927,31 @@ function TeamColumn({
   const bans = turns.filter((tr) => tr.side === side && tr.action === "ban");
   const picks = turns.filter((tr) => tr.side === side && tr.action === "pick");
   const onTurn = turn?.side === side;
-  const current = "ring-2 ring-gold-500 motion-safe:animate-pulse";
+  const red = side === "red";
 
   return (
     <section
       aria-labelledby={`side-${side}`}
-      className={cn(
-        "bevel-sm min-w-0 border bg-night-900/60 transition-colors",
-        compact ? "p-1.5 sm:p-2" : "p-2 sm:p-3",
-        onTurn ? color.border : "border-night-700/70",
-      )}
+      data-side={side}
+      data-turn={onTurn ? "true" : undefined}
+      className={cn("draft-side min-w-0", compact ? "p-1.5 sm:p-2.5" : "p-2.5 sm:p-4")}
     >
       <h3
         id={`side-${side}`}
-        className="flex flex-wrap items-center gap-x-2 gap-y-0.5 font-heading text-sm font-bold text-chalk-100 sm:text-base"
+        className={cn(
+          "flex flex-wrap items-baseline gap-x-2 gap-y-0.5 text-chalk-100",
+          red && "flex-row-reverse text-right",
+        )}
       >
-        <span aria-hidden className={cn("size-2.5 rounded-full", color.fill)} />
-        <span className={color.text}>{t(`pages.draftSimulatorUI.sides.${side}`)}</span>
-        <span className="text-xs font-medium text-chalk-500">{t(isPlayer ? "pages.draftSimulatorUI.you" : "pages.draftSimulatorUI.bot")}</span>
+        <span className={cn("display-caps text-lg sm:text-2xl", color.text)}>{t(`pages.draftSimulatorUI.sides.${side}`)}</span>
+        <span className="text-xs font-medium text-chalk-400">{t(isPlayer ? "pages.draftSimulatorUI.you" : "pages.draftSimulatorUI.bot")}</span>
       </h3>
 
-      <div className={compact ? "mt-1" : undefined}>
-        {/* Compact: the bans are already told apart by their grey, smaller
-            slots, so their heading only needs to reach screen readers. */}
-        <p className={cn(compact ? "sr-only" : cn("mt-2", label))}>{t("pages.draftSimulatorUI.bans")}</p>
-        <ul className={cn("flex flex-wrap gap-1", compact ? "" : "mt-1")}>
+      <div className={compact ? "mt-1" : "mt-2"}>
+        {/* The bans are told apart by their small crossed slots: their
+            heading only needs to reach screen readers on the compact board. */}
+        <p className={cn(compact ? "sr-only" : label, red && "text-right")}>{t("pages.draftSimulatorUI.bans")}</p>
+        <ul className={cn("flex flex-wrap gap-1", compact ? "" : "mt-1", red && "flex-row-reverse")}>
           {bans.map((tr) => {
             const played = tr.index < choices.length;
             const c = choices[tr.index];
@@ -945,16 +973,16 @@ function TeamColumn({
                 </span>
                 <span
                   aria-hidden
+                  data-filled={h ? "true" : undefined}
+                  data-current={turn?.index === tr.index ? "true" : undefined}
                   className={cn(
-                    "bevel-sm grid place-items-center overflow-hidden border text-xs text-chalk-500",
-                    compact ? "size-7" : "size-8",
+                    "draft-ban text-xs text-chalk-500",
+                    compact ? "size-7 sm:size-8" : "size-9",
                     // A banned hero is shown grey, as in the game. The filter
                     // sits on the slot itself: wrapped around the portrait, it
-                    // put a filtered layer between two bevel clip-paths, and
-                    // Chromium then painted nothing at all — the bans looked
-                    // like empty slots.
-                    h ? "border-transparent grayscale" : "border-dashed border-night-600",
-                    turn?.index === tr.index && current,
+                    // put a filtered layer between two clip-paths, and
+                    // Chromium then painted nothing at all.
+                    h && "grayscale",
                   )}
                 >
                   {h ? <HeroThumb hero={h} small /> : masked ? "?" : played ? "—" : null}
@@ -965,75 +993,65 @@ function TeamColumn({
         </ul>
       </div>
 
-      <p className={cn(compact ? "sr-only" : "mt-2", compact ? "" : label)}>{t("pages.draftSimulatorUI.picks")}</p>
-      {compact ? (
-        <ol className="mt-1.5 flex flex-wrap gap-1">
-          {picks.map((tr) => {
-            const c = choices[tr.index];
-            const h = c ? bySlug.get(c) : null;
-            const lane = c ? lanes.get(c) : undefined;
-            const inProgress = turn?.index === tr.index;
-            const slotState = h
-              ? lane
-                ? `${h.name} (${t(`lanes.${lane}`)})`
-                : h.name
-              : inProgress
-                ? t("pages.draftSimulatorUI.inProgress")
-                : t("pages.draftSimulatorUI.toPick");
-            return (
-              <li key={tr.index} title={slotState}>
-                <span className="sr-only">
-                  {t("pages.draftSimulatorUI.pickSlot", { k: tr.number })} : {slotState}
-                </span>
-                <span
-                  aria-hidden
-                  className={cn(
-                    "bevel-sm grid size-9 place-items-center overflow-hidden border text-xs text-chalk-500 sm:size-10",
-                    h ? "border-night-700/70" : "border-dashed border-night-700",
-                    inProgress && current,
-                  )}
-                >
-                  {h ? <HeroThumb hero={h} small /> : null}
-                </span>
-              </li>
-            );
-          })}
-        </ol>
-      ) : (
-        <ol className="mt-1 space-y-1">
-          {picks.map((tr) => {
-            const c = choices[tr.index];
-            const h = c ? bySlug.get(c) : null;
-            const lane = c ? lanes.get(c) : undefined;
-            const inProgress = turn?.index === tr.index;
-            return (
-              <li
-                key={tr.index}
-                className={cn(
-                  "bevel-sm flex min-h-11 items-center gap-2 border px-1.5 py-1",
-                  h ? "border-night-700/70" : "border-dashed border-night-700",
-                  inProgress && current,
-                )}
+      <p className={cn(compact ? "sr-only" : cn("mt-3", label), red && "text-right")}>{t("pages.draftSimulatorUI.picks")}</p>
+      <ol
+        className={cn(
+          "grid grid-cols-5 gap-1 sm:gap-1.5",
+          compact ? "mt-1.5 max-w-[30rem]" : "mt-1.5",
+          red && "ml-auto [direction:rtl]",
+        )}
+      >
+        {picks.map((tr) => {
+          const c = choices[tr.index];
+          const h = c ? bySlug.get(c) : null;
+          const lane = c ? lanes.get(c) : undefined;
+          const inProgress = turn?.index === tr.index;
+          const portrait = h ? portraitOf(h.icon) : null;
+          const slotState = h
+            ? lane
+              ? `${h.name} (${t(`lanes.${lane}`)})`
+              : h.name
+            : inProgress
+              ? t("pages.draftSimulatorUI.inProgress")
+              : t("pages.draftSimulatorUI.toPick");
+          return (
+            <li key={tr.index} title={compact ? slotState : undefined} className="min-w-0 [direction:ltr]">
+              <span className="sr-only">
+                {t("pages.draftSimulatorUI.pickSlot", { k: tr.number })} :{compact ? ` ${slotState}` : ""}
+              </span>
+              <span
+                aria-hidden={compact ? true : undefined}
+                data-filled={h ? "true" : undefined}
+                data-current={inProgress ? "true" : undefined}
+                className="draft-slot"
               >
-                <span className="sr-only">{t("pages.draftSimulatorUI.pickSlot", { k: tr.number })} :</span>
-                {h ? (
-                  <>
-                    <HeroThumb hero={h} small />
-                    <span className="min-w-0 flex-1">
-                      <span className="block truncate text-xs font-semibold text-chalk-100 sm:text-sm">{h.name}</span>
-                      {lane && <span className="block truncate text-[0.65rem] text-chalk-500 sm:text-xs">{t(`lanes.${lane}`)}</span>}
+                {h &&
+                  (portrait ? (
+                    <Image src={portrait} alt="" fill sizes="(min-width: 640px) 6rem, 18vw" />
+                  ) : (
+                    <span className="grid size-full place-items-center">
+                      <HeroThumb hero={h} />
                     </span>
-                  </>
-                ) : (
-                  <span className="truncate text-xs text-chalk-500">
-                    {inProgress ? t("pages.draftSimulatorUI.inProgress") : t("pages.draftSimulatorUI.toPick")}
+                  ))}
+                {!h && (
+                  <span className="display-caps absolute inset-0 grid place-items-center text-xl text-night-600 sm:text-3xl">
+                    {tr.number}
                   </span>
                 )}
-              </li>
-            );
-          })}
-        </ol>
-      )}
+                {h && <span className={cn("draft-slot-name", compact && "max-sm:hidden")}>{h.name}</span>}
+              </span>
+              {!compact &&
+                (h ? (
+                  lane && <span className="mt-1 block truncate text-center text-[0.65rem] text-chalk-400 sm:text-xs">{t(`lanes.${lane}`)}</span>
+                ) : (
+                  <span className="mt-1 block truncate text-center text-[0.65rem] text-chalk-500 sm:text-xs">
+                    {inProgress ? t("pages.draftSimulatorUI.inProgress") : t("pages.draftSimulatorUI.toPick")}
+                  </span>
+                ))}
+            </li>
+          );
+        })}
+      </ol>
     </section>
   );
 }

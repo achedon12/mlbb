@@ -52,11 +52,11 @@ Si la respuesta a la primera pregunta es "No lo sé", llévate la Tortuga con el
 
 ## El Lord: el objetivo que cierra las partidas
 
-El Lord empuja la línea más débil del oponente con tu equipo y fortalece tu próxima oleada. Es el objetivo el que descompone los inhibidores.
+Una vez derrotado, el Lord se invoca para tu equipo: empuja una línea con vosotros, y vuestra próxima oleada de minions sale reforzada. Es el objetivo que más ayuda a derribar las últimas torretas.
 
 - **Nunca comiences sin saber dónde están al menos tres oponentes.** Un Lord se toma lentamente, y un equipo que llega justo en el medio casi siempre gana la pelea.
 - **El mejor momento es justo después de una pelea ganada**: dos o tres oponentes muertos y el Lord está a salvo.
-- **Un Lord no reemplaza una oleada**: envíalo a la línea donde tus minions ya están empujados, para que llegue con ellos.
+- **Un Lord solo no basta**: agrupaos y avanzad con él y con la oleada reforzada, para que llegue a las torretas rivales con todo el equipo.
 
 ## La Retribution y el duelo de objetivos
 
@@ -78,4 +78,4 @@ Una vez que se toma la Tortuga, el jungla vuelve a sus buffs y luego a los del o
 - Farmea tu jungla mientras el equipo lucha por la Tortuga: el jungla es el único que tiene Retribution.
 - Comenzar un objetivo sin visión, con la esperanza de avanzar rápidamente: este es el escenario favorito del jungla contrario.
 - Waste Retribution para acabar con un héroe o un pequeño campamento cuando llega un objetivo.
-- Toma al Lord cuando la oleada aliada esté bajo tu propia torre: él empujará solo, y el oponente lo defenderá sin dificultad.
+- Dejar que el Lord empuje solo mientras el equipo farmea en otra parte: sin escolta, el rival lo defiende sin dificultad.

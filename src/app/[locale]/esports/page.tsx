@@ -8,10 +8,15 @@ import {
   tournamentDates,
   wholePercent,
 } from "@/components/esports-parts";
+import { TeamCrest, TournamentCard, tournamentArt } from "@/components/esports-broadcast";
+import { EditorialPoster, ENTRANCE, firstWithArt } from "@/components/editorial-poster";
+import { HeroTile } from "@/components/hero-tile";
+import { Dex } from "@/components/mascot";
+import { PageLead } from "@/components/page-lead";
 import { CardsTable } from "@/components/cards-table";
 import { HeroPortrait } from "@/components/hero-portrait";
 import { Foldable } from "@/components/foldable";
-import { Card, PageHeader, SectionTitle } from "@/components/ui";
+import { Score, SectionTitle } from "@/components/ui";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { metaPage } from "@/i18n/seo";
 import { createT, type T } from "@/i18n/translations";
@@ -26,7 +31,6 @@ import {
   tournamentStatus,
   type ProHero,
   type ProVsRankedRow,
-  type Tournament,
 } from "@/lib/esports";
 import { listNames, percentage } from "@/lib/freshness";
 import { serializeJsonLd } from "@/lib/html";
@@ -57,6 +61,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
         ? t("pages.esports.seo.hubDescription", { games: meta.games, picked: heroName(picked.slug), banned: heroName(banned.slug) })
         : t("pages.esports.intro"),
     path: PATH,
+    card: true,
   });
 }
 
@@ -88,25 +93,79 @@ export default async function EsportsPage({ params }: Params) {
     },
   };
 
+  // The poster: the tournament being played, else the next one, else the latest.
+  const featured =
+    list.find((x) => tournamentStatus(x, now) === "live") ??
+    list.find((x) => tournamentStatus(x, now) === "upcoming") ??
+    list[0];
+  const featuredStatus = featured ? tournamentStatus(featured, now) : null;
+  const shown = new Set<string>();
+  const posterArt =
+    (featured && tournamentArt(featured, shown)?.art) ??
+    firstWithArt(meta.picked.map((h) => h.slug))?.art ??
+    null;
+  const featuredDates = featured ? tournamentDates(t, locale, featured) : null;
+  const winners = meta.winners.filter((h) => heroesBySlug.has(h.slug));
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }} />
-      <PageHeader title={t("pages.esports.title")} lead={t("pages.esports.intro")} />
+      <EditorialPoster
+        art={posterArt}
+        crumbs={[{ name: t("pages.esports.title") }]}
+        aside={
+          featured?.prizePool ? (
+            <p className="lg:text-right">
+              <Score value={formatPrize(locale, featured.prizePool)} className="text-[clamp(3rem,2rem+3vw,5.5rem)]" />
+              <span className="mt-2 block text-sm text-chalk-300">{t("pages.esports.facts.prize")}</span>
+            </p>
+          ) : undefined
+        }
+      >
+        <h1 className="display-caps text-[clamp(2.4rem,1.7rem+2.6vw,4rem)] text-chalk-100">{t("pages.esports.title")}</h1>
+        <div aria-hidden className="eclat mt-4 h-[3px] w-24" />
+        <PageLead lead={t("pages.esports.intro")} />
+        {featured && featuredStatus && (
+          <Link href={`/esports/${featured.slug}`} className="group mt-8 block w-fit max-w-full">
+            <StatusBadge status={featuredStatus} t={t} />
+            <span className="affiche-name type-giant mt-3 block break-words text-chalk-100 transition-colors group-hover:text-gold-300">
+              {featured.shortName}
+            </span>
+            <span className="mt-2 block font-heading text-xl font-bold text-chalk-200">{featured.name}</span>
+            {featuredDates && <span className="mt-1 block text-chalk-300">{featuredDates}</span>}
+            {featured.champion && (
+              <span className="mt-5 flex items-center gap-4">
+                <TeamCrest name={featured.champion} size="lg" champion />
+                <span>
+                  <span className="flex items-center gap-1.5 font-heading font-bold uppercase text-gold-400">
+                    <Trophy size={16} aria-hidden />
+                    {t("pages.esports.facts.champion")}
+                  </span>
+                  <span className="display-caps mt-1 block text-4xl text-gold-400">{featured.champion}</span>
+                </span>
+              </span>
+            )}
+          </Link>
+        )}
+      </EditorialPoster>
 
-      <div className="page-wrap space-y-8 pb-10 pt-5 sm:space-y-16">
-        <section>
-          <SectionTitle lead={t("pages.esports.tournaments.intro")}>{t("pages.esports.tournaments.title")}</SectionTitle>
-          <ul className="grid gap-2 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
+      <div className={cn("page-wrap space-y-12 pb-12 pt-10 sm:space-y-20 sm:pt-14", ENTRANCE)}>
+        <section aria-labelledby="esports-tournaments">
+          <SectionTitle id="esports-tournaments" lead={t("pages.esports.tournaments.intro")}>
+            {t("pages.esports.tournaments.title")}
+          </SectionTitle>
+          <ul className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
             {list.map((x) => (
               <li key={x.slug}>
-                <TournamentCard turn={x} t={t} locale={locale} now={now} />
+                <TournamentCard turn={x} t={t} locale={locale} now={now} art={tournamentArt(x, shown)?.art ?? null} />
               </li>
             ))}
           </ul>
         </section>
 
-        <section>
+        <section aria-labelledby="esports-meta">
           <SectionTitle
+            id="esports-meta"
             lead={
               meta.games > 0
                 ? t("pages.esports.meta.intro", {
@@ -120,34 +179,66 @@ export default async function EsportsPage({ params }: Params) {
             {t("pages.esports.meta.title")}
           </SectionTitle>
           {meta.games === 0 ? (
-            <p className="text-sm text-chalk-500">{t("pages.esports.meta.none")}</p>
+            <div className="flex items-end gap-4">
+              <Dex pose="surpris" height={120} />
+              <p className="pb-4 text-chalk-300">{t("pages.esports.meta.none")}</p>
+            </div>
           ) : (
-            <div className="grid gap-5 md:grid-cols-3 md:gap-8">
-              <HeroList
+            <div className="space-y-10">
+              <HeroRow
                 title={t("pages.esports.meta.picked")}
                 heroes={meta.picked}
-                value={(h) => t("pages.esports.meta.picks", { n: h.picks })}
-                detail={(h) => t("pages.esports.meta.presence", { value: percentage(locale, h.presence) })}
+                figure={(h) => String(h.picks)}
+                label={(h) =>
+                  `${t("pages.esports.meta.picks", { n: h.picks })}, ${t("pages.esports.meta.presence", { value: percentage(locale, h.presence) })}`
+                }
               />
-              <HeroList
-                title={t("pages.esports.meta.banned")}
-                heroes={meta.banned}
-                value={(h) => t("pages.esports.meta.bans", { n: h.bans })}
-                detail={(h) => t("pages.esports.meta.presence", { value: percentage(locale, h.presence) })}
-              />
-              <HeroList
-                title={t("pages.esports.meta.winners")}
-                note={t("pages.esports.meta.winnersNote", { n: meta.minimum })}
-                heroes={meta.winners}
-                value={(h) => percentage(locale, h.winRate ?? 0)}
-                detail={(h) => t("pages.esports.meta.record", { wins: h.wins, losses: h.losses })}
-              />
+              <div className="grid gap-10 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:gap-12">
+                <HeroRow
+                  title={t("pages.esports.meta.banned")}
+                  heroes={meta.banned}
+                  figure={(h) => String(h.bans)}
+                  label={(h) =>
+                    `${t("pages.esports.meta.bans", { n: h.bans })}, ${t("pages.esports.meta.presence", { value: percentage(locale, h.presence) })}`
+                  }
+                  tone="enemy"
+                  narrow
+                />
+                <div>
+                  <h3 className="type-subtitle text-chalk-100">{t("pages.esports.meta.winners")}</h3>
+                  <p className="mt-1 text-xs text-chalk-500">{t("pages.esports.meta.winnersNote", { n: meta.minimum })}</p>
+                  <ol className="mt-3 divide-y divide-night-800">
+                    {winners.map((h, i) => {
+                      const hero = heroesBySlug.get(h.slug)!;
+                      return (
+                        <li key={h.slug}>
+                          <Link href={`/heroes/${h.slug}`} className="group flex items-center gap-3 py-2">
+                            <span aria-hidden className="score score-outline w-7 text-2xl">
+                              {i + 1}
+                            </span>
+                            <HeroPortrait source={hero.images.icon ?? hero.images.portrait} name={hero.name} size="small" decorative />
+                            <span className="min-w-0 flex-1">
+                              <span className="block truncate font-heading font-bold uppercase text-chalk-100 transition-colors group-hover:text-gold-400">
+                                {hero.name}
+                              </span>
+                              <span className="block text-xs text-chalk-500">
+                                {t("pages.esports.meta.record", { wins: h.wins, losses: h.losses })}
+                              </span>
+                            </span>
+                            <span className="score text-2xl text-azure-400">{percentage(locale, h.winRate ?? 0)}</span>
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ol>
+                </div>
+              </div>
             </div>
           )}
         </section>
 
-        <section>
-          <SectionTitle lead={t("pages.esports.versus.intro", { total: versus.total })}>
+        <section aria-labelledby="esports-versus">
+          <SectionTitle id="esports-versus" lead={t("pages.esports.versus.intro", { total: versus.total })}>
             {t("pages.esports.versus.title")}
           </SectionTitle>
           {/*
@@ -189,79 +280,45 @@ export default async function EsportsPage({ params }: Params) {
   );
 }
 
-function TournamentCard({ turn, t, locale, now }: { turn: Tournament; t: T; locale: Locale; now: Date }) {
-  const dates = tournamentDates(t, locale, turn);
-  return (
-    <Link href={`/esports/${turn.slug}`} className="group block h-full">
-      <Card className="flex h-full flex-col gap-2 p-3 group-hover:border-gold-500/60 sm:gap-3 sm:p-5">
-        <div className="flex items-start justify-between gap-3">
-          <div className="min-w-0">
-            <p className="text-xs uppercase tracking-wide text-chalk-500">{turn.shortName}</p>
-            <h3 className="font-heading font-bold leading-tight text-chalk-100 transition-colors group-hover:text-gold-400 sm:text-lg">
-              {turn.name}
-            </h3>
-          </div>
-          <StatusBadge status={tournamentStatus(turn, now)} t={t} />
-        </div>
-        <ul className="space-y-0.5 text-sm leading-snug text-chalk-300 sm:space-y-1">
-          {dates && <li>{dates}</li>}
-          {turn.prizePool && <li>{t("pages.esports.card.prize", { amount: formatPrize(locale, turn.prizePool) })}</li>}
-          {turn.teamCount && <li>{t("pages.esports.card.teams", { n: turn.teamCount })}</li>}
-          {turn.champion && (
-            <li className="flex items-center gap-1.5 font-semibold text-gold-400">
-              <Trophy size={14} aria-hidden />
-              {t("pages.esports.card.champion", { team: turn.champion })}
-            </li>
-          )}
-        </ul>
-        <p className="mt-auto flex items-center justify-between gap-2 text-xs text-chalk-500">
-          <span>{turn.games ? t("pages.esports.card.games", { n: turn.games }) : t("pages.esports.card.noGames")}</span>
-          <span aria-hidden className="font-semibold text-gold-400">
-            →
-          </span>
-        </p>
-      </Card>
-    </Link>
-  );
-}
-
-/** A top list: portrait, name, a detail under the name, the value on the right. */
-function HeroList({
+/**
+ * A top list as a row of portraits: the count in gold (red for bans) on each,
+ * the sentence a screen reader hears beside it.
+ */
+function HeroRow({
   title,
-  note,
   heroes,
-  value,
-  detail,
+  figure,
+  label,
+  tone = "gold",
+  narrow = false,
 }: {
   title: string;
-  note?: string;
   heroes: ProHero[];
-  value: (h: ProHero) => string;
-  detail: (h: ProHero) => string;
+  figure: (h: ProHero) => string;
+  label: (h: ProHero) => string;
+  tone?: "gold" | "enemy";
+  /** In the wide column of a two-column row: fewer portraits a line. */
+  narrow?: boolean;
 }) {
   return (
     <div>
-      <h3 className="font-heading text-lg font-bold text-chalk-100">{title}</h3>
-      {note && <p className="mt-1 text-xs text-chalk-500">{note}</p>}
-      <ol className="mt-2 space-y-1.5">
-        {heroes.map((h) => {
+      <h3 className={cn("type-subtitle", tone === "enemy" ? "text-blood-400" : "text-chalk-100")}>{title}</h3>
+      <ol className={cn("mt-3 grid grid-cols-4 gap-2 sm:gap-3", narrow ? "sm:grid-cols-4 xl:grid-cols-6" : "sm:grid-cols-6 lg:grid-cols-8")}>
+        {heroes.map((h, i) => {
           const hero = heroesBySlug.get(h.slug);
           if (!hero) return null;
           return (
             <li key={h.slug}>
-              <Link
+              <HeroTile
                 href={`/heroes/${h.slug}`}
-                className="bevel-sm group flex items-center gap-2.5 border border-night-700/70 bg-night-900/60 p-1.5 transition-colors hover:border-gold-500/60"
-              >
-                <HeroPortrait source={hero.images.icon ?? hero.images.portrait} name={hero.name} size="small" decorative />
-                <span className="min-w-0 flex-1">
-                  <span className="block truncate font-heading font-bold leading-tight text-chalk-100 transition-colors group-hover:text-gold-400">
-                    {hero.name}
-                  </span>
-                  <span className="block text-xs leading-tight text-chalk-500">{detail(h)}</span>
-                </span>
-                <span className="shrink-0 font-semibold tabular-nums text-gold-400">{value(h)}</span>
-              </Link>
+                name={hero.name}
+                portrait={hero.images.portrait ?? hero.images.icon}
+                figure={figure(h)}
+                label={label(h)}
+                rank={i + 1}
+                tone={tone}
+                sizes={narrow ? "(min-width: 1280px) 9vw, (min-width: 640px) 15vw, 23vw" : "(min-width: 1024px) 10vw, (min-width: 640px) 15vw, 23vw"}
+              />
             </li>
           );
         })}
@@ -286,7 +343,7 @@ function VersusTable({
   // min-w-0: as a grid item, the table's minimum width would otherwise widen the page.
   return (
     <div className="min-w-0">
-      <h3 className="font-heading text-lg font-bold text-chalk-100">{title}</h3>
+      <h3 className="type-subtitle text-chalk-100">{title}</h3>
       <p className="mt-1 mb-3 text-xs text-chalk-500">{note}</p>
       {rows.length === 0 ? (
         <p className="text-sm text-chalk-500">{t("pages.esports.versus.none")}</p>
@@ -294,7 +351,7 @@ function VersusTable({
         // Four columns of rates needed 26 rem and were put in a sideways
         // scroller: they fit a 390 px screen once the cells stop reserving a
         // minimum width. Still a table — a card would cost a line per hero.
-        <div className="sm:border sm:border-night-700/70">
+        <div className="bevel bg-night-900">
           <CardsTable
             t={t}
             cards={false}
@@ -341,7 +398,7 @@ function VersusTable({
                 key: "gap",
                 label: t("pages.esports.versus.gapColumn"),
                 cell: (r) => (
-                  <span className={cn("font-semibold", r.gap > 0 ? "text-emerald-400" : "text-blood-500")}>
+                  <span className={cn("font-semibold", r.gap > 0 ? "text-azure-400" : "text-blood-400")}>
                     {t("pages.esports.versus.gap", { n: r.gap > 0 ? `+${r.gap}` : r.gap })}
                   </span>
                 ),

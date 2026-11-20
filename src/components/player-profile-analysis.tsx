@@ -99,7 +99,7 @@ export function TableRoles<C extends Role | Lane>({
                           <span
                             className={cn(
                               "mt-0.5 inline-flex items-center gap-1 text-[0.7rem] font-semibold uppercase tracking-wide",
-                              strong ? "text-emerald-400" : "text-blood-500",
+                              strong ? "text-azure-400" : "text-blood-500",
                             )}
                           >
                             {strong ? <Trophy size={12} aria-hidden /> : <TrendingDown size={12} aria-hidden />}
@@ -120,7 +120,7 @@ export function TableRoles<C extends Role | Lane>({
                       <td
                         className={cn(
                           "whitespace-nowrap pl-2 text-right font-semibold tabular-nums",
-                          strong ? "text-emerald-400" : weak ? "text-blood-500" : "text-chalk-100",
+                          strong ? "text-azure-400" : weak ? "text-blood-500" : "text-chalk-100",
                         )}
                       >
                         {formatPercent(l.rate, locale)}
@@ -164,7 +164,7 @@ function Tile({ label, tone, children }: { label: string; tone?: "good" | "bad";
       <dd
         className={cn(
           "mt-1 font-heading text-xl font-bold tabular-nums",
-          tone === "good" ? "text-emerald-400" : tone === "bad" ? "text-blood-500" : "text-gold-400",
+          tone === "good" ? "text-azure-400" : tone === "bad" ? "text-blood-500" : "text-gold-400",
         )}
       >
         {children}
@@ -373,7 +373,7 @@ export function HeroRankSheets({
                         !reliable
                           ? "text-chalk-400"
                           : row.gap >= MARGIN_POINTS
-                            ? "text-emerald-400"
+                            ? "text-azure-400"
                             : row.gap <= -MARGIN_POINTS
                               ? "text-blood-500"
                               : "text-chalk-300",

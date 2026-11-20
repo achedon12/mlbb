@@ -1,7 +1,7 @@
 import { ActionRowBuilder, type ButtonBuilder, type Client, type EmbedBuilder } from "discord.js";
 import { slash } from "../discord/builders.js";
 import type { Command } from "../discord/types.js";
-import { baseEmbed, FAMILY_COLORS, linkButton, type View } from "../embeds/common.js";
+import { baseEmbed, FAMILY_COLORS, linkButton, withDex, type View } from "../embeds/common.js";
 import { formatNumber } from "../i18n/index.js";
 import { VERSION } from "../version.js";
 import { helpLinks } from "./help.js";
@@ -21,7 +21,6 @@ export function aboutEmbed(view: View, facts: AboutFacts): EmbedBuilder {
   const embed = baseEmbed(view, FAMILY_COLORS.setup)
     .setTitle(view.t("ui.about.title"))
     .setURL(view.link("/bot"))
-    .setThumbnail(view.asset("/icons/icon-512.png") ?? null)
     .setDescription(view.t("ui.about.body"))
     .addFields({ name: view.t("ui.about.version"), value: `\`${facts.version}\``, inline: true });
   if (facts.servers !== null) embed.addFields({ name: view.t("ui.about.servers"), value: formatNumber(view.locale, facts.servers), inline: true });
@@ -30,7 +29,8 @@ export function aboutEmbed(view: View, facts: AboutFacts): EmbedBuilder {
     { name: view.t("ui.about.uptime"), value: `<t:${Math.floor(facts.startedAt / 1000)}:R>`, inline: true },
     { name: view.t("ui.about.languages"), value: LANGUAGES },
   );
-  return embed;
+  // Dex, the site's mascot, in the corner where the site's icon was.
+  return withDex(view, embed, "reflexion");
 }
 
 /** Servers across every shard, or null when one of them is restarting. */

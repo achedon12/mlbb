@@ -19,7 +19,7 @@ export function ToolLayout({
   return (
     <div
       className={cn(
-        "page-wrap",
+        "tool-enter page-wrap",
         aside && "xl:grid xl:grid-cols-[minmax(0,1fr)_22rem] xl:items-start xl:gap-x-12 2xl:grid-cols-[minmax(0,1fr)_26rem]",
         className,
       )}

@@ -3,7 +3,8 @@ import fs from "node:fs";
 import path from "node:path";
 import { BookOpen, FileCode, GitPullRequest } from "lucide-react";
 import { Foldable } from "@/components/foldable";
-import { Card, PageHeader } from "@/components/ui";
+import { Card } from "@/components/ui";
+import { heroArt, StageHeader } from "@/components/stage";
 import type { Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
 import { metaPage } from "@/i18n/seo";
@@ -102,8 +103,8 @@ function withCode(text: string) {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section>
-      <h2 className="font-heading text-2xl font-bold text-chalk-100">{title}</h2>
-      <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+      <h2 className="type-section text-chalk-100">{title}</h2>
+      <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
       <div className="mt-5">{children}</div>
     </section>
   );
@@ -117,21 +118,22 @@ export default async function ContributePage({ params }: Params) {
 
   return (
     <>
-      <PageHeader title={t("pages.contribute.title")} lead={t("pages.contribute.lead")}>
-        <dl className="mt-8 flex flex-wrap gap-x-10 gap-y-3 text-sm">
+      <StageHeader title={t("pages.contribute.title")} lead={t("pages.contribute.lead")} art={heroArt("angela")} artPosition="55% 20%" dex="idee">
+        <p className="dex-bubble mt-5 max-w-md font-heading text-lg font-semibold leading-snug text-chalk-100">{t("pages.contribute.dexLine")}</p>
+        <dl className="mt-6 flex flex-wrap gap-x-10 gap-y-3 text-sm">
           {[
             [t("pages.contribute.statAnalyses"), heroAnalyses.length],
             [t("pages.contribute.statPending"), allHeroes.length - heroAnalyses.length],
           ].map(([label, value]) => (
             <div key={String(label)}>
-              <dt className="text-xs uppercase tracking-wide text-chalk-500">{label}</dt>
-              <dd className="mt-0.5 font-heading text-xl font-bold text-gold-400">{value}</dd>
+              <dt className="font-heading text-sm font-bold uppercase text-chalk-400">{label}</dt>
+              <dd className="score mt-1 text-[2.75rem]">{value}</dd>
             </div>
           ))}
         </dl>
-      </PageHeader>
+      </StageHeader>
 
-      <div className="mx-auto max-w-4xl space-y-14 px-4 py-12">
+      <div className="stage-enter mx-auto max-w-4xl space-y-16 px-4 py-12 sm:py-16">
         <Section title={t("pages.contribute.principleTitle")}>
           <div className="space-y-4 leading-relaxed text-chalk-300">
             <p>{withCode(t("pages.contribute.principle1"))}</p>

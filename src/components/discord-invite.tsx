@@ -17,22 +17,22 @@ export function DiscordInvite({ t, context, text, className }: { t: T; context: 
   return (
     <aside
       aria-label={t("discordPopup.label")}
-      className={cn("bevel flex flex-wrap items-center justify-between gap-4 border border-blurple-500/40 bg-blurple-500/10 p-4 sm:p-5", className)}
+      className={cn("bevel-lg flex flex-wrap items-center justify-between gap-x-6 gap-y-4 bg-night-800 p-5 sm:px-8 sm:py-6", className)}
     >
       <div className="flex min-w-0 flex-1 items-center gap-3">
-        <span aria-hidden className="bevel-sm grid size-10 shrink-0 place-items-center bg-blurple-500 text-white">
+        <span aria-hidden className="bevel-sm grid size-12 shrink-0 place-items-center bg-azure-500 text-night-950">
           <DiscordMark />
         </span>
         <div className="min-w-0">
-          <p className="font-heading text-base font-bold leading-tight text-chalk-100">{t(`discordCta.${context}.title`)}</p>
-          <p className="mt-0.5 text-sm leading-snug text-chalk-300">{text ?? t(`discordCta.${context}.text`)}</p>
+          <p className="display-caps text-2xl text-chalk-100 sm:text-3xl">{t(`discordCta.${context}.title`)}</p>
+          <p className="mt-1.5 text-sm leading-snug text-chalk-300">{text ?? t(`discordCta.${context}.text`)}</p>
         </div>
       </div>
       <DiscordJoinLink
         href={invite}
         placement="Inline"
         context={context}
-        className="bevel-sm inline-flex min-h-11 shrink-0 items-center gap-2 bg-blurple-500 px-4 text-sm font-semibold text-white transition-colors hover:bg-blurple-600"
+        className="btn btn-primary shrink-0"
       >
         {t("discordCta.join")}
       </DiscordJoinLink>

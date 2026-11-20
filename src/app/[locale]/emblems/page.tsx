@@ -27,6 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
         : t("pages.emblems.metaDescription"),
     share: t("pages.emblems.ogDescription"),
     path: "/emblems",
+    card: true,
   });
 }
 

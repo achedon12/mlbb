@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "@/components/link";
 import { inlineProse } from "@/components/prose";
-import { PageHeader } from "@/components/ui";
+import { StageHeader } from "@/components/stage";
 import type { Locale } from "@/i18n/config";
 import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
@@ -29,7 +29,7 @@ export default async function BotTermsPage({ params }: Params) {
   const t = createT(locale);
   return (
     <>
-      <PageHeader
+      <StageHeader compact dex="reflexion"
         title={t("pages.botTerms.title")}
         lead={t("pages.botTerms.lead")}
         crumbs={[{ name: t("pages.bot.breadcrumb"), href: "/bot" }, { name: t("pages.bot.terms") }]}

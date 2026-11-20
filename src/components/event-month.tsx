@@ -1,3 +1,4 @@
+import { FeatureSkin } from "@/components/events/event-feature";
 import { SkinCard, propsCardSkin, type PropsCardSkin } from "@/components/skin-card";
 import { SkinGrid } from "@/components/skin-grid";
 import { SectionTitle } from "@/components/ui";
@@ -8,6 +9,7 @@ import { OTHER_MODES, type EventMonth, type EventSkin, type ObtainMode } from "@
 import type { ListSource } from "@/lib/events-server";
 import { longDate, listNames, monthYear } from "@/lib/freshness";
 import { RARITY_ORIGIN } from "@/lib/rarities";
+import { cn } from "@/lib/utils";
 
 /**
  * Content of one month of the events calendar: StarLight skin, Collector
@@ -92,13 +94,38 @@ export function MonthContent({
         .map(({ mode, skins, empty }) => {
           const title = t(`pages.events.modes.${mode}.title`);
           const count = skins.length > 0 && (
-            <span className="text-base font-normal text-chalk-500"> · {skinCount(skins.length)}</span>
+            <span className="font-body text-base font-normal normal-case not-italic tracking-normal text-chalk-500"> · {skinCount(skins.length)}</span>
           );
           const cards = skins.map((s) => eventCard(s, t, htmlLang, numbers));
-          // In the timeline a month's groups share one row: fixed-width cards that wrap.
+          // The month's headline skins (StarLight, Collector) are shown as
+          // posters, their full artwork in the frame; the other releases as
+          // shop portraits. In the timeline a month's groups share one row:
+          // fixed-width cards that wrap.
+          const headline = mode === "starlight" || mode === "collector";
           const content =
             skins.length === 0 ? (
               <p className="max-w-xs text-sm leading-relaxed text-chalk-400">{empty}</p>
+            ) : headline ? (
+              <ul
+                className={cn(
+                  "grid gap-3",
+                  variant === "page"
+                    ? "sm:grid-cols-2 xl:grid-cols-3"
+                    : "w-full sm:w-auto sm:grid-flow-col sm:auto-cols-[minmax(0,22rem)]",
+                )}
+              >
+                {skins.map((s, i) => (
+                  <li key={cards[i].href} className="min-w-0">
+                    <FeatureSkin
+                      skin={s}
+                      card={cards[i]}
+                      sizes={
+                        variant === "page" ? "(min-width: 1280px) 30vw, (min-width: 640px) 46vw, 92vw" : "(min-width: 640px) 22rem, 92vw"
+                      }
+                    />
+                  </li>
+                ))}
+              </ul>
             ) : variant === "page" ? (
               <SkinGrid cards={cards} />
             ) : (
@@ -119,7 +146,7 @@ export function MonthContent({
               {content}
             </section>
           ) : (
-            <section key={mode}>
+            <section key={mode} className={cn(headline && skins.length > 0 && "w-full sm:w-auto")}>
               <h4 className="mb-3 font-heading text-lg font-semibold text-chalk-100">
                 {title}
                 {count}

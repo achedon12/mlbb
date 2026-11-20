@@ -2,7 +2,7 @@ import { DiscordInvite } from "@/components/discord-invite";
 import type { Metadata } from "next";
 import Link from "@/components/link";
 import { Mlbbdle } from "@/components/mlbbdle";
-import { PageHeader } from "@/components/ui";
+import { ToolHeader } from "@/components/tool-header";
 import type { Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { dataTool, metaPage } from "@/i18n/seo";
@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: t("pages.seo.mlbbdle.title"),
     description: t("pages.seo.mlbbdle.description"),
     path: "/mlbbdle",
+    card: true,
     keywords: ["mlbbdle", "mobile legends wordle", "guess the MLBB hero", "MLBB loldle", "daily hero guessing game"],
   });
 }
@@ -46,12 +47,13 @@ export default async function MlbbdlePage({ params }: Params) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
-      <PageHeader
+      <ToolHeader
+        path="/mlbbdle"
         title={t("pages.mlbbdle.title")}
         lead={t("pages.mlbbdle.lead")}
         crumbs={[{ name: t("pages.mlbbdle.breadcrumb") }]}
       />
-      <div className="mx-auto max-w-4xl space-y-14 px-4 py-10">
+      <div className="tool-enter mx-auto max-w-5xl space-y-14 px-4 py-8 sm:py-10">
         <ExtendMessages messages={messagesPage(locale, ["pages.mlbbdleUI", "draftUI"])}>
           <Mlbbdle heroes={heroes} labels={labels} />
         </ExtendMessages>

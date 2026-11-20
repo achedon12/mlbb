@@ -1,5 +1,6 @@
 "use client";
 
+import { DexNotice } from "@/components/dex-states";
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "@/components/link";
 import { CardsTable, type CardsColumn } from "@/components/cards-table";
@@ -8,7 +9,8 @@ import { SearchField } from "@/components/search-field";
 import { LightImage } from "@/components/light-image";
 import { ChoiceUnique, LinkChip } from "@/components/chip";
 import { ChipActive, FilterBar } from "@/components/filter-bar";
-import { COLOR_TIER } from "@/components/ui";
+import { BadgeTier } from "@/components/ui";
+import "@/components/meta/meta.css";
 import { useLocale, useT } from "@/i18n/provider";
 import type { MeasuredRank } from "@/lib/measured-ranks";
 import {
@@ -35,7 +37,6 @@ import {
 import { imageLane, imageRank, imageRole } from "@/lib/emblems";
 import { pageHref, paging, pathWithoutPage, slicePage, SIZE_ROWS_CARDS } from "@/lib/pager";
 import { describeGap, formatGap, THRESHOLD_NOTABLE } from "@/lib/trends";
-import { cn } from "@/lib/utils";
 
 /** Rows whose icon loads immediately: those on the first screen. */
 const FIRST = 8;
@@ -128,7 +129,7 @@ export function StatisticsTable({
       key: "tier",
       label: t("pages.statisticsTable.tier"),
       sortable: true,
-      cell: (l) => <span className={cn("stats-tier", COLOR_TIER[l.tier])}>{l.tier}</span>,
+      cell: (l) => <BadgeTier tier={l.tier} size="sm" />,
     },
     { key: "win", label: t("pages.statisticsTable.win"), sortable: true, cell: (l) => rate(l.win) },
     {
@@ -155,9 +156,9 @@ export function StatisticsTable({
         content={
           <>
             {/* No horizontal scroller any more: below `sm` the rows are cards. */}
-            <div className="mt-3 sm:overflow-x-auto sm:border sm:border-night-700/70 xl:mt-0">
+            <div className="mt-3 sm:overflow-x-auto xl:mt-0">
               <CardsTable
-                className="stats-table"
+                className="stats-table meta-stats"
                 caption={t("pages.statisticsTable.legend", { rank: t(`measuredRanks.${rank}`) })}
                 columns={columns}
                 rows={slice}
@@ -165,7 +166,11 @@ export function StatisticsTable({
                 sort={state.sort}
                 order={state.order}
                 onSort={sort}
-                empty={t("pages.heroesList.none")}
+                empty={
+                  <DexNotice role="status" title={t("dexStates.noneTitle")} className="mx-auto max-w-lg text-left">
+                    {t("pages.heroesList.none")}
+                  </DexNotice>
+                }
                 t={t}
               />
             </div>
@@ -256,7 +261,7 @@ function Identity({ row: l, first }: { row: RowStat; first: boolean }) {
   const emblem = l.roles[0] ? imageRole(l.roles[0]) : undefined;
   return (
     <Link href={`/heroes/${l.slug}`} prefetch={false}>
-      <LightImage src={heroIcon(l.slug)} alt="" width={28} height={28} immediate={first} />
+      <LightImage src={heroIcon(l.slug)} alt="" width={40} height={40} immediate={first} />
       <span className="min-w-0">
         <b>
           {l.name}

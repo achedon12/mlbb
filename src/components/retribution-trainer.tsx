@@ -1,5 +1,6 @@
 "use client";
 
+import { BrandSpinner, Flash as BrandFlash } from "@/components/dex-states";
 import { useEffect, useId, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import type { LucideIcon } from "lucide-react";
 import {
@@ -913,7 +914,7 @@ export function RetributionTrainer({ address }: { address: string }) {
             <dl className="flex gap-5 text-right text-sm">
               <div>
                 <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("tools.retribution.score")}</dt>
-                <dd className="font-heading text-2xl font-bold tabular-nums text-gold-400">
+                <dd data-testid="retribution-score" className="font-heading text-2xl font-bold tabular-nums text-gold-400">
                   {count.format(results.reduce((s, r) => s + r.points, 0))}
                 </dd>
               </div>
@@ -1218,7 +1219,7 @@ export function RetributionTrainer({ address }: { address: string }) {
               className="bevel grid aspect-[1200/630] w-full place-items-center border border-night-700 bg-night-950 text-sm text-chalk-400"
             >
               <span className="flex items-center gap-3">
-                <span aria-hidden className="size-5 animate-spin rounded-full border-2 border-night-600 border-t-gold-400" />
+                <BrandSpinner className="text-xl text-gold-400" />
                 {t("tools.retribution.videoPreparing")}
               </span>
             </div>
@@ -1275,9 +1276,8 @@ export function RetributionTrainer({ address }: { address: string }) {
               </a>
             )}
           </div>
-          <p role="status" className="min-h-5 text-sm text-chalk-400">
-            {share === "copied" && t("tools.retribution.copied")}
-            {share === "error" && t("tools.retribution.shareError")}
+          <p role="status" className="min-h-5 text-sm">
+            {share && <BrandFlash tone={share === "error" ? "error" : "ok"}>{t(share === "error" ? "tools.retribution.shareError" : "tools.retribution.copied")}</BrandFlash>}
           </p>
         </Card>
       )}

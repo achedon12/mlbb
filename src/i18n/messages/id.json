@@ -291,7 +291,7 @@
     "version": "Versi {v}",
     "contribute": "Berkontribusi",
     "intro": "Hero, build, dan counter Mobile Legends: Bang Bang berdasarkan rank, tier list yang dihitung dari win rate ranked, item, emblem, dan patch notes, dalam bahasa Inggris, Prancis, Italia, Spanyol, dan Indonesia. Proyek independen yang terbuka untuk kontribusi.",
-    "sources": "Teks diambil dari wiki Mobile Legends (Fandom) dan Liquipedia, di bawah lisensi CC BY-SA, dengan atribusi kepada kontributornya. Gambar, nama hero, skin dan item © Moonton, dan untuk skin kolaborasi © pemegang haknya masing-masing: semuanya tidak termasuk dalam lisensi ini. Win rate, ban dan pengambilan, counter, dan build yang paling banyak dimainkan berasal dari statistik pertandingan peringkat game, melalui API komunitas arena.rone.dev.",
+    "sources": "Teks diambil dari wiki Mobile Legends (Fandom) dan Liquipedia, di bawah lisensi CC BY-SA, dengan atribusi kepada kontributornya. Gambar, nama hero, skin dan item © Moonton, dan untuk skin kolaborasi © pemegang haknya masing-masing: semuanya tidak termasuk dalam lisensi ini. Win rate, ban dan pengambilan, counter, dan build yang paling banyak dimainkan berasal dari statistik permainan berperingkat, melalui API komunitas arena.rone.dev.",
     "discord": "Bergabunglah dengan Perselisihan",
     "columns": {
       "heroes": "Hero",
@@ -311,7 +311,7 @@
       "title": "Mode Permainan",
       "lead": "Dari game 5v5 klasik hingga game Pertarungan cepat, setiap mode mengubah aturannya. Pilih salah satu untuk mengetahui detailnya.",
       "discover": "Jelajahi mode ini",
-      "metaDescription": "Mode permainan Mobile Legends: Bang Bang disajikan satu per satu dengan detail aturan yang mendukung.",
+      "metaDescription": "Mode permainan Mobile Legends: Bang Bang dan aturannya, mode demi mode.",
       "ogDescription": "Mode permainan Mobile Legends: Bang Bang dan apa yang membedakannya.",
       "titleMode": "Mode {name}",
       "listLd": "Mode permainan Mobile Legends: Bang Bang"
@@ -336,7 +336,7 @@
       "sortTier": "Tier list",
       "account": "{n} hero",
       "countOf": "dari {total}",
-      "none": "Tidak ada hero yang cocok dengan filter ini.",
+      "none": "Tidak ada hero dengan filter ini. Ambil satu, saya akan melihat lebih lebar.",
       "list": "Daftar hero"
     },
     "heroDetail": {
@@ -375,7 +375,7 @@
       "analysisText": "Belum ada yang menulis analisis tentang {name}: cara memainkannya, item apa yang harus dibeli, siapa yang harus dilawan. Sementara itu, tab lainnya memberikan angka yang diukur dalam permainan peringkat.",
       "analysisTranslated": "Analisis ditulis dalam bahasa Prancis dan diterjemahkan secara otomatis.",
       "contribute": "Berkontribusi pada analisis ini →",
-      "countersIntro": "Berdasarkan win rate permainan: penyebaran poin menunjukkan seberapa besar perbedaan tingkat {name} terhadap setiap lawan.",
+      "countersIntro": "Dihitung dari win rate permainan: penyebaran poin menunjukkan seberapa besar win rate {name} bervariasi terhadap setiap lawan.",
       "countersRef": "Win rate dasar: {rate}%.",
       "matchups": "Analisis matchup",
       "matchupsIntro": "Duel yang dikomentari dengan tangan, melebihi angka.",
@@ -401,7 +401,7 @@
         "min": "Terendah",
         "max": "Tertinggi",
         "curveSummary": "Tingkat {measure}: {start}% di awal periode, {end}% di akhir periode.",
-        "historyShort": "API hanya terbit selama tiga puluh hari: riwayat situs ini bertambah seiring setiap pembaruan dan akan menandai patch sepanjang musim.",
+        "historyShort": "API hanya menyediakan tiga puluh hari terakhir: riwayat situs bertambah dengan setiap pembaruan dan akan menandai patch sepanjang musim.",
         "duration": "Per durasi pertandingan",
         "durationIntro": "Win rate {name} tergantung durasi permainan, posisi utamanya.",
         "minutes": "{from}–{to} mnt",
@@ -423,7 +423,7 @@
         "noData": "Belum ada data untuk hero ini.",
         "impact": {
           "title": "Pengaruh patch",
-          "intro": "Win rate rata-rata sebesar {name}, semua peringkat, selama {n} hari sebelum dan sesudah setiap patch yang disesuaikan, tidak termasuk hari patch tersebut.",
+          "intro": "Win rate rata-rata {name}, semua peringkat digabungkan, selama {n} hari sebelum dan sesudah setiap patch yang mengubahnya, hari patch tidak termasuk.",
           "patch": "Patch {version}",
           "beforeAfter": "{before}% sebelum, {after}% setelahnya",
           "verdict": {
@@ -437,10 +437,10 @@
         "feed": "Ikuti di RSS"
       },
       "teammates": "Rekan satu tim terbaik",
-      "teammatesIntro": "Sekutu dengan siapa {name} memperoleh keuntungan paling banyak, poin kemenangannya di atas rata-rata.",
+      "teammatesIntro": "Sekutu yang {name} menang paling banyak, dalam poin win rate di atas rata-rata.",
       "combos": {
         "title": "Combo",
-        "intro": "Urutan yang direkomendasikan oleh game, dalam urutan untuk meluncurkan skill.",
+        "intro": "Urutan yang direkomendasikan oleh game, dengan urutan peluncuran skill.",
         "types": {
           "laning": "Laning",
           "teamfight": "Teamfight"
@@ -448,13 +448,13 @@
         "basicAttack": "Basic attack",
         "order": "Urutan skill"
       },
-      "pageCounters": "Halaman counter penuh",
+      "pageCounters": "Halaman kontra penuh",
       "pageDuos": "Semua duo yang diukur",
       "duosShort": "Duo"
     },
     "items": {
       "title": "Item",
-      "lead": "Item {n} di toko. Klik pada suatu item untuk melihat detailnya; filter berdasarkan kategori atau cari statistik secara langsung.",
+      "lead": "Item {n} di toko. Pilih item untuk melihat detailnya; filter berdasarkan kategori atau cari statistik.",
       "metaDescription": "{n} item Mobile Legends: Bang Bang: statistik, efek unik, pasif, resep dan harga, beserta visualnya.",
       "ogDescription": "Item {n} dalam game, dengan statistik, pasif, dan resep."
     },
@@ -485,14 +485,14 @@
     },
     "draft": {
       "title": "Asisten draft",
-      "lead": "Isikan apa yang Anda lihat di seberangnya, lane demi lane. Alat ini menyarankan jawaban dan menjelaskan apa yang membenarkan jawaban tersebut. Tambahkan pilihan Anda sendiri seiring berjalannya waktu: sarannya akan disesuaikan.",
-      "rating": "Kontra dan sinergi muncul dari hubungan yang dimunculkan oleh game, bukan dari opini. Mereka tidak mencakup semua duel: hero tanpa counter yang diketahui dalam komposisi belum tentu merupakan pilihan yang buruk - dia tidak memiliki hal khusus untuk ditentang.",
-      "metaDescription": "Informasikan komposisi lawan: alat ini menyarankan apa yang harus diambil di setiap lane, dan menjelaskan alasannya — serangan balik, sinergi, dan win rate.",
-      "ogDescription": "Apa yang harus diambil ketika dihadapkan pada komposisi sebaliknya, dan alasannya.",
+      "lead": "Isikan apa yang Anda lihat di seberangnya, lane demi lane. Alat ini menyarankan pilihan dan menjelaskan alasannya. Tambahkan pilihan Anda sendiri seiring berjalannya waktu: sarannya akan disesuaikan.",
+      "rating": "Kontra dan sinergi datang dari hubungan yang dibina melalui permainan, bukan dari opini. Mereka tidak mencakup semua duel: hero yang tidak diketahui lawannya terhadap suatu komposisi belum tentu merupakan pilihan yang buruk, dia tidak memiliki sesuatu yang khusus untuk menentangnya.",
+      "metaDescription": "Informasikan komposisi lawan: alat ini menyarankan apa yang harus diambil di setiap lane, dan menjelaskan alasannya (penghitungan, sinergi, dan win rate).",
+      "ogDescription": "Apa yang harus diambil terhadap komposisi lawan, dan mengapa.",
       "teamLink": "Apakah tim Anda sudah terbentuk? Analisis komposisinya",
-      "toolsTitle": "Simulator dan rancangan bantuan",
+      "toolsTitle": "Bantuan simulator dan rancangan",
       "toolsLead": "Mainkan draft penuh, ban lalu pilih, dalam format peringkat atau turnamen, melawan bot yang mengandalkan pengukuran kami. Atau informasikan komposisi lawan untuk mengetahui apa yang harus diambil, lajur demi lajur.",
-      "simulatorOg": "Draft MLBB yang lengkap, ban lalu pengambilan, menghadapi bot yang diberi tindakan.",
+      "simulatorOg": "Draft MLBB yang lengkap, ban lalu pengambilan, menghadapi bot yang diberi makan oleh tindakan kami.",
       "rules": {
         "title": "Aturan format",
         "intro": "Simulator mengikuti urutan yang dijelaskan oleh wiki game dan Liquipedia. Setiap aturan mengacu pada sumbernya; apa yang tidak disebutkan oleh sumber dilaporkan.",
@@ -501,7 +501,7 @@
         "rankedBans": "Jumlah ban tergantung pada peringkat tertinggi dalam permainan: {epic} per tim di Epic, {legend} di Legend, {mythic} di Mythic dan seterusnya.",
         "rankedSimultaneous": "Kedua tim melakukan ban pada saat yang sama, dalam dua putaran, dan oleh karena itu dapat melakukan ban pada hero yang sama. Sumber tidak menyebutkan berapa banyak ban yang dijatuhkan di setiap putaran: simulator menggabungkannya menjadi satu.",
         "picks": "Pilihan: biru 1, merah 2, biru 2, merah 2, biru 2, merah 1. Hero yang dibuang atau sudah dipilih tidak dapat dipilih lagi.",
-        "timers": "{ban} detik untuk melarang, {pick} untuk memilih, per pemain. Ketika habis masa berlakunya, ban tetap kosong dan pilihan diambil secara acak: permainan menguntungkan hero yang paling sering dimainkan oleh pemain, yang tidak diketahui oleh simulator; dia menembak diantara mereka yang mengisi lane bebas.",
+        "timers": "{ban} detik untuk dilarang, {pick} untuk memilih, per pemain. Ketika habis masa berlakunya, ban tetap kosong dan pengambilan diambil secara acak. Permainan ini memihak pada hero yang paling banyak dimainkan oleh pemain; simulator yang tidak mengenalnya menembak dari antara mereka yang mengisi lane bebas.",
         "rankedExample": "Keteraturan dalam Mitos; di Epic dan Legend, hanya jumlah ban yang berubah.",
         "tournamentTitle": "Turnamen (MPL, seri M)",
         "tournamentBans": "{total} ban total, {n} per tim.",
@@ -540,7 +540,7 @@
     },
     "news": {
       "title": "Berita dan panduan",
-      "lead": "Artikel mendalam daripada cerita pendek: apa yang berubah dalam meta, mengapa, dan apa yang harus dilakukan.",
+      "lead": "Artikel mendalam, bukan artikel singkat: apa yang berubah dalam meta, alasannya, dan apa yang harus dilakukan untuk mengatasinya.",
       "metaTitle": "Berita dan panduan",
       "metaDescription": "Analisis meta, panduan latar belakang, dan pembacaan patch Mobile Legends: Bang Bang, dalam bahasa {language}. Tersedia dalam umpan RSS.",
       "ogDescription": "Analisis meta dan panduan latar belakang, dalam bahasa {language}.",
@@ -548,14 +548,14 @@
     },
     "tierList": {
       "title": "Tier list",
-      "lead": "Peringkat ini bukan merupakan opini: peringkat ini dihitung dari win rate dan ban yang dilaporkan oleh game, dan dibuat ulang dengan sendirinya pada setiap sinkronisasi.",
+      "lead": "Peringkat ini bukan merupakan opini: peringkat ini dihitung dari win rate dan ban yang dilaporkan oleh game, dan dihitung ulang pada setiap sinkronisasi.",
       "metaDescription": "Daftar Tier Mobile Legends: Bang Bang dihitung dari win rate dan ban yang dilaporkan oleh game tersebut. Dihitung ulang pada setiap sinkronisasi, tanpa pendapat.",
       "ogDescription": "Peringkat dihitung dari win rate dan ban permainan.",
       "howCalculated": "Bagaimana peringkat ini dihitung",
       "scorePre": "Skornya bernilai",
       "scoreBold": "win rate + seperempat dari ban rate",
       "p2": "Win rate mengukur apa yang dihasilkan seorang hero setelah dimainkan. Ban rate mengukur apa yang ditakuti pemain: menangkap hero yang terlalu kuat untuk dibiarkan bebas, yang win ratenya terlihat rendah karena jarang tersedia.",
-      "p3pre": "Tingkat seleksi bukan merupakan faktor dalam perhitungan – ini mengukur popularitas, bukan kekuasaan. Ini hanya digunakan untuk memberi sinyal a",
+      "p3pre": "Tingkat seleksi tidak masuk dalam perhitungan: ia mengukur popularitas, bukan kekuasaan. Ini hanya digunakan untuk memberi sinyal a",
       "asterisk": "asterisk",
       "p3post": "hero bermain terlalu sedikit agar jumlah mereka stabil.",
       "tier": "Tier {p}",
@@ -568,7 +568,7 @@
         "S": "Sangat kuat di sebagian besar komposisi.",
         "A": "Solid, tanpa memaksakan tempo permainan.",
         "B": "Benar, tapi tergantung konteks atau pemainnya.",
-        "C": "Dapat dimainkan, dengan biaya nyata dibandingkan dengan alternatif."
+        "C": "Dapat dimainkan, tetapi pilihan lain lebih baik."
       },
       "byRank": "Berdasarkan peringkat",
       "titleRank": "Tier list {rank}",
@@ -600,18 +600,22 @@
       "leadRole": "{n} {plural} permainan, peran utama atau sekunder, diklasifikasikan menurut aturan yang sama dengan tier list umum: win rate dan ban, semua peringkat digabungkan.",
       "filterNote": "Memberi peringkat pada semua peringkat digabungkan. Daftar berdasarkan peringkat menyatukan semua lane dan semua peran.",
       "seeRole": "Semua {plural} dan lanenya",
-      "openTier": "Tampilkan {n} hero tier {p}"
+      "openTier": "Tampilkan {n} hero tier {p}",
+      "poster": {
+        "kicker": "No 1 di peringkat ini",
+        "label": "{name}, n°1 dalam peringkat ini: level {tier}, {win} kemenangan, {ban} ban"
+      }
     },
     "patchNotes": {
       "title": "Patch notes",
       "lead": "Konten pembaruan terkini disertakan di sini, bagian demi bagian. Patch lama tetap terdaftar, dengan tautan ke halaman aslinya.",
-      "metaDescription": "Mobile Legends: Bang Bang {n} patch. Detail update terkini dapat dilihat langsung di sini, tanpa meninggalkan situs.",
+      "metaDescription": "Patch {n} Mobile Legends: Bang Bang, dengan detail pembaruan terkini, dapat dilihat di situs.",
       "ogDescription": "{n} patch permainan, dengan detail yang terbaru.",
       "listed": "{n} patch teridentifikasi · {m} tersedia di situs · disinkronkan pada",
       "recent": "Pembaruan terkini",
       "analyses": "Analisis",
       "analysesIntro": "Apa yang tidak disebutkan dalam catatan resmi: sebagian dampak nyata dari perubahan tersebut.",
-      "older": "Patch lama tidak disertakan secara penuh – kontennya akan mewakili beberapa megabyte untuk versi yang tidak lagi dimainkan oleh siapa pun.",
+      "older": "Patch lama tidak disertakan secara penuh: kontennya akan mewakili beberapa megabyte untuk versi yang tidak lagi dimainkan oleh siapa pun.",
       "officialDescription": "Pembaruan Mobile Legends: Bang Bang {version} catatan resmi: hero baru, penyesuaian, dan perubahan item.",
       "officialShare": "Patch notes {version}.",
       "official": "Catatan resmi",
@@ -626,7 +630,7 @@
       "creditShortLiquipedia": "Patch notes {versions} diambil dari {source}, dirilis di bawah lisensi {license}.",
       "publishedOn": "Dirilis pada {date}",
       "changes": {
-        "title": "Semua perubahan hero di patch {v}",
+        "title": "Perubahan hero di patch {v}",
         "summary": {
           "one": "Patch {v} memodifikasi {n} hero.",
           "other": "Patch {v} memodifikasi {n} hero."
@@ -644,11 +648,18 @@
       "intro": "Hubungkan akun game Anda dengan kode verifikasi resmi Moonton. Tidak diperlukan kata sandi.",
       "security": "Situs ini tidak pernah melihat kata sandi Anda. Itu hanya menerima token sementara, disimpan dalam cookie aman, yang Anda hapus saat Anda logout.",
       "metaTitle": "Masuk",
-      "metaDescription": "Hubungkan akun Mobile Legends Anda dengan kode verifikasi, tanpa kata sandi."
+      "metaDescription": "Hubungkan akun Mobile Legends Anda dengan kode verifikasi, tanpa kata sandi.",
+      "welcome": "Selamat datang di MLBBdex!",
+      "welcomeText": "Akun game Anda, tanpa kata sandi: nama pengguna Anda, lalu kode yang dikirimkan Moonton ke kotak masuk dalam game Anda.",
+      "perks": {
+        "profile": "Profil Anda, peringkat, dan hero yang paling sering dimainkan",
+        "community": "Forum dan pencarian rekan satu tim",
+        "collection": "Koleksi skin Anda di semua perangkat Anda"
+      }
     },
     "watch": {
       "title": "Rangkuman",
-      "lead": "Apa yang dipublikasikan web lainnya tentang game ini: komunitas esports dan pers, dikumpulkan secara otomatis. Setiap entri mengacu pada penerbitnya — tidak ada yang disalin di sini.",
+      "lead": "Apa yang dipublikasikan web lainnya tentang game, sisi komunitas, dan pers esports, dikumpulkan secara otomatis. Setiap entri mengacu pada editornya: tidak ada yang disalin di sini.",
       "metaTitle": "Rangkuman — berita MLBB dari seluruh web",
       "metaDescription": "Postingan terbaru dari komunitas dan pers esports tentang Mobile Legends: Bang Bang, dikumpulkan secara otomatis.",
       "ogDescription": "Berita Mobile Legends dari seluruh web dikumpulkan secara otomatis.",
@@ -659,7 +670,9 @@
     "about": {
       "title": "Tentang",
       "lead": "Sebuah proyek independen, terbuka, dan secara sukarela menyatakan batasannya secara eksplisit.",
-      "metaDescription": "Apa situs ini, apa isinya, apa yang tidak boleh dimuat, dan bagaimana berkontribusi."
+      "metaDescription": "Apa situs ini, apa isinya, apa yang tidak boleh dimuat, dan bagaimana berkontribusi.",
+      "dexLine": "Saya Dex! Saya memandu Anda melalui situs: hero, meta, alat, dan komunitas.",
+      "dexLink": "ceritaku"
     },
     "legal": {
       "title": "Pemberitahuan hukum",
@@ -687,14 +700,16 @@
       "levelX": "Level {n}",
       "levelCelestial": "Level Celestial {n}",
       "signedOut": "Keluar",
-      "detailUnavailable": "Statistik terperinci — win rate, riwayat, hero yang paling sering dimainkan — bergantung pada layanan Moonton yang sedang offline. Profil Anda di atas tetap dapat diakses; detailnya akan kembali segera setelah sumber merespons.",
+      "detailUnavailable": "Detail statistik (win rate, riwayat, hero yang paling banyak dimainkan) bergantung pada layanan Moonton yang sedang offline. Profil Anda di atas tetap dapat diakses; detailnya akan kembali segera setelah sumber merespons.",
       "noStat": "Tidak ada statistik untuk ditampilkan.",
       "profileLink": "Lihat profil pemain saya",
-      "profileLinkText": "Tinjauan musim, hero dibandingkan dengan rata-rata peringkat Anda, permainan terakhir, dan saran."
+      "profileLinkText": "Tinjauan musim, hero dibandingkan dengan rata-rata peringkat Anda, permainan terakhir, dan saran.",
+      "topHeroes": "Pahlawanmu",
+      "topHeroesLead": "Yang paling sering Anda mainkan, berdasarkan game yang disimpan oleh layanan."
     },
     "apiDoc": {
       "title": "API Publik",
-      "lead": "Data situs dapat diakses di JSON, tanpa kunci atau registrasi. Bantulah diri Anda sendiri - satu-satunya kendala adalah mengutip sumbernya, yang menyertai setiap jawaban.",
+      "lead": "Data situs dapat diakses di JSON, tanpa kunci atau registrasi. Bantulah diri Anda sendiri: satu-satunya kendala adalah mengutip sumbernya, yang menyertai setiap jawaban.",
       "metaDescription": "API JSON terbuka pada data situs Mobile Legends: Bang Bang: hero, skill, skin, item, patch, dan peringkat. Tanpa kunci, tanpa registrasi.",
       "ogDescription": "Hero, item, patch, dan peringkat di JSON, tanpa kunci.",
       "statHeroes": "Hero",
@@ -707,7 +722,7 @@
       "c1label": "Tanpa kunci, tanpa kuota.",
       "c1text": "Respons bersifat statis dan disimpan dalam cache: tidak ada biaya untuk melayaninya. Tetaplah masuk akal dan semuanya akan baik-baik saja.",
       "c2label": "Kutip sumbernya.",
-      "c2text": "Data berasal dari wiki komunitas, di bawah lisensi CC BY-SA: penggunaannya kembali memerlukan kredit. Informasi menyebar dengan setiap respons.",
+      "c2text": "Data berasal dari wiki komunitas, di bawah lisensi CC BY-SA: untuk menggunakannya kembali, Anda harus memberi kredit pada wiki. Kredit muncul di setiap jawaban.",
       "c3label": "Analisis ditulis",
       "c3text": "— komentar, build, counter — diproduksi untuk situs ini dan dilindungi oleh lisensi MIT.",
       "c4label": "Tidak ada data pemain.",
@@ -765,7 +780,8 @@
     "offline": {
       "title": "Anda sedang luring",
       "text": "Halaman ini belum dilihat pada perangkat ini, sehingga tidak tersedia secara offline. Halaman yang sudah dikunjungi, dan bagian utama situs, tetap dapat diakses.",
-      "home": "Kembali ke beranda"
+      "home": "Kembali ke beranda",
+      "dexLine": "Tidak ada jaringan saat ini. Halaman yang sudah dibuka tetap dapat dibaca."
     },
     "notFound": {
       "title": "Halaman tidak ditemukan",
@@ -773,7 +789,12 @@
       "home": "Kembali ke beranda",
       "heroes": "Lihat para hero",
       "tierList": "Tier list saat ini",
-      "search": "Cari hero, item, atau halaman"
+      "search": "Cari hero, item, atau halaman",
+      "dexLine": "Hei, halaman ini hilang di hutan... Bagaimana kalau kita pergi dari sini lagi?",
+      "lost": "Hilang",
+      "heroesText": "Lembar hero, build, dan counter.",
+      "tierListText": "Siapa yang mendominasi meta saat ini.",
+      "homeText": "Patch, meta, dan alat hari ini."
     },
     "winRate": {
       "title": "Kalkulator Win Rate",
@@ -806,10 +827,10 @@
       "swap": "Ganti sisi",
       "copy": "Salin tautan",
       "linkCopied": "Tautan disalin.",
-      "copyFailed": "Tidak dapat menyalin: salin alamat halaman.",
+      "copyFailed": "Saya tidak dapat menyalin: salin alamat halamannya.",
       "intro": "Tambahkan setidaknya satu hero ke setiap sisi untuk menampilkan matriks. Alamat halaman menyimpan pilihan dan peringkat Anda: bagikan saja.",
       "loading": "Memuat duel peringkat...",
-      "error": "Duel dengan peringkat ini tidak dapat dimuat. Coba lagi dengan mengubah peringkat.",
+      "error": "Saya tidak dapat memuat duel dengan peringkat ini. Coba lagi, atau ubah peringkat.",
       "matrixTitle": "Duel · {rank}",
       "measured": "Duel diukur: {n} dari {total}.",
       "caption": "Perbedaan win rate hero Anda (baris) melawan lawan (kolom), {rank}",
@@ -884,11 +905,12 @@
         "add": "Tambahkan entri ke file peran: `tanks.ts`, `fighters.ts`, `assassins.ts`, `mages.ts`, `marksmen.ts` atau `supports.ts`.",
         "check": "Gulung `npm run lint`, `npm run typecheck` dan `npm test`. Pemeriksaan otomatis akan tetap menjalankannya lagi.",
         "open": "Buka permintaan tarik dengan judul eksplisit, dalam perintah: \"tambahkan analisis Ling\".",
-        "reread": "Pengelola mengoreksi konten dan bentuk — kebenaran patch saat ini, gaya, orisinalitas — dan mengomentari permintaan penarikan jika ada yang perlu diubah.",
+        "reread": "Pengelola membaca ulang konten dan bentuk (akurasi patch saat ini, gaya, orisinalitas) dan mengomentari permintaan penarikan jika ada yang perlu diubah.",
         "merge": "Setelah digabungkan, pemindaian akan ditayangkan pada penerapan berikutnya, dan nama Anda tetap ada dalam riwayat repositori."
       },
       "prLink": "Buka permintaan tarik",
-      "guideLink": "Panduan lengkap untuk GitHub (CONTRIBUTING.md)"
+      "guideLink": "Panduan lengkap untuk GitHub (CONTRIBUTING.md)",
+      "dexLine": "Kesalahan pada file, ide, terjemahan? Bantuan apa pun berarti, bahkan bantuan terkecil sekalipun."
     },
     "accountProfile": {
       "metaTitle": "Profil pemain",
@@ -900,7 +922,7 @@
       "summaryTitle": "Ringkasan season {n}",
       "games": "Pertandingan",
       "heroesPlayed": "Hero dimainkan",
-      "partialSummary": "Minimum: layanan belum mengembalikan semua hero yang dimainkan, total sebenarnya mungkin lebih tinggi.",
+      "partialSummary": "Nilai minimum: Layanan tidak mengembalikan semua hero yang dimainkan, total sebenarnya mungkin lebih tinggi.",
       "overSeasons": "Pada musim {list}",
       "overAllSeasons": "Sepanjang semua musim diikuti",
       "mvp": "MVP",
@@ -928,7 +950,7 @@
       "bestEmpty": "Belum cukup permainan dengan hero yang sama untuk mengidentifikasi kelebihannya.",
       "bestDetail": "{rate} menang dalam {n} permainan",
       "belowAverageTitle": "Di bawah rata-rata untuk peringkat Anda",
-      "belowAverageText": "Jauh di bawah rata-rata ({rank}): tinjau build dan counternya, atau sisihkan untuk sementara waktu.",
+      "belowAverageText": "Hero-hero ini jelas berada di bawah rata-rata ({rank}): tinjau build dan counternya, atau kesampingkan untuk sementara waktu.",
       "belowAverageEmpty": "Tidak ada hero yang jauh di bawah rata-rata untuk peringkat Anda. Bagus sekali.",
       "belowAverageDetail": "Rata-rata {rate} versus {average}",
       "nemesesTitle": "Hero yang paling banyak mengalahkanmu",
@@ -958,7 +980,7 @@
       "seeMore": "Pertandingan sebelumnya",
       "loading": "Memuat…",
       "allShown": "Semua pertandingan musim ini ditampilkan.",
-      "loadError": "Layanan tidak merespons. Coba lagi sebentar lagi.",
+      "loadError": "Layanan game tidak merespons. Coba lagi sebentar lagi.",
       "expiredTitle": "Sesi berakhir",
       "expiredText": "Sesi permainan Anda telah berakhir. Masuk lagi dengan kode baru untuk menemukan profil Anda.",
       "signInAgain": "Masuk lagi",
@@ -995,7 +1017,7 @@
         "other": "Dihitung berdasarkan {n} pertandingan musim ini ({rate} kemenangan)."
       },
       "rolesTitle": "Role dan lane",
-      "rolesIntro": "Hasil kalian tergantung role hero yang dimainkan dan posisi yang ditempati. Anda memerlukan setidaknya {n} bagian untuk ditetapkan sebagai titik atau titik kuat untuk dikerjakan.",
+      "rolesIntro": "Hasil kalian sesuai dengan peran hero yang dimainkan dan posisi yang ditempati. Suatu peran atau posisi harus memiliki setidaknya {n} bagian untuk ditetapkan sebagai poin atau poin kuat untuk dikerjakan.",
       "byRoleTitle": "Berdasarkan peran",
       "byRoleSource": "Sepanjang musim. Hero dengan dua peran masing-masing dihitung: pembagian dapat melebihi 100%.",
       "byPositionTitle": "Per lane",
@@ -1030,7 +1052,7 @@
     },
     "team": {
       "title": "Analisis Tim",
-      "lead": "Pilih hingga lima hero: alat ini memeriksa apakah setiap lane dipertahankan, menimbang keseimbangan damage, kontrol, dan ketahanan, menentukan kapan tim menjadi yang terkuat, dan mencatat sinerginya diukur sebagai hero lawan yang harus ditakuti.",
+      "lead": "Pilih hingga lima hero: alat ini memeriksa apakah setiap lane dipertahankan, menimbang keseimbangan damage, kontrol, dan perlawanan, menunjukkan pada titik mana dalam permainan tim paling kuat, dan mencatat sinergi terukur serta hero lawan yang perlu ditakuti.",
       "metaTitle": "Analisis komposisi tim MLBB",
       "metaDescription": "Analisis komposisi tim Mobile Legends: Bang Bang: lane yang dimiliki, damage fisik dan magis, kekuatan tergantung durasi permainan, sinergi, ancaman dan pilihan untuk diselesaikan, peringkat demi peringkat.",
       "ogDescription": "Kekuatan dan kelemahan komposisi Anda, diukur pada permainan peringkat.",
@@ -1055,11 +1077,11 @@
       },
       "heroes": {
         "title": "Semua {n} Hero MLBB: Role, Lane & Tier (Patch {v})",
-        "description": "{n} Hero Mobile Legends: Bang Bang dengan peran, lane, tingkatan, dan win rate (patch {v}, data dari {date}). Yang terkuat saat ini: {top}. Dan {skins} skin, {analyses} analisis tertulis."
+        "description": "{n} Hero Mobile Legends: Bang Bang dengan peran, lane, tingkatan, dan win rate (patch {v}, data dari {date}). Yang terkuat saat ini: {top}. Ditambah lagi {skins} skin dan {analyses} analisis tertulis."
       },
       "items": {
         "title": "Semua {n} Item MLBB: Statistik, Resep & Harga (Patch {v})",
-        "description": "{n} item Mobile Legends: Bang Bang: statistik, pasif, resep, dan harga. Yang paling banyak hadir dalam build yang paling banyak dimainkan saat ini: {top} (patch {v}). Dan para hero yang membangun setiap item."
+        "description": "{n} item Mobile Legends: Bang Bang: statistik, pasif, resep, dan harga. Yang paling banyak hadir dalam build yang paling banyak dimainkan saat ini: {top} (patch {v}). Dan, untuk setiap item, hero yang membelinya."
       },
       "emblems": {
         "title": "Emblem, Talent & Battle Spell MLBB per Role (Patch {v})",
@@ -1090,7 +1112,7 @@
       },
       "winRate": {
         "title": "Kalkulator Win Rate MLBB: Berapa Kemenangan untuk Target Anda",
-        "description": "Tunjukkan permainan yang Anda mainkan dan win rate Anda: lihat berapa banyak kemenangan berturut-turut yang diperlukan untuk mencapai tujuan Anda di Mobile Legends: Bang Bang, atau berapa banyak permainan dengan kecepatan tertentu. Gratis, instan, tanpa registrasi."
+        "description": "Tunjukkan permainan yang Anda mainkan dan win rate Anda: kalkulator memberikan jumlah kemenangan berturut-turut yang diperlukan untuk mencapai tujuan Anda di Mobile Legends: Bang Bang, atau jumlah permainan pada tingkat tertentu. Gratis, tanpa registrasi."
       },
       "matchups": {
         "title": "Matriks pertarungan MLBB: perbedaan kemenangan diukur berdasarkan peringkat",
@@ -1114,7 +1136,7 @@
       },
       "serverTime": {
         "title": "Waktu Server MLBB & Hitung Mundur Reset Harian",
-        "description": "Waktu server Mobile Legends (UTC−8) aktif, termasuk hitung mundur hingga rilis harian ({utc} UTC), rilis mingguan Senin, Starlight mendatang dan akhir musim, serta waktu rilis lokal di negara Anda."
+        "description": "Waktu server Mobile Legends (UTC−8) aktif, termasuk hitung mundur hingga rilis harian ({utc} UTC), rilis mingguan Senin, StarLight mendatang dan akhir musim, serta waktu rilis lokal di negara Anda."
       },
       "ranks": {
         "title": "Sistem Rank MLBB: Semua Rank, Bintang & Hadiah",
@@ -1123,7 +1145,7 @@
       },
       "retribution": {
         "title": "Tes Retribution MLBB: Latih Timing Anda",
-        "description": "Smite Trainer Gratis Mobile Legends: Amankan Turtle, Lord, dan buff di hadapan Jungler lawan. Damage Smite nyata per level, 4 kesulitan, catatan pada perangkat dan kartu hasil untuk dibagikan. Bekerja offline."
+        "description": "Trainer Retribution Gratis Mobile Legends: Amankan Turtle, Lord, dan buff di hadapan Jungler lawan. Damage Retribusi aktual per level, 4 kesulitan, catatan disimpan di perangkat dan kartu hasil untuk dibagikan. Bekerja offline."
       },
       "quiz": {
         "title": "Kuis MLBB: Tebak Hero Setiap Hari",
@@ -1143,7 +1165,7 @@
       },
       "skinsCalendar": {
         "title": "Kalender Skin MLBB: Semua Skin per Tanggal Rilis",
-        "description": "{n} Mobile Legends: Skin Bang Bang dirilis dari {start} hingga {end}, bulan demi bulan, dengan hero, kelangkaan, seri (Kolektor, StarLight, Epic, Legend…) dan harga. Terakhir dalam data kami: {latest} ({date})."
+        "description": "{n} Mobile Legends: Skin Bang Bang dirilis dari {start} hingga {end}, bulan demi bulan, dengan hero, kelangkaan, seri (Kolektor, StarLight, Epic, Legend…) dan harga. Data terbaru kami: {latest} ({date})."
       },
       "calendarYear": {
         "title": "Skin MLBB Rilis {year}: Daftar Lengkap per Bulan",
@@ -1158,7 +1180,7 @@
         "description": "Kalender acara Mobile Legends: Bang Bang, dari {start} hingga {end} ({n} bulan): Skin StarLight, skin Kolektor, undian, dan simpan. StarLight yang terakhir diketahui: {latest}."
       },
       "eventsMonth": {
-        "metaDescription": "Legenda Seluler: Bang Bang di {month}: {summary}"
+        "metaDescription": "Mobile Legends: Bang Bang di {month}: {summary}"
       },
       "nickname": {
         "title": "Generator Nickname Keren MLBB: Nama Unicode",
@@ -1166,7 +1188,7 @@
       },
       "drawCalculator": {
         "title": "Kalkulator Draw MLBB: Diamond dan Peluang",
-        "description": "Berapa Diamond untuk Skin Event MLBB? Peluang sesuai anggaran Anda, jumlah rata-rata undian dengan jaminan, level 50, 90 dan 99% dan kurva. Preset bersumber gratis, dalam browser."
+        "description": "Berapa Diamond untuk Skin Event MLBB? Peluang sesuai anggaran Anda, jumlah rata-rata undian dengan jaminan, ambang batas 50, 90 dan 99% dan kurva. Preset bersumber gratis, dalam browser."
       },
       "mlbbdle": {
         "title": "MLBBdle: game tebak hero Mobile Legends harian",
@@ -1317,19 +1339,19 @@
       "metaTitle": "Counter {name}: Pick Terbaik Melawan {name} (Patch {v})",
       "metaTitleNoPatch": "Counter {name}: Pick Terbaik Melawan {name}",
       "metaTitleShort": "Counter {name}: Pick Terbaik (Patch {v})",
-      "title": "Counter {name}",
+      "title": "Melawan {name}",
       "updatedOn": "Diperbarui pada {date}.",
       "allRanks": "Semua rank",
       "atRank": "Di {rank}",
-      "overview": "{context}, {name} paling menderita dibandingkan {weakAgainst}, dan mengambil keuntungan dari {strongAgainst}.",
+      "overview": "{context}, {name} paling menderita dibandingkan {weakAgainst} dan mengambil keuntungan dari {strongAgainst}.",
       "overviewNoStrong": "{context}, {name} paling menderita dibandingkan {weakAgainst}.",
-      "noMeasure": "Belum ada counter yang diukur untuk {name}.",
+      "noMeasure": "Belum ada tindakan balasan untuk {name}.",
       "sheetLink": "Halaman hero {name}",
       "buildsLink": "Build {name}",
       "compareLink": "{name} vs {other}",
       "shortLink": "Counter",
       "bestCounters": "Counter terbaik {name}",
-      "bestCountersIntro": "Hero yang paling banyak menerima kekalahan {name}, diberi peringkat berdasarkan peringkat: counter yang dikutip di beberapa peringkat adalah counter biasa. Spreadnya rata-rata, dalam poin win rate {name}.",
+      "bestCountersIntro": "Hero yang paling banyak dikalahkan {name}, diberi peringkat berdasarkan peringkat: kota counter dengan beberapa peringkat adalah counter biasa. Spreadnya rata-rata, dalam poin win rate {name}.",
       "victims": "Hero yang di-counter {name}",
       "victimsIntro": "Hindari menghadapi {name}: win rate {name} meningkat paling besar melawan mereka.",
       "colHero": "Hero",
@@ -1391,7 +1413,7 @@
         "top": "{name} memimpin tier list (tingkat {tier}) dengan {winRate} kemenangan dan {ban} ban.",
         "rise": "Peningkatan terbesar minggu ini: {name}, dari {before} menjadi {current} dalam kemenangan dalam {days} hari.",
         "fall": "Penurunan terbesar: {name}, dari {before} ke {current} menang dalam {days} hari.",
-        "tiers": "Perubahan level dalam tujuh hari — pendakian: {risers}, penurunan: {fallers}.",
+        "tiers": "Perubahan level dalam tujuh hari: pendakian, {risers}; keturunan, {fallers}.",
         "banned": "Hero yang paling banyak di-ban: {name}, dengan {ban} di-ban."
       },
       "tiers": {
@@ -1430,6 +1452,10 @@
           "banRate": "% ban",
           "pickRate": "% pick"
         }
+      },
+      "poster": {
+        "kicker": "Peningkatan terkuat minggu ini",
+        "caption": "poin kemenangan dalam {days} hari"
       }
     },
     "statistics": {
@@ -1465,7 +1491,7 @@
       "fromTierListLink": "Tabel statistik lengkap"
     },
     "statisticsTable": {
-      "legend": "Hero menang, melarang, dan memilih tingkat — {rank}",
+      "legend": "Hero menang, melarang, dan memilih tingkat ({rank})",
       "heroes": "Hero",
       "tier": "Tier",
       "win": "Win rate",
@@ -1496,7 +1522,7 @@
       },
       "seeAll": "Semua skin",
       "seeMore": "Tampilkan lebih banyak hero ({n} tersisa)",
-      "alt": "{hero} — skin {skin}"
+      "alt": "{hero}, skin {skin}"
     },
     "heroSkins": {
       "title": "Skin {name}",
@@ -1505,10 +1531,10 @@
       "metaTitleElision": "Skin {name}: Semua {n} Skin & Artwork",
       "metaDescription": "{name}: {n} skin Mobile Legends: Bang Bang, dengan ilustrasi, kelangkaan, tanggal rilis, ketersediaan dan harga.",
       "lead": "{name} akun {n} skin. Setiap kartu menunjukkan karya seni, kelangkaan, tanggal rilis, ketersediaan, dan harga jika diketahui.",
-      "latest": "Skin bertanggal terbaru: {skin} ({date}).",
+      "latest": "Skin terbaru bertanggal: {skin} ({date}).",
       "price": "Harga",
       "illustrationOnly": "Ilustrasi saja: kelangkaan, tanggal dan harga belum ada di database.",
-      "altIllustration": "Ilustrasi skin {skin} — {name}",
+      "altIllustration": "{name}: ilustrasi skin {skin}",
       "altPortrait": "{name} dengan skin {skin}, potret dalam game",
       "others": "Skin hero lainnya",
       "sheetLink": "Lihat {n} skin dan ilustrasi",
@@ -1521,8 +1547,8 @@
       "updatedOn": "Diperbarui pada {date}.",
       "allRanks": "Semua rank",
       "atRank": "Di {rank}",
-      "overview": "{context}, {name} menang paling banyak bersama {best}, dan kalah paling banyak dengan {worst}.",
-      "overviewNoWorst": "{context}, {name} menang paling banyak bersama {best}.",
+      "overview": "{context}, {name} menang paling banyak dengan {best} dan kalah paling banyak dengan {worst}.",
+      "overviewNoWorst": "{context}, {name} menang terbanyak dengan {best}.",
       "noMeasure": "Belum ada duo yang diukur untuk {name}.",
       "sheetLink": "Halaman hero {name}",
       "countersLink": "Counter {name}",
@@ -1534,7 +1560,7 @@
       "best": "Mitra terbaik untuk {name}",
       "bestIntro": "Sekutu yang mendapat keuntungan terbesar {name}, diberi peringkat berdasarkan peringkat: partner yang disebutkan dalam beberapa peringkat adalah duo yang aman. Keuntungannya rata-rata, dalam poin win rate.",
       "worst": "Duet yang harus dihindari dengan {name}",
-      "worstIntro": "Sekutu yang paling banyak mengalami kekalahan {name}: Win rate turun paling besar saat mereka bermain bersama.",
+      "worstIntro": "Sekutu yang win ratenya {name} turun paling banyak.",
       "phases": {
         "title": "Duo dengan {name} bergantung pada durasi permainan",
         "intro": "Mitra yang berkontribusi paling banyak pada {name} di setiap fase permainan ({rank}): win rate duo, dan perolehan dibandingkan dengan {name} tanpa mitra ini, untuk durasi permainan yang sama.",
@@ -1578,9 +1604,9 @@
       "title": "{a} vs {b}",
       "metaTitle": "{a} vs {b}: Siapa yang Menang? (Patch {v})",
       "metaTitleNoPatch": "{a} vs {b}: Siapa yang Menang Duel?",
-      "lead": "{a} versus {b}, diukur berdasarkan permainan peringkat demi peringkat: siapa yang menang dalam win rate dalam duel, siapa yang lebih berbobot di awal atau akhir permainan, build mereka yang paling sering dimainkan, dan berapa nilainya di tim yang sama.",
+      "lead": "{a} melawan {b}, peringkat berdasarkan peringkat berdasarkan ukuran permainan: siapa yang memenangkan duel, siapa yang memiliki bobot paling banyak di awal atau akhir permainan, build mereka yang paling sering dimainkan, dan berapa nilainya di tim yang sama.",
       "noMeasure": "Belum ada duel antara {a} dan {b}.",
-      "balanced": "{context}, {a} dan {b} sama: tidak ada yang menang lebih dari sepersepuluh poin.",
+      "balanced": "{context}, {a} dan {b} adalah sama: perbedaannya tidak melebihi sepersepuluh poin.",
       "verdict": "{context}, {winner} mengambil alih {loser}: {gap} win rate dalam duel ini.",
       "ranks": "Pada {total} irisan peringkat yang diukur, {a} memimpin di {na} dan {b} di {nb}.",
       "question": "Siapa yang menang, {a} atau {b}?",
@@ -1591,7 +1617,7 @@
         "sentence": "{a} tarif lebih baik {phaseA}, {b} {phaseB}.",
         "equal": "{a} dan {b} menang sama, berapa pun lamanya permainan.",
         "colPhase": "Fase",
-        "rating": "Win rate setiap hero berdasarkan durasi permainan ({rank}), di semua permainan mereka dan bukan hanya duel ini."
+        "rating": "Win rate tiap hero berdasarkan durasi permainan ({rank}), di semua permainannya dan tidak hanya di duel ini."
       },
       "phaseIn": {
         "early": "di awal permainan",
@@ -1629,11 +1655,11 @@
       "dailyTitle": "Reset harian",
       "dailyText": "Setiap hari pukul 00:00 waktu server, yaitu {utc} UTC: tugas harian, penawaran baru, dan acara baru.",
       "weeklyTitle": "Reset mingguan",
-      "weeklyText": "Setiap hari Senin pukul 00:00 waktu server, yaitu {utc} UTC pada hari Senin: tugas mingguan dimulai lagi.",
+      "weeklyText": "Setiap hari Senin pukul 00:00 waktu server, yaitu {utc} UTC: tugas mingguan dimulai lagi.",
       "starlightTitle": "Starlight",
       "starlightText": "Pada tanggal 1 setiap bulan pukul 00:00 waktu server ({utc} UTC): Cahaya Bintang baru dimulai, dengan hadiah, tugas, dan pengaturan ulang toko.",
       "seasonTitle": "Akhir season",
-      "seasonText": "Game ini memberi tanggal pada patch notesnya, dalam waktu server (\"Musim 31 berakhir 15/3 pukul 23:59:59\"). Hitung mundur dimulai lagi segera setelah muncul.",
+      "seasonText": "Patch notes mencantumkan tanggal, dalam waktu server (\"Musim 31 berakhir 15/3 pukul 23:59:59\"). Hitung mundur menampilkannya segera setelah muncul.",
       "updateTitle": "Pembaruan",
       "updateText": "Mereka paling sering dilepaskan antara pukul 18:00. dan 10:00 malam. waktu server, yaitu antara {start} dan {end} UTC pada hari berikutnya.",
       "faqTitle": "Pertanyaan yang sering diajukan",
@@ -1664,10 +1690,10 @@
     },
     "retribution": {
       "title": "Tes Retribution",
-      "lead": "Latih refleks Jungler: Life Bar Turtle, Lord, atau Buff meleleh karena pukulan, dan Anda menyerang segera setelah melewati damage Punishment Anda, di depan Jungler lawan.",
+      "lead": "Latih refleks Jungler: Life Bar Turtle, Lord, atau Buff meleleh karena pukulan, dan Anda menyerang segera setelah melewati damage Retribution Anda, di depan Jungler lawan.",
       "rulesTitle": "Bagaimana cara kerjanya",
       "rule1": "Pilih tujuan, tingkat kesulitan, dan level hero Anda. Bilah kehidupan meleleh karena pukulan tim Anda; tekan (tombol besar, Spasi atau Enter) segera setelah HP terkena damage Retribution Anda.",
-      "rule2": "Terlalu dini, Retribution tidak membunuh dan mengisi ulang dalam {recharge} s: tujuannya hilang. Terlalu lambat, Jungler lawan akan menyerang di tempatmu, atau monster itu akan terjatuh tanpamu.",
+      "rule2": "Terlalu dini, Retribusi tidak membunuh dan mengisi ulang selama {recharge} s: tujuannya hilang. Terlambat, Jungler lawan akan menyerangmu, atau monster itu akan terjatuh tanpamu.",
       "rule3": "Serangan yang berhasil bernilai hingga 1.000 poin: {precision} untuk akurasi (bagian HP di bawah ambang batas masih ada saat Anda menyerang) dan {speed} untuk kecepatan, penuh di bawah {full} ms dan nol di atas {zero} ms.",
       "rule4": "Sebuah permainan memiliki {n} putaran. Total terbaik Anda per tujuan dan kesulitan, serta pencapaian terpanjang Anda, tetap ada di browser Anda. Setelah halaman dibuka, pelatihan juga dilakukan secara offline.",
       "valuesTitle": "Nilai-nilai yang digunakan",
@@ -1684,7 +1710,7 @@
       "colHpNumbers": "HP ditampilkan",
       "yes": "Ya",
       "no": "Tidak",
-      "trainingValues": "Tingkat serangan, damage tim, ledakan, dan reaksi dari Jungler lawan adalah nilai-nilai pelatihan, yang disetel agar menyerupai pertarungan sesungguhnya: permainan tidak mempublikasikan angka-angka ini. Damage parah dan HP monster berasal dari wiki.",
+      "trainingValues": "Tingkat serangan, damage tim, ledakan, dan reaksi dari Jungler lawan adalah nilai-nilai pelatihan, yang disetel agar menyerupai pertarungan sesungguhnya: permainan tidak mempublikasikan angka-angka ini. Retribusi damage dan HP monster berasal dari wiki.",
       "sourcesTitle": "Sumber",
       "sourceRetribution": "Wiki Fandom, spell “Retribusi”: damage per level dan cooldown",
       "sourceMonsters": "Wiki Fandom, file “Turtle”, “Lord”, “Thunder Fenrir” dan “Molten Fiend”: HP awal dan setelah 12 menit, segmen bilah kehidupan"
@@ -1694,7 +1720,7 @@
       "lead": "Seluruh rank rank Mobile Legends, mulai dari Warrior hingga Mythic Immortal: divisi, bintang, poin mitis, draft, dan hadiah akhir musim, lalu hero yang memperoleh penghasilan terbanyak di setiap rank menurut ukuran kami.",
       "contents": "Di halaman ini",
       "scaleTitle": "Skala peringkat",
-      "scaleIntro": "{n} level, dari terendah hingga tertinggi. Kemenangan peringkat menghasilkan bintang, kekalahan menghilangkan satu bintang; melebihi jumlah maksimum bintang, Anda melanjutkan ke divisi berikutnya, dan di bawah nol, Anda kembali ke bawah.",
+      "scaleIntro": "{n} peringkat, dari terendah hingga tertinggi. Kemenangan peringkat menghasilkan bintang, kekalahan menghilangkan satu bintang; melebihi jumlah maksimum bintang, Anda melanjutkan ke divisi berikutnya, dan di bawah nol, Anda kembali ke bawah.",
       "position": "Tier {n} dari {total}",
       "divisions": "{n} divisi: {list}",
       "pointsPlus": "{min} poin ke atas",
@@ -1718,7 +1744,7 @@
       "bans": "{n} ban per tim",
       "tableNote": "Poin leveling terakumulasi selama permainan: pada 100%, kemenangan berikutnya menghasilkan satu bintang lagi. Poin perlindungan mencegah Anda kehilangan bintang karena kekalahan. Keluarga Mythical hanya memiliki poin perlindungan.",
       "mythicTitle": "Mitos: poin, bukan bintang",
-      "mythicIntro": "Setelah Legenda, tidak ada lagi pembagian: bintang menjadi poin, dan akumulasinya menentukan level. {honor} poin mengarah ke Mythic Honor, {glory} ke Mythic Glory, {immortal} ke Mythic Immortal.",
+      "mythicIntro": "Setelah Legenda, tidak ada lagi pembagian: bintang menjadi poin, dan akumulasinya menentukan peringkat. {honor} poin mengarah ke Mythic Honor, {glory} ke Mythic Glory, {immortal} ke Mythic Immortal.",
       "mythicCoins": "Mencapai 15 poin di Mythic menghasilkan koin Mythic setiap musim, mata uang skin Mythic.",
       "heroesTitle": "Hero yang memperoleh penghasilan terbanyak, diberi peringkat berdasarkan peringkat",
       "heroesIntro": "{n} Win rate terbaik untuk setiap braket peringkat yang diukur dalam game, tidak termasuk hero yang jarang dimainkan sehingga win ratenya tidak dapat diandalkan.",
@@ -1790,7 +1816,7 @@
       "dailyMode": "Tantangan hari ini",
       "practiceMode": "Pelatihan",
       "loading": "Memuat…",
-      "loadError": "Gagal memuat kuis. Periksa koneksi Anda: setelah halaman dikunjungi, halaman tersebut juga diputar secara offline.",
+      "loadError": "Saya tidak dapat memuat kuis. Periksa koneksi Anda: setelah Anda mengunjungi halaman tersebut, halaman tersebut juga dapat diputar secara offline.",
       "retry": "Coba lagi",
       "puzzleNumber": "Tantangan No. {n} · {date}",
       "offline": "Tantangan disiapkan secara offline",
@@ -1805,7 +1831,7 @@
       "share": "Bagikan hasil saya",
       "copied": "Hasil yang disalin: tempel di mana pun Anda mau.",
       "shared": "Hasil bersama.",
-      "copyError": "Salinan tidak mungkin: pilih grid dengan tangan.",
+      "copyError": "Saya tidak dapat menyalin: pilih kisi dengan tangan.",
       "practise": "Lanjutkan pelatihan",
       "statsTitle": "Statistik Anda",
       "stats": {
@@ -1908,12 +1934,19 @@
       "win": "{rate} menang%",
       "duelRight": "jawaban yang bagus",
       "duelWrong": "jawaban yang salah",
-      "duelSource": "Win rate untuk semua peringkat, tercatat di {date}."
+      "duelSource": "Win rate untuk semua peringkat, tercatat di {date}.",
+      "dex": {
+        "start": "Milikmu! Setiap kesalahan membuka sebuah petunjuk.",
+        "miss": "Ups! Petunjuk baru menanti Anda.",
+        "good": "Terlihat jelas! Berikutnya.",
+        "won": "Bagus sekali, jawaban bagus!",
+        "over": "Gagal kali ini. Yang berikutnya akan menjadi yang bagus!"
+      }
     },
     "tierMaker": {
       "title": "Pembuat tier list MLBB",
       "crumb": "Maker",
-      "lead": "Atur hero sesuai keinginan Anda: seret atau sentuh untuk menempatkannya, ganti nama dan warnai ulang tingkatannya, mulai dari peringkat kami jika Anda mau. Daftar Anda disimpan di browser, dibagikan melalui tautan dan diekspor sebagai gambar.",
+      "lead": "Atur hero sesuai keinginan Anda: seret atau sentuh untuk menempatkannya, ganti nama dan warnai ulang tingkatannya, mulai dari peringkat kami jika Anda mau. Daftar Anda tetap disimpan di browser, dibagikan melalui tautan dan diekspor sebagai gambar.",
       "howToTitle": "Petunjuk Penggunaan",
       "step1": "Menempatkan hero: seret dia ke baris dengan mouse, atau sentuh dia lalu sentuh level pada bilah yang muncul di bagian bawah layar.",
       "step2": "Pada keyboard, Enter memilih hero, angka 1 hingga 9 menempatkannya di baris yang sesuai, 0 mengembalikannya ke cadangan dan panah berpindah dari satu hero ke hero lainnya.",
@@ -1933,11 +1966,11 @@
       "exporting": "Membuat gambar…",
       "exportDone": "Gambar diunduh.",
       "exportShare": "Gambar dibagikan.",
-      "exportError": "Gambar tidak dapat dibuat.",
+      "exportError": "Saya tidak dapat membuat gambar. Coba lagi.",
       "shareLink": "Bagikan tautan",
       "linkCopied": "Tautan disalin: berisi seluruh daftar Anda.",
       "linkShared": "Tautan dibagikan.",
-      "linkError": "Tidak dapat menyalin dari browser ini.",
+      "linkError": "Saya tidak dapat menyalin tautan dari browser ini.",
       "empty": "Kosongkan semua tier",
       "reset": "Mulai lagi",
       "confirmEmpty": "Kembalikan semua hero ke cadangan?",
@@ -1971,7 +2004,7 @@
       "toBench": "Ke pool",
       "deselect": "Batalkan pilihan",
       "sharedLoaded": "Daftar bersama dimuat.",
-      "sharedBanner": "Anda sedang melihat daftar bersama. Ini menggantikan daftar Anda, dikesampingkan.",
+      "sharedBanner": "Anda sedang melihat daftar bersama. Itu ditampilkan di tempat Anda, yang tetap dikesampingkan.",
       "backToMyList": "Kembali ke daftar saya",
       "announceSelect": "{name} dipilih: pilih satu baris.",
       "announceDeselect": "Seleksi dibatalkan.",
@@ -1993,9 +2026,9 @@
       "nHeroes": "{n} hero",
       "nHeroes1": "1 hero",
       "regionsTitle": "Daerah",
-      "regionsLead": "Dari mana masing-masing hero berasal, menurut wiki. Buka wilayah untuk para heronya, ringkasan yang diambil dari file mereka dan tautan yang menyatukan mereka.",
+      "regionsLead": "Dari mana masing-masing hero berasal, menurut wiki. Buka suatu wilayah untuk melihat heronya, ringkasan yang diambil dari file mereka dan tautan yang menyatukan mereka.",
       "linksTitle": "Tautan yang disorot",
-      "linksLead": "Sepasang hero dihubungkan dengan kartunya, dengan kata-kata dari kartu ini: keluarga, cinta, persaingan, dan pembelajaran terlebih dahulu. Setiap hero hanya muncul satu kali.",
+      "linksLead": "Pasangan hero yang kartunya terhubung, dikutip kata demi kata: keluarga, cinta, persaingan, dan pembelajaran terlebih dahulu. Setiap hero hanya muncul satu kali.",
       "factionsTitle": "Fraksi",
       "factionsLead": "Afiliasi yang dimiliki oleh setidaknya tiga hero (rumah, ordo, tim, sekolah), tidak termasuk afiliasi yang bermusuhan atau masa lalu. Yang terkecil muncul di halaman wilayah.",
       "storiesTitle": "Semua cerita, berdasarkan wilayah",
@@ -2053,14 +2086,14 @@
       "colYear": "Tahun",
       "colTotal": "Total",
       "unknownMonth": "Bulan tidak ditentukan",
-      "monthCell": "{month} — skin: {n}",
+      "monthCell": "{month}, skin: {n}",
       "nSkins": "{n} skin",
       "nSkins1": "1 skin",
       "seriesTitle": "Seri dan acara",
       "seriesLead": "Label yang diberikan wiki pada skin (Kolektor, StarLight, Epic, Legend, kolaborasi…), berdasarkan jumlah skin. Pilih salah satu untuk memfilter kalender.",
       "seriesDetail": "{n} · {period}",
       "datesTitle": "Tentang tanggal",
-      "datesPrecision": "Tanggalnya berasal dari wiki komunitas: {day} skin diberi tanggal hari ini, {month} bulannya, dan {year} tahunnya saja; yang terakhir menutup tahun mereka.",
+      "datesPrecision": "Tanggalnya berasal dari wiki komunitas: {day} skin diberi tanggal hari ini, {month} bulannya, dan {year} tahunnya saja; ini ditempatkan pada akhir tahun.",
       "datesSkipped": "Tidak ditampilkan: {upcoming} skin yang diumumkan wiki tanpa tanggal yang dikonfirmasi, dan {future} bertanggal setelah data kami, menunggu konfirmasi. Tidak ada rumor atau kebocoran di sini.",
       "datesOrigin": "Skin asli yang disertakan bersama heronya tidak dihitung: skin tersebut menandai perilisan suatu hero, bukan skin.",
       "collectionLink": "Berapa nilai koleksi berlian Anda?",
@@ -2096,11 +2129,11 @@
     },
     "collection": {
       "title": "Kalkulator Nilai Koleksi",
-      "lead": "Periksa hero dan skin yang Anda miliki: lihat apa yang mereka wakili dengan harga toko dalam game, dalam berlian, dengan koin terlangka dan kemajuan Anda di setiap seri.",
+      "lead": "Periksa hero dan skin yang Anda miliki untuk melihat nilai berliannya pada harga toko dalam game, koin terlangka Anda, dan kemajuan Anda di setiap seri.",
       "warning": "Nilai berlian dalam game saja: Berapa harga item-item ini di toko Mobile Legends, bukan berapa nilai akunnya. Membeli, menjual, atau memperdagangkan akun melanggar ketentuan layanan Moonton, dan alat ini tidak memberikan nilai jual atau jual kembali apa pun.",
       "methodTitle": "Bagaimana nilainya dihitung",
       "methodHeroes": "Harga seorang hero adalah harga skin aslinya yang menyertainya. Dari {heroes} hero dalam data kami, {diamonds} memiliki harga berlian; yang lainnya hanya dibeli dengan battle point atau diperoleh dengan cara lain, dan battle point dihitung secara terpisah.",
-      "methodSkins": "Dari {skins} skin yang dapat Anda periksa, {diamonds} memiliki harga dalam berlian, {others} harga dalam mata uang lain (inti ajaib, permata, dll.) dan {unpriced} tidak ada harga di toko: StarLight, acara, undian, dan tiket. Ini diperhitungkan dalam kemajuanmu, bukan total berlianmu, dan bukannya diperkirakan secara acak.",
+      "methodSkins": "Dari {skins} skin yang dapat Anda periksa, {diamonds} memiliki harga dalam berlian, {others} harga dalam mata uang lain (inti ajaib, permata, dll.) dan {unpriced} tidak ada harga di toko: StarLight, acara, undian, dan tiket. Ini diperhitungkan dalam kemajuan Anda tetapi tidak dalam total berlian: kami memilih untuk tidak menentukan harga untuk berlian tersebut.",
       "methodStorage": "Pilihan Anda tetap di browser ini (penyimpanan lokal), tanpa perlu akun. Saat masuk dengan akun game, pilihan juga disimpan di akun Anda agar bisa dibuka di perangkat lain; file cadangan bisa membawanya ke mana saja. Harga adalah harga toko dalam game yang dicatat wiki komunitas; diskon dan paket tidak dihitung.",
       "calendarLink": "Kalender Skin",
       "skinsLink": "Semua skin",
@@ -2108,7 +2141,7 @@
     },
     "collectionUI": {
       "loading": "Memuat hero dan skin…",
-      "error": "Gagal memuat daftar skin. Periksa koneksi Anda dan muat ulang halaman.",
+      "error": "Saya tidak dapat memuat daftar penampilan. Periksa koneksi Anda, lalu muat ulang halaman.",
       "valueTitle": "Nilai butik koleksi Anda",
       "heroes": "Hero",
       "skins": "skin",
@@ -2123,7 +2156,7 @@
       "share": "Bagikan ringkasan",
       "share_copied": "Ringkasan disalin ke papan klip.",
       "share_shared": "Ringkasan dibagikan.",
-      "share_failed": "Gagal berbagi: salin ringkasan di atas dengan tangan.",
+      "share_failed": "Pembagiannya tidak berhasil: salin ringkasan di atas dengan tangan.",
       "selectionTitle": "Hero dan skin Anda",
       "search": "Cari hero atau skin",
       "role": "Peran",
@@ -2146,13 +2179,13 @@
       "uncheckAllHeroes": "Hapus centang {name} dan semua skinnya",
       "seeSkins": "skin",
       "noPrice": "Tanpa harga toko",
-      "none": "Tidak ada hero atau skin yang cocok dengan filter ini.",
+      "none": "Tidak ada hero atau penampilan dengan filter ini. Hapus satu untuk memperbesar.",
       "rarityTitle": "Jarang terjadi",
       "colRarity": "Keanehan",
       "colOwned": "Kerasukan",
       "colDiamonds": "berlian",
       "raresTitle": "Kulitmu yang paling langka",
-      "raresHelp": "Secara langka, maka edisi terbatas dan seri yang lebih kecil terlebih dahulu.",
+      "raresHelp": "Diklasifikasikan berdasarkan kelangkaan, lalu edisi terbatas dan seri yang lebih kecil terlebih dahulu.",
       "seriesTitle": "Kemajuan demi seri",
       "seriesHelp": "Serinya dimulai dulu, paling lengkap di atas.",
       "showAllSeries": "Lihat semua seri ({n})",
@@ -2243,7 +2276,7 @@
         },
         "collector": {
           "title": "Skin Kolektor",
-          "desc": "Salah satu kelangkaan tertinggi dalam game: diperoleh dengan draw dari Koleksi Besar atau melalui kolaborasi."
+          "desc": "Salah satu kelangkaan tertinggi dalam game: skin ini diperoleh dengan draw di Grand Collection atau selama kolaborasi."
         },
         "event": {
           "title": "Acara dan undian",
@@ -2292,7 +2325,7 @@
     },
     "nickname": {
       "title": "Generator Nama Panggilan Bergaya MLBB",
-      "lead": "Ketik nama Anda dan salin dalam {n} Gaya unicode — tebal, gotik, dilingkari, huruf kecil — dengan dekorasi seperti ꧁ ꧂ atau 亗. Tidak ada yang perlu dipasang: semuanya terjadi di browser Anda.",
+      "lead": "Ketik nama panggilan Anda dan salin dalam gaya {n} Unicode (tebal, gotik, dilingkari, huruf kapital kecil…), dengan dekorasi seperti ꧁ ꧂ atau 亗. Tidak ada yang perlu dipasang: semuanya terjadi di browser Anda.",
       "howTitle": "Bagaimana cara kerjanya",
       "how1": "“Font” ini bukan: setiap gaya menggantikan huruf Latin dengan karakter Unicode lain yang serupa (simbol matematika, huruf yang dilingkari, karakter lebar penuh). Nama panggilan tetap berupa teks: disalin, ditempel, dan ditampilkan di mana pun font perangkat mengetahui karakter ini.",
       "how2": "Hanya huruf A sampai Z dan angkanya saja yang berubah. Aksen, spasi, dan simbol tetap apa adanya, dan karakter yang tidak terlihat (spasi tanpa spasi, tanda arah, spasi palsu) dihilangkan: nama panggilan yang disalin tidak berisi apa pun yang tidak dapat Anda lihat.",
@@ -2336,7 +2369,7 @@
         "chevrons": "Chevron",
         "rifle": "Pistol"
       },
-      "empty": "Ketikkan nama untuk melihat semua gaya.",
+      "empty": "Ketikkan nama: Saya akan menunjukkannya kepada Anda dalam semua gaya.",
       "selected": "Seleksi · {style}",
       "style": {
         "bold": "Gemuk",
@@ -2364,7 +2397,7 @@
       "copy": "Menyalin",
       "copyStyle": "Salin gaya {style}",
       "copied": "Disalin: {nickname}",
-      "copyFailed": "Tidak dapat menyalin: pilih nama panggilan dan salin dengan tangan.",
+      "copyFailed": "Saya tidak dapat menyalin: pilih nama panggilan dan salin dengan tangan.",
       "length": "Panjangnya: {n}",
       "units": "{u} dalam unit UTF-16",
       "overGuide": "Lebih panjang dari karakter {max} yang ditunjukkan dalam panduan: game dapat menolaknya.",
@@ -2374,7 +2407,7 @@
     },
     "drawCalculator": {
       "title": "Kalkulator Draw MLBB",
-      "lead": "Berapa banyak berlian untuk sebuah acara skin? Masukkan harga undian, peluang hadiah dan jaminan: peluang Anda sesuai anggaran, rata-rata, dan level 50, 90, dan 99%.",
+      "lead": "Berapa banyak berlian untuk sebuah acara skin? Masukkan harga undian, peluang hadiah dan jaminan: kalkulator memberikan peluang sesuai anggaran Anda, biaya rata-rata dan jumlah undian mencapai 50, 90 dan 99%.",
       "methodTitle": "Metode",
       "method1": "Setiap pengundian diasumsikan independen, dengan peluang p yang sama untuk memperoleh hadiah. Peluang untuk mendapatkannya dalam n kali seri bernilai 1 − (1 − p)ⁿ; dengan jaminan pada undian ke-N, mereka meningkat menjadi 100% pada undian ke-N.",
       "method2": "Rata-rata jumlah seri adalah (1 − (1 − p)ᴺ) / p dengan jaminan, 1 / p tanpa jaminan. Harga didasarkan pada kombinasi cetakan x10 dan cetakan tunggal termurah; Rata-rata berlian diberikan untuk kedua cara menembak.",
@@ -2468,7 +2501,7 @@
       "columnsDesc": {
         "gender": "Laki-laki, perempuan atau tanpa jenis kelamin, menurut lembar sejarah resmi sang hero.",
         "roles": "Tank, Fighter, Assassin, Mage, Shooter atau Support. Beberapa hero memiliki dua: satu peran yang sama memberikan kotak oranye.",
-        "lanes": "Posisi yang disukai: emas, pengalaman, tengah, hutan, atau jelajah. Logika yang sama dengan peran.",
+        "lanes": "Posisi pilihan: Gold Lane, EXP Lane, Mid Lane, Jungle atau Roam. Logika yang sama dengan peran.",
         "specialties": "Label permainannya (peledak, pengendalian massa, pengejaran, dll.). Oranye segera setelah labelnya umum.",
         "damage": "Fisik, magis atau campuran. Damage campuran terhadap fisik atau magis menghasilkan kotak oranye.",
         "range": "Jarak dekat, jarak jauh atau hibrida. Jangkauan hibrida melawan jarak dekat atau jarak jauh menghasilkan kotak oranye.",
@@ -2498,7 +2531,7 @@
       },
       "solved": "terselesaikan",
       "loading": "Memuat…",
-      "loadError": "Tidak dapat memuat tantangan hari ini. Periksa koneksi Anda, lalu coba lagi.",
+      "loadError": "Saya tidak dapat memuat tantangan hari ini. Periksa koneksi Anda, lalu coba lagi.",
       "retry": "Coba lagi",
       "unavailable": "Mode ini tidak tersedia saat ini. Coba yang lain!",
       "number": "MLBBdle # {n} · {date}",
@@ -2552,7 +2585,7 @@
         "roles": "Peran"
       },
       "colourClue": "ikon sekarang ditampilkan dalam warna",
-      "lockedClue": "{clue} — kesalahan sebelum membukanya: {n}",
+      "lockedClue": "{clue} · kesalahan yang tersisa sebelum membuka kunci: {n}",
       "skillAlt": "Ikon skill untuk mengidentifikasi",
       "skillAltGrey": "Ikon skill mengidentifikasi, dalam warna hitam dan putih",
       "yourGuesses": "Tes Anda",
@@ -2563,7 +2596,7 @@
       "share": "Bagikan hasil saya",
       "copied": "Hasil yang disalin: tempel di mana pun Anda mau.",
       "shared": "Hasil bersama.",
-      "copyError": "Salinan tidak mungkin: pilih grid dengan tangan.",
+      "copyError": "Saya tidak dapat menyalin: pilih kisi dengan tangan.",
       "shareTitle": "MLBBdle n° {n} · {mode} · mencoba: {guesses}",
       "playMode": "Mode putar {mode}",
       "practiseMore": "Lanjutkan pelatihan",
@@ -2573,7 +2606,7 @@
         "played": "Hari-hari terselamatkan",
         "streak": "Seri",
         "best": "Catatan",
-        "average": "Tes rata-rata"
+        "average": "Rata-rata tes"
       },
       "distribution": "Distribusi tes",
       "distributionRow": "Tes {guesses}: {n}",
@@ -2587,7 +2620,14 @@
       "reveal": "Ungkapkan jawabannya",
       "newHero": "Hero baru",
       "skip": "Lulus",
-      "practiceQuestion": "Siapa hero ini?"
+      "practiceQuestion": "Siapa hero ini?",
+      "dex": {
+        "start": "Milikmu! Saya merahasiakannya.",
+        "miss": "Gagal… warna menunjukkan jalannya.",
+        "close": "Ini memanas! Beberapa kotak cocok.",
+        "won": "Bagus sekali, itu dia!",
+        "over": "Damage ! Putaran lagi?"
+      }
     },
     "advanceServer": {
       "title": "Catatan tempelan Advanced Server",
@@ -2595,7 +2635,7 @@
       "crumb": "Advanced Server",
       "warningTitle": "Perubahan dalam pengujian",
       "warning": "Segala sesuatu yang muncul di sini diuji di server Advance: perubahan ini mungkin masih berkembang, atau tidak pernah sampai di server resmi.",
-      "statusUnderTest": "Versi {v} sedang diuji: ini lebih baru daripada patch resmi saat ini, {live}.",
+      "statusUnderTest": "Versi {v} sedang diuji: ini lebih baru daripada patch resmi saat ini ({live}).",
       "statusNone": "Tidak ada versi server lanjutan yang lebih baru dari patch resmi saat ini ({live}) yang didokumentasikan di wiki. Catatan tes terbaru yang diterbitkan di sana adalah untuk versi {v} ({date}).",
       "statusNoneUndated": "Tidak ada versi server lanjutan yang lebih baru dari patch resmi saat ini ({live}) yang didokumentasikan di wiki. Catatan tes terbaru yang diterbitkan di sana adalah versi {v}.",
       "syncedAt": "Data Wiki dikumpulkan pada {date}.",
@@ -2676,7 +2716,7 @@
       "seo": {
         "hubTitle": "MLBB Esport: pro meta, MPL, MSC dan Dunia",
         "hubDescription": "Meta pro MLBB pada {games} pertandingan terbaru MPL dan kompetisi internasional: {picked} adalah hero yang paling banyak ditangkap, {banned} yang paling banyak dilarang. Pemeringkatan, draft, dan perbandingan pro/peringkat.",
-        "mplTitle": "{league} Musim {n}: peringkat, pemilihan dan ban hero",
+        "mplTitle": "{league} musim {n}: peringkat, pemilihan dan ban hero",
         "mTitle": "M{n} Kejuaraan Dunia: statistik hero",
         "mscTitle": "MSC {year}: hasil, pemilihan dan ban hero",
         "tournamentDescription": "{name}: peringkat, hasil, dan statistik hero di {games} game. Paling banyak diambil: {picked}. Paling dilarang: {banned}. Draft terbaru dengan pilihan dan ban game demi game.",
@@ -2718,7 +2758,7 @@
         "title": "Pro versus peringkat",
         "intro": "Setiap hero diklasifikasikan dua kali di antara {total}: berdasarkan kehadirannya di pro (bagian permainan profesional di mana dia ditangkap atau dilarang) dan berdasarkan kehadirannya di peringkat (bagian yang sama dalam permainan peringkat, semua peringkat, menurut statistik kami). Kesenjangan tempat yang besar berarti salah satu dari dua dunia lebih menghargainya daripada yang lain.",
         "pro": "Jauh lebih dihargai secara profesional",
-        "proNote": "Tertangkap atau dilarang di setidaknya {min} game pro, dan peringkatnya lebih tinggi di sana daripada di peringkat.",
+        "proNote": "Tertangkap atau dilarang di setidaknya {min} game pro, dan lebih baik ditempatkan di pro daripada di peringkat.",
         "ranked": "Peringkat favorit yang diabaikan oleh para profesional",
         "rankedNote": "Di posisi {n} teratas di peringkat, kurang baik di posisi pro.",
         "hero": "Hero",
@@ -2803,7 +2843,7 @@
       },
       "heroes": {
         "title": "Statistik Hero",
-        "intro": "Pilihan, ban, kehadiran, dan win rate pada game {games} di mana draft dimasukkan. Urutkan berdasarkan kolom mana pun."
+        "intro": "Pilihan, ban, kehadiran, dan win rate pada game {games} dimasukkan ke dalam draft. Urutkan berdasarkan kolom mana pun."
       },
       "drafts": {
         "title": "Draft terbaru",
@@ -3159,7 +3199,7 @@
       },
       "up": "Di tempat",
       "noMoreTurtles": "Lebih Banyak Turtle",
-      "lastKill": "{objective} diberi nilai {time}",
+      "lastKill": "{objective}: kematian tercatat di {time}",
       "noKill": "Capai tujuan saat dia mati.",
       "notStarted": "Mulai jam untuk mencatat kematian.",
       "undo": "Membatalkan",
@@ -3225,7 +3265,7 @@
         },
         "lord": {
           "name": "Yang mulia",
-          "role": "Monster paling kuat di peta. Tim yang membunuhnya memanggilnya: dia mendorong lane terlemah lawan dan memperkuat gelombang minion berikutnya.",
+          "role": "Monster terkuat di peta. Tim yang membunuhnya akan memanggilnya: Lord mendorong satu lane bersama tim itu dan memperkuat wave minion berikutnya.",
           "firstSpawn": "{after} menit setelah Turtle terakhir, atau antara {from} dan {latest} jika Turtle masih hidup",
           "respawn": "{respawn} s setelah kematiannya; setelah {lateFrom}, {late} s menurut teks wiki, {infobox} menurut kotaknya",
           "reward": "Gelombang minion berikutnya diperkuat; Tuan yang dipanggil mendorong bersama timmu, dan sekutu di sekitar menimbulkan {bonus} damage sihir dasar tambahan (cooldown {cooldown} detik)",
@@ -3233,7 +3273,7 @@
         },
         "purple-buff": {
           "name": "Buff Ungu",
-          "role": "Dua monster (Thunder Fenrir besar dan kecil) di sisi kiri setiap hutan. Setelah terbunuh, sebuah jalan terbuka di belakang mereka sampai mereka kembali.",
+          "role": "Dua monster (Thunder Fenrir besar dan kecil) di sisi kiri setiap hutan. Begitu mereka terbunuh, sebuah jalan terbuka di belakang mereka sampai mereka kembali.",
           "reward": "Untuk {duration} s: cooldown skill −{cooldown}%, biaya mana −{mana}%, biaya energi −{energy}%; eliminasi memulihkan {minion}% HP (minion), {hero}% (hero) atau {creep}% (monster)"
         },
         "orange-buff": {
@@ -3243,7 +3283,7 @@
         },
         "lithowanderer": {
           "name": "Lithowanderer",
-          "role": "Makhluk sungai kecil, dekat tengah, yang tidak pernah melawan. Siapa pun yang menyelesaikannya akan diikuti oleh Walkie Grass dan meninggalkan penjaga batu (Stone Roamer) yang memberi sinyal kepada musuh.",
+          "role": "Makhluk sungai kecil, dekat tengah, yang tidak pernah melawan. Siapa pun yang menghabisinya akan diikuti oleh Walkie Grass, dan Stone Roamer muncul untuk memberi sinyal kepada musuh.",
           "reward": "Walkie Grass: +{mana}% mana per detik ke sekutu terdekat, +{speed}% kecepatan sungai selama {duration} dtk; penjaga berpatroli {patrol} s"
         },
         "crab": {
@@ -3272,7 +3312,7 @@
         },
         "turret": {
           "name": "Menara",
-          "role": "Mereka menembak musuh dalam jangkauannya; setiap tembakan berturut-turut pada seorang hero akan mengenai {ramp}% lebih keras, hingga {rampMax} kali. Tanpa minion musuh dalam jangkauan, damage yang diterima {reduction}% lebih sedikit. Menara luar tetap tidak aktif hingga {idle}s setelah gelombang pertama.",
+          "role": "Mereka menembak musuh dalam jangkauannya; setiap tembakan berturut-turut pada hero yang sama akan mengenai {ramp}% lebih keras, hingga {rampMax} kali. Tanpa minion musuh dalam jangkauan, damage yang diterima {reduction}% lebih sedikit. Menara luar tetap tidak aktif hingga {idle}s setelah gelombang pertama.",
           "count": "{perTeam} per tim, {perLane} per lane",
           "range": "Rentang {range}, visi {sight} (unit permainan)"
         },
@@ -3309,7 +3349,7 @@
         "roam": {
           "title": "Berkeliaran",
           "step1": "Selama menit pertama, lindungi buff pertama Jungler Anda dari invasi.",
-          "step2": "Bergabunglah dengan Turtle sebelum {turtle}: penjelajah datang untuk membantu mengambilnya.",
+          "step2": "Bergabunglah dengan Turtle sebelum {turtle} untuk membantu mengambilnya.",
           "step3": "Berpindah dari satu lane ke lane lainnya untuk memberikan visi tim.",
           "step4": "Mulai {share}, keuntungan minion dan monster Anda dibagikan kepada tim: tetap bersama."
         },
@@ -3359,13 +3399,13 @@
       "short": {
         "exp-lane": "pengalaman",
         "mid-lane": "Pertengahan",
-        "gold-lane": "Emas"
+        "gold-lane": "Gold Lane"
       },
       "source": "Sumber :"
     },
     "buildSimulator": {
       "title": "Bangun simulator",
-      "lead": "Susun build – hero, level, enam item, emblem, bakat, dan spell – dan baca statistik yang dihitung, sumber demi sumber. Tautan halaman menyimpan build: salin untuk dibagikan.",
+      "lead": "Susun build (hero, level, enam item, emblem, bakat, dan spell) dan baca statistik yang dihitung, sumber demi sumber. Tautan halaman menyimpan build: salin untuk dibagikan.",
       "commonEmblem": "Emblem umum",
       "methodTitle": "Bagaimana statistik dihitung",
       "method1": "Statistik dasar hero berasal dari wiki, yang hanya menerbitkannya pada level 1 dan 15: di antara keduanya, mereka disisipkan dalam garis lurus, yang tetap merupakan perkiraan. Regenerasi HP hanya diberikan pada level 1, dan kecepatan serangan dasar tidak ditampilkan: hanya persentase bonus yang ditampilkan.",
@@ -3377,7 +3417,7 @@
       "communityText": "Terhubung dengan akun game Anda, Anda dapat mempublikasikan build yang ditampilkan dengan judul dan catatan: pemain lain memilihnya, dan yang paling didukung naik.",
       "communityLink": "Lihat build komunitas",
       "sourcesTitle": "Sumber",
-      "sourceWiki": "Wiki Legenda Seluler: {page}",
+      "sourceWiki": "Wiki Mobile Legends: {page}",
       "sourceItems": "Atribut item dan pasif: File wiki Mobile Legends, tersinkronisasi dengan situs.",
       "sourceMeasured": "Build terukur: akademi game, melalui API komunitas arena.rone.dev.",
       "methodAndSources": "Metode dan sumber"
@@ -3523,15 +3563,15 @@
       "errors": {
         "signIn": "Sesi Anda telah kedaluwarsa: masuk lagi.",
         "tooFast": "Terlalu banyak permintaan berturut-turut: coba lagi sebentar lagi.",
-        "voteFailed": "Pemungutan suara tidak dapat dicatat.",
-        "deleteFailed": "Build tidak dapat dihapus.",
+        "voteFailed": "Suara Anda tidak lolos. Coba lagi.",
+        "deleteFailed": "Saya tidak dapat menghapus build ini. Coba lagi.",
         "title": "Judul harus terdiri dari {min} hingga {max} karakter.",
         "ratings": "Catatan tidak boleh melebihi {max} karakter.",
         "link": "Tidak ada tautan atau alamat situs dalam judul atau catatan.",
         "build": "Build ini tidak valid: pilih hero dan setidaknya satu item.",
         "day": "Batas tercapai: {n} build diterbitkan dalam 24 jam. Kembalilah besok.",
         "total": "Anda sudah menerbitkan {n} build: hapus satu untuk memublikasikan build lainnya.",
-        "unavailable": "Layanan untuk sementara tidak tersedia: coba lagi nanti."
+        "unavailable": "Layanan tidak merespons saat ini: coba lagi nanti."
       },
       "publishTitle": "Publikasikan build ini",
       "checkingSession": "Memeriksa koneksi…",
@@ -3559,7 +3599,7 @@
       "byHeroTitle": "Oleh hero",
       "buildCount": "{n} build",
       "rulesTitle": "Aturan",
-      "rules1": "Posting dan voting memerlukan koneksi dengan akun game Anda; satu suara per akun dan per build, dan bukan untuk build miliknya sendiri.",
+      "rules1": "Posting dan voting memerlukan koneksi dengan akun game Anda. Satu suara per akun dan per build, dan tidak ada suara untuk build Anda sendiri.",
       "rules2": "Halaman build hanya ditawarkan ke mesin pencari dengan {n} suara.",
       "rules3": "Teks biasa tanpa tautan; build yang melanggar aturan akan dihapus oleh pemerintah.",
       "heroTitle": "Build komunitas {hero}",
@@ -3582,18 +3622,21 @@
       "notesTitle": "Catatan penulis",
       "backToHero": "Semua dibuat untuk {hero}",
       "statsTitle": "Statistik yang dihitung",
-      "statsMissing": "Statistik tidak tersedia untuk hero ini."
+      "statsMissing": "Statistik tidak tersedia untuk hero ini.",
+      "poster": {
+        "kicker": "Hero yang paling kekar"
+      }
     },
     "damageCalculator": {
       "title": "Kalkulator damage",
-      "lead": "Satu penyerang, satu pembela, satu pukulan: apa yang melewati pertahanan, berapa banyak pukulan yang harus dibunuh, dan HP efektif. Pilih hero dan itemnya, atau ketik statistik yang dibaca sebagian.",
+      "lead": "Satu penyerang, satu pembela, satu pukulan: apa yang melewati pertahanan, berapa banyak pukulan yang harus dibunuh, dan HP efektif. Pilih hero dan itemnya, atau masukkan statistik yang dibaca sebagian.",
       "methodTitle": "Perhitungannya",
       "method1": "Pertahanan yang tersisa dihitung sesuai urutan permainan: persentase penetrasi terlebih dahulu, kemudian penetrasi tetap, yaitu pertahanan × (1 − penetrasi %) − penetrasi tetap. Hasilnya bisa di bawah 0, hingga −60 dan tidak lebih dari itu: penetrasi tetap kemudian meningkatkan damage. Yang penting adalah penetrasi jenis pukulannya, fisik atau magis.",
       "method2": "Damage yang diterima = damage mentah × 120 ÷ (120 + sisa pertahanan): 120 pertahanan meloloskan separuh damage, −60 menggandakannya. True damage mengabaikan pertahanan dan penetrasi. Jumlah serangan untuk membunuh adalah HP ÷ damage, dibulatkan ke atas; HP efektif, HP × (120 + sisa pertahanan) ÷ 120, adalah damage mentah yang dibutuhkan untuk membunuh.",
       "method3": "Serangan dasar memberikan damage fisik sebesar total serangan fisik; serangan kritis memberikan damage kritis, 200% secara default, dan rata-ratanya menimbang keduanya dengan peluang kritis. Hero yang pasifnya mengubah serangan dasar tidak dimodelkan. Statistik hero berasal dari simulator build: level antara 1 dan 15 diinterpolasi, emblem tanpa bakat, pasif bersyarat item tidak dihitung.",
       "method4": "Skill tidak dihitung: data skill kami memberikan rentang berdasarkan tingkat skill tanpa menyatakan tingkat mana yang sesuai dengan nilai yang mana, dan hampir satu dari sepuluh memiliki rasio. Untuk sebuah skill, baca damage mentahnya dalam game dan masukkan di “Raw Damage”. Kecepatan serangan dasar juga kurang: tidak ada damage per detik.",
       "sourcesTitle": "Sumber",
-      "sourceWiki": "Wiki Legenda Seluler: {page}"
+      "sourceWiki": "Wiki Mobile Legends: {page}"
     },
     "damageCalculatorUI": {
       "attackerTitle": "Penyerang",
@@ -3624,7 +3667,7 @@
       "hitKind": "Jenis serangan",
       "basicAttack": "Serangan dasar",
       "rawHit": "Damage mentah",
-      "basicNote": "Damage fisik sama dengan total serangan fisik penyerang, dan serangan kritisnya jika memiliki peluang kritis.",
+      "basicNote": "Damage fisik sama dengan total serangan fisik penyerang, termasuk serangan kritisnya jika memiliki peluang kritis.",
       "rawAmount": "Damage sebelum pertahanan",
       "damageType": "Jenis",
       "kinds": {
@@ -3650,14 +3693,14 @@
       "average": "Rata-rata, dengan {chance} peluang kritis: {damage} damage per serangan dasar."
     },
     "bot": {
-      "title": "MLBBDex — bot Discord Mobile Legends",
+      "title": "Dex MLBB — bot Discord Mobile Legends",
       "breadcrumb": "Bot Discord",
-      "metaTitle": "Bot Discord Mobile Legends (MLBB): build, counter, tier list",
-      "metaDescription": "MLBBDex, bot Discord gratis untuk Mobile Legends: build dan counter yang diukur dari pertandingan ranked, tier list, patch note, info skin baru, dan MLBBdle harian, dalam lima bahasa.",
+      "metaTitle": "Dex MLBB, bot Discord Mobile Legends: build, counter, tier list",
+      "metaDescription": "Dex MLBB, bot MLBBDex Discord gratis untuk Mobile Legends: build dan counter diukur dalam game berperingkat, tier list, patch notes, peringatan skin, dan MLBBdle hari ini, dalam lima bahasa.",
       "lead": "Build, counter, tier list, dan patch note Mobile Legends: Bang Bang, diukur dari pertandingan ranked dan diperbarui setiap hari, langsung di server kamu. Ditambah MLBBdle harian untuk komunitas kamu. Gratis, dalam lima bahasa.",
       "add": "Tambahkan ke Discord",
       "join": "Gabung ke server",
-      "vote": "Vote MLBBDex",
+      "vote": "Pilih Dex MLBB",
       "dashboard": "Dasbor",
       "servers": "Dipakai di {count} server",
       "free": "100% gratis",
@@ -3723,7 +3766,7 @@
         "help": "Perintah per kategori, masing-masing dengan contoh.",
         "invite": "Link untuk menambahkan bot ke server lain.",
         "about": "Versi, jumlah server, link ke situs, server bantuan, dan vote.",
-        "profile": "Profil Mobile Legends-mu sebagai gambar: rank, win rate, dan hero yang paling sering dimainkan (ditautkan sekali di situs)."
+        "profile": "Profil Mobile Legends Anda dalam gambar: peringkat, win rate, dan hero yang paling sering dimainkan (akun hanya ditautkan satu kali di situs)."
       },
       "permissionsTitle": "Izin diminta",
       "permissionsText": "Hanya yang dibutuhkan untuk membalas dan memposting: tidak pernah Administrator, dan tanpa akses ke isi pesan. Intent Server Members hanya dipakai untuk pesan sambutan dan perpisahan: tidak ada data anggota yang disimpan.",
@@ -3740,7 +3783,7 @@
       "faqTitle": "Pertanyaan umum",
       "faq1q": "Apakah bot ini gratis?",
       "faq1a": "Ya, sepenuhnya: tanpa langganan, tanpa fitur terkunci, tanpa wajib vote, tanpa iklan. Seperti situsnya, bot ini dibiayai oleh pembuatnya.",
-      "faq2q": "Bagaimana cara menambahkan MLBBDex ke server saya?",
+      "faq2q": "Bagaimana cara menambahkan Dex MLBB ke server saya?",
       "faq2a": "Klik \"Tambahkan ke Discord\", pilih server tempat kamu punya izin Kelola Server, lalu konfirmasi. Perintahnya muncul begitu kamu mengetik / di channel.",
       "faq3q": "Bagaimana cara mengatur pengumuman?",
       "faq3a": "Buka dasbor dengan akun Discord kamu (atau ketik /setup): pilih channel, dan jika mau role untuk di-mention, untuk setiap jenis pengumuman. Kamu perlu izin Kelola Server.",
@@ -3754,19 +3797,21 @@
       "faq7a": "Nama dan pengaturan server kamu, apa yang sudah diposting, dan, untuk leaderboard, id dan nama Discord pemain game harian. Detailnya ada di halaman privasi bot.",
       "faq8q": "Apakah MLBBdle di Discord sama dengan di situs?",
       "faq8a": "Ya: hero yang sama, skill yang sama, dan ronde kuis yang sama setiap hari UTC, dalam semua bahasa.",
-      "ctaTitle": "Tambahkan MLBBDex ke server kamu",
-      "ctaText": "Satu menit untuk menambahkan, tanpa biaya. Ada pertanyaan atau ide? Server MLBBDex menunggu kamu.",
+      "ctaTitle": "Tambahkan Dex MLBB ke server Anda",
+      "ctaText": "Satu menit untuk menambahkannya, tidak ada yang perlu dibayar. Pertanyaan atau ide? Server komunitas sedang menunggu Anda.",
       "privacy": "Privasi bot",
-      "terms": "Ketentuan penggunaan"
+      "terms": "Ketentuan penggunaan",
+      "dexLine": "Hai, saya Dex! Di Discord, nama saya Dex MLBB: ketik /hero, /build atau /tierlist, dan saya akan menjawab Anda dengan file dan gambar situs.",
+      "dexLink": "Siapa Dex?"
     },
     "botPrivacy": {
       "title": "Privasi Bot Perselisihan",
-      "metaDescription": "Apa yang disimpan oleh bot MLBBEx Discord, mengapa, berapa lama, dan bagaimana cara menghapusnya.",
+      "metaDescription": "Apa yang disimpan bot Discord Dex MLBB, alasannya, berapa lama, dan bagaimana cara menghapusnya.",
       "lead": "Apa yang disimpan bot, alasannya, dan untuk berapa lama.",
       "storedTitle": "Apa yang dilestarikan",
       "storedServer": "Untuk setiap server: id, nama, ikon, jumlah anggota, bahasa, pengaturan (saluran, peran, jam game harian, teks pesan sambutan dan perpisahan) dan daftar pengumuman yang sudah diposting.",
       "storedResults": "Untuk peringkat game hari ini: ID Discord pemain dan nama panggilannya, hari, permainan, dan skor.",
-      "storedCommands": "Untuk statistik: nama setiap perintah yang digunakan, server, bahasa, durasi dan keberhasilan. Tidak ada ID pengguna.",
+      "storedCommands": "Untuk statistik: nama setiap perintah yang digunakan, server, bahasa, durasi dan hasil (berhasil atau gagal). Tidak ada ID pengguna.",
       "storedVotes": "Untuk statistik: ID Perselisihan orang yang memilih bot di daftar bot.",
       "notStoredTitle": "Apa yang tidak dilestarikan",
       "notStored": "Bot tidak membaca isi pesan dan tidak mengunduh daftar anggota. Saat seseorang bergabung atau keluar dari server, Discord memberi tahu bot (intent Server Members): peristiwa itu hanya dipakai untuk memposting pesan sambutan atau perpisahan, jika server mengaktifkannya, dan tidak ada data anggota tersebut yang disimpan. Tidak ada token Discord yang disimpan: masuk ke dasbor hanya membaca id-mu, lalu token dibuang.",
@@ -3785,10 +3830,10 @@
     },
     "botTerms": {
       "title": "Ketentuan Layanan Bot Perselisihan",
-      "metaDescription": "Ketentuan layanan bot MLBBEx Discord: layanan gratis, penggunaan wajar, data game disediakan tanpa jaminan.",
+      "metaDescription": "Ketentuan Penggunaan Bot Dex MLBB Discord: Layanan gratis, penggunaan wajar, data game disediakan tanpa jaminan.",
       "lead": "Aturan sederhana dari layanan gratis.",
-      "p1": "Bot MLBBDex adalah proyek penggemar independen dan gratis, tidak ada hubungannya dengan Moonton. Mobile Legends: Bang Bang adalah merek dari Shanghai Moonton Technology Co., Ltd.",
-      "p2": "Data (statistik, build, tier list, patch note) disediakan sebagaimana adanya, tanpa jaminan keakuratan atau ketersediaan. Teks berasal dari wiki Mobile Legends (Fandom) dan Liquipedia, di bawah lisensi CC BY-SA, angka statistik dari permainan peringkat. Gambar dan nama permainan tetap © Moonton, dan kolaborasi © pemegang haknya.",
+      "p1": "Bot MLBB Dex (MLBBDex) adalah proyek penggemar independen dan gratis, tidak ada hubungannya dengan Moonton. Mobile Legends: Bang Bang adalah merek dari Shanghai Moonton Technology Co., Ltd.",
+      "p2": "Data (statistik, build, tier list, patch note) disediakan sebagaimana adanya, tanpa jaminan keakuratan atau ketersediaan. Teks berasal dari wiki Mobile Legends (Fandom) dan Liquipedia, di bawah lisensi CC BY-SA; angkanya berasal dari statistik permainan peringkat. Gambar dan nama permainan tetap © Moonton, dan kolaborasi © pemegang haknya.",
       "p3": "Jangan membajak bot: tidak ada otomatisasi perintah yang menyalahgunakan, tidak ada upaya untuk mengakses pengaturan server yang tidak Anda kelola. Layanan mungkin dibatasi atau dihapus dari server yang menyalahgunakannya.",
       "p4": "Layanan dapat berubah, terganggu, atau dihentikan kapan saja. Aturan Discord (ketentuan penggunaan dan aturan komunitas) berlaku untuk penggunaannya.",
       "p5": "Data yang disimpan dijelaskan di halaman privasi bot. Untuk pertanyaan apa pun: [{contact}](mailto:{contact}).",
@@ -3800,7 +3845,7 @@
       "lead": "Atur bot untuk setiap server Anda: bahasa, pengumuman, permainan hari ini, pesan selamat datang, dan peran otomatis.",
       "login": "Terhubung dengan Perselisihan",
       "loginLead": "Masuk dengan Discord untuk melihat server yang Anda kelola. Hanya pengenal Anda yang dibaca: tidak ada akses ke pesan atau server Anda.",
-      "loginFailed": "Sambungan tidak berhasil. Coba lagi.",
+      "loginFailed": "Koneksi tidak berhasil. Coba lagi.",
       "logout": "Keluar",
       "signedAs": "Masuk sebagai {name}",
       "serversTitle": "Server Anda",
@@ -3822,8 +3867,8 @@
       "members": "{count} anggota",
       "admin": "Panel Admin",
       "loginTitle": "Masuk untuk menyiapkan bot",
-      "addBotLead": "Server yang Anda kelola tidak muncul? Undang MLBBDex ke sana, lalu kembali lagi ke sini.",
-      "botPresent": "MLBBDex ada di server ini",
+      "addBotLead": "Server yang Anda kelola tidak muncul? Ajak Dex MLBB kesana, lalu balik lagi kesini.",
+      "botPresent": "Dex MLBB ada di server ini",
       "noManageRoles": "Tanpa izin Kelola Peran",
       "deliveriesLead": "Pengumuman terbaru yang diposting di server ini, dan yang gagal."
     },
@@ -3850,14 +3895,17 @@
       "save": "Menyimpan",
       "saving": "Pendaftaran…",
       "saved": "Pengaturan tersimpan.",
-      "saveFailed": "Pendaftaran gagal. Coba lagi.",
+      "saveFailed": "Rekamannya tidak berhasil. Coba lagi.",
       "test": "Kirim tes",
       "testSent": "Pesan percobaan terkirim.",
       "testFailed": "Tes tidak dapat dikirim ke ruang tunggu ini.",
       "failing": "Bot tidak dapat memposting ke saluran ini: periksa izinnya, lalu simpan.",
       "flush": "Publikasikan pengumuman yang tertunda",
       "flushing": "Publikasi pengumuman…",
-      "flushed": "Pengumuman terverifikasi: {count} baru, publikasi diminta dari bot.",
+      "flushed": {
+        "one": "Pengumuman terverifikasi: {count} baru, publikasi diminta dari bot.",
+        "other": "Pengumuman terverifikasi: {count} berita, publikasi diminta dari bot."
+      },
       "flushFailed": "Bot tidak merespons.",
       "greetingsTitle": "Sambutan & perpisahan",
       "greetingsLead": "Pesan di saluran pilihanmu saat anggota bergabung atau keluar, dalam bahasa server. Hanya pendatang baru yang di-mention; jika lebih dari 5 orang bergabung dalam 10 detik, bot mengirim satu pesan untuk semuanya.",
@@ -3932,7 +3980,7 @@
         "delete": "Hapus",
         "deleteConfirm": "Hapus menu “{title}” beserta pesannya di Discord?",
         "deleted": "Menu dihapus.",
-        "deleteFailed": "Gagal menghapus. Coba lagi.",
+        "deleteFailed": "Penghapusan tidak berhasil. Coba lagi.",
         "publish": "Terbitkan pesan",
         "update": "Perbarui pesan",
         "publishing": "Menerbitkan…",
@@ -3943,7 +3991,7 @@
           "invalid_menu": "Discord menolak pesan: mungkin ada emoji menu yang sudah dihapus. Ubah menu, lalu terbitkan.",
           "rolesUnavailable": "Ada role di menu yang tidak bisa lagi diberikan bot (dihapus, di atas role bot, atau punya izin moderasi): ubah menu.",
           "rateLimited": "Terlalu banyak penerbitan berturut-turut: tunggu satu menit.",
-          "failed": "Gagal menerbitkan. Coba lagi."
+          "failed": "Publikasinya tidak berhasil. Coba lagi."
         },
         "statusPublished": "Diterbitkan di #{channel}",
         "statusDraft": "Belum diterbitkan",
@@ -3979,7 +4027,7 @@
         "save": "Simpan menu",
         "cancel": "Batal",
         "saved": "Menu disimpan. Terbitkan untuk memperbarui pesan di Discord.",
-        "saveFailed": "Gagal menyimpan. Periksa menu dan coba lagi.",
+        "saveFailed": "Rekamannya tidak berhasil. Periksa menu, lalu coba lagi.",
         "notGrantable": "Kamu tidak bisa memberikan salah satu role ini sendiri (izin Kelola Role, role di atas role kamu): bot tidak akan memberikannya untukmu.",
         "tooMany": "Server ini sudah punya 10 menu, batas maksimal.",
         "paused": "Pengelola yang mengatur menu ini tidak bisa lagi memberikan sebagian role-nya: anggota mendapat pesan galat. Simpan menu ini sendiri untuk mengambil alih (kamu harus bisa memberikan role-nya).",
@@ -4026,7 +4074,7 @@
           "limit": "Batas pengguna dari 0 sampai {max}.",
           "unknownChannel": "Sebuah channel hub bukan lagi channel suara di server ini: muat ulang halaman.",
           "rateLimited": "Terlalu banyak penyimpanan berturut-turut: tunggu satu menit.",
-          "failed": "Gagal menyimpan. Coba lagi."
+          "failed": "Rekamannya tidak berhasil. Coba lagi."
         }
       }
     },
@@ -4274,7 +4322,7 @@
       "warning": "Membeli, menjual, atau menukar akun melanggar ketentuan layanan Moonton: akun bisa diblokir atau diambil kembali oleh pemilik lamanya, dan penipuan sering terjadi. Estimasi ini mengukur biaya sebuah koleksi, bukan menentukan harga. Tidak ada yang dikirim ke server.",
       "methodTitle": "Metodenya, angka demi angka",
       "methodPoints": "Kategorinya adalah kategori Showcase di dalam game, dengan poin koleksi yang diberikan game untuk setiap skin. Jumlah poin berfungsi sebagai pengecekan: hasilnya harus sama dengan total yang ditampilkan game.",
-      "methodCost": "Setiap skin dihitung berdasarkan biaya tipikal di kategorinya. Premium, Luar Biasa, dan Umum dijual di toko: biayanya adalah harga rata-rata berlian dari skin dalam kategori tersebut, yang dicatat dalam data game. Legend, Grandiose, dan Exquisite diperoleh dengan draw: mereka mengambil median, pembulatan, dari biaya yang diterbitkan oleh panduan pemain, yang sangat bervariasi dari satu peristiwa dan dari satu pemain ke pemain lainnya. Penampilan yang penuh warna mempunyai nilai simbolis.",
+      "methodCost": "Setiap skin dihitung berdasarkan biaya tipikal di kategorinya. Premium, Luar Biasa, dan Umum dijual di toko: biayanya adalah harga rata-rata berlian untuk skin dalam kategori tersebut, yang dicatat dalam data game. Legend, Grandiose, dan Exquisite diperoleh dengan cara draw: biayanya adalah median bulat dari biaya yang diterbitkan oleh panduan pemain, dan biaya ini sangat bervariasi dari satu acara dan dari satu pemain ke pemain lainnya. Penampilan yang penuh warna mempunyai nilai simbolis.",
       "tableCaption": "Poin dan biaya yang dihitung per skin, per kategori",
       "colTier": "Kategori",
       "colPoints": "Poin",
@@ -4314,7 +4362,7 @@
       "reset": "Hapus semua",
       "share_copied": "Tautan disalin.",
       "share_shared": "Hasil dibagikan.",
-      "share_failed": "Gagal membagikan.",
+      "share_failed": "Pembagian itu tidak terjadi.",
       "shareText": "Koleksi MLBB saya menghabiskan sekitar {cost}; akun yang sebanding: {low} sampai {high} (estimasi indikatif).",
       "shareTextCost": "Koleksi MLBB saya menghabiskan sekitar {cost} (estimasi indikatif).",
       "resultTitle": "Estimasi nilai akun MLBB saya",
@@ -4323,7 +4371,7 @@
       "import_done": "Skin dan hero diambil dari koleksimu: {n} skin dikelompokkan per kategori.",
       "import_unmapped": "Skin tanpa kategori yang dikenal, tidak dihitung: {n}.",
       "import_variants": "Tampilan berwarna tidak ada dalam katalog: tambahkan dengan tangan, seperti titik pada panel lainnya.",
-      "import_failed": "Katalog skin gagal dimuat. Coba lagi.",
+      "import_failed": "Saya tidak dapat memuat katalog penampilan. Coba lagi.",
       "skinsTitle": "Koleksi Anda, seperti di Showcase",
       "whereTitle": "Di mana menemukan angka ini",
       "wherePath": "Profil > Showcase > Koleksi",
@@ -4340,8 +4388,8 @@
         "headerOff": "Total yang terbaca ({read}) tidak sama dengan jumlah baris ({sum}): periksa kolom yang ditandai.",
         "rowsCheck": "Perlu dicek: {tiers}.",
         "missing": "Tidak terbaca, isi manual: {tiers}.",
-        "failed": "Tidak ada ringkasan poin koleksi skin di gambar ini. Coba screenshot Showcase yang jelas, dengan panelnya terbuka.",
-        "error": "Pembaca tidak bisa berjalan di browser ini. Salin angkanya secara manual.",
+        "failed": "Saya tidak dapat menemukan titik pengumpulan di gambar ini. Cobalah menangkap Showcase dengan jelas, panel terbuka.",
+        "error": "Pemutar tidak memulai di browser ini. Salin nomornya dengan tangan.",
         "detected": "terdeteksi",
         "check": "perlu dicek",
         "doneItems": "{group}: {points} poin terdeteksi pada tangkapan Anda.",
@@ -4430,8 +4478,14 @@
       "latestTitle": "Diskusi terbaru",
       "emptyAll": "Belum ada diskusi: mulai yang pertama.",
       "emptyCategory": "Belum ada diskusi di kategori ini.",
-      "threadCount": "{n} diskusi",
-      "replies": "{n} balasan",
+      "threadCount": {
+        "one": "{n} diskusi",
+        "other": "{n} diskusi"
+      },
+      "replies": {
+        "one": "{n} balasan",
+        "other": "{n} balasan"
+      },
       "pinned": "Disematkan",
       "locked": "Dikunci",
       "edited": "diedit",
@@ -4477,7 +4531,10 @@
       "searchTitle": "Pencarian forum",
       "searchLead": "Diskusi yang judul, isi, atau balasannya memuat kata-katamu. Tanda kutip untuk frasa persis, tanda minus untuk mengecualikan kata.",
       "searchLeadCategory": "Mencari di kategori {name}.",
-      "searchResults": "{n} diskusi untuk \"{query}\"",
+      "searchResults": {
+        "one": "{n} diskusi untuk \"{query}\"",
+        "other": "{n} diskusi untuk \"{query}\""
+      },
       "searchEmpty": "Tidak ada diskusi yang cocok. Coba kata lain, atau lebih sedikit kata.",
       "searchHint": "Ketik satu kata atau lebih: hero, item, atau pertanyaan.",
       "rules": {
@@ -4494,7 +4551,10 @@
         "seoTitle": "Cari rekan tim Mobile Legends",
         "seoDescription": "Pemain Mobile Legends yang mencari duo atau tim: saring berdasarkan region, rank, lane, dan bahasa, lalu pasang kartumu sendiri.",
         "ownTitle": "Kartu kamu",
-        "listTitle": "{n} pemain tersedia",
+        "listTitle": {
+          "one": "{n} pemain tersedia",
+          "other": "{n} pemain tersedia"
+        },
         "any": "Semua",
         "lane": "Lane",
         "language": "Bahasa",
@@ -4506,7 +4566,9 @@
         "gameId": "ID game",
         "signInForContact": "untuk melihat kontak.",
         "noContact": "Tidak ada kontak dibagikan: hubungi lewat forum atau Discord.",
-        "discordText": "Di server Discord MLBBDex, channel cari tim selalu ramai."
+        "discordText": "Di server Discord MLBBDex, channel cari tim selalu ramai.",
+        "emptyTitle": "Belum ada siapa pun",
+        "mains": "Hero yang dimainkan"
       },
       "moderation": {
         "title": "Moderasi komunitas",
@@ -4546,17 +4608,28 @@
           "resolve": "Kesalahan ditangani"
         },
         "deleted": "dihapus oleh penulisnya",
-        "reportCount": "{n} laporan",
+        "reportCount": {
+          "one": "{n} laporan",
+          "other": "{n} laporan"
+        },
         "asReported": "Saat dilaporkan",
         "dataReports": "Kesalahan dilaporkan pada formulir ({n})",
         "dataReportsLead": "Laporan anonim dikirim dari hero, item, emblem, spell sheet, dan patch note, dari yang terlama hingga terbaru. Perbaiki data jika perlu, lalu tandai laporan sebagai diproses.",
         "dataReportsEmpty": "Tidak ada kesalahan yang dilaporkan.",
         "dataCorrection": "Koreksi yang diusulkan:",
         "dataSource": "Sumber :"
-      }
+      },
+      "hostLine": "Hai ! Di sini kami saling membantu, kami berbicara tentang build, dan kami menemukan rekan satu tim.",
+      "signInDex": "Semua orang bisa membaca. Untuk menulis, cukup login.",
+      "emptyDex": "Di sini sangat sepi…",
+      "searchEmptyTitle": "Tidak ada yang ditemukan",
+      "lastActivity": "Aktivitas terakhir {when}"
     },
     "communityUI": {
-      "votes": "{n} vote",
+      "votes": {
+        "one": "{n} vote",
+        "other": "{n} vote"
+      },
       "upvote": "Vote postingan ini",
       "unvote": "Tarik vote saya",
       "signInToVote": "Masuk untuk memberi vote",
@@ -4611,8 +4684,8 @@
         "unknown": "Konten ini sudah tidak ada.",
         "title": "Judul harus antara {min} dan {max} karakter.",
         "body": "Pesan harus antara {min} dan {max} karakter.",
-        "invalid": "Ditolak: periksa isian.",
-        "unavailable": "Layanan sedang tidak tersedia. Coba lagi sebentar lagi."
+        "invalid": "Pengiriman ditolak: periksa kolomnya.",
+        "unavailable": "Layanan ini tidak merespons saat ini. Coba lagi sebentar lagi."
       },
       "regions": {
         "id": "Indonesia",
@@ -4676,7 +4749,10 @@
         "unban": "Cabut blokir",
         "dismiss": "Abaikan laporan",
         "duration": "Durasi",
-        "days": "{n} hari",
+        "days": {
+          "one": "{n} hari",
+          "other": "{n} hari"
+        },
         "forever": "Permanen",
         "reason": "Alasan (log)",
         "confirmBan": "Konfirmasi blokir",
@@ -4739,16 +4815,19 @@
       "lead": "Semua alat di situs ini, diurutkan menurut kegunaan: menyiapkan draft, menguji build, memperkirakan nilai akun, berlatih, atau memainkan game harian.",
       "metaTitle": "Alat MLBB: draft, build, damage, dan akun",
       "metaDescription": "Simulator draft, analisis tim, simulator build, kalkulator damage, nilai akun, timer objektif, dan game harian untuk Mobile Legends: Bang Bang.",
-      "nTools": "{n} alat"
+      "nTools": "{n} alat",
+      "open": "Membuka",
+      "play": "Main",
+      "hello": "Pilih alat dan masuki arena: semuanya berfungsi di browser, gratis, tanpa akun."
     },
     "discordCard": {
       "title": "Kartu profil Discord",
-      "intro": "Tampilkan rank, win rate, dan hero yang paling sering kamu mainkan sebagai gambar di Discord, dengan perintah /profile dari bot MLBBDex.",
+      "intro": "Tampilkan peringkat Anda, win rate, dan hero yang paling sering dimainkan dalam gambar di Discord, dengan perintah bot/profil Dex MLBB.",
       "needDiscord": "Untuk menautkannya, masuk juga dengan akun Discord yang kamu pakai di servermu.",
       "discordButton": "Masuk dengan Discord",
       "linkOffer": "Tautkan akun Discord {name} ke akun game ini. Statistik Anda dibaca kembali di setiap /profil.",
       "linkButton": "Tautkan dan buat kartuku",
-      "linked": "Kartumu tertaut ke akun Discord. Ketik /profile di server yang ada bot MLBBDex.",
+      "linked": "Kartu Anda ditautkan ke akun Discord. Ketik /profile pada server tempat bot Dex MLBB berada.",
       "otherDiscord": "Kamu masuk dengan akun Discord lain ({name}) dari yang tertaut. Menautkannya akan memindahkan kartu ke sana.",
       "updatedAt": "Angka disimpan pada {date}.",
       "refresh": "Perbarui angkaku",
@@ -4764,12 +4843,12 @@
       "done": "Tersimpan.",
       "errorDown": "Layanan game tidak merespons: coba lagi dalam beberapa menit.",
       "errorExpired": "Sesi game-mu sudah berakhir: masuk lagi.",
-      "error": "Terjadi kesalahan. Coba lagi sebentar lagi.",
+      "error": "Sesuatu macet. Coba lagi sebentar lagi.",
       "card": {
         "wins": "Menang",
         "heroMatches": "{n} pertandingan",
         "updated": "Diperbarui {date}",
-        "minimum": "Minimal: beberapa hero tidak terbaca",
+        "minimum": "Nilai minimum: beberapa hero tidak dapat dibaca",
         "region": "Region",
         "statsLater": "Statistik hero akan kembali segera setelah layanan game menyediakannya lagi."
       }
@@ -4792,21 +4871,142 @@
         "tooFast": "Terlalu banyak laporan sekaligus: coba lagi sebentar lagi.",
         "full": "Banyak laporan yang menunggu keputusan: coba lagi dalam beberapa hari.",
         "invalid": "Laporan ditolak: periksa kolomnya.",
-        "unavailable": "Tidak dapat mengirim saat ini: coba lagi nanti."
+        "unavailable": "Saya tidak dapat mengirimkannya sekarang: coba lagi nanti."
+      }
+    },
+    "dexPage": {
+      "title": "Dex",
+      "metaTitle": "Dex, maskot MLBBDex",
+      "metaDescription": "Siapakah Dex, roh burung hantu-rubah kecil dari Land of Dawn yang memandu Anda di MLBBDex dan merespons Anda di Discord dengan bot Dex MLBB.",
+      "kicker": "Maskot MLBBdex",
+      "lead": "Sedikit semangat dari Land of Dawn, setengah burung hantu, setengah rubah, yang telah menonton cukup banyak pertandingan untuk mengingat semuanya. Dia memandu Anda menjelajahi situs dan merespons Anda di Discord.",
+      "hello": "Hai, saya Dex! Klik pada saya: Saya selalu punya tip cadangan.",
+      "seePoses": "Lihat keenam pose Dex",
+      "originTitle": "Dari mana dia berasal",
+      "origin1": "Dex lahir di Land of Dawn, hari ketika sebuah pecahan pecah dari kristal dasar, tepat di antara kedua kubu. Setengah biru, setengah merah: dia tidak pernah memilih tim. Dia memakai pecahan ini sebagai liontin.",
+      "origin2": "Burung hantu karena matanya yang besar yang dapat melihat dengan jelas di malam hari, rubah karena kelicikannya, ia menghabiskan musim-musim dengan bertengger di hutan sambil menyaksikan perkelahian, menghitung build dan mencatat siapa yang mengalahkan siapa.",
+      "origin3": "Semua yang dia ingat, dia simpan dalam indeks besar: Dex. Itu menjadi namanya, lalu nama situsnya.",
+      "traitsTitle": "Tanda-tanda khas",
+      "traits": {
+        "color": "Biru tengah malam, seperti latar belakang situs",
+        "tufts": "Dua burung kuntul emas berbentuk pisau",
+        "crystal": "Kristal dasar, biru dan merah, sebagai liontin",
+        "cape": "Jubah yang dilapisi emas"
+      },
+      "doesTitle": "Apa yang dia lakukan",
+      "siteTitle": "Di situs",
+      "siteText": "Dex menyambut Anda di bagian atas halaman, memberikan tip saat Anda mengkliknya, tetap bersama Anda saat halaman kosong dan merayakan kemenangan MLBBdle Anda. Dia tidak pernah berbicara tanpa alasan: paling banyak tiga nasihat per halaman.",
+      "discordTitle": "Tentang Perselisihan",
+      "discordText": "Di sana, Dex disebut Dex MLBB: bot yang merespons /hero, /build, atau /tierlist dengan nomor yang sama dengan situs. Dia juga merupakan ikon server komunitas.",
+      "botLink": "Temukan bot Dex MLBB",
+      "posesTitle": "Enam posenya",
+      "posesLead": "Sebuah pose untuk setiap momen kunjungan Anda. Arahkan kursor ke atasnya, klik: mereka hidup.",
+      "poses": {
+        "salut": {
+          "name": "Hai",
+          "text": "Untuk menyambut Anda, di layar pertama."
+        },
+        "reflexion": {
+          "name": "Cerminan",
+          "text": "Untuk saran atau penjelasan."
+        },
+        "idee": {
+          "name": "Ide",
+          "text": "Ketika dia mempunyai saran atau alat untuk ditunjukkan kepada Anda."
+        },
+        "surpris": {
+          "name": "Terkejut",
+          "text": "Pada halaman kosong, tidak ditemukan atau error."
+        },
+        "victoire": {
+          "name": "Win",
+          "text": "Saat Anda menang, temukan atau simpan sesuatu."
+        },
+        "carte": {
+          "name": "Peta",
+          "text": "Dalam panduan, di peta, dan untuk strategi."
+        }
+      },
+      "kitLink": "Pose PNG-nya ada di kit merek",
+      "joinTitle": "Ayo, sapa dia",
+      "joinText": "Di server Discord, Dex menunggu Anda dengan peringatan patch, MLBBdle hari ini, dan pemain dengan peringkat Anda.",
+      "join": "Gabung ke Discord",
+      "aboutLink": "Sejarah proyek"
+    },
+    "brandKit": {
+      "title": "Perlengkapan merek",
+      "metaTitle": "Pencitraan Merek dan Kit Pers MLBBdex",
+      "metaDescription": "Warna dan kodenya, tipografi, aturan penggunaan, dan pose Dex di PNG: semua yang perlu Anda bicarakan tentang MLBBDex.",
+      "lead": "Untuk membicarakan MLBBDex dalam artikel, video, atau aliran: nama, warna, font, aturan, dan Dex dalam PNG.",
+      "dexLine": "Ambil apa yang Anda butuhkan. Hanya satu doa: jangan warnai aku dengan warna ungu.",
+      "nameTitle": "Nama",
+      "nameText": "MLBBDex ditulis dalam satu kata, “Dex” dengan warna emas. Bot Discord disebut Dex MLBB, seperti maskotnya.",
+      "colorsTitle": "Warnanya",
+      "colorsLead": "Malam untuk latar belakang, emas untuk aksen, biru dan merah untuk kedua kubu. Tidak ada yang lain.",
+      "copy": "Salin {hex}",
+      "copied": "Menyalin",
+      "colors": {
+        "night950": "Malam, latar belakang",
+        "night900": "Malam, permukaan",
+        "night800": "Malam, lega",
+        "gold400": "Emas, aksen dan angka",
+        "gold600": "Emas gelap",
+        "azure400": "Sekutu biru, apa yang naik",
+        "blood400": "Musuh merah, terjatuh",
+        "chalk100": "Kapur, teks",
+        "chalk400": "Kapur, teks sekunder"
+      },
+      "typeTitle": "Tipografi",
+      "type": {
+        "display": "Gelar, nama hero, jumlah besar: berat 800 atau 900, miring, huruf kapital.",
+        "heading": "Intertitle, tombol, menu: gemuk 600 atau 700, kanan.",
+        "body": "Teks berjalan, gambar tabel dalam tabel."
+      },
+      "sample": "Pertarungannya, secara besar-besaran",
+      "fontsNote": "Ketiganya bersifat open source dan gratis, di Google Fonts.",
+      "rulesTitle": "Aturannya",
+      "doTitle": "Ya",
+      "dontTitle": "TIDAK",
+      "do1": "Pertahankan Dex apa adanya: biru tengah malam, kuntul emas, biru kristal, dan merah.",
+      "do2": "Tempatkan di latar belakang gelap, dengan udara di sekitarnya.",
+      "do3": "Tulis MLBBDex dalam satu kata, dan Dex MLBB untuk botnya.",
+      "do4": "Klarifikasi bahwa MLBBDex adalah proyek penggemar independen.",
+      "dont1": "Warnai ulang, ubah atau tambahkan aksesori.",
+      "dont2": "Buat dia berbicara atas nama Moonton atau situs lain.",
+      "dont3": "Distorsi logo, ubah warnanya, atau letakkan di latar belakang yang menenggelamkannya.",
+      "dont4": "Keluar dari palet: tanpa ungu, tanpa gradien pelangi.",
+      "dexTitle": "Dex ke PNG",
+      "dexLead": "Latar belakang transparan, sesuai ukurannya, atau berpusat pada persegi 512 px untuk avatar atau emoji.",
+      "download": "PNG",
+      "downloadSquare": "Persegi 512 piksel",
+      "downloadLabel": "Unduh Dex, pose {pose}, dalam PNG",
+      "downloadSquareLabel": "Unduh Dex, pose {pose}, dalam PNG persegi 512 px",
+      "pressTitle": "Tekan dan hubungi",
+      "pressText": "Sebuah pertanyaan, wawancara, kemitraan? Kirimkan surat kepada kami di Discord, atau buka tiket di repositori proyek.",
+      "repo": "Pengajuan proyek",
+      "discord": "Perselisihan",
+      "legal": "Mobile Legends: Bang Bang, hero dan visualnya adalah merek dagang dari Shanghai Moonton Technology Co., Ltd. MLBBDex tidak berafiliasi atau didukung oleh Moonton: jangan gunakan visual mereka sebagai milik kami.",
+      "dexPageLink": "Siapa Dex?",
+      "logoText": "Logo: kristal dasar, setengah biru, setengah merah, dengan emblem emas bersayap. Jangan menyimpangkannya, jangan mengubah warnanya dan jangan beri udara ke sekelilingnya.",
+      "logoAlt": "Emblem MLBBDex: kristal biru dan merah dengan emblem emas bersayap",
+      "logoFile": {
+        "emblem": "Unduh logo: emblem (SVG)",
+        "logo": "Unduh logo: horisontal (SVG)",
+        "stacked": "Unduh logo: bertumpuk (SVG)"
       }
     }
   },
   "modeSheet": {
     "classic": {
       "tagline": "Tolok ukurnya 5 lawan 5",
-      "text": "Dua tim beranggotakan lima orang, tiga lane, satu Nexus untuk dihancurkan. Mode pendirian, tanpa masalah peringkat: ideal untuk menemukan hero atau melakukan pemanasan."
+      "text": "Dua tim beranggotakan lima orang, tiga lane, satu markas untuk dihancurkan. Mode historis, tanpa masalah peringkat: ideal untuk menemukan hero atau melakukan pemanasan."
     },
     "ranked": {
       "tagline": "Naik pangkat",
-      "text": "Garis kompetitif. Setiap kemenangan menghasilkan bintang dan meningkatkan Warrior ke Mythical Glory, dengan ban dan pemilihan draft dari Epic."
+      "text": "Garis kompetitif. Setiap kemenangan menghasilkan bintang untuk naik dari Warrior ke Mythic Glory, dengan ban dan drafting dari Epic."
     },
     "brawl": {
-      "tagline": "Hanya satu cara, segera",
+      "tagline": "Hanya satu lane, segera",
       "text": "Kartu tunggal dengan satu lane, hero diambil secara acak. Permainan pendek dan menegangkan, tanpa hutan atau lama kembali ke fase dasar."
     },
     "vs-ai": {
@@ -4819,7 +5019,7 @@
     },
     "arcade-mode": {
       "tagline": "Mode fana",
-      "text": "Rotasi mode spesial dan meriah – Perburuan Ajaib, Bertahan Hidup, dan varian lainnya – ditawarkan dalam waktu terbatas."
+      "text": "Mode khusus ditawarkan untuk waktu terbatas, secara bergilir: Perburuan Ajaib, Bertahan Hidup, dan varian lainnya."
     }
   },
   "roles": {
@@ -5008,34 +5208,43 @@
           "p": "Roster lengkap, skin tiap hero, item, emblem, battle spell, dan daftar patchnya. Data ini secara otomatis diambil dari wiki komunitas setiap minggu: hero baru muncul di sini tanpa ada yang harus memasukkannya."
         },
         {
-          "p": "Selain itu, tidak ada ekstraksi yang akan menghasilkan: analisis yang ditulis untuk beberapa hero - apa yang sebenarnya mereka lakukan, build mereka, counter mereka - tier list di mana setiap penempatan diperdebatkan, dan panduan mendalam."
+          "p": "Ditambah lagi hal yang tidak akan dihasilkan oleh ekstraksi mana pun: analisis tertulis untuk sebagian hero (apa yang mereka lakukan, build, dan counter mereka), komentar tertulis untuk sebagian hero di tier list, dan panduan mendalam. Peringkat tier list sendiri bukan opini: peringkat itu dihitung dari win rate dan ban rate."
         },
         {
           "h": "Apa yang tidak dikandungnya, dan mengapa"
         },
         {
-          "p": "Tidak ada peringkat pemain atau “MMR”. Moonton tidak menerbitkan antarmuka resmi apa pun: statistik yang ditampilkan di sini - win rate, ban dan pemilihan, counter, pembangunan, tren - berasal dari API komunitas arena.rone.dev, yang mengumpulkan game yang diberi peringkat berdasarkan peringkat. Situs yang menampilkan “MMR” untuk Mobile Legends memperkirakannya; mereka tidak membacanya di mana pun."
+          "p": "Tidak ada peringkat pemain atau “MMR”. Moonton tidak mempublikasikan API resmi apa pun: statistik yang ditampilkan di sini (win rate, ban dan pengambilan, counter, build, tren) berasal dari API komunitas arena.rone.dev, yang menggabungkan game yang diberi peringkat berdasarkan peringkat. Situs yang menampilkan “MMR” untuk Mobile Legends memperkirakannya: mereka tidak membacanya di mana pun."
         },
         {
-          "p": "Masuk dengan kode verifikasi game, Anda melihat profil Anda sendiri — musim, hero yang dimainkan, game terbaru — baca sesuai permintaan melalui API yang sama, hanya untuk Anda. Itu tidak dipublikasikan atau disimpan melebihi cache beberapa menit."
+          "p": "Jika kamu masuk dengan kode verifikasi game, kamu melihat profilmu sendiri (season, hero yang dimainkan, pertandingan terakhir), dibaca saat diminta melalui API yang sama dan hanya terlihat olehmu. Profil itu tidak dipublikasikan. Agar tidak meminta semuanya lagi di setiap kunjungan, jawaban dari game disimpan sementara di memori server, tidak pernah di disk: dari dua menit hingga enam jam, tergantung datanya. Satu-satunya pengecualian adalah kartu /profile dari bot Discord, jika kamu menautkannya: situs menyimpan token game-mu dalam bentuk terenkripsi paling lama 7 hari, dan angka di kartu, yang dihapus 30 hari setelah pembaruan terakhir atau begitu kamu melepas tautannya."
         },
         {
-          "p": "Visualnya adalah milik Moonton, dan untuk skin kolaborasinya juga milik pemegang hak karakter dan brand yang bersangkutan. Potret, ikon, dan ilustrasi skin berasal dari wiki komunitas dan disajikan oleh situs ini sehingga tidak ada yang bergantung pada domain pihak ketiga. Mereka tetap menjadi milik Moonton, hadir untuk tujuan ilustrasi, dan akan dihapus atas permintaan pemegang hak. Identitas visual situs – biru tengah malam, emas, jalan pintas – terinspirasi oleh permainan tanpa menggunakan file antarmuka."
+          "p": "Visualnya adalah milik Moonton dan, untuk skin kolaborasi, milik pemegang hak karakter dan merek yang bersangkutan. Potret, ikon, dan ilustrasi skin berasal dari wiki komunitas dan disajikan oleh situs ini sehingga tidak ada yang bergantung pada domain pihak ketiga. Mereka tetap menjadi milik Moonton, hadir untuk tujuan ilustrasi dan akan dihapus atas permintaan pemegang hak. Identitas visual situs (biru tua, emas, jalan pintas) terinspirasi oleh permainan tanpa menggunakan file antarmuka."
+        },
+        {
+          "h": "Nama dan merek"
+        },
+        {
+          "p": "“Dex” berasal dari indeks: situs menyimpan di satu tempat segala sesuatu yang diterbitkan oleh game dan segala sesuatu yang diukur dalam peringkat game. Identitasnya, Land of Dawn, menempati malam, emas, dan potongan diagonal pada antarmuka game, sehingga kami mengenali halaman MLBBDex tanpa melihat namanya."
+        },
+        {
+          "p": "Dex, maskot situs tersebut, berasal dari negeri ini. Dia menyambut pengunjung situs dan, dengan nama Dex MLBB, merespons di Discord saat Anda mengetik /hero atau /build. [Kisahnya dan posenya ada di halamannya.](/dex) Warna, font, aturan penggunaan, dan Dex dalam PNG: [kit merek](/brand)."
         },
         {
           "h": "Sehari sebelumnya"
         },
         {
-          "p": "Bagian pemantauan secara otomatis mengumpulkan publikasi dari situs lain di dalam game. Ini hanya menampilkan judul, tanggal dan kutipan singkat, dan secara sistematis menghubungkan kembali ke penerbit asli: tidak ada yang diterbitkan ulang di sana."
+          "p": "Bagian pemantauan secara otomatis mengumpulkan publikasi dari situs lain di dalam game. Ini hanya menampilkan judul, tanggal dan kutipan singkat, dan selalu mengacu pada penerbit asli: tidak ada yang diterbitkan ulang di sana."
         },
         {
-          "p": "Moonton tidak mempublikasikan streaming resmi apa pun — situs game adalah aplikasi dengan konten yang tidak dapat di-streaming. Oleh karena itu, pembaruan pada game ini diambil dan dikomentari secara manual di patch notes, sedangkan sehari sebelumnya mencakup apa yang dipublikasikan oleh web lainnya."
+          "p": "Moonton tidak mempublikasikan feed resmi apa pun: situs game adalah aplikasi yang kontennya tidak dapat direproduksi. Oleh karena itu, pembaruan pada game ini disertakan dan dikomentari secara manual di patch notes, sedangkan sehari sebelumnya mencakup apa yang dipublikasikan oleh web lainnya."
         },
         {
           "h": "Akun"
         },
         {
-          "p": "Ini opsional: semua konten dapat diakses tanpa login. Login memerlukan kode verifikasi resmi Moonton – kode empat digit yang dikirimkan ke email dalam game Anda. Situs ini tidak pernah melihat kata sandi Anda: situs menerima token sementara, disimpan dalam cookie aman, yang Anda hapus saat Anda keluar."
+          "p": "Ini opsional: semua konten dapat diakses tanpa login. Login dilakukan melalui kode verifikasi resmi Moonton (kode empat digit yang dikirimkan ke email dalam game Anda). Situs ini tidak pernah melihat kata sandi Anda: situs menerima token sementara, disimpan dalam cookie aman, yang Anda hapus saat Anda keluar."
         },
         {
           "p": "Tidak ada akun yang dibuat di situs ini. Hero favorit Anda tetap ada di browser Anda. Hanya pemberitahuan, jika Anda mengaktifkannya, simpan alamat pengirim browser Anda dan daftar favorit Anda di server: halaman kerahasiaan merinci apa yang disimpan dan cara menghapusnya."
@@ -5044,7 +5253,7 @@
           "h": "Berkontribusi"
         },
         {
-          "p": "Kode dan konten bersifat publik. Lembar hero ada dalam file TypeScript yang diketik, artikel dalam file Markdown: Anda dapat menambahkan lembar atau memperbaiki kesalahan tanpa mengetahui sisa proyek."
+          "p": "Kode dan konten bersifat publik. Lembar hero ditulis dalam file TypeScript yang diketik, artikel dalam Penurunan Harga: Anda dapat menambahkan lembar atau memperbaiki kesalahan tanpa mengetahui sisa proyek."
         },
         {
           "p": "[Repositori ada di sini.]({repository}) Perbaikan penyeimbangan, file yang hilang, dan koreksi sangat diterima."
@@ -5084,7 +5293,7 @@
           "p": "Visual yang ditampilkan (potret, ikon, emblem, ilustrasi) dan nama permainannya adalah © Moonton. Skin kolaborasi tersebut (NARUTO, Star Wars, Transformers, Jujutsu Kaisen, The King of Fighters, Neymar Jr, dan lainnya) menampilkan karakter, merek, dan orang-orang milik pemegang haknya masing-masing, di bawah lisensi yang diberikan kepada Moonton: situs hanya menampilkan potret kecil dari toko, tidak pernah menampilkan ilustrasi besar. Visual ini disalin dari wiki komunitas untuk tujuan ilustrasi dan informasi; mereka tidak dilisensikan di bawah CC BY-SA. Atas permintaan pemegang hak, mereka akan dihapus."
         },
         {
-          "p": "Teks faktual (deskripsi, cerita, patch notes, daftar skin) diambil dari [wiki Mobile Legends](https://mobilelegends.fandom.com) di Fandom dan dari [Liquipedia](https://liquipedia.net/mobilelegends), di bawah lisensi CC BY-SA: setiap halaman yang menggunakannya mencantumkan sumbernya, dan terjemahannya tetap di bawah lisensi ini. Nomor permainan berasal dari API komunitas. Kode dan teks yang ditulis untuk situs ini diterbitkan di bawah lisensi MIT — lihat [repositori publik]({repository})."
+          "p": "Teks faktual (deskripsi, cerita, patch notes, daftar skin) diambil dari [wiki Mobile Legends](https://mobilelegends.fandom.com) di Fandom dan dari [Liquipedia](https://liquipedia.net/mobilelegends), di bawah lisensi CC BY-SA: setiap halaman yang menggunakannya mencantumkan sumbernya, dan terjemahannya tetap di bawah lisensi ini. Nomor permainan berasal dari API komunitas. Kode dan teks yang ditulis untuk situs ini diterbitkan di bawah lisensi MIT (lihat [repositori publik]({repository}))."
         },
         {
           "h": "Tanggung jawab"
@@ -5103,7 +5312,7 @@
     "privacy": {
       "blocks": [
         {
-          "p": "Situs ini dirancang untuk memproses data sesedikit mungkin. Sebagian besar halaman berfungsi tanpa akun dan tanpa menyimpan apa pun di server; hanya fitur yang Anda pilih untuk digunakan (akun game atau login Discord, komunitas, koleksi, notifikasi, pelaporan kesalahan, bot Discord) yang mempertahankan apa yang dijelaskan di bawah. Sesuai dengan Peraturan Perlindungan Data Umum (GDPR) dan Undang-Undang Perlindungan Data, halaman ini merinci apa yang diproses, alasannya, untuk berapa lama, dan bagaimana menggunakan hak Anda."
+          "p": "Situs ini dirancang untuk memproses data sesedikit mungkin. Sebagian besar halaman berfungsi tanpa akun dan tanpa menyimpan apa pun di server; Hanya fitur yang Anda pilih untuk digunakan (akun game atau login Discord, komunitas, koleksi, notifikasi, pelaporan kesalahan, bot Discord) yang menyimpan data yang dijelaskan di bawah. Sesuai dengan Peraturan Perlindungan Data Umum (GDPR) dan Undang-Undang Perlindungan Data, halaman ini merinci apa yang diproses, alasannya, untuk berapa lama, dan bagaimana menggunakan hak Anda."
         },
         {
           "h": "Pengontrol data"
@@ -5139,13 +5348,13 @@
     },
     "bot": {
       "title": "Bot perselisihan (opsional)",
-      "intro": "Jika Anda menggunakan bot MLBBEx Discord atau dasbornya, server situs juga menyimpan:",
+      "intro": "Jika Anda menggunakan bot Discord Dex MLBB atau dashboardnya, server situs juga menyimpan:",
       "cookie": "cookie sesi terenkripsi, `mlbbdex_discord` (httpOnly, 7 hari), jika Anda masuk dengan Discord ke dasbor atau forum: ID Discord Anda, nama dan avatar, tidak ada yang lain; tidak ada token Discord yang dipertahankan;",
       "servers": "untuk setiap server tempat bot berada: nama, bahasa, dan pengaturannya;",
       "results": "untuk peringkat game hari ini yang dimainkan di Discord: ID Discord para pemain dan nama panggilan serta skor mereka.",
       "details": "Detail, periode penyimpanan, dan penghapusan dijelaskan di halaman privasi bot.",
       "members": "Tidak ada data anggota server yang disimpan: bergabung dan keluarnya mereka, yang diberitahukan Discord ke bot, hanya dipakai untuk memposting pesan sambutan dan perpisahan yang diaktifkan server.",
-      "profile": "untuk kartu /profile, jika Anda menautkannya dari halaman akun Anda: cetakan ID Discord Anda dan salah satu ID permainan Anda dan server Anda (tidak pernah ID itu sendiri), dua pilihan Anda (jika orang lain dapat menampilkannya, jika itu menunjukkan ID Anda), salinan statistik Anda pada pembacaan terakhir: nama panggilan, avatar, negara, level, peringkat, permainan dan kemenangan musim ini, tiga hero yang paling sering dimainkan, dan token permainan Anda, terenkripsi (AES-256-GCM), hingga habis masa berlakunya (paling lama 7 hari), sehingga /profile membaca ulang statistik Anda pada setiap panggilan. Setiap koneksi baru ke situs memperbarui token ini. Kartu dan token akan dihapus saat Anda melepas ikatannya; kartunya juga 30 hari setelah pembacaan terakhir;"
+      "profile": "untuk kartu /profile, jika Anda menautkannya dari halaman akun Anda: cetakan ID Discord Anda dan salah satu ID game dan server Anda (tidak pernah ID itu sendiri), dua pilihan Anda (apakah orang lain dapat melihatnya, apakah itu menunjukkan ID Anda), salinan statistik Anda yang terakhir dibaca (nama pengguna, avatar, negara, level, peringkat, permainan dan kemenangan musim ini, tiga hero yang paling sering dimainkan), dan token permainan Anda, terenkripsi (AES-256-GCM), hingga habis masa berlakunya (paling lama 7 hari), sehingga /profile membaca ulang statistik Anda pada setiap panggilan. Setiap koneksi baru ke situs memperbarui token ini. Kartu dan token akan dihapus saat Anda melepas ikatannya; kartunya juga 30 hari setelah pembacaan terakhir;"
     },
     "community": {
       "title": "Komunitas: forum dan pencari rekan tim",
@@ -5155,7 +5364,7 @@
       "posts": "diskusi dan balasanmu, yang bersifat publik, beserta tanggalnya; vote dan laporanmu, yang hanya dilihat moderator (laporan);",
       "card": "kartu cari rekan timmu dan, jika kamu menambahkannya, ID game dan username Discord: hanya ditampilkan ke pemain yang masuk, dan kartu dihapus tujuh hari setelah terakhir disimpan.",
       "moderation": "Moderator melihat laporan dan dapat menyembunyikan, menghapus atau melarangnya; setiap keputusan mereka dicatat dalam jurnal. Batasan kecepatan menggunakan alamat IP Anda, hanya di memori: tidak pernah ditulis ke disk.",
-      "deletion": "Anda dapat mengedit pesan selama satu jam dan menghapusnya selama sehari, menarik kartu Anda kapan saja. Pesan yang dihapus kehilangan teksnya; diskusi yang dihapus tetap mempertahankan judul, penulis, dan tanggalnya. Selain itu, atau untuk menghapus semua partisipasi Anda, tulis ke {contact}.",
+      "deletion": "Anda dapat mengedit pesan selama satu jam, menghapusnya selama sehari, dan mengeluarkan kartu Anda kapan saja. Pesan yang dihapus kehilangan teksnya; diskusi yang dihapus tetap mempertahankan judul, penulis, dan tanggalnya. Selain itu, atau untuk menghapus semua partisipasi Anda, tulis ke {contact}.",
       "pseudonymous": "Sidik jari ini (SHA-256, bebas garam) adalah data nama samaran, bukan anonim: siapa pun yang mengetahui ID game dan server Anda, atau ID Perselisihan Anda, dapat menghitung ulang sidik jari tersebut. Mereka tetap menjadi data pribadi, dilindungi sebagaimana mestinya."
     },
     "collection": {
@@ -5255,7 +5464,7 @@
       },
       "game": {
         "title": "Masuk ke akun permainan",
-        "text": "Koneksinya menggunakan alur resmi Moonton: Anda menunjukkan nama pengguna dan server game Anda, kode verifikasi dikirimkan kepada Anda dalam game, dan situs menerima token sementara sebagai imbalannya. Pertukaran ini melalui API komunitas (`arena.rone.dev`) dan melalui layanan Moonton, yang menerima pengidentifikasi Anda, server Anda, kode, lalu token. Token berada di cookie sesi `mlbb_jeu`; itu hanya disimpan di server jika Anda menautkan kartu /profile, dienkripsi dan sampai habis masa berlakunya (lihat bagian di bot Discord); tanggapan layanan (profil, statistik, permainan) disimpan dalam memori paling lama beberapa jam, untuk membatasi panggilan. Anda tidak pernah dimintai kata sandi. Server hanya memelihara sesuatu secara permanen jika Anda menggunakan komunitas atau koleksi, seperti dijelaskan di bawah."
+        "text": "Koneksinya menggunakan alur resmi Moonton: Anda menunjukkan nama pengguna dan server game Anda, kode verifikasi dikirimkan kepada Anda dalam game, dan situs menerima token sementara sebagai imbalannya. Pertukaran ini melalui API komunitas (`arena.rone.dev`) dan melalui layanan Moonton, yang menerima pengidentifikasi Anda, server Anda, kode, lalu token. Token disimpan dalam cookie sesi `mlbb_jeu`; itu hanya disimpan di server jika Anda menautkan kartu /profile, dienkripsi dan sampai habis masa berlakunya (lihat bagian di bot Discord); tanggapan layanan (profil, statistik, permainan) disimpan dalam memori paling lama beberapa jam, untuk membatasi panggilan. Anda tidak pernah dimintai kata sandi. Server hanya menyimpan data secara permanen jika Anda menggunakan komunitas atau koleksi, seperti dijelaskan di bawah."
       },
       "thirdParty": {
         "title": "Konten pihak ketiga",
@@ -5273,7 +5482,7 @@
       },
       "transfers": {
         "title": "Transfer ke luar Uni Eropa",
-        "text": "Fitur opsional tertentu melibatkan layanan yang berlokasi di luar Uni Eropa: Discord, di Amerika Serikat, jika Anda terhubung dengan Discord atau menggunakan bot (transfer diatur oleh kerangka perlindungan data UE-AS atau klausul kontrak standar Komisi Eropa); Moonton, Asia, dan API Komunitas `arena.rone.dev`, jika Anda menghubungkan akun game Anda; layanan notifikasi browser Anda, jika Anda mengaktifkan notifikasi. Transfer ini hanya terjadi jika Anda menggunakan fungsi-fungsi ini."
+        "text": "Beberapa fitur opsional melibatkan layanan yang berlokasi di luar Uni Eropa: Discord, di Amerika Serikat, jika Anda terhubung dengan Discord atau menggunakan bot (transfer tercakup dalam Kerangka Perlindungan Data UE-AS atau Klausul Kontrak Standar Komisi Eropa); Moonton, Asia, dan API Komunitas `arena.rone.dev`, jika Anda menghubungkan akun game Anda; layanan notifikasi browser Anda, jika Anda mengaktifkan notifikasi. Transfer ini hanya terjadi jika Anda menggunakan fungsi-fungsi ini."
       },
       "retention": {
         "title": "Berapa lama data disimpan",
@@ -5314,7 +5523,7 @@
     "none": "Tidak ada hero yang cocok.",
     "curves": "Win rate selama {n} hari",
     "loading": "Memuat kurva…",
-    "curvesError": "Kurva tidak dapat dimuat.",
+    "curvesError": "Saya tidak dapat memuat kurvanya. Coba lagi sebentar lagi.",
     "noCurve": "Belum ada pengukuran harian untuk kedua hero ini.",
     "noCurveAtRank": "Belum ada pengukuran harian untuk {name} pada peringkat ini.",
     "curvesSummary": "Win rate harian pada {n} hari, {rank}: {details}.",
@@ -5348,14 +5557,14 @@
   },
   "emblemsUI": {
     "talents": "Bakat yang menentukan",
-    "talentsDesc": "Lantai paling atas: dialah yang mengubah suatu bagian.",
+    "talentsDesc": "Lantai paling atas: dialah yang memiringkan permainan.",
     "attributes": "Atribut",
     "attributesDesc": "Tahap pertama menyesuaikan statistik. Mereka menghitung, tanpa memutuskan.",
     "spells": "Battle Spell",
     "spellsDesc": "Satu lokasi: spell harus merespons kekurangan hero.",
     "yourRole": "Peran Anda",
     "removeFilter": "Hapus penyaring",
-    "roleHelp": "Memilih peran kembali ke apa yang cocok untuk Anda. Sisanya memudar ke latar belakang, tanpa menghilang.",
+    "roleHelp": "Memilih peran memunculkan apa yang cocok untuk Anda. Sisanya memudar ke latar belakang, tanpa menghilang.",
     "seePage": "{name}: halaman penuh"
   },
   "skinsUI": {
@@ -5389,7 +5598,7 @@
     "chooseIn": "Pilih {name} hingga {lane}",
     "remove": "Hapus {name}",
     "chooseLane": "Pilih hero untuk lane {lane}",
-    "lanePlaceholder": "Hero {lane} — atau cari berdasarkan nama",
+    "lanePlaceholder": "Hero {lane}, atau cari berdasarkan nama",
     "chooseOne": "Pilih hero",
     "laneFilter": "Posisi",
     "roleFilter": "Peran",
@@ -5416,7 +5625,7 @@
     "methodTitle": "Metode dan sumber"
   },
   "newHero": {
-    "highlight": "Kekhasan —",
+    "highlight": "Fitur khusus:",
     "title": "Hero baru",
     "seeSheet": "Lihat profil lengkap {name}"
   },
@@ -5436,11 +5645,15 @@
       "playerId": "Pengidentifikasi tidak valid.",
       "server": "Server tidak valid.",
       "invalidInput": "Entri tidak valid.",
-      "code": "Kode ini panjangnya empat digit.",
+      "code": "Panjang kode harus empat digit.",
       "unknown": "Tidak ada akun yang cocok dengan nama pengguna dan server ini.",
       "unavailable": "Layanan ini untuk sementara tidak tersedia.",
       "wrongCode": "Kode salah atau kedaluwarsa."
-    }
+    },
+    "steps": "Langkah-langkah koneksi",
+    "step1": "tanda pengenal Anda",
+    "step2": "Kode diterima dalam game",
+    "stepOf": "Langkah {n} dari 2"
   },
   "articleUI": {
     "none": "Belum ada publikasi.",
@@ -5474,10 +5687,10 @@
     "points": "{n} poin"
   },
   "favourites": {
-    "intro": "Disimpan ke perangkat ini, di browser ini — apa pun akun Anda. Mereka tidak melakukan sinkronisasi antar perangkat.",
+    "intro": "Disimpan ke browser ini, di perangkat ini, bukan akun Anda: keduanya tidak disinkronkan antar perangkat.",
     "nonePre": "Belum ada favorit. Di lembar hero,",
     "noLink": "tambahkan satu",
-    "nonePost": "untuk menemukannya di sini.",
+    "nonePost": ": Aku akan menyimpannya di sini untukmu.",
     "account": "{n} hero",
     "kept1": "tetap di tangan",
     "kept": "tetap di tangan",
@@ -5499,8 +5712,8 @@
       "denied": "Pemberitahuan diblokir untuk situs ini: izinkan di pengaturan browser Anda, lalu coba lagi.",
       "unsupported": "Browser ini tidak mendukung notifikasi web.",
       "iosInstall": "Di iPhone dan iPad, instal situsnya terlebih dahulu: Bagikan, lalu “Di layar beranda”. Kemudian buka dari ikonnya untuk mengaktifkan notifikasi.",
-      "error": "Operasi gagal. Coba lagi sebentar lagi.",
-      "life": "Untuk melakukan ini, server menyimpan alamat notifikasi browser ini dan daftar favorit Anda hingga penonaktifan.",
+      "error": "Itu tidak berhasil. Coba lagi sebentar lagi.",
+      "life": "Untuk melakukan ini, server menyimpan alamat notifikasi browser ini dan daftar favorit Anda hingga Anda menonaktifkan notifikasi.",
       "privacyLink": "Pelajari lebih lanjut"
     }
   },
@@ -5535,12 +5748,12 @@
     "tank-emblem": {
       "name": "Tank Emblem",
       "bonus": "HP dan resistensi",
-      "bestFor": "Tank pertunangan dan tank EXP Lane."
+      "bestFor": "Tank keterlibatan dan tank EXP Lane."
     },
     "fighter-emblem": {
       "name": "Fighter Emblem",
       "bonus": "Serangan damage dan lifesteal",
-      "bestFor": "Fighter lane berpengalaman yang harus memenangkan duelnya."
+      "bestFor": "Fighter EXP Lane yang harus memenangkan duelnya."
     },
     "assassin-emblem": {
       "name": "Assassin Emblem",
@@ -5634,7 +5847,7 @@
     },
     "concussive-blast": {
       "name": "Concussive Blast",
-      "description": "Menimbulkan damage area berdasarkan HP maksimum.",
+      "description": "Menimbulkan damage area yang dihitung pada HP maksimum.",
       "bestFor": "Tank pertunangan: Tigreal, Khufra, Atlas."
     },
     "wilderness-blessing": {
@@ -5650,7 +5863,7 @@
     "brave-smite": {
       "name": "Brave Smite",
       "description": "Memukul musuh dengan skill akan memulihkan HP.",
-      "bestFor": "Fighter lane berpengalaman."
+      "bestFor": "Fighter EXP Lane."
     },
     "killing-spree": {
       "name": "Killing Spree",
@@ -5679,12 +5892,12 @@
     },
     "execute": {
       "name": "Execute",
-      "description": "Memberikan damage berdasarkan HP target yang hilang.",
+      "description": "Menimbulkan damage yang dihitung berdasarkan HP target yang hilang.",
       "bestFor": "Jungler dan Assassin yang harus menyimpulkan."
     },
     "retribution": {
       "name": "Retribution",
-      "description": "Menimbulkan damage signifikan pada monster dan memperkuat pembersihan hutan.",
+      "description": "Menimbulkan damage signifikan pada monster dan mempercepat farming di hutan.",
       "bestFor": "Wajib di Jungler."
     },
     "purify": {
@@ -5710,22 +5923,22 @@
     "arrival": {
       "name": "Arrival",
       "description": "Teleportasi hero ke turret atau minion teman.",
-      "bestFor": "Lane solo yang harus cepat kembali setelah kembali ke base."
+      "bestFor": "Hero solo lane yang harus cepat kembali setelah kembali ke base."
     },
     "vengeance": {
       "name": "Vengeance",
       "description": "Mencerminkan sebagian damage yang diterima selama durasi tersebut.",
-      "bestFor": "Fighter lane berpengalaman."
+      "bestFor": "Fighter EXP Lane."
     },
     "aegis": {
       "name": "Aegis",
       "description": "Memberikan perisai pada diri sendiri dan sekutu di sekitar.",
-      "bestFor": "Penopang dan tank pelindung."
+      "bestFor": "Dukungan dan tank pelindung."
     },
     "revitalize": {
       "name": "Revitalize",
       "description": "Menciptakan area yang menyembuhkan sekutu yang ada.",
-      "bestFor": "Dukungan untuk damage menyebar seiring waktu."
+      "bestFor": "Mendukung menghadapi damage yang menyebar seiring waktu."
     },
     "flameshot": {
       "name": "Flameshot",
@@ -5738,8 +5951,9 @@
     "text": "Situs mengalami masalah yang tidak terduga. Coba lagi sebentar lagi.",
     "retry": "Coba lagi",
     "oops": "Ups",
-    "pageText": "Terjadi masalah saat memuat halaman ini. Anda dapat mencoba lagi, atau kembali ke halaman beranda.",
-    "home": "Kembali ke beranda"
+    "pageText": "Halaman ini gagal dimuat. Anda dapat mencoba lagi atau kembali ke halaman beranda.",
+    "home": "Kembali ke beranda",
+    "dexLine": "Aduh, ada sesuatu yang mengganjal di pihak kami. Percobaan baru sering kali sudah cukup."
   },
   "heroCard": {
     "tierTitle": "Tier {p} di tier list",
@@ -5770,7 +5984,7 @@
     "written": "Build yang dikomentari",
     "writtenIntro": "Ditulis manual, dengan konteks permainan.",
     "guide": "Build lengkap dari pemain",
-    "guideIntro": "Peralatan lengkap, enam item, diusulkan oleh pemain dengan peringkat ini - atau, jika gagal, dengan peringkat lebih tinggi: panduan dengan peringkat tertinggi di akademi game. Ini adalah opini, bukan pengukuran - tidak memiliki win rate.",
+    "guideIntro": "Enam item yang ditawarkan oleh pemain dengan peringkat ini (atau, jika tidak, peringkat yang lebih tinggi): panduan dengan peringkat tertinggi di akademi game. Ini adalah opini, bukan pengukuran: tidak ada win rate.",
     "guideAuthor": "Peringkat penulis terbaik: {rank}",
     "guideVotes": "{n} suara",
     "gapTitle": "Menghadapi build yang paling banyak dimainkan",
@@ -5779,7 +5993,7 @@
     "aligned": "item kunci yang sama."
   },
   "offline": {
-    "banner": "Offline — halaman yang dilihat sebelumnya tetap tersedia."
+    "banner": "Offline: halaman yang sudah dilihat tetap tersedia."
   },
   "discordPopup": {
     "label": "Undangan Discord MLBBDex",
@@ -5796,13 +6010,14 @@
     "groups": {
       "hero": "Hero",
       "item": "Item",
-      "patch": "Patch notes",
+      "patch": "Patch Notes",
       "page": "Halaman",
       "skill": "Skill",
       "skin": "skin",
       "emblem": "emblem",
       "spell": "Battle Spell"
-    }
+    },
+    "dexEmpty": "Hmm, saya tidak dapat menemukan apa pun. Coba nama lain, atau lebih sedikit huruf."
   },
   "heroData": {
     "resource": {
@@ -5910,11 +6125,11 @@
     "offLane": "Tanpa lane bebas",
     "copy": "Salin tautan",
     "linkCopied": "Tautan disalin.",
-    "copyFailed": "Tidak dapat menyalin: salin alamat halaman.",
+    "copyFailed": "Saya tidak dapat menyalin: salin alamat halamannya.",
     "intro": "Tambahkan hero pertama untuk memulai analisis. Itu menjadi lebih kaya dengan setiap penambahan, dan alamat halaman mempertahankan komposisi Anda: Anda hanya perlu membagikannya.",
     "analysis": "Analisa",
     "loading": "Memuat pengukuran baris…",
-    "error": "Pengukuran peringkat ini tidak dapat dimuat. Coba lagi atau pilih peringkat lain.",
+    "error": "Saya tidak dapat memuat pengukuran untuk peringkat ini. Coba lagi, atau pilih peringkat lain.",
     "averageRate": "Win rate rata-rata",
     "lanesCovered": "Pakaian lane",
     "synergyCount": "Sinergi",
@@ -5924,7 +6139,7 @@
       "none": "Tidak ada yang perlu dilaporkan: setiap lane dikuasai, dan tim tidak kekurangan garis depan, kendali, atau perlawanan.",
       "nonePartial": "Tidak ada yang perlu dilaporkan saat ini.",
       "tooFew": "Keseimbangan tim dinilai dari {n} hero.",
-      "lanes": "Dua hero bersaing untuk lane yang sama, dan tidak ada yang memegang: {lanes} (tanpa lane bebas: {names}).",
+      "lanes": "Dua hero bersaing untuk lane yang sama, dan tidak ada yang memegang {lanes} (tanpa lane bebas: {names}).",
       "tank": "Tidak ada tank: tidak ada yang melakukan perlawanan ke garis depan atau terlibat dalam pertempuran.",
       "damage": {
         "physical": "Hampir semua damage fisik: lawan melindungi dirinya dengan beberapa item armor.",
@@ -6028,7 +6243,7 @@
         "pro": "Pro"
       },
       "difficultyHelp": {
-        "easy": "Pukulan lambat dan mantap, tanda ambang batas dan HP ditampilkan. Jungler lawan bereaksi dalam waktu lebih dari satu detik.",
+        "easy": "Pukulan lambat dan mantap, tanda ambang batas, dan HP ditampilkan. Jungler lawan bereaksi dalam waktu lebih dari satu detik.",
         "normal": "Irama pertempuran nyata, beberapa musuh meledak. Mark dan HP masih ditampilkan.",
         "hard": "Pukulan yang cepat dan tidak teratur, sering terjadi ledakan. Tidak ada lagi penanda atau HP: baca bilahnya.",
         "pro": "Jungler lawan menyerang dalam 300 hingga 420 ms: Anda harus mengantisipasi pukulan yang melewati ambang batas."
@@ -6079,7 +6294,7 @@
       "copy": "Salin hasilnya",
       "download": "Unduh gambar",
       "copied": "Hasil disalin, dengan tautannya.",
-      "shareError": "Tidak dapat berbagi di perangkat ini.",
+      "shareError": "Berbagi tidak berfungsi di perangkat ini.",
       "recordsTitle": "Catatan Anda",
       "recordSetting": "Bagian terbaiknya ({objective}, {difficulty})",
       "currentRun": "Seri saat ini",
@@ -6177,5 +6392,98 @@
     "currentGranted": "Pilihan saat ini: cookie diterima pada {date}.",
     "currentDenied": "Pilihan saat ini: cookie ditolak pada {date}.",
     "manage": "Kelola cookie"
+  },
+  "feed": {
+    "title": "MLBBDex — berita dan panduan",
+    "description": "Lembar hero, build dan counter berdasarkan rank, tier list, item, emblem, patch note dan berita dari Mobile Legends: Bang Bang, dalam bahasa Perancis."
+  },
+  "dex": {
+    "name": "Dex",
+    "label": "Dex, maskot MLBBDex",
+    "talk": "Bicaralah dengan Dex",
+    "hide": "Sembunyikan Dex",
+    "close": "Tutup gelembungnya",
+    "default1": "Ctrl + K membuka pencarian: hero, item, penampilan, keseluruhan situs.",
+    "default2": "Angka tersebut dicatat setiap hari pada game berperingkat.",
+    "default3": "Anda dapat mengubah bahasa di kanan atas, saya berbicara sembilan bahasa.",
+    "home1": "Hero hari ini berubah setiap hari. Kembalilah besok!",
+    "home2": "Tier list dihitung ulang pada setiap pembacaan tarif.",
+    "home3": "Ingin bermain? MLBBdle dan kuis menanti Anda setiap hari.",
+    "heroes1": "Filter berdasarkan peran atau lane untuk menemukan peran Anda selanjutnya.",
+    "heroes2": "Kartu diurutkan berdasarkan level: S+ terlebih dahulu.",
+    "heroes3": "Bintang di peta? Itu salah satu favoritmu.",
+    "hero1": "Perubahan peringkat di bagian atas lembar: tarif, counter, dan build mengikuti.",
+    "hero2": "Tab Counter memberi tahu Anda siapa yang mengalahkannya dan siapa yang dikalahkannya.",
+    "hero3": "Tambahkan sebagai favorit untuk diberitahu tentang setiap patch.",
+    "tierList1": "Tingkat tersebut menggabungkan win rate dan seperempat ban rate.",
+    "tierList2": "Filter berdasarkan peringkat: meta Epic bukanlah meta Mythic Glory.",
+    "tierList3": "Hero yang dimainkan terlalu sedikit tidak di-ranking, maka pengukurannya akan tidak stabil.",
+    "statistics1": "Klik pada header untuk mengurutkan tabel.",
+    "statistics2": "Kurva kecil menunjukkan evolusi selama tiga puluh hari.",
+    "statistics3": "Panah biru naik, panah merah turun.",
+    "items1": "Klik pada suatu item untuk melihat siapa yang membuatnya.",
+    "items2": "Tab mengelompokkan item berdasarkan kategori.",
+    "items3": "Harganya dalam bentuk emas, seperti di toko dalam game.",
+    "guides1": "Setiap panduan dimulai dengan hal-hal penting, dalam gelembung saya.",
+    "guides2": "Pembaruan blok langsung dengan meta.",
+    "guides3": "Mulailah dengan panduan lane Anda.",
+    "map1": "Gunakan panah keyboard untuk berpindah dari satu titik ke titik lainnya.",
+    "map2": "Kura-kura tiba di hadapan Lord: rencanakan rotasi Anda.",
+    "map3": "Setiap titik mempunyai waktu kemunculannya masing-masing.",
+    "tools1": "Draft tersebut menawarkan Anda pilihan terhadap komposisi lawan.",
+    "tools2": "Pengatur waktu objektif bahkan bekerja secara offline.",
+    "tools3": "Simulator build menghitung statistik Anda pada level yang dipilih.",
+    "draft1": "Mulailah dengan pilihan lawan: Saya menawarkan Anda counternya.",
+    "draft2": "Simulator memainkan sisi lain untuk melatih Anda.",
+    "draft3": "Draft laporan Anda dapat dibagikan dengan tautan.",
+    "games1": "Tantangan baru setiap hari, pada tengah malam waktu server.",
+    "games2": "Setiap kesalahan membuka sebuah petunjuk.",
+    "games3": "Kemenangan beruntun Anda disimpan di browser ini.",
+    "patch1": "Biru: diperkuat. Merah: melemah. Abu-abu: pas.",
+    "patch2": "Perbandingan selisih kemenangan sebelum dan sesudah patch.",
+    "patch3": "Advanced Server menunjukkan apa yang akan segera hadir.",
+    "esports1": "Meta pro bukanlah meta yang diperingkat: bandingkanlah.",
+    "esports2": "Klik pada turnamen untuk melihat tabelnya.",
+    "esports3": "Draft pertandingan dilipat, dibuka.",
+    "community1": "Masuk untuk mengirim pesan atau membangun.",
+    "community2": "Rekan satu tim memfilter berdasarkan peringkat, lane, dan bahasa.",
+    "community3": "Pesan yang memalukan? Laporkan, moderator sedang menonton.",
+    "skins1": "Penampilan diurutkan berdasarkan kelangkaan.",
+    "skins2": "Kalender menunjukkan StarLights dan Kolektor setiap bulan.",
+    "skins3": "Periksa penampilan Anda di alat Koleksi untuk memperkirakan jumlah Anda."
+  },
+  "brandSignature": {
+    "tagline": "Semua Mobile Legends, diukur setiap hari. Dex menonton.",
+    "dexLink": "Siapa Dex?",
+    "dex": "Dex, maskotnya",
+    "brandKit": "Perlengkapan merek"
+  },
+  "dexStates": {
+    "loading": "aku mencari di Land of Dawn...",
+    "loadingProfile": "Aku menyatukan bagian-bagianmu...",
+    "loadingForum": "aku sedang menelusuri forum...",
+    "loadingTeammates": "Aku sedang mencari rekan satu timmu di masa depan...",
+    "errorTitle": "Ups, macet",
+    "noneTitle": "Tidak ada apa-apa di sekitar sini"
+  },
+  "og": {
+    "homeLine": "Hero, build, tier list, item, dan catatan patch, diperbarui pada setiap patch.",
+    "patch": "Patch {v}",
+    "splusHeroes": "hero di S+",
+    "bestWin": "win rate terbaik: {hero}",
+    "itemsInGame": "item dalam game",
+    "heroesUsing": "hero memakainya",
+    "builtBy": "Di build {heroes}",
+    "minutes": "{n} menit membaca",
+    "skinsCount": "skin",
+    "latestSkin": "Rilisan terbaru: {skin} ({hero})",
+    "starlight": "StarLight bulan ini: {skin} ({hero})",
+    "games": "pertandingan dianalisis",
+    "picked": "Paling dipilih",
+    "banned": "Paling di-ban",
+    "champion": "Pemenang: {team}",
+    "tool": "Alat gratis",
+    "game": "Permainan hari ini",
+    "toolsKicker": "Alat gratis"
   }
 }

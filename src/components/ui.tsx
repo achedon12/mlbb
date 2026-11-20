@@ -6,12 +6,12 @@ import type { Tier } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 /**
- * Section title, with the gold rule borrowed from the game's interface.
+ * Section title: the display face, in capitals, with the éclat under it.
  *
- * Compact on a phone, like `PageHeader`: nine of these stacked on the home
- * page cost a screen and a half of headings alone. The lead keeps its three
- * lines from `sm` up and is clamped to two below, where it is a caption and
- * not the section itself.
+ * One size everywhere (2.25 to 3.5 rem, `type-section`): a section is
+ * announced as loudly on a phone as on a monitor, the condensed face keeps
+ * it on one or two lines. The lead stays a sentence, clamped to two lines
+ * on a phone, where it is a caption and not the section itself.
  */
 export function SectionTitle({
   children,
@@ -26,61 +26,88 @@ export function SectionTitle({
   id?: string;
 }) {
   return (
-    <div className="mb-4 flex flex-wrap items-end justify-between gap-x-4 gap-y-2 sm:mb-8">
-      <div>
-        <h2 id={id} className="font-heading text-xl font-bold text-chalk-100 sm:text-3xl">{children}</h2>
-        <div aria-hidden className="gold-rule mt-1.5 h-0.5 w-16 sm:mt-2" />
-        {lead && <p className="mt-1.5 line-clamp-2 max-w-2xl text-sm text-chalk-500 sm:mt-3 sm:line-clamp-none">{lead}</p>}
+    <div className="mb-5 flex flex-wrap items-end justify-between gap-x-6 gap-y-3 sm:mb-8">
+      <div className="min-w-0">
+        <h2 id={id} className="type-section text-chalk-100">{children}</h2>
+        <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
+        {lead && <p className="mt-3 line-clamp-2 max-w-2xl text-sm text-chalk-400 sm:line-clamp-none sm:text-base">{lead}</p>}
       </div>
-      {action && (
-        <Link
-          href={action.href}
-          className="text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500"
-        >
-          {action.label} →
-        </Link>
-      )}
+      {action && <ActionLink href={action.href}>{action.label}</ActionLink>}
     </div>
   );
 }
 
-
-/** Colours of a tier, reused by the statistics table. */
-export const COLOR_TIER: Record<Tier, string> = {
-  "S+": "bg-blood-500 text-night-950",
-  S: "bg-gold-500 text-night-950",
-  A: "bg-azure-500 text-night-950",
-  B: "bg-night-600 text-chalk-100",
-  C: "bg-night-700 text-chalk-300",
-};
-
-export function BadgeTier({ tier }: { tier: Tier }) {
+/** "See all" link of a section: the condensed face, in gold, with its arrow. */
+export function ActionLink({ href, children, className }: { href: string; children: React.ReactNode; className?: string }) {
   return (
-    <span
+    <Link
+      href={href}
       className={cn(
-        "bevel-sm grid size-9 shrink-0 place-items-center font-heading text-base font-bold",
-        COLOR_TIER[tier],
+        "group inline-flex items-center gap-1.5 font-heading text-base font-bold uppercase text-gold-400 transition-colors hover:text-gold-300",
+        className,
       )}
     >
+      {children}
+      <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
+    </Link>
+  );
+}
+
+/**
+ * Colours of a tier, as a fill, for the places that colour a cell or a bar
+ * rather than draw the crest (statistics table, the home page's split).
+ */
+export const COLOR_TIER: Record<Tier, string> = {
+  "S+": "bg-tier-splus text-night-950",
+  S: "bg-tier-s text-night-950",
+  A: "bg-tier-a text-night-950",
+  B: "bg-tier-b text-night-950",
+  C: "bg-tier-c text-chalk-100",
+};
+
+/**
+ * Tier crest: a bevelled shield coloured by tier, the letter in heavy italic
+ * (`.crest`, globals.css). The insignia of the tier everywhere it is shown.
+ */
+export function BadgeTier({ tier, size = "md", className }: { tier: Tier; size?: "sm" | "md" | "lg"; className?: string }) {
+  return (
+    <span data-tier={tier} className={cn("crest", size === "sm" && "crest-sm", size === "lg" && "crest-lg", className)}>
       {tier}
     </span>
   );
 }
 
-/** Generic card: dark bevelled surface, used everywhere. */
+/**
+ * The score figure: a big number in the display face, gold, with its unit
+ * smaller beside it. One per screen; `outline` draws a secondary figure.
+ */
+export function Score({
+  value,
+  unit,
+  outline = false,
+  className,
+}: {
+  value: React.ReactNode;
+  unit?: string;
+  outline?: boolean;
+  className?: string;
+}) {
+  return (
+    <span className={cn("score inline-flex items-baseline", outline && "score-outline", className)}>
+      {value}
+      {unit && <span className="ml-[0.06em] text-[0.45em]">{unit}</span>}
+    </span>
+  );
+}
+
+/** Generic card: a bevelled night surface, no frame. */
 export function Card({
   className,
   children,
   ...props
 }: React.ComponentProps<"div">) {
   return (
-    <div
-      className={cn(
-        "bevel border border-night-700/70 bg-night-900/60 p-5 transition-colors",
-        className,
-      )}
-      {...props}
-    >
+    <div className={cn("card border border-transparent", className)} {...props}>
       {children}
     </div>
   );
@@ -126,11 +153,11 @@ export function PageHeader({
   details?: { label: string; content: React.ReactNode };
   children?: React.ReactNode;
 }) {
-  const h1 = <h1 className="font-heading text-2xl font-bold text-chalk-100 sm:text-3xl lg:text-4xl">{title}</h1>;
+  const h1 = <h1 className="display-caps text-[clamp(2.6rem,1.7rem+3.4vw,4.75rem)] text-chalk-100">{title}</h1>;
   const facts = meta?.filter(Boolean) ?? [];
   return (
-    <div className="border-b border-night-700/70 bg-night-900/30">
-      <div className="page-wrap pb-5 pt-3 sm:pb-8 sm:pt-5">
+    <div>
+      <div className="page-wrap pb-6 pt-3 sm:pb-10 sm:pt-5">
         <Breadcrumb
           crumbs={crumbs ?? [{ name: title }]}
           className="mb-2.5 [&_ol]:flex-nowrap [&_ol]:px-2 [&_ol]:py-1 [&_ol]:text-xs sm:mb-3"
@@ -146,12 +173,12 @@ export function PageHeader({
           )}
           {actions && <div className="flex flex-wrap items-center gap-2">{actions}</div>}
         </div>
-        <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+        <div aria-hidden className="eclat mt-4 h-[3px] w-24" />
         <PageLead lead={lead} />
         {facts.length > 0 && (
           <ul className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1.5 text-xs text-chalk-500">
             {facts.map((fact, i) => (
-              <li key={i} className="bevel-sm border border-night-700/70 bg-night-950/50 px-2 py-1">
+              <li key={i} className="bevel-sm bg-night-800 px-2 py-1 text-chalk-300">
                 {fact}
               </li>
             ))}
@@ -164,6 +191,7 @@ export function PageHeader({
         )}
         {children}
       </div>
+      <div aria-hidden className="eclat-rule" />
     </div>
   );
 }
@@ -183,14 +211,18 @@ export function Gauge({
   text?: string;
 }) {
   const part = Math.max(0, Math.min(1, value / max));
+  // Ten slanted notches, like the game's own rating bars.
+  const lit = Math.round(part * 10);
 
   return (
     <span className="flex items-center gap-2">
-      <span aria-hidden className="h-1.5 flex-1 bg-night-700">
-        <span
-          className={cn("block h-full", part >= 0.8 ? "bg-gold-400" : "bg-azure-500")}
-          style={{ width: `${part * 100}%` }}
-        />
+      <span aria-hidden className="flex flex-1 gap-[3px]">
+        {Array.from({ length: 10 }, (_, i) => (
+          <span
+            key={i}
+            className={cn("h-2 flex-1 -skew-x-[25deg]", i < lit ? (part >= 0.8 ? "bg-gold-400" : "bg-chalk-300") : "bg-night-700")}
+          />
+        ))}
       </span>
       <span className="w-6 shrink-0 text-right text-xs tabular-nums text-chalk-300">
         {text ?? value}

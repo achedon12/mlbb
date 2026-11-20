@@ -10,17 +10,19 @@ import { FOOTER, type Chip } from "@/lib/sections";
 import { site } from "@/lib/site";
 import { DiscordMark } from "./bot/discord-mark";
 import { DiscordJoinLink } from "./discord-join-link";
+import { BrandMark } from "./brand-mark";
 import { ConsentSettingsButton } from "./consent-banner";
+import { Dex } from "./mascot";
 
 /** Footer link column: one per header section, plus the site's own pages. */
 function Column({ title, links, t }: { title: string; links: readonly Chip[]; t: T }) {
   return (
     <nav aria-label={title}>
-      <p className="font-heading text-sm font-semibold text-gold-400">{title}</p>
+      <p className="font-heading text-lg font-bold uppercase text-chalk-100">{title}</p>
       <ul className="mt-2.5 space-y-1.5">
         {links.map((link) => (
           <li key={link.href}>
-            <Link href={link.href} className="text-sm text-chalk-500 transition-colors hover:text-chalk-100">
+            <Link href={link.href} className="text-sm text-chalk-400 transition-colors hover:text-gold-300">
               {t(link.label)}
             </Link>
           </li>
@@ -40,7 +42,8 @@ function GithubMark() {
 }
 
 /**
- * Site footer: the site's map, in six columns, and its credits.
+ * Site footer: the brand's signature (Dex, a line, his page and the
+ * Discord), the site's map in six columns, and its credits.
  *
  * Rendered in the browser's bundle rather than on the server: the same
  * forty links in every page wrote their markup out twice, in the HTML and
@@ -54,25 +57,50 @@ export function Footer({ locale, year }: { locale: Locale; year: number }) {
   const discord = communityInvite();
 
   return (
-    <footer className="mt-16 border-t border-night-700/70 bg-night-900/40">
-      <div className="page-wrap grid gap-x-12 gap-y-8 py-8 sm:py-12 xl:grid-cols-[minmax(16rem,22rem)_minmax(0,1fr)]">
-        <div>
-          <Link href={`/${locale}`} className="group flex items-center gap-2.5">
-            <span
-              aria-hidden
-              className="bevel-sm grid size-8 place-items-center bg-linear-to-br from-gold-400 to-gold-600 font-heading text-sm font-bold text-night-950"
-            >
-              ML
-            </span>
-            <span className="font-heading text-lg font-bold tracking-wide text-chalk-100">{site.name}</span>
+    <footer className="mt-16 bg-night-900">
+      {/* The éclat closes the page, as it separates its sections. */}
+      <div aria-hidden className="eclat-rule" />
+      {/* The brand's signature: Dex sees the visitor off (still: the page has had its moment), with the way to his page and to the server. */}
+      <div className="page-wrap flex items-end gap-4 pt-8 sm:gap-6 sm:pt-10">
+        <span className="dex-host shrink-0">
+          <span className="block sm:hidden">
+            <Dex pose="salut" height={76} still />
+          </span>
+          <span className="hidden sm:block">
+            <Dex pose="salut" height={100} still />
+          </span>
+        </span>
+        <div className="min-w-0 flex-1 pb-1">
+          <p className="display-caps text-[1.6rem] leading-none text-chalk-100 sm:text-[2.25rem]">{t("brandSignature.tagline")}</p>
+          <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2">
+            <Link href="/dex" className="text-sm font-semibold text-gold-400 transition-colors hover:text-gold-300">
+              {t("brandSignature.dexLink")} →
+            </Link>
+            {discord && (
+              <DiscordJoinLink
+                href={discord}
+                placement="Footer"
+                className="bevel-sm flex min-h-9 items-center gap-2 bg-night-800 px-3 text-sm text-chalk-300 transition-[color,background-color,translate] hover:-translate-y-px hover:bg-night-700 hover:text-gold-300"
+              >
+                <DiscordMark />
+                {t("footer.discord")}
+              </DiscordJoinLink>
+            )}
+          </div>
+        </div>
+      </div>
+      <div className="page-wrap grid gap-x-12 gap-y-8 py-10 sm:py-12 xl:grid-cols-[minmax(16rem,22rem)_minmax(0,1fr)]">
+        <div className="relative">
+          <Link href={`/${locale}`} aria-label={site.name} className="group flex w-fit items-center">
+            <BrandMark />
           </Link>
           <p className="mt-3 line-clamp-3 max-w-xs text-sm leading-relaxed text-chalk-500 sm:line-clamp-none">
             {t("footer.intro")}
           </p>
-          <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
+          <div className="mt-4 flex flex-wrap items-center gap-2">
             <a
               href={site.repository}
-              className="flex items-center gap-2 text-sm text-chalk-300 transition-colors hover:text-gold-400"
+              className="bevel-sm flex min-h-9 items-center gap-2 bg-night-800 px-3 text-sm text-chalk-300 transition-[color,background-color,translate] hover:-translate-y-px hover:bg-night-700 hover:text-gold-300"
               rel="noreferrer"
               target="_blank"
             >
@@ -81,21 +109,11 @@ export function Footer({ locale, year }: { locale: Locale; year: number }) {
             </a>
             <Link
               href="/feed.xml"
-              className="flex items-center gap-2 text-sm text-chalk-300 transition-colors hover:text-gold-400"
+              className="bevel-sm flex min-h-9 items-center gap-2 bg-night-800 px-3 text-sm text-chalk-300 transition-[color,background-color,translate] hover:-translate-y-px hover:bg-night-700 hover:text-gold-300"
             >
               <Rss size={16} aria-hidden />
               RSS
             </Link>
-            {discord && (
-              <DiscordJoinLink
-                href={discord}
-                placement="Footer"
-                className="flex items-center gap-2 text-sm text-chalk-300 transition-colors hover:text-gold-400"
-              >
-                <DiscordMark />
-                {t("footer.discord")}
-              </DiscordJoinLink>
-            )}
           </div>
         </div>
 
@@ -107,7 +125,7 @@ export function Footer({ locale, year }: { locale: Locale; year: number }) {
         </div>
       </div>
 
-      <div className="border-t border-night-800/80">
+      <div className="border-t border-night-800">
         <p className="page-wrap py-3 text-xs text-chalk-600">{t("footer.sources")}</p>
       </div>
 

@@ -266,9 +266,9 @@
   "ui": {
     "common": {
       "open": "Open on MLBBDex",
-      "error": "Something went wrong. Try again in a moment.",
+      "error": "Oops, Dex tripped up. Try again in a moment.",
       "siteDown": "MLBBDex is not answering right now. Try again in a minute: it is usually back by then.",
-      "notFound": "Nothing found for “{query}”.",
+      "notFound": "Dex found nothing for “{query}”.",
       "guildOnly": "This command only works in a server.",
       "noPermission": "You need the Manage Server permission for this.",
       "unavailable": "This is not available in Discord yet: it is on MLBBDex.",
@@ -466,7 +466,7 @@
     },
     "about": {
       "title": "About MLBBDex",
-      "body": "MLBBDex is a free Mobile Legends: Bang Bang knowledge base: heroes, builds, counters, tier lists and patch notes, in English, French, Italian, Spanish and Indonesian. The bot brings it to your server.",
+      "body": "MLBBDex is a free Mobile Legends: Bang Bang knowledge base: heroes, builds, counters, tier lists and patch notes, in English, French, Italian, Spanish and Indonesian. The bot brings it to your server. Dex, the site's mascot, comes along in the replies.",
       "servers": "Servers",
       "site": "Website",
       "support": "Support server",

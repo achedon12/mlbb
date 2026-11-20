@@ -1,0 +1,33 @@
+{
+  "tagline": "Gardien fait de foudre et d'air, il veille sur le Palais céleste.",
+  "lore": [
+    "Le Palais céleste : selon la légende, cette cité flottant dans les cieux de la Terre de l'Aube aurait jadis été la demeure des dieux. On raconte aussi que ce lieu mystérieux renferme la clé de la domination du monde. Il y a des éons, le souverain du Palais céleste se servit des secrets technologiques des Anciens pour créer Uranus, et ordonna à sa création de garder la cité et d'attendre l'avènement d'un nouveau souverain.",
+    "Lorsque des érudits de la Terre de l'Aube découvrirent et ouvrirent les portes du Palais céleste, la bataille entre le Zénith de l'Aube et les Abysses obscures se répandit rapidement à travers le royaume, troublant la quiétude de l'antique cité. Les deux camps cherchaient à s'emparer du Palais céleste comme symbole de victoire, et leurs héros déchaînèrent toute l'étendue de leur puissance avant d'aboutir enfin à une impasse. L'énergie colossale libérée par leurs combats incessants finit par réveiller le système de défense de la cité antique ; convertie directement en puissance foudroyante, elle alimenta et ranima Uranus, qui sommeillait dans les profondeurs du Palais céleste. « Partez sur-le-champ, intrus ! » rugit-il à son réveil, avant de charger vers le champ de bataille, porté par la foudre, l'éther et une rage sans bornes. Le gardien est de retour, prêt à accomplir sa destinée. Son but : chasser ces intrus sauvages qui troublent la sérénité du Palais céleste."
+  ],
+  "headings": [],
+  "profile": {
+    "fullName": null,
+    "title": null,
+    "species": "Éthérien",
+    "gender": "Homme",
+    "age": "Plus de 1 000 ans",
+    "origin": null,
+    "birthday": "17 mai",
+    "affiliations": [],
+    "relations": [
+      "Belerick (allié) Edith (alliée) Kaja (allié) Lunox (alliée/maître) Rafaela (alliée) Argus (ennemi)"
+    ],
+    "powers": [
+      "Pouvoir de la nature",
+      "Manipulation de l'éther",
+      "Auto-guérison"
+    ]
+  },
+  "trivia": [
+    "Son nom, « Uranus », vient du dieu grec primordial du ciel, père des Titans. Uranus est aussi le nom de la septième planète du système solaire, ce qui s'accorde avec le thème cosmique du héros.",
+    "Il a failli s'appeler « Ouranos », l'orthographe grecque d'origine du dieu Uranus. Les développeurs ont opté pour « Uranus » afin de reprendre le nom de la planète et de le rendre plus facile à reconnaître partout dans le monde.",
+    "Uranus est l'un des êtres les plus anciens du lore du jeu.",
+    "Il est le gardien du Palais céleste, l'une des cartes jouables du jeu avant son remplacement par l'Île du Sanctuaire.",
+    "Contrairement à la plupart des tanks, qui comptent sur les boucliers ou le vol de vie, Uranus régénère rapidement ses PV au fil du temps, ce qui fait de lui l'un des héros les plus difficiles à abattre. Son passif (Radiance) lui permet de cumuler de la régénération de PV chaque fois qu'il subit des dégâts, ce qui le rend redoutable dans les combats prolongés."
+  ]
+}

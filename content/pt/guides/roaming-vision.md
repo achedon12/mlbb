@@ -18,7 +18,7 @@ Mobile Legends não tem tags de visão para colocar: a visão vem de heróis, mi
 
 - **Heróis, minions e torres** revelam o que está ao seu redor, mas não o interior de um arbusto.
 - **Arbustos** escondem um herói desde que nenhum inimigo entre neles ou os revele através de um efeito.
-- **O Lithowanderer**, uma pequena criatura fluvial, deixa para trás uma sentinela de pedra que sinaliza os inimigos por algumas dezenas de segundos para a equipe que a finalizou.
+- **O Lithowanderer**, pequena criatura do rio, faz surgir uma sentinela de pedra que revela os inimigos para a equipe que o finalizou.
 - **Certas habilidades** revelam uma área ou um herói: muitas vezes valem mais no início do jogo do que seus danos.
 
 O [guia do mapa](/map) localiza os arbustos, o rio e os acampamentos, e dá os tempos de cada criatura.
@@ -54,7 +54,7 @@ Um arbusto segurado por um tanque de combate como [Tigreal](/heroes/tigreal), [A
 
 A visão é utilizada principalmente para responder a uma pergunta antes de cada objetivo: onde estão os adversários? O roamer e o jungler devem ser capazes de respondê-las juntos.
 
-- **Diante da Tartaruga ou do Lorde**, conte os oponentes visíveis no minimapa. Três visíveis longe do objetivo: podemos começar. Menos de dois visíveis: primeiro verificamos os arbustos.
+- **Antes da Tartaruga ou do Lorde**, conte os adversários visíveis no minimapa. Pelo menos três visíveis, longe do objetivo: dá para começar. Dois ou menos, ou adversários visíveis perto do objetivo: verifique primeiro os arbustos, ou espere saber mais.
 - **Durante o objetivo**, o roamer se posiciona entre o objetivo e o caminho de chegada do oponente, e não no objetivo em si.
 - **Após um objetivo**, ele protege o rio enquanto a equipe recua ou avança.
 

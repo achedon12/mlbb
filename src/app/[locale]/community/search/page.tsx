@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { SearchForm, ThreadList, Unavailable } from "@/components/community/parts";
+import { count, SearchForm, ThreadList, Unavailable } from "@/components/community/parts";
 import { Pager } from "@/components/pager";
-import { PageHeader } from "@/components/ui";
+import { DexNote, heroArt, StageHeader } from "@/components/stage";
 import type { Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
 import { isCategory, readPageNumber, THREADS_PER_PAGE } from "@/lib/community/constants";
@@ -47,7 +47,11 @@ export default async function CommunitySearchPage({ params, searchParams }: Para
 
   return (
     <>
-      <PageHeader
+      <StageHeader
+        compact
+        dex="reflexion"
+        art={heroArt("nana")}
+        artPosition="55% 22%"
         title={t("pages.community.searchTitle")}
         lead={
           category
@@ -59,20 +63,20 @@ export default async function CommunitySearchPage({ params, searchParams }: Para
         <div className="mt-5">
           <SearchForm t={t} locale={locale} query={query} category={category ?? undefined} />
         </div>
-      </PageHeader>
-      <div className="page-wrap space-y-6 py-8 *:max-w-4xl">
+      </StageHeader>
+      <div className="stage-enter page-wrap space-y-6 py-8 sm:py-10 *:max-w-4xl">
         {!result ? (
           <Unavailable t={t} />
         ) : query ? (
           <>
-            <p role="status" className="text-sm text-chalk-400">
-              {t("pages.community.searchResults", { n: result.total, query })}
+            <p role="status" className="font-heading text-xl font-bold text-chalk-100">
+              {count(t, locale, "pages.community.searchResults", result.total, { query })}
             </p>
             <ThreadList threads={result.threads} t={t} locale={locale} now={now} showCategory emptyText={t("pages.community.searchEmpty")} />
             <Pager paging={view} href={href} t={t} />
           </>
         ) : (
-          <p className="text-sm text-chalk-400">{t("pages.community.searchHint")}</p>
+          <DexNote pose="idee" height={110}>{t("pages.community.searchHint")}</DexNote>
         )}
       </div>
     </>

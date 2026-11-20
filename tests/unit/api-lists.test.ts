@@ -42,7 +42,7 @@ describe("list API routes read by the Discord bot", () => {
       expect(e.end.slice(0, 7)).toBe(e.start.slice(0, 7));
       expect(e.end.endsWith("T23:59:59.999Z")).toBe(true);
       expect(e.link).toMatch(/\/fr\/events\/\d{4}-\d{2}$/);
-      expect(e.name).toMatch(e.kind === "starlight" ? /^Skin StarLight : / : /^Skin Collector : /);
+      expect(e.name).toMatch(e.kind === "starlight" ? /^Apparence StarLight : / : /^Apparence Collector : /);
     }
     const en = await read<Event[]>(eventsGET(new Request("http://x/api/v1/events?locale=zz")));
     expect(en.data.every((e) => /^(StarLight|Collector) skin: /.test(e.name))).toBe(true);

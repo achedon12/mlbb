@@ -266,9 +266,9 @@
   "ui": {
     "common": {
       "open": "Buka di MLBBDex",
-      "error": "Terjadi kesalahan. Coba lagi sebentar lagi.",
+      "error": "Ups, Dex tersandung. Coba lagi sebentar lagi.",
       "siteDown": "MLBBDex sedang tidak merespons. Coba lagi dalam semenit: biasanya sudah kembali saat itu.",
-      "notFound": "Tidak ada hasil untuk “{query}”.",
+      "notFound": "Dex tidak menemukan apa pun untuk “{query}”.",
       "guildOnly": "Perintah ini hanya berfungsi di server.",
       "noPermission": "Kamu memerlukan izin Kelola Server.",
       "unavailable": "Ini belum tersedia di Discord: ada di MLBBDex.",
@@ -466,7 +466,7 @@
     },
     "about": {
       "title": "Tentang MLBBDex",
-      "body": "MLBBDex adalah basis pengetahuan gratis tentang Mobile Legends: Bang Bang: hero, build, counter, tier list, dan patch note, dalam bahasa Inggris, Prancis, Italia, Spanyol, dan Indonesia. Bot ini membawanya ke server kamu.",
+      "body": "MLBBDex adalah basis pengetahuan gratis tentang Mobile Legends: Bang Bang: hero, build, counter, tier list, dan patch note, dalam bahasa Inggris, Prancis, Italia, Spanyol, dan Indonesia. Bot ini membawanya ke server kamu. Dex, maskot situs ini, menemanimu di setiap balasan.",
       "servers": "Server",
       "site": "Situs",
       "support": "Server bantuan",

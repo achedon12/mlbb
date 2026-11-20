@@ -2,9 +2,13 @@ import type { Metadata } from "next";
 import Link from "@/components/link";
 import { freshnessFacts } from "@/components/freshness";
 import { PageSourcesBlock } from "@/components/page-sources";
-import { Foldable } from "@/components/foldable";
 import { StatisticsTable } from "@/components/statistics-table";
-import { PageHeader } from "@/components/ui";
+import { ActionLink } from "@/components/ui";
+import { HeroTile } from "@/components/hero-tile";
+import { DexSays } from "@/components/mascot";
+import { MetaPoster, artOf } from "@/components/meta/meta-poster";
+import { MethodFold } from "@/components/meta/method-fold";
+import { PosterHero } from "@/components/meta/poster-hero";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { metaPage, metaPaged } from "@/i18n/seo";
 import { createT, type T } from "@/i18n/translations";
@@ -119,6 +123,7 @@ export function metaStatistics(locale: Locale, rank: MeasuredRank, page = 1): Me
       title: t(all ? "pages.statistics.metaTitle" : "pages.statistics.metaTitleRank", v),
       description: t(all ? "pages.statistics.metaDescription" : "pages.statistics.metaDescriptionRank", v),
       path,
+      card: true,
     }),
     locale,
     path,
@@ -175,10 +180,15 @@ export function Statistics({ locale, rank, page = 1 }: { locale: Locale; rank: M
       : {}),
   };
 
+  const heroOf = (slug: string) => heroesBySlug.get(slug);
+  const portrait = (slug: string) => heroOf(slug)?.images.portrait ?? heroOf(slug)?.images.icon ?? null;
+  const rate = (v: number) => percentage(locale, v);
+  const one = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(data) }} />
-      <PageHeader
+      <MetaPoster
         title={title}
         lead={all ? t("pages.statistics.lead") : t("pages.statistics.leadRank", { rank: nameRank })}
         crumbs={
@@ -192,12 +202,25 @@ export function Statistics({ locale, rank, page = 1 }: { locale: Locale; rank: M
                 },
               ]
         }
-        meta={freshnessFacts(locale, t("pages.statistics.measures", { n: rows.length }))}
-      />
-
-      <div className="page-wrap pb-10 pt-4">
+        facts={freshnessFacts(locale, t("pages.statistics.measures", { n: rows.length }))}
+        art={artOf(win.slug)}
+        portrait={heroOf(win.slug)?.images.portrait ?? null}
+        compact
+        feature={
+          <PosterHero
+            href={`/heroes/${win.slug}`}
+            kicker={t("home.meta.win")}
+            name={win.name}
+            tier={win.tier}
+            figure={one.format(win.win)}
+            caption={t("pages.heroDetail.stat.winRate")}
+            second={{ value: one.format(win.ban), caption: t("pages.heroDetail.stat.banRate") }}
+            label={`${win.name}, ${t("home.winRate", { value: rate(win.win) })}, ${t("pages.heroDetail.stat.banRate")} ${rate(win.ban)}`}
+          />
+        }
+      >
         {/* Data sentence: what search results pick up as a snippet. */}
-        <p className="mb-4 max-w-3xl text-sm leading-relaxed text-chalk-300">
+        <p className="mt-4 max-w-xl text-sm leading-relaxed text-chalk-400">
           {t("pages.statistics.summary", {
             context: all ? t("pages.statistics.contextAll") : t("pages.statistics.contextRank", { rank: nameRank }),
             win: win.name,
@@ -208,32 +231,32 @@ export function Statistics({ locale, rank, page = 1 }: { locale: Locale; rank: M
             pickRate: percentage(locale, pick.pick),
           })}
         </p>
+      </MetaPoster>
 
-        <StatisticsTable compactRows={rows.map(encodeRow)} rank={rank} ranks={RANKS_CLASSES} page={page} />
-
-        <section className="mt-12">
-          <div className="grid gap-6 md:grid-cols-2">
-            <Moves locale={locale} t={t} title={t("pages.statistics.rises")} list={rises} />
-            <Moves locale={locale} t={t} title={t("pages.statistics.falls")} list={drops} />
-          </div>
-          <p className="mt-3 text-xs text-chalk-500">{t("pages.statistics.movementsIntro", { threshold: threshold })}</p>
-        </section>
-
-        <Foldable label={t("pages.statistics.reading.title")} className="mt-10">
+      <div className="page-wrap pb-10 pt-6">
+        <MethodFold label={t("pages.statistics.reading.title")} className="mb-8">
           <ul className="space-y-2.5">
             {(["win", "ban", "pick", "trend", "curve", "tier", "weak"] as const).map((c) => (
               <li key={c}>{t(`pages.statistics.reading.${c}`, { threshold: threshold })}</li>
             ))}
           </ul>
-        </Foldable>
+        </MethodFold>
 
-        <p className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-          <Link
-            href={all ? "/tier-list" : `/tier-list/${rank}`}
-            className="font-semibold text-gold-400 underline-offset-4 hover:underline"
-          >
-            {all ? t("pages.tierList.title") : t("pages.tierList.titleRank", { rank: nameRank })} →
-          </Link>
+        <StatisticsTable compactRows={rows.map(encodeRow)} rank={rank} ranks={RANKS_CLASSES} page={page} />
+
+        <section className="mt-16">
+          <div aria-hidden className="eclat-rule mb-8" />
+          <div className="grid gap-x-10 gap-y-10 lg:grid-cols-2">
+            <Moves locale={locale} t={t} title={t("pages.statistics.rises")} list={rises} portrait={portrait} rise />
+            <Moves locale={locale} t={t} title={t("pages.statistics.falls")} list={drops} portrait={portrait} rise={false} />
+          </div>
+          <p className="mt-4 text-xs text-chalk-500">{t("pages.statistics.movementsIntro", { threshold: threshold })}</p>
+        </section>
+
+        <p className="mt-10 flex flex-wrap items-baseline gap-x-6 gap-y-2 text-sm">
+          <ActionLink href={all ? "/tier-list" : `/tier-list/${rank}`}>
+            {all ? t("pages.tierList.title") : t("pages.tierList.titleRank", { rank: nameRank })}
+          </ActionLink>
           <span className="text-chalk-500">
             {t("pages.statistics.api")}{" "}
             <Link href="/api-doc" className="font-semibold text-gold-400 underline-offset-4 hover:underline">
@@ -247,30 +270,46 @@ export function Statistics({ locale, rank, page = 1 }: { locale: Locale; rank: M
   );
 }
 
-function Moves({ locale, t, title, list }: { locale: Locale; t: T; title: string; list: Motion[] }) {
+/**
+ * The week's biggest rises or drops, as portraits: the gap in points is the
+ * tile's figure, in ally blue or enemy red, the current rate under the name
+ * for the screen reader as for the eye.
+ */
+function Moves({
+  locale,
+  t,
+  title,
+  list,
+  portrait,
+  rise,
+}: {
+  locale: Locale;
+  t: T;
+  title: string;
+  list: Motion[];
+  portrait: (slug: string) => string | null;
+  rise: boolean;
+}) {
   return (
-    <div className="bevel border border-night-700/70 bg-night-900/60 p-5">
-      <h2 className="font-heading text-lg font-bold text-chalk-100">{title}</h2>
+    <div className="min-w-0">
+      <h2 className={cn("type-subtitle", rise ? "text-azure-400" : "text-blood-400")}>{title}</h2>
       {list.length === 0 ? (
-        <p className="mt-3 text-sm text-chalk-500">{t("pages.statistics.noMovement")}</p>
+        <DexSays pose="surpris" height={84} className="mt-4">
+          <p className="text-sm">{t("pages.statistics.noMovement")}</p>
+        </DexSays>
       ) : (
-        <ol className="mt-3 space-y-1.5 text-sm">
+        <ol className="mt-4 grid grid-cols-3 gap-2 sm:grid-cols-5 sm:gap-3">
           {list.map(({ slug, variation }) => (
-            <li key={slug} className="flex items-baseline justify-between gap-3">
-              <Link href={`/heroes/${slug}`} className="font-medium text-chalk-100 hover:text-gold-400">
-                {heroesBySlug.get(slug)?.name ?? slug}
-              </Link>
-              <span className="tabular-nums text-chalk-500">
-                <span
-                  aria-hidden
-                  className={cn("font-semibold", variation.gap > 0 ? "text-emerald-400" : "text-blood-500")}
-                >
-                  {formatGap(variation.gap, locale)}
-                </span>
-                <span className="sr-only">{describeGap(t, locale, variation.gap, variation.days)}</span>
-                {" · "}
-                {percentage(locale, variation.current)}
-              </span>
+            <li key={slug} className="min-w-0">
+              <HeroTile
+                href={`/heroes/${slug}`}
+                name={heroesBySlug.get(slug)?.name ?? slug}
+                portrait={portrait(slug)}
+                figure={formatGap(variation.gap, locale)}
+                tone={variation.gap > 0 ? "ally" : "enemy"}
+                label={`${describeGap(t, locale, variation.gap, variation.days)} · ${percentage(locale, variation.current)}`}
+                sizes="(min-width: 1024px) 9vw, (min-width: 640px) 18vw, 31vw"
+              />
             </li>
           ))}
         </ol>

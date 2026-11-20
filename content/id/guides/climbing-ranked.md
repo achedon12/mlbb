@@ -42,7 +42,7 @@ Peringkat lebih memakai kesabaran daripada refleks. Beberapa aturan melindungi p
 
 - **berhenti setelah dua kekalahan berturut-turut**: Game ketiga sering kali dimainkan dengan marah, dan itulah yang paling memakan biaya;
 - **jangan membalas dalam obrolan**: setiap pesan yang ditulis adalah detik di mana kita tidak melihat kartunya;
-- **permainan tidak pernah hilang sebelum inhibitor**: Lords endgame mengembalikan situasi yang tampak hilang;
+- **permainan belum kalah selama base kalian masih berdiri**: Lord di akhir permainan bisa membalikkan permainan yang tampak sudah kalah;
 - **bermain dengan istirahat**: jam-jam kelelahan adalah saat kesalahan kecil menumpuk.
 
 ## Belajarlah dari kekalahan Anda

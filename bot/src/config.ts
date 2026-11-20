@@ -8,6 +8,9 @@ import { z } from "zod";
 
 const SNOWFLAKE = /^\d{17,20}$/;
 
+/** The public site, when SITE_URL is not set. */
+export const DEFAULT_SITE_URL = "https://mlbbdex.com";
+
 /** Empty strings count as unset: compose files often pass `VAR=` through. */
 const optional = z
   .string()
@@ -24,7 +27,7 @@ const schema = z.object({
     (v) => v === undefined || v.length >= 32,
     "must be at least 32 characters (openssl rand -hex 32)",
   ),
-  SITE_URL: url("https://mlbbdex.com"),
+  SITE_URL: url(DEFAULT_SITE_URL),
   SITE_INTERNAL_URL: url("http://localhost:3001"),
   BOT_HTTP_HOST: optional.transform((v) => v ?? "127.0.0.1"),
   BOT_HTTP_PORT: optional

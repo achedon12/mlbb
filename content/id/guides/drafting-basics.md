@@ -16,7 +16,7 @@ Dalam ranked, draft dibuka dari peringkat Epic: setiap tim mem-ban hero, lalu pe
 
 ## Bagaimana cara kerja draft peringkat?
 
-- **Bans**: kedua tim melakukan ban secara bersamaan. Banyaknya ban tergantung pada rank tertinggi dalam game. Kedua tim dapat mem-ban hero yang sama, sehingga membuang-buang ban: menyetujui obrolan terlebih dahulu akan menghindari duplikasi ini.
+- **Ban**: kedua tim melakukan ban secara bersamaan. Jumlah ban bergantung pada rank tertinggi dalam pertandingan. Tidak ada yang mencegah lawan mem-ban hero yang sama denganmu, dan hal itu tidak bisa diatur. Yang didapat dari berdiskusi di chat adalah pembagian ban di dalam timmu: setiap orang tahu ancaman mana yang ia singkirkan, sehingga ban kalian menutup ancaman utama, bukan meloloskan hero berbahaya karena semua mengandalkan orang lain.
 - **Pilihan**: tim biru memilih satu hero, merah dua, biru dua, merah dua, biru dua, lalu merah yang terakhir.
 - **Yang penting**: hero yang dipilih pertama dapat dilihat oleh semua orang, hero yang dipilih terakhir dapat merespons yang lainnya.
 

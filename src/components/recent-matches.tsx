@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useSyncExternalStore, useTransition } from "react";
-import { ChevronDown, LoaderCircle } from "lucide-react";
+import { ChevronDown } from "lucide-react";
+import { BrandSpinner, Flash } from "@/components/dex-states";
 import Link from "@/components/link";
 import { HeroPortrait } from "@/components/hero-portrait";
 import { useLocale, useT } from "@/i18n/provider";
@@ -68,17 +69,19 @@ export function RecentMatches({
       </p>
 
       {error && (
-        <p role="alert" className="bevel-sm mt-4 border border-blood-500/40 bg-blood-500/10 px-4 py-3 text-sm text-blood-500">
-          {error === "expired" ? (
-            <>
-              {t("pages.accountProfile.expiredText")}{" "}
-              <Link href="/login" className="font-semibold underline underline-offset-4">
-                {t("pages.accountProfile.signInAgain")}
-              </Link>
-            </>
-          ) : (
-            t("pages.accountProfile.loadError")
-          )}
+        <p role="alert" className="mt-4">
+          <Flash tone="error">
+            {error === "expired" ? (
+              <>
+                {t("pages.accountProfile.expiredText")}{" "}
+                <Link href="/login" className="font-semibold text-gold-400 underline underline-offset-4">
+                  {t("pages.accountProfile.signInAgain")}
+                </Link>
+              </>
+            ) : (
+              t("pages.accountProfile.loadError")
+            )}
+          </Flash>
         </p>
       )}
 
@@ -90,7 +93,7 @@ export function RecentMatches({
           className="bevel-sm mt-5 flex w-full items-center justify-center gap-2 border border-night-700 px-6 py-2.5 text-sm font-semibold text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400 disabled:opacity-60 sm:w-auto"
         >
           {inProgress ? (
-            <LoaderCircle size={16} className="animate-spin" aria-hidden />
+            <BrandSpinner className="text-gold-400" />
           ) : (
             <ChevronDown size={16} aria-hidden />
           )}
@@ -107,7 +110,7 @@ function RowMatch({ match: p }: { match: MatchShown }) {
   const t = useT();
   const locale = useLocale();
   const issue = p.win === null ? "unknown" : p.win ? "win" : "loss";
-  const color = p.win === null ? "text-chalk-400" : p.win ? "text-emerald-400" : "text-blood-500";
+  const color = p.win === null ? "text-chalk-400" : p.win ? "text-azure-400" : "text-blood-500";
   const lane = p.lane !== null ? GAME_LANE[p.lane] : undefined;
 
   return (
@@ -117,7 +120,7 @@ function RowMatch({ match: p }: { match: MatchShown }) {
         aria-hidden
         className={cn(
           "w-1 shrink-0 self-stretch",
-          p.win === null ? "bg-night-700" : p.win ? "bg-emerald-400" : "bg-blood-500",
+          p.win === null ? "bg-night-700" : p.win ? "bg-azure-400" : "bg-blood-500",
         )}
       />
       <HeroPortrait source={p.hero.portrait} name={p.hero.name} size="icon" decorative />

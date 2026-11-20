@@ -3,7 +3,6 @@ import { permanentRedirect } from "next/navigation";
 import {
   catalogRecipes,
   EffectsItem,
-  ItemIcon,
   RecipeItem,
   type PreviewItem,
   type ToItem,
@@ -12,7 +11,8 @@ import { ListLinks, TableRanks, TableUsage } from "@/components/usage-sheet";
 import { FreshnessLine } from "@/components/freshness";
 import { PageSourcesBlock } from "@/components/page-sources";
 import Link from "@/components/link";
-import { Card, PageHeader, SectionTitle } from "@/components/ui";
+import { SectionTitle } from "@/components/ui";
+import { artOf, HeroArtRow, SheetPoster } from "@/components/sheet-poster";
 import visuals from "@/data/game/visuals.json";
 import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { metaPage, notFoundMetadata } from "@/i18n/seo";
@@ -89,7 +89,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, slug } = await params;
   const f = sheet(locale, slug);
   if (!f) return notFoundMetadata(locale);
-  return metaPage(locale, { title: f.title, description: f.description, path: `/items/${slug}` });
+  return metaPage(locale, { title: f.title, description: f.description, path: `/items/${slug}`, card: true });
 }
 
 /** On an item's page, another item opens on its own page. */
@@ -144,10 +144,12 @@ export default async function ItemPage({ params }: Params) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(data) }} />
-      <PageHeader
+      <SheetPoster
         title={o.name}
         lead={f.lead}
-        icon={item.image ? <ItemIcon image={item.image} size={64} /> : undefined}
+        image={item.image}
+        art={artOf(builders[0]?.slug ?? heroes[0]?.slug)}
+        figure={o.price !== null ? { value: o.price.toLocaleString(LOCALE_INTL[locale]), label: `${t("pages.itemsList.gold")} · ${category}` } : null}
         crumbs={[
           { name: t("nav.items.label"), href: "/items" },
           {
@@ -159,41 +161,31 @@ export default async function ItemPage({ params }: Params) {
         ]}
       >
         <FreshnessLine locale={locale} className="mt-4" />
-      </PageHeader>
+      </SheetPoster>
 
-      <div className="page-wrap space-y-14 py-10">
+      <div className="page-wrap space-y-14 py-10 sm:space-y-20 sm:py-14">
         {o.removed && (
           <p role="note" className="bevel-sm border border-gold-500/40 bg-night-900/60 p-4 text-sm text-chalk-300">
             <span className="font-semibold text-gold-400">{t("pages.itemDetail.removedTitle")}</span>{" "}
             {t("pages.itemDetail.removedText", { name: o.name })}
           </p>
         )}
-        <section className={cn("grid gap-4", hasRecipe && "md:grid-cols-2")}>
-          <Card>
-            <h2 className="font-heading text-lg font-bold text-chalk-100">{t("pages.itemDetail.effects")}</h2>
-            <dl className="mt-4 space-y-3 text-sm">
-              <div className="flex flex-wrap gap-x-10 gap-y-3">
-                <div>
-                  <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemDetail.category")}</dt>
-                  <dd className="mt-1 text-chalk-100">{category}</dd>
-                </div>
-                {o.price !== null && (
-                  <div>
-                    <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemDetail.price")}</dt>
-                    <dd className="mt-1 font-heading text-gold-400">{price(o.price)}</dd>
-                  </div>
-                )}
-              </div>
+        <section className={cn("grid gap-3 sm:gap-4", hasRecipe && "md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]")}>
+          <div className="bevel-lg bg-night-900 p-5 sm:p-7">
+            <h2 className="display-caps text-[1.9rem] text-chalk-100">{t("pages.itemDetail.effects")}</h2>
+            <div aria-hidden className="eclat mt-2.5 h-[3px] w-16" />
+            <dl className="mt-5 space-y-4 text-[0.95rem]">
               <EffectsItem item={item} t={t} />
             </dl>
-          </Card>
+          </div>
           {hasRecipe && (
-            <Card>
-              <h2 className="font-heading text-lg font-bold text-chalk-100">{t("pages.itemDetail.crafting")}</h2>
-              <dl className="mt-4 space-y-4 text-sm">
+            <div className="bevel-lg bg-night-850 p-5 sm:p-7">
+              <h2 className="display-caps text-[1.9rem] text-chalk-100">{t("pages.itemDetail.crafting")}</h2>
+              <div aria-hidden className="eclat mt-2.5 h-[3px] w-16" />
+              <dl className="mt-5 space-y-5 text-sm">
                 <RecipeItem item={item} catalog={catalog} t={t} locale={locale} to={toPage} />
               </dl>
-            </Card>
+            </div>
           )}
         </section>
 
@@ -210,26 +202,33 @@ export default async function ItemPage({ params }: Params) {
             >
               {t("pages.itemDetail.buildersTitle", { name: o.name })}
             </SectionTitle>
-            <ListLinks
-              ordered
-              links={builders.slice(0, 6).map((h) => {
-                const hero = heroesBySlug.get(h.slug);
-                return {
-                  href: `/heroes/${h.slug}#builds`,
-                  name: heroName(h.slug),
-                  image: hero?.images.icon ?? hero?.images.portrait ?? null,
-                  detail: t("pages.itemDetail.buildersShare", {
-                    share: percentage(locale, h.selection),
-                    lane: t(`lanes.${h.lane}`),
-                  }),
-                };
-              })}
+            <HeroArtRow
+              heroes={builders.slice(0, 6).map((h) => ({
+                slug: h.slug,
+                href: `/heroes/${h.slug}#builds`,
+                figure: percentage(locale, h.selection),
+                label: t("pages.itemDetail.buildersShare", {
+                  share: percentage(locale, h.selection),
+                  lane: t(`lanes.${h.lane}`),
+                }),
+              }))}
             />
           </section>
         )}
 
         <section>
           <SectionTitle lead={t("pages.sheets.help")}>{heroTitle}</SectionTitle>
+          {builders.length === 0 && (
+            <HeroArtRow
+              className="mb-6"
+              heroes={heroes.slice(0, 6).map((h) => ({
+                slug: h.slug,
+                href: `/heroes/${h.slug}#builds`,
+                figure: h.win === null ? undefined : percentage(locale, h.win),
+                label: h.win === null ? undefined : `${t("pages.heroDetail.stat.winRate")} ${percentage(locale, h.win)}`,
+              }))}
+            />
+          )}
           {heroes.length > 0 ? (
             <TableUsage rows={heroes} legend={heroTitle} t={t} locale={locale} />
           ) : (

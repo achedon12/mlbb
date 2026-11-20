@@ -64,7 +64,7 @@ A ordem de prioridade mais segura:
 2. o herói que cura ou protege, se estiver ao alcance;
 3. o resto, começando pelo mais próximo.
 
-Contra uma equipe que cura muito, itens de redução de cura mudam o resultado de lutas longas: [Sea Halberd](/items/sea-halberd) para dano físico, [Colar de Durance](/items/necklace-of-durance) para dano mágico, [Dominance Ice](/items/dominance-ice) para um tanque. O [catálogo de itens](/items) indica quem os constrói.
+Contra uma equipe que cura muito, itens de redução de cura mudam o resultado de lutas longas: [Sea Halberd](/items/sea-halberd) para dano físico, [Glowing Wand](/items/glowing-wand) para dano mágico, [Dominance Ice](/items/dominance-ice) para um tanque. O [catálogo de itens](/items) indica quem os constrói.
 
 ## Os erros mais comuns
 

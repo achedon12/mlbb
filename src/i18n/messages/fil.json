@@ -291,7 +291,7 @@
     "version": "Bersyon {v}",
     "contribute": "Mag-ambag",
     "intro": "Mga hero, build at counter ng Mobile Legends: Bang Bang ayon sa rank, tier list na kinukuwenta mula sa ranked win rate, mga item, emblem at patch notes, sa English, French, Italian, Spanish at Indonesian. Isang independiyenteng proyekto, bukas sa mga kontribusyon.",
-    "sources": "Mga text na kinuha mula sa Mobile Legends wiki (Fandom) at Liquipedia, sa ilalim ng lisensya ng CC BY-SA, na may attribution sa kanilang mga contributor. Mga larawan, pangalan ng mga hero, skin at bagay © Moonton, at para sa collaboration skin © kani-kanilang mga may hawak ng karapatan: hindi sila napapailalim sa lisensyang ito. Ang mga win rate, ban at pagpili, mga counter at karamihan sa mga nilalaro ay nagmumula sa mga istatistika ng tugma sa ranggo ng laro, sa pamamagitan ng arena.rone.dev community API.",
+    "sources": "Mga text na kinuha mula sa Mobile Legends wiki (Fandom) at Liquipedia, sa ilalim ng lisensya ng CC BY-SA, na may attribution sa kanilang mga contributor. Mga larawan, pangalan ng mga hero, skin at bagay © Moonton, at para sa collaboration skin © kani-kanilang mga may hawak ng karapatan: hindi sila napapailalim sa lisensyang ito. Ang mga win rate, ban at pagpili, mga counter at karamihan sa mga nilalaro na build ay nagmumula sa mga istatistika ng paglalaro sa ranggo ng laro, sa pamamagitan ng arena.rone.dev community API.",
     "discord": "Sumali sa Discord",
     "columns": {
       "heroes": "Mga hero",
@@ -336,7 +336,7 @@
       "sortTier": "Tier list",
       "account": "{n} hero",
       "countOf": "sa {total}",
-      "none": "Walang hero na tugma sa mga filter na ito.",
+      "none": "Walang hero sa mga filter na ito. Ilabas ang isa, magmumukha akong mas malawak.",
       "list": "Listahan ng hero"
     },
     "heroDetail": {
@@ -448,7 +448,7 @@
         "basicAttack": "Basic attack",
         "order": "Skill order"
       },
-      "pageCounters": "Buong pahina ng mga counter",
+      "pageCounters": "Buong pahina ng kahinaan",
       "pageDuos": "Lahat ng nasukat na duo",
       "duosShort": "Mga duo"
     },
@@ -600,7 +600,11 @@
       "leadRole": "Lahat ng {n} {plural} sa laro, main o secondary role, niraranggo sa parehong patakaran ng main tier list: win at ban rate, lahat ng rank pinagsama.",
       "filterNote": "Ranking ng lahat ng rank pinagsama. Ang mga listahan ayon sa rank naman ay sumasaklaw sa bawat lane at bawat role.",
       "seeRole": "Lahat ng {plural} at ang kanilang lane",
-      "openTier": "Ipakita ang {n} hero sa tier {p}"
+      "openTier": "Ipakita ang {n} hero sa tier {p}",
+      "poster": {
+        "kicker": "No. 1 sa ranking na ito",
+        "label": "{name}, n°1 sa ranking na ito: antas {tier}, {win} ng mga tagumpay, {ban} ng mga ban"
+      }
     },
     "patchNotes": {
       "title": "Patch notes",
@@ -644,7 +648,14 @@
       "intro": "I-connect ang iyong game account gamit ang opisyal na verification code ng Moonton. Hindi kailangan ng password.",
       "security": "Hindi kailanman nakikita ng site ang iyong password. Tumatanggap lang ito ng pansamantalang token, na nakaimbak sa isang secure na cookie, na tatanggalin mo kapag nag-log out ka.",
       "metaTitle": "Mag-log in",
-      "metaDescription": "I-connect ang iyong Mobile Legends account gamit ang verification code, walang password na kailangan."
+      "metaDescription": "I-connect ang iyong Mobile Legends account gamit ang verification code, walang password na kailangan.",
+      "welcome": "Maligayang pagdating sa MLBDex!",
+      "welcomeText": "Ang iyong account sa laro, nang walang password: ang iyong username, pagkatapos ay ang code na ipinapadala ng Moonton sa iyong in-game inbox.",
+      "perks": {
+        "profile": "Ang iyong profile, mga ranggo at pinaka-naglarong hero",
+        "community": "Ang forum at ang paghahanap ng mga kakampi",
+        "collection": "Ang iyong koleksyon ng mga skin sa lahat ng iyong device"
+      }
     },
     "watch": {
       "title": "Roundup",
@@ -659,7 +670,9 @@
     "about": {
       "title": "Tungkol sa",
       "lead": "Isang independent at bukas na proyekto na sadyang tapat tungkol sa mga limitasyon nito.",
-      "metaDescription": "Ano ang site na ito, ano ang laman nito, ano ang hindi nito kayang ilaman, at paano mag-contribute."
+      "metaDescription": "Ano ang site na ito, ano ang laman nito, ano ang hindi nito kayang ilaman, at paano mag-contribute.",
+      "dexLine": "Ako si Dex! Ginagabayan kita sa site: mga hero, meta, mga tool at komunidad.",
+      "dexLink": "Ang kwento ko"
     },
     "legal": {
       "title": "Legal notice",
@@ -690,7 +703,9 @@
       "detailUnavailable": "Ang detalyadong stats — win rate, match history, pinakamadalas laruing hero — ay nakadepende sa serbisyo ng Moonton na kasalukuyang offline. Available pa rin ang profile mo sa itaas; babalik ang mga detalye kapag tumugon na ang source.",
       "noStat": "Walang stats na maipapakita.",
       "profileLink": "Tingnan ang aking player profile",
-      "profileLinkText": "Buod ng season, mga hero kumpara sa average ng rank mo, mga huling match at tips."
+      "profileLinkText": "Buod ng season, mga hero kumpara sa average ng rank mo, mga huling match at tips.",
+      "topHeroes": "Mga hero mo",
+      "topHeroesLead": "Ang mga pinakamadalas mong nilalaro, batay sa mga larong pinapanatili ng serbisyo."
     },
     "apiDoc": {
       "title": "Pampublikong API",
@@ -765,7 +780,8 @@
     "offline": {
       "title": "Offline ka",
       "text": "Hindi pa nabubuksan ang page na ito sa device na ito, kaya hindi ito available offline. Available pa rin ang mga page na nabisita mo na at ang mga pangunahing section ng site.",
-      "home": "Bumalik sa home"
+      "home": "Bumalik sa home",
+      "dexLine": "Walang network sa ngayon. Ang mga pahinang nabuksan na ay mananatiling nababasa."
     },
     "notFound": {
       "title": "Hindi nahanap ang page",
@@ -773,7 +789,12 @@
       "home": "Bumalik sa home",
       "heroes": "Tingnan ang mga hero",
       "tierList": "Kasalukuyang tier list",
-      "search": "Maghanap ng hero, item o page"
+      "search": "Maghanap ng hero, item o page",
+      "dexLine": "Hay, naligaw ang page na ito sa jungle... Aalis na ba tayo ulit dito?",
+      "lost": "Nawala",
+      "heroesText": "Hero sheet, build at counter.",
+      "tierListText": "Sino ang nangingibabaw sa meta ngayon.",
+      "homeText": "Ang patch, meta at mga tool ngayon."
     },
     "winRate": {
       "title": "Win rate calculator",
@@ -806,10 +827,10 @@
       "swap": "Pagpalitin ang side",
       "copy": "Kopyahin ang link",
       "linkCopied": "Nakopya ang link.",
-      "copyFailed": "Hindi makopya: kopyahin na lang ang address ng page.",
+      "copyFailed": "Hindi ko makopya: kopyahin ang address ng pahina.",
       "intro": "Magdagdag ng kahit isang hero sa bawat side para ipakita ang matrix. Naka-save sa address ng page ang mga pinili mo at ang rank: i-share lang ito.",
       "loading": "Nilo-load ang mga duel ng rank…",
-      "error": "Hindi ma-load ang mga duel ng rank na ito. Subukan ulit sa pagpapalit ng rank.",
+      "error": "Hindi ako nakapag-load ng mga duel ng ganitong ranggo. Subukang muli, o baguhin ang ranggo.",
       "matrixTitle": "Duels · {rank}",
       "measured": "Mga nasukat na duel: {n} sa {total}.",
       "caption": "Agwat sa win rate ng mga hero mo (mga row) laban sa mga kalaban (mga column), {rank}",
@@ -888,7 +909,8 @@
         "merge": "Kapag na-merge na, magiging live ang analysis sa susunod na deployment, at mananatili ang pangalan mo sa history ng repository."
       },
       "prLink": "Magbukas ng pull request",
-      "guideLink": "Kumpletong gabay sa GitHub (CONTRIBUTING.md)"
+      "guideLink": "Kumpletong gabay sa GitHub (CONTRIBUTING.md)",
+      "dexLine": "Isang error sa isang file, isang ideya, isang pagsasalin? Mahalaga ang anumang tulong, kahit na ang pinakamaliit."
     },
     "accountProfile": {
       "metaTitle": "Player profile",
@@ -958,7 +980,7 @@
       "seeMore": "Mga mas lumang match",
       "loading": "Naglo-load…",
       "allShown": "Ipinapakita na ang lahat ng match ng season.",
-      "loadError": "Hindi tumutugon ang serbisyo. Subukan ulit mamaya.",
+      "loadError": "Ang serbisyo ng laro ay hindi tumutugon. Subukan muli sa isang sandali.",
       "expiredTitle": "Nag-expire na ang session",
       "expiredText": "Nag-expire na ang game session mo. Mag-log in ulit gamit ang bagong code para makuha ulit ang profile mo.",
       "signInAgain": "Mag-log in ulit",
@@ -1430,6 +1452,10 @@
           "banRate": "% na-ban",
           "pickRate": "% na-pick"
         }
+      },
+      "poster": {
+        "kicker": "Pinakamalakas na pagtaas ng linggo",
+        "caption": "mga puntos ng tagumpay sa {days} araw"
       }
     },
     "statistics": {
@@ -1790,7 +1816,7 @@
       "dailyMode": "Daily challenge",
       "practiceMode": "Practice",
       "loading": "Naglo-load…",
-      "loadError": "Hindi ma-load ang quiz. I-check ang connection mo: kapag nabisita mo na ang page, gumagana rin ito offline.",
+      "loadError": "Hindi ko ma-load ang quiz. Suriin ang iyong koneksyon: kapag binisita mo ang pahina, maaari din itong i-play offline.",
       "retry": "Subukan ulit",
       "puzzleNumber": "Challenge #{n} · {date}",
       "offline": "Inihanda ang challenge offline",
@@ -1805,7 +1831,7 @@
       "share": "I-share ang resulta ko",
       "copied": "Nakopya ang resulta: i-paste kahit saan.",
       "shared": "Na-share ang resulta.",
-      "copyError": "Hindi makopya: piliin nang mano-mano ang grid.",
+      "copyError": "Hindi ko makopya: piliin ang grid sa pamamagitan ng kamay.",
       "practise": "Mag-practice pa",
       "statsTitle": "Ang stats mo",
       "stats": {
@@ -1908,7 +1934,14 @@
       "win": "{rate}% win rate",
       "duelRight": "tama",
       "duelWrong": "mali",
-      "duelSource": "Win rate sa lahat ng rank, nasukat noong {date}."
+      "duelSource": "Win rate sa lahat ng rank, nasukat noong {date}.",
+      "dex": {
+        "start": "sa iyo! Ang bawat pagkakamali ay nagbubukas ng isang palatandaan.",
+        "miss": "Oops! Isang bagong clue ang naghihintay sa iyo.",
+        "good": "Kitang-kita! Susunod.",
+        "won": "Magaling, magandang sagot!",
+        "over": "Nabigo sa pagkakataong ito. Ang susunod ay ang magaling!"
+      }
     },
     "tierMaker": {
       "title": "MLBB tier list maker",
@@ -1933,11 +1966,11 @@
       "exporting": "Ginagawa ang image…",
       "exportDone": "Na-download ang image.",
       "exportShare": "Na-share ang image.",
-      "exportError": "Hindi magawa ang image.",
+      "exportError": "Hindi ko magawa ang imahe. Subukan muli.",
       "shareLink": "I-share ang link",
       "linkCopied": "Nakopya ang link: nandoon ang buong listahan mo.",
       "linkShared": "Na-share ang link.",
-      "linkError": "Hindi puwedeng kumopya sa browser na ito.",
+      "linkError": "Hindi ko nagawang kopyahin ang link mula sa browser na ito.",
       "empty": "I-clear ang lahat ng tier",
       "reset": "Magsimula ulit",
       "confirmEmpty": "Ibalik ang lahat ng hero sa pool?",
@@ -2053,7 +2086,7 @@
       "colYear": "Taon",
       "colTotal": "Kabuuan",
       "unknownMonth": "Hindi tinukoy ang buwan",
-      "monthCell": "{month} — mga skin: {n}",
+      "monthCell": "{month}, mga skin: {n}",
       "nSkins": "{n} skin",
       "nSkins1": "1 skin",
       "seriesTitle": "Mga series at event",
@@ -2108,7 +2141,7 @@
     },
     "collectionUI": {
       "loading": "Naglo-load ng mga hero at skin…",
-      "error": "Hindi ma-load ang listahan ng skin. I-check ang connection mo at i-reload ang page.",
+      "error": "Hindi ko ma-load ang listahan ng mga pagpapakita. Suriin ang iyong koneksyon, pagkatapos ay i-reload ang page.",
       "valueTitle": "Halaga ng collection mo sa shop",
       "heroes": "Mga hero",
       "skins": "Mga skin",
@@ -2123,7 +2156,7 @@
       "share": "I-share ang buod",
       "share_copied": "Nakopya ang buod sa clipboard.",
       "share_shared": "Na-share ang buod.",
-      "share_failed": "Hindi na-share: kopyahin nang mano-mano ang buod sa itaas.",
+      "share_failed": "Hindi natuloy ang pagbabahagi: kopyahin ang buod sa itaas gamit ang kamay.",
       "selectionTitle": "Ang mga hero at skin mo",
       "search": "Maghanap ng hero o skin",
       "role": "Role",
@@ -2146,7 +2179,7 @@
       "uncheckAllHeroes": "I-untick si {name} at lahat ng skin niya",
       "seeSkins": "Mga skin",
       "noPrice": "Walang presyo sa shop",
-      "none": "Walang hero o skin na tugma sa mga filter na ito.",
+      "none": "Walang mga hero o pagpapakita sa mga filter na ito. Alisin ang isa para palakihin.",
       "rarityTitle": "Ayon sa rarity",
       "colRarity": "Rarity",
       "colOwned": "Pag-aari",
@@ -2162,7 +2195,7 @@
       "pool_all": "Lahat",
       "pool_played": "Yung mga nilalaro ko",
       "played_loading": "Binabasa ang iyong mga hero ng panahon...",
-      "played_failed": "Ang iyong mga nilalaro na hero ay hindi nababasa sa ngayon: subukang muli sa ibang pagkakataon.",
+      "played_failed": "Hindi magawang laruin ang iyong mga nilalaro na hero sa ngayon: subukang muli sa ibang pagkakataon.",
       "played_empty": "Walang bayaning naglaro ngayong season.",
       "seriesCheck": "Lagyan ng tsek ang {n} skin ng {series}",
       "seriesUncheck": "Alisin ang tsek sa {n} skin ng {series}",
@@ -2336,7 +2369,7 @@
         "chevrons": "Chevrons",
         "rifle": "Rifle"
       },
-      "empty": "Mag-type ng pangalan para makita ang bawat style.",
+      "empty": "Mag-type ng pangalan: Ipapakita ko ito sa iyo sa lahat ng istilo.",
       "selected": "Napili · {style}",
       "style": {
         "bold": "Bold",
@@ -2364,7 +2397,7 @@
       "copy": "Kopyahin",
       "copyStyle": "Kopyahin ang {style} style",
       "copied": "Nakopya: {nickname}",
-      "copyFailed": "Hindi makopya: piliin ang nickname at kopyahin ito nang mano-mano.",
+      "copyFailed": "Hindi ko makopya: piliin ang palayaw at kopyahin ito gamit ang kamay.",
       "length": "Haba: {n}",
       "units": "{u} sa UTF-16 units",
       "overGuide": "Mas mahaba sa {max} character na sinabi ng isang guide: maaaring tanggihan ito ng laro.",
@@ -2498,7 +2531,7 @@
       },
       "solved": "nasagot",
       "loading": "Naglo-load…",
-      "loadError": "Hindi ma-load ang puzzle ngayong araw. I-check ang connection mo, tapos subukan ulit.",
+      "loadError": "Hindi ko ma-load ang hamon ngayon. Suriin ang iyong koneksyon, pagkatapos ay subukang muli.",
       "retry": "Subukan ulit",
       "unavailable": "Hindi available ang mode na ito ngayon. Subukan ang isa pa!",
       "number": "MLBBdle #{n} · {date}",
@@ -2563,7 +2596,7 @@
       "share": "I-share ang resulta ko",
       "copied": "Nakopya ang resulta: i-paste kahit saan.",
       "shared": "Na-share ang resulta.",
-      "copyError": "Hindi makopya: piliin nang mano-mano ang grid.",
+      "copyError": "Hindi ko makopya: piliin ang grid sa pamamagitan ng kamay.",
       "shareTitle": "MLBBdle #{n} · {mode} · mga hula: {guesses}",
       "playMode": "Laruin ang {mode} mode",
       "practiseMore": "Mag-practice pa",
@@ -2587,7 +2620,14 @@
       "reveal": "Ipakita ang sagot",
       "newHero": "Bagong hero",
       "skip": "Laktawan",
-      "practiceQuestion": "Sinong hero ito?"
+      "practiceQuestion": "Sinong hero ito?",
+      "dex": {
+        "start": "sa iyo! Inilihim ko ito.",
+        "miss": "Nabigo... ipinapakita ng mga kulay ang paraan.",
+        "close": "Nag-iinit na! Ang ilang mga kahon ay tumutugma.",
+        "won": "Buti na lang, siya na!",
+        "over": "damage! Isa pang round?"
+      }
     },
     "advanceServer": {
       "title": "Advance Server patch notes",
@@ -3225,7 +3265,7 @@
         },
         "lord": {
           "name": "Lord",
-          "role": "Ang pinakamalakas na monster sa mapa. Ang team na pumatay dito ang nagpapatawag nito: tinutulak nito ang pinakamahinang lane ng kalaban at pinalalakas ang susunod na minion wave.",
+          "role": "Ang pinakamalakas na monster sa mapa. Ang team na pumatay dito ang nagpapatawag nito: nagtutulak ito ng isang lane kasama ng team at pinalalakas ang susunod na minion wave.",
           "firstSpawn": "{after} min pagkatapos ng huling Turtle, o sa pagitan ng {from} at {latest} kung buhay pa ang isang Turtle",
           "respawn": "{respawn} s pagkatapos mamatay; pagkatapos ng {lateFrom}, {late} s ayon sa text ng wiki, {infobox} ayon sa infobox nito",
           "reward": "Pinalakas ang susunod na minion wave; tumutulak ang ipinatawag na Lord kasama ang team mo, at ang mga kakampi sa malapit ay nagdudulot ng {bonus} na dagdag na base magic damage ({cooldown} s na cooldown)",
@@ -3523,15 +3563,15 @@
       "errors": {
         "signIn": "Nag-expire na ang session mo: mag-sign in ulit.",
         "tooFast": "Masyadong maraming sunod-sunod na request: subukan ulit pagkalipas ng isang minuto.",
-        "voteFailed": "Hindi na-save ang boto.",
-        "deleteFailed": "Hindi ma-delete ang build.",
+        "voteFailed": "Hindi pumasa ang boto mo. Subukan muli.",
+        "deleteFailed": "Hindi ko naalis ang build na ito. Subukan muli.",
         "title": "Dapat {min} hanggang {max} character ang haba ng title.",
         "ratings": "Hindi puwedeng lumampas sa {max} character ang notes.",
         "link": "Bawal ang link o website address sa title o notes.",
         "build": "Hindi valid ang build na ito: pumili ng hero at kahit isang item.",
         "day": "Naabot na ang limit: {n} build na-publish sa loob ng 24 oras. Bumalik ka bukas.",
         "total": "May {n} na-publish na build ka na: mag-delete ng isa para makapag-publish ng bago.",
-        "unavailable": "Pansamantalang hindi available ang serbisyo: subukan ulit mamaya."
+        "unavailable": "Ang serbisyo ay hindi tumutugon sa ngayon: subukang muli sa ibang pagkakataon."
       },
       "publishTitle": "I-publish ang build na ito",
       "checkingSession": "Sinusuri ang session mo…",
@@ -3582,7 +3622,10 @@
       "notesTitle": "Notes ng gumawa",
       "backToHero": "Lahat ng build ni {hero}",
       "statsTitle": "Kinuwentang stats",
-      "statsMissing": "Walang stats para sa hero na ito."
+      "statsMissing": "Walang stats para sa hero na ito.",
+      "poster": {
+        "kicker": "Ang pinaka-binuo na hero"
+      }
     },
     "damageCalculator": {
       "title": "Damage calculator",
@@ -3650,14 +3693,14 @@
       "average": "Sa average, na may {chance} crit chance: {damage} damage bawat basic attack."
     },
     "bot": {
-      "title": "MLBBDex — ang Mobile Legends Discord bot",
+      "title": "Dex MLBB — ang Discord Mobile Legends bot",
       "breadcrumb": "Discord bot",
-      "metaTitle": "Mobile Legends Discord bot (MLBB): mga build, counter, tier list",
-      "metaDescription": "MLBBDex, ang libreng Mobile Legends Discord bot: mga build at counter na sinukat sa mga ranked match, tier list, patch notes, skin alert at ang daily MLBBdle, sa limang wika.",
+      "metaTitle": "Dex MLBB, ang Discord Mobile Legends bot: mga build, counter, tier list",
+      "metaDescription": "Dex MLBB, ang libreng MLBBEx Discord bot para sa Mobile Legends: mga build at counter na sinusukat sa mga ranggo na laro, tier list, patch notes, skin alert at MLBBdle ng araw, sa limang wika.",
       "lead": "Mga build, counter, tier list at patch notes ng Mobile Legends: Bang Bang, sinukat sa mga ranked match at ina-update araw-araw, mismo sa server mo. Dagdag pa ang daily MLBBdle para sa community mo. Libre, sa limang wika.",
       "add": "Idagdag sa Discord",
       "join": "Sumali sa server",
-      "vote": "Bumoto para sa MLBBDex",
+      "vote": "Bumoto para sa Dex MLBB",
       "dashboard": "Dashboard",
       "servers": "Nasa {count} server",
       "free": "100% libre",
@@ -3723,7 +3766,7 @@
         "help": "Ang mga command ayon sa kategorya, may halimbawa para sa bawat isa.",
         "invite": "Ang link upang idagdag ang bot sa isa pang server.",
         "about": "Bersyon, bilang ng server, mga link sa site, sa support server at sa pagboto.",
-        "profile": "Ang Mobile Legends profile mo bilang larawan: rank, win rate at pinakamadalas laruing hero (i-link nang isang beses sa site)."
+        "profile": "Ang iyong profile sa Mobile Legends sa mga larawan: ranggo, win rate at pinakamaraming nilalaro na hero (isang beses lang mali-link ang account sa site)."
       },
       "permissionsTitle": "Mga hinihinging permission",
       "permissionsText": "Ang kailangan lang para sumagot at mag-post: hindi kailanman Administrator, at walang access sa nilalaman ng mga mensahe. Ginagamit lang ang Server Members intent para sa mga welcome at goodbye message: walang iniimbak tungkol sa mga member.",
@@ -3740,11 +3783,11 @@
       "faqTitle": "Mga madalas itanong",
       "faq1q": "Libre ba ang bot?",
       "faq1a": "Oo, buong-buo: walang subscription, walang naka-lock na feature, walang vote lock, walang ads. Gaya ng site, ang gumawa nito ang nagbabayad para dito.",
-      "faq2q": "Paano idagdag ang MLBBDex sa server ko?",
+      "faq2q": "Paano ko idadagdag ang Dex MLBB sa aking server?",
       "faq2a": "I-click ang “Idagdag sa Discord”, pumili ng server kung saan may Manage Server permission ka, at kumpirmahin. Lalabas ang mga command sa sandaling mag-type ka ng / sa isang channel.",
       "faq3q": "Paano i-set up ang mga anunsyo?",
       "faq3a": "Buksan ang dashboard gamit ang Discord account mo (o i-type ang /setup): pumili ng channel, at kung gusto mo, ng role na ime-mention, para sa bawat uri ng anunsyo. Kailangan mo ang Manage Server permission.",
-      "faq4q": "Saan nagmula ang mga build, counter at ang tier list?",
+      "faq4q": "Saan nagmula ang mga build, counter at tier list?",
       "faq4a": "Mula sa parehong mga source ng site: statistics ng mga ranked match para sa mga rate, build at counter, at ang Mobile Legends wiki para sa mga hero, item at patch. Ina-update sila araw-araw.",
       "faq5q": "Kailangan ba ng bot ang Administrator permission?",
       "faq5a": "Hindi. Hinihingi lang nito ang ginagamit nito para sumagot at mag-post, at hindi kailanman binabasa ang nilalaman ng mga mensahe.",
@@ -3754,14 +3797,16 @@
       "faq7a": "Ang pangalan at mga setting ng server mo, ang mga nai-post na nito, at, para sa mga leaderboard, ang Discord ID at pangalan ng mga player ng daily game. Nasa privacy page ng bot ang mga detalye.",
       "faq8q": "Pareho ba ang MLBBdle sa Discord at sa site?",
       "faq8a": "Oo: parehong hero, parehong skill at parehong quiz round bawat araw (UTC), sa lahat ng wika.",
-      "ctaTitle": "Idagdag ang MLBBDex sa server mo",
-      "ctaText": "Isang minuto lang para idagdag, walang babayaran. May tanong o ideya? Naghihintay sa iyo ang MLBBDex server.",
+      "ctaTitle": "Idagdag ang Dex MLBB sa iyong server",
+      "ctaText": "Isang minuto para idagdag ito, walang babayaran. Mga tanong o ideya? Ang server ng komunidad ay naghihintay para sa iyo.",
       "privacy": "Privacy ng bot",
-      "terms": "Terms of use"
+      "terms": "Terms of use",
+      "dexLine": "Hi, ako si Dex! Sa Discord, ang pangalan ko ay Dex MLBB: type /hero, /build o /tierlist, at sasagutin kita ng mga file at figure ng site.",
+      "dexLink": "Sino si Dex?"
     },
     "botPrivacy": {
       "title": "Privacy ng Discord bot",
-      "metaDescription": "Kung ano ang iniimbak ng MLBBDex Discord bot, bakit, gaano katagal, at kung paano ito ipabura.",
+      "metaDescription": "Ano ang pinapanatili ng Discord Dex MLBB bot, bakit, gaano katagal, at kung paano ito tatanggalin.",
       "lead": "Ano ang itinatago ng bot, bakit, at gaano katagal.",
       "storedTitle": "Ang iniimbak",
       "storedServer": "Para sa bawat server: ang ID, pangalan, icon, bilang ng member, wika, mga setting (mga channel, role, oras ng daily game, text ng mga welcome at goodbye message) at ang listahan ng mga anunsyong nai-post na.",
@@ -3785,10 +3830,10 @@
     },
     "botTerms": {
       "title": "Terms of use ng Discord bot",
-      "metaDescription": "Terms of use ng MLBBDex Discord bot: libreng serbisyo, makatwirang paggamit, data ng game na ibinibigay nang walang warranty.",
+      "metaDescription": "Mga Tuntunin ng Paggamit ng Dex MLBB Discord Bot: Libreng serbisyo, patas na paggamit, data ng laro na ibinigay nang walang warranty.",
       "lead": "Ang mga simpleng patakaran ng isang libreng serbisyo.",
-      "p1": "Ang MLBBDex bot ay isang independiyente at libreng fan project, na walang kaugnayan sa Moonton. Ang Mobile Legends: Bang Bang ay trademark ng Shanghai Moonton Technology Co., Ltd.",
-      "p2": "Ang data (statistics, build, tier list, patch notes) ay ibinibigay nang walang garantiya ng katumpakan o availability. Ang mga teksto ay nagmula sa Mobile Legends wiki (Fandom) at Liquipedia, sa ilalim ng lisensya ng CC BY-SA, ang mga istatistika mula sa mga ranggo na laro. Ang mga larawan at pangalan ng laro ay nananatiling © Moonton, at ang mga collaborations © kanilang mga may hawak ng karapatan.",
+      "p1": "Ang MLBB Dex Bot (MLBBDex) ay isang independiyenteng, libreng fan project, walang kaugnayan sa Moonton. Mobile Legends: Ang Bang Bang ay isang tatak ng Shanghai Moonton Technology Co., Ltd.",
+      "p2": "Ang data (statistics, build, tier list, patch notes) ay ibinibigay nang walang garantiya ng katumpakan o availability. Ang mga teksto ay nagmula sa Mobile Legends wiki (Fandom) at Liquipedia, sa ilalim ng lisensya ng CC BY-SA; ang mga numero ay nagmula sa mga istatistika ng ranggo ng laro. Ang mga larawan at pangalan ng laro ay nananatiling © Moonton, at ang mga collaborations © kanilang mga may hawak ng karapatan.",
       "p3": "Huwag abusuhin ang bot: walang mapang-abusong automation ng mga command, walang pagtatangkang i-access ang mga setting ng server na hindi mo pinamamahalaan. Maaaring limitahan o alisin ang serbisyo sa server na umaabuso rito.",
       "p4": "Maaaring magbago, maantala o tumigil ang serbisyo anumang oras. Ang mga patakaran ng Discord (Terms of Service at Community Guidelines) ay nalalapat sa paggamit nito.",
       "p5": "Ang data na iniimbak ay inilalarawan sa privacy page ng bot. Para sa anumang tanong: [{contact}](mailto:{contact}).",
@@ -3800,7 +3845,7 @@
       "lead": "I-set up ang bot para sa bawat server mo: wika, mga anunsyo, mga daily game, mga welcome message at auto-roles.",
       "login": "Mag-log in gamit ang Discord",
       "loginLead": "Mag-log in gamit ang Discord para makita ang mga server na pinamamahalaan mo. ID mo lang ang binabasa: walang access sa mga mensahe o server mo.",
-      "loginFailed": "Hindi natuloy ang pag-log in. Subukan ulit.",
+      "loginFailed": "Hindi natuloy ang koneksyon. Subukan muli.",
       "logout": "Log out",
       "signedAs": "Naka-log in bilang {name}",
       "serversTitle": "Mga server mo",
@@ -3822,8 +3867,8 @@
       "members": "{count} member",
       "admin": "Admin panel",
       "loginTitle": "Mag-log in para i-set up ang bot",
-      "addBotLead": "Wala ang isang server na pinamamahalaan mo? I-invite doon ang MLBBDex, tapos bumalik dito.",
-      "botPresent": "Nasa server na ito ang MLBBDex",
+      "addBotLead": "Hindi lumalabas ang isang server na pinamamahalaan mo? Invite mo si Dex MLBB dyan, tapos balik ka dito.",
+      "botPresent": "Nasa server na ito ang Dex MLBB",
       "noManageRoles": "Walang Manage Roles permission",
       "deliveriesLead": "Ang mga pinakabagong anunsyong nai-post sa server na ito, at ang mga nabigo."
     },
@@ -3850,14 +3895,17 @@
       "save": "I-save",
       "saving": "Sine-save…",
       "saved": "Na-save ang mga setting.",
-      "saveFailed": "Hindi na-save. Subukan ulit.",
+      "saveFailed": "Hindi natuloy ang recording. Subukan muli.",
       "test": "Magpadala ng test",
       "testSent": "Naipadala ang test message.",
-      "testFailed": "Hindi maipadala ang test sa channel na ito.",
+      "testFailed": "Hindi maipadala ang pagsubok sa lounge na ito.",
       "failing": "Hindi nakapag-post ang bot sa channel na ito: tingnan ang mga permission nito, tapos i-save.",
       "flush": "I-post ang mga nakabinbing anunsyo",
       "flushing": "Nagpo-post…",
-      "flushed": "Nasuri ang mga anunsyo: {count} bago, pinag-post na ang bot.",
+      "flushed": {
+        "one": "Nasuri ang mga anunsyo: {count} bago, pinag-post na ang bot.",
+        "other": "Nasuri ang mga anunsyo: {count} bago, pinag-post na ang bot."
+      },
       "flushFailed": "Hindi tumugon ang bot.",
       "greetingsTitle": "Welcome at goodbye",
       "greetingsLead": "Isang mensahe sa channel na pipiliin mo kapag may member na sumali o umalis, sa wika ng server. Ang bagong dating lang ang mime-mention; kapag higit sa 5 tao ang sumali sa loob ng 10 segundo, iisang mensahe ang ipo-post ng bot para sa lahat.",
@@ -3932,7 +3980,7 @@
         "delete": "I-delete",
         "deleteConfirm": "I-delete ang menu na “{title}” at ang mensahe nito sa Discord?",
         "deleted": "Na-delete ang menu.",
-        "deleteFailed": "Nabigo ang pag-delete. Subukan ulit.",
+        "deleteFailed": "Hindi natuloy ang pagtanggal. Subukan muli.",
         "publish": "I-publish ang mensahe",
         "update": "I-update ang mensahe",
         "publishing": "Pina-publish…",
@@ -3943,7 +3991,7 @@
           "invalid_menu": "Tinanggihan ng Discord ang mensahe: baka na-delete ang isang emoji ng menu. I-edit ang menu, tapos i-publish ito.",
           "rolesUnavailable": "May role sa menu na hindi na maibibigay ng bot (na-delete, nasa itaas ng role nito o may moderation permission): i-edit ang menu.",
           "rateLimited": "Masyadong maraming sunod-sunod na pag-publish: maghintay ng isang minuto.",
-          "failed": "Nabigo ang pag-publish. Subukan ulit."
+          "failed": "Hindi natuloy ang publikasyon. Subukan muli."
         },
         "statusPublished": "Na-publish sa #{channel}",
         "statusDraft": "Hindi pa nai-publish",
@@ -3979,7 +4027,7 @@
         "save": "I-save ang menu",
         "cancel": "Kanselahin",
         "saved": "Na-save ang menu. I-publish ito para ma-update ang mensahe sa Discord.",
-        "saveFailed": "Hindi na-save. Suriin ang menu at subukan ulit.",
+        "saveFailed": "Hindi natuloy ang recording. Suriin ang menu, pagkatapos ay subukang muli.",
         "notGrantable": "Hindi mo kayang ibigay mismo ang isa sa mga role na ito (Manage Roles permission, role na mas mataas sa iyo): hindi rin ito ibibigay ng bot para sa iyo.",
         "tooMany": "May 10 menu na ang server na ito, ang maximum.",
         "paused": "Hindi na kayang ibigay ng manager na nag-set up ng menu na ito ang ilan sa mga role nito: nakakakuha ng error ang mga member. I-save mismo ang menu para ikaw na ang humawak nito (kailangan mong kayang ibigay ang mga role nito).",
@@ -4026,7 +4074,7 @@
           "limit": "Ang user limit ay mula 0 hanggang {max}.",
           "unknownChannel": "Hindi na voice channel ng server na ito ang isang join-to-create channel: i-reload ang page.",
           "rateLimited": "Masyadong maraming save nang sunod-sunod: maghintay ng isang minuto.",
-          "failed": "Hindi na-save. Subukan ulit."
+          "failed": "Hindi natuloy ang recording. Subukan muli."
         }
       }
     },
@@ -4274,7 +4322,7 @@
       "warning": "Ang pagbili, pagbenta o pag-trade ng account ay labag sa terms of service ng Moonton: puwedeng ma-ban ang account o bawiin ng dating may-ari, at karaniwan ang scam. Sinusukat ng tantiyang ito kung magkano ang nagastos sa isang collection; hindi ito nagtatakda ng presyo. Walang ipinapadala sa server.",
       "methodTitle": "Ang paraan, isa-isang numero",
       "methodPoints": "Ang mga tier ay ang mga nasa Showcase ng laro, kasama ang collection points na ibinibigay ng laro sa bawat skin. Ang kabuuang points ay pansuri: dapat itong tumugma sa kabuuang ipinapakita ng laro.",
-      "methodCost": "Ang bawat skin ay binibilang para sa karaniwang halaga ng kategorya nito. Ang Premium, Exceptional at Common ay ibinebenta sa mga tindahan: ang kanilang gastos ay ang median na presyo sa mga diamante ng mga skin sa kategorya, na naitala sa data ng laro. Ang Legend, Grandiose at Exquisite ay nakukuha sa pamamagitan ng pagguhit: kinukuha nila ang median, bilugan, ng mga gastos na inilathala ng mga gabay ng manlalaro, na nag-iiba-iba mula sa isang kaganapan at mula sa isang manlalaro patungo sa isa pa. Ang isang makulay na hitsura ay binibilang para sa simbolikong halaga.",
+      "methodCost": "Ang bawat skin ay binibilang para sa karaniwang halaga ng kategorya nito. Ang Premium, Exceptional at Common ay ibinebenta sa mga tindahan: ang kanilang gastos ay ang median na presyo sa mga diamante ng mga skin sa kategorya, na naitala sa data ng laro. Ang Legend, Grandiose at Exquisite ay nakukuha sa pamamagitan ng pagguhit: ang kanilang gastos ay ang bilugan na median ng mga gastos na inilathala ng mga gabay ng manlalaro, at ang mga gastos na ito ay nag-iiba-iba mula sa isang kaganapan at mula sa isang manlalaro patungo sa isa pa. Ang isang makulay na hitsura ay binibilang para sa simbolikong halaga.",
       "tableCaption": "Points at gastos na binibilang bawat skin, ayon sa tier",
       "colTier": "Tier",
       "colPoints": "Mga puntos",
@@ -4314,7 +4362,7 @@
       "reset": "I-clear lahat",
       "share_copied": "Nakopya ang link.",
       "share_shared": "Na-share ang resulta.",
-      "share_failed": "Nabigo ang pag-share.",
+      "share_failed": "Ang pagbabahagi ay hindi nangyari.",
       "shareText": "Nagastos ang MLBB collection ko nang mga {cost}; katulad na account: {low} hanggang {high} (tinatayang halaga).",
       "shareTextCost": "Nagastos ang MLBB collection ko nang mga {cost} (tinatayang halaga).",
       "resultTitle": "Tinatayang halaga ng MLBB account ko",
@@ -4323,7 +4371,7 @@
       "import_done": "Mga skin at hero na kinuha mula sa iyong koleksyon: {n} skin na inayos ayon sa tier.",
       "import_unmapped": "Mga skin na walang kilalang kategorya, iniwan: {n}.",
       "import_variants": "Ang mga kulay na hitsura ay wala sa catalog: idagdag ang mga ito sa pamamagitan ng kamay, tulad ng mga punto ng iba pang mga panel.",
-      "import_failed": "Hindi ma-load ang skin catalogue. Subukan ulit.",
+      "import_failed": "Hindi ko na-load ang hitsura ng catalog. Subukan muli.",
       "skinsTitle": "Ang iyong koleksyon, tulad ng sa Showcase",
       "whereTitle": "Saan mahahanap ang mga numerong ito",
       "wherePath": "Profile > Showcase > Collection",
@@ -4340,8 +4388,8 @@
         "headerOff": "Hindi tugma ang nabasang total ({read}) sa kabuuan ng mga hilera ({sum}): suriin ang mga minarkahang field.",
         "rowsCheck": "Suriin: {tiers}.",
         "missing": "Hindi nabasa, punan nang mano-mano: {tiers}.",
-        "failed": "Walang nakitang skin collection points overview sa larawang ito. Subukan ang malinaw na screenshot ng Showcase na bukas ang panel.",
-        "error": "Hindi nakapagsimula ang reader sa browser na ito. Kopyahin nang mano-mano ang mga numero.",
+        "failed": "Hindi ko mahanap ang mga collection point sa larawang ito. Subukan ang isang malinaw na pagkuha ng Showcase, bukas ang panel.",
+        "error": "Ang manlalaro ay hindi nagsisimula sa browser na ito. Kopyahin ang mga numero sa pamamagitan ng kamay.",
         "detected": "nakita",
         "check": "suriin",
         "doneItems": "{group}: {points} puntos ang nakita sa iyong pagkuha.",
@@ -4430,8 +4478,14 @@
       "latestTitle": "Mga pinakabagong discussion",
       "emptyAll": "Wala pang discussion: simulan ang una.",
       "emptyCategory": "Wala pang discussion sa kategoryang ito.",
-      "threadCount": "{n} discussion",
-      "replies": "{n} reply",
+      "threadCount": {
+        "one": "{n} discussion",
+        "other": "{n} discussion"
+      },
+      "replies": {
+        "one": "{n} reply",
+        "other": "{n} reply"
+      },
       "pinned": "Naka-pin",
       "locked": "Naka-lock",
       "edited": "na-edit",
@@ -4448,7 +4502,7 @@
         "game": "Gamit ang aking game account",
         "discord": "Sa Discord",
         "discordNote": "Sa Discord, natatanggap lang ng site ang iyong Discord account number at ang iyong display name, hindi ang iyong email. Tanging ang display name lang ang lalabas sa iyong mga mensahe.",
-        "failed": "Ang koneksyon sa Discord ay hindi matagumpay. Subukan muli.",
+        "failed": "Hindi natuloy ang koneksyon sa Discord. Subukan muli.",
         "discordTooNew": "Nalikha ang iyong Discord account nang wala pang {days} araw ang nakalipas: hindi pa ito makakasali sa forum. Mag-log in gamit ang iyong game account, o bumalik pagkalipas ng ilang araw."
       },
       "postingAs": "Nagsusulat ka bilang {name}.",
@@ -4477,7 +4531,10 @@
       "searchTitle": "Maghanap sa forum",
       "searchLead": "Mga discussion na may salita mo sa title, text o sa isang reply. Gumamit ng quotes para sa eksaktong phrase, at gitling para hindi isama ang isang salita.",
       "searchLeadCategory": "Naghahanap sa kategoryang {name}.",
-      "searchResults": "{n} discussion para sa \"{query}\"",
+      "searchResults": {
+        "one": "{n} discussion para sa \"{query}\"",
+        "other": "{n} discussion para sa \"{query}\""
+      },
       "searchEmpty": "Walang tugmang discussion. Subukan ang ibang salita, o mas kaunti.",
       "searchHint": "Mag-type ng isa o higit pang salita: isang hero, isang item, isang tanong.",
       "rules": {
@@ -4494,7 +4551,10 @@
         "seoTitle": "Maghanap ng kakampi sa Mobile Legends",
         "seoDescription": "Mga Mobile Legends player na naghahanap ng duo o team: i-filter ayon sa region, rank, lane at wika, at i-post ang sarili mong card.",
         "ownTitle": "Card mo",
-        "listTitle": "{n} player ang available",
+        "listTitle": {
+          "one": "{n} player ang available",
+          "other": "{n} player ang available"
+        },
         "any": "Kahit ano",
         "lane": "Lane",
         "language": "Wika",
@@ -4506,7 +4566,9 @@
         "gameId": "Game ID",
         "signInForContact": "para makita ang contact.",
         "noContact": "Walang shared na contact: kontakin siya sa forum o sa Discord.",
-        "discordText": "Sa MLBBDex Discord server, hindi tumitigil ang looking-for-group channel."
+        "discordText": "Sa MLBBDex Discord server, hindi tumitigil ang looking-for-group channel.",
+        "emptyTitle": "Wala pang tao",
+        "mains": "Mga hero na nilaro"
       },
       "moderation": {
         "title": "Moderation ng community",
@@ -4546,17 +4608,28 @@
           "resolve": "Nahawakan ang error"
         },
         "deleted": "binura ng gumawa",
-        "reportCount": "{n} report",
+        "reportCount": {
+          "one": "{n} report",
+          "other": "{n} report"
+        },
         "asReported": "Gaya ng iniulat",
         "dataReports": "Mga error na iniulat sa mga form ({n})",
         "dataReportsLead": "Mga hindi kilalang ulat na ipinadala mula sa hero, item, emblem, spell sheet, at patch notes, mula sa pinakaluma hanggang sa pinakabago. Iwasto ang data kung kinakailangan, pagkatapos ay markahan ang ulat bilang naproseso.",
         "dataReportsEmpty": "Walang naiulat na mga error.",
         "dataCorrection": "Iminungkahing pagwawasto:",
         "dataSource": "Source:"
-      }
+      },
+      "hostLine": "Hi! Dito kami nagtutulungan, nag-uusap kami tungkol sa mga build at nakahanap kami ng mga kakampi.",
+      "signInDex": "Mababasa ng lahat. Para magsulat, mag-log in lang.",
+      "emptyDex": "Napakatahimik dito...",
+      "searchEmptyTitle": "Walang nahanap",
+      "lastActivity": "Huling aktibidad {when}"
     },
     "communityUI": {
-      "votes": "{n} boto",
+      "votes": {
+        "one": "{n} boto",
+        "other": "{n} boto"
+      },
       "upvote": "I-upvote ang post na ito",
       "unvote": "Bawiin ang boto ko",
       "signInToVote": "Mag-sign in para bumoto",
@@ -4611,8 +4684,8 @@
         "unknown": "Wala na ang content na ito.",
         "title": "Dapat nasa pagitan ng {min} at {max} character ang title.",
         "body": "Dapat nasa pagitan ng {min} at {max} character ang mensahe.",
-        "invalid": "Tinanggihan: suriin ang mga field.",
-        "unavailable": "Hindi available ang serbisyo sa ngayon. Subukan ulit mamaya."
+        "invalid": "Tinanggihan ang pagpapadala: suriin ang mga patlang.",
+        "unavailable": "Ang serbisyo ay hindi tumutugon sa ngayon. Subukan muli sa isang sandali."
       },
       "regions": {
         "id": "Indonesia",
@@ -4676,7 +4749,10 @@
         "unban": "Alisin ang ban",
         "dismiss": "I-dismiss ang mga report",
         "duration": "Tagal",
-        "days": "{n} araw",
+        "days": {
+          "one": "{n} araw",
+          "other": "{n} araw"
+        },
         "forever": "Permanente",
         "reason": "Dahilan (log)",
         "confirmBan": "Kumpirmahin ang ban",
@@ -4739,16 +4815,19 @@
       "lead": "Lahat ng tool ng site, ayon sa gamit: maghanda ng draft, mag-test ng build, tantiyahin ang isang account, mag-practice o laruin ang daily game.",
       "metaTitle": "Mga tool sa MLBB: draft, build, damage at account",
       "metaDescription": "Draft simulator, team analysis, build simulator, damage calculator, account value, objective timer at daily games para sa Mobile Legends: Bang Bang.",
-      "nTools": "{n} tool"
+      "nTools": "{n} tool",
+      "open": "Bukas",
+      "play": "Maglaro",
+      "hello": "Pumili ng tool at pumasok sa arena: gumagana ang lahat sa browser, nang libre, nang walang account."
     },
     "discordCard": {
       "title": "Discord profile card",
-      "intro": "Ipakita ang rank, win rate at pinakamadalas mong laruing hero bilang larawan sa Discord, gamit ang /profile command ng MLBBDex bot.",
+      "intro": "Ipakita ang iyong ranggo, win rate at pinakamaraming nilalaro na hero sa mga larawan sa Discord, gamit ang Dex MLBB bot /profile command.",
       "needDiscord": "Para i-link ito, mag-sign in din gamit ang Discord account na ginagamit mo sa mga server mo.",
       "discordButton": "Mag-sign in gamit ang Discord",
       "linkOffer": "I-link ang Discord account {name} sa game account na ito. Ang iyong mga istatistika ay binabasa pabalik sa bawat /profile.",
       "linkButton": "I-link at gawin ang card ko",
-      "linked": "Naka-link ang card mo sa isang Discord account. I-type ang /profile sa server kung nasaan ang MLBBDex bot.",
+      "linked": "Naka-link ang iyong card sa isang Discord account. I-type ang /profile sa isang server kung saan matatagpuan ang Dex MLBB bot.",
       "otherDiscord": "Naka-sign in ka gamit ang ibang Discord account ({name}) kaysa sa naka-link. Kapag ni-link ito, doon malilipat ang card.",
       "updatedAt": "Na-save ang mga numero noong {date}.",
       "refresh": "I-update ang mga numero ko",
@@ -4764,12 +4843,12 @@
       "done": "Na-save.",
       "errorDown": "Hindi sumasagot ang serbisyo ng laro: subukan ulit pagkalipas ng ilang minuto.",
       "errorExpired": "Nag-expire na ang game session mo: mag-log in ulit.",
-      "error": "May nangyaring mali. Subukan ulit mamaya.",
+      "error": "May natigil. Subukan muli sa isang sandali.",
       "card": {
         "wins": "Panalo",
         "heroMatches": "{n} laban",
         "updated": "Na-update {date}",
-        "minimum": "Hindi bababa rito: may mga hero na hindi nabasa",
+        "minimum": "Mga minimum na halaga: hindi mabasa ang ilang hero",
         "region": "Region",
         "statsLater": "Babalik ang mga hero stats sa sandaling maibigay muli ng serbisyo ng laro ang mga ito."
       }
@@ -4792,7 +4871,128 @@
         "tooFast": "Napakaraming ulat nang sabay-sabay: subukang muli sa isang minuto.",
         "full": "Maraming mga ulat ang nakabinbin: subukang muli sa loob ng ilang araw.",
         "invalid": "Tinanggihan ang ulat: suriin ang mga patlang.",
-        "unavailable": "Hindi maipadala sa ngayon: subukang muli sa ibang pagkakataon."
+        "unavailable": "Hindi ko ito maipadala sa ngayon: subukang muli mamaya."
+      }
+    },
+    "dexPage": {
+      "title": "Si Dex",
+      "metaTitle": "Si Dex, ang maskot ng MLBBDex",
+      "metaDescription": "Sino si Dex, ang munting owl-fox na espiritu mula sa Land of Dawn na gumagabay sa iyo sa MLBBEx at tumugon sa iyo sa Discord gamit ang Dex MLBB bot.",
+      "kicker": "Ang maskot ng MLBBDex",
+      "lead": "Isang maliit na espiritu mula sa Land of Dawn, kalahating kuwago, kalahating soro, na nanood ng sapat na mga laro upang matandaan ang lahat. Ginagabayan ka niya sa paligid ng site at tumugon sa iyo sa Discord.",
+      "hello": "Hi, ako si Dex! Mag-click sa akin: Palagi akong may reserbang tip.",
+      "seePoses": "Tingnan ang lahat ng anim na pose ni Dex",
+      "originTitle": "Kung saan siya nanggaling",
+      "origin1": "Ipinanganak si Dex sa Land of Dawn, ang araw na naputol ang isang fragment mula sa baseng kristal, sa pagitan mismo ng dalawang kampo. Half blue, half red: hindi siya pipili ng team. Isinusuot niya ang fragment na ito bilang isang palawit.",
+      "origin2": "Kuwago para sa kanyang malalaking mata na malinaw na nakikita sa gabi, soro para sa tuso, siya ay gumugol ng mga panahon na dumapo sa jungle na nanonood ng mga laban, nagbibilang ng mga build at nagpapansin kung sino ang nakakatalo.",
+      "origin3": "Lahat ng naalala niya, iniimbak niya sa isang malaking index: ang Dex. Ito ang naging pangalan niya, pagkatapos ay ang sa site.",
+      "traitsTitle": "Mga natatanging palatandaan",
+      "traits": {
+        "color": "Midnight blue, tulad ng background ng site",
+        "tufts": "Dalawang hugis talim na gintong egret",
+        "crystal": "Ang pangunahing kristal, asul at pula, bilang isang palawit",
+        "cape": "Isang kapa na may linyang ginto"
+      },
+      "doesTitle": "Ang ginagawa niya",
+      "siteTitle": "Sa site",
+      "siteText": "Inaanyayahan ka ni Dex sa tuktok ng mga pahina, nakapasok sa isang tip kapag nag-click ka sa kanya, nananatili sa iyo kapag ang isang pahina ay walang laman at ipinagdiriwang ang iyong mga tagumpay sa MLBBdle. Hindi siya nagsasalita nang walang kabuluhan: tatlong piraso ng payo sa bawat pahina.",
+      "discordTitle": "Sa Discord",
+      "discordText": "Doon, ang Dex ay tinatawag na Dex MLBB: ito ang bot na tumutugon sa /hero, /build o /tierlist na may parehong mga numero ng site. Siya rin ang icon ng community server.",
+      "botLink": "Tuklasin ang Dex MLBB bot",
+      "posesTitle": "Anim na pose niya",
+      "posesLead": "Isang pose para sa bawat sandali ng iyong pagbisita. Mag-hover sa ibabaw nila, mag-click sa kanila: buhay sila.",
+      "poses": {
+        "salut": {
+          "name": "Hi",
+          "text": "Para tanggapin ka, sa mga unang screen."
+        },
+        "reflexion": {
+          "name": "Pagninilay",
+          "text": "Para sa payo o paliwanag."
+        },
+        "idee": {
+          "name": "Ideya",
+          "text": "Kapag mayroon siyang mungkahi o kasangkapan upang ipakita sa iyo."
+        },
+        "surpris": {
+          "name": "Nagulat",
+          "text": "Sa isang walang laman na pahina, hindi nakita o nagkamali."
+        },
+        "victoire": {
+          "name": "Win",
+          "text": "Kapag nanalo ka, maghanap o mag-save ng isang bagay."
+        },
+        "carte": {
+          "name": "Mapa",
+          "text": "Sa mga gabay, sa mapa at para sa diskarte."
+        }
+      },
+      "kitLink": "Nasa brand kit ang mga pose niyang PNG",
+      "joinTitle": "Halika kamustahin mo siya",
+      "joinText": "Sa server ng Discord, hinihintay ka ni Dex na may mga alerto sa patch, MLBBdle ngayon at mga manlalaro ng iyong ranggo.",
+      "join": "Sumali sa Discord",
+      "aboutLink": "Ang kasaysayan ng proyekto"
+    },
+    "brandKit": {
+      "title": "Brand kit",
+      "metaTitle": "MLBBEx Branding at Press Kit",
+      "metaDescription": "Mga kulay at ang kanilang mga code, typographies, mga tuntunin ng paggamit at mga pose ng Dex sa PNG: lahat ng kailangan mong pag-usapan ang tungkol sa MLBBDex.",
+      "lead": "Upang pag-usapan ang tungkol sa MLBBEx sa isang artikulo, video o stream: ang pangalan, kulay, font, panuntunan at Dex sa PNG.",
+      "dexLine": "Kunin mo ang kailangan mo. Isang panalangin lang: huwag mo akong pinturahan ng purple.",
+      "nameTitle": "Ang pangalan",
+      "nameText": "Ang MLBBEx ay nakasulat sa isang salita, \"Dex\" sa ginto. Ang Discord bot ay tinatawag na Dex MLBB, tulad ng maskot.",
+      "colorsTitle": "Ang mga kulay",
+      "colorsLead": "Gabi para sa mga background, ginto para sa accent, asul at pula para sa parehong mga kampo. Wala ng iba.",
+      "copy": "Kopyahin {hex}",
+      "copied": "Kopyahin",
+      "colors": {
+        "night950": "Gabi, background",
+        "night900": "Gabi, mga ibabaw",
+        "night800": "Gabi, ginhawa",
+        "gold400": "Gold, accent at numero",
+        "gold600": "Madilim na ginto",
+        "azure400": "Allied blue, ano na naman",
+        "blood400": "Pula ang kaaway, bumabagsak",
+        "chalk100": "Chalk, text",
+        "chalk400": "Chalk, pangalawang teksto"
+      },
+      "typeTitle": "Mga tipograpiya",
+      "type": {
+        "display": "Mga pamagat, pangalan ng mga hero, malalaking numero: timbang 800 o 900, hilig, sa mga capitals.",
+        "heading": "Mga intertitle, mga pindutan, mga menu: taba 600 o 700, kanan.",
+        "body": "Running text, mga tabular figure sa mga talahanayan."
+      },
+      "sample": "Ang labanan, sa isang malaking paraan",
+      "fontsNote": "Lahat ng tatlo ay open source at libre, sa Google Fonts.",
+      "rulesTitle": "Ang mga patakaran",
+      "doTitle": "Oo",
+      "dontTitle": "Hindi",
+      "do1": "Panatilihin si Dex bilang siya: midnight blue, gold egrets, crystal blue at red.",
+      "do2": "Ilagay ito sa isang madilim na background, na may hangin sa paligid nito.",
+      "do3": "Isulat ang MLBBEx sa isang salita, at ang Dex MLBB para sa bot.",
+      "do4": "Linawin na ang MLBDex ay isang independiyenteng proyekto ng tagahanga.",
+      "dont1": "I-recolor ito, i-distort ito o magdagdag ng mga accessory.",
+      "dont2": "Gawin siyang magsalita sa ngalan ng Moonton o ibang site.",
+      "dont3": "I-distort ang logo, baguhin ang mga kulay nito o ilagay ito sa isang background na lumulunod dito.",
+      "dont4": "Sa labas ng palette: walang purple, walang rainbow gradient.",
+      "dexTitle": "Dex sa PNG",
+      "dexLead": "Transparent na background, sa laki nito, o nakasentro sa isang 512 px square para sa isang avatar o isang emoji.",
+      "download": "PNG",
+      "downloadSquare": "Square 512 px",
+      "downloadLabel": "I-download ang Dex, magpose {pose}, sa PNG",
+      "downloadSquareLabel": "I-download ang Dex, magpose {pose}, sa 512 px square PNG",
+      "pressTitle": "Pindutin at kontakin",
+      "pressText": "Isang tanong, isang pakikipanayam, isang pakikipagsosyo? Sumulat sa amin sa Discord, o magbukas ng tiket sa repositoryo ng proyekto.",
+      "repo": "Pagsusumite ng proyekto",
+      "discord": "Ang Discord",
+      "legal": "Mobile Legends: Bang Bang, ang mga hero nito at ang mga visual nito ay mga trademark ng Shanghai Moonton Technology Co., Ltd. Ang MLBBDex ay hindi kaakibat o ineendorso ng Moonton: huwag gamitin ang kanilang mga visual bilang sa amin.",
+      "dexPageLink": "Sino si Dex?",
+      "logoText": "Ang logo: ang baseng kristal, kalahating asul, kalahating pula, sa isang may pakpak na gintong taluktok. Huwag i-distort ito, huwag baguhin ang mga kulay nito at bigyan ito ng hangin sa paligid.",
+      "logoAlt": "Ang emblem ng MLBBDex: isang asul at pulang kristal sa isang may pakpak na gintong crest",
+      "logoFile": {
+        "emblem": "I-download ang logo: ang emblem (SVG)",
+        "logo": "I-download ang logo: pahalang (SVG)",
+        "stacked": "I-download ang logo: stacked (SVG)"
       }
     }
   },
@@ -5008,7 +5208,7 @@
           "p": "Ang buong roster, ang mga skin ng bawat hero, mga item, emblem, Battle Spell at ang listahan ng mga patch. Awtomatikong kinukuha ang data na ito mula sa community wiki bawat linggo: lumalabas dito ang bagong hero nang walang kailangang mag-encode nito."
         },
         {
-          "p": "Dagdag pa rito ang hindi kailanman makukuha ng awtomatikong extraction: nakasulat na analysis para sa ilang hero — kung ano talaga ang ginagawa nila, ang mga build nila, ang mga counter nila — tier list kung saan may paliwanag ang bawat puwesto, at mga detalyadong guide."
+          "p": "Dagdag pa rito ang hindi kailanman makukuha ng awtomatikong extraction: nakasulat na analysis para sa ilang hero (kung ano ang ginagawa nila, ang mga build nila, ang mga counter nila), nakasulat na komento para sa ilang hero sa tier list, at mga detalyadong guide. Ang ranking mismo ng tier list ay hindi opinyon: kinukuwenta ito mula sa win rate at ban rate."
         },
         {
           "h": "Ang wala rito, at bakit"
@@ -5017,10 +5217,19 @@
           "p": "Walang ranking ng player at walang “MMR”. Walang opisyal na interface na inilalabas ang Moonton: ang stats na makikita rito — win rate, ban rate at pick rate, counter, build, trend — ay galing sa community API na arena.rone.dev, na pinagsasama-sama ang mga ranked match ayon sa rank. Tinatantiya lang ito ng mga site na nagpapakita ng “MMR” para sa Mobile Legends; hindi nila ito nababasa kahit saan."
         },
         {
-          "p": "Kapag naka-log in ka gamit ang in-game verification code, makikita mo ang sarili mong profile — season, mga hero na nilaro, mga kamakailang match — na binabasa kapag hiniling sa parehong API, para sa iyo lang. Hindi ito ipina-publish o itinatago lampas sa cache na ilang minuto."
+          "p": "Kapag naka-log in ka gamit ang in-game verification code, makikita mo ang sarili mong profile (season, mga hero na nilaro, mga kamakailang match), na binabasa kapag hiniling sa parehong API, para sa iyo lang. Hindi ito ipina-publish. Para hindi hingin ulit ang lahat sa bawat pagbisita, nananatili sandali ang mga sagot ng laro sa memory ng server, hindi kailanman sa disk: mula dalawang minuto hanggang anim na oras depende sa data. Ang tanging eksepsiyon ay ang /profile card ng Discord bot, kung ili-link mo ito: itinatago ng site ang naka-encrypt mong game token nang hanggang 7 araw, at ang mga numero ng card, na binubura 30 araw pagkatapos ng huling update o kapag in-unlink mo ito."
         },
         {
-          "p": "Ang mga visual ay pagmamay-ari ng Moonton, at para sa mga skin ng collaboration ay para din sa mga may hawak ng karapatan ng mga karakter at tatak na nauugnay. Ang mga larawan, mga icon at mga larawan sa skin ay nagmula sa wiki ng komunidad at inihahatid ng site na ito upang walang nakadepende sa isang third party na domain. Ang mga ito ay nananatiling pag-aari ng Moonton, naroroon para sa mga layunin ng paglalarawan, at aalisin kapag hiniling ng may hawak ng mga karapatan. Ang visual na pagkakakilanlan ng site - midnight blue, gold, cut corners - ay inspirasyon ng laro nang hindi ginagamit ang mga file ng interface."
+          "p": "Ang mga visual ay pagmamay-ari ng Moonton at, para sa mga skin ng collaboration, sa mga may hawak ng karapatan ng mga karakter at tatak na nauugnay. Ang mga larawan, mga icon at mga larawan sa skin ay nagmula sa wiki ng komunidad at inihahatid ng site na ito upang walang nakadepende sa isang third party na domain. Ang mga ito ay nananatiling pag-aari ng Moonton, naroroon para sa mga layunin ng paglalarawan at aalisin kapag hiniling ng may hawak ng mga karapatan. Ang visual na pagkakakilanlan ng site (madilim na asul, ginto, mga gupit na sulok) ay inspirasyon ng laro nang hindi ginagamit ang mga file ng interface."
+        },
+        {
+          "h": "Ang pangalan at tatak"
+        },
+        {
+          "p": "Ang \"Dex\" ay nagmula sa index: ang site ay nag-iimbak sa isang lugar ng lahat ng na-publish ng laro at lahat ng bagay na sinusukat ng mga ranggo ng laro. Ang pagkakakilanlan nito, ang Land of Dawn, ay tumatagal ng gabi, ang ginto at ang mga diagonal na cut ng interface ng laro, upang makilala namin ang isang page ng MLBBEx nang hindi nakikita ang pangalan nito."
+        },
+        {
+          "p": "Si Dex, ang mascot ng site, ay nagmula sa lupaing ito. Tinatanggap niya ang mga bisita sa site at, sa ilalim ng pangalang Dex MLBB, tumugon sa Discord kapag nagta-type ka /hero o /build. [Ang kanyang kwento at ang kanyang mga pose ay nasa kanyang pahina.](/dex) Mga kulay, font, tuntunin sa paggamit at Dex sa PNG: [the brand kit](/brand)."
         },
         {
           "h": "Ang roundup"
@@ -5084,7 +5293,7 @@
           "p": "Ang mga visual na ipinakita (mga larawan, icon, emblem, mga larawan) at ang mga pangalan ng laro ay © Moonton. Ang mga skin ng collaboration (NARUTO, Star Wars, Transformers, Jujutsu Kaisen, The King of Fighters, Neymar Jr at iba pa) ay nagtatampok ng mga character, brand at tao na kabilang sa kani-kanilang mga may hawak ng karapatan, sa ilalim ng lisensyang ipinagkaloob kay Moonton: ipinapakita lang ng site ang maliit na larawan ng tindahan, hindi ang malaking paglalarawan. Ang mga visual na ito ay kinopya mula sa wiki ng komunidad para sa mga layunin ng paglalarawan at impormasyon; hindi sila lisensyado sa ilalim ng CC BY-SA. Sa kahilingan ng may hawak ng mga karapatan, aalisin sila."
         },
         {
-          "p": "Ang mga makatotohanang teksto (mga paglalarawan, kwento, patch notes, listahan ng skin) ay kinuha mula sa [Mobile Legends wiki](https://mobilelegends.fandom.com) sa Fandom at mula sa [Liquipedia](https://liquipedia.net/mobilelegends), sa ilalim ng CC BY-SA na lisensya: ang bawat page na gumagamit ng mga ito ay nagbibigay ng kredito sa pinagmulan nito, at ang kanilang mga pagsasalin ay nananatili sa ilalim ng lisensyang ito. Ang mga numero ng laro ay nagmula sa isang community API. Ang code at mga tekstong isinulat para sa site na ito ay nai-publish sa ilalim ng lisensya ng MIT — tingnan ang [public repository]({repository})."
+          "p": "Ang mga makatotohanang teksto (mga paglalarawan, kwento, patch notes, listahan ng skin) ay kinuha mula sa [Mobile Legends wiki](https://mobilelegends.fandom.com) sa Fandom at mula sa [Liquipedia](https://liquipedia.net/mobilelegends), sa ilalim ng CC BY-SA na lisensya: ang bawat page na gumagamit ng mga ito ay nagbibigay ng kredito sa pinagmulan nito, at ang kanilang mga pagsasalin ay nananatili sa ilalim ng lisensyang ito. Ang mga numero ng laro ay nagmula sa isang community API. Ang code at mga tekstong isinulat para sa site na ito ay nai-publish sa ilalim ng lisensya ng MIT (tingnan ang [public repository]({repository}))."
         },
         {
           "h": "Pananagutan"
@@ -5103,7 +5312,7 @@
     "privacy": {
       "blocks": [
         {
-          "p": "Ang site na ito ay idinisenyo upang iproseso ang pinakamaliit na data hangga't maaari. Karamihan sa mga pahina ay gumagana nang walang account at hindi nagse-save ng anuman sa isang server; tanging ang mga feature na pipiliin mong gamitin (game account o Discord login, komunidad, koleksyon, notification, pag-uulat ng error, Discord bot) ang nagpapanatili ng inilalarawan nila sa ibaba. Alinsunod sa General Data Protection Regulation (GDPR) at Data Protection Act, ang pahinang ito ay nagdedetalye kung ano ang pinoproseso, bakit, gaano katagal, at kung paano gamitin ang iyong mga karapatan."
+          "p": "Ang site na ito ay idinisenyo upang iproseso ang pinakamaliit na data hangga't maaari. Karamihan sa mga pahina ay gumagana nang walang account at hindi nagse-save ng anuman sa isang server; Tanging ang mga feature na pinili mong gamitin (game account o Discord login, komunidad, koleksyon, notification, pag-uulat ng error, Discord bot) ang nagpapanatili ng data na inilarawan sa ibaba. Alinsunod sa General Data Protection Regulation (GDPR) at Data Protection Act, ang pahinang ito ay nagdedetalye kung ano ang pinoproseso, bakit, gaano katagal, at kung paano gamitin ang iyong mga karapatan."
         },
         {
           "h": "Controller ng data"
@@ -5139,13 +5348,13 @@
     },
     "bot": {
       "title": "Discord bot (opsyonal)",
-      "intro": "Kung ginagamit mo ang MLBBDex Discord bot o ang dashboard nito, itinatago rin ng server ng site ang:",
+      "intro": "Kung gagamitin mo ang Discord Dex MLBB bot o ang dashboard nito, pinapanatili din ng server ng site ang:",
       "cookie": "isang naka-encrypt na cookie ng session, `mlbbdex_discord` (httpOnly, 7 araw), kung mag-log in ka gamit ang Discord sa dashboard o forum: ang iyong Discord ID, pangalan at avatar, wala nang iba; walang mga Discord token ang nananatili;",
       "servers": "para sa bawat server kung saan naroon ang bot: ang pangalan, wika at mga setting nito;",
       "results": "para sa mga leaderboard ng mga daily game na nilalaro sa Discord: ang Discord ID at pangalan ng mga player at ang kanilang mga score.",
       "details": "Ang mga detalye, ang tagal ng pag-iimbak at ang pagbura ay nasa privacy page ng bot.",
       "members": "Walang iniimbak tungkol sa mga member ng server: ang kanilang pagsali at pag-alis, na ipinapaalam ng Discord sa bot, ay ginagamit lang para i-post ang mga welcome at goodbye message na in-on ng server.",
-      "profile": "para sa /profile card, kung ili-link mo ito mula sa page ng iyong account: isang print ng iyong Discord ID at isa sa iyong ID ng laro at iyong server (hindi kailanman ang mga ID mismo), ang iyong dalawang pagpipilian (kung maipapakita ito ng iba, kung ito ay nagpapakita ng iyong ID), isang kopya ng iyong mga istatistika sa huling nabasa: palayaw, avatar, bansa, antas, ranggo, mga laro at mga tagumpay ng season, at tatlong pinaka-nalaro mong hero (AES-256-GCM), hanggang sa mag-expire ito (7 araw sa pinakamaraming araw), para mabasa muli ng /profile ang iyong mga istatistika sa bawat tawag. Ang bawat bagong koneksyon sa site ay nire-renew ang token na ito. Ang card at token ay tatanggalin kapag tinanggal mo ito; ang card ay 30 araw din pagkatapos ng huling pagbabasa;"
+      "profile": "para sa /profile card, kung ili-link mo ito mula sa page ng iyong account: isang print ng iyong Discord ID at isa sa iyong mga laro at server ID (hindi kailanman ang mga ID mismo), ang iyong dalawang pagpipilian (kung makikita ito ng iba, kung ito ay nagpapakita ng iyong ID), isang kopya ng iyong mga istatistika sa huling nabasa (username, avatar, bansa, antas, ranggo, mga laro at panalo ng season, tatlong pinaka-nalaro na hero,2-CM), at ang iyong laro hanggang sa na-encrypt na A6G-2, at ang iyong laro hanggang sa na-encrypt na A6G. mag-e-expire (7 araw sa pinakamaraming araw), para basahin muli ng /profile ang iyong mga istatistika sa bawat tawag. Ang bawat bagong koneksyon sa site ay nire-renew ang token na ito. Ang card at token ay tatanggalin kapag tinanggal mo ito; ang card ay 30 araw din pagkatapos ng huling pagbabasa;"
     },
     "community": {
       "title": "Community: forum at teammate finder",
@@ -5155,14 +5364,14 @@
       "posts": "ang iyong mga discussion at reply, na public, kasama ang petsa nila; ang iyong mga boto at report, na hindi ipinapakita kaninuman maliban sa mga moderator (ang mga report);",
       "card": "ang iyong teammate card at, kung idaragdag mo, ang iyong game ID at Discord username: ipinapakita lang ang mga ito sa mga naka-sign in na player, at binubura ang card pitong araw pagkatapos ng huling pag-save nito.",
       "moderation": "Nakikita ng mga moderator ang mga ulat at maaaring itago, tanggalin o i-ban ang mga ito; bawat isa sa kanilang mga desisyon ay naitala sa isang journal. Ginagamit ng mga limitasyon sa rate ang iyong IP address, sa memorya lamang: hindi ito kailanman isinulat sa disk.",
-      "deletion": "Maaari mong i-edit ang isang mensahe sa loob ng isang oras at tanggalin ito para sa isang araw, bawiin ang iyong card anumang oras. Ang isang tinanggal na mensahe ay nawawala ang teksto nito; pinapanatili ng isang tinanggal na talakayan ang pamagat, may-akda at petsa nito. Higit pa riyan, o para tanggalin ang lahat ng iyong pakikilahok, sumulat sa {contact}.",
+      "deletion": "Maaari mong i-edit ang isang mensahe sa loob ng isang oras, tanggalin ito para sa isang araw, at alisin ang iyong card anumang oras. Ang isang tinanggal na mensahe ay nawawala ang teksto nito; pinapanatili ng isang tinanggal na talakayan ang pamagat, may-akda at petsa nito. Higit pa riyan, o para tanggalin ang lahat ng iyong pakikilahok, sumulat sa {contact}.",
       "pseudonymous": "Ang mga fingerprint na ito (SHA-256, walang asin) ay pseudonymous na data, hindi anonymous: sinumang nakakaalam ng iyong game ID at server, o ng iyong Discord ID, ay maaaring muling kalkulahin ang fingerprint. Nananatili silang personal na data, na protektado tulad nito."
     },
     "collection": {
       "title": "Koleksyon ng skin",
       "intro": "Pinapanatili ng tool sa pagkolekta ang mga hero at skin na iyong tinitingnan sa iyong browser (lokal na imbakan). Kung nakakonekta ka sa iyong account sa laro, nag-iimbak din ang server ng site, sa database nito:",
       "data": "ang parehong account imprint bilang komunidad (hindi kailanman ang iyong ID ng laro), ang listahan ng mga hero at mga skin na nasuri, at ang petsa ng huling pagpaparehistro; walang iba, at walang ipinapakita sa sinuman.",
-      "usage": "Ginagamit lang ito para mahanap ang iyong koleksyon sa iba mo pang device. Binabasa ng filter na \"mga nilalaro ko\" ang iyong mga hero ng season mula sa serbisyo sa pag-login sa sandaling i-activate mo ito, nang walang nai-save na anuman.",
+      "usage": "Ginagamit lang ang kopyang ito para mahanap ang iyong koleksyon sa iba mo pang device. Binabasa ng filter na \"mga nilalaro ko\" ang iyong mga season hero mula sa serbisyo sa pag-log in sa sandaling i-activate mo ito, nang hindi nagse-save ng kahit ano.",
       "deletion": "Upang alisan ng laman ang kopya ng iyong account, tanggalin ang iyong koleksyon sa tool habang naka-log in; Upang tanggalin ang mismong linya, sumulat sa {contact}."
     },
     "dataReports": {
@@ -5255,7 +5464,7 @@
       },
       "game": {
         "title": "Mag-login sa account ng laro",
-        "text": "Ang koneksyon ay gumagamit ng opisyal na daloy ng Moonton: ipinapahiwatig mo ang iyong username at ang iyong server ng laro, isang verification code ang ipinadala sa iyo sa laro, at ang site ay tumatanggap ng pansamantalang token bilang kapalit. Ang mga palitan na ito ay dumaan sa isang community API (`arena.rone.dev`) at sa pamamagitan ng mga serbisyo ng Moonton, na tumatanggap ng iyong identifier, iyong server, ang code pagkatapos ang token. Nakatira ang token sa session cookie `mlbb_jeu`; ise-save lang ito sa server kung magli-link ka ng /profile card, naka-encrypt at hanggang sa mag-expire ito (tingnan ang bahagi sa Discord bot); ang mga tugon ng serbisyo (profile, istatistika, laro) ay pinananatili sa memorya ng ilang oras, upang limitahan ang mga tawag. Hindi ka kailanman hihilingin ng password. Ang server ay nagpapanatili lamang ng isang bagay nang permanente kung gagamitin mo ang komunidad o koleksyon, tulad ng inilarawan sa ibaba."
+        "text": "Ang koneksyon ay gumagamit ng opisyal na daloy ng Moonton: ipinapahiwatig mo ang iyong username at ang iyong server ng laro, isang verification code ang ipinadala sa iyo sa laro, at ang site ay tumatanggap ng pansamantalang token bilang kapalit. Ang mga palitan na ito ay dumaan sa isang community API (`arena.rone.dev`) at sa pamamagitan ng mga serbisyo ng Moonton, na tumatanggap ng iyong identifier, iyong server, ang code pagkatapos ang token. Ang token ay nakaimbak sa session cookie `mlbb_jeu`; ise-save lang ito sa server kung magli-link ka ng /profile card, naka-encrypt at hanggang sa mag-expire ito (tingnan ang bahagi sa Discord bot); ang mga tugon ng serbisyo (profile, istatistika, laro) ay pinananatili sa memorya ng ilang oras, upang limitahan ang mga tawag. Hindi ka kailanman hihilingin ng password. Ang server ay nagpapanatili lamang ng data nang permanente kung gagamitin mo ang komunidad o koleksyon, tulad ng inilarawan sa ibaba."
       },
       "thirdParty": {
         "title": "Third-party na nilalaman",
@@ -5273,7 +5482,7 @@
       },
       "transfers": {
         "title": "Mga paglilipat sa labas ng European Union",
-        "text": "Ang ilang partikular na opsyonal na feature ay kinabibilangan ng mga serbisyong matatagpuan sa labas ng European Union: Discord, sa United States, kung kumonekta ka sa Discord o gagamitin ang bot (mga paglilipat na pinamamahalaan ng EU-US data protection framework o ang mga karaniwang contractual clause ng European Commission); Moonton, Asia, at ang `arena.rone.dev` Community API, kung ikinonekta mo ang iyong game account; serbisyo ng mga notification ng iyong browser, kung pinagana mo ang mga notification. Nagaganap lamang ang mga paglilipat na ito kung gagamitin mo ang mga function na ito."
+        "text": "Kasama sa ilang opsyonal na feature ang mga serbisyong matatagpuan sa labas ng European Union: Discord, sa United States, kung kumonekta ka sa Discord o gagamitin ang bot (mga paglilipat na saklaw ng EU-US Data Protection Framework o Standard Contractual Clauses ng European Commission); Moonton, Asia, at ang `arena.rone.dev` Community API, kung ikinonekta mo ang iyong game account; serbisyo ng mga notification ng iyong browser, kung pinagana mo ang mga notification. Nagaganap lamang ang mga paglilipat na ito kung gagamitin mo ang mga function na ito."
       },
       "retention": {
         "title": "Gaano katagal pinapanatili ang data",
@@ -5314,7 +5523,7 @@
     "none": "Walang tugmang hero.",
     "curves": "Win rate sa loob ng {n} araw",
     "loading": "Nilo-load ang mga curve…",
-    "curvesError": "Hindi ma-load ang mga curve.",
+    "curvesError": "Hindi ko ma-load ang mga curves. Subukan muli sa isang sandali.",
     "noCurve": "Wala pang daily data para sa dalawang hero na ito.",
     "noCurveAtRank": "Wala pang daily data para kay {name} sa rank na ito.",
     "curvesSummary": "Daily win rate sa loob ng {n} araw, {rank}: {details}.",
@@ -5416,7 +5625,7 @@
     "methodTitle": "Paraan at mga source"
   },
   "newHero": {
-    "highlight": "Special trait — ",
+    "highlight": "Special trait: ",
     "title": "Bagong hero",
     "seeSheet": "Tingnan ang buong profile ni {name}"
   },
@@ -5440,7 +5649,11 @@
       "unknown": "Walang account na tugma sa ID at server na ito.",
       "unavailable": "Pansamantalang hindi available ang serbisyo.",
       "wrongCode": "Mali o expired na ang code."
-    }
+    },
+    "steps": "Mga hakbang sa koneksyon",
+    "step1": "Iyong ID",
+    "step2": "Ang code na natanggap sa laro",
+    "stepOf": "Hakbang {n} ng 2"
   },
   "articleUI": {
     "none": "Wala pang post.",
@@ -5475,9 +5688,9 @@
   },
   "favourites": {
     "intro": "Naka-save sa device na ito, sa browser na ito — hiwalay sa account mo. Hindi sila nagsi-sync sa ibang device.",
-    "nonePre": "Wala pang paborito. Sa profile ng isang hero, ",
+    "nonePre": "Wala pang paborito. Sa isang hero sheet,",
     "noLink": "magdagdag ng isa",
-    "nonePost": " para makita ito rito.",
+    "nonePost": ": Itatago ko ito para sa iyo.",
     "account": "{n} hero",
     "kept1": "nasa iyong kamay",
     "kept": "nasa iyong kamay",
@@ -5499,7 +5712,7 @@
       "denied": "Naka-block ang mga notification para sa site na ito: payagan ang mga ito sa settings ng browser mo, tapos subukan ulit.",
       "unsupported": "Hindi sinusuportahan ng browser na ito ang web notification.",
       "iosInstall": "Sa iPhone at iPad, i-install muna ang site: Share, tapos “Add to Home Screen”. Pagkatapos ay buksan ito mula sa icon nito para i-on ang mga notification.",
-      "error": "Nagkaproblema. Subukan ulit mamaya.",
+      "error": "Hindi ito gumana. Subukan muli sa isang sandali.",
       "life": "Para dito, itinatago ng server ang notification address ng browser na ito at ang listahan ng mga paborito mo hanggang i-off mo ito.",
       "privacyLink": "Matuto pa"
     }
@@ -5679,7 +5892,7 @@
     },
     "execute": {
       "name": "Execute",
-      "description": "Nagbibigay ng damage batay sa nawawalang HP ng target.",
+      "description": "Nagdudulot ng damage na nakalkula sa nawawalang HP ng target.",
       "bestFor": "Mga jungler at assassin na kailangang ma-secure ang kill."
     },
     "retribution": {
@@ -5739,7 +5952,8 @@
     "retry": "Subukan ulit",
     "oops": "Oops",
     "pageText": "Nagkaproblema sa pag-load ng pahinang ito. Puwede mong subukan ulit, o bumalik sa home page.",
-    "home": "Bumalik sa home"
+    "home": "Bumalik sa home",
+    "dexLine": "Ouch, may dumikit sa dulo namin. Ang isang bagong pagsubok ay madalas na sapat."
   },
   "heroCard": {
     "tierTitle": "Tier {p} ng tier list",
@@ -5796,13 +6010,14 @@
     "groups": {
       "hero": "Mga hero",
       "item": "Mga item",
-      "patch": "Patch notes",
+      "patch": "Mga Patch Note",
       "page": "Mga pahina",
       "skill": "Mga skill",
       "skin": "Mga skin",
       "emblem": "Mga emblem",
       "spell": "Mga Battle Spell"
-    }
+    },
+    "dexEmpty": "Hmm, wala akong mahanap. Subukan ang ibang pangalan, o mas kaunting mga titik."
   },
   "heroData": {
     "resource": {
@@ -5910,11 +6125,11 @@
     "offLane": "Walang bakanteng lane",
     "copy": "Kopyahin ang link",
     "linkCopied": "Nakopya ang link.",
-    "copyFailed": "Hindi nakopya: kopyahin na lang ang address ng page.",
+    "copyFailed": "Hindi ko makopya: kopyahin ang address ng pahina.",
     "intro": "Magdagdag ng unang hero para simulan ang analysis. Lumalawak ito sa bawat pick, at nase-save ang lineup mo sa address ng page: i-share mo lang ito.",
     "analysis": "Analysis",
     "loading": "Nilo-load ang data ng rank na ito…",
-    "error": "Hindi ma-load ang data ng rank na ito. Subukan ulit o pumili ng ibang rank.",
+    "error": "Hindi ko na-load ang mga sukat para sa ranggo na ito. Subukang muli, o pumili ng isa pang ranggo.",
     "averageRate": "Average na win rate",
     "lanesCovered": "Mga lane na sakop",
     "synergyCount": "Mga synergy",
@@ -6079,7 +6294,7 @@
       "copy": "Kopyahin ang resulta",
       "download": "I-download ang image",
       "copied": "Nakopya ang resulta, kasama ang link.",
-      "shareError": "Hindi available ang pag-share sa device na ito.",
+      "shareError": "Hindi gumagana ang pagbabahagi sa device na ito.",
       "recordsTitle": "Mga record mo",
       "recordSetting": "Pinakamagandang run ({objective}, {difficulty})",
       "currentRun": "Kasalukuyang streak",
@@ -6177,5 +6392,98 @@
     "currentGranted": "Kasalukuyang pagpipilian: tinanggap ang cookies noong {date}.",
     "currentDenied": "Kasalukuyang pagpipilian: tinanggihan ang cookies noong {date}.",
     "manage": "Pamahalaan ang cookies"
+  },
+  "feed": {
+    "title": "MLBBEx — balita at gabay",
+    "description": "Mga hero sheet, build at counter ayon sa ranggo, mga tier list, item, emblem, patch notes at balita mula sa Mobile Legends: Bang Bang, sa French."
+  },
+  "dex": {
+    "name": "Si Dex",
+    "label": "Si Dex, ang maskot ng MLBBDex",
+    "talk": "Kausapin mo si Dex",
+    "hide": "Itago mo si Dex",
+    "close": "Isara ang bula",
+    "default1": "Binubuksan ng Ctrl + K ang paghahanap: isang hero, isang item, isang hitsura, ang buong site.",
+    "default2": "Ang mga numero ay naitala araw-araw sa mga ranggo na laro.",
+    "default3": "Maaari mong baguhin ang wika sa kanang tuktok, nagsasalita ako ng siyam na wika.",
+    "home1": "Ang hero ng araw ay nagbabago araw-araw. Bumalik ka bukas!",
+    "home2": "Ang tier list ay muling kinakalkula sa bawat rate ng pagbabasa.",
+    "home3": "Gustong maglaro? Ang MLBBdle at ang pagsusulit ay naghihintay sa iyo araw-araw.",
+    "heroes1": "I-filter ayon sa tungkulin o lane upang mahanap ang iyong susunod na kamay.",
+    "heroes2": "Ang mga card ay pinagsunod-sunod ayon sa antas: S+ muna.",
+    "heroes3": "Isang bituin sa mapa? Isa ito sa mga paborito mo.",
+    "hero1": "Mga pagbabago sa ranggo sa itaas ng sheet: sumusunod ang mga rate, counter at build.",
+    "hero2": "Sinasabi sa iyo ng tab na Counter kung sino ang pumalo sa kanya at kung sino ang kanyang binubugbog.",
+    "hero3": "Idagdag ito bilang paborito para maabisuhan ng bawat patch.",
+    "tierList1": "Pinagsasama ng tier ang win rate at isang quarter ng ban rate.",
+    "tierList2": "Salain ayon sa ranggo: ang meta ng Epic ay hindi ng Mythic Glory.",
+    "tierList3": "Ang isang hero na masyadong maliit ang nilalaro ay hindi niraranggo, ang pagsukat ay magiging hindi matatag.",
+    "statistics1": "Mag-click sa isang header upang ayusin ang talahanayan.",
+    "statistics2": "Ang maliit na kurba ay nagpapakita ng ebolusyon sa loob ng tatlumpung araw.",
+    "statistics3": "Ang mga asul na palaso ay pataas, ang mga pula ay bumaba.",
+    "items1": "Mag-click sa isang bagay upang makita kung sino ang bumuo nito.",
+    "items2": "Ang mga tab ay nagpapangkat ng mga item ayon sa kategorya.",
+    "items3": "Ang presyo ay nasa ginto, tulad ng sa in-game store.",
+    "guides1": "Ang bawat gabay ay nagsisimula sa mga mahahalaga, sa aking bubble.",
+    "guides2": "Live blocks update sa meta.",
+    "guides3": "Magsimula sa iyong gabay sa lane.",
+    "map1": "Gamitin ang mga arrow sa keyboard upang lumipat mula sa isang punto patungo sa isa pa.",
+    "map2": "Dumating ang Turtle sa harap ng Lord: planuhin ang iyong mga pag-ikot.",
+    "map3": "Ang bawat punto ay may sariling oras ng paglitaw.",
+    "tools1": "Ang draft ay nag-aalok sa iyo ng mga pagpili laban sa magkasalungat na komposisyon.",
+    "tools2": "Ang layunin ng timer ay gumagana nang offline.",
+    "tools3": "Kinakalkula ng build simulator ang iyong mga istatistika sa napiling antas.",
+    "draft1": "Magsimula sa magkasalungat na mga pinili: Inaalok ko sa iyo ang mga counter.",
+    "draft2": "Ang simulator ay gumaganap sa kabilang panig upang sanayin ka.",
+    "draft3": "Maaaring ibahagi ang iyong draft na ulat gamit ang isang link.",
+    "games1": "Isang bagong hamon araw-araw, sa oras ng server ng hatinggabi.",
+    "games2": "Ang bawat pagkakamali ay nagbubukas ng isang palatandaan.",
+    "games3": "Ang iyong winning streak ay naka-save sa browser na ito.",
+    "patch1": "Blue: reinforced. Pula: nanghina. Grey: karapat-dapat.",
+    "patch2": "Ang agwat ng tagumpay ay naghahambing bago at pagkatapos ng patch.",
+    "patch3": "Ipinapakita ng Advanced Server kung ano ang paparating.",
+    "esports1": "Ang pro meta ay hindi sa ranggo: ihambing ang mga ito.",
+    "esports2": "Mag-click sa isang paligsahan upang tingnan ang talahanayan nito.",
+    "esports3": "Ang mga draft ng tugma ay nakatiklop, buksan ang mga ito.",
+    "community1": "Mag-log in para mag-post ng mensahe o bumuo.",
+    "community2": "Ang mga kakampi ay nag-filter ayon sa ranggo, linya at wika.",
+    "community3": "Isang nakakahiyang mensahe? Iulat ito, ang mga moderator ay nanonood.",
+    "skins1": "Ang mga hitsura ay iniutos ng pambihira.",
+    "skins2": "Ipinapakita ng kalendaryo ang StarLights at Collectors ng bawat buwan.",
+    "skins3": "Suriin ang iyong mga pagpapakita sa tool sa Koleksyon upang matantya ang iyong bilang."
+  },
+  "brandSignature": {
+    "tagline": "Lahat ng Mobile Legends, sinusukat araw-araw. Nanonood si Dex.",
+    "dexLink": "Sino si Dex?",
+    "dex": "Si Dex, ang mascot",
+    "brandKit": "Brand kit"
+  },
+  "dexStates": {
+    "loading": "Hinahanap ko ang Land of Dawn...",
+    "loadingProfile": "Pinagsama-sama ko ang iyong mga bahagi...",
+    "loadingForum": "Nagba-browse ako sa forum...",
+    "loadingTeammates": "Hinahanap ko ang mga magiging teammate mo...",
+    "errorTitle": "Oops, natigil ito",
+    "noneTitle": "Wala sa paligid"
+  },
+  "og": {
+    "homeLine": "Mga hero, build, tier list, mga item at patch notes, na na-update sa bawat patch.",
+    "patch": "Patch {v}",
+    "splusHeroes": "hero sa S+",
+    "bestWin": "pinakamataas na win rate: {hero}",
+    "itemsInGame": "item sa laro",
+    "heroesUsing": "hero ang gumagamit",
+    "builtBy": "Sa mga build ni {heroes}",
+    "minutes": "{n} min basahin",
+    "skinsCount": "skin",
+    "latestSkin": "Pinakabagong labas: {skin} ({hero})",
+    "starlight": "StarLight ng buwan: {skin} ({hero})",
+    "games": "larong nasuri",
+    "picked": "Pinakapinili",
+    "banned": "Pinaka-banned",
+    "champion": "Nagwagi: {team}",
+    "tool": "Libreng tool",
+    "game": "Laro ng araw",
+    "toolsKicker": "Libreng mga tool"
   }
 }

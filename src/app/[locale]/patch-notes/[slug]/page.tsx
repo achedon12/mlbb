@@ -7,7 +7,10 @@ import { BodyArticle } from "@/components/article";
 import { PatchCredit } from "@/components/patch-credit";
 import { PageSourcesBlock } from "@/components/page-sources";
 import { Foldable } from "@/components/foldable";
-import { PageHeader } from "@/components/ui";
+import { EditorialPoster, ENTRANCE } from "@/components/editorial-poster";
+import { PageLead } from "@/components/page-lead";
+import { BalanceFigures, balanceOf, patchArt } from "@/components/patch-visuals";
+import { Sparkles } from "lucide-react";
 import { NewHero } from "@/components/new-hero";
 import { HeroPatch } from "@/components/hero-patch";
 import { PatchToc } from "@/components/patch-toc";
@@ -84,6 +87,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
         : t("pages.patchNotes.officialDescription", { version: patch.version }),
       share: t("pages.patchNotes.officialShare", { version: patch.version }),
       path: `/patch-notes/${slug}`,
+      card: true,
       type: "article",
       published: patch.date ?? undefined,
     });
@@ -96,6 +100,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: a.title,
     description: a.summary,
     path: `/patch-notes/${slug}`,
+    card: true,
     type: "article",
     keywords: a.keywords,
     published: a.date,
@@ -130,9 +135,8 @@ export default async function PatchPage({ params }: Params) {
           dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
         />
 
-        <PageHeader
-          title={`Patch ${patch.version}`}
-          lead={t("pages.patchNotes.officialDescription", { version: patch.version })}
+        <EditorialPoster
+          art={patchArt(patch)?.art ?? null}
           crumbs={[
             { name: t("nav.patchNotes.label"), href: "/patch-notes" },
             {
@@ -142,18 +146,45 @@ export default async function PatchPage({ params }: Params) {
                 .map((p) => ({ name: `Patch ${p.version}`, href: `/patch-notes/${p.version}` })),
             },
           ]}
-          meta={[
-            t("pages.patchNotes.official"),
-            t("pages.patchNotes.nSections", { n: patch.toc.length }),
-            patch.date ? (
-              <time key="date" dateTime={patch.date}>
-                {t("pages.patchNotes.publishedOn", { date: longDate(locale, patch.date) })}
-              </time>
-            ) : null,
-          ]}
-        />
+        >
+          <h1 className="affiche-name">
+            <span className="block font-heading text-xl font-bold uppercase text-gold-400 sm:text-2xl">Patch</span>{" "}
+            <span className="score mt-1 block text-[clamp(6rem,3rem+11vw,13rem)]">{patch.version}</span>
+          </h1>
+          <PageLead lead={t("pages.patchNotes.officialDescription", { version: patch.version })} />
+          <ul className="mt-4 flex flex-wrap items-center gap-2 text-xs">
+            {[
+              t("pages.patchNotes.official"),
+              t("pages.patchNotes.nSections", { n: patch.toc.length }),
+              patch.date ? (
+                <time key="date" dateTime={patch.date}>
+                  {t("pages.patchNotes.publishedOn", { date: longDate(locale, patch.date) })}
+                </time>
+              ) : null,
+            ]
+              .filter(Boolean)
+              .map((fact, i) => (
+                <li key={i} className="bevel-sm bg-night-800/90 px-2 py-1 text-chalk-300">
+                  {fact}
+                </li>
+              ))}
+          </ul>
+          {patch.adjustments.length > 0 && <BalanceFigures balance={balanceOf(patch)} t={t} size="lg" className="mt-7" />}
+          {patch.newHeroes.length > 0 && (
+            <ul className="mt-6 flex flex-wrap gap-2">
+              {patch.newHeroes.map((h) => (
+                <li key={h.slug}>
+                  <a href={`#${patch.sections.find((x) => x.role === "newHeroes")?.anchor ?? "hero-changes"}`} className="btn btn-primary btn-sm">
+                    <Sparkles size={14} aria-hidden />
+                    {t("home.patch.newHero", { name: h.name })}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </EditorialPoster>
 
-        <div className="page-wrap pb-12 pt-6">
+        <div className={cn("page-wrap pb-12 pt-8 sm:pt-12", ENTRANCE)}>
           {patch.adjustments.length > 0 && (
             <HeroChanges
               patch={patch}
@@ -167,7 +198,8 @@ export default async function PatchPage({ params }: Params) {
             patch note is browsed by section, it is almost never read
             in full.
           */}
-          <div className="mt-8 gap-10 sm:mt-10 lg:grid lg:grid-cols-[16rem_minmax(0,1fr)]">
+          {patch.adjustments.length > 0 && <div aria-hidden className="eclat-rule mt-12 sm:mt-16" />}
+          <div className="mt-10 gap-12 sm:mt-14 lg:grid lg:grid-cols-[16rem_minmax(0,1fr)]">
             <aside className="mb-10 lg:mb-0">
               {patch.toc.length > 0 && <PatchToc entries={patch.toc} />}
             </aside>
@@ -187,11 +219,11 @@ export default async function PatchPage({ params }: Params) {
                     <>
                       <h2
                         id={section.anchor ?? undefined}
-                        className="scroll-mt-24 font-heading text-2xl font-bold text-chalk-100"
+                        className="display-caps scroll-mt-24 text-[2rem] font-extrabold text-chalk-100 sm:text-[2.5rem]"
                       >
                         {section.title}
                       </h2>
-                      <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+                      <div aria-hidden className="eclat mt-3 h-[3px] w-20" />
                     </>
                   )}
 

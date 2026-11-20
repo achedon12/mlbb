@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SourceCredit, TournamentNav } from "@/components/esports-parts";
 import { heroName, roleText, teamName } from "@/components/esports-pro";
 import { PageHeader } from "@/components/ui";
+import { ENTRANCE } from "@/components/editorial-poster";
 import type { Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { metaPage, notFoundMetadata } from "@/i18n/seo";
@@ -87,7 +88,7 @@ export default async function TournamentPlayersPage({ params }: Params) {
         <TournamentNav t={t} turn={turn} active="players" />
       </PageHeader>
 
-      <div className="page-wrap space-y-10 py-10">
+      <div className={`page-wrap space-y-10 py-10 ${ENTRANCE}`}>
         <PlayersTable rows={rows} name={turn.name} />
         <SourceCredit t={t} locale={locale} sources={turn.sources} />
       </div>

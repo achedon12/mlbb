@@ -117,7 +117,7 @@ export function Tabs({ tabs, aliases = {}, trackAs }: { tabs: Tab[]; aliases?: A
         ref={list}
         role="tablist"
         aria-label={t("common.sections")}
-        className="flex scroll-mt-20 flex-wrap gap-1 border-b border-night-700/70"
+        className="flex scroll-mt-20 flex-wrap gap-x-1 border-b border-night-800"
       >
         {visible.map((o, i) => {
           const selected = o.id === active;
@@ -135,15 +135,15 @@ export function Tabs({ tabs, aliases = {}, trackAs }: { tabs: Tab[]; aliases?: A
               onClick={() => choose(o.id)}
               onKeyDown={(e) => byKeyboard(e, i)}
               className={cn(
-                "-mb-px border-b-2 px-4 py-3 font-heading text-sm font-semibold transition-colors",
+                "eclat-under px-3 py-3 font-heading text-lg font-bold uppercase leading-none transition-colors sm:px-4 sm:text-xl",
                 selected
-                  ? "border-gold-500 text-gold-400"
-                  : "border-transparent text-chalk-500 hover:text-chalk-100",
+                  ? "text-gold-400"
+                  : "text-chalk-400 hover:text-chalk-100",
               )}
             >
               {o.label}
               {o.counter !== undefined && (
-                <span className="ml-1.5 text-xs font-medium text-chalk-500">
+                <span className="ml-1.5 text-sm text-chalk-500">
                   {o.counter}
                 </span>
               )}

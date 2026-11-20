@@ -2,8 +2,9 @@
 
 import { useId, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useT } from "@/i18n/provider";
+import { useLocale, useT } from "@/i18n/provider";
 import type { TargetKind } from "@/lib/community/constants";
+import { plural } from "@/lib/player-format";
 import { cn } from "@/lib/utils";
 import { send } from "./request";
 
@@ -39,6 +40,7 @@ export function ModerationActions({
   reported: boolean;
 }) {
   const t = useT();
+  const locale = useLocale();
   const router = useRouter();
   const banId = useId();
   const [busy, setBusy] = useState(false);
@@ -104,9 +106,9 @@ export function ModerationActions({
               onChange={(e) => setDays(e.target.value)}
               className="bevel-sm mt-1 block h-10 border border-night-700 bg-night-950 px-2 text-sm text-chalk-100"
             >
-              <option value="1">{t("pages.communityUI.moderation.days", { n: 1 })}</option>
-              <option value="7">{t("pages.communityUI.moderation.days", { n: 7 })}</option>
-              <option value="30">{t("pages.communityUI.moderation.days", { n: 30 })}</option>
+              <option value="1">{t(`pages.communityUI.moderation.days.${plural(1, locale)}`, { n: 1 })}</option>
+              <option value="7">{t(`pages.communityUI.moderation.days.${plural(7, locale)}`, { n: 7 })}</option>
+              <option value="30">{t(`pages.communityUI.moderation.days.${plural(30, locale)}`, { n: 30 })}</option>
               <option value="0">{t("pages.communityUI.moderation.forever")}</option>
             </select>
           </label>

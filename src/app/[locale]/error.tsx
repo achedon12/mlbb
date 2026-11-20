@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect } from "react";
+import { RotateCcw } from "lucide-react";
 import Link from "@/components/link";
+import { DexScreen } from "@/components/dex-screen";
 import { useT } from "@/i18n/provider";
 
 /**
@@ -9,7 +11,7 @@ import { useT } from "@/i18n/provider";
  *
  * An unexpected error in a segment (missing data, failing call) is
  * caught here rather than showing Next's raw screen. The detail goes to
- * the server console; the reader gets a clean way out and the means
+ * the server console; the reader gets Dex, a clean way out and the means
  * to try again.
  */
 export default function ErrorPage({
@@ -35,25 +37,24 @@ export default function ErrorPage({
   }, [error]);
 
   return (
-    <div className="mx-auto max-w-2xl px-4 py-32 text-center">
-      <p className="font-heading text-6xl font-bold text-blood-500">{t("error.oops")}</p>
-      <h1 className="mt-4 font-heading text-2xl font-bold text-chalk-100">{t("error.title")}</h1>
-      <p className="mt-4 leading-relaxed text-chalk-500">{t("error.pageText")}</p>
-      <div className="mt-8 flex flex-wrap justify-center gap-3">
-        <button
-          type="button"
-          onClick={reset}
-          className="bevel-sm bg-gold-500 px-6 py-3 font-semibold text-night-950 transition-colors hover:bg-gold-400"
-        >
-          {t("error.retry")}
-        </button>
-        <Link
-          href="/"
-          className="bevel-sm border border-night-600 px-6 py-3 font-semibold text-chalk-100 transition-colors hover:border-gold-500/60 hover:text-gold-400"
-        >
-          {t("error.home")}
-        </Link>
-      </div>
-    </div>
+    <DexScreen
+      figure={t("error.oops")}
+      tone="enemy"
+      pose="reflexion"
+      title={t("error.title")}
+      text={t("error.pageText")}
+      line={t("error.dexLine")}
+      actions={
+        <>
+          <button type="button" onClick={reset} className="btn btn-primary">
+            <RotateCcw size={17} aria-hidden />
+            {t("error.retry")}
+          </button>
+          <Link href="/" className="btn btn-secondary">
+            {t("error.home")}
+          </Link>
+        </>
+      }
+    />
   );
 }

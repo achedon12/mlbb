@@ -1,7 +1,8 @@
 "use client";
 
-import { CircleAlert, CircleCheck, X, type LucideIcon } from "lucide-react";
+import { CircleAlert, X, type LucideIcon } from "lucide-react";
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
+import { DexHead } from "@/components/dex-states";
 import { useT } from "@/i18n/provider";
 import { cn } from "@/lib/utils";
 
@@ -22,7 +23,7 @@ export const LABEL = "block text-sm font-semibold text-chalk-200";
 export const HELP = "text-sm leading-relaxed text-chalk-400";
 export const BUTTON =
   "bevel-sm inline-flex min-h-11 items-center justify-center gap-2 px-4 py-2 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-60";
-export const PRIMARY = cn(BUTTON, "bg-gold-500 text-night-950 hover:bg-gold-400");
+export const PRIMARY = cn(BUTTON, "bg-gold-400 text-night-950 hover:bg-gold-300");
 export const SECONDARY = cn(BUTTON, "border border-night-600 bg-night-800 text-chalk-100 hover:border-gold-500/70 hover:bg-night-700");
 
 export type SectionState = { kind: "on" | "off" | "attention"; text: string };
@@ -33,7 +34,7 @@ export function StatusBadge({ state }: { state: SectionState }) {
     <span
       className={cn(
         "inline-flex shrink-0 items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-semibold",
-        state.kind === "on" && "border-emerald-400/40 bg-emerald-400/10 text-emerald-300",
+        state.kind === "on" && "border-azure-400/40 bg-azure-400/10 text-azure-300",
         state.kind === "off" && "border-night-600 bg-night-800 text-chalk-300",
         state.kind === "attention" && "border-blood-400/50 bg-blood-500/15 text-blood-400",
       )}
@@ -41,7 +42,7 @@ export function StatusBadge({ state }: { state: SectionState }) {
       {state.kind === "attention" ? (
         <CircleAlert aria-hidden className="size-3.5" />
       ) : (
-        <span aria-hidden className={cn("size-2 rounded-full", state.kind === "on" ? "bg-emerald-400" : "bg-chalk-500")} />
+        <span aria-hidden className={cn("size-2 rounded-full", state.kind === "on" ? "bg-azure-400" : "bg-chalk-500")} />
       )}
       {state.text}
     </span>
@@ -162,16 +163,12 @@ export function Toasts({ toasts, dismiss }: { toasts: Toast[]; dismiss: (id: num
         <div
           key={toast.id}
           className={cn(
-            "bevel-sm pointer-events-auto flex w-full max-w-sm items-start gap-3 border bg-night-850 p-3 text-sm text-chalk-100 shadow-lg shadow-night-950/60",
-            toast.kind === "ok" ? "border-emerald-400/50" : "border-blood-400/60",
+            "brand-flash pointer-events-auto w-full max-w-sm items-start gap-3 p-2.5 pr-3 drop-shadow-[0_8px_18px_rgb(0_0_0/0.55)]",
+            toast.kind === "error" && "brand-flash-error",
           )}
         >
-          {toast.kind === "ok" ? (
-            <CircleCheck aria-hidden className="mt-0.5 size-4 shrink-0 text-emerald-400" />
-          ) : (
-            <CircleAlert aria-hidden className="mt-0.5 size-4 shrink-0 text-blood-400" />
-          )}
-          <p className="min-w-0 flex-1 break-words">{toast.text}</p>
+          <DexHead pose={toast.kind === "ok" ? "victoire" : "surpris"} size={32} />
+          <p className="min-w-0 flex-1 self-center break-words">{toast.text}</p>
           <button
             type="button"
             onClick={() => dismiss(toast.id)}

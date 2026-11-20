@@ -311,7 +311,7 @@
       "title": "Game modes",
       "lead": "From classic 5v5 to quick Brawl matches, every mode changes the rules. Pick one to see the details.",
       "discover": "Explore this mode",
-      "metaDescription": "The game modes of Mobile Legends: Bang Bang, presented one by one with their detailed rules.",
+      "metaDescription": "The Mobile Legends: Bang Bang game modes and their rules, mode by mode.",
       "ogDescription": "Mobile Legends: Bang Bang game modes and what sets them apart.",
       "titleMode": "{name} mode",
       "listLd": "Mobile Legends: Bang Bang game modes"
@@ -336,7 +336,7 @@
       "sortTier": "Tier list",
       "account": "{n} heroes",
       "countOf": "of {total}",
-      "none": "No heroes match these filters.",
+      "none": "No hero with these filters. Take one off and I'll look wider.",
       "list": "Hero list"
     },
     "heroDetail": {
@@ -375,7 +375,7 @@
       "analysisText": "No one has written an analysis of {name} yet: how to play them, what to build, who to pick them against. Meanwhile, the other tabs show the figures measured in ranked games.",
       "analysisTranslated": "Analysis written in French and machine-translated.",
       "contribute": "Contribute to this analysis →",
-      "countersIntro": "Based on in-game win rates: the gap in points shows how much {name}'s win rate shifts against each opponent.",
+      "countersIntro": "Calculated from the game's win rates: the gap in points shows how much {name}'s win rate changes against each opponent.",
       "countersRef": "Baseline win rate: {rate}%.",
       "matchups": "Matchup breakdown",
       "matchupsIntro": "Matchups commented by hand, beyond the numbers.",
@@ -401,7 +401,7 @@
         "min": "Lowest",
         "max": "Highest",
         "curveSummary": "{measure} rate: {start}% at the start of the period, {end}% at the end.",
-        "historyShort": "The API only publishes thirty days: this site's history grows with every update and will mark patches as the seasons go by.",
+        "historyShort": "The API only provides the last thirty days: the site's history grows with each update and will mark patches over the seasons.",
         "duration": "By game length",
         "durationIntro": "Win rate of {name} by game length, in the main lane.",
         "minutes": "{from}–{to} min",
@@ -423,7 +423,7 @@
         "noData": "No measurements for this hero yet.",
         "impact": {
           "title": "Patch impact",
-          "intro": "{name}'s average win rate, all ranks, over the {n} days before and after each patch that adjusted them, patch day excluded.",
+          "intro": "{name}'s average win rate, all ranks combined, over the {n} days before and after each patch that changed them, excluding patch day.",
           "patch": "Patch {version}",
           "beforeAfter": "{before}% before, {after}% after",
           "verdict": {
@@ -437,10 +437,10 @@
         "feed": "Follow via RSS"
       },
       "teammates": "Best teammates",
-      "teammatesIntro": "The allies {name} wins the most with, in win-rate points above average.",
+      "teammatesIntro": "The allies {name} wins most with, in win rate points above their average.",
       "combos": {
         "title": "Combos",
-        "intro": "The combos recommended by the game, in the order to cast the skills.",
+        "intro": "The combos recommended by the game, with the order to cast the skills.",
         "types": {
           "laning": "Laning",
           "teamfight": "Teamfight"
@@ -454,7 +454,7 @@
     },
     "items": {
       "title": "Items",
-      "lead": "The {n} items in the shop. Click an item to see its details; filter by category or search directly for a stat.",
+      "lead": "The {n} items in the shop. Pick an item to see its details; filter by category or search for a stat.",
       "metaDescription": "The {n} items in Mobile Legends: Bang Bang: stats, unique effects, passives, recipes and prices, with their icons.",
       "ogDescription": "The game's {n} items, with stats, passives and recipes."
     },
@@ -485,10 +485,10 @@
     },
     "draft": {
       "title": "Draft assistant",
-      "lead": "Enter what you see on the enemy side, lane by lane. The tool suggests answers and explains what backs them up. Add your own picks as you go: the suggestions adjust.",
-      "rating": "Counters and synergies come from relationships reported by the game, not from opinion. They don't cover every matchup: a hero with no known counter in a lineup isn't necessarily a bad pick — it simply has nothing specific to answer there.",
-      "metaDescription": "Enter the enemy lineup: the tool suggests what to pick in each lane and explains why — counters, synergies and win rates.",
-      "ogDescription": "What to pick against the enemy lineup, and why.",
+      "lead": "Enter what you see on the enemy side, lane by lane. The tool suggests picks and explains why. Add your own picks as you go: the suggestions adjust.",
+      "rating": "Counters and synergies come from the relations reported by the game, not from opinion. They do not cover every matchup: a hero with no known counter against a composition is not necessarily a bad pick, it simply has nothing specific to oppose it.",
+      "metaDescription": "Enter the enemy lineup: the tool suggests what to pick in each lane and explains why (counters, synergies and win rates).",
+      "ogDescription": "What to pick against the enemy composition, and why.",
       "teamLink": "Team already picked? Analyze its composition",
       "toolsTitle": "Draft simulator and assistant",
       "toolsLead": "Play a full draft, bans then picks, in ranked or tournament format against a bot driven by our data. Or enter the enemy lineup to see what to pick, lane by lane.",
@@ -497,11 +497,11 @@
         "title": "Format rules",
         "intro": "The simulator follows the order described by the game wiki and by Liquipedia. Each rule links to its source; what the sources leave out is flagged.",
         "rankedTitle": "Ranked (Draft Pick)",
-        "rankedAccess": "Draft Pick opens from the Epic rank.",
+        "rankedAccess": "The draft opens from the Epic rank.",
         "rankedBans": "The number of bans depends on the highest rank in the match: {epic} per team in Epic, {legend} in Legend, {mythic} in Mythic and above.",
         "rankedSimultaneous": "Both teams ban at the same time, over two rounds, so they can ban the same hero. The sources do not say how many bans fall in each round: the simulator groups them into one.",
         "picks": "Picks: blue 1, red 2, blue 2, red 2, blue 2, red 1. A banned or already picked hero cannot be picked.",
-        "timers": "{ban} seconds to ban, {pick} to pick, per player. When time runs out, the ban stays empty and the pick is random: the game favours the player's most played heroes, which the simulator does not know, so it draws among heroes that fill an open lane.",
+        "timers": "{ban} seconds to ban, {pick} to pick, per player. When time runs out, the ban stays empty and the pick is random. The game favours the player's most played heroes; the simulator, which does not know them, picks among heroes that fill a free lane.",
         "rankedExample": "Order in Mythic; in Epic and Legend only the number of bans changes.",
         "tournamentTitle": "Tournament (MPL, M-series)",
         "tournamentBans": "{total} bans in all, {n} per team.",
@@ -548,14 +548,14 @@
     },
     "tierList": {
       "title": "Tier list",
-      "lead": "This ranking isn't an opinion: it's calculated from the win and ban rates reported by the game, and rebuilds itself on every sync.",
+      "lead": "This ranking is not an opinion: it is calculated from the win and ban rates reported by the game, and recalculated at each sync.",
       "metaDescription": "Mobile Legends: Bang Bang tier list calculated from the win and ban rates reported by the game. Recalculated on every sync, no opinions.",
       "ogDescription": "Ranking calculated from the game's win and ban rates.",
       "howCalculated": "How this ranking is calculated",
       "scorePre": "The score is ",
       "scoreBold": "win rate + a quarter of the ban rate",
       "p2": "Win rate measures what a hero delivers once picked. Ban rate measures what players fear: it catches heroes too strong to be left open, whose win rate is misleadingly low because they're rarely available.",
-      "p3pre": "Pick rate isn't part of the calculation — it measures popularity, not power. It's only used to mark with an ",
+      "p3pre": "Pick rate isn't part of the calculation: it measures popularity, not power. It's only used to mark with an ",
       "asterisk": "asterisk",
       "p3post": " heroes played too rarely for their numbers to be stable.",
       "tier": "Tier {p}",
@@ -568,7 +568,7 @@
         "S": "Very strong in most lineups.",
         "A": "Solid, without dictating the pace of the game.",
         "B": "Decent, but depends on the context or the player.",
-        "C": "Playable, at a real cost compared to the alternatives."
+        "C": "Playable, but other picks do better."
       },
       "byRank": "By rank",
       "titleRank": "{rank} tier list",
@@ -600,18 +600,22 @@
       "leadRole": "All {n} {plural} in the game, main or secondary role, ranked by the same rule as the main tier list: win and ban rates, all ranks combined.",
       "filterNote": "Ranking across all ranks. The by-rank lists, for their part, cover every lane and every role.",
       "seeRole": "All {plural} and their lanes",
-      "openTier": "Show the {n} heroes in tier {p}"
+      "openTier": "Show the {n} heroes in tier {p}",
+      "poster": {
+        "kicker": "No. 1 in this ranking",
+        "label": "{name}, n°1 in this ranking: level {tier}, {win} of victories, {ban} of bans"
+      }
     },
     "patchNotes": {
       "title": "Patch notes",
       "lead": "The content of recent updates is reproduced here, section by section. Older patches are still listed, with a link to their original page.",
-      "metaDescription": "The {n} patches of Mobile Legends: Bang Bang. Details of recent updates can be read right here, without leaving the site.",
+      "metaDescription": "The {n} Mobile Legends: Bang Bang patches, with the details of recent updates readable on the site.",
       "ogDescription": "The game's {n} patches, with details of the most recent ones.",
       "listed": "{n} patches listed · {m} readable on the site · synced on",
       "recent": "Recent updates",
       "analyses": "Analyses",
       "analysesIntro": "What the official notes don't say: the real in-game effect of the changes.",
-      "older": "Older patches aren't reproduced in full — their content would take up several megabytes for versions nobody plays anymore.",
+      "older": "Older patches aren't reproduced in full: their content would take up several megabytes for versions nobody plays anymore.",
       "officialDescription": "Official notes for the Mobile Legends: Bang Bang {version} update: new heroes, adjustments and item changes.",
       "officialShare": "Notes for the {version} update.",
       "official": "Official notes",
@@ -626,7 +630,7 @@
       "creditShortLiquipedia": "Patch {versions} notes taken from {source}, published under the {license} license.",
       "publishedOn": "Released on {date}",
       "changes": {
-        "title": "All hero changes in patch {v}",
+        "title": "Hero changes in patch {v}",
         "summary": {
           "one": "Patch {v} changes {n} hero.",
           "other": "Patch {v} changes {n} heroes."
@@ -644,11 +648,18 @@
       "intro": "Connect your game account with Moonton's official verification code. No password is required.",
       "security": "The site never sees your password. It only receives a temporary token, stored in a secure cookie, which you delete when you log out.",
       "metaTitle": "Log in",
-      "metaDescription": "Connect your Mobile Legends account with a verification code, no password needed."
+      "metaDescription": "Connect your Mobile Legends account with a verification code, no password needed.",
+      "welcome": "Welcome to MLBBDex!",
+      "welcomeText": "Your game account, without a password: your username, then the code that Moonton sends to your in-game inbox.",
+      "perks": {
+        "profile": "Your profile, ranks and most played heroes",
+        "community": "The forum and the search for teammates",
+        "collection": "Your collection of skins on all your devices"
+      }
     },
     "watch": {
       "title": "Roundup",
-      "lead": "What the rest of the web publishes about the game: community and esports press, gathered automatically. Each entry links back to its publisher — nothing is copied here.",
+      "lead": "What the rest of the web publishes about the game, from the community and the esports press, collected automatically. Each entry links to its publisher: nothing is copied here.",
       "metaTitle": "Roundup — MLBB news from around the web",
       "metaDescription": "The latest posts from the community and esports press about Mobile Legends: Bang Bang, gathered automatically.",
       "ogDescription": "Mobile Legends news from around the web, gathered automatically.",
@@ -659,7 +670,9 @@
     "about": {
       "title": "About",
       "lead": "An independent, open project that is deliberately upfront about its limits.",
-      "metaDescription": "What this site is, what it contains, what it can't contain, and how to contribute."
+      "metaDescription": "What this site is, what it contains, what it can't contain, and how to contribute.",
+      "dexLine": "I'm Dex! I guide you through the site: heroes, meta, tools and community.",
+      "dexLink": "My story"
     },
     "legal": {
       "title": "Legal notice",
@@ -687,14 +700,16 @@
       "levelX": "Level {n}",
       "levelCelestial": "Celestial level {n}",
       "signedOut": "Log out",
-      "detailUnavailable": "Detailed stats — win rate, match history, most played heroes — depend on a Moonton service that is currently offline. Your profile above is still available; the details will return as soon as the source responds.",
+      "detailUnavailable": "Detailed stats (win rate, match history, most played heroes) depend on a Moonton service that is currently offline. Your profile above is still available; the details will return as soon as the source responds.",
       "noStat": "No stats to display.",
       "profileLink": "View my player profile",
-      "profileLinkText": "Season summary, heroes compared with your rank's average, recent matches and tips."
+      "profileLinkText": "Season summary, heroes compared with your rank's average, recent matches and tips.",
+      "topHeroes": "Your heroes",
+      "topHeroesLead": "The ones you play the most, based on the games the service has kept."
     },
     "apiDoc": {
       "title": "Public API",
-      "lead": "The site's data is available as JSON, with no key or sign-up. Help yourself — the only requirement is to credit the source, which comes with every response.",
+      "lead": "The site's data is available as JSON, with no key or sign-up. Help yourself: the only requirement is to credit the source, which comes with every response.",
       "metaDescription": "An open JSON API for the site's Mobile Legends: Bang Bang data: heroes, skills, skins, items, patches and rankings. No key, no sign-up.",
       "ogDescription": "Heroes, items, patches and rankings as JSON, no key needed.",
       "statHeroes": "Heroes",
@@ -707,7 +722,7 @@
       "c1label": "No key, no quota.",
       "c1text": "Responses are static and cached: they cost nothing to serve. Be reasonable and everything will be fine.",
       "c2label": "Credit the source.",
-      "c2text": "The data comes from the community wiki, under the CC BY-SA license: reusing it means crediting it. The attribution travels with every response.",
+      "c2text": "The data comes from the community wiki, under the CC BY-SA licence: reusing it means crediting the wiki. The credit is included in every response.",
       "c3label": "Written analyses",
       "c3text": "— commentary, builds, counters — are produced for this site and covered by its MIT license.",
       "c4label": "No player data.",
@@ -765,7 +780,8 @@
     "offline": {
       "title": "You're offline",
       "text": "This page hasn't been visited on this device yet, so it isn't available offline. Pages you've already visited, and the site's main sections, remain available.",
-      "home": "Back to home"
+      "home": "Back to home",
+      "dexLine": "No network at the moment. Pages already opened remain readable."
     },
     "notFound": {
       "title": "Page not found",
@@ -773,7 +789,12 @@
       "home": "Back to home",
       "heroes": "Browse heroes",
       "tierList": "Current tier list",
-      "search": "Search for a hero, an item or a page"
+      "search": "Search for a hero, an item or a page",
+      "dexLine": "Hey, this page got lost in the jungle… Shall we head back from here?",
+      "lost": "Lost",
+      "heroesText": "Hero sheets, builds and counters.",
+      "tierListText": "Who is dominating the meta right now.",
+      "homeText": "Today's patch, meta and tools."
     },
     "winRate": {
       "title": "Win rate calculator",
@@ -806,10 +827,10 @@
       "swap": "Swap sides",
       "copy": "Copy link",
       "linkCopied": "Link copied.",
-      "copyFailed": "Couldn't copy: copy the page address instead.",
+      "copyFailed": "I couldn't copy it: copy the page address instead.",
       "intro": "Add at least one hero on each side to show the matrix. The page address keeps your picks and the rank: just share it.",
       "loading": "Loading the rank's duels…",
-      "error": "This rank's duels could not be loaded. Try again by switching ranks.",
+      "error": "I couldn't load this rank's duels. Try again, or switch ranks.",
       "matrixTitle": "Duels · {rank}",
       "measured": "Measured duels: {n} of {total}.",
       "caption": "Win-rate gap of your heroes (rows) against the opponents (columns), {rank}",
@@ -884,11 +905,12 @@
         "add": "Add the entry to the role file: `tanks.ts`, `fighters.ts`, `assassins.ts`, `mages.ts`, `marksmen.ts` or `supports.ts`.",
         "check": "Run `npm run lint`, `npm run typecheck` and `npm test`. Automated checks will run them again anyway.",
         "open": "Open a pull request with a clear title in the imperative, in French: \"ajoute l'analyse de Ling\".",
-        "reread": "A maintainer reviews substance and form — accuracy for the current patch, style, originality — and comments on the pull request if something needs to change.",
+        "reread": "A maintainer reviews substance and form (accuracy for the current patch, style, originality) and comments on the pull request if something needs to change.",
         "merge": "Once merged, the analysis goes live with the next deployment, and your name stays in the repository history."
       },
       "prLink": "Open a pull request",
-      "guideLink": "Full guide on GitHub (CONTRIBUTING.md)"
+      "guideLink": "Full guide on GitHub (CONTRIBUTING.md)",
+      "dexLine": "An error on a file, an idea, a translation? Any help counts, even the smallest one."
     },
     "accountProfile": {
       "metaTitle": "Player profile",
@@ -900,7 +922,7 @@
       "summaryTitle": "Season {n} summary",
       "games": "Matches",
       "heroesPlayed": "Heroes played",
-      "partialSummary": "Minimum: the service did not return every hero played, so the real total may be higher.",
+      "partialSummary": "Minimum value: the service did not return every hero played, so the real total may be higher.",
       "overSeasons": "Across seasons {list}",
       "overAllSeasons": "Across all tracked seasons",
       "mvp": "MVP",
@@ -928,7 +950,7 @@
       "bestEmpty": "Not enough matches on a single hero yet to point out a strength.",
       "bestDetail": "{rate} wins over {n} matches",
       "belowAverageTitle": "Below your rank's average",
-      "belowAverageText": "Clearly below the average ({rank}): review the build and counters, or set them aside for a while.",
+      "belowAverageText": "These heroes are well below the average ({rank}): review their build and counters, or set them aside for a while.",
       "belowAverageEmpty": "No hero clearly below your rank's average. Well played.",
       "belowAverageDetail": "{rate} against a {average} average",
       "nemesesTitle": "Heroes that beat you most",
@@ -958,7 +980,7 @@
       "seeMore": "Older matches",
       "loading": "Loading…",
       "allShown": "All matches of the season are shown.",
-      "loadError": "The service is not responding. Try again in a moment.",
+      "loadError": "The game's service isn't answering. Try again in a moment.",
       "expiredTitle": "Session expired",
       "expiredText": "Your game session has expired. Log in again with a new code to get your profile back.",
       "signInAgain": "Log in again",
@@ -995,7 +1017,7 @@
         "other": "Based on all {n} matches of the season ({rate} win rate)."
       },
       "rolesTitle": "Roles and lanes",
-      "rolesIntro": "Your results by the role of the hero played and the lane you took. A role or lane needs at least {n} matches to be flagged as a strength or a weak spot.",
+      "rolesIntro": "Your results by the role of the hero played and the position you took. A role or position needs at least {n} games to be marked as a strength or something to work on.",
       "byRoleTitle": "By role",
       "byRoleSource": "Whole season. A hero with two roles counts for both, so shares can add up to more than 100%.",
       "byPositionTitle": "By lane",
@@ -1030,7 +1052,7 @@
     },
     "team": {
       "title": "Team analyzer",
-      "lead": "Pick up to five heroes: the tool checks that every lane is covered, weighs the balance of damage, crowd control and durability, tells you when the team is strongest, and lists its measured synergies as well as the enemy heroes to fear.",
+      "lead": "Pick up to five heroes: the tool checks that every lane is covered, weighs the balance of damage, crowd control and durability, shows when in the game the team is strongest, and lists its measured synergies along with the enemy heroes to fear.",
       "metaTitle": "MLBB team composition analyzer",
       "metaDescription": "Analyze a Mobile Legends: Bang Bang team composition: lane coverage, physical and magic damage, power by game length, synergies, threats and picks to complete it, rank by rank.",
       "ogDescription": "The strengths and gaps of your lineup, measured on ranked games.",
@@ -1055,11 +1077,11 @@
       },
       "heroes": {
         "title": "All {n} MLBB Heroes: Roles, Lanes & Tiers (Patch {v})",
-        "description": "All {n} Mobile Legends: Bang Bang heroes with role, lane, tier and win rate (patch {v}, data from {date}). Strongest right now: {top}. Plus {skins} skins and {analyses} written analyses."
+        "description": "The {n} Mobile Legends: Bang Bang heroes with role, lane, tier and win rate (patch {v}, data from {date}). Strongest right now: {top}. Plus {skins} skins and {analyses} written analyses."
       },
       "items": {
         "title": "All {n} MLBB Items: Stats, Recipes & Prices (Patch {v})",
-        "description": "The {n} Mobile Legends: Bang Bang items with stats, passives, recipes and prices. Most common in the most played builds right now: {top} (patch {v}). See which heroes build each item."
+        "description": "The {n} Mobile Legends: Bang Bang items: stats, passives, recipes and prices. Most common in the most played builds right now: {top} (patch {v}). Plus, for each item, the heroes who buy it."
       },
       "emblems": {
         "title": "MLBB Emblems, Talents & Battle Spells by Role (Patch {v})",
@@ -1090,7 +1112,7 @@
       },
       "winRate": {
         "title": "MLBB Win Rate Calculator: Wins Needed for Your Target",
-        "description": "Enter your matches played and current win rate: see how many straight wins you need to reach your target in Mobile Legends: Bang Bang, or how many matches at a given pace. Free, instant, no sign-up."
+        "description": "Enter your matches played and your win rate: the calculator gives the number of wins in a row needed to reach your goal in Mobile Legends: Bang Bang, or the number of matches at a given pace. Free, no sign-up."
       },
       "matchups": {
         "title": "MLBB Matchup Matrix: Measured Win-Rate Gaps by Rank",
@@ -1114,7 +1136,7 @@
       },
       "serverTime": {
         "title": "MLBB Server Time & Daily Reset Countdown",
-        "description": "Live Mobile Legends server time (UTC−8) with countdowns to the daily reset ({utc} UTC), the Monday weekly reset, the next Starlight and the season end, plus the local reset time in your country."
+        "description": "Live Mobile Legends server time (UTC−8) with countdowns to the daily reset ({utc} UTC), the Monday weekly reset, the next StarLight and the season end, plus the local reset time in your country."
       },
       "ranks": {
         "title": "MLBB Rank System: All Ranks, Stars & Rewards",
@@ -1123,7 +1145,7 @@
       },
       "retribution": {
         "title": "MLBB Retribution Test: Practice Your Timing",
-        "description": "Free Mobile Legends Retribution trainer: secure the Turtle, Lord and buffs before the enemy jungler. Real Retribution damage by level, 4 difficulties, local records and a shareable result card. Works offline."
+        "description": "Free Retribution trainer for Mobile Legends: secure the Turtle, the Lord and buffs before the enemy jungler. Actual Retribution damage per level, 4 difficulty levels, records saved on your device and a result card to share. Works offline."
       },
       "quiz": {
         "title": "MLBB Quiz: Daily Hero Guessing Game",
@@ -1143,7 +1165,7 @@
       },
       "skinsCalendar": {
         "title": "MLBB Skin Calendar: Every Skin by Release Date",
-        "description": "{n} Mobile Legends: Bang Bang skins released from {start} to {end}, month by month, with hero, rarity, series (Collector, StarLight, Epic, Legend…) and price. Latest in our data: {latest} ({date})."
+        "description": "{n} Mobile Legends: Bang Bang skins released from {start} to {end}, month by month, with hero, rarity, series (Collector, StarLight, Epic, Legend…) and price. Most recent in our data: {latest} ({date})."
       },
       "calendarYear": {
         "title": "MLBB Skins Released in {year}: Full List by Month",
@@ -1166,7 +1188,7 @@
       },
       "drawCalculator": {
         "title": "MLBB Draw Calculator: Diamonds and Odds",
-        "description": "How many diamonds for an MLBB event skin? Odds for your budget, average draws with pity, 50, 90 and 99% milestones and a chart. Free, runs in your browser, presets with sources."
+        "description": "How many diamonds for an MLBB event skin? Odds for your budget, average number of draws with the guarantee, 50, 90 and 99% thresholds and a curve. Free, in your browser, sourced presets."
       },
       "mlbbdle": {
         "title": "MLBBdle: daily Mobile Legends hero guessing game",
@@ -1323,13 +1345,13 @@
       "atRank": "At {rank}",
       "overview": "{context}, {name} struggles most against {weakAgainst}, and has the edge over {strongAgainst}.",
       "overviewNoStrong": "{context}, {name} struggles most against {weakAgainst}.",
-      "noMeasure": "No measured counters for {name} yet.",
+      "noMeasure": "No measured counter for {name} yet.",
       "sheetLink": "{name} hero page",
       "buildsLink": "{name} builds",
       "compareLink": "{name} vs {other}",
       "shortLink": "Counters",
       "bestCounters": "Best counters for {name}",
-      "bestCountersIntro": "The heroes {name} loses to the most, rank by rank: a counter listed in several ranks is a consistent one. The gap is the average, in points of {name}'s win rate.",
+      "bestCountersIntro": "The heroes {name} loses to the most, rank by rank: a counter listed at several ranks is a reliable one. The gap is the average, in points of {name}'s win rate.",
       "victims": "Heroes {name} counters",
       "victimsIntro": "Avoid these picks against {name}: {name}'s win rate rises the most against them.",
       "colHero": "Hero",
@@ -1337,11 +1359,11 @@
       "colRanks": "Ranks",
       "colLinks": "Links",
       "ranksListed": "{n}/{total} ranks",
-      "byRank": "Counters by rank",
+      "byRank": "Counters rank by rank",
       "byRankIntro": "Each rank bracket is measured separately: a hero can counter {name} at one rank and matter little at another.",
       "ranksNav": "Jump to rank",
       "howToCounter": "How to counter {name}",
-      "howToCounterIntro": "Three pointers taken from the data, with no written advice: gear suited to {name}'s damage, the game length where {name} wins least, and the counters in each lane.",
+      "howToCounterIntro": "Three data-based pointers, no written advice: the items suited to {name}'s damage, the match length where {name} wins least, and its counters in each position.",
       "items": {
         "title": "Items against {name}",
         "rule": "Rule-based, not measured",
@@ -1362,8 +1384,8 @@
         "none": "No game-length data for {name} yet."
       },
       "lanes": {
-        "title": "Counters by lane",
-        "intro": "{name}'s counters grouped by the lane they play, {name}'s own lane first: the direct matchup.",
+        "title": "Counters by position",
+        "intro": "{name}'s counters grouped by the position they play, its own first: that is the direct matchup.",
         "direct": "Direct matchup"
       },
       "wiki": {
@@ -1373,12 +1395,12 @@
         "open": "Show relationships noted by the wiki"
       },
       "others": {
-        "title": "More counters pages · {lane}"
+        "title": "Other counter pages · {lane}"
       }
     },
     "heroesRole": {
       "title": "All {n} MLBB {plural}",
-      "lead": "Every hero with the {role} role, main or secondary, from strongest to weakest according to the tier list, with their lanes. Each row leads to the hero's page: build, counters and stats.",
+      "lead": "Every hero with the {role} role, main or secondary, from strongest to weakest according to the tier list, with their lanes. Each row leads to the hero page: build, counters and stats.",
       "nHeroes": "{n} heroes",
       "seeTierList": "{role} tier list",
       "otherRoles": "All roles",
@@ -1391,7 +1413,7 @@
         "top": "{name} tops the tier list ({tier} tier) with a {winRate} win rate and a {ban} ban rate.",
         "rise": "Biggest riser this week: {name}, from a {before} to a {current} win rate in {days} days.",
         "fall": "Biggest faller: {name}, from a {before} to a {current} win rate in {days} days.",
-        "tiers": "Tier changes over seven days — up: {risers}, down: {fallers}.",
+        "tiers": "Tier changes over seven days: up, {risers}; down, {fallers}.",
         "banned": "Most banned hero: {name}, with a {ban} ban rate."
       },
       "tiers": {
@@ -1430,6 +1452,10 @@
           "banRate": "% banned",
           "pickRate": "% picked"
         }
+      },
+      "poster": {
+        "kicker": "Strongest increase of the week",
+        "caption": "victory points in {days} days"
       }
     },
     "statistics": {
@@ -1465,7 +1491,7 @@
       "fromTierListLink": "Full statistics table"
     },
     "statisticsTable": {
-      "legend": "Win, ban and pick rates of the heroes — {rank}",
+      "legend": "Hero win, ban and pick rates ({rank})",
       "heroes": "Hero",
       "tier": "Tier",
       "win": "Win rate",
@@ -1496,7 +1522,7 @@
       },
       "seeAll": "All skins",
       "seeMore": "Show more heroes ({n} left)",
-      "alt": "{hero} — {skin} skin"
+      "alt": "{hero}, {skin} skin"
     },
     "heroSkins": {
       "title": "{name} skins",
@@ -1505,10 +1531,10 @@
       "metaTitleElision": "{name} Skins: All {n} Skins & Artworks",
       "metaDescription": "All {n} {name} skins in Mobile Legends: Bang Bang, with artworks, rarity, release date, availability and price.",
       "lead": "{name} has {n} skins. Each card shows the artwork, the rarity, the release date, the availability and the price when they are known.",
-      "latest": "Most recent dated skin: {skin} ({date}).",
+      "latest": "Latest dated skin: {skin} ({date}).",
       "price": "Price",
       "illustrationOnly": "Artwork only: rarity, date and price are not in the database yet.",
-      "altIllustration": "{name} {skin} skin artwork",
+      "altIllustration": "{name}: {skin} skin artwork",
       "altPortrait": "{name} wearing the {skin} skin, in-game portrait",
       "others": "Other heroes' skins",
       "sheetLink": "See all {n} skins and artworks",
@@ -1521,8 +1547,8 @@
       "updatedOn": "Updated {date}.",
       "allRanks": "Across all ranks",
       "atRank": "At {rank}",
-      "overview": "{context}, {name} wins the most alongside {best}, and loses the most alongside {worst}.",
-      "overviewNoWorst": "{context}, {name} wins the most alongside {best}.",
+      "overview": "{context}, {name} wins most with {best} and loses most with {worst}.",
+      "overviewNoWorst": "{context}, {name} wins most with {best}.",
       "noMeasure": "No measured duos for {name} yet.",
       "sheetLink": "{name} hero page",
       "countersLink": "{name} counters",
@@ -1534,7 +1560,7 @@
       "best": "Best partners for {name}",
       "bestIntro": "The allies {name} wins the most with, rank by rank: a partner listed in several ranks is a reliable duo. The gain is an average, in points of win rate.",
       "worst": "Duos to avoid with {name}",
-      "worstIntro": "The allies {name} loses the most with: the win rate drops the most when they play together.",
+      "worstIntro": "The allies with whom {name}'s win rate drops the most.",
       "phases": {
         "title": "{name} duos by game length",
         "intro": "The partner who adds the most to {name} in each phase of the game ({rank}): duo win rate, and gain over {name} without this partner at the same game length.",
@@ -1578,9 +1604,9 @@
       "title": "{a} vs {b}",
       "metaTitle": "{a} vs {b}: who wins? (patch {v})",
       "metaTitleNoPatch": "{a} vs {b}: who wins the duel?",
-      "lead": "{a} against {b}, measured by the game rank by rank: who gains win rate in the matchup, who weighs more early or late, their most-played builds, and how they fare on the same team.",
+      "lead": "{a} against {b}, rank by rank from the game's own data: who wins the matchup, who weighs more early or late, their most played builds and how they do on the same team.",
       "noMeasure": "No measured matchup between {a} and {b} yet.",
-      "balanced": "{context}, {a} and {b} are evenly matched: neither gains more than a few tenths of a point.",
+      "balanced": "{context}, {a} and {b} are even: the gap is only a few tenths of a point.",
       "verdict": "{context}, {winner} has the edge over {loser}: {gap} of win rate in this matchup.",
       "ranks": "Over {total} rank brackets measured, {a} leads in {na} and {b} in {nb}.",
       "question": "Who wins, {a} or {b}?",
@@ -1629,11 +1655,11 @@
       "dailyTitle": "Daily reset",
       "dailyText": "Every day at 00:00 server time, which is {utc} UTC: daily tasks, new offers and new events.",
       "weeklyTitle": "Weekly reset",
-      "weeklyText": "Every Monday at 00:00 server time, which is {utc} UTC on Monday: weekly tasks start over.",
+      "weeklyText": "Every Monday at 00:00 server time, i.e. {utc} UTC: weekly tasks restart.",
       "starlightTitle": "Starlight",
       "starlightText": "On the 1st of every month at 00:00 server time ({utc} UTC): a new Starlight begins, with its rewards, tasks and shop reset.",
       "seasonTitle": "Season end",
-      "seasonText": "The game dates it in its patch notes, in server time (“S31 will end at 23:59:59 on 3/15”). The countdown picks it up as soon as it is published there.",
+      "seasonText": "The patch notes give its date, in server time (\"season 31 ends on 15/3 at 23:59:59\"). The countdown shows it as soon as it is listed.",
       "updateTitle": "Game updates",
       "updateText": "They usually come out between 18:00 and 22:00 server time, which is between {start} and {end} UTC the next day.",
       "faqTitle": "Frequently asked questions",
@@ -1664,10 +1690,10 @@
     },
     "retribution": {
       "title": "Retribution test",
-      "lead": "Train the jungler's reflex: the health bar of the Turtle, the Lord or a buff melts under your team's hits, and you strike as soon as it drops below your Retribution damage, before the enemy jungler does.",
+      "lead": "Train the jungler's reflex: the Turtle's, Lord's or a buff's health bar melts under attack, and you strike as soon as it drops below your Retribution damage, before the enemy jungler.",
       "rulesTitle": "How it works",
       "rule1": "Pick an objective, a difficulty and your hero level. The health bar melts under your team's hits; strike (big button, Space or Enter) as soon as HP drops below your Retribution damage.",
-      "rule2": "Too early, Retribution doesn't kill and takes {recharge} s to recharge: the objective is lost. Too slow, the enemy jungler strikes first, or the monster dies without you.",
+      "rule2": "Too early, Retribution doesn't kill and goes on a {recharge} s cooldown: the objective is lost. Too late, the enemy jungler strikes first, or the monster dies without you.",
       "rule3": "A successful strike is worth up to 1,000 points: {precision} for precision (the share of below-threshold HP still there when you strike) and {speed} for speed, full under {full} ms and zero beyond {zero} ms.",
       "rule4": "A run has {n} rounds. Your best total per objective and difficulty, and your longest streak of successes, stay in your browser. Once the page has been opened, the trainer also works offline.",
       "valuesTitle": "The values used",
@@ -1684,7 +1710,7 @@
       "colHpNumbers": "HP shown",
       "yes": "Yes",
       "no": "No",
-      "trainingValues": "Hit rhythm, team damage, bursts and enemy jungler reaction are training values, tuned to feel like a real fight: the game doesn't publish these numbers. Retribution damage and monster HP, however, come from the wiki.",
+      "trainingValues": "Hit rhythm, team damage, bursts and the enemy jungler's reaction are training values, tuned to feel like a real fight: the game does not publish these numbers. Retribution damage and monster HP come from the wiki.",
       "sourcesTitle": "Sources",
       "sourceRetribution": "Fandom wiki, “Retribution” spell: damage by level and cooldown",
       "sourceMonsters": "Fandom wiki, “Turtle”, “Lord”, “Thunder Fenrir” and “Molten Fiend” pages: initial and 12-minute HP, health bar segments"
@@ -1694,8 +1720,8 @@
       "lead": "Every Mobile Legends ranked tier, from Warrior to Mythical Immortal: divisions, stars, Mythic points, draft pick and end-of-season rewards, then the heroes that win most at each rank according to our measurements.",
       "contents": "On this page",
       "scaleTitle": "The rank ladder",
-      "scaleIntro": "{n} tiers, from lowest to highest. A ranked win earns a star and a loss takes one away; past the maximum number of stars you move up a division, and below zero you drop back.",
-      "position": "Tier {n} of {total}",
+      "scaleIntro": "{n} ranks, from lowest to highest. A ranked win earns a star, a loss takes one away; past the star cap you move up a division, and below zero you drop down.",
+      "position": "Rank {n} of {total}",
       "divisions": "{n} divisions: {list}",
       "pointsPlus": "{min} points and above",
       "pointsBetween": "{min} to {max} points",
@@ -1712,13 +1738,13 @@
       "colDraft": "Draft pick",
       "colPromotion": "Star-raising points",
       "colProtection": "Star protection points",
-      "mythicFamily": "Mythic (4 tiers)",
+      "mythicFamily": "Mythic (4 ranks)",
       "pointsInstead": "Points instead of stars",
       "noDraft": "No (blind pick)",
       "bans": "{n} bans per team",
       "tableNote": "Star-raising points build up as you play: at 100%, your next win earns an extra star. Star protection points save you a star on a loss. The Mythic family only has protection points.",
       "mythicTitle": "Mythic: points instead of stars",
-      "mythicIntro": "Past Legend there are no more divisions: stars become points, and your total sets your tier. {honor} points take you to Mythical Honor, {glory} to Mythical Glory, {immortal} to Mythical Immortal.",
+      "mythicIntro": "Past Legend there are no more divisions: stars become points, and your total sets your rank. {honor} points take you to Mythical Honor, {glory} to Mythical Glory, {immortal} to Mythical Immortal.",
       "mythicCoins": "Reaching 15 points in Mythic earns Mythic Coins each season, the currency of Mythic skins.",
       "heroesTitle": "The heroes that win most, rank by rank",
       "heroesIntro": "The {n} best win rates in each rank bracket measured by the game, leaving out heroes played too little for their rate to be reliable.",
@@ -1790,7 +1816,7 @@
       "dailyMode": "Daily challenge",
       "practiceMode": "Practice",
       "loading": "Loading…",
-      "loadError": "The quiz could not be loaded. Check your connection: once you have visited the page, it also works offline.",
+      "loadError": "I can't load the quiz. Check your connection: once you've visited the page, it plays offline too.",
       "retry": "Try again",
       "puzzleNumber": "Challenge #{n} · {date}",
       "offline": "Challenge prepared offline",
@@ -1805,7 +1831,7 @@
       "share": "Share my result",
       "copied": "Result copied: paste it anywhere.",
       "shared": "Result shared.",
-      "copyError": "Could not copy: select the grid manually.",
+      "copyError": "I couldn't copy it: select the grid by hand.",
       "practise": "Keep practicing",
       "statsTitle": "Your stats",
       "stats": {
@@ -1908,12 +1934,19 @@
       "win": "{rate}% win rate",
       "duelRight": "correct",
       "duelWrong": "wrong",
-      "duelSource": "All-rank win rates, measured on {date}."
+      "duelSource": "All-rank win rates, measured on {date}.",
+      "dex": {
+        "start": "Yours! Each mistake unlocks a clue.",
+        "miss": "Oops ! A new clue awaits you.",
+        "good": "Well seen! Next.",
+        "won": "Well done, good answer!",
+        "over": "Failed this time. The next one will be the good one!"
+      }
     },
     "tierMaker": {
       "title": "MLBB tier list maker",
       "crumb": "Maker",
-      "lead": "Rank heroes your way: drag or tap to place them, rename and recolor tiers, start from our ranking if you like. Your list is saved in your browser, shared by link and exported as an image.",
+      "lead": "Rank the heroes your way: drag or tap them to place them, rename and recolour the tiers, and start from our ranking if you like. Your list stays saved in the browser, can be shared by link and exported as an image.",
       "howToTitle": "How it works",
       "step1": "Place a hero: drag it onto a row with the mouse, or tap it and then tap a tier in the bar that appears at the bottom of the screen.",
       "step2": "With a keyboard, Enter selects a hero, keys 1 to 9 put it in the matching row, 0 sends it back to the pool and the arrow keys move between heroes.",
@@ -1933,11 +1966,11 @@
       "exporting": "Creating the image…",
       "exportDone": "Image downloaded.",
       "exportShare": "Image shared.",
-      "exportError": "The image could not be created.",
+      "exportError": "I couldn't create the image. Try again.",
       "shareLink": "Share link",
       "linkCopied": "Link copied: it contains your whole list.",
       "linkShared": "Link shared.",
-      "linkError": "Copying is not possible in this browser.",
+      "linkError": "I couldn't copy the link in this browser.",
       "empty": "Clear all tiers",
       "reset": "Start over",
       "confirmEmpty": "Move every hero back to the pool?",
@@ -1971,7 +2004,7 @@
       "toBench": "To pool",
       "deselect": "Cancel selection",
       "sharedLoaded": "Shared list loaded.",
-      "sharedBanner": "You are viewing a shared list. It replaces yours, which has been kept aside.",
+      "sharedBanner": "You are viewing a shared list. It is shown instead of yours, which is kept aside.",
       "backToMyList": "Back to my list",
       "announceSelect": "{name} selected: choose a row.",
       "announceDeselect": "Selection cleared.",
@@ -1993,9 +2026,9 @@
       "nHeroes": "{n} heroes",
       "nHeroes1": "1 hero",
       "regionsTitle": "Regions",
-      "regionsLead": "Where each hero comes from, as recorded on the wiki. Open a region for its heroes, a summary drawn from their sheets and the ties between them.",
+      "regionsLead": "Where each hero comes from, according to the wiki. Open a region to see its heroes, a summary drawn from their pages and the links between them.",
       "linksTitle": "Notable relationships",
-      "linksLead": "Pairs of heroes linked on their lore sheets, in the sheets' own words: family, love, rivalry and mentorship first. Each hero appears once.",
+      "linksLead": "Pairs of heroes linked by their pages, quoted word for word: family, love, rivalry and mentorship first. Each hero appears only once.",
       "factionsTitle": "Factions",
       "factionsLead": "Affiliations shared by at least three heroes (houses, orders, teams, schools), leaving out hostile or former ones. Smaller ones appear on the region pages.",
       "storiesTitle": "All stories, by region",
@@ -2053,14 +2086,14 @@
       "colYear": "Year",
       "colTotal": "Total",
       "unknownMonth": "Month not specified",
-      "monthCell": "{month} — skins: {n}",
+      "monthCell": "{month}, skins: {n}",
       "nSkins": "{n} skins",
       "nSkins1": "1 skin",
       "seriesTitle": "Series and events",
       "seriesLead": "The labels the wiki gives skins (Collector, StarLight, Epic, Legend, collaborations…), by number of skins. Pick one to filter the calendar.",
       "seriesDetail": "{n} · {period}",
       "datesTitle": "About the dates",
-      "datesPrecision": "Dates come from the community wiki: {day} skins are dated to the day, {month} to the month and {year} to the year only; the latter close their year.",
+      "datesPrecision": "Dates come from the community wiki: {day} skins are dated to the day, {month} to the month and {year} to the year only; the latter are placed at the end of their year.",
       "datesSkipped": "Not shown: {upcoming} skins the wiki lists as upcoming without a confirmed date, and {future} dated later than our data, pending confirmation. No rumors or leaks here.",
       "datesOrigin": "Default skins, which come with their hero, are not counted: they mark a hero's release, not a skin's.",
       "collectionLink": "How much is your collection worth in diamonds?",
@@ -2096,19 +2129,19 @@
     },
     "collection": {
       "title": "Collection value calculator",
-      "lead": "Tick the heroes and skins you own: see what they add up to at in-game shop prices, in diamonds, with your rarest pieces and your completion of each series.",
+      "lead": "Tick the heroes and skins you own to see their value in diamonds at in-game shop prices, your rarest pieces and your progress in each series.",
       "warning": "In-game diamond value only: what these items cost in the Mobile Legends shop, not what an account is worth. Buying, selling or trading accounts is against Moonton's terms of service, and this tool gives no market or resale value.",
       "methodTitle": "How the value is calculated",
       "methodHeroes": "A hero's price is that of its default skin, which comes with it. Of the {heroes} heroes in our data, {diamonds} have a diamond price; the others are sold only for Battle Points or obtained another way, and Battle Points are counted separately.",
-      "methodSkins": "Of the {skins} skins you can tick, {diamonds} have a diamond price, {others} are priced in another currency (Magic Cores, gems…) and {unpriced} have no shop price: StarLight, events, draws and passes. Those count toward your completion but not toward the diamond total, rather than being guessed.",
-      "methodStorage": "Your selection stays in this browser (local storage), with no account needed. Signed in with your game account, it is also saved to your account, so you find it on another device; a backup file takes it wherever you like. Prices are the in-game shop prices listed by the community wiki; discounts and bundles are not counted.",
+      "methodSkins": "Of the {skins} skins you can tick, {diamonds} have a diamond price, {others} a price in another currency (magic cores, gems…) and {unpriced} no shop price: StarLight, events, draws and passes. The latter count towards your progress but not the diamond total: we would rather not make up a price for them.",
+      "methodStorage": "Your selection stays in this browser (local storage), with no account. If you are signed in with your game account, it is also saved to your account so you can find it on another device; a backup file lets you take it anywhere. Prices are the in-game shop prices listed by the community wiki; discounts and bundles are not taken into account.",
       "calendarLink": "Skin calendar",
       "skinsLink": "All skins",
       "accountValueLink": "Estimate an account's value"
     },
     "collectionUI": {
       "loading": "Loading heroes and skins…",
-      "error": "The skin list could not be loaded. Check your connection and reload the page.",
+      "error": "I can't load the skin list. Check your connection, then reload the page.",
       "valueTitle": "Shop value of your collection",
       "heroes": "Heroes",
       "skins": "Skins",
@@ -2116,14 +2149,14 @@
       "bpDetail": "Battle Point price of your heroes",
       "otherDetail": "skins priced in this currency",
       "noDiamond": "Not in the diamond total (no diamond price): skins {skins}, heroes {heroes}.",
-      "empty": "Tick the heroes and skins you own in the list: the total updates as you go and stays saved in this browser, and on your account when you are signed in.",
+      "empty": "Tick the heroes and skins you own in the list: the total updates as you go. Your selection stays saved in this browser, and on your account if you are signed in.",
       "summaryTitle": "My MLBB collection",
       "summaryText": "My MLBB collection: {heroes} heroes and {skins} skins, worth {diamonds} diamonds at in-game shop prices.",
       "summaryRare": "Rarest piece: {name} ({hero}).",
       "share": "Share the summary",
       "share_copied": "Summary copied to the clipboard.",
       "share_shared": "Summary shared.",
-      "share_failed": "Sharing failed: copy the summary above by hand.",
+      "share_failed": "Sharing didn't go through: copy the summary above by hand.",
       "selectionTitle": "Your heroes and skins",
       "search": "Search a hero or a skin",
       "role": "Role",
@@ -2146,13 +2179,13 @@
       "uncheckAllHeroes": "Untick {name} and all their skins",
       "seeSkins": "Skins",
       "noPrice": "No shop price",
-      "none": "No hero or skin matches these filters.",
+      "none": "No hero or skin with these filters. Take one off to look wider.",
       "rarityTitle": "By rarity",
       "colRarity": "Rarity",
       "colOwned": "Owned",
       "colDiamonds": "Diamonds",
       "raresTitle": "Your rarest skins",
-      "raresHelp": "By rarity, then limited editions and the smallest series first.",
+      "raresHelp": "Sorted by rarity, then limited editions and the smallest series first.",
       "seriesTitle": "Series completion",
       "seriesHelp": "Series you have started come first, the most complete on top.",
       "showAllSeries": "Show all series ({n})",
@@ -2162,7 +2195,7 @@
       "pool_all": "All",
       "pool_played": "The ones I play",
       "played_loading": "Reading your heroes this season…",
-      "played_failed": "Your played heroes cannot be read right now: try again later.",
+      "played_failed": "Your played heroes can't be read right now: try again later.",
       "played_empty": "No hero played this season.",
       "seriesCheck": "Tick the {n} {series} skins",
       "seriesUncheck": "Untick the {n} {series} skins",
@@ -2243,7 +2276,7 @@
         },
         "collector": {
           "title": "Collector skins",
-          "desc": "One of the game's highest rarities, obtained by drawing in Grand Collection or during a collaboration."
+          "desc": "One of the highest rarities in the game: these skins come from Grand Collection draws or collaborations."
         },
         "event": {
           "title": "Events and draws",
@@ -2292,7 +2325,7 @@
     },
     "nickname": {
       "title": "MLBB Stylish Name Generator",
-      "lead": "Type your name and copy it in {n} Unicode styles — bold, gothic, circled, small caps — with decorations like ꧁ ꧂ or 亗. Nothing to install: everything happens in your browser.",
+      "lead": "Type your nickname and copy it in {n} Unicode styles (bold, gothic, circled, small caps…), with decorations such as ꧁ ꧂ or 亗. Nothing to install: everything happens in your browser.",
       "howTitle": "How it works",
       "how1": "These aren't really fonts: each style swaps Latin letters for other Unicode characters that look like them (mathematical symbols, circled letters, full-width characters). Your nickname stays plain text, so it can be copied, pasted and displayed anywhere the device font knows those characters.",
       "how2": "Only the letters A to Z and digits change. Accents, spaces and symbols stay as they are, and invisible characters (zero-width spaces, direction marks, blank fillers) are removed: the copied nickname contains nothing you can't see.",
@@ -2336,7 +2369,7 @@
         "chevrons": "Chevrons",
         "rifle": "Rifle"
       },
-      "empty": "Type a name to see every style.",
+      "empty": "Type a name: I'll show it to you in every style.",
       "selected": "Selected · {style}",
       "style": {
         "bold": "Bold",
@@ -2364,7 +2397,7 @@
       "copy": "Copy",
       "copyStyle": "Copy the {style} style",
       "copied": "Copied: {nickname}",
-      "copyFailed": "Couldn't copy: select the nickname and copy it manually.",
+      "copyFailed": "I couldn't copy it: select the nickname and copy it by hand.",
       "length": "Length: {n}",
       "units": "{u} in UTF-16 units",
       "overGuide": "Longer than the {max} characters reported by a guide: the game may reject it.",
@@ -2374,7 +2407,7 @@
     },
     "drawCalculator": {
       "title": "MLBB Draw Calculator",
-      "lead": "How many diamonds for an event skin? Enter the price per draw, the prize chance and the pity: your odds for your budget, the average, and the 50, 90 and 99% milestones.",
+      "lead": "How many diamonds for an event skin? Enter the draw price, the prize chance and the pity: the calculator gives your chances for your budget, the average cost and the draws needed to reach 50, 90 and 99%.",
       "methodTitle": "Method",
       "method1": "Each draw is treated as independent, with the same chance p of getting the prize. The chance of having it within n draws is 1 − (1 − p)ⁿ; with a guarantee on draw N, it reaches 100% on the Nth draw.",
       "method2": "The average number of draws is (1 − (1 − p)ᴺ) / p with a guarantee, 1 / p without. The price uses the cheapest mix of 10-draws and single draws; the average in diamonds is given for both ways of drawing.",
@@ -2498,7 +2531,7 @@
       },
       "solved": "solved",
       "loading": "Loading…",
-      "loadError": "Couldn't load today's puzzle. Check your connection, then try again.",
+      "loadError": "I can't load today's puzzle. Check your connection, then try again.",
       "retry": "Try again",
       "unavailable": "This mode isn't available today. Try the other one!",
       "number": "MLBBdle #{n} · {date}",
@@ -2552,7 +2585,7 @@
         "roles": "Role"
       },
       "colourClue": "the icon is now shown in colour",
-      "lockedClue": "{clue} — wrong guesses left before it unlocks: {n}",
+      "lockedClue": "{clue} · wrong guesses left before unlock: {n}",
       "skillAlt": "Skill icon to identify",
       "skillAltGrey": "Skill icon to identify, in black and white",
       "yourGuesses": "Your guesses",
@@ -2563,7 +2596,7 @@
       "share": "Share my result",
       "copied": "Result copied: paste it anywhere.",
       "shared": "Result shared.",
-      "copyError": "Couldn't copy: select the grid manually.",
+      "copyError": "I couldn't copy it: select the grid by hand.",
       "shareTitle": "MLBBdle #{n} · {mode} · guesses: {guesses}",
       "playMode": "Play {mode} mode",
       "practiseMore": "Keep practising",
@@ -2573,7 +2606,7 @@
         "played": "Days won",
         "streak": "Streak",
         "best": "Best streak",
-        "average": "Avg. guesses"
+        "average": "Average guesses"
       },
       "distribution": "Guess distribution",
       "distributionRow": "Guesses {guesses}: {n}",
@@ -2587,7 +2620,14 @@
       "reveal": "Reveal the answer",
       "newHero": "New hero",
       "skip": "Skip",
-      "practiceQuestion": "Which hero is it?"
+      "practiceQuestion": "Which hero is it?",
+      "dex": {
+        "start": "Yours! I keep it a secret.",
+        "miss": "Failed… the colors show the way.",
+        "close": "It's heating up! Some boxes match.",
+        "won": "Well done, it’s him!",
+        "over": "Damage ! Another round?"
+      }
     },
     "advanceServer": {
       "title": "Advance Server patch notes",
@@ -2595,7 +2635,7 @@
       "crumb": "Advance Server",
       "warningTitle": "Changes under test",
       "warning": "Everything listed here is being tested on the Advance Server: these changes may still evolve, or never reach the Official Server.",
-      "statusUnderTest": "Version {v} is under test: it is newer than the current Official Server patch, {live}.",
+      "statusUnderTest": "Version {v} is under test: it is newer than the current live patch ({live}).",
       "statusNone": "No Advance Server version newer than the current Official Server patch ({live}) is documented on the wiki. The latest test notes published there are for version {v} ({date}).",
       "statusNoneUndated": "No Advance Server version newer than the current Official Server patch ({live}) is documented on the wiki. The latest test notes published there are for version {v}.",
       "syncedAt": "Wiki data checked on {date}.",
@@ -2718,7 +2758,7 @@
         "title": "Pro play vs ranked",
         "intro": "Each hero is ranked twice among {total}: by its pro presence (the share of pro games where it is picked or banned) and by its ranked presence (the same share in ranked games, all ranks, from our statistics). A big gap in places means one world values the hero far more than the other.",
         "pro": "Valued far more in pro",
-        "proNote": "Picked or banned in at least {min} of pro games, and ranked higher there than in ranked.",
+        "proNote": "Picked or banned in at least {min} of pro games, and ranked higher in pro than in ranked.",
         "ranked": "Ranked favorites pros pass on",
         "rankedNote": "In the top {n} by ranked presence, ranked lower in pro.",
         "hero": "Hero",
@@ -2852,7 +2892,7 @@
         "win": "Win",
         "loss": "Loss",
         "vs": "vs {team}",
-        "method": "Liquipedia enters each draft as five heroes per team, in the lane order of the roster: each hero is credited to the player in that slot, taking into account the substitutions listed for the match. Liquipedia records no kills, deaths or assists for Mobile Legends: there is no KDA here, only games, wins, MVP awards and heroes played.",
+        "method": "Liquipedia records each draft as five heroes per team, in the roster's lane order: each hero is credited to the player in that slot, taking into account the substitutions listed for the match. Liquipedia does not record kills, deaths or assists for MLBB: no KDA here, only games, wins, MVP awards and heroes played.",
         "methodLabel": "Method and limits",
         "players": {
           "seoTitle": "{name}: player stats",
@@ -3159,7 +3199,7 @@
       },
       "up": "Up",
       "noMoreTurtles": "No more Turtles",
-      "lastKill": "{objective} recorded at {time}",
+      "lastKill": "{objective}: death logged at {time}",
       "noKill": "Tap an objective when it dies.",
       "notStarted": "Start the clock to record kills.",
       "undo": "Undo",
@@ -3225,7 +3265,7 @@
         },
         "lord": {
           "name": "Lord",
-          "role": "The strongest monster on the map. The team that kills it summons it: it pushes the enemy's weakest lane and empowers the next minion wave.",
+          "role": "The strongest monster on the map. The team that kills it summons it: it pushes a lane alongside that team and empowers the next minion wave.",
           "firstSpawn": "{after} min after the last Turtle, or between {from} and {latest} if a Turtle is still alive",
           "respawn": "{respawn} s after it dies; after {lateFrom}, {late} s per the wiki text, {infobox} per its infobox",
           "reward": "Next minion wave empowered; the summoned Lord pushes with your team, and nearby allies deal {bonus} extra base magic damage ({cooldown} s cooldown)",
@@ -3243,7 +3283,7 @@
         },
         "lithowanderer": {
           "name": "Lithowanderer",
-          "role": "A small river creature near mid that never fights back. Its killer is followed by the Walkie Grass and leaves a Stone Roamer that reveals enemies.",
+          "role": "Small river creature near the middle that never fights back. Whoever lands the last hit is followed by the Walkie Grass, and a stone sentinel (Stone Roamer) appears to reveal enemies.",
           "reward": "Walkie Grass: +{mana}% mana per second to nearby allies, +{speed}% river speed for {duration} s; the Stone Roamer patrols for {patrol} s"
         },
         "crab": {
@@ -3309,7 +3349,7 @@
         "roam": {
           "title": "Roam",
           "step1": "During the first minute, guard your jungler's first buff against an invade.",
-          "step2": "Head to the Turtle before {turtle}: the roamer comes to help take it.",
+          "step2": "Reach the Turtle before {turtle} to help take it.",
           "step3": "Move from lane to lane to give your team vision.",
           "step4": "From {share}, your minion and creep rewards are shared with the team: stay grouped."
         },
@@ -3365,7 +3405,7 @@
     },
     "buildSimulator": {
       "title": "Build simulator",
-      "lead": "Put a build together — hero, level, six items, emblem, talents and spell — and read its computed stats, source by source. The page link keeps the build: copy it to share.",
+      "lead": "Put a build together (hero, level, six items, emblem, talents and spell) and read its computed stats, source by source. The page link keeps the build: copy it to share.",
       "commonEmblem": "Common emblem",
       "methodTitle": "How the stats are computed",
       "method1": "Hero base stats come from the wiki, which only publishes them at levels 1 and 15: in between they are interpolated in a straight line, which remains an approximation. HP regen is only given at level 1, and base attack speed is not listed at all: only the percentage bonus is shown.",
@@ -3523,15 +3563,15 @@
       "errors": {
         "signIn": "Your session has expired: please sign in again.",
         "tooFast": "Too many requests in a row: try again in a minute.",
-        "voteFailed": "The vote could not be saved.",
-        "deleteFailed": "The build could not be deleted.",
+        "voteFailed": "Your vote didn't go through. Try again.",
+        "deleteFailed": "I couldn't delete this build. Try again.",
         "title": "The title must be {min} to {max} characters long.",
         "ratings": "Notes cannot be longer than {max} characters.",
         "link": "No links or website addresses in the title or notes.",
         "build": "This build is not valid: choose a hero and at least one item.",
         "day": "Limit reached: {n} builds published in 24 hours. Come back tomorrow.",
         "total": "You already have {n} published builds: delete one to publish another.",
-        "unavailable": "Service temporarily unavailable: try again later."
+        "unavailable": "The service isn't answering right now: try again later."
       },
       "publishTitle": "Publish this build",
       "checkingSession": "Checking your session…",
@@ -3559,7 +3599,7 @@
       "byHeroTitle": "By hero",
       "buildCount": "{n} build(s)",
       "rulesTitle": "Rules",
-      "rules1": "Publishing and voting require signing in with your game account; one vote per account and per build, and none on your own builds.",
+      "rules1": "Publishing and voting require signing in with your game account. One vote per account and per build, and no votes for your own builds.",
       "rules2": "A build's page is only offered to search engines from {n} votes.",
       "rules3": "Plain text, no links; builds breaking the rules are removed by the administrators.",
       "heroTitle": "{hero} community builds",
@@ -3582,15 +3622,18 @@
       "notesTitle": "Author's notes",
       "backToHero": "All {hero} builds",
       "statsTitle": "Computed stats",
-      "statsMissing": "Stats unavailable for this hero."
+      "statsMissing": "Stats unavailable for this hero.",
+      "poster": {
+        "kicker": "The most built hero"
+      }
     },
     "damageCalculator": {
       "title": "Damage calculator",
-      "lead": "An attacker, a defender, a hit: what gets through the defense, how many hits it takes to kill and the effective HP. Pick heroes and their items, or type the stats you read in a match.",
+      "lead": "One attacker, one defender, one hit: what gets through defense, how many hits to kill and effective HP. Pick heroes and their items, or enter the stats read in a match.",
       "methodTitle": "How it works",
       "method1": "The remaining defense follows the game's order: percentage penetration first, then flat penetration, that is defense × (1 − penetration %) − flat penetration. The result can drop below 0, down to −60 and no further: flat penetration then adds damage. Only the penetration of the hit's type, physical or magic, counts.",
       "method2": "Damage taken is raw damage × 120 ÷ (120 + remaining defense): 120 defense lets half the damage through, −60 doubles it. True damage ignores defense and penetration. Hits to kill round HP ÷ damage up to the next whole number; effective HP, HP × (120 + remaining defense) ÷ 120, is the raw damage needed to kill.",
-      "method3": "A basic attack deals physical damage equal to the total physical attack; a critical strike deals the crit damage, 200% by default, and the average weighs both by the crit chance. Heroes whose passive changes their basic attack are not modelled. A hero's stats come from the build simulator: levels between 1 and 15 interpolated, emblem without talents, conditional item passives not counted.",
+      "method3": "A basic attack deals physical damage equal to total physical attack; a critical hit multiplies it by crit damage, 200% by default, and the average weights both by crit chance. Heroes whose passive changes their basic attack are not modelled. A hero's stats come from the build simulator: levels between 1 and 15 interpolated, emblem without talents, conditional item passives not counted.",
       "method4": "Skills are not calculated: our skill data gives ranges across skill levels without saying which level matches which value, and barely one in ten carries a scaling. For a skill, read its raw damage in the game and enter it as “Raw damage”. Base attack speed is missing too: no damage per second.",
       "sourcesTitle": "Sources",
       "sourceWiki": "Mobile Legends wiki: {page}"
@@ -3624,7 +3667,7 @@
       "hitKind": "Hit",
       "basicAttack": "Basic attack",
       "rawHit": "Raw damage",
-      "basicNote": "Physical damage equal to the attacker's total physical attack, and its critical strike if it has crit chance.",
+      "basicNote": "Physical damage equal to the attacker's total physical attack, plus their critical hits if they have crit chance.",
       "rawAmount": "Damage before defense",
       "damageType": "Type",
       "kinds": {
@@ -3650,14 +3693,14 @@
       "average": "On average, with {chance} crit chance: {damage} damage per basic attack."
     },
     "bot": {
-      "title": "MLBBDex — the Mobile Legends Discord bot",
+      "title": "Dex MLBB — the Mobile Legends Discord bot",
       "breadcrumb": "Discord bot",
-      "metaTitle": "Mobile Legends Discord bot (MLBB): builds, counters, tier list",
-      "metaDescription": "MLBBDex, the free Mobile Legends Discord bot: builds and counters measured on ranked games, tier list, patch notes, skin alerts and the daily MLBBdle, in five languages.",
-      "lead": "Mobile Legends: Bang Bang builds, counters, tier list and patch notes, measured on ranked games and updated every day, right in your server. Plus a daily MLBBdle for your community. Free, in five languages.",
+      "metaTitle": "Dex MLBB, the Mobile Legends Discord bot: builds, counters, tier list",
+      "metaDescription": "Dex MLBB, MLBBDex's free Discord bot for Mobile Legends: builds and counters measured on ranked matches, tier list, patch notes, skin alerts and the daily MLBBdle, in five languages.",
+      "lead": "Mobile Legends: Bang Bang builds, counters, tier list and patch notes, measured on ranked matches and updated daily, on your server. Plus a daily MLBBdle for your community. Free, in five languages.",
       "add": "Add to Discord",
       "join": "Join the server",
-      "vote": "Vote for MLBBDex",
+      "vote": "Vote for Dex MLBB",
       "dashboard": "Dashboard",
       "servers": "In {count} servers",
       "free": "100% free",
@@ -3666,13 +3709,13 @@
       "showcaseTitle": "What the bot does",
       "showcase": {
         "heroesTitle": "A hero's sheet in one command",
-        "heroesText": "/hero gives the role, lanes, tier, win, pick and ban rates, best build, emblem, spell and skills, with the hero's artwork. The Build, Counters and Skins buttons dig deeper without cluttering the channel.",
-        "heroesAlt": "The /hero reply in Discord: Sun's sheet with tier, rates, build and artwork",
+        "heroesText": "/hero shows the role, lanes, tier, win, pick and ban rates, best build, emblem, spell and skills, with the hero's artwork. The Build, Counters and Skins buttons go deeper without cluttering the channel.",
+        "heroesAlt": "The /hero reply in Discord: Sun's card with tier, rates, build and artwork",
         "buildsTitle": "Builds and counters",
         "buildsText": "/build shows the items, emblem and spell players win with, by rank. /counter lists the heroes that beat yours and the ones it beats.",
         "buildsAlt": "The /counter reply in Discord: Ling's counters",
         "metaTitle": "Today's meta",
-        "metaText": "/tierlist computes the tier list from win, pick and ban rates, across all ranks or from Epic to Mythical Glory, by lane or by role.",
+        "metaText": "/tierlist builds the tier list from win, pick and ban rates, across all ranks or from Epic to Mythical Glory, by lane or by role.",
         "metaAlt": "The /tierlist reply in Discord: the S+, S and A tiers",
         "newsTitle": "Patches and automatic announcements",
         "newsText": "/patch sums up the latest patch: buffs, nerfs and changed heroes. The bot can also post new patches, skins, events, the Advance Server and esports results on its own, in the channels you choose, with a role to mention.",
@@ -3684,7 +3727,7 @@
       "extrasTitle": "And also",
       "extras": {
         "welcomeTitle": "Welcome messages",
-        "welcomeText": "Welcome and goodbye in the channel you pick, with your text or ours, and a single message when a raid arrives.",
+        "welcomeText": "Welcome and goodbye messages in the channel you pick, with your text or ours, and a single grouped message during a raid.",
         "toolsTitle": "Tools",
         "toolsText": "Stylish nickname generator (21 fonts), game server time and reset countdowns.",
         "languagesTitle": "Five languages",
@@ -3693,7 +3736,7 @@
         "freeText": "No subscription, no vote lock, no locked feature: everything is free, for every server."
       },
       "commandsTitle": "Every command",
-      "commandsLead": "Every command is a slash command: type / in a channel to see them, with autocomplete for heroes, items, emblems and spells.",
+      "commandsLead": "They are slash commands: type / in a channel to see them, with autocomplete for heroes, items, emblems and spells.",
       "categories": {
         "heroes": "Heroes & builds",
         "meta": "Meta",
@@ -3704,7 +3747,7 @@
       },
       "commands": {
         "hero": "A hero's sheet: role, lanes, tier, rates, best build, emblem, spell, skills and artwork.",
-        "build": "A hero's best-winning builds, by rank: items, emblem and spell.",
+        "build": "A hero's builds with the best win rate, by rank: items, emblem and spell.",
         "counter": "The heroes that beat a given hero, and those it beats.",
         "tierlist": "The current tier list, by rank, lane or role.",
         "compare": "Two heroes head to head: tier and rates side by side.",
@@ -3717,13 +3760,13 @@
         "nickname": "A styled nickname, with 21 fonts to choose from.",
         "mlbbdle": "Today's MLBBdle, in classic or skill mode.",
         "quiz": "Today's quiz, with buttons to answer.",
-        "leaderboard": "The server's daily games leaderboard, by day, week or all time.",
+        "leaderboard": "The server's daily games leaderboard: today, this week or all time.",
         "servertime": "The game server time and the reset countdowns.",
         "setup": "Link to the server's dashboard (Manage Server permission required).",
         "help": "The commands by category, with an example for each.",
         "invite": "The link to add the bot to another server.",
         "about": "Version, server count, links to the site, the support server and voting.",
-        "profile": "Your Mobile Legends profile as an image: rank, win rate and most played heroes (linked once on the site)."
+        "profile": "Your Mobile Legends profile as an image: rank, win rate and most played heroes (link your account once on the site)."
       },
       "permissionsTitle": "Permissions requested",
       "permissionsText": "Only what replying and posting need: never Administrator, and no access to message content. The Server Members intent only serves the welcome and goodbye messages: nothing about members is stored.",
@@ -3740,12 +3783,12 @@
       "faqTitle": "Frequently asked questions",
       "faq1q": "Is the bot free?",
       "faq1a": "Yes, entirely: no subscription, no locked feature, no vote lock, no ads. Like the site, it is paid for by its author.",
-      "faq2q": "How do I add MLBBDex to my server?",
+      "faq2q": "How do I add Dex MLBB to my server?",
       "faq2a": "Click \"Add to Discord\", pick a server where you have the Manage Server permission, and confirm. The commands show up as soon as you type / in a channel.",
       "faq3q": "How do I set up announcements?",
-      "faq3a": "Open the dashboard with your Discord account (or type /setup): pick a channel, and if you want a role to mention, for each announcement type. You need the Manage Server permission.",
+      "faq3a": "Open the dashboard with your Discord account (or type /setup): for each announcement type, pick a channel and, if you want, a role to mention. You need the Manage Server permission.",
       "faq4q": "Where do the builds, counters and tier list come from?",
-      "faq4a": "From the same sources as the site: ranked game statistics for rates, builds and counters, and the Mobile Legends wiki for heroes, items and patches. They are refreshed every day.",
+      "faq4a": "From the same sources as the site: ranked match statistics for rates, builds and counters, and the Mobile Legends wiki for heroes, items and patches. They are updated every day.",
       "faq5q": "Does the bot need the Administrator permission?",
       "faq5a": "No. It only asks for what it uses to reply and post, and never reads message content.",
       "faq6q": "Which languages does it speak?",
@@ -3754,19 +3797,21 @@
       "faq7a": "Your server's name and settings, what it already posted, and, for the leaderboards, the Discord id and name of the daily game players. The details are on the bot's privacy page.",
       "faq8q": "Is the Discord MLBBdle the same as the site's?",
       "faq8a": "Yes: the same hero, the same skill and the same quiz rounds every UTC day, in every language.",
-      "ctaTitle": "Add MLBBDex to your server",
-      "ctaText": "One minute to add, nothing to pay. Questions or an idea? The MLBBDex server is waiting for you.",
+      "ctaTitle": "Add Dex MLBB to your server",
+      "ctaText": "One minute to add it, nothing to pay. Questions or an idea? The community server is waiting for you.",
       "privacy": "Bot privacy",
-      "terms": "Terms of use"
+      "terms": "Terms of use",
+      "dexLine": "Hi, I'm Dex! On Discord I go by Dex MLBB: type /hero, /build or /tierlist and I answer with the site's pages and figures.",
+      "dexLink": "Who is Dex?"
     },
     "botPrivacy": {
       "title": "Discord bot privacy",
-      "metaDescription": "What the MLBBDex Discord bot stores, why, for how long, and how to have it deleted.",
+      "metaDescription": "What the Discord Dex MLBB bot keeps, why, how long, and how to get it deleted.",
       "lead": "What the bot stores, why, and for how long.",
       "storedTitle": "What is stored",
       "storedServer": "For each server: its id, name, icon, member count, language, settings (channels, roles, daily games hour, welcome and goodbye message texts) and the list of announcements already posted.",
       "storedResults": "For the daily games leaderboards: the player's Discord id and name, the day, the game and the score.",
-      "storedCommands": "For statistics: the name of each command used, the server, the language, the duration and whether it worked. No user id.",
+      "storedCommands": "For statistics: the name of each command used, the server, the language, the duration and the outcome (success or failure). No user id.",
       "storedVotes": "For statistics: the Discord id of people who vote for the bot on a bot list.",
       "notStoredTitle": "What is not stored",
       "notStored": "The bot does not read message content and does not download the member list. When someone joins or leaves a server, Discord tells the bot (the Server Members intent): that event is only used to post the welcome or goodbye message, if the server turned it on, and nothing about that member is stored. No Discord token is kept: logging in to the dashboard only reads your id, then the token is dropped.",
@@ -3777,7 +3822,7 @@
       "rightsTitle": "Your rights",
       "rights": "To see or delete the data tied to your Discord id or your server, write to [{contact}](mailto:{contact}). Removing the bot from the server starts the automatic deletion.",
       "sitePrivacy": "Site privacy",
-      "autoRoles": "Auto-roles: if the server chose some, the bot gives those roles to whoever joins, with the Manage Roles permission the server's admins grant it; a member who still has to accept the server's rules is only remembered (their id, in memory, for 24 hours at most) until they do, and nothing is saved.",
+      "autoRoles": "Automatic roles: if the server has chosen some, the bot gives these roles to members who join, with the Manage Roles permission the server's administrators grant it; a member who still has to accept the server's rules is only kept (their id, in memory, for 24 hours at most) until they accept them, and nothing is stored.",
       "roleMenus": "Role menus: for each menu, the server's choice of channel, title, text, roles with their labels and emojis, the id of the published message and the Discord id of the manager who set it up are stored. When a member uses one, the bot gives or removes the role and keeps nothing about them, apart from an in-memory counter, a few seconds long, that limits changes made too close together.",
       "tempVoice": "Temporary voice channels: the server stores its join-to-create channels with their user limit and name template. For each voice channel the bot creates, it keeps the ids of the channel, of the join-to-create channel and of the member it was created for, until the channel is deleted, which happens as soon as it is empty. To know who is in which voice channel, the bot receives Discord's voice states (the \"Guild Voice States\" intent), keeps them in memory and stores none of them.",
       "pseudonymous": "On the site, the forum and the collection do not keep your Discord ID or your game ID in plain text, but a hash of it (SHA-256, unsalted). This is pseudonymous data, not anonymous: anyone who knows the ID can compute the hash again, so it remains personal data and is protected as such. The bot itself keeps Discord IDs in plain text (results, votes, role menus).",
@@ -3785,9 +3830,9 @@
     },
     "botTerms": {
       "title": "Discord bot terms of use",
-      "metaDescription": "Terms of use of the MLBBDex Discord bot: a free service, fair use, game data provided without warranty.",
+      "metaDescription": "Dex MLBB Discord Bot Terms of Use: Free service, fair use, game data provided without warranty.",
       "lead": "The simple rules of a free service.",
-      "p1": "The MLBBDex bot is an independent, free fan project, not affiliated with Moonton. Mobile Legends: Bang Bang is a trademark of Shanghai Moonton Technology Co., Ltd.",
+      "p1": "The MLBB Dex Bot (MLBBDex) is an independent, free fan project, unrelated to Moonton. Mobile Legends: Bang Bang is a brand of Shanghai Moonton Technology Co., Ltd.",
       "p2": "The data (statistics, builds, tier list, patch notes) is provided as is, with no warranty of accuracy or availability. The texts come from the Mobile Legends wiki (Fandom) and Liquipedia, under the CC BY-SA licence, and the figures from ranked match statistics. The game's images and names remain © Moonton, and those of collaborations © their rights holders.",
       "p3": "Do not misuse the bot: no abusive automation of commands, no attempt to reach the settings of a server you do not manage. The service may be limited or removed from a server that abuses it.",
       "p4": "The service may change, be interrupted or stop at any time. Discord's rules (Terms of Service and Community Guidelines) apply to its use.",
@@ -3800,7 +3845,7 @@
       "lead": "Set the bot up for each of your servers: language, announcements, daily games, welcome messages and auto-roles.",
       "login": "Log in with Discord",
       "loginLead": "Log in with Discord to see the servers you manage. Only your id is read: no access to your messages or your servers.",
-      "loginFailed": "The login did not go through. Try again.",
+      "loginFailed": "Signing in didn't go through. Try again.",
       "logout": "Log out",
       "signedAs": "Logged in as {name}",
       "serversTitle": "Your servers",
@@ -3822,8 +3867,8 @@
       "members": "{count} members",
       "admin": "Admin panel",
       "loginTitle": "Log in to set up the bot",
-      "addBotLead": "A server you manage is missing? Invite MLBBDex to it, then come back here.",
-      "botPresent": "MLBBDex is in this server",
+      "addBotLead": "A server you manage does not appear? Invite Dex MLBB there, then come back here.",
+      "botPresent": "Dex MLBB is on this server",
       "noManageRoles": "No Manage Roles permission",
       "deliveriesLead": "The latest announcements posted on this server, and those that failed."
     },
@@ -3850,14 +3895,17 @@
       "save": "Save",
       "saving": "Saving…",
       "saved": "Settings saved.",
-      "saveFailed": "Saving failed. Try again.",
+      "saveFailed": "Saving didn't go through. Try again.",
       "test": "Send a test",
       "testSent": "Test message sent.",
-      "testFailed": "The test could not be sent to this channel.",
+      "testFailed": "The test couldn't be posted in this channel.",
       "failing": "The bot could not post in this channel: check its permissions, then save.",
       "flush": "Post pending announcements",
       "flushing": "Posting…",
-      "flushed": "Announcements checked: {count} new, the bot was asked to post.",
+      "flushed": {
+        "one": "Verified announcements: {count} new, publication requested from the bot.",
+        "other": "Verified announcements: {count} news, publication requested from the bot."
+      },
       "flushFailed": "The bot did not answer.",
       "greetingsTitle": "Welcome & goodbye",
       "greetingsLead": "A message in the channel of your choice when a member joins or leaves, in the server's language. Only the newcomer is mentioned; when more than 5 people join within 10 seconds, the bot posts a single message for all of them.",
@@ -3887,9 +3935,9 @@
       },
       "autoRolesNone": "None",
       "autoRolesHelp": "Up to 3 roles each. A role with a moderation or administration permission is never given.",
-      "autoRolesNoPermission": "MLBBDex does not have the Manage Roles permission: give MLBBDex the Manage Roles permission and drag its role above the roles to give (Server Settings > Roles), then reload this page.",
+      "autoRolesNoPermission": "MLBBDex doesn't have the Manage Roles permission: grant it and drag its role above the roles to give (Server Settings > Roles), then reload this page.",
       "autoRolesAbove": "Some roles are above MLBBDex's role and cannot be given: drag its role above the roles to give (Server Settings > Roles), then reload this page.",
-      "autoRolesFailing": "The bot could not give these roles at the last join: check its Manage Roles permission and where its role sits, then save.",
+      "autoRolesFailing": "The bot couldn't give these roles to the last member who joined: check its Manage Roles permission and its role's position, then save.",
       "autoRoleRefusals": {
         "managed": "managed by an integration",
         "above_bot": "above the bot",
@@ -3932,7 +3980,7 @@
         "delete": "Delete",
         "deleteConfirm": "Delete the “{title}” menu and its message on Discord?",
         "deleted": "Menu deleted.",
-        "deleteFailed": "The deletion failed. Try again.",
+        "deleteFailed": "Deleting didn't go through. Try again.",
         "publish": "Publish the message",
         "update": "Update the message",
         "publishing": "Publishing…",
@@ -3943,7 +3991,7 @@
           "invalid_menu": "Discord refused the message: an emoji of the menu may have been deleted. Edit the menu, then publish it.",
           "rolesUnavailable": "A role of the menu can no longer be given by the bot (deleted, above its role or with moderation permissions): edit the menu.",
           "rateLimited": "Too many publications in a row: wait a minute.",
-          "failed": "Publishing failed. Try again."
+          "failed": "Publishing didn't go through. Try again."
         },
         "statusPublished": "Published in #{channel}",
         "statusDraft": "Not published yet",
@@ -3979,7 +4027,7 @@
         "save": "Save the menu",
         "cancel": "Cancel",
         "saved": "Menu saved. Publish it to update the message on Discord.",
-        "saveFailed": "Saving failed. Check the menu and try again.",
+        "saveFailed": "Saving didn't go through. Check the menu, then try again.",
         "notGrantable": "You cannot give one of these roles yourself (Manage Roles permission, role above yours): the bot will not give it for you.",
         "tooMany": "This server already has 10 menus, the maximum.",
         "paused": "The manager who set this menu up can no longer give some of its roles: members get an error. Save the menu yourself to take it over (you need to be able to give its roles).",
@@ -3996,14 +4044,14 @@
       },
       "tempVoice": {
         "title": "Temporary voice channels",
-        "lead": "A member who joins a join-to-create channel gets a voice channel of their own, created right next to it and deleted as soon as it is empty. Handy for custom games or five-stack ranked.",
+        "lead": "A member who joins an entry channel gets their own voice channel, created right next to it and deleted as soon as it's empty. Handy for custom matches or five-stack ranked.",
         "empty": "No join-to-create channel yet.",
         "hub": "Join-to-create channel {number}",
         "channel": "Join-to-create voice channel",
         "chooseChannel": "Pick a voice channel",
         "deletedChannel": "Deleted channel",
         "userLimit": "User limit",
-        "userLimitHelp": "From 0 to {max}; 0: no limit. For example 5 for ranked, 10 for a custom game.",
+        "userLimitHelp": "From 0 to {max}; 0: no limit. For example 5 for ranked, 10 for a custom match.",
         "name": "Name of the channels created",
         "nameHelp": "Optional, {max} characters at most. {placeholder} is replaced by the member's display name. Blank: the default name, in the server's language.",
         "preview": "Example:",
@@ -4026,7 +4074,7 @@
           "limit": "The user limit goes from 0 to {max}.",
           "unknownChannel": "A join-to-create channel is no longer a voice channel of this server: reload the page.",
           "rateLimited": "Too many saves in a row: wait a minute.",
-          "failed": "Saving failed. Try again."
+          "failed": "Saving didn't go through. Try again."
         }
       }
     },
@@ -4064,7 +4112,7 @@
         "7d": "vs the 7 days before",
         "30d": "vs the 30 days before"
       },
-      "noBase": "nothing to compare with",
+      "noBase": "no earlier data to compare",
       "kpi": {
         "commands": "Commands run",
         "servers": "Active servers",
@@ -4250,7 +4298,7 @@
     },
     "freeRotation": {
       "title": "Free heroes of the week",
-      "lead": "Every week, Mobile Legends lends a selection of heroes to every player. The list is copied by hand from the game, and hides itself once it is out of date.",
+      "lead": "Every week, Mobile Legends: Bang Bang lends a selection of heroes to every player. We copy the list by hand from the game; it disappears on its own once it is out of date.",
       "teaser": "Free heroes this week: {n}",
       "week": "Week of {date}",
       "updated": "Updated on {date}",
@@ -4259,7 +4307,7 @@
       "source": "Source of the list",
       "unavailableTitle": "This week's rotation is not available yet",
       "empty": "No list has been recorded yet. We would rather show nothing than guess.",
-      "stale": "The last recorded list is from the week of {date}: past {days} days it is no longer shown, so that an old rotation does not pass for this week's.",
+      "stale": "The last list we recorded is from the week of {date}. After {days} days we hide it, so an old rotation is not shown as this week's.",
       "inGame": "In the game, the week's free heroes are marked in the hero list and on the selection screen.",
       "howTitle": "How the rotation works",
       "how1": "The selection changes every week, at the weekly reset on Monday at 00:00 server time. Lent heroes play like your own in the unranked modes: a chance to try a role or a hero before unlocking it.",
@@ -4274,7 +4322,7 @@
       "warning": "Buying, selling or trading an account breaks Moonton's terms of service: the account can be banned or taken back by its former owner, and scams are common. This estimate measures what a collection cost; it does not set a price. Nothing is sent to a server.",
       "methodTitle": "The method, figure by figure",
       "methodPoints": "The tiers are the ones of the game's Showcase, with the collection points the game gives each skin. The points total is a check: it should land on the total the game shows.",
-      "methodCost": "Each skin counts for the typical cost of its category. Premium, Exceptional and Common are sold in stores: their cost is the median price in diamonds of the skins in the category, recorded in the game data. Legend, Grandiose and Exquisite are obtained by drawing: they take the median, rounded, of the costs published by player guides, which varies a lot from one event and from one player to another. A colorful appearance counts for symbolic value.",
+      "methodCost": "Each skin counts for the typical cost of its category. Deluxe, Exceptional and Common are sold in the shop: their cost is the median diamond price of the category's skins, taken from the game data. Legend, Grand and Exquisite come from draws: their cost is the rounded median of the costs published by player guides, and those costs vary a lot from one event and one player to the next. A painted skin counts for a token value.",
       "tableCaption": "Points and cost counted per skin, by tier",
       "colTier": "Tier",
       "colPoints": "Points",
@@ -4314,7 +4362,7 @@
       "reset": "Clear all",
       "share_copied": "Link copied.",
       "share_shared": "Result shared.",
-      "share_failed": "Sharing failed.",
+      "share_failed": "Sharing didn't go through.",
       "shareText": "My MLBB collection cost about {cost}; a comparable account: {low} to {high} (indicative estimate).",
       "shareTextCost": "My MLBB collection cost about {cost} (indicative estimate).",
       "resultTitle": "My MLBB account's estimated value",
@@ -4323,7 +4371,7 @@
       "import_done": "Skins and heroes taken from your collection: {n} skins sorted by tier.",
       "import_unmapped": "Skins with no known tier, left out: {n}.",
       "import_variants": "Painted skins are not in the catalogue: add them by hand, like the points of the other panels.",
-      "import_failed": "The skin catalogue could not be loaded. Try again.",
+      "import_failed": "I couldn't load the skin catalogue. Try again.",
       "skinsTitle": "Your collection, as in the Showcase",
       "whereTitle": "Where to find these numbers",
       "wherePath": "Profile > Showcase > Collection",
@@ -4340,8 +4388,8 @@
         "headerOff": "The total read ({read}) does not match the sum of the rows ({sum}): check the flagged fields.",
         "rowsCheck": "To check: {tiers}.",
         "missing": "Not read, fill in by hand: {tiers}.",
-        "failed": "No skin collection points overview found in this image. Try a sharp screenshot of the Showcase, with the panel open.",
-        "error": "The reader could not start in this browser. Copy the numbers by hand.",
+        "failed": "I can't find the collection points in this image. Try a sharp screenshot of the Showcase, with the panel open.",
+        "error": "The reader won't start in this browser. Copy the numbers by hand.",
         "detected": "detected",
         "check": "to check",
         "doneItems": "{group}: {points} points detected on your screenshot.",
@@ -4430,8 +4478,14 @@
       "latestTitle": "Latest discussions",
       "emptyAll": "No discussion yet: start the first one.",
       "emptyCategory": "No discussion in this category yet.",
-      "threadCount": "{n} discussion(s)",
-      "replies": "{n} reply(ies)",
+      "threadCount": {
+        "one": "{n} discussion",
+        "other": "{n} discussions"
+      },
+      "replies": {
+        "one": "{n} reply",
+        "other": "{n} replies"
+      },
       "pinned": "Pinned",
       "locked": "Locked",
       "edited": "edited",
@@ -4448,7 +4502,7 @@
         "game": "With my game account",
         "discord": "With Discord",
         "discordNote": "With Discord, the site only receives your Discord account number and your display name, never your email. Only the display name appears on your posts.",
-        "failed": "Signing in with Discord did not work. Please try again.",
+        "failed": "Signing in with Discord didn't go through. Try again.",
         "discordTooNew": "Your Discord account was created less than {days} days ago: it cannot take part in the forum yet. Sign in with your game account, or come back in a few days."
       },
       "postingAs": "You are writing as {name}.",
@@ -4477,7 +4531,10 @@
       "searchTitle": "Forum search",
       "searchLead": "Discussions whose title, text or a reply contain your words. Quotes for an exact phrase, a dash to leave a word out.",
       "searchLeadCategory": "Searching the {name} category.",
-      "searchResults": "{n} discussion(s) for \"{query}\"",
+      "searchResults": {
+        "one": "{n} discussion for “{query}”",
+        "other": "{n} discussions for “{query}”"
+      },
       "searchEmpty": "No discussion matches. Try other words, or fewer.",
       "searchHint": "Type one or more words: a hero, an item, a question.",
       "rules": {
@@ -4485,7 +4542,7 @@
         "respect": "Stay civil: no insults, harassment or hate speech.",
         "noSpam": "No ads, account selling or \"free diamonds\": they are scams.",
         "privacy": "Do not post other people's personal information.",
-        "newAccounts": "Accounts new to the forum have lower limits and cannot post links for three days.",
+        "newAccounts": "New forum accounts have lower limits and cannot post links for three days.",
         "report": "A post is a problem? Report it: moderators will see it, and several reports hide it in the meantime."
       },
       "teammates": {
@@ -4494,7 +4551,10 @@
         "seoTitle": "Find Mobile Legends teammates",
         "seoDescription": "Mobile Legends players looking for a duo or a team: filter by region, rank, lane and language, and post your own card.",
         "ownTitle": "Your card",
-        "listTitle": "{n} player(s) available",
+        "listTitle": {
+          "one": "{n} player available",
+          "other": "{n} players available"
+        },
         "any": "Any",
         "lane": "Lane",
         "language": "Language",
@@ -4506,11 +4566,13 @@
         "gameId": "Game ID",
         "signInForContact": "to see the contact.",
         "noContact": "No contact shared: reach them on the forum or the Discord.",
-        "discordText": "On the MLBBDex Discord server, the looking-for-group channel never stops."
+        "discordText": "On the MLBBDex Discord server, a looking-for-group channel is always open.",
+        "emptyTitle": "Nobody yet",
+        "mains": "Heroes played"
       },
       "moderation": {
         "title": "Community moderation",
-        "lead": "Open reports, banned accounts and the log of decisions. Every action closes its target's reports and is recorded.",
+        "lead": "Open reports, banned accounts and the decision log. Every action closes the reports on its target and is written to the log.",
         "queue": "To review ({n})",
         "queueEmpty": "No open report.",
         "kinds": {
@@ -4546,17 +4608,28 @@
           "resolve": "Error resolved"
         },
         "deleted": "deleted by its author",
-        "reportCount": "{n} report(s)",
+        "reportCount": {
+          "one": "{n} report",
+          "other": "{n} reports"
+        },
         "asReported": "As reported",
         "dataReports": "Errors reported on data pages ({n})",
         "dataReportsLead": "Anonymous reports sent from hero, item, emblem and spell pages and patch notes, oldest first. Fix the data if needed, then mark the report as resolved.",
         "dataReportsEmpty": "No errors reported.",
         "dataCorrection": "Proposed correction:",
         "dataSource": "Source:"
-      }
+      },
+      "hostLine": "Hi ! Here we help each other, we talk about builds and we find teammates.",
+      "signInDex": "Everyone can read. To write, simply log in.",
+      "emptyDex": "It’s very quiet around here…",
+      "searchEmptyTitle": "Nothing found",
+      "lastActivity": "Last activity {when}"
     },
     "communityUI": {
-      "votes": "{n} vote(s)",
+      "votes": {
+        "one": "{n} vote",
+        "other": "{n} votes"
+      },
       "upvote": "Upvote this post",
       "unvote": "Remove my vote",
       "signInToVote": "Sign in to vote",
@@ -4602,7 +4675,7 @@
         "blocked": "This text contains a term the forum refuses.",
         "spam": "This text looks like spam (short link, invite, diamond scam).",
         "links": "Too many links: {n} per post at most.",
-        "newAccountLinks": "Accounts new to the forum cannot post links yet.",
+        "newAccountLinks": "New forum accounts cannot post links yet.",
         "banned": "Your account can no longer take part in the community.",
         "discordTooNew": "Your Discord account is less than {days} days old: it cannot take part yet.",
         "window": "The time to edit or delete this post has passed.",
@@ -4611,8 +4684,8 @@
         "unknown": "This content no longer exists.",
         "title": "The title must be between {min} and {max} characters.",
         "body": "The message must be between {min} and {max} characters.",
-        "invalid": "Refused: check the fields.",
-        "unavailable": "Service unavailable for the moment. Try again in a moment."
+        "invalid": "Not sent: check the fields.",
+        "unavailable": "The service isn't answering right now. Try again in a moment."
       },
       "regions": {
         "id": "Indonesia",
@@ -4653,7 +4726,7 @@
         "contact": "Contact (optional)",
         "gameId": "Game ID and server",
         "discord": "Discord username",
-        "contactNote": "Shown to signed-in players only, never to visitors or search engines. Take your card down to erase them.",
+        "contactNote": "Only visible to signed-in players, never to visitors or search engines. Remove your card to erase them.",
         "publish": "Post for seven days",
         "saved": "Card posted.",
         "needLanesAndLanguages": "Choose at least one lane and one language.",
@@ -4676,7 +4749,10 @@
         "unban": "Lift the ban",
         "dismiss": "Dismiss the reports",
         "duration": "Duration",
-        "days": "{n} day(s)",
+        "days": {
+          "one": "{n} day",
+          "other": "{n} days"
+        },
         "forever": "Permanent",
         "reason": "Reason (log)",
         "confirmBan": "Confirm the ban",
@@ -4705,9 +4781,9 @@
       "metaDescription": "Mobile Legends: Bang Bang guides: laning phase, jungle and objectives, rotations, teamfights, macro, drafting, ranked, and a guide for each of the five lanes.",
       "nGuides": "{n} guides",
       "strategy": "Strategy",
-      "strategyLead": "What is played beyond the hero: the wave, the map, the objectives and the draft.",
+      "strategyLead": "What matters beyond the hero: the wave, the map, objectives and the draft.",
       "roles": "Roles",
-      "rolesLead": "One lane per guide: what the role brings, the heroes holding it right now, what it builds.",
+      "rolesLead": "One lane per guide: what the role brings, the heroes doing well there right now, what it builds.",
       "kind": {
         "strategy": "Strategy",
         "role": "Role"
@@ -4719,10 +4795,10 @@
       "toolsLead": "To put into practice what the guide explains.",
       "all": "All guides",
       "readGuide": "Guide: {title}",
-      "heroesLead": "The best ranked {lane} heroes in the computed tier list, all ranks combined, as measured on {date}. The list follows every sync.",
+      "heroesLead": "The best ranked {lane} heroes in the computed tier list, all ranks combined, as measured on {date}. The list is updated at every sync.",
       "heroesLink": "Full {lane} tier list",
       "heroesEmpty": "No measurements yet for this lane.",
-      "kitLead": "What {lane} players build the most: the most played builds of every hero in the role, weighted by how popular the hero is, as measured on {date}.",
+      "kitLead": "What {lane} players build most: each hero's most played builds, weighted by that hero's popularity, as measured on {date}.",
       "kitShare": "Share of builds",
       "kitEmpty": "No measured builds for this lane yet.",
       "kitLink": "Try a build in the simulator",
@@ -4739,16 +4815,19 @@
       "lead": "Every tool on the site, sorted by use: prepare a draft, test a build, estimate an account, practise or play the daily game.",
       "metaTitle": "MLBB tools: draft, builds, damage and account",
       "metaDescription": "Draft simulator, team analysis, build simulator, damage calculator, account value, objective timer and daily games for Mobile Legends: Bang Bang.",
-      "nTools": "{n} tools"
+      "nTools": "{n} tools",
+      "open": "Open",
+      "play": "Play",
+      "hello": "Choose a tool and enter the arena: everything works in the browser, for free, without an account."
     },
     "discordCard": {
       "title": "Discord profile card",
-      "intro": "Post your rank, win rate and most played heroes as an image in Discord, with the MLBBDex bot's /profile command.",
+      "intro": "Display your rank, win rate and most played heroes in pictures on Discord, with the Dex MLBB bot /profile command.",
       "needDiscord": "To link it, also sign in with the Discord account you use on your servers.",
       "discordButton": "Sign in with Discord",
       "linkOffer": "Link the Discord account {name} to this game account. Your figures are read again on every /profile.",
       "linkButton": "Link and create my card",
-      "linked": "Your card is linked to a Discord account. Type /profile in a server where the MLBBDex bot is.",
+      "linked": "Your card is linked to a Discord account. Type /profile on a server where the Dex MLBB bot is located.",
       "otherDiscord": "You are signed in with another Discord account ({name}) than the linked one. Linking it moves the card there.",
       "updatedAt": "Figures saved on {date}.",
       "refresh": "Update my figures",
@@ -4764,12 +4843,12 @@
       "done": "Saved.",
       "errorDown": "The game's service is not answering: try again in a few minutes.",
       "errorExpired": "Your game session has expired: log in again.",
-      "error": "Something went wrong. Try again in a moment.",
+      "error": "Something got stuck. Try again in a moment.",
       "card": {
         "wins": "Wins",
         "heroMatches": "{n} matches",
         "updated": "Updated {date}",
-        "minimum": "At least: some heroes could not be read",
+        "minimum": "Minimum values: some heroes could not be read",
         "region": "Region",
         "statsLater": "Hero stats will return as soon as the game service provides them again."
       }
@@ -4792,21 +4871,142 @@
         "tooFast": "Too many reports at once: try again in a minute.",
         "full": "Many reports are already pending: try again in a few days.",
         "invalid": "Report refused: check the fields.",
-        "unavailable": "Unable to send at the moment: try again later."
+        "unavailable": "I can't send it right now: try again later."
+      }
+    },
+    "dexPage": {
+      "title": "Dex",
+      "metaTitle": "Dex, the MLBBDex mascot",
+      "metaDescription": "Who is Dex, the little owl-fox spirit of the Land of Dawn who guides you on MLBBDex and answers you on Discord as the Dex MLBB bot.",
+      "kicker": "The MLBBDex mascot",
+      "lead": "A little spirit of the Land of Dawn, half owl, half fox, who has watched enough games to remember everything. He guides you on the site and answers you on Discord.",
+      "hello": "Hi, I'm Dex! Click on me: I always have a tip in reserve.",
+      "seePoses": "See Dex's six poses",
+      "originTitle": "Where he comes from",
+      "origin1": "Dex was born in the Land of Dawn, the day a shard broke off a base crystal, right between the two sides. Half blue, half red: he never picks a team. He wears that shard as a pendant.",
+      "origin2": "Owl for his big eyes that see clearly in the night, fox for cunning, he spent seasons perched in the jungle watching the fights, counting the builds and noting who beats who.",
+      "origin3": "Everything he remembered, he stored in a large index: the Dex. It became his name, then that of the site.",
+      "traitsTitle": "Distinctive signs",
+      "traits": {
+        "color": "Midnight blue, like the background of the site",
+        "tufts": "Two gold ear tufts shaped like blades",
+        "crystal": "The base crystal, blue and red, as a pendant",
+        "cape": "A cape lined with gold"
+      },
+      "doesTitle": "What he does",
+      "siteTitle": "On the site",
+      "siteText": "Dex greets you at the top of the pages, slips you a tip when you click him, keeps you company when a page is empty and cheers your MLBBdle wins. He never talks for nothing: three tips per page at most.",
+      "discordTitle": "On Discord",
+      "discordText": "Over there, Dex goes by Dex MLBB: the bot that answers /hero, /build or /tierlist with the same figures as the site. He is also the icon of the community server.",
+      "botLink": "Discover the Dex MLBB bot",
+      "posesTitle": "His six poses",
+      "posesLead": "A pose for every moment of your visit. Hover over them, click on them: they are alive.",
+      "poses": {
+        "salut": {
+          "name": "Hello",
+          "text": "To welcome you, on the first screens."
+        },
+        "reflexion": {
+          "name": "Thinking",
+          "text": "For advice or an explanation."
+        },
+        "idee": {
+          "name": "Idea",
+          "text": "When he has a suggestion or a tool to show you."
+        },
+        "surpris": {
+          "name": "Surprised",
+          "text": "On an empty page, not found or in error."
+        },
+        "victoire": {
+          "name": "Victory",
+          "text": "When you win, find or save something."
+        },
+        "carte": {
+          "name": "Map",
+          "text": "In the guides, on the map and for strategy."
+        }
+      },
+      "kitLink": "His poses as PNG are in the brand kit",
+      "joinTitle": "Come say hello to him",
+      "joinText": "On the Discord server, Dex is waiting for you with patch alerts, today's MLBBdle and players of your rank.",
+      "join": "Join the Discord",
+      "aboutLink": "The project's story"
+    },
+    "brandKit": {
+      "title": "Brand kit",
+      "metaTitle": "MLBBDex Branding and Press Kit",
+      "metaDescription": "Colors and their codes, typographies, rules of use and poses of Dex in PNG: everything you need to talk about MLBBDex.",
+      "lead": "To talk about MLBBDex in an article, video or stream: the name, colors, fonts, rules and Dex in PNG.",
+      "dexLine": "Take what you need. Just one request: don't paint me purple.",
+      "nameTitle": "The name",
+      "nameText": "MLBBDex is written in one word, “Dex” in gold. The Discord bot is called Dex MLBB, like the mascot.",
+      "colorsTitle": "The colors",
+      "colorsLead": "Night for backgrounds, gold for accent, blue and red for both camps. Nothing else.",
+      "copy": "Copy {hex}",
+      "copied": "Copy",
+      "colors": {
+        "night950": "Night, background",
+        "night900": "Night, surfaces",
+        "night800": "Night, relief",
+        "gold400": "Gold, accent and numbers",
+        "gold600": "Dark gold",
+        "azure400": "Allied blue, what goes up",
+        "blood400": "Enemy red, dropping",
+        "chalk100": "Chalk, text",
+        "chalk400": "Chalk, secondary text"
+      },
+      "typeTitle": "Typographies",
+      "type": {
+        "display": "Titles, names of heroes, large numbers: weight 800 or 900, inclined, in capitals.",
+        "heading": "Intertitles, buttons, menus: fat 600 or 700, right.",
+        "body": "Running text, tabular figures in tables."
+      },
+      "sample": "The battle, in a big way",
+      "fontsNote": "All three are open source and free, on Google Fonts.",
+      "rulesTitle": "The rules",
+      "doTitle": "Yes",
+      "dontTitle": "No",
+      "do1": "Keep Dex as he is: midnight blue, gold egrets, crystal blue and red.",
+      "do2": "Place it on a dark background, with air around it.",
+      "do3": "Write MLBBDex in one word, and Dex MLBB for the bot.",
+      "do4": "Clarify that MLBBDex is an independent fan project.",
+      "dont1": "Recolor it, distort it or add accessories.",
+      "dont2": "Make him speak on behalf of Moonton or another site.",
+      "dont3": "Distort the logo, change its colors or place it on a background that drowns it out.",
+      "dont4": "Out of the palette: no purple, no rainbow gradient.",
+      "dexTitle": "Dex to PNG",
+      "dexLead": "Transparent background, at its size, or centered on a 512 px square for an avatar or an emoji.",
+      "download": "PNG",
+      "downloadSquare": "Square 512 px",
+      "downloadLabel": "Download Dex, pose {pose}, in PNG",
+      "downloadSquareLabel": "Download Dex, pose {pose}, in 512 px square PNG",
+      "pressTitle": "Press and contact",
+      "pressText": "A question, an interview, a partnership? Write to us on the Discord, or open a ticket on the project repository.",
+      "repo": "Submission of the project",
+      "discord": "The Discord",
+      "legal": "Mobile Legends: Bang Bang, its heroes and its visuals are trademarks of Shanghai Moonton Technology Co., Ltd. MLBBDex is neither affiliated with nor endorsed by Moonton: do not use their visuals as our own.",
+      "dexPageLink": "Who is Dex?",
+      "logoText": "The logo: the base crystal, half blue, half red, in a winged gold crest. Don't distort it, don't change its colors and give it air all around.",
+      "logoAlt": "The MLBBDex emblem: a blue and red crystal in a winged gold crest",
+      "logoFile": {
+        "emblem": "Download the logo: the emblem (SVG)",
+        "logo": "Download logo: horizontal (SVG)",
+        "stacked": "Download logo: stacked (SVG)"
       }
     }
   },
   "modeSheet": {
     "classic": {
       "tagline": "The reference 5v5",
-      "text": "Two teams of five, three lanes, one Nexus to destroy. The original mode, with no ranking at stake: ideal for trying out a hero or warming up."
+      "text": "Two teams of five, three lanes, one base to destroy. The original mode, with no ranking at stake: ideal for trying out a hero or warming up."
     },
     "ranked": {
       "tagline": "Climb the ranks",
-      "text": "The competitive queue. Each win earns stars and takes you from Warrior up to Mythical Glory, with bans and draft pick from Epic onward."
+      "text": "The competitive queue. Every win earns stars to climb from Warrior to Mythical Glory, with bans and draft from Epic up."
     },
     "brawl": {
-      "tagline": "One lane, straight into action",
+      "tagline": "One lane, right away",
       "text": "A single-lane map with a random hero. Short, intense matches, with no jungle and no long trips back to base."
     },
     "vs-ai": {
@@ -4819,7 +5019,7 @@
     },
     "arcade-mode": {
       "tagline": "Limited-time modes",
-      "text": "A rotation of special and festive modes — Magic Hunt, Survival and other variants — available for a limited time."
+      "text": "Special modes available for a limited time, in rotation: Magic Hunt, Survival and other variants."
     }
   },
   "roles": {
@@ -5008,34 +5208,43 @@
           "p": "The full roster, every hero's skins, items, emblems, Battle Spells and the list of patches. This data is extracted automatically from the community wiki every week: a new hero shows up here without anyone having to enter it."
         },
         {
-          "p": "On top of that comes what no extraction will ever produce: a written analysis for some of the heroes — what they actually do, their builds, their counters — a tier list where every placement is justified, and in-depth guides."
+          "p": "On top of that comes what no extraction will produce: a written analysis for some of the heroes (what they do, their builds, their counters), a written comment for some of the heroes in the tier list, and in-depth guides. The tier list ranking itself gives no opinion: it is computed from win and ban rates."
         },
         {
           "h": "What it doesn't contain, and why"
         },
         {
-          "p": "No player rankings and no “MMR”. Moonton publishes no official interface: the stats shown here — win, ban and pick rates, counters, builds, trends — come from the community API arena.rone.dev, which aggregates ranked games by rank. Sites that show an “MMR” for Mobile Legends estimate it; they don't read it from anywhere."
+          "p": "No player rankings and no \"MMR\". Moonton publishes no official API: the stats shown here (win, ban and pick rates, counters, builds, trends) come from the community API arena.rone.dev, which aggregates ranked games by rank. Sites that show an \"MMR\" for Mobile Legends estimate it: they don't read it anywhere."
         },
         {
-          "p": "Once logged in with the in-game verification code, you see your own profile — season, heroes played, recent matches — read on demand through that same API, for you only. It is neither published nor kept beyond a cache of a few minutes."
+          "p": "If you sign in with the game's verification code, you see your own profile (season, heroes played, recent games), read on demand through the same API and visible only to you. It is not published. So that each visit does not request everything again, the game's responses stay for a while in the server's memory, never on disk: from two minutes to six hours depending on the data. The one exception is the Discord bot's /profile card, if you link it: the site then keeps your game token, encrypted, for 7 days at most, and the card's figures, deleted 30 days after their last update or as soon as you unlink it."
         },
         {
-          "p": "The visuals belong to Moonton, and for collaboration skins also to the rights holders of the characters and brands involved. Portraits, icons and skin artwork come from the community wiki and are served by this site so that nothing depends on a third-party domain. They remain Moonton's property, are included for illustration purposes, and will be removed at the rights holder's request. The site's visual identity — midnight blue, gold, cut corners — is inspired by the game's without reusing its interface files."
+          "p": "The visuals belong to Moonton and, for collaboration skins, to the rights holders of the characters and brands involved. Portraits, icons and skin artwork come from the community wiki and are served by this site so nothing depends on a third-party domain. They remain Moonton's property, are shown for illustration purposes and will be removed at the rights holder's request. The site's look (midnight blue, gold, cut corners) draws on the game's without reusing its interface files."
+        },
+        {
+          "h": "The name and brand"
+        },
+        {
+          "p": "“Dex” comes from index: the site stores in one place everything that the game publishes and everything that ranked games measure. Its identity, the Land of Dawn, takes up the night, the gold and the diagonal cuts of the game interface, so that we recognize a page of MLBBDex without seeing its name."
+        },
+        {
+          "p": "Dex, the site's mascot, comes from that land. He welcomes visitors on the site and, as Dex MLBB, answers on Discord when you type /hero or /build. [His story and his poses are on his page.](/dex) Colours, fonts, usage rules and Dex as PNG: [the brand kit](/brand)."
         },
         {
           "h": "The roundup"
         },
         {
-          "p": "The roundup section automatically gathers posts about the game from other sites. It only shows the title, the date and a short excerpt, and always links back to the original publisher: nothing is republished here."
+          "p": "The news watch section automatically gathers what other sites publish about the game. It only shows the title, date and a short excerpt, and always links back to the original publisher: nothing is republished."
         },
         {
-          "p": "Moonton publishes no official feed — the game's website is an app whose content can't be syndicated. Game updates are therefore reproduced and commented by hand in the patch notes, while the roundup covers what the rest of the web publishes."
+          "p": "Moonton publishes no official feed: the game's website is an app whose content cannot be syndicated. Game updates are therefore covered and commented by hand in the patch notes, while the news watch covers what the rest of the web publishes."
         },
         {
           "h": "The account"
         },
         {
-          "p": "It's optional: all content is accessible without logging in. Logging in uses Moonton's official verification code — a four-digit code sent to your in-game mailbox. The site never sees your password: it receives a temporary token, stored in a secure cookie, which you delete when you log out."
+          "p": "It is optional: all content is available without signing in. Signing in uses Moonton's official verification code (a four-digit code sent to your in-game mailbox). The site never sees your password: it gets a temporary token, stored in a secure cookie, which you erase by signing out."
         },
         {
           "p": "No account is created on the site. Your favorite heroes stay in your browser. Only notifications, if you turn them on, keep your browser's push address and your list of favorites on the server: the privacy page details what is stored and how to delete it."
@@ -5044,7 +5253,7 @@
           "h": "Contribute"
         },
         {
-          "p": "The code and content are public. Hero profiles live in typed TypeScript files, articles in Markdown files: you can add a profile or fix a mistake without knowing the rest of the project."
+          "p": "The code and content are public. Hero pages are written in typed TypeScript files, articles in Markdown: you can add a page or fix a mistake without knowing the rest of the project."
         },
         {
           "p": "[The repository is here.]({repository}) Balance fixes, missing profiles and proofreading are especially welcome."
@@ -5103,7 +5312,7 @@
     "privacy": {
       "blocks": [
         {
-          "p": "This site is designed to process as little data as possible. Most pages work without an account and without saving anything on a server; only the features you choose to use (game account or Discord sign-in, community, collection, notifications, error reports, Discord bot) keep what they describe below. In line with the General Data Protection Regulation (GDPR) and the French Data Protection Act (loi Informatique et Libertés), this page explains what is processed, why, for how long, and how to exercise your rights."
+          "p": "This site is designed to process as little data as possible. Most pages work without an account and without storing anything on a server; only the features you choose to use (game account or Discord login, community, collection, notifications, error reports, Discord bot) keep the data described below. In line with the General Data Protection Regulation (GDPR) and the French Data Protection Act, this page explains what is processed, why, for how long, and how to exercise your rights."
         },
         {
           "h": "Data controller"
@@ -5139,7 +5348,7 @@
     },
     "bot": {
       "title": "Discord bot (optional)",
-      "intro": "If you use the MLBBDex Discord bot or its dashboard, the site's server also keeps:",
+      "intro": "If you use the Discord Dex MLBB bot or its dashboard, the site server also keeps:",
       "cookie": "an encrypted session cookie, `mlbbdex_discord` (httpOnly, 7 days), if you log in with Discord to the dashboard or forum: your Discord ID, name and avatar, nothing else; no Discord tokens are retained;",
       "servers": "for each server the bot is in: its name, language and settings;",
       "results": "for the leaderboards of the daily games played in Discord: the players' Discord id and name and their scores.",
@@ -5152,7 +5361,7 @@
       "intro": "If you take part in the community (forum, votes, reports, teammate card), the site's server keeps, in its database:",
       "account": "if you log in with your game account: a derived account ID (a fingerprint of your game ID and server, never the ID itself), your game nickname, and the date of your first participation;",
       "discord": "if you log in with Discord: a derived account ID (a fingerprint of your Discord ID, never the ID itself), your Discord display name, displayed on your messages, and the date of your first participation. The connection only asks Discord for your identity, without your email or the list of your servers, and goes through the encrypted session cookie `mlbbdex_discord` (7 days), which keeps your identifier, your name and your Discord avatar; no Discord tokens are retained. The age of your Discord account, read in its identifier, is not recorded. If you link your Discord account to your game account, the link between your two accounts is preserved, and your Discord contributions join your game account;",
-      "posts": "your discussions and replies, which are public, with their date; your votes and reports, shown to no one but the moderators (the reports);",
+      "posts": "your threads and replies, which are public, with their date; your votes, which are shown to no one, and your reports, which only moderators see;",
       "card": "your teammate card and, if you add them, your game ID and Discord username: they are shown to signed-in players only, and the card is erased seven days after it was last saved.",
       "moderation": "Moderators see reports and can hide, delete or ban them; each of their decisions is recorded in a journal. Rate limits use your IP address, in memory only: it is never written to disk.",
       "deletion": "You can edit a message for an hour and delete it for a day, withdraw your card at any time. A deleted message loses its text; a deleted discussion keeps its title, author and date. Beyond that, or to delete all your participation, write to {contact}.",
@@ -5162,7 +5371,7 @@
       "title": "Skin collection",
       "intro": "The collection tool keeps the heroes and skins you tick in your browser (local storage). If you are signed in with your game account, the site's server also keeps, in its database:",
       "data": "the same account fingerprint as the community (never your game ID), the list of ticked heroes and skins, and the date of the last save; nothing else, and nothing is shown to anyone.",
-      "usage": "It is only used to find your collection on your other devices. The \"the ones I play\" filter reads your heroes of the season from the login service when you turn it on, and keeps nothing.",
+      "usage": "This copy is only used to restore your collection on your other devices. The \"the ones I play\" filter reads your heroes for the season from the login service when you turn it on, without storing anything.",
       "deletion": "To empty your account's copy, clear your collection in the tool while signed in; to delete the record itself, write to {contact}."
     },
     "dataReports": {
@@ -5255,7 +5464,7 @@
       },
       "game": {
         "title": "Game account login",
-        "text": "Sign-in uses Moonton's official flow: you enter your game ID and server, a verification code is sent to you in the game, and the site receives a temporary token in return. These exchanges go through a community API (`arena.rone.dev`) and Moonton's services, which receive your ID, your server, the code and then the token. The token lives in the `mlbb_jeu` session cookie; it is saved on the server only if you link a /profile card, encrypted and until it expires (see the Discord bot section); the service's answers (profile, statistics, matches) are kept in memory for a few hours at most, to limit calls. You are never asked for a password. The server only keeps anything long-term if you use the community or the collection, as described below."
+        "text": "Login uses Moonton's official flow: you enter your game ID and server, a verification code is sent to you in game, and the site gets a temporary token back. These exchanges go through a community API (`arena.rone.dev`) and Moonton's services, which receive your ID, your server, the code and then the token. The token is stored in the `mlbb_jeu` session cookie; it is saved on the server only if you link a /profile card, encrypted and until it expires (see the Discord bot section); the service's responses (profile, stats, matches) are kept in memory for a few hours at most, to limit calls. You are never asked for a password. The server only keeps data long-term if you use the community or the collection, as described below."
       },
       "thirdParty": {
         "title": "Third-party content",
@@ -5314,7 +5523,7 @@
     "none": "No hero matches.",
     "curves": "Win rate over {n} days",
     "loading": "Loading curves…",
-    "curvesError": "The curves could not be loaded.",
+    "curvesError": "I couldn't load the curves. Try again in a moment.",
     "noCurve": "No daily data yet for these two heroes.",
     "noCurveAtRank": "No daily data yet for {name} at this rank.",
     "curvesSummary": "Daily win rate over {n} days, {rank}: {details}.",
@@ -5348,7 +5557,7 @@
   },
   "emblemsUI": {
     "talents": "Key talents",
-    "talentsDesc": "The final tier: this is the one that changes a game.",
+    "talentsDesc": "The last tier: this is the one that swings a game.",
     "attributes": "Attributes",
     "attributesDesc": "The first tiers fine-tune your stats. They matter, but they don't decide.",
     "spells": "Battle Spells",
@@ -5389,7 +5598,7 @@
     "chooseIn": "Pick {name} for {lane}",
     "remove": "Remove {name}",
     "chooseLane": "Pick a hero for {lane}",
-    "lanePlaceholder": "{lane} heroes — or search by name",
+    "lanePlaceholder": "{lane} heroes, or search by name",
     "chooseOne": "Pick a hero",
     "laneFilter": "Lane",
     "roleFilter": "Role",
@@ -5416,7 +5625,7 @@
     "methodTitle": "Method and sources"
   },
   "newHero": {
-    "highlight": "Special trait — ",
+    "highlight": "Special trait: ",
     "title": "New hero",
     "seeSheet": "See {name}'s full profile"
   },
@@ -5436,11 +5645,15 @@
       "playerId": "Invalid player ID.",
       "server": "Invalid server.",
       "invalidInput": "Invalid input.",
-      "code": "The code has four digits.",
+      "code": "The code must be four digits.",
       "unknown": "No account matches this ID and server.",
       "unavailable": "The service is temporarily unavailable.",
       "wrongCode": "Incorrect or expired code."
-    }
+    },
+    "steps": "Connection steps",
+    "step1": "Your ID",
+    "step2": "The code received in game",
+    "stepOf": "Step {n} of 2"
   },
   "articleUI": {
     "none": "No posts yet.",
@@ -5474,10 +5687,10 @@
     "points": "{n} points"
   },
   "favourites": {
-    "intro": "Saved on this device, in this browser — independently of your account. They don't sync between devices.",
-    "nonePre": "No favorites yet. On a hero's profile, ",
+    "intro": "Saved in this browser, on this device, not on your account: they do not sync between devices.",
+    "nonePre": "No favourites yet. On a hero page, ",
     "noLink": "add one",
-    "nonePost": " to find it here.",
+    "nonePost": ": I'll keep it here for you.",
     "account": "{n} heroes",
     "kept1": "kept at hand",
     "kept": "kept at hand",
@@ -5499,7 +5712,7 @@
       "denied": "Notifications are blocked for this site: allow them in your browser settings, then try again.",
       "unsupported": "This browser doesn't support web notifications.",
       "iosInstall": "On iPhone and iPad, install the site first: Share, then “Add to Home Screen”. Then open it from its icon to turn on notifications.",
-      "error": "Something went wrong. Try again in a moment.",
+      "error": "That didn't work. Try again in a moment.",
       "life": "To do this, the server keeps this browser's notification address and your list of favorites until you turn it off.",
       "privacyLink": "Learn more"
     }
@@ -5535,12 +5748,12 @@
     "tank-emblem": {
       "name": "Tank Emblem",
       "bonus": "HP and resistances",
-      "bestFor": "Initiator tanks and EXP Lane tanks."
+      "bestFor": "Engage tanks and EXP lane tanks."
     },
     "fighter-emblem": {
       "name": "Fighter Emblem",
       "bonus": "Attack damage and lifesteal",
-      "bestFor": "EXP Lane fighters who need to win their duel."
+      "bestFor": "EXP lane fighters who need to win their duel."
     },
     "assassin-emblem": {
       "name": "Assassin Emblem",
@@ -5550,12 +5763,12 @@
     "mage-emblem": {
       "name": "Mage Emblem",
       "bonus": "Magic power and magic penetration",
-      "bestFor": "Mid Lane mages."
+      "bestFor": "Mid lane mages."
     },
     "marksman-emblem": {
       "name": "Marksman Emblem",
       "bonus": "Attack speed and attack damage",
-      "bestFor": "Gold Lane marksmen."
+      "bestFor": "Gold lane marksmen."
     },
     "support-emblem": {
       "name": "Support Emblem",
@@ -5650,7 +5863,7 @@
     "brave-smite": {
       "name": "Brave Smite",
       "description": "Hitting an enemy with a skill restores HP.",
-      "bestFor": "EXP Lane fighters."
+      "bestFor": "EXP lane fighters."
     },
     "killing-spree": {
       "name": "Killing Spree",
@@ -5684,7 +5897,7 @@
     },
     "retribution": {
       "name": "Retribution",
-      "description": "Deals heavy damage to a monster and speeds up jungle clearing.",
+      "description": "Deals heavy damage to a monster and speeds up jungle farming.",
       "bestFor": "Mandatory for the jungler."
     },
     "purify": {
@@ -5710,12 +5923,12 @@
     "arrival": {
       "name": "Arrival",
       "description": "Teleports the hero to an allied turret or minion.",
-      "bestFor": "Solo laners who need to get back quickly after recalling."
+      "bestFor": "Solo lane heroes who need to get back fast after recalling."
     },
     "vengeance": {
       "name": "Vengeance",
       "description": "Reflects part of the damage taken for the duration.",
-      "bestFor": "EXP Lane fighters."
+      "bestFor": "EXP lane fighters."
     },
     "aegis": {
       "name": "Aegis",
@@ -5725,7 +5938,7 @@
     "revitalize": {
       "name": "Revitalize",
       "description": "Creates an area that heals allies inside it.",
-      "bestFor": "Supports facing damage spread over time."
+      "bestFor": "Supports against damage spread over time."
     },
     "flameshot": {
       "name": "Flameshot",
@@ -5738,8 +5951,9 @@
     "text": "The site ran into an unexpected problem. Try again in a moment.",
     "retry": "Try again",
     "oops": "Oops",
-    "pageText": "Something went wrong while loading this page. You can try again, or go back to the home page.",
-    "home": "Back to home"
+    "pageText": "This page failed to load. You can try again or go back to the home page.",
+    "home": "Back to home",
+    "dexLine": "Ouch, something stuck on our end. A new try is often enough."
   },
   "heroCard": {
     "tierTitle": "Tier {p} of the tier list",
@@ -5770,7 +5984,7 @@
     "written": "Annotated builds",
     "writtenIntro": "Written by hand, with game context.",
     "guide": "A player's full build",
-    "guideIntro": "The full equipment, six items, suggested by a player of this rank — or, failing that, a higher one: the best-rated guide on the game's academy. It is an opinion, not a measurement — it has no win rate.",
+    "guideIntro": "The six items suggested by a player of this rank (or, failing that, a higher rank): the top-rated guide in the game's academy. It is an opinion, not a measurement: it has no win rate.",
     "guideAuthor": "Author's highest rank: {rank}",
     "guideVotes": "{n} vote(s)",
     "gapTitle": "Compared with the most played build",
@@ -5779,7 +5993,7 @@
     "aligned": "same key items."
   },
   "offline": {
-    "banner": "Offline — pages you have already visited are still available."
+    "banner": "Offline: pages you have already visited are still available."
   },
   "discordPopup": {
     "label": "MLBBDex Discord invitation",
@@ -5802,7 +6016,8 @@
       "skin": "Skins",
       "emblem": "Emblems",
       "spell": "Battle spells"
-    }
+    },
+    "dexEmpty": "Hmm, I can't find anything. Try a different name, or fewer letters."
   },
   "heroData": {
     "resource": {
@@ -5910,11 +6125,11 @@
     "offLane": "No free lane",
     "copy": "Copy link",
     "linkCopied": "Link copied.",
-    "copyFailed": "Couldn't copy: copy the page address instead.",
+    "copyFailed": "I couldn't copy it: copy the page address instead.",
     "intro": "Add a first hero to start the analysis. It grows with every pick, and the page address keeps your lineup: just share it.",
     "analysis": "Analysis",
     "loading": "Loading this rank's data…",
-    "error": "This rank's data couldn't be loaded. Try again or pick another rank.",
+    "error": "I couldn't load this rank's figures. Try again, or pick another rank.",
     "averageRate": "Average win rate",
     "lanesCovered": "Lanes covered",
     "synergyCount": "Synergies",
@@ -6038,7 +6253,7 @@
       "outcomeStolen": "Stolen by the enemy",
       "outcomeMissed": "Too late",
       "detailSecured": "Precision {precision} · reaction {reaction} ms · +{points} points",
-      "detailTooEarly": "{remaining} HP were left after your Retribution, and it takes {recharge} s to recharge: the objective is lost.",
+      "detailTooEarly": "{remaining} HP were left after your Retribution, which takes {recharge} s to recharge: the objective is lost.",
       "detailStolen": "The enemy jungler struck {reaction} ms after the HP dropped below the threshold.",
       "detailMissed": "The monster died to your team's hits before your Retribution.",
       "mapTitle": "Retribution test",
@@ -6050,7 +6265,7 @@
       "newRecord": "New record!",
       "announceSummary": "Run complete: {points} points.",
       "announceRound": "Round {n} of {total}: {objective}. Get ready.",
-      "shareText": "MLBB Retribution test — {objective}, {difficulty}: {points} points, {secured}/{rounds} secured. Your turn:",
+      "shareText": "MLBB Retribution test ({objective}, {difficulty}): {points} points, {secured}/{rounds} secured. Your turn:",
       "start": "Start",
       "ready": "Get ready…",
       "smite": "Retribution!",
@@ -6060,13 +6275,13 @@
       "objectiveLabel": "Objective",
       "difficultyLabel": "Difficulty",
       "levelLabel": "Hero level",
-      "levelOption": "Level {n} — {damage} damage",
+      "levelOption": "Level {n} ({damage} damage)",
       "thresholdSentence": "Your Retribution deals {damage} true damage: strike when HP drops below that. Suggested level for this objective: {suggested}.",
       "maxHp": "{hp} HP",
       "round": "Round",
       "score": "Score",
       "run": "Streak",
-      "bar": "Health bar — {objective}",
+      "bar": "Health bar: {objective}",
       "hpLeft": "{hp} / {max} HP",
       "hpHidden": "HP hidden: read the bar",
       "marker": "Gold marker: {damage} HP",
@@ -6079,7 +6294,7 @@
       "copy": "Copy result",
       "download": "Download image",
       "copied": "Result copied, with the link.",
-      "shareError": "Sharing isn't available on this device.",
+      "shareError": "Sharing doesn't work on this device.",
       "recordsTitle": "Your records",
       "recordSetting": "Best run ({objective}, {difficulty})",
       "currentRun": "Current streak",
@@ -6177,5 +6392,98 @@
     "currentGranted": "Current choice: cookies accepted on {date}.",
     "currentDenied": "Current choice: cookies refused on {date}.",
     "manage": "Manage cookies"
+  },
+  "feed": {
+    "title": "MLBBDex — news and guides",
+    "description": "Hero sheets, builds and counters by rank, tier lists, items, emblems, patch notes and news from Mobile Legends: Bang Bang, in French."
+  },
+  "dex": {
+    "name": "Dex",
+    "label": "Dex, the MLBBDex mascot",
+    "talk": "Talk to Dex",
+    "hide": "Hide Dex",
+    "close": "Close the bubble",
+    "default1": "Ctrl + K opens the search: a hero, an item, an appearance, the entire site.",
+    "default2": "The figures are recorded every day on ranked games.",
+    "default3": "You can change the language at the top right, I speak nine languages.",
+    "home1": "The hero of the day changes every day. Come back tomorrow!",
+    "home2": "The tier list is recalculated at each rate reading.",
+    "home3": "Want to play? MLBBdle and the quiz await you every day.",
+    "heroes1": "Filter by role or lane to find your next hand.",
+    "heroes2": "The cards are sorted by level: S+ first.",
+    "heroes3": "A star on a map? It's one of your favorites.",
+    "hero1": "Changes rank at the top of the sheet: rates, counters and builds follow.",
+    "hero2": "The Counters tab tells you who beats him and who he beats.",
+    "hero3": "Add it as a favorite to be notified of each patch.",
+    "tierList1": "The tier combines the win rate and a quarter of the ban rate.",
+    "tierList2": "Filter by rank: the meta of Epic is not that of Mythic Glory.",
+    "tierList3": "A hero who is played too little is not ranked, the measurement would be unstable.",
+    "statistics1": "Click on a header to sort the table.",
+    "statistics2": "The small curve shows the evolution over thirty days.",
+    "statistics3": "The blue arrows go up, the red ones go down.",
+    "items1": "Click on an object to see who builds it.",
+    "items2": "The tabs group objects by category.",
+    "items3": "The price is in gold, like in the in-game store.",
+    "guides1": "Each guide starts with the essentials, in my bubble.",
+    "guides2": "Live blocks update with the meta.",
+    "guides3": "Start with your lane guide.",
+    "map1": "Use the keyboard arrows to move from one point to another.",
+    "map2": "The Turtle arrives before the Lord: plan your rotations.",
+    "map3": "Each point has its time of appearance.",
+    "tools1": "The draft offers you picks against the opposing composition.",
+    "tools2": "The objective timer even works offline.",
+    "tools3": "The build simulator calculates your stats at the chosen level.",
+    "draft1": "Start with the opposing picks: I offer you the counters.",
+    "draft2": "The simulator plays the other side to train you.",
+    "draft3": "Your draft report can be shared with a link.",
+    "games1": "A new challenge every day, at midnight server time.",
+    "games2": "Each mistake unlocks a clue.",
+    "games3": "Your winning streak is saved in this browser.",
+    "patch1": "Blue: reinforced. Red: weakened. Grey: fitted.",
+    "patch2": "The victory gap compares before and after the patch.",
+    "patch3": "The Advanced Server shows what's coming soon.",
+    "esports1": "The pro meta is not that of the ranked: compare them.",
+    "esports2": "Click on a tournament to view its table.",
+    "esports3": "The match drafts are folded, open them.",
+    "community1": "Log in to post a message or build.",
+    "community2": "Teammates filter by rank, lane and language.",
+    "community3": "An embarrassing message? Report it, the moderators are watching.",
+    "skins1": "Appearances are ordered by rarity.",
+    "skins2": "The calendar shows the StarLights and Collectors of each month.",
+    "skins3": "Check your appearances in the Collection tool to estimate your count."
+  },
+  "brandSignature": {
+    "tagline": "All Mobile Legends, measured every day. Dex watches.",
+    "dexLink": "Who is Dex?",
+    "dex": "Dex, the mascot",
+    "brandKit": "Brand kit"
+  },
+  "dexStates": {
+    "loading": "Searching the Land of Dawn…",
+    "loadingProfile": "Gathering your games…",
+    "loadingForum": "Leafing through the forum…",
+    "loadingTeammates": "Looking for your next teammates…",
+    "errorTitle": "Oops, something got stuck",
+    "noneTitle": "Nothing here"
+  },
+  "og": {
+    "homeLine": "Heroes, builds, tier list, items and patch notes, updated with each patch.",
+    "patch": "Patch {v}",
+    "splusHeroes": "S+ heroes",
+    "bestWin": "best win rate: {hero}",
+    "itemsInGame": "items in the game",
+    "heroesUsing": "heroes build it",
+    "builtBy": "In the builds of {heroes}",
+    "minutes": "{n} min read",
+    "skinsCount": "skins",
+    "latestSkin": "Latest release: {skin} ({hero})",
+    "starlight": "StarLight of the month: {skin} ({hero})",
+    "games": "games analysed",
+    "picked": "Most picked",
+    "banned": "Most banned",
+    "champion": "Winner: {team}",
+    "tool": "Free tool",
+    "game": "Game of the day",
+    "toolsKicker": "Free tools"
   }
 }

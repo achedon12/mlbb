@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CommunityBuildCard } from "@/components/community-build-card";
 import Link from "@/components/link";
-import { HeroPortrait } from "@/components/hero-portrait";
-import { PageHeader } from "@/components/ui";
+import { ActionLink } from "@/components/ui";
+import { DexSays } from "@/components/mascot";
+import { MetaPoster, artOf } from "@/components/meta/meta-poster";
+import { PosterHero } from "@/components/meta/poster-hero";
 import type { Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { metaPage, notFoundMetadata } from "@/i18n/seo";
@@ -53,30 +55,37 @@ export default async function HeroCommunityBuildsPage({ params }: Params) {
   const mine = stored ? sortBuilds(stored.filter((b) => b.build.hero === hero), "votes", now) : [];
   const itemNames = buildNames(locale, t).items;
   const heroView = { name: h.name, icon: h.images.icon };
+  const create = (
+    <Link href={`/tools/build?h=${hero}`} className="btn btn-primary">
+      {t("pages.communityBuilds.heroCreate", { hero: h.name })}
+    </Link>
+  );
 
   return (
     <>
-      <PageHeader
+      <MetaPoster
         title={t("pages.communityBuilds.heroTitle", { hero: h.name })}
         lead={t("pages.communityBuilds.heroLead", { hero: h.name })}
         crumbs={[{ name: t("pages.communityBuilds.title"), href: "/builds" }, { name: h.name }]}
-        icon={<HeroPortrait source={h.images.icon} name={h.name} size="thumb" decorative />}
-      >
-        <Link
-          href={`/tools/build?h=${hero}`}
-          className="bevel-sm mt-5 inline-flex min-h-11 items-center bg-gold-500 px-4 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400"
-        >
-          {t("pages.communityBuilds.heroCreate", { hero: h.name })}
-        </Link>
-      </PageHeader>
+        art={artOf(h.slug)}
+        portrait={h.images.portrait}
+        compact
+        actions={create}
+        feature={
+          <PosterHero href={`/heroes/${h.slug}`} kicker={h.title ?? t("pages.communityBuilds.title")} name={h.name} />
+        }
+      />
       <ExtendMessages messages={messagesPage(locale, ["pages.communityBuildsUI"])}>
-        <div className="page-wrap space-y-6 py-10">
+        <div className="page-wrap space-y-8 py-10 sm:py-14">
           {stored === null ? (
-            <p role="alert" className="border border-blood-500/40 p-4 text-chalk-300">
-              {t("pages.communityBuilds.unavailable")}
-            </p>
+            <DexSays pose="surpris">
+              <p role="alert">{t("pages.communityBuilds.unavailable")}</p>
+            </DexSays>
           ) : mine.length === 0 ? (
-            <p className="border border-dashed border-night-700 p-6 text-chalk-300">{t("pages.communityBuilds.heroEmpty", { hero: h.name })}</p>
+            <DexSays pose="surpris">
+              <p>{t("pages.communityBuilds.heroEmpty", { hero: h.name })}</p>
+              <p className="mt-3">{create}</p>
+            </DexSays>
           ) : (
             <>
               {mine.length > MAX_SHOWN && (
@@ -98,9 +107,7 @@ export default async function HeroCommunityBuildsPage({ params }: Params) {
             </>
           )}
           <p>
-            <Link href="/builds" className="inline-flex min-h-11 items-center text-sm text-chalk-300 underline underline-offset-4 hover:text-gold-400">
-              {t("pages.communityBuilds.backToHub")}
-            </Link>
+            <ActionLink href="/builds">{t("pages.communityBuilds.backToHub")}</ActionLink>
           </p>
         </div>
       </ExtendMessages>

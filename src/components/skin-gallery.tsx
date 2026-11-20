@@ -4,7 +4,10 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "@/components/link";
 import { Pager } from "@/components/pager";
 import { SearchField } from "@/components/search-field";
-import { LightImage } from "@/components/light-image";
+import Image from "next/image";
+import { DexSays } from "@/components/mascot";
+import { ENTRANCE } from "@/components/poster-header";
+import { SkinTile } from "@/components/skins/skin-tile";
 import { ChoiceUnique } from "@/components/chip";
 import { ChipActive, FilterBar } from "@/components/filter-bar";
 import { useLocale, useT } from "@/i18n/provider";
@@ -39,9 +42,19 @@ const COLORS = [
  * skin name, and read it one page of heroes at a time: the "show twelve more"
  * button grew the page without end and left no way back, where
  * `/skins/page/n` is an address the server prerenders and a crawler follows.
- * Thumbnails are styled by `.skin-thumb` (globals.css).
+ * Each hero opens on a banner of their artwork, then the wall of their
+ * portraits framed by rarity.
  */
-export function SkinGallery({ groups, page: pageServer = 1 }: { groups: GroupSkins[]; page?: number }) {
+export function SkinGallery({
+  groups,
+  arts,
+  page: pageServer = 1,
+}: {
+  groups: GroupSkins[];
+  /** Each hero's main artwork, for the banner over their skins. */
+  arts?: Record<string, string>;
+  page?: number;
+}) {
   const t = useT();
   const locale = useLocale();
   const [search, setSearch] = useState("");
@@ -109,61 +122,64 @@ export function SkinGallery({ groups, page: pageServer = 1 }: { groups: GroupSki
         content={
           <>
             {results.length === 0 ? (
-              <p className="mt-10 text-chalk-500">{t("pages.heroesList.none")}</p>
+              <DexSays pose="surpris" height={110} className="mt-10">
+                <p className="text-chalk-200">{t("pages.heroesList.none")}</p>
+              </DexSays>
             ) : (
-              <div className="space-y-10">
-                {visible.map((g) => (
-                  <section key={g.slug} aria-labelledby={`skins-${g.slug}`}>
-                    <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-night-800 pb-2">
-                      <h3 id={`skins-${g.slug}`} className="font-heading text-xl font-bold text-chalk-100">
-                        {g.name}
-                        <span className="ml-2 text-sm font-medium text-chalk-500">
-                          {t(`pages.skinsGallery.count.${plural.select(g.skins.length) === "one" ? "one" : "other"}`, {
-                            n: g.skins.length,
-                          })}
-                        </span>
-                      </h3>
-                      <Link
-                        href={`/heroes/${g.slug}/skins`}
-                        prefetch={false}
-                        className="text-sm font-semibold text-gold-400 hover:text-gold-500"
-                      >
-                        {t("pages.skinsGallery.seeAll")} →
-                      </Link>
-                    </div>
-                    {/* Four thumbnails per row on a phone rather than three: the
-                        same gallery in two thirds of the height. */}
-                    <ul className="mt-3 grid grid-cols-4 gap-2 sm:grid-cols-[repeat(auto-fill,minmax(6.5rem,1fr))]">
-                      {g.skins.map((thumb, k) => {
-                        const [name, , rarity] = thumb;
-                        const src = imageOfThumb(g.slug, thumb);
-                        return (
-                          <li key={`${name}-${k}`}>
-                            <Link
-                              href={`/heroes/${g.slug}/skins#${anchors.get(g.slug)?.get(name) ?? ""}`}
-                              prefetch={false}
-                              className="skin-thumb"
-                              style={{ borderColor: COLORS[rarity] ?? COLORS[0] }}
-                            >
-                              {src ? (
-                                <LightImage
-                                  src={src}
-                                  alt={t("pages.skinsGallery.alt", { hero: g.name, skin: name })}
-                                  width={120}
-                                  height={195}
-                                />
-                              ) : (
-                                <i aria-hidden />
-                              )}
-                              {/* Visible name, already given by the alt text: hidden from screen readers when the image is there. */}
-                              <span aria-hidden={src ? true : undefined}>{name}</span>
-                            </Link>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </section>
-                ))}
+              <div className="space-y-12 sm:space-y-16">
+                {visible.map((g, n) => {
+                  const art = arts?.[g.slug];
+                  return (
+                    <section key={g.slug} aria-labelledby={`skins-${g.slug}`} className={n === 0 ? ENTRANCE : undefined}>
+                      {/* The hero's banner: their artwork, the name over it, the way to the full gallery. */}
+                      <div className="bevel relative isolate flex min-h-[7.5rem] items-end overflow-hidden bg-night-900 sm:min-h-[10rem]">
+                        {art && (
+                          <Image
+                            src={art}
+                            alt=""
+                            fill
+                            sizes="(min-width: 1280px) 70vw, 100vw"
+                            className="-z-10 object-cover object-[60%_22%]"
+                          />
+                        )}
+                        <span aria-hidden className="absolute inset-0 -z-10 bg-linear-to-r from-night-950 via-night-950/75 to-night-950/10" />
+                        <span aria-hidden className="absolute inset-x-0 bottom-0 -z-10 h-1/2 bg-linear-to-t from-night-950/80 to-transparent" />
+                        <div className="flex w-full flex-wrap items-end justify-between gap-x-4 gap-y-2 p-4 sm:p-5">
+                          <h3 id={`skins-${g.slug}`} className="display-caps text-[clamp(2rem,1.4rem+2.2vw,3.25rem)] text-chalk-100">
+                            {g.name}
+                            <span className="ml-3 font-body text-sm font-medium normal-case not-italic tracking-normal text-chalk-300">
+                              {t(`pages.skinsGallery.count.${plural.select(g.skins.length) === "one" ? "one" : "other"}`, {
+                                n: g.skins.length,
+                              })}
+                            </span>
+                          </h3>
+                          <Link href={`/heroes/${g.slug}/skins`} prefetch={false} className="btn btn-secondary btn-sm">
+                            {t("pages.skinsGallery.seeAll")} →
+                          </Link>
+                        </div>
+                      </div>
+                      {/* Four portraits per row on a phone: the same wall in two thirds of the height. */}
+                      <ul className="mt-2.5 grid grid-cols-4 gap-1.5 sm:grid-cols-[repeat(auto-fill,minmax(7.25rem,1fr))] sm:gap-2.5">
+                        {g.skins.map((thumb, k) => {
+                          const [name, , rarity] = thumb;
+                          const src = imageOfThumb(g.slug, thumb);
+                          return (
+                            <li key={`${name}-${k}`}>
+                              <SkinTile
+                                href={`/heroes/${g.slug}/skins#${anchors.get(g.slug)?.get(name) ?? ""}`}
+                                prefetch={false}
+                                src={src}
+                                name={name}
+                                alt={t("pages.skinsGallery.alt", { hero: g.name, skin: name })}
+                                color={COLORS[rarity] ?? COLORS[0]}
+                              />
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </section>
+                  );
+                })}
               </div>
             )}
 

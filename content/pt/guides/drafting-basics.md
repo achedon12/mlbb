@@ -16,7 +16,7 @@ No jogo classificado, o draft começa a partir da classificação épica: cada e
 
 ## Como funciona um draft classificado?
 
-- **Bans**: ambas as equipes são banidas ao mesmo tempo. O número de bans depende da classificação mais alta do jogo. Ambas as equipes podem banir o mesmo herói, o que desperdiça um ban: combinar previamente no chat evita essa duplicação.
+- **Bans**: as duas equipes banem ao mesmo tempo. O número de bans depende do rank mais alto da partida. Nada impede o adversário de banir o mesmo herói que você, e essa coincidência não dá para prever. O que um acordo no chat traz é a divisão dos bans dentro da sua equipe: cada um sabe qual ameaça está tirando, e os bans cobrem as principais ameaças em vez de deixar passar um herói perigoso porque cada um contava com o outro.
 - **As escolhas**: o time azul escolhe um herói, o vermelho dois, o azul dois, o vermelho dois, o azul dois e depois o vermelho o último.
 - **O que importa**: um herói escolhido primeiro é visível para todos, um herói escolhido por último pode responder a todo o resto.
 

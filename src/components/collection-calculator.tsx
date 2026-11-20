@@ -1,5 +1,7 @@
 "use client";
 
+import { DexLoading } from "@/components/dex-loading";
+import { DexNotice, Flash } from "@/components/dex-states";
 import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ChevronDown, Share2 } from "lucide-react";
@@ -215,9 +217,9 @@ export function CollectionCalculator({ page: pageServer = 1 }: { page?: number }
 
   if (error) {
     return (
-      <Card>
-        <p className="text-sm text-chalk-300">{t("pages.collectionUI.error")}</p>
-      </Card>
+      <DexNotice role="alert" tone="error" title={t("dexStates.errorTitle")}>
+        {t("pages.collectionUI.error")}
+      </DexNotice>
     );
   }
   if (!catalog || !data || !summary || !owned) {
@@ -225,7 +227,7 @@ export function CollectionCalculator({ page: pageServer = 1 }: { page?: number }
     // once drawn, so the sections below it no longer jump down into view.
     return (
       <Card aria-busy className="min-h-svh">
-        <p className="text-sm text-chalk-500">{t("pages.collectionUI.loading")}</p>
+        <DexLoading dex={false} label={t("pages.collectionUI.loading")} lines={6} />
       </Card>
     );
   }
@@ -348,8 +350,8 @@ export function CollectionCalculator({ page: pageServer = 1 }: { page?: number }
                   <Share2 size={15} aria-hidden />
                   {t("pages.collectionUI.share")}
                 </button>
-                <p aria-live="polite" className="mt-2 text-xs text-chalk-500">
-                  {share && t(`pages.collectionUI.share_${share}`)}
+                <p aria-live="polite" className="mt-2 text-xs">
+                  {share && <Flash tone={share === "failed" ? "error" : "ok"}>{t(`pages.collectionUI.share_${share}`)}</Flash>}
                 </p>
               </div>
             )}
@@ -577,7 +579,11 @@ export function CollectionCalculator({ page: pageServer = 1 }: { page?: number }
               );
             })}
           </ul>
-          {list.length === 0 && <p className="mt-6 text-sm text-chalk-500">{t("pages.collectionUI.none")}</p>}
+          {list.length === 0 && (
+            <DexNotice role="status" className="mt-6" title={t("dexStates.noneTitle")}>
+              {t("pages.collectionUI.none")}
+            </DexNotice>
+          )}
           <Pager
             paging={view_}
             href={(n) => pageHref("/tools/collection", null, n)}

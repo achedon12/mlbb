@@ -1,7 +1,7 @@
 import { escapeMarkdown, type RESTPostAPIChannelMessageJSONBody } from "discord.js";
 import { formatNumber } from "../i18n/index.js";
 import { GREETING_MAX_LENGTH, type GreetingKind } from "../site/schemas.js";
-import { baseEmbed, clip, type View } from "./common.js";
+import { baseEmbed, clip, withDex, type View } from "./common.js";
 
 /**
  * Welcome and goodbye messages, posted when a member joins or leaves.
@@ -107,6 +107,8 @@ export function greetingMessage(
   const embed = baseEmbed(view).setDescription(greetingText(view, kind, ctx));
   if (options.title) embed.setTitle(clip(options.title, 256));
   if (kind === "welcome" && ctx.member.avatarUrl) embed.setThumbnail(ctx.member.avatarUrl);
+  // Dex waves from the author line: the thumbnail stays the member's.
+  withDex(view, embed, "salut", "author");
   const ping = kind === "welcome" && options.ping;
   return {
     ...(ping ? { content: `<@${ctx.member.id}>` } : {}),
@@ -119,7 +121,7 @@ export function greetingMessage(
 export function greetingSummary(view: View, kind: GreetingKind, count: number): RESTPostAPIChannelMessageJSONBody {
   const key = kind === "welcome" ? "ui.greetings.welcomeRaid" : "ui.greetings.goodbyeRaid";
   return {
-    embeds: [baseEmbed(view).setDescription(view.t(key, { count: formatNumber(view.locale, count) })).toJSON()],
+    embeds: [withDex(view, baseEmbed(view).setDescription(view.t(key, { count: formatNumber(view.locale, count) })), "salut", "author").toJSON()],
     allowed_mentions: greetingMentions(null),
   };
 }

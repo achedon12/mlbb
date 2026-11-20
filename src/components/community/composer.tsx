@@ -1,5 +1,6 @@
 "use client";
 
+import { Flash } from "@/components/dex-states";
 import { useId, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Send } from "lucide-react";
@@ -130,7 +131,7 @@ export function Composer({ mode, heroes = [], onDone }: { mode: ComposerMode; he
         <button
           type="submit"
           disabled={busy}
-          className="bevel-sm inline-flex min-h-11 items-center gap-2 bg-gold-500 px-4 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400 disabled:opacity-60"
+          className="bevel-sm inline-flex min-h-11 items-center gap-2 bg-gold-400 px-4 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-300 disabled:opacity-60"
         >
           <Send size={16} aria-hidden />
           {busy
@@ -148,8 +149,8 @@ export function Composer({ mode, heroes = [], onDone }: { mode: ComposerMode; he
         )}
       </div>
       {error && (
-        <p role="alert" className="text-sm text-blood-400">
-          {error}
+        <p role="alert">
+          <Flash tone="error">{error}</Flash>
         </p>
       )}
     </form>
@@ -168,7 +169,7 @@ export function NewThread({ category, heroes }: { category: Category; heroes: He
         aria-expanded={open}
         aria-controls={id}
         onClick={() => setOpen((o) => !o)}
-        className="bevel-sm inline-flex min-h-11 items-center bg-gold-500 px-4 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400"
+        className="bevel-sm inline-flex min-h-11 items-center bg-gold-400 px-4 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-300"
       >
         {t("pages.communityUI.newThread")}
       </button>
