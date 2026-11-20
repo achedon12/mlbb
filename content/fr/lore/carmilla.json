@@ -1,0 +1,51 @@
+{
+  "tagline": "La jeune femme devenue Démon de sang par amour.",
+  "lore": [
+    "Il y a bien des années, Carmilla vit le jour au sein de la maison Ansaac, au château d'Aberleen. Fille unique du comte, elle fut dès sa naissance aimée de toute sa famille. En grandissant, son illustre lignée et sa beauté captivante firent d'elle l'une des dames de la noblesse les plus courtisées du château d'Aberleen, et peut-être même de tout l'Empire. Mais sa haute naissance la vouait inévitablement à la tragédie : elle devait servir d'instrument politique à son père, le comte Ansaac, qui comptait asseoir son pouvoir en la fiançant à une autre famille puissante.",
+    "D'innombrables aristocrates tentèrent de courtiser Carmilla, mais aucun ne lui plut. Sa fierté naturelle lui interdisait de s'abaisser à la médiocrité. Ce qu'elle voulait, c'était quelqu'un qui parle à son âme. Mais son père, le comte Ansaac, avait déjà pris sa décision. À mesure que la menace des Abysses se rapprochait, il savait que la nouvelle noblesse militaire dominerait la politique du pays. Il lui fallait donc entretenir de bonnes relations avec elle pour préserver le rang de sa famille.",
+    "Mais un homme que le vieux comte jugeait bien insignifiant fit échouer ce plan. Cet homme, c'était Cecilion, le meilleur chanteur d'opéra du sud de l'Empire. Dès le premier jour de sa venue au château d'Aberleen, Carmilla devint sa spectatrice la plus fidèle. À ses yeux, il était l'élégance et le talent mêmes, mais elle lisait aussi dans son regard une mélancolie et un mystère. À chacune de ses représentations, Carmilla prenait place au beau milieu de la salle et savourait en silence son chant.",
+    "Un soir, au moment du rappel, les regards de Cecilion et de Carmilla se croisèrent. La flamme de la passion s'alluma entre eux. Et comme un éclair fendant le ciel noir de la nuit, ils tombèrent instantanément amoureux.",
+    "Les jours qui suivirent furent les plus heureux de la vie de Carmilla. À la tombée de la nuit, Cecilion, vêtu de ses plus beaux habits, venait l'inviter à l'opéra et chantait les airs qu'il avait composés pour elle. Et Carmilla suivait sa représentation avec ferveur, sans jamais le quitter des yeux. Le spectacle terminé, ils se retrouvaient dans les coulisses et dansaient au clair de lune. Et au petit matin, Cecilion déposait sur le rebord de la fenêtre de Carmilla une rose encore humide de rosée, puis s'en allait sans bruit.",
+    "Avec le temps, Carmilla remarqua quelque chose d'étrange chez Cecilion. Il vivait en solitaire et n'avait jamais de contacts inutiles avec autrui. Sa peau était toujours pâle, même sans maquillage, et il semblait toujours chercher à éviter quelque chose. Dans ses yeux, Carmilla devinait son désir de mener une vie normale, et elle entrevoyait confusément que Cecilion avait peut-être un lien avec la légendaire espèce des Démons de sang. Bien qu'il ne lui eût jamais parlé de ses origines, elle choisit de lui faire confiance, car elle sentait que son amour était sincère. Qu'il soit homme ou Démon de sang, seul comptait l'amour qui les unissait, et Carmilla croyait qu'elle appartiendrait toujours à Cecilion et passerait le reste de sa vie à ses côtés.",
+    "Malgré la profondeur de leur amour, le comte, son père, lui interdit d'épouser cet humble chanteur. Il l'enferma et la força à épouser le baron Tawil, général de l'armée impériale, en garnison près du château d'Aberleen. Pour faire oublier Cecilion à Carmilla, le comte alla jusqu'à envoyer ses hommes fermer l'opéra. Au fond de lui, Cecilion savait qu'un amour entre un Démon de sang et une humaine ne pourrait jamais s'accomplir. Bien qu'il aimât Carmilla, il finit par renoncer. Le jour de son départ, il lui écrivit une lettre dans laquelle il lui disait tout de ses origines et de son histoire, et la déposa avec une rose sur le rebord de sa fenêtre.",
+    "Carmilla n'avait pas cessé de se battre ; elle refusait de plier devant la volonté de son père. Mais son cœur se brisa à la lecture de cette lettre d'adieu. Peu importait à Carmilla l'espèce à laquelle il appartenait. Elle l'aimait, et sans lui, sa vie n'aurait plus de sens.",
+    "Elle se tint à la fenêtre, le regard tourné vers la direction qu'avait prise Cecilion. Alors que l'aube se levait, elle s'ouvrit le poignet d'un poignard acéré. Le monde sombra dans des ténèbres sans fin. Et Carmilla enterra son amour à sa manière.",
+    "Quand Carmilla s'éveilla, elle se retrouva de nouveau dans les bras de Cecilion. Il la regardait, les yeux pleins de tendresse. Elle s'aperçut alors que son contact était glacé, comme si elle était sans vie, et que sa peau était aussi pâle que celle de Cecilion. Elle sut que son bien-aimé ne l'avait pas abandonnée : il était revenu et l'avait ramenée à la vie avec son sang. Ces deux âmes solitaires étaient enfin réunies et pourraient vivre ensemble pour toujours.",
+    "Depuis ce jour, les habitants du château d'Aberleen ne revirent jamais Cecilion ni Carmilla ; il ne resta que les légendes de la nuit, qui passèrent de bouche en bouche au fil du temps. À la tombée de la nuit, Carmilla se blottissait dans les bras de Cecilion, au sommet de la plus haute tour du château d'Aberleen, comme si le temps s'était arrêté."
+  ],
+  "headings": [],
+  "profile": {
+    "fullName": "Carmilla Ansaac",
+    "title": null,
+    "species": "Humaine devenue Démon de sang",
+    "gender": "Femme",
+    "age": null,
+    "origin": "Château d'Aberleen, Empire de Moniyan",
+    "birthday": "15 mars",
+    "affiliations": [
+      "Maison Ansaac"
+    ],
+    "relations": [
+      "Cecilion (amant)",
+      "Comte Ansaac (père)",
+      "Baron Tawil (fiancé)",
+      "Gusion (sauveur)",
+      "Alice (ennemie)"
+    ],
+    "powers": [
+      "Invoque des fleurs pourpres",
+      "Bain de sang",
+      "Malédiction du sang"
+    ]
+  },
+  "trivia": [
+    "Elle s'inspire peut-être de Carmilla, une nouvelle gothique de Sheridan Le Fanu parue en 1872 et l'une des toutes premières œuvres de fiction vampirique.",
+    "Son ultime, « Curse of Blood », est la première compétence à lier des ennemis entre eux pour répartir les dégâts et les effets de contrôle.",
+    "Sa réplique « Whoever wrote my lines is a long-winded bastard » (« Celui qui a écrit mes répliques est un sacré bavard ») est la première réplique officielle à contenir un juron.",
+    "Son skin Épique « Astral Arcana » est le seul de ses skins sans équivalent chez Cecilion.",
+    "Au début de son développement, Carmilla devait être une mage, comme Alice, avec des compétences axées sur les dégâts et le drain de vie.",
+    "Le design final de Carmilla évoque une noble vampire, mais les premiers concepts la montraient plutôt comme un esprit fantomatique.",
+    "Sa réplique « Do not go gentle into that good night » fait référence au poème du même titre du poète gallois Dylan Thomas.",
+    "Carmilla partage sa comédienne de doublage japonaise, Takada Sakie, avec deux autres héroïnes de Moniyan, Lesley et Silvanna."
+  ]
+}
