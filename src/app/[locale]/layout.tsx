@@ -4,6 +4,7 @@ import { Barlow_Condensed, Chakra_Petch, Fira_Sans_Extra_Condensed, Inter, Noto_
 import { Header } from "@/components/header";
 import { Offline } from "@/components/offline";
 import { DiscordPopup } from "@/components/discord-popup";
+import { DexCompanion } from "@/components/dex-companion";
 import { DiscordBand } from "@/components/discord-band";
 import { Analytics } from "@/components/analytics";
 import { Footer } from "@/components/footer";
@@ -172,6 +173,7 @@ export default async function LocaleLayout({
           <ErrorReporter />
           <Offline />
           <DiscordPopup />
+          <DexCompanion />
         </LocaleProvider>
       </body>
     </html>
