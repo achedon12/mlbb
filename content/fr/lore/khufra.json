@@ -1,0 +1,39 @@
+{
+  "tagline": "Tyran antique scellé.",
+  "lore": [
+    "Le souverain de l'antique cité de Tivacan était colérique, cruel et avide. Pour obtenir l'aide des astrologues, il se lança dans une poursuite effrénée de l'astrologue Esmeralda. D'abord ensorcelée par lui, Esmeralda finit par ouvrir les yeux et le scella. Aujourd'hui, il est sur le point de se réveiller pour reprendre la bataille du destin contre les descendants des astrologues.",
+    "Biographie",
+    "Aux confins du Désert de l'Ouest, une cité antique se cache parmi les sables. Malgré les âges écoulés, les sables du désert n'ont jamais pu engloutir cette cité, qui se dresse, fière et majestueuse, au milieu d'un océan de vide. Les spécialistes de l'Antiquité parlent depuis longtemps de cette cité légendaire, dont le souverain le plus tristement célèbre n'était autre que Khufra.",
+    "Khufra était un souverain avide, plus froid que la glace et d'une cupidité sans limites. Pour assouvir son désir personnel de domination, il mena la puissante armée d'Arnak à l'invasion de la cité afin de conquérir le Désert de l'Ouest. Sans relâche, Khufra étendit son domaine et amassa des richesses sans pareilles. Mais l'Empire minoen se révéla un ennemi trop coriace pour être conquis.",
+    "Malgré tout, Khufra aspirait à plus de puissance encore. Il chercha l'astrologue le plus célèbre de la Terre de l'Aube pour lui venir en aide. Au grand dépit de Khufra, l'astrologue, qui connaissait ses noirs desseins, refusa, et fut aussitôt mis à mort. Seule la jeune Esmeralda se sentit profondément attirée par Khufra, et ils devinrent amants. La dureté de Khufra plongea Esmeralda dans un tourment où se mêlaient déchirement intérieur et amour. Peu à peu, Esmeralda s'éprit profondément de Khufra et se mit à l'aider à gouverner. Avec le temps, Esmeralda usa de ses dons magiques pour accorder à Khufra des pouvoirs jamais vus. Mais Khufra devint de plus en plus cruel et assoiffé de pouvoir. Ses conquêtes ne s'arrêtèrent pas au Désert de l'Ouest : il voulait conquérir toute la Terre de l'Aube. Voyant la cruauté de son bien-aimé, Esmeralda décida de sauver Khufra de la haine du peuple. Même alors, Khufra continua d'user de la magie pour accroître ses pouvoirs.",
+    "Il demanda à Esmeralda de lui remettre tous ses sortilèges. Il devait anéantir l'Empire minoen. Personne ne pouvait contester sa puissance. Une nuit, Esmeralda vint trouver Khufra et serra tendrement son amant dans ses bras. Elle commença à jeter sur Khufra une puissante malédiction, alors qu'il attendait le pouvoir ultime qu'elle devait lui accorder. Soudain, Khufra se sentit écrasé par une force puissante. Il tourna la tête et regarda Esmeralda. Khufra eut beau tenter de se libérer, Esmeralda ne cessa pas de psalmodier sa malédiction. Khufra ne pouvait croire que son amante le châtiait. Esmeralda pleura en plongeant son bien-aimé dans un sommeil éternel. Elle choisit de sceller elle-même son amant dans la cité antique et y éleva un monument grandiose. Esmeralda estimait qu'il valait mieux arrêter Khufra avant que le peuple ne le haïsse et qu'il n'entre dans l'histoire comme le roi cruel qui n'aimait rien d'autre que le pouvoir. Depuis lors, la fumée de la guerre s'est dissipée sur le Désert de l'Ouest.",
+    "Pourtant, des centaines d'années plus tard, un cataclysme frappa le Désert de l'Ouest. Une onde d'énergie venue d'un orbe tira Khufra de son sommeil, gonflé de haine et de colère. De retour dans le monde, Khufra ne pouvait accepter la trahison passée de son amante. Ses pouvoirs et ses désirs étaient plus forts que jamais. Il jura de retrouver Esmeralda et d'accomplir enfin son vœu vieux de plusieurs siècles : tenir la Terre de l'Aube entre ses mains."
+  ],
+  "headings": [
+    1
+  ],
+  "trivia": [
+    "Le nom de Khufra s'inspire peut-être du bassin et du groupe d'oasis de Koufra, en Libye.",
+    "L'apparence et l'histoire des origines de Khufra s'inspirent librement de la momie.",
+    "Lorsque Khufra et Esmeralda s'affrontent dans une partie, ils échangent des dialogues spéciaux, une première dans MLBB. Ces dialogues se déclenchent lorsque l'un tue l'autre ou participe à son élimination, ou au hasard pendant la partie."
+  ],
+  "profile": {
+    "fullName": null,
+    "title": "Tyran",
+    "species": "Mort-vivant (anciennement humain)",
+    "gender": "Homme",
+    "age": "Immortel",
+    "origin": null,
+    "birthday": "11 avril",
+    "affiliations": [],
+    "relations": [
+      "Khaleed, Moskov (ennemis)",
+      "Esmeralda (ancienne amante ; ennemie)"
+    ],
+    "powers": [
+      "Corps aux propriétés semblables à des bandages",
+      "Élasticité surhumaine",
+      "Se transforme en boule"
+    ]
+  }
+}

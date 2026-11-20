@@ -1,0 +1,45 @@
+{
+  "tagline": "Homme de pierre tiré de son sommeil.",
+  "lore": [
+    "Dans les brumes matinales de la Terre de l'Aube avance le colossal Titan-Forteresse, qui s'arrête parfois pour écouter les oiseaux migrateurs raconter les histoires de rivages lointains. Bien qu'il ait traversé d'innombrables âges, dernière création des Anciens, il pose encore sur le monde le regard émerveillé d'un enfant. Sur ses épaules repose une tour de château brisée, la plus improbable des armes, et les pierres mêmes qui le composent gardaient la mémoire de la courageuse résistance des Anciens sur ces terres. Il parcourt la Terre de l'Aube dans une quête sans fin, à la recherche de ses créateurs et d'âmes sœurs qui perpétueront l'héritage des Anciens.",
+    "La pierre n'oublie jamais",
+    "Lorsque les veines de minerai magique entrèrent en résonance pour la millième fois, maître Thoth, un mage capable de lire les roches et les lignes telluriques, implanta un mystérieux Cœur de Tonnerre dans un embryon de pierre. Ainsi naquit un être nouveau : le golem de pierre. Thoth baptisa cette vie tout juste éveillée « Grock ». Ce n'était qu'une des innombrables merveilles nées de ses mains et de celles de ses compagnons.",
+    "Tandis que la guerre entre la Lumière et les Ténèbres s'intensifiait, toutes les vies de l'univers n'étaient plus que des sacrifices offerts à leur querelle. Pourtant, une poignée d'anges et de démons, guidés par la Déesse du Crépuscule, entreprirent de sauver tous les êtres vivants. On les connaîtrait plus tard sous le nom d'« Anciens ». Maître Thoth était l'un d'eux.",
+    "Grock n'a pas oublié ces longues années où les Anciens allaient et venaient dans leur château. Ils tenaient de longues conversations la nuit et échangeaient des regards silencieux dans la brume du matin. Ce furent leurs dernières années de paix.",
+    "Grock n'a pas oublié les paroles de son maître : « Tu ne dois jamais oublier la force de la vie en ce monde, tout comme les arbres ne doivent jamais oublier la pluie. » Maître Thoth avait dit à Grock que, chaque fois qu'il se sentirait perdu, il ne devait pas se hâter, mais se souvenir, car le temps est du côté de la pierre. Le jeune Grock ne comprenait pas encore pourquoi les aînés des Anciens serraient toujours leurs armes en silence, les yeux levés vers le ciel nocturne. Il savait seulement que les étoiles au-dessus du château changeaient avec les saisons et que, lorsque la neige d'hiver faisait ployer les branches des pins, le parfum du miel de roche montait des cuisines et réchauffait toute la ligne tellurique.",
+    "Grock n'a pas oublié ce matin sans lumière. Maître Thoth jaugea la situation et lui dit : « Reste ici et protège cette maison jusqu'à ce que tu sois devenu fort. » Puis il se détourna et quitta le château. Le soleil ne se leva plus pendant de longs jours. La terre tremblait tandis que d'immenses nuages de poussière voilaient le ciel, aussitôt déchirés par de formidables puissances tout là-haut. Des fissures apparurent sur toutes les murailles du château, mais au bout de longs jours, tout se tut.",
+    "Grock n'a pas oublié les années paisibles qui suivirent. Il ne vit pas les deux dieux être bannis de ce monde au cours de cette guerre, et il ne savait pas que la vie avait de nouveau pris toute sa place sur ces terres. Mais il savait que bien des sentiers avaient été tracés à travers la forêt, et qu'il arrivait que la fumée d'une cheminée s'élève au loin. Les petits oiseaux lui racontaient bien des histoires sur ces terres, mais aucune ne gardait trace de son maître ni des autres Anciens.",
+    "Grock n'a pas oublié le couchant embrasé qui brisa la paix. Les solides remparts du château fondirent et volèrent en éclats. Des silhouettes difformes sans nombre, brandissant des lames d'obsidienne, se ruèrent dans le château en poussant des cris de guerre, menées par une énorme monstruosité qui grondait sourdement en cherchant Grock. Leur aura de feu et de chaos effrayait Grock, mais le château en ruine ne lui offrait aucun abri. Lorsqu'une tour s'effondra, Grock la rattrapa d'instinct et frappa les envahisseurs avec. Après ce qui lui parut une éternité, les créatures de lave et d'obsidienne battirent enfin en retraite. Grock les regarda s'éloigner jusqu'à ce qu'elles disparaissent à l'horizon. Lorsqu'il se retourna, il ne vit que des ruines. Il ignorait pourtant que ces anciens récits de courageuse résistance avaient déjà trouvé un nouvel auteur.",
+    "Où aller ? Grock n'avait pas oublié les dernières paroles de son maître : « Reste ici et protège cette maison jusqu'à ce que tu sois devenu fort. » Mais le château qui avait été sa maison n'était plus, et il ne lui restait que la tour entre les mains. Grock était devenu assez fort. Peut-être était-il temps de partir à la recherche de son maître. Des fragments du château fondus dans son corps, la tour hissée sur l'épaule, Grock se mit en route pour retrouver maître Thoth.",
+    "Au fil de ses voyages à travers la Terre de l'Aube, Grock croisa bien des êtres à la lumière dans le regard, tandis que les oiseaux nichés dans sa tour lui tenaient compagnie. Il conservait précieusement tous ses souvenirs dans ses pierres.",
+    "Même s'il ne la comprenait pas tout à fait, Grock n'avait pas oublié la maxime de son maître : « Même lorsque le temps aura effacé tous les récits, les pierres, elles, n'oublieront pas. »",
+    "« Car le temps est du côté des pierres. »"
+  ],
+  "headings": [
+    1
+  ],
+  "trivia": [
+    "Grock s'inspire largement des golems, ces protecteurs de pierre ou de terre issus de la mythologie et de la fantasy.",
+    "Grock est le premier héros du jeu à invoquer un véritable mur."
+  ],
+  "profile": {
+    "fullName": null,
+    "title": null,
+    "species": "Golem de pierre",
+    "gender": "Homme",
+    "age": null,
+    "origin": null,
+    "birthday": "22 avril",
+    "affiliations": [
+      "Anciens",
+      "Abysses (hostile)"
+    ],
+    "relations": [
+      "Maître Thoth (créateur et maître)"
+    ],
+    "powers": [
+      "Puissance de la nature",
+      "Invoque la barrière du gardien"
+    ]
+  }
+}
