@@ -1,5 +1,5 @@
 ---
-title: "Guia Gold Lane: jogando atirador em Mobile Legends"
+title: "Guia Gold Lane: jogando atirador em Mobile Legends: Bang Bang"
 short: "lane do ouro"
 date: "2026-11-14"
 updated: "2026-11-14"
@@ -7,13 +7,13 @@ kind: "role"
 lane: "Gold"
 order: 1
 author: "achedon12"
-summary: "A lane dourada é a da operadora de final de jogo. O que a posição traz, os heróis mais bem ranqueados no momento, o que construímos ali e os erros que fazem um atirador perder a liderança."
+summary: "A lane Gold é a da operadora final do jogo. O que a posição traz, os heróis mais bem ranqueados do momento, o que construímos ali e os erros que fazem um atirador perder a liderança."
 keywords: ["lane do ouro", "atirador", "carregar", "guia da lane de ouro", "guia mlbb"]
 related: ["farming-wave-management", "teamfight-positioning", "roam"]
 tools: ["/tier-list", "/tools/build", "/items", "/spells"]
 ---
 
-A lane do ouro é a lane lateral que rende mais ouro. Colocamos o herói que mais precisa para se tornar forte: quase sempre um [atirador](/heroes/role/marksman), às vezes outro causador de dano. Seu papel se resume em uma frase: sobreviver e cultivar até que seus itens façam dele o herói que vence as lutas no final do jogo.
+A lane do ouro é a lane lateral que rende mais ouro. Colocamos o herói que mais precisa para se tornar forte: quase sempre um [atirador](/heroes/role/marksman), às vezes outro causador de dano. Seu trabalho: sobreviver e cultivar até que seus itens façam dele o herói que vence as lutas finais.
 
 ## O que a posição traz
 
@@ -27,7 +27,7 @@ Por outro lado, o atirador é frágil e muitas vezes pouco móvel. Ele depende d
 
 <!-- guide:heroes -->
 
-A lista segue medidas, não gostos: um herói que subir ao topo da tier list no próximo patch entrará por conta própria. Antes de escolher, observe também seus contra-ataques: um arremessador forte no papel pode ser uma má resposta à composição adversária. A página de cada herói, por exemplo a de [Layla](/heroes/layla/counters), diz quem o vence.
+A lista segue medidas, não gostos: um herói que subir ao topo da tier list no próximo patch entrará por conta própria. Antes de escolher, observe também seus contra-ataques: um arremessador forte no papel pode ser uma má resposta à composição adversária. A página de contador de cada herói ([Layla](/heroes/layla/counters), por exemplo) indica quem os vence.
 
 ## Itens, emblemas e feitiços mais jogados
 
@@ -35,21 +35,21 @@ A lista segue medidas, não gostos: um herói que subir ao topo da tier list no 
 
 Essas escolhas são uma base, não uma regra. A constituição de um atirador muda dependendo do oponente:
 
-- **contra tanques**, itens que causam dano com base nos pontos de vida do alvo, como [Espada do Jungler de Demônios](/items/demon-hunter-sword), ou que penetram armaduras, como [Arma Maléfica](/items/malefic-gun);
+- **contra tanques**, itens que causam dano com base nos pontos de vida atuais do alvo, como [Espada do Jungler de Demônios](/items/demon-hunter-sword), ou que penetram armaduras, como [Arma Maléfica](/items/malefic-gun);
 - **contra uma equipe que se cura**, a redução de cura de [Sea Halberd](/items/sea-halberd);
-- **contra assassinos**, um item de sobrevivência como [Vento da Natureza](/items/wind-of-nature), que protege brevemente contra danos físicos.
+- **contra assassinos**, um item de sobrevivência como [Vento da Natureza](/items/wind-of-nature), que torna você imune a danos físicos por 2 segundos.
 
-Do lado do feitiço, [Flicker](/spells/flicker) continua sendo a escolha versátil para reposicionar ou fugir. [Inspire](/spells/inspire) e [Purify](/spells/purify) atendem a necessidades específicas: mais dano para heróis com ataques básicos ou uma saída contra um controle que mataria você.
+Do lado do feitiço, [Flicker](/spells/flicker) continua sendo a escolha versátil para reposicionar ou fugir. [Inspire](/spells/inspire) e [Purify](/spells/purify) atendem a necessidades específicas: mais dano para heróis com ataques básicos, ou o suficiente para se libertar de um controle que o mataria.
 
 ## O progresso de um jogo
 
 ### Início do jogo
 
-O atirador fica vulnerável nos primeiros minutos. Seu objetivo é farmar sem morrer: acabar com os minions, evitar trocas desfavoráveis ​​e ficar perto de sua torre até que o jungler adversário seja visto. O vagabundo muitas vezes o ajuda nas primeiras ondas, depois sai para preparar a Tartaruga.
+Nos primeiros minutos, o atirador fica vulnerável. Ele deve cultivar sem morrer: acabar com os minions, evitar trocas desfavoráveis ​​e ficar perto de sua torre até que o jungler adversário seja visto. O vagabundo muitas vezes o ajuda nas primeiras ondas, depois sai para preparar a Tartaruga.
 
 ### Meio do jogo
 
-Com seus primeiros objetos, o atirador começa a pesar. Ele avança em sua rota, pega a torre externa e se junta à sua equipe para os objetivos próximos. Ele nunca atravessa o mapa inteiro sozinho.
+A partir dos primeiros objetos, o atirador começa a pesar. Ele avança em sua rota, pega a torre externa e se junta à sua equipe para os objetivos próximos. Ele nunca cruza o mapa sozinho.
 
 ### Fim do jogo
 
@@ -59,6 +59,6 @@ O atirador torna-se o alvo prioritário do adversário. Ele se posiciona atrás 
 
 - Junte-se a cada luta desde os primeiros minutos, em vez de cultivar.
 - Fique na frente do seu tanque para alcançar um alvo distante.
-- Sempre construa a mesma construção, independentemente dos oponentes.
+- Faça sempre a mesma construção, independente dos oponentes.
 - Fazendeiro sozinho na jungle inimiga no final do jogo, sem visão.
-- Use o Flicker para atacar em vez de protegê-lo para sobreviver.
+- Use Flicker para atacar em vez de protegê-lo para sobreviver.

@@ -1014,11 +1014,11 @@
   "cyclops": [
     {
       "name": "Starlit Hourglass",
-      "description": "Ogni volta che Ciclope colpisce un nemico con le sue abilità, tutti i tempi di recupero delle sue abilità vengono ridotti di 0,5 secondi."
+      "description": "Ogni volta che Cyclops colpisce un nemico con le sue abilità, tutti i tempi di recupero delle sue abilità vengono ridotti di 0,5 secondi."
     },
     {
       "name": "Stardust Shock",
-      "description": "Ciclope lancia due dischi di polvere di stelle nella direzione bersaglio, ciascuno dei quali infligge 240 (+60% potere magico totale) danni magici ai nemici sul suo percorso.",
+      "description": "Cyclops lancia due dischi polvere di stelle nella direzione del bersaglio, ciascuno dei quali infligge 240 (+60% potenza magica totale) danni magici ai nemici sul suo percorso.",
       "cooldown": [
         7.5
       ],
@@ -1028,7 +1028,7 @@
     },
     {
       "name": "Planets Attack",
-      "description": "Ciclope evoca sfere stellate attorno a sé, ottenendo il 50% di velocità di movimento che decade in 2 secondi. Le sfere stellate cercano e attaccano automaticamente i nemici vicini (dando priorità agli eroi nemici) ed esplodono al contatto per infliggere 200 (+65% potere magico totale) danni magici. I colpi successivi sullo stesso bersaglio infliggono danni ridotti.",
+      "description": "Cyclops evoca sfere stellate attorno a sé, ottenendo il 50% di velocità di movimento che decade in 2 secondi. Le sfere stellate cercano e attaccano automaticamente i nemici vicini (dando priorità agli eroi nemici) ed esplodono al contatto per infliggere 200 (+65% potere magico totale) danni magici. I colpi successivi sullo stesso bersaglio infliggono danni ridotti.",
       "cooldown": [
         14
       ],
@@ -1038,7 +1038,7 @@
     },
     {
       "name": "Star Power Lockdown",
-      "description": "Ciclope crea una sfera planetaria che segue l'eroe o il mostro nemico bersaglio, infliggendo 500 (+120% potere magico totale) danni magici e immobilizzandolo per 0,75-1,5 secondi (si adatta alla distanza di viaggio della sfera planetaria).",
+      "description": "Cyclops crea una sfera planetaria che segue l'eroe o il mostro nemico bersaglio, infliggendo 500 (+120% potere magico totale) danni magici e immobilizzandolo per 0,75-1,5 secondi (si adatta alla distanza di viaggio della sfera planetaria).",
       "cooldown": [
         26
       ],
@@ -1097,7 +1097,7 @@
     },
     {
       "name": "Spectre Step",
-      "description": "Dyrroth scatta nella direzione del bersaglio. Si ferma quando raggiunge la distanza massima o colpisce un eroe o un mostro nemico, infliggendo 230 (+60% attacco fisico extra) danni fisici e respingendoli leggermente indietro. Usa di nuovo: Dyrroth aggancia un bersaglio e scatena un colpo fatale, infliggendo 345 (+120% attacco fisico extra) danni fisici e riducendo la sua difesa fisica del 40% per 4 secondi. Abisso potenziato: Colpo fatale arriva oltre e infligge il 150% del danno originale, rallenta il bersaglio di un ulteriore 90% e riduce la sua difesa fisica del 60% per 4 secondi.",
+      "description": "Dyrroth trattini nella direzione del bersaglio. Si ferma quando raggiunge la distanza massima o colpisce un eroe o un mostro nemico, infliggendo 230 (+60% attacco fisico extra) danni fisici e respingendoli leggermente indietro. Usa di nuovo: Dyrroth aggancia un bersaglio e scatena un colpo Fatal, infliggendo 345 (+120% attacco fisico extra) danni fisici e riducendo la sua difesa fisica del 40% per 4 secondi. Abisso potenziato: Fatal Il colpo arriva più lontano e infligge il 150% del danno originale, rallenta il bersaglio di un ulteriore 90% e riduce la sua difesa fisica del 60% per 4 secondi.",
       "cooldown": [
         6
       ]
@@ -1320,7 +1320,7 @@
   "floryn": [
     {
       "name": "Dew",
-      "description": "La Lanterna di Rugiada aumenterà permanentemente gli attributi di Floryn di una piccola quantità. Dopo aver lasciato il combattimento per 5 secondi, Floryn può condividere il Fiore della Speranza con un eroe alleato (tempo di recupero di 30 secondi), che garantirà loro uno scudo di 100 (+70% Potere magico totale) ogni volta che vengono curati da Floryn. Floryn non venderà mai la Lanterna."
+      "description": "La Lanterna di Rugiada aumenterà permanentemente gli attributi di Floryn di una piccola quantità. Dopo aver lasciato il combattimento per 5 secondi, Floryn può condividere il Flower of Hope con un eroe alleato (tempo di recupero di 30 secondi), che garantirà loro uno scudo di 100 (+70% Potere magico totale) ogni volta che vengono curati di Floryn. Floryn non venderà mai la Lanterna."
     },
     {
       "name": "Sow",
@@ -1601,25 +1601,25 @@
   "guinevere": [
     {
       "name": "Super Magic",
-      "description": "Ginevra infligge il 25% di danni extra ai nemici in volo e infligge (+80% attacco fisico totale) (+60% potere magico totale) danni magici con i suoi attacchi base. Ginevra accumula super magia ogni volta che infligge danni e quando è completamente carica, il suo successivo attacco base diventa guidato, infliggendo 80 (+100% attacco fisico totale) (+90% potere magico totale) danni magici al colpo e ripristinando 80 (+8% dei PS persi di Ginevra) HP. I nemici colpiti dall'attacco base potenziato, dall'ondata di energia o dalla migrazione spaziale di Ginevra vengono marchiati per 5 secondi. Quelli con 3 punti verranno lanciati in aria quando colpiti dal suo Violet Requiem."
+      "description": "Guinevere infligge il 25% di danni extra ai nemici in volo e infligge (+80% attacco fisico totale) (+60% potere magico totale) danni magici con i suoi attacchi base. Guinevere accumula Super Magia ogni volta che infligge danni e quando è completamente carica, il suo successivo attacco base diventa guidato, infliggendo 80 (+100% attacco fisico totale) (+90% potere magico totale) danni magici al colpo e ripristinando 80 (+8% dei PS persi di Guinevere) HP. I nemici colpiti dall'attacco base potenziato, dall'ondata di energia o dalla migrazione spaziale di Guinevere vengono marchiati per 5 secondi. Quelli con 3 punti verranno lanciati in aria quando colpiti dal suo Violet Requiem."
     },
     {
       "name": "Energy Wave",
-      "description": "Ginevra rilascia una sfera di energia nella direzione del bersaglio, infliggendo 300 (+125% potere magico totale) danni magici e rallentando i nemici del 25% per 1,2 secondi. Colpire con successo un nemico riduce tutti i tempi di recupero delle sue abilità di 1 secondo.",
+      "description": "Guinevere rilascia una sfera di energia nella direzione del bersaglio, infliggendo 300 (+125% potenza magica totale) danni magici e rallentando i nemici del 25% per 1,2 secondi. Colpire con successo un nemico riduce tutti i tempi di recupero delle sue abilità di 1 secondo.",
       "cooldown": [
         4
       ]
     },
     {
       "name": "Spatial Migration",
-      "description": "Ginevra balza sulla posizione bersaglio, infliggendo 250 (+80% potere magico totale) danni magici. Gli eroi nemici e i Creep colpiti verranno lanciati in aria per 1 secondo e subiranno 125 (+50% Potere magico totale) danni magici aggiuntivi. Usa di nuovo: Ginevra lampeggia verso la direzione del bersaglio e lascia dietro di sé un'illusione. Se l'illusione subisce danni dall'eroe, ripristina la super magia per Ginevra ed esplode dopo 1,5 secondi, infliggendo 100 (+30% potere magico totale) danni magici ai nemici vicini.",
+      "description": "Guinevere salta sulla posizione bersaglio, infliggendo 250 (+80% potenza magica totale) danni magici. Gli eroi nemici e i Creep colpiti verranno lanciati in aria per 1 secondo e subiranno 125 (+50% Potere magico totale) danni magici aggiuntivi. Usa di nuovo: Guinevere lampeggia verso la direzione del bersaglio e lascia dietro di sé un'illusione. Se l'illusione subisce danni dall'eroe, ripristina la super magia per Guinevere ed esplode dopo 1,5 secondi, infliggendo 100 (+30% potere magico totale) danni magici ai nemici vicini.",
       "cooldown": [
         17
       ]
     },
     {
       "name": "Violet Requiem",
-      "description": "Ginevra crea un campo di forza attorno a sé, ottenendo immunità al controllo mentre attacca i nemici vicini 11 volte in 2 secondi, infliggendo 880 (+385% potere magico totale) danni magici in totale. I nemici in volo colpiti verranno nuovamente lanciati in aria, fino a 8 volte aggiuntive.",
+      "description": "Guinevere crea un campo di forza intorno a lei, ottenendo immunità al controllo mentre attacca i nemici vicini 11 volte in 2 secondi, infliggendo 880 (+385% potere magico totale) danni magici in totale. I nemici in volo colpiti verranno nuovamente lanciati in aria, fino a 8 volte aggiuntive.",
       "cooldown": [
         52
       ]
@@ -2452,11 +2452,11 @@
   "lancelot": [
     {
       "name": "Soul Cutter",
-      "description": "Ogni volta che Lancillotto carica, il suo danno aumenta del 7,5% per 4 secondi, fino a un massimo del 30%."
+      "description": "Ogni volta che Lancelot carica, il suo danno aumenta del 7,5% per 4 secondi, fino al 30%."
     },
     {
       "name": "Puncture",
-      "description": "Lancillotto carica nella direzione del bersaglio, infliggendo 150 (+50% Total Physical Attack) danni fisici ai nemici sul suo cammino e marchiando il primo nemico non marchiato colpito con Marchio della spada per 3 secondi. Se viene applicato un nuovo Marchio della spada, il tempo di recupero di questa abilità si azzera.",
+      "description": "Lancelot carica nella direzione del bersaglio, infliggendo 150 (+50% Total Physical Attack) danni fisici ai nemici sul suo cammino e marchiando il primo nemico non marcato colpito con Sword Mark per 3 secondi. Se viene applicato un nuovo Marchio della spada, il tempo di recupero di questa abilità si azzera.",
       "cooldown": [
         14
       ],
@@ -2466,7 +2466,7 @@
     },
     {
       "name": "Thorned Rose",
-      "description": "Lancillotto colpisce nella direzione del bersaglio 3 volte, infliggendo ogni volta 220 (+120% attacco fisico extra) danni fisici ai nemici colpiti (il danno viene ridotto quando vengono colpiti più nemici). Non è bersagliabile durante questo processo. I nemici al centro dell'area subiscono tutti e 3 i colpi e vengono rallentati del 20% per 0,5 s. L'effetto lento può accumularsi.",
+      "description": "Lancelot colpisce nella direzione del bersaglio 3 volte, infliggendo ogni volta 220 (+120% attacco fisico extra) danni fisici ai nemici colpiti (il danno viene ridotto quando vengono colpiti più nemici). Non è bersagliabile durante questo processo. I nemici al centro dell'area subiscono tutti e 3 i colpi e vengono rallentati del 20% per 0,5 s. L'effetto lento può accumularsi.",
       "cooldown": [
         11
       ],
@@ -2476,7 +2476,7 @@
     },
     {
       "name": "Phantom Execution",
-      "description": "Dopo un breve ritardo, Lancillotto esegue un colpo da boia nella direzione del bersaglio, infliggendo 350 (+170% attacco fisico totale) danni fisici ai nemici colpiti. È invincibile durante tutto il processo.",
+      "description": "Dopo un breve ritardo, Lancelot esegue un colpo da boia nella direzione del bersaglio, infliggendo 350 (+170% attacco fisico totale) danni fisici ai nemici colpiti. È invincibile durante tutto il processo.",
       "cooldown": [
         36
       ],
@@ -2592,7 +2592,7 @@
     },
     {
       "name": "Tactical Grenade",
-      "description": "Lesley lancia una granata tattica nella direzione del bersaglio mentre salta leggermente indietro, infliggendo 150 (+50% attacco fisico totale) danni fisici ai nemici in un'area a forma di ventaglio e respingendoli indietro. Lesley può lanciare questa abilità durante Ultimate Snipe per annullare lo stato e sparare immediatamente un proiettile fatale al bersaglio. L'attacco viene attivato solo quando rimangono proiettili fatali non sparati.",
+      "description": "Lesley lancia una granata tattica nella direzione del bersaglio mentre salta leggermente indietro, infliggendo 150 (+50% attacco fisico totale) danni fisici ai nemici in un'area a forma di ventaglio e respingendoli indietro. Lesley può lanciare questa abilità durante Ultimate Snipe per annullare lo stato e sparare immediatamente un proiettile Fatal al bersaglio. L'attacco viene attivato solo quando rimangono Fatal proiettili non sparati.",
       "cooldown": [
         10
       ],
@@ -2602,7 +2602,7 @@
     },
     {
       "name": "Ultimate Snipe",
-      "description": "Passiva: la probabilità critica di Lesley aumenta del 10%. Attivo: Lesley aggancia un eroe nemico e spara 4 proiettili fatali in successione. Ogni proiettile infligge 250 (+80% attacco fisico extra) (+ 5% degli HP persi del bersaglio) danni fisici e ripristina 10 energia in caso di colpo. I proiettili possono essere bloccati da altri eroi nemici. Se questa abilità viene interrotta, ogni proiettile rimanente riduce il tempo di recupero di questa abilità del 10%.",
+      "description": "Passiva: la probabilità critica di Lesley aumenta del 10%. Attivo: Lesley aggancia un eroe nemico e spara 4 proiettili Fatal in successione. Ogni proiettile infligge 250 (+80% attacco fisico extra) (+ 5% degli HP persi del bersaglio) danni fisici e ripristina 10 energia in caso di colpo. I proiettili possono essere bloccati da altri eroi nemici. Se questa abilità viene interrotta, ogni proiettile rimanente riduce il tempo di recupero di questa abilità del 10%.",
       "cooldown": [
         40
       ],
@@ -2731,7 +2731,7 @@
     },
     {
       "name": "Order & Chaos",
-      "description": "Lunax è distorta dai poteri del Caos e dell'Ordine. Quando il Potere dell'Ordine è dominante, può lanciare Brillantezza per diventare invincibile e infliggere danni continui ai nemici vicini. Quando il Potere del Caos è dominante, può lanciare Oscuramento per lampeggiare nella direzione bersaglio e ridurre notevolmente il tempo di recupero di Assalto del Caos per un breve periodo.",
+      "description": "Lunox è distorto dai poteri del Caos e dell'Ordine. Quando il Potere dell'Ordine è dominante, può lanciare Brillantezza per diventare invincibile e infliggere danni continui ai nemici vicini. Quando il Potere del Caos è dominante, può lanciare Oscuramento per lampeggiare nella direzione bersaglio e ridurre notevolmente il tempo di recupero di Assalto del Caos per un breve periodo.",
       "cooldown": [
         30
       ],
@@ -3305,7 +3305,7 @@
     },
     {
       "name": "Phantom Shadowmeld",
-      "description": "L'ossidia scende nell'Abisso ed entra nella Forma di Fusione dell'Ombra, ottenendo il 500% di velocità di movimento per 0,3 secondi.",
+      "description": "Obsidia scende nell'Abisso ed entra nella Forma di Fusione delle Ombre, ottenendo il 500% di velocità di movimento per 0,3 secondi.",
       "cooldown": [
         4.5
       ],
@@ -3457,7 +3457,7 @@
     },
     {
       "name": "Bite 'em, Kupa!",
-      "description": "Popol lancia una lancia contro il bersaglio, segnalando a Kupa di attaccare e infliggendo 80 (+70% attacco fisico totale) danni fisici. Kupa quindi morde il bersaglio, infliggendo 40 (+40% Total Physical Attack) danni fisici e rallentandolo del 99% per 0,75 secondi. Mentre sono marchiati dalla lancia, ogni volta che Popol o Kupa colpiscono il bersaglio con un attacco base, entrambi ottengono il 7% di velocità d'attacco e il 3% di velocità di movimento per 4 secondi (fino a 3 accumuli). Forma del lupo alfa: Kupa colpisce ferocemente, infliggendo 120 (+140% attacco fisico totale) danni fisici al bersaglio e ai nemici vicini e lanciandoli in aria per 0,5 secondi.",
+      "description": "Popol lancia una lancia contro il bersaglio, segnalando a Kupa di attaccare e infliggendo 80 (+70% attacco fisico totale) danni fisici. Kupa quindi morde il bersaglio, infliggendo 40 (+40% Total Physical Attack) danni fisici e rallentandolo del 99% per 0,75 secondi. Mentre sono marchiati dalla lancia, ogni volta che Popol o Kupa colpiscono il bersaglio con un attacco base, entrambi ottengono il 7% di velocità d'attacco e il 3% di velocità di movimento per 4 secondi (fino a 3 accumuli). Alpha Forma del lupo: Kupa colpisce ferocemente, infliggendo 120 (+140% attacco fisico totale) danni fisici al bersaglio e ai nemici vicini e lanciandoli in aria per 0,5 secondi.",
       "cooldown": [
         7
       ],
@@ -3467,7 +3467,7 @@
     },
     {
       "name": "Kupa, Help!",
-      "description": "Popol richiama Kupa e ottiene uno scudo da 240 (+200% Attacco fisico extra). Può quindi cavalcare Kupa per 1,5 secondi, guadagnando 250 velocità di movimento mentre è a cavallo. Kupa inoltre recupera continuamente il 20% dei suoi HP massimi. Il Popol può usare un attacco base per porre fine anticipatamente allo stato in sella. Dopo il ritorno, Kupa segue Popol finché Popol non attacca un nemico. Forma del lupo alfa: l'effetto dello scudo aumenta al 125% e Kupa recupera tutti gli HP mentre è in sella.",
+      "description": "Popol richiama Kupa e ottiene uno scudo da 240 (+200% Attacco fisico extra). Può quindi cavalcare Kupa per 1,5 secondi, guadagnando 250 velocità di movimento mentre è a cavallo. Kupa inoltre recupera continuamente il 20% dei suoi HP massimi. Il Popol può usare un attacco base per porre fine anticipatamente allo stato in sella. Dopo il ritorno, Kupa segue Popol finché Popol non attacca un nemico. Alpha Forma del lupo: l'effetto dello scudo aumenta al 125% e Kupa recupera tutti gli HP mentre è in sella.",
       "cooldown": [
         10
       ],
@@ -3477,7 +3477,7 @@
     },
     {
       "name": "We Are Angry!",
-      "description": "Popol e Kupa entrano nello stato Infuriato per 9 secondi. Durante questo periodo, Kupa si trasforma nella forma del lupo alfa.",
+      "description": "Popol and Kupa entra nello stato Infuriato per 9 secondi. Durante questo periodo, Kupa si trasforma in Alpha Forma di Lupo.",
       "cooldown": [
         38
       ],
@@ -3594,11 +3594,11 @@
   "saber": [
     {
       "name": "Enemy's Bane",
-      "description": "Ogni volta che Sabre infligge danni, riduce la difesa fisica del bersaglio di 3-8 per 5 secondi (fino a 5 accumuli)."
+      "description": "Ogni volta che Saber infligge danni, riduce la difesa fisica del bersaglio di 3-8 per 5 secondi (fino a 5 accumuli)."
     },
     {
       "name": "Orbiting Swords",
-      "description": "Sabre rilascia 5 spade che orbitano attorno a lui e infliggono 75 (+25% attacco fisico extra) danni fisici ai nemici vicini quando vengono colpiti. Le spade si ritireranno verso di lui dopo la durata. Mentre sono attivi, gli attacchi con la spada infliggono 200 (+50% attacco fisico extra) danni fisici al bersaglio e il 50% di danni ai nemici lungo il percorso (danni ridotti al 50% contro i minion). Ogni attacco con la spada riduce i tempi di recupero delle Spade Orbitanti di 0,5 secondi e della Carica di 1 secondo.",
+      "description": "Saber rilascia 5 spade che orbitano attorno a lui e infliggono 75 (+25% attacco fisico extra) danni fisici ai nemici vicini quando vengono colpiti. Le spade si ritireranno verso di lui dopo la durata. Mentre sono attivi, gli attacchi con la spada infliggono 200 (+50% attacco fisico extra) danni fisici al bersaglio e il 50% di danni ai nemici lungo il percorso (danni ridotti al 50% contro i minion). Ogni attacco con la spada riduce i tempi di recupero delle Spade Orbitanti di 0,5 secondi e della Carica di 1 secondo.",
       "cooldown": [
         10
       ],
@@ -3608,7 +3608,7 @@
     },
     {
       "name": "Charge",
-      "description": "La sciabola scatta nella direzione del bersaglio, infliggendo 75 (+50% attacco fisico extra) danni fisici ai nemici lungo il percorso. Dopo lo scatto, ottiene un attacco base potenziato che gli consente di caricare il bersaglio, infliggendo 75 (+120% attacco fisico totale) danni fisici e rallentandolo del 60% per 1 secondo.",
+      "description": "Saber scatta nella direzione del bersaglio, infliggendo 75 (+50% attacco fisico extra) danni fisici ai nemici lungo il percorso. Dopo lo scatto, ottiene un attacco base potenziato che gli consente di caricare il bersaglio, infliggendo 75 (+120% attacco fisico totale) danni fisici e rallentandolo del 60% per 1 secondo.",
       "cooldown": [
         7
       ],
@@ -3618,7 +3618,7 @@
     },
     {
       "name": "Triple Sweep",
-      "description": "La Sciabola carica l'eroe nemico bersaglio, lanciandolo in aria per 1,2 secondi (non influenzato dalla Resilienza). Li colpisce 3 volte nel corso della durata, infliggendo 120 (+80% attacco fisico extra) danni fisici con i primi 2 colpi e 240 (+160% attacco fisico extra) danni fisici con il terzo.",
+      "description": "Saber carica l'eroe nemico bersaglio, lanciandolo in aria per 1,2 secondi (non influenzato dalla Resilienza). Li colpisce 3 volte nel corso della durata, infliggendo 120 (+80% attacco fisico extra) danni fisici con i primi 2 colpi e 240 (+160% attacco fisico extra) danni fisici con il terzo.",
       "cooldown": [
         44
       ],
@@ -3730,7 +3730,7 @@
     },
     {
       "name": "Endless Variety",
-      "description": "Sun scaglia il suo bastone d'oro nella direzione del bersaglio, infliggendo 280 (+40% attacco fisico totale) danni fisici ai nemici sul suo percorso. Dopo aver colpito un eroe o un mostro nemico, o quando raggiunge la portata massima, il Bastone d'Oro si trasforma in un Doppelganger che insegue i nemici. Il Doppelganger eredita gli attributi di Sun, infligge il 60% dei danni di Sun e subisce il 150% dei danni per 5 secondi. Questa abilità condivide il suo livello e il suo tempo di recupero con Swift Exchange.",
+      "description": "Sun scaglia il suo Golden Staff nella direzione del bersaglio, infliggendo 280 (+40% Total Physical Attack) danni fisici ai nemici sul suo percorso. Dopo aver colpito un eroe o un mostro nemico, o quando raggiunge la portata massima, il Golden Staff si trasforma in un Doppelganger che insegue i nemici. Il Doppelganger eredita gli attributi di Sun, infligge il 60% del danno di Sun e subisce il 150% del danno per 5 secondi. Questa abilità condivide il livello e il tempo di recupero con Swift Scambio.",
       "cooldown": [
         6.5
       ],
@@ -3740,7 +3740,7 @@
     },
     {
       "name": "Swift Exchange",
-      "description": "Sun scaglia il suo bastone d'oro nella direzione del bersaglio, infliggendo 280 (+40% attacco fisico totale) danni fisici ai nemici sul suo percorso. Evoca un Doppelganger nella sua posizione che eredita i suoi attributi, infligge il 60% di danni e subisce il 150% di danni per 5 secondi. Sun si trasforma nel Bastone d'Oro e si nasconde, riapparendo alla sua massima portata.",
+      "description": "Sun scaglia il suo Golden Staff nella direzione del bersaglio, infliggendo 280 (+40% Total Physical Attack) danni fisici ai nemici sul suo percorso. Evoca un Doppelganger nella sua posizione che eredita i suoi attributi, infligge il 60% di danni e subisce il 150% di danni per 5 secondi. Sun si trasforma in Golden Staff e si nasconde, riapparendo alla sua massima portata.",
       "cooldown": [
         6.5
       ],
@@ -3873,11 +3873,11 @@
   "uranus": [
     {
       "name": "Radiance",
-      "description": "Urano assorbe l'energia generata dagli attacchi in arrivo per rafforzarsi, rigenerando una certa quantità di HP ogni 0,8 s. Ogni pila dura 10 secondi. Quando ha stack massimi (20), Urano rigenera 48-224 HP (cresce con il livello)."
+      "description": "Uranus assorbe l'energia generata dagli attacchi in arrivo per rafforzarsi, rigenerando una certa quantità di HP ogni 0,8 s. Ogni pila dura 10 secondi. Quando gli stack massimi (20), Uranus rigenera 48-224 HP (cresce con il livello)."
     },
     {
       "name": "Ionic Edge",
-      "description": "Urano rilascia 2 lame energetiche che orbitano attorno a lui, infliggendo 155 (+30% Potere magico totale) (+6 × accumuli di luminosità) danni magici ai nemici colpiti e rallentandoli del 30% per 2 secondi. Ogni lama può danneggiare lo stesso bersaglio una sola volta.",
+      "description": "Uranus rilascia 2 lame di energia che orbitano intorno a lui, infliggendo 155 (+30% Potere magico totale) (+6 × pile di Radianza) danni magici ai nemici colpiti e rallentandoli del 30% per 2 secondi. Ogni lama può danneggiare lo stesso bersaglio una sola volta.",
       "cooldown": [
         4
       ],
@@ -3887,7 +3887,7 @@
     },
     {
       "name": "Transcendent Ward",
-      "description": "Urano carica verso la posizione bersaglio, infliggendo 80 (+20% potere magico totale) danni magici ai nemici lungo il percorso e 160 (+80% potere magico totale) danni magici ai nemici nella posizione bersaglio e rallentandoli del 25%. Urano genera anche uno scudo da 300 (+200% Potere magico totale) per 4 secondi. Lo scudo esplode alla fine della sua durata o quando viene distrutto, infliggendo 300 (+150% potere magico totale) danni magici ai nemici vicini.",
+      "description": "Uranus carica verso la posizione bersaglio, infliggendo 80 (+20% potere magico totale) danni magici ai nemici lungo il percorso e 160 (+80% potere magico totale) danni magici ai nemici nella posizione bersaglio e rallentandoli del 25%. Uranus genera anche uno scudo da 300 (+200% Total Magic Power) per 4 secondi. Lo scudo esplode alla fine della sua durata o quando viene distrutto, infliggendo 300 (+150% potere magico totale) danni magici ai nemici vicini.",
       "cooldown": [
         10
       ],
@@ -3897,7 +3897,7 @@
     },
     {
       "name": "Consecration",
-      "description": "Urano libera l'energia immagazzinata nel suo corpo, rimuovendo gli effetti di rallentamento su se stesso, recuperando 200 HP e guadagnando il 60% di velocità di movimento per 8 secondi (decade nel tempo). Urano ottiene direttamente 5 accumuli di Radianza, aumentando gli scudi ricevuti e la rigenerazione HP del 20% per 8 secondi.",
+      "description": "Uranus libera l'energia immagazzinata nel suo corpo, rimuovendo gli effetti lenti su se stesso, recuperando 200 HP e ottenendo il 60% di velocità di movimento per 8 secondi (decade nel tempo). Uranus guadagna direttamente 5 accumuli di Radianza, aumentando gli scudi ricevuti e la rigenerazione HP del 20% per 8 secondi.",
       "cooldown": [
         42
       ],
@@ -3995,7 +3995,7 @@
     },
     {
       "name": "Searing Torrent",
-      "description": "Valir scatena un torrente di fiamme nella direzione del bersaglio, infliggendo 200 (+60% Potere magico totale) danni magici e respingendoli alla fine del suo percorso. Fiamma della vendetta: il torrente forma un firewall alla fine del suo percorso che dura 4 secondi, infliggendo 100 (+30% potere magico totale) danni magici ai nemici vicini ogni 1 secondo. I nemici colpiti dal torrent o dal firewall vengono rallentati del 25% per 1 secondo.",
+      "description": "Valir scatena un torrente di fiamme nella direzione del bersaglio, infliggendo 200 (+60% Total Magic Power) danni magici e respingendoli alla fine del suo percorso. Vengeance Fiamma: il torrente forma un firewall alla fine del suo percorso che dura 4 secondi, infliggendo 100 (+30% potere magico totale) danni magici ai nemici vicini ogni 1 secondo. I nemici colpiti dal torrent o dal firewall vengono rallentati del 25% per 1 secondo.",
       "cooldown": [
         13
       ],
@@ -4005,7 +4005,7 @@
     },
     {
       "name": "Vengeance Flame",
-      "description": "Valir rimuove tutti i debuff su se stesso e ottiene il 40% di velocità di movimento che decade in 3 secondi. Nel frattempo, evoca 4 Fiamme della Vendetta che potenziano Burst Fireball e Searing Torrent per 9 secondi.",
+      "description": "Valir rimuove tutti i debuff su se stesso e ottiene il 40% di velocità di movimento che decade in 3 secondi. Nel frattempo, evoca 4 Vengeance Fiamme che potenziano Burst Fireball e Searing Torrent per 9 secondi.",
       "cooldown": [
         36
       ],

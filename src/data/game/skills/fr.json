@@ -74,14 +74,14 @@
   "aldous": [
     {
       "name": "Contract: Transform",
-      "description": "Toutes les 8 secondes, Aldous gagne un bouclier égal à 350 (+ 3 par pile Soul Steal) pendant 3 secondes lors de sa prochaine attaque de base. Il gagne également 60 % de vitesse de déplacement pendant 1 seconde.",
+      "description": "Toutes les 8 secondes, Aldous gagne un bouclier égal à 350 (+ 3 par cumul Soul Steal) pendant 3 secondes lors de sa prochaine attaque de base. Il gagne également 60 % de vitesse de déplacement pendant 1 seconde.",
       "cooldown": [
         5
       ]
     },
     {
       "name": "Contract: Soul Steal",
-      "description": "Aldous améliore sa prochaine attaque de base pour infliger 200 (+100 % de l'attaque physique totale) (+ 3 par pile Soul Steal) dégâts physiques. Tuer un sbire de siège avec cette attaque confère 12 cumuls de Vol d'âme ; tuer toute autre unité non-héros confère 5 cumuls. Frapper un héros ennemi confère 5 cumuls supplémentaires, tandis que le tuer en accorde 12 (jusqu'à 1 000 cumuls). Cette attaque inflige 300 % de dégâts de base supplémentaires aux sbires et aux creeps. Aldous gagne également 6 piles lorsque les unités alliées éliminent un sbire de siège ennemi proche, et 2 piles lorsqu'elles éliminent toute autre unité non-héros à proximité. Aldous gagne 20 % de vitesse de déplacement lorsqu'il se déplace vers les héros ennemis pendant cette compétence.",
+      "description": "Aldous améliore sa prochaine attaque de base pour infliger 200 (+100 % de l'attaque physique totale) (+ 3 par cumul Soul Steal) dégâts physiques. Tuer un sbire de siège avec cette attaque confère 12 cumuls de Vol d'âme ; tuer toute autre unité non-héros confère 5 cumuls. Frapper un héros ennemi confère 5 cumuls supplémentaires, tandis que le tuer en accorde 12 (jusqu'à 1 000 cumuls). Cette attaque inflige 300 % de dégâts de base supplémentaires aux sbires et aux creeps. Aldous gagne également 6 cumuls lorsque les unités alliées éliminent un sbire de siège ennemi proche, et 2 cumuls lorsqu'elles éliminent toute autre unité non-héros à proximité. Aldous gagne 20 % de vitesse de déplacement lorsqu'il se déplace vers les héros ennemis pendant cette compétence.",
       "cooldown": [
         4
       ],
@@ -113,7 +113,7 @@
   "alice": [
     {
       "name": "Crimson Blood Banquet",
-      "description": "Alice gagne 1 charge(s) de Crimson chaque fois que sa compétence touche un ennemi, pendant 4 secondes (jusqu'à 2 charges). Blood Banquet s’active au maximum de stacks. Banquet de sang : toutes les 0,5 s, Alice inflige 25 (+30 % de puissance magique totale) (+ 0,5 % - 2,5 % des PV de la cible, en fonction du niveau) dégâts magiques aux ennemis proches. Elle récupère également 10 (+3% Extra Max PV) PV et gagne 8% de vitesse de déplacement. Sa durée est actualisée lorsque ses compétences touchent un héros ennemi. Les dégâts infligés aux creeps sont limités à 70 (+10*niveau de héros) dégâts magiques."
+      "description": "Alice gagne 1 charge de Crimson chaque fois que sa compétence touche un ennemi, pendant 4 secondes (jusqu'à 2 charges). Blood Banquet s’active au maximum de cumuls. Banquet de sang : toutes les 0,5 s, Alice inflige 25 (+30 % de puissance magique totale) (+ 0,5 % - 2,5 % des PV de la cible, en fonction du niveau) dégâts magiques aux ennemis proches. Elle récupère également 10 (+3% PV max supplémentaires) PV et gagne 8% de vitesse de déplacement. Sa durée est actualisée lorsque ses compétences touchent un héros ennemi. Les dégâts infligés aux creeps sont limités à 70 (+10*niveau du héros) dégâts magiques."
     },
     {
       "name": "Crimson Gleam",
@@ -131,7 +131,7 @@
     },
     {
       "name": "Throne of Ruin",
-      "description": "Alice s'entoure de sang, bénéficiant d'une immunité aux contrôles et d'une réduction des dégâts de 50 % tout en se ralentissant de 50 %. Après 1,5 s, elle descend d'en haut, infligeant 500 (+200 % de puissance magique totale) (+20 % de PV max supplémentaire) dégâts magiques à tous les ennemis à portée et les immobilisant pendant 1 s. Pendant qu'elle charge son Ultimate, Alice ne peut utiliser aucune compétence de héros autre que Scarlet Shadow.",
+      "description": "Alice s'entoure de sang, bénéficiant d'une immunité aux contrôles et d'une réduction des dégâts de 50 % tout en se ralentissant de 50 %. Après 1,5 s, elle descend d'en haut, infligeant 500 (+200 % de puissance magique totale) (+20 % de PV max supplémentaire) dégâts magiques à tous les ennemis à portée et les immobilisant pendant 1 s. Pendant qu'elle charge son ultime, Alice ne peut utiliser aucune compétence de héros autre que Scarlet Shadow.",
       "cooldown": [
         60
       ]
@@ -140,11 +140,11 @@
   "alpha": [
     {
       "name": "Beta, Advance!",
-      "description": "Lorsqu'Alpha utilise une compétence, Beta sera invoqué pour attaquer. Les ennemis touchés par la Bêta 2 seront verrouillés. Verrouillé : après qu'Alpha ait infligé des dégâts à la cible, Beta tirera un laser sur elle, infligeant 60 (+50 % de l'attaque physique totale) (+8*niveau du héros) de vrais dégâts et appliquant brièvement un puissant effet de ralentissement. Cette compétence n'inflige que 75% de dégâts aux Creeps."
+      "description": "Lorsqu'Alpha utilise une compétence, Beta sera invoqué pour attaquer. Les ennemis touchés par Beta 2 seront verrouillés. Verrouillé : après qu'Alpha ait infligé des dégâts à la cible, Beta tirera un laser sur elle, infligeant 60 (+50 % de l'attaque physique totale) (+8*niveau du héros) de dégâts réels et appliquant brièvement un puissant effet de ralentissement. Cette compétence n'inflige que 75% de dégâts aux Creeps."
     },
     {
       "name": "Rotary Impact",
-      "description": "Alpha libère une vague d'énergie dans la direction ciblée, infligeant 100 (+90 % d'attaque physique supplémentaire) dégâts physiques aux ennemis sur son passage et les ralentissant de 40 % pendant 1 seconde. La bêta mitraille ensuite les ennemis le long du même chemin, infligeant 60 (+30 % d'attaque physique supplémentaire) de vrais dégâts.",
+      "description": "Alpha libère une vague d'énergie dans la direction ciblée, infligeant 100 (+90 % d'attaque physique supplémentaire) dégâts physiques aux ennemis sur son passage et les ralentissant de 40 % pendant 1 seconde. Beta mitraille ensuite les ennemis le long du même chemin, infligeant 60 (+30 % d'attaque physique supplémentaire) de dégâts réels.",
       "cooldown": [
         4
       ],
@@ -154,7 +154,7 @@
     },
     {
       "name": "Force Swing",
-      "description": "Après un court délai, Alpha balance sa lame dans la direction cible, infligeant 180 (+100 % de l'attaque physique totale) dégâts physiques aux ennemis dans une zone en forme d'éventail et récupérant 80 (+40 % de l'attaque physique supplémentaire) PV pour le premier ennemi touché (les soins diminuent de 40 % pour chaque ennemi touché supplémentaire). La bêta mitraille ensuite les ennemis dans la même zone, infligeant 60 (+30 % de l'attaque physique totale) de vrais dégâts.",
+      "description": "Après un court délai, Alpha balance sa lame dans la direction cible, infligeant 180 (+100 % de l'attaque physique totale) dégâts physiques aux ennemis dans une zone en forme d'éventail et récupérant 80 (+40 % de l'attaque physique supplémentaire) PV pour le premier ennemi touché (les soins diminuent de 40 % pour chaque ennemi touché supplémentaire). Beta mitraille ensuite les ennemis dans la même zone, infligeant 60 (+30 % de l'attaque physique totale) de dégâts réels.",
       "cooldown": [
         6
       ],
@@ -164,7 +164,7 @@
     },
     {
       "name": "Spear of Alpha",
-      "description": "Plonge bêta vers l'emplacement cible, infligeant 100 (+20 % d'attaque physique supplémentaire) dégâts physiques aux ennemis touchés et les étourdissant pendant 1 seconde. Alpha saute ensuite vers le même endroit, projetant les ennemis sur son chemin dans les airs et les transportant vers le lieu d'atterrissage. Alpha frappe ensuite, infligeant 250 (+100 % d'attaque physique supplémentaire) dégâts physiques et ralentissant les ennemis de 40 % pendant 1,5 seconde. Beta attaque ensuite la même zone 5 fois, infligeant à chaque fois 15 (+30 % d'attaque physique supplémentaire) de vrais dégâts.",
+      "description": "Plonge bêta vers l'emplacement cible, infligeant 100 (+20 % d'attaque physique supplémentaire) dégâts physiques aux ennemis touchés et les étourdissant pendant 1 seconde. Alpha saute ensuite vers le même endroit, projetant les ennemis sur son chemin dans les airs et les transportant vers le lieu d'atterrissage. Alpha frappe ensuite, infligeant 250 (+100 % d'attaque physique supplémentaire) dégâts physiques et ralentissant les ennemis de 40 % pendant 1,5 seconde. Beta attaque ensuite la même zone 5 fois, infligeant à chaque fois 15 (+30 % d'attaque physique supplémentaire) de dégâts réels.",
       "cooldown": [
         20,
         18,
@@ -211,7 +211,7 @@
     },
     {
       "name": "Love Waves",
-      "description": "Angela envoie des vagues d'amour dans la direction cible, infligeant 170 (+80 % de puissance magique totale) dégâts magiques aux ennemis touchés, révélant brièvement leur position et appliquant une pile de Marque de l'Amant (jusqu'à 5 piles). Chaque pile de Lover's Mark augmente les dégâts de 20 % et ralentit les ennemis touchés de 8 % pendant 3 secondes. Love Waves restaure également 150 (+75% de puissance magique totale) PV aux héros alliés touchés. Angela peut stocker jusqu'à 5 charges de cette compétence, et le temps de charge est affecté par la réduction du temps de recharge. Lorsqu'elle est attachée à des alliés, le temps de recharge de cette compétence est réduit de 50 %.",
+      "description": "Angela envoie des vagues d'amour dans la direction cible, infligeant 170 (+80 % de puissance magique totale) dégâts magiques aux ennemis touchés, révélant brièvement leur position et appliquant un cumul de Marque de l'Amant (jusqu'à 5 cumuls). Chaque cumul de Lover's Mark augmente les dégâts de 20 % et ralentit les ennemis touchés de 8 % pendant 3 secondes. Love Waves restaure également 150 (+75% de puissance magique totale) PV aux héros alliés touchés. Angela peut stocker jusqu'à 5 charges de cette compétence, et le temps de charge est affecté par la réduction du temps de recharge. Lorsqu'elle est attachée à des alliés, le temps de recharge de cette compétence est réduit de 50 %.",
       "cooldown": [
         2
       ],
@@ -221,7 +221,7 @@
     },
     {
       "name": "Puppet-on-a-String",
-      "description": "Angela lance une chaîne de marionnettes sur l'ennemi ciblé (à l'exclusion des sbires), infligeant 300 (+40 % de puissance magique totale) dégâts magiques et le ralentissant progressivement jusqu'à 80 %. Si l'ennemi est toujours connecté à la corde après 3 secondes, il sera immobilisé pendant 1,5 seconde et subira 450 (+60 % de puissance magique totale) dégâts magiques. Chaque pile de Lover's Mark augmente les dégâts finaux de 20 %.",
+      "description": "Angela lance une chaîne de marionnettes sur l'ennemi ciblé (à l'exclusion des sbires), infligeant 300 (+40 % de puissance magique totale) dégâts magiques et le ralentissant progressivement jusqu'à 80 %. Si l'ennemi est toujours connecté à la corde après 3 secondes, il sera immobilisé pendant 1,5 seconde et subira 450 (+60 % de puissance magique totale) dégâts magiques. Chaque cumul de Lover's Mark augmente les dégâts finaux de 20 %.",
       "cooldown": [
         13
       ],
@@ -302,7 +302,7 @@
   "atlas": [
     {
       "name": "Frigid Breath",
-      "description": "Atlas génère un souffle glacial autour de lui pendant 4 secondes à chaque fois qu'il lance une compétence. Les ennemis affectés par Frigid Breath verront leur vitesse de déplacement progressivement réduite sur 2 secondes, après quoi ils seront gelés pendant 0,5 seconde. Atlas gagne 20 (+0,5% Extra Max PV) de défense hybride supplémentaire lorsque Frigid Breath est présent."
+      "description": "Atlas génère un souffle glacial autour de lui pendant 4 secondes à chaque fois qu'il lance une compétence. Les ennemis affectés par Frigid Breath verront leur vitesse de déplacement progressivement réduite sur 2 secondes, après quoi ils seront gelés pendant 0,5 seconde. Atlas gagne 20 (+0,5% PV max supplémentaires) de défense hybride supplémentaire lorsque Frigid Breath est présent."
     },
     {
       "name": "Annihilate",
@@ -338,11 +338,11 @@
   "aulus": [
     {
       "name": "Fighting Spirit",
-      "description": "Chaque fois qu'Aulus inflige des dégâts de compétence à une unité, il bénéficie d'une attaque de base améliorée pendant 2 secondes (plafonnée à 4 secondes). Attaque de base améliorée : Aulus lève sa hache et la frappe dans le sol, infligeant 120 (+12*niveau du héros) (+75 % de l'attaque physique totale) dégâts physiques aux ennemis en ligne et récupérant 15 (+20 % de l'attaque physique totale) PV. Les ennemis touchés sont ralentis de 10 % pendant 1 seconde. Aulus gagne également 0,5 portée d'attaque et 20 % de vitesse d'attaque pendant 1 seconde. L'attaque de base améliorée inflige 240 (+24*niveau de héros) (+75% de l'attaque physique totale) dégâts physiques aux creeps."
+      "description": "Chaque fois qu'Aulus inflige des dégâts de compétence à une unité, il bénéficie d'une attaque de base améliorée pendant 2 secondes (plafonnée à 4 secondes). Attaque de base améliorée : Aulus lève sa hache et la frappe dans le sol, infligeant 120 (+12*niveau du héros) (+75 % de l'attaque physique totale) dégâts physiques aux ennemis en ligne et récupérant 15 (+20 % de l'attaque physique totale) PV. Les ennemis touchés sont ralentis de 10 % pendant 1 seconde. Aulus gagne également 0,5 portée d'attaque et 20 % de vitesse d'attaque pendant 1 seconde. L'attaque de base améliorée inflige 240 (+24*niveau du héros) (+75% de l'attaque physique totale) dégâts physiques aux creeps."
     },
     {
       "name": "Aulus, Charge!",
-      "description": "Aulus commence à accumuler de l'Esprit combatif, supprime tous les effets de ralentissement et gagne 30 % de vitesse de déplacement supplémentaire pendant 5 secondes. Si Aulus ne subit pas d'effets de contrôle de haut niveau dans les 2 secondes, il entrera dans l'état Enragé et bénéficiera de l'immunité aux contrôles.",
+      "description": "Aulus commence à accumuler Fighting Spirit, supprime tous les effets de ralentissement et gagne 30 % de vitesse de déplacement supplémentaire pendant 5 secondes. Si Aulus ne subit pas d'effets de contrôle de haut niveau dans les 2 secondes, il entrera dans l'état Enragé et gagnera l'immunité aux contrôles.",
       "cooldown": [
         15
       ]
@@ -401,11 +401,11 @@
   "badang": [
     {
       "name": "Chivalry Fist",
-      "description": "Chaque fois que l'attaque de base de Badang touche une cible, il gagne une pile de Chivalry Fist. Après avoir gagné 4 charges, sa prochaine attaque de base inflige 50 (+30 % de l'attaque physique totale) dégâts physiques supplémentaires aux ennemis touchés et les repousse. Les ennemis projetés contre des obstacles seront étourdis pendant 0,6 seconde (les sbires et les Creeps sont directement étourdis). Fist Wind généré par les compétences de Badang déclenchera cet effet directement, et Fist Wind de son Ultimate augmente la durée d'étourdissement à 1 seconde."
+      "description": "Chaque fois que l'attaque de base de Badang touche une cible, il gagne un cumul de Chivalry Fist. Après avoir gagné 4 charges, sa prochaine attaque de base inflige 50 (+30 % de l'attaque physique totale) dégâts physiques supplémentaires aux ennemis touchés et les repousse. Les ennemis projetés contre des obstacles seront étourdis pendant 0,6 seconde (les sbires et les Creeps sont directement étourdis). Fist Wind généré par les compétences de Badang déclenchera cet effet directement, et Fist Wind de son ultime augmente la durée d'étourdissement à 1 seconde."
     },
     {
       "name": "Fist Wind",
-      "description": "Badang libère une rafale de vent de poing dans la direction ciblée, infligeant 125 (+90 % de l'attaque physique totale) dégâts physiques aux ennemis touchés, les ralentissant de 30 % pendant 1,5 seconde et les repoussant. Le Poing Vent explosera en heurtant un obstacle, infligeant 100 (+60 % de l'attaque physique totale) dégâts physiques aux ennemis proches. Fist Wind peut déclencher des effets d’attaque et confère à Badang 1 pile de Chivalry Fist au lancement. Badang stocke jusqu'à 2 charges de Fist Wind et restaure 1 charge toutes les 10,4 secondes.",
+      "description": "Badang libère une rafale de vent de poing dans la direction ciblée, infligeant 125 (+90 % de l'attaque physique totale) dégâts physiques aux ennemis touchés, les ralentissant de 30 % pendant 1,5 seconde et les repoussant. Le Poing Vent explosera en heurtant un obstacle, infligeant 100 (+60 % de l'attaque physique totale) dégâts physiques aux ennemis proches. Fist Wind peut déclencher des effets d’attaque et confère à Badang 1 cumul de Chivalry Fist au lancement. Badang stocke jusqu'à 2 charges de Fist Wind et restaure 1 charge toutes les 10,4 secondes.",
       "cooldown": [
         2
       ]
@@ -419,7 +419,7 @@
     },
     {
       "name": "Fist Crack",
-      "description": "Badang lance une rafale de coups de poing dans la direction ciblée, infligeant 60 (+54 % de l'attaque physique totale) dégâts physiques aux ennemis touchés plusieurs fois (peut déclencher des effets d'attaque). Le vent de poing généré par les coups de poing explosera lorsque vous heurterez un obstacle, infligeant 30 (+27 % de l'attaque physique totale) dégâts physiques aux ennemis proches. Badang est immunisé contre les effets de contrôle pendant toute la durée du sort.",
+      "description": "Badang lance une rafale de coups de poing dans la direction cible, infligeant 60 (+54% de l'attaque physique totale) dégâts physiques aux ennemis touchés plusieurs fois (peut déclencher des effets d'attaque). Le Fist Wind généré par les coups de poing explosera en heurtant un obstacle, infligeant 30 (+27% de l'attaque physique totale) dégâts physiques aux ennemis proches. Badang est immunisé contre les effets de contrôle pendant toute la durée.",
       "cooldown": [
         45
       ]
@@ -455,11 +455,11 @@
   "bane": [
     {
       "name": "Shark Bite",
-      "description": "Bane imprègne son arme d'une pile d'énergie de marée chaque fois qu'il utilise une compétence (jusqu'à 2 piles). Chacune de ses attaques de base suivantes consomme une charge pour infliger des dégâts physiques égaux à (+95 % de l'attaque physique totale) plus 4 (+0,4*niveau du héros) des PV maximum de la cible aux ennemis proches. (Pourcentage de dégâts infligés en fonction du plafond de dégâts PV maximum contre les Creeps : 200 (+20*niveau du héros). (voir Notes de mise à jour 1.7.82 Ajustement de l'équilibre))"
+      "description": "Bane imprègne son arme d'un cumul d'énergie de marée chaque fois qu'il utilise une compétence (jusqu'à 2 cumuls). Chacune de ses attaques de base suivantes consomme une charge pour infliger des dégâts physiques égaux à (+95 % de l'attaque physique totale) plus 4 (+0,4*niveau du héros) des PV maximum de la cible aux ennemis proches. (Pourcentage de dégâts infligés en fonction du plafond de dégâts PV maximum contre les Creeps : 200 (+20*niveau du héros). (voir Notes de mise à jour 1.7.82 Ajustement de l'équilibre))"
     },
     {
       "name": "Crab Claw Cannon",
-      "description": "Bane tire avec son canon à griffes de crabe dans la direction ciblée, infligeant 150 (+160 % de l'attaque physique totale) de dégâts physiques au premier ennemi touché, puis 150 % de dégâts à un ennemi aléatoire derrière lui (la priorité est donnée aux héros ennemis). Les ennemis touchés sont ralentis de 10 (+10 % de puissance magique totale) % pendant 1 s. Toutes les 100 attaques physiques que Bane possède réduit le temps de recharge de cette compétence de 8 % supplémentaires.",
+      "description": "Bane tire son Crab Claw Cannon dans la direction ciblée, infligeant 150 (+160 % de l'attaque physique totale) de dégâts physiques au premier ennemi touché, puis 150 % de dégâts à un ennemi aléatoire derrière lui (la priorité est aux héros ennemis). Les ennemis touchés sont ralentis de 10 (+10 % de puissance magique totale) % pendant 1 s. Tous les 100 points d'attaque physique que possède Bane réduisent le temps de recharge de cette compétence de 8 % supplémentaires.",
       "cooldown": [
         8
       ],
@@ -491,11 +491,11 @@
   "barats": [
     {
       "name": "Big Guy",
-      "description": "Detona gagne une charge de Big Guy pendant 12 secondes à chaque fois que lui ou Barats endommage un ennemi avec ses compétences (jusqu'à 10 charges). Chaque pile de Big Guy augmente la taille de Detona et confère 4 à 10 défenses hybrides supplémentaires (évoluant avec le niveau de bienvenue de Detona) et 5 % de résilience supplémentaire. Au maximum de cumuls, les attaques de base de Detona seront remplacées par Piétinement, qui inflige (+140 % de l'attaque physique totale) (+3,5 % des PV max) de dégâts physiques aux ennemis dans une zone circulaire, les ralentit de 40 % pendant 0,2 seconde et actualise la durée de Big Guy à chaque coup."
+      "description": "Detona gagne un cumul de Big Guy pendant 12 secondes à chaque fois qu'il ou Barats endommage un ennemi avec ses compétences (jusqu'à 10 cumuls). Chaque cumul de Big Guy augmente la taille de Detona et confère 4 à 10 défense hybride supplémentaire (évoluant avec le niveau de Detona's Welcome) et 5 % de résilience supplémentaire. Au maximum de cumuls, les attaques de base de Detona seront remplacées par Piétinement, qui inflige (+140 % de l'attaque physique totale) (+3,5 % des PV max) de dégâts physiques aux ennemis dans une zone circulaire, les ralentit de 40 % pendant 0,2 seconde et actualise la durée de Big Guy à chaque coup."
     },
     {
       "name": "So-Called Teamwork",
-      "description": "Detona crache de l'huile contaminée dans la direction cible, infligeant 60 (+7 % PV max) dégâts physiques aux ennemis dans une zone en forme d'éventail. Barats enflamme ensuite l'huile avec un pétard, infligeant 120 (+180 % de l'attaque physique totale) dégâts physiques aux ennemis dans la zone (seulement 50 % de dégâts aux Creeps). La zone d'effet du soi-disant travail d'équipe augmente avec le nombre de cumuls de Big Guy.",
+      "description": "Detona crache de l'huile contaminée dans la direction cible, infligeant 60 (+7 % PV max) dégâts physiques aux ennemis dans une zone en forme d'éventail. Barats enflamme ensuite l'huile avec un pétard, infligeant 120 (+180 % de l'attaque physique totale) dégâts physiques aux ennemis dans la zone (seulement 50 % de dégâts aux Creeps). La zone d'effet de So-Called Teamwork augmente avec le nombre de Big Guy cumulés.",
       "cooldown": [
         7
       ],
@@ -515,7 +515,7 @@
     },
     {
       "name": "Detona's Welcome",
-      "description": "Après un court délai, Detona charge dans la direction cible, infligeant 120 (+70 % de l'attaque physique totale) (+1,2 % des PV max) dégâts physiques au premier ennemi touché, le dévorant et le supprimant pendant 1,2 s, puis le recrache. Si la cible crachée touche un héros ennemi ou un mur, elle déclenche une explosion. La cible et les ennemis proches subissent 180 (+105 % de l'attaque physique totale) (+5 % des PV max) dégâts physiques supplémentaires et sont étourdis pendant 1 seconde. Pendant la compétence, Barats devient immunisé contre les effets de contrôle. Si le lancement est annulé ou si la compétence manque, 50 % du temps de recharge de la compétence est remboursé. Si Detona réussit à dévorer un ennemi, il gagne immédiatement le maximum de stacks de Big Guy.",
+      "description": "Après un court délai, Detona charge dans la direction cible, infligeant 120 (+70 % de l'attaque physique totale) (+1,2 % des PV max) dégâts physiques au premier ennemi touché, le dévorant et le supprimant pendant 1,2 s, puis le recrache. Si la cible crachée touche un héros ennemi ou un mur, elle déclenche une explosion. La cible et les ennemis proches subissent 180 (+105 % de l'attaque physique totale) (+5 % des PV max) dégâts physiques supplémentaires et sont étourdis pendant 1 seconde. Pendant la compétence, Barats devient immunisé contre les effets de contrôle. Si le lancement est annulé ou si la compétence manque, 50 % du temps de recharge de la compétence est remboursé. Si Detona réussit à dévorer un ennemi, il gagne immédiatement le maximum de cumuls de Big Guy.",
       "cooldown": [
         50
       ],
@@ -527,7 +527,7 @@
   "baxia": [
     {
       "name": "Baxia Mark",
-      "description": "Baxia active la « Marque Baxia » de manière permanente, réduisant les dégâts finaux reçus de 15 (+1*Niveau de Héros). Dans le même temps, Baxia réduira de 40% le Bouclier et la régénération de PV des ennemis touchés par ses compétences pendant 4s."
+      "description": "Baxia active le \"Baxia Mark\" de manière permanente, réduisant les dégâts finaux reçus de 15 (+1*Niveau du Héros). Dans le même temps, Baxia réduira le Bouclier et la Régénération de PV des ennemis touchés par ses compétences de 40% pendant 4s."
     },
     {
       "name": "Baxia-Shield Unity",
@@ -563,7 +563,7 @@
   "beatrix": [
     {
       "name": "Mechanical Genius",
-      "description": "Son talent extraordinaire dans le domaine de la mécanique a permis à Beatrix de produire 4 arme(s) d'une puissance de feu vraiment impressionnante. Attaque de base de Renner - Longshot : tirez un tir puissant dans la direction actuelle de l'ennemi, infligeant (+-535 % de 360 % de l'attaque physique totale) des dégâts physiques à la première cible touchée (ce tir peut être esquivé ou bloqué par d'autres. Inflige 50 % de dégâts aux creeps). Beatrix ne peut pas faire de critique et convertit chaque 1 % de chance de critique gagnée en 2 attaques physiques."
+      "description": "Son talent extraordinaire dans le domaine de la mécanique a permis à Beatrix de produire 4 armes d'une puissance de feu vraiment impressionnante. Attaque de base de Renner - Longshot : tirez un tir puissant dans la direction actuelle de l'ennemi, infligeant (+-535 % de 360 % de l'attaque physique totale) des dégâts physiques à la première cible touchée (ce tir peut être esquivé ou bloqué par d'autres. Inflige 50 % de dégâts aux creeps). Beatrix ne peut pas faire de critique et convertit chaque 1 % de chance de critique gagnée en 2 points d'attaque physique."
     },
     {
       "name": "Masterful Gunner",
@@ -669,7 +669,7 @@
   "brody": [
     {
       "name": "Abyss Corrosion",
-      "description": "Avec ses attaques de base en résonance avec le pouvoir des Abysses dans son corps, Brody est capable de se déplacer tout en terminant son attaque de base (qui sera interrompue lors du lancement des compétences), au prix d'une animation d'attaque de base plus longue et d'une vitesse d'attaque plus faible. Chaque attaque de base inflige (+140 % de l'attaque physique totale) (+45*niveau du héros) des dégâts physiques (dont les dégâts s'échelonnant avec le niveau ne peuvent pas être critiques), augmente la vitesse de déplacement de 30 % (qui diminuera rapidement en 1,2 seconde) et inflige 1 charge de marque des Abysses à l'ennemi, plafonnée à 4 charges. [Les marques appliquées durent 8 secondes.] Chaque pile de Marque des Abysses augmente les dégâts de Brody contre la cible de 5 % et sa vitesse de déplacement de 5 %."
+      "description": "Avec ses attaques de base en résonance avec le pouvoir des Abysses dans son corps, Brody est capable de se déplacer tout en terminant son attaque de base (qui sera interrompue lors du lancement des compétences), au prix d'une animation d'attaque de base plus longue et d'une vitesse d'attaque plus faible. Chaque attaque de base inflige (+140 % de l'attaque physique totale) (+45*niveau du héros) des dégâts physiques (dont les dégâts s'échelonnant avec le niveau ne peuvent pas être critiques), augmente la vitesse de déplacement de 30 % (qui diminuera rapidement en 1,2 seconde) et inflige 1 charge de marque des Abysses à l'ennemi, plafonnée à 4 charges. [Les marques appliquées durent 8 secondes.] Chaque cumul de Marque des Abysses augmente les dégâts de Brody contre la cible de 5 % et sa vitesse de déplacement de 5 %."
     },
     {
       "name": "Abyss Impact",
@@ -741,11 +741,11 @@
   "carmilla": [
     {
       "name": "Vampire Pact",
-      "description": "Chaque fois que Carmilla inflige des dégâts à un héros ennemi, elle lui vole 6 à 13 défenses hybrides (évoluées en fonction du niveau). La Défense Hybride volée peut se cumuler jusqu'à 5 fois et dure 5 secondes. Cependant, Carmilla ne peut voler la défense du même héros ennemi qu'une fois toutes les 3 secondes."
+      "description": "Chaque fois que Carmilla inflige des dégâts à un héros ennemi, elle lui vole 6 à 13 points de défense hybride (évoluées en fonction du niveau). La Défense Hybride volée peut se cumuler jusqu'à 5 fois et dure 5 secondes. Cependant, Carmilla ne peut voler la défense du même héros ennemi qu'une fois toutes les 3 secondes."
     },
     {
       "name": "Crimson Flower",
-      "description": "Carmilla invoque trois fleurs pourpres qui tournent autour d'elle pendant 5 secondes, infligeant 85 (+30 % de puissance magique totale) dégâts magiques à chaque fois qu'elles touchent un ennemi et le ralentissant de 6 % pendant 0,8 seconde (l'effet de ralentissement se cumule jusqu'à 30 %). Carmilla récupère 45 (+21% de puissance magique totale) PV chaque fois qu'une fleur cramoisie inflige des dégâts (ne récupère que 30% de ce montant lorsqu'elle frappe des sbires).",
+      "description": "Carmilla invoque trois fleurs pourpres qui tournent autour d'elle pendant 5 s, infligeant 85 (+ 30 % de puissance magique totale) dégâts magiques à chaque fois qu'elles touchent un ennemi et le ralentissant de 6 % pendant 0,8 s (l'effet de ralentissement se cumule jusqu'à 30 %). Carmilla récupère 45 (+21% de puissance magique totale) PV à chaque fois qu'un Crimson Flower inflige des dégâts (ne récupère que 30% de ce montant lorsqu'il frappe des sbires).",
       "cooldown": [
         9
       ],
@@ -765,7 +765,7 @@
     },
     {
       "name": "Curse of Blood",
-      "description": "Carmilla lance Malédiction du sang sur l'emplacement cible, ralentissant les ennemis touchés de 50 %. Après 0,8 s, les ennemis toujours dans la zone subiront 450 (+130 % de puissance magique totale) dégâts magiques et seront immobilisés pendant 1 s, ralentis de 30 % et liés pendant 5 s. Lorsqu'un ennemi lié subit des dégâts ou devient contrôlé, toutes les autres cibles liées subissent 50 % des dégâts et deviennent contrôlées pendant 100 % de la durée. Les ennemis peuvent s'éloigner les uns des autres pour rompre le lien.",
+      "description": "Carmilla lance Curse of Blood sur l'emplacement cible, ralentissant les ennemis touchés de 50%. Après 0,8 s, les ennemis toujours dans la zone subiront 450 (+130 % de puissance magique totale) dégâts magiques et seront immobilisés pendant 1 s, ralentis de 30 % et liés pendant 5 s. Lorsqu'un ennemi lié subit des dégâts ou devient contrôlé, toutes les autres cibles liées subissent 50 % des dégâts et deviennent contrôlées pendant 100 % de la durée. Les ennemis peuvent s'éloigner les uns des autres pour rompre le lien.",
       "cooldown": [
         60
       ],
@@ -777,7 +777,7 @@
   "cecilion": [
     {
       "name": "Overflowing",
-      "description": "Cecilion gagne 10 Max Mana supplémentaires et récupère 10 Mana chaque fois que sa compétence touche un ennemi. Temps de recharge : 1 s. Cecilion a un Max Mana et une Mana Regen plus élevés, et ses dégâts de compétence augmentent avec son Max Mana.",
+      "description": "Cecilion gagne 10 mana max supplémentaires et récupère 10 mana chaque fois que sa compétence touche un ennemi. Temps de recharge : 1 s. Cecilion a un mana max et une régénération de mana plus élevés, et ses dégâts de compétence augmentent avec son mana max.",
       "cooldown": [
         1
       ]
@@ -820,7 +820,7 @@
     },
     {
       "name": "Starmoon Shockwave",
-      "description": "Chang'e envoie une sphère d'énergie dans la direction cible, infligeant 350 (+130 % de puissance magique totale) dégâts magiques aux ennemis sur son passage et les ralentissant de 10 % pendant 1,5 s. Croissant de Lune : Le Croissant de Lune envoie 4 sphères d'énergie supplémentaires avec celles de Chang'e, chacune infligeant 20 % de dégâts et ralentissant les ennemis touchés. L'effet de ralentissement peut se cumuler (jusqu'à 20 %).",
+      "description": "Chang'e envoie une sphère d'énergie dans la direction cible, infligeant 350 (+130 % de puissance magique totale) dégâts magiques aux ennemis sur son passage et les ralentissant de 10 % pendant 1,5 s. Crescent Moon : Le Crescent Moon envoie 4 sphères d'énergie supplémentaires ainsi que les Chang'e, chacune infligeant 20 % de dégâts et ralentissant les ennemis touchés. L'effet de ralentissement peut se cumuler (jusqu'à 20 %).",
       "cooldown": [
         7
       ],
@@ -830,7 +830,7 @@
     },
     {
       "name": "Crescent Moon",
-      "description": "Chang'e invoque le Croissant de Lune, gagnant un bouclier permanent de 300 (+150 % de puissance magique totale) et une vitesse de déplacement de 10 % jusqu'à ce que le bouclier soit brisé. Chaque fois qu'elle lance une compétence, elle gagne 50 % de vitesse de déplacement supplémentaire qui diminue en 2,5 secondes. Croissant de Lune : améliore ses attaques de base pour infliger 20 (+35 % de puissance magique totale) dégâts magiques supplémentaires 2 fois. Chaque fois que Chang'e inflige des dégâts magiques avec ses attaques de base ou ses compétences, le temps de recharge de cette compétence est réduit de 0,2 seconde.",
+      "description": "Chang'e invoque le Crescent Moon, gagnant un bouclier permanent de 300 (+150 % de puissance magique totale) et une vitesse de déplacement de 10 % jusqu'à ce que le bouclier soit brisé. Chaque fois qu'elle lance une compétence, elle gagne 50 % de vitesse de déplacement supplémentaire qui diminue en 2,5 secondes. Crescent Moon : Améliore ses attaques de base pour infliger 20 (+35 % de puissance magique totale) dégâts magiques supplémentaires 2 fois. Chaque fois que Chang'e inflige des dégâts magiques avec ses attaques de base ou ses compétences, le temps de recharge de cette compétence est réduit de 0,2 seconde.",
       "cooldown": [
         12
       ],
@@ -840,7 +840,7 @@
     },
     {
       "name": "Meteor Shower",
-      "description": "Chang'e gagne 10 % de vitesse de déplacement pendant 4 secondes. Pendant ce temps, elle tire 30 météores dans la direction cible, chacun infligeant 60 (+21 % de puissance magique totale) dégâts magiques au premier ennemi touché. Cette compétence inflige 100 % de dégâts supplémentaires aux sbires et aux creeps. Croissant de Lune : tire des météores aux côtés de Chang'e, chacun infligeant 33 % de dégâts.",
+      "description": "Chang'e gagne 10% de vitesse de déplacement pendant 4s. Pendant ce temps, elle tire 30 météores dans la direction cible, chacun infligeant 60 (+21 % de puissance magique totale) dégâts magiques au premier ennemi touché. Cette compétence inflige 100 % de dégâts supplémentaires aux sbires et aux creeps. Crescent Moon : tire des météores aux côtés de Chang'e, chacun infligeant 33 % de dégâts.",
       "cooldown": [
         24
       ],
@@ -888,11 +888,11 @@
   "chou": [
     {
       "name": "Only Fast",
-      "description": "Après avoir parcouru 5 unités, Chou inflige 180 % de dégâts lors de sa prochaine attaque de base (ne peut pas critiquer), ralentit brièvement la cible de 90 % et réduit sa défense physique de 10 (+1*niveau de héros) pendant 3 secondes (jusqu'à 2 charges)."
+      "description": "Après avoir parcouru 5 unités, Chou inflige 180 % de dégâts lors de sa prochaine attaque de base (ne peut pas critiquer), ralentit brièvement la cible de 90 % et réduit sa défense physique de 10 (+1*niveau du héros) pendant 3 secondes (jusqu'à 2 charges)."
     },
     {
       "name": "Jeet Kune Do",
-      "description": "Chou frappe dans la direction ciblée, infligeant 180 (+70 % de l'attaque physique totale) dégâts physiques aux ennemis touchés. Cette compétence peut être lancée 3 fois avant son temps de recharge. Au 3ème lancer, Chou projette également les ennemis touchés en l'air. Frapper un héros ennemi avec le 3ème lancer réinitialise le temps de recharge de Shunpo.",
+      "description": "Chou frappe dans la direction ciblée, infligeant 180 (+70 % de l'attaque physique totale) dégâts physiques aux ennemis touchés. Cette compétence peut être lancée 3 fois avant son temps de recharge. Au 3e lancer, Chou projette également les ennemis touchés en l'air. Frapper un héros ennemi avec le 3e lancer réinitialise le temps de recharge de Shunpo.",
       "cooldown": [
         9.5
       ]
@@ -915,7 +915,7 @@
   "cici": [
     {
       "name": "Performer's Delight",
-      "description": "Cici génère une pile de Délice après avoir infligé des dégâts, augmentant sa vitesse de déplacement de 0,75 % et son sort Vamp de 1,25 % par pile jusqu'à 10 fois, doublant les effets à pleine charge."
+      "description": "Cici génère un cumul de Délice après avoir infligé des dégâts, augmentant sa vitesse de déplacement de 0,75 % et son vampirisme des sorts de 1,25 % par cumul jusqu'à 10 fois, doublant les effets à pleine charge."
     },
     {
       "name": "Yo-Yo Blitz",
@@ -966,7 +966,7 @@
     },
     {
       "name": "Blazing Duet",
-      "description": "Claude et Dexter tirent rapidement sur les ennemis proches pendant 3 secondes, infligeant 40 (+40 % de l'attaque physique totale) dégâts physiques à un maximum de deux ennemis à chaque tir (compte comme dégâts d'attaque de base). Claude gagne également un bouclier de 20 (+3% de l'attaque physique totale) à chaque fois que l'Ultime inflige des dégâts à un ennemi.",
+      "description": "Claude et Dexter tirent rapidement sur les ennemis proches pendant 3 secondes, infligeant 40 (+40 % de l'attaque physique totale) dégâts physiques à un maximum de deux ennemis à chaque tir (compte comme dégâts d'attaque de base). Claude gagne également un bouclier de 20 (+3% de l'attaque physique totale) à chaque fois que l'ultime inflige des dégâts à un ennemi.",
       "cooldown": [
         50
       ],
@@ -1014,11 +1014,11 @@
   "cyclops": [
     {
       "name": "Starlit Hourglass",
-      "description": "Chaque fois que Cyclope frappe un ennemi avec ses compétences, tous les temps de recharge de ses compétences sont réduits de 0,5 seconde."
+      "description": "Chaque fois que Cyclops touche un ennemi avec ses compétences, tous les temps de recharge de ses compétences sont réduits de 0,5 seconde."
     },
     {
       "name": "Stardust Shock",
-      "description": "Cyclope lance deux disques Stardust dans la direction cible, chacun infligeant 240 (+60 % de puissance magique totale) dégâts magiques aux ennemis sur son passage.",
+      "description": "Cyclops lance deux disques Stardust dans la direction cible, chacun infligeant 240 (+60% de puissance magique totale) dégâts magiques aux ennemis sur son passage.",
       "cooldown": [
         7.5
       ],
@@ -1028,7 +1028,7 @@
     },
     {
       "name": "Planets Attack",
-      "description": "Cyclope invoque des sphères étoilées autour de lui, gagnant 50 % de vitesse de déplacement qui diminue en 2 secondes. Les sphères étoilées recherchent et attaquent automatiquement les ennemis proches (en donnant la priorité aux héros ennemis) et explosent au contact pour infliger 200 (+65 % de puissance magique totale) dégâts magiques. Les coups ultérieurs sur la même cible infligent des dégâts réduits.",
+      "description": "Cyclops évoque des sphères étoilées autour de lui, gagnant 50 % de vitesse de déplacement qui diminue en 2 secondes. Les sphères étoilées recherchent et attaquent automatiquement les ennemis proches (en donnant la priorité aux héros ennemis) et explosent au contact pour infliger 200 (+65 % de puissance magique totale) dégâts magiques. Les coups ultérieurs sur la même cible infligent des dégâts réduits.",
       "cooldown": [
         14
       ],
@@ -1038,7 +1038,7 @@
     },
     {
       "name": "Star Power Lockdown",
-      "description": "Cyclope crée une sphère planétaire qui suit le héros ou le creep ennemi ciblé, infligeant 500 (+120 % de puissance magique totale) dégâts magiques et l'immobilisant pendant 0,75 à 1,5 s (s'adapte à la distance de déplacement de la sphère planétaire).",
+      "description": "Cyclops crée une sphère planétaire qui suit le héros ou le creep ennemi ciblé, infligeant 500 (+120 % de puissance magique totale) dégâts magiques et l'immobilisant pendant 0,75 à 1,5 s (évolue en fonction de la distance de déplacement de la sphère planétaire).",
       "cooldown": [
         26
       ],
@@ -1176,11 +1176,11 @@
   "estes": [
     {
       "name": "Scripture of the Moon Elf",
-      "description": "Les Écritures de l’Elfe de la Lune chargent progressivement de l’énergie dans Estes. Lorsqu'elle atteint 100 charges, la prochaine attaque de base d'Estes est améliorée, infligeant 250 (+100 % de l'attaque physique totale) (+150 % de la puissance magique totale) dégâts magiques à la cible. L'attaque améliorée rebondit également sur les ennemis proches, infligeant 125 (+50 % de l'attaque physique totale) (+75 % de la puissance magique totale) dégâts magiques aux ennemis proches et les ralentissant de 60 % pendant 1,5 seconde."
+      "description": "Scripture of the Moon Elf charge progressivement l'énergie dans Estes. Après avoir atteint 100 charges, la prochaine attaque de base de Estes est améliorée, infligeant 250 (+100% de l'attaque physique totale) (+150% de la puissance magique totale) dégâts magiques à la cible. L'attaque améliorée rebondit également sur les ennemis proches, infligeant 125 (+50 % de l'attaque physique totale) (+75 % de la puissance magique totale) dégâts magiques aux ennemis proches et les ralentissant de 60 % pendant 1,5 seconde."
     },
     {
       "name": "Moonlight Immersion",
-      "description": "Estes récupère immédiatement 200 (+110 % de puissance magique totale) PV du héros allié ciblé et se lie avec lui pendant 5 secondes. Lorsqu'ils sont liés, les deux héros gagnent 15 (+10 % de puissance magique totale) de défense hybride et la cible récupère lentement 360 (+90 % de puissance magique totale) PV. Le lien augmente la vitesse de déplacement d'Estes de 15 % et le taux de charge énergétique des Écritures de l'Elfe de la Lune. Le lien se rompt si Estes s'éloigne trop de la cible.",
+      "description": "Estes récupère immédiatement 200 (+110% de puissance magique totale) PV du héros allié ciblé et se lie avec lui pendant 5 secondes. Lorsqu'ils sont liés, les deux héros gagnent 15 (+10 % de puissance magique totale) de défense hybride et la cible récupère lentement 360 (+90 % de puissance magique totale) PV. Le lien augmente la vitesse de déplacement du Estes de 15 % et le taux de charge énergétique du Scripture of the Moon Elf. Le lien se rompt si Estes s'éloigne trop de la cible.",
       "cooldown": [
         11
       ],
@@ -1190,7 +1190,7 @@
     },
     {
       "name": "Domain of Moon Goddess",
-      "description": "Estes invoque un flot de clair de lune sur la zone cible, infligeant 350 (+70 % de puissance magique totale) dégâts magiques aux unités ennemies qui s'y trouvent. La zone devient alors un domaine de la déesse de la lune, révélant les ennemis qui s'y trouvent. Les ennemis qui touchent les limites du domaine sont ralentis de 90 % pendant 1,5 seconde. L’effet lent s’atténue avec le temps.",
+      "description": "Estes invoque un flot de clair de lune sur la zone cible, infligeant 350 (+70% de puissance magique totale) dégâts magiques aux unités ennemies qui s'y trouvent. La zone devient alors un Domain of Moon Goddess, révélant les ennemis à l'intérieur. Les ennemis qui touchent les limites du domaine sont ralentis de 90 % pendant 1,5 seconde. L’effet de ralentissement s’atténue avec le temps.",
       "cooldown": [
         12
       ],
@@ -1200,7 +1200,7 @@
     },
     {
       "name": "Blessing of Moon Goddess",
-      "description": "Estes lance une immersion au clair de lune améliorée sur lui-même et sur tous les héros alliés à proximité, rafraîchissant l'immersion au clair de lune sur eux et l'améliorant pendant 8 secondes. Immersion améliorée au clair de lune : double l'augmentation des soins de base instantanés et de la défense hybride, et soigne la cible de 1 020 (+225 % de la puissance magique totale) PV au fil du temps.",
+      "description": "Estes lance un Moonlight Immersion amélioré sur lui-même et sur tous les héros alliés à proximité, rafraîchissant Moonlight Immersion sur eux et l'améliorant pendant 8 secondes. Amélioré Moonlight Immersion : double l'augmentation des soins de base instantanés et de la défense hybride, et soigne la cible de 1 020 (+225 % de la puissance magique totale) PV au fil du temps.",
       "cooldown": [
         55
       ],
@@ -1216,7 +1216,7 @@
     },
     {
       "name": "Forked Lightning",
-      "description": "Eudora lance un éclair fourchu dans une zone en forme d'éventail, infligeant 275 (+100 % de puissance magique totale) dégâts magiques (augmentés à 200 % contre les sbires) aux ennemis à l'intérieur. Lorsqu'elle touche des cibles affectées par Supraconducteur, Eudora forme une chaîne de foudre avec la cible, gagnant 40 % de vitesse de déplacement pendant la chaîne pendant 1 seconde maximum. La chaîne de foudre inflige 10 (+4 % de puissance magique totale) dégâts magiques au fil du temps et 275 (+100 % de puissance magique totale) dégâts magiques lorsqu'elle se termine. Si ce coup réussit, cela réduit le temps de recharge de cette compétence de 50 %.",
+      "description": "Eudora lance Forked Lightning dans une zone en forme d'éventail, infligeant 275 (+100 % de puissance magique totale) dégâts magiques (augmentés à 200 % contre les sbires) aux ennemis à l'intérieur. Lorsqu'il touche des cibles affectées par Supraconducteur, Eudora forme une chaîne de foudre avec la cible, gagnant 40 % de vitesse de déplacement pendant la chaîne pendant 1 seconde maximum. La chaîne de foudre inflige 10 (+4 % de puissance magique totale) dégâts magiques au fil du temps et 275 (+100 % de puissance magique totale) dégâts magiques lorsqu'elle se termine. Si ce coup réussit, cela réduit le temps de recharge de cette compétence de 50 %.",
       "cooldown": [
         5
       ],
@@ -1248,7 +1248,7 @@
   "fanny": [
     {
       "name": "Air Superiority",
-      "description": "En vol, Fanny inflige 10 à 20 % de dégâts supplémentaires aux ennemis touchés en fonction de sa vitesse de vol et applique 1 charge de Prey Mark à chaque coup (jusqu'à 2 charges). Ses compétences ultérieures sur les héros ennemis marqués restaurent 8 énergies par pile. La restauration d'énergie est réduite lorsque plusieurs héros ennemis sont touchés sur une courte période."
+      "description": "En vol, Fanny inflige 10 à 20 % de dégâts supplémentaires aux ennemis touchés en fonction de sa vitesse de vol et applique 1 charge de Prey Mark à chaque coup (jusqu'à 2 charges). Ses compétences ultérieures sur les héros ennemis marqués restaurent 8 énergies par cumul. La restauration d'énergie est réduite lorsque plusieurs héros ennemis sont touchés sur une courte période."
     },
     {
       "name": "Tornado Strike",
@@ -1272,7 +1272,7 @@
     },
     {
       "name": "Cut Throat",
-      "description": "Fanny saute sur le héros ennemi ciblé ou sur Creep avec ses lames, infligeant 400 (+200 % d'attaque physique supplémentaire) dégâts physiques. Chaque pile de Prey Mark sur la cible augmente ces dégâts de 30%.",
+      "description": "Fanny saute sur le héros ennemi ciblé ou sur Creep avec ses lames, infligeant 400 (+200 % d'attaque physique supplémentaire) dégâts physiques. Chaque cumul de Prey Mark sur la cible augmente ces dégâts de 30%.",
       "cooldown": [
         35
       ],
@@ -1308,7 +1308,7 @@
     },
     {
       "name": "Nether Realm",
-      "description": "Faramis transforme son environnement en Royaume du Néant pendant 6 secondes. Les héros alliés (y compris lui-même) entrent dans l'état Spectre, gagnant 400 (+ 10 (+5% puissance magique totale) %) PV supplémentaires et 50 % de vitesse de déplacement supplémentaire pendant 1 seconde. Lorsque l'état Spectre se brise, les héros à l'intérieur suppriment tous les affaiblissements et entrent dans un bref état de résurrection pendant 1,3 seconde. L'état Spectre prend immédiatement fin si le héros allié quitte le Royaume du Nether.",
+      "description": "Faramis transforme son environnement en Nether Realm pendant 6s. Les héros alliés (y compris lui-même) entrent dans l'état Spectre, gagnant 400 (+ 10 (+5% puissance magique totale) %) PV supplémentaires et 50 % de vitesse de déplacement supplémentaire pendant 1 seconde. Lorsque l'état Spectre se brise, les héros à l'intérieur suppriment tous les affaiblissements et entrent dans un bref état de résurrection pendant 1,3 seconde. L'état Spectre prend immédiatement fin si le héros allié quitte le Nether Realm.",
       "cooldown": [
         90
       ],
@@ -1320,7 +1320,7 @@
   "floryn": [
     {
       "name": "Dew",
-      "description": "La Lanterne de rosée augmentera de manière permanente les attributs de Floryn d'une petite quantité. Après avoir quitté le combat pendant 5 secondes, Floryn peut partager la Fleur de l'espoir avec un héros allié (temps de recharge de 30 secondes), ce qui lui accordera un bouclier de 100 (+70 % de puissance magique totale) à chaque fois qu'il sera soigné par Floryn. Floryn ne vendra jamais la Lanterne."
+      "description": "La Lanterne de rosée augmentera de manière permanente les attributs de Floryn d'une petite quantité. Après avoir quitté le combat pendant 5 secondes, Floryn peut partager le Flower of Hope avec un héros allié (temps de recharge de 30 secondes), ce qui lui accordera un bouclier de 100 (+70 % de puissance magique totale) à chaque fois qu'il sera soigné par Floryn. Floryn ne vendra jamais la Lanterne."
     },
     {
       "name": "Sow",
@@ -1410,13 +1410,13 @@
     },
     {
       "name": "Energy Eruption",
-      "description": "Fredrinn inflige 210 (+100 % d'attaque physique supplémentaire) dégâts physiques aux ennemis proches et les nargue pendant 1 seconde. Frapper un ennemi non-sbire confère à Fredrinn 25 pendant 3 secondes et réduit les temps de recharge de Frappe perçante et Assaut courageux de 75 %. Cette compétence coûte 1 point de combo."
+      "description": "Fredrinn inflige 210 (+100 % d'attaque physique supplémentaire) dégâts physiques aux ennemis proches et les nargue pendant 1 seconde. Frapper un ennemi non-sbire confère Fredrinn 25 pendant 3 secondes et réduit les temps de recharge de Piercing Strike et Brave Assault de 75 %. Cette compétence coûte 1 point de combo."
     }
   ],
   "freya": [
     {
       "name": "Power of Einherjar",
-      "description": "Freya gagne 1 pile(s) d'Orbe sacré à chaque attaque de base (jusqu'à 6 piles). Consommer 1 pile(s) d'Orbe sacré confère à Freya une vitesse d'attaque de 100 % pour sa prochaine attaque de base et récupère 20 (+3*niveau du héros) (+20 % de l'attaque physique totale) PV (jusqu'à 6 piles). En dehors du combat, les cumuls d'orbes sacrés sont progressivement restaurés."
+      "description": "Freya gagne 1 cumul d'Orbe sacré à chaque attaque de base (jusqu'à 6 cumuls). Consommer 1 cumul d'Orbe sacré confère à Freya une vitesse d'attaque de 100 % pour sa prochaine attaque de base et récupère 20 (+3*niveau du héros) (+20 % de l'attaque physique totale) PV (jusqu'à 6 cumuls). En dehors du combat, les cumuls d'orbes sacrés sont progressivement restaurés."
     },
     {
       "name": "Leap of Faith",
@@ -1496,7 +1496,7 @@
     },
     {
       "name": "Grab, Grab",
-      "description": "Débloqué lorsqu'un héros ennemi atteint le nombre maximum de stacks Sticky. Gloo s'attache à la cible pendant 9 secondes maximum, récupérant 20 % de ses PV. Lorsqu'elles sont attachées, les attaques de base de Gloo infligent 30 (+50 % de puissance magique totale) (+6 % de PV max supplémentaire) dégâts magiques, et transfèrent 60 % des dégâts qu'elles subissent (hors dégâts de tourelle) à l'hôte. Si l'hôte meurt alors que Gloo est attaché, le temps de recharge de cette compétence est réduit à 5 secondes.",
+      "description": "Débloqué lorsqu'un héros ennemi atteint le nombre maximum de cumuls Sticky. Gloo s'attache à la cible pendant 9 secondes maximum, récupérant 20 % de ses PV. Lorsqu'elles sont attachées, les attaques de base de Gloo infligent 30 (+50 % de puissance magique totale) (+6 % de PV max supplémentaire) dégâts magiques, et transfèrent 60 % des dégâts qu'elles subissent (hors dégâts de tourelle) à l'hôte. Si l'hôte meurt alors que Gloo est attaché, le temps de recharge de cette compétence est réduit à 5 secondes.",
       "cooldown": [
         50
       ],
@@ -1508,7 +1508,7 @@
   "gord": [
     {
       "name": "Mystic Favor",
-      "description": "Après que Gord ait touché la même cible 4 fois avec des compétences successives, sa prochaine compétence inflige 120 (+8*niveau du héros) (+40% de puissance magique totale) de vrais dégâts supplémentaires et les ralentit de 20% pendant 1 s (l'effet de ralentissement se cumule jusqu'à 2 fois)."
+      "description": "Après que Gord ait touché la même cible 4 fois avec des compétences successives, sa prochaine compétence inflige 120 (+8*niveau du héros) (+40% de puissance magique totale) de dégâts réels supplémentaires et les ralentit de 20% pendant 1 s (l'effet de ralentissement se cumule jusqu'à 2 fois)."
     },
     {
       "name": "Mystic Projectile",
@@ -1544,7 +1544,7 @@
   "granger": [
     {
       "name": "Capriccio",
-      "description": "Le pistolet et le canon de chasse aux démons uniques de Granger sont alimentés par l'énergie démoniaque. Ses deux armes démarrent avec 800 énergie max. Son arme restaure 8 % d'énergie par seconde tandis que son canon restaure 2 % d'énergie par seconde. Tuer un Sbire/Creep augmente de façon permanente leur énergie maximale de 6 / 6 et restaure instantanément leur énergie de 5 %/5 %, respectivement. Chaque meurtre ou assistance sur un héros ennemi augmente de manière permanente l'énergie maximale des deux armes de 12 et restaure instantanément 10 % d'énergie. Chaque réduction de 1 % du temps de recharge est convertie en 2 attaques physiques. Les coûts d’énergie démoniaque ne sont pas affectés par la réduction des coûts énergétiques."
+      "description": "Le pistolet et le canon de chasse aux démons uniques de Granger sont alimentés par l'énergie démoniaque. Ses deux armes démarrent avec 800 énergie max. Son arme restaure 8 % d'énergie par seconde tandis que son canon restaure 2 % d'énergie par seconde. Tuer un Sbire/Creep augmente de façon permanente leur énergie maximale de 6 / 6 et restaure instantanément leur énergie de 5 %/5 %, respectivement. Chaque meurtre ou assistance sur un héros ennemi augmente de manière permanente l'énergie maximale des deux armes de 12 et restaure instantanément 10 % d'énergie. Chaque réduction de 1 % du temps de recharge est convertie en 2 points d'attaque physique. Les coûts d’énergie démoniaque ne sont pas affectés par la réduction des coûts énergétiques."
     },
     {
       "name": "Rhapsody",
@@ -1574,11 +1574,11 @@
   "grock": [
     {
       "name": "Bastion of Stone",
-      "description": "Grock gagne un bouclier égal à 14 % des PV et permet à la prochaine attaque de base d'infliger 4 (+2 % de défense physique totale) % des dégâts physiques des PV de la cible (plafonnés à 300 (+20*niveau de héros) contre les unités non-héros). Temps de recharge : 18 s à 12 s (diminue avec le niveau). Ce temps de recharge est réduit de 200 % à proximité du terrain. Les compétences de Grock ne peuvent pas être interrompues et il gagne 30 (+6*niveau du héros) % de défense physique supplémentaire lorsque le bouclier est actif."
+      "description": "Grock gagne un bouclier égal à 14 % des PV et permet à la prochaine attaque de base d'infliger 4 (+2 % de défense physique totale) % des dégâts physiques des PV de la cible (plafonnés à 300 (+20*niveau du héros) contre les unités non-héros). Temps de recharge : 18 s à 12 s (diminue avec le niveau). Ce temps de recharge est réduit de 200 % à proximité du terrain. Les compétences de Grock ne peuvent pas être interrompues et il gagne 30 (+6*niveau du héros) % de défense physique supplémentaire lorsque le bouclier est actif."
     },
     {
       "name": "Mighty Swing",
-      "description": "Grock attaque avec une force massive, infligeant 240 (+100 % d'attaque physique supplémentaire) dégâts physiques. Les ennemis avec des obstacles derrière eux sont repoussés contre l'obstacle, projetés dans les airs et subissent 4 (+2 % de défense physique totale) % de dégâts physiques supplémentaires (plafonnés à 300 (+20*niveau de héros) contre les unités non-héros). S’il n’y a aucun obstacle derrière, les ennemis ne sont que légèrement repoussés.",
+      "description": "Grock attaque avec une force massive, infligeant 240 (+100 % d'attaque physique supplémentaire) dégâts physiques. Les ennemis avec des obstacles derrière eux sont repoussés contre l'obstacle, projetés dans les airs et subissent 4 (+2 % de défense physique totale) % de dégâts physiques supplémentaires (plafonnés à 300 (+20*niveau du héros) contre les unités non-héros). S’il n’y a aucun obstacle derrière, les ennemis ne sont que légèrement repoussés.",
       "cooldown": [
         8
       ]
@@ -1601,25 +1601,25 @@
   "guinevere": [
     {
       "name": "Super Magic",
-      "description": "Guenièvre inflige 25 % de dégâts supplémentaires aux ennemis aériens et inflige (+80 % d'attaque physique totale) (+60 % de puissance magique totale) des dégâts magiques avec ses attaques de base. Guenièvre accumule de la Super Magie à chaque fois qu'elle inflige des dégâts et lorsqu'elle est complètement chargée, sa prochaine attaque de base devient guidée, infligeant 80 (+100 % de l'attaque physique totale) (+90 % de la puissance magique totale) dégâts magiques à l'impact et restaurant 80 (+8 % des PV perdus de Guenièvre). Les ennemis touchés par l'attaque de base améliorée, la vague d'énergie ou la migration spatiale de Guenièvre sont marqués pendant 5 secondes. Ceux qui ont 3 marques seront projetés dans les airs lorsqu'ils seront touchés par son Violet Requiem."
+      "description": "Guinevere inflige 25 % de dégâts supplémentaires aux ennemis aériens et inflige (+80 % d'attaque physique totale) (+60 % de puissance magique totale) des dégâts magiques avec ses attaques de base. Guinevere accumule Super Magic à chaque fois qu'elle inflige des dégâts et lorsqu'elle est complètement chargée, sa prochaine attaque de base devient guidée, infligeant 80 (+100% de l'attaque physique totale) (+90% de la puissance magique totale) dégâts magiques à l'impact et restaurant 80 (+8% des PV perdus de Guinevere) PV. Les ennemis touchés par l'attaque de base améliorée de Guinevere, Energy Wave ou Spatial Migration sont marqués pendant 5 secondes. Ceux avec 3 marques seront projetés dans les airs lorsqu'ils seront touchés par son Violet Requiem."
     },
     {
       "name": "Energy Wave",
-      "description": "Guenièvre libère un orbe d'énergie dans la direction ciblée, infligeant 300 (+125 % de puissance magique totale) dégâts magiques et ralentissant les ennemis de 25 % pendant 1,2 s. Frapper avec succès un ennemi réduit tous les temps de recharge de ses compétences de 1 seconde.",
+      "description": "Guinevere libère un orbe d'énergie dans la direction cible, infligeant 300 (+125 % de puissance magique totale) dégâts magiques et ralentissant les ennemis de 25 % pendant 1,2 s. Frapper avec succès un ennemi réduit tous les temps de recharge de ses compétences de 1 seconde.",
       "cooldown": [
         4
       ]
     },
     {
       "name": "Spatial Migration",
-      "description": "Guenièvre saute vers l'emplacement cible, infligeant 250 (+80% de puissance magique totale) dégâts magiques. Les héros ennemis et les Creeps touchés seront projetés dans les airs pendant 1 seconde et subiront 125 (+ 50 % de puissance magique totale) dégâts magiques supplémentaires. Réutiliser : Guenièvre clignote dans la direction cible et laisse une illusion derrière elle. Si l'illusion subit des dégâts de la part du héros, elle restaure la super magie de Guenièvre et explose après 1,5 seconde, infligeant 100 (+ 30 % de puissance magique totale) dégâts magiques aux ennemis proches.",
+      "description": "Guinevere saute vers l'emplacement cible, infligeant 250 (+80% de puissance magique totale) dégâts magiques. Les héros ennemis et les Creeps touchés seront projetés dans les airs pendant 1 seconde et subiront 125 (+ 50 % de puissance magique totale) dégâts magiques supplémentaires. Réutiliser : Guinevere clignote dans la direction cible et laisse une illusion derrière lui. Si l'illusion subit des dégâts de la part du héros, elle restaure Super Magic pour Guinevere et explose après 1,5 seconde, infligeant 100 (+30 % de puissance magique totale) dégâts magiques aux ennemis proches.",
       "cooldown": [
         17
       ]
     },
     {
       "name": "Violet Requiem",
-      "description": "Guenièvre crée un champ de force autour d'elle, gagnant l'immunité au contrôle tout en attaquant les ennemis proches 11 fois en 2 s, infligeant 880 (+ 385 % de puissance magique totale) dégâts magiques au total. Les ennemis aériens touchés seront à nouveau projetés dans les airs, jusqu'à 8 fois supplémentaires.",
+      "description": "Guinevere crée un champ de force autour d'elle, gagnant l'immunité au contrôle tout en attaquant les ennemis proches 11 fois en 2 s, infligeant 880 (+385% de puissance magique totale) dégâts magiques au total. Les ennemis aériens touchés seront à nouveau projetés dans les airs, jusqu'à 8 fois supplémentaires.",
       "cooldown": [
         52
       ]
@@ -1628,7 +1628,7 @@
   "gusion": [
     {
       "name": "Dagger Specialist",
-      "description": "Chaque compétence lancée ajoute une rune au poignard de Gusion (cumulable jusqu'à 4 fois). Chaque pile améliore la prochaine attaque de base de Gusion pour infliger des dégâts supplémentaires égaux à 3 % des PV de la cible et récupérer 50 (+25 % de puissance magique totale) PV pour lui-même."
+      "description": "Chaque compétence lancée ajoute une rune au poignard de Gusion (cumulable jusqu'à 4 fois). Chaque cumul améliore la prochaine attaque de base de Gusion pour infliger des dégâts supplémentaires égaux à 3 % des PV de la cible et récupérer 50 (+25 % de puissance magique totale) PV pour lui-même."
     },
     {
       "name": "Sword Spike",
@@ -1664,7 +1664,7 @@
   "hanabi": [
     {
       "name": "Ninjutsu: Petal Barrage",
-      "description": "Les attaques de base et les compétences de Hanabi lancent des Lames Pétales lorsqu'elles touchent une cible, infligeant 30 % de dégâts et rebondissant jusqu'à 4 fois sur les ennemis proches. Les Lames Pétale lancées par les Attaques de Base héritent des Effets d'Attaque. Si les rebonds de la même attaque de base ou compétence touchent la même cible plusieurs fois, les rebonds suivants infligent 30 % de dégâts en moins."
+      "description": "Les attaques de base et les compétences de Hanabi lancent des Lames Pétales lorsqu'elles touchent une cible, infligeant 30 % de dégâts et rebondissant jusqu'à 4 fois sur les ennemis proches. Les Lames Pétale lancées par les attaques de base héritent des effets d'attaque. Si les rebonds de la même attaque de base ou compétence touchent la même cible plusieurs fois, les rebonds suivants infligent 30 % de dégâts en moins."
     },
     {
       "name": "Ninjutsu: Equinox",
@@ -1700,7 +1700,7 @@
   "hanzo": [
     {
       "name": "Ame no Habakiri",
-      "description": "Les dégâts infligés par les attaques de base et les compétences de Hanzo infligent une charge de Dark Ninjutsu à la cible, jusqu'à 5 charges. Ninjutsu : Demon Feast ne peut être lancé que sur des cibles disposant de charges complètes de Dark Ninjutsu."
+      "description": "Les dégâts infligés par les attaques de base et les compétences de Hanzo infligent une charge de Dark Ninjutsu à la cible, jusqu'à 5 charges. Ninjutsu: Demon Feast ne peut être lancé que sur des cibles disposant de charges complètes de Dark Ninjutsu."
     },
     {
       "name": "Ninjutsu: Demon Feast",
@@ -1756,7 +1756,7 @@
     },
     {
       "name": "Zaman Force",
-      "description": "Harith utilise sa clé pour invoquer la Force Zaman, créant une faille multidimensionnelle. Dès son apparition, il réduit le temps de recharge de Chrono Dash de 4s. La faille ralentit continuellement les héros ennemis dans la zone de 40 %. Lorsque Harith entre en contact avec la faille en utilisant Chrono Dash, il absorbe son énergie, réduisant le temps de recharge de Synchro Fission de 1 seconde et de Chrono Dash de 3 secondes. Harith gagne 15% de résilience lorsqu'il est sur la Faille.",
+      "description": "Harith utilise sa clé pour invoquer le Zaman Force, créant ainsi une faille multidimensionnelle. Lors de son apparition, il réduit le temps de recharge de Chrono Dash de 4 s. La faille ralentit continuellement les héros ennemis dans la zone de 40 %. Lorsque Harith entre en contact avec la faille en utilisant Chrono Dash, il absorbe son énergie, réduisant le temps de recharge de Synchro Fission de 1 s et de Chrono Dash de 3 s. Harith gagne 15% de résilience lorsqu'il est sur la faille.",
       "cooldown": [
         40
       ],
@@ -1804,11 +1804,11 @@
   "hayabusa": [
     {
       "name": "Ninjutsu: Trace of Shadow",
-      "description": "Les attaques d'Hayabusa appliquent une charge de Shadow Mark à l'impact (jusqu'à 4 charges). Chaque pile dure 6 secondes et augmente les dégâts d'Hayabusa sur l'ennemi de 5 %."
+      "description": "Les attaques d'Hayabusa appliquent une charge de Shadow Mark à l'impact (jusqu'à 4 charges). Chaque cumul dure 6 secondes et augmente les dégâts d'Hayabusa sur l'ennemi de 5 %."
     },
     {
       "name": "Ninjutsu: Phantom Shuriken",
-      "description": "Passif : Hayabusa gagne en permanence 3% de Spell Vamp. Actif : Hayabusa lance trois shurikens qui reviennent dans la direction cible, chacun infligeant 220 (+75 % d'attaque physique supplémentaire) de dégâts physiques aux ennemis touchés et les ralentissant de 35 % pendant 2 secondes. Les coups ultérieurs sur le même ennemi infligent 70 % de dégâts en moins (seulement 50 % de moins aux creeps). Il restaure également 10 points d'énergie lorsqu'il frappe des ennemis non-sbires.",
+      "description": "Passif : Hayabusa gagne en permanence 3% de vampirisme des sorts. Actif : Hayabusa lance trois shurikens qui reviennent dans la direction cible, chacun infligeant 220 (+75 % d'attaque physique supplémentaire) de dégâts physiques aux ennemis touchés et les ralentissant de 35 % pendant 2 secondes. Les coups ultérieurs sur le même ennemi infligent 70 % de dégâts en moins (seulement 50 % de moins aux creeps). Il restaure également 10 points d'énergie lorsqu'il frappe des ennemis non-sbires.",
       "cooldown": [
         4
       ],
@@ -1818,7 +1818,7 @@
     },
     {
       "name": "Ninjutsu: Quad Shadow",
-      "description": "Hayabusa se précipite dans la direction cible et libère quatre fantômes qui se déplacent dans des directions différentes. Les fantômes resteront au bout de leur chemin ou s'attacheront au premier héros ennemi touché, infligeant 130 (+30% d'attaque physique supplémentaire) dégâts physiques et le ralentissant de 40% pendant 2s. Hayabusa s'arrêtera immédiatement s'il frappe un héros ennemi pendant le sprint. Réutiliser : Hayabusa se téléporte à l'emplacement d'un fantôme et réduit le temps de recharge de Ninjutsu : Phantom Shuriken de 1 seconde. Si le fantôme est attaché à un héros ennemi, il inflige également 130 (+30 % d'attaque physique supplémentaire) dégâts physiques à l'ennemi.",
+      "description": "Hayabusa se précipite dans la direction cible et libère quatre fantômes qui se déplacent dans des directions distinctes. Les fantômes resteront au bout de leur chemin ou s'attacheront au premier héros ennemi touché, infligeant 130 (+30% d'attaque physique supplémentaire) dégâts physiques et le ralentissant de 40% pendant 2s. Hayabusa s'arrêtera immédiatement s'il touche un héros ennemi pendant le sprint. Réutiliser : Hayabusa se téléporte vers l'emplacement d'un fantôme et réduit le temps de recharge de Ninjutsu: Phantom Shuriken de 1 seconde. Si le fantôme est attaché à un héros ennemi, il inflige également 130 (+30 % d'attaque physique supplémentaire) dégâts physiques à l'ennemi.",
       "cooldown": [
         16
       ],
@@ -1878,14 +1878,14 @@
     },
     {
       "name": "Art of Hunting",
-      "description": "Hilda se verrouille sur une cible ennemie, infligeant 200 (+90 % de l'attaque physique totale) dégâts physiques par coup. Cette compétence peut être lancée jusqu'à 3 fois. La 2ème attaque inflige des dégâts supplémentaires aux ennemis proches. La 3ème attaque inflige des dégâts à la cible et aux ennemis proches, les repoussant brièvement.",
+      "description": "Hilda se verrouille sur une cible ennemie, infligeant 200 (+90 % de l'attaque physique totale) dégâts physiques par coup. Cette compétence peut être lancée jusqu'à 3 fois. La 2e attaque inflige des dégâts supplémentaires aux ennemis proches. La 3e attaque inflige des dégâts à la cible et aux ennemis proches, les repoussant brièvement.",
       "cooldown": [
         7
       ]
     },
     {
       "name": "Power of Wildness",
-      "description": "Hilda lance une puissante attaque sur l'ennemi ciblé, lui infligeant 600 (+250 % d'attaque physique supplémentaire) dégâts physiques et l'étourdissant pendant 0,2 s. Les ennemis proches subissent 60% des dégâts. Chaque pile de Wilderness Mark augmente les dégâts de Power of Wildness de 2,5% des PV de la cible. Au maximum de cumuls, les dégâts supplémentaires augmentent jusqu'à 20 % des PV de la cible.",
+      "description": "Hilda lance une puissante attaque sur l'ennemi ciblé, lui infligeant 600 (+250 % d'attaque physique supplémentaire) dégâts physiques et l'étourdissant pendant 0,2 s. Les ennemis proches subissent 60% des dégâts. Chaque cumul de Wilderness Mark augmente les dégâts de Power of Wildness de 2,5% des PV de la cible. Au maximum de cumuls, les dégâts supplémentaires augmentent jusqu'à 20 % des PV de la cible.",
       "cooldown": [
         32
       ]
@@ -1918,7 +1918,7 @@
   "hylos": [
     {
       "name": "Thickened Blood",
-      "description": "Hylos gagne 1 Max Mana supplémentaire pour chaque 2,5 PV supplémentaires gagnés. Lorsqu'il est à court de mana, il peut consommer des PV pour lancer des compétences."
+      "description": "Hylos gagne 1 mana max supplémentaire pour chaque 2,5 PV supplémentaires gagnés. Lorsqu'il est à court de mana, il peut consommer des PV pour lancer des compétences."
     },
     {
       "name": "Law and Order",
@@ -1937,7 +1937,7 @@
     },
     {
       "name": "Ring of Punishment",
-      "description": "Hylos libère l'Anneau du Châtiment, infligeant 100 (+20 % de puissance magique totale) dégâts magiques aux ennemis proches par seconde tout en les ralentissant de 4 % et en réduisant leur vitesse d'attaque de 7,5 % pendant 2,5 s (jusqu'à 8 cumuls). Chaque pile augmente également les dégâts infligés à l'ennemi par l'Anneau du Châtiment de 5 %. L'Anneau du Châtiment consomme 30 Mana par seconde lorsqu'il est actif. Réutiliser : Hylos annule l'Anneau du Châtiment.",
+      "description": "Hylos libère le Ring of Punishment, infligeant 100 (+20 % de puissance magique totale) dégâts magiques aux ennemis proches par seconde tout en les ralentissant de 4 % et en réduisant leur vitesse d'attaque de 7,5 % pendant 2,5 secondes (jusqu'à 8 charges). Chaque cumul augmente également les dégâts infligés à l'ennemi par le Ring of Punishment de 5 %. Le Ring of Punishment consomme 30 mana par seconde lorsqu'il est actif. Utiliser à nouveau : Hylos annule le Ring of Punishment.",
       "cooldown": [
         1
       ],
@@ -1966,7 +1966,7 @@
   "irithel": [
     {
       "name": "Jungle Heart",
-      "description": "Le travail d'équipe impeccable d'Irithel et Leo lui permet de tirer en bougeant. Chaque attaque de base tirera 2 carreaux d'arbalète (mais prend plus de temps à recharger) qui infligent (+55 % de l'attaque physique totale) des dégâts physiques par carreau (hérite d'une partie [55 %] des effets d'attaque). Le déplacement construira Jungle Heart, jusqu'à un maximum de 10 unités, et fera que la prochaine attaque de base déclenchera 1 boulon(s) supplémentaire(s)."
+      "description": "Le travail d'équipe impeccable d'Irithel et Leo lui permet de tirer en bougeant. Chaque attaque de base tirera 2 carreaux d'arbalète (mais prend plus de temps à recharger) qui infligent (+55 % de l'attaque physique totale) des dégâts physiques par carreau (hérite d'une partie [55 %] des effets d'attaque). Le déplacement construira Jungle Heart, jusqu'à un maximum de 10 unités, et fera que la prochaine attaque de base déclenchera 1 boulon supplémentaire."
     },
     {
       "name": "Strafe",
@@ -1999,7 +1999,7 @@
   "ixia": [
     {
       "name": "Siphon Starlium",
-      "description": "Les attaques et compétences de base d'Ixia appliquent une pile de Starlium Charge aux ennemis lorsqu'ils sont touchés. Lorsqu'Ixia effectue une attaque de base sur un ennemi avec deux charges de Starlium Charge, l'attaque consommera les charges et sera remplacée par Siphon Starlium, infligeant (+150 % d'attaque physique totale) plus (+10*niveau de héros) dégâts physiques à la cible. Ixia récupère des PV égaux aux dégâts infligés par Siphon Starlium (seulement 20% contre les unités non-héros). Siphon Starlium peut se déclencher sur tous les ennemis devant Ixia qui se trouvent à portée de son attaque de base, mais il ne peut pas infliger de coup critique. Les attaques de base d'Ixia ne peuvent pas déclencher le vol de vie."
+      "description": "Les attaques et compétences de base d'Ixia appliquent un cumul de Starlium Charge aux ennemis lorsqu'ils sont touchés. Lorsqu'Ixia effectue une attaque de base sur un ennemi avec deux charges de Starlium Charge, l'attaque consommera les charges et sera remplacée par Siphon Starlium, infligeant (+150 % d'attaque physique totale) plus (+10*niveau du héros) dégâts physiques à la cible. Ixia récupère des PV égaux aux dégâts infligés par Siphon Starlium (seulement 20% contre les unités non-héros). Siphon Starlium peut se déclencher sur tous les ennemis devant Ixia qui se trouvent à portée de son attaque de base, mais il ne peut pas infliger de coup critique. Les attaques de base d'Ixia ne peuvent pas déclencher le vol de vie."
     },
     {
       "name": "Dual Beam",
@@ -2023,7 +2023,7 @@
     },
     {
       "name": "Full Barrage",
-      "description": "Ixia réassemble son arme en 6 armes plus petites et entre en état de barrage complet pendant 4 secondes. Dans cet état, les attaques de base et les compétences d'Ixia peuvent toucher les ennemis dans la grande zone en forme d'éventail devant elle, mais pas à l'extérieur. Les attaques de base d'Ixia peuvent toucher jusqu'à 6 unités ennemies (en donnant la priorité aux héros), et Siphon Starlium tirera simultanément avec ses attaques de base normales.",
+      "description": "Ixia réassemble son arme en 6 armes plus petites et entre dans l'état Full Barrage pendant 4 secondes. Dans cet état, les attaques de base et les compétences de Ixia peuvent toucher les ennemis dans la grande zone en forme d'éventail devant elle, mais pas à l'extérieur. Les attaques de base de Ixia peuvent toucher jusqu'à 6 unités ennemies (en donnant la priorité aux héros), et Siphon Starlium tirera simultanément avec ses attaques de base normales.",
       "cooldown": [
         42
       ],
@@ -2035,7 +2035,7 @@
   "jawhead": [
     {
       "name": "Mecha Suppression",
-      "description": "Chaque fois que Jawhead inflige des dégâts à un héros ennemi ou à un Creep, il leur inflige une charge de Mecha Suppression pendant 3 secondes (jusqu'à 6 charges). Chaque pile de Mecha Suppression augmente tous les dégâts infligés à la cible de 2% (limité à 50% pour Creeps)."
+      "description": "Chaque fois que Jawhead inflige des dégâts à un héros ennemi ou à un Creep, il leur inflige une charge de Mecha Suppression pendant 3 secondes (jusqu'à 6 charges). Chaque cumul de Mecha Suppression augmente tous les dégâts infligés à la cible de 2% (limité à 50% pour Creeps)."
     },
     {
       "name": "Smart Missiles",
@@ -2116,7 +2116,7 @@
     },
     {
       "name": "Ha, Electrifying Beats!",
-      "description": "Joy gagne 15 (+10 % de puissance magique totale) en défense hybride et 30 % en vitesse de déplacement. Au cours des 3 secondes suivantes, elle émet 8 impulsions, infligeant à chaque fois 120 (+40 % de puissance magique totale) dégâts magiques aux ennemis proches. Chaque Miaou, Rythme de Joie ! lancer sur le rythme augmente les dégâts de cette compétence de 40%. Si un rythme parfait est obtenu en frappant chaque battement avec Meow, Rhythm of Joy !, Joy gagne également 40 % de Spell Vamp pendant que cette compétence est active. Cette compétence se débloque lorsque Joy acquiert Beat Energy. Lancer cette compétence avec 3 Beat Energy supprimera tous les débuffs et la rendra immunisée contre les effets de ralentissement pendant que cette compétence est active.",
+      "description": "Joy gagne 15 (+10 % de puissance magique totale) en défense hybride et 30 % en vitesse de déplacement. Au cours des 3 secondes suivantes, elle émet 8 impulsions, infligeant à chaque fois 120 (+40 % de puissance magique totale) dégâts magiques aux ennemis proches. Chaque Meow, Rhythm of Joy! lancé sur le rythme augmente les dégâts de cette compétence de 40 %. Si un rythme parfait est obtenu en frappant chaque battement avec Meow, Rhythm of Joy!, Joy gagne également 40 % de vampirisme des sorts pendant que cette compétence est active. Cette compétence se débloque lorsque Joy acquiert Beat Energy. Lancer cette compétence avec 3 Beat Energy supprimera tous les débuffs et la rendra immunisée contre les effets de ralentissement pendant que cette compétence est active.",
       "cooldown": [
         28
       ]
@@ -2290,11 +2290,11 @@
   "karina": [
     {
       "name": "Shadow Combo",
-      "description": "La troisième attaque consécutive de Karina contre le même ennemi inflige 100 (+ 5 (+2,5 % de puissance magique totale) % des PV perdus de la cible) de vrais dégâts supplémentaires. Si la cible est un héros ennemi, cette attaque réduit également les temps de recharge de ses compétences non ultimes de 1,5 seconde. Les dégâts infligés aux creeps sont limités à 2 000 dégâts réels."
+      "description": "La troisième attaque consécutive de Karina contre le même ennemi inflige 100 (+ 5 (+2,5 % de puissance magique totale) % des PV perdus de la cible) de dégâts réels supplémentaires. Si la cible est un héros ennemi, cette attaque réduit également les temps de recharge de ses compétences non ultimes de 1,5 seconde. Les dégâts infligés aux creeps sont limités à 2 000 dégâts réels."
     },
     {
       "name": "Dance of Blades",
-      "description": "Karina entre dans l'état Danse des lames pendant 3,5 secondes maximum, gagnant 45 % de vitesse de déplacement et bloquant toutes les attaques de base. Les attaques bloquées déclenchent une contre-attaque qui inflige 100 (+30 % de puissance magique totale) dégâts magiques à l'attaquant (en tirant une Shadowblade sur des attaquants à distance ou en déclenchant Danse des lames contre des attaquants de mêlée). Cet effet a un temps de recharge de 0,4 seconde). Lancer une attaque de base ou un assaut de l'ombre met fin à l'état Danse des lames, permettant à la prochaine attaque de base de Karina d'infliger 160 (+60 % de puissance magique totale) dégâts magiques critiques et de ralentir la cible de 45 % pendant 1 seconde.",
+      "description": "Karina entre dans l'état Dance of Blades pendant 3,5 secondes maximum, gagnant 45 % de vitesse de déplacement et bloquant toutes les attaques de base. Les attaques bloquées déclenchent une contre-attaque qui inflige 100 (+30 % de puissance magique totale) dégâts magiques à l'attaquant (tirant une Shadowblade sur des attaquants à distance ou déclenchant Dance of Blades contre des attaquants de mêlée). Cet effet a un temps de recharge de 0,4 seconde). Lancer une attaque de base ou Shadow Assault met fin à l'état Dance of Blades, permettant à la prochaine attaque de base de Karina d'infliger 160 (+60 % de puissance magique totale) dégâts magiques critiques et de ralentir la cible de 45 % pendant 1 seconde.",
       "cooldown": [
         6
       ],
@@ -2326,7 +2326,7 @@
   "karrie": [
     {
       "name": "Lightwheel Mark",
-      "description": "Les attaques de base et les compétences de Karrie appliquent une pile de Lightwheel Mark en cas de coup. Une fois qu'une cible possède 5 piles de marques de roue lumineuse, les marques se transformeront en roue lumineuse, lui infligeant de vrais dégâts égaux à 5 des PV de la cible (seulement jusqu'à 5 dégâts contre les creeps)."
+      "description": "Les attaques de base et les compétences de Karrie appliquent un cumul de Lightwheel Mark en cas de coup. Une fois qu'une cible possède 5 cumuls de marques de roue lumineuse, les marques se transformeront en roue lumineuse, lui infligeant des dégâts réels égaux à 5 des PV de la cible (seulement jusqu'à 5 dégâts contre les creeps)."
     },
     {
       "name": "Spinning Lightwheel",
@@ -2340,7 +2340,7 @@
     },
     {
       "name": "Phantom Step",
-      "description": "Karrie se précipite dans la direction cible tout en lançant une roue de lumière sur l'ennemi le plus proche, lui infligeant 150 (+ 70 % de l'attaque physique totale) dégâts physiques et lui appliquant une pile de marque de roue de lumière. Lorsqu'elle est en état Dual Wield, Karrie lance deux roues lumineuses à la place.",
+      "description": "Karrie se précipite dans la direction cible tout en lançant une roue lumineuse sur l'ennemi le plus proche, infligeant 150 (+70% de l'attaque physique totale) dégâts physiques et lui appliquant une charge de Lightwheel Mark. En état Dual Wield, Karrie lance deux roues lumineuses à la place.",
       "cooldown": [
         4.5
       ],
@@ -2403,7 +2403,7 @@
     },
     {
       "name": "Bouncing Ball",
-      "description": "Khufra utilise des bandages pour s'envelopper dans une balle rebondissante, augmentant ainsi sa défense hybride de 30 %. Les ennemis essayant d'utiliser leurs compétences de mobilité pour se déplacer à travers Khufra seront projetés dans les airs. Chaque fois que la balle rebondissante touche le sol, elle inflige 50 (+ 3 (+2% d'attaque physique supplémentaire)% de ses PV) dégâts magiques aux ennemis proches et les ralentit de 80% pendant 0,2 s.",
+      "description": "Khufra utilise des bandages pour s'envelopper dans un Bouncing Ball, augmentant ainsi sa défense hybride de 30 %. Les ennemis essayant d'utiliser leurs compétences de mobilité pour traverser Khufra seront projetés dans les airs. Chaque fois que le Bouncing Ball touche le sol, il inflige 50 (+ 3 (+2% d'attaque physique supplémentaire)% de ses PV) dégâts magiques aux ennemis proches et les ralentit de 80% pendant 0,2 s.",
       "cooldown": [
         10
       ],
@@ -2429,21 +2429,21 @@
     },
     {
       "name": "Anti-Grav Thruster",
-      "description": "Kimmy utilise son jetpack pour prendre son envol, se retirant et devenant immunisée contre les effets lents. Elle peut traverser le terrain et gagne 120 % de vitesse de déplacement supplémentaire qui diminue en 1 seconde. Pendant le vol, elle tire en continu 4 éclairs chimiques sur les ennemis proches, chacun infligeant 20 (+25 % de l'attaque physique totale) (+30 % de la puissance magique totale) dégâts magiques et les ralentissant de 50 % pendant 0,5 seconde. Kimmy ne consomme pas de Starlium pendant le vol.",
+      "description": "Kimmy utilise son jetpack pour prendre son envol, se retirant et devenant immunisée contre les effets de ralentissement. Elle peut traverser le terrain et gagne 120 % de vitesse de déplacement supplémentaire qui diminue en 1 seconde. Pendant le vol, elle tire en continu 4 éclairs chimiques sur les ennemis proches, chacun infligeant 20 (+25 % de l'attaque physique totale) (+30 % de la puissance magique totale) dégâts magiques et les ralentissant de 50 % pendant 0,5 seconde. Kimmy ne consomme pas de Starlium pendant le vol.",
       "cooldown": [
         14
       ]
     },
     {
       "name": "Starlium Beam",
-      "description": "Kimmy tire un rayon de Starlium dans la direction ciblée, immobilisant les ennemis sur son passage et infligeant 300 (+50% de l'attaque physique totale) (+60% de la puissance magique totale) dégâts magiques pendant 1 seconde. Chaque héros ennemi touché rapporte 20 Starlium.",
+      "description": "Kimmy tire un Starlium Beam dans la direction ciblée, immobilisant les ennemis sur son chemin et infligeant 300 (+50% de l'attaque physique totale) (+60% de la puissance magique totale) dégâts magiques pendant 1 s. Chaque héros ennemi touché rapporte 20 Starlium.",
       "cooldown": [
         12
       ]
     },
     {
       "name": "Traction Pulse",
-      "description": "Kimmy charge et tire une impulsion de traction dans la direction cible. Lorsqu'il touche un ennemi ou atteint sa portée maximale, il explose, infligeant 150 (+45 % de l'attaque physique totale) (+54 % de la puissance magique totale) dégâts magiques aux ennemis proches et créant un champ de force qui ralentit les ennemis à l'intérieur de 50 %. Après 1 seconde, le champ se contracte, attirant les héros ennemis vers son centre et infligeant 15 % de leurs PV actuels sous forme de dégâts magiques. Cela les ralentit également de 50 % pendant 2 secondes. Chaque héros ennemi touché confère à Kimmy 40 Starlium.",
+      "description": "Kimmy se charge et tire un Traction Pulse dans la direction cible. Lorsqu'il touche un ennemi ou atteint sa portée maximale, il explose, infligeant 150 (+45 % de l'attaque physique totale) (+54 % de la puissance magique totale) dégâts magiques aux ennemis proches et créant un champ de force qui ralentit les ennemis à l'intérieur de 50 %. Après 1 seconde, le champ se contracte, attirant les héros ennemis vers son centre et infligeant 15 % de leurs PV actuels sous forme de dégâts magiques. Cela les ralentit également de 50 % pendant 2 secondes. Chaque héros ennemi touché confère Kimmy 40 Starlium.",
       "cooldown": [
         50
       ]
@@ -2466,7 +2466,7 @@
     },
     {
       "name": "Thorned Rose",
-      "description": "Lancelot frappe dans la direction cible 3 fois, infligeant à chaque fois 220 (+120 % d'attaque physique supplémentaire) dégâts physiques aux ennemis touchés (les dégâts sont réduits lorsque plusieurs ennemis sont touchés). Il est impossible de le cibler pendant ce processus. Les ennemis au centre de la zone subissent les 3 coups et sont ralentis de 20 % pendant 0,5 seconde. L'effet lent peut se cumuler.",
+      "description": "Lancelot frappe dans la direction cible 3 fois, infligeant à chaque fois 220 (+120 % d'attaque physique supplémentaire) dégâts physiques aux ennemis touchés (les dégâts sont réduits lorsque plusieurs ennemis sont touchés). Il est impossible de le cibler pendant ce processus. Les ennemis au centre de la zone subissent les 3 coups et sont ralentis de 20 % pendant 0,5 seconde. L'effet de ralentissement peut se cumuler.",
       "cooldown": [
         11
       ],
@@ -2488,7 +2488,7 @@
   "lapu-lapu": [
     {
       "name": "Homeland Defender",
-      "description": "Chaque fois que Lapu-Lapu inflige des dégâts, il gagne 10 bénédictions de bravoure (réduit de moitié par les unités non-héros). Lorsque sa bénédiction de bravoure est pleine, sa prochaine attaque de base ou ses lames de justice seront améliorées, accordant à Lapu-Lapu un bouclier qui peut absorber 250 (+65*niveau de héros) dégâts pendant 2,5 secondes. L'attaque de base améliorée) le fera se précipiter vers la cible, infligeant (+150 % de l'attaque physique totale) de dégâts physiques. Cette attaque de base ne peut pas être un coup critique. Les Justice Blades améliorées ralentiront la cible de 60 % pendant 1 seconde."
+      "description": "Chaque fois que Lapu-Lapu inflige des dégâts, il gagne 10 bénédictions de bravoure (réduit de moitié par les unités non-héros). Lorsque sa bénédiction de bravoure est pleine, sa prochaine attaque de base ou ses lames de justice seront améliorées, accordant à Lapu-Lapu un bouclier qui peut absorber 250 (+65*niveau du héros) dégâts pendant 2,5 secondes. L'attaque de base améliorée) le fera se précipiter vers la cible, infligeant (+150 % de l'attaque physique totale) de dégâts physiques. Cette attaque de base ne peut pas être un coup critique. Les Justice Blades améliorées ralentiront la cible de 60 % pendant 1 seconde."
     },
     {
       "name": "Justice Blades",
@@ -2519,7 +2519,7 @@
     },
     {
       "name": "Malefic Bomb",
-      "description": "Layla tire une bombe maléfique dans la direction ciblée, infligeant 200 (+80 % de l'attaque physique totale) dégâts physiques au premier ennemi touché (peut critiquer). Si la Bombe Maléfique touche un ennemi, les attaques de base et le projectile du Vide de Layla gagnent une portée supplémentaire pendant 3 secondes. Elle gagne également 60 % de vitesse de déplacement qui diminue en 1,2 seconde. L'augmentation de la vitesse de déplacement dure deux fois plus longtemps si un héros ennemi est touché.",
+      "description": "Layla tire un Malefic Bomb dans la direction ciblée, infligeant 200 (+80% de l'attaque physique totale) dégâts physiques au premier ennemi touché (peut critiquer). Si Malefic Bomb touche un ennemi, les attaques de base de Layla et Void Projectile gagnent une portée supplémentaire pendant 3 secondes. Elle gagne également 60 % de vitesse de déplacement qui diminue en 1,2 seconde. L'augmentation de la vitesse de déplacement dure deux fois plus longtemps si un héros ennemi est touché.",
       "cooldown": [
         6
       ],
@@ -2539,7 +2539,7 @@
     },
     {
       "name": "Destruction Rush",
-      "description": "Passif : La portée du projectile du Vide et des attaques de base est augmentée de 0,6 unité. La portée de vue de Layla est légèrement augmentée à chaque fois que cette compétence est améliorée. Actif : Layla tire une explosion d'énergie maléfique dans la direction ciblée, infligeant 500 (+150 % de l'attaque physique totale) dégâts physiques aux ennemis dans une ligne.",
+      "description": "Passif : La portée de Void Projectile et des attaques de base est augmentée de 0,6 unités. La portée de vue de Layla est légèrement augmentée à chaque fois que cette compétence est améliorée. Actif : Layla tire une explosion d'énergie maléfique dans la direction ciblée, infligeant 500 (+150 % de l'attaque physique totale) dégâts physiques aux ennemis dans une ligne.",
       "cooldown": [
         37
       ],
@@ -2578,7 +2578,7 @@
   "lesley": [
     {
       "name": "Lethal Shot",
-      "description": "Si Lesley ne subit pas de dégâts pendant 5 secondes, sa prochaine attaque de base gagne une portée supplémentaire et 50 % de chances de coup critique et inflige 100 (+100 % de l'attaque physique totale) de vrais dégâts (20 % de dégâts supplémentaires contre les sbires). Chaque point de pénétration physique fixe et chaque 1 % de pénétration physique acquise par Lesley sont convertis en 1 % de dégâts critiques, mais ses dégâts critiques de base sont réduits à 130 %. L'attaque de base de Lesley restaure 5 points d'énergie et son tir mortel double la quantité d'énergie restaurée. L'effet Lethal Shot s'activera immédiatement après que Lesley ait utilisé une compétence."
+      "description": "Si Lesley ne subit pas de dégâts pendant 5 secondes, sa prochaine attaque de base gagne une portée supplémentaire et 50 % de chances de coup critique et inflige 100 (+100 % de l'attaque physique totale) de dégâts réels (20 % de dégâts supplémentaires contre les sbires). Chaque point de pénétration physique fixe et chaque 1 % de pénétration physique acquise par Lesley sont convertis en 1 % de dégâts critiques, mais ses dégâts critiques de base sont réduits à 130 %. L'attaque de base de Lesley restaure 5 points d'énergie et son tir mortel double la quantité d'énergie restaurée. L'effet Lethal Shot s'activera immédiatement après que Lesley ait utilisé une compétence."
     },
     {
       "name": "Master of Camouflage",
@@ -2592,7 +2592,7 @@
     },
     {
       "name": "Tactical Grenade",
-      "description": "Lesley lance une grenade tactique dans la direction cible tout en sautant légèrement en arrière, infligeant 150 (+50 % de l'attaque physique totale) dégâts physiques aux ennemis dans une zone en forme d'éventail et les repoussant. Lesley peut lancer cette compétence pendant Ultimate Snipe pour annuler l'état et tirer immédiatement une balle fatale sur la cible. L'attaque n'est déclenchée que lorsqu'il reste des balles fatales non tirées.",
+      "description": "Lesley lance une grenade tactique dans la direction cible tout en sautant légèrement en arrière, infligeant 150 (+50% de l'attaque physique totale) dégâts physiques aux ennemis dans une zone en forme d'éventail et les repoussant. Lesley peut lancer cette compétence pendant Ultimate Snipe pour annuler l'état et tirer immédiatement une balle Fatal sur la cible. L'attaque n'est déclenchée que lorsqu'il reste Fatal balles non tirées.",
       "cooldown": [
         10
       ],
@@ -2602,7 +2602,7 @@
     },
     {
       "name": "Ultimate Snipe",
-      "description": "Passif : Les chances de coup critique de Lesley sont augmentées de 10 %. Actif : Lesley se verrouille sur un héros ennemi et tire successivement 4 balles fatales. Chaque balle inflige 250 (+80 % d'attaque physique supplémentaire) (+ 5 % des PV perdus de la cible) dégâts physiques et restaure 10 énergies en cas de coup. Les balles peuvent être bloquées par d'autres héros ennemis. Si cette compétence est interrompue, chaque balle restante réduit le temps de recharge de cette compétence de 10 %.",
+      "description": "Passif : les chances de coup critique de Lesley sont augmentées de 10 %. Actif : Lesley se verrouille sur un héros ennemi et tire 4 Fatal balles successivement. Chaque balle inflige 250 (+80 % d'attaque physique supplémentaire) (+ 5 % des PV perdus de la cible) dégâts physiques et restaure 10 énergies en cas de coup. Les balles peuvent être bloquées par d'autres héros ennemis. Si cette compétence est interrompue, chaque balle restante réduit le temps de recharge de cette compétence de 10 %.",
       "cooldown": [
         40
       ],
@@ -2635,7 +2635,7 @@
     },
     {
       "name": "Tempest of Blades",
-      "description": "Ling saute dans les airs, devenant invincible et gagnant 10 % de vitesse de déplacement supplémentaire pendant 1,5 seconde. Il ignore les obstacles lorsqu'il est en l'air. Il atterrit ensuite au sol, infligeant 250 (+100 % de l'attaque physique totale) dégâts physiques aux ennemis dans la zone et les ralentissant de 40 % pendant 1,5 s, faisant voler ceux au centre pendant 1 s et créant un champ d'épées pendant 8 s. Quatre Tempêtes de Lames apparaîtront également aux abords du Champ d'Épées. Ling peut les toucher pour réduire le temps de recharge de Finch Poise de 4 secondes, réinitialiser le temps de recharge de Defiant Sword et gagner 25 points de légèreté.",
+      "description": "Ling saute dans les airs, devient invincible et gagne 10 % de vitesse de déplacement supplémentaire pendant 1,5 seconde. Il ignore les obstacles lorsqu'il est en l'air. Il atterrit ensuite au sol, infligeant 250 (+100 % de l'attaque physique totale) dégâts physiques aux ennemis dans la zone et les ralentissant de 40 % pendant 1,5 s, faisant voler ceux au centre pendant 1 s et créant un champ d'épées pendant 8 s. Quatre Tempest of Blades apparaîtront également au bord du Sword Field. Ling peut les toucher pour réduire le temps de recharge de Finch Poise de 4 s, réinitialiser le temps de recharge de Defiant Sword et gagner 25 points de légèreté.",
       "cooldown": [
         52
       ]
@@ -2644,7 +2644,7 @@
   "lolita": [
     {
       "name": "Noumenon Energy Core",
-      "description": "Toutes les 6 à 3 secondes (évolue avec le niveau de Noumenon Blast), le Noyau d'énergie de Noumenon accorde à Lolita 20 (+2,5 % de PV maximum) (+20 % de puissance magique totale) un bouclier. Lorsque Lolita lance une compétence, le Noyau d'Énergie Noumenon accorde à Lolita et aux héros alliés proches un bouclier supplémentaire. Ce bouclier peut se cumuler jusqu'à 3 fois et dure 30 secondes."
+      "description": "Toutes les 6 à 3 secondes (évolue avec le niveau Noumenon Blast), le Noumenon Energy Core accorde à Lolita 20 (+2,5 % de PV max) (+20 % de puissance magique totale) de bouclier. Lorsque Lolita lance une compétence, le Noumenon Energy Core accorde à Lolita et aux héros alliés proches un bouclier supplémentaire. Ce bouclier peut se cumuler jusqu'à 3 fois et dure 30 secondes."
     },
     {
       "name": "Power Charge",
@@ -2684,7 +2684,7 @@
     },
     {
       "name": "Flash Combo",
-      "description": "Passif : les attaques de base confèrent de la vigueur (jusqu'à 2 charges), chaque charge durant 4 secondes. Vigor améliore Flash Combo. Lukas consomme toute sa vigueur pour déclencher Pulvérisation, infligeant 400 (+60 % de l'attaque physique totale) dégâts physiques et récupérant 8 % de ses PV lorsqu'il frappe un héros ou un sbire. 1 pile : Lukas étourdit brièvement la cible et fait tourner ses marteaux tonfa pour infliger 95 (+25 % de l'attaque physique totale) dégâts physiques 3 fois, attirant l'ennemi vers lui. 2 charges : Lukas étourdit brièvement la cible, puis lance 2 attaques infligeant chacune 50 (+20 % de l'attaque physique totale) dégâts physiques. Ensuite, il fait tourner ses marteaux tonfa, infligeant 95 (+25 % de l'attaque physique totale) dégâts physiques 3 fois tout en gagnant l'immunité aux contrôles pour la durée.",
+      "description": "Passif : les attaques de base confèrent de la vigueur (jusqu'à 2 charges), chaque charge durant 4 secondes. Vigor améliore Flash Combo. Lukas consomme toute sa vigueur pour déclencher Pulvérisation, infligeant 400 (+60 % de l'attaque physique totale) dégâts physiques et récupérant 8 % de ses PV lorsqu'il frappe un héros ou un sbire. 1 cumul : Lukas étourdit brièvement la cible et fait tourner ses marteaux tonfa pour infliger 95 (+25 % de l'attaque physique totale) dégâts physiques 3 fois, attirant l'ennemi vers lui. 2 charges : Lukas étourdit brièvement la cible, puis lance 2 attaques infligeant chacune 50 (+20 % de l'attaque physique totale) dégâts physiques. Ensuite, il fait tourner ses marteaux tonfa, infligeant 95 (+25 % de l'attaque physique totale) dégâts physiques 3 fois tout en gagnant l'immunité aux contrôles pour la durée.",
       "cooldown": [
         5.5
       ]
@@ -2707,7 +2707,7 @@
   "lunox": [
     {
       "name": "Dreamland Twist",
-      "description": "Lunox est tordu par les pouvoirs du Chaos et de l'Ordre. Lorsque Lunox utilise le pouvoir de l'ordre, elle gagne 10 % de Spell Vamp. Lorsqu'elle utilise le Pouvoir du Chaos, elle gagne 10 % de Pénétration Magique."
+      "description": "Lunox est tordu par les pouvoirs du Chaos et de l'Ordre. Lorsque Lunox utilise le pouvoir de l'ordre, elle gagne 10 % de vampirisme des sorts. Lorsqu'elle utilise le Pouvoir du Chaos, elle gagne 10 % de Pénétration Magique."
     },
     {
       "name": "Starlight Pulse",
@@ -2731,7 +2731,7 @@
     },
     {
       "name": "Order & Chaos",
-      "description": "Lunox est tordu par les pouvoirs du Chaos et de l'Ordre. Lorsque le Pouvoir de l'Ordre est dominant, elle peut lancer Brilliance pour devenir invincible et infliger des dégâts continus aux ennemis proches. Lorsque le Pouvoir du Chaos est dominant, elle peut lancer Assombrissement pour cligner des yeux dans une direction cible et réduire considérablement le temps de recharge d'Assaut du Chaos pendant une brève période.",
+      "description": "Lunox est tordu par les pouvoirs du Chaos et de l'Ordre. Lorsque le Pouvoir de l'Ordre est dominant, elle peut lancer Brilliance pour devenir invincible et infliger des dégâts continus aux ennemis proches. Lorsque le Pouvoir du Chaos est dominant, elle peut lancer Assombrissement pour cligner des yeux dans une direction cible et réduire considérablement le temps de recharge de Chaos Assault pendant une brève période.",
       "cooldown": [
         30
       ],
@@ -2743,7 +2743,7 @@
   "luo-yi": [
     {
       "name": "Duality",
-      "description": "Les compétences de Luo Yi peuvent créer des Sceaux du Yin/Yang sur le champ de bataille. Chaque sceau dure jusqu'à 6 secondes. Les sceaux d'attributs opposés déclencheront une réaction Yin-Yang lorsqu'ils se trouveront à une certaine distance, infligeant 300 (+25*niveau du héros) (+190% puissance magique totale) dégâts magiques aux ennemis marqués, les étourdissant pendant 0,3 s et les attirant les uns vers les autres. Chaque fois que Luo Yi applique un nouveau sceau à un ennemi marqué, elle gagne un bouclier de 300 (+10*niveau de héros) (+150 % de puissance magique totale) (jusqu'à 3 charges) et 50 % de vitesse de déplacement supplémentaire qui diminue en 2 secondes."
+      "description": "Les compétences de Luo Yi peuvent créer des Sceaux du Yin/Yang sur le champ de bataille. Chaque sceau dure jusqu'à 6 secondes. Les sceaux d'attributs opposés déclencheront une réaction Yin-Yang lorsqu'ils se trouveront à une certaine distance, infligeant 300 (+25*niveau du héros) (+190% puissance magique totale) dégâts magiques aux ennemis marqués, les étourdissant pendant 0,3 s et les attirant les uns vers les autres. Chaque fois que Luo Yi applique un nouveau sceau à un ennemi marqué, elle gagne un bouclier de 300 (+10*niveau du héros) (+150 % de puissance magique totale) (jusqu'à 3 charges) et 50 % de vitesse de déplacement supplémentaire qui diminue en 2 secondes."
     },
     {
       "name": "Dispersion",
@@ -2805,7 +2805,7 @@
     },
     {
       "name": "Black Shoes",
-      "description": "Lylia retourne à l'emplacement des Chaussures Noires il y a 4 secondes, rétablissant ses PV et son mana à leur état précédent et récupérant 10 % de PV supplémentaires. Elle gagne également 20 % de vitesse de déplacement pendant 2 secondes.",
+      "description": "Lylia revient à l'emplacement Black Shoes il y a 4 secondes, rétablissant ses PV et son mana à leur état précédent et récupérant 10 % de PV supplémentaires. Elle gagne également 20 % de vitesse de déplacement pendant 2 secondes.",
       "cooldown": [
         45
       ],
@@ -2817,7 +2817,7 @@
   "marcel": [
     {
       "name": "Platinum Snap",
-      "description": "L'âme divisée de Marcel, Clemar, entre dans la caméra pour figer l'instant. Ses attaques de base infligent 50 (+40 % de défense physique totale)(+40 % de défense magique totale)(+40 % de défense physique totale) dégâts physiques. Ses PV supplémentaires sont convertis en 1,5% de défense hybride. Clemar prend automatiquement des photos des héros ennemis près de Marcel, provoquant un bref instant gelé et infligeant 20 (+ 5 % des PV) de vrais dégâts (déclenche des effets d'attaque). Il confère également un bouclier de même valeur à Marcel et à un héros allié proche. Temps de recharge : 12 s par cible.",
+      "description": "L'âme divisée de Marcel, Clemar, entre dans la caméra pour figer l'instant. Ses attaques de base infligent 50 (+40 % de défense physique totale)(+40 % de défense magique totale)(+40 % de défense physique totale) dégâts physiques. Ses PV supplémentaires sont convertis en 1,5% de défense hybride. Clemar prend automatiquement des photos des héros ennemis près de Marcel, provoquant un bref instant gelé et infligeant 20 (+ 5 % des PV) de dégâts réels (déclenche des effets d'attaque). Il confère également un bouclier de même valeur à Marcel et à un héros allié proche. Temps de recharge : 12 s par cible.",
       "cooldown": [
         12
       ]
@@ -2856,7 +2856,7 @@
   "martis": [
     {
       "name": "Asura's Wrath",
-      "description": "Chaque fois que Martis utilise une compétence, sa vitesse d'attaque sera augmentée de 30%, 120% maximum. Dure 4s. Il gagne (+8*niveau de héros) une attaque supplémentaire lorsque les piles sont complètes."
+      "description": "Chaque fois que Martis utilise une compétence, sa vitesse d'attaque sera augmentée de 30%, 120% maximum. Dure 4s. Il gagne (+8*niveau du héros) une attaque supplémentaire lorsque les cumuls sont complets."
     },
     {
       "name": "Asura Aura",
@@ -2874,7 +2874,7 @@
     },
     {
       "name": "Decimation",
-      "description": "Martis se jette sur un héros ennemi désigné, infligeant 700 (+120 % de l'attaque physique totale) dégâts physiques (inflige de vrais dégâts si les PV de l'ennemi sont inférieurs à 50 %). Si l'ennemi est tué par cette compétence, Martis peut relancer la compétence dans les 10 secondes et gagne 100 % de vitesse de déplacement supplémentaire qui diminue progressivement en 5 secondes. Chaque lancement successif augmente également les dégâts de la compétence de 15 % (jusqu'à 30 %).",
+      "description": "Martis se jette sur un héros ennemi désigné, infligeant 700 (+120 % de l'attaque physique totale) dégâts physiques (inflige des dégâts réels si les PV de l'ennemi sont inférieurs à 50 %). Si l'ennemi est tué par cette compétence, Martis peut relancer la compétence dans les 10 secondes et gagne 100 % de vitesse de déplacement supplémentaire qui diminue progressivement en 5 secondes. Chaque lancement successif augmente également les dégâts de la compétence de 15 % (jusqu'à 30 %).",
       "cooldown": [
         36
       ]
@@ -2883,7 +2883,7 @@
   "masha": [
     {
       "name": "Primal Pact",
-      "description": "Bénédiction de l'ours : Masha possède 3 barres de PV, chacune héritant de 50 % de ses bonus de PV d'équipement. Chaque fois qu'une barre de PV se brise, elle supprime les effets de contrôle sur elle-même et bloque une instance de dégâts. Infliger des dégâts aux héros ennemis ou aux creeps crée Feral, qui se convertit en PV après avoir quitté le combat. Pouvoir sauvage : lorsque les compétences de Masha endommagent un héros ennemi, une blessure apparaît sur un côté aléatoire de la cible. Briser une blessure avec une attaque de base la met dans l'état sauvage. État sauvage : pendant 3 secondes, Masha gagne 15 (+1*niveau de héros) % de résilience, de vitesse d'attaque et de vitesse de déplacement. Ses 3 prochaines attaques de base se transforment en frappes de griffes en forme d'éventail, infligeant des dégâts physiques supplémentaires égaux à 3 (+0,5 % d'attaque physique supplémentaire) (+0,2*niveau du héros) % de PV aux ennemis dans la zone (pas contre les tourelles) et récupérant 4 (+0,4*niveau du héros) % de PV. [C8Briser une autre blessure pendant l'état sauvage réinitialise la durée de l'état. Jusqu'à 6 coups de griffes peuvent être stockés.]"
+      "description": "Bénédiction de l'ours : Masha possède 3 barres de PV, chacune héritant de 50 % de ses bonus de PV d'équipement. Chaque fois qu'une barre de PV se brise, elle supprime les effets de contrôle sur elle-même et bloque une instance de dégâts. Infliger des dégâts aux héros ennemis ou aux creeps crée Feral, qui se convertit en PV après avoir quitté le combat. Power of Wildness : Lorsque les compétences de Masha endommagent un héros ennemi, une blessure apparaît sur un côté aléatoire de la cible. Briser une blessure avec une attaque de base la met dans l'état sauvage. État sauvage : pendant 3 secondes, Masha gagne 15 (+1*niveau du héros) % de résilience, de vitesse d'attaque et de vitesse de déplacement. Ses 3 prochaines attaques de base se transforment en frappes de griffes en forme d'éventail, infligeant des dégâts physiques supplémentaires égaux à 3 (+0,5 % d'attaque physique supplémentaire) (+0,2*niveau du héros) % de PV aux ennemis dans la zone (pas contre les tourelles) et récupérant 4 (+0,4*niveau du héros) % de PV. [C8Briser une autre blessure pendant l'état sauvage réinitialise la durée de l'état. Jusqu'à 6 coups de griffes peuvent être stockés.]"
     },
     {
       "name": "Feral Swipe",
@@ -2910,7 +2910,7 @@
   "mathilda": [
     {
       "name": "Ancestral Guidance",
-      "description": "Mathilda bénéficie des conseils ancestraux en se déplaçant. Lorsqu'elle est complètement chargée, sa prochaine attaque de base sera améliorée, infligeant 200 (+100 % de l'attaque physique totale) (+100 % de la puissance magique totale) dégâts magiques à la cible et lui accordant 80 points de vitesse de déplacement supplémentaires qui diminuent en 2,5 secondes."
+      "description": "Mathilda gagne Ancestral Guidance en se déplaçant. Lorsqu'elle est complètement chargée, sa prochaine attaque de base sera améliorée, infligeant 200 (+100 % de l'attaque physique totale) (+100 % de la puissance magique totale) dégâts magiques à la cible et lui accordant 80 points de vitesse de déplacement supplémentaires qui diminuent en 2,5 secondes."
     },
     {
       "name": "Soul Bloom",
@@ -2982,25 +2982,25 @@
   "minotaur": [
     {
       "name": "Rage Incarnate",
-      "description": "Après avoir lancé une compétence, le Minotaure gagne de la Motivation, récupérant des PV égaux à 5 (+1*Niveau du Héros)% des dégâts subis par les héros ennemis pendant 3 secondes. État Enragé : La récupération des PV de Motivation est augmentée à 200 %."
+      "description": "Après avoir lancé une compétence, Minotaur gagne de la Motivation, récupérant des PV égaux à 5 (+1*Niveau du Héros)% des dégâts subis par les héros ennemis pendant 3 secondes. État Enragé : La récupération des PV de Motivation est augmentée à 200 %."
     },
     {
       "name": "Despair Stomp",
-      "description": "Le Minotaure saute vers l'emplacement cible, infligeant 325 (+60 % de l'attaque physique totale) dégâts physiques aux ennemis dans la zone et les projetant brièvement dans les airs. Les ennemis touchés seront également ralentis de 40 % tandis que le Minotaure améliore ses attaques de base pour infliger 25 (+5 % de PV maximum) de dégâts physiques supplémentaires pendant 2 secondes. Enragé : augmente la portée AOE et les dégâts infligés de 25 (+5 % PV max) dégâts physiques.",
+      "description": "Minotaur saute vers l'emplacement cible, infligeant 325 (+60 % de l'attaque physique totale) dégâts physiques aux ennemis dans la zone et les projetant brièvement dans les airs. Les ennemis touchés seront également ralentis de 40 % tandis que Minotaur améliore ses attaques de base pour infliger 25 (+5 % de PV maximum) de dégâts physiques supplémentaires pendant 2 secondes. Enragé : augmente la portée AOE et les dégâts infligés de 25 (+5 % PV max) dégâts physiques.",
       "cooldown": [
         12
       ]
     },
     {
       "name": "Motivation Roar",
-      "description": "Le Minotaure se soigne lui-même ainsi que l'allié proche avec les PV les plus faibles, récupérant 220 (+60 % de puissance magique totale) PV pour les deux. Il récupère également 8% supplémentaires de ses PV perdus. Enragé : le Minotaure se soigne lui-même ainsi que tous les héros alliés à proximité.",
+      "description": "Minotaur se soigne lui-même ainsi que l'allié proche avec les PV les plus faibles, récupérant 220 (+60 % de puissance magique totale) PV pour les deux. Il récupère également 8% supplémentaires de ses PV perdus. Enragé : Minotaur se soigne lui-même ainsi que tous les héros alliés à proximité.",
       "cooldown": [
         10
       ]
     },
     {
       "name": "Minoan Fury",
-      "description": "Le Minotaure entre dans l'état Enragé et écrase le sol 3 fois. Les 2 premiers coups infligent 180 (+85% de l'attaque physique totale) de dégâts physiques aux ennemis proches et les ralentissent de 60%, tandis que le dernier coup inflige 200 (+85% de l'attaque physique totale) de vrais dégâts et projette les cibles en l'air pendant 0,8 s. Le Minotaure est immunisé contre les effets de contrôle lors de cette attaque. L'état Enragé dure 12 secondes et améliore les compétences du Minotaure pendant toute cette durée.",
+      "description": "Minotaur entre dans l'état Enragé et écrase le sol 3 fois. Les 2 premiers coups infligent 180 (+85% de l'attaque physique totale) de dégâts physiques aux ennemis proches et les ralentissent de 60%, tandis que le dernier coup inflige 200 (+85% de l'attaque physique totale) de dégâts réels et projette les cibles en l'air pendant 0,8 s. Minotaur est immunisé contre les effets de contrôle lors de cette attaque. L'état Enragé dure 12 secondes et améliore les compétences de Minotaur pendant toute cette durée.",
       "cooldown": [
         60
       ]
@@ -3009,11 +3009,11 @@
   "minsitthar": [
     {
       "name": "Mark of the King",
-      "description": "Les attaques et compétences de base de Minsitthar appliquent une charge de Marque du roi, jusqu'à 5 charges. Après avoir atteint le nombre maximum de charges, la prochaine attaque fait exploser toutes les charges de Marque du Roi, infligeant des dégâts physiques égaux à 400 (+6% PV Max) des PV Max de Minsitthar et étourdissant la cible pendant 0,8 s tout en soignant Minsitthar de 400 (+6% PV Max) PV. Ne peut se déclencher qu'une fois toutes les 6 secondes sur la même cible."
+      "description": "Les attaques et compétences de base de Minsitthar appliquent un cumul de Mark of the King, jusqu'à 5 cumuls. Après avoir atteint le nombre maximum de charges, la prochaine attaque fait exploser toutes les charges Mark of the King, infligeant des dégâts physiques égaux à 400 (+6% PV Max) des PV Max de Minsitthar et étourdissant la cible pendant 0,8 s tout en soignant Minsitthar pour 400 (+6% PV Max) PV. Ne peut se déclencher qu'une fois toutes les 6 secondes sur la même cible."
     },
     {
       "name": "Spear of Glory",
-      "description": "Minsitthar propulse la Lance de Gloire vers l'avant, infligeant 175 (+40 % de l'attaque physique totale) dégâts physiques et ralentissant les ennemis touchés de 30 %. Les héros ennemis touchés par la pointe de la lance sont étourdis pendant 0,3 seconde. Après un court délai, Minsitthar retire la lance, infligeant 175 (+40 % de l'attaque physique totale) dégâts physiques à tous les ennemis sur son passage et attirant les héros ennemis vers lui. Les héros tirés sont étourdis pendant 0,8 seconde maximum en fonction de la distance parcourue.",
+      "description": "Minsitthar propulse le Spear of Glory vers l'avant, infligeant 175 (+40 % de l'attaque physique totale) dégâts physiques et ralentissant les ennemis touchés de 30 %. Les héros ennemis touchés par la pointe de la lance sont étourdis pendant 0,3 seconde. Après un court délai, Minsitthar retire la lance, infligeant 175 (+40 % de l'attaque physique totale) dégâts physiques à tous les ennemis sur son passage et attirant les héros ennemis vers lui. Les héros tirés sont étourdis pendant 0,8 seconde maximum en fonction de la distance parcourue.",
       "cooldown": [
         13
       ],
@@ -3069,7 +3069,7 @@
     },
     {
       "name": "Hidden Moonlight",
-      "description": "Miya supprime tous les affaiblissements et entre dans l'état Dissimulation, gagnant 65 % de vitesse de déplacement pendant 2 secondes maximum (attaquer met fin à l'état plus tôt). En quittant l’état Dissimulation, Miya gagne le maximum de cumuls de Bénédiction lunaire.",
+      "description": "Miya supprime tous les affaiblissements et passe à l'état Dissimulation, gagnant 65 % de vitesse de déplacement pendant 2 secondes maximum (l'attaque met fin à l'état plus tôt). En quittant l'état Dissimulation, Miya gagne des cumuls maximum de Moon Blessing.",
       "cooldown": [
         30
       ],
@@ -3081,7 +3081,7 @@
   "moskov": [
     {
       "name": "Spear of Quiescence",
-      "description": "Les attaques de base de Moskov peuvent pénétrer la cible et infliger [(+65% (+3%*Hero Level) Physical Attack) ] aux ennemis derrière eux (hérite des effets d'attaque). Chaque coup d'attaque de base réduit les temps de recharge de Abyss Walker et Spear of Misery de 0,5 seconde."
+      "description": "Les attaques de base de Moskov peuvent pénétrer la cible et infliger [(+65% (+3%*niveau du héros) attaque physique) ] aux ennemis derrière eux (hérite des effets d'attaque). Chaque coup d'attaque de base réduit les temps de recharge de Abyss Walker et Spear of Misery de 0,5 seconde."
     },
     {
       "name": "Abyss Walker",
@@ -3124,7 +3124,7 @@
     },
     {
       "name": "Magic Boomerang",
-      "description": "Nana lance son Boomerang magique dans la direction ciblée, infligeant 300 (+100 % de puissance magique totale) dégâts magiques aux ennemis qu'elle touche lors de son voyage et de son retour. Le premier ennemi touché subit tous les dégâts. Les dégâts sont réduits de 10 % pour chaque ennemi supplémentaire touché, jusqu'à une réduction totale maximale de 70 %.",
+      "description": "Nana lance Magic Boomerang dans la direction ciblée, infligeant 300 (+100 % de puissance magique totale) dégâts magiques aux ennemis qu'il touche lors de son déplacement et de son retour. Le premier ennemi touché subit tous les dégâts. Les dégâts sont réduits de 10 % pour chaque ennemi supplémentaire touché, jusqu'à une réduction totale maximale de 70 %.",
       "cooldown": [
         6
       ],
@@ -3167,14 +3167,14 @@
     },
     {
       "name": "Smoke Bomb",
-      "description": "Natalia lance une bombe fumigène à son emplacement, ralentissant les ennemis à proximité de 25 %, tandis que Natalia devient immunisée contre les attaques de base ennemies pendant 4 secondes.",
+      "description": "Natalia libère un Smoke Bomb à son emplacement, ralentissant les ennemis à l'intérieur de 25% tandis que Natalia devient immunisé contre les attaques de base ennemies pendant 4 secondes.",
       "cooldown": [
         12
       ]
     },
     {
       "name": "The Hunt",
-      "description": "Passif : Natalia gagne 15 % de chances de coup critique. Actif : Natalia entre immédiatement dans l'état Assassin Instinct. Elle peut stocker jusqu'à 2 charges Ultimate, et chaque charge a un temps de recharge de 30 secondes. Tuer les creeps réduit le temps de recharge restant de 50 % du temps de recharge complet.",
+      "description": "Passif : Natalia gagne 15 % de chances de coup critique. Actif : Natalia entre immédiatement dans l'état Assassin Instinct. Elle peut stocker jusqu'à 2 charges d'ultime, et chaque charge a un temps de recharge de 30 secondes. Tuer les creeps réduit le temps de recharge restant de 50 % du temps de recharge complet.",
       "cooldown": [
         3
       ]
@@ -3183,7 +3183,7 @@
   "natan": [
     {
       "name": "Theory of Everything",
-      "description": "Natan gagne une charge d'Enchevêtrement chaque fois que lui ou son Reverse-Clone frappe un ennemi avec une compétence (jusqu'à 6 charges). Chaque pile dure 2,5 secondes et confère 7,5 % de vitesse d'attaque et 5 % de vitesse de déplacement. Les projectiles d'attaque de base de Natan reviendront à Natan après avoir atteint la portée maximale, infligeant 30 (+50% de l'attaque physique totale) (+60% de la puissance magique totale) dégâts magiques aux ennemis en cours de route (hérite d'une partie des effets d'attaque). Frapper un ennemi réinitialise la durée de l'Enchevêtrement."
+      "description": "Natan gagne une charge d'Enchevêtrement chaque fois que lui ou son Reverse-Clone frappe un ennemi avec une compétence (jusqu'à 6 charges). Chaque cumul dure 2,5 secondes et confère 7,5 % de vitesse d'attaque et 5 % de vitesse de déplacement. Les projectiles d'attaque de base de Natan reviendront à Natan après avoir atteint la portée maximale, infligeant 30 (+50% de l'attaque physique totale) (+60% de la puissance magique totale) dégâts magiques aux ennemis en cours de route (hérite d'une partie des effets d'attaque). Frapper un ennemi réinitialise la durée de l'Enchevêtrement."
     },
     {
       "name": "Superposition",
@@ -3295,7 +3295,7 @@
     },
     {
       "name": "Abyssal Bone Needle",
-      "description": "Obsidia lance une aiguille en os abyssal, infligeant 325 (+80 % de l'attaque physique totale) dégâts physiques aux ennemis touchés et déclenchant le retour aux os au premier héros ennemi touché.",
+      "description": "Obsidia lance un Abyssal Bone Needle, infligeant 325 (+80% de l'attaque physique totale) dégâts physiques aux ennemis touchés et déclenchant Return to Bone au premier héros ennemi touché.",
       "cooldown": [
         4.5
       ],
@@ -3363,25 +3363,25 @@
   "paquito": [
     {
       "name": "Champ Stance",
-      "description": "Tous les 3 lancements de compétences, Paquito entre en position de champion, acquérant une compétence améliorée ignorant ses temps de recharge actuels. Il gagne 60 % de vitesse de déplacement supplémentaire qui diminue en 2,5 secondes après avoir lancé la compétence améliorée. Les attaques de base de Paquito n'infligent que (+85 % de l'attaque physique totale) des dégâts physiques."
+      "description": "Après tous les 3 lancements de compétences, Paquito entre dans Champ Stance, acquérant une compétence améliorée ignorant ses temps de recharge actuels. Il gagne 60 % de vitesse de déplacement supplémentaire qui diminue en 2,5 secondes après avoir lancé la compétence améliorée. Les attaques de base de Paquito n'infligent que (+85 % de l'attaque physique totale) des dégâts physiques."
     },
     {
       "name": "Heavy Left Punch",
-      "description": "Paquito lance un coup de poing dans la direction cible, infligeant 210 (+50% de l'attaque physique totale) dégâts physiques aux ennemis touchés et gagnant un bouclier de 150 (+135% de l'attaque physique totale). Posture de champion : les dégâts sont augmentés à 350 (+100 % de l'attaque physique totale) dégâts physiques, et la valeur du bouclier est augmentée à 140 % pendant 2,5 secondes (les boucliers normaux et améliorés peuvent se cumuler).",
+      "description": "Paquito lance un coup de poing dans la direction cible, infligeant 210 (+50% de l'attaque physique totale) dégâts physiques aux ennemis touchés et gagnant un bouclier de 150 (+135% de l'attaque physique totale). Champ Stance : Les dégâts sont augmentés à 350 (+100 % de l'attaque physique totale) Dégâts physiques, et la valeur du bouclier est augmentée à 140 % pendant 2,5 secondes (les boucliers normaux et améliorés peuvent se cumuler).",
       "cooldown": [
         7
       ]
     },
     {
       "name": "Jab",
-      "description": "Paquito se précipite en avant et lance un jab, infligeant 200 (+165 % de l'attaque physique totale) dégâts physiques aux ennemis sur son chemin et à destination. Position de champion : le coup de Paquito devient plus féroce, infligeant 300 (+210 % de l'attaque physique totale) dégâts physiques aux ennemis touchés. Le jab s'arrête lorsque vous frappez un héros ou un creep.",
+      "description": "Paquito se précipite en avant et lance un jab, infligeant 200 (+165% de l'attaque physique totale) dégâts physiques aux ennemis sur son chemin et à destination. Champ Stance : le coup de Paquito devient plus féroce, infligeant 300 (+210 % de l'attaque physique totale) dégâts physiques aux ennemis touchés. Le jab s'arrête lorsque vous frappez un héros ou un creep.",
       "cooldown": [
         7
       ]
     },
     {
       "name": "Knockout Strike",
-      "description": "Paquito lance un coup de coude sur les ennemis dans la direction ciblée, infligeant 250 (+50 % de l'attaque physique totale) dégâts physiques et les repoussant vers la destination. Il lance ensuite un foin, infligeant 300 (+90 % de l'attaque physique totale) dégâts physiques et les ralentissant de 75 % pendant 1 seconde, avant de reculer. Position de champion : après avoir repoussé les ennemis vers leur destination, Paquito lance un uppercut à la place, infligeant 400 (+120 % de l'attaque physique totale) dégâts physiques et les projetant dans les airs pendant 0,5 seconde.",
+      "description": "Paquito lance un coup de coude sur les ennemis dans la direction ciblée, infligeant 250 (+50% de l'attaque physique totale) dégâts physiques et les repoussant vers la destination. Il lance ensuite un foin, infligeant 300 (+90 % de l'attaque physique totale) dégâts physiques et les ralentissant de 75 % pendant 1 seconde, avant de reculer. Champ Stance : Après avoir repoussé les ennemis vers la destination, Paquito lance un uppercut à la place, infligeant 400 (+120 % de l'attaque physique totale) dégâts physiques et les faisant décoller pendant 0,5 s.",
       "cooldown": [
         15
       ]
@@ -3390,7 +3390,7 @@
   "pharsa": [
     {
       "name": "Spiritual Unity",
-      "description": "Toutes les 5 à 8 secondes (en fonction du niveau de frappe aérienne à plumes), Verri entre dans l'état de chasse. Lors de la prochaine attaque de Pharsa contre un héros ennemi, Verri inflige des dégâts magiques supplémentaires égaux à 8 % des PV de la cible (+ 1 % tous les 200 puissances magiques) et la ralentit de 60 % pendant 1 seconde.",
+      "description": "Toutes les 5 à 8 secondes (évolue avec le niveau Feathered Air Strike), Verri entre dans l'état de chasse. Lors de la prochaine attaque de Pharsa contre un héros ennemi, Verri inflige des dégâts magiques supplémentaires égaux à 8 % des PV de la cible (+ 1 % tous les 200 puissances magiques) et la ralentit de 60 % pendant 1 seconde.",
       "cooldown": [
         8
       ]
@@ -3417,7 +3417,7 @@
     },
     {
       "name": "Feathered Air Strike",
-      "description": "Passif : chaque niveau supérieur réduit l'intervalle de l'unité spirituelle de 1 seconde. Actif : Pharsa prend son envol pendant 8 secondes et bombarde la zone cible, infligeant 530 (+160 % de puissance magique totale) dégâts magiques aux ennemis à l'intérieur. Cette compétence peut être lancée jusqu'à 4 fois pendant le vol.",
+      "description": "Passif : chaque niveau supérieur réduit l'intervalle de Spiritual Unity de 1 seconde. Actif : Pharsa prend son envol pendant 8 secondes et bombarde la zone cible, infligeant 530 (+160 % de puissance magique totale) dégâts magiques aux ennemis à l'intérieur. Cette compétence peut être lancée jusqu'à 4 fois pendant le vol.",
       "cooldown": [
         36
       ],
@@ -3429,11 +3429,11 @@
   "phoveus": [
     {
       "name": "Demonic Force",
-      "description": "La prochaine attaque de base de Phoveus charge l'ennemi, le repoussant, infligeant des dégâts magiques supplémentaires égaux à 4 % à 6 % des PV de l'ennemi (évoluant avec le niveau) et gagnant un bouclier de 8 % à 12 % des PV. Temps de recharge : 26 s-14 s (en fonction du niveau d'Infernal Pursuit). Regard d'Astaros : chaque fois qu'un héros ennemi cligne des yeux, se précipite ou est déplacé à moins de 8 unités, réduit le temps de recharge de Force démoniaque de 20 % et les autres compétences de 0,5 seconde."
+      "description": "La prochaine attaque de base de Phoveus charge l'ennemi, le repousse, infligeant des dégâts magiques supplémentaires égaux à 4 % à 6 % des PV de l'ennemi (évoluant avec le niveau) et gagnant un bouclier de 8 % à 12 % des PV. Temps de recharge : 26 s-14 s (basé sur le niveau de Infernal Pursuit). Regard d'Astaros : chaque fois qu'un héros ennemi cligne des yeux, se précipite ou est déplacé à moins de 8 unités, réduit le temps de recharge de Demonic Force de 20 % et les autres compétences de 0,5 seconde."
     },
     {
       "name": "Demonic Impact",
-      "description": "Phoveus projette son monolithe dans le sol, infligeant 200 (+120 % de l'attaque physique totale) dégâts physiques aux ennemis dans la zone et les ralentissant de 70 % pendant 0,5 seconde. Si cette compétence touche un ennemi, le prochain impact démoniaque de Phoveus laissera derrière lui un œil d'Astaros. Oeil d'Astaros : implose après un court délai, infligeant 100 (+60 % de l'attaque physique totale) dégâts magiques aux ennemis.",
+      "description": "Phoveus projette son monolithe dans le sol, infligeant 200 (+120 % de l'attaque physique totale) dégâts physiques aux ennemis dans la zone et les ralentissant de 70 % pendant 0,5 s. Si cette compétence touche un ennemi, le prochain Demonic Impact de Phoveus laissera derrière lui un œil d'Astaros. Oeil d'Astaros : implose après un court délai, infligeant 100 (+60 % de l'attaque physique totale) dégâts magiques aux ennemis.",
       "cooldown": [
         6
       ]
@@ -3453,11 +3453,11 @@
   "popol-and-kupa": [
     {
       "name": "We Are Friends",
-      "description": "Kupa récupère 10 % de ses PV maximum par seconde après ne pas avoir subi de dégâts pendant 5 secondes. Quand Kupa meurt, Popol peut prier pendant 3 secondes pour le faire revivre. Temps de recharge : 30 secondes. Kupa a 3 500 (+350*niveau de héros) PV maximum et hérite de 100 % des autres attributs et effets d'équipement de Popol. Kupa inflige 77 (+3*niveau de héros) de vrais dégâts supplémentaires aux creeps."
+      "description": "Kupa récupère 10 % de ses PV maximum par seconde après ne pas avoir subi de dégâts pendant 5 secondes. Quand Kupa meurt, Popol peut prier pendant 3 secondes pour le faire revivre. Temps de recharge : 30 secondes. Kupa a 3 500 (+350*niveau du héros) PV maximum et hérite de 100 % des autres attributs et effets d'équipement de Popol. Kupa inflige 77 (+3*niveau du héros) de dégâts réels supplémentaires aux creeps."
     },
     {
       "name": "Bite 'em, Kupa!",
-      "description": "Popol lance une lance sur la cible, signalant à Kupa d'attaquer et infligeant 80 (+70% de l'attaque physique totale) dégâts physiques. Kupa mord ensuite la cible, lui infligeant 40 (+40 % de l'attaque physique totale) dégâts physiques et la ralentissant de 99 % pendant 0,75 s. Lorsqu'ils sont marqués par la lance, chaque fois que Popol ou Kupa touchent la cible avec une attaque de base, ils gagnent tous deux 7 % de vitesse d'attaque et 3 % de vitesse de déplacement pendant 4 secondes (jusqu'à 3 charges). Forme de loup alpha : Kupa frappe violemment, infligeant 120 (+140 % de l'attaque physique totale) dégâts physiques à la cible et aux ennemis proches et les projetant dans les airs pendant 0,5 seconde.",
+      "description": "Popol lance une lance sur la cible, signalant à Kupa d'attaquer et infligeant 80 (+70% de l'attaque physique totale) dégâts physiques. Kupa mord ensuite la cible, lui infligeant 40 (+40 % de l'attaque physique totale) dégâts physiques et la ralentissant de 99 % pendant 0,75 s. Lorsqu'ils sont marqués par la lance, chaque fois que Popol ou Kupa touchent la cible avec une attaque de base, ils gagnent tous deux 7 % de vitesse d'attaque et 3 % de vitesse de déplacement pendant 4 secondes (jusqu'à 3 charges). Alpha Forme de loup : Kupa frappe violemment, infligeant 120 (+140 % de l'attaque physique totale) dégâts physiques à la cible et aux ennemis proches et les projetant dans les airs pendant 0,5 seconde.",
       "cooldown": [
         7
       ],
@@ -3467,7 +3467,7 @@
     },
     {
       "name": "Kupa, Help!",
-      "description": "Popol rappelle Kupa et gagne un bouclier de 240 (+200 % d'attaque physique supplémentaire). Il peut ensuite chevaucher Kupa pendant 1,5 seconde, gagnant 250 de vitesse de déplacement lorsqu'il est monté. Kupa récupère également continuellement 20 % de ses PV maximum. Popol peut utiliser une attaque de base pour mettre fin plus tôt à l'état Monté. Après son retour, Kupa suit Popol jusqu'à ce que Popol attaque un ennemi. Forme de loup alpha : l'effet du bouclier augmente à 125 % et Kupa récupère tous ses PV lorsqu'il est monté.",
+      "description": "Popol rappelle Kupa et gagne un bouclier de 240 (+200 % d'attaque physique supplémentaire). Il peut ensuite chevaucher Kupa pendant 1,5 seconde, gagnant 250 de vitesse de déplacement lorsqu'il est monté. Kupa récupère également continuellement 20 % de ses PV maximum. Popol peut utiliser une attaque de base pour mettre fin plus tôt à l'état Monté. Après son retour, Kupa suit Popol jusqu'à ce que Popol attaque un ennemi. Alpha Forme de loup : l'effet du bouclier augmente à 125 % et Kupa récupère tous ses PV lorsqu'il est monté.",
       "cooldown": [
         10
       ],
@@ -3477,7 +3477,7 @@
     },
     {
       "name": "We Are Angry!",
-      "description": "Popol et Kupa entrent dans l'état Enragé pendant 9 secondes. Pendant ce temps, Kupa se transforme en Alpha Wolf Form.",
+      "description": "Popol and Kupa entrez dans l'état Enragé pendant 9 secondes. Pendant ce temps, Kupa se transforme en Alpha Forme de Loup.",
       "cooldown": [
         38
       ],
@@ -3558,7 +3558,7 @@
   "ruby": [
     {
       "name": "Let's Dance!",
-      "description": "Les compétences de Ruby ont un ratio Spell Vamp de 75 % (ses attaques de base ne peuvent pas déclencher Lifesteal). Pour chaque 1 % de PV perdu, son ratio Spell Vamp augmente de 1 %, jusqu'à 150 %. Après chaque compétence lancée, Ruby peut se précipiter vers un autre endroit et gagner 8 à 25 de défense hybride (évolue en fonction du niveau) pendant 4 secondes (se cumule jusqu'à 3 fois)."
+      "description": "Les compétences de Ruby ont un ratio de vampirisme des sorts de 75 % (ses attaques de base ne peuvent pas déclencher le vol de vie). Pour chaque 1 % de PV perdu, son ratio de vampirisme des sorts augmente de 1 %, jusqu'à 150 %. Après chaque compétence lancée, Ruby peut se précipiter vers un autre endroit et gagner 8 à 25 de défense hybride (évolue en fonction du niveau) pendant 4 secondes (se cumule jusqu'à 3 fois)."
     },
     {
       "name": "Be Good!",
@@ -3594,11 +3594,11 @@
   "saber": [
     {
       "name": "Enemy's Bane",
-      "description": "Chaque fois que Sabre inflige des dégâts, il réduit la défense physique de la cible de 3 à 8 pendant 5 secondes (jusqu'à 5 charges)."
+      "description": "Chaque fois que Saber inflige des dégâts, il réduit la défense physique de la cible de 3 à 8 pendant 5 secondes (jusqu'à 5 charges)."
     },
     {
       "name": "Orbiting Swords",
-      "description": "Saber libère 5 épées qui tournent autour de lui et infligent 75 (+25 % d'attaque physique supplémentaire) dégâts physiques aux ennemis proches lorsqu'ils sont touchés. Les épées se rétracteront après la durée. Lorsqu'elles sont actives, les attaques à l'épée infligent 200 (+50 % d'attaque physique supplémentaire) de dégâts physiques à la cible et 50 % de dégâts aux ennemis le long du chemin (dégâts réduits à 50 % contre les sbires). Chaque attaque à l'épée réduit les temps de recharge des Épées orbitales de 0,5 seconde et de la Charge de 1 seconde.",
+      "description": "Saber libère 5 épées qui tournent autour de lui et infligent 75 (+25% d'attaque physique supplémentaire) dégâts physiques aux ennemis proches lorsqu'ils sont touchés. Les épées se rétracteront après la durée. Lorsqu'elles sont actives, les attaques à l'épée infligent 200 (+50 % d'attaque physique supplémentaire) de dégâts physiques à la cible et 50 % de dégâts aux ennemis le long du chemin (dégâts réduits à 50 % contre les sbires). Chaque attaque à l'épée réduit les temps de recharge de Orbiting Swords de 0,5 s et de Charge de 1 s.",
       "cooldown": [
         10
       ],
@@ -3608,7 +3608,7 @@
     },
     {
       "name": "Charge",
-      "description": "Sabre se précipite dans la direction cible, infligeant 75 (+50 % d'attaque physique supplémentaire) dégâts physiques aux ennemis le long du chemin. Après le sprint, il gagne une attaque de base améliorée qui lui permet de charger la cible, infligeant 75 (+120 % de l'attaque physique totale) dégâts physiques et la ralentissant de 60 % pendant 1 seconde.",
+      "description": "Saber se précipite dans la direction ciblée, infligeant 75 (+50 % d'attaque physique supplémentaire) dégâts physiques aux ennemis le long du chemin. Après le sprint, il gagne une attaque de base améliorée qui lui permet de charger la cible, infligeant 75 (+120 % de l'attaque physique totale) dégâts physiques et la ralentissant de 60 % pendant 1 seconde.",
       "cooldown": [
         7
       ],
@@ -3618,7 +3618,7 @@
     },
     {
       "name": "Triple Sweep",
-      "description": "Le sabre charge le héros ennemi ciblé, le projetant dans les airs pendant 1,2 s (non affecté par la résilience). Il les frappe 3 fois pendant la durée, infligeant 120 (+80% d'attaque physique supplémentaire) de dégâts physiques avec les 2 premières frappes et 240 (+160% d'attaque physique supplémentaire) de dégâts physiques avec la troisième.",
+      "description": "Saber charge le héros ennemi ciblé, le projetant dans les airs pendant 1,2 s (non affecté par la résilience). Il les frappe 3 fois pendant la durée, infligeant 120 (+80% d'attaque physique supplémentaire) de dégâts physiques avec les 2 premières frappes et 240 (+160% d'attaque physique supplémentaire) de dégâts physiques avec la troisième.",
       "cooldown": [
         44
       ],
@@ -3630,7 +3630,7 @@
   "selena": [
     {
       "name": "Symbiosis",
-      "description": "Selena peut basculer librement entre ses deux formes. Forme elfique : Selena applique « Abyssal Mark » avec ses compétences. La marque peut s'empiler jusqu'à 2 fois. Lorsque Abyssal Trap touche un ennemi, il ajoute immédiatement une \"Abyssal Mark\". Forme abyssale : tous les dégâts consommeront 1 pile de \"Marque abyssale\" pour infliger 225 (+15*niveau du héros) (+40 % de puissance magique totale) dégâts magiques supplémentaires. \"Abyssal Mark\" inflige 285 % de dégâts supplémentaires aux unités non-héros."
+      "description": "Selena peut basculer librement entre ses deux formes. Forme elfique : Selena applique « Abyssal Mark » avec ses compétences. La marque peut s'empiler jusqu'à 2 fois. Lorsque Abyssal Trap touche un ennemi, il ajoute immédiatement une \"Abyssal Mark\". Forme abyssale : tous les dégâts consommeront 1 cumul de \"Marque abyssale\" pour infliger 225 (+15*niveau du héros) (+40 % de puissance magique totale) dégâts magiques supplémentaires. \"Abyssal Mark\" inflige 285 % de dégâts supplémentaires aux unités non-héros."
     },
     {
       "name": "Abyssal Trap",
@@ -3644,7 +3644,7 @@
     },
     {
       "name": "Abyssal Arrow",
-      "description": "Selena tire un spectre abyssal dans la direction ciblée qui s'arrête lorsqu'il touche un héros ennemi, un creep ou une invocation, infligeant de 250 (+20 % de puissance magique totale) à 500 (+40 % de puissance magique totale) dégâts magiques à la cible touchée et l'étourdissant pendant 0,5 s à 2,5 s tout en révélant leur emplacement (les dégâts et la durée de l'étourdissement augmentent avec la distance de déplacement du spectre). Le spectre ramassera le piège abyssal lorsqu'il le traversera et appliquera le piège à la cible ennemie en l'étourdissant. Si le spectre étourdit un ennemi pendant 0,9 seconde ou plus, Selena gagnera 60 % de vitesse de déplacement pendant 2 secondes.",
+      "description": "Selena tire un spectre abyssal dans la direction cible qui s'arrête lorsqu'il touche un héros ennemi, un creep ou une invocation, infligeant de 250 (+20% de puissance magique totale) à 500 (+40% de puissance magique totale) dégâts magiques à la cible touchée et l'étourdissant pendant 0,5 s à 2,5 s tout en révélant leur emplacement (les dégâts et la durée de l'étourdissement augmentent avec la distance de déplacement du spectre). Le spectre captera Abyssal Trap lorsqu'il le traversera et appliquera le piège à la cible ennemie en l'étourdissant. Si le spectre étourdit un ennemi pendant 0,9 s ou plus, Selena gagnera 60 % de vitesse de déplacement pendant 2 s.",
       "cooldown": [
         12
       ],
@@ -3677,7 +3677,7 @@
     },
     {
       "name": "Spiral Strangling",
-      "description": "Silvanna pousse sa lance dans la direction cible et la fait tourner 6 fois tout en gagnant un bouclier de 350 (+150 % de puissance magique totale). Chaque tour inflige 165 (+45 % de puissance magique totale) dégâts magiques et attire légèrement les cibles vers le centre. Silvanna tourne 1 fois supplémentaire tous les 50 % de vitesse d'attaque supplémentaire qu'elle possède. La compétence n'inflige que 50 % de dégâts aux sbires. L'étranglement en spirale compte comme une attaque de base mais ne peut pas faire de coup critique.",
+      "description": "Silvanna pousse sa lance dans la direction cible et la fait tourner 6 fois tout en gagnant un bouclier de 350 (+150% de puissance magique totale). Chaque tour inflige 165 (+45 % de puissance magique totale) dégâts magiques et attire légèrement les cibles vers le centre. Silvanna tourne 1 fois supplémentaire tous les 50 % de vitesse d'attaque supplémentaire qu'elle possède. La compétence n'inflige que 50 % de dégâts aux sbires. Spiral Strangling compte comme une attaque de base mais ne peut pas faire de critique.",
       "cooldown": [
         5
       ],
@@ -3699,7 +3699,7 @@
   "sora": [
     {
       "name": "Mystic Surge",
-      "description": "Sora peut monter vers Thunder ou Torrent en utilisant son Ultimate. Après votre ascension, infliger des dégâts aux héros ou aux unités invoquées confère 1 pile de Cloudstep. En atteignant 5 charges, il débloque son véritable art. Tonnerre : Adopte un style assassin, convertissant 30% de PV en Attaque Physique (Égal à 10% des PV). Torrent : adopte un style de tank, convertissant 30 % de l'attaque physique en PV (gagne 10 PV pour chaque attaque)."
+      "description": "Sora peut monter vers Thunder ou Torrent en utilisant son ultime. Après votre ascension, infliger des dégâts aux héros ou aux unités invoquées confère 1 cumul de Cloudstep. En atteignant 5 charges, il débloque son véritable art. Tonnerre : Adopte un style assassin, convertissant 30% de PV en Attaque Physique (Égal à 10% des PV). Torrent : adopte un style de tank, convertissant 30 % de l'attaque physique en PV (gagne 10 PV pour chaque attaque)."
     },
     {
       "name": "Sundering Strike",
@@ -3759,7 +3759,7 @@
   "suyou": [
     {
       "name": "Transient Immortal",
-      "description": "Le fait de lancer n'importe quelle compétence met Suyou sous forme mortelle, lui conférant une vitesse de déplacement de 40 et réduisant l'intervalle entre ses attaques de base. Maintenir n'importe quelle compétence met Suyou sous forme immortelle, augmentant ses dégâts d'attaque de base à 125 % et accordant une réduction des dégâts physiques de 20 %. Sous cette forme, Suyou gagne 1% de réduction des dégâts physiques toutes les 20 attaques physiques supplémentaires qu'il possède, jusqu'à 40%."
+      "description": "Le fait de lancer n'importe quelle compétence met Suyou sous forme mortelle, lui conférant une vitesse de déplacement de 40 et réduisant l'intervalle entre ses attaques de base. Maintenir n'importe quelle compétence met Suyou sous forme immortelle, augmentant ses dégâts d'attaque de base à 125 % et accordant une réduction des dégâts physiques de 20 %. Sous cette forme, Suyou gagne 1% de réduction des dégâts physiques tous les 20 points d'attaque physique supplémentaires qu'il possède, jusqu'à 40%."
     },
     {
       "name": "Blade Surge",
@@ -3783,7 +3783,7 @@
   "terizla": [
     {
       "name": "Body of Smith",
-      "description": "Terizla gagne 1 % de réduction des dégâts supplémentaire (jusqu'à 20 (+1*niveau de héros) %) tous les 2,5 % de PV perdus. Il ne peut pas gagner de vitesse d'attaque supplémentaire et convertira chaque 1% de vitesse d'attaque supplémentaire en 1 attaque physique."
+      "description": "Terizla gagne 1 % de réduction des dégâts supplémentaire (jusqu'à 20 (+1*niveau du héros) %) tous les 2,5 % de PV perdus. Il ne peut pas gagner de vitesse d'attaque supplémentaire et convertira chaque 1% de vitesse d'attaque supplémentaire en 1 attaque physique."
     },
     {
       "name": "Revenge Strike",
@@ -3873,7 +3873,7 @@
   "uranus": [
     {
       "name": "Radiance",
-      "description": "Uranus absorbe l'énergie générée par les attaques entrantes pour se renforcer, régénérant une certaine quantité de PV toutes les 0,8 s. Chaque pile dure 10 secondes. Lorsqu'il est au maximum de piles (20), Uranus régénère 48-224 PV (évolue avec le niveau)."
+      "description": "Uranus absorbe l'énergie générée par les attaques entrantes pour se renforcer, régénérant une certaine quantité de PV toutes les 0,8 s. Chaque cumul dure 10 secondes. Lorsqu'il est au maximum de cumuls (20), Uranus régénère 48-224 PV (évolue avec le niveau)."
     },
     {
       "name": "Ionic Edge",
@@ -3897,7 +3897,7 @@
     },
     {
       "name": "Consecration",
-      "description": "Uranus libère l'énergie stockée dans son corps, supprimant les effets lents sur lui-même, récupérant 200 PV et gagnant 60 % de vitesse de déplacement pendant 8 secondes (décroît avec le temps). Uranus gagne directement 5 charges de Radiance, augmentant les boucliers reçus et la régénération de PV de 20 % pendant 8 secondes.",
+      "description": "Uranus libère l'énergie stockée dans son corps, supprimant les effets de ralentissement sur lui-même, récupérant 200 PV et gagnant 60 % de vitesse de déplacement pendant 8 secondes (décroît avec le temps). Uranus gagne directement 5 charges de Radiance, augmentant les boucliers reçus et la régénération de PV de 20 % pendant 8 secondes.",
       "cooldown": [
         42
       ],
@@ -3972,7 +3972,7 @@
     },
     {
       "name": "I Am You",
-      "description": "Valentina ralentit le héros ennemi ciblé de 70 % pendant 0,5 seconde et acquiert la capacité de lancer son Ultime. Lancer l'Ultime de l'ennemi le transforme en héros ennemi et hérite de son type d'attaque de base pendant 12 secondes maximum (ses compétences habituelles restent inchangées à moins que l'Ultime de l'ennemi n'ait un effet de transformation). Le niveau de l'Ultime volé est égal au niveau Ultime de Valentina et son temps de recharge est de 120 % de celui de la cible (mais pas inférieur à 10 secondes). Si la cible est un héros de dégâts physiques, Valentina gagne (+100 % de puissance magique totale) d'attaque physique pour toute la durée. Cela ne peut pas être utilisé sur une Valentina ennemie.",
+      "description": "Valentina ralentit le héros ennemi ciblé de 70 % pendant 0,5 seconde et acquiert la capacité de lancer son ultime. Lancer l'ultime de l'ennemi le transforme en héros ennemi et hérite de son type d'attaque de base pendant 12 secondes maximum (ses compétences habituelles restent inchangées à moins que l'ultime de l'ennemi n'ait un effet de transformation). Le niveau de l'ultime volé est égal au niveau Ultime de Valentina et son temps de recharge est de 120 % de celui de la cible (mais pas inférieur à 10 secondes). Si la cible est un héros de dégâts physiques, Valentina gagne (+100 % de puissance magique totale) d'attaque physique pour toute la durée. Cela ne peut pas être utilisé sur une Valentina ennemie.",
       "cooldown": [
         55
       ]
@@ -3985,7 +3985,7 @@
     },
     {
       "name": "Burst Fireball",
-      "description": "Valir lance une boule de feu qui explose en touchant la première cible, infligeant 235 (+80 % de puissance magique totale) dégâts magiques et la ralentissant de 30 % pendant 1 seconde. La flamme au sol explose après 1 seconde, infligeant 118 (+40 % de puissance magique totale) dégâts magiques. Valir recharge 1 boule de feu toutes les 9 secondes (jusqu'à 2 charges). Frapper un héros ennemi ou une légende avec cette compétence restaure immédiatement 1 charge, tandis que frapper un sbire restaure 4 secondes du temps de recharge. Flamme de vengeance : augmente la portée d'incantation de Burst Fireball de 30 %.",
+      "description": "Valir lance une boule de feu qui explose en touchant la première cible, infligeant 235 (+80% de puissance magique totale) dégâts magiques et la ralentissant de 30% pendant 1 seconde. La flamme au sol explose après 1 seconde, infligeant 118 (+40 % de puissance magique totale) dégâts magiques. Valir recharge 1 boule de feu toutes les 9 secondes (jusqu'à 2 charges). Frapper un héros ennemi ou une légende avec cette compétence restaure immédiatement 1 charge, tandis que frapper un sbire restaure 4 secondes du temps de recharge. Vengeance Flame : Augmente la portée d'incantation de Burst Fireball de 30 %.",
       "cooldown": [
         1.5
       ],
@@ -3995,7 +3995,7 @@
     },
     {
       "name": "Searing Torrent",
-      "description": "Valir libère un torrent de flammes dans la direction ciblée, infligeant 200 (+60 % de puissance magique totale) dégâts magiques et les repoussant au bout de son chemin. Flamme de vengeance : le torrent forme un pare-feu à la fin de son parcours qui dure 4 s, infligeant 100 (+30 % de puissance magique totale) dégâts magiques aux ennemis proches toutes les 1 s. Les ennemis touchés par le torrent ou le pare-feu sont ralentis de 25% pendant 1s.",
+      "description": "Valir libère un torrent de flammes dans la direction ciblée, infligeant 200 (+60 % de puissance magique totale) dégâts magiques et les repoussant au bout de son chemin. Vengeance Flame : Le torrent forme un pare-feu à la fin de son parcours qui dure 4 s, infligeant 100 (+30 % de puissance magique totale) dégâts magiques aux ennemis proches toutes les 1 s. Les ennemis touchés par le torrent ou le pare-feu sont ralentis de 25% pendant 1s.",
       "cooldown": [
         13
       ],
@@ -4005,7 +4005,7 @@
     },
     {
       "name": "Vengeance Flame",
-      "description": "Valir supprime tous les affaiblissements sur lui-même et gagne 40 % de vitesse de déplacement qui diminue en 3 secondes. Pendant ce temps, il invoque 4 flammes de vengeance qui améliorent Burst Fireball et Searing Torrent pendant 9 secondes.",
+      "description": "Valir supprime tous les affaiblissements sur lui-même et gagne 40% de vitesse de déplacement qui décroît en 3 secondes. Pendant ce temps, il évoque 4 Flammes Vengeance qui améliorent Burst Fireball et Searing Torrent pendant 9s.",
       "cooldown": [
         36
       ],
@@ -4017,11 +4017,11 @@
   "vexana": [
     {
       "name": "Nether Touch",
-      "description": "Vexana et sa Garde éternelle infligent Nether Touch aux ennemis touchés. La marque dure 5 secondes et fait exploser l'ennemi affecté à sa mort, infligeant 108 à 500 (+60 % de puissance magique totale) dégâts magiques aux ennemis proches (les dégâts de base varient en fonction du niveau)."
+      "description": "Vexana et son Eternal Guard infligent Nether Touch aux ennemis touchés. La marque dure 5 secondes et fait exploser l'ennemi affecté à sa mort, infligeant 108 à 500 (+60 % de puissance magique totale) dégâts magiques aux ennemis proches (les dégâts de base varient en fonction du niveau)."
     },
     {
       "name": "Deathly Grasp",
-      "description": "Vexana libère une Emprise mortelle dans la direction ciblée, infligeant 200 (+60 % de puissance magique totale) dégâts magiques aux ennemis sur son passage. Il s'arrête en frappant un héros ennemi, le terrifiant et le repoussant. Après un court délai, il explose, infligeant 200 (+60 % de puissance magique totale) dégâts magiques aux ennemis proches et les terrifiant pendant 1 seconde.",
+      "description": "Vexana libère un Deathly Grasp dans la direction ciblée, infligeant 200 (+60% de puissance magique totale) dégâts magiques aux ennemis sur son passage. Il s'arrête en frappant un héros ennemi, le terrifiant et le repoussant. Après un court délai, il explose, infligeant 200 (+60 % de puissance magique totale) dégâts magiques aux ennemis proches et les terrifiant pendant 1 seconde.",
       "cooldown": [
         14
       ],
@@ -4041,7 +4041,7 @@
     },
     {
       "name": "Eternal Guard",
-      "description": "Vexana invoque un garde éternel à l'emplacement cible, infligeant 480 (+60 % de puissance magique totale) dégâts magiques aux ennemis touchés et les projetant dans les airs pendant 0,8 seconde. La Garde éternelle rejoint ensuite Vexana dans la bataille pendant 15 secondes. Ses attaques infligent 200 (+40 % de puissance magique totale) (+ 5 % des PV de la cible) dégâts magiques et dégâts d'éclaboussure dans une large zone.",
+      "description": "Vexana invoque un Eternal Guard à l'emplacement cible, infligeant 480 (+60% de puissance magique totale) dégâts magiques aux ennemis touchés et les projetant dans les airs pendant 0,8 s. Le Eternal Guard rejoint ensuite le Vexana dans la bataille pendant 15 secondes. Ses attaques infligent 200 (+40% de puissance magique totale) (+ 5% des PV de la cible) dégâts magiques et dégâts d'éclaboussure dans une large zone.",
       "cooldown": [
         60
       ],
@@ -4053,11 +4053,11 @@
   "wanwan": [
     {
       "name": "Tiger Pace",
-      "description": "Les héros ennemis touchés par les attaques de Wanwan verront leurs faiblesses et leurs positions exposées pendant 5 secondes. Lorsqu'elle touche la faiblesse d'un ennemi, Wanwan inflige 67 (+3*niveau de héros) de vrais dégâts supplémentaires et augmente les dégâts subis par ses attaques ultérieures de 10 % pendant 5 secondes. Wanwan peut se précipiter sur une courte distance après chaque flèche tirée par son attaque de base. La vitesse du sprint évolue avec sa vitesse d'attaque."
+      "description": "Les héros ennemis touchés par les attaques de Wanwan verront leurs faiblesses et leurs positions exposées pendant 5 secondes. Lorsqu'elle touche la faiblesse d'un ennemi, Wanwan inflige 67 (+3*niveau du héros) de dégâts réels supplémentaires et augmente les dégâts subis par ses attaques ultérieures de 10 % pendant 5 secondes. Wanwan peut se précipiter sur une courte distance après chaque flèche tirée par son attaque de base. La vitesse du sprint évolue avec sa vitesse d'attaque."
     },
     {
       "name": "Swallow’s Path",
-      "description": "Wanwan lance une Hirondelle de feu dans la direction ciblée, déclenchant la Vitesse du Tigre tout en infligeant 120 (+40 % de l'attaque physique totale) dégâts physiques aux ennemis sur son passage. L'hirondelle de feu se transforme alors en 3 dagues d'hirondelle rotatives. Après un court délai, ces dagues d'hirondelle reviendront à Wanwan les unes après les autres, infligeant 120 (+40 % de l'attaque physique totale) dégâts physiques aux ennemis sur le chemin du retour et les ralentissant de 30 % pendant 1,5 s. Les ennemis touchés deux fois par les Swallow Daggers seront immobilisés pendant 0,5 seconde.",
+      "description": "Wanwan lance une hirondelle de feu dans la direction cible, déclenchant Tiger Pace tout en infligeant 120 (+40% de l'attaque physique totale) dégâts physiques aux ennemis sur son chemin. L'hirondelle de feu se transforme alors en 3 dagues d'hirondelle rotatives. Après un court délai, ces dagues d'hirondelle reviendront l'une après l'autre vers Wanwan, infligeant 120 (+40 % de l'attaque physique totale) dégâts physiques aux ennemis sur le chemin du retour et les ralentissant de 30 % pendant 1,5 s. Les ennemis touchés deux fois par les Swallow Daggers seront immobilisés pendant 0,5 seconde.",
       "cooldown": [
         12
       ],
@@ -4077,7 +4077,7 @@
     },
     {
       "name": "Crossbow of Tang",
-      "description": "Wanwan saute dans les airs et devient impossible à cibler, tirant des flèches sur le héros ennemi ciblé pendant 2,5 secondes de suite, infligeant 60 (+35 % de l'attaque physique totale) dégâts physiques par flèche. Si la cible est tuée lors de cette attaque, Wanwan passera à un autre héros ennemi dans sa portée d'attaque, gagnera 30 % de vitesse d'attaque et prolongera la durée de la compétence de 1 seconde (cet effet peut se déclencher jusqu'à 3 fois). Wanwan peut déclencher Tiger Pace en tuant un ennemi et à la fin de la durée. L'arbalète de Tang ne peut être lancée que sur des héros ennemis avec toutes leurs faiblesses touchées et Wanwan gagne 100 % de vitesse de déplacement pendant toute la durée. Ces dégâts sont considérés comme des dégâts d'attaque de base et la cadence de tir évolue avec la vitesse d'attaque de Wanwan.",
+      "description": "Wanwan saute dans les airs et devient impossible à cibler, tirant des flèches sur le héros ennemi ciblé pendant 2,5 secondes de suite, infligeant 60 (+35% de l'attaque physique totale) dégâts physiques par flèche. Si la cible est tuée lors de cette attaque, Wanwan passera à un autre héros ennemi dans sa portée d'attaque, gagnera 30 % de vitesse d'attaque et prolongera la durée de la compétence de 1 seconde (cet effet peut se déclencher jusqu'à 3 fois). Wanwan peut déclencher Tiger Pace en tuant un ennemi et à la fin de la durée. Crossbow of Tang ne peut être lancé que sur des héros ennemis avec toutes leurs faiblesses touchées et Wanwan gagne 100 % de vitesse de déplacement pendant toute la durée. Ces dégâts sont considérés comme des dégâts d'attaque de base et la cadence de tir évolue avec la vitesse d'attaque de Wanwan.",
       "cooldown": [
         50,
         46,
@@ -4093,7 +4093,7 @@
   "x-borg": [
     {
       "name": "Firaga Armor",
-      "description": "Firaga Armor hérite de 160 % des PV de X.Borg et absorbe tous les dégâts reçus lorsqu'elle est active. Une fois détruit, X.Borg roule en direction du Joystick (il est invincible durant ce processus). L'énergie de l'armure se régénérera progressivement pendant que X.Borg est dans l'état sans armure. À pleine énergie, X.Borg rééquipe l'armure et lui redonne 30 % de PV. Les attaques de X.Borg font passer les ennemis en état de surchauffe. Les ennemis en état de surchauffe lâcheront des fournitures Firaga lorsqu'ils subiront des dégâts de X.Borg. Ramasser des fournitures restaure 10 % des PV de l'armure (ou 10 énergies en état sans armure). Les compétences de X.Borg infligent de vrais dégâts aux ennemis en état de surchauffe."
+      "description": "Firaga Armor hérite de 160 % des PV de X.Borg et absorbe tous les dégâts reçus lorsqu'elle est active. Une fois détruit, X.Borg roule en direction du Joystick (il est invincible durant ce processus). L'énergie de l'armure se régénérera progressivement pendant que X.Borg est dans l'état sans armure. À pleine énergie, X.Borg rééquipe l'armure et lui redonne 30 % de PV. Les attaques de X.Borg font passer les ennemis en état de surchauffe. Les ennemis en état de surchauffe lâcheront des fournitures Firaga lorsqu'ils subiront des dégâts de X.Borg. Ramasser des fournitures restaure 10 % des PV de l'armure (ou 10 énergies en état sans armure). Les compétences de X.Borg infligent des dégâts réels aux ennemis en état de surchauffe."
     },
     {
       "name": "Fire Missiles",
@@ -4111,7 +4111,7 @@
     },
     {
       "name": "Last Insanity",
-      "description": "X.Borg charge dans la direction cible tout en tournant et en projetant du feu (ne peut pas récupérer les fournitures de Firaga pendant ce temps), infligeant 90 (+60 % d'attaque physique supplémentaire) (+45 % de puissance magique totale) dégâts physiques 12 fois et ralentissant les ennemis touchés de 25 %. Il s'arrête en touchant un héros ennemi et le ralentira de 40 % supplémentaires. Après 3 secondes, sa combinaison mecha explose, infligeant 300 (+ 15 % des PV de la cible) de vrais dégâts. Si son armure est détruite, elle explosera immédiatement, mais les dégâts chuteront à 50 %. La détonation détruit son armure, supprime tous les effets de contrôle et récupère toutes les fournitures Firaga à proximité. Ne peut pas être utilisé dans un état sans armure. Réutiliser : arrêtez immédiatement de pulvériser le feu et faites exploser tôt.",
+      "description": "X.Borg charge dans la direction cible tout en tournant et en projetant du feu (ne peut pas récupérer les fournitures de Firaga pendant ce temps), infligeant 90 (+60 % d'attaque physique supplémentaire) (+45 % de puissance magique totale) dégâts physiques 12 fois et ralentissant les ennemis touchés de 25 %. Il s'arrête en touchant un héros ennemi et le ralentira de 40 % supplémentaires. Après 3 secondes, sa combinaison mecha explose, infligeant 300 (+ 15 % des PV de la cible) de dégâts réels. Si son armure est détruite, elle explosera immédiatement, mais les dégâts chuteront à 50 %. La détonation détruit son armure, supprime tous les effets de contrôle et récupère toutes les fournitures Firaga à proximité. Ne peut pas être utilisé dans un état sans armure. Réutiliser : arrêtez immédiatement de pulvériser le feu et faites exploser tôt.",
       "cooldown": [
         30
       ],
@@ -4123,7 +4123,7 @@
   "xavier": [
     {
       "name": "Transcendence",
-      "description": "Lorsque les compétences de Xavier touchent des héros ennemis, il gagne 60 % de vitesse de déplacement pendant 1,2 s (décroissant avec le temps) et 1 charge d'énergie. A 3 charges, sa prochaine compétence déclenche l'état de Transcendance. Transcendance : Dans cet état, les Compétences 1 et 2 de Xavier voient leurs temps de recharge réduits de 4s, et son Ultime de 36s. La transcendance dure 5 secondes et peut être prolongée de 1 seconde à chaque fois que ses compétences touchent des ennemis."
+      "description": "Lorsque les compétences de Xavier touchent des héros ennemis, il gagne 60 % de vitesse de déplacement pendant 1,2 s (décroissant avec le temps) et 1 charge d'énergie. A 3 charges, sa prochaine compétence déclenche l'état de Transcendance. Transcendance : Dans cet état, les compétences 1 et 2 de Xavier voient leurs temps de recharge réduits de 4s, et son ultime de 36s. La transcendance dure 5 secondes et peut être prolongée de 1 seconde à chaque fois que ses compétences touchent des ennemis."
     },
     {
       "name": "Infinite Extension",
@@ -4137,7 +4137,7 @@
     },
     {
       "name": "Mystic Field",
-      "description": "Xavier invoque une barrière mystique qui dure 5 secondes. Les ennemis touchant la barrière sont ralentis de 50 %, tandis que les alliés gagnent 50 % de vitesse de déplacement supplémentaire (décroît en 1,2 s). Lorsqu'elle est touchée par les autres compétences de Xavier, la barrière s'étend dans un champ mystique pendant 3 secondes, infligeant 440 (+130 % de puissance magique totale) dégâts magiques aux ennemis à l'intérieur et les immobilisant pendant 0,8 seconde.",
+      "description": "Xavier invoque une barrière mystique qui dure 5 secondes. Les ennemis touchant la barrière sont ralentis de 50 %, tandis que les alliés gagnent 50 % de vitesse de déplacement supplémentaire (décroît en 1,2 s). Lorsqu'elle est touchée par les autres compétences de Xavier, la barrière se transforme en Mystic Field pendant 3 s, infligeant 440 (+130 % de puissance magique totale) dégâts magiques aux ennemis à l'intérieur et les immobilisant pendant 0,8 s.",
       "cooldown": [
         13
       ],
@@ -4195,7 +4195,7 @@
   "yin": [
     {
       "name": "Leave It to Me",
-      "description": "S'il n'y a aucun héros allié à moins de 4 unités de Yin, ses dégâts sont augmentés à 120 % et il gagne 8 % de Spell Vamp."
+      "description": "S'il n'y a aucun héros allié à moins de 4 unités de Yin, ses dégâts sont augmentés à 120 % et il gagne 8 % de vampirisme des sorts."
     },
     {
       "name": "Charged Punch",
@@ -4213,7 +4213,7 @@
     },
     {
       "name": "My Turn",
-      "description": "Après un court délai, Yin se verrouille sur un héros ennemi (ne peut pas se verrouiller sur des animaux de compagnie ou des clones) et l'attire dans un domaine pendant 8 secondes maximum et se transforme en Lieh. Lorsqu'ils sont dans le domaine, les deux ne peuvent pas être affectés par les compétences des autres héros. Lieh a des compétences plus fortes et 50 défenses physiques et magiques supplémentaires qui durent 8 secondes. Le domaine se terminera prématurément si l'un des deux est tué. Si Lieh réussit à tuer l'ennemi, il récupérera 20 % de ses PV maximum, quittera le domaine avec les temps de recharge de Frenzy Strike et de Instant Blast réinitialisés, et continuera à se battre avec Lieh pendant 8 secondes. Si Yin ne parvient pas à attirer sa cible dans le domaine, la compétence entrera dans un temps de recharge de 3 secondes.",
+      "description": "Après un court délai, Yin se verrouille sur un héros ennemi (ne peut pas se verrouiller sur des animaux de compagnie ou des clones) et l'attire dans un domaine pendant 8 secondes maximum et se transforme en Lieh. Lorsqu'ils sont dans le domaine, les deux ne peuvent pas être affectés par les compétences des autres héros. Lieh a des compétences plus fortes et 50 points de défense physique et magique supplémentaires qui durent 8 secondes. Le domaine se terminera prématurément si l'un des deux est tué. Si Lieh réussit à tuer l'ennemi, il récupérera 20 % de ses PV maximum, quittera le domaine avec les temps de recharge de Frenzy Strike et de Instant Blast réinitialisés, et continuera à se battre avec Lieh pendant 8 secondes. Si Yin ne parvient pas à attirer sa cible dans le domaine, la compétence entrera dans un temps de recharge de 3 secondes.",
       "cooldown": [
         52
       ]
@@ -4222,7 +4222,7 @@
   "yu-zhong": [
     {
       "name": "Cursing Touch",
-      "description": "Yu Zhong applique Sha Residue aux héros ennemis chaque fois qu'il leur inflige des dégâts physiques. Sha Residue éclate après avoir atteint 5 charges par cible. Ensuite, il commence à consommer 1 charge toutes les 0,4 secondes pour infliger des dégâts physiques égaux à 20 (+20 % d'attaque physique supplémentaire) (+2,5 % des PV perdus de la cible) à la cible. Chaque pile consommée restaure 6% des PV perdus de Yu Zhong. Lorsque Sha Residue éclate, Yu Zhong gagne également 30% de vitesse de déplacement pendant 3 secondes."
+      "description": "Yu Zhong applique Sha Residue aux héros ennemis chaque fois qu'il leur inflige des dégâts physiques. Sha Residue éclate après avoir atteint 5 charges par cible. Ensuite, il commence à consommer 1 charge toutes les 0,4 secondes pour infliger des dégâts physiques égaux à 20 (+20 % d'attaque physique supplémentaire) (+2,5 % des PV perdus de la cible) à la cible. Chaque cumul consommé restaure 6% des PV perdus de Yu Zhong. Lorsque Sha Residue éclate, Yu Zhong gagne également 30% de vitesse de déplacement pendant 3 secondes."
     },
     {
       "name": "Dragon Tail",
@@ -4240,7 +4240,7 @@
     },
     {
       "name": "Black Dragon Form",
-      "description": "Après avoir canalisé pendant 0,6 seconde, Yu Zhong se transforme en sa forme de dragon noir. Pendant 7 secondes maximum, il ne peut pas utiliser d'autres compétences mais peut se déplacer librement et repoussera les héros ennemis sur son passage tout en infligeant 180 (+80 % de l'attaque physique totale) dégâts physiques. Il gagne également 1 000 (+200 % d'attaque physique supplémentaire) PV, devient immunisé contre les effets de contrôle et ignore les obstacles sous cette forme. En quittant la forme du dragon noir, Yu Zhong entre sous la forme dragonoïde, gagnant une portée accrue sur toutes ses compétences pendant 10 secondes.",
+      "description": "Après avoir canalisé pendant 0,6 s, Yu Zhong se transforme en son Black Dragon Form. Pendant 7 secondes maximum, il ne peut pas utiliser d'autres compétences mais peut se déplacer librement et repoussera les héros ennemis sur son passage tout en infligeant 180 (+80 % de l'attaque physique totale) dégâts physiques. Il gagne également 1 000 (+200 % d'attaque physique supplémentaire) PV, devient immunisé contre les effets de contrôle et ignore les obstacles sous cette forme. En quittant le Black Dragon Form, Yu Zhong entre sous forme dragonoïde, gagnant une portée accrue sur toutes ses compétences pendant 10 secondes.",
       "cooldown": [
         85
       ]
@@ -4249,7 +4249,7 @@
   "yve": [
     {
       "name": "Galactic Power",
-      "description": "Lorsqu'Yve inflige des dégâts aux héros ennemis avec ses compétences, elle gagne du pouvoir galactique (temps de recharge : 0,5 s), jusqu'à 3 cumuls. Chaque pile fournit à Yve un bouclier de 120 (+10*niveau de héros) (+50 % de puissance magique totale) pendant 3 secondes."
+      "description": "Lorsque Yve inflige des dégâts aux héros ennemis avec ses compétences, elle gagne Galactic Power (temps de recharge : 0,5 s), jusqu'à 3 cumuls. Chaque cumul fournit Yve avec un bouclier de 120 (+10*niveau du héros) (+50 % de puissance magique totale) pendant 3 secondes."
     },
     {
       "name": "Void Blast",
@@ -4263,7 +4263,7 @@
     },
     {
       "name": "Void Crystal",
-      "description": "Yve invoque un cristal du Vide à l'emplacement cible, infligeant 220 (+40 % de puissance magique totale) dégâts magiques aux ennemis proches. Réutiliser : Yve ordonne au cristal de tirer de l'énergie matérialisée dans la direction cible pendant 2,7 secondes, infligeant 75 (+10 % de puissance magique totale) dégâts magiques toutes les 0,45 secondes aux ennemis touchés et les ralentissant de 20 %. Les ennemis touchés plusieurs fois sont ralentis de 4 % supplémentaires pour chaque coup après le premier coup (jusqu'à 40 %).",
+      "description": "Yve invoque un Void Crystal à l'emplacement cible, infligeant 220 (+40% de puissance magique totale) dégâts magiques aux ennemis proches. Réutiliser : Yve ordonne au cristal de tirer de l'énergie matérialisée dans la direction cible pendant 2,7 s, infligeant 75 (+10 % de puissance magique totale) dégâts magiques toutes les 0,45 s aux ennemis touchés et les ralentissant de 20 %. Les ennemis touchés plusieurs fois sont ralentis de 4 % supplémentaires pour chaque coup après le premier coup (jusqu'à 40 %).",
       "cooldown": [
         14
       ],
@@ -4285,11 +4285,11 @@
   "zetian": [
     {
       "name": "Celestial Armament",
-      "description": "Phoenix Crown : lorsque Zetian frappe des héros ennemis avec Phoenix Strike ou Phoenix Descent, elle gagne 1 % de Spell Vamp pendant 5 secondes (jusqu'à 10 cumuls). Robe céleste : Le pouvoir du Phénix protège périodiquement Zetian, repoussant et étourdissant tout héros ennemi qui s'approche d'elle, infligeant 90 (+10*niveau du héros) (+50 % de puissance magique totale) dégâts magiques. Elle gagne également un bouclier de 300 (+20*niveau de héros) (+50 % de puissance magique totale) pendant 3 secondes. Temps de recharge : 120 s."
+      "description": "Phoenix Crown : lorsque Zetian frappe des héros ennemis avec Phoenix Strike ou Phoenix Descent, elle gagne 1 % de vampirisme des sorts pendant 5 secondes (jusqu'à 10 cumuls). Robe céleste : Le pouvoir du Phénix protège périodiquement Zetian, repoussant et étourdissant tout héros ennemi qui s'approche d'elle, infligeant 90 (+10*niveau du héros) (+50 % de puissance magique totale) dégâts magiques. Elle gagne également un bouclier de 300 (+20*niveau du héros) (+50 % de puissance magique totale) pendant 3 secondes. Temps de recharge : 120 s."
     },
     {
       "name": "Phoenix Strike",
-      "description": "Zetian déclenche une vague Phoenix dans la direction cible. S'il touche un ennemi, elle lance automatiquement une autre vague (jusqu'à 3 fois). Zetian peut lancer d'autres compétences pendant cette période. Les vagues infligent respectivement 150 (+50% de puissance magique totale), 150 (+50% de puissance magique totale) et 360 (+120% de puissance magique totale). La 3ème vague a une zone plus grande et attire les ennemis vers la direction d'incantation (ce n'est pas considéré comme un effet de contrôle). Le ratio Spell Vamp contre les sbires n'est que de 65%.",
+      "description": "Zetian déclenche une vague Phoenix dans la direction cible. S'il touche un ennemi, elle lance automatiquement une autre vague (jusqu'à 3 fois). Zetian peut lancer d'autres compétences pendant cette période. Les vagues infligent respectivement 150 (+50% de puissance magique totale), 150 (+50% de puissance magique totale) et 360 (+120% de puissance magique totale). La 3e vague a une zone plus grande et attire les ennemis vers la direction d'incantation (ce n'est pas considéré comme un effet de contrôle). Le ratio de vampirisme des sorts contre les sbires n'est que de 65%.",
       "cooldown": [
         5
       ],
@@ -4357,11 +4357,11 @@
   "zhuxin": [
     {
       "name": "Crimson Butterflies",
-      "description": "Chaque fois que Zhuxin canalise Lantern Flare, elle convertit le mana dépensé en jusqu'à 15 papillons cramoisis pour suivre sa lanterne spirituelle. Une fois que Zhuxin aura arrêté de canaliser Lantern Flare, les papillons cramoisis disparaîtront progressivement, chacun restaurant 5% de son mana maximum. Zhuxin a un Max Mana de base naturellement élevé, mais il ne s'adapte pas à son niveau."
+      "description": "Chaque fois que Zhuxin canalise Lantern Flare, elle convertit le mana dépensé en 15 Crimson Butterflies maximum pour suivre sa lanterne spirituelle. Après que Zhuxin ait arrêté de canaliser Lantern Flare, les Crimson Butterflies disparaîtront progressivement, chacun restaurant 5% de son mana max. Zhuxin a un mana max de base naturellement élevé, mais il ne s'adapte pas à son niveau."
     },
     {
       "name": "Fluttering Grace",
-      "description": "Zhuxin inflige 150 (+30 % de puissance magique totale) dégâts magiques à tous les ennemis dans une zone en forme d'éventail et applique 1 pile(s) de Soul Snare. Zhuxin ralentit également tous les héros ennemis touchés de 20 % et gagne elle-même 20 % de vitesse de déplacement supplémentaire pendant 1,5 seconde.",
+      "description": "Zhuxin inflige 150 (+30 % de puissance magique totale) dégâts magiques à tous les ennemis dans une zone en forme d'éventail et applique 1 cumul de Soul Snare. Zhuxin ralentit également tous les héros ennemis touchés de 20 % et gagne elle-même 20 % de vitesse de déplacement supplémentaire pendant 1,5 seconde.",
       "cooldown": [
         12
       ],
@@ -4371,7 +4371,7 @@
     },
     {
       "name": "Lantern Flare",
-      "description": "Maintenir : maintenez le bouton de compétence enfoncé pour déplacer la lanterne spirituelle. Il inflige 35 (+30 % de puissance magique totale) dégâts magiques à tous les ennemis à portée toutes les 0,33 s (le bonus magique augmente à 60 % contre les sbires) et applique Soul Snare aux héros ennemis touchés. Lorsqu'un héros ennemi atteint 10 charges de Soul Snare, les papillons pourpres le capturent et le tirent dans les airs pendant 1 seconde. Libération : projetez tous les ennemis capturés vers l'emplacement cible, infligeant 200 (+150 % de puissance magique totale) (+ 10 % des PV de la cible capturée) dégâts magiques à tous les ennemis dans la zone. Si un ennemi est touché plusieurs fois, les dégâts ultérieurs diminuent de 80 %. Une fois qu'une cible est capturée, Soul Snare ne peut plus se cumuler sur elle pendant 4 secondes. Pendant ce temps, cette compétence inflige 15 % de dégâts supplémentaires à cette cible.",
+      "description": "Maintenir : maintenez le bouton de compétence enfoncé pour déplacer la lanterne spirituelle. Il inflige 35 (+30 % de puissance magique totale) dégâts magiques à tous les ennemis à portée toutes les 0,33 s (le bonus magique augmente à 60 % contre les sbires) et applique Soul Snare aux héros ennemis touchés. Lorsqu'un héros ennemi atteint 10 charges de Soul Snare, le Crimson Butterflies le capture, le tirant dans les airs pendant 1 seconde. Libération : projetez tous les ennemis capturés vers l'emplacement cible, infligeant 200 (+150 % de puissance magique totale) (+ 10 % des PV de la cible capturée) dégâts magiques à tous les ennemis dans la zone. Si un ennemi est touché plusieurs fois, les dégâts ultérieurs diminuent de 80 %. Une fois qu'une cible est capturée, Soul Snare ne peut plus se cumuler sur elle pendant 4 secondes. Pendant ce temps, cette compétence inflige 15 % de dégâts supplémentaires à cette cible.",
       "cooldown": [
         0.5
       ],

@@ -28,7 +28,7 @@ O [guia de caminho e objetivos agrícolas](/guides/jungle-objectives) detalha os
 
 <!-- guide:heroes -->
 
-Os Junglers são divididos em três famílias. Assassinos, como [Ling](/heroes/ling), [Lancelot](/heroes/lancelot) ou [Hayabusa](/heroes/hayabusa), eliminam um alvo isolado; lutadores, como [Martis](/heroes/martis) ou [Balmond](/heroes/balmond), duram lutas longas; Tanques da jungle, como [Fredrinn](/heroes/fredrinn) ou [Baxia](/heroes/baxia), deixam o ouro para outros e se envolvem. A escolha certa depende do que está faltando em sua equipe.
+Os Junglers são divididos em três famílias. Assassinos, como [Ling](/heroes/ling), [Lancelot](/heroes/lancelot) ou [Hayabusa](/heroes/hayabusa), eliminam um alvo isolado; lutadores, como [Martis](/heroes/martis) ou [Balmond](/heroes/balmond), duram lutas longas; Tanques de jungle, como [Fredrinn](/heroes/fredrinn) ou [Baxia](/heroes/baxia), precisam de poucos itens e iniciam o combate. A escolha certa depende do que está faltando em sua equipe.
 
 ## Itens, emblemas e feitiços mais jogados
 
@@ -38,7 +38,7 @@ A retribuição é obrigatória: sem ela, a agricultura é demasiado lenta e os 
 
 - **contra tanques**, a penetração da armadura de [Malefic Roar](/items/malefic-roar);
 - **contra uma equipe que se cura**, a redução de cura de [Sea Halberd](/items/sea-halberd);
-- **para finalizar um alvo**, execute itens como [Sky Piercer](/items/sky-piercer) nos assassinos que os constroem.
+- **para acabar com um alvo**, um item de execução como [Sky Piercer](/items/sky-piercer), que mata um herói abaixo do limite de pontos vitais, nos assassinos que o constroem.
 
 [O treinamento de tempo de retribuição](/tools/retribution) ajuda você a não perder mais um objetivo no último tiro.
 
@@ -54,12 +54,12 @@ O jungler alterna agricultura, objetivos e ataques nas lanes. Ele fica de olho n
 
 ### Fim do jogo
 
-As batalhas são travadas em torno do Lorde. O jungler não deve ser o primeiro a entrar na luta: ele espera até que os controles do oponente sejam usados, então mira no transportador mais exposto. E ele sempre guarda sua Retribution para o Lorde.
+As batalhas são travadas em torno do Lorde. O jungler não entra primeiro na luta: ele espera até que os controles do oponente sejam usados, então mira no transportador mais exposto. E ele sempre guarda sua Retribution para o Lorde.
 
 ## Os erros mais comuns
 
 - Cultive sua jungle enquanto a equipe luta pela Tartaruga.
 - Use Retribution em um pequeno acampamento logo antes de um objetivo.
-- Ataque uma lane onde o oponente está sob sua torre com todos os seus pontos vitais.
-- Abra primeiro uma luta em equipe com um assassino frágil.
+- Ganker um oponente que está sob sua torre com todos os seus pontos vitais.
+- Participe de um combate em equipe com um assassino frágil.
 - Comece o Lorde sem saber onde estão os adversários.

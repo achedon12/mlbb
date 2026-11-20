@@ -1,5 +1,5 @@
 ---
-title: "Makro dan membaca peta: kapan dan bagaimana split push"
+title: "Pembacaan makro dan peta: kapan dan bagaimana melakukan split push"
 short: "Makro dan split push"
 date: "2026-11-14"
 updated: "2026-11-14"
@@ -12,7 +12,7 @@ related: ["jungle-objectives", "teamfight-positioning", "exp-lane"]
 tools: ["/map", "/tools/timer", "/meta"]
 ---
 
-Dua tim dengan level mekanik yang sama tidak menang sesering satu sama lain. Perbedaannya adalah makro: kemampuan untuk berada di tempat yang tepat, pada waktu yang tepat, dengan jumlah pemain yang tepat. Hal ini tidak memerlukan refleks atau hero yang tepat, hanya perhatian.
+Pada level mekanis yang sama, satu tim masih lebih sering menang dibandingkan tim lainnya. Perbedaannya secara makro: berada di tempat yang tepat, di waktu yang tepat, dengan jumlah pemain yang tepat. Tidak memerlukan refleks atau hero khusus, hanya perhatian.
 
 ## Perhatikan minimap
 
@@ -22,7 +22,7 @@ Mini-map adalah sumber informasi pertama dalam game. Melihat sekilas setiap bebe
 - **wave mana yang maju**, dan menuju turret mana;
 - **objektif mana yang mendekat**: Turtle, Lord, buff lawan.
 
-Lawan yang menghilang dari mini-map tidak ada dimana-mana. Jika dia berada di Mid Lane lima detik yang lalu, dia berada dalam radius yang dapat Anda perkirakan. Perkiraan inilah yang memberi tahu Anda apakah suatu target aman.
+Lawan yang menghilang dari mini-map tidak ada dimanapun. Jika dia berada di Mid Lane lima detik yang lalu, dia berada dalam radius yang dapat Anda perkirakan. Perkiraan inilah yang memberi tahu Anda apakah suatu target aman.
 
 ## Prinsip pertukaran
 
@@ -30,43 +30,43 @@ Sebuah permainan tidak dimainkan objektif demi objektif: ia dimainkan secara ber
 
 - **Ketika suatu objektif hilang terlebih dahulu**, ambil objektif lain di sisi lain peta daripada bertarung empat lawan lima.
 - **Ketika Anda mengambil suatu objektif**, tanyakan pada diri Anda apa yang bisa diambil lawan dalam waktu itu.
-- **Turret luar bernilai lebih rendah dibandingkan turret dalam**: urutan penghancuran diperhitungkan untuk akses ke jungle lawan.
+- **Menara luar bernilai lebih rendah dibandingkan menara dalam**: menara kedua membawa lebih banyak emas ke tim dan membuka lebih banyak hutan musuh.
 
-[Panduan peta](/map) mengingatkan Anda di mana setiap turret dan kamp berada, dan [timer objektif](/tools/timer) memungkinkan Anda mengetahui sebelumnya kapan pertukaran akan terjadi.
+[Panduan peta](/map) mengingatkan Anda di mana setiap menara dan kamp berada, dan [garis waktu tujuan](/tools/timer) memberi tahu Anda sebelumnya kapan pertukaran akan dilakukan.
 
 ## Split push: push sendirian
 
-Split push melibatkan mendorong satu lane sendirian sementara anggota tim lainnya berdiri di tempat lain. Ini memaksa lawan untuk memilih: mengirim seseorang untuk bertahan, dan bermain empat lawan empat di tempat lain, atau menjatuhkan turret.
+Split push terdiri dari mendorong satu lane sendirian sementara empat lane lainnya bermain di tempat lain. Lawan kemudian harus memilih: mengirim seseorang untuk bertahan dan bermain empat lawan empat di sisi lain, atau membiarkan turret jatuh.
 
 Ini berfungsi ketika tiga kondisi terpenuhi:
 
 1. **Hero yang mendorong memenangkan duel** melawan orang yang datang untuk bertahan, atau dapat melarikan diri tanpa mengalami kematian.
-2. **Anggota tim lainnya tidak bertarung**: mereka memegang posisi bertahan, di bawah turret atau di dekat objektif, tanpa menerima pertarungan empat lawan lima.
-3. **Wave dikelola**: lane yang didorong di depan tim Anda mempertahankan tekanan saat Anda berada di tempat lain.
+2. **Anggota tim lainnya tidak bertarung**: mereka mengambil posisi bertahan, di bawah turret atau di dekat objektif, dan menolak bertempur saat kalah jumlah.
+3. **Gelombang dikelola**: lane tempat tim Anda berada akan didorong, dan gelombang ini mempertahankan tekanan saat Anda berada di tempat lain.
 
-Hero split push yang baik cepat menghancurkan turret dan punya cara untuk kabur. [Sun](/heroes/sun) berubah menjadi tongkatnya, bersembunyi, lalu muncul lebih jauh dengan Swift Exchange; [Zilong](/heroes/zilong) mendapat movement speed dan kebal slow dengan Supreme Warrior. Sementara [Masha](/heroes/masha) hanya punya satu dash (Claw Strike) untuk pergi: ia harus memantau minimap dan meninggalkan lane sebelum para pembela datang.
+Hero split push yang baik dengan cepat menghancurkan menara dan memiliki cukup uang untuk melarikan diri. [Sun](/heroes/sun) berubah menjadi tongkat, bersembunyi dan muncul kembali lebih jauh dengan Swift Exchange; [Zilong](/heroes/zilong) memperoleh kecepatan gerakan dan mengabaikan slow dengan Supreme Warrior. [Masha](/heroes/masha), dia hanya punya satu serangan (Claw Strike) untuk pergi: dia harus memantau peta mini dan meninggalkan lane sebelum kedatangan pembela.
 
-## Kapan tidak melakukan split push
+## Kapan Harus Menghindari Split Push
 
 Split push menjadi kesalahan dalam tiga situasi:
 
-- **Lord sedang bermain** dan lawan dapat mengambilnya dengan lima saat Anda mendorong sendirian;
+- **Tuhan tersedia** dan lawan dapat mengambilnya dengan lima saat Anda mendorong sendirian;
 - **tim Anda tidak tahu bahwa Anda sedang mendorong** dan terlibat dalam pertempuran tanpa Anda;
 - **hero lawan terkuat dalam duel** tidak lagi muncul di peta mini: dia mungkin menunggumu.
 
 ## Late game: Lord dan wave
 
-Setelah sekitar lima belas menit, kematian berlangsung lama dan satu pertarungan yang kalah dapat membuka pangkalan. Makro kemudian menjadi lebih sederhana dan lebih parah:
+Setelah sekitar lima belas menit, waktu respawn menjadi lama dan satu pertarungan yang kalah dapat membuka markas. Makro menjadi lebih sederhana, namun setiap kesalahan memerlukan biaya lebih besar:
 
 - hanya bertarung dengan Lord atau turret yang ada;
 - selalu dorong wave sebelum suatu objektif, sehingga wave itu tiba pada waktu yang sama dengan Anda;
 - jangan pernah meninggalkan pemain sendirian di tengah peta tanpa vision.
 
-[Laporan meta mingguan](/meta) juga menunjukkan hero mana yang naik atau turun: meta yang kaya akan hero split push membutuhkan lebih banyak disiplin dalam pertahanan lane.
+[Laporan meta mingguan](/meta) juga menunjukkan hero mana yang naik atau turun: ketika hero split push kuat, Anda harus mempertahankan lane Anda dengan lebih ketat.
 
 ## Kesalahan paling umum
 
-- Kelompokkan bersama sebagai kelompok beranggotakan lima orang di Mid Lane, biarkan dua wave mendorong ke samping.
+- Kelompokkan bersama sebagai kelompok beranggotakan lima orang di Mid Lane, biarkan dua gelombang mendorong ke samping.
 - Meninggalkan objektif tanpa menerima imbalan apa pun.
-- Split push saat tim bertarung, tanpa peringatan: ini pertarungan empat lawan lima.
+- Lakukan split push tanpa peringatan saat tim sedang bertarung: tim akan memainkan pertarungan empat lawan lima.
 - Berlari menuju pertarungan jarak jauh alih-alih mengambil turret di depan Anda.

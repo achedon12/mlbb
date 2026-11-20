@@ -49,7 +49,7 @@
     },
     "gameModes": {
       "label": "Mga game mode",
-      "desc": "Classic, Ranked, Brawl…"
+      "desc": "Classic, Ranggo, Brawl…"
     },
     "items": {
       "label": "Mga item",
@@ -309,7 +309,7 @@
   "pages": {
     "modes": {
       "title": "Mga game mode",
-      "lead": "Mula sa classic na 5v5 hanggang sa mabilisang Brawl na laban, iba-iba ang rules ng bawat mode. Pumili ng isa para makita ang mga detalye.",
+      "lead": "Mula sa klasikong 5v5 hanggang sa mabilisang mga larong Brawl, binabago ng bawat mode ang mga panuntunan. Pumili ng isa para matuklasan ang mga detalye.",
       "discover": "Tingnan ang mode na ito",
       "metaDescription": "Ang mga game mode ng Mobile Legends: Bang Bang, isa-isang ipinakita kasama ang detalyadong rules nila.",
       "ogDescription": "Ang mga game mode ng Mobile Legends: Bang Bang at kung ano ang pinagkaiba nila.",
@@ -322,8 +322,8 @@
     "heroes": {
       "title": "Mga hero",
       "lead": "Ang {heroes} hero ng laro at ang kanilang {skins} skin, na mafi-filter ayon sa role at lane. Ang {analyses} profile na may markang “Analysis” ay may kasama ring komentaryo, build at counter.",
-      "metaDescription": "Ang {heroes} hero ng Mobile Legends: Bang Bang, na mafi-filter ayon sa role at lane: mga portrait, skin, stats at {analyses} nakasulat na analysis.",
-      "ogDescription": "Ang {heroes} hero ng Mobile Legends: Bang Bang, kasama ang kanilang {skins} skin.",
+      "metaDescription": "Ang {heroes} hero ng Mobile Legends: Bang Bang, na na-filter ayon sa tungkulin at posisyon: mga portrait, appearances, statistics at {analyses} nakasulat na pagsusuri.",
+      "ogDescription": "Ang {heroes} hero ng Mobile Legends: Bang Bang, sa kanilang {skins} na pagpapakita.",
       "listLd": "Mga Hero ng Mobile Legends: Bang Bang"
     },
     "heroesList": {
@@ -372,7 +372,7 @@
       "strengths": "Mga lakas",
       "weaknesses": "Mga kahinaan",
       "analysisPending": "Wala pang nakasulat na pagsusuri",
-      "analysisText": "Wala pang nagsulat ng pagsusuri ng {name}: kung paano ito laruin, anong mga item ang bibilhin, kanino ito sasalungat. Pansamantala, ang iba pang mga tab ay nagbibigay ng mga numerong nasusukat sa ranggo na paglalaro.",
+      "analysisText": "Wala pang nakasulat ng pagsusuri ng {name}: kung paano laruin, mga item na bibilhin, mga paborableng matchup. Pansamantala, ang iba pang mga tab ay nagbibigay ng mga numerong nasusukat sa ranggo na paglalaro.",
       "analysisTranslated": "Isinulat ang analysis sa French at isinalin nang awtomatiko.",
       "contribute": "Mag-ambag sa analysis na ito →",
       "countersIntro": "Batay sa in-game win rate: ipinapakita ng pagitan sa points kung gaano gumagalaw ang win rate ni {name} laban sa bawat kalaban.",
@@ -381,7 +381,7 @@
       "matchupsIntro": "Mga matchup na kinomentohan nang mano-mano, lampas sa mga numero.",
       "comfortable": "Malakas si {name} laban sa",
       "difficulty2": "Nahihirapan si {name} laban sa",
-      "metaDescription": "{name}: {roles} sa Mobile Legends: Bang Bang, ginagamit sa {lanes}. Mga counter at build ayon sa rank, skill, lore at {skins} skin.",
+      "metaDescription": "{name}: {roles} ng Mobile Legends: Bang Bang, na nilalaro sa {lanes}. Mga counter at build ayon sa ranggo, mga skill, kasaysayan at {skins} mga pagpapakita.",
       "compare": "Ikumpara",
       "titleSheet": "{name}: build, mga counter at stats",
       "ogTagline": "Mga build, counter at stats ayon sa rank",
@@ -521,7 +521,7 @@
         "botTitle": "Ang bot",
         "bot": "Nagba-ban ang bot mula sa tuktok ng ranking sa napiling rank, na pinagsasama ang win rate at ban rate. Sa mga pick nito, hero lang na nagdadagdag ng lane sa team nito ang kinukuha, niraranggo ayon sa data namin sa rank na iyon: counter sa mga pick mo, duo sa sarili nitong mga pick, win rate. Bawat pili ay ipinapaliwanag sa isang linya.",
         "advantageTitle": "Ang tinatayang tsansang manalo",
-        "advantage": "Habang nagda-draft, tinatantya ng isang bar ang tsansa ng bawat team mula sa limang factor, binibilang sa win-rate points: ang lakas ng mga hero sa rank, ang mga duel sa pagitan ng dalawang team at ang mga duo ng bawat team (sinukat sa mga ranked match, kung wala ay kinuha sa wiki), dobleng lane o walang tank, at damage na iisang uri lang. Kalahati lang ang bilang ng unang tatlo dahil nagsasapawan sila. Dinadaan ang kabuuan nila sa isang logistic curve: nasa 50% ang dalawang pantay na team, at nananatili ang resulta sa pagitan ng 25 at 75%. Ang mga suggested pick ay ang mga pinakamalaking nagpapataas sa estimate na ito. Gabay ito, hindi hula.",
+        "advantage": "Sa panahon ng draft, tinatantya ng isang bar ang mga pagkakataon ng bawat koponan batay sa limang salik, na binibilang sa mga puntos ng win rate: ang lakas ng mga hero sa ranggo, ang mga tunggalian sa pagitan ng dalawang koponan at ang duo ng bawat isa (sinusukat sa ranggo na laro, kung hindi man ay binanggit ng wiki), isang duplicate na lane o kawalan ng tank, at damage ng isang uri. Ang unang tatlong binibilang para sa kalahati, dahil sila ay nagsasapawan. Ang kanilang kabuuan ay dumadaan sa isang logistic curve: dalawang pantay na koponan ay nasa 50%, at ang resulta ay nananatili sa pagitan ng 25 at 75%. Ang mga iminungkahing pagpili ay yaong higit na nagpapataas sa pagtatantya na ito. Ito ay isang benchmark, hindi isang hula.",
         "sources": "Mga source",
         "sourceRef": "Source: {site}, {page}"
       },
@@ -654,7 +654,7 @@
       "perks": {
         "profile": "Ang iyong profile, mga ranggo at pinaka-naglarong hero",
         "community": "Ang forum at ang paghahanap ng mga kakampi",
-        "collection": "Ang iyong koleksyon ng mga skin sa lahat ng iyong device"
+        "collection": "Ang iyong koleksyon ng mga pagpapakita sa lahat ng iyong device"
       }
     },
     "watch": {
@@ -710,7 +710,7 @@
     "apiDoc": {
       "title": "Pampublikong API",
       "lead": "Available ang data ng site bilang JSON, walang key o sign-up. Kumuha ka lang — ang tanging kondisyon ay i-credit ang source, na kasama sa bawat response.",
-      "metaDescription": "Isang bukas na JSON API para sa Mobile Legends: Bang Bang data ng site: mga hero, skill, skin, item, patch at ranking. Walang key, walang sign-up.",
+      "metaDescription": "Isang bukas na JSON API sa Mobile Legends: Bang Bang data ng site: mga hero, skill, skin, item, patch at ranggo. Walang susi, walang rehistro.",
       "ogDescription": "Mga hero, item, patch at ranking bilang JSON, walang key na kailangan.",
       "statHeroes": "Mga hero",
       "statItems": "Mga item",
@@ -1063,8 +1063,8 @@
       "hero": {
         "title": "{name} Build, Emblem at Counter ({tier} Tier, Patch {v})",
         "titleNoTier": "{name} Build, Emblem at Counter (Patch {v})",
-        "counters": "Pinakamadalas na kinokontra si {name} ng {counters} sa {rank}.",
-        "countersAll": "Pinakamadalas na kinokontra si {name} ng {counters} sa lahat ng rank.",
+        "counters": "Pinakamahusay na mga counter mula {name} hanggang {rank}: {counters}.",
+        "countersAll": "Pinakamahusay na mga counter ng {name}, pinagsama ang lahat ng ranggo: {counters}.",
         "build": "Pinakamadalas gamiting build: {items}.",
         "buildEmblem": "Pinakamadalas gamiting build: {items}, {emblem} emblem.",
         "rate": "{winRate} win rate, {tier} tier."
@@ -1077,7 +1077,7 @@
       },
       "heroes": {
         "title": "Lahat ng {n} MLBB Hero: Role, Lane at Tier (Patch {v})",
-        "description": "Lahat ng {n} hero ng Mobile Legends: Bang Bang na may role, lane, tier at win rate (patch {v}, data mula {date}). Pinakamalakas ngayon: {top}. Dagdag pa ang {skins} skin at {analyses} nakasulat na analysis."
+        "description": "Ang {n} hero ng Mobile Legends: Bang Bang na may role, lane, tier at victory rate (patch {v}, data mula sa {date}). Ang pinakamalakas sa sandaling ito: {top}. Idinagdag dito ang {skins} pagpapakita at {analyses} nakasulat na pagsusuri."
       },
       "items": {
         "title": "Lahat ng {n} MLBB Item: Stats, Recipe at Presyo (Patch {v})",
@@ -1135,7 +1135,7 @@
         "description": "MLBB meta report para sa {date} (patch {v}): si {first} ang nasa tuktok ng tier list at si {banned} ang pinaka-banned na hero ({ban}). Mga umaangat at bumabagsak ngayong linggo, pagbabago sa tier, ban, pick at best hero bawat lane."
       },
       "serverTime": {
-        "title": "MLBB Server Time at Countdown sa Daily Reset",
+        "title": "Oras ng server ng MLBB: araw-araw na reset at countdown",
         "description": "Live na server time ng Mobile Legends (UTC−8) na may countdown sa daily reset ({utc} UTC), sa weekly reset tuwing Lunes, sa susunod na Starlight at sa pagtatapos ng season, pati ang lokal na oras ng reset sa bansa mo."
       },
       "ranks": {
@@ -1149,7 +1149,7 @@
       },
       "quiz": {
         "title": "MLBB Quiz: Daily Hero Guessing Game",
-        "description": "Bagong Mobile Legends: Bang Bang challenge araw-araw: hulaan ang hero mula sa isang skill, close-up ng skin o excerpt ng lore, pangalanan ang item mula sa stats nito at piliin ang mas mataas na win rate. May hint pagkatapos ng bawat mali, streak at spoiler-free na grid na puwedeng i-share. Libre, walang sign-up."
+        "description": "Isang bagong Mobile Legends: Bang Bang challenge araw-araw: hulaan ang hero batay sa isang skill, isang detalye ng hitsura o isang extract mula sa kanyang kuwento, hanapin ang item batay sa kanyang mga istatistika at piliin ang pinakamahusay na win rate. Mga pahiwatig sa bawat error, serye at spoiler-free grid na ibabahagi. Libre, walang pagpaparehistro."
       },
       "tierMaker": {
         "title": "MLBB Tier List Maker: Gumawa at Mag-share ng Tier List Mo",
@@ -1164,20 +1164,20 @@
         "description": "{region}: {n} hero ng Mobile Legends: Bang Bang, kasama ang {names}. Ang kanilang mga kuwento, faction at ugnayan sa isa't isa, mula sa kanilang lore profile."
       },
       "skinsCalendar": {
-        "title": "MLBB Skin Calendar: Bawat Skin ayon sa Release Date",
-        "description": "{n} skin ng Mobile Legends: Bang Bang na inilabas mula {start} hanggang {end}, buwan-buwan, kasama ang hero, rarity, series (Collector, StarLight, Epic, Legend…) at presyo. Pinakabago sa data namin: {latest} ({date})."
+        "title": "Iskedyul ng Pagpapakita ng MLBB: Lahat ng Pagpapakita ayon sa Petsa ng Paglabas",
+        "description": "{n} paglabas ng Mobile Legends: Ang Bang Bang ay naglalabas mula {start} hanggang {end}, buwan-buwan, kasama ang mga hero, pambihira, serye (Collector, StarLight, Epic, Legend…) at presyo. Pinakabago sa aming data: {latest} ({date})."
       },
       "calendarYear": {
-        "title": "Mga MLBB Skin na Inilabas noong {year}: Buong Listahan bawat Buwan",
-        "description": "Mga skin ng Mobile Legends: Bang Bang na inilabas noong {year} ({n}), buwan-buwan, kasama ang rarity at presyo. Top series: {series}. Hero na may pinakamaraming bagong skin: {hero}."
+        "title": "Ang mga pagpapakita ng MLBB na inilabas noong {year}: ang listahan sa bawat buwan",
+        "description": "Mobile Legends: Bang Bang skin na inilabas sa {year} ({n}), buwan-buwan, na may pambihira at presyo. Pangunahing serye: {series}. Karamihan sa mga pinaglilingkuran na hero: {hero}."
       },
       "collection": {
         "title": "MLBB Collection Value Calculator (Diamonds)",
-        "description": "I-tick ang mga hero at skin na pag-aari mo mula sa {heroes} hero at {skins} skin: tingnan kung magkano ang halaga nila sa presyo ng shop ng Mobile Legends: Bang Bang, sa diamonds, ayon sa rarity at series. Libre, walang sign-up, naka-save sa browser mo."
+        "description": "Tingnan ang mga hero at skin na pagmamay-ari mo mula sa {heroes} hero at {skins} skin: tingnan kung magkano ang halaga ng mga ito sa presyo ng tindahan ng Mobile Legends: Bang Bang, sa mga diamond, ayon sa pambihira at ayon sa serye. Libre, nang walang pagpaparehistro, na naka-save sa iyong browser."
       },
       "events": {
-        "title": "MLBB Events: StarLight, Collector at Skin ng Buwan",
-        "description": "Ang events calendar ng Mobile Legends: Bang Bang, mula {start} hanggang {end} ({n} buwan): StarLight skin, mga Collector skin, draw at shop. Huling kilalang StarLight: {latest}."
+        "title": "Mga Kaganapan sa MLBB: StarLight, Collector at Skins of the Month",
+        "description": "Ang Mobile Legends: Bang Bang event calendar, mula {start} hanggang {end} ({n} buwan): StarLight skin, Collector skin, draws at store. Huling kilalang StarLight: {latest}."
       },
       "eventsMonth": {
         "metaDescription": "Mobile Legends: Bang Bang sa {month}: {summary}"
@@ -1188,7 +1188,7 @@
       },
       "drawCalculator": {
         "title": "MLBB Draw Calculator: Diamonds at Odds",
-        "description": "Ilang diamonds para sa isang MLBB event skin? Odds ayon sa budget mo, average na draw kasama ang pity, mga milestone sa 50, 90 at 99% at isang chart. Libre, tumatakbo sa browser mo, may mga preset na may source."
+        "description": "Ilang diamante para sa isang MLBB event appearance? Mga pagkakataon ayon sa iyong badyet, average na bilang ng mga draw na may garantiya, mga threshold na 50, 90 at 99% at curve. Libre, in-browser, sourced na mga preset."
       },
       "mlbbdle": {
         "title": "MLBBdle: daily hero guessing game ng Mobile Legends",
@@ -1233,7 +1233,7 @@
       },
       "accountValue": {
         "title": "MLBB account value estimator",
-        "description": "Magkano ang nagastos sa iyong Mobile Legends collection? Kopyahin ang iyong mga skin ayon sa tier ng Showcase ({skins} skin sa catalog), suriin ang iyong collection points at kumuha ng tantiya sa diamonds, USD, EUR, PHP, IDR at MYR, kasama ang paraang ginamit."
+        "description": "Magkano ang halaga ng iyong koleksyon ng Mobile Legends? Kopyahin ang iyong mga pagpapakita ayon sa kategorya ng Showcase ({skins} mga pagpapakita ng catalog), tingnan ang iyong mga collection point at kumuha ng order ng magnitude sa mga diamante, USD, EUR, PHP, IDR at MYR, na may ipinapakitang paraan."
       }
     },
     "sources": {
@@ -1378,7 +1378,7 @@
         "none": "Walang item rule na tumatama kay {name}."
       },
       "duration": {
-        "title": "Kailan pinakamahina si {name}",
+        "title": "Kapag ang {name} ay nanalo ng pinakamaliit",
         "sentence": "Pinakamadalang manalo si {name} sa mga {weak} na game ({weakRate}) at pinakamadalas sa mga {strong} na game ({strongRate}).",
         "rank": "Rank: {rank}",
         "none": "Wala pang game-length data para kay {name}."
@@ -1506,8 +1506,8 @@
     "skins": {
       "title": "Mga MLBB skin",
       "lead": "Lahat ng {n} skin ng {h} hero ng Mobile Legends, nakapangkat ayon sa hero. Buksan ang isang hero para makita ang bawat artwork kasama ang rarity, release date at presyo nito.",
-      "metaTitle": "MLBB Skins: Lahat ng {n} Hero Skin at Artwork",
-      "metaDescription": "Bawat skin ng Mobile Legends: Bang Bang, hero by hero: {n} skin para sa {h} hero, kasama ang artwork, rarity, release date at presyo. Pinakabago: {latest} ({hero}).",
+      "metaTitle": "Mga Pagpapakita ng MLBB: {n} mga pagpapakita at mga larawan ng hero",
+      "metaDescription": "Lahat ng Mobile Legends: Bang Bang na mga skin, hero ayon sa hero: {n} mga skin para sa {h} mga hero, na may likhang sining, pambihira, petsa ng paglabas at presyo. Pinakabago: {latest} ({hero}).",
       "updatedOn": "Na-update noong {date}",
       "latest": "Mga pinakabagong skin",
       "latestIntro": "Ang mga pinakabagong release na may kilalang petsa, kasama ang mga paparating na skin.",
@@ -1527,9 +1527,9 @@
     "heroSkins": {
       "title": "Mga skin ni {name}",
       "titleElision": "Mga skin ni {name}",
-      "metaTitle": "{name} Skins: Lahat ng {n} Skin at Artwork",
-      "metaTitleElision": "{name} Skins: Lahat ng {n} Skin at Artwork",
-      "metaDescription": "Lahat ng {n} skin ni {name} sa Mobile Legends: Bang Bang, may artwork, rarity, release date, availability at presyo.",
+      "metaTitle": "Mga anyo ng {name}: {n} mga pagpapakita at mga larawan",
+      "metaTitleElision": "Mga anyo ng {name}: ang {n} mga pagpapakita at mga larawan",
+      "metaDescription": "{name}: ang {n} skin ng Mobile Legends: Bang Bang, na may likhang sining, pambihira, petsa ng paglabas, availability at presyo.",
       "lead": "May {n} skin si {name}. Ipinapakita ng bawat card ang artwork, rarity, release date, availability at presyo kapag alam.",
       "latest": "Pinakabagong skin na may petsa: {skin} ({date}).",
       "price": "Presyo",
@@ -1648,7 +1648,7 @@
     },
     "serverTime": {
       "title": "MLBB server time at mga reset",
-      "lead": "Live na server time ng Mobile Legends, at gaano katagal pa bago ang bawat reset: araw-araw sa 00:00 server time ({utc} UTC), lingguhan tuwing Lunes, Starlight tuwing ika-1 ng buwan.",
+      "lead": "Oras ng server ng Live Mobile Legends, at ang natitirang oras bago ang bawat pag-reset: araw-araw sa 00:00 oras ng server ({utc} UTC), lingguhan tuwing Lunes, StarLight sa ika-1 ng buwan.",
       "rulesTitle": "Mga oras na dapat malaman",
       "timezoneTitle": "Time zone ng server",
       "timezoneText": "UTC−8 buong taon: hindi kailanman lumilipat sa daylight saving time ang server time.",
@@ -1656,8 +1656,8 @@
       "dailyText": "Araw-araw sa 00:00 server time, ibig sabihin {utc} UTC: daily tasks, mga bagong offer at mga bagong event.",
       "weeklyTitle": "Weekly reset",
       "weeklyText": "Tuwing Lunes sa 00:00 server time, ibig sabihin {utc} UTC ng Lunes: nagsisimula ulit ang weekly tasks.",
-      "starlightTitle": "Starlight",
-      "starlightText": "Tuwing ika-1 ng buwan sa 00:00 server time ({utc} UTC): nagsisimula ang bagong Starlight, at nire-reset ang mga reward, task at shop nito.",
+      "starlightTitle": "StarLight",
+      "starlightText": "Sa ika-1 ng bawat buwan sa 00:00 oras ng server ({utc} UTC): magsisimula ang isang bagong StarLight, kasama ang mga reward, gawain at pag-reset ng tindahan.",
       "seasonTitle": "Pagtatapos ng season",
       "seasonText": "Inilalagay ng laro ang petsa sa patch notes nito, sa server time (“S31 will end at 23:59:59 on 3/15”). Kinukuha ito ng countdown sa sandaling mailathala roon.",
       "updateTitle": "Mga game update",
@@ -1672,7 +1672,7 @@
       "ranksLink": "Unawain ang rank system",
       "sourcesTitle": "Mga source",
       "sourceServer": "Fandom wiki, page na “Server time”: time zone ng server, daily at weekly reset, oras ng update",
-      "sourceStarlight": "Fandom wiki, page na “StarLight”: bagong Starlight tuwing ika-1 ng buwan sa 00:00 server time",
+      "sourceStarlight": "Wiki Fandom, pahina ng \"StarLight\": bagong StarLight sa ika-1 ng buwan sa 00:00 oras ng server",
       "sourcePatch": "Patch notes {v}: mga petsa ng season sa server time",
       "seasonsTitle": "Schedule ng ranked season",
       "seasonsCurrent": "Kasalukuyang tumatakbo ang Season {n}.",
@@ -2006,10 +2006,10 @@
       "sharedLoaded": "Na-load ang shared na listahan.",
       "sharedBanner": "Tinitingnan mo ang isang shared na listahan. Pinalitan nito ang sa iyo, na nakatabi muna.",
       "backToMyList": "Bumalik sa aking listahan",
-      "announceSelect": "Napili si {name}: pumili ng row.",
+      "announceSelect": "Pinili: {name}. Pumili ng row.",
       "announceDeselect": "Na-clear ang pagpili.",
-      "announcePlaced": "Nailagay si {name} sa {row}, puwesto {position} sa {n}.",
-      "announceBench": "Naibalik si {name} sa pool.",
+      "announcePlaced": "{name}: sa {row}, posisyon {position} sa {n}.",
+      "announceBench": "{name}: bumalik para magpareserba.",
       "announceMoved": "Nasa puwesto {position} sa {n} na si {name}.",
       "announceMeta": "Na-load ang {rank} tier list.",
       "announceEmpty": "Nasa pool na ulit ang lahat ng hero.",
@@ -2043,7 +2043,7 @@
         "lead": "Ang {region} ayon sa lore profile ng mga hero nito: sino sila, ang mga faction nila at ang mga ugnayan nila.",
         "inBriefTitle": "Sa madaling sabi",
         "factRoles": "Mga hero mula sa region na ito: {n}. Pinakamaraming role: {roles}.",
-        "factArrivals": "Unang dumating sa laro: {first} ({firstDate}); pinakabago: {latest} ({lastDate}).",
+        "factArrivals": "Unang pagtatapos sa laro: {first} ({firstDate}); ang pinakabago: {latest} ({lastDate}).",
         "factArrival": "Dumating sa laro: {name} ({date}).",
         "factFactions": "Mga faction na hawak ng ilan sa mga hero nito: {list}.",
         "factSpecies": "Pinakakaraniwang species: {list}.",
@@ -2075,7 +2075,7 @@
       "crumb": "Calendar",
       "crumbSkins": "Mga skin",
       "lead": "Bawat skin ng Mobile Legends ayon sa buwan ng release, mula {start} hanggang {end}: {n} skin kasama ang hero, rarity, series at presyo nila. I-filter ayon sa hero, role, series, rarity o taon.",
-      "thisMonthTitle": "Inilabas noong {month}",
+      "thisMonthTitle": "Mga output sa {month}",
       "thisMonthEmpty": "Wala pang skin na may petsang {month} sa data namin. Ang pinakabagong buwang nakalista sa community wiki ay {latest}.",
       "seeLatest": "Tingnan ang mga pinakabagong skin",
       "latestTitle": "Mga pinakabagong skin",
@@ -2185,7 +2185,7 @@
       "colOwned": "Pag-aari",
       "colDiamonds": "Diamonds",
       "raresTitle": "Ang pinakabihira mong mga skin",
-      "raresHelp": "Ayon sa rarity, tapos limited edition at pinakamaliit na series muna.",
+      "raresHelp": "Inuri ayon sa pambihira, pagkatapos ay mga limitadong edisyon at mas maliliit na serye muna.",
       "seriesTitle": "Completion ng series",
       "seriesHelp": "Una ang mga series na nasimulan mo na, nasa itaas ang pinakakumpleto.",
       "showAllSeries": "Ipakita ang lahat ng series ({n})",
@@ -2247,7 +2247,7 @@
     "events": {
       "title": "MLBB events calendar: StarLight, Collector at mga skin ng buwan",
       "breadcrumb": "Mga event",
-      "lead": "Bawat buwan ng Mobile Legends: Bang Bang, pinakabago muna: ang StarLight skin, ang mga Collector skin at ang mga event, draw at shop skin na inilabas sa buwang iyon. {n} buwan ang nakadokumento, mula {start} hanggang {end}.",
+      "lead": "Bawat buwan ng Mobile Legends: Bang Bang, na may pinakabago sa itaas: StarLight skin, Collector skin, at event, sweepstakes, o store skin na inilabas noong buwang iyon. {n} buwan na dokumentado, mula {start} hanggang {end}.",
       "thisMonthTitle": "Ngayong buwan: {month}",
       "thisMonthEmpty": "Wala pang skin ng {month} sa data namin: pinupunan ng community wiki ang mga listahan nito pagkatapos ng release. Huling nakadokumentong buwan: {latest}.",
       "seeMonth": "Tingnan ang {month}",
@@ -2272,7 +2272,7 @@
       "modes": {
         "starlight": {
           "title": "StarLight skin",
-          "desc": "Eksklusibo sa mga StarLight member ng buwang iyon: kasama ito sa buwanang membership, hindi kailangang mag-draw."
+          "desc": "Nakalaan para sa mga miyembro ng StarLight ng buwan: ito ay nakuha gamit ang buwanang subscription, nang walang pagguhit."
         },
         "collector": {
           "title": "Mga Collector skin",
@@ -2312,7 +2312,7 @@
       "calendarLink": "Calendar ng bawat skin, taon-taon",
       "source": "Mga listahan ng StarLight at Collector, petsa, rarity at presyo mula sa {link}, sa ilalim ng CC BY-SA license.",
       "month": {
-        "title": "MLBB Starlight at events {month}: mga skin at presyo",
+        "title": "StarLight MLBB {month}: Mga Kaganapan at Hitsura",
         "announced": "Inanunsyong buwan: nasa isang listahan ng community wiki ang mga skin na ito bago pa ang release nila sa laro. Kukumpirmahin pa ang mga petsa at presyo.",
         "navMonths": "Nakaraan at susunod na buwan",
         "allMonths": "Lahat ng buwan",
@@ -2437,7 +2437,7 @@
         "newArrivalSkin": "isang skin",
         "newArrivalHero": "isang hero"
       },
-      "presetNote": "Mga value mula sa MLBB wiki, huling na-edit ang page noong {date}: chance na makuha ang {prize} sa mga iniaalok, hindi isang partikular. I-check ang rules sa laro, nagbabago ang mga ito.",
+      "presetNote": "Mga halaga mula sa MLBB wiki, pahina na binago noong {date}: pagkakataong makakuha ng {prize} sa mga premyong inaalok, at hindi isang partikular na premyo. Suriin ang mga patakaran sa laro, nagbabago sila.",
       "wikiLink": "Tingnan ang page",
       "cost": "Presyo bawat draw (diamonds)",
       "tenCost": "Presyo ng 10-draw (opsyonal)",
@@ -2506,7 +2506,7 @@
         "damage": "Physical, magic o mixed. Orange ang tile kapag mixed damage laban sa physical o magic.",
         "range": "Melee, ranged o hybrid. Orange ang tile kapag hybrid range laban sa melee o ranged.",
         "resource": "Kung ano ang ginagamit ng mga skill: mana, energy, o wala.",
-        "region": "Ang pinagmulan ng hero sa mundo ng Mobile Legends (Moniyan Empire, Eruditio, Abyss…).",
+        "region": "Ang bayan ng bayan sa uniberso ng Mobile Legends (Empire of Moniyan, Eruditio, Abyss, atbp.).",
         "year": "Ang release year. Sinasabi ng arrow kung mas bago o mas luma ang secret hero."
       },
       "modesTitle": "Ang tatlong mode",
@@ -2625,7 +2625,7 @@
         "start": "sa iyo! Inilihim ko ito.",
         "miss": "Nabigo... ipinapakita ng mga kulay ang paraan.",
         "close": "Nag-iinit na! Ang ilang mga kahon ay tumutugma.",
-        "won": "Buti na lang, siya na!",
+        "won": "Magaling, iyan ang tamang sagot!",
         "over": "damage! Isa pang round?"
       }
     },
@@ -2705,7 +2705,7 @@
       "next": {
         "title": "Tine-test sa Advance Server",
         "intro": "Mga pagbabago kay {name} na tine-test sa Advance Server. Puwede pang magbago ang mga ito, o hindi na umabot sa Official Server.",
-        "announcedNew": "Ipinakilala si {name} bilang bagong hero sa version {v}.",
+        "announcedNew": "Bagong hero na ipinakita sa bersyon {v}: {name}.",
         "announcedRevamp": "Ipinakita ang revamp ni {name} sa version {v}.",
         "readVersion": "Lahat ng notes ng version {v}"
       }
@@ -3148,7 +3148,7 @@
       "buffsTitle": "Purple at orange buff",
       "buffsText": "Orange buff sa {orange}, purple buff sa {purple}. Bawat isa ay bumabalik {respawn} s pagkatapos mamatay at tumatagal ang epekto nito nang {duration} s. May kanya-kanyang buff ang bawat jungle: hiwalay na sinusundan ng timer ang buff mo at ang sa kalaban.",
       "campsTitle": "Iba pang camp",
-      "campsText": "Lithowanderer sa {litho} (bumabalik {lithoRespawn} s pagkatapos mamatay), Cyclone Eyes sa {cyclone} ({cycloneRecharge} s na recharge), Little Crab sa {littleCrab} (bawat {littleCrabRespawn} s). Dumarating ang Crab sa {crab} ayon sa page nito at sa {crabGuide} ayon sa guide ng wiki, at bumabalik {crabRespawn} s pagkatapos mamatay. Inililista sila ng timer sa simula ng match, nang walang alerto.",
+      "campsText": "Lithowanderer sa {litho} (bumalik {lithoRespawn} s pagkatapos ng kamatayan), Eye of the Storm sa {cyclone} (recharges {cycloneRecharge} s), Small Crab sa {littleCrab} (bawat {littleCrabRespawn} s). Dumating ang Alimango sa {crab} ayon sa kanyang file, sa {crabGuide} ayon sa gabay sa wiki, pagkatapos ay bumalik ng {crabRespawn} s pagkatapos ng kanyang kamatayan. Ipinapakita ng timer ang mga ito sa simula ng laro, nang walang alerto.",
       "usageTitle": "Paano gamitin sa match",
       "usage1": "Ilagay ang phone mo sa tabi ng screen at i-tap ang “{start}” sa kick-off. Nasa match ka na? I-type ang oras na nakikita sa game (345 para sa 3:45), tapos “{apply}”.",
       "usage2": "Tuwing may objective na mamatay, i-tap ang button nito: kinukuwenta ang pagbabalik mula sa segundong nakikita. Ang maling tap ay maa-undo sa isang pindot lang.",
@@ -3187,7 +3187,7 @@
         "purple-buff": "Purple buff",
         "orange-buff": "Orange buff",
         "lithowanderer": "Lithowanderer",
-        "cyclone": "Cyclone Eyes",
+        "cyclone": "Cyclone Eye",
         "little-crab": "Little Crab",
         "crab": "Crab",
         "last-turtle": "Huling posibleng Turtle",
@@ -3696,7 +3696,7 @@
       "title": "Dex MLBB — ang Discord Mobile Legends bot",
       "breadcrumb": "Discord bot",
       "metaTitle": "Dex MLBB, ang Discord Mobile Legends bot: mga build, counter, tier list",
-      "metaDescription": "Dex MLBB, ang libreng MLBBEx Discord bot para sa Mobile Legends: mga build at counter na sinusukat sa mga ranggo na laro, tier list, patch notes, skin alert at MLBBdle ng araw, sa limang wika.",
+      "metaDescription": "Dex MLBB, ang libreng MLBBEx Discord bot para sa Mobile Legends: mga build at counter na sinusukat sa mga ranggo na laro, tier list, patch notes, mga alerto sa bagong hitsura at MLBBdle ng araw, sa limang wika.",
       "lead": "Mga build, counter, tier list at patch notes ng Mobile Legends: Bang Bang, sinukat sa mga ranked match at ina-update araw-araw, mismo sa server mo. Dagdag pa ang daily MLBBdle para sa community mo. Libre, sa limang wika.",
       "add": "Idagdag sa Discord",
       "join": "Sumali sa server",
@@ -3718,7 +3718,7 @@
         "metaText": "Kinukuwenta ng /tierlist ang tier list mula sa win rate, pick rate at ban rate, sa lahat ng rank o mula Epic hanggang Mythical Glory, ayon sa lane o role.",
         "metaAlt": "Ang reply ng /tierlist sa Discord: ang S+, S at A tier",
         "newsTitle": "Mga patch at automatic na anunsyo",
-        "newsText": "Binubuod ng /patch ang pinakabagong patch: mga buff, nerf at binagong hero. Kaya rin ng bot na kusang mag-post ng mga bagong patch, skin, event, Advance Server at resulta ng esports, sa mga channel na pipiliin mo, na may role na ime-mention.",
+        "newsText": "Binubuod ng /patch ang pinakabagong patch: mga buff, nerf at binagong hero. Ang bot ay maaari ding mag-publish ng mga bagong patch, pagpapakita, kaganapan, Advance Server at mga resulta ng esports nang mag-isa sa mga lobby na gusto mo, na may papel na dapat banggitin.",
         "newsAlt": "Ang reply ng /patch sa Discord: mga buff, nerf at binagong hero",
         "dailyTitle": "Daily MLBBdle at quiz",
         "dailyText": "Hulaan ang hero ngayong araw sa classic o skill mode, kapareho ng nasa site, tapos magkumparahan sa leaderboard ng server. Puwedeng i-post ng bot ang game araw-araw sa oras na pipiliin mo.",
@@ -3729,7 +3729,7 @@
         "welcomeTitle": "Mga welcome message",
         "welcomeText": "Welcome at goodbye sa channel na pipiliin mo, gamit ang text mo o ang sa amin, at iisang mensahe kapag may raid.",
         "toolsTitle": "Mga tool",
-        "toolsText": "Stylish nickname generator (21 font), oras ng game server at mga countdown sa reset.",
+        "toolsText": "Naka-istilong generator ng palayaw (21 estilo), oras ng server ng laro at pag-reset ng mga countdown.",
         "languagesTitle": "Limang wika",
         "languagesText": "Mga command at reply sa English, French, Italian, Spanish at Indonesian, ayon sa wika ng server o ng bawat member.",
         "freeTitle": "Libre habambuhay",
@@ -3757,11 +3757,11 @@
         "patch": "Buod ng pinakabagong patch, o ng isang partikular na bersyon: mga buff, nerf, binagong hero.",
         "skins": "Ang mga pinakabagong skin, o lahat ng skin ng isang hero.",
         "events": "Mga kasalukuyan at paparating na event.",
-        "nickname": "Isang stylish na nickname, may 21 font na mapagpipilian.",
+        "nickname": "Isang naka-istilong palayaw, na may 21 mga istilong mapagpipilian.",
         "mlbbdle": "Ang MLBBdle ngayong araw, sa classic o skill mode.",
         "quiz": "Ang quiz ngayong araw, may mga button para sumagot.",
         "leaderboard": "Ang leaderboard ng server para sa mga daily game, ayon sa araw, linggo o lahat ng panahon.",
-        "servertime": "Ang oras ng game server at mga countdown sa reset.",
+        "servertime": "Oras ng server ng laro at pag-reset ng mga countdown.",
         "setup": "Link sa dashboard ng server (kailangan ang Manage Server permission).",
         "help": "Ang mga command ayon sa kategorya, may halimbawa para sa bawat isa.",
         "invite": "Ang link upang idagdag ang bot sa isa pang server.",
@@ -4014,7 +4014,7 @@
         "descriptionHelp": "Opsyonal, hanggang 1,000 character. Kapag blangko: isang default na pangungusap, sa wika ng server.",
         "options": "Mga role ng menu ({count}/{max})",
         "optionsList": "Mga role ng menu",
-        "optionsHelp": "Lumalabas sa menu ang label at ang emoji. Kapag may emoji ang server na nakapangalan sa role (rank_legend para sa Legend), awtomatiko itong pinipili.",
+        "optionsHelp": "Lalabas ang label at emoji sa menu. Kapag ang isang server emoji ay may pangalan ng tungkulin (rank_legend para sa Alamat), awtomatiko itong pipiliin.",
         "addRole": "Magdagdag ng role…",
         "label": "Label",
         "emoji": "Emoji",
@@ -4322,7 +4322,7 @@
       "warning": "Ang pagbili, pagbenta o pag-trade ng account ay labag sa terms of service ng Moonton: puwedeng ma-ban ang account o bawiin ng dating may-ari, at karaniwan ang scam. Sinusukat ng tantiyang ito kung magkano ang nagastos sa isang collection; hindi ito nagtatakda ng presyo. Walang ipinapadala sa server.",
       "methodTitle": "Ang paraan, isa-isang numero",
       "methodPoints": "Ang mga tier ay ang mga nasa Showcase ng laro, kasama ang collection points na ibinibigay ng laro sa bawat skin. Ang kabuuang points ay pansuri: dapat itong tumugma sa kabuuang ipinapakita ng laro.",
-      "methodCost": "Ang bawat skin ay binibilang para sa karaniwang halaga ng kategorya nito. Ang Premium, Exceptional at Common ay ibinebenta sa mga tindahan: ang kanilang gastos ay ang median na presyo sa mga diamante ng mga skin sa kategorya, na naitala sa data ng laro. Ang Legend, Grandiose at Exquisite ay nakukuha sa pamamagitan ng pagguhit: ang kanilang gastos ay ang bilugan na median ng mga gastos na inilathala ng mga gabay ng manlalaro, at ang mga gastos na ito ay nag-iiba-iba mula sa isang kaganapan at mula sa isang manlalaro patungo sa isa pa. Ang isang makulay na hitsura ay binibilang para sa simbolikong halaga.",
+      "methodCost": "Ang bawat hitsura ay binibilang sa karaniwang gastos para sa kategorya nito. Ang Premium, Exceptional at Common ay ibinebenta sa mga tindahan: ang kanilang gastos ay ang median na presyo sa mga diamante ng mga pagpapakita sa kategorya, na naitala sa data ng laro. Ang Legend, Grandiose at Exquisite ay nakukuha sa pamamagitan ng pagguhit: ang kanilang gastos ay ang bilugan na median ng mga gastos na inilathala ng mga gabay ng manlalaro, at ang mga gastos na ito ay nag-iiba-iba mula sa isang kaganapan at mula sa isang manlalaro patungo sa isa pa. Ang isang makulay na hitsura ay binibilang para sa simbolikong halaga.",
       "tableCaption": "Points at gastos na binibilang bawat skin, ayon sa tier",
       "colTier": "Tier",
       "colPoints": "Mga puntos",
@@ -4404,10 +4404,10 @@
         "common": "Common",
         "painted": "Painted skins"
       },
-      "pointsEach": "{points} points bawat isa",
-      "costShop": "≈ {n} diamonds bawat isa (shop)",
-      "costDraw": "≈ {n} diamonds bawat isa (tinatayang draw)",
-      "costFlat": "≈ {n} diamonds bawat isa (simbolikong halaga)",
+      "pointsEach": "{points} puntos ng isa",
+      "costShop": "≈ {n} diamante isa (shop)",
+      "costDraw": "≈ {n} diamante isa (tinantyang paggawa ng pera)",
+      "costFlat": "≈ {n} diamante isa (symbolic value)",
       "pointsTitle": "Collection points",
       "pointsCheck": "Ihambing sa kabuuan sa iyong Showcase, sa ilalim ng pamagat ng iyong kolektor: kung ito ay magkapareho, ang iyong mga numero ay tama.",
       "accountTitle": "Account mo",
@@ -5003,7 +5003,7 @@
     },
     "ranked": {
       "tagline": "Umakyat sa rank",
-      "text": "Ang competitive queue. Bawat panalo ay nagbibigay ng star at nagdadala sa iyo mula Warrior hanggang Mythical Glory, may ban at draft pick simula Epic."
+      "text": "Ang mapagkumpitensyang linya. Ang bawat tagumpay ay kumikita ng mga bituin upang umakyat mula sa Warrior tungo sa Mythical Immortal, na may mga ban at pag-draft mula sa Epic."
     },
     "brawl": {
       "tagline": "Isang lane, diretso sa aksyon",
@@ -5019,7 +5019,7 @@
     },
     "arcade-mode": {
       "tagline": "Mga limited-time mode",
-      "text": "Rotation ng mga special at festive mode — Magic Hunt, Survival at iba pang variant — available sa limitadong panahon."
+      "text": "Mga espesyal na mode na inaalok para sa isang limitadong oras, sa pag-ikot: Magic Chess, Survival at iba pang mga variant."
     }
   },
   "roles": {
@@ -5089,7 +5089,7 @@
       "esportsNext": "Susunod na tournament, {date}",
       "starlight": "StarLight ng {month}",
       "serverTime": "Oras ng server",
-      "reset": "reset sa loob ng"
+      "reset": "ipasok muli"
     },
     "meta": {
       "title": "Ang meta ng patch {version}",
@@ -5370,7 +5370,7 @@
     "collection": {
       "title": "Koleksyon ng skin",
       "intro": "Pinapanatili ng tool sa pagkolekta ang mga hero at skin na iyong tinitingnan sa iyong browser (lokal na imbakan). Kung nakakonekta ka sa iyong account sa laro, nag-iimbak din ang server ng site, sa database nito:",
-      "data": "ang parehong account imprint bilang komunidad (hindi kailanman ang iyong ID ng laro), ang listahan ng mga hero at mga skin na nasuri, at ang petsa ng huling pagpaparehistro; walang iba, at walang ipinapakita sa sinuman.",
+      "data": "ang parehong account imprint bilang komunidad (hindi kailanman ang iyong ID ng laro), ang listahan ng mga nasuri na hero at pagpapakita, at ang petsa ng huling pagpaparehistro; walang iba, at walang ipinapakita sa sinuman.",
       "usage": "Ginagamit lang ang kopyang ito para mahanap ang iyong koleksyon sa iba mo pang device. Binabasa ng filter na \"mga nilalaro ko\" ang iyong mga season hero mula sa serbisyo sa pag-log in sa sandaling i-activate mo ito, nang hindi nagse-save ng kahit ano.",
       "deletion": "Upang alisan ng laman ang kopya ng iyong account, tanggalin ang iyong koleksyon sa tool habang naka-log in; Upang tanggalin ang mismong linya, sumulat sa {contact}."
     },
@@ -5771,7 +5771,7 @@
       "bestFor": "Mga Gold Lane marksman."
     },
     "support-emblem": {
-      "name": "Support Emblem",
+      "name": "Suporta sa Emblem",
       "bonus": "Cooldown reduction at movement speed",
       "bestFor": "Mga support at non-tank roamer."
     },
@@ -5827,7 +5827,7 @@
     },
     "impure-rage": {
       "name": "Impure Rage",
-      "description": "Ang susunod na skill ay may dagdag na damage at nagbabalik ng mana.",
+      "description": "Ang susunod na skill ay nakikitungo ng karagdagang damage at nagpapanumbalik ng mana.",
       "bestFor": "Mga mage na madalas mag-cast ng skill."
     },
     "quantum-charge": {
@@ -6194,7 +6194,7 @@
       "deadline": {
         "daily": "Daily reset",
         "weekly": "Weekly reset",
-        "starlight": "Bagong Starlight",
+        "starlight": "Bagong StarLight",
         "season": "Pagtatapos ng ranked season"
       },
       "on": "Sa {date} ({zone})",
@@ -6333,7 +6333,7 @@
     },
     "patch": {
       "title": "Unang makaalam ng susunod na patch",
-      "text": "Patch notes, advance server at bagong skins, awtomatikong pino-post sa Discord."
+      "text": "Patch notes, Advance Server at mga bagong skin na awtomatikong na-publish sa Discord."
     },
     "daily": {
       "title": "MLBBdle at quiz, kasama ang ibang players",
@@ -6349,7 +6349,7 @@
     },
     "skins": {
       "title": "Malaman agad ang bagong skins",
-      "text": "Bagong skins, StarLight at draws, nasa Discord agad paglabas."
+      "text": "Ang mga bagong skin, StarLight, at mga print ay darating sa Discord sa sandaling mailabas ang mga ito."
     },
     "tools": {
       "title": "Ihanda ang drafts kasama ang squad",
@@ -6413,7 +6413,7 @@
     "heroes2": "Ang mga card ay pinagsunod-sunod ayon sa antas: S+ muna.",
     "heroes3": "Isang bituin sa mapa? Isa ito sa mga paborito mo.",
     "hero1": "Mga pagbabago sa ranggo sa itaas ng sheet: sumusunod ang mga rate, counter at build.",
-    "hero2": "Sinasabi sa iyo ng tab na Counter kung sino ang pumalo sa kanya at kung sino ang kanyang binubugbog.",
+    "hero2": "Ipinapakita ng tab na Counter ang kanyang pinakamasama at pinakamahusay na mga tunggalian.",
     "hero3": "Idagdag ito bilang paborito para maabisuhan ng bawat patch.",
     "tierList1": "Pinagsasama ng tier ang win rate at isang quarter ng ban rate.",
     "tierList2": "Salain ayon sa ranggo: ang meta ng Epic ay hindi ng Mythic Glory.",
@@ -6441,7 +6441,7 @@
     "games3": "Ang iyong winning streak ay naka-save sa browser na ito.",
     "patch1": "Blue: reinforced. Pula: nanghina. Grey: karapat-dapat.",
     "patch2": "Ang agwat ng tagumpay ay naghahambing bago at pagkatapos ng patch.",
-    "patch3": "Ipinapakita ng Advanced Server kung ano ang paparating.",
+    "patch3": "Ipinapakita ng Advance Server kung ano ang paparating.",
     "esports1": "Ang pro meta ay hindi sa ranggo: ihambing ang mga ito.",
     "esports2": "Mag-click sa isang paligsahan upang tingnan ang talahanayan nito.",
     "esports3": "Ang mga draft ng tugma ay nakatiklop, buksan ang mga ito.",
@@ -6472,7 +6472,7 @@
     "splusHeroes": "hero sa S+",
     "bestWin": "pinakamataas na win rate: {hero}",
     "itemsInGame": "item sa laro",
-    "heroesUsing": "hero ang gumagamit",
+    "heroesUsing": "kunin ito ng mga hero",
     "builtBy": "Sa mga build ni {heroes}",
     "minutes": "{n} min basahin",
     "skinsCount": "skin",

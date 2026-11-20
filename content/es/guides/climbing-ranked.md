@@ -6,23 +6,23 @@ updated: "2026-11-14"
 kind: "strategy"
 order: 8
 author: "achedon12"
-summary: "Subir de rango depende menos del talento que de la constancia. Elegir un rol principal, mantener un pool de héroes reducido, saber cuándo dejar de jugar y medir tu progreso con honestidad."
+summary: "Subir de rango tiene menos que ver con el talento que con la coherencia: un papel principal, un pequeño grupo de héroes, saber detenerse en el tiempo y medir tu progreso sin mentirte a ti mismo."
 keywords: ["clasificatoria", "ranked", "subir de rango", "pool de héroes", "Mítico", "mentalidad", "guía mlbb"]
 related: ["drafting-basics", "laning-phase", "teamfight-positioning"]
 tools: ["/ranks", "/tools/win-rate", "/tier-list", "/statistics"]
 ---
 
-No subes de rango ganando un juego espectacular, sino ganando algunos juegos más de los que pierdes, a lo largo de cientos de juegos. La consistencia recompensa las clasificatorias: un jugador promedio que nunca comete un gran error asciende más rápido que un jugador brillante pero irregular. El [sistema de rangos](/ranks) detalla los niveles y lo que cambia de uno a otro.
+No se asciende gracias a un juego espectacular, sino ganando un poco más de las veces que se pierde, a lo largo de cientos de partidos. La consistencia recompensa las clasificatorias: un jugador promedio que nunca comete un gran error asciende más rápido que un jugador brillante pero inconsistente. El [sistema de clasificación](/ranks) detalla cada rango y lo que cambia de uno a otro.
 
 ## Un rol principal, un rol de respaldo
 
-Nadie domina las cinco posiciones. En las clasificaciones, la mejor estrategia es simple:
+Nadie domina las cinco posiciones. En clasificado, apunte a esto:
 
 - **un rol principal**, el que desempeñas con más frecuencia y que mejor entiendes;
 - **un rol de respaldo**, para juegos en los que tu posición ya está ocupada;
 - **un héroe jugable en cada posición**, para nunca bloquear el draft.
 
-Las posiciones que pocos jugadores quieren, como el roaming, son un buen punto de entrada: casi siempre las consigues, y un buen roaming influye en todo el mapa. Cada posición tiene su guía: [gold lane](/guides/gold-lane), [exp lane](/guides/exp-lane), [mid lane](/guides/mid-lane), [jungla](/guides/jungle) y [roam](/guides/roam).
+Las posiciones que pocos jugadores quieren, como el roaming, son un buen punto de entrada: casi siempre las consigues, y un buen roaming influye en todo el mapa. Cada posición tiene su guía: [Carril dorado](/guides/gold-lane), [Carril EXP](/guides/exp-lane), [Carril central](/guides/mid-lane), [jungla](/guides/jungle) y [roam](/guides/roam).
 
 ## Un pool de héroes reducido
 
@@ -30,30 +30,30 @@ Tres héroes en su rol principal son más que suficientes. Cada héroe tiene sus
 
 Para elegir estos tres héroes:
 
-1. **un héroe fuerte en el parche actual**, que la [tier list](/tier-list) o la [tier list de tu rango](/tier-list/mythic) coloca en la parte superior;
+1. **un héroe fuerte en el parche actual**, bien ubicado en la [lista de niveles](/tier-list), general o [por rango](/tier-list/mythic);
 2. **un héroe que te gusta jugar**, porque es en el que progresarás más;
 3. **un héroe de respaldo** que responde a los counters más frecuentes de tus dos primeras opciones.
 
-Un héroe que está baneado en casi todos los juegos de tu rango no debería ser tu única opción: consulta su tasa de baneos en la [tabla de estadísticas](/statistics).
+Un héroe que es baneado en casi todos los juegos de tu rango no debería ser tu única opción: mira su tasa de baneo en la [tabla de estadísticas](/statistics).
 
 ## La mentalidad: jugar la siguiente partida
 
-Las clasificatorias requieren más paciencia que reflejos. Algunas reglas protegen sus puntos:
+Las clasificatorias requieren más paciencia que reflejos. Algunas reglas protegen tus estrellas:
 
-- **para después de dos derrotas seguidas**: el tercer partido se suele jugar con rabia, y es el que más cuesta;
+- **para después de dos derrotas seguidas**: la tercera, muchas veces jugamos enojados, y es la que más cuesta;
 - **no responder en el chat**: cada mensaje escrito es un segundo donde no miramos la mapa;
-- **una partida nunca está perdida mientras tu base resista**: los Lord del final de partida dan la vuelta a partidas que parecían perdidas;
-- **jugar descansado**: las horas de cansancio son cuando se acumulan pequeños errores.
+- **un juego nunca se pierde mientras la base se mantenga**: los Señores al final del juego devuelven juegos mal iniciados;
+- **jugar descansado**: cansado, acumulamos pequeños errores.
 
 ## Aprende de tus derrotas
 
 Una derrota enseña más que una victoria, siempre que se mire con honestidad. Después de un partido perdido, hazte sólo una pregunta: ¿qué decisión tomé que no volvería a tomar? No el de tus compañeros: el tuyo.
 
-Las repeticiones de juegos son la herramienta más útil para esto. Mira el minimapa en el momento de tu muerte: la mayoría de las veces, la información que lo habría evitado estaba allí.
+Las repeticiones de juegos son la mejor herramienta para esto. Mira el minimapa en el momento de tu muerte: la mayoría de las veces, la información que habría evitado que ocurriera estaba allí.
 
 ## Mide tu progreso
 
-La tasa de ganancias es la única métrica que importa a lo largo del tiempo y avanza lentamente. La [calculadora de tasa de victorias](/tools/win-rate) dice cuántas victorias seguidas se necesitan para alcanzar una meta: útil para establecer una meta realista en lugar de un número que requeriría cien victorias seguidas.
+La tasa de ganancias es la única métrica que importa a lo largo del tiempo y avanza lentamente. La [calculadora de tasa de ganancias](/tools/win-rate) indica cuántas victorias seguidas se necesitan para alcanzar una tasa determinada: suficiente para establecer un objetivo realista en lugar de una cifra que requeriría cien victorias seguidas.
 
 Compara también a tus héroes con su promedio: un héroe con un 50% de victorias en el parche actual es una buena opción si juegas con él por encima de este promedio, una mala si juegas con él por debajo.
 

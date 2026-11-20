@@ -1,26 +1,26 @@
 ---
-title: "Farming and wave management in gold lane"
+title: "Farming and wave management in Gold lane"
 short: "Farming and waves"
 date: "2026-11-14"
 updated: "2026-11-14"
 kind: "strategy"
 order: 7
 author: "achedon12"
-summary: "The marksman wins the game with gold, and that gold comes from the waves. Last hitting, freezing, pushing or letting a wave go: the basics of wave management, then farming beyond the lane."
+summary: "The shooter wins the game with his gold, and his gold comes from the waves. Finish off minions, push, freeze or let a wave come: the basics of lane management, then farming beyond the lane."
 keywords: ["farm", "wave management", "gold lane", "last hit", "marksman", "mlbb guide"]
 related: ["gold-lane", "laning-phase", "macro-split-push"]
 tools: ["/tools/build", "/items", "/map"]
 ---
 
-The gold lane is aptly named: it is the lane that yields the most gold, and the marksman who occupies it is the hero who needs it the most. A marksman who farms well has his key items before his opponent, and each item changes his battles. This guide talks about resources; the [gold lane guide](/guides/gold-lane) details the heroes and builds of the position.
+The Gold lane is aptly named: it is the lane that yields the most gold, and the shooter who occupies it is the hero who needs it the most. A shooter who farms well has his key items before his opponent, and each item changes his battles. This guide talks about resources; The [Gold lane guide](/guides/gold-lane) details the heroes and builds of the position.
 
 ## Every minion counts
 
-A new minion wave spawns every thirty seconds, the first at 0:10. For the first ten waves (until 5:10), the cannon minion gives 45% more gold in the Gold lane and 35% more EXP in the EXP lane: early on, missing a cannon costs more than missing any other minion.
+A wave of minions leaves every thirty seconds, the first at 0:10. During the first ten waves (until 5:10), the cannon in the Gold lane earns 45% more gold, and the one in the EXP lane 35% more EXP: at the start of the game, missing a cannon costs more than missing another minion.
 
-- **Last-hit the minions** rather than hitting at random: a marksman who only hits minions that are almost dead keeps his HP and does not push the wave by accident.
-- **Take the last hit on the cannon**, especially during the first ten waves: it is the minion that carries the bonus.
-- **Learn your hero's rhythm**: his attack speed and damage at level 1 are not those at level 6. What was an easy finishing move becomes one hit too many.
+- **Finish the minions** rather than hitting randomly: a shooter who only hits the almost dead minions keeps his life points and does not push the wave unintentionally.
+- **Keep the last shot from the cannon**, especially during the first ten waves: it carries the bonus.
+- **Learn your hero's rhythm**: his attack speed and damage at level 1 are not those of level 6. The right time to finish off a minion changes with levels and items.
 
 ## Push, freeze or let it come
 
@@ -28,11 +28,11 @@ The position of the wave in the lane decides who is safe. There are three ways t
 
 ### Push
 
-You kill the enemy minions as quickly as possible and your wave advances towards the enemy turret. This is the right choice when you want to start from the lane (return to base, objective, assist), because the opponent must stay to defend. This is a bad choice when the opposing jungler is invisible: you are far from your turret.
+You kill the enemy minions as quickly as possible and your wave advances towards the enemy turret. This is the right choice when you want to leave the lane (return to base, objective, assist), because the opponent must stay to defend. This is a bad choice until the opposing jungler has been seen: you are far from your turret.
 
 ### Freeze
 
-You only finish off minions ready to die, and the wave stays near your turret. The opponent must move forward to farm, within range of your turret and your jungler. This is the right choice when your opponent is stronger than you at the start of the game.
+You only finish off minions that are about to die, and the wave stays near your turret. The opponent must move forward to farm, within range of your turret and your jungler. This is the right choice when your opponent is stronger than you at the start of the game.
 
 ### Let it come
 
@@ -64,6 +64,6 @@ Gold is of no use until it is spent. The marksman's first item is often the one 
 
 - Push the wave to the enemy turret without knowing where the enemy jungler is.
 - Leave the lane leaving a whole wave in the middle.
-- Join each fight in the mid lane at the expense of two waves.
+- Join each fight in the Mid lane at the expense of two waves.
 - Keep the gold in your pocket for several minutes instead of returning to buy.
 - Farming alone in the enemy jungle at the end of the game.

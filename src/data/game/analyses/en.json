@@ -37,10 +37,10 @@
     "strengths": [
       "One of the highest damage peaks in the game",
       "Extreme mobility between daggers",
-      "Imposes permanent pressure on the middle lane"
+      "Imposes permanent pressure on the Mid lane"
     ],
     "weaknesses": [
-      "Among the most difficult executions on the roster",
+      "One of the hardest executions in the game",
       "Very high mana consumption",
       "Without his ultimate, his damage collapses"
     ],
@@ -68,7 +68,7 @@
     "weaknesses": [
       "Depends entirely on its energy",
       "Slow start before two items",
-      "Severely punished by movement blocks"
+      "Punished severely by movement blocks"
     ],
     "builds": [
       {
@@ -84,7 +84,7 @@
       "He attacks with a bow or sword depending on the distance from his target. After each weapon switch, his next two attacks gain momentum and critical damage, with a short speed boost.",
       "Rush forward with the sword, which makes it insensitive to controls for a short time. Each weapon change triggered shortens its recharge: this is its main mobility in combat.",
       "Short press: a quick sword strike. Long press: an arrow whose damage increases with charge time. In both cases, it immediately triggers the weapon change bonus.",
-      "Reveals the entire map for a few seconds and speeds it up. Relaunched, it sends a ship crashing into an area, stunning the center, then several cannon salvos which slow down over a wider area."
+      "Reveals the entire map for a few seconds and speeds up Yi Sun-shin. Relaunched, it sends a ship crashing into an area, stunning the center, then several cannon salvos which slow down over a wider area."
     ],
     "strengths": [
       "Vision of the entire map at the launch of the ultimate",
@@ -110,7 +110,7 @@
   },
   "selena": {
     "summary": "Heroine with two forms: traps and stun arrow from a distance, then assassination on contact after the ultimate.",
-    "analysis": "Selena is played in two stages. In her elven form, she places demons that watch over a location and cling to passing enemies, and she shoots an arrow whose stun lengthens with the distance traveled; his skills leave marks on targets. The ultimate switches her to Abyssal Form, where her skills become a leaping attack with shield and a charge, which consume these marks for additional damage; she can then return to elven form.\n\nThis versatility has a cost: its entire initiation relies on the arrow, which must start from afar to stun for a long time. His measured win rate remains below average at all ranks, with a low point in games lasting less than twelve minutes. It is played in the middle lane as well as in roam, with different objects depending on the position. The measurements place her in difficulty against Gloo, Popol and Kupa, Chip and Lolita.",
+    "analysis": "Selena is played in two stages. In her elven form, she places demons that watch over a location and cling to passing enemies, and she shoots an arrow whose stun lengthens with the distance traveled; his skills leave marks on targets. The ultimate switches her to Abyssal Form, where her skills become a leaping attack with shield and a charge, which consume these marks for additional damage; she can then return to elven form.\n\nThis versatility has a cost: its entire initiation relies on the arrow, which must start from afar to stun for a long time. His measured win rate remains below average at all ranks, with a low point in games lasting less than twelve minutes. It is played in Mid lane as well as in roam, with different objects depending on the position. The measurements place her in difficulty against Gloo, Popol and Kupa, Chip and Lolita.",
     "skills": [
       "It moves freely from one form to another. In elven form, his skills pose cumulative marks; in Abyssal Form, its damage consumes these marks to hit harder. The game is about scoring from afar, then finishing from close range.",
       "Places a waiting demon in a location, attaches itself to the first enemy that approaches, slows them down, then explodes on them and their neighbors. Multiple traps can coexist, and each additional trap strengthens the explosion.",
@@ -121,7 +121,7 @@
       "Long stun when the arrow comes from far away",
       "Traps laid in advance, several at a time",
       "Two forms: remote control, then contact damage",
-      "Playable in middle lane as well as roaming"
+      "Playable in mid lane and roam"
     ],
     "weaknesses": [
       "His entire initiation depends on an arrow to be aimed from afar",
@@ -131,7 +131,7 @@
     ],
     "builds": [
       {
-        "name": "Middle lane",
+        "name": "Mid Lane",
         "context": "The most played build in the middle: Starlium Scythe adds damage to the basic attack that follows a skill, which serves its abyssal form, Lightning Truncheon a damage echo and Divine Glaive magic penetration."
       },
       {
@@ -142,7 +142,7 @@
   },
   "chou": {
     "summary": "Isolation fighter: he extracts a target from the opposing group and kills it before his team reacts.",
-    "analysis": "Chou is the highest ceiling hero in roam. The idea is simple – the ultimate sends a target into the air and moves it – but its execution relies on animation cancellations that the game nowhere explains. The reference combo chains skill 1, canceled jump, ultimate, then skill 2 to hold the target upon landing.\n\nHis interest in an organized team comes from there: he chooses who dies. Against a player who keeps his Purify, on the other hand, the ultimate loses half of its value, and Chou becomes an average fighter again.",
+    "analysis": "Chou is the roam hero with the highest mastery cap. The idea is simple – the ultimate sends a target into the air and moves it – but its execution relies on animation cancellations that the game nowhere explains. The reference combo chains skill 1, canceled jump, ultimate, then skill 2 to hold the target upon landing.\n\nHis interest in an organized team comes from there: he chooses who dies. Against a player who keeps his Purify, on the other hand, the ultimate loses half of its value, and Chou becomes an average fighter again.",
     "skills": [
       "Every few basic attacks, his next attack becomes an upgraded hit that deals extra damage.",
       "Three successive strikes. The last one throws enemies hit into the air.",
@@ -165,13 +165,13 @@
         "context": "The version played in competition: enough resistance to survive the round trip, no pure damage items."
       },
       {
-        "name": "Offensive experience",
-        "context": "In experience lane, when Chou must win his duel rather than serve his team."
+        "name": "Offensive lane EXP",
+        "context": "In EXP lane, when Chou must win his duel rather than serve his team."
       }
     ]
   },
   "yu-zhong": {
-    "summary": "Experienced lane fighter who heals himself on hitting and becomes very difficult to kill in prolonged combat.",
+    "summary": "EXP lane fighter who heals himself on hitting and becomes very difficult to kill in prolonged combat.",
     "analysis": "Yu Zhong wins fights that last. Its passive transforms part of the damage inflicted into a shield, which makes it excellent when there are several targets in range - a five-way confrontation gives it much more return than a duel.\n\nHis ultimate makes him immune to checks while he advances, which also makes him a credible initiator. Countering it almost always involves reducing healing: without it, a well-equipped Yu Zhong absorbs an entire team.",
     "skills": [
       "The damage dealt by his skills partially converts into a shield, with increased efficiency on multiple targets.",
@@ -185,13 +185,13 @@
       "Good lane push and good wave control"
     ],
     "weaknesses": [
-      "Collapsed by reduced care",
+      "Very weakened by the reduction in healing",
       "Fragile start to the game before the third item",
       "Little damage on single isolated target"
     ],
     "builds": [
       {
-        "name": "Regeneration experience",
+        "name": "EXP lane regeneration",
         "context": "The reference build: resistance and lifesteal, since the passive already converts damage into a shield."
       }
     ]
@@ -213,7 +213,7 @@
     "weaknesses": [
       "Loses all its interest if the windows are spoiled",
       "Very vulnerable once skills are spent",
-      "Punitive against heroes who maintain their control"
+      "Punished by heroes who maintain their control"
     ],
     "builds": [
       {
@@ -223,7 +223,7 @@
     ]
   },
   "dyrroth": {
-    "summary": "Rage fighter who removes physical armor from his target before striking them, played in experience lane as well as in jungle.",
+    "summary": "Rage fighter who removes his target's physical armor before striking them, played in EXP lane and jungle.",
     "analysis": "Dyrroth builds up rage while fighting; At mid-gauge, his first two skills become a reinforced version, with more range or more damage. Every two basic attacks he hits in a circle around himself and heals himself, and each hero hit shortens his cooldowns. Skill 2 launches it at a target then, recast, removes a large part of its physical armor for a few seconds: it is the opening which makes the rest of its damage effective. The ultimate leaves after a short delay, cannot be interrupted, and slows down everything it passes through.\n\nHe lives on his early game rallies: his measured win rate is highest in short games and drops below average after the eighteenth minute. Its numbers also vary depending on the rank, lower in Mythic than in Mythic Glory. The measures place him in difficulty against Masha, Benedetta and Thamuz.",
     "skills": [
       "From half his rage gauge, his skills 1 and 2 are strengthened. Every two basic attacks, he hits in a circle and recovers HP, and each hero hit reduces the cooldowns of his first two skills.",
@@ -235,7 +235,7 @@
       "Physical armor reduction built into skill 2",
       "Regular healing in combat thanks to its passive",
       "Cooldowns shortened for each hero hit",
-      "Two possible positions: experience lane or jungle"
+      "Two possible positions: EXP lane or jungle"
     ],
     "weaknesses": [
       "Win rate measured decreasing in long games",
@@ -245,8 +245,8 @@
     ],
     "builds": [
       {
-        "name": "Experience lane",
-        "context": "The most played build in experience lane for all ranks: War Axe and Queen's Wings for lifesteal and survival, Rose Gold Meteor for the shield when its HP drops low. The choices remain very scattered in this position, and in Mythic Glory it is a penetration version (Blade of the Heptaseas, Hunter Strike, Rose Gold Meteor) which comes first."
+        "name": "EXP lane",
+        "context": "The most played build in EXP lane at all ranks: War Axe and Queen's Wings for lifesteal and survival, Rose Gold Meteor for the shield when its HP drops low. The choices remain very dispersed in this position, and in Mythical Glory it is a penetration version (Blade of the Heptaseas, Hunter Strike, Rose Gold Meteor) which comes first."
       },
       {
         "name": "Jungle",
@@ -256,7 +256,7 @@
   },
   "sun": {
     "summary": "Fighter who multiplies: his doubles strike with him, heal him and eat away at the targets' armor.",
-    "analysis": "Sun fights by summoning doubles. His first two skills throw his staff, which leaves a temporary duplicate; the second additionally hides him while he moves with the stick. The ultimate summons a more durable duplicate, closer to its own stats. Each hit from Sun or his doubles reduces the target's physical armor a little, and each hit from a double heals it: the more doubles there are on a target, the faster it melts and the longer it lasts.\n\nHis measured profile is that of a late-game hero: victory rate below average in games lasting less than fourteen minutes, then significantly above after the sixteenth. He is also very often banned, especially at Mythic rank. Double the ultimate takes increased damage, and the metrics put Sun in trouble against Aldous, Natan, Alucard, Joy, and Ruby.",
+    "analysis": "Sun fights by summoning doubles. His first two skills throw his staff, which leaves a temporary duplicate; the second additionally hides him while he moves with the stick. The ultimate summons a more durable duplicate, closer to its own stats. Each hit from Sun or his doubles reduces the target's physical armor a little, and each hit from a double heals it: the more doubles there are on a target, the faster it melts and the longer it lasts.\n\nHis measured profile is that of a late-game hero: below-average victory rate in games lasting less than fourteen minutes, then significantly above after the sixteenth. He is also very often banned, especially at Mythical rank. Double the ultimate takes increased damage, and the metrics put Sun in trouble against Aldous, Natan, Alucard, Joy, and Ruby.",
     "skills": [
       "Each hit from Sun or a double reduces the target's physical armor, stacking. Every time a double deals damage, Sun recovers HP. His attacks and those of his doubles also hit monsters harder.",
       "Throws the stick in a line; on impact or at the end of the stroke, it changes into a double which takes over part of its statistics. Shares its cooldown and levels with skill 2.",
@@ -276,8 +276,8 @@
     ],
     "builds": [
       {
-        "name": "Experience lane",
-        "context": "The most played build in experience lane: attack speed and critical, from which its doubles benefit by taking back part of its attack effects, and Great Dragon Spear for speed after the ultimate. It is most often associated with the support emblem and the spell Petrify."
+        "name": "EXP lane",
+        "context": "The most played build in EXP lane: attack speed and critical, from which its doubles benefit by taking back part of its attack effects, and Great Dragon Spear for speed after the ultimate. It is most often associated with the support emblem and the spell Petrify."
       },
       {
         "name": "Jungle",
@@ -337,14 +337,14 @@
     ],
     "builds": [
       {
-        "name": "Explosive environment",
+        "name": "Explosive mid lane",
         "context": "The standard build: magical penetration to maintain damage against the first defensive objects."
       }
     ]
   },
   "pharsa": {
     "summary": "Artillery Mage: His ultimate strikes across the map, without ever entering combat.",
-    "analysis": "Pharsa plays on the scope. Her ultimate is a channeled bombardment covering a huge area from long range, allowing her to participate in a fight she can barely see. Well placed, this spell alone can decide a clash around the lord.\n\nHis skill 2 gives him a flying form that passes through walls, essential for repositioning after channeling. The weak point is obvious: during the ultimate she is immobile and defenseless, and any assassin who finds her kills her.",
+    "analysis": "Pharsa plays on the scope. Her ultimate is a channeled bombardment covering a huge area at long range, allowing her to participate in a fight she barely sees. Well placed, this spell alone can decide a confrontation around the Lord.\n\nHis skill 2 gives him a flying form that passes through walls, essential for repositioning after channeling. The weak point is obvious: during the ultimate she is immobile and defenseless, and any assassin who finds her kills her.",
     "skills": [
       "After a skill, his next basic attack deals bonus magic damage.",
       "Sends out a wave that explodes from a distance, dealing area damage.",
@@ -363,7 +363,7 @@
     ],
     "builds": [
       {
-        "name": "Artillery middle",
+        "name": "Mid lane artillery",
         "context": "Range and raw damage, with a late defensive item to survive a dive."
       }
     ]
@@ -389,8 +389,8 @@
     ],
     "builds": [
       {
-        "name": "Cumulative environment",
-        "context": "Mana and recharge first to stack quickly, damage later. The Hourglass is not optional."
+        "name": "Mid lane accumulation",
+        "context": "Mana and recharge first to stack quickly, damage later. Enchanted Talisman is not optional."
       }
     ]
   },
@@ -518,7 +518,7 @@
   },
   "nana": {
     "summary": "Harassment mage that incapacitates a target by transforming it, and survives a fatal blow once.",
-    "analysis": "Nana wears down her opponents from afar with a boomerang that hits back and forth. Her skill 2 sends Molina to pursue the closest enemy hero: the one she hits is transformed for a short time, slowed down and weakened against magic damage. The ultimate hits an area three times and stuns enemies hit multiple times in a row. Her passive grants her, once every two and a half minutes, an invulnerable transformation at the moment she should die.\n\nIts measured figures are low: below average victory rate at all ranks, even lower in Mythic Glory, with no real improvement in long games. While transforming her passive, she cannot cast any skills, and Molina chooses her target herself among nearby heroes. The counter gaps remain modest; the clearest place her in difficulty against Gloo, then against Akai and Hylos.",
+    "analysis": "Nana wears down her opponents from afar with a boomerang that hits back and forth. Her skill 2 sends Molina to pursue the closest enemy hero: the one she hits is transformed for a short time, slowed down and weakened against magic damage. The ultimate hits an area three times and stuns enemies hit multiple times in a row. Her passive grants her, once every two and a half minutes, an invulnerable transformation at the moment she should die.\n\nIts measured numbers are low: below average victory rate at all ranks, even lower in Mythic Glory, with no real improvement in long games. While transforming her passive, she cannot cast any skills, and Molina chooses her target herself among nearby heroes. The counter differences remain modest; the clearest place her in difficulty against Gloo, then against Akai and Hylos.",
     "skills": [
       "Faced with a fatal blow, she gets rid of the negative effects and transforms: invulnerable, faster, she recovers a little HP but cannot launch any skills. The effect has a long cooldown.",
       "A boomerang that hits on the way out and back. Its damage decreases for each additional enemy crossed: it is better to aim at an isolated target.",
@@ -556,7 +556,7 @@
     "strengths": [
       "Very early power peak",
       "Long range damage with ultimate",
-      "Works in jungle as well as in gold lane"
+      "Works in jungle as in Gold lane"
     ],
     "weaknesses": [
       "No control",
@@ -565,7 +565,7 @@
     ],
     "builds": [
       {
-        "name": "Gold raw damage",
+        "name": "Gold lane, raw damage",
         "context": "Attack speed adds nothing to its passive: we stack attack damage and penetration."
       }
     ]
@@ -591,7 +591,7 @@
     ],
     "builds": [
       {
-        "name": "Long range gold",
+        "name": "Gold lane, long range",
         "context": "Pair of precision rifle and grenade launcher: we go the distance and hit the objectives."
       }
     ]
@@ -617,14 +617,14 @@
     ],
     "builds": [
       {
-        "name": "Gold standard",
+        "name": "Gold lane standard",
         "context": "Attack Speed ​​and Critical: Melissa fires continuously until she is hit."
       }
     ]
   },
   "miya": {
     "summary": "Pure basic attack shooter: she gains momentum as long as she hits, and her ultimate makes her disappear the moment you aim her.",
-    "analysis": "Miya bases everything on basic attack. Its passive stacks attack speed with each shot that hits, skill 1 adds additional arrows that also damage nearby targets, and skill 2 immobilizes an area before slowing down what's around it. Her ultimate removes the negative effects, makes her invisible and brings her out of this state with her passive already at full charge: it is used as much to escape as to return to the exchange at full speed. Its measured win rate increases slightly with the length of the game.\n\nIt has no instantaneous movement. Once the ultimate is used, she only has skill 2 left to slow down an attacker, and her pace drops as soon as she stops hitting a target. The countermeasures place her in difficulty against Beatrix, Granger, Gatotkaca, Karina and Belerick, with a gap which is found from the Mythic rank to the Mythic Glory rank.",
+    "analysis": "Miya bases everything on basic attack. Its passive stacks attack speed with each shot that hits, skill 1 adds additional arrows that also damage nearby targets, and skill 2 immobilizes an area before slowing down what's around it. Her ultimate removes the negative effects, makes her invisible and brings her out of this state with her passive already at full charge: it is used as much to escape as to return to the exchange at full speed. Its measured win rate increases slightly with the length of the game.\n\nIt has no instantaneous movement. Once the ultimate is used, she only has skill 2 left to slow down an attacker, and her pace drops as soon as she stops hitting a target. The countermeasures place her in difficulty against Beatrix, Granger, Gatotkaca, Karina and Belerick, with a gap which is found from the Mythical rank to the Mythical Glory rank.",
     "skills": [
       "Each basic attack that hits adds one tier of attack speed, up to five. At full charge, each shot causes a shadow to appear which strikes with it: the whole point is to never let the levels fall again.",
       "For a few seconds, each basic attack comes with two more arrows, and part of the damage hits enemies close to the target. To be thrown at the start of an exchange or on a wave of minions.",
@@ -646,7 +646,7 @@
     "builds": [
       {
         "name": "Critical",
-        "context": "The most played build in gold lane, all ranks combined, as in Mythic Glory: the critical chance fuels Berserker's Fury and triggers the attack speed of Haas' Claws, which also provides lifesteal."
+        "context": "The most played build in Gold lane, all ranks combined, as well as in Mythic Glory: the critical chance fuels Berserker's Fury and triggers the attack speed of Haas' Claws, which also provides lifesteal."
       },
       {
         "name": "Impact damage",
@@ -656,7 +656,7 @@
   },
   "hanabi": {
     "summary": "Rebounding damage shooter, which controls don't hit while she's carrying a shield.",
-    "analysis": "Hanabi inflicts her damage in ricochet: each basic attack or skill that hits sends blades back to neighboring enemies, making her effective in group fights and on waves. Her skill 1 gives her a shield, and as long as a shield protects her, control effects have no effect on her; part of the damage it inflicts also recharges this shield. His ultimate immobilizes the first hero hit before exploding around him.\n\nHowever, she has no instantaneous movement: if the shield falls, she becomes an easy target to reach again. His measured win rate is highest in short games and declines significantly as they get longer, falling below fifty percent after the eighteenth minute. At the Mythic Glory rank, the measurements place her in difficulty against Lolita, Joy, Beatrix, Wanwan and Ixia.",
+    "analysis": "Hanabi inflicts her damage in ricochet: each basic attack or skill that hits sends blades back to neighboring enemies, making her effective in group fights and on waves. Her skill 1 gives her a shield, and as long as a shield protects her, control effects have no effect on her; part of the damage it inflicts also recharges this shield. His ultimate immobilizes the first hero hit before exploding around him.\n\nHowever, she has no instantaneous movement: if the shield falls, she becomes an easy target to reach again. His measured win rate is highest in short games and declines significantly as they get longer, falling below fifty percent after the eighteenth minute. At the Mythical Glory rank, the measurements place her in difficulty against Lolita, Joy, Beatrix, Wanwan and Ixia.",
     "skills": [
       "Each basic attack or skill that hits sends blades back at multiple nearby enemies, with damage decreasing with each bounce. Basic attack bounces regain some of its attack effects.",
       "While wearing a shield, regardless of its source, Hanabi ignores controls. By activating it, she protects herself, gains movement and attack speed, and part of the damage inflicted strengthens this shield up to a certain limit.",
@@ -678,7 +678,7 @@
     "builds": [
       {
         "name": "Reinforced attacks",
-        "context": "By far the most played build in gold lane: Corrosion Scythe, Demon Hunter Sword and Golden Staff strengthen each basic attack, the rebounds of which regain part of the effects. It is most often associated with the fighter emblem and the spell Aegis, whose shield also makes it immune to checks."
+        "context": "By far the most played build in Gold lane: Corrosion Scythe, Demon Hunter Sword and Golden Staff strengthen each basic attack, the rebounds of which regain part of the effects. It is most often associated with the fighter emblem and the spell Aegis, whose shield also makes it immune to checks."
       }
     ]
   },
@@ -710,13 +710,13 @@
       },
       {
         "name": "Without reduction of care",
-        "context": "The same base with Blade of Despair instead of Sea Halberd: much less played, with a better measured victory rate. Reserve for games where the opposing team does not rely on healing or shields."
+        "context": "The same base with Blade of Despair instead of Sea Halberd: much less played, with a better measured win rate. Reserve for games where the opposing team does not rely on healing or shields."
       }
     ]
   },
   "estes": {
     "summary": "The crudest heal in the game: its ultimate regenerates the entire team for several seconds.",
-    "analysis": "Estes does nothing but heal, but he does it at a volume that no other support reaches. In a prolonged fight around an objective, his ultimate can negate an entire composition's worth of sustained damage.\n\nThis also makes him the most context-dependent hero on the roster. Against a team that buys healing reduction, or has an initiation capable of removing it first, it becomes almost useless. It provides no control, no damage, no mobility: if it doesn't heal, it doesn't exist.",
+    "analysis": "Estes does nothing but heal, but he does it at a volume that no other support reaches. In a prolonged fight around an objective, his ultimate can negate an entire composition's worth of sustained damage.\n\nThis also makes him the most context-dependent hero in the entire game. Against a team that buys healing reduction, or has an initiation capable of removing him first, he becomes almost useless. It provides no control, no damage, no mobility: if it doesn't heal, it doesn't exist.",
     "skills": [
       "His healing applies a mark that increases the regeneration of affected allies.",
       "Heals a targeted ally and increases their movement speed.",
@@ -885,7 +885,7 @@
     "strengths": [
       "The best grouping in the game on multiple targets",
       "Very durable even with a modest budget of objects",
-      "Readable: easy to learn in a low ranked game"
+      "Readable: easy to learn in lower ranked ranks"
     ],
     "weaknesses": [
       "Useless when his ultimate is on cooldown",
@@ -898,8 +898,8 @@
         "context": "The default build. We sacrifice all damage to reach contact and survive the opening of the fight."
       },
       {
-        "name": "Magic Resistant Front",
-        "context": "Against an opposing composition with two or more mages, or when the opposing magical damage exceeds the physical."
+        "name": "Anti-magic frontline",
+        "context": "Against an opposing composition with two or more mages, or when the opposing magic damage exceeds the physical damage."
       }
     ]
   },
@@ -914,13 +914,13 @@
     ],
     "strengths": [
       "Removes a key target from combat, regardless of resistance",
-      "Excellent aim control around the lord and the turtle",
+      "Excellent aim control around the Lord and the Turtle",
       "Hugely rewards card reading"
     ],
     "weaknesses": [
       "A failed grappling hook leaves him with nothing for eight seconds",
       "Very dependent on vision and bushes",
-      "The ultimate is a single target: without a relay, it dies after"
+      "The ultimate only aims at one target: without a relay, it then dies"
     ],
     "builds": [
       {
@@ -944,7 +944,7 @@
       "Can isolate a target against a wall"
     ],
     "weaknesses": [
-      "Without his skills he has no speed",
+      "Without his skills he is very slow",
       "Long cooldowns at the start of the game",
       "Not very useful against a team without movement"
     ],
@@ -1014,7 +1014,7 @@
       },
       {
         "name": "Against magic",
-        "context": "Athena's Shield in place of Radiant Armor, with the support emblem: less played, with a better measured win rate. Best used against an opposing team with high magic damage."
+        "context": "Athena's Shield in place of Radiant Armor, with support emblem: less played, with better measured win rate. Best used against an opposing team with high magic damage."
       }
     ]
   },

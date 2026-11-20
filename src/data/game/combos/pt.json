@@ -1460,7 +1460,7 @@
   "cyclops": [
     {
       "type": "laning",
-      "description": "Ciclope pode usar sua 2ª habilidade para se aproximar dos heróis inimigos e acertá-los com sua 1ª habilidade e as esferas invocadas por sua 2ª habilidade. Este combo é muito eficaz contra heróis inimigos.",
+      "description": "Cyclops pode usar sua 2ª habilidade para se aproximar dos heróis inimigos e acertá-los com sua 1ª habilidade e as esferas invocadas por sua 2ª habilidade. Este combo é muito eficaz contra heróis inimigos.",
       "skills": [
         {
           "name": "Planets Attack",
@@ -1474,7 +1474,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Em teamfights, Ciclope deve controlar o inimigo alvo com seu Ultimate, aproximar-se com sua 2ª habilidade e então finalizar o alvo com sua 1ª habilidade.",
+      "description": "Em teamfights, Cyclops deve controlar o inimigo alvo com seu Ultimate, aproximar-se com sua 2ª habilidade e então finalizar o alvo com sua 1ª habilidade.",
       "skills": [
         {
           "name": "Star Power Lockdown",
@@ -5608,7 +5608,7 @@
   "uranus": [
     {
       "type": "laning",
-      "description": "Urano pode usar sua 1ª habilidade para cutucar o inimigo e, em seguida, usar o combo 2ª habilidade - 1ª habilidade quando seu HP estiver baixo para acabar com eles.",
+      "description": "Uranus pode usar sua 1ª habilidade para cutucar o inimigo, então usar o combo 2ª habilidade - 1ª habilidade quando seu HP estiver baixo para acabar com eles.",
       "skills": [
         {
           "name": "Ionic Edge",
@@ -5626,7 +5626,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Urano deve usar sua 2ª habilidade para entrar na luta, depois seu Ultimate para sobreviver aos ataques inimigos enquanto envia spam para sua 1ª habilidade para causar danos sustentados.",
+      "description": "Uranus deve usar sua 2ª habilidade para entrar na luta, depois seu Ultimate para sobreviver aos ataques inimigos enquanto envia spam para sua 1ª habilidade para causar danos sustentados.",
       "skills": [
         {
           "name": "Transcendent Ward",

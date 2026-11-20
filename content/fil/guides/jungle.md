@@ -28,7 +28,7 @@ Ang [pagsasaka na landas at gabay sa mga layunin](/guides/jungle-objectives) ay 
 
 <!-- guide:heroes -->
 
-Ang mga jungler ay nahahati sa tatlong pamilya. Ang mga assassin, gaya ng [Ling](/heroes/ling), [Lancelot](/heroes/lancelot) o [Hayabusa](/heroes/hayabusa), ay nag-aalis ng nakahiwalay na target; mga mandirigma, tulad ng [Martis](/heroes/martis) o [Balmond](/heroes/balmond), nagtatagal ng mahabang laban; Ang mga tank ng jungle, tulad ng [Fredrinn](/heroes/fredrinn) o [Baxia](/heroes/baxia), ay iniiwan ang ginto para sa iba at makipag-ugnayan. Ang tamang pagpipilian ay depende sa kung ano ang nawawala sa iyong koponan.
+Ang mga jungler ay nahahati sa tatlong pamilya. Ang mga assassin, gaya ng [Ling](/heroes/ling), [Lancelot](/heroes/lancelot) o [Hayabusa](/heroes/hayabusa), ay nag-aalis ng nakahiwalay na target; ang mga mandirigma, tulad ng [Martis](/heroes/martis) o [Balmond](/heroes/balmond), ay nagtatagal ng mahabang laban; Ang mga tank ng jungle, tulad ng [Fredrinn](/heroes/fredrinn) o [Baxia](/heroes/baxia), ay nangangailangan ng ilang mga item at simulan ang labanan. Ang tamang pagpipilian ay depende sa kung ano ang nawawala sa iyong koponan.
 
 ## Karamihan sa mga nilalaro na item, emblem at spells
 
@@ -38,7 +38,7 @@ Ang paghihiganti ay sapilitan: kung wala ito, ang pagsasaka ay masyadong mabagal
 
 - **laban sa mga tank**, ang pagpasok ng sandata ng [Malefic Roar](/items/malefic-roar);
 - **laban sa isang pangkat na nagpapagaling sa sarili**, ang pagpapababa ng [Sea Halberd](/items/sea-halberd);
-- **para tapusin ang isang target**, magsagawa ng mga item tulad ng [Sky Piercer](/items/sky-piercer) sa mga assassin na bumuo sa kanila.
+- **upang tapusin ang isang target**, isang execution item tulad ng [Sky Piercer](/items/sky-piercer), na pumapatay sa isang hero sa ibaba ng threshold ng mga puntos ng buhay, sa mga assassin na bumuo nito.
 
 Tinutulungan ka ng [Retribution](/tools/retribution) timing training na hindi ka na mawalan ng layunin sa huling shot.
 
@@ -54,12 +54,12 @@ Ang jungler ay nagpapalit ng pagsasaka, mga layunin at pag-atake sa mga daanan. 
 
 ### Pagtatapos ng laro
 
-Ang mga labanan ay ipinaglalaban sa paligid ng Lord. Ang jungler ay hindi dapat ang unang pumasok sa laban: naghihintay siya hanggang sa magamit ang mga kontrol ng kalaban, pagkatapos ay tinatarget niya ang pinaka-nakalantad na carrier. At lagi niyang iniingatan ang kanyang Ganti para sa Lord.
+Ang mga labanan ay ipinaglalaban sa paligid ng Lord. Ang jungler ay hindi unang pumasok sa laban: naghihintay siya hanggang sa magamit ang mga kontrol ng kalaban, pagkatapos ay tinatarget niya ang pinaka-nakalantad na carrier. At lagi niyang iniingatan ang kanyang Ganti para sa Lord.
 
 ## Ang pinakakaraniwang pagkakamali
 
 - Isaka ang iyong jungle habang ang koponan ay nakikipaglaban para sa Turtle.
 - Gamitin ang Retribution sa isang maliit na kampo bago ang isang layunin.
-- Atake sa isang lane kung saan ang kalaban ay nasa ilalim ng kanyang turret kasama ang lahat ng kanyang mga puntos sa buhay.
-- Magbukas muna ng team fight sa isang marupok na assassin.
+- Ganker isang kalaban na nasa ilalim ng kanyang toresilya kasama ang lahat ng kanyang mga puntos sa buhay.
+- Makisali sa pakikipaglaban sa koponan kasama ang isang marupok na assassin.
 - Simulan ang Lord nang hindi nalalaman kung nasaan ang mga kalaban.

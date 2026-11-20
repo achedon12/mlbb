@@ -22,7 +22,7 @@ Roamer tidak menjaga lane: dia berpindah dari satu lane ke lane lain untuk memba
 - **Perlindungan**: support menyembuhkan, melindungi atau mengusir diver yang menargetkan carry.
 - **Waktu**: roamer yang memaksa lawan mundur memperoleh beberapa detik untuk mencapai suatu objektif, bahkan tanpa bertarung.
 
-Saat dia mendapatkan sedikit emas, roamer melengkapi dirinya dengan sepatu roamer: blessing-nya mengkompensasi pendapatannya yang rendah dan menambahkan efek yang berguna bagi tim. [Katalog item](/items) menyajikan sepatu bot yang mereka selesaikan.
+Saat dia mendapatkan sedikit emas, penjelajah melengkapi dirinya dengan sepatu penjelajah: berkat mereka mengkompensasi pendapatannya yang rendah dan menambahkan efek yang berguna bagi tim. [Katalog item](/items) menunjukkan sepatu bot yang ditambahkan.
 
 ## Hero yang Direkomendasikan Saat Ini
 
@@ -36,17 +36,17 @@ Dua tipe hero berbagi role ini. Tank engage, seperti [Tigreal](/heroes/tigreal),
 
 Roamer membangun item yang lebih berguna bagi tim daripada dirinya sendiri:
 
-- **melawan tim yang menyembuhkan dirinya sendiri**, [Dominance Ice](/items/dominance-ice), yang mengurangi penyembuhan lawan di sekitar;
+- **melawan tim yang menyembuhkan**, [Dominance Ice](/items/dominance-ice), yang mengurangi penyembuhan dan perisai lawan di sekitar;
 - **untuk meluncurkan ultimate lebih sering**, [Fleeting Time](/items/fleeting-time), yang mengurangi cooldown setelah kill atau assist;
-- **untuk melindungi sekutu**, [Flask of the Oasis](/items/flask-of-the-oasis) pada support yang bisa menyembuhkan.
+- **untuk melindungi sekutu**, [Flask of the Oasis](/items/flask-of-the-oasis) pada dukungan yang menyembuhkan atau memasang perisai: sekutu dengan HP di bawah 35% juga menerima perisai.
 
-Di sisi spell, [Flicker](/spells/flicker) memungkinkan tank menyerang secara tiba-tiba. [Revitalize](/spells/revitalize) dan [Aegis](/spells/aegis) melindungi tim dalam pertarungan panjang, dan [Petrify](/spells/petrify) menambahkan kontrol area pada hero yang kekurangannya.
+Di sisi spell, [Flicker](/spells/flicker) memungkinkan tank menyerang secara tiba-tiba. [Revitalisasi](/spells/revitalize) (zona penyembuhan) dan [Aegis](/spells/aegis) (perisai untuk Anda dan sekutu terdekat) membantu tim bertahan dalam pertarungan panjang, dan [Petrify](/spells/petrify), yang memperlambat dan kemudian melumpuhkan musuh di sekitar, memberikan kontrol kepada hero yang kekurangannya.
 
 ## Jalannya pertandingan
 
 ### Early game
 
-Roamer melindungi buff pertama Junglernya, lalu membantu gold Lane atau Mid Lane pada wave pertama. Sekitar pukul 1:45, dia mengambil sungai untuk mempersiapkan Turtle, yang muncul pada pukul 2:00 di dekat EXP Lane.
+Roamer melindungi buff pertama Junglernya, lalu membantu Gold Lane atau Mid Lane pada wave pertama. Sekitar pukul 1:45, dia turun ke sungai untuk mempersiapkan Turtle, yang muncul pada pukul 2:00 di dekat EXP Lane.
 
 ### Mid game
 
@@ -54,12 +54,12 @@ Roamer tidak pernah tinggal lama di tempat yang sama. Dia mengikuti objektif: di
 
 ### Late game
 
-Dalam team fight, tank akan engage ketika carrynya cukup dekat untuk mengikuti, dan support tetap berada di samping carry utamanya. Seorang roamer yang mati lebih dulu, karena engage sendirian, meninggalkan timnya dalam keadaan empat lawan lima.
+Dalam pertempuran tim, tank akan terlibat ketika kapal induknya cukup dekat untuk mengikuti, dan tank pendukung tetap berada di samping kapal induk utamanya. Seorang roamer yang terlibat sendirian dan mati terlebih dahulu meninggalkan timnya dalam empat lawan lima.
 
 ## Kesalahan paling umum
 
 - Ikuti marksman sepanjang permainan alih-alih mempersiapkan objektif.
-- Memasuki semak asing sendirian dengan support yang rapuh.
+- Memasuki semak yang tidak terkendali sendirian dengan dukungan yang lemah.
 - Terlibat dalam pertempuran saat carry tim masih farming.
 - Lupa roam boots atau terlambat membelinya.
 - Gunakan ulti Anda untuk menghabisi lawan, bukan menyimpannya untuk bertarung.

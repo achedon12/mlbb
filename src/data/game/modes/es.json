@@ -342,11 +342,11 @@
           },
           {
             "type": "li",
-            "text": "Revitalízate para que su equipo pueda recuperarse después de la pelea, ya que el Altar ya no cura, especialmente cuando tu equipo está en una mala posición y no pueden asegurar las runas curativas; y"
+            "text": "Revitalize para que su equipo pueda recuperarse después de la pelea, ya que el Altar ya no cura, especialmente cuando tu equipo está en una mala posición y no puede asegurar las runas curativas; y"
           },
           {
             "type": "li",
-            "text": "Purifica, si tu héroe tiene un buen daño pero es vulnerable al control de masas (CC)."
+            "text": "Purify, si tu héroe tiene un buen daño pero es vulnerable al control de masas (CC)."
           },
           {
             "type": "li",
@@ -738,7 +738,7 @@
           },
           {
             "type": "p",
-            "text": ": 1. La habilidad 1 de Estatuado Shocker mejorará su próximo ataque básico, que aturdirá a los enemigos; La habilidad 2 les proporcionará un escudo que explotará después de un tiempo o cuando sea destruido, similar a la segunda habilidad de Urano."
+            "text": ": 1. La habilidad 1 de Estatuado Shocker mejorará su próximo ataque básico, que aturdirá a los enemigos; La habilidad 2 les proporcionará un escudo que explotará después de un tiempo o cuando sea destruido, similar a la segunda habilidad de Uranus."
           },
           {
             "type": "p",
@@ -782,7 +782,7 @@
           },
           {
             "type": "p",
-            "text": ": Asesino: Lancelot, Sabre, Freya."
+            "text": ": Asesino: Lancelot, Saber, Freya."
           },
           {
             "type": "p",
@@ -794,7 +794,7 @@
           },
           {
             "type": "p",
-            "text": ": Apoyo: Ángela, Estes, Nana."
+            "text": ": Soporte: Angela, Estes, Nana."
           },
           {
             "type": "p",
@@ -806,7 +806,7 @@
           },
           {
             "type": "p",
-            "text": ": Tanque: Hylos, Urano, Akai, Jhonson."
+            "text": ": Tanque: Hylos, Uranus, Akai, Jhonson."
           },
           {
             "type": "p",

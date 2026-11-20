@@ -1,26 +1,26 @@
 ---
-title: "Farmeo y gestión de oleadas en la gold lane"
+title: "Agricultura y gestión de olas en Gold Lane"
 short: "Farmeo y oleadas"
 date: "2026-11-14"
 updated: "2026-11-14"
 kind: "strategy"
 order: 7
 author: "achedon12"
-summary: "El tirador gana la partida con su oro, y su oro viene de las oleadas. Rematar minions, congelar, empujar o dejar pasar una oleada: lo básico de la gestión de la línea y luego el farmeo más allá de ella."
+summary: "El tirador gana el juego con su oro, y su oro proviene de las olas. Acaba con los súbditos, empuja, congela o deja que llegue una ola: los conceptos básicos de la gestión de carriles y luego la agricultura más allá del carril."
 keywords: ["farmeo", "gestión de oleadas", "gold lane", "last hit", "tirador", "guía mlbb"]
 related: ["gold-lane", "laning-phase", "macro-split-push"]
 tools: ["/tools/build", "/items", "/map"]
 ---
 
-La línea del oro tiene un nombre acertado: es la línea que produce más oro, y el tirador que lo ocupa es el héroe que más lo necesita. Un tirador que farmea bien tiene sus objetos clave antes que su oponente, y cada objeto cambia sus batallas. Esta guía habla de recursos; la [guía del gold lane](/guides/gold-lane) detalla los héroes y las configuraciones de la posición.
+El carril del Oro tiene un nombre acertado: es el carril que produce más oro, y el tirador que lo ocupa es el héroe que más lo necesita. Un tirador que cultiva bien tiene sus elementos clave antes que su oponente, y cada elemento cambia sus batallas. Esta guía habla de recursos; La [Guía del carril dorado](/guides/gold-lane) detalla los héroes y las configuraciones de la posición.
 
 ## Cada minion cuenta
 
-Sale una oleada de minions cada treinta segundos, la primera a las 0:10. Durante las diez primeras oleadas (hasta las 5:10), el cañón da un 45 % más de oro en la línea de oro y un 35 % más de EXP en la línea de EXP: al principio de la partida, fallar un cañón cuesta más que fallar otro minion.
+Una oleada de minions sale cada treinta segundos, la primera a las 0:10. Durante las primeras diez oleadas (hasta el 5:10), el cañón en la línea Dorada gana un 45% más de oro, y el de la línea EXP un 35% más EXP: al comienzo del juego, fallar un cañón cuesta más que perder otro súbdito.
 
-- **Remata a los minions** en lugar de golpear al azar: un tirador que solo golpea a los minions casi muertos conserva sus PV y no empuja la oleada sin querer.
-- **Llévate el último golpe del cañón**, sobre todo durante las diez primeras oleadas: es el minion que lleva la bonificación.
-- **Aprende el ritmo de tu héroe**: su velocidad de ataque y daño en el nivel 1 no son los del nivel 6. Lo que era un movimiento final fácil se convierte en un golpe de más.
+- **Acaba con los minions** en lugar de golpear al azar: un tirador que solo golpea a los minions casi muertos conserva sus puntos de vida y no empuja la ola sin querer.
+- **Mantén el último disparo del cañón**, especialmente durante las diez primeras oleadas: lleva la bonificación.
+- **Aprende el ritmo de tu héroe**: su velocidad de ataque y daño en el nivel 1 no son los del nivel 6. El momento adecuado para acabar con un minion cambia según los niveles y los elementos.
 
 ## Empujar, congelar o dejar venir
 
@@ -28,11 +28,11 @@ La posición de la oleada en la línea decide quién está a salvo. Hay tres for
 
 ### Empujar
 
-Matas a los minions enemigos lo más rápido posible y tu oleada avanza hacia la torreta enemiga. Esta es la elección correcta cuando quieres empezar desde la línea (regreso a la base, objetivo, asistencia), porque el oponente debe quedarse para defender. Esta es una mala elección cuando el jungla contrario es invisible: estás lejos de tu torreta.
+Matas a los minions enemigos lo más rápido posible y tu ola avanza hacia la torreta enemiga. Esta es la elección correcta cuando quieres salir del carril (regreso a la base, objetivo, asistencia), porque el oponente debe quedarse para defender. Esta es una mala elección hasta que se haya visto al jungla contrario: estás lejos de tu torreta.
 
 ### Congelar
 
-Solo acabas con los minions que están listos para morir, y la oleada permanece cerca de tu torreta. El oponente debe avanzar para farmear, dentro del alcance de tu torreta y tu jungla. Esta es la elección correcta cuando tu oponente es más fuerte que tú al comienzo de la partida.
+Solo acabas con los súbditos que están a punto de morir y la ola permanece cerca de tu torreta. El oponente debe avanzar para cultivar, dentro del alcance de tu torreta y tu jungla. Esta es la elección correcta cuando tu oponente es más fuerte que tú al comienzo del juego.
 
 ### Dejar venir
 
@@ -64,6 +64,6 @@ El oro no sirve de nada hasta que se gasta. El primer objeto del tirador suele s
 
 - Empuja la oleada hacia la torreta enemiga sin saber dónde está el jungla enemigo.
 - Sal de la línea dejando una oleada entera en el medio.
-- Únete a cada pelea en el mid lane a expensas de dos oleadas.
+- Únete a cada pelea en el carril central a expensas de dos oleadas.
 - Mantenga el oro en su bolsillo durante varios minutos en lugar de volver a comprarlo.
 - Granjero solo en la jungla enemiga al final de la partida.

@@ -6,31 +6,31 @@ updated: "2026-11-14"
 kind: "strategy"
 order: 4
 author: "achedon12"
-summary: "Uma luta de cinco jogadores geralmente é vencida antes da primeira habilidade, na posição de todos. Linha de frente, causadores de danos, mergulhadores: onde ficar, quem atacar e quando não lutar."
+summary: "Uma luta cinco contra cinco geralmente é vencida antes da primeira habilidade, na colocação de todos. Linha de frente, causadores de danos, mergulhadores: onde ficar, quem atacar e quando não lutar."
 keywords: ["luta em equipe", "posicionamento", "foco", "compromisso", "guia mlbb"]
 related: ["roaming-vision", "drafting-basics", "macro-split-push"]
 tools: ["/tools/team", "/tools/damage-calculator", "/items"]
 ---
 
-Numa luta em equipe, cada herói tem um lugar. Quando todos seguram, a luta corre conforme planejado; quando apenas um jogador se desvia, muitas vezes toda a equipe perde. O posicionamento não é uma questão de reflexos: é uma decisão tomada antes do início da luta.
+Numa luta em equipe, cada herói tem um lugar. Quando todos se defendem, a luta corre conforme planejado; quando apenas um jogador se desvia, muitas vezes toda a equipe perde. O posicionamento não é uma questão de reflexos: é decidido antes do início da luta.
 
 ## As três linhas de uma equipe
 
 Qualquer luta pode ser lida como três linhas sucessivas.
 
-- **A linha de frente**: o tanque e muitas vezes o lutador da rota de exploração. Eles absorvem, envolvem e protegem. O trabalho deles é estar à frente, mas não sozinhos.
-- **A linha de dano**: o atirador e o mago. Eles causam a maior parte do dano em combate, desde que você sobreviva. Seu trabalho é atingir o que está dentro do alcance, e não avançar para atingir um alvo distante.
-- **Os mergulhadores**: o assassino e alguns lutadores. Eles contornam a linha de frente para alcançar os carry adversários. O trabalho deles é chegar na hora certa, não na primeira.
+- **A linha de frente**: o tanque e muitas vezes o lutador da rota EXP. Eles absorvem, envolvem e protegem. Eles devem estar na frente, mas não sozinhos.
+- **A linha de dano**: o atirador e o mago. Eles causam a maior parte do dano em combate, desde que você sobreviva. Eles atacam tudo o que está ao seu alcance, sem avançar para atingir um alvo distante.
+- **Os mergulhadores**: o assassino e alguns lutadores. Eles contornam a linha de frente para alcançar os carry adversários. O importante não é chegar primeiro, mas na hora certa.
 
-Uma luta perdida muitas vezes se resume a uma linha que saiu do seu lugar: um atirador na frente de seu tanque, um tanque que ataca enquanto a equipe ainda está longe, um assassino que mergulha antes que os controles do oponente sejam usados.
+Uma luta perdida muitas vezes se resume a uma linha que saiu do seu lugar: um atirador na frente de seu tanque, um tanque que ataca enquanto sua equipe ainda está longe, um assassino que mergulha antes que o oponente tenha usado seus controles.
 
 ## Antes da luta: escolha lutar
 
 Às vezes a melhor decisão é não lutar. Antes de aceitar uma briga, verifique três coisas:
 
-1. **Os números**: quatro contra cinco, uma luta equilibrada se perde. Espere pelo jogador desaparecido ou volte.
+1. **Os números**: quatro contra cinco, uma luta equilibrada vira uma luta perdida. Espere pelo jogador desaparecido ou volte.
 2. **Ultimates**: um tanque adversário sem uma ultimate não pode mais atacar. É hora de seguir em frente.
-3. **O objetivo**: uma luta que não traz uma Tartaruga, um Lorde ou uma torre só é útil se for muito favorável.
+3. **O objetivo**: uma luta que não traga Tartaruga, Lorde ou Torreta só vale a pena se for muito favorável.
 
 A [análise de equipe](/tools/team) ajuda você a ver antes do jogo o que sua composição pode fazer: atacar, proteger, durar ou acertar forte e rápido.
 
@@ -38,9 +38,9 @@ A [análise de equipe](/tools/team) ajuda você a ver antes do jogo o que sua co
 
 O tanque decide quando a luta começa. Um bom combate atende a três condições: a equipe está próxima o suficiente para ser seguida, o alvo é um carry adversário ou um grupo restrito e as habilidades de dano dos aliados estão disponíveis.
 
-- Um combate de [Tigreal](/heroes/tigreal) ou [Atlas](/heroes/atlas) só tem valor se o dano ocorrer nos segundos seguintes.
-- Um tanque que protege em vez de atacar permanece próximo de seus carry e espera a chegada dos mergulhadores inimigos.
-- O lutador da lane exp faz o oposto do tanque: ele espera que os controles do oponente sejam usados ​​e então entra.
+- Um combate de [Tigreal](/heroes/tigreal) ou [Atlas](/heroes/atlas) só tem valor se ocorrer dano nos próximos segundos.
+- Um tanque que protege em vez de atacar permanece próximo de seus transportadores e aguarda a chegada dos mergulhadores adversários.
+- O lutador da lane EXP faz o oposto do tanque: ele espera até que o oponente use seus controles e então entra.
 
 ## A linha de dano: atingindo o que está dentro do alcance
 
@@ -48,13 +48,13 @@ O atirador e o mago devem infligir o máximo de dano possível, pelo maior tempo
 
 - Avançar para alcançar o atirador adversário significa ir à frente de sua própria linha de frente.
 - Um mago que lança suas habilidades de área no meio de um grupo vale mais do que um mago que espera pelo alvo perfeito.
-- Contra uma equipe cheia de mergulhadores, um item de proteção como [Wind of Nature](/items/wind-of-nature) ou [Winter Crown](/items/winter-crown) compra os segundos que vencem a luta.
+- Contra uma equipe cheia de mergulhadores, um item defensivo como [Wind of Nature](/items/wind-of-nature) (imunidade a danos físicos) ou [Winter Crown](/items/winter-crown) (dois segundos de invulnerabilidade) economiza os poucos segundos que decidem a luta.
 
-A [calculadora de dano](/tools/damage-calculator) mostra o que cada acerto faz após defesa e penetração: útil para entender por que acertar um tanque sem um item de penetração não leva a lugar nenhum.
+A [calculadora de dano](/tools/damage-calculator) mostra o que cada golpe inflige após defesa e penetração: o suficiente para entender por que acertar um tanque sem um item de penetração não leva a lugar nenhum.
 
 ## Mergulhadores: chegando na hora certa
 
-O assassino não deve abrir a luta. Ele espera até que a linha de frente adversária esteja ocupada e os controles adversários tenham sido usados, então ele entra no carry mais exposto. Um mergulhador que chega cedo demais morre sob controle; um mergulhador que chega na hora certa decide a luta em um segundo.
+O assassino não deve abrir a luta. Ele espera até que a linha de frente adversária esteja ocupada e os controles adversários tenham saído, então ele entra no carry mais exposto. Um mergulhador que chega cedo demais morre sob controle; no momento certo, ele decide a luta em um segundo.
 
 ## Quem segmentar
 
@@ -68,7 +68,7 @@ Contra uma equipe que cura muito, itens de redução de cura mudam o resultado d
 
 ## Os erros mais comuns
 
-- Lutar quatro contra cinco porque um oponente está com pouca vida.
+- Lutando quatro contra cinco porque um oponente está quase sem HP.
 - Envolva-se com o tanque enquanto os carry aliados ainda estão cultivando.
 - Um atirador que se posiciona em frente ao seu tanque para acertar um alvo distante.
 - Perseguir um adversário que está fugindo em vez de atingir o objetivo que a luta vencida acaba de abrir.

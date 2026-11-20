@@ -1,5 +1,5 @@
 ---
-title: "Panduan EXP Lane: bertahan sendirian di lane"
+title: "Panduan EXP Lane: menahan lane Anda sendirian"
 short: "EXP Lane"
 date: "2026-11-14"
 updated: "2026-11-14"
@@ -7,22 +7,22 @@ kind: "role"
 lane: "Exp"
 order: 2
 author: "achedon12"
-summary: "EXP Lane dimainkan sendirian, melawan lawan yang menginginkan hal yang sama. Apa yang dibawa role ini, hero dengan peringkat terbaik saat ini, build yang dipakai, dan kesalahan yang paling sering membuat kalah."
+summary: "EXP Lane dimainkan sendiri, melawan lawan yang menginginkan hal yang sama seperti Anda. Apa yang dibawa posisinya, hero dengan peringkat tertinggi saat ini, apa yang kami bangun di sana, dan kesalahan yang paling merugikan permainan."
 keywords: ["exp lane", "fighter", "solo lane", "panduan exp lane", "panduan mlbb"]
 related: ["laning-phase", "macro-split-push", "teamfight-positioning"]
 tools: ["/tier-list", "/tools/matchups", "/compare", "/tools/build"]
 ---
 
-EXP Lane adalah lane samping tempat Anda mendapatkan pengalaman paling banyak. Pemainnya menghabiskan awal permainan sendirian, menghadapi satu lawan, yang menjadikannya lane yang paling dekat dengan duel. Ini terutama menyambut [fighter](/heroes/role/fighter), terkadang tank: hero yang kuat, mampu berdiri sendiri dan bergabung dalam pertempuran di garis depan.
+EXP Lane adalah lane samping tempat Anda mendapatkan pengalaman paling banyak. Pemainnya menghabiskan awal permainan satu lawan satu dengan lawannya, menjadikannya lane terdekat untuk berduel. Ini terutama menyambut [fighter](/heroes/role/fighter), terkadang tank: hero yang kuat, mampu berdiri sendiri dan bergabung dalam pertempuran di garis depan.
 
 ## Apa yang dibawa oleh posisi tersebut
 
 - **Pengalaman**: satu level lebih maju berarti skill yang lebih kuat dan ultimat lebih awal.
-- **Garis depan**: dalam team fight, pemain EXP Lane seringkali menjadi hero terkuat kedua, setelah tank.
-- **Menekan Turtle**: Turtle pertama muncul di dekat EXP Lane, dan pemain yang mendapatkan lanenya di sana dapat membantu Junglernya mengambilnya.
+- **Garis depan**: dalam pertarungan tim, pemain EXP Lane sering kali menjadi hero terkuat kedua, setelah tank.
+- **Menekan Turtle**: Turtle pertama muncul di dekat EXP Lane, dan siapa pun yang memenangkan lanenya dapat membantu Junglernya mengambilnya.
 - **Split push**: di pertengahan permainan, hero yang kuat dalam duel dapat melakukan push sendirian dan memaksa lawan untuk datang dan mempertahankannya.
 
-Duel bukanlah hal yang utama. EXP Lane yang dimenangkan adalah wave kemajuan, tingkat kemajuan dan turret musuh dimulai, belum tentu lawan terbunuh.
+Memenangkan lane bukan berarti membunuh lawan. EXP Lane yang dimenangkan berarti gelombang kemajuan, tingkat kemajuan, dan menara musuh dimulai.
 
 ## Hero yang Direkomendasikan Saat Ini
 
@@ -36,8 +36,8 @@ Di lane ini, duel lebih penting daripada di lane lain: hero dengan peringkat bag
 
 Buildnya menyesuaikan dengan apa yang dilakukan lawan, bahkan lebih dari posisi lain:
 
-- **melawan damage fisik yang berkelanjutan**, item pertahanan seperti [Antique Cuirass](/items/antique-cuirass) atau [Blade Armor](/items/blade-armor);
-- **melawan damage sihir**, [Athena's Shield](/items/athena-s-shield) atau [Radiant Armor](/items/radiant-armor);
+- **melawan damage fisik**, [Antique Cuirass](/items/antique-cuirass) melawan skill atau [Blade Armor](/items/blade-armor) melawan serangan dasar;
+- **melawan damage sihir**, [Valkyrie's Shield](/items/athena-s-shield) atau [Radiant Armor](/items/radiant-armor);
 - **melawan tim yang menyembuhkan**, pengurangan penyembuhan, dengan [Sea Halberd](/items/sea-halberd) atau [Dominance Ice](/items/dominance-ice) tergantung pada hero Anda.
 
 Dalam hal spell, [Flicker](/spells/flicker) tetap menjadi yang paling serbaguna. [Vengeance](/spells/vengeance) menghukum lawan yang memfokuskanmu, dan [Petrify](/spells/petrify) memberikan kontrol kepada hero yang tidak memilikinya.
@@ -46,7 +46,7 @@ Dalam hal spell, [Flicker](/spells/flicker) tetap menjadi yang paling serbaguna.
 
 ### Early game
 
-Menit pertama dimainkan pada wave. Menangkan pertukaran ketika lawan menghabisi minion atau baru saja meluncurkan skill utamanya, dan mundur ketika wave Anda lebih kecil dari miliknya. Laporkan setiap ketidakhadiran lawan Anda: dia mungkin bergabung dengan Turtle.
+Menit pertama dimainkan pada gelombang. Tukar ketika lawan menghabisi minion atau baru saja menggunakan skill utamanya, dan mundur ketika gelombang Anda lebih kecil dari mereka. Laporkan setiap ketidakhadiran lawan Anda: dia mungkin bergabung dengan Turtle.
 
 ### Mid game
 
@@ -62,4 +62,4 @@ Dalam team fight, fighter sering kali menunggu kontrol lawan digunakan sebelum m
 - Terimalah duel yang kurang menguntungkan karena sudah unggul satu level, tanpa melihat keberadaan Jungler lawan.
 - Seberangi peta untuk pertarungan yang tidak pasti sebelum turret pertama jatuh.
 - Abaikan Turtle yang muncul tepat di sebelah lanenya.
-- Bangun semua item damage Anda melawan tim yang sebagian besar menghasilkan damage sihir.
+- Hanya buat item damage terhadap tim yang menghasilkan sebagian besar damage sihir.

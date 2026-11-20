@@ -28,7 +28,7 @@ The [farming path and objectives guide](/guides/jungle-objectives) details the t
 
 <!-- guide:heroes -->
 
-Junglers are divided into three families. Assassins, such as [Ling](/heroes/ling), [Lancelot](/heroes/lancelot) or [Hayabusa](/heroes/hayabusa), eliminate an isolated target; fighters, like [Martis](/heroes/martis) or [Balmond](/heroes/balmond), last long fights; Jungle tanks, like [Fredrinn](/heroes/fredrinn) or [Baxia](/heroes/baxia), leave the gold for others and engage. The right choice depends on what your team is missing.
+Junglers are divided into three families. Assassins, such as [Ling](/heroes/ling), [Lancelot](/heroes/lancelot) or [Hayabusa](/heroes/hayabusa), eliminate an isolated target; fighters, like [Martis](/heroes/martis) or [Balmond](/heroes/balmond), last long fights; Jungle tanks, like [Fredrinn](/heroes/fredrinn) or [Baxia](/heroes/baxia), need few items and initiate combat. The right choice depends on what your team is missing.
 
 ## Most played items, emblems and spells
 
@@ -38,7 +38,7 @@ Retribution is mandatory: without it, farming is too slow and objectives are los
 
 - **against tanks**, the armor penetration of [Malefic Roar](/items/malefic-roar);
 - **against a team that heals itself**, the healing reduction of [Sea Halberd](/items/sea-halberd);
-- **to finish a target**, execute items like [Sky Piercer](/items/sky-piercer) on assassins who build them.
+- **to finish off a target**, an execution item like [Sky Piercer](/items/sky-piercer), which kills a hero below a threshold of life points, on the assassins who build it.
 
 [Retribution](/tools/retribution) timing training helps you no longer lose an objective on the last shot.
 
@@ -54,12 +54,12 @@ The jungler alternates farming, objectives and attacks on the lanes. He keeps an
 
 ### Late game
 
-The battles are fought around the Lord. The jungler should not be the first to enter the fight: he waits until the opponent's controls have been used, then he targets the most exposed carry. And he always keeps his Retribution for the Lord.
+The battles are fought around the Lord. The jungler does not enter the fight first: he waits until the opponent's controls have been used, then he targets the most exposed carrier. And he always keeps his Retribution for the Lord.
 
 ## The most common mistakes
 
 - Farm your jungle while the teamfights for the Turtle.
 - Use Retribution on a small camp just before an objective.
-- Attack a lane where the opponent is under his turret with all his HP.
-- Open a teamfight first with a fragile assassin.
+- Ganker an opponent who is under his turret with all his life points.
+- Engage in team combat with a fragile assassin.
 - Start the Lord without knowing where the adversaries are.

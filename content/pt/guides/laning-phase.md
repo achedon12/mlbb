@@ -12,7 +12,7 @@ related: ["farming-wave-management", "roaming-vision", "exp-lane"]
 tools: ["/tools/matchups", "/compare", "/map"]
 ---
 
-A fase da lane cobre aproximadamente os primeiros oito a dez minutos, até que as primeiras torres caiam. Você não ganha o jogo, mas pode ganhar ouro e experiência suficientes para vencê-lo depois. Tudo o que se segue se aplica a todas as três lanes, lane dourada, lane exp e lane intermediária; o jungler e o andarilho têm seus próprios guias.
+A fase da lane cobre aproximadamente os primeiros oito a dez minutos, até que as primeiras torres caiam. Você não ganha o jogo, mas pode ganhar ouro e experiência suficientes para vencê-lo depois. Tudo o que se segue aplica-se a todas as três lanes (lane Ouro, lane EXP e lane Média); o jungler e o andarilho têm seus próprios guias.
 
 ## O que a lane realmente traz
 
@@ -22,9 +22,9 @@ Esta é a primeira ideia a lembrar: **não julgue uma lane no placar**. A pontua
 
 ## Os primeiros segundos
 
-Antes mesmo da primeira leva, o jogo já começou. O jungler inimigo escolhe seu primeiro acampamento, o roamer procura uma invasão ou um arbusto e a Tartaruga aparece às 2:00 perto da rota de exploração.
+Antes mesmo da primeira leva, o jogo já começou. O jungler inimigo escolhe seu primeiro acampamento, o roamer procura uma invasão ou um arbusto e a Tartaruga aparece às 2:00 perto da lane EXP.
 
-- Chegue na lane na hora certa: uma primeira onda fracassada significa moedas e experiência que você não receberá de volta por vários minutos.
+- Chegue na rota na hora certa: uma primeira onda fracassada significa ouro e experiência que você não recuperará por vários minutos.
 - Não atravesse um arbusto não controlado logo no início: este é o momento em que o roamer adversário está mais frequentemente esperando.
 - Observe a composição adversária antes de escolher sua posição: diante de um herói que ganha trocas no nível 1, você deixa a onda chegar até você.
 
@@ -34,7 +34,7 @@ Uma troca bem-sucedida significa infligir mais dano do que você recebe, sem dei
 
 - **quando o oponente acaba com um minion**: sua animação de ataque está ativada, ele não pode responder imediatamente;
 - **quando sua habilidade principal acaba de ser lançada**: enquanto ela recarrega, ele perde sua melhor ferramenta de negociação;
-- **quando sua onda é maior que a dele**: os minions dele atacam com menos força que os seus, e cada segundo de combate se inclina para o seu lado.
+- **quando sua onda é maior que a dele**: seus minions causam mais dano que a dele, e cada segundo de combate se inclina para o seu lado.
 
 Por outro lado, recue quando sua onda for menor, quando suas habilidades forem recarregadas ou quando o jungler adversário não aparecer no minimapa por um tempo. Um adversário que aceita uma negociação desfavorável sem motivo está muitas vezes à espera de alguém.
 
@@ -42,7 +42,7 @@ Para descobrir quem vence um determinado duelo antes mesmo do jogo, a [matriz de
 
 ## A torre, sua aliada
 
-No início do jogo, uma torre é a arma mais poderosa da lane. Cada tiro consecutivo no mesmo herói atinge com mais força do que o anterior: permanecer sob uma torre inimiga, mesmo que por alguns segundos, custa rapidamente metade dos seus pontos vitais. Uma torre também sofre muito menos dano quando não há tropas inimigas ao seu alcance: você não a ataca sem sua onda.
+No início do jogo, uma torre é a arma mais poderosa da lane. Cada tiro consecutivo no mesmo herói atinge com mais força do que o anterior: permanecer sob uma torre inimiga, mesmo que por alguns segundos, custa rapidamente metade dos seus pontos vitais. Uma torre também sofre metade do dano quando não há tropas inimigas ao seu alcance: você não a ataca sem sua onda.
 
 Concretamente:
 
@@ -53,7 +53,7 @@ O [mapa do site](/map) mostra onde as torres, arbustos e acampamentos estão loc
 
 ## Retorna ao básico
 
-Voltar à base na hora certa é uma habilidade por si só. O momento certo atende a três condições: a onda acabou de ser empurrada, você tem ouro suficiente para terminar um item ou componente importante e nenhum objetivo aparecerá nos segundos seguintes.
+Escolher quando retornar à base pode ser aprendido. O momento certo atende a três condições: a onda acabou de ser empurrada, você tem ouro suficiente para terminar um item ou componente importante e nenhum objetivo aparecerá nos segundos seguintes.
 
 O pior momento é o oposto: uma onda inimiga chegando na sua torre, um objeto mal tocado e uma Tartaruga aparecendo. Neste caso, é melhor ficar com poucos pontos de vida do que perder uma onda inteira e uma torre.
 
@@ -62,12 +62,12 @@ O pior momento é o oposto: uma onda inimiga chegando na sua torre, um objeto ma
 Uma fase de lane também é disputada com cinco jogadores. Três sinais são quase sempre suficientes:
 
 - **oponente ausente**: assim que seu oponente sair da lane, denuncie-o, mesmo que ele retorne três segundos depois;
-- **necessidade de ajuda**: somente se a ajuda chegar antes que a situação se deteriore, e não depois;
+- **precisa de ajuda**: somente se a ajuda chegar antes que a situação se deteriore;
 - **objetivo**: avisar cerca de quinze segundos antes da Tartaruga se sua lane for empurrada e você puder entrar.
 
 ## Os erros mais comuns
 
 - Perseguir um oponente com pouca vida para fora da rota, do outro lado do rio: o ganho é uma possível eliminação, o custo é uma onda perdida e um jungler inimigo que estava apenas esperando por isso.
 - Fique na lane com 20% de pontos de vida “para não perder a onda” contra um oponente que tem seu ultimate: a onda volta, a morte custa muito mais.
-- Empurre constantemente sem olhar para o minimapa: uma lane empurrada é uma lane longa para defender o oponente, mas também uma lane onde você está longe de sua torre.
+- Empurre continuamente sem olhar para o minimapa: uma lane empurrada é uma lane longa para defender o oponente, mas também uma lane onde você está longe de sua torre.
 - Comprar itens fora de ordem: os primeiros componentes são usados ​​para vencer a lane, e não apenas para finalizar um item em vinte minutos. O [simulador de construção](/tools/build) mostra o que cada compra muda.

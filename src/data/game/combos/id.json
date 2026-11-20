@@ -5814,7 +5814,7 @@
   "wanwan": [
     {
       "type": "laning",
-      "description": "Dalam fase laning, Wan Wan dapat menyodok musuh dengan Skill 1 lalu menggunakan Basic Attack untuk melakukan dash dengan Pasifnya dan menyesuaikan lane Swallow Daggers untuk mengendalikan musuh. Setelah mengenai tiga Kelemahan musuh, dia bisa menghabisinya dengan Ultimate-nya.",
+      "description": "Dalam fase laning, Wanwan dapat menyodok musuh dengan Skill 1 lalu menggunakan Serangan Dasar untuk melakukan dash dengan Pasifnya dan menyesuaikan lane Swallow Daggers untuk mengendalikan musuh. Setelah mengenai tiga Kelemahan musuh, dia bisa menghabisinya dengan Ultimate-nya.",
       "skills": [
         {
           "name": null,

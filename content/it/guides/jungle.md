@@ -28,7 +28,7 @@ La [guida al percorso di farm e agli obiettivi](/guides/jungle-objectives) detta
 
 <!-- guide:heroes -->
 
-I jungler sono divisi in tre famiglie. Gli assassini, come [Ling](/heroes/ling), [Lancelot](/heroes/lancelot) o [Hayabusa](/heroes/hayabusa), eliminano un bersaglio isolato; i combattenti, come [Martis](/heroes/martis) o [Balmond](/heroes/balmond), durano lunghi combattimenti; I tank della jungle, come [Fredrinn](/heroes/fredrinn) o [Baxia](/heroes/baxia), lasciano l'oro agli altri e si impegnano. La scelta giusta dipende da cosa manca alla tua squadra.
+I Jungler sono divisi in tre famiglie. Gli assassini, come [Ling](/heroes/ling), [Lancelot](/heroes/lancelot) o [Hayabusa](/heroes/hayabusa), eliminano un bersaglio isolato; i combattenti, come [Martis](/heroes/martis) o [Balmond](/heroes/balmond), durano lunghi combattimenti; I carri armati della giungla, come [Fredrinn](/heroes/fredrinn) o [Baxia](/heroes/baxia), hanno bisogno di pochi oggetti e iniziano il combattimento. La scelta giusta dipende da cosa manca alla tua squadra.
 
 ## Oggetti, emblemi e incantesimi più giocati
 
@@ -38,7 +38,7 @@ La Retribution è obbligatoria: senza di essa il farm è troppo lenta e gli obie
 
 - **contro i tank**, la penetrazione dell'armatura di [Malefic Roar](/items/malefic-roar);
 - **contro una squadra che si cura da sola**, la riduzione della guarigione di [Sea Halberd](/items/sea-halberd);
-- **per finire un bersaglio**, esegui oggetti come [Sky Piercer](/items/sky-piercer) sugli assassini che li costruiscono.
+- **per finire un bersaglio**, un oggetto di esecuzione come [Sky Piercer](/items/sky-piercer), che uccide un eroe al di sotto di una soglia di punti vita, sugli assassini che lo costruiscono.
 
 [L'allenamento sul tempismo di Retribution](/tools/retribution) ti aiuta a non perdere più un obiettivo all'ultimo tiro.
 
@@ -54,12 +54,12 @@ Il jungler alterna farming, obiettivi e attacchi sulle lane. Tiene d'occhio i bu
 
 ### Fine partita
 
-Le battaglie si combattono attorno al Lord. Il jungler non deve essere il primo a entrare in combattimento: aspetta che i controlli dell'avversario siano stati utilizzati, poi prende di mira il portatore più esposto. E mantiene sempre la sua Retribution per il Lord.
+Le battaglie si combattono intorno al Signore. Il campione da giungla non entra per primo nel combattimento: aspetta che i comandi dell'avversario siano stati utilizzati, poi prende di mira il portatore più esposto. E mantiene sempre la sua punizione per il Signore.
 
 ## Gli errori più comuni
 
 - Farma la tua jungle mentre la squadra combatte per la Tartaruga.
 - Usa Retribution su un piccolo campo subito prima di un obiettivo.
-- Attaccare una lane in cui l'avversario è sotto la sua torretta con tutti gli HP.
-- Apri prima un combattimento di squadra con un fragile assassino.
+- Ganker un avversario che si trova sotto la sua torretta con tutti i suoi punti vita.
+- Partecipa a un combattimento di squadra con un fragile assassino.
 - Inizia il Lord senza sapere dove sono gli avversari.

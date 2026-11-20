@@ -305,7 +305,7 @@
   "angela": [
     {
       "type": "laning",
-      "description": "En la fase de líneas, usa la primera habilidad de Ángela para empujar constantemente al enemigo. Cuando su HP sea bajo, usa su segunda habilidad para hacer CC al objetivo, luego continúa infligiendo daño con su primera habilidad.",
+      "description": "En la fase de líneas, usa la primera habilidad de Angela para empujar constantemente al enemigo. Cuando su HP sea bajo, usa su segunda habilidad para hacer CC al objetivo, luego continúa infligiendo daño con su primera habilidad.",
       "skills": [
         {
           "name": "Love Waves",
@@ -2285,7 +2285,7 @@
   "guinevere": [
     {
       "type": "laning",
-      "description": "En la fase de líneas, Ginebra debería usar su primera habilidad y sus ataques básicos mejorados para eliminar a los Minions y atacar a los héroes enemigos. Cuando el HP de los héroes enemigos es bajo, usa la segunda habilidad de Ginebra para acercarte a ellos y lanzarlos por el aire. Continúe con su Ultimate para intentar acabar con ellos.",
+      "description": "En la fase de líneas, Guinevere debería usar su primera habilidad y sus ataques básicos mejorados para eliminar a los Minions y atacar a los héroes enemigos. Cuando el HP de los héroes enemigos es bajo, usa la segunda habilidad de Guinevere para acercarte a ellos y lanzarlos por el aire. Continúe con su Ultimate para intentar acabar con ellos.",
       "skills": [
         {
           "name": "Energy Wave",
@@ -5158,7 +5158,7 @@
   "saber": [
     {
       "type": "laning",
-      "description": "Sabre puede usar su primera habilidad para empujar y debilitar al enemigo, seguir con su segunda habilidad para acercarse y luego usar su habilidad definitiva para acabar con ellos.",
+      "description": "Saber puede usar su primera habilidad para empujar y debilitar al enemigo, seguir con su segunda habilidad para acercarse y luego usar su habilidad definitiva para acabar con ellos.",
       "skills": [
         {
           "name": "Orbiting Swords",
@@ -5176,7 +5176,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Sabre puede usar su primera habilidad para empujar y debilitar al enemigo, seguir con su segunda habilidad para acercarse y luego usar su habilidad definitiva para acabar con ellos.",
+      "description": "Saber puede usar su primera habilidad para empujar y debilitar al enemigo, seguir con su segunda habilidad para acercarse y luego usar su habilidad definitiva para acabar con ellos.",
       "skills": [
         {
           "name": "Orbiting Swords",
@@ -5608,7 +5608,7 @@
   "uranus": [
     {
       "type": "laning",
-      "description": "Urano puede usar su primera habilidad para empujar al enemigo, luego usar la combinación de segunda habilidad y primera habilidad cuando su HP esté bajo para acabar con él.",
+      "description": "Uranus puede usar su primera habilidad para empujar al enemigo, luego usar el combo de segunda habilidad y primera habilidad cuando su HP esté bajo para acabar con él.",
       "skills": [
         {
           "name": "Ionic Edge",
@@ -5626,7 +5626,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Urano debería usar su segunda habilidad para entrar en la pelea, luego su habilidad definitiva para sobrevivir a los ataques enemigos mientras usa su primera habilidad para causar daño sostenido.",
+      "description": "Uranus debe usar su segunda habilidad para entrar en la pelea, luego su habilidad definitiva para sobrevivir a los ataques enemigos mientras usa su primera habilidad para causar daño sostenido.",
       "skills": [
         {
           "name": "Transcendent Ward",

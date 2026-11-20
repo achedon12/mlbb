@@ -1,22 +1,22 @@
 ---
 title: "Draft: ban, counter, dan sinergi untuk memilih dengan tepat"
-short: "Dasar-dasar draft"
+short: "Draft Dasar-Dasar"
 date: "2026-11-14"
 updated: "2026-11-14"
 kind: "strategy"
 order: 6
 author: "achedon12"
-summary: "Pertandingan dimulai di layar pemilihan. Apa yang harus di-ban, kapan memilih hero, cara counter tanpa menyulitkan diri sendiri, dan menyusun komposisi yang solid."
+summary: "Permainan dimulai di layar pemilihan. Apa yang harus diban, kapan harus mengambil hero, cara melakukan counter tanpa mengekspos diri sendiri, dan cara membangun komposisi yang stand up."
 keywords: ["draft", "ban pick", "counter", "sinergi", "komposisi", "panduan mlbb"]
 related: ["climbing-ranked", "teamfight-positioning", "laning-phase"]
 tools: ["/draft", "/tools/matchups", "/tools/team", "/compare", "/tier-list"]
 ---
 
-Dalam ranked, draft dibuka dari peringkat Epic: setiap tim mem-ban hero, lalu pemain secara bergiliran memilih hero mereka. Ini adalah satu-satunya fase permainan di mana Anda bisa mendapatkan keuntungan tanpa menyentuh hero Anda. Panduan ini memberikan prinsip-prinsip; [asisten draft](/draft) menerapkannya pada komposisi yang ada di depan Anda.
+Dalam permainan peringkat, draft dibuka dari peringkat Epic: setiap tim melarang hero, lalu pemain secara bergiliran memilih hero mereka. Ini adalah satu-satunya fase permainan di mana Anda bisa mendapatkan keuntungan tanpa menyentuh hero Anda. Panduan ini memberikan prinsip-prinsip; [draft bantuan](/draft) menerapkannya pada komposisi yang ada di depan Anda.
 
 ## Bagaimana cara kerja draft peringkat?
 
-- **Ban**: kedua tim melakukan ban secara bersamaan. Jumlah ban bergantung pada rank tertinggi dalam pertandingan. Tidak ada yang mencegah lawan mem-ban hero yang sama denganmu, dan hal itu tidak bisa diatur. Yang didapat dari berdiskusi di chat adalah pembagian ban di dalam timmu: setiap orang tahu ancaman mana yang ia singkirkan, sehingga ban kalian menutup ancaman utama, bukan meloloskan hero berbahaya karena semua mengandalkan orang lain.
+- **Bans**: kedua tim di-ban secara bersamaan. Jumlah ban tergantung pada peringkat tertinggi dalam permainan (3 per tim di Epic, 4 di Legend, 5 di Mythic). Tidak ada yang menghalangi lawan untuk melakukan ban pada hero yang sama dengan Anda, dan duplikat ini tidak diharapkan. Apa yang diberikan oleh perjanjian dalam obrolan adalah distribusi larangan di tim Anda: semua orang tahu ancaman apa yang mereka hilangkan, dan larangan Anda mencakup ancaman utama alih-alih membiarkan hero berbahaya lewat karena semua orang mengandalkan satu sama lain.
 - **Pilihan**: tim biru memilih satu hero, merah dua, biru dua, merah dua, biru dua, lalu merah yang terakhir.
 - **Yang penting**: hero yang dipilih pertama dapat dilihat oleh semua orang, hero yang dipilih terakhir dapat merespons yang lainnya.
 
@@ -25,8 +25,8 @@ Dalam ranked, draft dibuka dari peringkat Epic: setiap tim mem-ban hero, lalu pe
 Ban digunakan untuk menghapus hero yang akan memberikan kerugian paling besar bagi tim Anda. Tiga alasan yang membenarkan ban:
 
 1. **Hero terlalu kuat di patch saat ini.** [Tier list](/tier-list) dan [tabel statistik](/statistics) menunjukkan hero yang menggabungkan win rate tinggi dan tingkat ban tinggi.
-2. **Hero menghukum apa yang tim Anda ingin mainkan.** Jika Mid Lane Anda hanya memainkan mage yang tidak bisa bergerak, assassin yang menghukum mereka layak mendapat ban.
-3. **Hero adalah keahlian khusus lawan**, ketika kita mengetahuinya.
+2. **Hero menghukum apa yang ingin dimainkan oleh tim Anda.** Jika mid Anda hanya memainkan mage yang tidak bisa bergerak, seorang assassin yang dapat melakukan dunk kepada mereka berhak mendapatkan larangan.
+3. **Hero adalah spesialisasi lawan**, jika Anda mengetahuinya.
 
 Ban "karena takut" terhadap hero yang Anda tidak tahu cara menghadapinya mungkin masuk akal di ranked, tetapi lebih baik mempelajari duel ini: halaman counter setiap hero, misalnya [Ling](/heroes/ling/counters), mengatakan siapa yang mengalahkannya dan mengapa.
 
@@ -35,16 +35,16 @@ Ban "karena takut" terhadap hero yang Anda tidak tahu cara menghadapinya mungkin
 Urutan pengambilan memberikan aturan sederhana:
 
 - **memilih awal** hero yang cocok di hampir semua komposisi, atau yang berisiko diambil oleh lawan;
-- **pilih yang terlambat** hero yang melawan lawan tertentu, dan posisi di mana duel yang buruk akan memakan banyak biaya, seperti EXP Lane atau Mid Lane.
+- **pilih yang terlambat** hero yang melawan lawan tertentu, dan posisi di mana duel yang buruk akan memakan banyak biaya, seperti EXP Lane atau pertengahan.
 
-Pilihan pertama suatu tim sering kali merupakan hero terkuat yang masih tersedia. Pilihan terakhir adalah yang memiliki informasi paling banyak: ini waktu yang tepat untuk melakukan counter.
+Pilihan pertama suatu tim sering kali merupakan hero terkuat yang masih tersedia. Pilihan terakhir adalah yang memiliki informasi paling banyak: ini saat yang tepat untuk melakukan counter.
 
 ## Melawan tanpa melemah
 
-Counter adalah hero yang kitnya langsung merespon milik lawan. Beberapa contoh logika counter yang diketahui:
+Counter adalah hero yang kitnya langsung merespon milik lawan. Beberapa logika klasik:
 
 - hero yang menghalangi pergerakan, seperti [Khufra](/heroes/khufra) atau [Minsitthar](/heroes/minsitthar), melawan hero yang sangat mobile;
-- damage sebanding dengan poin serangan atau mentah, seperti [Karrie](/heroes/karrie), terhadap tank;
+- damage sebagai persentase HP atau damage mentah, seperti [Karrie](/heroes/karrie), terhadap tank;
 - spell seperti [Purify](/spells/purify) melawan hero yang skill ultimanya melumpuhkan target, seperti [Chou](/heroes/chou) atau [Kaja](/heroes/kaja).
 
 [matriks matchup](/tools/matchups) memberikan perbedaan win rate yang diukur antara dua hero, peringkat demi peringkat, dan [pembanding](/compare) menampilkan detail duel. Namun counter hanya berguna jika Anda tahu cara memainkan hero tersebut: counter yang kurang dikuasai akan kalah melawan hero netral yang dimainkan dengan baik.
@@ -57,18 +57,18 @@ Komposisi pemenang bukanlah lima hero yang kuat: melainkan lima peran yang salin
 - **damage fisik dan magis**: tim yang seluruhnya bersifat fisik membuat lawan bergantung sepenuhnya pada armor;
 - **kontrol** untuk menangkap target atau mengganggu diver;
 - **seorang Jungler yang mengamankan objektif**;
-- **rencana permainan**: team fight, serangan target tunggal, atau split push.
+- **rencana permainan**: pertarungan tim, berburu target yang terisolasi, atau serangan terpisah.
 
-Sinergi sama pentingnya dengan serangan balik. Tank yang mengelompokkan musuh, seperti [Atlas](/heroes/atlas), bekerja sangat baik dengan mage yang skill ultimanya mengenai suatu area. Dukungan yang melekat pada sekutu, seperti [Angela](/heroes/angela), membuat diver lebih sulit dibunuh. [Analisis Tim](/tools/team) memeriksa poin-poin ini pada daftar lengkap, dan halaman duo masing-masing hero, seperti [Atlas](/heroes/atlas/duos), menunjukkan rekan satu tim mana yang paling banyak menang bersama mereka.
+Sinergi sama pentingnya dengan serangan balik. Tank yang mengelompokkan musuh, seperti [Atlas](/heroes/atlas), sangat cocok berpasangan dengan mage yang skill ultimanya mengenai suatu area. Dukungan yang melekat pada sekutu, seperti [Angela](/heroes/angela), membuat penyelam lebih sulit dibunuh. [Analisis Tim](/tools/team) memeriksa poin-poin ini pada daftar lengkap, dan halaman duo masing-masing hero, seperti [Atlas](/heroes/atlas/duos), menunjukkan rekan satu tim mana yang paling banyak menang bersama mereka.
 
-## Saat draft: beberapa kebiasaan
+## Selama draft: beberapa refleks
 
 - Umumkan posisi Anda dari layar pemilihan, dan hormati posisi orang lain.
 - Jangan mengambil marksman kedua atau mage ketiga karena dia adalah hero favorit Anda.
 - Jika Anda yang terakhir memilih, tunggu untuk melihat lawannya: inilah keuntungan Anda.
-- Jika hero kalian terkena banned, selalu punya pilihan kedua di posisi yang sama.
+- Selalu punya pilihan kedua pada posisi Anda, jika hero Anda dilarang.
 
-Untuk berlatih tanpa taruhan, [simulator draft](/draft) memainkan draft lengkap melawan bot yang mengandalkan pengukuran situs.
+Untuk berlatih tanpa taruhan, [simulator draft](/draft) memainkan draft lengkap melawan bot yang mengandalkan statistik situs.
 
 ## Kesalahan paling umum
 

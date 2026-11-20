@@ -229,7 +229,7 @@
     "price": null,
     "bonus": "+250 HP",
     "unique": null,
-    "passive": "Botão de Esperança: Concedido por Floryn e Dew. O equipamento revelará seu verdadeiro poder assim que Dew evoluir.",
+    "passive": "Bud of Hope: Concedido por Floryn e Dew. O equipamento revelará seu verdadeiro poder assim que Dew evoluir.",
     "active": null,
     "recipe": [],
     "bestFor": null
@@ -565,7 +565,7 @@
     "price": null,
     "bonus": "+5% de Ataque Adaptativo",
     "unique": null,
-    "passive": "Flor da Esperança: A cada 6 segundos, a próxima habilidade ou Ataque Básico causa 60 (+30% do Ataque Físico Total) (+30% do Poder Mágico Total) de Dano Mágico.",
+    "passive": "Flower of Hope: A cada 6 segundos, a próxima habilidade ou Ataque Básico causa 60 (+30% de Ataque Físico Total) (+30% de Poder Mágico Total) de Dano Mágico.",
     "active": null,
     "recipe": [],
     "bestFor": "Aliados de Floryn"
@@ -626,7 +626,7 @@
     "price": 2000,
     "bonus": "+55 de Ataque Físico, +15% de Velocidade de Ataque",
     "unique": null,
-    "passive": "Rápido: Cada 1% extra de Chance Crítica ganho é convertido em 1% extra de Velocidade de Ataque. Golpe Infinito: Após cada 2 Ataques Básicos não Críticos, a Velocidade de Ataque do próximo Ataque Básico aumenta em 80% (e o limite de Velocidade de Ataque aumenta para 500%) e ativa Efeitos de Ataque mais 2 vezes.",
+    "passive": "Swift: Cada 1% de Chance Crítica extra ganho é convertido em 1% de Velocidade de Ataque extra. Golpe Infinito: Após cada 2 Ataques Básicos não Críticos, a Velocidade de Ataque do próximo Ataque Básico aumenta em 80% (e o limite de Velocidade de Ataque aumenta para 500%) e ativa Efeitos de Ataque mais 2 vezes.",
     "active": null,
     "recipe": [
       "Regular Spear",
@@ -827,7 +827,7 @@
     "price": null,
     "bonus": "+20 de Poder Mágico, +4% de Velocidade de Movimento, +2% de Redução do Tempo de Recarga",
     "unique": null,
-    "passive": "Lanterna da Esperança: Os atributos do equipamento variam de acordo com o nível do herói.",
+    "passive": "Lantern of Hope: Os atributos do equipamento variam de acordo com o nível do herói.",
     "active": null,
     "recipe": [],
     "bestFor": "Floryn"

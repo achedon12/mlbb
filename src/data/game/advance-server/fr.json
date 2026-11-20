@@ -176,7 +176,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "3s at all levels",
                 "after": "5s at all levels"
               }
@@ -259,7 +259,7 @@
         "entries": [],
         "lines": [
           {
-            "text": "Optimisation du châtiment pour certains héros. Désormais, Saber, Franco et Hilda peuvent utiliser Retribution tout en lançant Ultimate.",
+            "text": "Optimisation du châtiment pour certains héros. Désormais, Saber, Franco et Hilda peuvent utiliser Retribution tout en lançant ultime.",
             "level": 1,
             "type": null
           },
@@ -353,7 +353,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Coût énergétique",
+                "label": "Coût en énergie",
                 "before": "30",
                 "after": "30-20"
               },
@@ -423,7 +423,7 @@
                 "after": "160%-240%"
               },
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "40-35s",
                 "after": "40-30s"
               }
@@ -446,7 +446,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "11-9s",
                 "after": "10-7.5s"
               }
@@ -460,7 +460,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "28-20s",
                 "after": "24-16s"
               }
@@ -491,7 +491,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "5s at all levels",
                 "after": "3s at all levels"
               }
@@ -514,12 +514,12 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "210-290",
                 "after": "210-350"
               },
               {
-                "label": "Dommages soutenus",
+                "label": "Dégâts soutenus",
                 "before": "90-130",
                 "after": "90-150"
               }
@@ -556,7 +556,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "9-7s",
                 "after": "9.5-8s"
               }
@@ -687,7 +687,7 @@
                     "after": "6%"
                   },
                   {
-                    "label": "Piles maximales",
+                    "label": "Cumuls maximum",
                     "before": "50",
                     "after": "60"
                   }
@@ -763,7 +763,7 @@
                 "generic": false,
                 "changes": [
                   {
-                    "label": "Exp fournie",
+                    "label": "EXP fournie",
                     "before": "-37.5%",
                     "after": "-25%"
                   }
@@ -822,7 +822,7 @@
                 "generic": false,
                 "changes": [
                   {
-                    "label": "Refroidir",
+                    "label": "Temps de recharge",
                     "before": "4s",
                     "after": "6s"
                   }
@@ -874,7 +874,7 @@
             "type": null
           },
           {
-            "text": "La mise à jour visuelle de Yu Zhong, Yin et Ling sur le serveur avancé est désormais terminée. Nous supprimerons la restriction sur l'utilisation des skins de ces héros. N'hésitez pas à les essayer !",
+            "text": "La mise à jour visuelle de Yu Zhong, Yin et Ling sur le serveur avancé est désormais terminée. Nous supprimerons la restriction sur l'utilisation des apparences de ces héros. N'hésitez pas à les essayer !",
             "level": 1,
             "type": null
           }
@@ -911,7 +911,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "7-4.5s",
                 "after": "6-4s"
               },
@@ -999,7 +999,7 @@
                 "text": "Suppression des deux premières attaques de base. Nightmaric Spawn libérera désormais continuellement des rayons mortels (considérés comme des attaques de base, la fréquence des dégâts n'est plus affectée par la vitesse d'attaque)."
               },
               {
-                "label": "Effet lent des rayons mortels",
+                "label": "Effet de ralentissement des rayons mortels",
                 "before": "up to 60%",
                 "after": "up to 30%"
               },
@@ -1078,10 +1078,10 @@
             "generic": false,
             "changes": [
               {
-                "text": "Augmentation de la distance de tir de 20%. L’utilisation de deux lancers de Compétence 1 ou Compétence 2 activera l’Attaque de base améliorée par Passif (déjà efficace dans le patch précédent)."
+                "text": "Augmentation de la distance de tir de 20%. L’utilisation de deux lancers de Compétence 1 ou Compétence 2 activera l’attaque de base améliorée par Passif (déjà efficace dans le patch précédent)."
               },
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "11-9s",
                 "after": "9-7s"
               }
@@ -1116,7 +1116,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "12-9.5s",
                 "after": "12s at all levels"
               },
@@ -1156,7 +1156,7 @@
             "generic": false,
             "changes": [
               {
-                "text": "Ne peut pas être interrompu lors du lancement de son Ultime."
+                "text": "Ne peut pas être interrompu lors du lancement de son ultime."
               }
             ]
           }
@@ -1313,7 +1313,7 @@
                 "generic": true,
                 "changes": [
                   {
-                    "label": "Refroidir",
+                    "label": "Temps de recharge",
                     "before": "40s",
                     "after": "60s"
                   }
@@ -1454,7 +1454,7 @@
         "name": "Zhuxin",
         "type": "adjust",
         "tag": null,
-        "intro": "Capacité de survie réduite et expérience de combat accrue lorsque son Ultimate est en temps de recharge.",
+        "intro": "Capacité de survie réduite et expérience de combat accrue lorsque son ultime est en temps de recharge.",
         "sections": [
           {
             "name": "Attributs",
@@ -1537,7 +1537,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "11-9.5s",
                 "after": "9.5-7s"
               },
@@ -1556,7 +1556,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "11s at all levels",
                 "after": "11-8.5s"
               }
@@ -1569,7 +1569,7 @@
         "name": "Chou",
         "type": "buff",
         "tag": null,
-        "intro": "Désormais, Chou a progressivement perdu la capacité d'affronter directement d'autres combattants dans la EXP lane et ne peut que chercher des occasions de donner un coup de pied aux ennemis dans la tourelle pour obtenir un avantage. Nous espérons que les ajustements suivants pourront résoudre ce problème.",
+        "intro": "Désormais, Chou a progressivement perdu la capacité d'affronter directement d'autres combattants dans l'EXP lane et ne peut que chercher des occasions de donner un coup de pied aux ennemis dans la tourelle pour obtenir un avantage. Nous espérons que les ajustements suivants pourront résoudre ce problème.",
         "sections": [
           {
             "name": "Only Fast",
@@ -1645,7 +1645,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Lent",
+                "label": "Ralentissement",
                 "before": "25%, up to 50%",
                 "after": "30%, up to 60%"
               }
@@ -1658,7 +1658,7 @@
         "name": "Nana",
         "type": "adjust",
         "tag": null,
-        "intro": "Nous avons optimisé la logique de trajectoire du Molina Smooch de Nana, en réglant le temps de trajet à 0,5 seconde (auparavant 0,2 seconde en mêlée et près de 1 seconde à portée maximale). Ce changement permet à Molina Smooch d'être utilisée comme compétence d'initiation, plutôt que de compter sur l'effet lent de son Molina Blitz. Nous avons augmenté l'importance de Molina Smooch dans le combo de Nana, tout en réduisant légèrement les dégâts de son Molina Blitz pour l'empêcher de tirer sur les ennemis avec son Molina Blitz seul.",
+        "intro": "Nous avons optimisé la logique de trajectoire du Molina Smooch de Nana, en réglant le temps de trajet à 0,5 seconde (auparavant 0,2 seconde en mêlée et près de 1 seconde à portée maximale). Ce changement permet à Molina Smooch d'être utilisée comme compétence d'initiation, plutôt que de compter sur l'effet de ralentissement de son Molina Blitz. Nous avons augmenté l'importance de Molina Smooch dans le combo de Nana, tout en réduisant légèrement les dégâts de son Molina Blitz pour l'empêcher de tirer sur les ennemis avec son Molina Blitz seul.",
         "sections": [
           {
             "name": "Molina Smooch",
@@ -1678,7 +1678,7 @@
                 "after": "25%-35%"
               },
               {
-                "label": "Lent pour les ennemis transformés",
+                "label": "Ralentissement pour les ennemis transformés",
                 "before": "30%",
                 "after": "50%"
               },
@@ -1695,12 +1695,12 @@
             "generic": false,
             "changes": [
               {
-                "label": "Effet lent",
+                "label": "Effet de ralentissement",
                 "before": "50%",
                 "after": "30%"
               },
               {
-                "label": "Dommage",
+                "label": "Dégâts",
                 "before": "440-660 +160 MP",
                 "after": "400-600 +140 MP"
               }
@@ -1751,12 +1751,12 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "350-550",
                 "after": "400-700"
               },
               {
-                "label": "Dommages causés par la grêle",
+                "label": "Dégâts causés par la grêle",
                 "before": "40-60",
                 "after": "40"
               }
@@ -1779,7 +1779,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "50-40s",
                 "after": "60s at all levels"
               }
@@ -1792,7 +1792,7 @@
         "name": "Alice",
         "type": "buff",
         "tag": null,
-        "intro": "En tant que héros à distance, la méthode d'Alice pour empiler les piles de la Thunder Belt était trop simple. Par conséquent, nous avons ajusté son rôle et amélioré ses capacités de combat en début de partie.",
+        "intro": "En tant que héros à distance, la méthode d'Alice pour empiler les cumuls de la Thunder Belt était trop simple. Par conséquent, nous avons ajusté son rôle et amélioré ses capacités de combat en début de partie.",
         "sections": [
           {
             "name": "Rôle",
@@ -1891,12 +1891,12 @@
             "generic": false,
             "changes": [
               {
-                "label": "Piles maximales de suppression de Mecha",
+                "label": "Cumuls maximum de suppression de Mecha",
                 "before": "10",
                 "after": "6"
               },
               {
-                "label": "Chaque pile de Mecha Suppression augmente tous les dégâts subis par les ennemis",
+                "label": "Chaque cumul de Mecha Suppression augmente tous les dégâts subis par les ennemis",
                 "before": "1%",
                 "after": "2%"
               }
@@ -1933,7 +1933,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages physiques",
+                "label": "Dégâts physiques",
                 "before": "80 +125 AD",
                 "after": "+140 AD"
               }
@@ -1970,7 +1970,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "7s at all levels",
                 "after": "7s-6s"
               },
@@ -1988,7 +1988,7 @@
         "name": "Joy",
         "type": "buff",
         "tag": null,
-        "intro": "Maintenant que Joy's Ultimate n'accorde plus d'immunité au contrôle, elle peut la lancer plus souvent.",
+        "intro": "Maintenant que Joy's ultime n'accorde plus d'immunité au contrôle, elle peut la lancer plus souvent.",
         "sections": [
           {
             "name": "Ha, Electrifying Beats!",
@@ -1998,7 +1998,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "32s",
                 "after": "24s"
               }
@@ -2021,7 +2021,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "15-12.5s",
                 "after": "13-11s"
               }
@@ -2044,7 +2044,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "7-5s",
                 "after": "10-6s"
               }
@@ -2080,7 +2080,7 @@
         "name": "Chip",
         "type": "buff",
         "tag": null,
-        "intro": "Améliore la capacité de survie de Chip dans les batailles multi-héros tout en réduisant la distance entre le portail de connexion et les alliés après que Chip ait activé l'Ultime, facilitant ainsi la téléportation des alliés vers le portail principal.",
+        "intro": "Améliore la capacité de survie de Chip dans les batailles multi-héros tout en réduisant la distance entre le portail de connexion et les alliés après que Chip ait activé l'ultime, facilitant ainsi la téléportation des alliés vers le portail principal.",
         "sections": [
           {
             "name": "Crash Course",
@@ -2153,7 +2153,7 @@
                 "after": "30%-40%"
               },
               {
-                "label": "Attaque Affect Hérité",
+                "label": "Effets d'attaque hérités",
                 "before": "70%",
                 "after": "35%"
               }
@@ -2176,7 +2176,7 @@
             "generic": true,
             "changes": [
               {
-                "label": "Croissance des attaques physiques",
+                "label": "Croissance de l'attaque physique",
                 "before": "11",
                 "after": "9.5"
               }
@@ -2319,12 +2319,12 @@
                 "generic": true,
                 "changes": [
                   {
-                    "label": "État de la pile",
+                    "label": "État de le cumul",
                     "before": "Deal Magic Damage",
                     "after": "Deal Magic Damage to heroes"
                   },
                   {
-                    "label": "Durée de chaque pile",
+                    "label": "Durée de chaque cumul",
                     "before": "3s",
                     "after": "5s"
                   }
@@ -2406,7 +2406,7 @@
             "type": null
           },
           {
-            "text": "Correction d'un problème où le talent Règne temporel réduisait incorrectement le temps de recharge de l'Ultime.",
+            "text": "Correction d'un problème où le talent Règne temporel réduisait incorrectement le temps de recharge de l'ultime.",
             "level": 1,
             "type": null
           },
@@ -2509,7 +2509,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Vitesse d'attaque de chaque pile",
+                "label": "Vitesse d'attaque de chaque cumul",
                 "before": "12%-18%",
                 "after": "9%-15%"
               }
@@ -2560,7 +2560,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Ratio de vampire des sorts",
+                "label": "Ratio de vampirisme des sorts",
                 "before": "50%",
                 "after": "100%"
               }
@@ -2574,7 +2574,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Ratio de vampire des sorts",
+                "label": "Ratio de vampirisme des sorts",
                 "before": "50%",
                 "after": "100%"
               }
@@ -2611,7 +2611,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "15-10s",
                 "after": "12-10s"
               }
@@ -2662,7 +2662,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Temps de recharge des compétences réduit pour Ultimate à partir du niveau III",
+                "label": "Temps de recharge des compétences réduit pour ultime à partir du niveau III",
                 "before": "32s",
                 "after": "36s"
               }
@@ -2676,12 +2676,12 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "52-48s",
                 "after": "60-52s"
               },
               {
-                "label": "Dommage",
+                "label": "Dégâts",
                 "before": "600-1200 +200 MP",
                 "after": "600-1100 +180 MP"
               }
@@ -2704,7 +2704,7 @@
             "generic": true,
             "changes": [
               {
-                "label": "Croissance des attaques physiques",
+                "label": "Croissance de l'attaque physique",
                 "before": "9.5",
                 "after": "11"
               }
@@ -2940,12 +2940,12 @@
             "generic": false,
             "changes": [
               {
-                "label": "Effet de pile",
+                "label": "Effet de cumul",
                 "before": "3-12 Physical Attack",
                 "after": "12%-18% Attack Speed"
               },
               {
-                "label": "Effet pile complète",
+                "label": "Effet à cumuls complets",
                 "before": "27-125 Basic Attack Damage",
                 "after": "42-210 Physical Damage with Basic Attack"
               }
@@ -2959,7 +2959,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "16-14s",
                 "after": "14-12s"
               },
@@ -3034,7 +3034,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Le temps de recharge des compétences a été réduit pour Ultimate au niveau III.",
+                "label": "Le temps de recharge des compétences a été réduit pour ultime au niveau III.",
                 "before": "12s",
                 "after": "32s"
               }
@@ -3048,7 +3048,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "6.5s",
                 "after": "6.5-6s"
               },
@@ -3058,7 +3058,7 @@
                 "after": "70-120"
               },
               {
-                "label": "Dommage",
+                "label": "Dégâts",
                 "before": "425-625 +150 MP",
                 "after": "480-650 +130 MP"
               }
@@ -3072,12 +3072,12 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "14-12s",
                 "after": "12-10s"
               },
               {
-                "label": "Dommages causés par la barrière",
+                "label": "Dégâts causés par la barrière",
                 "before": "125-250 +60 MP",
                 "after": "200-300 +60 MP"
               },
@@ -3096,12 +3096,12 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "44-36s",
                 "after": "52-48s"
               },
               {
-                "label": "Dommage",
+                "label": "Dégâts",
                 "before": "650-1050 +150 MP",
                 "after": "600-1200 +200 MP"
               }
@@ -3138,7 +3138,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "12s at all levels",
                 "after": "12-10s"
               }
@@ -3161,7 +3161,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "9s",
                 "after": "9-7s"
               },
@@ -3180,7 +3180,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "30s",
                 "after": "30-26s"
               }
@@ -3203,7 +3203,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages soutenus",
+                "label": "Dégâts soutenus",
                 "before": "200-400 +80 MP",
                 "after": "150 +30 MP"
               },
@@ -3222,12 +3222,12 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "40-32s",
                 "after": "44-36s"
               },
               {
-                "label": "Dommages soutenus",
+                "label": "Dégâts soutenus",
                 "before": "150-300 +40 MP",
                 "after": "150 +30 MP"
               },
@@ -3348,7 +3348,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "380-700",
                 "after": "420-700"
               }
@@ -3474,7 +3474,7 @@
         "name": "Ling",
         "type": null,
         "tag": null,
-        "intro": "Nous avons mis à jour les modèles de héros, les actions et les effets du skin par défaut de Ling, et continuerons à mettre à jour les portraits de héros et d'autres ressources à l'avenir. Étant donné que les autres skins de Ling sont optimisés en même temps, les skins de Ling seront temporairement indisponibles sur le serveur avancé.",
+        "intro": "Nous avons mis à jour les modèles de héros, les actions et les effets de l'apparence par défaut de Ling, et continuerons à mettre à jour les portraits de héros et d'autres ressources à l'avenir. Étant donné que les autres apparences de Ling sont optimisés en même temps, les apparences de Ling seront temporairement indisponibles sur le serveur avancé.",
         "sections": [],
         "slug": "ling"
       }
@@ -3542,7 +3542,7 @@
             "name": "Temporal Reign",
             "type": null,
             "tag": "rework",
-            "intro": "Pour que le talent Règne temporel soit adapté à davantage de héros, nous avons retravaillé ses effets. Désormais, après avoir lancé Ultimate, vous entrerez dans un véritable état de Règne Temporel.",
+            "intro": "Pour que le talent Règne temporel soit adapté à davantage de héros, nous avons retravaillé ses effets. Désormais, après avoir lancé ultime, vous entrerez dans un véritable état de Règne Temporel.",
             "sections": [
               {
                 "name": null,
@@ -3552,7 +3552,7 @@
                 "generic": false,
                 "changes": [
                   {
-                    "text": "Effet retravaillé : le prochain lancement d'Ultime diminue les temps de recharge restants des autres compétences actives 2 fois plus rapidement en 4 secondes."
+                    "text": "Effet retravaillé : le prochain lancement d'ultime diminue les temps de recharge restants des autres compétences actives 2 fois plus rapidement en 4 secondes."
                   }
                 ]
               }
@@ -3610,7 +3610,7 @@
       "Nous compenserons les héros devenus trop faibles à cause des ajustements de l'équipement.",
       "Nous allons également nerfer les héros qui sont actuellement forts ou équilibrés, mais qui ont reçu une augmentation de puissance significative grâce aux ajustements de l'équipement.",
       "Quant aux héros actuellement faibles, nous ne les ajusterons pas tant que nous n'aurons pas évalué à quel point les ajustements d'équipement les ont renforcés. Nous espérons que les ajustements d’équipement pourront leur donner plus d’opportunités de briller.",
-      "De plus, nous avons réduit la vitesse de jungle de certains chars de la jungle, car ils peuvent facilement nettoyer leur propre jungle et envahir la jungle ennemie. Cependant, la vitesse de jungler de certains junglers assassins sera augmentée dans une certaine mesure. Nous continuerons de surveiller les effets de cette modification."
+      "De plus, nous avons réduit la vitesse de jungle de certains tanks de la jungle, car ils peuvent facilement nettoyer leur propre jungle et envahir la jungle ennemie. Cependant, la vitesse de jungler de certains junglers assassins sera augmentée dans une certaine mesure. Nous continuerons de surveiller les effets de cette modification."
     ],
     "newHeroes": [],
     "heroes": [
@@ -3618,7 +3618,7 @@
         "name": "Kagura",
         "type": "buff",
         "tag": null,
-        "intro": "En tant que représentante des mages de haut niveau, le coût en mana élevé de Kagura et sa faible capacité à dégager les voies la rendent peu compétitive dans les tournois. À cet égard, nous avons optimisé l'expérience de lancement et de dégagement de voie de Kagura.",
+        "intro": "En tant que représentante des mages de haut niveau, le coût en mana élevé de Kagura et sa faible capacité à dégager les lanes la rendent peu compétitive dans les tournois. À cet égard, nous avons optimisé l'expérience de lancement et de dégagement de lane de Kagura.",
         "sections": [
           {
             "name": "Seimei Umbrella Open",
@@ -3654,7 +3654,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "320-440",
                 "after": "300-400"
               },
@@ -3692,7 +3692,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages physiques",
+                "label": "Dégâts physiques",
                 "before": "140% of Total Physical Attack",
                 "after": "80 +125% of Total Physical Attack"
               }
@@ -3719,7 +3719,7 @@
         "name": "X.Borg",
         "type": "nerf",
         "tag": null,
-        "intro": "En tant qu'excellent combattant doté à la fois d'un potentiel de récupération et d'éclatement, la durabilité actuelle de X.Borg est un peu trop forte. Nous espérons réduire la récupération que X.Borg gagne grâce à Spell Vamp afin de réduire sa durabilité.",
+        "intro": "En tant qu'excellent combattant doté à la fois d'un potentiel de récupération et d'éclatement, la durabilité actuelle de X.Borg est un peu trop forte. Nous espérons réduire la récupération que X.Borg gagne grâce à vampirisme des sorts afin de réduire sa durabilité.",
         "sections": [
           {
             "name": "Fire Missiles",
@@ -3729,7 +3729,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Ratio de vampire des sorts",
+                "label": "Ratio de vampirisme des sorts",
                 "before": "100%",
                 "after": "50%"
               }
@@ -3743,7 +3743,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Ratio de vampire des sorts",
+                "label": "Ratio de vampirisme des sorts",
                 "before": "100%",
                 "after": "50%"
               }
@@ -3756,7 +3756,7 @@
         "name": "Roger",
         "type": "nerf",
         "tag": null,
-        "intro": "Roger dominait en laning contre d'autres tireurs avec son Lifesteal extrêmement élevé en début de partie, tandis que d'autres étaient nerfés. Nous avons réduit son vol de vie, mais avons également assuré sa capacité de survie sous sa forme de loup en début de partie.",
+        "intro": "Roger dominait en laning contre d'autres tireurs avec son vol de vie extrêmement élevé en début de partie, tandis que d'autres étaient nerfés. Nous avons réduit son vol de vie, mais avons également assuré sa capacité de survie sous sa forme de loup en début de partie.",
         "sections": [
           {
             "name": "Attributs",
@@ -3793,7 +3793,7 @@
         "name": "Diggie",
         "type": "nerf",
         "tag": null,
-        "intro": "Diggie's Ultimate contrecarre de nombreux héros doués en contrôle. Nous voulons légèrement réduire cela.",
+        "intro": "Diggie's ultime contrecarre de nombreux héros doués en contrôle. Nous voulons légèrement réduire cela.",
         "sections": [
           {
             "name": "Time Journey",
@@ -3826,7 +3826,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommage",
+                "label": "Dégâts",
                 "before": "+target's 3 lost-hp",
                 "after": "+target's 3 max-hp"
               }
@@ -3863,7 +3863,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "9-6.5s",
                 "after": "7s at all levels"
               }
@@ -3876,7 +3876,7 @@
         "name": "Bane",
         "type": "buff",
         "tag": null,
-        "intro": "Augmentation de sa vitesse de jungle et de sa capacité à combattre les chars de la jungle.",
+        "intro": "Augmentation de sa vitesse de jungle et de sa capacité à combattre les tanks de la jungle.",
         "sections": [
           {
             "name": "Shark Bite",
@@ -3886,7 +3886,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommage",
+                "label": "Dégâts",
                 "before": "3.5 of target's max-hp",
                 "after": "4 of target's max-hp"
               }
@@ -3924,7 +3924,7 @@
         "entries": [],
         "lines": [
           {
-            "text": "Nous avons remarqué que les Mages ont désormais des difficultés à dégager les voies en fin de partie (surtout face aux Super Sbires après la destruction des Tourelles de Base). Pour changer cela, nous avons réduit la défense magique de certains sbires tout en augmentant la défense du seigneur allié en fin de partie pour équilibrer la durée globale du match.",
+            "text": "Nous avons remarqué que les Mages ont désormais des difficultés à dégager les lanes en fin de partie (surtout face aux Super Sbires après la destruction des Tourelles de Base). Pour changer cela, nous avons réduit la défense magique de certains sbires tout en augmentant la défense du seigneur allié en fin de partie pour équilibrer la durée globale du match.",
             "level": 0,
             "type": null
           },
@@ -4011,7 +4011,7 @@
                 "generic": true,
                 "changes": [
                   {
-                    "label": "Piles maximales",
+                    "label": "Cumuls maximum",
                     "before": "70",
                     "after": "50"
                   },
@@ -4162,12 +4162,12 @@
             "type": null
           },
           {
-            "text": "Ajustement de l'icône d'attribution de voie de certains héros pour qu'elle corresponde à leurs rôles principaux.",
+            "text": "Ajustement de l'icône d'attribution de lane de certains héros pour qu'elle corresponde à leurs rôles principaux.",
             "level": 1,
             "type": null
           },
           {
-            "text": "Les skins peints peuvent désormais utiliser des actions personnalisées exclusives aux skins dans les batailles.",
+            "text": "Les apparences colorées peuvent désormais utiliser des actions personnalisées exclusives aux apparences dans les batailles.",
             "level": 1,
             "type": null
           },
@@ -4248,7 +4248,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "190-260",
                 "after": "200-260"
               }
@@ -4262,7 +4262,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Coût énergétique",
+                "label": "Coût en énergie",
                 "before": "0",
                 "after": "25"
               }
@@ -4299,7 +4299,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "400-600",
                 "after": "350-550"
               }
@@ -4490,9 +4490,9 @@
     "url": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.76_(Advanced_Server)",
     "date": "2024-05-25",
     "dateSource": "wiki",
-    "summary": "Ajustements de Masha et Lolita, Nerfs Minotaure et Harith, buffs Chip et Edith, ajustements des ailes de la reine et de la hache de guerre",
+    "summary": "Ajustements de Masha et Lolita, Nerfs Minotaur et Harith, buffs Chip et Edith, ajustements des ailes de la reine et de la hache de guerre",
     "designerNotes": [
-      "Dans ce patch, nous avons ajusté certaines voies par défaut pour les héros afin qu'elles correspondent à la sélection de voie réelle dans les matchs classés sur le serveur officiel, mais nous avons également remarqué certaines sélections de voies spécifiques effectuées par des joueurs de haut niveau. Nous garderons un œil sur les données et envisagerons de procéder à d’autres ajustements à l’avenir."
+      "Dans ce patch, nous avons ajusté certaines lanes par défaut pour les héros afin qu'elles correspondent à la sélection de lane réelle dans les matchs classés sur le serveur officiel, mais nous avons également remarqué certaines sélections de lanes spécifiques effectuées par des joueurs de haut niveau. Nous garderons un œil sur les données et envisagerons de procéder à d’autres ajustements à l’avenir."
     ],
     "newHeroes": [],
     "heroes": [
@@ -4538,7 +4538,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "70-145",
                 "after": "50-150"
               }
@@ -4551,7 +4551,7 @@
         "name": "Masha",
         "type": "adjust",
         "tag": null,
-        "intro": "Nous sommes heureux de voir Masha être davantage utilisée après les ajustements précédents. Maintenant que les joueurs sont plus à l'aise avec elle, nous avons constaté qu'elle est trop faible en début et en milieu de partie. Masha est obligée de jouer défensivement contre la plupart des autres héros sur la EXP lane jusqu'au niveau 4, puis s'appuie sur les héros tués pour grandir suffisamment pour éliminer les héros spongieux de l'ennemi en fin de partie. Pour remédier à cela, nous voulons essayer d'augmenter leur potentiel de lane pour un début et un milieu de partie plus fluides, tout en nerfant légèrement leur potentiel de burst en fin de partie.",
+        "intro": "Nous sommes heureux de voir Masha être davantage utilisée après les ajustements précédents. Maintenant que les joueurs sont plus à l'aise avec elle, nous avons constaté qu'elle est trop faible en début et en milieu de partie. Masha est obligée de jouer défensivement contre la plupart des autres héros sur l'EXP lane jusqu'au niveau 4, puis s'appuie sur les héros tués pour grandir suffisamment pour éliminer les héros spongieux de l'ennemi en fin de partie. Pour remédier à cela, nous voulons essayer d'augmenter leur potentiel de lane pour un début et un milieu de partie plus fluides, tout en nerfant légèrement leur potentiel de burst en fin de partie.",
         "sections": [
           {
             "name": "Wild Power",
@@ -4580,7 +4580,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "200-500",
                 "after": "400-600"
               },
@@ -4598,7 +4598,7 @@
         "name": "Minotaur",
         "type": "nerf",
         "tag": null,
-        "intro": "Nos modifications précédentes apportées à la régénération Enragement du Minotaure le rendaient trop puissant contre les héros qui s'appuient sur des attaques de base à plusieurs coups. De plus, ses PV sont un peu excessifs puisqu'il s'agit d'un tank CC. Nous apportons donc de nouveaux changements à sa régénération Enrage et réduisons les soins de sa compétence Motivation Roar. Compétence 2",
+        "intro": "Nos modifications précédentes apportées à la régénération Enragement de Minotaur le rendaient trop puissant contre les héros qui s'appuient sur des attaques de base à plusieurs coups. De plus, ses PV sont un peu excessifs puisqu'il s'agit d'un tank CC. Nous apportons donc de nouveaux changements à sa régénération Enrage et réduisons les soins de sa compétence Motivation Roar. Compétence 2",
         "sections": [
           {
             "name": null,
@@ -4613,7 +4613,7 @@
                 "after": "220-320 +60 MP"
               },
               {
-                "label": "Régénération PV",
+                "label": "Régénération de PV",
                 "before": "Recovers HP equal to 200-450 +100 MP when hit by enemy heroes' Basic Attacks",
                 "after": "Recovers HP equal to 100% of Basic Attack Damage taken from enemy heroes"
               }
@@ -4636,12 +4636,12 @@
             "generic": false,
             "changes": [
               {
-                "label": "Bouclier de chaque pile",
+                "label": "Bouclier de chaque cumul",
                 "before": "50",
                 "after": "100 +80 MP"
               },
               {
-                "label": "Piles maximales de boucliers",
+                "label": "Cumuls maximum de boucliers",
                 "before": "6",
                 "after": "3"
               },
@@ -4660,7 +4660,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "10-7.5s",
                 "after": "10s at all levels"
               },
@@ -4679,7 +4679,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "17.5-15s",
                 "after": "15-12.5s"
               },
@@ -4707,7 +4707,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages causés par l'éperonnage de l'aéroglisseur",
+                "label": "Dégâts causés par l'éperonnage de l'aéroglisseur",
                 "before": "150-300 +target's 5 max-hp",
                 "after": "180-330 +target's 6 max-hp"
               }
@@ -4721,7 +4721,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "40s",
                 "after": "20s (unaffected by CD Reduction)"
               }
@@ -4744,12 +4744,12 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "+84 MP",
                 "after": "+75 MP"
               },
               {
-                "label": "Dommages dus à une explosion",
+                "label": "Dégâts dus à une explosion",
                 "before": "+210 MP",
                 "after": "+190 MP"
               }
@@ -4795,7 +4795,7 @@
             "generic": false,
             "changes": [
               {
-                "text": "La rétribution peut désormais être utilisée lors du lancement d'Ultime."
+                "text": "La rétribution peut désormais être utilisée lors du lancement d'ultime."
               }
             ]
           }
@@ -4871,7 +4871,7 @@
             "name": "War Axe",
             "type": "buff",
             "tag": null,
-            "intro": "Après avoir fusionné Bloodlust Axe et Queen's Wings, Queen's Wings est en fait plus utile qu'avant. Cependant, le prix élevé des Queen's Wings a conduit à un manque d'équipement avec Spell Vamp en début de partie, ce qui a affecté l'expérience globale et la puissance de certains héros. Dans ce patch, nous avons décidé de fusionner certains attributs de la Bloodlust Axe avec la War Axe. Cela fera de la War Axe un premier choix plus viable en termes de durabilité pour les héros basés sur les compétences. Nous espérons que cela conviendra mieux à la sélection d'équipement des joueurs.",
+            "intro": "Après avoir fusionné Bloodlust Axe et Queen's Wings, Queen's Wings est en fait plus utile qu'avant. Cependant, le prix élevé des Queen's Wings a conduit à un manque d'équipement avec vampirisme des sorts en début de partie, ce qui a affecté l'expérience globale et la puissance de certains héros. Dans ce patch, nous avons décidé de fusionner certains attributs de la Bloodlust Axe avec la War Axe. Cela fera de la War Axe un premier choix plus viable en termes de durabilité pour les héros basés sur les compétences. Nous espérons que cela conviendra mieux à la sélection d'équipement des joueurs.",
             "sections": [
               {
                 "name": "Attributs",
@@ -4891,7 +4891,7 @@
                     "after": "400"
                   },
                   {
-                    "text": "Accorde désormais également 12 % de Spell Vamp."
+                    "text": "Accorde désormais également 12 % de vampirisme des sorts."
                   }
                 ]
               },
@@ -4903,7 +4903,7 @@
                 "generic": true,
                 "changes": [
                   {
-                    "text": "Les cumuls n'octroient plus Spell Vamp."
+                    "text": "Les cumuls n'octroient plus vampirisme des sorts."
                   }
                 ]
               }
@@ -4914,7 +4914,7 @@
             "name": "Queen's Wings",
             "type": "adjust",
             "tag": null,
-            "intro": "Avec les modifications apportées à la hache de guerre, les ailes de la reine n'ont plus besoin d'être entièrement fusionnées avec les attributs de la hache Bloodlust. En conséquence, nous avons réduit son Spell Vamp de base et son prix.",
+            "intro": "Avec les modifications apportées à la hache de guerre, les ailes de la reine n'ont plus besoin d'être entièrement fusionnées avec les attributs de la hache Bloodlust. En conséquence, nous avons réduit son vampirisme des sorts de base et son prix.",
             "sections": [
               {
                 "name": "Attributs",
@@ -4924,7 +4924,7 @@
                 "generic": true,
                 "changes": [
                   {
-                    "label": "Sort de vampire",
+                    "label": "Vampirisme des sorts",
                     "before": "15%",
                     "after": "10%"
                   }
@@ -4980,7 +4980,7 @@
                     "after": "3s"
                   },
                   {
-                    "label": "Refroidir",
+                    "label": "Temps de recharge",
                     "before": "70s",
                     "after": "35s"
                   }
@@ -5040,7 +5040,7 @@
                 "generic": true,
                 "changes": [
                   {
-                    "label": "Refroidir",
+                    "label": "Temps de recharge",
                     "before": "30s",
                     "after": "20s"
                   }
@@ -5098,12 +5098,12 @@
         "entries": [],
         "lines": [
           {
-            "text": "Correction d'un problème où la zone affectée par l'Ultime de Belerick ne correspondait pas à son effet.",
+            "text": "Correction d'un problème où la zone affectée par l'ultime de Belerick ne correspondait pas à son effet.",
             "level": 1,
             "type": null
           },
           {
-            "text": "Correction d'un problème où les ratios Spell Vamp de la Fission Cosmique de Lunox et de son Pouvoir d'Obscurcissement du Chaos différaient des descriptions.",
+            "text": "Correction d'un problème où les ratios vampirisme des sorts de la Fission Cosmique de Lunox et de son Pouvoir d'Obscurcissement du Chaos différaient des descriptions.",
             "level": 1,
             "type": null
           }
@@ -5141,7 +5141,7 @@
     "dateSource": "wiki",
     "summary": "Lunox et Hayabusa Buffs, Claude et Karrie Nerfs, Sky Piercer temporairement supprimés",
     "designerNotes": [
-      "Dans ce patch, nous avons ajusté certaines voies par défaut pour les héros afin qu'elles correspondent à la sélection de voie réelle dans les matchs classés sur le serveur officiel, mais nous avons également remarqué certaines sélections de voies spécifiques effectuées par des joueurs de haut niveau. Nous garderons un œil sur les données et envisagerons de procéder à d’autres ajustements à l’avenir."
+      "Dans ce patch, nous avons ajusté certaines lanes par défaut pour les héros afin qu'elles correspondent à la sélection de lane réelle dans les matchs classés sur le serveur officiel, mais nous avons également remarqué certaines sélections de lanes spécifiques effectuées par des joueurs de haut niveau. Nous garderons un œil sur les données et envisagerons de procéder à d’autres ajustements à l’avenir."
     ],
     "newHeroes": [],
     "heroes": [
@@ -5173,7 +5173,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "70-170",
                 "after": "70-145"
               },
@@ -5192,7 +5192,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "40-32s",
                 "after": "60-50s"
               },
@@ -5208,7 +5208,7 @@
         "name": "Lunox",
         "type": "buff",
         "tag": null,
-        "intro": "Dreamland Twist de Lunox lui donne désormais une grande pénétration magique, mais la laisse également sans Spell Vamp. Nous voulons rendre la conversion d'attributs moins extrême, et également augmenter ses dégâts en début de partie et la mobilité de sa forme Ultimate in Order.",
+        "intro": "Dreamland Twist de Lunox lui donne désormais une grande pénétration magique, mais la laisse également sans vampirisme des sorts. Nous voulons rendre la conversion d'attributs moins extrême, et également augmenter ses dégâts en début de partie et la mobilité de sa forme ultime in Order.",
         "sections": [
           {
             "name": "Dreamland Twist",
@@ -5232,7 +5232,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "200-350",
                 "after": "250-350"
               }
@@ -5257,7 +5257,7 @@
         "name": "Minotaur",
         "type": "nerf",
         "tag": null,
-        "intro": "Minotaure a besoin de se calmer un peu après sa récente performance écrasante.",
+        "intro": "Minotaur a besoin de se calmer un peu après sa récente performance écrasante.",
         "sections": [
           {
             "name": "Motivation Roar",
@@ -5281,7 +5281,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Effet lent des 2 premiers smashs",
+                "label": "Effet de ralentissement des 2 premiers smashs",
                 "before": "70%",
                 "after": "40%"
               }
@@ -5317,7 +5317,7 @@
         "name": "Hayabusa",
         "type": "buff",
         "tag": null,
-        "intro": "Réduction du coût énergétique de certaines compétences pour correspondre à l'ajustement du buff violet. Désormais, son Énergie n'affecte que le lancement de sa Compétence 1.",
+        "intro": "Réduction du coût énergétique de certaines compétences pour correspondre à l'ajustement du buff violet. Désormais, son Énergie n'affecte que le lancement de sa compétence 1.",
         "sections": [
           {
             "name": "Ninjutsu Quad Shadow",
@@ -5327,7 +5327,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Coût énergétique",
+                "label": "Coût en énergie",
                 "before": "25",
                 "after": "0"
               }
@@ -5341,7 +5341,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Coût énergétique",
+                "label": "Coût en énergie",
                 "before": "15",
                 "after": "0"
               }
@@ -5411,7 +5411,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "4.5-2.5s",
                 "after": "4.5-3.5s"
               }
@@ -5571,7 +5571,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Régénération PV",
+                "label": "Régénération de PV",
                 "before": "300 +15% of Lost HP",
                 "after": "300+45% of Lost HP"
               }
@@ -5634,7 +5634,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Effet lent sur les ennemis liés",
+                "label": "Effet de ralentissement sur les ennemis liés",
                 "before": "15%",
                 "after": "30%"
               }
@@ -5898,7 +5898,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "80-180",
                 "after": "70-170"
               },
@@ -5945,7 +5945,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages une fois attachés",
+                "label": "Dégâts une fois attachés",
                 "before": "120 +30 MP",
                 "after": "30-90 +30 MP +3 HP"
               }
@@ -6122,7 +6122,7 @@
                 "after": "2.5"
               },
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "12s",
                 "after": "9s"
               },
@@ -6221,7 +6221,7 @@
             "generic": false,
             "changes": [
               {
-                "text": "Réduction de 50 % du temps de backswing du premier étage de l'Ultimate."
+                "text": "Réduction de 50 % du temps de backswing du premier étage de l'ultime."
               }
             ]
           }
@@ -6232,7 +6232,7 @@
         "name": "Ruby",
         "type": "buff",
         "tag": null,
-        "intro": "Nos ajustements précédents ont gravement affecté les joueurs Ruby avec de faibles niveaux d'emblème en début de partie. Nous avons donc décidé de conserver une partie du Spell Vamp de Ruby.",
+        "intro": "Nos ajustements précédents ont gravement affecté les joueurs Ruby avec de faibles niveaux d'emblème en début de partie. Nous avons donc décidé de conserver une partie du vampirisme des sorts de Ruby.",
         "sections": [
           {
             "name": "Let's Dance!",
@@ -6314,10 +6314,10 @@
             "generic": false,
             "changes": [
               {
-                "text": "Mettre fin à l'Ultime plus tôt ne rembourse plus une partie du temps de recharge, mais mettre fin à l'Ultime le met en temps de recharge."
+                "text": "Mettre fin à l'ultime plus tôt ne rembourse plus une partie du temps de recharge, mais mettre fin à l'ultime le met en temps de recharge."
               },
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "34-26s",
                 "after": "24-16s"
               }
@@ -7170,7 +7170,7 @@
                     "after": "55"
                   },
                   {
-                    "label": "Vitesse d'attaque Durée lente",
+                    "label": "Vitesse d'attaque Durée du ralentissement",
                     "before": "3s",
                     "after": "1s"
                   },
@@ -7203,7 +7203,7 @@
                     "after": "18"
                   },
                   {
-                    "label": "Vitesse d'attaque Durée lente",
+                    "label": "Vitesse d'attaque Durée du ralentissement",
                     "before": "3s",
                     "after": "1s"
                   }
@@ -7568,7 +7568,7 @@
                 "after": "+60 AD"
               },
               {
-                "label": "Coût énergétique",
+                "label": "Coût en énergie",
                 "before": "40",
                 "after": "35"
               },
@@ -7590,7 +7590,7 @@
         "name": "Ruby",
         "type": "nerf",
         "tag": null,
-        "intro": "Ruby peut facilement obtenir Spell Vamp à partir de talents et d'équipements en début de partie, nous avons donc supprimé son Base Spell Vamp. Étant donné que le court temps de recharge de sa compétence 1 peut ralentir ses ennemis tout au long du combat, nous avons également ajusté la durée du ralentissement.",
+        "intro": "Ruby peut facilement obtenir vampirisme des sorts à partir de talents et d'équipements en début de partie, nous avons donc supprimé son Base vampirisme des sorts. Étant donné que le court temps de recharge de sa compétence 1 peut ralentir ses ennemis tout au long du combat, nous avons également ajusté la durée du ralentissement.",
         "sections": [
           {
             "name": "Let's Dance!",
@@ -7600,7 +7600,7 @@
             "generic": false,
             "changes": [
               {
-                "text": "Suppression du Spell Vamp à 10 %."
+                "text": "Suppression du vampirisme des sorts à 10 %."
               }
             ]
           },
@@ -7612,7 +7612,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Durée lente",
+                "label": "Durée du ralentissement",
                 "before": "2s",
                 "after": "1s"
               }
@@ -7625,7 +7625,7 @@
         "name": "Yve",
         "type": "buff",
         "tag": null,
-        "intro": "Nous voulons accélérer le nettoyage de la voie d'Yve en début et en milieu de partie et rendre Void Blast plus facile à utiliser pour lui donner un avantage dans le patch actuel.",
+        "intro": "Nous voulons accélérer le nettoyage de la lane d'Yve en début et en milieu de partie et rendre Void Blast plus facile à utiliser pour lui donner un avantage dans le patch actuel.",
         "sections": [
           {
             "name": "Void Blast",
@@ -7638,12 +7638,12 @@
                 "text": "Suppression des effets supplémentaires pour les héros touchés dans la zone centrale."
               },
               {
-                "label": "Dommage",
+                "label": "Dégâts",
                 "before": "200-400 +80 MP",
                 "after": "350-600 +140 MP"
               },
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "6s-2.5s",
                 "after": "5s-2.5s"
               }
@@ -7666,7 +7666,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Effet de chaque pile de suppression Mecha",
+                "label": "Effet de chaque cumul de suppression Mecha",
                 "before": "Increases the amount of Basic Attack damage Jawhead deals to the target by 8%",
                 "after": "Increases the amount of all damage dealt to the target by 1% (applies to allies)"
               }
@@ -7726,7 +7726,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "40s",
                 "after": "65s"
               },
@@ -7813,7 +7813,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "10s at all levels",
                 "after": "10-7.5s"
               }
@@ -7855,7 +7855,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "15-10s",
                 "after": "8-6s"
               }
@@ -7868,7 +7868,7 @@
         "name": "Pharsa",
         "type": "buff",
         "tag": null,
-        "intro": "Pharsa n'est pas performante dans les matchs de haut rang et de haut niveau, nous avons donc décidé d'améliorer ses capacités de dégagement de voie pour lui donner un avantage dans la voie médiane.",
+        "intro": "Pharsa n'est pas performante dans les matchs de haut rang et de haut niveau, nous avons donc décidé d'améliorer ses capacités de dégagement de lane pour lui donner un avantage dans la Mid lane.",
         "sections": [
           {
             "name": "Energy Impact",
@@ -7878,7 +7878,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "425-650",
                 "after": "525-700"
               }
@@ -8038,7 +8038,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Coût énergétique",
+                "label": "Coût en énergie",
                 "before": "30 at all levels",
                 "after": "30-25"
               }
@@ -8052,7 +8052,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Coût énergétique",
+                "label": "Coût en énergie",
                 "before": "40 at all levels",
                 "after": "40-35"
               }
@@ -8149,7 +8149,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Coût énergétique",
+                "label": "Coût en énergie",
                 "before": "17-12",
                 "after": "16-11"
               }
@@ -8163,7 +8163,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Coût énergétique",
+                "label": "Coût en énergie",
                 "before": "20",
                 "after": "15"
               }
@@ -8477,7 +8477,7 @@
                     "after": "40%"
                   },
                   {
-                    "label": "Coût énergétique",
+                    "label": "Coût en énergie",
                     "before": "25%",
                     "after": "20%"
                   }
@@ -8557,7 +8557,7 @@
                 "generic": true,
                 "changes": [
                   {
-                    "text": "+60 Attaque adaptative"
+                    "text": "+60 attaque adaptative"
                   },
                   {
                     "text": "+20 vitesse de déplacement"
@@ -8596,13 +8596,13 @@
                 "generic": true,
                 "changes": [
                   {
-                    "text": "+30 Attaque Physique"
+                    "text": "+30 attaque physique"
                   },
                   {
-                    "text": "+20% de vitesse d'attaque"
+                    "text": "+20 % vitesse d'attaque"
                   },
                   {
-                    "text": "+15 % de chances de coup critique"
+                    "text": "+15 % chances de coup critique"
                   }
                 ]
               },
@@ -8650,7 +8650,7 @@
                     "text": "+70 puissance magique"
                   },
                   {
-                    "text": "+10 % de réduction du temps de recharge"
+                    "text": "+10 % réduction du temps de recharge"
                   }
                 ]
               },
@@ -8718,16 +8718,16 @@
                 "generic": true,
                 "changes": [
                   {
-                    "text": "+40 Attaque adaptative"
+                    "text": "+40 attaque adaptative"
                   },
                   {
                     "text": "+600 PV maximum"
                   },
                   {
-                    "text": "+10 % de réduction du temps de recharge"
+                    "text": "+10 % réduction du temps de recharge"
                   },
                   {
-                    "text": "+15 % de sort de vampire"
+                    "text": "+15 % vampirisme des sorts"
                   }
                 ]
               },
@@ -8758,7 +8758,7 @@
                 ]
               },
               {
-                "name": "Chemin de construction",
+                "name": "Recette",
                 "slot": null,
                 "type": "adjust",
                 "tag": null,
@@ -8778,7 +8778,7 @@
             "name": "Thunder Belt",
             "type": null,
             "tag": "rework",
-            "intro": "Nous voulons que la nouvelle Thunder Belt corresponde à davantage de chasseurs de chars plutôt qu'à d'autres héros et qu'elle inflige suffisamment de dégâts.",
+            "intro": "Nous voulons que la nouvelle Thunder Belt corresponde à davantage de chasseurs de tanks plutôt qu'à d'autres héros et qu'elle inflige suffisamment de dégâts.",
             "sections": [
               {
                 "name": "Attributs de l'équipement",
@@ -8791,10 +8791,10 @@
                     "text": "+800 PV maximum"
                   },
                   {
-                    "text": "+20 Défense Physique"
+                    "text": "+20 défense physique"
                   },
                   {
-                    "text": "+20 Défense Magique"
+                    "text": "+20 défense magique"
                   },
                   {
                     "text": "+20 vitesse de déplacement"
@@ -8817,7 +8817,7 @@
                 ]
               },
               {
-                "name": "Chemin de construction",
+                "name": "Recette",
                 "slot": null,
                 "type": "adjust",
                 "tag": null,
@@ -8886,7 +8886,7 @@
                 "generic": true,
                 "changes": [
                   {
-                    "text": "Gagne 5 à 12 défenses hybrides (évolue en fonction du niveau) à chaque fois, infligeant des dégâts magiques, cumulables jusqu'à 6 fois pendant 3 s (peut gagner 1 charge toutes les 0,4 s)."
+                    "text": "Gagne 5 à 12 points de défense hybride (évolue en fonction du niveau) à chaque fois, infligeant des dégâts magiques, cumulables jusqu'à 6 fois pendant 3 s (peut gagner 1 charge toutes les 0,4 s)."
                   }
                 ]
               },
@@ -8898,7 +8898,7 @@
                 "generic": true,
                 "changes": [
                   {
-                    "text": "Régénère 20 % de PV et de Mana dans les 2 secondes suivant la mise à niveau."
+                    "text": "Régénère 20 % de PV et de mana dans les 2 secondes suivant la mise à niveau."
                   }
                 ]
               }
@@ -8979,7 +8979,7 @@
             "name": "Fleeting Time",
             "type": "adjust",
             "tag": null,
-            "intro": "Nous voulons que ce soit une option pour les héros physiques et même pour les chars, car il peut également fournir suffisamment de réduction du temps de recharge pour les chars.",
+            "intro": "Nous voulons que ce soit une option pour les héros physiques et même pour les tanks, car il peut également fournir suffisamment de réduction du temps de recharge pour les tanks.",
             "sections": [
               {
                 "name": "Attributs de l'équipement",
@@ -8989,18 +8989,18 @@
                 "generic": true,
                 "changes": [
                   {
-                    "text": "+30 Attaque adaptative"
+                    "text": "+30 attaque adaptative"
                   },
                   {
                     "text": "+600 PV maximum"
                   },
                   {
-                    "text": "+15 % de réduction du temps de recharge"
+                    "text": "+15 % réduction du temps de recharge"
                   }
                 ]
               },
               {
-                "name": "Chemin de construction",
+                "name": "Recette",
                 "slot": null,
                 "type": "adjust",
                 "tag": null,
@@ -9030,18 +9030,18 @@
                 "generic": true,
                 "changes": [
                   {
-                    "text": "+60 Attaque adaptative"
+                    "text": "+60 attaque adaptative"
                   },
                   {
                     "text": "+400 PV maximum"
                   },
                   {
-                    "text": "+5 % de réduction du temps de recharge"
+                    "text": "+5 % réduction du temps de recharge"
                   }
                 ]
               },
               {
-                "name": "Chemin de construction",
+                "name": "Recette",
                 "slot": null,
                 "type": "adjust",
                 "tag": null,
@@ -9071,7 +9071,7 @@
                 "generic": true,
                 "changes": [
                   {
-                    "text": "+30 Attaque adaptative"
+                    "text": "+30 attaque adaptative"
                   }
                 ]
               }
@@ -9165,7 +9165,7 @@
                 ]
               },
               {
-                "name": "Chemin de construction",
+                "name": "Recette",
                 "slot": null,
                 "type": "adjust",
                 "tag": null,
@@ -9464,7 +9464,7 @@
         "name": "Hayabusa",
         "type": "buff",
         "tag": null,
-        "intro": "Améliorez encore les performances de jeu de Hayabusa sans Ultimate.",
+        "intro": "Améliorez encore les performances de jeu de Hayabusa sans ultime.",
         "sections": [
           {
             "name": "Phantom Shuriken",
@@ -9474,7 +9474,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "180-250",
                 "after": "190-260"
               }
@@ -9508,7 +9508,7 @@
         "name": "Fredrinn",
         "type": "buff",
         "tag": null,
-        "intro": "Nous voulons que Fredrinn dégage les voies un peu plus rapidement en début de partie.",
+        "intro": "Nous voulons que Fredrinn dégage les lanes un peu plus rapidement en début de partie.",
         "sections": [
           {
             "name": "Piercing Strike",
@@ -9518,7 +9518,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "8.5-7.5s",
                 "after": "7.5-6.5s"
               }
@@ -9532,7 +9532,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "8.5-7.5s",
                 "after": "7.5-6.5s"
               }
@@ -9560,7 +9560,7 @@
                 "after": "115"
               },
               {
-                "label": "Croissance des attaques physiques",
+                "label": "Croissance de l'attaque physique",
                 "before": "12",
                 "after": "10"
               }
@@ -9574,7 +9574,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "180-330",
                 "after": "270-420 (Applied in the last Patch)"
               }
@@ -9597,7 +9597,7 @@
             "generic": true,
             "changes": [
               {
-                "label": "Croissance des attaques physiques",
+                "label": "Croissance de l'attaque physique",
                 "before": "10",
                 "after": "12"
               }
@@ -9625,7 +9625,7 @@
                 "after": "125"
               },
               {
-                "label": "Croissance des attaques physiques",
+                "label": "Croissance de l'attaque physique",
                 "before": "10",
                 "after": "8.5"
               }
@@ -9653,7 +9653,7 @@
                 "after": "120"
               },
               {
-                "label": "Croissance des attaques physiques",
+                "label": "Croissance de l'attaque physique",
                 "before": "13.5",
                 "after": "14"
               }
@@ -9722,7 +9722,7 @@
             "generic": true,
             "changes": [
               {
-                "label": "Croissance des attaques physiques",
+                "label": "Croissance de l'attaque physique",
                 "before": "3.5",
                 "after": "6"
               }
@@ -10068,7 +10068,7 @@
     "url": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.60_(Advanced_Server)",
     "date": "2024-02-07",
     "dateSource": "notes",
-    "summary": "Contrôle des mouvements et des attaques amélioré, Masha remanié, Nerf de Guenièvre, ajustements des tireurs",
+    "summary": "Contrôle des mouvements et des attaques amélioré, Masha remanié, Nerf de Guinevere, ajustements des tireurs",
     "designerNotes": [
       "Dans ce patch, nous avons amélioré l'expérience de contrôle des mouvements et des attaques. Il est désormais plus fluide de se déplacer et d'attaquer avec le même DPS. Pendant ce temps, de nombreux héros spécialisés dans les attaques de base ont vu leurs dégâts augmentés, nécessitant des nerfs pour l'équilibre.",
       "De plus, nous espérons augmenter les dégâts des attaques de base des tireurs en début de partie, tout en réduisant leurs PV en début de partie pour maintenir l'équilibre."
@@ -10079,7 +10079,7 @@
         "name": "Masha",
         "type": "adjust",
         "tag": null,
-        "intro": "Ajustements expérimentaux : Les ajustements précédents n'ont pas répondu à nos attentes, et nous essayons toujours de faire de Masha celle qui mène la charge et se bat courageusement dans la foule. Même si elle infligeait des dégâts élevés, elle ne pouvait pas tirer grand-chose de son équipement de défense, ce qui la rendait très vulnérable lorsqu'elle était la plus forte sur sa dernière barre de PV. Dans ce patch, Masha s'améliorera à chaque fois qu'elle perdra une barre de PV et réinitialisera son Ultimate afin de pouvoir spammer ses compétences. Nous avons également optimisé sa régénération d'énergie pour lui donner un meilleur contrôle sur ses PV.",
+        "intro": "Ajustements expérimentaux : Les ajustements précédents n'ont pas répondu à nos attentes, et nous essayons toujours de faire de Masha celle qui mène la charge et se bat courageusement dans la foule. Même si elle infligeait des dégâts élevés, elle ne pouvait pas tirer grand-chose de son équipement de défense, ce qui la rendait très vulnérable lorsqu'elle était la plus forte sur sa dernière barre de PV. Dans ce patch, Masha s'améliorera à chaque fois qu'elle perdra une barre de PV et réinitialisera son ultime afin de pouvoir spammer ses compétences. Nous avons également optimisé sa régénération d'énergie pour lui donner un meilleur contrôle sur ses PV.",
         "sections": [
           {
             "name": "Ancient Strength",
@@ -10212,7 +10212,7 @@
         "name": "Helcurt",
         "type": "adjust",
         "tag": null,
-        "intro": "Nous avons constaté que les dégâts éclatés d'Helcurt étaient assez faibles, tandis que ses compétences se rechargent rapidement lorsqu'il est hors de vue de l'ennemi. Cela a rendu trop difficile pour lui de tuer des ennemis dans des situations égales, mais trop facile pour lui de cultiver rapidement des ennemis une fois que l'équipe a acquis un avantage économique. Nous avons donc l'intention de résoudre ce problème en augmentant ses dégâts en rafale et en ralentissant la vitesse de recharge de ses compétences.",
+        "intro": "Nous avons constaté que les dégâts en rafale d'Helcurt étaient assez faibles, tandis que ses compétences se rechargent rapidement lorsqu'il est hors de vue de l'ennemi. Cela a rendu trop difficile pour lui de tuer des ennemis dans des situations égales, mais trop facile pour lui de cultiver rapidement des ennemis une fois que l'équipe a acquis un avantage économique. Nous avons donc l'intention de résoudre ce problème en augmentant ses dégâts en rafale et en ralentissant la vitesse de recharge de ses compétences.",
         "sections": [
           {
             "name": "Race Advantage",
@@ -10234,7 +10234,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommage",
+                "label": "Dégâts",
                 "before": "75-150 +35 AD",
                 "after": "150-300 +70 AD"
               },
@@ -10284,7 +10284,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "6-4s",
                 "after": "5.5s"
               }
@@ -10307,7 +10307,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "150-250",
                 "after": "180-250"
               }
@@ -10341,7 +10341,7 @@
         "name": "Guinevere",
         "type": "nerf",
         "tag": null,
-        "intro": "L'ajout d'étourdissement à la compétence 2 de Guenièvre a amélioré l'expérience de contrôle des joueurs de Guenièvre, mais en tant que combattante, elle est désormais trop puissante contre les héros ennemis de la dernière ligne.",
+        "intro": "L'ajout d'étourdissement à la compétence 2 de Guinevere a amélioré l'expérience de contrôle des joueurs de Guinevere, mais en tant que combattante, elle est désormais trop puissante contre les héros ennemis de la dernière ligne.",
         "sections": [
           {
             "name": "Spatial Migration",
@@ -10351,7 +10351,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Gamme de fonte",
+                "label": "Portée de lancement",
                 "before": "6",
                 "after": "5"
               }
@@ -10377,7 +10377,7 @@
                 "text": "Refonte des compétences : il n'y a désormais qu'une seule étape où elle se précipite dans la direction cible, infligeant des dégâts aux ennemis proches et les étourdissant. La distance du tableau de bord est réduite."
               },
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "12-9s",
                 "after": "7s"
               }
@@ -10396,7 +10396,7 @@
                 "after": "350-500"
               },
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "9-7s, upon skill casting",
                 "after": "7-5s, after the skill ends"
               }
@@ -10424,7 +10424,7 @@
                 "after": "120"
               },
               {
-                "label": "Croissance des attaques physiques",
+                "label": "Croissance de l'attaque physique",
                 "before": "14",
                 "after": "12"
               },
@@ -10448,7 +10448,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "90-240",
                 "after": "180-330"
               },
@@ -10479,7 +10479,7 @@
                 "after": "130"
               },
               {
-                "label": "Croissance des attaques physiques",
+                "label": "Croissance de l'attaque physique",
                 "before": "7.5",
                 "after": "10"
               },
@@ -10559,7 +10559,7 @@
                 "after": "127"
               },
               {
-                "label": "Croissance des attaques physiques",
+                "label": "Croissance de l'attaque physique",
                 "before": "14.5",
                 "after": "13.5"
               },
@@ -10625,7 +10625,7 @@
                 "after": "130"
               },
               {
-                "label": "Croissance des attaques physiques",
+                "label": "Croissance de l'attaque physique",
                 "before": "8.5",
                 "after": "10"
               },
@@ -10696,7 +10696,7 @@
                 "after": "119"
               },
               {
-                "label": "Croissance des attaques physiques",
+                "label": "Croissance de l'attaque physique",
                 "before": "10",
                 "after": "9"
               },
@@ -10800,7 +10800,7 @@
                 "after": "110"
               },
               {
-                "label": "Croissance des attaques physiques",
+                "label": "Croissance de l'attaque physique",
                 "before": "10.5",
                 "after": "9"
               },
@@ -10894,7 +10894,7 @@
                 "after": "110"
               },
               {
-                "label": "Croissance des attaques physiques",
+                "label": "Croissance de l'attaque physique",
                 "before": "10",
                 "after": "9.5"
               },
@@ -10932,7 +10932,7 @@
                 "after": "120"
               },
               {
-                "label": "Croissance des attaques physiques",
+                "label": "Croissance de l'attaque physique",
                 "before": "11.8",
                 "after": "11"
               },
@@ -10965,7 +10965,7 @@
             "generic": true,
             "changes": [
               {
-                "label": "Croissance des attaques physiques",
+                "label": "Croissance de l'attaque physique",
                 "before": "6.6",
                 "after": "7"
               },
@@ -10998,7 +10998,7 @@
             "generic": true,
             "changes": [
               {
-                "label": "Croissance des attaques physiques",
+                "label": "Croissance de l'attaque physique",
                 "before": "7.5",
                 "after": "8.5"
               },
@@ -11087,7 +11087,7 @@
                     "after": "25"
                   },
                   {
-                    "text": "Ajout de 25 défenses physiques et nous avons également modifié le chemin de construction."
+                    "text": "Ajout de 25 points de défense physique et nous avons également modifié le chemin de construction."
                   }
                 ]
               }
@@ -11156,7 +11156,7 @@
         "name": "Aurora",
         "type": "nerf",
         "tag": null,
-        "intro": "Aurora dispose non seulement d'un puissant contrôle des foules, mais également d'énormes dégâts en fin de partie. Après avoir acquis une puissance magique élevée, elle obtient également une durée de contrôle accrue de son ultime et dispose d'excellents bonus magiques pour ses compétences et son ultime. Par conséquent, nous réduisons légèrement ses dégâts bonus de compétence 1 tout en maintenant ses dégâts de base en début et en milieu de partie pour garantir qu'elle puisse toujours dégager des voies. Hailstone Blast (mis à jour sur tous les serveurs)",
+        "intro": "Aurora dispose non seulement d'un puissant contrôle des foules, mais également d'énormes dégâts en fin de partie. Après avoir acquis une puissance magique élevée, elle obtient également une durée de contrôle accrue de son ultime et dispose d'excellents bonus magiques pour ses compétences et son ultime. Par conséquent, nous réduisons légèrement ses dégâts bonus de compétence 1 tout en maintenant ses dégâts de base en début et en milieu de partie pour garantir qu'elle puisse toujours dégager des lanes. Hailstone Blast (mis à jour sur tous les serveurs)",
         "sections": [
           {
             "name": null,
@@ -11166,7 +11166,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "+100 MP",
                 "after": "+90 MP"
               },
@@ -11290,7 +11290,7 @@
         "name": "Chip",
         "type": "adjust",
         "tag": null,
-        "intro": "Chip a un effet de contrôle dans toutes ses compétences et Ultimate. Nous avons décidé de lui faire moins d'effet de contrôle, et également de le rendre plus gratifiant lorsque des héros alliés passent par son portail de connexion.",
+        "intro": "Chip a un effet de contrôle dans toutes ses compétences et ultime. Nous avons décidé de lui faire moins d'effet de contrôle, et également de le rendre plus gratifiant lorsque des héros alliés passent par son portail de connexion.",
         "sections": [
           {
             "name": "Snack Time!",
@@ -11305,7 +11305,7 @@
                 "after": "4 Bites"
               },
               {
-                "label": "Régénération PV",
+                "label": "Régénération de PV",
                 "before": "10% Max HP",
                 "after": "150 +15 lost-hp"
               }
@@ -11415,7 +11415,7 @@
                 "after": "1.8s"
               },
               {
-                "label": "Effet lent",
+                "label": "Effet de ralentissement",
                 "before": "50%-70%",
                 "after": "30%"
               },
@@ -11495,7 +11495,7 @@
         "name": "Kimmy",
         "type": "adjust",
         "tag": null,
-        "intro": "Nous avons annulé toutes les modifications apportées aux dommages et n'avons conservé que les éléments suivants.",
+        "intro": "Nous avons annulé toutes les modifications apportées aux dégâts et n'avons conservé que les éléments suivants.",
         "sections": [
           {
             "name": "Energy Transformation",
@@ -11505,7 +11505,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Coût énergétique",
+                "label": "Coût en énergie",
                 "before": "5",
                 "after": "4"
               }
@@ -11543,7 +11543,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "60-100",
                 "after": "30-90"
               },
@@ -11614,17 +11614,17 @@
                 "generic": false,
                 "changes": [
                   {
-                    "label": "Condition d'empilage",
+                    "label": "Condition de cumul",
                     "before": "Gain a stack per second after dealing damage to a hero",
                     "after": "Gain a stack per second after dealing damage"
                   },
                   {
-                    "label": "Buff par pile",
+                    "label": "Buff par cumul",
                     "before": "16 Physical Attack",
                     "after": "16 Physical Attack and 2% Spell Vamp"
                   },
                   {
-                    "label": "Buff de pile complète",
+                    "label": "Buff de cumul complet",
                     "before": "15% Spell Vamp and Damage Increase",
                     "after": "15% Damage Increase"
                   }
@@ -11647,12 +11647,12 @@
                 "generic": false,
                 "changes": [
                   {
-                    "label": "Condition d'empilage",
+                    "label": "Condition de cumul",
                     "before": "Gain a stack per second after taking damage from heroes",
                     "after": "Gain a stack per second after dealing damage"
                   },
                   {
-                    "label": "Buff par pile",
+                    "label": "Buff par cumul",
                     "before": "5 Hybrid Defense",
                     "after": "8 Physical Attack and 2% Movement Speed"
                   }
@@ -11689,7 +11689,7 @@
             "type": null
           },
           {
-            "text": "3. Correction d'un problème où les dégâts supplémentaires de Starlium Scythe déclenchaient Spell Vamp.",
+            "text": "3. Correction d'un problème où les dégâts supplémentaires de Starlium Scythe déclenchaient vampirisme des sorts.",
             "level": 0,
             "type": null
           },
@@ -11721,12 +11721,12 @@
             "type": null
           },
           {
-            "text": "S31 démarrera à 02:00:00 le 25 novembre (heure du serveur). Terminez des matchs classés pour réclamer des récompenses, notamment le skin S31, Yi Sun-shin \"Surging Torrent\" et la bordure d'avatar S31 \"Splendor Galore\".",
+            "text": "S31 démarrera à 02:00:00 le 25 novembre (heure du serveur). Terminez des matchs classés pour réclamer des récompenses, notamment l'apparence S31, Yi Sun-shin \"Surging Torrent\" et la bordure d'avatar S31 \"Splendor Galore\".",
             "level": 1,
             "type": null
           },
           {
-            "text": "Vous pouvez relever des défis classés dans Road to Mythic pour améliorer l'étiquette de skin saisonnière et réclamer l'arrière-plan de la carte de visite S30 et l'arrière-plan du profil, qui seront mis à niveau une fois que vous aurez atteint Mythical Glory.",
+            "text": "Vous pouvez relever des défis classés dans Road to Mythic pour améliorer l'étiquette d'apparence saisonnière et réclamer l'arrière-plan de la carte de visite S30 et l'arrière-plan du profil, qui seront mis à niveau une fois que vous aurez atteint Gloire mythique.",
             "level": 1,
             "type": null
           },
@@ -11760,7 +11760,7 @@
     "url": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.36_(Advanced_Server)",
     "date": "2023-11-10",
     "dateSource": "notes",
-    "summary": "Les buffs de Vexana et Cici, les passifs de la hache de guerre et du plastron de force brute remaniés, les bottes d'itinérance ajustées",
+    "summary": "Les buffs de Vexana et Cici, les passifs de la hache de guerre et du plastron de force brute remaniés, les bottes de roam ajustées",
     "designerNotes": [],
     "newHeroes": [],
     "heroes": [
@@ -11778,12 +11778,12 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "6s",
                 "after": "6-4s"
               },
               {
-                "label": "Dommages de deuxième étape",
+                "label": "Dégâts de deuxième étape",
                 "before": "70-110 +20 MP",
                 "after": "40-80 +15 MP"
               }
@@ -11800,7 +11800,7 @@
                 "text": "Les visuels et les effets ont été retravaillés et Aurora peut désormais geler toute une gamme d'ennemis."
               },
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "15.2-12s",
                 "after": "13s"
               }
@@ -11832,7 +11832,7 @@
                 "text": "Ajustement de l'effet : les ennemis touchés seront légèrement repoussés ; a considérablement augmenté la vitesse d'activation de la deuxième explosion."
               },
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "11-8.5s",
                 "after": "14-11s"
               }
@@ -11859,7 +11859,7 @@
                 "after": "80-120"
               },
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "9-7s",
                 "after": "7-5.5s"
               }
@@ -11882,7 +11882,7 @@
             "generic": false,
             "changes": [
               {
-                "text": "Changement d'effet : chaque pile de Delight fournit 1 % de vitesse de déplacement et 1,5 % de Spell Vamp, qui double lorsque Delight est plein."
+                "text": "Changement d'effet : chaque cumul de Delight fournit 1 % de vitesse de déplacement et 1,5 % de vampirisme des sorts, qui double lorsque Delight est plein."
               }
             ]
           },
@@ -11897,7 +11897,7 @@
                 "text": "Légèrement équilibré l’ajustement précédent de cette compétence."
               },
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "7s",
                 "after": "6.5s"
               },
@@ -11927,12 +11927,12 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "45-35s",
                 "after": "36-28s"
               },
               {
-                "label": "Effet lent",
+                "label": "Effet de ralentissement",
                 "before": "20%",
                 "after": "30%"
               }
@@ -11955,7 +11955,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Coût énergétique",
+                "label": "Coût en énergie",
                 "before": "5-3",
                 "after": "4 at all levels"
               },
@@ -11973,7 +11973,7 @@
         "name": "Alice",
         "type": "nerf",
         "tag": null,
-        "intro": "Les ajustements précédents apportés à Alice ont rendu ses dégâts un peu trop élevés, avec une capacité de survie considérable. Cette fois, nous nous concentrons sur la réduction de ses dégâts et sur l’augmentation légère de son coût en Mana. Les recommandations de build ont également été optimisées.",
+        "intro": "Les ajustements précédents apportés à Alice ont rendu ses dégâts un peu trop élevés, avec une capacité de survie considérable. Cette fois, nous nous concentrons sur la réduction de ses dégâts et sur l’augmentation légère de son coût en mana. Les recommandations de build ont également été optimisées.",
         "sections": [
           {
             "name": "Blood Awe",
@@ -12020,7 +12020,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Buff de défense par pile",
+                "label": "Buff de défense par cumul",
                 "before": "3-6",
                 "after": "2-8"
               }
@@ -12060,7 +12060,7 @@
                 "after": "2.5%-4%"
               },
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "10s",
                 "after": "9s"
               }
@@ -12083,7 +12083,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "200-525",
                 "after": "200-400"
               },
@@ -12109,7 +12109,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "1.5-1s",
                 "after": "2-1s"
               }
@@ -12157,7 +12157,7 @@
                 "generic": true,
                 "changes": [
                   {
-                    "text": "Infliger des dégâts aux héros confère 16 attaques physiques supplémentaires par seconde pendant 4 secondes, jusqu'à 6 charges. Gagnez 15 % de dégâts supplémentaires et Spell Vamp à pleine charge. (Cet effet est réduit à 50 % d'attaque physique supplémentaire pour les tireurs/mages/supports.)"
+                    "text": "Infliger des dégâts aux héros confère 16 points d'attaque physique supplémentaires par seconde pendant 4 secondes, jusqu'à 6 charges. Gagnez 15 % de dégâts supplémentaires et vampirisme des sorts à pleine charge. (Cet effet est réduit à 50 % d'attaque physique supplémentaire pour les tireurs/mages/supports.)"
                   }
                 ]
               }
@@ -12178,7 +12178,7 @@
                 "generic": true,
                 "changes": [
                   {
-                    "text": "Subir des dégâts de la part des héros confère 5 défenses hybrides supplémentaires par seconde pendant 4 secondes, jusqu'à 6 charges. Gagnez 15 % de réduction supplémentaire de la vitesse de déplacement et de la durée de contrôle lorsque les effets sont pleins."
+                    "text": "Subir des dégâts de la part des héros confère 5 points de défense hybride supplémentaires par seconde pendant 4 secondes, jusqu'à 6 charges. Gagnez 15 % de réduction supplémentaire de la vitesse de déplacement et de la durée de contrôle lorsque les effets sont pleins."
                   },
                   {
                     "label": null,
@@ -12205,7 +12205,7 @@
         "entries": [],
         "lines": [
           {
-            "text": "Nous avons ajusté la logique de sélection des cibles pour les unités invoquées : les invocations qui héritent des PV du héros sont désormais considérées comme des héros à des fins de ciblage et ne peuvent pas être sélectionnées par des compétences qui ne peuvent pas cibler les héros, comme Rétribution. Les unités invoquées concernées sont les suivantes : le Doppelganger de Sun, le corps de Hanzo sous son Ultime, Atlas lui-même lors de l'utilisation de la Compétence 2 et l'Ombre de Guenièvre.",
+            "text": "Nous avons ajusté la logique de sélection des cibles pour les unités invoquées : les invocations qui héritent des PV du héros sont désormais considérées comme des héros à des fins de ciblage et ne peuvent pas être sélectionnées par des compétences qui ne peuvent pas cibler les héros, comme Retribution. Les unités invoquées concernées sont les suivantes : le Doppelganger de Sun, le corps de Hanzo sous son ultime, Atlas lui-même lors de l'utilisation de la compétence 2 et l'Ombre de Guinevere.",
             "level": 1,
             "type": null
           },
@@ -12230,7 +12230,7 @@
             "type": null
           },
           {
-            "text": "Descriptions simplifiées des compétences de Guenièvre.",
+            "text": "Descriptions simplifiées des compétences de Guinevere.",
             "level": 1,
             "type": null
           }
@@ -12273,7 +12273,7 @@
     "dateSource": "notes",
     "summary": "Aurora Buff remanié, changements expérimentaux d'Alice et Barats, Kimmy Buff, Cici Nerf",
     "designerNotes": [
-      "Nous continuerons d'améliorer l'expérience du champ de bataille dans le patch actuel et le prochain en donnant à chaque joueur le choix de se battre pour la tortue (même si elle n'est pas apparue de son côté) et en rendant la compétition sur les voies Or et Exp plus intense en début et en milieu de partie."
+      "Nous continuerons d'améliorer l'expérience du champ de bataille dans le patch actuel et le prochain en donnant à chaque joueur le choix de se battre pour la tortue (même si elle n'est pas apparue de son côté) et en rendant la compétition sur les lanes Or et Exp plus intense en début et en milieu de partie."
     ],
     "newHeroes": [],
     "heroes": [
@@ -12291,7 +12291,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "180s",
                 "after": "150s"
               }
@@ -12316,7 +12316,7 @@
         "name": "Alice",
         "type": "buff",
         "tag": null,
-        "intro": "Changements expérimentaux : La mécanique de l'orbe de sang est amusante, mais elle oblige le joueur d'Alice à jouer sur plusieurs voies pour maximiser ses gains. Nous essayons de changer la mécanique passive et d'ajuster le rythme de ses compétences actives. Sa compétence 2 peut désormais être utilisée plus fréquemment, tandis que son ultime confère plus de capacité de survie et améliore l'éclatement de sa compétence 2, permettant à Alice de cultiver plus rapidement.",
+        "intro": "Changements expérimentaux : La mécanique de l'orbe de sang est amusante, mais elle oblige le joueur d'Alice à jouer sur plusieurs lanes pour maximiser ses gains. Nous essayons de changer la mécanique passive et d'ajuster le rythme de ses compétences actives. Sa compétence 2 peut désormais être utilisée plus fréquemment, tandis que son ultime confère plus de capacité de survie et améliore l'éclatement de sa compétence 2, permettant à Alice de cultiver plus rapidement.",
         "sections": [
           {
             "name": "Attributs",
@@ -12352,7 +12352,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "5s",
                 "after": "8s"
               }
@@ -12366,7 +12366,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "7s",
                 "after": "6s"
               },
@@ -12381,7 +12381,7 @@
                 "after": "100"
               },
               {
-                "label": "Dommage",
+                "label": "Dégâts",
                 "before": "270-395 + 90% Magic Power",
                 "after": "(200-400) + 75% Magic Power + ((5-15%) + 0.3% Max Mana)% Enemy's Max HP"
               }
@@ -12398,7 +12398,7 @@
                 "text": "Nouvel effet : Réduisez le temps de recharge des compétences 1 et 2 de 0,2 s et 0,5 s respectivement lorsque vous touchez 1 héros ennemi."
               },
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "90",
                 "after": "60-100 (no longer scales with Mana growth)"
               },
@@ -12408,7 +12408,7 @@
                 "after": "40-120"
               },
               {
-                "label": "Bonus de régénération PV de Magic Power",
+                "label": "Bonus de régénération PV de puissance magique",
                 "before": "10%",
                 "after": "30%"
               }
@@ -12421,7 +12421,7 @@
         "name": "Barats",
         "type": "buff",
         "tag": null,
-        "intro": "Changements expérimentaux : La plupart des joueurs de Barats ont du mal à maintenir ses compétences passives et lentes, et les ennemis peuvent facilement échapper à son ultime. Nous souhaitons répondre à ces problématiques en augmentant l'utilité de son Ultime, faisant de lui un formidable initiateur en teamfights.",
+        "intro": "Changements expérimentaux : La plupart des joueurs de Barats ont du mal à maintenir ses compétences passives et lentes, et les ennemis peuvent facilement échapper à son ultime. Nous souhaitons répondre à ces problématiques en augmentant l'utilité de son ultime, faisant de lui un formidable initiateur en teamfights.",
         "sections": [
           {
             "name": "Big Guy",
@@ -12436,12 +12436,12 @@
                 "after": "Each time a skill hits a target (hitting multiple targets still only grant 1 stack)."
               },
               {
-                "label": "Piles maximales",
+                "label": "Cumuls maximum",
                 "before": "25",
                 "after": "10"
               },
               {
-                "label": "Nombre de stacks requis pour une attaque de base améliorée",
+                "label": "Nombre de cumuls requis pour une attaque de base améliorée",
                 "before": "15",
                 "after": "10"
               },
@@ -12535,12 +12535,12 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommage",
+                "label": "Dégâts",
                 "before": "20 + 22%-27% Total Physical Attack + 24%-29% Total Magic Power",
                 "after": "30 + 20% Total Physical Attack at all levels + 20% Total Magic Power"
               },
               {
-                "label": "Coût énergétique",
+                "label": "Coût en énergie",
                 "before": "5 at all levels",
                 "after": "5-3"
               },
@@ -12601,7 +12601,7 @@
                 "text": "Nouvel effet : toucher un allié lui permet désormais de sauter deux fois plus."
               },
               {
-                "label": "Gamme de lancer",
+                "label": "Portée de lancer",
                 "before": "4.2",
                 "after": "4"
               }
@@ -12615,7 +12615,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Gamme de lancer",
+                "label": "Portée de lancer",
                 "before": "5",
                 "after": "4.5"
               },
@@ -12625,7 +12625,7 @@
                 "after": "4s"
               },
               {
-                "label": "Effet lent",
+                "label": "Effet de ralentissement",
                 "before": "40%",
                 "after": "20%"
               },
@@ -12660,7 +12660,7 @@
                 "text": "Légère augmentation du rayon d'explosion."
               },
               {
-                "text": "Correction d'un problème où l'effet lent de la première étape ne correspondait pas à la description de la compétence."
+                "text": "Correction d'un problème où l'effet de ralentissement de la première étape ne correspondait pas à la description de la compétence."
               }
             ]
           },
@@ -12699,7 +12699,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "5.5-4s (unaffected by CD Reduction)",
                 "after": "4s (affected by CD Reduction)"
               }
@@ -12728,7 +12728,7 @@
                 "text": "Nouvel effet : gagne un bonus de vitesse de déplacement de 15 % lors du lancement de la compétence, qui diminue avec le temps."
               },
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "50-200 + 50% Total Physical Attack",
                 "after": "25-100 + 25% Total Physical Attack, double the Attack Speed (Total Damage remains unchanged)."
               }
@@ -12748,7 +12748,7 @@
                 "text": "Nouvel effet : la compétence ne peut pas être interrompue par CC."
               },
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "28-18s",
                 "after": "34-24s"
               }
@@ -12826,12 +12826,12 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "5s",
                 "after": "8-6s"
               },
               {
-                "label": "Effet lent",
+                "label": "Effet de ralentissement",
                 "before": "25%",
                 "after": "50%"
               },
@@ -12855,12 +12855,12 @@
                 "after": "30-80%"
               },
               {
-                "label": "Effet lent",
+                "label": "Effet de ralentissement",
                 "before": "90%",
                 "after": "50%"
               },
               {
-                "label": "Durée lente",
+                "label": "Durée du ralentissement",
                 "before": "0.5s",
                 "after": "2s"
               }
@@ -12946,7 +12946,7 @@
         "entries": [],
         "lines": [
           {
-            "text": "En raison de cette série d'ajustements des héros, nous supprimerons temporairement tous les skins de Balmond et Vale.",
+            "text": "En raison de cette série d'ajustements des héros, nous supprimerons temporairement toutes les apparences de Balmond et Vale.",
             "level": 0,
             "type": null
           }
@@ -12997,7 +12997,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "300-400 + 40% Total Physical Attack",
                 "after": "300-400 + 100% Total Physical Attack"
               }
@@ -13020,7 +13020,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "300-600",
                 "after": "250-500"
               },
@@ -13048,7 +13048,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "12.5-10s",
                 "after": "16-13s"
               }
@@ -13076,7 +13076,7 @@
                 "after": "8"
               },
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "45-35s",
                 "after": "52-38s"
               }
@@ -13099,7 +13099,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "75",
                 "after": "100"
               }
@@ -13113,7 +13113,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "4-2.5s",
                 "after": "3.5-2.5s"
               }
@@ -13136,7 +13136,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Bonus de vitesse de déplacement par pile",
+                "label": "Bonus de vitesse de déplacement par cumul",
                 "before": "3%",
                 "after": "2%"
               }
@@ -13194,7 +13194,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Énergie restaurée par pile",
+                "label": "Énergie restaurée par cumul",
                 "before": "8",
                 "after": "7"
               }
@@ -13207,7 +13207,7 @@
         "name": "Mathilda",
         "type": "nerf",
         "tag": null,
-        "intro": "Mathilda's Ultimate a désormais plus de potentiel avec la nouvelle option de 2e frappe. Nous espérons donner à son adversaire davantage de moyens de le contrer.",
+        "intro": "Mathilda's ultime a désormais plus de potentiel avec la nouvelle option de 2e frappe. Nous espérons donner à son adversaire davantage de moyens de le contrer.",
         "sections": [
           {
             "name": "Guiding Wind",
@@ -13217,7 +13217,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "12-11s",
                 "after": "13.5-11s"
               }
@@ -13242,7 +13242,7 @@
         "name": "Angela",
         "type": "nerf",
         "tag": null,
-        "intro": "Nous avons remarqué qu'Angela était utilisée pour Mid Lane dans les matchs de haut niveau et de tournoi. Nous pensons que cela réduira le taux d'utilisation des héros mages, c'est pourquoi nous réduisons l'efficacité du dégagement de voie d'Angela pour la rendre moins compétitive et mettre plus de temps à atteindre la vitesse maximale.",
+        "intro": "Nous avons remarqué qu'Angela était utilisée pour Mid Lane dans les matchs de haut niveau et de tournoi. Nous pensons que cela réduira le taux d'utilisation des héros mages, c'est pourquoi nous réduisons l'efficacité du dégagement de lane d'Angela pour la rendre moins compétitive et mettre plus de temps à atteindre la vitesse maximale.",
         "sections": [
           {
             "name": "Smart Heart",
@@ -13348,7 +13348,7 @@
         "entries": [],
         "lines": [
           {
-            "text": "Nous voulons que les joueurs, quel que soit leur poste, puissent atteindre le niveau 2 dans un délai raisonnable. Les joueurs actuellement en lane atteindront toujours le niveau 2 après avoir éliminé la 1ère vague de sbires, nous avons donc apporté les modifications suivantes.",
+            "text": "Nous voulons que les joueurs, quel que soit leur poste, puissent atteindre le niveau 2 dans un délai raisonnable. Les joueurs actuellement en lane atteindront toujours le niveau 2 après avoir éliminé la 1re vague de sbires, nous avons donc apporté les modifications suivantes.",
             "level": 0,
             "type": null
           }
@@ -13360,7 +13360,7 @@
         "entries": [],
         "lines": [
           {
-            "text": "Nous avons réduit l'EXP de base donnée par les sbires de siège dans Exp Lane tout en augmentant leur croissance d'EXP. Le montant total d'expérience gagné grâce aux 10 premiers sbires de siège dans la EXP lane reste le même.",
+            "text": "Nous avons réduit l'EXP de base donnée par les sbires de siège dans Exp Lane tout en augmentant leur croissance d'EXP. Le montant total d'expérience gagné grâce aux 10 premiers sbires de siège dans l'EXP lane reste le même.",
             "level": 0,
             "type": null
           }
@@ -13413,7 +13413,7 @@
             "type": null
           },
           {
-            "label": "Dommages physiques",
+            "label": "Dégâts physiques",
             "before": "80% Physical Attack + 8% Target's Max HP",
             "after": "20% Physical Attack + 10% Target's Max HP",
             "level": 1,
@@ -13425,7 +13425,7 @@
             "type": null
           },
           {
-            "label": "Vrais dégâts",
+            "label": "Dégâts réels",
             "before": "450 + 12% Target's Max HP",
             "after": "50 + 15% Target's Max HP",
             "level": 1,
@@ -13515,7 +13515,7 @@
                 "generic": false,
                 "changes": [
                   {
-                    "label": "Dommage",
+                    "label": "Dégâts",
                     "before": "50-260",
                     "after": "44-240"
                   }
@@ -13568,7 +13568,7 @@
       },
       {
         "category": "system",
-        "title": "Nouveau choix de repêchage",
+        "title": "Nouveau Draft Pick",
         "entries": [],
         "lines": [
           {
@@ -13695,12 +13695,12 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommage",
+                "label": "Dégâts",
                 "before": "20 + 22%-27% Total Physical Attack + 24%-29% Total Magic Power",
                 "after": "30 + 20% Total Physical Attack + 20% Total Magic Power at all levels"
               },
               {
-                "label": "Coût énergétique",
+                "label": "Coût en énergie",
                 "before": "5 at all levels",
                 "after": "10-5"
               }
@@ -13760,7 +13760,7 @@
         "name": "Yve",
         "type": "buff",
         "tag": null,
-        "intro": "Le nerf sur la capacité de dégagement de voie d'Yve et sur la baguette de la reine des glaces était trop important pour Yve. Nous lui rendons une partie de sa capacité de ralentissement.",
+        "intro": "Le nerf sur la capacité de dégagement de lane d'Yve et sur la baguette de la reine des glaces était trop important pour Yve. Nous lui rendons une partie de sa capacité de ralentissement.",
         "sections": [
           {
             "name": "Void Crystal",
@@ -13770,7 +13770,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Effet lent",
+                "label": "Effet de ralentissement",
                 "before": "Initial 15%, up to 40%",
                 "after": "Initial 25%, up to 50%"
               }
@@ -13784,7 +13784,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Effet lent du balayage",
+                "label": "Effet de ralentissement du balayage",
                 "before": "40%",
                 "after": "50%"
               }
@@ -13797,7 +13797,7 @@
         "name": "Valentina",
         "type": "nerf",
         "tag": null,
-        "intro": "Après plusieurs séries de nerfs, le puissant Ultimate de Valentina fait toujours d'elle un choix irremplaçable dans les matchs et tournois de haut niveau. Cette fois-ci, nous augmentons encore une fois le temps de recharge de son Ultime dans l'espoir d'améliorer le taux d'utilisation des autres mages dans les parties de haut rang.",
+        "intro": "Après plusieurs séries de nerfs, le puissant ultime de Valentina fait toujours d'elle un choix irremplaçable dans les matchs et tournois de haut niveau. Cette fois-ci, nous augmentons encore une fois le temps de recharge de son ultime dans l'espoir d'améliorer le taux d'utilisation des autres mages dans les parties de haut rang.",
         "sections": [
           {
             "name": "I Am You",
@@ -13807,7 +13807,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "The stolen Ultimate's cooldown is 120%-100%",
                 "after": "130% (at all levels) of the target's cooldown"
               }
@@ -13830,7 +13830,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Gamme de fonte",
+                "label": "Portée de lancement",
                 "before": "4",
                 "after": "3.5"
               }
@@ -13853,12 +13853,12 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "20-16s",
                 "after": "28-20s"
               },
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "130-210",
                 "after": "120-180"
               }
@@ -13881,7 +13881,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "11-8s",
                 "after": "8-6s"
               }
@@ -13895,7 +13895,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "45-37s",
                 "after": "42-32S"
               }
@@ -13908,7 +13908,7 @@
         "name": "Guinevere",
         "type": "buff",
         "tag": null,
-        "intro": "Nous aimerions rendre la compétence 2 de Guenièvre plus « fiable » afin que les joueurs puissent voir clairement s'ils ont atteint ou non la cible. Nous avons remarqué que dans certains cas, la compétence ne fait pas décoller les ennemis.",
+        "intro": "Nous aimerions rendre la compétence 2 de Guinevere plus « fiable » afin que les joueurs puissent voir clairement s'ils ont atteint ou non la cible. Nous avons remarqué que dans certains cas, la compétence ne fait pas décoller les ennemis.",
         "sections": [
           {
             "name": "Spatial Migration",
@@ -13939,7 +13939,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "46-40s",
                 "after": "60-50s"
               }
@@ -13962,7 +13962,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "38-28s",
                 "after": "30-24s"
               }
@@ -13985,7 +13985,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "45-37s",
                 "after": "55-45s"
               }
@@ -14059,7 +14059,7 @@
             "type": null
           },
           {
-            "label": "Dommages physiques",
+            "label": "Dégâts physiques",
             "before": "100% Physical Attack",
             "after": "80% Physical Attack + 8% Target's Max HP",
             "level": 1,
@@ -14071,7 +14071,7 @@
             "type": null
           },
           {
-            "label": "Vrais dégâts",
+            "label": "Dégâts réels",
             "before": "150% Physical Attack",
             "after": "450 + 12% Target's Max HP",
             "level": 1,
@@ -14090,7 +14090,7 @@
             "type": null
           },
           {
-            "text": "Ajout du bouton \"Changer de héros allié\". Désormais, vous n'êtes plus obligé de quitter et de réintégrer la bataille. Appuyez simplement sur le bouton et choisissez le héros, le skin et la préparation pour basculer rapidement entre les différentes configurations de combat, emblèmes et sorts de combat.",
+            "text": "Ajout du bouton \"Changer de héros allié\". Désormais, vous n'êtes plus obligé de quitter et de réintégrer la bataille. Appuyez simplement sur le bouton et choisissez le héros, l'apparence et la préparation pour basculer rapidement entre les différentes configurations de combat, emblèmes et sorts de combat.",
             "level": 1,
             "type": null
           },
@@ -14130,7 +14130,7 @@
             "type": null
           },
           {
-            "text": "Optimisation du bouton \"Fermer la voie\". Appuyer sur le bouton tue désormais également tous les sbires sur le champ de bataille.",
+            "text": "Optimisation du bouton \"Fermer la lane\". Appuyer sur le bouton tue désormais également tous les sbires sur le champ de bataille.",
             "level": 1,
             "type": null
           },
@@ -14240,7 +14240,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "300-600",
                 "after": "250-500"
               },
@@ -14364,7 +14364,7 @@
         "name": "Tigreal",
         "type": "buff",
         "tag": null,
-        "intro": "Tigreal est un héros Tank avec l'un des meilleurs combos de contrôle en chaîne du jeu, nous avons donc essayé de permettre à ses adversaires de gérer plus facilement son Ultimate. Mais il semble que nous ayons rendu les choses trop faciles, c'est pourquoi nous avons ajusté son Ultime : il peut toujours être interrompu, mais uniquement par des héros ennemis qui ne sont pas touchés par son Ultime.",
+        "intro": "Tigreal est un héros Tank avec l'un des meilleurs combos de contrôle en chaîne du jeu, nous avons donc essayé de permettre à ses adversaires de gérer plus facilement son ultime. Mais il semble que nous ayons rendu les choses trop faciles, c'est pourquoi nous avons ajusté son ultime : il peut toujours être interrompu, mais uniquement par des héros ennemis qui ne sont pas touchés par son ultime.",
         "sections": [
           {
             "name": "Attributs",
@@ -14439,7 +14439,7 @@
         "name": "Selena",
         "type": "buff",
         "tag": null,
-        "intro": "Selena est devenue un solide héros de la voie médiane grâce aux ajustements que nous avons apportés dans les récents correctifs. Cette fois-ci, nous nous sommes concentrés sur l'augmentation de son efficacité de dégagement de voie, en limitant l'utilisation de sa compétence 2 et en augmentant son plafond de compétences en fin de partie.",
+        "intro": "Selena est devenue un solide héros de la Mid lane grâce aux ajustements que nous avons apportés dans les récents correctifs. Cette fois-ci, nous nous sommes concentrés sur l'augmentation de son efficacité de dégagement de lane, en limitant l'utilisation de sa compétence 2 et en augmentant son plafond de compétences en fin de partie.",
         "sections": [
           {
             "name": "Symbiosis",
@@ -14475,7 +14475,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "5s",
                 "after": "5.5-4s"
               }
@@ -14498,7 +14498,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Régénération PV",
+                "label": "Régénération de PV",
                 "before": "60-90 + 20% Magic Power",
                 "after": "70-120 + 30% Magic Power"
               }
@@ -14512,7 +14512,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "30-20s",
                 "after": "25-15s"
               }
@@ -14559,12 +14559,12 @@
             "generic": false,
             "changes": [
               {
-                "label": "Bonus de dégâts de chemin de Max Mana",
+                "label": "Bonus de dégâts de chemin de mana max",
                 "before": "5%",
                 "after": "8%"
               },
               {
-                "label": "Bonus de dégâts de fin de Max Mana",
+                "label": "Bonus de dégâts de fin de mana max",
                 "before": "10%",
                 "after": "16%"
               }
@@ -14612,7 +14612,7 @@
         "name": "Sun",
         "type": "nerf",
         "tag": null,
-        "intro": "Les dégâts éclatés de Sun ont considérablement augmenté depuis que sa compétence 2 peut déclencher des effets d'attaque. Nous réduisons donc légèrement ses dégâts subis.",
+        "intro": "Les dégâts en rafale de Sun ont considérablement augmenté depuis que sa compétence 2 peut déclencher des effets d'attaque. Nous réduisons donc légèrement ses dégâts subis.",
         "sections": [
           {
             "name": "Endless Variety",
@@ -14635,7 +14635,7 @@
         "name": "Mathilda",
         "type": "nerf",
         "tag": null,
-        "intro": "Le nerf du dernier patch n'a pas fonctionné comme prévu, nous nerfons donc encore plus son Ultimate.",
+        "intro": "Le nerf du dernier patch n'a pas fonctionné comme prévu, nous nerfons donc encore plus son ultime.",
         "sections": [
           {
             "name": "Circling Eagle",
@@ -14748,7 +14748,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "28-18s",
                 "after": "34-24s"
               }
@@ -14761,7 +14761,7 @@
         "name": "Minsitthar",
         "type": "buff",
         "tag": null,
-        "intro": "Nous voulons que Minsitthar connecte sa Lance de gloire aux attaques suivantes de manière plus cohérente. Par exemple, utilisez Spear of Glory + Ultimate comme un excellent combo de contrôle ; ou utilisez Spear of Glory + Shield Assault comme combo d'étourdissement rapide. (Les héros ennemis peuvent facilement s'échapper après avoir été attrapés par Spear of Glory.)",
+        "intro": "Nous voulons que Minsitthar connecte sa Lance de gloire aux attaques suivantes de manière plus cohérente. Par exemple, utilisez Spear of Glory + ultime comme un excellent combo de contrôle ; ou utilisez Spear of Glory + Shield Assault comme combo d'étourdissement rapide. (Les héros ennemis peuvent facilement s'échapper après avoir été attrapés par Spear of Glory.)",
         "sections": [
           {
             "name": "Spear of Glory",
@@ -14797,7 +14797,7 @@
                 "after": "1.5s"
               },
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "150s",
                 "after": "180s"
               }
@@ -14811,7 +14811,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "6-4s",
                 "after": "6s"
               }
@@ -14844,7 +14844,7 @@
                 "after": "40% of the target's Physical Defense"
               },
               {
-                "label": "Régénération PV",
+                "label": "Régénération de PV",
                 "before": "65 + 40% Total Physical Attack",
                 "after": "200 + 10% Total Physical Attack"
               }
@@ -14857,7 +14857,7 @@
         "name": "Aldous",
         "type": "nerf",
         "tag": null,
-        "intro": "Légère diminution du plafond de stack d'Aldous.",
+        "intro": "Légère diminution du plafond de cumul d'Aldous.",
         "sections": [
           {
             "name": "Contract Soul Steal",
@@ -14903,7 +14903,7 @@
         "name": "Angela",
         "type": "nerf",
         "tag": null,
-        "intro": "Réduction du bouclier de l'Ultime en milieu et en fin de partie.",
+        "intro": "Réduction du bouclier de l'ultime en milieu et en fin de partie.",
         "sections": [
           {
             "name": "Heartguard",
@@ -14982,7 +14982,7 @@
             "generic": true,
             "changes": [
               {
-                "label": "Croissance des attaques physiques",
+                "label": "Croissance de l'attaque physique",
                 "before": "7",
                 "after": "10"
               }
@@ -15005,7 +15005,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "135-335",
                 "after": "120-320"
               }
@@ -15253,7 +15253,7 @@
         "entries": [],
         "lines": [
           {
-            "text": "Roger obtient désormais le bouclier de son Ultimate au début du sprint plutôt que pendant le sprint.",
+            "text": "Roger obtient désormais le bouclier de son ultime au début du sprint plutôt que pendant le sprint.",
             "level": 1,
             "type": null
           },
@@ -15382,7 +15382,7 @@
                 "text": "Nouvel effet : Argus augmente passivement la vitesse de chargement de l'énergie malveillante."
               },
               {
-                "text": "Effet supprimé : Argus gagne de manière permanente 10 à 30 attaques physiques."
+                "text": "Effet supprimé : Argus gagne de manière permanente 10 à 30 points d'attaque physique."
               }
             ]
           }
@@ -15415,7 +15415,7 @@
             "generic": false,
             "changes": [
               {
-                "text": "Réduction des CD remaniée : chaque pile de cicatrices de bataille consommée réduit le temps de recharge de cette compétence de 1 seconde."
+                "text": "Réduction des CD remaniée : chaque cumul de cicatrices de bataille consommée réduit le temps de recharge de cette compétence de 1 seconde."
               }
             ]
           },
@@ -15480,12 +15480,12 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommage",
+                "label": "Dégâts",
                 "before": "300-450 + 120% Magic Power",
                 "after": "350-500 + 130% Magic Power"
               },
               {
-                "label": "Effet lent",
+                "label": "Effet de ralentissement",
                 "before": "20%",
                 "after": "10%"
               }
@@ -15513,7 +15513,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommage",
+                "label": "Dégâts",
                 "before": "50-80 + 30% Magic Power",
                 "after": "60-90 + 33% Magic Power"
               }
@@ -15526,7 +15526,7 @@
         "name": "Balmond",
         "type": "buff",
         "tag": null,
-        "intro": "Ajustement de l'expérience : expérience de contrôle optimisée. Nous voulons que les combos de Balmond soient plus fluides. Cet ajustement optimise également le problème selon lequel Balmond manque souvent son Ultimate à courte portée.",
+        "intro": "Ajustement de l'expérience : expérience de contrôle optimisée. Nous voulons que les combos de Balmond soient plus fluides. Cet ajustement optimise également le problème selon lequel Balmond manque souvent son ultime à courte portée.",
         "sections": [
           {
             "name": "Cyclone Sweep",
@@ -15542,7 +15542,7 @@
                 "text": "Nouvel effet : gagnez un bonus de vitesse de déplacement de 20 % pendant l'incantation de la compétence."
               },
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "50-200 + 50% Total Physical Attack",
                 "after": "25-100 + 25% Total Physical Attack, double the hit rate (Total Damage remains unchanged)."
               }
@@ -15570,7 +15570,7 @@
         "name": "Moskov",
         "type": "nerf",
         "tag": null,
-        "intro": "Étant donné que la téléportation depuis l'Ultime de Moskov lui confère un micro-potentiel extrêmement puissant, nous avons nerfé ses dégâts ultimes pour équilibrer les choses. Nous avons également optimisé son contrôle d'attaque de base tout en réduisant la puissance de certaines autres parties.",
+        "intro": "Étant donné que la téléportation depuis l'ultime de Moskov lui confère un micro-potentiel extrêmement puissant, nous avons nerfé ses dégâts ultimes pour équilibrer les choses. Nous avons également optimisé son contrôle d'attaque de base tout en réduisant la puissance de certaines autres parties.",
         "sections": [
           {
             "name": "Attributs",
@@ -15580,7 +15580,7 @@
             "generic": true,
             "changes": [
               {
-                "label": "Croissance des attaques physiques",
+                "label": "Croissance de l'attaque physique",
                 "before": "15.5",
                 "after": "12.5"
               },
@@ -15625,7 +15625,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "500-700",
                 "after": "340-500"
               },
@@ -15681,7 +15681,7 @@
         "name": "Aldous",
         "type": "buff",
         "tag": null,
-        "intro": "Après le dernier ajustement, nous avons constaté que la vitesse de création de pile d'Aldous a été considérablement améliorée. Mais nous avons aussi remarqué que les joueurs souhaitaient qu’il soit plus puissant en fin de partie. Nous avons donc décidé d'apporter quelques modifications.",
+        "intro": "Après le dernier ajustement, nous avons constaté que la vitesse de création de cumul d'Aldous a été considérablement améliorée. Mais nous avons aussi remarqué que les joueurs souhaitaient qu’il soit plus puissant en fin de partie. Nous avons donc décidé d'apporter quelques modifications.",
         "sections": [
           {
             "name": "Contract Soul Steal",
@@ -15705,7 +15705,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommage",
+                "label": "Dégâts",
                 "before": "400-600 + 10% of target's Max HP",
                 "after": "250-400 + 8% of target's Max HP"
               }
@@ -15752,7 +15752,7 @@
                 "after": "50%"
               },
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "12-9s",
                 "after": "10s"
               }
@@ -15765,7 +15765,7 @@
         "name": "Khaleed",
         "type": "adjust",
         "tag": null,
-        "intro": "Les modifications apportées la semaine dernière ont rendu inutile l'augmentation des dégâts de la compétence 1 de Khaleed. Nous avons donc décidé de supprimer cet effet et d'améliorer légèrement sa capacité à dégager des voies en milieu et en fin de partie.",
+        "intro": "Les modifications apportées la semaine dernière ont rendu inutile l'augmentation des dégâts de la compétence 1 de Khaleed. Nous avons donc décidé de supprimer cet effet et d'améliorer légèrement sa capacité à dégager des lanes en milieu et en fin de partie.",
         "sections": [
           {
             "name": "Desert Tornado",
@@ -15775,7 +15775,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "180-480 + 125% Physical Attack",
                 "after": "200-525 + 135% Physical Attack"
               },
@@ -15811,7 +15811,7 @@
                 "after": "20%-50%"
               },
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "4.5s",
                 "after": "5s"
               }
@@ -15834,7 +15834,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "120% Total Physical Attack",
                 "after": "130% Total Physical Attack"
               }
@@ -15881,7 +15881,7 @@
             "generic": true,
             "changes": [
               {
-                "label": "Croissance des attaques physiques",
+                "label": "Croissance de l'attaque physique",
                 "before": "10",
                 "after": "7"
               }
@@ -15916,7 +15916,7 @@
             "generic": true,
             "changes": [
               {
-                "label": "Croissance des attaques physiques",
+                "label": "Croissance de l'attaque physique",
                 "before": "10",
                 "after": "7"
               }
@@ -15979,7 +15979,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "6-4s",
                 "after": "6s at all levels"
               }
@@ -15993,12 +15993,12 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "24-20s",
                 "after": "24s at all levels"
               },
               {
-                "label": "Dommages minimaux après la décomposition",
+                "label": "Dégâts minimaux après la décomposition",
                 "before": "55%",
                 "after": "40%"
               }
@@ -16040,7 +16040,7 @@
                 "after": "40-60"
               },
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "30s",
                 "after": "40s"
               }
@@ -16086,7 +16086,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "5-3s",
                 "after": "6-4s"
               }
@@ -16139,7 +16139,7 @@
                     "text": "Nouvel effet : lorsque vous déclenchez les dégâts, augmentez la vitesse de déplacement de 20 % pendant 2 secondes."
                   },
                   {
-                    "label": "Dommage",
+                    "label": "Dégâts",
                     "before": "35% Mana - 450",
                     "after": "100% Magic Power"
                   }
@@ -16214,7 +16214,7 @@
                 "text": "Effet supprimé : immunisé contre les effets de contrôle pendant Beat Time !."
               },
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "12-9s",
                 "after": "6-4s"
               }
@@ -16228,18 +16228,18 @@
             "generic": false,
             "changes": [
               {
-                "text": "Son Ultime se débloque désormais après avoir lancé une fois sa Compétence 2 au rythme, mais ses dégâts Ultimes augmentent toujours en fonction du nombre de lancements de Compétence 2 au rythme."
+                "text": "Son Ultime se débloque désormais après avoir lancé une fois sa compétence 2 au rythme, mais ses dégâts Ultimes augmentent toujours en fonction du nombre de lancements de Compétence 2 au rythme."
               },
               {
-                "text": "Son Ultime avec 4 lancers de Compétence 2 au rythme la rend immunisée contre les effets de contrôle pendant l'Ultime."
+                "text": "Son Ultime avec 4 lancers de Compétence 2 au rythme la rend immunisée contre les effets de contrôle pendant l'ultime."
               },
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "40-24s",
                 "after": "24-20s"
               },
               {
-                "label": "Dommage",
+                "label": "Dégâts",
                 "before": "150-270 +55% Total Magic Power",
                 "after": "135-245 +50% Total Magic Power"
               },
@@ -16267,13 +16267,13 @@
             "generic": false,
             "changes": [
               {
-                "text": "Modification du plafond de pile de 2 Ordres ou Chaos à 1 chacun."
+                "text": "Modification du plafond de cumul de 2 Ordres ou Chaos à 1 chacun."
               },
               {
                 "text": "Nouvel effet : les compétences de Lunox peuvent désormais bénéficier des bonus de réduction du temps de recharge."
               },
               {
-                "text": "Effet remanié : basé sur la forme de Lunox, son Spell Vamp et son pourcentage de pénétration magique sont désormais convertis l'un dans l'autre selon un rapport de 1:1,25."
+                "text": "Effet remanié : basé sur la forme de Lunox, son vampirisme des sorts et son pourcentage de pénétration magique sont désormais convertis l'un dans l'autre selon un rapport de 1:1,25."
               }
             ]
           },
@@ -16300,10 +16300,10 @@
                 "text": "Sa compétence 2 ne coûte plus de mana pendant sa forme Ultime dans le Chaos."
               },
               {
-                "text": "Ajout des effets visuels de sa zone de dégâts après avoir lancé l'Ultime."
+                "text": "Ajout des effets visuels de sa zone de dégâts après avoir lancé l'ultime."
               },
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "25-15s",
                 "after": "30-20s"
               }
@@ -16335,7 +16335,7 @@
                 "text": "Légère augmentation de la portée de l'explosion."
               },
               {
-                "text": "Correction d'un problème où l'effet lent réel du premier coup ne correspondait pas à sa description."
+                "text": "Correction d'un problème où l'effet de ralentissement réel du premier coup ne correspondait pas à sa description."
               }
             ]
           },
@@ -16365,7 +16365,7 @@
                 "text": "Suppression du coût en mana."
               },
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "5.5-3s (does not benefit from Cooldown Reduction)",
                 "after": "4.5s (does benefit from Cooldown Reduction)"
               }
@@ -16378,7 +16378,7 @@
         "name": "Moskov",
         "type": "nerf",
         "tag": null,
-        "intro": "Le nouvel effet de l'Ultime de Moskov lui a donné de nouvelles possibilités, nous nerfons donc les autres effets de son coup Ultime et espérons que le nouvel effet sera utilisé plus souvent. Nous voulons également que Moskov puisse se téléporter directement vers un endroit avec son Ultime au lieu d'avoir à se déplacer à nouveau avec la Compétence 1 pour obtenir l'augmentation de la Vitesse d'attaque. Nous allons donc donner à son Ultimate un bonus de vitesse d'attaque, mais nous réduirons légèrement ses bonus de vitesse d'attaque lorsqu'il n'utilise pas son Ultimate.",
+        "intro": "Le nouvel effet de l'ultime de Moskov lui a donné de nouvelles possibilités, nous nerfons donc les autres effets de son coup Ultime et espérons que le nouvel effet sera utilisé plus souvent. Nous voulons également que Moskov puisse se téléporter directement vers un endroit avec son ultime au lieu d'avoir à se déplacer à nouveau avec la compétence 1 pour obtenir l'augmentation de la Vitesse d'attaque. Nous allons donc donner à son ultime un bonus de vitesse d'attaque, mais nous réduirons légèrement ses bonus de vitesse d'attaque lorsqu'il n'utilise pas son ultime.",
         "sections": [
           {
             "name": "Abyss Walker",
@@ -16402,7 +16402,7 @@
             "generic": false,
             "changes": [
               {
-                "text": "Nouvel effet : la deuxième frappe de son Ultime augmente désormais la Vitesse d'Attaque comme sa Compétence 1."
+                "text": "Nouvel effet : la deuxième frappe de son ultime augmente désormais la Vitesse d'Attaque comme sa compétence 1."
               },
               {
                 "label": "Durée de ralentissement la plus longue possible",
@@ -16415,7 +16415,7 @@
                 "after": "46-40s"
               },
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "600-800",
                 "after": "500-700"
               },
@@ -16463,12 +16463,12 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "320-420",
                 "after": "320-520"
               },
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "5s at all levels",
                 "after": "5-3s"
               }
@@ -16487,12 +16487,12 @@
                 "after": "10%-30%"
               },
               {
-                "label": "Durée lente",
+                "label": "Durée du ralentissement",
                 "before": "4s",
                 "after": "6s"
               },
               {
-                "label": "Effet lent",
+                "label": "Effet de ralentissement",
                 "before": "50%",
                 "after": "30%"
               },
@@ -16572,7 +16572,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "7s",
                 "after": "6-5s"
               }
@@ -16586,7 +16586,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "11-8.5s",
                 "after": "12-10s"
               }
@@ -16599,7 +16599,7 @@
         "name": "Sun",
         "type": "buff",
         "tag": null,
-        "intro": "Nous améliorons la qualité graphique de Sun et augmentons ses dégâts en rafale. Comme ses skins n'ont pas encore été mis à jour en conséquence, nous les supprimons temporairement.",
+        "intro": "Nous améliorons la qualité graphique de Sun et augmentons ses dégâts en rafale. Comme ses apparences n'ont pas encore été mis à jour en conséquence, nous les supprimons temporairement.",
         "sections": [
           {
             "name": "Swift Exchange",
@@ -16670,7 +16670,7 @@
         "name": "Arlott",
         "type": "buff",
         "tag": null,
-        "intro": "Les adversaires d'Arlott ont désormais suffisamment de temps pour réagir à son Ultime après avoir augmenté le temps de vol avant de la compétence. Nous annulons donc le reste des nerfs précédents.",
+        "intro": "Les adversaires d'Arlott ont désormais suffisamment de temps pour réagir à son ultime après avoir augmenté le temps de vol avant de la compétence. Nous annulons donc le reste des nerfs précédents.",
         "sections": [
           {
             "name": "Vengeance (Arlott)",
@@ -16680,7 +16680,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Dommages de base",
+                "label": "Dégâts de base",
                 "before": "110-310",
                 "after": "135-335"
               }
@@ -16694,7 +16694,7 @@
             "generic": false,
             "changes": [
               {
-                "label": "Refroidir",
+                "label": "Temps de recharge",
                 "before": "30-24s",
                 "after": "24-18s"
               }
@@ -16733,7 +16733,7 @@
         "entries": [],
         "lines": [
           {
-            "text": "Correction d'un problème où l'Ultime de Dyrroth était interrompu lorsqu'il était projeté en l'air.",
+            "text": "Correction d'un problème où l'ultime de Dyrroth était interrompu lorsqu'il était projeté en l'air.",
             "level": 1,
             "type": null
           }

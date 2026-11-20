@@ -1,26 +1,26 @@
 ---
-title: "Farm e gestione delle ondate in gold lane"
+title: "Farming e gestione delle onde in Gold Lane"
 short: "Farm e ondate"
 date: "2026-11-14"
 updated: "2026-11-14"
 kind: "strategy"
 order: 7
 author: "achedon12"
-summary: "Il tiratore vince la partita con il suo oro, e il suo oro viene dalle ondate. Finire i minion, congelare, spingere o lasciar andare un'ondata: le basi della gestione della lane, poi il farm oltre la lane."
+summary: "Il tiratore vince la partita con il suo oro, e il suo oro proviene dalle onde. Elimina i servitori, spingi, congela o lascia che arrivi un'ondata: le basi della gestione della corsia, poi il farming oltre la corsia."
 keywords: ["farm", "gestione delle ondate", "gold lane", "last hit", "tiratore", "guida mlbb"]
 related: ["gold-lane", "laning-phase", "macro-split-push"]
 tools: ["/tools/build", "/items", "/map"]
 ---
 
-La gold lane ha un nome appropriato: è la lane che produce più oro e il tiratore che la occupa è l'eroe che ne ha più bisogno. Un tiratore che farma bene ha i suoi oggetti chiave prima del suo avversario e ogni oggetto cambia le sue battaglie. Questa guida parla di risorse; la [guida alla gold lane](/guides/gold-lane) descrive in dettaglio gli eroi e le build della posizione.
+La corsia dell'Oro ha un nome appropriato: è la corsia che produce più oro e il tiratore che la occupa è l'eroe che ne ha più bisogno. Un tiratore che coltiva bene ha i suoi oggetti chiave prima del suo avversario e ogni oggetto cambia le sue battaglie. Questa guida parla di risorse; La [Guida alla corsia d'oro](/guides/gold-lane) descrive in dettaglio gli eroi e le build della posizione.
 
 ## Ogni minion conta
 
-Parte un'ondata di minion ogni trenta secondi, la prima a 0:10. Durante le prime dieci ondate (fino a 5:10), il cannone dà il 45% di oro in più nella Gold lane e il 35% di EXP in più nella EXP lane: a inizio partita, mancare un cannone costa più che mancare un altro minion.
+Un'ondata di servitori parte ogni trenta secondi, la prima alle 0:10. Durante le prime dieci ondate (fino alle 5:10), il cannone nella corsia Oro guadagna il 45% in più di oro, e quello nella corsia EXP il 35% in più di EXP: all'inizio del gioco, perdere un cannone costa di più che perdere un altro servitore.
 
-- **Finisci i minion** invece di colpire a caso: un tiratore che colpisce solo i minion quasi morti conserva i suoi HP e non spinge l'ondata senza volerlo.
-- **Prendi l'ultimo colpo sul cannone**, soprattutto durante le prime dieci ondate: è il minion che porta il bonus.
-- **Impara il ritmo del tuo eroe**: la sua velocità di attacco e i suoi danni al livello 1 non sono quelli del livello 6. Quella che era una mossa finale facile diventa un colpo di troppo.
+- **Finisci i servitori** invece di colpire a caso: un tiratore che colpisce solo i servitori quasi morti mantiene i suoi punti vita e non spinge l'onda involontariamente.
+- **Mantieni l'ultimo colpo del cannone**, soprattutto durante le prime dieci ondate: porta con sé il bonus.
+- **Impara il ritmo del tuo eroe**: la sua velocità di attacco e i suoi danni al livello 1 non sono quelli del livello 6. Il momento giusto per eliminare un servitore cambia con i livelli e gli oggetti.
 
 ## Spingere, congelare o lasciar venire
 
@@ -28,11 +28,11 @@ La posizione dell'ondata nella lane decide chi è al sicuro. Ci sono tre modi pe
 
 ### Spingere
 
-Uccidi i minion nemici il più rapidamente possibile e la tua ondata avanza verso la torretta nemica. Questa è la scelta giusta quando si vuole partire dalla lane (ritorno alla base, obiettivo, assist), perché l'avversario deve restare a difendere. Questa è una cattiva scelta quando il jungler avversario è invisibile: sei lontano dalla tua torretta.
+Uccidi i servitori nemici il più rapidamente possibile e la tua ondata avanza verso la torretta nemica. Questa è la scelta giusta quando si vuole uscire dalla corsia (ritorno alla base, obiettivo, assist), perché l'avversario deve restare a difendere. Questa è una cattiva scelta finché non viene visto il campione da giungla avversario: sei lontano dalla tua torretta.
 
 ### Congelare
 
-Finisci solo i minion pronti a morire e l'ondata rimane vicino alla tua torretta. L'avversario deve avanzare per farmare, nel raggio d'azione della tua torretta e del tuo jungle. Questa è la scelta giusta quando il tuo avversario è più forte di te all'inizio della partita.
+Finisci solo i servitori che stanno per morire e l'onda rimane vicino alla tua torretta. L'avversario deve avanzare per coltivare, nel raggio d'azione della tua torretta e del tuo giungla. Questa è la scelta giusta quando il tuo avversario è più forte di te all'inizio della partita.
 
 ### Lasciar venire
 
@@ -64,6 +64,6 @@ L’oro non serve a nulla finché non viene speso. Il primo oggetto del tiratore
 
 - Spingi l'ondata verso la torretta nemica senza sapere dove si trova il jungler nemico.
 - Lascia la lane lasciando un'ondata intera nel mezzo.
-- Unisciti a ogni combattimento nella mid lane a scapito di due ondate.
+- Unisciti a ogni combattimento nella corsia centrale a scapito di due ondate.
 - Tieni l'oro in tasca per diversi minuti invece di tornare a comprarlo.
 - Farmare da soli nella jungle nemica alla fine del gioco.

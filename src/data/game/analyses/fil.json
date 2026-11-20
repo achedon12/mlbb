@@ -37,10 +37,10 @@
     "strengths": [
       "Isa sa mga pinakamataas na damage sa laro",
       "Sobrang mobility sa pagitan ng mga dagger",
-      "Nagpapataw ng permanenteng presyon sa gitnang daanan"
+      "Nagpapataw ng permanenteng presyon sa Mid lane"
     ],
     "weaknesses": [
-      "Kabilang sa pinakamahirap na execution sa roster",
+      "Isa sa pinakamahirap na execution sa laro",
       "Napakataas na pagkonsumo ng mana",
       "Kung wala ang kanyang ultimate, bumagsak ang kanyang damage"
     ],
@@ -68,7 +68,7 @@
     "weaknesses": [
       "Ganap na nakasalalay sa enerhiya nito",
       "Mabagal na pagsisimula bago ang dalawang item",
-      "Malubhang pinarusahan ng mga bloke ng paggalaw"
+      "Pinarusahan nang husto ng mga block block"
     ],
     "builds": [
       {
@@ -84,7 +84,7 @@
       "Umaatake siya gamit ang busog o espada depende sa layo mula sa kanyang target. Pagkatapos ng bawat switch ng armas, ang kanyang susunod na dalawang pag-atake ay nakakakuha ng momentum at kritikal na damage, na may maikling pagpapalakas ng bilis.",
       "Sumugod pasulong gamit ang espada, na ginagawang hindi sensitibo sa mga kontrol sa maikling panahon. Ang bawat pagbabago ng armas na na-trigger ay nagpapaikli sa recharge nito: ito ang pangunahing kadaliang kumilos sa labanan.",
       "Maikling pindutin: isang mabilis na hampas ng espada. Pindutin nang matagal: isang arrow na tumataas ang damage sa oras ng pag-charge. Sa parehong mga kaso, agad itong nag-trigger ng bonus sa pagbabago ng armas.",
-      "Ibinubunyag ang buong mapa sa loob ng ilang segundo at pinapabilis ito. Muling inilunsad, nagpapadala ito ng isang barko na bumagsak sa isang lugar, na nakamamanghang sa gitna, pagkatapos ay ilang mga cannon salvos na bumagal sa isang mas malawak na lugar."
+      "Ibinubunyag ang buong mapa sa loob ng ilang segundo at pinapabilis si Yi Sun-shin. Muling inilunsad, nagpapadala ito ng isang barko na bumagsak sa isang lugar, na nakamamanghang sa gitna, pagkatapos ay ilang mga cannon salvos na bumagal sa isang mas malawak na lugar."
     ],
     "strengths": [
       "Vision ng buong mapa sa paglulunsad ng ultimate",
@@ -110,7 +110,7 @@
   },
   "selena": {
     "summary": "Magiting na babae na may dalawang anyo: mga traps at stun arrow mula sa malayo, pagkatapos ay pagpatay sa pakikipag-ugnayan pagkatapos ng ultimate.",
-    "analysis": "Si Selena ay nilalaro sa dalawang yugto. Sa kanyang elven na anyo, naglalagay siya ng mga demonyong nagbabantay sa isang lokasyon at kumakapit sa mga dumadaan na kaaway, at bumaril siya ng isang palaso na humahaba ang stun sa layo ng nilakbay; ang kanyang mga skill ay nag-iiwan ng mga marka sa mga target. Inilipat siya ng ultimate sa Abyssal Form, kung saan ang kanyang mga skill ay nagiging isang luksong pag-atake na may kalasag at bayad, na kumukonsumo sa mga markang ito para sa karagdagang damage; maaari na siyang bumalik sa anyo ng elven.\n\nAng versatility na ito ay may halaga: ang buong pagsisimula nito ay umaasa sa arrow, na dapat magsimula mula sa malayo hanggang sa masindak sa mahabang panahon. Ang kanyang sinusukat na win rate ay nananatiling mababa sa average sa lahat ng mga ranggo, na may mababang punto sa mga laro na tumatagal ng wala pang labindalawang minuto. Ito ay nilalaro sa gitnang lane pati na rin sa paggala, na may iba't ibang mga bagay depende sa posisyon. Ang mga sukat ay naglalagay sa kanya sa kahirapan laban sa Gloo, Popol at Kupa, Chip at Lolita.",
+    "analysis": "Si Selena ay nilalaro sa dalawang yugto. Sa kanyang elven na anyo, naglalagay siya ng mga demonyong nagbabantay sa isang lokasyon at kumakapit sa mga dumadaan na kaaway, at bumaril siya ng isang palaso na humahaba ang stun sa layo ng nilakbay; ang kanyang mga skill ay nag-iiwan ng mga marka sa mga target. Inilipat siya ng ultimate sa Abyssal Form, kung saan ang kanyang mga skill ay nagiging isang luksong pag-atake na may kalasag at bayad, na kumukonsumo sa mga markang ito para sa karagdagang damage; maaari na siyang bumalik sa anyo ng elven.\n\nAng versatility na ito ay may halaga: ang buong pagsisimula nito ay umaasa sa arrow, na dapat magsimula mula sa malayo hanggang sa masindak sa mahabang panahon. Ang kanyang sinusukat na win rate ay nananatiling mababa sa average sa lahat ng mga ranggo, na may mababang punto sa mga laro na tumatagal ng wala pang labindalawang minuto. Ito ay nilalaro sa Mid lane pati na rin sa paggala, na may iba't ibang mga bagay depende sa posisyon. Ang mga sukat ay naglalagay sa kanya sa kahirapan laban sa Gloo, Popol at Kupa, Chip at Lolita.",
     "skills": [
       "Malaya itong gumagalaw mula sa isang anyo patungo sa isa pa. Sa anyo ng elven, ang kanyang mga skill ay nagpapakita ng pinagsama-samang marka; sa Abyssal Form, ang damage nito ay kumokonsumo ng mga markang ito upang mas malakas. Ang laro ay tungkol sa pagmamarka mula sa malayo, pagkatapos ay pagtatapos mula sa malapit na hanay.",
       "Inilalagay ang isang naghihintay na demonyo sa isang lokasyon, ikinakabit ang sarili sa unang kaaway na lumalapit, pinapabagal sila, pagkatapos ay sumabog sa kanila at sa kanilang mga kapitbahay. Maraming mga bitag ang maaaring magkasama, at ang bawat karagdagang bitag ay nagpapalakas sa pagsabog.",
@@ -121,7 +121,7 @@
       "Long stun kapag ang palaso ay galing sa malayo",
       "Ang mga bitag ay inilatag nang maaga, ilang sa isang pagkakataon",
       "Dalawang anyo: remote control, pagkatapos ay contact damage",
-      "Nape-play sa middle lane pati na rin sa roaming"
+      "Nape-play sa mid lane at gumala"
     ],
     "weaknesses": [
       "Ang kanyang buong pagsisimula ay nakasalalay sa isang arrow na nakatutok mula sa malayo",
@@ -131,7 +131,7 @@
     ],
     "builds": [
       {
-        "name": "Gitnang lane",
+        "name": "kalagitnaan ng lane",
         "context": "Ang pinakamaraming nilalaro na build sa gitna: Starlium Scythe nagdaragdag ng damage sa basic attack na kasunod ng isang skill, na nagsisilbi sa kanyang abyssal form, Lightning Truncheon isang damage echo at Divine Glaive magic penetration."
       },
       {
@@ -142,7 +142,7 @@
   },
   "chou": {
     "summary": "Isolation fighter: kumukuha siya ng target mula sa kalabang grupo at pinapatay ito bago mag-react ang kanyang team.",
-    "analysis": "Si Chou ang pinakamataas na hero sa kisame sa paggala. Ang ideya ay simple - ang pinakahuling nagpapadala ng isang target sa hangin at inililipat ito - ngunit ang pagpapatupad nito ay umaasa sa mga pagkansela ng animation na hindi ipinapaliwanag ng laro. Ang reference na combo ay nakakabit ng skill 1, kinansela ang jump, ultimate, pagkatapos ay skill 2 para hawakan ang target sa landing.\n\nAng kanyang interes sa isang organisadong koponan ay nagmula doon: pinipili niya kung sino ang mamamatay. Laban sa isang manlalaro na nagpapanatili ng kanyang Purify, sa kabilang banda, ang ultimate ay nawawalan ng kalahati ng halaga nito, at si Chou ay naging isang average na fighter muli.",
+    "analysis": "Si Chou ang bayaning gumala na may pinakamataas na cap ng mastery. Ang ideya ay simple - ang pinakahuling nagpapadala ng isang target sa hangin at inililipat ito - ngunit ang pagpapatupad nito ay umaasa sa mga pagkansela ng animation na hindi ipinapaliwanag ng laro kahit saan. Ang reference na combo ay nakakabit ng skill 1, kinansela ang jump, ultimate, pagkatapos ay skill 2 para hawakan ang target sa landing.\n\nAng kanyang interes sa isang organisadong koponan ay nagmula doon: pinipili niya kung sino ang mamamatay. Laban sa isang manlalaro na nagpapanatili ng kanyang Purify, sa kabilang banda, ang ultimate ay nawawalan ng kalahati ng halaga nito, at si Chou ay naging isang average na fighter muli.",
     "skills": [
       "Bawat ilang basic attack, ang kanyang susunod na pag-atake ay nagiging isang na-upgrade na hit na nagdudulot ng karagdagang damage.",
       "Tatlong sunod-sunod na strike. Ang huling naghahagis ng mga kaaway na tamaan sa hangin.",
@@ -165,13 +165,13 @@
         "context": "Ang bersyon na nilalaro sa kumpetisyon: sapat na pagtutol upang makaligtas sa round trip, walang purong damage na mga item."
       },
       {
-        "name": "Nakakasakit na karanasan",
-        "context": "Sa experience lane, kung kailan dapat manalo si Chou sa kanyang tunggalian sa halip na pagsilbihan ang kanyang koponan."
+        "name": "Nakakasakit na lane EXP",
+        "context": "Sa EXP lane, kapag dapat manalo si Chou sa kanyang tunggalian sa halip na pagsilbihan ang kanyang koponan."
       }
     ]
   },
   "yu-zhong": {
-    "summary": "Sanay na lane fighter na nagpapagaling sa sarili sa paghagupit at nagiging napakahirap na patayin sa matagal na labanan.",
+    "summary": "EXP lane fighter na nagpapagaling sa sarili sa pagtama at nagiging napakahirap na patayin sa matagal na labanan.",
     "analysis": "Si Yu Zhong ay nanalo sa mga laban sa huli. Binabago ng passive nito ang bahagi ng pinsalang idinulot sa isang kalasag, na ginagawang napakahusay kapag mayroong ilang target sa hanay - ang isang limang-daan na paghaharap ay nagbibigay ng higit na pagbabalik kaysa sa isang tunggalian.\n\nAng kanyang ultimate ay nagiging immune sa kanya sa mga tseke habang siya ay sumusulong, na ginagawa rin siyang isang kapani-paniwalang initiator. Ang pagharap dito ay halos palaging nagsasangkot ng pagbabawas ng paggaling: kung wala ito, ang isang mahusay na kagamitang Yu Zhong ay sumisipsip ng isang buong koponan.",
     "skills": [
       "Ang pinsalang hinarap ng kanyang mga skill ay bahagyang napalitan sa isang kalasag, na may mas mataas na kahusayan sa maraming mga target.",
@@ -185,13 +185,13 @@
       "Magandang lane push at magandang wave control"
     ],
     "weaknesses": [
-      "Na-collapse sa pamamagitan ng pinababang pangangalaga",
+      "Napakahina ng pagbawas sa pagpapagaling",
       "Marupok na simula sa laro bago ang ikatlong item",
       "Maliit na damage sa nag-iisang nakahiwalay na target"
     ],
     "builds": [
       {
-        "name": "Karanasan sa pagbabagong-buhay",
+        "name": "EXP lane regeneration",
         "context": "Ang reference build: resistance at lifesteal, dahil ang passive ay nagko-convert na ng damage sa isang shield."
       }
     ]
@@ -213,7 +213,7 @@
     "weaknesses": [
       "Nawawala ang lahat ng interes nito kung ang mga bintana ay sira",
       "Napaka-bulnerable kapag nagamit ang mga skill",
-      "Retribution laban sa mga hero na nagpapanatili ng kanilang kontrol"
+      "Pinarusahan ng mga hero na nagpapanatili ng kanilang kontrol"
     ],
     "builds": [
       {
@@ -223,8 +223,8 @@
     ]
   },
   "dyrroth": {
-    "summary": "Rage fighter na nag-alis ng pisikal na baluti mula sa kanyang target bago sila hampasin, naglaro sa experience lane pati na rin sa jungle.",
-    "analysis": "Nagbubuo ng galit si Dyrroth habang nakikipaglaban; Sa mid-gauge, ang kanyang unang dalawang skill ay naging isang reinforced na bersyon, na may higit na saklaw o higit pang damage. Bawat dalawang basic attack ay tumama siya sa isang bilog sa paligid ng kanyang sarili at nagpapagaling sa kanyang sarili, at ang bawat hit ng hero ay nagpapaikli sa kanyang mga cooldown. Inilunsad ito ng Skill 2 sa isang target pagkatapos, muling i-recast, aalisin ang malaking bahagi ng pisikal na baluti nito sa loob ng ilang segundo: ito ang pagbubukas na ginagawang epektibo ang natitirang damage nito. Ang pinakahuli ay umalis pagkatapos ng maikling pagkaantala, hindi maaantala, at nagpapabagal sa lahat ng dinadaanan nito.\n\nSiya ay nabubuhay sa kanyang maagang mga rally sa laro: ang kanyang nasusukat na win rate ay pinakamataas sa maiikling laro at bumaba sa ibaba ng average pagkatapos ng ikalabing walong minuto. Nag-iiba rin ang mga numero nito depende sa ranggo, mas mababa sa Mythic kaysa sa Mythic Glory. Ang mga hakbang ay naglalagay sa kanya sa kahirapan laban sa Masha, Benedetta at Thamuz.",
+    "summary": "Rage fighter na nag-alis ng physical armor ng kanyang target bago sila hampasin, naglaro sa EXP lane at jungle.",
+    "analysis": "Nagbubuo ng galit si Dyrroth habang nakikipaglaban; Sa mid-gauge, ang kanyang unang dalawang skill ay naging isang reinforced na bersyon, na may higit na saklaw o higit pang damage. Bawat dalawang basic attack ay tumama siya sa isang bilog sa paligid ng kanyang sarili at nagpapagaling sa kanyang sarili, at ang bawat hit ng hero ay nagpapaikli sa kanyang mga cooldown. Inilunsad ito ng Skill 2 sa isang target pagkatapos, muling i-recast, aalisin ang malaking bahagi ng pisikal na baluti nito sa loob ng ilang segundo: ito ang pagbubukas na ginagawang epektibo ang natitirang damage nito. Ang pinakahuli ay umalis pagkatapos ng maikling pagkaantala, hindi maaantala, at nagpapabagal sa lahat ng dinadaanan nito.\n\nNabubuhay siya sa kanyang mga rally sa maagang laro: ang kanyang nasusukat na win rate ay pinakamataas sa maiikling laro at bumaba sa ibaba ng average pagkatapos ng ikalabing walong minuto. Nag-iiba din ang mga numero nito depende sa ranggo, mas mababa sa Mythic kaysa sa Mythic Glory. Ang mga hakbang ay naglalagay sa kanya sa kahirapan laban sa Masha, Benedetta at Thamuz.",
     "skills": [
       "Mula sa kalahati ng kanyang sukat ng galit, ang kanyang mga skill 1 at 2 ay pinalakas. Bawat dalawang basic attack, pumutok siya sa isang bilog at bumabawi ng HP, at binabawasan ng bawat hero hit ang mga cooldown ng kanyang unang dalawang skill.",
       "Line strike na nagpapabagal sa pagtama ng mga kaaway. Pinapatibay, ito ay nagdadala ng higit pa, tumama nang mas malakas at mas bumagal: isang mahusay na paraan upang maiwasan ang isang target na lumabas sa saklaw.",
@@ -235,7 +235,7 @@
       "Ang pagbabawas ng pisikal na sandata ay binuo sa skill 2",
       "Regular na pagpapagaling sa labanan salamat sa passive nito",
       "Pinaikli ang mga cooldown para sa bawat hit ng hero",
-      "Dalawang posibleng posisyon: experience lane o jungle"
+      "Dalawang posibleng posisyon: EXP lane o jungle"
     ],
     "weaknesses": [
       "Ang win rate ay sinusukat na bumababa sa mahabang laro",
@@ -245,8 +245,8 @@
     ],
     "builds": [
       {
-        "name": "Experience lane",
-        "context": "Ang pinaka-pinatugtog na build in experience lane para sa lahat ng rank: War Axe at Queen's Wings para sa lifesteal at survival, Rose Gold Meteor para sa shield kapag bumaba ang HP nito. Ang mga pagpipilian ay nananatiling napakalat sa posisyong ito, at sa Mythic Glory ito ay isang penetration version (Blade of the Heptaseas, Hunter Strike, Rose Gold Meteor) na mauuna."
+        "name": "EXP lane",
+        "context": "Ang pinakamaraming nilalaro na build sa EXP lane sa lahat ng rank: War Axe at Queen's Wings para sa lifesteal at survival, Rose Gold Meteor para sa shield kapag bumaba ang HP nito. Ang mga pagpipilian ay nananatiling napakalat sa posisyong ito, at sa Mythical Glory ito ay isang penetration version (Blade of the Heptaseas, Hunter Strike, Rose Gold Meteor) na mauuna."
       },
       {
         "name": "jungle",
@@ -256,7 +256,7 @@
   },
   "sun": {
     "summary": "Fighter na dumarami: ang kanyang mga doble ay humampas sa kanya, pagalingin siya at kinakain ang baluti ng mga target.",
-    "analysis": "Si Sun ay nakikipaglaban sa pamamagitan ng pagpapatawag ng mga doble. Ang kanyang unang dalawang skill ay itinapon ang kanyang mga tauhan, na nag-iiwan ng pansamantalang duplicate; itinago siya ng pangalawa habang gumagalaw siya gamit ang stick. Ang ultimate ay nagpapatawag ng mas matibay na duplicate, na mas malapit sa sarili nitong mga istatistika. Ang bawat hit mula sa Sun o ang kanyang doubles ay bahagyang binabawasan ang pisikal na armor ng target, at ang bawat hit mula sa isang double ay nagpapagaling nito: kung mas maraming doble ang nasa target, mas mabilis itong natutunaw at mas tumatagal.\n\nAng kanyang nasusukat na profile ay sa isang hero sa huli: ang win rate ay mas mababa sa average sa mga laro na tumatagal ng wala pang labing-apat na minuto, pagkatapos ay mas mataas pagkatapos ng panlabing-anim. Madalas din siyang pinagbawalan, lalo na sa Mythic rank. Ang double the ultimate ay tumatagal ng mas mataas na damage, at ang mga sukatan ay naglalagay sa Sun sa problema laban kina Aldous, Natan, Alucard, Joy, at Ruby.",
+    "analysis": "Si Sun ay nakikipaglaban sa pamamagitan ng pagpapatawag ng mga doble. Ang kanyang unang dalawang skill ay itinapon ang kanyang mga tauhan, na nag-iiwan ng pansamantalang duplicate; itinago siya ng pangalawa habang gumagalaw siya gamit ang stick. Ang ultimate ay nagpapatawag ng mas matibay na duplicate, na mas malapit sa sarili nitong mga istatistika. Ang bawat hit mula sa Sun o ang kanyang doubles ay bahagyang binabawasan ang pisikal na armor ng target, at ang bawat hit mula sa isang double ay nagpapagaling nito: kung mas maraming doble ang nasa target, mas mabilis itong natutunaw at mas tumatagal.\n\nAng kanyang nasusukat na profile ay sa isang hero sa huli: mas mababa sa average na win rate sa mga laro na tumatagal ng wala pang labing-apat na minuto, pagkatapos ay mas mataas pagkatapos ng panlabing-anim. Madalas din siyang pinagbawalan, lalo na sa Mythical rank. Ang double the ultimate ay tumatagal ng mas mataas na damage, at ang mga sukatan ay naglalagay sa Sun sa problema laban kina Aldous, Natan, Alucard, Joy, at Ruby.",
     "skills": [
       "Ang bawat hit mula sa Sun o isang doble ay binabawasan ang pisikal na baluti ng target, na nakasalansan. Sa tuwing may double deal na damage, binabawi ng Sun ang HP. Ang kanyang mga pag-atake at ang kanyang mga kadoble ay mas tumama rin sa mga halimaw.",
       "Itinapon ang stick sa isang linya; sa epekto o sa pagtatapos ng stroke, ito ay nagiging double na pumalit sa bahagi ng mga istatistika nito. Ibinabahagi ang cooldown at mga antas nito sa skill 2.",
@@ -276,8 +276,8 @@
     ],
     "builds": [
       {
-        "name": "Experience lane",
-        "context": "Ang pinaka-naglarong build sa experience lane: ang attack speed at kritikal, kung saan nakikinabang ang doble nito sa pamamagitan ng pagbawi ng bahagi ng mga epekto ng pag-atake nito, at Great Dragon Spear para sa bilis pagkatapos ng ultimate. Ito ay kadalasang nauugnay sa emblem ng suporta at spell na Petrify."
+        "name": "EXP lane",
+        "context": "Ang pinakamaraming nilalaro na build sa EXP lane: ang attack speed at kritikal, kung saan nakikinabang ang doble nito sa pamamagitan ng pagbawi ng bahagi ng mga epekto ng pag-atake nito, at Great Dragon Spear para sa bilis pagkatapos ng ultimate. Ito ay kadalasang nauugnay sa emblem ng suporta at spell na Petrify."
       },
       {
         "name": "jungle",
@@ -337,14 +337,14 @@
     ],
     "builds": [
       {
-        "name": "Sumasabog na kapaligiran",
+        "name": "Paputok na mid lane",
         "context": "Ang karaniwang build: mahiwagang pagtagos upang mapanatili ang damage laban sa mga unang bagay na nagtatanggol."
       }
     ]
   },
   "pharsa": {
     "summary": "Artillery Mage: Ang kanyang mga ultimate strike sa buong mapa, nang hindi nakapasok sa labanan.",
-    "analysis": "Naglalaro si Pharsa sa saklaw. Ang kanyang ultimate ay isang channeled bombardment na sumasaklaw sa isang malaking lugar mula sa mahabang hanay, na nagpapahintulot sa kanya na lumahok sa isang labanan na halos hindi niya nakikita. Mahusay ang pagkakalagay, ang spell na ito lamang ang makakapagpasya ng isang sagupaan sa paligid ng Lord.\n\nAng kanyang skill 2 ay nagbibigay sa kanya ng lumilipad na anyo na dumadaan sa mga pader, na mahalaga para sa muling pagpoposisyon pagkatapos ng channeling. Ang mahinang punto ay halata: sa panahon ng kahuli-hulihan siya ay hindi kumikibo at walang pagtatanggol, at sinumang assassin na makakahanap sa kanya ay pumatay sa kanya.",
+    "analysis": "Naglalaro si Pharsa sa saklaw. Ang kanyang ultimate ay isang channeled bombardment na sumasaklaw sa isang malaking lugar sa mahabang hanay, na nagpapahintulot sa kanya na lumahok sa isang labanan na halos hindi niya nakikita. Mahusay ang pagkakalagay, ang spell na ito lamang ang makapagpapasiya ng paghaharap sa paligid ng Lord.\n\nAng kanyang skill 2 ay nagbibigay sa kanya ng lumilipad na anyo na dumadaan sa mga pader, na mahalaga para sa muling pagpoposisyon pagkatapos ng channeling. Ang mahinang punto ay halata: sa panahon ng kahuli-hulihan siya ay hindi kumikibo at walang pagtatanggol, at sinumang assassin na makakahanap sa kanya ay pumatay sa kanya.",
     "skills": [
       "Pagkatapos ng isang skill, ang kanyang susunod na basic attack ay may bonus na magic damage.",
       "Nagpapadala ng alon na sumasabog mula sa malayo, na humaharap sa damage sa lugar.",
@@ -363,7 +363,7 @@
     ],
     "builds": [
       {
-        "name": "Artilerya sa gitna",
+        "name": "Mid lane artilerya",
         "context": "Range at raw damage, na may late defensive item para makaligtas sa isang dive."
       }
     ]
@@ -389,8 +389,8 @@
     ],
     "builds": [
       {
-        "name": "Pinagsama-samang kapaligiran",
-        "context": "Mana at mag-recharge muna para mabilis mag-stack, masira mamaya. Ang Hourglass ay hindi opsyonal."
+        "name": "Pag-iipon ng mid lane",
+        "context": "Mana at mag-recharge muna para mabilis mag-stack, masira mamaya. Ang Enchanted Talisman ay hindi opsyonal."
       }
     ]
   },
@@ -518,7 +518,7 @@
   },
   "nana": {
     "summary": "Panliligalig mage na incapacitates isang target sa pamamagitan ng pagbabago nito, at survives isang nakamamatay na suntok ng isang beses.",
-    "analysis": "Pinapagod ni Nana ang kanyang mga kalaban mula sa malayo gamit ang isang boomerang na tumama nang pabalik-balik. Ang kanyang skill 2 ay nagpapadala kay Molina upang ituloy ang pinakamalapit na hero ng kaaway: ang natamaan niya ay nabago sa loob ng maikling panahon, bumagal at humina laban sa magic damage. Ang ultimate ay tumama sa isang lugar nang tatlong beses at na-stun ang mga kaaway na tumama nang maraming beses nang sunud-sunod. Ang kanyang passive ay nagbibigay sa kanya, isang beses bawat dalawa at kalahating minuto, ng isang hindi masusugatan na pagbabago sa sandaling siya ay dapat mamatay.\n\nAng mga sinusukat na numero nito ay mababa: mas mababa sa average na win rate sa lahat ng rank, mas mababa pa sa Mythic Glory, na walang tunay na improvement sa mahabang laro. Habang binabago ang kanyang passive, hindi siya makakapagbigay ng anumang mga skill, at pinili ni Molina ang kanyang target sa mga kalapit na hero. Ang mga counter gaps ay nananatiling katamtaman; ang pinakamalinaw na lugar sa kanya sa kahirapan laban kay Gloo, pagkatapos laban kay Akai at Hylos.",
+    "analysis": "Pinapagod ni Nana ang kanyang mga kalaban mula sa malayo gamit ang isang boomerang na tumama nang pabalik-balik. Ang kanyang skill 2 ay nagpapadala kay Molina upang ituloy ang pinakamalapit na hero ng kaaway: ang natamaan niya ay nabago sa loob ng maikling panahon, bumagal at humina laban sa magic damage. Ang ultimate ay tumama sa isang lugar nang tatlong beses at na-stun ang mga kaaway na tumama nang maraming beses nang sunud-sunod. Ang kanyang passive ay nagbibigay sa kanya, isang beses bawat dalawa at kalahating minuto, ng isang hindi masusugatan na pagbabago sa sandaling siya ay dapat mamatay.\n\nAng mga sinusukat na numero nito ay mababa: mas mababa sa average na win rate sa lahat ng rank, mas mababa pa sa Mythic Glory, na walang tunay na improvement sa mahabang laro. Habang binabago ang kanyang passive, hindi siya makakapagbigay ng anumang mga skill, at si Molina ang pumili ng kanyang target sa mga kalapit na hero. Ang mga pagkakaiba sa kontra ay nananatiling katamtaman; ang pinakamalinaw na lugar sa kanya sa kahirapan laban kay Gloo, pagkatapos laban kay Akai at Hylos.",
     "skills": [
       "Nahaharap sa isang nakamamatay na suntok, inaalis niya ang mga negatibong epekto at nagbabago: hindi masusugatan, mas mabilis, nakabawi siya ng kaunting HP ngunit hindi makapaglunsad ng anumang mga skill. Ang epekto ay may mahabang cooldown.",
       "Isang boomerang na tumatama sa daan palabas at pabalik. Ang damage nito ay bumababa para sa bawat karagdagang kaaway na tumawid: mas mahusay na maghangad sa isang nakahiwalay na target.",
@@ -556,7 +556,7 @@
     "strengths": [
       "Napakaaga ng power peak",
       "Long range damage na may ultimate",
-      "Gumagana sa jungle pati na rin sa gold lane"
+      "Gumagana sa jungle tulad ng sa Gold lane"
     ],
     "weaknesses": [
       "Walang kontrol",
@@ -565,7 +565,7 @@
     ],
     "builds": [
       {
-        "name": "Gintong hilaw na damage",
+        "name": "Gold lane, raw damage",
         "context": "Ang attack speed ay walang idinagdag sa passive nito: pinagta-stack namin ang damage at pagtagos ng atake."
       }
     ]
@@ -591,7 +591,7 @@
     ],
     "builds": [
       {
-        "name": "Long range na ginto",
+        "name": "Gold lane, mahabang hanay",
         "context": "Pares ng precision rifle at grenade launcher: lalayo tayo at matumbok ang mga layunin."
       }
     ]
@@ -617,14 +617,14 @@
     ],
     "builds": [
       {
-        "name": "Pamantayan ng ginto",
+        "name": "Gold lane standard",
         "context": "Attack speed at Kritikal: Patuloy na nagpaputok si Melissa hanggang sa matamaan siya."
       }
     ]
   },
   "miya": {
     "summary": "Pure basic attack shooter: nakakakuha siya ng momentum hangga't tumatama siya, at ang kanyang ultimate ay nagpapawala sa kanya sa sandaling tutok mo siya.",
-    "analysis": "Ibinase ni Miya ang lahat sa basic attack. Ang attack speed ng mga passive stack nito sa bawat putok na tumama, ang skill 1 ay nagdaragdag ng mga karagdagang arrow na nakakasira din sa mga kalapit na target, at ang skill 2 ay nag-i-immobilize sa isang lugar bago pabagalin ang nasa paligid nito. Ang kanyang ultimate ay nag-aalis ng mga negatibong epekto, ginagawa siyang invisible at inilalabas siya sa estadong ito na ang kanyang passive ay nasa full charge na: ito ay ginagamit upang makatakas bilang upang bumalik sa exchange sa buong bilis. Ang sinusukat nitong win rate ay bahagyang tumataas sa haba ng laro.\n\nWala itong instant na paggalaw. Kapag nagamit na ang ultimate, skill 2 na lang ang natitira niya para pabagalin ang isang umaatake, at bumababa ang bilis niya sa sandaling huminto siya sa pagtama ng target. Ang mga countermeasure ay naglalagay sa kanya sa kahirapan laban sa Beatrix, Granger, Gatotkaca, Karina at Belerick, na may isang puwang na matatagpuan mula sa Mythic rank hanggang sa Mythic Glory rank.",
+    "analysis": "Ibinase ni Miya ang lahat sa basic attack. Ang attack speed ng mga passive stack nito sa bawat putok na tumama, ang skill 1 ay nagdaragdag ng mga karagdagang arrow na nakakasira din sa mga kalapit na target, at ang skill 2 ay nag-i-immobilize sa isang lugar bago pabagalin ang nasa paligid nito. Ang kanyang ultimate ay nag-aalis ng mga negatibong epekto, ginagawa siyang invisible at inilalabas siya sa estadong ito na ang kanyang passive ay nasa full charge na: ito ay ginagamit upang makatakas bilang upang bumalik sa exchange sa buong bilis. Ang sinusukat nitong win rate ay bahagyang tumataas sa haba ng laro.\n\nWala itong instant na paggalaw. Kapag nagamit na ang ultimate, skill 2 na lang ang natitira niya para pabagalin ang isang umaatake, at bumababa ang bilis niya sa sandaling huminto siya sa pagtama ng target. Ang mga countermeasure ay naglalagay sa kanya sa kahirapan laban sa Beatrix, Granger, Gatotkaca, Karina at Belerick, na may isang puwang na matatagpuan mula sa Mythical rank hanggang sa Mythical Glory rank.",
     "skills": [
       "Ang bawat basic attack na tumama ay nagdaragdag ng isang antas ng attack speed, hanggang lima. Sa full charge, ang bawat shot ay nagdudulot ng paglitaw ng anino na tumatama dito: ang buong punto ay hindi na hahayaang bumagsak muli ang mga antas.",
       "Sa loob ng ilang segundo, ang bawat basic attack ay may kasamang dalawa pang arrow, at ang bahagi ng damage ay tumama sa mga kaaway na malapit sa target. Upang ihagis sa simula ng isang palitan o sa isang alon ng mga minions.",
@@ -646,7 +646,7 @@
     "builds": [
       {
         "name": "Kritikal",
-        "context": "Ang pinakamaraming nilalaro na build sa gold lane, pinagsama ang lahat ng rank, tulad ng sa Mythic Glory: ang kritikal na pagkakataon ay nagpapalakas ng Berserker's Fury at nagti-trigger ng attack speed na Haas' Claws, na nagbibigay din ng lifesteal."
+        "context": "Ang pinakamaraming nilalaro na build sa Gold lane, pinagsama-sama ang lahat ng rank, pati na rin sa Mythic Glory: ang kritikal na pagkakataon ay nagpapalakas ng Berserker's Fury at nagti-trigger ng attack speed na Haas' Claws, na nagbibigay din ng lifesteal."
       },
       {
         "name": "Pagkasira ng epekto",
@@ -656,7 +656,7 @@
   },
   "hanabi": {
     "summary": "Rebounding damage shooter, na kumokontrol ay hindi tumama habang siya ay may dalang kalasag.",
-    "analysis": "Si Hanabi ay nagdulot ng kanyang damage sa ricochet: bawat basic attack o kasanayang tumama ay nagpapadala ng mga blades pabalik sa mga kalapit na kaaway, na ginagawang epektibo siya sa mga labanan ng grupo at sa mga alon. Ang kanyang skill 1 ay nagbibigay sa kanya ng isang kalasag, at hangga't ang isang kalasag ay nagpoprotekta sa kanya, ang mga epekto ng kontrol ay walang epekto sa kanya; bahagi ng pinsalang idinudulot nito ay nagre-recharge din sa kalasag na ito. Pina-immobilize ng kanyang ultimate ang unang hero hit bago sumabog sa paligid niya.\n\nGayunpaman, wala siyang agarang paggalaw: kung bumagsak ang kalasag, magiging madaling puntirya siyang maabot muli. Ang kanyang nasusukat na win rate ay pinakamataas sa maiikling laro at makabuluhang bumababa habang humahaba ang mga ito, bumababa sa ibaba ng limampung porsyento pagkatapos ng ikalabing walong minuto. Sa ranggo ng Mythic Glory, ang mga sukat ay naglalagay sa kanya sa kahirapan laban kay Lolita, Joy, Beatrix, Wanwan at Ixia.",
+    "analysis": "Si Hanabi ay nagdulot ng kanyang damage sa ricochet: bawat basic attack o kasanayang tumama ay nagpapadala ng mga blades pabalik sa mga kalapit na kaaway, na ginagawang epektibo siya sa mga labanan ng grupo at sa mga alon. Ang kanyang skill 1 ay nagbibigay sa kanya ng isang kalasag, at hangga't ang isang kalasag ay nagpoprotekta sa kanya, ang mga epekto ng kontrol ay walang epekto sa kanya; bahagi ng pinsalang idinudulot nito ay nagre-recharge din sa kalasag na ito. Pina-immobilize ng kanyang ultimate ang unang hero hit bago sumabog sa paligid niya.\n\nGayunpaman, wala siyang agarang paggalaw: kung bumagsak ang kalasag, magiging madaling puntirya siyang maabot muli. Ang kanyang nasusukat na win rate ay pinakamataas sa maiikling laro at makabuluhang bumababa habang humahaba ang mga ito, bumababa sa ibaba ng limampung porsyento pagkatapos ng ikalabing walong minuto. Sa Mythical Glory rank, ang mga sukat ay naglalagay sa kanya sa kahirapan laban kay Lolita, Joy, Beatrix, Wanwan at Ixia.",
     "skills": [
       "Ang bawat basic attack o kasanayang tumama ay nagpapadala ng mga blades pabalik sa maraming kalapit na kaaway, na bumababa ang damage sa bawat bounce. Nabawi ng mga bounce ng basic na pag-atake ang ilan sa mga epekto nito sa pag-atake.",
       "Habang may suot na kalasag, anuman ang pinagmulan nito, hindi pinapansin ng Hanabi ang mga kontrol. Sa pamamagitan ng pag-activate nito, pinoprotektahan niya ang kanyang sarili, nakakakuha ng paggalaw at attack speed, at bahagi ng pinsalang dulot nito ay nagpapalakas sa kalasag na ito hanggang sa isang tiyak na limitasyon.",
@@ -678,7 +678,7 @@
     "builds": [
       {
         "name": "Pinalakas na pag-atake",
-        "context": "Sa ngayon, ang pinakamaraming nilalaro na build sa gold lane: Corrosion Scythe, Demon Hunter Sword at Golden Staff palakasin ang bawat basic attack, na ang mga rebound ay nabawi ang bahagi ng mga epekto. Ito ay madalas na nauugnay sa fighter emblem at ang spell na Aegis, na ang kalasag ay ginagawang immune din ito sa mga tseke."
+        "context": "Sa ngayon ang pinakamaraming nilalaro na build sa Gold lane: Corrosion Scythe, Demon Hunter Sword at Golden Staff palakasin ang bawat basic attack, ang mga rebound kung saan nabawi ang bahagi ng mga epekto. Ito ay madalas na nauugnay sa fighter emblem at ang spell na Aegis, na ang kalasag ay ginagawang immune din ito sa mga tseke."
       }
     ]
   },
@@ -716,7 +716,7 @@
   },
   "estes": {
     "summary": "Ang pinakamasamang pagpapagaling sa laro: ang pinakahuling nito ay muling bumubuo sa buong koponan sa loob ng ilang segundo.",
-    "analysis": "Walang ginawa si Estes kundi magpagaling, ngunit ginagawa niya ito sa volume na hindi naaabot ng ibang suporta. Sa isang matagal na pakikipaglaban sa isang layunin, ang kanyang ultimate ay maaaring magpawalang-bisa sa halaga ng isang buong komposisyon ng matagal na damage.\n\nDahil dito, siya rin ang pinakanakadepende sa konteksto na hero sa roster. Laban sa isang pangkat na bumibili ng healing reduction, o may isang initiation na kayang alisin muna ito, halos wala na itong silbi. Hindi ito nagbibigay ng kontrol, walang damage, walang kadaliang kumilos: kung hindi ito gumaling, hindi ito umiiral.",
+    "analysis": "Walang ginawa si Estes kundi magpagaling, ngunit ginagawa niya ito sa volume na hindi naaabot ng ibang suporta. Sa isang matagal na pakikipaglaban sa isang layunin, ang kanyang ultimate ay maaaring magpawalang-bisa sa halaga ng isang buong komposisyon ng matagal na damage.\n\nGinagawa rin nitong siya ang pinakanakadepende sa konteksto na hero sa buong laro. Laban sa isang team na bumibili ng healing reduction, o may initiation na kayang alisin muna siya, halos wala na siyang silbi. Hindi ito nagbibigay ng kontrol, walang damage, walang kadaliang kumilos: kung hindi ito gumaling, hindi ito umiiral.",
     "skills": [
       "Ang kanyang pagpapagaling ay naglalapat ng marka na nagpapataas ng pagbabagong-buhay ng mga apektadong kaalyado.",
       "Pinapagaling ang isang naka-target na kaalyado at pinapataas ang kanilang movement speed.",
@@ -885,7 +885,7 @@
     "strengths": [
       "Ang pinakamahusay na pagpapangkat sa laro sa maraming target",
       "Napakatibay kahit na may katamtamang badyet ng mga bagay",
-      "Nababasa: madaling matutunan sa isang mababang ranggo na laro"
+      "Nababasa: madaling matutunan sa mga mas mababang ranggo"
     ],
     "weaknesses": [
       "Useless kapag cooldown ang ultimate niya",
@@ -898,8 +898,8 @@
         "context": "Ang default na build. Isinasakripisyo namin ang lahat ng damage para maabot ang contact at makaligtas sa pagbubukas ng laban."
       },
       {
-        "name": "Harapan na Lumalaban sa Magic",
-        "context": "Laban sa isang magkasalungat na komposisyon na may dalawa o higit pang mga mage, o kapag ang magkasalungat na mahiwagang damage ay lumampas sa pisikal."
+        "name": "Anti-magic frontline",
+        "context": "Laban sa isang magkasalungat na komposisyon na may dalawa o higit pang mga mage, o kapag ang magkasalungat na magic damage ay lumampas sa pisikal na damage."
       }
     ]
   },
@@ -914,13 +914,13 @@
     ],
     "strengths": [
       "Tinatanggal ang isang pangunahing target mula sa labanan, anuman ang pagtutol",
-      "Napakahusay na kontrol sa layunin sa paligid ng Lord at Turtle",
+      "Napakahusay na kontrol sa layunin sa paligid ng Lord at ng Turtle",
       "Malaking gantimpala ang pagbabasa ng card"
     ],
     "weaknesses": [
       "Ang isang bigong grappling hook ay nag-iwan sa kanya ng wala sa loob ng walong segundo",
       "Masyadong nakadepende sa paningin at mga palumpong",
-      "Ang pinakahuli ay iisang target: nang walang relay, mamamatay ito pagkatapos"
+      "Ang panghuli ay naglalayon lamang sa isang target: nang walang relay, pagkatapos ay mamatay ito"
     ],
     "builds": [
       {
@@ -944,7 +944,7 @@
       "Maaaring ihiwalay ang isang target laban sa isang pader"
     ],
     "weaknesses": [
-      "Kung wala ang kanyang mga skill wala siyang bilis",
+      "Kung wala ang kanyang mga skill siya ay napakabagal",
       "Mahabang cooldown sa simula ng laro",
       "Hindi masyadong kapaki-pakinabang laban sa isang koponan na walang paggalaw"
     ],

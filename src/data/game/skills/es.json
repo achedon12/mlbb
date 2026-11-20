@@ -231,7 +231,7 @@
     },
     {
       "name": "Heartguard",
-      "description": "Ángela comienza a canalizar, aplicando un escudo de 600 (+150% de poder mágico total) al héroe aliado objetivo sin importar la distancia. Una vez unido a un aliado, el escudo permanece hasta que se desprende. Una vez completada la canalización, se une al héroe aliado durante 20 segundos, durante los cuales puede lanzar habilidades sin coste de maná. Ángela puede volver a lanzar esta habilidad para cancelar la canalización o separarse del héroe aliado. El estado adjunto terminará antes de tiempo si el héroe aliado muere.",
+      "description": "Angela comienza a canalizar, aplicando un escudo de 600 (+150 % de poder mágico total) al héroe aliado objetivo sin importar la distancia. Una vez unido a un aliado, el escudo permanece hasta que se desprende. Una vez completada la canalización, se une al héroe aliado durante 20 segundos, durante los cuales puede lanzar habilidades sin coste de maná. Angela puede volver a lanzar esta habilidad para cancelar la canalización o separarse del héroe aliado. El estado adjunto terminará antes de tiempo si el héroe aliado muere.",
       "cooldown": [
         60
       ],
@@ -1097,7 +1097,7 @@
     },
     {
       "name": "Spectre Step",
-      "description": "Dyrroth corre en la dirección objetivo. Se detiene al alcanzar la distancia máxima o golpear a un héroe o creep enemigo, causando 230 (+60 % de ataque físico adicional) de daño físico y derribándolo ligeramente. Usar de nuevo: Dyrroth se fija en un objetivo y desata un golpe fatal, que inflige 345 (+120 % de ataque físico adicional) de daño físico y reduce su defensa física en un 40 % durante 4 s. Abismo mejorado: Golpe fatal llega más lejos e inflige el 150 % del daño original, ralentiza al objetivo en un 90 % adicional y reduce su defensa física en un 60 % durante 4 s.",
+      "description": "Dyrroth corre en la dirección objetivo. Se detiene al alcanzar la distancia máxima o golpear a un héroe o creep enemigo, causando 230 (+60 % de ataque físico adicional) de daño físico y derribándolo ligeramente. Usar de nuevo: Dyrroth se fija en un objetivo y desata un golpe Fatal, que inflige 345 (+120 % de ataque físico adicional) de daño físico y reduce su defensa física en un 40 % durante 4 s. Abismo mejorado: Fatal El golpe llega más lejos e inflige el 150 % del daño original, ralentiza al objetivo un 90 % adicional y reduce su defensa física un 60 % durante 4 s.",
       "cooldown": [
         6
       ]
@@ -1320,7 +1320,7 @@
   "floryn": [
     {
       "name": "Dew",
-      "description": "Dew's Lantern aumentará permanentemente los atributos de Floryn en una pequeña cantidad. Después de dejar el combate durante 5 segundos, Floryn puede compartir la Flor de la Esperanza con un héroe aliado (reutilización de 30 segundos), lo que les otorgará un escudo de 100 (+70 % de poder mágico total) cada vez que Floryn los cure. Floryn nunca venderá la Linterna."
+      "description": "Dew's Lantern aumentará permanentemente los atributos de Floryn en una pequeña cantidad. Después de abandonar el combate durante 5 segundos, Floryn puede compartir el Flower of Hope con un héroe aliado (reutilización de 30 segundos), lo que les otorgará un escudo de 100 (+70 % de poder mágico total) cada vez que sean curados por Floryn. Floryn nunca venderá la Linterna."
     },
     {
       "name": "Sow",
@@ -1605,21 +1605,21 @@
     },
     {
       "name": "Energy Wave",
-      "description": "Ginebra libera un orbe de energía en la dirección objetivo, lo que inflige 300 (+125 % del poder mágico total) de daño mágico y ralentiza a los enemigos en un 25 % durante 1,2 s. Golpear con éxito a un enemigo reduce todos los tiempos de reutilización de sus habilidades en 1 s.",
+      "description": "Guinevere libera un orbe de energía en la dirección objetivo, lo que inflige 300 (+125 % del poder mágico total) de daño mágico y ralentiza a los enemigos en un 25 % durante 1,2 s. Golpear con éxito a un enemigo reduce todos los tiempos de reutilización de sus habilidades en 1 s.",
       "cooldown": [
         4
       ]
     },
     {
       "name": "Spatial Migration",
-      "description": "Ginebra salta a la ubicación objetivo e inflige 250 (+80 % del poder mágico total) de daño mágico. Los héroes enemigos y los Creeps golpeados serán lanzados al aire durante 1 segundo y recibirán 125 (+50 % del poder mágico total) de daño mágico adicional. Usar de nuevo: Ginebra parpadea hacia la dirección del objetivo y deja una ilusión detrás. Si la ilusión recibe daño del héroe, restaura la súper magia de Ginebra y explota después de 1,5 s, lo que inflige 100 (+30 % del poder mágico total) de daño mágico a los enemigos cercanos.",
+      "description": "Guinevere salta a la ubicación objetivo, causando 250 (+80% del poder mágico total) de daño mágico. Los héroes enemigos y los Creeps golpeados serán lanzados al aire durante 1 segundo y recibirán 125 (+50 % del poder mágico total) de daño mágico adicional. Usar de nuevo: Guinevere parpadea hacia la dirección objetivo y deja una ilusión detrás. Si la ilusión recibe daño del héroe, restaura la súper magia durante Guinevere y explota después de 1,5 s, lo que inflige 100 (+30 % del poder mágico total) de daño mágico a los enemigos cercanos.",
       "cooldown": [
         17
       ]
     },
     {
       "name": "Violet Requiem",
-      "description": "Ginebra crea un campo de fuerza a su alrededor, obteniendo inmunidad al control mientras ataca a los enemigos cercanos 11 veces en 2 s, lo que inflige 880 (+385 % del poder mágico total) de daño mágico en total. Los enemigos en el aire golpeados serán derribados nuevamente, hasta 8 veces más.",
+      "description": "Guinevere crea un campo de fuerza a su alrededor, ganando inmunidad de control mientras ataca a los enemigos cercanos 11 veces en 2 s, causando 880 (+385 % de poder mágico total) de daño mágico en total. Los enemigos en el aire golpeados serán derribados nuevamente, hasta 8 veces más.",
       "cooldown": [
         52
       ]
@@ -2602,7 +2602,7 @@
     },
     {
       "name": "Ultimate Snipe",
-      "description": "Pasiva: La probabilidad de crítico de Lesley aumenta en un 10%. Activo: Lesley fija a un héroe enemigo y dispara 4 balas fatales seguidas. Cada bala inflige 250 (+80 % de ataque físico adicional) (+ 5 % de los HP perdidos del objetivo) de daño físico y restaura 10 de energía al golpear. Las balas pueden ser bloqueadas por otros héroes enemigos. Si esta habilidad se interrumpe, cada bala restante reduce el tiempo de reutilización de esta habilidad en un 10%.",
+      "description": "Pasiva: La probabilidad de crítico de Lesley aumenta en un 10%. Activo: Lesley fija a un héroe enemigo y dispara 4 Fatal balas seguidas. Cada bala inflige 250 (+80% de ataque físico adicional) (+5% de los HP perdidos del objetivo) de daño físico y restaura 10 de energía al golpear. Las balas pueden ser bloqueadas por otros héroes enemigos. Si esta habilidad se interrumpe, cada bala restante reduce el tiempo de reutilización de esta habilidad en un 10%.",
       "cooldown": [
         40
       ],
@@ -3457,7 +3457,7 @@
     },
     {
       "name": "Bite 'em, Kupa!",
-      "description": "Popol lanza una lanza al objetivo, indicando a Kupa que ataque e infligiendo 80 (+70 % del ataque físico total) de daño físico. Luego, Kupa muerde al objetivo, lo que le inflige 40 (+40 % del ataque físico total) de daño físico y lo ralentiza en un 99 % durante 0,75 s. Mientras están marcados por la lanza, cada vez que Popol o Kupa golpean al objetivo con un ataque básico, ambos obtienen un 7 % de velocidad de ataque y un 3 % de velocidad de movimiento durante 4 s (hasta 3 acumulaciones). Forma de lobo alfa: Kupa ataca ferozmente, causando 120 (+140 % del ataque físico total) de daño físico al objetivo y a los enemigos cercanos y los lanza al aire durante 0,5 s.",
+      "description": "Popol lanza una lanza al objetivo, indicando a Kupa que ataque e infligiendo 80 (+70 % del ataque físico total) de daño físico. Luego, Kupa muerde al objetivo, lo que le inflige 40 (+40 % del ataque físico total) de daño físico y lo ralentiza en un 99 % durante 0,75 s. Mientras están marcados por la lanza, cada vez que Popol o Kupa golpean al objetivo con un ataque básico, ambos obtienen un 7 % de velocidad de ataque y un 3 % de velocidad de movimiento durante 4 s (hasta 3 acumulaciones). Alpha Forma de lobo: Kupa ataca ferozmente e inflige 120 (+140 % del ataque físico total) de daño físico al objetivo y a los enemigos cercanos y los lanza por el aire durante 0,5 s.",
       "cooldown": [
         7
       ],
@@ -3467,7 +3467,7 @@
     },
     {
       "name": "Kupa, Help!",
-      "description": "Popol llama a Kupa y obtiene un escudo de 240 (+200 % de ataque físico adicional). Luego puede montar a Kupa durante 1,5 s, ganando 250 de velocidad de movimiento mientras está montado. Kupa también recupera continuamente el 20% de su Max HP. Popol puede usar un ataque básico para finalizar temprano el estado montado. Después de regresar, Kupa sigue a Popol hasta que Popol ataca a un enemigo. Forma de lobo alfa: el efecto del escudo aumenta al 125% y Kupa recupera todos los HP mientras está montado.",
+      "description": "Popol llama a Kupa y obtiene un escudo de 240 (+200 % de ataque físico adicional). Luego puede montar a Kupa durante 1,5 s, ganando 250 de velocidad de movimiento mientras está montado. Kupa también recupera continuamente el 20% de su Max HP. Popol puede usar un ataque básico para finalizar temprano el estado montado. Después de regresar, Kupa sigue a Popol hasta que Popol ataca a un enemigo. Alpha Forma de lobo: el efecto del escudo aumenta al 125% y Kupa recupera todos los HP mientras está montado.",
       "cooldown": [
         10
       ],
@@ -3477,7 +3477,7 @@
     },
     {
       "name": "We Are Angry!",
-      "description": "Popol y Kupa entran en estado Enfurecido durante 9 segundos. Durante este tiempo, Kupa se convierte en Alpha Wolf Form.",
+      "description": "Popol and Kupa ingresa al estado Enfurecido durante 9 segundos. Durante este tiempo, Kupa se convierte en Alpha Forma de lobo.",
       "cooldown": [
         38
       ],
@@ -3594,11 +3594,11 @@
   "saber": [
     {
       "name": "Enemy's Bane",
-      "description": "Cada vez que Sabre inflige daño, reduce la defensa física del objetivo entre 3 y 8 durante 5 segundos (hasta 5 acumulaciones)."
+      "description": "Cada vez que Saber inflige daño, reduce la defensa física del objetivo entre 3 y 8 durante 5 segundos (hasta 5 acumulaciones)."
     },
     {
       "name": "Orbiting Swords",
-      "description": "Sabre libera 5 espadas que orbitan a su alrededor y causan 75 (+25% de ataque físico adicional) de daño físico a los enemigos cercanos al golpear. Las espadas se retraerán hacia él después de la duración. Mientras están activos, los ataques con espada causan 200 (+50% de ataque físico adicional) de daño físico al objetivo y 50% de daño a los enemigos a lo largo del camino (el daño se reduce al 50% contra súbditos). Cada ataque con espada reduce los tiempos de reutilización de Orbiting Swords en 0,5 s y Charge en 1 s.",
+      "description": "Saber libera 5 espadas que orbitan a su alrededor y causan 75 (+25% de ataque físico adicional) de daño físico a los enemigos cercanos al golpear. Las espadas se retraerán hacia él después de la duración. Mientras están activos, los ataques con espada causan 200 (+50% de ataque físico adicional) de daño físico al objetivo y 50% de daño a los enemigos a lo largo del camino (el daño se reduce al 50% contra súbditos). Cada ataque con espada reduce los tiempos de reutilización de Orbiting Swords en 0,5 s y Charge en 1 s.",
       "cooldown": [
         10
       ],
@@ -3608,7 +3608,7 @@
     },
     {
       "name": "Charge",
-      "description": "Sabre se lanza en la dirección objetivo e inflige 75 (+50 % de ataque físico adicional) de daño físico a los enemigos a lo largo del camino. Después de la carrera, obtiene un ataque básico mejorado que le permite cargar hacia el objetivo, causando 75 (+120 % del ataque físico total) de daño físico y ralentizándolo en un 60 % durante 1 s.",
+      "description": "Saber corre en la dirección objetivo, causando 75 (+50% de ataque físico adicional) de daño físico a los enemigos a lo largo del camino. Después de la carrera, obtiene un ataque básico mejorado que le permite cargar hacia el objetivo, causando 75 (+120 % del ataque físico total) de daño físico y ralentizándolo en un 60 % durante 1 s.",
       "cooldown": [
         7
       ],
@@ -3618,7 +3618,7 @@
     },
     {
       "name": "Triple Sweep",
-      "description": "Sabre carga contra el héroe enemigo objetivo, derribándolo por el aire durante 1,2 s (no afectado por Resiliencia). Los golpea 3 veces durante la duración, causando 120 (+80 % de ataque físico adicional) de daño físico con los primeros 2 golpes y 240 (+160 % de ataque físico adicional) de daño físico con el tercero.",
+      "description": "Saber carga contra el héroe enemigo objetivo, derribándolo por el aire durante 1,2 s (no afectado por Resiliencia). Los golpea 3 veces durante la duración, causando 120 (+80 % de ataque físico adicional) de daño físico con los primeros 2 golpes y 240 (+160 % de ataque físico adicional) de daño físico con el tercero.",
       "cooldown": [
         44
       ],
@@ -3730,7 +3730,7 @@
     },
     {
       "name": "Endless Variety",
-      "description": "Sun lanza su Bastón Dorado en la dirección objetivo, causando 280 (+40% del ataque físico total) de daño físico a los enemigos en su camino. Al golpear a un héroe o creep enemigo, o al alcanzar el alcance máximo, el Bastón Dorado se transforma en un Doppelganger que persigue a los enemigos. El Doppelganger hereda los atributos de Sun, causa el 60% del daño de Sun y recibe un 150% de daño durante 5 s. Esta habilidad comparte su nivel y tiempo de reutilización con Swift Exchange.",
+      "description": "Sun lanza su Golden Staff en la dirección objetivo, causando 280 (+40% del ataque físico total) de daño físico a los enemigos en su camino. Al golpear a un héroe o creep enemigo, o al alcanzar el alcance máximo, el Golden Staff se transforma en un Doppelganger que persigue a los enemigos. El Doppelganger hereda los atributos de Sun, inflige el 60% del daño de Sun y recibe un 150% de daño durante 5 s. Esta habilidad comparte su nivel y tiempo de reutilización con Swift Exchange.",
       "cooldown": [
         6.5
       ],
@@ -3740,7 +3740,7 @@
     },
     {
       "name": "Swift Exchange",
-      "description": "Sun lanza su Bastón Dorado en la dirección objetivo, causando 280 (+40% del ataque físico total) de daño físico a los enemigos en su camino. Conjura un Doppelganger en su ubicación que hereda sus atributos, inflige un 60% de daño y recibe un 150% de daño durante 5 segundos. Sun se transforma en el Bastón Dorado y se oculta, reapareciendo en su alcance máximo.",
+      "description": "Sun lanza su Golden Staff en la dirección objetivo, causando 280 (+40% del ataque físico total) de daño físico a los enemigos en su camino. Conjura un Doppelganger en su ubicación que hereda sus atributos, inflige un 60% de daño y recibe un 150% de daño durante 5 segundos. Sun se transforma en Golden Staff y se oculta, reapareciendo en su alcance máximo.",
       "cooldown": [
         6.5
       ],
@@ -3873,11 +3873,11 @@
   "uranus": [
     {
       "name": "Radiance",
-      "description": "Urano absorbe la energía generada por los ataques entrantes para fortalecerse, regenerando una cierta cantidad de HP cada 0,8 s. Cada pila dura 10 segundos. Cuando tiene acumulaciones máximas (20), Urano regenera entre 48 y 224 HP (escala con el nivel)."
+      "description": "Uranus absorbe la energía generada por los ataques entrantes para fortalecerse, regenerando una cierta cantidad de HP cada 0,8 s. Cada pila dura 10 segundos. Cuando tiene acumulaciones máximas (20), Uranus regenera 48-224 HP (escala con el nivel)."
     },
     {
       "name": "Ionic Edge",
-      "description": "Urano libera 2 hojas de energía que orbitan a su alrededor, lo que inflige 155 (+30 % de poder mágico total) (+6 × acumulaciones de Radiancia) de daño mágico a los enemigos golpeados y los ralentiza en un 30 % durante 2 s. Cada espada sólo puede dañar al mismo objetivo una vez.",
+      "description": "Uranus libera 2 hojas de energía que orbitan a su alrededor, causando 155 (+30% de poder mágico total) (+6 × acumulaciones de Radiancia) de daño mágico a los enemigos golpeados y ralentizándolos en un 30% durante 2 segundos. Cada espada sólo puede dañar al mismo objetivo una vez.",
       "cooldown": [
         4
       ],
@@ -3887,7 +3887,7 @@
     },
     {
       "name": "Transcendent Ward",
-      "description": "Urano carga hacia la ubicación objetivo, causando 80 (+20 % del poder mágico total) de daño mágico a los enemigos en el camino y 160 (+80 % del poder mágico total) de daño mágico a los enemigos en la ubicación objetivo y ralentizándolos en un 25 %. Urano también genera un escudo de 300 (+200% de poder mágico total) durante 4 segundos. El escudo explota al final de su duración o cuando se destruye, causando 300 (+150% del poder mágico total) de daño mágico a los enemigos cercanos.",
+      "description": "Uranus carga hacia la ubicación objetivo, causando 80 (+20% del poder mágico total) de daño mágico a los enemigos en el camino y 160 (+80% del poder mágico total) de daño mágico a los enemigos en la ubicación objetivo y ralentizándolos en un 25%. Uranus también genera un escudo de 300 (+200% de poder mágico total) durante 4 segundos. El escudo explota al final de su duración o cuando se destruye, causando 300 (+150% del poder mágico total) de daño mágico a los enemigos cercanos.",
       "cooldown": [
         10
       ],
@@ -3897,7 +3897,7 @@
     },
     {
       "name": "Consecration",
-      "description": "Urano desata la energía almacenada dentro de su cuerpo, eliminando efectos lentos sobre sí mismo, recuperando 200 HP y ganando un 60% de velocidad de movimiento durante 8 segundos (decae con el tiempo). Urano gana directamente 5 acumulaciones de Radiancia, lo que aumenta los escudos recibidos y la regeneración de HP en un 20 % durante 8 s.",
+      "description": "Uranus desata la energía almacenada dentro de su cuerpo, eliminando efectos lentos sobre sí mismo, recuperando 200 HP y ganando un 60 % de velocidad de movimiento durante 8 s (decae con el tiempo). Uranus obtiene directamente 5 acumulaciones de Radiance, lo que aumenta los escudos recibidos y la regeneración de HP en un 20 % durante 8 s.",
       "cooldown": [
         42
       ],
@@ -3985,7 +3985,7 @@
     },
     {
       "name": "Burst Fireball",
-      "description": "Valir lanza una bola de fuego que explota al golpear al primer objetivo, causando 235 (+80% del poder mágico total) de daño mágico y ralentizándolo en un 30% durante 1 segundo. La llama en el suelo explota después de 1 segundo, causando 118 (+40% del poder mágico total) de daño mágico. Valir recarga 1 bola de fuego cada 9 s (hasta 2 cargas). Golpear a un héroe enemigo o una leyenda con esta habilidad restaura inmediatamente 1 carga, mientras que golpear a un súbdito restaura 4 segundos del tiempo de recarga. Llama de venganza: aumenta el alcance de lanzamiento de Burst Fireball en un 30%.",
+      "description": "Valir lanza una bola de fuego que explota al golpear al primer objetivo, causando 235 (+80 % del poder mágico total) de daño mágico y ralentizándolo en un 30 % durante 1 s. The flame on the ground explodes after 1s, dealing 118 (+40% Total Magic Power) Magic Damage. Valir recharges 1 fireball every 9s (up to 2 charges). Hitting an enemy hero or legend creep with this skill immediately restores 1 charge, while hitting a minion restores 4s of the recharge time. Vengeance Flame: Increases the cast range of Burst Fireball by 30%.",
       "cooldown": [
         1.5
       ],
@@ -3995,7 +3995,7 @@
     },
     {
       "name": "Searing Torrent",
-      "description": "Valir desata un torrente de llamas en la dirección del objetivo, causando 200 (+60% del poder mágico total) de daño mágico y empujándolos de regreso al final de su camino. Llama de venganza: el torrente forma un cortafuegos al final de su recorrido que dura 4 s e inflige 100 (+30 % de poder mágico total) de daño mágico a los enemigos cercanos cada 1 s. Los enemigos alcanzados por el torrent o el firewall se ralentizan en un 25 % durante 1 s.",
+      "description": "Valir desata un torrente de llamas en la dirección del objetivo, causando 200 (+60% del poder mágico total) de daño mágico y empujándolos de regreso al final de su camino. Vengeance Llama: El torrente forma un cortafuegos al final de su recorrido que dura 4 segundos, causando 100 (+30 % de poder mágico total) de daño mágico a los enemigos cercanos cada 1 segundo. Enemies hit by the torrent or the firewall are slowed by 25% for 1s.",
       "cooldown": [
         13
       ],

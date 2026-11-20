@@ -1014,11 +1014,11 @@
   "cyclops": [
     {
       "name": "Starlit Hourglass",
-      "description": "Cada vez que Ciclope atinge um inimigo com suas habilidades, todos os tempos de recarga de suas habilidades são reduzidos em 0,5s."
+      "description": "Cada vez que Cyclops atinge um inimigo com suas habilidades, todos os tempos de recarga de suas habilidades são reduzidos em 0,5s."
     },
     {
       "name": "Stardust Shock",
-      "description": "Ciclope lança dois Discos de Poeira Estelar na direção alvo, cada um causando 240 (+60% de Poder Mágico Total) de Dano Mágico aos inimigos em seu caminho.",
+      "description": "Cyclops lança dois Discos de Poeira Estelar na direção alvo, cada um causando 240 (+60% de Poder Mágico Total) de Dano Mágico aos inimigos em seu caminho.",
       "cooldown": [
         7.5
       ],
@@ -1028,7 +1028,7 @@
     },
     {
       "name": "Planets Attack",
-      "description": "Ciclope conjura Esferas Estreladas ao seu redor, ganhando 50% de Velocidade de Movimento que decai ao longo de 2s. As Esferas Starlit procuram e atacam automaticamente inimigos próximos (priorizando heróis inimigos) e explodem ao contato para causar 200 (+65% de Poder Mágico Total) de Dano Mágico. Acertos subsequentes no mesmo alvo causam dano reduzido.",
+      "description": "Cyclops conjura Esferas Estreladas ao seu redor, ganhando 50% de Velocidade de Movimento que decai ao longo de 2s. As Esferas Starlit procuram e atacam automaticamente inimigos próximos (priorizando heróis inimigos) e explodem ao contato para causar 200 (+65% de Poder Mágico Total) de Dano Mágico. Acertos subsequentes no mesmo alvo causam dano reduzido.",
       "cooldown": [
         14
       ],
@@ -1038,7 +1038,7 @@
     },
     {
       "name": "Star Power Lockdown",
-      "description": "Ciclope cria uma Esfera Planetária que rastreia o herói ou criatura inimigo alvo, causando 500 (+120% de Poder Mágico Total) de Dano Mágico e imobilizando-os por 0,75-1,5s (escala com a distância de viagem da Esfera Planetária).",
+      "description": "Cyclops cria uma Esfera Planetária que rastreia o herói ou criatura inimiga alvo, causando 500 (+120% de Poder Mágico Total) de Dano Mágico e imobilizando-os por 0,75-1,5s (escala com a distância de viagem da Esfera Planetária).",
       "cooldown": [
         26
       ],
@@ -1320,7 +1320,7 @@
   "floryn": [
     {
       "name": "Dew",
-      "description": "A Lanterna de Orvalho aumentará permanentemente os atributos de Floryn em uma pequena quantidade. Depois de deixar o combate por 5s, Floryn pode compartilhar a Flor da Esperança com um herói aliado (30s de recarga), o que lhes concederá um escudo de 100 (+70% de Poder Mágico Total) cada vez que forem curados por Floryn. Floryn nunca venderá a Lanterna."
+      "description": "A Lanterna de Orvalho aumentará permanentemente os atributos de Floryn em uma pequena quantidade. Depois de deixar o combate por 5s, Floryn pode compartilhar o Flower of Hope com um herói aliado (30s de recarga), o que lhes concederá um escudo de 100 (+70% de Poder Mágico Total) cada vez que forem curados por Floryn. Floryn nunca venderá a Lanterna."
     },
     {
       "name": "Sow",
@@ -2592,7 +2592,7 @@
     },
     {
       "name": "Tactical Grenade",
-      "description": "Lesley lança uma granada tática na direção do alvo enquanto salta ligeiramente para trás, causando 150 (+50% de Ataque Físico Total) de Dano Físico aos inimigos em uma área em forma de leque e repelindo-os. Lesley pode lançar esta habilidade durante Ultimate Snipe para cancelar o estado e disparar imediatamente uma bala fatal no alvo. O ataque só é acionado quando restam balas fatais não disparadas.",
+      "description": "Lesley lança uma granada tática na direção do alvo enquanto salta ligeiramente para trás, causando 150 (+50% de Ataque Físico Total) de Dano Físico aos inimigos em uma área em forma de leque e repelindo-os. Lesley pode lançar esta habilidade durante Ultimate Snipe para cancelar o estado e disparar imediatamente uma bala Fatal no alvo. O ataque só é acionado quando restam Fatal balas não disparadas.",
       "cooldown": [
         10
       ],
@@ -2602,7 +2602,7 @@
     },
     {
       "name": "Ultimate Snipe",
-      "description": "Passivo: A chance crítica de Lesley é aumentada em 10%. Ativo: Lesley mira em um herói inimigo e dispara 4 balas fatais em sucessão. Cada bala causa 250 (+80% de Ataque Físico Extra) (+5% do HP perdido do alvo) de Dano Físico e restaura 10 de Energia ao acertar. As balas podem ser bloqueadas por outros heróis inimigos. Se esta habilidade for interrompida, cada bala restante reduz o tempo de recarga desta habilidade em 10%.",
+      "description": "Passivo: A chance crítica de Lesley é aumentada em 10%. Ativo: Lesley foca em um herói inimigo e dispara 4 Fatal balas em sucessão. Cada bala causa 250 (+80% de Ataque Físico Extra) (+5% do HP perdido do alvo) de Dano Físico e restaura 10 de Energia ao acertar. As balas podem ser bloqueadas por outros heróis inimigos. Se esta habilidade for interrompida, cada bala restante reduz o tempo de recarga desta habilidade em 10%.",
       "cooldown": [
         40
       ],
@@ -3457,7 +3457,7 @@
     },
     {
       "name": "Bite 'em, Kupa!",
-      "description": "Popol lança uma lança no alvo, sinalizando para Kupa atacar e causando 80 (+70% de Ataque Físico Total) de Dano Físico. Kupa então morde o alvo, causando 40 (+40% de Ataque Físico Total) de Dano Físico e retardando-o em 99% por 0,75s. Enquanto estiverem marcados pela lança, sempre que Popol ou Kupa atingirem o alvo com um Ataque Básico, ambos ganham 7% de Velocidade de Ataque e 3% de Velocidade de Movimento por 4s (até 3 acúmulos). Forma de Lobo Alfa: Kupa ataca ferozmente, causando 120 (+140% de Ataque Físico Total) de Dano Físico ao alvo e aos inimigos próximos e jogando-os no ar por 0,5s.",
+      "description": "Popol lança uma lança no alvo, sinalizando para Kupa atacar e causando 80 (+70% de Ataque Físico Total) de Dano Físico. Kupa então morde o alvo, causando 40 (+40% de Ataque Físico Total) de Dano Físico e retardando-o em 99% por 0,75s. Enquanto estiverem marcados pela lança, sempre que Popol ou Kupa atingirem o alvo com um Ataque Básico, ambos ganham 7% de Velocidade de Ataque e 3% de Velocidade de Movimento por 4s (até 3 acúmulos). Alpha Forma de Lobo: Kupa ataca ferozmente, causando 120 (+140% de Ataque Físico Total) de Dano Físico ao alvo e aos inimigos próximos e lançando-os no ar por 0,5s.",
       "cooldown": [
         7
       ],
@@ -3467,7 +3467,7 @@
     },
     {
       "name": "Kupa, Help!",
-      "description": "Popol chama Kupa de volta e ganha um escudo de 240 (+200% de Ataque Físico Extra). Ele pode então montar Kupa por 1,5s, ganhando 250 de Velocidade de Movimento enquanto montado. Kupa também recupera continuamente 20% de seu HP máximo. Popol pode usar um Ataque Básico para encerrar o estado Montado mais cedo. Após retornar, Kupa segue Popol até que Popol ataca um inimigo. Forma de Lobo Alfa: O efeito do escudo aumenta para 125% e Kupa recupera HP total enquanto montado.",
+      "description": "Popol chama Kupa de volta e ganha um escudo de 240 (+200% de Ataque Físico Extra). Ele pode então montar Kupa por 1,5s, ganhando 250 de Velocidade de Movimento enquanto montado. Kupa também recupera continuamente 20% de seu HP máximo. Popol pode usar um Ataque Básico para encerrar o estado Montado mais cedo. Após retornar, Kupa segue Popol até que Popol ataca um inimigo. Alpha Forma de Lobo: O efeito do escudo aumenta para 125% e Kupa recupera HP total enquanto montado.",
       "cooldown": [
         10
       ],
@@ -3477,7 +3477,7 @@
     },
     {
       "name": "We Are Angry!",
-      "description": "Popol e Kupa entram no estado Enfurecido por 9s. Durante este tempo, Kupa se transforma em Alpha Wolf Form.",
+      "description": "Popol and Kupa entra no estado Enfurecido por 9s. Durante este tempo, Kupa se transforma em Alpha Wolf Form.",
       "cooldown": [
         38
       ],
@@ -3493,7 +3493,7 @@
     },
     {
       "name": "Light of Retribution",
-      "description": "Rafaela atinge os três inimigos mais próximos com Luz da Retribution, causando-lhes 350 (+120% de Poder Mágico Total) de Dano Mágico, revelando brevemente suas posições e desacelerando-os em 40% por 1,5s. Inimigos atingidos pela Luz da Retribution novamente dentro de 6s receberão 20% de dano extra (este efeito acumula até 3 vezes).",
+      "description": "Rafaela atinge os três inimigos mais próximos com Luz de Retribution, causando-lhes 350 (+120% de Poder Mágico Total) de Dano Mágico, revelando brevemente suas posições e desacelerando-os em 40% por 1,5s. Inimigos atingidos pela Luz de Retribution novamente dentro de 6s receberão 20% de dano extra (este efeito acumula até 3 vezes).",
       "cooldown": [
         5
       ],
@@ -3608,7 +3608,7 @@
     },
     {
       "name": "Charge",
-      "description": "Sabre avança na direção alvo, causando 75 (+50% de Ataque Físico Extra) de Dano Físico aos inimigos ao longo do caminho. Após a investida, ele ganha um Ataque Básico Aprimorado que lhe permite atacar o alvo, causando 75 (+120% do Ataque Físico Total) de Dano Físico e retardando-o em 60% por 1s.",
+      "description": "Saber avança na direção alvo, causando 75 (+50% de Ataque Físico Extra) de Dano Físico aos inimigos ao longo do caminho. Após a investida, ele ganha um Ataque Básico Aprimorado que lhe permite atacar o alvo, causando 75 (+120% do Ataque Físico Total) de Dano Físico e retardando-o em 60% por 1s.",
       "cooldown": [
         7
       ],
@@ -3618,7 +3618,7 @@
     },
     {
       "name": "Triple Sweep",
-      "description": "O Sabre ataca o herói inimigo alvo, lançando-o no ar por 1,2s (não afetado pela Resiliência). Ele os ataca 3 vezes ao longo da duração, causando 120 (+80% de Ataque Físico Extra) de Dano Físico com os 2 primeiros ataques e 240 (+160% de Ataque Físico Extra) de Dano Físico com o terceiro.",
+      "description": "Saber ataca o herói inimigo alvo, lançando-o no ar por 1,2s (não afetado pela Resiliência). Ele os ataca 3 vezes ao longo da duração, causando 120 (+80% de Ataque Físico Extra) de Dano Físico com os 2 primeiros ataques e 240 (+160% de Ataque Físico Extra) de Dano Físico com o terceiro.",
       "cooldown": [
         44
       ],
@@ -3730,7 +3730,7 @@
     },
     {
       "name": "Endless Variety",
-      "description": "Sun arremessa seu Cajado Dourado na direção alvo, causando 280 (+40% do Ataque Físico Total) de Dano Físico aos inimigos em seu caminho. Ao atingir um herói ou criatura inimigo, ou ao atingir o alcance máximo, o Cajado Dourado se transforma em um Doppelganger que persegue os inimigos. O Doppelganger herda os atributos do Sol, causa 60% do dano do Sol e sofre 150% do dano por 5s. Esta habilidade compartilha seu nível e tempo de recarga com Swift Exchange.",
+      "description": "Sun lança seu Golden Staff na direção alvo, causando 280 (+40% de Ataque Físico Total) de Dano Físico aos inimigos em seu caminho. Ao atingir um herói ou criatura inimigo, ou ao atingir o alcance máximo, o Golden Staff se transforma em um Doppelganger que persegue os inimigos. O Doppelganger herda os atributos de Sun, causa 60% do dano de Sun e sofre 150% de dano por 5s. Esta habilidade compartilha seu nível e tempo de recarga com Swift Exchange.",
       "cooldown": [
         6.5
       ],
@@ -3740,7 +3740,7 @@
     },
     {
       "name": "Swift Exchange",
-      "description": "Sun arremessa seu Cajado Dourado na direção alvo, causando 280 (+40% de Ataque Físico Total) de Dano Físico aos inimigos em seu caminho. Ele conjura um Doppelganger em seu local que herda seus atributos, causa 60% do dano e recebe 150% do dano por 5s. Sun se transforma no Cajado Dourado e fica oculto, reaparecendo em seu alcance máximo.",
+      "description": "Sun lança seu Golden Staff na direção alvo, causando 280 (+40% de Ataque Físico Total) de Dano Físico aos inimigos em seu caminho. Ele conjura um Doppelganger em seu local que herda seus atributos, causa 60% do dano e recebe 150% do dano por 5s. Sun se transforma em Golden Staff e fica oculto, reaparecendo em seu alcance máximo.",
       "cooldown": [
         6.5
       ],
@@ -3873,11 +3873,11 @@
   "uranus": [
     {
       "name": "Radiance",
-      "description": "Urano absorve a energia gerada pelos ataques recebidos para se fortalecer, regenerando uma certa quantidade de HP a cada 0,8s. Cada pilha dura 10s. Quando atinge o máximo de acúmulos (20), Urano regenera 48-224 HP (escala com o nível)."
+      "description": "Uranus absorve a energia gerada pelos ataques recebidos para se fortalecer, regenerando uma certa quantidade de HP a cada 0,8s. Cada pilha dura 10s. Quando com acúmulo máximo (20), Uranus regenera 48-224 HP (escala com o nível)."
     },
     {
       "name": "Ionic Edge",
-      "description": "Urano libera 2 lâminas de energia que orbitam ao seu redor, causando 155 (+30% de Poder Mágico Total) (+6 × pilhas de Radiância) de Dano Mágico aos inimigos atingidos e retardando-os em 30% por 2s. Cada lâmina só pode causar dano ao mesmo alvo uma vez.",
+      "description": "Uranus libera 2 lâminas de energia que orbitam ao seu redor, causando 155 (+30% de Poder Mágico Total) (+6 × pilhas de Radiância) de Dano Mágico aos inimigos atingidos e retardando-os em 30% por 2s. Cada lâmina só pode causar dano ao mesmo alvo uma vez.",
       "cooldown": [
         4
       ],
@@ -3887,7 +3887,7 @@
     },
     {
       "name": "Transcendent Ward",
-      "description": "Urano avança até o local alvo, causando 80 (+20% de Poder Mágico Total) de Dano Mágico aos inimigos ao longo do caminho, e 160 (+80% de Poder Mágico Total) de Dano Mágico aos inimigos no local alvo e retardando-os em 25%. Urano também gera um escudo de 300 (+200% de Poder Mágico Total) por 4s. O escudo explode no final de sua duração ou quando destruído, causando 300 (+150% de Poder Mágico Total) de Dano Mágico aos inimigos próximos.",
+      "description": "Uranus carrega para o local alvo, causando 80 (+20% de Poder Mágico Total) de Dano Mágico aos inimigos ao longo do caminho e 160 (+80% de Poder Mágico Total) de Dano Mágico aos inimigos no local alvo e retardando-os em 25%. Uranus também gera um escudo de 300 (+200% de Poder Mágico Total) por 4s. O escudo explode no final de sua duração ou quando destruído, causando 300 (+150% de Poder Mágico Total) de Dano Mágico aos inimigos próximos.",
       "cooldown": [
         10
       ],
@@ -3897,7 +3897,7 @@
     },
     {
       "name": "Consecration",
-      "description": "Urano libera a energia armazenada em seu corpo, removendo efeitos de lentidão em si mesmo, recuperando 200 HP e ganhando 60% de Velocidade de Movimento por 8s (decai com o tempo). Urano ganha diretamente 5 pilhas de Radiância, aumentando os escudos recebidos e a Regeneração de HP em 20% por 8s.",
+      "description": "Uranus libera a energia armazenada em seu corpo, removendo efeitos de lentidão em si mesmo, recuperando 200 HP e ganhando 60% de Velocidade de Movimento por 8s (decai com o tempo). Uranus ganha diretamente 5 pilhas de Radiance, aumentando os escudos recebidos e a regeneração de HP em 20% por 8s.",
       "cooldown": [
         42
       ],
@@ -3995,7 +3995,7 @@
     },
     {
       "name": "Searing Torrent",
-      "description": "Valir libera uma torrente de chamas na direção alvo, causando 200 (+60% de Poder Mágico Total) de Dano Mágico e empurrando-os de volta para o fim de seu caminho. Chama da Vingança: A torrente forma um firewall no final de seu caminho que dura 4s, causando 100 (+30% de Poder Mágico Total) de Dano Mágico aos inimigos próximos a cada 1s. Inimigos atingidos pelo torrent ou pelo firewall ficam lentos em 25% por 1s.",
+      "description": "Valir libera uma torrente de chamas na direção alvo, causando 200 (+60% de Poder Mágico Total) de Dano Mágico e empurrando-os de volta para o final de seu caminho. Vengeance Chama: A torrente forma um firewall no final de seu caminho que dura 4s, causando 100 (+30% de Poder Mágico Total) de Dano Mágico aos inimigos próximos a cada 1s. Inimigos atingidos pelo torrent ou pelo firewall ficam lentos em 25% por 1s.",
       "cooldown": [
         13
       ],
@@ -4005,7 +4005,7 @@
     },
     {
       "name": "Vengeance Flame",
-      "description": "Valir remove todos os debuffs de si mesmo e ganha 40% de Velocidade de Movimento que decai ao longo de 3s. Enquanto isso, ele conjura 4 Chamas de Vingança que aprimoram Burst Fireball e Searing Torrent por 9s.",
+      "description": "Valir remove todos os debuffs de si mesmo e ganha 40% de Velocidade de Movimento que decai ao longo de 3s. Enquanto isso, ele conjura 4 Vengeance Chamas que aprimoram Burst Fireball e Searing Torrent por 9s.",
       "cooldown": [
         36
       ],

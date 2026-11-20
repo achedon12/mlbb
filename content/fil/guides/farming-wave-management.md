@@ -1,26 +1,26 @@
 ---
-title: "Pagsasaka at pamamahala ng alon sa gold lane"
+title: "Pagsasaka at pamamahala ng alon sa Gold lane"
 short: "Bukid at alon"
 date: "2026-11-14"
 updated: "2026-11-14"
 kind: "strategy"
 order: 7
 author: "achedon12"
-summary: "Ang marksman ay nanalo sa laro gamit ang kanyang ginto, at ang kanyang ginto ay nagmumula sa mga alon. Tinatapos ang mga minions, nagyeyelo, nagtutulak o nagpapaalam sa isang alon: ang mga pangunahing kaalaman sa pamamahala ng lane, pagkatapos ay pagsasaka sa kabila ng lane."
+summary: "Ang marksman ay nanalo sa laro gamit ang kanyang ginto, at ang kanyang ginto ay nagmumula sa mga alon. Tapusin ang mga minions, itulak, i-freeze o hayaan ang isang alon na dumating: ang mga pangunahing kaalaman sa pamamahala ng lane, pagkatapos ay pagsasaka sa kabila ng lane."
 keywords: ["sakahan", "pamamahala ng alon", "Gold Lane", "huling hit", "marksman", "gabay ng mlbb"]
 related: ["gold-lane", "laning-phase", "macro-split-push"]
 tools: ["/tools/build", "/items", "/map"]
 ---
 
-Ang gold lane ay angkop na pinangalanan: ito ang lane na nagbubunga ng pinakamaraming ginto, at ang marksman na sumasakop dito ay ang hero na higit na nangangailangan nito. Ang isang marksman na mahusay na nagsasaka ay nasa kanyang mga pangunahing item bago ang kanyang kalaban, at bawat item ay nagbabago sa kanyang mga laban. Ang gabay na ito ay nagsasalita tungkol sa mga mapagkukunan; ang [gold lane guide](/guides/gold-lane) ay nagdedetalye ng mga hero at build ng posisyon.
+Ang Gold lane ay angkop na pinangalanan: ito ang lane na nagbubunga ng pinakamaraming ginto, at ang marksman na sumasakop dito ay ang hero na higit na nangangailangan nito. Ang isang marksman na mahusay na nagsasaka ay nasa kanyang mga pangunahing item bago ang kanyang kalaban, at bawat item ay nagbabago sa kanyang mga laban. Ang gabay na ito ay nagsasalita tungkol sa mga mapagkukunan; Ang [Gold lane guide](/guides/gold-lane) ay nagdedetalye ng mga hero at build ng posisyon.
 
 ## Bawat minion ay binibilang
 
-May lumalabas na minion wave tuwing tatlumpung segundo, ang una sa 0:10. Sa unang sampung wave (hanggang 5:10), nagbibigay ang cannon minion ng 45% na dagdag na gold sa Gold lane at 35% na dagdag na EXP sa EXP lane: sa simula ng laro, mas malaki ang nawawala kapag na-miss ang cannon kaysa sa ibang minion.
+Isang alon ng mga minions ang umaalis tuwing tatlumpung segundo, ang una ay 0:10. Sa unang sampung wave (hanggang 5:10), ang kanyon sa Gold lane ay kumikita ng 45% na mas maraming ginto, at ang isa sa EXP lane ay 35% na higit pang EXP: sa simula ng laro, ang pagkawala ng isang kanyon ay nagkakahalaga ng higit pa kaysa sa pagkawala ng isa pang minion.
 
-- **Tapusin ang mga minion** sa halip na pumalo nang basta-basta: ang marksman na pumapalo lang sa halos patay nang minion ay nakakapagtipid ng HP at hindi naitutulak ang wave nang hindi sinasadya.
-- **Kunin ang last hit sa cannon minion**, lalo na sa unang sampung wave: siya ang may dalang bonus.
-- **Alamin ang ritmo ng iyong hero**: ang attack speed at damage niya sa level 1 ay hindi ang nasa level 6. Ang isang madaling hakbang sa pagtatapos ay naging isang hit ng masyadong marami.
+- **Tapusin ang mga minions** kaysa sa random na pagtama: ang isang marksman na tumama lamang sa halos patay na mga kampon ay nagpapanatili ng kanyang mga puntos sa buhay at hindi itinulak ang alon nang hindi sinasadya.
+- **Itago ang huling shot mula sa kanyon**, lalo na sa unang sampung alon: dala nito ang bonus.
+- **Alamin ang ritmo ng iyong hero**: ang attack speed at damage niya sa level 1 ay hindi sa level 6. Ang tamang oras para tapusin ang isang minion ay nagbabago sa mga level at item.
 
 ## Palakihin, i-freeze o hayaan itong mangyari
 
@@ -28,11 +28,11 @@ Ang posisyon ng alon sa lane ang nagpapasya kung sino ang ligtas. Mayroong tatlo
 
 ### Itulak
 
-Papatayin mo ang mga kalaban na minions sa lalong madaling panahon at ang iyong alon ay umuusad patungo sa toresilya ng kaaway. Ito ang tamang pagpipilian kapag gusto mong magsimula mula sa lane (bumalik sa base, layunin, tulungan), dahil ang kalaban ay dapat manatili upang depensahan. Ito ay isang masamang pagpipilian kapag ang kalabang jungler ay hindi nakikita: ikaw ay malayo sa iyong toresilya.
+Papatayin mo ang mga kalaban na minions sa lalong madaling panahon at ang iyong alon ay umuusad patungo sa toresilya ng kaaway. Ito ang tamang pagpipilian kapag gusto mong umalis sa lane (bumalik sa base, layunin, tumulong), dahil ang kalaban ay dapat manatili upang depensahan. Ito ay isang masamang pagpipilian hanggang sa ang kalabang jungler ay nakita: ikaw ay malayo sa iyong toresilya.
 
 ### I-freeze
 
-Tatapusin mo lang ang mga minions na handang mamatay, at ang alon ay mananatili malapit sa iyong toresilya. Ang kalaban ay dapat sumulong sa bukid, sa loob ng saklaw ng iyong toresilya at iyong jungler. Ito ang tamang pagpipilian kapag ang iyong kalaban ay mas malakas kaysa sa iyo sa simula ng laro.
+Tatapusin mo lang ang mga minions na malapit nang mamatay, at ang alon ay nananatili malapit sa iyong toresilya. Ang kalaban ay dapat sumulong sa bukid, sa loob ng saklaw ng iyong toresilya at iyong jungler. Ito ang tamang pagpipilian kapag ang iyong kalaban ay mas malakas kaysa sa iyo sa simula ng laro.
 
 ### Hayaan itong dumating
 
@@ -64,6 +64,6 @@ Walang silbi ang ginto hangga't hindi ito nauubos. Ang unang item ng marksman ay
 
 - Itulak ang alon sa toresilya ng kaaway nang hindi nalalaman kung nasaan ang kaaway na jungler.
 - Umalis sa lane na nag-iiwan ng buong alon sa gitna.
-- Sumali sa bawat laban sa mid lane sa kapinsalaan ng dalawang alon.
+- Sumali sa bawat laban sa Mid lane sa kapinsalaan ng dalawang alon.
 - Itago ang ginto sa iyong bulsa nang ilang minuto sa halip na bumalik upang bumili.
 - Magsasaka na nag-iisa sa jungle ng kaaway sa pagtatapos ng laro.

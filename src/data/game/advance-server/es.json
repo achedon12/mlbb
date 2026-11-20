@@ -3474,7 +3474,7 @@
         "name": "Ling",
         "type": null,
         "tag": null,
-        "intro": "Hemos actualizado los modelos de héroe, las acciones y los efectos del aspecto predeterminado de Ling y continuaremos actualizando los retratos de los héroes y otros recursos en el futuro. Dado que las otras máscaras de Ling se están optimizando al mismo tiempo, las máscaras de Ling no estarán disponibles temporalmente en el servidor avanzado.",
+        "intro": "Hemos actualizado los modelos de héroe, las acciones y los efectos del skin predeterminado de Ling y continuaremos actualizando los retratos de los héroes y otros recursos en el futuro. Dado que las otras máscaras de Ling se están optimizando al mismo tiempo, las máscaras de Ling no estarán disponibles temporalmente en el servidor avanzado.",
         "sections": [],
         "slug": "ling"
       }
@@ -4167,7 +4167,7 @@
             "type": null
           },
           {
-            "text": "Los aspectos pintados ahora pueden usar acciones personalizadas exclusivas de los aspectos en las batallas.",
+            "text": "Los skins pintados ahora pueden usar acciones personalizadas exclusivas de los skins en las batallas.",
             "level": 1,
             "type": null
           },
@@ -11726,7 +11726,7 @@
             "type": null
           },
           {
-            "text": "Puedes completar desafíos clasificados en Road to Mythic para mejorar la etiqueta de aspecto de temporada y reclamar el fondo de la tarjeta de presentación y el fondo del perfil S30, que se actualizarán después de que alcances Mythical Glory.",
+            "text": "Puedes completar desafíos clasificados en Road to Mythic para mejorar la etiqueta de skin de temporada y reclamar el fondo de la tarjeta de presentación y el fondo del perfil S30, que se actualizarán después de que alcances Mythical Glory.",
             "level": 1,
             "type": null
           },
@@ -12946,7 +12946,7 @@
         "entries": [],
         "lines": [
           {
-            "text": "Debido a esta ronda de ajustes de héroes, eliminaremos temporalmente todos los aspectos de Balmond y Vale.",
+            "text": "Debido a esta ronda de ajustes de héroes, eliminaremos temporalmente todos los skins de Balmond y Vale.",
             "level": 0,
             "type": null
           }
@@ -14090,7 +14090,7 @@
             "type": null
           },
           {
-            "text": "Se agregó el botón \"Cambiar héroe aliado\". Ahora no tienes que salir y volver a entrar en la batalla. Simplemente toca el botón y elige el héroe, el aspecto y la preparación para cambiar rápidamente entre diferentes configuraciones de batalla, emblemas y hechizos de batalla.",
+            "text": "Se agregó el botón \"Cambiar héroe aliado\". Ahora no tienes que salir y volver a entrar en la batalla. Simplemente toca el botón y elige el héroe, el skin y la preparación para cambiar rápidamente entre diferentes configuraciones de batalla, emblemas y hechizos de batalla.",
             "level": 1,
             "type": null
           },
@@ -16599,7 +16599,7 @@
         "name": "Sun",
         "type": "buff",
         "tag": null,
-        "intro": "Estamos mejorando la calidad de los gráficos de Sun y aumentando su daño explosivo. Dado que sus aspectos aún no se han actualizado en consecuencia, los eliminaremos temporalmente.",
+        "intro": "Estamos mejorando la calidad de los gráficos de Sun y aumentando su daño explosivo. Dado que sus skins aún no se han actualizado en consecuencia, los eliminaremos temporalmente.",
         "sections": [
           {
             "name": "Swift Exchange",

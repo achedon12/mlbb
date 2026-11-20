@@ -28,7 +28,7 @@ Jungler tidak memiliki lane. Dia memperoleh emas dan pengalamannya melawan monst
 
 <!-- guide:heroes -->
 
-Jungler dibagi menjadi tiga keluarga. Assassin, seperti [Ling](/heroes/ling), [Lancelot](/heroes/lancelot) atau [Hayabusa](/heroes/hayabusa), melenyapkan target yang terisolasi; fighter, seperti [Martis](/heroes/martis) atau [Balmond](/heroes/balmond), bertahan lama dalam pertarungan; Tank jungle, seperti [Fredrinn](/heroes/fredrinn) atau [Baxia](/heroes/baxia), serahkan emasnya kepada orang lain dan libatkan. Pilihan yang tepat tergantung pada apa yang kurang dari tim Anda.
+Jungler dibagi menjadi tiga keluarga. Assassin, seperti [Ling](/heroes/ling), [Lancelot](/heroes/lancelot) atau [Hayabusa](/heroes/hayabusa), melenyapkan target yang terisolasi; fighter, seperti [Martis](/heroes/martis) atau [Balmond](/heroes/balmond), bertahan lama dalam pertarungan; Tank hutan, seperti [Fredrinn](/heroes/fredrinn) atau [Baxia](/heroes/baxia), memerlukan sedikit item dan memulai pertempuran. Pilihan yang tepat tergantung pada apa yang kurang dari tim Anda.
 
 ## Item, emblem, dan spell yang paling banyak dimainkan
 
@@ -38,7 +38,7 @@ Retribution bersifat wajib: tanpanya, farming akan terlalu lambat dan objektif a
 
 - **melawan tank**, penetrasi armor [Malefic Roar](/items/malefic-roar);
 - **melawan tim yang menyembuhkan dirinya sendiri**, pengurangan penyembuhan [Sea Halberd](/items/sea-halberd);
-- **untuk menyelesaikan target**, jalankan item seperti [Sky Piercer](/items/sky-piercer) pada assassin yang membangunnya.
+- **untuk menghabisi target**, item eksekusi seperti [Sky Piercer](/items/sky-piercer), yang membunuh hero di bawah ambang batas poin nyawa, pada assassin yang membangunnya.
 
 [Pelatihan waktu Retribution](/tools/retribution) membantu Anda tidak lagi kehilangan objektif pada tembakan terakhir.
 
@@ -54,12 +54,12 @@ Jungler bergantian farming, membidik, dan menyerang di lane. Dia mengawasi buff 
 
 ### Late game
 
-Peperangan terjadi di sekitar Lord. Jungler tidak boleh menjadi yang pertama memasuki pertarungan: dia menunggu sampai kontrol lawan digunakan, lalu dia menargetkan carry yang paling terbuka. Dan dia selalu menyimpan Balasannya untuk Lord.
+Peperangan terjadi di sekitar Tuhan. Jungler tidak memasuki pertarungan terlebih dahulu: dia menunggu hingga kontrol lawan digunakan, lalu dia menargetkan operator yang paling terbuka. Dan dia selalu menyimpan Balasannya untuk Tuhan.
 
 ## Kesalahan paling umum
 
 - Farming jungle Anda saat tim bertarung demi Turtle.
 - Gunakan Retribution di kamp kecil tepat sebelum objektif.
-- Serang lane yang lawannya berada di bawah turretnya dengan seluruh poin nyawanya.
-- Buka teamfight terlebih dahulu dengan Assassin yang rapuh.
+- Ganker lawan yang berada di bawah turretnya dengan seluruh poin nyawanya.
+- Terlibat dalam pertarungan tim dengan assassin yang rapuh.
 - Mulai Lord tanpa mengetahui di mana musuh berada.

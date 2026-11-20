@@ -22,7 +22,7 @@ The roamer does not keep a lane: he moves from one lane to another to help, prep
 - **Protection**: a support heals, protects or repels divers who target the carries.
 - **Time**: a roamer who forces an opponent to retreat gains seconds for an objective, without even fighting.
 
-As he earns little gold, the roamer equips himself with roam boots: their blessing compensates for his low income and adds a useful effect to the team. The [item catalog](/items) presents them with the boots they complete.
+As he earns little gold, the roamer equips himself with roam boots: their blessing compensates for his low income and adds a useful effect to the team. The [item catalog](/items) shows the boots to which it is added.
 
 ## Recommended heroes right now
 
@@ -36,17 +36,17 @@ Two families share the post. Engagement tanks, such as [Tigreal](/heroes/tigreal
 
 The roamer builds items that serve the team more than himself:
 
-- **against a team that heals itself**, [Dominance Ice](/items/dominance-ice), which reduces the healing of nearby opponents;
+- **against a team that heals**, [Dominance Ice](/items/dominance-ice), which reduces the healing and shields of nearby opponents;
 - **to launch the ultimate more often**, [Fleeting Time](/items/fleeting-time), which reduces its recharge after an kill or assistance;
-- **to protect an ally**, [Flask of the Oasis](/items/flask-of-the-oasis) on supports that heal.
+- **to protect an ally**, [Flask of the Oasis](/items/flask-of-the-oasis) on supports that heal or place shields: an ally below 35% HP also receives a shield.
 
-On the spell side, [Flicker](/spells/flicker) allows tanks to engage by surprise. [Revitalize](/spells/revitalize) and [Aegis](/spells/aegis) protect the team in a long fight, and [Petrify](/spells/petrify) adds area control to heroes who lack it.
+On the spell side, [Flicker](/spells/flicker) allows tanks to engage by surprise. [Revitalize](/spells/revitalize) (healing zone) and [Aegis](/spells/aegis) (shield for you and nearby allies) help the team last a long fight, and [Petrify](/spells/petrify), which slows and then immobilizes nearby enemies, provides control to heroes who lack it.
 
 ## How a game unfolds
 
 ### Early game
 
-The roamer protects his jungler's first buff, then helps the gold lane or mid lane during the first waves. Around 1:45, he takes the river to prepare the Turtle, who appears at 2:00 near the exp lane.
+The roamer protects his jungler's first buff, then helps the Gold lane or Mid lane during the first waves. Around 1:45, he goes down into the river to prepare the Turtle, which appears at 2:00 near the EXP lane.
 
 ### Mid-game
 
@@ -54,12 +54,12 @@ The roamer never stays in the same place for long. He tracks the objectives: he 
 
 ### Late game
 
-In team combat, the tank engages when its carries are close enough to follow, and the support remains next to its main carry. A roamer who dies first, for having engaged alone, leaves his team at four against five.
+In team combat, the tank engages when its carriers are close enough to follow, and the support remains next to its main carrier. A roamer who engages alone and dies first leaves his team four against five.
 
 ## The most common mistakes
 
 - Follow the marksman the whole game instead of preparing the objectives.
-- Entering an unfamiliar bush alone with a fragile support.
+- Entering an unchecked bush alone with flimsy support.
 - Engage in combat while the team's carries are still farming.
 - Forgetting roam boots or buying them too late.
 - Use your ultimate to finish off an opponent instead of saving it for the fight.

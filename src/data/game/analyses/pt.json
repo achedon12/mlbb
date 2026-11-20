@@ -40,7 +40,7 @@
       "Impõe pressão permanente na Mid Lane"
     ],
     "weaknesses": [
-      "Entre as execuções mais difíceis do plantel",
+      "Uma das execuções mais difíceis do jogo",
       "Consumo de mana muito alto",
       "Sem seu ultimate, seu dano desmorona"
     ],
@@ -68,7 +68,7 @@
     "weaknesses": [
       "Depende inteiramente de sua energia",
       "Início lento antes de dois itens",
-      "Severamente punido por bloqueios de movimento"
+      "Punido severamente por bloqueios de movimento"
     ],
     "builds": [
       {
@@ -84,7 +84,7 @@
       "Ele ataca com arco ou espada dependendo da distância do alvo. Após cada troca de arma, seus próximos dois ataques ganham impulso e dano crítico, com um pequeno aumento de velocidade.",
       "Avance com a espada, o que a torna insensível aos controles por um curto período de tempo. Cada troca de arma acionada encurta sua recarga: esta é sua principal mobilidade em combate.",
       "Toque curto: um golpe rápido de espada. Toque longo: uma flecha cujo dano aumenta com o tempo de carga. Em ambos os casos, aciona imediatamente o bônus de troca de arma.",
-      "Revela o mapa inteiro por alguns segundos e acelera. Relançado, ele envia um navio colidindo com uma área, atordoando o centro, e depois várias salvas de canhão que desaceleram em uma área mais ampla."
+      "Revela o mapa inteiro por alguns segundos e acelera Yi Sun-shin. Relançado, ele envia um navio colidindo com uma área, atordoando o centro, e depois várias salvas de canhão que desaceleram em uma área mais ampla."
     ],
     "strengths": [
       "Visão de todo o mapa no lançamento do Ultimate",
@@ -110,7 +110,7 @@
   },
   "selena": {
     "summary": "Heroína com duas formas: armadilhas e flechas atordoantes à distância, depois assassinato por contato após o final.",
-    "analysis": "Selena é disputada em duas etapas. Em sua forma élfica, ela coloca demônios que vigiam um local e se agarram aos inimigos que passam, e ela atira uma flecha cujo atordoamento aumenta com a distância percorrida; suas habilidades deixam marcas nos alvos. O ultimate a muda para a Forma Abissal, onde suas habilidades se tornam um ataque de salto com escudo e uma carga, que consome essas marcas para causar dano adicional; ela pode então retornar à forma élfica.\n\nEssa versatilidade tem um custo: toda a sua iniciação depende da flecha, que deve partir de longe para atordoar por muito tempo. Sua taxa de vitória medida permanece abaixo da média em todas as categorias, com um ponto baixo em jogos com duração inferior a doze minutos. É jogado tanto na Mid Lane quanto em roaming, com objetos diferentes dependendo da posição. As medidas a colocam em dificuldade contra Gloo, Popol e Kupa, Chip e Lolita.",
+    "analysis": "Selena é disputada em duas etapas. Em sua forma élfica, ela coloca demônios que vigiam um local e se agarram aos inimigos que passam, e ela atira uma flecha cujo atordoamento aumenta com a distância percorrida; suas habilidades deixam marcas nos alvos. O ultimate a muda para a Forma Abissal, onde suas habilidades se tornam um ataque de salto com escudo e uma carga, que consome essas marcas para causar dano adicional; ela pode então retornar à forma élfica.\n\nEssa versatilidade tem um custo: toda a sua iniciação depende da flecha, que deve partir de longe para atordoar por muito tempo. Sua taxa de vitória medida permanece abaixo da média em todas as categorias, com um ponto baixo em jogos com duração inferior a doze minutos. É jogado tanto na Mid Lane quanto em roam, com objetos diferentes dependendo da posição. As medidas a colocam em dificuldade contra Gloo, Popol e Kupa, Chip e Lolita.",
     "skills": [
       "Ele se move livremente de uma forma para outra. Na forma élfica, suas habilidades apresentam marcas cumulativas; na Forma Abissal, seu dano consome essas marcas para atingir com mais força. O jogo consiste em marcar de longe e depois finalizar de perto.",
       "Coloca um demônio à espera em um local, ataca o primeiro inimigo que se aproxima, retarda-o e depois explode sobre ele e seus vizinhos. Várias armadilhas podem coexistir e cada armadilha adicional fortalece a explosão.",
@@ -121,7 +121,7 @@
       "Atordoamento prolongado quando a flecha vem de longe",
       "Armadilhas preparadas com antecedência, várias de cada vez",
       "Duas formas: controle remoto e, em seguida, contato com danos",
-      "Jogável na Mid Lane e também em roaming"
+      "Jogável na Mid Lane e em roaming"
     ],
     "weaknesses": [
       "Toda a sua iniciação depende de uma flecha a ser apontada de longe",
@@ -131,7 +131,7 @@
     ],
     "builds": [
       {
-        "name": "Lane do meio",
+        "name": "Mid Lane",
         "context": "A build intermediária mais jogada: Starlium Scythe adiciona dano ao ataque básico que segue uma habilidade, que serve sua forma abissal, Lightning Truncheon um eco de dano e Divine Glaive penetração mágica."
       },
       {
@@ -142,7 +142,7 @@
   },
   "chou": {
     "summary": "Lutador de isolamento: ele extrai um alvo do grupo adversário e o mata antes que sua equipe reaja.",
-    "analysis": "Chou é o herói do teto mais alto em roaming. A ideia é simples – o ultimate lança um alvo no ar e move-o – mas a sua execução depende de cancelamentos de animação que o jogo não explica em lado nenhum. O combo de referência encadeia habilidade 1, salto cancelado, final e depois habilidade 2 para segurar o alvo ao pousar.\n\nDaí vem seu interesse por um time organizado: ele escolhe quem morre. Contra um jogador que mantém seu Purify, por outro lado, o ultimate perde metade de seu valor e Chou se torna um lutador mediano novamente.",
+    "analysis": "Chou é o herói de roaming com o maior limite de maestria. A ideia é simples – o ultimate lança um alvo no ar e move-o – mas a sua execução depende de cancelamentos de animação que o jogo não explica em lado nenhum. O combo de referência encadeia habilidade 1, salto cancelado, final e depois habilidade 2 para segurar o alvo ao pousar.\n\nDaí vem seu interesse por um time organizado: ele escolhe quem morre. Contra um jogador que mantém seu Purify, por outro lado, o ultimate perde metade de seu valor e Chou se torna um lutador mediano novamente.",
     "skills": [
       "A cada poucos ataques básicos, seu próximo ataque se torna um golpe aprimorado que causa dano extra.",
       "Três ataques sucessivos. O último lança os inimigos atingidos no ar.",
@@ -165,13 +165,13 @@
         "context": "A versão jogada em competição: resistência suficiente para sobreviver à viagem de ida e volta, sem itens de puro dano."
       },
       {
-        "name": "Experiência ofensiva",
-        "context": "Na lane da experiência, quando Chou deve vencer seu duelo em vez de servir seu time."
+        "name": "EXP da rota ofensiva",
+        "context": "Na lane EXP, quando Chou deve vencer seu duelo em vez de servir seu time."
       }
     ]
   },
   "yu-zhong": {
-    "summary": "Lutador de lane experiente que se cura ao acertar e se torna muito difícil de matar em combate prolongado.",
+    "summary": "Lutador da lane EXP que se cura ao acertar e se torna muito difícil de matar em combate prolongado.",
     "analysis": "Yu Zhong vence as últimas lutas. A sua passiva transforma parte do dano infligido num escudo, o que o torna excelente quando existem vários alvos ao alcance – um confronto a cinco dá-lhe muito mais retorno do que um duelo.\n\nSua ultimate o torna imune a verificações enquanto avança, o que também o torna um iniciador confiável. Combatê-lo quase sempre envolve reduzir a cura: sem isso, um Yu Zhong bem equipado absorve uma equipe inteira.",
     "skills": [
       "O dano causado por suas habilidades se converte parcialmente em um escudo, com maior eficiência em múltiplos alvos.",
@@ -185,13 +185,13 @@
       "Bom impulso na lane e bom controle das ondas"
     ],
     "weaknesses": [
-      "Colapsado por cuidados reduzidos",
+      "Muito enfraquecido pela redução na cicatrização",
       "Início de jogo frágil antes do terceiro item",
       "Pouco dano em um único alvo isolado"
     ],
     "builds": [
       {
-        "name": "Experiência de regeneração",
+        "name": "Regeneração da lane EXP",
         "context": "A construção de referência: resistência e roubo de vida, já que o passivo já converte o dano em escudo."
       }
     ]
@@ -213,7 +213,7 @@
     "weaknesses": [
       "Perde todo o interesse se as janelas estiverem estragadas",
       "Muito vulnerável quando as habilidades são gastas",
-      "Punitivo contra heróis que mantêm seu controle"
+      "Punido por heróis que mantêm seu controle"
     ],
     "builds": [
       {
@@ -223,7 +223,7 @@
     ]
   },
   "dyrroth": {
-    "summary": "Lutador furioso que remove a armadura física de seu alvo antes de acertá-lo, jogado tanto na lane de experiência quanto na jungle.",
+    "summary": "Lutador furioso que remove a armadura física de seu alvo antes de acertá-lo, jogado na lane EXP e na jungle.",
     "analysis": "Dyrroth aumenta a raiva enquanto luta; No mid-gauge, suas duas primeiras habilidades se tornam uma versão reforçada, com maior alcance ou mais dano. A cada dois ataques básicos ele acerta um círculo ao seu redor e se cura, e cada herói atingido encurta seus tempos de recarga. A habilidade 2 lança-o contra um alvo e depois, relançado, remove grande parte de sua armadura física por alguns segundos: é a abertura que torna efetivo o resto de seu dano. O Ultimate sai após um pequeno atraso, não pode ser interrompido e retarda tudo por onde passa.\n\nEle vive de seus ralis nos primeiros jogos: sua taxa de vitória medida é mais alta em jogos curtos e cai abaixo da média após o décimo oitavo minuto. Seus números também variam dependendo da classificação, sendo mais baixos no Mythic do que no Mythic Glory. As medidas o colocam em dificuldades contra Masha, Benedetta e Thamuz.",
     "skills": [
       "Com metade de seu medidor de raiva, suas habilidades 1 e 2 são fortalecidas. A cada dois ataques básicos, ele acerta em círculo e recupera HP, e cada herói atingido reduz os tempos de recarga de suas duas primeiras habilidades.",
@@ -235,7 +235,7 @@
       "Redução de armadura física incorporada na habilidade 2",
       "Cura regular em combate graças ao seu passivo",
       "Tempos de recarga reduzidos para cada herói atingido",
-      "Duas posições possíveis: lane de experiência ou jungle"
+      "Duas posições possíveis: EXP lane ou jungle"
     ],
     "weaknesses": [
       "Taxa de vitória medida diminuindo em jogos longos",
@@ -245,8 +245,8 @@
     ],
     "builds": [
       {
-        "name": "Lane de experiência",
-        "context": "A lane de experiência mais jogada para todos os níveis: War Axe e Queen's Wings para roubo de vida e sobrevivência, Rose Gold Meteor para o escudo quando seu HP cai baixo. As escolhas permanecem muito dispersas nesta posição, e em Mythic Glory é uma versão de penetração (Blade of the Heptaseas, Hunter Strike, Rose Gold Meteor) que vem primeiro."
+        "name": "Lane EXP",
+        "context": "A construção mais jogada na rota EXP em todos os níveis: War Axe e Queen's Wings para roubo de vida e sobrevivência, Rose Gold Meteor para o escudo quando seu HP cai baixo. As escolhas permanecem muito dispersas nesta posição, e em Mythical Glory é uma versão de penetração (Blade of the Heptaseas, Hunter Strike, Rose Gold Meteor) que vem primeiro."
       },
       {
         "name": "Jungle",
@@ -256,7 +256,7 @@
   },
   "sun": {
     "summary": "Lutador que se multiplica: seus sósias atacam com ele, curam-no e corroem a armadura dos alvos.",
-    "analysis": "Sun luta convocando duplas. Suas duas primeiras habilidades lançam seu cajado, o que deixa uma duplicata temporária; o segundo também o esconde enquanto ele se move com o manche. A última convocação é uma duplicata mais durável, mais próxima de suas próprias estatísticas. Cada golpe de Sun ou de suas duplas reduz um pouco a armadura física do alvo, e cada golpe de uma dupla o cura: quanto mais duplas houver em um alvo, mais rápido ele derrete e mais dura.\n\nSeu perfil medido é o de um herói no final do jogo: taxa de vitória abaixo da média em jogos com duração inferior a quatorze minutos, e significativamente acima após o décimo sexto. Ele também é frequentemente banido, especialmente no nível Mítico. O dobro do máximo causa dano maior, e as métricas colocam Sun em apuros contra Aldous, Natan, Alucard, Joy e Ruby.",
+    "analysis": "Sun luta convocando duplas. Suas duas primeiras habilidades lançam seu cajado, o que deixa uma duplicata temporária; o segundo também o esconde enquanto ele se move com o manche. A última convocação é uma duplicata mais durável, mais próxima de suas próprias estatísticas. Cada golpe de Sun ou de suas duplas reduz um pouco a armadura física do alvo, e cada golpe de uma dupla o cura: quanto mais duplas houver em um alvo, mais rápido ele derrete e mais dura.\n\nSeu perfil medido é o de um herói no final do jogo: taxa de vitória abaixo da média em jogos com duração inferior a quatorze minutos, e significativamente superior após o décimo sexto. Ele também é frequentemente banido, especialmente no nível Mítico. O dobro do máximo causa dano maior, e as métricas colocam Sun em apuros contra Aldous, Natan, Alucard, Joy e Ruby.",
     "skills": [
       "Cada acerto de Sun ou duplo reduz a armadura física do alvo, acumulando. Cada vez que um duplo causa dano, Sun recupera HP. Seus ataques e os de seus duplos também atingem os monstros com mais força.",
       "Joga o bastão em linha; no impacto ou no final da tacada, transforma-se num duplo que assume parte das suas estatísticas. Compartilha seu tempo de recarga e níveis com a habilidade 2.",
@@ -276,8 +276,8 @@
     ],
     "builds": [
       {
-        "name": "Lane de experiência",
-        "context": "A build mais jogada na lane de experiência: velocidade de ataque e crítico, dos quais suas duplas se beneficiam ao recuperar parte de seus efeitos de ataque, e Great Dragon Spear para velocidade após o ultimate. É mais frequentemente associado ao emblema de suporte e ao feitiço Petrify."
+        "name": "Lane EXP",
+        "context": "A build mais jogada na rota EXP: velocidade de ataque e crítico, da qual suas duplas se beneficiam ao recuperar parte de seus efeitos de ataque, e Great Dragon Spear para velocidade após o ultimate. É mais frequentemente associado ao emblema de suporte e ao feitiço Petrify."
       },
       {
         "name": "Jungle",
@@ -337,14 +337,14 @@
     ],
     "builds": [
       {
-        "name": "Ambiente explosivo",
+        "name": "Mid Lane explosiva",
         "context": "A construção padrão: penetração mágica para manter o dano contra os primeiros objetos defensivos."
       }
     ]
   },
   "pharsa": {
     "summary": "Mago de Artilharia: Seus ataques finais pelo mapa, sem nunca entrar em combate.",
-    "analysis": "Pharsa joga no escopo. Seu ultimate é um bombardeio canalizado cobrindo uma área enorme de longo alcance, permitindo que ela participe de uma luta que ela mal consegue ver. Bem colocado, este feitiço por si só pode decidir um conflito em torno do senhor.\n\nSua habilidade 2 lhe confere uma forma voadora que atravessa paredes, essencial para o reposicionamento após a canalização. O ponto fraco é óbvio: durante a final ela fica imóvel e indefesa, e qualquer assassino que a encontra a mata.",
+    "analysis": "Pharsa joga no escopo. Seu ultimate é um bombardeio canalizado cobrindo uma área enorme a longa distância, permitindo que ela participe de uma luta que ela mal vê. Bem colocado, este feitiço por si só pode decidir um confronto em torno do Lorde.\n\nSua habilidade 2 lhe confere uma forma voadora que atravessa paredes, essencial para o reposicionamento após a canalização. O ponto fraco é óbvio: durante a final ela fica imóvel e indefesa, e qualquer assassino que a encontra a mata.",
     "skills": [
       "Após uma habilidade, seu próximo ataque básico causa Dano Mágico adicional.",
       "Envia uma onda que explode à distância, causando dano em área.",
@@ -363,7 +363,7 @@
     ],
     "builds": [
       {
-        "name": "Meio de artilharia",
+        "name": "Artilharia da lane intermediária",
         "context": "Alcance e dano bruto, com um item defensivo tardio para sobreviver a um mergulho."
       }
     ]
@@ -389,8 +389,8 @@
     ],
     "builds": [
       {
-        "name": "Ambiente cumulativo",
-        "context": "Mana e recarga primeiro para acumular rapidamente, dano depois. A Ampulheta não é opcional."
+        "name": "Acumulação da Mid Lane",
+        "context": "Mana e recarga primeiro para acumular rapidamente, dano depois. Enchanted Talisman não é opcional."
       }
     ]
   },
@@ -518,7 +518,7 @@
   },
   "nana": {
     "summary": "Mago de assédio que incapacita um alvo ao transformá-lo e sobrevive a um golpe fatal uma vez.",
-    "analysis": "Nana desgasta seus oponentes à distância com um bumerangue que bate para frente e para trás. Sua habilidade 2 envia Molina para perseguir o herói inimigo mais próximo: aquele que ela atinge é transformado por um curto período de tempo, desacelerado e enfraquecido contra danos mágicos. O Ultimate atinge uma área três vezes e atordoa os inimigos atingidos várias vezes seguidas. Sua passiva lhe concede, uma vez a cada dois minutos e meio, uma transformação invulnerável no momento em que deveria morrer.\n\nSeus números medidos são baixos: taxa de vitória abaixo da média em todos os níveis, ainda mais baixa em Mythic Glory, sem nenhuma melhoria real em jogos longos. Ao transformar sua passiva, ela não pode lançar nenhuma habilidade, e Molina escolhe seu alvo entre os heróis próximos. As contra-lacunas permanecem modestas; o mais claro a coloca em dificuldade contra Gloo, depois contra Akai e Hylos.",
+    "analysis": "Nana desgasta seus oponentes à distância com um bumerangue que bate para frente e para trás. Sua habilidade 2 envia Molina para perseguir o herói inimigo mais próximo: aquele que ela atinge é transformado por um curto período de tempo, desacelerado e enfraquecido contra danos mágicos. O Ultimate atinge uma área três vezes e atordoa os inimigos atingidos várias vezes seguidas. Sua passiva lhe concede, uma vez a cada dois minutos e meio, uma transformação invulnerável no momento em que deveria morrer.\n\nSeus números medidos são baixos: taxa de vitória abaixo da média em todos os níveis, ainda mais baixa em Glória Mítica, sem nenhuma melhoria real em partidas longas. Ao transformar sua passiva, ela não pode lançar nenhuma habilidade, e Molina escolhe seu alvo entre os heróis próximos. As contra-diferenças permanecem modestas; o mais claro a coloca em dificuldade contra Gloo, depois contra Akai e Hylos.",
     "skills": [
       "Diante de um golpe fatal, ela se livra dos efeitos negativos e se transforma: invulnerável, mais rápida, recupera um pouco de HP mas não consegue lançar nenhuma habilidade. O efeito tem um longo recarga.",
       "Um bumerangue que bate na ida e na volta. Seu dano diminui para cada inimigo adicional cruzado: é melhor mirar em um alvo isolado.",
@@ -556,7 +556,7 @@
     "strengths": [
       "Pico de energia muito precoce",
       "Dano de longo alcance com ultimate",
-      "Funciona tanto na jungle quanto na rota do ouro"
+      "Funciona na jungle como na Gold Lane"
     ],
     "weaknesses": [
       "Sem controle",
@@ -565,7 +565,7 @@
     ],
     "builds": [
       {
-        "name": "Dano bruto de ouro",
+        "name": "Lane do ouro, dano bruto",
         "context": "A velocidade de ataque não acrescenta nada à sua passiva: acumulamos dano de ataque e penetração."
       }
     ]
@@ -591,7 +591,7 @@
     ],
     "builds": [
       {
-        "name": "Ouro de longo alcance",
+        "name": "Lane do ouro, longo alcance",
         "context": "Par de rifle de precisão e lançador de granadas: percorremos a distância e acertamos os objetivos."
       }
     ]
@@ -617,14 +617,14 @@
     ],
     "builds": [
       {
-        "name": "Padrão ouro",
+        "name": "Padrão da lane de ouro",
         "context": "Velocidade de Ataque e Crítico: Melissa atira continuamente até ser atingida."
       }
     ]
   },
   "miya": {
     "summary": "Atirador de ataque básico puro: ela ganha impulso à medida que acerta, e seu ultimate a faz desaparecer no momento em que você a mira.",
-    "analysis": "Miya baseia tudo no ataque básico. Sua passiva acumula velocidade de ataque a cada tiro acertado, a habilidade 1 adiciona flechas adicionais que também danificam alvos próximos e a habilidade 2 imobiliza uma área antes de desacelerar o que está ao seu redor. Seu ultimate remove os efeitos negativos, torna-a invisível e a tira desse estado com sua passiva já com carga total: serve tanto para escapar quanto para retornar à troca a toda velocidade. Sua taxa de vitória medida aumenta ligeiramente com a duração do jogo.\n\nNão tem movimento instantâneo. Uma vez que o ultimate é usado, ela só tem habilidade 2 para desacelerar um atacante, e seu ritmo cai assim que ela para de acertar um alvo. As contramedidas a colocam em dificuldade contra Beatrix, Granger, Gatotkaca, Karina e Belerick, com uma lacuna que é encontrada entre o rank Mítico e o rank Glória Mítica.",
+    "analysis": "Miya baseia tudo no ataque básico. Sua passiva acumula velocidade de ataque a cada tiro acertado, a habilidade 1 adiciona flechas adicionais que também danificam alvos próximos e a habilidade 2 imobiliza uma área antes de desacelerar o que está ao seu redor. Seu ultimate remove os efeitos negativos, torna-a invisível e a tira desse estado com sua passiva já com carga total: serve tanto para escapar quanto para retornar à troca a toda velocidade. Sua taxa de vitória medida aumenta ligeiramente com a duração do jogo.\n\nNão tem movimento instantâneo. Uma vez que o ultimate é usado, ela só tem habilidade 2 para desacelerar um atacante, e seu ritmo cai assim que ela para de acertar um alvo. As contramedidas a colocam em dificuldade contra Beatrix, Granger, Gatotkaca, Karina e Belerick, com uma lacuna que vai do rank Mítico ao rank Glória Mítica.",
     "skills": [
       "Cada ataque básico acertado adiciona um nível de velocidade de ataque, até cinco. Com carga total, cada tiro faz aparecer uma sombra que o atinge: o objetivo é nunca mais deixar os níveis caírem novamente.",
       "Por alguns segundos, cada ataque básico vem acompanhado de mais duas flechas, e parte do dano atinge inimigos próximos ao alvo. Para ser lançado no início de uma troca ou em uma onda de minions.",
@@ -646,7 +646,7 @@
     "builds": [
       {
         "name": "Crítico",
-        "context": "A construção mais jogada na rota do ouro, todas as classificações combinadas, como em Mythic Glory: a chance crítica alimenta Berserker's Fury e aciona a velocidade de ataque de Haas' Claws, que também fornece roubo de vida."
+        "context": "A construção mais jogada na rota Ouro, todas as classificações combinadas, bem como na Glória Mítica: a chance crítica alimenta Berserker's Fury e aciona a velocidade de ataque de Haas' Claws, que também fornece roubo de vida."
       },
       {
         "name": "Danos por impacto",
@@ -656,7 +656,7 @@
   },
   "hanabi": {
     "summary": "Atiradora de dano de rebote, cujos controles não acertam enquanto ela carrega um escudo.",
-    "analysis": "Hanabi inflige seu dano em ricochete: cada ataque básico ou habilidade que atinge envia lâminas de volta aos inimigos vizinhos, tornando-a eficaz em lutas em grupo e em ondas. Sua habilidade 1 lhe dá um escudo, e enquanto um escudo a proteger, os efeitos de controle não terão efeito sobre ela; parte do dano que inflige também recarrega este escudo. Sua ultimate imobiliza o primeiro herói atingido antes de explodir ao seu redor.\n\nPorém, ela não tem movimento instantâneo: caso o escudo caia, ela se torna um alvo fácil de alcançar novamente. Sua taxa de vitória medida é mais alta em jogos curtos e diminui significativamente à medida que eles ficam mais longos, caindo para menos de cinquenta por cento após o décimo oitavo minuto. No ranking Mythic Glory, as medidas a colocam em dificuldade contra Lolita, Joy, Beatrix, Wanwan e Ixia.",
+    "analysis": "Hanabi inflige seu dano em ricochete: cada ataque básico ou habilidade que atinge envia lâminas de volta aos inimigos vizinhos, tornando-a eficaz em lutas em grupo e em ondas. Sua habilidade 1 lhe dá um escudo, e enquanto um escudo a proteger, os efeitos de controle não terão efeito sobre ela; parte do dano que inflige também recarrega este escudo. Sua ultimate imobiliza o primeiro herói atingido antes de explodir ao seu redor.\n\nPorém, ela não tem movimento instantâneo: caso o escudo caia, ela se torna um alvo fácil de alcançar novamente. Sua taxa de vitória medida é mais alta em jogos curtos e diminui significativamente à medida que eles ficam mais longos, caindo para menos de cinquenta por cento após o décimo oitavo minuto. No ranking Mythical Glory, as medidas a colocam em dificuldade contra Lolita, Joy, Beatrix, Wanwan e Ixia.",
     "skills": [
       "Cada ataque básico ou habilidade que atinge envia lâminas de volta para vários inimigos próximos, com o dano diminuindo a cada salto. Os saltos de ataque básicos recuperam alguns de seus efeitos de ataque.",
       "Enquanto usa um escudo, independentemente de sua origem, Hanabi ignora os controles. Ao ativá-lo, ela se protege, ganha velocidade de movimento e de ataque, e parte dos danos infligidos fortalece esse escudo até certo limite.",
@@ -678,7 +678,7 @@
     "builds": [
       {
         "name": "Ataques reforçados",
-        "context": "De longe, a construção mais jogada na lane do ouro: Corrosion Scythe, Demon Hunter Sword e Golden Staff fortalecem cada ataque básico, cujos rebotes recuperam parte dos efeitos. É mais frequentemente associado ao emblema do lutador e ao feitiço Aegis, cujo escudo também o torna imune a testes."
+        "context": "De longe a construção mais jogada na rota Gold: Corrosion Scythe, Demon Hunter Sword e Golden Staff fortalecem cada ataque básico, cujos rebotes recuperam parte dos efeitos. É mais frequentemente associado ao emblema do lutador e ao feitiço Aegis, cujo escudo também o torna imune a testes."
       }
     ]
   },
@@ -716,7 +716,7 @@
   },
   "estes": {
     "summary": "A cura mais crua do jogo: sua ultimate regenera toda a equipe por vários segundos.",
-    "analysis": "Estes não faz nada além de curar, mas o faz em um volume que nenhum outro suporte alcança. Em uma luta prolongada em torno de um objetivo, seu ultimate pode anular o dano sustentado de uma composição inteira.\n\nIsso também o torna o herói mais dependente do contexto da lista. Contra um time que compra redução de cura, ou tem uma iniciação capaz de removê-la primeiro, torna-se quase inútil. Não fornece controle, nenhum dano, nenhuma mobilidade: se não curar, não existe.",
+    "analysis": "Estes não faz nada além de curar, mas o faz em um volume que nenhum outro suporte alcança. Em uma luta prolongada em torno de um objetivo, seu ultimate pode anular o dano sustentado de uma composição inteira.\n\nIsso também o torna o herói mais dependente do contexto de todo o jogo. Contra um time que compra redução de cura, ou tem uma iniciação capaz de removê-lo primeiro, ele se torna quase inútil. Não fornece controle, nenhum dano, nenhuma mobilidade: se não curar, não existe.",
     "skills": [
       "Sua cura aplica uma marca que aumenta a regeneração dos aliados afetados.",
       "Cura um aliado alvo e aumenta sua velocidade de movimento.",
@@ -885,7 +885,7 @@
     "strengths": [
       "O melhor agrupamento do jogo em múltiplos alvos",
       "Muito durável mesmo com um orçamento modesto de objetos",
-      "Legível: fácil de aprender em um jogo de classificação baixa"
+      "Legível: fácil de aprender em classificações mais baixas"
     ],
     "weaknesses": [
       "Inútil quando seu ultimate está em espera",
@@ -898,8 +898,8 @@
         "context": "A compilação padrão. Sacrificamos todos os danos para alcançar o contato e sobreviver ao início da luta."
       },
       {
-        "name": "Frente Resistente à Magia",
-        "context": "Contra uma composição adversária com dois ou mais magos, ou quando o dano mágico adversário excede o físico."
+        "name": "Linha de frente anti-mágica",
+        "context": "Contra uma composição inimiga com dois ou mais magos, ou quando o dano mágico adversário excede o dano físico."
       }
     ]
   },
@@ -914,13 +914,13 @@
     ],
     "strengths": [
       "Remove um alvo importante do combate, independentemente da resistência",
-      "Excelente controle de mira em torno do senhor e da tartaruga",
+      "Excelente controle de mira em torno do Lorde e da Tartaruga",
       "Recompensa enormemente a leitura de cartões"
     ],
     "weaknesses": [
       "Um gancho falhado o deixa sem nada por oito segundos",
       "Muito dependente da visão e dos arbustos",
-      "O máximo é um alvo único: sem relé, ele morre depois"
+      "O último visa apenas um alvo: sem um relé, ele morre"
     ],
     "builds": [
       {
@@ -944,7 +944,7 @@
       "Pode isolar um alvo contra uma parede"
     ],
     "weaknesses": [
-      "Sem suas habilidades ele não tem velocidade",
+      "Sem suas habilidades ele é muito lento",
       "Tempos de espera longos no início do jogo",
       "Não é muito útil contra uma equipe sem movimentação"
     ],
@@ -1014,7 +1014,7 @@
       },
       {
         "name": "Contra a magia",
-        "context": "Escudo de Atenas no lugar de Radiant Armor, com o emblema de suporte: menos jogado, com taxa de vitória melhor medida. Melhor usado contra um time adversário com alto dano mágico."
+        "context": "Escudo de Atenas no lugar de Radiant Armor, com emblema de suporte: menos jogado, com taxa de vitória melhor medida. Melhor usado contra um time adversário com alto dano mágico."
       }
     ]
   },

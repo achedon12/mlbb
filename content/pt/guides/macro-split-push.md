@@ -1,5 +1,5 @@
 ---
-title: "Leitura de macro e cartão: quando e como dividir push"
+title: "Leitura de macros e mapas: quando e como fazer split push"
 short: "Macro e push dividido"
 date: "2026-11-14"
 updated: "2026-11-14"
@@ -12,7 +12,7 @@ related: ["jungle-objectives", "teamfight-positioning", "exp-lane"]
 tools: ["/map", "/tools/timer", "/meta"]
 ---
 
-Duas equipes do mesmo nível mecânico não vencem com tanta frequência. A diferença é o macro: a capacidade de estar no lugar certo, na hora certa, com o número certo de jogadores. Não requer reflexos nem heróis precisos, apenas atenção.
+No mesmo nível mecânico, uma equipe ainda acaba vencendo com mais frequência que a outra. A diferença é o macro: estar no lugar certo, na hora certa, com a quantidade certa de jogadores. Não requer reflexos ou heróis especiais, apenas atenção.
 
 ## Veja o minimapa
 
@@ -30,43 +30,43 @@ Um jogo não se joga objetivo por objetivo: joga-se em trocas. Se o oponente peg
 
 - **Quando um objetivo é perdido antecipadamente**, escolha outro do outro lado do mapa em vez de lutar quatro contra cinco.
 - **Quando você atinge um objetivo**, pergunte-se o que o oponente pode atingir naquele tempo.
-- **Uma torre externa vale menos que uma torre interna**: a ordem de destruição conta para o acesso à jungle do oponente.
+- **Uma torre externa vale menos que uma torre interna**: a segunda traz mais ouro para o time e abre mais a jungle inimiga.
 
-O [guia do mapa](/map) lembra onde cada torre e cada acampamento estão localizados, e a [cronologia objetiva](/tools/timer) permite que você saiba com antecedência quando a troca ocorrerá.
+O [guia do mapa](/map) lembra onde estão cada torre e acampamento, e a [linha do tempo objetiva](/tools/timer) avisa com antecedência quando a troca ocorrerá.
 
 ## O split push: empurrando sozinho
 
-O empurrão dividido envolve empurrar uma lane sozinho enquanto o resto da equipe fica em outro lugar. Obriga o adversário a escolher: mandar alguém para defender e jogar quatro contra quatro em outro lugar, ou largar a torre.
+Split push consiste em empurrar uma lane sozinha enquanto as outras quatro jogam em outro lugar. O adversário deve então escolher: mandar alguém para defender e jogar quatro contra quatro do outro lado, ou deixar a torre cair.
 
 Funciona quando três condições são atendidas:
 
 1. **O herói que empurra vence o duelo** contra aquele que vem defender, ou pode fugir sem morrer.
-2. **O resto da equipe não luta**: mantém uma posição defensiva, sob uma torre ou perto de um objetivo, sem aceitar o combate quatro contra cinco.
-3. **As ondas são gerenciadas**: uma lane empurrada na frente de sua equipe mantém a pressão enquanto você está em outro lugar.
+2. **O resto da equipe não luta**: mantém uma posição defensiva, sob uma torre ou perto de um objetivo, e recusa o combate quando está em menor número.
+3. **As ondas são gerenciadas**: a rota em que sua equipe está é empurrada e essa onda mantém a pressão enquanto você está em outro lugar.
 
-Os bons heróis de split push derrubam uma torre rápido e têm como escapar. [Sun](/heroes/sun) vira o seu bastão, se esconde e reaparece mais longe com Swift Exchange; [Zilong](/heroes/zilong) ganha velocidade de movimento e ignora lentidões com Supreme Warrior. Já [Masha](/heroes/masha) só tem uma investida (Claw Strike) para sair: ela precisa vigiar o minimapa e deixar a lane antes que os defensores cheguem.
+Bons heróis de split push derrubam rapidamente uma torre e têm o suficiente para escapar. [Sun](/heroes/sun) se transforma em cajado, se esconde e reaparece mais longe com Swift Exchange; [Zilong](/heroes/zilong) ganha velocidade de movimento e ignora lentidão com Guerreiro Supremo. [Masha](/heroes/masha), ela só tem uma pressa (Golpe de Garra) para sair: ela deve monitorar o minimapa e sair da lane antes da chegada dos defensores.
 
-## Quando não dividir push
+## Quando evitar Split Push
 
 Split push se torna um erro em três situações:
 
-- **o Lorde está em jogo** e o oponente pode vencer com cinco enquanto você empurra sozinho;
+- **o Lorde está disponível** e o oponente pode aguentar com cinco enquanto você empurra sozinho;
 - **sua equipe não sabe que você está pressionando** e entra em combate sem você;
 - **o herói adversário mais forte em um duelo** não aparece mais no minimapa: ele pode estar esperando por você.
 
 ## Fim do jogo: O Lorde e as Ondas
 
-Após cerca de quinze minutos, as mortes duram muito tempo e uma única luta perdida pode abrir a base. A macro então se torna mais simples e mais severa:
+Após cerca de quinze minutos, os tempos de reaparecimento são longos e uma única luta perdida pode abrir a base. A macro fica mais simples, mas cada erro custa mais:
 
 - lute apenas com o Lorde ou com uma torre em mãos;
 - empurre sempre a onda antes de um objetivo, para que ela chegue ao mesmo tempo que você;
 - nunca deixe um jogador sozinho no meio do mapa sem visão.
 
-O [meta relatório semanal](/meta) também mostra quais heróis estão subindo ou descendo: um meta rico em heróis de ataque dividido exige mais disciplina na defesa da rota.
+O [meta relatório semanal](/meta) também mostra quais heróis estão subindo ou descendo: quando os heróis do split push são fortes, você tem que defender suas rotas com mais rigor.
 
 ## Os erros mais comuns
 
 - Agrupe-se como um grupo de cinco na Mid Lane, deixando duas ondas empurrarem para os lados.
 - Abandonar um objetivo sem levar nada em troca.
-- Empurrão dividido enquanto o time luta, sem avisar: é uma luta de quatro contra cinco.
+- Faça um split push sem avisar enquanto o time está lutando: ele joga a luta quatro contra cinco.
 - Corra em direção a uma luta distante em vez de tomar a torre à sua frente.

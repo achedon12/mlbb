@@ -1460,7 +1460,7 @@
   "cyclops": [
     {
       "type": "laning",
-      "description": "Ciclope può usare la sua seconda abilità per avvicinarsi agli eroi nemici e poi colpirli sia con la sua prima abilità che con le sfere evocate dalla sua seconda abilità. Questa combo è molto efficace contro gli eroi nemici.",
+      "description": "Cyclops può usare la sua 2a Abilità per avvicinarsi agli eroi nemici e poi colpirli sia con la sua 1a Abilità che con le sfere evocate dalla sua 2a Abilità. Questa combo è molto efficace contro gli eroi nemici.",
       "skills": [
         {
           "name": "Planets Attack",
@@ -1474,7 +1474,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Nei combattimenti di squadra, Ciclope dovrebbe controllare il nemico bersaglio con la sua Ultimate, avvicinarsi con la sua seconda abilità, quindi finire il bersaglio con la sua prima abilità.",
+      "description": "Nei combattimenti a squadre, Cyclops dovrebbe controllare il nemico bersaglio con la sua Ultimate, avvicinarsi con la sua seconda abilità, quindi finire il bersaglio con la sua prima abilità.",
       "skills": [
         {
           "name": "Star Power Lockdown",
@@ -2285,7 +2285,7 @@
   "guinevere": [
     {
       "type": "laning",
-      "description": "Nella fase in corsia, Ginevra dovrebbe usare la sua prima abilità e i suoi attacchi base potenziati per eliminare i servitori e colpire gli eroi nemici. Quando gli HP degli eroi nemici sono bassi, usa la seconda abilità di Ginevra per avvicinarti a loro e lanciarli in aria. Segui il suo Ultimate per provare a finirli.",
+      "description": "Nella fase in corsia, Guinevere dovrebbe usare la sua prima abilità e i suoi attacchi base potenziati per eliminare i servitori e colpire gli eroi nemici. Quando gli HP degli eroi nemici sono bassi, usa la seconda abilità di Guinevere per avvicinarli e lanciarli in aria. Segui il suo Ultimate per provare a finirli.",
       "skills": [
         {
           "name": "Energy Wave",
@@ -2308,7 +2308,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Nei combattimenti a squadre, Ginevra può usare la sua seconda abilità per lanciare in aria la squadra nemica e proseguire con la sua Ultimate per infliggere danni mantenendoli in volo. Può quindi usare lo scatto della sua seconda abilità per schivare il danno in arrivo, oppure può scegliere di usare la sua prima abilità per infliggere più danni per una combo di danni completa.",
+      "description": "Nei combattimenti a squadre, Guinevere può usare la sua seconda abilità per lanciare in aria la squadra nemica e proseguire con la sua Ultimate per infliggere danni mantenendoli in aria. Può quindi usare lo scatto della sua seconda abilità per schivare il danno in arrivo, oppure può scegliere di usare la sua prima abilità per infliggere più danni per una combo di danni completa.",
       "skills": [
         {
           "name": "Spatial Migration",
@@ -3509,7 +3509,7 @@
   "lancelot": [
     {
       "type": "laning",
-      "description": "Nella fase in corsia, elimina i servitori usando ripetutamente la prima abilità di Lancillotto grazie al ripristino del tempo di recupero e accumula la sua passiva prima di avvicinarsi al nemico e colpirlo con la sua seconda abilità.",
+      "description": "Nella fase in corsia, elimina i servitori usando ripetutamente la prima abilità di Lancelot grazie al ripristino del tempo di recupero, e accumula la sua passiva prima di avvicinarsi al nemico e colpirlo con la sua seconda abilità.",
       "skills": [
         {
           "name": "Puncture",
@@ -3523,7 +3523,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Nei combattimenti a squadre, usa la prima abilità di Lancillotto sui nemici in prima linea per lanciarsi nelle loro retrovie, quindi scatena la sua seconda abilità nelle retrovie per infliggere gravi danni. Continua con la sua Ultimate per caricare il bersaglio e bloccarne la fuga, e usa la sua prima abilità per continuare a inseguire o ritirarsi.",
+      "description": "Nei combattimenti di squadra, usa la prima abilità di Lancelot sui nemici in prima linea per lanciarsi nelle loro retrovie, quindi scatena la sua seconda abilità nelle retrovie per infliggere gravi danni. Continua con la sua Ultimate per caricare il bersaglio e bloccarne la fuga, e usa la sua prima abilità per continuare a inseguire o ritirarsi.",
       "skills": [
         {
           "name": "Puncture",
@@ -5608,7 +5608,7 @@
   "uranus": [
     {
       "type": "laning",
-      "description": "Urano può usare la sua prima abilità per colpire il nemico, quindi usare la combinazione seconda abilità - prima abilità quando i suoi HP sono bassi per finirlo.",
+      "description": "Uranus può usare la sua prima abilità per colpire il nemico, quindi usare la combinazione 2a abilità - 1a abilità quando i suoi HP sono bassi per finirlo.",
       "skills": [
         {
           "name": "Ionic Edge",
@@ -5626,7 +5626,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Urano dovrebbe usare la sua seconda abilità per entrare in combattimento, poi la sua Ultimate per sopravvivere agli attacchi nemici mentre spamma la sua prima abilità per danni prolungati.",
+      "description": "Uranus dovrebbe usare la sua seconda abilità per entrare in combattimento, poi la sua Ultimate per sopravvivere agli attacchi nemici mentre spamma la sua prima abilità per danni prolungati.",
       "skills": [
         {
           "name": "Transcendent Ward",

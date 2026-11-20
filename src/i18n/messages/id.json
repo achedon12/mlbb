@@ -49,7 +49,7 @@
     },
     "gameModes": {
       "label": "Mode Permainan",
-      "desc": "Classic, Ranked, Brawl…"
+      "desc": "Klasik, Peringkat, Perkelahian…"
     },
     "items": {
       "label": "Item",
@@ -309,7 +309,7 @@
   "pages": {
     "modes": {
       "title": "Mode Permainan",
-      "lead": "Dari game 5v5 klasik hingga game Pertarungan cepat, setiap mode mengubah aturannya. Pilih salah satu untuk mengetahui detailnya.",
+      "lead": "Dari game 5v5 klasik hingga game Brawl cepat, setiap mode mengubah aturannya. Pilih salah satu untuk mengetahui detailnya.",
       "discover": "Jelajahi mode ini",
       "metaDescription": "Mode permainan Mobile Legends: Bang Bang dan aturannya, mode demi mode.",
       "ogDescription": "Mode permainan Mobile Legends: Bang Bang dan apa yang membedakannya.",
@@ -322,8 +322,8 @@
     "heroes": {
       "title": "Hero",
       "lead": "{heroes} hero permainan dan {skins} skinnya, dapat disaring berdasarkan peran dan posisi. Lembar {analyses} bertanda “Analisis” juga berisi komentar, penjelasan, dan tanggapan.",
-      "metaDescription": "{heroes} hero Mobile Legends: Bang Bang, dapat disaring berdasarkan peran dan posisi: potret, skin, statistik, dan {analyses} analisis tertulis.",
-      "ogDescription": "{heroes} hero Mobile Legends: Bang Bang, dengan skin {skins} mereka.",
+      "metaDescription": "{heroes} hero Mobile Legends: Bang Bang, dapat disaring berdasarkan peran dan posisi: potret, penampilan, statistik, dan {analyses} analisis tertulis.",
+      "ogDescription": "{heroes} Hero Mobile Legends: Bang Bang, dengan penampilan {skins} mereka.",
       "listLd": "Hero Mobile Legends: Bang Bang"
     },
     "heroesList": {
@@ -372,7 +372,7 @@
       "strengths": "Kekuatan",
       "weaknesses": "Kelemahan",
       "analysisPending": "Belum ada analisis tertulis",
-      "analysisText": "Belum ada yang menulis analisis tentang {name}: cara memainkannya, item apa yang harus dibeli, siapa yang harus dilawan. Sementara itu, tab lainnya memberikan angka yang diukur dalam permainan peringkat.",
+      "analysisText": "Belum ada yang menulis analisis tentang {name}: cara bermain, item yang harus dibeli, pertarungan yang menguntungkan. Sementara itu, tab lainnya memberikan angka yang diukur dalam permainan peringkat.",
       "analysisTranslated": "Analisis ditulis dalam bahasa Prancis dan diterjemahkan secara otomatis.",
       "contribute": "Berkontribusi pada analisis ini →",
       "countersIntro": "Dihitung dari win rate permainan: penyebaran poin menunjukkan seberapa besar win rate {name} bervariasi terhadap setiap lawan.",
@@ -381,7 +381,7 @@
       "matchupsIntro": "Duel yang dikomentari dengan tangan, melebihi angka.",
       "comfortable": "{name} kuat melawan",
       "difficulty2": "{name} kesulitan melawan",
-      "metaDescription": "{name}: {roles} di Mobile Legends: Bang Bang, dimainkan di {lanes}. Counter dan build per rank, skill, lore, dan {skins} skin.",
+      "metaDescription": "{name}: {roles} Mobile Legends: Bang Bang, yang dimainkan di {lanes}. Menghitung dan membangun berdasarkan peringkat, skill, sejarah, dan {skins} penampilan.",
       "compare": "Bandingkan",
       "titleSheet": "{name}: build, counter, dan statistik",
       "ogTagline": "Build, counter, dan statistik berdasarkan peringkat",
@@ -521,7 +521,7 @@
         "botTitle": "Botnya",
         "bot": "Bot melarang di peringkat teratas dari peringkat yang dipilih, yang menggabungkan win rate dan ban rate. Untuk pilihannya, dia hanya mempertahankan hero yang menambahkan lane ke timnya dan memberi peringkat pada mereka berdasarkan pengukuran peringkat kami: melawan pilihan Anda, berduet dengan miliknya sendiri, dan win rate. Setiap pilihan dijelaskan dalam satu baris.",
         "advantageTitle": "Perkiraan peluang menang",
-        "advantage": "Selama draft, sebuah bar memperkirakan peluang tiap tim dari lima faktor, dihitung dalam poin win rate: kekuatan hero di rank tersebut, duel antara kedua tim dan duo di tiap tim (terukur di ranked, jika tidak diambil dari wiki), lane ganda atau tanpa tank, dan damage satu jenis. Tiga faktor pertama dihitung setengah, karena saling tumpang tindih. Jumlahnya melewati kurva logistik: dua tim yang setara berada di 50%, dan hasilnya tetap di antara 25 dan 75%. Pick yang disarankan adalah yang paling menaikkan perkiraan ini. Ini panduan, bukan prediksi.",
+        "advantage": "Selama draft, sebuah bar memperkirakan peluang masing-masing tim berdasarkan lima faktor, dihitung dalam poin win rate: kekuatan para hero di peringkat, duel antara dua tim dan duo masing-masing (diukur dalam permainan peringkat, sebaliknya dicatat oleh wiki), lane duplikat atau tidak adanya tank, dan damage satu jenis. Tiga yang pertama dihitung setengahnya, karena tumpang tindih. Jumlah mereka melewati kurva logistik: dua tim yang setara memiliki persentase 50%, dan hasilnya tetap antara 25 dan 75%. Pilihan yang disarankan adalah pilihan yang paling meningkatkan perkiraan ini. Itu adalah patokan, bukan prediksi.",
         "sources": "Sumber",
         "sourceRef": "Sumber: {site}, {page}"
       },
@@ -654,7 +654,7 @@
       "perks": {
         "profile": "Profil Anda, peringkat, dan hero yang paling sering dimainkan",
         "community": "Forum dan pencarian rekan satu tim",
-        "collection": "Koleksi skin Anda di semua perangkat Anda"
+        "collection": "Koleksi penampilan Anda di semua perangkat Anda"
       }
     },
     "watch": {
@@ -1063,8 +1063,8 @@
       "hero": {
         "title": "Build, Emblem & Counter {name} (Tier {tier}, Patch {v})",
         "titleNoTier": "Build, Emblem & Counter {name} (Patch {v})",
-        "counters": "{name} sebagian besar dilawan oleh {counters} di {rank}.",
-        "countersAll": "{name} sebagian besar dilawan oleh {counters}, semua peringkat digabungkan.",
+        "counters": "Counter terbaik dari {name} hingga {rank}: {counters}.",
+        "countersAll": "Counter terbaik {name}, semua peringkat digabungkan: {counters}.",
         "build": "Build yang paling banyak dimainkan: {items}.",
         "buildEmblem": "Build yang paling banyak dimainkan: {items}, emblem {emblem}.",
         "rate": "{winRate} kemenangan, level {tier}."
@@ -1077,7 +1077,7 @@
       },
       "heroes": {
         "title": "Semua {n} Hero MLBB: Role, Lane & Tier (Patch {v})",
-        "description": "{n} Hero Mobile Legends: Bang Bang dengan peran, lane, tingkatan, dan win rate (patch {v}, data dari {date}). Yang terkuat saat ini: {top}. Ditambah lagi {skins} skin dan {analyses} analisis tertulis."
+        "description": "{n} Hero Mobile Legends: Bang Bang dengan peran, lane, tingkatan, dan win rate (patch {v}, data dari {date}). Yang terkuat saat ini: {top}. Ditambah lagi {skins} penampilan dan {analyses} analisis tertulis."
       },
       "items": {
         "title": "Semua {n} Item MLBB: Statistik, Resep & Harga (Patch {v})",
@@ -1135,7 +1135,7 @@
         "description": "Laporan meta MLBB {date} (patch {v}): {first} di bagian atas daftar tier, {banned} paling banyak di-ban ({ban}). Naik turunnya minggu ini, perubahan tingkatan, ban, pilihan, dan hero terbaik berdasarkan lane."
       },
       "serverTime": {
-        "title": "Waktu Server MLBB & Hitung Mundur Reset Harian",
+        "title": "Waktu server MLBB: reset harian dan hitung mundur",
         "description": "Waktu server Mobile Legends (UTC−8) aktif, termasuk hitung mundur hingga rilis harian ({utc} UTC), rilis mingguan Senin, StarLight mendatang dan akhir musim, serta waktu rilis lokal di negara Anda."
       },
       "ranks": {
@@ -1149,7 +1149,7 @@
       },
       "quiz": {
         "title": "Kuis MLBB: Tebak Hero Setiap Hari",
-        "description": "Tantangan Mobile Legends: Bang Bang baru setiap hari: tebak hero berdasarkan skill, detail skin, atau ekstrak ceritanya, temukan item berdasarkan statistiknya, dan pilih win rate terbaik. Petunjuk untuk setiap kesalahan, seri, dan kisi bebas spoiler untuk dibagikan. Gratis, tanpa registrasi."
+        "description": "Tantangan Mobile Legends: Bang Bang baru setiap hari: tebak hero berdasarkan skill, detail penampilan, atau cuplikan ceritanya, temukan item berdasarkan statistiknya, dan pilih win rate terbaik. Petunjuk untuk setiap kesalahan, seri, dan kisi bebas spoiler untuk dibagikan. Gratis, tanpa registrasi."
       },
       "tierMaker": {
         "title": "Tier List Maker MLBB: Buat & Bagikan Tier List Anda",
@@ -1164,19 +1164,19 @@
         "description": "{region}: {n} hero Mobile Legends: Bang Bang, termasuk {names}. Cerita mereka, faksi mereka dan hubungan yang menyatukan mereka, diambil dari arsip mereka."
       },
       "skinsCalendar": {
-        "title": "Kalender Skin MLBB: Semua Skin per Tanggal Rilis",
-        "description": "{n} Mobile Legends: Skin Bang Bang dirilis dari {start} hingga {end}, bulan demi bulan, dengan hero, kelangkaan, seri (Kolektor, StarLight, Epic, Legend…) dan harga. Data terbaru kami: {latest} ({date})."
+        "title": "Jadwal Penampilan MLBB: Semua Penampilan Berdasarkan Tanggal Rilis",
+        "description": "{n} penampilan Mobile Legends: Bang Bang rilis dari {start} hingga {end}, bulan demi bulan, dengan hero, kelangkaan, seri (Kolektor, StarLight, Epic, Legend…) dan harga. Data terbaru kami: {latest} ({date})."
       },
       "calendarYear": {
-        "title": "Skin MLBB Rilis {year}: Daftar Lengkap per Bulan",
+        "title": "Penampilan MLBB dirilis pada {year}: daftar bulan demi bulan",
         "description": "Skin Mobile Legends: Bang Bang dirilis pada {year} ({n}), bulan demi bulan, dengan kelangkaan dan harga. Seri utama: {series}. Hero yang paling banyak dilayani: {hero}."
       },
       "collection": {
         "title": "Kalkulator Nilai Koleksi MLBB (Diamond)",
-        "description": "Periksa hero dan skin yang Anda miliki di antara {heroes} hero dan {skins} skin: lihat berapa harganya berdasarkan harga toko Mobile Legends: Bang Bang, dalam berlian, berdasarkan kelangkaan, dan berdasarkan seri. Gratis, tanpa registrasi, disimpan di browser Anda."
+        "description": "Periksa hero dan skin yang Anda miliki dari {heroes} hero dan {skins} skin: lihat berapa harganya berdasarkan harga toko Mobile Legends: Bang Bang, dalam berlian, berdasarkan kelangkaan, dan berdasarkan seri. Gratis, tanpa registrasi, disimpan di browser Anda."
       },
       "events": {
-        "title": "Event MLBB: StarLight, Collector & Skin Bulan Ini",
+        "title": "Acara MLBB: StarLight, Kolektor, dan Skin Bulan Ini",
         "description": "Kalender acara Mobile Legends: Bang Bang, dari {start} hingga {end} ({n} bulan): Skin StarLight, skin Kolektor, undian, dan simpan. StarLight yang terakhir diketahui: {latest}."
       },
       "eventsMonth": {
@@ -1188,7 +1188,7 @@
       },
       "drawCalculator": {
         "title": "Kalkulator Draw MLBB: Diamond dan Peluang",
-        "description": "Berapa Diamond untuk Skin Event MLBB? Peluang sesuai anggaran Anda, jumlah rata-rata undian dengan jaminan, ambang batas 50, 90 dan 99% dan kurva. Preset bersumber gratis, dalam browser."
+        "description": "Berapa Diamond untuk Penampilan Event MLBB? Peluang sesuai anggaran Anda, jumlah rata-rata undian dengan jaminan, ambang batas 50, 90 dan 99% dan kurva. Preset bersumber gratis, dalam browser."
       },
       "mlbbdle": {
         "title": "MLBBdle: game tebak hero Mobile Legends harian",
@@ -1233,7 +1233,7 @@
       },
       "accountValue": {
         "title": "Estimasi nilai akun MLBB",
-        "description": "Berapa biaya koleksi Mobile Legends-mu? Salin skin-mu per kategori Showcase ({skins} skin di katalog), cek poin koleksimu, dan dapatkan perkiraan dalam diamond, USD, EUR, PHP, IDR, dan MYR, dengan metode yang ditampilkan."
+        "description": "Berapa Harga Koleksi Mobile Legends Kalian? Salin penampilan Anda berdasarkan kategori Showcase ({skins} tampilan katalog), periksa titik koleksi Anda dan dapatkan urutan besarnya dalam berlian, USD, EUR, PHP, IDR dan MYR, dengan metode yang ditampilkan."
       }
     },
     "sources": {
@@ -1378,7 +1378,7 @@
         "none": "Tidak ada aturan peralatan yang berlaku untuk {name}."
       },
       "duration": {
-        "title": "Saat {name} paling lemah",
+        "title": "Ketika {name} menang paling sedikit",
         "sentence": "{name} menang paling sedikit dalam permainan {weak} ({weakRate}) dan terbanyak dalam permainan {strong} ({strongRate}).",
         "rank": "Peringkat: {rank}",
         "none": "Belum ada pengukuran berdasarkan durasi permainan untuk {name}."
@@ -1506,8 +1506,8 @@
     "skins": {
       "title": "Skin MLBB",
       "lead": "{n} skin {h} hero Mobile Legends, diurutkan berdasarkan hero. Buka hero untuk melihat setiap ilustrasi beserta kelangkaannya, tanggal rilis, dan harganya.",
-      "metaTitle": "Skin MLBB: {n} skin dan ilustrasi hero",
-      "metaDescription": "Semua skin di Mobile Legends: Bang Bang, hero demi hero: {n} skin untuk {h} hero, dengan ilustrasi, kelangkaan, tanggal rilis, dan harga. Terbaru: {latest} ({hero}).",
+      "metaTitle": "Penampilan MLBB: {n} penampilan dan ilustrasi hero",
+      "metaDescription": "Semua skin Mobile Legends: Bang Bang, hero demi hero: {n} skin untuk {h} hero, dengan karya seni, kelangkaan, tanggal rilis, dan harga. Terbaru: {latest} ({hero}).",
       "updatedOn": "Diperbarui pada {date}",
       "latest": "Skin terbaru",
       "latestIntro": "Rilisan terbaru yang tanggalnya diketahui, termasuk skin yang akan datang.",
@@ -1527,9 +1527,9 @@
     "heroSkins": {
       "title": "Skin {name}",
       "titleElision": "{name} Skin",
-      "metaTitle": "Skin {name}: Semua {n} Skin & Artwork",
-      "metaTitleElision": "Skin {name}: Semua {n} Skin & Artwork",
-      "metaDescription": "{name}: {n} skin Mobile Legends: Bang Bang, dengan ilustrasi, kelangkaan, tanggal rilis, ketersediaan dan harga.",
+      "metaTitle": "Penampilan {name}: {n} penampilan dan ilustrasi",
+      "metaTitleElision": "Penampilan {name}: penampilan dan ilustrasi {n}",
+      "metaDescription": "{name}: {n} skin Mobile Legends: Bang Bang, dengan karya seni, kelangkaan, tanggal rilis, ketersediaan dan harga.",
       "lead": "{name} akun {n} skin. Setiap kartu menunjukkan karya seni, kelangkaan, tanggal rilis, ketersediaan, dan harga jika diketahui.",
       "latest": "Skin terbaru bertanggal: {skin} ({date}).",
       "price": "Harga",
@@ -1648,7 +1648,7 @@
     },
     "serverTime": {
       "title": "Waktu server MLBB dan reset",
-      "lead": "Waktu server langsung Mobile Legends, dan waktu yang tersisa sebelum setiap reset: setiap hari pukul 00:00 waktu server ({utc} UTC), mingguan pada hari Senin, Starlight pada tanggal 1 setiap bulan.",
+      "lead": "Waktu server langsung Mobile Legends, dan waktu yang tersisa sebelum setiap reset: setiap hari pukul 00:00 waktu server ({utc} UTC), mingguan pada hari Senin, StarLight pada tanggal 1 setiap bulan.",
       "rulesTitle": "Jam yang perlu diketahui",
       "timezoneTitle": "Zona waktu server",
       "timezoneText": "UTC−8 sepanjang tahun: Waktu server tidak pernah beralih ke waktu musim panas.",
@@ -1656,8 +1656,8 @@
       "dailyText": "Setiap hari pukul 00:00 waktu server, yaitu {utc} UTC: tugas harian, penawaran baru, dan acara baru.",
       "weeklyTitle": "Reset mingguan",
       "weeklyText": "Setiap hari Senin pukul 00:00 waktu server, yaitu {utc} UTC: tugas mingguan dimulai lagi.",
-      "starlightTitle": "Starlight",
-      "starlightText": "Pada tanggal 1 setiap bulan pukul 00:00 waktu server ({utc} UTC): Cahaya Bintang baru dimulai, dengan hadiah, tugas, dan pengaturan ulang toko.",
+      "starlightTitle": "StarLight",
+      "starlightText": "Pada tanggal 1 setiap bulan pukul 00:00 waktu server ({utc} UTC): StarLight baru dimulai, dengan hadiah, tugas, dan pengaturan ulang toko.",
       "seasonTitle": "Akhir season",
       "seasonText": "Patch notes mencantumkan tanggal, dalam waktu server (\"Musim 31 berakhir 15/3 pukul 23:59:59\"). Hitung mundur menampilkannya segera setelah muncul.",
       "updateTitle": "Pembaruan",
@@ -1672,7 +1672,7 @@
       "ranksLink": "Pahami sistem rank",
       "sourcesTitle": "Sumber",
       "sourceServer": "Wiki Fandom, halaman “Waktu server”: waktu server, reset harian dan mingguan, waktu pembaruan",
-      "sourceStarlight": "Wiki Fandom, halaman “StarLight”: Starlight baru pada tanggal 1 setiap bulan pukul 00:00 waktu server",
+      "sourceStarlight": "Wiki Fandom, halaman “StarLight”: StarLight baru pada tanggal 1 setiap bulan pukul 00:00 waktu server",
       "sourcePatch": "Patch notes {v}: tanggal season dalam waktu server",
       "seasonsTitle": "Jadwal season ranked",
       "seasonsCurrent": "Season {n} sedang berjalan.",
@@ -2006,10 +2006,10 @@
       "sharedLoaded": "Daftar bersama dimuat.",
       "sharedBanner": "Anda sedang melihat daftar bersama. Itu ditampilkan di tempat Anda, yang tetap dikesampingkan.",
       "backToMyList": "Kembali ke daftar saya",
-      "announceSelect": "{name} dipilih: pilih satu baris.",
+      "announceSelect": "Seleksi: {name}. Pilih satu baris.",
       "announceDeselect": "Seleksi dibatalkan.",
-      "announcePlaced": "{name} ditempatkan di {row}, posisi {position} di {n}.",
-      "announceBench": "{name} dimasukkan kembali sebagai cadangan.",
+      "announcePlaced": "{name}: di {row}, posisi {position} di {n}.",
+      "announceBench": "{name}: kembali ke cadangan.",
       "announceMoved": "{name} di posisi {position} di {n}.",
       "announceMeta": "Tier list {rank} dimuat.",
       "announceEmpty": "Semua hero telah kembali ke cadangan.",
@@ -2043,7 +2043,7 @@
         "lead": "{region} melalui profil para heronya: siapa mereka, faksi mereka, dan hubungan yang menyatukan mereka.",
         "inBriefTitle": "Singkatnya",
         "factRoles": "Hero wilayah ini: {n}. Peran yang paling banyak diwakili: {roles}.",
-        "factArrivals": "Pertama yang memasuki permainan: {first} ({firstDate}); terbaru: {latest} ({lastDate}).",
+        "factArrivals": "Finis pertama dalam permainan: {first} ({firstDate}); yang terbaru: {latest} ({lastDate}).",
         "factArrival": "Kedatangan dalam permainan: {name} ({date}).",
         "factFactions": "Faksi yang dimiliki oleh beberapa heronya: {list}.",
         "factSpecies": "Spesies paling umum: {list}.",
@@ -2075,7 +2075,7 @@
       "crumb": "Kalender",
       "crumbSkins": "Skin",
       "lead": "Semua skin Mobile Legends berdasarkan bulan rilis, dari {start} hingga {end}: {n} skin beserta hero, rarity, seri, dan harganya. Filter berdasarkan hero, peran, seri, kelangkaan, atau tahun.",
-      "thisMonthTitle": "Dirilis pada {month}",
+      "thisMonthTitle": "Keluaran dalam {month}",
       "thisMonthEmpty": "Belum ada skin bertanggal {month} di data kami. Bulan terakhir yang dicantumkan oleh wiki komunitas adalah {latest}.",
       "seeLatest": "Lihat skin terbaru",
       "latestTitle": "Skin terbaru",
@@ -2312,7 +2312,7 @@
       "calendarLink": "Kalender semua skin, tahun demi tahun",
       "source": "Daftar StarLight dan Kolektor, tanggal, kelangkaan dan harga diambil dari {link}, di bawah lisensi CC BY-SA.",
       "month": {
-        "title": "Starlight & Event MLBB {month}: Skin dan Harga",
+        "title": "StarLight MLBB {month}: Acara dan Penampilan",
         "announced": "Bulan yang diumumkan: Skin ini muncul pada daftar di wiki komunitas sebelum dirilis dalam game. Tanggal dan harga masih harus dikonfirmasi.",
         "navMonths": "Sebelumnya dan bulan depan",
         "allMonths": "Setiap bulan",
@@ -2437,7 +2437,7 @@
         "newArrivalSkin": "sebuah skin",
         "newArrivalHero": "seorang hero"
       },
-      "presetNote": "Nilai dari wiki MLBB, halaman diubah pada {date}: peluang mendapatkan {prize} di antara yang diusulkan, bukan satu secara khusus. Periksa aturan dalam permainan, itu berubah.",
+      "presetNote": "Nilai dari wiki MLBB, halaman diubah pada {date}: peluang memperoleh {prize} di antara hadiah yang ditawarkan, dan bukan hadiah tertentu. Periksa aturan dalam permainan, itu berubah.",
       "wikiLink": "Lihat halaman",
       "cost": "Harga undian (diamond)",
       "tenCost": "Harga undian x10 (opsional)",
@@ -2625,7 +2625,7 @@
         "start": "Milikmu! Saya merahasiakannya.",
         "miss": "Gagal… warna menunjukkan jalannya.",
         "close": "Ini memanas! Beberapa kotak cocok.",
-        "won": "Bagus sekali, itu dia!",
+        "won": "Bagus sekali, itu jawaban yang benar!",
         "over": "Damage ! Putaran lagi?"
       }
     },
@@ -2705,7 +2705,7 @@
       "next": {
         "title": "Dalam pengujian di Advance server",
         "intro": "{name} perubahan diuji di server Advance. Mereka mungkin masih berevolusi, atau tidak pernah sampai di server resmi.",
-        "announcedNew": "{name} diperkenalkan sebagai hero baru di versi {v}.",
+        "announcedNew": "Hero baru dihadirkan dalam versi {v}: {name}.",
         "announcedRevamp": "Pengerjaan ulang {name} ditampilkan dalam versi {v}.",
         "readVersion": "Semua catatan versi {v}"
       }
@@ -3148,7 +3148,7 @@
       "buffsTitle": "Buff ungu dan oranye",
       "buffsText": "Buff oranye di {orange}, buff ungu di {purple}. Masing-masing mengembalikan {respawn} detik setelah kematian dan efeknya bertahan {duration} detik. Setiap hutan memiliki miliknya sendiri: pengatur waktu mengikuti buff Anda dan lawan secara terpisah.",
       "campsTitle": "Kamp lainnya",
-      "campsText": "Lithowanderer di {litho} (kembali {lithoRespawn} dtk setelah kematian), Eyes of the Cyclone di {cyclone} (mengisi ulang {cycloneRecharge} dtk), Kepiting Kecil di {littleCrab} (setiap {littleCrabRespawn} dtk). Kepiting tiba di {crab} menurut arsipnya, di {crabGuide} menurut panduan wiki, lalu kembali {crabRespawn} s setelah kematiannya. Pengatur waktu menampilkannya di awal permainan, tanpa peringatan.",
+      "campsText": "Lithowanderer di {litho} (kembali {lithoRespawn} detik setelah kematian), Eye of the Storm di {cyclone} (mengisi ulang {cycloneRecharge} detik), Small Crab di {littleCrab} (setiap {littleCrabRespawn} detik). Kepiting tiba di {crab} menurut arsipnya, di {crabGuide} menurut panduan wiki, lalu kembali {crabRespawn} s setelah kematiannya. Pengatur waktu menampilkannya di awal permainan, tanpa peringatan.",
       "usageTitle": "Gunakan sebagian",
       "usage1": "Tempatkan ponsel di sebelah layar dan ketuk “{start}” saat dimulai. Sudah sebagian? Ketik waktu yang ditampilkan dalam game (345 untuk 3:45) lalu “{apply}”.",
       "usage2": "Setiap kali sebuah objektif mati, sentuh tombolnya: pengembalian dihitung dari detik yang ditampilkan. Sentuhan yang salah dibatalkan dengan isyarat.",
@@ -3187,7 +3187,7 @@
         "purple-buff": "Buff Ungu",
         "orange-buff": "Buff oranye",
         "lithowanderer": "Lithowanderer",
-        "cyclone": "Mata Topan",
+        "cyclone": "Mata Badai",
         "little-crab": "Kepiting Kecil",
         "crab": "Kepiting",
         "last-turtle": "Kemungkinan Turtle yang terakhir",
@@ -3696,7 +3696,7 @@
       "title": "Dex MLBB — bot Discord Mobile Legends",
       "breadcrumb": "Bot Discord",
       "metaTitle": "Dex MLBB, bot Discord Mobile Legends: build, counter, tier list",
-      "metaDescription": "Dex MLBB, bot MLBBDex Discord gratis untuk Mobile Legends: build dan counter diukur dalam game berperingkat, tier list, patch notes, peringatan skin, dan MLBBdle hari ini, dalam lima bahasa.",
+      "metaDescription": "Dex MLBB, bot MLBBDex Discord gratis untuk Mobile Legends: build dan counter diukur berdasarkan peringkat game, tier list, patch notes, peringatan penampilan baru, dan MLBBdle hari ini, dalam lima bahasa.",
       "lead": "Build, counter, tier list, dan patch note Mobile Legends: Bang Bang, diukur dari pertandingan ranked dan diperbarui setiap hari, langsung di server kamu. Ditambah MLBBdle harian untuk komunitas kamu. Gratis, dalam lima bahasa.",
       "add": "Tambahkan ke Discord",
       "join": "Gabung ke server",
@@ -3718,7 +3718,7 @@
         "metaText": "/tierlist menghitung tier list dari win rate, pick rate, dan ban rate, di semua rank atau dari Epic sampai Mythical Glory, per lane atau per role.",
         "metaAlt": "Balasan /tierlist di Discord: tier S+, S, dan A",
         "newsTitle": "Patch dan pengumuman otomatis",
-        "newsText": "/patch merangkum patch terbaru: buff, nerf, dan hero yang diubah. Bot juga bisa memposting sendiri patch baru, skin, event, Advance Server, dan hasil esports di channel pilihan kamu, dengan role untuk di-mention.",
+        "newsText": "/patch merangkum patch terbaru: buff, nerf, dan hero yang dimodifikasi. Bot juga dapat mempublikasikan patch baru, penampilan, acara, server lanjutan, dan hasil esports di lobi pilihan Anda, dengan peran tambahan.",
         "newsAlt": "Balasan /patch di Discord: buff, nerf, dan hero yang diubah",
         "dailyTitle": "MLBBdle dan kuis harian",
         "dailyText": "Tebak hero hari ini dalam mode klasik atau skill, sama dengan di situs, lalu bandingkan skor di leaderboard server. Bot bisa memposting game ini setiap hari di jam yang kamu pilih.",
@@ -3729,7 +3729,7 @@
         "welcomeTitle": "Pesan sambutan",
         "welcomeText": "Ucapan selamat datang dan selamat tinggal di channel pilihan kamu, dengan teks kamu atau teks kami, dan satu pesan saja saat ada raid.",
         "toolsTitle": "Alat",
-        "toolsText": "Generator nickname keren (21 font), waktu server game, dan hitung mundur reset.",
+        "toolsText": "Generator nama panggilan penuh gaya (21 gaya), waktu server game, dan hitungan mundur reset.",
         "languagesTitle": "Lima bahasa",
         "languagesText": "Perintah dan balasan dalam bahasa Inggris, Prancis, Italia, Spanyol, dan Indonesia, sesuai bahasa server atau bahasa tiap member.",
         "freeTitle": "Benar-benar gratis",
@@ -3757,11 +3757,11 @@
         "patch": "Ringkasan patch terbaru, atau versi tertentu: buff, nerf, hero yang diubah.",
         "skins": "Skin terbaru, atau semua skin seorang hero.",
         "events": "Event yang sedang dan akan berlangsung.",
-        "nickname": "Nickname keren, dengan 21 pilihan font.",
+        "nickname": "Nama panggilan penuh gaya, dengan 21 gaya untuk dipilih.",
         "mlbbdle": "MLBBdle hari ini, mode klasik atau skill.",
         "quiz": "Kuis hari ini, dengan tombol untuk menjawab.",
         "leaderboard": "Leaderboard server untuk game harian: hari ini, minggu ini, atau sepanjang masa.",
-        "servertime": "Waktu server game dan hitung mundur reset.",
+        "servertime": "Waktu server game dan setel ulang hitungan mundur.",
         "setup": "Link ke dasbor server (perlu izin Kelola Server).",
         "help": "Perintah per kategori, masing-masing dengan contoh.",
         "invite": "Link untuk menambahkan bot ke server lain.",
@@ -4014,7 +4014,7 @@
         "descriptionHelp": "Opsional, paling banyak 1.000 karakter. Kosong: kalimat bawaan, dalam bahasa server.",
         "options": "Role di menu ({count}/{max})",
         "optionsList": "Role di menu",
-        "optionsHelp": "Label dan emoji tampil di menu. Jika ada emoji server yang bernama sama dengan role (rank_legend untuk Legend), emoji itu langsung dipilih.",
+        "optionsHelp": "Label dan emoji muncul di menu. Ketika emoji server memiliki nama peran (rank_legend untuk Legend), maka secara otomatis dipilih.",
         "addRole": "Tambah role…",
         "label": "Label",
         "emoji": "Emoji",
@@ -4322,7 +4322,7 @@
       "warning": "Membeli, menjual, atau menukar akun melanggar ketentuan layanan Moonton: akun bisa diblokir atau diambil kembali oleh pemilik lamanya, dan penipuan sering terjadi. Estimasi ini mengukur biaya sebuah koleksi, bukan menentukan harga. Tidak ada yang dikirim ke server.",
       "methodTitle": "Metodenya, angka demi angka",
       "methodPoints": "Kategorinya adalah kategori Showcase di dalam game, dengan poin koleksi yang diberikan game untuk setiap skin. Jumlah poin berfungsi sebagai pengecekan: hasilnya harus sama dengan total yang ditampilkan game.",
-      "methodCost": "Setiap skin dihitung berdasarkan biaya tipikal di kategorinya. Premium, Luar Biasa, dan Umum dijual di toko: biayanya adalah harga rata-rata berlian untuk skin dalam kategori tersebut, yang dicatat dalam data game. Legend, Grandiose, dan Exquisite diperoleh dengan cara draw: biayanya adalah median bulat dari biaya yang diterbitkan oleh panduan pemain, dan biaya ini sangat bervariasi dari satu acara dan dari satu pemain ke pemain lainnya. Penampilan yang penuh warna mempunyai nilai simbolis.",
+      "methodCost": "Setiap penampilan diperhitungkan dalam biaya tipikal untuk kategorinya. Premium, Luar Biasa, dan Umum dijual di toko: biayanya adalah harga rata-rata dalam berlian penampilan dalam kategori tersebut, yang dicatat dalam data game. Legend, Grandiose, dan Exquisite diperoleh dengan cara draw: biayanya adalah median bulat dari biaya yang diterbitkan oleh panduan pemain, dan biaya ini sangat bervariasi dari satu acara dan dari satu pemain ke pemain lainnya. Penampilan yang penuh warna mempunyai nilai simbolis.",
       "tableCaption": "Poin dan biaya yang dihitung per skin, per kategori",
       "colTier": "Kategori",
       "colPoints": "Poin",
@@ -4404,10 +4404,10 @@
         "common": "Common",
         "painted": "Skin Painted"
       },
-      "pointsEach": "{points} poin per skin",
-      "costShop": "≈ {n} diamond per skin (toko)",
-      "costDraw": "≈ {n} diamond per skin (perkiraan draw)",
-      "costFlat": "≈ {n} diamond per skin (nilai simbolis)",
+      "pointsEach": "{points} poin satu",
+      "costShop": "≈ {n} berlian satu (toko)",
+      "costDraw": "≈ {n} berlian satu (perkiraan cetakan)",
+      "costFlat": "≈ {n} berlian satu (nilai simbolis)",
       "pointsTitle": "Poin koleksi",
       "pointsCheck": "Bandingkan dengan jumlah total di Etalase Anda, di bawah judul kolektor Anda: jika sama, nomor Anda benar.",
       "accountTitle": "Akun kamu",
@@ -5003,7 +5003,7 @@
     },
     "ranked": {
       "tagline": "Naik pangkat",
-      "text": "Garis kompetitif. Setiap kemenangan menghasilkan bintang untuk naik dari Warrior ke Mythic Glory, dengan ban dan drafting dari Epic."
+      "text": "Garis kompetitif. Setiap kemenangan menghasilkan bintang untuk naik dari Warrior ke Mythical Immortal, dengan ban dan drafting dari Epic."
     },
     "brawl": {
       "tagline": "Hanya satu lane, segera",
@@ -5019,7 +5019,7 @@
     },
     "arcade-mode": {
       "tagline": "Mode fana",
-      "text": "Mode khusus ditawarkan untuk waktu terbatas, secara bergilir: Perburuan Ajaib, Bertahan Hidup, dan varian lainnya."
+      "text": "Mode khusus ditawarkan untuk waktu terbatas, secara bergilir: Magic Chess, Survival, dan varian lainnya."
     }
   },
   "roles": {
@@ -5089,7 +5089,7 @@
       "esportsNext": "Turnamen berikutnya, {date}",
       "starlight": "StarLight {month}",
       "serverTime": "Waktu server",
-      "reset": "reset dalam"
+      "reset": "masukkan kembali"
     },
     "meta": {
       "title": "Meta patch {version}",
@@ -5370,7 +5370,7 @@
     "collection": {
       "title": "Koleksi skin",
       "intro": "Alat koleksi menyimpan hero dan skin yang Anda centang di browser Anda (penyimpanan lokal). Jika Anda masuk dengan akun game, server situs juga menyimpan di basis datanya:",
-      "data": "sidik akun yang sama dengan komunitas (tidak pernah ID game Anda), daftar hero dan skin yang dicentang, serta tanggal penyimpanan terakhir; tidak ada yang lain, dan tidak ditampilkan kepada siapa pun.",
+      "data": "jejak akun yang sama dengan komunitas (bukan ID permainan Anda), daftar hero dan penampilan yang diperiksa, dan tanggal pendaftaran terakhir; tidak ada yang lain, dan tidak ada yang diperlihatkan kepada siapa pun.",
       "usage": "Data ini hanya dipakai agar koleksi Anda bisa dibuka di perangkat lain. Filter \"yang saya mainkan\" membaca hero musim ini dari layanan login saat Anda mengaktifkannya, tanpa menyimpan apa pun.",
       "deletion": "Untuk mengosongkan salinan di akun Anda, hapus koleksi di alat saat masuk; untuk menghapus datanya sepenuhnya, tulis ke {contact}."
     },
@@ -5771,7 +5771,7 @@
       "bestFor": "Marksman Gold Lane."
     },
     "support-emblem": {
-      "name": "Support Emblem",
+      "name": "Emblem Dukungan",
       "bonus": "Pengurangan cooldown dan kecepatan gerakan",
       "bestFor": "Support dan roamer non-tank."
     },
@@ -6194,7 +6194,7 @@
       "deadline": {
         "daily": "Reset harian",
         "weekly": "Reset mingguan",
-        "starlight": "Starlight baru",
+        "starlight": "Cahaya Bintang Baru",
         "season": "Akhir season ranked"
       },
       "on": "Pada {date} ({zone})",
@@ -6333,7 +6333,7 @@
     },
     "patch": {
       "title": "Tahu duluan soal patch berikutnya",
-      "text": "Patch notes, advance server, dan skin baru diposting otomatis di Discord."
+      "text": "Patch notes, Server lanjutan, dan skin baru dipublikasikan secara otomatis di Discord."
     },
     "daily": {
       "title": "MLBBdle dan kuis, bareng pemain lain",
@@ -6349,7 +6349,7 @@
     },
     "skins": {
       "title": "Tahu duluan soal skin baru",
-      "text": "Skin baru, StarLight, dan draw langsung masuk ke Discord begitu rilis."
+      "text": "Skin baru, StarLight, dan cetakan akan hadir di Discord segera setelah dirilis."
     },
     "tools": {
       "title": "Siapkan draft bareng tim",
@@ -6413,7 +6413,7 @@
     "heroes2": "Kartu diurutkan berdasarkan level: S+ terlebih dahulu.",
     "heroes3": "Bintang di peta? Itu salah satu favoritmu.",
     "hero1": "Perubahan peringkat di bagian atas lembar: tarif, counter, dan build mengikuti.",
-    "hero2": "Tab Counter memberi tahu Anda siapa yang mengalahkannya dan siapa yang dikalahkannya.",
+    "hero2": "Tab Counters menunjukkan duel terburuk dan terbaiknya.",
     "hero3": "Tambahkan sebagai favorit untuk diberitahu tentang setiap patch.",
     "tierList1": "Tingkat tersebut menggabungkan win rate dan seperempat ban rate.",
     "tierList2": "Filter berdasarkan peringkat: meta Epic bukanlah meta Mythic Glory.",
@@ -6441,7 +6441,7 @@
     "games3": "Kemenangan beruntun Anda disimpan di browser ini.",
     "patch1": "Biru: diperkuat. Merah: melemah. Abu-abu: pas.",
     "patch2": "Perbandingan selisih kemenangan sebelum dan sesudah patch.",
-    "patch3": "Advanced Server menunjukkan apa yang akan segera hadir.",
+    "patch3": "Server Advance menunjukkan apa yang akan segera hadir.",
     "esports1": "Meta pro bukanlah meta yang diperingkat: bandingkanlah.",
     "esports2": "Klik pada turnamen untuk melihat tabelnya.",
     "esports3": "Draft pertandingan dilipat, dibuka.",
@@ -6472,7 +6472,7 @@
     "splusHeroes": "hero di S+",
     "bestWin": "win rate terbaik: {hero}",
     "itemsInGame": "item dalam game",
-    "heroesUsing": "hero memakainya",
+    "heroesUsing": "hero mengambilnya",
     "builtBy": "Di build {heroes}",
     "minutes": "{n} menit membaca",
     "skinsCount": "skin",

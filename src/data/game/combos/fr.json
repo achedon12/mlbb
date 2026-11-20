@@ -56,7 +56,7 @@
   "akai": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, Akai doit utiliser sa 1ère compétence pour repousser l'ennemi, et le ralentir avec sa 2ème compétence, puis spammer son attaque de base pour infliger des dégâts.",
+      "description": "Dans la phase de lane, Akai doit utiliser sa 1re compétence pour repousser l'ennemi, et le ralentir avec sa 2e compétence, puis spammer son attaque de base pour infliger des dégâts.",
       "skills": [
         {
           "name": "Headbutt",
@@ -75,7 +75,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, Akai doit utiliser sa 1ère compétence pour repousser l'ennemi et rouler dans la formation ennemie. Utilisez ensuite son Ultime pour perturber la formation ennemie, et continuez à infliger des dégâts avec sa 2ème Compétence une fois son Ultime terminé.",
+      "description": "Dans les combats d'équipe, Akai doit utiliser sa 1re compétence pour repousser l'ennemi et rouler dans la formation ennemie. Utilisez ensuite son ultime pour perturber la formation ennemie, et continuez à infliger des dégâts avec sa 2e compétence une fois son ultime terminé.",
       "skills": [
         {
           "name": "Headbutt",
@@ -95,7 +95,7 @@
   "aldous": [
     {
       "type": "laning",
-      "description": "En phase de lane, utilisez la 1ère compétence d'Aldous pour améliorer sa prochaine attaque de base, puis sa 2ème compétence pour vous rapprocher de l'ennemi et le frapper avec son attaque améliorée. Suivez avec une autre 1ère compétence pour frapper l'ennemi avec une autre attaque de base améliorée.",
+      "description": "En phase de lane, utilisez la 1re compétence d'Aldous pour améliorer sa prochaine attaque de base, puis sa 2e compétence pour vous rapprocher de l'ennemi et le frapper avec son attaque améliorée. Suivez avec une autre 1re compétence pour frapper l'ennemi avec une autre attaque de base améliorée.",
       "skills": [
         {
           "name": "Contract: Soul Steal",
@@ -123,7 +123,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez l'Ultime d'Aldous pour avoir une vision sur l'équipe ennemie, puis utilisez à nouveau son Ultime pour foncer vers la cible la plus vulnérable. Après le sprint, utilisez la 1ère et la 2ème combinaison de compétences d'Aldous pour frapper l'ennemi avec ses attaques de base améliorées.",
+      "description": "Dans les combats d'équipe, utilisez l'ultime d'Aldous pour avoir une vision sur l'équipe ennemie, puis utilisez à nouveau son ultime pour foncer vers la cible la plus vulnérable. Après le sprint, utilisez la 1re et la 2e combinaison de compétences d'Aldous pour frapper l'ennemi avec ses attaques de base améliorées.",
       "skills": [
         {
           "name": "Contract: Chase Fate",
@@ -152,7 +152,7 @@
   "alice": [
     {
       "type": "laning",
-      "description": "Utilisez la 1ère compétence d'Alice pour pousser l'adversaire et relancez-le pour qu'il clignote au-dessus d'eux, puis enchaînez avec sa 2ème compétence pour CC les ennemis et terminez avec son Ultime pour continuer l'attaque.",
+      "description": "Utilisez la 1re compétence d'Alice pour pousser l'adversaire et relancez-le pour qu'il clignote au-dessus d'eux, puis enchaînez avec sa 2e compétence pour CC les ennemis et terminez avec son ultime pour continuer l'attaque.",
       "skills": [
         {
           "name": "Crimson Gleam",
@@ -174,7 +174,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Utilisez la 1ère compétence d'Alice pour pousser l'adversaire et relancez-le pour qu'il clignote au-dessus d'eux, puis enchaînez avec sa 2ème compétence pour CC les ennemis et terminez avec son Ultime pour continuer l'attaque.",
+      "description": "Utilisez la 1re compétence d'Alice pour pousser l'adversaire et relancez-le pour qu'il clignote au-dessus d'eux, puis enchaînez avec sa 2e compétence pour CC les ennemis et terminez avec son ultime pour continuer l'attaque.",
       "skills": [
         {
           "name": "Crimson Gleam",
@@ -198,7 +198,7 @@
   "alpha": [
     {
       "type": "laning",
-      "description": "En phase de lane, ralentissez l'ennemi avec la 1ère Compétence d'Alpha, puis frappez-le avec sa 2ème Compétence pour que Beta se verrouille sur eux. Terminez avec des attaques de base pendant que la bêta tire sur la cible verrouillée.",
+      "description": "En phase de lane, ralentissez l'ennemi avec la 1re compétence d'Alpha, puis frappez-le avec sa 2e compétence pour que Beta se verrouille sur eux. Terminez avec des attaques de base pendant que Beta tire sur la cible verrouillée.",
       "skills": [
         {
           "name": "Rotary Impact",
@@ -217,7 +217,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez l'Ultime d'Alpha pour charger vers la cible clé de l'ennemi, et utilisez sa 2ème compétence, enchaînez avec sa 1ère compétence pour les ralentir et infliger continuellement des dégâts aux cibles verrouillées avec des attaques de base.",
+      "description": "Dans les combats d'équipe, utilisez l'ultime d'Alpha pour charger vers la cible clé de l'ennemi, et utilisez sa 2e compétence, enchaînez avec sa 1re compétence pour les ralentir et infliger continuellement des dégâts aux cibles verrouillées avec des attaques de base.",
       "skills": [
         {
           "name": "Spear of Alpha",
@@ -242,7 +242,7 @@
   "alucard": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, Alucard peut d'abord utiliser sa 1ère compétence pour infliger des dégâts et ralentir les ennemis, puis la suivre avec des attaques de base pour les frappes. Ensuite, il peut utiliser sa 2ème compétence et la suivre avec des attaques de base pour plus de frappes.",
+      "description": "Dans la phase de lane, Alucard peut d'abord utiliser sa 1re compétence pour infliger des dégâts et ralentir les ennemis, puis la suivre avec des attaques de base pour les frappes. Ensuite, il peut utiliser sa 2e compétence et la suivre avec des attaques de base pour plus de frappes.",
       "skills": [
         {
           "name": "Groundsplitter",
@@ -266,7 +266,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, Alucard peut lancer son ULTIME pour augmenter le vol de vie et marquer les ennemis, puis basculer entre la 1ère compétence et la 2ème compétence pour suivre les attaques de base. Enfin, utilisez à nouveau son ULTIMATE pour récolter des kills.",
+      "description": "Dans les combats d'équipe, Alucard peut lancer son ULTIME pour augmenter le vol de vie et marquer les ennemis, puis basculer entre la 1re compétence et la 2e compétence pour suivre les attaques de base. Enfin, utilisez à nouveau son ULTIMATE pour récolter des kills.",
       "skills": [
         {
           "name": "Fission Wave",
@@ -305,7 +305,7 @@
   "angela": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, utilisez la 1ère compétence d'Angela pour pousser constamment l'ennemi. Lorsque leurs PV sont faibles, utilisez sa 2ème compétence pour CC la cible, puis continuez à infliger des dégâts avec sa 1ère compétence.",
+      "description": "Dans la phase de lane, utilisez la 1re compétence d'Angela pour pousser constamment l'ennemi. Lorsque leurs PV sont faibles, utilisez sa 2e compétence pour CC la cible, puis continuez à infliger des dégâts avec sa 1re compétence.",
       "skills": [
         {
           "name": "Love Waves",
@@ -323,7 +323,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez d'abord l'Ultime d'Angela pour vous attacher à un allié puissant, puis utilisez sa première compétence pour infliger des dégâts ou soigner vos alliés si nécessaire. Lorsque les ennemis tentent de se rapprocher, CC avec sa 2e compétence, puis enchaînez avec sa 1re compétence pour infliger des dégâts soutenus.",
+      "description": "Dans les combats d'équipe, utilisez d'abord l'ultime d'Angela pour vous attacher à un allié puissant, puis utilisez sa première compétence pour infliger des dégâts ou soigner vos alliés si nécessaire. Lorsque les ennemis tentent de se rapprocher, CC avec sa 2e compétence, puis enchaînez avec sa 1re compétence pour infliger des dégâts soutenus.",
       "skills": [
         {
           "name": "Heartguard",
@@ -347,7 +347,7 @@
   "argus": [
     {
       "type": "laning",
-      "description": "En phase de lane, utilisez la 1ère compétence d'Argus pour vous rapprocher de l'adversaire et le ralentir avec sa 2ème compétence tout en frappant avec des attaques de base. Si l'ennemi tente de courir, utilisez le deuxième lancer de sa 1ère Compétence pour le poursuivre.",
+      "description": "En phase de lane, utilisez la 1re compétence d'Argus pour vous rapprocher de l'adversaire et le ralentir avec sa 2e compétence tout en frappant avec des attaques de base. Si l'ennemi tente de courir, utilisez le deuxième lancer de sa 1re compétence pour le poursuivre.",
       "skills": [
         {
           "name": "Demonic Grip",
@@ -370,7 +370,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez la première compétence d'Argus pour se tirer vers la formation ennemie, puis utilisez à nouveau la compétence pour vous précipiter dans leur ligne arrière. Ensuite, ralentissez l'ennemi avec sa 2ème compétence et utilisez les attaques de base jusqu'à ce que ses PV soient faibles, puis lancez son ultime et continuez l'assaut avec les attaques de base.",
+      "description": "Dans les combats d'équipe, utilisez la première compétence d'Argus pour se tirer vers la formation ennemie, puis utilisez à nouveau la compétence pour vous précipiter dans leur ligne arrière. Ensuite, ralentissez l'ennemi avec sa 2e compétence et utilisez les attaques de base jusqu'à ce que ses PV soient faibles, puis lancez son ultime et continuez l'assaut avec les attaques de base.",
       "skills": [
         {
           "name": "Demonic Grip",
@@ -404,7 +404,7 @@
   "arlott": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, une fois que le passif d'Arlott a marqué un héros ennemi, utilisez sa deuxième compétence pour vous précipiter à travers eux et réinitialiser le temps de recharge. Poursuivez avec sa 1ère compétence pour CC l'ennemi et marquez-le à nouveau, puis frappez-le avec sa 2ème compétence tout en réinitialisant son temps de recharge.",
+      "description": "Dans la phase de lane, une fois que le passif d'Arlott a marqué un héros ennemi, utilisez sa deuxième compétence pour vous précipiter à travers eux et réinitialiser le temps de recharge. Poursuivez avec sa 1re compétence pour CC l'ennemi et marquez-le à nouveau, puis frappez-le avec sa 2e compétence tout en réinitialisant son temps de recharge.",
       "skills": [
         {
           "name": "Vengeance",
@@ -422,7 +422,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, commencez par frapper un héros ennemi marqué avec la 2ème compétence d'Arlott, puis placez-vous en position pour libérer son Ultimate sur l'équipe ennemie pour CC et la marquer. Utilisez la deuxième compétence d'Arlott pour traverser l'ennemi de cible en cible. Lorsque toutes les marques ont été épuisées, utilisez sa 1ère Compétence pour CC et marquer à nouveau les ennemis, et continuez à enchaîner sa 2ème Compétence.",
+      "description": "Dans les combats d'équipe, commencez par frapper un héros ennemi marqué avec la 2e compétence d'Arlott, puis placez-vous en position pour libérer son ultime sur l'équipe ennemie pour CC et la marquer. Utilisez la deuxième compétence d'Arlott pour traverser l'ennemi de cible en cible. Lorsque toutes les marques ont été épuisées, utilisez sa 1re compétence pour CC et marquer à nouveau les ennemis, et continuez à enchaîner sa 2e compétence.",
       "skills": [
         {
           "name": "Vengeance",
@@ -450,7 +450,7 @@
   "atlas": [
     {
       "type": "laning",
-      "description": "En phase de lane, utilisez la 2ème compétence d'Atlas pour vous éjecter puis vous rapprocher de l'ennemi. Juste avant que le Mecha Sentry n'atteigne Atlas, utilisez sa 1ère compétence pour doubler l'effet.",
+      "description": "En phase de lane, utilisez la 2e compétence d'Atlas pour vous éjecter puis vous rapprocher de l'ennemi. Juste avant que le Mecha Sentry n'atteigne Atlas, utilisez sa 1re compétence pour doubler l'effet.",
       "skills": [
         {
           "name": "Perfect Match",
@@ -464,7 +464,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez la deuxième compétence d'Atlas pour vous approcher de l'ennemi et libérer son ultime lorsque plusieurs ennemis sont à portée. Visez tout en canalisant et relâchez pour les projeter près de votre équipe, puis continuez à infliger des dégâts avec sa 1ère compétence.",
+      "description": "Dans les combats d'équipe, utilisez la deuxième compétence d'Atlas pour vous approcher de l'ennemi et libérer son ultime lorsque plusieurs ennemis sont à portée. Visez tout en canalisant et relâchez pour les projeter près de votre équipe, puis continuez à infliger des dégâts avec sa 1re compétence.",
       "skills": [
         {
           "name": "Perfect Match",
@@ -484,7 +484,7 @@
   "aulus": [
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez la première compétence d'Aulus pour gagner en vitesse de déplacement et en immunité au contrôle afin d'entrer rapidement dans la mêlée. Utilisez le deuxième lancer de sa 2e compétence pour atteindre des cibles clés, puis activez son Ultime et restez sur elles pour infliger des dégâts continus. Enfin, utilisez ses attaques de base améliorées pour nettoyer le champ de bataille.",
+      "description": "Dans les combats d'équipe, utilisez la première compétence d'Aulus pour gagner en vitesse de déplacement et en immunité au contrôle afin d'entrer rapidement dans la mêlée. Utilisez le deuxième lancer de sa 2e compétence pour atteindre des cibles clés, puis activez son ultime et restez sur elles pour infliger des dégâts continus. Enfin, utilisez ses attaques de base améliorées pour nettoyer le champ de bataille.",
       "skills": [
         {
           "name": "Aulus, Charge!",
@@ -516,7 +516,7 @@
     },
     {
       "type": null,
-      "description": "Lors du ganking en début de partie, utilisez la première compétence d'Aulus pour la vitesse de déplacement et l'immunité au contrôle pour vous rapprocher rapidement de la cible. Ensuite, utilisez sa 2e compétence pour les ralentir tout en effectuant des attaques de base. Utilisez à nouveau sa 2ème compétence pour rester sur la cible, et activez son Ultime pour poursuivre tout en infligeant des dégâts, puis achevez-les avec ses attaques de base améliorées.",
+      "description": "Lors du ganking en début de partie, utilisez la première compétence d'Aulus pour la vitesse de déplacement et l'immunité au contrôle pour vous rapprocher rapidement de la cible. Ensuite, utilisez sa 2e compétence pour les ralentir tout en effectuant des attaques de base. Utilisez à nouveau sa 2e compétence pour rester sur la cible, et activez son ultime pour poursuivre tout en infligeant des dégâts, puis achevez-les avec ses attaques de base améliorées.",
       "skills": [
         {
           "name": "Aulus, Charge!",
@@ -569,7 +569,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, lancez d'abord l'Ultime d'Aurora lorsque l'ennemi est groupé, puis utilisez immédiatement sa 2e compétence pour les geler à l'intérieur de l'AOE de l'Ultime, et terminez avec sa 1ère compétence sur les cibles CC pour un maximum de dégâts.",
+      "description": "Dans les combats d'équipe, lancez d'abord l'ultime d'Aurora lorsque l'ennemi est groupé, puis utilisez immédiatement sa 2e compétence pour les geler à l'intérieur de l'AOE de l'ultime, et terminez avec sa 1re compétence sur les cibles CC pour un maximum de dégâts.",
       "skills": [
         {
           "name": "Frigid Glacier",
@@ -589,7 +589,7 @@
   "badang": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, utilisez la 1ère compétence de Badang pour réduire les PV de l'ennemi. Utilisez sa 2ème compétence pour piéger l'ennemi, puis utilisez sa 1ère compétence pour le projeter dans la barrière afin de l'étourdir, et terminez avec des attaques de base.",
+      "description": "Dans la phase de lane, utilisez la 1re compétence de Badang pour réduire les PV de l'ennemi. Utilisez sa 2e compétence pour piéger l'ennemi, puis utilisez sa 1re compétence pour le projeter dans la barrière afin de l'étourdir, et terminez avec des attaques de base.",
       "skills": [
         {
           "name": "Fist Wind",
@@ -612,7 +612,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez la deuxième compétence de Badang lorsque l'ennemi est regroupé pour piéger plusieurs cibles dans la barrière, et libérez son ultime pour les y faire tomber à plusieurs reprises et infliger des dégâts massifs. Utilisez ensuite sa 1ère compétence et ses attaques de base pour poursuivre l'assaut.",
+      "description": "Dans les combats d'équipe, utilisez la deuxième compétence de Badang lorsque l'ennemi est regroupé pour piéger plusieurs cibles dans la barrière, et libérez son ultime pour les y faire tomber à plusieurs reprises et infliger des dégâts massifs. Utilisez ensuite sa 1re compétence et ses attaques de base pour poursuivre l'assaut.",
       "skills": [
         {
           "name": "Fist Break",
@@ -637,7 +637,7 @@
   "balmond": [
     {
       "type": "laning",
-      "description": "Balmond peut se rapprocher de l'ennemi avec Soul Lock, poursuivre avec Cyclone Sweep pour des dégâts continus, puis lancer son Ultimate pour achever les ennemis à faible PV.",
+      "description": "Balmond peut se rapprocher de l'ennemi avec Soul Lock, poursuivre avec Cyclone Sweep pour des dégâts continus, puis lancer son ultime pour achever les ennemis à faible PV.",
       "skills": [
         {
           "name": "Soul Lock",
@@ -660,7 +660,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Balmond peut se rapprocher de l'ennemi avec Soul Lock, poursuivre avec Cyclone Sweep pour des dégâts continus, puis lancer son Ultimate pour achever les ennemis à faible PV.",
+      "description": "Balmond peut se rapprocher de l'ennemi avec Soul Lock, poursuivre avec Cyclone Sweep pour des dégâts continus, puis lancer son ultime pour achever les ennemis à faible PV.",
       "skills": [
         {
           "name": "Soul Lock",
@@ -680,7 +680,7 @@
   "bane": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, utilisez la 2e compétence de Bane pour vous rapprocher de l'ennemi et le frapper avec une attaque de base améliorée. Utilisez ensuite sa 1ère compétence pour ralentir l'ennemi suivie d'une autre attaque de base améliorée. Et terminez à nouveau avec sa 2ème compétence avec une autre attaque de base améliorée.",
+      "description": "Dans la phase de lane, utilisez la 2e compétence de Bane pour vous rapprocher de l'ennemi et le frapper avec une attaque de base améliorée. Utilisez ensuite sa 1re compétence pour ralentir l'ennemi suivie d'une autre attaque de base améliorée. Et terminez à nouveau avec sa 2e compétence avec une autre attaque de base améliorée.",
       "skills": [
         {
           "name": "Sea Ink",
@@ -713,7 +713,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez la deuxième compétence de Bane pour vous rapprocher et attraper plusieurs ennemis avec son Ultimate. Utilisez une attaque de base améliorée lorsque les ennemis sont projetés dans les airs, puis utilisez sa deuxième compétence et une autre attaque de base améliorée. Enfin, utilisez sa 1ère compétence et son attaque de base améliorée pour chasser et achever l'ennemi.",
+      "description": "Dans les combats d'équipe, utilisez la deuxième compétence de Bane pour vous rapprocher et attraper plusieurs ennemis avec son ultime. Utilisez une attaque de base améliorée lorsque les ennemis sont projetés dans les airs, puis utilisez sa deuxième compétence et une autre attaque de base améliorée. Enfin, utilisez sa 1re compétence et son attaque de base améliorée pour chasser et achever l'ennemi.",
       "skills": [
         {
           "name": "Sea Ink",
@@ -752,7 +752,7 @@
   "barats": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, le faible coût en mana de Barats coûte la 1ère compétence pour créer des piles de Big Guy tout en ralentissant et en poussant l'ennemi. Utilisez sa 2ème compétence pour pousser l'ennemi vers lui et le frapper avec des attaques de base.",
+      "description": "Dans la phase de lane, le faible coût en mana de Barats coûte la 1re compétence pour créer des cumuls de Big Guy tout en ralentissant et en poussant l'ennemi. Utilisez sa 2e compétence pour pousser l'ennemi vers lui et le frapper avec des attaques de base.",
       "skills": [
         {
           "name": "So-Called Teamwork",
@@ -771,7 +771,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez la 1ère compétence de Barats pour maintenir les stacks Big Guy. Approchez-vous de l'ennemi et utilisez sa 2e compétence pour le rapprocher avant d'utiliser son ultime pour minimiser ses chances de s'échapper, puis achevez-le avec des attaques de base.",
+      "description": "Dans les combats d'équipe, utilisez la 1re compétence de Barats pour maintenir les cumuls Big Guy. Approchez-vous de l'ennemi et utilisez sa 2e compétence pour le rapprocher avant d'utiliser son ultime pour minimiser ses chances de s'échapper, puis achevez-le avec des attaques de base.",
       "skills": [
         {
           "name": "So-Called Teamwork",
@@ -796,7 +796,7 @@
   "baxia": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, roulez sur l'ennemi avec la 1ère compétence de Baxia et enchaînez avec sa 2ème compétence et ses attaques de base.",
+      "description": "Dans la phase de lane, roulez sur l'ennemi avec la 1re compétence de Baxia et enchaînez avec sa 2e compétence et ses attaques de base.",
       "skills": [
         {
           "name": "Baxia-Shield Unity",
@@ -815,7 +815,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, activez d'abord la 1ère compétence de Baxia, puis utilisez son Ultime pour accélérer. Après avoir heurté un ennemi, utilisez sa 2e compétence suivie de ses attaques de base pour infliger des dégâts.",
+      "description": "Dans les combats d'équipe, activez d'abord la 1re compétence de Baxia, puis utilisez son ultime pour accélérer. Après avoir heurté un ennemi, utilisez sa 2e compétence suivie de ses attaques de base pour infliger des dégâts.",
       "skills": [
         {
           "name": "Baxia-Shield Unity",
@@ -869,7 +869,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Pour les combats d'équipe, nous recommandons d'utiliser Bennett comme arme principale de Beatrix et Nibiru comme arme secondaire. Lors d'un combat d'équipe, Beatrix peut utiliser l'Ultime de Bennett pour frapper l'équipe ennemie. Elle peut ensuite utiliser sa 1ère compétence pour passer à Nibiru et lancer l'Ultime de Nibiru pour attaquer l'ennemi. Elle peut achever les héros ennemis avec ses attaques de base et sa 2ème compétence.",
+      "description": "Pour les combats d'équipe, nous recommandons d'utiliser Bennett comme arme principale de Beatrix et Nibiru comme arme secondaire. Lors d'un combat d'équipe, Beatrix peut utiliser l'ultime de Bennett pour frapper l'équipe ennemie. Elle peut ensuite utiliser sa 1re compétence pour passer à Nibiru et lancer l'ultime de Nibiru pour attaquer l'ennemi. Elle peut achever les héros ennemis avec ses attaques de base et sa 2e compétence.",
       "skills": [
         {
           "name": "Bennett's Rage",
@@ -903,7 +903,7 @@
   "belerick": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, utilisez la 2e compétence de Belerick pour réduire la distance avec l'adversaire et le ralentir avec son attaque de base améliorée, puis enchaînez avec sa 1ère compétence pour le CC.",
+      "description": "Dans la phase de lane, utilisez la 2e compétence de Belerick pour réduire la distance avec l'adversaire et le ralentir avec son attaque de base améliorée, puis enchaînez avec sa 1re compétence pour le CC.",
       "skills": [
         {
           "name": "Nature's Strike",
@@ -922,7 +922,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, chargez dans la formation ennemie avec la 2e compétence de Belerick et narguez autant de cibles que possible avec son Ultime, puis enchaînez avec sa 1ère compétence pour les garder narguées.",
+      "description": "Dans les combats d'équipe, chargez dans la formation ennemie avec la 2e compétence de Belerick et narguez autant de cibles que possible avec son ultime, puis enchaînez avec sa 1re compétence pour les garder narguées.",
       "skills": [
         {
           "name": "Nature's Strike",
@@ -942,7 +942,7 @@
   "benedetta": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, rassemblez Sword Intent en maintenant le bouton d'attaque de base de Benedetta, puis utilisez Swordout Slash une fois que Sword Intent est au maximum pour frapper l'ennemi. Poursuivez avec sa 1ère compétence et essayez à nouveau de maximiser l'intention de l'épée en bloquant l'attaque de l'ennemi avec sa 2e compétence, puis terminez le combo avec un autre Swordout Slash.",
+      "description": "Dans la phase de lane, rassemblez Sword Intent en maintenant le bouton d'attaque de base de Benedetta, puis utilisez Swordout Slash une fois que Sword Intent est au maximum pour frapper l'ennemi. Poursuivez avec sa 1re compétence et essayez à nouveau de maximiser l'intention de l'épée en bloquant l'attaque de l'ennemi avec sa 2e compétence, puis terminez le combo avec un autre Swordout Slash.",
       "skills": [
         {
           "name": null,
@@ -966,7 +966,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez Swordout Slash pour vous rapprocher de l'ennemi, puis utilisez Benedetta's Ultimate là où l'ennemi est regroupé, et enchaînez avec sa 1ère compétence pour des dégâts supplémentaires et sa 2ème compétence pour bloquer les CC entrants.",
+      "description": "Dans les combats d'équipe, utilisez Swordout Slash pour vous rapprocher de l'ennemi, puis utilisez Benedetta's ultime là où l'ennemi est regroupé, et enchaînez avec sa 1re compétence pour des dégâts supplémentaires et sa 2e compétence pour bloquer les CC entrants.",
       "skills": [
         {
           "name": null,
@@ -991,7 +991,7 @@
   "brody": [
     {
       "type": "laning",
-      "description": "Brody peut régulièrement utiliser sa 1ère compétence et ses attaques de base pour dégager des voies et pousser les héros ennemis. Une fois que les héros ennemis ont peu de PV, Brody peut utiliser sa deuxième compétence pour se rapprocher et les étourdir, puis lancer son Ultime pour tenter de les achever.",
+      "description": "Brody peut régulièrement utiliser sa 1re compétence et ses attaques de base pour dégager des lanes et pousser les héros ennemis. Une fois que les héros ennemis ont peu de PV, Brody peut utiliser sa deuxième compétence pour se rapprocher et les étourdir, puis lancer son ultime pour tenter de les achever.",
       "skills": [
         {
           "name": "Abyss Impact",
@@ -1049,7 +1049,7 @@
   "bruno": [
     {
       "type": "laning",
-      "description": "En phase de lane, utilisez la 1ère compétence de Bruno pour obtenir un Powerball, et commencez à attaquer l'ennemi tout en ramassant le ballon. Lorsque la cible est basse, étourdissez-la avec sa 2ème compétence et achevez-la avec des attaques de base.",
+      "description": "En phase de lane, utilisez la 1re compétence de Bruno pour obtenir un Powerball, et commencez à attaquer l'ennemi tout en ramassant le ballon. Lorsque la cible est basse, étourdissez-la avec sa 2e compétence et achevez-la avec des attaques de base.",
       "skills": [
         {
           "name": "Volley Shot",
@@ -1073,7 +1073,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, commencez par la 1ère compétence de Bruno pour obtenir un Powerball et essayez d'infliger le plus de dégâts possible. Recherchez des ennemis proches les uns des autres sur lesquels utiliser son Ultime, puis utilisez ses attaques de base et sa deuxième compétence pour assurer la mise à mort ou vous retirer du danger.",
+      "description": "Dans les combats d'équipe, commencez par la 1re compétence de Bruno pour obtenir un Powerball et essayez d'infliger le plus de dégâts possible. Recherchez des ennemis proches les uns des autres sur lesquels utiliser son ultime, puis utilisez ses attaques de base et sa deuxième compétence pour assurer la mise à mort ou vous retirer du danger.",
       "skills": [
         {
           "name": "Volley Shot",
@@ -1108,7 +1108,7 @@
   "carmilla": [
     {
       "type": "laning",
-      "description": "Lors de la phase de lane, utilisez la 2ème compétence de Carmilla pour vous rapprocher de l'adversaire, puis utilisez sa 1ère compétence et collez-vous à lui pour lui infliger des dégâts continus.",
+      "description": "Lors de la phase de lane, utilisez la 2e compétence de Carmilla pour vous rapprocher de l'adversaire, puis utilisez sa 1re compétence et collez-vous à lui pour lui infliger des dégâts continus.",
       "skills": [
         {
           "name": "Bloodbath",
@@ -1122,7 +1122,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez l'Ultime de Carmilla pour engager et ralentir les ennemis, puis utilisez sa 2e compétence pour vous rapprocher et contrôler une cible, et enchaînez avec sa 1ère compétence pour des dégâts AOE continus.",
+      "description": "Dans les combats d'équipe, utilisez l'ultime de Carmilla pour engager et ralentir les ennemis, puis utilisez sa 2e compétence pour vous rapprocher et contrôler une cible, et enchaînez avec sa 1re compétence pour des dégâts AOE continus.",
       "skills": [
         {
           "name": "Curse of Blood",
@@ -1156,7 +1156,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, lancez-vous avec Cecilion's Ultimate pour ralentir l'ennemi, puis frappez-le avec sa 1ère compétence. Lorsque le moment est venu, rassemblez les ennemis en utilisant sa 2e compétence et spammez sa 1ère compétence pour infliger des dégâts.",
+      "description": "Dans les combats d'équipe, lancez-vous avec Cecilion's ultime pour ralentir l'ennemi, puis frappez-le avec sa 1re compétence. Lorsque le moment est venu, rassemblez les ennemis en utilisant sa 2e compétence et spammez sa 1re compétence pour infliger des dégâts.",
       "skills": [
         {
           "name": "Bats Feast",
@@ -1180,7 +1180,7 @@
   "chang-e": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, obtenez d'abord le buff de la 2e compétence de Chang'e, puis marquez l'ennemi avec ses attaques de base. Lancez sa première compétence pour ralentir les ennemis à faible PV et terminez-les avec son Ultimate.",
+      "description": "Dans la phase de lane, obtenez d'abord le buff de la 2e compétence de Chang'e, puis marquez l'ennemi avec ses attaques de base. Lancez sa première compétence pour ralentir les ennemis à faible PV et terminez-les avec son ultime.",
       "skills": [
         {
           "name": "Crescent Moon",
@@ -1203,7 +1203,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, obtenez le bouclier de la 2e compétence de Chang'e, puis utilisez sa 1re compétence pour piquer les ennemis, et poursuivez avec son Ultime si la 1re compétence était sur la cible. Chang'e doit se déplacer pendant son Ultimate pour assurer sa sécurité et s'assurer que les météores peuvent atteindre la cible.",
+      "description": "Dans les combats d'équipe, obtenez le bouclier de la 2e compétence de Chang'e, puis utilisez sa 1re compétence pour piquer les ennemis, et poursuivez avec son ultime si la 1re compétence était sur la cible. Chang'e doit se déplacer pendant son ultime pour assurer sa sécurité et s'assurer que les météores peuvent atteindre la cible.",
       "skills": [
         {
           "name": "Crescent Moon",
@@ -1247,7 +1247,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez la 2e compétence de Chip de manière préventive pour augmenter la vitesse, puis touchez une cible avec son attaque de base et déployez le portail principal avec son ultime. Poursuivez avec sa 1ère compétence sur l'ennemi et une autre attaque de base pour l'étourdir pendant que l'effet retardé du portail principal le ralentit, et continuez le combat en tant qu'allié entrant.",
+      "description": "Dans les combats d'équipe, utilisez la 2e compétence de Chip de manière préventive pour augmenter la vitesse, puis touchez une cible avec son attaque de base et déployez le portail principal avec son ultime. Poursuivez avec sa 1re compétence sur l'ennemi et une autre attaque de base pour l'étourdir pendant que l'effet retardé du portail principal le ralentit, et continuez le combat en tant qu'allié entrant.",
       "skills": [
         {
           "name": "Overtime",
@@ -1277,7 +1277,7 @@
   "chou": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, utilisez la 2ème compétence de Chou pour vous rapprocher de l'ennemi et enchaînez avec sa 1ère compétence pour plusieurs frappes. Après avoir réussi le 3ème coup de sa 1ère Compétence, utilisez la 2ème Compétence rafraîchie pour rester sur la cible et terminez-la avec son Ultime.",
+      "description": "Dans la phase de lane, utilisez la 2e compétence de Chou pour vous rapprocher de l'ennemi et enchaînez avec sa 1re compétence pour plusieurs frappes. Après avoir réussi le 3e coup de sa 1re compétence, utilisez la 2e compétence rafraîchie pour rester sur la cible et terminez-la avec son ultime.",
       "skills": [
         {
           "name": "Shunpo",
@@ -1299,7 +1299,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez les 2e et 1re compétences de Chou pour vous approcher d'une cible clé, puis utilisez son Ultime pour la mettre hors de position et assurer la mise à mort avec son équipe.",
+      "description": "Dans les combats d'équipe, utilisez les 2e et 1re compétences de Chou pour vous approcher d'une cible clé, puis utilisez son ultime pour la mettre hors de position et assurer la mise à mort avec son équipe.",
       "skills": [
         {
           "name": "Shunpo",
@@ -1319,7 +1319,7 @@
   "cici": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, utilisez les attaques de base de Cici pour empiler du Délice avant d'utiliser sa 1ère compétence sur l'adversaire, et utilisez sa 2ème compétence s'il tente de s'échapper.",
+      "description": "Dans la phase de lane, utilisez les attaques de base de Cici pour empiler du Délice avant d'utiliser sa 1re compétence sur l'adversaire, et utilisez sa 2e compétence s'il tente de s'échapper.",
       "skills": [
         {
           "name": null,
@@ -1338,7 +1338,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, trouvez deux héros ennemis proches l'un de l'autre et lancez l'Ultime de Cici sur l'un d'eux, puis utilisez sa deuxième compétence pour intervenir et lancez sa première compétence à mi-parcours pour commencer à infliger des dégâts continus.",
+      "description": "Dans les combats d'équipe, trouvez deux héros ennemis proches l'un de l'autre et lancez l'ultime de Cici sur l'un d'eux, puis utilisez sa deuxième compétence pour intervenir et lancez sa première compétence à mi-parcours pour commencer à infliger des dégâts continus.",
       "skills": [
         {
           "name": "Curtain Call",
@@ -1358,7 +1358,7 @@
   "claude": [
     {
       "type": "laning",
-      "description": "En phase de lane, Claude peut utiliser sa 1ère Compétence pour poke l'ennemi, et utiliser sa 2ème Compétence pour se rapprocher d'eux lorsque leurs PV sont faibles, puis utiliser son Ultime pour les tuer.",
+      "description": "En phase de lane, Claude peut utiliser sa 1re compétence pour poke l'ennemi, et utiliser sa 2e compétence pour se rapprocher d'eux lorsque leurs PV sont faibles, puis utiliser son ultime pour les tuer.",
       "skills": [
         {
           "name": "Art of Thievery",
@@ -1381,7 +1381,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, Claude doit d'abord utiliser sa 1ère compétence pour empiler son buff, et rechercher les meilleures opportunités de se rapprocher des ennemis avec sa 2ème compétence, puis utiliser son Ultime pour les achever.",
+      "description": "Dans les combats d'équipe, Claude doit d'abord utiliser sa 1re compétence pour empiler son buff, et rechercher les meilleures opportunités de se rapprocher des ennemis avec sa 2e compétence, puis utiliser son ultime pour les achever.",
       "skills": [
         {
           "name": "Art of Thievery",
@@ -1401,7 +1401,7 @@
   "clint": [
     {
       "type": "laning",
-      "description": "Lors de la phase de lane, Clint doit utiliser sa 1ère Compétence suivie d'une Attaque de Base améliorée, puis sa 2ème Compétence suivie d'une autre Attaque de Base améliorée. Ce combo maximise ses dégâts, immobilise la cible et met Clint hors de danger.",
+      "description": "Lors de la phase de lane, Clint doit utiliser sa 1re compétence suivie d'une attaque de base améliorée, puis sa 2e compétence suivie d'une autre Attaque de base améliorée. Ce combo maximise ses dégâts, immobilise la cible et met Clint hors de danger.",
       "skills": [
         {
           "name": "Quick Draw",
@@ -1425,7 +1425,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez les attaques de base ultimes et améliorées de Clint pour abattre les ennemis à distance. Une fois que l'ennemi est affaibli par le bombardement constant, utilisez le combo 1ère compétence, attaque de base, 2e compétence et attaque de base de Clint pour l'achever.",
+      "description": "Dans les combats d'équipe, utilisez les attaques de base ultimes et améliorées de Clint pour abattre les ennemis à distance. Une fois que l'ennemi est affaibli par le bombardement constant, utilisez le combo 1re compétence, attaque de base, 2e compétence et attaque de base de Clint pour l'achever.",
       "skills": [
         {
           "name": "Grenade Bombardment",
@@ -1460,7 +1460,7 @@
   "cyclops": [
     {
       "type": "laning",
-      "description": "Cyclope peut utiliser sa 2e compétence pour se rapprocher des héros ennemis, puis les frapper avec sa 1re compétence et les sphères invoquées par sa 2e compétence. Ce combo est très efficace contre les héros ennemis.",
+      "description": "Cyclops peut utiliser sa 2e compétence pour se rapprocher des héros ennemis puis les frapper à la fois avec sa 1re compétence et les sphères invoquées par sa 2e compétence. Ce combo est très efficace contre les héros ennemis.",
       "skills": [
         {
           "name": "Planets Attack",
@@ -1474,7 +1474,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, Cyclope doit contrôler l'ennemi ciblé avec son Ultime, se rapprocher avec sa 2ème compétence, puis achever la cible avec sa 1ère compétence.",
+      "description": "Dans les combats d'équipe, Cyclops doit contrôler l'ennemi ciblé avec son ultime, se rapprocher avec sa 2e compétence, puis achever la cible avec sa 1re compétence.",
       "skills": [
         {
           "name": "Star Power Lockdown",
@@ -1494,7 +1494,7 @@
   "diggie": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, utilisez la 2e compétence de Diggie pour confiner l'ennemi à son emplacement, puis lancez-lui une alarme hibou avec sa 1ère compétence.",
+      "description": "Dans la phase de lane, utilisez la 2e compétence de Diggie pour confiner l'ennemi à son emplacement, puis lancez-lui une alarme hibou avec sa 1re compétence.",
       "skills": [
         {
           "name": "Reverse Time",
@@ -1508,7 +1508,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez la première compétence de Diggie pour pousser l'ennemi. Si un ennemi tente de s'initier, faites-le reculer avec sa 2ème compétence. Si un coéquipier est CC ou subit trop de dégâts, utilisez Diggie's Ultimate pour le sauver.",
+      "description": "Dans les combats d'équipe, utilisez la première compétence de Diggie pour pousser l'ennemi. Si un ennemi tente de s'initier, faites-le reculer avec sa 2e compétence. Si un coéquipier est CC ou subit trop de dégâts, utilisez Diggie's ultime pour le sauver.",
       "skills": [
         {
           "name": "Auto Alarm Bomb",
@@ -1528,7 +1528,7 @@
   "dyrroth": [
     {
       "type": "laning",
-      "description": "Lors de la phase de lane, Dyrroth peut utiliser sa 2e compétence pour se rapprocher de l'ennemi et la lancer à nouveau pour réduire sa défense physique. Il peut ensuite enchaîner avec ses attaques de base et sa 1ère compétence pour les pousser.",
+      "description": "Lors de la phase de lane, Dyrroth peut utiliser sa 2e compétence pour se rapprocher de l'ennemi et la lancer à nouveau pour réduire sa défense physique. Il peut ensuite enchaîner avec ses attaques de base et sa 1re compétence pour les pousser.",
       "skills": [
         {
           "name": "Spectre Step",
@@ -1599,7 +1599,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez la 2e compétence d'Edith pour projeter l'ennemi derrière elle, suivie de sa 1ère compétence pour le faire décoller, puis utilisez immédiatement son Ultime. Utilisez maintenant la 2e compétence d'Edith sous forme humaine pour immobiliser la cible, suivie de sa 1ère compétence pour plus de dégâts, et sécurisez la mise à mort avec des attaques de base améliorées.",
+      "description": "Dans les combats d'équipe, utilisez la 2e compétence d'Edith pour projeter l'ennemi derrière elle, suivie de sa 1re compétence pour le faire décoller, puis utilisez immédiatement son ultime. Utilisez maintenant la 2e compétence d'Edith sous forme humaine pour immobiliser la cible, suivie de sa 1re compétence pour plus de dégâts, et sécurisez la mise à mort avec des attaques de base améliorées.",
       "skills": [
         {
           "name": "Onward",
@@ -1632,7 +1632,7 @@
   "esmeralda": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, utilisez la 1ère compétence d'Esmeralda pour approcher l'ennemi et frappez-le avec sa 2ème compétence suivie d'attaques de base. Sa 1ère compétence devrait bientôt être à nouveau disponible grâce à la réduction du CD de sa 2ème compétence, alors utilisez à nouveau sa 1ère compétence pour la vitesse de déplacement et les boucliers, et continuez à utiliser sa 2ème compétence et ses attaques de base.",
+      "description": "Dans la phase de lane, utilisez la 1re compétence d'Esmeralda pour approcher l'ennemi et frappez-le avec sa 2e compétence suivie d'attaques de base. Sa 1re compétence devrait bientôt être à nouveau disponible grâce à la réduction du CD de sa 2e compétence, alors utilisez à nouveau sa 1re compétence pour la vitesse de déplacement et les boucliers, et continuez à utiliser sa 2e compétence et ses attaques de base.",
       "skills": [
         {
           "name": "Frostmoon Shield",
@@ -1664,7 +1664,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, entrez dans le combat en utilisant l'Ultime d'Esmeralda, puis utilisez sa 1ère compétence pour gagner en vitesse de déplacement et voler les boucliers des ennemis proches, avant de les achever avec sa 2ème compétence et ses attaques de base.",
+      "description": "Dans les combats d'équipe, entrez dans le combat en utilisant l'ultime d'Esmeralda, puis utilisez sa 1re compétence pour gagner en vitesse de déplacement et voler les boucliers des ennemis proches, avant de les achever avec sa 2e compétence et ses attaques de base.",
       "skills": [
         {
           "name": "Falling Starmoon",
@@ -1689,7 +1689,7 @@
   "estes": [
     {
       "type": "laning",
-      "description": "Estes peut utiliser sa 2e compétence pour ralentir et pousser les ennemis, et soigner ses alliés avec sa 1ère compétence.",
+      "description": "Estes peut utiliser sa 2e compétence pour ralentir et pousser les ennemis, et soigner ses alliés avec sa 1re compétence.",
       "skills": [
         {
           "name": "Domain of Moon Goddess",
@@ -1703,7 +1703,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Estes doit utiliser sa 2ème Compétence pour ralentir l'équipe ennemie, puis soigner ses coéquipiers avec son Ultime et sa 1ère Compétence.",
+      "description": "Estes doit utiliser sa 2e compétence pour ralentir l'équipe ennemie, puis soigner ses coéquipiers avec son ultime et sa 1re compétence.",
       "skills": [
         {
           "name": "Domain of Moon Goddess",
@@ -1723,7 +1723,7 @@
   "eudora": [
     {
       "type": "laning",
-      "description": "Pendant la phase de lane, commencez avec la 2e compétence d'Eudora pour étourdir le héros ennemi et appliquer le supraconducteur, puis enchaînez avec son ultime et centrez-le sur l'ennemi pour infliger des dégâts massifs. Terminez avec sa 1ère compétence pour vous lier à l'ennemi et l'achever.",
+      "description": "Pendant la phase de lane, commencez avec la 2e compétence d'Eudora pour étourdir le héros ennemi et appliquer le supraconducteur, puis enchaînez avec son ultime et centrez-le sur l'ennemi pour infliger des dégâts massifs. Terminez avec sa 1re compétence pour vous lier à l'ennemi et l'achever.",
       "skills": [
         {
           "name": "Ball Lightning",
@@ -1741,7 +1741,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez la première compétence d'Eudora pour appliquer le supraconducteur aux héros ennemis, puis lancez la deuxième compétence sur la bonne cible pour un étourdissement AOE, et enchaînez avec son ultime pour une explosion massive sur les héros étourdis. Enfin, utilisez à nouveau sa 1ère compétence pour achever l'ennemi.",
+      "description": "Dans les combats d'équipe, utilisez la première compétence d'Eudora pour appliquer le supraconducteur aux héros ennemis, puis lancez la deuxième compétence sur la bonne cible pour un étourdissement AOE, et enchaînez avec son ultime pour une explosion massive sur les héros étourdis. Enfin, utilisez à nouveau sa 1re compétence pour achever l'ennemi.",
       "skills": [
         {
           "name": "Forked Lightning",
@@ -1787,7 +1787,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez la 2e compétence de Fanny à plusieurs reprises pour vous déplacer et utilisez sa 1ère compétence au milieu de l'ennemi. Recherchez des ennemis à faible PV pour en finir avec son Ultimate.",
+      "description": "Dans les combats d'équipe, utilisez la 2e compétence de Fanny à plusieurs reprises pour vous déplacer et utilisez sa 1re compétence au milieu de l'ennemi. Recherchez des ennemis à faible PV pour en finir avec son ultime.",
       "skills": [
         {
           "name": "Steel Cable",
@@ -1803,7 +1803,7 @@
   "faramis": [
     {
       "type": "laning",
-      "description": "En phase de lane, utilisez la 1ère Compétence de Faramis pour vous rapprocher de l'ennemi et frappez-le avec sa 2ème Compétence tout en appliquant une Marque du Néant avec la 1ère Compétence. Ensuite, utilisez à nouveau sa 1ère Compétence pour ramener l'ennemi vers lui.",
+      "description": "En phase de lane, utilisez la 1re compétence de Faramis pour vous rapprocher de l'ennemi et frappez-le avec sa 2e compétence tout en appliquant une Marque du Néant avec la 1re compétence. Ensuite, utilisez à nouveau sa 1re compétence pour ramener l'ennemi vers lui.",
       "skills": [
         {
           "name": "Shadow Stampede",
@@ -1821,7 +1821,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez l'Ultime de Faramis pour protéger ses alliés, puis rapprochez-vous de l'ennemi et appliquez des Marques du Néant avec sa 1ère compétence. Activez à nouveau la 1ère compétence pour les arrêter et enchaînez avec sa 2ème compétence pour des dégâts supplémentaires.",
+      "description": "Dans les combats d'équipe, utilisez l'ultime de Faramis pour protéger ses alliés, puis rapprochez-vous de l'ennemi et appliquez des Marques du Néant avec sa 1re compétence. Activez à nouveau la 1re compétence pour les arrêter et enchaînez avec sa 2e compétence pour des dégâts supplémentaires.",
       "skills": [
         {
           "name": "Nether Realm",
@@ -1845,7 +1845,7 @@
   "floryn": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, utilisez la 2e compétence de Floryn pour étourdir les ennemis, puis enchaînez avec sa 1ère compétence pour les dégâts et les soins.",
+      "description": "Dans la phase de lane, utilisez la 2e compétence de Floryn pour étourdir les ennemis, puis enchaînez avec sa 1re compétence pour les dégâts et les soins.",
       "skills": [
         {
           "name": "Sow",
@@ -1859,7 +1859,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez la deuxième compétence de Floryn pour contrôler les ennemis et sa première compétence pour les dégâts et les soins. Lorsqu'un coéquipier est en mauvais état, utilisez Floryn's Ultimate pour le sauver.",
+      "description": "Dans les combats d'équipe, utilisez la deuxième compétence de Floryn pour contrôler les ennemis et sa première compétence pour les dégâts et les soins. Lorsqu'un coéquipier est en mauvais état, utilisez Floryn's ultime pour le sauver.",
       "skills": [
         {
           "name": "Sow",
@@ -1879,7 +1879,7 @@
   "franco": [
     {
       "type": "laning",
-      "description": "Utilisez la 1ère compétence pour accrocher l'ennemi dans une mauvaise position. Poursuivez avec la 2e compétence pour ralentir, puis Ultimate pour supprimer et sécuriser une mise à mort.",
+      "description": "Utilisez la 1re compétence pour accrocher l'ennemi dans une mauvaise position. Poursuivez avec la 2e compétence pour ralentir, puis ultime pour supprimer et sécuriser une mise à mort.",
       "skills": [
         {
           "name": "Iron Hook",
@@ -1897,7 +1897,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Utilisez Flicker pour atteindre les cibles clés de son Ultimate. Poursuivez avec la 1ère compétence pour prolonger le CC, puis la 2ème compétence pour infliger des dégâts et ralentir.",
+      "description": "Utilisez Flicker pour atteindre les cibles clés de son ultime. Poursuivez avec la 1re compétence pour prolonger le CC, puis la 2e compétence pour infliger des dégâts et ralentir.",
       "skills": [
         {
           "name": "Bloody Hunt",
@@ -1922,7 +1922,7 @@
   "fredrinn": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, Fredrinn peut se précipiter sur le héros ennemi avec sa 2e compétence et le faire décoller avec l'attaque de base améliorée. Enchaînez ensuite avec sa 1ère Compétence pour infliger des dégâts.",
+      "description": "Dans la phase de lane, Fredrinn peut se précipiter sur le héros ennemi avec sa 2e compétence et le faire décoller avec l'attaque de base améliorée. Enchaînez ensuite avec sa 1re compétence pour infliger des dégâts.",
       "skills": [
         {
           "name": "Brave Assault",
@@ -1946,7 +1946,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, Fredrinn doit utiliser sa 2e compétence pour se rapprocher du héros ennemi et le faire décoller, puis utiliser sa 1ère compétence et son 1er Ultime pour le CC et la réinitialisation du temps de recharge. Utilisez ses attaques de base améliorées, ses 1ère et 2ème compétences séquentiellement pour infliger de lourds dégâts, et terminez avec son 2ème Ultime après avoir fait décoller l'ennemi pour le tuer.",
+      "description": "Dans les combats d'équipe, Fredrinn doit utiliser sa 2e compétence pour se rapprocher du héros ennemi et le faire décoller, puis utiliser sa 1re compétence et son 1er Ultime pour le CC et la réinitialisation du temps de recharge. Utilisez ses attaques de base améliorées, ses 1re et 2e compétences séquentiellement pour infliger de lourds dégâts, et terminez avec son 2e Ultime après avoir fait décoller l'ennemi pour le tuer.",
       "skills": [
         {
           "name": "Brave Assault",
@@ -2011,7 +2011,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Utilisez Freya's Ultimate pour plonger dans la ligne arrière ennemie et commencer à infliger des dégâts éclaboussants. Utilisez sa première compétence pour contrôler les ennemis et vous protéger, puis alternez entre sa deuxième compétence et ses attaques de base AoE pour les abattre.",
+      "description": "Utilisez Freya's ultime pour plonger dans la ligne arrière ennemie et commencer à infliger des dégâts éclaboussants. Utilisez sa première compétence pour contrôler les ennemis et vous protéger, puis alternez entre sa deuxième compétence et ses attaques de base AoE pour les abattre.",
       "skills": [
         {
           "name": "Valkyrie Descent",
@@ -2064,7 +2064,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez l'Ultime de Gatotkaca pour plonger dans l'équipe ennemie, puis utilisez sa 2ème compétence pour la narguer, et ralentissez-la avec sa 1ère compétence avant de terminer avec les attaques de base.",
+      "description": "Dans les combats d'équipe, utilisez l'ultime de Gatotkaca pour plonger dans l'équipe ennemie, puis utilisez sa 2e compétence pour la narguer, et ralentissez-la avec sa 1re compétence avant de terminer avec les attaques de base.",
       "skills": [
         {
           "name": "Avatar of the Guardian",
@@ -2089,7 +2089,7 @@
   "gloo": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, Gloo doit utiliser sa 1ère compétence pour attaquer l'ennemi ciblé et créer une Goo, puis il peut utiliser sa 2ème compétence pour cibler la Goo afin d'amener la cible à son emplacement et de déclencher une explosion. Toucher le Goo réinitialisera également la première compétence de Gloo, lui permettant de l'utiliser à nouveau pour infliger des dégâts.",
+      "description": "Dans la phase de lane, Gloo doit utiliser sa 1re compétence pour attaquer l'ennemi ciblé et créer une Goo, puis il peut utiliser sa 2e compétence pour cibler la Goo afin d'amener la cible à son emplacement et de déclencher une explosion. Toucher le Goo réinitialisera également la première compétence de Gloo, lui permettant de l'utiliser à nouveau pour infliger des dégâts.",
       "skills": [
         {
           "name": "Slam, Slam",
@@ -2107,7 +2107,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, Gloo peut utiliser son combo de compétences 1ère + 2ème pour se rapprocher de l'ennemi et l'immobiliser. Puis sa 1ère compétence et son ultime pour ajouter plus de piles collantes aux héros ennemis, et s'attacher avec son ultime au héros ennemi avec des piles collantes maximales. Une fois prêt, Gloo peut utiliser le combo pour infliger des dégâts et déplacer l'hôte hors de position. Enfin, il peut utiliser la 1ère compétence actualisée et ses attaques de base pour achever l'hôte.",
+      "description": "Dans les combats d'équipe, Gloo peut utiliser son combo de compétences 1re + 2e pour se rapprocher de l'ennemi et l'immobiliser. Puis sa 1re compétence et son ultime pour ajouter plus de cumuls collantes aux héros ennemis, et s'attacher avec son ultime au héros ennemi avec des cumuls collantes maximales. Une fois prêt, Gloo peut utiliser le combo pour infliger des dégâts et déplacer l'hôte hors de position. Enfin, il peut utiliser la 1re compétence actualisée et ses attaques de base pour achever l'hôte.",
       "skills": [
         {
           "name": "Slam, Slam",
@@ -2181,7 +2181,7 @@
   "granger": [
     {
       "type": "laning",
-      "description": "Lors de la phase de lane, utilisez la 1ère compétence de Granger pour piquer l'ennemi. Lorsque son énergie devient faible, utilisez sa 2ème compétence pour la reconstituer et continuez à piquer avec sa 1ère compétence.",
+      "description": "Lors de la phase de lane, utilisez la 1re compétence de Granger pour piquer l'ennemi. Lorsque son énergie devient faible, utilisez sa 2e compétence pour la reconstituer et continuez à piquer avec sa 1re compétence.",
       "skills": [
         {
           "name": "Rhapsody",
@@ -2199,7 +2199,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez Granger's Ultimate pour piquer à distance de sécurité et poursuivre l'attaque avec sa 1ère compétence. Lorsque la 1ère Compétence se termine, utilisez à nouveau son Ultime pour plus de dégâts et pour vous repositionner. Si les ennemis se rapprochent, utilisez sa 2ème compétence pour créer de la distance et continuez à infliger des dégâts avec sa 1ère compétence.",
+      "description": "Dans les combats d'équipe, utilisez Granger's ultime pour piquer à distance de sécurité et poursuivre l'attaque avec sa 1re compétence. Lorsque la 1re compétence se termine, utilisez à nouveau son ultime pour plus de dégâts et pour vous repositionner. Si les ennemis se rapprochent, utilisez sa 2e compétence pour créer de la distance et continuez à infliger des dégâts avec sa 1re compétence.",
       "skills": [
         {
           "name": "Death Sonata",
@@ -2255,7 +2255,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, lancez-vous avec la 2ème compétence de Grock pour piéger les ennemis, puis chargez dans le mur avec son Ultimate. Pendant que les ennemis sont en l'air, trouvez un bon angle pour les projeter contre le mur avec sa 1ère compétence et envoyez-les à nouveau dans les airs, puis terminez avec les attaques de base.",
+      "description": "Dans les combats d'équipe, lancez-vous avec la 2e compétence de Grock pour piéger les ennemis, puis chargez dans le mur avec son ultime. Pendant que les ennemis sont en l'air, trouvez un bon angle pour les projeter contre le mur avec sa 1re compétence et envoyez-les à nouveau dans les airs, puis terminez avec les attaques de base.",
       "skills": [
         {
           "name": "Earthen Rampart",
@@ -2285,7 +2285,7 @@
   "guinevere": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, Guenièvre doit utiliser sa 1ère compétence et ses attaques de base améliorées pour éliminer les sbires et poke les héros ennemis. Lorsque les PV des héros ennemis sont faibles, utilisez la 2ème compétence de Guenièvre pour vous rapprocher d'eux et les projeter dans les airs. Faites un suivi avec son Ultimate pour essayer de les achever.",
+      "description": "Dans la phase de lane, Guinevere devrait utiliser sa 1re compétence et ses attaques de base améliorées pour éliminer les sbires et poke les héros ennemis. Lorsque les PV des héros ennemis sont faibles, utilisez la 2e compétence de Guinevere pour vous rapprocher d'eux et les faire décoller. Faites un suivi avec son ultime pour essayer de les achever.",
       "skills": [
         {
           "name": "Energy Wave",
@@ -2308,7 +2308,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, Guenièvre peut utiliser sa 2e compétence pour faire décoller l'équipe ennemie et suivre avec son Ultime pour infliger des dégâts tout en la gardant en l'air. Elle peut ensuite utiliser le sprint de sa 2e compétence pour éviter les dégâts entrants, ou elle peut choisir d'utiliser sa 1ère compétence pour infliger plus de dégâts pour un combo de dégâts complet.",
+      "description": "Dans les combats d'équipe, Guinevere peut utiliser sa 2e compétence pour faire décoller l'équipe ennemie et suivre avec son ultime pour infliger des dégâts tout en la gardant en l'air. Elle peut ensuite utiliser le sprint de sa 2e compétence pour éviter les dégâts entrants, ou elle peut choisir d'utiliser sa 1re compétence pour infliger plus de dégâts pour un combo de dégâts complet.",
       "skills": [
         {
           "name": "Spatial Migration",
@@ -2332,7 +2332,7 @@
   "gusion": [
     {
       "type": "laning",
-      "description": "En phase de lane, Gusion peut utiliser sa 1ère Compétence pour marquer les ennemis, puis utiliser sa 2ème Compétence pour les ralentir. Ensuite, il peut utiliser à nouveau sa 1ère compétence pour se déplacer derrière un ennemi ciblé et utiliser à nouveau sa 2ème compétence pour infliger des dégâts massifs. Et enfin, utilisez ses attaques de base pour achever la cible.",
+      "description": "En phase de lane, Gusion peut utiliser sa 1re compétence pour marquer les ennemis, puis utiliser sa 2e compétence pour les ralentir. Ensuite, il peut utiliser à nouveau sa 1re compétence pour se déplacer derrière un ennemi ciblé et utiliser à nouveau sa 2e compétence pour infliger des dégâts massifs. Et enfin, utilisez ses attaques de base pour achever la cible.",
       "skills": [
         {
           "name": "Sword Spike",
@@ -2359,7 +2359,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, Gusion doit d'abord utiliser sa 2e compétence pour infliger des dégâts, puis son Ultime pour réinitialiser le temps de recharge de sa 2e compétence. Poursuivez avec ses 2e et 1er combo de compétences pour plus de dégâts. Et utilisez à nouveau sa 2e compétence pour rappeler les 10 dagues juste après vous être déplacé derrière une cible avec sa 1ère compétence pour infliger des dégâts massifs. Il peut ensuite achever tous les héros restants à faible PV et s'échapper avec son Ultimate.",
+      "description": "Dans les combats d'équipe, Gusion doit d'abord utiliser sa 2e compétence pour infliger des dégâts, puis son ultime pour réinitialiser le temps de recharge de sa 2e compétence. Poursuivez avec ses 2e et 1er combo de compétences pour plus de dégâts. Et utilisez à nouveau sa 2e compétence pour rappeler les 10 dagues juste après vous être déplacé derrière une cible avec sa 1re compétence pour infliger des dégâts massifs. Il peut ensuite achever tous les héros restants à faible PV et s'échapper avec son ultime.",
       "skills": [
         {
           "name": "Shadowblade Slaughter",
@@ -2420,7 +2420,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, commencez avec la 2e compétence de Hanabi pour ralentir les ennemis, puis enchaînez avec son Ultime pour les immobiliser et lâchez-vous avec les attaques de base. Pendant ce temps, utilisez sa 1ère compétence en conséquence pour plus de dégâts et de capacité de survie, et maintenez les dégâts avec ses attaques de base rebondissantes.",
+      "description": "Dans les combats d'équipe, commencez avec la 2e compétence de Hanabi pour ralentir les ennemis, puis enchaînez avec son ultime pour les immobiliser et lâchez-vous avec les attaques de base. Pendant ce temps, utilisez sa 1re compétence en conséquence pour plus de dégâts et de capacité de survie, et maintenez les dégâts avec ses attaques de base rebondissantes.",
       "skills": [
         {
           "name": "Ninjutsu: Soul Scroll",
@@ -2450,7 +2450,7 @@
   "hanzo": [
     {
       "type": "laning",
-      "description": "Lors du ganking, Hanzo peut utiliser sa deuxième compétence pour réduire la distance, puis empiler son passif avec des attaques de base et libérer sa première compétence au maximum pour infliger des dégâts importants. Dans les combats d'équipe, Hanzo doit activer son Ultimate depuis une position sûre et s'engager en tant que Hanekage. Utilisez sa 2e compétence pour vous précipiter et faire tomber les ennemis dans les airs, puis utilisez sa brume noire et ses attaques de base pour empiler rapidement son passif et utiliser sa 1ère compétence pour un maximum de dégâts.",
+      "description": "Lors du ganking, Hanzo peut utiliser sa deuxième compétence pour réduire la distance, puis empiler son passif avec des attaques de base et libérer sa première compétence au maximum pour infliger des dégâts importants. Dans les combats d'équipe, Hanzo doit activer son ultime depuis une position sûre et s'engager en tant que Hanekage. Utilisez sa 2e compétence pour vous précipiter et faire tomber les ennemis dans les airs, puis utilisez sa brume noire et ses attaques de base pour empiler rapidement son passif et utiliser sa 1re compétence pour un maximum de dégâts.",
       "skills": [
         {
           "name": "Forbidden Ninjutsu: Black Mist",
@@ -2469,7 +2469,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Hanzo devrait activer son Ultimate depuis une position sûre et s'engager en tant que Hanekage. Utilisez sa 2e compétence pour vous précipiter et faire tomber les ennemis dans les airs, puis utilisez sa brume noire et ses attaques de base pour empiler rapidement son passif et utiliser sa 1ère compétence pour un maximum de dégâts.",
+      "description": "Hanzo devrait activer son ultime depuis une position sûre et s'engager en tant que Hanekage. Utilisez sa 2e compétence pour vous précipiter et faire tomber les ennemis dans les airs, puis utilisez sa brume noire et ses attaques de base pour empiler rapidement son passif et utiliser sa 1re compétence pour un maximum de dégâts.",
       "skills": [
         {
           "name": "Kinjutsu: Pinnacle Ninja",
@@ -2494,7 +2494,7 @@
   "harith": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, approchez-vous de l'ennemi avec la 2e compétence de Harith, frappez-le avec une attaque de base améliorée, puis utilisez sa 1ère compétence pour réduire ses PV.",
+      "description": "Dans la phase de lane, approchez-vous de l'ennemi avec la 2e compétence de Harith, frappez-le avec une attaque de base améliorée, puis utilisez sa 1re compétence pour réduire ses PV.",
       "skills": [
         {
           "name": "Chrono Dash",
@@ -2513,7 +2513,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez d'abord la 2e compétence de Harith pour vous rapprocher de l'ennemi, puis enchaînez avec l'Ultime et commencez à spammer sa 1ère et sa 2e compétence. Se précipiter à travers l'Ultime réduit non seulement le temps de recharge de ses compétences, mais permet également à Harith d'obtenir plusieurs attaques de base améliorées grâce à sa deuxième compétence.",
+      "description": "Dans les combats d'équipe, utilisez d'abord la 2e compétence de Harith pour vous rapprocher de l'ennemi, puis enchaînez avec l'ultime et commencez à spammer sa 1re et sa 2e compétence. Se précipiter à travers l'ultime réduit non seulement le temps de recharge de ses compétences, mais permet également à Harith d'obtenir plusieurs attaques de base améliorées grâce à sa deuxième compétence.",
       "skills": [
         {
           "name": "Chrono Dash",
@@ -2542,7 +2542,7 @@
   "harley": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, utilisez d'abord la 2ème compétence de Harley pour obtenir un bon angle pour lancer sa 1ère compétence, puis enchaînez avec les attaques de base. Utilisez ensuite à nouveau sa 2e compétence pour vous mettre en sécurité.",
+      "description": "Dans la phase de lane, utilisez d'abord la 2e compétence de Harley pour obtenir un bon angle pour lancer sa 1re compétence, puis enchaînez avec les attaques de base. Utilisez ensuite à nouveau sa 2e compétence pour vous mettre en sécurité.",
       "skills": [
         {
           "name": "Space Escape",
@@ -2565,7 +2565,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez la 2e compétence de Harley pour trouver une bonne position pour décrocher son Ultimate. Lancez ensuite son Ultime sur la cible, et enchaînez avec sa 1ère Compétence avant de revenir en sécurité avec sa 2ème Compétence.",
+      "description": "Dans les combats d'équipe, utilisez la 2e compétence de Harley pour trouver une bonne position pour décrocher son ultime. Lancez ensuite son ultime sur la cible, et enchaînez avec sa 1re compétence avant de revenir en sécurité avec sa 2e compétence.",
       "skills": [
         {
           "name": "Space Escape",
@@ -2589,7 +2589,7 @@
   "hayabusa": [
     {
       "type": "laning",
-      "description": "En phase de lane, utilisez la 2ème compétence d'Hayabusa pour frapper l'ennemi avec un fantôme, puis frappez avec sa 1ère compétence, et utilisez sa 2ème compétence pour vous détourner des yeux. Attendez que la 1ère compétence d'Hayabusa ait terminé son temps de recharge, puis revenez à l'ennemi avec sa 2ème compétence et frappez à nouveau avec sa 1ère compétence suivie de son Ultime pour assurer la mise à mort.",
+      "description": "En phase de lane, utilisez la 2e compétence d'Hayabusa pour frapper l'ennemi avec un fantôme, puis frappez avec sa 1re compétence, et utilisez sa 2e compétence pour vous détourner des yeux. Attendez que la 1re compétence d'Hayabusa ait terminé son temps de recharge, puis revenez à l'ennemi avec sa 2e compétence et frappez à nouveau avec sa 1re compétence suivie de son ultime pour assurer la mise à mort.",
       "skills": [
         {
           "name": "Ninjutsu: Quad Shadow",
@@ -2619,7 +2619,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, Hayabusa doit utiliser sa 2ème compétence pour frapper un ennemi avec son fantôme, puis utiliser sa 1ère et sa 2ème compétence sur la cible pour appliquer Shadow Mark avant de libérer son Ultime. Ensuite, utilisez sa 1ère compétence pour achever l'ennemi et échappez-vous avec sa 2ème compétence.",
+      "description": "Dans les combats d'équipe, Hayabusa doit utiliser sa 2e compétence pour frapper un ennemi avec son fantôme, puis utiliser sa 1re et sa 2e compétence sur la cible pour appliquer Shadow Mark avant de libérer son ultime. Ensuite, utilisez sa 1re compétence pour achever l'ennemi et échappez-vous avec sa 2e compétence.",
       "skills": [
         {
           "name": "Ninjutsu: Quad Shadow",
@@ -2651,7 +2651,7 @@
   "helcurt": [
     {
       "type": "laning",
-      "description": "En phase de lane, clignez des yeux vers la cible en utilisant la 1ère Compétence d'Helcurt, puis empilez des dards avec ses Attaques de Base et terminez le combo avec sa 2ème Compétence.",
+      "description": "En phase de lane, clignez des yeux vers la cible en utilisant la 1re compétence d'Helcurt, puis empilez des dards avec ses attaques de base et terminez le combo avec sa 2e compétence.",
       "skills": [
         {
           "name": "Hidden Terror",
@@ -2670,7 +2670,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, lancez Helcurt's Ultimate pour obscurcir la vision des ennemis, puis clignez des yeux vers leur ligne arrière avec sa 1ère compétence pour frapper avec ses attaques de base, et terminez avec sa 2ème compétence.",
+      "description": "Dans les combats d'équipe, lancez Helcurt's ultime pour obscurcir la vision des ennemis, puis clignez des yeux vers leur ligne arrière avec sa 1re compétence pour frapper avec ses attaques de base, et terminez avec sa 2e compétence.",
       "skills": [
         {
           "name": "Dark Night Falls",
@@ -2695,7 +2695,7 @@
   "hilda": [
     {
       "type": "laning",
-      "description": "Durant la phase de lane, Hilda peut utiliser sa 1ère compétence pour se rapprocher d'un ennemi ciblé et le ralentir avec son attaque de base améliorée. Elle peut ensuite enchaîner avec sa 2e compétence pour éliminer sa cible et terminer avec son Ultime.",
+      "description": "Durant la phase de lane, Hilda peut utiliser sa 1re compétence pour se rapprocher d'un ennemi ciblé et le ralentir avec son attaque de base améliorée. Elle peut ensuite enchaîner avec sa 2e compétence pour éliminer sa cible et terminer avec son ultime.",
       "skills": [
         {
           "name": "Combat Ritual",
@@ -2718,7 +2718,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, Hilda doit utiliser son Ultimate pour plonger les héros de la dernière ligne, puis utiliser sa 2e compétence pour infliger des dégâts et poursuivre l'ennemi avec sa 1re compétence.",
+      "description": "Dans les combats d'équipe, Hilda doit utiliser son ultime pour plonger les héros de la dernière ligne, puis utiliser sa 2e compétence pour infliger des dégâts et poursuivre l'ennemi avec sa 1re compétence.",
       "skills": [
         {
           "name": "Power of Wildness",
@@ -2743,7 +2743,7 @@
   "hirara": [
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, attendez que la ligne de fond ennemie soit isolée et utilisez la 1ère compétence de Hirara pour plonger. Utilisez une 1ère + 2ème compétence combo pour infliger des dégâts et appliquer du CC, puis enchaînez avec une 2ème + 1ère compétence combo pour faire exploser la cible et sortir de la formation ennemie. Enfin, utilisez sa 2ème compétence pour infliger des dégâts supplémentaires.",
+      "description": "Dans les combats d'équipe, attendez que la ligne de fond ennemie soit isolée et utilisez la 1re compétence de Hirara pour plonger. Utilisez une 1re + 2e compétence combo pour infliger des dégâts et appliquer du CC, puis enchaînez avec une 2e + 1re compétence combo pour faire exploser la cible et sortir de la formation ennemie. Enfin, utilisez sa 2e compétence pour infliger des dégâts supplémentaires.",
       "skills": [
         {
           "name": "Meisen-e",
@@ -2765,7 +2765,7 @@
     },
     {
       "type": null,
-      "description": "En phase de lane, utilisez la 1ère Compétence d'Hirara pour vous rapprocher, puis utilisez une 1ère + 2ème Compétence Combo pour immobiliser la cible. Poursuivez avec une 2e + 1ère compétence combo pour infliger de lourds dégâts et vous enfuir en toute sécurité.",
+      "description": "En phase de lane, utilisez la 1re compétence d'Hirara pour vous rapprocher, puis utilisez une 1re + 2e compétence Combo pour immobiliser la cible. Poursuivez avec une 2e + 1re compétence combo pour infliger de lourds dégâts et vous enfuir en toute sécurité.",
       "skills": [
         {
           "name": "Meisen-e",
@@ -2785,7 +2785,7 @@
   "hylos": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, Hylos doit utiliser sa 1ère compétence pour se rapprocher et étourdir l'ennemi, puis enchaîner avec sa 2ème compétence et ses attaques de base pour infliger des dégâts.",
+      "description": "Dans la phase de lane, Hylos doit utiliser sa 1re compétence pour se rapprocher et étourdir l'ennemi, puis enchaîner avec sa 2e compétence et ses attaques de base pour infliger des dégâts.",
       "skills": [
         {
           "name": "Law and Order",
@@ -2804,7 +2804,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez l'Ultime d'Hylos pour créer un chemin vers l'équipe ennemie, puis sa première compétence pour entrer et étourdir un ennemi. En même temps, utilisez sa 2e compétence et ses attaques de base pour infliger des dégâts continus.",
+      "description": "Dans les combats d'équipe, utilisez l'ultime d'Hylos pour créer un chemin vers l'équipe ennemie, puis sa première compétence pour entrer et étourdir un ennemi. En même temps, utilisez sa 2e compétence et ses attaques de base pour infliger des dégâts continus.",
       "skills": [
         {
           "name": "Glorious Pathway",
@@ -2829,7 +2829,7 @@
   "irithel": [
     {
       "type": "laning",
-      "description": "Lors de la phase de lane, Irithel doit maintenir ses distances avec l'ennemi et utiliser sa 1ère compétence pour réduire sa défense. Kitez l'ennemi avec des attaques de base pour réduire ses PV. Si l'ennemi tente de se rapprocher, utilisez sa 2e compétence pour maintenir la distance et continuer à tirer des attaques de base. Lorsque le moment est venu, utilisez son Ultime pour améliorer ses attaques de base et achever l'ennemi.",
+      "description": "Lors de la phase de lane, Irithel doit maintenir ses distances avec l'ennemi et utiliser sa 1re compétence pour réduire sa défense. Kitez l'ennemi avec des attaques de base pour réduire ses PV. Si l'ennemi tente de se rapprocher, utilisez sa 2e compétence pour maintenir la distance et continuer à tirer des attaques de base. Lorsque le moment est venu, utilisez son ultime pour améliorer ses attaques de base et achever l'ennemi.",
       "skills": [
         {
           "name": "Strafe",
@@ -2862,7 +2862,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez l'Ultime d'Irithel au début pour améliorer ses attaques de base, puis utilisez sa 1ère compétence pour réduire la défense des ennemis et utilisez ses attaques de base pour toucher plusieurs ennemis. Utilisez sa deuxième compétence pour ralentir les ennemis et les empêcher de s'approcher.",
+      "description": "Dans les combats d'équipe, utilisez l'ultime d'Irithel au début pour améliorer ses attaques de base, puis utilisez sa 1re compétence pour réduire la défense des ennemis et utilisez ses attaques de base pour toucher plusieurs ennemis. Utilisez sa deuxième compétence pour ralentir les ennemis et les empêcher de s'approcher.",
       "skills": [
         {
           "name": "Heavy Crossbow",
@@ -2887,7 +2887,7 @@
   "ixia": [
     {
       "type": "laning",
-      "description": "Ixia peut attirer les ennemis vers la ligne médiane avec sa 2e compétence et enchaîner avec sa 1ère compétence pour infliger des dégâts. Utilisez l'augmentation de la vitesse de déplacement fournie par sa 1ère compétence pour chasser les ennemis.",
+      "description": "Ixia peut attirer les ennemis vers la ligne médiane avec sa 2e compétence et enchaîner avec sa 1re compétence pour infliger des dégâts. Utilisez l'augmentation de la vitesse de déplacement fournie par sa 1re compétence pour chasser les ennemis.",
       "skills": [
         {
           "name": "Star Helix",
@@ -2906,7 +2906,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Choisissez l'emplacement idéal qui peut se sécuriser et lancez l'Ultime pour faire pleuvoir ses attaques sur autant d'ennemis que possible. Continuez à appuyer sur l'attaque de base tout en utilisant sa 2e compétence et sa 1re compétence pour contrôler les ennemis et infliger des dégâts supplémentaires.",
+      "description": "Choisissez l'emplacement idéal qui peut se sécuriser et lancez l'ultime pour faire pleuvoir ses attaques sur autant d'ennemis que possible. Continuez à appuyer sur l'attaque de base tout en utilisant sa 2e compétence et sa 1re compétence pour contrôler les ennemis et infliger des dégâts supplémentaires.",
       "skills": [
         {
           "name": "Full Barrage",
@@ -2931,7 +2931,7 @@
   "jawhead": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, utilisez la 2e compétence de Jawhead pour vous rapprocher de l'ennemi, puis enchaînez avec sa 1ère compétence et ses attaques de base pour infliger des dégâts continus. Lorsque l'ennemi tente de s'enfuir, utilisez à nouveau sa 2e compétence pour le repousser.",
+      "description": "Dans la phase de lane, utilisez la 2e compétence de Jawhead pour vous rapprocher de l'ennemi, puis enchaînez avec sa 1re compétence et ses attaques de base pour infliger des dégâts continus. Lorsque l'ennemi tente de s'enfuir, utilisez à nouveau sa 2e compétence pour le repousser.",
       "skills": [
         {
           "name": "Ejector",
@@ -2997,7 +2997,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, lancez Johnson's Ultimate et récupérez un coéquipier avant d'engager l'ennemi. Enchaînez ensuite avec sa 2ème compétence et sa 1ère compétence pour CC à nouveau l'ennemi.",
+      "description": "Dans les combats d'équipe, lancez Johnson's ultime et récupérez un coéquipier avant d'engager l'ennemi. Enchaînez ensuite avec sa 2e compétence et sa 1re compétence pour CC à nouveau l'ennemi.",
       "skills": [
         {
           "name": "Full Throttle",
@@ -3017,7 +3017,7 @@
   "joy": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, Joy doit placer sa 1ère compétence au-dessus de l'ennemi, puis utiliser sa 2e compétence pour traverser les deux cibles et continuer à enchaîner sa 2e compétence sur le rythme pour infliger des dégâts.",
+      "description": "Dans la phase de lane, Joy doit placer sa 1re compétence au-dessus de l'ennemi, puis utiliser sa 2e compétence pour traverser les deux cibles et continuer à enchaîner sa 2e compétence sur le rythme pour infliger des dégâts.",
       "skills": [
         {
           "name": "Look, Leonin Crystal!",
@@ -3031,7 +3031,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, Joy doit invoquer un cristal Léonin avec sa 1ère compétence et l'utiliser comme tremplin pour sa 2ème compétence pour entrer dans la bataille. Continuez à enchaîner sa 2ème Compétence sur le rythme pour débloquer son Ultime. Enfin, utilisez son Ultimate pour achever l'ennemi.",
+      "description": "Dans les combats d'équipe, Joy doit invoquer un cristal Léonin avec sa 1re compétence et l'utiliser comme tremplin pour sa 2e compétence pour entrer dans la bataille. Continuez à enchaîner sa 2e compétence sur le rythme pour débloquer son ultime. Enfin, utilisez son ultime pour achever l'ennemi.",
       "skills": [
         {
           "name": "Look, Leonin Crystal!",
@@ -3051,7 +3051,7 @@
   "julian": [
     {
       "type": "laning",
-      "description": "En phase de lane, Julian peut utiliser sa 2ème Compétence pour se rapprocher de l'ennemi, et sa 3ème Compétence pour l'immobiliser. Il peut ensuite utiliser sa 1ère compétence améliorée pour infliger des dégâts. Poursuivez avec ses attaques de base améliorées pour empêcher l'ennemi de s'échapper.",
+      "description": "En phase de lane, Julian peut utiliser sa 2e compétence pour se rapprocher de l'ennemi, et sa 3e compétence pour l'immobiliser. Il peut ensuite utiliser sa 1re compétence améliorée pour infliger des dégâts. Poursuivez avec ses attaques de base améliorées pour empêcher l'ennemi de s'échapper.",
       "skills": [
         {
           "name": "Sword",
@@ -3074,7 +3074,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, Julian peut ralentir l'ennemi avec sa 1ère compétence avant de se précipiter dans la formation de combat ennemie avec sa 2ème compétence. Utilisez ensuite sa 3ème compétence améliorée pour la zone CC.",
+      "description": "Dans les combats d'équipe, Julian peut ralentir l'ennemi avec sa 1re compétence avant de se précipiter dans la formation de combat ennemie avec sa 2e compétence. Utilisez ensuite sa 3e compétence améliorée pour la zone CC.",
       "skills": [
         {
           "name": "Scythe",
@@ -3094,7 +3094,7 @@
   "kadita": [
     {
       "type": "laning",
-      "description": "Lors de la phase de lane, utilisez la 1ère compétence de Kadita pour harceler constamment les ennemis et recherchez des opportunités d'utiliser sa 2ème compétence.",
+      "description": "Lors de la phase de lane, utilisez la 1re compétence de Kadita pour harceler constamment les ennemis et recherchez des opportunités d'utiliser sa 2e compétence.",
       "skills": [
         {
           "name": "Ocean Ode",
@@ -3112,7 +3112,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, ciblez l'arrière-plan ennemi avec la première compétence de Kadita et utilisez sa deuxième compétence lorsque vous traversez les ennemis pour les faire décoller. Poursuivez avec son Ultimate pour des dégâts massifs et évitez tous les dégâts reçus tout en étant impossible à cibler.",
+      "description": "Dans les combats d'équipe, ciblez l'arrière-plan ennemi avec la première compétence de Kadita et utilisez sa deuxième compétence lorsque vous traversez les ennemis pour les faire décoller. Poursuivez avec son ultime pour des dégâts massifs et évitez tous les dégâts reçus tout en étant impossible à cibler.",
       "skills": [
         {
           "name": "Ocean Ode",
@@ -3150,7 +3150,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Kagura doit placer son parapluie entre les ennemis avec sa 1ère compétence, puis utiliser son ultime pour réinitialiser le temps de recharge de sa 1ère compétence afin de pouvoir ajuster l'emplacement du parapluie avant de se téléporter à l'emplacement du parapluie pour étourdir les ennemis proches. Elle devra alors utiliser son combo Ultime + 2ème Compétence pour s'échapper de la zone de combat.",
+      "description": "Kagura doit placer son parapluie entre les ennemis avec sa 1re compétence, puis utiliser son ultime pour réinitialiser le temps de recharge de sa 1re compétence afin de pouvoir ajuster l'emplacement du parapluie avant de se téléporter à l'emplacement du parapluie pour étourdir les ennemis proches. Elle devra alors utiliser son combo Ultime + 2e compétence pour s'échapper de la zone de combat.",
       "skills": [
         {
           "name": "Seimei Umbrella Open",
@@ -3182,7 +3182,7 @@
   "kaja": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, utilisez la 1ère compétence de Kaja pour piquer et récupérer des PV. Si l'ennemi engage, utilisez sa 2ème Compétence pour décoller, puis kitez avec ses Attaques de Base aériennes. Cerf-volant lorsqu'il est attaqué, attaquez lorsqu'il est à bout de souffle.",
+      "description": "Dans la phase de lane, utilisez la 1re compétence de Kaja pour piquer et récupérer des PV. Si l'ennemi engage, utilisez sa 2e compétence pour décoller, puis kitez avec ses attaques de base aériennes. Cerf-volant lorsqu'il est attaqué, attaquez lorsqu'il est à bout de souffle.",
       "skills": [
         {
           "name": "Ring of Order",
@@ -3201,7 +3201,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Pour lancer des combats d'équipe, utilisez la 2e compétence de Kaja pour vous envoler, utilisez le terrain pour vous repositionner. Poursuivez avec sa 1ère compétence pour ralentir et réduire leurs dégâts, puis lancez immédiatement son Ultime et laissez l'équipe nettoyer.",
+      "description": "Pour lancer des combats d'équipe, utilisez la 2e compétence de Kaja pour vous envoler, utilisez le terrain pour vous repositionner. Poursuivez avec sa 1re compétence pour ralentir et réduire leurs dégâts, puis lancez immédiatement son ultime et laissez l'équipe nettoyer.",
       "skills": [
         {
           "name": "Soaring Wings",
@@ -3221,7 +3221,7 @@
   "kalea": [
     {
       "type": "laning",
-      "description": "Tout en gançant avec Kalea, utilisez sa 2e compétence pour vous rapprocher et CC la cible, puis utilisez sa 1ère compétence pour activer ses attaques de base améliorées et les déclencher sur la cible.",
+      "description": "Tout en gankant avec Kalea, utilisez sa 2e compétence pour vous rapprocher et CC la cible, puis utilisez sa 1re compétence pour activer ses attaques de base améliorées et les déclencher sur la cible.",
       "skills": [
         {
           "name": "Tidal Strike",
@@ -3240,7 +3240,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, Kalea devrait donner la priorité aux mages ou aux tireurs ennemis. Utilisez la première partie de sa deuxième compétence pour vous précipiter sur un obstacle près de la cible, puis plongez pour les CC et poursuivez avec son Ultimate pour les projeter dans votre équipe. Utilisez sa 1ère compétence pour déclencher son passif et déchargez ses attaques de base améliorées sur la cible.",
+      "description": "Dans les combats d'équipe, Kalea devrait donner la priorité aux mages ou aux tireurs ennemis. Utilisez la première partie de sa deuxième compétence pour vous précipiter sur un obstacle près de la cible, puis plongez pour les CC et poursuivez avec son ultime pour les projeter dans votre équipe. Utilisez sa 1re compétence pour déclencher son passif et déchargez ses attaques de base améliorées sur la cible.",
       "skills": [
         {
           "name": "Tidal Strike",
@@ -3269,7 +3269,7 @@
   "karina": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, utilisez d'abord la 1ère compétence de Karina pour entrer dans l'état Danse des lames et bondissez sur l'ennemi en utilisant le sprint de son attaque de base améliorée. Poursuivez avec sa 2e compétence et ses attaques de base pour déclencher son passif.",
+      "description": "Dans la phase de lane, utilisez d'abord la 1re compétence de Karina pour entrer dans l'état Dance of Blades et bondissez sur l'ennemi en utilisant le sprint de son attaque de base améliorée. Poursuivez avec sa 2e compétence et ses attaques de base pour déclencher son passif.",
       "skills": [
         {
           "name": "Dance of Blades",
@@ -3293,7 +3293,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, rapprochez-vous de l'ennemi en utilisant la 1ère compétence de Karina et coupez sa formation avec son Ultime. Utilisez sa 2ème compétence pour une AOE rapide suivie de son Ultime pour revenir à sa forme d'ombre. Enfin, utilisez à nouveau sa 1ère compétence et ses attaques de base améliorées pour chasser les ennemis.",
+      "description": "Dans les combats d'équipe, rapprochez-vous de l'ennemi en utilisant la 1re compétence de Karina et coupez sa formation avec son ultime. Utilisez sa 2e compétence pour une AOE rapide suivie de son ultime pour revenir à sa forme d'ombre. Enfin, utilisez à nouveau sa 1re compétence et ses attaques de base améliorées pour chasser les ennemis.",
       "skills": [
         {
           "name": "Dance of Blades",
@@ -3322,7 +3322,7 @@
   "karrie": [
     {
       "type": "laning",
-      "description": "Utilisez sa première compétence pour pousser les ennemis et les ralentir, puis enchaînez avec les attaques de base. Elle peut alors utiliser sa 2ème Compétence pour se poursuivre ou se repositionner.",
+      "description": "Utilisez sa première compétence pour pousser les ennemis et les ralentir, puis enchaînez avec les attaques de base. Elle peut alors utiliser sa 2e compétence pour se poursuivre ou se repositionner.",
       "skills": [
         {
           "name": "Spinning Lightwheel",
@@ -3346,7 +3346,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Utilisez son Ultime pour appliquer des Marques Lightwheel supplémentaires avec des attaques de base et la 1ère compétence pour ralentir les ennemis, puis poursuivez avec sa 2ème compétence pour sécuriser la mise à mort.",
+      "description": "Utilisez son ultime pour appliquer des Marques Lightwheel supplémentaires avec des attaques de base et la 1re compétence pour ralentir les ennemis, puis poursuivez avec sa 2e compétence pour sécuriser la mise à mort.",
       "skills": [
         {
           "name": "Speedy Lightwheel",
@@ -3376,7 +3376,7 @@
   "khaleed": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, déplacez-vous pour remplir d'abord la puissance du désert de Khaleed, puis frappez l'adversaire avec l'attaque de base améliorée pour le ralentir et enchaînez avec 3 coups de sa 1ère compétence. Cela devrait remplir à nouveau sa puissance du désert, permettant une autre attaque de base améliorée.",
+      "description": "Dans la phase de lane, déplacez-vous pour remplir d'abord la puissance du désert de Khaleed, puis frappez l'adversaire avec l'attaque de base améliorée pour le ralentir et enchaînez avec 3 coups de sa 1re compétence. Cela devrait remplir à nouveau sa puissance du désert, permettant une autre attaque de base améliorée.",
       "skills": [
         {
           "name": null,
@@ -3396,7 +3396,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez l'Ultime de Khaleed pour initier, puis touchez une cible avec son attaque de base améliorée et continuez l'attaque avec sa 1ère compétence. Une fois que Desert Power est à nouveau plein, utilisez une autre attaque de base. Utilisez ensuite la 2e compétence de Khaleed pour récupérer des PV et réduire les dégâts subis.",
+      "description": "Dans les combats d'équipe, utilisez l'ultime de Khaleed pour initier, puis touchez une cible avec son attaque de base améliorée et continuez l'attaque avec sa 1re compétence. Une fois que Desert Power est à nouveau plein, utilisez une autre attaque de base. Utilisez ensuite la 2e compétence de Khaleed pour récupérer des PV et réduire les dégâts subis.",
       "skills": [
         {
           "name": "Raging Sandstorm",
@@ -3426,7 +3426,7 @@
   "khufra": [
     {
       "type": "laning",
-      "description": "En phase de lane, Khufra utilise sa 1ère Compétence pour viser tout en chargeant avant de se lancer pour CC la cible ennemie. Il inflige ensuite des dégâts et ralentit la cible avec son attaque de base améliorée et enchaîne avec sa 2e compétence pour maintenir la cible ralentie.",
+      "description": "En phase de lane, Khufra utilise sa 1re compétence pour viser tout en chargeant avant de se lancer pour CC la cible ennemie. Il inflige ensuite des dégâts et ralentit la cible avec son attaque de base améliorée et enchaîne avec sa 2e compétence pour maintenir la cible ralentie.",
       "skills": [
         {
           "name": "Tyrant's Revenge",
@@ -3445,7 +3445,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, Khufra doit commencer avec sa 1ère compétence, puis son Ultime pour le contrôle de zone, enchaîner avec sa 2ème compétence pour empêcher l'ennemi de s'échapper avec ses compétences de sprint ou de clignement.",
+      "description": "Dans les combats d'équipe, Khufra doit commencer avec sa 1re compétence, puis son ultime pour le contrôle de zone, enchaîner avec sa 2e compétence pour empêcher l'ennemi de s'échapper avec ses compétences de sprint ou de clignement.",
       "skills": [
         {
           "name": "Tyrant's Revenge",
@@ -3484,7 +3484,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, Kimmy peut débuter avec son Ultime pour regrouper les ennemis, puis enchaîner avec sa 2ème Compétence pour les immobiliser, et terminer avec ses Attaques de Base améliorées pour infliger beaucoup de dégâts. Si les ennemis tentent de contrer en se rapprochant de Kimmy, utilisez sa première compétence pour battre en retraite.",
+      "description": "Dans les combats d'équipe, Kimmy peut débuter avec son ultime pour regrouper les ennemis, puis enchaîner avec sa 2e compétence pour les immobiliser, et terminer avec ses attaques de base améliorées pour infliger beaucoup de dégâts. Si les ennemis tentent de contrer en se rapprochant de Kimmy, utilisez sa première compétence pour battre en retraite.",
       "skills": [
         {
           "name": "Traction Pulse",
@@ -3509,7 +3509,7 @@
   "lancelot": [
     {
       "type": "laning",
-      "description": "En phase de lane, éliminez les Sbires en utilisant de manière répétée la 1ère Compétence de Lancelot grâce à la réinitialisation du cooldown, et cumulez son Passif avant de vous approcher de l'ennemi et de le frapper avec sa 2ème Compétence.",
+      "description": "En phase de lane, éliminez les Sbires en utilisant de manière répétée la 1re compétence de Lancelot grâce à la réinitialisation du cooldown, et cumulez son Passif avant de vous approcher de l'ennemi et de le frapper avec sa 2e compétence.",
       "skills": [
         {
           "name": "Puncture",
@@ -3523,7 +3523,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez la première compétence de Lancelot sur les ennemis de première ligne pour vous lancer dans leur ligne arrière, puis libérez sa deuxième compétence sur la ligne arrière pour infliger de lourds dégâts. Poursuivez avec son Ultime pour charger la cible et bloquer sa fuite, et utilisez sa 1ère compétence pour continuer à poursuivre ou à battre en retraite.",
+      "description": "Dans les combats d'équipe, utilisez la première compétence de Lancelot sur les ennemis de première ligne pour vous lancer dans leur ligne arrière, puis libérez sa deuxième compétence sur la ligne arrière pour infliger de lourds dégâts. Poursuivez avec son ultime pour charger la cible et bloquer sa fuite, et utilisez sa 1re compétence pour continuer à poursuivre ou à battre en retraite.",
       "skills": [
         {
           "name": "Puncture",
@@ -3547,7 +3547,7 @@
   "lapu-lapu": [
     {
       "type": "laning",
-      "description": "Lors de la phase de lane, utilisez la 1ère compétence de Lapu-Lapu pour piquer les ennemis. Lorsque la Bénédiction de bravoure est pleine, utilisez sa 2e compétence et ses attaques de base améliorées.",
+      "description": "Lors de la phase de lane, utilisez la 1re compétence de Lapu-Lapu pour piquer les ennemis. Lorsque la Bénédiction de bravoure est pleine, utilisez sa 2e compétence et ses attaques de base améliorées.",
       "skills": [
         {
           "name": "Justice Blades",
@@ -3566,7 +3566,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez la 1ère compétence de Lapu-Lapu pour épuiser les PV des ennemis, puis enchaînez avec sa 2ème compétence pour vous rapprocher et utiliser son Ultime pour initier. En position Grande Épée, utilisez à nouveau son Ultime pour des dégâts élevés, puis utilisez sa 2e compétence pour obtenir une réduction des dégâts, et enfin CC l'ennemi avec sa 1ère compétence.",
+      "description": "Dans les combats d'équipe, utilisez la 1re compétence de Lapu-Lapu pour épuiser les PV des ennemis, puis enchaînez avec sa 2e compétence pour vous rapprocher et utiliser son ultime pour initier. En position Grande Épée, utilisez à nouveau son ultime pour des dégâts élevés, puis utilisez sa 2e compétence pour obtenir une réduction des dégâts, et enfin CC l'ennemi avec sa 1re compétence.",
       "skills": [
         {
           "name": "Justice Blades",
@@ -3617,7 +3617,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez d'abord la 1ère compétence de Layla pour augmenter la portée de sa 2ème compétence. Avec la portée supplémentaire, elle peut facilement appliquer des marques aux ennemis. Utilisez son Ultime pour les faire tous exploser et infliger de gros dégâts, et terminez avec des attaques de base.",
+      "description": "Dans les combats d'équipe, utilisez d'abord la 1re compétence de Layla pour augmenter la portée de sa 2e compétence. Avec la portée supplémentaire, elle peut facilement appliquer des marques aux ennemis. Utilisez son ultime pour les faire tous exploser et infliger de gros dégâts, et terminez avec des attaques de base.",
       "skills": [
         {
           "name": "Malefic Bomb",
@@ -3642,7 +3642,7 @@
   "leomord": [
     {
       "type": "laning",
-      "description": "Piquez et éliminez les ennemis avec sa première compétence tout en éliminant les sbires. Lorsque les PV de l'ennemi sont proches du seuil de son passif, chargez avec sa 2ème compétence et terminez-le avec des attaques de base.",
+      "description": "Piquez et éliminez les ennemis avec sa première compétence tout en éliminant les sbires. Lorsque les PV de l'ennemi sont proches du seuil de son passif, chargez avec sa 2e compétence et terminez-le avec des attaques de base.",
       "skills": [
         {
           "name": "Momentum",
@@ -3661,7 +3661,7 @@
     },
     {
       "type": "teamfight",
-      "description": "En teamfight, Léomord peut lancer son Ultime, puis ses 1ère et 2ème Compétences pendant que Barbiel se dirige vers lui. Après sa monture, Leomord peut utiliser sa 1ère compétence, sa 2e compétence et ses attaques de base pour continuer à infliger des dégâts.",
+      "description": "En teamfight, Léomord peut lancer son ultime, puis ses 1re et 2e compétences pendant que Barbiel se dirige vers lui. Après sa monture, Leomord peut utiliser sa 1re compétence, sa 2e compétence et ses attaques de base pour continuer à infliger des dégâts.",
       "skills": [
         {
           "name": "Phantom Steed",
@@ -3694,7 +3694,7 @@
   "lesley": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, une fois que Lesley atteint sa pleine énergie et que son attaque de base améliorée est activée, attendez l'opportunité d'utiliser l'attaque de base améliorée pour frapper le héros ennemi. Utilisez ensuite sa 1ère compétence pour réactiver l'attaque de base améliorée et frapper à nouveau l'ennemi, et enfin, utilisez son ultime pour achever l'ennemi.",
+      "description": "Dans la phase de lane, une fois que Lesley atteint sa pleine énergie et que son attaque de base améliorée est activée, attendez l'opportunité d'utiliser l'attaque de base améliorée pour frapper le héros ennemi. Utilisez ensuite sa 1re compétence pour réactiver l'attaque de base améliorée et frapper à nouveau l'ennemi, et enfin, utilisez son ultime pour achever l'ennemi.",
       "skills": [
         {
           "name": null,
@@ -3748,7 +3748,7 @@
   "ling": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, Ling doit utiliser sa 1ère compétence pour sauter sur le mur, et frapper avec sa 2ème compétence pour infliger des dégâts à l'ennemi ciblé et le ralentir. Poursuivez avec les attaques de base de Ling et sa deuxième compétence pour poursuivre le héros ennemi.",
+      "description": "Dans la phase de lane, Ling doit utiliser sa 1re compétence pour sauter sur le mur, et frapper avec sa 2e compétence pour infliger des dégâts à l'ennemi ciblé et le ralentir. Poursuivez avec les attaques de base de Ling et sa deuxième compétence pour poursuivre le héros ennemi.",
       "skills": [
         {
           "name": "Finch Poise",
@@ -3771,7 +3771,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, Ling doit se déplacer sur le mur avec sa 1ère compétence, puis utiliser sa 2ème compétence pour atterrir sur les héros ennemis de la dernière rangée. Une fois atterri, Ling doit attaquer les héros cibles avec ses attaques de base, puis lancer son ultime pour éviter les dégâts subis. Il doit ensuite suivre ses cibles lorsqu'elles sont dans les airs pour leur infliger des dégâts et les faire décoller. Il peut ensuite se précipiter avec sa 2e compétence entre les Lames de la Tempête pour réinitialiser son temps de recharge et restaurer ses points de légèreté.",
+      "description": "Dans les combats d'équipe, Ling doit se déplacer sur le mur avec sa 1re compétence, puis utiliser sa 2e compétence pour atterrir sur les héros ennemis de la dernière rangée. Une fois atterri, Ling doit attaquer les héros cibles avec ses attaques de base, puis lancer son ultime pour éviter les dégâts subis. Il doit ensuite suivre ses cibles lorsqu'elles sont dans les airs pour leur infliger des dégâts et les faire décoller. Il peut ensuite se précipiter avec sa 2e compétence entre les Lames de la Tempête pour réinitialiser son temps de recharge et restaurer ses points de légèreté.",
       "skills": [
         {
           "name": "Finch Poise",
@@ -3800,7 +3800,7 @@
   "lolita": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, utilisez la 1ère compétence de Lolita et son attaque de base améliorée pour étourdir l'ennemi, puis utilisez sa 2ème compétence pour refléter les attaques à distance.",
+      "description": "Dans la phase de lane, utilisez la 1re compétence de Lolita et son attaque de base améliorée pour étourdir l'ennemi, puis utilisez sa 2e compétence pour refléter les attaques à distance.",
       "skills": [
         {
           "name": "Power Charge",
@@ -3819,7 +3819,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez la deuxième compétence de Lolita pour refléter les attaques à distance, suivie de sa première compétence pour charger au milieu des ennemis, puis utilisez son attaque de base améliorée pour étourdir la cible et infliger des dégâts. Poursuivez avec son Ultimate pour plus de dégâts et de CC, et terminez l'ennemi avec votre équipe.",
+      "description": "Dans les combats d'équipe, utilisez la deuxième compétence de Lolita pour refléter les attaques à distance, suivie de sa première compétence pour charger au milieu des ennemis, puis utilisez son attaque de base améliorée pour étourdir la cible et infliger des dégâts. Poursuivez avec son ultime pour plus de dégâts et de CC, et terminez l'ennemi avec votre équipe.",
       "skills": [
         {
           "name": "Guardian's Reflection",
@@ -3844,7 +3844,7 @@
   "lukas": [
     {
       "type": "laning",
-      "description": "Lukas doit utiliser sa deuxième compétence pour se rapprocher de l'ennemi, puis utiliser l'attaque de base améliorée ainsi qu'une autre attaque de base pour obtenir 2 charges de vigueur. Utilisez maintenant sa 1ère compétence à pleine puissance pour infliger des dégâts importants, étourdir et déplacer la cible, puis reculez pour éviter la contre-attaque de l'ennemi.",
+      "description": "Lukas doit utiliser sa deuxième compétence pour se rapprocher de l'ennemi, puis utiliser l'attaque de base améliorée ainsi qu'une autre attaque de base pour obtenir 2 charges de vigueur. Utilisez maintenant sa 1re compétence à pleine puissance pour infliger des dégâts importants, étourdir et déplacer la cible, puis reculez pour éviter la contre-attaque de l'ennemi.",
       "skills": [
         {
           "name": "Flash Step",
@@ -3873,7 +3873,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Sous forme de bête sacrée, utilisez la 2e compétence de Lukas suivie d'une attaque de base améliorée, puis d'une autre attaque de base pour obtenir 2 charges de vigueur. Utilisez sa 1ère compétence pour infliger des dégâts élevés et du CC, et terminez avec Shockwave Blast pour dévaster l'ennemi avec une attaque AOE massive.",
+      "description": "Sous forme de bête sacrée, utilisez la 2e compétence de Lukas suivie d'une attaque de base améliorée, puis d'une autre attaque de base pour obtenir 2 charges de vigueur. Utilisez sa 1re compétence pour infliger des dégâts élevés et du CC, et terminez avec Shockwave Blast pour dévaster l'ennemi avec une attaque AOE massive.",
       "skills": [
         {
           "name": "Unleash the Beast",
@@ -3907,7 +3907,7 @@
   "lunox": [
     {
       "type": "laning",
-      "description": "En phase de lane, utilisez la 3ème compétence de Lunox pour ralentir l'adversaire et sa 2ème compétence pour piquer. Lorsqu'elle subit des dégâts, utilisez sa 1ère compétence pour guérir.",
+      "description": "En phase de lane, utilisez la 3e compétence de Lunox pour ralentir l'adversaire et sa 2e compétence pour piquer. Lorsqu'elle subit des dégâts, utilisez sa 1re compétence pour guérir.",
       "skills": [
         {
           "name": "Cosmic Fission",
@@ -3925,7 +3925,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez d'abord la 3e compétence de Lunox pour ralentir les ennemis et enchaînez avec sa 2e compétence pour obtenir le pouvoir du chaos, puis activez son Darkening Ultimate et spammez sa 2e compétence pour infliger beaucoup de dégâts. Ensuite, utilisez sa 1ère compétence pour acquérir le pouvoir de l'ordre, puis activez son Brilliance Ultimate pour devenir invincible et infliger des dégâts aux ennemis proches.",
+      "description": "Dans les combats d'équipe, utilisez d'abord la 3e compétence de Lunox pour ralentir les ennemis et enchaînez avec sa 2e compétence pour obtenir le pouvoir du chaos, puis activez son Darkening Ultimate et spammez sa 2e compétence pour infliger beaucoup de dégâts. Ensuite, utilisez sa 1re compétence pour acquérir le pouvoir de l'ordre, puis activez son Brilliance Ultimate pour devenir invincible et infliger des dégâts aux ennemis proches.",
       "skills": [
         {
           "name": "Cosmic Fission",
@@ -3957,7 +3957,7 @@
   "luo-yi": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, utilisez la 1ère compétence de Luo Yi pour marquer l'ennemi avec un sceau Yin/Yang, puis utilisez sa 2ème compétence pour invoquer le Feu du Yang ou l'Aqua du Yin à portée de la cible pour déclencher une réaction Yin-Yang.",
+      "description": "Dans la phase de lane, utilisez la 1re compétence de Luo Yi pour marquer l'ennemi avec un sceau Yin/Yang, puis utilisez sa 2e compétence pour invoquer le Feu du Yang ou l'Aqua du Yin à portée de la cible pour déclencher une réaction Yin-Yang.",
       "skills": [
         {
           "name": "Dispersion",
@@ -3971,7 +3971,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez la 1ère compétence de Luo Yi pour marquer l'ennemi avec un sceau Yin/Yang et utilisez-la à nouveau sur un autre ennemi proche pour appliquer le sceau opposé et déclencher une réaction Yin-Yang. Répétez ensuite le processus. S'il n'y a qu'un seul ennemi, utilisez la 2e compétence de Luo Yi pour déclencher des réactions Yin-Yang.",
+      "description": "Dans les combats d'équipe, utilisez la 1re compétence de Luo Yi pour marquer l'ennemi avec un sceau Yin/Yang et utilisez-la à nouveau sur un autre ennemi proche pour appliquer le sceau opposé et déclencher une réaction Yin-Yang. Répétez ensuite le processus. S'il n'y a qu'un seul ennemi, utilisez la 2e compétence de Luo Yi pour déclencher des réactions Yin-Yang.",
       "skills": [
         {
           "name": "Dispersion",
@@ -3991,7 +3991,7 @@
   "lylia": [
     {
       "type": "laning",
-      "description": "Utilisez la deuxième compétence de Lylia pour frapper l'adversaire, puis utilisez sa première compétence pour faire exploser l'énergie de l'ombre et infliger une explosion de dégâts importante. Continuez à lancer sa 2e compétence sur l'ennemi et faites-la exploser avec Gloom.",
+      "description": "Utilisez la 2e compétence de Lylia pour frapper l'adversaire, puis utilisez sa 1re compétence pour faire exploser le Shadow Energy pour une explosion de dégâts importante. Continuez à lancer sa 2e compétence sur l'ennemi et faites-la exploser avec Gloom.",
       "skills": [
         {
           "name": "Shadow Energy",
@@ -4009,7 +4009,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Utilisez la 2e compétence de Lylia plusieurs fois pour couvrir une grande zone avec de l'énergie de l'ombre, puis déclenchez une réaction en chaîne avec sa 1re compétence. Continuez à spammer la 2e compétence de Lylia et explosez avec Gloom pour déclencher rapidement plusieurs explosions à la fois. En cas de danger, utilisez Lylia's Ultimate pour revenir en sécurité et récupérer.",
+      "description": "Utilisez la 2e compétence de Lylia plusieurs fois pour couvrir une grande zone avec Shadow Energy, puis déclenchez une réaction en chaîne avec sa 1re compétence. Continuez à spammer la 2e compétence de Lylia et explosez avec Gloom pour déclencher rapidement plusieurs explosions à la fois. En cas de danger, utilisez l'ultime de Lylia pour revenir en sécurité et récupérer.",
       "skills": [
         {
           "name": "Shadow Energy",
@@ -4033,7 +4033,7 @@
   "marcel": [
     {
       "type": "laning",
-      "description": "Pendant la phase de lane, utilisez la 2ème compétence de Marcel pour courir vers l'ennemi et lancer sa 1ère compétence. Pendant que l'ennemi est immobilisé, attaquez-le avec des attaques de base.",
+      "description": "Pendant la phase de lane, utilisez la 2e compétence de Marcel pour courir vers l'ennemi et lancer sa 1re compétence. Pendant que l'ennemi est immobilisé, attaquez-le avec des attaques de base.",
       "skills": [
         {
           "name": "Tracking Shot",
@@ -4057,7 +4057,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, Marcel doit activer sa 2ème Compétence, suivie de sa 1ère Compétence. Courez dans la formation ennemie, puis utilisez à nouveau la 2e compétence pour vous élancer et déposez sa 1ère compétence sur eux. Une fois les ennemis immobilisés, utilisez son Ultimate.",
+      "description": "Dans les combats d'équipe, Marcel doit activer sa 2e compétence, suivie de sa 1re compétence. Courez dans la formation ennemie, puis utilisez à nouveau la 2e compétence pour vous élancer et déposez sa 1re compétence sur eux. Une fois les ennemis immobilisés, utilisez son ultime.",
       "skills": [
         {
           "name": "Tracking Shot",
@@ -4091,7 +4091,7 @@
   "martis": [
     {
       "type": "laning",
-      "description": "En phase de lane, débutez avec la 1ère Compétence de Martis pour rassembler les ennemis et les ralentir, puis enchaînez avec sa 2ème Compétence. Utilisez à nouveau sa 2e compétence pour rester sur l'ennemi et le faire décoller, et continuez à attaquer avec des attaques de base.",
+      "description": "En phase de lane, débutez avec la 1re compétence de Martis pour rassembler les ennemis et les ralentir, puis enchaînez avec sa 2e compétence. Utilisez à nouveau sa 2e compétence pour rester sur l'ennemi et le faire décoller, et continuez à attaquer avec des attaques de base.",
       "skills": [
         {
           "name": "Asura Aura",
@@ -4114,7 +4114,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez la première compétence de Martis pour rassembler les ennemis et les ralentir, puis utilisez sa deuxième compétence pour infliger des dégâts et les projeter dans les airs, et continuez avec les attaques de base. Terminez les ennemis avec peu de PV avec son Ultimate, puis enchaînez plus de victoires avec l'Ultimate.",
+      "description": "Dans les combats d'équipe, utilisez la première compétence de Martis pour rassembler les ennemis et les ralentir, puis utilisez sa deuxième compétence pour infliger des dégâts et les projeter dans les airs, et continuez avec les attaques de base. Terminez les ennemis avec peu de PV avec son ultime, puis enchaînez plus de victoires avec l'ultime.",
       "skills": [
         {
           "name": "Asura Aura",
@@ -4152,7 +4152,7 @@
   "masha": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, utilisez la 2e compétence de Masha pour vous rapprocher et l'attaque de base pour infliger des blessures. Ralentissez la cible avec la 1ère Compétence, puis continuez à attaquer pour déclencher l'Attaque de Base Améliorée, et maintenez la pression !",
+      "description": "Dans la phase de lane, utilisez la 2e compétence de Masha pour vous rapprocher et l'attaque de base pour infliger des blessures. Ralentissez la cible avec la 1re compétence, puis continuez à attaquer pour déclencher l'attaque de base Améliorée, et maintenez la pression !",
       "skills": [
         {
           "name": "Claw Strike",
@@ -4176,7 +4176,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez Masha's Ultimate pour plonger sur une cible spongieuse. Suivez avec une attaque de base améliorée, puis une 2e compétence pour infliger des blessures à plusieurs ennemis et les abattre avec des attaques de base répétées.",
+      "description": "Dans les combats d'équipe, utilisez Masha's ultime pour plonger sur une cible spongieuse. Suivez avec une attaque de base améliorée, puis une 2e compétence pour infliger des blessures à plusieurs ennemis et les abattre avec des attaques de base répétées.",
       "skills": [
         {
           "name": "Savage Maul",
@@ -4217,7 +4217,7 @@
   "mathilda": [
     {
       "type": "laning",
-      "description": "En phase de lane, utilisez en avance la 1ère Compétence de Mathilda et continuez à avancer pour rassembler des feux follets, puis utilisez sa 2ème Compétence pour vous rapprocher de l'ennemi et lâchez tous ses feux follets sur la cible avant de terminer par une Attaque de Base améliorée. Utilisez son Ultimate pour sécuriser la mise à mort si l'ennemi a peu de PV.",
+      "description": "En phase de lane, utilisez en avance la 1re compétence de Mathilda et continuez à avancer pour rassembler des feux follets, puis utilisez sa 2e compétence pour vous rapprocher de l'ennemi et lâchez tous ses feux follets sur la cible avant de terminer par une attaque de base améliorée. Utilisez son ultime pour sécuriser la mise à mort si l'ennemi a peu de PV.",
       "skills": [
         {
           "name": "Soul Bloom",
@@ -4240,7 +4240,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, activez d'abord la 1ère compétence de Mathilda, puis utilisez immédiatement sa 2ème compétence pour vous placer dans une bonne position pour initier et libérer son Ultime sur la cible principale. Ce combo permet à Mathilda de rapidement contrôler un héros ennemi clé et permet à un allié de poursuivre en utilisant Guiding Wind de sa 2e compétence.",
+      "description": "Dans les combats d'équipe, activez d'abord la 1re compétence de Mathilda, puis utilisez immédiatement sa 2e compétence pour vous placer dans une bonne position pour initier et libérer son ultime sur la cible principale. Ce combo permet à Mathilda de rapidement contrôler un héros ennemi clé et permet à un allié de poursuivre en utilisant Guiding Wind de sa 2e compétence.",
       "skills": [
         {
           "name": "Soul Bloom",
@@ -4260,7 +4260,7 @@
   "melissa": [
     {
       "type": "laning",
-      "description": "Liez l'ennemi avec sa 2e compétence et utilisez les attaques de base pour infliger des dégâts supplémentaires. Poursuivez les ennemis qui tentent de fuir avec sa 1ère compétence.",
+      "description": "Liez l'ennemi avec sa 2e compétence et utilisez les attaques de base pour infliger des dégâts supplémentaires. Poursuivez les ennemis qui tentent de fuir avec sa 1re compétence.",
       "skills": [
         {
           "name": "Eyes on You!",
@@ -4284,7 +4284,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Liez les ennemis avec sa 2e compétence pour augmenter les dégâts. Utilisez la 1ère compétence pour les garder liés et son ultime pour empêcher les ennemis de se rapprocher.",
+      "description": "Liez les ennemis avec sa 2e compétence pour augmenter les dégâts. Utilisez la 1re compétence pour les garder liés et son ultime pour empêcher les ennemis de se rapprocher.",
       "skills": [
         {
           "name": "Eyes on You!",
@@ -4309,7 +4309,7 @@
   "minotaur": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, utilisez la 1ère compétence du Minotaure pour faire tomber l'ennemi dans les airs et réduire sa défense, puis infliger des dégâts avec ses attaques de base améliorées. Utilisez sa 2e compétence pour le soigner, lui et son coéquipier, afin de prendre l'avantage dans le commerce.",
+      "description": "Dans la phase de lane, utilisez la 1re compétence de Minotaur pour faire tomber l'ennemi dans les airs et réduire sa défense, puis infliger des dégâts avec ses attaques de base améliorées. Utilisez sa 2e compétence pour le soigner, lui et son coéquipier, afin de prendre l'avantage dans le commerce.",
       "skills": [
         {
           "name": "Despair Stomp",
@@ -4328,7 +4328,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez la première compétence du Minotaure pour sauter et faire décoller les ennemis, puis utilisez son Ultime pour les garder en CC et entrer dans l'état Enragé. Utilisez sa première compétence pour faire décoller à nouveau les ennemis et poursuivez les attaques de base. Utilisez sa 2ème compétence lorsque lui ou son équipe a besoin de soins.",
+      "description": "Dans les combats d'équipe, utilisez la première compétence de Minotaur pour sauter et faire décoller les ennemis, puis utilisez son ultime pour les garder en CC et entrer dans l'état Enragé. Utilisez sa première compétence pour faire décoller à nouveau les ennemis et poursuivez les attaques de base. Utilisez sa 2e compétence lorsque lui ou son équipe a besoin de soins.",
       "skills": [
         {
           "name": "Despair Stomp",
@@ -4357,7 +4357,7 @@
   "minsitthar": [
     {
       "type": "laning",
-      "description": "Lors de la phase de lane, Minsitthar doit utiliser sa 1ère compétence pour attirer l'ennemi vers lui et le ralentir avec sa 2ème compétence, avant de déclencher ses attaques de base améliorées.",
+      "description": "Lors de la phase de lane, Minsitthar doit utiliser sa 1re compétence pour attirer l'ennemi vers lui et le ralentir avec sa 2e compétence, avant de déclencher ses attaques de base améliorées.",
       "skills": [
         {
           "name": "Spear of Glory",
@@ -4401,7 +4401,7 @@
   "miya": [
     {
       "type": "laning",
-      "description": "En lane, immobilisez l'adversaire avec la 2ème compétence de Miya et utilisez sa 1ère compétence pour le pousser et éliminer les sbires en même temps.",
+      "description": "En lane, immobilisez l'adversaire avec la 2e compétence de Miya et utilisez sa 1re compétence pour le pousser et éliminer les sbires en même temps.",
       "skills": [
         {
           "name": "Arrow of Eclipse",
@@ -4420,7 +4420,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez d'abord l'Ultime de Miya pour vous cacher, puis trouvez une position idéale pour attaquer l'ennemi et empilez rapidement son passif. Utilisez sa deuxième compétence pour immobiliser l'ennemi et activez sa première compétence pour améliorer ses attaques de base afin de toucher plusieurs cibles à la fois.",
+      "description": "Dans les combats d'équipe, utilisez d'abord l'ultime de Miya pour vous cacher, puis trouvez une position idéale pour attaquer l'ennemi et empilez rapidement son passif. Utilisez sa deuxième compétence pour immobiliser l'ennemi et activez sa première compétence pour améliorer ses attaques de base afin de toucher plusieurs cibles à la fois.",
       "skills": [
         {
           "name": "Hidden Moonlight",
@@ -4445,7 +4445,7 @@
   "moskov": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, utilisez la 1ère compétence de Moskov pour cligner des yeux jusqu'à une position permettant d'étourdir la cible avec sa 2ème compétence, puis lancez autant d'attaques de base que possible pour réduire le temps de recharge de ses compétences.",
+      "description": "Dans la phase de lane, utilisez la 1re compétence de Moskov pour cligner des yeux jusqu'à une position permettant d'étourdir la cible avec sa 2e compétence, puis lancez autant d'attaques de base que possible pour réduire le temps de recharge de ses compétences.",
       "skills": [
         {
           "name": "Abyss Walker",
@@ -4464,7 +4464,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez l'Ultime de Moskov pour ralentir une cible, puis activez-la à nouveau pour cligner des yeux derrière elle et utilisez sa deuxième compétence pour l'étourdir avant de l'achever avec des attaques de base.",
+      "description": "Dans les combats d'équipe, utilisez l'ultime de Moskov pour ralentir une cible, puis activez-la à nouveau pour cligner des yeux derrière elle et utilisez sa deuxième compétence pour l'étourdir avant de l'achever avec des attaques de base.",
       "skills": [
         {
           "name": "Spear of Destruction",
@@ -4503,7 +4503,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, Nana peut utiliser sa deuxième compétence pour ralentir l'ennemi en premier afin de pouvoir le frapper et l'étourdir avec son Ultime. Elle peut ensuite utiliser sa 1ère compétence pour achever l'ennemi à faible PV.",
+      "description": "Dans les combats d'équipe, Nana peut utiliser sa deuxième compétence pour ralentir l'ennemi en premier afin de pouvoir le frapper et l'étourdir avec son ultime. Elle peut ensuite utiliser sa 1re compétence pour achever l'ennemi à faible PV.",
       "skills": [
         {
           "name": "Molina Smooch",
@@ -4523,7 +4523,7 @@
   "natalia": [
     {
       "type": "laning",
-      "description": "Lorsque vous ganking, cachez-vous dans un buisson pour activer le passif de Natalia, puis approchez-vous de l'ennemi par derrière et faites un clin d'œil à lui avec l'attaque de base améliorée. Poursuivez avec sa 2e compétence pour ralentir l'ennemi et poursuivez-le en utilisant sa 1ère compétence.",
+      "description": "Lorsque vous ganking, cachez-vous dans un buisson pour activer le passif de Natalia, puis approchez-vous de l'ennemi par derrière et faites un clin d'œil à lui avec l'attaque de base améliorée. Poursuivez avec sa 2e compétence pour ralentir l'ennemi et poursuivez-le en utilisant sa 1re compétence.",
       "skills": [
         {
           "name": null,
@@ -4546,7 +4546,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez les attaques de base passives et améliorées de Natalia pour approcher les ennemis, puis utilisez sa deuxième compétence pour améliorer sa capacité de survie. Enchaînez avec sa 1ère Compétence puis Ultime et terminez par une Attaque de Base pour achever l'ennemi.",
+      "description": "Dans les combats d'équipe, utilisez les attaques de base passives et améliorées de Natalia pour approcher les ennemis, puis utilisez sa deuxième compétence pour améliorer sa capacité de survie. Enchaînez avec sa 1re compétence puis Ultime et terminez par une attaque de base pour achever l'ennemi.",
       "skills": [
         {
           "name": null,
@@ -4584,7 +4584,7 @@
   "natan": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, utilisez la première compétence et les attaques de base de Natan pour éliminer l'ennemi. Lorsque leurs PV sont suffisamment bas, utilisez sa 2ème compétence pour repousser l'ennemi et l'achever avec des attaques de base.",
+      "description": "Dans la phase de lane, utilisez la première compétence et les attaques de base de Natan pour éliminer l'ennemi. Lorsque leurs PV sont suffisamment bas, utilisez sa 2e compétence pour repousser l'ennemi et l'achever avec des attaques de base.",
       "skills": [
         {
           "name": "Superposition",
@@ -4608,7 +4608,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, invoquez un Reverse-Clone avec Natan's Ultimate, puis utilisez sa 2e compétence suivie de sa 1ère compétence pour repousser et endommager les ennemis, et terminez par un barrage d'attaques de base. Selon la situation, Natan's Ultimate peut également être utilisé pour poursuivre ou s'échapper.",
+      "description": "Dans les combats d'équipe, invoquez un Reverse-Clone avec Natan's ultime, puis utilisez sa 2e compétence suivie de sa 1re compétence pour repousser et endommager les ennemis, et terminez par un barrage d'attaques de base. Selon la situation, Natan's ultime peut également être utilisé pour poursuivre ou s'échapper.",
       "skills": [
         {
           "name": "Entropy?",
@@ -4637,7 +4637,7 @@
   "nolan": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, utilisez la 2e compétence de Nolan et son attaque de base améliorée pour attraper l'ennemi, puis utilisez sa 1ère compétence pour activer la faille. Poursuivez avec sa 2ème compétence dans sa 1ère compétence pour activer une autre explosion de faille.",
+      "description": "Dans la phase de lane, utilisez la 2e compétence de Nolan et son attaque de base améliorée pour attraper l'ennemi, puis utilisez sa 1re compétence pour activer la faille. Poursuivez avec sa 2e compétence dans sa 1re compétence pour activer une autre explosion de faille.",
       "skills": [
         {
           "name": "Gauge",
@@ -4664,7 +4664,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, approchez-vous de l'ennemi en utilisant la 2e compétence de Nolan et son attaque de base améliorée, puis activez la faille avec sa 1ère compétence. Utilisez la deuxième compétence de Nolan pour traverser l'ennemi et libérez son ultime pour activer toutes les failles tout en revenant en sécurité.",
+      "description": "Dans les combats d'équipe, approchez-vous de l'ennemi en utilisant la 2e compétence de Nolan et son attaque de base améliorée, puis activez la faille avec sa 1re compétence. Utilisez la deuxième compétence de Nolan pour traverser l'ennemi et libérez son ultime pour activer toutes les failles tout en revenant en sécurité.",
       "skills": [
         {
           "name": "Gauge",
@@ -4693,7 +4693,7 @@
   "novaria": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, démarrez en utilisant la 2e compétence de Novaria pour gagner une vitesse de déplacement supplémentaire et invoquer une sphère astrale. Ensuite, ralentissez l'ennemi avec sa 1ère Compétence et utilisez à nouveau sa 2ème Compétence pour lancer la Sphère Astrale et infliger des dégâts.",
+      "description": "Dans la phase de lane, démarrez en utilisant la 2e compétence de Novaria pour gagner une vitesse de déplacement supplémentaire et invoquer une sphère astrale. Ensuite, ralentissez l'ennemi avec sa 1re compétence et utilisez à nouveau sa 2e compétence pour lancer la Sphère Astrale et infliger des dégâts.",
       "skills": [
         {
           "name": "Astral Recall",
@@ -4711,7 +4711,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez l'Ultime de Novaria pour obtenir une vision du champ de bataille, puis invoquez une sphère astrale avec sa 2e compétence. Après avoir attrapé la Sphère Astrale, lancez-la pour endommager l'ennemi et utilisez sa 1ère compétence pour contrecarrer les héros ennemis qui tentent de s'approcher.",
+      "description": "Dans les combats d'équipe, utilisez l'ultime de Novaria pour obtenir une vision du champ de bataille, puis invoquez une sphère astrale avec sa 2e compétence. Après avoir attrapé la Sphère Astrale, lancez-la pour endommager l'ennemi et utilisez sa 1re compétence pour contrecarrer les héros ennemis qui tentent de s'approcher.",
       "skills": [
         {
           "name": "Astral Echo",
@@ -4735,7 +4735,7 @@
   "obsidia": [
     {
       "type": "laning",
-      "description": "Pendant la phase de lane, utilisez souvent la 1ère compétence d'Obsidia sur les sbires et héros ennemis pour empiler rapidement son passif. Lorsque les PV de l'ennemi tombent suffisamment bas, utilisez la 2e compétence et l'ultime d'Obsidia sur lui et terminez-le avec des attaques de base.",
+      "description": "Pendant la phase de lane, utilisez souvent la 1re compétence d'Obsidia sur les sbires et héros ennemis pour empiler rapidement son passif. Lorsque les PV de l'ennemi tombent suffisamment bas, utilisez la 2e compétence et l'ultime d'Obsidia sur lui et terminez-le avec des attaques de base.",
       "skills": [
         {
           "name": "Abyssal Bone Needle",
@@ -4758,7 +4758,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Pendant les combats d'équipe, utilisez les attaques de base et la 1ère compétence d'Obsidia pour pousser l'ennemi, et sa 2ème compétence pour se repositionner. Recherchez des occasions de vous rapprocher d'une cible avec son Ultimate et éliminez-la avec votre équipe. Enfin, utilisez sa mobilité et ses puissantes attaques de base pour éliminer les ennemis restants.",
+      "description": "Pendant les combats d'équipe, utilisez les attaques de base et la 1re compétence d'Obsidia pour pousser l'ennemi, et sa 2e compétence pour se repositionner. Recherchez des occasions de vous rapprocher d'une cible avec son ultime et éliminez-la avec votre équipe. Enfin, utilisez sa mobilité et ses puissantes attaques de base pour éliminer les ennemis restants.",
       "skills": [
         {
           "name": null,
@@ -4788,7 +4788,7 @@
   "odette": [
     {
       "type": "laning",
-      "description": "En phase de lane, utilisez la 1ère Compétence d'Odette pour harceler l'adversaire, et immobilisez-le avec sa 2ème Compétence au bon moment avant de sécuriser le kill avec son Ultimate.",
+      "description": "En phase de lane, utilisez la 1re compétence d'Odette pour harceler l'adversaire, et immobilisez-le avec sa 2e compétence au bon moment avant de sécuriser le kill avec son ultime.",
       "skills": [
         {
           "name": "Avian Authority",
@@ -4806,7 +4806,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, lancez-vous avec la 2ème compétence d'Odette pour immobiliser l'ennemi et activez son Ultime pour endommager continuellement les cibles contrôlées. Activez le sprint de son Ultimate pour vous repositionner lorsque les ennemis sont sur le point de s'échapper, et terminez-les avec sa 1ère compétence après la fin de son Ultimate.",
+      "description": "Dans les combats d'équipe, lancez-vous avec la 2e compétence d'Odette pour immobiliser l'ennemi et activez son ultime pour endommager continuellement les cibles contrôlées. Activez le sprint de son ultime pour vous repositionner lorsque les ennemis sont sur le point de s'échapper, et terminez-les avec sa 1re compétence après la fin de son ultime.",
       "skills": [
         {
           "name": "Blue Nova",
@@ -4830,7 +4830,7 @@
   "paquito": [
     {
       "type": "laning",
-      "description": "Lors de la phase de lane, Paquito peut utiliser sa 1ère compétence pour gagner un stack pour la position de champion avant d'utiliser sa 2ème compétence pour se rapprocher du héros ennemi. Il peut à nouveau utiliser sa 1ère compétence pour infliger des dégâts et entrer en position de champion. Il doit alors frapper le héros ennemi avec la 2e compétence améliorée.",
+      "description": "Lors de la phase de lane, Paquito peut utiliser sa 1re compétence pour gagner un cumul pour le Champ Stance avant d'utiliser sa 2e compétence pour se rapprocher du héros ennemi. Il peut utiliser à nouveau sa 1re compétence pour infliger des dégâts et entrer dans le Champ Stance. Il doit alors frapper le héros ennemi avec la 2e compétence améliorée.",
       "skills": [
         {
           "name": "Heavy Left Punch",
@@ -4852,7 +4852,7 @@
     },
     {
       "type": "teamfight",
-      "description": "En teamfights, Paquito peut utiliser sa 2ème Compétence pour s'approcher de l'équipe ennemie, puis sa 1ère Compétence pour infliger des dégâts. Il doit enchaîner avec son Ultimate pour repousser l'ennemi et entrer dans la position de champion. Il peut terminer avec sa 2ème compétence améliorée pour infliger de lourds dégâts aux ennemis.",
+      "description": "En teamfights, Paquito peut utiliser sa 2e compétence pour s'approcher de l'équipe ennemie, puis sa 1re compétence pour infliger des dégâts. Il doit enchaîner avec son ultime pour repousser l'ennemi et entrer dans le Champ Stance. Il peut terminer avec sa 2e compétence améliorée pour infliger de lourds dégâts aux ennemis.",
       "skills": [
         {
           "name": "Jab",
@@ -4876,7 +4876,7 @@
   "pharsa": [
     {
       "type": "laning",
-      "description": "Pharsa devrait commencer avec sa 1ère compétence pour marquer l'ennemi, enchaîner avec sa 2ème compétence pour appliquer CC, puis lancer son Ultime pour infliger une quantité insensée de dégâts magiques.",
+      "description": "Pharsa devrait commencer avec sa 1re compétence pour marquer l'ennemi, enchaîner avec sa 2e compétence pour appliquer CC, puis lancer son ultime pour infliger une quantité insensée de dégâts magiques.",
       "skills": [
         {
           "name": "Curse of Crow",
@@ -4894,7 +4894,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Pharsa peut utiliser sa 4ème compétence pour se mettre dans une position avantageuse pour lancer un combat d'équipe, suivi d'un combo de dégâts avec ses 1ère et 3ème compétences et utiliser sa 2ème compétence lorsqu'elle souhaite infliger des dégâts supplémentaires.",
+      "description": "Pharsa peut utiliser sa 4e compétence pour se mettre dans une position avantageuse pour lancer un combat d'équipe, suivi d'un combo de dégâts avec ses 1re et 3e compétences et utiliser sa 2e compétence lorsqu'elle souhaite infliger des dégâts supplémentaires.",
       "skills": [
         {
           "name": "Wings by Wings",
@@ -4922,7 +4922,7 @@
   "phoveus": [
     {
       "type": "laning",
-      "description": "Lors de la phase de lane, Phoveus doit d'abord utiliser son attaque de base améliorée pour frapper le héros ennemi et obtenir un bouclier. Poursuivez avec sa 1ère compétence pour réduire leurs PV, puis utilisez sa 1ère compétence améliorée pour des dégâts supplémentaires et pour ralentir la cible, et terminez avec sa 2ème compétence pour plus de dégâts.",
+      "description": "Lors de la phase de lane, Phoveus doit d'abord utiliser son attaque de base améliorée pour frapper le héros ennemi et obtenir un bouclier. Poursuivez avec sa 1re compétence pour réduire leurs PV, puis utilisez sa 1re compétence améliorée pour des dégâts supplémentaires et pour ralentir la cible, et terminez avec sa 2e compétence pour plus de dégâts.",
       "skills": [
         {
           "name": "Demonic Impact",
@@ -4945,7 +4945,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, Phoveus doit utiliser son attaque de base améliorée pour charger l'ennemi tout en le repoussant et en le marquant. Ensuite, enchaînez immédiatement avec son Ultimate. Ensuite, touchez la cible avec sa 1ère Compétence, puis utilisez à nouveau sa 2ème compétence et son Ultime. Enfin, utilisez la 1ère compétence améliorée pour marquer à nouveau l'ennemi et utilisez son Ultime.",
+      "description": "Dans les combats d'équipe, Phoveus doit utiliser son attaque de base améliorée pour charger l'ennemi tout en le repoussant et en le marquant. Ensuite, enchaînez immédiatement avec son ultime. Ensuite, touchez la cible avec sa 1re compétence, puis utilisez à nouveau sa 2e compétence et son ultime. Enfin, utilisez la 1re compétence améliorée pour marquer à nouveau l'ennemi et utilisez son ultime.",
       "skills": [
         {
           "name": null,
@@ -4970,7 +4970,7 @@
   "popol-and-kupa": [
     {
       "type": "laning",
-      "description": "Face à un ennemi, utilisez la 1ère Compétence de Popol pour le ralentir, puis utilisez immédiatement sa 3ème Compétence pour tendre un piège et l'immobiliser. Ensuite, utilisez les attaques de base pour concentrer le feu sur la cible avec Kupa. Enfin, utilisez sa 2ème compétence pour monter à cheval et les poursuivre.",
+      "description": "Face à un ennemi, utilisez la 1re compétence de Popol pour le ralentir, puis utilisez immédiatement sa 3e compétence pour tendre un piège et l'immobiliser. Ensuite, utilisez les attaques de base pour concentrer le feu sur la cible avec Kupa. Enfin, utilisez sa 2e compétence pour monter à cheval et les poursuivre.",
       "skills": [
         {
           "name": "Bite 'em, Kupa!",
@@ -5022,7 +5022,7 @@
   "rafaela": [
     {
       "type": "laning",
-      "description": "Utilisez la 1ère compétence pour piquer les ennemis et la 2ème pour soigner et créer de la distance.",
+      "description": "Utilisez la 1re compétence pour piquer les ennemis et la 2e pour soigner et créer de la distance.",
       "skills": [
         {
           "name": "Light of Retribution",
@@ -5036,7 +5036,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Utilisez la 1ère compétence pour ralentir les ennemis, puis son Ultime pour l'effet de contrôle, puis utilisez la 2ème compétence pour restaurer les PV des alliés.",
+      "description": "Utilisez la 1re compétence pour ralentir les ennemis, puis son ultime pour l'effet de contrôle, puis utilisez la 2e compétence pour restaurer les PV des alliés.",
       "skills": [
         {
           "name": "Light of Retribution",
@@ -5056,7 +5056,7 @@
   "roger": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, Roger doit pousser l'ennemi sous sa forme humaine. Utilisez sa 2ème compétence pour augmenter la vitesse de déplacement sous un angle pour frapper avec sa 1ère compétence. Utilisez son Ultime pour vous rapprocher de l'ennemi, suivi de sa 2ème compétence pour la vitesse d'attaque et déchirez-le avec des attaques de base avant de les achever avec sa 1ère compétence.",
+      "description": "Dans la phase de lane, Roger doit pousser l'ennemi sous sa forme humaine. Utilisez sa 2e compétence pour augmenter la vitesse de déplacement sous un angle pour frapper avec sa 1re compétence. Utilisez son ultime pour vous rapprocher de l'ennemi, suivi de sa 2e compétence pour la vitesse d'attaque et déchirez-le avec des attaques de base avant de les achever avec sa 1re compétence.",
       "skills": [
         {
           "name": "Hunter's Steps",
@@ -5087,7 +5087,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez la première compétence de Roger pour abattre les ennemis à distance tout en utilisant sa deuxième compétence pour maintenir un bon positionnement. Lorsque les deux camps se sont engagés, utilisez son Ultime pour atteindre la ligne arrière ennemie. Utilisez sa 2ème compétence pour une vitesse d'attaque supplémentaire et sa 1ère compétence pour sécuriser la mise à mort.",
+      "description": "Dans les combats d'équipe, utilisez la première compétence de Roger pour abattre les ennemis à distance tout en utilisant sa deuxième compétence pour maintenir un bon positionnement. Lorsque les deux camps se sont engagés, utilisez son ultime pour atteindre la ligne arrière ennemie. Utilisez sa 2e compétence pour une vitesse d'attaque supplémentaire et sa 1re compétence pour sécuriser la mise à mort.",
       "skills": [
         {
           "name": "Open Fire",
@@ -5115,7 +5115,7 @@
   "ruby": [
     {
       "type": "laning",
-      "description": "En phase de lane, utilisez la 1ère compétence de Ruby pour ralentir l'ennemi, et le sprint de son passif pour vous rapprocher. Lancez ensuite Ruby's Ultimate pour attirer l'ennemi à portée de mêlée et sa 2e compétence pour le garder étourdi. Enfin, spammez ses attaques de base pour les achever.",
+      "description": "En phase de lane, utilisez la 1re compétence de Ruby pour ralentir l'ennemi, et le sprint de son passif pour vous rapprocher. Lancez ensuite Ruby's ultime pour attirer l'ennemi à portée de mêlée et sa 2e compétence pour le garder étourdi. Enfin, spammez ses attaques de base pour les achever.",
       "skills": [
         {
           "name": "Be Good!",
@@ -5210,7 +5210,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Restez sous forme elfique pour lancer son 1er et son 2ème combo de compétences pour attraper le héros ennemi à distance. Lancez ensuite son Ultime pour entrer dans sa Forme Abyssale. Suivez avec ses 2e et 1er combo de compétences pour vous rapprocher et achever la cible, puis lancez sa 2e compétence pour vous enfuir.",
+      "description": "Restez sous forme elfique pour lancer son 1er et son 2e combo de compétences pour attraper le héros ennemi à distance. Lancez ensuite son ultime pour entrer dans sa Forme Abyssale. Suivez avec ses 2e et 1er combo de compétences pour vous rapprocher et achever la cible, puis lancez sa 2e compétence pour vous enfuir.",
       "skills": [
         {
           "name": "Abyssal Trap",
@@ -5242,7 +5242,7 @@
   "silvanna": [
     {
       "type": "laning",
-      "description": "Silvanna peut piquer les ennemis avec sa [2e compétence] et utiliser sa 1ère compétence pour réduire la distance une fois qu'ils sont à court de PV. Ensuite, elle peut les contrôler et les achever avec son [ULTIMATE].",
+      "description": "Silvanna peut piquer les ennemis avec sa [2e compétence] et utiliser sa 1re compétence pour réduire la distance une fois qu'ils sont à court de PV. Ensuite, elle peut les contrôler et les achever avec son [ULTIMATE].",
       "skills": [
         {
           "name": "Spiral Strangling",
@@ -5269,7 +5269,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, Silvanna peut contrôler les ennemis de la dernière ligne avec son [ULTIMATE], puis les étourdir avec sa [1ère compétence]. Enfin, elle peut infliger des dégâts avec sa [2e compétence] et ses attaques de base.",
+      "description": "Dans les combats d'équipe, Silvanna peut contrôler les ennemis de la dernière ligne avec son [ULTIMATE], puis les étourdir avec sa [1re compétence]. Enfin, elle peut infliger des dégâts avec sa [2e compétence] et ses attaques de base.",
       "skills": [
         {
           "name": "Imperial Justice",
@@ -5294,7 +5294,7 @@
   "sora": [
     {
       "type": "laning",
-      "description": "Lorsque l'adversaire se concentre sur l'élimination des sbires, piquez-les avec la première compétence de Sora, puis utilisez sa deuxième compétence pour créer de la distance. Utilisez la mobilité de ses 1ère et 2ème compétences pour kiter efficacement les ennemis. Les dégâts de Sora dépendent de sa première compétence.",
+      "description": "Lorsque l'adversaire se concentre sur l'élimination des sbires, piquez-les avec la première compétence de Sora, puis utilisez sa deuxième compétence pour créer de la distance. Utilisez la mobilité de ses 1re et 2e compétences pour kiter efficacement les ennemis. Les dégâts de Sora dépendent de sa première compétence.",
       "skills": [
         {
           "name": "Windstride",
@@ -5367,7 +5367,7 @@
   "sun": [
     {
       "type": "laning",
-      "description": "Utilisez la première compétence de Sun pour éliminer les ennemis et réduisez la distance une fois qu'ils sont à court de PV avec sa deuxième compétence. Utilisez ensuite sa 3ème compétence pour infliger une rafale de dégâts avec ses Dopplegangers. Sun peut commencer avec son Ultimate pour invoquer un Doppleganger, puis Blink sur l'ennemi avec sa 2ème compétence, et enfin utiliser sa 3ème compétence et ses attaques de base pour les achever.",
+      "description": "Utilisez la première compétence de Sun pour éliminer les ennemis et réduisez la distance une fois qu'ils sont à court de PV avec sa deuxième compétence. Utilisez ensuite sa 3e compétence pour infliger une rafale de dégâts avec ses Dopplegangers. Sun peut commencer avec son ultime pour invoquer un Doppleganger, puis Blink sur l'ennemi avec sa 2e compétence, et enfin utiliser sa 3e compétence et ses attaques de base pour les achever.",
       "skills": [
         {
           "name": "Endless Variety",
@@ -5390,7 +5390,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, Sun peut commencer avec son Ultime pour invoquer un Doppelganger, et s'approcher de l'ennemi avec sa 2ème Compétence. Enfin, il peut utiliser sa 2ème Compétence et ses Attaques de Base pour infliger des dégâts.",
+      "description": "Dans les combats d'équipe, Sun peut commencer avec son ultime pour invoquer un Doppelganger, et s'approcher de l'ennemi avec sa 2e compétence. Enfin, il peut utiliser sa 2e compétence et ses attaques de base pour infliger des dégâts.",
       "skills": [
         {
           "name": "Clone Techniques",
@@ -5470,7 +5470,7 @@
   "terizla": [
     {
       "type": "laning",
-      "description": "En phase de lane, Terizla peut utiliser sa 1ère Compétence pour ralentir l'ennemi, puis sa 2ème Compétence pour lui infliger des dégâts de manière répétée.",
+      "description": "En phase de lane, Terizla peut utiliser sa 1re compétence pour ralentir l'ennemi, puis sa 2e compétence pour lui infliger des dégâts de manière répétée.",
       "skills": [
         {
           "name": "Revenge Strike",
@@ -5484,7 +5484,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, Terizla peut ouvrir avec son Ultime et sa 1ère Compétence pour contrôler l'équipe ennemie, puis utiliser sa 2ème Compétence pour toucher à plusieurs reprises les cibles tirées par l'Échafaudage.",
+      "description": "Dans les combats d'équipe, Terizla peut ouvrir avec son ultime et sa 1re compétence pour contrôler l'équipe ennemie, puis utiliser sa 2e compétence pour toucher à plusieurs reprises les cibles tirées par l'Échafaudage.",
       "skills": [
         {
           "name": "Penalty Zone",
@@ -5504,7 +5504,7 @@
   "thamuz": [
     {
       "type": "laning",
-      "description": "En phase de lane, utilisez la 1ère Compétence de Thamuz, puis sautez sur l'ennemi en utilisant sa 2ème Compétence, faisant revenir ses Faux et réinitialisant le CD de sa 1ère Compétence. Enchaînez avec une attaque de base puis sa 1ère compétence, et appuyez à nouveau sur la compétence pour récupérer les faux et terminer avec des attaques de base.",
+      "description": "En phase de lane, utilisez la 1re compétence de Thamuz, puis sautez sur l'ennemi en utilisant sa 2e compétence, faisant revenir ses Faux et réinitialisant le CD de sa 1re compétence. Enchaînez avec une attaque de base puis sa 1re compétence, et appuyez à nouveau sur la compétence pour récupérer les faux et terminer avec des attaques de base.",
       "skills": [
         {
           "name": "Molten Scythes",
@@ -5532,7 +5532,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez la première compétence de Thamuz pour accélérer et ajuster votre positionnement, puis sautez dans la foule en utilisant sa deuxième compétence. Activez son Ultime suivi d'une Attaque de Base et de sa 1ère Compétence, et récupérez les Faux avant de poursuivre les Attaques de Base.",
+      "description": "Dans les combats d'équipe, utilisez la première compétence de Thamuz pour accélérer et ajuster votre positionnement, puis sautez dans la foule en utilisant sa deuxième compétence. Activez son ultime suivi d'une attaque de base et de sa 1re compétence, et récupérez les Faux avant de poursuivre les attaques de base.",
       "skills": [
         {
           "name": "Molten Scythes",
@@ -5566,7 +5566,7 @@
   "tigreal": [
     {
       "type": "laning",
-      "description": "Lors de la phase de lane, Tigreal peut utiliser sa 2ème compétence pour charger la cible ennemie et la faire décoller en la lançant à nouveau. Il termine ensuite avec sa 1ère Compétence pour infliger des dégâts.",
+      "description": "Lors de la phase de lane, Tigreal peut utiliser sa 2e compétence pour charger la cible ennemie et la faire décoller en la lançant à nouveau. Il termine ensuite avec sa 1re compétence pour infliger des dégâts.",
       "skills": [
         {
           "name": "Sacred Hammer",
@@ -5584,7 +5584,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, Tigreal doit lancer sa 2ème compétence pour charger puis attirer l'équipe ennemie vers lui avec son Ultimate. A la fin de son CC, lancez à nouveau sa 2ème Compétence pour la prolonger, puis utilisez sa 1ère Compétence pour infliger des dégâts.",
+      "description": "Dans les combats d'équipe, Tigreal doit lancer sa 2e compétence pour charger puis attirer l'équipe ennemie vers lui avec son ultime. A la fin de son CC, lancez à nouveau sa 2e compétence pour la prolonger, puis utilisez sa 1re compétence pour infliger des dégâts.",
       "skills": [
         {
           "name": "Sacred Hammer",
@@ -5608,7 +5608,7 @@
   "uranus": [
     {
       "type": "laning",
-      "description": "Uranus peut utiliser sa 1ère compétence pour pousser l'ennemi, puis utiliser la combinaison 2e compétence - 1ère compétence lorsque ses PV sont faibles pour l'achever.",
+      "description": "Uranus peut utiliser sa 1re compétence pour pousser l'ennemi, puis utiliser la combinaison 2e compétence - 1re compétence lorsque ses PV sont faibles pour l'achever.",
       "skills": [
         {
           "name": "Ionic Edge",
@@ -5626,7 +5626,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Uranus doit utiliser sa 2ème compétence pour entrer dans le combat, puis son Ultime pour survivre aux attaques ennemies tout en spammant sa 1ère compétence pour des dégâts soutenus.",
+      "description": "Uranus doit utiliser sa 2e compétence pour entrer dans le combat, puis son ultime pour survivre aux attaques ennemies tout en spammant sa 1re compétence pour des dégâts soutenus.",
       "skills": [
         {
           "name": "Transcendent Ward",
@@ -5646,7 +5646,7 @@
   "vale": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, utilisez la 2e compétence de Vale pour projeter l'adversaire dans les airs, puis enchaînez avec sa 1ère compétence pour infliger des dégâts.",
+      "description": "Dans la phase de lane, utilisez la 2e compétence de Vale pour projeter l'adversaire dans les airs, puis enchaînez avec sa 1re compétence pour infliger des dégâts.",
       "skills": [
         {
           "name": "Windblow",
@@ -5680,7 +5680,7 @@
   "valentina": [
     {
       "type": "laning",
-      "description": "Utilisez la 1ère compétence pour piquer, puis la 2ème compétence pour actualiser son CD, et la 1ère compétence sur le même ennemi à nouveau pour provoquer Terrify.",
+      "description": "Utilisez la 1re compétence pour piquer, puis la 2e compétence pour actualiser son CD, et la 1re compétence sur le même ennemi à nouveau pour provoquer Terrify.",
       "skills": [
         {
           "name": "Shadow Strike",
@@ -5702,7 +5702,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Copiez un Ultimate ou utilisez la 2e compétence pour un meilleur positionnement. Utilisez la 1ère compétence et réinitialisez son temps de recharge avec la 2ème compétence, puis terrifiez la cible et utilisez son ultime copié pour sécuriser la mise à mort.",
+      "description": "Copiez un ultime ou utilisez la 2e compétence pour un meilleur positionnement. Utilisez la 1re compétence et réinitialisez son temps de recharge avec la 2e compétence, puis terrifiez la cible et utilisez son ultime copié pour sécuriser la mise à mort.",
       "skills": [
         {
           "name": "I Am You",
@@ -5734,7 +5734,7 @@
   "valir": [
     {
       "type": "laning",
-      "description": "En phase de lane, harcelez les ennemis avec la 1ère Compétence de Valir jusqu'à ce que leurs PV soient faibles, puis lancez sa 2ème Compétence pour les repousser et enchaînez immédiatement avec sa 1ère Compétence pour des dégâts éclatés.",
+      "description": "En phase de lane, harcelez les ennemis avec la 1re compétence de Valir jusqu'à ce que leurs PV soient faibles, puis lancez sa 2e compétence pour les repousser et enchaînez immédiatement avec sa 1re compétence pour des dégâts en rafale.",
       "skills": [
         {
           "name": "Burst Fireball",
@@ -5752,7 +5752,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, activez l'Ultime de Valir pour améliorer ses compétences, puis faites exploser l'ennemi avec sa 1ère compétence. Si l'ennemi tente de se rapprocher, utilisez sa 2e compétence pour le repousser et frappez-le avec sa 1ère compétence pour infliger des dégâts importants.",
+      "description": "Dans les combats d'équipe, activez l'ultime de Valir pour améliorer ses compétences, puis faites exploser l'ennemi avec sa 1re compétence. Si l'ennemi tente de se rapprocher, utilisez sa 2e compétence pour le repousser et frappez-le avec sa 1re compétence pour infliger des dégâts importants.",
       "skills": [
         {
           "name": "Vengeance Flame",
@@ -5780,7 +5780,7 @@
   "vexana": [
     {
       "type": "laning",
-      "description": "Terrifiez l'ennemi avec la 1ère compétence et enchaînez avec la 2ème compétence pour des dégâts garantis.",
+      "description": "Terrifiez l'ennemi avec la 1re compétence et enchaînez avec la 2e compétence pour des dégâts garantis.",
       "skills": [
         {
           "name": "Deathly Grasp",
@@ -5794,7 +5794,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Initiez des combats d'équipe avec CC ou faites un suivi après d'autres CC. Utilisez son Ultimate lorsque les ennemis sont rassemblés, enchaînez avec les 2e et 1er combo de compétences pour le CC et les dégâts.",
+      "description": "Initiez des combats d'équipe avec CC ou faites un suivi après d'autres CC. Utilisez son ultime lorsque les ennemis sont rassemblés, enchaînez avec les 2e et 1er combo de compétences pour le CC et les dégâts.",
       "skills": [
         {
           "name": "Eternal Guard",
@@ -5814,7 +5814,7 @@
   "wanwan": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, Wanwan peut frapper les ennemis avec sa 1ère compétence, puis utiliser ses attaques de base pour se précipiter avec son passif et ajuster les trajectoires de Swallow Daggers pour contrôler les ennemis. Après avoir touché les trois faiblesses d'un ennemi, elle peut les achever avec son ultime.",
+      "description": "Dans la phase de lane, Wanwan peut frapper les ennemis avec sa 1re compétence, puis utiliser ses attaques de base pour se précipiter avec son passif et ajuster les trajectoires de Swallow Daggers pour contrôler les ennemis. Après avoir touché les trois faiblesses d'un ennemi, elle peut les achever avec son ultime.",
       "skills": [
         {
           "name": null,
@@ -5838,7 +5838,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez les attaques de base pour vous lancer avec son passif et ajuster la position pour les dégâts, puis infliger autant de coups que possible avec sa 1ère compétence. Après avoir atteint toutes les faiblesses, récoltez des victoires avec son Ultime.",
+      "description": "Dans les combats d'équipe, utilisez les attaques de base pour vous lancer avec son passif et ajuster la position pour les dégâts, puis infliger autant de coups que possible avec sa 1re compétence. Après avoir atteint toutes les faiblesses, récoltez des victoires avec son ultime.",
       "skills": [
         {
           "name": "Swallow’s Path",
@@ -5859,7 +5859,7 @@
   "x-borg": [
     {
       "type": "laning",
-      "description": "Lors de la phase de lane, lancez la 1ère compétence de X.Borg puis utilisez sa 2ème compétence pour attirer les ennemis vers lui.",
+      "description": "Lors de la phase de lane, lancez la 1re compétence de X.Borg puis utilisez sa 2e compétence pour attirer les ennemis vers lui.",
       "skills": [
         {
           "name": "Fire Missiles",
@@ -5893,7 +5893,7 @@
   "xavier": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, Xavier possède un excellent poke avec sa 1ère compétence et peut utiliser le ralentissement de sa 2ème compétence pour rendre les cibles plus faciles à atteindre. Cette combinaison lui permet d'atteindre rapidement la Transcendance. Lorsque l'occasion se présente, utilisez son Ultime pour achever un ennemi et en état de Transcendance.",
+      "description": "Dans la phase de lane, Xavier possède un excellent poke avec sa 1re compétence et peut utiliser le ralentissement de sa 2e compétence pour rendre les cibles plus faciles à atteindre. Cette combinaison lui permet d'atteindre rapidement la Transcendance. Lorsque l'occasion se présente, utilisez son ultime pour achever un ennemi et en état de Transcendance.",
       "skills": [
         {
           "name": "Infinite Extension",
@@ -5915,7 +5915,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Lancez l'Ultime de Xavier pour entrer ou rafraîchir Transcendance, puis essayez de toucher autant d'ennemis que possible avec sa 2ème compétence, et enchaînez avec sa 1ère compétence pour créer un champ interdit pour immobiliser les ennemis. Continuez à lancer sa 1ère compétence pour prolonger la durée de Transcendance tout en tuant.",
+      "description": "Lancez l'ultime de Xavier pour entrer ou rafraîchir Transcendance, puis essayez de toucher autant d'ennemis que possible avec sa 2e compétence, et enchaînez avec sa 1re compétence pour créer un champ interdit pour immobiliser les ennemis. Continuez à lancer sa 1re compétence pour prolonger la durée de Transcendance tout en tuant.",
       "skills": [
         {
           "name": "Dawning Light",
@@ -5939,7 +5939,7 @@
   "yi-sun-shin": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, Yi Sun-shin doit utiliser ses attaques de base améliorées à distance, puis se rapprocher avec sa 1ère compétence et trancher l'ennemi avec deux attaques de base améliorées. Enchaînez avec une attaque de sa 2e compétence et terminez avec 2 autres attaques de base améliorées.",
+      "description": "Dans la phase de lane, Yi Sun-shin doit utiliser ses attaques de base améliorées à distance, puis se rapprocher avec sa 1re compétence et trancher l'ennemi avec deux attaques de base améliorées. Enchaînez avec une attaque de sa 2e compétence et terminez avec 2 autres attaques de base améliorées.",
       "skills": [
         {
           "name": null,
@@ -5968,7 +5968,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, commencez avec l'Ultime de Yi Sun-shin, puis utilisez sa 1ère compétence améliorée pour envoyer son Turtle Ship sur l'ennemi pour l'étourdir. Poursuivez avec des attaques de base à distance, puis utilisez sa 1ère compétence pour vous rapprocher et effectuer 2 attaques de base améliorées. Appuyez sur sa deuxième compétence pour effectuer une autre attaque et sécurisez la mise à mort avec 2 attaques de base améliorées supplémentaires.",
+      "description": "Dans les combats d'équipe, commencez avec l'ultime de Yi Sun-shin, puis utilisez sa 1re compétence améliorée pour envoyer son Turtle Ship sur l'ennemi pour l'étourdir. Poursuivez avec des attaques de base à distance, puis utilisez sa 1re compétence pour vous rapprocher et effectuer 2 attaques de base améliorées. Appuyez sur sa deuxième compétence pour effectuer une autre attaque et sécurisez la mise à mort avec 2 attaques de base améliorées supplémentaires.",
       "skills": [
         {
           "name": "Mountain Shocker",
@@ -6007,7 +6007,7 @@
   "yin": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, Yin doit utiliser sa 1ère compétence pour gagner en vitesse de déplacement, puis utiliser sa 2ème compétence pour se précipiter derrière l'ennemi afin que les anneaux d'or l'étourdissent à son retour, et terminer avec son attaque de base améliorée.",
+      "description": "Dans la phase de lane, Yin doit utiliser sa 1re compétence pour gagner en vitesse de déplacement, puis utiliser sa 2e compétence pour se précipiter derrière l'ennemi afin que les anneaux d'or l'étourdissent à son retour, et terminer avec son attaque de base améliorée.",
       "skills": [
         {
           "name": "Charged Punch",
@@ -6026,7 +6026,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Yin doit utiliser sa première compétence pour gagner en vitesse de déplacement, puis sa deuxième compétence pour se rapprocher d'un ennemi clé et le frapper avec son attaque de base améliorée avant de le piéger dans son ultime. Sous sa forme Lieh, utilisez sa 2e compétence pour étourdir l'ennemi et l'achever avec sa 1ère compétence.",
+      "description": "Yin doit utiliser sa première compétence pour gagner en vitesse de déplacement, puis sa deuxième compétence pour se rapprocher d'un ennemi clé et le frapper avec son attaque de base améliorée avant de le piéger dans son ultime. Sous sa forme Lieh, utilisez sa 2e compétence pour étourdir l'ennemi et l'achever avec sa 1re compétence.",
       "skills": [
         {
           "name": "Charged Punch",
@@ -6059,7 +6059,7 @@
   "yu-zhong": [
     {
       "type": "laning",
-      "description": "En phase de lane, utilisez la 2ème compétence de Yu Zhong pour ralentir l'ennemi et sautez sur lui en utilisant sa 3ème compétence. Lors du repositionnement avec le tiret de sa 3ème compétence, lancez sa 1ère compétence pour frapper l'ennemi avec le bord extérieur, puis enchaînez avec l'attaque de base améliorée de sa 2ème compétence et terminez le combo avec une éruption de résidus de Sha.",
+      "description": "En phase de lane, utilisez la 2e compétence de Yu Zhong pour ralentir l'ennemi et sautez sur lui en utilisant sa 3e compétence. Lors du repositionnement avec le tiret de sa 3e compétence, lancez sa 1re compétence pour frapper l'ennemi avec le bord extérieur, puis enchaînez avec l'attaque de base améliorée de sa 2e compétence et terminez le combo avec une éruption de résidus de Sha.",
       "skills": [
         {
           "name": "Soul Grip",
@@ -6082,7 +6082,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, ouvrez avec Yu Zhong's Ultimate et courez dans la formation ennemie tout en les renversant. Lorsque les héros de l'arrière-plan ennemi sont exposés, utilisez à nouveau son Ultime pour entrer sous forme Dragonoïde et déclenchez son combo en commençant par sa 2e compétence, puis sa 3e compétence, puis sa 1ère compétence pour infliger des tonnes de dégâts. Enfin, utilisez l'attaque de base améliorée de sa 2e compétence pour achever l'ennemi.",
+      "description": "Dans les combats d'équipe, ouvrez avec Yu Zhong's ultime et courez dans la formation ennemie tout en les renversant. Lorsque les héros de l'arrière-plan ennemi sont exposés, utilisez à nouveau son ultime pour entrer sous forme Dragonoïde et déclenchez son combo en commençant par sa 2e compétence, puis sa 3e compétence, puis sa 1re compétence pour infliger des tonnes de dégâts. Enfin, utilisez l'attaque de base améliorée de sa 2e compétence pour achever l'ennemi.",
       "skills": [
         {
           "name": "Black Dragon Form",
@@ -6115,7 +6115,7 @@
   "yve": [
     {
       "type": "laning",
-      "description": "En phase de lane, utilisez la 2ème Compétence d'Yve pour d'abord ralentir l'ennemi à distance, puis frappez-le avec le centre de sa 1ère Compétence.",
+      "description": "En phase de lane, utilisez la 2e compétence d'Yve pour d'abord ralentir l'ennemi à distance, puis frappez-le avec le centre de sa 1re compétence.",
       "skills": [
         {
           "name": "Void Crystal",
@@ -6129,7 +6129,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez Yve's Ultimate pour couvrir autant d'ennemis que possible et lancer plusieurs attaques sur eux. Lorsque les ennemis sont à court d'Ultime d'Yve, annulez-le et utilisez sa 2ème Compétence pour les ralentir, puis achevez-les avec sa 1ère Compétence.",
+      "description": "Dans les combats d'équipe, utilisez Yve's ultime pour couvrir autant d'ennemis que possible et lancer plusieurs attaques sur eux. Lorsque les ennemis sont à court d'ultime d'Yve, annulez-le et utilisez sa 2e compétence pour les ralentir, puis achevez-les avec sa 1re compétence.",
       "skills": [
         {
           "name": "Real World Manipulation",
@@ -6149,7 +6149,7 @@
   "zetian": [
     {
       "type": "laning",
-      "description": "En phase de lane, utilisez la 2ème compétence de Zetian pour ralentir l'ennemi et réduire sa défense magique, puis utilisez sa 1ère compétence tout en vous déplaçant pour vous repositionner et infliger des dégâts soutenus. Si les ennemis quittent la zone de la 2ème compétence, utilisez-la à nouveau pour déplacer le Phénix au-dessus d'eux.",
+      "description": "En phase de lane, utilisez la 2e compétence de Zetian pour ralentir l'ennemi et réduire sa défense magique, puis utilisez sa 1re compétence tout en vous déplaçant pour vous repositionner et infliger des dégâts soutenus. Si les ennemis quittent la zone de la 2e compétence, utilisez-la à nouveau pour déplacer le Phénix au-dessus d'eux.",
       "skills": [
         {
           "name": "Phoenix Descent",
@@ -6167,7 +6167,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez l'Ultime de Zetian pour augmenter la vitesse de déplacement de son équipe et lancer l'attaque globale, puis utilisez immédiatement sa deuxième compétence pour ralentir les ennemis, facilitant ainsi l'atterrissage de l'Ultime. Poursuivez avec sa 1ère compétence pour plus d'AoE et relancez la 2ème compétence si les ennemis tentent de quitter sa portée.",
+      "description": "Dans les combats d'équipe, utilisez l'ultime de Zetian pour augmenter la vitesse de déplacement de son équipe et lancer l'attaque globale, puis utilisez immédiatement sa deuxième compétence pour ralentir les ennemis, facilitant ainsi l'atterrissage de l'ultime. Poursuivez avec sa 1re compétence pour plus d'AoE et relancez la 2e compétence si les ennemis tentent de quitter sa portée.",
       "skills": [
         {
           "name": "Fury of the Phoenix",
@@ -6191,7 +6191,7 @@
   "zhask": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, Zhask doit commencer avec sa 1ère compétence pour invoquer un Nightmaric Spawn à côté de l'ennemi et enchaîner avec sa 2ème compétence pour étourdir la cible, puis utiliser sa 3ème compétence pour plus de dégâts.",
+      "description": "Dans la phase de lane, Zhask doit commencer avec sa 1re compétence pour invoquer un Nightmaric Spawn à côté de l'ennemi et enchaîner avec sa 2e compétence pour étourdir la cible, puis utiliser sa 3e compétence pour plus de dégâts.",
       "skills": [
         {
           "name": "Nightmaric Spawn",
@@ -6209,7 +6209,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, Zhask doit commencer par invoquer son Nightmaric Spawn dans un endroit approprié et utiliser son Ultimate pour fusionner avec lui, puis libérer ses 2e et 3e compétences améliorées pour étourdir et endommager les ennemis, et poursuivre avec des attaques de base. Si l'ennemi tente de fuir, utilisez sa 1ère compétence améliorée pour cligner des yeux vers lui.",
+      "description": "Dans les combats d'équipe, Zhask doit commencer par invoquer son Nightmaric Spawn dans un endroit approprié et utiliser son ultime pour fusionner avec lui, puis libérer ses 2e et 3e compétences améliorées pour étourdir et endommager les ennemis, et poursuivre avec des attaques de base. Si l'ennemi tente de fuir, utilisez sa 1re compétence améliorée pour cligner des yeux vers lui.",
       "skills": [
         {
           "name": "Nightmaric Spawn",
@@ -6242,7 +6242,7 @@
   "zhuxin": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, utilisez la 1ère compétence de Zhuxin pour ralentir l'adversaire et augmenter sa propre vitesse de déplacement, puis utilisez sa 2ème compétence depuis une position sûre et essayez de frapper les sbires et l'adversaire en même temps pour pousser et dégager la voie. Une fois que l'ennemi a suffisamment de stacks, lancez-les sur les sbires pour infliger des dégâts supplémentaires.",
+      "description": "Dans la phase de lane, utilisez la 1re compétence de Zhuxin pour ralentir l'adversaire et augmenter sa propre vitesse de déplacement, puis utilisez sa 2e compétence depuis une position sûre et essayez de frapper les sbires et l'adversaire en même temps pour pousser et dégager la lane. Une fois que l'ennemi a suffisamment de cumuls, lancez-les sur les sbires pour infliger des dégâts supplémentaires.",
       "skills": [
         {
           "name": "Fluttering Grace",
@@ -6260,7 +6260,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, utilisez l'Ultime de Zhuxin pour cligner des yeux dans une bonne position, puis enchaînez avec sa 1ère compétence pour ralentir l'équipe ennemie et utilisez sa 2ème compétence pour créer des piles à une distance de sécurité. Essayez de capturer autant d'ennemis que possible avec sa 2ème compétence, puis jetez-les hors de position tout en les regroupant.",
+      "description": "Dans les combats d'équipe, utilisez l'ultime de Zhuxin pour cligner des yeux dans une bonne position, puis enchaînez avec sa 1re compétence pour ralentir l'équipe ennemie et utilisez sa 2e compétence pour créer des cumuls à une distance de sécurité. Essayez de capturer autant d'ennemis que possible avec sa 2e compétence, puis jetez-les hors de position tout en les regroupant.",
       "skills": [
         {
           "name": "Fluttering Grace",
@@ -6284,7 +6284,7 @@
   "zilong": [
     {
       "type": "laning",
-      "description": "Dans la phase de lane, Zilong doit utiliser sa 2ème compétence pour se rapprocher de l'ennemi ciblé et réduire ses défenses, puis soulever la cible par-dessus son dos avec sa 1ère compétence et spammer les attaques de base pour déclencher davantage d'effets passifs.",
+      "description": "Dans la phase de lane, Zilong doit utiliser sa 2e compétence pour se rapprocher de l'ennemi ciblé et réduire ses défenses, puis soulever la cible par-dessus son dos avec sa 1re compétence et spammer les attaques de base pour déclencher davantage d'effets passifs.",
       "skills": [
         {
           "name": "Spear Strike",
@@ -6303,7 +6303,7 @@
     },
     {
       "type": "teamfight",
-      "description": "Dans les combats d'équipe, activez l'Ultime de Zilong pour obtenir un bonus de vitesse de déplacement et d'attaque avant de charger l'ennemi ciblé avec sa 2e compétence. Lancez sa 1ère compétence après vous être rapproché de l'ennemi et enchaînez avec des attaques de base pour déclencher les effets passifs.",
+      "description": "Dans les combats d'équipe, activez l'ultime de Zilong pour obtenir un bonus de vitesse de déplacement et d'attaque avant de charger l'ennemi ciblé avec sa 2e compétence. Lancez sa 1re compétence après vous être rapproché de l'ennemi et enchaînez avec des attaques de base pour déclencher les effets passifs.",
       "skills": [
         {
           "name": "Supreme Warrior",

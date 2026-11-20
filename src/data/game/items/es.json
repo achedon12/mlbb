@@ -229,7 +229,7 @@
     "price": null,
     "bonus": "+250 puntos de vida",
     "unique": null,
-    "passive": "Brote de esperanza: Otorgado por Floryn y Dew. El equipo revelará su verdadero poder una vez que Dew evolucione.",
+    "passive": "Bud of Hope: Otorgado por Floryn y Dew. El equipo revelará su verdadero poder una vez que Dew evolucione.",
     "active": null,
     "recipe": [],
     "bestFor": null
@@ -565,7 +565,7 @@
     "price": null,
     "bonus": "+5% de ataque adaptativo",
     "unique": null,
-    "passive": "Flor de la esperanza: cada 6 segundos, la siguiente habilidad o ataque básico inflige 60 (+30 % de ataque físico total) (+30 % de poder mágico total) de daño mágico adicional.",
+    "passive": "Flower of Hope: Cada 6 segundos, la siguiente habilidad o ataque básico inflige 60 (+30 % de ataque físico total) (+30 % de poder mágico total) de daño mágico adicional.",
     "active": null,
     "recipe": [],
     "bestFor": "Los aliados de Floryn"
@@ -626,7 +626,7 @@
     "price": 2000,
     "bonus": "+55 ataque físico, +15% velocidad de ataque",
     "unique": null,
-    "passive": "Rápido: Cada 1% adicional de probabilidad de crítico obtenido se convierte en un 1% adicional de velocidad de ataque. Golpe sin fin: después de cada 2 ataques básicos que no sean críticos, la velocidad de ataque del siguiente ataque básico aumenta en un 80 % (y el límite de velocidad de ataque aumenta a 500 %) y activa los efectos de ataque 2 veces adicionales.",
+    "passive": "Swift: Cada 1% adicional de probabilidad de crítico obtenido se convierte en un 1% adicional de velocidad de ataque. Golpe sin fin: después de cada 2 ataques básicos que no sean críticos, la velocidad de ataque del siguiente ataque básico aumenta en un 80 % (y el límite de velocidad de ataque aumenta a 500 %) y activa los efectos de ataque 2 veces adicionales.",
     "active": null,
     "recipe": [
       "Regular Spear",
@@ -737,7 +737,7 @@
     "price": 2010,
     "bonus": "+80 ataque físico, +10 % de reducción de tiempo de reutilización",
     "unique": "+15 Penetración Física",
-    "passive": "Retribución: Infligir daño al mismo héroe enemigo o creep 5 veces seguidas otorga un 50 % de velocidad de movimiento adicional que disminuye en 3 segundos (8 segundos de enfriamiento).",
+    "passive": "Retribution: Infligir daño al mismo héroe o creep enemigo 5 veces seguidas otorga un 50 % de velocidad de movimiento adicional que disminuye en 3 segundos (8 segundos de enfriamiento).",
     "active": null,
     "recipe": [
       "Fury Hammer",

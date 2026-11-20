@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-19T14:39:04Z",
+ "updatedAt": "2026-11-20T15:55:00Z",
  "source": {
   "name": "Liquipedia",
   "url": "https://liquipedia.net/mobilelegends/",
@@ -31,12 +31,12 @@
     {
      "title": "M8 World Championship",
      "url": "https://liquipedia.net/mobilelegends/M8_World_Championship",
-     "revision": "2026-11-19T14:39:04Z"
+     "revision": "2026-11-20T13:49:52Z"
     },
     {
      "title": "M8 World Championship/Wildcard",
      "url": "https://liquipedia.net/mobilelegends/M8_World_Championship/Wildcard",
-     "revision": "2026-11-19T12:03:09Z"
+     "revision": "2026-11-20T13:13:15Z"
     },
     {
      "title": "M8 World Championship/Swiss Stage",
@@ -82,7 +82,7 @@
             0
            ],
            "winner": null,
-           "date": "2026-12-17T05:00:00Z"
+           "date": "2026-12-17T06:10:00Z"
           },
           {
            "teams": [
@@ -98,7 +98,7 @@
             0
            ],
            "winner": null,
-           "date": "2026-12-17T07:00:00Z"
+           "date": "2026-12-17T07:10:00Z"
           },
           {
            "teams": [
@@ -114,7 +114,7 @@
             0
            ],
            "winner": null,
-           "date": "2026-12-17T09:00:00Z"
+           "date": "2026-12-17T08:10:00Z"
           },
           {
            "teams": [
@@ -130,7 +130,7 @@
             0
            ],
            "winner": null,
-           "date": "2026-12-17T11:00:00Z"
+           "date": "2026-12-17T09:10:00Z"
           },
           {
            "teams": [
@@ -146,7 +146,7 @@
             0
            ],
            "winner": null,
-           "date": "2026-12-17T13:00:00Z"
+           "date": "2026-12-17T10:10:00Z"
           },
           {
            "teams": [
@@ -162,7 +162,7 @@
             0
            ],
            "winner": null,
-           "date": "2026-12-18T06:00:00Z"
+           "date": "2026-12-17T11:10:00Z"
           },
           {
            "teams": [
@@ -178,7 +178,7 @@
             0
            ],
            "winner": null,
-           "date": "2026-12-18T08:00:00Z"
+           "date": "2026-12-17T12:10:00Z"
           },
           {
            "teams": [
@@ -194,7 +194,7 @@
             0
            ],
            "winner": null,
-           "date": "2026-12-18T10:00:00Z"
+           "date": "2026-12-17T13:10:00Z"
           },
           {
            "teams": [
@@ -210,7 +210,7 @@
             0
            ],
            "winner": null,
-           "date": "2026-12-18T12:00:00Z"
+           "date": "2026-12-17T14:10:00Z"
           },
           {
            "teams": [
@@ -226,7 +226,7 @@
             0
            ],
            "winner": null,
-           "date": "2026-12-18T14:00:00Z"
+           "date": "2026-12-17T15:10:00Z"
           }
          ]
         }
@@ -258,7 +258,7 @@
             0
            ],
            "winner": null,
-           "date": "2026-12-17T06:00:00Z"
+           "date": "2026-12-18T06:10:00Z"
           },
           {
            "teams": [
@@ -274,7 +274,7 @@
             0
            ],
            "winner": null,
-           "date": "2026-12-17T08:00:00Z"
+           "date": "2026-12-18T07:10:00Z"
           },
           {
            "teams": [
@@ -290,7 +290,7 @@
             0
            ],
            "winner": null,
-           "date": "2026-12-17T10:00:00Z"
+           "date": "2026-12-18T08:10:00Z"
           },
           {
            "teams": [
@@ -306,7 +306,7 @@
             0
            ],
            "winner": null,
-           "date": "2026-12-17T12:00:00Z"
+           "date": "2026-12-18T09:10:00Z"
           },
           {
            "teams": [
@@ -322,7 +322,7 @@
             0
            ],
            "winner": null,
-           "date": "2026-12-17T14:00:00Z"
+           "date": "2026-12-18T10:10:00Z"
           },
           {
            "teams": [
@@ -338,7 +338,7 @@
             0
            ],
            "winner": null,
-           "date": "2026-12-18T05:00:00Z"
+           "date": "2026-12-18T11:10:00Z"
           },
           {
            "teams": [
@@ -354,7 +354,7 @@
             0
            ],
            "winner": null,
-           "date": "2026-12-18T07:00:00Z"
+           "date": "2026-12-18T12:10:00Z"
           },
           {
            "teams": [
@@ -370,7 +370,7 @@
             0
            ],
            "winner": null,
-           "date": "2026-12-18T09:00:00Z"
+           "date": "2026-12-18T13:10:00Z"
           },
           {
            "teams": [
@@ -386,7 +386,7 @@
             0
            ],
            "winner": null,
-           "date": "2026-12-18T11:00:00Z"
+           "date": "2026-12-18T14:10:00Z"
           },
           {
            "teams": [
@@ -402,7 +402,7 @@
             0
            ],
            "winner": null,
-           "date": "2026-12-18T13:00:00Z"
+           "date": "2026-12-18T15:10:00Z"
           }
          ]
         }
@@ -433,7 +433,7 @@
             0
            ],
            "winner": null,
-           "date": "2026-12-19T08:00:00Z"
+           "date": "2026-12-19T08:15:00Z"
           },
           {
            "teams": [
@@ -449,7 +449,7 @@
             0
            ],
            "winner": null,
-           "date": "2026-12-19T11:00:00Z"
+           "date": "2026-12-19T12:25:00Z"
           }
          ]
         },
@@ -474,7 +474,7 @@
             0
            ],
            "winner": null,
-           "date": "2026-12-20T11:00:00Z"
+           "date": "2026-12-20T08:15:00Z"
           }
          ]
         }
@@ -1497,7 +1497,7 @@
     {
      "title": "M7 World Championship",
      "url": "https://liquipedia.net/mobilelegends/M7_World_Championship",
-     "revision": "2026-11-18T02:10:57Z"
+     "revision": "2026-11-20T15:55:00Z"
     },
     {
      "title": "M7 World Championship/Wildcard",

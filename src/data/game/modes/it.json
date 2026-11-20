@@ -270,7 +270,7 @@
         "elements": [
           {
             "type": "p",
-            "text": "Ci sono due granchi sui lati opposti della corsia che si generano a 0:30 e si rigenerano 30 secondi dopo la loro morte. Uccidere un granchio ghiacciato rigenera piccole quantità di salute, fornisce oro e un piccolo scudo. Anche agli alleati vicini che aiutano con il granchio viene accreditato dell'oro. Questo granchio può essere usato come trampolino di lancio per eroi come Lancillotto, Joy o Natalia, interagire con alcuni eroi come Vexana, Benedetta o Yi Sun-shin o controllare se il nemico è nel cespuglio più vicino o suicidarsi per acquistare oggetti quando la salute è troppo bassa."
+            "text": "Ci sono due granchi sui lati opposti della corsia che si generano a 0:30 e si rigenerano 30 secondi dopo la loro morte. Uccidere un granchio ghiacciato rigenera piccole quantità di salute, fornisce dell'oro e un piccolo scudo. Anche agli alleati vicini che aiutano con il granchio viene accreditato dell'oro. Questo granchio può essere usato come trampolino di lancio per eroi come Lancelot, Joy o Natalia, interagisci con alcuni eroi come Vexana, Benedetta o Yi Sun-shin, oppure controlla se il nemico è nel cespuglio più vicino o suicidati per acquistare oggetti quando la salute è troppo bassa."
           }
         ]
       },
@@ -342,11 +342,11 @@
           },
           {
             "type": "li",
-            "text": "Rivitalizza in modo che la loro squadra possa riprendersi dopo il combattimento poiché l'Altare non guarisce più, specialmente quando la tua squadra è in una brutta posizione da non poter proteggere le rune curative; E"
+            "text": "Revitalize in modo che la propria squadra possa riprendersi dopo il combattimento poiché l'Altare non guarisce più, specialmente quando la propria squadra è in una brutta posizione da non poter proteggere le rune curative; E"
           },
           {
             "type": "li",
-            "text": "Purifica, se il tuo eroe ha un buon danno ma è vulnerabile al controllo della folla (CC)."
+            "text": "Purify, se il tuo eroe ha un buon danno ma è vulnerabile al controllo della folla (CC)."
           },
           {
             "type": "li",
@@ -358,7 +358,7 @@
           },
           {
             "type": "p",
-            "text": "La mappa unica di Brawl può potenziare enormemente eroi come Luo Yi, Odette, Lancillotto, Xavier e Fanny, mentre gli eroi che fanno troppo affidamento sugli attacchi base come Freya o Thamuz diventano inutili."
+            "text": "La mappa unica di Brawl può potenziare enormemente eroi come Luo Yi, Odette, Lancelot, Xavier, Fanny mentre gli eroi che fanno troppo affidamento sugli attacchi base come Freya o Thamuz diventano inutili."
           },
           {
             "type": "p",
@@ -427,7 +427,7 @@
         "elements": [
           {
             "type": "p",
-            "text": "A tutti gli eroi viene assegnato Sfarfallio per impostazione predefinita insieme a un altro incantesimo di battaglia scelto."
+            "text": "A tutti gli eroi viene assegnato Flicker per impostazione predefinita insieme a un altro incantesimo di battaglia scelto."
           },
           {
             "type": "p",
@@ -738,7 +738,7 @@
           },
           {
             "type": "p",
-            "text": ": 1. L'abilità 1 di Statued Shocker migliorerà il suo prossimo attacco base, che stordirà i nemici; l'abilità 2 fornirà loro uno scudo che esploderà dopo un po' di tempo o quando verrà distrutto, simile alla seconda abilità di Urano."
+            "text": ": 1. L'abilità 1 di Statued Shocker migliorerà il suo prossimo attacco base, che stordirà i nemici; l'abilità 2 fornirà loro uno scudo che esploderà dopo un po' di tempo o quando verrà distrutto, simile alla seconda abilità Uranus."
           },
           {
             "type": "p",
@@ -782,7 +782,7 @@
           },
           {
             "type": "p",
-            "text": ": Assassino: Lancillotto, Sciabola, Freya."
+            "text": ": Assassino: Lancelot, Saber, Freya."
           },
           {
             "type": "p",
@@ -806,7 +806,7 @@
           },
           {
             "type": "p",
-            "text": ": Carro armato: Hylos, Urano, Akai, Jhonson."
+            "text": ": Carro armato: Hylos, Uranus, Akai, Jhonson."
           },
           {
             "type": "p",

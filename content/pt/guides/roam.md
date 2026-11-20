@@ -22,7 +22,7 @@ O roamer não mantém uma lane: ele se move de uma lane para outra para ajudar, 
 - **Proteção**: um suporte cura, protege ou repele os mergulhadores que atacam os transportadores.
 - **Tempo**: um roamer que força um oponente a recuar ganha segundos para um objetivo, sem sequer lutar.
 
-Como ganha pouco ouro, o roamer se equipa com botas de roamer: a bênção compensa seu baixo rendimento e acrescenta um efeito útil ao time. O [catálogo de itens](/items) apresenta as botas que completam.
+Como ganha pouco ouro, o roamer se equipa com botas de roamer: a bênção compensa seu baixo rendimento e acrescenta um efeito útil ao time. O [item catalog](/items) mostra as botas às quais foi adicionado.
 
 ## Heróis recomendados agora mesmo
 
@@ -36,17 +36,17 @@ Duas famílias compartilham a postagem. Tanques de engajamento, como [Tigreal](/
 
 O roamer constrói objetos que servem mais à equipe do que a si mesmo:
 
-- **contra uma equipe que se cura**, [Dominance Ice](/items/dominance-ice), que reduz a cura de oponentes próximos;
+- **contra uma equipe que cura**, [Dominance Ice](/items/dominance-ice), que reduz a cura e os escudos de oponentes próximos;
 - **para lançar o ultimate com mais frequência**, [Fleeting Time](/items/fleeting-time), que reduz sua recarga após uma eliminação ou assistência;
-- **para proteger um aliado**, [Frasco do Oásis](/items/flask-of-the-oasis) em suportes que curam.
+- **para proteger um aliado**, [Frasco do Oásis](/items/flask-of-the-oasis) em suportes que curam ou colocam escudos: um aliado com menos de 35% de HP também recebe um escudo.
 
-Do lado do feitiço, [Flicker](/spells/flicker) permite que os tanques ataquem de surpresa. [Revitalize](/spells/revitalize) e [Aegis](/spells/aegis) protegem a equipe em uma longa luta, e [Petrify](/spells/petrify) adiciona controle de área aos heróis que não o possuem.
+Do lado do feitiço, [Flicker](/spells/flicker) permite que os tanques ataquem de surpresa. [Revitalize](/spells/revitalize) (zona de cura) e [Aegis](/spells/aegis) (escudo para você e aliados próximos) ajudam a equipe a durar uma longa luta, e [Petrify](/spells/petrify), que retarda e imobiliza inimigos próximos, fornece controle aos heróis que não o possuem.
 
 ## O progresso de um jogo
 
 ### Início do jogo
 
-O roamer protege o primeiro buff de seu jungler, depois ajuda a rota do ouro ou a rota intermediária durante as primeiras ondas. Por volta de 13h45, ele pega o rio para preparar a Tartaruga, que aparece às 14h perto da lane de exploração.
+O roamer protege o primeiro buff de seu jungler e, em seguida, ajuda a rota Gold ou Mid durante as primeiras ondas. Por volta de 13h45, ele desce ao rio para preparar a Tartaruga, que aparece às 14h perto da lane EXP.
 
 ### Meio do jogo
 
@@ -54,12 +54,12 @@ O roamer nunca fica no mesmo lugar por muito tempo. Ele rastreia os objetivos: c
 
 ### Fim do jogo
 
-No combate em equipe, o tanque entra em ação quando seus carry estão próximos o suficiente para segui-lo, e o apoio permanece próximo ao seu carry principal. Um roamer que morre primeiro, por ter lutado sozinho, deixa seu time em quatro contra cinco.
+No combate em equipe, o tanque entra em ação quando seus carry estão próximos o suficiente para segui-lo, e o apoio permanece próximo ao seu carry principal. Um roamer que ataca sozinho e morre primeiro deixa seu time com quatro contra cinco.
 
 ## Os erros mais comuns
 
 - Acompanhe o atirador durante todo o jogo em vez de preparar os objetivos.
-- Entrando sozinho em um arbusto desconhecido com um suporte frágil.
+- Entrar sozinho em um arbusto não controlado com um suporte frágil.
 - Entre em combate enquanto os transportadores da equipe ainda estão cultivando.
 - Esquecer as botas de passeio ou comprá-las tarde demais.
 - Use seu ultimate para acabar com um oponente em vez de guardá-lo para a luta.

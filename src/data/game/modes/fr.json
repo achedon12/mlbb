@@ -2,14 +2,14 @@
   {
     "name": "Classic",
     "slug": "classic",
-    "description": "Le mode classique est le premier et le plus ancien mode de jeu de Mobile Legends. Tous les autres modes de jeu utilisent les règles de Classic comme base. Ce mode offre le 5v5 et l'expérience Mobile Legends sans craindre de perdre votre rang, mais votre taux de victoire sera affecté, tant du côté des héros que de l'ensemble.​​​​ Le mode Classique convient aux débutants qui ont besoin de se familiariser avec les jeux Mobile Legends. Vous pouvez choisir librement n'importe quel héros que vous possédez, ainsi que les héros hebdomadaires gratuits et toutes les cartes d'essai que vous possédez. Cependant, vous ne pouvez pas avoir plus d’un même héros dans votre équipe. Vous pouvez également choisir le héros que vous aimez, puisqu'il n'y a pas d'interdiction de héros contrairement au mode Classé.",
+    "description": "Le mode classique est le premier et le plus ancien mode de jeu de Mobile Legends. Tous les autres modes de jeu utilisent les règles du mode Classique comme base. Ce mode offre le 5v5 et l'expérience Mobile Legends sans craindre de perdre votre rang, mais votre taux de victoire sera affecté, tant du côté des héros que de l'ensemble.​​​​ Le mode Classique convient aux débutants qui ont besoin de se familiariser avec les jeux Mobile Legends. Vous pouvez choisir librement n'importe quel héros que vous possédez, ainsi que les héros hebdomadaires gratuits et toutes les cartes d'essai que vous possédez. Cependant, vous ne pouvez pas avoir plus d’un même héros dans votre équipe. Vous pouvez également choisir le héros que vous aimez, puisqu'il n'y a pas d'interdiction de héros contrairement au mode Classé.",
     "sections": [
       {
         "title": "Objectif",
         "elements": [
           {
             "type": "p",
-            "text": "Comme tous les jeux MOBA, l'objectif principal est de détruire la base ennemie. Cela vous oblige à défendre vos tourelles et votre base et à détruire les leurs. Chaque tourelle d'une voie spécifique doit être détruite dans une séquence pour que vos sbires atteignent la base. Il existe des moyens de détruire les tourelles en utilisant les sbires/creeps pour subir les dégâts des balles de la tourelle. Après avoir détruit les tourelles, vous pourrez endommager/détruire la base ennemie. Détruire la dernière tourelle d'une voie accordera des super-sbires qui infligeront des dégâts élevés aux héros et dégageront les voies plus rapidement. Parfois, les joueurs sont obligés d’accumuler des victoires contre des héros ennemis au lieu de se concentrer sur les sbires et les tourelles ennemis. Plus de victimes pourraient leur permettre d'obtenir le MVP et l'agriculture, mais détruire les tourelles, accéder à la base ennemie et la détruire est l'objectif principal."
+            "text": "Comme tous les jeux MOBA, l'objectif principal est de détruire la base ennemie. Cela vous oblige à défendre vos tourelles et votre base et à détruire les leurs. Chaque tourelle d'une lane spécifique doit être détruite dans une séquence pour que vos sbires atteignent la base. Il existe des moyens de détruire les tourelles en utilisant les sbires/creeps pour subir les dégâts des balles de la tourelle. Après avoir détruit les tourelles, vous pourrez endommager/détruire la base ennemie. Détruire la dernière tourelle d'une lane accordera des super-sbires qui infligeront des dégâts élevés aux héros et dégageront les lanes plus rapidement. Parfois, les joueurs sont obligés d’accumuler des victoires contre des héros ennemis au lieu de se concentrer sur les sbires et les tourelles ennemis. Plus de victimes pourraient leur permettre d'obtenir le MVP et l'agriculture, mais détruire les tourelles, accéder à la base ennemie et la détruire est l'objectif principal."
           }
         ]
       },
@@ -18,11 +18,11 @@
         "elements": [
           {
             "type": "li",
-            "text": "Celestial Palace/Western Expanse — Un champ s'inspirant de la version Défense des Anciens : Allstars (DOTA en abrégé) de la carte, avec plusieurs fonctionnalités et mécanismes modifiés. Le jeu se compose de cinq héros de chaque équipe, qui sont ensuite placés dans une arène dans le but de détruire l'inhibiteur de base de chacun, ce qui aboutit à une victoire. Le temps généralement nécessaire pour terminer la plupart des jeux est d'environ 10 à 15 minutes, mais certains jeux peuvent durer plus de 30 minutes."
+            "text": "Celestial Palace/Western Expanse — Un champ s'inspirant de la version Defense of the Ancients: Allstars (DOTA en abrégé) de la carte, avec plusieurs fonctionnalités et mécanismes modifiés. Le jeu se compose de cinq héros de chaque équipe, qui sont ensuite placés dans une arène dans le but de détruire l'inhibiteur de base de chacun, ce qui aboutit à une victoire. Le temps généralement nécessaire pour terminer la plupart des jeux est d'environ 10 à 15 minutes, mais certains jeux peuvent durer plus de 30 minutes."
           },
           {
             "type": "li",
-            "text": "Le champ de bataille est divisé en trois voies pour vous frayer un chemin jusqu'à la base ennemie."
+            "text": "Le champ de bataille est divisé en trois lanes pour vous frayer un chemin jusqu'à la base ennemie."
           },
           {
             "type": "li",
@@ -40,7 +40,7 @@
   {
     "name": "Ranked",
     "slug": "ranked",
-    "description": "Classé est un mode de jeu de file d'attente compétitif. Les joueurs gagnent ou perdent des étoiles s'ils gagnent ou perdent dans ce mode. Warrior, Elite, Master, Grandmaster, Epic, Legend et Mythic (Mythical Honor, Mythical Glory et Mythical Immortal) sont les sept rangs de Mobile Legends : Bang Bang.",
+    "description": "Classé est un mode de jeu de file d'attente compétitif. Les joueurs gagnent ou perdent des étoiles s'ils gagnent ou perdent dans ce mode. Guerrier, Élite, Maître, Grand Maître, Épique, Légende et Mythique (Honneur Mythique, Gloire Mythique et Immortel Mythique) sont les sept rangs de Mobile Legends: Bang Bang.",
     "sections": [
       {
         "title": "Règles de mise en relation",
@@ -63,11 +63,11 @@
           },
           {
             "type": "li",
-            "text": "Un joueur Mythique fait équipe avec un joueur Epic, les deux suivront le projet de règle du joueur Mythique."
+            "text": "Un joueur Mythique fait équipe avec un joueur Épique, les deux suivront le projet de règle du joueur Mythique."
           },
           {
             "type": "li",
-            "text": "Un joueur Mythic Glory fait équipe avec un joueur Grandmaster et un joueur Legend, tous suivront la règle de draft du joueur Mythic, même si le Draft Pick n'est normalement pas disponible pour les joueurs de rang inférieur à Epic."
+            "text": "Un joueur Gloire mythique fait équipe avec un joueur Grand Maître et un joueur Légende, tous suivront la règle de draft du joueur Mythique, même si le Draft Pick n'est normalement pas disponible pour les joueurs de rang inférieur à Épique."
           },
           {
             "type": "p",
@@ -79,7 +79,7 @@
           },
           {
             "type": "li",
-            "text": "Exemple : un joueur Epic fait équipe avec un joueur Legend et vous, un joueur Epic, pouvez les rencontrer."
+            "text": "Exemple : un joueur Épique fait équipe avec un joueur Légende et vous, un joueur Épique, pouvez les rencontrer."
           },
           {
             "type": "li",
@@ -87,7 +87,7 @@
           },
           {
             "type": "li",
-            "text": "Example: Your rank is Legend, but 4 of your teammates are Mythic. Alors au moins l’un des ennemis est Legend."
+            "text": "Exemple : Votre rang est Légende, mais 4 de vos coéquipiers sont Mythique. Alors au moins l’un des ennemis est Légende."
           },
           {
             "type": "li",
@@ -95,11 +95,11 @@
           },
           {
             "type": "li",
-            "text": "Exemple : Votre équipe compte 4 joueurs au rang Légende et 1 joueur au rang Mythique, cela signifie que l'équipe ennemie peut avoir 1 à 4 joueurs au rang Mythique, mais il doit y avoir quelqu'un au rang Epic."
+            "text": "Exemple : Votre équipe compte 4 joueurs au rang Légende et 1 joueur au rang Mythique, cela signifie que l'équipe ennemie peut avoir 1 à 4 joueurs au rang Mythique, mais il doit y avoir quelqu'un au rang Épique."
           },
           {
             "type": "li",
-            "text": "Grâce à cette mécanique de Flex Rank, même un joueur solo de Legend I peut faire la queue avec un allié d'Epic V, car ils ne sont qu'un rang différent, mais l'écart est très différent, conduisant au système sombre largement perçu."
+            "text": "Grâce à cette mécanique de Flex Rank, même un joueur solo de Légende I peut faire la queue avec un allié d'Épique V, car ils ne sont qu'un rang différent, mais l'écart est très différent, conduisant au système sombre largement perçu."
           },
           {
             "type": "p",
@@ -112,11 +112,11 @@
         ]
       },
       {
-        "title": "Choix de repêchage",
+        "title": "Draft Pick",
         "elements": [
           {
             "type": "p",
-            "text": "Lorsqu'un joueur atteint Epic V ou supérieur (Grandmaster V ou supérieur dans Advanced Server), Draft Pick devient disponible pour les matchs futurs. Contrairement au Blind Pick, Draft Pick permet aux deux équipes de voir leurs héros pendant leur sélection, et autorise jusqu'à 10 héros bannis (3/4/5 bannissements chez Epic/Legend/Mythic) pour chaque équipe à des fins d'équilibrage. Les héros déjà sélectionnés ou bannis ne peuvent pas être choisis pendant toute la durée du match."
+            "text": "Lorsqu'un joueur atteint Épique V ou supérieur (Grand Maître V ou supérieur dans Advanced Server), Draft Pick devient disponible pour les matchs futurs. Contrairement au Blind Pick, Draft Pick permet aux deux équipes de voir leurs héros pendant leur sélection, et autorise jusqu'à 10 héros bannis (3/4/5 bannissements chez Épique/Légende/Mythique) pour chaque équipe à des fins d'équilibrage. Les héros déjà sélectionnés ou bannis ne peuvent pas être choisis pendant toute la durée du match."
           }
         ]
       },
@@ -125,7 +125,7 @@
         "elements": [
           {
             "type": "p",
-            "text": "Il y a sept rangs dans Mobile Legends : Bang Bang. Ce sont : Guerrier, Élite, Maître, Grand Maître, Épique, Légende et Mythique."
+            "text": "Il y a sept rangs dans Mobile Legends: Bang Bang. Ce sont : Guerrier, Élite, Maître, Grand Maître, Épique, Légende et Mythique."
           },
           {
             "type": "p",
@@ -133,7 +133,7 @@
           },
           {
             "type": "p",
-            "text": "Dans Mythic, les étoiles ont été remplacées par des points pour passer à la division suivante."
+            "text": "Dans Mythique, les étoiles ont été remplacées par des points pour passer à la division suivante."
           }
         ]
       },
@@ -146,11 +146,11 @@
           },
           {
             "type": "p",
-            "text": "La levée d'étoiles permet aux joueurs de gagner une étoile supplémentaire lorsqu'un joueur atteint 100 % de points de collecte d'étoiles lors de sa prochaine victoire. 100/200/300/500/700/1000 points requis chez Warrior / Elite / Master / Grandmaster / Epic / Legend. Les points bonus d’obtention d’étoiles ne peuvent pas être accumulés dans les rangs mythiques."
+            "text": "La levée d'étoiles permet aux joueurs de gagner une étoile supplémentaire lorsqu'un joueur atteint 100 % de points de collecte d'étoiles lors de sa prochaine victoire. 100/200/300/500/700/1000 points requis chez Guerrier / Élite / Maître / Grand Maître / Épique / Légende. Les points bonus d’obtention d’étoiles ne peuvent pas être accumulés dans les rangs mythiques."
           },
           {
             "type": "p",
-            "text": "La protection des étoiles permet aux joueurs d'éviter de perdre une étoile lors d'un match en atteignant 100 % de points de protection des étoiles ou en utilisant des cartes de protection des étoiles. 100/200/300/500/700/1000/1500 points requis chez Warrior / Elite / Master / Grandmaster / Epic / Legend / Mythic."
+            "text": "La protection des étoiles permet aux joueurs d'éviter de perdre une étoile lors d'un match en atteignant 100 % de points de protection des étoiles ou en utilisant des cartes de protection des étoiles. 100/200/300/500/700/1000/1500 points requis chez Guerrier / Élite / Maître / Grand Maître / Épique / Légende / Mythique."
           },
           {
             "type": "p",
@@ -158,11 +158,11 @@
           },
           {
             "type": "p",
-            "text": "La carte de protection de rang est la carte qui vous empêche de rétrograder une fois au rang précédent. Il s'acquiert souvent après avoir atteint un rang supérieur : d'Epic à Legend, de Legend à Mythic."
+            "text": "La carte de protection de rang est la carte qui vous empêche de rétrograder une fois au rang précédent. Il s'acquiert souvent après avoir atteint un rang supérieur : d'Épique à Légende, de Légende à Mythique."
           },
           {
             "type": "p",
-            "text": "Seuls les points de protection des étoiles sont disponibles dans Mythic, car les points d'obtention d'étoiles sont désactivés."
+            "text": "Seuls les points de protection des étoiles sont disponibles dans Mythique, car les points d'obtention d'étoiles sont désactivés."
           }
         ]
       },
@@ -194,7 +194,7 @@
   {
     "name": "Brawl",
     "slug": "brawl",
-    "description": "Brawl est un mode de jeu dans lequel vous ne pouvez pas choisir librement vos héros. Au lieu de cela, chaque joueur aura le choix entre deux héros aléatoires. Les combats dans ce mode se déroulent uniquement sur une seule voie avec deux tourelles défendant respectivement la base dans les deux équipes. Les matchs de bagarre se terminent généralement dans un temps beaucoup plus court que le mode classique et le mode classé. Ce type de correspondance est préféré pour augmenter les cotes de crédit perdues ou accomplir des tâches.",
+    "description": "Brawl est un mode de jeu dans lequel vous ne pouvez pas choisir librement vos héros. Au lieu de cela, chaque joueur aura le choix entre deux héros aléatoires. Les combats dans ce mode se déroulent uniquement sur une seule lane avec deux tourelles défendant respectivement la base dans les deux équipes. Les matchs de bagarre se terminent généralement dans un temps beaucoup plus court que le mode classique et le mode classé. Ce type de correspondance est préféré pour augmenter les cotes de crédit perdues ou accomplir des tâches.",
     "sections": [
       {
         "title": "Principales caractéristiques",
@@ -235,7 +235,7 @@
         "elements": [
           {
             "type": "p",
-            "text": "Les héros qui meurent rarement au combat lâcheront un glyphe de guérison. (Guérit à la fois Max PV et Mana.)"
+            "text": "Les héros qui meurent rarement au combat lâcheront un glyphe de guérison. (Guérit à la fois PV max et mana.)"
           }
         ]
       },
@@ -270,7 +270,7 @@
         "elements": [
           {
             "type": "p",
-            "text": "Il y a deux crabes sur les côtés opposés de la voie qui apparaissent à 0h30 et réapparaissent 30 secondes après leur mort. Tuer un crabe gelé régénère de petites quantités de santé, donne de l'or et un petit bouclier. Les alliés à proximité qui aident avec le crabe reçoivent également de l'or. This crab can be used as a stepping stone for heroes like Lancelot, Joy or Natalia, interact with certain heroes like Vexana, Benedetta or Yi Sun-shin, or check if enemy is in the nearest bush or commit suicide to buy items when health is too low."
+            "text": "Il y a deux crabes sur les côtés opposés de la lane qui apparaissent à 0h30 et réapparaissent 30 secondes après leur mort. Tuer un crabe gelé régénère de petites quantités de santé, donne de l'or et un petit bouclier. Les alliés à proximité qui aident avec le crabe reçoivent également de l'or. Ce crabe peut être utilisé comme tremplin pour des héros comme Lancelot, Joy ou Natalia, interagir avec certains héros comme Vexana, Benedetta ou Yi Sun-shin, ou vérifier si l'ennemi est dans le buisson le plus proche ou se suicider pour acheter des objets lorsque la santé est trop faible."
           }
         ]
       },
@@ -279,7 +279,7 @@
         "elements": [
           {
             "type": "p",
-            "text": "Il y a deux runes de guérison sur les côtés opposés de la voie qui apparaissent à 0h30 et réapparaissent 35 secondes après avoir été récupérées. La minuterie et l'effet sonore sont visibles et audibles par tous. The rune continuously heals the one who picks up during the 5-second delay, then regenerates some health and 40% max mana to all allied heroes in range. Si celui qui récupère décède pendant le délai, la guérison est annulée."
+            "text": "Il y a deux runes de guérison sur les côtés opposés de la lane qui apparaissent à 0h30 et réapparaissent 35 secondes après avoir été récupérées. La minuterie et l'effet sonore sont visibles et audibles par tous. La rune soigne continuellement celui qui ramasse pendant le délai de 5 secondes, puis régénère un peu de santé et 40 % de mana maximum à tous les héros alliés à portée. Si celui qui récupère décède pendant le délai, la guérison est annulée."
           }
         ]
       },
@@ -292,7 +292,7 @@
           },
           {
             "type": "p",
-            "text": "The Barrel makes the user untargetable shortly, deals impact True damage, and has a 15-second cooldown, making it impossible to snatch two barrels at once. Lorsque quelqu'un ramasse un tonneau, un son est émis, audible par tout le monde sur la carte."
+            "text": "Le baril rend l'utilisateur impossible à cibler sous peu, inflige des dégâts réels et a un temps de recharge de 15 secondes, ce qui rend impossible l'arrachage de deux barils à la fois. Lorsque quelqu'un ramasse un tonneau, un son est émis, audible par tout le monde sur la carte."
           },
           {
             "type": "p",
@@ -309,7 +309,7 @@
         "elements": [
           {
             "type": "p",
-            "text": "Contrairement aux modes Classique ou Classé, il n'y a aucune restriction de classement dans Brawl. Cela signifie que vous pouvez mettre en file d'attente des matchs dans lesquels un côté est une file d'attente solo de 5 hommes tandis que l'autre est une équipe de 5, ou un côté est un Mythic Immortal à 5 ​​hommes tandis que l'autre est quelqu'un qui vient de télécharger le jeu."
+            "text": "Contrairement aux modes Classique ou Classé, il n'y a aucune restriction de classement dans Brawl. Cela signifie que vous pouvez mettre en file d'attente des matchs dans lesquels un côté est une file d'attente solo de 5 hommes tandis que l'autre est une équipe de 5, ou un côté est un Immortel mythique à 5 ​​hommes tandis que l'autre est quelqu'un qui vient de télécharger le jeu."
           },
           {
             "type": "p",
@@ -342,11 +342,11 @@
           },
           {
             "type": "li",
-            "text": "Revitalisez-vous pour que leur équipe puisse se maintenir après le combat car l'autel ne guérit plus, surtout lorsque votre équipe est dans une mauvaise position et ne peut pas sécuriser les runes de guérison ; et"
+            "text": "Revitalize pour que leur équipe puisse se maintenir après le combat car l'autel ne guérit plus, surtout lorsque votre équipe est dans une mauvaise position et ne peut pas sécuriser les runes de guérison ; et"
           },
           {
             "type": "li",
-            "text": "Purifiez, si votre héros a de bons dégâts mais est vulnérable au contrôle des foules (CC)."
+            "text": "Purify, si votre héros a de bons dégâts mais est vulnérable au contrôle des foules (CC)."
           },
           {
             "type": "li",
@@ -402,7 +402,7 @@
           },
           {
             "type": "p",
-            "text": "Puisqu'il n'y a qu'une seule voie, il est plus facile de deviner les mouvements de vos adversaires et de placer votre héros dans la meilleure position pour défendre ou attaquer."
+            "text": "Puisqu'il n'y a qu'une seule lane, il est plus facile de deviner les mouvements de vos adversaires et de placer votre héros dans la meilleure position pour défendre ou attaquer."
           },
           {
             "type": "p",
@@ -454,7 +454,7 @@
   {
     "name": "Vs. AI",
     "slug": "vs-ai",
-    "description": "Le mode « Vs A.I » dans Mobile Legends : Bang Bang a été introduit vers la fin de 2017, peu de temps après la sortie mondiale du jeu. Présentant à l'origine uniquement des difficultés simples et normales, le mode a subi des mises à niveau importantes, notamment un mode difficile ajouté lors du projet Next en 2020 et une IA modernisée et stimulante. modes de formation publiés vers novembre 2023.",
+    "description": "Le mode « Vs A.I » dans Mobile Legends: Bang Bang a été introduit vers la fin de 2017, peu de temps après la sortie mondiale du jeu. Présentant à l'origine uniquement des difficultés simples et normales, le mode a subi des mises à niveau importantes, notamment un mode difficile ajouté lors du projet Next en 2020 et une IA modernisée et stimulante. modes de formation publiés vers novembre 2023.",
     "sections": [
       {
         "title": "Mécanique",
@@ -526,10 +526,10 @@
   {
     "name": "Arcade Mode",
     "slug": "arcade-mode",
-    "description": "Les modes Arcade sont un mode de jeu supplémentaire dans Mobile Legends : Bang Bang qui peut être joué de temps en temps lors d'événements spéciaux, de vacances ou d'occasions. Le mode propose divers sous-jeux basés sur la stratégie, répertoriés ci-dessous.",
+    "description": "Les modes Arcade sont un mode de jeu supplémentaire dans Mobile Legends: Bang Bang qui peut être joué de temps en temps lors d'événements spéciaux, de vacances ou d'occasions. Le mode propose divers sous-jeux basés sur la stratégie, répertoriés ci-dessous.",
     "sections": [
       {
-        "title": "Grabuge",
+        "title": "Mayhem",
         "elements": [
           {
             "type": "p",
@@ -554,7 +554,7 @@
           },
           {
             "type": "p",
-            "text": "Le mode Miroir utilise la même carte que le mode Bruno Cup Mayhem (en fait, la disposition de la carte, le Seigneur et les sbires ont le même thème), cependant, lors de la phase de sélection, dans chaque équipe, les joueurs voteront pour un parmi les six héros choisis au hasard. Celui qui obtiendra le plus de votes sera le héros choisi pour toute son équipe. Comme pour le mode Mayhem, les joueurs commenceront au niveau de héros 4 et recevront 900 pièces d’or. Comme dans tous les modes de jeu, l'objectif est de détruire la base ennemie."
+            "text": "Le mode Miroir utilise la même carte que le mode Bruno Cup Mayhem (en fait, la disposition de la carte, le Seigneur et les sbires ont le même thème), cependant, lors de la phase de sélection, dans chaque équipe, les joueurs voteront pour un parmi les six héros choisis au hasard. Celui qui obtiendra le plus de votes sera le héros choisi pour toute son équipe. Comme pour le mode Mayhem, les joueurs commenceront au niveau du héros 4 et recevront 900 pièces d’or. Comme dans tous les modes de jeu, l'objectif est de détruire la base ennemie."
           }
         ]
       },
@@ -754,7 +754,7 @@
           },
           {
             "type": "p",
-            "text": "Buffs magiques : 40 % de réduction de CD ou 40 % de Spell Vamp"
+            "text": "Buffs magiques : 40 % de réduction de CD ou 40 % de vampirisme des sorts"
           },
           {
             "type": "p",
@@ -782,7 +782,7 @@
           },
           {
             "type": "p",
-            "text": ": Assassins : Lancelot, Sabre, Freya."
+            "text": ": Assassin : Lancelot, Saber, Freya."
           },
           {
             "type": "p",
@@ -822,11 +822,11 @@
           },
           {
             "type": "p",
-            "text": ": Compétence 1 et Compétence 2, « Lord Strikes » : martèle lourdement le sol, infligeant de vrais dégâts aux ennemis environnants et laissant une fissure sous leur position actuelle ; après un certain temps, la fissure explosera, infligeant des dégâts et renversant les ennemis."
+            "text": ": Compétence 1 et Compétence 2, « Lord Strikes » : martèle lourdement le sol, infligeant des dégâts réels aux ennemis environnants et laissant une fissure sous leur position actuelle ; après un certain temps, la fissure explosera, infligeant des dégâts et renversant les ennemis."
           },
           {
             "type": "p",
-            "text": ": Compétence 3, « Frappes tournantes » : Après avoir chargé pendant une courte période, le Seigneur fera tourner son marteau, infligeant de vrais dégâts aux ennemis environnants dans une vaste zone."
+            "text": ": Compétence 3, « Frappes tournantes » : Après avoir chargé pendant une courte période, le Seigneur fera tourner son marteau, infligeant des dégâts réels aux ennemis environnants dans une vaste zone."
           },
           {
             "type": "p",
@@ -847,7 +847,7 @@
           },
           {
             "type": "p",
-            "text": "La mystérieuse faille dans l’univers parallèle s’élargit progressivement. Un dirigeable de Zlatan est sur le point de s'écraser sur le Pays de l'Aube, ce qui serait un désastre et un défi ! Warriors, le Ravage est désormais ouvert. Montrez votre courage et votre force pour sauver Zlatan et défendre le Pays de l'Aube."
+            "text": "La mystérieuse faille dans l’univers parallèle s’élargit progressivement. Un dirigeable de Zlatan est sur le point de s'écraser sur la Terre de l'Aube, ce qui serait un désastre et un défi ! Warriors, le Ravage est désormais ouvert. Montrez votre courage et votre force pour sauver Zlatan et défendre la Terre de l'Aube."
           },
           {
             "type": "p",
@@ -867,12 +867,12 @@
           },
           {
             "type": "p",
-            "text": "Du 7 au 13 août 2020, le mode Ravage est revenu avec un nouveau mode 3V3. Seuls 3 rôles sur 5 seront utilisés et tous les joueurs débuteront avec 30 000 et un niveau de héros en 15 (max)."
+            "text": "Du 7 au 13 août 2020, le mode Ravage est revenu avec un nouveau mode 3V3. Seuls 3 rôles sur 5 seront utilisés et tous les joueurs débuteront avec 30 000 et un niveau du héros en 15 (max)."
           }
         ]
       },
       {
-        "title": "Bagarre et miroir",
+        "title": "Brawl et miroir",
         "elements": [
           {
             "type": "p",
@@ -926,7 +926,7 @@
         ]
       },
       {
-        "title": "Échecs magiques",
+        "title": "Magic Chess",
         "elements": [
           {
             "type": "p",
@@ -939,7 +939,7 @@
         ]
       },
       {
-        "title": "Bagarre des ombres",
+        "title": "Shadow Brawl",
         "elements": [
           {
             "type": "p",
@@ -960,7 +960,7 @@
           },
           {
             "type": "p",
-            "text": "Un nouveau type de jeu a pris d’assaut Moniyan. Les Petits Commandants et leurs objets magiques peuvent désormais être trouvés dans chaque maison du pays. Les boules de cristal détectent toutes sortes de vie dans le Pays de l'Aube et canalisent leur énergie ; qui se transforme en cartes à collectionner. Il existe des cartes Monstre et des cartes Héros. Les monstres sont faciles à gagner et à contrôler, tandis que les héros nécessitent un prix plus élevé et une énergie plus avancée. Les decks sont construits et les batailles se déroulent avec d'autres ; les gens s'efforcent de vaincre le petit commandant ennemi et de remporter la victoire."
+            "text": "Un nouveau type de jeu a pris d’assaut Moniyan. Les Petits Commandants et leurs objets magiques peuvent désormais être trouvés dans chaque maison du pays. Les boules de cristal détectent toutes sortes de vie dans la Terre de l'Aube et canalisent leur énergie ; qui se transforme en cartes à collectionner. Il existe des cartes Monstre et des cartes Héros. Les monstres sont faciles à gagner et à contrôler, tandis que les héros nécessitent un prix plus élevé et une énergie plus avancée. Les decks sont construits et les batailles se déroulent avec d'autres ; les gens s'efforcent de vaincre le petit commandant ennemi et de remporter la victoire."
           },
           {
             "type": "p",

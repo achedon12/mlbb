@@ -1320,7 +1320,7 @@
   "floryn": [
     {
       "name": "Dew",
-      "description": "Dew's Lantern akan meningkatkan atribut Floryn secara permanen sejumlah kecil. Setelah meninggalkan pertarungan selama 5 detik, Floryn dapat berbagi Bunga Harapan dengan hero sekutu (cooldown 30 detik), yang akan memberi mereka perisai 100 (+70% Total Kekuatan Sihir) setiap kali mereka disembuhkan oleh Floryn. Floryn tidak akan pernah menjual Lentera itu."
+      "description": "Lentera Dew akan meningkatkan atribut Floryn secara permanen dalam jumlah kecil. Setelah meninggalkan pertempuran selama 5 detik, Floryn dapat berbagi Flower of Hope dengan hero sekutu (cooldown 30 detik), yang akan memberi mereka perisai 100 (+70% Total Kekuatan Sihir) setiap kali mereka disembuhkan oleh Floryn. Floryn tidak akan pernah menjual Lentera."
     },
     {
       "name": "Sow",
@@ -3457,7 +3457,7 @@
     },
     {
       "name": "Bite 'em, Kupa!",
-      "description": "Popol melemparkan tombak ke arah target, memberi isyarat kepada Kupa untuk menyerang dan memberikan 80(+70% Total Serangan Fisik) Damage Fisik. Kupa kemudian menggigit target, memberikan 40(+40% Total Serangan Fisik) Damage Fisik dan menyebabkan efek Slow kepada mereka sebesar 99% selama 0,75 detik. Saat ditandai dengan tombak, setiap kali Popol atau Kupa mengenai target dengan Basic Attack, keduanya memperoleh 7% Attack Speed ​​dan 3% Movement Speed ​​selama 4 detik (hingga 3 tumpukan). Bentuk Serigala Alfa: Kupa menyerang dengan ganas, memberikan 120(+140% Total Serangan Fisik) Damage Fisik kepada target dan musuh di dekatnya dan menyebabkan mereka mengudara selama 0,5 detik.",
+      "description": "Popol melemparkan tombak ke arah target, memberi isyarat kepada Kupa untuk menyerang dan memberikan 80(+70% Total Serangan Fisik) Damage Fisik. Kupa kemudian menggigit target, memberikan 40(+40% Total Serangan Fisik) Damage Fisik dan menyebabkan efek Slow kepada mereka sebesar 99% selama 0,75 detik. Saat ditandai dengan tombak, setiap kali Popol atau Kupa mengenai target dengan Basic Attack, keduanya memperoleh 7% Attack Speed ​​dan 3% Movement Speed ​​selama 4 detik (hingga 3 tumpukan). Alpha Bentuk Serigala: Kupa menyerang dengan ganas, menimbulkan 120 (+140% Total Serangan Fisik) Damage Fisik kepada target dan musuh di dekatnya dan menyebabkan mereka terlempar ke udara selama 0,5 detik.",
       "cooldown": [
         7
       ],
@@ -3467,7 +3467,7 @@
     },
     {
       "name": "Kupa, Help!",
-      "description": "Popol memanggil Kupa kembali dan memperoleh perisai 240(+200% Ekstra Physical Attack). Dia kemudian dapat mengendarai Kupa selama 1,5 detik, memperoleh 250 Kecepatan Pergerakan saat dipasang. Kupa juga memulihkan 20% dari Max HP-nya secara terus menerus. Popol dapat menggunakan Basic Attack untuk mengakhiri status Mount lebih awal. Setelah kembali, Kupa mengikuti Popol hingga Popol menyerang musuh. Bentuk Serigala Alfa: Efek perisai meningkat menjadi 125%, dan Kupa memulihkan seluruh HP saat Dipasang.",
+      "description": "Popol memanggil Kupa kembali dan memperoleh perisai 240(+200% Ekstra Physical Attack). Dia kemudian dapat mengendarai Kupa selama 1,5 detik, memperoleh 250 Kecepatan Pergerakan saat dipasang. Kupa juga memulihkan 20% dari Max HP-nya secara terus menerus. Popol dapat menggunakan Basic Attack untuk mengakhiri status Mount lebih awal. Setelah kembali, Kupa mengikuti Popol hingga Popol menyerang musuh. Alpha Bentuk Serigala: Efek perisai meningkat menjadi 125%, dan Kupa memulihkan seluruh HP saat Dipasang.",
       "cooldown": [
         10
       ],
@@ -3477,7 +3477,7 @@
     },
     {
       "name": "We Are Angry!",
-      "description": "Popol dan Kupa memasuki kondisi Marah selama 9 detik. Selama ini, Kupa berubah menjadi Bentuk Serigala Alfa.",
+      "description": "Popol and Kupa memasuki kondisi Marah selama 9 detik. Selama waktu ini, Kupa berubah menjadi Alpha Bentuk Serigala.",
       "cooldown": [
         38
       ],
@@ -3730,7 +3730,7 @@
     },
     {
       "name": "Endless Variety",
-      "description": "Sun melemparkan Staf Emasnya ke arah target, memberikan 280(+40% Total Serangan Fisik) Damage Fisik kepada musuh yang dilewatinya. Saat mengenai hero atau creep musuh, atau saat mencapai jangkauan maksimum, Staf Emas berubah menjadi Doppelganger yang mengejar musuh. Doppelganger mewarisi atribut Sun, menimbulkan 60% damage Sun, dan menerima 150% damage selama 5 d. Skill ini berbagi level dan cooldownnya dengan Swift Exchange.",
+      "description": "Sun melemparkan Golden Staff miliknya ke arah target, memberikan 280(+40% Total Serangan Fisik) Damage Fisik kepada musuh yang dilewatinya. Saat mengenai hero atau creep musuh, atau saat mencapai jangkauan maksimum, Golden Staff berubah menjadi Doppelganger yang mengejar musuh. Doppelganger mewarisi atribut Sun, menimbulkan 60% damage Sun, dan menerima 150% damage selama 5 d. Skill ini berbagi level dan cooldownnya dengan Swift Exchange.",
       "cooldown": [
         6.5
       ],
@@ -3740,7 +3740,7 @@
     },
     {
       "name": "Swift Exchange",
-      "description": "Sun melemparkan Staf Emasnya ke arah target, memberikan 280(+40% Total Serangan Fisik) Damage Fisik kepada musuh yang dilewatinya. Dia memunculkan Doppelganger di lokasinya yang mewarisi atributnya, menimbulkan 60% damage, dan menerima 150% damage selama 5 d. Matahari berubah menjadi Staf Emas dan menjadi tersembunyi, muncul kembali pada jangkauan maksimumnya.",
+      "description": "Sun melemparkan Golden Staff miliknya ke arah target, memberikan 280(+40% Total Serangan Fisik) Damage Fisik kepada musuh yang dilewatinya. Dia memunculkan Doppelganger di lokasinya yang mewarisi atributnya, menimbulkan 60% damage, dan menerima 150% damage selama 5 d. Sun berubah menjadi Golden Staff dan menjadi tersembunyi, muncul kembali pada jangkauan maksimumnya.",
       "cooldown": [
         6.5
       ],
@@ -4005,7 +4005,7 @@
     },
     {
       "name": "Vengeance Flame",
-      "description": "Valir menghapus semua debuff pada dirinya dan memperoleh 40% Kecepatan Pergerakan yang berkurang selama 3 detik. Sementara itu, dia memunculkan 4 Api Pembalasan yang meningkatkan Burst Fireball dan Searing Torrent selama 9 d.",
+      "description": "Valir menghapus semua debuff pada dirinya dan memperoleh 40% Kecepatan Pergerakan yang berkurang selama 3 d. Sementara itu, dia memunculkan 4 Vengeance Api yang meningkatkan Burst Fireball dan Searing Torrent selama 9 d.",
       "cooldown": [
         36
       ],
@@ -4053,7 +4053,7 @@
   "wanwan": [
     {
       "name": "Tiger Pace",
-      "description": "Hero musuh yang terkena serangan Wan Wan akan terkena kelemahan dan posisinya selama 5 detik. Ketika mengenai kelemahan musuh, Wan Wan menimbulkan 67 (+3*Level Hero) ekstra True Damage dan meningkatkan damage yang diterima dari serangan berikutnya sebesar 10% selama 5 d. Wan Wan dapat melakukan dash dalam jarak dekat setelah setiap anak panah ditembakkan dari Basic Attack-nya. Kecepatan larinya meningkat seiring dengan Kecepatan Serangannya."
+      "description": "Hero musuh yang terkena serangan Wanwan akan terkena kelemahan dan posisinya selama 5 d. Saat mengenai kelemahan musuh, Wanwan menimbulkan 67 (+3*Level Hero) True Damage ekstra dan meningkatkan damage yang diterima dari serangan berikutnya sebesar 10% selama 5 d. Wanwan dapat berlari dalam jarak dekat setelah setiap anak panah ditembakkan dari Basic Attack-nya. Kecepatan larinya meningkat seiring dengan Kecepatan Serangannya."
     },
     {
       "name": "Swallow’s Path",
@@ -4067,7 +4067,7 @@
     },
     {
       "name": "Needles in Flowers",
-      "description": "Wan Wan menghapus semua debuff pada dirinya dan memicu Tiger Pace. Sementara itu, dia menembakkan Deadly Needles ke segala arah, memberikan 150(+60% Total Physical Attack) Physical Damage kepada lawan yang terkena.",
+      "description": "Wanwan menghapus semua debuff pada dirinya dan memicu Tiger Pace. Sementara itu, dia menembakkan Deadly Needles ke segala arah, memberikan 150(+60% Total Physical Attack) Physical Damage kepada lawan yang terkena.",
       "cooldown": [
         24
       ],
@@ -4077,7 +4077,7 @@
     },
     {
       "name": "Crossbow of Tang",
-      "description": "Wan Wan melompat ke udara dan menjadi tidak dapat ditarget, menembakkan panah ke arah hero musuh yang menjadi target selama 2,5 detik berturut-turut dengan cepat, memberikan 60 (+35% Total Serangan Fisik) Damage Fisik per panah. Jika target terbunuh dalam serangan ini, Wan Wan akan berpindah ke hero musuh lain dalam jangkauan serangannya, mendapatkan 30% Kecepatan Serangan, dan memperpanjang durasi skill sebanyak 1 detik (efek ini dapat terpicu hingga 3 kali). Wan Wan bisa memicu Tiger Pace saat membunuh musuh dan di akhir durasi. Crossbow of Tang hanya dapat digunakan pada hero musuh yang terkena seluruh kelemahannya dan Wan Wan memperoleh 100% Kecepatan Pergerakan selama durasi tersebut. Damage ini dianggap sebagai damage Serangan Dasar, dan kecepatan tembakannya disesuaikan dengan Kecepatan Serangan Wan Wan.",
+      "description": "Wanwan melompat ke udara dan menjadi tidak dapat ditarget, menembakkan panah ke hero musuh target selama 2,5 detik berturut-turut dengan cepat, menimbulkan 60 (+35% Total Serangan Fisik) Damage Fisik per panah. Jika target terbunuh selama serangan ini, Wanwan akan beralih ke hero musuh lain dalam jangkauan serangannya, memperoleh 30% Kecepatan Serangan, dan memperpanjang durasi skill sebanyak 1 detik (efek ini dapat terpicu hingga 3 kali). Wanwan dapat memicu Tiger Pace saat membunuh musuh dan di akhir durasi. Crossbow of Tang hanya dapat digunakan pada hero musuh yang terkena semua kelemahannya dan Wanwan memperoleh 100% Kecepatan Pergerakan selama durasi tersebut. Damage ini dianggap sebagai damage Serangan Dasar, dan kecepatan tembakannya berskala dengan Kecepatan Serangan Wanwan.",
       "cooldown": [
         50,
         46,

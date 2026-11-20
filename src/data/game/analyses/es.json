@@ -37,10 +37,10 @@
     "strengths": [
       "Uno de los picos de daño más altos del juego.",
       "Movilidad extrema entre dagas.",
-      "Impone presión permanente en el carril central"
+      "Impone presión permanente en el carril central."
     ],
     "weaknesses": [
-      "Entre las ejecuciones más difíciles de la plantilla",
+      "Una de las ejecuciones más difíciles del juego.",
       "Consumo de maná muy alto.",
       "Sin su habilidad definitiva, su daño colapsa."
     ],
@@ -68,7 +68,7 @@
     "weaknesses": [
       "Depende enteramente de su energía.",
       "Inicio lento antes de dos elementos.",
-      "Severamente castigado con bloqueos de movimiento."
+      "Castigado severamente con bloqueos de movimiento."
     ],
     "builds": [
       {
@@ -84,7 +84,7 @@
       "Ataca con un arco o una espada dependiendo de la distancia de su objetivo. Después de cada cambio de arma, sus siguientes dos ataques ganan impulso y daño crítico, con un breve aumento de velocidad.",
       "Corre hacia adelante con la espada, lo que la hace insensible a los controles por un corto tiempo. Cada cambio de arma activado acorta su recarga: esta es su principal movilidad en combate.",
       "Pulsación breve: un golpe rápido con la espada. Pulsación larga: una flecha cuyo daño aumenta con el tiempo de carga. En ambos casos, activa inmediatamente la bonificación por cambio de arma.",
-      "Revela el mapa completo durante unos segundos y lo acelera. Relanzado, envía un barco a estrellarse contra un área, aturdiendo el centro, luego varias salvas de cañón que reducen la velocidad en un área más amplia."
+      "Revela el mapa completo durante unos segundos y acelera a Yi Sun-shin. Relanzado, envía un barco a estrellarse contra un área, aturdiendo el centro, luego varias salvas de cañón que reducen la velocidad en un área más amplia."
     ],
     "strengths": [
       "Visión de todo el mapa en el lanzamiento de lo último.",
@@ -110,7 +110,7 @@
   },
   "selena": {
     "summary": "Heroína con dos formas: trampas y flecha aturdidora desde la distancia, luego asesinato al contacto después de lo último.",
-    "analysis": "Selena se juega en dos etapas. En su forma élfica, coloca demonios que vigilan un lugar y se aferran a los enemigos que pasan, y dispara una flecha cuyo aturdimiento se alarga con la distancia recorrida; sus habilidades dejan marcas en los objetivos. Lo último la cambia a Forma Abisal, donde sus habilidades se convierten en un ataque de salto con escudo y una carga, que consume estas marcas para causar daño adicional; Luego podrá volver a su forma élfica.\n\nEsta versatilidad tiene un coste: toda su iniciación depende de la flecha, que debe partir desde lejos para aturdir durante mucho tiempo. Su tasa de victorias medida se mantiene por debajo del promedio en todos los rangos, con un punto bajo en juegos que duran menos de doce minutos. Se juega tanto en el carril central como en itinerancia, con diferentes objetos según la posición. Las mediciones la ponen en dificultades frente a Gloo, Popol y Kupa, Chip y Lolita.",
+    "analysis": "Selena se juega en dos etapas. En su forma élfica, coloca demonios que vigilan un lugar y se aferran a los enemigos que pasan, y dispara una flecha cuyo aturdimiento se alarga con la distancia recorrida; sus habilidades dejan marcas en los objetivos. Lo último la cambia a Forma Abisal, donde sus habilidades se convierten en un ataque de salto con escudo y una carga, que consume estas marcas para causar daño adicional; Luego podrá volver a su forma élfica.\n\nEsta versatilidad tiene un coste: toda su iniciación depende de la flecha, que debe empezar desde lejos para aturdir durante mucho tiempo. Su tasa de victorias medida se mantiene por debajo del promedio en todos los rangos, con un punto bajo en juegos que duran menos de doce minutos. Se juega tanto en el carril central como en itinerancia, con diferentes objetos según la posición. Las mediciones la ponen en dificultades frente a Gloo, Popol y Kupa, Chip y Lolita.",
     "skills": [
       "Se mueve libremente de una forma a otra. En forma élfica, sus habilidades suponen marcas acumulativas; en Forma Abisal, su daño consume estas marcas para golpear más fuerte. El juego consiste en anotar desde lejos y luego rematar desde corta distancia.",
       "Coloca un demonio que espera en un lugar, se adhiere al primer enemigo que se acerca, lo ralentiza y luego explota sobre él y sus vecinos. Pueden coexistir varias trampas y cada trampa adicional refuerza la explosión.",
@@ -121,7 +121,7 @@
       "Aturdimiento prolongado cuando la flecha viene desde muy lejos.",
       "Trampas colocadas de antemano, varias a la vez.",
       "Dos formas: control remoto, luego daño por contacto",
-      "Se puede jugar en el carril central y en itinerancia."
+      "Jugable en el carril central y deambular."
     ],
     "weaknesses": [
       "Toda su iniciación depende de una flecha que debe apuntar desde lejos.",
@@ -131,7 +131,7 @@
     ],
     "builds": [
       {
-        "name": "carril central",
+        "name": "Mid lane",
         "context": "La configuración más jugada en el medio: Starlium Scythe agrega daño al ataque básico que sigue a una habilidad, que cumple con su forma abisal, Lightning Truncheon un eco de daño y Divine Glaive penetración mágica."
       },
       {
@@ -142,7 +142,7 @@
   },
   "chou": {
     "summary": "Luchador de aislamiento: extrae un objetivo del grupo contrario y lo mata antes de que su equipo reaccione.",
-    "analysis": "Chou es el héroe con el techo más alto en itinerancia. La idea es simple: lo último envía un objetivo al aire y lo mueve, pero su ejecución se basa en cancelaciones de animación que el juego no explica en ninguna parte. El combo de referencia encadena la habilidad 1, el salto cancelado, la habilidad definitiva y luego la habilidad 2 para sujetar el objetivo al aterrizar.\n\nDe ahí viene su interés por un equipo organizado: él elige quién muere. Por otro lado, contra un jugador que mantiene su Purify, la habilidad definitiva pierde la mitad de su valor y Chou vuelve a ser un luchador promedio.",
+    "analysis": "Chou es el héroe itinerante con el mayor límite de maestría. La idea es simple: lo último envía un objetivo al aire y lo mueve, pero su ejecución se basa en cancelaciones de animación que el juego no explica en ninguna parte. El combo de referencia encadena la habilidad 1, el salto cancelado, la habilidad definitiva y luego la habilidad 2 para sujetar el objetivo al aterrizar.\n\nDe ahí viene su interés por un equipo organizado: él elige quién muere. Por otro lado, contra un jugador que mantiene su Purify, la habilidad definitiva pierde la mitad de su valor y Chou vuelve a ser un luchador promedio.",
     "skills": [
       "Cada pocos ataques básicos, su siguiente ataque se convierte en un golpe mejorado que causa daño adicional.",
       "Tres golpes sucesivos. El último lanza al aire a los enemigos alcanzados.",
@@ -165,13 +165,13 @@
         "context": "La versión jugada en competición: suficiente resistencia para sobrevivir el viaje de ida y vuelta, sin elementos de daño puro."
       },
       {
-        "name": "experiencia ofensiva",
-        "context": "En el carril de la experiencia, cuando Chou debe ganar su duelo en lugar de servir a su equipo."
+        "name": "EXP del carril ofensivo",
+        "context": "En el carril EXP, cuando Chou debe ganar su duelo en lugar de servir a su equipo."
       }
     ]
   },
   "yu-zhong": {
-    "summary": "Luchador de carril experimentado que se cura a sí mismo al golpear y se vuelve muy difícil de matar en combates prolongados.",
+    "summary": "Luchador del carril EXP que se cura a sí mismo al golpear y se vuelve muy difícil de matar en combates prolongados.",
     "analysis": "Yu Zhong gana las últimas peleas. Su pasiva transforma parte del daño infligido en un escudo, lo que lo hace excelente cuando hay varios objetivos a su alcance: una confrontación a cinco bandas le da mucho más retorno que un duelo.\n\nSu habilidad máxima lo hace inmune a los controles mientras avanza, lo que también lo convierte en un iniciador creíble. Contrarrestarlo casi siempre implica reducir la curación: sin ella, un Yu Zhong bien equipado absorbe a todo un equipo.",
     "skills": [
       "El daño causado por sus habilidades se convierte parcialmente en un escudo, con mayor eficiencia en múltiples objetivos.",
@@ -185,13 +185,13 @@
       "Buen empuje de carril y buen control de las olas."
     ],
     "weaknesses": [
-      "Colapso por atención reducida",
+      "Muy debilitado por la reducción de la curación.",
       "Frágil comienzo del juego antes del tercer elemento.",
       "Poco daño en un solo objetivo aislado."
     ],
     "builds": [
       {
-        "name": "Experiencia de regeneración",
+        "name": "Regeneración del carril EXP",
         "context": "La construcción de referencia: resistencia y robo de vida, ya que la pasiva ya convierte el daño en escudo."
       }
     ]
@@ -213,7 +213,7 @@
     "weaknesses": [
       "Pierde todo su interés si las ventanas se estropean.",
       "Muy vulnerable una vez que se gastan las habilidades.",
-      "Punitivo contra héroes que mantienen su control."
+      "Castigado por héroes que mantienen su control."
     ],
     "builds": [
       {
@@ -223,8 +223,8 @@
     ]
   },
   "dyrroth": {
-    "summary": "Luchador furioso que quita la armadura física de su objetivo antes de golpearlo, se juega tanto en el carril de experiencia como en la jungla.",
-    "analysis": "Dyrroth acumula ira mientras lucha; A mitad de camino, sus dos primeras habilidades se convierten en una versión reforzada, con más alcance o más daño. Cada dos ataques básicos, golpea en un círculo a su alrededor y se cura a sí mismo, y cada héroe golpeado acorta sus tiempos de reutilización. La habilidad 2 lo lanza hacia un objetivo y luego, refundido, le quita gran parte de su armadura física durante unos segundos: es la apertura la que hace efectivo el resto de su daño. El último sale después de un breve retraso, no se puede interrumpir y ralentiza todo lo que atraviesa.\n\nVive de sus jugadas tempranas: su tasa de victorias medida es más alta en juegos cortos y cae por debajo del promedio después del minuto dieciocho. Sus números también varían según el rango, siendo más bajos en Mythic que en Mythic Glory. Las medidas lo ponen en dificultades frente a Masha, Benedetta y Thamuz.",
+    "summary": "Luchador furioso que quita la armadura física de su objetivo antes de golpearlo, jugado en el carril EXP y la jungla.",
+    "analysis": "Dyrroth acumula ira mientras lucha; A mitad de camino, sus dos primeras habilidades se convierten en una versión reforzada, con más alcance o más daño. Cada dos ataques básicos, golpea en un círculo a su alrededor y se cura a sí mismo, y cada héroe golpeado acorta sus tiempos de reutilización. La habilidad 2 lo lanza hacia un objetivo y luego, refundido, le quita gran parte de su armadura física durante unos segundos: es la apertura la que hace efectivo el resto de su daño. El último sale después de un breve retraso, no se puede interrumpir y ralentiza todo lo que atraviesa.\n\nVive de sus peloteos tempranos en el juego: su tasa de victorias medida es más alta en juegos cortos y cae por debajo del promedio después del minuto dieciocho. Sus números también varían según el rango, siendo más bajos en Mythic que en Mythic Glory. Las medidas lo ponen en dificultades frente a Masha, Benedetta y Thamuz.",
     "skills": [
       "A partir de la mitad de su indicador de ira, sus habilidades 1 y 2 se fortalecen. Cada dos ataques básicos, golpea en círculo y recupera HP, y cada golpe de héroe reduce los tiempos de reutilización de sus dos primeras habilidades.",
       "Golpe lineal que ralentiza a los enemigos golpeados. Reforzado, llega más lejos, golpea más fuerte y frena más: una buena manera de evitar que un objetivo se salga de su alcance.",
@@ -235,7 +235,7 @@
       "Reducción de armadura física incorporada en la habilidad 2",
       "Curación regular en combate gracias a su pasiva.",
       "Los tiempos de reutilización se acortaron por cada golpe de héroe.",
-      "Dos posiciones posibles: carril de experiencia o jungla."
+      "Dos posiciones posibles: carril EXP o jungla."
     ],
     "weaknesses": [
       "La tasa de victorias medida disminuye en juegos largos",
@@ -245,8 +245,8 @@
     ],
     "builds": [
       {
-        "name": "carril de experiencia",
-        "context": "El carril de experiencia integrado más jugado para todos los rangos: War Axe y Queen's Wings para robo de vida y supervivencia, Rose Gold Meteor para el escudo cuando su HP cae bajo. Las opciones siguen estando muy dispersas en esta posición, y en Mythic Glory es una versión de penetración (Blade of the Heptaseas, Hunter Strike, Rose Gold Meteor) la que viene primero."
+        "name": "carril EXP",
+        "context": "La configuración más jugada en el carril EXP en todos los rangos: War Axe y Queen's Wings para robo de vida y supervivencia, Rose Gold Meteor para el escudo cuando su HP cae bajo. Las opciones siguen estando muy dispersas en esta posición, y en Mythical Glory es una versión de penetración (Blade of the Heptaseas, Hunter Strike, Rose Gold Meteor) la que viene primero."
       },
       {
         "name": "Selva",
@@ -256,7 +256,7 @@
   },
   "sun": {
     "summary": "Luchador que se multiplica: sus dobles atacan con él, lo curan y devoran la armadura de sus objetivos.",
-    "analysis": "Sol lucha convocando dobles. Sus dos primeras habilidades arrojan su bastón, lo que deja un duplicado temporal; el segundo además lo esconde mientras se mueve con el palo. Lo último invoca un duplicado más duradero, más cercano a sus propias estadísticas. Cada golpe de Sun o sus dobles reduce un poco la armadura física del objetivo, y cada golpe de un doble la cura: cuantos más dobles haya en un objetivo, más rápido se derretirá y más durará.\n\nSu perfil mesurado es el de un héroe al final del juego: tasa de victorias por debajo del promedio en juegos que duran menos de catorce minutos, y luego significativamente por encima después del decimosexto. También suele estar prohibido, especialmente en el rango mítico. El doble de lo máximo implica un mayor daño, y las métricas ponen a Sun en problemas contra Aldous, Natan, Alucard, Joy y Ruby.",
+    "analysis": "Sol lucha convocando dobles. Sus dos primeras habilidades arrojan su bastón, lo que deja un duplicado temporal; el segundo además lo esconde mientras se mueve con el palo. Lo último invoca un duplicado más duradero, más cercano a sus propias estadísticas. Cada golpe de Sun o sus dobles reduce un poco la armadura física del objetivo, y cada golpe de un doble la cura: cuantos más dobles haya en un objetivo, más rápido se derretirá y más durará.\n\nSu perfil mesurado es el de un héroe al final del juego: tasa de victorias por debajo del promedio en juegos que duran menos de catorce minutos, y luego significativamente superior después del decimosexto. También suele estar prohibido, especialmente en el rango mítico. El doble de lo máximo implica un mayor daño, y las métricas ponen a Sun en problemas contra Aldous, Natan, Alucard, Joy y Ruby.",
     "skills": [
       "Cada golpe del Sol o un doble reduce la armadura física del objetivo, acumulándose. Cada vez que un doble inflige daño, Sun recupera HP. Sus ataques y los de sus dobles también golpean más fuerte a los monstruos.",
       "Lanza el palo en línea; en el momento del impacto o al final del golpe, se transforma en un doble que se apodera de parte de sus estadísticas. Comparte su tiempo de reutilización y niveles con la habilidad 2.",
@@ -276,8 +276,8 @@
     ],
     "builds": [
       {
-        "name": "carril de experiencia",
-        "context": "La configuración más jugada en el carril de experiencia: velocidad de ataque y crítico, de la cual sus dobles se benefician al recuperar parte de sus efectos de ataque, y Great Dragon Spear para velocidad después del máximo. Se asocia con mayor frecuencia con el emblema de apoyo y el hechizo Petrify."
+        "name": "carril EXP",
+        "context": "La configuración más jugada en el carril EXP: velocidad de ataque y crítico, de la cual sus dobles se benefician al recuperar parte de sus efectos de ataque, y Great Dragon Spear para velocidad después del último. Se asocia con mayor frecuencia con el emblema de apoyo y el hechizo Petrify."
       },
       {
         "name": "Selva",
@@ -337,14 +337,14 @@
     ],
     "builds": [
       {
-        "name": "Entorno explosivo",
+        "name": "carril central explosivo",
         "context": "La construcción estándar: penetración mágica para mantener el daño contra los primeros objetos defensivos."
       }
     ]
   },
   "pharsa": {
     "summary": "Mago de artillería: sus ataques definitivos atraviesan el mapa, sin siquiera entrar en combate.",
-    "analysis": "Pharsa juega con el alcance. Su habilidad máxima es un bombardeo canalizado que cubre un área enorme desde larga distancia, lo que le permite participar en una pelea que apenas puede ver. Bien colocado, este hechizo por sí solo puede decidir un enfrentamiento en torno al señor.\n\nSu habilidad 2 le otorga una forma voladora que atraviesa paredes, esencial para reposicionarse después de canalizar. El punto débil es obvio: durante el último ella está inmóvil e indefensa, y cualquier asesino que la encuentre la mata.",
+    "analysis": "Pharsa juega con el alcance. Su habilidad máxima es un bombardeo canalizado que cubre un área enorme a larga distancia, lo que le permite participar en una pelea que apenas ve. Bien colocado, este hechizo por sí solo puede decidir un enfrentamiento en torno al Señor.\n\nSu habilidad 2 le otorga una forma voladora que atraviesa paredes, esencial para reposicionarse después de canalizar. El punto débil es obvio: durante el último ella está inmóvil e indefensa, y cualquier asesino que la encuentre la mata.",
     "skills": [
       "Después de una habilidad, su siguiente ataque básico inflige daño mágico adicional.",
       "Envía una ola que explota desde la distancia e inflige daño en el área.",
@@ -363,7 +363,7 @@
     ],
     "builds": [
       {
-        "name": "artillería media",
+        "name": "Artillería en el carril central",
         "context": "Alcance y daño bruto, con un elemento defensivo tardío para sobrevivir a una inmersión."
       }
     ]
@@ -389,8 +389,8 @@
     ],
     "builds": [
       {
-        "name": "Entorno acumulativo",
-        "context": "Maná y recarga primero para acumularse rápidamente, daño después. El Reloj de Arena no es opcional."
+        "name": "Acumulación en el carril central",
+        "context": "Maná y recarga primero para acumularse rápidamente, daño después. Enchanted Talisman no es opcional."
       }
     ]
   },
@@ -518,7 +518,7 @@
   },
   "nana": {
     "summary": "Mago de acoso que incapacita a un objetivo transformándolo y sobrevive una vez a un golpe fatal.",
-    "analysis": "Nana desgasta a sus oponentes desde lejos con un boomerang que golpea de un lado a otro. Su habilidad 2 envía a Molina a perseguir al héroe enemigo más cercano: el que golpea se transforma por un corto tiempo, se ralentiza y se debilita contra el daño mágico. Lo último golpea un área tres veces y aturde a los enemigos golpeados varias veces seguidas. Su pasiva le otorga, una vez cada dos minutos y medio, una transformación invulnerable en el momento de morir.\n\nSus cifras medidas son bajas: tasa de victorias por debajo del promedio en todos los rangos, incluso menor en Mythic Glory, sin ninguna mejora real en juegos largos. Mientras transforma su pasiva, no puede lanzar ninguna habilidad y Molina elige ella misma su objetivo entre los héroes cercanos. Las brechas en la contrapartida siguen siendo modestas; los más claros la colocan en dificultades contra Gloo, luego contra Akai e Hylos.",
+    "analysis": "Nana desgasta a sus oponentes desde lejos con un boomerang que golpea de un lado a otro. Su habilidad 2 envía a Molina a perseguir al héroe enemigo más cercano: el que golpea se transforma por un corto tiempo, se ralentiza y se debilita contra el daño mágico. Lo último golpea un área tres veces y aturde a los enemigos golpeados varias veces seguidas. Su pasiva le otorga, una vez cada dos minutos y medio, una transformación invulnerable en el momento de morir.\n\nSus cifras medidas son bajas: tasa de victorias por debajo del promedio en todos los rangos, incluso menor en Mythic Glory, sin ninguna mejora real en juegos largos. Mientras transforma su pasiva, no puede lanzar ninguna habilidad y Molina elige ella misma su objetivo entre los héroes cercanos. Las contradiferencias siguen siendo modestas; los más claros la colocan en dificultades contra Gloo, luego contra Akai e Hylos.",
     "skills": [
       "Ante un golpe mortal, se libra de los efectos negativos y se transforma: invulnerable, más rápida, recupera un poco de HP pero no puede lanzar ninguna habilidad. El efecto tiene un tiempo de reutilización prolongado.",
       "Un boomerang que golpea a la ida y a la vuelta. Su daño disminuye por cada enemigo adicional atravesado: es mejor apuntar a un objetivo aislado.",
@@ -556,7 +556,7 @@
     "strengths": [
       "Pico de potencia muy temprano",
       "Daño de largo alcance con máxima",
-      "Funciona tanto en la jungla como en el carril dorado."
+      "Funciona en la jungla como en Gold Lane."
     ],
     "weaknesses": [
       "sin control",
@@ -565,7 +565,7 @@
     ],
     "builds": [
       {
-        "name": "Daño en bruto de oro",
+        "name": "Línea dorada, daño crudo",
         "context": "La velocidad de ataque no añade nada a su pasiva: acumulamos daño de ataque y penetración."
       }
     ]
@@ -591,7 +591,7 @@
     ],
     "builds": [
       {
-        "name": "Oro de largo alcance",
+        "name": "Línea dorada, largo alcance",
         "context": "Pareja de rifle de precisión y lanzagranadas: recorremos la distancia y alcanzamos los objetivos."
       }
     ]
@@ -617,7 +617,7 @@
     ],
     "builds": [
       {
-        "name": "Estándar oro",
+        "name": "Estándar del carril dorado",
         "context": "Velocidad de ataque y crítico: Melissa dispara continuamente hasta ser golpeada."
       }
     ]
@@ -646,7 +646,7 @@
     "builds": [
       {
         "name": "Crítico",
-        "context": "La configuración más jugada en Gold Lane, todos los rangos combinados, como en Mythic Glory: la probabilidad crítica alimenta Berserker's Fury y activa la velocidad de ataque de Haas' Claws, que también proporciona robo de vida."
+        "context": "La configuración más jugada en Gold Lane, todos los rangos combinados, así como en Mythic Glory: la probabilidad crítica alimenta Berserker's Fury y activa la velocidad de ataque de Haas' Claws, que también proporciona robo de vida."
       },
       {
         "name": "Daño por impacto",
@@ -656,7 +656,7 @@
   },
   "hanabi": {
     "summary": "Lanzador de daño de rebote, cuyos controles no golpean mientras lleva un escudo.",
-    "analysis": "Hanabi inflige su daño en rebote: cada ataque básico o habilidad que golpea envía espadas a los enemigos vecinos, lo que la hace efectiva en peleas grupales y en oleadas. Su habilidad 1 le otorga un escudo, y mientras un escudo la proteja, los efectos de control no tienen ningún efecto sobre ella; parte del daño que inflige también recarga este escudo. Su habilidad definitiva inmoviliza al primer héroe golpeado antes de explotar a su alrededor.\n\nSin embargo, no tiene ningún movimiento instantáneo: si el escudo cae, vuelve a ser un objetivo fácil de alcanzar. Su tasa de victorias medida es más alta en juegos cortos y disminuye significativamente a medida que se hacen más largos, cayendo por debajo del cincuenta por ciento después del minuto dieciocho. En el rango Mythic Glory, las medidas la colocan en dificultad contra Lolita, Joy, Beatrix, Wanwan e Ixia.",
+    "analysis": "Hanabi inflige su daño en rebote: cada ataque básico o habilidad que golpea envía espadas a los enemigos vecinos, lo que la hace efectiva en peleas grupales y en oleadas. Su habilidad 1 le otorga un escudo, y mientras un escudo la proteja, los efectos de control no tienen ningún efecto sobre ella; parte del daño que inflige también recarga este escudo. Su habilidad definitiva inmoviliza al primer héroe golpeado antes de explotar a su alrededor.\n\nSin embargo, no tiene ningún movimiento instantáneo: si el escudo cae, vuelve a ser un objetivo fácil de alcanzar. Su tasa de victorias medida es más alta en juegos cortos y disminuye significativamente a medida que se hacen más largos, cayendo por debajo del cincuenta por ciento después del minuto dieciocho. En el rango Mythical Glory, las medidas la colocan en dificultad contra Lolita, Joy, Beatrix, Wanwan e Ixia.",
     "skills": [
       "Cada ataque básico o habilidad que golpea envía espadas a múltiples enemigos cercanos, y el daño disminuye con cada rebote. Los rebotes de los ataques básicos recuperan algunos de sus efectos de ataque.",
       "Mientras usa un escudo, independientemente de su origen, Hanabi ignora los controles. Al activarlo, se protege, gana velocidad de movimiento y ataque, y parte del daño infligido fortalece este escudo hasta cierto límite.",
@@ -678,7 +678,7 @@
     "builds": [
       {
         "name": "Ataques reforzados",
-        "context": "Con diferencia, las builds más jugadas en Gold Lane: Corrosion Scythe, Demon Hunter Sword y Golden Staff fortalecen cada ataque básico, cuyos rebotes recuperan parte de los efectos. Se asocia con mayor frecuencia con el emblema del luchador y el hechizo Aegis, cuyo escudo también lo hace inmune a los controles."
+        "context": "Con diferencia, las configuraciones más jugadas en Gold Lane: Corrosion Scythe, Demon Hunter Sword y Golden Staff fortalecen cada ataque básico, cuyos rebotes recuperan parte de los efectos. Se asocia con mayor frecuencia con el emblema del luchador y el hechizo Aegis, cuyo escudo también lo hace inmune a los controles."
       }
     ]
   },
@@ -710,13 +710,13 @@
       },
       {
         "name": "Sin reducción de cuidados",
-        "context": "La misma base con Blade of Despair en lugar de Sea Halberd: mucho menos jugado, con un índice de victorias mejor medido. Reserva para juegos donde el equipo contrario no depende de la curación ni de los escudos."
+        "context": "La misma base con Blade of Despair en lugar de Sea Halberd: mucho menos jugado, con un ratio de victorias mejor medido. Reserva para juegos donde el equipo contrario no depende de la curación ni de los escudos."
       }
     ]
   },
   "estes": {
     "summary": "La curación más cruda del juego: su habilidad máxima regenera a todo el equipo durante varios segundos.",
-    "analysis": "Estes no hace más que sanar, pero lo hace a un volumen que ningún otro soporte alcanza. En una pelea prolongada en torno a un objetivo, su habilidad definitiva puede anular el daño sostenido de toda una composición.\n\nEsto también lo convierte en el héroe de la lista que más depende del contexto. Contra un equipo que compra reducción de curación, o que tiene una iniciación capaz de eliminarla primero, se vuelve casi inútil. No proporciona control, daño ni movilidad: si no cura, no existe.",
+    "analysis": "Estes no hace más que sanar, pero lo hace a un volumen que ningún otro soporte alcanza. En una pelea prolongada en torno a un objetivo, su habilidad definitiva puede anular el daño sostenido de toda una composición.\n\nEsto también lo convierte en el héroe que más depende del contexto de todo el juego. Contra un equipo que compra reducción de curación, o que tiene una iniciación capaz de eliminarlo primero, se vuelve casi inútil. No proporciona control, daño ni movilidad: si no cura, no existe.",
     "skills": [
       "Su curación aplica una marca que aumenta la regeneración de los aliados afectados.",
       "Cura a un aliado objetivo y aumenta su velocidad de movimiento.",
@@ -885,7 +885,7 @@
     "strengths": [
       "La mejor agrupación del juego en múltiples objetivos.",
       "Muy duradero incluso con un presupuesto modesto de objetos.",
-      "Legible: fácil de aprender en un juego de baja clasificación."
+      "Legible: fácil de aprender en rangos inferiores"
     ],
     "weaknesses": [
       "Inútil cuando su habilidad definitiva está en tiempo de reutilización.",
@@ -898,8 +898,8 @@
         "context": "La compilación predeterminada. Sacrificamos todo el daño para alcanzar el contacto y sobrevivir al comienzo del combate."
       },
       {
-        "name": "Frente resistente a la magia",
-        "context": "Contra una composición contraria con dos o más magos, o cuando el daño mágico contrario excede el físico."
+        "name": "Primera línea antimagia",
+        "context": "Contra una composición contraria con dos o más magos, o cuando el daño mágico del oponente excede el daño físico."
       }
     ]
   },
@@ -914,13 +914,13 @@
     ],
     "strengths": [
       "Elimina un objetivo clave del combate, independientemente de la resistencia.",
-      "Excelente control de puntería alrededor del señor y la tortuga.",
+      "Excelente control de puntería alrededor del Señor y la Tortuga.",
       "Recompensa enormemente la lectura de tarjetas"
     ],
     "weaknesses": [
       "Un gancho de agarre fallido lo deja sin nada durante ocho segundos.",
       "Muy dependiente de la visión y los arbustos.",
-      "El último es un objetivo único: sin relevo, muere después"
+      "El último solo apunta a un objetivo: sin relevo, luego muere"
     ],
     "builds": [
       {
@@ -944,7 +944,7 @@
       "Puede aislar un objetivo contra una pared."
     ],
     "weaknesses": [
-      "Sin sus habilidades no tiene velocidad.",
+      "Sin sus habilidades es muy lento.",
       "Tiempos de reutilización largos al comienzo del juego.",
       "Poco útil contra un equipo sin movimiento."
     ],
@@ -1014,7 +1014,7 @@
       },
       {
         "name": "Contra la magia",
-        "context": "Escudo de Atenea en lugar de Radiant Armor, con el emblema de apoyo: menos jugado, con una tasa de victorias mejor medida. Se utiliza mejor contra un equipo contrario con un gran daño mágico."
+        "context": "Escudo de Atenea en lugar de Radiant Armor, con emblema de apoyo: menos jugado, con una tasa de victorias mejor medida. Se utiliza mejor contra un equipo contrario con un gran daño mágico."
       }
     ]
   },

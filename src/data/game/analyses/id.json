@@ -40,7 +40,7 @@
       "Memberikan tekanan permanen pada Mid Lane"
     ],
     "weaknesses": [
-      "Salah satu eksekusi tersulit dalam daftar",
+      "Salah satu eksekusi tersulit dalam game",
       "Konsumsi mana yang sangat tinggi",
       "Tanpa skill ultimate-nya, damage-nya akan berkurang"
     ],
@@ -79,12 +79,12 @@
   },
   "yi-sun-shin": {
     "summary": "Jungler hybrid yang beralih dari busur ke pedang tergantung jarak, dan skill ultimatnya mengungkap keseluruhan peta.",
-    "analysis": "Yi Sun-shin mengganti senjatanya sendiri: dia menembakkan busur dari jauh dan menyerang dengan pedang saat bersentuhan, dan setiap perubahan memperkuat dua serangan berikutnya. Keahlian 1-nya mendorongnya maju dengan membuatnya kebal terhadap kontrol sebentar, dan cooldownnya berkurang dengan setiap pergantian senjata yang berhasil. Yang terakhir memberinya visi seluruh peta dan akselerasi, kemudian, dimulai kembali, mengirimkan sebuah kapal yang membuat pusat zona terkena stun sebelum rentetan serangan yang melambat: ini adalah alat informasi dan juga inisiasi jarak jauh.\n\nPerforma terukurnya terkonsentrasi pada awal permainan: win ratenya jauh lebih tinggi pada permainan yang diselesaikan sebelum menit kedua belas, kemudian kembali ke kisaran rata-rata. Oleh karena itu, dia hidup dari kemajuan yang diperoleh di hutan, bukan dari akhir permainan, dan satu-satunya perlindungannya terhadap kontrol hanya bertahan sesaat. Pengukuran tersebut membuatnya kesulitan melawan Karina, Uranus, Aamon, Johnson, dan Hayabusa, mulai dari rank Mythic hingga rank Mythic Glory.",
+    "analysis": "Yi Sun-shin mengganti senjatanya sendiri: dia menembakkan busur dari jauh dan menyerang dengan pedang saat bersentuhan, dan setiap perubahan memperkuat dua serangan berikutnya. Keahlian 1-nya mendorongnya maju dengan membuatnya kebal terhadap kontrol sebentar, dan cooldownnya berkurang dengan setiap pergantian senjata yang berhasil. Yang terakhir memberinya visi seluruh peta dan akselerasi, kemudian, dimulai kembali, mengirimkan sebuah kapal yang membuat pusat zona terkena stun sebelum rentetan serangan yang melambat: ini adalah alat informasi dan juga inisiasi jarak jauh.\n\nPerformanya yang terukur terkonsentrasi pada awal permainan: win ratenya jauh lebih tinggi pada permainan yang diselesaikan sebelum menit kedua belas, kemudian kembali ke kisaran rata-rata. Oleh karena itu, dia hidup dari kemajuan yang diperoleh di hutan, bukan dari akhir permainan, dan satu-satunya perlindungannya terhadap kontrol hanya bertahan sesaat. Pengukuran tersebut membuatnya kesulitan melawan Karina, Uranus, Aamon, Johnson, dan Hayabusa, mulai dari rank Mythic hingga rank Mythic Glory.",
     "skills": [
       "Dia menyerang dengan busur atau pedang tergantung jarak dari sasarannya. Setelah setiap pergantian senjata, dua serangan berikutnya mendapatkan momentum dan damage kritis, dengan peningkatan kecepatan singkat.",
       "Terburu-buru ke depan dengan pedang, yang membuatnya tidak sensitif terhadap kontrol untuk waktu yang singkat. Setiap pergantian senjata yang dipicu memperpendek cooldownnya: inilah mobilitas utamanya dalam pertempuran.",
       "Tekan sebentar: serangan pedang cepat. Tekan lama: panah yang damagenya meningkat seiring waktu pengisian daya. Dalam kedua kasus tersebut, itu segera memicu bonus pergantian senjata.",
-      "Mengungkap seluruh peta selama beberapa detik dan mempercepatnya. Diluncurkan kembali, ia mengirimkan sebuah kapal menabrak suatu area, memukau bagian tengahnya, kemudian beberapa tembakan meriam yang melambat di area yang lebih luas."
+      "Mengungkap seluruh peta selama beberapa detik dan mempercepat Yi Sun-shin. Diluncurkan kembali, ia mengirimkan sebuah kapal menabrak suatu area, memukau bagian tengahnya, kemudian beberapa tembakan meriam yang melambat di area yang lebih luas."
     ],
     "strengths": [
       "Visi seluruh peta saat peluncuran pamungkas",
@@ -110,7 +110,7 @@
   },
   "selena": {
     "summary": "Heroine dengan dua bentuk: jebakan dan panah setrum dari jarak jauh, lalu pembunuhan saat kontak setelah ultimat.",
-    "analysis": "Selena dimainkan dalam dua tahap. Dalam bentuk elfnya, dia menempatkan iblis yang mengawasi suatu lokasi dan menempel pada musuh yang lewat, dan dia menembakkan panah yang efek setrumnya semakin panjang seiring dengan jarak yang ditempuh; keahliannya meninggalkan bekas pada sasaran. Skill pamungkasnya mengalihkannya ke Bentuk Abyssal, di mana skillnya menjadi serangan melompat dengan perisai dan muatan, yang menggunakan tanda ini untuk damage tambahan; dia kemudian dapat kembali ke bentuk elf.\n\nKeserbagunaan ini memiliki konsekuensi: seluruh inisiasinya bergantung pada panah, yang harus dimulai dari jauh untuk membuat stun dalam waktu yang lama. Win rate terukurnya masih di bawah rata-rata di semua peringkat, dengan titik terendah dalam permainan yang berlangsung kurang dari dua belas menit. Dimainkan di Mid Lane maupun roam, dengan objek yang berbeda-beda tergantung posisinya. Pengukuran tersebut menempatkannya dalam kesulitan melawan Gloo, Popol dan Kupa, Chip dan Lolita.",
+    "analysis": "Selena dimainkan dalam dua tahap. Dalam bentuk elfnya, dia menempatkan iblis yang mengawasi suatu lokasi dan menempel pada musuh yang lewat, dan dia menembakkan panah yang efek setrumnya semakin panjang seiring dengan jarak yang ditempuh; keahliannya meninggalkan bekas pada sasaran. Skill pamungkasnya mengalihkannya ke Bentuk Abyssal, di mana skillnya menjadi serangan melompat dengan perisai dan muatan, yang menggunakan tanda ini untuk damage tambahan; dia kemudian dapat kembali ke bentuk elf.\n\nKeserbagunaan ini memiliki konsekuensi: seluruh inisiasinya bergantung pada panah, yang harus dimulai dari jauh untuk membuat stun dalam waktu yang lama. Win rate terukurnya masih di bawah rata-rata di semua peringkat, dengan titik terendah dalam permainan yang berlangsung kurang dari dua belas menit. Dimainkan di Mid Lane dan juga Roam, dengan objek yang berbeda-beda tergantung posisinya. Pengukuran tersebut menempatkannya dalam kesulitan melawan Gloo, Popol dan Kupa, Chip dan Lolita.",
     "skills": [
       "Ia bergerak bebas dari satu bentuk ke bentuk lainnya. Dalam bentuk elf, skillnya menimbulkan nilai kumulatif; dalam Bentuk Abyssal, damagenya menggunakan tanda ini untuk memukul lebih keras. Permainan ini tentang mencetak gol dari jauh, lalu menyelesaikannya dari jarak dekat.",
       "Menempatkan iblis yang menunggu di suatu lokasi, menempel pada musuh pertama yang mendekat, memperlambatnya, lalu meledak ke arah mereka dan tetangganya. Beberapa jebakan bisa hidup berdampingan, dan setiap jebakan tambahan memperkuat ledakan.",
@@ -121,7 +121,7 @@
       "Stun yang lama ketika panah datang dari jauh",
       "Perangkap dipasang terlebih dahulu, beberapa perangkap sekaligus",
       "Dua bentuk: remote control, lalu hubungi damage",
-      "Dapat dimainkan di Mid Lane dan juga roaming"
+      "Dapat dimainkan di Mid Lane dan berkeliaran"
     ],
     "weaknesses": [
       "Seluruh inisiasinya bergantung pada anak panah yang diarahkan dari jauh",
@@ -142,7 +142,7 @@
   },
   "chou": {
     "summary": "Fighter isolasi: dia mengambil target dari kelompok lawan dan membunuhnya sebelum timnya bereaksi.",
-    "analysis": "Chou merupakan hero dengan plafon tertinggi dalam roam. Idenya sederhana – serangan pamungkas mengirimkan target ke udara dan menggerakkannya – tetapi eksekusinya bergantung pada pembatalan animasi yang tidak dapat dijelaskan dalam game ini. Referensi rantai kombo skill 1, pembatalan lompatan, ulti, lalu skill 2 untuk menahan target saat mendarat.\n\nKetertarikannya pada tim yang terorganisir berasal dari sana: dia memilih siapa yang akan mati. Sebaliknya, melawan pemain yang mempertahankan Purify miliknya, nilai ultimatnya akan kehilangan setengah nilainya, dan Chou menjadi fighter biasa-biasa saja lagi.",
+    "analysis": "Chou merupakan hero roam dengan mastery cap tertinggi. Idenya sederhana – serangan pamungkas mengirimkan target ke udara dan menggerakkannya – tetapi eksekusinya bergantung pada pembatalan animasi yang tidak dapat dijelaskan dalam game ini. Referensi rantai kombo skill 1, pembatalan lompatan, ulti, lalu skill 2 untuk menahan target saat mendarat.\n\nKetertarikannya pada tim yang terorganisir berasal dari sana: dia memilih siapa yang akan mati. Sebaliknya, melawan pemain yang mempertahankan Purify miliknya, nilai ultimatnya akan kehilangan setengah nilainya, dan Chou menjadi fighter biasa-biasa saja lagi.",
     "skills": [
       "Setiap beberapa serangan dasar, serangan berikutnya menjadi pukulan yang ditingkatkan yang menghasilkan damage ekstra.",
       "Tiga serangan berturut-turut. Yang terakhir melempar musuh ke udara.",
@@ -165,13 +165,13 @@
         "context": "Versi yang dimainkan dalam kompetisi: ketahanan yang cukup untuk bertahan dalam perjalanan pulang pergi, tidak ada item damage murni."
       },
       {
-        "name": "Pengalaman ofensif",
-        "context": "Di EXP Lane, ketika Chou harus memenangkan duelnya daripada melakukan servis kepada timnya."
+        "name": "EXP lane ofensif",
+        "context": "Di EXP Lane, ketika Chou harus memenangkan duelnya daripada melayani timnya."
       }
     ]
   },
   "yu-zhong": {
-    "summary": "Fighter lane berpengalaman yang menyembuhkan dirinya sendiri saat memukul dan menjadi sangat sulit dibunuh dalam pertarungan berkepanjangan.",
+    "summary": "Fighter EXP Lane yang menyembuhkan dirinya sendiri saat memukul dan menjadi sangat sulit dibunuh dalam pertarungan berkepanjangan.",
     "analysis": "Yu Zhong memenangkan pertarungan terakhir itu. Pasifnya mengubah sebagian damage yang ditimbulkan menjadi perisai, yang membuatnya sangat baik ketika ada beberapa target dalam jangkauan - konfrontasi lima arah memberikan pengembalian yang lebih besar daripada duel.\n\nUltimate-nya membuatnya kebal terhadap pemeriksaan saat dia maju, yang juga membuatnya menjadi inisiator yang kredibel. Melawannya hampir selalu melibatkan pengurangan penyembuhan: tanpanya, Yu Zhong yang berperalatan lengkap akan menyerap seluruh tim.",
     "skills": [
       "Damage yang ditimbulkan oleh skillnya sebagian diubah menjadi perisai, dengan peningkatan efisiensi pada beberapa target.",
@@ -185,13 +185,13 @@
       "Dorongan lane yang baik dan kontrol gelombang yang baik"
     ],
     "weaknesses": [
-      "Runtuh karena berkurangnya perawatan",
+      "Sangat melemah karena berkurangnya penyembuhan",
       "Awal permainan yang rapuh sebelum item ketiga",
       "Sedikit damage pada satu target yang terisolasi"
     ],
     "builds": [
       {
-        "name": "Pengalaman regenerasi",
+        "name": "Regenerasi EXP Lane",
         "context": "Referensi build: resistance dan lifesteal, karena pasifnya sudah mengubah damage menjadi perisai."
       }
     ]
@@ -213,7 +213,7 @@
     "weaknesses": [
       "Kehilangan semua minatnya jika jendelanya rusak",
       "Sangat rentan sekali skill dikeluarkan",
-      "Menghukum terhadap hero yang mempertahankan kendali mereka"
+      "Dihukum oleh hero yang mempertahankan kendalinya"
     ],
     "builds": [
       {
@@ -223,7 +223,7 @@
     ]
   },
   "dyrroth": {
-    "summary": "Fighter kemarahan yang melepaskan baju besi fisik dari targetnya sebelum menyerang mereka, dimainkan di EXP Lane dan juga di hutan.",
+    "summary": "Fighter Rage yang melepaskan armor fisik targetnya sebelum menyerangnya, dimainkan di EXP Lane dan hutan.",
     "analysis": "Dyrroth membangun kemarahan saat bertarung; Pada ukuran menengah, dua skill pertamanya menjadi versi yang diperkuat, dengan jangkauan lebih besar atau damage lebih besar. Setiap dua serangan dasar yang dia pukul dalam lingkaran di sekelilingnya dan menyembuhkan dirinya sendiri, dan setiap serangan hero memperpendek cooldownnya. Skill 2 meluncurkannya ke target, lalu menyusunnya kembali, menghilangkan sebagian besar armor fisiknya selama beberapa detik: bukaan itulah yang membuat sisa damagenya efektif. Ultimatenya pergi setelah beberapa saat, tidak dapat diganggu, dan memperlambat semua yang dilewatinya.\n\nDia hidup dalam reli permainan awal: win rate terukurnya paling tinggi dalam permainan pendek dan turun di bawah rata-rata setelah menit kedelapan belas. Jumlahnya juga bervariasi tergantung peringkat, lebih rendah di Mythic daripada di Mythic Glory. Tindakan tersebut menempatkannya dalam kesulitan melawan Masha, Benedetta, dan Thamuz.",
     "skills": [
       "Dari setengah rage gauge miliknya, skill 1 dan 2 miliknya diperkuat. Setiap dua serangan dasar, dia memukul dalam lingkaran dan memulihkan HP, dan setiap pukulan hero mengurangi cooldown dari dua skill pertamanya.",
@@ -246,7 +246,7 @@
     "builds": [
       {
         "name": "EXP Lane",
-        "context": "Build yang paling banyak dimainkan di EXP Lane untuk semua peringkat: War Axe dan Queen's Wings untuk lifesteal dan survival, Rose Gold Meteor untuk perisai ketika HP-nya turun sedikit. Pilihannya tetap sangat tersebar di posisi ini, dan di Mythic Glory adalah versi penetrasi (Blade of the Heptaseas, Hunter Strike, Rose Gold Meteor) yang didahulukan."
+        "context": "Build yang paling banyak dimainkan di EXP Lane di semua peringkat: War Axe dan Queen's Wings untuk lifesteal dan survival, Rose Gold Meteor untuk perisai ketika HP-nya turun sedikit. Pilihannya tetap sangat tersebar di posisi ini, dan di Mythical Glory versi penetrasi (Blade of the Heptaseas, Hunter Strike, Rose Gold Meteor) yang didahulukan."
       },
       {
         "name": "Hutan",
@@ -256,7 +256,7 @@
   },
   "sun": {
     "summary": "Fighter yang berkembang biak: kembarannya menyerang bersamanya, menyembuhkannya, dan menggerogoti baju besi target.",
-    "analysis": "Sun bertarung dengan memanggil pemain ganda. Dua skill pertamanya melemparkan tongkatnya, yang meninggalkan duplikat sementara; yang kedua juga menyembunyikannya saat dia bergerak dengan tongkat. Ultimatenya memanggil duplikat yang lebih tahan lama, mendekati statistiknya sendiri. Setiap pukulan dari Sun atau dobelnya sedikit mengurangi armor fisik target, dan setiap pukulan dari dobel akan menyembuhkannya: semakin banyak dobel yang ada pada target, semakin cepat armor tersebut meleleh dan semakin lama bertahan.\n\nProfil terukurnya adalah seorang hero di akhir permainan: win rate di bawah rata-rata dalam permainan yang berlangsung kurang dari empat belas menit, kemudian jauh lebih tinggi setelah menit keenam belas. Dirinya juga sangat sering di banned terutama di rank Mythic. Ultimate yang digandakan akan meningkatkan damage, dan metriknya membuat Sun kesulitan melawan Aldous, Natan, Alucard, Joy, dan Ruby.",
+    "analysis": "Sun bertarung dengan memanggil pemain ganda. Dua skill pertamanya melemparkan tongkatnya, yang meninggalkan duplikat sementara; yang kedua juga menyembunyikannya saat dia bergerak dengan tongkat. Ultimatenya memanggil duplikat yang lebih tahan lama, mendekati statistiknya sendiri. Setiap pukulan dari Sun atau dobelnya sedikit mengurangi armor fisik target, dan setiap pukulan dari dobel akan menyembuhkannya: semakin banyak dobel yang ada pada target, semakin cepat armor tersebut meleleh dan semakin lama bertahan.\n\nProfil terukurnya adalah seorang hero di akhir permainan: win rate di bawah rata-rata dalam permainan yang berlangsung kurang dari empat belas menit, kemudian jauh di atas setelah menit keenam belas. Dirinya juga sangat sering di banned terutama di rank Mythical. Ultimate yang digandakan akan meningkatkan damage, dan metriknya membuat Sun kesulitan melawan Aldous, Natan, Alucard, Joy, dan Ruby.",
     "skills": [
       "Setiap serangan dari Sun atau serangan gandanya akan mengurangi armor fisik target, menumpuk. Setiap kali serangan ganda menimbulkan damage, Sun memulihkan HP. Serangannya dan serangan gandanya juga menghantam monster lebih keras.",
       "Melempar tongkat dalam barisan; pada saat tumbukan atau pada akhir pukulan, itu berubah menjadi ganda yang mengambil alih sebagian statistiknya. Membagi cooldown dan levelnya dengan skill 2.",
@@ -277,7 +277,7 @@
     "builds": [
       {
         "name": "EXP Lane",
-        "context": "Build yang paling banyak dimainkan di EXP Lane: kecepatan serangan dan kritis, yang memberikan manfaat ganda dengan mengambil kembali sebagian efek serangannya, dan Great Dragon Spear untuk kecepatan setelah ultimat. Hal ini paling sering dikaitkan dengan emblem dukungan dan spell Petrify."
+        "context": "Build yang paling banyak dimainkan di EXP Lane: kecepatan serangan dan kritis, yang memberikan keuntungan ganda dengan mengambil kembali sebagian efek serangannya, dan Great Dragon Spear untuk kecepatan setelah ultimat. Hal ini paling sering dikaitkan dengan emblem dukungan dan spell Petrify."
       },
       {
         "name": "Hutan",
@@ -337,14 +337,14 @@
     ],
     "builds": [
       {
-        "name": "Lingkungan yang mudah meledak",
+        "name": "Mid Lane yang eksplosif",
         "context": "Build standar: penetrasi magis untuk mempertahankan damage terhadap objek pertahanan pertama."
       }
     ]
   },
   "pharsa": {
     "summary": "Artillery Mage: Serangan pamungkasnya melintasi peta, tanpa pernah memasuki pertempuran.",
-    "analysis": "Pharsa bermain di scope. Skill Ultimate-nya adalah bombardir tersalurkan yang mencakup area luas dari jarak jauh, sehingga memungkinkannya berpartisipasi dalam pertarungan yang hampir tidak dapat dilihatnya. Ditempatkan dengan baik, spell ini saja dapat memutuskan bentrokan di sekitar tuan.\n\nKeahlian 2 miliknya memberinya bentuk terbang yang melewati dinding, penting untuk reposisi setelah penyaluran. Titik lemahnya jelas: selama ultimat dia tidak bisa bergerak dan tidak berdaya, dan assassin mana pun yang menemukannya akan membunuhnya.",
+    "analysis": "Pharsa bermain di scope. Skill Ultimate-nya adalah bombardir tersalurkan yang meliputi area luas dalam jarak jauh, sehingga memungkinkannya berpartisipasi dalam pertarungan yang jarang dilihatnya. Ditempatkan dengan baik, spell ini saja dapat memutuskan konfrontasi di sekitar Tuhan.\n\nKeahlian 2 miliknya memberinya bentuk terbang yang melewati dinding, penting untuk reposisi setelah penyaluran. Titik lemahnya jelas: selama ultimat dia tidak bisa bergerak dan tidak berdaya, dan assassin mana pun yang menemukannya akan membunuhnya.",
     "skills": [
       "Setelah skill, serangan dasar berikutnya menghasilkan bonus damage sihir.",
       "Mengirimkan gelombang yang meledak dari jarak jauh, menimbulkan damage area.",
@@ -363,7 +363,7 @@
     ],
     "builds": [
       {
-        "name": "Artileri tengah",
+        "name": "Artileri Mid Lane",
         "context": "Jangkauan dan damage mentah, dengan item pertahanan akhir untuk bertahan saat menyelam."
       }
     ]
@@ -389,8 +389,8 @@
     ],
     "builds": [
       {
-        "name": "Lingkungan kumulatif",
-        "context": "Mana dan cooldown dulu agar cepat di-stack, damagenya nanti. Jam Pasir bukanlah opsional."
+        "name": "Akumulasi Mid Lane",
+        "context": "Mana dan cooldown dulu agar cepat di-stack, damagenya nanti. Enchanted Talisman bukan opsional."
       }
     ]
   },
@@ -518,7 +518,7 @@
   },
   "nana": {
     "summary": "Mage pelecehan yang melumpuhkan target dengan mengubahnya, dan bertahan dari serangan fatal satu kali.",
-    "analysis": "Nana melemahkan lawannya dari jauh dengan bumerang yang menyerang bolak-balik. Skill 2 miliknya membuat Molina mengejar hero musuh terdekat: hero yang ditabraknya akan bertransformasi dalam waktu singkat, diperlambat, dan dilemahkan terhadap damage sihir. Ultimatenya mengenai suatu area sebanyak tiga kali dan membuat musuh terkena stun beberapa kali berturut-turut. Pasifnya memberinya, setiap dua setengah menit sekali, sebuah transformasi kebal pada saat dia harus mati.\n\nAngka terukurnya rendah: win rate di bawah rata-rata di semua peringkat, bahkan lebih rendah lagi di Mythic Glory, tanpa peningkatan nyata dalam permainan panjang. Saat mengubah pasifnya, dia tidak dapat mengeluarkan skill apa pun, dan Molina memilih sendiri targetnya di antara hero terdekat. Kesenjangan yang ada masih kecil; yang paling jelas menempatkannya dalam kesulitan melawan Gloo, lalu melawan Akai dan Hylos.",
+    "analysis": "Nana melemahkan lawannya dari jauh dengan bumerang yang menyerang bolak-balik. Skill 2 miliknya membuat Molina mengejar hero musuh terdekat: hero yang ditabraknya akan bertransformasi dalam waktu singkat, diperlambat, dan dilemahkan terhadap damage sihir. Ultimatenya mengenai suatu area sebanyak tiga kali dan membuat musuh terkena stun beberapa kali berturut-turut. Pasifnya memberinya, setiap dua setengah menit sekali, sebuah transformasi kebal pada saat dia harus mati.\n\nAngka terukurnya rendah: win rate di bawah rata-rata di semua peringkat, bahkan lebih rendah lagi di Mythic Glory, tanpa peningkatan nyata dalam permainan panjang. Saat mengubah pasifnya, dia tidak dapat mengeluarkan skill apa pun, dan Molina memilih sendiri targetnya di antara hero terdekat. Perbedaan yang ada masih kecil; yang paling jelas menempatkannya dalam kesulitan melawan Gloo, lalu melawan Akai dan Hylos.",
     "skills": [
       "Menghadapi pukulan fatal, dia menghilangkan efek negatif dan bertransformasi: kebal, lebih cepat, dia memulihkan sedikit HP tetapi tidak dapat meluncurkan skill apa pun. Efeknya memiliki cooldown yang lama.",
       "Sebuah bumerang yang menghantam saat keluar dan kembali. Damagenya berkurang untuk setiap musuh tambahan yang dilintasi: lebih baik membidik target yang terisolasi.",
@@ -556,7 +556,7 @@
     "strengths": [
       "Puncak kekuatan yang sangat awal",
       "Damage jarak jauh dengan ultimat",
-      "Bekerja di hutan dan juga di Gold Lane"
+      "Bekerja di hutan seperti di Gold Lane"
     ],
     "weaknesses": [
       "Tidak ada kendali",
@@ -565,7 +565,7 @@
     ],
     "builds": [
       {
-        "name": "Damage mentah emas",
+        "name": "Gold Lane, damage mentah",
         "context": "Kecepatan serangan tidak menambahkan apa pun pada pasifnya: kita menumpuk damage serangan dan penetrasi."
       }
     ]
@@ -591,7 +591,7 @@
     ],
     "builds": [
       {
-        "name": "Emas jarak jauh",
+        "name": "Gold Lane, jarak jauh",
         "context": "Sepasang senapan presisi dan peluncur granat: kita menempuh jarak jauh dan mencapai sasaran."
       }
     ]
@@ -617,14 +617,14 @@
     ],
     "builds": [
       {
-        "name": "Standar emas",
+        "name": "Standar Gold Lane",
         "context": "Attack Speed ​​dan Critical: Melissa menembak terus menerus hingga terkena serangan."
       }
     ]
   },
   "miya": {
     "summary": "Marksman serangan dasar murni: dia mendapatkan momentum selama dia memukul, dan ultimatnya membuatnya menghilang saat Anda membidiknya.",
-    "analysis": "Miya mendasarkan segalanya pada serangan dasar. Pasifnya menumpuk kecepatan serangan pada setiap tembakan yang mengenainya, skill 1 menambahkan panah tambahan yang juga memberikan damage pada target di sekitar, dan skill 2 membuat area tidak bergerak sebelum memperlambat orang di sekitarnya. Ultimate-nya menghilangkan efek negatif, membuatnya tidak terlihat dan mengeluarkannya dari kondisi ini dengan pasifnya yang sudah terisi penuh: digunakan untuk melarikan diri dan kembali ke pertukaran dengan kecepatan penuh. Win rate terukurnya sedikit meningkat seiring dengan lamanya permainan.\n\nIa tidak memiliki gerakan instan. Setelah skill ulti digunakan, dia hanya memiliki skill 2 yang tersisa untuk memperlambat penyerang, dan kecepatannya menurun segera setelah dia berhenti mengenai target. Penanggulangan tersebut membuat dirinya kesulitan melawan Beatrix, Granger, Gatotkaca, Karina dan Belerick, dengan gap yang ditemukan dari rank Mythic ke rank Mythic Glory.",
+    "analysis": "Miya mendasarkan segalanya pada serangan dasar. Pasifnya menumpuk kecepatan serangan pada setiap tembakan yang mengenainya, skill 1 menambahkan panah tambahan yang juga memberikan damage pada target di sekitar, dan skill 2 membuat area tidak bergerak sebelum memperlambat orang di sekitarnya. Ultimate-nya menghilangkan efek negatif, membuatnya tidak terlihat dan mengeluarkannya dari kondisi ini dengan pasifnya yang sudah terisi penuh: digunakan untuk melarikan diri dan kembali ke pertukaran dengan kecepatan penuh. Win rate terukurnya sedikit meningkat seiring dengan lamanya permainan.\n\nIa tidak memiliki gerakan instan. Setelah skill ulti digunakan, dia hanya memiliki skill 2 yang tersisa untuk memperlambat penyerang, dan kecepatannya menurun segera setelah dia berhenti mengenai target. Penanggulangan tersebut membuatnya kesulitan melawan Beatrix, Granger, Gatotkaca, Karina, dan Belerick, dengan selisih yang ditemukan dari rank Mythical ke rank Mythical Glory.",
     "skills": [
       "Setiap serangan dasar yang mengenai menambahkan satu tingkat kecepatan serangan, hingga lima. Saat terisi penuh, setiap tembakan menyebabkan munculnya bayangan yang menyerangnya: intinya adalah jangan pernah membiarkan levelnya turun lagi.",
       "Selama beberapa detik, setiap serangan dasar datang dengan dua anak panah lagi, dan sebagian damagenya mengenai musuh yang dekat dengan target. Untuk dilempar pada awal pertukaran atau pada gelombang minion.",
@@ -646,17 +646,17 @@
     "builds": [
       {
         "name": "Kritis",
-        "context": "Build yang paling sering dimainkan di Gold Lane, semua peringkat digabungkan, seperti di Mythic Glory: peluang kritis memicu Berserker's Fury dan memicu kecepatan serangan Haas' Claws, yang juga memberikan lifesteal."
+        "context": "Build yang paling sering dimainkan di Gold Lane, semua peringkat digabungkan, serta di Mythic Glory: peluang kritis memicu Berserker's Fury dan memicu kecepatan serangan Haas' Claws, yang juga memberikan lifesteal."
       },
       {
         "name": "Damage dampak",
-        "context": "Kurang dimainkan dibandingkan versi kritis, dengan win rate terukur yang sedikit lebih tinggi: Corrosion Scythe dan Demon Hunter Sword menambah damage pada setiap serangan dasar, yang cocok melawan target dengan banyak HP."
+        "context": "Kurang dimainkan dibandingkan versi kritis, dengan win rate terukur yang sedikit lebih tinggi: Corrosion Scythe dan Demon Hunter Sword menambahkan damage pada setiap serangan dasar, yang cocok melawan target dengan banyak HP."
       }
     ]
   },
   "hanabi": {
     "summary": "Marksman damage pantulan, yang kontrolnya tidak mengenai saat dia membawa perisai.",
-    "analysis": "Hanabi menimbulkan damagenya secara memantul: setiap serangan dasar atau skill yang mengenainya mengirimkan bilah kembali ke musuh di sekitarnya, membuatnya efektif dalam pertarungan kelompok dan gelombang. Skill 1-nya memberinya perisai, dan selama perisai melindunginya, efek kontrol tidak berpengaruh padanya; sebagian dari damage yang ditimbulkannya juga mengisi ulang perisai ini. Ultimate-nya akan melumpuhkan hero pertama yang terkena serangan sebelum meledak di sekitarnya.\n\nNamun, dia tidak memiliki gerakan instan: jika perisainya jatuh, dia menjadi sasaran empuk untuk dijangkau lagi. Win rate terukurnya adalah yang tertinggi dalam permainan pendek dan menurun secara signifikan seiring bertambahnya waktu, turun di bawah lima puluh persen setelah menit kedelapan belas. Pada rank Mythic Glory, pengukuran tersebut menempatkannya dalam kesulitan melawan Lolita, Joy, Beatrix, Wan Wan, dan Ixia.",
+    "analysis": "Hanabi menimbulkan damagenya secara memantul: setiap serangan dasar atau skill yang mengenainya mengirimkan bilah kembali ke musuh di sekitarnya, membuatnya efektif dalam pertarungan kelompok dan gelombang. Skill 1-nya memberinya perisai, dan selama perisai melindunginya, efek kontrol tidak berpengaruh padanya; sebagian dari damage yang ditimbulkannya juga mengisi ulang perisai ini. Ultimate-nya akan melumpuhkan hero pertama yang terkena serangan sebelum meledak di sekitarnya.\n\nNamun, dia tidak memiliki gerakan instan: jika perisainya jatuh, dia menjadi sasaran empuk untuk dijangkau lagi. Win rate terukurnya adalah yang tertinggi dalam permainan pendek dan menurun secara signifikan seiring bertambahnya waktu, turun di bawah lima puluh persen setelah menit kedelapan belas. Pada rank Mythical Glory, pengukuran tersebut menempatkannya dalam kesulitan melawan Lolita, Joy, Beatrix, Wanwan, dan Ixia.",
     "skills": [
       "Setiap serangan dasar atau skill yang mengenai akan mengirimkan bilah kembali ke beberapa musuh di sekitar, dengan damage yang berkurang setiap kali memantul. Serangan dasar memantul dan mendapatkan kembali sebagian efek serangannya.",
       "Saat memakai perisai, apapun sumbernya, Hanabi mengabaikan kontrol. Dengan mengaktifkannya, dia melindungi dirinya sendiri, memperoleh pergerakan dan kecepatan serangan, dan sebagian dari damage yang ditimbulkan memperkuat perisai ini hingga batas tertentu.",
@@ -716,7 +716,7 @@
   },
   "estes": {
     "summary": "Penyembuhan paling kasar dalam game: ultimatnya meregenerasi seluruh tim selama beberapa detik.",
-    "analysis": "Estes tidak melakukan apa pun selain menyembuhkan, tetapi dia melakukannya dengan volume yang tidak dapat dicapai oleh dukungan lain. Dalam pertarungan berkepanjangan untuk mencapai suatu tujuan, skill ultimatnya dapat meniadakan damage berkelanjutan senilai seluruh komposisi.\n\nIni juga menjadikannya hero yang paling bergantung pada konteks dalam daftar tersebut. Melawan tim yang membeli pengurangan penyembuhan, atau memiliki inisiasi yang mampu menghilangkannya terlebih dahulu, itu menjadi hampir tidak berguna. Ia tidak memberikan kendali, tidak ada damage, tidak ada mobilitas: jika tidak menyembuhkan, ia tidak ada.",
+    "analysis": "Estes tidak melakukan apa pun selain menyembuhkan, tetapi dia melakukannya dengan volume yang tidak dapat dicapai oleh dukungan lain. Dalam pertarungan berkepanjangan untuk mencapai suatu tujuan, skill ultimatnya dapat meniadakan damage berkelanjutan senilai seluruh komposisi.\n\nIni juga menjadikannya hero yang paling bergantung pada konteks di seluruh permainan. Melawan tim yang membeli pengurangan penyembuhan, atau memiliki inisiasi yang mampu mengeluarkannya terlebih dahulu, dia menjadi hampir tidak berguna. Ia tidak memberikan kendali, tidak ada damage, tidak ada mobilitas: jika tidak menyembuhkan, ia tidak ada.",
     "skills": [
       "Penyembuhannya memberikan tanda yang meningkatkan regenerasi sekutu yang terkena dampak.",
       "Menyembuhkan sekutu yang ditargetkan dan meningkatkan kecepatan gerakannya.",
@@ -885,7 +885,7 @@
     "strengths": [
       "Pengelompokan terbaik dalam game pada banyak target",
       "Sangat tahan lama bahkan dengan anggaran barang yang sederhana",
-      "Dapat dibaca: mudah dipelajari dalam permainan peringkat rendah"
+      "Dapat dibaca: mudah dipelajari di peringkat bawah"
     ],
     "weaknesses": [
       "Tidak berguna saat skill ultinya sedang cooldown",
@@ -898,8 +898,8 @@
         "context": "Bangunan bawaan. Kami mengorbankan semua damage untuk mencapai kontak dan bertahan di pembukaan pertarungan."
       },
       {
-        "name": "Bagian Depan Tahan Sihir",
-        "context": "Melawan komposisi lawan dengan dua mage atau lebih, atau ketika damage magis lawan melebihi fisik."
+        "name": "Garis depan anti-sihir",
+        "context": "Melawan komposisi lawan dengan dua mage atau lebih, atau ketika damage sihir lawan melebihi damage fisik."
       }
     ]
   },
@@ -914,13 +914,13 @@
     ],
     "strengths": [
       "Menghapus target utama dari pertempuran, terlepas dari perlawanannya",
-      "Kontrol bidik yang sangat baik di sekitar tuan dan kura-kura",
+      "Kontrol bidikan yang sangat baik di sekitar Lord dan Turtle",
       "Membaca kartu sangat bermanfaat"
     ],
     "weaknesses": [
       "Pengait yang gagal membuat dia tidak punya apa-apa selama delapan detik",
       "Sangat bergantung pada vision dan semak-semak",
-      "Yang pamungkas adalah satu target: tanpa relai, ia akan mati setelahnya"
+      "Ultimate-nya hanya mengarah ke satu target: tanpa relay, ia kemudian mati"
     ],
     "builds": [
       {
@@ -944,7 +944,7 @@
       "Dapat mengisolasi target di dinding"
     ],
     "weaknesses": [
-      "Tanpa keahliannya dia tidak memiliki kecepatan",
+      "Tanpa skillnya dia sangat lambat",
       "Cooldown yang lama di awal permainan",
       "Tidak terlalu berguna melawan tim tanpa pergerakan"
     ],
@@ -988,7 +988,7 @@
   },
   "atlas": {
     "summary": "Tank inisiator yang menarik beberapa hero sekaligus dan menempatkannya dimanapun dia memutuskan.",
-    "analysis": "Atlas terlibat dalam dua tahap. Skill pamungkasnya melemparkan rantai yang memperlambat hero yang terkena serangan saat dia menyalurkan, kemudian, dihidupkan kembali, menarik mereka ke arahnya dan menghancurkan mereka di lokasi yang dipilih; hanya penghapusan yang dapat menghentikannya. Skill 2 miliknya membuatnya keluar dari armornya untuk bergerak lebih cepat, kebal terhadap slow, sebelum mesin bergabung dengannya dengan melakukan stun di sekitarnya. Setiap skill yang diluncurkan menciptakan zona dingin di sekelilingnya yang memperlambat, lalu membekukan musuh yang masih berada di sana.\n\nJumlahnya bervariasi tergantung pada peringkat: win rate terukurnya lebih tinggi di Mythic dan Mythic Honor daripada di Mythic Glory, namun dia lebih banyak dilarang. Dia adalah salah satu hero yang diperkuat pada patch 2.1.88, tanpa detail yang dipublikasikan di wiki. Duet terbaiknya yang diukur adalah dengan support – Mathilda, Floryn, Estes, Rafaela – dan pengukuran tersebut jelas menempatkannya dalam kesulitan melawan Marcel, kemudian melawan Wan Wan, Alice, Valentina dan Lancelot.",
+    "analysis": "Atlas terlibat dalam dua tahap. Skill pamungkasnya melemparkan rantai yang memperlambat hero yang terkena serangan saat dia menyalurkan, kemudian, dihidupkan kembali, menarik mereka ke arahnya dan menghancurkan mereka di lokasi yang dipilih; hanya penghapusan yang dapat menghentikannya. Skill 2 miliknya membuatnya keluar dari armornya untuk bergerak lebih cepat, kebal terhadap slow, sebelum mesin bergabung dengannya dengan melakukan stun di sekitarnya. Setiap skill yang diluncurkan menciptakan zona dingin di sekelilingnya yang memperlambat, lalu membekukan musuh yang masih berada di sana.\n\nJumlahnya bervariasi tergantung pada peringkat: win rate terukurnya lebih tinggi di Mythic dan Mythic Honor dibandingkan di Mythic Glory, namun dia lebih dilarang. Dia adalah salah satu hero yang diperkuat pada patch 2.1.88, tanpa detail yang dipublikasikan di wiki. Duet terbaiknya yang diukur adalah dengan support – Mathilda, Floryn, Estes, Rafaela – dan pengukuran tersebut jelas menempatkannya dalam kesulitan melawan Marcel, kemudian melawan Wan Wan, Alice, Valentina dan Lancelot.",
     "skills": [
       "Setiap skill yang diluncurkan mengelilinginya selama beberapa detik dengan nafas sedingin es: musuh yang tetap di sana akan semakin diperlambat, lalu dibekukan untuk sesaat. Dia memperoleh pertahanan saat nafas aktif.",
       "Menabrak tanah dan menyebabkan tiga ledakan di sekelilingnya. Dari baju besinya, pilot dan mesin meluncurkannya.",
@@ -1014,7 +1014,7 @@
       },
       {
         "name": "Melawan sihir",
-        "context": "Athena's Shield menggantikan Radiant Armor, dengan emblem dukungan: lebih sedikit dimainkan, dengan win rate terukur yang lebih baik. Paling baik digunakan melawan tim lawan dengan damage sihir tinggi."
+        "context": "Perisai Athena menggantikan Radiant Armor, dengan emblem dukungan: lebih sedikit dimainkan, dengan win rate terukur yang lebih baik. Paling baik digunakan melawan tim lawan dengan damage sihir tinggi."
       }
     ]
   },

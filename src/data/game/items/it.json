@@ -229,7 +229,7 @@
     "price": null,
     "bonus": "+250 CV",
     "unique": null,
-    "passive": "Germoglio di speranza: concesso da Floryn e Dew. L'equipaggiamento rivelerà il suo vero potere una volta che Dew si evolverà.",
+    "passive": "Bud of Hope: concesso da Floryn e Rugiada. L'equipaggiamento rivelerà il suo vero potere una volta che Dew si evolverà.",
     "active": null,
     "recipe": [],
     "bestFor": null
@@ -565,7 +565,7 @@
     "price": null,
     "bonus": "+5% all'attacco adattivo",
     "unique": null,
-    "passive": "Fiore della speranza: ogni 6 secondi, l'abilità o l'attacco base successivo infligge 60 danni magici aggiuntivi (+30% attacco fisico totale) (+30% potere magico totale).",
+    "passive": "Flower of Hope: Ogni 6 secondi, l'abilità o l'attacco base successivo infligge 60 danni magici aggiuntivi (+30% attacco fisico totale) (+30% potere magico totale).",
     "active": null,
     "recipe": [],
     "bestFor": "Gli alleati di Floryn"
@@ -626,7 +626,7 @@
     "price": 2000,
     "bonus": "+55 attacco fisico, +15% velocità d'attacco",
     "unique": null,
-    "passive": "Rapido: ogni 1% in più di probabilità critica ottenuta viene convertito in 1% in più di velocità d'attacco. Colpo infinito: dopo ogni 2 attacchi base non critici, la velocità d'attacco dell'attacco base successivo aumenta dell'80% (e il limite della velocità d'attacco aumenta al 500%) e attiva gli effetti di attacco 2 volte aggiuntive.",
+    "passive": "Swift: ogni 1% in più di probabilità critica guadagnato viene convertito in 1% in più di velocità d'attacco. Colpo infinito: dopo ogni 2 attacchi base non critici, la velocità d'attacco dell'attacco base successivo aumenta dell'80% (e il limite della velocità d'attacco aumenta al 500%) e attiva gli effetti di attacco 2 volte aggiuntive.",
     "active": null,
     "recipe": [
       "Regular Spear",
@@ -737,7 +737,7 @@
     "price": 2010,
     "bonus": "+80 attacco fisico, +10% riduzione tempo di recupero",
     "unique": "+15 Penetrazione fisica",
-    "passive": "Castigo: infliggere danni allo stesso eroe nemico o creep 5 volte di seguito garantisce il 50% di velocità di movimento extra che decade in 3 secondi (8 secondi di ricarica).",
+    "passive": "Retribution: infliggere danni allo stesso eroe nemico o creep 5 volte di seguito garantisce il 50% di velocità di movimento extra che decade in 3 secondi (8 secondi di recupero).",
     "active": null,
     "recipe": [
       "Fury Hammer",
@@ -827,7 +827,7 @@
     "price": null,
     "bonus": "+20 potere magico, +4% velocità di movimento, +2% riduzione tempo di recupero",
     "unique": null,
-    "passive": "Lanterna della Speranza: gli attributi dell'equipaggiamento aumentano con il livello dell'eroe.",
+    "passive": "Lantern of Hope: gli attributi dell'equipaggiamento crescono con il livello dell'eroe.",
     "active": null,
     "recipe": [],
     "bestFor": "Floryn"

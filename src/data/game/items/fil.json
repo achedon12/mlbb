@@ -737,7 +737,7 @@
     "price": 2010,
     "bonus": "+80 Pisikal na Pag-atake, +10% Pagbawas ng Cooldown",
     "unique": "+15 Pisikal na Pagpasok",
-    "passive": "Pagganti: Ang pagharap ng damage sa parehong hero ng kaaway o pag-creep nang 5 beses na sunud-sunod ay nagbibigay ng 50% dagdag na Movement speed na nabubulok sa loob ng 3 segundo (8 segundong cooldown).",
+    "passive": "Retribution: Ang pagharap ng damage sa parehong hero ng kaaway o pag-creep nang 5 beses na sunud-sunod ay nagbibigay ng 50% dagdag na Movement speed na nabubulok sa loob ng 3 segundo (8 segundong cooldown).",
     "active": null,
     "recipe": [
       "Fury Hammer",

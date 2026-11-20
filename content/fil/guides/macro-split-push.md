@@ -1,5 +1,5 @@
 ---
-title: "Macro at card reading: kailan at paano hatiin ang push"
+title: "Macro at pagbabasa ng mapa: kailan at paano gawin ang split push"
 short: "Macro at split push"
 date: "2026-11-14"
 updated: "2026-11-14"
@@ -12,7 +12,7 @@ related: ["jungle-objectives", "teamfight-positioning", "exp-lane"]
 tools: ["/map", "/tools/timer", "/meta"]
 ---
 
-Dalawang koponan ng parehong antas ng mekanikal ay hindi madalas na manalo sa bawat isa. Ang pagkakaiba ay ang macro: ang kakayahang nasa tamang lugar, sa tamang oras, na may tamang bilang ng mga manlalaro. Hindi ito nangangailangan ng mga reflexes o tumpak na mga hero, tanging atensyon.
+Sa parehong antas ng mekanikal, ang isang koponan ay nagtatapos sa panalo nang mas madalas kaysa sa isa. Ang pagkakaiba ay ang macro: nasa tamang lugar, sa tamang oras, na may tamang bilang ng mga manlalaro. Hindi ito nangangailangan ng mga reflexes o espesyal na hero, pansin lamang.
 
 ## Tingnan ang mini-map
 
@@ -30,43 +30,43 @@ Ang isang laro ay hindi nilalaro ng layunin ayon sa layunin: ito ay nilalaro sa 
 
 - **Kapag ang isang layunin ay nawala nang maaga**, kumuha ng isa pa sa kabilang panig ng mapa sa halip na labanan ang apat laban sa lima.
 - **Kapag kumuha ka ng isang layunin**, tanungin ang iyong sarili kung ano ang maaaring kunin ng kalaban sa oras na iyon.
-- **Ang isang panlabas na turret ay mas mababa kaysa sa isang panloob na turret**: ang pagkakasunud-sunod ng pagkasira ay binibilang para sa pag-access sa jungle ng kalaban.
+- **Ang isang panlabas na turret ay mas mababa kaysa sa isang panloob na turret**: ang pangalawa ay nagdadala ng mas maraming ginto sa koponan at mas nagbubukas sa jungle ng kaaway.
 
-Ang [gabay sa mapa](/map) ay nagpapaalala sa iyo kung saan matatagpuan ang bawat turret at bawat kampo, at ang [objective chronology](/tools/timer) ay nagbibigay-daan sa iyo na malaman nang maaga kung kailan magaganap ang palitan.
+Ang [gabay sa mapa](/map) ay nagpapaalala sa iyo kung nasaan ang bawat turret at kampo, at ang [layunin na timeline](/tools/timer) ay nagsasabi sa iyo nang maaga kung kailan lalabas ang palitan.
 
 ## Ang split push: pagtulak mag-isa
 
-Ang split pushing ay nagsasangkot ng pagtulak sa isang lane nang mag-isa habang ang natitirang bahagi ng koponan ay nakatayo sa ibang lugar. Pinipilit nito ang kalaban na pumili: magpadala ng isang tao upang ipagtanggol, at maglaro ng apat laban sa apat sa ibang lugar, o ihulog ang toresilya.
+Ang split push ay binubuo ng pagtulak ng isang lane nang mag-isa habang ang apat na iba ay naglalaro sa ibang lugar. Ang kalaban ay dapat na pumili: magpadala ng isang tao upang ipagtanggol at maglaro ng apat laban sa apat sa kabilang panig, o hayaang mahulog ang toresilya.
 
 Gumagana ito kapag natugunan ang tatlong kundisyon:
 
 1. **Ang hero na nagtutulak ay nanalo sa tunggalian** laban sa isang darating upang ipagtanggol, o maaaring tumakas nang hindi namamatay.
-2. **Ang natitirang bahagi ng koponan ay hindi lumalaban**: hawak nila ang isang defensive na posisyon, sa ilalim ng isang turret o malapit sa isang layunin, nang hindi tumatanggap ng apat-sa-limang labanan.
-3. **Ang mga alon ay pinamamahalaan**: ang isang lane na itinutulak sa harap ng iyong koponan ay nagpapanatili ng presyon habang ikaw ay nasa ibang lugar.
+2. **Ang natitirang bahagi ng koponan ay hindi lumalaban**: ito ay nagtataglay ng isang defensive na posisyon, sa ilalim ng isang turret o malapit sa isang layunin, at tumatanggi sa labanan kapag nalampasan ang bilang.
+3. **Ang mga alon ay pinamamahalaan**: ang lane na kinaroroonan ng iyong koponan ay itinulak, at ang alon na ito ay nagpapanatili ng presyon habang ikaw ay nasa ibang lugar.
 
-Ang mahuhusay na split pusher ay mabilis magpabagsak ng turret at may paraan para makatakas. Si [Sun](/heroes/sun) ay nagiging tungkod, nagtatago at lumilitaw sa mas malayo gamit ang Swift Exchange; si [Zilong](/heroes/zilong) ay nagkakaroon ng movement speed at hindi tinatablan ng slow gamit ang Supreme Warrior. Si [Masha](/heroes/masha) naman ay may iisang dash lang (Claw Strike) para umalis: kailangan niyang bantayan ang minimap at umalis sa lane bago dumating ang mga depensa.
+Mabilis na ibinaba ng magagandang split push hero ang isang turret at may sapat na para makatakas. Nagiging staff ang [Sun](/heroes/sun), nagtatago at muling lumitaw nang mas malayo sa Swift Exchange; Ang [Zilong](/heroes/zilong) ay nakakakuha ng movement speed at binabalewala ang pagbagal sa Supreme Warrior. [Masha](/heroes/masha), isa lang ang pagmamadali niya (Claw Strike) para umalis: dapat niyang subaybayan ang mini-map at umalis sa lane bago dumating ang mga defender.
 
-## Kapag hindi hati push
+## Kailan Iwasan ang Split Push
 
 Ang split push ay nagiging error sa tatlong sitwasyon:
 
-- **ang Lord ay nasa laro** at ang kalaban ay maaaring kunin ito ng lima habang ikaw ay nagtutulak nang mag-isa;
+- **the Lord is available** and the opponent can take it with five while you push alone;
 - **hindi alam ng iyong koponan na ikaw ay nagtutulak** at nakikibahagi sa labanan nang wala ka;
 - **ang pinakamalakas na kalabang hero sa isang tunggalian** ay hindi na lumalabas sa mini-map: maaaring naghihintay siya sa iyo.
 
 ## Endgame: Ang Lord at ang mga alon
 
-Pagkalipas ng humigit-kumulang labinlimang minuto, ang mga pagkamatay ay tumatagal ng mahabang panahon at ang isang solong natalo na laban ay maaaring magbukas ng base. Ang macro ay nagiging mas simple, at mas malala:
+Pagkatapos ng humigit-kumulang labinlimang minuto, mahaba ang mga oras ng respawn at ang isang solong natalo na laban ay maaaring magbukas ng base. Nagiging mas simple ang macro, ngunit mas mahal ang bawat error:
 
 - makipaglaban lamang sa Lord o sa isang toresilya sa kamay;
 - palaging itulak ang alon bago ang isang layunin, upang ito ay dumating sa parehong oras tulad ng sa iyo;
 - huwag iwanan ang isang manlalaro na mag-isa sa gitna ng mapa nang walang paningin.
 
-Ipinapakita rin ng [weekly meta report](/meta) kung aling mga hero ang umaangat o pababa: ang isang meta na mayaman sa split push heroes ay nangangailangan ng higit na disiplina sa lane defense.
+Ipinapakita rin ng [weekly meta report](/meta) kung aling mga hero ang pataas o pababa: kapag malakas ang split push heroes, kailangan mong ipagtanggol ang iyong mga lane nang mas mahigpit.
 
 ## Ang pinakakaraniwang pagkakamali
 
-- Magsama-sama bilang isang grupo ng lima sa mid lane, hinahayaan ang dalawang alon na tumulak sa mga gilid.
+- Magsama-sama bilang isang grupo ng lima sa Mid lane, na hinahayaan ang dalawang alon na tumulak sa mga gilid.
 - Pag-abandona sa isang layunin nang hindi kumukuha ng anumang kapalit.
-- Hatiin ang pagtulak habang ang koponan ay lumalaban, nang walang babala: ito ay isang apat-sa-limang laban.
+- Pumunta sa isang split push nang walang babala habang ang koponan ay nakikipaglaban: nilalaro nito ang laban na apat laban sa lima.
 - Tumakbo patungo sa isang malayong laban sa halip na kunin ang toresilya sa harap mo.

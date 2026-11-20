@@ -22,7 +22,7 @@ Ang roamer ay hindi nagpapanatili ng isang lane: lumilipat siya mula sa isang la
 - **Proteksyon**: isang suporta ang nagpapagaling, nagpoprotekta o nagtataboy sa mga diver na nagta-target sa mga carrier.
 - **Oras**: ang isang roamer na pumipilit sa isang kalaban na umatras ay nakakakuha ng mga segundo para sa isang layunin, nang hindi man lang lumalaban.
 
-Habang kumikita siya ng kaunting ginto, nilagyan ng roamer ang kanyang sarili ng mga roam boots: ang kanilang pagpapala ay nababayaran sa kanyang mababang kita at nagdaragdag ng kapaki-pakinabang na epekto sa koponan. Ang [item catalog](/items) ay nagpapakita sa kanila ng mga bota na kanilang kinumpleto.
+Habang kumikita siya ng kaunting ginto, nilagyan ng roamer ang kanyang sarili ng mga roam boots: ang kanilang pagpapala ay nababayaran sa kanyang mababang kita at nagdaragdag ng kapaki-pakinabang na epekto sa koponan. Ang [item catalog](/items) ay nagpapakita ng mga bota kung saan ito idinagdag.
 
 ## Mga Inirerekomendang Hero Sa Ngayon
 
@@ -36,17 +36,17 @@ Dalawang pamilya ang nagbabahagi ng post. Ang mga tank ng pakikipag-ugnayan, gay
 
 Ang roamer ay gumagawa ng mga bagay na mas nagsisilbi sa koponan kaysa sa kanyang sarili:
 
-- **laban sa isang koponan na nagpapagaling sa sarili**, [Dominance Ice](/items/dominance-ice), na nagpapababa sa paggaling ng mga kalapit na kalaban;
+- **laban sa isang pangkat na nagpapagaling**, [Dominance Ice](/items/dominance-ice), na binabawasan ang pagpapagaling at mga kalasag ng mga kalapit na kalaban;
 - **upang ilunsad ang ultimate nang mas madalas**, [Fleeting Time](/items/fleeting-time), na nagpapababa ng recharge nito pagkatapos ng isang elimination o tulong;
-- **para protektahan ang isang kaalyado**, [Flask of the Oasis](/items/flask-of-the-oasis) on supports that heal.
+- **upang protektahan ang isang kaalyado**, [Flask of the Oasis](/items/flask-of-the-oasis) sa mga suportang nagpapagaling o naglalagay ng mga kalasag: ang isang kaalyado na mas mababa sa 35% HP ay tumatanggap din ng isang kalasag.
 
-Sa panig ng spell, ang [Flicker](/spells/flicker) ay nagbibigay-daan sa mga tanke na makisali sa pamamagitan ng sorpresa. [Revitalize](/spells/revitalize) at [Aegis](/spells/aegis) protektahan ang koponan sa isang mahabang laban, at [Petrify](/spells/petrify) nagdadagdag ng area control sa mga hero na kulang nito.
+Sa panig ng spell, ang [Flicker](/spells/flicker) ay nagbibigay-daan sa mga tanke na makisali sa pamamagitan ng sorpresa. Ang [Revitalize](/spells/revitalize) (healing zone) at [Aegis](/spells/aegis) (shield para sa iyo at sa mga kalapit na kaalyado) ay tumutulong sa koponan na tumagal ng mahabang laban, at [Petrify](/spells/petrify), na nagpapabagal at pagkatapos ay hindi kumikilos sa mga kalapit na kaaway, ay nagbibigay ng kontrol sa mga hero na kulang nito.
 
 ## Ang pag-unlad ng isang laro
 
 ### Simula ng laro
 
-Pinoprotektahan ng roamer ang unang buff ng kanyang jungler, pagkatapos ay tinutulungan ang gold lane o mid lane sa mga unang wave. Bandang 1:45, dumaan siya sa ilog upang ihanda ang Turtle, na lumilitaw sa 2:00 malapit sa exp lane.
+Pinoprotektahan ng roamer ang unang buff ng kanyang jungler, pagkatapos ay tinutulungan ang Gold lane o Mid lane sa mga unang wave. Bandang 1:45, lumusong siya sa ilog upang ihanda ang Turtle, na lumilitaw sa 2:00 malapit sa EXP lane.
 
 ### kalagitnaan ng laro
 
@@ -54,12 +54,12 @@ Ang roamer ay hindi kailanman mananatili sa parehong lugar nang matagal. Sinusub
 
 ### Pagtatapos ng laro
 
-Sa labanan ng koponan, ang tank ay nakikipag-ugnayan kapag ang mga carrier nito ay malapit nang sumunod, at ang suporta ay nananatili sa tabi ng pangunahing carrier nito. Ang isang roamer na unang namatay, dahil sa pagiging mag-isa, iniiwan ang kanyang koponan sa apat laban sa lima.
+Sa labanan ng koponan, ang tank ay nakikipag-ugnayan kapag ang mga carrier nito ay malapit nang sumunod, at ang suporta ay nananatili sa tabi ng pangunahing carrier nito. Ang isang roamer na nag-iisa at namatay ay iniiwan muna ang kanyang koponan na apat laban sa lima.
 
 ## Ang pinakakaraniwang pagkakamali
 
 - Sundin ang marksman sa buong laro sa halip na ihanda ang mga layunin.
-- Ang pagpasok sa isang hindi pamilyar na bush nag-iisa na may marupok na suporta.
+- Ang pagpasok sa isang walang check na bush mag-isa na may manipis na suporta.
 - Sumabak sa labanan habang ang mga carrier ng koponan ay nagsasaka pa.
 - Nakakalimutan ang mga roam boots o huli na ang pagbili nito.
 - Gamitin ang iyong ultimate para tapusin ang isang kalaban sa halip na i-save ito para sa laban.
