@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "@/components/link";
 import { ExternalLink } from "lucide-react";
-import { PageHeader } from "@/components/ui";
+import { ActionLink, PageHeader } from "@/components/ui";
+import { ENTRANCE } from "@/components/editorial-poster";
+import { Dex } from "@/components/mascot";
 import { measureWatch, sources, watch } from "@/lib/watch";
 import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
 import { metaPage } from "@/i18n/seo";
-import { formatShortDate } from "@/lib/utils";
+import { cn, formatShortDate } from "@/lib/utils";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -45,33 +47,53 @@ export default async function WatchPage({ params }: { params: Promise<{ locale: 
         </p>
       </PageHeader>
 
-      <div className="page-wrap pb-10 pt-6 sm:py-14">
+      <div className={`page-wrap pb-10 pt-8 sm:py-14 ${ENTRANCE}`}>
         {news.length === 0 ? (
-          <p className="text-chalk-500">
-            {t("pages.watch.none")}
-          </p>
+          // Nothing collected: Dex says so, and why, rather than a blank page.
+          <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-end sm:gap-6">
+            <Dex pose="surpris" height={190} />
+            <div className="dex-bubble max-w-xl sm:mb-8">
+              <p className="leading-relaxed text-chalk-200 sm:text-lg">{t("pages.watch.none")}</p>
+              <p className="mt-4">
+                <ActionLink href="/news">{t("pages.news.all")}</ActionLink>
+              </p>
+            </div>
+          </div>
         ) : (
-          <ul className="grid grid-cols-1 gap-2 sm:gap-3 lg:grid-cols-2 2xl:grid-cols-3">
-            {news.map((a) => (
-              <li key={a.link}>
+          <ul className="grid grid-cols-1 gap-3 sm:gap-4 lg:grid-cols-2 2xl:grid-cols-3">
+            {news.map((a, i) => (
+              <li key={a.link} className={i === 0 ? "lg:col-span-2 2xl:col-span-3" : undefined}>
                 <a
                   href={a.link}
                   rel="noreferrer nofollow"
                   target="_blank"
-                  className="bevel group flex h-full gap-3 border border-night-700/70 bg-night-900/60 p-3 transition-colors hover:border-gold-500/60 sm:gap-4 sm:p-5"
+                  className="group card-link flex h-full gap-4 p-4 sm:p-6"
                 >
+                  {/* The source as a crest: the publisher is what tells two entries apart. */}
+                  <span
+                    aria-hidden
+                    className={cn(
+                      "bevel display-caps grid shrink-0 place-items-center bg-night-800 text-gold-400 transition-colors group-hover:bg-gold-400 group-hover:text-night-950",
+                      i === 0 ? "size-16 text-3xl sm:size-24 sm:text-5xl" : "size-12 text-2xl",
+                    )}
+                  >
+                    {a.source.slice(0, 2)}
+                  </span>
                   <div className="min-w-0 flex-1 break-words">
-                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                      <span className="text-xs font-semibold uppercase tracking-wide text-gold-400">
-                        {a.source}
-                      </span>
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
+                      <span className="font-heading font-bold uppercase text-gold-400">{a.source}</span>
                       {a.date && (
-                        <time dateTime={a.date} className="text-xs text-chalk-500">
+                        <time dateTime={a.date} className="text-chalk-400">
                           {date(a.date)}
                         </time>
                       )}
                     </div>
-                    <h2 className="mt-1 font-heading font-bold leading-snug text-chalk-100 transition-colors group-hover:text-gold-400 sm:mt-1.5 sm:text-lg">
+                    <h2
+                      className={cn(
+                        "display-caps mt-2 text-balance text-chalk-100 transition-colors group-hover:text-gold-300",
+                        i === 0 ? "text-[clamp(2rem,1.4rem+2vw,3.25rem)]" : "text-[1.6rem] sm:text-[1.85rem]",
+                      )}
+                    >
                       {a.title}
                     </h2>
                     {/*
@@ -80,7 +102,7 @@ export default async function WatchPage({ params }: { params: Promise<{ locale: 
                       screens. The text itself is untouched.
                     */}
                     {a.excerpt && (
-                      <p className="mt-1.5 line-clamp-2 text-sm leading-snug text-chalk-500 sm:mt-2 sm:line-clamp-3 sm:leading-relaxed">
+                      <p className="mt-2 line-clamp-2 text-sm leading-snug text-chalk-400 sm:line-clamp-3 sm:leading-relaxed">
                         {a.excerpt}
                       </p>
                     )}
@@ -96,7 +118,7 @@ export default async function WatchPage({ params }: { params: Promise<{ locale: 
           </ul>
         )}
 
-        <p className="mt-8 max-w-3xl border-t border-night-800 pt-5 text-xs leading-relaxed text-chalk-500">
+        <p className="mt-12 max-w-3xl border-t border-night-800 pt-5 text-xs leading-relaxed text-chalk-500">
           {creditBefore}
           <Link href="/patch-notes" className="text-gold-400 hover:underline">
             {t("nav.patchNotes.label")}

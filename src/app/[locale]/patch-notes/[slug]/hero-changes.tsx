@@ -1,20 +1,16 @@
-import { Minus, TrendingDown, TrendingUp } from "lucide-react";
 import Link from "@/components/link";
 import { HeroPortrait } from "@/components/hero-portrait";
+import { HeroTile } from "@/components/hero-tile";
+import { DIRECTION_TONE } from "@/components/patch-visuals";
+import { SectionTitle } from "@/components/ui";
 import { heroesBySlug } from "@/lib/data";
 import { historyOf } from "@/lib/evolution";
-import { groupAdjustments, ADJUSTMENT_DIRECTIONS, type AdjustmentDirection } from "@/lib/meta-report";
-import { impactsOfPatch, DAYS_IMPACT, THRESHOLD_IMPACT, type ImpactAdjustment } from "@/lib/trends";
+import { groupAdjustments, ADJUSTMENT_DIRECTIONS } from "@/lib/meta-report";
+import { formatGap, impactsOfPatch, DAYS_IMPACT, THRESHOLD_IMPACT } from "@/lib/trends";
 import type { DetailedPatch } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
 import { cn } from "@/lib/utils";
-
-const STYLE: Record<AdjustmentDirection, { color: string; border: string; icon: React.ReactNode }> = {
-  buff: { color: "text-emerald-400", border: "border-emerald-500/30", icon: <TrendingUp size={16} aria-hidden /> },
-  nerf: { color: "text-blood-500", border: "border-blood-500/30", icon: <TrendingDown size={16} aria-hidden /> },
-  adjust: { color: "text-azure-400", border: "border-azure-500/30", icon: <Minus size={16} aria-hidden /> },
-};
 
 /** Number of distinct heroes affected by a patch. */
 export function changedHeroCount(patch: Pick<DetailedPatch, "adjustments">): number {
@@ -23,11 +19,16 @@ export function changedHeroCount(patch: Pick<DetailedPatch, "adjustments">): num
 }
 
 /**
- * All of a patch's hero changes, in three lists: buffed,
- * nerfed, adjusted. Rendered by the server, with a link to each hero page:
- * the detailed list further down only shows its own once expanded. When
- * the rate history covers the patch, each hero carries its average win
- * rate over the seven days before and after; otherwise, nothing.
+ * All of a patch's hero changes, in three groups: buffed, nerfed, adjusted.
+ * Rendered by the server, with a link to each hero page: the detailed list
+ * further down only shows its own once expanded.
+ *
+ * Buffs and nerfs are rows of portraits. When the rate history covers the
+ * patch, each carries the gap between its average win rate over the seven
+ * days before and after, in ally blue when it rose, enemy red when it fell,
+ * grey within the noise; otherwise the direction's arrow, in its colour.
+ * The plain adjustments, which neither help nor hurt, follow as a line of
+ * names.
  */
 export function HeroChanges({
   patch,
@@ -48,106 +49,119 @@ export function HeroChanges({
   const rate = (v: number) => percent.format(v / 100);
 
   return (
-    <section aria-labelledby="hero-changes" className="mt-6 sm:mt-10">
-      <h2 id="hero-changes" className="scroll-mt-24 font-heading text-2xl font-bold text-chalk-100">
-        {t("pages.patchNotes.changes.title", { v: patch.version })}
-      </h2>
-      <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
-      <p className="mt-4 text-sm text-chalk-300">
+    <section aria-labelledby="hero-changes" className="scroll-mt-24">
+      <SectionTitle id="hero-changes">{t("pages.patchNotes.changes.title", { v: patch.version })}</SectionTitle>
+      <p className="-mt-2 mb-8 max-w-3xl text-chalk-300 sm:-mt-4">
         {t(`pages.patchNotes.changes.summary.${shape}`, { n, v: patch.version })}
         {anchorDetail && (
           <>
             {" "}
-            <a href={`#${anchorDetail}`} className="font-semibold text-gold-400 hover:text-gold-500">
+            <a href={`#${anchorDetail}`} className="font-heading font-bold uppercase text-gold-400 hover:text-gold-300">
               {t("pages.patchNotes.changes.detail")} ↓
             </a>
           </>
         )}
       </p>
 
-      <div className="mt-6 space-y-6">
-        {ADJUSTMENT_DIRECTIONS.map((direction) =>
-          groups[direction].length === 0 ? null : (
+      <div className="space-y-10">
+        {ADJUSTMENT_DIRECTIONS.map((direction) => {
+          const list = groups[direction];
+          if (list.length === 0) return null;
+          const { text, Icon } = DIRECTION_TONE[direction];
+          const heading = (
+            <h3 className={cn("flex items-center gap-2 type-subtitle", text)}>
+              <Icon size={18} aria-hidden />
+              {t(`patchHeroes.plural.${direction}`)}
+              <span className="font-heading text-base font-bold text-chalk-500">{list.length}</span>
+            </h3>
+          );
+
+          if (direction === "adjust") {
+            return (
+              <div key={direction}>
+                {heading}
+                <ul className="mt-3 flex flex-wrap gap-2">
+                  {list.map((a) => {
+                    const sheet = heroesBySlug.get(a.slug);
+                    const content = (
+                      <>
+                        <HeroPortrait
+                          source={sheet?.images.icon ?? sheet?.images.portrait ?? null}
+                          name={sheet?.name ?? a.name}
+                          size="small"
+                          decorative
+                        />
+                        <span className="font-heading font-bold uppercase text-chalk-200 transition-colors group-hover:text-gold-400">
+                          {sheet?.name ?? a.name}
+                        </span>
+                      </>
+                    );
+                    const classes = "bevel-sm group flex items-center gap-2 bg-night-900 py-1 pl-1 pr-3";
+                    return (
+                      <li key={a.slug}>
+                        {sheet ? (
+                          <Link href={`/heroes/${a.slug}`} className={cn(classes, "transition-colors hover:bg-night-800")}>
+                            {content}
+                          </Link>
+                        ) : (
+                          <span className={classes}>{content}</span>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            );
+          }
+
+          return (
             <div key={direction}>
-              <h3 className={cn("flex items-center gap-2 font-heading text-lg font-bold", STYLE[direction].color)}>
-                {STYLE[direction].icon}
-                {t(`patchHeroes.plural.${direction}`)}
-                <span className="text-sm font-medium text-chalk-500">{groups[direction].length}</span>
-              </h3>
-              <ul className="mt-3 flex flex-wrap gap-2">
-                {groups[direction].map((a) => {
+              {heading}
+              <ul className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-5 sm:gap-3 lg:grid-cols-6 xl:grid-cols-8">
+                {list.map((a) => {
                   const sheet = heroesBySlug.get(a.slug);
                   const impact = impacts[a.slug];
-                  const content = (
-                    <>
-                      <HeroPortrait
-                        source={sheet?.images.icon ?? sheet?.images.portrait ?? null}
-                        name={sheet?.name ?? a.name}
-                        size="micro"
-                        decorative
-                      />
-                      <span className="font-medium text-chalk-100">{sheet?.name ?? a.name}</span>
-                      {impact && <Impact impact={impact} rate={rate} sr={t} />}
-                    </>
-                  );
-                  const classes = cn(
-                    "bevel-sm flex items-center gap-2 border bg-night-900/60 py-1 pl-1 pr-2.5 text-sm",
-                    STYLE[direction].border,
-                  );
+                  const net = impact && Math.abs(impact.gap) >= THRESHOLD_IMPACT - 1e-9;
+                  const name = sheet?.name ?? a.name;
                   return (
                     <li key={a.slug}>
-                      {sheet ? (
-                        <Link href={`/heroes/${a.slug}`} className={cn(classes, "transition-colors hover:border-gold-500/60")}>
-                          {content}
-                        </Link>
-                      ) : (
-                        <span className={classes}>{content}</span>
-                      )}
+                      <HeroTile
+                        href={sheet ? `/heroes/${a.slug}` : `/patch-notes/${patch.version}`}
+                        name={name}
+                        portrait={sheet?.images.portrait ?? sheet?.images.icon ?? null}
+                        figure={impact ? formatGap(impact.gap, locale) : direction === "buff" ? "▲" : "▼"}
+                        label={
+                          impact
+                            ? t("pages.patchNotes.changes.impact", { before: rate(impact.before), after: rate(impact.after) })
+                            : t(`patchHeroes.${direction}`)
+                        }
+                        tone={
+                          impact
+                            ? !net
+                              ? "muted"
+                              : impact.gap > 0
+                                ? "ally"
+                                : "enemy"
+                            : direction === "buff"
+                              ? "ally"
+                              : "enemy"
+                        }
+                        sizes="(min-width: 1280px) 10vw, (min-width: 640px) 18vw, 30vw"
+                      />
                     </li>
                   );
                 })}
               </ul>
             </div>
-          ),
-        )}
+          );
+        })}
       </div>
 
       {Object.keys(impacts).length > 0 && (
-        <p className="mt-4 text-xs leading-relaxed text-chalk-500">
+        <p className="mt-6 max-w-3xl text-xs leading-relaxed text-chalk-500">
           {t("pages.patchNotes.changes.impactNote", { n: DAYS_IMPACT })}
         </p>
       )}
     </section>
-  );
-}
-
-/** "51.2 % → 52.4 %": the color follows the direction of the gap, beyond the noise. */
-function Impact({
-  impact,
-  rate,
-  sr,
-}: {
-  impact: ImpactAdjustment;
-  rate: (v: number) => string;
-  sr: ReturnType<typeof createT>;
-}) {
-  const net = Math.abs(impact.gap) >= THRESHOLD_IMPACT - 1e-9;
-  return (
-    <span className="whitespace-nowrap text-xs tabular-nums">
-      <span aria-hidden>
-        <span className="text-chalk-500">{rate(impact.before)} → </span>
-        <span
-          className={cn(
-            "font-semibold",
-            !net ? "text-chalk-300" : impact.gap > 0 ? "text-emerald-400" : "text-blood-500",
-          )}
-        >
-          {rate(impact.after)}
-        </span>
-      </span>
-      <span className="sr-only">
-        {sr("pages.patchNotes.changes.impact", { before: rate(impact.before), after: rate(impact.after) })}
-      </span>
-    </span>
   );
 }

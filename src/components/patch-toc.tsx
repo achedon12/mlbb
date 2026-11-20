@@ -44,21 +44,21 @@ export function PatchToc({ entries }: { entries: Entry[] }) {
 
   return (
     <nav aria-label={t("common.contents")} className="lg:sticky lg:top-24">
-      <p className="font-heading text-sm font-semibold uppercase tracking-wider text-gold-400">
-        {t("common.contents")}
-      </p>
-      <ul className="mt-3 space-y-0.5 border-l border-night-800">
+      <p className="display-caps text-2xl font-extrabold text-chalk-100">{t("common.contents")}</p>
+      <div aria-hidden className="eclat mt-2 h-[3px] w-14" />
+      <ul className="mt-4 space-y-0.5 border-l border-night-700">
         {entries.map((e) => (
           <li key={e.anchor}>
             <a
               href={`#${e.anchor}`}
               aria-current={active === e.anchor ? "true" : undefined}
               className={cn(
-                "-ml-px block border-l py-1 text-sm leading-snug transition-colors",
+                // The active entry carries the éclat: a blade of light down its left edge.
+                "relative -ml-px block py-1 text-sm leading-snug transition-colors before:absolute before:inset-y-0.5 before:-left-px before:w-[3px] before:origin-top before:bg-linear-to-b before:from-gold-300 before:via-gold-400 before:to-gold-600 before:transition-transform before:duration-200",
                 e.level === 3 ? "pl-6 text-xs" : "pl-3",
                 active === e.anchor
-                  ? "border-gold-500 text-gold-400"
-                  : "border-transparent text-chalk-500 hover:text-chalk-100",
+                  ? "font-semibold text-gold-400 before:scale-y-100"
+                  : "text-chalk-400 before:scale-y-0 hover:text-chalk-100 hover:before:scale-y-100 hover:before:opacity-50",
               )}
             >
               {e.title}

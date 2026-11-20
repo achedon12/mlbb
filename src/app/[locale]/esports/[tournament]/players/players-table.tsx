@@ -76,14 +76,14 @@ export function PlayersTable({ rows, name }: { rows: PlayerStatRow[]; name: stri
       s.column === column ? { column, descending: !s.descending } : { column, descending: NUMERIC.includes(column) },
     );
 
-  const cell = "px-3 py-1.5 text-right group-hover:bg-night-900";
+  const cell = "px-3 py-1.5 text-right group-hover:bg-night-800";
   return (
-    <div className="relative overflow-x-auto border border-night-700/70">
+    <div className="bevel relative overflow-x-auto bg-night-900">
       <table className="w-full min-w-[46rem] border-collapse text-sm tabular-nums">
         <caption className="sr-only">{t("pages.esportsPlayersUI.caption", { name })}</caption>
-        <thead className="bg-night-900 text-xs text-chalk-500">
+        <thead className="bg-night-800 font-heading text-sm text-chalk-400">
           <tr>
-            <SortHeader column="player" sort={sort} onSort={onSort} className="sticky left-0 z-10 bg-night-900 text-left">
+            <SortHeader column="player" sort={sort} onSort={onSort} className="sticky left-0 z-10 bg-night-800 text-left">
               {t("pages.esportsPlayersUI.player")}
             </SortHeader>
             {(["team", "role"] as const).map((c) => (
@@ -106,7 +106,7 @@ export function PlayersTable({ rows, name }: { rows: PlayerStatRow[]; name: stri
             <tr key={r.slug} className="group border-t border-night-800">
               <th
                 scope="row"
-                className="sticky left-0 z-10 max-w-40 bg-night-950 px-3 py-1.5 text-left font-heading font-bold text-chalk-100 group-hover:bg-night-900"
+                className="sticky left-0 z-10 max-w-40 bg-night-900 px-3 py-1.5 text-left font-heading font-bold text-chalk-100 group-hover:bg-night-800"
               >
                 {r.linked ? (
                   <Link href={`/esports/players/${r.slug}`} prefetch={false} className="block truncate transition-colors hover:text-gold-400">
@@ -116,7 +116,7 @@ export function PlayersTable({ rows, name }: { rows: PlayerStatRow[]; name: stri
                   <span className="block truncate">{r.name}</span>
                 )}
               </th>
-              <td className="max-w-44 px-3 py-1.5 text-left text-chalk-300 group-hover:bg-night-900">
+              <td className="max-w-44 px-3 py-1.5 text-left text-chalk-300 group-hover:bg-night-800">
                 {r.teamLinked ? (
                   <Link href={`/esports/teams/${r.teamSlug}`} prefetch={false} className="block truncate transition-colors hover:text-gold-400">
                     {r.team}
@@ -125,14 +125,14 @@ export function PlayersTable({ rows, name }: { rows: PlayerStatRow[]; name: stri
                   <span className="block truncate">{r.team}</span>
                 )}
               </td>
-              <td className="px-3 py-1.5 text-left text-chalk-300 group-hover:bg-night-900">{r.role}</td>
+              <td className="px-3 py-1.5 text-left text-chalk-300 group-hover:bg-night-800">{r.role}</td>
               <td className={cn(cell, "text-chalk-100")}>{r.games}</td>
               <td className={cn(cell, "text-chalk-300")}>{r.wins}</td>
               <td className={cn(cell, "text-chalk-300")}>{r.losses}</td>
               <td className={cn(cell, "font-semibold text-gold-400")}>{percent.format(r.winRate / 100)}</td>
               <td className={cn(cell, "text-chalk-100")}>{r.mvps}</td>
               <td className={cn(cell, "text-chalk-300")}>{r.heroCount}</td>
-              <td className="px-3 py-1.5 group-hover:bg-night-900">
+              <td className="px-3 py-1.5 group-hover:bg-night-800">
                 <ul className="flex gap-1">
                   {r.top.map((h) => (
                     <li key={h.slug} className="flex" title={t("pages.esportsPlayersUI.heroLine", { hero: h.name, games: h.games, wins: h.wins })}>
@@ -184,7 +184,7 @@ function SortHeader({
         type="button"
         onClick={() => onSort(column)}
         className={cn(
-          "inline-flex items-center gap-1 whitespace-nowrap uppercase tracking-wide transition-colors hover:text-gold-400",
+          "inline-flex items-center gap-1 whitespace-nowrap font-bold uppercase transition-colors hover:text-gold-400",
           active && "text-gold-400",
         )}
       >

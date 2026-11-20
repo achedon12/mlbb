@@ -96,7 +96,7 @@ export function TournamentNav({ t, turn, active }: { t: T; turn: Tournament; act
     { id: "players", href: `/esports/${turn.slug}/players` },
   ] as const;
   return (
-    <nav aria-label={t("pages.esports.nav.label")} className="mt-5 border-b border-night-700/70">
+    <nav aria-label={t("pages.esports.nav.label")} className="mt-8 border-b border-night-700">
       <ul className="-mb-px flex gap-1">
         {items.map((item) => {
           const current = item.id === active;
@@ -106,8 +106,9 @@ export function TournamentNav({ t, turn, active }: { t: T; turn: Tournament; act
                 href={item.href}
                 aria-current={current ? "page" : undefined}
                 className={cn(
-                  "block border-b-2 px-4 py-2.5 font-heading text-sm font-semibold transition-colors",
-                  current ? "border-gold-500 text-gold-400" : "border-transparent text-chalk-500 hover:text-chalk-100",
+                  // The éclat slides under the hovered tab and stays under the current one (aria-current).
+                  "eclat-under block px-4 py-3 font-heading text-base font-bold uppercase transition-colors",
+                  current ? "text-gold-400" : "text-chalk-400 hover:text-chalk-100",
                 )}
               >
                 {t(`pages.esports.nav.${item.id}`)}
