@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LoginPanel, UserBar } from "@/components/bot/dashboard-parts";
 import { ModerationActions, ResolveDataReportButton, UnbanButton } from "@/components/community/moderation-actions";
-import { ago, Unavailable } from "@/components/community/parts";
+import { ago, count, Unavailable } from "@/components/community/parts";
 import Link from "@/components/link";
 import { PageHeader } from "@/components/ui";
 import { LOCALE_INTL, type Locale } from "@/i18n/config";
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   return { title: createT(locale)("pages.community.moderation.title"), robots: { index: false, follow: false } };
 }
 
-const sectionTitle = "font-heading text-xl font-bold text-chalk-100";
+const sectionTitle = "display-caps text-[2rem] text-chalk-100 sm:text-[2.4rem]";
 
 export default async function ModerationPage({ params, searchParams }: Params) {
   const { locale } = await params;
@@ -73,7 +73,7 @@ export default async function ModerationPage({ params, searchParams }: Params) {
                 <h2 id="queue-title" className={sectionTitle}>
                   {t("pages.community.moderation.queue", { n: data[0].length })}
                 </h2>
-                <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+                <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
                 {data[0].length === 0 ? (
                   <p className="mt-5 text-sm text-chalk-400">{t("pages.community.moderation.queueEmpty")}</p>
                 ) : (
@@ -88,7 +88,7 @@ export default async function ModerationPage({ params, searchParams }: Params) {
                             {e.authorBanned && <span className="ml-2 text-xs text-blood-400">{t("pages.community.moderation.banned")}</span>}
                             {e.hidden && <span className="ml-2 text-xs text-gold-400">{t("pages.community.moderation.hidden")}</span>}
                             {e.deleted && <span className="ml-2 text-xs text-chalk-500">{t("pages.community.moderation.deleted")}</span>}
-                            <span className="ml-2 text-xs text-chalk-500">{t("pages.community.moderation.reportCount", { n: e.count })}</span>
+                            <span className="ml-2 text-xs text-chalk-500">{count(t, locale, "pages.community.moderation.reportCount", e.count)}</span>
                           </p>
                           {!e.deleted && (
                             <Link href={e.path} className="text-xs text-azure-400 underline underline-offset-4">
@@ -133,7 +133,7 @@ export default async function ModerationPage({ params, searchParams }: Params) {
                 <h2 id="data-reports-title" className={sectionTitle}>
                   {t("pages.community.moderation.dataReports", { n: data[3].length })}
                 </h2>
-                <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+                <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
                 <p className="mt-3 text-sm text-chalk-400">{t("pages.community.moderation.dataReportsLead")}</p>
                 {data[3].length === 0 ? (
                   <p className="mt-5 text-sm text-chalk-400">{t("pages.community.moderation.dataReportsEmpty")}</p>
@@ -173,7 +173,7 @@ export default async function ModerationPage({ params, searchParams }: Params) {
                 <h2 id="banned-title" className={sectionTitle}>
                   {t("pages.community.moderation.bannedTitle", { n: data[1].length })}
                 </h2>
-                <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+                <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
                 {data[1].length === 0 ? (
                   <p className="mt-5 text-sm text-chalk-400">{t("pages.community.moderation.bannedEmpty")}</p>
                 ) : (
@@ -199,7 +199,7 @@ export default async function ModerationPage({ params, searchParams }: Params) {
                 <h2 id="log-title" className={sectionTitle}>
                   {t("pages.community.moderation.logTitle")}
                 </h2>
-                <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+                <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
                 {data[2].length === 0 ? (
                   <p className="mt-5 text-sm text-chalk-400">{t("pages.community.moderation.logEmpty")}</p>
                 ) : (

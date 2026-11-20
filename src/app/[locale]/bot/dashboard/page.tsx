@@ -97,12 +97,12 @@ export default async function DashboardPage({ params, searchParams }: Params) {
                         <GuildIcon id={g.id} icon={g.icon} name={g.name} />
                         <span className="min-w-0 flex-1">
                           <span className="block truncate font-heading text-lg font-bold text-chalk-100">{g.name}</span>
-                          <span className="mt-1 inline-flex items-center gap-1.5 text-sm text-emerald-300">
-                            <span aria-hidden className="size-2 rounded-full bg-emerald-400" />
+                          <span className="mt-1 inline-flex items-center gap-1.5 text-sm text-azure-300">
+                            <span aria-hidden className="size-2 rounded-full bg-azure-400" />
                             {t("pages.botDashboard.botPresent")}
                           </span>
                         </span>
-                        <span className={`${BUTTON} shrink-0 bg-gold-500 text-night-950 group-hover:bg-gold-400`}>
+                        <span className={`${BUTTON} shrink-0 bg-gold-400 text-night-950 group-hover:bg-gold-300`}>
                           {t("pages.botDashboard.manage")}
                           <ChevronRight aria-hidden className="size-4" />
                         </span>

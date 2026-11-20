@@ -602,8 +602,8 @@
       "seeRole": "Semua {plural} dan lanenya",
       "openTier": "Tampilkan {n} hero tier {p}",
       "poster": {
-        "kicker": "Peringkat 1 di daftar ini",
-        "label": "{name}, peringkat 1 di daftar ini: tier {tier}, win rate {win}, ban rate {ban}"
+        "kicker": "No 1 di peringkat ini",
+        "label": "{name}, n°1 dalam peringkat ini: level {tier}, {win} kemenangan, {ban} ban"
       }
     },
     "patchNotes": {
@@ -648,7 +648,14 @@
       "intro": "Hubungkan akun game Anda dengan kode verifikasi resmi Moonton. Tidak diperlukan kata sandi.",
       "security": "Situs ini tidak pernah melihat kata sandi Anda. Itu hanya menerima token sementara, disimpan dalam cookie aman, yang Anda hapus saat Anda logout.",
       "metaTitle": "Masuk",
-      "metaDescription": "Hubungkan akun Mobile Legends Anda dengan kode verifikasi, tanpa kata sandi."
+      "metaDescription": "Hubungkan akun Mobile Legends Anda dengan kode verifikasi, tanpa kata sandi.",
+      "welcome": "Selamat datang di MLBBdex!",
+      "welcomeText": "Akun game Anda, tanpa kata sandi: nama pengguna Anda, lalu kode yang dikirimkan Moonton ke kotak masuk dalam game Anda.",
+      "perks": {
+        "profile": "Profil Anda, peringkat, dan hero yang paling sering dimainkan",
+        "community": "Forum dan pencarian rekan satu tim",
+        "collection": "Koleksi skin Anda di semua perangkat Anda"
+      }
     },
     "watch": {
       "title": "Rangkuman",
@@ -663,7 +670,8 @@
     "about": {
       "title": "Tentang",
       "lead": "Sebuah proyek independen, terbuka, dan secara sukarela menyatakan batasannya secara eksplisit.",
-      "metaDescription": "Apa situs ini, apa isinya, apa yang tidak boleh dimuat, dan bagaimana berkontribusi."
+      "metaDescription": "Apa situs ini, apa isinya, apa yang tidak boleh dimuat, dan bagaimana berkontribusi.",
+      "dexLine": "Saya Dex! Saya memandu Anda melalui situs: hero, meta, alat, dan komunitas."
     },
     "legal": {
       "title": "Pemberitahuan hukum",
@@ -694,7 +702,9 @@
       "detailUnavailable": "Detail statistik (win rate, riwayat, hero yang paling banyak dimainkan) bergantung pada layanan Moonton yang sedang offline. Profil Anda di atas tetap dapat diakses; detailnya akan kembali segera setelah sumber merespons.",
       "noStat": "Tidak ada statistik untuk ditampilkan.",
       "profileLink": "Lihat profil pemain saya",
-      "profileLinkText": "Tinjauan musim, hero dibandingkan dengan rata-rata peringkat Anda, permainan terakhir, dan saran."
+      "profileLinkText": "Tinjauan musim, hero dibandingkan dengan rata-rata peringkat Anda, permainan terakhir, dan saran.",
+      "topHeroes": "Pahlawanmu",
+      "topHeroesLead": "Yang paling sering Anda mainkan, berdasarkan game yang disimpan oleh layanan."
     },
     "apiDoc": {
       "title": "API Publik",
@@ -769,7 +779,8 @@
     "offline": {
       "title": "Anda sedang luring",
       "text": "Halaman ini belum dilihat pada perangkat ini, sehingga tidak tersedia secara offline. Halaman yang sudah dikunjungi, dan bagian utama situs, tetap dapat diakses.",
-      "home": "Kembali ke beranda"
+      "home": "Kembali ke beranda",
+      "dexLine": "Tidak ada jaringan saat ini. Halaman yang sudah dibuka tetap dapat dibaca."
     },
     "notFound": {
       "title": "Halaman tidak ditemukan",
@@ -777,7 +788,12 @@
       "home": "Kembali ke beranda",
       "heroes": "Lihat para hero",
       "tierList": "Tier list saat ini",
-      "search": "Cari hero, item, atau halaman"
+      "search": "Cari hero, item, atau halaman",
+      "dexLine": "Hei, halaman ini hilang di hutan... Bagaimana kalau kita pergi dari sini lagi?",
+      "lost": "Hilang",
+      "heroesText": "Lembar hero, build, dan counter.",
+      "tierListText": "Siapa yang mendominasi meta saat ini.",
+      "homeText": "Patch, meta, dan alat hari ini."
     },
     "winRate": {
       "title": "Kalkulator Win Rate",
@@ -892,7 +908,8 @@
         "merge": "Setelah digabungkan, pemindaian akan ditayangkan pada penerapan berikutnya, dan nama Anda tetap ada dalam riwayat repositori."
       },
       "prLink": "Buka permintaan tarik",
-      "guideLink": "Panduan lengkap untuk GitHub (CONTRIBUTING.md)"
+      "guideLink": "Panduan lengkap untuk GitHub (CONTRIBUTING.md)",
+      "dexLine": "Kesalahan pada file, ide, terjemahan? Bantuan apa pun berarti, bahkan bantuan terkecil sekalipun."
     },
     "accountProfile": {
       "metaTitle": "Profil pemain",
@@ -1436,8 +1453,8 @@
         }
       },
       "poster": {
-        "kicker": "Kenaikan terbesar minggu ini",
-        "caption": "poin win rate dalam {days} hari"
+        "kicker": "Peningkatan terkuat minggu ini",
+        "caption": "poin kemenangan dalam {days} hari"
       }
     },
     "statistics": {
@@ -1918,11 +1935,11 @@
       "duelWrong": "jawaban yang salah",
       "duelSource": "Win rate untuk semua peringkat, tercatat di {date}.",
       "dex": {
-        "start": "Giliranmu! Setiap salah membuka satu petunjuk.",
-        "miss": "Ups! Petunjuk baru menunggumu.",
-        "good": "Jeli! Lanjut ke berikutnya.",
-        "won": "Hebat, jawabanmu benar!",
-        "over": "Belum kali ini. Berikutnya pasti bisa!"
+        "start": "Milikmu! Setiap kesalahan membuka sebuah petunjuk.",
+        "miss": "Ups! Petunjuk baru menanti Anda.",
+        "good": "Terlihat jelas! Berikutnya.",
+        "won": "Bagus sekali, jawaban bagus!",
+        "over": "Gagal kali ini. Yang berikutnya akan menjadi yang bagus!"
       }
     },
     "tierMaker": {
@@ -2604,11 +2621,11 @@
       "skip": "Lulus",
       "practiceQuestion": "Siapa hero ini?",
       "dex": {
-        "start": "Giliranmu! Aku simpan rahasianya.",
-        "miss": "Meleset… warnanya menunjukkan arah.",
-        "close": "Makin dekat! Beberapa kotak cocok.",
-        "won": "Mantap, itu dia!",
-        "over": "Sayang sekali! Satu ronde lagi?"
+        "start": "Milikmu! Saya merahasiakannya.",
+        "miss": "Gagal… warna menunjukkan jalannya.",
+        "close": "Ini memanas! Beberapa kotak cocok.",
+        "won": "Bagus sekali, itu dia!",
+        "over": "Damage ! Putaran lagi?"
       }
     },
     "advanceServer": {
@@ -3606,7 +3623,7 @@
       "statsTitle": "Statistik yang dihitung",
       "statsMissing": "Statistik tidak tersedia untuk hero ini.",
       "poster": {
-        "kicker": "Hero dengan build terbanyak"
+        "kicker": "Hero yang paling kekar"
       }
     },
     "damageCalculator": {
@@ -3782,7 +3799,8 @@
       "ctaTitle": "Tambahkan MLBBDex ke server kamu",
       "ctaText": "Satu menit untuk menambahkan, tanpa biaya. Ada pertanyaan atau ide? Server MLBBDex menunggu kamu.",
       "privacy": "Privasi bot",
-      "terms": "Ketentuan penggunaan"
+      "terms": "Ketentuan penggunaan",
+      "dexLine": "File MLBBDex, langsung di server Discord Anda."
     },
     "botPrivacy": {
       "title": "Privasi Bot Perselisihan",
@@ -3882,7 +3900,10 @@
       "failing": "Bot tidak dapat memposting ke saluran ini: periksa izinnya, lalu simpan.",
       "flush": "Publikasikan pengumuman yang tertunda",
       "flushing": "Publikasi pengumuman…",
-      "flushed": "Pengumuman terverifikasi: {count} baru, publikasi diminta dari bot.",
+      "flushed": {
+        "one": "Pengumuman terverifikasi: {count} baru, publikasi diminta dari bot.",
+        "other": "Pengumuman terverifikasi: {count} berita, publikasi diminta dari bot."
+      },
       "flushFailed": "Bot tidak merespons.",
       "greetingsTitle": "Sambutan & perpisahan",
       "greetingsLead": "Pesan di saluran pilihanmu saat anggota bergabung atau keluar, dalam bahasa server. Hanya pendatang baru yang di-mention; jika lebih dari 5 orang bergabung dalam 10 detik, bot mengirim satu pesan untuk semuanya.",
@@ -4455,8 +4476,14 @@
       "latestTitle": "Diskusi terbaru",
       "emptyAll": "Belum ada diskusi: mulai yang pertama.",
       "emptyCategory": "Belum ada diskusi di kategori ini.",
-      "threadCount": "{n} diskusi",
-      "replies": "{n} balasan",
+      "threadCount": {
+        "one": "{n} diskusi",
+        "other": "{n} diskusi"
+      },
+      "replies": {
+        "one": "{n} balasan",
+        "other": "{n} balasan"
+      },
       "pinned": "Disematkan",
       "locked": "Dikunci",
       "edited": "diedit",
@@ -4502,7 +4529,10 @@
       "searchTitle": "Pencarian forum",
       "searchLead": "Diskusi yang judul, isi, atau balasannya memuat kata-katamu. Tanda kutip untuk frasa persis, tanda minus untuk mengecualikan kata.",
       "searchLeadCategory": "Mencari di kategori {name}.",
-      "searchResults": "{n} diskusi untuk \"{query}\"",
+      "searchResults": {
+        "one": "{n} diskusi untuk \"{query}\"",
+        "other": "{n} diskusi untuk \"{query}\""
+      },
       "searchEmpty": "Tidak ada diskusi yang cocok. Coba kata lain, atau lebih sedikit kata.",
       "searchHint": "Ketik satu kata atau lebih: hero, item, atau pertanyaan.",
       "rules": {
@@ -4519,7 +4549,10 @@
         "seoTitle": "Cari rekan tim Mobile Legends",
         "seoDescription": "Pemain Mobile Legends yang mencari duo atau tim: saring berdasarkan region, rank, lane, dan bahasa, lalu pasang kartumu sendiri.",
         "ownTitle": "Kartu kamu",
-        "listTitle": "{n} pemain tersedia",
+        "listTitle": {
+          "one": "{n} pemain tersedia",
+          "other": "{n} pemain tersedia"
+        },
         "any": "Semua",
         "lane": "Lane",
         "language": "Bahasa",
@@ -4531,7 +4564,9 @@
         "gameId": "ID game",
         "signInForContact": "untuk melihat kontak.",
         "noContact": "Tidak ada kontak dibagikan: hubungi lewat forum atau Discord.",
-        "discordText": "Di server Discord MLBBDex, channel cari tim selalu ramai."
+        "discordText": "Di server Discord MLBBDex, channel cari tim selalu ramai.",
+        "emptyTitle": "Belum ada siapa pun",
+        "mains": "Hero yang dimainkan"
       },
       "moderation": {
         "title": "Moderasi komunitas",
@@ -4571,17 +4606,28 @@
           "resolve": "Kesalahan ditangani"
         },
         "deleted": "dihapus oleh penulisnya",
-        "reportCount": "{n} laporan",
+        "reportCount": {
+          "one": "{n} laporan",
+          "other": "{n} laporan"
+        },
         "asReported": "Saat dilaporkan",
         "dataReports": "Kesalahan dilaporkan pada formulir ({n})",
         "dataReportsLead": "Laporan anonim dikirim dari hero, item, emblem, spell sheet, dan patch note, dari yang terlama hingga terbaru. Perbaiki data jika perlu, lalu tandai laporan sebagai diproses.",
         "dataReportsEmpty": "Tidak ada kesalahan yang dilaporkan.",
         "dataCorrection": "Koreksi yang diusulkan:",
         "dataSource": "Sumber :"
-      }
+      },
+      "hostLine": "Hai ! Di sini kami saling membantu, kami berbicara tentang build, dan kami menemukan rekan satu tim.",
+      "signInDex": "Semua orang bisa membaca. Untuk menulis, cukup login.",
+      "emptyDex": "Di sini sangat sepi…",
+      "searchEmptyTitle": "Tidak ada yang ditemukan",
+      "lastActivity": "Aktivitas terakhir {when}"
     },
     "communityUI": {
-      "votes": "{n} vote",
+      "votes": {
+        "one": "{n} vote",
+        "other": "{n} vote"
+      },
       "upvote": "Vote postingan ini",
       "unvote": "Tarik vote saya",
       "signInToVote": "Masuk untuk memberi vote",
@@ -4701,7 +4747,10 @@
         "unban": "Cabut blokir",
         "dismiss": "Abaikan laporan",
         "duration": "Durasi",
-        "days": "{n} hari",
+        "days": {
+          "one": "{n} hari",
+          "other": "{n} hari"
+        },
         "forever": "Permanen",
         "reason": "Alasan (log)",
         "confirmBan": "Konfirmasi blokir",
@@ -4765,9 +4814,9 @@
       "metaTitle": "Alat MLBB: draft, build, damage, dan akun",
       "metaDescription": "Simulator draft, analisis tim, simulator build, kalkulator damage, nilai akun, timer objektif, dan game harian untuk Mobile Legends: Bang Bang.",
       "nTools": "{n} alat",
-      "open": "Buka",
+      "open": "Membuka",
       "play": "Main",
-      "hello": "Pilih alat dan masuk ke pertempuran: semuanya berjalan di browser, gratis, tanpa akun."
+      "hello": "Pilih alat dan masuki arena: semuanya berfungsi di browser, gratis, tanpa akun."
     },
     "discordCard": {
       "title": "Kartu profil Discord",
@@ -5468,7 +5517,11 @@
       "unknown": "Tidak ada akun yang cocok dengan nama pengguna dan server ini.",
       "unavailable": "Layanan ini untuk sementara tidak tersedia.",
       "wrongCode": "Kode salah atau kedaluwarsa."
-    }
+    },
+    "steps": "Langkah-langkah koneksi",
+    "step1": "tanda pengenal Anda",
+    "step2": "Kode diterima dalam game",
+    "stepOf": "Langkah {n} dari 2"
   },
   "articleUI": {
     "none": "Belum ada publikasi.",
@@ -5767,7 +5820,8 @@
     "retry": "Coba lagi",
     "oops": "Ups",
     "pageText": "Halaman ini gagal dimuat. Anda dapat mencoba lagi atau kembali ke halaman beranda.",
-    "home": "Kembali ke beranda"
+    "home": "Kembali ke beranda",
+    "dexLine": "Aduh, ada sesuatu yang mengganjal di pihak kami. Percobaan baru sering kali sudah cukup."
   },
   "heroCard": {
     "tierTitle": "Tier {p} di tier list",
@@ -5830,7 +5884,8 @@
       "skin": "skin",
       "emblem": "emblem",
       "spell": "Battle Spell"
-    }
+    },
+    "dexEmpty": "Hmm, saya tidak dapat menemukan apa pun. Coba nama lain, atau lebih sedikit huruf."
   },
   "heroData": {
     "resource": {
@@ -6205,5 +6260,9 @@
     "currentGranted": "Pilihan saat ini: cookie diterima pada {date}.",
     "currentDenied": "Pilihan saat ini: cookie ditolak pada {date}.",
     "manage": "Kelola cookie"
+  },
+  "feed": {
+    "title": "MLBBDex — berita dan panduan",
+    "description": "Lembar hero, build dan counter berdasarkan rank, tier list, item, emblem, patch note dan berita dari Mobile Legends: Bang Bang, dalam bahasa Perancis."
   }
 }

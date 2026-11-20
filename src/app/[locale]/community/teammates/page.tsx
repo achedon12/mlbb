@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { ReportButton } from "@/components/community/post-actions";
-import { ago, DiscordAlternative, heroOptions, isoDate, Unavailable } from "@/components/community/parts";
+import Image from "next/image";
+import { ago, count, DiscordAlternative, heroOptions, isoDate, Unavailable } from "@/components/community/parts";
 import { MemberLine, SignInChoice } from "@/components/community/sign-in";
 import { TeammateForm, type OwnCard } from "@/components/community/teammate-form";
 import { HeroPortrait } from "@/components/hero-portrait";
 import Link from "@/components/link";
 import { Pager } from "@/components/pager";
-import { PageHeader } from "@/components/ui";
+import { DexNote, heroArt, heroPortrait, StageHeader } from "@/components/stage";
 import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { metaPage } from "@/i18n/seo";
@@ -54,7 +55,7 @@ export async function generateMetadata({ params, searchParams }: Params): Promis
   return filtered ? { ...meta, robots: { index: false, follow: true } } : meta;
 }
 
-const SELECT = "bevel-sm mt-1 block h-11 w-full border border-night-700 bg-night-900 px-2 text-sm text-chalk-100";
+const SELECT = "field mt-1 h-11 px-2 text-sm";
 
 export default async function TeammatesPage({ params, searchParams }: Params) {
   const { locale } = await params;
@@ -97,12 +98,33 @@ export default async function TeammatesPage({ params, searchParams }: Params) {
 
   const card = (c: Card) => (
     <li key={c.id}>
-      <article className="bevel flex h-full flex-col gap-3 border border-night-800 bg-night-900/60 p-4">
+      <article className="bevel-lg flex h-full flex-col gap-3 bg-night-900 p-4 transition-[translate] duration-200 hover:-translate-y-0.5 sm:p-5">
+        {c.heroes.length > 0 && (
+          <ul className="-mx-1 grid grid-cols-4 gap-1.5" aria-label={t("pages.communityUI.teammates.heroes")}>
+            {c.heroes.slice(0, 4).flatMap((s) => {
+              const h = heroesBySlug.get(s);
+              const portrait = heroPortrait(s);
+              return h ? (
+                <li key={s}>
+                  <Link href={`/heroes/${s}`} className="hero-tile group">
+                    <span className="hero-tile-art">
+                      {portrait && <Image src={portrait} alt="" fill sizes="(min-width: 1024px) 7rem, 22vw" className="object-cover object-top" />}
+                      <span aria-hidden className="absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-night-950 to-transparent" />
+                      <span className="display-caps absolute inset-x-0 bottom-0 truncate p-1.5 text-sm font-extrabold text-chalk-100 group-hover:text-gold-300">
+                        {h.name}
+                      </span>
+                    </span>
+                  </Link>
+                </li>
+              ) : [];
+            })}
+          </ul>
+        )}
         <header className="flex items-start justify-between gap-3">
           <div className="min-w-0">
-            <h3 className="truncate font-semibold text-chalk-100">{c.authorName}</h3>
-            <p className="text-xs text-chalk-500">
-              {t(`pages.communityUI.regions.${c.region}`)} · {t(`rankNames.${c.rank}`)}
+            <h3 className="display-caps truncate text-[1.9rem] text-chalk-100">{c.authorName}</h3>
+            <p className="mt-1 text-sm text-chalk-300">
+              {t(`pages.communityUI.regions.${c.region}`)} · <span className="font-heading font-bold uppercase text-gold-400">{t(`rankNames.${c.rank}`)}</span>
             </p>
           </div>
           <time dateTime={isoDate(c.createdAt)} className="shrink-0 text-xs text-chalk-500">
@@ -111,14 +133,14 @@ export default async function TeammatesPage({ params, searchParams }: Params) {
         </header>
         <ul className="flex flex-wrap gap-1.5" aria-label={t("pages.communityUI.teammates.lanes")}>
           {c.lanes.map((l) => (
-            <li key={l} className="bevel-sm border border-gold-500/40 bg-gold-500/10 px-2 py-0.5 text-xs text-chalk-100">
+            <li key={l} className="bevel-sm bg-night-800 px-2.5 py-1 font-heading text-sm font-bold uppercase text-chalk-100">
               {t(`lanes.${l}`)}
             </li>
           ))}
         </ul>
-        {c.heroes.length > 0 && (
-          <ul className="flex flex-wrap gap-1" aria-label={t("pages.communityUI.teammates.heroes")}>
-            {c.heroes.flatMap((s) => {
+        {c.heroes.length > 4 && (
+          <ul className="flex flex-wrap gap-1" aria-label={t("pages.community.teammates.mains")}>
+            {c.heroes.slice(4).flatMap((s) => {
               const h = heroesBySlug.get(s);
               return h ? (
                 <li key={s}>
@@ -181,13 +203,16 @@ export default async function TeammatesPage({ params, searchParams }: Params) {
 
   return (
     <>
-      <PageHeader
+      <StageHeader
         title={t("pages.community.teammates.title")}
         lead={t("pages.community.teammates.lead")}
         crumbs={[{ name: t("pages.community.title"), href: "/community" }, { name: t("pages.community.teammates.title") }]}
+        art={heroArt("gusion")}
+        artPosition="60% 20%"
+        dex="idee"
       />
       <ExtendMessages messages={messagesPage(locale, ["pages.communityUI"])}>
-        <div className="page-wrap space-y-8 py-8">
+        <div className="stage-enter page-wrap space-y-10 py-8 sm:py-10">
           {!data ? (
             <Unavailable t={t} />
           ) : (
@@ -215,9 +240,10 @@ export default async function TeammatesPage({ params, searchParams }: Params) {
               </section>
 
               <section aria-labelledby="cards-title" className="space-y-4">
-                <h2 id="cards-title" className="font-heading text-xl font-bold text-chalk-100">
-                  {t("pages.community.teammates.listTitle", { n: data[0].total })}
+                <h2 id="cards-title" className="type-section text-chalk-100">
+                  {count(t, locale, "pages.community.teammates.listTitle", data[0].total)}
                 </h2>
+                <div aria-hidden className="eclat h-[3px] w-24" />
                 <form method="get" action={`/${locale}/community/teammates`} className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-[repeat(4,minmax(0,1fr))_auto] lg:items-end">
                   <label className="text-xs text-chalk-400">
                     {t("pages.communityUI.teammates.region")}
@@ -264,10 +290,7 @@ export default async function TeammatesPage({ params, searchParams }: Params) {
                     </select>
                   </label>
                   <div className="col-span-2 flex items-center gap-3 sm:col-span-4 lg:col-span-1">
-                    <button
-                      type="submit"
-                      className="bevel-sm inline-flex h-11 items-center border border-night-700 px-4 text-sm font-semibold text-chalk-200 transition-colors hover:border-gold-500/60"
-                    >
+                    <button type="submit" className="btn btn-secondary">
                       {t("pages.community.teammates.filter")}
                     </button>
                     {Object.values(filters).some(Boolean) && (
@@ -278,7 +301,9 @@ export default async function TeammatesPage({ params, searchParams }: Params) {
                   </div>
                 </form>
                 {data[0].cards.length === 0 ? (
-                  <p className="border border-dashed border-night-700 p-6 text-sm text-chalk-400">{t("pages.community.teammates.empty")}</p>
+                  <DexNote pose="surpris" height={120} title={t("pages.community.teammates.emptyTitle")}>
+                    {t("pages.community.teammates.empty")}
+                  </DexNote>
                 ) : (
                   <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{data[0].cards.map(card)}</ul>
                 )}

@@ -1,5 +1,6 @@
 import { MessageSquare } from "lucide-react";
 import { CardControls, LinkCardButton } from "@/components/discord-card-controls";
+import { Dex } from "@/components/mascot";
 import type { Locale } from "@/i18n/config";
 import { LOCALE_INTL } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
@@ -36,13 +37,22 @@ export async function DiscordCardSection({ locale, roleId, zoneId, now }: { loca
   const date = (d: Date) => new Intl.DateTimeFormat(LOCALE_INTL[locale], { dateStyle: "long" }).format(d);
 
   return (
-    <section id="discord-card" className="mt-12 scroll-mt-24">
-      <h2 className="flex items-center gap-2 font-heading text-2xl font-bold text-chalk-100">
-        <MessageSquare size={20} className="text-gold-400" aria-hidden />
-        {t("pages.discordCard.title")}
-      </h2>
-      <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
-      <p className="mt-4 text-sm leading-relaxed text-chalk-300">{t("pages.discordCard.intro")}</p>
+    <section id="discord-card" className="dex-host bevel-lg scroll-mt-24 bg-night-800 p-5 shadow-[inset_0_3px_0_var(--color-azure-400)] sm:p-8">
+      <div className="flex items-end gap-5">
+        <div className="min-w-0 flex-1">
+          <h2 className="type-section flex items-center gap-3 text-chalk-100">
+            <span aria-hidden className="bevel-sm grid size-11 shrink-0 place-items-center bg-azure-500 text-night-950">
+              <MessageSquare size={22} />
+            </span>
+            {t("pages.discordCard.title")}
+          </h2>
+          <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-chalk-300 sm:text-base">{t("pages.discordCard.intro")}</p>
+        </div>
+        <span aria-hidden className="hidden shrink-0 md:block">
+          <Dex pose="idee" height={150} still />
+        </span>
+      </div>
 
       {shown && (
         <div className="mt-5 space-y-4">
@@ -53,7 +63,7 @@ export async function DiscordCardSection({ locale, roleId, zoneId, now }: { loca
             width={CARD_WIDTH}
             height={CARD_HEIGHT}
             loading="lazy"
-            className="bevel h-auto w-full border border-night-700 bg-night-900"
+            className="bevel-lg h-auto w-full max-w-3xl bg-night-900 shadow-[0_24px_60px_-30px_rgb(0_0_0/0.9)]"
           />
           <p className="text-sm text-chalk-300">{t("pages.discordCard.linked")}</p>
           <p className="text-xs text-chalk-500">

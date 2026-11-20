@@ -3,12 +3,12 @@ import type { Metadata } from "next";
 import { notFound, permanentRedirect } from "next/navigation";
 import { Composer } from "@/components/community/composer";
 import { ModerationActions } from "@/components/community/moderation-actions";
-import { ago, HeroTags, heroOptions, isoDate, Unavailable } from "@/components/community/parts";
+import { ago, CATEGORY_ART, count, HeroTags, heroOptions, isoDate, Unavailable } from "@/components/community/parts";
 import { PostShell } from "@/components/community/post-shell";
 import { MemberLine, SignInChoice } from "@/components/community/sign-in";
 import Link from "@/components/link";
 import { Pager } from "@/components/pager";
-import { PageHeader } from "@/components/ui";
+import { DexNote, heroArt, StageHeader } from "@/components/stage";
 import { LOCALE_HTML, LOCALE_INTL, type Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { metaPage, notFoundMetadata } from "@/i18n/seo";
@@ -105,6 +105,10 @@ export default async function ThreadPage({ params, searchParams }: Params) {
   const ownThread = viewer === thread.authorId;
   const url = `${site.url}/${locale}${path}`;
   const shown = posts.filter((p) => !p.deletedAt && !p.hiddenAt);
+  // The stage shows the first hero the thread is about, else its category's art.
+  const tagged = thread.heroes.map((s) => heroArt(s)).find(Boolean);
+  const stageArt = tagged ?? heroArt(CATEGORY_ART[category].hero);
+  const stagePosition = tagged ? "55% 20%" : CATEGORY_ART[category].position;
 
   const data = {
     "@context": "https://schema.org",
@@ -135,7 +139,10 @@ export default async function ThreadPage({ params, searchParams }: Params) {
 
   const byline = (name: string, created: Date, edited: Date | null) => (
     <p className="flex flex-wrap items-center gap-x-2 text-xs text-chalk-500">
-      <span className="font-semibold text-chalk-300">{name}</span>
+      <span aria-hidden className="bevel-sm grid size-8 place-items-center bg-night-700 font-heading text-sm font-bold uppercase text-gold-400">
+        {name.slice(0, 1)}
+      </span>
+      <span className="font-heading text-base font-bold text-chalk-100">{name}</span>
       <span aria-hidden>·</span>
       <time dateTime={isoDate(created)} title={created.toLocaleString(LOCALE_INTL[locale], { timeZone: "UTC" })}>
         {ago(locale, created, now)}
@@ -152,8 +159,12 @@ export default async function ThreadPage({ params, searchParams }: Params) {
   return (
     <>
       {!thread.hiddenAt && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(data) }} />}
-      <PageHeader
+      <StageHeader
+        compact
         title={thread.title}
+        art={stageArt}
+        artPosition={stagePosition}
+        kicker={categoryName}
         lead={t("pages.community.threadLead", { name: thread.authorName, category: categoryName })}
         crumbs={[
           { name: t("pages.community.title"), href: "/community" },
@@ -173,11 +184,11 @@ export default async function ThreadPage({ params, searchParams }: Params) {
               {t("pages.community.locked")}
             </span>
           ),
-          t("pages.community.replies", { n: thread.replyCount }),
+          count(t, locale, "pages.community.replies", thread.replyCount),
         ]}
       />
       <ExtendMessages messages={messagesPage(locale, ["pages.communityUI"])}>
-        <div className="page-wrap space-y-8 py-8 *:max-w-3xl">
+        <div className="stage-enter page-wrap space-y-10 py-8 sm:py-10 *:max-w-3xl">
           {moderator && (
             <section aria-label={t("pages.community.moderationBar")} className="bevel space-y-2 border border-gold-500/40 bg-gold-500/5 p-4">
               <p className="flex items-center gap-2 text-sm font-semibold text-gold-400">
@@ -188,7 +199,7 @@ export default async function ThreadPage({ params, searchParams }: Params) {
             </section>
           )}
 
-          <article aria-labelledby="thread-body" className="space-y-4">
+          <article aria-labelledby="thread-body" className="bevel-lg space-y-4 bg-night-900 p-5 shadow-[inset_0_3px_0_var(--color-gold-400)] sm:p-7">
             <h2 id="thread-body" className="sr-only">
               {t("pages.community.openingPost")}
             </h2>
@@ -210,18 +221,19 @@ export default async function ThreadPage({ params, searchParams }: Params) {
           </article>
 
           <section aria-labelledby="replies-title" className="space-y-4">
-            <h2 id="replies-title" className="font-heading text-lg font-bold text-chalk-100">
-              {t("pages.community.replies", { n: thread.replyCount })}
+            <h2 id="replies-title" className="type-section text-chalk-100">
+              {count(t, locale, "pages.community.replies", thread.replyCount)}
             </h2>
+            <div aria-hidden className="eclat h-[3px] w-24" />
             {posts.length === 0 ? (
-              <p className="text-sm text-chalk-500">{t("pages.community.noReplies")}</p>
+              <DexNote pose="reflexion" height={100}>{t("pages.community.noReplies")}</DexNote>
             ) : (
-              <ol className="divide-y divide-night-800 border-y border-night-800">
+              <ol className="space-y-2">
                 {posts.map((p) => {
                   const own = viewer === p.authorId;
                   const gone = p.deletedAt || (p.hiddenAt && !moderator);
                   return (
-                    <li key={p.id} id={`post-${p.id}`} className="scroll-mt-24 py-4">
+                    <li key={p.id} id={`post-${p.id}`} className="bevel scroll-mt-24 bg-night-900 p-4 sm:p-5">
                       {gone ? (
                         <p className="text-sm italic text-chalk-500">{p.deletedAt ? t("pages.community.replyDeleted") : t("pages.community.replyHidden")}</p>
                       ) : (
@@ -260,8 +272,8 @@ export default async function ThreadPage({ params, searchParams }: Params) {
             <Pager paging={view} href={(n) => (n > 1 ? `${path}?page=${n}` : path)} t={t} labelledBy="replies-title" />
           </section>
 
-          <section aria-labelledby="reply-title" className="border-t border-night-800 pt-6">
-            <h2 id="reply-title" className="font-heading text-lg font-bold text-chalk-100">
+          <section aria-labelledby="reply-title">
+            <h2 id="reply-title" className="type-section text-chalk-100">
               {t("pages.community.replyTitle")}
             </h2>
             <div className="mt-4">
@@ -292,7 +304,8 @@ export default async function ThreadPage({ params, searchParams }: Params) {
           </section>
 
           <p>
-            <Link href={`/community/${thread.category}`} className="inline-flex min-h-11 items-center text-sm text-chalk-300 underline underline-offset-4 hover:text-gold-400">
+            <Link href={`/community/${thread.category}`} className="btn btn-secondary">
+              <span aria-hidden>←</span>
               {t("pages.community.backToCategory", { name: categoryName })}
             </Link>
           </p>

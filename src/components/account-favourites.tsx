@@ -29,7 +29,7 @@ function NoteRange() {
 }
 
 const TREND: Record<AdjustmentType, { icon: LucideIcon; color: string }> = {
-  buff: { icon: TrendingUp, color: "text-emerald-400" },
+  buff: { icon: TrendingUp, color: "text-azure-400" },
   nerf: { icon: TrendingDown, color: "text-blood-500" },
   adjust: { icon: Minus, color: "text-azure-400" },
 };

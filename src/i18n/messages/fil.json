@@ -602,8 +602,8 @@
       "seeRole": "Lahat ng {plural} at ang kanilang lane",
       "openTier": "Ipakita ang {n} hero sa tier {p}",
       "poster": {
-        "kicker": "Nangunguna sa ranking na ito",
-        "label": "{name}, nangunguna sa ranking na ito: tier {tier}, {win} win rate, {ban} ban rate"
+        "kicker": "No. 1 sa ranking na ito",
+        "label": "{name}, n°1 sa ranking na ito: antas {tier}, {win} ng mga tagumpay, {ban} ng mga ban"
       }
     },
     "patchNotes": {
@@ -648,7 +648,14 @@
       "intro": "I-connect ang iyong game account gamit ang opisyal na verification code ng Moonton. Hindi kailangan ng password.",
       "security": "Hindi kailanman nakikita ng site ang iyong password. Tumatanggap lang ito ng pansamantalang token, na nakaimbak sa isang secure na cookie, na tatanggalin mo kapag nag-log out ka.",
       "metaTitle": "Mag-log in",
-      "metaDescription": "I-connect ang iyong Mobile Legends account gamit ang verification code, walang password na kailangan."
+      "metaDescription": "I-connect ang iyong Mobile Legends account gamit ang verification code, walang password na kailangan.",
+      "welcome": "Maligayang pagdating sa MLBDex!",
+      "welcomeText": "Ang iyong account sa laro, nang walang password: ang iyong username, pagkatapos ay ang code na ipinapadala ng Moonton sa iyong in-game inbox.",
+      "perks": {
+        "profile": "Ang iyong profile, mga ranggo at pinaka-naglarong hero",
+        "community": "Ang forum at ang paghahanap ng mga kakampi",
+        "collection": "Ang iyong koleksyon ng mga skin sa lahat ng iyong device"
+      }
     },
     "watch": {
       "title": "Roundup",
@@ -663,7 +670,8 @@
     "about": {
       "title": "Tungkol sa",
       "lead": "Isang independent at bukas na proyekto na sadyang tapat tungkol sa mga limitasyon nito.",
-      "metaDescription": "Ano ang site na ito, ano ang laman nito, ano ang hindi nito kayang ilaman, at paano mag-contribute."
+      "metaDescription": "Ano ang site na ito, ano ang laman nito, ano ang hindi nito kayang ilaman, at paano mag-contribute.",
+      "dexLine": "Ako si Dex! Ginagabayan kita sa site: mga hero, meta, mga tool at komunidad."
     },
     "legal": {
       "title": "Legal notice",
@@ -694,7 +702,9 @@
       "detailUnavailable": "Ang detalyadong stats — win rate, match history, pinakamadalas laruing hero — ay nakadepende sa serbisyo ng Moonton na kasalukuyang offline. Available pa rin ang profile mo sa itaas; babalik ang mga detalye kapag tumugon na ang source.",
       "noStat": "Walang stats na maipapakita.",
       "profileLink": "Tingnan ang aking player profile",
-      "profileLinkText": "Buod ng season, mga hero kumpara sa average ng rank mo, mga huling match at tips."
+      "profileLinkText": "Buod ng season, mga hero kumpara sa average ng rank mo, mga huling match at tips.",
+      "topHeroes": "Mga hero mo",
+      "topHeroesLead": "Ang mga pinakamadalas mong nilalaro, batay sa mga larong pinapanatili ng serbisyo."
     },
     "apiDoc": {
       "title": "Pampublikong API",
@@ -769,7 +779,8 @@
     "offline": {
       "title": "Offline ka",
       "text": "Hindi pa nabubuksan ang page na ito sa device na ito, kaya hindi ito available offline. Available pa rin ang mga page na nabisita mo na at ang mga pangunahing section ng site.",
-      "home": "Bumalik sa home"
+      "home": "Bumalik sa home",
+      "dexLine": "Walang network sa ngayon. Ang mga pahinang nabuksan na ay mananatiling nababasa."
     },
     "notFound": {
       "title": "Hindi nahanap ang page",
@@ -777,7 +788,12 @@
       "home": "Bumalik sa home",
       "heroes": "Tingnan ang mga hero",
       "tierList": "Kasalukuyang tier list",
-      "search": "Maghanap ng hero, item o page"
+      "search": "Maghanap ng hero, item o page",
+      "dexLine": "Hay, naligaw ang page na ito sa jungle... Aalis na ba tayo ulit dito?",
+      "lost": "Nawala",
+      "heroesText": "Hero sheet, build at counter.",
+      "tierListText": "Sino ang nangingibabaw sa meta ngayon.",
+      "homeText": "Ang patch, meta at mga tool ngayon."
     },
     "winRate": {
       "title": "Win rate calculator",
@@ -892,7 +908,8 @@
         "merge": "Kapag na-merge na, magiging live ang analysis sa susunod na deployment, at mananatili ang pangalan mo sa history ng repository."
       },
       "prLink": "Magbukas ng pull request",
-      "guideLink": "Kumpletong gabay sa GitHub (CONTRIBUTING.md)"
+      "guideLink": "Kumpletong gabay sa GitHub (CONTRIBUTING.md)",
+      "dexLine": "Isang error sa isang file, isang ideya, isang pagsasalin? Mahalaga ang anumang tulong, kahit na ang pinakamaliit."
     },
     "accountProfile": {
       "metaTitle": "Player profile",
@@ -1436,8 +1453,8 @@
         }
       },
       "poster": {
-        "kicker": "Pinakamalaking pag-akyat ngayong linggo",
-        "caption": "puntos ng win rate sa {days} araw"
+        "kicker": "Pinakamalakas na pagtaas ng linggo",
+        "caption": "mga puntos ng tagumpay sa {days} araw"
       }
     },
     "statistics": {
@@ -1918,11 +1935,11 @@
       "duelWrong": "mali",
       "duelSource": "Win rate sa lahat ng rank, nasukat noong {date}.",
       "dex": {
-        "start": "Ikaw na! Bawat mali ay may bagong clue.",
-        "miss": "Oops! May bagong clue para sa iyo.",
-        "good": "Galing ng mata! Sunod na.",
-        "won": "Bravo, tamang sagot!",
-        "over": "Hindi ngayon. Sa susunod, ikaw na!"
+        "start": "sa iyo! Ang bawat pagkakamali ay nagbubukas ng isang palatandaan.",
+        "miss": "Oops! Isang bagong clue ang naghihintay sa iyo.",
+        "good": "Kitang-kita! Susunod.",
+        "won": "Magaling, magandang sagot!",
+        "over": "Nabigo sa pagkakataong ito. Ang susunod ay ang magaling!"
       }
     },
     "tierMaker": {
@@ -2604,11 +2621,11 @@
       "skip": "Laktawan",
       "practiceQuestion": "Sinong hero ito?",
       "dex": {
-        "start": "Ikaw na! Itatago ko ang sikreto.",
-        "miss": "Mali… ang mga kulay ang gagabay sa iyo.",
-        "close": "Malapit na! May mga kahong tugma.",
-        "won": "Galing, siya nga!",
-        "over": "Sayang! Isa pang round?"
+        "start": "sa iyo! Inilihim ko ito.",
+        "miss": "Nabigo... ipinapakita ng mga kulay ang paraan.",
+        "close": "Nag-iinit na! Ang ilang mga kahon ay tumutugma.",
+        "won": "Buti na lang, siya na!",
+        "over": "damage! Isa pang round?"
       }
     },
     "advanceServer": {
@@ -3606,7 +3623,7 @@
       "statsTitle": "Kinuwentang stats",
       "statsMissing": "Walang stats para sa hero na ito.",
       "poster": {
-        "kicker": "Hero na may pinakamaraming build"
+        "kicker": "Ang pinaka-binuo na hero"
       }
     },
     "damageCalculator": {
@@ -3782,7 +3799,8 @@
       "ctaTitle": "Idagdag ang MLBBDex sa server mo",
       "ctaText": "Isang minuto lang para idagdag, walang babayaran. May tanong o ideya? Naghihintay sa iyo ang MLBBDex server.",
       "privacy": "Privacy ng bot",
-      "terms": "Terms of use"
+      "terms": "Terms of use",
+      "dexLine": "MLBBEx file, direkta sa iyong Discord server."
     },
     "botPrivacy": {
       "title": "Privacy ng Discord bot",
@@ -3882,7 +3900,10 @@
       "failing": "Hindi nakapag-post ang bot sa channel na ito: tingnan ang mga permission nito, tapos i-save.",
       "flush": "I-post ang mga nakabinbing anunsyo",
       "flushing": "Nagpo-post…",
-      "flushed": "Nasuri ang mga anunsyo: {count} bago, pinag-post na ang bot.",
+      "flushed": {
+        "one": "Nasuri ang mga anunsyo: {count} bago, pinag-post na ang bot.",
+        "other": "Nasuri ang mga anunsyo: {count} bago, pinag-post na ang bot."
+      },
       "flushFailed": "Hindi tumugon ang bot.",
       "greetingsTitle": "Welcome at goodbye",
       "greetingsLead": "Isang mensahe sa channel na pipiliin mo kapag may member na sumali o umalis, sa wika ng server. Ang bagong dating lang ang mime-mention; kapag higit sa 5 tao ang sumali sa loob ng 10 segundo, iisang mensahe ang ipo-post ng bot para sa lahat.",
@@ -4455,8 +4476,14 @@
       "latestTitle": "Mga pinakabagong discussion",
       "emptyAll": "Wala pang discussion: simulan ang una.",
       "emptyCategory": "Wala pang discussion sa kategoryang ito.",
-      "threadCount": "{n} discussion",
-      "replies": "{n} reply",
+      "threadCount": {
+        "one": "{n} discussion",
+        "other": "{n} discussion"
+      },
+      "replies": {
+        "one": "{n} reply",
+        "other": "{n} reply"
+      },
       "pinned": "Naka-pin",
       "locked": "Naka-lock",
       "edited": "na-edit",
@@ -4502,7 +4529,10 @@
       "searchTitle": "Maghanap sa forum",
       "searchLead": "Mga discussion na may salita mo sa title, text o sa isang reply. Gumamit ng quotes para sa eksaktong phrase, at gitling para hindi isama ang isang salita.",
       "searchLeadCategory": "Naghahanap sa kategoryang {name}.",
-      "searchResults": "{n} discussion para sa \"{query}\"",
+      "searchResults": {
+        "one": "{n} discussion para sa \"{query}\"",
+        "other": "{n} discussion para sa \"{query}\""
+      },
       "searchEmpty": "Walang tugmang discussion. Subukan ang ibang salita, o mas kaunti.",
       "searchHint": "Mag-type ng isa o higit pang salita: isang hero, isang item, isang tanong.",
       "rules": {
@@ -4519,7 +4549,10 @@
         "seoTitle": "Maghanap ng kakampi sa Mobile Legends",
         "seoDescription": "Mga Mobile Legends player na naghahanap ng duo o team: i-filter ayon sa region, rank, lane at wika, at i-post ang sarili mong card.",
         "ownTitle": "Card mo",
-        "listTitle": "{n} player ang available",
+        "listTitle": {
+          "one": "{n} player ang available",
+          "other": "{n} player ang available"
+        },
         "any": "Kahit ano",
         "lane": "Lane",
         "language": "Wika",
@@ -4531,7 +4564,9 @@
         "gameId": "Game ID",
         "signInForContact": "para makita ang contact.",
         "noContact": "Walang shared na contact: kontakin siya sa forum o sa Discord.",
-        "discordText": "Sa MLBBDex Discord server, hindi tumitigil ang looking-for-group channel."
+        "discordText": "Sa MLBBDex Discord server, hindi tumitigil ang looking-for-group channel.",
+        "emptyTitle": "Wala pang tao",
+        "mains": "Mga hero na nilaro"
       },
       "moderation": {
         "title": "Moderation ng community",
@@ -4571,17 +4606,28 @@
           "resolve": "Nahawakan ang error"
         },
         "deleted": "binura ng gumawa",
-        "reportCount": "{n} report",
+        "reportCount": {
+          "one": "{n} report",
+          "other": "{n} report"
+        },
         "asReported": "Gaya ng iniulat",
         "dataReports": "Mga error na iniulat sa mga form ({n})",
         "dataReportsLead": "Mga hindi kilalang ulat na ipinadala mula sa hero, item, emblem, spell sheet, at patch notes, mula sa pinakaluma hanggang sa pinakabago. Iwasto ang data kung kinakailangan, pagkatapos ay markahan ang ulat bilang naproseso.",
         "dataReportsEmpty": "Walang naiulat na mga error.",
         "dataCorrection": "Iminungkahing pagwawasto:",
         "dataSource": "Source:"
-      }
+      },
+      "hostLine": "Hi! Dito kami nagtutulungan, nag-uusap kami tungkol sa mga build at nakahanap kami ng mga kakampi.",
+      "signInDex": "Mababasa ng lahat. Para magsulat, mag-log in lang.",
+      "emptyDex": "Napakatahimik dito...",
+      "searchEmptyTitle": "Walang nahanap",
+      "lastActivity": "Huling aktibidad {when}"
     },
     "communityUI": {
-      "votes": "{n} boto",
+      "votes": {
+        "one": "{n} boto",
+        "other": "{n} boto"
+      },
       "upvote": "I-upvote ang post na ito",
       "unvote": "Bawiin ang boto ko",
       "signInToVote": "Mag-sign in para bumoto",
@@ -4701,7 +4747,10 @@
         "unban": "Alisin ang ban",
         "dismiss": "I-dismiss ang mga report",
         "duration": "Tagal",
-        "days": "{n} araw",
+        "days": {
+          "one": "{n} araw",
+          "other": "{n} araw"
+        },
         "forever": "Permanente",
         "reason": "Dahilan (log)",
         "confirmBan": "Kumpirmahin ang ban",
@@ -4765,9 +4814,9 @@
       "metaTitle": "Mga tool sa MLBB: draft, build, damage at account",
       "metaDescription": "Draft simulator, team analysis, build simulator, damage calculator, account value, objective timer at daily games para sa Mobile Legends: Bang Bang.",
       "nTools": "{n} tool",
-      "open": "Buksan",
+      "open": "Bukas",
       "play": "Maglaro",
-      "hello": "Pumili ng tool at sumabak sa laban: gumagana ang lahat sa browser, libre, walang account."
+      "hello": "Pumili ng tool at pumasok sa arena: gumagana ang lahat sa browser, nang libre, nang walang account."
     },
     "discordCard": {
       "title": "Discord profile card",
@@ -5468,7 +5517,11 @@
       "unknown": "Walang account na tugma sa ID at server na ito.",
       "unavailable": "Pansamantalang hindi available ang serbisyo.",
       "wrongCode": "Mali o expired na ang code."
-    }
+    },
+    "steps": "Mga hakbang sa koneksyon",
+    "step1": "Iyong ID",
+    "step2": "Ang code na natanggap sa laro",
+    "stepOf": "Hakbang {n} ng 2"
   },
   "articleUI": {
     "none": "Wala pang post.",
@@ -5767,7 +5820,8 @@
     "retry": "Subukan ulit",
     "oops": "Oops",
     "pageText": "Nagkaproblema sa pag-load ng pahinang ito. Puwede mong subukan ulit, o bumalik sa home page.",
-    "home": "Bumalik sa home"
+    "home": "Bumalik sa home",
+    "dexLine": "Ouch, may dumikit sa dulo namin. Ang isang bagong pagsubok ay madalas na sapat."
   },
   "heroCard": {
     "tierTitle": "Tier {p} ng tier list",
@@ -5830,7 +5884,8 @@
       "skin": "Mga skin",
       "emblem": "Mga emblem",
       "spell": "Mga Battle Spell"
-    }
+    },
+    "dexEmpty": "Hmm, wala akong mahanap. Subukan ang ibang pangalan, o mas kaunting mga titik."
   },
   "heroData": {
     "resource": {
@@ -6205,5 +6260,9 @@
     "currentGranted": "Kasalukuyang pagpipilian: tinanggap ang cookies noong {date}.",
     "currentDenied": "Kasalukuyang pagpipilian: tinanggihan ang cookies noong {date}.",
     "manage": "Pamahalaan ang cookies"
+  },
+  "feed": {
+    "title": "MLBBEx — balita at gabay",
+    "description": "Mga hero sheet, build at counter ayon sa ranggo, mga tier list, item, emblem, patch notes at balita mula sa Mobile Legends: Bang Bang, sa French."
   }
 }
