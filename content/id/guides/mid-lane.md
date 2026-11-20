@@ -35,7 +35,7 @@ Tidak semua mage bermain dengan cara yang sama. Beberapa, seperti [Yve](/heroes/
 Build mage mengikuti magic defense lawan:
 
 - **melawan hero yang mengumpulkan magic defense**, item penetrasi seperti [Divine Glaive](/items/divine-glaive);
-- **melawan tim yang menyembuhkan**, pengurangan penyembuhan [Glowing Wand](/items/glowing-wand);
+- **melawan tim yang menyembuhkan**, pengurangan penyembuhan [Necklace of Durance](/items/necklace-of-durance);
 - **melawan diver**, item bertahan hidup seperti [Winter Crown](/items/winter-crown), yang secara singkat membuat Anda tak tersentuh.
 
 [Kalkulator damage](/tools/damage-calculator) menunjukkan efek penetrasi pada serangan nyata. Di sisi spell, [Flicker](/spells/flicker) tetap menjadi pilihan paling umum; [Flameshot](/spells/flameshot) menyerang dari jauh untuk menghabisi target yang melarikan diri.

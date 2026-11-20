@@ -108,7 +108,6 @@
   "overrides": {
     "@typescript-eslint/typescript-estree": {
       "minimatch": "^11.0.8"
-    },
-    "effect": "3.22.4"
+    }
   }
 }

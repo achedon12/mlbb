@@ -74,11 +74,9 @@ import generatedSkins from "@/data/game/skins.json";
 import generatedSync from "@/data/game/sync.json";
 import generatedStatistics from "@/data/game/statistics.json";
 import generatedVisuals from "@/data/game/visuals.json";
-import visualSources from "@/data/game/visual-sources.json";
 import { analyses } from "@/data/heroes";
 import { currentItemName } from "./item-names";
 import { listedHeroes, listedSkins, shownIllustrations } from "./listed";
-import { applyOverrides, overridesFolder, readOverrides } from "./lore-overrides";
 import type { Locale } from "@/i18n/config";
 import type { MeasuredRank } from "./measured-ranks";
 import type { PickRates } from "./usage-builds";
@@ -323,37 +321,20 @@ export function modeBySlug(locale: Locale, slug: string): GameMode | undefined {
 /** Mode slugs, language-independent — for the sitemap and params. */
 export const modesSlugs = (modesFr as unknown as GameMode[]).map((m) => m.slug);
 
-/**
- * A hero's story per language: hook, lore, narrative profile, trivia. The
- * hand-written stories of `content/<locale>/lore/` replace the machine
- * translation key by key (`lore-overrides.ts`), read once per language.
- */
+/** A hero's story per language: hook, lore, narrative profile, trivia. */
 const STORIES = { en: storiesEn, fr: storiesFr, it: storiesIt, es: storiesEs, id: storiesId, fil: storiesFil, th: storiesTh, pt: storiesPt, ru: storiesRu } satisfies Record<Locale, unknown>;
-const storiesByLocale = new Map<Locale, Record<string, HeroStory>>();
 export function stories(locale: Locale): Record<string, HeroStory> {
-  let list = storiesByLocale.get(locale);
-  if (!list) {
-    list = applyOverrides(STORIES[locale] as unknown as Record<string, HeroStory>, readOverrides(overridesFolder(locale)));
-    storiesByLocale.set(locale, list);
-  }
-  return list;
+  return STORIES[locale] as unknown as Record<string, HeroStory>;
 }
 
 /**
  * Full-size artwork, per listed hero then per skin name, without the
- * artwork of unreleased and collaboration skins, nor an altered or
- * mismatched copy of the published one (`shownIllustrations`).
+ * artwork of unreleased and collaboration skins (`shownIllustrations`).
  */
 const illustrationsSynced = generatedVisuals.illustrations as unknown as Record<string, Record<string, string>>;
-const visualFiles = visualSources as unknown as Record<string, { file?: string }>;
-/** Wiki file a local artwork was made from: the manifest keys paths under `public`. */
-const sourceOf = (path: string) => visualFiles[`public${path}`]?.file;
 export const illustrations: Record<string, Record<string, string>> = Object.fromEntries(
   allHeroes
-    .map(
-      (h) =>
-        [h.slug, shownIllustrations(illustrationsSynced[h.slug], skinsByHero[h.slug] ?? [], Date.now(), sourceOf)] as const,
-    )
+    .map((h) => [h.slug, shownIllustrations(illustrationsSynced[h.slug], skinsByHero[h.slug] ?? [])] as const)
     .filter(([, byName]) => Object.keys(byName).length > 0),
 );
 

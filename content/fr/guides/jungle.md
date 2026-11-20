@@ -28,7 +28,7 @@ Le [guide du chemin de farm et des objectifs](/guides/jungle-objectives) détail
 
 <!-- guide:heroes -->
 
-Les jungleurs se répartissent en trois familles. Les assassins, comme [Ling](/heroes/ling), [Lancelot](/heroes/lancelot) ou [Hayabusa](/heroes/hayabusa), éliminent une cible isolée ; les combattants, comme [Martis](/heroes/martis) ou [Balmond](/heroes/balmond), tiennent les combats longs ; les tanks de jungle, comme [Fredrinn](/heroes/fredrinn) ou [Baxia](/heroes/baxia), ont besoin de peu d'objets et engagent les combats. Le bon choix dépend de ce qui manque à votre équipe.
+Les jungleurs se répartissent en trois familles. Les assassins, comme [Ling](/heroes/ling), [Lancelot](/heroes/lancelot) ou [Hayabusa](/heroes/hayabusa), éliminent une cible isolée ; les combattants, comme [Martis](/heroes/martis) ou [Barats](/heroes/barats), tiennent les combats longs ; les tanks de jungle, comme [Fredrinn](/heroes/fredrinn) ou [Baxia](/heroes/baxia), laissent l'or aux autres et engagent. Le bon choix dépend de ce qui manque à votre équipe.
 
 ## Objets, emblèmes et sorts les plus joués
 
@@ -38,7 +38,7 @@ Le Retribution est obligatoire : sans lui, le farm est trop lent et les objectif
 
 - **contre des tanks**, la pénétration d'armure de [Malefic Roar](/items/malefic-roar) ;
 - **contre une équipe qui se soigne**, la réduction des soins de [Sea Halberd](/items/sea-halberd) ;
-- **pour achever une cible**, un objet d'exécution comme [Sky Piercer](/items/sky-piercer), qui tue un héros passé sous un seuil de points de vie, sur les assassins qui le construisent.
+- **pour finir une cible**, les objets d'exécution comme [Sky Piercer](/items/sky-piercer) sur les assassins qui les construisent.
 
 L'[entraînement au timing du Retribution](/tools/retribution) aide à ne plus perdre un objectif au dernier coup.
 
@@ -54,12 +54,12 @@ Le jungleur alterne farm, objectifs et attaques sur les lanes. Il garde un œil 
 
 ### Fin de partie
 
-Les combats se jouent autour du Seigneur. Le jungleur n'entre pas le premier dans le combat : il attend que les contrôles adverses aient été utilisés, puis il vise le porteur le plus exposé. Et il garde toujours son Retribution pour le Seigneur.
+Les combats se jouent autour du Seigneur. Le jungleur ne doit pas être le premier à entrer dans le combat : il attend que les contrôles adverses aient été utilisés, puis il vise le porteur le plus exposé. Et il garde toujours son Retribution pour le Seigneur.
 
 ## Les erreurs les plus courantes
 
 - Farmer sa jungle pendant que l'équipe se bat pour la Tortue.
 - Utiliser le Retribution sur un petit camp juste avant un objectif.
-- Ganker un adversaire qui est sous sa tourelle avec tous ses points de vie.
-- Engager le combat d'équipe avec un assassin fragile.
+- Attaquer une lane où l'adversaire est sous sa tourelle avec tous ses points de vie.
+- Ouvrir un combat d'équipe en premier avec un assassin fragile.
 - Commencer le Seigneur sans savoir où sont les adversaires.

@@ -13,7 +13,7 @@ related: ["farming-wave-management", "teamfight-positioning", "roam"]
 tools: ["/tier-list", "/tools/build", "/items", "/spells"]
 ---
 
-La Gold lane est la lane latérale qui rapporte le plus d'or. On y place le héros qui en a le plus besoin pour devenir fort : presque toujours un [tireur](/heroes/role/marksman), parfois un autre porteur de dégâts. Son travail : survivre et farmer jusqu'à ce que ses objets en fassent le héros qui gagne les combats de fin de partie.
+La gold lane est la lane latérale qui rapporte le plus d'or. On y place le héros qui en a le plus besoin pour devenir fort : presque toujours un [tireur](/heroes/role/marksman), parfois un autre porteur de dégâts. Son rôle se résume en une phrase : survivre et farmer jusqu'à ce que ses objets fassent de lui le héros qui gagne les combats de fin de partie.
 
 ## Ce que le poste apporte
 
@@ -27,7 +27,7 @@ En contrepartie, le tireur est fragile et souvent peu mobile. Il dépend de son 
 
 <!-- guide:heroes -->
 
-La liste suit les mesures, pas les goûts : un héros qui monte en haut de la tier list au patch suivant y entrera de lui-même. Avant de choisir, regardez aussi ses contres : un tireur fort sur le papier peut être une mauvaise réponse à la composition adverse. La page des contres de chaque héros (celle de [Layla](/heroes/layla/counters), par exemple) indique qui le bat.
+La liste suit les mesures, pas les goûts : un héros qui monte en haut de la tier list au patch suivant y entrera de lui-même. Avant de choisir, regardez aussi ses contres : un tireur fort sur le papier peut être une mauvaise réponse à la composition adverse. La page de chaque héros, par exemple celle de [Layla](/heroes/layla/counters), dit qui le bat.
 
 ## Objets, emblèmes et sorts les plus joués
 
@@ -35,21 +35,21 @@ La liste suit les mesures, pas les goûts : un héros qui monte en haut de la ti
 
 Ces choix sont une base, pas une règle. Le build d'un tireur change selon l'adversaire :
 
-- **contre des tanks**, les objets qui infligent des dégâts selon les points de vie actuels de la cible, comme [Demon Hunter Sword](/items/demon-hunter-sword), ou qui pénètrent l'armure, comme [Malefic Gun](/items/malefic-gun) ;
+- **contre des tanks**, les objets qui infligent des dégâts selon les points de vie de la cible, comme [Demon Hunter Sword](/items/demon-hunter-sword), ou qui pénètrent l'armure, comme [Malefic Gun](/items/malefic-gun) ;
 - **contre une équipe qui se soigne**, la réduction des soins de [Sea Halberd](/items/sea-halberd) ;
-- **contre des assassins**, un objet de survie comme [Wind of Nature](/items/wind-of-nature), qui rend insensible aux dégâts physiques pendant 2 secondes.
+- **contre des assassins**, un objet de survie comme [Wind of Nature](/items/wind-of-nature), qui protège brièvement des dégâts physiques.
 
-Côté sorts, [Flicker](/spells/flicker) reste le choix polyvalent pour se repositionner ou fuir. [Inspire](/spells/inspire) et [Purify](/spells/purify) répondent à des besoins précis : plus de dégâts pour les héros à attaques de base, ou de quoi se libérer d'un contrôle qui vous tuerait.
+Côté sorts, [Flicker](/spells/flicker) reste le choix polyvalent pour se repositionner ou fuir. [Inspire](/spells/inspire) et [Purify](/spells/purify) répondent à des besoins précis : plus de dégâts pour les héros à attaques de base, ou une sortie face à un contrôle qui vous tuerait.
 
 ## Le déroulé d'une partie
 
 ### Début de partie
 
-Les premières minutes, le tireur est vulnérable. Il doit farmer sans mourir : achever les sbires, éviter les échanges défavorables et rester proche de sa tourelle tant que le jungleur adverse n'a pas été vu. Le roamer l'aide souvent pendant les premières vagues, puis part préparer la Tortue.
+Le tireur est vulnérable pendant les premières minutes. Son but est de farmer sans mourir : achever les sbires, éviter les échanges défavorables, et rester proche de sa tourelle tant que le jungleur adverse n'a pas été vu. Le roamer l'aide souvent pendant les premières vagues, puis part préparer la Tortue.
 
 ### Milieu de partie
 
-Dès ses premiers objets, le tireur commence à peser. Il pousse sa lane, prend la tourelle extérieure, puis rejoint son équipe pour les objectifs proches. Il ne traverse jamais la carte seul.
+Avec ses premiers objets, le tireur commence à peser. Il pousse sa lane, prend la tourelle extérieure, puis rejoint son équipe pour les objectifs proches. Il ne traverse jamais toute la carte seul.
 
 ### Fin de partie
 
@@ -59,6 +59,6 @@ Le tireur devient la cible prioritaire de l'adversaire. Il se place derrière sa
 
 - Rejoindre chaque combat dès les premières minutes au lieu de farmer.
 - Se placer devant son tank pour atteindre une cible lointaine.
-- Faire toujours le même build, quels que soient les adversaires.
+- Construire toujours le même build, quels que soient les adversaires.
 - Farmer seul dans la jungle adverse en fin de partie, sans vision.
-- Utiliser Flicker pour attaquer au lieu de le garder pour survivre.
+- Utiliser le Flicker pour attaquer plutôt que le garder pour survivre.
