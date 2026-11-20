@@ -24,6 +24,10 @@ describe("sitemap", () => {
     expect(urls.some((u) => u.endsWith("/privacy"))).toBe(true);
   });
 
+  it("includes the methodology page in every language", () => {
+    expect(urls.filter((u) => /\/[a-z]+\/methodology$/.test(u))).toHaveLength(9);
+  });
+
   it("lists hero pages", () => {
     expect(urls.some((u) => /\/heroes\/[a-z-]+$/.test(u))).toBe(true);
   });

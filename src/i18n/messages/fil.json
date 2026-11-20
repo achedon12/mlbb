@@ -300,7 +300,8 @@
       "tools": "Mga tool",
       "news": "Balita at esports",
       "site": "Ang site"
-    }
+    },
+    "methodology": "Paraan at mga source"
   },
   "language": {
     "choose": "Wika",
@@ -5170,16 +5171,7 @@
       "noFall": "Walang hero na malinaw na bumababa ngayong linggo.",
       "open": "Ipakita ang {n} hero na gumagalaw"
     },
-    "howItWorks": "Paano gumagana ang site na ito",
-    "syncLead": "Huling sync noong {date}.",
-    "cards": {
-      "dataTitle": "Kusang nag-a-update ang data",
-      "dataText": "Ang mga hero, skin, item, patch at image ay kinukuha mula sa wiki bawat linggo. Lumalabas dito ang bagong hero nang hindi na kailangang may mag-encode nito.",
-      "rankingTitle": "Walang opinyon ang ranking",
-      "rankingText": "Kinukuwenta ang tier list mula sa win at ban rate na iniulat ng laro. Ipinapakita sa pahina ang patakaran ng kuwenta.",
-      "writtenTitle": "Ang naisulat ay nananatili",
-      "writtenText": "Mano-manong isinusulat ang mga analysis, build at gabay. Walang data extraction na makapagsasabi kung bakit malakas ang isang hero; dito mahalaga ang mga kontribusyon."
-    }
+    "syncLead": "Huling sync noong {date}."
   },
   "featured": {
     "heroOfTheDay": "Hero ng araw",
@@ -5507,6 +5499,82 @@
         "cnil": "Kung isinasaalang-alang mo, pagkatapos makipag-ugnayan sa publisher, na hindi iginagalang ang iyong mga karapatan, maaari kang magpadala ng reklamo sa CNIL ([cnil.fr](https://www.cnil.fr/fr/plaintes)) o sa awtoridad sa proteksyon ng data sa iyong bansa.",
         "updated": "Huling na-update: Nobyembre 19, 2026."
       }
+    },
+    "methodology": {
+      "blocks": [
+        {
+          "h": "Saan galing ang data"
+        },
+        {
+          "p": "Walang access ang MLBBDex sa anumang pribadong data ng Moonton. Lahat ng ipinapakita nito ay nagmumula sa mga pampublikong mapagkukunan, muling binasa ng mga script mula sa repositoryo, o mula sa kung ano ang kinakalkula at isinusulat mismo ng site."
+        },
+        {
+          "ul": [
+            "[The Mobile Legends wiki (Fandom)]({fandom}): ang listahan ng mga hero at ang kanilang mga profile, skill, kwento, hitsura, item, visual at bahagi ng mga patch notes. Binabasa ng site ang mga data module ng wiki (`Module:Hero/data`, `Module:Equipment/data`) kaysa sa mga ipinapakitang pahina nito. Basahin muli tuwing Lunes.",
+            "[Liquipedia]({liquipedia}): ang mga pangunahing katangian ng mga hero, ang presyo ng mga item at ang mga naalis na, ang listahan ng mga patch at tala na wala pa sa wiki, at mga esports (mga paligsahan, komposisyon, bayaning nahuli at ipinagbawal sa kompetisyon). Ang listahan ng mga patch ay muling binabasa araw-araw, ang natitira tuwing Lunes.",
+            "[Ang arena.rone.dev]({stats}) community API: mga win rate, ban at pagpili para sa mga ranggo na laro, ayon sa ranggo, mga counter, karamihan sa mga nilalaro na build, mga kakampi at mga opisyal na teksto ng skill. Basahin muli araw-araw.",
+            "Pinagsasama-sama ng page sa Panoorin ang mga pamagat, petsa at maikling extract mula sa dalawang pampublikong feed, r/MobileLegendsGame (Reddit) at Esports.gg, palaging may link sa orihinal na publisher.",
+            "Ang iyong profile ng player, kung mag-log in ka, ay binabasa kapag hinihingi kasama ang verification code na ipinadala ng laro. Ikaw lang ang nakikita.",
+            "Ang ilang mga file ay pinananatili sa pamamagitan ng kamay sa repository, kasama ang petsa ng pag-verify ng mga ito: ang libreng pag-ikot ng linggo, ang mga petsa ng mga niraranggo na season at ang mga pagpapalagay ng estimator ng halaga ng account. Ang mga paglalarawan ng mga emblema at spells ay isinulat para sa site."
+          ]
+        },
+        {
+          "p": "Ang bawat pahina ng data ay nagpapahiwatig ng mga pinagmulan at petsa nito sa ibaba. Huling kumpletong pag-synchronize: {synced}. Pinakabagong mga rate na nabanggit: {measured}. Ang mga tekstong kinuha mula sa mga wiki ay nananatili sa ilalim ng lisensya ng CC BY-SA, na may pagpapatungkol sa kanilang mga nag-ambag; mga imahe at pangalan ay nabibilang sa Moonton."
+        },
+        {
+          "h": "Ano ang kinakalkula mismo ng site"
+        },
+        {
+          "p": "Ang mga patakarang ito ay ang mga nasa code: ang mga numero sa pahinang ito ay binabasa sa parehong mga pare-pareho bilang pagkalkula, hindi sila maaaring maghiwalay."
+        },
+        {
+          "ul": [
+            "Mga antas ng tier list: score = win rate + {weightBan} × ban rate. S+ mula sa {tierSPlus} puntos, S mula sa {tierS}, A mula sa {tierA}, B mula sa {tierB}, C sa ibaba. Ang pick rate ay hindi pumapasok sa marka.",
+            "Ang parehong pagkalkula ay inuulit para sa bawat rank slice (Epic, Legend, Mythical, Mythical Honor, Mythical Glory), para sa bawat lane at para sa bawat role.",
+            "Pagiging maaasahan: ang isang hero na pinili sa mas mababa sa {reliability}% ng mga laro ay nananatiling niraranggo, ngunit siya ay minarkahan ng asterisk, ang kanyang mga rate ay masyadong hindi matatag.",
+            "Mga Trend: ang ebolusyon ng win rate sa loob ng pitong araw ay ipinapakita lamang mula sa {notable} point difference; sa ibaba, sumasama ito sa pag-ikot.",
+            "Epekto ng isang patch: para sa bawat binagong hero, ang average na win rate ng {daysImpact} araw pagkatapos ng patch, kumpara sa {daysImpact} araw bago ito, hindi kasama ang araw mismo. Ito ay tumatagal ng hindi bababa sa {minImpact} araw na sinusukat sa bawat panig; isang pagkakaiba na mas mababa sa {thresholdImpact} punto ay ipinapakita sa kulay abo, bilang hindi makabuluhan.",
+            "History: Ginagamit lang ang API sa huling tatlumpung araw. Pinapanatili ng site ang bawat pagbabasa mula noong {historyStart}, araw-araw sa nakalipas na {dailyDays} araw, pagkatapos ay sa average bawat linggo. Ang mga lumang linggo ay hindi ginagamit upang sukatin ang epekto ng isang patch.",
+            "Draft: Pinagsasama ng mga suhestiyon ang mga counter at synergies na inilarawan ng wiki, ang mga kakampi na pinakamaraming nanalo sa bawat hero sa ranggo na laro at ang kanilang win rate.",
+            "MLBBdle at pagsusulit: ang lihim na hero at ang hamon ng araw ay kinuha mula sa base ng site mula sa petsa, nang walang interbensyon; pareho sila para sa lahat ng manlalaro at sa lahat ng wika."
+          ]
+        },
+        {
+          "h": "Ano ang hindi kasama"
+        },
+        {
+          "ul": [
+            "Ang mga hero at pagpapakita ay inihayag ngunit hindi pa inilabas: ang wiki ay nagdodokumento sa kanila nang maaga, ang site ay naghihintay sa kanilang paglabas.",
+            "Mga pre-release na visual, ni-retouch, na-watermark o nasa maling format, na itinapon habang nagsi-synchronize. Ang mga poster at pagsusulit ay gumagamit lamang ng mga ilustrasyon ng mga inilabas na pagpapakita; isang kamakailang ilustrasyon na walang inilabas na claim sa hitsura ang nananatili sa hero gallery, na may markang \"Provisional\".",
+            "Mga sukat mula sa isang araw kung kailan hindi tumugon ang API: pinapanatili ang mga nakaraang pagbabasa, walang tinatantya sa kanilang lugar.",
+            "Ang \"MMR\" at mga ranggo ng manlalaro: Hindi ini-publish ng Moonton ang mga ito, hindi iniimbento ng site ang mga ito."
+          ]
+        },
+        {
+          "h": "Ano ang awtomatikong isinasalin"
+        },
+        {
+          "p": "Ang site ay nakasulat sa French at umiiral sa {languages} wika. Ang mga pagsasalin ay ginagawa ng isang awtomatikong serbisyo sa pagsasalin (Google Translate), sa pamamagitan ng mga script na inilunsad ng kamay o sa pamamagitan ng patuloy na pagsasama; ang site ay hindi nagsasalin ng anuman habang binabasa mo ito."
+        },
+        {
+          "ul": [
+            "Ang interface ay isinalin mula sa French sa {others} iba pang mga wika. Pinapalitan ng mga pagwawasto na na-save sa repositoryo ang awtomatikong pagsasalin kung saan ito mali.",
+            "Ang nilalamang kinuha mula sa wiki (mga kwento, skill, item, laro mode, patch notes) ay isinalin mula sa Ingles. Ang mga patch notes ay nagsasabi nito sa kanilang pahina. Sa French, ang mga kuwento ng mga hero ay pinalitan ng mga itinamang bersyon, na inilagay sa `content/fr/lore`.",
+            "Ang mga pagsusuri ng hero, mga komento sa tier list, mga gabay at artikulo ay nakasulat sa French at pagkatapos ay awtomatikong isinalin. Ang isinaling pagsusuri ay minarkahan ng \"awtomatikong isinalin\".",
+            "Ang mga tekstong nilagdaan ng may-akda ng site (ang kanyang opinyon sa isang patch, sa tier list, ang kanyang pagtatanghal) ay hindi kailanman dumaan sa awtomatikong pagsasalin: ipinapakita ang mga ito sa Pranses sa lahat ng mga wika, na may pagbanggit na \"Orihinal na teksto sa Pranses, hindi isinalin\"."
+          ]
+        },
+        {
+          "h": "Mag-ulat ng error"
+        },
+        {
+          "ul": [
+            "Sa mga pahina ng Heroes, Items, Emblem, Spells, at Patch Notes, ang button na \"Mag-ulat ng Error\" sa ibaba ng page ay nagpapadala ng hindi kilalang ulat: ang pahina, wika nito, at kung ano ang iyong isinusulat. Ang bawat ulat ay muling binabasa bago ang anumang pagwawasto.",
+            "Para sa lahat ng iba pa, magbukas ng tiket sa [imbakan ng proyekto]({issues}) o sumulat sa [{contact}](mailto:{contact}).",
+            "Ang isang error na nagmumula sa isang pinagmulan (wiki, Liquipedia, API) ay maaari ding itama sa pinagmulan: ipagpatuloy ito ng site sa susunod na pag-synchronize."
+          ]
+        }
+      ]
     }
   },
   "compareUI": {
@@ -6490,5 +6558,77 @@
     "provisional": "Pansamantala",
     "provisionalHint": "Pansamantalang visual, hindi pa nakumpirma ng laro: maaari itong magbago bago ang opisyal na paglabas.",
     "provisionalNote": "Pansamantalang visual: ang hitsura na ito ay hindi pa nakumpirma sa laro, ang paglalarawan ay maaari pa ring magbago."
+  },
+  "editorial": {
+    "original": "Orihinal na teksto sa French, hindi isinalin.",
+    "note": {
+      "titlePatch": "Ang opinyon ng may-akda sa patch {version}",
+      "titleTierList": "Ang opinyon ng may-akda sa tier list na ito",
+      "rank": "Ranggo {rank}",
+      "written": "nagsusulat {date}"
+    },
+    "author": {
+      "title": "Sino ang gumagawa ng MLBBDex",
+      "role": "Role",
+      "rank": "Rank",
+      "why": "Bakit ang site na ito",
+      "heroes": "Hero pool",
+      "contact": "Contact:",
+      "updated": "Na-update {date}"
+    },
+    "methodology": {
+      "title": "Paraan at mga source",
+      "lead": "Saan nagmumula ang bawat data, kung ano ang kinakalkula ng site sa sarili nito at kung ano ang mga threshold, kung ano ang awtomatikong isinasalin, at kung paano mag-ulat ng isang error.",
+      "metaDescription": "Mga mapagkukunan ng MLBBEx (Fandom wiki, Liquipedia, arena.rone.dev API), tier list at mga formula ng patch effect, kung ano ang awtomatikong isinasalin at kung paano mag-ulat ng error."
+    }
+  },
+  "why": {
+    "title": "Bakit MLBBDex",
+    "lead": "Ano ang sinusukat, pinapanatili at kinakalkula ng site mismo, kasama ang pahina kung saan ito susuriin.",
+    "figure": "araw ng mga rate na pinapanatili ng site, mula noong {date}",
+    "daily": {
+      "title": "Mga rate na naitala araw-araw",
+      "text": "Tagumpay, ban at pagpili ng {n} hero sa ranggo na paglalaro, lahat ng ranggo ay pinagsama at ranggo ayon sa ranggo. Huling pagbabasa sa {date}.",
+      "link": "Mga istatistika"
+    },
+    "history": {
+      "title": "Isang kasaysayan na hindi itinatago ng pinagmulan",
+      "text": "Nagsisilbi lang ang statistics API sa huling tatlumpung araw. Pinapanatili ng site ang bawat pahayag mula sa {date}: araw-araw sa {daily} araw, pagkatapos ay sa average bawat linggo.",
+      "link": "Kasaysayan ng {hero}"
+    },
+    "tierList": {
+      "title": "Isang kalkuladong tier list, ipinapakita ang panuntunan",
+      "text": "Iskor = {formula}. Ang mga threshold para sa mga tier ay na-publish at ang parehong pagkalkula ay inuulit para sa bawat ranggo, bawat lane at bawat tungkulin.",
+      "link": "Ang tuntunin at pag-uuri"
+    },
+    "patch": {
+      "title": "Ang nasusukat na epekto ng bawat patch",
+      "text": "Para sa bawat binagong hero, ang pagkakaiba sa pagitan ng kanilang average na win rate {days} araw bago at {days} araw pagkatapos ng patch. Patch {version}: {n} hero na sinusukat sa {changed} binago.",
+      "textPending": "Para sa bawat binagong hero, ang pagkakaiba sa pagitan ng kanilang average na win rate {days} araw bago at {days} araw pagkatapos ng patch. Patch {version}: hindi pa sapat ang mga araw na nasusukat mula noong inilabas ito.",
+      "link": "Mga patch na tala {version}"
+    },
+    "draft": {
+      "title": "Isang draft assistant",
+      "text": "Nag-aalok ito ng mga pagpili batay sa mga counter, synergies, mga kakampi na pinakamaraming panalo nang magkasama sa ranggo na laro at ang win rate ng bawat hero.",
+      "link": "Maghanda ng draft"
+    },
+    "games": {
+      "title": "Mga laro mula sa simula",
+      "text": "Isang lihim na hero at isang hamon bawat araw mula noong {date}, na binuo mula sa mga skill, hitsura, kwento, item at rate ng site. Ang parehong para sa lahat ng mga manlalaro."
+    },
+    "builds": {
+      "title": "Player build",
+      "text": "Nai-publish ng mga manlalaro na konektado sa site at niraranggo ayon sa kanilang mga boto.",
+      "link": "Mga pagbuo ng komunidad"
+    },
+    "bot": {
+      "title": "Isang Discord bot",
+      "text": "Tumutugon ang Dex MLBB sa Discord (/hero, /build, /tierlist, /counter...) gamit ang data mula sa pampublikong API ng site.",
+      "link": "Ang bot"
+    },
+    "languages": {
+      "title": "{n} wika",
+      "text": "Nakasulat sa French at awtomatikong isinalin sa {others} iba pang mga wika. Ano ang isinalin, at kung paano, ay nakadetalye sa pahina ng mga mapagkukunan."
+    }
   }
 }

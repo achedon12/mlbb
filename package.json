@@ -36,6 +36,7 @@
     "start": "node scripts/start.mjs",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
+    "check:analyses": "node scripts/check-analyses.mjs",
     "sync": "node scripts/sync.mjs",
     "sync:evolution": "node scripts/sync.mjs --evolution",
     "sync:measures": "node scripts/sync.mjs --measures",

@@ -62,7 +62,7 @@ export const PAGES = [
     // The written analysis is French at the source: every other language
     // shows its translation (src/data/game/analyses/).
     excludes: Object.fromEntries(
-      ALL.filter((l) => l !== "fr").map((l) => [l, ["Khufra existe pour répondre", "Sa compétence 1 pose un champ"]]),
+      ALL.filter((l) => l !== "fr").map((l) => [l, ["Khufra existe pour répondre", "Sa compétence 2 le change en boule"]]),
     ),
   },
   { path: "/heroes/khufra/counters", locales: [...EN_FR, ...LATEST] },
@@ -182,6 +182,8 @@ export const PAGES = [
   { path: "/quiz", locales: EN_FR, browser: true },
   { path: "/mlbbdle", locales: EN_FR },
   { path: "/about", locales: ALL, browser: true, minWords: 150 },
+  // Every figure of the rules is a variable: a lost one would read "{tierS}".
+  { path: "/methodology", locales: ALL, browser: true, minWords: 400 },
   { path: "/dex", locales: ALL, browser: true },
   { path: "/brand", locales: EN_FR },
   { path: "/legal", locales: ALL, browser: true, minWords: 150 },

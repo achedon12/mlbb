@@ -7,37 +7,31 @@ export const marksmen: HeroAnalysis[] = [
     summary:
       "Tireur à chargeur : ses dégâts viennent de ses compétences, pas de sa vitesse d'attaque.",
     analysis:
-      "Granger ne se construit pas comme un tireur classique. Son passif fixe son attaque à six balles dont la dernière est critique, ce qui rend la vitesse d'attaque presque inutile sur lui : on achète des dégâts d'attaque et de la pénétration.\n\nCela lui donne un pic de puissance très précoce, exploitable en jungle dès le premier objet. Sa fragilité reste celle d'un tireur, aggravée par l'absence de tout contrôle : mal positionné, il n'a que sa compétence 2 pour espérer sortir.",
+      "Granger ne se construit pas comme un tireur classique. Sa compétence 1 tire six balles dont la dernière est toujours critique, et son passif convertit la réduction de recharge en attaque physique, ce qui rend la vitesse d'attaque presque inutile sur lui : on achète des dégâts d'attaque et de la pénétration.\n\nCela lui donne un pic de puissance très précoce, exploitable en jungle dès le premier objet. Sa fragilité reste celle d'un tireur, aggravée par l'absence de contrôle, hormis le bref ralentissement de son ultime : mal positionné, il n'a que sa compétence 2 et les roulades de son ultime pour espérer sortir.",
     skills: [
       {
         type: "Passive",
         name: "Capriccio",
         description:
-          "Son arme contient six balles. La dernière balle du chargeur inflige toujours un coup critique.",
+          "Son fusil et son canon fonctionnent à l'énergie démoniaque, qui se régénère et augmente à chaque sbire, monstre ou héros tué. Chaque point de réduction de recharge devient de l'attaque physique.",
       },
       {
         type: "Skill 1",
         name: "Rhapsody",
         description:
-          "Tire une salve en cône qui traverse les ennemis, avec des dégâts accrus sur la première cible touchée.",
-        cooldown: [10, 9.2, 8.4, 7.6, 6.8, 6],
-        cost: [70, 75, 80, 85, 90, 95],
+          "Tire six balles d'affilée, dont la dernière est toujours critique, en gagnant un peu de vitesse. Sans recharge : elle ne dépend que de l'énergie de son fusil.",
       },
       {
         type: "Skill 2",
         name: "Rondo",
         description:
-          "Se déplace rapidement et recharge instantanément son arme, en gagnant de la vitesse d'attaque.",
-        cooldown: [14, 13, 12, 11, 10, 9],
-        cost: [60, 60, 60, 60, 60, 60],
+          "Dash dans une direction en rendant de l'énergie à son fusil, même pendant la compétence 1. Chaque balle qui touche réduit sa recharge.",
       },
       {
         type: "Ultimate",
         name: "Death Sonata",
         description:
-          "Équipe un canon à longue portée tirant des obus explosifs à travers la carte.",
-        cooldown: [45, 40, 35],
-        cost: [80, 100, 120],
+          "Tire au canon sur le premier héros touché et autour de lui, en ralentissant brièvement les cibles. Après chaque tir, il peut faire une roulade.",
       },
     ],
     strengths: [
@@ -88,15 +82,13 @@ export const marksmen: HeroAnalysis[] = [
         type: "Skill 1",
         name: "Masterful Gunner",
         description:
-          "Se déplace et laisse une fumée qui la dissimule brièvement.",
-        cooldown: [13, 12, 11, 10, 9, 8],
+          "Échange l'arme active contre la seconde arme portée, ce qui change son attaque de base et son ultime. En passif, porter deux armes augmente son attaque physique.",
       },
       {
         type: "Skill 2",
         name: "Tactical Reposition",
         description:
-          "Échange l'arme active contre la seconde arme portée, en rechargeant l'ultime correspondant.",
-        cooldown: [3, 3, 3, 3, 3, 3],
+          "Une roulade vers l'avant qui recharge entièrement l'arme active.",
       },
       {
         type: "Ultimate",
@@ -141,37 +133,31 @@ export const marksmen: HeroAnalysis[] = [
     summary:
       "Tireuse défensive : son ultime crée une zone que les ennemis au corps à corps ne peuvent pas franchir.",
     analysis:
-      "Melissa résout le problème classique du tireur — se faire plonger — par une réponse directe. Son ultime pose un cercle qui repousse les adversaires en mêlée et réduit fortement leurs dégâts à l'intérieur, ce qui lui permet de continuer à tirer pendant qu'un assassin s'épuise à essayer d'entrer.\n\nElle reste une tireuse standard sur le reste : bonne montée en puissance, dégâts corrects, aucune menace hors de sa portée. Contre une équipe à distance qui l'ignore et frappe à travers la zone, l'ultime perd l'essentiel de sa valeur.",
+      "Melissa résout le problème classique du tireur — se faire plonger — par une réponse directe. Son ultime lui donne un bouclier et pose un cercle qui repousse les adversaires présents et tous ceux qui tentent d'y entrer, en interrompant leurs déplacements, ce qui lui permet de continuer à tirer pendant qu'un assassin s'épuise à essayer d'entrer.\n\nElle reste une tireuse standard sur le reste : bonne montée en puissance, dégâts corrects, aucune menace hors de sa portée. Contre une équipe à distance qui l'ignore et frappe à travers la zone, l'ultime perd l'essentiel de sa valeur.",
     skills: [
       {
         type: "Passive",
         name: "Doll Buster",
         description:
-          "Ses dégâts augmentent contre les cibles proches ou éloignées selon la distance, et ses attaques ralentissent brièvement.",
+          "Ses dégâts sont augmentés contre les sbires, les monstres et les unités invoquées.",
       },
       {
         type: "Skill 1",
         name: "Falling!",
         description:
-          "Se déplace en projetant une poupée qui inflige des dégâts de zone.",
-        cooldown: [9, 8.4, 7.8, 7.2, 6.6, 6],
-        cost: [60, 65, 70, 75, 80, 85],
+          "Glisse vers l'avant et gagne de la vitesse d'attaque pendant quelques secondes.",
       },
       {
         type: "Skill 2",
         name: "Eyes on You!",
         description:
-          "Invoque une poupée qui poursuit les ennemis et les ralentit.",
-        cooldown: [12, 11, 10, 9, 8, 7],
-        cost: [70, 75, 80, 85, 90, 95],
+          "Lance Muddles, qui blesse le premier ennemi touché puis lie les ennemis proches et les ralentit tant qu'ils restent à portée. Ses attaques sur Muddles blessent aussi les ennemis liés.",
       },
       {
         type: "Ultimate",
         name: "Go Away!",
         description:
-          "Crée une zone que les ennemis au corps à corps ne peuvent pas franchir et dans laquelle leurs dégâts sont fortement réduits.",
-        cooldown: [50, 45, 40],
-        cost: [100, 120, 140],
+          "Lui donne un bouclier et crée autour d'elle une zone qui repousse les ennemis présents ; ceux qui tentent d'y entrer sont repoussés, ralentis, et leurs compétences de déplacement interrompues.",
       },
     ],
     strengths: [

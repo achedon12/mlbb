@@ -213,6 +213,8 @@ export function sitemapEntries(): MetadataRoute.Sitemap {
     { path: "/api-doc", changeFrequency: "monthly", priority: 0.5, lastModified: synced },
     { path: "/contribute", changeFrequency: "monthly", priority: 0.4, lastModified: synced },
     { path: "/about", changeFrequency: "yearly", priority: 0.3 },
+    // Its sources and figures follow the data: dated by the last full sync.
+    { path: "/methodology", changeFrequency: "monthly", priority: 0.4, lastModified: synced },
     { path: "/dex", changeFrequency: "yearly", priority: 0.4 },
     { path: "/brand", changeFrequency: "yearly", priority: 0.3 },
     { path: "/legal", changeFrequency: "yearly", priority: 0.2 },

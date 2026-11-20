@@ -31,6 +31,14 @@ import {
   shieldLabels,
   shieldWith,
 } from "./translation-shield.mjs";
+import {
+  DATA_NAMES,
+  MODE_SECTION_NAMES,
+  MODES_NAMED_SECTIONS,
+  effectNames,
+  effectNamesPattern,
+  restoreEffectNames,
+} from "./translation-official-names.mjs";
 
 const CACHE = "scripts/translations-data.json";
 
@@ -245,24 +253,38 @@ function modesTexts(d) {
   }
   return out;
 }
+/**
+ * A section named after a sub-mode (Arcade's "Ravage", "Chess TD") or a game
+ * name ("Draft Pick") keeps its title as the game writes it
+ * (`translation-official-names.mjs`): the service had written "Ravager" and
+ * "Échecs TD".
+ */
+const sectionTitle = (m, s, t) => (MODES_NAMED_SECTIONS.has(m.slug) || MODE_SECTION_NAMES.has(s.title) ? s.title : t(s.title));
 const modesRebuild = (d, t) =>
   d.map((m) => ({
     ...m,
     description: t(m.description),
     sections: (m.sections ?? []).map((s) => ({
-      title: t(s.title),
+      title: sectionTitle(m, s, t),
       elements: (s.elements ?? []).map((e) => ({ type: e.type, text: t(e.text) })),
     })),
   }));
 
 const FIELDS_ITEM = ["summary", "bonus", "unique", "passive", "active", "bestFor"];
+/** Fields that open with the effect's name ("Deter: When hit…"), kept in English. */
+const FIELDS_EFFECT = new Set(["unique", "passive", "active"]);
 function itemsTexts(d) {
   const out = [];
   for (const o of d) for (const c of FIELDS_ITEM) if (o[c]) out.push(o[c]);
   return out;
 }
 const itemsRebuild = (d, t) =>
-  d.map((o) => ({ ...o, ...Object.fromEntries(FIELDS_ITEM.map((c) => [c, o[c] ? t(o[c]) : o[c]])) }));
+  d.map((o) => ({
+    ...o,
+    ...Object.fromEntries(
+      FIELDS_ITEM.map((c) => [c, o[c] ? (FIELDS_EFFECT.has(c) ? restoreEffectNames(t(o[c]), o[c]) : t(o[c])) : o[c]]),
+    ),
+  }));
 
 const tierNotesTexts = (d) => Object.values(d);
 const tierNotesRebuild = (d, t) => Object.fromEntries(Object.entries(d).map(([s, v]) => [s, t(v)]));
@@ -311,6 +333,8 @@ const GAME_TERMS = [
     "Ice Retribution",
     "Flame Retribution",
     "Bloody Retribution",
+    // Arcade sub-modes (`translation-official-names.mjs`).
+    ...DATA_NAMES,
   ]),
 ]
   .filter((n) => n.length > 3)
@@ -324,11 +348,27 @@ const TERMS_RE = namesPattern(GAME_TERMS);
 const GAME_RE = namesPattern([...HERO_NAMES, ...GAME_TERMS]);
 const shieldGame = shieldWith(GAME_RE);
 /**
+ * The items' effect names, where the patch notes name them ("[Unique Passive
+ * - Deter]"): the service had written "Passif unique - Dissuasion" next to
+ * "Passif unique - Lifebane". Roaming enchantments are named the same way
+ * ("Passive - Encourage").
+ */
+const EFFECT_NAMES = [
+  ...JSON.parse(await readFile("src/data/game/items/en.json", "utf8")).flatMap((o) =>
+    [o.unique, o.passive, o.active].flatMap(effectNames),
+  ),
+  "Encourage",
+  "Favor",
+  "Dire Hit",
+  "Conceal",
+];
+const PATCH_RE = new RegExp(`${GAME_RE.source}|${effectNamesPattern(EFFECT_NAMES).source}`, "gu");
+/**
  * Patch notes also number their headings and lists ("a. Rare Skins"), a
  * letter the service read as a word ("un. Peaux rares"): the label travels
  * behind a marker too.
  */
-const shieldPatches = combineShields(shieldGame, shieldLabels);
+const shieldPatches = combineShields(shieldWith(PATCH_RE), shieldLabels);
 /**
  * Skill names stay in English on the site, as on the skill sheets: in French
  * the service translated them in the descriptions ("Spear of Glory" came back
@@ -452,7 +492,7 @@ const GAMES = {
   patches: {
     source: "en",
     shield: shieldPatches,
-    forget: GAME_RE,
+    forget: PATCH_RE,
     labels: true,
     file: "src/data/game/patches.json",
     extract: (d) => d.details,

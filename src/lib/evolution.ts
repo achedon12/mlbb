@@ -101,3 +101,17 @@ export const trendsOf = (slug: string) => E.trends[slug] ?? {};
 export const durationOf = (slug: string) => E.duration[slug] ?? {};
 export const historyOf = (slug: string): SeriesRate | null =>
   E.history[slug] ? spreadHistory(E.history[slug]) : null;
+
+/**
+ * First day the site's history covers, all heroes together (the date the
+ * hero pages give as "since"), or null before the first measure. The API
+ * only serves thirty days: everything before them is kept by the site.
+ */
+export function historyStart(): string | null {
+  let first: string | null = null;
+  for (const slug of Object.keys(E.history)) {
+    const start = historyOf(slug)?.start;
+    if (start && (!first || start < first)) first = start;
+  }
+  return first;
+}
