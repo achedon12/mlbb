@@ -103,7 +103,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
   return (
     <section>
       <h2 className="font-heading text-2xl font-bold text-chalk-100">{title}</h2>
-      <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+      <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
       <div className="mt-5">{children}</div>
     </section>
   );

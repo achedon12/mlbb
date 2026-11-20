@@ -142,7 +142,7 @@ export default async function PlayerProfilePage({
       <header className="flex flex-wrap items-end justify-between gap-4">
         <div className="min-w-0">
           <h1 className="font-heading text-3xl font-bold text-chalk-100">{t("pages.accountProfile.title")}</h1>
-          <div aria-hidden className="gold-rule mt-3 h-0.5 w-16" />
+          <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-chalk-500">
             {t("pages.accountProfile.lead", { name: profile.name })}
           </p>

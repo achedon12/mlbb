@@ -48,7 +48,7 @@ export function SectionProfile({
       <h2 id={id} className="font-heading text-2xl font-bold text-chalk-100">
         {title}
       </h2>
-      <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+      <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
       {lead && <p className="mt-3 max-w-2xl text-sm leading-relaxed text-chalk-500">{lead}</p>}
       {children}
     </section>
@@ -77,7 +77,7 @@ export function StateProfile({ type, t }: { type: "expired" | "unavailable" | "e
         <SignOutForm action={reconnect} className="mt-5">
           <button
             type="submit"
-            className="bevel-sm bg-gold-500 px-4 py-2 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400"
+            className="bevel-sm bg-gold-400 px-4 py-2 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-300"
           >
             {t("pages.accountProfile.signInAgain")}
           </button>
@@ -269,7 +269,7 @@ export function HeroTable({
               const color = !reliable
                 ? "text-chalk-400"
                 : l.gap! >= MARGIN_POINTS
-                  ? "text-emerald-400"
+                  ? "text-azure-400"
                   : l.gap! <= -MARGIN_POINTS
                     ? "text-blood-500"
                     : "text-chalk-300";
@@ -327,7 +327,7 @@ function WithoutMeasure({ t }: { t: T }) {
   );
 }
 
-const TONES = { good: "text-emerald-400", bad: "text-blood-500", alert: "text-gold-400" } as const;
+const TONES = { good: "text-azure-400", bad: "text-blood-500", alert: "text-gold-400" } as const;
 
 function CardTip({
   title,

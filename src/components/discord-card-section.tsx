@@ -41,7 +41,7 @@ export async function DiscordCardSection({ locale, roleId, zoneId, now }: { loca
         <MessageSquare size={20} className="text-gold-400" aria-hidden />
         {t("pages.discordCard.title")}
       </h2>
-      <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+      <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
       <p className="mt-4 text-sm leading-relaxed text-chalk-300">{t("pages.discordCard.intro")}</p>
 
       {shown && (

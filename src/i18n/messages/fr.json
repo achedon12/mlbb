@@ -644,7 +644,14 @@
       "intro": "Connectez votre compte de jeu par le code de vérification officiel de Moonton. Aucun mot de passe ne vous est demandé.",
       "security": "Le site ne voit jamais votre mot de passe. Il reçoit uniquement un jeton temporaire, rangé dans un cookie sécurisé, que vous effacez en vous déconnectant.",
       "metaTitle": "Connexion",
-      "metaDescription": "Connectez votre compte Mobile Legends par code de vérification, sans mot de passe."
+      "metaDescription": "Connectez votre compte Mobile Legends par code de vérification, sans mot de passe.",
+      "welcome": "Bienvenue sur MLBBDex !",
+      "welcomeText": "Votre compte de jeu, sans mot de passe : votre identifiant, puis le code que Moonton envoie dans votre boîte de réception en jeu.",
+      "perks": {
+        "profile": "Votre profil, vos rangs et vos héros les plus joués",
+        "community": "Le forum et la recherche de coéquipiers",
+        "collection": "Votre collection de skins sur tous vos appareils"
+      }
     },
     "watch": {
       "title": "Veille",
@@ -659,7 +666,8 @@
     "about": {
       "title": "À propos",
       "lead": "Un projet indépendant, ouvert, et volontairement explicite sur ses limites.",
-      "metaDescription": "Ce qu'est ce site, ce qu'il contient, ce qu'il ne peut pas contenir, et comment y contribuer."
+      "metaDescription": "Ce qu'est ce site, ce qu'il contient, ce qu'il ne peut pas contenir, et comment y contribuer.",
+      "dexLine": "Moi, c'est Dex ! Je vous guide sur le site : héros, méta, outils et communauté."
     },
     "legal": {
       "title": "Mentions légales",
@@ -690,7 +698,9 @@
       "detailUnavailable": "Le détail des statistiques (taux de victoire, historique, héros les plus joués) dépend d'un service de Moonton actuellement hors ligne. Votre profil ci-dessus reste accessible ; le détail reviendra dès que la source répondra.",
       "noStat": "Aucune statistique à afficher.",
       "profileLink": "Voir mon profil de joueur",
-      "profileLinkText": "Bilan de saison, héros comparés à la moyenne de votre rang, dernières parties et conseils."
+      "profileLinkText": "Bilan de saison, héros comparés à la moyenne de votre rang, dernières parties et conseils.",
+      "topHeroes": "Vos héros",
+      "topHeroesLead": "Ceux que vous jouez le plus, d'après les parties que le service a gardées."
     },
     "apiDoc": {
       "title": "API publique",
@@ -765,7 +775,8 @@
     "offline": {
       "title": "Vous êtes hors ligne",
       "text": "Cette page n'a pas encore été consultée sur cet appareil : elle n'est donc pas disponible sans connexion. Les pages déjà visitées, et les principales rubriques du site, restent accessibles.",
-      "home": "Revenir à l'accueil"
+      "home": "Revenir à l'accueil",
+      "dexLine": "Pas de réseau pour l'instant. Les pages déjà ouvertes restent lisibles."
     },
     "notFound": {
       "title": "Page introuvable",
@@ -773,7 +784,12 @@
       "home": "Retour à l'accueil",
       "heroes": "Voir les héros",
       "tierList": "Tier list du moment",
-      "search": "Chercher un héros, un objet ou une page"
+      "search": "Chercher un héros, un objet ou une page",
+      "dexLine": "Hé, cette page s'est perdue dans la jungle… On repart d'ici ?",
+      "lost": "Égaré",
+      "heroesText": "Les fiches, builds et contres des héros.",
+      "tierListText": "Qui domine la méta en ce moment.",
+      "homeText": "Le patch, la méta et les outils du jour."
     },
     "winRate": {
       "title": "Calculateur de taux de victoire",
@@ -888,7 +904,8 @@
         "merge": "Une fois fusionnée, l'analyse est en ligne au déploiement suivant, et votre nom reste dans l'historique du dépôt."
       },
       "prLink": "Ouvrir une pull request",
-      "guideLink": "Guide complet sur GitHub (CONTRIBUTING.md)"
+      "guideLink": "Guide complet sur GitHub (CONTRIBUTING.md)",
+      "dexLine": "Une erreur sur une fiche, une idée, une traduction ? Toute aide compte, même la plus petite."
     },
     "accountProfile": {
       "metaTitle": "Profil de joueur",
@@ -3757,7 +3774,8 @@
       "ctaTitle": "Ajoutez MLBBDex à votre serveur",
       "ctaText": "Une minute pour l'ajouter, rien à payer. Des questions ou une idée ? Le serveur MLBBDex vous attend.",
       "privacy": "Confidentialité du bot",
-      "terms": "Conditions d'utilisation"
+      "terms": "Conditions d'utilisation",
+      "dexLine": "Les fiches de MLBBDex, directement sur votre serveur Discord."
     },
     "botPrivacy": {
       "title": "Confidentialité du bot Discord",
@@ -3857,7 +3875,10 @@
       "failing": "Le bot n'a pas pu publier dans ce salon : vérifiez ses permissions, puis enregistrez.",
       "flush": "Publier les annonces en attente",
       "flushing": "Publication des annonces…",
-      "flushed": "Annonces vérifiées : {count} nouvelle(s), publication demandée au bot.",
+      "flushed": {
+        "one": "Annonces vérifiées : {count} nouvelle, publication demandée au bot.",
+        "other": "Annonces vérifiées : {count} nouvelles, publication demandée au bot."
+      },
       "flushFailed": "Le bot n'a pas répondu.",
       "greetingsTitle": "Bienvenue et départs",
       "greetingsLead": "Un message dans le salon de votre choix quand un membre arrive ou part, dans la langue du serveur. Seul le nouveau venu est mentionné ; si plus de 5 personnes arrivent en 10 secondes, le bot publie un seul message pour toutes.",
@@ -4430,8 +4451,14 @@
       "latestTitle": "Dernières discussions",
       "emptyAll": "Aucune discussion pour l'instant : lancez la première.",
       "emptyCategory": "Aucune discussion dans cette catégorie pour l'instant.",
-      "threadCount": "{n} discussion(s)",
-      "replies": "{n} réponse(s)",
+      "threadCount": {
+        "one": "{n} discussion",
+        "other": "{n} discussions"
+      },
+      "replies": {
+        "one": "{n} réponse",
+        "other": "{n} réponses"
+      },
       "pinned": "Épinglée",
       "locked": "Verrouillée",
       "edited": "modifié",
@@ -4477,7 +4504,10 @@
       "searchTitle": "Recherche dans le forum",
       "searchLead": "Les discussions dont le titre, le texte ou une réponse contiennent vos mots. Des guillemets pour une expression exacte, un tiret pour exclure un mot.",
       "searchLeadCategory": "Recherche dans la catégorie {name}.",
-      "searchResults": "{n} discussion(s) pour « {query} »",
+      "searchResults": {
+        "one": "{n} discussion pour « {query} »",
+        "other": "{n} discussions pour « {query} »"
+      },
       "searchEmpty": "Aucune discussion ne correspond. Essayez d'autres mots, ou moins de mots.",
       "searchHint": "Tapez un ou plusieurs mots : un héros, un objet, une question.",
       "rules": {
@@ -4494,7 +4524,10 @@
         "seoTitle": "Trouver des coéquipiers Mobile Legends",
         "seoDescription": "Joueurs de Mobile Legends à la recherche d'un duo ou d'une équipe : filtrez par région, rang, lane et langue, et publiez votre propre carte.",
         "ownTitle": "Votre carte",
-        "listTitle": "{n} joueur(s) disponible(s)",
+        "listTitle": {
+          "one": "{n} joueur disponible",
+          "other": "{n} joueurs disponibles"
+        },
         "any": "Tous",
         "lane": "Lane",
         "language": "Langue",
@@ -4506,7 +4539,9 @@
         "gameId": "ID de jeu",
         "signInForContact": "pour voir le contact.",
         "noContact": "Pas de contact partagé : répondez-lui sur le forum ou le Discord.",
-        "discordText": "Sur le serveur Discord MLBBDex, un salon de recherche de coéquipiers est ouvert en permanence."
+        "discordText": "Sur le serveur Discord MLBBDex, un salon de recherche de coéquipiers est ouvert en permanence.",
+        "emptyTitle": "Personne pour l'instant",
+        "mains": "Héros joués"
       },
       "moderation": {
         "title": "Modération de la communauté",
@@ -4546,17 +4581,28 @@
           "resolve": "Erreur traitée"
         },
         "deleted": "supprimé par son auteur",
-        "reportCount": "{n} signalement(s)",
+        "reportCount": {
+          "one": "{n} signalement",
+          "other": "{n} signalements"
+        },
         "asReported": "Tel que signalé",
         "dataReports": "Erreurs signalées sur les fiches ({n})",
         "dataReportsLead": "Signalements anonymes envoyés depuis les fiches de héros, d'objets, d'emblèmes, de sorts et les notes de patch, du plus ancien au plus récent. Corrigez la donnée si besoin, puis marquez le signalement comme traité.",
         "dataReportsEmpty": "Aucune erreur signalée.",
         "dataCorrection": "Correction proposée :",
         "dataSource": "Source :"
-      }
+      },
+      "hostLine": "Salut ! Ici on s'entraide, on parle builds et on trouve des coéquipiers.",
+      "signInDex": "Tout le monde peut lire. Pour écrire, il suffit de se connecter.",
+      "emptyDex": "C'est bien calme par ici…",
+      "searchEmptyTitle": "Rien trouvé",
+      "lastActivity": "Dernière activité {when}"
     },
     "communityUI": {
-      "votes": "{n} vote(s)",
+      "votes": {
+        "one": "{n} vote",
+        "other": "{n} votes"
+      },
       "upvote": "Voter pour ce message",
       "unvote": "Retirer mon vote",
       "signInToVote": "Connectez-vous pour voter",
@@ -4676,7 +4722,10 @@
         "unban": "Lever le bannissement",
         "dismiss": "Classer sans suite",
         "duration": "Durée",
-        "days": "{n} jour(s)",
+        "days": {
+          "one": "{n} jour",
+          "other": "{n} jours"
+        },
         "forever": "Définitif",
         "reason": "Motif (journal)",
         "confirmBan": "Confirmer le bannissement",
@@ -5440,7 +5489,11 @@
       "unknown": "Aucun compte ne correspond à cet identifiant et ce serveur.",
       "unavailable": "Le service est momentanément indisponible.",
       "wrongCode": "Code incorrect ou expiré."
-    }
+    },
+    "steps": "Étapes de connexion",
+    "step1": "Votre identifiant",
+    "step2": "Le code reçu en jeu",
+    "stepOf": "Étape {n} sur 2"
   },
   "articleUI": {
     "none": "Aucune publication pour le moment.",
@@ -5739,7 +5792,8 @@
     "retry": "Réessayer",
     "oops": "Oups",
     "pageText": "Le chargement de cette page a échoué. Vous pouvez réessayer ou revenir à l'accueil.",
-    "home": "Retour à l'accueil"
+    "home": "Retour à l'accueil",
+    "dexLine": "Aïe, quelque chose a coincé de notre côté. Un nouvel essai suffit souvent."
   },
   "heroCard": {
     "tierTitle": "Palier {p} de la tier list",
@@ -5802,7 +5856,8 @@
       "skin": "Apparences",
       "emblem": "Emblèmes",
       "spell": "Sorts de combat"
-    }
+    },
+    "dexEmpty": "Hmm, je ne trouve rien. Essayez un autre nom, ou moins de lettres."
   },
   "heroData": {
     "resource": {
@@ -6177,5 +6232,9 @@
     "currentGranted": "Choix actuel : cookies acceptés le {date}.",
     "currentDenied": "Choix actuel : cookies refusés le {date}.",
     "manage": "Gérer les cookies"
+  },
+  "feed": {
+    "title": "MLBBDex — actualités et guides",
+    "description": "Les fiches des héros, les builds et contres par rang, les tier lists, les objets, les emblèmes, les notes de patch et les actualités de Mobile Legends: Bang Bang, en français."
   }
 }

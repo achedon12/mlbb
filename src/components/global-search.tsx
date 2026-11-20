@@ -247,7 +247,7 @@ export function GlobalSearch() {
                           }}
                           onMouseEnter={() => setActive(i)}
                           className={cn(
-                            "flex items-center gap-3 rounded-md px-3 py-2",
+                            "bevel-sm flex items-center gap-3 px-3 py-2",
                             i === active ? "bg-night-800 text-gold-400" : "text-chalk-200",
                           )}
                         >

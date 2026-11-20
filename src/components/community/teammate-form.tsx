@@ -154,7 +154,7 @@ export function TeammateForm({ heroes, card }: { heroes: HeroOption[]; card: Own
           aria-expanded={open}
           aria-controls={formId}
           onClick={() => setOpen((o) => !o)}
-          className="bevel-sm inline-flex min-h-11 items-center bg-gold-500 px-4 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400"
+          className="bevel-sm inline-flex min-h-11 items-center bg-gold-400 px-4 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-300"
         >
           {card ? t("pages.communityUI.teammates.editCard") : t("pages.communityUI.teammates.newCard")}
         </button>
@@ -265,7 +265,7 @@ export function TeammateForm({ heroes, card }: { heroes: HeroOption[]; card: Own
           <button
             type="submit"
             disabled={busy}
-            className="bevel-sm inline-flex min-h-11 items-center gap-2 bg-gold-500 px-4 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400 disabled:opacity-60"
+            className="bevel-sm inline-flex min-h-11 items-center gap-2 bg-gold-400 px-4 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-300 disabled:opacity-60"
           >
             <Send size={16} aria-hidden />
             {busy ? t("pages.communityUI.sending") : t("pages.communityUI.teammates.publish")}

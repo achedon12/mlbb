@@ -148,8 +148,8 @@ export default async function GuildPage({ params }: Params) {
         crumbs={[...crumbs, { name: guild.name }]}
         icon={<GuildIcon id={guild.id} icon={guild.icon} name={guild.name} size="lg" />}
         meta={[
-          <span key="bot" className="inline-flex items-center gap-1.5 text-emerald-300">
-            <span aria-hidden className="size-2 rounded-full bg-emerald-400" />
+          <span key="bot" className="inline-flex items-center gap-1.5 text-azure-300">
+            <span aria-hidden className="size-2 rounded-full bg-azure-400" />
             {t("pages.botDashboard.botPresent")}
           </span>,
           t("pages.botDashboard.members", { count: new Intl.NumberFormat(locale).format(guild.memberCount) }),
@@ -224,7 +224,7 @@ export default async function GuildPage({ params }: Params) {
                     {t(`pages.botUI.types.${d.type}`)} <span className="text-chalk-400">({d.key})</span>
                   </span>
                   <span className="flex items-baseline gap-3">
-                    <span className={cn("font-semibold", d.status === "sent" ? "text-emerald-400" : "text-blood-400")}>
+                    <span className={cn("font-semibold", d.status === "sent" ? "text-azure-400" : "text-blood-400")}>
                       {t(`pages.botDashboard.statuses.${d.status}`)}
                     </span>
                     <time dateTime={d.sentAt} className="text-sm tabular-nums text-chalk-400">

@@ -147,7 +147,7 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
       {/* ── Statistics ─────────────────────────────────────────────────── */}
       <section className="mt-12">
         <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("pages.account.statistics")}</h2>
-        <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+        <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
 
         {stats.status === "ok" ? (
           <SummaryStatistics stats={stats.data} locale={locale} />
@@ -187,7 +187,7 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
             <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("pages.account.friends")}</h2>
             <span className="text-sm text-chalk-500">{friendList.data.length}</span>
           </div>
-          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
 
           <ul className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
             {friendList.data.map((friend, i) => (
@@ -214,7 +214,7 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
       {/* ── Favorites (local) ──────────────────────────────────────────── */}
       <section className="mt-12">
         <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("pages.account.favourites")}</h2>
-        <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+        <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
         <AccountFavourites lastPatch={summaryLastPatch()} />
       </section>
     </div>

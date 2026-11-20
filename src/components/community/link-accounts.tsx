@@ -31,7 +31,7 @@ export function LinkAccounts() {
 
   if (state.type === "done") {
     return (
-      <p role="status" className="text-sm text-emerald-400">
+      <p role="status" className="text-sm text-azure-400">
         {t("pages.communityUI.link.done")}
       </p>
     );
@@ -82,7 +82,7 @@ export function UnlinkAccounts() {
 
   if (state.type === "done") {
     return (
-      <p role="status" className="text-sm text-emerald-400">
+      <p role="status" className="text-sm text-azure-400">
         {t("pages.communityUI.link.unlinkDone")}
       </p>
     );
