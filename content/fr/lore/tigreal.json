@@ -1,0 +1,54 @@
+{
+  "tagline": "Chef de l'Ordre de la Lumière, gardien de l'Empire de Moniyan.",
+  "lore": [
+    "Tigreal naquit au sein de la noble famille Wertz. Depuis la fondation de l'Empire de Moniyan, la maison Wertz n'avait cessé de fournir à l'Empire des talents militaires et veillait, de génération en génération, sur le pouvoir impérial et la sûreté du pays. La génération de Tigreal ne faisait pas exception : son père, Gareth, était ministre de la Défense de l'Empire et le bras droit de l'empereur, tandis que son oncle, Eckert, commandait les gardes-frontières postés dans la zone la plus périlleuse, entre le sud de l'Empire et la terre du désespoir.",
+    "Bien que des milliers d'années se fussent écoulées depuis les bouleversements qui avaient déchiré l'Empire, les rumeurs et les menaces liées aux Abysses, aux hérétiques et aux créatures terrifiantes n'avaient jamais cessé de planer. Dès l'enfance, Tigreal reçut dans la Cité de Lumina une formation militaire rigoureuse, apprenant sans relâche toutes sortes d'arts du combat : la lutte, l'escrime, l'équitation. Toute sa famille fondait sur lui de grands espoirs et souhaitait qu'il reprenne un jour le flambeau de la génération de son père pour devenir le plus inébranlable et le plus loyal des gardiens de Moniyan.",
+    "À seize ans, Tigreal s'engagea corps et âme dans l'Armée impériale et fut incorporé dans les rangs de l'Armée de garnison. Durant ses quatre années dans l'Armée de garnison, il mena ses troupes dans presque toutes les régions de Moniyan, ce qui aiguisa encore ses talents de commandant et de meneur d'hommes et lui valut la faveur de l'Ordre de la Lumière.",
+    "Par la suite, grâce à son remarquable talent militaire et à ses qualités de chef, Tigreal rejoignit les chevaliers de la Lumière. Dans l'Empire de Moniyan, seuls les combattants les plus loyaux et les plus braves, rompus à un entraînement intensif, pouvaient prétendre à être élus parmi les chevaliers de la Lumière, et Tigreal devint le plus jeune membre de l'histoire de l'ordre. Il faisait la fierté de sa famille et passait pour un génie aux yeux du peuple de Moniyan. Tous étaient convaincus qu'il entrerait dans l'histoire de Moniyan comme un héros, à l'image des martyrs des générations passées honorés sur la Promenade des Héros.",
+    "Pourtant, rares sont les vies qui voguent sans encombre. Alors que chacun croyait voir se lever une étoile, un coup du sort frappa bientôt Tigreal. Dans les Terres désolées, lors d'une bataille livrée pour repousser définitivement sous terre les démons des Abysses qui tenaient la région depuis longtemps, Tigreal commandait le Deuxième Régiment au sein d'une armée composée de l'Ordre de la Lumière et de la Garde impériale des frontières. Déployé sur le flanc gauche du champ de bataille, il lança l'assaut contre l'armée démoniaque. Mais, à la suite d'une erreur du commandement, le Deuxième Régiment s'enfonça seul en territoire ennemi et se retrouva encerclé par les démons.",
+    "Le commandement ordonna alors au Deuxième Régiment de laisser une partie de ses soldats en arrière-garde et de se disperser pour percer l'encerclement. Tigreal était résolu à vivre ou mourir avec ses hommes, mais Roland, son adjoint âgé et expérimenté, l'en empêcha et lui fit battre en retraite avec le gros des troupes qu'il commandait, tandis que lui-même, avec une poignée de combattants, retiendrait l'ennemi. Pour préserver une partie des forces encore en état de combattre, Tigreal se résigna à contrecœur à ordonner le repli.",
+    "À l'issue de la bataille, l'armée démoniaque, retranchée depuis longtemps à la jonction du sud de l'Empire et des Terres désolées, fut entièrement anéantie ; mais seul le Deuxième Régiment avait essuyé de lourdes pertes, et l'unité restée sur place pour retenir l'ennemi avait été exterminée jusqu'au dernier homme. Devant les cadavres et le sang qui jonchaient le sol, Tigreal fut submergé par la culpabilité pour la décision qu'il avait prise.",
+    "Après cette bataille, afin de couvrir leurs erreurs, les hauts dignitaires de l'ordre refusèrent aux soldats du Deuxième Régiment les honneurs qui leur revenaient et les qualifièrent d'« insubordonnés », prétendant que leur soif de gloire avait entraîné un sacrifice inutile. Ils tentèrent ensuite d'acheter le silence de Tigreal à coups de médailles et de promotions. Accablé par l'échec de son combat et par la pression de sa famille, Tigreal quitta Moniyan pour la froide Vallée du Nord. Dans le Nord, parmi les glaces et les neiges, il noua une profonde amitié avec les rudes tribus de la Vallée du Nord et, surtout, à force de combattre à leurs côtés, encore et encore, il comprit qu'en tant que chevalier, la vie d'un compagnon comptait davantage que l'issue d'une bataille : car si l'on choisit de se battre, c'est pour protéger tous ceux qui nous entourent. Si combattre ne signifie que sacrifice, alors la victoire n'a aucun sens.",
+    "Tigreal revint ensuite à Moniyan, réintégra les chevaliers de la Lumière et, au fil des années, en devint le chef, veillant jour après jour, avec détermination et bravoure, sur tout ce que Moniyan avait de précieux. Les récits populaires disent que partout où les ténèbres font irruption se dresse l'intrépide Guerrier de l'Aube, qui mène chacun à les repousser."
+  ],
+  "headings": [],
+  "profile": {
+    "fullName": "Tigreal Wertz",
+    "title": null,
+    "species": "Humain",
+    "gender": "Homme",
+    "age": null,
+    "origin": null,
+    "birthday": "24 juillet",
+    "affiliations": [
+      "Famille Wertz",
+      "Empire de Moniyan",
+      "Armée impériale",
+      "Chevaliers de la Lumière",
+      "Armée de garnison",
+      "Deuxième Régiment",
+      "Lightborn (escouade)",
+      "Les Abysses (hostile)"
+    ],
+    "relations": [
+      "Gareth (père)",
+      "Eckert (oncle)",
+      "Fanny (sœur cadette, membre des Lightborn)",
+      "Alucard, Granger, Harith, Silvanna (membres des Lightborn)",
+      "Claude, Clint (alliés)",
+      "Natalia, Phoveus (compagnons)",
+      "Alice (ennemie)"
+    ],
+    "powers": []
+  },
+  "trivia": [
+    "Le passif de Tigreal a été retravaillé deux fois à ce jour.",
+    "Son premier passif lui conférait un bonus d'armure et de résistance magique à chaque attaque de base, cumulable jusqu'à 5 fois.",
+    "Son deuxième passif lui accordait 15 % d'armure et de défense magique supplémentaires provenant des objets.",
+    "Les répliques de Tigreal comportent de nombreuses incohérences et ironies :",
+    "« Un vrai homme ne se cache jamais dans un buisson », alors que la plupart des joueurs de Tigreal se cachent JUSTEMENT dans les buissons.",
+    "« Un vrai chevalier ne dit jamais mourir », mais il vient pourtant de le dire.",
+    "Il s'inspire de Bedivere, de Magic Rush.",
+    "Son doubleur anglais actuel, Zach Lazar Hoffman, prête aussi sa voix à Yu Zhong, tout comme son doubleur japonais actuel, Yano Masaaki, double Alucard et Barats."
+  ]
+}

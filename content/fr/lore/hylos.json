@@ -1,0 +1,30 @@
+{
+  "tagline": "Centaure, gardien des Montagnes brumeuses.",
+  "lore": [
+    "Au milieu des montagnes brumeuses, dans les confins septentrionaux de la Terre de l'Aube, vit l'antique et mystérieux peuple des centaures, mi-hommes, mi-chevaux. Les centaures gardent une fontaine nichée sur le plus haut des sommets. On dit que cette fontaine offre l'immortalité et une sagesse infinie. Des forces obscures ont tenté sans relâche de s'emparer du pouvoir que recèlent ses eaux, mais les centaures les ont repoussées, encore et encore.",
+    "Pourtant, avec le temps, les centaures se lassèrent, et l'usure finit par les gagner. Il fallut l'arrivée de Hylos qui, déchaînant sa maîtrise de la colère de la nature, écrasa et châtia tous ceux qui convoitaient la fontaine. Il devint une figure légendaire des annales de la Terre de l'Aube."
+  ],
+  "headings": [],
+  "trivia": [
+    "Hylos porte la Chastise Pauldron.",
+    "C'est un centaure, inspiré de la créature de la mythologie grecque. Minotaur est l'autre héros dans ce cas.",
+    "Il s'inspire de Malachi, de Magic Rush, un autre jeu de Moonton.",
+    "Avec Masha et X.Borg, Hylos est le seul héros capable de réduire ses propres PV avec une compétence.",
+    "Nature's Strike, de Belerick, consommait autrefois une partie de ses PV, mais cet effet a disparu lors de sa deuxième refonte.",
+    "Ring of Punishment, de Hylos, est la première des rares compétences du jeu qui s'activent et se désactivent à volonté."
+  ],
+  "profile": {
+    "fullName": "Hylos",
+    "title": null,
+    "species": "Centaure",
+    "gender": "Homme",
+    "age": null,
+    "origin": null,
+    "birthday": "18 mai",
+    "affiliations": [],
+    "relations": [
+      "Belerick, Lunox (compagnons)"
+    ],
+    "powers": []
+  }
+}

@@ -291,7 +291,7 @@
     "version": "Versão {v}",
     "contribute": "Contribuir",
     "intro": "Heróis, builds e counters por elo, tier list calculada a partir das taxas de vitória das ranqueadas, itens, emblemas e patch notes do Mobile Legends: Bang Bang, em inglês, francês, italiano, espanhol e indonésio. Projeto independente, aberto a contribuições.",
-    "sources": "Textos retirados do wiki Mobile Legends (Fandom) e Liquipedia, sob licença CC BY-SA, com atribuição aos seus colaboradores. Imagens, nomes de heróis, skins e itens © Moonton, e para skins de colaboração © seus respectivos detentores de direitos: eles não se enquadram nesta licença. As taxas de vitórias, bans e escolhas, counters e builds mais jogados vêm das estatísticas de partidas classificadas do jogo, por meio da API da comunidade arena.rone.dev.",
+    "sources": "Textos retirados do wiki Mobile Legends (Fandom) e Liquipedia, sob licença CC BY-SA, com atribuição aos seus colaboradores. Imagens, nomes de heróis, skins e itens © Moonton, e para skins de colaboração © seus respectivos detentores de direitos: eles não se enquadram nesta licença. As taxas de vitórias, bans e escolhas, counters e builds mais jogados vêm das estatísticas de jogo classificado do jogo, por meio da API da comunidade arena.rone.dev.",
     "discord": "Entre no Discord",
     "columns": {
       "heroes": "Heróis",
@@ -448,7 +448,7 @@
         "basicAttack": "Ataque básico",
         "order": "Ordem das habilidades"
       },
-      "pageCounters": "Página completa de counters",
+      "pageCounters": "Página completa de contras",
       "pageDuos": "Todas as duplas medidas",
       "duosShort": "Duplas"
     },
@@ -626,7 +626,7 @@
       "creditShortLiquipedia": "Notas do patch {versions} retiradas de {source}, lançadas sob licença {license}.",
       "publishedOn": "Lançado em {date}",
       "changes": {
-        "title": "Todas as mudanças de heróis no patch {v}",
+        "title": "Mudanças de herói no patch {v}",
         "summary": {
           "one": "O patch {v} altera {n} herói.",
           "other": "O patch {v} altera {n} heróis."
@@ -928,7 +928,7 @@
       "bestEmpty": "Ainda não há partidas suficientes com um mesmo herói para apontar um ponto forte.",
       "bestDetail": "{rate} de vitórias em {n} partidas",
       "belowAverageTitle": "Abaixo da média do seu elo",
-      "belowAverageText": "Bem abaixo da média ({rank}): revise a build e os counters ou deixe-os de lado por um tempo.",
+      "belowAverageText": "Esses heróis estão claramente abaixo da média ({rank}): revise sua build e seus counters, ou deixe-os de lado por um tempo.",
       "belowAverageEmpty": "Nenhum herói claramente abaixo da média do seu elo. Mandou bem.",
       "belowAverageDetail": "{rate} contra {average} em média",
       "nemesesTitle": "Heróis que mais vencem você",
@@ -1323,7 +1323,7 @@
       "atRank": "Em {rank}",
       "overview": "{context}, {name} sofre mais contra {weakAgainst} e leva vantagem sobre {strongAgainst}.",
       "overviewNoStrong": "{context}, {name} sofre mais contra {weakAgainst}.",
-      "noMeasure": "Nenhum counter medido para {name} ainda.",
+      "noMeasure": "Nenhuma contramedida para {name} ainda.",
       "sheetLink": "Página de {name}",
       "buildsLink": "Builds de {name}",
       "compareLink": "{name} vs {other}",
@@ -1496,7 +1496,7 @@
       },
       "seeAll": "Todas as skins",
       "seeMore": "Mostrar mais heróis ({n} restantes)",
-      "alt": "{hero} — skin {skin}"
+      "alt": "{hero}, skin {skin}"
     },
     "heroSkins": {
       "title": "Skins de {name}",
@@ -2053,7 +2053,7 @@
       "colYear": "Ano",
       "colTotal": "Total",
       "unknownMonth": "Mês não especificado",
-      "monthCell": "{month} — skins: {n}",
+      "monthCell": "{month}, capas: {n}",
       "nSkins": "{n} skins",
       "nSkins1": "1 skin",
       "seriesTitle": "Séries e eventos",
@@ -2162,7 +2162,7 @@
       "pool_all": "Todos",
       "pool_played": "Os que eu jogo",
       "played_loading": "Lendo seus heróis da temporada…",
-      "played_failed": "Seus heróis jogados não estão legíveis no momento: tente novamente mais tarde.",
+      "played_failed": "Não é possível jogar com os heróis jogados no momento: tente novamente mais tarde.",
       "played_empty": "Nenhum herói jogado nesta temporada.",
       "seriesCheck": "Marcar as {n} skins {series}",
       "seriesUncheck": "Desmarcar as {n} skins {series}",
@@ -3723,7 +3723,7 @@
         "help": "Os comandos por categoria, com um exemplo para cada um.",
         "invite": "O link para adicionar o bot a outro servidor.",
         "about": "Versão, número de servidores, links para o site, o servidor de suporte e a votação.",
-        "profile": "Seu perfil de Mobile Legends como imagem: elo, taxa de vitória e heróis mais jogados (vinculado uma vez no site)."
+        "profile": "Seu perfil do Mobile Legends em fotos: classificação, taxa de vitória e heróis mais jogados (conta a ser vinculada apenas uma vez no site)."
       },
       "permissionsTitle": "Permissões solicitadas",
       "permissionsText": "Apenas o necessário para responder e publicar: nunca Administrador, e nenhum acesso ao conteúdo das mensagens. O intent “Server Members” serve só para as mensagens de boas-vindas e despedida: nada sobre os membros é guardado.",
@@ -3788,7 +3788,7 @@
       "metaDescription": "Termos de uso do bot de Discord MLBBDex: serviço gratuito, uso justo, dados do jogo fornecidos sem garantia.",
       "lead": "As regras simples de um serviço gratuito.",
       "p1": "O bot MLBBDex é um projeto de fã independente e gratuito, sem vínculo com a Moonton. Mobile Legends: Bang Bang é uma marca da Shanghai Moonton Technology Co., Ltd.",
-      "p2": "Os dados (estatísticas, builds, tier list, patch notes) são fornecidos como estão, sem garantia de precisão ou disponibilidade. Os textos vêm do wiki Mobile Legends (Fandom) e da Liquipedia, sob licença CC BY-SA, os números estatísticos dos jogos classificados. As imagens e nomes do jogo permanecem © Moonton, e os das colaborações © seus detentores de direitos.",
+      "p2": "Os dados (estatísticas, builds, tier list, patch notes) são fornecidos como estão, sem garantia de precisão ou disponibilidade. Os textos são provenientes do wiki Mobile Legends (Fandom) e da Liquipedia, sob licença CC BY-SA; os números vêm de estatísticas de jogos classificados. As imagens e nomes do jogo permanecem © Moonton, e os das colaborações © seus detentores de direitos.",
       "p3": "Não faça uso indevido do bot: nada de automação abusiva de comandos, nem tentativas de acessar as configurações de um servidor que você não gerencia. O serviço pode ser limitado ou removido de um servidor que abuse dele.",
       "p4": "O serviço pode mudar, ser interrompido ou encerrado a qualquer momento. As regras do Discord (Termos de Serviço e Diretrizes da Comunidade) se aplicam ao seu uso.",
       "p5": "Os dados armazenados estão descritos na página de privacidade do bot. Para qualquer dúvida: [{contact}](mailto:{contact}).",
@@ -4274,7 +4274,7 @@
       "warning": "Comprar, vender ou trocar uma conta viola os termos de serviço da Moonton: a conta pode ser banida ou recuperada pelo antigo dono, e golpes são comuns. Esta estimativa mede quanto uma coleção custou; ela não define um preço. Nada é enviado a um servidor.",
       "methodTitle": "O método, número por número",
       "methodPoints": "As categorias são as da Vitrine do jogo, com os pontos de coleção que o jogo dá a cada skin. A soma dos pontos serve de conferência: ela deve bater com o total exibido no jogo.",
-      "methodCost": "Cada skin conta para o custo típico de sua categoria. Premium, Excepcional e Comum são vendidas nas lojas: seu custo é o preço mediano em diamantes das skins da categoria, registrado nos dados do jogo. Lenda, Grandioso e Requintado são obtidos por sorteio: pegam a mediana, arredondada, dos custos publicados pelos guias dos jogadores, que varia muito de um evento e de um jogador para outro. Uma aparência colorida conta com valor simbólico.",
+      "methodCost": "Cada skin conta para o custo típico de sua categoria. Premium, Excepcional e Comum são vendidos nas lojas: seu custo é o preço médio em diamantes das skins da categoria, registrado nos dados do jogo. Lenda, Grandioso e Requintado são obtidos por sorteio: seu custo é a mediana arredondada dos custos publicados nos guias dos jogadores, e esses custos variam muito de um evento e de um jogador para outro. Uma aparência colorida conta com valor simbólico.",
       "tableCaption": "Pontos e custo contados por skin, por categoria",
       "colTier": "Categoria",
       "colPoints": "Pontos",
@@ -4485,7 +4485,7 @@
         "respect": "Mantenha a educação: nada de insultos, assédio ou discurso de ódio.",
         "noSpam": "Nada de propaganda, venda de contas ou “diamantes grátis”: são golpes.",
         "privacy": "Não publique informações pessoais de outras pessoas.",
-        "newAccounts": "Contas novas no fórum têm limites mais baixos e não podem postar links por três dias.",
+        "newAccounts": "Novas contas de fórum têm limites mais baixos e não podem postar links por três dias.",
         "report": "Algum post é um problema? Denuncie: os moderadores vão ver, e várias denúncias o ocultam enquanto isso."
       },
       "teammates": {
@@ -4602,7 +4602,7 @@
         "blocked": "Este texto contém um termo proibido no fórum.",
         "spam": "Este texto parece spam (link encurtado, convite, golpe de diamantes).",
         "links": "Links demais: no máximo {n} por mensagem.",
-        "newAccountLinks": "Contas novas no fórum ainda não podem postar links.",
+        "newAccountLinks": "Novas contas de fórum ainda não podem postar links.",
         "banned": "Sua conta não pode mais participar da comunidade.",
         "discordTooNew": "Sua conta Discord tem menos de {days} dias: ela ainda não pode participar.",
         "window": "O prazo para editar ou excluir esta mensagem já passou.",
@@ -4769,7 +4769,7 @@
         "wins": "Vitórias",
         "heroMatches": "{n} partidas",
         "updated": "Atualizado em {date}",
-        "minimum": "No mínimo: alguns heróis não puderam ser lidos",
+        "minimum": "Valores mínimos: alguns heróis não puderam ser lidos",
         "region": "Região",
         "statsLater": "As estatísticas dos heróis retornarão assim que o serviço do jogo as fornecer novamente."
       }
@@ -5020,7 +5020,7 @@
           "p": "Depois de entrar com o código de verificação do jogo, você vê o seu próprio perfil (temporada, heróis jogados, partidas recentes), lido sob demanda por essa mesma API, só para você. Ele não é publicado nem guardado além de um cache de alguns minutos."
         },
         {
-          "p": "Os visuais pertencem a Moonton, e para as skins de colaboração também aos detentores dos direitos dos personagens e marcas em questão. Retratos, ícones e ilustrações de skins vêm do wiki da comunidade e são servidos por este site para que nada dependa de um domínio de terceiros. Eles permanecem propriedade da Moonton, estão presentes para fins ilustrativos e serão removidos mediante solicitação do detentor dos direitos. A identidade visual do site – azul meia-noite, dourado, cantos recortados – é inspirada na do jogo sem utilizar os arquivos de interface."
+          "p": "Os visuais pertencem a Moonton e, para skins de colaboração, aos detentores dos direitos dos personagens e marcas em questão. Retratos, ícones e ilustrações de skins vêm do wiki da comunidade e são servidos por este site para que nada dependa de um domínio de terceiros. Eles permanecem propriedade da Moonton, estão presentes para fins ilustrativos e serão removidos mediante solicitação do detentor dos direitos. A identidade visual do site (azul escuro, dourado, cantos recortados) é inspirada na do jogo sem utilizar os arquivos de interface."
         },
         {
           "h": "O radar de notícias"
@@ -5084,7 +5084,7 @@
           "p": "Os visuais exibidos (retratos, ícones, emblemas, ilustrações) e os nomes do jogo são © Moonton. As skins de colaboração (NARUTO, Star Wars, Transformers, Jujutsu Kaisen, The King of Fighters, Neymar Jr e outras) apresentam personagens, marcas e pessoas pertencentes aos seus respectivos detentores de direitos, sob licença concedida a Moonton: o site mostra apenas o pequeno retrato da loja, nunca a ilustração grande. Esses recursos visuais são copiados do wiki da comunidade para fins de ilustração e informação; eles não são licenciados sob CC BY-SA. A pedido do detentor dos direitos, eles serão removidos."
         },
         {
-          "p": "Os textos factuais (descrições, histórias, patch notes, listas de skins) foram retirados de [Mobile Legends wiki](https://mobilelegends.fandom.com) no Fandom e de [Liquipedia](https://liquipedia.net/mobilelegends), sob licença CC BY-SA: cada página que os utiliza credita sua fonte, e suas traduções permanecem sob esta licença. Os números dos jogos vêm de uma API da comunidade. O código e os textos escritos para este site são publicados sob a licença MIT — veja o [repositório público]({repository})."
+          "p": "Os textos factuais (descrições, histórias, patch notes, listas de skins) foram retirados de [Mobile Legends wiki](https://mobilelegends.fandom.com) no Fandom e de [Liquipedia](https://liquipedia.net/mobilelegends), sob licença CC BY-SA: cada página que os utiliza credita sua fonte, e suas traduções permanecem sob esta licença. Os números dos jogos vêm de uma API da comunidade. O código e os textos escritos para este site são publicados sob a licença MIT (ver [repositório público]({repository}))."
         },
         {
           "h": "Responsabilidade"
@@ -5103,7 +5103,7 @@
     "privacy": {
       "blocks": [
         {
-          "p": "Este site foi projetado para processar o mínimo de dados possível. A maioria das páginas funciona sem conta e sem salvar nada em um servidor; apenas os recursos que você escolhe usar (conta do jogo ou login do Discord, comunidade, coleção, notificações, relatório de erros, bot do Discord) mantêm o que descrevem abaixo. De acordo com o Regulamento Geral de Proteção de Dados (RGPD) e a Lei de Proteção de Dados, esta página detalha o que é processado, porquê, por quanto tempo e como exercer os seus direitos."
+          "p": "Este site foi projetado para processar o mínimo de dados possível. A maioria das páginas funciona sem conta e sem salvar nada em um servidor; Somente os recursos que você escolher usar (conta do jogo ou login do Discord, comunidade, coleção, notificações, relatório de erros, bot do Discord) retêm os dados descritos abaixo. De acordo com o Regulamento Geral de Proteção de Dados (RGPD) e a Lei de Proteção de Dados, esta página detalha o que é processado, porquê, por quanto tempo e como exercer os seus direitos."
         },
         {
           "h": "Controlador de dados"
@@ -5145,7 +5145,7 @@
       "results": "para os rankings dos jogos do dia jogados no Discord: o ID e o nome no Discord dos jogadores e suas pontuações.",
       "details": "Os detalhes, o prazo de armazenamento e a exclusão estão descritos na página de privacidade do bot.",
       "members": "Nada é guardado sobre os membros de um servidor: as entradas e saídas deles, que o Discord informa ao bot, servem apenas para publicar as mensagens de boas-vindas e de despedida que o servidor ativou.",
-      "profile": "para o cartão /profile, se você vinculá-lo na página da sua conta: uma impressão do seu ID do Discord e um do seu ID do jogo e do seu servidor (nunca os próprios IDs), suas duas escolhas (se outras pessoas puderem exibi-lo, se mostrar seu ID), uma cópia de suas estatísticas na última leitura: apelido, avatar, país, nível, classificação, jogos e vitórias da temporada, três heróis mais jogados e seu token de jogo, criptografado (AES-256-GCM), até que expire (7 dias no máximo), para que /profile relê suas estatísticas em cada chamada. Cada nova conexão com o site renova esse token. O cartão e o token são excluídos quando você os desvincula; o cartão também está 30 dias após a última leitura;"
+      "profile": "para o cartão /profile, se você vinculá-lo na página da sua conta: uma impressão do seu ID do Discord e um dos seus IDs de jogo e servidor (nunca os próprios IDs), suas duas escolhas (se outras pessoas podem visualizá-lo, se ele mostra seu ID), uma cópia de suas estatísticas na última leitura (nome de usuário, avatar, país, nível, classificação, jogos e vitórias da temporada, três heróis mais jogados), e seu token de jogo, criptografado (AES-256-GCM), até que expire (7 dias no máximo), então que /profile relê suas estatísticas em cada chamada. Cada nova conexão com o site renova esse token. O cartão e o token são excluídos quando você os desvincula; o cartão também está 30 dias após a última leitura;"
     },
     "community": {
       "title": "Comunidade: fórum e busca de companheiros de equipe",
@@ -5155,14 +5155,14 @@
       "posts": "suas discussões e respostas, que são públicas, com a data; seus votos e suas denúncias, que não são mostrados a ninguém além dos moderadores (as denúncias);",
       "card": "seu cartão de busca de companheiros de equipe e, se você os adicionar, seu ID do jogo e seu nome de usuário do Discord: eles são mostrados apenas a jogadores conectados, e o cartão é apagado sete dias após o último salvamento.",
       "moderation": "Os moderadores veem as denúncias e podem ocultá-las, excluí-las ou bani-las; cada uma de suas decisões é registrada em um diário. Os limites de taxa usam seu endereço IP, apenas na memória: ele nunca é gravado no disco.",
-      "deletion": "Você pode editar uma mensagem por uma hora e excluí-la por um dia, retirar seu cartão a qualquer momento. Uma mensagem excluída perde o texto; uma discussão excluída mantém seu título, autor e data. Além disso, ou para excluir toda a sua participação, escreva para {contact}.",
+      "deletion": "Você pode editar uma mensagem por uma hora, excluí-la por um dia e remover seu cartão a qualquer momento. Uma mensagem excluída perde o texto; uma discussão excluída mantém seu título, autor e data. Além disso, ou para excluir toda a sua participação, escreva para {contact}.",
       "pseudonymous": "Essas impressões digitais (SHA-256, sem sal) são dados pseudônimos, não anônimos: qualquer pessoa que conheça seu ID de jogo e servidor, ou seu ID do Discord, pode recalcular a impressão digital. Continuam a ser dados pessoais, protegidos como tal."
     },
     "collection": {
       "title": "Coleção de skins",
       "intro": "A ferramenta de coleta mantém os heróis e skins que você verifica em seu navegador (armazenamento local). Caso você esteja conectado com sua conta de jogo, o servidor do site também armazena, em seu banco de dados:",
       "data": "a mesma impressão da conta da comunidade (nunca o ID do jogo), a lista de heróis e skins verificadas e a data do último registro; nada mais e nada é mostrado a ninguém.",
-      "usage": "Ele é usado apenas para encontrar sua coleção em outros dispositivos. O filtro “aqueles que eu jogo” lê seus heróis da temporada no serviço de login no momento em que você o ativa, sem salvar nada.",
+      "usage": "Esta cópia é usada apenas para encontrar sua coleção em outros dispositivos. O filtro “aqueles que eu jogo” lê seus heróis da temporada no serviço de login no momento em que você o ativa, sem salvar nada.",
       "deletion": "Para esvaziar a cópia da sua conta, exclua sua coleção na ferramenta enquanto estiver logado; Para deletar a própria linha, escreva para {contact}."
     },
     "dataReports": {
@@ -5255,7 +5255,7 @@
       },
       "game": {
         "title": "Faça login na conta do jogo",
-        "text": "A conexão usa o fluxo oficial do Moonton: você indica seu nome de usuário e seu servidor de jogo, um código de verificação é enviado a você no jogo e o site recebe um token temporário em troca. Essas exchanges passam por uma API da comunidade (`arena.rone.dev`) e pelos serviços Moonton, que recebem seu identificador, seu servidor, o código e depois o token. O token reside no cookie de sessão `mlbb_jeu`; ele só é salvo no servidor se você vincular um cartão /profile, criptografado e até expirar (veja a parte sobre o bot do Discord); as respostas do serviço (perfil, estatísticas, jogos) ficam guardadas na memória por no máximo algumas horas, para limitar as chamadas. Nunca é solicitada uma senha. O servidor só mantém algo permanentemente se você usar a comunidade ou coleção, conforme descrito abaixo."
+        "text": "A conexão usa o fluxo oficial do Moonton: você indica seu nome de usuário e seu servidor de jogo, um código de verificação é enviado a você no jogo e o site recebe um token temporário em troca. Essas exchanges passam por uma API da comunidade (`arena.rone.dev`) e pelos serviços Moonton, que recebem seu identificador, seu servidor, o código e depois o token. O token é armazenado no cookie de sessão `mlbb_jeu`; ele só é salvo no servidor se você vincular um cartão /profile, criptografado e até expirar (veja a parte sobre o bot do Discord); as respostas do serviço (perfil, estatísticas, jogos) ficam guardadas na memória por no máximo algumas horas, para limitar as chamadas. Nunca é solicitada uma senha. O servidor só retém os dados de forma permanente se você utilizar a comunidade ou coleção, conforme descrito abaixo."
       },
       "thirdParty": {
         "title": "Conteúdo de terceiros",
@@ -5273,7 +5273,7 @@
       },
       "transfers": {
         "title": "Transferências fora da União Europeia",
-        "text": "Certos recursos opcionais envolvem serviços localizados fora da União Europeia: Discord, nos Estados Unidos, se você se conectar ao Discord ou usar o bot (transferências regidas pela estrutura de proteção de dados UE-EUA ou pelas cláusulas contratuais padrão da Comissão Europeia); Moonton, Ásia, e a API da comunidade `arena.rone.dev`, se você conectar sua conta de jogo; serviço de notificações do seu navegador, se você ativar as notificações. Estas transferências só ocorrem se você usar estas funções."
+        "text": "Alguns recursos opcionais envolvem serviços localizados fora da União Europeia: Discord, nos Estados Unidos, se você se conectar ao Discord ou usar o bot (transferências cobertas pela Estrutura de Proteção de Dados UE-EUA ou pelas Cláusulas Contratuais Padrão da Comissão Europeia); Moonton, Ásia, e a API da comunidade `arena.rone.dev`, se você conectar sua conta de jogo; serviço de notificações do seu navegador, se você ativar as notificações. Estas transferências só ocorrem se você usar estas funções."
       },
       "retention": {
         "title": "Por quanto tempo os dados são guardados",
@@ -5436,7 +5436,7 @@
       "playerId": "ID de jogador inválido.",
       "server": "Servidor inválido.",
       "invalidInput": "Entrada inválida.",
-      "code": "O código tem quatro dígitos.",
+      "code": "O código deve ter quatro dígitos.",
       "unknown": "Nenhuma conta corresponde a este ID e servidor.",
       "unavailable": "O serviço está temporariamente indisponível.",
       "wrongCode": "Código incorreto ou expirado."
@@ -5555,7 +5555,7 @@
     "marksman-emblem": {
       "name": "Marksman Emblem",
       "bonus": "Velocidade de ataque e dano de ataque",
-      "bestFor": "Atiradores da Gold Lane."
+      "bestFor": "Atiradores da lane de ouro."
     },
     "support-emblem": {
       "name": "Support Emblem",
@@ -5634,7 +5634,7 @@
     },
     "concussive-blast": {
       "name": "Concussive Blast",
-      "description": "Causa dano de área com base no HP máximo.",
+      "description": "Causa dano de área calculado com base no HP máximo.",
       "bestFor": "Tanques iniciadores: Tigreal, Khufra, Atlas."
     },
     "wilderness-blessing": {
@@ -5738,7 +5738,7 @@
     "text": "O site encontrou um problema inesperado. Tente novamente em alguns instantes.",
     "retry": "Tente novamente",
     "oops": "Ops",
-    "pageText": "Algo deu errado ao carregar esta página. Você pode tentar novamente ou retornar à página inicial.",
+    "pageText": "Esta página não foi carregada. Você pode tentar novamente ou retornar à página inicial.",
     "home": "Voltar ao início"
   },
   "heroCard": {
@@ -6060,13 +6060,13 @@
       "objectiveLabel": "Objetivo",
       "difficultyLabel": "Dificuldade",
       "levelLabel": "Nível do herói",
-      "levelOption": "Nível {n} — {damage} de dano",
+      "levelOption": "Nível {n} ({damage} de dano)",
       "thresholdSentence": "Seu Retribution causa {damage} de dano verdadeiro: ataque quando o HP cair abaixo disso. Nível recomendado para este objetivo: {suggested}.",
       "maxHp": "{hp} HP",
       "round": "Rodada",
       "score": "Pontuação",
       "run": "Sequência",
-      "bar": "Barra de vida — {objective}",
+      "bar": "Barra de vida: {objective}",
       "hpLeft": "{hp} / {max} HP",
       "hpHidden": "HP oculto: leia a barra",
       "marker": "Marcador dourado: {damage} HP",

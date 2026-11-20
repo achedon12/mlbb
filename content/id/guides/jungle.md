@@ -28,7 +28,7 @@ Jungler tidak memiliki lane. Dia memperoleh emas dan pengalamannya melawan monst
 
 <!-- guide:heroes -->
 
-Jungler dibagi menjadi tiga keluarga. Assassin, seperti [Ling](/heroes/ling), [Lancelot](/heroes/lancelot) atau [Hayabusa](/heroes/hayabusa), melenyapkan target yang terisolasi; fighter, seperti [Martis](/heroes/martis) atau [Barats](/heroes/barats), bertahan lama dalam pertarungan; Tank jungle, seperti [Fredrinn](/heroes/fredrinn) atau [Baxia](/heroes/baxia), serahkan emasnya kepada orang lain dan libatkan. Pilihan yang tepat tergantung pada apa yang kurang dari tim Anda.
+Jungler dibagi menjadi tiga keluarga. Assassin, seperti [Ling](/heroes/ling), [Lancelot](/heroes/lancelot) atau [Hayabusa](/heroes/hayabusa), melenyapkan target yang terisolasi; fighter, seperti [Martis](/heroes/martis) atau [Balmond](/heroes/balmond), bertahan lama dalam pertarungan; Tank jungle, seperti [Fredrinn](/heroes/fredrinn) atau [Baxia](/heroes/baxia), serahkan emasnya kepada orang lain dan libatkan. Pilihan yang tepat tergantung pada apa yang kurang dari tim Anda.
 
 ## Item, emblem, dan spell yang paling banyak dimainkan
 

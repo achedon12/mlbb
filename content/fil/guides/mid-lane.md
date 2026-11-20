@@ -35,7 +35,7 @@ Hindi lahat ng mage ay naglalaro ng parehong paraan. Ang ilan, tulad ni [Yve](/h
 Ang build ng mage ay sumusunod sa magic defense ng kalaban:
 
 - **laban sa mga hero na nag-iipon ng magic defense**, isang penetration item tulad ng [Divine Glaive](/items/divine-glaive);
-- **laban sa isang team na nagpapagaling**, ang healing reduction ng [Necklace of Durance](/items/necklace-of-durance);
+- **laban sa isang team na nagpapagaling**, ang healing reduction ng [Glowing Wand](/items/glowing-wand);
 - **laban sa mga maninisid**, isang survival item tulad ng [Winter Crown](/items/winter-crown), na panandaliang ginagawa kang hindi mahawakan.
 
 Ang [calculator ng damage](/tools/damage-calculator) ay nagpapakita ng epekto ng penetration sa isang tunay na hit. Sa panig ng spell, ang [Flicker](/spells/flicker) ay nananatiling pinakakaraniwang pagpipilian; Ang [Flameshot](/spells/flameshot) ay umaatake mula sa malayo upang tapusin ang isang tumatakas na target.

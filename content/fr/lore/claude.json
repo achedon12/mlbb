@@ -1,0 +1,56 @@
+{
+  "tagline": "Un voleur hors pair qui va et vient sans laisser de traces.",
+  "lore": [
+    "Claude est né à Los Pecados, une ville de l'ouest de la Terre de l'Aube. Une cité du péché tristement célèbre, sans maître ni ordre, sans foi ni loi, ravagée par le crime.",
+    "Orphelin grandi dans un tel endroit, Claude apprit vite à se battre, à mentir, à jouer et à voler : les ficelles du métier dont dépendait sa survie. Il était particulièrement doué pour la dernière, et aucun tire-laine de sa connaissance ne l'égalait pour l'œil vif et les doigts agiles.",
+    "Il ne tarda pas à prendre la tête d'une bande de vagabonds grâce à ses « talents » et à se faire un nom à Los Pecados. Il trouva quelqu'un pour le protéger, lui et sa bande : Waldo Kane. Kane n'avait pas encore conquis le monopole sur Los Pecados dont il rêvait. Une ambition démesurée et des complots couvaient au fond de lui. À ses yeux, cette bande hétéroclite de gamins des rues sans toit était l'outil idéal pour parvenir à ses fins. Derrière un masque de bienveillance, il manipulait ces enfants et, à force de mensonges bien tournés et de fausse compassion, les entraînait sur une mauvaise pente. Il fit d'eux les membres de son organisation criminelle, et chacun de ces enfants égarés l'appelait « Père ».",
+    "À dix-huit ans, Claude se vit confier une mission capitale : se rendre au château de Grandrock, dans le nord de Moniyan, et s'introduire chez le duc de Vance. Là, il devait faire semblant de voler des comptes secrets, tout en faisant porter le chapeau à un autre gang. Kane lui promit que des complices l'attendraient une fois à l'intérieur. Sa mission accomplie, Claude et sa bande recevraient en récompense un logis bien à eux. Ils n'auraient plus jamais à vivre dans les taudis.",
+    "Mais la vérité dépassait tout ce que Claude aurait pu imaginer. Personne ne l'attendait : il n'était qu'un simple pion, et ni lui ni ses frères ne recevraient la moindre récompense. Comme Claude, ils n'étaient que des marchepieds pour permettre à leur « Père » de devenir le roi de Los Pecados.",
+    "Ainsi, lorsqu'il se glissa dans le manoir du duc, un piège sans issue l'y attendait. Claude ne put que se résigner à son sort et fut arrêté. À l'issue d'un procès expéditif, il fut bientôt reconnu coupable de tous les chefs d'accusation et jeté dans une cellule froide et obscure.",
+    "Enchaîné, Claude brûlait de remords. La seule chose qui le faisait tenir, c'était la pensée de ses frères de la bande, perdus et sans refuge.",
+    "Les jours passaient lentement. Un jour, on fit changer Claude de cellule ; il partagea la nouvelle avec un vieil homme à la barbe et aux cheveux blancs comme neige. Ce drôle de vieillard n'était autre que le légendaire maître voleur Merlin. Le puissant Merlin, aux ressources infinies, avait une raison d'être enfermé dans une cellule, une raison qui laissa Claude sans voix : il cherchait simplement un endroit tranquille pour prendre sa retraite.",
+    "Le rusé Claude rappelait à Merlin le jeune homme qu'il avait été. Il décida donc de lui transmettre son héritage. Mais en retour, Claude devrait accepter une bien étrange requête : une fois sorti de prison, il devrait cambrioler chaque ville de la Terre de l'Aube et y laisser son nom en guise de carte de visite.",
+    "Pendant les deux années qui suivirent, Claude hérita de chacune des merveilleuses techniques de Merlin, l'art de tromper, de s'évader et de combattre, entre autres. Ses talents grandirent au point qu'il fut prêt à voler tout ce qu'il pouvait imaginer. Une nuit, Claude mit à exécution son plan d'évasion parfait et vola sa liberté.",
+    "Pour tenir sa promesse, Claude parcourut la Terre de l'Aube pendant plusieurs années. Les rues bruissaient de rumeurs sur le maître voleur Claude, son charme et son incroyable adresse. Avec son éternel sourire insouciant, Claude était l'homme qu'il vous fallait si vous aviez besoin de faire voler quelque chose, quoi que ce soit. Il ne demandait que deux choses : que la paie soit généreuse, et que la victime soit malfaisante.",
+    "C'est ainsi que Claude trouva le partenaire idéal : le mystérieux Dexter. Ce petit singe espiègle rencontra Claude à Moniyan, en lui volant une pièce d'or porte-bonheur sous son nez. Après une brève course-poursuite, leur amitié s'épanouit, et Claude fit de Dexter son complice. Ainsi commencèrent leurs aventures.",
+    "Cinq ans après son départ de Los Pecados, Claude tint enfin la promesse faite à Merlin. Il avait laissé sa trace dans chaque ville de la Terre de l'Aube.",
+    "Il lui fallait maintenant retourner à Los Pecados. Mais rien n'aurait pu préparer Claude à ce qu'il découvrit à son retour, après ces cinq années d'absence. Ses anciens frères ne s'étaient pas élevés dans la hiérarchie de la pègre, ni n'étaient sortis de la misère avec leur « Père » manipulateur. Non, un tout autre sort les attendait. Il vit au contraire qu'à chaque coin de rue de cette ville délabrée traînaient encore des gamins des rues pitoyables, semblables au Claude d'autrefois, et qu'ils étaient même plus nombreux qu'avant.",
+    "Claude avait été trompé, et une rage violente l'envahit. Tandis qu'elle bouillonnait en lui, il se mit à préparer sa vengeance. Waldo Kane avait conquis son monopole sur la ville et était devenu le caïd de Los Pecados. Pour se venger, Claude se glissa dans Eruditio et, avec l'aide de Dexter, se laissa capturer pour entrer en prison. Il y vola la dernière invention du Dr Rooney : un très curieux appareil à miroir holographique.",
+    "Ravi de son succès, Claude remarqua alors une ligne de texte gravée sur l'appareil : « J'espère que cet appareil vous rendra service. Si vous avez des idées ou des suggestions pour l'améliorer, contactez-moi au plus vite ! Rooney. »",
+    "Muni de ce « cadeau » du Dr Rooney, Claude prit avec Dexter la route de Los Pecados. Dans cette ville chaotique de trafics infâmes, hors de toute loi, il ferait payer celui qui l'avait trompé autrefois."
+  ],
+  "headings": [],
+  "profile": {
+    "fullName": null,
+    "title": null,
+    "species": "Humain",
+    "gender": "Homme",
+    "age": "20 ans",
+    "origin": null,
+    "birthday": "6 février",
+    "affiliations": [
+      "Los Pecados"
+    ],
+    "relations": [
+      "Dexter (acolyte)",
+      "Clint, Mathilda, Merlin (compagnons)",
+      "Alucard, Tigreal, Fanny, Harith (alliés)",
+      "Waldo Kane, Barats, Alice (ennemis)",
+      "Blandy (ennemi, décédé)"
+    ],
+    "powers": [
+      "Art du vol"
+    ]
+  },
+  "trivia": [
+    "Claude ressemble un peu à Aladdin : ce sont tous deux des voleurs accompagnés d'un singe.",
+    "Le compère de Claude, Dexter, doit son nom au singe du film La Nuit au musée (2006), qui vole les clés du gardien.",
+    "Son ultime reprend l'ancienne Deadly Bloom/Howitzer de Clint.",
+    "Claude est le héros de l'histoire de l'événement Jade Path: Claude's Grand Heist.",
+    "L'ultime de Claude s'appelait Open Fire avant de devenir Blazing Duet, sans doute parce que ce nom était déjà pris par la première compétence de Roger.",
+    "Claude est l'un des rares héros à briser le quatrième mur, dans deux de ses anciennes répliques :",
+    "« Sshh, why don't we go steal the enemy base next? » (« Chut, et si on allait voler la base ennemie ? »)",
+    "« *yawn* I'm tired of farming, let's go fight some enemies! » (« *bâillement* J'en ai marre de farmer, allons nous battre ! »)",
+    "Claude devait d'abord recevoir une apparence spéciale de tournoi pour le MSC 2020, comme Jawhead (2018 : Space Explorer) et Leomord (2019 : Triumph - Eagle), mais l'apparence a été repoussée avec le tournoi à cause de la pandémie de COVID-19 et n'est finalement sorti qu'en 2021."
+  ]
+}

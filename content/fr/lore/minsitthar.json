@@ -1,0 +1,36 @@
+{
+  "tagline": "Un jeune roi qui mena le peuple de Mahar Pura à la victoire contre les envahisseurs.",
+  "lore": [
+    "Je me tenais au pied de l'imposante muraille du château ; ce n'était qu'un jour de plus dans ma vie ordinaire de servante sans importance. Soudain, un cri de nouveau-né fit trembler le soleil, mais la naissance d'un prince ne pouvait tirer ma vie de son enlisement. Je me tenais au pied de l'imposante muraille, et des louanges et des bénédictions parvenaient à mes oreilles : certains lui souhaitaient d'être bienveillant, d'autres d'être courageux, d'autres encore un grand avenir… J'ai vu tant de membres de la famille royale et de nobles au cours de ma vie ; leur autorité est comme un couteau sur ma gorge. Comme en cet instant, où j'attends que mes maîtres me punissent parce que, l'âge aidant, j'ai cassé la vaisselle. Une petite silhouette se dresse devant moi, une courte épée de bois à la main : le prince tant loué me protège, comme il a juré de protéger ses sujets. À présent, je souhaite de tout cœur qu'il grandisse sain et sauf et qu'il apporte au peuple sa chaleur, comme le soleil au-dessus de Mahar Pura.",
+    "À genoux sur la terre craquelée des champs, je priais pour que la pluie sauve nos récoltes mourantes, nos bouches desséchées et nos cœurs désespérés. Mais avant la pluie vint notre sauveur en armure dorée : il nous apporta de quoi manger et soulagea nos souffrances. Lorsqu'il baissa les yeux vers ses sujets, je vis tout un monde au fond de son regard, un monde aussi beau qu'un paysage. Lorsqu'il releva les yeux, il remarqua la silhouette d'une petite fleur de bois de rose, et le monde dans son regard bondit de joie. Plus tard, on me raconta que notre sauveur, le prince héritier de notre royaume, était tombé amoureux d'une jeune fille du peuple. Il s'était défait des futilités de la cour pour poursuivre une vie libre aux côtés de la jeune fille. Mais la vie libre n'est pas faite que de ciels étoilés et d'amour. Elle signifie aussi les rizières, les vêtements de toile de sac et le dur labeur des champs. Cette fois, le prince eut enfin l'occasion de découvrir la vérité du monde et la vie de ses sujets.",
+    "Je marchais vers le champ de bataille avec mes camarades, tandis que les navires de guerre ennemis forçaient une fois de plus nos défenses navales. Les vagues noires déferlaient de l'horizon vers nous et se changèrent bientôt en des millions de lames. Mes camarades, mes frères, furent transpercés par ces lames. Ils me demandèrent de rapporter leur dernier sourire au pays. Des nuées noires s'échappaient des navires ennemis et voilaient le soleil. Nous nous battions désespérément pour nos vies, mais nul espoir n'était en vue. Soudain, une lumière dorée fendit le ciel lugubre et chassa toutes les ténèbres du champ de bataille. Je reconnus la Lance sacrée dans la main du nouveau venu. C'était notre prince héritier ! Le soleil de Mahar Pura ! Il para toutes les attaques ennemies de son corps robuste. Il souffla dans le cor pour rallier les soldats désespérés. Des torches affluèrent de tout le champ de bataille et formèrent un brasier. Sous sa conduite, nous encerclâmes toutes ces ténèbres et les repoussâmes d'où elles venaient. Plus tard, nous nous agenouillâmes devant notre nouveau roi et jurâmes d'être ses pieds et sa lance. Que Mahar Pura brille à jamais.",
+    "Je le revis à un âge très avancé. Il était revenu au palais et rayonnait de nouveau sous l'éclat de la couronne. On me raconta qu'il avait un temps mis ses devoirs de côté pour mener une vie de paysan avec son véritable amour. Mais il n'avait pu fermer les yeux sur les souffrances de son peuple. Il avait quitté son jardin de fleurs de bois de rose, reforgé sa Lance sacrée et était retourné sur le champ de bataille impitoyable. Aujourd'hui, je vis derrière les murailles du château, loin du son des cors de guerre. Grâce à des guerriers comme lui, je peux encore verser le vin avec soin et respect. Je lui tends la coupe ; il baisse les yeux, et il y a de la solitude dans son regard. Mais le soleil éclatant brille toujours, comme il l'a toujours fait, sur la terre immuable de Mahar Pura."
+  ],
+  "headings": [],
+  "trivia": [
+    "Minsitthar s'inspire du roi Kyansittha, souverain célèbre de la dynastie de Pagan, au Myanmar (Birmanie).",
+    "Minsitthar est le quatrième héros inspiré d'un personnage historique réel, avec Zilong, Yi Sun-shin, Lapu-Lapu et Zetian.",
+    "C'est le premier héros à avoir des répliques.",
+    "Son ultime (King's Calling) invoque des gardes royaux qui forment une barrière en phalange. Il est ainsi le seul héros de MLBB à utiliser une mécanique de formation militaire, qui empêche les ennemis d'utiliser leurs compétences de téléportation à l'intérieur.",
+    "L'histoire de Minsitthar rappelle par certains aspects la série de films « Baahubali ».",
+    "Il est également probable que son histoire suive, pour l'essentiel, la vie du personnage dont il s'inspire.",
+    "C'est l'un des deux héros capables d'empêcher les ennemis d'utiliser leurs ruées et téléportations, l'autre étant Obsidia avec sa compétence Hunt of Bone.",
+    "Les premières fuites laissaient entendre que Minsitthar devait être un tank, mais il a finalement été conçu comme un combattant doté d'un fort contrôle. Il garde quelques traits de tank, comme la réduction de dégâts et la résistance."
+  ],
+  "profile": {
+    "fullName": null,
+    "title": "Roi de Mahar Pura",
+    "species": "Humain",
+    "gender": "Homme",
+    "age": null,
+    "origin": null,
+    "birthday": "10 mai",
+    "affiliations": [],
+    "relations": [
+      "Père sans nom (décédé)",
+      "Frère sans nom (décédé)",
+      "Bien-aimée sans nom"
+    ],
+    "powers": []
+  }
+}
