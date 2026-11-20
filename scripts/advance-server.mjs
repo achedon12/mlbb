@@ -27,6 +27,14 @@ import { pause, translateBatch } from "./translation-google.mjs";
 import { cleanDescription } from "./wikitext.mjs";
 import { targetLocales } from "./locales.mjs";
 import { applyGlossary, nameRules, restoreNames } from "./translation-glossary.mjs";
+import { combineShields, forgetLost, namesPattern, restoreListLabel, shieldLabels, shieldWith } from "./translation-shield.mjs";
+
+/**
+ * The game's name and the list labels ("a.", "VII.") hidden from the
+ * service, which wrote "Légendes mobiles" and "un." (`translation-shield.mjs`).
+ */
+const GAME_NAME_RE = namesPattern([]);
+const shield = combineShields(shieldWith(GAME_NAME_RE), shieldLabels);
 
 const WIKI = "https://mobilelegends.fandom.com";
 const API = `${WIKI}/api.php`;
@@ -653,14 +661,28 @@ async function translate(versions) {
   await mkdir(TRANSLATIONS_DIR, { recursive: true });
 
   for (const tl of targetLocales("en")) {
+    // A translation cached before the game's name was shielded goes back.
+    forgetLost(cache, texts, "en", tl, GAME_NAME_RE);
     const missing = texts.filter((x) => !(`en|${tl}|${x}` in cache));
     const groups = batches(missing);
     for (const [i, batch] of groups.entries()) {
-      const results = await translateBatch(batch, "en", tl, { tolerant: true });
+      const sent = batch.map(shield);
+      const results = await translateBatch(sent.map((s) => s.text), "en", tl, { tolerant: true });
       // An empty answer is not cached: a later run tries the text again.
+      // One whose markers did not all come back goes again as is.
+      const lost = [];
       batch.forEach((o, k) => {
-        if (results[k]?.trim()) cache[`en|${tl}|${o}`] = results[k];
+        if (!results[k]?.trim()) return;
+        const out = sent[k].restore(results[k]);
+        if (out === null) lost.push(o);
+        else cache[`en|${tl}|${o}`] = out;
       });
+      if (lost.length) {
+        const plain = await translateBatch(lost, "en", tl, { tolerant: true });
+        lost.forEach((o, k) => {
+          if (plain[k]?.trim()) cache[`en|${tl}|${o}`] = plain[k];
+        });
+      }
       process.stdout.write(`\r  en->${tl} ${i + 1}/${groups.length} batches`);
       // A network cut in the middle of a long run does not lose everything.
       if (i % 50 === 49) await save();
@@ -669,9 +691,10 @@ async function translate(versions) {
     if (groups.length) process.stdout.write("\n");
     await save();
 
-    // Hero names and game vocabulary applied on output; the cache keeps the raw translation.
+    // Hero names, list labels and game vocabulary applied on output; the cache keeps the raw translation.
     const names = nameRules(new Map(heroes.map((n) => [n, cache[`en|${tl}|${n}`]])), tl);
-    const t = (x) => applyGlossary(restoreNames(cache[`en|${tl}|${String(x).trim()}`] ?? x, x, names), tl, "data");
+    const t = (x) =>
+      applyGlossary(restoreListLabel(restoreNames(cache[`en|${tl}|${String(x).trim()}`] ?? x, x, names), x), tl, "data");
     const translated = Object.fromEntries(versions.map((v) => [v.version, translateVersion(v, t)]));
     await writeFile(`${TRANSLATIONS_DIR}/${tl}.json`, JSON.stringify(translated, null, 2) + "\n");
     console.log(`  ${TRANSLATIONS_DIR}/${tl}.json`);

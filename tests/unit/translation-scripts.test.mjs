@@ -98,7 +98,7 @@ describe("French game vocabulary", () => {
     expect(applyGlossary("La voie d’expérience", "fr")).toBe("L'EXP lane");
     expect(applyGlossary("Tueur de chars, semi-chars", "fr")).toBe("Tueur de tanks, semi-tanks");
     expect(applyGlossary("[Bénédictions itinérantes] du héros itinérant", "fr")).toBe("[Roaming Blessings] du roamer");
-    expect(applyGlossary("A. Bagarre", "fr")).toBe("A. Baston");
+    expect(applyGlossary("A. Bagarre", "fr")).toBe("A. Brawl");
     expect(applyGlossary("[Rétribution] BUFF", "fr")).toBe("[Retribution] BUFF");
     // A path in a mode, or "en voie de", is no lane; a brawl in lowercase is no mode.
     expect(applyGlossary("Si le joueur a choisi la voie physique", "fr")).toBe("Si le joueur a choisi la voie physique");
