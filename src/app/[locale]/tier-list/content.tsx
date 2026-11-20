@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "@/components/link";
+import { AuthorNote } from "@/components/author-note";
 import { DiscordInvite } from "@/components/discord-invite";
 import type { Crumb } from "@/components/breadcrumb";
 import { freshnessFacts } from "@/components/freshness";
@@ -370,6 +371,14 @@ export function TierList({
       />
 
       <div className="page-wrap pb-12 pt-6">
+        {/*
+          The author's signed reading of the ranking, on the main tier list
+          only and only while the patch it was written for is live: nothing
+          when there is no text.
+        */}
+        {rank === "all" && !filter && (
+          <AuthorNote kind="tier-list" version={patchCurrent.version} locale={locale} className="mb-8" />
+        )}
         {/* The reader must be able to challenge the ranking: we show the rule. */}
         <MethodFold label={t("pages.tierList.howCalculated")} className="mb-8">
           <div className="space-y-3">

@@ -89,6 +89,7 @@ describe("navigation", () => {
       "/community",
       "/community/teammates",
       "/esports",
+      "/methodology",
     ]) {
       expect(links.has(path), path).toBe(true);
     }

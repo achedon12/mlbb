@@ -300,7 +300,8 @@
       "tools": "Ferramentas",
       "news": "Notícias e esports",
       "site": "O site"
-    }
+    },
+    "methodology": "Método e fontes"
   },
   "language": {
     "choose": "Idioma",
@@ -5170,16 +5171,7 @@
       "noFall": "Nenhum herói está claramente em queda esta semana.",
       "open": "Mostrar os {n} heróis em movimento"
     },
-    "howItWorks": "Como este site funciona",
-    "syncLead": "Última sincronização em {date}.",
-    "cards": {
-      "dataTitle": "Os dados se atualizam sozinhos",
-      "dataText": "Heróis, skins, itens, patches e imagens são puxados da wiki toda semana. Um novo herói aparece aqui sem que ninguém precise cadastrá-lo.",
-      "rankingTitle": "O ranking não tem opinião",
-      "rankingText": "A tier list é calculada a partir das taxas de vitória e de ban informadas pelo jogo. A regra de cálculo aparece na página.",
-      "writtenTitle": "O que está escrito permanece escrito",
-      "writtenText": "Análises, builds e guias são escritos à mão. Nenhuma extração de dados explica por que um herói é forte; é aí que as contribuições fazem diferença."
-    }
+    "syncLead": "Última sincronização em {date}."
   },
   "featured": {
     "heroOfTheDay": "Herói do dia",
@@ -5507,6 +5499,82 @@
         "cnil": "Se considerar, após contactar o editor, que os seus direitos não são respeitados, pode enviar uma reclamação à CNIL ([cnil.fr](https://www.cnil.fr/fr/plaintes)) ou à autoridade de proteção de dados do seu país.",
         "updated": "Última atualização: 19 de novembro de 2026."
       }
+    },
+    "methodology": {
+      "blocks": [
+        {
+          "h": "De onde vêm os dados"
+        },
+        {
+          "p": "MLBBDex não tem acesso a nenhum dado privado de Moonton. Tudo o que ele exibe vem de fontes públicas, relidas por scripts do repositório ou daquilo que o próprio site calcula e escreve."
+        },
+        {
+          "ul": [
+            "[Wiki do Mobile Legends (Fandom)]({fandom}): a lista de heróis e seus perfis, habilidades, histórias, aparências, itens, recursos visuais e parte das notas do patch. O site lê os módulos de dados do wiki (`Module:Hero/data`, `Module:Equipment/data`) em vez das páginas exibidas. Releia todas as segundas-feiras.",
+            "[Liquipedia]({liquipedia}): as características básicas dos heróis, o preço dos itens e daqueles que foram removidos, a lista de patches e notas que a wiki ainda não possui, e esports (torneios, composições, heróis capturados e banidos em competição). A lista de patches é relida todos os dias, o restante toda segunda-feira.",
+            "[A API da comunidade arena.rone.dev]({stats}): taxas de vitória, ban e seleção para jogos classificados, por classificação, counters, builds mais jogados, companheiros de equipe e textos oficiais de habilidades. Releia todos os dias.",
+            "A página Watch reúne títulos, datas e pequenos trechos de dois feeds públicos, r/MobileLegendsGame (Reddit) e Esports.gg, sempre com o link para a editora original.",
+            "Seu perfil de jogador, caso você faça login, é lido sob demanda com o código de verificação enviado pelo jogo. Só é visível para você.",
+            "Alguns arquivos são mantidos manualmente no repositório, com suas datas de verificação: a rotação livre da semana, as datas das temporadas classificadas e as premissas do estimador de valor da conta. Descrições de emblemas e feitiços são escritas para o site."
+          ]
+        },
+        {
+          "p": "Cada página de dados indica suas fontes e datas na parte inferior. Última sincronização completa: {synced}. Últimas taxas observadas: {measured}. Os textos retirados de wikis permanecem sob licença CC BY-SA, com atribuição aos seus colaboradores; imagens e nomes pertencem a Moonton."
+        },
+        {
+          "h": "O que o próprio site calcula"
+        },
+        {
+          "p": "Estas regras são as do código: os números desta página são lidos nas mesmas constantes do cálculo, não podem divergir."
+        },
+        {
+          "ul": [
+            "Níveis da tier list: pontuação = taxa de vitória + {weightBan} × taxa de ban. S+ de {tierSPlus} pontos, S de {tierS}, A de {tierA}, B de {tierB}, C abaixo. A taxa de pick não entra na pontuação.",
+            "O mesmo cálculo é repetido para cada fatia de classificação (Épico, Lendário, Mítico, Honra Mítica, Glória Mítica), para cada lane e para cada função.",
+            "Confiabilidade: um herói escolhido em menos de {reliability}% dos jogos permanece classificado, mas é marcado com um asterisco, suas taxas são muito instáveis.",
+            "Tendências: a evolução da taxa de vitória ao longo de sete dias só é exibida a partir de {notable} pontos de diferença; abaixo, ele se funde com o arredondamento.",
+            "Efeito de um patch: para cada herói modificado, a taxa média de vitória dos {daysImpact} dias seguintes ao patch, em comparação com a dos {daysImpact} dias anteriores, excluindo o próprio dia. Demora pelo menos {minImpact} dias medidos em cada lado; uma diferença inferior a {thresholdImpact} ponto é exibida em cinza, como não significativa.",
+            "Histórico: a API foi usada apenas nos últimos trinta dias. O site mantém cada leitura desde {historyStart}, dia a dia durante os últimos {dailyDays} dias e, em média, por semana. As semanas anteriores não são usadas para medir o efeito de um adesivo.",
+            "Draft: As sugestões combinam os counters e sinergias descritos pela wiki, os companheiros de equipe que mais ganham com cada herói no jogo classificado e sua taxa de vitória.",
+            "MLBBdle e quiz: o herói secreto e o desafio do dia são retirados da base do site a partir da data, sem intervenção; eles são iguais para todos os jogadores e em todos os idiomas."
+          ]
+        },
+        {
+          "h": "O que está excluído"
+        },
+        {
+          "ul": [
+            "Heróis e aparições anunciados, mas ainda não divulgados: o wiki os documenta com antecedência, o site aguarda seu lançamento.",
+            "Visuais de pré-lançamento, retocados, com marca d'água ou no formato errado, descartados durante a sincronização. Cartazes e questionários usam apenas ilustrações de aparições divulgadas; uma ilustração recente de que nenhuma reivindicação de aparência divulgada permanece na galeria do herói, marcada como \"Provisória\".",
+            "Medições de um dia em que a API não responde: as leituras anteriores são mantidas, nada é estimado em seu lugar.",
+            "O “MMR” e as classificações dos jogadores: Moonton não as publica, o site não as inventa."
+          ]
+        },
+        {
+          "h": "O que é traduzido automaticamente"
+        },
+        {
+          "p": "O site está escrito em francês e existe em {languages} idiomas. As traduções são feitas por um serviço de tradução automática (Google Translate), por scripts lançados manualmente ou por integração contínua; o site não traduz nada enquanto você lê."
+        },
+        {
+          "ul": [
+            "A interface é traduzida do francês para {others} outros idiomas. As correções salvas no repositório substituem a tradução automática onde ela estava errada.",
+            "O conteúdo retirado do wiki (histórias, habilidades, itens, modos de jogo, patch notes) foi traduzido do inglês. As notas do patch dizem isso em sua página. Em francês, as histórias dos heróis são substituídas por versões corrigidas, colocadas em `content/fr/lore`.",
+            "Análises de heróis, comentários em tier lists, guias e artigos são escritos em francês e depois traduzidos automaticamente. Uma análise traduzida é marcada como “traduzida automaticamente”.",
+            "Os textos assinados pelo autor do site (sua opinião sobre um patch, sobre o tier list, sua apresentação) nunca passam por tradução automática: são exibidos em francês em todos os idiomas, com a menção “Texto original em francês, não traduzido”."
+          ]
+        },
+        {
+          "h": "Informar um erro"
+        },
+        {
+          "ul": [
+            "Nas páginas de Heróis, Itens, Emblemas, Feitiços e Patch notes, o botão \"Reportar um Erro\" na parte inferior da página envia um relatório anônimo: a página, seu idioma e o que você está escrevendo. Cada relatório é relido antes de qualquer correção.",
+            "Para todo o resto, abra um ticket no [repositório do projeto]({issues}) ou escreva para [{contact}](mailto:{contact}).",
+            "Um erro proveniente de uma fonte (wiki, Liquipedia, API) também pode ser corrigido na fonte: o site o retoma na próxima sincronização."
+          ]
+        }
+      ]
     }
   },
   "compareUI": {
@@ -6490,5 +6558,77 @@
     "provisional": "Provisório",
     "provisionalHint": "Visual provisório, ainda não confirmado pelo game: pode sofrer alterações antes do lançamento oficial.",
     "provisionalNote": "Visual provisório: essa aparência ainda não está confirmada no jogo, a ilustração ainda pode sofrer alterações."
+  },
+  "editorial": {
+    "original": "Texto original em francês, sem tradução.",
+    "note": {
+      "titlePatch": "A opinião do autor sobre o patch {version}",
+      "titleTierList": "A opinião do autor sobre esta tier list",
+      "rank": "Classificação {rank}",
+      "written": "escreve {date}"
+    },
+    "author": {
+      "title": "Quem faz MLBBDex",
+      "role": "Função",
+      "rank": "Elo",
+      "why": "Por que este site",
+      "heroes": "Pool de heróis",
+      "contact": "Contato:",
+      "updated": "Atualizado em {date}"
+    },
+    "methodology": {
+      "title": "Método e fontes",
+      "lead": "De onde vem cada dado, o que o próprio site calcula e com quais limites, o que é traduzido automaticamente e como reportar um erro.",
+      "metaDescription": "Fontes MLBBDex (Fandom wiki, Liquipedia, arena.rone.dev API), tier list e fórmulas de efeito de patch, o que é traduzido automaticamente e como relatar um erro."
+    }
+  },
+  "why": {
+    "title": "Por que MLBBDex",
+    "lead": "O que o próprio site mede, guarda e calcula, com a página onde verificar.",
+    "figure": "dias de tarifas mantidas pelo site, desde {date}",
+    "daily": {
+      "title": "Taxas registradas todos os dias",
+      "text": "Vitória, ban e seleção de {n} heróis no jogo classificado, todas as classificações combinadas e classificação por classificação. Última leitura em {date}.",
+      "link": "Estatísticas"
+    },
+    "history": {
+      "title": "Uma história que a fonte não guarda",
+      "text": "A API de estatísticas exibe apenas os últimos trinta dias. O site mantém cada extrato de {date}: dia a dia durante {daily} dias e, em média, por semana.",
+      "link": "História de {hero}"
+    },
+    "tierList": {
+      "title": "Uma tier list calculada, regra exibida",
+      "text": "Pontuação = {formula}. Os limites dos níveis são publicados e o mesmo cálculo é repetido para cada classificação, cada faixa e cada função.",
+      "link": "A regra e classificação"
+    },
+    "patch": {
+      "title": "O efeito medido de cada patch",
+      "text": "Para cada herói modificado, a diferença entre sua taxa média de vitória {days} dias antes e {days} dias depois do patch. Patch {version}: {n} heróis medidos em {changed} modificados.",
+      "textPending": "Para cada herói modificado, a diferença entre sua taxa média de vitória {days} dias antes e {days} dias depois do patch. Patch {version}: ainda não foram medidos dias suficientes desde seu lançamento.",
+      "link": "Patch notes {version}"
+    },
+    "draft": {
+      "title": "Um assistente de draft",
+      "text": "Oferece escolhas baseadas em counters, sinergias, companheiros de equipe que ganham mais juntos em jogos classificados e a taxa de vitória de cada herói.",
+      "link": "Prepare um draft"
+    },
+    "games": {
+      "title": "Jogos desde o início",
+      "text": "Um herói secreto e um desafio por dia desde {date}, construído a partir das habilidades, aparências, histórias, itens e taxas do site. O mesmo para todos os jogadores."
+    },
+    "builds": {
+      "title": "Builds de jogadores",
+      "text": "Publicado por jogadores conectados ao site e classificados por seus votos.",
+      "link": "Builds comunitárias"
+    },
+    "bot": {
+      "title": "Um bot Discord",
+      "text": "Dex MLBB responde no Discord (/hero, /build, /tierlist, /counter…) com dados da API pública do site.",
+      "link": "O bot"
+    },
+    "languages": {
+      "title": "{n} idiomas",
+      "text": "Escrito em francês e traduzido automaticamente para {others} outros idiomas. O que é traduzido e como é detalhado na página de fontes."
+    }
   }
 }

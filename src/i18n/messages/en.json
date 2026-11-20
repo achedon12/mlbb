@@ -300,7 +300,8 @@
       "tools": "Tools",
       "news": "News & esports",
       "site": "The site"
-    }
+    },
+    "methodology": "Methodology and sources"
   },
   "language": {
     "choose": "Language",
@@ -5170,16 +5171,7 @@
       "noFall": "No hero is clearly falling this week.",
       "open": "Show the {n} heroes on the move"
     },
-    "howItWorks": "How this site works",
-    "syncLead": "Last synced on {date}.",
-    "cards": {
-      "dataTitle": "The data updates itself",
-      "dataText": "Heroes, skins, items, patches and images are pulled from the wiki every week. A new hero shows up here without anyone having to enter it.",
-      "rankingTitle": "The ranking has no opinion",
-      "rankingText": "The tier list is calculated from the win and ban rates reported by the game. The calculation rule is shown on the page.",
-      "writtenTitle": "What's written stays written",
-      "writtenText": "Analyses, builds and guides are written by hand. No data extraction can tell why a hero is strong; that's where contributions matter."
-    }
+    "syncLead": "Last synced on {date}."
   },
   "featured": {
     "heroOfTheDay": "Hero of the day",
@@ -5507,6 +5499,82 @@
         "cnil": "If you consider, after contacting the publisher, that your rights are not respected, you can send a complaint to the CNIL ([cnil.fr](https://www.cnil.fr/fr/plaintes)) or to the data protection authority in your country.",
         "updated": "Last updated: 19 November 2026."
       }
+    },
+    "methodology": {
+      "blocks": [
+        {
+          "h": "Where the data comes from"
+        },
+        {
+          "p": "MLBBDex has no access to any private Moonton data. Everything it shows comes from public sources, read by scripts in the repository, or from what the site computes and writes itself."
+        },
+        {
+          "ul": [
+            "[The Mobile Legends wiki (Fandom)]({fandom}): the hero list and hero sheets, skills, stories, skins, items, artwork and part of the patch notes. The site reads the wiki's data modules (`Module:Hero/data`, `Module:Equipment/data`) rather than its rendered pages. Read again every Monday.",
+            "[Liquipedia]({liquipedia}): heroes' base attributes, item prices and removed items, the patch list and the notes the wiki does not have yet, and esports (tournaments, line-ups, heroes picked and banned in competition). The patch list is read again every day, the rest every Monday.",
+            "[The arena.rone.dev community API]({stats}): win, ban and pick rates of ranked games, by rank, counters, most played builds, teammates and the official skill texts. Read again every day.",
+            "The Roundup page gathers the titles, dates and short excerpts of two public feeds, r/MobileLegendsGame (Reddit) and Esports.gg, always linking to the original publisher.",
+            "Your player profile, if you sign in, is read on demand with the verification code the game sends you. Only you can see it.",
+            "A few files are kept by hand in the repository, each with the date it was checked: the week's free hero rotation, the ranked season dates and the account value estimator's assumptions. The emblem and spell descriptions are written for the site."
+          ]
+        },
+        {
+          "p": "Every data page lists its sources and dates at the bottom. Last full sync: {synced}. Latest rates recorded: {measured}. Texts taken from the wikis remain under the CC BY-SA licence, credited to their contributors; images and names belong to Moonton."
+        },
+        {
+          "h": "What the site computes itself"
+        },
+        {
+          "p": "These are the code's rules: the figures on this page are read from the same constants as the computation, so they cannot drift apart."
+        },
+        {
+          "ul": [
+            "Tier list tiers: score = win rate + {weightBan} × ban rate. S+ from {tierSPlus} points, S from {tierS}, A from {tierA}, B from {tierB}, C below. The pick rate is not part of the score.",
+            "The same computation is run again for each rank bracket (Epic, Legend, Mythic, Mythical Honor, Mythical Glory), for each lane and for each role.",
+            "Reliability: a hero picked in fewer than {reliability}% of games stays ranked but is marked with an asterisk, as its rates are too unstable.",
+            "Trends: the seven-day change in win rate is only shown from a {notable}-point gap; below that, it is lost in rounding.",
+            "Effect of a patch: for each changed hero, the average win rate over the {daysImpact} days after the patch, compared with the {daysImpact} days before it, leaving out the day itself. At least {minImpact} measured days are needed on each side; a gap under {thresholdImpact} points is shown in grey, as not significant.",
+            "History: the API only serves the last thirty days. The site keeps every reading since {historyStart}, day by day over the last {dailyDays} days, then as weekly averages. The older weeks are never used to measure a patch's effect.",
+            "Draft: the suggestions combine the counters and synergies described by the wiki, the teammates who win most with each hero in ranked games, and its win rate.",
+            "MLBBdle and quiz: the day's secret hero and challenge are drawn from the site's database from the date alone, with no one picking them; they are the same for every player and in every language."
+          ]
+        },
+        {
+          "h": "What is left out"
+        },
+        {
+          "ul": [
+            "Heroes and skins announced but not released yet: the wiki documents them ahead of time, the site waits for their release.",
+            "Pre-release, edited, watermarked or wrongly shaped images, dropped during the sync. Posters and quizzes only use the artwork of released skins; a recent artwork that no released skin claims stays in the hero's gallery, marked \"Provisional\".",
+            "The measures of a day when the API does not answer: the previous readings are kept, nothing is estimated in their place.",
+            "\"MMR\" and player rankings: Moonton does not publish them, and the site does not make them up."
+          ]
+        },
+        {
+          "h": "What is machine-translated"
+        },
+        {
+          "p": "The site is written in French and available in {languages} languages. Translations are made by a machine translation service (Google Translate), through scripts run by hand or by continuous integration; the site translates nothing while you read it."
+        },
+        {
+          "ul": [
+            "The interface is translated from French into the {others} other languages. Corrections stored in the repository replace the machine translation where it was wrong.",
+            "Content taken from the wiki (stories, skills, items, game modes, patch notes) is translated from English. Patch notes say so on their page. In French, the hero stories are replaced by corrected versions, stored in `content/fr/lore`.",
+            "Hero analyses, tier list comments, guides and articles are written in French, then machine-translated. A translated analysis carries the note \"machine-translated\".",
+            "Texts signed by the site's author (their take on a patch or on the tier list, their introduction) never go through machine translation: they are shown in French in every language, with the note \"Original French text, not translated\"."
+          ]
+        },
+        {
+          "h": "Report an error"
+        },
+        {
+          "ul": [
+            "On hero, item, emblem, spell and patch note pages, the \"Report an error\" button at the bottom sends an anonymous report: the page, its language and what you write. Every report is read before anything is corrected.",
+            "For anything else, open an issue on [the project's repository]({issues}) or write to [{contact}](mailto:{contact}).",
+            "An error that comes from a source (wiki, Liquipedia, API) can also be fixed at the source: the site picks the fix up at the next sync."
+          ]
+        }
+      ]
     }
   },
   "compareUI": {
@@ -6490,5 +6558,77 @@
     "provisional": "Provisional",
     "provisionalHint": "Provisional visual, not yet confirmed by the game: it may change before the official release.",
     "provisionalNote": "Provisional visual: this skin is not yet confirmed in the game, its artwork may still change."
+  },
+  "editorial": {
+    "original": "Original French text, not translated.",
+    "note": {
+      "titlePatch": "The author's take on patch {version}",
+      "titleTierList": "The author's take on this tier list",
+      "rank": "Rank: {rank}",
+      "written": "written on {date}"
+    },
+    "author": {
+      "title": "Who makes MLBBDex",
+      "role": "Role",
+      "rank": "Rank",
+      "why": "Why this site",
+      "heroes": "Favourite heroes",
+      "contact": "Contact:",
+      "updated": "Updated on {date}"
+    },
+    "methodology": {
+      "title": "Methodology and sources",
+      "lead": "Where each piece of data comes from, what the site computes itself and with which thresholds, what is machine-translated, and how to report an error.",
+      "metaDescription": "MLBBDex's sources (Fandom wiki, Liquipedia, arena.rone.dev API), the tier list and patch effect formulas, what is machine-translated and how to report an error."
+    }
+  },
+  "why": {
+    "title": "Why MLBBDex",
+    "lead": "What the site measures, keeps and computes itself, with the page where you can check it.",
+    "figure": "days of rates kept by the site, since {date}",
+    "daily": {
+      "title": "Rates recorded every day",
+      "text": "Win, ban and pick rates of {n} heroes in ranked games, across all ranks and rank by rank. Last recorded on {date}.",
+      "link": "Statistics"
+    },
+    "history": {
+      "title": "A history the source does not keep",
+      "text": "The statistics API only serves the last thirty days. The site keeps every reading since {date}: day by day over {daily} days, then as weekly averages.",
+      "link": "{hero}'s history"
+    },
+    "tierList": {
+      "title": "A computed tier list, rule shown",
+      "text": "Score = {formula}. The tier thresholds are published, and the same computation is run again for each rank, lane and role.",
+      "link": "The rule and the ranking"
+    },
+    "patch": {
+      "title": "The measured effect of each patch",
+      "text": "For each changed hero, the gap between its average win rate over the {days} days before and the {days} days after the patch. Patch {version}: {n} heroes measured out of {changed} changed.",
+      "textPending": "For each changed hero, the gap between its average win rate over the {days} days before and the {days} days after the patch. Patch {version}: not enough days measured since its release yet.",
+      "link": "Patch {version} notes"
+    },
+    "draft": {
+      "title": "A draft assistant",
+      "text": "It suggests picks from counters, synergies, the teammates who win most together in ranked games, and each hero's win rate.",
+      "link": "Prepare a draft"
+    },
+    "games": {
+      "title": "Games built from the database",
+      "text": "A secret hero and a challenge every day since {date}, built from the site's skills, skins, stories, items and rates. The same for every player."
+    },
+    "builds": {
+      "title": "Players' builds",
+      "text": "Published by players signed in to the site and ranked by their votes.",
+      "link": "Community builds"
+    },
+    "bot": {
+      "title": "A Discord bot",
+      "text": "Dex MLBB answers on Discord (/hero, /build, /tierlist, /counter…) with the data of the site's public API.",
+      "link": "The bot"
+    },
+    "languages": {
+      "title": "{n} languages",
+      "text": "Written in French and machine-translated into {others} other languages. What is translated, and how, is detailed on the sources page."
+    }
   }
 }

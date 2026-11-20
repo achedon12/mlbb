@@ -93,10 +93,13 @@ const nextConfig: NextConfig = {
   // belongs there.
   agentRules: false,
   reactStrictMode: true,
-  // Hand-written stories are read from disk when a page renders
-  // (`lib/lore-overrides.ts`): pages rendered on demand need them in the
-  // standalone folder too.
-  outputFileTracingIncludes: { "/**": ["./content/*/lore/*.json"] },
+  // Hand-written stories and the author's signed texts are read from disk
+  // when a page renders (`lib/lore-overrides.ts`, `lib/editorial.ts`): pages
+  // rendered on demand need them in the standalone folder too. The
+  // templates (`_modeles/`) are never read.
+  outputFileTracingIncludes: {
+    "/**": ["./content/*/lore/*.json", "./content/fr/editorial/*.md", "./content/fr/editorial/patchs/*.md", "./content/fr/editorial/tier-list/*.md"],
+  },
   poweredByHeader: false,
   // The root does not render <html> ([locale]/layout does): an unknown address
   // outside any locale, such as /llms.txt before it existed, ended in a 500

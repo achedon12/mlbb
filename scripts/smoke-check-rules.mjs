@@ -182,6 +182,8 @@ export const PAGES = [
   { path: "/quiz", locales: EN_FR, browser: true },
   { path: "/mlbbdle", locales: EN_FR },
   { path: "/about", locales: ALL, browser: true, minWords: 150 },
+  // Every figure of the rules is a variable: a lost one would read "{tierS}".
+  { path: "/methodology", locales: ALL, browser: true, minWords: 400 },
   { path: "/dex", locales: ALL, browser: true },
   { path: "/brand", locales: EN_FR },
   { path: "/legal", locales: ALL, browser: true, minWords: 150 },
