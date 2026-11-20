@@ -18,6 +18,15 @@ const EN_FR = ["en", "fr"];
 // The four languages added last: a few more of their pages are read, the
 // ones where their scripts, long words and game vocabulary show first.
 const LATEST = ["fil", "th", "pt", "ru"];
+/**
+ * Italian and Spanish still carry the service's names for the rarities and
+ * emblems ("Squisita", "Emblema de luchador"): the catalogue keeps the game's
+ * names from the next translation run (`translate-messages.mjs` shields
+ * them). Until then they are not held to the English names; once their
+ * catalogues are regenerated, this list empties.
+ */
+const NAMES_PENDING = ["it", "es"];
+const officialNames = (names) => Object.fromEntries(ALL.filter((l) => !NAMES_PENDING.includes(l)).map((l) => [l, names]));
 
 /** Placeholder left by a message that was not interpolated: `{plural}`, `{count}`. */
 export const PLACEHOLDER = /\{[A-Za-z_][A-Za-z0-9_]*\}/g;
@@ -73,8 +82,11 @@ export const PAGES = [
     // fails here.
     path: "/heroes/khufra/skins",
     locales: ALL,
-    includes: Object.fromEntries(ALL.map((l) => [l, ["Exquisite", "Exceptional"]])),
-    excludes: Object.fromEntries(ALL.map((l) => [l, ["Exquis", "Exceptionnel", "Squisita", "Eccezionale", "Exquisita", "Excepcional"]])),
+    includes: officialNames(["Exquisite", "Exceptional"]),
+    excludes: {
+      ...officialNames(["Exquis", "Exceptionnel", "Squisita", "Eccezionale", "Exquisita", "Excepcional"]),
+      ...Object.fromEntries(NAMES_PENDING.map((l) => [l, ["Exquis", "Exceptionnel"]])),
+    },
   },
   { path: "/tier-list", locales: ALL, browser: true },
   { path: "/tier-list/role/fighter", locales: ALL, browser: true },
@@ -93,10 +105,11 @@ export const PAGES = [
     path: "/emblems/fighter",
     locales: ALL,
     browser: true,
-    includes: Object.fromEntries(ALL.map((l) => [l, ["Fighter Emblem"]])),
-    excludes: Object.fromEntries(
-      ALL.map((l) => [l, ["Emblème de combattant", "Emblema Combattente", "Emblema de luchador", "Эмблема Истребителя"]]),
-    ),
+    includes: officialNames(["Fighter Emblem"]),
+    excludes: {
+      ...officialNames(["Emblème de combattant", "Emblema Combattente", "Emblema de luchador", "Эмблема Истребителя"]),
+      ...Object.fromEntries(NAMES_PENDING.map((l) => [l, ["Emblème de combattant"]])),
+    },
   },
   { path: "/spells", locales: EN_FR },
   { path: "/spells/flicker", locales: EN_FR },

@@ -166,7 +166,7 @@ describe("inspectPage", () => {
   it("reports a translated rarity name", () => {
     const skins = page("/heroes/khufra/skins");
     const french = `Origine Commun Exquis Exceptionnel Deluxe ${words(60)}`;
-    expect(inspectPage({ html: html({ lang: "es-ES", main: french }), status: 200, locale: "es", page: skins })).toEqual([
+    expect(inspectPage({ html: html({ lang: "pt-BR", main: french }), status: 200, locale: "pt", page: skins })).toEqual([
       'missing text "Exquisite"',
       'missing text "Exceptional"',
       'unexpected text "Exquis" (untranslated?)',
