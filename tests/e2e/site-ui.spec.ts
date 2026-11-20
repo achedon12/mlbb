@@ -238,14 +238,15 @@ test.describe("brand pages", () => {
     await expect(page.locator("#poses").getByRole("link", { name: /kit de marque/i })).toHaveAttribute("href", /\/fr\/brand$/);
   });
 
-  test("the brand kit gives the colour codes and Dex as PNG, and no logo", async ({ page }) => {
+  test("the brand kit gives the colour codes, the logo as SVG and Dex as PNG", async ({ page }) => {
     await page.goto("/fr/brand");
     await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
     await expect(page.getByRole("button", { name: "Copier #F5C451" })).toBeVisible();
     const downloads = page.getByRole("link", { name: /^t[ée]l[ée]charger dex/i });
     await expect(downloads).toHaveCount(12);
     await expect(downloads.first()).toHaveAttribute("href", "/mascot/dex-salut.png");
-    await expect(page.locator('main img[src*="/brand/mark"]')).toHaveCount(0);
+    await expect(page.locator('main img[src="/brand/emblem.svg"]')).toHaveCount(1);
+    await expect(page.getByRole("link", { name: /t[ée]l[ée]charger le logo/i })).toHaveCount(3);
   });
 
   test("offers no cookie settings without audience measurement", async ({ page }) => {

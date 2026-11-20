@@ -3806,7 +3806,7 @@
     },
     "botPrivacy": {
       "title": "Privasi Bot Perselisihan",
-      "metaDescription": "Apa yang disimpan oleh bot MLBBEx Discord, mengapa, berapa lama, dan bagaimana cara menghapusnya.",
+      "metaDescription": "Apa yang disimpan bot Discord Dex MLBB, alasannya, berapa lama, dan bagaimana cara menghapusnya.",
       "lead": "Apa yang disimpan bot, alasannya, dan untuk berapa lama.",
       "storedTitle": "Apa yang dilestarikan",
       "storedServer": "Untuk setiap server: id, nama, ikon, jumlah anggota, bahasa, pengaturan (saluran, peran, jam game harian, teks pesan sambutan dan perpisahan) dan daftar pengumuman yang sudah diposting.",
@@ -3830,9 +3830,9 @@
     },
     "botTerms": {
       "title": "Ketentuan Layanan Bot Perselisihan",
-      "metaDescription": "Ketentuan layanan bot MLBBEx Discord: layanan gratis, penggunaan wajar, data game disediakan tanpa jaminan.",
+      "metaDescription": "Ketentuan Penggunaan Bot Dex MLBB Discord: Layanan gratis, penggunaan wajar, data game disediakan tanpa jaminan.",
       "lead": "Aturan sederhana dari layanan gratis.",
-      "p1": "Bot MLBBDex adalah proyek penggemar independen dan gratis, tidak ada hubungannya dengan Moonton. Mobile Legends: Bang Bang adalah merek dari Shanghai Moonton Technology Co., Ltd.",
+      "p1": "Bot MLBB Dex (MLBBDex) adalah proyek penggemar independen dan gratis, tidak ada hubungannya dengan Moonton. Mobile Legends: Bang Bang adalah merek dari Shanghai Moonton Technology Co., Ltd.",
       "p2": "Data (statistik, build, tier list, patch note) disediakan sebagaimana adanya, tanpa jaminan keakuratan atau ketersediaan. Teks berasal dari wiki Mobile Legends (Fandom) dan Liquipedia, di bawah lisensi CC BY-SA; angkanya berasal dari statistik permainan peringkat. Gambar dan nama permainan tetap © Moonton, dan kolaborasi © pemegang haknya.",
       "p3": "Jangan membajak bot: tidak ada otomatisasi perintah yang menyalahgunakan, tidak ada upaya untuk mengakses pengaturan server yang tidak Anda kelola. Layanan mungkin dibatasi atau dihapus dari server yang menyalahgunakannya.",
       "p4": "Layanan dapat berubah, terganggu, atau dihentikan kapan saja. Aturan Discord (ketentuan penggunaan dan aturan komunitas) berlaku untuk penggunaannya.",
@@ -3867,8 +3867,8 @@
       "members": "{count} anggota",
       "admin": "Panel Admin",
       "loginTitle": "Masuk untuk menyiapkan bot",
-      "addBotLead": "Server yang Anda kelola tidak muncul? Undang MLBBDex ke sana, lalu kembali lagi ke sini.",
-      "botPresent": "MLBBDex ada di server ini",
+      "addBotLead": "Server yang Anda kelola tidak muncul? Ajak Dex MLBB kesana, lalu balik lagi kesini.",
+      "botPresent": "Dex MLBB ada di server ini",
       "noManageRoles": "Tanpa izin Kelola Peran",
       "deliveriesLead": "Pengumuman terbaru yang diposting di server ini, dan yang gagal."
     },
@@ -4822,12 +4822,12 @@
     },
     "discordCard": {
       "title": "Kartu profil Discord",
-      "intro": "Tampilkan rank, win rate, dan hero yang paling sering kamu mainkan sebagai gambar di Discord, dengan perintah /profile dari bot MLBBDex.",
+      "intro": "Tampilkan peringkat Anda, win rate, dan hero yang paling sering dimainkan dalam gambar di Discord, dengan perintah bot/profil Dex MLBB.",
       "needDiscord": "Untuk menautkannya, masuk juga dengan akun Discord yang kamu pakai di servermu.",
       "discordButton": "Masuk dengan Discord",
       "linkOffer": "Tautkan akun Discord {name} ke akun game ini. Statistik Anda dibaca kembali di setiap /profil.",
       "linkButton": "Tautkan dan buat kartuku",
-      "linked": "Kartumu tertaut ke akun Discord. Ketik /profile di server yang ada bot MLBBDex.",
+      "linked": "Kartu Anda ditautkan ke akun Discord. Ketik /profile pada server tempat bot Dex MLBB berada.",
       "otherDiscord": "Kamu masuk dengan akun Discord lain ({name}) dari yang tertaut. Menautkannya akan memindahkan kartu ke sana.",
       "updatedAt": "Angka disimpan pada {date}.",
       "refresh": "Perbarui angkaku",
@@ -4941,7 +4941,6 @@
       "dexLine": "Ambil apa yang Anda butuhkan. Hanya satu doa: jangan warnai aku dengan warna ungu.",
       "nameTitle": "Nama",
       "nameText": "MLBBDex ditulis dalam satu kata, “Dex” dengan warna emas. Bot Discord disebut Dex MLBB, seperti maskotnya.",
-      "logoPending": "Logo sedang didesain ulang dan belum divalidasi. Sementara itu, gunakan logotype teks: nama, pada font judul.",
       "colorsTitle": "Warnanya",
       "colorsLead": "Malam untuk latar belakang, emas untuk aksen, biru dan merah untuk kedua kubu. Tidak ada yang lain.",
       "copy": "Salin {hex}",
@@ -4974,7 +4973,7 @@
       "do4": "Klarifikasi bahwa MLBBDex adalah proyek penggemar independen.",
       "dont1": "Warnai ulang, ubah atau tambahkan aksesori.",
       "dont2": "Buat dia berbicara atas nama Moonton atau situs lain.",
-      "dont3": "Tampilkan logo MLBBDex: logo yang didesain ulang tidak divalidasi.",
+      "dont3": "Distorsi logo, ubah warnanya, atau letakkan di latar belakang yang menenggelamkannya.",
       "dont4": "Keluar dari palet: tanpa ungu, tanpa gradien pelangi.",
       "dexTitle": "Dex ke PNG",
       "dexLead": "Latar belakang transparan, sesuai ukurannya, atau berpusat pada persegi 512 px untuk avatar atau emoji.",
@@ -4987,7 +4986,14 @@
       "repo": "Pengajuan proyek",
       "discord": "Perselisihan",
       "legal": "Mobile Legends: Bang Bang, hero dan visualnya adalah merek dagang dari Shanghai Moonton Technology Co., Ltd. MLBBDex tidak berafiliasi atau didukung oleh Moonton: jangan gunakan visual mereka sebagai milik kami.",
-      "dexPageLink": "Siapa Dex?"
+      "dexPageLink": "Siapa Dex?",
+      "logoText": "Logo: kristal dasar, setengah biru, setengah merah, dengan emblem emas bersayap. Jangan menyimpangkannya, jangan mengubah warnanya dan jangan beri udara ke sekelilingnya.",
+      "logoAlt": "Emblem MLBBDex: kristal biru dan merah dengan emblem emas bersayap",
+      "logoFile": {
+        "emblem": "Unduh logo: emblem (SVG)",
+        "logo": "Unduh logo: horisontal (SVG)",
+        "stacked": "Unduh logo: bertumpuk (SVG)"
+      }
     }
   },
   "modeSheet": {
@@ -5342,7 +5348,7 @@
     },
     "bot": {
       "title": "Bot perselisihan (opsional)",
-      "intro": "Jika Anda menggunakan bot MLBBEx Discord atau dasbornya, server situs juga menyimpan:",
+      "intro": "Jika Anda menggunakan bot Discord Dex MLBB atau dashboardnya, server situs juga menyimpan:",
       "cookie": "cookie sesi terenkripsi, `mlbbdex_discord` (httpOnly, 7 hari), jika Anda masuk dengan Discord ke dasbor atau forum: ID Discord Anda, nama dan avatar, tidak ada yang lain; tidak ada token Discord yang dipertahankan;",
       "servers": "untuk setiap server tempat bot berada: nama, bahasa, dan pengaturannya;",
       "results": "untuk peringkat game hari ini yang dimainkan di Discord: ID Discord para pemain dan nama panggilan serta skor mereka.",

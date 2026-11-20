@@ -3806,7 +3806,7 @@
     },
     "botPrivacy": {
       "title": "Discord bot privacy",
-      "metaDescription": "What the MLBBDex Discord bot stores, why, for how long, and how to have it deleted.",
+      "metaDescription": "What the Discord Dex MLBB bot keeps, why, how long, and how to get it deleted.",
       "lead": "What the bot stores, why, and for how long.",
       "storedTitle": "What is stored",
       "storedServer": "For each server: its id, name, icon, member count, language, settings (channels, roles, daily games hour, welcome and goodbye message texts) and the list of announcements already posted.",
@@ -3830,9 +3830,9 @@
     },
     "botTerms": {
       "title": "Discord bot terms of use",
-      "metaDescription": "Terms of use of the MLBBDex Discord bot: a free service, fair use, game data provided without warranty.",
+      "metaDescription": "Dex MLBB Discord Bot Terms of Use: Free service, fair use, game data provided without warranty.",
       "lead": "The simple rules of a free service.",
-      "p1": "The MLBBDex bot is an independent, free fan project, not affiliated with Moonton. Mobile Legends: Bang Bang is a trademark of Shanghai Moonton Technology Co., Ltd.",
+      "p1": "The MLBB Dex Bot (MLBBDex) is an independent, free fan project, unrelated to Moonton. Mobile Legends: Bang Bang is a brand of Shanghai Moonton Technology Co., Ltd.",
       "p2": "The data (statistics, builds, tier list, patch notes) is provided as is, with no warranty of accuracy or availability. The texts come from the Mobile Legends wiki (Fandom) and Liquipedia, under the CC BY-SA licence, and the figures from ranked match statistics. The game's images and names remain © Moonton, and those of collaborations © their rights holders.",
       "p3": "Do not misuse the bot: no abusive automation of commands, no attempt to reach the settings of a server you do not manage. The service may be limited or removed from a server that abuses it.",
       "p4": "The service may change, be interrupted or stop at any time. Discord's rules (Terms of Service and Community Guidelines) apply to its use.",
@@ -3867,8 +3867,8 @@
       "members": "{count} members",
       "admin": "Admin panel",
       "loginTitle": "Log in to set up the bot",
-      "addBotLead": "A server you manage is missing? Invite MLBBDex to it, then come back here.",
-      "botPresent": "MLBBDex is in this server",
+      "addBotLead": "A server you manage does not appear? Invite Dex MLBB there, then come back here.",
+      "botPresent": "Dex MLBB is on this server",
       "noManageRoles": "No Manage Roles permission",
       "deliveriesLead": "The latest announcements posted on this server, and those that failed."
     },
@@ -4822,12 +4822,12 @@
     },
     "discordCard": {
       "title": "Discord profile card",
-      "intro": "Post your rank, win rate and most played heroes as an image in Discord, with the MLBBDex bot's /profile command.",
+      "intro": "Display your rank, win rate and most played heroes in pictures on Discord, with the Dex MLBB bot /profile command.",
       "needDiscord": "To link it, also sign in with the Discord account you use on your servers.",
       "discordButton": "Sign in with Discord",
       "linkOffer": "Link the Discord account {name} to this game account. Your figures are read again on every /profile.",
       "linkButton": "Link and create my card",
-      "linked": "Your card is linked to a Discord account. Type /profile in a server where the MLBBDex bot is.",
+      "linked": "Your card is linked to a Discord account. Type /profile on a server where the Dex MLBB bot is located.",
       "otherDiscord": "You are signed in with another Discord account ({name}) than the linked one. Linking it moves the card there.",
       "updatedAt": "Figures saved on {date}.",
       "refresh": "Update my figures",
@@ -4941,7 +4941,6 @@
       "dexLine": "Take what you need. Just one request: don't paint me purple.",
       "nameTitle": "The name",
       "nameText": "MLBBDex is written in one word, “Dex” in gold. The Discord bot is called Dex MLBB, like the mascot.",
-      "logoPending": "The logo is being redesigned and has not yet been validated. In the meantime, use the text logotype: the name, in the title font.",
       "colorsTitle": "The colors",
       "colorsLead": "Night for backgrounds, gold for accent, blue and red for both camps. Nothing else.",
       "copy": "Copy {hex}",
@@ -4974,7 +4973,7 @@
       "do4": "Clarify that MLBBDex is an independent fan project.",
       "dont1": "Recolor it, distort it or add accessories.",
       "dont2": "Make him speak on behalf of Moonton or another site.",
-      "dont3": "Present an MLBBDex logo: the one being redesigned is not validated.",
+      "dont3": "Distort the logo, change its colors or place it on a background that drowns it out.",
       "dont4": "Out of the palette: no purple, no rainbow gradient.",
       "dexTitle": "Dex to PNG",
       "dexLead": "Transparent background, at its size, or centered on a 512 px square for an avatar or an emoji.",
@@ -4987,7 +4986,14 @@
       "repo": "Submission of the project",
       "discord": "The Discord",
       "legal": "Mobile Legends: Bang Bang, its heroes and its visuals are trademarks of Shanghai Moonton Technology Co., Ltd. MLBBDex is neither affiliated with nor endorsed by Moonton: do not use their visuals as our own.",
-      "dexPageLink": "Who is Dex?"
+      "dexPageLink": "Who is Dex?",
+      "logoText": "The logo: the base crystal, half blue, half red, in a winged gold crest. Don't distort it, don't change its colors and give it air all around.",
+      "logoAlt": "The MLBBDex emblem: a blue and red crystal in a winged gold crest",
+      "logoFile": {
+        "emblem": "Download the logo: the emblem (SVG)",
+        "logo": "Download logo: horizontal (SVG)",
+        "stacked": "Download logo: stacked (SVG)"
+      }
     }
   },
   "modeSheet": {
@@ -5342,7 +5348,7 @@
     },
     "bot": {
       "title": "Discord bot (optional)",
-      "intro": "If you use the MLBBDex Discord bot or its dashboard, the site's server also keeps:",
+      "intro": "If you use the Discord Dex MLBB bot or its dashboard, the site server also keeps:",
       "cookie": "an encrypted session cookie, `mlbbdex_discord` (httpOnly, 7 days), if you log in with Discord to the dashboard or forum: your Discord ID, name and avatar, nothing else; no Discord tokens are retained;",
       "servers": "for each server the bot is in: its name, language and settings;",
       "results": "for the leaderboards of the daily games played in Discord: the players' Discord id and name and their scores.",

@@ -3806,7 +3806,7 @@
     },
     "botPrivacy": {
       "title": "Privacy ng Discord bot",
-      "metaDescription": "Kung ano ang iniimbak ng MLBBDex Discord bot, bakit, gaano katagal, at kung paano ito ipabura.",
+      "metaDescription": "Ano ang pinapanatili ng Discord Dex MLBB bot, bakit, gaano katagal, at kung paano ito tatanggalin.",
       "lead": "Ano ang itinatago ng bot, bakit, at gaano katagal.",
       "storedTitle": "Ang iniimbak",
       "storedServer": "Para sa bawat server: ang ID, pangalan, icon, bilang ng member, wika, mga setting (mga channel, role, oras ng daily game, text ng mga welcome at goodbye message) at ang listahan ng mga anunsyong nai-post na.",
@@ -3830,9 +3830,9 @@
     },
     "botTerms": {
       "title": "Terms of use ng Discord bot",
-      "metaDescription": "Terms of use ng MLBBDex Discord bot: libreng serbisyo, makatwirang paggamit, data ng game na ibinibigay nang walang warranty.",
+      "metaDescription": "Mga Tuntunin ng Paggamit ng Dex MLBB Discord Bot: Libreng serbisyo, patas na paggamit, data ng laro na ibinigay nang walang warranty.",
       "lead": "Ang mga simpleng patakaran ng isang libreng serbisyo.",
-      "p1": "Ang MLBBDex bot ay isang independiyente at libreng fan project, na walang kaugnayan sa Moonton. Ang Mobile Legends: Bang Bang ay trademark ng Shanghai Moonton Technology Co., Ltd.",
+      "p1": "Ang MLBB Dex Bot (MLBBDex) ay isang independiyenteng, libreng fan project, walang kaugnayan sa Moonton. Mobile Legends: Ang Bang Bang ay isang tatak ng Shanghai Moonton Technology Co., Ltd.",
       "p2": "Ang data (statistics, build, tier list, patch notes) ay ibinibigay nang walang garantiya ng katumpakan o availability. Ang mga teksto ay nagmula sa Mobile Legends wiki (Fandom) at Liquipedia, sa ilalim ng lisensya ng CC BY-SA; ang mga numero ay nagmula sa mga istatistika ng ranggo ng laro. Ang mga larawan at pangalan ng laro ay nananatiling © Moonton, at ang mga collaborations © kanilang mga may hawak ng karapatan.",
       "p3": "Huwag abusuhin ang bot: walang mapang-abusong automation ng mga command, walang pagtatangkang i-access ang mga setting ng server na hindi mo pinamamahalaan. Maaaring limitahan o alisin ang serbisyo sa server na umaabuso rito.",
       "p4": "Maaaring magbago, maantala o tumigil ang serbisyo anumang oras. Ang mga patakaran ng Discord (Terms of Service at Community Guidelines) ay nalalapat sa paggamit nito.",
@@ -3867,8 +3867,8 @@
       "members": "{count} member",
       "admin": "Admin panel",
       "loginTitle": "Mag-log in para i-set up ang bot",
-      "addBotLead": "Wala ang isang server na pinamamahalaan mo? I-invite doon ang MLBBDex, tapos bumalik dito.",
-      "botPresent": "Nasa server na ito ang MLBBDex",
+      "addBotLead": "Hindi lumalabas ang isang server na pinamamahalaan mo? Invite mo si Dex MLBB dyan, tapos balik ka dito.",
+      "botPresent": "Nasa server na ito ang Dex MLBB",
       "noManageRoles": "Walang Manage Roles permission",
       "deliveriesLead": "Ang mga pinakabagong anunsyong nai-post sa server na ito, at ang mga nabigo."
     },
@@ -4822,12 +4822,12 @@
     },
     "discordCard": {
       "title": "Discord profile card",
-      "intro": "Ipakita ang rank, win rate at pinakamadalas mong laruing hero bilang larawan sa Discord, gamit ang /profile command ng MLBBDex bot.",
+      "intro": "Ipakita ang iyong ranggo, win rate at pinakamaraming nilalaro na hero sa mga larawan sa Discord, gamit ang Dex MLBB bot /profile command.",
       "needDiscord": "Para i-link ito, mag-sign in din gamit ang Discord account na ginagamit mo sa mga server mo.",
       "discordButton": "Mag-sign in gamit ang Discord",
       "linkOffer": "I-link ang Discord account {name} sa game account na ito. Ang iyong mga istatistika ay binabasa pabalik sa bawat /profile.",
       "linkButton": "I-link at gawin ang card ko",
-      "linked": "Naka-link ang card mo sa isang Discord account. I-type ang /profile sa server kung nasaan ang MLBBDex bot.",
+      "linked": "Naka-link ang iyong card sa isang Discord account. I-type ang /profile sa isang server kung saan matatagpuan ang Dex MLBB bot.",
       "otherDiscord": "Naka-sign in ka gamit ang ibang Discord account ({name}) kaysa sa naka-link. Kapag ni-link ito, doon malilipat ang card.",
       "updatedAt": "Na-save ang mga numero noong {date}.",
       "refresh": "I-update ang mga numero ko",
@@ -4941,7 +4941,6 @@
       "dexLine": "Kunin mo ang kailangan mo. Isang panalangin lang: huwag mo akong pinturahan ng purple.",
       "nameTitle": "Ang pangalan",
       "nameText": "Ang MLBBEx ay nakasulat sa isang salita, \"Dex\" sa ginto. Ang Discord bot ay tinatawag na Dex MLBB, tulad ng maskot.",
-      "logoPending": "Ang logo ay muling idinisenyo at hindi pa napatunayan. Pansamantala, gamitin ang text logotype: ang pangalan, sa font ng pamagat.",
       "colorsTitle": "Ang mga kulay",
       "colorsLead": "Gabi para sa mga background, ginto para sa accent, asul at pula para sa parehong mga kampo. Wala ng iba.",
       "copy": "Kopyahin {hex}",
@@ -4974,7 +4973,7 @@
       "do4": "Linawin na ang MLBDex ay isang independiyenteng proyekto ng tagahanga.",
       "dont1": "I-recolor ito, i-distort ito o magdagdag ng mga accessory.",
       "dont2": "Gawin siyang magsalita sa ngalan ng Moonton o ibang site.",
-      "dont3": "Magpakita ng logo ng MLBBEx: ang muling idinisenyo ay hindi napatunayan.",
+      "dont3": "I-distort ang logo, baguhin ang mga kulay nito o ilagay ito sa isang background na lumulunod dito.",
       "dont4": "Sa labas ng palette: walang purple, walang rainbow gradient.",
       "dexTitle": "Dex sa PNG",
       "dexLead": "Transparent na background, sa laki nito, o nakasentro sa isang 512 px square para sa isang avatar o isang emoji.",
@@ -4987,7 +4986,14 @@
       "repo": "Pagsusumite ng proyekto",
       "discord": "Ang Discord",
       "legal": "Mobile Legends: Bang Bang, ang mga hero nito at ang mga visual nito ay mga trademark ng Shanghai Moonton Technology Co., Ltd. Ang MLBBDex ay hindi kaakibat o ineendorso ng Moonton: huwag gamitin ang kanilang mga visual bilang sa amin.",
-      "dexPageLink": "Sino si Dex?"
+      "dexPageLink": "Sino si Dex?",
+      "logoText": "Ang logo: ang baseng kristal, kalahating asul, kalahating pula, sa isang may pakpak na gintong taluktok. Huwag i-distort ito, huwag baguhin ang mga kulay nito at bigyan ito ng hangin sa paligid.",
+      "logoAlt": "Ang emblem ng MLBBDex: isang asul at pulang kristal sa isang may pakpak na gintong crest",
+      "logoFile": {
+        "emblem": "I-download ang logo: ang emblem (SVG)",
+        "logo": "I-download ang logo: pahalang (SVG)",
+        "stacked": "I-download ang logo: stacked (SVG)"
+      }
     }
   },
   "modeSheet": {
@@ -5342,7 +5348,7 @@
     },
     "bot": {
       "title": "Discord bot (opsyonal)",
-      "intro": "Kung ginagamit mo ang MLBBDex Discord bot o ang dashboard nito, itinatago rin ng server ng site ang:",
+      "intro": "Kung gagamitin mo ang Discord Dex MLBB bot o ang dashboard nito, pinapanatili din ng server ng site ang:",
       "cookie": "isang naka-encrypt na cookie ng session, `mlbbdex_discord` (httpOnly, 7 araw), kung mag-log in ka gamit ang Discord sa dashboard o forum: ang iyong Discord ID, pangalan at avatar, wala nang iba; walang mga Discord token ang nananatili;",
       "servers": "para sa bawat server kung saan naroon ang bot: ang pangalan, wika at mga setting nito;",
       "results": "para sa mga leaderboard ng mga daily game na nilalaro sa Discord: ang Discord ID at pangalan ng mga player at ang kanilang mga score.",

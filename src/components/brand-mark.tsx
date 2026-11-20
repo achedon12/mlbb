@@ -2,7 +2,9 @@ import { cn } from "@/lib/utils";
 
 /**
  * The site's mark and wordmark, in one place: the logo drawn by hand lives
- * in `public/brand/`, and replacing its files there changes it everywhere.
+ * in `public/brand/` (the emblem: the base crystal, half blue, half red, in a
+ * winged gold crest; see `docs/logo-brief.md`), and replacing its files
+ * there changes it everywhere.
  *
  * The mark is a plain `<img>`: an SVG gains nothing from the image
  * optimiser, and its fixed size reserves its room before it loads. The
@@ -21,14 +23,14 @@ export function BrandMark({
   wordmark?: boolean;
   className?: string;
 }) {
-  const px = size === "sm" ? 30 : 38;
-  // The mark is drawn on a 136 × 128 box.
-  const height = Math.round((px * 128) / 136);
+  const height = size === "sm" ? 32 : 40;
+  // The emblem (crystal in the winged crest) is drawn on a 216 × 208 box.
+  const px = Math.round((height * 216) / 208);
   return (
     <span className={cn("flex shrink-0 items-center gap-2", className)}>
       {/* eslint-disable-next-line @next/next/no-img-element -- an SVG at a fixed size: the optimiser has nothing to do */}
       <img
-        src="/brand/mark.svg"
+        src="/brand/emblem.svg"
         alt=""
         width={px}
         height={height}
