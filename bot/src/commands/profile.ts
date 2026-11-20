@@ -1,7 +1,7 @@
 import { ActionRowBuilder, AttachmentBuilder, MessageFlags, type ButtonBuilder, type ChatInputCommandInteraction, type EmbedBuilder } from "discord.js";
 import { optionName, slash, userOption } from "../discord/builders.js";
 import type { Command } from "../discord/types.js";
-import { baseEmbed, COLORS, linkButton, plain, type View } from "../embeds/common.js";
+import { dexNote, linkButton, plain, type View } from "../embeds/common.js";
 import { NotFoundError, SiteUnavailableError } from "../site/http.js";
 import type { ProfileCard } from "../site/internal-api.js";
 
@@ -39,7 +39,7 @@ export function profileReply(view: View, card: ProfileCard | "siteDown", o: { ow
   }
   const say = (text: string, button?: string): ProfileReply => ({
     visibility: "private",
-    embeds: [baseEmbed(view, COLORS.slate).setDescription(text)],
+    embeds: [dexNote(view, text)],
     components: button ? row(button) : [],
   });
   if (card === "siteDown") return say(view.t("ui.common.siteDown"));

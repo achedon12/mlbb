@@ -1,7 +1,7 @@
 import { escapeMarkdown, type ButtonInteraction, type ChatInputCommandInteraction } from "discord.js";
 import { slash } from "../discord/builders.js";
 import type { Command, ComponentHandler, Context } from "../discord/types.js";
-import { baseEmbed, COLORS, openRow, plain } from "../embeds/common.js";
+import { baseEmbed, COLORS, dexNote, openRow, plain, withDex } from "../embeds/common.js";
 import { quizButtons, quizFinishedEmbed, quizStepEmbed } from "../embeds/daily.js";
 import { answer, buildSteps, type Step } from "../games/quiz.js";
 import { dayUtc } from "../games/state.js";
@@ -38,7 +38,7 @@ export async function startQuiz(interaction: ChatInputCommandInteraction | Butto
   const game = await load(ctx);
   if (!game) {
     await interaction.editReply({
-      embeds: [baseEmbed(ctx, COLORS.slate).setDescription(ctx.t("ui.quiz.unavailable"))],
+      embeds: [dexNote(ctx, ctx.t("ui.quiz.unavailable"))],
       components: [openRow(ctx, "/quiz")],
     });
     return;
@@ -48,7 +48,7 @@ export async function startQuiz(interaction: ChatInputCommandInteraction | Butto
   const progress = ctx.services.quiz.get(daily.day, key(guildId, interaction.user.id)) ?? { step: 0, points: 0, finished: false };
   if (progress.finished) {
     await interaction.editReply({
-      embeds: [baseEmbed(ctx, COLORS.green).setDescription(ctx.t("ui.quiz.done", { points: progress.points, max: steps.length }))],
+      embeds: [withDex(ctx, baseEmbed(ctx, COLORS.green).setDescription(ctx.t("ui.quiz.done", { points: progress.points, max: steps.length })), "victoire")],
       components: [openRow(ctx, "/quiz")],
     });
     return;

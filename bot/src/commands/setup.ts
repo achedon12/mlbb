@@ -1,7 +1,7 @@
 import { ActionRowBuilder, PermissionFlagsBits, type ButtonBuilder } from "discord.js";
 import { slash } from "../discord/builders.js";
 import type { Command } from "../discord/types.js";
-import { baseEmbed, FAMILY_COLORS, linkButton } from "../embeds/common.js";
+import { baseEmbed, FAMILY_COLORS, linkButton, withDex } from "../embeds/common.js";
 
 export const setup: Command = {
   key: "setup",
@@ -18,7 +18,7 @@ export const setup: Command = {
     }
     const url = ctx.link(`/bot/dashboard?guild=${interaction.guildId}`);
     await interaction.editReply({
-      embeds: [baseEmbed(ctx, FAMILY_COLORS.setup).setDescription(ctx.t("ui.setup.body")).setURL(url).setTitle(ctx.t("ui.setup.button"))],
+      embeds: [withDex(ctx, baseEmbed(ctx, FAMILY_COLORS.setup).setDescription(ctx.t("ui.setup.body")).setURL(url).setTitle(ctx.t("ui.setup.button")), "reflexion")],
       components: [new ActionRowBuilder<ButtonBuilder>().addComponents(linkButton(ctx.t("ui.setup.button"), url))],
     });
   },

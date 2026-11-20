@@ -1,7 +1,7 @@
 import { ActionRowBuilder, StringSelectMenuBuilder, type ButtonBuilder, type EmbedBuilder } from "discord.js";
 import { slash } from "../discord/builders.js";
 import type { Command, ComponentHandler, Context } from "../discord/types.js";
-import { baseEmbed, FAMILIES, FAMILY_COLORS, linkButton, type Family, type View } from "../embeds/common.js";
+import { baseEmbed, FAMILIES, FAMILY_COLORS, linkButton, withDex, type Family, type View } from "../embeds/common.js";
 import { inviteUrl, voteUrl } from "../links.js";
 
 /**
@@ -94,7 +94,7 @@ export function exampleLine(view: View, entry: HelpEntry): string {
 }
 
 export function helpEmbed(view: View, page: HelpPage): EmbedBuilder {
-  const embed = baseEmbed(view, page === "overview" ? FAMILY_COLORS.setup : FAMILY_COLORS[page]).setURL(view.link("/bot"));
+  const embed = withDex(view, baseEmbed(view, page === "overview" ? FAMILY_COLORS.setup : FAMILY_COLORS[page]).setURL(view.link("/bot")), "reflexion");
   if (page === "overview") {
     return embed
       .setTitle(view.t("ui.help.title"))

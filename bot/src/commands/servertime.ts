@@ -1,6 +1,6 @@
 import { slash } from "../discord/builders.js";
 import type { Command } from "../discord/types.js";
-import { baseEmbed, FAMILY_COLORS } from "../embeds/common.js";
+import { baseEmbed, FAMILY_COLORS, withDex } from "../embeds/common.js";
 import { nextResetDaily, nextResetWeekly, nextStarlight, wallServer } from "../games/server-time.js";
 
 /** Discord timestamps: each reader sees them in their own timezone and language. */
@@ -23,6 +23,6 @@ export const servertime: Command = {
         { name: ctx.t("ui.servertime.weekly"), value: `${stamp(nextResetWeekly(now), "R")}\n${stamp(nextResetWeekly(now), "F")}` },
         { name: ctx.t("ui.servertime.starlight"), value: `${stamp(nextStarlight(now), "R")}\n${stamp(nextStarlight(now), "F")}` },
       );
-    await interaction.editReply({ embeds: [embed] });
+    await interaction.editReply({ embeds: [withDex(ctx, embed, "carte")] });
   },
 };

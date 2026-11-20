@@ -1,7 +1,7 @@
 import { MessageFlags, type ButtonInteraction, type ChatInputCommandInteraction } from "discord.js";
 import { choiceOption, optionName, slash, stringOption } from "../discord/builders.js";
 import type { Command, Context } from "../discord/types.js";
-import { baseEmbed, COLORS, openRow, plain } from "../embeds/common.js";
+import { dexNote, openRow, plain } from "../embeds/common.js";
 import { mlbbdleClassicEmbed, mlbbdleSkillEmbed, mlbbdleSolvedPublic } from "../embeds/daily.js";
 import { emojiRow, MODES, skillGrid, type Mode } from "../games/mlbbdle.js";
 import { dayUtc } from "../games/state.js";
@@ -61,7 +61,7 @@ export async function playMlbbdle(
   const secret = secretSlug ? bySlug.get(secretSlug) : undefined;
   if (!daily || !secretSlug || (mode === "classic" && !secret)) {
     await interaction.editReply({
-      embeds: [baseEmbed(ctx, COLORS.slate).setDescription(ctx.t("ui.mlbbdle.unavailable"))],
+      embeds: [dexNote(ctx, ctx.t("ui.mlbbdle.unavailable"))],
       components: [openRow(ctx, "/mlbbdle")],
     });
     return;

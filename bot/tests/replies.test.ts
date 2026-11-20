@@ -179,7 +179,7 @@ describe("did you mean", () => {
 
   it("names the suggestions in the not-found reply, escaped", () => {
     const json = notFoundEmbed(en, "lyla", ["Layla", "Lylia"]).toJSON();
-    expect(json.description).toBe("Nothing found for “lyla”.\nDid you mean **Layla**, **Lylia**?");
+    expect(json.description).toBe("Dex found nothing for “lyla”.\nDid you mean **Layla**, **Lylia**?");
     expect(notFoundEmbed(fr, "zz").toJSON().description).toContain("Choisis un nom parmi les suggestions");
     expect(notFoundEmbed(en, "x", ["*bold*"]).toJSON().description).toContain("**\\*bold\\***");
   });
