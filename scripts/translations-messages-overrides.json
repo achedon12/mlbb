@@ -5983,6 +5983,50 @@
     "dexStates.noneTitle": {
       "fr": "Rien par ici",
       "text": "Nothing here"
+    },
+    "og.splusHeroes": {
+      "fr": "héros en S+",
+      "text": "S+ heroes"
+    },
+    "og.bestWin": {
+      "fr": "meilleur taux de victoire : {hero}",
+      "text": "best win rate: {hero}"
+    },
+    "og.itemsInGame": {
+      "fr": "objets en jeu",
+      "text": "items in the game"
+    },
+    "og.heroesUsing": {
+      "fr": "héros la prennent",
+      "text": "heroes build it"
+    },
+    "og.builtBy": {
+      "fr": "Dans les builds de {heroes}",
+      "text": "In the builds of {heroes}"
+    },
+    "og.skinsCount": {
+      "fr": "apparences",
+      "text": "skins"
+    },
+    "og.latestSkin": {
+      "fr": "Dernière sortie : {skin} ({hero})",
+      "text": "Latest release: {skin} ({hero})"
+    },
+    "og.starlight": {
+      "fr": "StarLight du mois : {skin} ({hero})",
+      "text": "StarLight of the month: {skin} ({hero})"
+    },
+    "og.games": {
+      "fr": "matchs analysés",
+      "text": "games analysed"
+    },
+    "og.picked": {
+      "fr": "Le plus choisi",
+      "text": "Most picked"
+    },
+    "og.banned": {
+      "fr": "Le plus banni",
+      "text": "Most banned"
     }
   },
   "es": {
@@ -10501,6 +10545,54 @@
     "pages.notFound.dexLine": {
       "fr": "Hé, cette page s'est perdue dans la jungle… On repart d'ici ?",
       "text": "Oye, esta página se perdió en la jungla… ¿Volvemos desde aquí?"
+    },
+    "og.splusHeroes": {
+      "fr": "héros en S+",
+      "text": "héroes en S+"
+    },
+    "og.bestWin": {
+      "fr": "meilleur taux de victoire : {hero}",
+      "text": "mejor tasa de victorias: {hero}"
+    },
+    "og.itemsInGame": {
+      "fr": "objets en jeu",
+      "text": "objetos en el juego"
+    },
+    "og.heroesUsing": {
+      "fr": "héros la prennent",
+      "text": "héroes la usan"
+    },
+    "og.builtBy": {
+      "fr": "Dans les builds de {heroes}",
+      "text": "En las builds de {heroes}"
+    },
+    "og.skinsCount": {
+      "fr": "apparences",
+      "text": "skins"
+    },
+    "og.latestSkin": {
+      "fr": "Dernière sortie : {skin} ({hero})",
+      "text": "Último lanzamiento: {skin} ({hero})"
+    },
+    "og.starlight": {
+      "fr": "StarLight du mois : {skin} ({hero})",
+      "text": "StarLight del mes: {skin} ({hero})"
+    },
+    "og.games": {
+      "fr": "matchs analysés",
+      "text": "partidas analizadas"
+    },
+    "og.picked": {
+      "fr": "Le plus choisi",
+      "text": "Más elegido"
+    },
+    "og.banned": {
+      "fr": "Le plus banni",
+      "text": "Más baneado"
+    },
+    "og.homeLine": {
+      "fr": "Héros, builds, tier list, objets et patch notes, à jour à chaque patch.",
+      "text": "Héroes, builds, tier list, objetos y notas del parche, al día en cada parche."
     }
   },
   "id": {
@@ -17155,6 +17247,50 @@
     "pages.communityUI.moderation.days.other": {
       "fr": "{n} jours",
       "text": "{n} hari"
+    },
+    "og.splusHeroes": {
+      "fr": "héros en S+",
+      "text": "hero di S+"
+    },
+    "og.bestWin": {
+      "fr": "meilleur taux de victoire : {hero}",
+      "text": "win rate terbaik: {hero}"
+    },
+    "og.itemsInGame": {
+      "fr": "objets en jeu",
+      "text": "item dalam game"
+    },
+    "og.heroesUsing": {
+      "fr": "héros la prennent",
+      "text": "hero memakainya"
+    },
+    "og.builtBy": {
+      "fr": "Dans les builds de {heroes}",
+      "text": "Di build {heroes}"
+    },
+    "og.skinsCount": {
+      "fr": "apparences",
+      "text": "skin"
+    },
+    "og.latestSkin": {
+      "fr": "Dernière sortie : {skin} ({hero})",
+      "text": "Rilisan terbaru: {skin} ({hero})"
+    },
+    "og.starlight": {
+      "fr": "StarLight du mois : {skin} ({hero})",
+      "text": "StarLight bulan ini: {skin} ({hero})"
+    },
+    "og.games": {
+      "fr": "matchs analysés",
+      "text": "pertandingan dianalisis"
+    },
+    "og.picked": {
+      "fr": "Le plus choisi",
+      "text": "Paling dipilih"
+    },
+    "og.banned": {
+      "fr": "Le plus banni",
+      "text": "Paling di-ban"
     }
   },
   "it": {
@@ -21725,6 +21861,54 @@
     "prose.about.blocks.5.p": {
       "fr": "Si vous vous connectez avec le code de vérification du jeu, vous voyez votre propre profil (saison, héros joués, parties récentes), lu à la demande via la même API et visible par vous seul. Il n'est pas publié. Pour ne pas tout redemander à chaque visite, les réponses du jeu restent un temps dans la mémoire du serveur, jamais sur disque : de deux minutes à six heures selon la donnée. Seule exception, la carte /profile du bot Discord, si vous la reliez : le site garde alors votre jeton de jeu chiffré, au plus 7 jours, et les chiffres de la carte, effacés 30 jours après leur dernière mise à jour ou dès que vous la déliez.",
       "text": "Se accedi con il codice di verifica del gioco, vedi il tuo profilo (stagione, eroi giocati, partite recenti), letto su richiesta tramite la stessa API e visibile solo a te. Non viene pubblicato. Per non richiedere tutto a ogni visita, le risposte del gioco restano per un po' nella memoria del server, mai su disco: da due minuti a sei ore a seconda del dato. L'unica eccezione è la scheda /profile del bot Discord, se la colleghi: il sito conserva allora il tuo token di gioco cifrato, per 7 giorni al massimo, e i numeri della scheda, cancellati 30 giorni dopo l'ultimo aggiornamento o appena la scolleghi."
+    },
+    "og.splusHeroes": {
+      "fr": "héros en S+",
+      "text": "eroi in S+"
+    },
+    "og.bestWin": {
+      "fr": "meilleur taux de victoire : {hero}",
+      "text": "miglior win rate: {hero}"
+    },
+    "og.itemsInGame": {
+      "fr": "objets en jeu",
+      "text": "oggetti nel gioco"
+    },
+    "og.heroesUsing": {
+      "fr": "héros la prennent",
+      "text": "eroi la usano"
+    },
+    "og.builtBy": {
+      "fr": "Dans les builds de {heroes}",
+      "text": "Nelle build di {heroes}"
+    },
+    "og.skinsCount": {
+      "fr": "apparences",
+      "text": "skin"
+    },
+    "og.latestSkin": {
+      "fr": "Dernière sortie : {skin} ({hero})",
+      "text": "Ultima uscita: {skin} ({hero})"
+    },
+    "og.starlight": {
+      "fr": "StarLight du mois : {skin} ({hero})",
+      "text": "StarLight del mese: {skin} ({hero})"
+    },
+    "og.games": {
+      "fr": "matchs analysés",
+      "text": "partite analizzate"
+    },
+    "og.picked": {
+      "fr": "Le plus choisi",
+      "text": "Più scelto"
+    },
+    "og.banned": {
+      "fr": "Le plus banni",
+      "text": "Più bannato"
+    },
+    "og.homeLine": {
+      "fr": "Héros, builds, tier list, objets et patch notes, à jour à chaque patch.",
+      "text": "Eroi, build, tier list, oggetti e patch notes, aggiornati a ogni patch."
     }
   },
   "fil": {
@@ -36695,6 +36879,50 @@
     "pages.botUI.flushed.other": {
       "fr": "Annonces vérifiées : {count} nouvelles, publication demandée au bot.",
       "text": "Nasuri ang mga anunsyo: {count} bago, pinag-post na ang bot."
+    },
+    "og.splusHeroes": {
+      "fr": "héros en S+",
+      "text": "hero sa S+"
+    },
+    "og.bestWin": {
+      "fr": "meilleur taux de victoire : {hero}",
+      "text": "pinakamataas na win rate: {hero}"
+    },
+    "og.itemsInGame": {
+      "fr": "objets en jeu",
+      "text": "item sa laro"
+    },
+    "og.heroesUsing": {
+      "fr": "héros la prennent",
+      "text": "hero ang gumagamit"
+    },
+    "og.builtBy": {
+      "fr": "Dans les builds de {heroes}",
+      "text": "Sa mga build ni {heroes}"
+    },
+    "og.skinsCount": {
+      "fr": "apparences",
+      "text": "skin"
+    },
+    "og.latestSkin": {
+      "fr": "Dernière sortie : {skin} ({hero})",
+      "text": "Pinakabagong labas: {skin} ({hero})"
+    },
+    "og.starlight": {
+      "fr": "StarLight du mois : {skin} ({hero})",
+      "text": "StarLight ng buwan: {skin} ({hero})"
+    },
+    "og.games": {
+      "fr": "matchs analysés",
+      "text": "larong nasuri"
+    },
+    "og.picked": {
+      "fr": "Le plus choisi",
+      "text": "Pinakapinili"
+    },
+    "og.banned": {
+      "fr": "Le plus banni",
+      "text": "Pinaka-banned"
     }
   },
   "th": {
@@ -50653,6 +50881,50 @@
     "pages.botUI.flushed.other": {
       "fr": "Annonces vérifiées : {count} nouvelles, publication demandée au bot.",
       "text": "ตรวจสอบประกาศแล้ว: ใหม่ {count} รายการ ส่งคำขอให้บอทโพสต์แล้ว"
+    },
+    "og.splusHeroes": {
+      "fr": "héros en S+",
+      "text": "ฮีโร่ระดับ S+"
+    },
+    "og.bestWin": {
+      "fr": "meilleur taux de victoire : {hero}",
+      "text": "Win Rate สูงสุด: {hero}"
+    },
+    "og.itemsInGame": {
+      "fr": "objets en jeu",
+      "text": "ไอเทมในเกม"
+    },
+    "og.heroesUsing": {
+      "fr": "héros la prennent",
+      "text": "ฮีโร่ที่ใช้"
+    },
+    "og.builtBy": {
+      "fr": "Dans les builds de {heroes}",
+      "text": "อยู่ในบิลด์ของ {heroes}"
+    },
+    "og.skinsCount": {
+      "fr": "apparences",
+      "text": "สกิน"
+    },
+    "og.latestSkin": {
+      "fr": "Dernière sortie : {skin} ({hero})",
+      "text": "ออกล่าสุด: {skin} ({hero})"
+    },
+    "og.starlight": {
+      "fr": "StarLight du mois : {skin} ({hero})",
+      "text": "StarLight ประจำเดือน: {skin} ({hero})"
+    },
+    "og.games": {
+      "fr": "matchs analysés",
+      "text": "เกมที่วิเคราะห์"
+    },
+    "og.picked": {
+      "fr": "Le plus choisi",
+      "text": "ถูกเลือกมากสุด"
+    },
+    "og.banned": {
+      "fr": "Le plus banni",
+      "text": "ถูกแบนมากสุด"
     }
   },
   "pt": {
@@ -62499,6 +62771,50 @@
     "pages.sources.images": {
       "fr": "Images © Moonton, utilisées à titre d'illustration.",
       "text": "Imagens © Moonton, usadas a título ilustrativo."
+    },
+    "og.splusHeroes": {
+      "fr": "héros en S+",
+      "text": "heróis em S+"
+    },
+    "og.bestWin": {
+      "fr": "meilleur taux de victoire : {hero}",
+      "text": "melhor taxa de vitória: {hero}"
+    },
+    "og.itemsInGame": {
+      "fr": "objets en jeu",
+      "text": "itens no jogo"
+    },
+    "og.heroesUsing": {
+      "fr": "héros la prennent",
+      "text": "heróis a usam"
+    },
+    "og.builtBy": {
+      "fr": "Dans les builds de {heroes}",
+      "text": "Nas builds de {heroes}"
+    },
+    "og.skinsCount": {
+      "fr": "apparences",
+      "text": "skins"
+    },
+    "og.latestSkin": {
+      "fr": "Dernière sortie : {skin} ({hero})",
+      "text": "Último lançamento: {skin} ({hero})"
+    },
+    "og.starlight": {
+      "fr": "StarLight du mois : {skin} ({hero})",
+      "text": "StarLight do mês: {skin} ({hero})"
+    },
+    "og.games": {
+      "fr": "matchs analysés",
+      "text": "partidas analisadas"
+    },
+    "og.picked": {
+      "fr": "Le plus choisi",
+      "text": "Mais escolhido"
+    },
+    "og.banned": {
+      "fr": "Le plus banni",
+      "text": "Mais banido"
     }
   },
   "ru": {
@@ -75797,6 +76113,50 @@
     "pages.botUI.flushed.other": {
       "fr": "Annonces vérifiées : {count} nouvelles, publication demandée au bot.",
       "text": "Объявления проверены, новых: {count}; бот получил запрос на публикацию."
+    },
+    "og.splusHeroes": {
+      "fr": "héros en S+",
+      "text": "героев в S+"
+    },
+    "og.bestWin": {
+      "fr": "meilleur taux de victoire : {hero}",
+      "text": "лучший винрейт: {hero}"
+    },
+    "og.itemsInGame": {
+      "fr": "objets en jeu",
+      "text": "предметов в игре"
+    },
+    "og.heroesUsing": {
+      "fr": "héros la prennent",
+      "text": "героев берут"
+    },
+    "og.builtBy": {
+      "fr": "Dans les builds de {heroes}",
+      "text": "В сборках: {heroes}"
+    },
+    "og.skinsCount": {
+      "fr": "apparences",
+      "text": "скинов"
+    },
+    "og.latestSkin": {
+      "fr": "Dernière sortie : {skin} ({hero})",
+      "text": "Новинка: {skin} ({hero})"
+    },
+    "og.starlight": {
+      "fr": "StarLight du mois : {skin} ({hero})",
+      "text": "StarLight месяца: {skin} ({hero})"
+    },
+    "og.games": {
+      "fr": "matchs analysés",
+      "text": "игр разобрано"
+    },
+    "og.picked": {
+      "fr": "Le plus choisi",
+      "text": "Чаще всех берут"
+    },
+    "og.banned": {
+      "fr": "Le plus banni",
+      "text": "Чаще всех банят"
     }
   }
 }

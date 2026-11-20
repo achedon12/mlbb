@@ -27,6 +27,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: g.title,
     description: g.summary,
     path: `/guides/${slug}`,
+    card: true,
     type: "article",
     keywords: g.keywords,
     published: g.date,

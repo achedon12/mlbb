@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
     title: t("pages.spellsList.metaTitle", { n: spellSheets.length }),
     description: t("pages.spellsList.metaDescription"),
     path: "/spells",
+    card: true,
   });
 }
 

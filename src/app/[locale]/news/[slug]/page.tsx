@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: a.title,
     description: a.summary,
     path: `/news/${slug}`,
+    card: true,
     type: "article",
     keywords: a.keywords,
     published: a.date,

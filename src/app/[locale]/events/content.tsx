@@ -65,6 +65,7 @@ export function metaEvents(locale: Locale, page = 1): Metadata {
       title: t("pages.seo.events.title"),
       description: description(locale),
       path: PATH,
+      card: true,
       keywords: ["MLBB events", "MLBB Starlight", "Starlight skin this month", "MLBB Collector skin", "Grand Collection", "Mobile Legends"],
     }),
     locale,

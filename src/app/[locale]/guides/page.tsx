@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: t("pages.guides.metaTitle"),
     description: t("pages.guides.metaDescription"),
     path: "/guides",
+    card: true,
   });
 }
 

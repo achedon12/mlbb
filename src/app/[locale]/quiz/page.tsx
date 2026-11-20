@@ -19,6 +19,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: t("pages.seo.quiz.title"),
     description: t("pages.seo.quiz.description"),
     path: "/quiz",
+    card: true,
     keywords: ["quiz", "guess the hero", "daily", "Mobile Legends", "MLBB"],
   });
 }

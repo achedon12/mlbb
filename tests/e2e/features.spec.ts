@@ -299,6 +299,32 @@ test("a hero page's share image is a PNG", async ({ request }) => {
   expect(response.headers()["content-type"]).toContain("image/png");
 });
 
+test("the branded share images answer in PNG, and an unknown page in 404", async ({ request }) => {
+  for (const path of [
+    "/opengraph-image",
+    "/fr/opengraph-image",
+    "/en/tier-list/opengraph-image",
+    "/ru/tier-list/mythic/opengraph-image",
+    "/th/patch-notes/opengraph-image",
+    "/fr/items/opengraph-image",
+    "/fr/guides/opengraph-image",
+    "/en/draft/opengraph-image",
+  ]) {
+    const response = await request.get(path);
+    expect(response.status(), path).toBe(200);
+    expect(response.headers()["content-type"], path).toContain("image/png");
+  }
+  expect((await request.get("/fr/items/not-an-item/opengraph-image")).status()).toBe(404);
+});
+
+test("a page's share card is its own, with a translated alt", async ({ page }) => {
+  await page.goto("/fr/tier-list");
+  const image = page.locator('meta[property="og:image"]').first();
+  await expect(image).toHaveAttribute("content", /\/fr\/tier-list\/opengraph-image(\?[\w-]+)?$/);
+  await expect(page.locator('meta[property="og:image:alt"]').first()).toHaveAttribute("content", /MLBBDex/);
+  await expect(page.locator('meta[name="twitter:image"]').first()).toHaveAttribute("content", /\/fr\/tier-list\/opengraph-image(\?[\w-]+)?$/);
+});
+
 test("the PWA manifest declares a maskable icon", async ({ request }) => {
   const manifest = await request.get("/manifest.webmanifest");
   expect(manifest.ok()).toBe(true);

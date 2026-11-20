@@ -6459,5 +6459,25 @@
     "loadingTeammates": "Looking for your next teammates…",
     "errorTitle": "Oops, something got stuck",
     "noneTitle": "Nothing here"
+  },
+  "og": {
+    "homeLine": "Heroes, builds, tier list, items and patch notes, updated with each patch.",
+    "patch": "Patch {v}",
+    "splusHeroes": "S+ heroes",
+    "bestWin": "best win rate: {hero}",
+    "itemsInGame": "items in the game",
+    "heroesUsing": "heroes build it",
+    "builtBy": "In the builds of {heroes}",
+    "minutes": "{n} min read",
+    "skinsCount": "skins",
+    "latestSkin": "Latest release: {skin} ({hero})",
+    "starlight": "StarLight of the month: {skin} ({hero})",
+    "games": "games analysed",
+    "picked": "Most picked",
+    "banned": "Most banned",
+    "champion": "Winner: {team}",
+    "tool": "Free tool",
+    "game": "Game of the day",
+    "toolsKicker": "Free tools"
   }
 }

@@ -12,7 +12,7 @@ import { ConsentBanner } from "@/components/consent-banner";
 import { LocaleProvider } from "@/i18n/provider";
 import { LOCALES, DEFAULT_LOCALE, LOCALE_HTML, isLocale } from "@/i18n/config";
 import { createT, messagesClient } from "@/i18n/translations";
-import { metaLocales, OG_LOCALE } from "@/i18n/seo";
+import { metaLocales, OG_LOCALE, shareImage } from "@/i18n/seo";
 import { site } from "@/lib/site";
 import { allHeroes } from "@/lib/data";
 import { PRERENDERED_LOCALES } from "@/lib/prerender";
@@ -129,13 +129,13 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       siteName: site.name,
       title,
       description,
-      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+      images: [shareImage(locale)],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: ["/opengraph-image"],
+      images: [{ url: shareImage(locale).url, alt: shareImage(locale).alt }],
     },
   };
 }

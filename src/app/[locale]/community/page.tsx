@@ -31,6 +31,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: t("pages.community.seo.title"),
     description: t("pages.community.seo.description"),
     path: "/community",
+    card: true,
     keywords: ["forum", "community", "Mobile Legends", "MLBB", "teammates"],
   });
 }

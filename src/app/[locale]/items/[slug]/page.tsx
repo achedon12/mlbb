@@ -89,7 +89,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, slug } = await params;
   const f = sheet(locale, slug);
   if (!f) return notFoundMetadata(locale);
-  return metaPage(locale, { title: f.title, description: f.description, path: `/items/${slug}` });
+  return metaPage(locale, { title: f.title, description: f.description, path: `/items/${slug}`, card: true });
 }
 
 /** On an item's page, another item opens on its own page. */

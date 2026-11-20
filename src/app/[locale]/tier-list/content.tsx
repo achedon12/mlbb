@@ -124,6 +124,7 @@ export function metaTierList(locale: Locale, rank: MeasuredRank, filter: FilterT
     description: descriptionTierList(locale, rank, filter),
     share: rank === "all" && !filter ? t("pages.tierList.ogDescription") : undefined,
     path: pagePath(rank, filter),
+    card: !filter,
   });
 }
 

@@ -61,6 +61,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
         ? t("pages.esports.seo.hubDescription", { games: meta.games, picked: heroName(picked.slug), banned: heroName(banned.slug) })
         : t("pages.esports.intro"),
     path: PATH,
+    card: true,
   });
 }
 
