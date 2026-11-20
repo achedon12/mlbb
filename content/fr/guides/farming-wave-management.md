@@ -1,5 +1,5 @@
 ---
-title: "Farm et gestion des vagues en gold lane"
+title: "Farm et gestion des vagues en Gold lane"
 short: "Farm et vagues"
 date: "2026-11-14"
 updated: "2026-11-14"
@@ -12,11 +12,11 @@ related: ["gold-lane", "laning-phase", "macro-split-push"]
 tools: ["/tools/build", "/items", "/map"]
 ---
 
-La gold lane porte bien son nom : c'est la lane qui rapporte le plus d'or, et le tireur qui l'occupe est le héros qui en a le plus besoin. Un tireur qui farme bien a ses objets clés avant son adversaire, et chaque objet change ses combats. Ce guide parle de ressources ; le [guide de la gold lane](/guides/gold-lane) détaille les héros et les builds du poste.
+La Gold lane porte bien son nom : c'est la lane qui rapporte le plus d'or, et le tireur qui l'occupe est le héros qui en a le plus besoin. Un tireur qui farme bien a ses objets clés avant son adversaire, et chaque objet change ses combats. Ce guide parle de ressources ; le [guide de la Gold lane](/guides/gold-lane) détaille les héros et les builds du poste.
 
 ## Chaque sbire compte
 
-Une vague de sbires part toutes les trente secondes, la première à 0:10. Pendant les dix premières vagues (jusqu'à 5:10), le canon de la gold lane rapporte 45 % d'or en plus, et celui de l'EXP lane 35 % d'EXP en plus : en début de partie, rater un canon coûte plus cher que rater un autre sbire.
+Une vague de sbires part toutes les trente secondes, la première à 0:10. Pendant les dix premières vagues (jusqu'à 5:10), le canon de la Gold lane rapporte 45 % d'or en plus, et celui de l'EXP lane 35 % d'EXP en plus : en début de partie, rater un canon coûte plus cher que rater un autre sbire.
 
 - **Achevez les sbires** plutôt que de frapper au hasard : un tireur qui ne frappe que les sbires presque morts garde ses points de vie et ne pousse pas la vague sans le vouloir.
 - **Gardez le dernier coup du canon**, surtout pendant les dix premières vagues : c'est lui qui porte le bonus.
@@ -64,6 +64,6 @@ L'or ne sert à rien tant qu'il n'est pas dépensé. Le premier objet du tireur 
 
 - Pousser la vague jusqu'à la tourelle adverse sans savoir où est le jungleur ennemi.
 - Quitter la lane en laissant une vague entière au milieu.
-- Rejoindre chaque combat de la mid lane au détriment de deux vagues.
+- Rejoindre chaque combat de la Mid lane au détriment de deux vagues.
 - Garder l'or en poche pendant plusieurs minutes au lieu de revenir acheter.
 - Farmer seul dans la jungle adverse en fin de partie.

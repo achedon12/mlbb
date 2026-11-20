@@ -22,7 +22,7 @@ La mini-carte est la première source d'information de la partie. Un coup d'œil
 - **quelles vagues avancent**, et vers quelle tourelle ;
 - **quel objectif approche** : Tortue, Seigneur, buff adverse.
 
-Un adversaire qui disparaît de la mini-carte n'est pas nulle part. S'il était en mid lane il y a cinq secondes, il est dans un rayon que vous pouvez estimer. C'est cette estimation qui vous dit si un objectif est sûr.
+Un adversaire qui disparaît de la mini-carte n'est pas nulle part. S'il était en Mid lane il y a cinq secondes, il est dans un rayon que vous pouvez estimer. C'est cette estimation qui vous dit si un objectif est sûr.
 
 ## Le principe de l'échange
 
@@ -66,7 +66,7 @@ Le [rapport hebdomadaire de la méta](/meta) montre aussi quels héros montent o
 
 ## Les erreurs les plus courantes
 
-- Se regrouper à cinq en mid lane en laissant deux vagues pousser sur les côtés.
+- Se regrouper à cinq en Mid lane en laissant deux vagues pousser sur les côtés.
 - Abandonner un objectif sans rien prendre en échange.
 - Partir en split push sans prévenir pendant que l'équipe se bat : elle joue le combat à quatre contre cinq.
 - Courir vers un combat lointain au lieu de prendre la tourelle qui est devant soi.

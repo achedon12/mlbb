@@ -11,7 +11,7 @@
  */
 export const notesTierList: Record<string, string> = {
   "khufra":
-    "Réponse structurelle à toute la catégorie des héros mobiles, qui domine la file classée haute.",
+    "Réponse structurelle à toute la catégorie des héros mobiles, qui domine les hauts rangs classés.",
   "melissa":
     "Le seul tireur qui résout seul le problème du plongeon, sans dépendre de son soutien.",
   "fredrinn":
@@ -41,7 +41,7 @@ export const notesTierList: Record<string, string> = {
   "chou":
     "Excellent en équipe coordonnée, beaucoup moins en solo où l'isolement n'est pas suivi.",
   "angela":
-    "Dépend du niveau de l'allié choisi, ce qui la rend irrégulière en file classée.",
+    "Dépend du niveau de l'allié choisi, ce qui la rend irrégulière en partie classée.",
   "pharsa":
     "Punie par le nombre d'assassins de jungle joués actuellement.",
   "ling":
@@ -53,7 +53,7 @@ export const notesTierList: Record<string, string> = {
   "eudora":
     "Sa place tient d'abord au bannissement, en hausse sur trente jours. Renforcée au patch 2.1.88 sans détail publié, elle gagne surtout les parties courtes.",
   "hirara":
-    "Nouvelle héroïne du patch 2.1.88, bannie dans la grande majorité des parties en Mythic Glory : le palier traduit la crainte qu'elle inspire, alors que son taux de victoire passe sous la moyenne en Mythic.",
+    "Nouvelle héroïne du patch 2.1.88, bannie dans la grande majorité des parties en Gloire mythique : le palier traduit la crainte qu'elle inspire, alors que son taux de victoire passe sous la moyenne en Mythique.",
   "marcel":
     "Taux de victoire parmi les plus hauts, mais sur très peu de parties jouées. Le patch 2.1.88 a retiré l'immobilisation de sa compétence 1 ; Angela et Floryn restent ses pires adversaires mesurés.",
   "gloo":
@@ -61,15 +61,15 @@ export const notesTierList: Record<string, string> = {
   "rafaela":
     "Porté par un taux de victoire parmi les plus hauts du jeu depuis que le patch 2.1.88 a raccourci la recharge de base de sa résurrection ; son bannissement monte sur trente jours.",
   "sun":
-    "Héros de fin de partie : sous la moyenne avant la quatorzième minute, très au-dessus après la seizième. Son bannissement recule sur trente jours mais reste élevé, surtout en Mythic.",
+    "Héros de fin de partie : sous la moyenne avant la quatorzième minute, très au-dessus après la seizième. Son bannissement recule sur trente jours mais reste élevé, surtout en Mythique.",
   "hanzo":
-    "Le palier tient au bannissement, en hausse sur trente jours, alors que son taux de victoire a baissé jusqu'à passer sous la moyenne. Le patch 2.1.88 l'a renforcé sur la tortue et le seigneur.",
+    "Le palier tient au bannissement, en hausse sur trente jours, alors que son taux de victoire a baissé jusqu'à passer sous la moyenne. Le patch 2.1.88 l'a renforcé sur la Tortue et le Seigneur.",
   "miya":
     "Le héros le plus joué du jeu, avec un taux de victoire au-dessus de la moyenne à tous les rangs et un bannissement en hausse sur trente jours.",
   "floryn":
     "Très efficace dans les parties courtes, mais son taux de victoire passe sous la moyenne après la dix-huitième minute : une valeur de tempo plus que de fin de partie.",
   "saber":
-    "Banni bien plus souvent en Mythic qu'en Mythic Glory pour un taux de victoire proche de la moyenne. Le patch 2.1.88 l'a orienté vers des dégâts soutenus et les objets de combattant.",
+    "Banni bien plus souvent en Mythique qu'en Gloire mythique pour un taux de victoire proche de la moyenne. Le patch 2.1.88 l'a orienté vers des dégâts soutenus et les objets de combattant.",
   "atlas":
     "Engagement de groupe qui gagne surtout avec un soutien à ses côtés, Mathilda, Floryn, Estes ou Rafaela ; Marcel reste de loin son pire adversaire mesuré.",
   "masha":
@@ -79,13 +79,13 @@ export const notesTierList: Record<string, string> = {
   "minotaur":
     "L'un des meilleurs taux de victoire parmi les roamers, pour un bannissement faible : un choix sûr, presque toujours disponible en sélection.",
   "yi-sun-shin":
-    "Le jungleur le plus joué en Mythic Glory, efficace surtout dans les parties courtes ; son taux de victoire revient à la moyenne passé la douzième minute.",
+    "Le jungleur le plus joué en Gloire mythique, efficace surtout dans les parties courtes ; son taux de victoire revient à la moyenne passé la douzième minute.",
   "hanabi":
-    "Très jouée et au-dessus de la moyenne tous rangs confondus, mais nettement moins efficace en Mythic Glory et dans les parties qui s'allongent.",
+    "Très jouée et au-dessus de la moyenne tous rangs confondus, mais nettement moins efficace en Gloire mythique et dans les parties qui s'allongent.",
   "barats":
     "En pleine montée, avec sélection et bannissement en hausse sur trente jours. Son rendement chute pourtant dans les parties longues, et X.Borg le contre très nettement.",
   "lukas":
-    "Faible dans les parties courtes, solide ensuite, et meilleur en Mythic Glory qu'en Mythic ; peu banni, il reste souvent disponible.",
+    "Faible dans les parties courtes, solide ensuite, et meilleur en Gloire mythique qu'en Mythique ; peu banni, il reste souvent disponible.",
   "diggie":
     "Taux de victoire solide mais très peu joué, donc une mesure fragile. Le patch 2.1.88 a revu ses attributs et le coût de ses compétences.",
   "lolita":
@@ -93,7 +93,7 @@ export const notesTierList: Record<string, string> = {
   "minsitthar":
     "Proche de la moyenne en victoires, classé par un bannissement qui recule sur trente jours ; Natalia et Yin sont ses adversaires les plus pénibles selon les mesures.",
   "valir":
-    "Peu banni et régulier : au-dessus de la moyenne à tous les rangs et encore dans les parties longues. Rafaela et Kaja sont ses contres les plus nets en Mythic Glory.",
+    "Peu banni et régulier : au-dessus de la moyenne à tous les rangs et encore dans les parties longues. Rafaela et Kaja sont ses contres les plus nets en Gloire mythique.",
   "carmilla":
     "Son efficacité dépend du partenaire : ses duos mesurés avec Diggie, Floryn ou Mathilda comptent parmi les écarts les plus forts du jeu. Renforcée au patch 2.1.88, sans détail publié.",
 };

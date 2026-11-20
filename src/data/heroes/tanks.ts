@@ -12,13 +12,13 @@ export const tanks: HeroAnalysis[] = [
     skills: [
       {
         type: "Passive",
-        name: "Forteresse",
+        name: "Fearless",
         description:
           "Les attaques de base de Tigreal chargent son armure. À pleine charge, sa prochaine attaque inflige des dégâts supplémentaires et le protège brièvement.",
       },
       {
         type: "Skill 1",
-        name: "Onde de choc",
+        name: "Attack Wave",
         description:
           "Frappe le sol devant lui, infligeant des dégâts et ralentissant les ennemis touchés.",
         cooldown: [7, 6.6, 6.2, 5.8, 5.4, 5],
@@ -26,7 +26,7 @@ export const tanks: HeroAnalysis[] = [
       },
       {
         type: "Skill 2",
-        name: "Charge sacrée",
+        name: "Sacred Hammer",
         description:
           "Se rue vers l'avant en poussant les ennemis rencontrés, puis les projette en l'air à la fin de la course.",
         cooldown: [11, 10.4, 9.8, 9.2, 8.6, 8],
@@ -44,7 +44,7 @@ export const tanks: HeroAnalysis[] = [
     strengths: [
       "Le meilleur regroupement du jeu sur plusieurs cibles",
       "Très résistant même avec un budget d'objets modeste",
-      "Lisible : facile à prendre en main en file classée basse",
+      "Lisible : facile à prendre en main dans les rangs classés inférieurs",
     ],
     weaknesses: [
       "Inutile quand son ultime est en recharge",
@@ -71,9 +71,9 @@ export const tanks: HeroAnalysis[] = [
         spell: "Flicker",
       },
       {
-        name: "Front résistant au magique",
+        name: "Ligne de front anti-magie",
         context:
-          "Contre une composition adverse à deux mages ou plus, ou quand le dommage magique adverse dépasse le physique.",
+          "Contre une composition adverse à deux mages ou plus, ou quand les dégâts magiques adverses dépassent les dégâts physiques.",
         items: [
           "Tough Boots",
           "Athena's Shield",
@@ -97,13 +97,13 @@ export const tanks: HeroAnalysis[] = [
     skills: [
       {
         type: "Passive",
-        name: "Vaillance",
+        name: "Wasteland Force",
         description:
           "Chaque coup reçu augmente sa vitesse de déplacement pendant un court instant, cumulable.",
       },
       {
         type: "Skill 1",
-        name: "Grappin",
+        name: "Iron Hook",
         description:
           "Lance un crochet qui tire le premier ennemi touché jusqu'à lui et l'immobilise brièvement.",
         cooldown: [11, 10.4, 9.8, 9.2, 8.6, 8],
@@ -111,7 +111,7 @@ export const tanks: HeroAnalysis[] = [
       },
       {
         type: "Skill 2",
-        name: "Fléau",
+        name: "Fury Shock",
         description:
           "Frappe autour de lui, infligeant des dégâts et ralentissant fortement les ennemis proches.",
         cooldown: [7, 6.4, 5.8, 5.2, 4.6, 4],
@@ -119,7 +119,7 @@ export const tanks: HeroAnalysis[] = [
       },
       {
         type: "Ultimate",
-        name: "Déferlement",
+        name: "Bloody Hunt",
         description:
           "Immobilise une cible et la frappe à répétition. Le contrôle dure assez longtemps pour que l'équipe conclue.",
         cooldown: [50, 42, 34],
@@ -128,13 +128,13 @@ export const tanks: HeroAnalysis[] = [
     ],
     strengths: [
       "Retire une cible clé du combat, quelle que soit sa résistance",
-      "Excellent contrôle d'objectif autour du seigneur et de la tortue",
+      "Excellent contrôle d'objectif autour du Seigneur et de la Tortue",
       "Récompense énormément la lecture de la carte",
     ],
     weaknesses: [
       "Un grappin raté le laisse sans rien pendant huit secondes",
       "Très dépendant de la vision et des buissons",
-      "L'ultime est une cible unique : sans relais, il meurt après",
+      "L'ultime ne vise qu'une cible : sans relais, il meurt ensuite",
     ],
     strongAgainst: ["layla", "estes", "cecilion", "kimmy"],
     weakAgainst: ["diggie", "wanwan", "benedetta", "fanny"],
@@ -166,13 +166,13 @@ export const tanks: HeroAnalysis[] = [
     skills: [
       {
         type: "Passive",
-        name: "Provocation",
+        name: "Spell Curse",
         description:
           "Après avoir utilisé une compétence, sa prochaine attaque de base inflige des dégâts supplémentaires et le soigne.",
       },
       {
         type: "Skill 1",
-        name: "Bandage rebondissant",
+        name: "Tyrant's Revenge",
         description:
           "Crée une zone qui projette en l'air les ennemis qui tentent de la traverser par un déplacement. Le principal outil anti-mobilité du jeu.",
         cooldown: [12, 11.4, 10.8, 10.2, 9.6, 9],
@@ -180,7 +180,7 @@ export const tanks: HeroAnalysis[] = [
       },
       {
         type: "Skill 2",
-        name: "Bond de la boule",
+        name: "Bouncing Ball",
         description:
           "Se transforme en boule et roule dans une direction, en poussant et ralentissant les ennemis heurtés.",
         cooldown: [9, 8.4, 7.8, 7.2, 6.6, 6],
@@ -188,7 +188,7 @@ export const tanks: HeroAnalysis[] = [
       },
       {
         type: "Ultimate",
-        name: "Tempête du désert",
+        name: "Tyrant's Rage",
         description:
           "Frappe le sol : les ennemis pris dans la zone sont projetés et immobilisés un instant.",
         cooldown: [42, 38, 34],
@@ -201,7 +201,7 @@ export const tanks: HeroAnalysis[] = [
       "Peut isoler une cible contre un mur",
     ],
     weaknesses: [
-      "Sans ses compétences, il n'a aucune vitesse",
+      "Sans ses compétences, il est très lent",
       "Recharges longues en début de partie",
       "Peu utile face à une équipe sans déplacement",
     ],
@@ -299,7 +299,7 @@ export const tanks: HeroAnalysis[] = [
       "Tank d'engagement qui attire plusieurs héros d'un coup et les dépose là où il le décide.",
     analysis:
       "Atlas engage en deux temps. Son ultime lance des chaînes qui ralentissent les héros touchés pendant qu'il canalise, puis, relancé, les tire vers lui et les écrase à l'endroit choisi ; seule une suppression peut l'interrompre. Sa compétence 2 le fait sortir de son armure pour se déplacer plus vite, insensible aux ralentissements, avant que la machine ne le rejoigne en étourdissant autour d'elle. Chaque compétence lancée crée autour de lui une zone de froid qui ralentit, puis gèle les ennemis qui y restent.\n\n" +
-      "Ses chiffres varient selon le rang : son taux de victoire mesuré est plus élevé en Mythic et Mythic Honor qu'en Mythic Glory, où il est en revanche davantage banni. Il figure parmi les héros renforcés du patch 2.1.88, sans détail publié sur le wiki. Ses meilleurs duos mesurés sont avec des soutiens — Mathilda, Floryn, Estes, Rafaela — et les mesures le placent nettement en difficulté face à Marcel, puis face à Wanwan, Alice, Valentina et Lancelot.",
+      "Ses chiffres varient selon le rang : son taux de victoire mesuré est plus élevé en Mythique et Honneur mythique qu'en Gloire mythique, où il est en revanche davantage banni. Il figure parmi les héros renforcés du patch 2.1.88, sans détail publié sur le wiki. Ses meilleurs duos mesurés sont avec des soutiens — Mathilda, Floryn, Estes, Rafaela — et les mesures le placent nettement en difficulté face à Marcel, puis face à Wanwan, Alice, Valentina et Lancelot.",
     skills: [
       {
         type: "Passive",
@@ -334,7 +334,7 @@ export const tanks: HeroAnalysis[] = [
     ],
     weaknesses: [
       "Nettement en difficulté face à Marcel selon les mesures",
-      "Taux de victoire mesuré plus bas en Mythic Glory",
+      "Taux de victoire mesuré plus bas en Gloire mythique",
       "Un étourdissement perdu si l'ultime part hors de son armure",
       "En difficulté face à Wanwan, Alice et Valentina",
     ],
@@ -353,7 +353,7 @@ export const tanks: HeroAnalysis[] = [
       {
         name: "Contre la magie",
         context:
-          "Athena's Shield à la place de Radiant Armor, avec l'emblème de soutien : moins jouée, avec un meilleur taux de victoire mesuré. À préférer contre une équipe adverse aux dégâts magiques élevés.",
+          "Athena's Shield à la place de Radiant Armor, avec l'emblème de support : moins joué, avec un meilleur taux de victoire mesuré. À préférer contre une équipe adverse aux dégâts magiques élevés.",
         items: ["Dominance Ice", "Athena's Shield", "Chastise Pauldron"],
         emblem: "Emblème de soutien",
         talent: "Concussive Blast",

@@ -11,7 +11,7 @@ export const assassins: HeroAnalysis[] = [
     skills: [
       {
         type: "Passive",
-        name: "Sourire du soleil",
+        name: "Soul Cutter",
         description:
           "Ses dégâts augmentent brièvement après avoir esquivé ou traversé un ennemi.",
       },
@@ -25,7 +25,7 @@ export const assassins: HeroAnalysis[] = [
       },
       {
         type: "Skill 2",
-        name: "Fente",
+        name: "Thorned Rose",
         description:
           "Projette une lame qui marque les ennemis touchés et les ralentit.",
         cooldown: [9, 8.4, 7.8, 7.2, 6.6, 6],
@@ -80,13 +80,13 @@ export const assassins: HeroAnalysis[] = [
     skills: [
       {
         type: "Passive",
-        name: "Lame de dague",
+        name: "Dagger Specialist",
         description:
           "Après une compétence, sa prochaine attaque de base inflige des dégâts supplémentaires proportionnels à la vie manquante de la cible.",
       },
       {
         type: "Skill 1",
-        name: "Dagues de l'ombre",
+        name: "Sword Spike",
         description:
           "Lance des dagues en éventail. Relancer la compétence rappelle les dagues plantées, infligeant à nouveau des dégâts.",
         cooldown: [11, 10.2, 9.4, 8.6, 7.8, 7],
@@ -94,7 +94,7 @@ export const assassins: HeroAnalysis[] = [
       },
       {
         type: "Skill 2",
-        name: "Frappe spectrale",
+        name: "Shadowblade Slaughter",
         description:
           "Projette une dague unique. Relancer la compétence téléporte Gusion vers la dague.",
         cooldown: [10, 9.4, 8.8, 8.2, 7.6, 7],
@@ -111,10 +111,10 @@ export const assassins: HeroAnalysis[] = [
     strengths: [
       "Un des plus hauts pics de dégâts du jeu",
       "Mobilité extrême entre les dagues",
-      "Impose une pression permanente sur la lane du milieu",
+      "Impose une pression permanente sur la Mid lane",
     ],
     weaknesses: [
-      "Exécution parmi les plus difficiles du roster",
+      "Exécution parmi les plus difficiles du jeu",
       "Consommation de mana très élevée",
       "Sans son ultime, ses dégâts s'effondrent",
     ],
@@ -148,20 +148,20 @@ export const assassins: HeroAnalysis[] = [
     skills: [
       {
         type: "Passive",
-        name: "Danse des nuages",
+        name: "Cloud Walker",
         description:
           "Ling peut grimper sur les murs et s'y déplacer rapidement, en régénérant son énergie.",
       },
       {
         type: "Skill 1",
-        name: "Bond de l'ombre",
+        name: "Finch Poise",
         description:
           "Saute vers un point, y compris sur un mur. Coût en énergie, sans recharge tant que l'énergie tient.",
         cost: [30, 30, 30, 30, 30, 30],
       },
       {
         type: "Skill 2",
-        name: "Épée de l'ombre",
+        name: "Defiant Sword",
         description:
           "Frappe les ennemis autour de lui et augmente sa vitesse d'attaque.",
         cooldown: [8.5, 8, 7.5, 7, 6.5, 6],
@@ -169,7 +169,7 @@ export const assassins: HeroAnalysis[] = [
       },
       {
         type: "Ultimate",
-        name: "Tourbillon de lames",
+        name: "Tempest of Blades",
         description:
           "Bondit dans une zone en infligeant des dégâts critiques, insensible aux contrôles pendant le saut.",
         cooldown: [45, 40, 35],
@@ -183,7 +183,7 @@ export const assassins: HeroAnalysis[] = [
     weaknesses: [
       "Dépend entièrement de son énergie",
       "Début de partie lent avant deux objets",
-      "Punie sévèrement par les blocages de déplacement",
+      "Puni sévèrement par les blocages de déplacement",
     ],
     strongAgainst: ["pharsa", "cecilion", "layla", "estes", "kimmy"],
     weakAgainst: ["khufra", "franco", "minsitthar", "phoveus"],
@@ -212,7 +212,7 @@ export const assassins: HeroAnalysis[] = [
       "Jungleur hybride qui passe de l'arc au glaive selon la distance, et dont l'ultime révèle toute la carte.",
     analysis:
       "Yi Sun-shin change d'arme tout seul : il tire à l'arc de loin et frappe au glaive au contact, et chaque changement renforce ses deux attaques suivantes. Sa compétence 1 le propulse vers l'avant en le rendant brièvement insensible aux contrôles, et sa recharge diminue à chaque changement d'arme réussi. L'ultime lui donne d'abord la vision de toute la carte et une accélération, puis, relancé, envoie un navire qui étourdit le centre de la zone avant un tir de barrage qui ralentit : c'est autant un outil d'information qu'un engagement à distance.\n\n" +
-      "Son rendement mesuré se concentre en début de partie : son taux de victoire est nettement plus élevé dans les parties terminées avant la douzième minute, puis revient autour de la moyenne. Il vit donc de l'avance prise en jungle plutôt que de la fin de partie, et sa seule protection contre les contrôles ne dure qu'un instant. Les mesures le placent en difficulté face à Karina, Uranus, Aamon, Johnson et Hayabusa, du rang Mythic au rang Mythic Glory.",
+      "Son rendement mesuré se concentre en début de partie : son taux de victoire est nettement plus élevé dans les parties terminées avant la douzième minute, puis revient autour de la moyenne. Il vit donc de l'avance prise en jungle plutôt que de la fin de partie, et sa seule protection contre les contrôles ne dure qu'un instant. Les mesures le placent en difficulté face à Karina, Uranus, Aamon, Johnson et Hayabusa, du rang Mythique au rang Gloire mythique.",
     skills: [
       {
         type: "Passive",
@@ -236,7 +236,7 @@ export const assassins: HeroAnalysis[] = [
         type: "Ultimate",
         name: "Mountain Shocker",
         description:
-          "Révèle toute la carte quelques secondes et l'accélère. Relancée, elle envoie un navire percuter une zone en étourdissant le centre, puis plusieurs salves de canon qui ralentissent sur une zone plus large.",
+          "Révèle toute la carte quelques secondes et accélère Yi Sun-shin. Relancée, elle envoie un navire percuter une zone en étourdissant le centre, puis plusieurs salves de canon qui ralentissent sur une zone plus large.",
       },
     ],
     strengths: [
@@ -279,7 +279,7 @@ export const assassins: HeroAnalysis[] = [
       "Héroïne à deux formes : pièges et flèche d'étourdissement à distance, puis assassinat au contact après l'ultime.",
     analysis:
       "Selena se joue en deux temps. Sous sa forme elfique, elle pose des démons qui guettent un emplacement et s'accrochent aux ennemis de passage, et elle tire une flèche dont l'étourdissement s'allonge avec la distance parcourue ; ses compétences laissent des marques sur les cibles. L'ultime la fait passer en forme abyssale, où ses compétences deviennent une attaque bondissante avec bouclier et une charge, qui consomment ces marques pour des dégâts supplémentaires ; elle peut ensuite revenir en forme elfique.\n\n" +
-      "Cette polyvalence a un coût : tout son engagement repose sur la flèche, qui doit partir de loin pour étourdir longtemps. Son taux de victoire mesuré reste sous la moyenne à tous les rangs, avec un point bas dans les parties de moins de douze minutes. Elle est jouée en lane du milieu comme en roam, avec des objets différents selon la position. Les mesures la placent en difficulté face à Gloo, Popol and Kupa, Chip et Lolita.",
+      "Cette polyvalence a un coût : tout son engagement repose sur la flèche, qui doit partir de loin pour étourdir longtemps. Son taux de victoire mesuré reste sous la moyenne à tous les rangs, avec un point bas dans les parties de moins de douze minutes. Elle est jouée en Mid lane comme en roam, avec des objets différents selon la position. Les mesures la placent en difficulté face à Gloo, Popol and Kupa, Chip et Lolita.",
     skills: [
       {
         type: "Passive",
@@ -310,7 +310,7 @@ export const assassins: HeroAnalysis[] = [
       "Étourdissement long quand la flèche part de loin",
       "Pièges posés à l'avance, plusieurs à la fois",
       "Deux formes : contrôle à distance, puis dégâts au contact",
-      "Jouable en lane du milieu comme en roam",
+      "Jouable en Mid lane comme en roam",
     ],
     weaknesses: [
       "Tout son engagement dépend d'une flèche à viser de loin",
@@ -322,7 +322,7 @@ export const assassins: HeroAnalysis[] = [
     weakAgainst: ["gloo", "popol-and-kupa", "chip", "lolita"],
     builds: [
       {
-        name: "Lane du milieu",
+        name: "Mid lane",
         context:
           "Le build le plus joué au milieu : Starlium Scythe ajoute des dégâts à l'attaque de base qui suit une compétence, ce qui sert sa forme abyssale, Lightning Truncheon un écho de dégâts et Divine Glaive la pénétration magique.",
         items: ["Starlium Scythe", "Lightning Truncheon", "Divine Glaive"],
