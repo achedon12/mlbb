@@ -98,10 +98,10 @@ test("our tier list prefills the rows for the chosen rank", async ({ page }) => 
   await open(page);
   await page.getByText(/^partir de notre tier list$/i).click();
   const ranks = page.getByRole("group", { name: /^rang$/i });
-  await ranks.getByRole("button", { name: /^mythique$/i }).click();
-  await page.getByRole("button", { name: /^charger la tier list mythique$/i }).click();
+  await ranks.getByRole("button", { name: /^mythic$/i }).click();
+  await page.getByRole("button", { name: /^charger la tier list mythic$/i }).click();
 
-  await expect(page.getByRole("textbox", { name: /titre de la liste/i })).toHaveValue(/mythique/i);
+  await expect(page.getByRole("textbox", { name: /titre de la liste/i })).toHaveValue(/mythic/i);
   // Heroes now sit in the rows: S+ holds some, the bench lost them.
   await expect(row(page, 1)).not.toHaveAccessibleName(/: 0 h[ée]ros$/i);
   expect(await row(page, 1).getByRole("button").count()).toBeGreaterThan(0);

@@ -163,10 +163,10 @@ test.describe("matchup matrix", () => {
     await expect(page.getByRole("table").getByRole("rowheader", { name: "Layla" })).toBeVisible();
     await expect(page.getByRole("table").getByRole("columnheader", { name: "Tigreal" })).toBeVisible();
 
-    await page.getByRole("group", { name: /^rang$/i }).getByRole("button", { name: /^mythique$/i }).click();
+    await page.getByRole("group", { name: /^rang$/i }).getByRole("button", { name: /^mythic$/i }).click();
     await expect(page).toHaveURL(/rang=mythic/);
     await page.reload();
-    await expect(page.getByRole("group", { name: /^rang$/i }).getByRole("button", { name: /^mythique$/i })).toHaveAttribute(
+    await expect(page.getByRole("group", { name: /^rang$/i }).getByRole("button", { name: /^mythic$/i })).toHaveAttribute(
       "aria-pressed",
       "true",
     );
@@ -184,7 +184,7 @@ test.describe("team analysis", () => {
     await page.goto("/fr/tools/team?h=tigreal,layla,eudora&rang=mythic");
     const team = page.getByRole("region", { name: /^votre [ée]quipe$/i });
     await expect(team.getByText(/^3 h[ée]ros sur 5/i)).toBeVisible();
-    await expect(team.getByRole("group", { name: /^rang$/i }).getByRole("button", { name: /^mythique$/i })).toHaveAttribute(
+    await expect(team.getByRole("group", { name: /^rang$/i }).getByRole("button", { name: /^mythic$/i })).toHaveAttribute(
       "aria-pressed",
       "true",
     );

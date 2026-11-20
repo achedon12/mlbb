@@ -18,7 +18,7 @@ test.describe("hero page", () => {
 
     const group = pickerRank(page);
     const all = group.getByRole("button", { name: /^tous rangs$/i });
-    const mythic = group.getByRole("button", { name: /^mythique$/i });
+    const mythic = group.getByRole("button", { name: /^mythic$/i });
     await expect(all).toHaveAttribute("aria-pressed", "true");
     await expect(mythic).toHaveAttribute("aria-pressed", "false");
 
@@ -158,13 +158,13 @@ test.describe("tier list by rank", () => {
     await page.goto("/fr/tier-list");
     const nav = page.getByRole("navigation", { name: /par rang/i });
     await expect(nav).toBeVisible();
-    await nav.getByRole("link", { name: /^mythique$/i }).click();
+    await nav.getByRole("link", { name: /^mythic$/i }).click();
     // In development, the rank page compiles on first navigation: under the
     // load of several workers, that exceeds the default timeout.
     await expect(page).toHaveURL(/\/fr\/tier-list\/mythic$/, { timeout: 20_000 });
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText(/mythique/i);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(/mythic/i);
     await expect(
-      page.getByRole("navigation", { name: /par rang/i }).getByRole("link", { name: /^mythique$/i }),
+      page.getByRole("navigation", { name: /par rang/i }).getByRole("link", { name: /^mythic$/i }),
     ).toHaveAttribute("aria-current", "page");
   });
 

@@ -134,9 +134,9 @@ test.describe("statistics table", () => {
 
   test("the rank links lead to the table of that rank", async ({ page }) => {
     await page.goto("/fr/statistics");
-    await page.getByRole("navigation", { name: /^rang$/i }).getByRole("link", { name: /^mythique$/i }).click();
+    await page.getByRole("navigation", { name: /^rang$/i }).getByRole("link", { name: /^mythic$/i }).click();
     await expect(page).toHaveURL(/\/fr\/statistics\/mythic/, { timeout: 20_000 });
-    await expect(page.getByRole("table", { name: /mythique/i })).toBeVisible();
+    await expect(page.getByRole("table", { name: /mythic/i })).toBeVisible();
   });
 });
 
