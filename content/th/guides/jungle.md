@@ -28,7 +28,7 @@ tools: ["/tier-list", "/tools/timer", "/tools/retribution", "/tools/build"]
 
 <!-- guide:heroes -->
 
-Jungler แบ่งออกเป็นสามตระกูล มือสังหาร เช่น [Ling](/heroes/ling), [Lancelot](/heroes/lancelot) หรือ [Hayabusa](/heroes/hayabusa) กำจัดเป้าหมายที่โดดเดี่ยว Fighter อย่าง [Martis](/heroes/martis) หรือ [Barats](/heroes/barats) จะต้องต่อสู้กันอย่างยาวนาน Tank ป่าอย่าง [Fredrinn](/heroes/fredrinn) หรือ [Baxia](/heroes/baxia) ทิ้งทองไว้ให้คนอื่นและเข้าร่วม ทางเลือกที่เหมาะสมขึ้นอยู่กับสิ่งที่ทีมของคุณขาดหายไป
+Jungler แบ่งออกเป็นสามตระกูล มือสังหาร เช่น [Ling](/heroes/ling), [Lancelot](/heroes/lancelot) หรือ [Hayabusa](/heroes/hayabusa) กำจัดเป้าหมายที่โดดเดี่ยว Fighter อย่าง [Martis](/heroes/martis) หรือ [Balmond](/heroes/balmond) จะต้องต่อสู้กันอย่างยาวนาน Tank ป่าอย่าง [Fredrinn](/heroes/fredrinn) หรือ [Baxia](/heroes/baxia) ทิ้งทองไว้ให้คนอื่นและเข้าร่วม ทางเลือกที่เหมาะสมขึ้นอยู่กับสิ่งที่ทีมของคุณขาดหายไป
 
 ## ไอเทม Emblem และคาถาที่เล่นบ่อยที่สุด
 

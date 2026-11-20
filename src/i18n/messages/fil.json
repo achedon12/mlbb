@@ -291,7 +291,7 @@
     "version": "Bersyon {v}",
     "contribute": "Mag-ambag",
     "intro": "Mga hero, build at counter ng Mobile Legends: Bang Bang ayon sa rank, tier list na kinukuwenta mula sa ranked win rate, mga item, emblem at patch notes, sa English, French, Italian, Spanish at Indonesian. Isang independiyenteng proyekto, bukas sa mga kontribusyon.",
-    "sources": "Mga text na kinuha mula sa Mobile Legends wiki (Fandom) at Liquipedia, sa ilalim ng lisensya ng CC BY-SA, na may attribution sa kanilang mga contributor. Mga larawan, pangalan ng mga hero, skin at bagay © Moonton, at para sa collaboration skin © kani-kanilang mga may hawak ng karapatan: hindi sila napapailalim sa lisensyang ito. Ang mga win rate, ban at pagpili, mga counter at karamihan sa mga nilalaro ay nagmumula sa mga istatistika ng tugma sa ranggo ng laro, sa pamamagitan ng arena.rone.dev community API.",
+    "sources": "Mga text na kinuha mula sa Mobile Legends wiki (Fandom) at Liquipedia, sa ilalim ng lisensya ng CC BY-SA, na may attribution sa kanilang mga contributor. Mga larawan, pangalan ng mga hero, skin at bagay © Moonton, at para sa collaboration skin © kani-kanilang mga may hawak ng karapatan: hindi sila napapailalim sa lisensyang ito. Ang mga win rate, ban at pagpili, mga counter at karamihan sa mga nilalaro na build ay nagmumula sa mga istatistika ng paglalaro sa ranggo ng laro, sa pamamagitan ng arena.rone.dev community API.",
     "discord": "Sumali sa Discord",
     "columns": {
       "heroes": "Mga hero",
@@ -448,7 +448,7 @@
         "basicAttack": "Basic attack",
         "order": "Skill order"
       },
-      "pageCounters": "Buong pahina ng mga counter",
+      "pageCounters": "Buong pahina ng kahinaan",
       "pageDuos": "Lahat ng nasukat na duo",
       "duosShort": "Mga duo"
     },
@@ -2053,7 +2053,7 @@
       "colYear": "Taon",
       "colTotal": "Kabuuan",
       "unknownMonth": "Hindi tinukoy ang buwan",
-      "monthCell": "{month} — mga skin: {n}",
+      "monthCell": "{month}, mga skin: {n}",
       "nSkins": "{n} skin",
       "nSkins1": "1 skin",
       "seriesTitle": "Mga series at event",
@@ -2162,7 +2162,7 @@
       "pool_all": "Lahat",
       "pool_played": "Yung mga nilalaro ko",
       "played_loading": "Binabasa ang iyong mga hero ng panahon...",
-      "played_failed": "Ang iyong mga nilalaro na hero ay hindi nababasa sa ngayon: subukang muli sa ibang pagkakataon.",
+      "played_failed": "Hindi magawang laruin ang iyong mga nilalaro na hero sa ngayon: subukang muli sa ibang pagkakataon.",
       "played_empty": "Walang bayaning naglaro ngayong season.",
       "seriesCheck": "Lagyan ng tsek ang {n} skin ng {series}",
       "seriesUncheck": "Alisin ang tsek sa {n} skin ng {series}",
@@ -3723,7 +3723,7 @@
         "help": "Ang mga command ayon sa kategorya, may halimbawa para sa bawat isa.",
         "invite": "Ang link upang idagdag ang bot sa isa pang server.",
         "about": "Bersyon, bilang ng server, mga link sa site, sa support server at sa pagboto.",
-        "profile": "Ang Mobile Legends profile mo bilang larawan: rank, win rate at pinakamadalas laruing hero (i-link nang isang beses sa site)."
+        "profile": "Ang iyong profile sa Mobile Legends sa mga larawan: ranggo, win rate at pinakamaraming nilalaro na hero (isang beses lang mali-link ang account sa site)."
       },
       "permissionsTitle": "Mga hinihinging permission",
       "permissionsText": "Ang kailangan lang para sumagot at mag-post: hindi kailanman Administrator, at walang access sa nilalaman ng mga mensahe. Ginagamit lang ang Server Members intent para sa mga welcome at goodbye message: walang iniimbak tungkol sa mga member.",
@@ -3744,7 +3744,7 @@
       "faq2a": "I-click ang “Idagdag sa Discord”, pumili ng server kung saan may Manage Server permission ka, at kumpirmahin. Lalabas ang mga command sa sandaling mag-type ka ng / sa isang channel.",
       "faq3q": "Paano i-set up ang mga anunsyo?",
       "faq3a": "Buksan ang dashboard gamit ang Discord account mo (o i-type ang /setup): pumili ng channel, at kung gusto mo, ng role na ime-mention, para sa bawat uri ng anunsyo. Kailangan mo ang Manage Server permission.",
-      "faq4q": "Saan nagmula ang mga build, counter at ang tier list?",
+      "faq4q": "Saan nagmula ang mga build, counter at tier list?",
       "faq4a": "Mula sa parehong mga source ng site: statistics ng mga ranked match para sa mga rate, build at counter, at ang Mobile Legends wiki para sa mga hero, item at patch. Ina-update sila araw-araw.",
       "faq5q": "Kailangan ba ng bot ang Administrator permission?",
       "faq5a": "Hindi. Hinihingi lang nito ang ginagamit nito para sumagot at mag-post, at hindi kailanman binabasa ang nilalaman ng mga mensahe.",
@@ -3788,7 +3788,7 @@
       "metaDescription": "Terms of use ng MLBBDex Discord bot: libreng serbisyo, makatwirang paggamit, data ng game na ibinibigay nang walang warranty.",
       "lead": "Ang mga simpleng patakaran ng isang libreng serbisyo.",
       "p1": "Ang MLBBDex bot ay isang independiyente at libreng fan project, na walang kaugnayan sa Moonton. Ang Mobile Legends: Bang Bang ay trademark ng Shanghai Moonton Technology Co., Ltd.",
-      "p2": "Ang data (statistics, build, tier list, patch notes) ay ibinibigay nang walang garantiya ng katumpakan o availability. Ang mga teksto ay nagmula sa Mobile Legends wiki (Fandom) at Liquipedia, sa ilalim ng lisensya ng CC BY-SA, ang mga istatistika mula sa mga ranggo na laro. Ang mga larawan at pangalan ng laro ay nananatiling © Moonton, at ang mga collaborations © kanilang mga may hawak ng karapatan.",
+      "p2": "Ang data (statistics, build, tier list, patch notes) ay ibinibigay nang walang garantiya ng katumpakan o availability. Ang mga teksto ay nagmula sa Mobile Legends wiki (Fandom) at Liquipedia, sa ilalim ng lisensya ng CC BY-SA; ang mga numero ay nagmula sa mga istatistika ng ranggo ng laro. Ang mga larawan at pangalan ng laro ay nananatiling © Moonton, at ang mga collaborations © kanilang mga may hawak ng karapatan.",
       "p3": "Huwag abusuhin ang bot: walang mapang-abusong automation ng mga command, walang pagtatangkang i-access ang mga setting ng server na hindi mo pinamamahalaan. Maaaring limitahan o alisin ang serbisyo sa server na umaabuso rito.",
       "p4": "Maaaring magbago, maantala o tumigil ang serbisyo anumang oras. Ang mga patakaran ng Discord (Terms of Service at Community Guidelines) ay nalalapat sa paggamit nito.",
       "p5": "Ang data na iniimbak ay inilalarawan sa privacy page ng bot. Para sa anumang tanong: [{contact}](mailto:{contact}).",
@@ -4274,7 +4274,7 @@
       "warning": "Ang pagbili, pagbenta o pag-trade ng account ay labag sa terms of service ng Moonton: puwedeng ma-ban ang account o bawiin ng dating may-ari, at karaniwan ang scam. Sinusukat ng tantiyang ito kung magkano ang nagastos sa isang collection; hindi ito nagtatakda ng presyo. Walang ipinapadala sa server.",
       "methodTitle": "Ang paraan, isa-isang numero",
       "methodPoints": "Ang mga tier ay ang mga nasa Showcase ng laro, kasama ang collection points na ibinibigay ng laro sa bawat skin. Ang kabuuang points ay pansuri: dapat itong tumugma sa kabuuang ipinapakita ng laro.",
-      "methodCost": "Ang bawat skin ay binibilang para sa karaniwang halaga ng kategorya nito. Ang Premium, Exceptional at Common ay ibinebenta sa mga tindahan: ang kanilang gastos ay ang median na presyo sa mga diamante ng mga skin sa kategorya, na naitala sa data ng laro. Ang Legend, Grandiose at Exquisite ay nakukuha sa pamamagitan ng pagguhit: kinukuha nila ang median, bilugan, ng mga gastos na inilathala ng mga gabay ng manlalaro, na nag-iiba-iba mula sa isang kaganapan at mula sa isang manlalaro patungo sa isa pa. Ang isang makulay na hitsura ay binibilang para sa simbolikong halaga.",
+      "methodCost": "Ang bawat skin ay binibilang para sa karaniwang halaga ng kategorya nito. Ang Premium, Exceptional at Common ay ibinebenta sa mga tindahan: ang kanilang gastos ay ang median na presyo sa mga diamante ng mga skin sa kategorya, na naitala sa data ng laro. Ang Legend, Grandiose at Exquisite ay nakukuha sa pamamagitan ng pagguhit: ang kanilang gastos ay ang bilugan na median ng mga gastos na inilathala ng mga gabay ng manlalaro, at ang mga gastos na ito ay nag-iiba-iba mula sa isang kaganapan at mula sa isang manlalaro patungo sa isa pa. Ang isang makulay na hitsura ay binibilang para sa simbolikong halaga.",
       "tableCaption": "Points at gastos na binibilang bawat skin, ayon sa tier",
       "colTier": "Tier",
       "colPoints": "Mga puntos",
@@ -4769,7 +4769,7 @@
         "wins": "Panalo",
         "heroMatches": "{n} laban",
         "updated": "Na-update {date}",
-        "minimum": "Hindi bababa rito: may mga hero na hindi nabasa",
+        "minimum": "Mga minimum na halaga: hindi mabasa ang ilang hero",
         "region": "Region",
         "statsLater": "Babalik ang mga hero stats sa sandaling maibigay muli ng serbisyo ng laro ang mga ito."
       }
@@ -5020,7 +5020,7 @@
           "p": "Kapag naka-log in ka gamit ang in-game verification code, makikita mo ang sarili mong profile — season, mga hero na nilaro, mga kamakailang match — na binabasa kapag hiniling sa parehong API, para sa iyo lang. Hindi ito ipina-publish o itinatago lampas sa cache na ilang minuto."
         },
         {
-          "p": "Ang mga visual ay pagmamay-ari ng Moonton, at para sa mga skin ng collaboration ay para din sa mga may hawak ng karapatan ng mga karakter at tatak na nauugnay. Ang mga larawan, mga icon at mga larawan sa skin ay nagmula sa wiki ng komunidad at inihahatid ng site na ito upang walang nakadepende sa isang third party na domain. Ang mga ito ay nananatiling pag-aari ng Moonton, naroroon para sa mga layunin ng paglalarawan, at aalisin kapag hiniling ng may hawak ng mga karapatan. Ang visual na pagkakakilanlan ng site - midnight blue, gold, cut corners - ay inspirasyon ng laro nang hindi ginagamit ang mga file ng interface."
+          "p": "Ang mga visual ay pagmamay-ari ng Moonton at, para sa mga skin ng collaboration, sa mga may hawak ng karapatan ng mga karakter at tatak na nauugnay. Ang mga larawan, mga icon at mga larawan sa skin ay nagmula sa wiki ng komunidad at inihahatid ng site na ito upang walang nakadepende sa isang third party na domain. Ang mga ito ay nananatiling pag-aari ng Moonton, naroroon para sa mga layunin ng paglalarawan at aalisin kapag hiniling ng may hawak ng mga karapatan. Ang visual na pagkakakilanlan ng site (madilim na asul, ginto, mga gupit na sulok) ay inspirasyon ng laro nang hindi ginagamit ang mga file ng interface."
         },
         {
           "h": "Ang roundup"
@@ -5084,7 +5084,7 @@
           "p": "Ang mga visual na ipinakita (mga larawan, icon, emblem, mga larawan) at ang mga pangalan ng laro ay © Moonton. Ang mga skin ng collaboration (NARUTO, Star Wars, Transformers, Jujutsu Kaisen, The King of Fighters, Neymar Jr at iba pa) ay nagtatampok ng mga character, brand at tao na kabilang sa kani-kanilang mga may hawak ng karapatan, sa ilalim ng lisensyang ipinagkaloob kay Moonton: ipinapakita lang ng site ang maliit na larawan ng tindahan, hindi ang malaking paglalarawan. Ang mga visual na ito ay kinopya mula sa wiki ng komunidad para sa mga layunin ng paglalarawan at impormasyon; hindi sila lisensyado sa ilalim ng CC BY-SA. Sa kahilingan ng may hawak ng mga karapatan, aalisin sila."
         },
         {
-          "p": "Ang mga makatotohanang teksto (mga paglalarawan, kwento, patch notes, listahan ng skin) ay kinuha mula sa [Mobile Legends wiki](https://mobilelegends.fandom.com) sa Fandom at mula sa [Liquipedia](https://liquipedia.net/mobilelegends), sa ilalim ng CC BY-SA na lisensya: ang bawat page na gumagamit ng mga ito ay nagbibigay ng kredito sa pinagmulan nito, at ang kanilang mga pagsasalin ay nananatili sa ilalim ng lisensyang ito. Ang mga numero ng laro ay nagmula sa isang community API. Ang code at mga tekstong isinulat para sa site na ito ay nai-publish sa ilalim ng lisensya ng MIT — tingnan ang [public repository]({repository})."
+          "p": "Ang mga makatotohanang teksto (mga paglalarawan, kwento, patch notes, listahan ng skin) ay kinuha mula sa [Mobile Legends wiki](https://mobilelegends.fandom.com) sa Fandom at mula sa [Liquipedia](https://liquipedia.net/mobilelegends), sa ilalim ng CC BY-SA na lisensya: ang bawat page na gumagamit ng mga ito ay nagbibigay ng kredito sa pinagmulan nito, at ang kanilang mga pagsasalin ay nananatili sa ilalim ng lisensyang ito. Ang mga numero ng laro ay nagmula sa isang community API. Ang code at mga tekstong isinulat para sa site na ito ay nai-publish sa ilalim ng lisensya ng MIT (tingnan ang [public repository]({repository}))."
         },
         {
           "h": "Pananagutan"
@@ -5103,7 +5103,7 @@
     "privacy": {
       "blocks": [
         {
-          "p": "Ang site na ito ay idinisenyo upang iproseso ang pinakamaliit na data hangga't maaari. Karamihan sa mga pahina ay gumagana nang walang account at hindi nagse-save ng anuman sa isang server; tanging ang mga feature na pipiliin mong gamitin (game account o Discord login, komunidad, koleksyon, notification, pag-uulat ng error, Discord bot) ang nagpapanatili ng inilalarawan nila sa ibaba. Alinsunod sa General Data Protection Regulation (GDPR) at Data Protection Act, ang pahinang ito ay nagdedetalye kung ano ang pinoproseso, bakit, gaano katagal, at kung paano gamitin ang iyong mga karapatan."
+          "p": "Ang site na ito ay idinisenyo upang iproseso ang pinakamaliit na data hangga't maaari. Karamihan sa mga pahina ay gumagana nang walang account at hindi nagse-save ng anuman sa isang server; Tanging ang mga feature na pinili mong gamitin (game account o Discord login, komunidad, koleksyon, notification, pag-uulat ng error, Discord bot) ang nagpapanatili ng data na inilarawan sa ibaba. Alinsunod sa General Data Protection Regulation (GDPR) at Data Protection Act, ang pahinang ito ay nagdedetalye kung ano ang pinoproseso, bakit, gaano katagal, at kung paano gamitin ang iyong mga karapatan."
         },
         {
           "h": "Controller ng data"
@@ -5145,7 +5145,7 @@
       "results": "para sa mga leaderboard ng mga daily game na nilalaro sa Discord: ang Discord ID at pangalan ng mga player at ang kanilang mga score.",
       "details": "Ang mga detalye, ang tagal ng pag-iimbak at ang pagbura ay nasa privacy page ng bot.",
       "members": "Walang iniimbak tungkol sa mga member ng server: ang kanilang pagsali at pag-alis, na ipinapaalam ng Discord sa bot, ay ginagamit lang para i-post ang mga welcome at goodbye message na in-on ng server.",
-      "profile": "para sa /profile card, kung ili-link mo ito mula sa page ng iyong account: isang print ng iyong Discord ID at isa sa iyong ID ng laro at iyong server (hindi kailanman ang mga ID mismo), ang iyong dalawang pagpipilian (kung maipapakita ito ng iba, kung ito ay nagpapakita ng iyong ID), isang kopya ng iyong mga istatistika sa huling nabasa: palayaw, avatar, bansa, antas, ranggo, mga laro at mga tagumpay ng season, at tatlong pinaka-nalaro mong hero (AES-256-GCM), hanggang sa mag-expire ito (7 araw sa pinakamaraming araw), para mabasa muli ng /profile ang iyong mga istatistika sa bawat tawag. Ang bawat bagong koneksyon sa site ay nire-renew ang token na ito. Ang card at token ay tatanggalin kapag tinanggal mo ito; ang card ay 30 araw din pagkatapos ng huling pagbabasa;"
+      "profile": "para sa /profile card, kung ili-link mo ito mula sa page ng iyong account: isang print ng iyong Discord ID at isa sa iyong mga laro at server ID (hindi kailanman ang mga ID mismo), ang iyong dalawang pagpipilian (kung makikita ito ng iba, kung ito ay nagpapakita ng iyong ID), isang kopya ng iyong mga istatistika sa huling nabasa (username, avatar, bansa, antas, ranggo, mga laro at panalo ng season, tatlong pinaka-nalaro na hero,2-CM), at ang iyong laro hanggang sa na-encrypt na A6G-2, at ang iyong laro hanggang sa na-encrypt na A6G. mag-e-expire (7 araw sa pinakamaraming araw), para basahin muli ng /profile ang iyong mga istatistika sa bawat tawag. Ang bawat bagong koneksyon sa site ay nire-renew ang token na ito. Ang card at token ay tatanggalin kapag tinanggal mo ito; ang card ay 30 araw din pagkatapos ng huling pagbabasa;"
     },
     "community": {
       "title": "Community: forum at teammate finder",
@@ -5155,14 +5155,14 @@
       "posts": "ang iyong mga discussion at reply, na public, kasama ang petsa nila; ang iyong mga boto at report, na hindi ipinapakita kaninuman maliban sa mga moderator (ang mga report);",
       "card": "ang iyong teammate card at, kung idaragdag mo, ang iyong game ID at Discord username: ipinapakita lang ang mga ito sa mga naka-sign in na player, at binubura ang card pitong araw pagkatapos ng huling pag-save nito.",
       "moderation": "Nakikita ng mga moderator ang mga ulat at maaaring itago, tanggalin o i-ban ang mga ito; bawat isa sa kanilang mga desisyon ay naitala sa isang journal. Ginagamit ng mga limitasyon sa rate ang iyong IP address, sa memorya lamang: hindi ito kailanman isinulat sa disk.",
-      "deletion": "Maaari mong i-edit ang isang mensahe sa loob ng isang oras at tanggalin ito para sa isang araw, bawiin ang iyong card anumang oras. Ang isang tinanggal na mensahe ay nawawala ang teksto nito; pinapanatili ng isang tinanggal na talakayan ang pamagat, may-akda at petsa nito. Higit pa riyan, o para tanggalin ang lahat ng iyong pakikilahok, sumulat sa {contact}.",
+      "deletion": "Maaari mong i-edit ang isang mensahe sa loob ng isang oras, tanggalin ito para sa isang araw, at alisin ang iyong card anumang oras. Ang isang tinanggal na mensahe ay nawawala ang teksto nito; pinapanatili ng isang tinanggal na talakayan ang pamagat, may-akda at petsa nito. Higit pa riyan, o para tanggalin ang lahat ng iyong pakikilahok, sumulat sa {contact}.",
       "pseudonymous": "Ang mga fingerprint na ito (SHA-256, walang asin) ay pseudonymous na data, hindi anonymous: sinumang nakakaalam ng iyong game ID at server, o ng iyong Discord ID, ay maaaring muling kalkulahin ang fingerprint. Nananatili silang personal na data, na protektado tulad nito."
     },
     "collection": {
       "title": "Koleksyon ng skin",
       "intro": "Pinapanatili ng tool sa pagkolekta ang mga hero at skin na iyong tinitingnan sa iyong browser (lokal na imbakan). Kung nakakonekta ka sa iyong account sa laro, nag-iimbak din ang server ng site, sa database nito:",
       "data": "ang parehong account imprint bilang komunidad (hindi kailanman ang iyong ID ng laro), ang listahan ng mga hero at mga skin na nasuri, at ang petsa ng huling pagpaparehistro; walang iba, at walang ipinapakita sa sinuman.",
-      "usage": "Ginagamit lang ito para mahanap ang iyong koleksyon sa iba mo pang device. Binabasa ng filter na \"mga nilalaro ko\" ang iyong mga hero ng season mula sa serbisyo sa pag-login sa sandaling i-activate mo ito, nang walang nai-save na anuman.",
+      "usage": "Ginagamit lang ang kopyang ito para mahanap ang iyong koleksyon sa iba mo pang device. Binabasa ng filter na \"mga nilalaro ko\" ang iyong mga season hero mula sa serbisyo sa pag-log in sa sandaling i-activate mo ito, nang hindi nagse-save ng kahit ano.",
       "deletion": "Upang alisan ng laman ang kopya ng iyong account, tanggalin ang iyong koleksyon sa tool habang naka-log in; Upang tanggalin ang mismong linya, sumulat sa {contact}."
     },
     "dataReports": {
@@ -5255,7 +5255,7 @@
       },
       "game": {
         "title": "Mag-login sa account ng laro",
-        "text": "Ang koneksyon ay gumagamit ng opisyal na daloy ng Moonton: ipinapahiwatig mo ang iyong username at ang iyong server ng laro, isang verification code ang ipinadala sa iyo sa laro, at ang site ay tumatanggap ng pansamantalang token bilang kapalit. Ang mga palitan na ito ay dumaan sa isang community API (`arena.rone.dev`) at sa pamamagitan ng mga serbisyo ng Moonton, na tumatanggap ng iyong identifier, iyong server, ang code pagkatapos ang token. Nakatira ang token sa session cookie `mlbb_jeu`; ise-save lang ito sa server kung magli-link ka ng /profile card, naka-encrypt at hanggang sa mag-expire ito (tingnan ang bahagi sa Discord bot); ang mga tugon ng serbisyo (profile, istatistika, laro) ay pinananatili sa memorya ng ilang oras, upang limitahan ang mga tawag. Hindi ka kailanman hihilingin ng password. Ang server ay nagpapanatili lamang ng isang bagay nang permanente kung gagamitin mo ang komunidad o koleksyon, tulad ng inilarawan sa ibaba."
+        "text": "Ang koneksyon ay gumagamit ng opisyal na daloy ng Moonton: ipinapahiwatig mo ang iyong username at ang iyong server ng laro, isang verification code ang ipinadala sa iyo sa laro, at ang site ay tumatanggap ng pansamantalang token bilang kapalit. Ang mga palitan na ito ay dumaan sa isang community API (`arena.rone.dev`) at sa pamamagitan ng mga serbisyo ng Moonton, na tumatanggap ng iyong identifier, iyong server, ang code pagkatapos ang token. Ang token ay nakaimbak sa session cookie `mlbb_jeu`; ise-save lang ito sa server kung magli-link ka ng /profile card, naka-encrypt at hanggang sa mag-expire ito (tingnan ang bahagi sa Discord bot); ang mga tugon ng serbisyo (profile, istatistika, laro) ay pinananatili sa memorya ng ilang oras, upang limitahan ang mga tawag. Hindi ka kailanman hihilingin ng password. Ang server ay nagpapanatili lamang ng data nang permanente kung gagamitin mo ang komunidad o koleksyon, tulad ng inilarawan sa ibaba."
       },
       "thirdParty": {
         "title": "Third-party na nilalaman",
@@ -5273,7 +5273,7 @@
       },
       "transfers": {
         "title": "Mga paglilipat sa labas ng European Union",
-        "text": "Ang ilang partikular na opsyonal na feature ay kinabibilangan ng mga serbisyong matatagpuan sa labas ng European Union: Discord, sa United States, kung kumonekta ka sa Discord o gagamitin ang bot (mga paglilipat na pinamamahalaan ng EU-US data protection framework o ang mga karaniwang contractual clause ng European Commission); Moonton, Asia, at ang `arena.rone.dev` Community API, kung ikinonekta mo ang iyong game account; serbisyo ng mga notification ng iyong browser, kung pinagana mo ang mga notification. Nagaganap lamang ang mga paglilipat na ito kung gagamitin mo ang mga function na ito."
+        "text": "Kasama sa ilang opsyonal na feature ang mga serbisyong matatagpuan sa labas ng European Union: Discord, sa United States, kung kumonekta ka sa Discord o gagamitin ang bot (mga paglilipat na saklaw ng EU-US Data Protection Framework o Standard Contractual Clauses ng European Commission); Moonton, Asia, at ang `arena.rone.dev` Community API, kung ikinonekta mo ang iyong game account; serbisyo ng mga notification ng iyong browser, kung pinagana mo ang mga notification. Nagaganap lamang ang mga paglilipat na ito kung gagamitin mo ang mga function na ito."
       },
       "retention": {
         "title": "Gaano katagal pinapanatili ang data",
@@ -5416,7 +5416,7 @@
     "methodTitle": "Paraan at mga source"
   },
   "newHero": {
-    "highlight": "Special trait — ",
+    "highlight": "Special trait: ",
     "title": "Bagong hero",
     "seeSheet": "Tingnan ang buong profile ni {name}"
   },
@@ -5679,7 +5679,7 @@
     },
     "execute": {
       "name": "Execute",
-      "description": "Nagbibigay ng damage batay sa nawawalang HP ng target.",
+      "description": "Nagdudulot ng damage na nakalkula sa nawawalang HP ng target.",
       "bestFor": "Mga jungler at assassin na kailangang ma-secure ang kill."
     },
     "retribution": {
@@ -5796,7 +5796,7 @@
     "groups": {
       "hero": "Mga hero",
       "item": "Mga item",
-      "patch": "Patch notes",
+      "patch": "Mga Patch Note",
       "page": "Mga pahina",
       "skill": "Mga skill",
       "skin": "Mga skin",

@@ -28,7 +28,7 @@ tools: ["/tier-list", "/tools/timer", "/tools/retribution", "/tools/build"]
 
 <!-- guide:heroes -->
 
-Лесники делятся на три семейства. Убийцы, такие как [Ling](/heroes/ling), [Lancelot](/heroes/lancelot) или [Hayabusa](/heroes/hayabusa), уничтожают изолированную цель; бойцы, такие как [Martis](/heroes/martis) или [Barats](/heroes/barats)), выдерживают длительные бои; Джунглевые танки, такие как [Fredrinn](/heroes/fredrinn) или [Baxia](/heroes/baxia)), оставляют золото другим и вступают в бой. Правильный выбор зависит от того, чего не хватает вашей команде.
+Лесники делятся на три семейства. Убийцы, такие как [Ling](/heroes/ling), [Lancelot](/heroes/lancelot) или [Hayabusa](/heroes/hayabusa), уничтожают изолированную цель; бойцы, такие как [Martis](/heroes/martis) или [Balmond](/heroes/balmond)), выдерживают длительные бои; Джунглевые танки, такие как [Fredrinn](/heroes/fredrinn) или [Baxia](/heroes/baxia)), оставляют золото другим и вступают в бой. Правильный выбор зависит от того, чего не хватает вашей команде.
 
 ## Самые популярные предметы, эмблемы и заклинания
 

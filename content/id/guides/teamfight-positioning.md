@@ -64,7 +64,7 @@ Urutan prioritas yang paling aman:
 2. hero yang menyembuhkan atau melindungi, jika dia berada dalam jangkauan;
 3. selebihnya, dimulai dari yang terdekat.
 
-Melawan tim yang banyak menyembuhkan, item pengurangan penyembuhan mengubah hasil pertarungan panjang: [Sea Halberd](/items/sea-halberd) untuk damage fisik, [Necklace of Durance](/items/necklace-of-durance) untuk damage sihir, [Dominance Ice](/items/dominance-ice) untuk tank. [Katalog item](/items) menunjukkan siapa yang membuatnya.
+Melawan tim yang banyak menyembuhkan, item pengurangan penyembuhan mengubah hasil pertarungan panjang: [Sea Halberd](/items/sea-halberd) untuk damage fisik, [Glowing Wand](/items/glowing-wand) untuk damage sihir, [Dominance Ice](/items/dominance-ice) untuk tank. [Katalog item](/items) menunjukkan siapa yang membuatnya.
 
 ## Kesalahan paling umum
 

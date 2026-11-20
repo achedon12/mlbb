@@ -64,7 +64,7 @@ L'ordine di priorità più sicuro:
 2. l'eroe che cura o protegge, se è nel raggio d'azione;
 3. il resto, a cominciare da quello più vicino.
 
-Contro una squadra che cura molto, gli oggetti di riduzione della guarigione cambiano l'esito dei combattimenti lunghi: [Sea Halberd](/items/sea-halberd) per danni fisici, [Necklace of Durance](/items/necklace-of-durance) per danni magici, [Dominance Ice](/items/dominance-ice) per un tank. Il [catalogo degli oggetti](/items) indica chi li costruisce.
+Contro una squadra che cura molto, gli oggetti di riduzione della guarigione cambiano l'esito dei combattimenti lunghi: [Sea Halberd](/items/sea-halberd) per danni fisici, [Glowing Wand](/items/glowing-wand) per danni magici, [Dominance Ice](/items/dominance-ice) per un tank. Il [catalogo degli oggetti](/items) indica chi li costruisce.
 
 ## Gli errori più comuni
 
