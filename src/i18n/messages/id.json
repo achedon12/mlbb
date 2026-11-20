@@ -1158,7 +1158,7 @@
         "description": "Kalender acara Mobile Legends: Bang Bang, dari {start} hingga {end} ({n} bulan): Skin StarLight, skin Kolektor, undian, dan simpan. StarLight yang terakhir diketahui: {latest}."
       },
       "eventsMonth": {
-        "metaDescription": "Legenda Seluler: Bang Bang di {month}: {summary}"
+        "metaDescription": "Mobile Legends: Bang Bang di {month}: {summary}"
       },
       "nickname": {
         "title": "Generator Nickname Keren MLBB: Nama Unicode",
@@ -3377,7 +3377,7 @@
       "communityText": "Terhubung dengan akun game Anda, Anda dapat mempublikasikan build yang ditampilkan dengan judul dan catatan: pemain lain memilihnya, dan yang paling didukung naik.",
       "communityLink": "Lihat build komunitas",
       "sourcesTitle": "Sumber",
-      "sourceWiki": "Wiki Legenda Seluler: {page}",
+      "sourceWiki": "Wiki Mobile Legends: {page}",
       "sourceItems": "Atribut item dan pasif: File wiki Mobile Legends, tersinkronisasi dengan situs.",
       "sourceMeasured": "Build terukur: akademi game, melalui API komunitas arena.rone.dev.",
       "methodAndSources": "Metode dan sumber"
@@ -3593,7 +3593,7 @@
       "method3": "Serangan dasar memberikan damage fisik sebesar total serangan fisik; serangan kritis memberikan damage kritis, 200% secara default, dan rata-ratanya menimbang keduanya dengan peluang kritis. Hero yang pasifnya mengubah serangan dasar tidak dimodelkan. Statistik hero berasal dari simulator build: level antara 1 dan 15 diinterpolasi, emblem tanpa bakat, pasif bersyarat item tidak dihitung.",
       "method4": "Skill tidak dihitung: data skill kami memberikan rentang berdasarkan tingkat skill tanpa menyatakan tingkat mana yang sesuai dengan nilai yang mana, dan hampir satu dari sepuluh memiliki rasio. Untuk sebuah skill, baca damage mentahnya dalam game dan masukkan di “Raw Damage”. Kecepatan serangan dasar juga kurang: tidak ada damage per detik.",
       "sourcesTitle": "Sumber",
-      "sourceWiki": "Wiki Legenda Seluler: {page}"
+      "sourceWiki": "Wiki Mobile Legends: {page}"
     },
     "damageCalculatorUI": {
       "attackerTitle": "Penyerang",

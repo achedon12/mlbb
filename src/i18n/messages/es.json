@@ -1166,7 +1166,7 @@
       },
       "drawCalculator": {
         "title": "Calculadora de tiradas MLBB: diamantes y probabilidades",
-        "description": "¿Cuántos diamantes por un aspecto de evento de MLBB? Posibilidades según tu presupuesto, número medio de sorteos con garantía, umbrales del 50, 90 y 99% y curva. Ajustes preestablecidos gratuitos, disponibles en el navegador."
+        "description": "¿Cuántos diamantes por un skin de evento de MLBB? Posibilidades según tu presupuesto, número medio de sorteos con garantía, umbrales del 50, 90 y 99% y curva. Ajustes preestablecidos gratuitos, disponibles en el navegador."
       },
       "mlbbdle": {
         "title": "MLBBdle: el juego diario para adivinar el héroe de Mobile Legends",
@@ -1496,7 +1496,7 @@
       },
       "seeAll": "Todas las skins",
       "seeMore": "Mostrar más héroes (quedan {n})",
-      "alt": "{hero}, piel {skin}"
+      "alt": "{hero}, skin {skin}"
     },
     "heroSkins": {
       "title": "Skins de {name}",
@@ -1505,10 +1505,10 @@
       "metaTitleElision": "Skins de {name}: las {n} skins e ilustraciones",
       "metaDescription": "{name}: las {n} skins de Mobile Legends: Bang Bang, con ilustraciones, rareza, fecha de lanzamiento, disponibilidad y precio.",
       "lead": "{name} tiene {n} skins. Cada tarjeta muestra la ilustración, la rareza, la fecha de lanzamiento, la disponibilidad y el precio cuando se conocen.",
-      "latest": "Última piel fechada: {skin} ({date}).",
+      "latest": "Última skin fechada: {skin} ({date}).",
       "price": "Precio",
       "illustrationOnly": "Solo ilustración: la rareza, la fecha y el precio aún no están en la base de datos.",
-      "altIllustration": "{name}: ilustración de piel {skin}",
+      "altIllustration": "{name}: ilustración de skin {skin}",
       "altPortrait": "{name} con la skin {skin}, retrato en el juego",
       "others": "Skins de los demás héroes",
       "sheetLink": "Ver las {n} skins e ilustraciones",
@@ -2096,7 +2096,7 @@
     },
     "collection": {
       "title": "Calculadora del valor de la colección",
-      "lead": "Consulta los héroes y los aspectos que posees para ver el valor de los diamantes al precio de la tienda del juego, tus monedas más raras y tu progreso en cada serie.",
+      "lead": "Consulta los héroes y los skins que posees para ver el valor de los diamantes al precio de la tienda del juego, tus monedas más raras y tu progreso en cada serie.",
       "warning": "Solo el valor en diamantes del juego: lo que cuestan estos objetos en la tienda de Mobile Legends, no lo que vale una cuenta. Comprar, vender o intercambiar cuentas va contra los términos de servicio de Moonton, y esta herramienta no da ningún valor de mercado ni de reventa.",
       "methodTitle": "Cómo se calcula el valor",
       "methodHeroes": "El precio de un héroe es el de su skin original, que viene con él. De los {heroes} héroes de nuestros datos, {diamonds} tienen precio en diamantes; los demás solo se compran con puntos de batalla o se obtienen de otra forma, y los puntos de batalla se cuentan aparte.",
@@ -2243,7 +2243,7 @@
         },
         "collector": {
           "title": "Skins Collector",
-          "desc": "Una de las rarezas más altas del juego: estos aspectos se obtienen sorteando en la Gran Colección o durante una colaboración."
+          "desc": "Una de las rarezas más altas del juego: estos skins se obtienen sorteando en la Gran Colección o durante una colaboración."
         },
         "event": {
           "title": "Eventos y sorteos",
@@ -2374,7 +2374,7 @@
     },
     "drawCalculator": {
       "title": "Calculadora de tiradas de MLBB",
-      "lead": "¿Cuántos diamantes hay para un aspecto de evento? Introduzca el precio de un sorteo, la probabilidad del premio y la garantía: la calculadora le indica sus posibilidades en función de su presupuesto, el coste medio y el número de sorteos para llegar al 50, 90 y 99%.",
+      "lead": "¿Cuántos diamantes hay para un skin de evento? Introduzca el precio de un sorteo, la probabilidad del premio y la garantía: la calculadora le indica sus posibilidades en función de su presupuesto, el coste medio y el número de sorteos para llegar al 50, 90 y 99%.",
       "methodTitle": "Método",
       "method1": "Cada tirada se considera independiente, con la misma probabilidad p de conseguir el premio. La probabilidad de tenerlo en n tiradas es 1 − (1 − p)ⁿ; con una garantía en la tirada N, llega al 100 % en esa tirada.",
       "method2": "El número medio de tiradas es (1 − (1 − p)ᴺ) / p con garantía, 1 / p sin ella. El precio usa la combinación más barata de tiradas x10 y sueltas; la media en diamantes se da para las dos formas de tirar.",
@@ -3837,7 +3837,7 @@
       "noRole": "Sin mención",
       "types": {
         "patches": "Notas del parche",
-        "skins": "Nuevas pieles",
+        "skins": "Nuevas skins",
         "events": "Eventos",
         "advanceServer": "Servidor avanzado",
         "esports": "Esports"
@@ -5081,10 +5081,10 @@
           "p": "Mobile Legends: Bang Bang, su universo, sus héroes, sus nombres y sus representaciones gráficas son marcas comerciales y obras de Shanghai Moonton Technology Co., Ltd. Este sitio es un proyecto de fans independiente, sin afiliación, respaldo ni patrocinio de Moonton."
         },
         {
-          "p": "Los elementos visuales mostrados (retratos, íconos, emblemas, ilustraciones) y los nombres del juego son © Moonton. Los aspectos de la colaboración (NARUTO, Star Wars, Transformers, Jujutsu Kaisen, The King of Fighters, Neymar Jr y otros) presentan personajes, marcas y personas pertenecientes a sus respectivos titulares de derechos, bajo licencia concedida a Moonton: el sitio sólo muestra el pequeño retrato de la tienda, nunca la ilustración grande. Estas imágenes se copian de la wiki de la comunidad con fines ilustrativos e informativos; no tienen licencia CC BY-SA. A petición del titular de los derechos, serán eliminados."
+          "p": "Los elementos visuales mostrados (retratos, íconos, emblemas, ilustraciones) y los nombres del juego son © Moonton. Los skins de la colaboración (NARUTO, Star Wars, Transformers, Jujutsu Kaisen, The King of Fighters, Neymar Jr y otros) presentan personajes, marcas y personas pertenecientes a sus respectivos titulares de derechos, bajo licencia concedida a Moonton: el sitio sólo muestra el pequeño retrato de la tienda, nunca la ilustración grande. Estas imágenes se copian de la wiki de la comunidad con fines ilustrativos e informativos; no tienen licencia CC BY-SA. A petición del titular de los derechos, serán eliminados."
         },
         {
-          "p": "Los textos factuales (descripciones, historias, notas de parches, listas de aspectos) están tomados de [Mobile Legends wiki](https://mobilelegends.fandom.com) en Fandom y de [Liquipedia](https://liquipedia.net/mobilelegends), bajo licencia CC BY-SA: cada página que los utiliza acredita su fuente y sus traducciones permanecen bajo esta licencia. Los números de juego provienen de una API comunitaria. El código y los textos escritos para este sitio se publican bajo la licencia MIT (ver [repositorio público]({repository}))."
+          "p": "Los textos factuales (descripciones, historias, notas de parches, listas de skins) están tomados de [Mobile Legends wiki](https://mobilelegends.fandom.com) en Fandom y de [Liquipedia](https://liquipedia.net/mobilelegends), bajo licencia CC BY-SA: cada página que los utiliza acredita su fuente y sus traducciones permanecen bajo esta licencia. Los números de juego provienen de una API comunitaria. El código y los textos escritos para este sitio se publican bajo la licencia MIT (ver [repositorio público]({repository}))."
         },
         {
           "h": "Responsabilidad"
@@ -5236,7 +5236,7 @@
         "consent": "Su elección sobre las cookies de medición de audiencia, y su fecha (6 meses).",
         "favourites": "Tus héroes favoritos. Se envía al servidor solo si habilita las notificaciones de parches.",
         "push": "Notificaciones de parches activas en este navegador.",
-        "collection": "Tu colección de aspectos y el estado de su sincronización con tu cuenta (una huella digital de la cuenta, nunca tu ID del juego).",
+        "collection": "Tu colección de skins y el estado de su sincronización con tu cuenta (una huella digital de la cuenta, nunca tu ID del juego).",
         "popup": "Memoria de invitación de Discord: cerrada (durante 30 días) o seguida, y número de páginas vistas en la pestaña (tiempo de pestaña).",
         "games": "Juegos, series y estadísticas de MLBBdle y el cuestionario.",
         "tierList": "Borradores del creador de la lista de niveles.",

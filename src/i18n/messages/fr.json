@@ -90,8 +90,8 @@
       "desc": "Victoire, ban et pick par rang"
     },
     "skins": {
-      "label": "Skins",
-      "desc": "Tous les skins, héros par héros"
+      "label": "Apparences",
+      "desc": "Toutes les apparences, héros par héros"
     },
     "serverTime": {
       "label": "Heure serveur",
@@ -118,12 +118,12 @@
       "desc": "Les histoires des héros par région"
     },
     "skinsCalendar": {
-      "label": "Calendrier des skins",
-      "desc": "Tous les skins par date de sortie"
+      "label": "Calendrier des apparences",
+      "desc": "Toutes les apparences par date de sortie"
     },
     "collection": {
       "label": "Valeur de collection",
-      "desc": "Vos héros et skins en diamants"
+      "desc": "Vos héros et apparences en diamants"
     },
     "matchups": {
       "label": "Matrice des duels",
@@ -160,7 +160,7 @@
     },
     "events": {
       "label": "Événements",
-      "desc": "StarLight, Collector et skins de chaque mois"
+      "desc": "StarLight, Collector et apparences de chaque mois"
     },
     "nickname": {
       "label": "Pseudo stylé",
@@ -168,7 +168,7 @@
     },
     "drawCalculator": {
       "label": "Calculateur de tirages",
-      "desc": "Diamants et chances d'un skin d'événement"
+      "desc": "Diamants et chances d'une apparence d'événement"
     },
     "mlbbdle": {
       "label": "MLBBdle",
@@ -219,7 +219,7 @@
       "community": "Aller au forum"
     },
     "sectionLead": {
-      "heroes": "Fiches, rôles, skins et histoires de chaque héros.",
+      "heroes": "Fiches, rôles, apparences et histoires de chaque héros.",
       "meta": "Qui gagne au patch actuel, mesuré sur les parties classées.",
       "guides": "Apprendre le jeu : guides, carte, modes, objets et emblèmes.",
       "tools": "Préparer une draft, tester un build, suivre son compte.",
@@ -228,7 +228,7 @@
     },
     "columns": {
       "browse": "Parcourir",
-      "skins": "Skins et événements",
+      "skins": "Apparences et événements",
       "rankings": "Classements",
       "filters": "Tier list filtrée",
       "picks": "Contres et builds",
@@ -291,7 +291,7 @@
     "version": "Version {v}",
     "contribute": "Contribuer",
     "intro": "Héros, builds et contres par rang, tier list calculée sur les taux de victoire en classé, objets, emblèmes et patch notes de Mobile Legends: Bang Bang, en français, anglais, italien, espagnol et indonésien. Projet indépendant, ouvert aux contributions.",
-    "sources": "Textes repris du wiki Mobile Legends (Fandom) et de Liquipedia, sous licence CC BY-SA, avec attribution à leurs contributeurs. Images, noms de héros, de skins et d'objets © Moonton, et pour les skins de collaboration © leurs ayants droit respectifs : ils ne relèvent pas de cette licence. Les taux de victoire, de ban et de sélection, les contres et les builds les plus joués viennent des statistiques des parties classées du jeu, via l'API communautaire arena.rone.dev.",
+    "sources": "Textes repris du wiki Mobile Legends (Fandom) et de Liquipedia, sous licence CC BY-SA, avec attribution à leurs contributeurs. Images, noms de héros, d'apparences et d'objets © Moonton, et pour les apparences de collaboration © leurs ayants droit respectifs : ils ne relèvent pas de cette licence. Les taux de victoire, de ban et de sélection, les contres et les builds les plus joués viennent des statistiques des parties classées du jeu, via l'API communautaire arena.rone.dev.",
     "discord": "Rejoindre le Discord",
     "columns": {
       "heroes": "Héros",
@@ -321,7 +321,7 @@
     },
     "heroes": {
       "title": "Héros",
-      "lead": "Les {heroes} héros du jeu et leurs {skins} skins, filtrables par rôle et par position. Les {analyses} fiches marquées « Analyse » contiennent en plus un commentaire, des builds et des contres.",
+      "lead": "Les {heroes} héros du jeu et leurs {skins} apparences, filtrables par rôle et par position. Les {analyses} fiches marquées « Analyse » contiennent en plus un commentaire, des builds et des contres.",
       "metaDescription": "Les {heroes} héros de Mobile Legends: Bang Bang, filtrables par rôle et par position : portraits, skins, statistiques et {analyses} analyses rédigées.",
       "ogDescription": "Les {heroes} héros de Mobile Legends: Bang Bang, avec leurs {skins} skins.",
       "listLd": "Héros de Mobile Legends: Bang Bang"
@@ -354,7 +354,7 @@
         "damage": "Dégâts",
         "range": "Portée",
         "region": "Région",
-        "skins": "Skins",
+        "skins": "Apparences",
         "tierList": "Tier list",
         "winRate": "Taux de victoire",
         "banRate": "Taux de ban"
@@ -366,7 +366,7 @@
         "skills": "Compétences",
         "counters": "Contres",
         "builds": "Builds",
-        "skins": "Skins",
+        "skins": "Apparences",
         "stats": "Stats"
       },
       "strengths": "Forces",
@@ -715,12 +715,12 @@
       "syncNote": "Les données suivent la synchronisation hebdomadaire du site. Dernière en date : {date}.",
       "routes": {
         "heroes": {
-          "summary": "Liste des héros, sans leurs compétences détaillées ni leurs skins.",
+          "summary": "Liste des héros, sans leurs compétences détaillées ni leurs apparences.",
           "roleParam": "Ne garde que ce rôle.",
           "laneParam": "Ne garde que cette position."
         },
         "heroSlug": {
-          "summary": "Fiche complète : statistiques, compétences avec leur description, skins, visuels, illustrations et analyse rédigée quand elle existe."
+          "summary": "Fiche complète : statistiques, compétences avec leur description, apparences, visuels, illustrations et analyse rédigée quand elle existe."
         },
         "items": {
           "summary": "Objets de la boutique, avec statistiques, passifs et recettes.",
@@ -744,11 +744,11 @@
           "localeParam": "Langue des textes (anglais par défaut)"
         },
         "skins": {
-          "summary": "Derniers skins sortis, du plus récent au plus ancien : héros, nom, date de sortie, rareté, série et illustration.",
-          "limitParam": "Nombre de skins renvoyés (20 par défaut, 100 au plus)."
+          "summary": "Dernières apparences sorties, du plus récent au plus ancien : héros, nom, date de sortie, rareté, série et illustration.",
+          "limitParam": "Nombre d'apparences renvoyées (20 par défaut, 100 au plus)."
         },
         "events": {
-          "summary": "Événements du mois en cours et des mois annoncés : skin StarLight et skins Collector, avec le début et la fin du mois, l'illustration et la page du mois sur le site.",
+          "summary": "Événements du mois en cours et des mois annoncés : apparence StarLight et apparences Collector, avec le début et la fin du mois, l'illustration et la page du mois sur le site.",
           "localeParam": "Langue des noms (anglais par défaut)"
         },
         "emblems": {
@@ -831,7 +831,7 @@
       "statAnalyses": "Héros analysés",
       "statPending": "En attente d'une analyse",
       "principleTitle": "Ce que vous écrivez",
-      "principle1": "Rôles, positions, compétences, skins, statistiques et builds joués arrivent par la synchronisation automatique du wiki et de l'API communautaire. Une analyse n'apporte que ce qu'aucune extraction ne produit : ce que le héros fait vraiment, ses forces et ses faiblesses, ses contres et des builds expliqués.",
+      "principle1": "Rôles, positions, compétences, apparences, statistiques et builds joués arrivent par la synchronisation automatique du wiki et de l'API communautaire. Une analyse n'apporte que ce qu'aucune extraction ne produit : ce que le héros fait vraiment, ses forces et ses faiblesses, ses contres et des builds expliqués.",
       "principle2": "Les analyses s'écrivent en français, la langue d'origine du site. Chacune est une entrée TypeScript, ajoutée au fichier du rôle du héros dans `src/data/heroes/`.",
       "fieldsTitle": "Les champs",
       "fieldsIntro": "Une analyse suit le type `AnalyseHeros` de `src/lib/types.ts`. Ses compétences et ses builds ont chacun leur propre forme.",
@@ -1245,7 +1245,7 @@
       "duration": "{name} gagne le plus dans les parties de {window} ({winRate}) et le moins dans celles de {windowLow} ({winRateLow}).",
       "ranks": "Selon le rang, le taux de victoire de {name} va de {low} en {rankLow} à {high} en {rankHigh}.",
       "adjustments": "Ajustements de {name} : {n} sur les {total} derniers patchs.",
-      "skins": "Skins de {name} ({n}) :"
+      "skins": "Apparences de {name} ({n}) :"
     },
     "sheets": {
       "heroes": "Héros",
@@ -1478,41 +1478,41 @@
       "noMeasure": "Pas assez de mesures"
     },
     "skins": {
-      "title": "Skins MLBB",
-      "lead": "Les {n} skins des {h} héros de Mobile Legends, rangés par héros. Ouvrez un héros pour voir chaque illustration avec sa rareté, sa date de sortie et son prix.",
+      "title": "Apparences MLBB",
+      "lead": "Les {n} apparences des {h} héros de Mobile Legends, rangées par héros. Ouvrez un héros pour voir chaque illustration avec sa rareté, sa date de sortie et son prix.",
       "metaTitle": "Skins MLBB : les {n} skins et illustrations des héros",
       "metaDescription": "Tous les skins de Mobile Legends: Bang Bang, héros par héros : {n} skins pour {h} héros, avec illustrations, rareté, date de sortie et prix. Dernier en date : {latest} ({hero}).",
       "updatedOn": "Mis à jour le {date}",
-      "latest": "Derniers skins",
-      "latestIntro": "Les sorties les plus récentes dont la date est connue, skins à venir compris.",
-      "gallery": "Skins par héros",
+      "latest": "Dernières apparences",
+      "latestIntro": "Les sorties les plus récentes dont la date est connue, apparences à venir comprises.",
+      "gallery": "Apparences par héros",
       "index": "Toutes les galeries de héros"
     },
     "skinsGallery": {
-      "account": "{h} héros · {n} skins",
+      "account": "{h} héros · {n} apparences",
       "count": {
-        "one": "{n} skin",
-        "other": "{n} skins"
+        "one": "{n} apparence",
+        "other": "{n} apparences"
       },
-      "seeAll": "Tous les skins",
+      "seeAll": "Toutes les apparences",
       "seeMore": "Afficher plus de héros ({n} restants)",
-      "alt": "{hero}, skin {skin}"
+      "alt": "{hero}, apparence {skin}"
     },
     "heroSkins": {
-      "title": "Skins de {name}",
-      "titleElision": "Skins d'{name}",
+      "title": "Apparences de {name}",
+      "titleElision": "Apparences d'{name}",
       "metaTitle": "Skins de {name} : les {n} skins et illustrations",
       "metaTitleElision": "Skins d'{name} : les {n} skins et illustrations",
       "metaDescription": "{name} : les {n} skins de Mobile Legends: Bang Bang, avec illustrations, rareté, date de sortie, disponibilité et prix.",
-      "lead": "{name} compte {n} skins. Chaque carte montre l'illustration, la rareté, la date de sortie, la disponibilité et le prix quand ils sont connus.",
-      "latest": "Dernier skin daté : {skin} ({date}).",
+      "lead": "{name} compte {n} apparences. Chaque carte montre l'illustration, la rareté, la date de sortie, la disponibilité et le prix quand ils sont connus.",
+      "latest": "Dernière apparence datée : {skin} ({date}).",
       "price": "Prix",
       "illustrationOnly": "Illustration seule : rareté, date et prix ne sont pas encore dans la base.",
-      "altIllustration": "{name} : illustration du skin {skin}",
-      "altPortrait": "{name} avec le skin {skin}, portrait en jeu",
-      "others": "Skins des autres héros",
-      "sheetLink": "Voir les {n} skins et illustrations",
-      "collaboration": "Skin de collaboration : {franchise} © ses ayants droit, sous licence accordée à Moonton ; visuel © Moonton. Seul le portrait est affiché."
+      "altIllustration": "{name} : illustration de l'apparence {skin}",
+      "altPortrait": "{name} avec l'apparence {skin}, portrait en jeu",
+      "others": "Apparences des autres héros",
+      "sheetLink": "Voir les {n} apparences et illustrations",
+      "collaboration": "Apparence de collaboration : {franchise} © ses ayants droit, sous licence accordée à Moonton ; visuel © Moonton. Seul le portrait est affiché."
     },
     "duos": {
       "title": "Meilleurs duos avec {name}",
@@ -1719,7 +1719,7 @@
       "tableNote": "Les points de montée s'accumulent au fil des parties : à 100 %, la victoire suivante rapporte une étoile de plus. Les points de protection évitent de perdre une étoile sur une défaite. La famille Mythique n'a que des points de protection.",
       "mythicTitle": "Mythique : des points au lieu des étoiles",
       "mythicIntro": "Passé Légende, il n'y a plus de divisions : les étoiles deviennent des points, et leur cumul fixe le rang. {honor} points mènent à Honneur mythique, {glory} à Gloire mythique, {immortal} à Immortel mythique.",
-      "mythicCoins": "Atteindre 15 points en Mythique rapporte chaque saison des pièces mythiques, la monnaie des skins Mythiques.",
+      "mythicCoins": "Atteindre 15 points en Mythique rapporte chaque saison des pièces mythiques, la monnaie des apparences Mythiques.",
       "heroesTitle": "Les héros qui gagnent le plus, rang par rang",
       "heroesIntro": "Les {n} meilleurs taux de victoire de chaque tranche de rang mesurée par le jeu, hors héros trop peu joués pour que leur taux soit fiable.",
       "win": "taux de victoire",
@@ -1728,7 +1728,7 @@
       "seasonTitle": "Fin de saison et récompenses",
       "reset1": "À la fin d'une saison, chaque joueur repart dans la nouvelle avec un rang fixé d'après celui qu'il avait atteint, et reçoit les récompenses de ce rang.",
       "reset2": "La remise à zéro ne s'applique qu'à la première connexion de la nouvelle saison ; l'ancien rang n'apparaît plus au classement.",
-      "journey": "Le parcours de saison, ouvert à partir d'Épique, récompense le nombre de parties classées jouées : le skin de saison s'obtient au bout de 20 parties.",
+      "journey": "Le parcours de saison, ouvert à partir d'Épique, récompense le nombre de parties classées jouées : l'apparence de saison s'obtient au bout de 20 parties.",
       "serverTimeLink": "Compte à rebours de la fin de saison et heure du serveur",
       "rewardsTitle": "Récompenses de fin de saison",
       "colFinalRank": "Rang final",
@@ -1749,7 +1749,7 @@
     "quiz": {
       "title": "Quiz MLBB du jour",
       "crumb": "Quiz",
-      "lead": "Cinq épreuves par jour, les mêmes pour tout le monde : une compétence, un détail de skin, un extrait d'histoire, un objet et un duel de taux de victoire. Tout vient de notre base, dans votre langue.",
+      "lead": "Cinq épreuves par jour, les mêmes pour tout le monde : une compétence, un détail d'apparence, un extrait d'histoire, un objet et un duel de taux de victoire. Tout vient de notre base, dans votre langue.",
       "rulesTitle": "Comment jouer",
       "rule1": "Le défi change chaque jour à minuit UTC. Tout le monde a le même, quelle que soit la langue.",
       "rule2": "Vous avez {heroes} essais pour trouver un héros et {items} pour un objet. Chaque erreur débloque un indice et compare votre réponse à la bonne : rôle, lane, année de sortie, région ou prix.",
@@ -1762,8 +1762,8 @@
           "desc": "Une icône de compétence. Chaque erreur révèle son nom, puis le début de sa description (nom du héros masqué), son rôle et sa lane."
         },
         "skin": {
-          "title": "Skin",
-          "desc": "Un gros plan sur l'illustration d'un skin. L'image se dézoome à chaque erreur et les indices s'ajoutent : rôle, lane, année de sortie, puis nom du skin."
+          "title": "Apparence",
+          "desc": "Un gros plan sur l'illustration d'une apparence. L'image se dézoome à chaque erreur et les indices s'ajoutent : rôle, lane, année de sortie, puis nom de l'apparence."
         },
         "story": {
           "title": "Histoire",
@@ -1779,7 +1779,7 @@
         }
       },
       "sourceTitle": "D'où viennent les questions",
-      "source": "Les questions sont tirées de la base de MLBBDex : compétences et histoires de tous les héros dans votre langue, illustrations des skins, statistiques et recettes des objets, taux de victoire relevés en partie classée. Rien n'est écrit à la main : le quiz suit chaque mise à jour du jeu.",
+      "source": "Les questions sont tirées de la base de MLBBDex : compétences et histoires de tous les héros dans votre langue, illustrations des apparences, statistiques et recettes des objets, taux de victoire relevés en partie classée. Rien n'est écrit à la main : le quiz suit chaque mise à jour du jeu.",
       "heroesLink": "Tous les héros",
       "itemsLink": "Tous les objets",
       "tierListLink": "La tier list du moment",
@@ -1829,14 +1829,14 @@
       "nextQuestion": "Question suivante",
       "types": {
         "skill": "Compétence",
-        "skin": "Skin",
+        "skin": "Apparence",
         "story": "Histoire",
         "item": "Objet",
         "duel": "Duel de taux"
       },
       "questions": {
         "skill": "À quel héros appartient cette compétence ?",
-        "skin": "Quel héros se cache derrière ce skin ?",
+        "skin": "Quel héros se cache derrière cette apparence ?",
         "story": "De quel héros parle cette histoire ?",
         "item": "Quel objet donne ces statistiques ?",
         "duel": "Qui gagne le plus souvent en partie classée ?"
@@ -1850,7 +1850,7 @@
         "roles": "Rôle",
         "lanes": "Lane",
         "year": "Année de sortie",
-        "skin": "Nom du skin",
+        "skin": "Nom de l'apparence",
         "excerpt": "Autre extrait",
         "region": "Région",
         "initial": "Initiale",
@@ -1890,8 +1890,8 @@
       },
       "itemPrice": "Prix : {price} or",
       "altSkill": "Icône de la compétence à identifier",
-      "altSkin": "Détail agrandi de l'illustration d'un skin",
-      "altSkinFull": "Illustration complète du skin",
+      "altSkin": "Détail agrandi de l'illustration d'une apparence",
+      "altSkinFull": "Illustration complète de l'apparence",
       "announceFound": "Bravo, c'était {name} !",
       "announceMissed": "Raté : la réponse était {name}.",
       "announceWrong": "{name} : non. Essais restants : {n}.",
@@ -1900,7 +1900,7 @@
       "announceDuelWrong": "Non : {name} gagne davantage, avec {rate} % de victoires.",
       "found": "Trouvé ! Essais : {n}/{max}",
       "missed": "Manqué ! La réponse était :",
-      "skinName": "Skin : {name}",
+      "skinName": "Apparence : {name}",
       "skillName": "Compétence : {name}",
       "seeSheet": "Voir la fiche",
       "seeItem": "Voir l'objet",
@@ -2038,36 +2038,36 @@
       "nHeroes1": "1 héros"
     },
     "skinsCalendar": {
-      "title": "Calendrier des skins",
+      "title": "Calendrier des apparences",
       "crumb": "Calendrier",
-      "crumbSkins": "Skins",
-      "lead": "Tous les skins de Mobile Legends par mois de sortie, de {start} à {end} : {n} skins avec leur héros, leur rareté, leur série et leur prix. Filtrez par héros, rôle, série, rareté ou année.",
+      "crumbSkins": "Apparences",
+      "lead": "Toutes les apparences de Mobile Legends par mois de sortie, de {start} à {end} : {n} apparences avec leur héros, leur rareté, leur série et leur prix. Filtrez par héros, rôle, série, rareté ou année.",
       "thisMonthTitle": "Sortis en {month}",
-      "thisMonthEmpty": "Aucun skin daté de {month} dans nos données pour l'instant. Le mois le plus récent recensé par le wiki communautaire est {latest}.",
-      "seeLatest": "Voir les derniers skins",
-      "latestTitle": "Derniers skins",
-      "latestLead": "Les douze skins les plus récents dont le mois de sortie est connu.",
+      "thisMonthEmpty": "Aucune apparence datée de {month} dans nos données pour l'instant. Le mois le plus récent recensé par le wiki communautaire est {latest}.",
+      "seeLatest": "Voir les dernières apparences",
+      "latestTitle": "Dernières apparences",
+      "latestLead": "Les douze apparences les plus récentes dont le mois de sortie est connu.",
       "exploreTitle": "Parcourir par année et par mois",
-      "exploreLead": "Chaque case compte les skins sortis ce mois-là : ouvrez une année pour la liste complète, ou combinez les filtres.",
-      "tableLegend": "Skins sortis par mois et par année",
+      "exploreLead": "Chaque case compte les apparences sorties ce mois-là : ouvrez une année pour la liste complète, ou combinez les filtres.",
+      "tableLegend": "Apparences sorties par mois et par année",
       "colYear": "Année",
       "colTotal": "Total",
       "unknownMonth": "Mois non précisé",
-      "monthCell": "{month}, skins : {n}",
-      "nSkins": "{n} skins",
-      "nSkins1": "1 skin",
+      "monthCell": "{month}, apparences : {n}",
+      "nSkins": "{n} apparences",
+      "nSkins1": "1 apparence",
       "seriesTitle": "Séries et événements",
-      "seriesLead": "Les étiquettes que le wiki donne aux skins (Collector, StarLight, Épique, Légende, collaborations…), par nombre de skins. Choisissez-en une pour filtrer le calendrier.",
+      "seriesLead": "Les étiquettes que le wiki donne aux apparences (Collector, StarLight, Épique, Légende, collaborations…), par nombre d'apparences. Choisissez-en une pour filtrer le calendrier.",
       "seriesDetail": "{n} · {period}",
       "datesTitle": "À propos des dates",
-      "datesPrecision": "Les dates viennent du wiki communautaire : {day} skins sont datés au jour, {month} au mois et {year} à l'année seulement ; ces derniers sont placés en fin d'année.",
-      "datesSkipped": "Non affichés : {upcoming} skins que le wiki annonce sans date confirmée, et {future} datés après nos données, en attente de confirmation. Ni rumeur ni fuite ici.",
-      "datesOrigin": "Les skins d'origine, fournis avec leur héros, ne sont pas comptés : ils marquent la sortie d'un héros, pas celle d'un skin.",
+      "datesPrecision": "Les dates viennent du wiki communautaire : {day} apparences sont datées au jour, {month} au mois et {year} à l'année seulement ; ces dernières sont placées en fin d'année.",
+      "datesSkipped": "Non affichées : {upcoming} apparences que le wiki annonce sans date confirmée, et {future} datées après nos données, en attente de confirmation. Ni rumeur ni fuite ici.",
+      "datesOrigin": "Les apparences d'origine, fournies avec leur héros, ne sont pas comptées : elles marquent la sortie d'un héros, pas celle d'une apparence.",
       "collectionLink": "Combien vaut votre collection en diamants ?",
-      "source": "Dates de sortie, raretés et prix issus du {link} (module des skins), sous licence CC BY-SA.",
+      "source": "Dates de sortie, raretés et prix issus du {link} (module des apparences), sous licence CC BY-SA.",
       "year": {
-        "title": "Skins sortis en {year}",
-        "lead": "Tous les skins de Mobile Legends sortis en {year}, mois par mois, avec leur héros, leur rareté, leur série et leur prix. Total : {n}.",
+        "title": "Apparences sorties en {year}",
+        "lead": "Toutes les apparences de Mobile Legends sorties en {year}, mois par mois, avec leur héros, leur rareté, leur série et leur prix. Total : {n}.",
         "factSeries": "Séries principales : {list}.",
         "factHeroes": "Héros les plus servis : {list}.",
         "factRarities": "Par rareté : {list}.",
@@ -2076,7 +2076,7 @@
       }
     },
     "skinsCalendarUI": {
-      "search": "Chercher un skin ou un héros",
+      "search": "Chercher une apparence ou un héros",
       "heroes": "Héros",
       "series": "Série",
       "year": "Année",
@@ -2085,47 +2085,47 @@
       "allHeroes": "Tous",
       "all": "Toutes",
       "clear": "Effacer les filtres",
-      "loading": "Chargement des skins…",
-      "error": "Impossible de charger la liste des skins. Vérifiez votre connexion et réessayez.",
-      "result": "1 skin correspond.",
-      "results": "{n} skins correspondent.",
-      "nSkins": "{n} skins",
-      "nSkins1": "1 skin",
+      "loading": "Chargement des apparences…",
+      "error": "Impossible de charger la liste des apparences. Vérifiez votre connexion et réessayez.",
+      "result": "1 apparence correspond.",
+      "results": "{n} apparences correspondent.",
+      "nSkins": "{n} apparences",
+      "nSkins1": "1 apparence",
       "unknownMonth": "Mois non précisé",
       "more": "Afficher {n} de plus"
     },
     "collection": {
       "title": "Calculateur de valeur de collection",
-      "lead": "Cochez les héros et les skins que vous possédez pour voir leur valeur en diamants au prix de la boutique du jeu, vos pièces les plus rares et votre avancement dans chaque série.",
+      "lead": "Cochez les héros et les apparences que vous possédez pour voir leur valeur en diamants au prix de la boutique du jeu, vos pièces les plus rares et votre avancement dans chaque série.",
       "warning": "Valeur en diamants du jeu uniquement : ce que ces objets coûtent dans la boutique de Mobile Legends, pas ce que vaut un compte. Acheter, vendre ou échanger un compte est contraire aux conditions d'utilisation de Moonton, et cet outil ne donne aucune valeur marchande ou de revente.",
       "methodTitle": "Comment la valeur est calculée",
-      "methodHeroes": "Le prix d'un héros est celui de son skin d'origine, qui vient avec lui. Sur les {heroes} héros de nos données, {diamonds} ont un prix en diamants ; les autres ne s'achètent qu'en points de bataille ou s'obtiennent autrement, et les points de bataille sont comptés à part.",
-      "methodSkins": "Sur les {skins} skins que vous pouvez cocher, {diamonds} ont un prix en diamants, {others} un prix dans une autre monnaie (noyaux magiques, gemmes…) et {unpriced} aucun prix en boutique : StarLight, événements, tirages et pass. Ces derniers comptent dans votre avancement mais pas dans le total en diamants : nous préférons ne pas leur inventer de prix.",
+      "methodHeroes": "Le prix d'un héros est celui de son apparence d'origine, qui vient avec lui. Sur les {heroes} héros de nos données, {diamonds} ont un prix en diamants ; les autres ne s'achètent qu'en points de bataille ou s'obtiennent autrement, et les points de bataille sont comptés à part.",
+      "methodSkins": "Sur les {skins} apparences que vous pouvez cocher, {diamonds} ont un prix en diamants, {others} un prix dans une autre monnaie (noyaux magiques, gemmes…) et {unpriced} aucun prix en boutique : StarLight, événements, tirages et pass. Ces dernières comptent dans votre avancement mais pas dans le total en diamants : nous préférons ne pas leur inventer de prix.",
       "methodStorage": "Votre sélection reste dans ce navigateur (stockage local), sans compte. Si vous êtes connecté avec votre compte de jeu, elle est aussi enregistrée sur votre compte pour la retrouver sur un autre appareil ; un fichier de sauvegarde permet de l'emporter où vous voulez. Les prix sont ceux de la boutique du jeu recensés par le wiki communautaire ; les remises et les packs ne sont pas pris en compte.",
-      "calendarLink": "Calendrier des skins",
-      "skinsLink": "Tous les skins",
+      "calendarLink": "Calendrier des apparences",
+      "skinsLink": "Toutes les apparences",
       "accountValueLink": "Estimer la valeur d'un compte"
     },
     "collectionUI": {
-      "loading": "Chargement des héros et des skins…",
-      "error": "Impossible de charger la liste des skins. Vérifiez votre connexion et rechargez la page.",
+      "loading": "Chargement des héros et des apparences…",
+      "error": "Impossible de charger la liste des apparences. Vérifiez votre connexion et rechargez la page.",
       "valueTitle": "Valeur boutique de votre collection",
       "heroes": "Héros",
-      "skins": "Skins",
+      "skins": "Apparences",
       "inDiamonds": "{n} diamants",
       "bpDetail": "prix de vos héros en points de bataille",
-      "otherDetail": "skins vendus dans cette monnaie",
-      "noDiamond": "Hors du total en diamants (aucun prix en diamants) : skins {skins}, héros {heroes}.",
-      "empty": "Cochez dans la liste les héros et les skins que vous possédez : le total se met à jour au fur et à mesure. Votre sélection reste enregistrée dans ce navigateur, et sur votre compte si vous êtes connecté.",
+      "otherDetail": "apparences vendues dans cette monnaie",
+      "noDiamond": "Hors du total en diamants (aucun prix en diamants) : apparences {skins}, héros {heroes}.",
+      "empty": "Cochez dans la liste les héros et les apparences que vous possédez : le total se met à jour au fur et à mesure. Votre sélection reste enregistrée dans ce navigateur, et sur votre compte si vous êtes connecté.",
       "summaryTitle": "Ma collection MLBB",
-      "summaryText": "Ma collection MLBB : {heroes} héros et {skins} skins, soit {diamonds} diamants au prix de la boutique du jeu.",
+      "summaryText": "Ma collection MLBB : {heroes} héros et {skins} apparences, soit {diamonds} diamants au prix de la boutique du jeu.",
       "summaryRare": "Pièce la plus rare : {name} ({hero}).",
       "share": "Partager le résumé",
       "share_copied": "Résumé copié dans le presse-papiers.",
       "share_shared": "Résumé partagé.",
       "share_failed": "Le partage a échoué : copiez le résumé ci-dessus à la main.",
-      "selectionTitle": "Vos héros et vos skins",
-      "search": "Chercher un héros ou un skin",
+      "selectionTitle": "Vos héros et vos apparences",
+      "search": "Chercher un héros ou une apparence",
       "role": "Rôle",
       "show": "Afficher",
       "view_all": "Tout",
@@ -2136,22 +2136,22 @@
       "allHeroes": "Cocher tous les héros",
       "noHero": "Décocher tous les héros",
       "clear": "Effacer ma collection",
-      "confirmClear": "Décocher tous les héros et tous les skins ?",
+      "confirmClear": "Décocher tous les héros et toutes les apparences ?",
       "heroCount": "{n} héros affichés",
       "heroCount1": "1 héros affiché",
-      "heroSkins": "{n}/{total} skins",
+      "heroSkins": "{n}/{total} apparences",
       "checkAll": "Tout cocher",
       "uncheckAll": "Tout décocher",
-      "checkAllHeroes": "Cocher {name} et tous ses skins",
-      "uncheckAllHeroes": "Décocher {name} et tous ses skins",
-      "seeSkins": "Skins",
+      "checkAllHeroes": "Cocher {name} et toutes ses apparences",
+      "uncheckAllHeroes": "Décocher {name} et toutes ses apparences",
+      "seeSkins": "Apparences",
       "noPrice": "Sans prix boutique",
-      "none": "Aucun héros ni skin ne correspond à ces filtres.",
+      "none": "Aucun héros ni aucune apparence ne correspond à ces filtres.",
       "rarityTitle": "Par rareté",
       "colRarity": "Rareté",
       "colOwned": "Possédés",
       "colDiamonds": "Diamants",
-      "raresTitle": "Vos skins les plus rares",
+      "raresTitle": "Vos apparences les plus rares",
       "raresHelp": "Classés par rareté, puis éditions limitées et plus petites séries en premier.",
       "seriesTitle": "Avancement par série",
       "seriesHelp": "Les séries entamées d'abord, les plus complètes en tête.",
@@ -2164,8 +2164,8 @@
       "played_loading": "Lecture de vos héros de la saison…",
       "played_failed": "Impossible de lire vos héros joués pour l'instant : réessayez plus tard.",
       "played_empty": "Aucun héros joué cette saison.",
-      "seriesCheck": "Cocher les {n} skins {series}",
-      "seriesUncheck": "Décocher les {n} skins {series}",
+      "seriesCheck": "Cocher les {n} apparences {series}",
+      "seriesUncheck": "Décocher les {n} apparences {series}",
       "clearYes": "Oui, tout décocher",
       "cancel": "Annuler",
       "dismiss": "Fermer ce message",
@@ -2181,10 +2181,10 @@
       "notice_elsewhere": "Collection mise à jour depuis un autre appareil.",
       "notice_merged": "La collection de ce navigateur a été fusionnée avec celle de votre compte.",
       "backupTitle": "Sauvegarde",
-      "backupLead": "Un fichier JSON avec vos héros et vos skins, à garder ou à importer dans un autre navigateur.",
+      "backupLead": "Un fichier JSON avec vos héros et vos apparences, à garder ou à importer dans un autre navigateur.",
       "export": "Exporter",
       "import": "Importer un fichier",
-      "importFound": "Dans ce fichier : héros {heroes}, skins {skins}.",
+      "importFound": "Dans ce fichier : héros {heroes}, apparences {skins}.",
       "importIgnored": "{n} entrées inconnues ignorées.",
       "importMerge": "Ajouter à ma collection",
       "importReplace": "Remplacer ma collection",
@@ -2194,7 +2194,7 @@
       "import_json": "Ce fichier n'est pas du JSON lisible.",
       "import_format": "Ce fichier n'est pas une sauvegarde de collection MLBBDex.",
       "import_version": "Cette sauvegarde vient d'une version plus récente de l'outil : rechargez la page et réessayez.",
-      "import_empty": "Aucun héros ni skin reconnu dans ce fichier.",
+      "import_empty": "Aucun héros ni aucune apparence reconnus dans ce fichier.",
       "import_read": "Impossible de lire ce fichier.",
       "shortcutsTitle": "Raccourcis clavier",
       "shortcut_search": "Aller à la recherche",
@@ -2212,25 +2212,25 @@
       "cooldown": "Recharge : {s} s"
     },
     "events": {
-      "title": "Calendrier des événements MLBB : StarLight, Collector et skins du mois",
+      "title": "Calendrier des événements MLBB : StarLight, Collector et apparences du mois",
       "breadcrumb": "Événements",
-      "lead": "Chaque mois de Mobile Legends: Bang Bang, le plus récent en tête : le skin StarLight, les skins Collector et les skins d'événement, de tirage ou de boutique sortis ce mois-là. {n} mois documentés, de {start} à {end}.",
+      "lead": "Chaque mois de Mobile Legends: Bang Bang, le plus récent en tête : l'apparence StarLight, les apparences Collector et les apparences d'événement, de tirage ou de boutique sortis ce mois-là. {n} mois documentés, de {start} à {end}.",
       "thisMonthTitle": "Ce mois-ci : {month}",
-      "thisMonthEmpty": "Aucun skin de {month} dans nos données pour l'instant : le wiki communautaire complète ses listes après la sortie. Dernier mois documenté : {latest}.",
+      "thisMonthEmpty": "Aucune apparence de {month} dans nos données pour l'instant : le wiki communautaire complète ses listes après la sortie. Dernier mois documenté : {latest}.",
       "seeMonth": "Voir {month}",
       "everyMonthTitle": "Ce qui revient chaque mois",
-      "ruleStarlight": "Le StarLight se renouvelle le 1er de chaque mois à 00:00, heure du serveur : le skin StarLight du mois arrive avec lui, réservé aux membres StarLight.",
-      "ruleCollector": "La Grand Collection, un événement de tirage mensuel qui dure 21 jours, permet d'obtenir les skins Collector.",
+      "ruleStarlight": "Le StarLight se renouvelle le 1er de chaque mois à 00:00, heure du serveur : l'apparence StarLight du mois arrive avec lui, réservée aux membres StarLight.",
+      "ruleCollector": "La Grand Collection, un événement de tirage mensuel qui dure 21 jours, permet d'obtenir les apparences Collector.",
       "serverTimeLink": "Heure du serveur en ce moment",
       "sourcePage": "Source : {page}",
       "sourceEdited": "page modifiée sur le wiki le {date}",
       "nextMonthTitle": "Le mois prochain : {month}",
       "upcomingTitle": "Annoncé pour les mois à venir",
-      "nextMonthUnknown": "Aucune source fiable n'annonce encore les skins de {month}. La page « à venir » du wiki ne recense que des fuites, sans date : nous ne les reprenons pas. Le mois apparaîtra ici dès qu'une liste mensuelle du wiki le citera.",
+      "nextMonthUnknown": "Aucune source fiable n'annonce encore les apparences de {month}. La page « à venir » du wiki ne recense que des fuites, sans date : nous ne les reprenons pas. Le mois apparaîtra ici dès qu'une liste mensuelle du wiki le citera.",
       "recentTitle": "Les derniers mois",
       "recentLead": "Les {n} derniers mois documentés, du plus récent au plus ancien.",
       "allMonthsTitle": "Tous les mois",
-      "allMonthsLead": "Chaque mois documenté a sa page : skin StarLight, Collector et autres sorties, avec leurs dates et leurs prix.",
+      "allMonthsLead": "Chaque mois documenté a sa page : apparence StarLight, Collector et autres sorties, avec leurs dates et leurs prix.",
       "monthDetails": "Voir le détail de {month}",
       "status": {
         "current": "Mois en cours",
@@ -2238,21 +2238,21 @@
       },
       "modes": {
         "starlight": {
-          "title": "Skin StarLight",
+          "title": "Apparence StarLight",
           "desc": "Réservé aux membres StarLight du mois : il s'obtient avec l'abonnement mensuel, sans tirage."
         },
         "collector": {
-          "title": "Skins Collector",
-          "desc": "L'une des raretés les plus élevées du jeu : ces skins s'obtiennent par tirage à la Grand Collection ou lors d'une collaboration."
+          "title": "Apparences Collector",
+          "desc": "L'une des raretés les plus élevées du jeu : ces apparences s'obtiennent par tirage à la Grand Collection ou lors d'une collaboration."
         },
         "event": {
           "title": "Événements et tirages",
-          "desc": "Skins sans prix fixe en boutique : tirages (Lucky Box, roue magique…), collaborations et événements limités.",
+          "desc": "Apparences sans prix fixe en boutique : tirages (Lucky Box, roue magique…), collaborations et événements limités.",
           "summary": "{n} d'événement ou de tirage"
         },
         "shop": {
           "title": "Boutique",
-          "desc": "Skins vendus à prix fixe, en diamants, points de bataille, tickets ou fragments.",
+          "desc": "Apparences vendues à prix fixe, en diamants, points de bataille, tickets ou fragments.",
           "summary": "{n} en boutique"
         },
         "pass": {
@@ -2261,33 +2261,33 @@
           "summary": "{n} de passe, de saison ou de recharge"
         }
       },
-      "noStarlight": "Le wiki ne liste aucun skin StarLight pour ce mois.",
-      "noCollector": "D'après le wiki, aucun skin Collector n'est sorti ce mois-là.",
+      "noStarlight": "Le wiki ne liste aucune apparence StarLight pour ce mois.",
+      "noCollector": "D'après le wiki, aucune apparence Collector n'est sortie ce mois-là.",
       "rarityUnknown": "Rareté non renseignée",
       "skinOf": "{skin} ({hero})",
       "summary": {
-        "starlight": "Skin StarLight du mois : {list}.",
+        "starlight": "Apparence StarLight du mois : {list}.",
         "collector": "Collector : {list}.",
-        "noCollector": "Aucun skin Collector ce mois-là.",
+        "noCollector": "Aucune apparence Collector ce mois-là.",
         "others": "Autres sorties ({n}) : {detail}.",
         "others1": "Une autre sortie : {detail}."
       },
       "aboutTitle": "D'où viennent ces données",
-      "aboutLists": "Les skins StarLight et Collector de chaque mois viennent des listes mensuelles du wiki communautaire, relues à chaque mise à jour de nos données. Quand le module de skins du wiki date un skin autrement, le mois de la liste l'emporte.",
-      "aboutCatalogue": "Les autres sorties viennent du module de skins du wiki, avec leur rareté et leur prix, rangées selon leur mode d'obtention. Un skin daté de l'année seule n'entre dans aucun mois ; les skins d'origine, qui accompagnent la sortie d'un héros, ne sont pas comptés.",
+      "aboutLists": "Les apparences StarLight et Collector de chaque mois viennent des listes mensuelles du wiki communautaire, relues à chaque mise à jour de nos données. Quand le module d'apparences du wiki date une apparence autrement, le mois de la liste l'emporte.",
+      "aboutCatalogue": "Les autres sorties viennent du module d'apparences du wiki, avec leur rareté et leur prix, rangées selon leur mode d'obtention. Une apparence datée de l'année seule n'entre dans aucun mois ; les apparences d'origine, qui accompagnent la sortie d'un héros, ne sont pas comptées.",
       "aboutLeaks": "Ni fuites ni codes d'échange : un mois à venir n'apparaît que lorsqu'une liste du wiki l'annonce, avec le lien vers la source.",
-      "calendarLink": "Calendrier de tous les skins, année par année",
+      "calendarLink": "Calendrier de toutes les apparences, année par année",
       "source": "Listes StarLight et Collector, dates, raretés et prix repris du {link}, sous licence CC BY-SA.",
       "month": {
         "title": "StarLight et événements MLBB {month} : skins et prix",
-        "announced": "Mois annoncé : ces skins figurent sur une liste du wiki communautaire avant leur sortie en jeu. Dates et prix restent à confirmer.",
+        "announced": "Mois annoncé : ces apparences figurent sur une liste du wiki communautaire avant leur sortie en jeu. Dates et prix restent à confirmer.",
         "navMonths": "Mois précédent et suivant",
         "allMonths": "Tous les mois",
-        "yearLink": "Tous les skins sortis en {year}"
+        "yearLink": "Toutes les apparences sorties en {year}"
       },
       "entry": {
-        "starlight": "Skin StarLight : {skin} ({hero})",
-        "collector": "Skin Collector : {skin} ({hero})"
+        "starlight": "Apparence StarLight : {skin} ({hero})",
+        "collector": "Apparence Collector : {skin} ({hero})"
       }
     },
     "nickname": {
@@ -2311,7 +2311,7 @@
       "sourcesTitle": "Sources",
       "sourceShop": "Wiki MLBB : boutique (Rename Card)",
       "sourceGuide": "1v9 : changer de pseudo dans MLBB (guide tiers, janvier 2025)",
-      "drawLink": "Vous économisez des diamants pour un skin d'événement ?",
+      "drawLink": "Vous économisez des diamants pour une apparence d'événement ?",
       "drawLinkAction": "Calculez vos chances de tirage"
     },
     "nicknameUI": {
@@ -2374,14 +2374,14 @@
     },
     "drawCalculator": {
       "title": "Calculateur de tirages MLBB",
-      "lead": "Combien de diamants pour un skin d'événement ? Entrez le prix d'un tirage, la chance du lot et la garantie : le calculateur donne vos chances selon votre budget, le coût moyen et le nombre de tirages pour atteindre 50, 90 et 99 %.",
+      "lead": "Combien de diamants pour une apparence d'événement ? Entrez le prix d'un tirage, la chance du lot et la garantie : le calculateur donne vos chances selon votre budget, le coût moyen et le nombre de tirages pour atteindre 50, 90 et 99 %.",
       "methodTitle": "Méthode",
       "method1": "Chaque tirage est supposé indépendant, avec la même chance p d'obtenir le lot. Les chances de l'avoir en n tirages valent 1 − (1 − p)ⁿ ; avec une garantie au tirage N, elles passent à 100 % au N-ième tirage.",
       "method2": "Le nombre moyen de tirages vaut (1 − (1 − p)ᴺ) / p avec garantie, 1 / p sans. Le prix retient la combinaison la moins chère de tirages x10 et de tirages simples ; la moyenne en diamants est donnée pour les deux façons de tirer.",
       "method3": "Les remises ponctuelles (premier tirage du jour à moitié prix, semaines de réduction), les jetons gratuits et les récompenses de palier hebdomadaires ne sont pas comptés : ils font baisser le coût réel.",
       "method4": "Un Crystal of Aurora remplace un diamant dans les tirages : comptez-les ensemble dans votre budget.",
       "limitsTitle": "Ce que le calcul ne sait pas",
-      "limit1": "Le jeu donne souvent la chance d'une catégorie (« un skin », 1 %) plutôt que celle d'un skin précis. Si le skin voulu n'est qu'un parmi plusieurs, sa chance est plus basse : entrez-la si l'événement la publie.",
+      "limit1": "Le jeu donne souvent la chance d'une catégorie (« une apparence », 1 %) plutôt que celle d'une apparence précise. Si l'apparence voulue n'est qu'une parmi plusieurs, sa chance est plus basse : entrez-la si l'événement la publie.",
       "limit2": "Certains événements ne sont pas de simples tirages : prix qui monte à chaque tirage (Grand Collection), points à accumuler (Zodiac), noyaux à échanger (Magic Wheel). Ce calcul ne s'y applique pas.",
       "findTitle": "Où trouver les chances d'un événement",
       "find1": "Moonton affiche les probabilités de chaque tirage dans le jeu, avec les règles de l'événement. Le wiki MLBB en recopie certaines : les préréglages du calculateur en viennent, avec la date de la page, parce que les règles peuvent changer.",
@@ -2395,13 +2395,13 @@
       "sourcesTitle": "Sources",
       "sourceWiki": "Wiki MLBB : {page}",
       "collectionLink": "Valeur de votre collection",
-      "calendarLink": "Calendrier des skins"
+      "calendarLink": "Calendrier des apparences"
     },
     "drawCalculatorUI": {
       "presets": "Événements relevés sur le wiki",
       "prize": {
-        "aurora": "un skin",
-        "newArrivalSkin": "un skin",
+        "aurora": "une apparence",
+        "newArrivalSkin": "une apparence",
         "newArrivalHero": "un héros"
       },
       "presetNote": "Valeurs du wiki MLBB, page modifiée le {date} : chance d'obtenir {prize} parmi ceux proposés, pas un en particulier. Vérifiez les règles dans le jeu, elles changent.",
@@ -3666,7 +3666,7 @@
       "showcaseTitle": "Ce que fait le bot",
       "showcase": {
         "heroesTitle": "La fiche d'un héros en une commande",
-        "heroesText": "/hero donne le rôle, les lanes, le palier, les taux de victoire, de sélection et de ban, le meilleur build, l'emblème, le sort et les compétences, avec l'illustration du héros. Les boutons Build, Counters et Skins approfondissent sans encombrer le salon.",
+        "heroesText": "/hero donne le rôle, les lanes, le palier, les taux de victoire, de sélection et de ban, le meilleur build, l'emblème, le sort et les compétences, avec l'illustration du héros. Les boutons Build, Counters et Apparences approfondissent sans encombrer le salon.",
         "heroesAlt": "La réponse de /hero dans Discord : fiche de Sun avec palier, taux, build et illustration",
         "buildsTitle": "Builds et contres",
         "buildsText": "/build montre les objets, l'emblème et le sort avec lesquels les joueurs gagnent, par rang. /counter liste les héros qui battent le vôtre et ceux qu'il bat.",
@@ -3675,7 +3675,7 @@
         "metaText": "/tierlist calcule la tier list à partir des taux de victoire, de sélection et de ban, tous rangs confondus ou d'Épique à Gloire mythique, par lane ou par rôle.",
         "metaAlt": "La réponse de /tierlist dans Discord : les paliers S+, S et A",
         "newsTitle": "Patchs et annonces automatiques",
-        "newsText": "/patch résume le dernier patch : buffs, nerfs et héros modifiés. Le bot peut aussi publier seul les nouveaux patchs, skins, événements, serveur avancé et résultats esport dans les salons de votre choix, avec un rôle à mentionner.",
+        "newsText": "/patch résume le dernier patch : buffs, nerfs et héros modifiés. Le bot peut aussi publier seul les nouveaux patchs, apparences, événements, serveur avancé et résultats esport dans les salons de votre choix, avec un rôle à mentionner.",
         "newsAlt": "La réponse de /patch dans Discord : buffs, nerfs et héros modifiés",
         "dailyTitle": "MLBBdle et quiz du jour",
         "dailyText": "Devinez le héros du jour en mode classique ou compétence, le même que sur le site, puis comparez-vous dans le classement du serveur. Le bot peut publier le jeu chaque jour à l'heure choisie.",
@@ -3712,7 +3712,7 @@
         "emblem": "Un emblème et les rôles auxquels il convient.",
         "spell": "Effet et temps de recharge d'un sort de combat.",
         "patch": "Résumé du dernier patch, ou d'une version donnée : buffs, nerfs, héros modifiés.",
-        "skins": "Les derniers skins sortis, ou tous ceux d'un héros.",
+        "skins": "Les dernières apparences sorties, ou toutes celles d'un héros.",
         "events": "Les événements en cours et à venir.",
         "nickname": "Un pseudo stylisé, avec 21 polices au choix.",
         "mlbbdle": "Le MLBBdle du jour, en mode classique ou compétence.",
@@ -3837,7 +3837,7 @@
       "noRole": "Aucune mention",
       "types": {
         "patches": "Patch notes",
-        "skins": "Nouveaux skins",
+        "skins": "Nouvelles apparences",
         "events": "Événements",
         "advanceServer": "Serveur avancé",
         "esports": "Esport"
@@ -4270,22 +4270,22 @@
     },
     "accountValue": {
       "title": "Valeur estimée d'un compte",
-      "lead": "Ce qu'a coûté une collection de skins, en diamants et en argent, et la fourchette indicative d'un compte comparable. Un ordre de grandeur, jamais un prix : la méthode est détaillée sous l'outil.",
+      "lead": "Ce qu'a coûté une collection d'apparences, en diamants et en argent, et la fourchette indicative d'un compte comparable. Un ordre de grandeur, jamais un prix : la méthode est détaillée sous l'outil.",
       "warning": "Acheter, vendre ou échanger un compte enfreint les conditions d'utilisation de Moonton : le compte peut être banni ou récupéré par son ancien propriétaire, et les arnaques sont fréquentes. Cette estimation sert à mesurer ce qu'une collection a coûté, pas à fixer un prix. Rien n'est envoyé à un serveur.",
       "methodTitle": "La méthode, chiffre par chiffre",
-      "methodPoints": "Les catégories sont celles de la Vitrine du jeu, avec les points de collection que le jeu donne à chaque skin. La somme des points sert de vérification : elle doit retomber sur le total affiché dans le jeu.",
-      "methodCost": "Chaque skin compte pour le coût typique de sa catégorie. Premium, Exceptionnelle et Commun se vendent en boutique : leur coût est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Légende, Grandiose et Exquis s'obtiennent par tirage : leur coût est la médiane arrondie des coûts publiés par des guides de joueurs, et ces coûts varient beaucoup d'un événement et d'un joueur à l'autre. Une apparence colorée compte pour une valeur symbolique.",
-      "tableCaption": "Points et coût comptés par skin, par catégorie",
+      "methodPoints": "Les catégories sont celles de la Vitrine du jeu, avec les points de collection que le jeu donne à chaque apparence. La somme des points sert de vérification : elle doit retomber sur le total affiché dans le jeu.",
+      "methodCost": "Chaque apparence compte pour le coût typique de sa catégorie. Premium, Exceptionnelle et Commun se vendent en boutique : leur coût est le prix médian en diamants des apparences de la catégorie, relevé dans les données du jeu. Légende, Grandiose et Exquis s'obtiennent par tirage : leur coût est la médiane arrondie des coûts publiés par des guides de joueurs, et ces coûts varient beaucoup d'un événement et d'un joueur à l'autre. Une apparence colorée compte pour une valeur symbolique.",
+      "tableCaption": "Points et coût comptés par apparence, par catégorie",
       "colTier": "Catégorie",
       "colPoints": "Points",
-      "colSkins": "Skins au catalogue",
-      "colCost": "Diamants par skin",
+      "colSkins": "Apparences au catalogue",
+      "colCost": "Diamants par apparence",
       "colBasis": "Origine du coût",
       "basisShop": "Prix médian en boutique ({n} prix relevés)",
       "basisDraw": "Médiane estimée d'un tirage",
       "basisFlat": "Valeur symbolique",
       "notListed": "non listés",
-      "catalogNote": "Le catalogue suit le wiki et compte parfois quelques skins de moins que le jeu, le temps que les nouveautés y soient ajoutées : les cases n'ont donc pas de maximum.",
+      "catalogNote": "Le catalogue suit le wiki et compte parfois quelques apparences de moins que le jeu, le temps que les nouveautés y soient ajoutées : les cases n'ont donc pas de maximum.",
       "drawSources": "Sources des coûts de tirage :",
       "methodMoney": "Les diamants sont convertis en dollars au tarif d'une recharge courante, sans bonus de première recharge : {usd} USD le diamant, soit {per100} USD les cent. Les diamants encore sur le compte s'ajoutent au total.",
       "methodResale": "La fourchette de revente va de {low} à {high} de ce coût : un compte se cède rarement au prix de ce qui y a été dépensé. Elle est ensuite multipliée par quatre facteurs :",
@@ -4293,13 +4293,13 @@
       "factorHeroes": "la part des héros possédés, de ×{low} (aucun) à ×{high} (tous) ;",
       "factorEmblems": "les emblèmes au niveau maximum, +{per} chacun, sur {n} ;",
       "factorBinding": "la liaison du compte : un compte Moonton se transfère, un compte lié seulement à un réseau social compte ×{social}, un compte invité, sans liaison, ne se transfère pas du tout.",
-      "methodLimits": "Les montants affichés sont arrondis à deux chiffres significatifs. Ne sont pas comptés : les héros eux-mêmes, achetés le plus souvent en points de bataille, les skins limités d'un serveur, les cosmétiques (effets, émotes, cadres) ni l'historique de matchs. Un vrai marché dépend aussi de la demande du moment, que rien ici ne mesure.",
+      "methodLimits": "Les montants affichés sont arrondis à deux chiffres significatifs. Ne sont pas comptés : les héros eux-mêmes, achetés le plus souvent en points de bataille, les apparences limitées d'un serveur, les cosmétiques (effets, émotes, cadres) ni l'historique de matchs. Un vrai marché dépend aussi de la demande du moment, que rien ici ne mesure.",
       "ratesTitle": "Taux de change",
       "ratesLead": "Taux fixes, relevés le {date} et arrondis : ils servent à donner un ordre de grandeur dans votre monnaie, pas à faire une conversion exacte.",
       "ratesSource": "Source des taux",
       "checked": "hypothèses vérifiées le {date}",
       "methodPrivacy": "Le calcul se fait dans votre navigateur. Les nombres saisis sont écrits dans l'adresse de la page pour pouvoir partager le résultat : aucun nom, aucun identifiant de compte, rien n'est enregistré sur un serveur.",
-      "collectionLink": "Cocher sa collection skin par skin",
+      "collectionLink": "Cocher sa collection apparence par apparence",
       "methodItems": "Les apparences éclatantes et les objets des deux autres panneaux (effets de rappel, émotes, cadres d'avatar…) valent des points très variables d'un objet à l'autre : ils sont comptés à leurs points, à {inMatch} diamant par point pour les objets de partie, {outMatch} pour les objets hors partie, souvent gratuits, et {shining} pour les apparences éclatantes. La plupart viennent d'événements et de passes : c'est une estimation basse."
     },
     "accountValueUI": {
@@ -4307,7 +4307,7 @@
       "resaleTitle": "Fourchette indicative d'un compte comparable",
       "range": "{low} à {high}",
       "resaleUnbound": "Un compte invité, sans liaison, ne peut pas changer de main : pas de fourchette.",
-      "resaleEmpty": "Indiquez vos skins ou vos diamants pour voir une fourchette.",
+      "resaleEmpty": "Indiquez vos apparences ou vos diamants pour voir une fourchette.",
       "currency": "Monnaie",
       "indicative": "Ordre de grandeur arrondi, jamais un prix. Taux de change fixes du {date}. La méthode est détaillée plus bas.",
       "share": "Partager le résultat",
@@ -4320,14 +4320,14 @@
       "resultTitle": "Valeur estimée de mon compte MLBB",
       "importLead": "Une collection est enregistrée par l'outil de collection, dans ce navigateur ou sur votre compte.",
       "import": "Reprendre ma collection",
-      "import_done": "Skins et héros repris de votre collection : {n} skins classés par catégorie.",
-      "import_unmapped": "Skins sans catégorie connue, laissés de côté : {n}.",
+      "import_done": "Apparences et héros repris de votre collection : {n} apparences classées par catégorie.",
+      "import_unmapped": "Apparences sans catégorie connue, laissées de côté : {n}.",
       "import_variants": "Les apparences colorées ne sont pas dans le catalogue : ajoutez-les à la main, comme les points des autres panneaux.",
-      "import_failed": "Impossible de charger le catalogue des skins. Réessayez.",
+      "import_failed": "Impossible de charger le catalogue des apparences. Réessayez.",
       "skinsTitle": "Votre collection, comme dans la Vitrine",
       "whereTitle": "Où trouver ces nombres",
       "wherePath": "Profil > Vitrine > Collection",
-      "whereHint": "Trois aperçus des points de collection s'y ouvrent : skins, objets de partie et objets hors partie. Pour les skins, recopiez le premier nombre de chaque ligne (« possédés/total ») ; pour les deux autres, le total en points en haut du panneau.",
+      "whereHint": "Trois aperçus des points de collection s'y ouvrent : apparences, objets de partie et objets hors partie. Pour les apparences, recopiez le premier nombre de chaque ligne (« possédés/total ») ; pour les deux autres, le total en points en haut du panneau.",
       "scan": {
         "button": "Lire une capture d'écran",
         "retry": "Essayer une autre image",
@@ -4374,7 +4374,7 @@
         "social": "Réseau social seul",
         "none": "Invité, sans liaison"
       },
-      "skinsLegend": "Skins par catégorie",
+      "skinsLegend": "Apparences par catégorie",
       "pointsLegend": "Comptés en points",
       "pointsLead": "Ces objets valent des points très différents d'un objet à l'autre : indiquez le total en points que le jeu affiche.",
       "group": {
@@ -4383,12 +4383,12 @@
         "outMatch": "Objets hors partie"
       },
       "groupWhere": {
-        "shining": "Dernière ligne du panneau des skins",
+        "shining": "Dernière ligne du panneau des apparences",
         "inMatch": "Effets, émotes, statues…",
         "outMatch": "Cadres d'avatar, bannières…"
       },
       "costPoint": "≈ {n} diamant par point",
-      "pointsSplit": "Skins {skins} · autres {items}"
+      "pointsSplit": "Apparences {skins} · autres {items}"
     },
     "community": {
       "title": "Communauté",
@@ -4875,7 +4875,7 @@
       "label": "Rechercher un héros",
       "placeholder": "Ling, Khufra, Layla…",
       "submit": "Chercher",
-      "all": "Chercher aussi un objet, un skin ou une compétence"
+      "all": "Chercher aussi un objet, une apparence ou une compétence"
     },
     "browse": "Parcourir les héros",
     "tierListCta": "Voir la tier list",
@@ -4927,14 +4927,14 @@
     },
     "live": {
       "title": "Ce mois-ci dans le jeu",
-      "lead": "Les skins du mois, ceux qui sont annoncés et les tournois en cours.",
-      "skinsOf": "Skins de {month}",
+      "lead": "Les apparences du mois, celles qui sont annoncées et les tournois en cours.",
+      "skinsOf": "Apparences de {month}",
       "allEvents": "Tous les événements",
-      "starlight": "Skin StarLight",
-      "collector": "Skin Collector",
-      "skinAlt": "{skin}, skin de {hero}",
+      "starlight": "Apparence StarLight",
+      "collector": "Apparence Collector",
+      "skinAlt": "{skin}, apparence de {hero}",
       "announced": "Annoncé pour {month}",
-      "announcedCount": "{n} skins annoncés",
+      "announcedCount": "{n} apparences annoncées",
       "esports": "Esport",
       "allEsports": "Tous les tournois",
       "proPicked": "Les plus pris en pro",
@@ -4974,7 +4974,7 @@
     "syncLead": "Dernière synchronisation le {date}.",
     "cards": {
       "dataTitle": "Les données se mettent à jour seules",
-      "dataText": "Héros, skins, objets, patchs et visuels sont extraits du wiki chaque semaine. Un nouveau héros apparaît ici sans que personne le saisisse.",
+      "dataText": "Héros, apparences, objets, patchs et visuels sont extraits du wiki chaque semaine. Un nouveau héros apparaît ici sans que personne le saisisse.",
       "rankingTitle": "Le classement ne donne pas d'avis",
       "rankingText": "La tier list est calculée sur les taux de victoire et de ban remontés par le jeu. La règle du calcul est affichée sur la page.",
       "writtenTitle": "Ce qui s'écrit reste écrit",
@@ -5005,7 +5005,7 @@
           "h": "Ce que contient le site"
         },
         {
-          "p": "Le roster complet, les skins de chaque héros, les objets, les emblèmes, les sorts de combat et la liste des patchs. Ces données sont extraites automatiquement du wiki communautaire chaque semaine : un nouveau héros apparaît ici sans que personne ait à le saisir."
+          "p": "Le roster complet, les apparences de chaque héros, les objets, les emblèmes, les sorts de combat et la liste des patchs. Ces données sont extraites automatiquement du wiki communautaire chaque semaine : un nouveau héros apparaît ici sans que personne ait à le saisir."
         },
         {
           "p": "S'y ajoute ce qu'aucune extraction ne produira : une analyse rédigée pour une partie des héros (ce qu'ils font, leurs builds, leurs contres), une tier list dont chaque placement est argumenté, et des guides de fond."
@@ -5020,7 +5020,7 @@
           "p": "Si vous vous connectez avec le code de vérification du jeu, vous voyez votre propre profil (saison, héros joués, parties récentes), lu à la demande via la même API et visible par vous seul. Il n'est ni publié ni conservé au-delà d'un cache de quelques minutes."
         },
         {
-          "p": "Les visuels appartiennent à Moonton et, pour les skins de collaboration, aux ayants droit des personnages et des marques concernés. Portraits, icônes et illustrations de skins proviennent du wiki communautaire et sont servis par ce site pour que rien ne dépende d'un domaine tiers. Ils restent la propriété de Moonton, sont présents à des fins d'illustration et seront retirés sur demande de l'ayant droit. L'identité visuelle du site (bleu nuit, or, angles coupés) s'inspire de celle du jeu sans en reprendre les fichiers d'interface."
+          "p": "Les visuels appartiennent à Moonton et, pour les apparences de collaboration, aux ayants droit des personnages et des marques concernés. Portraits, icônes et illustrations d'apparences proviennent du wiki communautaire et sont servis par ce site pour que rien ne dépende d'un domaine tiers. Ils restent la propriété de Moonton, sont présents à des fins d'illustration et seront retirés sur demande de l'ayant droit. L'identité visuelle du site (bleu nuit, or, angles coupés) s'inspire de celle du jeu sans en reprendre les fichiers d'interface."
         },
         {
           "h": "La veille"
@@ -5081,10 +5081,10 @@
           "p": "Mobile Legends: Bang Bang, son univers, ses héros, leurs noms et leurs représentations graphiques sont des marques et des œuvres de Shanghai Moonton Technology Co., Ltd. Ce site est un projet de fan indépendant, sans affiliation, ni approbation, ni parrainage de Moonton."
         },
         {
-          "p": "Les visuels affichés (portraits, icônes, emblèmes, illustrations) et les noms du jeu sont © Moonton. Ceux des skins de collaboration (NARUTO, Star Wars, Transformers, Jujutsu Kaisen, The King of Fighters, Neymar Jr et les autres) reprennent des personnages, marques et personnes appartenant à leurs ayants droit respectifs, sous licence accordée à Moonton : le site n'en montre que le petit portrait de la boutique, jamais l'illustration en grand. Ces visuels sont copiés depuis le wiki communautaire à des fins d'illustration et d'information ; ils ne sont pas sous licence CC BY-SA. Sur demande de l'ayant droit, ils seront retirés."
+          "p": "Les visuels affichés (portraits, icônes, emblèmes, illustrations) et les noms du jeu sont © Moonton. Ceux des apparences de collaboration (NARUTO, Star Wars, Transformers, Jujutsu Kaisen, The King of Fighters, Neymar Jr et les autres) reprennent des personnages, marques et personnes appartenant à leurs ayants droit respectifs, sous licence accordée à Moonton : le site n'en montre que le petit portrait de la boutique, jamais l'illustration en grand. Ces visuels sont copiés depuis le wiki communautaire à des fins d'illustration et d'information ; ils ne sont pas sous licence CC BY-SA. Sur demande de l'ayant droit, ils seront retirés."
         },
         {
-          "p": "Les textes factuels (descriptions, histoires, notes de patch, listes de skins) sont repris du [wiki Mobile Legends](https://mobilelegends.fandom.com) sur Fandom et de [Liquipedia](https://liquipedia.net/mobilelegends), sous licence CC BY-SA : chaque page qui les reprend crédite sa source, et leurs traductions restent sous cette licence. Les chiffres de parties viennent d'une API communautaire. Le code et les textes rédigés pour ce site sont publiés sous licence MIT (voir le [dépôt public]({repository}))."
+          "p": "Les textes factuels (descriptions, histoires, notes de patch, listes d'apparences) sont repris du [wiki Mobile Legends](https://mobilelegends.fandom.com) sur Fandom et de [Liquipedia](https://liquipedia.net/mobilelegends), sous licence CC BY-SA : chaque page qui les reprend crédite sa source, et leurs traductions restent sous cette licence. Les chiffres de parties viennent d'une API communautaire. Le code et les textes rédigés pour ce site sont publiés sous licence MIT (voir le [dépôt public]({repository}))."
         },
         {
           "h": "Responsabilité"
@@ -5118,7 +5118,7 @@
           "ul": [
             "Mesure d'audience sans cookie (pages vues, recherches sur le site, actions anonymes) : savoir quelles pages servent et améliorer le site. Base légale : l'intérêt légitime de l'éditeur (article 6.1.f du RGPD).",
             "Mesure d'audience avec cookies (reconnaître un visiteur qui revient) : uniquement avec votre consentement (article 6.1.a du RGPD et article 82 de la loi Informatique et Libertés), que vous pouvez retirer à tout moment.",
-            "Fonctions que vous demandez (connexion au compte de jeu ou à Discord, communauté, collection de skins, notifications de patch, bot Discord et son tableau de bord) : exécution du service demandé, selon ses conditions d'utilisation (article 6.1.b du RGPD).",
+            "Fonctions que vous demandez (connexion au compte de jeu ou à Discord, communauté, collection d'apparences, notifications de patch, bot Discord et son tableau de bord) : exécution du service demandé, selon ses conditions d'utilisation (article 6.1.b du RGPD).",
             "Sécurité, modération et qualité des données (limites de débit, signalements, signalements d'erreur sur les fiches, journal de modération, journaux d'erreurs, sauvegardes) : intérêt légitime de l'éditeur à protéger le site et ses utilisateurs (article 6.1.f du RGPD).",
             "Mémorisation de vos préférences (langue, favoris, réglages des outils) : nécessaire au fonctionnement du site tel que vous l'utilisez, dans votre navigateur."
           ]
@@ -5159,9 +5159,9 @@
       "pseudonymous": "Ces empreintes (SHA-256, sans sel) sont des données pseudonymes, pas anonymes : quiconque connaît votre ID de jeu et votre serveur, ou votre identifiant Discord, peut recalculer l'empreinte. Elles restent des données personnelles, protégées comme telles."
     },
     "collection": {
-      "title": "Collection de skins",
-      "intro": "L'outil de collection garde les héros et les skins que vous cochez dans votre navigateur (stockage local). Si vous êtes connecté avec votre compte de jeu, le serveur du site conserve aussi, dans sa base de données :",
-      "data": "la même empreinte de compte que la communauté (jamais votre ID de jeu), la liste des héros et des skins cochés, et la date du dernier enregistrement ; rien d'autre, et rien n'est montré à personne.",
+      "title": "Collection d'apparences",
+      "intro": "L'outil de collection garde les héros et les apparences que vous cochez dans votre navigateur (stockage local). Si vous êtes connecté avec votre compte de jeu, le serveur du site conserve aussi, dans sa base de données :",
+      "data": "la même empreinte de compte que la communauté (jamais votre ID de jeu), la liste des héros et des apparences cochées, et la date du dernier enregistrement ; rien d'autre, et rien n'est montré à personne.",
       "usage": "Cette copie sert seulement à retrouver votre collection sur vos autres appareils. Le filtre « ceux que je joue » lit vos héros de la saison auprès du service de connexion au moment où vous l'activez, sans rien conserver.",
       "deletion": "Pour vider la copie de votre compte, effacez votre collection dans l'outil en étant connecté ; pour supprimer la ligne elle-même, écrivez à {contact}."
     },
@@ -5236,7 +5236,7 @@
         "consent": "Votre choix sur les cookies de mesure d'audience, et sa date (6 mois).",
         "favourites": "Vos héros favoris. Envoyés au serveur seulement si vous activez les notifications de patch.",
         "push": "Notifications de patch actives sur ce navigateur.",
-        "collection": "Votre collection de skins, et l'état de sa synchronisation avec votre compte (une empreinte de compte, jamais votre ID de jeu).",
+        "collection": "Votre collection d'apparences, et l'état de sa synchronisation avec votre compte (une empreinte de compte, jamais votre ID de jeu).",
         "popup": "Mémoire de l'invitation au Discord : fermée (pendant 30 jours) ou suivie, et nombre de pages vues dans l'onglet (le temps de l'onglet).",
         "games": "Parties, séries et statistiques de MLBBdle et du quiz.",
         "tierList": "Brouillons du créateur de tier list.",
@@ -5309,7 +5309,7 @@
     "second": "Second héros",
     "winRate": "Taux de victoire",
     "banRate": "Taux de ban",
-    "skins": "Skins",
+    "skins": "Apparences",
     "search": "Rechercher un héros…",
     "none": "Aucun héros ne correspond.",
     "curves": "Taux de victoire sur {n} jours",
@@ -5367,7 +5367,7 @@
     "release": "Sortie",
     "availability": "Disponibilité",
     "obtained": "Obtention",
-    "originalSkin": "Skin d'origine.",
+    "originalSkin": "Apparence d'origine.",
     "magicCores": "Noyaux magiques",
     "mythicCoins": "Pièces mythiques"
   },
@@ -5743,7 +5743,7 @@
   },
   "heroCard": {
     "tierTitle": "Palier {p} de la tier list",
-    "skins": "{n} skins",
+    "skins": "{n} apparences",
     "analysis": "Analyse"
   },
   "measuredRanks": {
@@ -5799,7 +5799,7 @@
       "patch": "Notes de patch",
       "page": "Pages",
       "skill": "Compétences",
-      "skin": "Skins",
+      "skin": "Apparences",
       "emblem": "Emblèmes",
       "spell": "Sorts de combat"
     }
@@ -6106,7 +6106,7 @@
     },
     "hero": {
       "title": "Soyez prévenu du prochain buff ou nerf",
-      "text": "Les notes de patch, les nouveaux skins et les événements arrivent sur le Discord dès leur sortie."
+      "text": "Les notes de patch, les nouvelles apparences et les événements arrivent sur le Discord dès leur sortie."
     },
     "tier": {
       "title": "La méta bouge chaque semaine",
@@ -6118,7 +6118,7 @@
     },
     "patch": {
       "title": "Prévenu dès le prochain patch",
-      "text": "Notes de patch, serveur avancé et nouveaux skins publiés automatiquement sur le Discord."
+      "text": "Notes de patch, serveur avancé et nouvelles apparences publiées automatiquement sur le Discord."
     },
     "daily": {
       "title": "Le MLBBdle et le quiz, entre joueurs",
@@ -6133,8 +6133,8 @@
       "text": "Venez le tester sur le Discord MLBBDex et trouvez des coéquipiers de votre rang."
     },
     "skins": {
-      "title": "Soyez prévenu des nouveaux skins",
-      "text": "Les nouveaux skins, la StarLight et les tirages arrivent sur le Discord dès leur sortie."
+      "title": "Soyez prévenu des nouvelles apparences",
+      "text": "Les nouvelles apparences, la StarLight et les tirages arrivent sur le Discord dès leur sortie."
     },
     "tools": {
       "title": "Préparez vos drafts avec votre équipe",
@@ -6142,7 +6142,7 @@
     },
     "value": {
       "title": "Comparez votre collection",
-      "text": "Montrez votre Vitrine et parlez skins avec les joueurs du Discord MLBBDex."
+      "text": "Montrez votre Vitrine et parlez apparences avec les joueurs du Discord MLBBDex."
     },
     "moment": {
       "nickname": {
@@ -6159,7 +6159,7 @@
       },
       "value": {
         "title": "Compte estimé ! Montrez votre collection",
-        "text": "Partagez votre Vitrine et parlez skins avec les joueurs du Discord MLBBDex."
+        "text": "Partagez votre Vitrine et parlez apparences avec les joueurs du Discord MLBBDex."
       },
       "draft": {
         "title": "Draft terminée ! Trouvez votre équipe",
