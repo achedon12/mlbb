@@ -293,6 +293,7 @@ function ClassicGrid({
                   return (
                     <td
                       key={c}
+                      data-verdict={verdict}
                       className={cn(
                         "h-[4.5rem] w-[4.5rem] min-w-[4.5rem] max-w-[5.5rem] border px-1 py-1 align-middle text-[0.68rem] font-semibold leading-tight [overflow-wrap:anywhere]",
                         BACKGROUND[verdict],
@@ -419,6 +420,7 @@ export function SkillGame({
             return (
               <li
                 key={slug}
+                data-verdict={right ? "match" : "miss"}
                 className={cn(
                   "bevel-sm flex items-center gap-2 border py-1 pl-1 pr-2.5 text-sm",
                   right ? BACKGROUND.match : "border-red-400/40 bg-red-800/40 text-chalk-100",
