@@ -1,0 +1,58 @@
+{
+  "tagline": "Créature miraculeuse née dans un Orbe du Crépuscule.",
+  "lore": [
+    "Lunox est née dotée de pouvoirs magiques, et son monde onirique reflète et transforme le monde réel. Grâce à ce pouvoir, elle se sert de ses rêves pour maintenir temporairement l'équilibre des énergies entre l'Ordre et le Chaos. Mais lorsque la puissance de l'Ordre et celle du Chaos déferlèrent dans ses rêves, Lunox sombra dans un long sommeil et devint l'un des « Orbes du Crépuscule ».",
+    "Biographie",
+    "Au début de la bataille finale, l'Orbe du Crépuscule dévora les énergies du Mage et s'ouvrit. Il en sortit une jeune fille, enveloppée par les puissances du Chaos et de l'Ordre. Ses yeux étaient profonds comme un lac ancien.",
+    "L'atmosphère mystérieuse qui émanait d'elle plongea alors tous les héros dans le pays des rêves… Les puissances du Chaos et de l'Ordre s'affrontent depuis la nuit des temps, et leur lutte a plongé le monde dans le désespoir. Lunox, la mystérieuse jeune fille, est celle qui a survécu à ce désespoir. Grâce à un don unique, elle peut projeter ses rêves dans la réalité et la transformer.",
+    "Un jour, une voix lui murmura de se servir de son pouvoir onirique pour équilibrer les deux puissances. Mais le prix à payer serait plus lourd que jamais. Pour le monde qu'elle aime, elle accepta ce destin, canalisa les deux puissances dans ses rêves et devint l'un des Orbes du Crépuscule, au prix d'un sommeil sans fin. Mais la voix lui annonça aussi qu'un jour, elle se réveillerait pour accomplir son destin : retrouver les autres Orbes du Crépuscule, oubliés par l'histoire."
+  ],
+  "headings": [
+    1
+  ],
+  "trivia": [
+    "Le nom de Lunox est un mot-valise formé de deux mots latins, « lumos » et « nox », qui signifient respectivement « lumière » et « ténèbres ».",
+    "Lunox est actuellement l'être le plus puissant de l'univers de MLBB, après le Dieu Unique.",
+    "Lunox est le seul héros de l'univers de MLBB à avoir rencontré le Dieu Unique et contemplé la Vraie Forme du Royaume astral.",
+    "La troisième compétence de Lunox, Cosmic Fission, infligeait autrefois des dégâts dans une zone en éventail.",
+    "Quand son passif réduisait encore les temps de recharge, Lunox était le seul héros du jeu capable d'atteindre 100 % de pénétration magique. Aujourd'hui encore, c'est l'héroïne qui peut réellement dépasser +70 % de pénétration magique avec assez d'emblèmes et d'équipements de pénétration et de vol de vie magique.",
+    "Son ancien titre de héros était « L'Éveillée », en référence au surnom du Bouddha.",
+    "Elle est l'héroïne principale de l'événement Determination, avec Belerick.",
+    "Le concept de lumière et de ténèbres de Lunox a été repris pour Luo Yi.",
+    "Son apparence offerte « Bloody Mary » fait référence à Marie Iʳᵉ d'Angleterre, ainsi surnommée pour avoir fait exécuter de nombreux protestants pendant ses six ans de règne. C'est aussi le nom d'un cocktail célèbre.",
+    "Les pouvoirs de lumière de Lunox viennent de sa mère, et ses pouvoirs de ténèbres de son père.",
+    "Lunox est le présent du Dieu Unique au monde (la Terre de l'Aube).",
+    "Lunox est le deuxième héros le plus difficile à jouer (après Fanny) et la mage la plus difficile du jeu."
+  ],
+  "profile": {
+    "fullName": "Lunox",
+    "title": null,
+    "species": "Elfe de lumière",
+    "gender": "Femme",
+    "age": "Plus de 1 000 ans",
+    "origin": null,
+    "birthday": "25 septembre",
+    "affiliations": [
+      "Labyrinthe minoen",
+      "L'Oasis",
+      "Fate Deniers"
+    ],
+    "relations": [
+      "Belerick, Natan (compagnons)",
+      "Aamon, Gusion, Valentina (ennemis devenus alliés)",
+      "Uranus (allié, serviteur)",
+      "Kaja (rencontré)",
+      "Estes, Miya (rencontrés)",
+      "Alice, Thamuz (ennemis)",
+      "Dieu Unique (créateur)",
+      "Mère sans nom (mère, décédée)",
+      "Orfax (père, décédé)",
+      "Seigneur de la Lumière (ennemi)",
+      "Seigneur des Abysses (ennemi)"
+    ],
+    "powers": [
+      "Puissance de l'Ordre",
+      "Puissance du Chaos"
+    ]
+  }
+}

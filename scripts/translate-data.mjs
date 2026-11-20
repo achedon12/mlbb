@@ -21,6 +21,7 @@ import { patchesRebuild } from "./patch-translation.mjs";
 import { existsSync } from "node:fs";
 import { argsWithoutLocale, targetLocales } from "./locales.mjs";
 import { applyGlossary, nameRules, restoreNames } from "./translation-glossary.mjs";
+import { forgetLost, namesPattern, shieldWith } from "./translation-shield.mjs";
 
 const CACHE = "scripts/translations-data.json";
 
@@ -111,49 +112,24 @@ const heroNames = new Map();
 const HERO_SET = new Set(HERO_NAMES);
 
 /**
- * Hero names hidden from the service in narrative text. In a sentence it
- * translates them like words ("Novaria (teacher)" came back as "Novarie
- * (enseignant)"), which no rule on its answer can reliably undo in a Latin
- * alphabet. Behind numbered markers, the name comes back as the game writes it.
+ * Hero names and the game's own name, hidden from the service in narrative
+ * text (`translation-shield.mjs`). In a sentence it translates them like
+ * words ("Novaria (teacher)" came back as "Novarie (enseignant)", the game as
+ * "Légendes mobiles"), which no rule on its answer can reliably undo in a
+ * Latin alphabet. Behind numbered markers, the name comes back as the game
+ * writes it.
  */
-const NAMES_RE = new RegExp(
-  `(?<![\\p{L}\\p{N}])(?:${[...HERO_NAMES].sort((a, b) => b.length - a.length).map((n) => n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})(?![\\p{L}\\p{N}])`,
-  "gu",
-);
-const MARK = String.fromCharCode(0xe000);
-function shieldNames(text) {
-  const names = [];
-  const shielded = String(text).replace(NAMES_RE, (m) => `${MARK}${names.push(m) - 1}${MARK}`);
-  return {
-    text: shielded,
-    restore(output) {
-      const found = new Set();
-      const back = output.replace(new RegExp(`${MARK}\\s*(\\d+)\\s*${MARK}`, "g"), (_, n) => {
-        found.add(Number(n));
-        return names[Number(n)] ?? "";
-      });
-      return found.size === names.length ? back : null;
-    },
-  };
-}
+const NAMES_RE = namesPattern(HERO_NAMES);
+const shieldNames = shieldWith(NAMES_RE);
+
 /**
- * Drops the cached translations that lost a hero name of their source (a
- * translation made before the names were shielded): the next `prepare`
- * translates them again, names shielded. Returns how many were dropped.
+ * Drops the cached translations that lost a protected name of their source
+ * (a translation made before the name was shielded): the next `prepare`
+ * translates them again, names shielded.
  */
-function forgetLostNames(texts, sl, tl) {
-  let dropped = 0;
-  for (const text of new Set(texts.map((x) => String(x).trim()))) {
-    const key = `${sl}|${tl}|${text}`;
-    const out = cache[key];
-    if (typeof out !== "string") continue;
-    const names = text.match(NAMES_RE) ?? [];
-    if (names.some((n) => !out.includes(n))) {
-      delete cache[key];
-      dropped++;
-    }
-  }
-  if (dropped) console.log(`    ${tl}: ${dropped} translations had lost a hero name, translated again`);
+function forgetLostNames(texts, sl, tl, pattern) {
+  const dropped = forgetLost(cache, texts, sl, tl, pattern).length;
+  if (dropped) console.log(`    ${tl}: ${dropped} translations had lost a protected name, translated again`);
   return dropped;
 }
 
@@ -303,9 +279,10 @@ async function loadAnalyses() {
 }
 
 /**
- * Item, talent and battle spell names, which the analyses write in English
- * (the style rule): sent behind markers so the service leaves them alone,
- * instead of turning "sans Flicker" into "without flickering".
+ * Item, talent and battle spell names, which the site writes in English
+ * (the style rule), and the game's name: sent behind markers so the service
+ * leaves them alone, instead of turning "sans Flicker" into "without
+ * flickering" or "Mobile Legends" into "Légendes mobiles".
  */
 const PRIVATE = String.fromCharCode(0xe000);
 const { talents, battleSpells } = await importTs("src/data/emblems.ts");
@@ -314,14 +291,31 @@ const GAME_TERMS = [
     ...JSON.parse(await readFile("src/data/game/items/en.json", "utf8")).map((o) => o.name),
     ...talents.map((x) => x.name),
     ...battleSpells.map((x) => x.name),
+    // Blessings the patch notes name: the items of the roam and jungle boots.
+    "Roaming Blessings",
+    "Roaming Blessing",
+    "Ice Retribution",
+    "Flame Retribution",
+    "Bloody Retribution",
   ]),
 ]
   .filter((n) => n.length > 3)
   .sort((a, b) => b.length - a.length);
-const TERMS_RE = new RegExp(
-  `(?<![\\p{L}])(?:${GAME_TERMS.map((n) => n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})(?![\\p{L}])`,
-  "gu",
-);
+const TERMS_RE = namesPattern(GAME_TERMS);
+/**
+ * Game data from the wiki (patches, skills, items, modes, combos): hero names,
+ * the game's name and the item, talent and battle spell names all stay as the
+ * game writes them. "[Book of Sages]" had come back as "[Livre des Sages]".
+ */
+const GAME_RE = namesPattern([...HERO_NAMES, ...GAME_TERMS]);
+const shieldGame = shieldWith(GAME_RE);
+/**
+ * Names whose loss sends a cached game text back to the service. A Latin
+ * alphabet that lost a hero name translated it ("Joie" for Joy); Russian and
+ * Thai write the names in their own alphabet, which `restoreNames` undoes, so
+ * there only the other protected names count.
+ */
+const forgetGame = (tl) => (tl === "ru" || tl === "th" ? TERMS_RE : GAME_RE);
 function shieldTerms(text) {
   const terms = [];
   const shielded = text.replace(TERMS_RE, (m) => `${PRIVATE}${terms.push(m) - 1}${PRIVATE}`);
@@ -401,18 +395,24 @@ const GAMES = {
   // from it, never from another translation: English rebuilt from the French
   // turned "The aloof Duke of Castle Aberleen" into "The distant Duke of
   // Aberleen Castle".
-  stories: { source: "en", narrative: true, texts: storiesTexts, rebuild: storiesRebuild },
-  skills: { source: "en", texts: skillsTexts, rebuild: skillsRebuild },
-  modes: { source: "en", texts: modesTexts, rebuild: modesRebuild },
-  items: { source: "en", texts: itemsTexts, rebuild: itemsRebuild },
-  "tier-notes": { source: "fr", texts: tierNotesTexts, rebuild: tierNotesRebuild },
+  //
+  // `shield`: the names hidden from the service (`translation-shield.mjs`).
+  // `forget`: the names whose loss sends a cached translation back to the
+  // service, shielded this time (a pattern, or one per target language).
+  // Stories only drop a translation that lost the game's name; the game data
+  // one that lost a protected name (`forgetGame`).
+  stories: { source: "en", narrative: true, shield: shieldNames, forget: namesPattern([]), texts: storiesTexts, rebuild: storiesRebuild },
+  skills: { source: "en", shield: shieldGame, forget: forgetGame, texts: skillsTexts, rebuild: skillsRebuild },
+  modes: { source: "en", shield: shieldGame, forget: forgetGame, texts: modesTexts, rebuild: modesRebuild },
+  items: { source: "en", shield: shieldGame, forget: forgetGame, texts: itemsTexts, rebuild: itemsRebuild },
+  "tier-notes": { source: "fr", shield: shieldGame, texts: tierNotesTexts, rebuild: tierNotesRebuild },
   analyses: { source: "fr", load: loadAnalyses, texts: collect(analysesRebuild), rebuild: analysesRebuild },
-  // `shield`: hero names hidden from the service, like in the narrative, but
-  // with the glossary still applied. Patch notes list heroes by name, and the
-  // service turned Chip into "Puce", Joy into "Joie" and Lukas into "Lucas".
+  // Patch notes list heroes by name, and the service turned Chip into "Puce",
+  // Joy into "Joie" and Lukas into "Lucas": every protected name counts.
   patches: {
     source: "en",
-    shield: true,
+    shield: shieldGame,
+    forget: GAME_RE,
     file: "src/data/game/patches.json",
     extract: (d) => d.details,
     texts: collect(patchesRebuild),
@@ -422,6 +422,8 @@ const GAMES = {
     source: "en",
     file: "src/data/game/combos.json",
     optional: true,
+    shield: shieldGame,
+    forget: forgetGame,
     texts: collect(descriptionsRebuild),
     rebuild: descriptionsRebuild,
   },
@@ -446,8 +448,9 @@ for (const [name, cfg] of Object.entries(GAMES)) {
   console.log(`${name} (${cfg.source}): ${new Set(all.map((x) => String(x).trim())).size} unique texts`);
   await mkdir(`src/data/game/${name}`, { recursive: true });
   for (const tl of targetLocales(cfg.source)) {
-    const shield = cfg.narrative || cfg.shield ? { shield: shieldNames } : {};
-    if (cfg.shield) forgetLostNames(all, cfg.source, tl);
+    const shield = cfg.shield ? { shield: cfg.shield } : {};
+    const forget = typeof cfg.forget === "function" ? cfg.forget(tl) : cfg.forget;
+    if (forget) forgetLostNames(all, cfg.source, tl, forget);
     await prepare(all, cfg.source, tl, shield);
     const t = tr(cfg.source, tl);
     // Second pass: an HTML block whose translation lost its tags

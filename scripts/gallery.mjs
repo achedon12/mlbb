@@ -112,6 +112,157 @@ export function fallbackFileNames(file) {
   return [...names];
 }
 
+/**
+ * Words that mark a wiki file as an altered copy of an artwork rather than
+ * the artwork Moonton published: a beta or unfinished version ("Arlott
+ * Splash Art Unfinished.png"), an edit ("Aldous Death-picsay.png", PicSay
+ * being a phone photo editor), a crop or an upscale, and an older version
+ * the wiki keeps under its years of use ("Kadita (Ocean Goddess;
+ * 2018-2026).jpg"). Only checked for full-size artwork: an icon's
+ * description has no reason to use these words.
+ */
+const ALTERED = /\b(?:beta|unfinished|edit(?:ed)?|crop(?:ped)?|upscaled?|retouched)\b|picsay|[(;]\s*\d{4}\s*[-–]\s*\d{4}\s*\)/i;
+
+/**
+ * Smallest width of an artwork the site shows full size. The official
+ * artworks the wiki keeps are 1280 to 4000 pixels wide; the few below 960
+ * (Miya "Captain Thorns", 554 x 334) are crops of a screenshot or of a
+ * social media post.
+ */
+export const ARTWORK_MIN_WIDTH = 960;
+/** Splash arts are drawn 16:9 (1.78), a few 16:10 or a little wider: anything else is a crop or a poster. */
+const ARTWORK_RATIO = [1.5, 2.1];
+
+/**
+ * Why a full-size artwork is not the published one, or null: an altered
+ * copy (`ALTERED`, from its name, description, upload comment or
+ * categories), or a picture too small or of the wrong shape to be the
+ * artwork itself. `width` and `height` are those of the wiki's current
+ * version; unknown, they are not held against the file.
+ */
+export function alteredArtwork({ name = "", description = "", comment = "", categories = [], width, height } = {}) {
+  if ([name, description, comment, ...categories].some((text) => ALTERED.test(String(text ?? "")))) return "altered";
+  if (width && height) {
+    const ratio = width / height;
+    if (width < ARTWORK_MIN_WIDTH || ratio < ARTWORK_RATIO[0] || ratio > ARTWORK_RATIO[1]) return "low-resolution";
+  }
+  return null;
+}
+
+/**
+ * The hero a wiki file is named after, out of `names`, or null: the longest
+ * name the file starts with ("Selena (Gemini - Shadow).jpg" → "Selena").
+ */
+export function heroOfFile(file, names) {
+  const stem = file.replace(/^File:/i, "").toLowerCase();
+  let found = null;
+  for (const name of names) {
+    const n = name.toLowerCase();
+    const next = stem.charAt(n.length);
+    if (stem.startsWith(n) && (next === "" || next === " " || next === "(") && (!found || n.length > found.length)) found = name;
+  }
+  return found;
+}
+
+/**
+ * The wiki's usual name for a skin's artwork, "Karina (Gemini - Halo).jpg":
+ * the file a hero page should point to. Tried when the gallery points to an
+ * altered copy, to another hero's artwork (Karina's "Gemini - Halo" row shows
+ * "Selena (Gemini - Shadow).jpg") or to a file that does not exist.
+ */
+export function usualFileName(hero, skin) {
+  return `${hero} (${skin}).jpg`;
+}
+
+/**
+ * Gallery rows of a hero page, in the order the sync tries them for each
+ * skin: the first file that exists and is neither provisional nor altered
+ * is the skin's artwork. A provisional or altered row gives way to the live
+ * files it stands next to and to the usual name; a row that shows another
+ * hero's artwork tries the hero's own file first, and is kept after it for
+ * a shared artwork (Freya's "Christmas Carnival" is "Zilong (Christmas
+ * Carnival).jpg", drawn for both); any other row is tried first, the usual
+ * name after it in case the file is gone. `heroes` holds every hero name.
+ */
+export function candidateRows(rows, hero, heroes) {
+  return rows.flatMap(({ file, skin }) => {
+    const usual = usualFileName(hero, skin);
+    const own = usual === file ? [] : [{ file: usual, skin, fallback: true }];
+    if (isProvisionalFile({ name: file }) || alteredArtwork({ name: file })) {
+      return [...fallbackFileNames(file).map((f) => ({ file: f, skin, fallback: true })), ...own].filter(
+        (r, i, all) => all.findIndex((o) => o.file === r.file) === i,
+      );
+    }
+    const of = heroOfFile(file, heroes);
+    if (of && of !== hero) return [...own, { file, skin }];
+    return [{ file, skin }, ...own];
+  });
+}
+
+/**
+ * Artworks checked by hand, kept off the site by hero and wiki file: each
+ * one is caught by the rules above at the next sync (and replaced by the
+ * hero's own file when the wiki has it), but a catalogue an older sync wrote
+ * still holds it. Evidence is the wiki's file page, as of November 2026.
+ */
+export const WITHHELD_ARTWORKS = [
+  {
+    hero: "karina",
+    file: "File:Selena (Gemini - Shadow).jpg",
+    reason: "Selena's artwork under Karina's Gemini - Halo; Karina's own is File:Karina (Gemini - Halo).jpg",
+    evidence: "https://mobile-legends.fandom.com/wiki/File:Karina_(Gemini_-_Halo).jpg",
+  },
+  {
+    hero: "alucard",
+    file: "File:Miya (Sweet Fantasy).jpg",
+    reason: "Miya's artwork under Alucard's Romantic Fantasy; Alucard's own is File:Alucard (Romantic Fantasy).jpg",
+    evidence: "https://mobile-legends.fandom.com/wiki/File:Alucard_(Romantic_Fantasy).jpg",
+  },
+  {
+    hero: "akai",
+    file: "File:Akai (Street Enforcer).jpg",
+    reason: "696 x 392 crop",
+    evidence: "https://mobile-legends.fandom.com/wiki/File:Akai_(Street_Enforcer).jpg",
+  },
+  {
+    hero: "baxia",
+    file: "File:Baxia (Black Tortoise).jpg",
+    reason: "800 x 449 crop",
+    evidence: "https://mobile-legends.fandom.com/wiki/File:Baxia_(Black_Tortoise).jpg",
+  },
+  {
+    hero: "bruno",
+    file: "File:Bruno (Street Football).jpg",
+    reason: "768 x 432 crop",
+    evidence: "https://mobile-legends.fandom.com/wiki/File:Bruno_(Street_Football).jpg",
+  },
+  {
+    hero: "clint",
+    file: "File:Clint (Summer Blast).jpg",
+    reason: "739 x 415 crop",
+    evidence: "https://mobile-legends.fandom.com/wiki/File:Clint_(Summer_Blast).jpg",
+  },
+  {
+    hero: "fanny",
+    file: "File:Fanny (Summer Rescue).jpg",
+    reason: "739 x 415 crop",
+    evidence: "https://mobile-legends.fandom.com/wiki/File:Fanny_(Summer_Rescue).jpg",
+  },
+  {
+    hero: "miya",
+    file: "File:Miya (Captain Thorns).jpg",
+    reason: "554 x 334 crop, not 16:9",
+    evidence: "https://mobile-legends.fandom.com/wiki/File:Miya_(Captain_Thorns).jpg",
+  },
+];
+
+const withheld = new Set(WITHHELD_ARTWORKS.map((w) => `${w.hero}:${w.file.replace(/^File:/i, "")}`));
+
+/** Whether the artwork of `hero` made from wiki file `file` is on the hand-checked list. */
+export function isWithheldArtwork(hero, file) {
+  return withheld.has(`${hero}:${String(file).replace(/^File:/i, "")}`);
+}
+
 function cleanLegend(raw) {
   const wiki = raw
     .split("|")

@@ -28,7 +28,7 @@ The [farming path and objectives guide](/guides/jungle-objectives) details the t
 
 <!-- guide:heroes -->
 
-Junglers are divided into three families. Assassins, such as [Ling](/heroes/ling), [Lancelot](/heroes/lancelot) or [Hayabusa](/heroes/hayabusa), eliminate an isolated target; fighters, like [Martis](/heroes/martis) or [Barats](/heroes/barats), last long fights; Jungle tanks, like [Fredrinn](/heroes/fredrinn) or [Baxia](/heroes/baxia), leave the gold for others and engage. The right choice depends on what your team is missing.
+Junglers are divided into three families. Assassins, such as [Ling](/heroes/ling), [Lancelot](/heroes/lancelot) or [Hayabusa](/heroes/hayabusa), eliminate an isolated target; fighters, like [Martis](/heroes/martis) or [Balmond](/heroes/balmond), last long fights; Jungle tanks, like [Fredrinn](/heroes/fredrinn) or [Baxia](/heroes/baxia), leave the gold for others and engage. The right choice depends on what your team is missing.
 
 ## Most played items, emblems and spells
 

@@ -28,7 +28,7 @@ Ang [pagsasaka na landas at gabay sa mga layunin](/guides/jungle-objectives) ay 
 
 <!-- guide:heroes -->
 
-Ang mga jungler ay nahahati sa tatlong pamilya. Ang mga assassin, gaya ng [Ling](/heroes/ling), [Lancelot](/heroes/lancelot) o [Hayabusa](/heroes/hayabusa), ay nag-aalis ng nakahiwalay na target; mga mandirigma, tulad ng [Martis](/heroes/martis) o [Barats](/heroes/barats), nagtatagal ng mahabang laban; Ang mga tank ng jungle, tulad ng [Fredrinn](/heroes/fredrinn) o [Baxia](/heroes/baxia), ay iniiwan ang ginto para sa iba at makipag-ugnayan. Ang tamang pagpipilian ay depende sa kung ano ang nawawala sa iyong koponan.
+Ang mga jungler ay nahahati sa tatlong pamilya. Ang mga assassin, gaya ng [Ling](/heroes/ling), [Lancelot](/heroes/lancelot) o [Hayabusa](/heroes/hayabusa), ay nag-aalis ng nakahiwalay na target; mga mandirigma, tulad ng [Martis](/heroes/martis) o [Balmond](/heroes/balmond), nagtatagal ng mahabang laban; Ang mga tank ng jungle, tulad ng [Fredrinn](/heroes/fredrinn) o [Baxia](/heroes/baxia), ay iniiwan ang ginto para sa iba at makipag-ugnayan. Ang tamang pagpipilian ay depende sa kung ano ang nawawala sa iyong koponan.
 
 ## Karamihan sa mga nilalaro na item, emblem at spells
 
