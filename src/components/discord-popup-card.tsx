@@ -39,11 +39,11 @@ export function DiscordPopupCard({
       onKeyDown={(e) => {
         if (e.key === "Escape") onDismiss();
       }}
-      className="discord-popup bevel-sm fixed inset-x-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-40 flex items-center gap-2.5 border border-blurple-500/50 bg-night-900/95 py-2.5 pl-3 pr-2 shadow-lg shadow-black/40 backdrop-blur-sm md:left-auto md:w-80 md:grid md:grid-cols-[2.25rem_1fr_2rem] md:items-start md:gap-x-3 md:gap-y-2.5 md:p-3"
+      className="discord-popup bevel-sm fixed inset-x-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-40 flex items-center gap-2.5 bg-night-800 py-2.5 pl-3 pr-2 shadow-[inset_0_2px_0_var(--color-gold-400),0_12px_32px_rgb(0_0_0/0.5)] md:left-auto md:w-80 md:grid md:grid-cols-[2.25rem_1fr_2rem] md:items-start md:gap-x-3 md:gap-y-2.5 md:p-3"
     >
       <span
         aria-hidden
-        className="bevel-sm hidden size-9 place-items-center bg-blurple-500 text-white md:grid"
+        className="bevel-sm hidden size-9 place-items-center bg-azure-500 text-night-950 md:grid"
       >
         <DiscordMark size={18} />
       </span>
@@ -60,7 +60,7 @@ export function DiscordPopupCard({
         target="_blank"
         rel="noopener"
         onClick={onJoin}
-        className="bevel-sm shrink-0 bg-blurple-500 px-3 py-1.5 text-sm font-semibold text-white transition-colors hover:bg-blurple-600 md:col-start-2 md:row-start-2 md:justify-self-start"
+        className="btn btn-primary btn-sm shrink-0 md:col-start-2 md:row-start-2 md:justify-self-start"
       >
         {t("discordPopup.join")}
       </a>

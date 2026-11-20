@@ -35,7 +35,7 @@ export function AccountButton() {
   return session.connected ? (
     <Link
       href="/account"
-      className="bevel-sm grid h-9 min-w-9 max-w-36 place-items-center truncate bg-night-800 px-2 text-sm font-semibold text-chalk-100 transition-colors hover:bg-night-700 sm:block sm:px-4 sm:py-2"
+      className="btn btn-secondary btn-sm h-9 min-w-9 max-w-36 truncate px-2 normal-case sm:px-4"
     >
       <UserRound size={18} aria-hidden className="sm:hidden" />
       <span className="max-sm:sr-only">{session.pseudo}</span>
@@ -43,7 +43,7 @@ export function AccountButton() {
   ) : (
     <Link
       href="/login"
-      className="bevel-sm grid h-9 min-w-9 place-items-center bg-gold-500 px-2 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400 sm:block sm:px-4 sm:py-2"
+      className="btn btn-primary btn-sm h-9 min-w-9 px-2 sm:px-4"
     >
       <LogIn size={18} aria-hidden className="sm:hidden" />
       <span className="max-sm:sr-only">{t("account.signIn")}</span>

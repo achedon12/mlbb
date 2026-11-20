@@ -32,12 +32,13 @@ import { ScrollDepth } from "@/components/scroll-depth";
 import { HeroFeedLink } from "@/components/hero-feed-link";
 
 import {
+  ShowcaseArt,
   ShowcasePortrait,
   ShowcaseProvider,
   SkinShowcase,
   type SkinFull,
 } from "@/components/skin-showcase";
-import { BadgeTier, Card, Gauge } from "@/components/ui";
+import { BadgeTier, Card, Gauge, Score } from "@/components/ui";
 import { HeroPortrait } from "@/components/hero-portrait";
 import { RoleBadge } from "@/components/role-badge";
 import {
@@ -236,6 +237,8 @@ export default async function HeroPage({ params }: Params) {
   const percent = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   const valuesByRank = (format: (s: StatsRank) => string) => mapValues(statsRanks, format);
   const ranksAvailable = MEASURED_RANKS.filter((r) => statsRanks[r] || countersShown[r]);
+  // The rank's name under the poster's figure, which follows the picker.
+  const rankNames = Object.fromEntries(MEASURED_RANKS.map((r) => [r, t(`measuredRanks.${r}`)])) as Partial<Record<MeasuredRank, string>>;
 
   // Played builds, resolved here for the same reason: visuals and catalog
   // stay on the server.
@@ -284,7 +287,7 @@ export default async function HeroPage({ params }: Params) {
         {reference && reference.items.length > 0 && (
           <Card>
             <div className="flex items-baseline justify-between gap-3">
-              <h2 className="font-heading text-lg font-bold text-chalk-100">{t("builds.played")}</h2>
+              <h2 className="type-subtitle uppercase text-chalk-100">{t("builds.played")}</h2>
               {reference.winRate !== null && (
                 <span className="text-xs tabular-nums text-gold-400">
                   {t("builds.win", { rate: percent.format(reference.winRate) })}
@@ -305,17 +308,17 @@ export default async function HeroPage({ params }: Params) {
                 );
               })}
             </ol>
-            <a href="#builds" className="mt-4 inline-block text-sm font-semibold text-gold-400 hover:text-gold-500">
+            <a href="#builds" className="mt-4 inline-block font-heading text-base font-bold uppercase text-gold-400 hover:text-gold-300">
               {t("pages.heroDetail.tab.builds")} →
             </a>
           </Card>
         )}
         {countersAll && (
           <Card>
-            <h2 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroDetail.tab.counters")}</h2>
+            <h2 className="type-subtitle uppercase text-chalk-100">{t("pages.heroDetail.tab.counters")}</h2>
             <div className="mt-3 grid grid-cols-2 gap-4 text-sm">
               {[
-                { title: t("counters.strong"), list: countersAll.strong, tone: "text-emerald-400" },
+                { title: t("counters.strong"), list: countersAll.strong, tone: "text-azure-400" },
                 { title: t("counters.difficulty"), list: countersAll.weak, tone: "text-blood-400" },
               ].map(({ title, list, tone }) => (
                 <div key={title} className="min-w-0">
@@ -326,7 +329,7 @@ export default async function HeroPage({ params }: Params) {
                         <Link href={`/heroes/${c.slug}`} className="group flex items-center gap-2">
                           <HeroPortrait source={c.portrait} name={c.name} size="small" decorative />
                           <span className="min-w-0 flex-1 truncate text-chalk-200 group-hover:text-gold-400">{c.name}</span>
-                          <span className={`shrink-0 text-xs tabular-nums ${tone}`}>
+                          <span className={`shrink-0 font-heading text-sm font-bold tabular-nums ${tone}`}>
                             {formatGap(c.advantage, locale)} {t("counters.pts")}
                           </span>
                         </Link>
@@ -336,7 +339,7 @@ export default async function HeroPage({ params }: Params) {
                 </div>
               ))}
             </div>
-            <a href="#counters" className="mt-4 inline-block text-sm font-semibold text-gold-400 hover:text-gold-500">
+            <a href="#counters" className="mt-4 inline-block font-heading text-base font-bold uppercase text-gold-400 hover:text-gold-300">
               {t("pages.heroDetail.tab.counters")} →
             </a>
           </Card>
@@ -383,55 +386,42 @@ export default async function HeroPage({ params }: Params) {
       */}
       <ShowcaseProvider skins={skinsFull} portraitDefault={h.images.portrait}>
       <RankProvider ranks={ranksAvailable}>
-      {/*
-        Two columns from `xl` up. The header band below opens (`contents`)
-        and its blocks become cells of one grid: the identity card on the
-        left, sticky and short enough for any screen (portrait, name, roles,
-        tier and rates, ratings, favourite and compare), the facts and the
-        rank picker above the tabs on the right, in the page's flow. Below
-        `xl`, the band and the tabs are what they were.
+      {/* ── Poster ───────────────────────────────────────────────────────
+        The official artwork across the page, the name in giant slanted
+        capitals over its foot, the tier crest and the one big figure (the
+        win rate at the chosen rank, the ban rate outlined beside it). The
+        art's frame has its height before the image arrives: nothing moves.
       */}
-      <div className="xl:page-wrap xl:grid xl:grid-cols-[22rem_minmax(0,1fr)] xl:items-start xl:gap-x-10 xl:gap-y-5 xl:pt-5 2xl:grid-cols-[24rem_minmax(0,1fr)]">
-      {/* ── Header ─────────────────────────────────────────────────────── */}
-      <div className="relative border-b border-night-700/70 bg-night-900/30 xl:contents">
-        {background && (
-          <div aria-hidden className="absolute inset-0 overflow-hidden xl:hidden">
-            <Image
-              src={background}
-              alt=""
-              fill
-              priority
+      <section aria-labelledby="hero-name" className="relative isolate overflow-hidden">
+        <div aria-hidden className="relative h-[21rem] sm:h-[28rem] lg:h-[34rem] xl:h-[38rem]">
+          {background ? (
+            <ShowcaseArt
+              fallback={background}
               sizes="100vw"
-              // Background darkened by an overlay: a reduced quality does not show,
-              // and it is the heaviest element to load on mobile.
-              quality={50}
               // The banner is much wider than the illustration is tall:
-              // framing at the top would only show the sky. We aim at the upper
-              // third, where the character is.
-              className="object-cover object-[50%_30%] brightness-110"
+              // framing at the top would only show the sky. We aim at the
+              // upper third, where the character is.
+              className="affiche-art object-cover object-[50%_28%]"
             />
-            {/*
-              A uniform overlay rather than a side gradient: the light area
-              of an illustration is not in the same place from one hero to
-              another — Khufra's is dark on the right, Miya's in the
-              center. A directional gradient thus worked for some and washed out
-              the others.
-            */}
-            <div className="absolute inset-0 bg-night-950/55" />
-            {/*
-              The bottom of the header closes onto the page background: the
-              transition to the content stays clean, without a hard cut.
-            */}
-            <div className="absolute inset-x-0 bottom-0 h-28 bg-linear-to-t from-night-950 to-transparent" />
-          </div>
-        )}
-
-        <div className="page-wrap relative py-10 xl:contents">
+          ) : (
+            h.images.portrait && (
+              <span className="absolute inset-y-0 right-[6%] aspect-[240/390]">
+                <Image src={h.images.portrait} alt="" fill priority sizes="(min-width: 640px) 24rem, 60vw" className="affiche-art object-cover" />
+              </span>
+            )
+          )}
           {/*
-            The breadcrumb floats over the illustration with its own background. The
-            role crumb leads to the role page; the hero crumb opens the others.
+            Night closing in from the foot, where the name sits, and from `lg`
+            on the left: the contrast of the text no longer depends on the
+            artwork's brightness, which changes with each hero.
           */}
-          <div className="xl:col-span-2">
+          <div className="absolute inset-x-0 bottom-0 h-4/5 bg-linear-to-t from-night-950 via-night-950/75 to-transparent" />
+          <div className="absolute inset-y-0 left-0 hidden w-3/5 bg-linear-to-r from-night-950/85 to-transparent lg:block" />
+          <div className="absolute inset-x-0 top-0 h-24 bg-linear-to-b from-night-950/70 to-transparent" />
+        </div>
+
+        {/* The breadcrumb floats over the art. The role crumb leads to the role page; the hero crumb opens the others. */}
+        <div className="page-wrap absolute inset-x-0 top-0 pt-3 sm:pt-5">
           <Breadcrumb
             crumbs={[
               { name: t("nav.heroes.label"), href: "/heroes" },
@@ -444,116 +434,116 @@ export default async function HeroPage({ params }: Params) {
               },
             ]}
           />
+        </div>
+
+        <div className="page-wrap relative -mt-36 grid gap-x-12 gap-y-6 pb-8 sm:-mt-48 sm:pb-10 lg:-mt-64 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+          <div className="min-w-0">
+            {h.title && <p className="font-heading text-lg font-bold uppercase text-gold-400 sm:text-xl">{h.title}</p>}
+            <h1 id="hero-name" className="affiche-name type-giant mt-1 break-words text-chalk-100">
+              {h.name}
+            </h1>
+            <div className="mt-5 flex flex-wrap gap-1.5">
+              {h.roles.map((r) => (
+                <RoleBadge key={r} role={r} />
+              ))}
+              {h.specialties.map((s) => (
+                <span key={s} className="bevel-sm bg-night-900/80 px-2 py-0.5 font-heading text-[0.8rem] font-bold uppercase leading-tight text-chalk-400">
+                  {heroLabel(t, "specialty", s)}
+                </span>
+              ))}
+            </div>
+            <div className="mt-5 flex flex-wrap items-center gap-2">
+              <FavouriteButton hero={h.slug} />
+              <Link href={`/compare?a=${h.slug}`} className="btn btn-secondary btn-sm">
+                <Swords size={15} aria-hidden />
+                {t("pages.heroDetail.compare")}
+              </Link>
+            </div>
           </div>
 
-          <div className="bevel mt-6 flex flex-wrap items-start gap-6 border border-night-700/50 bg-night-950/75 p-5 backdrop-blur-sm xl:sticky xl:top-20 xl:col-start-1 xl:row-span-2 xl:row-start-2 xl:mt-0 xl:gap-4 xl:self-start xl:bg-night-900/70 xl:p-4">
-            <ShowcasePortrait name={h.name} portraitDefault={h.images.portrait} />
-
-            <div className="min-w-0 flex-1 basis-64 xl:basis-40">
-              <h1 className="font-heading text-4xl font-bold text-chalk-100 xl:text-3xl">{h.name}</h1>
-              {h.title && <p className="mt-1 text-lg text-gold-400">{h.title}</p>}
-
-              <div className="mt-4 flex flex-wrap gap-1.5">
-                {h.roles.map((r) => (
-                  <RoleBadge key={r} role={r} />
-                ))}
-                {h.specialties.map((s) => (
-                  <span
-                    key={s}
-                    className="bevel-sm border border-night-600 px-2 py-0.5 text-[0.7rem] uppercase tracking-wide text-chalk-500"
-                  >
-                    {heroLabel(t, "specialty", s)}
-                  </span>
-                ))}
-              </div>
-
-              <FreshnessLine locale={locale} className="mt-4 xl:hidden" />
-
-              {/* All ranks, on the card that stays in view; the facts follow the chosen rank. */}
-              {rankedEntry && (
-                <div className="mt-3 hidden items-center gap-3 text-sm xl:flex">
-                  <BadgeTier tier={rankedEntry.tier} />
-                  <span>
-                    <span className="block text-xs text-chalk-500">{t("pages.heroDetail.stat.winRate")}</span>
-                    <span className="font-semibold tabular-nums text-chalk-100">{percent.format(rankedEntry.winRate)} %</span>
-                  </span>
-                  <span>
-                    <span className="block text-xs text-chalk-500">{t("pages.heroDetail.stat.banRate")}</span>
-                    <span className="font-semibold tabular-nums text-chalk-100">{percent.format(rankedEntry.banRate)} %</span>
-                  </span>
-                </div>
-              )}
-
-              <div className="mt-5 flex flex-wrap items-center gap-3 xl:mt-4 xl:gap-2">
-                <FavouriteButton hero={h.slug} />
-                <Link
-                  href={`/compare?a=${h.slug}`}
-                  className="bevel-sm flex items-center gap-2 border border-night-700 px-4 py-2 text-sm font-medium text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400"
-                >
-                  <Swords size={15} aria-hidden />
-                  {t("pages.heroDetail.compare")}
-                </Link>
-              </div>
+          {rankedEntry && (
+            <div className="flex flex-wrap items-end gap-x-4 gap-y-3 sm:gap-x-6">
+              <BadgeTier tier={rankedEntry.tier} size="lg" className="mb-2" />
+              <p className="min-w-0">
+                <Score
+                  value={<ValueByRank values={{ all: percent.format(rankedEntry.winRate), ...valuesByRank((s) => percent.format(s.winRate)) }} />}
+                  unit="%"
+                  className="text-[clamp(4.5rem,2.4rem+6.5vw,8.5rem)]"
+                />
+                <span className="mt-2 block max-w-[9rem] text-sm text-chalk-300 sm:max-w-none">
+                  {t("pages.heroDetail.stat.winRate")} · <ValueByRank values={rankNames} />
+                </span>
+              </p>
+              <p className="min-w-0 pb-7">
+                <Score
+                  outline
+                  value={<ValueByRank values={{ all: percent.format(rankedEntry.banRate), ...valuesByRank((s) => percent.format(s.banRate)) }} />}
+                  unit="%"
+                  className="text-[clamp(2.25rem,1.5rem+2.4vw,3.75rem)]"
+                />
+                <span className="mt-1.5 block text-sm text-chalk-400">{t("pages.heroDetail.stat.banRate")}</span>
+              </p>
             </div>
+          )}
+        </div>
+      </section>
 
-            {/* In-game ratings, as gauges rather than bare figures. */}
-            <dl className="grid min-w-0 flex-1 basis-56 gap-2.5 xl:gap-2">
+      {/* ── Facts, rank and ratings ───────────────────────────────────────
+        The portrait follows the skin chosen in the gallery; the facts follow
+        the rank picked here, as the counters and builds below do.
+      */}
+      <div className="page-wrap">
+        <div aria-hidden className="eclat-rule" />
+        <div className="grid grid-cols-[auto_minmax(0,1fr)] gap-x-6 gap-y-6 py-6 sm:gap-x-10 sm:py-8 xl:grid-cols-[auto_minmax(0,1fr)_19rem]">
+          <ShowcasePortrait name={h.name} portraitDefault={h.images.portrait} />
+          <div className="order-3 col-span-2 min-w-0 sm:order-none sm:col-span-1">
+            <dl className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-8">
               {[
-                [t("pages.heroDetail.ratings.offense"), h.ratings.offense],
-                [t("pages.heroDetail.ratings.durability"), h.ratings.durability],
-                [t("pages.heroDetail.ratings.effects"), h.ratings.abilityEffects],
-                [t("pages.heroDetail.ratings.difficulty"), h.ratings.difficulty],
+                [t("pages.heroDetail.stat.position"), h.lanes.map((l) => t(`lanes.${l}`)).join(", ")],
+                [t("pages.heroDetail.stat.tierList"), rankedEntry ? <ValueByRank values={valuesByRank((s) => t("pages.heroDetail.tier", { p: s.tier }))} /> : null],
+                [t("pages.heroDetail.stat.release"), releaseDate(h.release, locale, t)],
+                [t("pages.heroDetail.stat.resource"), heroLabel(t, "resource", h.resource)],
+                [t("pages.heroDetail.stat.damage"), heroLabel(t, "damage", h.damageType)],
+                [t("pages.heroDetail.stat.range"), heroLabel(t, "attack", h.attackType)],
+                [t("pages.heroDetail.stat.region"), heroLabel(t, "region", h.region)],
+                [t("pages.heroDetail.stat.skins"), h.skins.length || null],
               ].map(([label, value]) =>
-                value === null ? null : (
-                  <div key={String(label)} className="flex items-center gap-3">
-                    <dt className="w-24 shrink-0 text-xs uppercase tracking-wide text-chalk-500">
-                      {label}
-                    </dt>
-                    <dd className="flex-1">
-                      <Gauge value={Number(value)} />
-                    </dd>
+                !value ? null : (
+                  <div key={String(label)} className="min-w-0">
+                    <dt className="text-xs text-chalk-500">{label}</dt>
+                    <dd className="mt-0.5 font-heading text-lg font-bold leading-tight text-chalk-100">{value}</dd>
                   </div>
                 ),
               )}
             </dl>
+            {/* Rank for the whole hero page: rates, counters and builds follow it. */}
+            <RankPicker className="mt-6" />
+            <FreshnessLine locale={locale} className="mt-4" />
           </div>
 
-          {/* ── Facts ─────────────────────────────────────────────────── */}
-          {/*
-            The information sets its own background rather than relying on
-            the illustration being darkened: the contrast then no longer depends
-            on the artwork's brightness, which changes with each hero.
-          */}
-          <div className="bevel mt-8 border border-night-700/50 bg-night-950/75 p-5 backdrop-blur-sm xl:col-start-2 xl:row-start-2 xl:mt-0 xl:bg-night-900/60">
-          <dl className="grid grid-cols-2 gap-x-8 gap-y-4 text-sm sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-5 xl:gap-y-3">
+          {/* In-game ratings, as notched gauges rather than bare figures. */}
+          <dl className="order-2 grid min-w-0 content-start gap-2.5 self-center sm:order-none sm:col-span-2 xl:col-span-1 xl:self-start">
             {[
-              [t("pages.heroDetail.stat.position"), h.lanes.map((l) => t(`lanes.${l}`)).join(", ")],
-              [t("pages.heroDetail.stat.release"), releaseDate(h.release, locale, t)],
-              [t("pages.heroDetail.stat.resource"), heroLabel(t, "resource", h.resource)],
-              [t("pages.heroDetail.stat.damage"), heroLabel(t, "damage", h.damageType)],
-              [t("pages.heroDetail.stat.range"), heroLabel(t, "attack", h.attackType)],
-              [t("pages.heroDetail.stat.region"), heroLabel(t, "region", h.region)],
-              [t("pages.heroDetail.stat.skins"), h.skins.length || null],
-              [t("pages.heroDetail.stat.tierList"), rankedEntry ? <ValueByRank values={valuesByRank((s) => t("pages.heroDetail.tier", { p: s.tier }))} /> : null],
-              [t("pages.heroDetail.stat.winRate"), rankedEntry ? <ValueByRank values={valuesByRank((s) => `${percent.format(s.winRate)} %`)} /> : null],
-              [t("pages.heroDetail.stat.banRate"), rankedEntry ? <ValueByRank values={valuesByRank((s) => `${percent.format(s.banRate)} %`)} /> : null],
+              [t("pages.heroDetail.ratings.offense"), h.ratings.offense],
+              [t("pages.heroDetail.ratings.durability"), h.ratings.durability],
+              [t("pages.heroDetail.ratings.effects"), h.ratings.abilityEffects],
+              [t("pages.heroDetail.ratings.difficulty"), h.ratings.difficulty],
             ].map(([label, value]) =>
-              !value ? null : (
-                <div key={String(label)}>
-                  <dt className="text-xs uppercase tracking-wide text-chalk-500">{label}</dt>
-                  <dd className="mt-1 text-chalk-100">{value}</dd>
+              value === null ? null : (
+                <div key={String(label)} className="flex items-center gap-3">
+                  <dt className="w-24 shrink-0 font-heading text-sm font-bold uppercase text-chalk-400 sm:w-28">{label}</dt>
+                  <dd className="flex-1">
+                    <Gauge value={Number(value)} />
+                  </dd>
                 </div>
               ),
             )}
           </dl>
-          {/* Rank for the whole hero page: rates, counters and builds follow it. */}
-          <RankPicker className="mt-5 border-t border-night-800 pt-4" />
-          </div>
-
         </div>
+        <div aria-hidden className="eclat-rule" />
       </div>
 
-      <div className="page-wrap py-10 xl:col-start-2 xl:row-start-3 xl:w-auto xl:max-w-none xl:px-0 xl:pb-10 xl:pt-0">
+      <div className="page-wrap py-10">
         {/* How far the page is read, and which tabs are opened: cookieless events. */}
         <ScrollDepth category="Hero page" name={h.slug} />
         <Tabs
@@ -566,7 +556,7 @@ export default async function HeroPage({ params }: Params) {
               content: analysis ? (
                 <div className="space-y-12">
                   <section>
-                    <div className="space-y-4 leading-relaxed text-chalk-300">
+                    <div className="max-w-3xl space-y-4 text-[1.05rem] leading-relaxed text-chalk-200">
                       {analysis.analysis.split("\n\n").map((p, i) => (
                         <p key={i}>{p}</p>
                       ))}
@@ -577,29 +567,29 @@ export default async function HeroPage({ params }: Params) {
                   </section>
 
                   <section className="grid gap-4 md:grid-cols-2">
-                    <Card className="border-emerald-500/25">
-                      <h2 className="flex items-center gap-2 font-heading text-lg font-bold text-emerald-400">
+                    <Card className="shadow-[inset_0_3px_0_var(--color-azure-500)]">
+                      <h2 className="flex items-center gap-2 type-subtitle uppercase text-azure-400">
                         <Swords size={18} aria-hidden />
                         {t("pages.heroDetail.strengths")}
                       </h2>
                       <ul className="mt-4 space-y-2.5">
                         {analysis.strengths.map((f) => (
                           <li key={f} className="flex gap-2.5 text-sm leading-relaxed text-chalk-300">
-                            <span aria-hidden className="mt-2 size-1 shrink-0 bg-emerald-400" />
+                            <span aria-hidden className="mt-2 h-1.5 w-1 shrink-0 -skew-x-[25deg] bg-azure-400" />
                             {f}
                           </li>
                         ))}
                       </ul>
                     </Card>
-                    <Card className="border-blood-500/25">
-                      <h2 className="flex items-center gap-2 font-heading text-lg font-bold text-blood-500">
+                    <Card className="shadow-[inset_0_3px_0_var(--color-blood-500)]">
+                      <h2 className="flex items-center gap-2 type-subtitle uppercase text-blood-400">
                         <TriangleAlert size={18} aria-hidden />
                         {t("pages.heroDetail.weaknesses")}
                       </h2>
                       <ul className="mt-4 space-y-2.5">
                         {analysis.weaknesses.map((f) => (
                           <li key={f} className="flex gap-2.5 text-sm leading-relaxed text-chalk-300">
-                            <span aria-hidden className="mt-2 size-1 shrink-0 bg-blood-500" />
+                            <span aria-hidden className="mt-2 h-1.5 w-1 shrink-0 -skew-x-[25deg] bg-blood-400" />
                             {f}
                           </li>
                         ))}
@@ -611,8 +601,8 @@ export default async function HeroPage({ params }: Params) {
                 </div>
               ) : (
                 <div className="space-y-12">
-                <Card className="border-gold-500/30">
-                  <h2 className="flex items-center gap-2 font-heading text-xl font-bold text-gold-400">
+                <Card className="shadow-[inset_0_3px_0_var(--color-gold-400)]">
+                  <h2 className="flex items-center gap-2 type-subtitle uppercase text-gold-400">
                     <ShieldAlert size={20} aria-hidden />
                     {t("pages.heroDetail.analysisPending")}
                   </h2>
@@ -621,7 +611,7 @@ export default async function HeroPage({ params }: Params) {
                   </p>
                   <Link
                     href="/contribute"
-                    className="mt-5 inline-block text-sm font-semibold text-gold-400 underline underline-offset-4 hover:text-gold-500"
+                    className="btn btn-secondary btn-sm mt-5"
                   >
                     {t("pages.heroDetail.contribute")}
                   </Link>
@@ -665,7 +655,7 @@ export default async function HeroPage({ params }: Params) {
                         <MeasuredCounters name={h.name} byRank={countersShown} />
                         <Link
                           href={`/heroes/${h.slug}/counters`}
-                          className="mt-4 inline-block text-sm font-semibold text-gold-400 hover:text-gold-500"
+                          className="mt-4 inline-block font-heading text-base font-bold uppercase text-gold-400 hover:text-gold-300"
                         >
                           {t("pages.heroDetail.pageCounters")} →
                         </Link>
@@ -678,7 +668,7 @@ export default async function HeroPage({ params }: Params) {
                         {duos[h.slug] && (
                           <Link
                             href={`/heroes/${h.slug}/duos`}
-                            className="mt-4 inline-block text-sm font-semibold text-gold-400 hover:text-gold-500"
+                            className="mt-4 inline-block font-heading text-base font-bold uppercase text-gold-400 hover:text-gold-300"
                           >
                             {t("pages.heroDetail.pageDuos")} →
                           </Link>
@@ -688,7 +678,7 @@ export default async function HeroPage({ params }: Params) {
 
                     {analysis && (analysis.strongAgainst.length > 0 || analysis.weakAgainst.length > 0) && (
                       <section>
-                        <h3 className="font-heading text-lg font-bold text-chalk-100">
+                        <h3 className="type-subtitle uppercase text-chalk-100">
                           {t("pages.heroDetail.matchups")}
                         </h3>
                         <p className="mt-1 text-sm text-chalk-500">
@@ -717,14 +707,14 @@ export default async function HeroPage({ params }: Params) {
                   <section>
                   {hasBuilds && (
                     <>
-                      <h3 className="font-heading text-lg font-bold text-chalk-100">{t("builds.written")}</h3>
+                      <h3 className="type-subtitle uppercase text-chalk-100">{t("builds.written")}</h3>
                       <p className="mt-1 mb-5 text-sm text-chalk-500">{t("builds.writtenIntro")}</p>
                     </>
                   )}
                   <div className="space-y-4">
                   {analysis.builds.map((b) => (
                     <Card key={b.name}>
-                      <h3 className="font-heading text-lg font-bold text-gold-400">{b.name}</h3>
+                      <h3 className="type-subtitle uppercase text-gold-400">{b.name}</h3>
                       <p className="mt-2 text-sm leading-relaxed text-chalk-500">{b.context}</p>
                       <ol className="mt-5 grid grid-cols-3 gap-2 sm:grid-cols-6">
                         {b.items.map((o, i) => (
@@ -783,7 +773,7 @@ export default async function HeroPage({ params }: Params) {
                   />
                   <section>
                     <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                      <h3 className="font-heading text-lg font-bold text-chalk-100">
+                      <h3 className="type-subtitle uppercase text-chalk-100">
                         {t("pages.heroDetail.statistics.adjustments")}
                       </h3>
                       <HeroFeedLink locale={locale} slug={h.slug} />
@@ -840,7 +830,7 @@ export default async function HeroPage({ params }: Params) {
                     {heroGallery(h).total > 0 && (
                       <Link
                         href={`/heroes/${h.slug}/skins`}
-                        className="inline-block text-sm font-semibold text-gold-400 hover:text-gold-500"
+                        className="inline-block font-heading text-base font-bold uppercase text-gold-400 hover:text-gold-300"
                       >
                         {t("pages.heroSkins.sheetLink", { n: heroGallery(h).total })} →
                       </Link>
@@ -854,7 +844,6 @@ export default async function HeroPage({ params }: Params) {
         <DiscordInvite t={t} context="hero" className="mt-10" />
         <PageSourcesBlock locale={locale} of={{ kind: "hero", name: h.name }} />
         <ReportError messages={messagesPage(locale, ["pages.reportError"])} path={`/heroes/${h.slug}`} className="mt-6" />
-      </div>
       </div>
       </RankProvider>
       </ShowcaseProvider>
@@ -873,16 +862,14 @@ function ListCounters({
 }) {
   return (
     <Card>
-      <h3 className="text-sm font-semibold text-chalk-100">{title}</h3>
+      <h3 className="font-heading text-lg font-bold uppercase leading-tight text-chalk-100">{title}</h3>
       <ul className="mt-4 flex flex-wrap gap-2">
         {slugs.map((s) => (
           <li key={s}>
             <Link
               href={`/heroes/${s}`}
-              className={`bevel-sm border px-2.5 py-1 text-sm transition-colors ${
-                tone === "good"
-                  ? "border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10"
-                  : "border-blood-500/30 text-blood-500 hover:bg-blood-500/10"
+              className={`bevel-sm block bg-night-800 px-2.5 py-1 font-heading font-bold uppercase transition-colors hover:bg-night-700 ${
+                tone === "good" ? "text-azure-400" : "text-blood-400"
               }`}
             >
               {heroesBySlug.get(s)?.name ?? s}

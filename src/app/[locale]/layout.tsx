@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Chakra_Petch, Inter, Noto_Sans_Thai, Play, Rajdhani } from "next/font/google";
+import { Barlow_Condensed, Chakra_Petch, Fira_Sans_Extra_Condensed, Inter, Noto_Sans_Thai, Saira_Extra_Condensed } from "next/font/google";
 import { Header } from "@/components/header";
 import { Offline } from "@/components/offline";
 import { DiscordPopup } from "@/components/discord-popup";
@@ -21,16 +21,25 @@ import { PRERENDERED_LOCALES } from "@/lib/prerender";
  * Self-hosted fonts: `next/font` downloads them at build time and serves them
  * from the site — no third-party request on load.
  */
-const rajdhani = Rajdhani({
+const heading = Barlow_Condensed({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["600", "700"],
   variable: "--heading-font",
+  display: "swap",
+});
+// The display type (hero names, page and section titles, score figures):
+// Saira Extra Condensed, the face of the wordmark. It has no italic of its
+// own: the browser slants it for `display-caps` (globals.css), as the wordmark is slanted.
+const display = Saira_Extra_Condensed({
+  subsets: ["latin"],
+  weight: ["800", "900"],
+  variable: "--display-font",
   display: "swap",
 });
 
 // Body text is not repainted when the font arrives: without it in
 // time, the page keeps its fallback font, with metrics adjusted by
-// next/font. Headings keep Rajdhani no matter what.
+// next/font. Headings keep Barlow Condensed no matter what.
 const inter = Inter({
   subsets: ["latin"],
   variable: "--body-font",
@@ -38,22 +47,39 @@ const inter = Inter({
 });
 
 /*
- * Rajdhani has neither Cyrillic nor Thai, and Inter no Thai: the Russian and
- * Thai pages take these fonts (`globals.css`, `:lang()`). Never preloaded:
- * the other languages do not load them, and their files are fetched only for
- * the characters they cover.
+ * Barlow and Saira have neither Cyrillic nor Thai, and Inter no Thai: the
+ * Russian and Thai pages take these fonts (`globals.css`, `:lang()`), a
+ * condensed face for Cyrillic and Chakra Petch's squared one for Thai. Never
+ * preloaded: the other languages do not load them, and their files are
+ * fetched only for the characters they cover.
  */
-const play = Play({
+const headingCyrillic = Fira_Sans_Extra_Condensed({
   subsets: ["cyrillic"],
-  weight: ["400", "700"],
+  weight: ["600", "700"],
   variable: "--heading-font-cyrillic",
   display: "swap",
   preload: false,
 });
-const chakraPetch = Chakra_Petch({
+const displayCyrillic = Fira_Sans_Extra_Condensed({
+  subsets: ["cyrillic"],
+  weight: ["800", "900"],
+  style: "italic",
+  variable: "--display-font-cyrillic",
+  display: "swap",
+  preload: false,
+});
+const headingThai = Chakra_Petch({
   subsets: ["thai"],
-  weight: ["500", "600", "700"],
+  weight: ["600", "700"],
   variable: "--heading-font-thai",
+  display: "swap",
+  preload: false,
+});
+const displayThai = Chakra_Petch({
+  subsets: ["thai"],
+  weight: "700",
+  style: "italic",
+  variable: "--display-font-thai",
   display: "swap",
   preload: false,
 });
@@ -63,6 +89,10 @@ const notoSansThai = Noto_Sans_Thai({
   display: "swap",
   preload: false,
 });
+
+const FONTS = [heading, display, inter, headingCyrillic, displayCyrillic, headingThai, displayThai, notoSansThai]
+  .map((f) => f.variable)
+  .join(" ");
 
 type Params = { params: Promise<{ locale: string }> };
 
@@ -122,7 +152,7 @@ export default async function LocaleLayout({
   const t = createT(locale);
 
   return (
-    <html lang={LOCALE_HTML[locale] ?? LOCALE_HTML[DEFAULT_LOCALE]} className={`${rajdhani.variable} ${inter.variable} ${play.variable} ${chakraPetch.variable} ${notoSansThai.variable}`}>
+    <html lang={LOCALE_HTML[locale] ?? LOCALE_HTML[DEFAULT_LOCALE]} className={FONTS}>
       <body className="flex min-h-screen flex-col">
         <LocaleProvider locale={locale} messages={messagesClient(locale)}>
           <a

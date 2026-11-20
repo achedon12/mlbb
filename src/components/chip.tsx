@@ -5,11 +5,11 @@ import { cn } from "@/lib/utils";
 /** Chip styling, reused by links that play the same role. */
 export function classesChip(active: boolean, dense = false) {
   return cn(
-    "bevel-sm font-medium transition-colors",
+    "bevel-sm font-medium transition-[background-color,color,transform] active:translate-y-px",
     dense ? "px-2.5 py-1 text-xs" : "px-3 py-1.5 text-sm",
     active
-      ? "bg-gold-500 text-night-950"
-      : "border border-night-700 text-chalk-300 hover:border-gold-500/60 hover:text-gold-400",
+      ? "bg-gold-400 text-night-950"
+      : "bg-night-800 text-chalk-300 hover:bg-night-700 hover:text-gold-300",
   );
 }
 

@@ -43,8 +43,8 @@ export function ServerTimeChip({
   return (
     <span className="flex flex-col">
       <span className="text-xs text-chalk-500">{timeLabel}</span>
-      <span className="flex flex-wrap items-baseline gap-x-2 font-heading text-lg font-bold leading-tight text-chalk-100 tabular-nums transition-colors group-hover:text-gold-400">
-        {time}
+      <span className="mt-1 flex flex-wrap items-baseline gap-x-2 text-chalk-100 tabular-nums transition-colors group-hover:text-gold-400">
+        <span className="display-caps text-[1.6rem] leading-none">{time}</span>
         <span className="text-xs font-medium text-chalk-400">
           {resetLabel} {wait}
         </span>
