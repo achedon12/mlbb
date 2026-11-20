@@ -1,0 +1,38 @@
+{
+  "tagline": "Roi Asura tenace et victorieux.",
+  "lore": [
+    "Dans l'univers d'Arcapada, le clan Shura prospère à l'écart du monde depuis d'innombrables générations. Ses hommes sont réputés être les plus braves guerriers du monde, et ses femmes les plus grandes beautés. Au cœur des croyances du clan Shura se trouve la légende des Trois Mille Mondes. Elle parle de trois mille mondes secrets : qui y pénètre doit affronter des épreuves psychiques et physiques de plus en plus ardues, et chaque victoire ouvre la voie vers le monde suivant. Le peuple Shura avait découvert un moyen d'entrer dans ces mondes, et seuls ceux qui en avaient conquis plus de trois cents pouvaient recevoir le titre d'Asura, qui les élevait au rang de demi-dieu aux yeux de leur peuple. Pourtant, au fil des innombrables éons de l'histoire Shura, nul n'était jamais venu à bout des trois mille mondes légendaires, jusqu'à l'apparition de Martis.",
+    "Doté d'une ambition et d'une détermination à ébranler les cieux, Martis s'entraîna chaque jour de sa vie pour devenir plus fort, progressant sans relâche à travers les mondes secrets ; chaque percée face aux légions de démons lui procurait une satisfaction sans pareille. Nul ne sait combien d'années s'écoulèrent avant que Martis n'atteigne le dernier monde secret, le plus impitoyable de tous. Mais sa soif de gloire le poussait toujours plus loin. Après de nombreuses défaites, il sombra dans le désespoir, mais même alors, il refusa d'abandonner. Il transforma sa pure soif de victoire en deux lames de juste fureur, aujourd'hui connues sous le nom de Crocs de l'Asura, et, des jours et des nuits sans nombre, il combattit les démons du dernier monde avec une force et une détermination jamais vues sur le plan des mortels. Il devint enfin le premier Asura à triompher des trois mille mondes secrets et, depuis lors, on le considère comme le « Roi Asura », qui règne sur des dizaines de millions d'aspirants Asura.",
+    "Comment le champion Shura fut couronné Roi Asura",
+    "Le clan Shura prospère à l'écart du monde depuis d'innombrables générations : ses hommes sont réputés être les plus braves guerriers du monde, et ses femmes les plus grandes beautés. Au cœur des croyances du clan Shura se trouve la légende des Trois Mille Mondes. Elle parle de trois mille mondes secrets : qui y pénètre doit affronter des épreuves psychiques de plus en plus ardues, et chaque victoire ouvre la voie vers le monde suivant. Le peuple Shura a découvert un moyen d'entrer dans ces mondes, et seuls ceux qui en ont conquis plus de trois cents reçoivent le titre d'« Asura », qui les élève au rang de demi-dieu aux yeux de leur peuple.",
+    "Pourtant, au fil des innombrables éons de l'histoire Shura, nul n'était jamais venu à bout des trois mille mondes légendaires, jusqu'à l'apparition de Martis. Doté d'une ambition et d'une détermination à ébranler les cieux, Martis s'entraîna chaque jour de sa vie pour devenir plus fort, progressant sans relâche à travers les mondes secrets ; chaque percée face aux légions de démons lui procurait une satisfaction sans pareille.",
+    "Nul ne sait combien d'années s'écoulèrent avant que Martis n'atteigne le dernier monde secret, mais sa soif de gloire le poussait toujours plus loin. Après de nombreuses défaites, il sombra dans le désespoir, mais même alors, il refusa d'abandonner. Il transforma sa pure soif de victoire en deux lames de juste fureur, aujourd'hui connues sous le nom de Crocs de l'Asura, et, des jours et des nuits sans nombre, il combattit les démons du dernier monde avec une force et une détermination jamais vues sur le plan des mortels. Il devint enfin le premier Asura à triompher des trois mille mondes secrets et, depuis lors, on le considère comme le « Roi Asura », qui règne sur des dizaines de millions d'aspirants Asura."
+  ],
+  "headings": [
+    2
+  ],
+  "trivia": [
+    "Le nom Martis vient de Mars, le dieu romain de la guerre. Dans la mythologie romaine, Mars était le dieu de la guerre, des batailles et de la violence, souvent associé à l'agressivité et au conflit. Le nom Martis conserve ce lien avec la force guerrière, la puissance et les prouesses au combat.",
+    "La réplique de Martis « 3 000 mondes, et pas un seul adversaire digne de ce nom » est une fanfaronnade : en réalité, il a été vaincu à plusieurs reprises et a même sombré dans le désespoir.",
+    "L'expression « 3 000 mondes » renvoie, de façon hyperbolique, aux 3 000 Épreuves, que chacun doit affronter et franchir une à une (monde ou niveau). Ceux qui en réussissent 300 sont considérés comme des demi-dieux aux yeux du clan Asura.",
+    "Après avoir achevé les 3 000 Épreuves, Martis rencontra le demi-dieu Gatotkaca, et un combat acharné s'ensuivit. Ils étaient de force égale, et leur seul affrontement ouvrit un passage vers la Faille temporelle.",
+    "Martis compte officiellement parmi les héros les plus puissants de MLBB. Gatotkaca est son seul égal, et le seul capable d'arrêter la colère de l'Asura.",
+    "Martis et Gatotkaca partagent aussi leur comédien de doublage japonais, Abe Daiki, avec Helcurt, qui partage avec chacun d'eux une position recommandée : la jungle pour l'un, l'itinérance pour l'autre."
+  ],
+  "profile": {
+    "fullName": "Martis Shura",
+    "title": null,
+    "species": "Asura",
+    "gender": "Homme",
+    "age": null,
+    "origin": "Univers d'Arcapada",
+    "birthday": "24 décembre",
+    "affiliations": [],
+    "relations": [
+      "Gatotkaca (ennemi)"
+    ],
+    "powers": [
+      "Combat amélioré, vitesse accrue"
+    ]
+  }
+}

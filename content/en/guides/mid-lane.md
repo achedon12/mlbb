@@ -35,7 +35,7 @@ Not all mages play the same way. Some, like [Yve](/heroes/yve) or [Vexana](/hero
 The mage's build follows the opponent's magic defense:
 
 - **against heroes who accumulate magic defense**, a penetration item like [Divine Glaive](/items/divine-glaive);
-- **against a team that heals**, the healing reduction of [Necklace of Durance](/items/necklace-of-durance);
+- **against a team that heals**, the healing reduction of [Glowing Wand](/items/glowing-wand);
 - **against divers**, a survival item like [Winter Crown](/items/winter-crown), which briefly makes you untouchable.
 
 The [damage calculator](/tools/damage-calculator) shows the effect of penetration on a real hit. On the spell side, [Flicker](/spells/flicker) remains the most common choice; [Flameshot](/spells/flameshot) strikes from afar to finish off a fleeing target.

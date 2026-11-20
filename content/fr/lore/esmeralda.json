@@ -1,0 +1,40 @@
+{
+  "tagline": "Une mystérieuse astrologue.",
+  "lore": [
+    "Les astrologues, qui observent sans relâche l'espace astral, possèdent le don occulte d'expliquer et de prédire toute chose en ce monde, son déroulement comme son issue. Pour devenir astrologue, les candidats doivent réussir de rigoureuses épreuves qui jaugent leur volonté autant que leurs dons d'astrologie. Au fil des générations, les anciens finissent par choisir Esmeralda, une jeune fille du Désert de l'Ouest, pour être la nouvelle héritière sur la Terre de l'Aube.",
+    "Devenue l'héritière des astrologues, Esmeralda garde le Coffret Lune-Étoile, transmis de génération en génération. Dans l'espoir de l'ouvrir et d'acquérir le mystérieux pouvoir des temps anciens, Esmeralda part pour le Labyrinthe de Minos afin d'y percer les secrets du Coffret Lune-Étoile. Mais hélas, en chemin, le sol se met soudain à trembler et le désert se fend de toutes parts, avant qu'une tempête de sable noir ne se lève. Tout à coup, le Coffret Lune-Étoile s'ouvre, et un flot de puissance mystérieuse envahit Esmeralda. Protégée par cette puissance, Esmeralda reste indemne et sent d'anciens souvenirs lui revenir à l'esprit. Elle sent que le Coffret Lune-Étoile l'appelle et lui rappelle que Khufra, l'impitoyable tyran qui régnait jadis sur le Désert de l'Ouest, a repris des forces. Guidée par le Coffret Lune-Étoile, Esmeralda change de cap et s'enfonce au cœur du désert, où se dresse une cité antique. Une fois le Coffret Lune-Étoile ouvert, deux flots de puissance qui en jaillissent se mettent à tourner autour d'Esmeralda : la Lune de givre, riche en magie, et la Poussière d'étoiles, chargée d'une grande force. Impressionnée par la puissance du Coffret Lune-Étoile, dont elle n'avait entendu parler que dans les contes, Esmeralda retrouve les souvenirs de la première génération d'astrologues. En approchant de la cité antique, elle devine confusément une histoire d'amour inconnue entre Khufra et certaines astrologues. En voyant comment cet amour a fini, Esmeralda ressent une étrange tristesse, des regrets. Mais sa mission est de sceller Khufra et de rendre la paix au Désert de l'Ouest."
+  ],
+  "headings": [],
+  "profile": {
+    "fullName": "Esmeralda",
+    "title": null,
+    "species": "Humain",
+    "gender": "Femme",
+    "age": "21 ans",
+    "origin": "Vallée de la Porte des étoiles, Terres arides d'Agelta",
+    "birthday": "15 novembre",
+    "affiliations": [
+      "Astrologues d'Agelta"
+    ],
+    "relations": [
+      "Khufra (ancien amant, ennemi)"
+    ],
+    "powers": [
+      "Bouclier tiré de la puissance du Coffret Lune-Étoile",
+      "Puissance de l'espace astral"
+    ]
+  },
+  "trivia": [
+    "Le prénom Esmeralda est d'origine espagnole et portugaise et signifie « émeraude » (la pierre précieuse verte). Il vient de l'espagnol esmeralda, lui-même issu du grec smaragdos (σμάραγδος), « pierre verte ».",
+    "Son nom va de pair avec son passif, Starmoon Casket, qui réunit les étoiles (Stardust) et la lune (Frostmoon).",
+    "Le nom et le design d'Esmeralda s'inspirent en partie du personnage du même nom dans le film Disney de 1996, lui-même adapté du roman de Victor Hugo paru en 1831.",
+    "Esmeralda fait partie des héros dont les compétences actives peuvent être lancées en mouvement avec le joystick.",
+    "Esmeralda est la seule héroïne capable de donner un bouclier à un ennemi.",
+    "Esmeralda porte des bijoux en or (bracelets, boucles d'oreilles et diadème) qui rappellent la mode traditionnelle du Moyen-Orient, en particulier celle de l'Égypte.",
+    "Son skin « Cleopatra » s'inspire de la reine Cléopâtre d'Égypte.",
+    "Son skin « Poison Vine » s'inspire de Poison Ivy, de l'univers DC.",
+    "Avec Khufra, elle possède les premières répliques qui ne se déclenchent qu'au contact d'un héros adverse précis (ici, Khufra).",
+    "À ce jour, Alice et Esmeralda sont les seules héroïnes du jeu classées à la fois Mage et Tank.",
+    "Elle partage sa classe de Tank, ainsi que sa comédienne de doublage japonaise, Deguchi Mika, avec Masha."
+  ]
+}

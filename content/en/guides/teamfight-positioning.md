@@ -64,7 +64,7 @@ The safest order of priority:
 2. the hero who heals or protects, if he is within range;
 3. the rest, starting with the closest one.
 
-Against a team that heals a lot, healing reduction items change the outcome of long fights: [Sea Halberd](/items/sea-halberd) for physical damage, [Necklace of Durance](/items/necklace-of-durance) for magic damage, [Dominance Ice](/items/dominance-ice) for a tank. The [item catalog](/items) indicates who builds them.
+Against a team that heals a lot, healing reduction items change the outcome of long fights: [Sea Halberd](/items/sea-halberd) for physical damage, [Glowing Wand](/items/glowing-wand) for magic damage, [Dominance Ice](/items/dominance-ice) for a tank. The [item catalog](/items) indicates who builds them.
 
 ## The most common mistakes
 
