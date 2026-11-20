@@ -14,7 +14,7 @@
     "À travers le vent hurlant et la neige tourbillonnante, Freya contempla au loin Sessrumnir. La forteresse se dressait, froide et silencieuse, comme le cœur même de la Vallée du Nord, gelé et immobile.",
     "…",
     "Si sa quête acharnée ne lui avait pas encore révélé où se trouvait le Cœur d'Aurore, Freya se rapprochait de plus en plus de la terrible vérité sur le sacrifice de sa sœur.",
-    "Les glaciers, nés de la volonté divine du dieu de la Lumière, avaient attiré d'innombrables fidèles qui en avaient fait des places fortes, étendant la domination de leur divinité sur tout le royaume, et favorisant même, sans le vouloir, la naissance de la vierge divine Aurora. Après la fin de la Guerre sans fin, ces fidèles de la Lumière s'étaient évanouis comme des fantômes, pour reparaître des années plus tard avec de perfides desseins. Ils avaient tendu les pièges sournois qui coûtèrent la vie à Skuld, et dans le chaos qui suivit, le Cœur d'Aurore était entré dans la légende. Mais les sombres ambitions des fidèles restaient intactes : ils voulaient vider la forge de son essence même et la détruire entièrement, pour dégager la voie au retour inéluctable du dieu de la Lumière.",
+    "Les glaciers, nés de la volonté divine du Dieu de la Lumière, avaient attiré d'innombrables fidèles qui en avaient fait des places fortes, étendant la domination de leur divinité sur tout le royaume, et favorisant même, sans le vouloir, la naissance de la vierge divine Aurora. Après la fin de la Guerre sans fin, ces fidèles de la Lumière s'étaient évanouis comme des fantômes, pour reparaître des années plus tard avec de perfides desseins. Ils avaient tendu les pièges sournois qui coûtèrent la vie à Skuld, et dans le chaos qui suivit, le Cœur d'Aurore était entré dans la légende. Mais les sombres ambitions des fidèles restaient intactes : ils voulaient vider la forge de son essence même et la détruire entièrement, pour dégager la voie au retour inéluctable du Dieu de la Lumière.",
     "Une fumée épaisse et suffocante s'échappait des salles sacrées de Sessrumnir !",
     "Quand Freya atteignit le champ de bataille, Sessrumnir n'était plus qu'une ruine. Les fidèles de la Lumière siphonnaient avidement et sans retenue la puissance de la forge. Les guerriers de la Vallée du Nord se battaient désespérément à un contre dix, tandis que les flammes aux couleurs d'aurore de la forge vacillaient de plus en plus faiblement. De profondes secousses ébranlaient la terre jusque dans ses fondations : tout était au bord de l'effondrement…",
     "Voyant arriver Freya en renfort, les fidèles de la Lumière s'apprêtèrent à fuir comme des lâches. Chaque fibre de son être hurlait à Freya de les poursuivre pour venger sa sœur, mais la puissance de la forge s'écoulait comme le sang d'une plaie ouverte, et sa présence était nécessaire pour assurer la survie même de la Vallée du Nord.",
@@ -38,7 +38,7 @@
   "profile": {
     "fullName": null,
     "title": "Valkyrie",
-    "species": "Humain",
+    "species": "Humaine",
     "gender": "Femme",
     "age": null,
     "origin": null,
@@ -49,9 +49,9 @@
     ],
     "relations": [
       "Skuld (sœur aînée, sort inconnu)",
-      "Franco (allié)",
+      "Franco (compagnon)",
       "Bane, Atlas (ennemis)",
-      "Popol et Kupa (alliés)",
+      "Popol et Kupa (compagnons)",
       "Hilda (sauvée)",
       "Aurora"
     ],
@@ -64,6 +64,6 @@
     "Freya s'inspire de Freyja, une déesse de la mythologie nordique associée à l'amour, à la beauté, à la fertilité, à la sexualité, à la guerre, à la mort et à la magie.",
     "Dans son histoire, Freya apparaît sous les traits d'une Valkyrie. Les Valkyries sont des figures féminines qui guident les âmes des morts jusqu'au Valhalla, la demeure du dieu Odin.",
     "La Freya de première génération était une héroïne pay-to-win. Par ailleurs, Freya est l'une des deux héroïnes (avec Odette) qu'on ne peut pas acheter avec des points de bataille. Odette pouvait pourtant s'acheter avec des points de bataille à sa sortie, en 2017. Freya, elle, ne s'achète toujours qu'avec des diamants, pour une raison encore inconnue.",
-    "La comédienne de doublage anglaise de Freya a aussi prêté sa voix à certains messages rapides du champ de bataille."
+    "La doubleuse anglaise de Freya a aussi prêté sa voix à certains messages rapides du champ de bataille."
   ]
 }
