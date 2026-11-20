@@ -1,0 +1,289 @@
+import type { Page } from "@playwright/test";
+import { expect, test } from "./visitor";
+
+/**
+ * The site's frame, ahead of a redesign: the header's sections and panels,
+ * the breadcrumb's sibling pages, the filter sheet on a phone, the offline
+ * banner, the Discord invitations, the footer, and the machine-readable
+ * outputs (feeds, llms.txt, JSON-LD). Roles, labels and accessible names
+ * only.
+ */
+
+const PHONE = { width: 390, height: 844 };
+const DESKTOP = { width: 1440, height: 900 };
+
+const mainNav = (page: Page) => page.getByRole("navigation", { name: /navigation principale/i });
+
+test.describe("header", () => {
+  test.use({ viewport: DESKTOP });
+
+  test("the current section is marked, and its panel marks the current page", async ({ page }) => {
+    await page.goto("/fr/tier-list");
+    const nav = mainNav(page);
+    await expect(nav.getByRole("button", { name: /^m[ée]ta$/i })).toHaveAttribute("aria-current", "true");
+    await expect(nav.locator('button[aria-current="true"]')).toHaveCount(1);
+    await expect(nav.getByRole("button", { name: /^h[ée]ros$/i })).not.toHaveAttribute("aria-current", /.+/);
+
+    await page.goto("/fr/heroes/masha");
+    await expect(mainNav(page).getByRole("button", { name: /^h[ée]ros$/i })).toHaveAttribute("aria-current", "true");
+    await expect(mainNav(page).getByRole("button", { name: /^m[ée]ta$/i })).not.toHaveAttribute("aria-current", /.+/);
+
+    // The open panel of the section names the page you are on.
+    await page.goto("/fr/heroes");
+    const heroes = mainNav(page).getByRole("button", { name: /^h[ée]ros$/i });
+    await expect(async () => {
+      await heroes.click();
+      await expect(heroes).toHaveAttribute("aria-expanded", "true", { timeout: 1_000 });
+    }).toPass();
+    const panel = page.locator(`[id="${await heroes.getAttribute("aria-controls")}"]`);
+    await expect(panel.locator('a[aria-current="page"]').first()).toHaveAttribute("href", /\/fr\/heroes$/);
+  });
+
+  test("a panel opens on hover and closes when the pointer leaves", async ({ page }) => {
+    await page.goto("/fr/heroes");
+    const nav = mainNav(page);
+    const guides = nav.getByRole("button", { name: /^guides$/i });
+    await expect(async () => {
+      await page.mouse.move(0, 400);
+      await guides.hover();
+      await expect(guides).toHaveAttribute("aria-expanded", "true", { timeout: 1_000 });
+    }).toPass();
+    const panel = page.locator(`[id="${await guides.getAttribute("aria-controls")}"]`);
+    await expect(panel.getByRole("link").first()).toBeVisible();
+    // Moving to another section switches panels.
+    await nav.getByRole("button", { name: /^outils$/i }).hover();
+    await expect(nav.getByRole("button", { name: /^outils$/i })).toHaveAttribute("aria-expanded", "true");
+    await expect(guides).toHaveAttribute("aria-expanded", "false");
+    // Leaving the header closes, after a short grace period.
+    await page.mouse.move(700, 800);
+    await expect(nav.getByRole("button", { name: /^outils$/i })).toHaveAttribute("aria-expanded", "false");
+  });
+
+  test("a click toggles a panel, and a click outside closes it", async ({ page }) => {
+    await page.goto("/fr/heroes");
+    const news = mainNav(page).getByRole("button", { name: /^actus et esport$/i });
+    await expect(async () => {
+      await news.click();
+      await expect(news).toHaveAttribute("aria-expanded", "true", { timeout: 1_000 });
+    }).toPass();
+    await page.mouse.click(700, 800);
+    await expect(news).toHaveAttribute("aria-expanded", "false");
+  });
+});
+
+test.describe("breadcrumb", () => {
+  test("the last crumb lists its sibling pages, with a filter", async ({ page }) => {
+    await page.goto("/fr/heroes/masha");
+    const trail = page.getByRole("navigation", { name: /fil d'ariane/i });
+    const siblings = trail.getByRole("button", { name: /autres pages au m[êe]me niveau que masha/i });
+    await expect(siblings).toHaveAttribute("aria-expanded", "false");
+    await expect(async () => {
+      await siblings.click();
+      await expect(siblings).toHaveAttribute("aria-expanded", "true", { timeout: 1_000 });
+    }).toPass();
+
+    const panel = page.locator(`[id="${await siblings.getAttribute("aria-controls")}"]`);
+    const filter = panel.getByRole("textbox", { name: /filtrer/i });
+    await expect(filter).toBeFocused();
+    await expect(panel.getByRole("link", { name: "Masha" })).toHaveAttribute("aria-current", "page");
+    expect(await panel.getByRole("link").count()).toBeGreaterThan(100);
+
+    await filter.fill("khuf");
+    await expect(panel.getByRole("link")).toHaveCount(1);
+    await filter.fill("zzzz");
+    await expect(panel.getByRole("link")).toHaveCount(0);
+    await filter.fill("khuf");
+    await panel.getByRole("link", { name: "Khufra" }).click();
+    await expect(page).toHaveURL(/\/fr\/heroes\/khufra$/);
+    await expect(page.getByRole("heading", { level: 1, name: "Khufra" })).toBeVisible();
+  });
+
+  test("Escape closes the sibling list", async ({ page }) => {
+    await page.goto("/fr/heroes/masha/skins");
+    const siblings = page.getByRole("navigation", { name: /fil d'ariane/i }).getByRole("button", { name: /autres pages au m[êe]me niveau/i });
+    await expect(async () => {
+      await siblings.click();
+      await expect(siblings).toHaveAttribute("aria-expanded", "true", { timeout: 1_000 });
+    }).toPass();
+    const panel = page.locator(`[id="${await siblings.getAttribute("aria-controls")}"]`);
+    // The same page of the neighbouring heroes.
+    await expect(panel.getByRole("link").first()).toHaveAttribute("href", /\/fr\/heroes\/[a-z-]+\/skins$/);
+    await page.keyboard.press("Escape");
+    await expect(siblings).toHaveAttribute("aria-expanded", "false");
+    await expect(panel).toBeHidden();
+  });
+});
+
+test.describe("filter bar on a phone", () => {
+  test.use({ viewport: PHONE });
+
+  test("the filters live in a sheet, and the choice shows in the bar", async ({ page }) => {
+    await page.goto("/fr/heroes");
+    // The groups stay in the document, but not on screen.
+    await expect(page.getByRole("group", { name: /^r[ôo]le$/i })).toBeHidden();
+    const open = page.getByRole("button", { name: /^filtrer/i });
+    const sheet = page.getByRole("dialog", { name: /^filtrer/i });
+    await expect(async () => {
+      await open.click();
+      await expect(sheet).toBeVisible({ timeout: 1_000 });
+    }).toPass();
+    await sheet.getByRole("group", { name: /^r[ôo]le$/i }).getByRole("button", { name: /^tank$/i }).click();
+    await expect(sheet.getByRole("group", { name: /^r[ôo]le$/i }).getByRole("button", { name: /^tank$/i })).toHaveAttribute("aria-pressed", "true");
+    await sheet.getByRole("button", { name: /fermer/i }).click();
+    await expect(sheet).toBeHidden();
+    await expect(page).toHaveURL(/[?&]role=tank/i);
+
+    // The selection is a chip in the bar, one tap drops it.
+    const chip = page.getByRole("button", { name: /^tank$/i, pressed: true });
+    await expect(chip).toBeVisible();
+    await chip.click();
+    await expect(page).not.toHaveURL(/role=/);
+    const width = await page.evaluate(() => document.documentElement.scrollWidth);
+    expect(width).toBeLessThanOrEqual(PHONE.width);
+  });
+});
+
+test("the offline banner shows while the connection is lost", async ({ page, context }) => {
+  await page.goto("/fr/heroes");
+  await page.waitForLoadState("networkidle");
+  const banner = page.getByRole("status").filter({ hasText: /hors ligne/i });
+  await expect(banner).toHaveCount(0);
+  await context.setOffline(true);
+  await expect(banner).toBeVisible();
+  await context.setOffline(false);
+  await expect(banner).toHaveCount(0);
+});
+
+test.describe("Discord invitations", () => {
+  /** The invitations only exist with a community invite (`NEXT_PUBLIC_DISCORD_INVITE_URL`). */
+  async function skipWithoutInvite(page: Page) {
+    const invite = await page.getByRole("banner").getByRole("link", { name: /rejoindre le discord/i }).count();
+    test.skip(invite === 0, "no Discord invite configured on this server");
+  }
+  const popup = (page: Page) =>
+    page
+      .getByRole("complementary", { name: /invitation au discord/i })
+      .filter({ has: page.getByRole("button", { name: /fermer l'invitation/i }) });
+  const band = (page: Page) =>
+    page.getByRole("complementary", { name: /invitation au discord/i }).filter({ hasNot: page.getByRole("button") });
+
+  test("the card comes on the second page, and a dismissal is remembered", async ({ page, context }) => {
+    await page.goto("/fr/legal");
+    await skipWithoutInvite(page);
+    await page.waitForLoadState("networkidle");
+    await expect(popup(page)).toHaveCount(0);
+
+    await page.goto("/fr/privacy");
+    await expect(popup(page)).toBeVisible({ timeout: 10_000 });
+    await expect(popup(page).getByRole("link", { name: /rejoindre/i })).toHaveAttribute("href", /^https:\/\/discord\.gg\//);
+    await popup(page).getByRole("button", { name: /fermer l'invitation/i }).click();
+    await expect(popup(page)).toHaveCount(0);
+    const memory = await page.evaluate(() => JSON.parse(localStorage.getItem("mlbb_discord_popup") ?? "{}"));
+    expect(memory.dismissedUntil).toBeGreaterThan(Date.now());
+
+    // A new tab, so a new session: still nothing, the dismissal holds.
+    const other = await context.newPage();
+    await other.goto("/fr/legal");
+    await other.goto("/fr/privacy");
+    await other.waitForLoadState("networkidle");
+    await other.waitForTimeout(1_500);
+    await expect(popup(other)).toHaveCount(0);
+  });
+
+  test("the card never shows on the bot pages", async ({ page }) => {
+    await page.goto("/fr/legal");
+    await skipWithoutInvite(page);
+    await page.goto("/fr/privacy");
+    await expect(popup(page)).toBeVisible({ timeout: 10_000 });
+    await page.goto("/fr/bot");
+    await page.waitForLoadState("networkidle");
+    await expect(popup(page)).toHaveCount(0);
+  });
+
+  test("the band sits on a strategic page, not on the home page", async ({ page }) => {
+    await page.goto("/fr/statistics");
+    await skipWithoutInvite(page);
+    await expect(band(page)).toBeVisible();
+    await expect(band(page).getByRole("link", { name: /rejoindre le serveur/i })).toHaveAttribute("href", /^https:\/\/discord\.gg\//);
+    await page.goto("/fr");
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+    await expect(band(page)).toHaveCount(0);
+  });
+});
+
+test.describe("footer", () => {
+  test("links to the legal pages", async ({ page }) => {
+    await page.goto("/fr");
+    const footer = page.getByRole("contentinfo");
+    await expect(footer.getByRole("link", { name: /mentions l[ée]gales/i })).toHaveAttribute("href", /\/fr\/legal$/);
+    await expect(footer.getByRole("link", { name: /confidentialit[ée]/i }).first()).toHaveAttribute("href", /\/fr\/privacy/);
+  });
+
+  test("offers no cookie settings without audience measurement", async ({ page }) => {
+    test.skip(!!process.env.NEXT_PUBLIC_MATOMO_URL, "Matomo is configured: consent.spec.ts covers the button");
+    await page.goto("/fr");
+    await page.waitForLoadState("networkidle");
+    await expect(page.getByRole("contentinfo").getByRole("button", { name: /g[ée]rer les cookies/i })).toHaveCount(0);
+  });
+});
+
+test.describe("machine-readable outputs", () => {
+  /** Parses XML in the browser: a malformed feed yields a `parsererror` document. */
+  async function parseXml(page: Page, xml: string) {
+    return page.evaluate((text) => {
+      const doc = new DOMParser().parseFromString(text, "application/xml");
+      if (doc.querySelector("parsererror")) return null;
+      return {
+        root: doc.documentElement.nodeName,
+        title: doc.querySelector("channel > title")?.textContent ?? "",
+        items: doc.querySelectorAll("channel > item").length,
+        links: [...doc.querySelectorAll("channel > item > link")].map((l) => l.textContent ?? ""),
+      };
+    }, xml);
+  }
+
+  test("the site feed is valid RSS", async ({ page, request }) => {
+    const response = await request.get("/feed.xml");
+    expect(response.status()).toBe(200);
+    expect(response.headers()["content-type"]).toMatch(/xml/);
+    const feed = await parseXml(page, await response.text());
+    expect(feed).not.toBeNull();
+    expect(feed!.root).toBe("rss");
+    expect(feed!.title).toMatch(/MLBBDex/);
+    expect(feed!.items).toBeGreaterThan(0);
+  });
+
+  test("a hero's feed is valid RSS about that hero", async ({ page, request }) => {
+    const response = await request.get("/fr/heroes/masha/feed.xml");
+    expect(response.status()).toBe(200);
+    expect(response.headers()["content-type"]).toMatch(/xml/);
+    const feed = await parseXml(page, await response.text());
+    expect(feed).not.toBeNull();
+    expect(feed!.root).toBe("rss");
+    expect(feed!.title).toMatch(/Masha/);
+    // The stats tab links to it.
+    await page.goto("/fr/heroes/masha#stats");
+    await expect(page.getByRole("link", { name: /suivre en rss/i })).toHaveAttribute("href", /\/fr\/heroes\/masha\/feed\.xml$/);
+  });
+
+  test("llms.txt answers", async ({ request }) => {
+    const response = await request.get("/llms.txt");
+    expect(response.status()).toBe(200);
+    expect(response.headers()["content-type"]).toMatch(/text\//);
+    expect(await response.text()).toMatch(/^# MLBBDex/);
+  });
+
+  for (const path of ["/fr", "/fr/heroes/masha", "/fr/tier-list"]) {
+    test(`JSON-LD of ${path} is present and parses`, async ({ request }) => {
+      const html = await (await request.get(path)).text();
+      const blocks = [...html.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map((m) => m[1]);
+      expect(blocks.length).toBeGreaterThan(0);
+      for (const block of blocks) {
+        const data = JSON.parse(block);
+        const nodes = Array.isArray(data) ? data : data["@graph"] ?? [data];
+        expect(nodes.length).toBeGreaterThan(0);
+        for (const node of nodes) expect(node["@type"] ?? node["@context"]).toBeTruthy();
+      }
+    });
+  }
+});

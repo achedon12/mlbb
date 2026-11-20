@@ -154,6 +154,8 @@ export function SiteNav({
                   id={`nav-button-${item.key}`}
                   aria-expanded={isOpen}
                   aria-controls={`nav-panel-${item.key}`}
+                  // The section of the current page, which the underline shows.
+                  aria-current={active ? "true" : undefined}
                   onClick={() => setOpen(isOpen ? null : item.key)}
                   className={cn(
                     "relative flex w-full items-center gap-2 py-3.5 text-left font-heading text-lg font-semibold transition-colors xl:w-auto xl:gap-1.5 xl:rounded-md xl:px-2.5 xl:py-2 2xl:px-3 xl:font-body xl:text-sm xl:font-medium",
