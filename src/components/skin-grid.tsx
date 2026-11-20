@@ -9,7 +9,7 @@ import { SkinCard, type PropsCardSkin } from "@/components/skin-card";
  */
 export function SkinGrid({ cards }: { cards: PropsCardSkin[] }) {
   return (
-    <ul className="grid grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-6">
+    <ul className="grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-2.5 md:grid-cols-6 lg:grid-cols-8">
       {cards.map((c) => (
         <li key={c.href}>
           <SkinCard {...c} />

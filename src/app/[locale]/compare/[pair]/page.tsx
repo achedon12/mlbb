@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import Link from "@/components/link";
 import { FreshnessLine } from "@/components/freshness";
-import { HeroPortrait } from "@/components/hero-portrait";
+import { Breadcrumb } from "@/components/breadcrumb";
+import { VersusPoster } from "@/components/compare/versus-poster";
+import { heroArt } from "@/components/hero-art";
+import { DexSays } from "@/components/mascot";
+import { PageLead } from "@/components/page-lead";
 import { SERIES_STYLES, TraitLegend } from "@/components/hero-radar";
-import { Card, PageHeader } from "@/components/ui";
+import { Card, Score, SectionTitle } from "@/components/ui";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT, type T } from "@/i18n/translations";
@@ -202,70 +206,94 @@ export default async function VersusPage({ params }: Params) {
     ],
   };
 
-  const chip = "bevel-sm inline-block border border-night-700 px-2.5 py-1 text-chalk-300 hover:text-gold-400";
-  const h2 = "font-heading text-2xl font-bold text-chalk-100";
+  const chip = "btn btn-secondary btn-sm";
+  const frame = "bevel relative overflow-x-auto bg-night-900 p-3 sm:p-4";
+  const balanced = ref ? Math.abs(ref.advantage) < THRESHOLD_BALANCE : true;
+  const leader = ref && !balanced ? (ref.advantage > 0 ? a : b) : null;
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
 
-      <PageHeader
-        title={title}
-        lead={t("pages.versus.lead", { a: a.name, b: b.name })}
-        crumbs={[
-          { name: t("pages.compare.title"), href: "/compare" },
-          {
-            name: title,
-            // Sibling pages: the first hero's other measured duels.
-            siblings: measuredOpponents(counters, a.slug)
-              .filter((e) => heroesBySlug.has(e.slug))
-              .slice(0, 20)
-              .map((e) => ({ name: t("pages.versus.title", { a: a.name, b: nameOf(e.slug) }), href: pathPair(a.slug, e.slug) }))
-              .sort((x, y) => x.name.localeCompare(y.name)),
-          },
-        ]}
-      >
-        <FreshnessLine locale={locale} className="mt-4" />
-      </PageHeader>
-
-      <div className="mx-auto max-w-4xl space-y-12 px-4 py-10">
-        {/* ── The two heroes ─────────────────────────────────────────── */}
-        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3">
-          {[
+      {/* ── The versus poster: the two artworks facing each other ──── */}
+      <section aria-labelledby="pair-title" className="relative isolate">
+        <VersusPoster
+          priority
+          sides={[
             { h: a, s: sa },
             { h: b, s: sb },
-          ].map(({ h, s }, i) => (
-            <Link
-              key={h.slug}
-              href={`/heroes/${h.slug}`}
-              className={cn(
-                "bevel flex min-w-0 flex-col items-center gap-2 border border-night-700/70 bg-night-900/60 p-3 text-center transition-colors hover:border-gold-500/60",
-                i === 1 && "order-3",
-              )}
-            >
-              <HeroPortrait source={h.images.icon ?? h.images.portrait} name={h.name} size="thumb" decorative />
-              <span className="font-heading text-lg font-bold text-chalk-100">{h.name}</span>
-              {s && (
-                <span className="text-xs text-chalk-500">
-                  {t("pages.heroDetail.tier", { p: s.tier })} · {percentage(locale, s.winRate)}
-                </span>
-              )}
-              <TraitLegend {...SERIES_STYLES[i]} />
-            </Link>
-          ))}
-          <span aria-hidden className="order-2 font-heading text-xl font-bold text-gold-400">
-            VS
-          </span>
+          ].map(({ h, s }, i) => ({
+            slug: h.slug,
+            name: h.name,
+            art: heroArt(h.slug),
+            portrait: h.images.portrait ?? h.images.icon,
+            tier: s?.tier ?? null,
+            win: s ? decimal.format(s.winRate) : null,
+            winLabel: s ? `${t("compareUI.winRate")} : ${percentage(locale, s.winRate)}` : undefined,
+            sub: h.roles.map((r) => t(`roles.${r}`)).join(" · "),
+            legend: <TraitLegend {...SERIES_STYLES[i]} />,
+          }))}
+        >
+          <div className="page-wrap absolute inset-x-0 top-0 pt-3 sm:pt-5">
+            <Breadcrumb
+              crumbs={[
+                { name: t("pages.compare.title"), href: "/compare" },
+                {
+                  name: title,
+                  // Sibling pages: the first hero's other measured duels.
+                  siblings: measuredOpponents(counters, a.slug)
+                    .filter((e) => heroesBySlug.has(e.slug))
+                    .slice(0, 20)
+                    .map((e) => ({ name: t("pages.versus.title", { a: a.name, b: nameOf(e.slug) }), href: pathPair(a.slug, e.slug) }))
+                    .sort((x, y) => x.name.localeCompare(y.name)),
+                },
+              ]}
+              className="[&_ol]:flex-nowrap [&_ol]:px-2 [&_ol]:py-1 [&_ol]:text-xs"
+            />
+          </div>
+        </VersusPoster>
+        <div aria-hidden className="eclat-rule" />
+        <div className="page-wrap">
+          <div className="mx-auto max-w-5xl pt-7 sm:pt-10">
+            <h1 id="pair-title" className="display-caps text-[clamp(2.4rem,1.6rem+3vw,4.25rem)] text-chalk-100">
+              {title}
+            </h1>
+            <div aria-hidden className="eclat mt-4 h-[3px] w-24" />
+            <PageLead lead={t("pages.versus.lead", { a: a.name, b: b.name })} />
+            <FreshnessLine locale={locale} className="mt-4" />
+          </div>
         </div>
+      </section>
 
-        {/* ── Verdict, rank by rank ─────────────────────────────────── */}
-        <section aria-labelledby="verdict">
-          <h2 id="verdict" className={h2}>
-            {question}
-          </h2>
-          <p className="mt-3 max-w-3xl leading-relaxed text-chalk-300">{sentence}</p>
+      <div className="page-wrap">
+      <div className="mx-auto max-w-5xl space-y-14 pb-14 pt-10 sm:space-y-20 sm:pt-14">
+        {/* ── Verdict, rank by rank: the page's one big figure ───────── */}
+        <section aria-labelledby="verdict" className="motion-safe:animate-[rise-in_0.45s_ease-out_both]">
+          <SectionTitle id="verdict">{question}</SectionTitle>
+          {ref ? (
+            <div className="grid items-end gap-x-10 gap-y-4 sm:grid-cols-[auto_minmax(0,1fr)]">
+              <p className="min-w-0">
+                {leader ? (
+                  <>
+                    <span className="display-caps block text-[clamp(1.75rem,1.2rem+1.8vw,2.75rem)] text-chalk-100">{leader.name}</span>
+                    <Score
+                      value={gap(Math.abs(ref.advantage))}
+                      className="mt-2 text-[clamp(3.5rem,2rem+5vw,7rem)]"
+                    />
+                  </>
+                ) : (
+                  <Score value={t("pages.versus.balancedShort")} className="text-[clamp(3.5rem,2rem+5vw,7rem)]" />
+                )}
+              </p>
+              <p className="max-w-2xl text-base leading-relaxed text-chalk-200 sm:text-lg">{sentence}</p>
+            </div>
+          ) : (
+            <DexSays pose="surpris">
+              <p className="leading-relaxed">{sentence}</p>
+            </DexSays>
+          )}
           {duels.length > 0 && (
-            <div className="bevel mt-5 relative overflow-x-auto border border-night-700/70 bg-night-900/60 p-3">
+            <div className={cn(frame, "mt-8")}>
               <TableDuel t={t} duels={duels} a={a} b={b} gap={gap} />
             </div>
           )}
@@ -275,13 +303,11 @@ export default async function VersusPage({ params }: Params) {
         {/* ── Early or late game ───────────────────────────────────── */}
         {rankDuration && sentenceDuration && (
           <section aria-labelledby="duration">
-            <h2 id="duration" className={h2}>
-              {t("pages.versus.duration.title")}
-            </h2>
-            <p className="mt-3 max-w-3xl leading-relaxed text-chalk-300">{sentenceDuration}</p>
-            <div className="bevel mt-4 relative overflow-x-auto border border-night-700/70 bg-night-900/60 p-3">
+            <SectionTitle id="duration">{t("pages.versus.duration.title")}</SectionTitle>
+            <p className="max-w-3xl leading-relaxed text-chalk-300">{sentenceDuration}</p>
+            <div className={cn(frame, "mt-5")}>
               <table className="w-full text-sm [&_td]:py-1.5 [&_td+td]:pl-3 [&_td+td]:text-right [&_td+td]:tabular-nums [&_th+th]:pl-3 [&_th+th]:text-right">
-                <thead className="text-xs uppercase tracking-wide text-chalk-500 [&_th]:pb-2 [&_th]:font-medium">
+                <thead className="font-heading text-sm uppercase text-chalk-400 [&_th]:pb-2 [&_th]:font-bold">
                   <tr>
                     <th scope="col" className="text-left">{t("pages.versus.duration.colPhase")}</th>
                     <th scope="col">{a.name}</th>
@@ -317,13 +343,11 @@ export default async function VersusPage({ params }: Params) {
         {/* ── Profiles ─────────────────────────────────────────────── */}
         {/* Table only, no radar: the page stays light, and the radar lives in the comparator. */}
         <section aria-labelledby="profiles">
-          <h2 id="profiles" className={h2}>
-            {t("pages.versus.profiles", { rank: t(`measuredRanks.${rankRef}`) })}
-          </h2>
-          <div className="mt-4 max-w-xl">
-            <div className="bevel relative overflow-x-auto border border-night-700/70 bg-night-900/60 p-3">
+          <SectionTitle id="profiles">{t("pages.versus.profiles", { rank: t(`measuredRanks.${rankRef}`) })}</SectionTitle>
+          <div className="max-w-xl">
+            <div className={frame}>
               <table className="w-full text-sm [&_td]:py-1.5 [&_td]:pl-3 [&_td]:text-right [&_td]:tabular-nums [&_td]:text-chalk-200">
-                <thead className="text-xs uppercase tracking-wide text-chalk-500 [&_th]:pb-2 [&_th]:font-medium [&_th+th]:pl-3 [&_th+th]:text-right">
+                <thead className="font-heading text-sm uppercase text-chalk-400 [&_th]:pb-2 [&_th]:font-bold [&_th+th]:pl-3 [&_th+th]:text-right">
                   <tr>
                     <th scope="col" className="text-left">
                       <span className="sr-only">{t("compareUI.criterion")}</span>
@@ -332,7 +356,7 @@ export default async function VersusPage({ params }: Params) {
                     <th scope="col">{b.name}</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-night-800 [&_th]:py-1.5 [&_th]:text-left [&_th]:text-xs [&_th]:font-medium [&_th]:uppercase [&_th]:tracking-wide [&_th]:text-chalk-500">
+                <tbody className="divide-y divide-night-800 [&_th]:py-1.5 [&_th]:text-left [&_th]:font-heading [&_th]:text-sm [&_th]:font-bold [&_th]:uppercase [&_th]:text-chalk-400">
                   <tr>
                     <th scope="row">{t("compareUI.winRate")}</th>
                     <td>{sa ? percentage(locale, sa.winRate) : "—"}</td>
@@ -366,16 +390,14 @@ export default async function VersusPage({ params }: Params) {
         {/* ── Builds ───────────────────────────────────────────────── */}
         {builds.some((x) => x.played || x.counter.length > 0) && (
           <section aria-labelledby="builds">
-            <h2 id="builds" className={h2}>
-              {t("pages.versus.builds.title")}
-            </h2>
-            <div className="mt-4 grid gap-4 md:grid-cols-2">
+            <SectionTitle id="builds">{t("pages.versus.builds.title")}</SectionTitle>
+            <div className="grid gap-4 md:grid-cols-2">
               {builds.map(({ h, other, played, counter }) => (
                 <Card key={h.slug} className="p-4">
-                  <h3 className="font-heading text-lg font-bold text-chalk-100">{h.name}</h3>
+                  <h3 className="display-caps text-3xl text-chalk-100">{h.name}</h3>
                   {played && (
                     <>
-                      <p className="mt-2 text-xs uppercase tracking-wide text-chalk-500">
+                      <p className="mt-3 font-heading text-sm font-bold uppercase text-chalk-400">
                         {t("pages.versus.builds.played", { lane: t(`lanes.${played.lane}`) })}
                       </p>
                       <ItemList
@@ -394,9 +416,9 @@ export default async function VersusPage({ params }: Params) {
                   )}
                   {counter.length > 0 && (
                     <>
-                      <p className="mt-4 text-xs uppercase tracking-wide text-chalk-500">
+                      <p className="mt-5 font-heading text-sm font-bold uppercase text-chalk-400">
                         {t("pages.versus.builds.against", { name: other.name })}{" "}
-                        <span className="normal-case tracking-normal">· {t("pages.versus.builds.rule")}</span>
+                        <span className="font-body text-xs font-normal normal-case text-chalk-500">· {t("pages.versus.builds.rule")}</span>
                       </p>
                       <ItemList items={counter.map((o) => ({ name: o.name, slug: o.slug }))} />
                     </>
@@ -410,10 +432,8 @@ export default async function VersusPage({ params }: Params) {
         {/* ── On the same team ─────────────────────────────────────── */}
         {team.length > 0 && (
           <section aria-labelledby="team">
-            <h2 id="team" className={h2}>
-              {t("pages.versus.team.title", { a: a.name, b: b.name })}
-            </h2>
-            <ul className="mt-3 space-y-1.5 text-sm text-chalk-300">
+            <SectionTitle id="team">{t("pages.versus.team.title", { a: a.name, b: b.name })}</SectionTitle>
+            <ul className="space-y-1.5 text-sm text-chalk-300">
               {team.map((e) => (
                 <li key={`${e.rank}-${e.from}`}>
                   {t("pages.versus.team.row", {
@@ -431,10 +451,8 @@ export default async function VersusPage({ params }: Params) {
 
         {/* ── Going further ────────────────────────────────────────── */}
         <section aria-labelledby="links">
-          <h2 id="links" className="font-heading text-xl font-bold text-chalk-100">
-            {t("pages.versus.links.title")}
-          </h2>
-          <ul className="mt-4 flex flex-wrap gap-2 text-sm">
+          <SectionTitle id="links">{t("pages.versus.links.title")}</SectionTitle>
+          <ul className="flex flex-wrap gap-2">
             <li>
               <Link href={`/compare?a=${a.slug}&b=${b.slug}`} className={chip}>
                 {t("pages.versus.links.comparator")}
@@ -465,8 +483,8 @@ export default async function VersusPage({ params }: Params) {
             ].map(({ h, others }) =>
               others.length > 0 ? (
                 <div key={h.slug}>
-                  <h3 className="text-sm font-semibold text-chalk-100">{t("pages.versus.links.others", { name: h.name })}</h3>
-                  <ul className="mt-2 flex flex-wrap gap-2 text-sm">
+                  <h3 className="type-subtitle text-chalk-100">{t("pages.versus.links.others", { name: h.name })}</h3>
+                  <ul className="mt-3 flex flex-wrap gap-2">
                     {others.map((e) => (
                       <li key={e.slug}>
                         <Link href={pathPair(h.slug, e.slug)} className={chip}>
@@ -480,6 +498,7 @@ export default async function VersusPage({ params }: Params) {
             )}
           </div>
         </section>
+      </div>
       </div>
     </>
   );
@@ -500,10 +519,10 @@ function TableDuel({
   gap: (v: number) => string;
 }) {
   const value = (v: number | null) =>
-    v === null ? "—" : <span className={v >= 0 ? "text-emerald-400" : "text-blood-500"}>{gap(v)}</span>;
+    v === null ? "—" : <span className={v >= 0 ? "text-azure-400" : "text-blood-400"}>{gap(v)}</span>;
   return (
     <table className="w-full text-sm [&_td]:py-1.5 [&_td+td]:pl-3 [&_td+td]:text-right [&_td+td]:whitespace-nowrap [&_td+td]:tabular-nums">
-      <thead className="text-xs uppercase tracking-wide text-chalk-500 [&_th]:pb-2 [&_th]:font-medium [&_th+th]:pl-3 [&_th+th]:text-right">
+      <thead className="font-heading text-sm uppercase text-chalk-400 [&_th]:pb-2 [&_th]:font-bold [&_th+th]:pl-3 [&_th+th]:text-right">
         <tr>
           <th scope="col" className="text-left">{t("pages.versus.colRank")}</th>
           <th scope="col">{t("pages.versus.colAdvantage")}</th>
@@ -542,7 +561,7 @@ function TableDuel({
  */
 function ItemList({ items: list }: { items: { name: string; slug: string | null }[] }) {
   return (
-    <ul className="mt-2 flex flex-wrap gap-1.5 text-sm text-chalk-100 [&_a]:hover:text-gold-400 [&_li]:border [&_li]:border-night-700 [&_li]:px-2 [&_li]:py-0.5">
+    <ul className="mt-2 flex flex-wrap gap-1.5 text-sm text-chalk-100 [&_a]:hover:text-gold-400 [&_li]:bg-night-800 [&_li]:px-2 [&_li]:py-1">
       {list.map((o, i) => (
         <li key={`${o.name}-${i}`} className="bevel-sm">
           {o.slug ? <Link href={`/items#${o.slug}`}>{o.name}</Link> : o.name}
