@@ -52,11 +52,11 @@ Si la réponse à la première question est « je ne sais pas », prenez la Tort
 
 ## Le Seigneur : l'objectif qui termine les parties
 
-Le Seigneur pousse la lane la plus faible de l'adversaire avec votre équipe et renforce votre prochaine vague. C'est l'objectif qui fait tomber les inhibiteurs.
+Une fois tué, le Seigneur est invoqué pour votre équipe : il pousse une lane avec vous, et votre prochaine vague de sbires est renforcée. C'est l'objectif qui aide le plus à faire tomber les dernières tourelles.
 
 - **Ne le commencez jamais sans savoir où sont au moins trois adversaires.** Un Seigneur se prend lentement, et une équipe qui arrive en plein milieu gagne presque toujours le combat.
 - **Le meilleur moment est juste après un combat gagné** : deux ou trois adversaires morts, et le Seigneur est sans danger.
-- **Un Seigneur ne remplace pas une vague** : envoyez-le sur la lane où vos sbires sont déjà poussés, pour qu'il arrive avec eux.
+- **Un Seigneur ne suffit pas seul** : regroupez-vous et avancez avec lui et votre vague renforcée, pour qu'il arrive aux tourelles adverses avec toute l'équipe.
 
 ## Le Retribution, et le duel des objectifs
 
@@ -78,4 +78,4 @@ Une fois la Tortue prise, le jungleur revient vers ses buffs, puis vers ceux de 
 - Farmer sa jungle pendant que l'équipe se bat pour la Tortue : le jungleur est le seul à avoir le Retribution.
 - Commencer un objectif sans vision, en espérant aller vite : c'est le scénario favori du jungleur adverse.
 - Gaspiller le Retribution pour achever un héros ou un petit camp quand un objectif arrive.
-- Prendre le Seigneur quand la vague alliée est sous votre propre tourelle : il poussera seul, et l'adversaire le défendra sans difficulté.
+- Laisser le Seigneur pousser seul pendant que l'équipe farme ailleurs : sans escorte, l'adversaire le défend sans difficulté.

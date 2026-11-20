@@ -16,10 +16,10 @@ La gold lane ha un nome appropriato: è la lane che produce più oro e il tirato
 
 ## Ogni minion conta
 
-Le ondate di minion arrivano ogni trenta secondi. Le prime ondate di lane laterali forniscono un bonus, rendendo ogni minion fallito all'inizio del gioco ancora più costoso.
+Parte un'ondata di minion ogni trenta secondi, la prima a 0:10. Durante le prime dieci ondate (fino a 5:10), il cannone dà il 45% di oro in più nella Gold lane e il 35% di EXP in più nella EXP lane: a inizio partita, mancare un cannone costa più che mancare un altro minion.
 
-- **Finisci i minion** invece di colpire a caso: il colpo finale porta oro, e un tiratore che prende di mira solo minion quasi morti conserva anche i suoi HP.
-- **Non lasciare che i minion d'assedio muoiano** senza finirli: valgono più degli altri.
+- **Finisci i minion** invece di colpire a caso: un tiratore che colpisce solo i minion quasi morti conserva i suoi HP e non spinge l'ondata senza volerlo.
+- **Prendi l'ultimo colpo sul cannone**, soprattutto durante le prime dieci ondate: è il minion che porta il bonus.
 - **Impara il ritmo del tuo eroe**: la sua velocità di attacco e i suoi danni al livello 1 non sono quelli del livello 6. Quella che era una mossa finale facile diventa un colpo di troppo.
 
 ## Spingere, congelare o lasciar venire

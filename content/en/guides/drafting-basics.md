@@ -16,7 +16,7 @@ In ranked play, the draft opens from the Epic rank: each team bans heroes, then 
 
 ## How does a ranked draft work?
 
-- **Bans**: both teams ban at the same time. The number of bans depends on the highest rank in the game. Both teams can ban the same hero, which wastes a ban: agreeing in the chat beforehand avoids this duplication.
+- **Bans**: both teams ban at the same time. The number of bans depends on the highest rank in the game. Nothing stops the opponents from banning the same hero as you, and you cannot plan around that overlap. What agreeing in chat does is split the bans within your team: everyone knows which threat they are removing, so your bans cover the main threats instead of letting a dangerous hero through because each player counted on someone else.
 - **The picks**: the blue team chooses one hero, the red two, the blue two, the red two, the blue two, then the red the last.
 - **What matters**: a hero chosen first is visible to everyone, a hero chosen last can respond to everything else.
 

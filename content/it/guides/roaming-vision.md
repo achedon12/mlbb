@@ -18,7 +18,7 @@ Mobile Legends non ha tag di visione da posizionare: la visione proviene da eroi
 
 - **Eroi, minion e torrette** rivelano ciò che li circonda, ma non l'interno di un cespuglio.
 - I **Cespugli** nascondono un eroe finché nessun nemico vi entra o li rivela attraverso un effetto.
-- Il **Lithowander**, una piccola creatura fluviale, lascia dietro di sé una sentinella di pietra che segnala per alcune decine di secondi i nemici alla squadra che l'ha finito.
+- Il **Lithowanderer**, piccola creatura del fiume, fa comparire una sentinella di pietra che segnala i nemici alla squadra che lo ha finito.
 - **Alcune abilità** rivelano un'area o un eroe: spesso all'inizio del gioco valgono più del danno che subiscono.
 
 La [guida alla mappa](/map) individua i cespugli, il fiume e gli campi e fornisce i tempi di ciascuna creatura.
@@ -54,7 +54,7 @@ Un cespuglio tenuto da un tank d'ingaggio come [Tigreal](/heroes/tigreal), [Atla
 
 La visione viene utilizzata principalmente per rispondere a una domanda prima di ciascun obiettivo: dove sono gli avversari? Il roamer e il jungle devono essere in rango di rispondere insieme.
 
-- **Prima della Tartaruga o del Lord**, conta gli avversari visibili sulla minimappa. Tre visibili lontano dall'obiettivo: possiamo cominciare. Meno di due visibili: controlliamo prima i cespugli.
+- **Prima della Tartaruga o del Lord**, conta gli avversari visibili sulla minimappa. Almeno tre visibili, lontano dall'obiettivo: si può cominciare. Due o meno, oppure avversari visibili vicino all'obiettivo: prima si controllano i cespugli, o si aspetta di saperne di più.
 - **Durante l'obiettivo**, il roamer si posiziona tra l'obiettivo e il percorso di arrivo dell'avversario, non sull'obiettivo stesso.
 - **Dopo un obiettivo**, sorveglia il fiume mentre la squadra si ritira o spinge.
 

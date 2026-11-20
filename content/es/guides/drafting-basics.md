@@ -16,7 +16,7 @@ En partida clasificatoria, el draft se abre desde el rango Épico: cada equipo b
 
 ## ¿Cómo funciona un draft clasificado?
 
-- **Bans**: ambos equipos banean al mismo tiempo. El número de bans depende del rango más alto de la partida. Ambos equipos pueden banear al mismo héroe, lo que desperdicia un ban: ponerse de acuerdo en el chat de antemano evita esta duplicación.
+- **Bans**: los dos equipos banean al mismo tiempo. El número de bans depende del rango más alto de la partida. Nada impide que el rival banee el mismo héroe que tú, y esa coincidencia no se puede prever. Lo que aporta ponerse de acuerdo en el chat es repartir los bans dentro de tu equipo: cada uno sabe qué amenaza quita, y vuestros bans cubren las amenazas principales en lugar de dejar pasar un héroe peligroso porque cada uno contaba con otro.
 - **Las selecciones**: el equipo azul elige un héroe, el rojo dos, el azul dos, el rojo dos, el azul dos y luego el rojo el último.
 - **Lo que importa**: un héroe elegido en primer lugar es visible para todos, un héroe elegido en último lugar puede responder a todo lo demás.
 

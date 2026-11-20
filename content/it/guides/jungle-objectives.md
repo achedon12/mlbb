@@ -52,11 +52,11 @@ Se la risposta alla prima domanda è "Non lo so", porta la Tartaruga con la squa
 
 ## Il Lord: l'obiettivo che chiude le partite
 
-Il Lord spinge la lane più debole dell'avversario con la tua squadra e rafforza la tua prossima ondata. È l’obiettivo che abbatte gli inibitori.
+Una volta ucciso, il Lord viene evocato per la tua squadra: spinge una lane con voi, e la vostra prossima ondata di minion è rafforzata. È l'obiettivo che aiuta di più ad abbattere le ultime torrette.
 
 - **Non avviarlo mai senza sapere dove si trovano almeno tre avversari.** Un Lord viene preso lentamente e una squadra che arriva proprio nel mezzo vince quasi sempre il combattimento.
 - **Il momento migliore è subito dopo un combattimento vinto**: due o tre avversari morti, e il Lord è salvo.
-- **Un Lord non sostituisce un'ondata**: mandalo nella lane dove sono già spinti i tuoi minion, in modo che arrivi con loro.
+- **Un Lord da solo non basta**: raggruppatevi e avanzate con lui e con l'ondata rafforzata, così arriva alle torrette avversarie con tutta la squadra.
 
 ## La Retribution e il duello degli obiettivi
 
@@ -78,4 +78,4 @@ Una volta presa la Tartaruga, il jungle ritorna ai suoi buff, poi a quelli dell'
 - Farma la tua jungle mentre la squadra combatte per la Tartaruga: il jungle è l'unico con Retribution.
 - Iniziare un obiettivo senza visione, sperando di arrivare velocemente: questo è lo scenario preferito del jungler avversario.
 - Retribution sprecata per annientare un eroe o un piccolo campo quando arriva un obiettivo.
-- Prendete il Lord quando l'ondata alleata sarà sotto la vostra stessa torretta: lui si spingerà da solo, e l'avversario lo difenderà senza difficoltà.
+- Lasciare che il Lord spinga da solo mentre la squadra farma altrove: senza scorta, l'avversario lo respinge senza difficoltà.

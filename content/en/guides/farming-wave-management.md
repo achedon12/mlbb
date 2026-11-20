@@ -16,10 +16,10 @@ The gold lane is aptly named: it is the lane that yields the most gold, and the 
 
 ## Every minion counts
 
-Minion waves arrive every thirty seconds. The first waves of side lanes provide a bonus, making each failed minion at the start of the game even more costly.
+A new minion wave spawns every thirty seconds, the first at 0:10. For the first ten waves (until 5:10), the cannon minion gives 45% more gold in the Gold lane and 35% more EXP in the EXP lane: early on, missing a cannon costs more than missing any other minion.
 
-- **Finish the minions** rather than hitting at random: the final blow brings gold, and a marksman who only targets almost dead minions also keeps his HP.
-- **Don't let siege minions die** without finishing them off: they are worth more than the others.
+- **Last-hit the minions** rather than hitting at random: a marksman who only hits minions that are almost dead keeps his HP and does not push the wave by accident.
+- **Take the last hit on the cannon**, especially during the first ten waves: it is the minion that carries the bonus.
 - **Learn your hero's rhythm**: his attack speed and damage at level 1 are not those at level 6. What was an easy finishing move becomes one hit too many.
 
 ## Push, freeze or let it come

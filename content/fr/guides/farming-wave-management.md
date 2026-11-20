@@ -16,10 +16,10 @@ La gold lane porte bien son nom : c'est la lane qui rapporte le plus d'or, et le
 
 ## Chaque sbire compte
 
-Les vagues de sbires arrivent toutes les trente secondes. Les premières vagues des lanes latérales rapportent un bonus, ce qui rend chaque sbire raté en début de partie encore plus coûteux.
+Une vague de sbires part toutes les trente secondes, la première à 0:10. Pendant les dix premières vagues (jusqu'à 5:10), le canon de la gold lane rapporte 45 % d'or en plus, et celui de l'EXP lane 35 % d'EXP en plus : en début de partie, rater un canon coûte plus cher que rater un autre sbire.
 
-- **Achevez les sbires** plutôt que de frapper au hasard : le coup final rapporte l'or, et un tireur qui ne vise que les sbires presque morts garde aussi ses points de vie.
-- **Ne laissez pas mourir les sbires de siège** sans les achever : ils valent plus que les autres.
+- **Achevez les sbires** plutôt que de frapper au hasard : un tireur qui ne frappe que les sbires presque morts garde ses points de vie et ne pousse pas la vague sans le vouloir.
+- **Gardez le dernier coup du canon**, surtout pendant les dix premières vagues : c'est lui qui porte le bonus.
 - **Apprenez le rythme de votre héros** : sa vitesse d'attaque et ses dégâts au niveau 1 ne sont pas ceux du niveau 6. Le bon moment pour achever un sbire change avec les niveaux et les objets.
 
 ## Pousser, geler ou laisser venir

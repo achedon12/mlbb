@@ -52,11 +52,11 @@ Jika jawaban dari pertanyaan pertama adalah “Saya tidak tahu”, ajak Turtle b
 
 ## Lord: objektif yang mengakhiri permainan
 
-Lord mendorong lane lemah lawan bersama tim Anda dan memperkuat wave Anda berikutnya. Ini adalah objektif yang menghancurkan penghambat.
+Setelah dikalahkan, Lord dipanggil untuk timmu: ia mendorong satu lane bersama kalian, dan wave minion berikutnya diperkuat. Inilah objektif yang paling membantu meruntuhkan turret terakhir.
 
 - **Jangan pernah memulainya tanpa mengetahui di mana setidaknya tiga lawan berada.** Seorang Lord diambil secara perlahan, dan tim yang berada tepat di tengah hampir selalu memenangkan pertarungan.
 - **Momen terbaik adalah setelah pertarungan dimenangkan**: dua atau tiga lawan tewas, dan Lord aman.
-- **Lord tidak menggantikan wave**: kirim dia ke lane di mana minionmu sudah didorong, sehingga dia tiba bersama mereka.
+- **Lord saja tidak cukup**: berkumpullah dan maju bersamanya dan wave yang diperkuat, agar ia tiba di turret lawan bersama seluruh tim.
 
 ## Retribution, dan duel objektif
 
@@ -78,4 +78,4 @@ Setelah Turtle diambil, Jungler kembali ke buffnya, lalu ke buff lawan jika peta
 - Farming jungle Anda saat tim bertarung demi Turtle: hanya Jungler yang memiliki Retribution.
 - Memulai objektif tanpa visi, berharap cepat: ini skenario favorit Jungler lawan.
 - Waste Retribution untuk menghabisi hero atau camp kecil ketika objektif telah tiba.
-- Ambil Lord ketika wave sekutu berada di bawah turret Anda sendiri: dia akan mendorong sendirian, dan lawan akan mempertahankannya tanpa kesulitan.
+- Membiarkan Lord mendorong sendirian sementara tim farming di tempat lain: tanpa pengawalan, lawan mudah menahannya.

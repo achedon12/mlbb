@@ -3225,7 +3225,7 @@
         },
         "lord": {
           "name": "Lord",
-          "role": "The strongest monster on the map. The team that kills it summons it: it pushes the enemy's weakest lane and empowers the next minion wave.",
+          "role": "The strongest monster on the map. The team that kills it summons it: it pushes a lane alongside that team and empowers the next minion wave.",
           "firstSpawn": "{after} min after the last Turtle, or between {from} and {latest} if a Turtle is still alive",
           "respawn": "{respawn} s after it dies; after {lateFrom}, {late} s per the wiki text, {infobox} per its infobox",
           "reward": "Next minion wave empowered; the summoned Lord pushes with your team, and nearby allies deal {bonus} extra base magic damage ({cooldown} s cooldown)",
@@ -5008,7 +5008,7 @@
           "p": "The full roster, every hero's skins, items, emblems, Battle Spells and the list of patches. This data is extracted automatically from the community wiki every week: a new hero shows up here without anyone having to enter it."
         },
         {
-          "p": "On top of that comes what no extraction will produce: a written analysis for some of the heroes (what they do, their builds, their counters), a tier list where every placement is explained, and in-depth guides."
+          "p": "On top of that comes what no extraction will produce: a written analysis for some of the heroes (what they do, their builds, their counters), a written comment for some of the heroes in the tier list, and in-depth guides. The tier list ranking itself gives no opinion: it is computed from win and ban rates."
         },
         {
           "h": "What it doesn't contain, and why"
@@ -5017,7 +5017,7 @@
           "p": "No player rankings and no \"MMR\". Moonton publishes no official API: the stats shown here (win, ban and pick rates, counters, builds, trends) come from the community API arena.rone.dev, which aggregates ranked games by rank. Sites that show an \"MMR\" for Mobile Legends estimate it: they don't read it anywhere."
         },
         {
-          "p": "If you sign in with the game's verification code, you see your own profile (season, heroes played, recent games), read on demand through the same API and visible only to you. It is neither published nor kept beyond a few minutes of cache."
+          "p": "If you sign in with the game's verification code, you see your own profile (season, heroes played, recent games), read on demand through the same API and visible only to you. It is not published. So that each visit does not request everything again, the game's responses stay for a while in the server's memory, never on disk: from two minutes to six hours depending on the data. The one exception is the Discord bot's /profile card, if you link it: the site then keeps your game token, encrypted, for 7 days at most, and the card's figures, deleted 30 days after their last update or as soon as you unlink it."
         },
         {
           "p": "The visuals belong to Moonton and, for collaboration skins, to the rights holders of the characters and brands involved. Portraits, icons and skin artwork come from the community wiki and are served by this site so nothing depends on a third-party domain. They remain Moonton's property, are shown for illustration purposes and will be removed at the rights holder's request. The site's look (midnight blue, gold, cut corners) draws on the game's without reusing its interface files."

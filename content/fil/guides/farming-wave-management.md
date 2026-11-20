@@ -16,10 +16,10 @@ Ang gold lane ay angkop na pinangalanan: ito ang lane na nagbubunga ng pinakamar
 
 ## Bawat minion ay binibilang
 
-Dumarating ang mga minion wave tuwing tatlumpung segundo. Ang mga unang wave ng side lane ay nagbibigay ng bonus, na ginagawang mas magastos ang bawat nabigong minion sa simula ng laro.
+May lumalabas na minion wave tuwing tatlumpung segundo, ang una sa 0:10. Sa unang sampung wave (hanggang 5:10), nagbibigay ang cannon minion ng 45% na dagdag na gold sa Gold lane at 35% na dagdag na EXP sa EXP lane: sa simula ng laro, mas malaki ang nawawala kapag na-miss ang cannon kaysa sa ibang minion.
 
-- **Tapusin ang mga minions** sa halip na pumalo nang random: ang huling suntok ay nagdudulot ng ginto, at ang isang marksman na nagta-target lamang ng halos patay na mga kampon ay nagpapanatili din ng kanyang mga puntos sa buhay.
-- **Huwag hayaang mamatay ang mga kampon ng pagkubkob** nang hindi sila natatapos: mas mahalaga sila kaysa sa iba.
+- **Tapusin ang mga minion** sa halip na pumalo nang basta-basta: ang marksman na pumapalo lang sa halos patay nang minion ay nakakapagtipid ng HP at hindi naitutulak ang wave nang hindi sinasadya.
+- **Kunin ang last hit sa cannon minion**, lalo na sa unang sampung wave: siya ang may dalang bonus.
 - **Alamin ang ritmo ng iyong hero**: ang attack speed at damage niya sa level 1 ay hindi ang nasa level 6. Ang isang madaling hakbang sa pagtatapos ay naging isang hit ng masyadong marami.
 
 ## Palakihin, i-freeze o hayaan itong mangyari

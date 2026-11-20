@@ -44,7 +44,7 @@ Il fonctionne quand trois conditions sont réunies :
 2. **Le reste de l'équipe ne se bat pas** : il tient une position défensive, sous une tourelle ou près d'un objectif, et refuse le combat en infériorité numérique.
 3. **Les vagues sont gérées** : la lane où se trouve votre équipe est poussée, et cette vague maintient la pression pendant que vous êtes ailleurs.
 
-Les bons héros de split push abattent vite une tourelle et quittent la lane sans difficulté : [Sun](/heroes/sun), [Zilong](/heroes/zilong) ou [Masha](/heroes/masha), par exemple.
+Les bons héros de split push abattent vite une tourelle et ont de quoi se dégager. [Sun](/heroes/sun) se change en bâton, se cache et réapparaît plus loin avec Swift Exchange ; [Zilong](/heroes/zilong) gagne de la vitesse de déplacement et ignore les ralentissements avec Supreme Warrior. [Masha](/heroes/masha), elle, n'a qu'une ruée (Claw Strike) pour repartir : elle doit surveiller la mini-carte et quitter la lane avant l'arrivée des défenseurs.
 
 ## Quand éviter le split push
 

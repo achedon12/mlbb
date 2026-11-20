@@ -52,11 +52,11 @@ Kung ang sagot sa unang tanong ay "Hindi ko alam", dalhin ang Turtle kasama ang 
 
 ## Ang Lord: ang layunin na nagtatapos sa mga laro
 
-Itinulak ng Lord ang mas mahinang linya ng kalaban sa iyong koponan at pinalakas ang iyong susunod na alon. Ito ang layunin na sumisira sa mga inhibitor.
+Kapag napatay, ang Lord ay ipinatatawag para sa team mo: nagtutulak siya ng isang lane kasama ninyo, at pinalalakas ang susunod ninyong minion wave. Ito ang objective na pinakanakakatulong sa pagpapabagsak ng mga huling turret.
 
 - **Huwag simulan ito nang hindi nalalaman kung nasaan ang hindi bababa sa tatlong kalaban.** Ang isang Lord ay dahan-dahang dinadala, at ang isang koponan na dumarating mismo sa gitna ay halos palaging nananalo sa laban.
 - **Ang pinakamagandang sandali ay pagkatapos lamang ng isang panalong laban**: dalawa o tatlong kalaban ang patay, at ligtas ang Lord.
-- **Hindi pinapalitan ng isang Lord ang isang alon**: ipadala siya sa lane kung saan itinutulak na ang iyong mga kampon, para makarating siya sa kanila.
+- **Hindi sapat ang Lord nang mag-isa**: magsama-sama at umabante kasama niya at ng pinalakas na wave, para makarating siya sa mga turret ng kalaban kasama ang buong team.
 
 ## Paghihiganti, at ang tunggalian ng mga layunin
 
@@ -78,4 +78,4 @@ Kapag nakuha na ang Turtle, babalik ang jungler sa kanyang mga buff, pagkatapos 
 - Isaka ang iyong jungle habang ang koponan ay nakikipaglaban para sa Turtle: ang jungler ay ang tanging may Retribution.
 - Pagsisimula ng isang layunin nang walang pananaw, umaasa na mabilis: ito ang paboritong senaryo ng kalabang jungler.
 - Waste Retribution upang tapusin ang isang hero o maliit na kampo kapag dumating ang isang layunin.
-- Kunin ang Lord kapag ang kaalyadong alon ay nasa ilalim ng iyong sariling toresilya: mag-isa siyang magtutulak, at ipagtatanggol siya ng kalaban nang walang kahirap-hirap.
+- Hayaang magtulak nang mag-isa ang Lord habang nagfa-farm ang team sa ibang lugar: kapag walang kasama, madali siyang napipigilan ng kalaban.

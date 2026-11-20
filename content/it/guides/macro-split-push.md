@@ -44,7 +44,7 @@ Funziona quando sono soddisfatte tre condizioni:
 2. **Il resto della squadra non combatte**: mantiene una posizione difensiva, sotto una torretta o vicino a un obiettivo, senza accettare il combattimento quattro contro cinque.
 3. **Le ondate vengono gestite**: una lane spinta davanti alla tua squadra mantiene la pressione mentre sei altrove.
 
-Gli eroi progettati per questo distruggono rapidamente una torretta e lasciano facilmente la lane: [Sun](/heroes/sun), [Zilong](/heroes/zilong) o [Masha](/heroes/masha) sono esempi noti.
+I buoni eroi da split push abbattono in fretta una torretta e hanno un modo per sganciarsi. [Sun](/heroes/sun) si trasforma nel suo bastone, si nasconde e ricompare più lontano con Swift Exchange; [Zilong](/heroes/zilong) guadagna velocità di movimento e ignora i rallentamenti con Supreme Warrior. [Masha](/heroes/masha), invece, ha solo uno scatto (Claw Strike) per andarsene: deve tenere d'occhio la minimappa e lasciare la lane prima che arrivino i difensori.
 
 ## Quando non fare split push
 
