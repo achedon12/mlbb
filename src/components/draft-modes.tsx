@@ -96,8 +96,8 @@ export function DraftModes({
             tabIndex={mode === m ? 0 : -1}
             onClick={() => select(m)}
             className={cn(
-              "-mb-px min-h-11 border-b-2 px-4 py-2 font-heading text-sm font-semibold uppercase tracking-wider transition-colors",
-              mode === m ? "border-gold-500 text-gold-400" : "border-transparent text-chalk-500 hover:text-chalk-100",
+              "eclat-under min-h-12 px-4 pb-2.5 pt-2 display-caps text-2xl transition-colors sm:text-3xl",
+              mode === m ? "text-gold-400" : "text-chalk-500 hover:text-chalk-100",
             )}
           >
             {t(`pages.draftSimulatorUI.tabs.${m}`)}
