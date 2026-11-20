@@ -6,6 +6,7 @@ import { heroArt } from "@/components/hero-art";
 import { artOf } from "@/components/tool-art";
 import { normalizeNameSkin } from "@/lib/utils";
 import type { GeneratedHero, Skin } from "@/lib/types";
+import visualSources from "@/data/game/visual-sources.json";
 
 const NOW = Date.UTC(2026, 10, 19, 12);
 
@@ -147,10 +148,25 @@ describe("catalogue as the site reads it", () => {
   });
 
   it("shows no altered or mismatched artwork the audit of November 2026 found", () => {
-    expect(illustrations.aldous?.Death).toBeUndefined();
-    expect(illustrations.alice?.["Jade Empress"]).toBeUndefined();
-    expect(illustrations.karina?.["Gemini - Halo"]).toBeUndefined();
-    expect(illustrations.miya?.["Captain Thorns"]).toBeUndefined();
+    const sources = visualSources as Record<string, { file?: string }>;
+    // The audit found a PicSay edit (Aldous "Death"), another hero's file
+    // (Alice "Jade Empress" from Atlas's, Karina "Gemini - Halo" from
+    // Selena's) and a low-resolution copy (Miya "Captain Thorns"). Each is
+    // either withheld or, once the sync found the official file, shown from
+    // the hero's own published artwork.
+    for (const [hero, skin, label] of [
+      ["aldous", "Death", "Aldous"],
+      ["alice", "Jade Empress", "Alice"],
+      ["karina", "Gemini - Halo", "Karina"],
+      ["miya", "Captain Thorns", "Miya"],
+    ] as const) {
+      const path = illustrations[hero]?.[skin];
+      if (!path) continue;
+      const source = sources[`public${path}`];
+      expect(isPublishedArtwork(path, source), `${hero} ${skin}`).toBe(true);
+      expect(source?.file ?? "", `${hero} ${skin}`).toContain(label);
+    }
+    expect(isPublishedArtwork("/visuels/heros/aldous/illustrations/death.webp", { file: "File:Aldous Death-picsay.png" })).toBe(false);
     // Selena's own artwork, the one Karina's row borrowed, is still shown.
     expect(illustrations.selena?.["Gemini - Shadow"]).toBeDefined();
   });
