@@ -67,7 +67,18 @@ const DATE = /^\d{4}-\d{2}-\d{2}$/;
 const KEY = /^\d+(?:\.\d+)+$/;
 
 /** HTML comments are the templates' instructions: they never reach the page. */
-const withoutComments = (text: string) => text.replace(/<!--[\s\S]*?-->/g, "").trim();
+// Repeated until nothing changes, so a nested "<!-<!---->-" cannot leave a
+// new comment opener behind; an unclosed opener drops the rest of the text.
+// The HTML is sanitised again on render (`cleanGuideHtml`).
+function withoutComments(text: string): string {
+  let out = text;
+  for (let previous = ""; previous !== out; ) {
+    previous = out;
+    out = out.replace(/<!--[\s\S]*?-->/g, "");
+  }
+  const open = out.indexOf("<!--");
+  return (open === -1 ? out : out.slice(0, open)).trim();
+}
 
 /** A YAML field as text: empty, missing or a placeholder left as is reads as nothing. */
 function text(value: unknown): string | null {
