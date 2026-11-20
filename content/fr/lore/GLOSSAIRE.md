@@ -157,3 +157,20 @@ Une seule traduction par terme, pour les 133 fiches de ce dossier. Priorité : l
 | voice actor / actress | doubleur / doubleuse (doubleur japonais, doubleuse anglaise) |
 | Old English / Old Norse / Old High German | vieil anglais / vieux norrois / vieux haut allemand |
 | Marksman, Mage, Tank, Fighter, Assassin, Support | Tireur, Mage, Tank, Combattant, Assassin, Support |
+
+## Noms officiels
+
+Règle du site : un nom de jeu s'écrit comme le client du jeu l'écrit. En français, c'est le client français qui fait foi (vérifié par le propriétaire du site) : rangs, modes, monnaies et emblèmes y sont en français, et le site garde les formes qu'il employait déjà. Les descriptions restent en français.
+
+| Famille | Nom gardé | Source |
+| --- | --- | --- |
+| Rangs | Guerrier, Élite, Maître, Grand Maître, Épique, Légende, Mythique, Honneur mythique, Gloire mythique, Immortel mythique | client français du jeu (confirmé par le propriétaire du site) |
+| Modes | Classique, Classé ; Draft Pick ; Brawl, Magic Chess, Mayhem, StarLight restent en anglais (#172) | client français du jeu ; `src/i18n/messages/fr.json` |
+| Monnaies | Diamants, Points de bataille, Fragments de héros… | client français du jeu ; `src/i18n/messages/fr.json` |
+| Emblèmes | Emblème de tank, de combattant, d'assassin, de mage, de tireur, de support | client français du jeu ; `src/i18n/messages/fr.json` |
+| Raretés et séries d'apparence | formes déjà employées par le site (Deluxe, Coffre chance…) | `src/i18n/messages/fr.json` ; le wiki ne donne que les noms anglais |
+| Effets d'objet (passifs, actifs) | le nom anglais du jeu avant les deux-points : Deter, Lifebane, Gift, Fortress Shield… | `src/data/game/items/en.json` (module d'objets du wiki) ; notes de patch « [Unique Passive - Deter] ». Le service les traduisait sur un objet (Dissuasion, Cadeau) et les laissait en anglais sur le suivant. |
+| Sous-modes d'Arcade | Mayhem, Survival, Ravage, Chess TD, Magic Chess, Shadow Brawl, Boommander… | intertitres de « Arcade Mode », `src/data/game/modes/en.json` (le service écrivait « Ravager », « Échecs TD », « Boummandre ») |
+| Statistiques | vocabulaire du site (`stats` dans `fr.json`), dont « vampirisme des sorts » | `src/i18n/messages/fr.json` |
+
+Ces deux familles anglaises (effets d'objet, sous-modes) sont gardées telles quelles dans toutes les langues par le pipeline de traduction (`scripts/translation-official-names.mjs`).

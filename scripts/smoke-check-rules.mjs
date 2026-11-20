@@ -62,7 +62,7 @@ export const PAGES = [
     // The written analysis is French at the source: every other language
     // shows its translation (src/data/game/analyses/).
     excludes: Object.fromEntries(
-      ALL.filter((l) => l !== "fr").map((l) => [l, ["Khufra existe pour répondre", "Sa compétence 1 pose un champ"]]),
+      ALL.filter((l) => l !== "fr").map((l) => [l, ["Khufra existe pour répondre", "Sa compétence 2 le change en boule"]]),
     ),
   },
   { path: "/heroes/khufra/counters", locales: [...EN_FR, ...LATEST] },

@@ -7,37 +7,31 @@ export const assassins: HeroAnalysis[] = [
     summary:
       "Assassin de jungle bâti sur l'enchaînement de dashs, avec une fenêtre d'invulnérabilité pendant l'ultime.",
     analysis:
-      "Lancelot traverse un combat plutôt qu'il n'y entre. Sa compétence 2 marque les cibles, sa compétence 1 se recharge en frappant une cible marquée : bien enchaîné, il peut dasher presque sans interruption tant qu'il touche quelque chose.\n\nSon ultime le rend invulnérable pendant l'animation, ce qui en fait aussi un outil défensif pour esquiver un contrôle ou une exécution. Le héros est puni par tout ce qui bloque le déplacement — Khufra en tête — et par les zones qui l'empêchent d'enchaîner.",
+      "Lancelot traverse un combat plutôt qu'il n'y entre. Sa compétence 1 marque le premier ennemi non marqué qu'elle traverse, et chaque nouvelle marque réinitialise sa recharge : bien enchaîné, il peut dasher presque sans interruption tant qu'il trouve une cible à marquer. Sa compétence 2 le rend intouchable pendant ses trois frappes.\n\nSon ultime le rend invulnérable pendant l'animation, ce qui en fait aussi un outil défensif pour esquiver un contrôle ou une exécution. Le héros est puni par tout ce qui bloque le déplacement — Khufra en tête — et par les zones qui l'empêchent d'enchaîner.",
     skills: [
       {
         type: "Passive",
         name: "Soul Cutter",
         description:
-          "Ses dégâts augmentent brièvement après avoir esquivé ou traversé un ennemi.",
+          "Chaque charge augmente ses dégâts pendant quelques secondes, en se cumulant.",
       },
       {
         type: "Skill 1",
         name: "Puncture",
         description:
-          "Se déplace dans une direction en frappant les ennemis traversés. La recharge est réduite en touchant une cible marquée.",
-        cooldown: [2.5, 2.5, 2.5, 2.5, 2.5, 2.5],
-        cost: [40, 45, 50, 55, 60, 65],
+          "Charge dans une direction en frappant les ennemis traversés et marque le premier ennemi non marqué touché. Chaque nouvelle marque réinitialise la recharge.",
       },
       {
         type: "Skill 2",
         name: "Thorned Rose",
         description:
-          "Projette une lame qui marque les ennemis touchés et les ralentit.",
-        cooldown: [9, 8.4, 7.8, 7.2, 6.6, 6],
-        cost: [60, 65, 70, 75, 80, 85],
+          "Frappe trois fois dans une direction en restant intouchable. Les ennemis au centre de la zone subissent les trois coups et sont ralentis.",
       },
       {
         type: "Ultimate",
         name: "Phantom Execution",
         description:
           "Enchaîne une série de frappes dans une zone en restant invulnérable pendant l'animation.",
-        cooldown: [40, 35, 30],
-        cost: [120, 140, 160],
       },
     ],
     strengths: [
@@ -74,7 +68,7 @@ export const assassins: HeroAnalysis[] = [
   {
     slug: "gusion",
     summary:
-      "Assassin magique à combo : il pose ses dagues, se téléporte dessus, et les récupère pour infliger tous ses dégâts d'un coup.",
+      "Assassin magique à combo : il lance ses dagues, se glisse derrière la cible marquée, et les rappelle pour infliger tous ses dégâts d'un coup.",
     analysis:
       "Gusion est le héros de combo le plus exigeant du jeu après Fanny. Toutes ses compétences peuvent être relancées, et l'ordre comme le timing des relances déterminent entièrement ses dégâts. Le combo standard consiste à poser les dagues, se rapprocher par l'ultime, puis déclencher la récupération pour que tout arrive simultanément.\n\nUn Gusion maîtrisé supprime n'importe quelle cible fragile en moins d'une seconde, souvent avant que l'écran adverse n'ait affiché quoi que ce soit. Un Gusion approximatif fait un tiers des dégâts et meurt sur place. Peu de héros ont un écart aussi grand entre les deux.",
     skills: [
@@ -82,30 +76,25 @@ export const assassins: HeroAnalysis[] = [
         type: "Passive",
         name: "Dagger Specialist",
         description:
-          "Après une compétence, sa prochaine attaque de base inflige des dégâts supplémentaires proportionnels à la vie manquante de la cible.",
+          "Chaque compétence lancée ajoute une rune à sa dague, jusqu'à quatre : chacune renforce sa prochaine attaque de base, qui inflige des dégâts supplémentaires selon les PV de la cible et le soigne.",
       },
       {
         type: "Skill 1",
         name: "Sword Spike",
         description:
-          "Lance des dagues en éventail. Relancer la compétence rappelle les dagues plantées, infligeant à nouveau des dégâts.",
-        cooldown: [11, 10.2, 9.4, 8.6, 7.8, 7],
-        cost: [90, 95, 100, 105, 110, 115],
+          "Lance une dague qui blesse et marque le premier ennemi touché. Relancée, elle le fait passer derrière la cible marquée en la frappant à nouveau, sans pouvoir être interrompu.",
       },
       {
         type: "Skill 2",
         name: "Shadowblade Slaughter",
         description:
-          "Projette une dague unique. Relancer la compétence téléporte Gusion vers la dague.",
-        cooldown: [10, 9.4, 8.8, 8.2, 7.6, 7],
-        cost: [70, 75, 80, 85, 90, 95],
+          "Lance une salve de dagues qui blessent et ralentissent les ennemis touchés. Relancée, elle rappelle les dagues, qui frappent à nouveau sur leur trajet.",
       },
       {
         type: "Ultimate",
         name: "Incandescence",
         description:
-          "Recharge les deux compétences et permet de se propulser vers une zone. Le point de départ de tout combo.",
-        cooldown: [45, 40, 35],
+          "Se propulse vers une zone et réinitialise la recharge de ses deux compétences ; relancée, elle le fait dasher sur une courte distance. Le point de départ de tout combo.",
       },
     ],
     strengths: [
@@ -144,35 +133,31 @@ export const assassins: HeroAnalysis[] = [
     summary:
       "Assassin qui se déplace sur les murs, hors de portée, et choisit son moment pour tomber sur une cible.",
     analysis:
-      "Ling change la géométrie de la carte. Tant qu'il est sur un mur, il est intouchable par la plupart des compétences au sol, ce qui lui permet d'attendre indéfiniment l'ouverture. Il n'utilise pas de mana mais une ressource d'énergie, ce qui limite le nombre de sauts consécutifs.\n\nSon ultime le rend insensible aux contrôles pendant le bond et inflige des dégâts critiques. Le héros est excellent en escarmouche mobile et faible face à une équipe groupée qui garde ses contrôles pour lui. Khufra reste sa réponse la plus nette.",
+      "Ling change la géométrie de la carte. Tant qu'il est sur un mur, il est intouchable par la plupart des compétences au sol, ce qui lui permet d'attendre indéfiniment l'ouverture. Il n'utilise pas de mana mais une ressource d'énergie, ce qui limite le nombre de sauts consécutifs.\n\nSon ultime le rend invulnérable pendant le bond, puis ralentit et projette en l'air les ennemis à l'atterrissage. Le héros est excellent en escarmouche mobile et faible face à une équipe groupée qui garde ses contrôles pour lui. Khufra reste sa réponse la plus nette.",
     skills: [
       {
         type: "Passive",
         name: "Cloud Walker",
         description:
-          "Ling peut grimper sur les murs et s'y déplacer rapidement, en régénérant son énergie.",
+          "Ling bondit de mur en mur et regagne de l'énergie sur un mur comme en infligeant des dégâts. Il tire 1,6 fois plus de chance de critique de toutes ses sources, mais ses dégâts critiques sont réduits.",
       },
       {
         type: "Skill 1",
         name: "Finch Poise",
         description:
-          "Saute vers un point, y compris sur un mur. Coût en énergie, sans recharge tant que l'énergie tient.",
-        cost: [30, 30, 30, 30, 30, 30],
+          "Saute sur un mur et passe en semi-camouflage, plus rapide. Sauter d'un mur à l'autre ne déclenche pas la recharge ; un contrôle le fait tomber au sol.",
       },
       {
         type: "Skill 2",
         name: "Defiant Sword",
         description:
-          "Frappe les ennemis autour de lui et augmente sa vitesse d'attaque.",
-        cooldown: [8.5, 8, 7.5, 7, 6.5, 6],
-        cost: [40, 40, 40, 40, 40, 40],
+          "Charge dans une direction et frappe les ennemis proches. Lancée depuis un mur, sans coût en énergie, elle le fait plonger au sol en ralentissant les ennemis de la zone.",
       },
       {
         type: "Ultimate",
         name: "Tempest of Blades",
         description:
-          "Bondit dans une zone en infligeant des dégâts critiques, insensible aux contrôles pendant le saut.",
-        cooldown: [45, 40, 35],
+          "Bondit dans les airs en restant invulnérable, puis retombe en ralentissant les ennemis de la zone et en projetant en l'air ceux du centre. Le champ d'épées laissé au sol recharge ses autres compétences.",
       },
     ],
     strengths: [
@@ -191,7 +176,7 @@ export const assassins: HeroAnalysis[] = [
       {
         name: "Jungle critique",
         context:
-          "Son ultime inflige des dégâts critiques : le taux de critique vaut plus que la pénétration brute.",
+          "Son passif multiplie la chance de critique qu'il obtient : le taux de critique vaut plus que la pénétration brute.",
         items: [
           "Swift Boots",
           "Bloodlust Axe",

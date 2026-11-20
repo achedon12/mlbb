@@ -197,6 +197,11 @@ const RULES = {
     // stellaire" (Lunox) is prose and stays prose.
     ["(?:Lumière des étoiles|Lumière stellaire)", "StarLight", { caseSensitive: true }],
     ["mode Chaos", "mode Mayhem", { caseSensitive: true }],
+    // Arcade's sub-modes keep the game's names too (`translation-official-names.mjs`):
+    // the service had written "Boummandre", "Échecs TD".
+    ["Boummandre", "Boommander", { caseSensitive: true }],
+    ["Échecs TD", "Chess TD", { caseSensitive: true }],
+    ["Bagarre et miroir", "Brawl&Mirror", { caseSensitive: true }],
     // "Tank" came back as an armoured vehicle, "Roaming" as wandering.
     ["semi-chars", "semi-tanks"],
     ["semi-char", "semi-tank"],

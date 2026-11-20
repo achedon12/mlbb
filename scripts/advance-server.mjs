@@ -29,6 +29,7 @@ import { targetLocales } from "./locales.mjs";
 import { applyGlossary, nameRules, restoreNames } from "./translation-glossary.mjs";
 import { forgetUntranslated, polishFrench } from "./translation-fr-polish.mjs";
 import { combineShields, forgetLost, namesPattern, restoreListLabel, shieldLabels, shieldWith } from "./translation-shield.mjs";
+import { restoreDashName } from "./translation-official-names.mjs";
 
 /**
  * The game's name and the list labels ("a.", "VII.") hidden from the
@@ -604,7 +605,10 @@ export function translateVersion(v, t) {
     intro: tr(e.intro),
     sections: e.sections.map((s) => ({
       ...s,
-      name: s.generic ? tr(s.name) : s.name,
+      // "Unique Passive - Lifebane": the heading is translated, the effect's
+      // name after the dash stays the game's ("Passif unique - Dissuasion"
+      // had come back for "Deter").
+      name: s.generic ? restoreDashName(tr(s.name), s.name) : s.name,
       slot: tr(s.slot),
       changes: s.changes.map(change),
     })),
