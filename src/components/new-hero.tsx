@@ -28,7 +28,7 @@ export function NewHero({ hero: heroes, locale }: { hero: EnrichedNewHero; local
       {/* Banner: artwork in the background, identity on top. */}
       <div
         id={heroes.anchor ?? undefined}
-        className="bevel relative scroll-mt-24 overflow-hidden border border-night-800"
+        className="bevel-lg group relative flex min-h-[20rem] scroll-mt-24 items-end overflow-hidden bg-night-900 sm:min-h-[26rem]"
       >
         {heroes.illustration && (
           <Image
@@ -36,31 +36,31 @@ export function NewHero({ hero: heroes, locale }: { hero: EnrichedNewHero; local
             alt=""
             fill
             sizes="(min-width: 1024px) 48rem, 100vw"
-            className="object-cover object-top"
+            className="object-cover object-[50%_25%] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
           />
         )}
-        <div className="absolute inset-0 bg-linear-to-r from-night-950 via-night-950/85 to-night-950/30" />
+        <div className="absolute inset-0 bg-linear-to-r from-night-950/90 via-night-950/40 to-transparent" />
         <div
           aria-hidden
-          className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-night-950 to-transparent"
+          className="absolute inset-x-0 bottom-0 h-2/3 bg-linear-to-t from-night-950 via-night-950/60 to-transparent"
         />
 
-        <div className="relative flex items-center gap-4 p-5 sm:p-6">
+        <div className="relative flex items-end gap-4 p-5 sm:gap-6 sm:p-8">
           {heroes.portrait && (
-            <span className="bevel-sm relative size-16 shrink-0 overflow-hidden border border-gold-500/40 sm:size-20">
-              <Image src={heroes.portrait} alt={heroes.name} fill sizes="80px" className="object-cover" />
+            <span className="bevel relative h-28 w-20 shrink-0 overflow-hidden bg-night-800 sm:h-36 sm:w-24">
+              <Image src={heroes.portrait} alt={heroes.name} fill sizes="96px" className="object-cover object-top" />
             </span>
           )}
 
           <div className="min-w-0">
-            <p className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-gold-400">
+            <p className="inline-flex items-center gap-1.5 font-heading text-base font-bold uppercase text-gold-400">
               <Sparkles size={13} aria-hidden />
               {t("newHero.title")}
             </p>
             {heroes.epithet && (
-              <p className="mt-1 font-heading text-sm text-chalk-300">{heroes.epithet}</p>
+              <p className="mt-1 font-heading text-lg text-chalk-200">{heroes.epithet}</p>
             )}
-            <h3 className="font-heading text-3xl font-bold text-chalk-100 sm:text-4xl">
+            <h3 className="display-caps mt-1 text-[clamp(3rem,2rem+4vw,5.5rem)] text-chalk-100">
               {heroes.name}
             </h3>
             {heroes.roles.length > 0 && (
@@ -68,7 +68,7 @@ export function NewHero({ hero: heroes, locale }: { hero: EnrichedNewHero; local
                 {heroes.roles.map((role) => (
                   <span
                     key={role}
-                    className="bevel-sm border border-night-700 bg-night-900/70 px-2 py-0.5 text-xs font-medium text-chalk-300"
+                    className="bevel-sm bg-night-800/90 px-2 py-0.5 font-heading text-sm font-bold uppercase text-chalk-200"
                   >
                     {t(`roles.${role}`)}
                   </span>
@@ -88,7 +88,7 @@ export function NewHero({ hero: heroes, locale }: { hero: EnrichedNewHero; local
             </p>
           ))}
           {heroes.feature && (
-            <p className="bevel-sm border-l-2 border-gold-500 bg-night-900/60 px-4 py-3 text-sm leading-relaxed text-chalk-200">
+            <p className="bevel-sm bg-night-900 px-4 py-3 text-sm leading-relaxed text-chalk-200 shadow-[inset_3px_0_0_var(--color-gold-400)]">
               <span className="font-semibold text-gold-400">{t("newHero.highlight")}</span>
               {heroes.feature}
             </p>
@@ -107,8 +107,8 @@ export function NewHero({ hero: heroes, locale }: { hero: EnrichedNewHero; local
               <div
                 key={i}
                 className={cn(
-                  "bevel-sm border bg-night-900/50 p-4",
-                  combo ? "border-blood-500/25" : "border-night-700/70",
+                  "bevel bg-night-900 p-4",
+                  combo && "shadow-[inset_3px_0_0_var(--color-blood-400)]",
                 )}
               >
                 <div className="flex items-baseline gap-2">
@@ -116,7 +116,7 @@ export function NewHero({ hero: heroes, locale }: { hero: EnrichedNewHero; local
                     className={cn(
                       "bevel-sm px-2 py-0.5 text-xs font-bold uppercase tracking-wide",
                       combo
-                        ? "bg-blood-500/15 text-blood-500"
+                        ? "bg-blood-400/15 text-blood-400"
                         : "bg-gold-500/15 text-gold-400",
                     )}
                   >
@@ -144,7 +144,7 @@ export function NewHero({ hero: heroes, locale }: { hero: EnrichedNewHero; local
       {heroes.sheet && (
         <Link
           href={`/heroes/${heroes.slug}`}
-          className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold-400 hover:text-gold-500"
+          className="btn btn-primary btn-sm mt-5"
         >
           {t("newHero.seeSheet", { name: heroes.name })}
           <ArrowRight size={14} aria-hidden />
