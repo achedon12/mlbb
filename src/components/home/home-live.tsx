@@ -18,11 +18,15 @@ const TOURNAMENTS = 3;
 /** Skins of the month shown besides the StarLight one. */
 const OTHER_SKINS = 4;
 
-/** Wide artwork when the gallery has it, the shop portrait otherwise. */
+/**
+ * Wide artwork when the gallery has it, the shop portrait otherwise; the
+ * hero's own portrait for a skin whose visual is provisional, never shown
+ * on the home page.
+ */
 function skinArt(s: EventSkin): { src: string; wide: boolean } | null {
   const wide = illustrations[s.hero]?.[s.name];
   if (wide) return { src: wide, wide: true };
-  if (s.image) return { src: s.image, wide: s.image.includes("/illustrations/") };
+  if (s.image && !s.provisional) return { src: s.image, wide: s.image.includes("/illustrations/") };
   const hero = heroesBySlug.get(s.hero);
   return hero?.images.portrait ? { src: hero.images.portrait, wide: false } : null;
 }

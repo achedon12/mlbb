@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { SkinCatalog } from "@/lib/skin-catalog";
-import { buildMonths, isMonth, monthOfRelease, monthStatus, neighbours, obtainMode, shiftMonth } from "@/lib/events";
+import { buildMonths, isMonth, isProvisionalSkin, monthOfRelease, monthStatus, neighbours, obtainMode, shiftMonth } from "@/lib/events";
 import {
   attachHeroes,
   currentMonthWarnings,
@@ -232,5 +232,17 @@ describe("script: wiki monthly lists", () => {
     expect(linked.map((e: { hero?: string | null }) => e.hero)).toEqual(["hanabi", "yi-sun-shin", null]);
     expect(sortEntries(linked).map((e: { month: string }) => e.month)).toEqual(["2021-05", "2021-06", "2025-09"]);
     expect(nameKey("Chang'e")).toBe("change");
+  });
+});
+
+describe("isProvisionalSkin", () => {
+  it("holds a skin listed for a month to come as provisional", () => {
+    expect(isProvisionalSkin({ month: "2026-12", reference: "2026-11-19" })).toBe(true);
+    expect(isProvisionalSkin({ month: "2026-11", reference: "2026-11-19" })).toBe(false);
+  });
+
+  it("follows its lone artwork otherwise", () => {
+    expect(isProvisionalSkin({ month: "2026-11", reference: "2026-11-19", lone: { provisional: true } })).toBe(true);
+    expect(isProvisionalSkin({ month: "2021-01", reference: "2026-11-19", lone: { provisional: false } })).toBe(false);
   });
 });

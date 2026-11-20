@@ -182,8 +182,21 @@ const RULES = {
     ["DÉG", "Dégâts", { caseSensitive: true }],
     // Battle spells keep their English names, like on the spell pages.
     ["Rétribution", "Retribution", { caseSensitive: true }],
-    // Modes, as the site's menu names them ("Classique, Classé, Baston").
-    ["Bagarre", "Baston", { caseSensitive: true }],
+    // Modes and events keep the game's English names, as the modes pages
+    // write them: "Brawl", "Card Brawl", "Magic Chess", "StarLight". The
+    // service wrote "Bagarre", "Bagarre de cartes", "Échecs magiques",
+    // "Lumière des étoiles", next to "Brawl" in the same notes. A brawl or a
+    // starlight in lowercase is an ordinary word.
+    ["Bagarre de cartes", "Card Brawl"],
+    ["Bagarre (?:des ombres|de l'ombre)", "Shadow Brawl"],
+    ["Bagarres", "Brawl", { caseSensitive: true }],
+    ["Bagarre", "Brawl", { caseSensitive: true }],
+    ["Baston", "Brawl", { caseSensitive: true }],
+    ["échecs magiques", "Magic Chess"],
+    // Only the capitalised name (the pass, the event): "une pluie de lumière
+    // stellaire" (Lunox) is prose and stays prose.
+    ["(?:Lumière des étoiles|Lumière stellaire)", "StarLight", { caseSensitive: true }],
+    ["mode Chaos", "mode Mayhem", { caseSensitive: true }],
     // "Tank" came back as an armoured vehicle, "Roaming" as wandering.
     ["semi-chars", "semi-tanks"],
     ["semi-char", "semi-tank"],
@@ -195,8 +208,15 @@ const RULES = {
     ["char", "tank"],
     ["héros itinérants", "roamers"],
     ["héros itinérant", "roamer"],
+    ["tanks errants", "tanks roamers"],
+    ["tank errant", "tank roamer"],
     ["bénédictions itinérantes", "Roaming Blessings"],
     ["bénédiction itinérante", "Roaming Blessing"],
+    // "Sa configuration itinérante": his roam build.
+    ["itinérantes?", "roam"],
+    // "Roam" is masculine and no elision before it: not "l'roam".
+    ["l'itinérance", "le roam"],
+    ["d'itinérance", "de roam"],
     ["Itinérance", "Roam", { caseSensitive: true }],
     ["itinérance", "roam", { caseSensitive: true }],
     // Lanes, as players and the esports pages say them.

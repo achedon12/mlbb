@@ -77,7 +77,7 @@ import generatedVisuals from "@/data/game/visuals.json";
 import visualSources from "@/data/game/visual-sources.json";
 import { analyses } from "@/data/heroes";
 import { currentItemName } from "./item-names";
-import { listedHeroes, listedSkins, shownIllustrations } from "./listed";
+import { listedHeroes, listedSkins, sortIllustrations, type LoneArtwork, type VisualSource } from "./listed";
 import { applyOverrides, overridesFolder, readOverrides } from "./lore-overrides";
 import type { Locale } from "@/i18n/config";
 import type { MeasuredRank } from "./measured-ranks";
@@ -340,21 +340,28 @@ export function stories(locale: Locale): Record<string, HeroStory> {
 }
 
 /**
- * Full-size artwork, per listed hero then per skin name, without the
- * artwork of unreleased and collaboration skins, nor an altered or
- * mismatched copy of the published one (`shownIllustrations`).
+ * Full-size artwork, per listed hero then per skin name: the official
+ * artwork of each released catalogue skin, without that of collaboration
+ * skins, nor an altered, mismatched or provisional copy of the published one
+ * (`sortIllustrations`). Every poster, share card, quiz and API answer draws
+ * from it.
  */
 const illustrationsSynced = generatedVisuals.illustrations as unknown as Record<string, Record<string, string>>;
-const visualFiles = visualSources as unknown as Record<string, { file?: string }>;
-/** Wiki file a local artwork was made from: the manifest keys paths under `public`. */
-const sourceOf = (path: string) => visualFiles[`public${path}`]?.file;
+const visualFiles = visualSources as unknown as Record<string, VisualSource>;
+/** What the manifest knows of a local artwork: it keys paths under `public`. */
+const sourceOf = (path: string) => visualFiles[`public${path}`];
+const sortedIllustrations = allHeroes.map(
+  (h) => [h.slug, sortIllustrations(illustrationsSynced[h.slug], skinsByHero[h.slug] ?? [], Date.now(), sourceOf)] as const,
+);
 export const illustrations: Record<string, Record<string, string>> = Object.fromEntries(
-  allHeroes
-    .map(
-      (h) =>
-        [h.slug, shownIllustrations(illustrationsSynced[h.slug], skinsByHero[h.slug] ?? [], Date.now(), sourceOf)] as const,
-    )
-    .filter(([, byName]) => Object.keys(byName).length > 0),
+  sortedIllustrations.map(([slug, s]) => [slug, s.final] as const).filter(([, byName]) => Object.keys(byName).length > 0),
+);
+/**
+ * Artworks no catalogue skin claims, per hero: shown on the hero's gallery
+ * only, a recent one with a "provisional" badge (`LoneArtwork`).
+ */
+export const loneIllustrations: Record<string, LoneArtwork[]> = Object.fromEntries(
+  sortedIllustrations.map(([slug, s]) => [slug, s.lone] as const).filter(([, lone]) => lone.length > 0),
 );
 
 const ITEMS = { en: itemsEn, fr: itemsFr, it: itemsIt, es: itemsEs, id: itemsId, fil: itemsFil, th: itemsTh, pt: itemsPt, ru: itemsRu } satisfies Record<Locale, unknown>;

@@ -42,6 +42,33 @@ export function refreshDecision({ exists, recorded, current }) {
   return "keep";
 }
 
+/**
+ * Manifest entry of a downloaded visual, from what the wiki says of its file
+ * (`current`): the file, the SHA-1 and upload date of its current version,
+ * and the size of the original, which the site checks against the shape of
+ * an official artwork (`isPublishedArtwork`, `src/lib/listed.ts`) since the
+ * local copy is scaled down. Null without a fingerprint (the game API's
+ * icons): nothing to compare a later version against.
+ */
+export function manifestRecord(current) {
+  if (!current?.sha1) return null;
+  const record = { file: current.file, sha1: current.sha1, timestamp: current.timestamp ?? null };
+  if (current.width && current.height) Object.assign(record, { width: current.width, height: current.height });
+  return record;
+}
+
+/**
+ * The manifest entry of a file kept as it is, brought up to date: the same
+ * wiki version (same file, same SHA-1) gains what the older entry lacked,
+ * the size of the original. Another version, or no fingerprint, leaves the
+ * entry alone: the bytes on disk are those of the recorded one.
+ */
+export function refreshedRecord(recorded, current) {
+  const next = manifestRecord(current);
+  if (!recorded || !next || recorded.sha1 !== next.sha1 || (recorded.file && recorded.file !== next.file)) return recorded;
+  return { ...recorded, ...next };
+}
+
 /** Side of the thumbnails compared, and the mean gap (0–255) above which two pictures differ. */
 const SIDE = 32;
 const THRESHOLD = 6;

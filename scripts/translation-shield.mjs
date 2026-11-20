@@ -81,3 +81,91 @@ export function forgetLost(cache, texts, sl, tl, pattern) {
   }
   return dropped;
 }
+
+// ── List labels ────────────────────────────────────────────────────
+
+/**
+ * Patch notes number their headings and lists with a letter or a Roman
+ * numeral: "a. Rare Skins", "E. New Skin", "VII. Bug Fixes". The service reads
+ * the letter as a word: "a." came back as "un." in French, "um." in
+ * Portuguese, "UN." in Italian, "gramo." (g) in Spanish, "Ako." (I) in
+ * Filipino, Cyrillic "Дж." (J) in Russian, and "H. Bush Vision" as "Optimisations
+ * de la vision H. Bush". A label is one letter or up to four Roman numerals
+ * and a full stop, at the start of a text: only the tags of its HTML block
+ * (markers) and spaces may come before it.
+ */
+const LEAD = `(?:${MARK}\\d+${MARK}|\\s)*`;
+const LABEL = String.raw`(?:[A-Za-z]|[IVX]{2,4})\.(?=\s)`;
+const LABEL_RE = new RegExp(`(?<=^${LEAD})${LABEL}`, "u");
+const OUTPUT_LABEL_RE = new RegExp(`^(${LEAD})([^\\s.${MARK}]{1,5}\\.)(?=\\s)`, "u");
+
+/** The list label a text starts with ("a.", "VII."), or null. */
+export const listLabel = (text) => String(text ?? "").match(LABEL_RE)?.[0] ?? null;
+
+/** Whether `output` starts with `label` and a space, past its leading markers. */
+const startsWithLabel = (output, label) => new RegExp(`^${LEAD}${label.replace(".", "\\.")}(?=\\s)`, "u").test(output);
+
+/** A shield for the list label: hidden behind a marker, it comes back as written. */
+export const shieldLabels = shieldWith(new RegExp(LABEL_RE.source, "gu"));
+
+/**
+ * Several shields, applied in turn: each numbers its markers after those of
+ * the previous ones, and the last applied is undone first.
+ */
+export function combineShields(...shields) {
+  return (text) => {
+    const steps = [];
+    let current = String(text);
+    for (const shield of shields) {
+      const step = shield(current);
+      steps.push(step);
+      current = step.text;
+    }
+    return {
+      text: current,
+      restore(output) {
+        let back = output;
+        for (const step of [...steps].reverse()) {
+          if (back === null) return null;
+          back = step.restore(back);
+        }
+        return back;
+      },
+    };
+  };
+}
+
+/**
+ * Output correction, applied after the cache: a translation that starts
+ * with a word in place of its source's label ("un. Peaux rares" for "a. Rare
+ * Skins") gets the label back. A translation that lost the label elsewhere
+ * is left to `forgetLostLabels`.
+ */
+export function restoreListLabel(output, source) {
+  if (typeof output !== "string") return output;
+  const label = listLabel(source);
+  if (!label || startsWithLabel(output, label)) return output;
+  return output.replace(OUTPUT_LABEL_RE, (_, lead) => `${lead}${label}`);
+}
+
+/**
+ * Drops from `cache` the translations that lost their source's list label
+ * beyond what `restoreListLabel` puts back ("Optimisations de la vision H.
+ * Bush", "Uma briga" for "A. Brawl"): translated again with the label
+ * shielded, they keep it. One that only turned the label into a word stays,
+ * corrected on output, with no new request. Returns the keys dropped.
+ */
+export function forgetLostLabels(cache, texts, sl, tl) {
+  const dropped = [];
+  for (const text of new Set(texts.map((x) => String(x).trim()))) {
+    const label = listLabel(text);
+    if (!label) continue;
+    const key = `${sl}|${tl}|${text}`;
+    const out = cache[key];
+    if (typeof out === "string" && !startsWithLabel(restoreListLabel(out, text), label)) {
+      delete cache[key];
+      dropped.push(key);
+    }
+  }
+  return dropped;
+}

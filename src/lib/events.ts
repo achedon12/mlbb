@@ -63,9 +63,34 @@ export function monthStatus(month: string, reference: string): MonthStatus {
 
 // ── Assembly ───────────────────────────────────────────────────────
 
-/** Calendar skin; `notInCatalog`: known from the wiki lists only, without rarity or price. */
+/**
+ * Calendar skin; `notInCatalog`: known from the wiki lists only, without
+ * rarity or price; `provisional`: not confirmed out, its visual may still
+ * change (`isProvisionalSkin`).
+ */
 export interface EventSkin extends SkinCatalog {
   notInCatalog?: boolean;
+  provisional?: boolean;
+}
+
+/**
+ * Whether a skin only the wiki lists (not in the catalogue) is provisional:
+ * listed for a month still to come, or shown with a lone artwork recent
+ * enough to be a pre-release one (`LoneArtwork.provisional`). A listed skin
+ * of a past month without artwork is an older one the catalogue lacks.
+ */
+export function isProvisionalSkin({
+  month,
+  reference,
+  lone,
+}: {
+  month: string;
+  /** Data date, ISO. */
+  reference: string;
+  /** The lone artwork shown for it, if any. */
+  lone?: { provisional: boolean } | null;
+}): boolean {
+  return month > reference.slice(0, 7) || Boolean(lone?.provisional);
 }
 
 /** Entry of a wiki monthly list, already resolved to its skin. */

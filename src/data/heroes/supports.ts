@@ -7,24 +7,24 @@ export const supports: HeroAnalysis[] = [
     summary:
       "Le soin le plus brut du jeu : son ultime régénère l'équipe entière pendant plusieurs secondes.",
     analysis:
-      "Estes ne fait rien d'autre que soigner, mais il le fait à un volume qu'aucun autre soutien n'atteint. Dans un combat prolongé autour d'un objectif, son ultime peut annuler l'équivalent d'une composition entière de dégâts soutenus.\n\nCela en fait aussi le héros le plus dépendant du contexte du roster. Face à une équipe qui achète de la réduction de soins, ou qui possède un engagement capable de le supprimer en premier, il devient presque inutile. Il n'apporte ni contrôle, ni dégâts, ni mobilité : s'il ne soigne pas, il n'existe pas.",
+      "Estes ne fait rien d'autre que soigner, mais il le fait à un volume qu'aucun autre soutien n'atteint. Dans un combat prolongé autour d'un objectif, son ultime peut annuler l'équivalent d'une composition entière de dégâts soutenus.\n\nCela en fait aussi le héros le plus dépendant du contexte de tout le jeu. Face à une équipe qui achète de la réduction de soins, ou qui possède un engagement capable de le supprimer en premier, il devient presque inutile. Il n'apporte ni contrôle, ni dégâts, ni mobilité : s'il ne soigne pas, il n'existe pas.",
     skills: [
       {
         type: "Passive",
-        name: "Présence sacrée",
+        name: "Scripture of the Moon Elf",
         description:
           "Ses soins appliquent une marque qui augmente la régénération des alliés concernés.",
       },
       {
         type: "Skill 1",
-        name: "Réconfort",
+        name: "Moonlight Immersion",
         description: "Soigne un allié ciblé et augmente sa vitesse de déplacement.",
         cooldown: [8, 7.4, 6.8, 6.2, 5.6, 5],
         cost: [90, 100, 110, 120, 130, 140],
       },
       {
         type: "Skill 2",
-        name: "Lien spirituel",
+        name: "Domain of Moon Goddess",
         description:
           "Relie une cible ennemie, la ralentit, puis l'immobilise si le lien tient assez longtemps.",
         cooldown: [12, 11, 10, 9, 8, 7],
@@ -32,7 +32,7 @@ export const supports: HeroAnalysis[] = [
       },
       {
         type: "Ultimate",
-        name: "Bosquet de vie",
+        name: "Blessing of Moon Goddess",
         description:
           "Crée une zone qui soigne continuellement tous les alliés présents pendant plusieurs secondes.",
         cooldown: [55, 50, 45],
@@ -79,20 +79,20 @@ export const supports: HeroAnalysis[] = [
     skills: [
       {
         type: "Passive",
-        name: "Cœur de poupée",
+        name: "Smart Heart",
         description:
           "Ses compétences appliquent des charges qui augmentent les dégâts subis par la cible ou les soins reçus par l'allié.",
       },
       {
         type: "Skill 1",
-        name: "Onde d'amour",
+        name: "Love Waves",
         description: "Projette une onde qui inflige des dégâts et ralentit les ennemis touchés.",
         cooldown: [8, 7.4, 6.8, 6.2, 5.6, 5],
         cost: [70, 75, 80, 85, 90, 95],
       },
       {
         type: "Skill 2",
-        name: "Chaîne du destin",
+        name: "Puppet-on-a-String",
         description:
           "Relie une cible : un ennemi est immobilisé après un délai, un allié reçoit un soin continu.",
         cooldown: [13, 12, 11, 10, 9, 8],
@@ -100,7 +100,7 @@ export const supports: HeroAnalysis[] = [
       },
       {
         type: "Ultimate",
-        name: "Attachement",
+        name: "Heartguard",
         description:
           "S'attache à un allié n'importe où sur la carte, lui accordant un bouclier et des statistiques accrues.",
         cooldown: [60, 50, 40],
@@ -147,13 +147,13 @@ export const supports: HeroAnalysis[] = [
     skills: [
       {
         type: "Passive",
-        name: "Âme ailée",
+        name: "Ancestral Guidance",
         description:
           "Ses compétences génèrent un bouclier et augmentent brièvement sa vitesse de déplacement.",
       },
       {
         type: "Skill 1",
-        name: "Guidance ancestrale",
+        name: "Soul Bloom",
         description:
           "Envoie des esprits qui infligent des dégâts et marquent les ennemis touchés.",
         cooldown: [8.5, 8, 7.5, 7, 6.5, 6],
@@ -161,7 +161,7 @@ export const supports: HeroAnalysis[] = [
       },
       {
         type: "Skill 2",
-        name: "Envol",
+        name: "Guiding Wind",
         description:
           "S'envole dans une direction en emmenant l'allié le plus proche avec elle.",
         cooldown: [15, 14, 13, 12, 11, 10],
@@ -169,7 +169,7 @@ export const supports: HeroAnalysis[] = [
       },
       {
         type: "Ultimate",
-        name: "Circulation",
+        name: "Circling Eagle",
         description:
           "Se rue sur une cible marquée, l'immobilise et inflige des dégâts à la zone.",
         cooldown: [36, 32, 28],

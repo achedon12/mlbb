@@ -6485,5 +6485,10 @@
     "tool": "Libreng tool",
     "game": "Laro ng araw",
     "toolsKicker": "Libreng mga tool"
+  },
+  "visualStatus": {
+    "provisional": "Pansamantala",
+    "provisionalHint": "Pansamantalang visual, hindi pa nakumpirma ng laro: maaari itong magbago bago ang opisyal na paglabas.",
+    "provisionalNote": "Pansamantalang visual: ang hitsura na ito ay hindi pa nakumpirma sa laro, ang paglalarawan ay maaari pa ring magbago."
   }
 }

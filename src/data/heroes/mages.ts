@@ -11,7 +11,7 @@ export const mages: HeroAnalysis[] = [
     skills: [
       {
         type: "Passive",
-        name: "Yin Yang rassemblés",
+        name: "Yin Yang Gathering",
         description:
           "Quand Kagura et son ombrelle sont réunies, ses compétences se rechargent plus vite et elle gagne un bouclier après un sort.",
       },
@@ -33,7 +33,7 @@ export const mages: HeroAnalysis[] = [
       },
       {
         type: "Ultimate",
-        name: "Yin Yang Gathering",
+        name: "Yin Yang Overturn",
         description:
           "Immobilise et attire les ennemis autour de l'ombrelle, puis inflige des dégâts de zone importants.",
         cooldown: [30, 27, 24],
@@ -54,7 +54,7 @@ export const mages: HeroAnalysis[] = [
     weakAgainst: ["gusion", "natalia", "helcurt", "hayabusa"],
     builds: [
       {
-        name: "Milieu explosif",
+        name: "Mid lane explosif",
         context:
           "Le build standard : pénétration magique pour conserver des dégâts face aux premiers objets défensifs.",
         items: [
@@ -76,17 +76,17 @@ export const mages: HeroAnalysis[] = [
     summary:
       "Mage d'artillerie : son ultime frappe à travers la carte, sans jamais entrer dans le combat.",
     analysis:
-      "Pharsa joue sur la portée. Son ultime est un bombardement canalisé couvrant une zone énorme à longue distance, ce qui lui permet de participer à un combat qu'elle ne voit qu'à peine. Bien placé, ce sort seul peut décider d'un affrontement autour du seigneur.\n\nSa compétence 2 lui donne une forme volante qui traverse les murs, indispensable pour se repositionner après avoir canalisé. Le point faible est évident : pendant l'ultime elle est immobile et sans défense, et n'importe quel assassin qui la trouve la tue.",
+      "Pharsa joue sur la portée. Son ultime est un bombardement canalisé couvrant une zone énorme à longue distance, ce qui lui permet de participer à un combat qu'elle ne voit qu'à peine. Bien placé, ce sort seul peut décider d'un affrontement autour du Seigneur.\n\nSa compétence 2 lui donne une forme volante qui traverse les murs, indispensable pour se repositionner après avoir canalisé. Le point faible est évident : pendant l'ultime elle est immobile et sans défense, et n'importe quel assassin qui la trouve la tue.",
     skills: [
       {
         type: "Passive",
-        name: "Terreur des cieux",
+        name: "Spiritual Unity",
         description:
           "Après une compétence, sa prochaine attaque de base inflige des dégâts magiques supplémentaires.",
       },
       {
         type: "Skill 1",
-        name: "Vague d'énergie",
+        name: "Curse of Crow",
         description:
           "Envoie une onde qui explose à distance, infligeant des dégâts de zone.",
         cooldown: [7.5, 7, 6.5, 6, 5.5, 5],
@@ -94,7 +94,7 @@ export const mages: HeroAnalysis[] = [
       },
       {
         type: "Skill 2",
-        name: "Forme aviaire",
+        name: "Energy Impact",
         description:
           "Prend une forme volante pour se déplacer rapidement, en traversant les obstacles.",
         cooldown: [15, 14, 13, 12, 11, 10],
@@ -102,7 +102,7 @@ export const mages: HeroAnalysis[] = [
       },
       {
         type: "Ultimate",
-        name: "Tempête de plumes",
+        name: "Feathered Air Strike",
         description:
           "Canalise un bombardement sur une zone très étendue, à longue distance de la carte.",
         cooldown: [40, 35, 30],
@@ -123,7 +123,7 @@ export const mages: HeroAnalysis[] = [
     weakAgainst: ["ling", "fanny", "gusion", "hayabusa", "natalia"],
     builds: [
       {
-        name: "Milieu artillerie",
+        name: "Mid lane artillerie",
         context:
           "Portée et dégâts bruts, avec un objet défensif tardif pour survivre à une plongée.",
         items: [
@@ -149,13 +149,13 @@ export const mages: HeroAnalysis[] = [
     skills: [
       {
         type: "Passive",
-        name: "Soif de sang",
+        name: "Overflowing",
         description:
           "Chaque compétence touchant un ennemi accumule des charges permanentes qui augmentent ses dégâts et sa mana maximale.",
       },
       {
         type: "Skill 1",
-        name: "Chauve-souris sanglantes",
+        name: "Bat Impact",
         description:
           "Libère une vague de chauves-souris dans une direction, infligeant des dégâts de zone.",
         cooldown: [3.2, 3.2, 3.2, 3.2, 3.2, 3.2],
@@ -163,7 +163,7 @@ export const mages: HeroAnalysis[] = [
       },
       {
         type: "Skill 2",
-        name: "Étreinte funeste",
+        name: "Sanguine Claws",
         description:
           "Fait surgir des griffes qui immobilisent brièvement les ennemis dans la zone.",
         cooldown: [11, 10.2, 9.4, 8.6, 7.8, 7],
@@ -171,7 +171,7 @@ export const mages: HeroAnalysis[] = [
       },
       {
         type: "Ultimate",
-        name: "Nuit éternelle",
+        name: "Bats Feast",
         description:
           "Se soigne, gagne de la portée sur ses compétences et inflige des dégâts de zone massifs autour de lui.",
         cooldown: [42, 36, 30],
@@ -192,9 +192,9 @@ export const mages: HeroAnalysis[] = [
     weakAgainst: ["ling", "fanny", "gusion", "lancelot", "natalia"],
     builds: [
       {
-        name: "Milieu cumul",
+        name: "Mid lane cumul",
         context:
-          "Mana et recharge d'abord pour cumuler vite, dégâts ensuite. Le Sablier n'est pas optionnel.",
+          "Mana et recharge d'abord pour cumuler vite, dégâts ensuite. Enchanted Talisman n'est pas optionnel.",
         items: [
           "Arcane Boots",
           "Enchanted Talisman",
@@ -296,7 +296,7 @@ export const mages: HeroAnalysis[] = [
       },
       {
         type: "Ultimate",
-        name: "Thunder's Wrath",
+        name: "Thunder’s Wrath",
         description:
           "La foudre frappe une zone, plus fort au centre qu'en périphérie. Chaque cible électrisée touchée déclenche une seconde explosion autour d'elle après un court délai.",
       },
@@ -476,7 +476,7 @@ export const mages: HeroAnalysis[] = [
       "Mage de harcèlement qui neutralise une cible en la transformant, et survit une fois à un coup fatal.",
     analysis:
       "Nana use ses adversaires de loin avec un boomerang qui touche à l'aller et au retour. Sa compétence 2 envoie Molina poursuivre le héros ennemi le plus proche : celui qu'elle atteint est transformé un court instant, ralenti et fragilisé face aux dégâts magiques. L'ultime frappe une zone trois fois et étourdit les ennemis touchés plusieurs fois de suite. Son passif lui accorde, une fois toutes les deux minutes et demie, une transformation invulnérable au moment où elle devrait mourir.\n\n" +
-      "Ses chiffres mesurés sont faibles : taux de victoire sous la moyenne à tous les rangs, plus bas encore en Mythic Glory, sans vraie amélioration dans les parties longues. Pendant la transformation de son passif, elle ne peut lancer aucune compétence, et Molina choisit elle-même sa cible parmi les héros proches. Les écarts de contres restent modestes ; les plus nets la placent en difficulté face à Gloo, puis face à Akai et Hylos.",
+      "Ses chiffres mesurés sont faibles : taux de victoire sous la moyenne à tous les rangs, plus bas encore en Gloire mythique, sans vraie amélioration dans les parties longues. Pendant la transformation de son passif, elle ne peut lancer aucune compétence, et Molina choisit elle-même sa cible parmi les héros proches. Les écarts de contres restent modestes ; les plus nets la placent en difficulté face à Gloo, puis face à Akai et Hylos.",
     skills: [
       {
         type: "Passive",

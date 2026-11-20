@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { skinArt } from "@/components/hero-art";
 import { ArtTile } from "@/components/poster-header";
+import { ProvisionalBadge } from "@/components/provisional-badge";
 import type { PropsCardSkin } from "@/components/skin-card";
 import type { EventSkin } from "@/lib/events";
 
-/** The skin's full artwork, when the catalogue holds one under its name. */
+/** The skin's full artwork, when the catalogue holds one under its name: never a provisional one. */
 export const eventArt = (s: EventSkin) => skinArt(s.hero, s.name);
 
 /**
@@ -35,8 +36,10 @@ export function FeatureSkin({
       position="50% 25%"
       sizes={sizes}
       className="h-full"
+      figure={card.provisional ? <ProvisionalBadge {...card.provisional} /> : undefined}
       fallback={
-        card.image ? (
+        // A provisional visual is not blown up into a poster tile.
+        card.image && !skin.provisional ? (
           <span className="absolute inset-y-0 right-0 aspect-[240/390]">
             <Image src={card.image} alt="" fill sizes="12rem" className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" />
           </span>

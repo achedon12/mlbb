@@ -49,7 +49,8 @@ import {
 } from "./gallery.mjs";
 import { isReleasedHero } from "./release.mjs";
 import { mergeSkins, parseLiquipediaSkins } from "./skin-sources.mjs";
-import { differentImages, refreshDecision } from "./visual-refresh.mjs";
+import { differentImages, manifestRecord, refreshDecision, refreshedRecord } from "./visual-refresh.mjs";
+import { shapeIssue } from "./visual-rules.mjs";
 import { PAGES as SERIES_PAGES, attachHeroes, currentMonthWarnings, level2Section, readGallery } from "./events.mjs";
 import {
   rounded,
@@ -243,6 +244,10 @@ function recordFile(page) {
     file: page.title,
     sha1: info.sha1 ?? null,
     timestamp: info.timestamp ?? null,
+    // Size of the wiki's original: recorded in the manifest, the local copy
+    // is scaled down (see `manifestRecord`).
+    width: info.width ?? null,
+    height: info.height ?? null,
     provisional: isProvisionalFile({ name: page.title, description, comment: info.comment, categories }),
     // Only held against full-size artwork (see `alteredArtwork`).
     altered: alteredArtwork({
@@ -358,7 +363,11 @@ async function download({ url, path, optimize = false, width = 1280 }, manifest)
   const current = fileInfo.get(url);
   const exists = existsSync(path);
   const decision = refreshDecision({ exists, recorded: manifest[path], current });
-  if (decision === "keep") return "exists";
+  if (decision === "keep") {
+    // Same wiki version: the entry gains the original's size if it lacked it.
+    if (manifest[path]) manifest[path] = refreshedRecord(manifest[path], current);
+    return "exists";
+  }
   try {
     const response = await fetch(url, {
       headers: { "User-Agent": UA },
@@ -379,7 +388,7 @@ async function download({ url, path, optimize = false, width = 1280 }, manifest)
       output = await sharp(data).webp({ quality: 92, alphaQuality: 100, effort: 6 }).toBuffer();
     }
 
-    const record = current?.sha1 ? { file: current.file, sha1: current.sha1, timestamp: current.timestamp } : null;
+    const record = manifestRecord(current);
     if (decision === "verify") {
       // Downloaded before the manifest existed: replaced only if the picture changed.
       const changed = await differentImages(output, await readFile(path)).catch(() => true);
@@ -2336,10 +2345,17 @@ async function main() {
   // square icon for compact lists.
   const portraits = await urlsImages(credentials, "portrait");
   const icons = await urlsImages(heroes.map((h) => h.id), "icon");
-  // A portrait or icon the wiki marks as provisional (test server, leak) is
-  // not the game's: the file already on disk, if any, stays as it is.
-  for (const urls of [portraits, icons]) {
-    for (const [id, url] of Object.entries(urls)) if (fileInfo.get(url)?.provisional) delete urls[id];
+  // A portrait or icon the wiki marks as provisional (test server, leak), or
+  // whose size is not the game's (a crop, a stretched copy, a thumbnail), is
+  // not the official file: the file already on disk, if any, stays as it is.
+  for (const [urls, kind] of [
+    [portraits, "portrait"],
+    [icons, "icon"],
+  ]) {
+    for (const [id, url] of Object.entries(urls)) {
+      const info = fileInfo.get(url);
+      if (info?.provisional || shapeIssue(kind, info?.width, info?.height)) delete urls[id];
+    }
   }
   console.log(`  ${Object.keys(portraits).length} portraits, ${Object.keys(icons).length} icons`);
 

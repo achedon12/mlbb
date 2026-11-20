@@ -1,5 +1,5 @@
 ---
-title: "Guide de la gold lane : jouer tireur en Mobile Legends"
+title: "Guide de la Gold lane : jouer tireur dans Mobile Legends: Bang Bang"
 short: "Gold lane"
 date: "2026-11-14"
 updated: "2026-11-14"
@@ -7,7 +7,7 @@ kind: "role"
 lane: "Gold"
 order: 1
 author: "achedon12"
-summary: "La gold lane est celle du porteur de fin de partie. Ce que le poste apporte, les héros les mieux classés en ce moment, ce qu'on y construit, et les erreurs qui font perdre un tireur pourtant en avance."
+summary: "La Gold lane est celle du porteur de fin de partie. Ce que le poste apporte, les héros les mieux classés en ce moment, ce qu'on y construit, et les erreurs qui font perdre un tireur pourtant en avance."
 keywords: ["gold lane", "tireur", "marksman", "carry", "guide gold lane", "guide mlbb"]
 related: ["farming-wave-management", "teamfight-positioning", "roam"]
 tools: ["/tier-list", "/tools/build", "/items", "/spells"]

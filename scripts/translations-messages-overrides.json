@@ -6027,6 +6027,10 @@
     "og.banned": {
       "fr": "Le plus banni",
       "text": "Most banned"
+    },
+    "visualStatus.provisionalNote": {
+      "fr": "Visuel provisoire : cette apparence n'est pas encore confirmée dans le jeu, l'illustration peut encore changer.",
+      "text": "Provisional visual: this skin is not yet confirmed in the game, its artwork may still change."
     }
   },
   "es": {
