@@ -3837,7 +3837,7 @@
       "noRole": "Sin mención",
       "types": {
         "patches": "Notas del parche",
-        "skins": "Nuevas pieles",
+        "skins": "Nuevas skins",
         "events": "Eventos",
         "advanceServer": "Servidor avanzado",
         "esports": "Esports"
@@ -4274,7 +4274,7 @@
       "warning": "Comprar, vender o intercambiar una cuenta incumple los términos de servicio de Moonton: la cuenta puede ser baneada o recuperada por su antiguo dueño, y las estafas son frecuentes. Esta estimación mide lo que costó una colección, no fija un precio. No se envía nada a ningún servidor.",
       "methodTitle": "El método, cifra a cifra",
       "methodPoints": "Las categorías son las del Escaparate del juego, con los puntos de colección que el juego da a cada skin. La suma de los puntos sirve de comprobación: debe coincidir con el total que muestra el juego.",
-      "methodCost": "Cada skin cuenta para el costo típico de su categoría. Premium, Exceptional y Common se venden en las tiendas: su coste es el precio medio en diamantes de los aspectos de la categoría, registrado en los datos del juego. Leyenda, Grandioso y Exquisito se obtienen por sorteo: toman la mediana, redondeada, de los costes publicados por las guías de jugadores, que varía mucho de un evento y de un jugador a otro. Una apariencia colorida tiene un valor simbólico.",
+      "methodCost": "Cada skin cuenta para el costo típico de su categoría. Premium, Exceptional y Common se venden en las tiendas: su coste es el precio medio en diamantes de los skins de la categoría, registrado en los datos del juego. Leyenda, Grandioso y Exquisito se obtienen por sorteo: toman la mediana, redondeada, de los costes publicados por las guías de jugadores, que varía mucho de un evento y de un jugador a otro. Una apariencia colorida tiene un valor simbólico.",
       "tableCaption": "Puntos y coste contados por skin, por categoría",
       "colTier": "Categoría",
       "colPoints": "Puntos",
@@ -5081,10 +5081,10 @@
           "p": "Mobile Legends: Bang Bang, su universo, sus héroes, sus nombres y sus representaciones gráficas son marcas comerciales y obras de Shanghai Moonton Technology Co., Ltd. Este sitio es un proyecto de fans independiente, sin afiliación, respaldo ni patrocinio de Moonton."
         },
         {
-          "p": "Los elementos visuales mostrados (retratos, íconos, emblemas, ilustraciones) y los nombres del juego son © Moonton. Los aspectos de la colaboración (NARUTO, Star Wars, Transformers, Jujutsu Kaisen, The King of Fighters, Neymar Jr y otros) presentan personajes, marcas y personas pertenecientes a sus respectivos titulares de derechos, bajo licencia concedida a Moonton: el sitio sólo muestra el pequeño retrato de la tienda, nunca la ilustración grande. Estas imágenes se copian de la wiki de la comunidad con fines ilustrativos e informativos; no tienen licencia CC BY-SA. A petición del titular de los derechos, serán eliminados."
+          "p": "Los elementos visuales mostrados (retratos, íconos, emblemas, ilustraciones) y los nombres del juego son © Moonton. Los skins de la colaboración (NARUTO, Star Wars, Transformers, Jujutsu Kaisen, The King of Fighters, Neymar Jr y otros) presentan personajes, marcas y personas pertenecientes a sus respectivos titulares de derechos, bajo licencia concedida a Moonton: el sitio sólo muestra el pequeño retrato de la tienda, nunca la ilustración grande. Estas imágenes se copian de la wiki de la comunidad con fines ilustrativos e informativos; no tienen licencia CC BY-SA. A petición del titular de los derechos, serán eliminados."
         },
         {
-          "p": "Los textos factuales (descripciones, historias, notas de parches, listas de aspectos) están tomados de [Mobile Legends wiki](https://mobilelegends.fandom.com) en Fandom y de [Liquipedia](https://liquipedia.net/mobilelegends), bajo licencia CC BY-SA: cada página que los utiliza acredita su fuente y sus traducciones permanecen bajo esta licencia. Los números de juego provienen de una API comunitaria. El código y los textos escritos para este sitio se publican bajo la licencia MIT; consulte el [repositorio público]({repository})."
+          "p": "Los textos factuales (descripciones, historias, notas de parches, listas de skins) están tomados de [Mobile Legends wiki](https://mobilelegends.fandom.com) en Fandom y de [Liquipedia](https://liquipedia.net/mobilelegends), bajo licencia CC BY-SA: cada página que los utiliza acredita su fuente y sus traducciones permanecen bajo esta licencia. Los números de juego provienen de una API comunitaria. El código y los textos escritos para este sitio se publican bajo la licencia MIT; consulte el [repositorio público]({repository})."
         },
         {
           "h": "Responsabilidad"
@@ -5236,7 +5236,7 @@
         "consent": "Su elección sobre las cookies de medición de audiencia, y su fecha (6 meses).",
         "favourites": "Tus héroes favoritos. Se envía al servidor solo si habilita las notificaciones de parches.",
         "push": "Notificaciones de parches activas en este navegador.",
-        "collection": "Tu colección de aspectos y el estado de su sincronización con tu cuenta (una huella digital de la cuenta, nunca tu ID del juego).",
+        "collection": "Tu colección de skins y el estado de su sincronización con tu cuenta (una huella digital de la cuenta, nunca tu ID del juego).",
         "popup": "Memoria de invitación de Discord: cerrada (durante 30 días) o seguida, y número de páginas vistas en la pestaña (tiempo de pestaña).",
         "games": "Juegos, series y estadísticas de MLBBdle y el cuestionario.",
         "tierList": "Borradores del creador de la lista de niveles.",
