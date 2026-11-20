@@ -24,7 +24,7 @@ export function PageLead({ lead }: { lead: string }) {
 
   return (
     <details className="group mt-3 max-w-2xl">
-      <summary className="cursor-pointer list-none outline-none focus-visible:ring-2 focus-visible:ring-gold-500 [&::-webkit-details-marker]:hidden">
+      <summary className="cursor-pointer list-none outline-none focus-visible:ring-2 focus-visible:ring-gold-400 [&::-webkit-details-marker]:hidden">
         {/* `line-clamp` sets its own display: no `block` here, it would win and
             the clamp would do nothing. */}
         <span className="line-clamp-2 text-sm leading-relaxed text-chalk-300 group-open:line-clamp-none sm:line-clamp-none sm:text-base">

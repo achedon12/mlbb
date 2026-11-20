@@ -1,5 +1,6 @@
 "use client";
 
+import { DexNotice, Flash } from "@/components/dex-states";
 import { Check, Copy, Shuffle } from "lucide-react";
 import { useEffect, useId, useRef, useState } from "react";
 import { classesChip } from "@/components/chip";
@@ -180,9 +181,7 @@ export function NicknameGenerator() {
       </Card>
 
       {name === "" ? (
-        <Card>
-          <p className="text-sm text-chalk-300">{t("pages.nicknameUI.empty")}</p>
-        </Card>
+        <DexNotice pose="idee">{t("pages.nicknameUI.empty")}</DexNotice>
       ) : (
         <>
           <Card className="border-gold-500/30">
@@ -267,26 +266,24 @@ export function NicknameGenerator() {
         {toast && (
           <p
             data-bottom-ui
-            className={cn(
-              "max-w-full border bg-night-900 px-4 py-2.5 text-sm font-medium text-chalk-100 shadow-lg shadow-black/40",
-              toast.failed ? "border-blood-500/60" : "border-gold-500/60",
-              toast.invite && "pointer-events-auto",
-            )}
+            className={cn("max-w-full font-medium drop-shadow-[0_8px_18px_rgb(0_0_0/0.55)]", toast.invite && "pointer-events-auto")}
           >
-            <span className="break-all">{toast.text}</span>
-            {toast.invite && (
-              <>
-                {" "}
-                <DiscordJoinLink
-                  href={toast.invite}
-                  placement="Toast"
-                  context="nickname"
-                  className="whitespace-nowrap font-semibold text-blurple-400 underline underline-offset-4 hover:text-white"
-                >
-                  {t("pages.nicknameUI.copiedDiscord")}
-                </DiscordJoinLink>
-              </>
-            )}
+            <Flash tone={toast.failed ? "error" : "ok"} className="py-1.5 pr-4">
+              <span className="break-all">{toast.text}</span>
+              {toast.invite && (
+                <>
+                  {" "}
+                  <DiscordJoinLink
+                    href={toast.invite}
+                    placement="Toast"
+                    context="nickname"
+                    className="whitespace-nowrap font-semibold text-blurple-400 underline underline-offset-4 hover:text-white"
+                  >
+                    {t("pages.nicknameUI.copiedDiscord")}
+                  </DiscordJoinLink>
+                </>
+              )}
+            </Flash>
           </p>
         )}
       </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import { DexHead } from "@/components/dex-states";
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { Trash2, X } from "lucide-react";
@@ -119,7 +120,10 @@ export function ItemPicker({
             {t("pages.buildSimulatorUI.results", { n: results.length })}
           </p>
           {results.length === 0 ? (
-            <p className="mt-6 text-center text-sm text-chalk-500">{t("pages.buildSimulatorUI.noItem")}</p>
+            <p className="mt-6 flex items-center justify-center gap-2.5 text-sm text-chalk-400">
+              <DexHead pose="surpris" size={32} />
+              {t("pages.buildSimulatorUI.noItem")}
+            </p>
           ) : (
             <ul className="-mx-1 mt-3 grid min-h-0 flex-1 grid-cols-1 gap-2 overflow-y-auto px-1 py-1 min-[380px]:grid-cols-2 sm:grid-cols-3">
               {results.map((o) => (

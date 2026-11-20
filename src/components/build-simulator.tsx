@@ -1,5 +1,6 @@
 "use client";
 
+import { DexLoading } from "@/components/dex-loading";
 import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, Check, Copy, Minus, Plus } from "lucide-react";
@@ -497,7 +498,7 @@ export function BuildSimulator({
               <SectionTitle id="sim-measured">{t("pages.buildSimulatorUI.measuredTitle")}</SectionTitle>
               <ChoiceRank ranks={MEASURED_RANKS} rank={rank} onChange={setRank} />
               {heroCores === null ? (
-                <p className="text-sm text-chalk-500">{t("pages.buildSimulatorUI.measuredLoading")}</p>
+                <DexLoading dex={false} label={t("pages.buildSimulatorUI.measuredLoading")} />
               ) : build.items.length === 0 ? (
                 <p className="text-sm text-chalk-500">{t("pages.buildSimulatorUI.measuredNeedItems")}</p>
               ) : close.length === 0 ? (

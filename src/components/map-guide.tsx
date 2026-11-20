@@ -279,7 +279,7 @@ export function MapGuide({ cards }: { cards: Record<MapPointKey, MapCard> }) {
                         aria-pressed={on}
                         onClick={() => choose(p.key)}
                         className={cn(
-                          "bevel-sm inline-flex min-h-11 items-center gap-2 py-1 pl-1.5 pr-3 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400",
+                          "bevel-sm inline-flex min-h-11 items-center gap-2 py-1 pl-1.5 pr-3 text-sm font-semibold transition-colors",
                           on ? "bg-gold-400 text-night-950" : "bg-night-900 text-chalk-200 hover:bg-night-800 hover:text-chalk-100",
                         )}
                       >

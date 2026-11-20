@@ -1,5 +1,6 @@
 "use client";
 
+import { Flash } from "@/components/dex-states";
 import { useId, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Send } from "lucide-react";
@@ -148,8 +149,8 @@ export function Composer({ mode, heroes = [], onDone }: { mode: ComposerMode; he
         )}
       </div>
       {error && (
-        <p role="alert" className="text-sm text-blood-400">
-          {error}
+        <p role="alert">
+          <Flash tone="error">{error}</Flash>
         </p>
       )}
     </form>

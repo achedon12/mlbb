@@ -1,7 +1,8 @@
 "use client";
 
-import { CircleAlert, CircleCheck, X, type LucideIcon } from "lucide-react";
+import { CircleAlert, X, type LucideIcon } from "lucide-react";
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
+import { DexHead } from "@/components/dex-states";
 import { useT } from "@/i18n/provider";
 import { cn } from "@/lib/utils";
 
@@ -162,16 +163,12 @@ export function Toasts({ toasts, dismiss }: { toasts: Toast[]; dismiss: (id: num
         <div
           key={toast.id}
           className={cn(
-            "bevel-sm pointer-events-auto flex w-full max-w-sm items-start gap-3 border bg-night-850 p-3 text-sm text-chalk-100 shadow-lg shadow-night-950/60",
-            toast.kind === "ok" ? "border-azure-400/50" : "border-blood-400/60",
+            "brand-flash pointer-events-auto w-full max-w-sm items-start gap-3 p-2.5 pr-3 drop-shadow-[0_8px_18px_rgb(0_0_0/0.55)]",
+            toast.kind === "error" && "brand-flash-error",
           )}
         >
-          {toast.kind === "ok" ? (
-            <CircleCheck aria-hidden className="mt-0.5 size-4 shrink-0 text-azure-400" />
-          ) : (
-            <CircleAlert aria-hidden className="mt-0.5 size-4 shrink-0 text-blood-400" />
-          )}
-          <p className="min-w-0 flex-1 break-words">{toast.text}</p>
+          <DexHead pose={toast.kind === "ok" ? "victoire" : "surpris"} size={32} />
+          <p className="min-w-0 flex-1 self-center break-words">{toast.text}</p>
           <button
             type="button"
             onClick={() => dismiss(toast.id)}

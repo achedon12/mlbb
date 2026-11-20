@@ -1,5 +1,7 @@
 "use client";
 
+import { DexLoading } from "@/components/dex-loading";
+import { DexNotice, Flash } from "@/components/dex-states";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeftRight, Link2, Plus, RotateCcw, X } from "lucide-react";
 import { HeroSelector, HeroThumb, type HeroPickable } from "@/components/hero-picker";
@@ -238,9 +240,8 @@ export function MatchupMatrix({
               </button>
             </>
           )}
-          <span role="status" className="text-xs text-chalk-300">
-            {copy === "ok" && t("pages.matchupsUI.linkCopied")}
-            {copy === "error" && t("pages.matchupsUI.copyFailed")}
+          <span role="status" className="text-xs">
+            {copy && <Flash tone={copy}>{t(copy === "ok" ? "pages.matchupsUI.linkCopied" : "pages.matchupsUI.copyFailed")}</Flash>}
           </span>
         </div>
       </div>
@@ -248,13 +249,11 @@ export function MatchupMatrix({
       {rows.length === 0 || columns.length === 0 ? (
         <p className="max-w-2xl leading-relaxed text-chalk-500">{t("pages.matchupsUI.intro")}</p>
       ) : state === "error" ? (
-        <p role="alert" className="text-sm text-blood-500">
+        <DexNotice role="alert" tone="error" title={t("dexStates.errorTitle")} className="max-w-2xl">
           {t("pages.matchupsUI.error")}
-        </p>
+        </DexNotice>
       ) : !gaps ? (
-        <p aria-live="polite" className="text-sm text-chalk-500">
-          {t("pages.matchupsUI.loading")}
-        </p>
+        <DexLoading dex={false} label={t("pages.matchupsUI.loading")} />
       ) : (
         <section aria-labelledby="matrix-title" className="space-y-6">
           <div>

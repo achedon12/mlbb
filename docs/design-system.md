@@ -92,6 +92,27 @@ One `<h1>` per page.
   by `scripts/mascot-png.mjs`. It shows the text wordmark only until the
   redrawn logo is validated. Dex's story lives on `/dex`.
 
+## Small states
+
+The waits, empties and confirmations carry the brand too. Never a generic
+spinner, a grey rounded skeleton or a bare red line.
+
+- **Wait**: `DexLoading` (`dex-loading.tsx`): Dex hops, one line in his
+  voice, a blade sweeps a bevelled track; `lines` adds skeletons, `dex={false}`
+  keeps only the line and the blade under a header that already shows Dex.
+  A route that awaits real data gets a `loading.tsx` with it, never a route
+  that may answer 404 or redirect from a parent segment.
+- **Inline wait**: `BrandSpinner` (three slanted blades), in buttons and
+  status lines. **Skeleton**: `Skeleton`, a bevelled night shape.
+- **Empty or failed**: `DexNote` (whole Dex, bubble) where no Dex is on the
+  screen yet; `DexNotice` (his head in a medallion) where one already is, a
+  tool under its header for one. `surpris` for empty and errors, `idee` for
+  a step to take.
+- **Confirmation**: `Flash` — bevelled, gold edge and Dex cheering
+  (`victoire`), red edge and Dex surprised for a failure. The live role stays
+  on the element around it.
+- Lines Dex says use `tu`, short, with the next step. No emojis.
+
 ## Motion
 
 - One strong moment per page: `affiche-art` (art slides slightly) and

@@ -901,8 +901,8 @@
       "text": "Skins and heroes taken from your collection: {n} skins sorted by tier."
     },
     "pages.accountValueUI.import_failed": {
-      "fr": "Impossible de charger le catalogue des apparences. Réessayez.",
-      "text": "The skin catalogue could not be loaded. Try again."
+      "fr": "Je n'ai pas pu charger le catalogue des apparences. Réessaie.",
+      "text": "I couldn't load the skin catalogue. Try again."
     },
     "pages.accountValueUI.import_unmapped": {
       "fr": "Apparences sans catégorie connue, laissées de côté : {n}.",
@@ -989,12 +989,12 @@
       "text": "{group}: {points} points detected on your screenshot."
     },
     "pages.accountValueUI.scan.error": {
-      "fr": "Le lecteur n'a pas pu démarrer dans ce navigateur. Recopiez les nombres à la main.",
-      "text": "The reader could not start in this browser. Copy the numbers by hand."
+      "fr": "Le lecteur ne démarre pas dans ce navigateur. Recopie les nombres à la main.",
+      "text": "The reader won't start in this browser. Copy the numbers by hand."
     },
     "pages.accountValueUI.scan.failed": {
-      "fr": "Aucun aperçu des points de collection reconnu sur cette image. Essayez une capture nette de la Vitrine, panneau ouvert.",
-      "text": "No skin collection points overview found in this image. Try a sharp screenshot of the Showcase, with the panel open."
+      "fr": "Je ne trouve pas les points de collection sur cette image. Essaie une capture nette de la Vitrine, panneau ouvert.",
+      "text": "I can't find the collection points in this image. Try a sharp screenshot of the Showcase, with the panel open."
     },
     "pages.accountValueUI.scan.headerOff": {
       "fr": "Le total lu ({read}) ne correspond pas à la somme des lignes ({sum}) : vérifiez les cases signalées.",
@@ -1053,8 +1053,8 @@
       "text": "Link copied."
     },
     "pages.accountValueUI.share_failed": {
-      "fr": "Le partage a échoué.",
-      "text": "Sharing failed."
+      "fr": "Le partage n'est pas passé.",
+      "text": "Sharing didn't go through."
     },
     "pages.accountValueUI.share_shared": {
       "fr": "Résultat partagé.",
@@ -1729,8 +1729,8 @@
       "text": "Delete the “{title}” menu and its message on Discord?"
     },
     "pages.botUI.roleMenus.deleteFailed": {
-      "fr": "La suppression a échoué. Réessayez.",
-      "text": "The deletion failed. Try again."
+      "fr": "La suppression n'est pas passée. Réessaie.",
+      "text": "Deleting didn't go through. Try again."
     },
     "pages.botUI.roleMenus.deleted": {
       "fr": "Menu supprimé.",
@@ -1861,8 +1861,8 @@
       "text": "The bot cannot post in this channel: check its View Channel, Send Messages and Embed Links permissions, or pick another channel."
     },
     "pages.botUI.roleMenus.publishErrors.failed": {
-      "fr": "La publication a échoué. Réessayez.",
-      "text": "Publishing failed. Try again."
+      "fr": "La publication n'est pas passée. Réessaie.",
+      "text": "Publishing didn't go through. Try again."
     },
     "pages.botUI.roleMenus.publishErrors.invalid_menu": {
       "fr": "Discord a refusé le message : un emoji du menu a peut-être été supprimé. Modifiez le menu, puis publiez-le.",
@@ -1909,8 +1909,8 @@
       "text": "Save the menu"
     },
     "pages.botUI.roleMenus.saveFailed": {
-      "fr": "L'enregistrement a échoué. Vérifiez le menu et réessayez.",
-      "text": "Saving failed. Check the menu and try again."
+      "fr": "L'enregistrement n'est pas passé. Vérifie le menu, puis réessaie.",
+      "text": "Saving didn't go through. Check the menu, then try again."
     },
     "pages.botUI.roleMenus.saved": {
       "fr": "Menu enregistré. Publiez-le pour mettre à jour le message sur Discord.",
@@ -1997,8 +1997,8 @@
       "text": "No join-to-create channel yet."
     },
     "pages.botUI.tempVoice.errors.failed": {
-      "fr": "L'enregistrement a échoué. Réessayez.",
-      "text": "Saving failed. Try again."
+      "fr": "L'enregistrement n'est pas passé. Réessaie.",
+      "text": "Saving didn't go through. Try again."
     },
     "pages.botUI.tempVoice.errors.limit": {
       "fr": "La limite de membres va de 0 à {max}.",
@@ -2685,8 +2685,8 @@
       "text": "Your Discord account was created less than {days} days ago: it cannot take part in the forum yet. Sign in with your game account, or come back in a few days."
     },
     "pages.community.signInChoice.failed": {
-      "fr": "La connexion avec Discord n'a pas abouti. Réessayez.",
-      "text": "Signing in with Discord did not work. Please try again."
+      "fr": "La connexion avec Discord n'est pas passée. Réessaie.",
+      "text": "Signing in with Discord didn't go through. Try again."
     },
     "pages.community.signInChoice.post": {
       "fr": "Connectez-vous pour lancer une discussion :",
@@ -2861,8 +2861,8 @@
       "text": "This content is hidden by moderation."
     },
     "pages.communityUI.errors.invalid": {
-      "fr": "Envoi refusé : vérifiez les champs.",
-      "text": "Refused: check the fields."
+      "fr": "Envoi refusé : vérifie les champs.",
+      "text": "Not sent: check the fields."
     },
     "pages.communityUI.errors.links": {
       "fr": "Trop de liens : {n} au plus par message.",
@@ -2893,8 +2893,8 @@
       "text": "Too many posts at once: wait a minute."
     },
     "pages.communityUI.errors.unavailable": {
-      "fr": "Service momentanément indisponible. Réessayez dans un instant.",
-      "text": "Service unavailable for the moment. Try again in a moment."
+      "fr": "Le service ne répond pas pour l'instant. Réessaie dans un instant.",
+      "text": "The service isn't answering right now. Try again in a moment."
     },
     "pages.communityUI.errors.unknown": {
       "fr": "Ce contenu n'existe plus.",
@@ -3953,8 +3953,8 @@
       "text": "% picked"
     },
     "pages.mlbbdleUI.copyError": {
-      "fr": "Copie impossible : sélectionnez la grille à la main.",
-      "text": "Couldn't copy: select the grid manually."
+      "fr": "Je n'ai pas pu copier : sélectionne la grille à la main.",
+      "text": "I couldn't copy it: select the grid by hand."
     },
     "pages.mlbbdleUI.heroColumn": {
       "fr": "Héros",
@@ -4821,8 +4821,8 @@
       "text": "Late"
     },
     "pages.quizUI.copyError": {
-      "fr": "Copie impossible : sélectionnez la grille à la main.",
-      "text": "Could not copy: select the grid manually."
+      "fr": "Je n'ai pas pu copier : sélectionne la grille à la main.",
+      "text": "I couldn't copy it: select the grid by hand."
     },
     "pages.quizUI.practise": {
       "fr": "Continuer à l'entraînement",
@@ -5839,6 +5839,150 @@
     "pages.dexPage.lead": {
       "fr": "Un petit esprit de la Terre de l'Aube, mi-hibou mi-renard, qui a regardé assez de parties pour tout retenir. Il te guide sur le site et te répond sur Discord.",
       "text": "A little spirit of the Land of Dawn, half owl, half fox, who has watched enough games to remember everything. He guides you on the site and answers you on Discord."
+    },
+    "favourites.nonePre": {
+      "fr": "Pas encore de favori. Sur une fiche de héros, ",
+      "text": "No favourites yet. On a hero page, "
+    },
+    "favourites.noLink": {
+      "fr": "ajoutes-en un",
+      "text": "add one"
+    },
+    "favourites.nonePost": {
+      "fr": " : je te le garde ici.",
+      "text": ": I'll keep it here for you."
+    },
+    "favourites.push.error": {
+      "fr": "Ça n'a pas marché. Réessaie dans un instant.",
+      "text": "That didn't work. Try again in a moment."
+    },
+    "pages.heroesList.none": {
+      "fr": "Aucun héros avec ces filtres. Retire-en un, je chercherai plus large.",
+      "text": "No hero with these filters. Take one off and I'll look wider."
+    },
+    "pages.collectionUI.none": {
+      "fr": "Aucun héros ni aucune apparence avec ces filtres. Retire-en un pour élargir.",
+      "text": "No hero or skin with these filters. Take one off to look wider."
+    },
+    "pages.collectionUI.error": {
+      "fr": "Je n'arrive pas à charger la liste des apparences. Vérifie ta connexion, puis recharge la page.",
+      "text": "I can't load the skin list. Check your connection, then reload the page."
+    },
+    "pages.collectionUI.share_failed": {
+      "fr": "Le partage n'est pas passé : copie le résumé ci-dessus à la main.",
+      "text": "Sharing didn't go through: copy the summary above by hand."
+    },
+    "pages.nicknameUI.empty": {
+      "fr": "Tape un nom : je te le montre dans tous les styles.",
+      "text": "Type a name: I'll show it to you in every style."
+    },
+    "pages.nicknameUI.copyFailed": {
+      "fr": "Je n'ai pas pu copier : sélectionne le pseudo et copie-le à la main.",
+      "text": "I couldn't copy it: select the nickname and copy it by hand."
+    },
+    "pages.quizUI.loadError": {
+      "fr": "Je n'arrive pas à charger le quiz. Vérifie ta connexion : une fois la page visitée, il se joue aussi hors ligne.",
+      "text": "I can't load the quiz. Check your connection: once you've visited the page, it plays offline too."
+    },
+    "pages.mlbbdleUI.loadError": {
+      "fr": "Je n'arrive pas à charger le défi du jour. Vérifie ta connexion, puis réessaie.",
+      "text": "I can't load today's puzzle. Check your connection, then try again."
+    },
+    "pages.matchupsUI.error": {
+      "fr": "Je n'ai pas pu charger les duels de ce rang. Réessaie, ou change de rang.",
+      "text": "I couldn't load this rank's duels. Try again, or switch ranks."
+    },
+    "pages.matchupsUI.copyFailed": {
+      "fr": "Je n'ai pas pu copier : copie l'adresse de la page.",
+      "text": "I couldn't copy it: copy the page address instead."
+    },
+    "teamUI.error": {
+      "fr": "Je n'ai pas pu charger les mesures de ce rang. Réessaie, ou choisis un autre rang.",
+      "text": "I couldn't load this rank's figures. Try again, or pick another rank."
+    },
+    "teamUI.copyFailed": {
+      "fr": "Je n'ai pas pu copier : copie l'adresse de la page.",
+      "text": "I couldn't copy it: copy the page address instead."
+    },
+    "compareUI.curvesError": {
+      "fr": "Je n'ai pas pu charger les courbes. Réessaie dans un instant.",
+      "text": "I couldn't load the curves. Try again in a moment."
+    },
+    "pages.accountProfile.loadError": {
+      "fr": "Le service du jeu ne répond pas. Réessaie dans un instant.",
+      "text": "The game's service isn't answering. Try again in a moment."
+    },
+    "pages.tierMakerUI.exportError": {
+      "fr": "Je n'ai pas pu créer l'image. Réessaie.",
+      "text": "I couldn't create the image. Try again."
+    },
+    "pages.tierMakerUI.linkError": {
+      "fr": "Je n'ai pas pu copier le lien depuis ce navigateur.",
+      "text": "I couldn't copy the link in this browser."
+    },
+    "tools.retribution.shareError": {
+      "fr": "Le partage ne marche pas sur cet appareil.",
+      "text": "Sharing doesn't work on this device."
+    },
+    "pages.communityBuildsUI.errors.voteFailed": {
+      "fr": "Ton vote n'est pas passé. Réessaie.",
+      "text": "Your vote didn't go through. Try again."
+    },
+    "pages.communityBuildsUI.errors.deleteFailed": {
+      "fr": "Je n'ai pas pu supprimer ce build. Réessaie.",
+      "text": "I couldn't delete this build. Try again."
+    },
+    "pages.discordCard.error": {
+      "fr": "Quelque chose a coincé. Réessaie dans un instant.",
+      "text": "Something got stuck. Try again in a moment."
+    },
+    "pages.botUI.saveFailed": {
+      "fr": "L'enregistrement n'est pas passé. Réessaie.",
+      "text": "Saving didn't go through. Try again."
+    },
+    "pages.botUI.testFailed": {
+      "fr": "Le test n'a pas pu partir dans ce salon.",
+      "text": "The test couldn't be posted in this channel."
+    },
+    "pages.botDashboard.loginFailed": {
+      "fr": "La connexion n'est pas passée. Réessaie.",
+      "text": "Signing in didn't go through. Try again."
+    },
+    "pages.communityBuildsUI.errors.unavailable": {
+      "fr": "Le service ne répond pas pour l'instant : réessaie plus tard.",
+      "text": "The service isn't answering right now: try again later."
+    },
+    "pages.reportError.errors.invalid": {
+      "fr": "Signalement refusé : vérifie les champs.",
+      "text": "Report refused: check the fields."
+    },
+    "pages.reportError.errors.unavailable": {
+      "fr": "Je ne peux pas l'envoyer pour l'instant : réessaie plus tard.",
+      "text": "I can't send it right now: try again later."
+    },
+    "dexStates.loading": {
+      "fr": "Je fouille la Terre de l'Aube…",
+      "text": "Searching the Land of Dawn…"
+    },
+    "dexStates.loadingProfile": {
+      "fr": "Je rassemble tes parties…",
+      "text": "Gathering your games…"
+    },
+    "dexStates.loadingForum": {
+      "fr": "Je feuillette le forum…",
+      "text": "Leafing through the forum…"
+    },
+    "dexStates.loadingTeammates": {
+      "fr": "Je cherche tes futurs coéquipiers…",
+      "text": "Looking for your next teammates…"
+    },
+    "dexStates.errorTitle": {
+      "fr": "Oups, ça a coincé",
+      "text": "Oops, something got stuck"
+    },
+    "dexStates.noneTitle": {
+      "fr": "Rien par ici",
+      "text": "Nothing here"
     }
   },
   "es": {

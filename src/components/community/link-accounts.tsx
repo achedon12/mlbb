@@ -1,5 +1,6 @@
 "use client";
 
+import { Flash } from "@/components/dex-states";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Link2, Unlink } from "lucide-react";
@@ -49,8 +50,8 @@ export function LinkAccounts() {
         {t("pages.communityUI.link.button")}
       </button>
       {state.type === "error" && (
-        <p role="alert" className="text-sm text-blood-400">
-          {state.message}
+        <p role="alert">
+          <Flash tone="error">{state.message}</Flash>
         </p>
       )}
     </div>
@@ -122,8 +123,8 @@ export function UnlinkAccounts() {
         </button>
       </div>
       {state.type === "error" && (
-        <p role="alert" className="text-sm text-blood-400">
-          {state.message}
+        <p role="alert">
+          <Flash tone="error">{state.message}</Flash>
         </p>
       )}
     </div>

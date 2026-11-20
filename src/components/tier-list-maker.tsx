@@ -1,5 +1,6 @@
 "use client";
 
+import { BrandSpinner, Flash } from "@/components/dex-states";
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   ArrowDown,
@@ -485,7 +486,16 @@ export function TierListMaker({
         </div>
       </div>
       <p aria-live="polite" className="-mt-3 min-h-5 text-sm text-chalk-300">
-        {status}
+        {status === t("pages.tierMakerUI.exporting") ? (
+          <span className="inline-flex items-center gap-2">
+            <BrandSpinner className="text-gold-400" />
+            {status}
+          </span>
+        ) : (
+          status && (
+            <Flash tone={status === t("pages.tierMakerUI.exportError") || status === t("pages.tierMakerUI.linkError") ? "error" : "ok"}>{status}</Flash>
+          )
+        )}
       </p>
 
       <details className="bevel-sm border border-night-700/70 bg-night-900/40 px-4 py-3 text-sm text-chalk-300">

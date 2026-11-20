@@ -1,4 +1,5 @@
 import { Gamepad2, LogOut } from "lucide-react";
+import { Flash } from "@/components/dex-states";
 import { DiscordMark } from "@/components/bot/discord-mark";
 import Link from "@/components/link";
 import { Dex } from "@/components/mascot";
@@ -46,8 +47,8 @@ export function SignInChoice({
       </span>
       <div className="min-w-0 flex-1 space-y-3">
       {failed && (
-        <p role="alert" className="border-l-4 border-blood-400 bg-blood-500/10 px-3 py-2 text-sm text-chalk-100">
-          {t("pages.community.signInChoice.failed")}
+        <p role="alert">
+          <Flash tone="error">{t("pages.community.signInChoice.failed")}</Flash>
         </p>
       )}
       {member.status === "discordTooNew" && (
