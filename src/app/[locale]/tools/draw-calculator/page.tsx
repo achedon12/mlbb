@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { DrawCalculator } from "@/components/draw-calculator";
 import Link from "@/components/link";
-import { PageHeader } from "@/components/ui";
+import { ToolHeader } from "@/components/tool-header";
 import { Foldable } from "@/components/foldable";
 import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
@@ -55,7 +55,8 @@ export default async function DrawCalculatorPage({ params }: Params) {
   return (
     <ExtendMessages messages={messagesPage(locale, ["pages.drawCalculatorUI"])}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
-      <PageHeader title={t("pages.drawCalculator.title")} lead={t("pages.drawCalculator.lead")} />
+      <ToolHeader
+        path="/tools/draw-calculator" title={t("pages.drawCalculator.title")} lead={t("pages.drawCalculator.lead")} />
       <ToolLayout
         className="py-10"
         aside={

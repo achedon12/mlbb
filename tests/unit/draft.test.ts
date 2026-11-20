@@ -38,6 +38,11 @@ describe("suggest", () => {
     expect(result.at(-1)?.reasons.map((r) => r.type)).toEqual(["countered", "win"]);
   });
 
+  it("writes the win rate in the page's language", () => {
+    const [fr] = suggest({ candidates, lane: "Gold", enemies: ["opponent"], allies: ["ally"], locale: "fr-FR" });
+    expect(fr.reasons.find((r) => r.type === "win")?.detail).toBe("55,0");
+  });
+
   it("reads a relationship declared on one side only", () => {
     const [first] = suggest({
       candidates: [heroes("a"), heroes("b"), heroes("opponent", { lanes: ["Jungle"], weakAgainst: ["b"] })],

@@ -3,7 +3,7 @@ import Link from "@/components/link";
 import { MatchupMatrix } from "@/components/matchup-matrix";
 import { GuideLink } from "@/components/guide";
 import { guide } from "@/lib/guides";
-import { PageHeader } from "@/components/ui";
+import { ToolHeader } from "@/components/tool-header";
 import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { dataTool, metaPage } from "@/i18n/seo";
@@ -90,7 +90,8 @@ export default async function MatchupsPage({ params }: Params) {
   return (
     <ExtendMessages messages={messagesPage(locale, ["pages.matchupsUI", "draftUI"])}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
-      <PageHeader title={t("pages.matchups.title")} lead={t("pages.matchups.lead")} />
+      <ToolHeader
+        path="/tools/matchups" title={t("pages.matchups.title")} lead={t("pages.matchups.lead")} />
       <ToolLayout
         className="py-10"
         aside={

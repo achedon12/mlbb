@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { DamageCalculator } from "@/components/damage-calculator";
-import { PageHeader } from "@/components/ui";
+import { ToolHeader } from "@/components/tool-header";
 import type { Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { dataTool, metaPage } from "@/i18n/seo";
@@ -43,8 +43,9 @@ export default async function DamageCalculatorPage({ params }: Params) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
-      <PageHeader title={t("pages.damageCalculator.title")} lead={t("pages.damageCalculator.lead")} />
-      <div className="page-wrap space-y-12 py-8">
+      <ToolHeader
+        path="/tools/damage-calculator" title={t("pages.damageCalculator.title")} lead={t("pages.damageCalculator.lead")} />
+      <div className="tool-enter page-wrap space-y-12 py-8">
         {/* The stat labels and the item picker's come from the build simulator's section. */}
         <ExtendMessages messages={messagesPage(locale, ["pages.damageCalculatorUI", "pages.buildSimulatorUI", "draftUI"])}>
           <DamageCalculator data={damageCalculatorData(locale, t)} />

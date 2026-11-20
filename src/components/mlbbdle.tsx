@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useDiscordMoment } from "@/components/discord-moment";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Check, Dices, Eye, Share2, SkipForward } from "lucide-react";
@@ -334,17 +335,17 @@ function WinPanel({
   }
 
   return (
-    <section className="relative p-4 sm:p-6">
-      <div aria-hidden className="bevel absolute inset-0 border border-emerald-500/50 bg-night-900/70" />
+    <section className="win-panel relative p-4 sm:p-6">
+      <div aria-hidden className="game-stage absolute inset-0 shadow-[inset_0_3px_0_var(--color-gold-400)]" />
       <div className="relative">
-        <h3 ref={titleRef} tabIndex={-1} className="font-heading text-2xl font-bold text-chalk-100 outline-none">
+        <h3 ref={titleRef} tabIndex={-1} className="win-punch display-caps text-[2.2rem] text-gold-400 outline-none sm:text-[3rem]">
           {t("pages.mlbbdleUI.winTitle", { n: guesses.length })}
         </h3>
 
         <div className="mt-4 flex flex-wrap items-center gap-4">
-          <HeroPortrait source={target.icon} name={target.name} size="thumb" decorative />
+          <WinPortrait icon={target.icon} name={target.name} />
           <div className="min-w-0 flex-1">
-            <p className="font-heading text-xl font-bold text-emerald-300">{target.name}</p>
+            <p className="display-caps text-[2rem] text-chalk-100 sm:text-[2.6rem]">{target.name}</p>
             {mode === "skill" && puzzle.skill && (
               <p className="text-sm text-chalk-300">{t("pages.mlbbdleUI.skillWas", { name: puzzle.skill.name })}</p>
             )}
@@ -450,6 +451,21 @@ function WinPanel({
         </ol>
       </div>
     </section>
+  );
+}
+
+/**
+ * The hero found, in a tall bevelled portrait: the reward of the game. The
+ * portrait sits beside the icon under the same name; the icon stays the
+ * fallback.
+ */
+function WinPortrait({ icon, name }: { icon: string | null; name: string }) {
+  const portrait = icon?.replace(/icone\.webp$/, "portrait.webp");
+  if (!portrait || portrait === icon) return <HeroPortrait source={icon} name={name} size="thumb" decorative />;
+  return (
+    <span aria-hidden className="bevel relative block h-36 w-24 shrink-0 overflow-hidden bg-night-800 sm:h-44 sm:w-28">
+      <Image src={portrait} alt="" fill sizes="7rem" className="dex-cheer object-cover object-top" />
+    </span>
   );
 }
 

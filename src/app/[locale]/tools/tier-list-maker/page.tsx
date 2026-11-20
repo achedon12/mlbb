@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { TierListMaker, type TierHero } from "@/components/tier-list-maker";
 import Link from "@/components/link";
 import { Foldable } from "@/components/foldable";
-import { PageHeader } from "@/components/ui";
+import { ToolHeader } from "@/components/tool-header";
 import type { Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { dataTool, metaPage } from "@/i18n/seo";
@@ -66,12 +66,13 @@ export default async function TierListMakerPage({ params }: Params) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
-      <PageHeader
+      <ToolHeader
+        path="/tools/tier-list-maker"
         title={t("pages.tierMaker.title")}
         lead={t("pages.tierMaker.lead")}
         crumbs={[{ name: t("nav.tierList.label"), href: "/tier-list" }, { name: t("pages.tierMaker.crumb") }]}
       />
-      <div className="page-wrap space-y-8 pb-10 pt-5 sm:space-y-14">
+      <div className="tool-enter page-wrap space-y-8 pb-10 pt-5 sm:space-y-14">
         <ExtendMessages messages={messagesPage(locale, ["pages.tierMakerUI", "draftUI"])}>
           <TierListMaker heroes={roster} groups={groups} ranks={RANKS_CLASSES} />
         </ExtendMessages>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Foldable } from "@/components/foldable";
 import Link from "@/components/link";
 import { StrategyPlanner, type PlannerHero, type PlannerMarker } from "@/components/strategy-planner";
-import { PageHeader } from "@/components/ui";
+import { ToolHeader } from "@/components/tool-header";
 import type { Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { dataTool, metaPage } from "@/i18n/seo";
@@ -47,12 +47,13 @@ export default async function StrategyPlannerPage({ params }: Params) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
-      <PageHeader
+      <ToolHeader
+        path="/tools/strategy-planner"
         title={t("pages.strategyPlanner.title")}
         lead={t("pages.strategyPlanner.lead")}
         crumbs={[{ name: t("nav.mapGuide.label"), href: "/map" }, { name: t("pages.strategyPlanner.crumb") }]}
       />
-      <div className="page-wrap space-y-10 pb-10 pt-5">
+      <div className="tool-enter page-wrap space-y-10 pb-10 pt-5">
         <ExtendMessages messages={messagesPage(locale, ["pages.strategyPlannerUI", "draftUI"])}>
           <StrategyPlanner heroes={heroes} markers={markers} />
         </ExtendMessages>

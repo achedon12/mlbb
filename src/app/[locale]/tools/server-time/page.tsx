@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ServerClock } from "@/components/server-clock";
 import Link from "@/components/link";
-import { PageHeader } from "@/components/ui";
+import { ToolHeader } from "@/components/tool-header";
 import { Foldable } from "@/components/foldable";
 import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { dataTool, metaPage } from "@/i18n/seo";
@@ -125,7 +125,8 @@ export default async function ServerTimePage({ params }: Params) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
-      <PageHeader title={t("pages.serverTime.title")} lead={t("pages.serverTime.lead", { utc })} />
+      <ToolHeader
+        path="/tools/server-time" title={t("pages.serverTime.title")} lead={t("pages.serverTime.lead", { utc })} />
       <ToolLayout
         className="pb-10 pt-6"
         aside={

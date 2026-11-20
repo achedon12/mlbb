@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "@/components/link";
 import { NicknameGenerator } from "@/components/nickname-generator";
-import { PageHeader } from "@/components/ui";
+import { ToolHeader } from "@/components/tool-header";
 import { Foldable } from "@/components/foldable";
 import type { Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
@@ -51,7 +51,8 @@ export default async function NicknamePage({ params }: Params) {
   return (
     <ExtendMessages messages={messagesPage(locale, ["pages.nicknameUI"])}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
-      <PageHeader title={t("pages.nickname.title")} lead={t("pages.nickname.lead", { n: STYLES.length })} />
+      <ToolHeader
+        path="/tools/nickname" title={t("pages.nickname.title")} lead={t("pages.nickname.lead", { n: STYLES.length })} />
       <ToolLayout
         className="py-10"
         aside={

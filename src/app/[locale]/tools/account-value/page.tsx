@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { AccountValueEstimator } from "@/components/account-value-estimator";
 import { FreshnessLine } from "@/components/freshness";
 import Link from "@/components/link";
-import { PageHeader, SectionTitle } from "@/components/ui";
+import { SectionTitle } from "@/components/ui";
+import { ToolHeader } from "@/components/tool-header";
 import assumptionsData from "@/data/editorial/account-value.json";
 import { emblems } from "@/data/emblems";
 import { LOCALE_INTL, type Locale } from "@/i18n/config";
@@ -69,14 +70,15 @@ export default async function AccountValuePage({ params }: Params) {
   return (
     <ExtendMessages messages={messagesPage(locale, ["pages.accountValueUI"])}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
-      <PageHeader
+      <ToolHeader
+        path="/tools/account-value"
         title={t("pages.accountValue.title")}
         lead={t("pages.accountValue.lead")}
       >
         <FreshnessLine locale={locale} className="mt-4" />
-      </PageHeader>
+      </ToolHeader>
 
-      <div className="page-wrap space-y-12 py-8 sm:py-12">
+      <div className="tool-enter page-wrap space-y-12 py-8 sm:py-12">
         <p role="note" className="bevel-sm max-w-3xl border border-gold-500/30 bg-gold-500/5 p-4 text-sm leading-relaxed text-chalk-200">
           {t("pages.accountValue.warning")}
         </p>

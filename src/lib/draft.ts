@@ -68,6 +68,7 @@ export function suggest({
   enemies,
   allies,
   limit = 3,
+  locale = "en",
 }: {
   candidates: DraftHero[];
   lane: Lane;
@@ -76,8 +77,11 @@ export function suggest({
   /** Slugs already picked by the team. */
   allies: string[];
   limit?: number;
+  /** Intl locale the win rate is written in ("55,0" in French, "55.0" in English). */
+  locale?: string;
 }): Suggestion[] {
   const taken = new Set([...enemies, ...allies]);
+  const rate = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 
   return candidates
     .filter((h) => h.lanes.includes(lane) && !taken.has(h.slug))
@@ -125,9 +129,9 @@ export function suggest({
       if (h.win !== null) {
         score += (h.win - 50) * WEIGHT.win;
         if (h.win >= 53) {
-          reasons.push({ type: "win", detail: h.win.toFixed(1), favorable: true });
+          reasons.push({ type: "win", detail: rate.format(h.win), favorable: true });
         } else if (h.win <= 47) {
-          reasons.push({ type: "win", detail: h.win.toFixed(1), favorable: false });
+          reasons.push({ type: "win", detail: rate.format(h.win), favorable: false });
         }
       }
 

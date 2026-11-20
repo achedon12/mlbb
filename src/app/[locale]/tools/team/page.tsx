@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { TeamAnalysis } from "@/components/team-analysis";
 import Link from "@/components/link";
-import { PageHeader } from "@/components/ui";
+import { ToolHeader } from "@/components/tool-header";
 import type { Locale } from "@/i18n/config";
 import { heroLabel } from "@/i18n/hero-data";
 import { metaPage } from "@/i18n/seo";
@@ -34,15 +34,16 @@ export default async function TeamPage({ params }: Params) {
 
   return (
     <>
-      <PageHeader title={t("pages.team.title")} lead={t("pages.team.lead")}>
+      <ToolHeader
+        path="/tools/team" title={t("pages.team.title")} lead={t("pages.team.lead")}>
         <Link
           href="/draft"
           className="mt-5 inline-block text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500"
         >
           {t("pages.team.draftLink")} →
         </Link>
-      </PageHeader>
-      <div className="page-wrap py-12">
+      </ToolHeader>
+      <div className="tool-enter page-wrap py-12">
         <ExtendMessages messages={messagesPage(locale, ["teamUI", "draftUI", "compareUI"])}>
           <TeamAnalysis
             heroes={catalogTeam()}

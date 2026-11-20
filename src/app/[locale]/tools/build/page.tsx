@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { BuildSimulatorWithPublishing } from "@/components/build-simulator-publishing";
 import { Foldable } from "@/components/foldable";
 import Link from "@/components/link";
-import { PageHeader } from "@/components/ui";
+import { ToolHeader } from "@/components/tool-header";
 import { SOURCE_EMBLEMS } from "@/data/emblem-attributes";
 import type { Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
@@ -49,8 +49,9 @@ export default async function BuildSimulatorPage({ params }: Params) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
-      <PageHeader title={t("pages.buildSimulator.title")} lead={t("pages.buildSimulator.lead")} />
-      <div className="page-wrap space-y-10 py-6">
+      <ToolHeader
+        path="/tools/build" title={t("pages.buildSimulator.title")} lead={t("pages.buildSimulator.lead")} />
+      <div className="tool-enter page-wrap space-y-10 py-6">
         <ExtendMessages messages={messagesPage(locale, ["pages.buildSimulatorUI", "pages.communityBuildsUI", "draftUI"])}>
           <BuildSimulatorWithPublishing data={data} pageUrl={`${site.url}/${locale}${PATH}`} measuredDate={longDate(locale)} />
         </ExtendMessages>

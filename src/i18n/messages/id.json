@@ -1908,7 +1908,14 @@
       "win": "{rate} menang%",
       "duelRight": "jawaban yang bagus",
       "duelWrong": "jawaban yang salah",
-      "duelSource": "Win rate untuk semua peringkat, tercatat di {date}."
+      "duelSource": "Win rate untuk semua peringkat, tercatat di {date}.",
+      "dex": {
+        "start": "Giliranmu! Setiap salah membuka satu petunjuk.",
+        "miss": "Ups! Petunjuk baru menunggumu.",
+        "good": "Jeli! Lanjut ke berikutnya.",
+        "won": "Hebat, jawabanmu benar!",
+        "over": "Belum kali ini. Berikutnya pasti bisa!"
+      }
     },
     "tierMaker": {
       "title": "Pembuat tier list MLBB",
@@ -2587,7 +2594,14 @@
       "reveal": "Ungkapkan jawabannya",
       "newHero": "Hero baru",
       "skip": "Lulus",
-      "practiceQuestion": "Siapa hero ini?"
+      "practiceQuestion": "Siapa hero ini?",
+      "dex": {
+        "start": "Giliranmu! Aku simpan rahasianya.",
+        "miss": "Meleset… warnanya menunjukkan arah.",
+        "close": "Makin dekat! Beberapa kotak cocok.",
+        "won": "Mantap, itu dia!",
+        "over": "Sayang sekali! Satu ronde lagi?"
+      }
     },
     "advanceServer": {
       "title": "Catatan tempelan Advanced Server",
@@ -4739,7 +4753,10 @@
       "lead": "Semua alat di situs ini, diurutkan menurut kegunaan: menyiapkan draft, menguji build, memperkirakan nilai akun, berlatih, atau memainkan game harian.",
       "metaTitle": "Alat MLBB: draft, build, damage, dan akun",
       "metaDescription": "Simulator draft, analisis tim, simulator build, kalkulator damage, nilai akun, timer objektif, dan game harian untuk Mobile Legends: Bang Bang.",
-      "nTools": "{n} alat"
+      "nTools": "{n} alat",
+      "open": "Buka",
+      "play": "Main",
+      "hello": "Pilih alat dan masuk ke pertempuran: semuanya berjalan di browser, gratis, tanpa akun."
     },
     "discordCard": {
       "title": "Kartu profil Discord",

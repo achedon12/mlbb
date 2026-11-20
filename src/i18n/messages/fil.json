@@ -1908,7 +1908,14 @@
       "win": "{rate}% win rate",
       "duelRight": "tama",
       "duelWrong": "mali",
-      "duelSource": "Win rate sa lahat ng rank, nasukat noong {date}."
+      "duelSource": "Win rate sa lahat ng rank, nasukat noong {date}.",
+      "dex": {
+        "start": "Ikaw na! Bawat mali ay may bagong clue.",
+        "miss": "Oops! May bagong clue para sa iyo.",
+        "good": "Galing ng mata! Sunod na.",
+        "won": "Bravo, tamang sagot!",
+        "over": "Hindi ngayon. Sa susunod, ikaw na!"
+      }
     },
     "tierMaker": {
       "title": "MLBB tier list maker",
@@ -2587,7 +2594,14 @@
       "reveal": "Ipakita ang sagot",
       "newHero": "Bagong hero",
       "skip": "Laktawan",
-      "practiceQuestion": "Sinong hero ito?"
+      "practiceQuestion": "Sinong hero ito?",
+      "dex": {
+        "start": "Ikaw na! Itatago ko ang sikreto.",
+        "miss": "Mali… ang mga kulay ang gagabay sa iyo.",
+        "close": "Malapit na! May mga kahong tugma.",
+        "won": "Galing, siya nga!",
+        "over": "Sayang! Isa pang round?"
+      }
     },
     "advanceServer": {
       "title": "Advance Server patch notes",
@@ -4739,7 +4753,10 @@
       "lead": "Lahat ng tool ng site, ayon sa gamit: maghanda ng draft, mag-test ng build, tantiyahin ang isang account, mag-practice o laruin ang daily game.",
       "metaTitle": "Mga tool sa MLBB: draft, build, damage at account",
       "metaDescription": "Draft simulator, team analysis, build simulator, damage calculator, account value, objective timer at daily games para sa Mobile Legends: Bang Bang.",
-      "nTools": "{n} tool"
+      "nTools": "{n} tool",
+      "open": "Buksan",
+      "play": "Maglaro",
+      "hello": "Pumili ng tool at sumabak sa laban: gumagana ang lahat sa browser, libre, walang account."
     },
     "discordCard": {
       "title": "Discord profile card",

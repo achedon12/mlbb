@@ -1908,7 +1908,14 @@
       "win": "{rate} % de victoires",
       "duelRight": "bonne réponse",
       "duelWrong": "mauvaise réponse",
-      "duelSource": "Taux de victoire tous rangs, relevés le {date}."
+      "duelSource": "Taux de victoire tous rangs, relevés le {date}.",
+      "dex": {
+        "start": "À vous ! Chaque erreur débloque un indice.",
+        "miss": "Oups ! Un nouvel indice vous attend.",
+        "good": "Bien vu ! Au suivant.",
+        "won": "Bravo, bonne réponse !",
+        "over": "Raté pour cette fois. La prochaine sera la bonne !"
+      }
     },
     "tierMaker": {
       "title": "Créateur de tier list MLBB",
@@ -2587,7 +2594,14 @@
       "reveal": "Révéler la réponse",
       "newHero": "Nouveau héros",
       "skip": "Passer",
-      "practiceQuestion": "Quel est ce héros ?"
+      "practiceQuestion": "Quel est ce héros ?",
+      "dex": {
+        "start": "À vous ! Je garde le secret.",
+        "miss": "Raté… les couleurs montrent la voie.",
+        "close": "Ça chauffe ! Certaines cases concordent.",
+        "won": "Bien joué, c'est lui !",
+        "over": "Dommage ! Une autre manche ?"
+      }
     },
     "advanceServer": {
       "title": "Patch notes du serveur Advance",
@@ -4739,7 +4753,10 @@
       "lead": "Tous les outils du site, rangés par usage : préparer une draft, tester un build, estimer un compte, s'entraîner ou jouer au jeu du jour.",
       "metaTitle": "Outils MLBB : draft, builds, dégâts et compte",
       "metaDescription": "Simulateur de draft, analyse d'équipe, simulateur de build, calculateur de dégâts, valeur de compte, chrono des objectifs et jeux du jour pour Mobile Legends: Bang Bang.",
-      "nTools": "{n} outils"
+      "nTools": "{n} outils",
+      "open": "Ouvrir",
+      "play": "Jouer",
+      "hello": "Choisissez un outil et entrez dans l'arène : tout marche dans le navigateur, gratuitement, sans compte."
     },
     "discordCard": {
       "title": "Carte de profil Discord",
