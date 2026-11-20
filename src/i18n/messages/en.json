@@ -1916,7 +1916,14 @@
       "win": "{rate}% win rate",
       "duelRight": "correct",
       "duelWrong": "wrong",
-      "duelSource": "All-rank win rates, measured on {date}."
+      "duelSource": "All-rank win rates, measured on {date}.",
+      "dex": {
+        "start": "Your turn! Every mistake unlocks a clue.",
+        "miss": "Oops! A new clue is waiting for you.",
+        "good": "Good eye! On to the next.",
+        "won": "Well done, right answer!",
+        "over": "Not this time. The next one is yours!"
+      }
     },
     "tierMaker": {
       "title": "MLBB tier list maker",
@@ -2595,7 +2602,14 @@
       "reveal": "Reveal the answer",
       "newHero": "New hero",
       "skip": "Skip",
-      "practiceQuestion": "Which hero is it?"
+      "practiceQuestion": "Which hero is it?",
+      "dex": {
+        "start": "Your turn! I'm keeping the secret.",
+        "miss": "Missed… the colours point the way.",
+        "close": "Getting warm! Some boxes line up.",
+        "won": "Well played, that's the one!",
+        "over": "Too bad! Another round?"
+      }
     },
     "advanceServer": {
       "title": "Advance Server patch notes",
@@ -4750,7 +4764,10 @@
       "lead": "Every tool on the site, sorted by use: prepare a draft, test a build, estimate an account, practise or play the daily game.",
       "metaTitle": "MLBB tools: draft, builds, damage and account",
       "metaDescription": "Draft simulator, team analysis, build simulator, damage calculator, account value, objective timer and daily games for Mobile Legends: Bang Bang.",
-      "nTools": "{n} tools"
+      "nTools": "{n} tools",
+      "open": "Open",
+      "play": "Play",
+      "hello": "Pick a tool and get into the fight: everything here works in the browser, free, with no account."
     },
     "discordCard": {
       "title": "Discord profile card",

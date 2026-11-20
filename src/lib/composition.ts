@@ -340,12 +340,15 @@ export function suggestionsTeam({
   lanes,
   measures,
   limit = 3,
+  locale,
 }: {
   catalog: TeamHero[];
   slugs: string[];
   lanes: Lane[];
   measures: MeasuresRank | null;
   limit?: number;
+  /** Intl locale the suggestions' win rates are written in. */
+  locale?: string;
 }): { lane: Lane; picks: Suggestion[] }[] {
   if (lanes.length === 0) return [];
   // With no opponent, counter relations do not enter the calculation.
@@ -356,7 +359,7 @@ export function suggestionsTeam({
     weakAgainst: [],
     synergies: [...new Set([...h.synergies, ...(measures?.teammates[h.slug] ?? []).map(([s]) => s)])],
   }));
-  return lanes.map((lane) => ({ lane, picks: suggest({ candidates, lane, enemies: [], allies: slugs, limit }) }));
+  return lanes.map((lane) => ({ lane, picks: suggest({ candidates, lane, enemies: [], allies: slugs, limit, locale }) }));
 }
 
 // ── Overall ────────────────────────────────────────────────────────
@@ -380,10 +383,13 @@ export function analyzeTeam({
   catalog,
   slugs,
   measures,
+  locale,
 }: {
   catalog: TeamHero[];
   slugs: string[];
   measures: MeasuresRank | null;
+  /** Intl locale the suggestions' win rates are written in. */
+  locale?: string;
 }): Analysis {
   const bySlug = new Map(catalog.map((h) => [h.slug, h]));
   const team = slugs.flatMap((s) => (bySlug.has(s) ? [bySlug.get(s)!] : []));
@@ -404,7 +410,7 @@ export function analyzeTeam({
     threats: measures ? threats(presents, measures) : [],
     suggestions:
       team.length < SIZE_TEAM
-        ? suggestionsTeam({ catalog, slugs: presents, lanes: assignment.missing, measures })
+        ? suggestionsTeam({ catalog, slugs: presents, lanes: assignment.missing, measures, locale })
         : [],
   };
 }

@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import Image from "next/image";
 import { ArrowDown, ArrowUp, Check, LayoutGrid, Lock, X } from "lucide-react";
+import { GameDex, type GameMood } from "@/components/game-dex";
 import { GuessField } from "@/components/guess-field";
 import { HeroSelector, type HeroPickable } from "@/components/hero-picker";
 import { HeroPortrait } from "@/components/hero-portrait";
@@ -133,31 +134,42 @@ function Board({
   label,
   question,
   guesses,
+  mood,
   titleRef,
   children,
 }: {
   label: string;
   question: string;
   guesses: number;
+  /** How the last answer went: Dex reacts to it. */
+  mood: GameMood;
   titleRef?: React.Ref<HTMLHeadingElement>;
   children: React.ReactNode;
 }) {
   const t = useT();
   return (
-    <section className="relative p-4 sm:p-6">
-      <div aria-hidden className="bevel absolute inset-0 border border-night-700/70 bg-night-900/60" />
+    <section data-mood={mood} className="relative p-4 sm:p-6">
+      <div aria-hidden className="game-stage absolute inset-0" />
+      <div aria-hidden className="eclat absolute left-6 top-0 h-[3px] w-24" />
       <div className="relative">
-        <div className="flex flex-wrap items-baseline justify-between gap-2 text-xs uppercase tracking-wide text-chalk-500">
-          <span>{label}</span>
-          <span className="tabular-nums text-chalk-300">{t("pages.mlbbdleUI.guesses", { n: guesses })}</span>
+        <div className="flex items-start gap-3 sm:gap-5">
+          <div className="min-w-0 flex-1">
+            <div className="flex flex-wrap items-baseline justify-between gap-2 text-xs uppercase tracking-wide text-chalk-500">
+              <span>{label}</span>
+              <span className="tabular-nums text-chalk-300">{t("pages.mlbbdleUI.guesses", { n: guesses })}</span>
+            </div>
+            <h3
+              ref={titleRef}
+              tabIndex={-1}
+              className="display-caps mt-2 text-[1.9rem] text-chalk-100 outline-none sm:text-[2.6rem]"
+            >
+              {question}
+            </h3>
+            <p className="game-bubble mt-3 inline-block text-sm">{t(`pages.mlbbdleUI.dex.${mood}`)}</p>
+          </div>
+          <GameDex mood={mood} beat={guesses} height={88} className="sm:hidden" />
+          <GameDex mood={mood} beat={guesses} height={132} className="max-sm:hidden" />
         </div>
-        <h3
-          ref={titleRef}
-          tabIndex={-1}
-          className="mt-2 font-heading text-xl font-bold text-chalk-100 outline-none sm:text-2xl"
-        >
-          {question}
-        </h3>
         {children}
       </div>
     </section>
@@ -192,6 +204,12 @@ export function ClassicGame({
   const t = useT();
   const excluded = useMemo(() => new Set(guesses), [guesses]);
   const found = guesses.includes(target.slug);
+  const lastGuess = guesses.at(-1);
+  const lastHero = lastGuess ? catalog.bySlug.get(lastGuess) : undefined;
+  // Close: the last guess shares at least half of the traits with the answer.
+  const close =
+    !!lastHero && COLUMNS.filter((col) => compare(lastHero, target)[col].verdict !== "miss").length >= COLUMNS.length / 2;
+  const mood: GameMood = found ? "won" : over ? "over" : !lastHero ? "start" : close ? "close" : "miss";
 
   function announcement(): string {
     const last = guesses.at(-1);
@@ -211,6 +229,7 @@ export function ClassicGame({
       label={label}
       question={question ?? t("pages.mlbbdleUI.classicQuestion")}
       guesses={guesses.length}
+      mood={mood}
       titleRef={titleRef}
     >
       {!found && !over && (
@@ -368,7 +387,13 @@ export function SkillGame({
   }
 
   return (
-    <Board label={label} question={t("pages.mlbbdleUI.skillQuestion")} guesses={guesses.length} titleRef={titleRef}>
+    <Board
+      label={label}
+      question={t("pages.mlbbdleUI.skillQuestion")}
+      guesses={guesses.length}
+      mood={found ? "won" : over ? "over" : guesses.length === 0 ? "start" : "miss"}
+      titleRef={titleRef}
+    >
       <div className="mt-4 flex flex-col gap-5 sm:flex-row sm:items-start">
         <Image
           src={puzzle.icon}

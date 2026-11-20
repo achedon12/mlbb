@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "@/components/link";
 import { QuizMlbb } from "@/components/mlbb-quiz";
-import { PageHeader } from "@/components/ui";
+import { ToolHeader } from "@/components/tool-header";
 import type { Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { dataTool, metaPage } from "@/i18n/seo";
@@ -44,12 +44,13 @@ export default async function QuizPage({ params }: Params) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
-      <PageHeader
+      <ToolHeader
+        path="/quiz"
         title={t("pages.quiz.title")}
         lead={t("pages.quiz.lead")}
         crumbs={[{ name: t("pages.quiz.crumb") }]}
       />
-      <div className="mx-auto max-w-3xl space-y-14 px-4 py-10">
+      <div className="tool-enter mx-auto max-w-4xl space-y-14 px-4 py-8 sm:py-10">
         <ExtendMessages messages={messagesPage(locale, ["pages.quizUI", "draftUI"])}>
           <QuizMlbb heroes={heroes} items={items} />
         </ExtendMessages>

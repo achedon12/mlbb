@@ -4,6 +4,7 @@ import { useDiscordMoment } from "@/components/discord-moment";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Palette, Scale, ScrollText, Share2, Shield, Sparkles, Trophy, type LucideIcon } from "lucide-react";
 import { FilterGroup, Chip } from "@/components/chip";
+import { GameDex } from "@/components/game-dex";
 import { RoundQuiz, type CatalogQuiz } from "@/components/quiz-round";
 import { LOCALE_INTL } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
@@ -375,10 +376,20 @@ function Summary({
   }
 
   return (
-    <section className="bevel border border-gold-500/40 bg-night-900/60 p-4 sm:p-6">
-      <h3 ref={refTitle} tabIndex={-1} className="font-heading text-2xl font-bold text-chalk-100 outline-none">
-        {t("pages.quizUI.summaryTitle", { points, max })}
-      </h3>
+    <section data-mood={points * 2 >= max ? "won" : undefined} className="win-panel relative p-4 sm:p-6">
+      <div aria-hidden className="game-stage absolute inset-0 shadow-[inset_0_3px_0_var(--color-gold-400)]" />
+      <div className="relative">
+      <div className="flex items-start justify-between gap-4">
+        <h3
+          ref={refTitle}
+          tabIndex={-1}
+          className="win-punch display-caps text-[2.2rem] text-gold-400 outline-none sm:text-[3rem]"
+        >
+          {t("pages.quizUI.summaryTitle", { points, max })}
+        </h3>
+        {/* Half the points or more is a won challenge; below, Dex thinks it over. */}
+        <GameDex mood={points * 2 >= max ? "won" : "close"} beat={0} height={110} />
+      </div>
 
       <div className="mt-4 flex flex-col gap-5 sm:flex-row sm:items-start">
         <div>
@@ -445,6 +456,7 @@ function Summary({
           </li>
         ))}
       </ol>
+      </div>
     </section>
   );
 }

@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { CollectionCalculator } from "@/components/collection-calculator";
 import { FreshnessLine } from "@/components/freshness";
 import Link from "@/components/link";
-import { PageHeader, SectionTitle } from "@/components/ui";
+import { SectionTitle } from "@/components/ui";
+import { ToolHeader } from "@/components/tool-header";
 import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { dataTool, metaPage, metaPaged } from "@/i18n/seo";
@@ -53,11 +54,15 @@ export function Collection({ locale, page = 1 }: { locale: Locale; page?: number
   return (
     <ExtendMessages messages={messagesPage(locale, ["pages.collectionUI"])}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
-      <PageHeader title={t("pages.collection.title")} lead={t("pages.collection.lead")}>
+      <ToolHeader
+        path="/tools/collection"
+        title={t("pages.collection.title")}
+        lead={t("pages.collection.lead")}
+      >
         <FreshnessLine locale={locale} className="mt-4" />
-      </PageHeader>
+      </ToolHeader>
 
-      <div className="page-wrap space-y-12 py-12">
+      <div className="tool-enter page-wrap space-y-12 py-12">
         <p role="note" className="bevel-sm max-w-3xl border border-gold-500/30 bg-gold-500/5 p-4 text-sm leading-relaxed text-chalk-200">
           {t("pages.collection.warning")}
         </p>

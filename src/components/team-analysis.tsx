@@ -120,7 +120,10 @@ export function TeamAnalysis({
 
   const state = charges[rank];
   const measures = state && state !== "error" ? state : null;
-  const analysis = useMemo(() => analyzeTeam({ catalog: heroes, slugs, measures }), [heroes, slugs, measures]);
+  const analysis = useMemo(
+    () => analyzeTeam({ catalog: heroes, slugs, measures, locale: LOCALE_INTL[siteLocale] }),
+    [heroes, slugs, measures, siteLocale],
+  );
 
   const formats = useMemo<Formats>(() => {
     const locale = LOCALE_INTL[siteLocale];

@@ -1916,7 +1916,14 @@
       "win": "{rate}% de vitórias",
       "duelRight": "resposta certa",
       "duelWrong": "resposta errada",
-      "duelSource": "Taxas de vitória de todos os elos, medidas em {date}."
+      "duelSource": "Taxas de vitória de todos os elos, medidas em {date}.",
+      "dex": {
+        "start": "Sua vez! Cada erro libera uma dica.",
+        "miss": "Opa! Uma nova dica te espera.",
+        "good": "Bom olho! Próximo.",
+        "won": "Boa, resposta certa!",
+        "over": "Não desta vez. A próxima é sua!"
+      }
     },
     "tierMaker": {
       "title": "Criador de tier list de MLBB",
@@ -2595,7 +2602,14 @@
       "reveal": "Revelar a resposta",
       "newHero": "Novo herói",
       "skip": "Passar",
-      "practiceQuestion": "Quem é esse herói?"
+      "practiceQuestion": "Quem é esse herói?",
+      "dex": {
+        "start": "Sua vez! Eu guardo o segredo.",
+        "miss": "Errou… as cores mostram o caminho.",
+        "close": "Esquentando! Algumas casas batem.",
+        "won": "Mandou bem, é esse!",
+        "over": "Que pena! Outra rodada?"
+      }
     },
     "advanceServer": {
       "title": "Patch notes do Advance Server",
@@ -4750,7 +4764,10 @@
       "lead": "Todas as ferramentas do site, organizadas por uso: preparar um draft, testar uma build, avaliar uma conta, treinar ou jogar o jogo do dia.",
       "metaTitle": "Ferramentas MLBB: draft, builds, dano e conta",
       "metaDescription": "Simulador de draft, análise de time, simulador de build, calculadora de dano, valor da conta, timer de objetivos e jogos diários para Mobile Legends: Bang Bang.",
-      "nTools": "{n} ferramentas"
+      "nTools": "{n} ferramentas",
+      "open": "Abrir",
+      "play": "Jogar",
+      "hello": "Escolha uma ferramenta e entre na batalha: tudo funciona no navegador, de graça e sem conta."
     },
     "discordCard": {
       "title": "Cartão de perfil do Discord",

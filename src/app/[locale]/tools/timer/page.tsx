@@ -4,7 +4,7 @@ import { ObjectiveTimer } from "@/components/objective-timer";
 import { GuideLink } from "@/components/guide";
 import { guide } from "@/lib/guides";
 import { Foldable } from "@/components/foldable";
-import { PageHeader } from "@/components/ui";
+import { ToolHeader } from "@/components/tool-header";
 import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { dataTool, metaPage } from "@/i18n/seo";
@@ -126,7 +126,11 @@ export default async function TimerPage({ params }: Params) {
   return (
     <ExtendMessages messages={messagesPage(locale, ["pages.timerUI"])}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
-      <PageHeader title={t("pages.timer.title")} lead={t("pages.timer.lead", THRESHOLDS)} />
+      <ToolHeader
+        path="/tools/timer"
+        title={t("pages.timer.title")}
+        lead={t("pages.timer.lead", THRESHOLDS)}
+      />
       <ToolLayout
         className="pb-10 pt-6"
         aside={

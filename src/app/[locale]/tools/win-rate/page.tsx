@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { WinRateCalculator } from "@/components/win-rate-calculator";
-import { PageHeader } from "@/components/ui";
+import { ToolHeader } from "@/components/tool-header";
 import { serializeJsonLd } from "@/lib/html";
 import type { Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
@@ -37,7 +37,11 @@ export default async function WinRateToolPage({ params }: Params) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
       />
-      <PageHeader title={t("pages.winRate.title")} lead={t("pages.winRate.lead")} />
+      <ToolHeader
+        path="/tools/win-rate"
+        title={t("pages.winRate.title")}
+        lead={t("pages.winRate.lead")}
+      />
       <ToolLayout
         className="py-12"
         aside={
