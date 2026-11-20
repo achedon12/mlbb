@@ -14,7 +14,10 @@ import {
 } from "@/components/item-sheet";
 import Link from "@/components/link";
 import { HeroPortrait } from "@/components/hero-portrait";
-import { Chip } from "@/components/chip";
+import { HeroTile } from "@/components/hero-tile";
+import { GlyphPanel } from "@/components/glyph-panel";
+import { Dex } from "@/components/mascot";
+import motion from "@/components/catalogue-motion.module.css";
 import { ChipActive, FilterBar } from "@/components/filter-bar";
 import { Drawer } from "@/components/drawer";
 import { Pager } from "@/components/pager";
@@ -41,7 +44,10 @@ export type { PreviewItem };
 /** Hero cited by an item: enough to show their thumbnail. */
 export interface HeroThumb {
   name: string;
+  /** Tall portrait, for the tiles; the icon as a fallback. */
   portrait: string | null;
+  /** Square icon, for the small chips. */
+  icon: string | null;
 }
 
 /**
@@ -170,68 +176,20 @@ export function ItemList({
     [items, usedBy, heroThumbs],
   );
 
+  // Each category tab carries the icon of its most expensive item: the
+  // armoury is read by its pieces before its words.
+  const signOf = useMemo(() => {
+    const best = new Map<string, PreviewItem>();
+    for (const o of items) {
+      const top = best.get(o.category);
+      if (o.image && (!top || (o.price ?? 0) > (top.price ?? 0))) best.set(o.category, o);
+    }
+    return best;
+  }, [items]);
+
   return (
     <div>
       <FilterBar
-        content={
-            <div className="grid gap-6 lg:grid-cols-[1fr_21rem]">
-              <div className="min-w-0">
-              <ul className="grid grid-cols-3 gap-2 sm:grid-cols-[repeat(auto-fill,minmax(7.5rem,1fr))]">
-                {slice.map((o) => {
-                  const selected = o.slug === item?.slug;
-                  return (
-                    <li key={o.slug} className="offscreen">
-                      <button
-                        type="button"
-                        id={o.slug}
-                        onClick={() => select(selected ? null : o.slug)}
-                        aria-pressed={selected}
-                        className={cn(
-                          "bevel-sm flex h-full w-full flex-col items-center gap-1.5 border p-2 text-center transition-colors",
-                          selected
-                            ? "border-gold-500 bg-gold-500/10"
-                            : "border-night-700/70 bg-night-900/60 hover:border-gold-500/50",
-                        )}
-                      >
-                        <span className="relative size-11 shrink-0">
-                          {o.image ? (
-                            <Image src={o.image} alt="" width={44} height={44} className="size-full object-contain" />
-                          ) : (
-                            <span className="grid size-full place-items-center bg-night-800 text-[0.6rem] text-chalk-500">
-                              —
-                            </span>
-                          )}
-                        </span>
-                        <span className="text-xs font-medium leading-tight text-chalk-100">
-                          {o.name}
-                        </span>
-                        {o.price !== null && (
-                          // The unit is spelled out: a bare number under
-                          // an item icon reads as a level or a quantity,
-                          // not as a price.
-                          <span className="text-xs tabular-nums text-gold-400">
-                            {o.price.toLocaleString(LOCALE_INTL[locale])} {t("pages.itemsList.gold")}
-                          </span>
-                        )}
-                      </button>
-                    </li>
-                  );
-                })}
-              </ul>
-              <Pager paging={view} href={(n) => pageHref("/items", null, n)} onNavigate={setPage} t={t} />
-              </div>
-
-              <aside className="hidden h-fit lg:sticky lg:top-24 lg:block xl:top-20">
-                {item ? (
-                  <ItemSheet item={item} catalog={catalog} />
-                ) : (
-                  <p className="bevel border border-dashed border-night-700 p-5 text-sm leading-relaxed text-chalk-500">
-                    {t("pages.itemsList.choose")}
-                  </p>
-                )}
-              </aside>
-            </div>
-        }
         search={
           <SearchField
             value={search}
@@ -261,21 +219,103 @@ export function ItemList({
           </span>
         }
       >
-        <div className="flex flex-wrap gap-2">
-          {categories.map((c) => (
-            <Chip
-              key={c}
-              active={category === c}
-              onClick={() => {
-                setCategory(category === c ? null : c);
-                setPage(1);
-              }}
-            >
-              {t(`categories.${c}`)}
-            </Chip>
-          ))}
+        {/* The armoury's racks: one tab per category, its best piece as its sign. */}
+        <div className="flex flex-wrap gap-1.5">
+          {categories.map((c) => {
+            const on = category === c;
+            const sign = signOf.get(c)?.image;
+            return (
+              <button
+                key={c}
+                type="button"
+                aria-pressed={on}
+                onClick={() => {
+                  setCategory(on ? null : c);
+                  setPage(1);
+                }}
+                className={cn(
+                  "eclat-under bevel-sm group inline-flex min-h-11 items-center gap-2 py-1 pl-1.5 pr-3.5 font-heading text-base font-bold uppercase transition-colors",
+                  on ? "is-active bg-night-800 text-gold-400" : "bg-night-900 text-chalk-300 hover:bg-night-800 hover:text-chalk-100",
+                )}
+              >
+                {sign ? (
+                  <span className={cn("grid size-8 place-items-center", motion.zoom)}>
+                    <Image src={sign} alt="" width={32} height={32} className="size-8 object-contain" />
+                  </span>
+                ) : (
+                  <span aria-hidden className="size-8" />
+                )}
+                {t(`categories.${c}`)}
+              </button>
+            );
+          })}
         </div>
       </FilterBar>
+
+      <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_24rem] xl:grid-cols-[minmax(0,1fr)_27rem] xl:gap-8">
+        <div className={cn("min-w-0", motion.rise)}>
+          <ul className="grid grid-cols-3 gap-2 sm:grid-cols-[repeat(auto-fill,minmax(8.5rem,1fr))] sm:gap-3">
+            {slice.map((o) => {
+              const selected = o.slug === item?.slug;
+              return (
+                <li key={o.slug} className="offscreen">
+                  <button
+                    type="button"
+                    id={o.slug}
+                    onClick={() => select(selected ? null : o.slug)}
+                    aria-pressed={selected}
+                    className={cn(
+                      "eclat-under bevel group flex h-full w-full flex-col items-center gap-2 px-1.5 pb-3.5 pt-4 text-center sm:px-2 sm:pt-5",
+                      motion.lift,
+                      selected
+                        ? "is-active bg-night-800 shadow-[inset_0_0_0_1px_var(--color-gold-400),inset_0_3px_0_var(--color-gold-400)]"
+                        : "bg-night-900 hover:bg-night-850",
+                    )}
+                  >
+                    <span className={cn("relative size-14 shrink-0 sm:size-[4.5rem]", motion.zoom)}>
+                      {o.image ? (
+                        <Image src={o.image} alt="" width={72} height={72} className="size-full object-contain drop-shadow-[0_6px_10px_rgb(0_0_0/0.5)]" />
+                      ) : (
+                        <span className="grid size-full place-items-center bg-night-800 text-[0.6rem] text-chalk-500">
+                          —
+                        </span>
+                      )}
+                    </span>
+                    <span
+                      className={cn(
+                        "font-heading text-[0.85rem] font-bold leading-tight transition-colors sm:text-[0.95rem]",
+                        selected ? "text-gold-300" : "text-chalk-100 group-hover:text-gold-300",
+                      )}
+                    >
+                      {o.name}
+                    </span>
+                    {o.price !== null && (
+                      // The unit is spelled out: a bare number under
+                      // an item icon reads as a level or a quantity,
+                      // not as a price.
+                      <span className="mt-auto text-xs tabular-nums text-gold-400">
+                        {o.price.toLocaleString(LOCALE_INTL[locale])} {t("pages.itemsList.gold")}
+                      </span>
+                    )}
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+          <Pager paging={view} href={(n) => pageHref("/items", null, n)} onNavigate={setPage} t={t} />
+        </div>
+
+        <aside className="hidden h-fit lg:sticky lg:top-32 lg:block">
+          {item ? (
+            <ItemSheet key={item.slug} item={item} catalog={catalog} />
+          ) : (
+            <div className="bevel-lg flex flex-col items-center gap-4 bg-night-900 px-6 py-10 text-center">
+              <Dex pose="reflexion" height={150} />
+              <p className="max-w-xs text-sm leading-relaxed text-chalk-300">{t("pages.itemsList.choose")}</p>
+            </div>
+          )}
+        </aside>
+      </div>
 
       {/*
         On mobile, the card slides up as a drawer from the bottom: no need to
@@ -290,7 +330,11 @@ export function ItemList({
   );
 }
 
-/** Detailed item card, shared by the side column and the drawer. */
+/**
+ * Detailed item card, shared by the side column and the drawer: the item
+ * large on its panel, the éclat crossing it as it is chosen, then its stats,
+ * the heroes who carry it and its recipe.
+ */
 function ItemSheet({
   item,
   catalog,
@@ -303,69 +347,71 @@ function ItemSheet({
   const t = useT();
   const locale = useLocale();
   const users = catalog.usedBy[item.slug] ?? [];
+  const tiles = users.slice(0, 3);
+  const others = users.slice(3);
+  const heroName = (slug: string) => catalog.heroes[slug]?.name ?? slug;
   return (
-            <div className={cn("p-5", !withoutFrame && "bevel border border-night-700/70 bg-night-900/60")}>
-              <div className="flex items-start gap-3">
-                {item.image && (
-                  <span className="relative size-14 shrink-0">
-                    <Image src={item.image} alt="" fill sizes="56px" className="object-contain" />
-                  </span>
-                )}
-                <div className="min-w-0">
-                  <h2 className="font-heading text-lg font-bold leading-tight text-chalk-100">
-                    {item.name}
-                  </h2>
-                  {item.summary && (
-                    <p className="mt-0.5 text-xs uppercase tracking-wide text-chalk-500">
-                      {item.summary}
-                    </p>
-                  )}
-                  {item.price !== null && (
-                    <p className="mt-1 text-sm text-chalk-500">
-                      {t("pages.itemsList.price")}{" "}
-                      <span className="font-heading text-gold-400">
-                        {item.price.toLocaleString(LOCALE_INTL[locale])} {t("pages.itemsList.gold")}
-                      </span>
-                    </p>
-                  )}
-                </div>
-              </div>
+    <div className={cn("p-5 sm:p-6", !withoutFrame && "bevel-lg bg-night-900")}>
+      <div className="flex items-center gap-4">
+        <GlyphPanel image={item.image} size={84} flash className="size-28 sm:size-32" />
+        <div className="min-w-0">
+          <h2 className="display-caps break-words text-[2.1rem] text-chalk-100">{item.name}</h2>
+          {item.summary && <p className="mt-1.5 text-sm text-chalk-400">{item.summary}</p>}
+          {item.price !== null && (
+            <p className="mt-2 flex items-baseline gap-1.5">
+              <span className="sr-only">{t("pages.itemsList.price")}</span>
+              <span className="score text-[2.4rem]">{item.price.toLocaleString(LOCALE_INTL[locale])}</span>
+              <span className="font-heading text-sm font-bold uppercase text-gold-400">{t("pages.itemsList.gold")}</span>
+            </p>
+          )}
+        </div>
+      </div>
+      <div aria-hidden className="eclat mt-5 h-[3px] w-20" />
 
-              <dl className="mt-5 space-y-3 text-sm">
-                <EffectsItem item={item} t={t} />
-                <RecipeItem item={item} catalog={catalog} t={t} locale={locale} to={toAnchor} />
-                {users.length > 0 && (
-                  <div>
-                    <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsList.usedBy")}</dt>
-                    <dd className="mt-2 flex flex-wrap gap-1.5">
-                      {users.map((slug) => (
-                        <Link
-                          key={slug}
-                          href={`/heroes/${slug}`}
-                          className="bevel-sm group flex items-center gap-1.5 border border-night-700/70 bg-night-900/60 py-1 pl-1 pr-2 transition-colors hover:border-gold-500/60"
-                        >
-                          <HeroPortrait
-                            source={catalog.heroes[slug]?.portrait ?? null}
-                            name={catalog.heroes[slug]?.name ?? slug}
-                            size="micro"
-                            decorative
-                          />
-                          <span className="text-xs text-chalk-300 group-hover:text-gold-400">{catalog.heroes[slug]?.name ?? slug}</span>
-                        </Link>
-                      ))}
-                    </dd>
-                    <p className="mt-1.5 text-xs text-chalk-500">{t("pages.itemsList.usedByHelp")}</p>
-                  </div>
-                )}
-              </dl>
+      <dl className="mt-5 space-y-4 text-sm">
+        <EffectsItem item={item} t={t} />
+        {users.length > 0 && (
+          <div>
+            <dt className="font-heading text-sm font-bold text-gold-400">{t("pages.itemsList.usedBy")}</dt>
+            <dd className="mt-2">
+              <ul className="grid grid-cols-3 gap-2">
+                {tiles.map((slug) => (
+                  <li key={slug}>
+                    <HeroTile
+                      href={`/heroes/${slug}`}
+                      name={heroName(slug)}
+                      portrait={catalog.heroes[slug]?.portrait ?? null}
+                      sizes="(min-width: 1024px) 8rem, 30vw"
+                    />
+                  </li>
+                ))}
+              </ul>
+              {others.length > 0 && (
+                <ul className="mt-2 flex flex-wrap gap-1.5">
+                  {others.map((slug) => (
+                    <li key={slug}>
+                      <Link
+                        href={`/heroes/${slug}`}
+                        className="bevel-sm group flex items-center gap-1.5 bg-night-800 py-1 pl-1 pr-2.5 transition-colors hover:bg-night-700"
+                      >
+                        <HeroPortrait source={catalog.heroes[slug]?.icon ?? null} name={heroName(slug)} size="mini" decorative />
+                        <span className="text-xs text-chalk-200 group-hover:text-gold-400">{heroName(slug)}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              <p className="mt-2 text-xs text-chalk-500">{t("pages.itemsList.usedByHelp")}</p>
+            </dd>
+          </div>
+        )}
+        <RecipeItem item={item} catalog={catalog} t={t} locale={locale} to={toAnchor} />
+      </dl>
 
-              {/* The item page adds what the card cannot hold: rates per hero and per rank. */}
-              <Link
-                href={`/items/${item.slug}`}
-                className="mt-5 inline-block text-sm font-semibold text-gold-400 underline underline-offset-4 hover:text-gold-500"
-              >
-                {t("pages.itemsList.fullPage")} →
-              </Link>
-            </div>
+      {/* The item page adds what the card cannot hold: rates per hero and per rank. */}
+      <Link href={`/items/${item.slug}`} className="btn btn-secondary btn-sm mt-6">
+        {t("pages.itemsList.fullPage")} →
+      </Link>
+    </div>
   );
 }
