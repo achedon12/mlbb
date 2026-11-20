@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ListArticles } from "@/components/article";
-import Link from "@/components/link";
-import { PageHeader } from "@/components/ui";
+import { ENTRANCE } from "@/components/editorial-poster";
+import { ActionLink, PageHeader } from "@/components/ui";
 import { articles } from "@/lib/content";
 import { languageName, type Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
@@ -34,13 +34,11 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: L
         title={t("pages.news.title")}
         lead={t("pages.news.lead")}
         actions={
-          <Link href="/guides" className="text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500">
-            {t("pages.guides.all")} →
-          </Link>
+          <ActionLink href="/guides">{t("pages.guides.all")}</ActionLink>
         }
       />
-      <div className="page-wrap py-10 sm:py-14">
-        <ListArticles articles={list} base="/news" locale={locale} />
+      <div className={`page-wrap py-8 sm:py-12 ${ENTRANCE}`}>
+        <ListArticles articles={list} base="/news" locale={locale} feature />
       </div>
     </>
   );
