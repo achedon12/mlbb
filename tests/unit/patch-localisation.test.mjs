@@ -54,6 +54,8 @@ describe("French patch notes, as the official community read them", () => {
     expect(correct("[Bagarre de l'Ombre]", "[Shadow Brawl]")).toBe("[Shadow Brawl]");
     expect(correct("B. Échecs magiques", "B. Magic Chess")).toBe("B. Magic Chess");
     expect(correct("A. Lumière des étoiles", "A. StarLight")).toBe("A. StarLight");
+    // Prose keeps the ordinary words: Lunox's "rain of starlight".
+    expect(applyGlossary("Elle invoque une pluie de lumière stellaire.", "fr")).toBe("Elle invoque une pluie de lumière stellaire.");
     expect(correct("Le mode Chaos revient", "Mayhem returns")).toBe("Le mode Mayhem revient");
     // Classic and Ranked have French names on the site: they stay.
     expect(correct("les modes Classique et Classé", "Classic and Ranked modes")).toBe("les modes Classique et Classé");

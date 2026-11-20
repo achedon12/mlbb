@@ -185,15 +185,17 @@ const RULES = {
     // Modes and events keep the game's English names, as the modes pages
     // write them: "Brawl", "Card Brawl", "Magic Chess", "StarLight". The
     // service wrote "Bagarre", "Bagarre de cartes", "Échecs magiques",
-    // "Lumière des étoiles", next to "Brawl" in the same notes. A brawl in
-    // lowercase is an ordinary word.
+    // "Lumière des étoiles", next to "Brawl" in the same notes. A brawl or a
+    // starlight in lowercase is an ordinary word.
     ["Bagarre de cartes", "Card Brawl"],
     ["Bagarre (?:des ombres|de l'ombre)", "Shadow Brawl"],
     ["Bagarres", "Brawl", { caseSensitive: true }],
     ["Bagarre", "Brawl", { caseSensitive: true }],
     ["Baston", "Brawl", { caseSensitive: true }],
     ["échecs magiques", "Magic Chess"],
-    ["(?:lumière des étoiles|lumière stellaire)", "StarLight"],
+    // Only the capitalised name (the pass, the event): "une pluie de lumière
+    // stellaire" (Lunox) is prose and stays prose.
+    ["(?:Lumière des étoiles|Lumière stellaire)", "StarLight", { caseSensitive: true }],
     ["mode Chaos", "mode Mayhem", { caseSensitive: true }],
     // "Tank" came back as an armoured vehicle, "Roaming" as wandering.
     ["semi-chars", "semi-tanks"],
