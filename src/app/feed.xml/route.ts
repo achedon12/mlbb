@@ -1,5 +1,6 @@
 import { toHtml, allArticles } from "@/lib/content";
 import { site, absoluteUrl } from "@/lib/site";
+import { createT } from "@/i18n/translations";
 
 /**
  * RSS feed.
@@ -20,11 +21,13 @@ function escape(text: string): string {
 }
 
 function path(category: string, slug: string): string {
-  return absoluteUrl(`/${category === "Patch" ? "patch-notes" : "news"}/${slug}`);
+  return absoluteUrl(`/fr/${category === "Patch" ? "patch-notes" : "news"}/${slug}`);
 }
 
 export function GET(): Response {
-  const articles = allArticles();
+  // A French feed (`fr-fr`): the French articles, their French pages, a French title and description.
+  const t = createT("fr");
+  const articles = allArticles("fr");
   const last = articles[0]?.date ?? new Date().toISOString();
 
   const entries = articles
@@ -49,9 +52,9 @@ export function GET(): Response {
      xmlns:content="http://purl.org/rss/1.0/modules/content/"
      xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
-    <title>${escape(site.name)} — actualites et guides</title>
+    <title>${escape(t("feed.title"))}</title>
     <link>${site.url}</link>
-    <description>${escape(site.description)}</description>
+    <description>${escape(t("feed.description"))}</description>
     <language>fr-fr</language>
     <lastBuildDate>${new Date(last).toUTCString()}</lastBuildDate>
     <generator>${escape(site.name)}</generator>

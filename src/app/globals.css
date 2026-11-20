@@ -801,3 +801,63 @@ body {
 .dex-says-right { flex-direction: row-reverse; }
 .dex-bubble { position: relative; max-width: 34rem; padding: 0.875rem 1.125rem; background: var(--color-night-800); border: 1px solid var(--color-night-600); color: var(--color-chalk-200); clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px)); }
 @media (prefers-reduced-motion: reduce) { .dex-idle, .dex:hover { animation: none; } }
+
+/* ══ Community, account, bot and site pages (src/components/stage.tsx) ═══════
+ * The stage: the opening of the pages where people meet (forum, account,
+ * bot, about…), an official artwork on the right with Dex at its edge. One
+ * short entrance for the page's main block, a hover lift on the tiles and a
+ * small hop of Dex when it is pointed at. Nothing moves on scroll, nothing
+ * moves at all under prefers-reduced-motion.
+ */
+@keyframes stage-rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes stage-dex {
+  from { opacity: 0; transform: translateY(18px) rotate(-3deg); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .stage-enter { animation: stage-rise 0.45s 0.08s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  .stage-dex { animation: stage-dex 0.55s 0.12s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  .stage-dex .dex:hover, .dex-host:hover .dex { animation: dex-hop 0.5s ease-out; }
+}
+
+/* An artwork tile (category, top hero, door): the art zooms 3 % in its frame on hover. */
+.art-tile { position: relative; isolation: isolate; overflow: hidden; }
+.art-tile-img { transition: transform 0.4s ease-out, opacity 0.3s; }
+.art-tile:hover .art-tile-img, .art-tile:focus-visible .art-tile-img { transform: scale(1.03); }
+
+/* Night fields: the one input look of these pages, a bevelled night fill with a gold line on focus. */
+@layer components {
+.field {
+  @apply bevel-sm block w-full bg-night-900 px-3.5 text-chalk-100 outline-none transition-shadow placeholder:text-chalk-600;
+  min-height: 2.75rem;
+  box-shadow: inset 0 0 0 1px var(--color-night-700);
+}
+.field:focus, .field:focus-visible { box-shadow: inset 0 0 0 1px var(--color-gold-400); outline: none; }
+}
+
+/* A numbered step (sign-in): the number in the display face inside a small crest. */
+.step-crest {
+  --cut: 30%;
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2.3rem;
+  padding-bottom: 0.25rem;
+  flex: none;
+  clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 74%, 50% 100%, 0 74%);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 900;
+  font-size: 1.05rem;
+  background: var(--color-night-700);
+  color: var(--color-chalk-400);
+}
+.step-crest[data-state="active"] { background: var(--color-gold-400); color: var(--color-night-950); }
+.step-crest[data-state="done"] { background: var(--color-azure-400); color: var(--color-night-950); }
+
+/* Editorial pages (about, legal, privacy, contribute, api-doc): a sticky contents rail beside the text. */
+.editorial-rail a[aria-current="true"] { color: var(--color-gold-400); }
+/* ══ end of the community, account, bot and site pages ═══════════════════════ */

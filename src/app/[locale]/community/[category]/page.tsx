@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { NewThread } from "@/components/community/composer";
-import { heroOptions, Rules, SearchForm, ThreadList, Unavailable } from "@/components/community/parts";
+import { CATEGORY_ART, heroOptions, Rules, SearchForm, ThreadList, Unavailable } from "@/components/community/parts";
 import Link from "@/components/link";
 import { MemberLine, SignInChoice } from "@/components/community/sign-in";
 import { Pager } from "@/components/pager";
-import { PageHeader } from "@/components/ui";
+import { heroArt, StageHeader } from "@/components/stage";
 import type { Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { metaPage, notFoundMetadata } from "@/i18n/seo";
@@ -74,8 +74,11 @@ export default async function CategoryPage({ params, searchParams }: Params) {
 
   return (
     <>
-      <PageHeader
+      <StageHeader
         title={name}
+        art={heroArt(CATEGORY_ART[category].hero)}
+        artPosition={CATEGORY_ART[category].position}
+        kicker={t("pages.community.title")}
         lead={t(`pages.community.categories.${category}.description`)}
         crumbs={[
           { name: t("pages.community.title"), href: "/community" },
@@ -92,23 +95,23 @@ export default async function CategoryPage({ params, searchParams }: Params) {
         <div className="mt-5">
           <SearchForm t={t} locale={locale} category={category} />
         </div>
-      </PageHeader>
+      </StageHeader>
       <ExtendMessages messages={messagesPage(locale, ["pages.communityUI"])}>
-        <div className="page-wrap space-y-6 py-8 *:max-w-4xl">
+        <div className="stage-enter page-wrap space-y-6 py-8 sm:py-10 *:max-w-4xl">
           {!data ? (
             <Unavailable t={t} />
           ) : (
             <>
               <div className="flex flex-wrap items-center justify-between gap-4">
-                <nav aria-label={t("pages.community.sortLabel")} className="flex gap-1">
+                <nav aria-label={t("pages.community.sortLabel")} className="flex gap-1 border-b border-night-800">
                   {SORTS.map((s) => (
                     <Link
                       key={s}
                       href={href(category, s, 1)}
                       aria-current={s === sort ? "page" : undefined}
                       className={cn(
-                        "bevel-sm inline-flex min-h-11 items-center px-3 text-sm font-semibold transition-colors",
-                        s === sort ? "bg-night-800 text-chalk-100" : "text-chalk-400 hover:text-chalk-100",
+                        "eclat-under inline-flex min-h-11 items-center px-4 font-heading text-base font-bold uppercase transition-colors",
+                        s === sort ? "text-gold-400" : "text-chalk-400 hover:text-chalk-100",
                       )}
                     >
                       {t(`pages.community.sort.${s}`)}

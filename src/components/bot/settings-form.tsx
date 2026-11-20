@@ -18,7 +18,8 @@ import {
 } from "@/components/bot/dashboard-ui";
 import { GreetingsFieldset, type GreetingSample } from "@/components/bot/greetings-fieldset";
 import { LOCALE_NAME } from "@/i18n/config";
-import { useT } from "@/i18n/provider";
+import { useLocale, useT } from "@/i18n/provider";
+import { plural } from "@/lib/player-format";
 import {
   ANNOUNCEMENT_TYPES,
   AUTO_ROLES_NOT_GRANTABLE,
@@ -179,7 +180,7 @@ function SectionIndex({ items }: { items: { id: string; title: string; state?: S
                 aria-hidden
                 className={cn(
                   "size-2 shrink-0 rounded-full",
-                  item.state?.kind === "attention" ? "bg-blood-400" : item.state?.kind === "on" || !item.state ? "bg-emerald-400" : "bg-chalk-500",
+                  item.state?.kind === "attention" ? "bg-blood-400" : item.state?.kind === "on" || !item.state ? "bg-azure-400" : "bg-chalk-500",
                 )}
               />
               <span>{item.title}</span>
@@ -326,7 +327,7 @@ export function SettingsForm({
                   <div className="grid gap-3 md:grid-cols-[minmax(8rem,1fr)_minmax(0,1.3fr)_minmax(0,1.3fr)_auto] md:items-center md:gap-4">
                     <p className="flex flex-wrap items-center gap-2 font-heading text-lg font-bold text-chalk-100 md:text-base">
                       {name}
-                      <span className={cn("text-xs font-semibold", setting.channelId ? "text-emerald-300" : "text-chalk-400")}>
+                      <span className={cn("text-xs font-semibold", setting.channelId ? "text-azure-300" : "text-chalk-400")}>
                         {setting.channelId ? t("pages.botUI.statusOn") : t("pages.botUI.statusOff")}
                       </span>
                     </p>
@@ -439,7 +440,7 @@ export function SettingsForm({
         <div className="sticky bottom-0 z-40 -mx-4 border-t border-night-700 bg-night-950/95 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 backdrop-blur sm:mx-0 sm:border-x">
           <div className="flex flex-wrap items-center gap-3">
             <p className={cn("flex min-w-0 flex-1 basis-full items-center gap-2 text-sm font-semibold sm:basis-auto", dirty ? "text-gold-400" : "text-chalk-400")}>
-              <span aria-hidden className={cn("size-2 shrink-0 rounded-full", dirty ? "bg-gold-400" : "bg-emerald-400")} />
+              <span aria-hidden className={cn("size-2 shrink-0 rounded-full", dirty ? "bg-gold-400" : "bg-azure-400")} />
               {saveError && !dirty ? <span className="text-blood-400">{saveError}</span> : dirty ? t("pages.botUI.unsaved") : t("pages.botUI.allSaved")}
             </p>
             {dirty ? (
@@ -464,13 +465,14 @@ export function SettingsForm({
 /** Super admin "flush announcements" button. */
 export function FlushButton() {
   const t = useT();
+  const locale = useLocale();
   const [status, setStatus] = useState<{ kind: "idle" | "busy" | "ok" | "error"; text?: string }>({ kind: "idle" });
   const run = async () => {
     setStatus({ kind: "busy", text: t("pages.botUI.flushing") });
     const response = await send("/api/discord/admin/flush", "POST", {});
     const data = response?.ok ? ((await response.json().catch(() => null)) as { created?: number } | null) : null;
     setStatus(
-      data ? { kind: "ok", text: t("pages.botUI.flushed", { count: data.created ?? 0 }) } : { kind: "error", text: t("pages.botUI.flushFailed") },
+      data ? { kind: "ok", text: t(`pages.botUI.flushed.${plural(data.created ?? 0, locale)}`, { count: data.created ?? 0 }) } : { kind: "error", text: t("pages.botUI.flushFailed") },
     );
   };
   return (

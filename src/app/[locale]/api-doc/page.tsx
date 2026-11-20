@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Card, PageHeader } from "@/components/ui";
+import { Card } from "@/components/ui";
+import { heroArt, StageHeader } from "@/components/stage";
 import { allHeroes, countItems, patches, sync } from "@/lib/data";
 import { rankingFull } from "@/lib/tier-list";
 import type { Locale } from "@/i18n/config";
@@ -106,11 +107,14 @@ export default async function ApiPage({ params }: { params: Promise<{ locale: Lo
   const t = createT(locale);
   return (
     <>
-      <PageHeader
+      <StageHeader
         title={t("pages.apiDoc.title")}
+        art={heroArt("harith")}
+        artPosition="55% 22%"
+        dex="reflexion"
         lead={t("pages.apiDoc.lead")}
       >
-        <dl className="mt-8 flex flex-wrap gap-x-10 gap-y-3 text-sm">
+        <dl className="mt-6 flex flex-wrap gap-x-10 gap-y-3 text-sm">
           {[
             [t("pages.apiDoc.statHeroes"), allHeroes.length],
             [t("pages.apiDoc.statItems"), countItems],
@@ -118,23 +122,23 @@ export default async function ApiPage({ params }: { params: Promise<{ locale: Lo
             [t("pages.apiDoc.statRanked"), rankingFull.length],
           ].map(([label, value]) => (
             <div key={String(label)}>
-              <dt className="text-xs uppercase tracking-wide text-chalk-500">{label}</dt>
-              <dd className="mt-0.5 font-heading text-xl font-bold text-gold-400">{value}</dd>
+              <dt className="font-heading text-sm font-bold uppercase text-chalk-400">{label}</dt>
+              <dd className="score mt-1 text-[2.75rem]">{value}</dd>
             </div>
           ))}
         </dl>
-      </PageHeader>
+      </StageHeader>
 
-      <div className="mx-auto max-w-4xl space-y-12 px-4 py-12">
+      <div className="stage-enter mx-auto max-w-4xl space-y-16 px-4 py-12 sm:py-16">
         <section>
-          <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("pages.apiDoc.endpoints")}</h2>
-          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <h2 className="type-section text-chalk-100">{t("pages.apiDoc.endpoints")}</h2>
+          <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
 
           <div className="mt-6 space-y-4">
             {ROUTES.map((r) => (
               <Card key={r.path}>
                 <p className="flex flex-wrap items-center gap-2">
-                  <span className="bevel-sm bg-night-700 px-2 py-0.5 text-[0.7rem] font-semibold uppercase tracking-wide text-emerald-400">
+                  <span className="bevel-sm bg-night-700 px-2 py-0.5 text-[0.7rem] font-semibold uppercase tracking-wide text-azure-400">
                     GET
                   </span>
                   <code className="font-mono text-sm text-chalk-100">{r.path}</code>
@@ -169,8 +173,8 @@ export default async function ApiPage({ params }: { params: Promise<{ locale: Lo
         </section>
 
         <section>
-          <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("pages.apiDoc.shapeTitle")}</h2>
-          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <h2 className="type-section text-chalk-100">{t("pages.apiDoc.shapeTitle")}</h2>
+          <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
           <p className="mt-4 leading-relaxed text-chalk-300">
             {t("pages.apiDoc.shapeText")}
           </p>
@@ -189,8 +193,8 @@ export default async function ApiPage({ params }: { params: Promise<{ locale: Lo
         </section>
 
         <section>
-          <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("pages.apiDoc.termsTitle")}</h2>
-          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <h2 className="type-section text-chalk-100">{t("pages.apiDoc.termsTitle")}</h2>
+          <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
 
           <ul className="mt-4 space-y-3 leading-relaxed text-chalk-300">
             <li>

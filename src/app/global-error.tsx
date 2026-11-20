@@ -10,8 +10,8 @@ import { LOCALES, DEFAULT_LOCALE, LOCALE_HTML, type Locale } from "@/i18n/config
 const TEXTS: Record<Locale, { title: string; text: string; retry: string }> = {
   "fr": {
     "title": "Une erreur est survenue",
-    "text": "Le site a rencontre un probleme inattendu. Reessayez dans un instant.",
-    "retry": "Reessayer"
+    "text": "Le site a rencontré un problème inattendu. Réessayez dans un instant.",
+    "retry": "Réessayer"
   },
   "en": {
     "title": "An error has occurred",
@@ -97,8 +97,14 @@ export default function GlobalError({
           padding: "2rem",
         }}
       >
-        <h1 style={{ fontSize: "1.5rem", fontWeight: 700 }}>{text.title}</h1>
-        <p style={{ color: "#7b88a6", maxWidth: "32rem", lineHeight: 1.6 }}>
+        {/* Dex, surprised: a plain image, the stylesheet and the image optimiser may both be down. */}
+        {/* eslint-disable-next-line @next/next/no-img-element -- see above */}
+        <img src="/mascot/dex-surpris.webp" alt="" width={176} height={232} style={{ display: "block" }} />
+        <h1 style={{ margin: 0, fontSize: "2.25rem", fontWeight: 900, fontStyle: "italic", textTransform: "uppercase", letterSpacing: "-0.01em" }}>
+          {text.title}
+        </h1>
+        <div aria-hidden style={{ width: "6rem", height: 3, background: "linear-gradient(90deg, #c8901e, #ffd87a 45%, #f5c451 75%, transparent)" }} />
+        <p style={{ color: "#9aa6c2", maxWidth: "32rem", lineHeight: 1.6, margin: 0 }}>
           {text.text}
         </p>
         <button
@@ -106,11 +112,14 @@ export default function GlobalError({
           onClick={reset}
           style={{
             border: "none",
-            background: "#e0a92e",
+            background: "#f5c451",
             color: "#06080f",
-            fontWeight: 600,
-            padding: "0.75rem 1.5rem",
+            fontWeight: 700,
+            textTransform: "uppercase",
+            letterSpacing: "0.03em",
+            padding: "0.8rem 1.6rem",
             cursor: "pointer",
+            clipPath: "polygon(0 0, calc(100% - 0.45rem) 0, 100% 0.45rem, 100% 100%, 0.45rem 100%, 0 calc(100% - 0.45rem))",
           }}
         >
           {text.retry}

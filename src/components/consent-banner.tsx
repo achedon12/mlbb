@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useRef, useSyncExternalStore } from "react";
 import Link from "@/components/link";
+import { Dex } from "@/components/mascot";
 import { useT } from "@/i18n/provider";
 import { analyticsEnabled } from "@/lib/analytics";
 import {
@@ -71,6 +72,9 @@ export function ConsentBanner() {
         >
           <div aria-hidden className="eclat-rule" />
           <div className="page-wrap flex flex-col gap-3 py-3 sm:py-4 md:flex-row md:items-center md:gap-6">
+            <span aria-hidden className="-my-2 hidden shrink-0 self-end md:block">
+              <Dex pose="idee" height={84} still />
+            </span>
             <div className="min-w-0 flex-1">
               <p id={title} className="font-heading text-lg font-bold uppercase text-chalk-100">
                 {t("consent.title")}

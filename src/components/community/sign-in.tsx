@@ -1,6 +1,7 @@
 import { Gamepad2, LogOut } from "lucide-react";
 import { DiscordMark } from "@/components/bot/discord-mark";
 import Link from "@/components/link";
+import { Dex } from "@/components/mascot";
 import type { Locale } from "@/i18n/config";
 import type { T } from "@/i18n/t";
 import type { Member } from "@/lib/community/identity";
@@ -15,7 +16,7 @@ import { LinkAccounts, UnlinkAccounts } from "./link-accounts";
  * offers need a script.
  */
 
-const BUTTON = "bevel-sm inline-flex min-h-11 items-center justify-center gap-2 px-4 py-2 text-sm font-semibold transition-colors";
+const BUTTON = "btn";
 
 export type SignInPurpose = "post" | "reply" | "card";
 
@@ -39,7 +40,11 @@ export function SignInChoice({
 }) {
   const discordHref = `/api/discord/login?${new URLSearchParams({ locale, next: "community", back })}`;
   return (
-    <div className="bevel space-y-3 border border-night-700 bg-night-900/60 p-4">
+    <div className="dex-host bevel-lg relative flex items-end gap-4 bg-night-800 p-4 shadow-[inset_0_3px_0_var(--color-gold-400)] sm:gap-6 sm:p-6">
+      <span aria-hidden className="hidden shrink-0 self-end sm:block">
+        <Dex pose="salut" height={150} still />
+      </span>
+      <div className="min-w-0 flex-1 space-y-3">
       {failed && (
         <p role="alert" className="border-l-4 border-blood-400 bg-blood-500/10 px-3 py-2 text-sm text-chalk-100">
           {t("pages.community.signInChoice.failed")}
@@ -55,21 +60,23 @@ export function SignInChoice({
           {t("pages.communityUI.errors.banned")}
         </p>
       )}
-      <p className="text-sm text-chalk-300">{t(`pages.community.signInChoice.${purpose}`)}</p>
+      <p className="font-heading text-xl font-bold leading-tight text-chalk-100">{t(`pages.community.signInChoice.${purpose}`)}</p>
+      <p className="text-sm text-chalk-400">{t("pages.community.signInDex")}</p>
       <div className="flex flex-wrap gap-2">
-        <Link href="/login" className={`${BUTTON} bg-gold-500 text-night-950 hover:bg-gold-400`}>
+        <Link href="/login" className={`${BUTTON} btn-primary`}>
           <Gamepad2 size={16} aria-hidden />
           {t("pages.community.signInChoice.game")}
         </Link>
         {discordEnabled && member.status !== "discordTooNew" && (
           // A plain link: the route sets the OAuth cookie and redirects to Discord.
-          <a href={discordHref} rel="nofollow" className={`${BUTTON} bg-blurple-500 text-white hover:bg-blurple-600`}>
+          <a href={discordHref} rel="nofollow" className={`${BUTTON} bg-azure-500 text-night-950 hover:bg-azure-300`}>
             <DiscordMark />
             {t("pages.community.signInChoice.discord")}
           </a>
         )}
       </div>
       {discordEnabled && <p className="text-xs text-chalk-500">{t("pages.community.signInChoice.discordNote")}</p>}
+      </div>
     </div>
   );
 }

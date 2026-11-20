@@ -107,7 +107,7 @@ function RowMatch({ match: p }: { match: MatchShown }) {
   const t = useT();
   const locale = useLocale();
   const issue = p.win === null ? "unknown" : p.win ? "win" : "loss";
-  const color = p.win === null ? "text-chalk-400" : p.win ? "text-emerald-400" : "text-blood-500";
+  const color = p.win === null ? "text-chalk-400" : p.win ? "text-azure-400" : "text-blood-500";
   const lane = p.lane !== null ? GAME_LANE[p.lane] : undefined;
 
   return (
@@ -117,7 +117,7 @@ function RowMatch({ match: p }: { match: MatchShown }) {
         aria-hidden
         className={cn(
           "w-1 shrink-0 self-stretch",
-          p.win === null ? "bg-night-700" : p.win ? "bg-emerald-400" : "bg-blood-500",
+          p.win === null ? "bg-night-700" : p.win ? "bg-azure-400" : "bg-blood-500",
         )}
       />
       <HeroPortrait source={p.hero.portrait} name={p.hero.name} size="icon" decorative />

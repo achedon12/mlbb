@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { PageHeader } from "@/components/ui";
+import { heroArt, StageHeader } from "@/components/stage";
 import { Prose } from "@/components/prose";
 import type { Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
@@ -23,7 +23,9 @@ export default async function AboutPage({ params }: Params) {
   const t = createT(locale);
   return (
     <>
-      <PageHeader title={t("pages.about.title")} lead={t("pages.about.lead")} />
+      <StageHeader title={t("pages.about.title")} lead={t("pages.about.lead")} art={heroArt("vale")} artPosition="55% 20%" dex="salut">
+        <p className="dex-bubble mt-5 max-w-md font-heading text-lg font-semibold leading-snug text-chalk-100">{t("pages.about.dexLine")}</p>
+      </StageHeader>
       <Prose locale={locale} messageKey="about" variables={{ repository: site.repository }} />
     </>
   );

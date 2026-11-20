@@ -4,9 +4,10 @@ import { useId, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowBigUp, Flag, Pencil, Trash2 } from "lucide-react";
 import Link from "@/components/link";
-import { useT } from "@/i18n/provider";
+import { useLocale, useT } from "@/i18n/provider";
 import { trackEvent } from "@/lib/analytics";
 import { REPORT_NOTE_MAX, REPORT_REASONS, type TargetKind } from "@/lib/community/constants";
+import { plural } from "@/lib/player-format";
 import { cn } from "@/lib/utils";
 import { refusal, send } from "./request";
 
@@ -34,10 +35,11 @@ export function VoteButton({
   signedIn: boolean;
 }) {
   const t = useT();
+  const locale = useLocale();
   const [state, setState] = useState({ score, voted });
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const label = t("pages.communityUI.votes", { n: state.score });
+  const label = t(`pages.communityUI.votes.${plural(state.score, locale)}`, { n: state.score });
 
   if (own || !signedIn) {
     return (
@@ -141,7 +143,7 @@ export function ReportButton({ kind, id, signedIn }: { kind: TargetKind; id: num
             <button
               type="submit"
               disabled={state.type === "sending"}
-              className="bevel-sm inline-flex min-h-11 items-center bg-gold-500 px-4 text-sm font-semibold text-night-950 hover:bg-gold-400 disabled:opacity-60"
+              className="bevel-sm inline-flex min-h-11 items-center bg-gold-400 px-4 text-sm font-semibold text-night-950 hover:bg-gold-300 disabled:opacity-60"
             >
               {t("pages.communityUI.report.send")}
             </button>

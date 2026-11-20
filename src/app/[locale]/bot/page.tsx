@@ -3,7 +3,8 @@ import Image from "next/image";
 import { Gift, Languages, PartyPopper, Star, Wrench } from "lucide-react";
 import { DiscordMark } from "@/components/bot/discord-mark";
 import Link from "@/components/link";
-import { PageHeader } from "@/components/ui";
+import { Dex } from "@/components/mascot";
+import { heroArt, StageHeader } from "@/components/stage";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
@@ -55,7 +56,6 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 }
 
 const PERMISSIONS = ["view", "send", "threads", "embed", "attach", "history", "emojis", "reactions"] as const;
-const BUTTON = "bevel-sm inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold transition-colors";
 
 /** The replies shown, with their size (the files are 1440 px wide, drawn at 2x). */
 const SHOWCASE = [
@@ -84,7 +84,7 @@ export default async function BotPage({ params }: Params) {
   const servers = await liveServerCount();
   const add = inviteUrl(clientId);
   const vote = voteUrl();
-  const h2 = "font-heading text-xl font-bold text-chalk-100 sm:text-2xl";
+  const h2 = "type-section text-chalk-100";
   const faq = Array.from({ length: FAQ_COUNT }, (_, i) => ({ q: t(`pages.bot.faq${i + 1}q`), a: t(`pages.bot.faq${i + 1}a`) }));
 
   const structuredData = [
@@ -117,16 +117,16 @@ export default async function BotPage({ params }: Params) {
 
   const ctas = (
     <div className="flex flex-wrap gap-3">
-      <a href={add} rel="noopener" className={`${BUTTON} bg-gold-500 text-night-950 hover:bg-gold-400`}>
+      <a href={add} rel="noopener" className="btn btn-primary">
         <DiscordMark />
         {t("pages.bot.add")}
       </a>
       {invite && (
-        <a href={invite} rel="noopener" className={`${BUTTON} border border-night-600 bg-night-800 text-chalk-100 hover:border-gold-500/60`}>
+        <a href={invite} rel="noopener" className="btn btn-secondary">
           {t("pages.bot.join")}
         </a>
       )}
-      <a href={vote} rel="noopener" className={`${BUTTON} border border-night-600 text-chalk-300 hover:border-gold-500/60 hover:text-chalk-100`}>
+      <a href={vote} rel="noopener" className="btn btn-secondary">
         <Star size={16} aria-hidden />
         {t("pages.bot.vote")}
       </a>
@@ -136,8 +136,11 @@ export default async function BotPage({ params }: Params) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
-      <PageHeader
+      <StageHeader
         title={t("pages.bot.title")}
+        art={heroArt("zilong")}
+        artPosition="55% 20%"
+        dex="idee"
         lead={t("pages.bot.lead")}
         crumbs={[{ name: t("pages.bot.breadcrumb") }]}
         meta={[
@@ -157,19 +160,21 @@ export default async function BotPage({ params }: Params) {
             {t("pages.bot.dashboard")} →
           </Link>
         </div>
-      </PageHeader>
+        <p className="mt-4 hidden font-heading text-lg font-semibold text-gold-300 lg:block">{t("pages.bot.dexLine")}</p>
+      </StageHeader>
 
-      <div className="page-wrap space-y-12 py-10 sm:space-y-16">
+      <div className="stage-enter page-wrap space-y-16 py-10 sm:space-y-24 sm:py-14">
         <section aria-labelledby="features">
           <h2 id="features" className={h2}>
             {t("pages.bot.showcaseTitle")}
           </h2>
-          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
           <div className="mt-6 space-y-10 sm:space-y-14">
             {SHOWCASE.map((s, i) => (
               <article key={s.key} className="grid items-center gap-5 md:grid-cols-2 md:gap-10">
                 <div className={i % 2 ? "md:order-2" : undefined}>
-                  <h3 className="font-heading text-lg font-bold text-gold-400 sm:text-xl">{t(`pages.bot.showcase.${s.key}Title`)}</h3>
+                  <span aria-hidden className="score score-outline block text-[4.5rem]">{String(i + 1).padStart(2, "0")}</span>
+                  <h3 className="display-caps mt-2 text-[2rem] text-chalk-100 sm:text-[2.5rem]">{t(`pages.bot.showcase.${s.key}Title`)}</h3>
                   <p className="mt-2 leading-relaxed text-chalk-300">{t(`pages.bot.showcase.${s.key}Text`)}</p>
                 </div>
                 <Image
@@ -180,7 +185,7 @@ export default async function BotPage({ params }: Params) {
                   sizes="(min-width: 768px) 460px, calc(100vw - 2rem)"
                   // The first one is the page's largest image, in view on a desktop.
                   priority={i === 0}
-                  className="bevel h-auto w-full border border-night-700/70"
+                  className="bevel-lg h-auto w-full shadow-[0_24px_60px_-30px_rgb(0_0_0/0.9)] transition-[translate] duration-300 hover:-translate-y-0.5"
                 />
               </article>
             ))}
@@ -191,12 +196,12 @@ export default async function BotPage({ params }: Params) {
           <h2 id="extras" className={h2}>
             {t("pages.bot.extrasTitle")}
           </h2>
-          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
           <ul className="mt-5 grid gap-3 sm:grid-cols-2">
             {EXTRAS.map(({ icon: Icon, key }) => (
-              <li key={key} className="bevel-sm border border-night-700/70 bg-night-900/60 p-4">
-                <p className="flex items-center gap-2 font-heading font-bold text-gold-400">
-                  <Icon size={18} aria-hidden />
+              <li key={key} className="card transition-[translate] duration-200 hover:-translate-y-0.5">
+                <p className="flex items-center gap-2 font-heading text-xl font-bold uppercase text-chalk-100">
+                  <Icon size={20} aria-hidden className="text-gold-400" />
                   {t(`pages.bot.extras.${key}Title`)}
                 </p>
                 <p className="mt-1 text-sm leading-relaxed text-chalk-300">{t(`pages.bot.extras.${key}Text`)}</p>
@@ -209,7 +214,7 @@ export default async function BotPage({ params }: Params) {
           <h2 id="commands" className={h2}>
             {t("pages.bot.commandsTitle")}
           </h2>
-          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
           <p className="mt-3 text-chalk-300">{t("pages.bot.commandsLead")}</p>
           <div className="mt-6 grid gap-x-8 gap-y-6 md:grid-cols-2">
             {BOT_CATEGORIES.map((category) => (
@@ -239,11 +244,11 @@ export default async function BotPage({ params }: Params) {
           <h2 id="permissions" className={h2}>
             {t("pages.bot.permissionsTitle")}
           </h2>
-          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
           <p className="mt-3 text-chalk-300">{t("pages.bot.permissionsText")}</p>
           <ul className="mt-4 flex flex-wrap gap-2 text-sm text-chalk-300">
             {PERMISSIONS.map((p) => (
-              <li key={p} className="bevel-sm border border-night-700/70 bg-night-950/50 px-2.5 py-1">
+              <li key={p} className="bevel-sm bg-night-800 px-2.5 py-1">
                 {t(`pages.bot.permissions.${p}`)}
               </li>
             ))}
@@ -254,7 +259,7 @@ export default async function BotPage({ params }: Params) {
           <h2 id="faq" className={h2}>
             {t("pages.bot.faqTitle")}
           </h2>
-          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
           <div className="mt-5 space-y-6">
             {faq.map((e) => (
               <div key={e.q}>
@@ -265,12 +270,17 @@ export default async function BotPage({ params }: Params) {
           </div>
         </section>
 
-        <section aria-labelledby="cta" className="bevel border border-gold-500/30 bg-night-900/60 p-5 sm:p-8">
-          <h2 id="cta" className={h2}>
-            {t("pages.bot.ctaTitle")}
-          </h2>
-          <p className="mt-2 mb-5 text-chalk-300">{t("pages.bot.ctaText")}</p>
-          {ctas}
+        <section aria-labelledby="cta" className="dex-host bevel-lg flex items-end gap-6 bg-night-800 p-6 shadow-[inset_0_3px_0_var(--color-gold-400)] sm:p-10">
+          <div className="min-w-0 flex-1">
+            <h2 id="cta" className={h2}>
+              {t("pages.bot.ctaTitle")}
+            </h2>
+            <p className="mt-3 mb-6 max-w-2xl text-chalk-300">{t("pages.bot.ctaText")}</p>
+            {ctas}
+          </div>
+          <span aria-hidden className="hidden shrink-0 md:block">
+            <Dex pose="victoire" height={210} still />
+          </span>
         </section>
 
         <p className="flex flex-wrap gap-x-6 gap-y-2 text-sm">

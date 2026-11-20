@@ -2536,10 +2536,6 @@
       "fr": "Aucun signalement ouvert.",
       "text": "No open report."
     },
-    "pages.community.moderation.reportCount": {
-      "fr": "{n} signalement(s)",
-      "text": "{n} report(s)"
-    },
     "pages.community.moderation.title": {
       "fr": "Modération de la communauté",
       "text": "Community moderation"
@@ -2583,10 +2579,6 @@
     "pages.community.postingAsDiscord": {
       "fr": "Vous écrivez en tant que {name} (connexion Discord).",
       "text": "You are posting as {name} (Discord sign-in)."
-    },
-    "pages.community.replies": {
-      "fr": "{n} réponse(s)",
-      "text": "{n} reply(ies)"
     },
     "pages.community.replyDeleted": {
       "fr": "Message supprimé par son auteur.",
@@ -2651,10 +2643,6 @@
     "pages.community.searchPlaceholder": {
       "fr": "Rechercher dans le forum…",
       "text": "Search the forum…"
-    },
-    "pages.community.searchResults": {
-      "fr": "{n} discussion(s) pour « {query} »",
-      "text": "{n} discussion(s) for \"{query}\""
     },
     "pages.community.searchTitle": {
       "fr": "Recherche dans le forum",
@@ -2752,10 +2740,6 @@
       "fr": "Des joueurs qui cherchent un duo, un trio ou une équipe, par région, rang, lane et langue. Chaque carte reste en ligne sept jours ; une seule par compte.",
       "text": "Players looking for a duo, a trio or a team, by region, rank, lane and language. Each card stays up for seven days; one per account."
     },
-    "pages.community.teammates.listTitle": {
-      "fr": "{n} joueur(s) disponible(s)",
-      "text": "{n} player(s) available"
-    },
     "pages.community.teammates.noContact": {
       "fr": "Pas de contact partagé : répondez-lui sur le forum ou le Discord.",
       "text": "No contact shared: reach them on the forum or the Discord."
@@ -2803,10 +2787,6 @@
     "pages.community.teammatesTitle": {
       "fr": "Trouver des coéquipiers",
       "text": "Find teammates"
-    },
-    "pages.community.threadCount": {
-      "fr": "{n} discussion(s)",
-      "text": "{n} discussion(s)"
     },
     "pages.community.threadLead": {
       "fr": "Lancée par {name} dans {category}.",
@@ -2971,10 +2951,6 @@
     "pages.communityUI.moderation.confirmDelete": {
       "fr": "Supprimer définitivement ce contenu ?",
       "text": "Delete this content for good?"
-    },
-    "pages.communityUI.moderation.days": {
-      "fr": "{n} jour(s)",
-      "text": "{n} day(s)"
     },
     "pages.communityUI.moderation.delete": {
       "fr": "Supprimer",
@@ -3283,10 +3259,6 @@
     "pages.communityUI.upvote": {
       "fr": "Voter pour ce message",
       "text": "Upvote this post"
-    },
-    "pages.communityUI.votes": {
-      "fr": "{n} vote(s)",
-      "text": "{n} vote(s)"
     },
     "pages.draft.rules.advantage": {
       "fr": "Pendant le draft, une barre estime les chances de chaque équipe à partir de cinq facteurs, comptés en points de taux de victoire : la force des héros au rang, les duels entre les deux équipes et les duos de chacune (mesurés en partie classée, sinon relevés par le wiki), une lane en double ou l'absence de tank, et des dégâts d'un seul type. Les trois premiers comptent pour moitié, car ils se recoupent. Leur somme passe par une courbe logistique : deux équipes égales sont à 50 %, et le résultat reste entre 25 et 75 %. Les picks suggérés sont ceux qui font le plus monter cette estimation. C'est un repère, pas une prédiction.",
@@ -5787,6 +5759,18 @@
     "pages.map.point.lord.role": {
       "fr": "Le monstre le plus puissant de la carte. L'équipe qui le tue l'invoque : il pousse une lane avec elle et renforce la prochaine vague de sbires.",
       "text": "The strongest monster on the map. The team that kills it summons it: it pushes a lane alongside that team and empowers the next minion wave."
+    },
+    "pages.notFound.dexLine": {
+      "fr": "Hé, cette page s'est perdue dans la jungle… On repart d'ici ?",
+      "text": "Hey, this page got lost in the jungle… Shall we head back from here?"
+    },
+    "pages.community.replies.one": {
+      "fr": "{n} réponse",
+      "text": "{n} reply"
+    },
+    "pages.community.replies.other": {
+      "fr": "{n} réponses",
+      "text": "{n} replies"
     }
   },
   "es": {
@@ -8290,14 +8274,6 @@
       "fr": "Aucune discussion dans cette catégorie pour l'instant.",
       "text": "Todavía no hay conversaciones en esta categoría."
     },
-    "pages.community.threadCount": {
-      "fr": "{n} discussion(s)",
-      "text": "{n} conversación(es)"
-    },
-    "pages.community.replies": {
-      "fr": "{n} réponse(s)",
-      "text": "{n} respuesta(s)"
-    },
     "pages.community.pinned": {
       "fr": "Épinglée",
       "text": "Fijada"
@@ -8422,10 +8398,6 @@
       "fr": "Recherche dans la catégorie {name}.",
       "text": "Búsqueda en la categoría {name}."
     },
-    "pages.community.searchResults": {
-      "fr": "{n} discussion(s) pour « {query} »",
-      "text": "{n} conversación(es) para «{query}»"
-    },
     "pages.community.searchEmpty": {
       "fr": "Aucune discussion ne correspond. Essayez d'autres mots, ou moins de mots.",
       "text": "Ninguna conversación coincide. Prueba otras palabras, o menos."
@@ -8477,10 +8449,6 @@
     "pages.community.teammates.ownTitle": {
       "fr": "Votre carte",
       "text": "Tu tarjeta"
-    },
-    "pages.community.teammates.listTitle": {
-      "fr": "{n} joueur(s) disponible(s)",
-      "text": "{n} jugador(es) disponible(s)"
     },
     "pages.community.teammates.any": {
       "fr": "Tous",
@@ -8649,10 +8617,6 @@
     "pages.community.moderation.actions.dismiss": {
       "fr": "Classer sans suite",
       "text": "Descartar"
-    },
-    "pages.communityUI.votes": {
-      "fr": "{n} vote(s)",
-      "text": "{n} voto(s)"
     },
     "pages.communityUI.upvote": {
       "fr": "Voter pour ce message",
@@ -9066,10 +9030,6 @@
       "fr": "Durée",
       "text": "Duración"
     },
-    "pages.communityUI.moderation.days": {
-      "fr": "{n} jour(s)",
-      "text": "{n} día(s)"
-    },
     "pages.communityUI.moderation.forever": {
       "fr": "Définitif",
       "text": "Permanente"
@@ -9113,10 +9073,6 @@
     "pages.community.moderation.deleted": {
       "fr": "supprimé par son auteur",
       "text": "eliminado por su autor"
-    },
-    "pages.community.moderation.reportCount": {
-      "fr": "{n} signalement(s)",
-      "text": "{n} reporte(s)"
     },
     "pages.community.moderation.asReported": {
       "fr": "Tel que signalé",
@@ -10325,6 +10281,14 @@
     "prose.about.blocks.5.p": {
       "fr": "Si vous vous connectez avec le code de vérification du jeu, vous voyez votre propre profil (saison, héros joués, parties récentes), lu à la demande via la même API et visible par vous seul. Il n'est pas publié. Pour ne pas tout redemander à chaque visite, les réponses du jeu restent un temps dans la mémoire du serveur, jamais sur disque : de deux minutes à six heures selon la donnée. Seule exception, la carte /profile du bot Discord, si vous la reliez : le site garde alors votre jeton de jeu chiffré, au plus 7 jours, et les chiffres de la carte, effacés 30 jours après leur dernière mise à jour ou dès que vous la déliez.",
       "text": "Si inicias sesión con el código de verificación del juego, ves tu propio perfil (temporada, héroes jugados, partidas recientes), leído a demanda a través de la misma API y visible solo para ti. No se publica. Para no volver a pedirlo todo en cada visita, las respuestas del juego se quedan un tiempo en la memoria del servidor, nunca en disco: de dos minutos a seis horas según el dato. La única excepción es la tarjeta /profile del bot de Discord, si la vinculas: el sitio guarda entonces tu token de juego cifrado, 7 días como máximo, y las cifras de la tarjeta, que se borran 30 días después de su última actualización o en cuanto la desvinculas."
+    },
+    "pages.communityUI.votes.one": {
+      "fr": "{n} vote",
+      "text": "{n} voto"
+    },
+    "pages.notFound.dexLine": {
+      "fr": "Hé, cette page s'est perdue dans la jungle… On repart d'ici ?",
+      "text": "Oye, esta página se perdió en la jungla… ¿Volvemos desde aquí?"
     }
   },
   "id": {
@@ -14824,14 +14788,6 @@
       "fr": "Aucune discussion dans cette catégorie pour l'instant.",
       "text": "Belum ada diskusi di kategori ini."
     },
-    "pages.community.threadCount": {
-      "fr": "{n} discussion(s)",
-      "text": "{n} diskusi"
-    },
-    "pages.community.replies": {
-      "fr": "{n} réponse(s)",
-      "text": "{n} balasan"
-    },
     "pages.community.pinned": {
       "fr": "Épinglée",
       "text": "Disematkan"
@@ -14956,10 +14912,6 @@
       "fr": "Recherche dans la catégorie {name}.",
       "text": "Mencari di kategori {name}."
     },
-    "pages.community.searchResults": {
-      "fr": "{n} discussion(s) pour « {query} »",
-      "text": "{n} diskusi untuk \"{query}\""
-    },
     "pages.community.searchEmpty": {
       "fr": "Aucune discussion ne correspond. Essayez d'autres mots, ou moins de mots.",
       "text": "Tidak ada diskusi yang cocok. Coba kata lain, atau lebih sedikit kata."
@@ -15011,10 +14963,6 @@
     "pages.community.teammates.ownTitle": {
       "fr": "Votre carte",
       "text": "Kartu kamu"
-    },
-    "pages.community.teammates.listTitle": {
-      "fr": "{n} joueur(s) disponible(s)",
-      "text": "{n} pemain tersedia"
     },
     "pages.community.teammates.any": {
       "fr": "Tous",
@@ -15183,10 +15131,6 @@
     "pages.community.moderation.actions.dismiss": {
       "fr": "Classer sans suite",
       "text": "Abaikan"
-    },
-    "pages.communityUI.votes": {
-      "fr": "{n} vote(s)",
-      "text": "{n} vote"
     },
     "pages.communityUI.upvote": {
       "fr": "Voter pour ce message",
@@ -15600,10 +15544,6 @@
       "fr": "Durée",
       "text": "Durasi"
     },
-    "pages.communityUI.moderation.days": {
-      "fr": "{n} jour(s)",
-      "text": "{n} hari"
-    },
     "pages.communityUI.moderation.forever": {
       "fr": "Définitif",
       "text": "Permanen"
@@ -15647,10 +15587,6 @@
     "pages.community.moderation.deleted": {
       "fr": "supprimé par son auteur",
       "text": "dihapus oleh penulisnya"
-    },
-    "pages.community.moderation.reportCount": {
-      "fr": "{n} signalement(s)",
-      "text": "{n} laporan"
     },
     "pages.community.moderation.asReported": {
       "fr": "Tel que signalé",
@@ -16951,6 +16887,62 @@
     "prose.about.blocks.5.p": {
       "fr": "Si vous vous connectez avec le code de vérification du jeu, vous voyez votre propre profil (saison, héros joués, parties récentes), lu à la demande via la même API et visible par vous seul. Il n'est pas publié. Pour ne pas tout redemander à chaque visite, les réponses du jeu restent un temps dans la mémoire du serveur, jamais sur disque : de deux minutes à six heures selon la donnée. Seule exception, la carte /profile du bot Discord, si vous la reliez : le site garde alors votre jeton de jeu chiffré, au plus 7 jours, et les chiffres de la carte, effacés 30 jours après leur dernière mise à jour ou dès que vous la déliez.",
       "text": "Jika kamu masuk dengan kode verifikasi game, kamu melihat profilmu sendiri (season, hero yang dimainkan, pertandingan terakhir), dibaca saat diminta melalui API yang sama dan hanya terlihat olehmu. Profil itu tidak dipublikasikan. Agar tidak meminta semuanya lagi di setiap kunjungan, jawaban dari game disimpan sementara di memori server, tidak pernah di disk: dari dua menit hingga enam jam, tergantung datanya. Satu-satunya pengecualian adalah kartu /profile dari bot Discord, jika kamu menautkannya: situs menyimpan token game-mu dalam bentuk terenkripsi paling lama 7 hari, dan angka di kartu, yang dihapus 30 hari setelah pembaruan terakhir atau begitu kamu melepas tautannya."
+    },
+    "pages.community.threadCount.one": {
+      "fr": "{n} discussion",
+      "text": "{n} diskusi"
+    },
+    "pages.community.threadCount.other": {
+      "fr": "{n} discussions",
+      "text": "{n} diskusi"
+    },
+    "pages.community.replies.one": {
+      "fr": "{n} réponse",
+      "text": "{n} balasan"
+    },
+    "pages.community.replies.other": {
+      "fr": "{n} réponses",
+      "text": "{n} balasan"
+    },
+    "pages.community.searchResults.one": {
+      "fr": "{n} discussion pour « {query} »",
+      "text": "{n} diskusi untuk \"{query}\""
+    },
+    "pages.community.searchResults.other": {
+      "fr": "{n} discussions pour « {query} »",
+      "text": "{n} diskusi untuk \"{query}\""
+    },
+    "pages.community.teammates.listTitle.one": {
+      "fr": "{n} joueur disponible",
+      "text": "{n} pemain tersedia"
+    },
+    "pages.community.teammates.listTitle.other": {
+      "fr": "{n} joueurs disponibles",
+      "text": "{n} pemain tersedia"
+    },
+    "pages.community.moderation.reportCount.one": {
+      "fr": "{n} signalement",
+      "text": "{n} laporan"
+    },
+    "pages.community.moderation.reportCount.other": {
+      "fr": "{n} signalements",
+      "text": "{n} laporan"
+    },
+    "pages.communityUI.votes.one": {
+      "fr": "{n} vote",
+      "text": "{n} vote"
+    },
+    "pages.communityUI.votes.other": {
+      "fr": "{n} votes",
+      "text": "{n} vote"
+    },
+    "pages.communityUI.moderation.days.one": {
+      "fr": "{n} jour",
+      "text": "{n} hari"
+    },
+    "pages.communityUI.moderation.days.other": {
+      "fr": "{n} jours",
+      "text": "{n} hari"
     }
   },
   "it": {
@@ -19506,14 +19498,6 @@
       "fr": "Aucune discussion dans cette catégorie pour l'instant.",
       "text": "Ancora nessuna discussione in questa categoria."
     },
-    "pages.community.threadCount": {
-      "fr": "{n} discussion(s)",
-      "text": "{n} discussione/i"
-    },
-    "pages.community.replies": {
-      "fr": "{n} réponse(s)",
-      "text": "{n} risposta/e"
-    },
     "pages.community.pinned": {
       "fr": "Épinglée",
       "text": "Fissata"
@@ -19638,10 +19622,6 @@
       "fr": "Recherche dans la catégorie {name}.",
       "text": "Ricerca nella categoria {name}."
     },
-    "pages.community.searchResults": {
-      "fr": "{n} discussion(s) pour « {query} »",
-      "text": "{n} discussione/i per « {query} »"
-    },
     "pages.community.searchEmpty": {
       "fr": "Aucune discussion ne correspond. Essayez d'autres mots, ou moins de mots.",
       "text": "Nessuna discussione corrisponde. Prova altre parole, o meno parole."
@@ -19693,10 +19673,6 @@
     "pages.community.teammates.ownTitle": {
       "fr": "Votre carte",
       "text": "La tua scheda"
-    },
-    "pages.community.teammates.listTitle": {
-      "fr": "{n} joueur(s) disponible(s)",
-      "text": "{n} giocatore/i disponibile/i"
     },
     "pages.community.teammates.any": {
       "fr": "Tous",
@@ -19865,10 +19841,6 @@
     "pages.community.moderation.actions.dismiss": {
       "fr": "Classer sans suite",
       "text": "Archivia"
-    },
-    "pages.communityUI.votes": {
-      "fr": "{n} vote(s)",
-      "text": "{n} voto/i"
     },
     "pages.communityUI.upvote": {
       "fr": "Voter pour ce message",
@@ -20282,10 +20254,6 @@
       "fr": "Durée",
       "text": "Durata"
     },
-    "pages.communityUI.moderation.days": {
-      "fr": "{n} jour(s)",
-      "text": "{n} giorno/i"
-    },
     "pages.communityUI.moderation.forever": {
       "fr": "Définitif",
       "text": "Definitivo"
@@ -20329,10 +20297,6 @@
     "pages.community.moderation.deleted": {
       "fr": "supprimé par son auteur",
       "text": "eliminato dal suo autore"
-    },
-    "pages.community.moderation.reportCount": {
-      "fr": "{n} signalement(s)",
-      "text": "{n} segnalazione/i"
     },
     "pages.community.moderation.asReported": {
       "fr": "Tel que signalé",
@@ -25504,10 +25468,6 @@
       "fr": "Publier les annonces en attente",
       "text": "I-post ang mga nakabinbing anunsyo"
     },
-    "pages.botUI.flushed": {
-      "fr": "Annonces vérifiées : {count} nouvelle(s), publication demandée au bot.",
-      "text": "Nasuri ang mga anunsyo: {count} bago, pinag-post na ang bot."
-    },
     "pages.botUI.flushing": {
       "fr": "Publication des annonces…",
       "text": "Nagpo-post…"
@@ -26644,10 +26604,6 @@
       "fr": "Aucun signalement ouvert.",
       "text": "Walang bukas na report."
     },
-    "pages.community.moderation.reportCount": {
-      "fr": "{n} signalement(s)",
-      "text": "{n} report"
-    },
     "pages.community.moderation.title": {
       "fr": "Modération de la communauté",
       "text": "Moderation ng community"
@@ -26667,10 +26623,6 @@
     "pages.community.postingAs": {
       "fr": "Vous écrivez en tant que {name}.",
       "text": "Nagsusulat ka bilang {name}."
-    },
-    "pages.community.replies": {
-      "fr": "{n} réponse(s)",
-      "text": "{n} reply"
     },
     "pages.community.replyDeleted": {
       "fr": "Message supprimé par son auteur.",
@@ -26724,10 +26676,6 @@
       "fr": "Recherche dans la catégorie {name}.",
       "text": "Naghahanap sa kategoryang {name}."
     },
-    "pages.community.searchResults": {
-      "fr": "{n} discussion(s) pour « {query} »",
-      "text": "{n} discussion para sa \"{query}\""
-    },
     "pages.community.seo.categoryTitle": {
       "fr": "{name} – forum Mobile Legends",
       "text": "{name} – Mobile Legends forum"
@@ -26776,10 +26724,6 @@
       "fr": "Des joueurs qui cherchent un duo, un trio ou une équipe, par région, rang, lane et langue. Chaque carte reste en ligne sept jours ; une seule par compte.",
       "text": "Mga player na naghahanap ng duo, trio o team, ayon sa region, rank, lane at wika. Nananatili ang bawat card nang pitong araw; isa bawat account."
     },
-    "pages.community.teammates.listTitle": {
-      "fr": "{n} joueur(s) disponible(s)",
-      "text": "{n} player ang available"
-    },
     "pages.community.teammates.noContact": {
       "fr": "Pas de contact partagé : répondez-lui sur le forum ou le Discord.",
       "text": "Walang shared na contact: kontakin siya sa forum o sa Discord."
@@ -26819,10 +26763,6 @@
     "pages.community.teammatesTitle": {
       "fr": "Trouver des coéquipiers",
       "text": "Maghanap ng kakampi"
-    },
-    "pages.community.threadCount": {
-      "fr": "{n} discussion(s)",
-      "text": "{n} discussion"
     },
     "pages.community.threadLead": {
       "fr": "Lancée par {name} dans {category}.",
@@ -27164,10 +27104,6 @@
       "fr": "Supprimer définitivement ce contenu ?",
       "text": "Permanenteng i-delete ang content na ito?"
     },
-    "pages.communityUI.moderation.days": {
-      "fr": "{n} jour(s)",
-      "text": "{n} araw"
-    },
     "pages.communityUI.moderation.delete": {
       "fr": "Supprimer",
       "text": "I-delete"
@@ -27391,10 +27327,6 @@
     "pages.communityUI.upvote": {
       "fr": "Voter pour ce message",
       "text": "I-upvote ang post na ito"
-    },
-    "pages.communityUI.votes": {
-      "fr": "{n} vote(s)",
-      "text": "{n} boto"
     },
     "pages.compare.duels.intro": {
       "fr": "Écarts de taux de victoire mesurés par le jeu quand un héros affronte l'autre, rang par rang. Quelques-uns des duels les plus tranchés parmi les héros les mieux classés :",
@@ -36487,6 +36419,70 @@
     "pages.sources.rows.rates": {
       "fr": "Taux de victoire, de ban et de sélection des parties classées : API communautaire {sources}.",
       "text": "Win rate, ban rate at pick rate sa mga ranked match: community API na {sources}."
+    },
+    "pages.community.threadCount.one": {
+      "fr": "{n} discussion",
+      "text": "{n} discussion"
+    },
+    "pages.community.threadCount.other": {
+      "fr": "{n} discussions",
+      "text": "{n} discussion"
+    },
+    "pages.community.replies.one": {
+      "fr": "{n} réponse",
+      "text": "{n} reply"
+    },
+    "pages.community.replies.other": {
+      "fr": "{n} réponses",
+      "text": "{n} reply"
+    },
+    "pages.community.searchResults.one": {
+      "fr": "{n} discussion pour « {query} »",
+      "text": "{n} discussion para sa \"{query}\""
+    },
+    "pages.community.searchResults.other": {
+      "fr": "{n} discussions pour « {query} »",
+      "text": "{n} discussion para sa \"{query}\""
+    },
+    "pages.community.teammates.listTitle.one": {
+      "fr": "{n} joueur disponible",
+      "text": "{n} player ang available"
+    },
+    "pages.community.teammates.listTitle.other": {
+      "fr": "{n} joueurs disponibles",
+      "text": "{n} player ang available"
+    },
+    "pages.community.moderation.reportCount.one": {
+      "fr": "{n} signalement",
+      "text": "{n} report"
+    },
+    "pages.community.moderation.reportCount.other": {
+      "fr": "{n} signalements",
+      "text": "{n} report"
+    },
+    "pages.communityUI.votes.one": {
+      "fr": "{n} vote",
+      "text": "{n} boto"
+    },
+    "pages.communityUI.votes.other": {
+      "fr": "{n} votes",
+      "text": "{n} boto"
+    },
+    "pages.communityUI.moderation.days.one": {
+      "fr": "{n} jour",
+      "text": "{n} araw"
+    },
+    "pages.communityUI.moderation.days.other": {
+      "fr": "{n} jours",
+      "text": "{n} araw"
+    },
+    "pages.botUI.flushed.one": {
+      "fr": "Annonces vérifiées : {count} nouvelle, publication demandée au bot.",
+      "text": "Nasuri ang mga anunsyo: {count} bago, pinag-post na ang bot."
+    },
+    "pages.botUI.flushed.other": {
+      "fr": "Annonces vérifiées : {count} nouvelles, publication demandée au bot.",
+      "text": "Nasuri ang mga anunsyo: {count} bago, pinag-post na ang bot."
     }
   },
   "th": {
@@ -40150,10 +40146,6 @@
       "fr": "Publier les annonces en attente",
       "text": "โพสต์ประกาศที่ค้างอยู่"
     },
-    "pages.botUI.flushed": {
-      "fr": "Annonces vérifiées : {count} nouvelle(s), publication demandée au bot.",
-      "text": "ตรวจสอบประกาศแล้ว: ใหม่ {count} รายการ ส่งคำขอให้บอทโพสต์แล้ว"
-    },
     "pages.botUI.flushing": {
       "fr": "Publication des annonces…",
       "text": "กำลังโพสต์…"
@@ -41281,10 +41273,6 @@
     "pages.community.teammates.lead": {
       "fr": "Des joueurs qui cherchent un duo, un trio ou une équipe, par région, rang, lane et langue. Chaque carte reste en ligne sept jours ; une seule par compte.",
       "text": "ผู้เล่นที่กำลังหาคู่ดูโอ ทรีโอ หรือทีม ตามภูมิภาค แรงก์ เลน และภาษา การ์ดแต่ละใบแสดงอยู่เจ็ดวัน; หนึ่งใบต่อบัญชี"
-    },
-    "pages.community.teammates.listTitle": {
-      "fr": "{n} joueur(s) disponible(s)",
-      "text": "ผู้เล่นที่ว่าง {n} คน"
     },
     "pages.community.teammates.noContact": {
       "fr": "Pas de contact partagé : répondez-lui sur le forum ou le Discord.",
@@ -50437,6 +50425,22 @@
     "pages.sources.rows.rates": {
       "fr": "Taux de victoire, de ban et de sélection des parties classées : API communautaire {sources}.",
       "text": "อัตราชนะ อัตราแบน และอัตราเลือกในแมตช์แรงก์: API ชุมชน {sources}"
+    },
+    "pages.community.teammates.listTitle.one": {
+      "fr": "{n} joueur disponible",
+      "text": "ผู้เล่นที่ว่าง {n} คน"
+    },
+    "pages.community.teammates.listTitle.other": {
+      "fr": "{n} joueurs disponibles",
+      "text": "ผู้เล่นที่ว่าง {n} คน"
+    },
+    "pages.botUI.flushed.one": {
+      "fr": "Annonces vérifiées : {count} nouvelle, publication demandée au bot.",
+      "text": "ตรวจสอบประกาศแล้ว: ใหม่ {count} รายการ ส่งคำขอให้บอทโพสต์แล้ว"
+    },
+    "pages.botUI.flushed.other": {
+      "fr": "Annonces vérifiées : {count} nouvelles, publication demandée au bot.",
+      "text": "ตรวจสอบประกาศแล้ว: ใหม่ {count} รายการ ส่งคำขอให้บอทโพสต์แล้ว"
     }
   },
   "pt": {
@@ -53516,10 +53520,6 @@
       "fr": "Le bot n'a pas pu publier dans ce salon : vérifiez ses permissions, puis enregistrez.",
       "text": "O bot não conseguiu publicar neste canal: verifique as permissões dele e salve."
     },
-    "pages.botUI.flushed": {
-      "fr": "Annonces vérifiées : {count} nouvelle(s), publication demandée au bot.",
-      "text": "Anúncios verificados: {count} novo(s), publicação solicitada ao bot."
-    },
     "pages.botUI.flushing": {
       "fr": "Publication des annonces…",
       "text": "Publicando…"
@@ -54376,10 +54376,6 @@
       "fr": "Aucun signalement ouvert.",
       "text": "Nenhuma denúncia aberta."
     },
-    "pages.community.moderation.reportCount": {
-      "fr": "{n} signalement(s)",
-      "text": "{n} denúncia(s)"
-    },
     "pages.community.openingPost": {
       "fr": "Message d'ouverture",
       "text": "Post de abertura"
@@ -54491,10 +54487,6 @@
     "pages.community.teammates.lead": {
       "fr": "Des joueurs qui cherchent un duo, un trio ou une équipe, par région, rang, lane et langue. Chaque carte reste en ligne sept jours ; une seule par compte.",
       "text": "Jogadores procurando dupla, trio ou time, por região, elo, lane e idioma. Cada cartão fica no ar por sete dias; um por conta."
-    },
-    "pages.community.teammates.listTitle": {
-      "fr": "{n} joueur(s) disponible(s)",
-      "text": "Jogadores disponíveis: {n}"
     },
     "pages.community.teammates.noContact": {
       "fr": "Pas de contact partagé : répondez-lui sur le forum ou le Discord.",
@@ -65734,10 +65726,6 @@
       "fr": "Le bot n'a pas pu publier dans ce salon : vérifiez ses permissions, puis enregistrez.",
       "text": "Бот не смог опубликовать сообщение в этом канале: проверьте его права и сохраните."
     },
-    "pages.botUI.flushed": {
-      "fr": "Annonces vérifiées : {count} nouvelle(s), publication demandée au bot.",
-      "text": "Объявления проверены, новых: {count}; бот получил запрос на публикацию."
-    },
     "pages.botUI.flushing": {
       "fr": "Publication des annonces…",
       "text": "Публикация…"
@@ -66678,17 +66666,9 @@
       "fr": "Aucun signalement ouvert.",
       "text": "Открытых жалоб нет."
     },
-    "pages.community.moderation.reportCount": {
-      "fr": "{n} signalement(s)",
-      "text": "Жалоб: {n}"
-    },
     "pages.community.openingPost": {
       "fr": "Message d'ouverture",
       "text": "Первое сообщение"
-    },
-    "pages.community.replies": {
-      "fr": "{n} réponse(s)",
-      "text": "Ответов: {n}"
     },
     "pages.community.replyTitle": {
       "fr": "Répondre",
@@ -66725,10 +66705,6 @@
     "pages.community.searchLeadCategory": {
       "fr": "Recherche dans la catégorie {name}.",
       "text": "Поиск в разделе {name}."
-    },
-    "pages.community.searchResults": {
-      "fr": "{n} discussion(s) pour « {query} »",
-      "text": "Обсуждений по запросу «{query}»: {n}"
     },
     "pages.community.seo.categoryTitle": {
       "fr": "{name} – forum Mobile Legends",
@@ -66770,10 +66746,6 @@
       "fr": "Des joueurs qui cherchent un duo, un trio ou une équipe, par région, rang, lane et langue. Chaque carte reste en ligne sept jours ; une seule par compte.",
       "text": "Игроки, которые ищут дуэт, трио или команду, по региону, рангу, линии и языку. Каждая карточка висит семь дней; одна на аккаунт."
     },
-    "pages.community.teammates.listTitle": {
-      "fr": "{n} joueur(s) disponible(s)",
-      "text": "Доступно игроков: {n}"
-    },
     "pages.community.teammates.noContact": {
       "fr": "Pas de contact partagé : répondez-lui sur le forum ou le Discord.",
       "text": "Контакт не указан: напишите игроку на форуме или в Discord."
@@ -66813,10 +66785,6 @@
     "pages.community.teammatesTitle": {
       "fr": "Trouver des coéquipiers",
       "text": "Найти тиммейтов"
-    },
-    "pages.community.threadCount": {
-      "fr": "{n} discussion(s)",
-      "text": "Обсуждений: {n}"
     },
     "pages.community.threadLead": {
       "fr": "Lancée par {name} dans {category}.",
@@ -67110,10 +67078,6 @@
       "fr": "Markdown : **gras**, *italique*, `code`, > citation, - liste, [lien](https://…). Pas de HTML ni d'image.",
       "text": "Markdown: **жирный**, *курсив*, `code`, > цитата, - список, [ссылка](https://…). Без HTML и изображений."
     },
-    "pages.communityUI.moderation.days": {
-      "fr": "{n} jour(s)",
-      "text": "Дней: {n}"
-    },
     "pages.communityUI.moderation.delete": {
       "fr": "Supprimer",
       "text": "Удалить"
@@ -67329,10 +67293,6 @@
     "pages.communityUI.upvote": {
       "fr": "Voter pour ce message",
       "text": "Проголосовать за сообщение"
-    },
-    "pages.communityUI.votes": {
-      "fr": "{n} vote(s)",
-      "text": "Голосов: {n}"
     },
     "pages.compare.duels.intro": {
       "fr": "Écarts de taux de victoire mesurés par le jeu quand un héros affronte l'autre, rang par rang. Quelques-uns des duels les plus tranchés parmi les héros les mieux classés :",
@@ -75561,6 +75521,70 @@
     "pages.sources.measured": {
       "fr": "Statistiques mesurées le {date}",
       "text": "Статистика измерена {date}"
+    },
+    "pages.community.threadCount.one": {
+      "fr": "{n} discussion",
+      "text": "Обсуждений: {n}"
+    },
+    "pages.community.threadCount.other": {
+      "fr": "{n} discussions",
+      "text": "Обсуждений: {n}"
+    },
+    "pages.community.replies.one": {
+      "fr": "{n} réponse",
+      "text": "Ответов: {n}"
+    },
+    "pages.community.replies.other": {
+      "fr": "{n} réponses",
+      "text": "Ответов: {n}"
+    },
+    "pages.community.searchResults.one": {
+      "fr": "{n} discussion pour « {query} »",
+      "text": "Обсуждений по запросу «{query}»: {n}"
+    },
+    "pages.community.searchResults.other": {
+      "fr": "{n} discussions pour « {query} »",
+      "text": "Обсуждений по запросу «{query}»: {n}"
+    },
+    "pages.community.teammates.listTitle.one": {
+      "fr": "{n} joueur disponible",
+      "text": "Доступно игроков: {n}"
+    },
+    "pages.community.teammates.listTitle.other": {
+      "fr": "{n} joueurs disponibles",
+      "text": "Доступно игроков: {n}"
+    },
+    "pages.community.moderation.reportCount.one": {
+      "fr": "{n} signalement",
+      "text": "Жалоб: {n}"
+    },
+    "pages.community.moderation.reportCount.other": {
+      "fr": "{n} signalements",
+      "text": "Жалоб: {n}"
+    },
+    "pages.communityUI.votes.one": {
+      "fr": "{n} vote",
+      "text": "Голосов: {n}"
+    },
+    "pages.communityUI.votes.other": {
+      "fr": "{n} votes",
+      "text": "Голосов: {n}"
+    },
+    "pages.communityUI.moderation.days.one": {
+      "fr": "{n} jour",
+      "text": "Дней: {n}"
+    },
+    "pages.communityUI.moderation.days.other": {
+      "fr": "{n} jours",
+      "text": "Дней: {n}"
+    },
+    "pages.botUI.flushed.one": {
+      "fr": "Annonces vérifiées : {count} nouvelle, publication demandée au bot.",
+      "text": "Объявления проверены, новых: {count}; бот получил запрос на публикацию."
+    },
+    "pages.botUI.flushed.other": {
+      "fr": "Annonces vérifiées : {count} nouvelles, publication demandée au bot.",
+      "text": "Объявления проверены, новых: {count}; бот получил запрос на публикацию."
     }
   }
 }

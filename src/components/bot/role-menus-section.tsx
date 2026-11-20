@@ -543,7 +543,7 @@ export function RoleMenusSection({
                     <span
                       className={cn(
                         "inline-flex shrink-0 items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-semibold",
-                        status === "published" ? "border-emerald-400/40 bg-emerald-400/10 text-emerald-300" : "border-gold-500/50 bg-gold-500/10 text-gold-400",
+                        status === "published" ? "border-azure-400/40 bg-azure-400/10 text-azure-300" : "border-gold-500/50 bg-gold-500/10 text-gold-400",
                       )}
                     >
                       {status === "published"
