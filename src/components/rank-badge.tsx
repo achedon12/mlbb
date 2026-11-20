@@ -18,17 +18,17 @@ export function RankBadge({
   size = "md",
 }: {
   rank: ReadableRank;
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md" | "lg" | "xl";
 }) {
   const t = useT();
-  const dim = size === "lg" ? 56 : size === "sm" ? 32 : 44;
+  const dim = size === "xl" ? 112 : size === "lg" ? 56 : size === "sm" ? 32 : 44;
   const unit =
     rank.unitStars === "point"
       ? t(rank.stars > 1 ? "rankUnit.points" : "rankUnit.point", { n: rank.stars })
       : t(rank.stars > 1 ? "rankUnit.stars" : "rankUnit.star", { n: rank.stars });
 
   return (
-    <div className="flex items-center gap-3">
+    <div className={cn("flex items-center", size === "xl" ? "gap-4" : "gap-3")}>
       <Image
         src={rank.image}
         alt={t(`rankNames.${rank.key}`)}
@@ -39,15 +39,15 @@ export function RankBadge({
       <div className="min-w-0">
         <p
           className={cn(
-            "font-heading font-bold leading-tight",
-            size === "lg" ? "text-xl" : "text-base",
+            size === "xl" ? "display-caps text-[2.4rem] leading-[0.9]" : "font-heading font-bold leading-tight",
+            size === "lg" ? "text-xl" : size === "xl" ? "" : "text-base",
           )}
           style={{ color: rank.color }}
         >
           {t(`rankNames.${rank.key}`)}
           {rank.division && ` ${rank.division}`}
         </p>
-        <p className="mt-0.5 flex items-center gap-1 text-xs text-chalk-400">
+        <p className={cn("flex items-center gap-1 text-chalk-400", size === "xl" ? "mt-2 text-sm" : "mt-0.5 text-xs")}>
           <Star size={11} className="fill-current text-gold-400" aria-hidden />
           {unit}
         </p>

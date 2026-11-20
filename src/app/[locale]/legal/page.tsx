@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { PageHeader } from "@/components/ui";
+import { heroArt, StageHeader } from "@/components/stage";
 import { Prose } from "@/components/prose";
 import type { Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
@@ -23,7 +23,7 @@ export default async function LegalPage({ params }: Params) {
   const t = createT(locale);
   return (
     <>
-      <PageHeader title={t("pages.legal.title")} lead={t("pages.legal.lead")} />
+      <StageHeader compact title={t("pages.legal.title")} lead={t("pages.legal.lead")} art={heroArt("franco")} artPosition="55% 22%" />
       <Prose
         locale={locale}
         messageKey="legal"

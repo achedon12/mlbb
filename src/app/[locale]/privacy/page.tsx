@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { PageHeader } from "@/components/ui";
+import { heroArt, StageHeader } from "@/components/stage";
 import { Prose } from "@/components/prose";
 import type { Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
@@ -74,7 +74,7 @@ export default async function PrivacyPage({ params }: Params) {
 
   return (
     <>
-      <PageHeader title={t("pages.privacy.title")} lead={t("pages.privacy.lead")} />
+      <StageHeader compact title={t("pages.privacy.title")} lead={t("pages.privacy.lead")} art={heroArt("estes")} artPosition="55% 20%" />
       <Prose
         locale={locale}
         messageKey="privacy"

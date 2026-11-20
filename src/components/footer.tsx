@@ -12,6 +12,7 @@ import { DiscordMark } from "./bot/discord-mark";
 import { DiscordJoinLink } from "./discord-join-link";
 import { BrandMark } from "./brand-mark";
 import { ConsentSettingsButton } from "./consent-banner";
+import { Dex } from "./mascot";
 
 /** Footer link column: one per header section, plus the site's own pages. */
 function Column({ title, links, t }: { title: string; links: readonly Chip[]; t: T }) {
@@ -59,17 +60,21 @@ export function Footer({ locale, year }: { locale: Locale; year: number }) {
       {/* The éclat closes the page, as it separates its sections. */}
       <div aria-hidden className="eclat-rule" />
       <div className="page-wrap grid gap-x-12 gap-y-8 py-10 sm:py-14 xl:grid-cols-[minmax(16rem,22rem)_minmax(0,1fr)]">
-        <div>
+        <div className="relative">
+          {/* Dex sees the visitor off, from a tablet up; still, the page has had its moment. */}
+          <span aria-hidden className="dex-host pointer-events-auto absolute -top-3 right-0 hidden sm:block xl:hidden">
+            <Dex pose="salut" height={92} still />
+          </span>
           <Link href={`/${locale}`} aria-label={site.name} className="group flex w-fit items-center">
             <BrandMark />
           </Link>
           <p className="mt-3 line-clamp-3 max-w-xs text-sm leading-relaxed text-chalk-500 sm:line-clamp-none">
             {t("footer.intro")}
           </p>
-          <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
+          <div className="mt-4 flex flex-wrap items-center gap-2">
             <a
               href={site.repository}
-              className="flex items-center gap-2 text-sm text-chalk-300 transition-colors hover:text-gold-400"
+              className="bevel-sm flex min-h-9 items-center gap-2 bg-night-800 px-3 text-sm text-chalk-300 transition-[color,background-color,translate] hover:-translate-y-px hover:bg-night-700 hover:text-gold-300"
               rel="noreferrer"
               target="_blank"
             >
@@ -78,7 +83,7 @@ export function Footer({ locale, year }: { locale: Locale; year: number }) {
             </a>
             <Link
               href="/feed.xml"
-              className="flex items-center gap-2 text-sm text-chalk-300 transition-colors hover:text-gold-400"
+              className="bevel-sm flex min-h-9 items-center gap-2 bg-night-800 px-3 text-sm text-chalk-300 transition-[color,background-color,translate] hover:-translate-y-px hover:bg-night-700 hover:text-gold-300"
             >
               <Rss size={16} aria-hidden />
               RSS
@@ -87,7 +92,7 @@ export function Footer({ locale, year }: { locale: Locale; year: number }) {
               <DiscordJoinLink
                 href={discord}
                 placement="Footer"
-                className="flex items-center gap-2 text-sm text-chalk-300 transition-colors hover:text-gold-400"
+                className="bevel-sm flex min-h-9 items-center gap-2 bg-night-800 px-3 text-sm text-chalk-300 transition-[color,background-color,translate] hover:-translate-y-px hover:bg-night-700 hover:text-gold-300"
               >
                 <DiscordMark />
                 {t("footer.discord")}

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Search } from "lucide-react";
 import Link from "@/components/link";
+import { Dex } from "@/components/mascot";
 import type { Locale } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
 import { prefix } from "@/i18n/links";
@@ -216,14 +217,20 @@ export function GlobalSearch() {
                 placeholder={t("search.placeholder")}
                 className="min-w-0 flex-1 bg-transparent py-3.5 text-chalk-100 outline-none placeholder:text-chalk-500"
               />
-              <kbd className="hidden rounded border border-night-600 px-1.5 text-[0.7rem] text-chalk-500 sm:inline">Esc</kbd>
+              <kbd className="bevel-sm hidden bg-night-800 px-1.5 text-[0.7rem] text-chalk-500 sm:inline">Esc</kbd>
             </div>
 
             <div ref={list} id={`${id}-list`} role="listbox" className="overflow-y-auto p-2">
               {!entries ? (
                 <p className="px-3 py-6 text-center text-sm text-chalk-500">{t("search.loading")}</p>
               ) : flat.length === 0 ? (
-                <p className="px-3 py-6 text-center text-sm text-chalk-500">{t("search.none")}</p>
+                <div className="flex items-end justify-center gap-3 px-3 py-6">
+                  <Dex pose="reflexion" height={110} still />
+                  <div className="dex-bubble max-w-xs text-left text-sm">
+                    <p className="font-heading text-base font-bold uppercase text-chalk-100">{t("search.none")}</p>
+                    <p className="mt-1 text-chalk-400">{t("search.dexEmpty")}</p>
+                  </div>
+                </div>
               ) : (
                 groups.map((g) => (
                   <div key={g.type} className="mb-2">
