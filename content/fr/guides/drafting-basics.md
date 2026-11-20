@@ -16,7 +16,7 @@ En partie classée, la draft s'ouvre à partir du rang Épique : chaque équipe 
 
 ## Comment se déroule une draft en classé
 
-- **Les bans** : les deux équipes bannissent en même temps. Le nombre de bans dépend du rang le plus élevé de la partie (3 par équipe en Épique, 4 en Légende, 5 en Mythique). Les deux équipes peuvent bannir le même héros, ce qui gaspille un ban : se mettre d'accord dans le chat avant évite ce doublon.
+- **Les bans** : les deux équipes bannissent en même temps. Le nombre de bans dépend du rang le plus élevé de la partie (3 par équipe en Épique, 4 en Légende, 5 en Mythique). Rien n'empêche l'adversaire de bannir le même héros que vous, et ce doublon ne se prévoit pas. Ce qu'un accord dans le chat apporte, c'est une répartition des bans dans votre équipe : chacun sait quelle menace il retire, et vos bans couvrent les principales menaces au lieu de laisser passer un héros dangereux parce que chacun comptait sur l'autre.
 - **Les picks** : l'équipe bleue choisit un héros, la rouge deux, la bleue deux, la rouge deux, la bleue deux, puis la rouge le dernier.
 - **Ce qui compte** : un héros choisi en premier est visible de tous, un héros choisi en dernier peut répondre à tout le reste.
 

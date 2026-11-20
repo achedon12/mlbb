@@ -42,7 +42,7 @@ Las clasificatorias requieren más paciencia que reflejos. Algunas reglas proteg
 
 - **para después de dos derrotas seguidas**: el tercer partido se suele jugar con rabia, y es el que más cuesta;
 - **no responder en el chat**: cada mensaje escrito es un segundo donde no miramos la mapa;
-- **un juego nunca se pierde antes del inhibidor**: los Lord del final devuelven situaciones que parecían perdidas;
+- **una partida nunca está perdida mientras tu base resista**: los Lord del final de partida dan la vuelta a partidas que parecían perdidas;
 - **jugar descansado**: las horas de cansancio son cuando se acumulan pequeños errores.
 
 ## Aprende de tus derrotas

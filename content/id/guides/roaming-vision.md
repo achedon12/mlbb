@@ -18,7 +18,7 @@ Mobile Legends tidak memiliki tag vision: vision berasal dari hero, minion, turr
 
 - **Hero, minion, dan turret** mengungkapkan apa yang ada di sekitar mereka, tetapi tidak mengungkapkan apa yang ada di dalam semak.
 - **Semak** menyembunyikan hero selama tidak ada musuh yang memasukinya atau mengungkapkannya melalui efek.
-- **Lithowanderer**, makhluk sungai kecil, meninggalkan penjaga batu yang memberi sinyal kepada musuh selama beberapa puluh detik kepada tim yang menghabisinya.
+- **Lithowanderer**, makhluk kecil di sungai, memunculkan penjaga batu yang menandai musuh bagi tim yang menghabisinya.
 - **Skill tertentu** mengungkapkan suatu area atau hero: skill tersebut sering kali lebih berharga di awal permainan daripada damagenya.
 
 [Panduan peta](/map) menemukan lokasi semak-semak, sungai, dan camp, serta memberikan waktu setiap makhluk.
@@ -54,7 +54,7 @@ Semak yang dipegang oleh tank tempur seperti [Tigreal](/heroes/tigreal), [Atlas]
 
 Visi terutama digunakan untuk menjawab pertanyaan sebelum setiap objektif: di mana musuhnya? Roamer dan Jungler harus bisa menjawabnya secara bersamaan.
 
-- **Sebelum Turtle atau Lord**, hitung lawan yang terlihat di mini-map. Tiga yang terlihat jauh dari objektif: kita bisa mulai. Kurang dari dua yang terlihat: kita periksa semak-semaknya dulu.
+- **Sebelum Turtle atau Lord**, hitung lawan yang terlihat di minimap. Setidaknya tiga terlihat, jauh dari objektif: kalian bisa mulai. Dua atau kurang, atau ada lawan terlihat di dekat objektif: periksa semak dulu, atau tunggu sampai tahu lebih banyak.
 - **Selama objektif**, roamer menempatkan dirinya di antara objektif dan lane kedatangan lawan, bukan di objektif itu sendiri.
 - **Setelah mencapai objektif**, dia menjaga sungai sementara tim mundur atau mendorong.
 

@@ -52,11 +52,11 @@ If the answer to the first question is "I don't know", take the Turtle with the 
 
 ## The Lord: the objective that ends games
 
-The Lord pushes the opponent's weaker lane with your team and strengthens your next wave. It is the objective that breaks down the inhibitors.
+Once killed, the Lord is summoned for your team: he pushes a lane with you, and your next minion wave is strengthened. It is the objective that does the most to bring down the last turrets.
 
 - **Never start it without knowing where at least three opponents are.** A Lord is taken slowly, and a team that arrives right in the middle almost always wins the fight.
 - **The best moment is just after a won fight**: two or three opponents dead, and the Lord is safe.
-- **A Lord does not replace a wave**: send him to the lane where your minions are already pushed, so that he arrives with them.
+- **A Lord is not enough on his own**: group up and move forward with him and your strengthened wave, so that he reaches the enemy turrets with the whole team.
 
 ## Retribution, and the duel of objectives
 
@@ -78,4 +78,4 @@ Once the Turtle is taken, the jungler returns to his buffs, then to those of the
 - Farm your jungle while the teamfights for the Turtle: the jungler is the only one with Retribution.
 - Starting an objective without vision, hoping to go quickly: this is the favorite scenario of the opposing jungler.
 - Waste Retribution to finish off a hero or small camp when an objective arrives.
-- Take the Lord when the allied wave is under your own turret: he will push alone, and the opponent will defend him without difficulty.
+- Letting the Lord push alone while the team farms elsewhere: without an escort, the opponents defend against him easily.

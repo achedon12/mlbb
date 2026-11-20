@@ -3225,7 +3225,7 @@
         },
         "lord": {
           "name": "Lord",
-          "role": "Ang pinakamalakas na monster sa mapa. Ang team na pumatay dito ang nagpapatawag nito: tinutulak nito ang pinakamahinang lane ng kalaban at pinalalakas ang susunod na minion wave.",
+          "role": "Ang pinakamalakas na monster sa mapa. Ang team na pumatay dito ang nagpapatawag nito: nagtutulak ito ng isang lane kasama ng team at pinalalakas ang susunod na minion wave.",
           "firstSpawn": "{after} min pagkatapos ng huling Turtle, o sa pagitan ng {from} at {latest} kung buhay pa ang isang Turtle",
           "respawn": "{respawn} s pagkatapos mamatay; pagkatapos ng {lateFrom}, {late} s ayon sa text ng wiki, {infobox} ayon sa infobox nito",
           "reward": "Pinalakas ang susunod na minion wave; tumutulak ang ipinatawag na Lord kasama ang team mo, at ang mga kakampi sa malapit ay nagdudulot ng {bonus} na dagdag na base magic damage ({cooldown} s na cooldown)",
@@ -5008,7 +5008,7 @@
           "p": "Ang buong roster, ang mga skin ng bawat hero, mga item, emblem, Battle Spell at ang listahan ng mga patch. Awtomatikong kinukuha ang data na ito mula sa community wiki bawat linggo: lumalabas dito ang bagong hero nang walang kailangang mag-encode nito."
         },
         {
-          "p": "Dagdag pa rito ang hindi kailanman makukuha ng awtomatikong extraction: nakasulat na analysis para sa ilang hero — kung ano talaga ang ginagawa nila, ang mga build nila, ang mga counter nila — tier list kung saan may paliwanag ang bawat puwesto, at mga detalyadong guide."
+          "p": "Dagdag pa rito ang hindi kailanman makukuha ng awtomatikong extraction: nakasulat na analysis para sa ilang hero (kung ano ang ginagawa nila, ang mga build nila, ang mga counter nila), nakasulat na komento para sa ilang hero sa tier list, at mga detalyadong guide. Ang ranking mismo ng tier list ay hindi opinyon: kinukuwenta ito mula sa win rate at ban rate."
         },
         {
           "h": "Ang wala rito, at bakit"
@@ -5017,7 +5017,7 @@
           "p": "Walang ranking ng player at walang “MMR”. Walang opisyal na interface na inilalabas ang Moonton: ang stats na makikita rito — win rate, ban rate at pick rate, counter, build, trend — ay galing sa community API na arena.rone.dev, na pinagsasama-sama ang mga ranked match ayon sa rank. Tinatantiya lang ito ng mga site na nagpapakita ng “MMR” para sa Mobile Legends; hindi nila ito nababasa kahit saan."
         },
         {
-          "p": "Kapag naka-log in ka gamit ang in-game verification code, makikita mo ang sarili mong profile — season, mga hero na nilaro, mga kamakailang match — na binabasa kapag hiniling sa parehong API, para sa iyo lang. Hindi ito ipina-publish o itinatago lampas sa cache na ilang minuto."
+          "p": "Kapag naka-log in ka gamit ang in-game verification code, makikita mo ang sarili mong profile (season, mga hero na nilaro, mga kamakailang match), na binabasa kapag hiniling sa parehong API, para sa iyo lang. Hindi ito ipina-publish. Para hindi hingin ulit ang lahat sa bawat pagbisita, nananatili sandali ang mga sagot ng laro sa memory ng server, hindi kailanman sa disk: mula dalawang minuto hanggang anim na oras depende sa data. Ang tanging eksepsiyon ay ang /profile card ng Discord bot, kung ili-link mo ito: itinatago ng site ang naka-encrypt mong game token nang hanggang 7 araw, at ang mga numero ng card, na binubura 30 araw pagkatapos ng huling update o kapag in-unlink mo ito."
         },
         {
           "p": "Ang mga visual ay pagmamay-ari ng Moonton at, para sa mga skin ng collaboration, sa mga may hawak ng karapatan ng mga karakter at tatak na nauugnay. Ang mga larawan, mga icon at mga larawan sa skin ay nagmula sa wiki ng komunidad at inihahatid ng site na ito upang walang nakadepende sa isang third party na domain. Ang mga ito ay nananatiling pag-aari ng Moonton, naroroon para sa mga layunin ng paglalarawan at aalisin kapag hiniling ng may hawak ng mga karapatan. Ang visual na pagkakakilanlan ng site (madilim na asul, ginto, mga gupit na sulok) ay inspirasyon ng laro nang hindi ginagamit ang mga file ng interface."

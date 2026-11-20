@@ -42,7 +42,7 @@ Le classificate richiedono più pazienza che riflessi. Alcune regole proteggono 
 
 - **stop dopo due sconfitte di fila**: la terza partita si gioca spesso in maniera rabbiosa, ed è quella che costa di più;
 - **non rispondere in chat**: ogni messaggio scritto è un secondo in cui non guardiamo la mappa;
-- **una partita non è mai persa prima dell'inibitore**: Endgame Lord restituisce situazioni che sembravano perse;
+- **una partita non è mai persa finché la base regge**: i Lord di fine partita ribaltano partite che sembravano perse;
 - **gioca riposato**: le ore di stanchezza sono quelle in cui si accumulano piccoli errori.
 
 ## Impara dalle tue sconfitte

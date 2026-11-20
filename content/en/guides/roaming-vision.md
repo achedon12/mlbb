@@ -18,7 +18,7 @@ Mobile Legends has no vision tags to place: vision comes from heroes, minions, t
 
 - **Heroes, minions, and turrets** reveal what's around them, but not the inside of a bush.
 - **Bushes** hide a hero as long as no enemy enters them or reveals them through an effect.
-- **The Lithowanderer**, a small river creature, leaves behind a stone sentry which signals enemies for a few tens of seconds to the team that finished it off.
+- **The Lithowanderer**, a small river creature, spawns a stone sentry that reveals enemies to the team that finished it off.
 - **Certain skills** reveal an area or a hero: they are often worth more at the start of the game than their damage.
 
 The [map guide](/map) locates the bushes, the river and the camps, and gives the times of each creature.
@@ -54,7 +54,7 @@ A bush held by an engagement tank like [Tigreal](/heroes/tigreal), [Atlas](/hero
 
 Vision is mainly used to answer a question before each objective: where are the adversaries? The roamer and the jungler must be able to answer them together.
 
-- **Before the Turtle or the Lord**, count the opponents visible on the minimap. Three visible far from the objective: we can begin. Less than two visible: we check the bushes first.
+- **Before the Turtle or the Lord**, count the opponents visible on the minimap. At least three visible, far from the objective: you can start. Two or fewer, or opponents visible near the objective: check the bushes first, or wait until you know more.
 - **During the objective**, the roamer places himself between the objective and the opponent's arrival path, not on the objective itself.
 - **After an objective**, he guards the river while the team retreats or pushes.
 

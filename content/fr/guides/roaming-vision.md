@@ -18,7 +18,7 @@ MLBB n'a pas de balises de vision à poser : la vision vient des héros, des sbi
 
 - **Les héros, les sbires et les tourelles** révèlent ce qui se trouve autour d'eux, mais pas l'intérieur d'un buisson.
 - **Les buissons** cachent un héros tant qu'aucun ennemi n'y est entré ou ne l'a révélé par un effet.
-- **Le Lithowanderer**, petite créature de la rivière, laisse derrière lui une sentinelle de pierre qui signale les ennemis pendant quelques dizaines de secondes à l'équipe qui l'a achevé.
+- **Le Lithowanderer**, petite créature de la rivière, fait apparaître une sentinelle de pierre qui signale les ennemis à l'équipe qui l'a achevé.
 - **Certaines compétences** révèlent une zone ou un héros : en début de partie, l'information qu'elles donnent vaut souvent plus que leurs dégâts.
 
 Le [guide de la carte](/map) situe les buissons, la rivière et les camps, et donne les horaires de chaque créature.
@@ -54,7 +54,7 @@ Un buisson tenu par un tank d'engagement comme [Tigreal](/heroes/tigreal), [Atla
 
 Avant chaque objectif, la vision sert surtout à répondre à une question : où sont les adversaires ? Le roamer et le jungleur doivent pouvoir y répondre ensemble.
 
-- **Avant la Tortue ou le Seigneur**, comptez les adversaires visibles sur la mini-carte. Trois visibles loin de l'objectif : on peut commencer. Moins de deux : on vérifie d'abord les buissons.
+- **Avant la Tortue ou le Seigneur**, comptez les adversaires visibles sur la mini-carte. Au moins trois visibles, loin de l'objectif : on peut commencer. Deux ou moins, ou des adversaires visibles près de l'objectif : on vérifie d'abord les buissons, ou on attend d'en savoir plus.
 - **Pendant l'objectif**, le roamer se place entre l'objectif et le chemin par lequel l'adversaire arrive, pas sur l'objectif lui-même.
 - **Après un objectif**, il garde la rivière le temps que l'équipe se replie ou pousse.
 

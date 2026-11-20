@@ -44,7 +44,7 @@ It works when three conditions are met:
 2. **The rest of the team does not fight**: they hold a defensive position, under a turret or near an objective, without accepting four-on-five combat.
 3. **Waves are managed**: a lane pushed in front of your team keeps the pressure on while you are elsewhere.
 
-Heroes designed for this destroy a turret quickly and leave the lane easily: [Sun](/heroes/sun), [Zilong](/heroes/zilong) or [Masha](/heroes/masha) are known examples.
+Good split pushers take a turret down quickly and have a way out. [Sun](/heroes/sun) turns into his staff, hides and reappears further away with Swift Exchange; [Zilong](/heroes/zilong) gains movement speed and ignores slows with Supreme Warrior. [Masha](/heroes/masha), on the other hand, only has one dash (Claw Strike) to get away: she has to watch the minimap and leave the lane before the defenders arrive.
 
 ## When not to split push
 

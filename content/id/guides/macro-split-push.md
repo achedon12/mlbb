@@ -44,7 +44,7 @@ Ini berfungsi ketika tiga kondisi terpenuhi:
 2. **Anggota tim lainnya tidak bertarung**: mereka memegang posisi bertahan, di bawah turret atau di dekat objektif, tanpa menerima pertarungan empat lawan lima.
 3. **Wave dikelola**: lane yang didorong di depan tim Anda mempertahankan tekanan saat Anda berada di tempat lain.
 
-Hero yang dirancang untuk ini menghancurkan turret dengan cepat dan meninggalkan lane dengan mudah: [Sun](/heroes/sun), [Zilong](/heroes/zilong) atau [Masha](/heroes/masha) adalah contoh yang diketahui.
+Hero split push yang baik cepat menghancurkan turret dan punya cara untuk kabur. [Sun](/heroes/sun) berubah menjadi tongkatnya, bersembunyi, lalu muncul lebih jauh dengan Swift Exchange; [Zilong](/heroes/zilong) mendapat movement speed dan kebal slow dengan Supreme Warrior. Sementara [Masha](/heroes/masha) hanya punya satu dash (Claw Strike) untuk pergi: ia harus memantau minimap dan meninggalkan lane sebelum para pembela datang.
 
 ## Kapan tidak melakukan split push
 

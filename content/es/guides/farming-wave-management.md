@@ -16,10 +16,10 @@ La línea del oro tiene un nombre acertado: es la línea que produce más oro, y
 
 ## Cada minion cuenta
 
-Las oleadas de minions llegan cada treinta segundos. Las primeras oleadas de líneas laterales proporcionan una bonificación, lo que hace que cada minion fallido al comienzo de la partida sea aún más costoso.
+Sale una oleada de minions cada treinta segundos, la primera a las 0:10. Durante las diez primeras oleadas (hasta las 5:10), el cañón da un 45 % más de oro en la línea de oro y un 35 % más de EXP en la línea de EXP: al principio de la partida, fallar un cañón cuesta más que fallar otro minion.
 
-- **Acaba con los minions** en lugar de golpear al azar: el golpe final trae oro, y un tirador que solo apunta a minions casi muertos también conserva sus PV.
-- **No dejes morir a los minions de asedio** sin acabar con ellos: valen más que los demás.
+- **Remata a los minions** en lugar de golpear al azar: un tirador que solo golpea a los minions casi muertos conserva sus PV y no empuja la oleada sin querer.
+- **Llévate el último golpe del cañón**, sobre todo durante las diez primeras oleadas: es el minion que lleva la bonificación.
 - **Aprende el ritmo de tu héroe**: su velocidad de ataque y daño en el nivel 1 no son los del nivel 6. Lo que era un movimiento final fácil se convierte en un golpe de más.
 
 ## Empujar, congelar o dejar venir

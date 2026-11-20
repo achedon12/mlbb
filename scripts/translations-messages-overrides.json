@@ -5417,16 +5417,16 @@
       "text": "Special modes available for a limited time, in rotation: Magic Hunt, Survival and other variants."
     },
     "prose.about.blocks.2.p": {
-      "fr": "S'y ajoute ce qu'aucune extraction ne produira : une analyse rédigée pour une partie des héros (ce qu'ils font, leurs builds, leurs contres), une tier list dont chaque placement est argumenté, et des guides de fond.",
-      "text": "On top of that comes what no extraction will produce: a written analysis for some of the heroes (what they do, their builds, their counters), a tier list where every placement is explained, and in-depth guides."
+      "fr": "S'y ajoute ce qu'aucune extraction ne produira : une analyse rédigée pour une partie des héros (ce qu'ils font, leurs builds, leurs contres), un commentaire rédigé pour une partie des héros de la tier list, et des guides de fond. Le classement de la tier list, lui, ne donne pas d'avis : il est calculé à partir des taux de victoire et de ban.",
+      "text": "On top of that comes what no extraction will produce: a written analysis for some of the heroes (what they do, their builds, their counters), a written comment for some of the heroes in the tier list, and in-depth guides. The tier list ranking itself gives no opinion: it is computed from win and ban rates."
     },
     "prose.about.blocks.4.p": {
       "fr": "Pas de classement de joueurs ni de « MMR ». Moonton ne publie aucune API officielle : les statistiques affichées ici (taux de victoire, de ban et de pick, contres, builds, tendances) viennent de l'API communautaire arena.rone.dev, qui agrège les parties classées par rang. Les sites qui affichent un « MMR » pour Mobile Legends l'estiment : ils ne le lisent nulle part.",
       "text": "No player rankings and no \"MMR\". Moonton publishes no official API: the stats shown here (win, ban and pick rates, counters, builds, trends) come from the community API arena.rone.dev, which aggregates ranked games by rank. Sites that show an \"MMR\" for Mobile Legends estimate it: they don't read it anywhere."
     },
     "prose.about.blocks.5.p": {
-      "fr": "Si vous vous connectez avec le code de vérification du jeu, vous voyez votre propre profil (saison, héros joués, parties récentes), lu à la demande via la même API et visible par vous seul. Il n'est ni publié ni conservé au-delà d'un cache de quelques minutes.",
-      "text": "If you sign in with the game's verification code, you see your own profile (season, heroes played, recent games), read on demand through the same API and visible only to you. It is neither published nor kept beyond a few minutes of cache."
+      "fr": "Si vous vous connectez avec le code de vérification du jeu, vous voyez votre propre profil (saison, héros joués, parties récentes), lu à la demande via la même API et visible par vous seul. Il n'est pas publié. Pour ne pas tout redemander à chaque visite, les réponses du jeu restent un temps dans la mémoire du serveur, jamais sur disque : de deux minutes à six heures selon la donnée. Seule exception, la carte /profile du bot Discord, si vous la reliez : le site garde alors votre jeton de jeu chiffré, au plus 7 jours, et les chiffres de la carte, effacés 30 jours après leur dernière mise à jour ou dès que vous la déliez.",
+      "text": "If you sign in with the game's verification code, you see your own profile (season, heroes played, recent games), read on demand through the same API and visible only to you. It is not published. So that each visit does not request everything again, the game's responses stay for a while in the server's memory, never on disk: from two minutes to six hours depending on the data. The one exception is the Discord bot's /profile card, if you link it: the site then keeps your game token, encrypted, for 7 days at most, and the card's figures, deleted 30 days after their last update or as soon as you unlink it."
     },
     "prose.about.blocks.8.p": {
       "fr": "La section veille rassemble automatiquement les publications d'autres sites sur le jeu. Elle n'en affiche que le titre, la date et un court extrait, et renvoie toujours vers l'éditeur d'origine : rien n'y est republié.",
@@ -5783,6 +5783,10 @@
     "tools.retribution.rowEnemy": {
       "fr": "Jungleur adverse · {ms} ms",
       "text": "Enemy jungler · {ms} ms"
+    },
+    "pages.map.point.lord.role": {
+      "fr": "Le monstre le plus puissant de la carte. L'équipe qui le tue l'invoque : il pousse une lane avec elle et renforce la prochaine vague de sbires.",
+      "text": "The strongest monster on the map. The team that kills it summons it: it pushes a lane alongside that team and empowers the next minion wave."
     }
   },
   "es": {
@@ -10309,6 +10313,18 @@
     "pages.sources.measured": {
       "fr": "Statistiques mesurées le {date}",
       "text": "Estadísticas medidas el {date}"
+    },
+    "pages.map.point.lord.role": {
+      "fr": "Le monstre le plus puissant de la carte. L'équipe qui le tue l'invoque : il pousse une lane avec elle et renforce la prochaine vague de sbires.",
+      "text": "El monstruo más poderoso del mapa. El equipo que lo mata lo invoca: empuja una línea junto a ese equipo y refuerza la siguiente oleada de minions."
+    },
+    "prose.about.blocks.2.p": {
+      "fr": "S'y ajoute ce qu'aucune extraction ne produira : une analyse rédigée pour une partie des héros (ce qu'ils font, leurs builds, leurs contres), un commentaire rédigé pour une partie des héros de la tier list, et des guides de fond. Le classement de la tier list, lui, ne donne pas d'avis : il est calculé à partir des taux de victoire et de ban.",
+      "text": "A esto se suma lo que ninguna extracción producirá: un análisis escrito para parte de los héroes (qué hacen, sus builds, sus counters), un comentario escrito para parte de los héroes de la tier list y guías a fondo. La clasificación de la tier list, en cambio, no es una opinión: se calcula a partir de las tasas de victoria y de ban."
+    },
+    "prose.about.blocks.5.p": {
+      "fr": "Si vous vous connectez avec le code de vérification du jeu, vous voyez votre propre profil (saison, héros joués, parties récentes), lu à la demande via la même API et visible par vous seul. Il n'est pas publié. Pour ne pas tout redemander à chaque visite, les réponses du jeu restent un temps dans la mémoire du serveur, jamais sur disque : de deux minutes à six heures selon la donnée. Seule exception, la carte /profile du bot Discord, si vous la reliez : le site garde alors votre jeton de jeu chiffré, au plus 7 jours, et les chiffres de la carte, effacés 30 jours après leur dernière mise à jour ou dès que vous la déliez.",
+      "text": "Si inicias sesión con el código de verificación del juego, ves tu propio perfil (temporada, héroes jugados, partidas recientes), leído a demanda a través de la misma API y visible solo para ti. No se publica. Para no volver a pedirlo todo en cada visita, las respuestas del juego se quedan un tiempo en la memoria del servidor, nunca en disco: de dos minutos a seis horas según el dato. La única excepción es la tarjeta /profile del bot de Discord, si la vinculas: el sitio guarda entonces tu token de juego cifrado, 7 días como máximo, y las cifras de la tarjeta, que se borran 30 días después de su última actualización o en cuanto la desvinculas."
     }
   },
   "id": {
@@ -16923,6 +16939,18 @@
     "pages.sources.rows.tiers": {
       "fr": "Paliers et tendances : calculés par {site} à partir de ces taux.",
       "text": "Tier dan tren: dihitung oleh {site} dari rate ini."
+    },
+    "pages.map.point.lord.role": {
+      "fr": "Le monstre le plus puissant de la carte. L'équipe qui le tue l'invoque : il pousse une lane avec elle et renforce la prochaine vague de sbires.",
+      "text": "Monster terkuat di peta. Tim yang membunuhnya akan memanggilnya: Lord mendorong satu lane bersama tim itu dan memperkuat wave minion berikutnya."
+    },
+    "prose.about.blocks.2.p": {
+      "fr": "S'y ajoute ce qu'aucune extraction ne produira : une analyse rédigée pour une partie des héros (ce qu'ils font, leurs builds, leurs contres), un commentaire rédigé pour une partie des héros de la tier list, et des guides de fond. Le classement de la tier list, lui, ne donne pas d'avis : il est calculé à partir des taux de victoire et de ban.",
+      "text": "Ditambah lagi hal yang tidak akan dihasilkan oleh ekstraksi mana pun: analisis tertulis untuk sebagian hero (apa yang mereka lakukan, build, dan counter mereka), komentar tertulis untuk sebagian hero di tier list, dan panduan mendalam. Peringkat tier list sendiri bukan opini: peringkat itu dihitung dari win rate dan ban rate."
+    },
+    "prose.about.blocks.5.p": {
+      "fr": "Si vous vous connectez avec le code de vérification du jeu, vous voyez votre propre profil (saison, héros joués, parties récentes), lu à la demande via la même API et visible par vous seul. Il n'est pas publié. Pour ne pas tout redemander à chaque visite, les réponses du jeu restent un temps dans la mémoire du serveur, jamais sur disque : de deux minutes à six heures selon la donnée. Seule exception, la carte /profile du bot Discord, si vous la reliez : le site garde alors votre jeton de jeu chiffré, au plus 7 jours, et les chiffres de la carte, effacés 30 jours après leur dernière mise à jour ou dès que vous la déliez.",
+      "text": "Jika kamu masuk dengan kode verifikasi game, kamu melihat profilmu sendiri (season, hero yang dimainkan, pertandingan terakhir), dibaca saat diminta melalui API yang sama dan hanya terlihat olehmu. Profil itu tidak dipublikasikan. Agar tidak meminta semuanya lagi di setiap kunjungan, jawaban dari game disimpan sementara di memori server, tidak pernah di disk: dari dua menit hingga enam jam, tergantung datanya. Satu-satunya pengecualian adalah kartu /profile dari bot Discord, jika kamu menautkannya: situs menyimpan token game-mu dalam bentuk terenkripsi paling lama 7 hari, dan angka di kartu, yang dihapus 30 hari setelah pembaruan terakhir atau begitu kamu melepas tautannya."
     }
   },
   "it": {
@@ -21509,6 +21537,18 @@
     "pages.sources.measured": {
       "fr": "Statistiques mesurées le {date}",
       "text": "Statistiche misurate il {date}"
+    },
+    "pages.map.point.lord.role": {
+      "fr": "Le monstre le plus puissant de la carte. L'équipe qui le tue l'invoque : il pousse une lane avec elle et renforce la prochaine vague de sbires.",
+      "text": "Il mostro più potente della mappa. La squadra che lo uccide lo evoca: spinge una lane insieme a quella squadra e rafforza la prossima ondata di minion."
+    },
+    "prose.about.blocks.2.p": {
+      "fr": "S'y ajoute ce qu'aucune extraction ne produira : une analyse rédigée pour une partie des héros (ce qu'ils font, leurs builds, leurs contres), un commentaire rédigé pour une partie des héros de la tier list, et des guides de fond. Le classement de la tier list, lui, ne donne pas d'avis : il est calculé à partir des taux de victoire et de ban.",
+      "text": "A questo si aggiunge ciò che nessuna estrazione produrrà: un'analisi scritta per una parte degli eroi (cosa fanno, le loro build, i loro counter), un commento scritto per una parte degli eroi della tier list e guide approfondite. La classifica della tier list, invece, non è un'opinione: è calcolata a partire dai tassi di vittoria e di ban."
+    },
+    "prose.about.blocks.5.p": {
+      "fr": "Si vous vous connectez avec le code de vérification du jeu, vous voyez votre propre profil (saison, héros joués, parties récentes), lu à la demande via la même API et visible par vous seul. Il n'est pas publié. Pour ne pas tout redemander à chaque visite, les réponses du jeu restent un temps dans la mémoire du serveur, jamais sur disque : de deux minutes à six heures selon la donnée. Seule exception, la carte /profile du bot Discord, si vous la reliez : le site garde alors votre jeton de jeu chiffré, au plus 7 jours, et les chiffres de la carte, effacés 30 jours après leur dernière mise à jour ou dès que vous la déliez.",
+      "text": "Se accedi con il codice di verifica del gioco, vedi il tuo profilo (stagione, eroi giocati, partite recenti), letto su richiesta tramite la stessa API e visibile solo a te. Non viene pubblicato. Per non richiedere tutto a ogni visita, le risposte del gioco restano per un po' nella memoria del server, mai su disco: da due minuti a sei ore a seconda del dato. L'unica eccezione è la scheda /profile del bot Discord, se la colleghi: il sito conserva allora il tuo token di gioco cifrato, per 7 giorni al massimo, e i numeri della scheda, cancellati 30 giorni dopo l'ultimo aggiornamento o appena la scolleghi."
     }
   },
   "fil": {
@@ -30817,8 +30857,8 @@
       "text": "Pinalakas ang susunod na minion wave; tumutulak ang ipinatawag na Lord kasama ang team mo, at ang mga kakampi sa malapit ay nagdudulot ng {bonus} na dagdag na base magic damage ({cooldown} s na cooldown)"
     },
     "pages.map.point.lord.role": {
-      "fr": "Le monstre le plus puissant de la carte. L'équipe qui le tue l'invoque : il pousse la lane la plus faible de l'adversaire et renforce la prochaine vague de sbires.",
-      "text": "Ang pinakamalakas na monster sa mapa. Ang team na pumatay dito ang nagpapatawag nito: tinutulak nito ang pinakamahinang lane ng kalaban at pinalalakas ang susunod na minion wave."
+      "fr": "Le monstre le plus puissant de la carte. L'équipe qui le tue l'invoque : il pousse une lane avec elle et renforce la prochaine vague de sbires.",
+      "text": "Ang pinakamalakas na monster sa mapa. Ang team na pumatay dito ang nagpapatawag nito: nagtutulak ito ng isang lane kasama ng team at pinalalakas ang susunod na minion wave."
     },
     "pages.map.point.mid-lane.bonus": {
       "fr": "{waves} premières vagues : {lancers} lanciers et {infantry} fantassin",
@@ -34849,8 +34889,8 @@
       "text": "Ang Mobile Legends: Bang Bang, ang uniberso nito, ang mga hero nito at ang mga pangalan nila ay mga rehistradong trademark ng Shanghai Moonton Technology Co., Ltd. Ang site na ito ay isang independiyenteng fan project, na walang kaugnayan, endorsement o sponsorship mula sa Moonton."
     },
     "prose.about.blocks.2.p": {
-      "fr": "S'y ajoute ce qu'aucune extraction ne produira : une analyse rédigée pour une partie des héros (ce qu'ils font, leurs builds, leurs contres), une tier list dont chaque placement est argumenté, et des guides de fond.",
-      "text": "Dagdag pa rito ang hindi kailanman makukuha ng awtomatikong extraction: nakasulat na analysis para sa ilang hero — kung ano talaga ang ginagawa nila, ang mga build nila, ang mga counter nila — tier list kung saan may paliwanag ang bawat puwesto, at mga detalyadong guide."
+      "fr": "S'y ajoute ce qu'aucune extraction ne produira : une analyse rédigée pour une partie des héros (ce qu'ils font, leurs builds, leurs contres), un commentaire rédigé pour une partie des héros de la tier list, et des guides de fond. Le classement de la tier list, lui, ne donne pas d'avis : il est calculé à partir des taux de victoire et de ban.",
+      "text": "Dagdag pa rito ang hindi kailanman makukuha ng awtomatikong extraction: nakasulat na analysis para sa ilang hero (kung ano ang ginagawa nila, ang mga build nila, ang mga counter nila), nakasulat na komento para sa ilang hero sa tier list, at mga detalyadong guide. Ang ranking mismo ng tier list ay hindi opinyon: kinukuwenta ito mula sa win rate at ban rate."
     },
     "prose.about.blocks.3.h": {
       "fr": "Ce qu'il ne contient pas, et pourquoi",
@@ -34861,8 +34901,8 @@
       "text": "Walang ranking ng player at walang “MMR”. Walang opisyal na interface na inilalabas ang Moonton: ang stats na makikita rito — win rate, ban rate at pick rate, counter, build, trend — ay galing sa community API na arena.rone.dev, na pinagsasama-sama ang mga ranked match ayon sa rank. Tinatantiya lang ito ng mga site na nagpapakita ng “MMR” para sa Mobile Legends; hindi nila ito nababasa kahit saan."
     },
     "prose.about.blocks.5.p": {
-      "fr": "Si vous vous connectez avec le code de vérification du jeu, vous voyez votre propre profil (saison, héros joués, parties récentes), lu à la demande via la même API et visible par vous seul. Il n'est ni publié ni conservé au-delà d'un cache de quelques minutes.",
-      "text": "Kapag naka-log in ka gamit ang in-game verification code, makikita mo ang sarili mong profile — season, mga hero na nilaro, mga kamakailang match — na binabasa kapag hiniling sa parehong API, para sa iyo lang. Hindi ito ipina-publish o itinatago lampas sa cache na ilang minuto."
+      "fr": "Si vous vous connectez avec le code de vérification du jeu, vous voyez votre propre profil (saison, héros joués, parties récentes), lu à la demande via la même API et visible par vous seul. Il n'est pas publié. Pour ne pas tout redemander à chaque visite, les réponses du jeu restent un temps dans la mémoire du serveur, jamais sur disque : de deux minutes à six heures selon la donnée. Seule exception, la carte /profile du bot Discord, si vous la reliez : le site garde alors votre jeton de jeu chiffré, au plus 7 jours, et les chiffres de la carte, effacés 30 jours après leur dernière mise à jour ou dès que vous la déliez.",
+      "text": "Kapag naka-log in ka gamit ang in-game verification code, makikita mo ang sarili mong profile (season, mga hero na nilaro, mga kamakailang match), na binabasa kapag hiniling sa parehong API, para sa iyo lang. Hindi ito ipina-publish. Para hindi hingin ulit ang lahat sa bawat pagbisita, nananatili sandali ang mga sagot ng laro sa memory ng server, hindi kailanman sa disk: mula dalawang minuto hanggang anim na oras depende sa data. Ang tanging eksepsiyon ay ang /profile card ng Discord bot, kung ili-link mo ito: itinatago ng site ang naka-encrypt mong game token nang hanggang 7 araw, at ang mga numero ng card, na binubura 30 araw pagkatapos ng huling update o kapag in-unlink mo ito."
     },
     "prose.about.blocks.7.h": {
       "fr": "La veille",
@@ -45115,8 +45155,8 @@
       "text": "มินเนียนเวฟถัดไปได้รับพลังเสริม ลอร์ดที่เรียกมาจะดันเลนไปพร้อมทีมคุณ และเพื่อนร่วมทีมที่อยู่ใกล้จะสร้างดาเมจเวทพื้นฐานเพิ่ม {bonus} (คูลดาวน์ {cooldown} วินาที)"
     },
     "pages.map.point.lord.role": {
-      "fr": "Le monstre le plus puissant de la carte. L'équipe qui le tue l'invoque : il pousse la lane la plus faible de l'adversaire et renforce la prochaine vague de sbires.",
-      "text": "มอนสเตอร์ที่แข็งแกร่งที่สุดบนแผนที่ ทีมที่ฆ่าได้จะได้ลอร์ดมาเป็นพวก: ลอร์ดจะดันเลนที่อ่อนที่สุดของศัตรูและเสริมพลังให้มินเนียนเวฟถัดไป"
+      "fr": "Le monstre le plus puissant de la carte. L'équipe qui le tue l'invoque : il pousse une lane avec elle et renforce la prochaine vague de sbires.",
+      "text": "มอนสเตอร์ที่แข็งแกร่งที่สุดบนแผนที่ ทีมที่ฆ่าได้จะได้ลอร์ดมาเป็นพวก: ลอร์ดจะดันเลนไปพร้อมกับทีมและเสริมพลังให้มินเนียนเวฟถัดไป"
     },
     "pages.map.point.mid-lane.bonus": {
       "fr": "{waves} premières vagues : {lancers} lanciers et {infantry} fantassin",
@@ -48887,8 +48927,8 @@
       "text": "Mobile Legends: Bang Bang จักรวาลของเกม ฮีโร่ และชื่อฮีโร่ เป็นเครื่องหมายการค้าจดทะเบียนของ Shanghai Moonton Technology Co., Ltd. เว็บไซต์นี้เป็นโปรเจกต์อิสระของแฟนเกม ไม่มีส่วนเกี่ยวข้อง ไม่ได้รับการรับรอง และไม่ได้รับการสนับสนุนจาก Moonton"
     },
     "prose.about.blocks.2.p": {
-      "fr": "S'y ajoute ce qu'aucune extraction ne produira : une analyse rédigée pour une partie des héros (ce qu'ils font, leurs builds, leurs contres), une tier list dont chaque placement est argumenté, et des guides de fond.",
-      "text": "นอกจากนั้นยังมีสิ่งที่การดึงข้อมูลอัตโนมัติไม่มีวันสร้างได้: บทวิเคราะห์ที่เขียนขึ้นสำหรับฮีโร่บางตัว — สิ่งที่ฮีโร่ทำได้จริง บิลด์ และเคาน์เตอร์ — Tier List ที่ทุกอันดับมีเหตุผลรองรับ และไกด์เชิงลึก"
+      "fr": "S'y ajoute ce qu'aucune extraction ne produira : une analyse rédigée pour une partie des héros (ce qu'ils font, leurs builds, leurs contres), un commentaire rédigé pour une partie des héros de la tier list, et des guides de fond. Le classement de la tier list, lui, ne donne pas d'avis : il est calculé à partir des taux de victoire et de ban.",
+      "text": "นอกจากนั้นยังมีสิ่งที่การดึงข้อมูลอัตโนมัติไม่มีวันสร้างได้: บทวิเคราะห์ที่เขียนขึ้นสำหรับฮีโร่บางตัว (สิ่งที่ฮีโร่ทำได้ บิลด์ และเคาน์เตอร์) ความเห็นที่เขียนขึ้นสำหรับฮีโร่บางตัวใน Tier List และไกด์เชิงลึก ส่วนอันดับใน Tier List ไม่ใช่ความเห็น: คำนวณจากอัตราชนะและอัตราแบน"
     },
     "prose.about.blocks.3.h": {
       "fr": "Ce qu'il ne contient pas, et pourquoi",
@@ -48899,8 +48939,8 @@
       "text": "ไม่มีอันดับผู้เล่นและไม่มี “MMR” Moonton ไม่ได้เปิดอินเทอร์เฟซอย่างเป็นทางการใดๆ: สถิติที่แสดงที่นี่ — Win Rate, Ban Rate และ Pick Rate เคาน์เตอร์ บิลด์ แนวโน้ม — มาจาก API คอมมูนิตี้ arena.rone.dev ซึ่งรวบรวมเกม Ranked แยกตามแรงก์ เว็บไซต์ที่แสดง “MMR” ของ Mobile Legends ใช้การประมาณ ไม่ได้อ่านค่าจากแหล่งใด"
     },
     "prose.about.blocks.5.p": {
-      "fr": "Si vous vous connectez avec le code de vérification du jeu, vous voyez votre propre profil (saison, héros joués, parties récentes), lu à la demande via la même API et visible par vous seul. Il n'est ni publié ni conservé au-delà d'un cache de quelques minutes.",
-      "text": "เมื่อเข้าสู่ระบบด้วยรหัสยืนยันในเกม คุณจะเห็นโปรไฟล์ของตัวเอง — ซีซัน ฮีโร่ที่เล่น เกมล่าสุด — ซึ่งอ่านผ่าน API เดียวกันเมื่อคุณเรียกดู และแสดงเฉพาะคุณ ข้อมูลไม่ถูกเผยแพร่และไม่ถูกเก็บไว้นานเกินแคชไม่กี่นาที"
+      "fr": "Si vous vous connectez avec le code de vérification du jeu, vous voyez votre propre profil (saison, héros joués, parties récentes), lu à la demande via la même API et visible par vous seul. Il n'est pas publié. Pour ne pas tout redemander à chaque visite, les réponses du jeu restent un temps dans la mémoire du serveur, jamais sur disque : de deux minutes à six heures selon la donnée. Seule exception, la carte /profile du bot Discord, si vous la reliez : le site garde alors votre jeton de jeu chiffré, au plus 7 jours, et les chiffres de la carte, effacés 30 jours après leur dernière mise à jour ou dès que vous la déliez.",
+      "text": "เมื่อเข้าสู่ระบบด้วยรหัสยืนยันในเกม คุณจะเห็นโปรไฟล์ของตัวเอง (ซีซัน ฮีโร่ที่เล่น เกมล่าสุด) ซึ่งอ่านผ่าน API เดียวกันเมื่อคุณเรียกดู และแสดงเฉพาะคุณ ข้อมูลไม่ถูกเผยแพร่ เพื่อไม่ให้ต้องขอข้อมูลทั้งหมดใหม่ทุกครั้งที่เข้าชม คำตอบจากเกมจะถูกเก็บไว้ในหน่วยความจำของเซิร์ฟเวอร์ชั่วคราว ไม่เคยเขียนลงดิสก์: ตั้งแต่สองนาทีถึงหกชั่วโมงตามประเภทข้อมูล ข้อยกเว้นเดียวคือการ์ด /profile ของบอท Discord หากคุณเชื่อมไว้: เว็บไซต์จะเก็บโทเค็นเกมของคุณแบบเข้ารหัสไว้ไม่เกิน 7 วัน และตัวเลขบนการ์ด ซึ่งจะถูกลบ 30 วันหลังอัปเดตครั้งล่าสุด หรือทันทีที่คุณยกเลิกการเชื่อม"
     },
     "prose.about.blocks.7.h": {
       "fr": "La veille",
@@ -57657,8 +57697,8 @@
       "text": "Próxima onda de minions fortalecida; o Lorde invocado avança com a sua equipe, e os aliados próximos causam {bonus} de dano mágico base extra (recarga de {cooldown} s)"
     },
     "pages.map.point.lord.role": {
-      "fr": "Le monstre le plus puissant de la carte. L'équipe qui le tue l'invoque : il pousse la lane la plus faible de l'adversaire et renforce la prochaine vague de sbires.",
-      "text": "O monstro mais poderoso do mapa. A equipe que o mata o invoca: ele empurra a lane mais fraca do adversário e fortalece a próxima onda de minions."
+      "fr": "Le monstre le plus puissant de la carte. L'équipe qui le tue l'invoque : il pousse une lane avec elle et renforce la prochaine vague de sbires.",
+      "text": "O monstro mais poderoso do mapa. A equipe que o mata o invoca: ele empurra uma lane junto com ela e fortalece a próxima onda de minions."
     },
     "pages.map.point.mid-lane.bonus": {
       "fr": "{waves} premières vagues : {lancers} lanciers et {infantry} fantassin",
@@ -60845,16 +60885,16 @@
       "text": "Marcas registradas"
     },
     "prose.about.blocks.2.p": {
-      "fr": "S'y ajoute ce qu'aucune extraction ne produira : une analyse rédigée pour une partie des héros (ce qu'ils font, leurs builds, leurs contres), une tier list dont chaque placement est argumenté, et des guides de fond.",
-      "text": "Some-se a isso o que nenhuma extração vai produzir: uma análise escrita para parte dos heróis (o que eles realmente fazem, suas builds, seus counters), uma tier list em que cada posição é justificada, e guias aprofundados."
+      "fr": "S'y ajoute ce qu'aucune extraction ne produira : une analyse rédigée pour une partie des héros (ce qu'ils font, leurs builds, leurs contres), un commentaire rédigé pour une partie des héros de la tier list, et des guides de fond. Le classement de la tier list, lui, ne donne pas d'avis : il est calculé à partir des taux de victoire et de ban.",
+      "text": "Some-se a isso o que nenhuma extração vai produzir: uma análise escrita para parte dos heróis (o que eles fazem, suas builds, seus counters), um comentário escrito para parte dos heróis da tier list, e guias aprofundados. A classificação da tier list, em si, não é opinião: ela é calculada a partir das taxas de vitória e de ban."
     },
     "prose.about.blocks.4.p": {
       "fr": "Pas de classement de joueurs ni de « MMR ». Moonton ne publie aucune API officielle : les statistiques affichées ici (taux de victoire, de ban et de pick, contres, builds, tendances) viennent de l'API communautaire arena.rone.dev, qui agrège les parties classées par rang. Les sites qui affichent un « MMR » pour Mobile Legends l'estiment : ils ne le lisent nulle part.",
       "text": "Sem ranking de jogadores nem “MMR”. A Moonton não publica nenhuma interface oficial: as estatísticas exibidas aqui (taxas de vitória, de ban e de pick, counters, builds, tendências) vêm da API comunitária arena.rone.dev, que agrega as partidas ranqueadas por elo. Os sites que mostram um “MMR” para Mobile Legends fazem uma estimativa; não o leem de lugar nenhum."
     },
     "prose.about.blocks.5.p": {
-      "fr": "Si vous vous connectez avec le code de vérification du jeu, vous voyez votre propre profil (saison, héros joués, parties récentes), lu à la demande via la même API et visible par vous seul. Il n'est ni publié ni conservé au-delà d'un cache de quelques minutes.",
-      "text": "Depois de entrar com o código de verificação do jogo, você vê o seu próprio perfil (temporada, heróis jogados, partidas recentes), lido sob demanda por essa mesma API, só para você. Ele não é publicado nem guardado além de um cache de alguns minutos."
+      "fr": "Si vous vous connectez avec le code de vérification du jeu, vous voyez votre propre profil (saison, héros joués, parties récentes), lu à la demande via la même API et visible par vous seul. Il n'est pas publié. Pour ne pas tout redemander à chaque visite, les réponses du jeu restent un temps dans la mémoire du serveur, jamais sur disque : de deux minutes à six heures selon la donnée. Seule exception, la carte /profile du bot Discord, si vous la reliez : le site garde alors votre jeton de jeu chiffré, au plus 7 jours, et les chiffres de la carte, effacés 30 jours après leur dernière mise à jour ou dès que vous la déliez.",
+      "text": "Depois de entrar com o código de verificação do jogo, você vê o seu próprio perfil (temporada, heróis jogados, partidas recentes), lido sob demanda por essa mesma API, só para você. Ele não é publicado. Para não pedir tudo de novo a cada visita, as respostas do jogo ficam um tempo na memória do servidor, nunca em disco: de dois minutos a seis horas, conforme o dado. A única exceção é o cartão /profile do bot do Discord, se você o vincular: o site guarda então o seu token de jogo criptografado, por no máximo 7 dias, e os números do cartão, apagados 30 dias após a última atualização ou assim que você o desvincular."
     },
     "prose.about.blocks.7.h": {
       "fr": "La veille",
@@ -70315,8 +70355,8 @@
       "text": "Следующая волна миньонов усилена; призванный Лорд пушит вместе с вашей командой, а союзники рядом наносят дополнительно {bonus} базового магического урона (перезарядка {cooldown} с)"
     },
     "pages.map.point.lord.role": {
-      "fr": "Le monstre le plus puissant de la carte. L'équipe qui le tue l'invoque : il pousse la lane la plus faible de l'adversaire et renforce la prochaine vague de sbires.",
-      "text": "Самый сильный монстр на карте. Команда, убившая его, призывает его: он пушит самую слабую линию противника и усиливает следующую волну миньонов."
+      "fr": "Le monstre le plus puissant de la carte. L'équipe qui le tue l'invoque : il pousse une lane avec elle et renforce la prochaine vague de sbires.",
+      "text": "Самый сильный монстр на карте. Команда, убившая его, призывает его: он пушит линию вместе с ней и усиливает следующую волну миньонов."
     },
     "pages.map.point.mid-lane.bonus": {
       "fr": "{waves} premières vagues : {lancers} lanciers et {infantry} fantassin",
@@ -73939,8 +73979,8 @@
       "text": "Mobile Legends: Bang Bang, её вселенная, её герои и их имена являются зарегистрированными товарными знаками Shanghai Moonton Technology Co., Ltd. Этот сайт — независимый фанатский проект, не связанный с Moonton, не одобренный и не спонсируемый ею."
     },
     "prose.about.blocks.2.p": {
-      "fr": "S'y ajoute ce qu'aucune extraction ne produira : une analyse rédigée pour une partie des héros (ce qu'ils font, leurs builds, leurs contres), une tier list dont chaque placement est argumenté, et des guides de fond.",
-      "text": "К этому добавляется то, чего не даст никакое автоматическое извлечение: написанный вручную разбор части героев — что они на самом деле делают, их билды, их контрпики, — тир-лист, где каждое место обосновано, и подробные гайды."
+      "fr": "S'y ajoute ce qu'aucune extraction ne produira : une analyse rédigée pour une partie des héros (ce qu'ils font, leurs builds, leurs contres), un commentaire rédigé pour une partie des héros de la tier list, et des guides de fond. Le classement de la tier list, lui, ne donne pas d'avis : il est calculé à partir des taux de victoire et de ban.",
+      "text": "К этому добавляется то, чего не даст никакое автоматическое извлечение: написанный вручную разбор части героев (что они делают, их билды, их контрпики), написанные вручную комментарии к части героев тир-листа и подробные гайды. Сам рейтинг тир-листа — не мнение: он рассчитывается по проценту побед и банов."
     },
     "prose.about.blocks.3.h": {
       "fr": "Ce qu'il ne contient pas, et pourquoi",
@@ -73951,8 +73991,8 @@
       "text": "Нет рейтингов игроков и нет «MMR». Moonton не публикует никакого официального интерфейса: статистика на сайте — процент побед, банов и пиков, контрпики, билды, тренды — берётся из API сообщества arena.rone.dev, который агрегирует рейтинговые матчи по рангам. Сайты, показывающие «MMR» для Mobile Legends, его оценивают — получить его им неоткуда."
     },
     "prose.about.blocks.5.p": {
-      "fr": "Si vous vous connectez avec le code de vérification du jeu, vous voyez votre propre profil (saison, héros joués, parties récentes), lu à la demande via la même API et visible par vous seul. Il n'est ni publié ni conservé au-delà d'un cache de quelques minutes.",
-      "text": "Войдя с помощью кода подтверждения из игры, вы видите свой профиль — сезон, сыгранных героев, последние матчи, — который запрашивается по требованию через тот же API и показывается только вам. Он не публикуется и не хранится дольше кэша в несколько минут."
+      "fr": "Si vous vous connectez avec le code de vérification du jeu, vous voyez votre propre profil (saison, héros joués, parties récentes), lu à la demande via la même API et visible par vous seul. Il n'est pas publié. Pour ne pas tout redemander à chaque visite, les réponses du jeu restent un temps dans la mémoire du serveur, jamais sur disque : de deux minutes à six heures selon la donnée. Seule exception, la carte /profile du bot Discord, si vous la reliez : le site garde alors votre jeton de jeu chiffré, au plus 7 jours, et les chiffres de la carte, effacés 30 jours après leur dernière mise à jour ou dès que vous la déliez.",
+      "text": "Войдя с помощью кода подтверждения из игры, вы видите свой профиль (сезон, сыгранных героев, последние матчи), который запрашивается по требованию через тот же API и показывается только вам. Он не публикуется. Чтобы не запрашивать всё заново при каждом посещении, ответы игры какое-то время хранятся в памяти сервера, но никогда на диске: от двух минут до шести часов в зависимости от данных. Единственное исключение — карточка /profile бота Discord, если вы её привяжете: тогда сайт хранит ваш игровой токен в зашифрованном виде не дольше 7 дней, а цифры карточки удаляются через 30 дней после последнего обновления или сразу, как только вы её отвяжете."
     },
     "prose.about.blocks.7.h": {
       "fr": "La veille",
