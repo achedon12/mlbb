@@ -74,10 +74,15 @@ export function extractAvatarIcons(wikitext) {
 /**
  * Words that mark a wiki file as something other than the live game's
  * artwork: an unreleased revamp ("Thamuz (Lord Lava; unreleased revamp).jpg"),
- * a test-server or leaked visual, a fan work, a concept sketch, or the
- * pre-revamp version kept for the record ("Masha Rogue Talon (Original).jpg").
+ * a test-server, advanced-server, beta or leaked visual, a pre-release
+ * teaser or sneak peek, a draft or a prototype, a fan work, a
+ * concept sketch, or the pre-revamp version kept for the record ("Masha
+ * Rogue Talon (Original).jpg"). Skin names carry none of these words (checked
+ * against the catalogue of November 2026: "Proto Sentinel", "Angelic Fan" and
+ * "New Moon" are not caught).
  */
-const PROVISIONAL = /\b(unreleased|upcoming|leak(?:ed|s)?|advanced? server|test server|fan[ -]?art|fan[ -]?made|concept|wip)\b|\(original\)|\(old\)|\bpre-revamp\b/i;
+const PROVISIONAL =
+  /\b(unreleased|upcoming|leak(?:ed|s)?|advanced?[ -]server|test[ -]server|beta|pre-?release|sneak[ -]?peeks?|teasers?|drafts?|prototypes?|work in progress|fan[ -]?art|fan[ -]?made|concept|wip)\b|\(original\)|\(old\)|\bpre-revamp\b/i;
 
 /**
  * Whether a wiki file is not the live artwork, from its name, the
@@ -99,9 +104,9 @@ export function fallbackFileNames(file) {
   const stem = file.slice(0, file.length - ext.length);
   const without = stem
     // "(Lord Lava; unreleased revamp)": the qualifier after the semicolon.
-    .replace(/;[^;()]*\b(?:unreleased|upcoming|leak|advance|revamp)\b[^;()]*/i, "")
+    .replace(/;[^;()]*\b(?:unreleased|upcoming|leak|advance|revamp|beta|teaser|draft)\b[^;()]*/i, "")
     // "(Original)", "(unreleased revamp)": a bracket holding only the marker.
-    .replace(/\(\s*[^()]*\b(?:unreleased|upcoming|leak|advance|original|old|revamp)\b[^()]*\)/i, " ")
+    .replace(/\(\s*[^()]*\b(?:unreleased|upcoming|leak|advance|original|old|revamp|beta|teaser|draft)\b[^()]*\)/i, " ")
     .replace(/\s+/g, " ")
     .trim();
   if (!without || without === stem) return [];
@@ -118,10 +123,13 @@ export function fallbackFileNames(file) {
  * Splash Art Unfinished.png"), an edit ("Aldous Death-picsay.png", PicSay
  * being a phone photo editor), a crop or an upscale, and an older version
  * the wiki keeps under its years of use ("Kadita (Ocean Goddess;
- * 2018-2026).jpg"). Only checked for full-size artwork: an icon's
- * description has no reason to use these words.
+ * 2018-2026).jpg"); a third party's copy too: a screenshot, a watermarked,
+ * resized or stretched copy, a wallpaper cut from the artwork, a fan edit.
+ * Only checked for full-size artwork: an icon's description has no reason
+ * to use these words.
  */
-const ALTERED = /\b(?:beta|unfinished|edit(?:ed)?|crop(?:ped)?|upscaled?|retouched)\b|picsay|[(;]\s*\d{4}\s*[-–]\s*\d{4}\s*\)/i;
+const ALTERED =
+  /\b(?:beta|unfinished|edit(?:ed)?|crop(?:ped)?|upscaled?|retouched|resized|stretched|watermark(?:ed)?|screen(?:shot|cap)s?|wallpapers?|fan[ -]?edit)\b|picsay|[(;]\s*\d{4}\s*[-–]\s*\d{4}\s*\)/i;
 
 /**
  * Smallest width of an artwork the site shows full size. The official

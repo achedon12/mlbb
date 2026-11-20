@@ -6485,5 +6485,10 @@
     "tool": "herramienta gratuita",
     "game": "juego del dia",
     "toolsKicker": "Herramientas gratuitas"
+  },
+  "visualStatus": {
+    "provisional": "Provisional",
+    "provisionalHint": "Imagen provisional, aún no confirmada por el juego: puede cambiar antes del lanzamiento oficial.",
+    "provisionalNote": "Visual provisional: esta apariencia aún no está confirmada en el juego, la ilustración aún puede cambiar."
   }
 }

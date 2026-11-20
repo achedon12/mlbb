@@ -6485,5 +6485,10 @@
     "tool": "Free tool",
     "game": "Game of the day",
     "toolsKicker": "Free tools"
+  },
+  "visualStatus": {
+    "provisional": "Provisional",
+    "provisionalHint": "Provisional visual, not yet confirmed by the game: it may change before the official release.",
+    "provisionalNote": "Provisional visual: this skin is not yet confirmed in the game, its artwork may still change."
   }
 }
