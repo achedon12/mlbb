@@ -4,7 +4,8 @@
  * The source catalogue is `src/i18n/messages/fr.json` (French, the site's
  * original language); every other language of `LOCALES` is derived from it. The
  * `{variable}` markers are shielded before translation so they are not
- * altered, then restored.
+ * altered, then restored. So are the game's names, which the French writes
+ * in English and every language keeps (`translation-official-names.mjs`).
  *
  * Like the rest, this script only runs by hand or in CI: the output is
  * versioned, the application never translates at runtime.
@@ -14,6 +15,8 @@ import { pause, translateBatch as translateBatchGoogle } from "./translation-goo
 import { existsSync } from "node:fs";
 import { targetLocales } from "./locales.mjs";
 import { applyGlossary } from "./translation-glossary.mjs";
+import { OFFICIAL_NAMES } from "./translation-official-names.mjs";
+import { namesPattern } from "./translation-shield.mjs";
 
 const SOURCE = "src/i18n/messages/fr.json";
 // Every site language but French; `--locale id` narrows the run to the named ones.
@@ -23,12 +26,23 @@ const CACHE = "scripts/translations-messages.json";
 const cache = existsSync(CACHE) ? JSON.parse(await readFile(CACHE, "utf8")) : {};
 const PROTECTED = String.fromCharCode(0xE000); // Unicode private use area: preserved by the translator
 
+/**
+ * The game's names, as the French catalogue writes them: ranks, rarities,
+ * emblems, currencies, modes (`OFFICIAL_NAMES`), items, talents and battle
+ * spells. The service translated them like words: "Mythical Glory" would come
+ * back as "Gloria Mítica", "Fighter Emblem" as "Эмблема Истребителя".
+ */
+const ITEM_NAMES = JSON.parse(await readFile("src/data/game/items/en.json", "utf8")).map((o) => o.name);
+const EMBLEM_NAMES = [...(await readFile("src/data/emblems.ts", "utf8")).matchAll(/\bname: "([^"]+)"/g)].map((m) => m[1]);
+const NAMES = namesPattern([...OFFICIAL_NAMES, ...ITEM_NAMES, ...EMBLEM_NAMES]);
+const PARTS = new RegExp(`\\{\\w+\\}|\`[^\`]+\`|\\]\\([^)]+\\)|${NAMES.source}`, "gu");
+
 /** Replaces `{var}` with safe markers, returns the text and the table. */
 function protect(text) {
   const vars = [];
-  // Shielded: variables {x}, code `x`, and a link's URL (…). A link's
-  // label [text] is still translated.
-  const on = text.replace(/\{\w+\}|`[^`]+`|\]\([^)]+\)/g, (m) => {
+  // Shielded: variables {x}, code `x`, a link's URL (…) and the game's
+  // names. A link's label [text] is still translated.
+  const on = text.replace(PARTS, (m) => {
     vars.push(m);
     return `${PROTECTED}${vars.length - 1}${PROTECTED}`;
   });
@@ -77,6 +91,17 @@ for (const tl of TARGETS) {
     return s;
   });
   const unique = [...new Set(leaves)];
+  // A translation cached before the names were shielded, which lost one,
+  // goes back to the service (a hand correction still wins over it).
+  let lost = 0;
+  for (const u of unique) {
+    const out = cache[`${tl}|${u}`];
+    if (typeof out === "string" && (u.match(NAMES) ?? []).some((n) => !out.includes(n))) {
+      delete cache[`${tl}|${u}`];
+      lost++;
+    }
+  }
+  if (lost) console.log(`  ${tl}: ${lost} messages had lost a game name, translated again`);
   const missing = unique.filter((u) => !(`${tl}|${u}` in cache));
   const masked = missing.map(protect);
   const failures = [];

@@ -197,6 +197,24 @@ const RULES = {
     // stellaire" (Lunox) is prose and stays prose.
     ["(?:Lumière des étoiles|Lumière stellaire)", "StarLight", { caseSensitive: true }],
     ["mode Chaos", "mode Mayhem", { caseSensitive: true }],
+    // The other names of the game keep its English too, the French client's
+    // being in no source (`translation-official-names.mjs`): Arcade's
+    // sub-modes, the pick modes, Classic and Ranked, the ranks, the Lucky Box
+    // and the Spell Vamp stat. A capital marks the name: "classique" and
+    // "classé" in lowercase are ordinary words.
+    ["Boummandre", "Boommander", { caseSensitive: true }],
+    ["Échecs TD", "Chess TD", { caseSensitive: true }],
+    ["Bagarre et miroir", "Brawl&Mirror", { caseSensitive: true }],
+    ["choix à l'aveugle", "Blind Pick"],
+    ["Classique", "Classic", { caseSensitive: true }],
+    ["(?<=(?:modes?|Classic et|Classic,)\\s)Classé", "Ranked", { caseSensitive: true }],
+    ["Classé(?=\\s+et\\s+Classic)", "Ranked", { caseSensitive: true }],
+    ["(?:Honneur|Honor) mythique", "Mythical Honor"],
+    ["Gloire mythique", "Mythical Glory"],
+    ["Immortel mythique", "Mythical Immortal"],
+    ["Grand[- ]?Maître", "Grandmaster"],
+    ["(?:Coffre|Boîte) (?:chance|chanceuse|de chance|porte-bonheur)", "Lucky Box"],
+    ["(?:vampirisme des sorts|vampirisme magique|sort de vampire|vampire des sorts)", "Spell Vamp"],
     // "Tank" came back as an armoured vehicle, "Roaming" as wandering.
     ["semi-chars", "semi-tanks"],
     ["semi-char", "semi-tank"],

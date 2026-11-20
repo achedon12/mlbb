@@ -7,7 +7,7 @@ import { artOf } from "@/components/sheet-poster";
 import { BadgeTier, Score } from "@/components/ui";
 import motion from "@/components/catalogue-motion.module.css";
 import article from "@/components/guide-article.module.css";
-import { emblems } from "@/data/emblems";
+import { findEmblem } from "@/data/emblems";
 import { buildsPlayed, itemsFor } from "@/lib/data";
 import { keyChoice, spellVisual, visualEmblem, visualItem, visualTalent } from "@/lib/build-visuals";
 import { imageLane } from "@/lib/emblems";
@@ -347,7 +347,7 @@ function resolveChoice(part: KitPart, c: KitChoice, t: T, locale: Locale): Shown
   }
   if (part === "emblems") {
     const v = visualEmblem(c.name);
-    const record = emblems.find((e) => e.role === c.name || e.name === c.name);
+    const record = findEmblem(c.name);
     const name = record ? textChoice(t, record.key, "name", record.name)! : t("pages.buildSimulator.commonEmblem");
     return { key: c.name, name, image: v.image, href: v.href, share: c.share };
   }

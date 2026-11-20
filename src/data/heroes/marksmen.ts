@@ -7,37 +7,31 @@ export const marksmen: HeroAnalysis[] = [
     summary:
       "Tireur à chargeur : ses dégâts viennent de ses compétences, pas de sa vitesse d'attaque.",
     analysis:
-      "Granger ne se construit pas comme un tireur classique. Son passif fixe son attaque à six balles dont la dernière est critique, ce qui rend la vitesse d'attaque presque inutile sur lui : on achète des dégâts d'attaque et de la pénétration.\n\nCela lui donne un pic de puissance très précoce, exploitable en jungle dès le premier objet. Sa fragilité reste celle d'un tireur, aggravée par l'absence de tout contrôle : mal positionné, il n'a que sa compétence 2 pour espérer sortir.",
+      "Granger ne se construit pas comme un tireur classique. Sa compétence 1 tire six balles dont la dernière est toujours critique, et son passif convertit la réduction de recharge en attaque physique, ce qui rend la vitesse d'attaque presque inutile sur lui : on achète des dégâts d'attaque et de la pénétration.\n\nCela lui donne un pic de puissance très précoce, exploitable en jungle dès le premier objet. Sa fragilité reste celle d'un tireur, aggravée par l'absence de contrôle, hormis le bref ralentissement de son ultime : mal positionné, il n'a que sa compétence 2 et les roulades de son ultime pour espérer sortir.",
     skills: [
       {
         type: "Passive",
         name: "Capriccio",
         description:
-          "Son arme contient six balles. La dernière balle du chargeur inflige toujours un coup critique.",
+          "Son fusil et son canon fonctionnent à l'énergie démoniaque, qui se régénère et augmente à chaque sbire, monstre ou héros tué. Chaque point de réduction de recharge devient de l'attaque physique.",
       },
       {
         type: "Skill 1",
         name: "Rhapsody",
         description:
-          "Tire une salve en cône qui traverse les ennemis, avec des dégâts accrus sur la première cible touchée.",
-        cooldown: [10, 9.2, 8.4, 7.6, 6.8, 6],
-        cost: [70, 75, 80, 85, 90, 95],
+          "Tire six balles d'affilée, dont la dernière est toujours critique, en gagnant un peu de vitesse. Sans recharge : elle ne dépend que de l'énergie de son fusil.",
       },
       {
         type: "Skill 2",
         name: "Rondo",
         description:
-          "Se déplace rapidement et recharge instantanément son arme, en gagnant de la vitesse d'attaque.",
-        cooldown: [14, 13, 12, 11, 10, 9],
-        cost: [60, 60, 60, 60, 60, 60],
+          "Dash dans une direction en rendant de l'énergie à son fusil, même pendant la compétence 1. Chaque balle qui touche réduit sa recharge.",
       },
       {
         type: "Ultimate",
         name: "Death Sonata",
         description:
-          "Équipe un canon à longue portée tirant des obus explosifs à travers la carte.",
-        cooldown: [45, 40, 35],
-        cost: [80, 100, 120],
+          "Tire au canon sur le premier héros touché et autour de lui, en ralentissant brièvement les cibles. Après chaque tir, il peut faire une roulade.",
       },
     ],
     strengths: [
@@ -65,7 +59,7 @@ export const marksmen: HeroAnalysis[] = [
           "Blade of Despair",
           "Immortality",
         ],
-        emblem: "Emblème de tireur",
+        emblem: "Marksman Emblem",
         talent: "Festival of Blood",
         spell: "Inspiration",
       },
@@ -88,15 +82,13 @@ export const marksmen: HeroAnalysis[] = [
         type: "Skill 1",
         name: "Masterful Gunner",
         description:
-          "Se déplace et laisse une fumée qui la dissimule brièvement.",
-        cooldown: [13, 12, 11, 10, 9, 8],
+          "Échange l'arme active contre la seconde arme portée, ce qui change son attaque de base et son ultime. En passif, porter deux armes augmente son attaque physique.",
       },
       {
         type: "Skill 2",
         name: "Tactical Reposition",
         description:
-          "Échange l'arme active contre la seconde arme portée, en rechargeant l'ultime correspondant.",
-        cooldown: [3, 3, 3, 3, 3, 3],
+          "Une roulade vers l'avant qui recharge entièrement l'arme active.",
       },
       {
         type: "Ultimate",
@@ -130,7 +122,7 @@ export const marksmen: HeroAnalysis[] = [
           "Immortality",
           "Blade of Despair",
         ],
-        emblem: "Emblème de tireur",
+        emblem: "Marksman Emblem",
         talent: "Weapons Master",
         spell: "Inspiration",
       },
@@ -141,37 +133,31 @@ export const marksmen: HeroAnalysis[] = [
     summary:
       "Tireuse défensive : son ultime crée une zone que les ennemis au corps à corps ne peuvent pas franchir.",
     analysis:
-      "Melissa résout le problème classique du tireur — se faire plonger — par une réponse directe. Son ultime pose un cercle qui repousse les adversaires en mêlée et réduit fortement leurs dégâts à l'intérieur, ce qui lui permet de continuer à tirer pendant qu'un assassin s'épuise à essayer d'entrer.\n\nElle reste une tireuse standard sur le reste : bonne montée en puissance, dégâts corrects, aucune menace hors de sa portée. Contre une équipe à distance qui l'ignore et frappe à travers la zone, l'ultime perd l'essentiel de sa valeur.",
+      "Melissa résout le problème classique du tireur — se faire plonger — par une réponse directe. Son ultime lui donne un bouclier et pose un cercle qui repousse les adversaires présents et tous ceux qui tentent d'y entrer, en interrompant leurs déplacements, ce qui lui permet de continuer à tirer pendant qu'un assassin s'épuise à essayer d'entrer.\n\nElle reste une tireuse standard sur le reste : bonne montée en puissance, dégâts corrects, aucune menace hors de sa portée. Contre une équipe à distance qui l'ignore et frappe à travers la zone, l'ultime perd l'essentiel de sa valeur.",
     skills: [
       {
         type: "Passive",
         name: "Doll Buster",
         description:
-          "Ses dégâts augmentent contre les cibles proches ou éloignées selon la distance, et ses attaques ralentissent brièvement.",
+          "Ses dégâts sont augmentés contre les sbires, les monstres et les unités invoquées.",
       },
       {
         type: "Skill 1",
         name: "Falling!",
         description:
-          "Se déplace en projetant une poupée qui inflige des dégâts de zone.",
-        cooldown: [9, 8.4, 7.8, 7.2, 6.6, 6],
-        cost: [60, 65, 70, 75, 80, 85],
+          "Glisse vers l'avant et gagne de la vitesse d'attaque pendant quelques secondes.",
       },
       {
         type: "Skill 2",
         name: "Eyes on You!",
         description:
-          "Invoque une poupée qui poursuit les ennemis et les ralentit.",
-        cooldown: [12, 11, 10, 9, 8, 7],
-        cost: [70, 75, 80, 85, 90, 95],
+          "Lance Muddles, qui blesse le premier ennemi touché puis lie les ennemis proches et les ralentit tant qu'ils restent à portée. Ses attaques sur Muddles blessent aussi les ennemis liés.",
       },
       {
         type: "Ultimate",
         name: "Go Away!",
         description:
-          "Crée une zone que les ennemis au corps à corps ne peuvent pas franchir et dans laquelle leurs dégâts sont fortement réduits.",
-        cooldown: [50, 45, 40],
-        cost: [100, 120, 140],
+          "Lui donne un bouclier et crée autour d'elle une zone qui repousse les ennemis présents ; ceux qui tentent d'y entrer sont repoussés, ralentis, et leurs compétences de déplacement interrompues.",
       },
     ],
     strengths: [
@@ -199,7 +185,7 @@ export const marksmen: HeroAnalysis[] = [
           "Bloodlust Axe",
           "Immortality",
         ],
-        emblem: "Emblème de tireur",
+        emblem: "Marksman Emblem",
         talent: "Bargain Hunter",
         spell: "Inspiration",
       },
@@ -211,7 +197,7 @@ export const marksmen: HeroAnalysis[] = [
       "Tireuse d'attaques de base pure : elle gagne en cadence tant qu'elle frappe, et son ultime la fait disparaître au moment où on la vise.",
     analysis:
       "Miya fonde tout sur l'attaque de base. Son passif empile de la vitesse d'attaque à chaque tir qui touche, la compétence 1 ajoute des flèches supplémentaires qui blessent aussi les cibles voisines, et la compétence 2 immobilise une zone avant de ralentir ce qui l'entoure. Son ultime retire les effets négatifs, la rend invisible et la fait sortir de cet état avec son passif déjà à pleine charge : il sert autant à fuir qu'à revenir dans l'échange en pleine cadence. Son taux de victoire mesuré progresse légèrement avec la durée de la partie.\n\n" +
-      "Elle n'a aucun déplacement instantané. Une fois l'ultime utilisé, il ne lui reste que la compétence 2 pour ralentir un assaillant, et sa cadence retombe dès qu'elle cesse de toucher une cible. Les mesures de contres la placent en difficulté face à Beatrix, Granger, Gatotkaca, Karina et Belerick, avec un écart qui se retrouve du rang Mythique au rang Gloire mythique.",
+      "Elle n'a aucun déplacement instantané. Une fois l'ultime utilisé, il ne lui reste que la compétence 2 pour ralentir un assaillant, et sa cadence retombe dès qu'elle cesse de toucher une cible. Les mesures de contres la placent en difficulté face à Beatrix, Granger, Gatotkaca, Karina et Belerick, avec un écart qui se retrouve du rang Mythic au rang Mythical Glory.",
     skills: [
       {
         type: "Passive",
@@ -256,9 +242,9 @@ export const marksmen: HeroAnalysis[] = [
       {
         name: "Critique",
         context:
-          "Le build le plus joué en Gold lane, tous rangs confondus comme en Gloire mythique : la chance de critique alimente Berserker's Fury et déclenche la vitesse d'attaque de Haas' Claws, qui apporte aussi le vol de vie.",
+          "Le build le plus joué en Gold lane, tous rangs confondus comme en Mythical Glory : la chance de critique alimente Berserker's Fury et déclenche la vitesse d'attaque de Haas' Claws, qui apporte aussi le vol de vie.",
         items: ["Windtalker", "Berserker's Fury", "Haas' Claws"],
-        emblem: "Emblème de tireur",
+        emblem: "Marksman Emblem",
         talent: "Weakness Finder",
         spell: "Inspire",
       },
@@ -267,7 +253,7 @@ export const marksmen: HeroAnalysis[] = [
         context:
           "Moins joué que la version critique, avec un taux de victoire mesuré un peu supérieur : Corrosion Scythe et Demon Hunter Sword ajoutent des dégâts à chaque attaque de base, ce qui convient face à des cibles à beaucoup de PV.",
         items: ["Corrosion Scythe", "Demon Hunter Sword", "Golden Staff"],
-        emblem: "Emblème de tireur",
+        emblem: "Marksman Emblem",
         talent: "Quantum Charge",
         spell: "Inspire",
       },
@@ -279,7 +265,7 @@ export const marksmen: HeroAnalysis[] = [
       "Tireuse de dégâts en rebond, que les contrôles ne touchent pas tant qu'elle porte un bouclier.",
     analysis:
       "Hanabi inflige ses dégâts par ricochet : chaque attaque de base ou compétence qui touche renvoie des lames sur les ennemis voisins, ce qui la rend efficace dans les combats groupés et sur les vagues. Sa compétence 1 lui donne un bouclier, et tant qu'un bouclier la protège, les effets de contrôle n'ont aucune prise sur elle ; une partie des dégâts qu'elle inflige vient en plus recharger ce bouclier. Son ultime immobilise le premier héros touché avant d'exploser autour de lui.\n\n" +
-      "Elle n'a en revanche aucun déplacement instantané : si le bouclier tombe, elle redevient une cible facile à atteindre. Son taux de victoire mesuré est le plus haut dans les parties courtes et recule nettement à mesure qu'elles s'allongent, jusqu'à passer sous les cinquante pour cent après la dix-huitième minute. Au rang Gloire mythique, les mesures la placent en difficulté face à Lolita, Joy, Beatrix, Wanwan et Ixia.",
+      "Elle n'a en revanche aucun déplacement instantané : si le bouclier tombe, elle redevient une cible facile à atteindre. Son taux de victoire mesuré est le plus haut dans les parties courtes et recule nettement à mesure qu'elles s'allongent, jusqu'à passer sous les cinquante pour cent après la dix-huitième minute. Au rang Mythical Glory, les mesures la placent en difficulté face à Lolita, Joy, Beatrix, Wanwan et Ixia.",
     skills: [
       {
         type: "Passive",
@@ -324,9 +310,9 @@ export const marksmen: HeroAnalysis[] = [
       {
         name: "Attaques renforcées",
         context:
-          "Le build de loin le plus joué en Gold lane : Corrosion Scythe, Demon Hunter Sword et Golden Staff renforcent chaque attaque de base, dont les rebonds reprennent une partie des effets. Il est le plus souvent associé à l'emblème de combattant et au sort Aegis, dont le bouclier la rend aussi insensible aux contrôles.",
+          "Le build de loin le plus joué en Gold lane : Corrosion Scythe, Demon Hunter Sword et Golden Staff renforcent chaque attaque de base, dont les rebonds reprennent une partie des effets. Il est le plus souvent associé au Fighter Emblem et au sort Aegis, dont le bouclier la rend aussi insensible aux contrôles.",
         items: ["Corrosion Scythe", "Demon Hunter Sword", "Golden Staff"],
-        emblem: "Emblème de combattant",
+        emblem: "Fighter Emblem",
         talent: "Weakness Finder",
         spell: "Aegis",
       },
@@ -385,7 +371,7 @@ export const marksmen: HeroAnalysis[] = [
         context:
           "Le build le plus joué, de loin : Malefic Gun apporte la pénétration que son passif convertit en dégâts critiques, et Sea Halberd réduit les soins et boucliers des cibles touchées.",
         items: ["Berserker's Fury", "Malefic Gun", "Sea Halberd"],
-        emblem: "Emblème de tireur",
+        emblem: "Marksman Emblem",
         talent: "Quantum Charge",
         spell: "Flicker",
       },
@@ -394,7 +380,7 @@ export const marksmen: HeroAnalysis[] = [
         context:
           "La même base avec Blade of Despair à la place de Sea Halberd : bien moins joué, avec un meilleur taux de victoire mesuré. À réserver aux parties où l'équipe adverse ne compte ni sur les soins ni sur les boucliers.",
         items: ["Berserker's Fury", "Malefic Gun", "Blade of Despair"],
-        emblem: "Emblème de tireur",
+        emblem: "Marksman Emblem",
         talent: "Quantum Charge",
         spell: "Flicker",
       },

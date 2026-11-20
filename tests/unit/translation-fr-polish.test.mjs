@@ -12,7 +12,8 @@ const p = (text) => polishFrench(text, "");
 
 describe("French proofreading of the game data", () => {
   it("translates item summaries by hand, from their English source", () => {
-    expect(polishFrench("Sort de vampire", "Spell Vamp")).toBe("Vampirisme des sorts");
+    // Spell Vamp is the game's name for the stat: kept, not read as a vampire's spell.
+    expect(polishFrench("Sort de vampire", "Spell Vamp")).toBe("Spell Vamp");
     expect(polishFrench("PV contre-élevé", "Counter High HP")).toBe("Contre les PV élevés");
     expect(polishFrench("Un coup lent", "One-Hit Slow")).toBe("Ralentissement à l'impact");
     expect(polishFrench("Dommages causés par les éclaboussures", "Splash Damage")).toBe("Dégâts de zone");
@@ -49,20 +50,21 @@ describe("French proofreading of the game data", () => {
     expect(p("La bêta mitraille les ennemis.")).toBe("Beta mitraille les ennemis.");
   });
 
-  it("names the ranks as the French client does", () => {
-    expect(p("Warrior, Elite, Master, Grandmaster, Epic, Legend et Mythic (Mythical Honor, Mythical Glory et Mythical Immortal)")).toBe(
-      "Guerrier, Élite, Maître, Grand Maître, Épique, Légende et Mythique (Honneur mythique, Gloire mythique et Immortel mythique)",
-    );
-    expect(p("Lorsqu'un joueur atteint Epic V")).toBe("Lorsqu'un joueur atteint Épique V");
-    expect(p("un joueur Legend, au rang Epic, d'Epic à Legend")).toBe("un joueur Légende, au rang Épique, d'Épique à Légende");
-    expect(p("chez Warrior / Elite / Master")).toBe("chez Guerrier / Élite / Maître");
-    // A skin tier or a jungle creep is not a rank.
-    expect(p("une apparence Epic")).toBe("une apparence Epic");
-    expect(p("les Legend Creeps")).toBe("les Legend Creeps");
+  it("keeps the game's rank names", () => {
+    const ranks = "Warrior, Elite, Master, Grandmaster, Epic, Legend et Mythic (Mythical Honor, Mythical Glory et Mythical Immortal)";
+    expect(p(ranks)).toBe(ranks);
+    // The service's French names go back to the game's.
+    expect(p("Honneur mythique, Gloire mythique et Immortel mythique")).toBe("Mythical Honor, Mythical Glory et Mythical Immortal");
+    expect(p("Lorsqu'un joueur atteint Épique V, puis Grand Maître")).toBe("Lorsqu'un joueur atteint Epic V, puis Grandmaster");
+    expect(p("au rang Légende, chez Guerrier / Élite / Maître")).toBe("au rang Legend, chez Warrior / Elite / Master");
+    expect(p("Mythic Glory")).toBe("Mythical Glory");
+    // French words that are not ranks here stay.
+    expect(p("une apparence légendaire, une Légende vivante")).toBe("une apparence légendaire, une Légende vivante");
   });
 
   it("names modes and game words like the site", () => {
-    expect(p("les règles de Classic comme base")).toBe("les règles du mode Classique comme base");
+    expect(p("les règles de Classic comme base")).toBe("les règles du mode Classic comme base");
+    expect(p("les modes Classique et Classé, en choix à l'aveugle")).toBe("les modes Classic et Ranked, en Blind Pick");
     expect(p("Choix de repêchage")).toBe("Draft Pick");
     expect(p("Grabuge")).toBe("Mayhem");
     expect(p("sur le Pays de l'Aube, au Pays de l'Aube")).toBe("sur la Terre de l'Aube, à la Terre de l'Aube");
@@ -72,11 +74,12 @@ describe("French proofreading of the game data", () => {
   });
 
   it("translates the English stats left in a French sentence", () => {
-    expect(p("elle gagne 10 % de Spell Vamp.")).toBe("elle gagne 10 % de vampirisme des sorts.");
+    expect(p("elle gagne 10 % de Spell Vamp.")).toBe("elle gagne 10 % de Spell Vamp.");
+    expect(p("elle gagne 10 % de vampirisme des sorts, sa vampire magique")).toBe("elle gagne 10 % de Spell Vamp, son Spell Vamp");
     expect(p("Cecilion gagne 10 Max Mana et récupère 10 Mana")).toBe("Cecilion gagne 10 mana max et récupère 10 mana");
     expect(p("(+15*Hero Level)")).toBe("(+15*niveau du héros)");
     expect(p("(+8*niveau de héros)")).toBe("(+8*niveau du héros)");
-    expect(p("son ratio Spell Vamp")).toBe("son ratio de vampirisme des sorts");
+    expect(p("son ratio Spell Vamp")).toBe("son ratio de Spell Vamp");
     expect(p("Mana Spring : régénère du mana")).toBe("Mana Spring : régénère du mana");
   });
 

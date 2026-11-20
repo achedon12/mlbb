@@ -57,8 +57,13 @@ describe("French patch notes, as the official community read them", () => {
     // Prose keeps the ordinary words: Lunox's "rain of starlight".
     expect(applyGlossary("Elle invoque une pluie de lumière stellaire.", "fr")).toBe("Elle invoque une pluie de lumière stellaire.");
     expect(correct("Le mode Chaos revient", "Mayhem returns")).toBe("Le mode Mayhem revient");
-    // Classic and Ranked have French names on the site: they stay.
-    expect(correct("les modes Classique et Classé", "Classic and Ranked modes")).toBe("les modes Classique et Classé");
+    // Classic and Ranked keep the game's names, like every mode.
+    expect(correct("les modes Classique et Classé", "Classic and Ranked modes")).toBe("les modes Classic et Ranked");
+    expect(correct("A. Boummandre et Échecs TD", "A. Boommander and Chess TD")).toBe("A. Boommander et Chess TD");
+    // So do the ranks, the Lucky Box and the Spell Vamp stat.
+    expect(correct("du rang Gloire mythique", "from Mythical Glory")).toBe("du rang Mythical Glory");
+    expect(correct("Participez au Coffre chance", "Join the Lucky Box")).toBe("Participez au Lucky Box");
+    expect(correct("12 % de vampirisme des sorts", "12% Spell Vamp")).toBe("12 % de Spell Vamp");
     // A brawl in lowercase, an ordinary word.
     expect(correct("une bagarre générale", "a brawl")).toBe("une bagarre générale");
   });

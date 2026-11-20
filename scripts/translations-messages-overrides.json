@@ -537,8 +537,8 @@
       "text": "Skins and events"
     },
     "nav.columns.toolsAccount": {
-      "fr": "Compte et diamants",
-      "text": "Account and diamonds"
+      "fr": "Compte et Diamonds",
+      "text": "Account and Diamonds"
     },
     "nav.columns.toolsBuilds": {
       "fr": "Builds et dégâts",
@@ -721,7 +721,7 @@
       "text": "Where the cost comes from"
     },
     "pages.accountValue.colCost": {
-      "fr": "Diamants par apparence",
+      "fr": "Diamonds par apparence",
       "text": "Diamonds per skin"
     },
     "pages.accountValue.colPoints": {
@@ -757,24 +757,24 @@
       "text": "the share of heroes owned, from ×{low} (none) to ×{high} (all);"
     },
     "pages.accountValue.factorRank": {
-      "fr": "le rang le plus haut atteint, de ×{low} (Guerrier) à ×{high} (Immortel mythique) ;",
+      "fr": "le rang le plus haut atteint, de ×{low} (Warrior) à ×{high} (Mythical Immortal) ;",
       "text": "the highest rank reached, from ×{low} (Warrior) to ×{high} (Mythical Immortal);"
     },
     "pages.accountValue.lead": {
-      "fr": "Ce qu'a coûté une collection d'apparences, en diamants et en argent, et la fourchette indicative d'un compte comparable. Un ordre de grandeur, jamais un prix : la méthode est détaillée sous l'outil.",
-      "text": "What a skin collection cost, in diamonds and in money, and the indicative range of a comparable account. An order of magnitude, never a price: the method is detailed below the tool."
+      "fr": "Ce qu'a coûté une collection d'apparences, en Diamonds et en argent, et la fourchette indicative d'un compte comparable. Un ordre de grandeur, jamais un prix : la méthode est détaillée sous l'outil.",
+      "text": "What a skin collection cost, in Diamonds and in money, and the indicative range of a comparable account. An order of magnitude, never a price: the method is detailed below the tool."
     },
     "pages.accountValue.methodItems": {
-      "fr": "Les apparences éclatantes et les objets des deux autres panneaux (effets de rappel, émotes, cadres d'avatar…) valent des points très variables d'un objet à l'autre : ils sont comptés à leurs points, à {inMatch} diamant par point pour les objets de partie, {outMatch} pour les objets hors partie, souvent gratuits, et {shining} pour les apparences éclatantes. La plupart viennent d'événements et de passes : c'est une estimation basse.",
-      "text": "Shining skins and the items of the two other panels (recall effects, emotes, avatar frames…) are worth very different points from one item to the next: they are counted by their points, at {inMatch} diamond per point for in-match items, {outMatch} for out-of-match items, often free, and {shining} for shining skins. Most come from events and passes: this is a low estimate."
+      "fr": "Les apparences éclatantes et les objets des deux autres panneaux (effets de rappel, émotes, cadres d'avatar…) valent des points très variables d'un objet à l'autre : ils sont comptés à leurs points, à {inMatch} Diamond par point pour les objets de partie, {outMatch} pour les objets hors partie, souvent gratuits, et {shining} pour les apparences éclatantes. La plupart viennent d'événements et de passes : c'est une estimation basse.",
+      "text": "Shining skins and the items of the two other panels (recall effects, emotes, avatar frames…) are worth very different points from one item to the next: they are counted by their points, at {inMatch} Diamond per point for in-match items, {outMatch} for out-of-match items, often free, and {shining} for shining skins. Most come from events and passes: this is a low estimate."
     },
     "pages.accountValue.methodLimits": {
-      "fr": "Les montants affichés sont arrondis à deux chiffres significatifs. Ne sont pas comptés : les héros eux-mêmes, achetés le plus souvent en points de bataille, les apparences limitées d'un serveur, les cosmétiques (effets, émotes, cadres) ni l'historique de matchs. Un vrai marché dépend aussi de la demande du moment, que rien ici ne mesure.",
-      "text": "Amounts are rounded to two significant figures. Not counted: the heroes themselves, mostly bought with battle points, server-limited skins, cosmetics (effects, emotes, frames) and match history. A real market also depends on the demand of the moment, which nothing here measures."
+      "fr": "Les montants affichés sont arrondis à deux chiffres significatifs. Ne sont pas comptés : les héros eux-mêmes, achetés le plus souvent en Battle Points, les apparences limitées d'un serveur, les cosmétiques (effets, émotes, cadres) ni l'historique de matchs. Un vrai marché dépend aussi de la demande du moment, que rien ici ne mesure.",
+      "text": "Amounts are rounded to two significant figures. Not counted: the heroes themselves, mostly bought with Battle Points, server-limited skins, cosmetics (effects, emotes, frames) and match history. A real market also depends on the demand of the moment, which nothing here measures."
     },
     "pages.accountValue.methodMoney": {
-      "fr": "Les diamants sont convertis en dollars au tarif d'une recharge courante, sans bonus de première recharge : {usd} USD le diamant, soit {per100} USD les cent. Les diamants encore sur le compte s'ajoutent au total.",
-      "text": "Diamonds are converted to dollars at the price of a usual top-up, without first top-up bonus: {usd} USD per diamond, or {per100} USD per hundred. Diamonds still on the account are added to the total."
+      "fr": "Les Diamonds sont convertis en dollars au tarif d'une recharge courante, sans bonus de première recharge : {usd} USD le Diamond, soit {per100} USD les cent. Les Diamonds encore sur le compte s'ajoutent au total.",
+      "text": "Diamonds are converted to dollars at the price of a usual top-up, without first top-up bonus: {usd} USD per Diamond, or {per100} USD per hundred. Diamonds still on the account are added to the total."
     },
     "pages.accountValue.methodPoints": {
       "fr": "Les catégories sont celles de la Vitrine du jeu, avec les points de collection que le jeu donne à chaque apparence. La somme des points sert de vérification : elle doit retomber sur le total affiché dans le jeu.",
@@ -861,7 +861,7 @@
       "text": "Currency"
     },
     "pages.accountValueUI.diamonds": {
-      "fr": "Diamants sur le compte",
+      "fr": "Diamonds sur le compte",
       "text": "Diamonds on the account"
     },
     "pages.accountValueUI.diamondsHint": {
@@ -949,8 +949,8 @@
       "text": "Highest rank reached"
     },
     "pages.accountValueUI.resaleEmpty": {
-      "fr": "Indiquez vos apparences ou vos diamants pour voir une fourchette.",
-      "text": "Enter your skins or diamonds to see a range."
+      "fr": "Indiquez vos apparences ou vos Diamonds pour voir une fourchette.",
+      "text": "Enter your skins or Diamonds to see a range."
     },
     "pages.accountValueUI.resaleTitle": {
       "fr": "Fourchette indicative d'un compte comparable",
@@ -1061,11 +1061,11 @@
       "text": "Result shared."
     },
     "pages.accountValueUI.tier.common": {
-      "fr": "Commun",
+      "fr": "Common",
       "text": "Common"
     },
     "pages.accountValueUI.tier.deluxe": {
-      "fr": "Premium",
+      "fr": "Deluxe",
       "text": "Deluxe"
     },
     "pages.accountValueUI.tier.exceptional": {
@@ -1073,11 +1073,11 @@
       "text": "Exceptional"
     },
     "pages.accountValueUI.tier.exquisite": {
-      "fr": "Exquis",
+      "fr": "Exquisite",
       "text": "Exquisite"
     },
     "pages.accountValueUI.tier.grand": {
-      "fr": "Grandiose",
+      "fr": "Grand",
       "text": "Grand"
     },
     "pages.accountValueUI.tier.legend": {
@@ -1349,7 +1349,7 @@
       "text": "The /tierlist reply in Discord: the S+, S and A tiers"
     },
     "pages.bot.showcase.metaText": {
-      "fr": "/tierlist calcule la tier list à partir des taux de victoire, de sélection et de ban, tous rangs confondus ou d'Épique à Gloire mythique, par lane ou par rôle.",
+      "fr": "/tierlist calcule la tier list à partir des taux de victoire, de sélection et de ban, tous rangs confondus ou d'Epic à Mythical Glory, par lane ou par rôle.",
       "text": "/tierlist builds the tier list from win, pick and ban rates, across all ranks or from Epic to Mythical Glory, by lane or by role."
     },
     "pages.bot.showcase.metaTitle": {
@@ -2597,8 +2597,8 @@
       "text": "New forum accounts have lower limits and cannot post links for three days."
     },
     "pages.community.rules.noSpam": {
-      "fr": "Pas de publicité, de vente de comptes ni de « diamants gratuits » : ce sont des arnaques.",
-      "text": "No ads, account selling or \"free diamonds\": they are scams."
+      "fr": "Pas de publicité, de vente de comptes ni de « Diamonds gratuits » : ce sont des arnaques.",
+      "text": "No ads, account selling or \"free Diamonds\": they are scams."
     },
     "pages.community.rules.privacy": {
       "fr": "Ne publiez pas les informations personnelles d'autrui.",
@@ -5245,11 +5245,11 @@
       "text": "Rank {n} of {total}"
     },
     "pages.ranks.mythicFamily": {
-      "fr": "Mythique (4 rangs)",
+      "fr": "Mythic (4 rangs)",
       "text": "Mythic (4 ranks)"
     },
     "pages.ranks.mythicIntro": {
-      "fr": "Passé Légende, il n'y a plus de divisions : les étoiles deviennent des points, et leur cumul fixe le rang. {honor} points mènent à Honneur mythique, {glory} à Gloire mythique, {immortal} à Immortel mythique.",
+      "fr": "Passé Legend, il n'y a plus de divisions : les étoiles deviennent des points, et leur cumul fixe le rang. {honor} points mènent à Mythical Honor, {glory} à Mythical Glory, {immortal} à Mythical Immortal.",
       "text": "Past Legend there are no more divisions: stars become points, and your total sets your rank. {honor} points take you to Mythical Honor, {glory} to Mythical Glory, {immortal} to Mythical Immortal."
     },
     "pages.tierMaker.lead": {
@@ -5269,8 +5269,8 @@
       "text": "Dates come from the community wiki: {day} skins are dated to the day, {month} to the month and {year} to the year only; the latter are placed at the end of their year."
     },
     "pages.collection.lead": {
-      "fr": "Cochez les héros et les apparences que vous possédez pour voir leur valeur en diamants au prix de la boutique du jeu, vos pièces les plus rares et votre avancement dans chaque série.",
-      "text": "Tick the heroes and skins you own to see their value in diamonds at in-game shop prices, your rarest pieces and your progress in each series."
+      "fr": "Cochez les héros et les apparences que vous possédez pour voir leur valeur en Diamonds au prix de la boutique du jeu, vos pièces les plus rares et votre avancement dans chaque série.",
+      "text": "Tick the heroes and skins you own to see their value in Diamonds at in-game shop prices, your rarest pieces and your progress in each series."
     },
     "pages.collection.methodSkins": {
       "fr": "Sur les {skins} apparences que vous pouvez cocher, {diamonds} ont un prix en diamants, {others} un prix dans une autre monnaie (noyaux magiques, gemmes…) et {unpriced} aucun prix en boutique : StarLight, événements, tirages et pass. Ces dernières comptent dans votre avancement mais pas dans le total en diamants : nous préférons ne pas leur inventer de prix.",
@@ -5289,8 +5289,8 @@
       "text": "Type your nickname and copy it in {n} Unicode styles (bold, gothic, circled, small caps…), with decorations such as ꧁ ꧂ or 亗. Nothing to install: everything happens in your browser."
     },
     "pages.drawCalculator.lead": {
-      "fr": "Combien de diamants pour une apparence d'événement ? Entrez le prix d'un tirage, la chance du lot et la garantie : le calculateur donne vos chances selon votre budget, le coût moyen et le nombre de tirages pour atteindre 50, 90 et 99 %.",
-      "text": "How many diamonds for an event skin? Enter the draw price, the prize chance and the pity: the calculator gives your chances for your budget, the average cost and the draws needed to reach 50, 90 and 99%."
+      "fr": "Combien de Diamonds pour une apparence d'événement ? Entrez le prix d'un tirage, la chance du lot et la garantie : le calculateur donne vos chances selon votre budget, le coût moyen et le nombre de tirages pour atteindre 50, 90 et 99 %.",
+      "text": "How many Diamonds for an event skin? Enter the draw price, the prize chance and the pity: the calculator gives your chances for your budget, the average cost and the draws needed to reach 50, 90 and 99%."
     },
     "pages.mlbbdle.columnsDesc.lanes": {
       "fr": "La position de prédilection : Gold lane, EXP lane, Mid lane, jungle ou roam. Même logique que pour les rôles.",
@@ -5525,7 +5525,7 @@
       "text": "A full MLBB draft, bans then picks, against a data-driven bot."
     },
     "pages.draft.rules.rankedAccess": {
-      "fr": "La draft s'ouvre à partir du rang Épique.",
+      "fr": "La draft s'ouvre à partir du rang Epic.",
       "text": "The draft opens from the Epic rank."
     },
     "pages.news.lead": {
@@ -5589,8 +5589,8 @@
       "text": "Each hero's own win rate by game length ({rank}), over all its games, not only this matchup."
     },
     "pages.ranks.scaleNote": {
-      "fr": "La draft s'ouvre en Épique V ; en dessous, les parties classées se jouent en choix à l'aveugle. Légende n'a pas d'emblème dans nos visuels : un bouclier le remplace.",
-      "text": "Draft pick opens at Epic V; below that, ranked games use blind pick. Legend has no emblem in our visuals: a shield stands in for it."
+      "fr": "La draft s'ouvre en Epic V ; en dessous, les parties classées se jouent en Blind Pick. Legend n'a pas d'emblème dans nos visuels : un bouclier le remplace.",
+      "text": "Draft pick opens at Epic V; below that, ranked games use Blind Pick. Legend has no emblem in our visuals: a shield stands in for it."
     },
     "pages.lore.regionsLead": {
       "fr": "D'où vient chaque héros, selon le wiki. Ouvrez une région pour voir ses héros, un résumé tiré de leurs fiches et les liens qui les unissent.",
@@ -8391,7 +8391,7 @@
       "text": "No se pudo cargar el catálogo de skins. Inténtalo de nuevo."
     },
     "pages.accountValueUI.tier.grand": {
-      "fr": "Grandiose",
+      "fr": "Grand",
       "text": "Grandiosa"
     },
     "pages.accountValueUI.tier.legend": {
@@ -9899,7 +9899,7 @@
       "text": "Exquisita"
     },
     "pages.accountValueUI.tier.deluxe": {
-      "fr": "Premium",
+      "fr": "Deluxe",
       "text": "Deluxe"
     },
     "pages.accountValueUI.tier.exceptional": {
@@ -10757,7 +10757,7 @@
       "text": "Arrival"
     },
     "emblemData.assassin-emblem.name": {
-      "fr": "Emblème d'assassin",
+      "fr": "Assassin Emblem",
       "text": "Assassin Emblem"
     },
     "emblemData.bargain-hunter.name": {
@@ -10785,7 +10785,7 @@
       "text": "Festival of Blood"
     },
     "emblemData.fighter-emblem.name": {
-      "fr": "Emblème de combattant",
+      "fr": "Fighter Emblem",
       "text": "Fighter Emblem"
     },
     "emblemData.firmness.name": {
@@ -10817,11 +10817,11 @@
       "text": "Lethal Ignition"
     },
     "emblemData.mage-emblem.name": {
-      "fr": "Emblème de mage",
+      "fr": "Mage Emblem",
       "text": "Mage Emblem"
     },
     "emblemData.marksman-emblem.name": {
-      "fr": "Emblème de tireur",
+      "fr": "Marksman Emblem",
       "text": "Marksman Emblem"
     },
     "emblemData.master-assassin.name": {
@@ -10869,7 +10869,7 @@
       "text": "Swift"
     },
     "emblemData.tank-emblem.name": {
-      "fr": "Emblème de tank",
+      "fr": "Tank Emblem",
       "text": "Tank Emblem"
     },
     "emblemData.tenacity.name": {
@@ -11001,15 +11001,15 @@
       "text": "Roam"
     },
     "measuredRanks.epic": {
-      "fr": "Épique",
+      "fr": "Epic",
       "text": "Epic"
     },
     "measuredRanks.glory": {
-      "fr": "Gloire mythique",
+      "fr": "Mythical Glory",
       "text": "Mythical Glory"
     },
     "measuredRanks.honor": {
-      "fr": "Honneur mythique",
+      "fr": "Mythical Honor",
       "text": "Mythical Honor"
     },
     "measuredRanks.label": {
@@ -11017,11 +11017,11 @@
       "text": "Rank"
     },
     "measuredRanks.legend": {
-      "fr": "Légende",
+      "fr": "Legend",
       "text": "Legend"
     },
     "measuredRanks.mythic": {
-      "fr": "Mythique",
+      "fr": "Mythic",
       "text": "Mythic"
     },
     "nav.advanceServer.desc": {
@@ -11917,16 +11917,16 @@
       "text": "Rank"
     },
     "pages.ranks.emote": {
-      "fr": "Emote Mythique (100 jours)",
+      "fr": "Emote Mythic (100 jours)",
       "text": "Emote Mythic (100 hari)"
     },
     "pages.ranks.mythicFamily": {
-      "fr": "Mythique (4 rangs)",
+      "fr": "Mythic (4 rangs)",
       "text": "Mythic (4 tier)"
     },
     "pages.ranks.noDraft": {
-      "fr": "Non (choix à l'aveugle)",
-      "text": "Tidak (blind pick)"
+      "fr": "Non (Blind Pick)",
+      "text": "Tidak (Blind Pick)"
     },
     "pages.ranks.openTable": {
       "fr": "Afficher le tableau des divisions, étoiles et points",
@@ -12369,43 +12369,43 @@
       "text": "Mobile Legends: Bang Bang, dunianya, para hero-nya, nama-nama mereka, dan representasi grafis mereka adalah merek dagang dan karya milik Shanghai Moonton Technology Co., Ltd. Situs ini adalah proyek penggemar independen, tanpa afiliasi, persetujuan, maupun sponsor dari Moonton."
     },
     "rankNames.elite": {
-      "fr": "Élite",
+      "fr": "Elite",
       "text": "Elite"
     },
     "rankNames.epic": {
-      "fr": "Épique",
+      "fr": "Epic",
       "text": "Epic"
     },
     "rankNames.grandmaster": {
-      "fr": "Grand Maître",
+      "fr": "Grandmaster",
       "text": "Grandmaster"
     },
     "rankNames.legend": {
-      "fr": "Légende",
+      "fr": "Legend",
       "text": "Legend"
     },
     "rankNames.master": {
-      "fr": "Maître",
+      "fr": "Master",
       "text": "Master"
     },
     "rankNames.mythic": {
-      "fr": "Mythique",
+      "fr": "Mythic",
       "text": "Mythic"
     },
     "rankNames.mythic-glory": {
-      "fr": "Gloire mythique",
+      "fr": "Mythical Glory",
       "text": "Mythical Glory"
     },
     "rankNames.mythic-honor": {
-      "fr": "Honneur mythique",
+      "fr": "Mythical Honor",
       "text": "Mythical Honor"
     },
     "rankNames.mythic-immortal": {
-      "fr": "Immortel mythique",
+      "fr": "Mythical Immortal",
       "text": "Mythical Immortal"
     },
     "rankNames.warrior": {
-      "fr": "Guerrier",
+      "fr": "Warrior",
       "text": "Warrior"
     },
     "roles.Assassin": {
@@ -12469,23 +12469,23 @@
       "text": "Collector"
     },
     "skinLabel.Elite": {
-      "fr": "Élite",
+      "fr": "Elite",
       "text": "Elite"
     },
     "skinLabel.Epic": {
-      "fr": "Épique",
+      "fr": "Epic",
       "text": "Epic"
     },
     "skinLabel.Legend": {
-      "fr": "Légende",
+      "fr": "Legend",
       "text": "Legend"
     },
     "skinLabel.Limited": {
-      "fr": "Limité",
+      "fr": "Limited",
       "text": "Limited"
     },
     "skinLabel.Luckybox": {
-      "fr": "Coffre chance",
+      "fr": "Lucky Box",
       "text": "Lucky Box"
     },
     "skinLabel.Seasons": {
@@ -12493,7 +12493,7 @@
       "text": "Season"
     },
     "skinLabel.Special": {
-      "fr": "Spécial",
+      "fr": "Special",
       "text": "Special"
     },
     "skinLabel.StarLight": {
@@ -12505,7 +12505,7 @@
       "text": "Valentine"
     },
     "skinRarity.Common": {
-      "fr": "Commun",
+      "fr": "Common",
       "text": "Common"
     },
     "skinRarity.Deluxe": {
@@ -12513,15 +12513,15 @@
       "text": "Deluxe"
     },
     "skinRarity.Exceptional": {
-      "fr": "Exceptionnel",
+      "fr": "Exceptional",
       "text": "Exceptional"
     },
     "skinRarity.Exquisite": {
-      "fr": "Exquis",
+      "fr": "Exquisite",
       "text": "Exquisite"
     },
     "skinRarity.Grand": {
-      "fr": "Grandiose",
+      "fr": "Grand",
       "text": "Grand"
     },
     "skinRarity.origin": {
@@ -12529,7 +12529,7 @@
       "text": "Asal"
     },
     "skinRarity.Supreme": {
-      "fr": "Suprême",
+      "fr": "Supreme",
       "text": "Supreme"
     },
     "tools.retribution.announceRound": {
@@ -12937,7 +12937,7 @@
       "text": "Meta saat ini"
     },
     "pages.bot.showcase.metaText": {
-      "fr": "/tierlist calcule la tier list à partir des taux de victoire, de sélection et de ban, tous rangs confondus ou d'Épique à Gloire mythique, par lane ou par rôle.",
+      "fr": "/tierlist calcule la tier list à partir des taux de victoire, de sélection et de ban, tous rangs confondus ou d'Epic à Mythical Glory, par lane ou par rôle.",
       "text": "/tierlist menghitung tier list dari win rate, pick rate, dan ban rate, di semua rank atau dari Epic sampai Mythical Glory, per lane atau per role."
     },
     "pages.bot.showcase.metaAlt": {
@@ -14829,7 +14829,7 @@
       "text": "Kisaran jual kembali dimulai dari {low} sampai {high} dari biaya tersebut: akun jarang berpindah tangan seharga uang yang dihabiskan. Lalu dikalikan dengan empat faktor:"
     },
     "pages.accountValue.factorRank": {
-      "fr": "le rang le plus haut atteint, de ×{low} (Guerrier) à ×{high} (Immortel mythique) ;",
+      "fr": "le rang le plus haut atteint, de ×{low} (Warrior) à ×{high} (Mythical Immortal) ;",
       "text": "rank tertinggi yang dicapai, dari ×{low} (Warrior) sampai ×{high} (Mythical Immortal);"
     },
     "pages.accountValue.factorHeroes": {
@@ -14953,7 +14953,7 @@
       "text": "Katalog skin gagal dimuat. Coba lagi."
     },
     "pages.accountValueUI.tier.grand": {
-      "fr": "Grandiose",
+      "fr": "Grand",
       "text": "Grand"
     },
     "pages.accountValueUI.tier.legend": {
@@ -16457,11 +16457,11 @@
       "text": "Profil > Showcase > Koleksi"
     },
     "pages.accountValueUI.tier.exquisite": {
-      "fr": "Exquis",
+      "fr": "Exquisite",
       "text": "Exquisite"
     },
     "pages.accountValueUI.tier.deluxe": {
-      "fr": "Premium",
+      "fr": "Deluxe",
       "text": "Deluxe"
     },
     "pages.accountValueUI.tier.exceptional": {
@@ -16469,7 +16469,7 @@
       "text": "Exceptional"
     },
     "pages.accountValueUI.tier.common": {
-      "fr": "Commun",
+      "fr": "Common",
       "text": "Common"
     },
     "pages.accountValueUI.tier.painted": {
@@ -16589,8 +16589,8 @@
       "text": "Di sana ada tiga ringkasan poin koleksi: skin, item dalam match, dan item luar match. Untuk skin, salin angka pertama di setiap baris (\"dimiliki/total\"); untuk dua lainnya, total poin di bagian atas panel."
     },
     "pages.accountValue.methodItems": {
-      "fr": "Les apparences éclatantes et les objets des deux autres panneaux (effets de rappel, émotes, cadres d'avatar…) valent des points très variables d'un objet à l'autre : ils sont comptés à leurs points, à {inMatch} diamant par point pour les objets de partie, {outMatch} pour les objets hors partie, souvent gratuits, et {shining} pour les apparences éclatantes. La plupart viennent d'événements et de passes : c'est une estimation basse.",
-      "text": "Skin Shining dan item di dua panel lainnya (efek recall, emote, bingkai avatar…) bernilai poin yang sangat berbeda dari satu item ke item lain: semuanya dihitung dari poinnya, {inMatch} diamond per poin untuk item dalam match, {outMatch} untuk item luar match yang sering gratis, dan {shining} untuk skin Shining. Sebagian besar didapat dari event dan pass: ini estimasi rendah."
+      "fr": "Les apparences éclatantes et les objets des deux autres panneaux (effets de rappel, émotes, cadres d'avatar…) valent des points très variables d'un objet à l'autre : ils sont comptés à leurs points, à {inMatch} Diamond par point pour les objets de partie, {outMatch} pour les objets hors partie, souvent gratuits, et {shining} pour les apparences éclatantes. La plupart viennent d'événements et de passes : c'est une estimation basse.",
+      "text": "Skin Shining dan item di dua panel lainnya (efek recall, emote, bingkai avatar…) bernilai poin yang sangat berbeda dari satu item ke item lain: semuanya dihitung dari poinnya, {inMatch} Diamond per poin untuk item dalam match, {outMatch} untuk item luar match yang sering gratis, dan {shining} untuk skin Shining. Sebagian besar didapat dari event dan pass: ini estimasi rendah."
     },
     "pages.accountValueUI.pointsLead": {
       "fr": "Ces objets valent des points très différents d'un objet à l'autre : indiquez le total en points que le jeu affiche.",
@@ -19707,7 +19707,7 @@
       "text": "Impossibile caricare il catalogo delle skin. Riprova."
     },
     "pages.accountValueUI.tier.grand": {
-      "fr": "Grandiose",
+      "fr": "Grand",
       "text": "Grandiosa"
     },
     "pages.accountValueUI.tier.legend": {
@@ -21191,7 +21191,7 @@
       "text": "Squisita"
     },
     "pages.accountValueUI.tier.deluxe": {
-      "fr": "Premium",
+      "fr": "Deluxe",
       "text": "Deluxe"
     },
     "pages.accountValueUI.tier.exceptional": {
@@ -22349,7 +22349,7 @@
       "text": "Attack damage at physical penetration"
     },
     "emblemData.assassin-emblem.name": {
-      "fr": "Emblème d'assassin",
+      "fr": "Assassin Emblem",
       "text": "Assassin Emblem"
     },
     "emblemData.bargain-hunter.bestFor": {
@@ -22421,7 +22421,7 @@
       "text": "Mga EXP Lane fighter na kailangang manalo sa kanilang duel."
     },
     "emblemData.fighter-emblem.name": {
-      "fr": "Emblème de combattant",
+      "fr": "Fighter Emblem",
       "text": "Fighter Emblem"
     },
     "emblemData.firmness.bestFor": {
@@ -22517,7 +22517,7 @@
       "text": "Magic power at magic penetration"
     },
     "emblemData.mage-emblem.name": {
-      "fr": "Emblème de mage",
+      "fr": "Mage Emblem",
       "text": "Mage Emblem"
     },
     "emblemData.marksman-emblem.bestFor": {
@@ -22529,7 +22529,7 @@
       "text": "Attack speed at attack damage"
     },
     "emblemData.marksman-emblem.name": {
-      "fr": "Emblème de tireur",
+      "fr": "Marksman Emblem",
       "text": "Marksman Emblem"
     },
     "emblemData.master-assassin.bestFor": {
@@ -22673,7 +22673,7 @@
       "text": "HP at resistances"
     },
     "emblemData.tank-emblem.name": {
-      "fr": "Emblème de tank",
+      "fr": "Tank Emblem",
       "text": "Tank Emblem"
     },
     "emblemData.tenacity.bestFor": {
@@ -23429,15 +23429,15 @@
       "text": "Lahat ng rank"
     },
     "measuredRanks.epic": {
-      "fr": "Épique",
+      "fr": "Epic",
       "text": "Epic"
     },
     "measuredRanks.glory": {
-      "fr": "Gloire mythique",
+      "fr": "Mythical Glory",
       "text": "Mythical Glory"
     },
     "measuredRanks.honor": {
-      "fr": "Honneur mythique",
+      "fr": "Mythical Honor",
       "text": "Mythical Honor"
     },
     "measuredRanks.label": {
@@ -23445,11 +23445,11 @@
       "text": "Rank"
     },
     "measuredRanks.legend": {
-      "fr": "Légende",
+      "fr": "Legend",
       "text": "Legend"
     },
     "measuredRanks.mythic": {
-      "fr": "Mythique",
+      "fr": "Mythic",
       "text": "Mythic"
     },
     "modeSheet.arcade-mode.tagline": {
@@ -23557,8 +23557,8 @@
       "text": "Ayon sa role"
     },
     "nav.collection.desc": {
-      "fr": "Vos héros et apparences en diamants",
-      "text": "Ang iyong mga hero at skin sa diamonds"
+      "fr": "Vos héros et apparences en Diamonds",
+      "text": "Ang iyong mga hero at skin sa Diamonds"
     },
     "nav.collection.label": {
       "fr": "Valeur de collection",
@@ -23581,8 +23581,8 @@
       "text": "Mga skin at event"
     },
     "nav.columns.toolsAccount": {
-      "fr": "Compte et diamants",
-      "text": "Account at diamonds"
+      "fr": "Compte et Diamonds",
+      "text": "Account at Diamonds"
     },
     "nav.columns.toolsBuilds": {
       "fr": "Builds et dégâts",
@@ -23629,7 +23629,7 @@
       "text": "Pick at ban simulator"
     },
     "nav.drawCalculator.desc": {
-      "fr": "Diamants et chances d'une apparence d'événement",
+      "fr": "Diamonds et chances d'une apparence d'événement",
       "text": "Diamonds at tsansa para sa event skins"
     },
     "nav.drawCalculator.label": {
@@ -23989,7 +23989,7 @@
       "text": "Mababa sa average ng rank mo"
     },
     "pages.accountProfile.belowEpicBracket": {
-      "fr": "Les mesures par rang commencent à Épique : en dessous, la comparaison se fait tous rangs confondus.",
+      "fr": "Les mesures par rang commencent à Epic : en dessous, la comparaison se fait tous rangs confondus.",
       "text": "Nagsisimula sa Epic ang mga sukat ayon sa rank: sa ibaba nito, lahat ng rank ang ginagamit sa paghahambing."
     },
     "pages.accountProfile.bestDetail": {
@@ -24389,7 +24389,7 @@
       "text": "Saan galing ang halaga"
     },
     "pages.accountValue.colCost": {
-      "fr": "Diamants par apparence",
+      "fr": "Diamonds par apparence",
       "text": "Diamonds bawat skin"
     },
     "pages.accountValue.colTier": {
@@ -24413,20 +24413,20 @@
       "text": "ang bahagi ng mga hero na pag-aari, mula ×{low} (wala) hanggang ×{high} (lahat);"
     },
     "pages.accountValue.factorRank": {
-      "fr": "le rang le plus haut atteint, de ×{low} (Guerrier) à ×{high} (Immortel mythique) ;",
+      "fr": "le rang le plus haut atteint, de ×{low} (Warrior) à ×{high} (Mythical Immortal) ;",
       "text": "ang pinakamataas na rank na naabot, mula ×{low} (Warrior) hanggang ×{high} (Mythical Immortal);"
     },
     "pages.accountValue.lead": {
-      "fr": "Ce qu'a coûté une collection d'apparences, en diamants et en argent, et la fourchette indicative d'un compte comparable. Un ordre de grandeur, jamais un prix : la méthode est détaillée sous l'outil.",
-      "text": "Magkano ang nagastos sa isang skin collection, sa diamonds at sa pera, at ang tinatayang range ng isang katulad na account. Tantiya lang, hindi kailanman presyo: nakadetalye ang paraan sa ibaba ng tool."
+      "fr": "Ce qu'a coûté une collection d'apparences, en Diamonds et en argent, et la fourchette indicative d'un compte comparable. Un ordre de grandeur, jamais un prix : la méthode est détaillée sous l'outil.",
+      "text": "Magkano ang nagastos sa isang skin collection, sa Diamonds at sa pera, at ang tinatayang range ng isang katulad na account. Tantiya lang, hindi kailanman presyo: nakadetalye ang paraan sa ibaba ng tool."
     },
     "pages.accountValue.methodLimits": {
-      "fr": "Les montants affichés sont arrondis à deux chiffres significatifs. Ne sont pas comptés : les héros eux-mêmes, achetés le plus souvent en points de bataille, les apparences limitées d'un serveur, les cosmétiques (effets, émotes, cadres) ni l'historique de matchs. Un vrai marché dépend aussi de la demande du moment, que rien ici ne mesure.",
-      "text": "Rounded sa dalawang significant figure ang mga halaga. Hindi kasama: ang mga hero mismo, na kadalasang binibili gamit ang battle points, mga skin na limitado sa server, cosmetics (effect, emote, frame) at match history. Nakadepende rin ang tunay na market sa demand sa sandaling iyon, na walang sumusukat dito."
+      "fr": "Les montants affichés sont arrondis à deux chiffres significatifs. Ne sont pas comptés : les héros eux-mêmes, achetés le plus souvent en Battle Points, les apparences limitées d'un serveur, les cosmétiques (effets, émotes, cadres) ni l'historique de matchs. Un vrai marché dépend aussi de la demande du moment, que rien ici ne mesure.",
+      "text": "Rounded sa dalawang significant figure ang mga halaga. Hindi kasama: ang mga hero mismo, na kadalasang binibili gamit ang Battle Points, mga skin na limitado sa server, cosmetics (effect, emote, frame) at match history. Nakadepende rin ang tunay na market sa demand sa sandaling iyon, na walang sumusukat dito."
     },
     "pages.accountValue.methodMoney": {
-      "fr": "Les diamants sont convertis en dollars au tarif d'une recharge courante, sans bonus de première recharge : {usd} USD le diamant, soit {per100} USD les cent. Les diamants encore sur le compte s'ajoutent au total.",
-      "text": "Kino-convert ang diamonds sa dolyar sa presyo ng karaniwang top-up, walang first top-up bonus: {usd} USD bawat diamond, o {per100} USD bawat daan. Idinadagdag sa kabuuan ang diamonds na nasa account pa."
+      "fr": "Les Diamonds sont convertis en dollars au tarif d'une recharge courante, sans bonus de première recharge : {usd} USD le Diamond, soit {per100} USD les cent. Les Diamonds encore sur le compte s'ajoutent au total.",
+      "text": "Kino-convert ang Diamonds sa dolyar sa presyo ng karaniwang top-up, walang first top-up bonus: {usd} USD bawat Diamond, o {per100} USD bawat daan. Idinadagdag sa kabuuan ang Diamonds na nasa account pa."
     },
     "pages.accountValue.methodPrivacy": {
       "fr": "Le calcul se fait dans votre navigateur. Les nombres saisis sont écrits dans l'adresse de la page pour pouvoir partager le résultat : aucun nom, aucun identifiant de compte, rien n'est enregistré sur un serveur.",
@@ -24497,7 +24497,7 @@
       "text": "Currency"
     },
     "pages.accountValueUI.diamonds": {
-      "fr": "Diamants sur le compte",
+      "fr": "Diamonds sur le compte",
       "text": "Diamonds sa account"
     },
     "pages.accountValueUI.diamondsHint": {
@@ -24537,8 +24537,8 @@
       "text": "Pinakamataas na rank na naabot"
     },
     "pages.accountValueUI.resaleEmpty": {
-      "fr": "Indiquez vos apparences ou vos diamants pour voir une fourchette.",
-      "text": "Ilagay ang mga skin o diamonds mo para makita ang range."
+      "fr": "Indiquez vos apparences ou vos Diamonds pour voir une fourchette.",
+      "text": "Ilagay ang mga skin o Diamonds mo para makita ang range."
     },
     "pages.accountValueUI.resaleTitle": {
       "fr": "Fourchette indicative d'un compte comparable",
@@ -24573,7 +24573,7 @@
       "text": "Na-share ang resulta."
     },
     "pages.accountValueUI.tier.grand": {
-      "fr": "Grandiose",
+      "fr": "Grand",
       "text": "Grand"
     },
     "pages.accountValueUI.tier.legend": {
@@ -25237,7 +25237,7 @@
       "text": "Ang reply ng /tierlist sa Discord: ang S+, S at A tier"
     },
     "pages.bot.showcase.metaText": {
-      "fr": "/tierlist calcule la tier list à partir des taux de victoire, de sélection et de ban, tous rangs confondus ou d'Épique à Gloire mythique, par lane ou par rôle.",
+      "fr": "/tierlist calcule la tier list à partir des taux de victoire, de sélection et de ban, tous rangs confondus ou d'Epic à Mythical Glory, par lane ou par rôle.",
       "text": "Kinukuwenta ng /tierlist ang tier list mula sa win rate, pick rate at ban rate, sa lahat ng rank o mula Epic hanggang Mythical Glory, ayon sa lane o role."
     },
     "pages.bot.showcase.metaTitle": {
@@ -26609,8 +26609,8 @@
       "text": "Physical penetration %"
     },
     "pages.buildSimulatorUI.stats.spellVamp": {
-      "fr": "Vampirisme des sorts",
-      "text": "Spell vamp"
+      "fr": "Spell Vamp",
+      "text": "Spell Vamp"
     },
     "pages.buildSimulatorUI.stepLabel": {
       "fr": "Étape {n} sur {total}",
@@ -26657,12 +26657,12 @@
       "text": "Skin calendar"
     },
     "pages.collection.lead": {
-      "fr": "Cochez les héros et les apparences que vous possédez pour voir leur valeur en diamants au prix de la boutique du jeu, vos pièces les plus rares et votre avancement dans chaque série.",
-      "text": "I-tick ang mga hero at skin na pag-aari mo: tingnan kung magkano ang kabuuan nila sa presyo ng in-game shop, sa diamonds, kasama ang pinakabihira mong mga piyesa at ang completion mo sa bawat series."
+      "fr": "Cochez les héros et les apparences que vous possédez pour voir leur valeur en Diamonds au prix de la boutique du jeu, vos pièces les plus rares et votre avancement dans chaque série.",
+      "text": "I-tick ang mga hero at skin na pag-aari mo: tingnan kung magkano ang kabuuan nila sa presyo ng in-game shop, sa Diamonds, kasama ang pinakabihira mong mga piyesa at ang completion mo sa bawat series."
     },
     "pages.collection.methodHeroes": {
-      "fr": "Le prix d'un héros est celui de son apparence d'origine, qui vient avec lui. Sur les {heroes} héros de nos données, {diamonds} ont un prix en diamants ; les autres ne s'achètent qu'en points de bataille ou s'obtiennent autrement, et les points de bataille sont comptés à part.",
-      "text": "Ang presyo ng isang hero ay ang presyo ng default skin nito, na kasama na nito. Sa {heroes} hero sa data namin, {diamonds} ang may presyo sa diamonds; ang iba ay mabibili lang gamit ang Battle Points o makukuha sa ibang paraan, at hiwalay na binibilang ang Battle Points."
+      "fr": "Le prix d'un héros est celui de son apparence d'origine, qui vient avec lui. Sur les {heroes} héros de nos données, {diamonds} ont un prix en Diamonds ; les autres ne s'achètent qu'en Battle Points ou s'obtiennent autrement, et les Battle Points sont comptés à part.",
+      "text": "Ang presyo ng isang hero ay ang presyo ng default skin nito, na kasama na nito. Sa {heroes} hero sa data namin, {diamonds} ang may presyo sa Diamonds; ang iba ay mabibili lang gamit ang Battle Points o makukuha sa ibang paraan, at hiwalay na binibilang ang Battle Points."
     },
     "pages.collection.methodSkins": {
       "fr": "Sur les {skins} apparences que vous pouvez cocher, {diamonds} ont un prix en diamants, {others} un prix dans une autre monnaie (noyaux magiques, gemmes…) et {unpriced} aucun prix en boutique : StarLight, événements, tirages et pass. Ces dernières comptent dans votre avancement mais pas dans le total en diamants : nous préférons ne pas leur inventer de prix.",
@@ -26677,8 +26677,8 @@
       "text": "Collection value calculator"
     },
     "pages.collection.warning": {
-      "fr": "Valeur en diamants du jeu uniquement : ce que ces objets coûtent dans la boutique de Mobile Legends, pas ce que vaut un compte. Acheter, vendre ou échanger un compte est contraire aux conditions d'utilisation de Moonton, et cet outil ne donne aucune valeur marchande ou de revente.",
-      "text": "Halaga sa in-game diamonds lang: kung magkano ang mga item na ito sa shop ng Mobile Legends, hindi kung magkano ang halaga ng isang account. Labag sa terms of service ng Moonton ang pagbili, pagbenta o pag-trade ng account, at walang ibinibigay na market o resale value ang tool na ito."
+      "fr": "Valeur en Diamonds du jeu uniquement : ce que ces objets coûtent dans la boutique de Mobile Legends, pas ce que vaut un compte. Acheter, vendre ou échanger un compte est contraire aux conditions d'utilisation de Moonton, et cet outil ne donne aucune valeur marchande ou de revente.",
+      "text": "Halaga sa in-game Diamonds lang: kung magkano ang mga item na ito sa shop ng Mobile Legends, hindi kung magkano ang halaga ng isang account. Labag sa terms of service ng Moonton ang pagbili, pagbenta o pag-trade ng account, at walang ibinibigay na market o resale value ang tool na ito."
     },
     "pages.collectionUI.allHeroes": {
       "fr": "Cocher tous les héros",
@@ -26689,7 +26689,7 @@
       "text": "Lahat ng series"
     },
     "pages.collectionUI.bpDetail": {
-      "fr": "prix de vos héros en points de bataille",
+      "fr": "prix de vos héros en Battle Points",
       "text": "presyo ng mga hero mo sa Battle Points"
     },
     "pages.collectionUI.checkAll": {
@@ -26705,7 +26705,7 @@
       "text": "I-clear ang collection ko"
     },
     "pages.collectionUI.colDiamonds": {
-      "fr": "Diamants",
+      "fr": "Diamonds",
       "text": "Diamonds"
     },
     "pages.collectionUI.colOwned": {
@@ -26745,12 +26745,12 @@
       "text": "Mga hero"
     },
     "pages.collectionUI.inDiamonds": {
-      "fr": "{n} diamants",
-      "text": "{n} diamonds"
+      "fr": "{n} Diamonds",
+      "text": "{n} Diamonds"
     },
     "pages.collectionUI.noDiamond": {
-      "fr": "Hors du total en diamants (aucun prix en diamants) : apparences {skins}, héros {heroes}.",
-      "text": "Hindi kasama sa kabuuang diamonds (walang presyo sa diamonds): skin {skins}, hero {heroes}."
+      "fr": "Hors du total en Diamonds (aucun prix en Diamonds) : apparences {skins}, héros {heroes}.",
+      "text": "Hindi kasama sa kabuuang Diamonds (walang presyo sa Diamonds): skin {skins}, hero {heroes}."
     },
     "pages.collectionUI.noHero": {
       "fr": "Décocher tous les héros",
@@ -26829,8 +26829,8 @@
       "text": "Pinakabihirang piyesa: {name} ({hero})."
     },
     "pages.collectionUI.summaryText": {
-      "fr": "Ma collection MLBB : {heroes} héros et {skins} apparences, soit {diamonds} diamants au prix de la boutique du jeu.",
-      "text": "Ang MLBB collection ko: {heroes} hero at {skins} skin, na nagkakahalaga ng {diamonds} diamonds sa presyo ng in-game shop."
+      "fr": "Ma collection MLBB : {heroes} héros et {skins} apparences, soit {diamonds} Diamonds au prix de la boutique du jeu.",
+      "text": "Ang MLBB collection ko: {heroes} hero at {skins} skin, na nagkakahalaga ng {diamonds} Diamonds sa presyo ng in-game shop."
     },
     "pages.collectionUI.summaryTitle": {
       "fr": "Ma collection MLBB",
@@ -27041,8 +27041,8 @@
       "text": "Mas mababa ang limit ng mga account na bago sa forum at hindi sila makakapag-post ng link sa loob ng tatlong araw."
     },
     "pages.community.rules.noSpam": {
-      "fr": "Pas de publicité, de vente de comptes ni de « diamants gratuits » : ce sont des arnaques.",
-      "text": "Bawal ang ads, pagbebenta ng account o \"free diamonds\": scam ang mga iyan."
+      "fr": "Pas de publicité, de vente de comptes ni de « Diamonds gratuits » : ce sont des arnaques.",
+      "text": "Bawal ang ads, pagbebenta ng account o \"free Diamonds\": scam ang mga iyan."
     },
     "pages.community.rules.report": {
       "fr": "Un message pose problème ? Signalez-le : les modérateurs le verront, et plusieurs signalements le masquent en attendant.",
@@ -28181,15 +28181,15 @@
       "text": "Mga pick: blue 1, red 2, blue 2, red 2, blue 2, red 1. Hindi na mapi-pick ang hero na naka-ban o napili na."
     },
     "pages.draft.rules.rankedAccess": {
-      "fr": "La draft s'ouvre à partir du rang Épique.",
+      "fr": "La draft s'ouvre à partir du rang Epic.",
       "text": "Bukas ang Draft Pick simula Epic rank."
     },
     "pages.draft.rules.rankedBans": {
-      "fr": "Le nombre de bans dépend du rang le plus haut de la partie : {epic} par équipe en Épique, {legend} en Légende, {mythic} en Mythique et au-delà.",
+      "fr": "Le nombre de bans dépend du rang le plus haut de la partie : {epic} par équipe en Epic, {legend} en Legend, {mythic} en Mythic et au-delà.",
       "text": "Nakadepende ang bilang ng ban sa pinakamataas na rank sa match: {epic} bawat team sa Epic, {legend} sa Legend, {mythic} sa Mythic pataas."
     },
     "pages.draft.rules.rankedExample": {
-      "fr": "Ordre en Mythique ; en Épique et en Légende, seul le nombre de bans change.",
+      "fr": "Ordre en Mythic ; en Epic et en Legend, seul le nombre de bans change.",
       "text": "Order sa Mythic; sa Epic at Legend, bilang lang ng ban ang nagbabago."
     },
     "pages.draft.rules.rankedSimultaneous": {
@@ -28701,8 +28701,8 @@
       "text": "Saan makikita ang odds ng isang event"
     },
     "pages.drawCalculator.lead": {
-      "fr": "Combien de diamants pour une apparence d'événement ? Entrez le prix d'un tirage, la chance du lot et la garantie : le calculateur donne vos chances selon votre budget, le coût moyen et le nombre de tirages pour atteindre 50, 90 et 99 %.",
-      "text": "Ilang diamonds para sa isang event skin? Ilagay ang presyo bawat draw, ang chance ng prize at ang pity: ang odds mo para sa budget mo, ang average, at ang mga milestone na 50, 90 at 99%."
+      "fr": "Combien de Diamonds pour une apparence d'événement ? Entrez le prix d'un tirage, la chance du lot et la garantie : le calculateur donne vos chances selon votre budget, le coût moyen et le nombre de tirages pour atteindre 50, 90 et 99 %.",
+      "text": "Ilang Diamonds para sa isang event skin? Ilagay ang presyo bawat draw, ang chance ng prize at ang pity: ang odds mo para sa budget mo, ang average, at ang mga milestone na 50, 90 at 99%."
     },
     "pages.drawCalculator.limit1": {
       "fr": "Le jeu donne souvent la chance d'une catégorie (« une apparence », 1 %) plutôt que celle d'une apparence précise. Si l'apparence voulue n'est qu'une parmi plusieurs, sa chance est plus basse : entrez-la si l'événement la publie.",
@@ -28721,16 +28721,16 @@
       "text": "Itinuturing na hiwalay ang bawat draw, na may parehong chance p na makuha ang prize. Ang chance na makuha ito sa loob ng n draw ay 1 − (1 − p)ⁿ; kapag may guarantee sa draw N, aabot ito sa 100% sa ika-N na draw."
     },
     "pages.drawCalculator.method2": {
-      "fr": "Le nombre moyen de tirages vaut (1 − (1 − p)ᴺ) / p avec garantie, 1 / p sans. Le prix retient la combinaison la moins chère de tirages x10 et de tirages simples ; la moyenne en diamants est donnée pour les deux façons de tirer.",
-      "text": "Ang average na bilang ng draw ay (1 − (1 − p)ᴺ) / p kapag may guarantee, 1 / p kapag wala. Ginagamit ng presyo ang pinakamurang kombinasyon ng 10-draw at single draw; ibinibigay ang average sa diamonds para sa parehong paraan ng pag-draw."
+      "fr": "Le nombre moyen de tirages vaut (1 − (1 − p)ᴺ) / p avec garantie, 1 / p sans. Le prix retient la combinaison la moins chère de tirages x10 et de tirages simples ; la moyenne en Diamonds est donnée pour les deux façons de tirer.",
+      "text": "Ang average na bilang ng draw ay (1 − (1 − p)ᴺ) / p kapag may guarantee, 1 / p kapag wala. Ginagamit ng presyo ang pinakamurang kombinasyon ng 10-draw at single draw; ibinibigay ang average sa Diamonds para sa parehong paraan ng pag-draw."
     },
     "pages.drawCalculator.method3": {
       "fr": "Les remises ponctuelles (premier tirage du jour à moitié prix, semaines de réduction), les jetons gratuits et les récompenses de palier hebdomadaires ne sont pas comptés : ils font baisser le coût réel.",
       "text": "Hindi kasama ang mga one-off na discount (half-price na unang draw ng araw, discount week), libreng token at weekly milestone reward: binababa ng mga ito ang totoong gastos."
     },
     "pages.drawCalculator.method4": {
-      "fr": "Un Crystal of Aurora remplace un diamant dans les tirages : comptez-les ensemble dans votre budget.",
-      "text": "Ang isang Crystal of Aurora ay katumbas ng isang diamond sa mga draw: isama sila sa budget mo."
+      "fr": "Un Crystal of Aurora remplace un Diamond dans les tirages : comptez-les ensemble dans votre budget.",
+      "text": "Ang isang Crystal of Aurora ay katumbas ng isang Diamond sa mga draw: isama sila sa budget mo."
     },
     "pages.drawCalculator.methodTitle": {
       "fr": "Méthode",
@@ -28765,8 +28765,8 @@
       "text": "draws"
     },
     "pages.drawCalculatorUI.budget": {
-      "fr": "Budget (diamants)",
-      "text": "Budget (diamonds)"
+      "fr": "Budget (Diamonds)",
+      "text": "Budget (Diamonds)"
     },
     "pages.drawCalculatorUI.chance": {
       "fr": "Chance du lot par tirage",
@@ -28789,7 +28789,7 @@
       "text": "Chance"
     },
     "pages.drawCalculatorUI.colDiamonds": {
-      "fr": "Diamants",
+      "fr": "Diamonds",
       "text": "Diamonds"
     },
     "pages.drawCalculatorUI.colDraws": {
@@ -28797,20 +28797,20 @@
       "text": "Draws"
     },
     "pages.drawCalculatorUI.cost": {
-      "fr": "Prix d'un tirage (diamants)",
-      "text": "Presyo bawat draw (diamonds)"
+      "fr": "Prix d'un tirage (Diamonds)",
+      "text": "Presyo bawat draw (Diamonds)"
     },
     "pages.drawCalculatorUI.draws": {
       "fr": "Nombre de tirages",
       "text": "Bilang ng draw"
     },
     "pages.drawCalculatorUI.error.budget": {
-      "fr": "Un nombre entier de diamants, de 0 à {max}.",
-      "text": "Buong bilang ng diamonds, mula 0 hanggang {max}."
+      "fr": "Un nombre entier de Diamonds, de 0 à {max}.",
+      "text": "Buong bilang ng Diamonds, mula 0 hanggang {max}."
     },
     "pages.drawCalculatorUI.error.cost": {
-      "fr": "Un nombre entier de diamants, de 1 à {max}.",
-      "text": "Buong bilang ng diamonds, mula 1 hanggang {max}."
+      "fr": "Un nombre entier de Diamonds, de 1 à {max}.",
+      "text": "Buong bilang ng Diamonds, mula 1 hanggang {max}."
     },
     "pages.drawCalculatorUI.error.draws": {
       "fr": "Un nombre entier de tirages, de 1 à {max}.",
@@ -28821,8 +28821,8 @@
       "text": "Buong numero ng draw, mula 1 hanggang {max}, o blangko."
     },
     "pages.drawCalculatorUI.error.tenCost": {
-      "fr": "Un nombre entier de diamants, de 1 à {max}, ou vide.",
-      "text": "Buong bilang ng diamonds, mula 1 hanggang {max}, o blangko."
+      "fr": "Un nombre entier de Diamonds, de 1 à {max}, ou vide.",
+      "text": "Buong bilang ng Diamonds, mula 1 hanggang {max}, o blangko."
     },
     "pages.drawCalculatorUI.invalid": {
       "fr": "Corrigez les champs signalés pour voir le calcul.",
@@ -28861,15 +28861,15 @@
       "text": "Average na draw"
     },
     "pages.drawCalculatorUI.statAverageSingle": {
-      "fr": "Diamants en moyenne, un par un",
-      "text": "Average na diamonds, isa-isa"
+      "fr": "Diamonds en moyenne, un par un",
+      "text": "Average na Diamonds, isa-isa"
     },
     "pages.drawCalculatorUI.statAverageTen": {
-      "fr": "Diamants en moyenne, par x10",
-      "text": "Average na diamonds, sa 10-draw"
+      "fr": "Diamonds en moyenne, par x10",
+      "text": "Average na Diamonds, sa 10-draw"
     },
     "pages.drawCalculatorUI.statDiamonds": {
-      "fr": "Diamants dépensés",
+      "fr": "Diamonds dépensés",
       "text": "Diamonds na nagastos"
     },
     "pages.drawCalculatorUI.statDraws": {
@@ -28877,24 +28877,24 @@
       "text": "Mga draw na nagawa"
     },
     "pages.drawCalculatorUI.summaryAverage": {
-      "fr": "En moyenne, le lot tombe au bout de {draws} tirages, soit environ {diamonds} diamants.",
-      "text": "Sa average, lumalabas ang prize pagkatapos ng {draws} draw, mga {diamonds} diamonds."
+      "fr": "En moyenne, le lot tombe au bout de {draws} tirages, soit environ {diamonds} Diamonds.",
+      "text": "Sa average, lumalabas ang prize pagkatapos ng {draws} draw, mga {diamonds} Diamonds."
     },
     "pages.drawCalculatorUI.summaryBudget": {
-      "fr": "Avec {diamonds} diamants, vous faites {draws} tirages : {chance} de chances d'obtenir le lot.",
-      "text": "Sa {diamonds} diamonds, makakakuha ka ng {draws} draw: {chance} na chance na makuha ang prize."
+      "fr": "Avec {diamonds} Diamonds, vous faites {draws} tirages : {chance} de chances d'obtenir le lot.",
+      "text": "Sa {diamonds} Diamonds, makakakuha ka ng {draws} draw: {chance} na chance na makuha ang prize."
     },
     "pages.drawCalculatorUI.summaryDraws": {
-      "fr": "{draws} tirages coûtent {diamonds} diamants et donnent {chance} de chances d'obtenir le lot.",
-      "text": "Ang {draws} draw ay {diamonds} diamonds at may {chance} na chance na makuha ang prize."
+      "fr": "{draws} tirages coûtent {diamonds} Diamonds et donnent {chance} de chances d'obtenir le lot.",
+      "text": "Ang {draws} draw ay {diamonds} Diamonds at may {chance} na chance na makuha ang prize."
     },
     "pages.drawCalculatorUI.summaryNone": {
-      "fr": "Ce budget ne paie aucun tirage : un tirage coûte {cost} diamants.",
-      "text": "Hindi sapat ang budget na ito para sa kahit isang draw: {cost} diamonds ang isang draw."
+      "fr": "Ce budget ne paie aucun tirage : un tirage coûte {cost} Diamonds.",
+      "text": "Hindi sapat ang budget na ito para sa kahit isang draw: {cost} Diamonds ang isang draw."
     },
     "pages.drawCalculatorUI.summaryPity": {
-      "fr": "Garanti au tirage n° {n} : au pire, {diamonds} diamants.",
-      "text": "Garantisado sa draw {n}: {diamonds} diamonds sa pinakamalala."
+      "fr": "Garanti au tirage n° {n} : au pire, {diamonds} Diamonds.",
+      "text": "Garantisado sa draw {n}: {diamonds} Diamonds sa pinakamalala."
     },
     "pages.drawCalculatorUI.tenCost": {
       "fr": "Prix du tirage x10 (facultatif)",
@@ -29901,7 +29901,7 @@
       "text": "Mga Collector skin"
     },
     "pages.events.modes.event.desc": {
-      "fr": "Apparences sans prix fixe en boutique : tirages (Lucky Box, roue magique…), collaborations et événements limités.",
+      "fr": "Apparences sans prix fixe en boutique : tirages (Lucky Box, Magic Wheel…), collaborations et événements limités.",
       "text": "Mga skin na walang nakapirming presyo sa shop: mga draw (Lucky Box, Magic Wheel…), collaboration at limited event."
     },
     "pages.events.modes.event.summary": {
@@ -29925,8 +29925,8 @@
       "text": "Mga pass, season at top-up"
     },
     "pages.events.modes.shop.desc": {
-      "fr": "Apparences vendues à prix fixe, en diamants, points de bataille, tickets ou fragments.",
-      "text": "Mga skin na may nakapirming presyo, sa diamonds, Battle Points, tickets o fragments."
+      "fr": "Apparences vendues à prix fixe, en Diamonds, Battle Points, Tickets ou fragments.",
+      "text": "Mga skin na may nakapirming presyo, sa Diamonds, Battle Points, Tickets o fragments."
     },
     "pages.events.modes.shop.summary": {
       "fr": "{n} en boutique",
@@ -32097,8 +32097,8 @@
       "text": "Oo: standard na Unicode character ang mga ito na kayang ipakita ng karamihan ng app. Pero madalas mali ang pagbasa ng mga screen reader sa kanila: tandaan ito kung gumagamit nito ang mga teammate mo."
     },
     "pages.nickname.drawLink": {
-      "fr": "Vous économisez des diamants pour une apparence d'événement ?",
-      "text": "Nag-iipon ng diamonds para sa isang event skin?"
+      "fr": "Vous économisez des Diamonds pour une apparence d'événement ?",
+      "text": "Nag-iipon ng Diamonds para sa isang event skin?"
     },
     "pages.nickname.drawLinkAction": {
       "fr": "Calculez vos chances de tirage",
@@ -32869,7 +32869,7 @@
       "text": "{n} ban bawat team"
     },
     "pages.ranks.colBattlePoints": {
-      "fr": "Points de bataille",
+      "fr": "Battle Points",
       "text": "Battle Points"
     },
     "pages.ranks.colDivisions": {
@@ -32921,7 +32921,7 @@
       "text": "Draft pick · {n} ban bawat team"
     },
     "pages.ranks.emote": {
-      "fr": "Emote Mythique (100 jours)",
+      "fr": "Emote Mythic (100 jours)",
       "text": "Mythic emote (100 araw)"
     },
     "pages.ranks.heroesGap": {
@@ -32933,7 +32933,7 @@
       "text": "Ang {n} pinakamataas na win rate sa bawat rank bracket na sinukat ng laro, hindi kasama ang mga hero na masyadong bihirang laruin para maging maaasahan ang rate nila."
     },
     "pages.ranks.heroesNote": {
-      "fr": "Ces taux sont ceux de la tier list et suivent chaque relevé. Le jeu ne publie pas de mesures distinctes en dessous d'Épique.",
+      "fr": "Ces taux sont ceux de la tier list et suivent chaque relevé. Le jeu ne publie pas de mesures distinctes en dessous d'Epic.",
       "text": "Galing sa tier list ang mga rate na ito at sumusunod sa bawat pagsukat. Hindi naglalathala ang laro ng hiwalay na numero sa ibaba ng Epic."
     },
     "pages.ranks.heroesTitle": {
@@ -32941,11 +32941,11 @@
       "text": "Ang mga hero na pinakamadalas manalo, rank by rank"
     },
     "pages.ranks.journey": {
-      "fr": "Le parcours de saison, ouvert à partir d'Épique, récompense le nombre de parties classées jouées : l'apparence de saison s'obtient au bout de 20 parties.",
+      "fr": "Le parcours de saison, ouvert à partir d'Epic, récompense le nombre de parties classées jouées : l'apparence de saison s'obtient au bout de 20 parties.",
       "text": "Ang Season Journey, bukas simula Epic pataas, ay nagbibigay ng reward ayon sa bilang ng ranked game na nilaro: makukuha ang season skin pagkatapos ng 20 laro."
     },
     "pages.ranks.lead": {
-      "fr": "Tous les rangs classés de Mobile Legends, de Guerrier à Immortel mythique : divisions, étoiles, points mythiques, draft et récompenses de fin de saison, puis les héros qui gagnent le plus à chaque rang d'après nos mesures.",
+      "fr": "Tous les rangs classés de Mobile Legends, de Warrior à Mythical Immortal : divisions, étoiles, points mythiques, draft et récompenses de fin de saison, puis les héros qui gagnent le plus à chaque rang d'après nos mesures.",
       "text": "Bawat ranked tier ng Mobile Legends, mula Warrior hanggang Mythical Immortal: mga division, star, Mythic points, draft pick at end-of-season reward, tapos ang mga hero na pinakamadalas manalo sa bawat rank ayon sa aming mga sukat."
     },
     "pages.ranks.mythicCoins": {
@@ -32953,20 +32953,20 @@
       "text": "Kapag umabot ka ng 15 points sa Mythic, makakakuha ka ng Mythic Coins bawat season, ang currency ng mga Mythic skin."
     },
     "pages.ranks.mythicFamily": {
-      "fr": "Mythique (4 rangs)",
+      "fr": "Mythic (4 rangs)",
       "text": "Mythic (4 tier)"
     },
     "pages.ranks.mythicIntro": {
-      "fr": "Passé Légende, il n'y a plus de divisions : les étoiles deviennent des points, et leur cumul fixe le rang. {honor} points mènent à Honneur mythique, {glory} à Gloire mythique, {immortal} à Immortel mythique.",
+      "fr": "Passé Legend, il n'y a plus de divisions : les étoiles deviennent des points, et leur cumul fixe le rang. {honor} points mènent à Mythical Honor, {glory} à Mythical Glory, {immortal} à Mythical Immortal.",
       "text": "Paglampas ng Legend, wala nang division: nagiging points ang mga star, at ang kabuuan mo ang nagtatakda ng tier mo. Sa {honor} points, Mythical Honor ka na, sa {glory} Mythical Glory, sa {immortal} Mythical Immortal."
     },
     "pages.ranks.mythicTitle": {
-      "fr": "Mythique : des points au lieu des étoiles",
+      "fr": "Mythic : des points au lieu des étoiles",
       "text": "Mythic: points imbes na star"
     },
     "pages.ranks.noDraft": {
-      "fr": "Non (choix à l'aveugle)",
-      "text": "Hindi (blind pick)"
+      "fr": "Non (Blind Pick)",
+      "text": "Hindi (Blind Pick)"
     },
     "pages.ranks.openRanks": {
       "fr": "Afficher les {n} autres rangs",
@@ -33013,8 +33013,8 @@
       "text": "{n} tier, mula pinakamababa hanggang pinakamataas. Ang panalo sa ranked ay may dagdag na star at ang talo ay bawas ng isa; kapag lumampas sa maximum na star, aakyat ka ng division, at kapag bumaba sa zero, babalik ka pababa."
     },
     "pages.ranks.scaleNote": {
-      "fr": "La draft s'ouvre en Épique V ; en dessous, les parties classées se jouent en choix à l'aveugle. Légende n'a pas d'emblème dans nos visuels : un bouclier le remplace.",
-      "text": "Bukas ang Draft Pick simula Epic V; sa ibaba nito, blind pick ang ranked. Walang emblem ang Legend sa aming visuals: shield ang ipinalit dito."
+      "fr": "La draft s'ouvre en Epic V ; en dessous, les parties classées se jouent en Blind Pick. Legend n'a pas d'emblème dans nos visuels : un bouclier le remplace.",
+      "text": "Bukas ang Draft Pick simula Epic V; sa ibaba nito, Blind Pick ang ranked. Walang emblem ang Legend sa aming visuals: shield ang ipinalit dito."
     },
     "pages.ranks.scaleTitle": {
       "fr": "L'échelle des rangs",
@@ -33057,7 +33057,7 @@
       "text": "Ang rules ng bawat rank: mga division, star na kailangang makuha, ban sa draft, star-raising points at star protection points."
     },
     "pages.ranks.tableNote": {
-      "fr": "Les points de montée s'accumulent au fil des parties : à 100 %, la victoire suivante rapporte une étoile de plus. Les points de protection évitent de perdre une étoile sur une défaite. La famille Mythique n'a que des points de protection.",
+      "fr": "Les points de montée s'accumulent au fil des parties : à 100 %, la victoire suivante rapporte une étoile de plus. Les points de protection évitent de perdre une étoile sur une défaite. La famille Mythic n'a que des points de protection.",
       "text": "Naiipon ang star-raising points habang naglalaro ka: kapag 100%, may dagdag na star ang susunod mong panalo. Ang star protection points ay nagliligtas ng isang star kapag natalo ka. Protection points lang ang mayroon sa Mythic."
     },
     "pages.ranks.tableTitle": {
@@ -33181,7 +33181,7 @@
       "text": "I-tick ang mga hero at skin na pag-aari mo mula sa {heroes} hero at {skins} skin: tingnan kung magkano ang halaga nila sa presyo ng shop ng Mobile Legends: Bang Bang, sa diamonds, ayon sa rarity at series. Libre, walang sign-up, naka-save sa browser mo."
     },
     "pages.seo.collection.title": {
-      "fr": "Calculateur de valeur de collection MLBB (diamants)",
+      "fr": "Calculateur de valeur de collection MLBB (Diamonds)",
       "text": "MLBB Collection Value Calculator (Diamonds)"
     },
     "pages.seo.communityBuild.description": {
@@ -33245,7 +33245,7 @@
       "text": "Ilang diamonds para sa isang MLBB event skin? Odds ayon sa budget mo, average na draw kasama ang pity, mga milestone sa 50, 90 at 99% at isang chart. Libre, tumatakbo sa browser mo, may mga preset na may source."
     },
     "pages.seo.drawCalculator.title": {
-      "fr": "Calculateur de tirages MLBB : diamants et chances",
+      "fr": "Calculateur de tirages MLBB : Diamonds et chances",
       "text": "MLBB Draw Calculator: Diamonds at Odds"
     },
     "pages.seo.emblems.description": {
@@ -33417,11 +33417,11 @@
       "text": "MLBB Quiz: Daily Hero Guessing Game"
     },
     "pages.seo.ranks.description": {
-      "fr": "Les {n} rangs de Mobile Legends, de Guerrier à Immortel mythique : divisions, étoiles par division, points mythiques, draft et récompenses de saison. En Mythique, {top} gagnent le plus (relevé du {date}).",
+      "fr": "Les {n} rangs de Mobile Legends, de Warrior à Mythical Immortal : divisions, étoiles par division, points mythiques, draft et récompenses de saison. En Mythic, {top} gagnent le plus (relevé du {date}).",
       "text": "Ang {n} rank ng Mobile Legends mula Warrior hanggang Mythical Immortal: mga division, star bawat division, Mythic points, draft pick at season reward. Sa Mythic, ang {top} ang may pinakamaraming panalo (nasukat noong {date})."
     },
     "pages.seo.ranks.descriptionSimple": {
-      "fr": "Les {n} rangs de Mobile Legends, de Guerrier à Immortel mythique : divisions, étoiles par division, points mythiques, draft et récompenses de saison.",
+      "fr": "Les {n} rangs de Mobile Legends, de Warrior à Mythical Immortal : divisions, étoiles par division, points mythiques, draft et récompenses de saison.",
       "text": "Ang {n} rank ng Mobile Legends mula Warrior hanggang Mythical Immortal: mga division, star bawat division, Mythic points, draft pick at season reward."
     },
     "pages.seo.ranks.title": {
@@ -33745,8 +33745,8 @@
       "text": "Taon"
     },
     "pages.skinsCalendar.collectionLink": {
-      "fr": "Combien vaut votre collection en diamants ?",
-      "text": "Magkano ang halaga ng collection mo sa diamonds?"
+      "fr": "Combien vaut votre collection en Diamonds ?",
+      "text": "Magkano ang halaga ng collection mo sa Diamonds?"
     },
     "pages.skinsCalendar.crumb": {
       "fr": "Calendrier",
@@ -33793,7 +33793,7 @@
       "text": "Tingnan ang mga pinakabagong skin"
     },
     "pages.skinsCalendar.seriesLead": {
-      "fr": "Les étiquettes que le wiki donne aux apparences (Collector, StarLight, Épique, Légende, collaborations…), par nombre d'apparences. Choisissez-en une pour filtrer le calendrier.",
+      "fr": "Les étiquettes que le wiki donne aux apparences (Collector, StarLight, Epic, Legend, collaborations…), par nombre d'apparences. Choisissez-en une pour filtrer le calendrier.",
       "text": "Ang mga label na ibinibigay ng wiki sa mga skin (Collector, StarLight, Epic, Legend, collaboration…), ayon sa bilang ng skin. Pumili ng isa para i-filter ang calendar."
     },
     "pages.skinsCalendar.seriesTitle": {
@@ -35365,43 +35365,43 @@
       "text": "Patch {version}: {n} sa mga paborito mo ang nagbago"
     },
     "rankNames.elite": {
-      "fr": "Élite",
+      "fr": "Elite",
       "text": "Elite"
     },
     "rankNames.epic": {
-      "fr": "Épique",
+      "fr": "Epic",
       "text": "Epic"
     },
     "rankNames.grandmaster": {
-      "fr": "Grand Maître",
+      "fr": "Grandmaster",
       "text": "Grandmaster"
     },
     "rankNames.legend": {
-      "fr": "Légende",
+      "fr": "Legend",
       "text": "Legend"
     },
     "rankNames.master": {
-      "fr": "Maître",
+      "fr": "Master",
       "text": "Master"
     },
     "rankNames.mythic": {
-      "fr": "Mythique",
+      "fr": "Mythic",
       "text": "Mythic"
     },
     "rankNames.mythic-glory": {
-      "fr": "Gloire mythique",
+      "fr": "Mythical Glory",
       "text": "Mythical Glory"
     },
     "rankNames.mythic-honor": {
-      "fr": "Honneur mythique",
+      "fr": "Mythical Honor",
       "text": "Mythical Honor"
     },
     "rankNames.mythic-immortal": {
-      "fr": "Immortel mythique",
+      "fr": "Mythical Immortal",
       "text": "Mythical Immortal"
     },
     "rankNames.warrior": {
-      "fr": "Guerrier",
+      "fr": "Warrior",
       "text": "Warrior"
     },
     "rankUnit.point": {
@@ -35525,31 +35525,31 @@
       "text": "Collector"
     },
     "skinLabel.Elite": {
-      "fr": "Élite",
+      "fr": "Elite",
       "text": "Elite"
     },
     "skinLabel.Epic": {
-      "fr": "Épique",
+      "fr": "Epic",
       "text": "Epic"
     },
     "skinLabel.Legend": {
-      "fr": "Légende",
+      "fr": "Legend",
       "text": "Legend"
     },
     "skinLabel.Limited": {
-      "fr": "Limité",
+      "fr": "Limited",
       "text": "Limited"
     },
     "skinLabel.Luckybox": {
-      "fr": "Coffre chance",
+      "fr": "Lucky Box",
       "text": "Lucky Box"
     },
     "skinLabel.Seasons": {
-      "fr": "Saisons",
+      "fr": "Seasons",
       "text": "Seasons"
     },
     "skinLabel.Special": {
-      "fr": "Spécial",
+      "fr": "Special",
       "text": "Special"
     },
     "skinLabel.StarLight": {
@@ -35557,11 +35557,11 @@
       "text": "StarLight"
     },
     "skinLabel.Valentine": {
-      "fr": "Saint-Valentin",
+      "fr": "Valentine's Day",
       "text": "Valentine's Day"
     },
     "skinRarity.Common": {
-      "fr": "Commun",
+      "fr": "Common",
       "text": "Common"
     },
     "skinRarity.Deluxe": {
@@ -35569,19 +35569,19 @@
       "text": "Deluxe"
     },
     "skinRarity.Exceptional": {
-      "fr": "Exceptionnel",
+      "fr": "Exceptional",
       "text": "Exceptional"
     },
     "skinRarity.Exquisite": {
-      "fr": "Exquis",
+      "fr": "Exquisite",
       "text": "Exquisite"
     },
     "skinRarity.Grand": {
-      "fr": "Grandiose",
+      "fr": "Grand",
       "text": "Grand"
     },
     "skinRarity.Supreme": {
-      "fr": "Suprême",
+      "fr": "Supreme",
       "text": "Supreme"
     },
     "skinRarity.origin": {
@@ -35589,27 +35589,27 @@
       "text": "Origin"
     },
     "skinsUI.battlePoints": {
-      "fr": "Points de bataille",
+      "fr": "Battle Points",
       "text": "Battle Points"
     },
     "skinsUI.diamonds": {
-      "fr": "Diamants",
+      "fr": "Diamonds",
       "text": "Diamonds"
     },
     "skinsUI.fragments": {
-      "fr": "Fragments de héros",
+      "fr": "Hero Fragments",
       "text": "Hero Fragments"
     },
     "skinsUI.gems": {
-      "fr": "Gemmes",
+      "fr": "Gems",
       "text": "Gems"
     },
     "skinsUI.magicCores": {
-      "fr": "Noyaux magiques",
+      "fr": "Magic Cores",
       "text": "Magic Cores"
     },
     "skinsUI.mythicCoins": {
-      "fr": "Pièces mythiques",
+      "fr": "Myth Coins",
       "text": "Myth Coins"
     },
     "skinsUI.obtained": {
@@ -36273,11 +36273,11 @@
       "text": "{description} Ang mga thread na “{name}” sa Mobile Legends forum ng MLBBDex, bukas sa lahat ng player."
     },
     "pages.accountValueUI.tier.exquisite": {
-      "fr": "Exquis",
+      "fr": "Exquisite",
       "text": "Exquisite"
     },
     "pages.accountValueUI.tier.deluxe": {
-      "fr": "Premium",
+      "fr": "Deluxe",
       "text": "Deluxe"
     },
     "pages.accountValueUI.tier.exceptional": {
@@ -36285,7 +36285,7 @@
       "text": "Exceptional"
     },
     "pages.accountValueUI.tier.common": {
-      "fr": "Commun",
+      "fr": "Common",
       "text": "Common"
     },
     "pages.accountValueUI.tier.painted": {
@@ -36393,8 +36393,8 @@
       "text": "Tatlong overview ng collection points ang bubukas doon: skins, in-match items at out-of-match items. Sa skins, kopyahin ang unang numero ng bawat row (\"owned/total\"); sa dalawa pa, ang kabuuang points sa itaas ng panel."
     },
     "pages.accountValue.methodItems": {
-      "fr": "Les apparences éclatantes et les objets des deux autres panneaux (effets de rappel, émotes, cadres d'avatar…) valent des points très variables d'un objet à l'autre : ils sont comptés à leurs points, à {inMatch} diamant par point pour les objets de partie, {outMatch} pour les objets hors partie, souvent gratuits, et {shining} pour les apparences éclatantes. La plupart viennent d'événements et de passes : c'est une estimation basse.",
-      "text": "Ang shining skins at ang items ng dalawa pang panel (recall effects, emotes, avatar frames…) ay may iba-ibang points bawat item: binibilang sila ayon sa points nila, {inMatch} diamond bawat point para sa in-match items, {outMatch} para sa out-of-match items na kadalasang libre, at {shining} para sa shining skins. Karamihan ay galing sa events at passes: mababang tantiya ito."
+      "fr": "Les apparences éclatantes et les objets des deux autres panneaux (effets de rappel, émotes, cadres d'avatar…) valent des points très variables d'un objet à l'autre : ils sont comptés à leurs points, à {inMatch} Diamond par point pour les objets de partie, {outMatch} pour les objets hors partie, souvent gratuits, et {shining} pour les apparences éclatantes. La plupart viennent d'événements et de passes : c'est une estimation basse.",
+      "text": "Ang shining skins at ang items ng dalawa pang panel (recall effects, emotes, avatar frames…) ay may iba-ibang points bawat item: binibilang sila ayon sa points nila, {inMatch} Diamond bawat point para sa in-match items, {outMatch} para sa out-of-match items na kadalasang libre, at {shining} para sa shining skins. Karamihan ay galing sa events at passes: mababang tantiya ito."
     },
     "pages.accountValueUI.pointsLead": {
       "fr": "Ces objets valent des points très différents d'un objet à l'autre : indiquez le total en points que le jeu affiche.",
@@ -37367,7 +37367,7 @@
       "text": "พลังโจมตีและเจาะเกราะกายภาพ"
     },
     "emblemData.assassin-emblem.name": {
-      "fr": "Emblème d'assassin",
+      "fr": "Assassin Emblem",
       "text": "Assassin Emblem"
     },
     "emblemData.bargain-hunter.bestFor": {
@@ -37447,7 +37447,7 @@
       "text": "พลังโจมตีและดูดเลือด"
     },
     "emblemData.fighter-emblem.name": {
-      "fr": "Emblème de combattant",
+      "fr": "Fighter Emblem",
       "text": "Fighter Emblem"
     },
     "emblemData.firmness.bestFor": {
@@ -37535,7 +37535,7 @@
       "text": "พลังเวทและเจาะเกราะเวท"
     },
     "emblemData.mage-emblem.name": {
-      "fr": "Emblème de mage",
+      "fr": "Mage Emblem",
       "text": "Mage Emblem"
     },
     "emblemData.marksman-emblem.bestFor": {
@@ -37547,7 +37547,7 @@
       "text": "ความเร็วโจมตีและพลังโจมตี"
     },
     "emblemData.marksman-emblem.name": {
-      "fr": "Emblème de tireur",
+      "fr": "Marksman Emblem",
       "text": "Marksman Emblem"
     },
     "emblemData.master-assassin.bestFor": {
@@ -37691,7 +37691,7 @@
       "text": "HP และการป้องกัน"
     },
     "emblemData.tank-emblem.name": {
-      "fr": "Emblème de tank",
+      "fr": "Tank Emblem",
       "text": "Tank Emblem"
     },
     "emblemData.tenacity.bestFor": {
@@ -38407,15 +38407,15 @@
       "text": "ทุกแรงก์"
     },
     "measuredRanks.epic": {
-      "fr": "Épique",
+      "fr": "Epic",
       "text": "Epic"
     },
     "measuredRanks.glory": {
-      "fr": "Gloire mythique",
+      "fr": "Mythical Glory",
       "text": "Mythical Glory"
     },
     "measuredRanks.honor": {
-      "fr": "Honneur mythique",
+      "fr": "Mythical Honor",
       "text": "Mythical Honor"
     },
     "measuredRanks.label": {
@@ -38423,11 +38423,11 @@
       "text": "แรงก์"
     },
     "measuredRanks.legend": {
-      "fr": "Légende",
+      "fr": "Legend",
       "text": "Legend"
     },
     "measuredRanks.mythic": {
-      "fr": "Mythique",
+      "fr": "Mythic",
       "text": "Mythic"
     },
     "modeSheet.arcade-mode.tagline": {
@@ -38867,7 +38867,7 @@
       "text": "ต่ำกว่าค่าเฉลี่ยในแรงก์ของคุณ"
     },
     "pages.accountProfile.belowEpicBracket": {
-      "fr": "Les mesures par rang commencent à Épique : en dessous, la comparaison se fait tous rangs confondus.",
+      "fr": "Les mesures par rang commencent à Epic : en dessous, la comparaison se fait tous rangs confondus.",
       "text": "ค่าวัดตามแรงก์เริ่มที่ Epic: ต่ำกว่านั้นจะเทียบกับค่ารวมทุกแรงก์"
     },
     "pages.accountProfile.bestDetail": {
@@ -39263,7 +39263,7 @@
       "text": "สัดส่วนฮีโร่ที่มี ตั้งแต่ ×{low} (ไม่มีเลย) ถึง ×{high} (ครบทุกตัว);"
     },
     "pages.accountValue.factorRank": {
-      "fr": "le rang le plus haut atteint, de ×{low} (Guerrier) à ×{high} (Immortel mythique) ;",
+      "fr": "le rang le plus haut atteint, de ×{low} (Warrior) à ×{high} (Mythical Immortal) ;",
       "text": "แรงก์สูงสุดที่เคยไปถึง ตั้งแต่ ×{low} (Warrior) ถึง ×{high} (Mythical Immortal);"
     },
     "pages.accountValue.lead": {
@@ -39271,7 +39271,7 @@
       "text": "คอลเลกชันสกินใช้ไปเท่าไร ทั้งเป็นเพชรและเป็นเงิน และช่วงมูลค่าโดยประมาณของบัญชีที่ใกล้เคียงกัน เป็นเพียงขนาดโดยประมาณ ไม่ใช่ราคา: วิธีคำนวณอธิบายไว้ใต้เครื่องมือ"
     },
     "pages.accountValue.methodLimits": {
-      "fr": "Les montants affichés sont arrondis à deux chiffres significatifs. Ne sont pas comptés : les héros eux-mêmes, achetés le plus souvent en points de bataille, les apparences limitées d'un serveur, les cosmétiques (effets, émotes, cadres) ni l'historique de matchs. Un vrai marché dépend aussi de la demande du moment, que rien ici ne mesure.",
+      "fr": "Les montants affichés sont arrondis à deux chiffres significatifs. Ne sont pas comptés : les héros eux-mêmes, achetés le plus souvent en Battle Points, les apparences limitées d'un serveur, les cosmétiques (effets, émotes, cadres) ni l'historique de matchs. Un vrai marché dépend aussi de la demande du moment, que rien ici ne mesure.",
       "text": "จำนวนเงินปัดเป็นเลขนัยสำคัญสองหลัก ไม่นับรวม: ตัวฮีโร่ซึ่งส่วนใหญ่ซื้อด้วย Battle Points, สกินเฉพาะเซิร์ฟเวอร์, ของตกแต่ง (เอฟเฟกต์ อีโมต กรอบ) และประวัติการแข่งขัน ตลาดจริงยังขึ้นกับความต้องการในขณะนั้น ซึ่งไม่มีสิ่งใดในที่นี้วัดได้"
     },
     "pages.accountValue.methodMoney": {
@@ -39411,7 +39411,7 @@
       "text": "แชร์ผลลัพธ์แล้ว"
     },
     "pages.accountValueUI.tier.grand": {
-      "fr": "Grandiose",
+      "fr": "Grand",
       "text": "Grand"
     },
     "pages.accountValueUI.tier.legend": {
@@ -40031,7 +40031,7 @@
       "text": "คำตอบของ /tierlist ใน Discord: Tier S+, S และ A"
     },
     "pages.bot.showcase.metaText": {
-      "fr": "/tierlist calcule la tier list à partir des taux de victoire, de sélection et de ban, tous rangs confondus ou d'Épique à Gloire mythique, par lane ou par rôle.",
+      "fr": "/tierlist calcule la tier list à partir des taux de victoire, de sélection et de ban, tous rangs confondus ou d'Epic à Mythical Glory, par lane ou par rôle.",
       "text": "/tierlist คำนวณ Tier List จาก Win Rate, Pick Rate และ Ban Rate ทุกแรงก์รวมกันหรือตั้งแต่ Epic ถึง Mythical Glory แยกตามเลนหรือโรล"
     },
     "pages.bot.showcase.metaTitle": {
@@ -41359,7 +41359,7 @@
       "text": "ทุกซีรีส์"
     },
     "pages.collectionUI.bpDetail": {
-      "fr": "prix de vos héros en points de bataille",
+      "fr": "prix de vos héros en Battle Points",
       "text": "ราคาฮีโร่ของคุณเป็น Battle Points"
     },
     "pages.collectionUI.checkAll": {
@@ -42715,15 +42715,15 @@
       "text": "ลำดับ Pick: น้ำเงิน 1, แดง 2, น้ำเงิน 2, แดง 2, น้ำเงิน 2, แดง 1 ไม่สามารถเลือกฮีโร่ที่ถูกแบนหรือถูกเลือกไปแล้ว"
     },
     "pages.draft.rules.rankedAccess": {
-      "fr": "La draft s'ouvre à partir du rang Épique.",
+      "fr": "La draft s'ouvre à partir du rang Epic.",
       "text": "Draft Pick เปิดตั้งแต่แรงก์ Epic"
     },
     "pages.draft.rules.rankedBans": {
-      "fr": "Le nombre de bans dépend du rang le plus haut de la partie : {epic} par équipe en Épique, {legend} en Légende, {mythic} en Mythique et au-delà.",
+      "fr": "Le nombre de bans dépend du rang le plus haut de la partie : {epic} par équipe en Epic, {legend} en Legend, {mythic} en Mythic et au-delà.",
       "text": "จำนวนการแบนขึ้นอยู่กับแรงก์สูงสุดในแมตช์: ทีมละ {epic} ใน Epic, {legend} ใน Legend, {mythic} ใน Mythic ขึ้นไป"
     },
     "pages.draft.rules.rankedExample": {
-      "fr": "Ordre en Mythique ; en Épique et en Légende, seul le nombre de bans change.",
+      "fr": "Ordre en Mythic ; en Epic et en Legend, seul le nombre de bans change.",
       "text": "ลำดับใน Mythic ส่วนใน Epic และ Legend จะต่างกันเพียงจำนวนการแบน"
     },
     "pages.draft.rules.rankedSimultaneous": {
@@ -44327,7 +44327,7 @@
       "text": "สกิน Collector"
     },
     "pages.events.modes.event.desc": {
-      "fr": "Apparences sans prix fixe en boutique : tirages (Lucky Box, roue magique…), collaborations et événements limités.",
+      "fr": "Apparences sans prix fixe en boutique : tirages (Lucky Box, Magic Wheel…), collaborations et événements limités.",
       "text": "สกินที่ไม่มีราคาคงที่ในร้านค้า: กิจกรรมสุ่ม (Lucky Box, Magic Wheel…), คอลแลบ และอีเวนต์จำกัดเวลา"
     },
     "pages.events.modes.event.summary": {
@@ -47175,7 +47175,7 @@
       "text": "แบนทีมละ {n} ตัว"
     },
     "pages.ranks.colBattlePoints": {
-      "fr": "Points de bataille",
+      "fr": "Battle Points",
       "text": "Battle Points"
     },
     "pages.ranks.colDraft": {
@@ -47223,7 +47223,7 @@
       "text": "ดราฟต์ · แบนทีมละ {n} ตัว"
     },
     "pages.ranks.emote": {
-      "fr": "Emote Mythique (100 jours)",
+      "fr": "Emote Mythic (100 jours)",
       "text": "อีโมต Mythic (100 วัน)"
     },
     "pages.ranks.heroesGap": {
@@ -47235,7 +47235,7 @@
       "text": "Win Rate ที่ดีที่สุด {n} อันดับในแต่ละช่วงแรงก์ที่วัดโดยเกม ไม่รวมฮีโร่ที่ถูกเล่นน้อยเกินไปจนค่า Win Rate ไม่น่าเชื่อถือ"
     },
     "pages.ranks.heroesNote": {
-      "fr": "Ces taux sont ceux de la tier list et suivent chaque relevé. Le jeu ne publie pas de mesures distinctes en dessous d'Épique.",
+      "fr": "Ces taux sont ceux de la tier list et suivent chaque relevé. Le jeu ne publie pas de mesures distinctes en dessous d'Epic.",
       "text": "ค่าเหล่านี้มาจาก Tier List และอัปเดตตามการวัดแต่ละครั้ง เกมไม่ได้เผยแพร่ตัวเลขแยกสำหรับแรงก์ที่ต่ำกว่า Epic"
     },
     "pages.ranks.heroesTitle": {
@@ -47243,11 +47243,11 @@
       "text": "ฮีโร่ที่ชนะมากที่สุด แยกตามแรงก์"
     },
     "pages.ranks.journey": {
-      "fr": "Le parcours de saison, ouvert à partir d'Épique, récompense le nombre de parties classées jouées : l'apparence de saison s'obtient au bout de 20 parties.",
+      "fr": "Le parcours de saison, ouvert à partir d'Epic, récompense le nombre de parties classées jouées : l'apparence de saison s'obtient au bout de 20 parties.",
       "text": "Season Journey ซึ่งเปิดตั้งแต่ Epic ขึ้นไป ให้รางวัลตามจำนวนเกม Ranked ที่เล่น: สกินประจำซีซันจะปลดล็อกหลังเล่นครบ 20 เกม"
     },
     "pages.ranks.lead": {
-      "fr": "Tous les rangs classés de Mobile Legends, de Guerrier à Immortel mythique : divisions, étoiles, points mythiques, draft et récompenses de fin de saison, puis les héros qui gagnent le plus à chaque rang d'après nos mesures.",
+      "fr": "Tous les rangs classés de Mobile Legends, de Warrior à Mythical Immortal : divisions, étoiles, points mythiques, draft et récompenses de fin de saison, puis les héros qui gagnent le plus à chaque rang d'après nos mesures.",
       "text": "ทุกแรงก์ของ Mobile Legends ตั้งแต่ Warrior ถึง Mythical Immortal: ดิวิชั่น ดาว แต้ม Mythic ดราฟต์ และรางวัลท้ายซีซัน ตามด้วยฮีโร่ที่ชนะมากที่สุดในแต่ละแรงก์ตามการวัดของเรา"
     },
     "pages.ranks.mythicCoins": {
@@ -47255,19 +47255,19 @@
       "text": "การทำได้ 15 คะแนนใน Mythic จะได้รับ Mythic Coin ทุกซีซัน ซึ่งเป็นสกุลเงินสำหรับแลกสกิน Mythic"
     },
     "pages.ranks.mythicFamily": {
-      "fr": "Mythique (4 rangs)",
+      "fr": "Mythic (4 rangs)",
       "text": "Mythic (4 แรงก์)"
     },
     "pages.ranks.mythicIntro": {
-      "fr": "Passé Légende, il n'y a plus de divisions : les étoiles deviennent des points, et leur cumul fixe le rang. {honor} points mènent à Honneur mythique, {glory} à Gloire mythique, {immortal} à Immortel mythique.",
+      "fr": "Passé Legend, il n'y a plus de divisions : les étoiles deviennent des points, et leur cumul fixe le rang. {honor} points mènent à Mythical Honor, {glory} à Mythical Glory, {immortal} à Mythical Immortal.",
       "text": "หลังจาก Legend จะไม่มีดิวิชั่นอีกต่อไป: ดาวจะกลายเป็นคะแนน และคะแนนรวมจะกำหนดแรงก์ของคุณ {honor} คะแนนจะขึ้นสู่ Mythical Honor, {glory} คะแนนสู่ Mythical Glory และ {immortal} คะแนนสู่ Mythical Immortal"
     },
     "pages.ranks.mythicTitle": {
-      "fr": "Mythique : des points au lieu des étoiles",
+      "fr": "Mythic : des points au lieu des étoiles",
       "text": "Mythic: คะแนนแทนดาว"
     },
     "pages.ranks.noDraft": {
-      "fr": "Non (choix à l'aveugle)",
+      "fr": "Non (Blind Pick)",
       "text": "ไม่ (Blind Pick)"
     },
     "pages.ranks.openRanks": {
@@ -47311,7 +47311,7 @@
       "text": "{n} แรงก์ เรียงจากต่ำสุดไปสูงสุด ชนะใน Ranked ได้หนึ่งดาว แพ้เสียหนึ่งดาว เมื่อดาวเกินจำนวนสูงสุดจะขึ้นดิวิชั่นถัดไป และเมื่อต่ำกว่าศูนย์จะตกดิวิชั่น"
     },
     "pages.ranks.scaleNote": {
-      "fr": "La draft s'ouvre en Épique V ; en dessous, les parties classées se jouent en choix à l'aveugle. Légende n'a pas d'emblème dans nos visuels : un bouclier le remplace.",
+      "fr": "La draft s'ouvre en Epic V ; en dessous, les parties classées se jouent en Blind Pick. Legend n'a pas d'emblème dans nos visuels : un bouclier le remplace.",
       "text": "ดราฟต์เปิดที่ Epic V ต่ำกว่านั้นเกม Ranked จะใช้ Blind Pick แรงก์ Legend ไม่มีตราในภาพของเรา จึงใช้รูปโล่แทน"
     },
     "pages.ranks.scaleTitle": {
@@ -47347,7 +47347,7 @@
       "text": "กฎของแต่ละแรงก์: ดิวิชั่น ดาวที่ต้องเก็บ จำนวนแบนในดราฟต์ แต้มเพิ่มดาว และแต้มป้องกันดาว"
     },
     "pages.ranks.tableNote": {
-      "fr": "Les points de montée s'accumulent au fil des parties : à 100 %, la victoire suivante rapporte une étoile de plus. Les points de protection évitent de perdre une étoile sur une défaite. La famille Mythique n'a que des points de protection.",
+      "fr": "Les points de montée s'accumulent au fil des parties : à 100 %, la victoire suivante rapporte une étoile de plus. Les points de protection évitent de perdre une étoile sur une défaite. La famille Mythic n'a que des points de protection.",
       "text": "แต้มเพิ่มดาวจะสะสมขึ้นระหว่างเล่น: เมื่อถึง 100% การชนะครั้งถัดไปจะได้ดาวเพิ่มอีกหนึ่งดวง แต้มป้องกันดาวช่วยไม่ให้เสียดาวเมื่อแพ้ กลุ่ม Mythic มีเพียงแต้มป้องกันดาว"
     },
     "pages.ranks.tierListAllLink": {
@@ -47703,11 +47703,11 @@
       "text": "ควิซ MLBB: เกมทายฮีโร่ประจำวัน"
     },
     "pages.seo.ranks.description": {
-      "fr": "Les {n} rangs de Mobile Legends, de Guerrier à Immortel mythique : divisions, étoiles par division, points mythiques, draft et récompenses de saison. En Mythique, {top} gagnent le plus (relevé du {date}).",
+      "fr": "Les {n} rangs de Mobile Legends, de Warrior à Mythical Immortal : divisions, étoiles par division, points mythiques, draft et récompenses de saison. En Mythic, {top} gagnent le plus (relevé du {date}).",
       "text": "แรงก์ทั้ง {n} ระดับของ Mobile Legends ตั้งแต่ Warrior ถึง Mythical Immortal: ดิวิชัน ดาวต่อดิวิชัน แต้ม Mythic การดราฟต์ Pick และรางวัลซีซัน ใน Mythic ฮีโร่ที่ชนะมากที่สุดคือ {top} (วัดเมื่อ {date})"
     },
     "pages.seo.ranks.descriptionSimple": {
-      "fr": "Les {n} rangs de Mobile Legends, de Guerrier à Immortel mythique : divisions, étoiles par division, points mythiques, draft et récompenses de saison.",
+      "fr": "Les {n} rangs de Mobile Legends, de Warrior à Mythical Immortal : divisions, étoiles par division, points mythiques, draft et récompenses de saison.",
       "text": "แรงก์ทั้ง {n} ระดับของ Mobile Legends ตั้งแต่ Warrior ถึง Mythical Immortal: ดิวิชัน ดาวต่อดิวิชัน แต้ม Mythic การดราฟต์ Pick และรางวัลซีซัน"
     },
     "pages.seo.ranks.title": {
@@ -48051,7 +48051,7 @@
       "text": "1 สกิน"
     },
     "pages.skinsCalendar.seriesLead": {
-      "fr": "Les étiquettes que le wiki donne aux apparences (Collector, StarLight, Épique, Légende, collaborations…), par nombre d'apparences. Choisissez-en une pour filtrer le calendrier.",
+      "fr": "Les étiquettes que le wiki donne aux apparences (Collector, StarLight, Epic, Legend, collaborations…), par nombre d'apparences. Choisissez-en une pour filtrer le calendrier.",
       "text": "ป้ายที่วิกิใช้จัดกลุ่มสกิน (Collector, StarLight, Epic, Legend, คอลแลบ…) เรียงตามจำนวนสกิน เลือกหนึ่งป้ายเพื่อกรองปฏิทิน"
     },
     "pages.skinsCalendar.seriesTitle": {
@@ -49511,43 +49511,43 @@
       "text": "แพตช์ {version}: ฮีโร่โปรดของคุณเปลี่ยนแปลง {n} ตัว"
     },
     "rankNames.elite": {
-      "fr": "Élite",
+      "fr": "Elite",
       "text": "Elite"
     },
     "rankNames.epic": {
-      "fr": "Épique",
+      "fr": "Epic",
       "text": "Epic"
     },
     "rankNames.grandmaster": {
-      "fr": "Grand Maître",
+      "fr": "Grandmaster",
       "text": "Grandmaster"
     },
     "rankNames.legend": {
-      "fr": "Légende",
+      "fr": "Legend",
       "text": "Legend"
     },
     "rankNames.master": {
-      "fr": "Maître",
+      "fr": "Master",
       "text": "Master"
     },
     "rankNames.mythic": {
-      "fr": "Mythique",
+      "fr": "Mythic",
       "text": "Mythic"
     },
     "rankNames.mythic-glory": {
-      "fr": "Gloire mythique",
+      "fr": "Mythical Glory",
       "text": "Mythical Glory"
     },
     "rankNames.mythic-honor": {
-      "fr": "Honneur mythique",
+      "fr": "Mythical Honor",
       "text": "Mythical Honor"
     },
     "rankNames.mythic-immortal": {
-      "fr": "Immortel mythique",
+      "fr": "Mythical Immortal",
       "text": "Mythical Immortal"
     },
     "rankNames.warrior": {
-      "fr": "Guerrier",
+      "fr": "Warrior",
       "text": "Warrior"
     },
     "rankUnit.point": {
@@ -49659,23 +49659,23 @@
       "text": "Collector"
     },
     "skinLabel.Elite": {
-      "fr": "Élite",
+      "fr": "Elite",
       "text": "Elite"
     },
     "skinLabel.Epic": {
-      "fr": "Épique",
+      "fr": "Epic",
       "text": "Epic"
     },
     "skinLabel.Legend": {
-      "fr": "Légende",
+      "fr": "Legend",
       "text": "Legend"
     },
     "skinLabel.Limited": {
-      "fr": "Limité",
+      "fr": "Limited",
       "text": "Limited"
     },
     "skinLabel.Luckybox": {
-      "fr": "Coffre chance",
+      "fr": "Lucky Box",
       "text": "Lucky Box"
     },
     "skinLabel.Seasons": {
@@ -49683,7 +49683,7 @@
       "text": "Season"
     },
     "skinLabel.Special": {
-      "fr": "Spécial",
+      "fr": "Special",
       "text": "Special"
     },
     "skinLabel.StarLight": {
@@ -49695,7 +49695,7 @@
       "text": "วาเลนไทน์"
     },
     "skinRarity.Common": {
-      "fr": "Commun",
+      "fr": "Common",
       "text": "Common"
     },
     "skinRarity.Deluxe": {
@@ -49703,19 +49703,19 @@
       "text": "Deluxe"
     },
     "skinRarity.Exceptional": {
-      "fr": "Exceptionnel",
+      "fr": "Exceptional",
       "text": "Exceptional"
     },
     "skinRarity.Exquisite": {
-      "fr": "Exquis",
+      "fr": "Exquisite",
       "text": "Exquisite"
     },
     "skinRarity.Grand": {
-      "fr": "Grandiose",
+      "fr": "Grand",
       "text": "Grand"
     },
     "skinRarity.Supreme": {
-      "fr": "Suprême",
+      "fr": "Supreme",
       "text": "Supreme"
     },
     "skinRarity.origin": {
@@ -49727,7 +49727,7 @@
       "text": "สถานะการวางขาย"
     },
     "skinsUI.battlePoints": {
-      "fr": "Points de bataille",
+      "fr": "Battle Points",
       "text": "Battle Points"
     },
     "skinsUI.fragments": {
@@ -50323,11 +50323,11 @@
       "text": "{description} กระทู้หมวด “{name}” ในฟอรัม Mobile Legends ของ MLBBDex เปิดให้ผู้เล่นทุกคน"
     },
     "pages.accountValueUI.tier.exquisite": {
-      "fr": "Exquis",
+      "fr": "Exquisite",
       "text": "Exquisite"
     },
     "pages.accountValueUI.tier.deluxe": {
-      "fr": "Premium",
+      "fr": "Deluxe",
       "text": "Deluxe"
     },
     "pages.accountValueUI.tier.exceptional": {
@@ -50335,7 +50335,7 @@
       "text": "Exceptional"
     },
     "pages.accountValueUI.tier.common": {
-      "fr": "Commun",
+      "fr": "Common",
       "text": "Common"
     },
     "pages.accountValueUI.tier.painted": {
@@ -51273,7 +51273,7 @@
       "text": "Arrival"
     },
     "emblemData.assassin-emblem.name": {
-      "fr": "Emblème d'assassin",
+      "fr": "Assassin Emblem",
       "text": "Assassin Emblem"
     },
     "emblemData.bargain-hunter.bestFor": {
@@ -51345,7 +51345,7 @@
       "text": "Lutadores da EXP Lane que precisam vencer o duelo."
     },
     "emblemData.fighter-emblem.name": {
-      "fr": "Emblème de combattant",
+      "fr": "Fighter Emblem",
       "text": "Fighter Emblem"
     },
     "emblemData.firmness.bestFor": {
@@ -51421,7 +51421,7 @@
       "text": "Magos da Mid Lane."
     },
     "emblemData.mage-emblem.name": {
-      "fr": "Emblème de mage",
+      "fr": "Mage Emblem",
       "text": "Mage Emblem"
     },
     "emblemData.marksman-emblem.bonus": {
@@ -51429,7 +51429,7 @@
       "text": "Velocidade de ataque e dano de ataque"
     },
     "emblemData.marksman-emblem.name": {
-      "fr": "Emblème de tireur",
+      "fr": "Marksman Emblem",
       "text": "Marksman Emblem"
     },
     "emblemData.master-assassin.bestFor": {
@@ -51545,7 +51545,7 @@
       "text": "HP e resistências"
     },
     "emblemData.tank-emblem.name": {
-      "fr": "Emblème de tank",
+      "fr": "Tank Emblem",
       "text": "Tank Emblem"
     },
     "emblemData.tenacity.bestFor": {
@@ -52989,7 +52989,7 @@
       "text": "O compartilhamento falhou."
     },
     "pages.accountValueUI.tier.grand": {
-      "fr": "Grandiose",
+      "fr": "Grand",
       "text": "Grand"
     },
     "pages.accountValueUI.tier.legend": {
@@ -54641,7 +54641,7 @@
       "text": "Marcar todos os heróis"
     },
     "pages.collectionUI.bpDetail": {
-      "fr": "prix de vos héros en points de bataille",
+      "fr": "prix de vos héros en Battle Points",
       "text": "preço dos seus heróis em Battle Points"
     },
     "pages.collectionUI.checkAll": {
@@ -57129,7 +57129,7 @@
       "text": "Skins Collector"
     },
     "pages.events.modes.event.desc": {
-      "fr": "Apparences sans prix fixe en boutique : tirages (Lucky Box, roue magique…), collaborations et événements limités.",
+      "fr": "Apparences sans prix fixe en boutique : tirages (Lucky Box, Magic Wheel…), collaborations et événements limités.",
       "text": "Skins sem preço fixo na loja: sorteios (Lucky Box, Magic Wheel…), colaborações e eventos limitados."
     },
     "pages.events.modes.event.summary": {
@@ -60229,7 +60229,7 @@
       "text": "Ver as skins mais recentes"
     },
     "pages.skinsCalendar.seriesLead": {
-      "fr": "Les étiquettes que le wiki donne aux apparences (Collector, StarLight, Épique, Légende, collaborations…), par nombre d'apparences. Choisissez-en une pour filtrer le calendrier.",
+      "fr": "Les étiquettes que le wiki donne aux apparences (Collector, StarLight, Epic, Legend, collaborations…), par nombre d'apparences. Choisissez-en une pour filtrer le calendrier.",
       "text": "Os rótulos que a wiki dá às skins (Collector, StarLight, Epic, Legend, colaborações…), por número de skins. Escolha um para filtrar o calendário."
     },
     "pages.skinsCalendar.source": {
@@ -61497,7 +61497,7 @@
       "text": "Patch {version}: favoritos alterados: {n}"
     },
     "rankNames.elite": {
-      "fr": "Élite",
+      "fr": "Elite",
       "text": "Elite"
     },
     "rankNames.epic": {
@@ -61613,15 +61613,15 @@
       "text": "Colecionador"
     },
     "skinLabel.Elite": {
-      "fr": "Élite",
+      "fr": "Elite",
       "text": "Elite"
     },
     "skinLabel.Epic": {
-      "fr": "Épique",
+      "fr": "Epic",
       "text": "Epic"
     },
     "skinLabel.Legend": {
-      "fr": "Légende",
+      "fr": "Legend",
       "text": "Legend"
     },
     "skinLabel.Limited": {
@@ -61629,11 +61629,11 @@
       "text": "Limitada"
     },
     "skinLabel.Luckybox": {
-      "fr": "Coffre chance",
+      "fr": "Lucky Box",
       "text": "Lucky Box"
     },
     "skinLabel.Special": {
-      "fr": "Spécial",
+      "fr": "Special",
       "text": "Special"
     },
     "skinLabel.StarLight": {
@@ -61641,7 +61641,7 @@
       "text": "StarLight"
     },
     "skinRarity.Common": {
-      "fr": "Commun",
+      "fr": "Common",
       "text": "Common"
     },
     "skinRarity.Deluxe": {
@@ -61649,19 +61649,19 @@
       "text": "Deluxe"
     },
     "skinRarity.Exceptional": {
-      "fr": "Exceptionnel",
+      "fr": "Exceptional",
       "text": "Exceptional"
     },
     "skinRarity.Exquisite": {
-      "fr": "Exquis",
+      "fr": "Exquisite",
       "text": "Exquisite"
     },
     "skinRarity.Grand": {
-      "fr": "Grandiose",
+      "fr": "Grand",
       "text": "Grand"
     },
     "skinRarity.Supreme": {
-      "fr": "Suprême",
+      "fr": "Supreme",
       "text": "Supreme"
     },
     "skinsUI.mythicCoins": {
@@ -62229,11 +62229,11 @@
       "text": "{description} Os tópicos “{name}” do fórum de Mobile Legends do MLBBDex, abertos a todos os jogadores."
     },
     "pages.accountValueUI.tier.exquisite": {
-      "fr": "Exquis",
+      "fr": "Exquisite",
       "text": "Exquisite"
     },
     "pages.accountValueUI.tier.deluxe": {
-      "fr": "Premium",
+      "fr": "Deluxe",
       "text": "Deluxe"
     },
     "pages.accountValueUI.tier.exceptional": {
@@ -62241,7 +62241,7 @@
       "text": "Exceptional"
     },
     "pages.accountValueUI.tier.common": {
-      "fr": "Commun",
+      "fr": "Common",
       "text": "Common"
     },
     "pages.accountValueUI.tier.painted": {
@@ -63239,7 +63239,7 @@
       "text": "Урон от атаки и физическое проникание"
     },
     "emblemData.assassin-emblem.name": {
-      "fr": "Emblème d'assassin",
+      "fr": "Assassin Emblem",
       "text": "Assassin Emblem"
     },
     "emblemData.bargain-hunter.name": {
@@ -63299,7 +63299,7 @@
       "text": "Бойцы EXP Lane, которым нужно выигрывать дуэль."
     },
     "emblemData.fighter-emblem.name": {
-      "fr": "Emblème de combattant",
+      "fr": "Fighter Emblem",
       "text": "Fighter Emblem"
     },
     "emblemData.firmness.bestFor": {
@@ -63387,7 +63387,7 @@
       "text": "Магическая сила и магическое проникание"
     },
     "emblemData.mage-emblem.name": {
-      "fr": "Emblème de mage",
+      "fr": "Mage Emblem",
       "text": "Mage Emblem"
     },
     "emblemData.marksman-emblem.bestFor": {
@@ -63395,7 +63395,7 @@
       "text": "Стрелки Gold Lane."
     },
     "emblemData.marksman-emblem.name": {
-      "fr": "Emblème de tireur",
+      "fr": "Marksman Emblem",
       "text": "Marksman Emblem"
     },
     "emblemData.master-assassin.name": {
@@ -63507,7 +63507,7 @@
       "text": "HP и сопротивления"
     },
     "emblemData.tank-emblem.name": {
-      "fr": "Emblème de tank",
+      "fr": "Tank Emblem",
       "text": "Tank Emblem"
     },
     "emblemData.tenacity.bestFor": {
@@ -65147,7 +65147,7 @@
       "text": "Результат отправлен."
     },
     "pages.accountValueUI.tier.grand": {
-      "fr": "Grandiose",
+      "fr": "Grand",
       "text": "Grand"
     },
     "pages.accountValueUI.tier.legend": {
@@ -66899,7 +66899,7 @@
       "text": "Отметить всех героев"
     },
     "pages.collectionUI.bpDetail": {
-      "fr": "prix de vos héros en points de bataille",
+      "fr": "prix de vos héros en Battle Points",
       "text": "цена ваших героев в Battle Points"
     },
     "pages.collectionUI.checkAll": {
@@ -69703,7 +69703,7 @@
       "text": "Скины Collector"
     },
     "pages.events.modes.event.desc": {
-      "fr": "Apparences sans prix fixe en boutique : tirages (Lucky Box, roue magique…), collaborations et événements limités.",
+      "fr": "Apparences sans prix fixe en boutique : tirages (Lucky Box, Magic Wheel…), collaborations et événements limités.",
       "text": "Скины без фиксированной цены в магазине: розыгрыши (Lucky Box, Magic Wheel…), коллаборации и ограниченные события."
     },
     "pages.events.modes.event.summary": {
@@ -73207,7 +73207,7 @@
       "text": "Смотреть последние скины"
     },
     "pages.skinsCalendar.seriesLead": {
-      "fr": "Les étiquettes que le wiki donne aux apparences (Collector, StarLight, Épique, Légende, collaborations…), par nombre d'apparences. Choisissez-en une pour filtrer le calendrier.",
+      "fr": "Les étiquettes que le wiki donne aux apparences (Collector, StarLight, Epic, Legend, collaborations…), par nombre d'apparences. Choisissez-en une pour filtrer le calendrier.",
       "text": "Метки, которые вики присваивает скинам (Collector, StarLight, Epic, Legend, коллаборации…), по числу скинов. Выберите метку, чтобы отфильтровать календарь."
     },
     "pages.skinsCalendar.source": {
@@ -74763,7 +74763,7 @@
       "text": "Collector"
     },
     "skinLabel.Elite": {
-      "fr": "Élite",
+      "fr": "Elite",
       "text": "Elite"
     },
     "skinLabel.Epic": {
@@ -74771,7 +74771,7 @@
       "text": "Эпик"
     },
     "skinLabel.Legend": {
-      "fr": "Légende",
+      "fr": "Legend",
       "text": "Legend"
     },
     "skinLabel.Limited": {
@@ -74779,7 +74779,7 @@
       "text": "Лимитированный"
     },
     "skinLabel.Luckybox": {
-      "fr": "Coffre chance",
+      "fr": "Lucky Box",
       "text": "Lucky Box"
     },
     "skinLabel.Seasons": {
@@ -74803,15 +74803,15 @@
       "text": "Deluxe"
     },
     "skinRarity.Exceptional": {
-      "fr": "Exceptionnel",
+      "fr": "Exceptional",
       "text": "Exceptional"
     },
     "skinRarity.Exquisite": {
-      "fr": "Exquis",
+      "fr": "Exquisite",
       "text": "Exquisite"
     },
     "skinRarity.Grand": {
-      "fr": "Grandiose",
+      "fr": "Grand",
       "text": "Grand"
     },
     "skinRarity.Supreme": {
@@ -75467,11 +75467,11 @@
       "text": "{description} Темы раздела «{name}» форума Mobile Legends на MLBBDex, открытые для всех игроков."
     },
     "pages.accountValueUI.tier.exquisite": {
-      "fr": "Exquis",
+      "fr": "Exquisite",
       "text": "Exquisite"
     },
     "pages.accountValueUI.tier.deluxe": {
-      "fr": "Premium",
+      "fr": "Deluxe",
       "text": "Deluxe"
     },
     "pages.accountValueUI.tier.exceptional": {

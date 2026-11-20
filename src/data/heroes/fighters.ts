@@ -7,34 +7,31 @@ export const fighters: HeroAnalysis[] = [
     summary:
       "Combattant d'isolement : il extrait une cible du groupe adverse et la tue avant que son équipe ne réagisse.",
     analysis:
-      "Chou est le héros du roam au plafond de maîtrise le plus élevé. L'idée est simple — l'ultime envoie une cible en l'air et la déplace — mais son exécution repose sur des annulations d'animation que le jeu n'explique nulle part. Le combo de référence enchaîne compétence 1, saut annulé, ultime, puis compétence 2 pour retenir la cible à l'atterrissage.\n\nSon intérêt en équipe organisée vient de là : il choisit qui meurt. Contre un joueur qui garde son Purify, en revanche, l'ultime perd la moitié de sa valeur, et Chou redevient un combattant moyen.",
+      "Chou est le héros du roam au plafond de maîtrise le plus élevé. L'idée est simple — l'ultime repousse une cible et la poursuit — mais son exécution repose sur des annulations d'animation que le jeu n'explique nulle part. Le combo de référence enchaîne compétence 1, saut annulé, ultime, puis compétence 2 pour retenir la cible à l'atterrissage.\n\nSon intérêt en équipe organisée vient de là : il choisit qui meurt. Contre un joueur qui garde son Purify, en revanche, l'ultime perd la moitié de sa valeur, et Chou redevient un combattant moyen.",
     skills: [
       {
         type: "Passive",
         name: "Only Fast",
         description:
-          "Toutes les quelques attaques de base, sa prochaine attaque devient un coup amélioré qui inflige des dégâts supplémentaires.",
+          "Après avoir parcouru une certaine distance, sa prochaine attaque de base inflige des dégâts accrus, ralentit brièvement la cible et réduit sa défense physique.",
       },
       {
         type: "Skill 1",
         name: "Jeet Kune Do",
         description:
           "Trois frappes successives. La dernière projette les ennemis touchés en l'air.",
-        cooldown: [9, 8.4, 7.8, 7.2, 6.6, 6],
       },
       {
         type: "Skill 2",
         name: "Shunpo",
         description:
-          "Se rue dans une direction en devenant insensible aux contrôles pendant la course.",
-        cooldown: [14, 13, 12, 11, 10, 9],
+          "Se rue dans une direction en devenant insensible aux contrôles et gagne un bouclier.",
       },
       {
         type: "Ultimate",
         name: "The Way of Dragon",
         description:
-          "Frappe une cible, la projette et la suit sur toute la trajectoire. Déplace un adversaire loin de son équipe.",
-        cooldown: [40, 35, 30],
+          "Frappe un héros adverse et le repousse ; relancée, elle le poursuit pour de nouveaux dégâts. Déplace un adversaire loin de son équipe.",
       },
     ],
     strengths: [
@@ -57,12 +54,12 @@ export const fighters: HeroAnalysis[] = [
         items: [
           "Warrior Boots",
           "Immortality",
-          "Athena's Shield",
+          "Valkyrie's Shield",
           "Antique Cuirass",
           "Blade Armor",
           "Guardian Helmet",
         ],
-        emblem: "Emblème de soutien",
+        emblem: "Support Emblem",
         talent: "Focusing Mark",
         spell: "Flicker",
       },
@@ -78,7 +75,7 @@ export const fighters: HeroAnalysis[] = [
           "Malefic Roar",
           "Antique Cuirass",
         ],
-        emblem: "Emblème de combattant",
+        emblem: "Fighter Emblem",
         talent: "Festival of Blood",
         spell: "Flicker",
       },
@@ -89,34 +86,31 @@ export const fighters: HeroAnalysis[] = [
     summary:
       "Combattant d'EXP lane qui se soigne en frappant et devient très difficile à tuer en combat prolongé.",
     analysis:
-      "Yu Zhong gagne les combats qui durent. Son passif transforme une partie des dégâts infligés en bouclier, ce qui le rend excellent dès qu'il y a plusieurs cibles à portée — un affrontement à cinq lui donne bien plus de retour qu'un duel.\n\nSon ultime le rend immunisé aux contrôles pendant qu'il avance, ce qui en fait aussi un initiateur crédible. Le contrer passe presque toujours par la réduction de soins : sans elle, un Yu Zhong bien équipé absorbe une équipe entière.",
+      "Yu Zhong gagne les combats qui durent. Son passif pose des cumuls de Sha Residue sur les héros qu'il frappe ; à cinq, ils éclatent, le soignent à chaque cumul consommé et l'accélèrent, ce qui le rend excellent dès qu'il y a plusieurs cibles à portée — un affrontement à cinq lui donne bien plus de retour qu'un duel.\n\nSon ultime le rend immunisé aux contrôles pendant qu'il avance, ce qui en fait aussi un initiateur crédible. Le contrer passe presque toujours par la réduction de soins : sans elle, un Yu Zhong bien équipé absorbe une équipe entière.",
     skills: [
       {
         type: "Passive",
         name: "Cursing Touch",
         description:
-          "Les dégâts infligés par ses compétences se convertissent partiellement en bouclier, avec un rendement accru sur plusieurs cibles.",
+          "Ses dégâts physiques posent des cumuls de Sha Residue sur les héros adverses. À cinq cumuls, ils éclatent : chaque cumul consommé blesse la cible et rend à Yu Zhong une partie de ses PV perdus, et il gagne de la vitesse.",
       },
       {
         type: "Skill 1",
         name: "Dragon Tail",
         description:
-          "Enchaîne deux balayages devant lui. Le second inflige des dégâts accrus.",
-        cooldown: [8, 7.4, 6.8, 6.2, 5.6, 5],
+          "Sa cape devient une arme qui frappe les ennemis proches après un court délai. Le bord tranchant inflige bien plus de dégâts et pose deux cumuls de Sha Residue.",
       },
       {
         type: "Skill 2",
         name: "Soul Grip",
         description:
-          "Bondit vers l'avant et projette les ennemis touchés. Sert autant à engager qu'à fuir.",
-        cooldown: [11, 10.2, 9.4, 8.6, 7.8, 7],
+          "Libère l'âme du dragon devant lui, qui blesse et ralentit les ennemis. S'il touche, sa prochaine attaque de base est renforcée, d'autant plus qu'il a touché plusieurs ennemis.",
       },
       {
         type: "Ultimate",
         name: "Black Dragon Form",
         description:
-          "Prend une forme de dragon : immunisé aux contrôles, il avance en infligeant des dégâts de zone puis fait s'écraser un ennemi au sol.",
-        cooldown: [54, 48, 42],
+          "Après une courte canalisation, prend sa forme de dragon noir : immunisé aux contrôles, avec des PV supplémentaires, il se déplace librement en repoussant les héros sur son passage. En sortant de cette forme, ses compétences gagnent de la portée.",
       },
     ],
     strengths: [
@@ -135,16 +129,16 @@ export const fighters: HeroAnalysis[] = [
       {
         name: "EXP lane régénération",
         context:
-          "Le build de référence : de la résistance et du vol de vie, puisque le passif convertit déjà les dégâts en bouclier.",
+          "Le build de référence : de la résistance et du vol de vie, puisque le passif le soigne déjà à chaque cumul consommé.",
         items: [
           "Warrior Boots",
           "Bloodlust Axe",
           "Immortality",
           "Antique Cuirass",
-          "Athena's Shield",
+          "Valkyrie's Shield",
           "Ares Belt",
         ],
-        emblem: "Emblème de combattant",
+        emblem: "Fighter Emblem",
         talent: "Festival of Blood",
         spell: "Vengeance",
       },
@@ -153,36 +147,33 @@ export const fighters: HeroAnalysis[] = [
   {
     slug: "paquito",
     summary:
-      "Combattant à fenêtres : chaque compétence utilisée améliore la suivante, pour un pic de dégâts très court.",
+      "Combattant à fenêtres : toutes les trois compétences, la suivante est améliorée, pour un pic de dégâts très court.",
     analysis:
-      "Paquito ne se joue pas compétence par compétence mais par séquences. Chaque sort lancé charge une version améliorée du suivant, et tout son intérêt consiste à enchaîner ces versions améliorées dans le bon ordre avant que la fenêtre ne se ferme.\n\nBien joué, il supprime une cible fragile en deux secondes depuis une distance considérable. Mal joué, il gaspille ses versions améliorées sur des sbires et n'a plus rien. C'est un héros de rythme, très sensible au niveau du joueur.",
+      "Paquito ne se joue pas compétence par compétence mais par séquences. Toutes les trois compétences lancées, il passe en Champ Stance et obtient une version améliorée d'une compétence, même en recharge : tout son intérêt consiste à choisir la bonne et à la placer au bon moment.\n\nBien joué, il supprime une cible fragile en deux secondes depuis une distance considérable. Mal joué, il gaspille ses versions améliorées sur des sbires et n'a plus rien. C'est un héros de rythme, très sensible au niveau du joueur.",
     skills: [
       {
         type: "Passive",
         name: "Champ Stance",
         description:
-          "Utiliser une compétence améliore la prochaine compétence différente pendant quelques secondes.",
+          "Toutes les trois compétences lancées, il entre en Champ Stance : sa prochaine compétence est améliorée, même en recharge, et il gagne de la vitesse après l'avoir lancée.",
       },
       {
         type: "Skill 1",
         name: "Heavy Left Punch",
         description:
-          "Frappe droit devant. Version améliorée : plus de portée, dégâts accrus et déplacement vers l'avant.",
-        cooldown: [7.5, 7, 6.5, 6, 5.5, 5],
+          "Frappe droit devant et lui donne un bouclier. Version améliorée : dégâts et bouclier accrus.",
       },
       {
         type: "Skill 2",
         name: "Jab",
         description:
-          "Frappe en arc de cercle. Version améliorée : projette les ennemis touchés.",
-        cooldown: [8, 7.5, 7, 6.5, 6, 5.5],
+          "Se rue vers l'avant en frappant les ennemis sur son passage. Version améliorée : dégâts accrus, et la ruée s'arrête sur le premier héros ou monstre touché.",
       },
       {
         type: "Ultimate",
         name: "Knockout Strike",
         description:
-          "Se rue sur une cible et la repousse. Version améliorée : dégâts fortement accrus et projection.",
-        cooldown: [32, 28, 24],
+          "Repousse les ennemis devant lui, les frappe en les ralentissant, puis recule. Version améliorée : un uppercut final, plus fort, les projette en l'air.",
       },
     ],
     strengths: [
@@ -210,7 +201,7 @@ export const fighters: HeroAnalysis[] = [
           "Immortality",
           "Blade of Despair",
         ],
-        emblem: "Emblème d'assassin",
+        emblem: "Assassin Emblem",
         talent: "Festival of Blood",
         spell: "Execution",
       },
@@ -222,7 +213,7 @@ export const fighters: HeroAnalysis[] = [
       "Combattant de rage qui retire l'armure physique de sa cible avant de la frapper, joué en EXP lane comme en jungle.",
     analysis:
       "Dyrroth accumule de la rage en combattant ; à mi-jauge, ses deux premières compétences passent en version renforcée, avec plus de portée ou plus de dégâts. Toutes les deux attaques de base, il frappe en cercle autour de lui et se soigne, et chaque héros touché raccourcit ses recharges. La compétence 2 le lance sur une cible puis, relancée, lui retire une grande partie de son armure physique pendant quelques secondes : c'est l'ouverture qui rend le reste de ses dégâts efficaces. L'ultime part après un court délai, ne peut pas être interrompu et ralentit tout ce qu'il traverse.\n\n" +
-      "Il vit sur ses échanges de début de partie : son taux de victoire mesuré est au plus haut dans les parties courtes et passe sous la moyenne après la dix-huitième minute. Ses chiffres varient aussi selon le rang, plus bas en Mythique qu'en Gloire mythique. Les mesures le placent en difficulté face à Masha, Benedetta et Thamuz.",
+      "Il vit sur ses échanges de début de partie : son taux de victoire mesuré est au plus haut dans les parties courtes et passe sous la moyenne après la dix-huitième minute. Ses chiffres varient aussi selon le rang, plus bas en Mythic qu'en Mythical Glory. Les mesures le placent en difficulté face à Masha, Benedetta et Thamuz.",
     skills: [
       {
         type: "Passive",
@@ -267,9 +258,9 @@ export const fighters: HeroAnalysis[] = [
       {
         name: "EXP lane",
         context:
-          "Le build le plus joué en EXP lane tous rangs confondus : War Axe et Queen's Wings pour le vol de vie et la survie, Rose Gold Meteor pour le bouclier quand ses PV tombent bas. Les choix restent très dispersés à cette position, et en Gloire mythique c'est une version à pénétration (Blade of the Heptaseas, Hunter Strike, Rose Gold Meteor) qui passe devant.",
+          "Le build le plus joué en EXP lane tous rangs confondus : War Axe et Queen's Wings pour le vol de vie et la survie, Rose Gold Meteor pour le bouclier quand ses PV tombent bas. Les choix restent très dispersés à cette position, et en Mythical Glory c'est une version à pénétration (Blade of the Heptaseas, Hunter Strike, Rose Gold Meteor) qui passe devant.",
         items: ["War Axe", "Rose Gold Meteor", "Queen's Wings"],
-        emblem: "Emblème d'assassin",
+        emblem: "Assassin Emblem",
         talent: "Lethal Ignition",
         spell: "Petrify",
       },
@@ -278,7 +269,7 @@ export const fighters: HeroAnalysis[] = [
         context:
           "Le build le plus joué en jungle : Brute Force Breastplate ajoute des PV, de l'attaque et une réduction de la durée des contrôles quand il enchaîne les dégâts, War Axe et Rose Gold Meteor gardent le vol de vie.",
         items: ["War Axe", "Brute Force Breastplate", "Rose Gold Meteor"],
-        emblem: "Emblème d'assassin",
+        emblem: "Assassin Emblem",
         talent: "Killing Spree",
         spell: "Retribution",
       },
@@ -290,7 +281,7 @@ export const fighters: HeroAnalysis[] = [
       "Combattant qui se multiplie : ses doubles frappent avec lui, le soignent et rongent l'armure des cibles.",
     analysis:
       "Sun combat en invoquant des doubles. Ses deux premières compétences lancent son bâton, qui laisse un double temporaire ; la seconde le cache en plus pendant qu'il se déplace avec le bâton. L'ultime invoque un double plus durable, plus proche de ses propres statistiques. Chaque coup porté par Sun ou ses doubles réduit un peu l'armure physique de la cible, et chaque coup d'un double le soigne : plus il y a de doubles sur une cible, plus elle fond vite et plus il tient.\n\n" +
-      "Son profil mesuré est celui d'un héros de fin de partie : taux de victoire sous la moyenne dans les parties de moins de quatorze minutes, puis nettement au-dessus au-delà de la seizième. Il est aussi très souvent banni, surtout au rang Mythique. Le double de l'ultime subit des dégâts accrus, et les mesures placent Sun en difficulté face à Aldous, Natan, Alucard, Joy et Ruby.",
+      "Son profil mesuré est celui d'un héros de fin de partie : taux de victoire sous la moyenne dans les parties de moins de quatorze minutes, puis nettement au-dessus au-delà de la seizième. Il est aussi très souvent banni, surtout au rang Mythic. Le double de l'ultime subit des dégâts accrus, et les mesures placent Sun en difficulté face à Aldous, Natan, Alucard, Joy et Ruby.",
     skills: [
       {
         type: "Passive",
@@ -334,18 +325,18 @@ export const fighters: HeroAnalysis[] = [
       {
         name: "EXP lane",
         context:
-          "Le build le plus joué en EXP lane : vitesse d'attaque et critique, dont ses doubles profitent en reprenant une partie de ses effets d'attaque, et Great Dragon Spear pour la vitesse après l'ultime. Il est le plus souvent associé à l'emblème de soutien et au sort Petrify.",
+          "Le build le plus joué en EXP lane : vitesse d'attaque et critique, dont ses doubles profitent en reprenant une partie de ses effets d'attaque, et Great Dragon Spear pour la vitesse après l'ultime. Il est le plus souvent associé au Support Emblem et au sort Petrify.",
         items: ["Windtalker", "Corrosion Scythe", "Great Dragon Spear"],
-        emblem: "Emblème de soutien",
+        emblem: "Support Emblem",
         talent: "Temporal Reign",
         spell: "Petrify",
       },
       {
         name: "Jungle",
         context:
-          "Les trois mêmes objets en jungle, Corrosion Scythe en premier, avec l'emblème de tireur et Retribution : c'est la version la plus jouée à cette position.",
+          "Les trois mêmes objets en jungle, Corrosion Scythe en premier, avec le Marksman Emblem et Retribution : c'est la version la plus jouée à cette position.",
         items: ["Corrosion Scythe", "Windtalker", "Great Dragon Spear"],
-        emblem: "Emblème de tireur",
+        emblem: "Marksman Emblem",
         talent: "Quantum Charge",
         spell: "Retribution",
       },
@@ -403,7 +394,7 @@ export const fighters: HeroAnalysis[] = [
         context:
           "Le build le plus joué : Concentrated Energy apporte puissance magique et vol de vie hybride, Queen's Wings de la survie et de la recharge quand ses PV baissent, Divine Glaive la pénétration magique.",
         items: ["Concentrated Energy", "Queen's Wings", "Divine Glaive"],
-        emblem: "Emblème de mage",
+        emblem: "Mage Emblem",
         talent: "Temporal Reign",
         spell: "Flicker",
       },
@@ -412,7 +403,7 @@ export const fighters: HeroAnalysis[] = [
         context:
           "Starlium Scythe à la place de Queen's Wings, pour des dégâts supplémentaires sur l'attaque qui suit chaque compétence : moins joué, avec un taux de victoire mesuré comparable.",
         items: ["Concentrated Energy", "Starlium Scythe", "Divine Glaive"],
-        emblem: "Emblème de mage",
+        emblem: "Mage Emblem",
         talent: "Impure Rage",
         spell: "Flicker",
       },

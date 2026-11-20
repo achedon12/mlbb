@@ -5,11 +5,13 @@
  *
  * The official French community turned the site down for its machine
  * translation. Beyond the shared vocabulary (`translation-glossary.mjs`), the
- * service leaves English stat names in French sentences ("10 % de Spell
- * Vamp"), conjugates a cooldown label as a verb ("Refroidir"), writes
+ * service leaves English stat names in French sentences ("10 % de Physical
+ * Attack"), conjugates a cooldown label as a verb ("Refroidir"), writes
  * "dommages", "vrais dégâts", "1 pile(s)" or "1ère Compétence", turns
  * "Minotaur" into "le Minotaure" and leaves whole English sentences in a
- * French paragraph. This module puts that right on output; the cache keeps
+ * French paragraph. It also translates the game's own names, which the site
+ * keeps as the game writes them (`translation-official-names.mjs`): ranks,
+ * modes, "Spell Vamp". This module puts that right on output; the cache keeps
  * what the service returned, so a rule changed here only needs a rerun.
  *
  * It also finds the cached translations that left a sentence of their source
@@ -21,8 +23,9 @@
 
 /**
  * Item summaries (the line under an item's name), keyed by their English
- * source: out of context the service read "Spell Vamp" as a vampire's spell,
- * "One-Hit Slow" as a slow hit and "Counter High HP" as "PV contre-élevé".
+ * source: out of context the service read "Spell Vamp" as a vampire's spell
+ * (the game's name for the stat, kept), "One-Hit Slow" as a slow hit and
+ * "Counter High HP" as "PV contre-élevé".
  */
 export const FR_SOURCE = new Map([
   ["Attack Speed", "Vitesse d'attaque"],
@@ -46,7 +49,7 @@ export const FR_SOURCE = new Map([
   ["Resist Burst Magic Damage", "Résistance aux pics de dégâts magiques"],
   ["Slow on Skill Hit", "Ralentissement à l'impact des compétences"],
   ["Speed Boost Shield", "Bouclier et bonus de vitesse"],
-  ["Spell Vamp", "Vampirisme des sorts"],
+  ["Spell Vamp", "Spell Vamp"],
   ["Splash Damage", "Dégâts de zone"],
   ["Stackable Physical Defense", "Défense physique cumulable"],
   ["Ultimate CD Reduction", "Réduction du temps de recharge de l'ultime"],
@@ -54,7 +57,9 @@ export const FR_SOURCE = new Map([
 
 /**
  * Stats as the site names them (`stats` in `src/i18n/messages/fr.json`),
- * longest first so that "Hybrid Lifesteal" wins over "Lifesteal".
+ * longest first so that "Hybrid Lifesteal" wins over "Lifesteal". Spell Vamp
+ * keeps the game's name: the site had both "vampirisme des sorts" and "vol de
+ * vie magique" for it, two inventions.
  */
 const STATS = [
   ["Crit Damage Reduction", "réduction des dégâts critiques"],
@@ -77,7 +82,7 @@ const STATS = [
   ["Crit Damage", "dégâts critiques"],
   ["Magic Power", "puissance magique"],
   ["Mana Regen", "régénération de mana"],
-  ["Spell Vamp", "vampirisme des sorts"],
+  ["Spell Vamp", "Spell Vamp"],
   ["HP Regen", "régénération de PV"],
   ["Lifesteal", "vol de vie"],
   ["Mana", "mana"],
@@ -132,7 +137,8 @@ export const FR_LABELS = new Map([
 // ── Rules on any translated text ───────────────────────────────────
 
 const cap = (word, like) => (/^\p{Lu}/u.test(like) ? word[0].toUpperCase() + word.slice(1) : word);
-const RANKS = { Warrior: "Guerrier", Elite: "Élite", Master: "Maître", Grandmaster: "Grand Maître", Epic: "Épique", Legend: "Légende", Mythic: "Mythique" };
+/** French rank names the service writes, back to the game's. */
+const RANKS = { Guerrier: "Warrior", Élite: "Elite", Maître: "Master", Épique: "Epic", Légende: "Legend", Mythique: "Mythic" };
 const PILE = { une: "un", la: "le", sa: "son", cette: "ce", chaque: "chaque", par: "par", de: "de", des: "des", les: "les", ses: "ses", aux: "aux" };
 
 /** [pattern, replacement]: case-sensitive, in order. */
@@ -143,25 +149,30 @@ export const FR_RULES = [
   [/\b(?:[Ll]e )?Minotaure\b/g, "Minotaur"],
   [/\bGuenièvre\b/g, "Guinevere"],
   [/\b[Ll]a [Bb]êta\b/g, "Beta"],
-  // Ranks, as the French client and the site name them.
-  [/\bMythic(?:al)? Honou?r\b/g, "Honneur mythique"],
-  [/\bMythic(?:al)? Glory\b/g, "Gloire mythique"],
-  [/\bMythic(?:al)? Immortal\b/g, "Immortel mythique"],
-  [/\bGrandmaster\b/g, "Grand Maître"],
-  [/\bWarrior, Elite, Master, Grand Maître, Epic, Legend,? et Mythic\b/g, "Guerrier, Élite, Maître, Grand Maître, Épique, Légende et Mythique"],
-  [/\b(Warrior|Elite|Master|Epic|Legend|Mythic) (I{1,3}|IV|V)\b/g, (_, r, n) => `${RANKS[r]} ${n}`],
-  [/(?<!\p{L})(rangs?|en|[Dd]ans|atteint|atteignez|atteindre|à|est|sont|chez|de|joueurs?) (Epic|Legend|Mythic)\b(?! (?:Creeps?|apparences?|skins?)\b)/gu, (_, w, r) => `${w} ${RANKS[r]}`],
-  [/\bd['’](Epic|Elite)\b/g, (_, r) => `d'${RANKS[r]}`],
-  // A list of ranks: "Warrior / Elite / Master", "Epic/Legend/Mythic".
-  [/\b(Warrior|Elite|Master|Epic|Legend|Mythic)(?=\s?\/\s?(?:Warrior|Elite|Master|Grand|Epic|Legend|Mythic|Élite|Maître|Épique|Légende|Mythique))/g, (r) => RANKS[r]],
-  [/(?<=\/\s?)(Warrior|Elite|Master|Epic|Legend|Mythic)\b/g, (r) => RANKS[r]],
+  // Ranks keep the game's names: no source gives the French client's, and
+  // the service invents them ("Gloire mythique", "Épique V").
+  [/\b(?:Honneur|Honor) mythique\b/gi, "Mythical Honor"],
+  [/\bGloire mythique\b/gi, "Mythical Glory"],
+  [/\bImmortel mythique\b/gi, "Mythical Immortal"],
+  [/\bMythic Honou?r\b/g, "Mythical Honor"],
+  [/\bMythic Glory\b/g, "Mythical Glory"],
+  [/\bMythic Immortal\b/g, "Mythical Immortal"],
+  [/\bGrand[- ]?[Mm]aître\b/g, "Grandmaster"],
+  [/(?<!\p{L})(Guerrier|Élite|Maître|Épique|Légende|Mythique) (I{1,3}|IV|V)\b/gu, (_, r, n) => `${RANKS[r]} ${n}`],
+  [/(?<!\p{L})([Rr]angs?|atteint|atteignez|atteindre) (Guerrier|Élite|Maître|Épique|Légende|Mythique)\b/gu, (_, w, r) => `${w} ${RANKS[r]}`],
+  // A list of ranks: "Guerrier / Élite / Maître", "Épique/Légende/Mythique".
+  [/(?<!\p{L})(Guerrier|Élite|Maître|Épique|Légende|Mythique)(?=\s?\/\s?(?:Guerrier|Élite|Maître|Grandmaster|Épique|Légende|Mythique|Warrior|Elite|Master|Epic|Legend|Mythic)\b)/gu, (r) => RANKS[r]],
+  [/(?<=\/\s?)(Guerrier|Élite|Maître|Épique|Légende|Mythique)(?!\p{L})/gu, (r) => RANKS[r]],
   // Modes and game words.
   [/\b[Cc]hoix de repêchage\b/g, "Draft Pick"],
   [/\brepêchage\b/g, "draft"],
   // Mode names stay as the game writes them (Brawl, Magic Chess: the glossary).
   [/\bGrabuge\b/g, "Mayhem"],
-  [/\bde Classic\b/g, "du mode Classique"],
-  [/\bClassic\b(?!\s+\p{Lu})/gu, "Classique"],
+  [/\bde Classic\b/g, "du mode Classic"],
+  [/\bClassique\b/g, "Classic"],
+  [/(?<!\p{L})(modes?|en|le mode|du mode|Classic et|Classic,) Classé(?!\p{L})/gu, "$1 Ranked"],
+  [/(?<!\p{L})Classé(?= et (?:Classic|Brawl)\b)/gu, "Ranked"],
+  [/\b[Cc]hoix à l['’]aveugle\b/g, "Blind Pick"],
   [/\b(?:([Ll])e |([Dd])u |([Aa])u )?Pays de l['’]Aube\b/g, (_, l, d, a) => `${l ? `${l}a ` : d ? `${d}e la ` : a ? `${a === "A" ? "À" : "à"} la ` : ""}Terre de l'Aube`],
   [/\bDéfense des Anciens\s*:\s*Allstars\b/g, "Defense of the Ancients: Allstars"],
   [/\bgançant\b/g, "gankant"],
@@ -170,16 +181,19 @@ export const FR_RULES = [
   [/\bMax (?:HP|PV)\b/g, "PV max"],
   [/\bMax Mana\b/g, "mana max"],
   [/\b(?:Hero Level|Hero level|niveau de héros)\b/g, "niveau du héros"],
-  [/\b(?:sort de vampire|vampire magique|vampire des sorts)\b/gi, (m) => cap("vampirisme des sorts", m)],
-  [/\bRatio de vampire\b/g, "Ratio de vampirisme"],
-  [/\b(?:son |sa )?sort Vamp\b/g, (m) => (m.startsWith("s") && m !== "sort Vamp" ? "son " : "") + "vampirisme des sorts"],
+  [/\b(?:(?:son |sa |le |du )?(?:sort de vampire|vampire magique|vampire des sorts|vampirisme des sorts|vampirisme magique))\b/gi, (m) => {
+    const det = m.match(/^(son|sa|le|du) /i)?.[1].toLowerCase();
+    return `${det ? `${det === "sa" ? "son" : det} ` : ""}Spell Vamp`;
+  }],
+  [/\b[Rr]atio de vampire\b/g, (m) => `${m[0]}atio de Spell Vamp`],
+  [/\b(?:son |sa )?sort Vamp\b/g, (m) => (m.startsWith("s") && m !== "sort Vamp" ? "son " : "") + "Spell Vamp"],
   [/\bExtra (?:Max PV|PV max|Max HP)\b/g, "PV max supplémentaires"],
   [/\bEffets d['’]Attaque\b/g, "effets d'attaque"],
   ...STATS.filter(([en]) => en !== "HP" && en !== "Mana").map(([en, fr]) => [new RegExp(`\\b${en}\\b(?!\\s+\\p{Lu})`, "gu"), fr]),
   [/(?<=[\p{Ll}\d,(] ?)Mana\b(?!\s+\p{Lu})/gu, "mana"],
   [/\bmanas\b/g, "mana"],
-  [/\bratio (vampirisme des sorts|vol de vie)\b/g, "ratio de $1"],
-  [/\bdéclencher (vol de vie|vampirisme des sorts)\b/g, "déclencher le $1"],
+  [/\bratio (Spell Vamp|vol de vie)\b/g, "ratio de $1"],
+  [/\bdéclencher (vol de vie|Spell Vamp)\b/g, "déclencher le $1"],
   [/\bBasic Attacks\b/g, "attaques de base"],
   [/\bBasic Attack\b/g, "attaque de base"],
   [/\b([Aa])ttaque(s?) de Base\b/g, "$1ttaque$2 de base"],

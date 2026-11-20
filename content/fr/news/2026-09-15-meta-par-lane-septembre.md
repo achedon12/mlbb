@@ -21,7 +21,7 @@ Le paradoxe de la lane est ailleurs : les deux roamers les plus joués sont Tigr
 
 ## Jungle : un classement tiré par la peur
 
-Cinq jungleurs sont en S+ ou S, mais trois d'entre eux le doivent surtout à leur taux de bannissement. Hirara, arrivée avec le patch 2.1.88, est bannie dans 63 % des parties, et dans 81 % en Gloire mythique. Hanzo (42 % de bannissements) et Saber (27 %) sont classés S+ avec un taux de victoire autour de 50 %.
+Cinq jungleurs sont en S+ ou S, mais trois d'entre eux le doivent surtout à leur taux de bannissement. Hirara, arrivée avec le patch 2.1.88, est bannie dans 63 % des parties, et dans 81 % en Mythical Glory. Hanzo (42 % de bannissements) et Saber (27 %) sont classés S+ avec un taux de victoire autour de 50 %.
 
 Parmi les jungleurs bien classés, ceux qui gagnent le plus sont Barats (53,0 %) et Yi Sun-shin (52,0 %). Yi Sun-shin est aussi le jungleur le plus joué, devant Gusion, dont le taux de victoire (48,9 %) est nettement plus bas.
 
@@ -37,7 +37,7 @@ Le héros le plus joué de la lane, Dyrroth, est classé au palier A avec 50,1 %
 
 ## Mid lane : Eudora, puis personne
 
-Seuls deux mages sont classés S+ ou S : Eudora, bannie dans 62 % des parties, et Valir (52,8 % de victoires, presque jamais banni). En Gloire mythique, Eudora est même la seule héroïne de la lane au-dessus du palier A.
+Seuls deux mages sont classés S+ ou S : Eudora, bannie dans 62 % des parties, et Valir (52,8 % de victoires, presque jamais banni). En Mythical Glory, Eudora est même la seule héroïne de la lane au-dessus du palier A.
 
 Les mages les plus joués après Eudora sont Vexana (50,3 %), Novaria (48,8 %), Nana (47,5 %) et Zetian (51,0 %) : aucune ne dépasse le palier A.
 

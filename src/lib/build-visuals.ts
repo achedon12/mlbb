@@ -1,5 +1,5 @@
 import visuals from "@/data/game/visuals.json";
-import { emblems, slugEmblem, battleSpells } from "@/data/emblems";
+import { findEmblem, slugEmblem, battleSpells } from "@/data/emblems";
 import type {
   PackedBuilds,
   ResolvedBuild,
@@ -61,7 +61,7 @@ export function spellVisual(name: string): ResolvedVisual {
 
 /** The API names the emblem by its role ("Marksman"), written builds by its full name. */
 export function visualEmblem(name: string): ResolvedVisual {
-  const e = emblems.find((x) => x.name === name || x.role === name);
+  const e = findEmblem(name);
   if (e) return { name, image: V.emblems[e.key] ?? null, href: `/emblems/${slugEmblem(e)}` };
   return { name, image: name === COMMON_EMBLEM ? (V.emblems["common-emblem"] ?? null) : null };
 }

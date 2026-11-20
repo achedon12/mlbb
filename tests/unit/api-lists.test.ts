@@ -53,7 +53,8 @@ describe("list API routes read by the Discord bot", () => {
     const fr = await read<Entry[]>(emblemsGET(new Request("http://x/api/v1/emblems?locale=fr")));
     const en = await read<Entry[]>(emblemsGET(new Request("http://x/api/v1/emblems")));
     expect(fr.data.map((e) => e.slug)).toEqual(["tank", "fighter", "assassin", "mage", "marksman", "support"]);
-    expect(fr.data[0].name).toBe("Emblème de tank");
+    // The game's name, in every language.
+    expect(fr.data[0].name).toBe("Tank Emblem");
     expect(en.data[0].name).toBe("Tank Emblem");
     expect(en.data.every((e) => e.description && e.image?.startsWith("https://"))).toBe(true);
   });

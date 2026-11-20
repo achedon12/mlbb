@@ -7,37 +7,31 @@ export const mages: HeroAnalysis[] = [
     summary:
       "Mage à deux états : ses compétences changent complètement selon qu'elle tient son ombrelle ou l'a posée.",
     analysis:
-      "Kagura a en pratique huit compétences pour trois touches. Chaque sort a une version avec ombrelle et une version sans, et savoir dans quel état on se trouve est l'essentiel du héros. Le combo signature enchaîne la pose de l'ombrelle, un rappel qui traverse et projette, puis l'ultime pour verrouiller.\n\nElle est aussi l'un des rares mages capables de se sortir seule d'un mauvais positionnement, puisque la téléportation vers l'ombrelle sert de fuite. En contrepartie, une erreur d'état la laisse sans mobilité au milieu de l'équipe adverse.",
+      "Kagura a en pratique huit compétences pour trois touches. Chaque sort a une version avec ombrelle et une version sans, et savoir dans quel état on se trouve est l'essentiel du héros. Le combo signature enchaîne l'envoi de l'ombrelle, sa récupération qui étourdit autour d'elle, puis l'ultime pour repousser.\n\nElle est aussi l'un des rares mages capables de se sortir seule d'un mauvais positionnement, puisque sa compétence 2 la libère de tous ses effets négatifs en la faisant bondir. En contrepartie, une erreur d'état la laisse sans mobilité au milieu de l'équipe adverse.",
     skills: [
       {
         type: "Passive",
         name: "Yin Yang Gathering",
         description:
-          "Quand Kagura et son ombrelle sont réunies, ses compétences se rechargent plus vite et elle gagne un bouclier après un sort.",
+          "Quand elle récupère son ombrelle, Kagura gagne un bouclier, étourdit brièvement les ennemis proches et les ralentit. L'effet a un court temps de recharge.",
       },
       {
         type: "Skill 1",
         name: "Seimei Umbrella Open",
         description:
-          "Envoie l'ombrelle à un endroit, ou la rappelle. L'ombrelle posée ralentit les ennemis autour d'elle.",
-        cooldown: [3, 3, 3, 3, 3, 3],
-        cost: [70, 75, 80, 85, 90, 95],
+          "Envoie l'ombrelle à un endroit, en blessant et ralentissant les ennemis sur son trajet. L'ombrelle revient seule si Kagura s'en éloigne trop.",
       },
       {
         type: "Skill 2",
         name: "Rasho Umbrella Flee",
         description:
-          "Avec l'ombrelle : se déplace dans une direction. Sans l'ombrelle : se téléporte vers elle en projetant les ennemis traversés.",
-        cooldown: [9, 8.4, 7.8, 7.2, 6.6, 6],
-        cost: [60, 65, 70, 75, 80, 85],
+          "Retire tous ses effets négatifs et bondit dans une direction, en laissant l'ombrelle derrière elle.",
       },
       {
         type: "Ultimate",
         name: "Yin Yang Overturn",
         description:
-          "Immobilise et attire les ennemis autour de l'ombrelle, puis inflige des dégâts de zone importants.",
-        cooldown: [30, 27, 24],
-        cost: [130, 150, 170],
+          "Libère le pouvoir de l'ombrelle : blesse les ennemis proches, les repousse et les ralentit.",
       },
     ],
     strengths: [
@@ -65,7 +59,7 @@ export const mages: HeroAnalysis[] = [
           "Concentrated Energy",
           "Divine Glaive",
         ],
-        emblem: "Emblème de mage",
+        emblem: "Mage Emblem",
         talent: "Lethal Ignition",
         spell: "Flicker",
       },
@@ -76,37 +70,31 @@ export const mages: HeroAnalysis[] = [
     summary:
       "Mage d'artillerie : son ultime frappe à travers la carte, sans jamais entrer dans le combat.",
     analysis:
-      "Pharsa joue sur la portée. Son ultime est un bombardement canalisé couvrant une zone énorme à longue distance, ce qui lui permet de participer à un combat qu'elle ne voit qu'à peine. Bien placé, ce sort seul peut décider d'un affrontement autour du Seigneur.\n\nSa compétence 2 lui donne une forme volante qui traverse les murs, indispensable pour se repositionner après avoir canalisé. Le point faible est évident : pendant l'ultime elle est immobile et sans défense, et n'importe quel assassin qui la trouve la tue.",
+      "Pharsa joue sur la portée. Son ultime est un bombardement canalisé couvrant une zone énorme à longue distance, ce qui lui permet de participer à un combat qu'elle ne voit qu'à peine. Bien placé, ce sort seul peut décider d'un affrontement autour du Seigneur.\n\nSa compétence 1 marque les ennemis touchés, que sa prochaine attaque ou compétence étourdit ; sa compétence 2, une décharge en ligne, fait l'essentiel de ses dégâts entre deux ultimes. Elle n'a aucun déplacement propre. Le point faible est évident : pendant l'ultime elle est immobile et sans défense, et n'importe quel assassin qui la trouve la tue.",
     skills: [
       {
         type: "Passive",
         name: "Spiritual Unity",
         description:
-          "Après une compétence, sa prochaine attaque de base inflige des dégâts magiques supplémentaires.",
+          "À intervalle régulier, Verri passe en chasse : la prochaine attaque de Pharsa sur un héros ennemi inflige des dégâts magiques supplémentaires selon ses PV et le ralentit.",
       },
       {
         type: "Skill 1",
         name: "Curse of Crow",
         description:
-          "Envoie une onde qui explose à distance, infligeant des dégâts de zone.",
-        cooldown: [7.5, 7, 6.5, 6, 5.5, 5],
-        cost: [80, 85, 90, 95, 100, 105],
+          "Une explosion magique sur une zone, qui marque les ennemis touchés. Toucher une cible marquée avec une attaque ou une compétence l'étourdit.",
       },
       {
         type: "Skill 2",
         name: "Energy Impact",
         description:
-          "Prend une forme volante pour se déplacer rapidement, en traversant les obstacles.",
-        cooldown: [15, 14, 13, 12, 11, 10],
-        cost: [60, 65, 70, 75, 80, 85],
+          "Libère une décharge d'énergie magique en ligne droite.",
       },
       {
         type: "Ultimate",
         name: "Feathered Air Strike",
         description:
-          "Canalise un bombardement sur une zone très étendue, à longue distance de la carte.",
-        cooldown: [40, 35, 30],
-        cost: [150, 170, 190],
+          "S'envole quelques secondes et bombarde la zone choisie, jusqu'à quatre fois pendant le vol.",
       },
     ],
     strengths: [
@@ -134,7 +122,7 @@ export const mages: HeroAnalysis[] = [
           "Divine Glaive",
           "Winter Crown",
         ],
-        emblem: "Emblème de mage",
+        emblem: "Mage Emblem",
         talent: "Lethal Ignition",
         spell: "Flicker",
       },
@@ -158,24 +146,18 @@ export const mages: HeroAnalysis[] = [
         name: "Bat Impact",
         description:
           "Libère une vague de chauves-souris dans une direction, infligeant des dégâts de zone.",
-        cooldown: [3.2, 3.2, 3.2, 3.2, 3.2, 3.2],
-        cost: [26, 30, 34, 38, 42, 46],
       },
       {
         type: "Skill 2",
         name: "Sanguine Claws",
         description:
           "Fait surgir des griffes qui immobilisent brièvement les ennemis dans la zone.",
-        cooldown: [11, 10.2, 9.4, 8.6, 7.8, 7],
-        cost: [70, 80, 90, 100, 110, 120],
       },
       {
         type: "Ultimate",
         name: "Bats Feast",
         description:
-          "Se soigne, gagne de la portée sur ses compétences et inflige des dégâts de zone massifs autour de lui.",
-        cooldown: [42, 36, 30],
-        cost: [100, 120, 140],
+          "Gagne de la vitesse et l'immunité aux ralentissements, et tire des dizaines de traits de sang sur les ennemis proches, qui les ralentissent et le soignent à chaque touche.",
       },
     ],
     strengths: [
@@ -203,7 +185,7 @@ export const mages: HeroAnalysis[] = [
           "Concentrated Energy",
           "Divine Glaive",
         ],
-        emblem: "Emblème de mage",
+        emblem: "Mage Emblem",
         talent: "Lethal Ignition",
         spell: "Flicker",
       },
@@ -262,7 +244,7 @@ export const mages: HeroAnalysis[] = [
         context:
           "Le build le plus joué : Lightning Truncheon ajoute un écho de dégâts à ses compétences, Glowing Wand une brûlure qui réduit aussi les soins, et Wishing Lantern des dégâts sur les PV actuels de la cible à force de la toucher.",
         items: ["Lightning Truncheon", "Glowing Wand", "Wishing Lantern"],
-        emblem: "Emblème de mage",
+        emblem: "Mage Emblem",
         talent: "Impure Rage",
         spell: "Flicker",
       },
@@ -318,9 +300,9 @@ export const mages: HeroAnalysis[] = [
       {
         name: "Explosion",
         context:
-          "Le build le plus joué, très loin devant les autres : Genius Wand réduit la défense magique des cibles, Sky Piercer achève les héros à très bas PV, Lightning Truncheon ajoute un écho de dégâts. L'emblème d'assassin est le choix de la grande majorité des joueurs qui la prennent.",
+          "Le build le plus joué, très loin devant les autres : Genius Wand réduit la défense magique des cibles, Sky Piercer achève les héros à très bas PV, Lightning Truncheon ajoute un écho de dégâts. L'Assassin Emblem est le choix de la grande majorité des joueurs qui la prennent.",
         items: ["Genius Wand", "Sky Piercer", "Lightning Truncheon"],
-        emblem: "Emblème d'assassin",
+        emblem: "Assassin Emblem",
         talent: "Lethal Ignition",
         spell: "Flicker",
       },
@@ -329,7 +311,7 @@ export const mages: HeroAnalysis[] = [
         context:
           "Glowing Wand et Divine Glaive à la place de Sky Piercer et Lightning Truncheon : bien moins joué, avec un taux de victoire mesuré équivalent. Utile contre des cibles résistantes à la magie ou qui se soignent.",
         items: ["Genius Wand", "Glowing Wand", "Divine Glaive"],
-        emblem: "Emblème d'assassin",
+        emblem: "Assassin Emblem",
         talent: "Lethal Ignition",
         spell: "Flicker",
       },
@@ -387,7 +369,7 @@ export const mages: HeroAnalysis[] = [
         context:
           "Le build le plus joué : Glowing Wand pour la brûlure et la réduction de soins, Lightning Truncheon pour l'écho de dégâts, Divine Glaive pour la pénétration magique.",
         items: ["Glowing Wand", "Lightning Truncheon", "Divine Glaive"],
-        emblem: "Emblème de mage",
+        emblem: "Mage Emblem",
         talent: "Impure Rage",
         spell: "Flicker",
       },
@@ -396,7 +378,7 @@ export const mages: HeroAnalysis[] = [
         context:
           "Fleeting Time à la place de Divine Glaive réduit la recharge de l'ultime à chaque élimination ou assistance, pour relancer plus souvent son étourdissement global. Deuxième build le plus joué, avec un taux de victoire mesuré proche du premier.",
         items: ["Glowing Wand", "Fleeting Time", "Lightning Truncheon"],
-        emblem: "Emblème de mage",
+        emblem: "Mage Emblem",
         talent: "Impure Rage",
         spell: "Flicker",
       },
@@ -455,16 +437,16 @@ export const mages: HeroAnalysis[] = [
         context:
           "Le build le plus joué : Glowing Wand pour la brûlure et la réduction de soins, Lightning Truncheon pour l'écho de dégâts, Divine Glaive pour la pénétration magique.",
         items: ["Glowing Wand", "Lightning Truncheon", "Divine Glaive"],
-        emblem: "Emblème de mage",
+        emblem: "Mage Emblem",
         talent: "Impure Rage",
         spell: "Flicker",
       },
       {
         name: "Réduction de défense",
         context:
-          "Deuxième build le plus joué : Genius Wand en premier pour réduire la défense magique des héros touchés, avec l'emblème d'assassin. Taux de victoire mesuré légèrement inférieur au premier.",
+          "Deuxième build le plus joué : Genius Wand en premier pour réduire la défense magique des héros touchés, avec l'Assassin Emblem. Taux de victoire mesuré légèrement inférieur au premier.",
         items: ["Genius Wand", "Glowing Wand", "Lightning Truncheon"],
-        emblem: "Emblème d'assassin",
+        emblem: "Assassin Emblem",
         talent: "Impure Rage",
         spell: "Flicker",
       },
@@ -475,8 +457,8 @@ export const mages: HeroAnalysis[] = [
     summary:
       "Mage de harcèlement qui neutralise une cible en la transformant, et survit une fois à un coup fatal.",
     analysis:
-      "Nana use ses adversaires de loin avec un boomerang qui touche à l'aller et au retour. Sa compétence 2 envoie Molina poursuivre le héros ennemi le plus proche : celui qu'elle atteint est transformé un court instant, ralenti et fragilisé face aux dégâts magiques. L'ultime frappe une zone trois fois et étourdit les ennemis touchés plusieurs fois de suite. Son passif lui accorde, une fois toutes les deux minutes et demie, une transformation invulnérable au moment où elle devrait mourir.\n\n" +
-      "Ses chiffres mesurés sont faibles : taux de victoire sous la moyenne à tous les rangs, plus bas encore en Gloire mythique, sans vraie amélioration dans les parties longues. Pendant la transformation de son passif, elle ne peut lancer aucune compétence, et Molina choisit elle-même sa cible parmi les héros proches. Les écarts de contres restent modestes ; les plus nets la placent en difficulté face à Gloo, puis face à Akai et Hylos.",
+      "Nana use ses adversaires de loin avec un boomerang qui touche à l'aller et au retour. Sa compétence 2 lance Molina sur une zone : les héros touchés sont transformés un court instant, ralentis et fragilisés face aux dégâts magiques ; si elle ne touche personne, Molina reste au sol et poursuit le premier héros qui s'approche. L'ultime frappe une zone trois fois et étourdit les ennemis touchés plusieurs fois de suite. Son passif lui accorde, une fois toutes les deux minutes et demie, une transformation invulnérable au moment où elle devrait mourir.\n\n" +
+      "Ses chiffres mesurés sont faibles : taux de victoire sous la moyenne à tous les rangs, plus bas encore en Mythical Glory, sans vraie amélioration dans les parties longues. Pendant la transformation de son passif, elle ne peut lancer aucune compétence, et une Molina tombée à côté choisit elle-même sa cible parmi les héros qui s'approchent. Les écarts de contres restent modestes ; les plus nets la placent en difficulté face à Gloo, puis face à Akai et Hylos.",
     skills: [
       {
         type: "Passive",
@@ -494,7 +476,7 @@ export const mages: HeroAnalysis[] = [
         type: "Skill 2",
         name: "Molina Smooch",
         description:
-          "Place Molina, qui poursuit ensuite le héros ennemi le plus proche. Le premier héros atteint est transformé un court instant, ralenti et sa défense magique réduite. Sans héros à portée, Molina reste en place un moment avant de disparaître.",
+          "Lance Molina sur une zone : les héros touchés sont transformés un court instant, ralentis, privés d'attaques et de compétences, et leur défense magique est réduite. Si elle ne touche aucun héros, Molina reste au sol et poursuit le premier qui s'approche.",
       },
       {
         type: "Ultimate",
@@ -523,7 +505,7 @@ export const mages: HeroAnalysis[] = [
         context:
           "Le build le plus joué, de loin : Glowing Wand et Divine Glaive pour la brûlure et la pénétration magique, puis Wishing Lantern pour des dégâts sur les PV actuels de la cible à force de la toucher. Il est associé au sort Flameshot plutôt qu'à Flicker.",
         items: ["Glowing Wand", "Divine Glaive", "Wishing Lantern"],
-        emblem: "Emblème de mage",
+        emblem: "Mage Emblem",
         talent: "Lethal Ignition",
         spell: "Flameshot",
       },

@@ -62,39 +62,19 @@ export const PAGES = [
     // The written analysis is French at the source: every other language
     // shows its translation (src/data/game/analyses/).
     excludes: Object.fromEntries(
-      ALL.filter((l) => l !== "fr").map((l) => [l, ["Khufra existe pour répondre", "Sa compétence 1 pose un champ"]]),
+      ALL.filter((l) => l !== "fr").map((l) => [l, ["Khufra existe pour répondre", "Sa compétence 2 le change en boule"]]),
     ),
   },
   { path: "/heroes/khufra/counters", locales: [...EN_FR, ...LATEST] },
   { path: "/heroes/khufra/duos", locales: EN_FR },
   {
-    // Rarity names come from the message catalog: a French label leaking into
-    // every language (or the raw English key) fails here.
+    // Rarity names are the game's, in English in every language (the
+    // glossary's "Noms officiels"): a translated one ("Exquis", "Squisita")
+    // fails here.
     path: "/heroes/khufra/skins",
     locales: ALL,
-    includes: {
-      en: ["Exquisite", "Exceptional"],
-      fr: ["Exquis", "Exceptionnel"],
-      it: ["Squisita", "Eccezionale"],
-      es: ["Exquisita", "Excepcional"],
-      // Indonesian keeps the game's English rarity names, like the four
-      // languages added after it.
-      id: ["Exquisite", "Exceptional"],
-      fil: ["Exquisite", "Exceptional"],
-      th: ["Exquisite", "Exceptional"],
-      pt: ["Exquisite", "Exceptional"],
-      ru: ["Exquisite", "Exceptional"],
-    },
-    excludes: {
-      en: ["Exquis", "Exceptionnel"],
-      it: ["Exquis", "Exceptionnel"],
-      es: ["Exquis", "Exceptionnel"],
-      id: ["Exquis", "Exceptionnel"],
-      fil: ["Exquis", "Exceptionnel"],
-      th: ["Exquis", "Exceptionnel"],
-      pt: ["Exquis", "Exceptionnel"],
-      ru: ["Exquis", "Exceptionnel"],
-    },
+    includes: Object.fromEntries(ALL.map((l) => [l, ["Exquisite", "Exceptional"]])),
+    excludes: Object.fromEntries(ALL.map((l) => [l, ["Exquis", "Exceptionnel", "Squisita", "Eccezionale", "Exquisita", "Excepcional"]])),
   },
   { path: "/tier-list", locales: ALL, browser: true },
   { path: "/tier-list/role/fighter", locales: ALL, browser: true },
@@ -108,31 +88,15 @@ export const PAGES = [
   { path: "/items/blade-of-despair", locales: EN_FR },
   { path: "/emblems", locales: ALL, browser: true },
   {
-    // Emblem names are translated: an untranslated fallback shows the English
-    // name in every language.
+    // Emblem names are the game's, in English in every language: a
+    // translation ("Emblème de combattant", "Эмблема Истребителя") fails here.
     path: "/emblems/fighter",
     locales: ALL,
     browser: true,
-    includes: {
-      en: ["Fighter Emblem"],
-      fr: ["Emblème de combattant"],
-      it: ["Emblema Combattente"],
-      es: ["Emblema de luchador"],
-      // Indonesian keeps the game's English emblem names, and so do the
-      // four languages added after it (the service wrote "Эмблема Истребителя").
-      id: ["Fighter Emblem"],
-      fil: ["Fighter Emblem"],
-      th: ["Fighter Emblem"],
-      pt: ["Fighter Emblem"],
-      ru: ["Fighter Emblem"],
-    },
-    excludes: {
-      fr: ["Fighter Emblem"],
-      it: ["Fighter Emblem"],
-      es: ["Fighter Emblem"],
-      id: ["Emblème de combattant"],
-      ru: ["Эмблема Истребителя"],
-    },
+    includes: Object.fromEntries(ALL.map((l) => [l, ["Fighter Emblem"]])),
+    excludes: Object.fromEntries(
+      ALL.map((l) => [l, ["Emblème de combattant", "Emblema Combattente", "Emblema de luchador", "Эмблема Истребителя"]]),
+    ),
   },
   { path: "/spells", locales: EN_FR },
   { path: "/spells/flicker", locales: EN_FR },

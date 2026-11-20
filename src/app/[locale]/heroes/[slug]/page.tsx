@@ -59,7 +59,7 @@ import {
   visualsSkills,
   analysisFor,
 } from "@/lib/data";
-import { emblems } from "@/data/emblems";
+import { findEmblem } from "@/data/emblems";
 import { rankingFull, statsByRank, rateBySlug, type StatsRank } from "@/lib/tier-list";
 import { MEASURED_RANKS, type MeasuredRank } from "@/lib/measured-ranks";
 import { pathRole } from "@/lib/tier-list-filters";
@@ -211,10 +211,10 @@ export default async function HeroPage({ params }: Params) {
   const portraitOf = (slug: string) =>
     heroesBySlug.get(slug)?.images.icon ?? heroesBySlug.get(slug)?.images.portrait ?? null;
   const nameOf = (slug: string) => heroesBySlug.get(slug)?.name ?? slug;
-  // Written builds name the emblem in French ("Emblème de mage"): shown, like
-  // the played builds, as its role in the page's language.
+  // Written builds name the emblem as the game does ("Mage Emblem"): shown,
+  // like the played builds, as its role in the page's language.
   const nameEmblem = (name: string) => {
-    const e = emblems.find((x) => x.name === name || x.role === name);
+    const e = findEmblem(name);
     // "All", the stats API's word for the common emblem every role can take.
     if (!e && name === COMMON_EMBLEM) return t("pages.buildSimulator.commonEmblem");
     return e ? t(`roles.${e.role}`) : name;

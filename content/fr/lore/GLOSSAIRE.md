@@ -14,7 +14,7 @@ Une seule traduction par terme, pour les 133 fiches de ce dossier. Priorité : l
 | Genre « Genderless » | Sans genre | |
 | Liens (relations) | accordés au genre de la personne citée ; pluriel masculin si le groupe est mixte | Cici (compagne), Belerick, Lunox, Natan (compagnons) |
 | Skin cité dans le texte | apparence (jamais « skin » ni « peau ») | son apparence Starlight, l'apparence Collector de Natalia |
-| Rangs d'apparence | Épique, Élite, Spéciale, Légende ; Starlight, Collector, Zenith, Mythic restent tels quels | une apparence Élite |
+| Séries et raretés d'apparence | nom anglais du jeu (voir « Noms officiels ») | une apparence Elite, Epic, Legend ; Starlight, Collector, Zenith, Mythic |
 | Factions nommées par le jeu (escouades de héros) | nom anglais du jeu, jamais traduit | les Lightborn, membres de Forsaken Light |
 | Noms de compétences dans les anecdotes | en anglais, comme sur le site | Phantom Steed, Pride of Ice, Fury of the Phoenix |
 | Noms d'apparences, de collaborations, de jeux | en anglais, entre guillemets français si la phrase en a besoin | « Twisted Fairytale », Magic Rush: Heroes |
@@ -152,8 +152,33 @@ Une seule traduction par terme, pour les 133 fiches de ce dossier. Priorité : l
 | patch | patch (patch 1.6.84) |
 | Basic Attack | attaque de base |
 | Ultimate / Passive | ultime / passif |
-| Battle Points / Diamonds | points de bataille / diamants |
+| Spell Vamp / Lifesteal | Spell Vamp (nom du jeu) / vol de vie |
+| Battle Points / Diamonds | Battle Points / Diamonds (monnaies : nom du jeu, voir « Noms officiels ») |
 | M-Series Champion Skin | apparence exclusive de champion M-Series |
 | voice actor / actress | doubleur / doubleuse (doubleur japonais, doubleuse anglaise) |
 | Old English / Old Norse / Old High German | vieil anglais / vieux norrois / vieux haut allemand |
 | Marksman, Mage, Tank, Fighter, Assassin, Support | Tireur, Mage, Tank, Combattant, Assassin, Support |
+
+## Noms officiels
+
+Règle du site : un nom que le jeu donne (objet, effet d'objet, compétence, sort, emblème, talent, mode et sous-mode, rang, série d'apparence, monnaie, événement) s'écrit comme le jeu l'écrit. Le nom du client français n'est vérifiable dans aucune source que le projet lit (le wiki et l'API de statistiques sont en anglais, les textes français du site sont des traductions automatiques ou faites à la main) : on garde donc le nom anglais du jeu, jamais une traduction. Les descriptions restent en français. La même règle vaut dans les huit autres langues : le pipeline de traduction protège ces noms (`scripts/translation-official-names.mjs`).
+
+| Famille | Nom gardé | Source | Ce qui l'avait remplacé |
+| --- | --- | --- | --- |
+| Effets d'objet (passifs, actifs) | le nom anglais avant les deux-points : Deter, Lifebane, Gift, Fortress Shield, Armor Buster… | `src/data/game/items/en.json` (module d'objets du wiki) ; notes de patch « [Unique Passive - Deter] » | Dissuasion, Cadeau, Bouclier de forteresse, à côté de Lifebane resté en anglais |
+| Enchantements de bottes | Encourage, Favor, Dire Hit, Conceal | notes de patch (`src/data/game/patches.json`), `src/lib/item-names.ts` | traductions du service |
+| Modes | Classic, Ranked, Brawl, Arcade Mode, Vs. AI, Custom | noms des modes, `src/data/game/modes/en.json` (déjà affichés tels quels sur les pages des modes) | Classique, Classé |
+| Sous-modes d'Arcade | Mayhem, Mirror, Survival, Deathbattle, Frenzy, Evolve, Ravage, Brawl&Mirror, Chess TD, Magic Chess, Shadow Brawl, Arena, Boommander | intertitres de « Arcade Mode », `src/data/game/modes/en.json` | Grabuge, Survie, Ravager, Échecs TD, Boummandre, Bagarre des ombres… |
+| Choix des héros | Draft Pick, Blind Pick | section « Draft Pick » du mode Ranked, `src/data/game/modes/en.json` | choix de repêchage, choix à l'aveugle |
+| Rangs | Warrior, Elite, Master, Grandmaster, Epic, Legend, Mythic, Mythical Honor, Mythical Glory, Mythical Immortal | section « Rank System » du mode Ranked, `src/data/game/modes/en.json` | Guerrier, Élite, Maître, Grand Maître, Épique, Légende, Mythique, Honneur / Gloire / Immortel mythique |
+| Raretés d'apparence | Common, Exceptional, Deluxe, Exquisite, Grand, Supreme ; Legend pour la rangée de la Vitrine | champ `rarity` de `src/data/game/skins.json` ; `src/lib/account-value.ts` | Commun, Exceptionnel, Premium (pour Deluxe), Exquis, Grandiose, Suprême |
+| Séries d'apparence | Elite, Special, Epic, Legend, Lucky Box, Limited, StarLight, Collector… | champ `label` de `src/data/game/skins.json` (« Luckybox », écrit Lucky Box comme dans les notes de patch) | Élite, Spécial, Épique, Légende, Coffre chance, Limité, Saint-Valentin |
+| Emblèmes | Tank Emblem, Fighter Emblem, Assassin Emblem, Mage Emblem, Marksman Emblem, Support Emblem | noms du jeu dans `src/data/emblems.ts` (clés des visuels du wiki, `src/data/game/visuals.json`) | Emblème de tank, de combattant, de soutien… (encore reconnus dans les builds proposés) |
+| Talents et sorts de combat | Agility, Seasoned Hunter, Flicker, Retribution… | `src/data/emblems.ts` (inchangé) | |
+| Monnaies | Diamonds, Battle Points, Tickets, Hero Fragments, Magic Cores, Gems, Myth Coins, Premium Skin Fragments | clés de prix des apparences (`dm`, `bp`, `ticket`, `hf`, `mc`, `lg`, `mythcoin`) de `src/data/game/skins.json` ; notes de patch (« Premium Skin Fragment Shop ») | diamants, points de bataille, fragments de héros, noyaux magiques, gemmes, pièces mythiques |
+| Événements | StarLight, Grand Collection, Magic Wheel, Zodiac, Lucky Box | notes de patch (`src/data/game/patches.json` : « Grand Collection », « Zodiac Summon », « Lucky Box ») ; Magic Wheel tel que le site l'écrivait déjà | roue magique |
+| Statistique nommée | Spell Vamp | statistiques des objets, `src/data/game/items/en.json` (« +20% Spell Vamp ») | vampirisme des sorts, vol de vie magique, sort de vampire |
+
+Restent en français, parce que ce sont des mots et non des noms : les rôles (Tireur, Combattant…), les lanes telles que le site les écrit (Gold lane, EXP lane), les statistiques courantes (attaque physique, vol de vie, PV), « apparence », « sbire », « ultime », « passif », les catégories d'objets.
+
+À trancher : les monstres de la carte (Tortue, Seigneur, Crabe, pour Turtle, Lord, Crab), écrits en français partout sur le site ; « Myth Coins » (nom des données du wiki) ou « Mythic Coins » (écrit aussi dans le catalogue anglais) ; « Valentine's Day » (catalogue anglais) ou « Valentine » (étiquette du wiki).

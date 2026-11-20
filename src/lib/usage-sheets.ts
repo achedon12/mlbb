@@ -1,4 +1,4 @@
-import { emblems, slugEmblem, battleSpells, type Emblem } from "@/data/emblems";
+import { emblems, findEmblem, slugEmblem, battleSpells, type Emblem } from "@/data/emblems";
 import visuals from "@/data/game/visuals.json";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import type { T } from "@/i18n/t";
@@ -35,7 +35,7 @@ export const emblemsSheets = emblems.map((e) => ({
 
 /** The API names the emblem by its role ("Marksman"); "All", the common emblem, has no page. */
 function emblemOfBuild(name: string | null): Emblem | undefined {
-  return name ? emblems.find((e) => e.role === name || e.name === name) : undefined;
+  return name ? findEmblem(name) : undefined;
 }
 
 /** Every spelling seen in played builds, by key: the fallback for untranslated names. */

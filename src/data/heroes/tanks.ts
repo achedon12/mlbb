@@ -14,31 +14,25 @@ export const tanks: HeroAnalysis[] = [
         type: "Passive",
         name: "Fearless",
         description:
-          "Les attaques de base de Tigreal chargent son armure. À pleine charge, sa prochaine attaque inflige des dégâts supplémentaires et le protège brièvement.",
+          "Chaque attaque de base subie et chaque compétence lancée lui donnent un cumul ; à quatre, il bloque la prochaine attaque de base reçue, tourelles comprises.",
       },
       {
         type: "Skill 1",
         name: "Attack Wave",
         description:
           "Frappe le sol devant lui, infligeant des dégâts et ralentissant les ennemis touchés.",
-        cooldown: [7, 6.6, 6.2, 5.8, 5.4, 5],
-        cost: [40, 45, 50, 55, 60, 65],
       },
       {
         type: "Skill 2",
         name: "Sacred Hammer",
         description:
           "Se rue vers l'avant en poussant les ennemis rencontrés, puis les projette en l'air à la fin de la course.",
-        cooldown: [11, 10.4, 9.8, 9.2, 8.6, 8],
-        cost: [60, 65, 70, 75, 80, 85],
       },
       {
         type: "Ultimate",
         name: "Implosion",
         description:
           "Attire tous les ennemis proches vers lui, puis les étourdit. La référence en matière d'engagement de groupe.",
-        cooldown: [42, 36, 30],
-        cost: [100, 120, 140],
       },
     ],
     strengths: [
@@ -60,13 +54,13 @@ export const tanks: HeroAnalysis[] = [
           "Le build par défaut. On sacrifie tous les dégâts pour arriver au contact et survivre à l'ouverture du combat.",
         items: [
           "Warrior Boots",
-          "Athena's Shield",
+          "Valkyrie's Shield",
           "Antique Cuirass",
           "Immortality",
           "Guardian Helmet",
           "Blade Armor",
         ],
-        emblem: "Emblème de tank",
+        emblem: "Tank Emblem",
         talent: "Concussive Blast",
         spell: "Flicker",
       },
@@ -76,13 +70,13 @@ export const tanks: HeroAnalysis[] = [
           "Contre une composition adverse à deux mages ou plus, ou quand les dégâts magiques adverses dépassent les dégâts physiques.",
         items: [
           "Tough Boots",
-          "Athena's Shield",
+          "Valkyrie's Shield",
           "Radiant Armor",
           "Immortality",
           "Oracle",
           "Antique Cuirass",
         ],
-        emblem: "Emblème de tank",
+        emblem: "Tank Emblem",
         talent: "Concussive Blast",
         spell: "Flicker",
       },
@@ -99,31 +93,25 @@ export const tanks: HeroAnalysis[] = [
         type: "Passive",
         name: "Wasteland Force",
         description:
-          "Chaque coup reçu augmente sa vitesse de déplacement pendant un court instant, cumulable.",
+          "Après quelques secondes sans subir de dégâts, il gagne de la vitesse, récupère des PV et accumule de la force ; sa prochaine compétence consomme ces cumuls pour des dégâts fortement accrus.",
       },
       {
         type: "Skill 1",
         name: "Iron Hook",
         description:
-          "Lance un crochet qui tire le premier ennemi touché jusqu'à lui et l'immobilise brièvement.",
-        cooldown: [11, 10.4, 9.8, 9.2, 8.6, 8],
-        cost: [70, 80, 90, 100, 110, 120],
+          "Lance un crochet qui blesse le premier ennemi touché et le tire jusqu'à lui.",
       },
       {
         type: "Skill 2",
         name: "Fury Shock",
         description:
           "Frappe autour de lui, infligeant des dégâts et ralentissant fortement les ennemis proches.",
-        cooldown: [7, 6.4, 5.8, 5.2, 4.6, 4],
-        cost: [50, 55, 60, 65, 70, 75],
       },
       {
         type: "Ultimate",
         name: "Bloody Hunt",
         description:
-          "Immobilise une cible et la frappe à répétition. Le contrôle dure assez longtemps pour que l'équipe conclue.",
-        cooldown: [50, 42, 34],
-        cost: [100, 125, 150],
+          "Neutralise un héros adverse (suppression) et le frappe six fois pendant la durée. Le contrôle dure assez longtemps pour que l'équipe conclue.",
       },
     ],
     strengths: [
@@ -146,12 +134,12 @@ export const tanks: HeroAnalysis[] = [
         items: [
           "Warrior Boots",
           "Immortality",
-          "Athena's Shield",
+          "Valkyrie's Shield",
           "Antique Cuirass",
           "Radiant Armor",
           "Blade Armor",
         ],
-        emblem: "Emblème de tank",
+        emblem: "Tank Emblem",
         talent: "Concussive Blast",
         spell: "Flicker",
       },
@@ -162,37 +150,31 @@ export const tanks: HeroAnalysis[] = [
     summary:
       "Le tank qui punit la mobilité : sa compétence 1 annule les dashs et les sauts adverses.",
     analysis:
-      "Khufra existe pour répondre à une catégorie précise de héros — ceux qui se déplacent constamment. Sa compétence 1 pose un champ qui interrompt tout dash traversé, ce qui neutralise Fanny, Ling, Wanwan ou Benedetta d'une façon qu'aucun autre tank ne permet.\n\nEn dehors de ce rôle de réponse, il reste un excellent initiateur : la boule de l'ultime propulse les adversaires et permet de les repousser contre une tourelle ou un mur. Sa faiblesse est sa recharge : hors compétences, Khufra est lent et facile à contourner.",
+      "Khufra existe pour répondre à une catégorie précise de héros — ceux qui se déplacent constamment. Sa compétence 2 le change en boule qui projette en l'air tout ennemi tentant de la franchir par un déplacement, ce qui neutralise Fanny, Ling, Wanwan ou Benedetta d'une façon qu'aucun autre tank ne permet.\n\nEn dehors de ce rôle de réponse, il reste un excellent initiateur : sa compétence 1 le lance sur le premier héros adverse en projetant en l'air les ennemis autour, et son ultime repousse les adversaires devant lui, en les étourdissant s'ils heurtent un mur. Sa faiblesse est sa recharge : hors compétences, Khufra est lent et facile à contourner.",
     skills: [
       {
         type: "Passive",
         name: "Spell Curse",
         description:
-          "Après avoir utilisé une compétence, sa prochaine attaque de base inflige des dégâts supplémentaires et le soigne.",
+          "À intervalle régulier, sa prochaine attaque de base porte plus loin, inflige des dégâts selon les PV de la cible, la ralentit et le soigne. Chaque contrôle posé par ses compétences réduit ce délai.",
       },
       {
         type: "Skill 1",
         name: "Tyrant's Revenge",
         description:
-          "Crée une zone qui projette en l'air les ennemis qui tentent de la traverser par un déplacement. Le principal outil anti-mobilité du jeu.",
-        cooldown: [12, 11.4, 10.8, 10.2, 9.6, 9],
-        cost: [80, 85, 90, 95, 100, 105],
+          "Se propulse dans une direction en blessant les ennemis sur son trajet ; il s'arrête au premier héros adverse et projette en l'air les ennemis proches.",
       },
       {
         type: "Skill 2",
         name: "Bouncing Ball",
         description:
-          "Se transforme en boule et roule dans une direction, en poussant et ralentissant les ennemis heurtés.",
-        cooldown: [9, 8.4, 7.8, 7.2, 6.6, 6],
-        cost: [70, 75, 80, 85, 90, 95],
+          "Se change en boule rebondissante, avec plus de défense hybride : les ennemis qui tentent de la franchir par un déplacement sont projetés en l'air, et chaque rebond ralentit les ennemis proches. Le principal outil anti-mobilité du jeu.",
       },
       {
         type: "Ultimate",
         name: "Tyrant's Rage",
         description:
-          "Frappe le sol : les ennemis pris dans la zone sont projetés et immobilisés un instant.",
-        cooldown: [42, 38, 34],
-        cost: [120, 140, 160],
+          "Repousse tous les ennemis autour de lui vers l'avant et les ralentit ; ceux qui heurtent un mur subissent des dégâts supplémentaires et sont étourdis.",
       },
     ],
     strengths: [
@@ -215,12 +197,12 @@ export const tanks: HeroAnalysis[] = [
         items: [
           "Warrior Boots",
           "Immortality",
-          "Athena's Shield",
+          "Valkyrie's Shield",
           "Antique Cuirass",
           "Blade Armor",
           "Guardian Helmet",
         ],
-        emblem: "Emblème de tank",
+        emblem: "Tank Emblem",
         talent: "Concussive Blast",
         spell: "Flicker",
       },
@@ -278,16 +260,16 @@ export const tanks: HeroAnalysis[] = [
         context:
           "Le build le plus joué : Dominance Ice réduit les soins des ennemis autour de lui, Chastise Pauldron ralentit l'attaque de ceux qui le frappent, Guardian Helmet empile les PV que son passif renforce.",
         items: ["Dominance Ice", "Chastise Pauldron", "Guardian Helmet"],
-        emblem: "Emblème de tank",
+        emblem: "Tank Emblem",
         talent: "Brave Smite",
         spell: "Revitalize",
       },
       {
         name: "Résistances mixtes",
         context:
-          "Deuxième build le plus joué, associé à Vengeance : Antique Cuirass contre les dégâts physiques des compétences, Athena's Shield contre les dégâts magiques, quand l'équipe adverse mélange les deux.",
-        items: ["Dominance Ice", "Antique Cuirass", "Athena's Shield"],
-        emblem: "Emblème de tank",
+          "Deuxième build le plus joué, associé à Vengeance : Antique Cuirass contre les dégâts physiques des compétences, Valkyrie's Shield contre les dégâts magiques, quand l'équipe adverse mélange les deux.",
+        items: ["Dominance Ice", "Antique Cuirass", "Valkyrie's Shield"],
+        emblem: "Tank Emblem",
         talent: "Brave Smite",
         spell: "Vengeance",
       },
@@ -299,7 +281,7 @@ export const tanks: HeroAnalysis[] = [
       "Tank d'engagement qui attire plusieurs héros d'un coup et les dépose là où il le décide.",
     analysis:
       "Atlas engage en deux temps. Son ultime lance des chaînes qui ralentissent les héros touchés pendant qu'il canalise, puis, relancé, les tire vers lui et les écrase à l'endroit choisi ; seule une suppression peut l'interrompre. Sa compétence 2 le fait sortir de son armure pour se déplacer plus vite, insensible aux ralentissements, avant que la machine ne le rejoigne en étourdissant autour d'elle. Chaque compétence lancée crée autour de lui une zone de froid qui ralentit, puis gèle les ennemis qui y restent.\n\n" +
-      "Ses chiffres varient selon le rang : son taux de victoire mesuré est plus élevé en Mythique et Honneur mythique qu'en Gloire mythique, où il est en revanche davantage banni. Il figure parmi les héros renforcés du patch 2.1.88, sans détail publié sur le wiki. Ses meilleurs duos mesurés sont avec des soutiens — Mathilda, Floryn, Estes, Rafaela — et les mesures le placent nettement en difficulté face à Marcel, puis face à Wanwan, Alice, Valentina et Lancelot.",
+      "Ses chiffres varient selon le rang : son taux de victoire mesuré est plus élevé en Mythic et Mythical Honor qu'en Mythical Glory, où il est en revanche davantage banni. Il figure parmi les héros renforcés du patch 2.1.88, sans détail publié sur le wiki. Ses meilleurs duos mesurés sont avec des soutiens — Mathilda, Floryn, Estes, Rafaela — et les mesures le placent nettement en difficulté face à Marcel, puis face à Wanwan, Alice, Valentina et Lancelot.",
     skills: [
       {
         type: "Passive",
@@ -334,7 +316,7 @@ export const tanks: HeroAnalysis[] = [
     ],
     weaknesses: [
       "Nettement en difficulté face à Marcel selon les mesures",
-      "Taux de victoire mesuré plus bas en Gloire mythique",
+      "Taux de victoire mesuré plus bas en Mythical Glory",
       "Un étourdissement perdu si l'ultime part hors de son armure",
       "En difficulté face à Wanwan, Alice et Valentina",
     ],
@@ -346,16 +328,16 @@ export const tanks: HeroAnalysis[] = [
         context:
           "Le build le plus joué : Dominance Ice pour les résistances et la réduction de soins autour de lui, Radiant Armor contre la magie, Chastise Pauldron contre les attaques de base.",
         items: ["Dominance Ice", "Radiant Armor", "Chastise Pauldron"],
-        emblem: "Emblème de tank",
+        emblem: "Tank Emblem",
         talent: "Concussive Blast",
         spell: "Flicker",
       },
       {
         name: "Contre la magie",
         context:
-          "Athena's Shield à la place de Radiant Armor, avec l'emblème de support : moins joué, avec un meilleur taux de victoire mesuré. À préférer contre une équipe adverse aux dégâts magiques élevés.",
-        items: ["Dominance Ice", "Athena's Shield", "Chastise Pauldron"],
-        emblem: "Emblème de soutien",
+          "Valkyrie's Shield à la place de Radiant Armor, avec le Support Emblem : moins joué, avec un meilleur taux de victoire mesuré. À préférer contre une équipe adverse aux dégâts magiques élevés.",
+        items: ["Dominance Ice", "Valkyrie's Shield", "Chastise Pauldron"],
+        emblem: "Support Emblem",
         talent: "Concussive Blast",
         spell: "Flicker",
       },
@@ -413,7 +395,7 @@ export const tanks: HeroAnalysis[] = [
         context:
           "Le build le plus joué en jungle : War Axe pour le vol de vie, Brute Force Breastplate pour les PV et la réduction de la durée des contrôles quand il enchaîne les dégâts, Oracle pour renforcer les soins et boucliers qu'il reçoit.",
         items: ["War Axe", "Brute Force Breastplate", "Oracle"],
-        emblem: "Emblème de tank",
+        emblem: "Tank Emblem",
         talent: "Concussive Blast",
         spell: "Retribution",
       },
@@ -471,7 +453,7 @@ export const tanks: HeroAnalysis[] = [
         context:
           "Le build le plus joué : Flask of the Oasis accorde un bouclier aux alliés soignés à bas PV et réduit ses recharges, Dominance Ice et Radiant Armor complètent les résistances.",
         items: ["Flask of the Oasis", "Dominance Ice", "Radiant Armor"],
-        emblem: "Emblème de soutien",
+        emblem: "Support Emblem",
         talent: "Concussive Blast",
         spell: "Revitalize",
       },
@@ -480,7 +462,7 @@ export const tanks: HeroAnalysis[] = [
         context:
           "Oracle à la place de Radiant Armor renforce les soins et boucliers qu'il reçoit, dont les siens : moins joué, avec un taux de victoire mesuré plus haut.",
         items: ["Flask of the Oasis", "Dominance Ice", "Oracle"],
-        emblem: "Emblème de soutien",
+        emblem: "Support Emblem",
         talent: "Concussive Blast",
         spell: "Revitalize",
       },

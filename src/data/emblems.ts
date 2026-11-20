@@ -4,9 +4,10 @@ import type { Role } from "@/lib/types";
  * Emblems, talents and battle spells.
  *
  * The wiki exposes no data module for them: this list is written by hand.
- * Names are the game's English ones, which is not an aesthetic choice — they
- * are the key linking each entry to its visual, resolved by the sync
- * (`src/data/game/visuals.json`).
+ * Names are the game's English ones, in every language (the French client's
+ * are in no source the site reads: `content/fr/lore/GLOSSAIRE.md`, "Noms
+ * officiels"), and they are the key linking each entry to its visual,
+ * resolved by the sync (`src/data/game/visuals.json`).
  *
  * The `bestFor` field is analysis: it says who the option is really for,
  * which an effect description never does.
@@ -16,19 +17,40 @@ export interface Emblem {
   key: string;
   /** Role this emblem fits. */
   role: Role;
+  /** The game's name ("Tank Emblem"). */
   name: string;
   bonus: string;
   bestFor: string;
 }
 
 export const emblems: Emblem[] = [
-  { key: "tank-emblem", role: "Tank", name: "Emblème de tank", bonus: "PV et résistances", bestFor: "Tanks d'engagement et tanks d'EXP lane." },
-  { key: "fighter-emblem", role: "Fighter", name: "Emblème de combattant", bonus: "Dégâts d'attaque et vol de vie", bestFor: "Combattants d'EXP lane qui doivent gagner leur duel." },
-  { key: "assassin-emblem", role: "Assassin", name: "Emblème d'assassin", bonus: "Dégâts d'attaque et pénétration physique", bestFor: "Jungleurs physiques et assassins." },
-  { key: "mage-emblem", role: "Mage", name: "Emblème de mage", bonus: "Puissance magique et pénétration magique", bestFor: "Mages de la Mid lane." },
-  { key: "marksman-emblem", role: "Marksman", name: "Emblème de tireur", bonus: "Vitesse d'attaque et dégâts d'attaque", bestFor: "Tireurs de la Gold lane." },
-  { key: "support-emblem", role: "Support", name: "Emblème de soutien", bonus: "Réduction de recharge et vitesse de déplacement", bestFor: "Soutiens et roamers non tanks." },
+  { key: "tank-emblem", role: "Tank", name: "Tank Emblem", bonus: "PV et résistances", bestFor: "Tanks d'engagement et tanks d'EXP lane." },
+  { key: "fighter-emblem", role: "Fighter", name: "Fighter Emblem", bonus: "Dégâts d'attaque et vol de vie", bestFor: "Combattants d'EXP lane qui doivent gagner leur duel." },
+  { key: "assassin-emblem", role: "Assassin", name: "Assassin Emblem", bonus: "Dégâts d'attaque et pénétration physique", bestFor: "Jungleurs physiques et assassins." },
+  { key: "mage-emblem", role: "Mage", name: "Mage Emblem", bonus: "Puissance magique et pénétration magique", bestFor: "Mages de la Mid lane." },
+  { key: "marksman-emblem", role: "Marksman", name: "Marksman Emblem", bonus: "Vitesse d'attaque et dégâts d'attaque", bestFor: "Tireurs de la Gold lane." },
+  { key: "support-emblem", role: "Support", name: "Support Emblem", bonus: "Réduction de recharge et vitesse de déplacement", bestFor: "Soutiens et roamers non tanks." },
 ];
+
+/**
+ * The French names the written builds and the community contributions used
+ * before the site kept the game's ("Emblème de mage"): still recognised.
+ */
+const FORMER_NAMES: Record<string, string> = {
+  "Emblème de tank": "tank-emblem",
+  "Emblème de combattant": "fighter-emblem",
+  "Emblème d'assassin": "assassin-emblem",
+  "Emblème de mage": "mage-emblem",
+  "Emblème de tireur": "marksman-emblem",
+  "Emblème de soutien": "support-emblem",
+  "Emblème de support": "support-emblem",
+};
+
+/** The emblem a build names: by its name ("Mage Emblem"), its role ("Mage") or a former French name. */
+export function findEmblem(name: string): Emblem | undefined {
+  const key = FORMER_NAMES[name];
+  return emblems.find((e) => e.name === name || e.role === name || e.key === key);
+}
 
 /** "tank-emblem" becomes "tank": the /emblems/tank address does not repeat the word. */
 export const slugEmblem = (e: Emblem) => e.key.replace(/-emblem$/, "");

@@ -7,36 +7,30 @@ export const supports: HeroAnalysis[] = [
     summary:
       "Le soin le plus brut du jeu : son ultime régénère l'équipe entière pendant plusieurs secondes.",
     analysis:
-      "Estes ne fait rien d'autre que soigner, mais il le fait à un volume qu'aucun autre soutien n'atteint. Dans un combat prolongé autour d'un objectif, son ultime peut annuler l'équivalent d'une composition entière de dégâts soutenus.\n\nCela en fait aussi le héros le plus dépendant du contexte de tout le jeu. Face à une équipe qui achète de la réduction de soins, ou qui possède un engagement capable de le supprimer en premier, il devient presque inutile. Il n'apporte ni contrôle, ni dégâts, ni mobilité : s'il ne soigne pas, il n'existe pas.",
+      "Estes ne fait rien d'autre que soigner, mais il le fait à un volume qu'aucun autre soutien n'atteint. Dans un combat prolongé autour d'un objectif, son ultime peut annuler l'équivalent d'une composition entière de dégâts soutenus.\n\nCela en fait aussi le héros le plus dépendant du contexte de tout le jeu. Face à une équipe qui achète de la réduction de soins, ou qui possède un engagement capable de le supprimer en premier, il devient presque inutile. Il n'apporte qu'un ralentissement de zone, peu de dégâts et aucune mobilité : s'il ne soigne pas, il n'existe pas.",
     skills: [
       {
         type: "Passive",
         name: "Scripture of the Moon Elf",
         description:
-          "Ses soins appliquent une marque qui augmente la régénération des alliés concernés.",
+          "Il accumule de l'énergie ; à cent cumuls, sa prochaine attaque de base est renforcée et rebondit sur les ennemis proches en les ralentissant. Le lien de sa compétence 1 accélère cette charge.",
       },
       {
         type: "Skill 1",
         name: "Moonlight Immersion",
-        description: "Soigne un allié ciblé et augmente sa vitesse de déplacement.",
-        cooldown: [8, 7.4, 6.8, 6.2, 5.6, 5],
-        cost: [90, 100, 110, 120, 130, 140],
+        description: "Soigne un allié et se lie à lui quelques secondes : tous deux gagnent de la défense hybride, l'allié continue de récupérer des PV et Estes gagne de la vitesse.",
       },
       {
         type: "Skill 2",
         name: "Domain of Moon Goddess",
         description:
-          "Relie une cible ennemie, la ralentit, puis l'immobilise si le lien tient assez longtemps.",
-        cooldown: [12, 11, 10, 9, 8, 7],
-        cost: [70, 80, 90, 100, 110, 120],
+          "Un flot de lumière lunaire blesse les ennemis d'une zone, qui devient un domaine : les ennemis qui y sont restent visibles, et ceux qui en touchent le bord sont fortement ralentis.",
       },
       {
         type: "Ultimate",
         name: "Blessing of Moon Goddess",
         description:
-          "Crée une zone qui soigne continuellement tous les alliés présents pendant plusieurs secondes.",
-        cooldown: [55, 50, 45],
-        cost: [150, 170, 190],
+          "Applique une version renforcée de sa compétence 1 à lui-même et à tous les alliés proches : soin immédiat et défense doublés, et un soin continu important pendant plusieurs secondes.",
       },
     ],
     strengths: [
@@ -62,9 +56,9 @@ export const supports: HeroAnalysis[] = [
           "Winter Crown",
           "Enchanted Talisman",
           "Immortality",
-          "Athena's Shield",
+          "Valkyrie's Shield",
         ],
-        emblem: "Emblème de soutien",
+        emblem: "Support Emblem",
         talent: "Focusing Mark",
         spell: "Flicker",
       },
@@ -75,36 +69,30 @@ export const supports: HeroAnalysis[] = [
     summary:
       "Soutien qui s'attache à un allié à travers la carte pour le renforcer et le protéger à distance.",
     analysis:
-      "Angela joue une seconde partie en parallèle de la sienne. Son ultime lui permet de rejoindre n'importe quel allié où qu'il soit, en lui donnant un bouclier et un gain de statistiques pendant qu'elle est attachée — elle devient littéralement une extension du joueur choisi.\n\nBien utilisée, elle permet à un porteur de plonger avec une sécurité qu'il n'aurait jamais seul, et elle apparaît à l'autre bout de la carte pour renverser une escarmouche. Mal utilisée, elle passe la partie attachée au mauvais joueur et n'influence rien.",
+      "Angela joue une seconde partie en parallèle de la sienne. Son ultime lui permet de rejoindre n'importe quel allié où qu'il soit, en lui donnant un bouclier, et lance ses compétences sans coût en mana pendant qu'elle est attachée — elle devient littéralement une extension du joueur choisi.\n\nBien utilisée, elle permet à un porteur de plonger avec une sécurité qu'il n'aurait jamais seul, et elle apparaît à l'autre bout de la carte pour renverser une escarmouche. Mal utilisée, elle passe la partie attachée au mauvais joueur et n'influence rien.",
     skills: [
       {
         type: "Passive",
         name: "Smart Heart",
         description:
-          "Ses compétences appliquent des charges qui augmentent les dégâts subis par la cible ou les soins reçus par l'allié.",
+          "Chaque compétence lancée lui donne un peu de vitesse de déplacement, en se cumulant ; attachée à un allié, c'est lui qui en profite.",
       },
       {
         type: "Skill 1",
         name: "Love Waves",
-        description: "Projette une onde qui inflige des dégâts et ralentit les ennemis touchés.",
-        cooldown: [8, 7.4, 6.8, 6.2, 5.6, 5],
-        cost: [70, 75, 80, 85, 90, 95],
+        description: "Projette une onde qui blesse les ennemis touchés et y pose une marque cumulable, qui augmente les dégâts et ralentit, tout en soignant les alliés touchés. Jusqu'à cinq charges ; attachée à un allié, sa recharge est divisée par deux.",
       },
       {
         type: "Skill 2",
         name: "Puppet-on-a-String",
         description:
-          "Relie une cible : un ennemi est immobilisé après un délai, un allié reçoit un soin continu.",
-        cooldown: [13, 12, 11, 10, 9, 8],
-        cost: [80, 85, 90, 95, 100, 105],
+          "Relie un ennemi par un fil qui le ralentit de plus en plus ; s'il est toujours relié au bout de trois secondes, il est immobilisé et subit de lourds dégâts, accrus par les marques de la compétence 1.",
       },
       {
         type: "Ultimate",
         name: "Heartguard",
         description:
-          "S'attache à un allié n'importe où sur la carte, lui accordant un bouclier et des statistiques accrues.",
-        cooldown: [60, 50, 40],
-        cost: [120, 140, 160],
+          "Donne un bouclier à un allié n'importe où sur la carte, puis s'attache à lui après une canalisation : elle lance alors ses compétences sans coût en mana.",
       },
     ],
     strengths: [
@@ -132,7 +120,7 @@ export const supports: HeroAnalysis[] = [
           "Immortality",
           "Radiant Armor",
         ],
-        emblem: "Emblème de soutien",
+        emblem: "Support Emblem",
         talent: "Focusing Mark",
         spell: "Flicker",
       },
@@ -143,37 +131,31 @@ export const supports: HeroAnalysis[] = [
     summary:
       "Soutien de mobilité : elle emmène un allié avec elle, pour engager ou pour extraire.",
     analysis:
-      "Mathilda est le soutien le plus polyvalent du jeu actuel. Sa compétence 2 embarque un allié dans son déplacement, ce qui permet aussi bien d'amener un combattant au contact que de sortir un tireur d'une mauvaise position. Son ultime, lui, verrouille une cible et sert d'initiation ciblée.\n\nElle a aussi des dégâts réels, ce qui la rend jouable en assassin secondaire quand la partie tourne mal. Sa difficulté tient à la lecture : chaque déplacement engage deux joueurs à la fois, et une erreur coûte deux morts au lieu d'une.",
+      "Mathilda est le soutien le plus polyvalent du jeu actuel. Sa compétence 2 embarque un allié dans son déplacement, ce qui permet aussi bien d'amener un combattant au contact que de sortir un tireur d'une mauvaise position. Son ultime, lui, verrouille une cible et sert d'initiation ciblée.\n\nElle inflige aussi des dégâts magiques conséquents, ce qui la rend jouable en assassin secondaire quand la partie tourne mal. Sa difficulté tient à la lecture : chaque déplacement engage deux joueurs à la fois, et une erreur coûte deux morts au lieu d'une.",
     skills: [
       {
         type: "Passive",
         name: "Ancestral Guidance",
         description:
-          "Ses compétences génèrent un bouclier et augmentent brièvement sa vitesse de déplacement.",
+          "Elle accumule de l'énergie en se déplaçant ; une fois chargée, sa prochaine attaque de base est renforcée et lui donne un regain de vitesse.",
       },
       {
         type: "Skill 1",
         name: "Soul Bloom",
         description:
-          "Envoie des esprits qui infligent des dégâts et marquent les ennemis touchés.",
-        cooldown: [8.5, 8, 7.5, 7, 6.5, 6],
-        cost: [80, 85, 90, 95, 100, 105],
+          "Attire des esprits à mesure qu'elle se déplace ; à la fin de la durée, ou relancée, elle les envoie frapper les ennemis proches, qu'ils révèlent un instant.",
       },
       {
         type: "Skill 2",
         name: "Guiding Wind",
         description:
-          "S'envole dans une direction en emmenant l'allié le plus proche avec elle.",
-        cooldown: [15, 14, 13, 12, 11, 10],
-        cost: [70, 75, 80, 85, 90, 95],
+          "Bondit dans une direction et s'entoure d'un champ qui lui donne un bouclier et de la vitesse. Le premier allié qui touche le champ est guidé jusqu'à elle, avec le même bonus de vitesse.",
       },
       {
         type: "Ultimate",
         name: "Circling Eagle",
         description:
-          "Se rue sur une cible marquée, l'immobilise et inflige des dégâts à la zone.",
-        cooldown: [36, 32, 28],
-        cost: [100, 120, 140],
+          "Marque un héros adverse et tourne autour de lui en le ralentissant, ses esprits frappant les ennemis proches. À la fin, elle fond sur la cible marquée en projetant en l'air les ennemis sur sa trajectoire.",
       },
     ],
     strengths: [
@@ -198,10 +180,10 @@ export const supports: HeroAnalysis[] = [
           "Enchanted Talisman",
           "Winter Crown",
           "Immortality",
-          "Athena's Shield",
+          "Valkyrie's Shield",
           "Divine Glaive",
         ],
-        emblem: "Emblème de soutien",
+        emblem: "Support Emblem",
         talent: "Focusing Mark",
         spell: "Flicker",
       },
@@ -259,7 +241,7 @@ export const supports: HeroAnalysis[] = [
         context:
           "Le build le plus joué : Flask of the Oasis protège les alliés soignés à bas PV et réduit ses recharges, Enchanted Talisman apporte recharge et mana, Queen's Wings la survie. Les joueurs hésitent entre Impure Rage et Focusing Mark, avec des taux de victoire mesurés très proches.",
         items: ["Flask of the Oasis", "Enchanted Talisman", "Queen's Wings"],
-        emblem: "Emblème de soutien",
+        emblem: "Support Emblem",
         talent: "Impure Rage",
         spell: "Revitalize",
       },
@@ -317,7 +299,7 @@ export const supports: HeroAnalysis[] = [
         context:
           "Le build de référence, très largement majoritaire : la lanterne, Flask of the Oasis pour le bouclier sur les alliés soignés à bas PV, Fleeting Time pour raccourcir la recharge de l'ultime à chaque élimination ou assistance.",
         items: ["Lantern of Hope", "Flask of the Oasis", "Fleeting Time"],
-        emblem: "Emblème de soutien",
+        emblem: "Support Emblem",
         talent: "Focusing Mark",
         spell: "Flicker",
       },
@@ -341,7 +323,7 @@ export const supports: HeroAnalysis[] = [
         type: "Skill 1",
         name: "Crimson Flower",
         description:
-          "Deux fleurs tournent autour d'elle, blessent les ennemis, les ralentissent de plus en plus et accélèrent à chaque touche. Chaque coup de fleur la soigne, beaucoup moins sur les sbires.",
+          "Trois fleurs tournent autour d'elle, blessent les ennemis et les ralentissent de plus en plus. Chaque coup de fleur la soigne, beaucoup moins sur les sbires.",
       },
       {
         type: "Skill 2",
@@ -375,7 +357,7 @@ export const supports: HeroAnalysis[] = [
         context:
           "Le build le plus joué, largement : Cursed Helmet brûle les ennemis autour d'elle et entretient ainsi le vol de défenses de son passif, Dominance Ice réduit leurs soins, Antique Cuirass affaiblit les dégâts physiques de ceux qui la touchent avec des compétences.",
         items: ["Cursed Helmet", "Dominance Ice", "Antique Cuirass"],
-        emblem: "Emblème de tank",
+        emblem: "Tank Emblem",
         talent: "Concussive Blast",
         spell: "Petrify",
       },

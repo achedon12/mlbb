@@ -153,29 +153,27 @@ describe("inspectPage", () => {
     expect(inspectPage({ html: "", status: 200, locale: "en", page: page("/heroes") })).toEqual(["empty response body"]);
   });
 
-  it("reports untranslated emblem names", () => {
+  it("reports translated emblem names: the game's English one is kept", () => {
     const emblem = page("/emblems/fighter");
-    const english = html({ main: `<h1>Fighter Emblem</h1>${words(60)}` });
-    expect(inspectPage({ html: english, status: 200, locale: "en", page: emblem })).toEqual([]);
-    expect(inspectPage({ html: html({ lang: "fr-FR", main: `<h1>Fighter Emblem</h1>${words(60)}` }), status: 200, locale: "fr", page: emblem })).toEqual([
-      'missing text "Emblème de combattant"',
-      'unexpected text "Fighter Emblem" (untranslated?)',
-    ]);
+    const english = (lang) => html({ lang, main: `<h1>Fighter Emblem</h1>${words(60)}` });
+    expect(inspectPage({ html: english("en"), status: 200, locale: "en", page: emblem })).toEqual([]);
+    expect(inspectPage({ html: english("fr-FR"), status: 200, locale: "fr", page: emblem })).toEqual([]);
     expect(
       inspectPage({ html: html({ lang: "fr-FR", main: `<h1>Emblème de combattant</h1>${words(60)}` }), status: 200, locale: "fr", page: emblem }),
-    ).toEqual([]);
+    ).toEqual(['missing text "Fighter Emblem"', 'unexpected text "Emblème de combattant" (untranslated?)']);
   });
 
-  it("reports a French rarity name on another language", () => {
+  it("reports a translated rarity name", () => {
     const skins = page("/heroes/khufra/skins");
     const french = `Origine Commun Exquis Exceptionnel Deluxe ${words(60)}`;
     expect(inspectPage({ html: html({ lang: "es-ES", main: french }), status: 200, locale: "es", page: skins })).toEqual([
-      'missing text "Exquisita"',
-      'missing text "Excepcional"',
+      'missing text "Exquisite"',
+      'missing text "Exceptional"',
       'unexpected text "Exquis" (untranslated?)',
       'unexpected text "Exceptionnel" (untranslated?)',
     ]);
-    expect(inspectPage({ html: html({ lang: "fr-FR", main: french }), status: 200, locale: "fr", page: skins })).toEqual([]);
+    const official = `Origine Common Exquisite Exceptional Deluxe ${words(60)}`;
+    expect(inspectPage({ html: html({ lang: "fr-FR", main: official }), status: 200, locale: "fr", page: skins })).toEqual([]);
   });
 });
 
