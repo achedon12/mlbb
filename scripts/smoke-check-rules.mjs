@@ -517,7 +517,7 @@ export function sitemapStructureProblems(xml, root) {
   if (problems.length) return problems;
   const opening = text.match(new RegExp(`<${root}(\\s[^>]*)?>`));
   if (!opening) return [`root element is not <${root}>`];
-  if (!new RegExp(`\\sxmlns="${SITEMAP_NAMESPACE.replace(/[./]/g, "\\$&")}"`).test(opening[1] ?? "")) {
+  if (!new RegExp(`\\sxmlns="${escapeRegExp(SITEMAP_NAMESPACE)}"`).test(opening[1] ?? "")) {
     return [`<${root}> lacks the ${SITEMAP_NAMESPACE} namespace`];
   }
   const entry = root === "urlset" ? "url" : "sitemap";
