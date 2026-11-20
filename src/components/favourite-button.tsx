@@ -5,7 +5,6 @@ import { useT } from "@/i18n/provider";
 import { Star } from "lucide-react";
 import { NotificationBell, useNotificationSync } from "@/components/favourite-notifications";
 import { subscribeToFavourites, toggleFavourite, serverFavourites, snapshotFavourites } from "@/lib/favourites";
-import { cn } from "@/lib/utils";
 
 /**
  * Favourite button.
@@ -30,12 +29,8 @@ export function FavouriteButton({ hero: heroes }: { hero: string }) {
         type="button"
         onClick={() => toggleFavourite(heroes)}
         aria-pressed={favourite}
-        className={cn(
-          "bevel-sm flex items-center gap-2 border px-4 py-2 text-sm font-medium transition-colors",
-          favourite
-            ? "border-gold-500 bg-gold-500/10 text-gold-400"
-            : "border-night-700 text-chalk-300 hover:border-gold-500/60 hover:text-gold-400",
-        )}
+        // Pressed, the star turns gold and the outline with it (`.btn-secondary[aria-pressed]`).
+        className="btn btn-secondary btn-sm"
       >
         <Star size={15} aria-hidden fill={favourite ? "currentColor" : "none"} />
         {favourite ? t("favourites.in") : t("favourites.add")}

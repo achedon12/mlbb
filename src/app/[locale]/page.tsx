@@ -11,14 +11,16 @@ import { Card, SectionTitle } from "@/components/ui";
 import { allHeroes, sync } from "@/lib/data";
 import { site } from "@/lib/site";
 import type { Role } from "@/lib/types";
-import { cn, formatShortDate } from "@/lib/utils";
+import { formatShortDate } from "@/lib/utils";
 import type { Locale } from "@/i18n/config";
 import { LOCALE_HTML, isLocale, LOCALE_INTL } from "@/i18n/config";
 import { notFound } from "next/navigation";
 import { createT } from "@/i18n/translations";
 
-/** Frame of a home block: one surface per tile, the blocks' own cards inside it. */
-const TILE = "bevel min-w-0 border border-night-700/60 bg-night-900/35 p-4 sm:p-6";
+/** The éclat between two blocks of the page: no frame around them, one blade between. */
+function Divider() {
+  return <div aria-hidden className="eclat-rule my-14 sm:my-20" />;
+}
 
 /** Home page structured data, in the page's language. */
 const dataHome = (locale: Locale) => ({
@@ -82,30 +84,29 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
       <HomeHero locale={locale} />
 
       {/*
-        The blocks as tiles: one under the other on a phone and a tablet. On a
-        wide screen, two stacks side by side whose heights match — the meta
-        and the patch (its three lists side by side) on two thirds of the
-        width, the tools and the roles on the last third — the last tile of
-        each stack growing to end level with the other; then the month's
-        events and the articles, each across the width. The stacks are
-        `contents` below `2xl`: the tiles keep one reading order everywhere.
+        The blocks one under the other, each the width of the page and each
+        led by one thing (the S+ portraits, the patch's buffs, the month's
+        skin), the éclat between them — no frame around each. Only the tools
+        and the roles share a row on a wide screen, at two weights.
       */}
-      <div className="page-wrap grid gap-4 py-6 sm:gap-5 sm:py-10 2xl:grid-cols-12">
-        <div className="contents 2xl:col-span-8 2xl:flex 2xl:flex-col 2xl:gap-5">
-          <HomeMeta locale={locale} className={TILE} />
-          <HomePatch locale={locale} className={cn(TILE, "2xl:flex-1")} />
-        </div>
-        <div className="contents 2xl:col-span-4 2xl:flex 2xl:flex-col 2xl:gap-5">
-          <HomeTools locale={locale} className={TILE} />
-          <section aria-labelledby="home-roles" className={cn(TILE, "2xl:flex-1")}>
+      <div className="page-wrap py-12 sm:py-16">
+        <HomeMeta locale={locale} />
+        <Divider />
+        <HomePatch locale={locale} />
+        <Divider />
+        <div className="grid gap-x-14 gap-y-14 xl:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
+          <HomeTools locale={locale} className="min-w-0" />
+          <section aria-labelledby="home-roles" className="min-w-0">
             <SectionTitle id="home-roles" lead={t("home.startLead")}>
               {t("home.startTitle")}
             </SectionTitle>
             <RoleAccess count={byRole} locale={locale} />
           </section>
         </div>
-        <HomeLive locale={locale} className={cn(TILE, "2xl:col-span-12")} />
-        <HomeCommunity locale={locale} className={cn(TILE, "2xl:col-span-12")} />
+        <Divider />
+        <HomeLive locale={locale} />
+        <Divider />
+        <HomeCommunity locale={locale} />
       </div>
 
       {/*
@@ -113,7 +114,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
         the page instead of lengthening it, its three cards folded under a
         summary line. The text stays in the document.
       */}
-      <section className="page-wrap pb-10 sm:pb-16">
+      <section className="page-wrap pb-12 sm:pb-16">
         <Foldable label={t("home.howItWorks")}>
           <p className="text-sm text-chalk-500">
             {t("home.syncLead", { date: formatShortDate(sync.date, LOCALE_INTL[locale]) })}
@@ -125,7 +126,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
               { title: t("home.cards.writtenTitle"), text: t("home.cards.writtenText") },
             ].map((c) => (
               <Card key={c.title}>
-                <h3 className="font-heading text-lg font-bold text-chalk-100">{c.title}</h3>
+                <h3 className="type-subtitle text-chalk-100">{c.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-chalk-500">{c.text}</p>
               </Card>
             ))}

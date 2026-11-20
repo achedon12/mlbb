@@ -20,8 +20,8 @@ export function NavPanel({ section, current }: { section: Section; current: stri
   return (
     <div className="xl:page-wrap xl:grid xl:grid-cols-[15rem_minmax(0,1fr)] xl:gap-10 xl:py-7">
       <div className="hidden xl:block">
-        <p className="font-heading text-2xl font-bold text-chalk-100">{t(`nav.groups.${section.key}`)}</p>
-        <div aria-hidden className="gold-rule mt-1.5 h-0.5 w-12" />
+        <p className="display-caps text-[2.75rem] text-chalk-100">{t(`nav.groups.${section.key}`)}</p>
+        <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
         <p className="mt-3 text-sm leading-relaxed text-chalk-400">{t(`nav.sectionLead.${section.key}`)}</p>
         <HubLink href={section.hub} label={hub} current={current} className="mt-5" />
       </div>
@@ -72,7 +72,7 @@ function HubLink({ href, label, current, className }: { href: string; label: str
     <Link
       href={href}
       {...currentProps(href, current)}
-      className={`bevel-sm inline-flex items-center gap-2 bg-gold-500 px-4 py-2 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400 ${className ?? ""}`}
+      className={`btn btn-primary btn-sm ${className ?? ""}`}
     >
       {label}
       <ArrowRight size={15} aria-hidden />
@@ -84,7 +84,7 @@ function NavColumn({ column, current }: { column: Column; current: string }) {
   const t = useT();
   return (
     <div className="min-w-0">
-      <p className="mb-1.5 px-2 text-xs font-semibold text-gold-400">{t(`nav.columns.${column.key}`)}</p>
+      <p className="mb-1.5 px-2 font-heading text-sm font-bold uppercase tracking-wide text-gold-400">{t(`nav.columns.${column.key}`)}</p>
       {column.entries.length > 0 && (
         <ul>
           {column.entries.map((e) => (
@@ -103,7 +103,7 @@ function NavColumn({ column, current }: { column: Column; current: string }) {
                 <Link
                   href={l.href}
                   {...currentProps(l.href, current)}
-                  className="bevel-sm block border border-night-700 bg-night-950/40 px-2.5 py-1.5 text-xs text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400 aria-[current=page]:border-gold-500/70 aria-[current=page]:text-gold-400"
+                  className="bevel-sm block bg-night-800 px-2.5 py-1.5 text-xs text-chalk-300 transition-colors hover:bg-night-700 hover:text-gold-300 aria-[current=page]:bg-gold-400 aria-[current=page]:text-night-950"
                 >
                   {t(l.label)}
                 </Link>
@@ -123,7 +123,7 @@ function NavEntry({ entry, current }: { entry: Entry; current: string }) {
     <Link
       href={href}
       {...currentProps(href, current)}
-      className="group flex items-center gap-3 rounded-md px-2 py-2 transition-colors hover:bg-night-800/70 aria-[current=page]:bg-night-800/80"
+      className="bevel-sm group flex items-center gap-3 px-2 py-2 transition-colors hover:bg-night-800/70 aria-[current=page]:bg-night-800"
     >
       <span className="bevel-sm grid size-8 shrink-0 place-items-center bg-night-800 text-chalk-300 transition-colors group-hover:text-gold-400 group-aria-[current=page]:bg-gold-500 group-aria-[current=page]:text-night-950">
         <Icon size={16} aria-hidden />

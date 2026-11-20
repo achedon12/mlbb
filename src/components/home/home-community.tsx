@@ -36,15 +36,15 @@ export function HomeCommunity({ locale, className }: { locale: Locale; className
             <li key={a.slug}>
               <Link
                 href={`/${a.category === "Patch" ? "patch-notes" : "news"}/${a.slug}`}
-                className="bevel group block border border-night-700/70 bg-night-900/60 p-3 transition-colors hover:border-gold-500/60 sm:p-4"
+                className="card-link group block p-4 sm:p-5"
               >
                 <span className="flex flex-wrap items-center gap-3 text-xs">
-                  <span className="font-semibold text-gold-400">{t(`articleCategory.${a.category}`)}</span>
+                  <span className="font-heading text-sm font-bold uppercase text-gold-400">{t(`articleCategory.${a.category}`)}</span>
                   <time dateTime={a.date} className="text-chalk-500">
                     {formatShortDate(a.date, LOCALE_INTL[locale])}
                   </time>
                 </span>
-                <span className="mt-1 line-clamp-2 block font-heading font-bold leading-snug text-chalk-100 transition-colors group-hover:text-gold-400 sm:text-lg">
+                <span className="mt-1.5 line-clamp-2 block font-heading text-lg font-bold leading-tight text-chalk-100 transition-colors group-hover:text-gold-400 sm:text-xl">
                   {a.title}
                 </span>
                 <span className="mt-1 line-clamp-2 block text-sm leading-snug text-chalk-500">{a.summary}</span>
@@ -67,13 +67,13 @@ export function HomeCommunity({ locale, className }: { locale: Locale; className
             href={invite}
             placement="Inline"
             context="default"
-            className="bevel group mb-3 flex items-center gap-4 border border-blurple-500/50 bg-blurple-500/15 p-4 transition-colors hover:border-blurple-500 hover:bg-blurple-500/25"
+            className="card-link group mb-3 flex items-center gap-4 bg-night-800 p-4 shadow-[inset_0_3px_0_var(--color-azure-500)]"
           >
-            <span className="bevel-sm grid size-12 shrink-0 place-items-center bg-blurple-500 text-white">
+            <span className="bevel-sm grid size-12 shrink-0 place-items-center bg-azure-500 text-night-950">
               <DiscordMark size={26} />
             </span>
             <span className="min-w-0">
-              <span className="block font-heading text-lg font-bold text-chalk-100">{t("discordPopup.title")}</span>
+              <span className="block font-heading text-xl font-bold uppercase leading-tight text-chalk-100">{t("discordPopup.title")}</span>
               <span className="block text-sm text-chalk-300">{t("discordCta.default.text")}</span>
             </span>
           </DiscordJoinLink>
@@ -83,11 +83,11 @@ export function HomeCommunity({ locale, className }: { locale: Locale; className
             <li key={href}>
               <Link
                 href={href}
-                className="bevel-sm group flex items-start gap-3 border border-night-700/70 bg-night-900/60 p-3 transition-colors hover:border-gold-500/60"
+                className="card-link group flex items-start gap-3 p-3"
               >
                 <Icon size={18} aria-hidden className="mt-0.5 shrink-0 text-gold-400" />
                 <span className="min-w-0">
-                  <span className="block font-heading font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
+                  <span className="block font-heading text-lg font-bold uppercase leading-tight text-chalk-100 transition-colors group-hover:text-gold-400">
                     {title}
                   </span>
                   <span className="block text-sm text-chalk-500">{text}</span>

@@ -10,17 +10,18 @@ import { FOOTER, type Chip } from "@/lib/sections";
 import { site } from "@/lib/site";
 import { DiscordMark } from "./bot/discord-mark";
 import { DiscordJoinLink } from "./discord-join-link";
+import { BrandMark } from "./brand-mark";
 import { ConsentSettingsButton } from "./consent-banner";
 
 /** Footer link column: one per header section, plus the site's own pages. */
 function Column({ title, links, t }: { title: string; links: readonly Chip[]; t: T }) {
   return (
     <nav aria-label={title}>
-      <p className="font-heading text-sm font-semibold text-gold-400">{title}</p>
+      <p className="font-heading text-lg font-bold uppercase text-chalk-100">{title}</p>
       <ul className="mt-2.5 space-y-1.5">
         {links.map((link) => (
           <li key={link.href}>
-            <Link href={link.href} className="text-sm text-chalk-500 transition-colors hover:text-chalk-100">
+            <Link href={link.href} className="text-sm text-chalk-400 transition-colors hover:text-gold-300">
               {t(link.label)}
             </Link>
           </li>
@@ -54,17 +55,13 @@ export function Footer({ locale, year }: { locale: Locale; year: number }) {
   const discord = communityInvite();
 
   return (
-    <footer className="mt-16 border-t border-night-700/70 bg-night-900/40">
-      <div className="page-wrap grid gap-x-12 gap-y-8 py-8 sm:py-12 xl:grid-cols-[minmax(16rem,22rem)_minmax(0,1fr)]">
+    <footer className="mt-16 bg-night-900">
+      {/* The éclat closes the page, as it separates its sections. */}
+      <div aria-hidden className="eclat-rule" />
+      <div className="page-wrap grid gap-x-12 gap-y-8 py-10 sm:py-14 xl:grid-cols-[minmax(16rem,22rem)_minmax(0,1fr)]">
         <div>
-          <Link href={`/${locale}`} className="group flex items-center gap-2.5">
-            <span
-              aria-hidden
-              className="bevel-sm grid size-8 place-items-center bg-linear-to-br from-gold-400 to-gold-600 font-heading text-sm font-bold text-night-950"
-            >
-              ML
-            </span>
-            <span className="font-heading text-lg font-bold tracking-wide text-chalk-100">{site.name}</span>
+          <Link href={`/${locale}`} aria-label={site.name} className="group flex w-fit items-center">
+            <BrandMark />
           </Link>
           <p className="mt-3 line-clamp-3 max-w-xs text-sm leading-relaxed text-chalk-500 sm:line-clamp-none">
             {t("footer.intro")}
@@ -107,7 +104,7 @@ export function Footer({ locale, year }: { locale: Locale; year: number }) {
         </div>
       </div>
 
-      <div className="border-t border-night-800/80">
+      <div className="border-t border-night-800">
         <p className="page-wrap py-3 text-xs text-chalk-600">{t("footer.sources")}</p>
       </div>
 

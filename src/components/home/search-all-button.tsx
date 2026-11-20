@@ -14,11 +14,11 @@ export function SearchAllButton({ label }: { label: string }) {
       type="button"
       onClick={() => window.dispatchEvent(new Event(OPEN_SEARCH_EVENT))}
       aria-keyshortcuts="Control+K Meta+K"
-      className="inline-flex items-start gap-2 text-left text-sm text-chalk-400 underline decoration-night-600 underline-offset-4 transition-colors hover:text-gold-400 hover:decoration-gold-500"
+      className="inline-flex items-start gap-2 text-left text-sm text-chalk-400 underline decoration-night-600 underline-offset-4 transition-colors hover:text-gold-300 hover:decoration-gold-400"
     >
       <Command size={14} aria-hidden className="mt-0.5 shrink-0" />
       {label}
-      <kbd className="hidden rounded border border-night-600 px-1 text-[0.7rem] text-chalk-500 no-underline sm:inline">Ctrl K</kbd>
+      <kbd className="hidden bg-night-800 px-1 text-[0.7rem] text-chalk-500 no-underline sm:inline">Ctrl K</kbd>
     </button>
   );
 }

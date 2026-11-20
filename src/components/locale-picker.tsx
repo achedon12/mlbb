@@ -58,7 +58,7 @@ export function LocalePicker({ locale }: { locale: Locale }) {
         aria-expanded={open}
         aria-label={t("language.change")}
         onClick={() => setOpen((o) => !o)}
-        className="flex h-9 items-center gap-1.5 rounded-md px-2.5 text-sm font-medium text-chalk-300 transition-colors hover:text-chalk-100"
+        className="flex h-9 items-center gap-1.5 px-2.5 font-heading text-[0.95rem] font-semibold text-chalk-300 transition-colors hover:text-chalk-100"
       >
         <Globe size={16} aria-hidden />
         <span className="hidden sm:inline uppercase">{locale}</span>
@@ -66,7 +66,7 @@ export function LocalePicker({ locale }: { locale: Locale }) {
       </button>
 
       <div hidden={!open} className="absolute right-0 top-full z-50 pt-2">
-        <ul className="bevel w-max min-w-40 border border-night-700/80 bg-night-900/98 p-1.5 shadow-2xl shadow-night-950/60 backdrop-blur">
+        <ul className="bevel w-max min-w-40 bg-night-900 p-1.5 shadow-2xl shadow-night-950/60">
           {LOCALES.map((l) => {
             const active = l === locale;
             return (

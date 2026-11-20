@@ -179,11 +179,11 @@ export function GlobalSearch() {
         onClick={() => setOpen(true)}
         aria-label={t("search.open")}
         aria-keyshortcuts="Control+K Meta+K"
-        className="bevel-sm flex h-9 min-w-9 items-center justify-center gap-2 border border-night-700 px-2 text-sm sm:px-2.5 text-chalk-400 transition-colors hover:border-gold-500/60 hover:text-gold-400"
+        className="bevel-sm flex h-9 min-w-9 items-center justify-center gap-2 bg-night-800 px-2 text-sm text-chalk-300 transition-colors hover:bg-night-700 hover:text-gold-300 active:translate-y-px sm:px-2.5"
       >
         <Search size={16} aria-hidden />
         <span className="hidden 2xl:inline">{t("search.open")}</span>
-        <kbd className="hidden rounded border border-night-600 px-1 text-[0.7rem] text-chalk-500 2xl:inline">Ctrl K</kbd>
+        <kbd className="hidden bg-night-950/60 px-1 text-[0.7rem] text-chalk-500 2xl:inline">Ctrl K</kbd>
       </button>
 
       {open && (

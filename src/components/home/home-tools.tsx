@@ -35,7 +35,7 @@ export function HomeTools({ locale, className }: { locale: Locale; className?: s
           {t("home.toolsTitle")}
         </SectionTitle>
 
-        <div className="grid gap-3 lg:grid-cols-[2fr_1fr] lg:gap-4 2xl:grid-cols-1">
+        <div className="grid gap-3 lg:grid-cols-[2fr_1fr] lg:gap-4">
           <ul className="grid grid-cols-2 gap-2 sm:gap-3">
             {main.map((e) => (
               <li key={e.href}>
@@ -45,8 +45,8 @@ export function HomeTools({ locale, className }: { locale: Locale; className?: s
           </ul>
 
           {daily.length > 0 && (
-            <div className="bevel border border-gold-500/40 bg-linear-to-b from-gold-500/10 to-transparent p-4">
-              <h3 className="flex items-center gap-2 font-heading text-lg font-bold text-chalk-100">
+            <div className="bevel bg-night-800 p-4 shadow-[inset_0_3px_0_var(--color-gold-400)]">
+              <h3 className="flex items-center gap-2 type-subtitle text-chalk-100">
                 <CalendarCheck size={18} aria-hidden className="text-gold-400" />
                 {t("home.daily.title")}
               </h3>
@@ -56,16 +56,16 @@ export function HomeTools({ locale, className }: { locale: Locale; className?: s
                   <li key={href}>
                     <Link
                       href={href}
-                      className="bevel-sm group flex items-center gap-3 border border-night-700/70 bg-night-950/60 p-3 transition-colors hover:border-gold-500/60"
+                      className="bevel-sm group flex items-center gap-3 bg-night-950/70 p-3 transition-colors hover:bg-night-950"
                     >
                       <Icon size={20} aria-hidden className="shrink-0 text-gold-400" />
                       <span className="min-w-0 flex-1">
-                        <span className="block font-heading font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
+                        <span className="block font-heading text-lg font-bold uppercase leading-tight text-chalk-100 transition-colors group-hover:text-gold-400">
                           {t(`nav.${key}.label`)}
                         </span>
                         <span className="block text-xs text-chalk-500">{t(`nav.${key}.desc`)}</span>
                       </span>
-                      <span className="shrink-0 text-sm font-semibold text-gold-400">{t("home.daily.play")}</span>
+                      <span className="shrink-0 font-heading font-bold uppercase text-gold-400">{t("home.daily.play")}</span>
                     </Link>
                   </li>
                 ))}
@@ -75,7 +75,7 @@ export function HomeTools({ locale, className }: { locale: Locale; className?: s
         </div>
 
         {rest.length > 0 && (
-          <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-1 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-2">
+          <ul className="mt-5 grid grid-cols-2 gap-x-4 gap-y-1 sm:grid-cols-3 lg:grid-cols-4">
             {rest.map(({ href, key, icon: Icon }) => (
               <li key={href}>
                 <Link href={href} className="group flex items-center gap-2 py-1.5 text-sm text-chalk-300">
@@ -97,16 +97,16 @@ function ToolCard({ entry: { href, icon: Icon }, label, desc }: { entry: Entry; 
   return (
     <Link
       href={href}
-      className="bevel group flex h-full flex-col items-start gap-2 border border-night-700/70 bg-night-900/60 p-3 sm:flex-row sm:gap-3 2xl:flex-col transition-[border-color,translate] hover:-translate-y-0.5 hover:border-gold-500/60 sm:p-4"
+      className="card-link eclat-under group flex h-full flex-col items-start gap-2 p-3 sm:flex-row sm:gap-3 sm:p-4"
     >
-      <span className="bevel-sm grid size-10 shrink-0 place-items-center bg-gold-500/15 text-gold-400">
+      <span className="bevel-sm grid size-10 shrink-0 place-items-center bg-gold-400 text-night-950">
         <Icon size={20} aria-hidden />
       </span>
       <span className="min-w-0 w-full flex-1">
-        <span className="block font-heading text-base font-bold text-chalk-100 transition-colors group-hover:text-gold-400 sm:text-lg">
+        <span className="block font-heading text-lg font-bold uppercase leading-tight text-chalk-100 transition-colors group-hover:text-gold-400 sm:text-xl">
           {label}
         </span>
-        <span className="mt-0.5 line-clamp-2 block text-xs leading-snug text-chalk-500 sm:line-clamp-none sm:text-sm">{desc}</span>
+        <span className="mt-1 line-clamp-2 block text-xs leading-snug text-chalk-400 sm:line-clamp-none sm:text-sm">{desc}</span>
       </span>
       <ArrowRight size={16} aria-hidden className="mt-1 hidden shrink-0 text-chalk-600 transition-colors group-hover:text-gold-400 sm:block" />
     </Link>

@@ -64,7 +64,7 @@ export function Breadcrumb({ crumbs, className }: { crumbs: Crumb[]; className?:
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(data) }}
       />
       <nav aria-label={t("common.breadcrumb")} className={className}>
-        <ol className="bevel-sm inline-flex max-w-full flex-wrap items-center gap-x-1.5 gap-y-1 border border-night-700/60 bg-night-950/70 px-3 py-1.5 text-sm backdrop-blur-sm">
+        <ol className="bevel-sm inline-flex max-w-full flex-wrap items-center gap-x-1.5 gap-y-1 bg-night-950/80 px-3 py-1.5 text-sm">
           {trail.map((m, i) => {
             const last = i === trail.length - 1;
             const home = i === 0;
