@@ -145,7 +145,7 @@ export function SiteNav({
             return (
               <li
                 key={item.key}
-                className="border-b border-night-800 xl:border-0"
+                className="group/nav border-b border-night-800 xl:border-0"
                 onMouseEnter={() => hover(item.key)}
                 onMouseLeave={() => hover(null)}
               >
@@ -158,7 +158,9 @@ export function SiteNav({
                   aria-current={active ? "true" : undefined}
                   onClick={() => setOpen(isOpen ? null : item.key)}
                   className={cn(
-                    "relative flex w-full items-center gap-2 py-3.5 text-left font-heading text-lg font-semibold transition-colors xl:w-auto xl:gap-1.5 xl:rounded-md xl:px-2.5 xl:py-2 2xl:px-3 xl:font-body xl:text-sm xl:font-medium",
+                    // The sheet lists the sections in the display face, like a game menu;
+                    // the bar, in the upright condensed face, the blade under the current one.
+                    "relative flex w-full items-center gap-2.5 py-4 text-left font-display text-[1.7rem] font-extrabold uppercase italic leading-none transition-colors xl:h-16 xl:w-auto xl:gap-1.5 xl:px-2.5 xl:py-0 xl:font-heading xl:text-[0.95rem] xl:font-bold xl:not-italic xl:tracking-wide 2xl:px-3",
                     isOpen || active ? "text-chalk-100" : "text-chalk-300 hover:text-chalk-100",
                   )}
                 >
@@ -171,18 +173,20 @@ export function SiteNav({
                     aria-hidden
                     className={cn("shrink-0 text-chalk-500 transition-transform duration-200", isOpen && "rotate-180")}
                   />
+                  {/* The éclat: under the current section, and sliding in under the hovered one. */}
                   <span
                     aria-hidden
                     className={cn(
-                      "absolute inset-x-3 -bottom-px hidden h-0.5 bg-gold-500 xl:block",
-                      active ? "opacity-100" : "opacity-0",
+                      "eclat absolute inset-x-2 bottom-0 hidden h-[3px] origin-left transition-transform duration-200 xl:block",
+                      active || isOpen ? "scale-x-100" : "scale-x-0 group-hover/nav:scale-x-100",
+                      !active && "opacity-70",
                     )}
                   />
                 </button>
                 <div
                   id={`nav-panel-${item.key}`}
                   hidden={!isOpen}
-                  className="pb-4 xl:absolute xl:inset-x-0 xl:top-full xl:z-50 xl:border-b xl:border-night-700/80 xl:bg-night-900 xl:pb-0 xl:shadow-2xl xl:shadow-night-950/70"
+                  className="pb-4 xl:absolute xl:inset-x-0 xl:top-full xl:z-50 xl:border-y xl:border-night-800 xl:bg-night-900 xl:pb-0 xl:shadow-2xl xl:shadow-night-950/70"
                 >
                   {isOpen ? <NavPanel section={item} current={bare} /> : <NavLinks section={item} />}
                 </div>
