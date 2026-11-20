@@ -913,7 +913,7 @@ export function RetributionTrainer({ address }: { address: string }) {
             <dl className="flex gap-5 text-right text-sm">
               <div>
                 <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("tools.retribution.score")}</dt>
-                <dd className="font-heading text-2xl font-bold tabular-nums text-gold-400">
+                <dd data-testid="retribution-score" className="font-heading text-2xl font-bold tabular-nums text-gold-400">
                   {count.format(results.reduce((s, r) => s + r.points, 0))}
                 </dd>
               </div>
