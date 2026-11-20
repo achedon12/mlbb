@@ -10,10 +10,12 @@ import {
   type SkinCatalog,
 } from "@/lib/skin-catalog";
 import { formatRelease } from "@/lib/skins";
+import { RarityBlade, RarityGem } from "@/components/skins/skin-tile";
 
 /**
- * Skin thumbnail: shop portrait framed in its rarity colour, its name (linking
- * to the hero's gallery), its hero and a few pre-formatted lines. No state
+ * Skin thumbnail: the shop portrait with its rarity gem and blade, and on
+ * the art its name (the whole frame links to the hero's gallery), its hero
+ * and a few pre-formatted facts. No state
  * and no translation: the server-rendered calendar and its client-side
  * explorer share it.
  */
@@ -53,28 +55,42 @@ export function propsCardSkin(
 
 export function SkinCard({ name, href, hero: heroes, heroHref, image, color, rarity, details }: PropsCardSkin) {
   return (
-    <article
-      className="bevel-sm flex h-full flex-col overflow-hidden border-2 bg-night-900/60"
-      style={{ borderColor: color }}
-    >
-      <Link href={href} className="group block">
-        <span className="relative block aspect-[240/390] bg-night-800">
-          {image && <Image src={image} alt="" width={120} height={195} className="size-full object-cover" />}
-        </span>
-        <span className="block px-2 pt-2 text-xs font-semibold leading-snug text-chalk-100 transition-colors group-hover:text-gold-400">
-          {name}
-        </span>
-      </Link>
-      <div className="flex flex-1 flex-col gap-0.5 px-2 pb-2 pt-0.5 text-xs leading-snug">
-        <Link href={heroHref} className="text-chalk-300 transition-colors hover:text-gold-400">
-          {heroes}
-        </Link>
-        <span style={{ color }}>{rarity}</span>
-        {details.map((d) => (
-          <span key={d} className="text-chalk-500">
-            {d}
-          </span>
-        ))}
+    <article className="group relative h-full transition-[translate] duration-200 hover:-translate-y-0.5">
+      <div className="bevel-sm relative aspect-[240/390] overflow-hidden bg-night-800">
+        <Link href={href} className="absolute inset-0 z-10" aria-label={name} />
+        {image && (
+          <Image
+            src={image}
+            alt=""
+            width={120}
+            height={195}
+            className="size-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.05]"
+          />
+        )}
+        <span aria-hidden className="absolute inset-x-0 bottom-0 h-3/5 bg-linear-to-t from-night-950 via-night-950/80 to-transparent" />
+        <RarityGem color={color} className="absolute left-1.5 top-1.5" />
+        {/* Everything on the art, nothing under it: the name, the hero, the facts. */}
+        <div className="absolute inset-x-0 bottom-0 px-1.5 pb-2 sm:px-2">
+          <p aria-hidden className="display-caps line-clamp-2 text-[0.85rem] font-extrabold leading-[0.95] text-chalk-100 transition-colors group-hover:text-gold-300 sm:text-[0.95rem]">
+            {name}
+          </p>
+          <Link
+            href={heroHref}
+            className="relative z-20 mt-0.5 block truncate text-[0.7rem] font-semibold text-chalk-200 transition-colors hover:text-gold-400"
+          >
+            {heroes}
+          </Link>
+          <p className="truncate text-[0.65rem] leading-snug">
+            <span style={{ color }}>{rarity}</span>
+            {details.map((d) => (
+              <span key={d} className="text-chalk-400">
+                {" · "}
+                {d}
+              </span>
+            ))}
+          </p>
+        </div>
+        <RarityBlade color={color} />
       </div>
     </article>
   );

@@ -4,6 +4,7 @@ import Link from "@/components/link";
 import { LightImage } from "@/components/light-image";
 import { usualIcon } from "@/lib/tier-list-filters";
 import { cn } from "@/lib/utils";
+import "@/components/meta/meta.css";
 
 /**
  * Rows of one tier list tier.
@@ -20,6 +21,8 @@ export interface RowTier {
   name: string;
   /** Icon somewhere other than its usual slot; null when there is none. */
   icon?: string | null;
+  /** Tall portrait somewhere other than its usual slot; null when there is none. */
+  portrait?: string | null;
   /** The hero's lanes, already translated and joined. */
   lanes: string;
   win: string;
@@ -41,7 +44,7 @@ export interface LabelsTier {
 
 export function TierLines({ rows, labels }: { rows: RowTier[]; labels: LabelsTier }) {
   return (
-    <ul className="tier-rows mt-4 space-y-1.5">
+    <ul className="tier-rows meta-lines mt-4 space-y-1.5">
       {rows.map((l) => {
         const icon = l.icon === undefined ? usualIcon(l.slug) : l.icon;
         return (
@@ -92,7 +95,7 @@ function Rate({ label, value, trend }: { label: string; value: string; trend?: R
       <dd>
         {value}
         {trend && (
-          <span className={cn("tier-rate-trend", trend.rise ? "text-emerald-400" : "text-blood-500")}>
+          <span className={cn("tier-rate-trend", trend.rise ? "text-azure-400" : "text-blood-400")}>
             <span aria-hidden>
               {trend.rise ? "↑" : "↓"}
               {trend.text}

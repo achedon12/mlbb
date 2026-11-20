@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { RetributionTrainer } from "@/components/retribution-trainer";
-import { PageHeader } from "@/components/ui";
+import { ToolHeader } from "@/components/tool-header";
 import { Foldable } from "@/components/foldable";
 import type { Locale } from "@/i18n/config";
 import { dataTool, metaPage } from "@/i18n/seo";
@@ -64,7 +64,11 @@ export default async function RetributionPage({ params }: Params) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
-      <PageHeader title={t("pages.retribution.title")} lead={t("pages.retribution.lead")} />
+      <ToolHeader
+        path="/tools/retribution"
+        title={t("pages.retribution.title")}
+        lead={t("pages.retribution.lead")}
+      />
       <ToolLayout
         className="py-10"
         aside={

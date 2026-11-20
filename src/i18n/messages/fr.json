@@ -600,7 +600,11 @@
       "leadRole": "Les {n} {plural} du jeu, rôle principal ou secondaire, classés selon la même règle que la tier list générale : taux de victoire et de ban, tous rangs confondus.",
       "filterNote": "Classement tous rangs confondus. Les listes par rang, elles, réunissent toutes les lanes et tous les rôles.",
       "seeRole": "Tous les {plural} et leurs lanes",
-      "openTier": "Afficher les {n} héros du palier {p}"
+      "openTier": "Afficher les {n} héros du palier {p}",
+      "poster": {
+        "kicker": "N°1 de ce classement",
+        "label": "{name}, n°1 de ce classement : palier {tier}, {win} de victoires, {ban} de bans"
+      }
     },
     "patchNotes": {
       "title": "Patch notes",
@@ -1447,6 +1451,10 @@
           "banRate": "% de bans",
           "pickRate": "% de picks"
         }
+      },
+      "poster": {
+        "kicker": "Plus forte hausse de la semaine",
+        "caption": "points de victoire en {days} jours"
       }
     },
     "statistics": {
@@ -1925,7 +1933,14 @@
       "win": "{rate} % de victoires",
       "duelRight": "bonne réponse",
       "duelWrong": "mauvaise réponse",
-      "duelSource": "Taux de victoire tous rangs, relevés le {date}."
+      "duelSource": "Taux de victoire tous rangs, relevés le {date}.",
+      "dex": {
+        "start": "À vous ! Chaque erreur débloque un indice.",
+        "miss": "Oups ! Un nouvel indice vous attend.",
+        "good": "Bien vu ! Au suivant.",
+        "won": "Bravo, bonne réponse !",
+        "over": "Raté pour cette fois. La prochaine sera la bonne !"
+      }
     },
     "tierMaker": {
       "title": "Créateur de tier list MLBB",
@@ -2604,7 +2619,14 @@
       "reveal": "Révéler la réponse",
       "newHero": "Nouveau héros",
       "skip": "Passer",
-      "practiceQuestion": "Quel est ce héros ?"
+      "practiceQuestion": "Quel est ce héros ?",
+      "dex": {
+        "start": "À vous ! Je garde le secret.",
+        "miss": "Raté… les couleurs montrent la voie.",
+        "close": "Ça chauffe ! Certaines cases concordent.",
+        "won": "Bien joué, c'est lui !",
+        "over": "Dommage ! Une autre manche ?"
+      }
     },
     "advanceServer": {
       "title": "Patch notes du serveur Advance",
@@ -3599,7 +3621,10 @@
       "notesTitle": "Notes de l'auteur",
       "backToHero": "Tous les builds pour {hero}",
       "statsTitle": "Statistiques calculées",
-      "statsMissing": "Statistiques indisponibles pour ce héros."
+      "statsMissing": "Statistiques indisponibles pour ce héros.",
+      "poster": {
+        "kicker": "Le héros le plus buildé"
+      }
     },
     "damageCalculator": {
       "title": "Calculateur de dégâts",
@@ -4788,7 +4813,10 @@
       "lead": "Tous les outils du site, rangés par usage : préparer une draft, tester un build, estimer un compte, s'entraîner ou jouer au jeu du jour.",
       "metaTitle": "Outils MLBB : draft, builds, dégâts et compte",
       "metaDescription": "Simulateur de draft, analyse d'équipe, simulateur de build, calculateur de dégâts, valeur de compte, chrono des objectifs et jeux du jour pour Mobile Legends: Bang Bang.",
-      "nTools": "{n} outils"
+      "nTools": "{n} outils",
+      "open": "Ouvrir",
+      "play": "Jouer",
+      "hello": "Choisissez un outil et entrez dans l'arène : tout marche dans le navigateur, gratuitement, sans compte."
     },
     "discordCard": {
       "title": "Carte de profil Discord",

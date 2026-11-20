@@ -25,24 +25,21 @@ export function FreeRotationTeaser({ locale, className }: { locale: Locale; clas
   return (
     <Link
       href={PATH_FREE_ROTATION}
-      className={cn(
-        "bevel-sm group flex items-center gap-3 border border-night-700/70 bg-night-900/60 p-2.5 transition-colors hover:border-gold-500/60",
-        className,
-      )}
+      className={cn("card-link eclat-under group flex items-center gap-3 p-2.5 pr-4", className)}
     >
-      <Gift size={18} aria-hidden className="shrink-0 text-gold-400" />
+      <Gift size={18} aria-hidden className="ml-1 shrink-0 text-gold-400" />
       <span className="min-w-0 flex-1">
-        <span className="block truncate text-sm font-semibold text-chalk-100 transition-colors group-hover:text-gold-400">
+        <span className="block truncate font-heading text-base font-bold uppercase text-chalk-100 transition-colors group-hover:text-gold-300">
           {t("pages.freeRotation.teaser", { n: heroes.length })}
         </span>
-        <span className="mt-1 flex items-center gap-1" aria-hidden>
+        <span className="mt-1.5 flex items-center gap-1" aria-hidden>
           {heroes.slice(0, SHOWN).map((h) => (
-            <HeroPortrait key={h.slug} source={h.images.icon ?? h.images.portrait} name={h.name} size="micro" decorative />
+            <HeroPortrait key={h.slug} source={h.images.icon ?? h.images.portrait} name={h.name} size="small" decorative />
           ))}
-          {rest > 0 && <span className="pl-1 text-xs text-chalk-500">+{rest}</span>}
+          {rest > 0 && <span className="pl-1 font-heading text-sm font-bold text-gold-400">+{rest}</span>}
         </span>
       </span>
-      <ArrowRight size={16} aria-hidden className="shrink-0 text-gold-400" />
+      <ArrowRight size={16} aria-hidden className="shrink-0 text-gold-400 transition-transform group-hover:translate-x-0.5" />
     </Link>
   );
 }

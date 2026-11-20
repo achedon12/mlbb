@@ -5,7 +5,9 @@ import { WikiCredit } from "@/components/wiki-credit";
 import { SkinGrid } from "@/components/skin-grid";
 import { FreshnessLine } from "@/components/freshness";
 import Link from "@/components/link";
-import { PageHeader, SectionTitle } from "@/components/ui";
+import { SectionTitle } from "@/components/ui";
+import { skinArt } from "@/components/hero-art";
+import { ENTRANCE, PosterHeader } from "@/components/poster-header";
 import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
@@ -98,6 +100,13 @@ export default async function SkinsYearPage({ params }: Params) {
   const i = years.indexOf(a.year);
   const [next, previous] = [years[i - 1], years[i + 1]];
   const nameMonth = (m: number) => uppercase(monthYear(locale, `${a.year}-${String(m).padStart(2, "0")}-01`), localeHtml);
+  // The poster: the year's rarest skins that have an artwork, rarest first.
+  const poster = a.month
+    .flatMap((m) => m.skins)
+    .filter((s) => skinArt(s.hero, s.name))
+    .sort((x, y) => y.rarity - x.rarity)
+    .slice(0, 5)
+    .map((s) => skinArt(s.hero, s.name));
   const anchor = (m: number | null) => (m ? `m-${String(m).padStart(2, "0")}` : "m-unknown");
 
   const facts = [
@@ -150,8 +159,10 @@ export default async function SkinsYearPage({ params }: Params) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
       {/* The undated group's former anchor, still found in shared links. */}
       <OpenAnchor aliases={{ "m-inconnu": "m-unknown" }} />
-      <PageHeader
+      <PosterHeader
         title={t("pages.skinsCalendar.year.title", { year: a.year })}
+        art={poster}
+        tall
         lead={t("pages.skinsCalendar.year.lead", { year: a.year, n: count.format(a.total) })}
         crumbs={[
           { name: t("pages.skinsCalendar.crumbSkins"), href: "/skins" },
@@ -160,10 +171,10 @@ export default async function SkinsYearPage({ params }: Params) {
         ]}
       >
         <FreshnessLine locale={locale} className="mt-4" />
-      </PageHeader>
+      </PosterHeader>
 
       <div className="page-wrap space-y-12 py-12">
-        <section>
+        <section className={ENTRANCE}>
           <ul className="max-w-3xl list-disc space-y-2 pl-5 leading-relaxed text-chalk-300 marker:text-gold-400">
             {facts.map((x) => (
               <li key={x}>{x}</li>
@@ -175,7 +186,7 @@ export default async function SkinsYearPage({ params }: Params) {
                 <li key={anchor(m.month)}>
                   <a
                     href={`#${anchor(m.month)}`}
-                    className="bevel-sm inline-block border border-night-700 px-2.5 py-1 text-xs text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400"
+                    className="bevel-sm inline-block bg-night-800 px-2.5 py-1 text-xs text-chalk-300 transition-colors hover:bg-night-700 hover:text-gold-300"
                   >
                     {m.month ? nameMonth(m.month) : t("pages.skinsCalendar.unknownMonth")}{" "}
                     <span className="text-chalk-500">· {m.skins.length}</span>
@@ -190,7 +201,7 @@ export default async function SkinsYearPage({ params }: Params) {
           <section key={anchor(m.month)} id={anchor(m.month)} className="scroll-mt-24">
             <SectionTitle>
               {m.month ? nameMonth(m.month) : t("pages.skinsCalendar.unknownMonth")}{" "}
-              <span className="text-base font-normal text-chalk-500">
+              <span className="font-body text-base font-medium normal-case not-italic tracking-normal text-chalk-500">
                 · {t(m.skins.length === 1 ? "pages.skinsCalendar.nSkins1" : "pages.skinsCalendar.nSkins", {
                   n: count.format(m.skins.length),
                 })}

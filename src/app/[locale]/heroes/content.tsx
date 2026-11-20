@@ -3,12 +3,15 @@ import { ExtendMessages } from "@/i18n/provider";
 import { serializeJsonLd } from "@/lib/html";
 import { FreeRotationTeaser } from "@/components/free-rotation-teaser";
 import { HeroList } from "@/components/hero-list";
-import { PageHeader } from "@/components/ui";
+import { heroArt } from "@/components/hero-art";
+import { PosterHeader } from "@/components/poster-header";
+import { Score } from "@/components/ui";
 import { allHeroes, heroAnalyses, countSkins } from "@/lib/data";
 import { rankingFull, rateBySlug } from "@/lib/tier-list";
 import { longDate, dateMeasure, listNames, patchCurrent } from "@/lib/freshness";
 import type { Locale } from "@/i18n/config";
 import { createT, messagesPage } from "@/i18n/translations";
+import type { Role } from "@/lib/types";
 import { heroListData, metaPage, metaPaged } from "@/i18n/seo";
 import { pageCount, SIZE_CARDS } from "@/lib/pager";
 
@@ -72,7 +75,7 @@ export function Heroes({ locale, page = 1 }: { locale: Locale; page?: number }) 
       name: h.name,
       roles: h.roles,
       lanes: h.lanes,
-      portrait: h.images.icon ?? h.images.portrait,
+      portrait: h.images.portrait ?? h.images.icon,
       skins: h.skins.length,
       analysis: h.analysis !== null,
       win: rate?.win ?? null,
@@ -80,24 +83,43 @@ export function Heroes({ locale, page = 1 }: { locale: Locale; page?: number }) 
     };
   });
 
+  // The poster: the five strongest heroes of the patch, side by side.
+  const poster = rankingFull.slice(0, 5).map((e) => heroArt(e.hero.slug));
+  // The role filter's art: the strongest hero of each role.
+  const roleArt: Partial<Record<Role, string>> = {};
+  for (const e of rankingFull) {
+    for (const r of e.hero.roles) {
+      if (!roleArt[r] && e.hero.images.portrait) roleArt[r] = e.hero.images.portrait;
+    }
+  }
+
   return (
     <ExtendMessages messages={messagesPage(locale, ["pages.heroesList"])}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
       />
-      <PageHeader
+      <PosterHeader
         title={t("pages.heroes.title")}
         lead={t("pages.heroes.lead", {
           heroes: allHeroes.length,
           skins: countSkins,
           analyses: heroAnalyses.length,
         })}
+        art={poster}
+        aside={
+          <p className="hidden text-right lg:block">
+            <Score value={allHeroes.length} className="text-[clamp(5rem,3rem+5vw,8.5rem)]" />
+            <span className="mt-2 block font-heading text-lg font-bold uppercase text-chalk-300">
+              {t("pages.heroesList.account", { n: "" }).trim()}
+            </span>
+          </p>
+        }
       >
-        <FreeRotationTeaser locale={locale} className="mt-4 max-w-md" />
-      </PageHeader>
-      <div className="page-wrap pb-12 pt-4">
-        <HeroList heroes={previews} page={page} />
+        <FreeRotationTeaser locale={locale} className="mt-5 max-w-md" />
+      </PosterHeader>
+      <div className="page-wrap pb-12 pt-6">
+        <HeroList heroes={previews} page={page} roleArt={roleArt} />
       </div>
     </ExtendMessages>
   );

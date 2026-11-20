@@ -1,18 +1,23 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { WikiCredit } from "@/components/wiki-credit";
 import Link from "@/components/link";
 import { StoryList, type EntryStory } from "@/components/story-list";
 import { LorePairCard } from "@/components/lore-pair";
 import { HeroPortrait } from "@/components/hero-portrait";
-import { PageHeader, SectionTitle } from "@/components/ui";
+import { Dex } from "@/components/mascot";
+import { ArtTile, ENTRANCE, PosterHeader } from "@/components/poster-header";
+import { regionFaces } from "@/components/lore/lore-art";
+import { SectionTitle } from "@/components/ui";
 import type { Locale } from "@/i18n/config";
 import { heroLabel } from "@/i18n/hero-data";
 import { ExtendMessages } from "@/i18n/provider";
 import { heroListData, metaPage } from "@/i18n/seo";
 import { createT, messagesPage } from "@/i18n/translations";
-import { stories, sync } from "@/lib/data";
+import { heroesBySlug, stories, sync } from "@/lib/data";
 import { listNames } from "@/lib/freshness";
 import { serializeJsonLd } from "@/lib/html";
+import { cn } from "@/lib/utils";
 import { factionsLore, heroNames, pairsOf, pairsFeatured, regionOf, regionsLore, termsLore } from "@/lib/lore";
 
 type Params = { params: Promise<{ locale: Locale }> };
@@ -70,33 +75,54 @@ export default async function LorePage({ params }: Params) {
   return (
     <ExtendMessages messages={messagesPage(locale, ["pages.loreUI"])}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
-      <PageHeader
+      <PosterHeader
         title={t("pages.lore.title")}
         lead={t("pages.lore.lead", { n: countStories(locale), regions: regionsLore.length, links: pairs.length })}
+        art={regionsLore.slice(0, 5).map((r) => regionFaces(r)[0]?.art ?? null)}
+        aside={<Dex pose="carte" height={170} priority className="hidden lg:inline-block" />}
       />
 
       <div className="page-wrap space-y-16 py-12">
-        <section id="regions">
+        {/* The map of the Land of Dawn: one landscape per region, the most
+            populated one drawn largest, its heroes in a row at its foot. */}
+        <section id="regions" className={ENTRANCE}>
           <SectionTitle lead={t("pages.lore.regionsLead")}>{t("pages.lore.regionsTitle")}</SectionTitle>
-          <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {regionsLore.map((r) => (
-              <li key={r.key}>
-                <Link
-                  href={`/lore/${r.key}`}
-                  className="bevel group flex h-full flex-col gap-3 border border-night-700/70 bg-night-900/60 p-4 transition-colors hover:border-gold-500/60"
-                >
-                  <span className="flex items-baseline justify-between gap-3">
-                    <span className="font-heading text-lg font-bold text-chalk-100 group-hover:text-gold-400">{nameRegion(r.name)}</span>
-                    <span className="shrink-0 text-xs text-chalk-500">{heroCount(r.heroes.length)}</span>
-                  </span>
-                  <span className="flex flex-wrap gap-1">
-                    {r.heroes.slice(0, 5).map((x) => (
-                      <HeroPortrait key={x.slug} source={x.images.icon ?? x.images.portrait} name={x.name} size="mini" decorative />
-                    ))}
-                  </span>
-                </Link>
-              </li>
-            ))}
+          <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4">
+            {regionsLore.map((r, i) => {
+              const faces = regionFaces(r);
+              const art = faces[0]?.art ?? null;
+              const big = i === 0;
+              return (
+                <li key={r.key} className={cn(big && "sm:col-span-2 lg:row-span-2")}>
+                  <ArtTile
+                    href={`/lore/${r.key}`}
+                    art={art}
+                    name={nameRegion(r.name)}
+                    aspect={big ? "aspect-[16/10] lg:aspect-auto lg:h-full" : "aspect-[16/10]"}
+                    position="50% 22%"
+                    sizes={big ? "(min-width: 1024px) 50vw, (min-width: 640px) 90vw, 92vw" : "(min-width: 1024px) 25vw, (min-width: 640px) 45vw, 92vw"}
+                    className="h-full"
+                    nameClassName={big ? "text-[clamp(2.4rem,1.6rem+2.6vw,4.25rem)]" : undefined}
+                  >
+                    {" "}
+                    <span className="mt-2 flex items-center gap-2.5">
+                      <span aria-hidden className="flex gap-1">
+                        {r.heroes.slice(0, big ? 8 : 4).map((x) => (
+                          <HeroPortrait
+                            key={x.slug}
+                            source={x.images.icon ?? x.images.portrait}
+                            name={x.name}
+                            size={big ? "small" : "mini"}
+                            decorative
+                          />
+                        ))}
+                      </span>
+                      <span className="text-sm font-semibold text-chalk-200">{heroCount(r.heroes.length)}</span>
+                    </span>
+                  </ArtTile>
+                </li>
+              );
+            })}
           </ul>
         </section>
 
@@ -116,27 +142,49 @@ export default async function LorePage({ params }: Params) {
         {factions.length > 0 && (
           <section id="factions">
             <SectionTitle lead={t("pages.lore.factionsLead")}>{t("pages.lore.factionsTitle")}</SectionTitle>
-            <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {factions.map((f) => (
-                <li key={f.key} className="bevel-sm border border-night-700/60 bg-night-900/40 p-4">
-                  <p className="flex items-baseline justify-between gap-3">
-                    <span className="font-semibold text-chalk-100">{f.name}</span>
-                    <span className="shrink-0 text-xs text-chalk-500">{heroCount(f.heroes.length)}</span>
-                  </p>
-                  <ul className="mt-2 flex flex-wrap gap-1.5">
-                    {f.heroes.map((s) => (
-                      <li key={s}>
-                        <Link
-                          href={`/heroes/${s}#story`}
-                          className="bevel-sm inline-block border border-night-700/70 bg-night-800/60 px-2 py-1 text-xs text-chalk-200 transition-colors hover:border-gold-500/60 hover:text-gold-400"
-                        >
-                          {heroNames.get(s) ?? s}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-              ))}
+            {/* A faction is a group photo: its members' portraits shoulder to shoulder, the names under it as links. */}
+            <ul className="grid grid-cols-1 gap-4 md:grid-cols-[1.4fr_1fr_1fr]">
+              {factions.map((f) => {
+                const members = f.heroes.flatMap((s) => {
+                  const x = heroesBySlug.get(s);
+                  return x ? [x] : [];
+                });
+                return (
+                  <li key={f.key} className="bevel min-w-0 bg-night-900 p-4">
+                    <div aria-hidden className="flex h-28 gap-1 overflow-hidden sm:h-36">
+                      {members.slice(0, 6).map((x) => (
+                        <span key={x.slug} className="bevel-sm relative min-w-0 flex-1 overflow-hidden bg-night-800">
+                          {(x.images.portrait ?? x.images.icon) && (
+                            <Image
+                              src={(x.images.portrait ?? x.images.icon)!}
+                              alt=""
+                              fill
+                              sizes="8rem"
+                              className="object-cover object-top"
+                            />
+                          )}
+                        </span>
+                      ))}
+                    </div>
+                    <p className="mt-3 flex items-baseline justify-between gap-3">
+                      <span className="display-caps text-2xl text-chalk-100">{f.name}</span>
+                      <span className="shrink-0 text-xs text-chalk-500">{heroCount(f.heroes.length)}</span>
+                    </p>
+                    <ul className="mt-2 flex flex-wrap gap-1.5">
+                      {f.heroes.map((s) => (
+                        <li key={s}>
+                          <Link
+                            href={`/heroes/${s}#story`}
+                            className="bevel-sm inline-block bg-night-800 px-2 py-1 text-xs text-chalk-200 transition-colors hover:bg-night-700 hover:text-gold-300"
+                          >
+                            {heroNames.get(s) ?? s}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                );
+              })}
             </ul>
           </section>
         )}
@@ -153,7 +201,7 @@ export default async function LorePage({ params }: Params) {
                   x.slug,
                   x.name,
                   h[x.slug]?.tagline ?? h[x.slug]?.profile?.title ?? x.title,
-                  x.images.icon ?? x.images.portrait,
+                  x.images.portrait ?? x.images.icon,
                   termsLore(x, locale, nameRegion(r.name)),
                 ],
               ),

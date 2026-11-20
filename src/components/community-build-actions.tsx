@@ -80,14 +80,12 @@ export function VoteButton({
         aria-pressed={state.voted}
         disabled={busy}
         onClick={toggle}
-        className={cn(
-          "bevel-sm flex min-h-11 items-center gap-2 px-3 text-sm font-semibold transition-colors disabled:opacity-60",
-          state.voted ? "bg-gold-500 text-night-950 hover:bg-gold-400" : "border border-night-700 text-chalk-200 hover:border-gold-500/60",
-        )}
+        // The secondary button turns gold once pressed (aria-pressed).
+        className="btn btn-secondary min-h-11 disabled:opacity-60"
       >
         <ThumbsUp size={16} aria-hidden />
         {state.voted ? t("pages.communityBuildsUI.voted") : t("pages.communityBuildsUI.vote")}
-        <span className="tabular-nums">{state.votes}</span>
+        <span className="score text-xl">{state.votes}</span>
       </button>
       {error && (
         <span role="alert" className="mt-1 text-xs text-blood-500">

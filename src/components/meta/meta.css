@@ -1,0 +1,327 @@
+/*
+ * The Meta section's own pieces: tier list cards, the lines of a folded
+ * tier, the statistics table's charter typesetting. Same rule as the tier
+ * rows in globals.css: a hundred and thirty rows must not repeat their
+ * utilities in the HTML, so the styles are named once here. Plain CSS on the
+ * theme's tokens, in the components layer, so one-off utilities still win.
+ */
+@layer components {
+  /* ── Tier list: a hero card, portrait first ───────────────────────────── */
+  .tt-grid {
+    display: grid;
+    gap: 0.625rem;
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 1.25rem;
+  }
+  @media (width >= 48rem) {
+    .tt-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
+  }
+  @media (width >= 96rem) {
+    .tt-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  .tt-grid > li {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 9rem;
+    min-width: 0;
+  }
+  .tt-card {
+    --cut: 0.75rem;
+    clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, var(--cut) 100%, 0 calc(100% - var(--cut)));
+    position: relative;
+    display: grid;
+    grid-template-columns: 5.25rem minmax(0, 1fr);
+    min-height: 100%;
+    background: linear-gradient(100deg, var(--color-night-800), var(--color-night-900) 55%);
+    transition: translate 0.2s ease-out, background-color 0.2s;
+  }
+  @media (width >= 40rem) {
+    .tt-card { grid-template-columns: 6.25rem minmax(0, 1fr); }
+  }
+  .tt-card:hover { translate: 0 -2px; }
+  /* The blade slides in under the hovered card. */
+  .tt-card::after {
+    content: "";
+    position: absolute;
+    left: 0.75rem;
+    right: 1.5rem;
+    bottom: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-gold-600), var(--color-gold-300) 45%, #fff3cf 60%, var(--color-gold-400) 80%, transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease-out;
+    pointer-events: none;
+  }
+  .tt-card:hover::after,
+  .tt-card:focus-visible::after { transform: scaleX(1); }
+  .tt-card:focus-visible { outline-offset: -3px; }
+
+  .tt-art {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    min-height: 8.5rem;
+    background: var(--color-night-800);
+  }
+  @media (width >= 40rem) {
+    .tt-art { min-height: 10.15rem; }
+  }
+  .tt-art img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 0.35s ease-out;
+  }
+  .tt-card:hover .tt-art img { transform: scale(1.04); }
+  .tt-art::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 55%, var(--color-night-800));
+  }
+  .tt-initials {
+    display: grid;
+    height: 100%;
+    place-items: center;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 900;
+    font-size: 1.75rem;
+    color: var(--color-chalk-600);
+  }
+  .tt-rank {
+    position: absolute;
+    left: 0.4rem;
+    top: 0.3rem;
+    z-index: 1;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 900;
+    font-size: 1.6rem;
+    line-height: 0.8;
+    color: transparent;
+    -webkit-text-stroke: 1.25px var(--color-gold-400);
+    text-shadow: 0 1px 8px rgb(0 0 0 / 0.6);
+  }
+
+  .tt-body {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 0.7rem 0.9rem 0.8rem 0.6rem;
+  }
+  .tt-name {
+    display: flex;
+    min-width: 0;
+    align-items: baseline;
+    gap: 0.35rem;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 1.55rem;
+    line-height: 0.9;
+    color: var(--color-chalk-100);
+    transition: color 0.15s;
+  }
+  .tt-name > span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .tt-card:hover .tt-name { color: var(--color-gold-300); }
+  .tt-weak { color: var(--color-gold-400); }
+  .tt-lanes {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.8rem;
+    line-height: 1;
+    color: var(--color-chalk-400);
+  }
+  /* Rates: the win rate as the card's figure, ban and pick small beside it. */
+  .tt-rates {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 0.25rem 1rem;
+    margin-top: auto;
+    font-variant-numeric: tabular-nums;
+  }
+  .tt-rates dt {
+    font-size: 0.7rem;
+    line-height: 1.1;
+    color: var(--color-chalk-500);
+  }
+  .tt-rates dd {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.1;
+    white-space: nowrap;
+    color: var(--color-chalk-300);
+  }
+  .tt-rates > div:first-child dd {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 900;
+    font-size: 2.1rem;
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+    color: var(--color-gold-400);
+  }
+  .tt-trend {
+    font-family: var(--font-heading);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0;
+  }
+  .tt-trend.is-up { color: var(--color-azure-400); }
+  .tt-trend.is-down { color: var(--color-blood-400); }
+  .tt-note {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: var(--color-chalk-400);
+  }
+
+  /* ── A tier's head: the crest, the title, the faces of a folded tier ─── */
+  .tier-faces {
+    display: flex;
+    align-items: center;
+  }
+  .tier-faces img,
+  .tier-faces i {
+    --cut: 0.3rem;
+    clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, var(--cut) 100%, 0 calc(100% - var(--cut)));
+    display: block;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-left: -0.55rem;
+    object-fit: cover;
+    background: var(--color-night-800);
+    box-shadow: 0 0 0 2px var(--color-night-950);
+  }
+  .tier-faces img:first-child { margin-left: 0; }
+  @media (width < 40rem) {
+    .tier-faces img:nth-child(n + 6) { display: none; }
+  }
+
+  /* ── Lines of a folded tier (`tier-lines.tsx`) ───────────────────────── */
+  .meta-lines .tier-row {
+    border-color: transparent;
+    background: var(--color-night-900);
+  }
+  .meta-lines .tier-row:hover {
+    border-color: rgb(245 196 81 / 0.45);
+  }
+  .meta-lines .tier-row-name {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 1.15rem;
+    line-height: 1;
+  }
+  .meta-lines .tier-row-icon {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+  .meta-lines .tier-row-rates dt {
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  .meta-lines .tier-row-rates > div:first-child > dd {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 900;
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+
+  /* ── Statistics table, typeset per the charter ───────────────────────── */
+  .meta-stats.stats-table thead th {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    color: var(--color-chalk-400);
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+  }
+  .meta-stats.stats-table tbody th > a > img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  .meta-stats.stats-table tbody th b {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 1.15rem;
+    line-height: 1;
+  }
+  .meta-stats.stats-table tbody th small {
+    margin-top: 0.15rem;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 0.72rem;
+  }
+  .meta-stats.stats-table td[data-column="win"] {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 900;
+    font-size: 1.3rem;
+    line-height: 1;
+  }
+  .meta-stats.stats-table td:is([data-column="ban"], [data-column="pick"]) {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .meta-stats.stats-table :is(td, span, svg).rising { color: var(--color-azure-400); }
+  .meta-stats.stats-table :is(td, span, svg).falling { color: var(--color-blood-400); }
+  .meta-stats.stats-table td[data-column="curve"] { color: var(--color-chalk-500); }
+  .meta-stats.stats-table svg { width: 5rem; height: 1.5rem; }
+  .meta-stats .crest { vertical-align: middle; }
+  @media (width >= 40rem) {
+    .meta-stats .crest { margin-inline: auto; }
+    .meta-stats.stats-table tbody tr > * {
+      padding-top: 0.55rem;
+      padding-bottom: 0.55rem;
+    }
+    .meta-stats.stats-table tbody th {
+      width: 13rem;
+      max-width: 13rem;
+    }
+  }
+  @media (width >= 96rem) {
+    .meta-stats.stats-table tbody th {
+      width: 16rem;
+      max-width: 16rem;
+    }
+  }
+  @media (width < 40rem) {
+    .meta-stats.stats-table td[data-column="win"] { font-size: 1.15rem; }
+    /* The column's name before each figure of a card: the text face, upright. */
+    .meta-stats.stats-table td::before {
+      font-family: var(--font-body);
+      font-style: normal;
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: none;
+      font-size: 0.7rem;
+    }
+    .meta-stats.stats-table thead th {
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
+      font-size: 0.75rem;
+    }
+  }
+}
