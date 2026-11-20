@@ -182,6 +182,8 @@ export const PAGES = [
   { path: "/quiz", locales: EN_FR, browser: true },
   { path: "/mlbbdle", locales: EN_FR },
   { path: "/about", locales: ALL, browser: true, minWords: 150 },
+  { path: "/dex", locales: ALL, browser: true },
+  { path: "/brand", locales: EN_FR },
   { path: "/legal", locales: ALL, browser: true, minWords: 150 },
   { path: "/privacy", locales: ALL, browser: true, minWords: 150 },
   { path: "/api-doc", locales: EN_FR, allowedPlaceholders: ["{slug}", "{version}"] },

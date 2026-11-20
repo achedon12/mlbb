@@ -1297,12 +1297,12 @@
       "text": "Mobile Legends: Bang Bang builds, counters, tier list and patch notes, measured on ranked matches and updated daily, on your server. Plus a daily MLBBdle for your community. Free, in five languages."
     },
     "pages.bot.metaDescription": {
-      "fr": "MLBBDex, le bot Discord gratuit pour Mobile Legends : builds et contres mesurés sur les parties classées, tier list, patch notes, alertes skins et MLBBdle du jour, en cinq langues.",
-      "text": "MLBBDex, the free Discord bot for Mobile Legends: builds and counters measured on ranked matches, tier list, patch notes, skin alerts and the daily MLBBdle, in five languages."
+      "fr": "Dex MLBB, le bot Discord gratuit de MLBBDex pour Mobile Legends : builds et contres mesurés sur les parties classées, tier list, patch notes, alertes skins et MLBBdle du jour, en cinq langues.",
+      "text": "Dex MLBB, MLBBDex's free Discord bot for Mobile Legends: builds and counters measured on ranked matches, tier list, patch notes, skin alerts and the daily MLBBdle, in five languages."
     },
     "pages.bot.metaTitle": {
-      "fr": "Bot Discord Mobile Legends (MLBB) : builds, contres, tier list",
-      "text": "Mobile Legends (MLBB) Discord bot: builds, counters, tier list"
+      "fr": "Dex MLBB, le bot Discord Mobile Legends : builds, contres, tier list",
+      "text": "Dex MLBB, the Mobile Legends Discord bot: builds, counters, tier list"
     },
     "pages.bot.noAdmin": {
       "fr": "Sans permission Administrateur",
@@ -5400,19 +5400,19 @@
       "fr": "Si vous vous connectez avec le code de vérification du jeu, vous voyez votre propre profil (saison, héros joués, parties récentes), lu à la demande via la même API et visible par vous seul. Il n'est pas publié. Pour ne pas tout redemander à chaque visite, les réponses du jeu restent un temps dans la mémoire du serveur, jamais sur disque : de deux minutes à six heures selon la donnée. Seule exception, la carte /profile du bot Discord, si vous la reliez : le site garde alors votre jeton de jeu chiffré, au plus 7 jours, et les chiffres de la carte, effacés 30 jours après leur dernière mise à jour ou dès que vous la déliez.",
       "text": "If you sign in with the game's verification code, you see your own profile (season, heroes played, recent games), read on demand through the same API and visible only to you. It is not published. So that each visit does not request everything again, the game's responses stay for a while in the server's memory, never on disk: from two minutes to six hours depending on the data. The one exception is the Discord bot's /profile card, if you link it: the site then keeps your game token, encrypted, for 7 days at most, and the card's figures, deleted 30 days after their last update or as soon as you unlink it."
     },
-    "prose.about.blocks.8.p": {
+    "prose.about.blocks.11.p": {
       "fr": "La section veille rassemble automatiquement les publications d'autres sites sur le jeu. Elle n'en affiche que le titre, la date et un court extrait, et renvoie toujours vers l'éditeur d'origine : rien n'y est republié.",
       "text": "The news watch section automatically gathers what other sites publish about the game. It only shows the title, date and a short excerpt, and always links back to the original publisher: nothing is republished."
     },
-    "prose.about.blocks.9.p": {
+    "prose.about.blocks.12.p": {
       "fr": "Moonton ne publie aucun flux officiel : le site du jeu est une application dont le contenu ne peut pas être repris. Les mises à jour du jeu sont donc reprises et commentées à la main dans les notes de patch, tandis que la veille couvre ce que publie le reste du web.",
       "text": "Moonton publishes no official feed: the game's website is an app whose content cannot be syndicated. Game updates are therefore covered and commented by hand in the patch notes, while the news watch covers what the rest of the web publishes."
     },
-    "prose.about.blocks.11.p": {
+    "prose.about.blocks.14.p": {
       "fr": "Il est facultatif : tout le contenu est accessible sans se connecter. La connexion passe par le code de vérification officiel de Moonton (un code à quatre chiffres envoyé dans votre messagerie en jeu). Le site ne voit jamais votre mot de passe : il reçoit un jeton temporaire, rangé dans un cookie sécurisé, que vous effacez en vous déconnectant.",
       "text": "It is optional: all content is available without signing in. Signing in uses Moonton's official verification code (a four-digit code sent to your in-game mailbox). The site never sees your password: it gets a temporary token, stored in a secure cookie, which you erase by signing out."
     },
-    "prose.about.blocks.14.p": {
+    "prose.about.blocks.17.p": {
       "fr": "Le code et le contenu sont publics. Les fiches héros sont écrites dans des fichiers TypeScript typés, les articles en Markdown : on peut ajouter une fiche ou corriger une erreur sans connaître le reste du projet.",
       "text": "The code and content are public. Hero pages are written in typed TypeScript files, articles in Markdown: you can add a page or fix a mistake without knowing the rest of the project."
     },
@@ -5696,7 +5696,7 @@
       "fr": "Oui : même héros, même compétence et mêmes manches de quiz chaque jour (UTC), dans toutes les langues.",
       "text": "Yes: the same hero, the same skill and the same quiz rounds every UTC day, in every language."
     },
-    "prose.about.blocks.12.p": {
+    "prose.about.blocks.15.p": {
       "fr": "Aucun compte n'est créé sur le site. Vos héros favoris restent dans votre navigateur. Seules les notifications, si vous les activez, conservent sur le serveur l'adresse d'envoi de votre navigateur et la liste de vos favoris : la page de confidentialité détaille ce qui est gardé et comment l'effacer.",
       "text": "No account is created on the site. Your favorite heroes stay in your browser. Only notifications, if you turn them on, keep your browser's push address and your list of favorites on the server: the privacy page details what is stored and how to delete it."
     },
@@ -5771,6 +5771,74 @@
     "pages.community.replies.other": {
       "fr": "{n} réponses",
       "text": "{n} replies"
+    },
+    "pages.dexPage.seePoses": {
+      "fr": "Voir les six poses de Dex",
+      "text": "See Dex's six poses"
+    },
+    "pages.dexPage.origin1": {
+      "fr": "Dex est né dans la Terre de l'Aube, le jour où un fragment s'est détaché d'un cristal de base, pile entre les deux camps. Moitié bleu, moitié rouge : il ne choisit jamais d'équipe. Ce fragment, il le porte en pendentif.",
+      "text": "Dex was born in the Land of Dawn, the day a shard broke off a base crystal, right between the two sides. Half blue, half red: he never picks a team. He wears that shard as a pendant."
+    },
+    "pages.dexPage.traits.tufts": {
+      "fr": "Deux aigrettes d'or en forme de lame",
+      "text": "Two gold ear tufts shaped like blades"
+    },
+    "pages.dexPage.traits.crystal": {
+      "fr": "Le cristal de base, bleu et rouge, en pendentif",
+      "text": "The base crystal, blue and red, as a pendant"
+    },
+    "pages.dexPage.siteText": {
+      "fr": "Dex t'accueille en haut des pages, glisse un conseil quand tu cliques sur lui, reste avec toi quand une page est vide et fête tes victoires au MLBBdle. Il ne parle jamais pour rien : trois conseils au plus par page.",
+      "text": "Dex greets you at the top of the pages, slips you a tip when you click him, keeps you company when a page is empty and cheers your MLBBdle wins. He never talks for nothing: three tips per page at most."
+    },
+    "pages.dexPage.discordText": {
+      "fr": "Là-bas, Dex s'appelle Dex MLBB : c'est le bot qui répond à /hero, /build ou /tierlist avec les mêmes chiffres que le site. C'est aussi lui, l'icône du serveur de la communauté.",
+      "text": "Over there, Dex goes by Dex MLBB: the bot that answers /hero, /build or /tierlist with the same figures as the site. He is also the icon of the community server."
+    },
+    "pages.dexPage.poses.salut.name": {
+      "fr": "Salut",
+      "text": "Hello"
+    },
+    "pages.dexPage.poses.reflexion.name": {
+      "fr": "Réflexion",
+      "text": "Thinking"
+    },
+    "pages.dexPage.poses.victoire.name": {
+      "fr": "Victoire",
+      "text": "Victory"
+    },
+    "pages.dexPage.kitLink": {
+      "fr": "Ses poses en PNG sont dans le kit de marque",
+      "text": "His poses as PNG are in the brand kit"
+    },
+    "pages.dexPage.aboutLink": {
+      "fr": "L'histoire du projet",
+      "text": "The project's story"
+    },
+    "pages.brandKit.dexLine": {
+      "fr": "Prends ce qu'il te faut. Une seule prière : ne me repeins pas en violet.",
+      "text": "Take what you need. Just one request: don't paint me purple."
+    },
+    "pages.bot.dexLine": {
+      "fr": "Salut, moi c'est Dex ! Sur Discord, je m'appelle Dex MLBB : tape /hero, /build ou /tierlist, et je te réponds avec les fiches et les chiffres du site.",
+      "text": "Hi, I'm Dex! On Discord I go by Dex MLBB: type /hero, /build or /tierlist and I answer with the site's pages and figures."
+    },
+    "prose.about.blocks.9.p": {
+      "fr": "Dex, la mascotte du site, vient de cette terre. Il accueille les visiteurs sur le site et, sous le nom de Dex MLBB, répond sur Discord quand on tape /hero ou /build. [Son histoire et ses poses sont sur sa page.](/dex) Couleurs, polices, règles d'usage et Dex en PNG : [le kit de marque](/brand).",
+      "text": "Dex, the site's mascot, comes from that land. He welcomes visitors on the site and, as Dex MLBB, answers on Discord when you type /hero or /build. [His story and his poses are on his page.](/dex) Colours, fonts, usage rules and Dex as PNG: [the brand kit](/brand)."
+    },
+    "pages.bot.title": {
+      "fr": "Dex MLBB — le bot Discord Mobile Legends",
+      "text": "Dex MLBB — the Mobile Legends Discord bot"
+    },
+    "pages.dexPage.metaDescription": {
+      "fr": "Qui est Dex, le petit esprit hibou-renard de la Terre de l'Aube qui te guide sur MLBBDex et te répond sur Discord avec le bot Dex MLBB.",
+      "text": "Who is Dex, the little owl-fox spirit of the Land of Dawn who guides you on MLBBDex and answers you on Discord as the Dex MLBB bot."
+    },
+    "pages.dexPage.lead": {
+      "fr": "Un petit esprit de la Terre de l'Aube, mi-hibou mi-renard, qui a regardé assez de parties pour tout retenir. Il te guide sur le site et te répond sur Discord.",
+      "text": "A little spirit of the Land of Dawn, half owl, half fox, who has watched enough games to remember everything. He guides you on the site and answers you on Discord."
     }
   },
   "es": {
@@ -12036,7 +12104,7 @@
       "fr": "Affaiblissements",
       "text": "Nerf"
     },
-    "prose.about.blocks.17.p": {
+    "prose.about.blocks.20.p": {
       "fr": "Mobile Legends: Bang Bang, son univers, ses héros et leurs noms sont des marques déposées de Shanghai Moonton Technology Co., Ltd. Ce site est un projet de fan indépendant, sans affiliation, ni approbation, ni parrainage de Moonton.",
       "text": "Mobile Legends: Bang Bang, dunianya, para hero-nya, dan nama-nama mereka adalah merek dagang terdaftar milik Shanghai Moonton Technology Co., Ltd. Situs ini adalah proyek penggemar independen, tanpa afiliasi, persetujuan, maupun sponsor dari Moonton."
     },
@@ -34796,27 +34864,27 @@
       "fr": "Le roster complet, les apparences de chaque héros, les objets, les emblèmes, les sorts de combat et la liste des patchs. Ces données sont extraites automatiquement du wiki communautaire chaque semaine : un nouveau héros apparaît ici sans que personne ait à le saisir.",
       "text": "Ang buong roster, ang mga skin ng bawat hero, mga item, emblem, Battle Spell at ang listahan ng mga patch. Awtomatikong kinukuha ang data na ito mula sa community wiki bawat linggo: lumalabas dito ang bagong hero nang walang kailangang mag-encode nito."
     },
-    "prose.about.blocks.11.p": {
+    "prose.about.blocks.14.p": {
       "fr": "Il est facultatif : tout le contenu est accessible sans se connecter. La connexion passe par le code de vérification officiel de Moonton (un code à quatre chiffres envoyé dans votre messagerie en jeu). Le site ne voit jamais votre mot de passe : il reçoit un jeton temporaire, rangé dans un cookie sécurisé, que vous effacez en vous déconnectant.",
       "text": "Opsyonal ito: makikita ang lahat ng content kahit hindi naka-log in. Ginagamit sa pag-log in ang opisyal na verification code ng Moonton — apat na digit na code na ipinapadala sa in-game mailbox mo. Hindi kailanman nakikita ng site ang password mo: tumatanggap ito ng pansamantalang token, na nakaimbak sa secure na cookie, na binubura mo kapag nag-log out ka."
     },
-    "prose.about.blocks.12.p": {
+    "prose.about.blocks.15.p": {
       "fr": "Aucun compte n'est créé sur le site. Vos héros favoris restent dans votre navigateur. Seules les notifications, si vous les activez, conservent sur le serveur l'adresse d'envoi de votre navigateur et la liste de vos favoris : la page de confidentialité détaille ce qui est gardé et comment l'effacer.",
       "text": "Walang account na ginagawa sa site. Nananatili sa browser mo ang mga paborito mong hero. Ang mga notification lang, kung in-on mo, ang nagtatago sa server ng push address ng browser mo at ng listahan ng mga paborito mo: nakadetalye sa privacy page kung ano ang iniimbak at paano ito burahin."
     },
-    "prose.about.blocks.14.p": {
+    "prose.about.blocks.17.p": {
       "fr": "Le code et le contenu sont publics. Les fiches héros sont écrites dans des fichiers TypeScript typés, les articles en Markdown : on peut ajouter une fiche ou corriger une erreur sans connaître le reste du projet.",
       "text": "Public ang code at content. Nasa mga typed TypeScript file ang mga hero profile, at nasa mga Markdown file ang mga article: puwede kang magdagdag ng profile o magtama ng mali kahit hindi mo alam ang iba pang bahagi ng project."
     },
-    "prose.about.blocks.15.p": {
+    "prose.about.blocks.18.p": {
       "fr": "[Le dépôt est ici.]({repository}) Les corrections d'équilibrage, les fiches manquantes et les relectures sont particulièrement bienvenues.",
       "text": "[Narito ang repository.]({repository}) Lalo naming tinatanggap ang mga balance fix, mga kulang na profile at proofreading."
     },
-    "prose.about.blocks.16.h": {
+    "prose.about.blocks.19.h": {
       "fr": "Mentions",
       "text": "Mga trademark"
     },
-    "prose.about.blocks.17.p": {
+    "prose.about.blocks.20.p": {
       "fr": "Mobile Legends: Bang Bang, son univers, ses héros et leurs noms sont des marques déposées de Shanghai Moonton Technology Co., Ltd. Ce site est un projet de fan indépendant, sans affiliation, ni approbation, ni parrainage de Moonton.",
       "text": "Ang Mobile Legends: Bang Bang, ang uniberso nito, ang mga hero nito at ang mga pangalan nila ay mga rehistradong trademark ng Shanghai Moonton Technology Co., Ltd. Ang site na ito ay isang independiyenteng fan project, na walang kaugnayan, endorsement o sponsorship mula sa Moonton."
     },
@@ -34836,15 +34904,15 @@
       "fr": "Si vous vous connectez avec le code de vérification du jeu, vous voyez votre propre profil (saison, héros joués, parties récentes), lu à la demande via la même API et visible par vous seul. Il n'est pas publié. Pour ne pas tout redemander à chaque visite, les réponses du jeu restent un temps dans la mémoire du serveur, jamais sur disque : de deux minutes à six heures selon la donnée. Seule exception, la carte /profile du bot Discord, si vous la reliez : le site garde alors votre jeton de jeu chiffré, au plus 7 jours, et les chiffres de la carte, effacés 30 jours après leur dernière mise à jour ou dès que vous la déliez.",
       "text": "Kapag naka-log in ka gamit ang in-game verification code, makikita mo ang sarili mong profile (season, mga hero na nilaro, mga kamakailang match), na binabasa kapag hiniling sa parehong API, para sa iyo lang. Hindi ito ipina-publish. Para hindi hingin ulit ang lahat sa bawat pagbisita, nananatili sandali ang mga sagot ng laro sa memory ng server, hindi kailanman sa disk: mula dalawang minuto hanggang anim na oras depende sa data. Ang tanging eksepsiyon ay ang /profile card ng Discord bot, kung ili-link mo ito: itinatago ng site ang naka-encrypt mong game token nang hanggang 7 araw, at ang mga numero ng card, na binubura 30 araw pagkatapos ng huling update o kapag in-unlink mo ito."
     },
-    "prose.about.blocks.7.h": {
+    "prose.about.blocks.10.h": {
       "fr": "La veille",
       "text": "Ang roundup"
     },
-    "prose.about.blocks.8.p": {
+    "prose.about.blocks.11.p": {
       "fr": "La section veille rassemble automatiquement les publications d'autres sites sur le jeu. Elle n'en affiche que le titre, la date et un court extrait, et renvoie toujours vers l'éditeur d'origine : rien n'y est republié.",
       "text": "Awtomatikong tinitipon ng roundup section ang mga post tungkol sa game mula sa ibang site. Ang title, petsa at maikling excerpt lang ang ipinapakita nito, at laging may link pabalik sa orihinal na publisher: walang nire-republish dito."
     },
-    "prose.about.blocks.9.p": {
+    "prose.about.blocks.12.p": {
       "fr": "Moonton ne publie aucun flux officiel : le site du jeu est une application dont le contenu ne peut pas être repris. Les mises à jour du jeu sont donc reprises et commentées à la main dans les notes de patch, tandis que la veille couvre ce que publie le reste du web.",
       "text": "Walang opisyal na feed ang Moonton — app ang website ng game at hindi mai-syndicate ang content nito. Kaya mano-manong inilalagay at kinokomentaryuhan ang mga update ng game sa patch notes, habang sinasaklaw ng roundup ang inilalathala ng iba pang bahagi ng web."
     },
@@ -48886,31 +48954,31 @@
       "fr": "Le roster complet, les apparences de chaque héros, les objets, les emblèmes, les sorts de combat et la liste des patchs. Ces données sont extraites automatiquement du wiki communautaire chaque semaine : un nouveau héros apparaît ici sans que personne ait à le saisir.",
       "text": "รายชื่อฮีโร่ทั้งหมด สกินของฮีโร่ทุกตัว ไอเทม Emblem, Battle Spell และรายการแพตช์ ข้อมูลเหล่านี้ดึงมาจากวิกิคอมมูนิตี้โดยอัตโนมัติทุกสัปดาห์: ฮีโร่ใหม่จะปรากฏที่นี่โดยไม่ต้องมีใครป้อนข้อมูล"
     },
-    "prose.about.blocks.11.p": {
+    "prose.about.blocks.14.p": {
       "fr": "Il est facultatif : tout le contenu est accessible sans se connecter. La connexion passe par le code de vérification officiel de Moonton (un code à quatre chiffres envoyé dans votre messagerie en jeu). Le site ne voit jamais votre mot de passe : il reçoit un jeton temporaire, rangé dans un cookie sécurisé, que vous effacez en vous déconnectant.",
       "text": "การมีบัญชีไม่ใช่สิ่งจำเป็น: เนื้อหาทั้งหมดเข้าถึงได้โดยไม่ต้องเข้าสู่ระบบ การเข้าสู่ระบบใช้รหัสยืนยันอย่างเป็นทางการของ Moonton — รหัสสี่หลักที่ส่งไปยังกล่องจดหมายในเกมของคุณ เว็บไซต์ไม่เคยเห็นรหัสผ่านของคุณ: เว็บไซต์ได้รับเพียงโทเค็นชั่วคราว ซึ่งเก็บไว้ในคุกกี้ที่ปลอดภัย และจะถูกลบเมื่อคุณออกจากระบบ"
     },
-    "prose.about.blocks.12.p": {
+    "prose.about.blocks.15.p": {
       "fr": "Aucun compte n'est créé sur le site. Vos héros favoris restent dans votre navigateur. Seules les notifications, si vous les activez, conservent sur le serveur l'adresse d'envoi de votre navigateur et la liste de vos favoris : la page de confidentialité détaille ce qui est gardé et comment l'effacer.",
       "text": "เว็บไซต์ไม่ได้สร้างบัญชีใดๆ ฮีโร่โปรดของคุณถูกเก็บไว้ในเบราว์เซอร์ของคุณ มีเพียงการแจ้งเตือน หากคุณเปิดใช้งาน ที่จะเก็บที่อยู่ push ของเบราว์เซอร์และรายการโปรดของคุณไว้บนเซิร์ฟเวอร์: หน้าความเป็นส่วนตัวอธิบายว่าเก็บอะไรไว้และลบได้อย่างไร"
     },
-    "prose.about.blocks.13.h": {
+    "prose.about.blocks.16.h": {
       "fr": "Contribuer",
       "text": "ร่วมพัฒนา"
     },
-    "prose.about.blocks.14.p": {
+    "prose.about.blocks.17.p": {
       "fr": "Le code et le contenu sont publics. Les fiches héros sont écrites dans des fichiers TypeScript typés, les articles en Markdown : on peut ajouter une fiche ou corriger une erreur sans connaître le reste du projet.",
       "text": "โค้ดและเนื้อหาเป็นสาธารณะ ข้อมูลฮีโร่อยู่ในไฟล์ TypeScript แบบมีชนิดข้อมูล บทความอยู่ในไฟล์ Markdown: คุณเพิ่มหน้าฮีโร่หรือแก้ข้อผิดพลาดได้โดยไม่ต้องรู้จักส่วนอื่นของโปรเจกต์"
     },
-    "prose.about.blocks.15.p": {
+    "prose.about.blocks.18.p": {
       "fr": "[Le dépôt est ici.]({repository}) Les corrections d'équilibrage, les fiches manquantes et les relectures sont particulièrement bienvenues.",
       "text": "[ดู repository ได้ที่นี่]({repository}) ยินดีเป็นอย่างยิ่งกับการแก้ไขข้อมูลบาลานซ์ หน้าฮีโร่ที่ยังขาด และการพิสูจน์อักษร"
     },
-    "prose.about.blocks.16.h": {
+    "prose.about.blocks.19.h": {
       "fr": "Mentions",
       "text": "เครื่องหมายการค้า"
     },
-    "prose.about.blocks.17.p": {
+    "prose.about.blocks.20.p": {
       "fr": "Mobile Legends: Bang Bang, son univers, ses héros et leurs noms sont des marques déposées de Shanghai Moonton Technology Co., Ltd. Ce site est un projet de fan indépendant, sans affiliation, ni approbation, ni parrainage de Moonton.",
       "text": "Mobile Legends: Bang Bang จักรวาลของเกม ฮีโร่ และชื่อฮีโร่ เป็นเครื่องหมายการค้าจดทะเบียนของ Shanghai Moonton Technology Co., Ltd. เว็บไซต์นี้เป็นโปรเจกต์อิสระของแฟนเกม ไม่มีส่วนเกี่ยวข้อง ไม่ได้รับการรับรอง และไม่ได้รับการสนับสนุนจาก Moonton"
     },
@@ -48930,15 +48998,15 @@
       "fr": "Si vous vous connectez avec le code de vérification du jeu, vous voyez votre propre profil (saison, héros joués, parties récentes), lu à la demande via la même API et visible par vous seul. Il n'est pas publié. Pour ne pas tout redemander à chaque visite, les réponses du jeu restent un temps dans la mémoire du serveur, jamais sur disque : de deux minutes à six heures selon la donnée. Seule exception, la carte /profile du bot Discord, si vous la reliez : le site garde alors votre jeton de jeu chiffré, au plus 7 jours, et les chiffres de la carte, effacés 30 jours après leur dernière mise à jour ou dès que vous la déliez.",
       "text": "เมื่อเข้าสู่ระบบด้วยรหัสยืนยันในเกม คุณจะเห็นโปรไฟล์ของตัวเอง (ซีซัน ฮีโร่ที่เล่น เกมล่าสุด) ซึ่งอ่านผ่าน API เดียวกันเมื่อคุณเรียกดู และแสดงเฉพาะคุณ ข้อมูลไม่ถูกเผยแพร่ เพื่อไม่ให้ต้องขอข้อมูลทั้งหมดใหม่ทุกครั้งที่เข้าชม คำตอบจากเกมจะถูกเก็บไว้ในหน่วยความจำของเซิร์ฟเวอร์ชั่วคราว ไม่เคยเขียนลงดิสก์: ตั้งแต่สองนาทีถึงหกชั่วโมงตามประเภทข้อมูล ข้อยกเว้นเดียวคือการ์ด /profile ของบอท Discord หากคุณเชื่อมไว้: เว็บไซต์จะเก็บโทเค็นเกมของคุณแบบเข้ารหัสไว้ไม่เกิน 7 วัน และตัวเลขบนการ์ด ซึ่งจะถูกลบ 30 วันหลังอัปเดตครั้งล่าสุด หรือทันทีที่คุณยกเลิกการเชื่อม"
     },
-    "prose.about.blocks.7.h": {
+    "prose.about.blocks.10.h": {
       "fr": "La veille",
       "text": "สรุปข่าว"
     },
-    "prose.about.blocks.8.p": {
+    "prose.about.blocks.11.p": {
       "fr": "La section veille rassemble automatiquement les publications d'autres sites sur le jeu. Elle n'en affiche que le titre, la date et un court extrait, et renvoie toujours vers l'éditeur d'origine : rien n'y est republié.",
       "text": "ส่วนสรุปข่าวรวบรวมโพสต์เกี่ยวกับเกมจากเว็บไซต์อื่นโดยอัตโนมัติ แสดงเพียงหัวข้อ วันที่ และข้อความสั้นๆ และลิงก์กลับไปยังผู้เผยแพร่ต้นฉบับเสมอ: ไม่มีการเผยแพร่ซ้ำที่นี่"
     },
-    "prose.about.blocks.9.p": {
+    "prose.about.blocks.12.p": {
       "fr": "Moonton ne publie aucun flux officiel : le site du jeu est une application dont le contenu ne peut pas être repris. Les mises à jour du jeu sont donc reprises et commentées à la main dans les notes de patch, tandis que la veille couvre ce que publie le reste du web.",
       "text": "Moonton ไม่มีฟีดอย่างเป็นทางการ — เว็บไซต์ของเกมเป็นแอปที่นำเนื้อหาไปเผยแพร่ต่อไม่ได้ การอัปเดตเกมจึงถูกนำมาเขียนและอธิบายด้วยมือในแพตช์โน้ต ส่วนสรุปข่าวครอบคลุมสิ่งที่เว็บไซต์อื่นๆ เผยแพร่"
     },
@@ -60856,23 +60924,23 @@
       "fr": "Le roster complet, les apparences de chaque héros, les objets, les emblèmes, les sorts de combat et la liste des patchs. Ces données sont extraites automatiquement du wiki communautaire chaque semaine : un nouveau héros apparaît ici sans que personne ait à le saisir.",
       "text": "O elenco completo, as skins de cada herói, os itens, os emblemas, os Feitiços de Batalha e a lista de patches. Esses dados são extraídos automaticamente da wiki da comunidade toda semana: um herói novo aparece aqui sem que ninguém precise cadastrá-lo."
     },
-    "prose.about.blocks.11.p": {
+    "prose.about.blocks.14.p": {
       "fr": "Il est facultatif : tout le contenu est accessible sans se connecter. La connexion passe par le code de vérification officiel de Moonton (un code à quatre chiffres envoyé dans votre messagerie en jeu). Le site ne voit jamais votre mot de passe : il reçoit un jeton temporaire, rangé dans un cookie sécurisé, que vous effacez en vous déconnectant.",
       "text": "Ela é opcional: todo o conteúdo fica acessível sem entrar. O login usa o código de verificação oficial da Moonton, um código de quatro dígitos enviado para a sua caixa de correio no jogo. O site nunca vê a sua senha: ele recebe um token temporário, guardado em um cookie seguro, que você apaga ao sair."
     },
-    "prose.about.blocks.12.p": {
+    "prose.about.blocks.15.p": {
       "fr": "Aucun compte n'est créé sur le site. Vos héros favoris restent dans votre navigateur. Seules les notifications, si vous les activez, conservent sur le serveur l'adresse d'envoi de votre navigateur et la liste de vos favoris : la page de confidentialité détaille ce qui est gardé et comment l'effacer.",
       "text": "Nenhuma conta é criada no site. Seus heróis favoritos ficam no seu navegador. Apenas as notificações, se você as ativar, guardam no servidor o endereço push do seu navegador e a sua lista de favoritos: a página de privacidade detalha o que é guardado e como apagar."
     },
-    "prose.about.blocks.14.p": {
+    "prose.about.blocks.17.p": {
       "fr": "Le code et le contenu sont publics. Les fiches héros sont écrites dans des fichiers TypeScript typés, les articles en Markdown : on peut ajouter une fiche ou corriger une erreur sans connaître le reste du projet.",
       "text": "O código e o conteúdo são públicos. As páginas de heróis ficam em arquivos TypeScript tipados e os artigos em arquivos Markdown: dá para adicionar uma página ou corrigir um erro sem conhecer o resto do projeto."
     },
-    "prose.about.blocks.15.p": {
+    "prose.about.blocks.18.p": {
       "fr": "[Le dépôt est ici.]({repository}) Les corrections d'équilibrage, les fiches manquantes et les relectures sont particulièrement bienvenues.",
       "text": "[O repositório está aqui.]({repository}) Correções de balanceamento, páginas de heróis que faltam e revisões são especialmente bem-vindas."
     },
-    "prose.about.blocks.16.h": {
+    "prose.about.blocks.19.h": {
       "fr": "Mentions",
       "text": "Marcas registradas"
     },
@@ -60888,15 +60956,15 @@
       "fr": "Si vous vous connectez avec le code de vérification du jeu, vous voyez votre propre profil (saison, héros joués, parties récentes), lu à la demande via la même API et visible par vous seul. Il n'est pas publié. Pour ne pas tout redemander à chaque visite, les réponses du jeu restent un temps dans la mémoire du serveur, jamais sur disque : de deux minutes à six heures selon la donnée. Seule exception, la carte /profile du bot Discord, si vous la reliez : le site garde alors votre jeton de jeu chiffré, au plus 7 jours, et les chiffres de la carte, effacés 30 jours après leur dernière mise à jour ou dès que vous la déliez.",
       "text": "Depois de entrar com o código de verificação do jogo, você vê o seu próprio perfil (temporada, heróis jogados, partidas recentes), lido sob demanda por essa mesma API, só para você. Ele não é publicado. Para não pedir tudo de novo a cada visita, as respostas do jogo ficam um tempo na memória do servidor, nunca em disco: de dois minutos a seis horas, conforme o dado. A única exceção é o cartão /profile do bot do Discord, se você o vincular: o site guarda então o seu token de jogo criptografado, por no máximo 7 dias, e os números do cartão, apagados 30 dias após a última atualização ou assim que você o desvincular."
     },
-    "prose.about.blocks.7.h": {
+    "prose.about.blocks.10.h": {
       "fr": "La veille",
       "text": "O radar de notícias"
     },
-    "prose.about.blocks.8.p": {
+    "prose.about.blocks.11.p": {
       "fr": "La section veille rassemble automatiquement les publications d'autres sites sur le jeu. Elle n'en affiche que le titre, la date et un court extrait, et renvoie toujours vers l'éditeur d'origine : rien n'y est republié.",
       "text": "A seção de notícias reúne automaticamente publicações de outros sites sobre o jogo. Ela mostra só o título, a data e um trecho curto, e sempre leva de volta ao site de origem: nada é republicado aqui."
     },
-    "prose.about.blocks.9.p": {
+    "prose.about.blocks.12.p": {
       "fr": "Moonton ne publie aucun flux officiel : le site du jeu est une application dont le contenu ne peut pas être repris. Les mises à jour du jeu sont donc reprises et commentées à la main dans les notes de patch, tandis que la veille couvre ce que publie le reste du web.",
       "text": "A Moonton não publica nenhum feed oficial: o site do jogo é um aplicativo cujo conteúdo não pode ser distribuído. Por isso, as atualizações do jogo são reproduzidas e comentadas à mão nas patch notes, enquanto o radar cobre o que o resto da web publica."
     },
@@ -73906,35 +73974,35 @@
       "fr": "Le roster complet, les apparences de chaque héros, les objets, les emblèmes, les sorts de combat et la liste des patchs. Ces données sont extraites automatiquement du wiki communautaire chaque semaine : un nouveau héros apparaît ici sans que personne ait à le saisir.",
       "text": "Полный список героев, скины каждого героя, предметы, эмблемы, боевые заклинания и список патчей. Эти данные автоматически извлекаются из вики сообщества каждую неделю: новый герой появляется здесь, и никому не нужно вносить его вручную."
     },
-    "prose.about.blocks.10.h": {
+    "prose.about.blocks.13.h": {
       "fr": "Le compte",
       "text": "Аккаунт"
     },
-    "prose.about.blocks.11.p": {
+    "prose.about.blocks.14.p": {
       "fr": "Il est facultatif : tout le contenu est accessible sans se connecter. La connexion passe par le code de vérification officiel de Moonton (un code à quatre chiffres envoyé dans votre messagerie en jeu). Le site ne voit jamais votre mot de passe : il reçoit un jeton temporaire, rangé dans un cookie sécurisé, que vous effacez en vous déconnectant.",
       "text": "Он необязателен: весь контент доступен без входа. Вход выполняется через официальный код подтверждения Moonton — четырёхзначный код, который приходит во внутриигровую почту. Сайт никогда не видит ваш пароль: он получает временный токен, хранящийся в защищённом cookie, который удаляется при выходе."
     },
-    "prose.about.blocks.12.p": {
+    "prose.about.blocks.15.p": {
       "fr": "Aucun compte n'est créé sur le site. Vos héros favoris restent dans votre navigateur. Seules les notifications, si vous les activez, conservent sur le serveur l'adresse d'envoi de votre navigateur et la liste de vos favoris : la page de confidentialité détaille ce qui est gardé et comment l'effacer.",
       "text": "Аккаунт на сайте не создаётся. Ваши избранные герои хранятся в вашем браузере. Только уведомления, если вы их включите, хранят на сервере push-адрес вашего браузера и список избранного: на странице конфиденциальности подробно описано, что хранится и как это удалить."
     },
-    "prose.about.blocks.13.h": {
+    "prose.about.blocks.16.h": {
       "fr": "Contribuer",
       "text": "Участие в проекте"
     },
-    "prose.about.blocks.14.p": {
+    "prose.about.blocks.17.p": {
       "fr": "Le code et le contenu sont publics. Les fiches héros sont écrites dans des fichiers TypeScript typés, les articles en Markdown : on peut ajouter une fiche ou corriger une erreur sans connaître le reste du projet.",
       "text": "Код и контент открыты. Профили героев хранятся в типизированных файлах TypeScript, статьи — в файлах Markdown: можно добавить профиль или исправить ошибку, не разбираясь в остальном проекте."
     },
-    "prose.about.blocks.15.p": {
+    "prose.about.blocks.18.p": {
       "fr": "[Le dépôt est ici.]({repository}) Les corrections d'équilibrage, les fiches manquantes et les relectures sont particulièrement bienvenues.",
       "text": "[Репозиторий здесь.]({repository}) Особенно приветствуются исправления по балансу, недостающие профили и вычитка."
     },
-    "prose.about.blocks.16.h": {
+    "prose.about.blocks.19.h": {
       "fr": "Mentions",
       "text": "Товарные знаки"
     },
-    "prose.about.blocks.17.p": {
+    "prose.about.blocks.20.p": {
       "fr": "Mobile Legends: Bang Bang, son univers, ses héros et leurs noms sont des marques déposées de Shanghai Moonton Technology Co., Ltd. Ce site est un projet de fan indépendant, sans affiliation, ni approbation, ni parrainage de Moonton.",
       "text": "Mobile Legends: Bang Bang, её вселенная, её герои и их имена являются зарегистрированными товарными знаками Shanghai Moonton Technology Co., Ltd. Этот сайт — независимый фанатский проект, не связанный с Moonton, не одобренный и не спонсируемый ею."
     },
@@ -73954,15 +74022,15 @@
       "fr": "Si vous vous connectez avec le code de vérification du jeu, vous voyez votre propre profil (saison, héros joués, parties récentes), lu à la demande via la même API et visible par vous seul. Il n'est pas publié. Pour ne pas tout redemander à chaque visite, les réponses du jeu restent un temps dans la mémoire du serveur, jamais sur disque : de deux minutes à six heures selon la donnée. Seule exception, la carte /profile du bot Discord, si vous la reliez : le site garde alors votre jeton de jeu chiffré, au plus 7 jours, et les chiffres de la carte, effacés 30 jours après leur dernière mise à jour ou dès que vous la déliez.",
       "text": "Войдя с помощью кода подтверждения из игры, вы видите свой профиль (сезон, сыгранных героев, последние матчи), который запрашивается по требованию через тот же API и показывается только вам. Он не публикуется. Чтобы не запрашивать всё заново при каждом посещении, ответы игры какое-то время хранятся в памяти сервера, но никогда на диске: от двух минут до шести часов в зависимости от данных. Единственное исключение — карточка /profile бота Discord, если вы её привяжете: тогда сайт хранит ваш игровой токен в зашифрованном виде не дольше 7 дней, а цифры карточки удаляются через 30 дней после последнего обновления или сразу, как только вы её отвяжете."
     },
-    "prose.about.blocks.7.h": {
+    "prose.about.blocks.10.h": {
       "fr": "La veille",
       "text": "Обзор новостей"
     },
-    "prose.about.blocks.8.p": {
+    "prose.about.blocks.11.p": {
       "fr": "La section veille rassemble automatiquement les publications d'autres sites sur le jeu. Elle n'en affiche que le titre, la date et un court extrait, et renvoie toujours vers l'éditeur d'origine : rien n'y est republié.",
       "text": "Раздел обзора новостей автоматически собирает публикации других сайтов об игре. Он показывает только заголовок, дату и короткий отрывок и всегда ведёт на исходный сайт: здесь ничего не перепубликуется."
     },
-    "prose.about.blocks.9.p": {
+    "prose.about.blocks.12.p": {
       "fr": "Moonton ne publie aucun flux officiel : le site du jeu est une application dont le contenu ne peut pas être repris. Les mises à jour du jeu sont donc reprises et commentées à la main dans les notes de patch, tandis que la veille couvre ce que publie le reste du web.",
       "text": "Moonton не публикует официальной ленты — сайт игры представляет собой приложение, содержимое которого нельзя транслировать. Поэтому обновления игры переносятся и комментируются вручную в патч-ноутах, а обзор новостей охватывает то, что публикует остальной интернет."
     },

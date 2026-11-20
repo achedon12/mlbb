@@ -87,6 +87,10 @@ One `<h1>` per page.
 - **Section head**: `SectionTitle` (title, éclat, lead, `ActionLink`).
 - **Brand**: `BrandMark` renders `/brand/mark.svg` and the wordmark; it is
   the only place the logo is drawn.
+- **Brand kit**: `/brand` repeats this palette and the three typefaces for
+  the press (change both together) and serves Dex's poses as PNG, written
+  by `scripts/mascot-png.mjs`. It shows the text wordmark only until the
+  redrawn logo is validated. Dex's story lives on `/dex`.
 
 ## Motion
 

@@ -51,6 +51,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       "mobile legends counter bot",
       "mobile legends tier list bot",
       "MLBBdle discord",
+      "Dex MLBB",
     ],
   });
 }
@@ -91,8 +92,8 @@ export default async function BotPage({ params }: Params) {
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      name: site.name,
-      alternateName: "MLBBDex Discord bot",
+      name: "Dex MLBB",
+      alternateName: ["MLBBDex Discord bot", "MLBBDex bot"],
       description: t("pages.bot.metaDescription"),
       url: `${site.url}/${locale}${PATH}`,
       applicationCategory: "GameApplication",
@@ -160,7 +161,13 @@ export default async function BotPage({ params }: Params) {
             {t("pages.bot.dashboard")} →
           </Link>
         </div>
-        <p className="mt-4 hidden font-heading text-lg font-semibold text-gold-300 lg:block">{t("pages.bot.dexLine")}</p>
+        {/* Dex introduces the bot: on Discord, the bot is him (Dex MLBB, his face as its avatar). */}
+        <p className="dex-bubble mt-5 max-w-md font-heading text-lg font-semibold leading-snug text-chalk-100">
+          {t("pages.bot.dexLine")}{" "}
+          <Link href="/dex" className="whitespace-nowrap text-gold-400 transition-colors hover:text-gold-300">
+            {t("pages.bot.dexLink")} →
+          </Link>
+        </p>
       </StageHeader>
 
       <div className="stage-enter page-wrap space-y-16 py-10 sm:space-y-24 sm:py-14">

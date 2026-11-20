@@ -281,6 +281,8 @@ export const FOOTER: FooterColumn[] = [
       ...[COMMUNITY, ...BOT, CONTRIBUTE].map(link),
       { href: "/api-doc", label: "footer.publicApi" },
       { href: "/about", label: "footer.about" },
+      { href: "/dex", label: "brandSignature.dex" },
+      { href: "/brand", label: "brandSignature.brandKit" },
       { href: "/account", label: "footer.myAccount" },
       { href: "/legal", label: "footer.legalNotice" },
       { href: "/privacy", label: "footer.privacy" },

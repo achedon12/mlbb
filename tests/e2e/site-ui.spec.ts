@@ -219,6 +219,35 @@ test.describe("footer", () => {
     await expect(footer.getByRole("link", { name: /confidentialit[ée]/i }).first()).toHaveAttribute("href", /\/fr\/privacy/);
   });
 
+  test("signs with Dex: his page and the brand kit", async ({ page }) => {
+    await page.goto("/fr");
+    const footer = page.getByRole("contentinfo");
+    await expect(footer.getByRole("link", { name: /qui est dex/i })).toHaveAttribute("href", /\/fr\/dex$/);
+    await expect(footer.getByRole("link", { name: /kit de marque/i })).toHaveAttribute("href", /\/fr\/brand$/);
+  });
+});
+
+test.describe("brand pages", () => {
+  test("the Dex page tells his story and shows his six poses", async ({ page }) => {
+    await page.goto("/fr/dex");
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(/dex/i);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
+    await expect(page.getByRole("heading", { level: 2, name: /d'où il vient/i })).toBeVisible();
+    const poses = page.locator("#poses").getByRole("heading", { level: 3 });
+    await expect(poses).toHaveCount(6);
+    await expect(page.locator("#poses").getByRole("link", { name: /kit de marque/i })).toHaveAttribute("href", /\/fr\/brand$/);
+  });
+
+  test("the brand kit gives the colour codes and Dex as PNG, and no logo", async ({ page }) => {
+    await page.goto("/fr/brand");
+    await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
+    await expect(page.getByRole("button", { name: "Copier #F5C451" })).toBeVisible();
+    const downloads = page.getByRole("link", { name: /^t[ée]l[ée]charger dex/i });
+    await expect(downloads).toHaveCount(12);
+    await expect(downloads.first()).toHaveAttribute("href", "/mascot/dex-salut.png");
+    await expect(page.locator('main img[src*="/brand/mark"]')).toHaveCount(0);
+  });
+
   test("offers no cookie settings without audience measurement", async ({ page }) => {
     test.skip(!!process.env.NEXT_PUBLIC_MATOMO_URL, "Matomo is configured: consent.spec.ts covers the button");
     await page.goto("/fr");

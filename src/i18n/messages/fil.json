@@ -671,7 +671,8 @@
       "title": "Tungkol sa",
       "lead": "Isang independent at bukas na proyekto na sadyang tapat tungkol sa mga limitasyon nito.",
       "metaDescription": "Ano ang site na ito, ano ang laman nito, ano ang hindi nito kayang ilaman, at paano mag-contribute.",
-      "dexLine": "Ako si Dex! Ginagabayan kita sa site: mga hero, meta, mga tool at komunidad."
+      "dexLine": "Ako si Dex! Ginagabayan kita sa site: mga hero, meta, mga tool at komunidad.",
+      "dexLink": "Ang kwento ko"
     },
     "legal": {
       "title": "Legal notice",
@@ -3692,14 +3693,14 @@
       "average": "Sa average, na may {chance} crit chance: {damage} damage bawat basic attack."
     },
     "bot": {
-      "title": "MLBBDex — ang Mobile Legends Discord bot",
+      "title": "Dex MLBB — ang Discord Mobile Legends bot",
       "breadcrumb": "Discord bot",
-      "metaTitle": "Mobile Legends Discord bot (MLBB): mga build, counter, tier list",
-      "metaDescription": "MLBBDex, ang libreng Mobile Legends Discord bot: mga build at counter na sinukat sa mga ranked match, tier list, patch notes, skin alert at ang daily MLBBdle, sa limang wika.",
+      "metaTitle": "Dex MLBB, ang Discord Mobile Legends bot: mga build, counter, tier list",
+      "metaDescription": "Dex MLBB, ang libreng MLBBEx Discord bot para sa Mobile Legends: mga build at counter na sinusukat sa mga ranggo na laro, tier list, patch notes, skin alert at MLBBdle ng araw, sa limang wika.",
       "lead": "Mga build, counter, tier list at patch notes ng Mobile Legends: Bang Bang, sinukat sa mga ranked match at ina-update araw-araw, mismo sa server mo. Dagdag pa ang daily MLBBdle para sa community mo. Libre, sa limang wika.",
       "add": "Idagdag sa Discord",
       "join": "Sumali sa server",
-      "vote": "Bumoto para sa MLBBDex",
+      "vote": "Bumoto para sa Dex MLBB",
       "dashboard": "Dashboard",
       "servers": "Nasa {count} server",
       "free": "100% libre",
@@ -3782,7 +3783,7 @@
       "faqTitle": "Mga madalas itanong",
       "faq1q": "Libre ba ang bot?",
       "faq1a": "Oo, buong-buo: walang subscription, walang naka-lock na feature, walang vote lock, walang ads. Gaya ng site, ang gumawa nito ang nagbabayad para dito.",
-      "faq2q": "Paano idagdag ang MLBBDex sa server ko?",
+      "faq2q": "Paano ko idadagdag ang Dex MLBB sa aking server?",
       "faq2a": "I-click ang “Idagdag sa Discord”, pumili ng server kung saan may Manage Server permission ka, at kumpirmahin. Lalabas ang mga command sa sandaling mag-type ka ng / sa isang channel.",
       "faq3q": "Paano i-set up ang mga anunsyo?",
       "faq3a": "Buksan ang dashboard gamit ang Discord account mo (o i-type ang /setup): pumili ng channel, at kung gusto mo, ng role na ime-mention, para sa bawat uri ng anunsyo. Kailangan mo ang Manage Server permission.",
@@ -3796,11 +3797,12 @@
       "faq7a": "Ang pangalan at mga setting ng server mo, ang mga nai-post na nito, at, para sa mga leaderboard, ang Discord ID at pangalan ng mga player ng daily game. Nasa privacy page ng bot ang mga detalye.",
       "faq8q": "Pareho ba ang MLBBdle sa Discord at sa site?",
       "faq8a": "Oo: parehong hero, parehong skill at parehong quiz round bawat araw (UTC), sa lahat ng wika.",
-      "ctaTitle": "Idagdag ang MLBBDex sa server mo",
-      "ctaText": "Isang minuto lang para idagdag, walang babayaran. May tanong o ideya? Naghihintay sa iyo ang MLBBDex server.",
+      "ctaTitle": "Idagdag ang Dex MLBB sa iyong server",
+      "ctaText": "Isang minuto para idagdag ito, walang babayaran. Mga tanong o ideya? Ang server ng komunidad ay naghihintay para sa iyo.",
       "privacy": "Privacy ng bot",
       "terms": "Terms of use",
-      "dexLine": "MLBBEx file, direkta sa iyong Discord server."
+      "dexLine": "Hi, ako si Dex! Sa Discord, ang pangalan ko ay Dex MLBB: type /hero, /build o /tierlist, at sasagutin kita ng mga file at figure ng site.",
+      "dexLink": "Sino si Dex?"
     },
     "botPrivacy": {
       "title": "Privacy ng Discord bot",
@@ -4871,6 +4873,121 @@
         "invalid": "Tinanggihan ang ulat: suriin ang mga patlang.",
         "unavailable": "Hindi maipadala sa ngayon: subukang muli sa ibang pagkakataon."
       }
+    },
+    "dexPage": {
+      "title": "Si Dex",
+      "metaTitle": "Si Dex, ang maskot ng MLBBDex",
+      "metaDescription": "Sino si Dex, ang munting owl-fox na espiritu mula sa Land of Dawn na gumagabay sa iyo sa MLBBEx at tumugon sa iyo sa Discord gamit ang Dex MLBB bot.",
+      "kicker": "Ang maskot ng MLBBDex",
+      "lead": "Isang maliit na espiritu mula sa Land of Dawn, kalahating kuwago, kalahating soro, na nanood ng sapat na mga laro upang matandaan ang lahat. Ginagabayan ka niya sa paligid ng site at tumugon sa iyo sa Discord.",
+      "hello": "Hi, ako si Dex! Mag-click sa akin: Palagi akong may reserbang tip.",
+      "seePoses": "Tingnan ang lahat ng anim na pose ni Dex",
+      "originTitle": "Kung saan siya nanggaling",
+      "origin1": "Ipinanganak si Dex sa Land of Dawn, ang araw na naputol ang isang fragment mula sa baseng kristal, sa pagitan mismo ng dalawang kampo. Half blue, half red: hindi siya pipili ng team. Isinusuot niya ang fragment na ito bilang isang palawit.",
+      "origin2": "Kuwago para sa kanyang malalaking mata na malinaw na nakikita sa gabi, soro para sa tuso, siya ay gumugol ng mga panahon na dumapo sa jungle na nanonood ng mga laban, nagbibilang ng mga build at nagpapansin kung sino ang nakakatalo.",
+      "origin3": "Lahat ng naalala niya, iniimbak niya sa isang malaking index: ang Dex. Ito ang naging pangalan niya, pagkatapos ay ang sa site.",
+      "traitsTitle": "Mga natatanging palatandaan",
+      "traits": {
+        "color": "Midnight blue, tulad ng background ng site",
+        "tufts": "Dalawang hugis talim na gintong egret",
+        "crystal": "Ang pangunahing kristal, asul at pula, bilang isang palawit",
+        "cape": "Isang kapa na may linyang ginto"
+      },
+      "doesTitle": "Ang ginagawa niya",
+      "siteTitle": "Sa site",
+      "siteText": "Inaanyayahan ka ni Dex sa tuktok ng mga pahina, nakapasok sa isang tip kapag nag-click ka sa kanya, nananatili sa iyo kapag ang isang pahina ay walang laman at ipinagdiriwang ang iyong mga tagumpay sa MLBBdle. Hindi siya nagsasalita nang walang kabuluhan: tatlong piraso ng payo sa bawat pahina.",
+      "discordTitle": "Sa Discord",
+      "discordText": "Doon, ang Dex ay tinatawag na Dex MLBB: ito ang bot na tumutugon sa /hero, /build o /tierlist na may parehong mga numero ng site. Siya rin ang icon ng community server.",
+      "botLink": "Tuklasin ang Dex MLBB bot",
+      "posesTitle": "Anim na pose niya",
+      "posesLead": "Isang pose para sa bawat sandali ng iyong pagbisita. Mag-hover sa ibabaw nila, mag-click sa kanila: buhay sila.",
+      "poses": {
+        "salut": {
+          "name": "Hi",
+          "text": "Para tanggapin ka, sa mga unang screen."
+        },
+        "reflexion": {
+          "name": "Pagninilay",
+          "text": "Para sa payo o paliwanag."
+        },
+        "idee": {
+          "name": "Ideya",
+          "text": "Kapag mayroon siyang mungkahi o kasangkapan upang ipakita sa iyo."
+        },
+        "surpris": {
+          "name": "Nagulat",
+          "text": "Sa isang walang laman na pahina, hindi nakita o nagkamali."
+        },
+        "victoire": {
+          "name": "Win",
+          "text": "Kapag nanalo ka, maghanap o mag-save ng isang bagay."
+        },
+        "carte": {
+          "name": "Mapa",
+          "text": "Sa mga gabay, sa mapa at para sa diskarte."
+        }
+      },
+      "kitLink": "Nasa brand kit ang mga pose niyang PNG",
+      "joinTitle": "Halika kamustahin mo siya",
+      "joinText": "Sa server ng Discord, hinihintay ka ni Dex na may mga alerto sa patch, MLBBdle ngayon at mga manlalaro ng iyong ranggo.",
+      "join": "Sumali sa Discord",
+      "aboutLink": "Ang kasaysayan ng proyekto"
+    },
+    "brandKit": {
+      "title": "Brand kit",
+      "metaTitle": "MLBBEx Branding at Press Kit",
+      "metaDescription": "Mga kulay at ang kanilang mga code, typographies, mga tuntunin ng paggamit at mga pose ng Dex sa PNG: lahat ng kailangan mong pag-usapan ang tungkol sa MLBBDex.",
+      "lead": "Upang pag-usapan ang tungkol sa MLBBEx sa isang artikulo, video o stream: ang pangalan, kulay, font, panuntunan at Dex sa PNG.",
+      "dexLine": "Kunin mo ang kailangan mo. Isang panalangin lang: huwag mo akong pinturahan ng purple.",
+      "nameTitle": "Ang pangalan",
+      "nameText": "Ang MLBBEx ay nakasulat sa isang salita, \"Dex\" sa ginto. Ang Discord bot ay tinatawag na Dex MLBB, tulad ng maskot.",
+      "logoPending": "Ang logo ay muling idinisenyo at hindi pa napatunayan. Pansamantala, gamitin ang text logotype: ang pangalan, sa font ng pamagat.",
+      "colorsTitle": "Ang mga kulay",
+      "colorsLead": "Gabi para sa mga background, ginto para sa accent, asul at pula para sa parehong mga kampo. Wala ng iba.",
+      "copy": "Kopyahin {hex}",
+      "copied": "Kopyahin",
+      "colors": {
+        "night950": "Gabi, background",
+        "night900": "Gabi, mga ibabaw",
+        "night800": "Gabi, ginhawa",
+        "gold400": "Gold, accent at numero",
+        "gold600": "Madilim na ginto",
+        "azure400": "Allied blue, ano na naman",
+        "blood400": "Pula ang kaaway, bumabagsak",
+        "chalk100": "Chalk, text",
+        "chalk400": "Chalk, pangalawang teksto"
+      },
+      "typeTitle": "Mga tipograpiya",
+      "type": {
+        "display": "Mga pamagat, pangalan ng mga hero, malalaking numero: timbang 800 o 900, hilig, sa mga capitals.",
+        "heading": "Mga intertitle, mga pindutan, mga menu: taba 600 o 700, kanan.",
+        "body": "Running text, mga tabular figure sa mga talahanayan."
+      },
+      "sample": "Ang labanan, sa isang malaking paraan",
+      "fontsNote": "Lahat ng tatlo ay open source at libre, sa Google Fonts.",
+      "rulesTitle": "Ang mga patakaran",
+      "doTitle": "Oo",
+      "dontTitle": "Hindi",
+      "do1": "Panatilihin si Dex bilang siya: midnight blue, gold egrets, crystal blue at red.",
+      "do2": "Ilagay ito sa isang madilim na background, na may hangin sa paligid nito.",
+      "do3": "Isulat ang MLBBEx sa isang salita, at ang Dex MLBB para sa bot.",
+      "do4": "Linawin na ang MLBDex ay isang independiyenteng proyekto ng tagahanga.",
+      "dont1": "I-recolor ito, i-distort ito o magdagdag ng mga accessory.",
+      "dont2": "Gawin siyang magsalita sa ngalan ng Moonton o ibang site.",
+      "dont3": "Magpakita ng logo ng MLBBEx: ang muling idinisenyo ay hindi napatunayan.",
+      "dont4": "Sa labas ng palette: walang purple, walang rainbow gradient.",
+      "dexTitle": "Dex sa PNG",
+      "dexLead": "Transparent na background, sa laki nito, o nakasentro sa isang 512 px square para sa isang avatar o isang emoji.",
+      "download": "PNG",
+      "downloadSquare": "Square 512 px",
+      "downloadLabel": "I-download ang Dex, magpose {pose}, sa PNG",
+      "downloadSquareLabel": "I-download ang Dex, magpose {pose}, sa 512 px square PNG",
+      "pressTitle": "Pindutin at kontakin",
+      "pressText": "Isang tanong, isang pakikipanayam, isang pakikipagsosyo? Sumulat sa amin sa Discord, o magbukas ng tiket sa repositoryo ng proyekto.",
+      "repo": "Pagsusumite ng proyekto",
+      "discord": "Ang Discord",
+      "legal": "Mobile Legends: Bang Bang, ang mga hero nito at ang mga visual nito ay mga trademark ng Shanghai Moonton Technology Co., Ltd. Ang MLBBDex ay hindi kaakibat o ineendorso ng Moonton: huwag gamitin ang kanilang mga visual bilang sa amin.",
+      "dexPageLink": "Sino si Dex?"
     }
   },
   "modeSheet": {
@@ -5098,6 +5215,15 @@
         },
         {
           "p": "Ang mga visual ay pagmamay-ari ng Moonton at, para sa mga skin ng collaboration, sa mga may hawak ng karapatan ng mga karakter at tatak na nauugnay. Ang mga larawan, mga icon at mga larawan sa skin ay nagmula sa wiki ng komunidad at inihahatid ng site na ito upang walang nakadepende sa isang third party na domain. Ang mga ito ay nananatiling pag-aari ng Moonton, naroroon para sa mga layunin ng paglalarawan at aalisin kapag hiniling ng may hawak ng mga karapatan. Ang visual na pagkakakilanlan ng site (madilim na asul, ginto, mga gupit na sulok) ay inspirasyon ng laro nang hindi ginagamit ang mga file ng interface."
+        },
+        {
+          "h": "Ang pangalan at tatak"
+        },
+        {
+          "p": "Ang \"Dex\" ay nagmula sa index: ang site ay nag-iimbak sa isang lugar ng lahat ng na-publish ng laro at lahat ng bagay na sinusukat ng mga ranggo ng laro. Ang pagkakakilanlan nito, ang Land of Dawn, ay tumatagal ng gabi, ang ginto at ang mga diagonal na cut ng interface ng laro, upang makilala namin ang isang page ng MLBBEx nang hindi nakikita ang pangalan nito."
+        },
+        {
+          "p": "Si Dex, ang mascot ng site, ay nagmula sa lupaing ito. Tinatanggap niya ang mga bisita sa site at, sa ilalim ng pangalang Dex MLBB, tumugon sa Discord kapag nagta-type ka /hero o /build. [Ang kanyang kwento at ang kanyang mga pose ay nasa kanyang pahina.](/dex) Mga kulay, font, tuntunin sa paggamit at Dex sa PNG: [the brand kit](/brand)."
         },
         {
           "h": "Ang roundup"
@@ -6319,5 +6445,11 @@
     "skins1": "Ang mga hitsura ay iniutos ng pambihira.",
     "skins2": "Ipinapakita ng kalendaryo ang StarLights at Collectors ng bawat buwan.",
     "skins3": "Suriin ang iyong mga pagpapakita sa tool sa Koleksyon upang matantya ang iyong bilang."
+  },
+  "brandSignature": {
+    "tagline": "Lahat ng Mobile Legends, sinusukat araw-araw. Nanonood si Dex.",
+    "dexLink": "Sino si Dex?",
+    "dex": "Si Dex, ang mascot",
+    "brandKit": "Brand kit"
   }
 }
