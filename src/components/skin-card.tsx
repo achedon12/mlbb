@@ -11,6 +11,7 @@ import {
 } from "@/lib/skin-catalog";
 import { formatRelease } from "@/lib/skins";
 import { RarityBlade, RarityGem } from "@/components/skins/skin-tile";
+import { ProvisionalBadge } from "@/components/provisional-badge";
 
 /**
  * Skin thumbnail: the shop portrait with its rarity gem and blade, and on
@@ -28,6 +29,8 @@ export interface PropsCardSkin {
   color: string;
   rarity: string;
   details: string[];
+  /** Badge of a skin whose visual may still change, already translated (`ProvisionalBadge`). */
+  provisional?: { label: string; hint: string } | null;
 }
 
 export function propsCardSkin(
@@ -53,7 +56,7 @@ export function propsCardSkin(
   };
 }
 
-export function SkinCard({ name, href, hero: heroes, heroHref, image, color, rarity, details }: PropsCardSkin) {
+export function SkinCard({ name, href, hero: heroes, heroHref, image, color, rarity, details, provisional }: PropsCardSkin) {
   return (
     <article className="group relative h-full transition-[translate] duration-200 hover:-translate-y-0.5">
       <div className="bevel-sm relative aspect-[240/390] overflow-hidden bg-night-800">
@@ -69,6 +72,7 @@ export function SkinCard({ name, href, hero: heroes, heroHref, image, color, rar
         )}
         <span aria-hidden className="absolute inset-x-0 bottom-0 h-3/5 bg-linear-to-t from-night-950 via-night-950/80 to-transparent" />
         <RarityGem color={color} className="absolute left-1.5 top-1.5" />
+        {provisional && <ProvisionalBadge {...provisional} className="absolute right-1.5 top-1.5" />}
         {/* Everything on the art, nothing under it: the name, the hero, the facts. */}
         <div className="absolute inset-x-0 bottom-0 px-1.5 pb-2 sm:px-2">
           <p aria-hidden className="display-caps line-clamp-2 text-[0.85rem] font-extrabold leading-[0.95] text-chalk-100 transition-colors group-hover:text-gold-300 sm:text-[0.95rem]">

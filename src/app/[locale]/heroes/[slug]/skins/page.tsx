@@ -16,6 +16,7 @@ import { formatRelease, CURRENCIES, type SkinFull } from "@/lib/skins";
 import { anchorsGallery, elide, heroGallery, heroesWithSkins, titleGallery, type HeroGallery } from "@/lib/hero-skins";
 import type { Hero } from "@/lib/types";
 import { NotFoundPage } from "@/components/not-found-page";
+import { ProvisionalBadge } from "@/components/provisional-badge";
 import { collaborationOf } from "@/lib/collaborations";
 
 /**
@@ -100,8 +101,9 @@ export default async function HeroSkinsPage({ params }: Params) {
       })
       .join(" / ");
 
-  // The poster: the most recent artwork, otherwise the hero's own.
-  const poster = (recent && g.skins.find((s) => s === recent)?.illustration) || heroArt(h.slug) || g.others[0]?.illustration || null;
+  // The poster: the most recent artwork, otherwise the hero's own. Never a
+  // lone artwork: no catalogue skin vouches for it.
+  const poster = (recent && g.skins.find((s) => s === recent)?.illustration) || heroArt(h.slug) || null;
   const byAvailability = new Map<string, number>();
   for (const s of g.skins) if (s.availability) byAvailability.set(s.availability, (byAvailability.get(s.availability) ?? 0) + 1);
 
@@ -141,7 +143,7 @@ export default async function HeroSkinsPage({ params }: Params) {
           }),
         ];
       }),
-      ...g.others.map((a) => image(a.illustration, a.name, altIllustration(a.name))),
+      ...g.others.filter((a) => !a.provisional).map((a) => image(a.illustration, a.name, altIllustration(a.name))),
     ],
   };
 
@@ -250,8 +252,19 @@ export default async function HeroSkinsPage({ params }: Params) {
                 first={g.skins.length === 0 && k === 0}
                 altIllustration={altIllustration(a.name)}
                 altPortrait=""
+                badge={
+                  a.provisional ? (
+                    <ProvisionalBadge
+                      label={t("visualStatus.provisional")}
+                      hint={t("visualStatus.provisionalHint")}
+                      className="absolute left-3 top-3"
+                    />
+                  ) : null
+                }
               >
-                <p className="mt-2 text-sm text-chalk-500">{t("pages.heroSkins.illustrationOnly")}</p>
+                <p className="mt-2 text-sm text-chalk-500">
+                  {t(a.provisional ? "visualStatus.provisionalNote" : "pages.heroSkins.illustrationOnly")}
+                </p>
               </SkinCard>
             </li>
           ))}
@@ -289,6 +302,7 @@ function SkinCard({
   first,
   altIllustration,
   altPortrait,
+  badge,
   children,
 }: {
   name: string;
@@ -298,6 +312,8 @@ function SkinCard({
   first: boolean;
   altIllustration: string;
   altPortrait: string;
+  /** Set on the artwork's corner: a provisional visual says so on itself. */
+  badge?: React.ReactNode;
   children: React.ReactNode;
 }) {
   return (
@@ -331,6 +347,7 @@ function SkinCard({
             <RarityBlade color={color} />
           </span>
         )}
+        {badge}
         {/* The name on the art, never under it. */}
         <h2 className="display-caps absolute inset-x-0 bottom-0 px-4 pb-3.5 text-[clamp(1.9rem,1.3rem+1.8vw,2.9rem)] text-chalk-100 sm:px-5">
           {name}

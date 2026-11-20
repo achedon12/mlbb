@@ -56,7 +56,7 @@ export function GET(): Response {
       const g = heroGallery(h);
       return entry(
         `/${l}/heroes/${h.slug}/skins`,
-        [...g.skins.flatMap((s) => [s.illustration, s.portrait]), ...g.others.map((a) => a.illustration)],
+        [...g.skins.flatMap((s) => [s.illustration, s.portrait]), ...g.others.filter((a) => !a.provisional).map((a) => a.illustration)],
         changed,
       );
     }),

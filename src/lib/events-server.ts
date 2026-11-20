@@ -1,7 +1,7 @@
 import eventsData from "@/data/game/events.json";
 import { catalogSkins, dateReference, releasedSkins } from "./skin-catalog-server";
 import { heroesBySlug } from "./data";
-import { buildMonths, isMonth, monthOfRelease, type EventMonth, type EventSkin, type ListEntry } from "./events";
+import { buildMonths, isMonth, isProvisionalSkin, monthOfRelease, type EventMonth, type EventSkin, type ListEntry } from "./events";
 import { anchorsGallery, heroGallery } from "./hero-skins";
 import { normalizeNameSkin } from "./utils";
 
@@ -70,6 +70,7 @@ function resolve(e: RawEntry, list: WikiList): EventSkin | null {
   }
   const gallery = heroGallery(hero);
   const i = gallery.others.findIndex((a) => normalizeNameSkin(a.name) === name);
+  const lone = i >= 0 ? gallery.others[i] : null;
   return {
     id: e.id ?? "",
     name: e.skin,
@@ -80,9 +81,10 @@ function resolve(e: RawEntry, list: WikiList): EventSkin | null {
     availability: null,
     price: {},
     acquisition: null,
-    image: i >= 0 ? gallery.others[i].illustration : null,
+    image: lone?.illustration ?? null,
     anchor: i >= 0 ? anchorsGallery(gallery)[gallery.skins.length + i] : "",
     notInCatalog: true,
+    provisional: isProvisionalSkin({ month: e.month, reference: dateReference, lone }),
   };
 }
 

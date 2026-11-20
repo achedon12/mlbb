@@ -6485,5 +6485,10 @@
     "tool": "Alat gratis",
     "game": "Permainan hari ini",
     "toolsKicker": "Alat gratis"
+  },
+  "visualStatus": {
+    "provisional": "Sementara",
+    "provisionalHint": "Visual sementara, belum dikonfirmasi oleh game: mungkin berubah sebelum rilis resmi.",
+    "provisionalNote": "Visual sementara: tampilan ini belum dikonfirmasi di dalam game, ilustrasinya mungkin masih berubah."
   }
 }

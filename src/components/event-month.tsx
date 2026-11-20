@@ -32,6 +32,8 @@ export function eventCard(s: EventSkin, t: T, htmlLang: string, numbers: Intl.Nu
   const card = propsCardSkin(s, heroName(s.hero), t, htmlLang, numbers);
   // Without a known anchor, the hero gallery opens at the top rather than on an empty anchor.
   if (!s.anchor) card.href = `/heroes/${s.hero}/skins`;
+  // Not confirmed out: its visual says so on itself.
+  if (s.provisional) card.provisional = { label: t("visualStatus.provisional"), hint: t("visualStatus.provisionalHint") };
   // The module does not give its rarity yet: say so, rather than showing the default skin's.
   return s.notInCatalog ? { ...card, color: RARITY_ORIGIN.color, rarity: t("pages.events.rarityUnknown") } : card;
 }

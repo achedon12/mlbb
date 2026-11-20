@@ -1,6 +1,6 @@
 import type { Locale } from "@/i18n/config";
 import type { T } from "@/i18n/t";
-import { allHeroes, illustrations } from "./data";
+import { allHeroes, illustrations, loneIllustrations } from "./data";
 import { RARITIES } from "./rarities";
 import { uniqueAnchors, encodeImage, type GroupSkins, type SkinFull, type SkinThumb } from "./skins";
 import type { Hero } from "./types";
@@ -16,10 +16,15 @@ import { normalizeNameSkin } from "./utils";
  * lost.
  */
 
-/** Artwork no catalogue skin claims: a skin newer than the catalogue. */
+/**
+ * Artwork no catalogue skin claims: an older skin the catalogue lacks or
+ * spells otherwise, or a skin newer than the catalogue, then `provisional`
+ * (see `sortIllustrations`).
+ */
 export interface IllustrationSingle {
   name: string;
   illustration: string;
+  provisional: boolean;
 }
 
 export interface HeroGallery {
@@ -52,9 +57,7 @@ export function heroGallery(h: Hero): HeroGallery {
   const skins = skinsFull(h);
   // An artwork already carried by a catalogue skin is not a lone artwork.
   const taken = new Set(skins.map((s) => s.illustration));
-  const others = Object.entries(illustrations[h.slug] ?? {})
-    .filter(([, path]) => !taken.has(path))
-    .map(([name, illustration]) => ({ name, illustration }));
+  const others = (loneIllustrations[h.slug] ?? []).filter((a) => !taken.has(a.illustration));
   const gallery = { skins, others, total: skins.length + others.length };
   cache.set(h.slug, gallery);
   return gallery;
@@ -99,7 +102,10 @@ export function groupsSkins(): GroupSkins[] {
             encodeImage(h.slug, s.name, s.portrait ? s.id : null, s.portrait ?? s.illustration),
             s.rarity ? (RARITIES[s.rarity]?.rank ?? 0) : 0,
           ]),
-          ...g.others.map((a): SkinThumb => [a.name, encodeImage(h.slug, a.name, null, a.illustration), 0]),
+          // A provisional artwork stays on its hero's gallery, under its badge.
+          ...g.others
+            .filter((a) => !a.provisional)
+            .map((a): SkinThumb => [a.name, encodeImage(h.slug, a.name, null, a.illustration), 0]),
         ],
       };
     });

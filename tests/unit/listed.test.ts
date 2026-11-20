@@ -1,7 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { allHeroes, heroesBySlug, illustrations } from "@/lib/data";
+import { allHeroes, heroesBySlug, illustrations, loneIllustrations } from "@/lib/data";
 import { collaborationOf } from "@/lib/collaborations";
-import { isPublishedArtwork, listedHeroes, listedSkins, shownIllustrations } from "@/lib/listed";
+import { isPublishedArtwork, listedHeroes, listedSkins, shownIllustrations, sortIllustrations } from "@/lib/listed";
+import { heroArt } from "@/components/hero-art";
+import { artOf } from "@/components/tool-art";
+import { normalizeNameSkin } from "@/lib/utils";
 import type { GeneratedHero, Skin } from "@/lib/types";
 
 const NOW = Date.UTC(2026, 10, 19, 12);
@@ -83,6 +86,46 @@ describe("isPublishedArtwork", () => {
     expect(isPublishedArtwork("/visuels/heros/karina/illustrations/gemini-halo.webp", "File:Selena (Gemini - Shadow).jpg")).toBe(false);
     expect(isPublishedArtwork("/visuels/heros/thamuz/illustrations/lord-lava.webp", "File:Thamuz (Lord Lava; unreleased revamp).jpg")).toBe(false);
   });
+
+  it("checks the original's size once the manifest records it", () => {
+    const path = "/visuels/heros/layla/illustrations/x.webp";
+    expect(isPublishedArtwork(path, { file: "File:Layla (X).jpg", width: 1920, height: 1080 })).toBe(true);
+    expect(isPublishedArtwork(path, { file: "File:Layla (X).jpg", width: 696, height: 392 })).toBe(false);
+    expect(isPublishedArtwork(path, { file: "File:Layla (X).jpg", width: 1080, height: 1350 })).toBe(false);
+    expect(isPublishedArtwork(path, { file: "File:Layla (X).jpg" })).toBe(true);
+  });
+
+  it("leaves out an advanced-server, teaser or screenshot copy", () => {
+    const path = "/visuels/heros/suyou/illustrations/x.webp";
+    expect(isPublishedArtwork(path, "File:Suyou (Frostblade Duelist; Advance Server).jpg")).toBe(false);
+    expect(isPublishedArtwork(path, "File:Suyou Frostblade Duelist teaser.png")).toBe(false);
+    expect(isPublishedArtwork(path, "File:Suyou screenshot.png")).toBe(false);
+  });
+});
+
+describe("sortIllustrations", () => {
+  const NOW_MS = NOW;
+  const day = 86_400_000;
+  const sources: Record<string, { file: string; timestamp: string }> = {
+    "/a.webp": { file: "File:Layla (Bunny Babe).jpg", timestamp: "2019-01-01T00:00:00Z" },
+    "/b.webp": { file: "File:Layla (Sunset Waltz).jpg", timestamp: "2023-10-09T00:00:00Z" },
+    "/c.webp": { file: "File:Layla (Midnight Rhythm).jpg", timestamp: new Date(NOW_MS - 10 * day).toISOString() },
+  };
+  const byName = { "Bunny Babe": "/a.webp", "Sunset Waltz": "/b.webp", "Midnight Rhythm": "/c.webp" };
+
+  it("keeps catalogue artworks as final, the others as lone, a recent one provisional", () => {
+    const { final, lone } = sortIllustrations(byName, [skin("Bunny Babe")], NOW_MS, (p) => sources[p]);
+    expect(final).toEqual({ "Bunny Babe": "/a.webp" });
+    expect(lone).toEqual([
+      { name: "Sunset Waltz", illustration: "/b.webp", provisional: false },
+      { name: "Midnight Rhythm", illustration: "/c.webp", provisional: true },
+    ]);
+  });
+
+  it("matches the catalogue by normalised name", () => {
+    const { final } = sortIllustrations({ "Vessel Of Deceit": "/a.webp" }, [skin("Vessel of Deceit")], NOW_MS, (p) => sources[p]);
+    expect(final).toEqual({ "Vessel Of Deceit": "/a.webp" });
+  });
 });
 
 describe("collaborationOf", () => {
@@ -110,5 +153,16 @@ describe("catalogue as the site reads it", () => {
     expect(illustrations.miya?.["Captain Thorns"]).toBeUndefined();
     // Selena's own artwork, the one Karina's row borrowed, is still shown.
     expect(illustrations.selena?.["Gemini - Shadow"]).toBeDefined();
+  });
+
+  it("draws every poster from a released catalogue skin's artwork", () => {
+    for (const h of allHeroes) {
+      const names = new Set(h.skins.map((s) => normalizeNameSkin(s.name)));
+      for (const name of Object.keys(illustrations[h.slug] ?? {})) expect(names.has(normalizeNameSkin(name)), `${h.slug} ${name}`).toBe(true);
+    }
+    // Martis, the timer's face: "Asura King" matches no catalogue skin.
+    expect(heroArt("martis")).not.toBe("/visuels/heros/martis/illustrations/asura-king.webp");
+    expect(artOf("martis")).not.toBe("/visuels/heros/martis/illustrations/asura-king.webp");
+    expect(loneIllustrations.martis?.map((a) => a.name)).toContain("Asura King");
   });
 });
