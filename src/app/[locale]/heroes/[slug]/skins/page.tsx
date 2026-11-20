@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "@/components/link";
 import { HeroSubLayout } from "@/components/hero-side-card";
-import { PageHeader } from "@/components/ui";
+import { heroArt } from "@/components/hero-art";
+import { ENTRANCE, PosterHeader } from "@/components/poster-header";
+import { RarityBlade, RarityGem } from "@/components/skins/skin-tile";
 import { LOCALE_HTML, LOCALE_INTL, type Locale } from "@/i18n/config";
 import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT, type T } from "@/i18n/translations";
@@ -98,6 +100,8 @@ export default async function HeroSkinsPage({ params }: Params) {
       })
       .join(" / ");
 
+  // The poster: the most recent artwork, otherwise the hero's own.
+  const poster = (recent && g.skins.find((s) => s === recent)?.illustration) || heroArt(h.slug) || g.others[0]?.illustration || null;
   const byAvailability = new Map<string, number>();
   for (const s of g.skins) if (s.availability) byAvailability.set(s.availability, (byAvailability.get(s.availability) ?? 0) + 1);
 
@@ -144,8 +148,10 @@ export default async function HeroSkinsPage({ params }: Params) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(data) }} />
-      <PageHeader
+      <PosterHeader
         title={title}
+        art={poster}
+        tall
         lead={t("pages.heroSkins.lead", { name: h.name, n: g.total })}
         crumbs={[
           { name: t("nav.heroes.label"), href: "/heroes" },
@@ -156,7 +162,7 @@ export default async function HeroSkinsPage({ params }: Params) {
           },
         ]}
       >
-        <div className="mt-6 space-y-3 text-sm text-chalk-500">
+        <div className="mt-5 space-y-3 text-sm text-chalk-400">
           {byAvailability.size > 0 && (
             <dl className="flex flex-wrap gap-x-5 gap-y-1">
               {[...byAvailability].map(([availability, n]) => (
@@ -172,8 +178,8 @@ export default async function HeroSkinsPage({ params }: Params) {
           )}
           <ul className="flex flex-wrap gap-x-4 gap-y-1.5">
             {presentRarities(g.skins.map((s) => s.rarity)).map((r) => (
-              <li key={r.key} className="flex items-center gap-1.5 text-xs">
-                <span aria-hidden className="size-2.5 border-2" style={{ borderColor: r.color }} />
+              <li key={r.key} className="flex items-center gap-1.5 text-xs text-chalk-300">
+                <RarityGem color={r.color} />
                 {tr("skinRarity", r.key)}
               </li>
             ))}
@@ -184,10 +190,10 @@ export default async function HeroSkinsPage({ params }: Params) {
             </Link>
           </p>
         </div>
-      </PageHeader>
+      </PosterHeader>
 
       <HeroSubLayout slug={slug} locale={locale} current={`/heroes/${slug}/skins`} className="py-10">
-        <ol className="grid gap-6 md:grid-cols-2">
+        <ol className={`grid gap-x-6 gap-y-8 md:grid-cols-2 ${ENTRANCE}`}>
           {g.skins.map((s, i) => {
             const r = rarity(s.rarity);
             const origin = !s.rarity;
@@ -204,7 +210,7 @@ export default async function HeroSkinsPage({ params }: Params) {
                   altPortrait={altPortrait(s.name)}
                 >
                   <p
-                    className={`mt-1 text-xs font-semibold uppercase tracking-wide ${origin ? "text-chalk-500" : ""}`}
+                    className={`font-heading text-sm font-bold uppercase ${origin ? "text-chalk-500" : ""}`}
                     style={origin ? undefined : { color: r.color }}
                   >
                     {tr("skinRarity", r.key)}
@@ -271,9 +277,9 @@ export default async function HeroSkinsPage({ params }: Params) {
 }
 
 /**
- * A skin's card: the illustration in 16/9, the shop portrait as a
- * medallion, a rule in the rarity's color. Without an illustration, the
- * portrait fills the frame.
+ * A skin's card: the illustration in 16/9 with the name on it, the shop
+ * portrait as a medallion, a blade in the rarity's colour along the foot.
+ * Without an illustration, the portrait fills the frame.
  */
 function SkinCard({
   name,
@@ -295,16 +301,16 @@ function SkinCard({
   children: React.ReactNode;
 }) {
   return (
-    <article className="bevel flex h-full flex-col overflow-hidden border border-night-700/70 bg-night-900/60">
-      <div className="relative aspect-video bg-night-800">
+    <article className="group flex h-full flex-col">
+      <div className="bevel relative aspect-video overflow-hidden bg-night-800 transition-[translate] duration-200 group-hover:-translate-y-0.5">
         {illustration ? (
           <Image
             src={illustration}
             alt={altIllustration}
             fill
             preload={first}
-            sizes="(min-width: 1152px) 552px, (min-width: 768px) 50vw, 100vw"
-            className="object-cover object-top"
+            sizes="(min-width: 1280px) 40vw, (min-width: 768px) 50vw, 100vw"
+            className="object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.04]"
           />
         ) : (
           portrait && (
@@ -318,20 +324,20 @@ function SkinCard({
             />
           )
         )}
-        <span aria-hidden className="absolute inset-y-0 left-0 w-1" style={{ background: color }} />
+        <span aria-hidden className="absolute inset-x-0 bottom-0 h-2/3 bg-linear-to-t from-night-950 via-night-950/70 to-transparent" />
         {illustration && portrait && (
-          <span
-            className="bevel-sm absolute bottom-2 right-2 overflow-hidden border-2 bg-night-900"
-            style={{ borderColor: color }}
-          >
+          <span className="bevel-sm absolute right-3 top-3 overflow-hidden bg-night-900 shadow-[0_4px_14px_rgb(0_0_0/0.5)]">
             <Image src={portrait} alt={altPortrait} width={56} height={91} className="block h-[5.7rem] w-14 object-cover" />
+            <RarityBlade color={color} />
           </span>
         )}
+        {/* The name on the art, never under it. */}
+        <h2 className="display-caps absolute inset-x-0 bottom-0 px-4 pb-3.5 text-[clamp(1.9rem,1.3rem+1.8vw,2.9rem)] text-chalk-100 sm:px-5">
+          {name}
+        </h2>
+        <RarityBlade color={color} className="h-1" />
       </div>
-      <div className="flex-1 p-4">
-        <h2 className="font-heading text-xl font-bold text-chalk-100">{name}</h2>
-        {children}
-      </div>
+      <div className="flex-1 px-1 pt-3">{children}</div>
     </article>
   );
 }
@@ -339,7 +345,7 @@ function SkinCard({
 function Info({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div>
-      <dt className="text-xs uppercase tracking-wide text-chalk-500">{label}</dt>
+      <dt className="text-xs text-chalk-500">{label}</dt>
       <dd className="mt-0.5 text-chalk-100">{children}</dd>
     </div>
   );

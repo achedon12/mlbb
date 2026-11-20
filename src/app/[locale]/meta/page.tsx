@@ -4,7 +4,11 @@ import { TrendingDown, TrendingUp } from "lucide-react";
 import Link from "@/components/link";
 import { FreshnessLine } from "@/components/freshness";
 import { HeroPortrait } from "@/components/hero-portrait";
-import { BadgeTier, PageHeader, SectionTitle } from "@/components/ui";
+import { ActionLink, BadgeTier, SectionTitle } from "@/components/ui";
+import { HeroTile } from "@/components/hero-tile";
+import { DexSays } from "@/components/mascot";
+import { MetaPoster, artOf } from "@/components/meta/meta-poster";
+import { PosterHero } from "@/components/meta/poster-hero";
 import { allHeroes, heroesBySlug } from "@/lib/data";
 import { LANES } from "@/lib/draft";
 import { trendsOf } from "@/lib/evolution";
@@ -101,9 +105,9 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 }
 
 const COLOR: Record<AdjustmentDirection, string> = {
-  buff: "text-emerald-400",
-  nerf: "text-blood-500",
-  adjust: "text-azure-400",
+  buff: "text-azure-400",
+  nerf: "text-blood-400",
+  adjust: "text-chalk-300",
 };
 
 export default async function MetaReportPage({ params }: Params) {
@@ -112,6 +116,7 @@ export default async function MetaReportPage({ params }: Params) {
   const { week, movers, tiers, banned, played, patch, byLane } = READING;
   const date = longDate(locale);
   const threshold = new Intl.NumberFormat(locale, { minimumFractionDigits: 1 }).format(THRESHOLD_NOTABLE);
+  const one = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   const name = (slug: string) => heroesBySlug.get(slug)?.name ?? slug;
   const first = rankingFull[0];
   const rise = week.rises[0];
@@ -162,51 +167,81 @@ export default async function MetaReportPage({ params }: Params) {
     about: { "@type": "VideoGame", name: "Mobile Legends: Bang Bang", publisher: "Moonton" },
   };
 
+  // The poster: the week's biggest riser, its gain as the one big figure; the
+  // head of the tier list when nobody moved.
+  const riser = rise ? heroesBySlug.get(rise.slug) : undefined;
+  const ranked = (slug: string) => rankingFull.find((e) => e.hero.slug === slug);
+  const posterHero = riser ?? first?.hero;
+  const feature =
+    riser && rise ? (
+      <PosterHero
+        href={`/heroes/${riser.slug}`}
+        kicker={t("pages.meta.poster.kicker")}
+        name={riser.name}
+        tier={ranked(riser.slug)?.tier}
+        figure={formatGap(rise.variation.gap, locale)}
+        unit={` ${t("counters.pts")}`}
+        tone="ally"
+        caption={t("pages.meta.poster.caption", { days: rise.variation.days })}
+        second={{ value: one.format(rise.variation.current), caption: t("pages.heroDetail.stat.winRate") }}
+        label={`${riser.name} : ${describeGap(t, locale, rise.variation.gap, rise.variation.days)}, ${percentage(locale, rise.variation.current)}`}
+      />
+    ) : first ? (
+      <PosterHero
+        href={`/heroes/${first.hero.slug}`}
+        kicker={t("pages.tierList.poster.kicker")}
+        name={first.hero.name}
+        tier={first.tier}
+        figure={one.format(first.winRate)}
+        caption={t("pages.heroDetail.stat.winRate")}
+        label={`${first.hero.name}, ${t("home.winRate", { value: percentage(locale, first.winRate) })}`}
+      />
+    ) : null;
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
       />
-      <PageHeader
+      <MetaPoster
         title={t("pages.meta.title", { date })}
         lead={t("pages.meta.lead", { date, n: rankingFull.length, v: version() })}
+        art={posterHero ? artOf(posterHero.slug) : null}
+        portrait={posterHero?.images.portrait ?? null}
+        feature={feature}
       >
         <FreshnessLine locale={locale} className="mt-3" />
         {summary.length > 0 && (
-          <ul className="mt-3 max-w-2xl space-y-1 text-sm leading-snug text-chalk-300 sm:space-y-1.5 sm:leading-relaxed">
+          <ul className="mt-4 max-w-xl space-y-1.5 text-sm leading-snug text-chalk-300 sm:leading-relaxed">
             {summary.map((sentence) => (
-              <li key={sentence} className="flex gap-2">
-                <span aria-hidden className="text-gold-400">
-                  •
-                </span>
+              <li key={sentence} className="flex gap-2.5">
+                <span aria-hidden className="mt-[0.45em] h-[3px] w-3 shrink-0 -skew-x-[30deg] bg-gold-400" />
                 {sentence}
               </li>
             ))}
           </ul>
         )}
-      </PageHeader>
+      </MetaPoster>
 
-      <div className="page-wrap space-y-8 pb-10 pt-5 sm:space-y-16">
+      <div className="page-wrap space-y-14 pb-10 pt-10 sm:space-y-20 sm:pt-14">
         {/* ── Risers and fallers ─────────────────────────────────────────── */}
         <section>
           <SectionTitle lead={t("home.trends.lead", { threshold: threshold })}>{t("home.trends.title")}</SectionTitle>
-          <div className="grid gap-5 md:grid-cols-2 md:gap-8">
-            <Moves
+          <div className="grid gap-x-10 gap-y-8 lg:grid-cols-2">
+            <MoveTiles
               title={t("home.trends.rise")}
               empty={t("home.trends.noRise")}
               moves={week.rises}
               rise
-              unit={t("home.winPercent")}
               locale={locale}
               t={t}
             />
-            <Moves
+            <MoveTiles
               title={t("home.trends.fall")}
               empty={t("home.trends.noFall")}
               moves={week.drops}
               rise={false}
-              unit={t("home.winPercent")}
               locale={locale}
               t={t}
             />
@@ -218,10 +253,10 @@ export default async function MetaReportPage({ params }: Params) {
           <SectionTitle id="movers-title" lead={t("pages.meta.movers.lead", { threshold })}>
             {t("pages.meta.movers.title")}
           </SectionTitle>
-          <div className="grid gap-5 md:grid-cols-2 md:gap-8">
+          <div className="grid gap-x-10 gap-y-8 md:grid-cols-2">
             {movers.map(({ measure, rises, drops }) => (
               <div key={measure} className="space-y-4">
-                <h3 className="font-heading text-lg font-bold text-chalk-100">{t(`pages.meta.movers.${measure}`)}</h3>
+                <h3 className="type-subtitle text-chalk-100">{t(`pages.meta.movers.${measure}`)}</h3>
                 <Moves
                   title={t("home.trends.rise")}
                   empty={t("home.trends.noRise")}
@@ -230,7 +265,6 @@ export default async function MetaReportPage({ params }: Params) {
                   unit={t(`pages.meta.movers.unit.${measure}`)}
                   locale={locale}
                   t={t}
-                  nested
                 />
                 <Moves
                   title={t("home.trends.fall")}
@@ -240,7 +274,6 @@ export default async function MetaReportPage({ params }: Params) {
                   unit={t(`pages.meta.movers.unit.${measure}`)}
                   locale={locale}
                   t={t}
-                  nested
                 />
               </div>
             ))}
@@ -250,7 +283,7 @@ export default async function MetaReportPage({ params }: Params) {
         {/* ── Tier changes ───────────────────────────────────────────────── */}
         <section>
           <SectionTitle lead={t("pages.meta.tiers.lead")}>{t("pages.meta.tiers.title")}</SectionTitle>
-          <div className="grid gap-5 md:grid-cols-2 md:gap-8">
+          <div className="grid gap-x-10 gap-y-8 md:grid-cols-2">
             <Tiers
               title={t("pages.meta.tiers.promotions")}
               empty={t("pages.meta.tiers.noPromotion")}
@@ -268,17 +301,31 @@ export default async function MetaReportPage({ params }: Params) {
           </div>
         </section>
 
-        {/* ── Bans and picks ─────────────────────────────────────────────── */}
+        {/* ── Bans and picks: the bans as portraits, the picks as lines ─── */}
         <section>
           <SectionTitle lead={t("pages.meta.bansPicks.lead", { date })}>
             {t("pages.meta.bansPicks.title")}
           </SectionTitle>
-          <div className="grid gap-5 md:grid-cols-2 md:gap-8">
-            <Ranking
-              title={t("pages.meta.bansPicks.banned")}
-              entries={banned}
-              value={(e) => percentage(locale, e.banRate)}
-            />
+          <div className="grid gap-x-10 gap-y-8 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
+            <div className="min-w-0">
+              <h3 className="type-subtitle text-chalk-100">{t("pages.meta.bansPicks.banned")}</h3>
+              <ol className="mt-4 grid grid-cols-3 gap-2 sm:grid-cols-5 sm:gap-3">
+                {banned.map((e, i) => (
+                  <li key={e.hero.slug} className="min-w-0">
+                    <HeroTile
+                      href={`/heroes/${e.hero.slug}`}
+                      name={e.hero.name}
+                      portrait={e.hero.images.portrait ?? e.hero.images.icon}
+                      rank={i + 1}
+                      figure={percentage(locale, e.banRate)}
+                      tone="enemy"
+                      label={`${t("pages.heroDetail.stat.banRate")} ${percentage(locale, e.banRate)}`}
+                      sizes="(min-width: 1024px) 11vw, (min-width: 640px) 18vw, 31vw"
+                    />
+                  </li>
+                ))}
+              </ol>
+            </div>
             <Ranking
               title={t("pages.meta.bansPicks.played")}
               entries={played}
@@ -300,7 +347,7 @@ export default async function MetaReportPage({ params }: Params) {
             >
               {t("pages.meta.patch.title", { v: patchCurrent.version })}
             </SectionTitle>
-            <div className="space-y-6">
+            <div className="space-y-7">
               {patchCurrent.newHeroes.length > 0 && (
                 <HeroGroup title={t("pages.meta.patch.newcomers")} list={patchCurrent.newHeroes} color="text-gold-400" />
               )}
@@ -315,61 +362,78 @@ export default async function MetaReportPage({ params }: Params) {
                 ) : null,
               )}
               {patchCurrent.newHeroes.length === 0 && ADJUSTMENT_DIRECTIONS.every((s) => patch[s].length === 0) && (
-                <p className="text-sm text-chalk-500">{t("pages.meta.patch.none")}</p>
+                <DexSays pose="surpris" height={96}>
+                  <p className="text-sm">{t("pages.meta.patch.none")}</p>
+                </DexSays>
               )}
             </div>
           </section>
         )}
 
-        {/* ── Best heroes per lane ───────────────────────────────────────── */}
+        {/* ── Best heroes per lane: the first as a portrait, the next two as lines ── */}
         <section>
           <SectionTitle lead={t("pages.meta.lanes.lead")}>{t("pages.meta.lanes.title")}</SectionTitle>
-          <div className="grid grid-cols-2 gap-2 sm:grid-cols-2 sm:gap-4 lg:grid-cols-5">
-            {byLane.map(({ lane, entries }) => (
-              <div key={lane} className="bevel flex flex-col border border-night-700/70 bg-night-900/60 p-3 sm:p-4">
-                <h3 className="flex items-center gap-1.5 font-heading font-bold text-gold-400 sm:text-lg">
-                  {/* The lane is named beside it: the icon is decorative. */}
-                  {imageLane(lane) && (
-                    <Image src={imageLane(lane)!} alt="" width={22} height={22} className="size-5 shrink-0 object-contain" />
-                  )}
-                  {t(`lanes.${lane}`)}
-                </h3>
-                <ol className="mt-2 flex-1 space-y-1.5 sm:mt-3 sm:space-y-2.5">
-                  {entries.map((e) => (
-                    <li key={e.hero.slug}>
-                      <Link href={`/heroes/${e.hero.slug}`} className="group flex items-center gap-2.5">
-                        <HeroPortrait
-                          source={e.hero.images.icon ?? e.hero.images.portrait}
-                          name={e.hero.name}
-                          size="small"
-                          decorative
+          <div className="grid grid-cols-2 gap-x-3 gap-y-8 sm:grid-cols-3 sm:gap-x-5 lg:grid-cols-5">
+            {byLane.map(({ lane, entries }) => {
+              const [lead, ...rest] = entries;
+              return (
+                <div key={lane} className="flex min-w-0 flex-col">
+                  <h3 className="flex items-center gap-2 font-heading text-lg font-bold uppercase text-gold-400">
+                    {/* The lane is named beside it: the icon is decorative. */}
+                    {imageLane(lane) && (
+                      <Image src={imageLane(lane)!} alt="" width={22} height={22} className="size-5 shrink-0 object-contain" />
+                    )}
+                    {t(`lanes.${lane}`)}
+                  </h3>
+                  <ol className="mt-3 flex-1 space-y-2">
+                    {lead && (
+                      <li>
+                        <HeroTile
+                          href={`/heroes/${lead.hero.slug}`}
+                          name={lead.hero.name}
+                          portrait={lead.hero.images.portrait ?? lead.hero.images.icon}
+                          figure={percentage(locale, lead.winRate)}
+                          label={t("pages.meta.lanes.row", { tier: lead.tier, winRate: percentage(locale, lead.winRate) })}
+                          sizes="(min-width: 1024px) 17vw, (min-width: 640px) 30vw, 46vw"
                         />
-                        <span className="min-w-0 flex-1">
-                          <span className="block truncate font-heading text-sm font-bold leading-tight text-chalk-100 transition-colors group-hover:text-gold-400 sm:text-base">
-                            {e.hero.name}
+                      </li>
+                    )}
+                    {rest.map((e) => (
+                      <li key={e.hero.slug}>
+                        <Link href={`/heroes/${e.hero.slug}`} className="group flex items-center gap-2.5 py-0.5">
+                          <HeroPortrait
+                            source={e.hero.images.icon ?? e.hero.images.portrait}
+                            name={e.hero.name}
+                            size="small"
+                            decorative
+                          />
+                          <span className="min-w-0 flex-1">
+                            <span className="block truncate display-caps text-base text-chalk-100 transition-colors group-hover:text-gold-300">
+                              {e.hero.name}
+                            </span>
+                            <span className="block text-xs leading-tight text-chalk-500">
+                              {t("pages.meta.lanes.row", { tier: e.tier, winRate: percentage(locale, e.winRate) })}
+                            </span>
                           </span>
-                          <span className="block text-xs leading-tight text-chalk-500">
-                            {t("pages.meta.lanes.row", { tier: e.tier, winRate: percentage(locale, e.winRate) })}
-                          </span>
-                        </span>
-                      </Link>
-                    </li>
-                  ))}
-                </ol>
-                <Link
-                  href={pathFilter({ type: "lane", value: lane })}
-                  className="mt-3 text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500"
-                >
-                  {t("pages.meta.lanes.see", { lane: t(`pages.tierList.laneSeo.${lane}`) })} →
-                </Link>
-              </div>
-            ))}
+                        </Link>
+                      </li>
+                    ))}
+                  </ol>
+                  <ActionLink href={pathFilter({ type: "lane", value: lane })} className="mt-3 text-sm">
+                    {t("pages.meta.lanes.see", { lane: t(`pages.tierList.laneSeo.${lane}`) })}
+                  </ActionLink>
+                </div>
+              );
+            })}
           </div>
         </section>
 
-        <p className="border-t border-night-800 pt-5 text-xs leading-relaxed text-chalk-500">
-          {t("pages.meta.method", { date, threshold: threshold })}
-        </p>
+        <div>
+          <div aria-hidden className="eclat-rule mb-8" />
+          <DexSays pose="reflexion" height={110}>
+            <p className="text-sm leading-relaxed">{t("pages.meta.method", { date, threshold: threshold })}</p>
+          </DexSays>
+        </div>
       </div>
     </>
   );
@@ -382,21 +446,72 @@ function HeroRow({ slug, detail, children }: { slug: string; detail?: string; ch
   return (
     <Link
       href={`/heroes/${slug}`}
-      className="bevel-sm group flex items-center gap-2.5 border border-night-700/70 bg-night-900/60 p-2 transition-colors hover:border-gold-500/60"
+      className="bevel-sm group flex items-center gap-3 bg-night-900 p-2 pr-3 transition-[background-color,translate] duration-200 hover:-translate-y-0.5 hover:bg-night-850"
     >
       <HeroPortrait source={h.images.icon ?? h.images.portrait} name={h.name} size="icon" decorative />
       <span className="min-w-0 flex-1">
-        <span className="block truncate font-heading font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
+        <span className="block truncate display-caps text-lg text-chalk-100 transition-colors group-hover:text-gold-300">
           {h.name}
         </span>
-        {detail && <span className="block text-xs text-chalk-500">{detail}</span>}
+        {detail && <span className="mt-0.5 block text-xs text-chalk-500">{detail}</span>}
       </span>
       {children}
     </Link>
   );
 }
 
-/** Risers or fallers: rate seven days ago and today, gap in points. */
+/** The week's win rate risers or fallers, as portraits: the gap in points is the figure. */
+function MoveTiles({
+  title,
+  empty,
+  moves,
+  rise,
+  locale,
+  t,
+}: {
+  title: string;
+  empty: string;
+  moves: Motion[];
+  rise: boolean;
+  locale: Locale;
+  t: T;
+}) {
+  const Icon = rise ? TrendingUp : TrendingDown;
+  return (
+    <div className="min-w-0">
+      <h3 className={cn("type-subtitle flex items-center gap-2", rise ? "text-azure-400" : "text-blood-400")}>
+        <Icon size={20} aria-hidden />
+        {title}
+      </h3>
+      {moves.length === 0 ? (
+        <DexSays pose="surpris" height={84} className="mt-4">
+          <p className="text-sm">{empty}</p>
+        </DexSays>
+      ) : (
+        <ol className="mt-4 grid grid-cols-3 gap-2 sm:grid-cols-5 sm:gap-3">
+          {moves.map(({ slug, variation: v }) => {
+            const h = heroesBySlug.get(slug);
+            return (
+              <li key={slug} className="min-w-0">
+                <HeroTile
+                  href={`/heroes/${slug}`}
+                  name={h?.name ?? slug}
+                  portrait={h?.images.portrait ?? h?.images.icon ?? null}
+                  figure={formatGap(v.gap, locale)}
+                  tone={rise ? "ally" : "enemy"}
+                  label={`${describeGap(t, locale, v.gap, v.days)} · ${percentage(locale, v.current)}`}
+                  sizes="(min-width: 1024px) 9vw, (min-width: 640px) 18vw, 31vw"
+                />
+              </li>
+            );
+          })}
+        </ol>
+      )}
+    </div>
+  );
+}
+
+/** Ban or pick risers or fallers: rate seven days ago and today, gap in points. */
 function Moves({
   title,
   empty,
@@ -405,50 +520,38 @@ function Moves({
   unit,
   locale,
   t,
-  nested = false,
 }: {
   title: string;
   empty: string;
   moves: Motion[];
   rise: boolean;
-  /** Unit after a row's two rates: "% win rate", "% ban rate". */
+  /** Unit after a row's two rates: "% ban rate". */
   unit: string;
   locale: Locale;
   t: T;
-  /** Under a rate's own heading: a smaller, fourth-level title. */
-  nested?: boolean;
 }) {
   const Icon = rise ? TrendingUp : TrendingDown;
-  const Heading = nested ? "h4" : "h3";
   const percent = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   return (
     <div>
-      <Heading
+      <h4
         className={cn(
-          "mb-2 flex items-center gap-2 font-heading font-bold",
-          nested ? "text-sm uppercase tracking-wide" : "text-lg",
-          rise ? "text-emerald-400" : "text-blood-500",
+          "mb-2 flex items-center gap-2 font-heading text-base font-bold",
+          rise ? "text-azure-400" : "text-blood-400",
         )}
       >
-        <Icon size={nested ? 16 : 18} aria-hidden />
+        <Icon size={16} aria-hidden />
         {title}
-      </Heading>
+      </h4>
       {moves.length === 0 ? (
         <p className="text-sm text-chalk-500">{empty}</p>
       ) : (
         <ol className="space-y-1.5">
           {moves.map(({ slug, variation: v }) => (
             <li key={slug}>
-              <HeroRow
-                slug={slug}
-                detail={`${percent.format(v.before)} → ${percent.format(v.current)} ${unit}`}
-              >
-                <span
-                  className={cn("shrink-0 font-semibold tabular-nums", rise ? "text-emerald-400" : "text-blood-500")}
-                >
-                  <span aria-hidden>
-                    {formatGap(v.gap, locale)} {t("counters.pts")}
-                  </span>
+              <HeroRow slug={slug} detail={`${percent.format(v.before)} → ${percent.format(v.current)} ${unit}`}>
+                <span className={cn("score shrink-0 text-2xl", rise ? "text-azure-400" : "text-blood-400")}>
+                  <span aria-hidden>{formatGap(v.gap, locale)}</span>
                   <span className="sr-only">{describeGap(t, locale, v.gap, v.days)}</span>
                 </span>
               </HeroRow>
@@ -476,25 +579,22 @@ function Tiers({
 }) {
   const Icon = rise ? TrendingUp : TrendingDown;
   return (
-    <div>
-      <h3
-        className={cn(
-          "mb-2 flex items-center gap-2 font-heading text-lg font-bold",
-          rise ? "text-emerald-400" : "text-blood-500",
-        )}
-      >
-        <Icon size={18} aria-hidden />
+    <div className="min-w-0">
+      <h3 className={cn("type-subtitle mb-3 flex items-center gap-2", rise ? "text-azure-400" : "text-blood-400")}>
+        <Icon size={20} aria-hidden />
         {title}
       </h3>
       {changes.length === 0 ? (
-        <p className="text-sm text-chalk-500">{empty}</p>
+        <DexSays pose="surpris" height={84}>
+          <p className="text-sm">{empty}</p>
+        </DexSays>
       ) : (
         <ol className="space-y-1.5">
           {changes.map((c) => (
             <li key={c.slug}>
               <HeroRow slug={c.slug}>
-                <span aria-hidden className="flex shrink-0 items-center gap-1.5">
-                  <BadgeTier tier={c.before} />
+                <span aria-hidden className="flex shrink-0 items-center gap-2">
+                  <BadgeTier tier={c.before} size="sm" className="opacity-60" />
                   <span className="text-chalk-500">→</span>
                   <BadgeTier tier={c.after} />
                 </span>
@@ -508,7 +608,7 @@ function Tiers({
   );
 }
 
-/** The top ones by a rate (ban, pick), with the value. */
+/** The top ones by a rate (pick), with the value. */
 function Ranking({
   title,
   entries,
@@ -519,14 +619,19 @@ function Ranking({
   value: (e: RankedEntry) => string;
 }) {
   return (
-    <div>
-      <h3 className="mb-2 font-heading text-lg font-bold text-chalk-100">{title}</h3>
-      <ol className="space-y-1.5">
-        {entries.map((e) => (
-          <li key={e.hero.slug}>
-            <HeroRow slug={e.hero.slug}>
-              <span className="shrink-0 font-semibold tabular-nums text-gold-400">{value(e)}</span>
-            </HeroRow>
+    <div className="min-w-0">
+      <h3 className="type-subtitle text-chalk-100">{title}</h3>
+      <ol className="mt-4 space-y-1.5">
+        {entries.map((e, i) => (
+          <li key={e.hero.slug} className="flex items-center gap-3">
+            <span aria-hidden className="score score-outline w-5 shrink-0 text-right text-xl">
+              {i + 1}
+            </span>
+            <span className="min-w-0 flex-1">
+              <HeroRow slug={e.hero.slug}>
+                <span className="score shrink-0 text-2xl">{value(e)}</span>
+              </HeroRow>
+            </span>
           </li>
         ))}
       </ol>
@@ -546,8 +651,8 @@ function HeroGroup({
 }) {
   return (
     <div>
-      <h3 className={cn("font-heading text-lg font-bold", color)}>
-        {title} <span className="text-sm font-medium text-chalk-500">{list.length}</span>
+      <h3 className={cn("type-subtitle", color)}>
+        {title} <span className="score score-outline ml-1 text-xl">{list.length}</span>
       </h3>
       <ul className="mt-3 flex flex-wrap gap-2">
         {list.map((a) => {
@@ -557,17 +662,19 @@ function HeroGroup({
               <HeroPortrait
                 source={h?.images.icon ?? h?.images.portrait ?? null}
                 name={h?.name ?? a.name}
-                size="micro"
+                size="small"
                 decorative
               />
-              <span className="font-medium text-chalk-100">{h?.name ?? a.name}</span>
+              <span className="display-caps text-base text-chalk-100 transition-colors group-hover:text-gold-300">
+                {h?.name ?? a.name}
+              </span>
             </>
           );
-          const classes = "bevel-sm flex items-center gap-2 border border-night-700/70 bg-night-900/60 py-1 pl-1 pr-2.5 text-sm";
+          const classes = "bevel-sm group flex items-center gap-2 bg-night-900 py-1 pl-1 pr-3";
           return (
             <li key={a.slug}>
               {h ? (
-                <Link href={`/heroes/${a.slug}`} className={cn(classes, "transition-colors hover:border-gold-500/60")}>
+                <Link href={`/heroes/${a.slug}`} className={cn(classes, "transition-[background-color,translate] duration-200 hover:-translate-y-0.5 hover:bg-night-850")}>
                   {content}
                 </Link>
               ) : (

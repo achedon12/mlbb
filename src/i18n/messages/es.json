@@ -600,7 +600,11 @@
       "leadRole": "Los {n} {plural} del juego, rol principal o secundario, clasificados con la misma regla que la tier list general: tasas de victoria y de baneo, todos los rangos juntos.",
       "filterNote": "Clasificación con todos los rangos. Las listas por rango, en cambio, reúnen todas las líneas y todos los roles.",
       "seeRole": "Todos los {plural} y sus líneas",
-      "openTier": "Mostrar los {n} héroes del nivel {p}"
+      "openTier": "Mostrar los {n} héroes del nivel {p}",
+      "poster": {
+        "kicker": "N.º 1 de esta clasificación",
+        "label": "{name}, n.º 1 de esta clasificación: tier {tier}, {win} de victorias, {ban} de baneos"
+      }
     },
     "patchNotes": {
       "title": "Notas del parche",
@@ -1430,6 +1434,10 @@
           "banRate": "% de baneos",
           "pickRate": "% de selecciones"
         }
+      },
+      "poster": {
+        "kicker": "Mayor subida de la semana",
+        "caption": "puntos de victoria en {days} días"
       }
     },
     "statistics": {
@@ -3596,7 +3604,10 @@
       "notesTitle": "Notas del autor",
       "backToHero": "Todas las builds para {hero}",
       "statsTitle": "Estadísticas calculadas",
-      "statsMissing": "Estadísticas no disponibles para este héroe."
+      "statsMissing": "Estadísticas no disponibles para este héroe.",
+      "poster": {
+        "kicker": "El héroe con más builds"
+      }
     },
     "damageCalculator": {
       "title": "Calculadora de daños",

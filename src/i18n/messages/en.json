@@ -600,7 +600,11 @@
       "leadRole": "All {n} {plural} in the game, main or secondary role, ranked by the same rule as the main tier list: win and ban rates, all ranks combined.",
       "filterNote": "Ranking across all ranks. The by-rank lists, for their part, cover every lane and every role.",
       "seeRole": "All {plural} and their lanes",
-      "openTier": "Show the {n} heroes in tier {p}"
+      "openTier": "Show the {n} heroes in tier {p}",
+      "poster": {
+        "kicker": "No. 1 in this ranking",
+        "label": "{name}, no. 1 in this ranking: tier {tier}, {win} win rate, {ban} ban rate"
+      }
     },
     "patchNotes": {
       "title": "Patch notes",
@@ -1430,6 +1434,10 @@
           "banRate": "% banned",
           "pickRate": "% picked"
         }
+      },
+      "poster": {
+        "kicker": "Biggest riser of the week",
+        "caption": "win rate points in {days} days"
       }
     },
     "statistics": {
@@ -3596,7 +3604,10 @@
       "notesTitle": "Author's notes",
       "backToHero": "All {hero} builds",
       "statsTitle": "Computed stats",
-      "statsMissing": "Stats unavailable for this hero."
+      "statsMissing": "Stats unavailable for this hero.",
+      "poster": {
+        "kicker": "Most built hero"
+      }
     },
     "damageCalculator": {
       "title": "Damage calculator",

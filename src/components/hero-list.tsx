@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import Image from "next/image";
 import { HeroCard, type HeroPreview } from "@/components/hero-card";
+import { DexSays } from "@/components/mascot";
 import { Pager } from "@/components/pager";
 import type { Lane, Role } from "@/lib/types";
 import { useT } from "@/i18n/provider";
@@ -11,7 +13,7 @@ import { FilterGroup, Chip } from "@/components/chip";
 import { ChipActive, FilterBar } from "@/components/filter-bar";
 import { imageLane, imageRole } from "@/lib/emblems";
 import { pageHref, paging, pathWithoutPage, slicePage, SIZE_CARDS } from "@/lib/pager";
-import { keySearch } from "@/lib/utils";
+import { cn, keySearch } from "@/lib/utils";
 import { laneFromParam } from "@/lib/draft";
 
 const ROLES: Role[] = ["Tank", "Fighter", "Assassin", "Mage", "Marksman", "Support"];
@@ -38,7 +40,16 @@ const RANK_TIER: Record<string, number> = { "S+": 0, S: 1, A: 2, B: 3, C: 4 };
  * change of filter starts again at the first page, since the fourth page of
  * eleven results holds nothing.
  */
-export function HeroList({ heroes, page: pageServer = 1 }: { heroes: HeroPreview[]; page?: number }) {
+export function HeroList({
+  heroes,
+  page: pageServer = 1,
+  roleArt = {},
+}: {
+  heroes: HeroPreview[];
+  page?: number;
+  /** A portrait per role (its strongest hero), the art of the role filter. */
+  roleArt?: Partial<Record<Role, string>>;
+}) {
   const t = useT();
   const [search, setSearch] = useState("");
   const [role, setRole] = useState<Role | null>(null);
@@ -131,13 +142,19 @@ export function HeroList({ heroes, page: pageServer = 1 }: { heroes: HeroPreview
             {/* Grid heading for screen readers: the cards carry h3s. */}
             <h2 className="sr-only">{t("pages.heroesList.list")}</h2>
             {slice.length > 0 ? (
-              <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,16rem),1fr))] gap-3">
-                {slice.map((h) => (
-                  <HeroCard key={h.slug} hero={h} />
+              // Keyed on the view: a new filter, sort or page brings the grid in again, briefly.
+              <div
+                key={`${role}-${lane}-${sort}-${view.page}`}
+                className="grid grid-cols-2 gap-2.5 motion-safe:animate-[rise-in_0.35s_ease-out_both] min-[560px]:grid-cols-3 sm:gap-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
+              >
+                {slice.map((h, i) => (
+                  <HeroCard key={h.slug} hero={h} priority={i < 6} />
                 ))}
               </div>
             ) : (
-              <p className="mt-10 text-chalk-500">{t("pages.heroesList.none")}</p>
+              <DexSays pose="surpris" height={130} className="mt-10">
+                <p>{t("pages.heroesList.none")}</p>
+              </DexSays>
             )}
             <Pager paging={view} href={(n) => pageHref("/heroes", request, n)} onNavigate={setPage} t={t} />
           </>
@@ -167,13 +184,12 @@ export function HeroList({ heroes, page: pageServer = 1 }: { heroes: HeroPreview
           </span>
         }
       >
-        <Filters
+        <RoleFilters
           legend={t("pages.heroesList.role")}
-          values={ROLES}
           active={role}
           onChange={filter(setRole)}
           label={(r) => t(`roles.${r}`)}
-          emblem={imageRole}
+          art={roleArt}
         />
         <Filters
           legend={t("pages.heroesList.position")}
@@ -224,6 +240,90 @@ function Filters<T extends string>({
           {label(v)}
         </Chip>
       ))}
+    </FilterGroup>
+  );
+}
+
+/**
+ * The role filter as illustrated chips: each role is a small bevelled
+ * panel with the portrait of its strongest hero and the game's emblem; the
+ * active one turns gold with the éclat under it. Same buttons as the other
+ * chips (`aria-pressed`, the role's name as their only text), so the filter
+ * reads and behaves exactly like them.
+ */
+function RoleFilters({
+  legend,
+  active,
+  onChange,
+  label,
+  art,
+}: {
+  legend: string;
+  active: Role | null;
+  onChange: (v: Role | null) => void;
+  label: (v: Role) => string;
+  art: Partial<Record<Role, string>>;
+}) {
+  return (
+    <FilterGroup legend={legend} className="xl:grid xl:grid-cols-3 xl:gap-1.5 xl:[&>.filter-legend]:col-span-3">
+      {ROLES.map((r) => {
+        const on = active === r;
+        const emblem = imageRole(r);
+        const portrait = art[r];
+        return (
+          <button
+            key={r}
+            type="button"
+            aria-pressed={on}
+            onClick={() => onChange(on ? null : r)}
+            className={cn(
+              "eclat-under group relative h-14 w-[6.5rem] overflow-hidden transition-[translate] duration-200 hover:-translate-y-0.5 active:translate-y-px xl:h-[4.5rem] xl:w-auto",
+              on && "is-active",
+            )}
+          >
+            <span className={cn("bevel-sm absolute inset-0 overflow-hidden", on ? "bg-gold-400" : "bg-night-800")}>
+              {portrait && (
+                <Image
+                  src={portrait}
+                  alt=""
+                  width={80}
+                  height={130}
+                  className={cn(
+                    "absolute -right-2 top-0 h-[150%] w-auto object-cover object-top transition-[transform,opacity] duration-300 group-hover:scale-[1.06]",
+                    on ? "opacity-45 mix-blend-multiply" : "opacity-55 group-hover:opacity-80",
+                  )}
+                />
+              )}
+              <span
+                aria-hidden
+                className={cn(
+                  "absolute inset-0 bg-linear-to-r",
+                  on ? "from-gold-400 via-gold-400/70 to-transparent" : "from-night-800 via-night-800/80 to-transparent",
+                )}
+              />
+            </span>
+            <span className="relative flex h-full flex-col items-start justify-end gap-0.5 px-2 pb-1.5">
+              {emblem && (
+                <Image
+                  src={emblem}
+                  alt=""
+                  width={22}
+                  height={22}
+                  className="size-5 object-contain xl:size-[1.375rem]"
+                />
+              )}
+              <span
+                className={cn(
+                  "font-heading text-sm font-bold uppercase leading-none xl:text-[0.8rem]",
+                  on ? "text-night-950" : "text-chalk-100 group-hover:text-gold-300",
+                )}
+              >
+                {label(r)}
+              </span>
+            </span>
+          </button>
+        );
+      })}
     </FilterGroup>
   );
 }

@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { WikiCredit } from "@/components/wiki-credit";
 import Link from "@/components/link";
 import { LorePairCard } from "@/components/lore-pair";
-import { HeroPortrait } from "@/components/hero-portrait";
-import { PageHeader, SectionTitle } from "@/components/ui";
+import { ENTRANCE, PosterHeader } from "@/components/poster-header";
+import { heroArt } from "@/components/hero-art";
+import { regionFaces } from "@/components/lore/lore-art";
+import { Score, SectionTitle } from "@/components/ui";
 import type { Locale } from "@/i18n/config";
 import { releaseDate, heroLabel } from "@/i18n/hero-data";
 import { heroListData, metaPage, notFoundMetadata } from "@/i18n/seo";
@@ -73,6 +76,7 @@ export default async function LoreRegionPage({ params }: Params) {
   const nameRegion = (name: string) => heroLabel(t, "region", name)!;
   const name = nameRegion(r.name);
   const summary = summaryRegion(r, locale);
+  const faces = regionFaces(r);
   const labelOf = (slug: string) => {
     const x = regionByKey.get(regionOf(slug) ?? "");
     return x ? nameRegion(x.name) : null;
@@ -156,53 +160,85 @@ export default async function LoreRegionPage({ params }: Params) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
-      <PageHeader
+      <PosterHeader
         title={name}
         lead={t("pages.lore.region.lead", { region: name })}
         crumbs={[
           { name: t("pages.lore.crumb"), href: "/lore" },
           { name, siblings: regionsLore.map((x) => ({ name: nameRegion(x.name), href: `/lore/${x.key}` })) },
         ]}
+        art={faces.length > 2 ? faces.slice(0, 5).map((f) => f.art) : (faces[0]?.art ?? null)}
+        tall
+        aside={
+          <p aria-hidden className="flex items-end gap-3 lg:flex-col lg:items-end lg:gap-1">
+            <Score value={r.heroes.length} className="text-[clamp(4.5rem,2.6rem+5vw,8rem)]" />
+            <span className="pb-2 font-heading text-base font-bold uppercase text-chalk-300 lg:pb-0">
+              {t("nav.heroes.label")}
+            </span>
+          </p>
+        }
       />
 
       <div className="page-wrap space-y-16 py-12">
         <section id="overview">
           <SectionTitle>{t("pages.lore.region.inBriefTitle")}</SectionTitle>
-          <ul className="max-w-3xl list-disc space-y-2 pl-5 leading-relaxed text-chalk-300 marker:text-gold-400">
+          <ul className="max-w-3xl space-y-3 leading-relaxed text-chalk-300">
             {facts.map((f) => (
-              <li key={f}>{f}</li>
+              <li key={f} className="flex gap-3">
+                <span aria-hidden className="eclat mt-2.5 h-[3px] w-5 shrink-0" />
+                <span>{f}</span>
+              </li>
             ))}
           </ul>
         </section>
 
-        <section id="heroes">
+        <section id="heroes" className={ENTRANCE}>
           <SectionTitle lead={t("pages.lore.region.heroesLead")}>{t("pages.lore.region.heroesTitle")}</SectionTitle>
-          <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {/* Each hero as a character card: the artwork in its frame, the name on it, the story's opening line under. */}
+          <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {r.heroes.map((x) => {
               const sheet = h[x.slug]?.profile;
               const facts = [sheet?.species, sheet?.age ? t("pages.lore.age", { age: sheet.age }) : null].filter(Boolean);
+              const art = heroArt(x.slug);
+              const still = art ?? x.images.portrait ?? x.images.icon;
               return (
                 <li key={x.slug} id={x.slug} className="scroll-mt-24">
-                  <article className="bevel flex h-full gap-4 border border-night-700/70 bg-night-900/60 p-4">
-                    <HeroPortrait source={x.images.portrait ?? x.images.icon} name={x.name} size="sheet" decorative />
-                    <div className="min-w-0 flex-1">
-                      <h3 className="font-heading text-xl font-bold text-chalk-100">
-                        <Link href={`/heroes/${x.slug}`} className="hover:text-gold-400">
-                          {x.name}
-                        </Link>
-                      </h3>
-                      {(sheet?.title ?? x.title) && <p className="text-xs text-chalk-500">{sheet?.title ?? x.title}</p>}
+                  <article className="group bevel flex h-full flex-col bg-night-900 transition-[translate] duration-200 hover:-translate-y-0.5">
+                    <div className="relative aspect-[16/8] overflow-hidden bg-night-800">
+                      {still && (
+                        <Image
+                          src={still}
+                          alt=""
+                          fill
+                          sizes="(min-width: 1280px) 31vw, (min-width: 640px) 46vw, 92vw"
+                          className={
+                            art
+                              ? "object-cover object-[50%_25%] transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+                              : "object-contain object-right transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+                          }
+                        />
+                      )}
+                      <span aria-hidden className="absolute inset-x-0 bottom-0 h-3/4 bg-linear-to-t from-night-900 via-night-900/70 to-transparent" />
+                      <div className="absolute inset-x-0 bottom-0 p-4">
+                        {(sheet?.title ?? x.title) && (
+                          <p className="text-sm font-semibold text-gold-400">{sheet?.title ?? x.title}</p>
+                        )}
+                        <h3 className="display-caps mt-0.5 text-[2.1rem] text-chalk-100">
+                          <Link href={`/heroes/${x.slug}`} className="transition-colors hover:text-gold-300">
+                            {x.name}
+                          </Link>
+                        </h3>
+                      </div>
+                    </div>
+                    <div className="flex flex-1 flex-col px-4 pb-4 pt-1">
                       {h[x.slug]?.tagline && (
-                        <p className="mt-2 line-clamp-3 text-sm italic leading-relaxed text-chalk-300">{h[x.slug]!.tagline}</p>
+                        <p className="line-clamp-3 text-sm italic leading-relaxed text-chalk-300">{h[x.slug]!.tagline}</p>
                       )}
                       {facts.length > 0 && <p className="mt-2 text-xs text-chalk-400">{facts.join(" · ")}</p>}
                       {sheet?.affiliations.length ? (
                         <ul className="mt-2 flex flex-wrap gap-1">
                           {sheet.affiliations.slice(0, 3).map((a) => (
-                            <li
-                              key={a}
-                              className="bevel-sm border border-night-700/70 bg-night-800/60 px-1.5 py-0.5 text-[0.7rem] text-chalk-300"
-                            >
+                            <li key={a} className="bevel-sm bg-night-800 px-1.5 py-0.5 text-[0.7rem] text-chalk-300">
                               {a}
                             </li>
                           ))}
@@ -210,9 +246,9 @@ export default async function LoreRegionPage({ params }: Params) {
                       ) : null}
                       <Link
                         href={`/heroes/${x.slug}#story`}
-                        className="mt-3 inline-block text-sm font-semibold text-gold-400 hover:text-gold-500"
+                        className="mt-auto inline-flex items-center gap-1.5 pt-3 font-heading text-base font-bold uppercase text-gold-400 transition-colors hover:text-gold-300"
                       >
-                        {t("pages.lore.readStory")} →
+                        {t("pages.lore.readStory")} <span aria-hidden>→</span>
                       </Link>
                     </div>
                   </article>
@@ -256,25 +292,41 @@ export default async function LoreRegionPage({ params }: Params) {
         )}
 
         <nav aria-labelledby="other-regions">
-          <h2 id="other-regions" className="font-heading text-lg font-bold text-chalk-100">
+          <h2 id="other-regions" className="type-section text-chalk-100">
             {t("pages.lore.region.otherRegions")}
           </h2>
-          <ul className="mt-4 flex flex-wrap gap-2">
+          <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
+          <ul className="mt-6 grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-5">
             {regionsLore
               .filter((x) => x.key !== r.key)
-              .map((x) => (
-                <li key={x.key}>
-                  <Link
-                    href={`/lore/${x.key}`}
-                    className="bevel-sm inline-block border border-night-700 px-3 py-1.5 text-sm text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400"
-                  >
-                    {nameRegion(x.name)} <span className="text-chalk-500">· {x.heroes.length}</span>
-                  </Link>
-                </li>
-              ))}
+              .map((x) => {
+                const face = regionFaces(x)[0];
+                return (
+                  <li key={x.key}>
+                    <Link href={`/lore/${x.key}`} className="eclat-under group relative block transition-[translate] duration-200 hover:-translate-y-0.5">
+                      <span className="bevel-sm relative block aspect-[16/7] overflow-hidden bg-night-800">
+                        {face && (
+                          <Image
+                            src={face.art}
+                            alt=""
+                            fill
+                            sizes="(min-width: 1024px) 18vw, (min-width: 640px) 30vw, 45vw"
+                            className="object-cover object-[50%_25%] opacity-70 transition-[transform,opacity] duration-500 ease-out group-hover:scale-[1.05] group-hover:opacity-100"
+                          />
+                        )}
+                        <span aria-hidden className="absolute inset-0 bg-linear-to-r from-night-950/90 to-transparent" />
+                        <span className="absolute inset-y-0 left-0 flex flex-col justify-center px-3">
+                          <span className="display-caps text-xl text-chalk-100 transition-colors group-hover:text-gold-300">{nameRegion(x.name)}</span>
+                          <span className="text-xs text-chalk-400">{x.heroes.length}</span>
+                        </span>
+                      </span>
+                    </Link>
+                  </li>
+                );
+              })}
           </ul>
-          <p className="mt-4">
-            <Link href="/lore" className="text-sm font-semibold text-gold-400 hover:text-gold-500">
+          <p className="mt-6">
+            <Link href="/lore" className="font-heading text-base font-bold uppercase text-gold-400 transition-colors hover:text-gold-300">
               ← {t("pages.lore.backToHub")}
             </Link>
           </p>

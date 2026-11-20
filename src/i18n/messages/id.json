@@ -600,7 +600,11 @@
       "leadRole": "{n} {plural} permainan, peran utama atau sekunder, diklasifikasikan menurut aturan yang sama dengan tier list umum: win rate dan ban, semua peringkat digabungkan.",
       "filterNote": "Memberi peringkat pada semua peringkat digabungkan. Daftar berdasarkan peringkat menyatukan semua lane dan semua peran.",
       "seeRole": "Semua {plural} dan lanenya",
-      "openTier": "Tampilkan {n} hero tier {p}"
+      "openTier": "Tampilkan {n} hero tier {p}",
+      "poster": {
+        "kicker": "Peringkat 1 di daftar ini",
+        "label": "{name}, peringkat 1 di daftar ini: tier {tier}, win rate {win}, ban rate {ban}"
+      }
     },
     "patchNotes": {
       "title": "Patch notes",
@@ -1430,6 +1434,10 @@
           "banRate": "% ban",
           "pickRate": "% pick"
         }
+      },
+      "poster": {
+        "kicker": "Kenaikan terbesar minggu ini",
+        "caption": "poin win rate dalam {days} hari"
       }
     },
     "statistics": {
@@ -3596,7 +3604,10 @@
       "notesTitle": "Catatan penulis",
       "backToHero": "Semua dibuat untuk {hero}",
       "statsTitle": "Statistik yang dihitung",
-      "statsMissing": "Statistik tidak tersedia untuk hero ini."
+      "statsMissing": "Statistik tidak tersedia untuk hero ini.",
+      "poster": {
+        "kicker": "Hero dengan build terbanyak"
+      }
     },
     "damageCalculator": {
       "title": "Kalkulator damage",
