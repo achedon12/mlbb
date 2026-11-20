@@ -50,25 +50,25 @@ export function EffectsItem({ item, t }: { item: PreviewItem; t: T }) {
     <>
       {item.bonus && (
         <div>
-          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsList.statistics")}</dt>
-          <dd className="mt-1 leading-snug text-chalk-100">{item.bonus}</dd>
+          <dt className="font-heading text-sm font-bold text-gold-400">{t("pages.itemsList.statistics")}</dt>
+          <dd className="mt-1 font-heading text-lg font-semibold leading-snug text-chalk-100">{item.bonus}</dd>
         </div>
       )}
       {item.unique && (
         <div>
-          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsList.unique")}</dt>
+          <dt className="font-heading text-sm font-bold text-gold-400">{t("pages.itemsList.unique")}</dt>
           <dd className="mt-1 leading-snug text-azure-400">{item.unique}</dd>
         </div>
       )}
       {item.passive && (
         <div>
-          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsList.passive")}</dt>
+          <dt className="font-heading text-sm font-bold text-gold-400">{t("pages.itemsList.passive")}</dt>
           <dd className="mt-1 leading-relaxed text-chalk-300">{item.passive}</dd>
         </div>
       )}
       {item.active && (
         <div>
-          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsList.active")}</dt>
+          <dt className="font-heading text-sm font-bold text-gold-400">{t("pages.itemsList.active")}</dt>
           <dd className="mt-1 leading-relaxed text-chalk-300">{item.active}</dd>
         </div>
       )}
@@ -96,7 +96,7 @@ export function RecipeItem({
     <>
       {item.recipe.length > 0 && (
         <div>
-          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsList.recipe")}</dt>
+          <dt className="font-heading text-sm font-bold text-gold-400">{t("pages.itemsList.recipe")}</dt>
           <dd className="mt-2">
             <RecipeTree names={item.recipe} catalog={catalog} t={t} locale={locale} to={to} />
             {merge !== null && (
@@ -109,17 +109,17 @@ export function RecipeItem({
       )}
       {factory.length > 0 && (
         <div>
-          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsList.buildsInto")}</dt>
+          <dt className="font-heading text-sm font-bold text-gold-400">{t("pages.itemsList.buildsInto")}</dt>
           <dd className="mt-2 flex flex-wrap gap-1.5">
             {factory.map((o) => (
               <span key={o.slug} className="contents">
                 {to(
                   o,
                   <>
-                    <ItemIcon image={o.image} size={22} />
-                    <span className="text-xs text-chalk-300 group-hover:text-gold-400">{o.name}</span>
+                    <ItemIcon image={o.image} size={34} />
+                    <span className="text-sm text-chalk-200 group-hover:text-gold-400">{o.name}</span>
                   </>,
-                  "bevel-sm group flex items-center gap-1.5 border border-night-700/70 bg-night-900/60 py-1 pl-1 pr-2 transition-colors hover:border-gold-500/60",
+                  "bevel-sm group flex items-center gap-2 bg-night-800 py-1 pl-1 pr-3 transition-colors hover:bg-night-700",
                 )}
               </span>
             ))}
@@ -150,12 +150,12 @@ export function RecipeTree({
   depth?: number;
 }) {
   return (
-    <ul className={cn("space-y-1.5", depth > 0 && "ml-3.5 mt-1.5 border-l border-night-700 pl-3")}>
+    <ul className={cn("space-y-2", depth > 0 && "ml-5 mt-2 border-l-2 border-night-700 pl-3")}>
       {names.map((name, i) => {
         const o = catalog.byName.get(name);
         const content = (
           <>
-            <ItemIcon image={o?.image ?? null} size={28} />
+            <ItemIcon image={o?.image ?? null} size={depth === 0 ? 40 : 32} />
             <span className="min-w-0 flex-1 truncate text-sm text-chalk-100 group-hover:text-gold-400">{name}</span>
             {o?.price != null && (
               <span className="shrink-0 text-xs tabular-nums text-gold-400">

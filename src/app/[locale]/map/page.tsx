@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "@/components/link";
 import { MapGuide, type MapCard } from "@/components/map-guide";
-import { PageHeader } from "@/components/ui";
+import { Breadcrumb } from "@/components/breadcrumb";
+import { PageLead } from "@/components/page-lead";
+import { DexSays } from "@/components/mascot";
 import { Foldable } from "@/components/foldable";
 import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
@@ -47,7 +49,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   });
 }
 
-const sectionTitle = "font-heading text-2xl font-bold text-chalk-100";
+const sectionTitle = "type-section text-chalk-100";
 const wikiPageName = (url: string) => decodeURIComponent(url.split("/wiki/")[1] ?? url).replaceAll("_", " ");
 
 /** Cards of every point of interest, built here so the browser only receives the finished text. */
@@ -348,19 +350,37 @@ export default async function MapPage({ params }: Params) {
   return (
     <ExtendMessages messages={messagesPage(locale, ["pages.mapUI"])}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
-      <PageHeader title={t("pages.map.title")} lead={t("pages.map.lead")} />
-      <div className="page-wrap space-y-14 py-10">
+      {/*
+        The map is the page: a short head — title, lead, and Dex telling how
+        to read the plan — then the plan itself, on the first screen.
+      */}
+      <div className="page-wrap pt-3 sm:pt-5">
+        <Breadcrumb
+          crumbs={[{ name: t("pages.map.title") }]}
+          className="mb-2.5 [&_ol]:flex-nowrap [&_ol]:px-2 [&_ol]:py-1 [&_ol]:text-xs sm:mb-3"
+        />
+        <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-5">
+          <div className="min-w-0 max-w-3xl">
+            <h1 className="display-caps text-[clamp(2.6rem,1.7rem+3.4vw,4.75rem)] text-chalk-100">{t("pages.map.title")}</h1>
+            <div aria-hidden className="eclat mt-4 h-[3px] w-24" />
+            <PageLead lead={t("pages.map.lead")} />
+          </div>
+          {/* Dex, map in hand, tells how to read the plan. */}
+          <DexSays pose="carte" height={112} className="max-w-xl">
+            <p className="text-sm leading-relaxed">{t("pages.map.reading")}</p>
+          </DexSays>
+        </div>
+      </div>
+      <div className="page-wrap space-y-14 pb-10 pt-8 sm:space-y-20 sm:pb-14 sm:pt-10">
         <section aria-labelledby="map-title">
-          <h2 id="map-title" className={sectionTitle}>
+          <h2 id="map-title" className="sr-only">
             {t("pages.map.mapTitle")}
           </h2>
-          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
-          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-chalk-400">{t("pages.map.reading")}</p>
-          <div className="mt-6">
+          <div>
             <MapGuide cards={mapCards(t, locale)} />
           </div>
-          <p className="mt-4 text-sm">
-            <Link href="/tools/strategy-planner" className="font-semibold text-gold-400 transition-colors hover:text-gold-500">
+          <p className="mt-8">
+            <Link href="/tools/strategy-planner" className="btn btn-primary">
               {t("pages.map.plannerLink")} →
             </Link>
           </p>
@@ -372,29 +392,31 @@ export default async function MapPage({ params }: Params) {
               <h2 id="rotations-title" className={sectionTitle}>
                 {t("pages.map.rotations.title")}
               </h2>
-              <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+              <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
               <p className="mt-3 max-w-3xl leading-relaxed text-chalk-300">{t("pages.map.rotations.intro")}</p>
               <ul className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                 {rotations.map((r) => (
-                  <li key={r.key} className="relative">
-                    <div aria-hidden className="bevel absolute inset-0 border border-night-700/70 bg-night-900/60" />
-                    <div className="relative flex h-full flex-col p-5">
-                      <h3 className="font-heading text-xl font-bold text-gold-400">{r.title}</h3>
-                      <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm leading-relaxed text-chalk-300 marker:text-chalk-500">
-                        {r.steps.map((s) => (
-                          <li key={s}>{s}</li>
-                        ))}
-                      </ol>
-                      <ul className="mt-auto flex flex-wrap gap-x-4 gap-y-1 pt-4 text-sm">
-                        {r.links.map((l) => (
-                          <li key={l.href}>
-                            <Link href={l.href} className="font-semibold text-gold-400 transition-colors hover:text-gold-500">
-                              {l.label} →
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                  <li key={r.key} className="bevel-lg flex flex-col bg-night-900 p-5 sm:p-6">
+                    <h3 className="display-caps text-[1.9rem] text-gold-400">{r.title}</h3>
+                    <ol className="mt-4 space-y-2.5 text-sm leading-relaxed text-chalk-200">
+                      {r.steps.map((s, i) => (
+                        <li key={s} className="flex gap-3">
+                          <span aria-hidden className="score score-outline w-6 shrink-0 text-[1.6rem]">
+                            {i + 1}
+                          </span>
+                          <span className="min-w-0">{s}</span>
+                        </li>
+                      ))}
+                    </ol>
+                    <ul className="mt-auto flex flex-wrap gap-x-4 gap-y-1 pt-5 text-sm">
+                      {r.links.map((l) => (
+                        <li key={l.href}>
+                          <Link href={l.href} className="font-semibold text-gold-400 transition-colors hover:text-gold-300">
+                            {l.label} →
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
                   </li>
                 ))}
               </ul>

@@ -27,6 +27,8 @@ import { serializeJsonLd } from "@/lib/html";
 import type { MeasuredRank } from "@/lib/measured-ranks";
 import { site } from "@/lib/site";
 import { rankingOfRank, RANKS_CLASSES } from "@/lib/tier-list";
+import { cn } from "@/lib/utils";
+import motion from "@/components/catalogue-motion.module.css";
 
 /**
  * Rank system: the ladder from Warrior to Mythical Immortal, its divisions,
@@ -107,10 +109,10 @@ function Emblem({ tier, size = 56 }: { tier: TierScale; size?: number }) {
 function BlockTitle({ id, children, intro }: { id: string; children: React.ReactNode; intro?: string }) {
   return (
     <>
-      <h2 id={`${id}-title`} className="font-heading text-xl font-bold text-chalk-100 sm:text-3xl">
+      <h2 id={`${id}-title`} className="type-section text-chalk-100">
         {children}
       </h2>
-      <div aria-hidden className="gold-rule mt-1.5 h-0.5 w-16" />
+      <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
       {intro && <p className="mt-2 max-w-3xl text-sm leading-relaxed text-chalk-300 sm:text-base">{intro}</p>}
     </>
   );
@@ -209,56 +211,73 @@ export default async function RanksPage({ params }: Params) {
         </nav>
       </PageHeader>
 
-      <div className="page-wrap space-y-8 pb-10 pt-5 sm:space-y-14">
+      <div className="page-wrap space-y-12 pb-10 pt-8 sm:space-y-20 sm:pt-12">
         <section id="scale" aria-labelledby="scale-title" className="scroll-mt-20">
           <BlockTitle id="scale" intro={t("pages.ranks.scaleIntro", { n: SCALE.length })}>
             {t("pages.ranks.scaleTitle")}
           </BlockTitle>
-          <ol className="mt-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+          {/*
+            The ladder itself: each rank one step higher than the one before,
+            its emblem growing as it climbs, from Warrior at the foot to
+            Mythical Immortal at the top. On a phone the steps stack, the
+            highest last, as the climb reads down the screen.
+          */}
+          <ol className={cn("mt-8 grid grid-cols-2 gap-2 sm:grid-cols-5 sm:gap-3 xl:flex xl:items-end xl:gap-2", motion.ladder)}>
             {SCALE.map((p, i) => {
               const { color } = tierAppearance(p);
               const bans = RULES_FAMILY[p.family].bans;
+              const top = i === SCALE.length - 1;
               return (
-                <li key={p.key}>
-                  <Card className="flex h-full gap-3 p-3">
-                    <Emblem tier={p} size={44} />
-                    <div className="min-w-0 flex-1">
-                      <h3 className="font-heading text-lg font-bold leading-tight" style={{ color }}>
-                        {nameTier(t, p.key)}
-                        <span className="ml-2 align-middle text-xs font-medium text-chalk-500">
-                          {t("pages.ranks.position", { n: i + 1, total: SCALE.length })}
+                <li
+                  key={p.key}
+                  className={cn("min-w-0 xl:flex-1", top && "col-span-2 sm:col-span-1")}
+                  style={{ ["--step" as string]: i }}
+                >
+                  <div
+                    className={cn(
+                      "bevel-lg group flex h-full flex-col items-center bg-night-900 px-2 pb-4 pt-5 text-center xl:pb-[calc(1rem+var(--step)*0.9rem)]",
+                      top && "bg-night-800 shadow-[inset_0_3px_0_var(--color-gold-400)]",
+                    )}
+                  >
+                    <span className={cn("grid place-items-center", motion.zoom)}>
+                      <Emblem tier={p} size={Math.round(64 + i * 5)} />
+                    </span>
+                    <h3 className="display-caps mt-3 break-words text-[1.35rem] leading-[0.95] sm:text-[1.5rem]" style={{ color }}>
+                      {nameTier(t, p.key)}
+                    </h3>
+                    <span className="sr-only">{t("pages.ranks.position", { n: i + 1, total: SCALE.length })}</span>
+                    <span aria-hidden className="score score-outline mt-2 text-2xl">
+                      {i + 1}
+                    </span>
+                    <p className="mt-2 text-xs leading-snug text-chalk-300">
+                      {p.points === null
+                        ? t("pages.ranks.divisions", { n: p.divisions.length, list: p.divisions.join(" → ") })
+                        : p.points.max === null
+                          ? t("pages.ranks.pointsPlus", { min: p.points.min })
+                          : t("pages.ranks.pointsBetween", { min: p.points.min, max: p.points.max })}
+                    </p>
+                    <p className="mt-1.5 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-xs">
+                      {p.starsMax !== null && (
+                        <span className="flex items-center gap-1 text-chalk-400">
+                          <Star size={12} aria-hidden className="fill-current text-gold-400" />
+                          {t("pages.ranks.starsPerDivision", { n: p.starsMax })}
                         </span>
-                      </h3>
-                      <p className="mt-0.5 text-sm text-chalk-300">
-                        {p.points === null
-                          ? t("pages.ranks.divisions", { n: p.divisions.length, list: p.divisions.join(" → ") })
-                          : p.points.max === null
-                            ? t("pages.ranks.pointsPlus", { min: p.points.min })
-                            : t("pages.ranks.pointsBetween", { min: p.points.min, max: p.points.max })}
-                      </p>
-                      <p className="mt-0.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
-                        {p.starsMax !== null && (
-                          <span className="flex items-center gap-1 text-chalk-400">
-                            <Star size={12} aria-hidden className="fill-current text-gold-400" />
-                            {t("pages.ranks.starsPerDivision", { n: p.starsMax })}
-                          </span>
-                        )}
-                        {bans !== null && (
-                          <span className="bevel-sm bg-azure-500/15 px-2 py-0.5 text-azure-400">
-                            {t("pages.ranks.draft", { n: bans })}
-                          </span>
-                        )}
-                        {p.measure && (
-                          <Link
-                            href={pathTierList(p.measure)}
-                            className="font-semibold text-gold-400 transition-colors hover:text-gold-500"
-                          >
-                            {t("pages.ranks.tierListLink", { rank: t(`measuredRanks.${p.measure}`) })} →
-                          </Link>
-                        )}
-                      </p>
-                    </div>
-                  </Card>
+                      )}
+                      {bans !== null && (
+                        <span className="bevel-sm bg-azure-500/15 px-2 py-0.5 text-azure-400">
+                          {t("pages.ranks.draft", { n: bans })}
+                        </span>
+                      )}
+                    </p>
+                    {p.measure && (
+                      <Link
+                        href={pathTierList(p.measure)}
+                        className="mt-auto pt-2 text-xs font-semibold text-gold-400 transition-colors hover:text-gold-300"
+                      >
+                        {t("pages.ranks.tierListLink", { rank: t(`measuredRanks.${p.measure}`) })} →
+                      </Link>
+                    )}
+                  </div>
                 </li>
               );
             })}
@@ -351,9 +370,11 @@ export default async function RanksPage({ params }: Params) {
           <ol className="mt-5 grid grid-cols-2 gap-2 lg:grid-cols-4">
             {SCALE.filter((p) => p.points).map((p) => (
               <li key={p.key}>
-                <Card className="flex h-full flex-col items-center p-3 text-center">
-                  <Emblem tier={p} size={44} />
-                  <h3 className="mt-1.5 font-heading text-base font-bold leading-tight" style={{ color: tierAppearance(p).color }}>
+                <Card className="flex h-full flex-col items-center p-4 text-center">
+                  <span className={motion.zoom}>
+                    <Emblem tier={p} size={88} />
+                  </span>
+                  <h3 className="display-caps mt-2 text-2xl" style={{ color: tierAppearance(p).color }}>
                     {nameTier(t, p.key)}
                   </h3>
                   <p className="text-sm tabular-nums text-chalk-300">
