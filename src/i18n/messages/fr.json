@@ -3040,7 +3040,7 @@
       "heroGrid": "Héros",
       "banHero": "Bannir {name}",
       "pickHero": "Choisir {name}",
-      "unavailable": "{name} : héros déjà banni ou choisi",
+      "unavailable": "{name} : déjà banni ou choisi",
       "hints": {
         "ban": "Pistes pour ce ban",
         "pick": "Pistes pour ce pick",
