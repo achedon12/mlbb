@@ -323,7 +323,7 @@
     "heroes": {
       "title": "Héroes",
       "lead": "Los {heroes} héroes del juego y sus {skins} skins, filtrables por rol y línea. Las {analyses} fichas marcadas «Análisis» incluyen además un comentario, builds y counters.",
-      "metaDescription": "Los héroes {heroes} de Mobile Legends: Bang Bang, filtrables por rol y posición: retratos, apariciones, estadísticas y {analyses} análisis escritos.",
+      "metaDescription": "Los héroes {heroes} de Mobile Legends: Bang Bang, filtrables por rol y posición: retratos, apariciones, estadísticas y análisis escritos {analyses}.",
       "ogDescription": "Los héroes {heroes} de Mobile Legends: Bang Bang, con sus apariciones {skins}.",
       "listLd": "Héroes de Mobile Legends: Bang Bang"
     },
@@ -522,7 +522,7 @@
         "botTitle": "El bot",
         "bot": "El bot banea lo más alto de la clasificación del rango elegido, que combina tasa de victoria y tasa de ban. Para sus picks solo conserva los héroes que añaden una línea a su equipo y los ordena según nuestros datos del rango: counters a tus picks, dúos con los suyos, tasa de victoria. Cada elección se explica en una línea.",
         "advantageTitle": "Las opciones de victoria estimadas",
-        "advantage": "Durante el draft, una barra estima las posibilidades de cada equipo basándose en cinco factores, contabilizados en puntos de índice de victorias: la fuerza de los héroes en el rango, los duelos entre los dos equipos y los dúos de cada uno (medidos en el juego clasificado, según lo indicado en la wiki), un carril duplicado o la ausencia de un tanque, y daño de un solo tipo. Los tres primeros cuentan como la mitad, porque se superponen. Su suma pasa por una curva logística: dos equipos iguales están al 50% y el resultado se queda entre el 25 y el 75%. Las selecciones sugeridas son las que más aumentan esta estimación. Es un punto de referencia, no una predicción.",
+        "advantage": "Durante el draft, una barra estima las posibilidades de cada equipo basándose en cinco factores, contabilizados en puntos de índice de victorias: la fuerza de los héroes en el rango, los duelos entre los dos equipos y los dúos de cada uno (medidos en el juego clasificado, según lo indicado en la wiki), un carril duplicado o la ausencia de un tanque, y daño de un solo tipo. Los tres primeros cuentan como la mitad, porque se superponen. Su suma pasa por una curva logística: dos equipos iguales están al 50% y el resultado se queda entre el 25 y el 75%. Las elecciones sugeridas son las que más aumentan esta estimación. Es un punto de referencia, no una predicción.",
         "sources": "Fuentes",
         "sourceRef": "Fuente: {site}, {page}"
       },
@@ -2186,7 +2186,7 @@
       "colOwned": "Obtenidos",
       "colDiamonds": "Diamantes",
       "raresTitle": "Tus skins más raras",
-      "raresHelp": "Clasificados por rareza, luego ediciones limitadas y primero series más pequeñas.",
+      "raresHelp": "Clasificados por rareza, luego ediciones limitadas y series más pequeñas primero.",
       "seriesTitle": "Progreso por serie",
       "seriesHelp": "Primero las series empezadas, las más completas arriba.",
       "showAllSeries": "Ver todas las series ({n})",

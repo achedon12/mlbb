@@ -546,7 +546,7 @@
         ]
       },
       {
-        "title": "Salamin",
+        "title": "Mirror",
         "elements": [
           {
             "type": "p",
@@ -559,7 +559,7 @@
         ]
       },
       {
-        "title": "Kaligtasan",
+        "title": "Survival",
         "elements": [
           {
             "type": "p",
@@ -580,7 +580,7 @@
         ]
       },
       {
-        "title": "Labanan ng kamatayan",
+        "title": "Deathbattle",
         "elements": [
           {
             "type": "p",
@@ -593,7 +593,7 @@
         ]
       },
       {
-        "title": "Siklab ng galit",
+        "title": "Frenzy",
         "elements": [
           {
             "type": "p",
@@ -839,7 +839,7 @@
         ]
       },
       {
-        "title": "Mapahamak",
+        "title": "Ravage",
         "elements": [
           {
             "type": "p",

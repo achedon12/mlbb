@@ -1306,7 +1306,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Passivo unico - Regalo",
+                "name": "Passivo unico - Gift",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -4368,7 +4368,7 @@
             "intro": "La condizione di attivazione modificata apporta maggiori benefici all'inizio del gioco, ma meno alla fine del gioco. Vogliamo passare a una nuova condizione di attivazione per aumentare la stabilità di questo equipaggiamento.",
             "sections": [
               {
-                "name": "Passivo unico - Regalo",
+                "name": "Passivo unico - Gift",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -8891,7 +8891,7 @@
                 ]
               },
               {
-                "name": "Passivo unico - Regalo",
+                "name": "Passivo unico - Gift",
                 "slot": null,
                 "type": null,
                 "tag": "new",

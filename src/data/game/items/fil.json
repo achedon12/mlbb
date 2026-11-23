@@ -54,7 +54,7 @@
     "price": 600,
     "bonus": "+5 Mana Regen, +5% Cooldown Reduction",
     "unique": null,
-    "passive": "Paghusga: Pagkatapos mag-cast ng skill, ang susunod na Basic Attack sa loob ng 3 segundo ay magkakaroon ng 50 dagdag na True Damage (1.5 segundong cooldown).",
+    "passive": "Judgement: Pagkatapos mag-cast ng skill, ang susunod na Basic Attack sa loob ng 3 segundo ay magkakaroon ng 50 dagdag na True Damage (1.5 segundong cooldown).",
     "active": null,
     "recipe": [
       "Magic Necklace",
@@ -120,7 +120,7 @@
     "price": 3010,
     "bonus": "+160 Pisikal na Pag-atake, +5% Movement speed",
     "unique": null,
-    "passive": "Kawalan ng pag-asa: Ang pagharap ng damage sa mga kaaway na hindi Minion na mas mababa sa 50% HP ay nagpapataas ng Pisikal na Pag-atake ng 25% sa loob ng 2 segundo (magkakabisa bago mahawakan ang damage).",
+    "passive": "Despair: Ang pagharap ng damage sa mga kaaway na hindi Minion na mas mababa sa 50% HP ay nagpapataas ng Pisikal na Pag-atake ng 25% sa loob ng 2 segundo (magkakabisa bago mahawakan ang damage).",
     "active": null,
     "recipe": [
       "Legion Sword",
@@ -259,7 +259,7 @@
     "price": 2100,
     "bonus": "+900 HP, +40 Pisikal na Depensa",
     "unique": null,
-    "passive": "Chastise: Ang pagkuha ng damage ay magbabawas sa Attack Speed ​​at Attack Speed ​​cap ng attacker sa 75% ng normal sa loob ng 2 segundo. Pagtubos: Kapag ang papasok na damage ay binabawasan ang HP nang mas mababa sa 30%, i-recover ang 20% ​​Max HP sa susunod na 2 segundo. Ang epektong ito ay may 60 segundong cooldown.",
+    "passive": "Chastise: Ang pagkuha ng damage ay magbabawas sa Attack Speed ​​at Attack Speed ​​cap ng attacker sa 75% ng normal sa loob ng 2 segundo. Redemption: Kapag ang papasok na damage ay binabawasan ang HP nang mas mababa sa 30%, i-recover ang 20% ​​Max HP sa susunod na 2 segundo. Ang epektong ito ay may 60 segundong cooldown.",
     "active": null,
     "recipe": [
       "Steel Legplates",
@@ -275,7 +275,7 @@
     "price": 2030,
     "bonus": "+45 Magic Power, +400 HP, +400 Mana, +10% Cooldown Reduction",
     "unique": null,
-    "passive": "Destiny: Nakakakuha ng 4.5(+0.5*Hero Level) Hybrid Defense sa loob ng 5 segundo kapag nakipag-ugnay sa Magic Damage sa mga hero ng kalaban, na nagsasalansan ng hanggang 6 na beses (maaaring makakuha ng 1 stack bawat 0.4 segundo). Regalo: Kapag bumaba ang HP sa 50%, mababawi ang 15% ng HP sa susunod na 3 segundo. Kapag bumaba ang Mana sa 50%, ire-restore ang 15% ng Mana sa susunod na 3 segundo. Cooldown: 60 segundo.",
+    "passive": "Destiny: Nakakakuha ng 4.5(+0.5*Hero Level) Hybrid Defense sa loob ng 5 segundo kapag nakipag-ugnay sa Magic Damage sa mga hero ng kalaban, na nagsasalansan ng hanggang 6 na beses (maaaring makakuha ng 1 stack bawat 0.4 segundo). Gift: Kapag bumaba ang HP sa 50%, mababawi ang 15% ng HP sa susunod na 3 segundo. Kapag bumaba ang Mana sa 50%, ire-restore ang 15% ng Mana sa susunod na 3 segundo. Cooldown: 60 segundo.",
     "active": null,
     "recipe": [
       "Elegant Gem",
@@ -292,7 +292,7 @@
     "price": 2020,
     "bonus": "+75 Magic Power, +400 HP",
     "unique": "+20% Hybrid Lifesteal",
-    "passive": "Mag-recharge: Tumataas ng 5 ang Magic Power pagkatapos mahawakan ang Magic Damage (nag-stack ang effect na ito nang hanggang 6 na beses at makakakuha lang ng 1 stack bawat 0.4 segundo). Kapag naabot ang buong stack, pinapataas ng 12% ang Magic Damage sa loob ng 5 segundo.",
+    "passive": "Recharge: Tumataas ng 5 ang Magic Power pagkatapos mahawakan ang Magic Damage (nag-stack ang effect na ito nang hanggang 6 na beses at makakakuha lang ng 1 stack bawat 0.4 segundo). Kapag naabot ang buong stack, pinapataas ng 12% ang Magic Damage sa loob ng 5 segundo.",
     "active": null,
     "recipe": [
       "Mystic Container",
@@ -372,7 +372,7 @@
     "price": 720,
     "bonus": "+40 Movement speed, +10 Mana Regen",
     "unique": null,
-    "passive": "Mistisismo: Ang pagkuha ng isang pumatay o tumulong sa isang kaaway na Minion ay magbabalik ng 4% Mana. (Ang isang tulong ay nangyayari kapag ang isang Minion ay namatay sa loob ng 2 segundo pagkatapos makakuha ng damage mula sa hero.)",
+    "passive": "Mysticism: Ang pagkuha ng isang pumatay o tumulong sa isang kaaway na Minion ay magbabalik ng 4% Mana. (Ang isang tulong ay nangyayari kapag ang isang Minion ay namatay sa loob ng 2 segundo pagkatapos makakuha ng damage mula sa hero.)",
     "active": null,
     "recipe": [
       "Boots",
@@ -437,7 +437,7 @@
     "price": 700,
     "bonus": "+300 HP, +380 Mana",
     "unique": null,
-    "passive": "Regalo: Kapag bumaba ang HP sa 50%, mababawi ang 15% ng HP sa susunod na 3 segundo. Kapag bumaba ang Mana sa 50%, ire-restore ang 15% ng Mana sa susunod na 3 segundo. Cooldown: 60 segundo.",
+    "passive": "Gift: Kapag bumaba ang HP sa 50%, mababawi ang 15% ng HP sa susunod na 3 segundo. Kapag bumaba ang Mana sa 50%, ire-restore ang 15% ng Mana sa susunod na 3 segundo. Cooldown: 60 segundo.",
     "active": null,
     "recipe": [
       "Power Crystal",
@@ -531,7 +531,7 @@
     "price": 1850,
     "bonus": "+60 Magic Power, +300 HP, +10% Cooldown Reduction",
     "unique": "+12% Epekto ng Pagpapagaling",
-    "passive": "Pagpapala: Kapag nag-cast ng healing o shield skill, kung ang HP ng target ay mas mababa sa 35%, o bumaba sa ibaba ng 35% sa loob ng 3 segundo, makakakuha sila ng (100*Hero Level) shield na tatagal ng 3 segundo. Kapag nag-trigger ang epektong ito, binabawasan din nito ang cooldown ng mga skill ng caster ng 2 segundo. (Maaari lamang mag-trigger ang epektong ito nang isang beses bawat 60 segundo sa parehong target, at hindi magti-trigger sa self-only healing at shield skills.)",
+    "passive": "Blessing: Kapag nag-cast ng healing o shield skill, kung ang HP ng target ay mas mababa sa 35%, o bumaba sa ibaba ng 35% sa loob ng 3 segundo, makakakuha sila ng (100*Hero Level) shield na tatagal ng 3 segundo. Kapag nag-trigger ang epektong ito, binabawasan din nito ang cooldown ng mga skill ng caster ng 2 segundo. (Maaari lamang mag-trigger ang epektong ito nang isang beses bawat 60 segundo sa parehong target, at hindi magti-trigger sa self-only healing at shield skills.)",
     "active": null,
     "recipe": [
       "Magic Wand",
@@ -626,7 +626,7 @@
     "price": 2000,
     "bonus": "+55 Pisikal na Pag-atake, +15% Attack speed",
     "unique": null,
-    "passive": "Swift: Bawat 1% na dagdag na Crit Chance na nakuha ay na-convert sa 1% na dagdag na Attack speed. Walang katapusang Strike: Pagkatapos ng bawat 2 non-Crit Basic Attack, ang Attack Speed ​​ng susunod na Basic Attack ay tataas ng 80% (at Attack Speed ​​cap ay tataas sa 500%) at magti-trigger ng Attack Effects ng karagdagang 2 (mga) beses.",
+    "passive": "Swift: Bawat 1% na dagdag na Crit Chance na nakuha ay na-convert sa 1% na dagdag na Attack speed. Endless Strike: Pagkatapos ng bawat 2 non-Crit Basic Attack, ang Attack Speed ​​ng susunod na Basic Attack ay tataas ng 80% (at Attack Speed ​​cap ay tataas sa 500%) at magti-trigger ng Attack Effects ng karagdagang 2 (mga) beses.",
     "active": null,
     "recipe": [
       "Regular Spear",
@@ -660,7 +660,7 @@
     "price": 2500,
     "bonus": "+1800 HP, +20 HP Regen",
     "unique": null,
-    "passive": "Pagbawi: Pagkatapos ng 5 segundo sa labas ng labanan, i-recover ang (2.5% Total HP) HP bawat segundo. Defender: Kapag nakakuha ng higit sa 500 damage sa isang pagkakataon, mabawi ang 30 (+0.3% Kabuuang HP)% HP mula sa labis na damage na lampas sa halagang iyon.",
+    "passive": "Recovery: Pagkatapos ng 5 segundo sa labas ng labanan, i-recover ang (2.5% Total HP) HP bawat segundo. Defender: Kapag nakakuha ng higit sa 500 damage sa isang pagkakataon, mabawi ang 30 (+0.3% Kabuuang HP)% HP mula sa labis na damage na lampas sa halagang iyon.",
     "active": null,
     "recipe": [
       "Ares Belt",
@@ -720,7 +720,7 @@
     "price": 3000,
     "bonus": "+165 Magic Power",
     "unique": null,
-    "passive": "Misteryo: Nakakakuha ng 21%-35% dagdag na Magic Power (mga kaliskis na may antas).",
+    "passive": "Mystery: Nakakakuha ng 21%-35% dagdag na Magic Power (mga kaliskis na may antas).",
     "active": null,
     "recipe": [
       "Magic Wand",
@@ -915,7 +915,7 @@
     "price": 1500,
     "bonus": null,
     "unique": null,
-    "passive": "Taasan ang Power: Awtomatikong ginagamit pagkatapos bumili, pinapataas ng 30 ang Magic Power at 10% ang Cooldown Reduction sa loob ng 120s. Maaari lamang magkaroon ng isang potion effect sa isang pagkakataon.",
+    "passive": "Increase Power: Awtomatikong ginagamit pagkatapos bumili, pinapataas ng 30 ang Magic Power at 10% ang Cooldown Reduction sa loob ng 120s. Maaari lamang magkaroon ng isang potion effect sa isang pagkakataon.",
     "active": null,
     "recipe": [],
     "bestFor": "Lahat ng mga hero"
@@ -1047,7 +1047,7 @@
     "price": 2010,
     "bonus": "+60 Magic Power, +300 HP, +380 Mana, +5% Cooldown Reduction",
     "unique": null,
-    "passive": "Regalo: Regens 20% HP at Mana sa loob ng 2 segundo ng pag-level up. Lifebane: Sa pagharap ng damage sa target, binabawasan ang Shield at HP Regen ng target ng 50% sa loob ng 3 segundo.",
+    "passive": "Gift: Regens 20% HP at Mana sa loob ng 2 segundo ng pag-level up. Lifebane: Sa pagharap ng damage sa target, binabawasan ang Shield at HP Regen ng target ng 50% sa loob ng 3 segundo.",
     "active": null,
     "recipe": [
       "Book of Sages",
@@ -1111,7 +1111,7 @@
     "price": 1500,
     "bonus": null,
     "unique": null,
-    "passive": "Dagdagan ang Power: Awtomatikong ginagamit pagkatapos bumili, na nagbibigay ng 30 Pisikal na Pag-atake at 15% ng Lifesteal sa loob ng 120s. Maaari lamang magkaroon ng isang potion effect sa isang pagkakataon.",
+    "passive": "Increase Power: Awtomatikong ginagamit pagkatapos bumili, na nagbibigay ng 30 Pisikal na Pag-atake at 15% ng Lifesteal sa loob ng 120s. Maaari lamang magkaroon ng isang potion effect sa isang pagkakataon.",
     "active": null,
     "recipe": [],
     "bestFor": "Lahat ng mga hero"
@@ -1124,7 +1124,7 @@
     "price": 2250,
     "bonus": "+750 HP, +30 Adaptive Attack, +10% Cooldown Reduction, +10% Spell Vamp",
     "unique": null,
-    "passive": "Magdemonyo: Kapag bumaba ang HP sa 40%, magkakaroon ng 30% Damage Reduction sa loob ng 3 segundo at binabawasan ang mga cooldown ng skill ng 2 segundo. Ang epektong ito ay may 60 segundong cooldown. Defiance: Para sa bawat 1% na nawawalang HP, ang damage ay tataas ng 0.25%, hanggang 15%.",
+    "passive": "Demonize: Kapag bumaba ang HP sa 40%, magkakaroon ng 30% Damage Reduction sa loob ng 3 segundo at binabawasan ang mga cooldown ng skill ng 2 segundo. Ang epektong ito ay may 60 segundong cooldown. Defiance: Para sa bawat 1% na nawawalang HP, ang damage ay tataas ng 0.25%, hanggang 15%.",
     "active": null,
     "recipe": [
       "Ares Belt",
@@ -1191,7 +1191,7 @@
     "price": 1500,
     "bonus": null,
     "unique": null,
-    "passive": "Dagdagan ang Power: Sa pagbili, nagbibigay ng 500 Max HP at 5% Damage Reduction sa loob ng 120 segundo. Maaari lamang magkaroon ng isang potion effect sa isang pagkakataon.",
+    "passive": "Increase Power: Sa pagbili, nagbibigay ng 500 Max HP at 5% Damage Reduction sa loob ng 120 segundo. Maaari lamang magkaroon ng isang potion effect sa isang pagkakataon.",
     "active": null,
     "recipe": [],
     "bestFor": "Lahat ng mga hero"
@@ -1253,7 +1253,7 @@
     "price": 2050,
     "bonus": "+80 Pisikal na Pag-atake, +20% Attack speed",
     "unique": null,
-    "passive": "Lifebane: Ang pagharap ng damage sa isang target ay magbabawas sa Shield at HP Regen effects sa kanila sa 60% ng normal sa loob ng 3 segundo. Parusahan: Dagdagan ang damage ng 8% laban sa mga hero ng kaaway na may mas mataas na dagdag na HP.",
+    "passive": "Lifebane: Ang pagharap ng damage sa isang target ay magbabawas sa Shield at HP Regen effects sa kanila sa 60% ng normal sa loob ng 3 segundo. Punish: Dagdagan ang damage ng 8% laban sa mga hero ng kaaway na may mas mataas na dagdag na HP.",
     "active": null,
     "recipe": [
       "Legion Sword",
@@ -1331,7 +1331,7 @@
     "price": 2120,
     "bonus": "+75 Magic Power, +10% Cooldown Reduction, +8% Hybrid Lifesteal, +6 Mana Regen",
     "unique": null,
-    "passive": "Krisis: Pagkatapos mag-cast ng skill, ang susunod na Basic Attack sa loob ng 3 segundo ay magbibigay ng 90 (+60% Total Magic Power) na dagdag na True Damage at binabawasan ang Movement Speed ​​ng target ng 15% sa loob ng 1.5 segundo (1.5 segundong cooldown).",
+    "passive": "Crisis: Pagkatapos mag-cast ng skill, ang susunod na Basic Attack sa loob ng 3 segundo ay magbibigay ng 90 (+60% Total Magic Power) na dagdag na True Damage at binabawasan ang Movement Speed ​​ng target ng 15% sa loob ng 1.5 segundo (1.5 segundong cooldown).",
     "active": null,
     "recipe": [
       "Azure Blade",
@@ -1444,7 +1444,7 @@
     "price": 2100,
     "bonus": "+1200 HP, +15 Pisikal na Depensa",
     "unique": null,
-    "passive": "Twilight: Kapag nakakuha ng higit sa 500 damage sa isang pagkakataon, ang labis na damage na lampas sa halagang iyon ay mababawasan ng 20 (+0.2% Kabuuang HP)%. Pagtubos: Kapag ang papasok na damage ay binabawasan ang HP nang mas mababa sa 30%, i-recover ang 20% ​​Max HP sa susunod na 4 na segundo. Ang epektong ito ay may 60 segundong cooldown.",
+    "passive": "Twilight: Kapag nakakuha ng higit sa 500 damage sa isang pagkakataon, ang labis na damage na lampas sa halagang iyon ay mababawasan ng 20 (+0.2% Kabuuang HP)%. Redemption: Kapag ang papasok na damage ay binabawasan ang HP nang mas mababa sa 30%, i-recover ang 20% ​​Max HP sa susunod na 4 na segundo. Ang epektong ito ay may 60 segundong cooldown.",
     "active": null,
     "recipe": [
       "Ares Belt",
@@ -1553,7 +1553,7 @@
     "price": 1880,
     "bonus": "+35% Attack speed, +20% Tsansang Pag-atake, +20 Movement speed",
     "unique": null,
-    "passive": "Bagyo: Bawat 5–2 segundo (binawasan ng 0.2 segundo para sa bawat Basic Attack), ang susunod na Basic Attack ay tatama ng hanggang 3 unit ng kaaway para sa 150–362 Magic Damage. (Ang pag-atakeng ito ay maaaring mag-Crit at ang damage ay tataas sa 200% laban sa Minions.)",
+    "passive": "Typhoon: Bawat 5–2 segundo (binawasan ng 0.2 segundo para sa bawat Basic Attack), ang susunod na Basic Attack ay tatama ng hanggang 3 unit ng kaaway para sa 150–362 Magic Damage. (Ang pag-atakeng ito ay maaaring mag-Crit at ang damage ay tataas sa 200% laban sa Minions.)",
     "active": null,
     "recipe": [
       "Rogue Meteor",

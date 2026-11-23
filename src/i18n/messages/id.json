@@ -5362,7 +5362,7 @@
     "collection": {
       "title": "Koleksi skin",
       "intro": "Alat koleksi menyimpan hero dan skin yang Anda centang di browser Anda (penyimpanan lokal). Jika Anda masuk dengan akun game, server situs juga menyimpan di basis datanya:",
-      "data": "jejak akun yang sama dengan komunitas (bukan ID permainan Anda), daftar hero dan penampilan yang diperiksa, dan tanggal pendaftaran terakhir; tidak ada yang lain, dan tidak ada yang diperlihatkan kepada siapa pun.",
+      "data": "jejak akun yang sama dengan komunitas (tidak pernah ID permainan Anda), daftar hero dan penampilan yang diperiksa, dan tanggal pendaftaran terakhir; tidak ada yang lain, dan tidak ada yang diperlihatkan kepada siapa pun.",
       "usage": "Data ini hanya dipakai agar koleksi Anda bisa dibuka di perangkat lain. Filter \"yang saya mainkan\" membaca hero musim ini dari layanan login saat Anda mengaktifkannya, tanpa menyimpan apa pun.",
       "deletion": "Untuk mengosongkan salinan di akun Anda, hapus koleksi di alat saat masuk; untuk menghapus datanya sepenuhnya, tulis ke {contact}."
     },

@@ -1,11 +1,11 @@
 {
   "lancelot": {
     "summary": "Jungle assassin built on the sequence of dashes, with a window of invulnerability during the ultimate.",
-    "analysis": "Lancelot goes through a fight rather than entering it. His skill 2 marks targets, his skill 1 recharges by hitting a marked target: well chained, he can dash almost without interruption as long as he hits something.\n\nHis ultimate makes him invulnerable during the animation, which also makes it a defensive tool to dodge a check or an execution. The hero is punished by anything that blocks movement – ​​Khufra in the lead – and by areas that prevent him from moving forward.",
+    "analysis": "Lancelot goes through a fight rather than entering it. Its skill 1 marks the first unmarked enemy it passes through, and each new mark resets its recharge: well chained, it can dash almost without interruption as long as it finds a target to mark. His skill 2 makes him untouchable during his three strikes.\n\nHis ultimate makes him invulnerable during the animation, which also makes it a defensive tool to dodge a check or an execution. The hero is punished by anything that blocks movement – ​​Khufra in the lead – and by areas that prevent him from moving forward.",
     "skills": [
-      "Its damage increases briefly after dodging or passing through an enemy.",
-      "Moves in one direction by hitting enemies it passes through. Cooldown is reduced by hitting a marked target.",
-      "Projects a blade that marks enemies hit and slows them.",
+      "Each charge increases its damage for a few seconds, stacking.",
+      "Charge in one direction hitting enemies you pass through and mark the first unmarked enemy hit. Each new mark resets the recharge.",
+      "Strike three times in one direction while remaining untouchable. Enemies in the center of the area take all three hits and are slowed.",
       "Chain a series of strikes in an area while remaining invulnerable during the animation."
     ],
     "strengths": [
@@ -26,13 +26,13 @@
     ]
   },
   "gusion": {
-    "summary": "Combo magic assassin: he places his daggers, teleports on them, and picks them up to inflict all his damage at once.",
+    "summary": "Combo Magic Assassin: He throws his daggers, slips behind the marked target, and recalls them to inflict all his damage at once.",
     "analysis": "Gusion is the most demanding combo hero in the game after Fanny. All of his skills can be rerolled, and the order and timing of the rerolls entirely determine his damage. The standard combo is to put the daggers down, get close with the ultimate, then trigger the recovery so everything happens simultaneously.\n\nA mastered Gusion takes out any fragile target in less than a second, often before the opponent's screen has shown anything. A rough Gusion does a third of the damage and dies on the spot. Few heroes have such a wide gap between the two.",
     "skills": [
-      "After a skill, his next basic attack deals additional damage proportional to the target's missing health.",
-      "Throws daggers in a fan pattern. Recasting the skill recalls the planted daggers, dealing damage again.",
-      "Throws a unique dagger. Recasting the skill teleports Gusion to the dagger.",
-      "Recharges both skills and allows you to propel yourself towards an area. The starting point of any combo."
+      "Each skill cast adds one rune to his dagger, up to four: each strengthens his next basic attack, which deals additional damage based on the target's HP and heals him.",
+      "Throws a dagger that damages and marks the first enemy hit. Relaunched, it passes behind the marked target by hitting it again, without being able to be interrupted.",
+      "Launches a volley of daggers that damage and slow enemies hit. Relaunched, it recalls the daggers, which strike again on their path.",
+      "Launches himself towards an area and resets the recharge of his two skills; restarted, it makes him dash a short distance. The starting point of any combo."
     ],
     "strengths": [
       "One of the highest damage peaks in the game",
@@ -53,12 +53,12 @@
   },
   "ling": {
     "summary": "Assassin who moves on walls, out of range, and chooses his moment to fall on a target.",
-    "analysis": "Ling changes the geometry of the map. While on a wall, he is untouchable by most ground skills, allowing him to wait indefinitely for the opening. It does not use mana but an energy resource, which limits the number of consecutive jumps.\n\nHis ultimate makes him immune to checks while leaping and deals critical damage. The hero is excellent in mobile skirmishing and weak against a grouped team that keeps his controls to himself. Khufra remains his clearest response.",
+    "analysis": "Ling changes the geometry of the map. While on a wall, he is untouchable by most ground skills, allowing him to wait indefinitely for the opening. It does not use mana but an energy resource, which limits the number of consecutive jumps.\n\nHis ultimate makes him invulnerable while jumping, then slows and knocks enemies into the air upon landing. The hero is excellent in mobile skirmishing and weak against a grouped team that keeps his controls to himself. Khufra remains his clearest response.",
     "skills": [
-      "Ling can climb walls and move quickly, regenerating his energy.",
-      "Jump to any point, including a wall. Energy cost, without recharging as long as the energy lasts.",
-      "Hits enemies around him and increases his attack speed.",
-      "Leaps around an area dealing critical damage, immune to controls while jumping."
+      "Ling leaps from wall to wall and regains energy on a wall as if dealing damage. It gains 1.6x increased critical chance from all sources, but its critical damage is reduced.",
+      "Jump on a wall and go into semi-camouflage, faster. Jumping from one wall to another does not trigger the recharge; a check causes him to fall to the ground.",
+      "Charge in one direction and hit nearby enemies. Launched from a wall, with no energy cost, it plunges him to the ground, slowing down enemies in the area.",
+      "Jumps into the air while remaining invulnerable, then falls, slowing down enemies in the area and knocking those in the center into the air. The field of swords left on the ground recharges his other skills."
     ],
     "strengths": [
       "Moving on walls, out of reach on the ground",
@@ -73,7 +73,7 @@
     "builds": [
       {
         "name": "Critical Jungle",
-        "context": "His ultimate deals critical damage: critical rate is worth more than raw penetration."
+        "context": "His passive multiplies the critical chance he obtains: the critical rate is worth more than the raw penetration."
       }
     ]
   },
@@ -142,12 +142,12 @@
   },
   "chou": {
     "summary": "Isolation fighter: he extracts a target from the opposing group and kills it before his team reacts.",
-    "analysis": "Chou is the roam hero with the highest mastery cap. The idea is simple – the ultimate sends a target into the air and moves it – but its execution relies on animation cancellations that the game nowhere explains. The reference combo chains skill 1, canceled jump, ultimate, then skill 2 to hold the target upon landing.\n\nHis interest in an organized team comes from there: he chooses who dies. Against a player who keeps his Purify, on the other hand, the ultimate loses half of its value, and Chou becomes an average fighter again.",
+    "analysis": "Chou is the roam hero with the highest mastery cap. The idea is simple – the ultimate repels a target and pursues it – but its execution relies on animation cancellations that the game nowhere explains. The reference combo chains skill 1, canceled jump, ultimate, then skill 2 to hold the target upon landing.\n\nHis interest in an organized team comes from there: he chooses who dies. Against a player who keeps his Purify, on the other hand, the ultimate loses half of its value, and Chou becomes an average fighter again.",
     "skills": [
-      "Every few basic attacks, his next attack becomes an upgraded hit that deals extra damage.",
+      "After traveling a certain distance, its next basic attack deals increased damage, briefly slows the target, and reduces its physical defense.",
       "Three successive strikes. The last one throws enemies hit into the air.",
-      "Dashes in one direction, becoming immune to controls while running.",
-      "Hits a target, throws it and follows it all the way. Moves an opponent away from their team."
+      "Rushes in a direction while becoming immune to controls and gains a shield.",
+      "Hit an opposing hero and knock them back; restarted, she pursues him for further damage. Moves an opponent away from their team."
     ],
     "strengths": [
       "Selects and isolates a priority target",
@@ -172,12 +172,12 @@
   },
   "yu-zhong": {
     "summary": "EXP lane fighter who heals himself on hitting and becomes very difficult to kill in prolonged combat.",
-    "analysis": "Yu Zhong wins fights that last. Its passive transforms part of the damage inflicted into a shield, which makes it excellent when there are several targets in range - a five-way confrontation gives it much more return than a duel.\n\nHis ultimate makes him immune to checks while he advances, which also makes him a credible initiator. Countering it almost always involves reducing healing: without it, a well-equipped Yu Zhong absorbs an entire team.",
+    "analysis": "Yu Zhong wins fights that last. His passive places stacks of Sha Residue on the heroes he hits; at five, they burst, healing him with each stack consumed and accelerating him, which makes him excellent as soon as there are several targets in range - a confrontation with five gives him much more return than a duel.\n\nHis ultimate makes him immune to checks while he advances, which also makes him a credible initiator. Countering it almost always involves reducing healing: without it, a well-equipped Yu Zhong absorbs an entire team.",
     "skills": [
-      "The damage dealt by his skills partially converts into a shield, with increased efficiency on multiple targets.",
-      "Chains two sweeps in front of him. The second deals increased damage.",
-      "Leaps forward and throws enemies hit. Used as much to engage as to escape.",
-      "Takes the form of a dragon: immune to controls, it advances while inflicting area damage then knocks an enemy to the ground."
+      "Its physical damage causes stacks of Sha Residue on opposing heroes. At five stacks, they burst: each stack consumed damages the target and restores Yu Zhong some of his lost HP, and he gains speed.",
+      "His cape becomes a weapon that hits nearby enemies after a short delay. The cutting edge deals much more damage and lays down two stacks of Sha Residue.",
+      "Releases the soul of the dragon in front of him, which damages and slows enemies. If he hits, his next basic attack is boosted, especially since he hit multiple enemies.",
+      "After a short channeling, he takes his black dragon form: immune to controls, with additional HP, he moves freely, pushing back heroes in his path. As he exits this form, his skills gain range."
     ],
     "strengths": [
       "Very strong regeneration in five-way fights",
@@ -192,18 +192,18 @@
     "builds": [
       {
         "name": "EXP lane regeneration",
-        "context": "The reference build: resistance and lifesteal, since the passive already converts damage into a shield."
+        "context": "The reference build: resistance and life theft, since the passive already heals it with each stack consumed."
       }
     ]
   },
   "paquito": {
-    "summary": "Window Fighter: Each skill used improves the next, for a very short damage peak.",
-    "analysis": "Paquito is not played skill by skill but by sequences. Each spell cast loads an enhanced version of the next one, and the whole point of it is to string together those enhanced versions in the correct order before the window closes.\n\nWell done, it takes out a weak target in two seconds from a considerable distance. Played poorly, he wastes his upgraded versions on minions and has nothing left. He is a rhythm hero, very sensitive to the player's level.",
+    "summary": "Window Fighter: Every three skills, the next one is improved, for a very short damage peak.",
+    "analysis": "Paquito is not played skill by skill but by sequences. Every three skills launched, he switches to Field Stance and obtains an improved version of a skill, even on recharge: his whole point lies in choosing the right one and placing it at the right time.\n\nWell done, it takes out a weak target in two seconds from a considerable distance. Played poorly, he wastes his upgraded versions on minions and has nothing left. He is a rhythm hero, very sensitive to the player's level.",
     "skills": [
-      "Using a skill buffs the next different skill for a few seconds.",
-      "Hit straight ahead. Improved version: more range, increased damage and forward movement.",
-      "Strike in an arc. Improved version: throws enemies hit.",
-      "Rushes towards a target and knocks them back. Improved version: greatly increased damage and projection."
+      "Every three skills launched, he enters Field Stance: his next skill is improved, even on cooldown, and he gains speed after casting it.",
+      "Hit straight ahead and give him a shield. Improved version: increased damage and shield.",
+      "Rushes forward, hitting enemies in his path. Improved version: increased damage, and the rush stops on the first hero or monster hit.",
+      "Pushes enemies in front of him, hits them, slowing them down, then backs up. Improved version: a final uppercut, stronger, throws them into the air."
     ],
     "strengths": [
       "Very high peak damage over a short window",
@@ -318,12 +318,12 @@
   },
   "kagura": {
     "summary": "Dual-State Mage: Her skills completely change depending on whether she is holding her umbrella or has it down.",
-    "analysis": "Kagura has eight skills in practice for three hits. Each spell has a version with an umbrella and a version without, and knowing what state you are in is the hero's main thing. The signature combo follows the pose of the umbrella, a rappel that crosses and projects, then the ultimate to lock.\n\nShe is also one of the rare mages capable of getting out of a bad position on her own, since teleporting to the umbrella serves as an escape. In return, a status error leaves her without mobility in the middle of the opposing team.",
+    "analysis": "Kagura has eight skills in practice for three hits. Each spell has a version with an umbrella and a version without, and knowing what state you are in is the hero's main thing. The signature combo is the sending of the umbrella, its recovery which stuns around it, then the ultimate to push back.\n\nShe is also one of the rare mages capable of getting out of a bad position on her own, since her skill 2 frees her from all its negative effects by making her jump. In return, a status error leaves her without mobility in the middle of the opposing team.",
     "skills": [
-      "When Kagura and her umbrella are together, her skills recharge faster and she gains a shield after a spell.",
-      "Sends the umbrella to a location, or recalls it. The placed umbrella slows down enemies around it.",
-      "With the umbrella: moves in one direction. Without the umbrella: teleports towards it, throwing enemies it passes through.",
-      "Roots and attracts enemies around the umbrella, then deals significant area damage."
+      "When she retrieves her parasol, Kagura gains a shield, briefly stunning nearby enemies and slowing them. The effect has a short cooldown.",
+      "Sends the umbrella to a location, damaging and slowing enemies in its path. The umbrella returns alone if Kagura moves too far from it.",
+      "Removes all negative effects and leaps in one direction, leaving the umbrella behind.",
+      "Unleash the power of the umbrella: damages nearby enemies, knocking them back and slowing them."
     ],
     "strengths": [
       "Very high area damage in the mid-game",
@@ -344,12 +344,12 @@
   },
   "pharsa": {
     "summary": "Artillery Mage: His ultimate strikes across the map, without ever entering combat.",
-    "analysis": "Pharsa plays on the scope. Her ultimate is a channeled bombardment covering a huge area at long range, allowing her to participate in a fight she barely sees. Well placed, this spell alone can decide a confrontation around the Lord.\n\nHis skill 2 gives him a flying form that passes through walls, essential for repositioning after channeling. The weak point is obvious: during the ultimate she is immobile and defenseless, and any assassin who finds her kills her.",
+    "analysis": "Pharsa plays on the scope. Her ultimate is a channeled bombardment covering a huge area at long range, allowing her to participate in a fight she barely sees. Well placed, this spell alone can decide a confrontation around the Lord.\n\nHis skill 1 marks the enemies hit, which his next attack or skill stuns; his skill 2, an online shock, does most of his damage between two ultimates. It has no movement of its own. The weak point is obvious: during the ultimate she is immobile and defenseless, and any assassin who finds her kills her.",
     "skills": [
-      "After a skill, his next basic attack deals bonus magic damage.",
-      "Sends out a wave that explodes from a distance, dealing area damage.",
-      "Takes a flying form to move quickly, crossing obstacles.",
-      "Channels a bombardment over a very large area, at a long distance from the map."
+      "At regular intervals, Verri goes on the hunt: Pharsa's next attack on an enemy hero deals additional magic damage based on his HP and slows him down.",
+      "A magical explosion over an area, which marks enemies hit. Hitting a marked target with an attack or skill stuns it.",
+      "Releases a burst of magical energy in a straight line.",
+      "Fly away for a few seconds and bomb the chosen area, up to four times during the flight."
     ],
     "strengths": [
       "Ultimate range among the greatest in the game",
@@ -375,7 +375,7 @@
       "Each skill hitting an enemy accumulates permanent charges that increase their damage and maximum mana.",
       "Releases a wave of bats in one direction, dealing area damage.",
       "Raises claws that briefly immobilize enemies in the area.",
-      "Heals himself, gains range on his skills, and deals massive AoE damage around him."
+      "Gains speed and immunity to slows, and fires dozens of blood bolts at nearby enemies, slowing them and healing on each hit."
     ],
     "strengths": [
       "Unlimited area damage late game",
@@ -518,11 +518,11 @@
   },
   "nana": {
     "summary": "Harassment mage that incapacitates a target by transforming it, and survives a fatal blow once.",
-    "analysis": "Nana wears down her opponents from afar with a boomerang that hits back and forth. Her skill 2 sends Molina to pursue the closest enemy hero: the one she hits is transformed for a short time, slowed down and weakened against magic damage. The ultimate hits an area three times and stuns enemies hit multiple times in a row. Her passive grants her, once every two and a half minutes, an invulnerable transformation at the moment she should die.\n\nIts measured numbers are low: below average victory rate at all ranks, even lower in Mythic Glory, with no real improvement in long games. While transforming her passive, she cannot cast any skills, and Molina chooses her target herself among nearby heroes. The counter differences remain modest; the clearest place her in difficulty against Gloo, then against Akai and Hylos.",
+    "analysis": "Nana wears down her opponents from afar with a boomerang that hits back and forth. His skill 2 launches Molina on an area: the heroes affected are transformed for a short time, slowed down and weakened against magic damage; if she doesn't hit anyone, Molina stays on the ground and chases the first hero who approaches. The ultimate hits an area three times and stuns enemies hit multiple times in a row. Her passive grants her, once every two and a half minutes, an invulnerable transformation at the moment she should die.\n\nIts measured numbers are low: below average victory rate at all ranks, even lower in Mythic Glory, with no real improvement in long games. While transforming her passive, she cannot cast any skills, and a fallen Molina chooses her target herself from among the approaching heroes. The counter gaps remain modest; the clearest place her in difficulty against Gloo, then against Akai and Hylos.",
     "skills": [
       "Faced with a fatal blow, she gets rid of the negative effects and transforms: invulnerable, faster, she recovers a little HP but cannot launch any skills. The effect has a long cooldown.",
       "A boomerang that hits on the way out and back. Its damage decreases for each additional enemy crossed: it is better to aim at an isolated target.",
-      "Place Molina, who then pursues the closest enemy hero. The first hero reached is transformed for a short time, slowed down and his magic defense reduced. With no heroes within range, Molina stays in place for a moment before disappearing.",
+      "Cast Molina on an area: heroes hit are transformed for a short time, slowed down, deprived of attacks and skills, and their magic defense is reduced. If she doesn't hit any heroes, Molina stays on the ground and chases the first one that approaches.",
       "Molina hits a zone three times in a row, slowing down with each impact. An enemy hit by consecutive impacts is stunned."
     ],
     "strengths": [
@@ -546,12 +546,12 @@
   },
   "granger": {
     "summary": "Magazine Shooter: His damage comes from his skills, not his attack speed.",
-    "analysis": "Granger is not built like a classic shooter. His passive sets his attack to six bullets, the last of which is critical, which makes attack speed almost useless on him: you buy attack damage and penetration.\n\nThis gives it a very early peak of power, exploitable in the jungle from the first object. His fragility remains that of a shooter, aggravated by the absence of any control: poorly positioned, he only has his skill 2 to hope to escape.",
+    "analysis": "Granger is not built like a classic shooter. His skill 1 fires six bullets, the last of which is always critical, and his passive converts the recharge reduction into a physical attack, which makes attack speed almost useless on him: you buy attack damage and penetration.\n\nThis gives it a very early peak of power, exploitable in the jungle from the first object. His fragility remains that of a shooter, aggravated by the lack of control, apart from the brief slowdown of his ultimate: poorly positioned, he only has his skill 2 and the rolls of his ultimate to hope to escape.",
     "skills": [
-      "His gun contains six bullets. The last bullet in the magazine always deals a critical hit.",
-      "Fires a cone burst that passes through enemies, dealing increased damage to the first target hit.",
-      "Moves quickly and instantly reloads his weapon, gaining attack speed.",
-      "Equip a long-range cannon firing explosive shells across the map."
+      "His rifle and cannon run on demonic energy, which regenerates and increases with each minion, monster or hero killed. Each point of recharge reduction becomes physical attack.",
+      "Fires six bullets in a row, the last of which is always critical, gaining a little speed. Without recharging: she only depends on the energy of her rifle.",
+      "Dash in one direction while restoring energy to his rifle, even during skill 1. Each bullet that hits reduces its recharge.",
+      "Fire the cannon at and around the first hero hit, briefly slowing the targets. After each shot, he can roll."
     ],
     "strengths": [
       "Very early power peak",
@@ -575,8 +575,8 @@
     "analysis": "Beatrix is ​​actually four heroes. She carries two weapons at a time among four, and each redefines its range, its rate and its ultimate: a very long range sniper rifle, an explosive shotgun, a rapid rate assault rifle, an area grenade launcher.\n\nThe level of play consists of choosing the correct pair before the game, then alternating in combat. This is what makes it both very strong in competition and very punishing in ranked play: a bad pair, or a bad change at the wrong time, and it no longer has any damage at all.",
     "skills": [
       "Beatrix carries two of four weapons. Each weapon modifies its basic attacks and replaces its ultimate.",
-      "Moves and leaves smoke that briefly conceals it.",
-      "Exchanges the active weapon for the second weapon carried, reloading the corresponding ultimate.",
+      "Swaps the active weapon for the second wielded weapon, which changes its base attack and ultimate. As a passive, carrying two weapons increases your physical attack.",
+      "A forward roll that fully recharges the active weapon.",
       "Depends on the weapon carried: long-range precision shot, explosive salvo, rapid burst or area grenades."
     ],
     "strengths": [
@@ -598,12 +598,12 @@
   },
   "melissa": {
     "summary": "Defensive Shooter: Her ultimate creates an area that melee enemies cannot pass through.",
-    "analysis": "Melissa solves the classic shooter problem — getting dunked — with a direct response. His ultimate lays down a circle that knocks back melee opponents and greatly reduces their damage inside, allowing him to keep shooting while an assassin exhausts himself trying to get in.\n\nShe remains a standard shooter compared to the rest: good power build-up, decent damage, no threat beyond her reach. Against a ranged team that ignores it and punches through the zone, the ultimate loses most of its value.",
+    "analysis": "Melissa solves the classic shooter problem — getting dunked — with a direct response. His ultimate gives him a shield and places a circle that repels present opponents and anyone who tries to enter, interrupting their movements, allowing him to continue shooting while an assassin exhausts himself trying to enter.\n\nShe remains a standard shooter compared to the rest: good power build-up, decent damage, no threat beyond her reach. Against a ranged team that ignores it and punches through the zone, the ultimate loses most of its value.",
     "skills": [
-      "Its damage increases against nearby or distant targets depending on distance, and its attacks briefly slow down.",
-      "Moves by throwing a doll that deals area damage.",
-      "Summons a doll that chases enemies and slows them down.",
-      "Creates an area that melee enemies cannot cross and in which their damage is greatly reduced."
+      "Its damage is increased against minions, monsters and summoned units.",
+      "Glide forward and gain attack speed for a few seconds.",
+      "Launches Muddles, which damages the first enemy hit then binds nearby enemies and slows them as long as they remain in range. His attacks on Muddles also damage linked enemies.",
+      "Gives her a shield and creates an area around her that repels present enemies; those who attempt to enter are pushed back, slowed, and their movement skills interrupted."
     ],
     "strengths": [
       "Direct response to assassins and dives",
@@ -716,12 +716,12 @@
   },
   "estes": {
     "summary": "The crudest heal in the game: its ultimate regenerates the entire team for several seconds.",
-    "analysis": "Estes does nothing but heal, but he does it at a volume that no other support reaches. In a prolonged fight around an objective, his ultimate can negate an entire composition's worth of sustained damage.\n\nThis also makes him the most context-dependent hero in the entire game. Against a team that buys healing reduction, or has an initiation capable of removing him first, he becomes almost useless. It provides no control, no damage, no mobility: if it doesn't heal, it doesn't exist.",
+    "analysis": "Estes does nothing but heal, but he does it at a volume that no other support reaches. In a prolonged fight around an objective, his ultimate can negate an entire composition's worth of sustained damage.\n\nThis also makes him the most context-dependent hero in the entire game. Against a team that buys healing reduction, or has an initiation capable of removing him first, he becomes almost useless. It only provides area slowdown, little damage and no mobility: if it doesn't heal, it doesn't exist.",
     "skills": [
-      "His healing applies a mark that increases the regeneration of affected allies.",
-      "Heals a targeted ally and increases their movement speed.",
-      "Links an enemy target, slows it, then immobilizes it if the link holds long enough.",
-      "Creates an area that continuously heals all allies present for several seconds."
+      "It accumulates energy; at one hundred stacks, its next basic attack is strengthened and bounces on nearby enemies, slowing them. The link of his skill 1 accelerates this charge.",
+      "Heals an ally and binds to him for a few seconds: both gain hybrid defense, the ally continues to recover HP and Estes gains speed.",
+      "A flood of lunar light damages enemies in an area, which becomes a domain: enemies there remain visible, and those who touch the edge are greatly slowed.",
+      "Applies a strengthened version of his skill 1 to himself and all nearby allies: double immediate healing and defense, and significant continuous healing for several seconds."
     ],
     "strengths": [
       "Unrivaled volume of care over time",
@@ -742,12 +742,12 @@
   },
   "angela": {
     "summary": "Support that attaches to an ally across the map to strengthen and protect them from a distance.",
-    "analysis": "Angela plays a second part in parallel with hers. Her ultimate allows her to join any ally anywhere, giving her a shield and stat boost while she's attached — she literally becomes an extension of the chosen player.\n\nUsed well, it allows a wielder to dive with a security they never would alone, and it appears on the other side of the map to turn around a skirmish. Used incorrectly, it passes the game attached to the wrong player and does not influence anything.",
+    "analysis": "Angela plays a second part in parallel with hers. Her ultimate allows her to join any ally anywhere, giving them a shield, and casts her skills at no mana cost while attached — she literally becomes an extension of the chosen player.\n\nUsed well, it allows a wielder to dive with a security they never would alone, and it appears on the other side of the map to turn around a skirmish. Used incorrectly, it passes the game attached to the wrong player and does not influence anything.",
     "skills": [
-      "His skills apply charges that increase the damage taken by the target or the healing received by the ally.",
-      "Projects a wave that deals damage and slows enemies hit.",
-      "Links a target: an enemy is immobilized after a delay, an ally receives continuous healing.",
-      "Attaches to an ally anywhere on the map, granting them a shield and increased stats."
+      "Each skill launched gives him a little movement speed, accumulating; attached to an ally, it is he who benefits.",
+      "Projects a wave that damages enemies hit and leaves a cumulative mark on them, which increases damage and slows down, while healing affected allies. Up to five charges; attached to an ally, its recharge is halved.",
+      "Connects an enemy with a wire that slows him down more and more; if it is still connected after three seconds, it is immobilized and suffers heavy damage, increased by the marks of skill 1.",
+      "Gives a shield to an ally anywhere on the map, then attaches to them after a channel: she then casts her skills at no mana cost."
     ],
     "strengths": [
       "Global presence: operates everywhere on the map",
@@ -768,12 +768,12 @@
   },
   "mathilda": {
     "summary": "Mobility Support: She takes an ally with her, to engage or extract.",
-    "analysis": "Mathilda is the most versatile support in the game today. His skill 2 involves an ally in his movement, which makes it possible to bring a fighter into contact as well as to get a shooter out of a bad position. His ultimate locks a target and serves as a targeted initiation.\n\nShe also has real damage, which makes her playable as a secondary assassin when the game goes wrong. Its difficulty lies in reading: each move involves two players at a time, and an error costs two deaths instead of one.",
+    "analysis": "Mathilda is the most versatile support in the game today. His skill 2 involves an ally in his movement, which makes it possible to bring a fighter into contact as well as to get a shooter out of a bad position. His ultimate locks a target and serves as a targeted initiation.\n\nShe also inflicts significant magic damage, which makes her playable as a secondary assassin when the game goes badly. Its difficulty lies in reading: each move involves two players at a time, and an error costs two deaths instead of one.",
     "skills": [
-      "His skills generate a shield and briefly increase his movement speed.",
-      "Sends out spirits that deal damage and mark enemies hit.",
-      "Fly off in one direction, taking the closest ally with her.",
-      "Rushes towards a marked target, immobilizing them and dealing damage to the area."
+      "It accumulates energy while moving; once charged, his next basic attack is strengthened and gives him a boost of speed.",
+      "Attracts spirits as it moves; At the end of the duration, or restarted, it sends them to strike nearby enemies, which they reveal for an instant.",
+      "Jumps in a direction and surrounds himself with a field that gives him a shield and speed. The first ally to touch the field is guided to it, with the same speed bonus.",
+      "Marks an opposing hero and spins around them, slowing them down, their spirits striking nearby enemies. At the end, it swoops down on the marked target, knocking enemies in its path into the air."
     ],
     "strengths": [
       "Repositions an ally, in attack or defense",
@@ -851,7 +851,7 @@
     "analysis": "Carmilla lives in contact. Her passive makes her steal part of the defenses of the heroes she touches, her flowers revolve around her wounding, slowing down more and more and healing her, and her skill 2 accumulates speed before relaunching on a target to stun it, especially the longer the charge lasts. His ultimate curses an area: enemies who remain there are immobilized then linked, and as long as they remain close, a control suffered by one applies to the others, with part of the damage.\n\nThis mechanic makes its value very dependent on its allies: its best measured duos show gaps among the strongest recorded, with Diggie, Floryn, Mathilda and Chip. If enemies move away from each other, the bond breaks. She is among the reinforced heroes of patch 2.1.88, with no details published on the wiki. The measurements place her in difficulty against X.Borg, Valentina, Natalia and Lesley.",
     "skills": [
       "Each time she damages an opposing hero, she steals part of their physical and magical defenses for a few seconds, accumulating, with a delay before being able to steal the same hero again.",
-      "Two flowers spin around her, damaging enemies, slowing them down more and more and speeding up with each hit. Each flower hit heals her, much less on minions.",
+      "Three flowers revolve around her, damaging enemies and slowing them down more and more. Each flower hit heals her, much less on minions.",
       "Accumulates energy by gaining speed, then launches back at a hero or monster to damage and stun them. The longer the charge lasts, the stronger the damage and stun.",
       "Curses an area that slows, then immobilizes and binds enemies left inside. A check suffered by a linked enemy applies to others, who also receive part of the damage; the bond breaks if they move away from each other."
     ],
@@ -877,7 +877,7 @@
     "summary": "Historical initiator tank, capable of bringing together an entire team in a single ultimate.",
     "analysis": "Tigreal does one thing, and he does it better than almost anyone: pick up multiple opponents at once. The classic combo is to rush in with skill 2, then immediately chain the ultimate before the targets disperse — canceling the animation with a Flicker spell remains the most profitable technique to learn on him.\n\nIts limit is clear: apart from its ultimate, it brings almost nothing. A Tigreal who missed his initiation leaves his team with four for around ten seconds. He's a hero of timing, not continuous presence.",
     "skills": [
-      "Tigreal's basic attacks charge his armor. While fully charged, his next attack deals additional damage and briefly protects him.",
+      "Each basic attack suffered and each skill launched gives him a stack; at four, it blocks the next basic attack received, turrets included.",
       "Smashes the ground in front of him, dealing damage and slowing enemies hit.",
       "Rushes forward, pushing enemies encountered, then throwing them into the air at the end of the run.",
       "Pulls all nearby enemies towards him, then stuns them. The reference in group initiation."
@@ -907,10 +907,10 @@
     "summary": "Initiation tank whose entire part fits in a grappling hook: it removes a player from the map.",
     "analysis": "Franco does not play the same game as the other tanks. He's not looking to absorb damage, he's looking to remove an opponent from combat before it begins. A successful grapple on the opposing shooter, followed by the ultimate, is a dead player and a free objective.\n\nIts entire value therefore rests on the precision of a slow projectile skill, which vision entirely determines. Franco plays in the bushes, not in the lane. A Franco who misses three grapples in a row is dead weight; a Franco who touches them wins the game alone.",
     "skills": [
-      "Each hit received increases his movement speed for a short time, cumulative.",
-      "Throws a hook that pulls the first enemy hit to them and briefly immobilizes them.",
+      "After a few seconds without taking damage, he gains speed, recovers HP and accumulates strength; his next skill consumes these stacks for greatly increased damage.",
+      "Throws a hook that damages the first enemy hit and pulls them towards them.",
       "Strikes around him, dealing damage and greatly slowing nearby enemies.",
-      "Immobilizes a target and hits it repeatedly. The check lasts long enough for the team to conclude."
+      "Neutralizes an opposing hero (removal) and hits them six times for the duration. The check lasts long enough for the team to conclude."
     ],
     "strengths": [
       "Removes a key target from combat, regardless of resistance",
@@ -931,12 +931,12 @@
   },
   "khufra": {
     "summary": "The tank that punishes mobility: its skill 1 cancels enemy dashes and jumps.",
-    "analysis": "Khufra exists to cater to a specific category of heroes—those who are constantly on the move. Its skill 1 places a field that interrupts any dash it passes through, which neutralizes Fanny, Ling, Wanwan or Benedetta in a way that no other tank allows.\n\nApart from this response role, it remains an excellent initiator: the ultimate ball propels opponents and allows them to be pushed back against a turret or a wall. Its weakness is its recharge: apart from skills, Khufra is slow and easy to bypass.",
+    "analysis": "Khufra exists to cater to a specific category of heroes—those who are constantly on the move. Its skill 2 changes it into a ball which throws into the air any enemy trying to cross it by moving, which neutralizes Fanny, Ling, Wanwan or Benedetta in a way that no other tank allows.\n\nApart from this response role, he remains an excellent initiator: his skill 1 launches him at the first opposing hero, throwing the enemies around into the air, and his ultimate pushes back the opponents in front of him, stunning them if they hit a wall. Its weakness is its recharge: apart from skills, Khufra is slow and easy to bypass.",
     "skills": [
-      "After using a skill, his next basic attack deals additional damage and heals him.",
-      "Creates an area that throws enemies who attempt to move through it into the air. The main anti-mobility tool in the game.",
-      "Transforms into a ball and rolls in one direction, pushing and slowing enemies it hits.",
-      "Hits the ground: enemies caught in the area are thrown and immobilized for a moment."
+      "At regular intervals, his next basic attack carries further, inflicts damage based on the target's HP, slows it and heals it. Each check posed by his skills reduces this delay.",
+      "Propels itself in one direction, damaging enemies along its path; he stops at the first opposing hero and throws nearby enemies into the air.",
+      "Transforms into a bouncing ball, with more hybrid defense: enemies who try to pass through it by moving are thrown into the air, and each bounce slows down nearby enemies. The main anti-mobility tool in the game.",
+      "Pushes all enemies around him forward and slows them down; those who hit a wall take additional damage and are stunned."
     ],
     "strengths": [
       "Direct response to any mobile dial",
@@ -982,7 +982,7 @@
       },
       {
         "name": "Mixed resistors",
-        "context": "Second most played build, associated with Vengeance: Antique Cuirass against physical damage from skills, Athena's Shield against magic damage, when the opposing team mixes the two."
+        "context": "Second most played build, associated with Vengeance: Antique Cuirass against physical damage from skills, Valkyrie's Shield against magic damage, when the opposing team mixes the two."
       }
     ]
   },
@@ -1014,7 +1014,7 @@
       },
       {
         "name": "Against magic",
-        "context": "Athena's Shield in place of Radiant Armor, with support emblem: less played, with better measured win rate. Best used against an opposing team with high magic damage."
+        "context": "Valkyrie's Shield in place of Radiant Armor, with support emblem: less played, with a better measured win rate. Best used against an opposing team with high magic damage."
       }
     ]
   },

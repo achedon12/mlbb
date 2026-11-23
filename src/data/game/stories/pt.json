@@ -1738,11 +1738,9 @@
         "Caçadores de Areia de Iceberg (hostis)"
       ],
       "relations": [
-        "Claude, Mathilda (companheiros)",
+        "Claude, Mathilda, Layla (companheiros)",
         "Fanny, Tigreal, Alucard, Harith (aliados)",
-        "Waldo Kane (inimigo)",
-        "Blandy (inimigo)",
-        "Alice (inimigo)"
+        "Waldo Kane, Blandy, Alice (inimigos)"
       ],
       "powers": []
     }

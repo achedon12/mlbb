@@ -1,11 +1,11 @@
 {
   "lancelot": {
     "summary": "Assassino della giungla costruito sulla sequenza dei trattini, con una finestra di invulnerabilità durante la fase finale.",
-    "analysis": "Lancillotto affronta una rissa piuttosto che entrarvi. La sua abilità 2 segna i bersagli, la sua abilità 1 si ricarica colpendo un bersaglio marcato: ben incatenato, può scattare quasi senza interruzione finché colpisce qualcosa.\n\nLa sua suprema lo rende invulnerabile durante l'animazione, il che lo rende anche uno strumento difensivo per schivare un controllo o un'esecuzione. L’eroe viene punito da tutto ciò che blocca il movimento – Khufra in testa – e da zone che gli impediscono di avanzare.",
+    "analysis": "Lancillotto affronta una rissa piuttosto che entrarvi. La sua abilità 1 marchia il primo nemico non marchiato che attraversa, e ogni nuovo marchio ripristina la sua ricarica: ben concatenato, può scattare quasi senza interruzione finché trova un bersaglio da marcare. La sua abilità 2 lo rende intoccabile durante i suoi tre colpi.\n\nLa sua suprema lo rende invulnerabile durante l'animazione, il che lo rende anche uno strumento difensivo per schivare un controllo o un'esecuzione. L’eroe viene punito da tutto ciò che blocca il movimento – Khufra in testa – e da zone che gli impediscono di avanzare.",
     "skills": [
-      "Il suo danno aumenta brevemente dopo aver schivato o attraversato un nemico.",
-      "Si muove in una direzione colpendo i nemici che attraversa. Il tempo di recupero viene ridotto colpendo un bersaglio contrassegnato.",
-      "Proietta una lama che segna i nemici colpiti e li rallenta.",
+      "Ogni carica aumenta il suo danno per alcuni secondi, accumulandosi.",
+      "Carica in una direzione colpendo i nemici che attraversi e segna il primo nemico colpito non marcato. Ogni nuovo contrassegno azzera la ricarica.",
+      "Colpisci tre volte in una direzione rimanendo intoccabile. I nemici al centro dell'area subiscono tutti e tre i colpi e vengono rallentati.",
       "Concatena una serie di colpi in un'area rimanendo invulnerabile durante l'animazione."
     ],
     "strengths": [
@@ -26,13 +26,13 @@
     ]
   },
   "gusion": {
-    "summary": "Assassino magico combo: posiziona i suoi pugnali, si teletrasporta su di essi e li raccoglie per infliggere tutto il suo danno in una volta.",
+    "summary": "Combo Magic Assassin: lancia i suoi pugnali, scivola dietro il bersaglio marchiato e li richiama per infliggere tutto il suo danno in una volta.",
     "analysis": "Gusion è l'eroe combo più esigente del gioco dopo Fanny. Tutte le sue abilità possono essere rilanciate e l'ordine e il tempismo dei rilanci determinano interamente il suo danno. La combo standard consiste nell'abbassare i pugnali, avvicinarsi alla suprema e quindi attivare il recupero in modo che tutto avvenga simultaneamente.\n\nUn Gusion esperto elimina qualsiasi bersaglio fragile in meno di un secondo, spesso prima che lo schermo dell'avversario abbia mostrato qualcosa. Un Gusion rude infligge un terzo dei danni e muore sul colpo. Pochi eroi hanno un divario così ampio tra i due.",
     "skills": [
-      "Dopo un'abilità, il suo successivo attacco base infligge danni aggiuntivi proporzionali alla salute mancante del bersaglio.",
-      "Lancia i pugnali a ventaglio. Rilanciare l'abilità richiama i pugnali piantati, infliggendo nuovamente danni.",
-      "Lancia un pugnale unico. Rilanciare l'abilità teletrasporta Gusion sul pugnale.",
-      "Ricarica entrambe le abilità e ti consente di spingerti verso un'area. Il punto di partenza di qualsiasi combo."
+      "Ogni abilità lanciata aggiunge una runa al suo pugnale, fino a quattro: ognuna rafforza il suo successivo attacco base, che infligge danni aggiuntivi in ​​base agli HP del bersaglio e lo cura.",
+      "Lancia un pugnale che danneggia e segna il primo nemico colpito. Rilanciato, passa dietro il bersaglio segnato colpendolo nuovamente, senza poter essere interrotto.",
+      "Lancia una raffica di pugnali che danneggiano e rallentano i nemici colpiti. Rilanciato, ricorda i pugnali, che colpiscono ancora sul loro cammino.",
+      "Si lancia verso un'area e azzera la ricarica delle sue due abilità; riavviato, lo fa scattare per un breve tratto. Il punto di partenza di qualsiasi combo."
     ],
     "strengths": [
       "Uno dei picchi di danno più alti del gioco",
@@ -53,12 +53,12 @@
   },
   "ling": {
     "summary": "Assassino che si muove sui muri, fuori portata, e sceglie il momento giusto per cadere su un bersaglio.",
-    "analysis": "Ling cambia la geometria della mappa. Mentre è su un muro, è intoccabile dalla maggior parte delle abilità a terra, permettendogli di aspettare indefinitamente l'apertura. Non utilizza mana ma una risorsa energetica, che limita il numero di salti consecutivi.\n\nLa sua suprema lo rende immune alle prove mentre salta e infligge danni critici. L'eroe è eccellente nelle schermaglie mobili ed è debole contro una squadra raggruppata che tiene per sé i suoi controlli. Khufra rimane la sua risposta più chiara.",
+    "analysis": "Ling cambia la geometria della mappa. Mentre è su un muro, è intoccabile dalla maggior parte delle abilità a terra, permettendogli di aspettare indefinitamente l'apertura. Non utilizza mana ma una risorsa energetica, che limita il numero di salti consecutivi.\n\nLa sua suprema lo rende invulnerabile mentre salta, quindi rallenta e lancia i nemici in aria all'atterraggio. L'eroe è eccellente nelle schermaglie mobili ed è debole contro una squadra raggruppata che tiene per sé i suoi controlli. Khufra rimane la sua risposta più chiara.",
     "skills": [
-      "Ling può arrampicarsi sui muri e muoversi rapidamente, rigenerando la sua energia.",
-      "Salta in qualsiasi punto, incluso un muro. Costo energetico, senza ricarica finché dura l'energia.",
-      "Colpisce i nemici intorno a lui e aumenta la sua velocità di attacco.",
-      "Salta intorno a un'area infliggendo danni critici, immune ai controlli mentre salta."
+      "Ling salta da un muro all'altro e recupera energia su un muro come se infliggesse danni. Ottiene una probabilità critica aumentata di 1,6 volte da tutte le fonti, ma il suo danno critico è ridotto.",
+      "Salta su un muro ed entra in semi-mimetizzazione, più veloce. Saltare da un muro all'altro non attiva la ricarica; un controllo lo fa cadere a terra.",
+      "Carica in una direzione e colpisci i nemici vicini. Lanciato da un muro, senza alcun costo energetico, lo precipita a terra, rallentando i nemici nell'area.",
+      "Salta in aria rimanendo invulnerabile, poi cade, rallentando i nemici nell'area e lanciando in aria quelli al centro. Il campo di spade lasciato a terra ricarica le sue altre abilità."
     ],
     "strengths": [
       "Muoversi sui muri, fuori portata a terra",
@@ -73,7 +73,7 @@
     "builds": [
       {
         "name": "Giungla critica",
-        "context": "La sua abilità suprema infligge danni critici: la velocità critica vale più della penetrazione pura."
+        "context": "La sua passiva moltiplica le possibilità critiche che ottiene: il tasso critico vale più della penetrazione grezza."
       }
     ]
   },
@@ -142,12 +142,12 @@
   },
   "chou": {
     "summary": "Combattente dell'isolamento: estrae un bersaglio dal gruppo avversario e lo uccide prima che la sua squadra reagisca.",
-    "analysis": "Chou è l'eroe vagabondo con il limite di maestria più alto. L'idea è semplice – l'Ultimate manda un bersaglio in aria e lo muove – ma la sua esecuzione si basa sulla cancellazione dell'animazione che il gioco non spiega da nessuna parte. La combo di riferimento concatena l'abilità 1, il salto annullato, la suprema, quindi l'abilità 2 per trattenere il bersaglio all'atterraggio.\n\nIl suo interesse per una squadra organizzata nasce da lì: sceglie chi muore. Contro un giocatore che mantiene il suo Purify, invece, la Ultimate perde metà del suo valore e Chou torna ad essere un combattente medio.",
+    "analysis": "Chou è l'eroe vagabondo con il limite di maestria più alto. L'idea è semplice – l'Ultimate respinge un bersaglio e lo insegue – ma la sua esecuzione si basa su cancellazioni di animazioni che il gioco non spiega da nessuna parte. La combo di riferimento concatena l'abilità 1, il salto annullato, la suprema, quindi l'abilità 2 per trattenere il bersaglio all'atterraggio.\n\nIl suo interesse per una squadra organizzata nasce da lì: sceglie chi muore. Contro un giocatore che mantiene il suo Purify, invece, la Ultimate perde metà del suo valore e Chou torna ad essere un combattente medio.",
     "skills": [
-      "Dopo pochi attacchi base, il suo attacco successivo diventa un colpo potenziato che infligge danni extra.",
+      "Dopo aver percorso una certa distanza, il suo successivo attacco base infligge danni maggiori, rallenta brevemente il bersaglio e riduce la sua difesa fisica.",
       "Tre colpi consecutivi. L'ultimo lancia in aria i nemici colpiti.",
-      "Scatta in una direzione, diventando immune ai controlli mentre corre.",
-      "Colpisce un bersaglio, lo lancia e lo segue fino in fondo. Allontana un avversario dalla sua squadra."
+      "Si precipita in una direzione diventando immune ai controlli e ottiene uno scudo.",
+      "Colpisci un eroe avversario e respingilo; ricominciato, lei lo insegue per ulteriori danni. Allontana un avversario dalla sua squadra."
     ],
     "strengths": [
       "Seleziona e isola un obiettivo prioritario",
@@ -172,12 +172,12 @@
   },
   "yu-zhong": {
     "summary": "Combattente in corsia EXP che si cura colpendo e diventa molto difficile da uccidere in combattimenti prolungati.",
-    "analysis": "Yu Zhong vince i combattimenti che durano. La sua passiva trasforma parte del danno inflitto in uno scudo, il che lo rende eccellente quando ci sono più bersagli nel suo raggio d'azione: uno scontro a cinque dà molto più rendimento di un duello.\n\nLa sua suprema lo rende immune ai controlli mentre avanza, il che lo rende anche un iniziatore credibile. Contrastarlo comporta quasi sempre la riduzione delle cure: senza di essa, uno Yu Zhong ben equipaggiato assorbe un'intera squadra.",
+    "analysis": "Yu Zhong vince i combattimenti che durano. La sua passiva posiziona accumuli di Sha Residue sugli eroi che colpisce; a cinque, esplodono, curandolo con ogni pila consumata e accelerandolo, il che lo rende eccellente non appena ci sono diversi bersagli nel raggio d'azione: uno scontro con cinque gli dà molto più rendimento di un duello.\n\nLa sua suprema lo rende immune ai controlli mentre avanza, il che lo rende anche un iniziatore credibile. Contrastarlo comporta quasi sempre la riduzione delle cure: senza di essa, uno Yu Zhong ben equipaggiato assorbe un'intera squadra.",
     "skills": [
-      "Il danno inflitto dalle sue abilità si converte parzialmente in uno scudo, con maggiore efficienza su più bersagli.",
-      "Chains due spazza davanti a lui. Il secondo infligge danni maggiori.",
-      "Balza in avanti e scaglia i nemici colpiti. Usato tanto per impegnarsi quanto per scappare.",
-      "Prende la forma di un drago: immune ai controlli, avanza infliggendo danni ad area per poi scaraventare a terra un nemico."
+      "Il suo danno fisico provoca accumuli di Sha Residuo sugli eroi avversari. A cinque pile, esplodono: ogni pila consumata danneggia il bersaglio e ripristina a Yu Zhong parte dei suoi HP persi, e guadagna velocità.",
+      "Il suo mantello diventa un'arma che colpisce i nemici vicini dopo un breve ritardo. Il tagliente infligge molti più danni e deposita due accumuli di Sha Residue.",
+      "Rilascia l'anima del drago di fronte a lui, che danneggia e rallenta i nemici. Se colpisce, il suo attacco base successivo viene potenziato, soprattutto perché ha colpito più nemici.",
+      "Dopo una breve canalizzazione, assume la forma di drago nero: immune ai controlli, con HP aggiuntivi, si muove liberamente, respingendo gli eroi sul suo cammino. Quando esce da questa forma, le sue abilità aumentano di portata."
     ],
     "strengths": [
       "Rigenerazione molto forte nei combattimenti a cinque",
@@ -192,18 +192,18 @@
     "builds": [
       {
         "name": "Rigenerazione della corsia EXP",
-        "context": "La build di riferimento: resistenza e lifesteal, poiché la passiva converte già il danno in uno scudo."
+        "context": "La build di riferimento: resistenza e furto di vita, poiché la passiva lo cura già con ogni stack consumato."
       }
     ]
   },
   "paquito": {
-    "summary": "Window Fighter: ogni abilità utilizzata migliora quella successiva, per un picco di danno molto breve.",
-    "analysis": "Paquito non si gioca abilità per abilità ma per sequenze. Ogni incantesimo lanciato carica una versione migliorata di quello successivo e il punto centrale è mettere insieme quelle versioni migliorate nell'ordine corretto prima che la finestra si chiuda.\n\nBen fatto, elimina un bersaglio debole in due secondi da una distanza considerevole. Giocato male, spreca le sue versioni aggiornate con i servitori e non gli rimane più nulla. È un eroe del ritmo, molto sensibile al livello del giocatore.",
+    "summary": "Window Fighter: ogni tre abilità, quella successiva viene migliorata, per un picco di danno molto breve.",
+    "analysis": "Paquito non si gioca abilità per abilità ma per sequenze. Ogni tre abilità lanciate, passa alla Field Stance e ottiene una versione migliorata di un'abilità, anche ricaricandola: il suo punto sta tutto nello scegliere quella giusta e piazzarla al momento giusto.\n\nBen fatto, elimina un bersaglio debole in due secondi da una distanza considerevole. Giocato male, spreca le sue versioni aggiornate con i servitori e non gli rimane più nulla. È un eroe del ritmo, molto sensibile al livello del giocatore.",
     "skills": [
-      "L'uso di un'abilità potenzia l'abilità diversa successiva per alcuni secondi.",
-      "Colpisci dritto. Versione migliorata: maggiore portata, danni aumentati e movimento in avanti.",
-      "Colpire descrivendo un arco. Versione migliorata: lancia i nemici colpiti.",
-      "Si precipita verso un bersaglio e lo respinge. Versione migliorata: danno e proiezione notevolmente aumentati."
+      "Ogni tre abilità lanciate, entra in Field Stance: la sua abilità successiva viene migliorata, anche in cooldown, e guadagna velocità dopo averla lanciata.",
+      "Colpisci dritto e dagli uno scudo. Versione migliorata: danni e scudo aumentati.",
+      "Si precipita in avanti, colpendo i nemici sul suo cammino. Versione migliorata: danni aumentati e la corsa si ferma al primo eroe o mostro colpito.",
+      "Spinge i nemici davanti a sé, li colpisce, li rallenta, poi indietreggia. Versione migliorata: un montante finale, più forte, li lancia in aria."
     ],
     "strengths": [
       "Danno di picco molto elevato in una finestra breve",
@@ -318,12 +318,12 @@
   },
   "kagura": {
     "summary": "Mago a doppio stato: le sue abilità cambiano completamente a seconda che tenga in mano l'ombrello o lo abbia abbassato.",
-    "analysis": "Kagura ha otto abilità in pratica per tre colpi. Ogni incantesimo ha una versione con un ombrello e una versione senza, e sapere in quale stato ti trovi è la cosa principale dell'eroe. La combo caratteristica segue la posa dell'ombrello, una discesa in corda doppia che attraversa e sporge, poi la chiusura definitiva.\n\nÈ anche uno dei rari maghi capaci di uscire da sola da una brutta posizione, poiché il teletrasporto all'ombrello serve come via di fuga. In cambio, un errore di stato la lascia senza mobilità in mezzo alla squadra avversaria.",
+    "analysis": "Kagura ha otto abilità in pratica per tre colpi. Ogni incantesimo ha una versione con un ombrello e una versione senza, e sapere in quale stato ti trovi è la cosa principale dell'eroe. La combinazione caratteristica è l'invio dell'ombrello, il suo recupero che stordisce attorno a sé, quindi il massimo per respingere.\n\nÈ anche uno dei rari maghi capaci di uscire da sola da una brutta posizione, poiché la sua abilità 2 la libera da tutti i suoi effetti negativi facendola saltare. In cambio, un errore di stato la lascia senza mobilità in mezzo alla squadra avversaria.",
     "skills": [
-      "Quando Kagura e il suo ombrello sono insieme, le sue abilità si ricaricano più velocemente e ottiene uno scudo dopo un incantesimo.",
-      "Invia l'ombrello in una posizione o lo richiama. L'ombrello posizionato rallenta i nemici attorno ad esso.",
-      "Con l'ombrello: si muove in una direzione. Senza l'ombrello: si teletrasporta verso di esso, lanciando i nemici che attraversa.",
-      "Radica e attira i nemici attorno all'ombrello, quindi infligge danni significativi all'area."
+      "Quando recupera il suo parasole, Kagura ottiene uno scudo, stordendo brevemente i nemici vicini e rallentandoli. L'effetto ha un breve tempo di recupero.",
+      "Manda l'ombrello in una posizione, danneggiando e rallentando i nemici sul suo cammino. L'ombrello ritorna da solo se Kagura si allontana troppo da esso.",
+      "Rimuove tutti gli effetti negativi e salta in una direzione, lasciandosi dietro l'ombrello.",
+      "Scatena il potere dell'ombrello: danneggia i nemici vicini, respingendoli e rallentandoli."
     ],
     "strengths": [
       "Danni ad area molto elevati a metà gioco",
@@ -344,12 +344,12 @@
   },
   "pharsa": {
     "summary": "Mago dell'artiglieria: i suoi colpi finali attraversano la mappa, senza mai entrare in combattimento.",
-    "analysis": "Farsa gioca sul campo di applicazione. La sua abilità suprema è un bombardamento incanalato che copre un'area enorme a lungo raggio, permettendole di partecipare a un combattimento che vede a malapena. Ben posizionato, questo incantesimo da solo può decidere un confronto attorno al Signore.\n\nLa sua abilità 2 gli conferisce una forma volante che attraversa i muri, essenziale per riposizionarsi dopo la canalizzazione. Il punto debole è evidente: durante la finale è immobile e indifesa, e ogni assassino che la trova la uccide.",
+    "analysis": "Farsa gioca sul campo di applicazione. La sua abilità suprema è un bombardamento incanalato che copre un'area enorme a lungo raggio, permettendole di partecipare a un combattimento che vede a malapena. Ben posizionato, questo incantesimo da solo può decidere un confronto attorno al Signore.\n\nLa sua abilità 1 segna i nemici colpiti, che il suo prossimo attacco o abilità stordiscono; la sua abilità 2, uno shock online, infligge la maggior parte dei danni tra due finali. Non ha movimento proprio. Il punto debole è evidente: durante la finale è immobile e indifesa, e ogni assassino che la trova la uccide.",
     "skills": [
-      "Dopo un'abilità, il suo successivo attacco base infligge danni magici bonus.",
-      "Emette un'onda che esplode a distanza, infliggendo danni ad area.",
-      "Assume una forma volante per muoversi rapidamente, attraversando gli ostacoli.",
-      "Canalizza un bombardamento su un'area molto vasta, a grande distanza dalla mappa."
+      "A intervalli regolari Verri va a caccia: il prossimo attacco di Pharsa contro un eroe nemico infligge danni magici aggiuntivi in ​​base ai suoi HP e lo rallenta.",
+      "Un'esplosione magica su un'area che segnala i nemici colpiti. Colpire un bersaglio contrassegnato con un attacco o un'abilità lo stordisce.",
+      "Rilascia un'esplosione di energia magica in linea retta.",
+      "Vola via per qualche secondo e bombarda l'area prescelta, fino a quattro volte durante il volo."
     ],
     "strengths": [
       "Gamma definitiva tra le più grandi del gioco",
@@ -375,7 +375,7 @@
       "Ogni abilità che colpisce un nemico accumula cariche permanenti che ne aumentano il danno e il mana massimo.",
       "Rilascia un'ondata di pipistrelli in una direzione, infliggendo danni ad area.",
       "Solleva gli artigli che immobilizzano brevemente i nemici nell'area.",
-      "Cura se stesso, aumenta la portata delle sue abilità e infligge ingenti danni AoE intorno a lui."
+      "Ottiene velocità e immunità ai rallentamenti e spara dozzine di dardi di sangue ai nemici vicini, rallentandoli e curandosi a ogni colpo."
     ],
     "strengths": [
       "Danni ad area illimitati a fine partita",
@@ -518,11 +518,11 @@
   },
   "nana": {
     "summary": "Mago molestatore che rende inabile un bersaglio trasformandolo e sopravvive una volta a un colpo fatale.",
-    "analysis": "Nana logora i suoi avversari da lontano con un boomerang che colpisce avanti e indietro. La sua abilità 2 manda Molina a inseguire l'eroe nemico più vicino: quello che colpisce si trasforma per un breve periodo, rallenta e si indebolisce contro i danni magici. L'ultimo colpisce un'area tre volte e stordisce i nemici colpiti più volte di seguito. La sua passiva le garantisce, una volta ogni due minuti e mezzo, una trasformazione invulnerabile nel momento in cui dovrebbe morire.\n\nI suoi numeri misurati sono bassi: tasso di vittoria inferiore alla media a tutti i livelli, ancora più basso in Mythic Glory, senza alcun reale miglioramento nelle partite lunghe. Mentre trasforma la sua passiva, non può lanciare alcuna abilità e Molina sceglie lei stessa il suo bersaglio tra gli eroi vicini. Le controdifferenze restano modeste; le più chiare la pongono in difficoltà contro Gloo, poi contro Akai e Hylos.",
+    "analysis": "Nana logora i suoi avversari da lontano con un boomerang che colpisce avanti e indietro. La sua abilità 2 lancia Molina su un'area: gli eroi colpiti si trasformano per un breve periodo, rallentati e indeboliti contro i danni magici; se non colpisce nessuno, Molina resta a terra e insegue il primo eroe che si avvicina. L'ultimo colpisce un'area tre volte e stordisce i nemici colpiti più volte di seguito. La sua passiva le garantisce, una volta ogni due minuti e mezzo, una trasformazione invulnerabile nel momento in cui dovrebbe morire.\n\nI suoi numeri misurati sono bassi: tasso di vittoria inferiore alla media a tutti i livelli, ancora più basso in Mythic Glory, senza alcun reale miglioramento nelle partite lunghe. Mentre trasforma la sua passiva, non può lanciare alcuna abilità e una Molina caduta sceglie lei stessa il suo bersaglio tra gli eroi in avvicinamento. I controgap rimangono modesti; le più chiare la pongono in difficoltà contro Gloo, poi contro Akai e Hylos.",
     "skills": [
       "Di fronte a un colpo mortale, si libera degli effetti negativi e si trasforma: invulnerabile, più veloce, recupera un po' di HP ma non può lanciare alcuna abilità. L'effetto ha un lungo tempo di recupero.",
       "Un boomerang che colpisce in uscita e in ritorno. I suoi danni diminuiscono per ogni nemico aggiuntivo attraversato: meglio mirare a un bersaglio isolato.",
-      "Posiziona Molina, che poi insegue l'eroe nemico più vicino. Il primo eroe raggiunto si trasforma per un breve periodo, rallenta e la sua difesa magica viene ridotta. Senza eroi a portata di mano, Molina rimane sul posto per un momento prima di scomparire.",
+      "Lancia Molina su un'area: gli eroi colpiti si trasformano per un breve periodo, rallentati, privati ​​di attacchi e abilità, e la loro difesa magica viene ridotta. Se non colpisce nessun eroe, Molina resta a terra e insegue il primo che si avvicina.",
       "Molina colpisce una zona tre volte di seguito, rallentando ad ogni impatto. Un nemico colpito da impatti consecutivi rimane stordito."
     ],
     "strengths": [
@@ -546,12 +546,12 @@
   },
   "granger": {
     "summary": "Tiratore di riviste: il suo danno deriva dalle sue abilità, non dalla sua velocità di attacco.",
-    "analysis": "Granger non è costruito come uno sparatutto classico. La sua passiva imposta il suo attacco a sei proiettili, l'ultimo dei quali è fondamentale, il che rende la velocità di attacco quasi inutile su di lui: acquisti danno da attacco e penetrazione.\n\nCiò gli conferisce un picco di potenza molto precoce, sfruttabile nella giungla dal primo oggetto. La sua fragilità resta quella di un tiratore, aggravata dall'assenza di qualsiasi controllo: mal posizionato, ha solo la sua abilità 2 per sperare di scappare.",
+    "analysis": "Granger non è costruito come uno sparatutto classico. La sua abilità 1 spara sei proiettili, l'ultimo dei quali è sempre critico, e la sua passiva converte la riduzione della ricarica in un attacco fisico, il che rende la velocità d'attacco quasi inutile su di lui: acquisti danno da attacco e penetrazione.\n\nCiò gli conferisce un picco di potenza molto precoce, sfruttabile nella giungla dal primo oggetto. La sua fragilità resta quella di un tiratore, aggravata dalla mancanza di controllo, a parte il breve rallentamento della sua suprema: mal posizionato, ha solo la sua abilità 2 e i tiri della sua suprema per sperare di scappare.",
     "skills": [
-      "La sua pistola contiene sei proiettili. L'ultimo proiettile nel caricatore infligge sempre un colpo critico.",
-      "Spara un'esplosione a cono che attraversa i nemici, infliggendo danni aggiuntivi al primo bersaglio colpito.",
-      "Si muove rapidamente e ricarica istantaneamente la sua arma, guadagnando velocità d'attacco.",
-      "Equipaggia un cannone a lungo raggio che spara proiettili esplosivi sulla mappa."
+      "Il suo fucile e il suo cannone funzionano con l'energia demoniaca, che si rigenera e aumenta con ogni servitore, mostro o eroe ucciso. Ogni punto di riduzione della ricarica diventa attacco fisico.",
+      "Spara sei proiettili di fila, l'ultimo dei quali è sempre critico, guadagnando un po' di velocità. Senza ricarica: dipende solo dall'energia del suo fucile.",
+      "Scatta in una direzione ripristinando l'energia al suo fucile, anche durante l'abilità 1. Ogni proiettile che colpisce riduce la sua ricarica.",
+      "Spara con il cannone verso e attorno al primo eroe colpito, rallentando brevemente i bersagli. Dopo ogni tiro può rotolare."
     ],
     "strengths": [
       "Picco di potenza molto precoce",
@@ -575,8 +575,8 @@
     "analysis": "Beatrix è in realtà quattro eroi. Porta due armi alla volta su quattro, e ciascuna ridefinisce la sua portata, la sua velocità e la sua suprema: un fucile di precisione a lunghissima gittata, un fucile esplosivo, un fucile d'assalto a velocità rapida, un lanciagranate ad area.\n\nIl livello di gioco consiste nello scegliere la coppia corretta prima della partita, quindi alternarla nel combattimento. Questo è ciò che lo rende molto forte nelle competizioni e molto punitivo nelle partite classificate: una coppia sbagliata, o un cambio sbagliato nel momento sbagliato, e non ha più alcun danno.",
     "skills": [
       "Beatrix porta due delle quattro armi. Ogni arma modifica i suoi attacchi base e sostituisce quelli definitivi.",
-      "Si muove e lascia fumo che lo nasconde brevemente.",
-      "Scambia l'arma attiva con la seconda arma trasportata, ricaricando la Ultimate corrispondente.",
+      "Scambia l'arma attiva con la seconda arma impugnata, modificandone l'attacco base e la suprema. Come passivo, portare due armi aumenta il tuo attacco fisico.",
+      "Un tiro in avanti che ricarica completamente l'arma attiva.",
       "Dipende dall'arma trasportata: tiro di precisione a lungo raggio, salva esplosiva, granate a raffica o ad area."
     ],
     "strengths": [
@@ -598,12 +598,12 @@
   },
   "melissa": {
     "summary": "Sparatutto difensivo: la sua suprema crea un'area attraverso la quale i nemici in mischia non possono passare.",
-    "analysis": "Melissa risolve il classico problema del tiratore – essere schiacciato – con una risposta diretta. La sua suprema traccia un cerchio che respinge gli avversari in mischia e riduce notevolmente i loro danni all'interno, permettendogli di continuare a sparare mentre un assassino si esaurisce cercando di entrare.\n\nRimane uno sparatutto standard rispetto agli altri: buon accumulo di potenza, danni decenti, nessuna minaccia fuori dalla sua portata. Contro una squadra a distanza che lo ignora e penetra nella zona, l'Ultimate perde gran parte del suo valore.",
+    "analysis": "Melissa risolve il classico problema del tiratore – essere schiacciato – con una risposta diretta. La sua suprema gli dà uno scudo e posiziona un cerchio che respinge gli avversari presenti e chiunque cerchi di entrare, interrompendo i loro movimenti, permettendogli di continuare a sparare mentre un assassino si esaurisce cercando di entrare.\n\nRimane uno sparatutto standard rispetto agli altri: buon accumulo di potenza, danni decenti, nessuna minaccia fuori dalla sua portata. Contro una squadra a distanza che lo ignora e penetra nella zona, l'Ultimate perde gran parte del suo valore.",
     "skills": [
-      "Il suo danno aumenta contro bersagli vicini o distanti a seconda della distanza e i suoi attacchi rallentano brevemente.",
-      "Si muove lanciando una bambola che infligge danni ad area.",
-      "Evoca una bambola che insegue i nemici e li rallenta.",
-      "Crea un'area che i nemici in mischia non possono attraversare e in cui il loro danno è notevolmente ridotto."
+      "Il suo danno è aumentato contro servitori, mostri e unità evocate.",
+      "Scivola in avanti e guadagna velocità d'attacco per alcuni secondi.",
+      "Lancia Muddles, che danneggia il primo nemico colpito, quindi lega i nemici vicini e li rallenta finché rimangono nel raggio d'azione. I suoi attacchi su Muddles danneggiano anche i nemici collegati.",
+      "Le dà uno scudo e crea un'area intorno a lei che respinge i nemici presenti; coloro che tentano di entrare vengono respinti, rallentati e le loro capacità di movimento interrotte."
     ],
     "strengths": [
       "Risposta diretta agli assassini e alle immersioni",
@@ -716,12 +716,12 @@
   },
   "estes": {
     "summary": "La cura più crudele del gioco: la sua abilità suprema rigenera l'intera squadra per diversi secondi.",
-    "analysis": "Estes non fa altro che guarire, ma lo fa a un volume che nessun altro supporto raggiunge. In un combattimento prolungato attorno a un obiettivo, la sua suprema può annullare i danni sostenuti di un'intera composizione.\n\nQuesto lo rende anche l'eroe più dipendente dal contesto dell'intero gioco. Contro una squadra che acquista la riduzione della guarigione, o che ha un'iniziazione in grado di rimuoverlo per prima, diventa quasi inutile. Non fornisce alcun controllo, nessun danno, nessuna mobilità: se non guarisce, non esiste.",
+    "analysis": "Estes non fa altro che guarire, ma lo fa a un volume che nessun altro supporto raggiunge. In un combattimento prolungato attorno a un obiettivo, la sua suprema può annullare i danni sostenuti di un'intera composizione.\n\nQuesto lo rende anche l'eroe più dipendente dal contesto dell'intero gioco. Contro una squadra che acquista la riduzione della guarigione, o che ha un'iniziazione in grado di rimuoverlo per prima, diventa quasi inutile. Fornisce solo rallentamento ad area, pochi danni e nessuna mobilità: se non guarisce, non esiste.",
     "skills": [
-      "La sua guarigione applica un marchio che aumenta la rigenerazione degli alleati colpiti.",
-      "Cura un alleato preso di mira e aumenta la sua velocità di movimento.",
-      "Collega un bersaglio nemico, lo rallenta e poi lo immobilizza se il collegamento resiste abbastanza a lungo.",
-      "Crea un'area che cura continuamente tutti gli alleati presenti per diversi secondi."
+      "Accumula energia; a cento accumuli, il suo attacco base successivo viene rafforzato e rimbalza sui nemici vicini, rallentandoli. Il collegamento della sua abilità 1 accelera questa carica.",
+      "Cura un alleato e si lega a lui per alcuni secondi: entrambi ottengono una difesa ibrida, l'alleato continua a recuperare HP ed Estes guadagna velocità.",
+      "Un'ondata di luce lunare danneggia i nemici in un'area, che diventa un dominio: i nemici rimangono visibili e coloro che toccano il bordo vengono notevolmente rallentati.",
+      "Applica una versione potenziata della sua abilità 1 a se stesso e a tutti gli alleati vicini: doppia guarigione e difesa immediate e significativa guarigione continua per diversi secondi."
     ],
     "strengths": [
       "Volume di cure senza rivali nel tempo",
@@ -742,12 +742,12 @@
   },
   "angela": {
     "summary": "Supporto che si attacca a un alleato sulla mappa per rafforzarlo e proteggerlo a distanza.",
-    "analysis": "Angela interpreta una seconda parte parallelamente alla sua. La sua suprema le consente di unirsi a qualsiasi alleato ovunque, dandole uno scudo e un aumento delle statistiche mentre è attaccata: diventa letteralmente un'estensione del giocatore scelto.\n\nUsato bene, consente a chi lo impugna di tuffarsi con una sicurezza che non avrebbe mai fatto da solo, e appare dall'altra parte della mappa per aggirare una scaramuccia. Usato in modo errato, passa il gioco attaccato al giocatore sbagliato e non influenza nulla.",
+    "analysis": "Angela interpreta una seconda parte parallelamente alla sua. La sua suprema le consente di unirsi a qualsiasi alleato ovunque, dandogli uno scudo e lanciando le sue abilità senza alcun costo di mana mentre è attaccata: diventa letteralmente un'estensione del giocatore scelto.\n\nUsato bene, consente a chi lo impugna di tuffarsi con una sicurezza che non avrebbe mai fatto da solo, e appare dall'altra parte della mappa per aggirare una scaramuccia. Usato in modo errato, passa il gioco attaccato al giocatore sbagliato e non influenza nulla.",
     "skills": [
-      "Le sue abilità applicano cariche che aumentano il danno subito dal bersaglio o la guarigione ricevuta dall'alleato.",
-      "Proietta un'onda che infligge danni e rallenta i nemici colpiti.",
-      "Collega un bersaglio: un nemico viene immobilizzato dopo un ritardo, un alleato riceve cure continue.",
-      "Si attacca a un alleato ovunque sulla mappa, conferendogli uno scudo e statistiche aumentate."
+      "Ogni abilità lanciata gli conferisce un po' di velocità di movimento, accumulandola; attaccato ad un alleato, è lui che ne trae beneficio.",
+      "Proietta un'onda che danneggia i nemici colpiti e lascia su di loro un segno cumulativo, che aumenta il danno e rallenta, mentre cura gli alleati colpiti. Fino a cinque ricariche; attaccato a un alleato, la sua ricarica è dimezzata.",
+      "Collega un nemico con un filo che lo rallenta sempre di più; se è ancora connesso dopo tre secondi, rimane immobilizzato e subisce ingenti danni, aumentati dei segni dell'abilità 1.",
+      "Fornisce uno scudo a un alleato ovunque sulla mappa, quindi si attacca a lui dopo un canale: quindi lancia le sue abilità senza alcun costo di mana."
     ],
     "strengths": [
       "Presenza globale: opera ovunque sulla mappa",
@@ -768,12 +768,12 @@
   },
   "mathilda": {
     "summary": "Supporto alla mobilità: porta con sé un alleato, per ingaggiare o estrarre.",
-    "analysis": "Mathilda è il supporto più versatile nel gioco oggi. La sua abilità 2 coinvolge un alleato nel suo movimento, il che gli permette di mettere in contatto un combattente e di far uscire un tiratore da una brutta posizione. La sua suprema blocca un bersaglio e funge da iniziazione mirata.\n\nHa anche danni reali, il che la rende giocabile come assassina secondaria quando il gioco va storto. La sua difficoltà sta nella lettura: ogni mossa coinvolge due giocatori alla volta, e un errore costa due morti invece di uno.",
+    "analysis": "Mathilda è il supporto più versatile nel gioco oggi. La sua abilità 2 coinvolge un alleato nel suo movimento, il che gli permette di mettere in contatto un combattente e di far uscire un tiratore da una brutta posizione. La sua suprema blocca un bersaglio e funge da iniziazione mirata.\n\nInfligge anche danni magici significativi, il che la rende giocabile come assassina secondaria quando il gioco va male. La sua difficoltà sta nella lettura: ogni mossa coinvolge due giocatori alla volta, e un errore costa due morti invece di uno.",
     "skills": [
-      "Le sue abilità generano uno scudo e aumentano brevemente la sua velocità di movimento.",
-      "Manda spiriti che infliggono danni e marchiano i nemici colpiti.",
-      "Vola in una direzione, portando con sé l'alleato più vicino.",
-      "Si precipita verso un bersaglio contrassegnato, immobilizzandolo e infliggendo danni nell'area."
+      "Accumula energia mentre si muove; una volta caricato, il suo successivo attacco base viene rafforzato e gli conferisce un aumento di velocità.",
+      "Attira gli spiriti mentre si muove; Al termine della durata, o riavviata, li manda a colpire i nemici vicini, che rivelano per un istante.",
+      "Salta in una direzione e si circonda di un campo che gli dà scudo e velocità. Il primo alleato che tocca il campo viene guidato verso di esso, con lo stesso bonus di velocità.",
+      "Contrassegna un eroe avversario e gli gira attorno, rallentandolo, mentre i suoi spiriti colpiscono i nemici vicini. Alla fine, piomba sul bersaglio contrassegnato, lanciando in aria i nemici sul suo cammino."
     ],
     "strengths": [
       "Riposiziona un alleato, in attacco o in difesa",
@@ -851,7 +851,7 @@
     "analysis": "Carmilla vive a contatto. La sua passiva le fa rubare parte delle difese degli eroi che tocca, i suoi fiori ruotano attorno alla sua ferita, rallentandola sempre di più e curandola, e la sua abilità 2 accumula velocità prima di rilanciarsi su un bersaglio per stordirlo, soprattutto quanto più dura la carica. La sua ultima maledice un'area: i nemici che rimangono lì vengono immobilizzati poi legati, e finché rimangono vicini, un controllo subito da uno si applica agli altri, con parte dei danni.\n\nQuesta meccanica fa sì che il suo valore dipenda molto dai suoi alleati: i suoi duetti meglio misurati mostrano lacune tra i più forti registrati, con Diggie, Floryn, Mathilda e Chip. Se i nemici si allontanano l'uno dall'altro, il legame si spezza. È tra gli eroi rinforzati della patch 2.1.88, di cui non sono pubblicati dettagli sulla wiki. Le misurazioni la mettono in difficoltà contro X.Borg, Valentina, Natalia e Lesley.",
     "skills": [
       "Ogni volta che danneggia un eroe avversario, ruba parte delle sue difese fisiche e magiche per alcuni secondi, accumulandole, con un ritardo prima di poter rubare nuovamente lo stesso eroe.",
-      "Due fiori le girano attorno, danneggiando i nemici, rallentandoli sempre di più e accelerando ad ogni colpo. Ogni fiore colpito la cura, tanto meno sui servitori.",
+      "Tre fiori ruotano intorno a lei, danneggiando i nemici e rallentandoli sempre di più. Ogni fiore colpito la guarisce, tanto meno sui servitori.",
       "Accumula energia guadagnando velocità, quindi si lancia contro un eroe o un mostro per danneggiarlo e stordirlo. Più a lungo dura la carica, maggiore sarà il danno e lo stordimento.",
       "Maledice un'area che rallenta, poi immobilizza e lega i nemici rimasti all'interno. Una prova subita da un nemico collegato si applica anche agli altri, che ricevono anch'essi parte del danno; il legame si spezza se si allontanano l'uno dall'altro."
     ],
@@ -877,7 +877,7 @@
     "summary": "Storico carro armato iniziatore, capace di riunire un'intera squadra in un unico finale.",
     "analysis": "Tigreal fa una cosa, e la fa meglio di quasi chiunque altro: affronta più avversari contemporaneamente. La combo classica consiste nel precipitarsi con l'abilità 2, quindi concatenare immediatamente la suprema prima che i bersagli si disperdano: annullare l'animazione con un incantesimo Flicker rimane la tecnica più redditizia da imparare su di lui.\n\nIl suo limite è chiaro: a parte il suo valore ultimo, non porta quasi nulla. Un Tigreal che ha mancato l'avvio lascia la sua squadra con quattro per una decina di secondi. È un eroe del tempismo, non della presenza continua.",
     "skills": [
-      "Gli attacchi base di Tigreal caricano la sua armatura. Mentre è completamente carico, il suo attacco successivo infligge danni aggiuntivi e lo protegge brevemente.",
+      "Ogni attacco base subito e ogni abilità lanciata gli fa guadagnare uno stack; a quattro blocca il successivo attacco base ricevuto, torrette comprese.",
       "Colpisce il terreno davanti a lui, infliggendo danni e rallentando i nemici colpiti.",
       "Si precipita in avanti, spingendo i nemici incontrati, per poi lanciarli in aria alla fine della corsa.",
       "Attrae verso di sé tutti i nemici vicini, poi li stordisce. Il riferimento nell'iniziazione del gruppo."
@@ -907,10 +907,10 @@
     "summary": "Carro armato di iniziazione la cui intera parte si inserisce in un rampino: rimuove un giocatore dalla mappa.",
     "analysis": "Franco non gioca allo stesso gioco degli altri carri armati. Non sta cercando di assorbire i danni, sta cercando di rimuovere un avversario dal combattimento prima che inizi. Una presa riuscita contro il tiratore avversario, seguita dalla finale, è un giocatore morto e un obiettivo gratuito.\n\nIl suo intero valore risiede quindi nella precisione di un'abilità di lancio lento, che la visione determina interamente. Franco gioca tra i cespugli, non nel viale. Un Franco che sbaglia tre prese di fila è un peso morto; un Franco che li tocca vince la partita da solo.",
     "skills": [
-      "Ogni colpo ricevuto aumenta la sua velocità di movimento per un breve periodo, cumulativo.",
-      "Lancia un gancio che attira a sé il primo nemico colpito e lo immobilizza brevemente.",
+      "Dopo alcuni secondi senza subire danni, guadagna velocità, recupera HP e accumula forza; la sua abilità successiva consuma questi accumuli per un danno notevolmente maggiore.",
+      "Lancia un gancio che danneggia il primo nemico colpito e lo trascina verso di sé.",
       "Colpisce intorno a lui, infliggendo danni e rallentando notevolmente i nemici vicini.",
-      "Immobilizza un bersaglio e lo colpisce ripetutamente. Il controllo dura abbastanza a lungo perché la squadra possa concludere."
+      "Neutralizza un eroe avversario (rimozione) e lo colpisce sei volte per tutta la durata. Il controllo dura abbastanza a lungo perché la squadra possa concludere."
     ],
     "strengths": [
       "Rimuove un bersaglio chiave dal combattimento, indipendentemente dalla resistenza",
@@ -931,12 +931,12 @@
   },
   "khufra": {
     "summary": "Il carro armato che punisce la mobilità: la sua abilità 1 annulla gli scatti e i salti nemici.",
-    "analysis": "Khufra esiste per soddisfare una categoria specifica di eroi: coloro che sono costantemente in movimento. La sua abilità 1 posiziona un campo che interrompe qualsiasi scatto attraversato, neutralizzando Fanny, Ling, Wanwan o Benedetta in un modo che nessun altro carro armato consente.\n\nA parte questo ruolo di risposta, rimane un ottimo iniziatore: la palla definitiva spinge gli avversari e permette loro di essere respinti contro una torretta o un muro. Il suo punto debole è la ricarica: abilità a parte, Khufra è lento e facile da aggirare.",
+    "analysis": "Khufra esiste per soddisfare una categoria specifica di eroi: quelli che sono costantemente in movimento. La sua abilità 2 lo trasforma in una palla che lancia in aria qualsiasi nemico che tenta di attraversarla muovendosi, neutralizzando Fanny, Ling, Wanwan o Benedetta come nessun altro carro armato consente.\n\nA parte questo ruolo di risposta, rimane un eccellente iniziatore: la sua abilità 1 lo lancia contro il primo eroe avversario, lanciando in aria i nemici, e la sua suprema respinge gli avversari di fronte a lui, stordendoli se colpiscono un muro. Il suo punto debole è la ricarica: abilità a parte, Khufra è lento e facile da aggirare.",
     "skills": [
-      "Dopo aver utilizzato un'abilità, il suo successivo attacco base infligge danni aggiuntivi e lo cura.",
-      "Crea un'area che lancia in aria i nemici che tentano di attraversarla. Il principale strumento anti-mobilità nel gioco.",
-      "Si trasforma in una palla e rotola in una direzione, spingendo e rallentando i nemici che colpisce.",
-      "Colpisce il suolo: i nemici catturati nell'area vengono lanciati e immobilizzati per un attimo."
+      "A intervalli regolari, il suo successivo attacco base si spinge oltre, infligge danni in base agli HP del bersaglio, lo rallenta e lo cura. Ogni controllo posto dalle sue abilità riduce questo ritardo.",
+      "Si spinge in una direzione, danneggiando i nemici lungo il suo percorso; si ferma al primo eroe avversario e lancia in aria i nemici vicini.",
+      "Si trasforma in una palla rimbalzante, con una difesa più ibrida: i nemici che tentano di attraversarla muovendosi vengono lanciati in aria, e ogni rimbalzo rallenta i nemici vicini. Il principale strumento anti-mobilità nel gioco.",
+      "Spinge in avanti tutti i nemici intorno a lui e li rallenta; coloro che colpiscono un muro subiscono danni aggiuntivi e rimangono storditi."
     ],
     "strengths": [
       "Risposta diretta a qualsiasi chiamata mobile",
@@ -982,7 +982,7 @@
       },
       {
         "name": "Resistori misti",
-        "context": "Seconda build più giocata, associata a Vengeance: Antique Cuirass contro i danni fisici delle abilità, Scudo di Atena contro i danni magici, quando la squadra avversaria mescola i due."
+        "context": "Seconda build più giocata, associata a Vengeance: Antique Cuirass contro i danni fisici delle abilità, Valkyrie's Shield contro i danni magici, quando la squadra avversaria mescola i due."
       }
     ]
   },
@@ -1014,7 +1014,7 @@
       },
       {
         "name": "Contro la magia",
-        "context": "Scudo di Atena al posto di Radiant Armor, con emblema di supporto: meno giocato, con una percentuale di vincita misurata meglio. Ideale contro una squadra avversaria con danni magici elevati."
+        "context": "Valkyrie's Shield al posto di Radiant Armor, con emblema di supporto: meno giocato, con una percentuale di vincita meglio misurata. Ideale contro una squadra avversaria con danni magici elevati."
       }
     ]
   },

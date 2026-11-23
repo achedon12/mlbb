@@ -112,7 +112,7 @@
         ]
       },
       {
-        "title": "Scelta al draft",
+        "title": "Draft Pick",
         "elements": [
           {
             "type": "p",
@@ -529,7 +529,7 @@
     "description": "La modalità Arcade è una modalità di gioco aggiuntiva in Mobile Legends: Bang Bang che può essere giocata di tanto in tanto durante eventi speciali, festività o occasioni. La modalità prevede vari sottogiochi basati sulla strategia, elencati di seguito.",
     "sections": [
       {
-        "title": "Caos",
+        "title": "Mayhem",
         "elements": [
           {
             "type": "p",
@@ -537,7 +537,7 @@
           },
           {
             "type": "p",
-            "text": "In passato, questo gioco non aveva un nome ufficiale. Questa modalità di gioco è stata rilasciata per la prima volta ed era semplicemente arrivato il Carnevale estivo e aveva materiali di consumo per migliorare le abilità degli eroi, con la mappa modificata corrispondente all'estate. Durante Halloween, questa modalità è tornata di nuovo con le stesse funzionalità di Carnevale estivo, Abilità modificate, Caramelle come oggetti bonus e Mappa a tema Halloween. Poi arrivò Natale e la modalità ebbe le stesse caratteristiche; tuttavia, mentre la mappa è stata modificata per adattarla al Natale, le caramelle sono state mantenute come materiali di consumo. E poi venne fuori la Pasqua. Infine, è stata introdotta la modalità Caos: questa volta la modalità di gioco non aveva materiali di consumo, ma aveva abilità modificate e modifiche alla mappa."
+            "text": "In passato, questo gioco non aveva un nome ufficiale. Questa modalità di gioco è stata rilasciata per la prima volta ed era semplicemente arrivato il Carnevale estivo e aveva materiali di consumo per migliorare le abilità degli eroi, con la mappa modificata corrispondente all'estate. Durante Halloween, questa modalità è tornata di nuovo con le stesse funzionalità di Carnevale estivo, Abilità modificate, Caramelle come oggetti bonus e Mappa a tema Halloween. Poi arrivò Natale e la modalità ebbe le stesse caratteristiche; tuttavia, mentre la mappa è stata modificata per adattarla al Natale, le caramelle sono state mantenute come materiali di consumo. E poi venne fuori la Pasqua. Infine, è stata introdotta la modalità Mayhem: questa volta la modalità di gioco non aveva materiali di consumo, ma aveva abilità modificate e modifiche alla mappa."
           },
           {
             "type": "p",
@@ -546,7 +546,7 @@
         ]
       },
       {
-        "title": "Specchio",
+        "title": "Mirror",
         "elements": [
           {
             "type": "p",
@@ -559,7 +559,7 @@
         ]
       },
       {
-        "title": "Sopravvivenza",
+        "title": "Survival",
         "elements": [
           {
             "type": "p",
@@ -580,7 +580,7 @@
         ]
       },
       {
-        "title": "Battaglia mortale",
+        "title": "Deathbattle",
         "elements": [
           {
             "type": "p",
@@ -593,7 +593,7 @@
         ]
       },
       {
-        "title": "Frenesia",
+        "title": "Frenzy",
         "elements": [
           {
             "type": "p",
@@ -610,7 +610,7 @@
         ]
       },
       {
-        "title": "Evolvi",
+        "title": "Evolve",
         "elements": [
           {
             "type": "p",
@@ -839,7 +839,7 @@
         ]
       },
       {
-        "title": "Devastare",
+        "title": "Ravage",
         "elements": [
           {
             "type": "p",
@@ -872,7 +872,7 @@
         ]
       },
       {
-        "title": "Rissa e specchio",
+        "title": "Brawl&Mirror",
         "elements": [
           {
             "type": "p",
@@ -889,7 +889,7 @@
         ]
       },
       {
-        "title": "TD di scacchi",
+        "title": "Chess TD",
         "elements": [
           {
             "type": "p",
@@ -926,7 +926,7 @@
         ]
       },
       {
-        "title": "Scacchi magici",
+        "title": "Magic Chess",
         "elements": [
           {
             "type": "p",
@@ -939,7 +939,7 @@
         ]
       },
       {
-        "title": "Rissa d'Ombra",
+        "title": "Shadow Brawl",
         "elements": [
           {
             "type": "p",

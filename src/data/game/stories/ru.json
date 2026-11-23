@@ -1738,11 +1738,9 @@
         "Айсбергские песчаные охотники (враждебные)"
       ],
       "relations": [
-        "Claude, Mathilda (спутники)",
+        "Claude, Mathilda, Layla (спутники)",
         "Fanny, Tigreal, Alucard, Harith (союзники)",
-        "Уолдо Кейн (враг)",
-        "Бланди (враг)",
-        "Alice (враг)"
+        "Уолдо Кейн, Блэнди, Alice (враги)"
       ],
       "powers": []
     }

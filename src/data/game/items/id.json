@@ -54,7 +54,7 @@
     "price": 600,
     "bonus": "+5 Regen Mana, +5% Pengurangan Cooldown",
     "unique": null,
-    "passive": "Penilaian: Setelah mengeluarkan skill, Basic Attack berikutnya dalam 3 detik akan menghasilkan 50 True Damage tambahan (cooldown 1,5 detik).",
+    "passive": "Judgement: Setelah mengeluarkan skill, Basic Attack berikutnya dalam 3 detik akan menghasilkan 50 True Damage tambahan (cooldown 1,5 detik).",
     "active": null,
     "recipe": [
       "Magic Necklace",
@@ -259,7 +259,7 @@
     "price": 2100,
     "bonus": "+900 HP, +40 Pertahanan Fisik",
     "unique": null,
-    "passive": "Chastise: Menerima damage akan mengurangi Attack Speed ​​dan batas Attack Speed ​​penyerang menjadi 75% dari normal selama 2 detik. Penebusan: Ketika damage yang masuk mengurangi HP di bawah 30%, memulihkan 20% HP Maks selama 2 detik berikutnya. Efek ini memiliki cooldown selama 60 detik.",
+    "passive": "Chastise: Menerima damage akan mengurangi Attack Speed ​​dan batas Attack Speed ​​penyerang menjadi 75% dari normal selama 2 detik. Redemption: Ketika damage yang masuk mengurangi HP di bawah 30%, memulihkan 20% HP Maks selama 2 detik berikutnya. Efek ini memiliki cooldown selama 60 detik.",
     "active": null,
     "recipe": [
       "Steel Legplates",
@@ -275,7 +275,7 @@
     "price": 2030,
     "bonus": "+45 Kekuatan Sihir, +400 HP, +400 Mana, +10% Pengurangan Cooldown",
     "unique": null,
-    "passive": "Destiny: Mendapat 4,5(+0,5*Hero Level) Hybrid Defense selama 5 detik ketika memberikan Magic Damage kepada hero musuh, ditumpuk hingga 6 kali (dapat memperoleh 1 tumpukan setiap 0,4 detik). Hadiah: Saat HP turun di bawah 50%, memulihkan 15% HP selama 3 detik berikutnya. Saat Mana turun di bawah 50%, memulihkan 15% Mana selama 3 detik berikutnya. Waktu tenang: 60 detik.",
+    "passive": "Destiny: Mendapat 4,5(+0,5*Hero Level) Hybrid Defense selama 5 detik ketika memberikan Magic Damage kepada hero musuh, ditumpuk hingga 6 kali (dapat memperoleh 1 tumpukan setiap 0,4 detik). Gift: Saat HP turun di bawah 50%, memulihkan 15% HP selama 3 detik berikutnya. Saat Mana turun di bawah 50%, memulihkan 15% Mana selama 3 detik berikutnya. Waktu tenang: 60 detik.",
     "active": null,
     "recipe": [
       "Elegant Gem",
@@ -309,7 +309,7 @@
     "price": 2050,
     "bonus": "+30 Serangan Fisik, +30% Kecepatan Serangan, +5% Kecepatan Gerakan",
     "unique": null,
-    "passive": "Korosif: Serangan Dasar menghasilkan 80 Damage Fisik ekstra dan memperlambat target sebesar 8% (dibelah dua untuk Serangan Dasar jarak jauh) selama 1,5 detik. Menumpuk hingga 5 kali. Impuls: Serangan Dasar memberikan 6% Kecepatan Serangan tambahan selama 3 detik, dibatasi hingga 5 tumpukan.",
+    "passive": "Corrosive: Serangan Dasar menghasilkan 80 Damage Fisik ekstra dan memperlambat target sebesar 8% (dibelah dua untuk Serangan Dasar jarak jauh) selama 1,5 detik. Menumpuk hingga 5 kali. Impulse: Serangan Dasar memberikan 6% Kecepatan Serangan tambahan selama 3 detik, dibatasi hingga 5 tumpukan.",
     "active": null,
     "recipe": [
       "Swift Crossbow",
@@ -325,7 +325,7 @@
     "price": 1910,
     "bonus": "+1200 HP, +20 Pertahanan Sihir",
     "unique": null,
-    "passive": "Burning Soul: Menimbulkan (1,2% Total HP) Magic Damage kepada musuh terdekat per detik. Damage ini meningkat sebesar 125(+15*Level Hero)% terhadap creep dan minion. Kutukan: Memberikan damage dengan Burning Soul akan mengurangi Hybrid Defense target sebanyak 3 selama 3 detik. Menumpuk hingga 3 kali.",
+    "passive": "Burning Soul: Menimbulkan (1,2% Total HP) Magic Damage kepada musuh terdekat per detik. Damage ini meningkat sebesar 125(+15*Level Hero)% terhadap creep dan minion. Curse: Memberikan damage dengan Burning Soul akan mengurangi Hybrid Defense target sebanyak 3 selama 3 detik. Menumpuk hingga 3 kali.",
     "active": null,
     "recipe": [
       "Molten Essence",
@@ -372,7 +372,7 @@
     "price": 720,
     "bonus": "+40 Kecepatan Gerakan, +10 Regen Mana",
     "unique": null,
-    "passive": "Mistisisme: Melakukan kill atau assist pada Minion musuh akan memulihkan 4% Mana. (Bantuan terjadi ketika Minion mati dalam waktu 2 detik setelah menerima damage dari hero.)",
+    "passive": "Mysticism: Melakukan kill atau assist pada Minion musuh akan memulihkan 4% Mana. (Bantuan terjadi ketika Minion mati dalam waktu 2 detik setelah menerima damage dari hero.)",
     "active": null,
     "recipe": [
       "Boots",
@@ -389,7 +389,7 @@
     "price": 1970,
     "bonus": "+65 Kekuatan Sihir",
     "unique": "+40% Penetrasi Ajaib",
-    "passive": "Pemecah Spell: Saat menyerang musuh, memperoleh 0,1% Penetrasi Sihir tambahan untuk setiap poin Pertahanan Sihir musuh, dibatasi hingga 20%.",
+    "passive": "Spellbreaker: Saat menyerang musuh, memperoleh 0,1% Penetrasi Sihir tambahan untuk setiap poin Pertahanan Sihir musuh, dibatasi hingga 20%.",
     "active": null,
     "recipe": [
       "Magic Wand"
@@ -437,7 +437,7 @@
     "price": 700,
     "bonus": "+300 HP, +380 Mana",
     "unique": null,
-    "passive": "Hadiah: Saat HP turun di bawah 50%, memulihkan 15% HP selama 3 detik berikutnya. Saat Mana turun di bawah 50%, memulihkan 15% Mana selama 3 detik berikutnya. Cooldown: 60 detik.",
+    "passive": "Gift: Saat HP turun di bawah 50%, memulihkan 15% HP selama 3 detik berikutnya. Saat Mana turun di bawah 50%, memulihkan 15% Mana selama 3 detik berikutnya. Cooldown: 60 detik.",
     "active": null,
     "recipe": [
       "Power Crystal",
@@ -453,7 +453,7 @@
     "price": 2070,
     "bonus": "+70 Kekuatan Sihir, +300 HP, +15% Pengurangan Cooldown",
     "unique": null,
-    "passive": "Mana Spring: Meregenerasi 15% Max Mana setiap 10 detik. Penguasaan Sihir: Pengurangan Cooldown Maks meningkat sebesar 5%.",
+    "passive": "Mana Spring: Meregenerasi 15% Max Mana setiap 10 detik. Magic Mastery: Pengurangan Cooldown Maks meningkat sebesar 5%.",
     "active": null,
     "recipe": [
       "Tome of Evil",
@@ -515,7 +515,7 @@
     "price": 2030,
     "bonus": "+60 Kekuatan Sihir, +20% Kecepatan Serangan, +10% Lifesteal, +5% Pengurangan Cooldown",
     "unique": null,
-    "passive": "Penderitaan: Setiap Basic Attack memberikan tambahan 50(+30% Total Magic Power) Magic Damage. Impuls: Serangan Dasar memberikan 6% Kecepatan Serangan tambahan selama 3 detik, dibatasi hingga 5 tumpukan.",
+    "passive": "Affliction: Setiap Basic Attack memberikan tambahan 50(+30% Total Magic Power) Magic Damage. Impulse: Serangan Dasar memberikan 6% Kecepatan Serangan tambahan selama 3 detik, dibatasi hingga 5 tumpukan.",
     "active": null,
     "recipe": [
       "Swift Crossbow",
@@ -531,7 +531,7 @@
     "price": 1850,
     "bonus": "+60 Kekuatan Sihir, +300 HP, +10% Pengurangan Cooldown",
     "unique": "+12% Efek Penyembuhan",
-    "passive": "Berkah: Saat mengeluarkan skill penyembuhan atau perisai, jika HP target di bawah 35%, atau turun di bawah 35% dalam waktu 3 detik, mereka akan mendapatkan perisai (100*Level Hero) yang bertahan selama 3 detik. Saat efek ini terpicu, cooldown skill penggunanya juga berkurang sebanyak 2 detik. (Efek ini hanya dapat terpicu sekali setiap 60 detik pada target yang sama, dan tidak akan terpicu pada skill penyembuhan dan perisai saja.)",
+    "passive": "Blessing: Saat mengeluarkan skill penyembuhan atau perisai, jika HP target di bawah 35%, atau turun di bawah 35% dalam waktu 3 detik, mereka akan mendapatkan perisai (100*Level Hero) yang bertahan selama 3 detik. Saat efek ini terpicu, cooldown skill penggunanya juga berkurang sebanyak 2 detik. (Efek ini hanya dapat terpicu sekali setiap 60 detik pada target yang sama, dan tidak akan terpicu pada skill penyembuhan dan perisai saja.)",
     "active": null,
     "recipe": [
       "Magic Wand",
@@ -593,7 +593,7 @@
     "price": 2000,
     "bonus": "+75 Kekuatan Sihir, +5% Kecepatan Gerakan",
     "unique": "+10 Penetrasi Ajaib",
-    "passive": "Sihir: Memberikan Damage Sihir pada hero musuh akan mengurangi Pertahanan Sihirnya sebesar 2,5+(0,5*Level Hero) selama 2 detik. Menumpuk hingga 3 kali.",
+    "passive": "Magic: Memberikan Damage Sihir pada hero musuh akan mengurangi Pertahanan Sihirnya sebesar 2,5+(0,5*Level Hero) selama 2 detik. Menumpuk hingga 3 kali.",
     "active": null,
     "recipe": [
       "Exotic Veil",
@@ -660,7 +660,7 @@
     "price": 2500,
     "bonus": "+1800 HP, +20 Pemulihan HP",
     "unique": null,
-    "passive": "Pemulihan: Setelah 5 detik keluar dari pertempuran, pulihkan (2,5% Total HP) HP per detik. Pembela: Setelah menerima lebih dari 500 damage dalam satu kejadian, memulihkan 30 (+0,3% Total HP)% HP dari kelebihan damage melebihi jumlah tersebut.",
+    "passive": "Recovery: Setelah 5 detik keluar dari pertempuran, pulihkan (2,5% Total HP) HP per detik. Defender: Setelah menerima lebih dari 500 damage dalam satu kejadian, memulihkan 30 (+0,3% Total HP)% HP dari kelebihan damage melebihi jumlah tersebut.",
     "active": null,
     "recipe": [
       "Ares Belt",
@@ -720,7 +720,7 @@
     "price": 3000,
     "bonus": "+165 Kekuatan Sihir",
     "unique": null,
-    "passive": "Misteri: Mendapatkan 21%-35% Kekuatan Sihir ekstra (berskala sesuai level).",
+    "passive": "Mystery: Mendapatkan 21%-35% Kekuatan Sihir ekstra (berskala sesuai level).",
     "active": null,
     "recipe": [
       "Magic Wand",
@@ -771,7 +771,7 @@
     "price": 2120,
     "bonus": "+850 HP, +15 Pertahanan Fisik",
     "unique": null,
-    "passive": "Abadi: Bangkit 2,5 detik setelah mati dan mendapat 16% HP Maks dan perisai yang dapat menyerap 150(+70*Level Hero）damage. Perisai bertahan 3 detik. Efek ini memiliki cooldown 210 detik.",
+    "passive": "Immortal: Bangkit 2,5 detik setelah mati dan mendapat 16% HP Maks dan perisai yang dapat menyerap 150(+70*Level Hero）damage. Perisai bertahan 3 detik. Efek ini memiliki cooldown 210 detik.",
     "active": null,
     "recipe": [
       "Ares Belt",
@@ -915,7 +915,7 @@
     "price": 1500,
     "bonus": null,
     "unique": null,
-    "passive": "Tingkatkan Kekuatan: Otomatis digunakan setelah pembelian, meningkatkan Kekuatan Sihir sebesar 30 dan Pengurangan Cooldown sebesar 10% selama 120 detik. Hanya dapat memberikan satu efek ramuan dalam satu waktu.",
+    "passive": "Increase Power: Otomatis digunakan setelah pembelian, meningkatkan Kekuatan Sihir sebesar 30 dan Pengurangan Cooldown sebesar 10% selama 120 detik. Hanya dapat memberikan satu efek ramuan dalam satu waktu.",
     "active": null,
     "recipe": [],
     "bestFor": "Semua hero"
@@ -1047,7 +1047,7 @@
     "price": 2010,
     "bonus": "+60 Kekuatan Sihir, +300 HP, +380 Mana, +5% Pengurangan Cooldown",
     "unique": null,
-    "passive": "Hadiah: Memulihkan 20% HP dan Mana dalam 2 detik setelah naik level. Lifebane: Saat memberikan damage pada target, mengurangi Shield dan HP Regen target sebesar 50% selama 3 detik.",
+    "passive": "Gift: Memulihkan 20% HP dan Mana dalam 2 detik setelah naik level. Lifebane: Saat memberikan damage pada target, mengurangi Shield dan HP Regen target sebesar 50% selama 3 detik.",
     "active": null,
     "recipe": [
       "Book of Sages",
@@ -1111,7 +1111,7 @@
     "price": 1500,
     "bonus": null,
     "unique": null,
-    "passive": "Meningkatkan Kekuatan: Otomatis digunakan setelah pembelian, memberikan 30 Serangan Fisik dan 15% Lifesteal selama 120 detik. Hanya dapat memberikan satu efek ramuan dalam satu waktu.",
+    "passive": "Increase Power: Otomatis digunakan setelah pembelian, memberikan 30 Serangan Fisik dan 15% Lifesteal selama 120 detik. Hanya dapat memberikan satu efek ramuan dalam satu waktu.",
     "active": null,
     "recipe": [],
     "bestFor": "Semua hero"
@@ -1191,7 +1191,7 @@
     "price": 1500,
     "bonus": null,
     "unique": null,
-    "passive": "Meningkatkan Kekuatan: Saat dibeli, memberikan 500 Max HP dan 5% Pengurangan Damage selama 120 detik. Hanya dapat memberikan satu efek ramuan dalam satu waktu.",
+    "passive": "Increase Power: Saat dibeli, memberikan 500 Max HP dan 5% Pengurangan Damage selama 120 detik. Hanya dapat memberikan satu efek ramuan dalam satu waktu.",
     "active": null,
     "recipe": [],
     "bestFor": "Semua hero"
@@ -1220,7 +1220,7 @@
     "price": 2030,
     "bonus": "+30 Serangan Fisik, +20% Kecepatan Serangan, +10% Lifesteal",
     "unique": null,
-    "passive": "Skala Naga: Setiap 4 Serangan Fisik ekstra meningkatkan Pertahanan Hibrid sebanyak 1, hingga 50 (efek berkurang setengahnya jika Peran Utama bukan Fighter). Lifeline: Saat menerima damage yang mengurangi HP di bawah 30%, memperoleh perisai (120*Level Hero) (meningkat seiring level) dan 50% Kecepatan Gerakan yang berkurang dengan cepat selama 3 detik. Efek ini memiliki cooldown selama 60 detik.",
+    "passive": "Dragon Scale: Setiap 4 Serangan Fisik ekstra meningkatkan Pertahanan Hibrid sebanyak 1, hingga 50 (efek berkurang setengahnya jika Peran Utama bukan Fighter). Lifeline: Saat menerima damage yang mengurangi HP di bawah 30%, memperoleh perisai (120*Level Hero) (meningkat seiring level) dan 50% Kecepatan Gerakan yang berkurang dengan cepat selama 3 detik. Efek ini memiliki cooldown selama 60 detik.",
     "active": null,
     "recipe": [
       "Magic Blade",
@@ -1269,7 +1269,7 @@
     "price": 1960,
     "bonus": "+75 Kekuatan Sihir, +15% Magic Lifesteal, +5% Kecepatan Gerakan",
     "unique": null,
-    "passive": "Pembunuhan: Jika tidak ada damage yang diterima atau diberikan dalam 5 detik, Basic Attack berikutnya akan memberikan tambahan Magic Damage sebesar 200 ditambah 50% Magic Power, dan memberikan 60% efek slow kepada target selama 1,5 detik.",
+    "passive": "Assassination: Jika tidak ada damage yang diterima atau diberikan dalam 5 detik, Basic Attack berikutnya akan memberikan tambahan Magic Damage sebesar 200 ditambah 50% Magic Power, dan memberikan 60% efek slow kepada target selama 1,5 detik.",
     "active": null,
     "recipe": [
       "Exotic Veil",
@@ -1331,7 +1331,7 @@
     "price": 2120,
     "bonus": "+75 Kekuatan Sihir, +10% Pengurangan Cooldown, +8% Lifesteal Hibrida, +6 Regen Mana",
     "unique": null,
-    "passive": "Krisis: Setelah mengeluarkan skill, Basic Attack berikutnya dalam waktu 3 detik akan memberikan 90(+60% Total Magic Power) True Damage ekstra dan mengurangi Movement Speed ​​target sebesar 15% selama 1,5 detik (cooldown 1,5 detik).",
+    "passive": "Crisis: Setelah mengeluarkan skill, Basic Attack berikutnya dalam waktu 3 detik akan memberikan 90(+60% Total Magic Power) True Damage ekstra dan mengurangi Movement Speed ​​target sebesar 15% selama 1,5 detik (cooldown 1,5 detik).",
     "active": null,
     "recipe": [
       "Azure Blade",
@@ -1379,7 +1379,7 @@
     "price": 1000,
     "bonus": "+20% Kecepatan Serangan",
     "unique": null,
-    "passive": "Crossbow: Setiap Serangan Dasar menghasilkan 40 Damage Adaptif ekstra. Impuls: Serangan Dasar memberikan 3% Kecepatan Serangan tambahan selama 3 detik, dibatasi hingga 5 tumpukan.",
+    "passive": "Crossbow: Setiap Serangan Dasar menghasilkan 40 Damage Adaptif ekstra. Impulse: Serangan Dasar memberikan 3% Kecepatan Serangan tambahan selama 3 detik, dibatasi hingga 5 tumpukan.",
     "active": null,
     "recipe": [
       "Knife",
@@ -1395,7 +1395,7 @@
     "price": 1820,
     "bonus": "+600 HP, +15 Pertahanan Fisik, +15 Pertahanan Sihir, +20 Kecepatan Gerakan",
     "unique": null,
-    "passive": "Halilintar: Setiap 4 detik, Serangan Dasar berikutnya memberikan 50(+100% Pertahanan Fisik Ekstra)(+100% Pertahanan Sihir Ekstra) Damage Sejati ekstra pada target dan musuh di sekitarnya, dan menyebabkan efek slow kepada mereka sebesar 99%. Hybrid Defense secara permanen meningkat sebesar 1 setiap kali serangan mengenai hero musuh. (Efek ini dikurangi menjadi 50% untuk Marksmen, Mage, dan Assassin)",
+    "passive": "Thunderbolt: Setiap 4 detik, Serangan Dasar berikutnya memberikan 50(+100% Pertahanan Fisik Ekstra)(+100% Pertahanan Sihir Ekstra) Damage Sejati ekstra pada target dan musuh di sekitarnya, dan menyebabkan efek slow kepada mereka sebesar 99%. Hybrid Defense secara permanen meningkat sebesar 1 setiap kali serangan mengenai hero musuh. (Efek ini dikurangi menjadi 50% untuk Marksmen, Mage, dan Assassin)",
     "active": null,
     "recipe": [
       "Ares Belt",
@@ -1444,7 +1444,7 @@
     "price": 2100,
     "bonus": "+1200 HP, +15 Pertahanan Fisik",
     "unique": null,
-    "passive": "Twilight: Saat menerima lebih dari 500 damage dalam satu kejadian, kelebihan damage melebihi jumlah tersebut akan berkurang sebesar 20 (+0,2% Total HP)%. Penebusan: Ketika damage yang masuk mengurangi HP di bawah 30%, memulihkan 20% HP Maks selama 4 detik berikutnya. Efek ini memiliki cooldown selama 60 detik.",
+    "passive": "Twilight: Saat menerima lebih dari 500 damage dalam satu kejadian, kelebihan damage melebihi jumlah tersebut akan berkurang sebesar 20 (+0,2% Total HP)%. Redemption: Ketika damage yang masuk mengurangi HP di bawah 30%, memulihkan 20% HP Maks selama 4 detik berikutnya. Efek ini memiliki cooldown selama 60 detik.",
     "active": null,
     "recipe": [
       "Ares Belt",
@@ -1570,7 +1570,7 @@
     "bonus": "+45 Serangan Adaptif, +400 HP, +5% Pengurangan Cooldown",
     "unique": null,
     "passive": null,
-    "active": "Beku: Menjadi beku, tidak dapat ditargetkan, dan kebal terhadap damage selama 2 detik (cooldown 100 detik). Tidak dapat menggerakkan atau mengeluarkan skill saat dibekukan, tetapi skill yang telah digunakan tidak akan terganggu.",
+    "active": "Frozen: Menjadi beku, tidak dapat ditargetkan, dan kebal terhadap damage selama 2 detik (cooldown 100 detik). Tidak dapat menggerakkan atau mengeluarkan skill saat dibekukan, tetapi skill yang telah digunakan tidak akan terganggu.",
     "recipe": [
       "Expert Gloves",
       "Hero's Ring",

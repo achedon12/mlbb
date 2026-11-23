@@ -112,7 +112,7 @@
         ]
       },
       {
-        "title": "Pilihan Draft",
+        "title": "Draft Pick",
         "elements": [
           {
             "type": "p",
@@ -529,7 +529,7 @@
     "description": "Mode Arkade adalah mode permainan tambahan di Mobile Legends: Bang Bang yang dapat dimainkan dari waktu ke waktu selama Acara Spesial, Liburan, atau Acara. Mode ini menampilkan berbagai sub-permainan berbasis strategi, yang tercantum di bawah.",
     "sections": [
       {
-        "title": "Aniaya",
+        "title": "Mayhem",
         "elements": [
           {
             "type": "p",
@@ -546,7 +546,7 @@
         ]
       },
       {
-        "title": "Cermin",
+        "title": "Mirror",
         "elements": [
           {
             "type": "p",
@@ -559,7 +559,7 @@
         ]
       },
       {
-        "title": "Kelangsungan hidup",
+        "title": "Survival",
         "elements": [
           {
             "type": "p",
@@ -580,7 +580,7 @@
         ]
       },
       {
-        "title": "pertempuran maut",
+        "title": "Deathbattle",
         "elements": [
           {
             "type": "p",
@@ -593,7 +593,7 @@
         ]
       },
       {
-        "title": "Kegilaan",
+        "title": "Frenzy",
         "elements": [
           {
             "type": "p",
@@ -610,7 +610,7 @@
         ]
       },
       {
-        "title": "Berkembang",
+        "title": "Evolve",
         "elements": [
           {
             "type": "p",
@@ -839,7 +839,7 @@
         ]
       },
       {
-        "title": "Merusak",
+        "title": "Ravage",
         "elements": [
           {
             "type": "p",
@@ -872,7 +872,7 @@
         ]
       },
       {
-        "title": "Perkelahian & Cermin",
+        "title": "Brawl&Mirror",
         "elements": [
           {
             "type": "p",
@@ -889,7 +889,7 @@
         ]
       },
       {
-        "title": "Catur TD",
+        "title": "Chess TD",
         "elements": [
           {
             "type": "p",
@@ -926,7 +926,7 @@
         ]
       },
       {
-        "title": "Catur Ajaib",
+        "title": "Magic Chess",
         "elements": [
           {
             "type": "p",
@@ -939,7 +939,7 @@
         ]
       },
       {
-        "title": "Perkelahian Bayangan",
+        "title": "Shadow Brawl",
         "elements": [
           {
             "type": "p",
@@ -977,7 +977,7 @@
         ]
       },
       {
-        "title": "boommander",
+        "title": "Boommander",
         "elements": [
           {
             "type": "p",

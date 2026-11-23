@@ -1738,11 +1738,9 @@
         "Chasseurs de sable d'icebergs (hostiles)"
       ],
       "relations": [
-        "Claude, Mathilda (compagnons)",
+        "Claude, Mathilda, Layla (compagnons)",
         "Fanny, Tigreal, Alucard, Harith (alliés)",
-        "Waldo Kane (ennemi)",
-        "Blandy (ennemi)",
-        "Alice (ennemi)"
+        "Waldo Kane, Blandy, Alice (ennemis)"
       ],
       "powers": []
     }

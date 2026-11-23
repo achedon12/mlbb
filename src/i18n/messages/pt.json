@@ -3758,7 +3758,7 @@
         "patch": "Resumo do último patch, ou de uma versão específica: buffs, nerfs, heróis alterados.",
         "skins": "As últimas skins lançadas, ou todas as de um herói.",
         "events": "Eventos atuais e futuros.",
-        "nickname": "Um apelido estiloso, com 21 estilos para escolher.",
+        "nickname": "Um apelido estiloso, com 21 estilos para você escolher.",
         "mlbbdle": "O MLBBdle de hoje, no modo clássico ou de habilidade.",
         "quiz": "O quiz de hoje, com botões para responder.",
         "leaderboard": "O ranking do servidor nos jogos do dia, por dia, semana ou desde o início.",
@@ -5004,7 +5004,7 @@
     },
     "ranked": {
       "tagline": "Suba de elo",
-      "text": "A linha competitiva. Cada vitória ganha estrelas para passar de Warrior a Mythical Immortal, com bans e drafting de Epic."
+      "text": "A linha competitiva. Cada vitória rende estrelas para passar de Warrior a Mythical Immortal, com bans e drafting de Epic."
     },
     "brawl": {
       "tagline": "Uma lane, ação imediata",

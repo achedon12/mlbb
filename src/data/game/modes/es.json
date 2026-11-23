@@ -112,7 +112,7 @@
         ]
       },
       {
-        "title": "Selección de borrador",
+        "title": "Draft Pick",
         "elements": [
           {
             "type": "p",
@@ -529,7 +529,7 @@
     "description": "Arcade Modes es un modo de juego adicional en Mobile Legends: Bang Bang que de vez en cuando se puede jugar durante eventos especiales, días festivos u ocasiones. El modo presenta varios subjuegos basados ​​en estrategia, que se enumeran a continuación.",
     "sections": [
       {
-        "title": "Violencia",
+        "title": "Mayhem",
         "elements": [
           {
             "type": "p",
@@ -546,7 +546,7 @@
         ]
       },
       {
-        "title": "Espejo",
+        "title": "Mirror",
         "elements": [
           {
             "type": "p",
@@ -559,7 +559,7 @@
         ]
       },
       {
-        "title": "Supervivencia",
+        "title": "Survival",
         "elements": [
           {
             "type": "p",
@@ -580,7 +580,7 @@
         ]
       },
       {
-        "title": "batalla a muerte",
+        "title": "Deathbattle",
         "elements": [
           {
             "type": "p",
@@ -593,7 +593,7 @@
         ]
       },
       {
-        "title": "Frenesí",
+        "title": "Frenzy",
         "elements": [
           {
             "type": "p",
@@ -610,7 +610,7 @@
         ]
       },
       {
-        "title": "Evolucionar",
+        "title": "Evolve",
         "elements": [
           {
             "type": "p",
@@ -839,7 +839,7 @@
         ]
       },
       {
-        "title": "Estrago",
+        "title": "Ravage",
         "elements": [
           {
             "type": "p",
@@ -872,7 +872,7 @@
         ]
       },
       {
-        "title": "Pelea y espejo",
+        "title": "Brawl&Mirror",
         "elements": [
           {
             "type": "p",
@@ -889,7 +889,7 @@
         ]
       },
       {
-        "title": "Ajedrez TD",
+        "title": "Chess TD",
         "elements": [
           {
             "type": "p",
@@ -926,7 +926,7 @@
         ]
       },
       {
-        "title": "Ajedrez Mágico",
+        "title": "Magic Chess",
         "elements": [
           {
             "type": "p",
@@ -939,7 +939,7 @@
         ]
       },
       {
-        "title": "Pelea de sombras",
+        "title": "Shadow Brawl",
         "elements": [
           {
             "type": "p",

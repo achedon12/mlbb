@@ -112,7 +112,7 @@
         ]
       },
       {
-        "title": "Выбор драфта",
+        "title": "Draft Pick",
         "elements": [
           {
             "type": "p",
@@ -529,7 +529,7 @@
     "description": "Аркадные режимы — это дополнительный игровой режим в Mobile Legends: Bang Bang, в который можно время от времени играть во время особых событий, праздников или особых случаев. В этом режиме представлены различные дополнительные игры, основанные на стратегии, которые перечислены ниже.",
     "sections": [
       {
-        "title": "хаос",
+        "title": "Mayhem",
         "elements": [
           {
             "type": "p",
@@ -546,7 +546,7 @@
         ]
       },
       {
-        "title": "Зеркало",
+        "title": "Mirror",
         "elements": [
           {
             "type": "p",
@@ -559,7 +559,7 @@
         ]
       },
       {
-        "title": "Выживание",
+        "title": "Survival",
         "elements": [
           {
             "type": "p",
@@ -580,7 +580,7 @@
         ]
       },
       {
-        "title": "Смертельная битва",
+        "title": "Deathbattle",
         "elements": [
           {
             "type": "p",
@@ -593,7 +593,7 @@
         ]
       },
       {
-        "title": "безумие",
+        "title": "Frenzy",
         "elements": [
           {
             "type": "p",
@@ -610,7 +610,7 @@
         ]
       },
       {
-        "title": "Эволюционировать",
+        "title": "Evolve",
         "elements": [
           {
             "type": "p",
@@ -839,7 +839,7 @@
         ]
       },
       {
-        "title": "опустошение",
+        "title": "Ravage",
         "elements": [
           {
             "type": "p",
@@ -872,7 +872,7 @@
         ]
       },
       {
-        "title": "Драка и Зеркало",
+        "title": "Brawl&Mirror",
         "elements": [
           {
             "type": "p",
@@ -889,7 +889,7 @@
         ]
       },
       {
-        "title": "Шахматный ТД",
+        "title": "Chess TD",
         "elements": [
           {
             "type": "p",
@@ -926,7 +926,7 @@
         ]
       },
       {
-        "title": "Волшебные шахматы",
+        "title": "Magic Chess",
         "elements": [
           {
             "type": "p",
@@ -939,7 +939,7 @@
         ]
       },
       {
-        "title": "Теневая драка",
+        "title": "Shadow Brawl",
         "elements": [
           {
             "type": "p",
@@ -952,7 +952,7 @@
         ]
       },
       {
-        "title": "Арена",
+        "title": "Arena",
         "elements": [
           {
             "type": "p",
@@ -977,7 +977,7 @@
         ]
       },
       {
-        "title": "Буммандер",
+        "title": "Boommander",
         "elements": [
           {
             "type": "p",

@@ -210,7 +210,7 @@
                 ]
               },
               {
-                "name": "Pasif Unik - Aktifkan",
+                "name": "Pasif Unik - Activate",
                 "slot": null,
                 "type": null,
                 "tag": "removed",
@@ -638,7 +638,7 @@
             "intro": "Terkadang, setelah sekutu menyembuhkan Anda dan pergi beberapa saat, Anda masih mendapatkan perisai saat diserang, yang tidak terduga dan membingungkan musuh. Oleh karena itu, kami telah memperpendek durasi pasif dari Vial of the Oasis.",
             "sections": [
               {
-                "name": "Pasif Unik - Berkah",
+                "name": "Pasif Unik - Blessing",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -675,7 +675,7 @@
                 ]
               },
               {
-                "name": "Pasif Unik - Mematikan",
+                "name": "Pasif Unik - Lethality",
                 "slot": null,
                 "type": "buff",
                 "tag": null,
@@ -703,7 +703,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Pasif Unik - Demonisasi",
+                "name": "Pasif Unik - Demonize",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -726,7 +726,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Pasif Unik - Semangat",
+                "name": "Pasif Unik - Zeal",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -1283,7 +1283,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Pasif Unik - Cooldown",
+                "name": "Pasif Unik - Recharge",
                 "slot": null,
                 "type": "buff",
                 "tag": null,
@@ -1306,7 +1306,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Pasif Unik - Hadiah",
+                "name": "Pasif Unik - Gift",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -2312,7 +2312,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Pasif Unik - Takdir",
+                "name": "Pasif Unik - Destiny",
                 "slot": null,
                 "type": "adjust",
                 "tag": null,
@@ -2764,7 +2764,7 @@
                 ]
               },
               {
-                "name": "Pasif Unik - Energi Jahat",
+                "name": "Pasif Unik - Malefic Energy",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -2776,7 +2776,7 @@
                 ]
               },
               {
-                "name": "Pasif Unik - Semangat",
+                "name": "Pasif Unik - Zeal",
                 "slot": null,
                 "type": null,
                 "tag": null,
@@ -2797,7 +2797,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Pasif Unik - Pencari",
+                "name": "Pasif Unik - Seeker",
                 "slot": null,
                 "type": "adjust",
                 "tag": null,
@@ -4004,7 +4004,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Pasif Unik - Mematikan",
+                "name": "Pasif Unik - Lethality",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -4086,7 +4086,7 @@
             "intro": "Berdasarkan masukan dan saran yang kami terima, kami telah mengoptimalkan peralatan ini dengan efek baru yang lebih cocok untuk Fighter dan memberi mereka kemampuan serangan balik yang lebih kuat.",
             "sections": [
               {
-                "name": "Pasif Unik - Demonisasi",
+                "name": "Pasif Unik - Demonize",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -4368,7 +4368,7 @@
             "intro": "Kondisi pemicu yang disesuaikan lebih menguntungkan di awal permainan, namun lebih sedikit di akhir permainan. Kami ingin beralih ke kondisi pemicu baru untuk meningkatkan stabilitas peralatan ini.",
             "sections": [
               {
-                "name": "Pasif Unik - Hadiah",
+                "name": "Pasif Unik - Gift",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -4389,7 +4389,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Pasif Unik - Demonisasi",
+                "name": "Pasif Unik - Demonize",
                 "slot": null,
                 "type": "adjust",
                 "tag": null,
@@ -4896,7 +4896,7 @@
                 ]
               },
               {
-                "name": "Pasif Unik - Semangat Berjuang",
+                "name": "Pasif Unik - Fighting Spirit",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -4987,7 +4987,7 @@
                 ]
               },
               {
-                "name": "Pasif Unik - Semangat",
+                "name": "Pasif Unik - Zeal",
                 "slot": null,
                 "type": "buff",
                 "tag": null,
@@ -5010,7 +5010,7 @@
             "intro": "Damage yang ditimbulkan peralatan ini meningkat pesat pada hero dengan HP tinggi.",
             "sections": [
               {
-                "name": "Pasif Unik - Pencari",
+                "name": "Pasif Unik - Seeker",
                 "slot": null,
                 "type": "buff",
                 "tag": null,
@@ -5033,7 +5033,7 @@
             "intro": "Mengurangi Cooldown-nya.",
             "sections": [
               {
-                "name": "Pasif Unik - Penjaga",
+                "name": "Pasif Unik - Guard",
                 "slot": null,
                 "type": "buff",
                 "tag": null,
@@ -5056,7 +5056,7 @@
             "intro": "Meningkatkan peningkatan kecepatan yang diberikannya.",
             "sections": [
               {
-                "name": "Pasif Unik - Prajurit Tertinggi",
+                "name": "Pasif Unik - Supreme Warrior",
                 "slot": null,
                 "type": "buff",
                 "tag": null,
@@ -8296,7 +8296,7 @@
             "intro": "Meningkatkan hukuman atas kematian operator di akhir permainan.",
             "sections": [
               {
-                "name": "Pasif Unik - Mematikan",
+                "name": "Pasif Unik - Lethality",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -8565,7 +8565,7 @@
                 ]
               },
               {
-                "name": "Pasif Unik - Mematikan",
+                "name": "Pasif Unik - Lethality",
                 "slot": null,
                 "type": null,
                 "tag": null,
@@ -8607,7 +8607,7 @@
                 ]
               },
               {
-                "name": "Aktif Unik - Energi Jahat",
+                "name": "Aktif Unik - Malefic Energy",
                 "slot": null,
                 "type": null,
                 "tag": null,
@@ -8619,7 +8619,7 @@
                 ]
               },
               {
-                "name": "Pasif Unik - Semangat",
+                "name": "Pasif Unik - Zeal",
                 "slot": null,
                 "type": null,
                 "tag": null,
@@ -8655,7 +8655,7 @@
                 ]
               },
               {
-                "name": "Pasif Unik - Pencari",
+                "name": "Pasif Unik - Seeker",
                 "slot": null,
                 "type": null,
                 "tag": null,
@@ -8732,7 +8732,7 @@
                 ]
               },
               {
-                "name": "Pasif Unik - Demonisasi",
+                "name": "Pasif Unik - Demonize",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -8879,7 +8879,7 @@
                 ]
               },
               {
-                "name": "Pasif Unik - Takdir",
+                "name": "Pasif Unik - Destiny",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -8891,7 +8891,7 @@
                 ]
               },
               {
-                "name": "Pasif Unik - Hadiah",
+                "name": "Pasif Unik - Gift",
                 "slot": null,
                 "type": null,
                 "tag": "new",
@@ -8912,7 +8912,7 @@
             "intro": "Kami ingin efek counternya serupa untuk Fighter dan Marksmen yang mengandalkan Attack Speed.",
             "sections": [
               {
-                "name": "Pasif Unik - Dingin Arktik",
+                "name": "Pasif Unik - Arctic Cold",
                 "slot": null,
                 "type": "adjust",
                 "tag": null,
@@ -8954,7 +8954,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Pasif Unik - Dingin Arktik",
+                "name": "Pasif Unik - Arctic Cold",
                 "slot": null,
                 "type": "adjust",
                 "tag": null,
@@ -9116,7 +9116,7 @@
                 ]
               },
               {
-                "name": "Pasif Unik - Penjaga",
+                "name": "Pasif Unik - Guard",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -9216,7 +9216,7 @@
                 ]
               },
               {
-                "name": "Pasif Unik - Marah",
+                "name": "Pasif Unik - Angry",
                 "slot": null,
                 "type": null,
                 "tag": "removed",
@@ -12150,7 +12150,7 @@
                 ]
               },
               {
-                "name": "Pasif Unik - Semangat Berjuang",
+                "name": "Pasif Unik - Fighting Spirit",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -16108,7 +16108,7 @@
             "intro": "Kami ingin ia bisa memblokir damage tinggi dengan lebih akurat, daripada mudah terpicu di late game. Kami juga ingin lebih tahan terhadap damage tinggi setelah dipicu.",
             "sections": [
               {
-                "name": "Pasif Unik - Abadi",
+                "name": "Pasif Unik - Immortal",
                 "slot": null,
                 "type": null,
                 "tag": null,
@@ -16129,7 +16129,7 @@
             "intro": "Kami ingin memberikan mobilitas yang baik kepada beberapa Mage dengan meningkatkan peralatan ini, dan menghilangkan ikatan kuat antara peralatan ini dan Jam Takdir.",
             "sections": [
               {
-                "name": "Pasif Unik - Resonasi",
+                "name": "Pasif Unik - Resonate",
                 "slot": null,
                 "type": null,
                 "tag": null,

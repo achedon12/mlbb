@@ -1738,11 +1738,9 @@
         "Cacciatori di sabbia dell'iceberg (ostile)"
       ],
       "relations": [
-        "Claude, Mathilda (compagni)",
+        "Claude, Mathilda, Layla (compagni)",
         "Fanny, Tigreal, Alucard, Harith (alleati)",
-        "Waldo Kane (nemico)",
-        "Blandy (nemico)",
-        "Alice (nemico)"
+        "Waldo Kane, Blandy, Alice (nemici)"
       ],
       "powers": []
     }

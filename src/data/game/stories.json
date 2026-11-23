@@ -1721,11 +1721,9 @@
         "Iceberg Sand Hunters (hostile)"
       ],
       "relations": [
-        "Claude, Mathilda (companions)",
+        "Claude, Mathilda, Layla (companions)",
         "Fanny, Tigreal, Alucard, Harith (allies)",
-        "Waldo Kane (enemy)",
-        "Blandy (enemy)",
-        "Alice (enemy)"
+        "Waldo Kane, Blandy, Alice (enemies)"
       ],
       "powers": []
     },

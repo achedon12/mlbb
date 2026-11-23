@@ -210,7 +210,7 @@
                 ]
               },
               {
-                "name": "Passif unique - Activer",
+                "name": "Passif unique - Activate",
                 "slot": null,
                 "type": null,
                 "tag": "removed",
@@ -638,7 +638,7 @@
             "intro": "Parfois, après qu'un allié vous ait soigné et parti pendant un certain temps, vous obteniez toujours un bouclier lorsqu'il était attaqué, ce qui était inattendu et déroutant pour les ennemis. De ce fait, nous avons raccourci la durée du Passif de Fiole de l'Oasis.",
             "sections": [
               {
-                "name": "Passif unique – Bénédiction",
+                "name": "Passif unique – Blessing",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -675,7 +675,7 @@
                 ]
               },
               {
-                "name": "Passif unique – Létalité",
+                "name": "Passif unique – Lethality",
                 "slot": null,
                 "type": "buff",
                 "tag": null,
@@ -703,7 +703,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Passif unique – Démoniser",
+                "name": "Passif unique – Demonize",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -726,7 +726,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Passif unique – Zèle",
+                "name": "Passif unique – Zeal",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -1306,7 +1306,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Passif unique - Cadeau",
+                "name": "Passif unique - Gift",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -2312,7 +2312,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Passif unique – Destin",
+                "name": "Passif unique – Destiny",
                 "slot": null,
                 "type": "adjust",
                 "tag": null,
@@ -2764,7 +2764,7 @@
                 ]
               },
               {
-                "name": "Passif unique – Énergie maléfique",
+                "name": "Passif unique – Malefic Energy",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -2776,7 +2776,7 @@
                 ]
               },
               {
-                "name": "Passif unique – Zèle",
+                "name": "Passif unique – Zeal",
                 "slot": null,
                 "type": null,
                 "tag": null,
@@ -2797,7 +2797,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Passif unique – Chercheur",
+                "name": "Passif unique – Seeker",
                 "slot": null,
                 "type": "adjust",
                 "tag": null,
@@ -4004,7 +4004,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Passif unique – Létalité",
+                "name": "Passif unique – Lethality",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -4065,7 +4065,7 @@
             "intro": "Amélioration de la polyvalence de Twilight Armor contre les dégâts en rafale.",
             "sections": [
               {
-                "name": "Passif unique – Crépuscule",
+                "name": "Passif unique – Twilight",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -4086,7 +4086,7 @@
             "intro": "Sur la base des retours et suggestions que nous avons reçus, nous avons optimisé cet équipement avec de nouveaux effets plus adaptés aux Combattants et leur donnant de plus fortes capacités de contre-attaque.",
             "sections": [
               {
-                "name": "Passif unique – Démoniser",
+                "name": "Passif unique – Demonize",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -4098,7 +4098,7 @@
                 ]
               },
               {
-                "name": "Passif unique – Défi",
+                "name": "Passif unique – Defiance",
                 "slot": null,
                 "type": null,
                 "tag": "new",
@@ -4119,7 +4119,7 @@
             "intro": "Certains héros à distance peuvent obtenir une bien meilleure capacité de survie grâce à cet équipement par rapport à d'autres héros spongieux, tout en infligeant des dégâts élevés. Nous l'avons réduit par souci d'équilibre.",
             "sections": [
               {
-                "name": "Passif unique – Coup de tonnerre",
+                "name": "Passif unique – Thunderbolt",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -4368,7 +4368,7 @@
             "intro": "La condition de déclenchement ajustée profite davantage en début de partie, mais moins en fin de partie. Nous souhaitons passer à une nouvelle condition de déclenchement pour augmenter la stabilité de cet équipement.",
             "sections": [
               {
-                "name": "Passif unique - Cadeau",
+                "name": "Passif unique - Gift",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -4389,7 +4389,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Passif unique – Démoniser",
+                "name": "Passif unique – Demonize",
                 "slot": null,
                 "type": "adjust",
                 "tag": null,
@@ -4896,7 +4896,7 @@
                 ]
               },
               {
-                "name": "Passif unique – Esprit combatif",
+                "name": "Passif unique – Fighting Spirit",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -4987,7 +4987,7 @@
                 ]
               },
               {
-                "name": "Passif unique – Zèle",
+                "name": "Passif unique – Zeal",
                 "slot": null,
                 "type": "buff",
                 "tag": null,
@@ -5010,7 +5010,7 @@
             "intro": "Les dégâts infligés par cet équipement aux héros à PV élevé ont considérablement augmenté.",
             "sections": [
               {
-                "name": "Passif unique – Chercheur",
+                "name": "Passif unique – Seeker",
                 "slot": null,
                 "type": "buff",
                 "tag": null,
@@ -5033,7 +5033,7 @@
             "intro": "Son temps de recharge a été réduit.",
             "sections": [
               {
-                "name": "Passif unique – Garde",
+                "name": "Passif unique – Guard",
                 "slot": null,
                 "type": "buff",
                 "tag": null,
@@ -5056,7 +5056,7 @@
             "intro": "Augmentation de l'augmentation de vitesse qu'il accorde.",
             "sections": [
               {
-                "name": "Passif unique – Guerrier suprême",
+                "name": "Passif unique – Supreme Warrior",
                 "slot": null,
                 "type": "buff",
                 "tag": null,
@@ -8296,7 +8296,7 @@
             "intro": "Augmentation de la punition pour les décès du transporteur en fin de partie.",
             "sections": [
               {
-                "name": "Passif unique – Létalité",
+                "name": "Passif unique – Lethality",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -8565,7 +8565,7 @@
                 ]
               },
               {
-                "name": "Passif unique – Létalité",
+                "name": "Passif unique – Lethality",
                 "slot": null,
                 "type": null,
                 "tag": null,
@@ -8607,7 +8607,7 @@
                 ]
               },
               {
-                "name": "Actif unique – Énergie Maléfique",
+                "name": "Actif unique – Malefic Energy",
                 "slot": null,
                 "type": null,
                 "tag": null,
@@ -8619,7 +8619,7 @@
                 ]
               },
               {
-                "name": "Passif unique – Zèle",
+                "name": "Passif unique – Zeal",
                 "slot": null,
                 "type": null,
                 "tag": null,
@@ -8655,7 +8655,7 @@
                 ]
               },
               {
-                "name": "Passif unique – Chercheur",
+                "name": "Passif unique – Seeker",
                 "slot": null,
                 "type": null,
                 "tag": null,
@@ -8732,7 +8732,7 @@
                 ]
               },
               {
-                "name": "Passif unique – Démoniser",
+                "name": "Passif unique – Demonize",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -8802,7 +8802,7 @@
                 ]
               },
               {
-                "name": "Passif unique – Coup de tonnerre",
+                "name": "Passif unique – Thunderbolt",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -8840,7 +8840,7 @@
             "intro": "Nous souhaitons améliorer la polyvalence de Twilight Armor contre les dégâts en rafale.",
             "sections": [
               {
-                "name": "Passif unique – Crépuscule",
+                "name": "Passif unique – Twilight",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -8879,7 +8879,7 @@
                 ]
               },
               {
-                "name": "Passif unique – Destin",
+                "name": "Passif unique – Destiny",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -8891,7 +8891,7 @@
                 ]
               },
               {
-                "name": "Passif unique - Cadeau",
+                "name": "Passif unique - Gift",
                 "slot": null,
                 "type": null,
                 "tag": "new",
@@ -8912,7 +8912,7 @@
             "intro": "Nous voulons qu'il ait des contre-effets similaires pour les combattants et les tireurs qui dépendent de la vitesse d'attaque.",
             "sections": [
               {
-                "name": "Passif unique – Froid arctique",
+                "name": "Passif unique – Arctic Cold",
                 "slot": null,
                 "type": "adjust",
                 "tag": null,
@@ -8954,7 +8954,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Passif unique – Froid arctique",
+                "name": "Passif unique – Arctic Cold",
                 "slot": null,
                 "type": "adjust",
                 "tag": null,
@@ -9116,7 +9116,7 @@
                 ]
               },
               {
-                "name": "Passif unique – Garde",
+                "name": "Passif unique – Guard",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -9216,7 +9216,7 @@
                 ]
               },
               {
-                "name": "Passif unique - En colère",
+                "name": "Passif unique - Angry",
                 "slot": null,
                 "type": null,
                 "tag": "removed",
@@ -12150,7 +12150,7 @@
                 ]
               },
               {
-                "name": "Passif unique – Esprit combatif",
+                "name": "Passif unique – Fighting Spirit",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -12171,7 +12171,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Passif unique – Force brute",
+                "name": "Passif unique – Brute Force",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -16108,7 +16108,7 @@
             "intro": "Nous voulons qu'il soit capable de bloquer des dégâts importants avec plus de précision, plutôt que d'être facilement déclenché en fin de partie. Nous voulons également qu'il soit plus résistant aux dégâts importants après avoir été déclenché.",
             "sections": [
               {
-                "name": "Passif unique – Immortel",
+                "name": "Passif unique – Immortal",
                 "slot": null,
                 "type": null,
                 "tag": null,
@@ -16129,7 +16129,7 @@
             "intro": "Nous souhaitons donner à certains Mages une bonne mobilité en améliorant cet équipement, et supprimer le lien fort entre cet équipement et l'Horloge du Destin.",
             "sections": [
               {
-                "name": "Passif unique – Résonner",
+                "name": "Passif unique – Resonate",
                 "slot": null,
                 "type": null,
                 "tag": null,

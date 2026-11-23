@@ -210,7 +210,7 @@
                 ]
               },
               {
-                "name": "Natatanging Passive - I-activate",
+                "name": "Natatanging Passive - Activate",
                 "slot": null,
                 "type": null,
                 "tag": "removed",
@@ -638,7 +638,7 @@
             "intro": "Minsan, pagkatapos kang pagalingin ng isang kaalyado at umalis sandali, makakakuha ka pa rin ng isang kalasag kapag inaatake, na hindi inaasahan at nakakalito sa mga kaaway. Bilang resulta, pinaikli namin ang tagal ng Passive of Vial of the Oasis.",
             "sections": [
               {
-                "name": "Natatanging Passive - Pagpapala",
+                "name": "Natatanging Passive - Blessing",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -675,7 +675,7 @@
                 ]
               },
               {
-                "name": "Natatanging Passive - Kabagsikan",
+                "name": "Natatanging Passive - Lethality",
                 "slot": null,
                 "type": "buff",
                 "tag": null,
@@ -703,7 +703,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Natatanging Passive - Magdemonyo",
+                "name": "Natatanging Passive - Demonize",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -726,7 +726,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Natatanging Passive - Masigasig",
+                "name": "Natatanging Passive - Zeal",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -1283,7 +1283,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Natatanging Passive - Mag-recharge",
+                "name": "Natatanging Passive - Recharge",
                 "slot": null,
                 "type": "buff",
                 "tag": null,
@@ -1306,7 +1306,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Natatanging Passive - Regalo",
+                "name": "Natatanging Passive - Gift",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -2776,7 +2776,7 @@
                 ]
               },
               {
-                "name": "Natatanging Passive - Masigasig",
+                "name": "Natatanging Passive - Zeal",
                 "slot": null,
                 "type": null,
                 "tag": null,
@@ -4004,7 +4004,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Natatanging Passive - Kabagsikan",
+                "name": "Natatanging Passive - Lethality",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -4086,7 +4086,7 @@
             "intro": "Batay sa feedback at suhestiyon na natanggap namin, na-optimize namin ang kagamitang ito gamit ang mga bagong epekto na mas angkop sa Fighters at binibigyan sila ng mas malakas na kakayahan sa pag-counterattack.",
             "sections": [
               {
-                "name": "Natatanging Passive - Magdemonyo",
+                "name": "Natatanging Passive - Demonize",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -4368,7 +4368,7 @@
             "intro": "Ang inayos na kundisyon ng pag-trigger ay higit na nakikinabang sa maagang laro, ngunit mas mababa sa huling bahagi ng laro. Nais naming lumipat sa isang bagong kundisyon ng pag-trigger upang mapataas ang katatagan ng kagamitang ito.",
             "sections": [
               {
-                "name": "Natatanging Passive - Regalo",
+                "name": "Natatanging Passive - Gift",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -4389,7 +4389,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Natatanging Passive - Magdemonyo",
+                "name": "Natatanging Passive - Demonize",
                 "slot": null,
                 "type": "adjust",
                 "tag": null,
@@ -4987,7 +4987,7 @@
                 ]
               },
               {
-                "name": "Natatanging Passive - Masigasig",
+                "name": "Natatanging Passive - Zeal",
                 "slot": null,
                 "type": "buff",
                 "tag": null,
@@ -8296,7 +8296,7 @@
             "intro": "Pinataas ang parusa para sa pagkamatay ng huli sa laro ng carrier.",
             "sections": [
               {
-                "name": "Natatanging Passive - Kabagsikan",
+                "name": "Natatanging Passive - Lethality",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -8565,7 +8565,7 @@
                 ]
               },
               {
-                "name": "Natatanging Passive - Kabagsikan",
+                "name": "Natatanging Passive - Lethality",
                 "slot": null,
                 "type": null,
                 "tag": null,
@@ -8619,7 +8619,7 @@
                 ]
               },
               {
-                "name": "Natatanging Passive - Masigasig",
+                "name": "Natatanging Passive - Zeal",
                 "slot": null,
                 "type": null,
                 "tag": null,
@@ -8732,7 +8732,7 @@
                 ]
               },
               {
-                "name": "Natatanging Passive - Magdemonyo",
+                "name": "Natatanging Passive - Demonize",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -8891,7 +8891,7 @@
                 ]
               },
               {
-                "name": "Natatanging Passive - Regalo",
+                "name": "Natatanging Passive - Gift",
                 "slot": null,
                 "type": null,
                 "tag": "new",
@@ -9216,7 +9216,7 @@
                 ]
               },
               {
-                "name": "Natatanging Passive - Galit",
+                "name": "Natatanging Passive - Angry",
                 "slot": null,
                 "type": null,
                 "tag": "removed",
@@ -16108,7 +16108,7 @@
             "intro": "Gusto naming ma-block nito ang mataas na damage nang mas tumpak, sa halip na madaling ma-trigger sa susunod na laro. Nais din naming maging mas lumalaban ito sa mataas na damage pagkatapos ma-trigger.",
             "sections": [
               {
-                "name": "Natatanging Passive - Walang kamatayan",
+                "name": "Natatanging Passive - Immortal",
                 "slot": null,
                 "type": null,
                 "tag": null,

@@ -1738,11 +1738,9 @@
         "Cazadores de arena de iceberg (hostiles)"
       ],
       "relations": [
-        "Claude, Mathilda (compañeros)",
+        "Claude, Mathilda, Layla (compañeros)",
         "Fanny, Tigreal, Alucard, Harith (aliados)",
-        "Waldo Kane (enemigo)",
-        "Blandy (enemigo)",
-        "Alice (enemigo)"
+        "Waldo Kane, Blandy, Alice (enemigos)"
       ],
       "powers": []
     }

@@ -210,7 +210,7 @@
                 ]
               },
               {
-                "name": "Pasiva única - Activar",
+                "name": "Pasiva única - Activate",
                 "slot": null,
                 "type": null,
                 "tag": "removed",
@@ -638,7 +638,7 @@
             "intro": "A veces, después de que un aliado te sanara y se fuera por un tiempo, aún obtenías un escudo cuando te atacaban, lo cual era inesperado y confuso para los enemigos. Como resultado, hemos acortado la duración de la Pasiva del Vial del Oasis.",
             "sections": [
               {
-                "name": "Pasiva Única - Bendición",
+                "name": "Pasiva Única - Blessing",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -1306,7 +1306,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Pasiva única - Regalo",
+                "name": "Pasiva única - Gift",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -2797,7 +2797,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Pasiva Única - Buscador",
+                "name": "Pasiva Única - Seeker",
                 "slot": null,
                 "type": "adjust",
                 "tag": null,
@@ -4368,7 +4368,7 @@
             "intro": "La condición de activación ajustada beneficia más al principio del juego, pero menos al final del juego. Queremos cambiar a una nueva condición de activación para aumentar la estabilidad de este equipo.",
             "sections": [
               {
-                "name": "Pasiva única - Regalo",
+                "name": "Pasiva única - Gift",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -5010,7 +5010,7 @@
             "intro": "El daño que este equipo causa a los héroes con alto HP es mucho mayor.",
             "sections": [
               {
-                "name": "Pasiva Única - Buscador",
+                "name": "Pasiva Única - Seeker",
                 "slot": null,
                 "type": "buff",
                 "tag": null,
@@ -8607,7 +8607,7 @@
                 ]
               },
               {
-                "name": "Activo Único - Energía Maléfica",
+                "name": "Activo Único - Malefic Energy",
                 "slot": null,
                 "type": null,
                 "tag": null,
@@ -8655,7 +8655,7 @@
                 ]
               },
               {
-                "name": "Pasiva Única - Buscador",
+                "name": "Pasiva Única - Seeker",
                 "slot": null,
                 "type": null,
                 "tag": null,
@@ -8891,7 +8891,7 @@
                 ]
               },
               {
-                "name": "Pasiva única - Regalo",
+                "name": "Pasiva única - Gift",
                 "slot": null,
                 "type": null,
                 "tag": "new",
@@ -9216,7 +9216,7 @@
                 ]
               },
               {
-                "name": "Pasiva Única - Enojado",
+                "name": "Pasiva Única - Angry",
                 "slot": null,
                 "type": null,
                 "tag": "removed",
@@ -16129,7 +16129,7 @@
             "intro": "Queremos darles a algunos magos buena movilidad mejorando este equipo y eliminar el fuerte vínculo entre este equipo y el Reloj del Destino.",
             "sections": [
               {
-                "name": "Pasiva única - Resonar",
+                "name": "Pasiva única - Resonate",
                 "slot": null,
                 "type": null,
                 "tag": null,

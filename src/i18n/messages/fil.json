@@ -382,7 +382,7 @@
       "matchupsIntro": "Mga matchup na kinomentohan nang mano-mano, lampas sa mga numero.",
       "comfortable": "Malakas si {name} laban sa",
       "difficulty2": "Nahihirapan si {name} laban sa",
-      "metaDescription": "{name}: {roles} ng Mobile Legends: Bang Bang, na nilalaro sa {lanes}. Mga counter at build ayon sa ranggo, mga skill, kasaysayan at {skins} mga pagpapakita.",
+      "metaDescription": "{name}: {roles} ng Mobile Legends: Bang Bang, na nilalaro sa {lanes}. Mga counter at build ayon sa ranggo, skill, kasaysayan at {skins} na mga pagpapakita.",
       "compare": "Ikumpara",
       "titleSheet": "{name}: build, mga counter at stats",
       "ogTagline": "Mga build, counter at stats ayon sa rank",
@@ -2248,7 +2248,7 @@
     "events": {
       "title": "MLBB events calendar: StarLight, Collector at mga skin ng buwan",
       "breadcrumb": "Mga event",
-      "lead": "Bawat buwan ng Mobile Legends: Bang Bang, na may pinakabago sa itaas: StarLight skin, Collector skin, at event, sweepstakes, o store skin na inilabas noong buwang iyon. {n} buwan na dokumentado, mula {start} hanggang {end}.",
+      "lead": "Bawat buwan ng Mobile Legends: Bang Bang, na ang pinakabago ay nasa itaas: StarLight skin, Collector skin, at event, sweepstakes, o store skin na inilabas noong buwang iyon. {n} buwan ang nakadokumento, mula {start} hanggang {end}.",
       "thisMonthTitle": "Ngayong buwan: {month}",
       "thisMonthEmpty": "Wala pang skin ng {month} sa data namin: pinupunan ng community wiki ang mga listahan nito pagkatapos ng release. Huling nakadokumentong buwan: {latest}.",
       "seeMonth": "Tingnan ang {month}",
@@ -3758,7 +3758,7 @@
         "patch": "Buod ng pinakabagong patch, o ng isang partikular na bersyon: mga buff, nerf, binagong hero.",
         "skins": "Ang mga pinakabagong skin, o lahat ng skin ng isang hero.",
         "events": "Mga kasalukuyan at paparating na event.",
-        "nickname": "Isang naka-istilong palayaw, na may 21 mga istilong mapagpipilian.",
+        "nickname": "Isang naka-istilong palayaw, na may 21 estilong mapagpipilian.",
         "mlbbdle": "Ang MLBBdle ngayong araw, sa classic o skill mode.",
         "quiz": "Ang quiz ngayong araw, may mga button para sumagot.",
         "leaderboard": "Ang leaderboard ng server para sa mga daily game, ayon sa araw, linggo o lahat ng panahon.",
@@ -5004,7 +5004,7 @@
     },
     "ranked": {
       "tagline": "Umakyat sa rank",
-      "text": "Ang mapagkumpitensyang linya. Ang bawat tagumpay ay kumikita ng mga bituin upang umakyat mula sa Warrior tungo sa Mythical Immortal, na may mga ban at pag-draft mula sa Epic."
+      "text": "Ang mapagkumpitensyang linya. Ang bawat tagumpay ay nakakakuha ng mga bituin upang umakyat mula sa Warrior tungo sa Mythical Immortal, na may mga ban at pag-draft mula sa Epic."
     },
     "brawl": {
       "tagline": "Isang lane, diretso sa aksyon",
@@ -5362,7 +5362,7 @@
     "collection": {
       "title": "Koleksyon ng skin",
       "intro": "Pinapanatili ng tool sa pagkolekta ang mga hero at skin na iyong tinitingnan sa iyong browser (lokal na imbakan). Kung nakakonekta ka sa iyong account sa laro, nag-iimbak din ang server ng site, sa database nito:",
-      "data": "ang parehong account imprint bilang komunidad (hindi kailanman ang iyong ID ng laro), ang listahan ng mga nasuri na hero at pagpapakita, at ang petsa ng huling pagpaparehistro; walang iba, at walang ipinapakita sa sinuman.",
+      "data": "ang parehong account imprint bilang komunidad (hindi kailanman ang iyong ID ng laro), ang listahan ng mga naka-check na hero at pagpapakita, at ang petsa ng huling pagpaparehistro; walang iba, at walang ipinapakita sa sinuman.",
       "usage": "Ginagamit lang ang kopyang ito para mahanap ang iyong koleksyon sa iba mo pang device. Binabasa ng filter na \"mga nilalaro ko\" ang iyong mga season hero mula sa serbisyo sa pag-log in sa sandaling i-activate mo ito, nang hindi nagse-save ng kahit ano.",
       "deletion": "Upang alisan ng laman ang kopya ng iyong account, tanggalin ang iyong koleksyon sa tool habang naka-log in; Upang tanggalin ang mismong linya, sumulat sa {contact}."
     },
@@ -6417,7 +6417,7 @@
     },
     "skins": {
       "title": "Malaman agad ang bagong skins",
-      "text": "Ang mga bagong skin, StarLight, at mga print ay darating sa Discord sa sandaling mailabas ang mga ito."
+      "text": "Ang mga bagong skin, StarLight, at mga print ay darating sa Discord sa sandaling ilabas ang mga ito."
     },
     "tools": {
       "title": "Ihanda ang drafts kasama ang squad",

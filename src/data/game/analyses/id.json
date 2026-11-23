@@ -1,11 +1,11 @@
 {
   "lancelot": {
     "summary": "Assassin hutan dibangun berdasarkan urutan garis putus-putus, dengan jendela kekebalan selama ultimat.",
-    "analysis": "Lancelot lebih memilih bertarung daripada memasukinya. Skill 2-nya menandai target, skill 1-nya mengisi ulang dengan mengenai target yang ditandai: dirantai dengan baik, dia dapat berlari hampir tanpa gangguan selama dia mengenai sesuatu.\n\nUltimate-nya membuatnya kebal selama animasi, yang juga menjadikannya alat pertahanan untuk menghindari cek atau eksekusi. Hero dihukum oleh apa pun yang menghalangi pergerakan – Khufra memimpin – dan oleh area yang menghalanginya untuk bergerak maju.",
+    "analysis": "Lancelot lebih memilih bertarung daripada memasukinya. Skill 1-nya menandai musuh pertama yang tidak ditandai yang dilewatinya, dan setiap tanda baru mengatur ulang pengisian dayanya: dirantai dengan baik, ia dapat berlari hampir tanpa gangguan selama ia menemukan target untuk ditandai. Skill 2 yang dimilikinya membuatnya tidak dapat disentuh selama tiga kali serangannya.\n\nUltimate-nya membuatnya kebal selama animasi, yang juga menjadikannya alat pertahanan untuk menghindari cek atau eksekusi. Hero dihukum oleh apa pun yang menghalangi pergerakan – Khufra memimpin – dan oleh area yang menghalanginya untuk bergerak maju.",
     "skills": [
-      "Damagenya meningkat sebentar setelah menghindari atau melewati musuh.",
-      "Bergerak ke satu arah dengan mengenai musuh yang dilewatinya. Cooldown dikurangi dengan mencapai target yang ditandai.",
-      "Memproyeksikan pedang yang menandai serangan musuh dan memperlambatnya.",
+      "Setiap muatan meningkatkan damagenya selama beberapa detik, bertumpuk.",
+      "Serang dalam satu arah dengan memukul musuh yang Anda lewati dan tandai serangan musuh pertama yang tidak bertanda. Setiap tanda baru mengatur ulang cooldown.",
+      "Serang tiga kali dalam satu arah sambil tetap tidak tersentuh. Musuh yang berada di tengah area menerima ketiga serangan dan terkena efek slow.",
       "Merangkai serangkaian serangan di suatu area sambil tetap kebal selama animasi."
     ],
     "strengths": [
@@ -26,13 +26,13 @@
     ]
   },
   "gusion": {
-    "summary": "Assassin ajaib kombo: dia menempatkan belatinya, berteleportasi ke sana, dan mengambilnya untuk menimbulkan semua damagenya sekaligus.",
+    "summary": "Combo Magic Assassin: Dia melempar belatinya, menyelinap ke belakang target yang ditandai, dan memanggil kembali mereka untuk menimbulkan semua damagenya sekaligus.",
     "analysis": "Gusion merupakan hero combo yang paling banyak diminati di dalam game setelah Fanny. Semua keahliannya dapat di-reroll, dan urutan serta waktu reroll sepenuhnya menentukan damagenya. Kombo standarnya adalah dengan meletakkan belati, mendekat dengan ultinya, lalu memicu pemulihan sehingga semuanya terjadi secara bersamaan.\n\nGusion yang dikuasai bisa menghabisi target rapuh apa pun dalam waktu kurang dari satu detik, sering kali sebelum layar lawan menunjukkan apa pun. Gusion yang kasar akan memberikan sepertiga damage dan mati di tempat. Hanya sedikit hero yang memiliki kesenjangan yang begitu besar di antara keduanya.",
     "skills": [
-      "Setelah skill, serangan dasar berikutnya memberikan damage tambahan sebanding dengan kesehatan target yang hilang.",
-      "Melempar belati dengan pola kipas. Merombak skill akan mengingatkan belati yang ditanam, memberikan damage lagi.",
-      "Melempar belati unik. Merombak skill akan memindahkan Gusion ke belati.",
-      "Mengisi ulang kedua skill dan memungkinkan Anda mendorong diri Anda menuju suatu area. Titik awal dari kombo apa pun."
+      "Setiap penggunaan skill menambahkan satu rune ke belatinya, hingga empat: masing-masing memperkuat serangan dasar berikutnya, yang memberikan damage tambahan berdasarkan HP target dan menyembuhkannya.",
+      "Melempar belati yang memberikan damage dan menandai musuh pertama yang terkena. Diluncurkan kembali, ia melewati target yang ditandai dengan memukulnya lagi, tanpa dapat diganggu.",
+      "Meluncurkan tembakan belati yang memberikan damage dan memperlambat musuh yang terkena. Diluncurkan kembali, ia mengingatkan belati, yang menyerang lagi di lanenya.",
+      "Meluncurkan dirinya ke suatu area dan mengatur ulang cooldown kedua skillnya; dimulai ulang, itu membuatnya berlari dalam jarak dekat. Titik awal dari kombo apa pun."
     ],
     "strengths": [
       "Salah satu puncak damage tertinggi dalam game",
@@ -53,12 +53,12 @@
   },
   "ling": {
     "summary": "Assassin yang bergerak di atas tembok, di luar jangkauan, dan memilih momennya untuk mengenai sasaran.",
-    "analysis": "Ling mengubah geometri peta. Saat berada di dinding, dia tidak dapat disentuh oleh sebagian besar skill dasar, sehingga dia harus menunggu tanpa batas waktu untuk pembukaan. Itu tidak menggunakan mana tetapi sumber energi, yang membatasi jumlah lompatan berturut-turut.\n\nUltimate-nya membuatnya kebal terhadap check saat melompat dan memberikan damage kritis. Hero ini sangat baik dalam pertempuran seluler dan lemah melawan tim berkelompok yang menjaga kendalinya sendiri. Khufra tetap memberikan responnya yang paling jelas.",
+    "analysis": "Ling mengubah geometri peta. Saat berada di dinding, dia tidak dapat disentuh oleh sebagian besar skill dasar, sehingga dia harus menunggu tanpa batas waktu untuk pembukaan. Itu tidak menggunakan mana tetapi sumber energi, yang membatasi jumlah lompatan berturut-turut.\n\nUltimate-nya membuatnya kebal saat melompat, lalu memperlambat dan menjatuhkan musuh ke udara saat mendarat. Hero ini sangat baik dalam pertempuran seluler dan lemah melawan tim berkelompok yang menjaga kendalinya sendiri. Khufra tetap memberikan responnya yang paling jelas.",
     "skills": [
-      "Ling dapat memanjat tembok dan bergerak dengan cepat, memulihkan energinya.",
-      "Lompat ke titik mana pun, termasuk dinding. Biaya energi, tanpa perlu diisi ulang selama energi masih ada.",
-      "Menyerang musuh di sekitarnya dan meningkatkan kecepatan serangannya.",
-      "Melompati area yang menimbulkan damage kritis, kebal terhadap kontrol saat melompat."
+      "Ling melompat dari dinding ke dinding dan mendapatkan kembali energi di dinding seolah memberikan damage. Ia memperoleh 1,6x peningkatan peluang kritis dari semua sumber, namun damage kritisnya berkurang.",
+      "Lompat ke dinding dan lakukan semi-kamuflase, lebih cepat. Melompat dari satu dinding ke dinding lainnya tidak memicu cooldown; sebuah cek menyebabkan dia jatuh ke tanah.",
+      "Serang ke satu arah dan pukul musuh di sekitar. Diluncurkan dari dinding, tanpa mengeluarkan energi, ia menjatuhkannya ke tanah, memperlambat musuh di area tersebut.",
+      "Melompat ke udara sambil tetap kebal, lalu jatuh, memperlambat musuh di area tersebut dan menjatuhkan musuh yang berada di tengah ke udara. Bidang pedang yang tertinggal di tanah mengisi ulang skillnya yang lain."
     ],
     "strengths": [
       "Bergerak di dinding, di luar jangkauan tanah",
@@ -73,7 +73,7 @@
     "builds": [
       {
         "name": "Hutan Kritis",
-        "context": "Skill pamungkasnya menghasilkan damage kritis: tingkat kritis lebih berharga daripada penetrasi mentah."
+        "context": "Pasifnya melipatgandakan peluang kritis yang diperolehnya: tingkat kritis bernilai lebih dari penetrasi mentah."
       }
     ]
   },
@@ -142,12 +142,12 @@
   },
   "chou": {
     "summary": "Fighter isolasi: dia mengambil target dari kelompok lawan dan membunuhnya sebelum timnya bereaksi.",
-    "analysis": "Chou merupakan hero roam dengan mastery cap tertinggi. Idenya sederhana – serangan pamungkas mengirimkan target ke udara dan menggerakkannya – tetapi eksekusinya bergantung pada pembatalan animasi yang tidak dapat dijelaskan dalam game ini. Referensi rantai kombo skill 1, pembatalan lompatan, ulti, lalu skill 2 untuk menahan target saat mendarat.\n\nKetertarikannya pada tim yang terorganisir berasal dari sana: dia memilih siapa yang akan mati. Sebaliknya, melawan pemain yang mempertahankan Purify miliknya, nilai ultimatnya akan kehilangan setengah nilainya, dan Chou menjadi fighter biasa-biasa saja lagi.",
+    "analysis": "Chou merupakan hero roam dengan mastery cap tertinggi. Idenya sederhana – serangan pamungkas akan mengusir target dan mengejarnya – tetapi pelaksanaannya bergantung pada pembatalan animasi yang tidak dapat dijelaskan dalam game ini. Referensi rantai kombo skill 1, pembatalan lompatan, ulti, lalu skill 2 untuk menahan target saat mendarat.\n\nKetertarikannya pada tim yang terorganisir berasal dari sana: dia memilih siapa yang akan mati. Sebaliknya, melawan pemain yang mempertahankan Purify miliknya, nilai ultimatnya akan kehilangan setengah nilainya, dan Chou menjadi fighter biasa-biasa saja lagi.",
     "skills": [
-      "Setiap beberapa serangan dasar, serangan berikutnya menjadi pukulan yang ditingkatkan yang menghasilkan damage ekstra.",
+      "Setelah menempuh jarak tertentu, serangan dasar berikutnya akan meningkatkan damage, memperlambat target sebentar, dan mengurangi pertahanan fisiknya.",
       "Tiga serangan berturut-turut. Yang terakhir melempar musuh ke udara.",
-      "Melesat ke satu arah, menjadi kebal terhadap kontrol saat berlari.",
-      "Mencapai target, melemparnya, dan mengikutinya sepanjang jalan. Menjauhkan lawan dari timnya."
+      "Bergegas ke suatu arah sambil kebal terhadap kontrol dan mendapatkan perisai.",
+      "Pukul hero lawan dan pukul mereka kembali; dimulai kembali, dia mengejarnya untuk damage lebih lanjut. Menjauhkan lawan dari timnya."
     ],
     "strengths": [
       "Memilih dan mengisolasi target prioritas",
@@ -172,12 +172,12 @@
   },
   "yu-zhong": {
     "summary": "Fighter EXP Lane yang menyembuhkan dirinya sendiri saat memukul dan menjadi sangat sulit dibunuh dalam pertarungan berkepanjangan.",
-    "analysis": "Yu Zhong memenangkan pertarungan terakhir itu. Pasifnya mengubah sebagian damage yang ditimbulkan menjadi perisai, yang membuatnya sangat baik ketika ada beberapa target dalam jangkauan - konfrontasi lima arah memberikan pengembalian yang lebih besar daripada duel.\n\nUltimate-nya membuatnya kebal terhadap pemeriksaan saat dia maju, yang juga membuatnya menjadi inisiator yang kredibel. Melawannya hampir selalu melibatkan pengurangan penyembuhan: tanpanya, Yu Zhong yang berperalatan lengkap akan menyerap seluruh tim.",
+    "analysis": "Yu Zhong memenangkan pertarungan terakhir itu. Pasifnya menempatkan tumpukan Sha Residue pada hero yang ia pukul; pada pukul lima, mereka meledak, menyembuhkannya dengan setiap tumpukan yang dikonsumsi dan mempercepatnya, yang membuatnya menjadi luar biasa segera setelah ada beberapa target dalam jangkauan - konfrontasi dengan lima memberinya pengembalian yang jauh lebih besar daripada duel.\n\nUltimate-nya membuatnya kebal terhadap pemeriksaan saat dia maju, yang juga membuatnya menjadi inisiator yang kredibel. Melawannya hampir selalu melibatkan pengurangan penyembuhan: tanpanya, Yu Zhong yang berperalatan lengkap akan menyerap seluruh tim.",
     "skills": [
-      "Damage yang ditimbulkan oleh skillnya sebagian diubah menjadi perisai, dengan peningkatan efisiensi pada beberapa target.",
-      "Rantai dua sapuan di depannya. Yang kedua memberikan peningkatan damage.",
-      "Melompat ke depan dan melemparkan pukulan musuh. Digunakan untuk terlibat dan melarikan diri.",
-      "Berbentuk naga: kebal terhadap kontrol, ia maju sambil menimbulkan damage area lalu menjatuhkan musuh ke tanah."
+      "Physical damage yang dimilikinya menyebabkan tumpukan Sha Residue pada hero lawan. Pada lima tumpukan, mereka meledak: setiap tumpukan yang dikonsumsi akan memberikan damage pada target dan memulihkan sebagian HP Yu Zhong yang hilang, dan dia memperoleh kecepatan.",
+      "Jubahnya menjadi senjata yang mengenai musuh di sekitar setelah beberapa saat. Ujung tajamnya menghasilkan lebih banyak damage dan menghasilkan dua tumpukan Residu Sha.",
+      "Melepaskan jiwa naga di depannya, yang memberikan damage dan memperlambat musuh. Jika dia mengenai, serangan dasar berikutnya akan ditingkatkan, terutama karena dia mengenai banyak musuh.",
+      "Setelah channeling singkat, dia mengambil wujud naga hitamnya: kebal terhadap kontrol, dengan tambahan HP, dia bergerak bebas, mendorong kembali hero di lanenya. Saat dia keluar dari formulir ini, skillnya bertambah luas."
     ],
     "strengths": [
       "Regenerasi yang sangat kuat dalam pertarungan lima arah",
@@ -192,18 +192,18 @@
     "builds": [
       {
         "name": "Regenerasi EXP Lane",
-        "context": "Referensi build: resistance dan lifesteal, karena pasifnya sudah mengubah damage menjadi perisai."
+        "context": "Referensi build: resistensi dan pencurian nyawa, karena pasifnya sudah menyembuhkannya dengan setiap tumpukan yang dikonsumsi."
       }
     ]
   },
   "paquito": {
-    "summary": "Window Fighter: Setiap skill yang digunakan meningkatkan skill berikutnya, dengan puncak damage yang sangat singkat.",
-    "analysis": "Paquito dimainkan bukan secara skill per skill melainkan secara berurutan. Setiap spell memuat versi yang disempurnakan dari versi berikutnya, dan intinya adalah merangkai versi yang ditingkatkan tersebut dalam urutan yang benar sebelum jendela ditutup.\n\nBagus sekali, ia menghabisi target yang lemah dalam dua detik dari jarak yang cukup jauh. Dimainkan dengan buruk, dia menyia-nyiakan versi upgradenya pada minion dan tidak ada yang tersisa. Dia adalah hero ritme, sangat sensitif terhadap level pemain.",
+    "summary": "Window Fighter: Setiap tiga skill, skill berikutnya ditingkatkan, untuk puncak damage yang sangat singkat.",
+    "analysis": "Paquito dimainkan bukan secara skill per skill melainkan secara berurutan. Setiap tiga skill diluncurkan, ia beralih ke Posisi Lapangan dan memperoleh versi skill yang lebih baik, bahkan saat diisi ulang: intinya terletak pada memilih yang tepat dan menempatkannya pada waktu yang tepat.\n\nBagus sekali, ia menghabisi target yang lemah dalam dua detik dari jarak yang cukup jauh. Dimainkan dengan buruk, dia menyia-nyiakan versi upgradenya pada minion dan tidak ada yang tersisa. Dia adalah hero ritme, sangat sensitif terhadap level pemain.",
     "skills": [
-      "Menggunakan suatu skill akan memberi buff pada skill berbeda berikutnya selama beberapa detik.",
-      "Pukul lurus ke depan. Versi yang ditingkatkan: jangkauan lebih luas, damage lebih besar, dan gerakan maju.",
-      "Pukul membentuk busur. Versi yang ditingkatkan: melempar musuh kena.",
-      "Bergegas menuju target dan memukul mundur mereka. Versi yang ditingkatkan: damage dan proyeksi yang sangat meningkat."
+      "Setiap tiga skill yang diluncurkan, dia memasuki Field Stance: skill berikutnya ditingkatkan, bahkan saat cooldown, dan dia memperoleh kecepatan setelah menggunakannya.",
+      "Pukul lurus ke depan dan beri dia perisai. Versi yang ditingkatkan: peningkatan damage dan perisai.",
+      "Bergegas ke depan, mengenai musuh di lanenya. Versi yang ditingkatkan: peningkatan damage, dan serangan berhenti pada hero atau monster pertama yang terkena.",
+      "Mendorong musuh di depannya, memukulnya, memperlambatnya, lalu mundur. Versi yang ditingkatkan: pukulan terakhir, lebih kuat, melemparkan mereka ke udara."
     ],
     "strengths": [
       "Damage puncak yang sangat tinggi dalam jendela yang pendek",
@@ -318,12 +318,12 @@
   },
   "kagura": {
     "summary": "Mage Dua Keadaan: Keahliannya berubah sepenuhnya tergantung pada apakah dia memegang atau menurunkan payungnya.",
-    "analysis": "Kagura memiliki delapan skill dalam latihan untuk tiga pukulan. Setiap spell memiliki versi dengan payung dan versi tanpa payung, dan mengetahui keadaan Anda saat ini adalah hal utama bagi sang hero. Kombo khasnya mengikuti pose payung, rappel yang menyilang dan menonjol, lalu yang terakhir untuk dikunci.\n\nDia juga salah satu mage langka yang mampu keluar dari situasi buruk sendirian, karena berteleportasi ke payung berfungsi sebagai pelarian. Sebagai imbalannya, kesalahan status membuat dia tidak memiliki mobilitas di tengah-tengah tim lawan.",
+    "analysis": "Kagura memiliki delapan skill dalam latihan untuk tiga pukulan. Setiap spell memiliki versi dengan payung dan versi tanpa payung, dan mengetahui keadaan Anda saat ini adalah hal utama bagi sang hero. Kombo khasnya adalah pengiriman payung, pemulihannya yang membuat stun di sekitarnya, lalu ultimatnya untuk mendorong kembali.\n\nDia juga salah satu mage langka yang mampu keluar dari posisi buruk sendirian karena skill 2-nya membebaskannya dari semua efek negatifnya dengan membuatnya melompat. Sebagai imbalannya, kesalahan status membuat dia tidak memiliki mobilitas di tengah-tengah tim lawan.",
     "skills": [
-      "Saat Kagura dan payungnya bersatu, keahliannya terisi ulang lebih cepat dan dia mendapatkan perisai setelah spell.",
-      "Mengirim payung ke suatu lokasi, atau mengingatnya. Payung yang ditempatkan akan memperlambat musuh di sekitarnya.",
-      "Dengan payung: bergerak ke satu arah. Tanpa payung: berteleportasi ke arahnya, melemparkan musuh yang dilewatinya.",
-      "Melakukan root dan menarik musuh di sekitar payung, lalu menimbulkan damage area yang signifikan."
+      "Saat dia mengambil kembali payungnya, Kagura mendapatkan perisai, memberikan efek stun kepada musuh di dekatnya dan memperlambat mereka. Efeknya memiliki cooldown yang singkat.",
+      "Mengirimkan payung ke suatu lokasi, memberikan damage dan memperlambat musuh yang dilewatinya. Payung akan kembali sendiri jika Kagura bergerak terlalu jauh darinya.",
+      "Menghilangkan semua efek negatif dan melompat ke satu arah, meninggalkan payung.",
+      "Melepaskan kekuatan payung: memberikan damage pada musuh di sekitar, menjatuhkan mereka ke belakang, dan memperlambat mereka."
     ],
     "strengths": [
       "Damage area yang sangat tinggi di mid game",
@@ -344,12 +344,12 @@
   },
   "pharsa": {
     "summary": "Artillery Mage: Serangan pamungkasnya melintasi peta, tanpa pernah memasuki pertempuran.",
-    "analysis": "Pharsa bermain di scope. Skill Ultimate-nya adalah bombardir tersalurkan yang meliputi area luas dalam jarak jauh, sehingga memungkinkannya berpartisipasi dalam pertarungan yang jarang dilihatnya. Ditempatkan dengan baik, spell ini saja dapat memutuskan konfrontasi di sekitar Tuhan.\n\nKeahlian 2 miliknya memberinya bentuk terbang yang melewati dinding, penting untuk reposisi setelah penyaluran. Titik lemahnya jelas: selama ultimat dia tidak bisa bergerak dan tidak berdaya, dan assassin mana pun yang menemukannya akan membunuhnya.",
+    "analysis": "Pharsa bermain di scope. Skill Ultimate-nya adalah bombardir tersalurkan yang meliputi area luas dalam jarak jauh, sehingga memungkinkannya berpartisipasi dalam pertarungan yang jarang dilihatnya. Ditempatkan dengan baik, spell ini saja dapat memutuskan konfrontasi di sekitar Tuhan.\n\nSkill 1 miliknya menandai musuh yang terkena, yang mana serangan atau skill berikutnya akan memberikan efek stun; skill 2-nya, kejutan online, menghasilkan sebagian besar damage di antara dua ultimat. Ia tidak memiliki gerakannya sendiri. Titik lemahnya jelas: selama ultimat dia tidak bisa bergerak dan tidak berdaya, dan assassin mana pun yang menemukannya akan membunuhnya.",
     "skills": [
-      "Setelah skill, serangan dasar berikutnya menghasilkan bonus damage sihir.",
-      "Mengirimkan gelombang yang meledak dari jarak jauh, menimbulkan damage area.",
-      "Mengambil bentuk terbang untuk bergerak cepat, melintasi rintangan.",
-      "Menyalurkan pemboman ke area yang sangat luas, pada jarak yang jauh dari peta."
+      "Secara berkala, Verri melanjutkan perburuan: Serangan Pharsa berikutnya pada hero musuh menghasilkan damage sihir tambahan berdasarkan HP-nya dan memperlambatnya.",
+      "Ledakan ajaib di suatu area, yang menandai musuh yang terkena. Memukul target yang ditandai dengan serangan atau skill akan membuatnya pingsan.",
+      "Melepaskan semburan energi magis dalam garis lurus.",
+      "Terbang selama beberapa detik dan bom area yang dipilih, hingga empat kali selama penerbangan."
     ],
     "strengths": [
       "Jangkauan pamungkas di antara yang terhebat dalam game",
@@ -375,7 +375,7 @@
       "Setiap skill yang mengenai musuh akan mengakumulasi muatan permanen yang meningkatkan damage dan mana maksimumnya.",
       "Melepaskan gelombang kelelawar ke satu arah, menimbulkan damage area.",
       "Menimbulkan cakar yang melumpuhkan musuh di area tersebut untuk sementara waktu.",
-      "Menyembuhkan dirinya sendiri, meningkatkan jangkauan skillnya, dan menimbulkan damage AoE besar di sekitarnya."
+      "Mendapatkan kecepatan dan kekebalan terhadap perlambatan, dan menembakkan lusinan baut darah ke musuh di sekitar, memperlambat mereka dan menyembuhkan setiap serangan."
     ],
     "strengths": [
       "Damage area tak terbatas di akhir permainan",
@@ -518,11 +518,11 @@
   },
   "nana": {
     "summary": "Mage pelecehan yang melumpuhkan target dengan mengubahnya, dan bertahan dari serangan fatal satu kali.",
-    "analysis": "Nana melemahkan lawannya dari jauh dengan bumerang yang menyerang bolak-balik. Skill 2 miliknya membuat Molina mengejar hero musuh terdekat: hero yang ditabraknya akan bertransformasi dalam waktu singkat, diperlambat, dan dilemahkan terhadap damage sihir. Ultimatenya mengenai suatu area sebanyak tiga kali dan membuat musuh terkena stun beberapa kali berturut-turut. Pasifnya memberinya, setiap dua setengah menit sekali, sebuah transformasi kebal pada saat dia harus mati.\n\nAngka terukurnya rendah: win rate di bawah rata-rata di semua peringkat, bahkan lebih rendah lagi di Mythic Glory, tanpa peningkatan nyata dalam permainan panjang. Saat mengubah pasifnya, dia tidak dapat mengeluarkan skill apa pun, dan Molina memilih sendiri targetnya di antara hero terdekat. Perbedaan yang ada masih kecil; yang paling jelas menempatkannya dalam kesulitan melawan Gloo, lalu melawan Akai dan Hylos.",
+    "analysis": "Nana melemahkan lawannya dari jauh dengan bumerang yang menyerang bolak-balik. Skill 2 miliknya meluncurkan Molina ke suatu area: hero yang terkena akan bertransformasi dalam waktu singkat, diperlambat, dan dilemahkan terhadap damage sihir; jika dia tidak mengenai siapapun, Molina tetap di tanah dan mengejar hero pertama yang mendekat. Ultimatenya mengenai suatu area sebanyak tiga kali dan membuat musuh terkena stun beberapa kali berturut-turut. Pasifnya memberinya, setiap dua setengah menit sekali, sebuah transformasi kebal pada saat dia harus mati.\n\nAngka terukurnya rendah: win rate di bawah rata-rata di semua peringkat, bahkan lebih rendah lagi di Mythic Glory, tanpa peningkatan nyata dalam permainan panjang. Saat mengubah pasifnya, dia tidak dapat mengeluarkan skill apa pun, dan Molina yang jatuh memilih targetnya sendiri di antara para hero yang mendekat. Kesenjangan yang ada masih kecil; yang paling jelas menempatkannya dalam kesulitan melawan Gloo, lalu melawan Akai dan Hylos.",
     "skills": [
       "Menghadapi pukulan fatal, dia menghilangkan efek negatif dan bertransformasi: kebal, lebih cepat, dia memulihkan sedikit HP tetapi tidak dapat meluncurkan skill apa pun. Efeknya memiliki cooldown yang lama.",
       "Sebuah bumerang yang menghantam saat keluar dan kembali. Damagenya berkurang untuk setiap musuh tambahan yang dilintasi: lebih baik membidik target yang terisolasi.",
-      "Tempatkan Molina yang kemudian mengejar hero musuh terdekat. Hero pertama yang dicapai akan bertransformasi dalam waktu singkat, diperlambat, dan pertahanan sihirnya berkurang. Tanpa hero dalam jangkauannya, Molina diam di tempatnya sejenak sebelum menghilang.",
+      "Keluarkan Molina di suatu area: hero yang terkena akan bertransformasi dalam waktu singkat, diperlambat, kehilangan serangan dan skill, dan pertahanan sihir mereka berkurang. Jika dia tidak mengenai hero mana pun, Molina tetap di tanah dan mengejar hero pertama yang mendekat.",
       "Molina menghantam suatu zona tiga kali berturut-turut, melambat pada setiap benturan. Musuh yang terkena dampak berturut-turut akan terkena efek Stun."
     ],
     "strengths": [
@@ -546,12 +546,12 @@
   },
   "granger": {
     "summary": "Magazine Shooter: Damagenya berasal dari skillnya, bukan kecepatan serangannya.",
-    "analysis": "Granger tidak dibuat seperti marksman klasik. Pasifnya menetapkan serangannya menjadi enam peluru, yang terakhir adalah kritis, yang membuat kecepatan serangan hampir tidak berguna baginya: Anda membeli damage serangan dan penetrasi.\n\nHal ini memberikannya puncak kekuasaan yang sangat awal, dapat dieksploitasi di hutan sejak objek pertama. Kerapuhannya tetap seperti seorang marksman, diperburuk oleh tidak adanya kontrol apa pun: posisinya buruk, dia hanya memiliki skill 2 untuk berharap bisa melarikan diri.",
+    "analysis": "Granger tidak dibuat seperti marksman klasik. Keahlian 1-nya menembakkan enam peluru, yang terakhir selalu kritis, dan pasifnya mengubah pengurangan cooldown menjadi serangan fisik, yang membuat kecepatan serangan hampir tidak berguna baginya: Anda membeli damage serangan dan penetrasi.\n\nHal ini memberikannya puncak kekuasaan yang sangat awal, dapat dieksploitasi di hutan sejak objek pertama. Kerapuhannya tetap seperti seorang marksman, diperburuk oleh kurangnya kontrol, terlepas dari perlambatan singkat dari ultimatnya: posisinya buruk, dia hanya memiliki skill 2 dan lemparan ultimatnya untuk berharap bisa melarikan diri.",
     "skills": [
-      "Senjatanya berisi enam peluru. Peluru terakhir di majalah selalu menghasilkan pukulan kritis.",
-      "Menembakkan ledakan kerucut yang melewati musuh, memberikan peningkatan damage pada target pertama yang terkena.",
-      "Bergerak cepat dan langsung mengisi ulang senjatanya, memperoleh kecepatan serangan.",
-      "Lengkapi meriam jarak jauh yang menembakkan peluru peledak ke seluruh peta."
+      "Senapan dan meriamnya menggunakan energi iblis, yang beregenerasi dan meningkat setiap kali minion, monster, atau hero terbunuh. Setiap poin pengurangan cooldown menjadi serangan fisik.",
+      "Menembakkan enam peluru berturut-turut, peluru terakhir selalu kritis, menambah sedikit kecepatan. Tanpa mengisi ulang: dia hanya bergantung pada energi senapannya.",
+      "Dash ke satu arah sambil memulihkan energi pada senapannya, bahkan saat skill 1. Setiap peluru yang mengenai akan mengurangi cooldownnya.",
+      "Tembakkan meriam ke arah dan sekitar hero pertama yang terkena serangan, sehingga memperlambat target sebentar. Setelah setiap tembakan, dia bisa berguling."
     ],
     "strengths": [
       "Puncak kekuatan yang sangat awal",
@@ -575,8 +575,8 @@
     "analysis": "Beatrix sebenarnya adalah empat hero. Dia membawa dua senjata sekaligus di antara empat senjata, dan masing-masing mengubah jangkauannya, kecepatannya, dan ultimatnya: senapan sniper jarak jauh, senapan peledak, senapan serbu laju cepat, dan peluncur granat area.\n\nLevel permainannya terdiri dari memilih pasangan yang tepat sebelum pertandingan, kemudian bergantian dalam pertarungan. Inilah yang membuatnya sangat kuat dalam kompetisi dan sangat menghukum dalam permainan peringkat: pasangan yang buruk, atau perubahan buruk di waktu yang salah, dan tidak lagi memiliki damage sama sekali.",
     "skills": [
       "Beatrix membawa dua dari empat senjata. Setiap senjata memodifikasi serangan dasarnya dan menggantikan serangan pamungkasnya.",
-      "Bergerak dan meninggalkan asap yang menyembunyikannya sebentar.",
-      "Menukarkan senjata aktif dengan senjata kedua yang dibawa, memuat ulang senjata pamungkas yang sesuai.",
+      "Menukar senjata aktif dengan senjata kedua, yang mengubah serangan dasar dan ultimatnya. Sebagai pasif, membawa dua senjata akan meningkatkan serangan fisik Anda.",
+      "Putaran ke depan yang mengisi ulang senjata aktif hingga penuh.",
       "Tergantung pada senjata yang dibawa: tembakan presisi jarak jauh, salvo eksplosif, ledakan cepat, atau granat area."
     ],
     "strengths": [
@@ -598,12 +598,12 @@
   },
   "melissa": {
     "summary": "Defensive Shooter: Ultimate-nya menciptakan area yang tidak dapat dilewati oleh musuh jarak dekat.",
-    "analysis": "Melissa memecahkan masalah marksman klasik — dicelupkan — dengan respons langsung. Ultimate-nya membentuk lingkaran yang menjatuhkan lawan jarak dekat dan sangat mengurangi damage di dalamnya, memungkinkan dia untuk terus menembak sementara seorang assassin kehabisan tenaga saat mencoba masuk.\n\nDia tetap menjadi marksman standar dibandingkan yang lain: peningkatan kekuatan yang baik, damage yang lumayan, tidak ada ancaman di luar jangkauannya. Melawan tim jarak jauh yang mengabaikannya dan menembus zona, skill ultimatnya akan kehilangan sebagian besar nilainya.",
+    "analysis": "Melissa memecahkan masalah marksman klasik — dicelupkan — dengan respons langsung. Ultimate-nya memberinya perisai dan menempatkan lingkaran yang mengusir lawan yang ada dan siapa pun yang mencoba masuk, mengganggu gerakan mereka, memungkinkan dia untuk terus menembak sementara seorang assassin kehabisan tenaga saat mencoba masuk.\n\nDia tetap menjadi marksman standar dibandingkan yang lain: peningkatan kekuatan yang baik, damage yang lumayan, tidak ada ancaman di luar jangkauannya. Melawan tim jarak jauh yang mengabaikannya dan menembus zona, skill ultimatnya akan kehilangan sebagian besar nilainya.",
     "skills": [
-      "Damagenya meningkat terhadap target dekat atau jauh tergantung jarak, dan serangannya melambat sebentar.",
-      "Bergerak dengan melemparkan boneka yang menimbulkan damage area.",
-      "Memanggil boneka yang mengejar musuh dan memperlambat mereka.",
-      "Menciptakan area yang tidak dapat dilintasi musuh jarak dekat dan damagenya sangat berkurang."
+      "Damagenya meningkat terhadap minion, monster, dan unit yang dipanggil.",
+      "Meluncur ke depan dan menambah kecepatan serangan selama beberapa detik.",
+      "Meluncurkan Muddles, yang memberikan damage pada musuh pertama yang terkena serangan, lalu mengikat musuh di sekitar dan memperlambat mereka selama mereka masih berada dalam jangkauan. Serangannya pada Muddles juga memberikan damage pada musuh yang terhubung.",
+      "Memberinya perisai dan menciptakan area di sekelilingnya yang mengusir musuh yang ada; mereka yang mencoba masuk akan didorong mundur, diperlambat, dan skill gerakan mereka terganggu."
     ],
     "strengths": [
       "Respon langsung terhadap assassin dan penyelaman",
@@ -716,12 +716,12 @@
   },
   "estes": {
     "summary": "Penyembuhan paling kasar dalam game: ultimatnya meregenerasi seluruh tim selama beberapa detik.",
-    "analysis": "Estes tidak melakukan apa pun selain menyembuhkan, tetapi dia melakukannya dengan volume yang tidak dapat dicapai oleh dukungan lain. Dalam pertarungan berkepanjangan untuk mencapai suatu tujuan, skill ultimatnya dapat meniadakan damage berkelanjutan senilai seluruh komposisi.\n\nIni juga menjadikannya hero yang paling bergantung pada konteks di seluruh permainan. Melawan tim yang membeli pengurangan penyembuhan, atau memiliki inisiasi yang mampu mengeluarkannya terlebih dahulu, dia menjadi hampir tidak berguna. Ia tidak memberikan kendali, tidak ada damage, tidak ada mobilitas: jika tidak menyembuhkan, ia tidak ada.",
+    "analysis": "Estes tidak melakukan apa pun selain menyembuhkan, tetapi dia melakukannya dengan volume yang tidak dapat dicapai oleh dukungan lain. Dalam pertarungan berkepanjangan untuk mencapai suatu tujuan, skill ultimatnya dapat meniadakan damage berkelanjutan senilai seluruh komposisi.\n\nIni juga menjadikannya hero yang paling bergantung pada konteks di seluruh permainan. Melawan tim yang membeli pengurangan penyembuhan, atau memiliki inisiasi yang mampu mengeluarkannya terlebih dahulu, dia menjadi hampir tidak berguna. Itu hanya memberikan perlambatan area, sedikit damage dan tidak ada mobilitas: jika tidak menyembuhkan, itu tidak ada.",
     "skills": [
-      "Penyembuhannya memberikan tanda yang meningkatkan regenerasi sekutu yang terkena dampak.",
-      "Menyembuhkan sekutu yang ditargetkan dan meningkatkan kecepatan gerakannya.",
-      "Menghubungkan target musuh, memperlambatnya, lalu melumpuhkannya jika tautan tersebut bertahan cukup lama.",
-      "Menciptakan area yang terus menerus menyembuhkan semua sekutu yang ada selama beberapa detik."
+      "Ini mengumpulkan energi; pada seratus tumpukan, serangan dasar berikutnya diperkuat dan memantul ke musuh di sekitar, memperlambat mereka. Tautan skill 1 miliknya mempercepat serangan ini.",
+      "Menyembuhkan sekutu dan mengikatnya selama beberapa detik: keduanya memperoleh pertahanan hibrida, sekutu terus memulihkan HP, dan Estes memperoleh kecepatan.",
+      "Banjir cahaya bulan memberikan damage pada musuh di suatu area, yang menjadi sebuah domain: musuh di sana tetap terlihat, dan mereka yang menyentuh tepian akan diperlambat secara signifikan.",
+      "Menerapkan versi skill 1 yang diperkuat pada dirinya sendiri dan semua sekutu di dekatnya: penyembuhan dan pertahanan langsung ganda, dan penyembuhan berkelanjutan yang signifikan selama beberapa detik."
     ],
     "strengths": [
       "Volume perawatan yang tak tertandingi dari waktu ke waktu",
@@ -742,12 +742,12 @@
   },
   "angela": {
     "summary": "Dukungan yang melekat pada sekutu di seluruh peta untuk memperkuat dan melindungi mereka dari jarak jauh.",
-    "analysis": "Angela memainkan bagian kedua secara paralel dengan miliknya. Ultimate-nya memungkinkan dia untuk bergabung dengan sekutu mana pun di mana pun, memberinya perisai dan peningkatan stat saat dia bergabung — dia benar-benar menjadi perpanjangan tangan dari pemain yang dipilih.\n\nJika digunakan dengan baik, ini memungkinkan pengguna untuk menyelam dengan keamanan yang tidak akan pernah mereka lakukan sendirian, dan muncul di sisi lain peta untuk membalikkan pertempuran. Jika digunakan secara tidak benar, ini melewati permainan yang dikaitkan dengan pemain yang salah dan tidak mempengaruhi apa pun.",
+    "analysis": "Angela memainkan bagian kedua secara paralel dengan miliknya. Ultimate-nya memungkinkan dia untuk bergabung dengan sekutu mana pun di mana pun, memberi mereka perisai, dan mengeluarkan skillnya tanpa biaya mana saat terpasang — dia benar-benar menjadi perpanjangan tangan dari pemain yang dipilih.\n\nJika digunakan dengan baik, ini memungkinkan pengguna untuk menyelam dengan keamanan yang tidak akan pernah mereka lakukan sendirian, dan muncul di sisi lain peta untuk membalikkan pertempuran. Jika digunakan secara tidak benar, ini melewati permainan yang dikaitkan dengan pemain yang salah dan tidak mempengaruhi apa pun.",
     "skills": [
-      "Skillnya menerapkan serangan yang meningkatkan damage yang diterima target atau penyembuhan yang diterima sekutu.",
-      "Memproyeksikan gelombang yang menimbulkan damage dan memperlambat serangan musuh.",
-      "Menghubungkan target: musuh tidak dapat bergerak setelah penundaan, sekutu menerima penyembuhan terus menerus.",
-      "Menempel pada sekutu di mana pun di peta, memberi mereka perisai dan peningkatan statistik."
+      "Setiap skill yang diluncurkan memberinya sedikit kecepatan gerakan, terakumulasi; terikat pada sekutu, dialah yang diuntungkan.",
+      "Memproyeksikan gelombang yang merusak serangan musuh dan meninggalkan tanda kumulatif pada mereka, yang meningkatkan damage dan memperlambat, sekaligus menyembuhkan sekutu yang terkena dampak. Hingga lima biaya; melekat pada sekutu, cooldownnya berkurang setengahnya.",
+      "Menghubungkan musuh dengan kabel yang semakin memperlambatnya; jika masih terhubung setelah tiga detik, ia tidak dapat bergerak dan menderita damage parah, ditambah dengan nilai skill 1.",
+      "Memberikan perisai kepada sekutu di mana pun di peta, lalu melekatkannya pada mereka setelah saluran: dia kemudian menggunakan keahliannya tanpa biaya mana."
     ],
     "strengths": [
       "Kehadiran global: beroperasi di mana saja di peta",
@@ -768,12 +768,12 @@
   },
   "mathilda": {
     "summary": "Dukungan Mobilitas: Dia mengajak sekutunya, untuk terlibat atau mengekstraksi.",
-    "analysis": "Mathilda merupakan support paling serbaguna di game saat ini. Skill 2 miliknya melibatkan sekutu dalam pergerakannya, yang memungkinkan untuk melakukan kontak dengan fighter serta mengeluarkan marksman dari posisi yang buruk. Ultimate-nya mengunci target dan berfungsi sebagai inisiasi yang ditargetkan.\n\nDia juga memiliki damage yang nyata, membuatnya bisa dimainkan sebagai assassin sekunder ketika permainan sedang berjalan buruk. Kesulitannya terletak pada membaca: setiap gerakan melibatkan dua pemain sekaligus, dan sebuah kesalahan mengakibatkan dua kematian, bukan satu.",
+    "analysis": "Mathilda merupakan support paling serbaguna di game saat ini. Skill 2 miliknya melibatkan sekutu dalam pergerakannya, yang memungkinkan untuk melakukan kontak dengan fighter serta mengeluarkan marksman dari posisi yang buruk. Ultimate-nya mengunci target dan berfungsi sebagai inisiasi yang ditargetkan.\n\nDia juga menimbulkan damage sihir yang signifikan, yang membuatnya dapat dimainkan sebagai assassin sekunder ketika permainan berjalan buruk. Kesulitannya terletak pada membaca: setiap gerakan melibatkan dua pemain sekaligus, dan sebuah kesalahan menyebabkan dua kematian, bukan satu.",
     "skills": [
-      "Skillnya menghasilkan perisai dan meningkatkan kecepatan gerakannya sebentar.",
-      "Mengirimkan roh yang menimbulkan damage dan menandai musuh yang terkena.",
-      "Terbang ke satu arah, bawa sekutu terdekat bersamanya.",
-      "Bergegas menuju target yang ditandai, melumpuhkan mereka dan menimbulkan damage pada area tersebut."
+      "Ia mengumpulkan energi saat bergerak; setelah terisi, serangan dasar berikutnya diperkuat dan memberinya peningkatan kecepatan.",
+      "Menarik roh saat bergerak; Di akhir durasi, atau dimulai ulang, mereka akan dikirim untuk menyerang musuh di sekitar, yang akan mereka ungkapkan dalam sekejap.",
+      "Melompat ke suatu arah dan mengelilingi dirinya dengan bidang yang memberinya perisai dan kecepatan. Sekutu pertama yang menyentuh lapangan akan dipandu ke sana, dengan bonus kecepatan yang sama.",
+      "Menandai hero lawan dan berputar di sekelilingnya, memperlambat mereka, roh mereka menyerang musuh di sekitar. Pada akhirnya, ia menukik ke bawah menuju target yang ditandai, menjatuhkan musuh di lanenya ke udara."
     ],
     "strengths": [
       "Mengubah posisi sekutu, dalam menyerang atau bertahan",
@@ -851,7 +851,7 @@
     "analysis": "Carmilla hidup dalam kontak. Pasifnya membuatnya mencuri sebagian dari pertahanan hero yang disentuhnya, bunganya berputar di sekitar lukanya, semakin memperlambat dan menyembuhkannya, dan skill 2-nya mengumpulkan kecepatan sebelum diluncurkan kembali ke target untuk membuat stunnya, terutama semakin lama serangannya berlangsung. Skill pamungkasnya mengutuk suatu area: musuh yang tetap berada di sana tidak akan bisa bergerak lalu terhubung, dan selama mereka tetap dekat, kendali yang diterima oleh salah satu pemain akan berlaku untuk musuh lainnya, dengan sebagian damage.\n\nMekanik ini membuat nilainya sangat bergantung pada sekutunya: duo terukur terbaiknya menunjukkan kesenjangan di antara yang terkuat yang pernah tercatat, dengan Diggie, Floryn, Mathilda, dan Chip. Jika musuh menjauh satu sama lain, ikatan akan putus. Dia adalah salah satu hero yang diperkuat pada patch 2.1.88, tanpa detail yang dipublikasikan di wiki. Pengukuran tersebut menempatkannya dalam kesulitan melawan X.Borg, Valentina, Natalia dan Lesley.",
     "skills": [
       "Setiap kali dia memberikan damage pada hero lawan, dia mencuri sebagian dari pertahanan fisik dan magis mereka selama beberapa detik, terakumulasi, dengan jeda sebelum dapat mencuri hero yang sama lagi.",
-      "Dua bunga berputar di sekelilingnya, memberikan damage pada musuh, semakin memperlambat mereka dan mempercepat setiap serangan. Setiap serangan bunga akan menyembuhkannya, apalagi pada minion.",
+      "Tiga bunga berputar di sekelilingnya, memberikan damage kepada musuh dan semakin memperlambat mereka. Setiap serangan bunga akan menyembuhkannya, apalagi pada minion.",
       "Mengumpulkan energi dengan menambah kecepatan, lalu meluncurkan kembali ke hero atau monster untuk memberikan damage dan membuat mereka pingsan. Semakin lama charge berlangsung maka semakin kuat damage dan stunnya.",
       "Mengutuk area yang memperlambat, lalu melumpuhkan dan mengikat musuh yang tertinggal di dalam. Cek yang diderita oleh musuh terkait berlaku untuk musuh lain, yang juga menerima sebagian dari damage; ikatan putus jika mereka menjauh satu sama lain."
     ],
@@ -877,7 +877,7 @@
     "summary": "Tank inisiator bersejarah, mampu menyatukan seluruh tim dalam satu ultimat.",
     "analysis": "Tigreal melakukan satu hal, dan dia melakukannya lebih baik daripada hampir semua orang: menghadapi banyak lawan sekaligus. Kombo klasiknya adalah menyerang dengan skill 2, lalu segera merangkai serangan pamungkasnya sebelum targetnya bubar — membatalkan animasi dengan spell Flicker tetap menjadi teknik yang paling menguntungkan untuk dipelajari darinya.\n\nBatasannya jelas: selain dari ultimatnya, ia hampir tidak menghasilkan apa-apa. Tigreal yang gagal melakukan inisiasi akan meninggalkan timnya dengan empat serangan selama sekitar sepuluh detik. Dia adalah hero dalam hal waktu, bukan kehadiran yang terus-menerus.",
     "skills": [
-      "Serangan dasar Tigreal mengisi armornya. Saat terisi penuh, serangan berikutnya menimbulkan damage tambahan dan melindunginya sebentar.",
+      "Setiap serangan dasar yang diderita dan setiap skill yang diluncurkan memberinya tumpukan; pada pukul empat, ia memblokir serangan dasar berikutnya yang diterima, termasuk menara.",
       "Menghancurkan tanah di depannya, menimbulkan damage dan memperlambat musuh yang terkena.",
       "Bergegas ke depan, mendorong musuh yang ditemui, lalu melemparkannya ke udara di akhir lari.",
       "Menarik semua musuh di dekatnya ke arahnya, lalu membuat mereka pingsan. Referensi dalam inisiasi kelompok."
@@ -907,10 +907,10 @@
     "summary": "Tank inisiasi yang seluruh bagiannya cocok dengan pengait: menghapus pemain dari peta.",
     "analysis": "Franco tidak memainkan permainan yang sama seperti tank lainnya. Dia tidak ingin menyerap damage, dia ingin menyingkirkan lawan dari pertarungan sebelum pertarungan dimulai. Grapple yang berhasil pada marksman lawan, diikuti dengan ultimat, adalah pemain mati dan objektif bebas.\n\nOleh karena itu, seluruh nilainya terletak pada ketepatan skill proyektil lambat, yang sepenuhnya ditentukan oleh penglihatan. Franco bermain di semak-semak, bukan di lane. Seorang Franco yang gagal dalam tiga grapple berturut-turut adalah beban mati; seorang Franco yang menyentuhnya memenangkan permainan sendirian.",
     "skills": [
-      "Setiap pukulan yang diterima meningkatkan kecepatan gerakannya untuk waktu yang singkat, bersifat kumulatif.",
-      "Melempar kail yang menarik serangan musuh pertama ke arah mereka dan melumpuhkan mereka sebentar.",
+      "Setelah beberapa detik tanpa menerima damage, dia memperoleh kecepatan, memulihkan HP, dan mengumpulkan kekuatan; skill berikutnya menghabiskan tumpukan ini untuk meningkatkan damage secara signifikan.",
+      "Melempar kail yang merusak serangan musuh pertama dan menariknya ke arah mereka.",
       "Menyerang sekelilingnya, menimbulkan damage dan memperlambat musuh di sekitar secara signifikan.",
-      "Melumpuhkan target dan mengenainya berulang kali. Pemeriksaan tersebut berlangsung cukup lama hingga tim dapat menyimpulkannya."
+      "Menetralkan hero lawan (penghapusan) dan memukulnya sebanyak enam kali selama durasi tersebut. Pemeriksaan tersebut berlangsung cukup lama hingga tim dapat menyimpulkannya."
     ],
     "strengths": [
       "Menghapus target utama dari pertempuran, terlepas dari perlawanannya",
@@ -931,12 +931,12 @@
   },
   "khufra": {
     "summary": "Tank yang menghukum mobilitas: skill 1-nya membatalkan serangan dan lompatan musuh.",
-    "analysis": "Khufra hadir untuk memenuhi kategori hero tertentu—mereka yang selalu berpindah-pindah. Skill 1-nya menempatkan bidang yang mengganggu setiap dasbor yang dilewatinya, yang menetralisir Fanny, Ling, Wan Wan, atau Benedetta dengan cara yang tidak dapat dilakukan oleh tank lain.\n\nTerlepas dari peran respons ini, ia tetap menjadi inisiator yang sangat baik: bola pamungkasnya mendorong lawan dan memungkinkan mereka didorong mundur ke menara atau dinding. Kelemahannya adalah pada Recharge, selain skill, Khufra lambat dan mudah untuk dilewati.",
+    "analysis": "Khufra hadir untuk memenuhi kategori hero tertentu—mereka yang selalu berpindah-pindah. Skill 2-nya mengubahnya menjadi bola yang melemparkan ke udara setiap musuh yang mencoba melewatinya dengan bergerak, yang menetralisir Fanny, Ling, Wan Wan, atau Benedetta dengan cara yang tidak dapat dilakukan oleh tank lain.\n\nTerlepas dari peran respons ini, ia tetap merupakan inisiator yang sangat baik: skill 1-nya meluncurkannya ke hero lawan pertama, melemparkan musuh ke udara, dan ultimatnya mendorong lawan di depannya, membuat mereka stun jika mereka menabrak dinding. Kelemahannya terletak pada rechargenya: selain skill, Khufra lambat dan mudah untuk dilewati.",
     "skills": [
-      "Setelah menggunakan skill, serangan dasar berikutnya akan memberikan damage tambahan dan menyembuhkannya.",
-      "Menciptakan area yang melemparkan musuh yang mencoba melewatinya ke udara. Alat anti mobilitas utama dalam game.",
-      "Berubah menjadi bola dan menggelinding ke satu arah, mendorong dan memperlambat musuh yang terkena.",
-      "Menabrak tanah: musuh yang berada di area tersebut akan terlempar dan tidak dapat bergerak selama beberapa saat."
+      "Secara berkala, serangan dasar berikutnya akan bergerak lebih jauh, menimbulkan damage berdasarkan HP target, memperlambatnya, dan menyembuhkannya. Setiap pemeriksaan yang dilakukan oleh keahliannya mengurangi penundaan ini.",
+      "Mendorong dirinya ke satu arah, memberikan damage pada musuh di sepanjang lanenya; dia berhenti di hero lawan pertama dan melemparkan musuh di dekatnya ke udara.",
+      "Berubah menjadi bola yang memantul, dengan pertahanan yang lebih hibrid: musuh yang mencoba melewatinya dengan bergerak akan terlempar ke udara, dan setiap pantulan memperlambat musuh di sekitar. Alat anti mobilitas utama dalam game.",
+      "Mendorong semua musuh di sekitarnya ke depan dan memperlambat mereka; mereka yang menabrak tembok menerima damage tambahan dan terkena stun."
     ],
     "strengths": [
       "Respons langsung ke panggilan seluler apa pun",
@@ -982,7 +982,7 @@
       },
       {
         "name": "Resistor campuran",
-        "context": "Build kedua yang paling sering dimainkan, terkait dengan Vengeance: Antique Cuirass melawan damage fisik dari skill, Perisai Athena melawan damage sihir, ketika tim lawan menggabungkan keduanya."
+        "context": "Build kedua yang paling sering dimainkan, dikaitkan dengan Vengeance: Antique Cuirass melawan damage fisik dari skill, Valkyrie's Shield melawan damage sihir, ketika tim lawan menggabungkan keduanya."
       }
     ]
   },
@@ -1014,7 +1014,7 @@
       },
       {
         "name": "Melawan sihir",
-        "context": "Perisai Athena menggantikan Radiant Armor, dengan emblem dukungan: lebih sedikit dimainkan, dengan win rate terukur yang lebih baik. Paling baik digunakan melawan tim lawan dengan damage sihir tinggi."
+        "context": "Valkyrie's Shield menggantikan Radiant Armor, dengan emblem dukungan: lebih sedikit dimainkan, dengan win rate terukur yang lebih baik. Paling baik digunakan melawan tim lawan dengan damage sihir tinggi."
       }
     ]
   },

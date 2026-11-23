@@ -210,7 +210,7 @@
                 ]
               },
               {
-                "name": "Passivo Único – Ativar",
+                "name": "Passivo Único – Activate",
                 "slot": null,
                 "type": null,
                 "tag": "removed",
@@ -638,7 +638,7 @@
             "intro": "Às vezes, depois que um aliado curasse você e saísse por um tempo, você ainda receberia um escudo ao ser atacado, o que era inesperado e confuso para os inimigos. Como resultado, encurtamos a duração da Passiva do Frasco do Oásis.",
             "sections": [
               {
-                "name": "Passivo Único – Bênção",
+                "name": "Passivo Único – Blessing",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -675,7 +675,7 @@
                 ]
               },
               {
-                "name": "Passivo Único – Letalidade",
+                "name": "Passivo Único – Lethality",
                 "slot": null,
                 "type": "buff",
                 "tag": null,
@@ -703,7 +703,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Passivo Único – Demonizar",
+                "name": "Passivo Único – Demonize",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -726,7 +726,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Passivo Único – Zelo",
+                "name": "Passivo Único – Zeal",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -1283,7 +1283,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Passivo Único – Recarga",
+                "name": "Passivo Único – Recharge",
                 "slot": null,
                 "type": "buff",
                 "tag": null,
@@ -1306,7 +1306,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Passivo Único - Presente",
+                "name": "Passivo Único - Gift",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -2312,7 +2312,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Passivo Único – Destino",
+                "name": "Passivo Único – Destiny",
                 "slot": null,
                 "type": "adjust",
                 "tag": null,
@@ -2764,7 +2764,7 @@
                 ]
               },
               {
-                "name": "Passivo Único – Energia Maléfica",
+                "name": "Passivo Único – Malefic Energy",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -2776,7 +2776,7 @@
                 ]
               },
               {
-                "name": "Passivo Único – Zelo",
+                "name": "Passivo Único – Zeal",
                 "slot": null,
                 "type": null,
                 "tag": null,
@@ -2797,7 +2797,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Passivo Único - Buscador",
+                "name": "Passivo Único - Seeker",
                 "slot": null,
                 "type": "adjust",
                 "tag": null,
@@ -4004,7 +4004,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Passivo Único – Letalidade",
+                "name": "Passivo Único – Lethality",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -4065,7 +4065,7 @@
             "intro": "Melhorou a versatilidade da Armadura Crepuscular contra dano de explosão.",
             "sections": [
               {
-                "name": "Passivo Único - Crepúsculo",
+                "name": "Passivo Único - Twilight",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -4086,7 +4086,7 @@
             "intro": "Com base no feedback e nas sugestões que recebemos, otimizamos este equipamento com novos efeitos que são mais adequados aos Lutadores e dão-lhes capacidades de contra-ataque mais fortes.",
             "sections": [
               {
-                "name": "Passivo Único – Demonizar",
+                "name": "Passivo Único – Demonize",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -4098,7 +4098,7 @@
                 ]
               },
               {
-                "name": "Passivo Único – Desafio",
+                "name": "Passivo Único – Defiance",
                 "slot": null,
                 "type": null,
                 "tag": "new",
@@ -4368,7 +4368,7 @@
             "intro": "A condição de ativação ajustada beneficia mais no início do jogo, mas menos no final do jogo. Queremos mudar para uma nova condição de disparo para aumentar a estabilidade deste equipamento.",
             "sections": [
               {
-                "name": "Passivo Único - Presente",
+                "name": "Passivo Único - Gift",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -4389,7 +4389,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Passivo Único – Demonizar",
+                "name": "Passivo Único – Demonize",
                 "slot": null,
                 "type": "adjust",
                 "tag": null,
@@ -4896,7 +4896,7 @@
                 ]
               },
               {
-                "name": "Passivo Único – Espírito de Luta",
+                "name": "Passivo Único – Fighting Spirit",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -4987,7 +4987,7 @@
                 ]
               },
               {
-                "name": "Passivo Único – Zelo",
+                "name": "Passivo Único – Zeal",
                 "slot": null,
                 "type": "buff",
                 "tag": null,
@@ -5010,7 +5010,7 @@
             "intro": "Dano muito maior que este equipamento causa a heróis com alto HP.",
             "sections": [
               {
-                "name": "Passivo Único - Buscador",
+                "name": "Passivo Único - Seeker",
                 "slot": null,
                 "type": "buff",
                 "tag": null,
@@ -5033,7 +5033,7 @@
             "intro": "Reduziu seu recarga.",
             "sections": [
               {
-                "name": "Passivo Único – Guarda",
+                "name": "Passivo Único – Guard",
                 "slot": null,
                 "type": "buff",
                 "tag": null,
@@ -5056,7 +5056,7 @@
             "intro": "Aumentou o aumento de velocidade que ele concede.",
             "sections": [
               {
-                "name": "Passivo Único – Guerreiro Supremo",
+                "name": "Passivo Único – Supreme Warrior",
                 "slot": null,
                 "type": "buff",
                 "tag": null,
@@ -8296,7 +8296,7 @@
             "intro": "Aumentou a punição pelas mortes do transportador no final do jogo.",
             "sections": [
               {
-                "name": "Passivo Único – Letalidade",
+                "name": "Passivo Único – Lethality",
                 "slot": null,
                 "type": "nerf",
                 "tag": null,
@@ -8565,7 +8565,7 @@
                 ]
               },
               {
-                "name": "Passivo Único – Letalidade",
+                "name": "Passivo Único – Lethality",
                 "slot": null,
                 "type": null,
                 "tag": null,
@@ -8607,7 +8607,7 @@
                 ]
               },
               {
-                "name": "Ativo Único - Energia Maléfica",
+                "name": "Ativo Único - Malefic Energy",
                 "slot": null,
                 "type": null,
                 "tag": null,
@@ -8619,7 +8619,7 @@
                 ]
               },
               {
-                "name": "Passivo Único – Zelo",
+                "name": "Passivo Único – Zeal",
                 "slot": null,
                 "type": null,
                 "tag": null,
@@ -8655,7 +8655,7 @@
                 ]
               },
               {
-                "name": "Passivo Único - Buscador",
+                "name": "Passivo Único - Seeker",
                 "slot": null,
                 "type": null,
                 "tag": null,
@@ -8732,7 +8732,7 @@
                 ]
               },
               {
-                "name": "Passivo Único – Demonizar",
+                "name": "Passivo Único – Demonize",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -8840,7 +8840,7 @@
             "intro": "Queremos melhorar a versatilidade da Armadura Crepuscular contra danos de explosão.",
             "sections": [
               {
-                "name": "Passivo Único - Crepúsculo",
+                "name": "Passivo Único - Twilight",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -8879,7 +8879,7 @@
                 ]
               },
               {
-                "name": "Passivo Único – Destino",
+                "name": "Passivo Único – Destiny",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -8891,7 +8891,7 @@
                 ]
               },
               {
-                "name": "Passivo Único - Presente",
+                "name": "Passivo Único - Gift",
                 "slot": null,
                 "type": null,
                 "tag": "new",
@@ -8912,7 +8912,7 @@
             "intro": "Queremos que tenha efeitos de contra-ataque semelhantes para Lutadores e Atiradores que dependem da Velocidade de Ataque.",
             "sections": [
               {
-                "name": "Passivo Único – Frio Ártico",
+                "name": "Passivo Único – Arctic Cold",
                 "slot": null,
                 "type": "adjust",
                 "tag": null,
@@ -8954,7 +8954,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Passivo Único – Frio Ártico",
+                "name": "Passivo Único – Arctic Cold",
                 "slot": null,
                 "type": "adjust",
                 "tag": null,
@@ -9116,7 +9116,7 @@
                 ]
               },
               {
-                "name": "Passivo Único – Guarda",
+                "name": "Passivo Único – Guard",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -9216,7 +9216,7 @@
                 ]
               },
               {
-                "name": "Passivo Único – Irritado",
+                "name": "Passivo Único – Angry",
                 "slot": null,
                 "type": null,
                 "tag": "removed",
@@ -12150,7 +12150,7 @@
                 ]
               },
               {
-                "name": "Passivo Único – Espírito de Luta",
+                "name": "Passivo Único – Fighting Spirit",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -12171,7 +12171,7 @@
             "intro": "",
             "sections": [
               {
-                "name": "Passivo Único – Força Bruta",
+                "name": "Passivo Único – Brute Force",
                 "slot": null,
                 "type": null,
                 "tag": "rework",
@@ -16108,7 +16108,7 @@
             "intro": "Queremos que ele seja capaz de bloquear danos elevados com mais precisão, em vez de ser facilmente acionado no jogo posterior. Também queremos que ele seja mais resistente a danos elevados após ser acionado.",
             "sections": [
               {
-                "name": "Passivo Único – Imortal",
+                "name": "Passivo Único – Immortal",
                 "slot": null,
                 "type": null,
                 "tag": null,
@@ -16129,7 +16129,7 @@
             "intro": "Queremos dar boa mobilidade a alguns Magos, aprimorando este equipamento e removendo a forte ligação entre este equipamento e o Relógio do Destino.",
             "sections": [
               {
-                "name": "Passivo Único – Ressonar",
+                "name": "Passivo Único – Resonate",
                 "slot": null,
                 "type": null,
                 "tag": null,

@@ -7,7 +7,7 @@
     "price": 2170,
     "bonus": "+920 PV, +40 défense physique, +4 régénération de PV",
     "unique": null,
-    "passive": "Dissuasion : lorsqu'il est touché par une compétence, réduit les dégâts physiques de l'attaquant de 6 % pendant 2 secondes (cet effet se cumule jusqu'à 3 fois).",
+    "passive": "Deter : lorsqu'il est touché par une compétence, réduit les dégâts physiques de l'attaquant de 6 % pendant 2 secondes (cet effet se cumule jusqu'à 3 fois).",
     "active": null,
     "recipe": [
       "Dreadnaught Armor",
@@ -54,7 +54,7 @@
     "price": 600,
     "bonus": "+5 régénération de mana, +5 % réduction du temps de recharge",
     "unique": null,
-    "passive": "Jugement : après avoir lancé une compétence, la prochaine attaque de base dans les 3 secondes inflige 50 dégâts réels supplémentaires (temps de recharge de 1,5 seconde).",
+    "passive": "Judgement : après avoir lancé une compétence, la prochaine attaque de base dans les 3 secondes inflige 50 dégâts réels supplémentaires (temps de recharge de 1,5 seconde).",
     "active": null,
     "recipe": [
       "Magic Necklace",
@@ -87,7 +87,7 @@
     "price": 780,
     "bonus": "+20 défense physique, +20 défense magique",
     "unique": null,
-    "passive": "Bouclier de forteresse : pour chaque héros ennemi dans un rayon de 3,55 unités, la défense hybride est augmentée de 4, jusqu'à 20.",
+    "passive": "Fortress Shield : pour chaque héros ennemi dans un rayon de 3,55 unités, la défense hybride est augmentée de 4, jusqu'à 20.",
     "active": null,
     "recipe": [
       "Leather Jerkin",
@@ -103,7 +103,7 @@
     "price": 1910,
     "bonus": "+80 défense physique",
     "unique": "+20 % réduction des dégâts critiques",
-    "passive": "Armure lame : lorsqu'elle est frappée par une attaque de base, inflige des dégâts physiques égaux à 30 (+2 % de défense physique totale) % des dégâts reçus (calculés avant la réduction des dégâts) à l'attaquant et le ralentit de 15 % pendant 1 seconde.",
+    "passive": "Bladed Armor : lorsqu'elle est frappée par une attaque de base, inflige des dégâts physiques égaux à 30 (+2 % de défense physique totale) % des dégâts reçus (calculés avant la réduction des dégâts) à l'attaquant et le ralentit de 15 % pendant 1 seconde.",
     "active": null,
     "recipe": [
       "Steel Legplates",
@@ -120,7 +120,7 @@
     "price": 3010,
     "bonus": "+160 attaque physique, +5 % vitesse de déplacement",
     "unique": null,
-    "passive": "Désespoir : infliger des dégâts à des ennemis non-sbires ayant moins de 50 % de PV augmente l'attaque physique de 25 % pendant 2 secondes (prend effet avant que les dégâts ne soient infligés).",
+    "passive": "Despair : infliger des dégâts à des ennemis non-sbires ayant moins de 50 % de PV augmente l'attaque physique de 25 % pendant 2 secondes (prend effet avant que les dégâts ne soient infligés).",
     "active": null,
     "recipe": [
       "Legion Sword",
@@ -136,7 +136,7 @@
     "price": 1950,
     "bonus": "+70 attaque physique, +250 PV",
     "unique": "+15 pénétration physique",
-    "passive": "Embuscade : si aucun dégât n'est subi ou infligé dans les 5 secondes (à l'exclusion des sbires ou des Creeps), la prochaine attaque de base infligera 160 (+40 % de l'attaque physique totale) dégâts physiques supplémentaires et ralentira la cible de 40 % pendant 1,5 seconde.",
+    "passive": "Ambush : si aucun dégât n'est subi ou infligé dans les 5 secondes (à l'exclusion des sbires ou des Creeps), la prochaine attaque de base infligera 160 (+40 % de l'attaque physique totale) dégâts physiques supplémentaires et ralentira la cible de 40 % pendant 1,5 seconde.",
     "active": null,
     "recipe": [
       "Fury Hammer",
@@ -152,7 +152,7 @@
     "price": 2100,
     "bonus": "+90 puissance magique",
     "unique": null,
-    "passive": "Garde : Gagne un bouclier de 800 (+100 % de puissance magique) qui se régénérera 20 secondes après avoir été endommagé. Le Bouclier octroie également 30 de vitesse de déplacement tant qu'il dure et 150 de vitesse de déplacement pendant 1 seconde après sa rupture.",
+    "passive": "Guard : Gagne un bouclier de 800 (+100 % de puissance magique) qui se régénérera 20 secondes après avoir été endommagé. Le Bouclier octroie également 30 de vitesse de déplacement tant qu'il dure et 150 de vitesse de déplacement pendant 1 seconde après sa rupture.",
     "active": null,
     "recipe": [
       "Magic Wand",
@@ -212,7 +212,7 @@
     "price": 2070,
     "bonus": "+800 PV, +20 défense physique, +10 % réduction du temps de recharge",
     "unique": null,
-    "passive": "Force brute : chaque seconde après avoir infligé des dégâts, gagne 8 points d'attaque adaptative supplémentaires et 2 % de vitesse de déplacement supplémentaire pendant 4 secondes, jusqu'à 6 charges. Bénéficiez de 25 % de réduction supplémentaire de la durée de contrôle lorsque les effets sont pleins.",
+    "passive": "Brute Force : chaque seconde après avoir infligé des dégâts, gagne 8 points d'attaque adaptative supplémentaires et 2 % de vitesse de déplacement supplémentaire pendant 4 secondes, jusqu'à 6 charges. Bénéficiez de 25 % de réduction supplémentaire de la durée de contrôle lorsque les effets sont pleins.",
     "active": null,
     "recipe": [
       "Ares Belt",
@@ -242,7 +242,7 @@
     "price": 1950,
     "bonus": "+70 puissance magique, +100 mana, +6 régénération de mana, +10 % réduction du temps de recharge",
     "unique": null,
-    "passive": "Calamité : 3 secondes après avoir utilisé la compétence, la prochaine attaque de base du lanceur inflige des dégâts réels supplémentaires pouvant atteindre 120 % de la puissance magique avec un temps de recharge de 1,5 seconde. Puis gagne brièvement 10 % de vitesse de déplacement.",
+    "passive": "Calamity : 3 secondes après avoir utilisé la compétence, la prochaine attaque de base du lanceur inflige des dégâts réels supplémentaires pouvant atteindre 120 % de la puissance magique avec un temps de recharge de 1,5 seconde. Puis gagne brièvement 10 % de vitesse de déplacement.",
     "active": null,
     "recipe": [
       "Magic Wand",
@@ -259,7 +259,7 @@
     "price": 2100,
     "bonus": "+900 PV, +40 défense physique",
     "unique": null,
-    "passive": "Châtiment : subir des dégâts réduira la vitesse d'attaque et le plafond de vitesse d'attaque de l'attaquant à 75 % de la normale pendant 2 secondes. Rédemption : lorsque les dégâts reçus réduisent les PV en dessous de 30 %, récupérez 20 % des PV maximum au cours des 2 secondes suivantes. Cet effet a un temps de recharge de 60 secondes.",
+    "passive": "Chastise : subir des dégâts réduira la vitesse d'attaque et le plafond de vitesse d'attaque de l'attaquant à 75 % de la normale pendant 2 secondes. Redemption : lorsque les dégâts reçus réduisent les PV en dessous de 30 %, récupérez 20 % des PV maximum au cours des 2 secondes suivantes. Cet effet a un temps de recharge de 60 secondes.",
     "active": null,
     "recipe": [
       "Steel Legplates",
@@ -275,7 +275,7 @@
     "price": 2030,
     "bonus": "+45 puissance magique, +400 PV, +400 mana, +10 % réduction du temps de recharge",
     "unique": null,
-    "passive": "Destin : gagne 4,5 (+0,5*niveau du héros) de défense hybride pendant 5 secondes lorsque vous infligez des dégâts magiques aux héros ennemis, cumulable jusqu'à 6 fois (peut gagner 1 charge toutes les 0,4 secondes). Cadeau : lorsque les PV descendent en dessous de 50 %, récupère 15 % des PV au cours des 3 secondes suivantes. Lorsque le mana tombe en dessous de 50 %, restaure 15 % du mana au cours des 3 prochaines secondes. Temps de recharge : 60 secondes.",
+    "passive": "Destiny : gagne 4,5 (+0,5*niveau du héros) de défense hybride pendant 5 secondes lorsque vous infligez des dégâts magiques aux héros ennemis, cumulable jusqu'à 6 fois (peut gagner 1 charge toutes les 0,4 secondes). Gift : lorsque les PV descendent en dessous de 50 %, récupère 15 % des PV au cours des 3 secondes suivantes. Lorsque le mana tombe en dessous de 50 %, restaure 15 % du mana au cours des 3 prochaines secondes. Temps de recharge : 60 secondes.",
     "active": null,
     "recipe": [
       "Elegant Gem",
@@ -309,7 +309,7 @@
     "price": 2050,
     "bonus": "+30 attaque physique, +30 % vitesse d'attaque, +5 % vitesse de déplacement",
     "unique": null,
-    "passive": "Corrosif : les attaques de base infligent 80 dégâts physiques supplémentaires et ralentissent la cible de 8 % (réduit de moitié pour les attaques de base à distance) pendant 1,5 seconde. Se cumule jusqu'à 5 fois. Impulsion : les attaques de base confèrent 6 % de vitesse d'attaque supplémentaire pendant 3 secondes, dans la limite de 5 charges.",
+    "passive": "Corrosive : les attaques de base infligent 80 dégâts physiques supplémentaires et ralentissent la cible de 8 % (réduit de moitié pour les attaques de base à distance) pendant 1,5 seconde. Se cumule jusqu'à 5 fois. Impulse : les attaques de base confèrent 6 % de vitesse d'attaque supplémentaire pendant 3 secondes, dans la limite de 5 charges.",
     "active": null,
     "recipe": [
       "Swift Crossbow",
@@ -325,7 +325,7 @@
     "price": 1910,
     "bonus": "+1200 PV, +20 défense magique",
     "unique": null,
-    "passive": "Burning Soul : inflige (1,2 % de PV total) des dégâts magiques aux ennemis proches par seconde. Ces dégâts sont augmentés de 125(+15*niveau du héros)% contre les creeps et les sbires. Malédiction : Infliger des dégâts avec Burning Soul réduira la défense hybride de la cible de 3 pendant 3 secondes. Se cumule jusqu'à 3 fois.",
+    "passive": "Burning Soul : inflige (1,2 % de PV total) des dégâts magiques aux ennemis proches par seconde. Ces dégâts sont augmentés de 125(+15*niveau du héros)% contre les creeps et les sbires. Curse : Infliger des dégâts avec Burning Soul réduira la défense hybride de la cible de 3 pendant 3 secondes. Se cumule jusqu'à 3 fois.",
     "active": null,
     "recipe": [
       "Molten Essence",
@@ -355,7 +355,7 @@
     "price": 2180,
     "bonus": "+35 attaque physique, +20 % vitesse d'attaque",
     "unique": null,
-    "passive": "Engloutir : les attaques de base infligent 8 % des PV actuels de la cible sous forme de dégâts physiques supplémentaires (plafonnés à 60 contre les sbires). Dévorer : chaque attaque de base récupère 10 (+4*niveau du héros) PV. Cet effet est réduit de moitié contre les sbires.",
+    "passive": "Engulf : les attaques de base infligent 8 % des PV actuels de la cible sous forme de dégâts physiques supplémentaires (plafonnés à 60 contre les sbires). Devour : chaque attaque de base récupère 10 (+4*niveau du héros) PV. Cet effet est réduit de moitié contre les sbires.",
     "active": null,
     "recipe": [
       "Regular Spear",
@@ -372,7 +372,7 @@
     "price": 720,
     "bonus": "+40 vitesse de déplacement, +10 régénération de mana",
     "unique": null,
-    "passive": "Mysticisme : tuer ou assister un sbire ennemi restaurera 4 % de mana. (Une assistance se produit lorsqu'un sbire meurt dans les 2 secondes après avoir subi des dégâts du héros.)",
+    "passive": "Mysticism : tuer ou assister un sbire ennemi restaurera 4 % de mana. (Une assistance se produit lorsqu'un sbire meurt dans les 2 secondes après avoir subi des dégâts du héros.)",
     "active": null,
     "recipe": [
       "Boots",
@@ -389,7 +389,7 @@
     "price": 1970,
     "bonus": "+65 puissance magique",
     "unique": "+40 % pénétration magique",
-    "passive": "Brise-sort : lorsque vous attaquez un ennemi, gagne 0,1 % de pénétration magique supplémentaire pour chaque point de défense magique de l'ennemi, plafonné à 20 %.",
+    "passive": "Spellbreaker : lorsque vous attaquez un ennemi, gagne 0,1 % de pénétration magique supplémentaire pour chaque point de défense magique de l'ennemi, plafonné à 20 %.",
     "active": null,
     "recipe": [
       "Magic Wand"
@@ -404,7 +404,7 @@
     "price": 2010,
     "bonus": "+40 défense physique, +40 défense magique, +5 % vitesse de déplacement",
     "unique": null,
-    "passive": "Bouclier de forteresse : pour chaque héros ennemi dans un rayon de 5 unités, la défense hybride est augmentée de 8, jusqu'à 40. Lifebane : réduit les effets de bouclier et de régénération de PV des ennemis proches dans un rayon de 5 unités à 60 % de la normale pendant 1 seconde.",
+    "passive": "Fortress Shield : pour chaque héros ennemi dans un rayon de 5 unités, la défense hybride est augmentée de 8, jusqu'à 40. Lifebane : réduit les effets de bouclier et de régénération de PV des ennemis proches dans un rayon de 5 unités à 60 % de la normale pendant 1 seconde.",
     "active": null,
     "recipe": [
       "Black Ice Shield",
@@ -421,7 +421,7 @@
     "price": 730,
     "bonus": "+30 défense physique",
     "unique": null,
-    "passive": "Dissuasion : lorsqu'il est touché par une compétence, réduit les dégâts physiques de l'attaquant de 4 % pendant 2 secondes (cet effet se cumule jusqu'à 3 fois).",
+    "passive": "Deter : lorsqu'il est touché par une compétence, réduit les dégâts physiques de l'attaquant de 4 % pendant 2 secondes (cet effet se cumule jusqu'à 3 fois).",
     "active": null,
     "recipe": [
       "Leather Jerkin",
@@ -437,7 +437,7 @@
     "price": 700,
     "bonus": "+300 PV, +380 mana",
     "unique": null,
-    "passive": "Cadeau : lorsque les PV descendent en dessous de 50 %, récupère 15 % des PV au cours des 3 secondes suivantes. Lorsque le mana tombe en dessous de 50 %, restaure 15 % du mana au cours des 3 prochaines secondes. Temps de recharge : 60 secondes.",
+    "passive": "Gift : lorsque les PV descendent en dessous de 50 %, récupère 15 % des PV au cours des 3 secondes suivantes. Lorsque le mana tombe en dessous de 50 %, restaure 15 % du mana au cours des 3 prochaines secondes. Temps de recharge : 60 secondes.",
     "active": null,
     "recipe": [
       "Power Crystal",
@@ -453,7 +453,7 @@
     "price": 2070,
     "bonus": "+70 puissance magique, +300 PV, +15 % réduction du temps de recharge",
     "unique": null,
-    "passive": "Mana Spring : Régénère 15 % de mana max toutes les 10 secondes. Maîtrise de la magie : la réduction maximale du temps de recharge est augmentée de 5 %.",
+    "passive": "Mana Spring : Régénère 15 % de mana max toutes les 10 secondes. Magic Mastery : la réduction maximale du temps de recharge est augmentée de 5 %.",
     "active": null,
     "recipe": [
       "Tome of Evil",
@@ -470,7 +470,7 @@
     "price": 2330,
     "bonus": "+60 attaque physique, +250 PV, +10 % réduction du temps de recharge, +5 % vitesse de déplacement, +5 régénération de mana",
     "unique": null,
-    "passive": "Justice divine : après avoir lancé une compétence, la prochaine attaque de base dans les 3 secondes inflige (60 % de l'attaque physique totale) de dégâts réels supplémentaires et récupère 80 (+40 % de l'attaque physique totale) PV (temps de recharge de 1,5 seconde).",
+    "passive": "Divine Justice : après avoir lancé une compétence, la prochaine attaque de base dans les 3 secondes inflige (60 % de l'attaque physique totale) de dégâts réels supplémentaires et récupère 80 (+40 % de l'attaque physique totale) PV (temps de recharge de 1,5 seconde).",
     "active": null,
     "recipe": [
       "Azure Blade",
@@ -515,7 +515,7 @@
     "price": 2030,
     "bonus": "+60 puissance magique, +20 % vitesse d'attaque, +10 % vol de vie, +5 % réduction du temps de recharge",
     "unique": null,
-    "passive": "Affliction : chaque attaque de base inflige 50 dégâts magiques supplémentaires (+ 30 % de la puissance magique totale). Impulsion : les attaques de base confèrent 6 % de vitesse d'attaque supplémentaire pendant 3 secondes, dans la limite de 5 charges.",
+    "passive": "Affliction : chaque attaque de base inflige 50 dégâts magiques supplémentaires (+ 30 % de la puissance magique totale). Impulse : les attaques de base confèrent 6 % de vitesse d'attaque supplémentaire pendant 3 secondes, dans la limite de 5 charges.",
     "active": null,
     "recipe": [
       "Swift Crossbow",
@@ -531,7 +531,7 @@
     "price": 1850,
     "bonus": "+60 puissance magique, +300 PV, +10 % réduction du temps de recharge",
     "unique": "+12 % effet de soin",
-    "passive": "Bénédiction : lors du lancement d'une compétence de guérison ou de bouclier, si les PV de la cible sont inférieurs à 35 % ou tombent en dessous de 35 % dans les 3 secondes, elle obtiendra un bouclier (100 * niveau du héros) qui dure 3 secondes. Lorsque cet effet se déclenche, il réduit également le temps de recharge des compétences du lanceur de 2 secondes. (Cet effet ne peut se déclencher qu'une fois toutes les 60 secondes sur la même cible, et ne se déclenchera pas sur les compétences de guérison et de bouclier uniquement.)",
+    "passive": "Blessing : lors du lancement d'une compétence de guérison ou de bouclier, si les PV de la cible sont inférieurs à 35 % ou tombent en dessous de 35 % dans les 3 secondes, elle obtiendra un bouclier (100 * niveau du héros) qui dure 3 secondes. Lorsque cet effet se déclenche, il réduit également le temps de recharge des compétences du lanceur de 2 secondes. (Cet effet ne peut se déclencher qu'une fois toutes les 60 secondes sur la même cible, et ne se déclenchera pas sur les compétences de guérison et de bouclier uniquement.)",
     "active": null,
     "recipe": [
       "Magic Wand",
@@ -593,7 +593,7 @@
     "price": 2000,
     "bonus": "+75 puissance magique, +5 % vitesse de déplacement",
     "unique": "+10 pénétration magique",
-    "passive": "Magie : Infliger des dégâts magiques aux héros ennemis réduira leur défense magique de 2,5+ (0,5*niveau du héros) pendant 2 secondes. Se cumule jusqu'à 3 fois.",
+    "passive": "Magic : Infliger des dégâts magiques aux héros ennemis réduira leur défense magique de 2,5+ (0,5*niveau du héros) pendant 2 secondes. Se cumule jusqu'à 3 fois.",
     "active": null,
     "recipe": [
       "Exotic Veil",
@@ -609,7 +609,7 @@
     "price": 2150,
     "bonus": "+60 puissance magique, +300 PV, +5 % vitesse de déplacement",
     "unique": null,
-    "passive": "Brûlure : Infliger des dégâts magiques brûle les cibles pendant 3 secondes, infligeant également des dégâts magiques supplémentaires égaux à 1 % des PV maximum de la cible par seconde. Lifebane : infliger des dégâts à la cible réduira les effets de bouclier et de régénération de PV à 60 % de la normale pendant 3 secondes.",
+    "passive": "Scorch : Infliger des dégâts magiques brûle les cibles pendant 3 secondes, infligeant également des dégâts magiques supplémentaires égaux à 1 % des PV maximum de la cible par seconde. Lifebane : infliger des dégâts à la cible réduira les effets de bouclier et de régénération de PV à 60 % de la normale pendant 3 secondes.",
     "active": null,
     "recipe": [
       "Exotic Veil",
@@ -626,7 +626,7 @@
     "price": 2000,
     "bonus": "+55 attaque physique, +15 % vitesse d'attaque",
     "unique": null,
-    "passive": "Swift : Chaque tranche de 1 % de chance de critique supplémentaire gagnée est convertie en 1 % de vitesse d'attaque supplémentaire. Frappe sans fin : toutes les 2 attaques de base non critiques, la vitesse d'attaque de la prochaine attaque de base est augmentée de 80 % (et le plafond de vitesse d'attaque est augmenté à 500 %) et déclenche les effets d'attaque 2 fois supplémentaires.",
+    "passive": "Swift : Chaque tranche de 1 % de chance de critique supplémentaire gagnée est convertie en 1 % de vitesse d'attaque supplémentaire. Endless Strike : toutes les 2 attaques de base non critiques, la vitesse d'attaque de la prochaine attaque de base est augmentée de 80 % (et le plafond de vitesse d'attaque est augmenté à 500 %) et déclenche les effets d'attaque 2 fois supplémentaires.",
     "active": null,
     "recipe": [
       "Regular Spear",
@@ -643,7 +643,7 @@
     "price": 2140,
     "bonus": "+70 attaque physique, +10 % réduction du temps de recharge, +20 % chances de coup critique",
     "unique": null,
-    "passive": "Guerrier suprême : après avoir lancé un ultime, augmentez la vitesse de déplacement de 30 % pendant 7,5 secondes. Cet effet a un temps de recharge de 15 secondes.",
+    "passive": "Supreme Warrior : après avoir lancé un ultime, augmentez la vitesse de déplacement de 30 % pendant 7,5 secondes. Cet effet a un temps de recharge de 15 secondes.",
     "active": null,
     "recipe": [
       "Legion Sword",
@@ -660,7 +660,7 @@
     "price": 2500,
     "bonus": "+1800 PV, +20 régénération de PV",
     "unique": null,
-    "passive": "Récupération : Après 5 secondes hors combat, récupérez (2,5 % des PV totaux) PV par seconde. Défenseur : après avoir subi plus de 500 dégâts en une seule instance, récupérez 30 (+0,3 % des PV totaux) % de PV des dégâts excédentaires au-delà de ce montant.",
+    "passive": "Recovery : Après 5 secondes hors combat, récupérez (2,5 % des PV totaux) PV par seconde. Defender : après avoir subi plus de 500 dégâts en une seule instance, récupérez 30 (+0,3 % des PV totaux) % de PV des dégâts excédentaires au-delà de ce montant.",
     "active": null,
     "recipe": [
       "Ares Belt",
@@ -677,7 +677,7 @@
     "price": 2020,
     "bonus": "+40 attaque physique, +15 % vitesse d'attaque, +20 % chances de coup critique",
     "unique": "+20 % vol de vie",
-    "passive": "Frénésie : les coups critiques confèrent 20 % de vitesse d'attaque supplémentaire pendant 2 secondes.",
+    "passive": "Frenzy : les coups critiques confèrent 20 % de vitesse d'attaque supplémentaire pendant 2 secondes.",
     "active": null,
     "recipe": [
       "Vampire Mallet",
@@ -720,7 +720,7 @@
     "price": 3000,
     "bonus": "+165 puissance magique",
     "unique": null,
-    "passive": "Mystère : gagne 21 % à 35 % de puissance magique supplémentaire (évolue avec le niveau).",
+    "passive": "Mystery : gagne 21 % à 35 % de puissance magique supplémentaire (évolue avec le niveau).",
     "active": null,
     "recipe": [
       "Magic Wand",
@@ -754,7 +754,7 @@
     "price": 2040,
     "bonus": "+60 puissance magique, +10 % vampirisme des sorts, +300 PV, +7 % vitesse de déplacement",
     "unique": null,
-    "passive": "Lié à la glace : lorsqu'une compétence inflige des dégâts à un héros ennemi, elle le ralentira également de 10 % pendant 2 secondes (cumulable jusqu'à 3 fois). Cet effet a un temps de recharge de 0,4 seconde.",
+    "passive": "Ice Bound : lorsqu'une compétence inflige des dégâts à un héros ennemi, elle le ralentira également de 10 % pendant 2 secondes (cumulable jusqu'à 3 fois). Cet effet a un temps de recharge de 0,4 seconde.",
     "active": null,
     "recipe": [
       "Mystic Container",
@@ -771,7 +771,7 @@
     "price": 2120,
     "bonus": "+850 PV, +15 défense physique",
     "unique": null,
-    "passive": "Immortel : ressuscite 2,5 secondes après la mort et obtient 16 % de PV maximum et un bouclier qui peut absorber 150 (+70*niveau du héros) dégâts. Le bouclier dure 3 secondes. Cet effet a un temps de recharge de 210 secondes.",
+    "passive": "Immortal : ressuscite 2,5 secondes après la mort et obtient 16 % de PV maximum et un bouclier qui peut absorber 150 (+70*niveau du héros) dégâts. Le bouclier dure 3 secondes. Cet effet a un temps de recharge de 210 secondes.",
     "active": null,
     "recipe": [
       "Ares Belt",
@@ -869,7 +869,7 @@
     "price": 2250,
     "bonus": "+75 puissance magique, +400 mana, +10 % réduction du temps de recharge",
     "unique": null,
-    "passive": "Résonance : toutes les 6 secondes, la compétence suivante résonne, infligeant 255 (+85 % de puissance magique) de dégâts magiques supplémentaires à tous les ennemis à portée.",
+    "passive": "Resonate : toutes les 6 secondes, la compétence suivante résonne, infligeant 255 (+85 % de puissance magique) de dégâts magiques supplémentaires à tous les ennemis à portée.",
     "active": null,
     "recipe": [
       "Magic Wand",
@@ -886,7 +886,7 @@
     "price": 1050,
     "bonus": "+35 attaque physique, +10 % vol de vie",
     "unique": null,
-    "passive": "Ligne de vie : lorsque vous subissez des dégâts qui réduisent les PV en dessous de 30 %, gagne un bouclier (+60*niveau du héros) (augmente avec le niveau) et une vitesse de déplacement de 50 % qui diminue rapidement en 3 secondes. Cet effet a un temps de recharge de 60 secondes.",
+    "passive": "Lifeline : lorsque vous subissez des dégâts qui réduisent les PV en dessous de 30 %, gagne un bouclier (+60*niveau du héros) (augmente avec le niveau) et une vitesse de déplacement de 50 % qui diminue rapidement en 3 secondes. Cet effet a un temps de recharge de 60 secondes.",
     "active": null,
     "recipe": [
       "Dagger",
@@ -915,7 +915,7 @@
     "price": 1500,
     "bonus": null,
     "unique": null,
-    "passive": "Augmenter la puissance : automatiquement utilisé après l'achat, augmente la puissance magique de 30 et la réduction du temps de recharge de 10 % pendant 120 secondes. Ne peut avoir qu’un seul effet de potion à la fois.",
+    "passive": "Increase Power : automatiquement utilisé après l'achat, augmente la puissance magique de 30 et la réduction du temps de recharge de 10 % pendant 120 secondes. Ne peut avoir qu’un seul effet de potion à la fois.",
     "active": null,
     "recipe": [],
     "bestFor": "Tous les héros"
@@ -972,7 +972,7 @@
     "price": 2120,
     "bonus": "+40 attaque physique, +20 % vitesse d'attaque",
     "unique": null,
-    "passive": "Armor Buster : augmente la pénétration physique de 30 %. Énergie maléfique : augmente la portée des attaques de base de 12 %. Lorsque vous touchez une cible, gagne 10 % de vitesse de déplacement pendant 0,5 seconde.",
+    "passive": "Armor Buster : augmente la pénétration physique de 30 %. Malefic Energy : augmente la portée des attaques de base de 12 %. Lorsque vous touchez une cible, gagne 10 % de vitesse de déplacement pendant 0,5 seconde.",
     "active": null,
     "recipe": [
       "Fury Hammer",
@@ -1047,7 +1047,7 @@
     "price": 2010,
     "bonus": "+60 puissance magique, +300 PV, +380 mana, +5 % réduction du temps de recharge",
     "unique": null,
-    "passive": "Cadeau : Régénère 20 % de PV et de mana dans les 2 secondes suivant la mise à niveau. Lifebane : lorsque vous infligez des dégâts à la cible, réduit le bouclier et la régénération des PV de la cible de 50 % pendant 3 secondes.",
+    "passive": "Gift : Régénère 20 % de PV et de mana dans les 2 secondes suivant la mise à niveau. Lifebane : lorsque vous infligez des dégâts à la cible, réduit le bouclier et la régénération des PV de la cible de 50 % pendant 3 secondes.",
     "active": null,
     "recipe": [
       "Book of Sages",
@@ -1081,7 +1081,7 @@
     "price": 1860,
     "bonus": "+850 PV, +20 défense physique, +20 défense magique, +10 % réduction du temps de recharge",
     "unique": null,
-    "passive": "Bénédiction : les effets de bouclier reçu et de régénération de PV sont augmentés de 25 %.",
+    "passive": "Bless : les effets de bouclier reçu et de régénération de PV sont augmentés de 25 %.",
     "active": null,
     "recipe": [
       "Hero's Ring",
@@ -1111,7 +1111,7 @@
     "price": 1500,
     "bonus": null,
     "unique": null,
-    "passive": "Augmenter la puissance : automatiquement utilisé après l'achat, donnant 30 points d'attaque physique et 15 % de vol de vie pendant 120 secondes. Ne peut avoir qu’un seul effet de potion à la fois.",
+    "passive": "Increase Power : automatiquement utilisé après l'achat, donnant 30 points d'attaque physique et 15 % de vol de vie pendant 120 secondes. Ne peut avoir qu’un seul effet de potion à la fois.",
     "active": null,
     "recipe": [],
     "bestFor": "Tous les héros"
@@ -1124,7 +1124,7 @@
     "price": 2250,
     "bonus": "+750 PV, +30 attaque adaptative, +10 % réduction du temps de recharge, +10 % vampirisme des sorts",
     "unique": null,
-    "passive": "Démoniser : lorsque les PV tombent en dessous de 40 %, gagne 30 % de réduction des dégâts pendant 3 secondes et réduit les temps de recharge des compétences de 2 secondes. Cet effet a un temps de recharge de 60 secondes. Défi : pour chaque tranche de 1 % de PV perdus, les dégâts sont augmentés de 0,25 %, jusqu'à 15 %.",
+    "passive": "Demonize : lorsque les PV tombent en dessous de 40 %, gagne 30 % de réduction des dégâts pendant 3 secondes et réduit les temps de recharge des compétences de 2 secondes. Cet effet a un temps de recharge de 60 secondes. Defiance : pour chaque tranche de 1 % de PV perdus, les dégâts sont augmentés de 0,25 %, jusqu'à 15 %.",
     "active": null,
     "recipe": [
       "Ares Belt",
@@ -1141,7 +1141,7 @@
     "price": 1880,
     "bonus": "+950 PV, +40 défense magique, +12 régénération de PV",
     "unique": null,
-    "passive": "Bénédiction sacrée : subir des dégâts magiques confère une défense magique de 5 (+1 * niveau du héros) pendant 5 secondes, jusqu'à 6 charges (ne peut gagner que 1 charge toutes les 0,4 seconde).",
+    "passive": "Holy Blessing : subir des dégâts magiques confère une défense magique de 5 (+1 * niveau du héros) pendant 5 secondes, jusqu'à 6 charges (ne peut gagner que 1 charge toutes les 0,4 seconde).",
     "active": null,
     "recipe": [
       "Silence Robe",
@@ -1191,7 +1191,7 @@
     "price": 1500,
     "bonus": null,
     "unique": null,
-    "passive": "Augmenter la puissance : à l'achat, accorde 500 PV maximum et 5 % de réduction des dégâts pendant 120 secondes. Ne peut avoir qu’un seul effet de potion à la fois.",
+    "passive": "Increase Power : à l'achat, accorde 500 PV maximum et 5 % de réduction des dégâts pendant 120 secondes. Ne peut avoir qu’un seul effet de potion à la fois.",
     "active": null,
     "recipe": [],
     "bestFor": "Tous les héros"
@@ -1220,7 +1220,7 @@
     "price": 2030,
     "bonus": "+30 attaque physique, +20 % vitesse d'attaque, +10 % vol de vie",
     "unique": null,
-    "passive": "Écaille de dragon : tous les 4 points d'attaque physique supplémentaires augmentent la défense hybride de 1, jusqu'à 50 (l'effet est divisé par deux si le rôle principal n'est pas un combattant). Ligne de vie : lorsque vous subissez des dégâts qui réduisent les PV en dessous de 30 %, gagne un bouclier (120*niveau du héros) (augmente avec le niveau) et une vitesse de déplacement de 50 % qui diminue rapidement en 3 secondes. Cet effet a un temps de recharge de 60 secondes.",
+    "passive": "Dragon Scale : tous les 4 points d'attaque physique supplémentaires augmentent la défense hybride de 1, jusqu'à 50 (l'effet est divisé par deux si le rôle principal n'est pas un combattant). Lifeline : lorsque vous subissez des dégâts qui réduisent les PV en dessous de 30 %, gagne un bouclier (120*niveau du héros) (augmente avec le niveau) et une vitesse de déplacement de 50 % qui diminue rapidement en 3 secondes. Cet effet a un temps de recharge de 60 secondes.",
     "active": null,
     "recipe": [
       "Magic Blade",
@@ -1236,7 +1236,7 @@
     "price": 2020,
     "bonus": "+30 attaque physique, +20 % vitesse d'attaque, +25 % chances de coup critique",
     "unique": null,
-    "passive": "Frénésie : les coups critiques confèrent 30 % de vitesse d'attaque supplémentaire et 5 % de chances de coup critique supplémentaires pendant 2 secondes.",
+    "passive": "Frenzy : les coups critiques confèrent 30 % de vitesse d'attaque supplémentaire et 5 % de chances de coup critique supplémentaires pendant 2 secondes.",
     "active": null,
     "recipe": [
       "Rogue Meteor",
@@ -1253,7 +1253,7 @@
     "price": 2050,
     "bonus": "+80 attaque physique, +20 % vitesse d'attaque",
     "unique": null,
-    "passive": "Lifebane : infliger des dégâts à une cible réduira les effets de bouclier et de régénération de PV sur elle à 60 % de la normale pendant 3 secondes. Punir : augmente les dégâts de 8 % contre les héros ennemis dotés de PV supplémentaires plus élevés.",
+    "passive": "Lifebane : infliger des dégâts à une cible réduira les effets de bouclier et de régénération de PV sur elle à 60 % de la normale pendant 3 secondes. Punish : augmente les dégâts de 8 % contre les héros ennemis dotés de PV supplémentaires plus élevés.",
     "active": null,
     "recipe": [
       "Legion Sword",
@@ -1269,7 +1269,7 @@
     "price": 1960,
     "bonus": "+75 puissance magique, +15 % vol de vie magique, +5 % vitesse de déplacement",
     "unique": null,
-    "passive": "Assassinat : si aucun dégât n'est subi ou infligé dans les 5 secondes, la prochaine attaque de base infligera des dégâts magiques supplémentaires égaux à 200 plus 50 % de puissance magique et infligera des effets de ralentissement de 60 % à la cible pendant 1,5 seconde.",
+    "passive": "Assassination : si aucun dégât n'est subi ou infligé dans les 5 secondes, la prochaine attaque de base infligera des dégâts magiques supplémentaires égaux à 200 plus 50 % de puissance magique et infligera des effets de ralentissement de 60 % à la cible pendant 1,5 seconde.",
     "active": null,
     "recipe": [
       "Exotic Veil",
@@ -1315,7 +1315,7 @@
     "price": 1500,
     "bonus": "+60 attaque adaptative, +15 vitesse de déplacement",
     "unique": null,
-    "passive": "Létalité : Après avoir infligé des dégâts à un héros ennemi, exécute le héros si ses PV sont inférieurs à 4%. Gagne 10 cumuls de létalité pour chaque mort et perd 30 % des cumuls actuels pour chaque mort. Chaque cumul de Létalité augmente le seuil de PV de l'effet d'exécution de 0,1 %, cumulable 80 fois.",
+    "passive": "Lethality : Après avoir infligé des dégâts à un héros ennemi, exécute le héros si ses PV sont inférieurs à 4%. Gagne 10 cumuls de létalité pour chaque mort et perd 30 % des cumuls actuels pour chaque mort. Chaque cumul de Létalité augmente le seuil de PV de l'effet d'exécution de 0,1 %, cumulable 80 fois.",
     "active": null,
     "recipe": [
       "Expert Gloves",
@@ -1331,7 +1331,7 @@
     "price": 2120,
     "bonus": "+75 puissance magique, +10 % réduction du temps de recharge, +8 % vol de vie hybride, +6 régénération de mana",
     "unique": null,
-    "passive": "Crise : après avoir lancé une compétence, la prochaine attaque de base dans les 3 secondes inflige 90 (+60 % de puissance magique totale) de dégâts réels supplémentaires et réduit la vitesse de déplacement de la cible de 15 % pendant 1,5 seconde (temps de recharge de 1,5 seconde).",
+    "passive": "Crisis : après avoir lancé une compétence, la prochaine attaque de base dans les 3 secondes inflige 90 (+60 % de puissance magique totale) de dégâts réels supplémentaires et réduit la vitesse de déplacement de la cible de 15 % pendant 1,5 seconde (temps de recharge de 1,5 seconde).",
     "active": null,
     "recipe": [
       "Azure Blade",
@@ -1379,7 +1379,7 @@
     "price": 1000,
     "bonus": "+20 % vitesse d'attaque",
     "unique": null,
-    "passive": "Arbalète : chaque attaque de base inflige 40 dégâts adaptatifs supplémentaires. Impulsion : les attaques de base confèrent 3 % de vitesse d'attaque supplémentaire pendant 3 secondes, dans la limite de 5 charges.",
+    "passive": "Crossbow : chaque attaque de base inflige 40 dégâts adaptatifs supplémentaires. Impulse : les attaques de base confèrent 3 % de vitesse d'attaque supplémentaire pendant 3 secondes, dans la limite de 5 charges.",
     "active": null,
     "recipe": [
       "Knife",
@@ -1395,7 +1395,7 @@
     "price": 1820,
     "bonus": "+600 PV, +15 défense physique, +15 défense magique, +20 vitesse de déplacement",
     "unique": null,
-    "passive": "Coup de tonnerre : toutes les 4 secondes, la prochaine attaque de base inflige 50 (+100 % de défense physique supplémentaire) (+100 % de défense magique supplémentaire) de dégâts réels supplémentaires à la cible et aux ennemis autour d'elle, et les ralentit brièvement de 99 %. La Défense Hybride augmente de manière permanente de 1 à chaque fois que l'attaque touche un héros ennemi. (Cet effet est réduit à 50 % pour les tireurs, les mages et les assassins)",
+    "passive": "Thunderbolt : toutes les 4 secondes, la prochaine attaque de base inflige 50 (+100 % de défense physique supplémentaire) (+100 % de défense magique supplémentaire) de dégâts réels supplémentaires à la cible et aux ennemis autour d'elle, et les ralentit brièvement de 99 %. La Défense Hybride augmente de manière permanente de 1 à chaque fois que l'attaque touche un héros ennemi. (Cet effet est réduit à 50 % pour les tireurs, les mages et les assassins)",
     "active": null,
     "recipe": [
       "Ares Belt",
@@ -1444,7 +1444,7 @@
     "price": 2100,
     "bonus": "+1200 PV, +15 défense physique",
     "unique": null,
-    "passive": "Crépuscule : lorsque vous subissez plus de 500 dégâts en une seule instance, les dégâts excédentaires au-delà de ce montant sont réduits de 20 (+0,2 % des PV totaux) %. Rédemption : lorsque les dégâts reçus réduisent les PV en dessous de 30 %, récupérez 20 % des PV maximum au cours des 4 prochaines secondes. Cet effet a un temps de recharge de 60 secondes.",
+    "passive": "Twilight : lorsque vous subissez plus de 500 dégâts en une seule instance, les dégâts excédentaires au-delà de ce montant sont réduits de 20 (+0,2 % des PV totaux) %. Redemption : lorsque les dégâts reçus réduisent les PV en dessous de 30 %, récupérez 20 % des PV maximum au cours des 4 prochaines secondes. Cet effet a un temps de recharge de 60 secondes.",
     "active": null,
     "recipe": [
       "Ares Belt",
@@ -1462,7 +1462,7 @@
     "price": 2150,
     "bonus": "+900 PV, +48 défense magique, +2 régénération de PV",
     "unique": null,
-    "passive": "Bouclier : lorsque vous subissez des dégâts magiques provenant des compétences du héros ennemi ou des attaques de base, réduit les dégâts magiques subis de 25 % pendant 3 secondes (y compris les dégâts qui déclenchent l'effet). Récupère cet effet 5 secondes après avoir quitté le combat.",
+    "passive": "Shield : lorsque vous subissez des dégâts magiques provenant des compétences du héros ennemi ou des attaques de base, réduit les dégâts magiques subis de 25 % pendant 3 secondes (y compris les dégâts qui déclenchent l'effet). Récupère cet effet 5 secondes après avoir quitté le combat.",
     "active": null,
     "recipe": [
       "Silence Robe",
@@ -1504,7 +1504,7 @@
     "price": 2100,
     "bonus": "+35 attaque physique, +400 PV, +10 % réduction du temps de recharge, +8 % vol de vie hybride",
     "unique": null,
-    "passive": "Esprit combatif : les attaques confèrent 12 points d'attaque physique supplémentaires par seconde pendant 4 secondes, jusqu'à 6 charges. Inflige 10 % de dégâts réels supplémentaires en fonction des dégâts infligés (aucune réduction de dégâts prise en compte) lorsque les charges sont complètes. (Les tireurs, les mages et les supports ne reçoivent que 50 % de ces effets cumulés.)",
+    "passive": "Fighting Spirit : les attaques confèrent 12 points d'attaque physique supplémentaires par seconde pendant 4 secondes, jusqu'à 6 charges. Inflige 10 % de dégâts réels supplémentaires en fonction des dégâts infligés (aucune réduction de dégâts prise en compte) lorsque les charges sont complètes. (Les tireurs, les mages et les supports ne reçoivent que 50 % de ces effets cumulés.)",
     "active": null,
     "recipe": [
       "Ogre Tomahawk",
@@ -1521,7 +1521,7 @@
     "price": 720,
     "bonus": "+40 vitesse de déplacement, +18 défense physique",
     "unique": null,
-    "passive": "Bravoure : gagne 4 points de défense physique supplémentaires pendant 3 secondes lorsque vous subissez des dégâts physiques, jusqu'à 20.",
+    "passive": "Valor : gagne 4 points de défense physique supplémentaires pendant 3 secondes lorsque vous subissez des dégâts physiques, jusqu'à 20.",
     "active": null,
     "recipe": [
       "Boots",
@@ -1538,7 +1538,7 @@
     "bonus": "+30 attaque physique, +20 % vitesse d'attaque, +10 % vol de vie",
     "unique": null,
     "passive": null,
-    "active": "Chant du vent : devenez immunisé contre tous les dégâts physiques pendant 2 secondes (la durée est réduite de moitié si le rôle principal n'est pas tireur ; temps de recharge de 90 secondes).",
+    "active": "Wind Chant : devenez immunisé contre tous les dégâts physiques pendant 2 secondes (la durée est réduite de moitié si le rôle principal n'est pas tireur ; temps de recharge de 90 secondes).",
     "recipe": [
       "Regular Spear",
       "Vampire Mallet"
@@ -1553,7 +1553,7 @@
     "price": 1880,
     "bonus": "+35 % vitesse d'attaque, +20 % chances de coup critique, +20 vitesse de déplacement",
     "unique": null,
-    "passive": "Typhon : toutes les 5 à 2 secondes (réduit de 0,2 seconde pour chaque attaque de base), la prochaine attaque de base frappera jusqu'à 3 unités ennemies pour 150 à 362 dégâts magiques. (Cette attaque peut faire des critiques et les dégâts augmentent à 200 % contre les sbires.)",
+    "passive": "Typhoon : toutes les 5 à 2 secondes (réduit de 0,2 seconde pour chaque attaque de base), la prochaine attaque de base frappera jusqu'à 3 unités ennemies pour 150 à 362 dégâts magiques. (Cette attaque peut faire des critiques et les dégâts augmentent à 200 % contre les sbires.)",
     "active": null,
     "recipe": [
       "Rogue Meteor",
@@ -1570,7 +1570,7 @@
     "bonus": "+45 attaque adaptative, +400 PV, +5 % réduction du temps de recharge",
     "unique": null,
     "passive": null,
-    "active": "Gelé : devient gelé, impossible à cibler et immunisé contre les dégâts pendant 2 secondes (temps de recharge de 100 secondes). Vous ne pouvez pas déplacer ou lancer de compétences lorsque vous êtes gelé, mais les compétences déjà lancées ne seront pas interrompues.",
+    "active": "Frozen : devient gelé, impossible à cibler et immunisé contre les dégâts pendant 2 secondes (temps de recharge de 100 secondes). Vous ne pouvez pas déplacer ou lancer de compétences lorsque vous êtes gelé, mais les compétences déjà lancées ne seront pas interrompues.",
     "recipe": [
       "Expert Gloves",
       "Hero's Ring",
@@ -1586,7 +1586,7 @@
     "price": 2250,
     "bonus": "+75 puissance magique, +400 mana, +10 % réduction du temps de recharge",
     "unique": null,
-    "passive": "Déesse papillon : pour chaque tranche de 900 dégâts magiques infligés à un héros ennemi (calculés avant la réduction des dégâts), une déesse papillon est invoquée pour attaquer le héros ennemi, infligeant des dégâts magiques égaux à 8 % de ses PV actuels.",
+    "passive": "Butterfly Goddess : pour chaque tranche de 900 dégâts magiques infligés à un héros ennemi (calculés avant la réduction des dégâts), une déesse papillon est invoquée pour attaquer le héros ennemi, infligeant des dégâts magiques égaux à 8 % de ses PV actuels.",
     "active": null,
     "recipe": [
       "Magic Wand",
