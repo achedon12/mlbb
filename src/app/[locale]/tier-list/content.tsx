@@ -29,6 +29,7 @@ import {
 } from "@/lib/tier-list-filters";
 import { longDate, dateMeasure, listNames, monthYear, patchCurrent, percentage } from "@/lib/freshness";
 import { serializeJsonLd } from "@/lib/html";
+import { faqPageData } from "@/lib/structured-data";
 import { rankingOfRank, ORDER_TIERS, RANKS_CLASSES, type RankedEntry } from "@/lib/tier-list";
 import type { MeasuredRank } from "@/lib/measured-ranks";
 import { describeGap, isNotable, THRESHOLD_NOTABLE, variationWeek } from "@/lib/trends";
@@ -422,6 +423,14 @@ export function TierList({
       date: longDate(locale),
     }),
   };
+  // The same question and answer, word for word, for answer engines.
+  const faqData = answer
+    ? faqPageData(locale, {
+        path,
+        items: [{ question: answer.question, answer: `${answer.answer} ${answer.detail}` }],
+        changed: dateMeasure,
+      })
+    : null;
 
   // What changed: the week's movers among these heroes, and the ones the live patch touched.
   const slugs = ranking.map((e) => e.hero.slug);
@@ -455,6 +464,7 @@ export function TierList({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
       />
+      {faqData && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqData) }} />}
       <MetaPoster
         title={title}
         lead={lead}

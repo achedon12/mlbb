@@ -462,6 +462,16 @@
         "buildWin": "{rate}% win rate",
         "counteredBy": "Sinalungat ng",
         "jump": "Mga shortcut sa mga seksyon"
+      },
+      "answer": {
+        "summary": "Ang {name} ({kind}) ay nasa level {tier} na may {winRate} na panalo, pinagsama ang lahat ng ranggo, sa patch {v} (sukat ng {date}).",
+        "summaryNoRate": "Hindi pa sapat ang paglalaro ng {name} ({kind}) sa ranggo na paglalaro upang masukat.",
+        "counters": "Ang mga hero na pinakamahusay na naka-counter ng {name}, pinagsama-sama ang lahat ng ranggo: {counters}.",
+        "faqGood": "Mahusay ba ang {name} sa kasalukuyang patch?",
+        "faqCounters": "Mga counter kay {name}",
+        "faqBuild": "Ano ang pinakamagandang build para sa {name}?",
+        "build": "Ang pinakamaraming nilalaro na build sa {name}, pinagsama ang lahat ng ranggo: {items}.",
+        "buildEmblem": "Ang pinakamaraming nilalaro na build sa {name}, pinagsama ang lahat ng ranggo: {items}, na may emblem na {emblem}."
       }
     },
     "items": {

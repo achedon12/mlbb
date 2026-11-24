@@ -462,6 +462,16 @@
         "buildWin": "Win rate {rate}%",
         "counteredBy": "Di-counter oleh",
         "jump": "Pintasan ke bagian"
+      },
+      "answer": {
+        "summary": "{name} ({kind}) berada di level {tier} dengan {winRate} kemenangan, semua peringkat digabungkan, di patch {v} (ukuran {date}).",
+        "summaryNoRate": "{name} ({kind}) belum cukup dimainkan dalam permainan peringkat untuk diukur.",
+        "counters": "Hero yang paling baik melawan {name}, semua peringkat digabungkan: {counters}.",
+        "faqGood": "Apakah {name} bagus pada patch saat ini?",
+        "faqCounters": "Counter {name}",
+        "faqBuild": "Apa build terbaik untuk {name}?",
+        "build": "Build yang paling banyak dimainkan di {name}, semua peringkat digabungkan: {items}.",
+        "buildEmblem": "Build yang paling banyak dimainkan di {name}, semua peringkat digabungkan: {items}, dengan emblem {emblem}."
       }
     },
     "items": {

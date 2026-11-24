@@ -462,6 +462,16 @@
         "buildWin": "{rate} % de victorias",
         "counteredBy": "Contrarrestado por",
         "jump": "Accesos directos a secciones"
+      },
+      "answer": {
+        "summary": "{name} ({kind}) está en el nivel {tier} con {winRate} victorias, todos los rangos combinados, en el parche {v} (medida de {date}).",
+        "summaryNoRate": "{name} ({kind}) aún no se juega lo suficiente en el juego clasificado como para ser medido.",
+        "counters": "Los héroes que mejor contrarrestan {name}, todos los rangos combinados: {counters}.",
+        "faqGood": "¿{name} es bueno en el parche actual?",
+        "faqCounters": "Counters de {name}",
+        "faqBuild": "¿Cuál es la mejor compilación para {name}?",
+        "build": "La versión más jugada es {name}, todos los rangos combinados: {items}.",
+        "buildEmblem": "La versión más jugada es {name}, todos los rangos combinados: {items}, con el emblema {emblem}."
       }
     },
     "items": {

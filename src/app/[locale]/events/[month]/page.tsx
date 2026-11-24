@@ -19,6 +19,7 @@ import { sync } from "@/lib/data";
 import { OTHER_MODES, monthStatus, neighbours } from "@/lib/events";
 import { monthByKey, monthKeys, referenceDate, sourcesForMonth } from "@/lib/events-server";
 import { serializeJsonLd } from "@/lib/html";
+import { eventMonthData } from "@/lib/structured-data";
 import { NotFoundPage } from "@/components/not-found-page";
 
 type Params = { params: Promise<{ locale: Locale; month: string }> };
@@ -89,9 +90,19 @@ export default async function EventMonthPage({ params }: Params) {
     })),
   });
 
+  // The month itself as an in-game event, its StarLight pass and releases.
+  const eventData = eventMonthData(locale, {
+    name: title,
+    description: summary.join(" "),
+    path: `/events/${m.month}`,
+    month: m.month,
+    image: art,
+  });
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(eventData) }} />
       <PosterHeader
         title={title}
         lead={summary.join(" ")}

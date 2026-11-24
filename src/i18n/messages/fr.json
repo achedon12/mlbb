@@ -462,6 +462,16 @@
         "buildWin": "{rate} % de victoire",
         "counteredBy": "Contré par",
         "jump": "Raccourcis vers les sections"
+      },
+      "answer": {
+        "summary": "{name} ({kind}) est au palier {tier} avec {winRate} de victoires, tous rangs confondus, au patch {v} (mesure du {date}).",
+        "summaryNoRate": "{name} ({kind}) n'est pas encore assez joué en partie classée pour être mesuré.",
+        "counters": "Les héros qui contrent le mieux {name}, tous rangs confondus : {counters}.",
+        "faqGood": "{name} est-il bon au patch actuel ?",
+        "faqCounters": "Qui contre {name} ?",
+        "faqBuild": "Quel est le meilleur build pour {name} ?",
+        "build": "Le build le plus joué sur {name}, tous rangs confondus : {items}.",
+        "buildEmblem": "Le build le plus joué sur {name}, tous rangs confondus : {items}, avec l'emblème {emblem}."
       }
     },
     "items": {
