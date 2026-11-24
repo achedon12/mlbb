@@ -51,6 +51,7 @@ export function ToolHeader({
             alt=""
             fill
             priority
+            fetchPriority="high"
             sizes="(min-width: 640px) 68vw, 100vw"
             className="affiche-art object-cover object-[65%_22%]"
           />

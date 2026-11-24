@@ -489,7 +489,7 @@ export default async function HeroPage({ params }: Params) {
             ) : (
               h.images.portrait && (
                 <span className="absolute inset-y-0 right-[6%] aspect-[240/390]">
-                  <Image src={h.images.portrait} alt="" fill priority sizes="(min-width: 640px) 24rem, 60vw" className="affiche-art object-cover" />
+                  <Image src={h.images.portrait} alt="" fill priority fetchPriority="high" sizes="(min-width: 640px) 24rem, 60vw" className="affiche-art object-cover" />
                 </span>
               )
             )}

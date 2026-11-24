@@ -42,6 +42,7 @@ export function EditorialPoster({
             alt=""
             fill
             priority
+            fetchPriority="high"
             sizes="(min-width: 1024px) 74vw, 100vw"
             className="affiche-art object-cover"
             style={{ objectPosition: artPosition }}

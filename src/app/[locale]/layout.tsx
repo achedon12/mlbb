@@ -44,7 +44,10 @@ const display = Saira_Extra_Condensed({
 // one width (tabular), so a counting figure never jitters, and they are the
 // same in every language: Cyrillic and Thai pages show their numbers in it
 // too. Not preloaded: until it arrives the figures use Saira Extra Condensed,
-// slanted by the browser, almost the same width.
+// slanted by the browser, almost the same width. For that, no generated
+// fallback: next/font would otherwise put an Arial "Saira Fallback" in the
+// variable, ahead of `--font-display` (globals.css), and the figures would
+// show at Arial's full width, then narrow when Saira lands (a layout shift).
 const figure = Saira({
   subsets: ["latin"],
   style: "italic",
@@ -53,6 +56,8 @@ const figure = Saira({
   variable: "--figure-font",
   display: "swap",
   preload: false,
+  adjustFontFallback: false,
+  fallback: [],
 });
 
 // Body text is not repainted when the font arrives: without it in

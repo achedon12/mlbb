@@ -84,6 +84,7 @@ export function StageHeader({
             alt=""
             fill
             priority
+            fetchPriority="high"
             sizes="(min-width: 1024px) 64vw, 100vw"
             className="affiche-art object-cover"
             style={{ objectPosition: artPosition }}

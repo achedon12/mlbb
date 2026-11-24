@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { trackEvent } from "@/lib/analytics";
 import { communityInvite } from "@/lib/bot/public";
 import { discordContext } from "@/lib/discord-cta";
+import { whenIdle } from "@/lib/idle";
 import {
   DWELL_BEFORE_SHOWING_MS,
   isExcludedPath,
@@ -54,16 +55,6 @@ function useBlocked(active: boolean): boolean {
     () => active && document.querySelector(BLOCKING) !== null,
     () => false,
   );
-}
-
-function whenIdle(run: () => void): () => void {
-  if ("requestIdleCallback" in window) {
-    const id = window.requestIdleCallback(run, { timeout: 2000 });
-    return () => window.cancelIdleCallback(id);
-  }
-  // Safari has no idle callback: a short delay keeps it off the page's own work.
-  const id = setTimeout(run, 200);
-  return () => clearTimeout(id);
 }
 
 export function DiscordPopup() {
