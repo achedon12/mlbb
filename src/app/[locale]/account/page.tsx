@@ -16,16 +16,16 @@ import { Score, SectionTitle } from "@/components/ui";
 import { DexNote, heroArt } from "@/components/stage";
 import { PlayerTopHeroes } from "@/components/player-top-heroes";
 import { Suspense } from "react";
-import type { Locale } from "@/i18n/config";
+import { isLocale, type Locale } from "@/i18n/config";
 import { createT, messagesPage, type T } from "@/i18n/translations";
 import { ExtendMessages } from "@/i18n/provider";
 import { disconnect } from "@/lib/actions";
 import { SignOutForm } from "@/components/sign-out-form";
 import { formatCount, formatPercent } from "@/lib/player-format";
 import type { StatsPlayer } from "@/lib/player-api";
-import { friends, identity, seasonHeroes, statistics, type Profile } from "@/lib/mlbb-auth";
+import { friends, seasonHeroes, statistics } from "@/lib/mlbb-auth";
 import { countryName, readableRank } from "@/lib/ranks";
-import { sessionPlayer } from "@/lib/session";
+import { confirmedProfile, sessionPlayer } from "@/lib/session";
 import { summaryLastPatch } from "@/lib/patch-tracking";
 import { currentDiscordLogin, currentOwner, requestTime } from "@/lib/community/server";
 import { discordAccountId } from "@/lib/community/identity";
@@ -75,7 +75,8 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
     currentOwner().catch((): Owner => ({ status: "unavailable" })),
     currentDiscordLogin().catch(() => null),
   ]);
-  if (session.state === "missing" && !discord) redirect(`/${locale}/login`);
+  // Only a known language goes into the address: never `//host` from a crafted segment.
+  if (session.state === "missing" && !discord) redirect(isLocale(locale) ? `/${locale}/login` : "/en/login");
 
   const messages = messagesPage(locale, ["pages.progress", "pages.account"]);
   // A login the progress sync can use: the owner, or a game session waiting for its profile.
@@ -163,8 +164,9 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
   // ── Game session (profile live, or the service busy) ────────────────
   const { token } = session;
   const live = session.state === "ok";
-  const profile: Profile | null = live ? session.profile : session.lastKnown;
-  const ids = profile ?? identity(token);
+  // Only a profile the service confirmed for this token chooses the id and the
+  // Discord card shown: never the token's unchecked claims.
+  const profile = confirmedProfile(session);
 
   // Two sources in parallel: stats (often down) and friends
   // (on the auth subsystem, which stays online).
@@ -179,7 +181,7 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
     { id: "friends", label: t("pages.account.hub.nav.friends") },
     { id: "progress", label: t("pages.account.hub.nav.progress") },
     { id: "favourites", label: t("pages.account.hub.nav.favourites") },
-    ...(ids.roleId ? [{ id: "discord-card", label: t("pages.account.hub.nav.discord") }] : []),
+    ...(profile?.roleId ? [{ id: "discord-card", label: t("pages.account.hub.nav.discord") }] : []),
     { id: "settings", label: t("pages.account.hub.nav.settings") },
   ];
 
@@ -195,7 +197,7 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
         meta={[
           profile && (level === null ? t("pages.account.levelX", { n: profile.level }) : t("pages.account.levelCelestial", { n: level })),
           profile?.country ? countryName(profile.country, locale) : null,
-          ids.roleId ? <span className="tabular-nums">ID {ids.roleId} ({ids.zoneId})</span> : null,
+          profile?.roleId ? <span className="tabular-nums">ID {profile.roleId} ({profile.zoneId})</span> : null,
         ]}
         actions={
           <SignOutForm action={disconnect}>
@@ -288,10 +290,10 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
         {favourites}
 
         {/* ── Discord profile card (the bot's /profile) ────────────────── */}
-        {ids.roleId ? (
+        {profile?.roleId ? (
           <div className="[&>section]:scroll-mt-36">
             <ExtendMessages messages={messagesPage(locale, ["pages.discordCard"])}>
-              <DiscordCardSection locale={locale} roleId={ids.roleId} zoneId={ids.zoneId} now={now} />
+              <DiscordCardSection locale={locale} roleId={profile.roleId} zoneId={profile.zoneId} now={now} />
             </ExtendMessages>
           </div>
         ) : null}

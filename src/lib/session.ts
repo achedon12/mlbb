@@ -95,3 +95,15 @@ export async function profileCurrent(): Promise<Profile | null> {
   const session = await readSession();
   return session.state === "ok" ? session.profile : null;
 }
+
+/**
+ * The profile a page may show for this session: one the login service gave
+ * for this very token — now, or (while it is busy) its last answer in the
+ * past hours. Never the token's own claims (`identity`), which nobody has
+ * checked: an edited token must not pick whose id or card a page shows.
+ */
+export function confirmedProfile(session: StateSession): Profile | null {
+  if (session.state === "ok") return session.profile;
+  if (session.state === "unavailable") return session.lastKnown;
+  return null;
+}
