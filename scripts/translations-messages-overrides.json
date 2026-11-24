@@ -7127,6 +7127,194 @@
     "pages.nicknameUI.preset.mystic": {
       "fr": "Mystique",
       "text": "Mystic"
+    },
+    "pages.quizUI.share": {
+      "fr": "Partager en texte",
+      "text": "Share as text"
+    },
+    "pages.quizUI.shareScore": {
+      "fr": "Partager mon score",
+      "text": "Share my score"
+    },
+    "pages.quizUI.sharePitch": {
+      "fr": "J'ai fait {score} au quiz MLBBDex n° {n}. Tu fais mieux ?",
+      "text": "I scored {score} on MLBBDex Quiz #{n}. Can you beat me?"
+    },
+    "pages.quizUI.rankLabel": {
+      "fr": "Rang :",
+      "text": "Rank:"
+    },
+    "pages.quizUI.ranks.warrior": {
+      "fr": "Guerrier",
+      "text": "Warrior"
+    },
+    "pages.quizUI.ranks.elite": {
+      "fr": "Élite",
+      "text": "Elite"
+    },
+    "pages.quizUI.ranks.master": {
+      "fr": "Maître",
+      "text": "Master"
+    },
+    "pages.quizUI.ranks.grandmaster": {
+      "fr": "Grand maître",
+      "text": "Grandmaster"
+    },
+    "pages.quizUI.ranks.epic": {
+      "fr": "Épique",
+      "text": "Epic"
+    },
+    "pages.quizUI.ranks.legend": {
+      "fr": "Légende",
+      "text": "Legend"
+    },
+    "pages.quizUI.ranks.mythic": {
+      "fr": "Mythique",
+      "text": "Mythic"
+    },
+    "pages.quizUI.ranks.glory": {
+      "fr": "Gloire mythique",
+      "text": "Mythical Glory"
+    },
+    "pages.quizUI.duel.beat": {
+      "fr": "Battez le score de {name} : {score}",
+      "text": "Beat {name}'s score: {score}"
+    },
+    "pages.quizUI.duel.beatAnon": {
+      "fr": "Battez le score de votre ami : {score}",
+      "text": "Beat your friend's score: {score}"
+    },
+    "pages.quizUI.duel.today": {
+      "fr": "Les mêmes questions que votre ami. C'est le défi du jour : il compte dans votre série.",
+      "text": "Same questions as your friend. It's today's challenge, so it counts towards your streak."
+    },
+    "pages.quizUI.duel.past": {
+      "fr": "Un défi d'un autre jour : il ne compte pas dans votre série.",
+      "text": "A challenge from another day: it doesn't count towards your streak."
+    },
+    "pages.quizUI.duel.won": {
+      "fr": "Vous avez battu les {score} de {name} !",
+      "text": "You beat {name}'s {score}!"
+    },
+    "pages.quizUI.duel.wonAnon": {
+      "fr": "Vous avez battu les {score} de votre ami !",
+      "text": "You beat your friend's {score}!"
+    },
+    "pages.quizUI.duel.tie": {
+      "fr": "Égalité avec {name} : {score} chacun.",
+      "text": "Tied with {name} at {score}."
+    },
+    "pages.quizUI.duel.tieAnon": {
+      "fr": "Égalité avec votre ami : {score} chacun.",
+      "text": "Tied with your friend at {score}."
+    },
+    "pages.quizUI.duel.lost": {
+      "fr": "{name} garde l'avantage avec {score}. Renvoyez-lui votre défi !",
+      "text": "{name} keeps the lead with {score}. Send them your own challenge!"
+    },
+    "pages.quizUI.duel.lostAnon": {
+      "fr": "Votre ami garde l'avantage avec {score}. Renvoyez-lui votre défi !",
+      "text": "Your friend keeps the lead with {score}. Send them your own challenge!"
+    },
+    "pages.quizUI.playToday": {
+      "fr": "Jouer le défi du jour",
+      "text": "Play today's challenge"
+    },
+    "pages.quizUI.challengeFriend": {
+      "fr": "Défier un ami",
+      "text": "Challenge a friend"
+    },
+    "pages.quizUI.challengeTitle": {
+      "fr": "Défi quiz MLBBDex",
+      "text": "MLBBDex Quiz challenge"
+    },
+    "pages.quizUI.challengeCopied": {
+      "fr": "Lien du défi copié : envoyez-le à un ami.",
+      "text": "Challenge link copied: send it to a friend."
+    },
+    "pages.quizUI.challengeShared": {
+      "fr": "Défi envoyé.",
+      "text": "Challenge sent."
+    },
+    "pages.quizUI.nameLabel": {
+      "fr": "Votre nom sur le défi (facultatif)",
+      "text": "Your name on the challenge (optional)"
+    },
+    "pages.quizUI.namePlaceholder": {
+      "fr": "Pseudo",
+      "text": "Nickname"
+    },
+    "pages.quizUI.streakDays": {
+      "fr": "Série quotidienne : {n}",
+      "text": "Daily streak: {n}"
+    },
+    "pages.quizUI.streakDone": {
+      "fr": "joué aujourd'hui, revenez demain",
+      "text": "played today, come back tomorrow"
+    },
+    "pages.quizUI.streakKeep": {
+      "fr": "jouez le défi du jour pour la garder",
+      "text": "play today's challenge to keep it"
+    },
+    "pages.quizUI.streakStart": {
+      "fr": "jouez chaque jour pour lancer une série",
+      "text": "play every day to build a streak"
+    },
+    "pages.seo.quizDuel.title": {
+      "fr": "Ferez-vous mieux que {score} au quiz MLBB n° {n} ?",
+      "text": "Can you beat {score} on MLBB Quiz #{n}?"
+    },
+    "pages.seo.quizDuel.description": {
+      "fr": "Un ami a fait {score} au quiz quotidien MLBBDex. Mêmes questions : compétence, apparence, histoire, objet et duel de taux de victoire. À vous de jouer.",
+      "text": "A friend scored {score} on the MLBBDex daily quiz. Same questions: skill, skin, lore, item and a win-rate duel. Your turn."
+    },
+    "shareCard.quiz.kicker": {
+      "fr": "Quiz MLBBDex · n° {n}",
+      "text": "MLBBDex Quiz · #{n}"
+    },
+    "shareCard.quiz.subtitle": {
+      "fr": "Défi du jour : {score}",
+      "text": "Daily challenge: {score}"
+    },
+    "shareCard.quiz.points": {
+      "fr": "points",
+      "text": "points"
+    },
+    "shareCard.quiz.toBeat": {
+      "fr": "score à battre",
+      "text": "score to beat"
+    },
+    "shareCard.quiz.duelKicker": {
+      "fr": "Quiz MLBBDex · défi n° {n}",
+      "text": "MLBBDex Quiz · challenge #{n}"
+    },
+    "shareCard.quiz.duelTitle": {
+      "fr": "Tu bats {score} ?",
+      "text": "Can you beat {score}?"
+    },
+    "shareCard.quiz.duelSubtitle": {
+      "fr": "Mêmes cinq manches, mêmes questions. À toi de jouer.",
+      "text": "Same five rounds, same questions. Your turn."
+    },
+    "shareCard.quiz.dexDuel": {
+      "fr": "Compétence, apparence, histoire, objet et duel de taux. Montre ce que tu sais !",
+      "text": "Skill, skin, lore, item and a win-rate duel. Show what you know!"
+    },
+    "shareCard.quiz.dexPerfect": {
+      "fr": "Un sans-faute ? Je n'en reviens pas !",
+      "text": "A perfect score? I'm speechless!"
+    },
+    "shareCard.quiz.dexGood": {
+      "fr": "Belle partie ! Qui fera mieux ?",
+      "text": "Strong run! Who can beat that?"
+    },
+    "shareCard.quiz.dexMid": {
+      "fr": "Pas mal ! Demain, de nouvelles questions.",
+      "text": "Not bad! New questions tomorrow."
+    },
+    "shareCard.quiz.dexLow": {
+      "fr": "Coriace, celui-là. Un ami fera-t-il mieux ?",
+      "text": "A tough one today. Think a friend can do better?"
     }
   },
   "es": {
@@ -11857,6 +12045,114 @@
     "pages.nicknameUI.previewTitle": {
       "fr": "Aperçu en jeu",
       "text": "Vista previa en el juego"
+    },
+    "pages.seo.quizDuel.title": {
+      "fr": "Ferez-vous mieux que {score} au quiz MLBB n° {n} ?",
+      "text": "¿Puedes superar {score} en el quiz MLBB n.º {n}?"
+    },
+    "pages.seo.quizDuel.description": {
+      "fr": "Un ami a fait {score} au quiz quotidien MLBBDex. Mêmes questions : compétence, apparence, histoire, objet et duel de taux de victoire. À vous de jouer.",
+      "text": "Un amigo sacó {score} en el quiz diario de MLBBDex. Las mismas preguntas: habilidad, aspecto, historia, objeto y duelo de tasa de victorias. Te toca."
+    },
+    "pages.quizUI.shareScore": {
+      "fr": "Partager mon score",
+      "text": "Compartir mi puntuación"
+    },
+    "pages.quizUI.sharePitch": {
+      "fr": "J'ai fait {score} au quiz MLBBDex n° {n}. Tu fais mieux ?",
+      "text": "Saqué {score} en el quiz MLBBDex n.º {n}. ¿Puedes superarme?"
+    },
+    "pages.quizUI.ranks.grandmaster": {
+      "fr": "Grand maître",
+      "text": "Gran Maestro"
+    },
+    "pages.quizUI.duel.today": {
+      "fr": "Les mêmes questions que votre ami. C'est le défi du jour : il compte dans votre série.",
+      "text": "Las mismas preguntas que tu amigo. Es el desafío de hoy, así que cuenta para tu racha."
+    },
+    "pages.quizUI.duel.past": {
+      "fr": "Un défi d'un autre jour : il ne compte pas dans votre série.",
+      "text": "Un desafío de otro día: no cuenta para tu racha."
+    },
+    "pages.quizUI.duel.won": {
+      "fr": "Vous avez battu les {score} de {name} !",
+      "text": "¡Superaste el {score} de {name}!"
+    },
+    "pages.quizUI.duel.wonAnon": {
+      "fr": "Vous avez battu les {score} de votre ami !",
+      "text": "¡Superaste el {score} de tu amigo!"
+    },
+    "pages.quizUI.duel.tie": {
+      "fr": "Égalité avec {name} : {score} chacun.",
+      "text": "Empate con {name}: {score} cada uno."
+    },
+    "pages.quizUI.duel.tieAnon": {
+      "fr": "Égalité avec votre ami : {score} chacun.",
+      "text": "Empate con tu amigo: {score} cada uno."
+    },
+    "pages.quizUI.duel.lost": {
+      "fr": "{name} garde l'avantage avec {score}. Renvoyez-lui votre défi !",
+      "text": "{name} sigue por delante con {score}. ¡Mándale tu propio desafío!"
+    },
+    "pages.quizUI.duel.lostAnon": {
+      "fr": "Votre ami garde l'avantage avec {score}. Renvoyez-lui votre défi !",
+      "text": "Tu amigo sigue por delante con {score}. ¡Mándale tu propio desafío!"
+    },
+    "pages.quizUI.challengeTitle": {
+      "fr": "Défi quiz MLBBDex",
+      "text": "Desafío del quiz MLBBDex"
+    },
+    "pages.quizUI.namePlaceholder": {
+      "fr": "Pseudo",
+      "text": "Apodo"
+    },
+    "pages.quizUI.streakDays": {
+      "fr": "Série quotidienne : {n}",
+      "text": "Racha diaria: {n}"
+    },
+    "pages.quizUI.streakKeep": {
+      "fr": "jouez le défi du jour pour la garder",
+      "text": "juega el desafío de hoy para mantenerla"
+    },
+    "shareCard.quiz.kicker": {
+      "fr": "Quiz MLBBDex · n° {n}",
+      "text": "Quiz MLBBDex · n.º {n}"
+    },
+    "shareCard.quiz.toBeat": {
+      "fr": "score à battre",
+      "text": "puntuación a superar"
+    },
+    "shareCard.quiz.duelKicker": {
+      "fr": "Quiz MLBBDex · défi n° {n}",
+      "text": "Quiz MLBBDex · desafío n.º {n}"
+    },
+    "shareCard.quiz.duelTitle": {
+      "fr": "Tu bats {score} ?",
+      "text": "¿Superas {score}?"
+    },
+    "shareCard.quiz.duelSubtitle": {
+      "fr": "Mêmes cinq manches, mêmes questions. À toi de jouer.",
+      "text": "Las mismas cinco rondas, las mismas preguntas. Te toca."
+    },
+    "shareCard.quiz.dexDuel": {
+      "fr": "Compétence, apparence, histoire, objet et duel de taux. Montre ce que tu sais !",
+      "text": "Habilidad, aspecto, historia, objeto y duelo de tasas. ¡Demuestra lo que sabes!"
+    },
+    "shareCard.quiz.dexPerfect": {
+      "fr": "Un sans-faute ? Je n'en reviens pas !",
+      "text": "¿Puntuación perfecta? ¡Me dejas sin palabras!"
+    },
+    "shareCard.quiz.dexGood": {
+      "fr": "Belle partie ! Qui fera mieux ?",
+      "text": "¡Gran partida! ¿Quién lo supera?"
+    },
+    "shareCard.quiz.dexMid": {
+      "fr": "Pas mal ! Demain, de nouvelles questions.",
+      "text": "¡Nada mal! Mañana, preguntas nuevas."
+    },
+    "shareCard.quiz.dexLow": {
+      "fr": "Coriace, celui-là. Un ami fera-t-il mieux ?",
+      "text": "Hoy tocó uno difícil. ¿Un amigo lo hará mejor?"
     }
   },
   "id": {
@@ -18699,6 +18995,146 @@
     "pages.nicknameUI.presetsLead": {
       "fr": "Un style et une décoration assortis, en une touche.",
       "text": "Gaya dan dekorasi yang serasi, dalam satu ketukan."
+    },
+    "pages.quizUI.ranks.warrior": {
+      "fr": "Guerrier",
+      "text": "Warrior"
+    },
+    "pages.quizUI.ranks.elite": {
+      "fr": "Élite",
+      "text": "Elite"
+    },
+    "pages.quizUI.ranks.master": {
+      "fr": "Maître",
+      "text": "Master"
+    },
+    "pages.quizUI.ranks.grandmaster": {
+      "fr": "Grand maître",
+      "text": "Grandmaster"
+    },
+    "pages.quizUI.ranks.epic": {
+      "fr": "Épique",
+      "text": "Epic"
+    },
+    "pages.quizUI.ranks.legend": {
+      "fr": "Légende",
+      "text": "Legend"
+    },
+    "pages.quizUI.ranks.mythic": {
+      "fr": "Mythique",
+      "text": "Mythic"
+    },
+    "pages.quizUI.ranks.glory": {
+      "fr": "Gloire mythique",
+      "text": "Mythical Glory"
+    },
+    "pages.seo.quizDuel.title": {
+      "fr": "Ferez-vous mieux que {score} au quiz MLBB n° {n} ?",
+      "text": "Bisakah kamu mengalahkan {score} di Kuis MLBB #{n}?"
+    },
+    "pages.seo.quizDuel.description": {
+      "fr": "Un ami a fait {score} au quiz quotidien MLBBDex. Mêmes questions : compétence, apparence, histoire, objet et duel de taux de victoire. À vous de jouer.",
+      "text": "Temanmu mendapat skor {score} di kuis harian MLBBDex. Pertanyaannya sama: skill, skin, lore, item, dan duel win rate. Giliranmu."
+    },
+    "pages.quizUI.shareScore": {
+      "fr": "Partager mon score",
+      "text": "Bagikan skorku"
+    },
+    "pages.quizUI.sharePitch": {
+      "fr": "J'ai fait {score} au quiz MLBBDex n° {n}. Tu fais mieux ?",
+      "text": "Aku dapat {score} di Kuis MLBBDex #{n}. Bisa kalahkan aku?"
+    },
+    "pages.quizUI.rankLabel": {
+      "fr": "Rang :",
+      "text": "Rank:"
+    },
+    "pages.quizUI.duel.today": {
+      "fr": "Les mêmes questions que votre ami. C'est le défi du jour : il compte dans votre série.",
+      "text": "Pertanyaannya sama dengan temanmu. Ini tantangan hari ini, jadi dihitung ke streak-mu."
+    },
+    "pages.quizUI.duel.past": {
+      "fr": "Un défi d'un autre jour : il ne compte pas dans votre série.",
+      "text": "Tantangan dari hari lain: tidak dihitung ke streak-mu."
+    },
+    "pages.quizUI.duel.won": {
+      "fr": "Vous avez battu les {score} de {name} !",
+      "text": "Kamu mengalahkan skor {score} milik {name}!"
+    },
+    "pages.quizUI.duel.wonAnon": {
+      "fr": "Vous avez battu les {score} de votre ami !",
+      "text": "Kamu mengalahkan skor {score} temanmu!"
+    },
+    "pages.quizUI.duel.tie": {
+      "fr": "Égalité avec {name} : {score} chacun.",
+      "text": "Seri dengan {name}: masing-masing {score}."
+    },
+    "pages.quizUI.duel.tieAnon": {
+      "fr": "Égalité avec votre ami : {score} chacun.",
+      "text": "Seri dengan temanmu: masing-masing {score}."
+    },
+    "pages.quizUI.duel.lost": {
+      "fr": "{name} garde l'avantage avec {score}. Renvoyez-lui votre défi !",
+      "text": "{name} masih unggul dengan {score}. Kirim tantanganmu sendiri!"
+    },
+    "pages.quizUI.duel.lostAnon": {
+      "fr": "Votre ami garde l'avantage avec {score}. Renvoyez-lui votre défi !",
+      "text": "Temanmu masih unggul dengan {score}. Kirim tantanganmu sendiri!"
+    },
+    "pages.quizUI.challengeTitle": {
+      "fr": "Défi quiz MLBBDex",
+      "text": "Tantangan Kuis MLBBDex"
+    },
+    "pages.quizUI.nameLabel": {
+      "fr": "Votre nom sur le défi (facultatif)",
+      "text": "Namamu di tantangan (opsional)"
+    },
+    "pages.quizUI.namePlaceholder": {
+      "fr": "Pseudo",
+      "text": "Nickname"
+    },
+    "pages.quizUI.streakDays": {
+      "fr": "Série quotidienne : {n}",
+      "text": "Streak harian: {n}"
+    },
+    "pages.quizUI.streakStart": {
+      "fr": "jouez chaque jour pour lancer une série",
+      "text": "main setiap hari untuk membangun streak"
+    },
+    "shareCard.quiz.kicker": {
+      "fr": "Quiz MLBBDex · n° {n}",
+      "text": "Kuis MLBBDex · #{n}"
+    },
+    "shareCard.quiz.duelKicker": {
+      "fr": "Quiz MLBBDex · défi n° {n}",
+      "text": "Kuis MLBBDex · tantangan #{n}"
+    },
+    "shareCard.quiz.duelTitle": {
+      "fr": "Tu bats {score} ?",
+      "text": "Bisa kalahkan {score}?"
+    },
+    "shareCard.quiz.duelSubtitle": {
+      "fr": "Mêmes cinq manches, mêmes questions. À toi de jouer.",
+      "text": "Lima ronde yang sama, pertanyaan yang sama. Giliranmu."
+    },
+    "shareCard.quiz.dexDuel": {
+      "fr": "Compétence, apparence, histoire, objet et duel de taux. Montre ce que tu sais !",
+      "text": "Skill, skin, lore, item, dan duel win rate. Tunjukkan kemampuanmu!"
+    },
+    "shareCard.quiz.dexPerfect": {
+      "fr": "Un sans-faute ? Je n'en reviens pas !",
+      "text": "Skor sempurna? Aku sampai speechless!"
+    },
+    "shareCard.quiz.dexGood": {
+      "fr": "Belle partie ! Qui fera mieux ?",
+      "text": "Mantap! Siapa yang bisa lebih baik?"
+    },
+    "shareCard.quiz.dexMid": {
+      "fr": "Pas mal ! Demain, de nouvelles questions.",
+      "text": "Lumayan! Besok ada pertanyaan baru."
+    },
+    "shareCard.quiz.dexLow": {
+      "fr": "Coriace, celui-là. Un ami fera-t-il mieux ?",
+      "text": "Yang ini sulit. Temanmu bisa lebih baik?"
     }
   },
   "it": {
@@ -23453,6 +23889,98 @@
     "pages.nicknameUI.presetsLead": {
       "fr": "Un style et une décoration assortis, en une touche.",
       "text": "Uno stile e una decorazione abbinati, in un tocco."
+    },
+    "pages.seo.quizDuel.description": {
+      "fr": "Un ami a fait {score} au quiz quotidien MLBBDex. Mêmes questions : compétence, apparence, histoire, objet et duel de taux de victoire. À vous de jouer.",
+      "text": "Un amico ha fatto {score} nel quiz quotidiano di MLBBDex. Stesse domande: abilità, skin, storia, oggetto e duello di percentuali di vittoria. Tocca a te."
+    },
+    "pages.quizUI.sharePitch": {
+      "fr": "J'ai fait {score} au quiz MLBBDex n° {n}. Tu fais mieux ?",
+      "text": "Ho fatto {score} nel quiz MLBBDex n. {n}. Riesci a battermi?"
+    },
+    "pages.quizUI.duel.beat": {
+      "fr": "Battez le score de {name} : {score}",
+      "text": "Batti il punteggio di {name}: {score}"
+    },
+    "pages.quizUI.duel.beatAnon": {
+      "fr": "Battez le score de votre ami : {score}",
+      "text": "Batti il punteggio del tuo amico: {score}"
+    },
+    "pages.quizUI.duel.today": {
+      "fr": "Les mêmes questions que votre ami. C'est le défi du jour : il compte dans votre série.",
+      "text": "Le stesse domande del tuo amico. È la sfida di oggi, quindi conta per la tua serie."
+    },
+    "pages.quizUI.duel.past": {
+      "fr": "Un défi d'un autre jour : il ne compte pas dans votre série.",
+      "text": "Una sfida di un altro giorno: non conta per la tua serie."
+    },
+    "pages.quizUI.duel.won": {
+      "fr": "Vous avez battu les {score} de {name} !",
+      "text": "Hai battuto il {score} di {name}!"
+    },
+    "pages.quizUI.duel.tie": {
+      "fr": "Égalité avec {name} : {score} chacun.",
+      "text": "Pareggio con {name}: {score} a testa."
+    },
+    "pages.quizUI.duel.tieAnon": {
+      "fr": "Égalité avec votre ami : {score} chacun.",
+      "text": "Pareggio con il tuo amico: {score} a testa."
+    },
+    "pages.quizUI.duel.lost": {
+      "fr": "{name} garde l'avantage avec {score}. Renvoyez-lui votre défi !",
+      "text": "{name} resta in testa con {score}. Mandagli la tua sfida!"
+    },
+    "pages.quizUI.duel.lostAnon": {
+      "fr": "Votre ami garde l'avantage avec {score}. Renvoyez-lui votre défi !",
+      "text": "Il tuo amico resta in testa con {score}. Mandagli la tua sfida!"
+    },
+    "pages.quizUI.playToday": {
+      "fr": "Jouer le défi du jour",
+      "text": "Gioca la sfida di oggi"
+    },
+    "pages.quizUI.challengeTitle": {
+      "fr": "Défi quiz MLBBDex",
+      "text": "Sfida del quiz MLBBDex"
+    },
+    "pages.quizUI.namePlaceholder": {
+      "fr": "Pseudo",
+      "text": "Nickname"
+    },
+    "pages.quizUI.streakKeep": {
+      "fr": "jouez le défi du jour pour la garder",
+      "text": "gioca la sfida di oggi per mantenerla"
+    },
+    "pages.quizUI.streakStart": {
+      "fr": "jouez chaque jour pour lancer une série",
+      "text": "gioca ogni giorno per costruire una serie"
+    },
+    "shareCard.quiz.duelKicker": {
+      "fr": "Quiz MLBBDex · défi n° {n}",
+      "text": "Quiz MLBBDex · sfida n. {n}"
+    },
+    "shareCard.quiz.duelTitle": {
+      "fr": "Tu bats {score} ?",
+      "text": "Riesci a battere {score}?"
+    },
+    "shareCard.quiz.duelSubtitle": {
+      "fr": "Mêmes cinq manches, mêmes questions. À toi de jouer.",
+      "text": "Stessi cinque round, stesse domande. Tocca a te."
+    },
+    "shareCard.quiz.dexDuel": {
+      "fr": "Compétence, apparence, histoire, objet et duel de taux. Montre ce que tu sais !",
+      "text": "Abilità, skin, storia, oggetto e duello di percentuali. Fai vedere cosa sai!"
+    },
+    "shareCard.quiz.dexPerfect": {
+      "fr": "Un sans-faute ? Je n'en reviens pas !",
+      "text": "Punteggio pieno? Sono senza parole!"
+    },
+    "shareCard.quiz.dexMid": {
+      "fr": "Pas mal ! Demain, de nouvelles questions.",
+      "text": "Niente male! Domani nuove domande."
+    },
+    "shareCard.quiz.dexLow": {
+      "fr": "Coriace, celui-là. Un ami fera-t-il mieux ?",
+      "text": "Oggi era tosta. Un amico farà meglio?"
     }
   },
   "fil": {
@@ -34297,8 +34825,8 @@
       "text": "Tingnan ang resulta"
     },
     "pages.quizUI.share": {
-      "fr": "Partager mon résultat",
-      "text": "I-share ang resulta ko"
+      "fr": "Partager en texte",
+      "text": "Ibahagi bilang text"
     },
     "pages.quizUI.shared": {
       "fr": "Résultat partagé.",
@@ -38603,6 +39131,134 @@
     "pages.nicknameUI.presetsLead": {
       "fr": "Un style et une décoration assortis, en une touche.",
       "text": "Magkatugmang estilo at dekorasyon, sa isang tap."
+    },
+    "pages.quizUI.ranks.warrior": {
+      "fr": "Guerrier",
+      "text": "Warrior"
+    },
+    "pages.quizUI.ranks.elite": {
+      "fr": "Élite",
+      "text": "Elite"
+    },
+    "pages.quizUI.ranks.master": {
+      "fr": "Maître",
+      "text": "Master"
+    },
+    "pages.quizUI.ranks.grandmaster": {
+      "fr": "Grand maître",
+      "text": "Grandmaster"
+    },
+    "pages.quizUI.ranks.epic": {
+      "fr": "Épique",
+      "text": "Epic"
+    },
+    "pages.quizUI.ranks.legend": {
+      "fr": "Légende",
+      "text": "Legend"
+    },
+    "pages.quizUI.ranks.mythic": {
+      "fr": "Mythique",
+      "text": "Mythic"
+    },
+    "pages.quizUI.ranks.glory": {
+      "fr": "Gloire mythique",
+      "text": "Mythical Glory"
+    },
+    "pages.seo.quizDuel.title": {
+      "fr": "Ferez-vous mieux que {score} au quiz MLBB n° {n} ?",
+      "text": "Kaya mo bang talunin ang {score} sa MLBB Quiz #{n}?"
+    },
+    "pages.seo.quizDuel.description": {
+      "fr": "Un ami a fait {score} au quiz quotidien MLBBDex. Mêmes questions : compétence, apparence, histoire, objet et duel de taux de victoire. À vous de jouer.",
+      "text": "Nakakuha ng {score} ang kaibigan mo sa daily quiz ng MLBBDex. Parehong mga tanong: skill, skin, lore, item at win-rate duel. Ikaw na."
+    },
+    "pages.quizUI.sharePitch": {
+      "fr": "J'ai fait {score} au quiz MLBBDex n° {n}. Tu fais mieux ?",
+      "text": "Nakakuha ako ng {score} sa MLBBDex Quiz #{n}. Kaya mo bang talunin ako?"
+    },
+    "pages.quizUI.rankLabel": {
+      "fr": "Rang :",
+      "text": "Rank:"
+    },
+    "pages.quizUI.duel.beat": {
+      "fr": "Battez le score de {name} : {score}",
+      "text": "Talunin ang score ni {name}: {score}"
+    },
+    "pages.quizUI.duel.today": {
+      "fr": "Les mêmes questions que votre ami. C'est le défi du jour : il compte dans votre série.",
+      "text": "Parehong mga tanong ng kaibigan mo. Ito ang challenge ngayon, kaya bilang ito sa streak mo."
+    },
+    "pages.quizUI.duel.past": {
+      "fr": "Un défi d'un autre jour : il ne compte pas dans votre série.",
+      "text": "Challenge mula sa ibang araw: hindi ito bilang sa streak mo."
+    },
+    "pages.quizUI.duel.tie": {
+      "fr": "Égalité avec {name} : {score} chacun.",
+      "text": "Tabla kayo ni {name}: tig-{score}."
+    },
+    "pages.quizUI.duel.tieAnon": {
+      "fr": "Égalité avec votre ami : {score} chacun.",
+      "text": "Tabla kayo ng kaibigan mo: tig-{score}."
+    },
+    "pages.quizUI.duel.lost": {
+      "fr": "{name} garde l'avantage avec {score}. Renvoyez-lui votre défi !",
+      "text": "Lamang pa rin si {name} sa {score}. Ipadala ang sarili mong challenge!"
+    },
+    "pages.quizUI.duel.lostAnon": {
+      "fr": "Votre ami garde l'avantage avec {score}. Renvoyez-lui votre défi !",
+      "text": "Lamang pa rin ang kaibigan mo sa {score}. Ipadala ang sarili mong challenge!"
+    },
+    "pages.quizUI.challengeTitle": {
+      "fr": "Défi quiz MLBBDex",
+      "text": "MLBBDex Quiz challenge"
+    },
+    "pages.quizUI.namePlaceholder": {
+      "fr": "Pseudo",
+      "text": "Nickname"
+    },
+    "pages.quizUI.streakDays": {
+      "fr": "Série quotidienne : {n}",
+      "text": "Daily streak: {n}"
+    },
+    "pages.quizUI.streakDone": {
+      "fr": "joué aujourd'hui, revenez demain",
+      "text": "nalaro na ngayon, balik bukas"
+    },
+    "pages.quizUI.streakKeep": {
+      "fr": "jouez le défi du jour pour la garder",
+      "text": "laruin ang challenge ngayon para mapanatili ito"
+    },
+    "shareCard.quiz.kicker": {
+      "fr": "Quiz MLBBDex · n° {n}",
+      "text": "MLBBDex Quiz · #{n}"
+    },
+    "shareCard.quiz.toBeat": {
+      "fr": "score à battre",
+      "text": "score na tatalunin"
+    },
+    "shareCard.quiz.duelKicker": {
+      "fr": "Quiz MLBBDex · défi n° {n}",
+      "text": "MLBBDex Quiz · challenge #{n}"
+    },
+    "shareCard.quiz.duelTitle": {
+      "fr": "Tu bats {score} ?",
+      "text": "Kaya mo bang talunin ang {score}?"
+    },
+    "shareCard.quiz.duelSubtitle": {
+      "fr": "Mêmes cinq manches, mêmes questions. À toi de jouer.",
+      "text": "Parehong limang round, parehong mga tanong. Ikaw na."
+    },
+    "shareCard.quiz.dexDuel": {
+      "fr": "Compétence, apparence, histoire, objet et duel de taux. Montre ce que tu sais !",
+      "text": "Skill, skin, lore, item at win-rate duel. Ipakita ang alam mo!"
+    },
+    "shareCard.quiz.dexPerfect": {
+      "fr": "Un sans-faute ? Je n'en reviens pas !",
+      "text": "Perfect score? Hindi ako makapaniwala!"
+    },
+    "shareCard.quiz.dexLow": {
+      "fr": "Coriace, celui-là. Un ami fera-t-il mieux ?",
+      "text": "Mahirap ito ngayon. Kaya kaya ng kaibigan mo?"
     }
   },
   "th": {
@@ -48751,8 +49407,8 @@
       "text": "ดูผลลัพธ์"
     },
     "pages.quizUI.share": {
-      "fr": "Partager mon résultat",
-      "text": "แชร์ผลลัพธ์ของฉัน"
+      "fr": "Partager en texte",
+      "text": "แชร์เป็นข้อความ"
     },
     "pages.quizUI.shared": {
       "fr": "Résultat partagé.",
@@ -52721,6 +53377,46 @@
     "pages.heroDetail.glance.counteredBy": {
       "fr": "Contré par",
       "text": "โดนเคาน์เตอร์โดย"
+    },
+    "pages.quizUI.sharePitch": {
+      "fr": "J'ai fait {score} au quiz MLBBDex n° {n}. Tu fais mieux ?",
+      "text": "ฉันได้ {score} ในควิซ MLBBDex #{n} คุณจะทำได้ดีกว่าไหม?"
+    },
+    "pages.quizUI.namePlaceholder": {
+      "fr": "Pseudo",
+      "text": "ชื่อเล่น"
+    },
+    "pages.quizUI.streakDays": {
+      "fr": "Série quotidienne : {n}",
+      "text": "สถิติต่อเนื่องรายวัน: {n}"
+    },
+    "pages.quizUI.ranks.grandmaster": {
+      "fr": "Grand maître",
+      "text": "Grandmaster"
+    },
+    "shareCard.quiz.kicker": {
+      "fr": "Quiz MLBBDex · n° {n}",
+      "text": "ควิซ MLBBDex · #{n}"
+    },
+    "shareCard.quiz.duelKicker": {
+      "fr": "Quiz MLBBDex · défi n° {n}",
+      "text": "ควิซ MLBBDex · ชาเลนจ์ #{n}"
+    },
+    "shareCard.quiz.duelTitle": {
+      "fr": "Tu bats {score} ?",
+      "text": "เอาชนะ {score} ได้ไหม?"
+    },
+    "shareCard.quiz.duelSubtitle": {
+      "fr": "Mêmes cinq manches, mêmes questions. À toi de jouer.",
+      "text": "ห้ารอบเดิม คำถามเดิม ถึงตาคุณแล้ว"
+    },
+    "shareCard.quiz.dexPerfect": {
+      "fr": "Un sans-faute ? Je n'en reviens pas !",
+      "text": "เต็มคะแนนเลยเหรอ? พูดไม่ออกเลย!"
+    },
+    "shareCard.quiz.dexLow": {
+      "fr": "Coriace, celui-là. Un ami fera-t-il mieux ?",
+      "text": "วันนี้ยากหน่อย เพื่อนจะทำได้ดีกว่าไหม?"
     }
   },
   "pt": {
@@ -64735,6 +65431,98 @@
     "pages.heroDetail.glance.counteredBy": {
       "fr": "Contré par",
       "text": "Counterado por"
+    },
+    "pages.seo.quizDuel.title": {
+      "fr": "Ferez-vous mieux que {score} au quiz MLBB n° {n} ?",
+      "text": "Consegue bater {score} no quiz MLBB nº {n}?"
+    },
+    "pages.seo.quizDuel.description": {
+      "fr": "Un ami a fait {score} au quiz quotidien MLBBDex. Mêmes questions : compétence, apparence, histoire, objet et duel de taux de victoire. À vous de jouer.",
+      "text": "Um amigo fez {score} no quiz diário do MLBBDex. As mesmas perguntas: habilidade, visual, história, item e duelo de taxa de vitória. Sua vez."
+    },
+    "pages.quizUI.sharePitch": {
+      "fr": "J'ai fait {score} au quiz MLBBDex n° {n}. Tu fais mieux ?",
+      "text": "Fiz {score} no quiz MLBBDex nº {n}. Consegue me superar?"
+    },
+    "pages.quizUI.rankLabel": {
+      "fr": "Rang :",
+      "text": "Elo:"
+    },
+    "pages.quizUI.duel.today": {
+      "fr": "Les mêmes questions que votre ami. C'est le défi du jour : il compte dans votre série.",
+      "text": "As mesmas perguntas do seu amigo. É o desafio de hoje, então conta para a sua sequência."
+    },
+    "pages.quizUI.duel.past": {
+      "fr": "Un défi d'un autre jour : il ne compte pas dans votre série.",
+      "text": "Um desafio de outro dia: não conta para a sua sequência."
+    },
+    "pages.quizUI.duel.won": {
+      "fr": "Vous avez battu les {score} de {name} !",
+      "text": "Você superou os {score} de {name}!"
+    },
+    "pages.quizUI.duel.wonAnon": {
+      "fr": "Vous avez battu les {score} de votre ami !",
+      "text": "Você superou os {score} do seu amigo!"
+    },
+    "pages.quizUI.duel.lost": {
+      "fr": "{name} garde l'avantage avec {score}. Renvoyez-lui votre défi !",
+      "text": "{name} continua na frente com {score}. Mande o seu próprio desafio!"
+    },
+    "pages.quizUI.duel.lostAnon": {
+      "fr": "Votre ami garde l'avantage avec {score}. Renvoyez-lui votre défi !",
+      "text": "Seu amigo continua na frente com {score}. Mande o seu próprio desafio!"
+    },
+    "pages.quizUI.challengeTitle": {
+      "fr": "Défi quiz MLBBDex",
+      "text": "Desafio do quiz MLBBDex"
+    },
+    "pages.quizUI.namePlaceholder": {
+      "fr": "Pseudo",
+      "text": "Apelido"
+    },
+    "pages.quizUI.streakDays": {
+      "fr": "Série quotidienne : {n}",
+      "text": "Sequência diária: {n}"
+    },
+    "pages.quizUI.streakDone": {
+      "fr": "joué aujourd'hui, revenez demain",
+      "text": "jogado hoje, volte amanhã"
+    },
+    "pages.quizUI.streakKeep": {
+      "fr": "jouez le défi du jour pour la garder",
+      "text": "jogue o desafio de hoje para mantê-la"
+    },
+    "shareCard.quiz.duelKicker": {
+      "fr": "Quiz MLBBDex · défi n° {n}",
+      "text": "Quiz MLBBDex · desafio nº {n}"
+    },
+    "shareCard.quiz.duelTitle": {
+      "fr": "Tu bats {score} ?",
+      "text": "Consegue bater {score}?"
+    },
+    "shareCard.quiz.duelSubtitle": {
+      "fr": "Mêmes cinq manches, mêmes questions. À toi de jouer.",
+      "text": "As mesmas cinco rodadas, as mesmas perguntas. Sua vez."
+    },
+    "shareCard.quiz.dexDuel": {
+      "fr": "Compétence, apparence, histoire, objet et duel de taux. Montre ce que tu sais !",
+      "text": "Habilidade, visual, história, item e duelo de taxas. Mostre o que você sabe!"
+    },
+    "shareCard.quiz.dexPerfect": {
+      "fr": "Un sans-faute ? Je n'en reviens pas !",
+      "text": "Gabaritou? Fiquei sem palavras!"
+    },
+    "shareCard.quiz.dexMid": {
+      "fr": "Pas mal ! Demain, de nouvelles questions.",
+      "text": "Nada mal! Amanhã tem perguntas novas."
+    },
+    "shareCard.quiz.dexLow": {
+      "fr": "Coriace, celui-là. Un ami fera-t-il mieux ?",
+      "text": "Hoje foi difícil. Será que um amigo vai melhor?"
+    },
+    "shareCard.quiz.kicker": {
+      "fr": "Quiz MLBBDex · n° {n}",
+      "text": "Quiz MLBBDex · nº {n}"
     }
   },
   "ru": {
@@ -74187,8 +74975,8 @@
       "text": "Смотреть итоги"
     },
     "pages.quizUI.share": {
-      "fr": "Partager mon résultat",
-      "text": "Поделиться результатом"
+      "fr": "Partager en texte",
+      "text": "Поделиться текстом"
     },
     "pages.quizUI.shared": {
       "fr": "Résultat partagé.",
@@ -78209,6 +78997,126 @@
     "pages.heroDetail.glance.counteredBy": {
       "fr": "Contré par",
       "text": "Его контрят"
+    },
+    "pages.seo.quizDuel.title": {
+      "fr": "Ferez-vous mieux que {score} au quiz MLBB n° {n} ?",
+      "text": "Сможете побить {score} в викторине MLBB №{n}?"
+    },
+    "pages.seo.quizDuel.description": {
+      "fr": "Un ami a fait {score} au quiz quotidien MLBBDex. Mêmes questions : compétence, apparence, histoire, objet et duel de taux de victoire. À vous de jouer.",
+      "text": "Друг набрал {score} в ежедневной викторине MLBBDex. Те же вопросы: навык, облик, история, предмет и дуэль процента побед. Ваш ход."
+    },
+    "pages.quizUI.shareScore": {
+      "fr": "Partager mon score",
+      "text": "Поделиться результатом"
+    },
+    "pages.quizUI.sharePitch": {
+      "fr": "J'ai fait {score} au quiz MLBBDex n° {n}. Tu fais mieux ?",
+      "text": "У меня {score} в викторине MLBBDex №{n}. Сможешь лучше?"
+    },
+    "pages.quizUI.rankLabel": {
+      "fr": "Rang :",
+      "text": "Ранг:"
+    },
+    "pages.quizUI.ranks.elite": {
+      "fr": "Élite",
+      "text": "Элита"
+    },
+    "pages.quizUI.duel.today": {
+      "fr": "Les mêmes questions que votre ami. C'est le défi du jour : il compte dans votre série.",
+      "text": "Те же вопросы, что у вашего друга. Это сегодняшнее испытание, оно идёт в вашу серию."
+    },
+    "pages.quizUI.duel.past": {
+      "fr": "Un défi d'un autre jour : il ne compte pas dans votre série.",
+      "text": "Испытание другого дня: в серию оно не идёт."
+    },
+    "pages.quizUI.duel.won": {
+      "fr": "Vous avez battu les {score} de {name} !",
+      "text": "Вы побили {score} игрока {name}!"
+    },
+    "pages.quizUI.duel.wonAnon": {
+      "fr": "Vous avez battu les {score} de votre ami !",
+      "text": "Вы побили {score} вашего друга!"
+    },
+    "pages.quizUI.duel.tie": {
+      "fr": "Égalité avec {name} : {score} chacun.",
+      "text": "Ничья с {name}: по {score}."
+    },
+    "pages.quizUI.duel.tieAnon": {
+      "fr": "Égalité avec votre ami : {score} chacun.",
+      "text": "Ничья с другом: по {score}."
+    },
+    "pages.quizUI.duel.lost": {
+      "fr": "{name} garde l'avantage avec {score}. Renvoyez-lui votre défi !",
+      "text": "{name} впереди с {score}. Отправьте ответный вызов!"
+    },
+    "pages.quizUI.duel.lostAnon": {
+      "fr": "Votre ami garde l'avantage avec {score}. Renvoyez-lui votre défi !",
+      "text": "Друг впереди с {score}. Отправьте ответный вызов!"
+    },
+    "pages.quizUI.playToday": {
+      "fr": "Jouer le défi du jour",
+      "text": "Пройти сегодняшнее испытание"
+    },
+    "pages.quizUI.challengeTitle": {
+      "fr": "Défi quiz MLBBDex",
+      "text": "Вызов в викторине MLBBDex"
+    },
+    "pages.quizUI.nameLabel": {
+      "fr": "Votre nom sur le défi (facultatif)",
+      "text": "Ваше имя в вызове (необязательно)"
+    },
+    "pages.quizUI.namePlaceholder": {
+      "fr": "Pseudo",
+      "text": "Ник"
+    },
+    "pages.quizUI.streakDone": {
+      "fr": "joué aujourd'hui, revenez demain",
+      "text": "сегодня сыграно, возвращайтесь завтра"
+    },
+    "pages.quizUI.streakKeep": {
+      "fr": "jouez le défi du jour pour la garder",
+      "text": "пройдите сегодняшнее испытание, чтобы её сохранить"
+    },
+    "shareCard.quiz.kicker": {
+      "fr": "Quiz MLBBDex · n° {n}",
+      "text": "Викторина MLBBDex · №{n}"
+    },
+    "shareCard.quiz.toBeat": {
+      "fr": "score à battre",
+      "text": "нужно побить"
+    },
+    "shareCard.quiz.duelKicker": {
+      "fr": "Quiz MLBBDex · défi n° {n}",
+      "text": "Викторина MLBBDex · вызов №{n}"
+    },
+    "shareCard.quiz.duelTitle": {
+      "fr": "Tu bats {score} ?",
+      "text": "Побьёшь {score}?"
+    },
+    "shareCard.quiz.duelSubtitle": {
+      "fr": "Mêmes cinq manches, mêmes questions. À toi de jouer.",
+      "text": "Те же пять раундов, те же вопросы. Твой ход."
+    },
+    "shareCard.quiz.dexDuel": {
+      "fr": "Compétence, apparence, histoire, objet et duel de taux. Montre ce que tu sais !",
+      "text": "Навык, облик, история, предмет и дуэль винрейта. Покажи, что знаешь!"
+    },
+    "shareCard.quiz.dexPerfect": {
+      "fr": "Un sans-faute ? Je n'en reviens pas !",
+      "text": "Без единой ошибки? Нет слов!"
+    },
+    "shareCard.quiz.dexGood": {
+      "fr": "Belle partie ! Qui fera mieux ?",
+      "text": "Сильная игра! Кто сделает лучше?"
+    },
+    "shareCard.quiz.dexMid": {
+      "fr": "Pas mal ! Demain, de nouvelles questions.",
+      "text": "Неплохо! Завтра новые вопросы."
+    },
+    "shareCard.quiz.dexLow": {
+      "fr": "Coriace, celui-là. Un ami fera-t-il mieux ?",
+      "text": "Сегодня было сложно. Друг справится лучше?"
     }
   }
 }

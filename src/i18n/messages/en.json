@@ -1284,6 +1284,10 @@
       "accountValue": {
         "title": "MLBB account value estimator",
         "description": "How much did your Mobile Legends collection cost? Copy your appearances by Showcase category ({skins} catalog appearances), check your collection points and obtain an order of magnitude in diamonds, USD, EUR, PHP, IDR and MYR, with a displayed method."
+      },
+      "quizDuel": {
+        "title": "Can you beat {score} on MLBB Quiz #{n}?",
+        "description": "A friend scored {score} on the MLBBDex daily quiz. Same questions: skill, skin, lore, item and a win-rate duel. Your turn."
       }
     },
     "sources": {
@@ -1878,7 +1882,7 @@
       "seeSummary": "See results",
       "nextRound": "Next round",
       "summaryTitle": "Challenge complete: {points}/{max}",
-      "share": "Share my result",
+      "share": "Share as text",
       "copied": "Result copied: paste it anywhere.",
       "shared": "Result shared.",
       "copyError": "I couldn't copy it: select the grid by hand.",
@@ -1991,7 +1995,43 @@
         "good": "Well seen! Next.",
         "won": "Well done, good answer!",
         "over": "Failed this time. The next one will be the good one!"
-      }
+      },
+      "shareScore": "Share my score",
+      "sharePitch": "I scored {score} on MLBBDex Quiz #{n}. Can you beat me?",
+      "rankLabel": "Rank:",
+      "ranks": {
+        "warrior": "Warrior",
+        "elite": "Elite",
+        "master": "Master",
+        "grandmaster": "Grandmaster",
+        "epic": "Epic",
+        "legend": "Legend",
+        "mythic": "Mythic",
+        "glory": "Mythical Glory"
+      },
+      "duel": {
+        "beat": "Beat {name}'s score: {score}",
+        "beatAnon": "Beat your friend's score: {score}",
+        "today": "Same questions as your friend. It's today's challenge, so it counts towards your streak.",
+        "past": "A challenge from another day: it doesn't count towards your streak.",
+        "won": "You beat {name}'s {score}!",
+        "wonAnon": "You beat your friend's {score}!",
+        "tie": "Tied with {name} at {score}.",
+        "tieAnon": "Tied with your friend at {score}.",
+        "lost": "{name} keeps the lead with {score}. Send them your own challenge!",
+        "lostAnon": "Your friend keeps the lead with {score}. Send them your own challenge!"
+      },
+      "playToday": "Play today's challenge",
+      "challengeFriend": "Challenge a friend",
+      "challengeTitle": "MLBBDex Quiz challenge",
+      "challengeCopied": "Challenge link copied: send it to a friend.",
+      "challengeShared": "Challenge sent.",
+      "nameLabel": "Your name on the challenge (optional)",
+      "namePlaceholder": "Nickname",
+      "streakDays": "Daily streak: {n}",
+      "streakDone": "played today, come back tomorrow",
+      "streakKeep": "play today's challenge to keep it",
+      "streakStart": "play every day to build a streak"
     },
     "tierMaker": {
       "title": "MLBB tier list maker",
@@ -6909,6 +6949,20 @@
       "small": "Small sample: {n} heroes measured.",
       "measured": "heroes measured",
       "dex": "Here's what the patch really changed, numbers in hand."
+    },
+    "quiz": {
+      "kicker": "MLBBDex Quiz · #{n}",
+      "subtitle": "Daily challenge: {score}",
+      "points": "points",
+      "toBeat": "score to beat",
+      "duelKicker": "MLBBDex Quiz · challenge #{n}",
+      "duelTitle": "Can you beat {score}?",
+      "duelSubtitle": "Same five rounds, same questions. Your turn.",
+      "dexDuel": "Skill, skin, lore, item and a win-rate duel. Show what you know!",
+      "dexPerfect": "A perfect score? I'm speechless!",
+      "dexGood": "Strong run! Who can beat that?",
+      "dexMid": "Not bad! New questions tomorrow.",
+      "dexLow": "A tough one today. Think a friend can do better?"
     }
   },
   "socialKit": {
