@@ -6483,7 +6483,10 @@
       "emblem": "Mga emblem",
       "spell": "Mga Battle Spell"
     },
-    "dexEmpty": "Hmm, wala akong mahanap. Subukan ang ibang pangalan, o mas kaunting mga titik."
+    "dexEmpty": "Hmm, wala akong mahanap. Subukan ang ibang pangalan, o mas kaunting mga titik.",
+    "dexClosest": "Hindi iyon ang pangalan, ngunit ang mga ito ay malapit na. Isa ba ito sa kanila?",
+    "closest": "Baka hinahanap mo",
+    "clear": "I-clear ang paghahanap"
   },
   "heroData": {
     "resource": {

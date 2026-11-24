@@ -82,6 +82,7 @@ export function PosterHeader({
               alt=""
               fill
               priority
+              fetchPriority="high"
               sizes="(min-width: 1024px) 72vw, 100vw"
               className="affiche-art object-cover"
               style={{ objectPosition: position }}
@@ -103,6 +104,7 @@ export function PosterHeader({
                     alt=""
                     fill
                     priority={i < 3}
+                    fetchPriority={i < 3 ? "high" : undefined}
                     sizes="(min-width: 1024px) 18vw, 34vw"
                     className="skew-x-[9deg] scale-[1.22] object-cover object-[50%_22%]"
                   />

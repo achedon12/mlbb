@@ -6483,7 +6483,10 @@
       "emblem": "Emblèmes",
       "spell": "Sorts de combat"
     },
-    "dexEmpty": "Hmm, je ne trouve rien. Essaie un autre nom, ou moins de lettres."
+    "dexEmpty": "Hmm, je ne trouve rien. Essaie un autre nom, ou moins de lettres.",
+    "dexClosest": "Pas ce nom-là, mais ceux-ci s'en approchent. C'était l'un d'eux ?",
+    "closest": "Tu cherchais peut-être",
+    "clear": "Effacer la recherche"
   },
   "heroData": {
     "resource": {

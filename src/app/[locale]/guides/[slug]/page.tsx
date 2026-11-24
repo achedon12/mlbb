@@ -73,7 +73,7 @@ export default async function GuidePage({ params }: Params) {
       <section aria-labelledby="guide-title" className="relative isolate overflow-hidden">
         <div aria-hidden className="relative h-[19rem] sm:h-[26rem] lg:h-[32rem]">
           {art && (
-            <Image src={art} alt="" fill priority sizes="100vw" className="affiche-art object-cover object-[60%_24%]" />
+            <Image src={art} alt="" fill priority fetchPriority="high" sizes="100vw" className="affiche-art object-cover object-[60%_24%]" />
           )}
           <div className="absolute inset-x-0 bottom-0 h-4/5 bg-linear-to-t from-night-950 via-night-950/75 to-transparent" />
           <div className="absolute inset-y-0 left-0 hidden w-3/5 bg-linear-to-r from-night-950/85 to-transparent lg:block" />

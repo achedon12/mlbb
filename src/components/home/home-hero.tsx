@@ -147,6 +147,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
                 alt=""
                 fill
                 priority
+                fetchPriority="high"
                 sizes="(min-width: 1024px) 72vw, 100vw"
                 className="affiche-art object-cover object-[62%_22%]"
               />

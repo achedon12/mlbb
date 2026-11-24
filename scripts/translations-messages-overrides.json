@@ -7516,6 +7516,18 @@
       "fr": "L'apparence StarLight et les événements du mois sont là. Voir les nouveautés.",
       "text": "The StarLight skin and the month's events are out. See what's new."
     },
+    "search.dexClosest": {
+      "fr": "Pas ce nom-là, mais ceux-ci s'en approchent. C'était l'un d'eux ?",
+      "text": "Not that name, but one of these is close. Was it one of them?"
+    },
+    "search.closest": {
+      "fr": "Tu cherchais peut-être",
+      "text": "Did you mean"
+    },
+    "search.clear": {
+      "fr": "Effacer la recherche",
+      "text": "Clear the search"
+    },
     "accountSync.reminderElsewhere": {
       "fr": "Rappel programmé sur un autre de vos appareils.",
       "text": "Reminder set on another of your devices."

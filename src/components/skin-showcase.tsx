@@ -84,7 +84,7 @@ export function ShowcaseArt({
 }) {
   const { active, chosen } = useSkin();
   const source = chosen ? (active.illustration ?? fallback) : fallback;
-  return <Image key={source} src={source} alt="" fill priority={!chosen} sizes={sizes} className={className} />;
+  return <Image key={source} src={source} alt="" fill priority={!chosen} fetchPriority={chosen ? undefined : "high"} sizes={sizes} className={className} />;
 }
 
 /**

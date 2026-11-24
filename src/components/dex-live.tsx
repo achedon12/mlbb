@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useT } from "@/i18n/provider";
+import { afterLoad } from "@/lib/idle";
 import { cn } from "@/lib/utils";
 import type { DexPose } from "@/components/mascot";
 
@@ -143,17 +144,27 @@ export function DexLive({ pose, width, height, alt, priority, still }: {
     const el = root.current;
     if (!el) return;
     let waved = false;
+    let cancelIdle = () => {};
     const io = new IntersectionObserver(([entry]) => {
       visible.current = entry.isIntersecting;
       if (!entry.isIntersecting) return;
       setSeen(true);
       if (waved || still || reducedMotion()) return;
       waved = true;
-      setExtra(PRELOAD);
-      acting.current.push(setTimeout(() => perform(WAVE), 900));
+      // His other drawings (ten images) and the wave wait until the page has
+      // loaded and the main thread is idle: on a phone they would otherwise
+      // share the network with the poster art (the LCP) and add renders to
+      // hydration.
+      cancelIdle = afterLoad(() => {
+        setExtra(PRELOAD);
+        acting.current.push(setTimeout(() => perform(WAVE), 900));
+      });
     }, { threshold: 0.3 });
     io.observe(el);
-    return () => io.disconnect();
+    return () => {
+      io.disconnect();
+      cancelIdle();
+    };
   }, [still, perform]);
 
   useEffect(() => {

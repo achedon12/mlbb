@@ -3,6 +3,7 @@
 import { useEffect, useSyncExternalStore } from "react";
 import { WifiOff } from "lucide-react";
 import { useLocale, useT } from "@/i18n/provider";
+import { afterLoad } from "@/lib/idle";
 
 /**
  * Offline browsing.
@@ -31,20 +32,25 @@ export function Offline() {
   const locale = useLocale();
   const online = useSyncExternalStore(subscribe, () => navigator.onLine, () => true);
 
+  // Not before the page has loaded: on a first visit the worker's install
+  // fetches the offline pages and the prewarm ten sections, which would share
+  // a phone's bandwidth with the page's own art and scripts.
   useEffect(() => {
     if (process.env.NODE_ENV !== "production" || !("serviceWorker" in navigator)) return;
-    navigator.serviceWorker
-      .register("/sw.js")
-      .then(() => navigator.serviceWorker.ready)
-      .then((record) => {
-        record.active?.postMessage({
-          type: "prewarm",
-          urls: SECTIONS.map((path) => `/${locale}${path}`),
+    return afterLoad(() => {
+      navigator.serviceWorker
+        .register("/sw.js")
+        .then(() => navigator.serviceWorker.ready)
+        .then((record) => {
+          record.active?.postMessage({
+            type: "prewarm",
+            urls: SECTIONS.map((path) => `/${locale}${path}`),
+          });
+        })
+        .catch(() => {
+          /* without a service worker, the site simply works online */
         });
-      })
-      .catch(() => {
-        /* without a service worker, the site simply works online */
-      });
+    }, 5000);
   }, [locale]);
 
   if (online) return null;
