@@ -5019,6 +5019,69 @@
         "logo": "Descargar logotipo: horizontal (SVG)",
         "stacked": "Descargar logo: apilado (SVG)"
       }
+    },
+    "patchRecap": {
+      "seoTitle": "Revisión del parche {v}: ganadores, perdedores y sorpresas",
+      "description": "Qué parche {v} cambió realmente: {n} héroes medidos durante los {days} días antes y después del lanzamiento, mayores ganadores, perdedores y sorpresas.",
+      "descriptionNone": "Revisión del parche Mobile Legends {v}: tasas de victoria antes y después de su lanzamiento, tan pronto como las lecturas lo permitan.",
+      "share": "Los resultados del parche {v}: quién ganó, quién perdió y las sorpresas.",
+      "crumb": "Balance",
+      "kicker": "Revisión del parche",
+      "lead": "Lo que realmente hizo el parche para ganar tasas: el promedio de {days} días antes del lanzamiento versus {days} días después, héroe por héroe.",
+      "back": "Lea las notas del parche",
+      "link": "Ver el informe del parche",
+      "linkVersion": "Revisión del parche {v}",
+      "linkLead": "Ganadores, perdedores y sorpresas: el parche medido en función de las tasas de victorias.",
+      "facts": {
+        "adjusted": "{n} héroes modificados",
+        "measured": "{n} héroes medidos",
+        "date": "Publicado el {date}"
+      },
+      "young": "El parche aún es reciente: algunos héroes tienen menos de {days} días medidos desde su lanzamiento. El balance aún puede cambiar.",
+      "sample": {
+        "noneSoon": "Aún no hay mediciones: se requieren al menos cuatro días de lecturas después del lanzamiento del parche. Los resultados se escribirán solos en unos días.",
+        "noneOld": "No hay mediciones para este parche: nuestras lecturas diarias no cubren los {days} días que lo rodean. Las notas del parche siguen siendo legibles en su totalidad.",
+        "small": "Muestra reducida: solo los héroes {n} tienen lecturas en ambos lados del parche. Lea esta reseña como una tendencia, no como un veredicto."
+      },
+      "chapter": "Capítulo {n}",
+      "winners": {
+        "title": "Los grandes ganadores",
+        "lead": "Los mayores aumentos en la tasa de ganancias, más allá del ruido de medición.",
+        "empty": "Ningún héroe medido ganó {threshold} puntos o más: nadie sale mejor de este parche."
+      },
+      "losers": {
+        "title": "Los grandes perdedores",
+        "lead": "Las mayores caídas en la tasa de ganancias, más allá del ruido de las mediciones.",
+        "empty": "Ningún héroe mesurado perdió {threshold} puntos o más: el parche no castigó a nadie."
+      },
+      "surprises": {
+        "title": "las sorpresas",
+        "lead": "Un beneficio que te hace perder, un nerf que te hace ganar: donde el parche no hizo lo que anunció.",
+        "empty": "No es de extrañar: cada mejora y debilitación medida fue en la dirección anunciada o no cambió nada.",
+        "flatTitle": "nada se ha movido",
+        "flatLead": "Modificado, pero su porcentaje de victorias se mantuvo en el ruido (menos de {threshold} diferencia de puntos)."
+      },
+      "impact": "{before} → {after}",
+      "averages": "En promedio, las mejoras medidas obtuvieron {buff} y las nerfs {nerf}, en puntos de índice de victorias.",
+      "averagesBuff": "En promedio, las mejoras medidas obtuvieron {buff}, en puntos de tasa de victorias.",
+      "averagesNerf": "En promedio, los nerfs medidos obtuvieron {nerf}, en puntos de tasa de victorias.",
+      "dex": {
+        "intro": "Resumí el parche {v} en tres capítulos. Las cifras hablan, comento.",
+        "small": "Pocos héroes midieron esta vez: tomen estas cifras con una pizca de sal.",
+        "noneSoon": "Mis lecturas aún no tienen suficiente perspectiva sobre este parche. ¡Vuelve en unos días!",
+        "noneOld": "Este parche es más antiguo que mis lecturas diarias: no puedo medirlo.",
+        "winners": "{hero} se va volando: {gap} {unit} en una semana. Si lo juegas, ahora es el momento.",
+        "winnersEmpty": "En realidad nadie despega. Una zona tranquila para los ganadores.",
+        "losers": "{hero} retrocede {gap} {unit}. Si esta es tu mano, echa un vistazo a sus configuraciones actuales.",
+        "losersEmpty": "Sin caída clara: buenas noticias para tus manos.",
+        "surpriseBuff": "{hero} recibió una mejora... y su tasa bajó. ¡Un parche no siempre hace lo que dice!",
+        "surpriseNerf": "{hero} ha sido debilitado... y gana más que antes. Los números son tercos.",
+        "surprisesEmpty": "Esta vez no sorprende: el parche hizo lo que decía.",
+        "outro": "El próximo parche reorganizará las cartas. ¡Te mantendré informado!"
+      },
+      "method": "como se mide",
+      "methodText": "Para cada héroe modificado: el promedio de su tasa de victoria, todos los rangos combinados, durante los {days} días antes del lanzamiento del parche y durante los {days} días posteriores, excluyendo el mismo día. Se necesitan al menos cuatro días medidos por cada lado. Una desviación inferior a {threshold} puntos se considera ruido. Un ritmo que cambia no dice por qué: el meta, otros héroes y jugadores también cambian.",
+      "notes": "¿Quieres los detalles de cada cambio?"
     }
   },
   "modeSheet": {
@@ -6655,6 +6718,64 @@
     "languages": {
       "title": "{n} idiomas",
       "text": "Escrito en francés y traducido automáticamente a {others} otros idiomas. Qué se traduce y cómo se detalla en la página de fuentes."
+    }
+  },
+  "shareImage": {
+    "button": "Compartir en imagen",
+    "preparing": "Preparando la imagen...",
+    "shared": "Imagen compartida.",
+    "saved": "Imagen guardada.",
+    "savedCopied": "Imagen guardada, enlace copiado.",
+    "error": "No se puede crear la imagen. Inténtalo de nuevo en un momento.",
+    "landscape": "Formato de enlace (1200 × 630)",
+    "hint": "Imagen de 1080 × 1350, lista para una historia o publicación."
+  },
+  "shareCard": {
+    "build": {
+      "kicker": "Construir · {roles}",
+      "title": "Construir {hero}",
+      "level": "Nivel {n}",
+      "dex": "Esta compilación está lista: ábrela en el simulador para ver sus estadísticas."
+    },
+    "draft": {
+      "kicker": "Borrador · {rank}",
+      "title": "mi borrador",
+      "blue": "Equipo azul",
+      "red": "Equipo rojo",
+      "estimate": "posibilidades estimadas",
+      "dexBlue": "Ventaja para los azules en el papel. ¡Solo juega!",
+      "dexRed": "Los rojos parten delante. También se gana un draft en juego.",
+      "dexEven": "Draft ajustado: todo se decidirá en parte.",
+      "dexNone": "Vuelva a reproducir este borrador en MLBBDex y compare sus opciones."
+    },
+    "tierList": {
+      "kicker": "Parche {v} · {month}",
+      "dex": "Los niveles se recalculan en cada lectura de tasa."
+    },
+    "mlbbdle": {
+      "kicker": "Juego del día · {mode}",
+      "title": "MLBBdle # {n}",
+      "found": {
+        "one": "Encontrado en el primer intento.",
+        "other": "Encontrado en {n} ensayos"
+      },
+      "more": "+{n} pruebas no mostradas",
+      "streak": "días seguidos",
+      "guesses": {
+        "one": "ensayo",
+        "other": "pruebas"
+      },
+      "dexPerfect": "¿En el primer intento? ¡No lo vi venir!",
+      "dexGood": "¡Bien hecho! El héroe del mañana te está esperando.",
+      "dexLong": "Teníamos que encontrar ese. Bien hecho !"
+    },
+    "recap": {
+      "winners": "Ganadores",
+      "losers": "Perdedores",
+      "none": "Aún no hay suficientes lecturas para medir este parche.",
+      "small": "Muestra reducida: {n} héroes medidos.",
+      "measured": "héroes medidos",
+      "dex": "Esto es lo que realmente ha cambiado el parche, con cifras que lo respaldan."
     }
   }
 }

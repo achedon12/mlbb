@@ -5019,6 +5019,69 @@
         "logo": "Unduh logo: horisontal (SVG)",
         "stacked": "Unduh logo: bertumpuk (SVG)"
       }
+    },
+    "patchRecap": {
+      "seoTitle": "Ulasan patch {v}: pemenang, pecundang, dan kejutan",
+      "description": "Patch {v} apa yang benar-benar berubah: {n} hero diukur selama {days} hari sebelum dan sesudah rilis, pemenang, pecundang, dan kejutan terbesar.",
+      "descriptionNone": "Ulasan patch Mobile Legends {v}: win rate sebelum dan sesudah dirilis, segera setelah pembacaan memungkinkan.",
+      "share": "Hasil patch {v}: siapa yang menang, siapa yang kalah, dan kejutannya.",
+      "crumb": "Rekor",
+      "kicker": "Ulasan patch",
+      "lead": "Apa yang sebenarnya dilakukan patch untuk memenangkan tingkat: rata-rata {days} hari sebelum rilis versus {days} hari setelahnya, hero demi hero.",
+      "back": "Baca patch notes",
+      "link": "Lihat laporan patch",
+      "linkVersion": "Tinjauan patch {v}",
+      "linkLead": "Pemenang, pecundang, dan kejutan: patch diukur berdasarkan win rate.",
+      "facts": {
+        "adjusted": "{n} hero yang dimodifikasi",
+        "measured": "{n} hero diukur",
+        "date": "Dirilis pada {date}"
+      },
+      "young": "Patch ini masih baru: beberapa hero memiliki waktu kurang dari {days} hari sejak dirilis. Neraca masih bisa berubah.",
+      "sample": {
+        "noneSoon": "Belum ada pengukuran: setidaknya diperlukan empat hari pembacaan setelah patch dirilis. Hasilnya akan terlihat sendiri dalam beberapa hari.",
+        "noneOld": "Tidak ada pengukuran untuk patch ini: pembacaan harian kami tidak mencakup {days} hari di sekitarnya. Patch notes tetap dapat dibaca secara penuh.",
+        "small": "Sampel yang dikurangi: hanya hero {n} yang memiliki pembacaan di kedua sisi patch. Baca ulasan ini sebagai tren, bukan putusan."
+      },
+      "chapter": "Bab {n}",
+      "winners": {
+        "title": "Pemenang besar",
+        "lead": "Peningkatan terbesar dalam win rate, di luar kebisingan pengukuran.",
+        "empty": "Tidak ada hero terukur yang memperoleh {threshold} poin atau lebih: tidak ada yang benar-benar keluar dari patch ini dengan lebih baik."
+      },
+      "losers": {
+        "title": "Para pecundang besar",
+        "lead": "Penurunan terbesar dalam win rate, melebihi kebisingan pengukuran.",
+        "empty": "Tidak ada hero terukur yang kehilangan {threshold} poin atau lebih: patch tidak menghukum siapa pun."
+      },
+      "surprises": {
+        "title": "Kejutannya",
+        "lead": "Buff yang membuat Anda kalah, nerf yang membuat Anda menang: dimana patch tidak melakukan apa yang diumumkan.",
+        "empty": "Tidak mengherankan: setiap buff dan nerf yang diukur mendorong ke arah yang diumumkan, atau tidak mengubah apa pun.",
+        "flatTitle": "Tidak ada yang bergerak",
+        "flatLead": "Dimodifikasi, tetapi win rate mereka tetap tidak berubah (selisih kurang dari {threshold} poin)."
+      },
+      "impact": "{before} → {after}",
+      "averages": "Rata-rata, buff terukur mendapat skor {buff} dan nerf {nerf}, dalam poin win rate.",
+      "averagesBuff": "Rata-rata, buff terukur menghasilkan {buff}, dalam poin win rate.",
+      "averagesNerf": "Rata-rata, nerf terukur menghasilkan {nerf}, dalam poin win rate.",
+      "dex": {
+        "intro": "Saya merangkum patch {v} untuk Anda dalam tiga bab. Angka-angka itu berbicara, saya berkomentar.",
+        "small": "Beberapa hero mengukur kali ini: ambillah angka-angka ini dengan sedikit garam.",
+        "noneSoon": "Pembacaan saya belum memiliki cukup perspektif tentang patch ini. Kembalilah dalam beberapa hari!",
+        "noneOld": "Patch ini lebih tua dari pembacaan harian saya: Saya tidak dapat mengukurnya.",
+        "winners": "{hero} terbang menjauh: {gap} {unit} dalam seminggu. Jika Anda memainkannya, sekaranglah waktunya.",
+        "winnersEmpty": "Tidak ada yang benar-benar lepas landas. Masa tenang bagi para pemenang.",
+        "losers": "{hero} mundur {gap} {unit}. Jika ini adalah tangan Anda, lihatlah buildnya saat ini.",
+        "losersEmpty": "Tidak jelas kejatuhannya: kabar baik untuk tangan Anda.",
+        "surpriseBuff": "{hero} menerima buff… dan nilainya turun. Sebuah patch tidak selalu sesuai dengan apa yang dikatakannya!",
+        "surpriseNerf": "{hero} telah di-nerf... dan memperoleh keuntungan lebih dari sebelumnya. Jumlahnya keras kepala.",
+        "surprisesEmpty": "Tidak mengherankan kali ini: patch tersebut melakukan apa yang dikatakannya.",
+        "outro": "Patch berikutnya akan merombak kartu. Saya akan terus memberi tahu Anda!"
+      },
+      "method": "Bagaimana cara mengukurnya",
+      "methodText": "Untuk setiap hero yang dimodifikasi: rata-rata win ratenya, semua peringkat digabungkan, selama {days} hari sebelum rilis patch dan selama {days} hari setelahnya, tidak termasuk hari yang sama. Dibutuhkan setidaknya empat hari diukur di setiap sisi. Penyimpangan kurang dari {threshold} poin dianggap kebisingan. Nilai yang berubah tidak menjelaskan alasannya: meta, hero lain, dan pemain juga berubah.",
+      "notes": "Ingin detail setiap perubahan?"
     }
   },
   "modeSheet": {
@@ -6655,6 +6718,64 @@
     "languages": {
       "title": "{n} bahasa",
       "text": "Ditulis dalam bahasa Prancis dan otomatis diterjemahkan ke {others} bahasa lain. Apa yang diterjemahkan, dan bagaimana caranya, dirinci di halaman sumber."
+    }
+  },
+  "shareImage": {
+    "button": "Bagikan dalam gambar",
+    "preparing": "Mempersiapkan gambar…",
+    "shared": "Gambar dibagikan.",
+    "saved": "Gambar disimpan.",
+    "savedCopied": "Gambar disimpan, tautan disalin.",
+    "error": "Tidak dapat membuat gambar. Coba lagi sebentar lagi.",
+    "landscape": "Format tautan (1200 × 630)",
+    "hint": "Gambar 1080 × 1350, siap untuk cerita atau postingan."
+  },
+  "shareCard": {
+    "build": {
+      "kicker": "Bangun · {roles}",
+      "title": "Bangun {hero}",
+      "level": "Level {n}",
+      "dex": "Build ini sudah siap: buka di simulator untuk melihat statistiknya."
+    },
+    "draft": {
+      "kicker": "Draft · {rank}",
+      "title": "Draft saya",
+      "blue": "Tim Biru",
+      "red": "Tim Merah",
+      "estimate": "perkiraan peluang",
+      "dexBlue": "Keuntungan dari musik blues di atas kertas. Mainkan saja!",
+      "dexRed": "Warna merah dimulai dari depan. Draft juga dimenangkan dalam permainan.",
+      "dexEven": "Draft yang ketat: semuanya akan diputuskan sebagian.",
+      "dexNone": "Putar ulang draft ini di MLBBDex dan bandingkan pilihan Anda."
+    },
+    "tierList": {
+      "kicker": "Patch {v} · {month}",
+      "dex": "Level dihitung ulang pada setiap pembacaan tarif."
+    },
+    "mlbbdle": {
+      "kicker": "Pertandingan hari ini · {mode}",
+      "title": "MLBBdle # {n}",
+      "found": {
+        "one": "Ditemukan pada percobaan pertama",
+        "other": "Ditemukan dalam uji coba {n}"
+      },
+      "more": "+{n} tes tidak ditampilkan",
+      "streak": "hari berturut-turut",
+      "guesses": {
+        "one": "karangan",
+        "other": "tes"
+      },
+      "dexPerfect": "Pada percobaan pertama? Saya tidak menyangka ini akan terjadi!",
+      "dexGood": "Bagus sekali! Hero masa depan sedang menunggumu.",
+      "dexLong": "Kami harus menemukan yang itu. Bagus sekali !"
+    },
+    "recap": {
+      "winners": "Pemenang",
+      "losers": "Pecundang",
+      "none": "Pembacaan belum cukup untuk mengukur patch ini.",
+      "small": "Sampel yang dikurangi: {n} hero diukur.",
+      "measured": "hero terukur",
+      "dex": "Inilah yang benar-benar diubah oleh patch tersebut, dengan angka-angka yang mendukungnya."
     }
   }
 }

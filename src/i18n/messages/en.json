@@ -5019,6 +5019,69 @@
         "logo": "Download logo: horizontal (SVG)",
         "stacked": "Download logo: stacked (SVG)"
       }
+    },
+    "patchRecap": {
+      "seoTitle": "Patch {v} recap: winners, losers and surprises",
+      "description": "What patch {v} really changed: {n} heroes measured over the {days} days before and after its release, the biggest winners, the losers and the surprises.",
+      "descriptionNone": "Mobile Legends patch {v} recap: win rates before and after its release, as soon as the measurements allow.",
+      "share": "Patch {v} recap: who won, who lost, and the surprises.",
+      "crumb": "Recap",
+      "kicker": "Patch recap",
+      "lead": "What the patch really did to win rates: the average of the {days} days before its release against the {days} days after, hero by hero.",
+      "back": "Read the patch notes",
+      "link": "See the patch recap",
+      "linkVersion": "Patch {v} recap",
+      "linkLead": "Winners, losers and surprises: the patch measured on win rates.",
+      "facts": {
+        "adjusted": "{n} heroes changed",
+        "measured": "{n} heroes measured",
+        "date": "Released on {date}"
+      },
+      "young": "The patch is still recent: some heroes have fewer than {days} days measured since its release. The recap may still move.",
+      "sample": {
+        "noneSoon": "No measurement yet: it takes at least four days of readings after the patch's release. The recap will write itself in a few days.",
+        "noneOld": "No measurement for this patch: our daily readings don't cover the {days} days around it. The patch notes can still be read in full.",
+        "small": "Small sample: only {n} heroes have readings on both sides of the patch. Read this recap as a trend, not a verdict."
+      },
+      "chapter": "Chapter {n}",
+      "winners": {
+        "title": "The big winners",
+        "lead": "The largest win rate rises, beyond measurement noise.",
+        "empty": "No measured hero gained {threshold} points or more: nobody really comes out of this patch stronger."
+      },
+      "losers": {
+        "title": "The big losers",
+        "lead": "The largest win rate drops, beyond measurement noise.",
+        "empty": "No measured hero lost {threshold} points or more: the patch punished nobody."
+      },
+      "surprises": {
+        "title": "The surprises",
+        "lead": "A buff that loses, a nerf that wins: where the patch didn't do what it announced.",
+        "empty": "No surprise: every measured buff and nerf pushed the announced way, or changed nothing.",
+        "flatTitle": "Nothing moved",
+        "flatLead": "Changed, but their win rate stayed within the noise (less than {threshold} points apart)."
+      },
+      "impact": "{before} → {after}",
+      "averages": "On average, measured buffs did {buff} and nerfs {nerf}, in win rate points.",
+      "averagesBuff": "On average, measured buffs did {buff}, in win rate points.",
+      "averagesNerf": "On average, measured nerfs did {nerf}, in win rate points.",
+      "dex": {
+        "intro": "I've summed up patch {v} for you in three chapters. The numbers talk, I comment.",
+        "small": "Few heroes measured this time: take these numbers with a grain of salt.",
+        "noneSoon": "My readings don't have enough hindsight on this patch yet. Come back in a few days!",
+        "noneOld": "This patch is older than my daily readings: I can't measure it.",
+        "winners": "{hero} takes off: {gap} {unit} in a week. If you play them, now's the time.",
+        "winnersEmpty": "Nobody really takes off. A quiet patch for winners.",
+        "losers": "{hero} drops {gap} {unit}. If that's your main, check their current builds.",
+        "losersEmpty": "No clear drop: good news for your mains.",
+        "surpriseBuff": "{hero} got a buff… and their win rate went down. A patch doesn't always do what it says!",
+        "surpriseNerf": "{hero} got nerfed… and wins more than before. Numbers are stubborn.",
+        "surprisesEmpty": "No surprise this time: the patch did what it announced.",
+        "outro": "The next patch will shuffle the cards again. I'll keep you posted!"
+      },
+      "method": "How it's measured",
+      "methodText": "For each changed hero: their average win rate, all ranks combined, over the {days} days before the patch's release and the {days} days after, the release day excluded. At least four measured days are needed on each side. A gap under {threshold} points counts as noise. A rate that moves doesn't say why: the meta, other heroes and players change too.",
+      "notes": "Want the detail of every change?"
     }
   },
   "modeSheet": {
@@ -6655,6 +6718,64 @@
     "languages": {
       "title": "{n} languages",
       "text": "Written in French and machine-translated into {others} other languages. What is translated, and how, is detailed on the sources page."
+    }
+  },
+  "shareImage": {
+    "button": "Share as image",
+    "preparing": "Preparing the image…",
+    "shared": "Image shared.",
+    "saved": "Image saved.",
+    "savedCopied": "Image saved, link copied.",
+    "error": "Couldn't create the image. Try again in a moment.",
+    "landscape": "Link format (1200 × 630)",
+    "hint": "1080 × 1350 image, ready for a story or a post."
+  },
+  "shareCard": {
+    "build": {
+      "kicker": "Build · {roles}",
+      "title": "{hero} build",
+      "level": "Level {n}",
+      "dex": "This build is ready: open it in the simulator to see its stats."
+    },
+    "draft": {
+      "kicker": "Draft · {rank}",
+      "title": "My draft",
+      "blue": "Blue team",
+      "red": "Red team",
+      "estimate": "estimated chances",
+      "dexBlue": "Blue has the edge on paper. Now go play it!",
+      "dexRed": "Red starts ahead. A draft is also won in game.",
+      "dexEven": "A tight draft: it will all come down to the game.",
+      "dexNone": "Replay this draft on MLBBDex and compare your picks."
+    },
+    "tierList": {
+      "kicker": "Patch {v} · {month}",
+      "dex": "Tiers are recalculated every time the rates are measured."
+    },
+    "mlbbdle": {
+      "kicker": "Daily game · {mode}",
+      "title": "MLBBdle #{n}",
+      "found": {
+        "one": "Found on the first try",
+        "other": "Found in {n} guesses"
+      },
+      "more": "+{n} guesses not shown",
+      "streak": "days in a row",
+      "guesses": {
+        "one": "guess",
+        "other": "guesses"
+      },
+      "dexPerfect": "First try? I didn't see that coming!",
+      "dexGood": "Well played! Tomorrow's hero is waiting for you.",
+      "dexLong": "That one was a tough find. Well done!"
+    },
+    "recap": {
+      "winners": "Winners",
+      "losers": "Losers",
+      "none": "Not enough measurements yet to assess this patch.",
+      "small": "Small sample: {n} heroes measured.",
+      "measured": "heroes measured",
+      "dex": "Here's what the patch really changed, numbers in hand."
     }
   }
 }

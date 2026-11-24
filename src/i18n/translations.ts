@@ -34,7 +34,7 @@ export type { Tree, T };
  */
 const SERVER_ONLY = [
   "modeSheet", "story", "home", "featured", "access", "prose", "newHero", "articleUI", "articleCategory",
-  "heroData", "pushNotif", "why", "editorial",
+  "heroData", "pushNotif", "why", "editorial", "shareCard",
 ];
 
 const isTree = (x: unknown): x is Tree => typeof x === "object" && x !== null && !Array.isArray(x);

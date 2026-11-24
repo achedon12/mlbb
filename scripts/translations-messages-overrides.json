@@ -6411,6 +6411,362 @@
     "pages.dexPage.poses.dodo.text": {
       "fr": "Si tu ne bouges plus pendant un moment, il s'endort. Bouge et il se réveille en sursaut.",
       "text": "If you stop moving for a while, he falls asleep. Move and he wakes with a start."
+    },
+    "shareImage.button": {
+      "fr": "Partager en image",
+      "text": "Share as image"
+    },
+    "shareImage.preparing": {
+      "fr": "Préparation de l'image…",
+      "text": "Preparing the image…"
+    },
+    "shareImage.shared": {
+      "fr": "Image partagée.",
+      "text": "Image shared."
+    },
+    "shareImage.saved": {
+      "fr": "Image enregistrée.",
+      "text": "Image saved."
+    },
+    "shareImage.savedCopied": {
+      "fr": "Image enregistrée, lien copié.",
+      "text": "Image saved, link copied."
+    },
+    "shareImage.error": {
+      "fr": "Impossible de créer l'image. Réessaie dans un instant.",
+      "text": "Couldn't create the image. Try again in a moment."
+    },
+    "shareImage.landscape": {
+      "fr": "Format lien (1200 × 630)",
+      "text": "Link format (1200 × 630)"
+    },
+    "shareImage.hint": {
+      "fr": "Image 1080 × 1350, prête pour une story ou un post.",
+      "text": "1080 × 1350 image, ready for a story or a post."
+    },
+    "shareCard.build.kicker": {
+      "fr": "Build · {roles}",
+      "text": "Build · {roles}"
+    },
+    "shareCard.build.title": {
+      "fr": "Build {hero}",
+      "text": "{hero} build"
+    },
+    "shareCard.build.level": {
+      "fr": "Niveau {n}",
+      "text": "Level {n}"
+    },
+    "shareCard.build.dex": {
+      "fr": "Ce build est prêt : ouvre-le dans le simulateur pour voir ses stats.",
+      "text": "This build is ready: open it in the simulator to see its stats."
+    },
+    "shareCard.draft.kicker": {
+      "fr": "Draft · {rank}",
+      "text": "Draft · {rank}"
+    },
+    "shareCard.draft.title": {
+      "fr": "Ma draft",
+      "text": "My draft"
+    },
+    "shareCard.draft.blue": {
+      "fr": "Équipe bleue",
+      "text": "Blue team"
+    },
+    "shareCard.draft.red": {
+      "fr": "Équipe rouge",
+      "text": "Red team"
+    },
+    "shareCard.draft.estimate": {
+      "fr": "chances estimées",
+      "text": "estimated chances"
+    },
+    "shareCard.draft.dexBlue": {
+      "fr": "Avantage aux bleus sur le papier. Reste à le jouer !",
+      "text": "Blue has the edge on paper. Now go play it!"
+    },
+    "shareCard.draft.dexRed": {
+      "fr": "Les rouges partent devant. Une draft se gagne aussi en jeu.",
+      "text": "Red starts ahead. A draft is also won in game."
+    },
+    "shareCard.draft.dexEven": {
+      "fr": "Draft serrée : tout se jouera en partie.",
+      "text": "A tight draft: it will all come down to the game."
+    },
+    "shareCard.draft.dexNone": {
+      "fr": "Rejoue cette draft sur MLBBDex et compare tes choix.",
+      "text": "Replay this draft on MLBBDex and compare your picks."
+    },
+    "shareCard.tierList.kicker": {
+      "fr": "Patch {v} · {month}",
+      "text": "Patch {v} · {month}"
+    },
+    "shareCard.tierList.dex": {
+      "fr": "Les paliers sont recalculés à chaque relevé des taux.",
+      "text": "Tiers are recalculated every time the rates are measured."
+    },
+    "shareCard.mlbbdle.kicker": {
+      "fr": "Jeu du jour · {mode}",
+      "text": "Daily game · {mode}"
+    },
+    "shareCard.mlbbdle.title": {
+      "fr": "MLBBdle n° {n}",
+      "text": "MLBBdle #{n}"
+    },
+    "shareCard.mlbbdle.found.one": {
+      "fr": "Trouvé du premier coup",
+      "text": "Found on the first try"
+    },
+    "shareCard.mlbbdle.found.other": {
+      "fr": "Trouvé en {n} essais",
+      "text": "Found in {n} guesses"
+    },
+    "shareCard.mlbbdle.more": {
+      "fr": "+{n} essais non affichés",
+      "text": "+{n} guesses not shown"
+    },
+    "shareCard.mlbbdle.streak": {
+      "fr": "jours de suite",
+      "text": "days in a row"
+    },
+    "shareCard.mlbbdle.guesses.one": {
+      "fr": "essai",
+      "text": "guess"
+    },
+    "shareCard.mlbbdle.guesses.other": {
+      "fr": "essais",
+      "text": "guesses"
+    },
+    "shareCard.mlbbdle.dexPerfect": {
+      "fr": "Du premier coup ? Je n'ai rien vu venir !",
+      "text": "First try? I didn't see that coming!"
+    },
+    "shareCard.mlbbdle.dexGood": {
+      "fr": "Bien joué ! Le héros de demain t'attend.",
+      "text": "Well played! Tomorrow's hero is waiting for you."
+    },
+    "shareCard.mlbbdle.dexLong": {
+      "fr": "Il fallait le trouver, celui-là. Bravo !",
+      "text": "That one was a tough find. Well done!"
+    },
+    "shareCard.recap.winners": {
+      "fr": "Gagnants",
+      "text": "Winners"
+    },
+    "shareCard.recap.losers": {
+      "fr": "Perdants",
+      "text": "Losers"
+    },
+    "shareCard.recap.none": {
+      "fr": "Pas encore assez de relevés pour mesurer ce patch.",
+      "text": "Not enough measurements yet to assess this patch."
+    },
+    "shareCard.recap.small": {
+      "fr": "Échantillon réduit : {n} héros mesurés.",
+      "text": "Small sample: {n} heroes measured."
+    },
+    "shareCard.recap.measured": {
+      "fr": "héros mesurés",
+      "text": "heroes measured"
+    },
+    "shareCard.recap.dex": {
+      "fr": "Voilà ce que le patch a vraiment changé, chiffres à l'appui.",
+      "text": "Here's what the patch really changed, numbers in hand."
+    },
+    "pages.patchRecap.seoTitle": {
+      "fr": "Bilan du patch {v} : gagnants, perdants et surprises",
+      "text": "Patch {v} recap: winners, losers and surprises"
+    },
+    "pages.patchRecap.description": {
+      "fr": "Ce que le patch {v} a vraiment changé : {n} héros mesurés sur les {days} jours avant et après sa sortie, les plus grands gagnants, les perdants et les surprises.",
+      "text": "What patch {v} really changed: {n} heroes measured over the {days} days before and after its release, the biggest winners, the losers and the surprises."
+    },
+    "pages.patchRecap.descriptionNone": {
+      "fr": "Bilan du patch {v} de Mobile Legends : les taux de victoire avant et après sa sortie, dès que les relevés le permettent.",
+      "text": "Mobile Legends patch {v} recap: win rates before and after its release, as soon as the measurements allow."
+    },
+    "pages.patchRecap.share": {
+      "fr": "Le bilan du patch {v} : qui a gagné, qui a perdu, et les surprises.",
+      "text": "Patch {v} recap: who won, who lost, and the surprises."
+    },
+    "pages.patchRecap.crumb": {
+      "fr": "Bilan",
+      "text": "Recap"
+    },
+    "pages.patchRecap.kicker": {
+      "fr": "Bilan du patch",
+      "text": "Patch recap"
+    },
+    "pages.patchRecap.lead": {
+      "fr": "Ce que le patch a vraiment fait aux taux de victoire : la moyenne des {days} jours avant sa sortie face aux {days} jours après, héros par héros.",
+      "text": "What the patch really did to win rates: the average of the {days} days before its release against the {days} days after, hero by hero."
+    },
+    "pages.patchRecap.back": {
+      "fr": "Lire les notes du patch",
+      "text": "Read the patch notes"
+    },
+    "pages.patchRecap.link": {
+      "fr": "Voir le bilan du patch",
+      "text": "See the patch recap"
+    },
+    "pages.patchRecap.linkVersion": {
+      "fr": "Bilan du patch {v}",
+      "text": "Patch {v} recap"
+    },
+    "pages.patchRecap.linkLead": {
+      "fr": "Gagnants, perdants et surprises : le patch mesuré sur les taux de victoire.",
+      "text": "Winners, losers and surprises: the patch measured on win rates."
+    },
+    "pages.patchRecap.facts.adjusted": {
+      "fr": "{n} héros modifiés",
+      "text": "{n} heroes changed"
+    },
+    "pages.patchRecap.facts.measured": {
+      "fr": "{n} héros mesurés",
+      "text": "{n} heroes measured"
+    },
+    "pages.patchRecap.facts.date": {
+      "fr": "Sorti le {date}",
+      "text": "Released on {date}"
+    },
+    "pages.patchRecap.young": {
+      "fr": "Le patch est encore récent : certains héros ont moins de {days} jours mesurés depuis sa sortie. Le bilan peut encore bouger.",
+      "text": "The patch is still recent: some heroes have fewer than {days} days measured since its release. The recap may still move."
+    },
+    "pages.patchRecap.sample.noneSoon": {
+      "fr": "Pas encore de mesure : il faut au moins quatre jours de relevés après la sortie du patch. Le bilan s'écrira tout seul dans quelques jours.",
+      "text": "No measurement yet: it takes at least four days of readings after the patch's release. The recap will write itself in a few days."
+    },
+    "pages.patchRecap.sample.noneOld": {
+      "fr": "Pas de mesure pour ce patch : nos relevés quotidiens ne couvrent pas les {days} jours qui l'entourent. Les notes du patch restent lisibles en entier.",
+      "text": "No measurement for this patch: our daily readings don't cover the {days} days around it. The patch notes can still be read in full."
+    },
+    "pages.patchRecap.sample.small": {
+      "fr": "Échantillon réduit : seuls {n} héros ont des relevés des deux côtés du patch. Lis ce bilan comme une tendance, pas comme un verdict.",
+      "text": "Small sample: only {n} heroes have readings on both sides of the patch. Read this recap as a trend, not a verdict."
+    },
+    "pages.patchRecap.chapter": {
+      "fr": "Chapitre {n}",
+      "text": "Chapter {n}"
+    },
+    "pages.patchRecap.winners.title": {
+      "fr": "Les grands gagnants",
+      "text": "The big winners"
+    },
+    "pages.patchRecap.winners.lead": {
+      "fr": "Les plus fortes hausses du taux de victoire, au-delà du bruit de mesure.",
+      "text": "The largest win rate rises, beyond measurement noise."
+    },
+    "pages.patchRecap.winners.empty": {
+      "fr": "Aucun héros mesuré n'a gagné {threshold} point ou plus : personne ne sort vraiment grandi de ce patch.",
+      "text": "No measured hero gained {threshold} points or more: nobody really comes out of this patch stronger."
+    },
+    "pages.patchRecap.losers.title": {
+      "fr": "Les grands perdants",
+      "text": "The big losers"
+    },
+    "pages.patchRecap.losers.lead": {
+      "fr": "Les plus fortes baisses du taux de victoire, au-delà du bruit de mesure.",
+      "text": "The largest win rate drops, beyond measurement noise."
+    },
+    "pages.patchRecap.losers.empty": {
+      "fr": "Aucun héros mesuré n'a perdu {threshold} point ou plus : le patch n'a puni personne.",
+      "text": "No measured hero lost {threshold} points or more: the patch punished nobody."
+    },
+    "pages.patchRecap.surprises.title": {
+      "fr": "Les surprises",
+      "text": "The surprises"
+    },
+    "pages.patchRecap.surprises.lead": {
+      "fr": "Un buff qui fait perdre, un nerf qui fait gagner : là où le patch n'a pas fait ce qu'il annonçait.",
+      "text": "A buff that loses, a nerf that wins: where the patch didn't do what it announced."
+    },
+    "pages.patchRecap.surprises.empty": {
+      "fr": "Pas de surprise : chaque buff et chaque nerf mesuré a poussé dans le sens annoncé, ou n'a rien changé.",
+      "text": "No surprise: every measured buff and nerf pushed the announced way, or changed nothing."
+    },
+    "pages.patchRecap.surprises.flatTitle": {
+      "fr": "Rien n'a bougé",
+      "text": "Nothing moved"
+    },
+    "pages.patchRecap.surprises.flatLead": {
+      "fr": "Modifiés, mais leur taux de victoire est resté dans le bruit (moins de {threshold} point d'écart).",
+      "text": "Changed, but their win rate stayed within the noise (less than {threshold} points apart)."
+    },
+    "pages.patchRecap.impact": {
+      "fr": "{before} → {after}",
+      "text": "{before} → {after}"
+    },
+    "pages.patchRecap.averages": {
+      "fr": "En moyenne, les buffs mesurés ont fait {buff} et les nerfs {nerf}, en points de taux de victoire.",
+      "text": "On average, measured buffs did {buff} and nerfs {nerf}, in win rate points."
+    },
+    "pages.patchRecap.averagesBuff": {
+      "fr": "En moyenne, les buffs mesurés ont fait {buff}, en points de taux de victoire.",
+      "text": "On average, measured buffs did {buff}, in win rate points."
+    },
+    "pages.patchRecap.averagesNerf": {
+      "fr": "En moyenne, les nerfs mesurés ont fait {nerf}, en points de taux de victoire.",
+      "text": "On average, measured nerfs did {nerf}, in win rate points."
+    },
+    "pages.patchRecap.dex.intro": {
+      "fr": "Je t'ai résumé le patch {v} en trois chapitres. Les chiffres parlent, moi je commente.",
+      "text": "I've summed up patch {v} for you in three chapters. The numbers talk, I comment."
+    },
+    "pages.patchRecap.dex.small": {
+      "fr": "Peu de héros mesurés cette fois : prends ces chiffres avec des pincettes.",
+      "text": "Few heroes measured this time: take these numbers with a grain of salt."
+    },
+    "pages.patchRecap.dex.noneSoon": {
+      "fr": "Mes relevés n'ont pas encore assez de recul sur ce patch. Repasse dans quelques jours !",
+      "text": "My readings don't have enough hindsight on this patch yet. Come back in a few days!"
+    },
+    "pages.patchRecap.dex.noneOld": {
+      "fr": "Ce patch est plus vieux que mes relevés quotidiens : je ne peux pas le mesurer.",
+      "text": "This patch is older than my daily readings: I can't measure it."
+    },
+    "pages.patchRecap.dex.winners": {
+      "fr": "{hero} s'envole : {gap} {unit} en une semaine. Si tu le joues, c'est le moment.",
+      "text": "{hero} takes off: {gap} {unit} in a week. If you play them, now's the time."
+    },
+    "pages.patchRecap.dex.winnersEmpty": {
+      "fr": "Personne ne décolle vraiment. Un patch calme pour les gagnants.",
+      "text": "Nobody really takes off. A quiet patch for winners."
+    },
+    "pages.patchRecap.dex.losers": {
+      "fr": "{hero} recule de {gap} {unit}. Si c'est ton main, jette un œil à ses builds du moment.",
+      "text": "{hero} drops {gap} {unit}. If that's your main, check their current builds."
+    },
+    "pages.patchRecap.dex.losersEmpty": {
+      "fr": "Aucune chute nette : bonne nouvelle pour tes mains.",
+      "text": "No clear drop: good news for your mains."
+    },
+    "pages.patchRecap.dex.surpriseBuff": {
+      "fr": "{hero} a reçu un buff… et son taux a baissé. Un patch ne fait pas toujours ce qu'il annonce !",
+      "text": "{hero} got a buff… and their win rate went down. A patch doesn't always do what it says!"
+    },
+    "pages.patchRecap.dex.surpriseNerf": {
+      "fr": "{hero} a été nerfé… et gagne plus qu'avant. Les chiffres sont têtus.",
+      "text": "{hero} got nerfed… and wins more than before. Numbers are stubborn."
+    },
+    "pages.patchRecap.dex.surprisesEmpty": {
+      "fr": "Pas de surprise cette fois : le patch a fait ce qu'il annonçait.",
+      "text": "No surprise this time: the patch did what it announced."
+    },
+    "pages.patchRecap.dex.outro": {
+      "fr": "Le prochain patch rebattra les cartes. Je te tiens au courant !",
+      "text": "The next patch will shuffle the cards again. I'll keep you posted!"
+    },
+    "pages.patchRecap.method": {
+      "fr": "Comment c'est mesuré",
+      "text": "How it's measured"
+    },
+    "pages.patchRecap.methodText": {
+      "fr": "Pour chaque héros modifié : la moyenne de son taux de victoire, tous rangs confondus, sur les {days} jours avant la sortie du patch et sur les {days} jours après, le jour même exclu. Il faut au moins quatre jours mesurés de chaque côté. Un écart de moins de {threshold} point est considéré comme du bruit. Un taux qui bouge ne dit pas pourquoi : la méta, les autres héros et les joueurs changent aussi.",
+      "text": "For each changed hero: their average win rate, all ranks combined, over the {days} days before the patch's release and the {days} days after, the release day excluded. At least four measured days are needed on each side. A gap under {threshold} points counts as noise. A rate that moves doesn't say why: the meta, other heroes and players change too."
+    },
+    "pages.patchRecap.notes": {
+      "fr": "Envie du détail de chaque changement ?",
+      "text": "Want the detail of every change?"
     }
   },
   "es": {

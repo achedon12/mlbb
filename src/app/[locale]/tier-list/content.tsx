@@ -10,6 +10,7 @@ import { guideOfLane } from "@/lib/guides";
 import { Foldable } from "@/components/foldable";
 import { ActionLink, BadgeTier } from "@/components/ui";
 import { HeroTile } from "@/components/hero-tile";
+import { ShareImageButton } from "@/components/share-image-button";
 import { LightImage } from "@/components/light-image";
 import { MetaPoster, artOf } from "@/components/meta/meta-poster";
 import { MethodFold } from "@/components/meta/method-fold";
@@ -364,9 +365,15 @@ export function TierList({
         portrait={first?.hero.images.portrait ?? null}
         feature={feature}
         actions={
-          <ActionLink href={rank === "all" ? "/statistics" : `/statistics/${rank}`}>
-            {t("pages.statistics.fromTierListLink")}
-          </ActionLink>
+          <>
+            <ActionLink href={rank === "all" ? "/statistics" : `/statistics/${rank}`}>
+              {t("pages.statistics.fromTierListLink")}
+            </ActionLink>
+            {/* The share image draws a rank's ranking: not offered on a lane or a role. */}
+            {!filter && ranking.length > 0 && (
+              <ShareImageButton card={{ kind: "tier-list", rank }} name="Tier list" className="w-full" />
+            )}
+          </>
         }
       />
 

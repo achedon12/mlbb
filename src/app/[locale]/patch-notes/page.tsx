@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "@/components/link";
-import { ArrowRight, ExternalLink, FlaskConical } from "lucide-react";
+import { ArrowRight, ExternalLink, FlaskConical, TrendingUp } from "lucide-react";
 import { ListArticles } from "@/components/article";
 import { EditorialPoster, ENTRANCE } from "@/components/editorial-poster";
 import { Foldable } from "@/components/foldable";
@@ -18,6 +18,8 @@ import { advanceDocumented } from "@/lib/advance-fresh";
 import { cn, formatShortDate } from "@/lib/utils";
 import { countAdjustments, longDate, patchCurrent } from "@/lib/freshness";
 import type { DetailedPatch } from "@/lib/types";
+import { recapVersions } from "@/lib/patch-recap-server";
+import { newestFirst } from "@/lib/patch-version";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -58,6 +60,10 @@ export default async function PatchNotesPage({ params }: { params: Promise<{ loc
   const withDetail = patches.filter((p) => detailed[p.version]);
   const others = patches.filter((p) => !detailed[p.version]).slice(0, 60);
   const live = detailed[patchCurrent.version] ?? patchCurrent;
+  // The newest patch the rate history measures: its recap ("bilan").
+  const recap = recapVersions()
+    .map((v) => patchDetails[v]!)
+    .sort(newestFirst)[0];
   const art = patchArt(live);
   // One hero per tile: the same buffed hero would otherwise open half the list.
   const shown = new Set<string>();
@@ -93,6 +99,12 @@ export default async function PatchNotesPage({ params }: { params: Promise<{ loc
               {t("home.readNotes")}
               <ArrowRight size={17} aria-hidden />
             </Link>
+            {recap && (
+              <Link href={`/patch-notes/${recap.version}/bilan`} className="btn btn-secondary">
+                <TrendingUp size={16} aria-hidden />
+                {t("pages.patchRecap.linkVersion", { v: recap.version })}
+              </Link>
+            )}
             {advanceDocumented() && (
               <Link href="/patch-notes/advance-server" className="btn btn-secondary">
                 <FlaskConical size={16} aria-hidden />

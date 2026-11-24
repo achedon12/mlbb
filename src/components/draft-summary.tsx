@@ -26,7 +26,9 @@ import type { MeasuredRank } from "@/lib/measured-ranks";
 import { trackShare } from "@/lib/analytics";
 import { formatGap } from "@/lib/trends";
 import { cn } from "@/lib/utils";
-import type { Estimate } from "@/lib/win-estimate";
+import { percentages, type Estimate } from "@/lib/win-estimate";
+import { DRAFT_WIN } from "@/lib/share-card";
+import { ShareImageButton } from "@/components/share-image-button";
 
 /**
  * Summary of a finished draft: each team run through the team analyzer
@@ -230,6 +232,20 @@ export function DraftSummary({
             {copied && <Flash tone={copied}>{t(copied === "ok" ? "teamUI.linkCopied" : "teamUI.copyFailed")}</Flash>}
           </span>
         </div>
+        {blue.length > 0 && red.length > 0 && (
+          <ShareImageButton
+            card={{
+              kind: "draft",
+              blue,
+              red,
+              win: measures ? Math.min(DRAFT_WIN.max, Math.max(DRAFT_WIN.min, percentages(estimate).blue)) : null,
+              rank,
+            }}
+            name="Draft"
+            url={address}
+            className="mt-4"
+          />
+        )}
         <div className="mt-4 flex flex-wrap gap-2">
           <button type="button" onClick={onReplay} className={button}>
             <RotateCcw size={15} aria-hidden />

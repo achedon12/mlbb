@@ -300,6 +300,14 @@ describe("resolvePages", () => {
     expect(problems).toEqual([]);
   });
 
+  it("picks the newest patch recap", () => {
+    const recap = [{ discover: "latest-recap", path: "/patch-notes/<latest version>/bilan", locales: ["en"] }];
+    const paths = ["/en/patch-notes/2.2.23", "/en/patch-notes/2.2.16/bilan", "/en/patch-notes/2.2.23/bilan", "/en/patch-notes/2.2.16a/bilan"];
+    const { pages, problems } = resolvePages(paths, recap);
+    expect(pages.map((p) => p.path)).toEqual(["/patch-notes/2.2.23/bilan"]);
+    expect(problems).toEqual([]);
+  });
+
   it("reports a discovery that finds nothing", () => {
     const { problems } = resolvePages(["/en", "/en/draft"], table.slice(3));
     expect(problems).toEqual(["/patch-notes/<latest version>: no matching URL in the sitemap", "/compare/<a>-vs-<b>: no matching URL in the sitemap"]);

@@ -140,6 +140,9 @@ spinner, a grey rounded skeleton or a bare red line.
 - A hero's portrait flies from its tile in the lists to its place on the
   hero page (React's `ViewTransition`, name `heroMorph(slug)`, class
   `hero-morph`); a browser without the View Transitions API just navigates.
+- The chapters of a patch recap (`/patch-notes/<version>/bilan`, `.recap-chapter`),
+  a story page, rise into place as they enter the view, by CSS scroll-driven
+  animation only.
 - Everything stops under `prefers-reduced-motion`, view transitions included.
 
 ## Composition
@@ -177,3 +180,13 @@ page's own data in `src/lib/og/cards.tsx`, served by an `opengraph-image.tsx`
 next to the page, rendered on first request and kept a week. A page points to
 its card with `metaPage(…, { card: true })`; any other page gets its
 language's home card.
+
+"Partager en image" (`ShareImageButton`, `src/components/share-image-button.tsx`)
+draws what a visitor made or found — a build, a draft, the tier list, a MLBBdle
+result, a patch recap — as a card in two formats: 1080 × 1350 portrait for
+feeds and stories (`src/lib/og/share-frame.tsx`: the artwork across the top
+behind a bevelled foot, the title over it, the data, Dex and his line at the
+foot) and 1200 × 630 in the frame above. Served by `/api/share/<kind>`, whose
+query is checked against the site's catalog (`src/lib/share-card.ts`): no URL,
+picture or free text is ever read from it. A MLBBdle card never shows the
+day's hero.
