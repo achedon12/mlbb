@@ -22,8 +22,8 @@ test.describe("sign-in", () => {
   const playerId = (page: Page) => page.getByRole("textbox", { name: /identifiant de joueur/i });
   const server = (page: Page) => page.getByRole("textbox", { name: /^serveur$/i });
   const send = (page: Page) => page.getByRole("button", { name: /recevoir un code dans le jeu/i });
-  // Next's route announcer is an alert too, always empty.
-  const error = (page: Page) => page.getByRole("alert").filter({ hasText: /\S/ });
+  // Next's route announcer is an alert too, which may read the page title out: left aside.
+  const error = (page: Page) => page.locator("[role=alert]:not(#__next-route-announcer__)").filter({ hasText: /\S/ });
 
   test("the first step refuses a bad identifier or server, and keeps what was typed", async ({ page }) => {
     await page.goto("/fr/login");
@@ -58,9 +58,9 @@ test.describe("sign-in", () => {
     await expect(playerId(page)).toBeVisible();
     await page.goto("/fr/account/profile");
     await expect(page).toHaveURL(/\/fr\/login$/);
-    // The former progress page now points at the account page, which asks to sign in.
+    // The former progress page now points at the account page, which asks to sign in (the section anchor follows).
     await page.goto("/fr/account/progress");
-    await expect(page).toHaveURL(/\/fr\/login$/);
+    await expect(page).toHaveURL(/\/fr\/login(#progress)?$/);
   });
 
   test("the former progress page is a permanent redirect to the account page", async ({ request }) => {
