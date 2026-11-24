@@ -1,10 +1,13 @@
 import type { Locale } from "@/i18n/config";
+import { signalProgress } from "./progress-signal";
 import { generateChallenge, ORDER_CHALLENGE, STATS_EMPTY, type Challenge, type PoolQuiz, type StatsQuiz } from "./quiz";
 
 /**
  * Quiz memory in the browser: statistics, today's game in progress,
  * practice record, and the latest challenge and pool received — enough to play
- * offline once the page has been visited. Nothing leaves the device.
+ * offline once the page has been visited. Signed out, nothing leaves the
+ * device; signed in, the stats and the practice record are also kept on the
+ * account (`account-sync-client.ts`), which `signalProgress` tells.
  *
  * Storage may be unavailable (private browsing, quota): each access fails
  * silently, and the quiz then works for the duration of the visit.
@@ -43,6 +46,7 @@ export function readStats(): StatsQuiz {
 
 export function writeStats(stats: StatsQuiz) {
   write(KEYS.stats, stats);
+  signalProgress();
 }
 
 /**
@@ -93,6 +97,7 @@ export function readPractice(): RecordPractice {
 
 export function writePractice(r: RecordPractice) {
   write(KEYS.practice, r);
+  signalProgress();
 }
 
 async function json<T>(url: string): Promise<T> {

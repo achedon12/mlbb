@@ -4641,16 +4641,16 @@
       "text": "You have the right to access, rectify and erase your data, to restrict its processing and to data portability, and the right to object to processing based on legitimate interest. Where processing is based on your consent (audience measurement cookies), you can withdraw it at any time, as easily as you gave it; withdrawing does not affect what was done before."
     },
     "prose.gdpr.rights.updated": {
-      "fr": "Dernière mise à jour : 19 novembre 2026.",
-      "text": "Last updated: 19 November 2026."
+      "fr": "Dernière mise à jour : 24 novembre 2026.",
+      "text": "Last updated: 24 November 2026."
     },
     "prose.gdpr.storage.cache": {
       "fr": "Pour fonctionner hors ligne, le site garde aussi dans le cache de votre navigateur (service worker) une copie des pages, images et données consultées : 250 pages et 800 images au plus, sur votre appareil uniquement. Les pages liées à une connexion (compte, connexion, tableau de bord et administration du bot, et toute page affichée pour un visiteur connecté) n'y sont jamais gardées, et la déconnexion efface celles qu'une version précédente du site aurait pu garder.",
       "text": "To work offline, the site also keeps a copy of the pages, images and data you viewed in your browser's cache (service worker): 250 pages and 800 images at most, on your device only. Signed-in pages (account, sign-in, bot dashboard and admin, and any page shown to a signed-in visitor) are never kept there, and signing out erases any that an earlier version of the site may have kept."
     },
     "prose.gdpr.storage.games": {
-      "fr": "Parties, séries et statistiques de MLBBdle et du quiz.",
-      "text": "Games, streaks and statistics of MLBBdle and the quiz."
+      "fr": "Parties, séries et statistiques de MLBBdle et du quiz. Les statistiques et séries de jours sont aussi gardées sur votre compte si vous êtes connecté.",
+      "text": "MLBBdle and quiz games, streaks and stats. Stats and streaks are also kept on your account if you're signed in."
     },
     "prose.gdpr.storage.popup": {
       "fr": "Mémoire de l'invitation au Discord : fermée (pendant 30 jours) ou suivie, et nombre de pages vues dans l'onglet (le temps de l'onglet).",
@@ -5425,8 +5425,8 @@
       "text": "The code must be four digits."
     },
     "favourites.intro": {
-      "fr": "Enregistrés dans ce navigateur, sur cet appareil, et non sur votre compte : ils ne se synchronisent pas d'un appareil à l'autre.",
-      "text": "Saved in this browser, on this device, not on your account: they do not sync between devices."
+      "fr": "Enregistrés dans ce navigateur. Connecté, ils sont aussi gardés sur votre compte et vous suivent sur vos autres appareils.",
+      "text": "Saved in this browser. Signed in, they're also kept on your account and follow you to your other devices."
     },
     "emblemData.tank-emblem.bestFor": {
       "fr": "Tanks d'engagement et tanks de l'EXP lane.",
@@ -7515,6 +7515,426 @@
     "pushNotif.reminder.body": {
       "fr": "L'apparence StarLight et les événements du mois sont là. Voir les nouveautés.",
       "text": "The StarLight skin and the month's events are out. See what's new."
+    },
+    "accountSync.reminderElsewhere": {
+      "fr": "Rappel programmé sur un autre de vos appareils.",
+      "text": "Reminder set on another of your devices."
+    },
+    "accountSync.prompt.label": {
+      "fr": "Garder votre progression",
+      "text": "Keep your progress"
+    },
+    "accountSync.prompt.text": {
+      "fr": "Connectez-vous pour retrouver vos séries de jours, vos favoris et vos rappels sur tous vos appareils. Rien n'est perdu : ce navigateur garde aussi les siens.",
+      "text": "Sign in to find your streaks, favourites and reminders on all your devices. Nothing is lost: this browser keeps its own too."
+    },
+    "accountSync.prompt.action": {
+      "fr": "Se connecter",
+      "text": "Sign in"
+    },
+    "accountSync.prompt.close": {
+      "fr": "Plus tard",
+      "text": "Later"
+    },
+    "accountSync.prompt.mlbbdle.title": {
+      "fr": "Gardez votre série de jours sur tous vos appareils",
+      "text": "Save your streak on all your devices"
+    },
+    "accountSync.prompt.quiz.title": {
+      "fr": "Gardez votre série de jours sur tous vos appareils",
+      "text": "Save your streak on all your devices"
+    },
+    "accountSync.prompt.favourite.title": {
+      "fr": "Retrouvez vos favoris sur tous vos appareils",
+      "text": "Find your favourites on all your devices"
+    },
+    "pages.login.perks.sync": {
+      "fr": "Vos séries de jours, vos favoris et vos rappels sur tous vos appareils",
+      "text": "Your streaks, favourites and reminders on all your devices"
+    },
+    "pages.login.pitch.title": {
+      "fr": "Pourquoi se connecter ?",
+      "text": "Why sign in?"
+    },
+    "pages.login.pitch.fromPrompt": {
+      "fr": "Votre progression vous suivra partout",
+      "text": "Your progress will follow you everywhere"
+    },
+    "pages.login.pitch.sync": {
+      "fr": "Vos favoris, vos séries de jours au quiz et à MLBBdle et vos rappels, sur votre téléphone comme sur votre ordinateur.",
+      "text": "Your favourites, your MLBBdle and quiz streaks and your reminders, on your phone as on your computer."
+    },
+    "pages.login.pitch.streaks": {
+      "fr": "Une série de jours n'est plus perdue en changeant d'appareil ou en vidant le navigateur.",
+      "text": "A streak is no longer lost when you switch device or clear your browser."
+    },
+    "pages.login.pitch.badges": {
+      "fr": "Un profil avec vos records et vos badges, à partager si vous le souhaitez.",
+      "text": "A profile with your records and badges, to share if you want to."
+    },
+    "pages.login.pitch.local": {
+      "fr": "Ce que vous avez déjà joué sur ce navigateur rejoint votre compte à la connexion. Sans compte, tout continue de fonctionner comme avant.",
+      "text": "What you already played in this browser joins your account when you sign in. Without an account, everything keeps working as before."
+    },
+    "pages.login.or": {
+      "fr": "Ou, en un clic",
+      "text": "Or, in one click"
+    },
+    "pages.login.discord": {
+      "fr": "Se connecter avec Discord",
+      "text": "Sign in with Discord"
+    },
+    "pages.login.discordText": {
+      "fr": "Pour garder votre progression et participer à la communauté. Discord ne transmet que votre nom et votre avatar, jamais votre e-mail.",
+      "text": "To keep your progress and join the community. Discord only shares your name and avatar, never your email."
+    },
+    "pages.login.discordSignedIn": {
+      "fr": "Vous êtes connecté avec Discord ({name}).",
+      "text": "You're signed in with Discord ({name})."
+    },
+    "pages.login.discordProgress": {
+      "fr": "Voir ma progression",
+      "text": "See my progress"
+    },
+    "pages.account.progressLink": {
+      "fr": "Ma progression",
+      "text": "My progress"
+    },
+    "pages.account.progressLinkText": {
+      "fr": "Séries de jours, records du quiz et de MLBBdle, badges et profil public, synchronisés sur vos appareils.",
+      "text": "Streaks, quiz and MLBBdle records, badges and public profile, synced across your devices."
+    },
+    "pages.progress.metaTitle": {
+      "fr": "Ma progression",
+      "text": "My progress"
+    },
+    "pages.progress.metaDescription": {
+      "fr": "Vos séries de jours, vos records du quiz et de MLBBdle, vos badges et vos héros favoris.",
+      "text": "Your streaks, quiz and MLBBdle records, badges and favourite heroes."
+    },
+    "pages.progress.title": {
+      "fr": "Ma progression",
+      "text": "My progress"
+    },
+    "pages.progress.titleNamed": {
+      "fr": "Progression de {name}",
+      "text": "{name}'s progress"
+    },
+    "pages.progress.lead": {
+      "fr": "Vos séries de jours, vos records et vos badges, à partir de ce que vous jouez sur le site.",
+      "text": "Your streaks, records and badges, from what you play on the site."
+    },
+    "pages.progress.quiz": {
+      "fr": "Quiz du jour",
+      "text": "Daily quiz"
+    },
+    "pages.progress.mlbbdle": {
+      "fr": "MLBBdle",
+      "text": "MLBBdle"
+    },
+    "pages.progress.playQuiz": {
+      "fr": "Jouer au quiz du jour →",
+      "text": "Play today's quiz →"
+    },
+    "pages.progress.playMlbbdle": {
+      "fr": "Jouer à MLBBdle →",
+      "text": "Play MLBBdle →"
+    },
+    "pages.progress.badgesTitle": {
+      "fr": "Badges",
+      "text": "Badges"
+    },
+    "pages.progress.favourites": {
+      "fr": "Héros favoris",
+      "text": "Favourite heroes"
+    },
+    "pages.progress.streak": {
+      "fr": "Série en cours",
+      "text": "Current streak"
+    },
+    "pages.progress.bestStreak": {
+      "fr": "Meilleure série",
+      "text": "Best streak"
+    },
+    "pages.progress.quizDays": {
+      "fr": "Jours joués",
+      "text": "Days played"
+    },
+    "pages.progress.quizBest": {
+      "fr": "Meilleur score",
+      "text": "Best score"
+    },
+    "pages.progress.solved": {
+      "fr": "Énigmes résolues",
+      "text": "Puzzles solved"
+    },
+    "pages.progress.fewest": {
+      "fr": "Moins d'essais",
+      "text": "Fewest guesses"
+    },
+    "pages.progress.noBadge": {
+      "fr": "Pas encore de badge : le premier arrive vite.",
+      "text": "No badge yet: the first one comes quickly."
+    },
+    "pages.progress.noFavourite": {
+      "fr": "Pas encore de favori : ajoutez-en depuis une fiche de héros.",
+      "text": "No favourite yet: add some from a hero page."
+    },
+    "pages.progress.earned": {
+      "fr": "obtenu",
+      "text": "earned"
+    },
+    "pages.progress.locked": {
+      "fr": "pas encore obtenu",
+      "text": "not earned yet"
+    },
+    "pages.progress.badges.streak7.name": {
+      "fr": "Une semaine",
+      "text": "One week"
+    },
+    "pages.progress.badges.streak7.text": {
+      "fr": "7 jours d'affilée au quiz ou à MLBBdle.",
+      "text": "A 7-day streak in the quiz or MLBBdle."
+    },
+    "pages.progress.badges.streak30.name": {
+      "fr": "Un mois",
+      "text": "One month"
+    },
+    "pages.progress.badges.streak30.text": {
+      "fr": "30 jours d'affilée au quiz ou à MLBBdle.",
+      "text": "A 30-day streak in the quiz or MLBBdle."
+    },
+    "pages.progress.badges.mlbbdle10.name": {
+      "fr": "Détective",
+      "text": "Detective"
+    },
+    "pages.progress.badges.mlbbdle10.text": {
+      "fr": "10 énigmes MLBBdle résolues.",
+      "text": "10 MLBBdle puzzles solved."
+    },
+    "pages.progress.badges.mlbbdle50.name": {
+      "fr": "Fin limier",
+      "text": "Sleuth"
+    },
+    "pages.progress.badges.mlbbdle50.text": {
+      "fr": "50 énigmes MLBBdle résolues.",
+      "text": "50 MLBBdle puzzles solved."
+    },
+    "pages.progress.badges.firstTry.name": {
+      "fr": "Du premier coup",
+      "text": "First try"
+    },
+    "pages.progress.badges.firstTry.text": {
+      "fr": "Un héros de MLBBdle trouvé en un seul essai.",
+      "text": "An MLBBdle hero found in a single guess."
+    },
+    "pages.progress.badges.quiz10.name": {
+      "fr": "Habitué",
+      "text": "Regular"
+    },
+    "pages.progress.badges.quiz10.text": {
+      "fr": "10 quiz du jour terminés.",
+      "text": "10 daily quizzes finished."
+    },
+    "pages.progress.badges.allGames.name": {
+      "fr": "Touche-à-tout",
+      "text": "All-rounder"
+    },
+    "pages.progress.badges.allGames.text": {
+      "fr": "Le quiz, MLBBdle classique et MLBBdle compétence joués au moins une fois.",
+      "text": "The quiz, classic MLBBdle and skill MLBBdle each played at least once."
+    },
+    "pages.progress.badges.favourites5.name": {
+      "fr": "Collectionneur",
+      "text": "Collector"
+    },
+    "pages.progress.badges.favourites5.text": {
+      "fr": "5 héros favoris.",
+      "text": "5 favourite heroes."
+    },
+    "pages.progress.browserOnly": {
+      "fr": "Votre progression est enregistrée dans ce navigateur, sur cet appareil.",
+      "text": "Your progress is saved in this browser, on this device."
+    },
+    "pages.progress.signedOutTitle": {
+      "fr": "Enregistré dans ce navigateur seulement",
+      "text": "Saved in this browser only"
+    },
+    "pages.progress.signedOutText": {
+      "fr": "Connectez-vous avec votre compte de jeu ou Discord pour garder vos séries de jours, vos favoris et vos rappels sur tous vos appareils. Ce qui est déjà ici rejoint votre compte.",
+      "text": "Sign in with your game account or Discord to keep your streaks, favourites and reminders on all your devices. What's already here joins your account."
+    },
+    "pages.progress.paused": {
+      "fr": "Synchronisation arrêtée : la copie de votre compte a été supprimée. Ce navigateur garde sa progression.",
+      "text": "Sync stopped: your account's copy was deleted. This browser keeps its progress."
+    },
+    "pages.progress.resume": {
+      "fr": "Reprendre la synchronisation",
+      "text": "Resume syncing"
+    },
+    "pages.progress.sync.checking": {
+      "fr": "Lecture de votre compte…",
+      "text": "Reading your account…"
+    },
+    "pages.progress.sync.saving": {
+      "fr": "Enregistrement sur votre compte…",
+      "text": "Saving to your account…"
+    },
+    "pages.progress.sync.saved": {
+      "fr": "Synchronisé avec votre compte : vous retrouvez tout sur vos autres appareils.",
+      "text": "Synced with your account: you'll find everything on your other devices."
+    },
+    "pages.progress.sync.retrying": {
+      "fr": "Votre compte ne répond pas : la progression reste ici et sera envoyée dès que possible.",
+      "text": "Your account isn't responding: your progress stays here and will be sent as soon as possible."
+    },
+    "pages.progress.retry": {
+      "fr": "Réessayer",
+      "text": "Retry"
+    },
+    "pages.progress.public.title": {
+      "fr": "Profil public",
+      "text": "Public profile"
+    },
+    "pages.progress.public.text": {
+      "fr": "Désactivé par défaut. Activé, un lien que vous seul connaissez montre votre nom et seulement ce que vous cochez ci-dessous. Il n'est pas référencé par les moteurs de recherche.",
+      "text": "Off by default. Turned on, a link only you know shows your name and only what you tick below. It isn't listed by search engines."
+    },
+    "pages.progress.public.toggle": {
+      "fr": "Rendre mon profil public",
+      "text": "Make my profile public"
+    },
+    "pages.progress.public.fields": {
+      "fr": "Ce que le profil montre",
+      "text": "What the profile shows"
+    },
+    "pages.progress.public.field.avatar": {
+      "fr": "Ma photo de profil",
+      "text": "My profile picture"
+    },
+    "pages.progress.public.field.favourites": {
+      "fr": "Mes héros favoris",
+      "text": "My favourite heroes"
+    },
+    "pages.progress.public.field.quiz": {
+      "fr": "Mes séries de jours et records du quiz",
+      "text": "My quiz streaks and records"
+    },
+    "pages.progress.public.field.mlbbdle": {
+      "fr": "Mes séries de jours et records de MLBBdle",
+      "text": "My MLBBdle streaks and records"
+    },
+    "pages.progress.public.field.badges": {
+      "fr": "Mes badges",
+      "text": "My badges"
+    },
+    "pages.progress.public.copy": {
+      "fr": "Copier le lien",
+      "text": "Copy link"
+    },
+    "pages.progress.public.copied": {
+      "fr": "Lien copié",
+      "text": "Link copied"
+    },
+    "pages.progress.public.open": {
+      "fr": "Voir mon profil",
+      "text": "View my profile"
+    },
+    "pages.progress.public.privacy": {
+      "fr": "Jamais votre ID de jeu, votre serveur, votre rang ni votre pays. Désactivez-le à tout moment : le lien ne montre plus rien.",
+      "text": "Never your game ID, server, rank or country. Turn it off at any time: the link then shows nothing."
+    },
+    "pages.progress.public.error": {
+      "fr": "Réglage non enregistré. Réessayez dans un instant.",
+      "text": "Setting not saved. Try again in a moment."
+    },
+    "pages.progress.delete.title": {
+      "fr": "Supprimer la copie de mon compte",
+      "text": "Delete my account's copy"
+    },
+    "pages.progress.delete.text": {
+      "fr": "Efface du serveur votre progression et votre profil public. Vos navigateurs gardent la leur et cessent de l'envoyer, jusqu'à ce que vous repreniez la synchronisation.",
+      "text": "Erases your progress and public profile from the server. Your browsers keep theirs and stop sending it, until you resume syncing."
+    },
+    "pages.progress.delete.action": {
+      "fr": "Supprimer la copie du compte…",
+      "text": "Delete the account's copy…"
+    },
+    "pages.progress.delete.confirm": {
+      "fr": "Oui, supprimer",
+      "text": "Yes, delete"
+    },
+    "pages.progress.delete.cancel": {
+      "fr": "Annuler",
+      "text": "Cancel"
+    },
+    "pages.progress.delete.done": {
+      "fr": "Copie supprimée. Votre progression reste dans ce navigateur.",
+      "text": "Copy deleted. Your progress stays in this browser."
+    },
+    "pages.progress.delete.error": {
+      "fr": "Suppression impossible pour le moment. Réessayez plus tard.",
+      "text": "Couldn't delete right now. Try again later."
+    },
+    "pages.progress.publicTitle": {
+      "fr": "Profil de {name}",
+      "text": "{name}'s profile"
+    },
+    "pages.progress.publicDescription": {
+      "fr": "Séries de jours, records et badges d'un joueur sur MLBBDex.",
+      "text": "A player's streaks, records and badges on MLBBDex."
+    },
+    "pages.progress.publicLead": {
+      "fr": "Séries de jours, records et badges sur les jeux du jour de MLBBDex.",
+      "text": "Streaks, records and badges in MLBBDex's daily games."
+    },
+    "pages.progress.publicKicker": {
+      "fr": "Profil de joueur",
+      "text": "Player profile"
+    },
+    "pages.progress.publicCta": {
+      "fr": "Vous aussi, suivez vos séries de jours et vos badges :",
+      "text": "Track your own streaks and badges too:"
+    },
+    "pages.progress.publicCtaLink": {
+      "fr": "ma progression",
+      "text": "my progress"
+    },
+    "prose.progress.title": {
+      "fr": "Progression synchronisée et profil public",
+      "text": "Synced progress and public profile"
+    },
+    "prose.progress.intro": {
+      "fr": "Vos favoris, vos statistiques et séries de jours du quiz et de MLBBdle, vos records d'entraînement et vos rappels de mois vivent dans votre navigateur. Si vous êtes connecté (compte de jeu ou Discord), le serveur du site en conserve aussi une copie, dans sa base de données :",
+      "text": "Your favourites, your quiz and MLBBdle stats and streaks, your practice records and your month reminders live in your browser. If you're signed in (game account or Discord), the site's server also keeps a copy of them, in its database:"
+    },
+    "prose.progress.data": {
+      "fr": "la même empreinte de compte que la communauté (jamais votre ID de jeu ni votre identifiant Discord), la liste de vos héros favoris, vos compteurs et séries de jours de jeu, vos records d'entraînement, les mois pour lesquels vous avez demandé un rappel, et la date du dernier enregistrement ;",
+      "text": "the same account fingerprint as the community (never your game ID or Discord ID), your list of favourite heroes, your game counters and streaks, your practice records, the months you asked to be reminded of, and the date of the last save;"
+    },
+    "prose.progress.public": {
+      "fr": "si vous activez votre profil public (désactivé par défaut) : un identifiant de lien tiré au hasard, les éléments que vous avez choisis d'y montrer, votre pseudo de jeu ou votre nom Discord et, si vous la cochez, l'adresse de votre photo de profil (celle de Discord contient votre identifiant Discord). Le profil n'est pas référencé par les moteurs de recherche ; le désactiver efface le nom et la photo.",
+      "text": "if you turn on your public profile (off by default): a randomly drawn link identifier, the items you chose to show, your game nickname or Discord name and, if you tick it, the address of your profile picture (Discord's contains your Discord ID). The profile isn't listed by search engines; turning it off erases the name and picture."
+    },
+    "prose.progress.usage": {
+      "fr": "Cette copie sert seulement à retrouver votre progression sur vos autres appareils et, si vous l'activez, à afficher votre profil public. Les rappels de mois envoyés par notification restent liés au navigateur qui les a demandés.",
+      "text": "This copy is only used to find your progress on your other devices and, if you turn it on, to show your public profile. Month reminders sent by notification stay tied to the browser that asked for them."
+    },
+    "prose.progress.deletion": {
+      "fr": "Depuis la page « Ma progression », vous pouvez supprimer à tout moment cette copie et votre profil public ; vos navigateurs gardent leur propre copie et cessent de l'envoyer.",
+      "text": "From the “My progress” page, you can delete this copy and your public profile at any time; your browsers keep their own copy and stop sending it."
+    },
+    "prose.gdpr.retention.progress": {
+      "fr": "Progression synchronisée et profil public : jusqu'à ce que vous les supprimiez depuis la page « Ma progression », ou sur demande.",
+      "text": "Synced progress and public profile: until you delete them from the “My progress” page, or on request."
+    },
+    "prose.gdpr.storage.progress": {
+      "fr": "État de la synchronisation de votre progression avec votre compte (une empreinte de compte, jamais votre ID), et mémoire de l'invitation à vous connecter : fermée (pendant 60 jours) ou suivie.",
+      "text": "State of your progress sync with your account (an account fingerprint, never your ID), and memory of the sign-in invitation: closed (for 60 days) or followed."
+    },
+    "prose.gdpr.storage.favourites": {
+      "fr": "Vos héros favoris. Envoyés au serveur si vous activez les notifications de patch, et gardés sur votre compte si vous êtes connecté.",
+      "text": "Your favourite heroes. Sent to the server if you turn on patch notifications, and kept on your account if you're signed in."
     }
   },
   "es": {
@@ -19471,6 +19891,14 @@
     "dailyDle.status.started": {
       "fr": "en cours",
       "text": "sedang dimainkan"
+    },
+    "accountSync.prompt.mlbbdle.title": {
+      "fr": "Gardez votre série de jours sur tous vos appareils",
+      "text": "Simpan rentetan harian Anda di semua perangkat"
+    },
+    "accountSync.prompt.quiz.title": {
+      "fr": "Gardez votre série de jours sur tous vos appareils",
+      "text": "Simpan rentetan harian Anda di semua perangkat"
     }
   },
   "it": {
@@ -53957,6 +54385,14 @@
     "dailyDle.status.started": {
       "fr": "en cours",
       "text": "กำลังเล่น"
+    },
+    "accountSync.prompt.mlbbdle.title": {
+      "fr": "Gardez votre série de jours sur tous vos appareils",
+      "text": "เก็บสถิติเล่นต่อเนื่องของคุณไว้บนทุกอุปกรณ์"
+    },
+    "accountSync.prompt.quiz.title": {
+      "fr": "Gardez votre série de jours sur tous vos appareils",
+      "text": "เก็บสถิติเล่นต่อเนื่องของคุณไว้บนทุกอุปกรณ์"
     }
   },
   "pt": {
@@ -79793,6 +80229,14 @@
     "dailyDle.status.started": {
       "fr": "en cours",
       "text": "в процессе"
+    },
+    "accountSync.prompt.mlbbdle.title": {
+      "fr": "Gardez votre série de jours sur tous vos appareils",
+      "text": "Сохраните серию дней на всех своих устройствах"
+    },
+    "accountSync.prompt.quiz.title": {
+      "fr": "Gardez votre série de jours sur tous vos appareils",
+      "text": "Сохраните серию дней на всех своих устройствах"
     }
   }
 }

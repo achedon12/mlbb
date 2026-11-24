@@ -67,16 +67,18 @@ export function DiscordMomentCard({ moment, onClose }: { moment: DiscordMoment; 
 /**
  * `offer(moment, delayMs)` asks for the moment's invitation (it shows only if
  * the session's invitation is still free, after the delay, so it never covers
- * the page's own confirmation); `card` is what to render.
+ * the page's own confirmation) and returns whether it will; `card` is what to
+ * render.
  */
 export function useDiscordMoment() {
   const [moment, setMoment] = useState<DiscordMoment | null>(null);
   const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
   useEffect(() => () => clearTimeout(timer.current), []);
-  const offer = useCallback((m: DiscordMoment, delayMs = 1200) => {
-    if (!claimDiscordMoment()) return;
+  const offer = useCallback((m: DiscordMoment, delayMs = 1200): boolean => {
+    if (!claimDiscordMoment()) return false;
     clearTimeout(timer.current);
     timer.current = setTimeout(() => setMoment(m), delayMs);
+    return true;
   }, []);
   const card = moment ? <DiscordMomentCard moment={moment} onClose={() => setMoment(null)} /> : null;
   return { offer, card };

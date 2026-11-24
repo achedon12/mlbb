@@ -714,8 +714,22 @@
       "perks": {
         "profile": "Your profile, ranks and most played heroes",
         "community": "The forum and the search for teammates",
-        "collection": "Your collection of appearances across all your devices"
-      }
+        "collection": "Your collection of appearances across all your devices",
+        "sync": "Your streaks, favourites and reminders on all your devices"
+      },
+      "pitch": {
+        "title": "Why sign in?",
+        "fromPrompt": "Your progress will follow you everywhere",
+        "sync": "Your favourites, your MLBBdle and quiz streaks and your reminders, on your phone as on your computer.",
+        "streaks": "A streak is no longer lost when you switch device or clear your browser.",
+        "badges": "A profile with your records and badges, to share if you want to.",
+        "local": "What you already played in this browser joins your account when you sign in. Without an account, everything keeps working as before."
+      },
+      "or": "Or, in one click",
+      "discord": "Sign in with Discord",
+      "discordText": "To keep your progress and join the community. Discord only shares your name and avatar, never your email.",
+      "discordSignedIn": "You're signed in with Discord ({name}).",
+      "discordProgress": "See my progress"
     },
     "watch": {
       "title": "Roundup",
@@ -765,7 +779,9 @@
       "profileLink": "View my player profile",
       "profileLinkText": "Season summary, heroes compared with your rank's average, recent matches and tips.",
       "topHeroes": "Your heroes",
-      "topHeroesLead": "The ones you play the most, based on the games the service has kept."
+      "topHeroesLead": "The ones you play the most, based on the games the service has kept.",
+      "progressLink": "My progress",
+      "progressLinkText": "Streaks, quiz and MLBBdle records, badges and public profile, synced across your devices."
     },
     "apiDoc": {
       "title": "Public API",
@@ -5253,6 +5269,108 @@
       "method": "How it's measured",
       "methodText": "For each changed hero: their average win rate, all ranks combined, over the {days} days before the patch's release and the {days} days after, the release day excluded. At least four measured days are needed on each side. A gap under {threshold} points counts as noise. A rate that moves doesn't say why: the meta, other heroes and players change too.",
       "notes": "Want the detail of every change?"
+    },
+    "progress": {
+      "metaTitle": "My progress",
+      "metaDescription": "Your streaks, quiz and MLBBdle records, badges and favourite heroes.",
+      "title": "My progress",
+      "titleNamed": "{name}'s progress",
+      "lead": "Your streaks, records and badges, from what you play on the site.",
+      "quiz": "Daily quiz",
+      "mlbbdle": "MLBBdle",
+      "playQuiz": "Play today's quiz →",
+      "playMlbbdle": "Play MLBBdle →",
+      "badgesTitle": "Badges",
+      "favourites": "Favourite heroes",
+      "streak": "Current streak",
+      "bestStreak": "Best streak",
+      "quizDays": "Days played",
+      "quizBest": "Best score",
+      "solved": "Puzzles solved",
+      "fewest": "Fewest guesses",
+      "noBadge": "No badge yet: the first one comes quickly.",
+      "noFavourite": "No favourite yet: add some from a hero page.",
+      "earned": "earned",
+      "locked": "not earned yet",
+      "badges": {
+        "streak7": {
+          "name": "One week",
+          "text": "A 7-day streak in the quiz or MLBBdle."
+        },
+        "streak30": {
+          "name": "One month",
+          "text": "A 30-day streak in the quiz or MLBBdle."
+        },
+        "mlbbdle10": {
+          "name": "Detective",
+          "text": "10 MLBBdle puzzles solved."
+        },
+        "mlbbdle50": {
+          "name": "Sleuth",
+          "text": "50 MLBBdle puzzles solved."
+        },
+        "firstTry": {
+          "name": "First try",
+          "text": "An MLBBdle hero found in a single guess."
+        },
+        "quiz10": {
+          "name": "Regular",
+          "text": "10 daily quizzes finished."
+        },
+        "allGames": {
+          "name": "All-rounder",
+          "text": "The quiz, classic MLBBdle and skill MLBBdle each played at least once."
+        },
+        "favourites5": {
+          "name": "Collector",
+          "text": "5 favourite heroes."
+        }
+      },
+      "browserOnly": "Your progress is saved in this browser, on this device.",
+      "signedOutTitle": "Saved in this browser only",
+      "signedOutText": "Sign in with your game account or Discord to keep your streaks, favourites and reminders on all your devices. What's already here joins your account.",
+      "paused": "Sync stopped: your account's copy was deleted. This browser keeps its progress.",
+      "resume": "Resume syncing",
+      "sync": {
+        "checking": "Reading your account…",
+        "saving": "Saving to your account…",
+        "saved": "Synced with your account: you'll find everything on your other devices.",
+        "retrying": "Your account isn't responding: your progress stays here and will be sent as soon as possible."
+      },
+      "retry": "Retry",
+      "public": {
+        "title": "Public profile",
+        "text": "Off by default. Turned on, a link only you know shows your name and only what you tick below. It isn't listed by search engines.",
+        "toggle": "Make my profile public",
+        "fields": "What the profile shows",
+        "field": {
+          "avatar": "My profile picture",
+          "favourites": "My favourite heroes",
+          "quiz": "My quiz streaks and records",
+          "mlbbdle": "My MLBBdle streaks and records",
+          "badges": "My badges"
+        },
+        "copy": "Copy link",
+        "copied": "Link copied",
+        "open": "View my profile",
+        "privacy": "Never your game ID, server, rank or country. Turn it off at any time: the link then shows nothing.",
+        "error": "Setting not saved. Try again in a moment."
+      },
+      "delete": {
+        "title": "Delete my account's copy",
+        "text": "Erases your progress and public profile from the server. Your browsers keep theirs and stop sending it, until you resume syncing.",
+        "action": "Delete the account's copy…",
+        "confirm": "Yes, delete",
+        "cancel": "Cancel",
+        "done": "Copy deleted. Your progress stays in this browser.",
+        "error": "Couldn't delete right now. Try again later."
+      },
+      "publicTitle": "{name}'s profile",
+      "publicDescription": "A player's streaks, records and badges on MLBBDex.",
+      "publicLead": "Streaks, records and badges in MLBBDex's daily games.",
+      "publicKicker": "Player profile",
+      "publicCta": "Track your own streaks and badges too:",
+      "publicCtaLink": "my progress"
     }
   },
   "modeSheet": {
@@ -5705,15 +5823,16 @@
           "content": "Content"
         },
         "consent": "Your choice on audience measurement cookies, and its date (6 months).",
-        "favourites": "Your favorite heroes. Sent to the server only if you enable patch notifications.",
+        "favourites": "Your favourite heroes. Sent to the server if you turn on patch notifications, and kept on your account if you're signed in.",
         "push": "Patch notifications active on this browser.",
         "collection": "Your skin collection, and the status of its sync with your account (an account fingerprint, never your game ID).",
         "popup": "Memory of the Discord invitation: closed (for 30 days) or followed, and pages viewed in the tab (for the tab's lifetime).",
-        "games": "Games, streaks and statistics of MLBBdle and the quiz.",
+        "games": "MLBBdle and quiz games, streaks and stats. Stats and streaks are also kept on your account if you're signed in.",
         "tierList": "Drafts from the tier list maker.",
         "timer": "Match in progress (for the tab's lifetime) and objective timer settings.",
         "retribution": "Best scores of the Retribution test.",
-        "cache": "To work offline, the site also keeps a copy of the pages, images and data you viewed in your browser's cache (service worker): 250 pages and 800 images at most, on your device only. Signed-in pages (account, sign-in, bot dashboard and admin, and any page shown to a signed-in visitor) are never kept there, and signing out erases any that an earlier version of the site may have kept."
+        "cache": "To work offline, the site also keeps a copy of the pages, images and data you viewed in your browser's cache (service worker): 250 pages and 800 images at most, on your device only. Signed-in pages (account, sign-in, bot dashboard and admin, and any page shown to a signed-in visitor) are never kept there, and signing out erases any that an earlier version of the site may have kept.",
+        "progress": "State of your progress sync with your account (an account fingerprint, never your ID), and memory of the sign-in invitation: closed (for 60 days) or followed."
       },
       "audience": {
         "title": "Audience measurement",
@@ -5759,7 +5878,8 @@
         "logs": "Technical logs: server errors and those met by the browser (message, page, site version, browser type, without IP address or account) are kept for 30 days for diagnosis. Security and moderation events (refused requests, moderators' and administrators' actions) are kept for 6 months. They are then deleted automatically.",
         "backups": "Backups: a daily copy of the database; only the three most recent are kept, so that deleted data disappears from the backups in three days.",
         "rateLimits": "Rate limits: your IP address, in memory only, never written to disk.",
-        "profileCard": "Discord profile card: until you unlink it, and at most 30 days after your last update."
+        "profileCard": "Discord profile card: until you unlink it, and at most 30 days after your last update.",
+        "progress": "Synced progress and public profile: until you delete them from the “My progress” page, or on request."
       },
       "rights": {
         "title": "Your rights",
@@ -5767,7 +5887,7 @@
         "browser": "What lives in your browser (favorites, collection, preferences, choices on cookies) is in your hands: clearing the site data deletes it.",
         "contact": "For the rest (community, synchronized collection, notifications, bot), write to [{contact}](mailto:{contact}), specifying the account concerned (game nickname or Discord name) so that it can be found. You will receive a response within one month.",
         "cnil": "If you consider, after contacting the publisher, that your rights are not respected, you can send a complaint to the CNIL ([cnil.fr](https://www.cnil.fr/fr/plaintes)) or to the data protection authority in your country.",
-        "updated": "Last updated: 19 November 2026."
+        "updated": "Last updated: 24 November 2026."
       }
     },
     "methodology": {
@@ -5845,6 +5965,14 @@
           ]
         }
       ]
+    },
+    "progress": {
+      "title": "Synced progress and public profile",
+      "intro": "Your favourites, your quiz and MLBBdle stats and streaks, your practice records and your month reminders live in your browser. If you're signed in (game account or Discord), the site's server also keeps a copy of them, in its database:",
+      "data": "the same account fingerprint as the community (never your game ID or Discord ID), your list of favourite heroes, your game counters and streaks, your practice records, the months you asked to be reminded of, and the date of the last save;",
+      "public": "if you turn on your public profile (off by default): a randomly drawn link identifier, the items you chose to show, your game nickname or Discord name and, if you tick it, the address of your profile picture (Discord's contains your Discord ID). The profile isn't listed by search engines; turning it off erases the name and picture.",
+      "usage": "This copy is only used to find your progress on your other devices and, if you turn it on, to show your public profile. Month reminders sent by notification stay tied to the browser that asked for them.",
+      "deletion": "From the “My progress” page, you can delete this copy and your public profile at any time; your browsers keep their own copy and stop sending it."
     }
   },
   "compareUI": {
@@ -6025,7 +6153,7 @@
     "points": "{n} points"
   },
   "favourites": {
-    "intro": "Saved in this browser, on this device, not on your account: they do not sync between devices.",
+    "intro": "Saved in this browser. Signed in, they're also kept on your account and follow you to your other devices.",
     "nonePre": "No favourites yet. On a hero page, ",
     "noLink": "add one",
     "nonePost": ": I'll keep it here for you.",
@@ -7082,5 +7210,23 @@
     "tiers": "{n} heroes changed tier",
     "eventsAnnounced": "{month} announced",
     "eventsOpened": "{month} events have started"
+  },
+  "accountSync": {
+    "reminderElsewhere": "Reminder set on another of your devices.",
+    "prompt": {
+      "label": "Keep your progress",
+      "text": "Sign in to find your streaks, favourites and reminders on all your devices. Nothing is lost: this browser keeps its own too.",
+      "action": "Sign in",
+      "close": "Later",
+      "mlbbdle": {
+        "title": "Save your streak on all your devices"
+      },
+      "quiz": {
+        "title": "Save your streak on all your devices"
+      },
+      "favourite": {
+        "title": "Find your favourites on all your devices"
+      }
+    }
   }
 }

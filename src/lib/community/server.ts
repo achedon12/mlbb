@@ -12,6 +12,7 @@ import { readCapped } from "@/lib/read-body";
 import { MAX_BODY_BYTES } from "./constants";
 import { discordAccountId, discordDisplayName, resolveMember, type DiscordLink, type DiscordLogin, type Member } from "./identity";
 import { discordLink, type Author } from "./store";
+import { resolveOwner, type DiscordLoginWithAvatar, type Owner } from "@/lib/account-owner";
 
 /**
  * Request side of the community routes: who is asking, may they, and the
@@ -38,6 +39,10 @@ export const accountLimits = {
   card: limitByMinute(6),
   /** Collection saves: debounced by the browser, so a few a minute at most while ticking. */
   collection: limitByMinute(20),
+  /** Progress saves (favourites, games, reminders): debounced by the browser like the collection. */
+  progress: limitByMinute(20),
+  /** Public profile settings: a toggle or two at a time. */
+  profile: limitByMinute(6),
 } as const;
 export type LimitKind = keyof typeof accountLimits;
 
@@ -140,6 +145,70 @@ async function guard<S extends z.ZodType>(
   const body = await readJsonBody(request, schema);
   if (body instanceof NextResponse) return body;
   return { author, body: body.data };
+}
+
+// -- Progress owner ----------------------------------------------------------
+
+/** The Discord login with its avatar hash, or null. */
+async function discordLoginWithAvatar(): Promise<DiscordLoginWithAvatar> {
+  const config = botConfig();
+  if (!config) return null;
+  const user = openSession(config, (await cookies()).get(SESSION_COOKIE)?.value);
+  return user ? { id: user.id, name: user.name, avatar: user.avatar } : null;
+}
+
+/**
+ * Whose progress this request may read and write (see `resolveOwner`): the
+ * game login, or the Discord login (as its linked game account when linked).
+ */
+export async function currentOwner(now = Date.now()): Promise<Owner> {
+  const [game, discord] = await Promise.all([
+    currentPlayer().catch((): Player => ({ status: "unavailable" })),
+    discordLoginWithAvatar(),
+  ]);
+  let link: DiscordLink = null;
+  if (game.status !== "ok" && discord && databaseConfigured()) {
+    try {
+      link = await discordLink(discordAccountId(discord.id));
+    } catch (error) {
+      await logError("progress: discord link read failed", error);
+      return { status: "unavailable" };
+    }
+  }
+  return resolveOwner({ game, discord, link, now });
+}
+
+type OwnerOk = Extract<Owner, { status: "ok" }>;
+
+/** Signed-in owner, or the refusal. */
+export async function ownerOrRefusal(): Promise<OwnerOk | NextResponse> {
+  const owner = await currentOwner();
+  if (owner.status === "none") return refused(401, "sign in required");
+  if (owner.status === "banned") return refused(403, "banned");
+  if (owner.status !== "ok") return refused(503, "login service unavailable");
+  return owner;
+}
+
+/**
+ * Gate of the progress routes, in the order of `guard`: database, same
+ * origin, the address's rate, the owner, the owner's rate, then the body.
+ * `schema` null: no body (a DELETE).
+ */
+export async function guardOwner<S extends z.ZodType>(
+  request: Request,
+  kind: "progress" | "profile",
+  schema: S | null,
+): Promise<{ owner: OwnerOk; body: z.infer<S> } | NextResponse> {
+  if (!databaseConfigured()) return refused(404, "not found");
+  if (!isSameOrigin(request)) return refused(403, "origin refused");
+  if (!byAddress(addressOf(request))) return refused(429, "too many requests");
+  const owner = await ownerOrRefusal();
+  if (owner instanceof NextResponse) return owner;
+  if (!accountLimits[kind](owner.id)) return refused(429, "too many requests");
+  if (!schema) return { owner, body: undefined as z.infer<S> };
+  const body = await readJsonBody(request, schema);
+  if (body instanceof NextResponse) return body;
+  return { owner, body: body.data };
 }
 
 const linkRate = limitByMinute(3);

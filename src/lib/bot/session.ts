@@ -32,7 +32,7 @@ export const oauthShape = z.object({
   state: z.string(),
   verifier: z.string(),
   locale: z.enum(LOCALES),
-  next: z.enum(["dashboard", "admin", "moderation", "community", "account"]),
+  next: z.enum(["dashboard", "admin", "moderation", "community", "account", "progress"]),
   /** With `community`: the community page to return to (`COMMUNITY_RETURN`). */
   back: z.string().max(240).optional(),
 });

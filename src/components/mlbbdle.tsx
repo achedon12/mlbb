@@ -4,6 +4,7 @@ import { DexNotice } from "@/components/dex-states";
 import { DexLoading } from "@/components/dex-loading";
 import { Flash } from "@/components/dex-states";
 import Image from "next/image";
+import { useAccountPrompt } from "@/components/account-prompt";
 import { useDiscordMoment } from "@/components/discord-moment";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Check, Dices, Eye, Share2, SkipForward } from "lucide-react";
@@ -40,6 +41,7 @@ import {
 import { shiftDay, dayUtc, currentStreak, STATS_EMPTY, type StatsQuiz } from "@/lib/quiz";
 import { loadPool } from "@/lib/quiz-storage";
 import { trackEvent, trackShare } from "@/lib/analytics";
+import { SYNCED_EVENT } from "@/lib/progress-signal";
 import { cellsFromEmoji } from "@/lib/share-card";
 import { ShareImageButton } from "@/components/share-image-button";
 import { site } from "@/lib/site";
@@ -65,6 +67,7 @@ const secondaryButton =
 
 export function Mlbbdle({ heroes, labels }: { heroes: MlbbdleHero[]; labels: Record<string, string> }) {
   const discord = useDiscordMoment();
+  const prompt = useAccountPrompt();
   const t = useT();
   const language = useLocale();
   const catalog = useMemo(() => buildCatalog(heroes, labels), [heroes, labels]);
@@ -88,6 +91,10 @@ export function Mlbbdle({ heroes, labels }: { heroes: MlbbdleHero[]; labels: Rec
     setGuesses(readGame(today));
     setStats({ classic: readStats("classic"), skill: readStats("skill") });
     /* eslint-enable react-hooks/set-state-in-effect */
+    // Signed in, the account may bring days played on another device.
+    const reread = () => setStats({ classic: readStats("classic"), skill: readStats("skill") });
+    window.addEventListener(SYNCED_EVENT, reread);
+    return () => window.removeEventListener(SYNCED_EVENT, reread);
   }, []);
 
   useEffect(() => {
@@ -133,8 +140,11 @@ export function Mlbbdle({ heroes, labels }: { heroes: MlbbdleHero[]; labels: Rec
       writeStats(m, updated);
       setStats((s) => ({ ...s, [m]: updated }));
       trackEvent("MLBBdle", "Solve", m, next[m].length);
-      // After the win banner had its moment.
-      discord.offer("mlbbdle", 2500);
+      // After the win banner had its moment; one card at a time.
+      if (!discord.offer("mlbbdle", 2500)) {
+        const other = readStats(m === "classic" ? "skill" : "classic");
+        prompt.offer("mlbbdle", { solves: updated.joues + other.joues }, 2500);
+      }
       shouldFocus.current = true;
     }
   }
@@ -149,6 +159,7 @@ export function Mlbbdle({ heroes, labels }: { heroes: MlbbdleHero[]; labels: Rec
   return (
     <div>
       {discord.card}
+      {prompt.card}
       <FilterGroup legend={t("pages.mlbbdleUI.mode")} widthLegend="" className="mb-6">
         {/* The site's chips are 32 px tall: same look here, but finger-sized. */}
         {(["classic", "skill", "practice"] as const).map((m) => (

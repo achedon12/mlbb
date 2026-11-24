@@ -91,6 +91,7 @@ export function loginTarget(locale: string | undefined, next: string | undefined
   const lang = locale && isLocale(locale) ? locale : "en";
   if (next === "moderation") return `/${lang}/community/moderation`;
   if (next === "account") return `/${lang}/account#discord-card`;
+  if (next === "progress") return `/${lang}/account/progress`;
   if (next === "community") return `/${lang}${isCommunityReturn(back) ? back : "/community"}`;
   return `/${lang}/bot/${next === "admin" ? "admin" : "dashboard"}`;
 }

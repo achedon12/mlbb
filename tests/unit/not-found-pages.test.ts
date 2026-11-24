@@ -15,7 +15,7 @@ import { notFoundMetadata } from "@/i18n/seo";
 const ROOT = join(process.cwd(), "src/app/[locale]");
 
 /** Rendered on every request (cookies, `force-dynamic`), see the build's route list. */
-const DYNAMIC = ["account/", "bot/admin/", "bot/dashboard/", "builds/", "community/", "login/"];
+const DYNAMIC = ["account/", "bot/admin/", "bot/dashboard/", "builds/", "community/", "login/", "u/"];
 /** The language root: an unknown language never gets past the layout's own check. */
 const ALLOWED = new Set(["page.tsx"]);
 

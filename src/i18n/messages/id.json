@@ -714,8 +714,22 @@
       "perks": {
         "profile": "Profil Anda, peringkat, dan hero yang paling sering dimainkan",
         "community": "Forum dan pencarian rekan satu tim",
-        "collection": "Koleksi penampilan Anda di semua perangkat Anda"
-      }
+        "collection": "Koleksi penampilan Anda di semua perangkat Anda",
+        "sync": "Rangkaian hari Anda, favorit, dan pengingat di semua perangkat Anda"
+      },
+      "pitch": {
+        "title": "Mengapa masuk?",
+        "fromPrompt": "Kemajuan Anda akan mengikuti Anda kemana saja",
+        "sync": "Favorit Anda, rangkaian hari Anda dalam kuis dan MLBBdle serta pengingat Anda, di ponsel atau komputer Anda.",
+        "streaks": "Rentetan hari tidak lagi terbuang sia-sia karena berganti perangkat atau mengosongkan browser.",
+        "badges": "Profil dengan catatan dan lencana Anda, untuk dibagikan jika Anda mau.",
+        "local": "Apa yang telah Anda mainkan di browser ini akan bergabung dengan akun Anda saat Anda masuk. Tanpa akun, semuanya tetap berjalan seperti sebelumnya."
+      },
+      "or": "Atau, dalam satu klik",
+      "discord": "Masuk dengan Discord",
+      "discordText": "Untuk menjaga kemajuan Anda dan berpartisipasi dalam komunitas. Discord hanya mengirimkan nama dan avatar Anda, bukan email Anda.",
+      "discordSignedIn": "Anda terhubung dengan Discord ({name}).",
+      "discordProgress": "Lihat kemajuan saya"
     },
     "watch": {
       "title": "Rangkuman",
@@ -765,7 +779,9 @@
       "profileLink": "Lihat profil pemain saya",
       "profileLinkText": "Tinjauan musim, hero dibandingkan dengan rata-rata peringkat Anda, permainan terakhir, dan saran.",
       "topHeroes": "Pahlawanmu",
-      "topHeroesLead": "Yang paling sering Anda mainkan, berdasarkan game yang disimpan oleh layanan."
+      "topHeroesLead": "Yang paling sering Anda mainkan, berdasarkan game yang disimpan oleh layanan.",
+      "progressLink": "Kemajuan saya",
+      "progressLinkText": "Catatan harian, kuis dan catatan MLBBdle, lencana dan profil publik, disinkronkan di seluruh perangkat Anda."
     },
     "apiDoc": {
       "title": "API Publik",
@@ -5253,6 +5269,108 @@
       "method": "Bagaimana cara mengukurnya",
       "methodText": "Untuk setiap hero yang dimodifikasi: rata-rata win ratenya, semua peringkat digabungkan, selama {days} hari sebelum rilis patch dan selama {days} hari setelahnya, tidak termasuk hari yang sama. Dibutuhkan setidaknya empat hari diukur di setiap sisi. Penyimpangan kurang dari {threshold} poin dianggap kebisingan. Nilai yang berubah tidak menjelaskan alasannya: meta, hero lain, dan pemain juga berubah.",
       "notes": "Ingin detail setiap perubahan?"
+    },
+    "progress": {
+      "metaTitle": "Kemajuan saya",
+      "metaDescription": "Rangkaian hari Anda, kuis dan catatan MLBBdle Anda, lencana Anda, dan hero favorit Anda.",
+      "title": "Kemajuan saya",
+      "titleNamed": "Perkembangan {name}",
+      "lead": "Catatan harian Anda, catatan Anda, dan lencana Anda, dari apa yang Anda mainkan di situs.",
+      "quiz": "Kuis hari ini",
+      "mlbbdle": "MLBBdle",
+      "playQuiz": "Mainkan kuis hari ini →",
+      "playMlbbdle": "Mainkan MLBBdle →",
+      "badgesTitle": "Lencana",
+      "favourites": "Hero andalan",
+      "streak": "Seri saat ini",
+      "bestStreak": "Seri terbaik",
+      "quizDays": "Hari-hari dimainkan",
+      "quizBest": "Skor terbaik",
+      "solved": "Teka-teki terpecahkan",
+      "fewest": "Lebih sedikit upaya",
+      "noBadge": "Belum ada lencana: yang pertama akan segera hadir.",
+      "noFavourite": "Belum ada favorit: tambahkan satu dari file hero.",
+      "earned": "telah mendapatkan",
+      "locked": "belum diperoleh",
+      "badges": {
+        "streak7": {
+          "name": "Seminggu",
+          "text": "7 hari berturut-turut di kuis atau MLBBdle."
+        },
+        "streak30": {
+          "name": "Satu bulan",
+          "text": "30 hari berturut-turut di kuis atau MLBBdle."
+        },
+        "mlbbdle10": {
+          "name": "Detektif",
+          "text": "10 teka-teki MLBBdle terpecahkan."
+        },
+        "mlbbdle50": {
+          "name": "Anjing polisi",
+          "text": "50 MLBBdle teka-teki terpecahkan."
+        },
+        "firstTry": {
+          "name": "Pada percobaan pertama",
+          "text": "Hero MLBBdle ditemukan dalam sekali percobaan."
+        },
+        "quiz10": {
+          "name": "Dulu",
+          "text": "10 kuis harian selesai."
+        },
+        "allGames": {
+          "name": "orang yg serba tahu",
+          "text": "Kuis, MLBBdle klasik, dan skill MLBBdle dimainkan setidaknya satu kali."
+        },
+        "favourites5": {
+          "name": "Pengumpul",
+          "text": "5 hero favorit."
+        }
+      },
+      "browserOnly": "Kemajuan Anda disimpan di browser ini, di perangkat ini.",
+      "signedOutTitle": "Hanya disimpan di browser ini",
+      "signedOutText": "Masuk dengan akun game Anda atau Discord untuk menyimpan catatan harian, favorit, dan pengingat di semua perangkat Anda. Yang sudah ada disini gabung dengan akun anda.",
+      "paused": "Sinkronisasi terhenti: salinan akun Anda telah dihapus. Browser ini menjaga kemajuannya.",
+      "resume": "Lanjutkan sinkronisasi",
+      "sync": {
+        "checking": "Memeriksa akun Anda…",
+        "saving": "Menyimpan ke akun Anda…",
+        "saved": "Disinkronkan dengan akun Anda: Anda dapat menemukan semuanya di perangkat Anda yang lain.",
+        "retrying": "Akun Anda tidak merespons: kemajuan tetap ada dan akan dikirimkan sesegera mungkin."
+      },
+      "retry": "Coba lagi",
+      "public": {
+        "title": "Profil publik",
+        "text": "Dinonaktifkan secara default. Jika diaktifkan, tautan yang hanya Anda yang tahu akan menampilkan nama Anda dan hanya yang Anda periksa di bawah. Itu tidak direferensikan oleh mesin pencari.",
+        "toggle": "Jadikan profil saya publik",
+        "fields": "Apa yang ditampilkan profil",
+        "field": {
+          "avatar": "Gambar profil saya",
+          "favourites": "Hero favoritku",
+          "quiz": "Rangkaian hari dan catatan kuis saya",
+          "mlbbdle": "Seri dan catatan hari MLBBdle saya",
+          "badges": "Lencana saya"
+        },
+        "copy": "Salin tautan",
+        "copied": "Tautan disalin",
+        "open": "Lihat profil saya",
+        "privacy": "Jangan pernah ID game, server, peringkat, atau negara Anda. Nonaktifkan kapan saja: tautan tidak lagi menampilkan apa pun.",
+        "error": "Setelan tidak disimpan. Coba lagi sebentar lagi."
+      },
+      "delete": {
+        "title": "Hapus salinan dari akun saya",
+        "text": "Menghapus kemajuan Anda dan profil publik Anda dari server. Browser Anda tetap menyimpannya dan berhenti mengirimkannya sampai Anda melanjutkan sinkronisasi.",
+        "action": "Hapus salinan akun…",
+        "confirm": "Ya, hapus",
+        "cancel": "Batal",
+        "done": "Salinan dihapus. Kemajuan Anda tetap ada di browser ini.",
+        "error": "Penghapusan tidak dapat dilakukan saat ini. Coba lagi nanti."
+      },
+      "publicTitle": "Profil {name}",
+      "publicDescription": "Catatan harian, rekor, dan lencana pemain di MLBBDex.",
+      "publicLead": "Rekor Harian, Rekor, dan Lencana di Pertandingan MLBBdex Hari Ini.",
+      "publicKicker": "Profil Pemain",
+      "publicCta": "Anda juga dapat mengikuti rangkaian hari dan lencana Anda:",
+      "publicCtaLink": "kemajuan saya"
     }
   },
   "modeSheet": {
@@ -5705,15 +5823,16 @@
           "content": "Isi"
         },
         "consent": "Pilihan Anda pada cookie pengukuran audiens, dan tanggalnya (6 bulan).",
-        "favourites": "Hero favoritmu. Dikirim ke server hanya jika Anda mengaktifkan pemberitahuan patch.",
+        "favourites": "Hero favoritmu. Dikirim ke server jika Anda mengaktifkan notifikasi patch, dan disimpan di akun Anda jika Anda login.",
         "push": "Notifikasi patch aktif di browser ini.",
         "collection": "Koleksi skin Anda, dan status sinkronisasinya dengan akun Anda (sidik jari akun, bukan ID game Anda).",
         "popup": "Memori undangan perselisihan: ditutup (selama 30 hari) atau diikuti, dan jumlah halaman yang dilihat di tab (waktu tab).",
-        "games": "Game, seri, dan statistik dari MLBBdle dan kuisnya.",
+        "games": "Game, seri, dan statistik dari MLBBdle dan kuisnya. Statistik dan rangkaian hari juga disimpan di akun Anda jika Anda masuk.",
         "tierList": "Draft dari pembuat tier list.",
         "timer": "Permainan saat ini (waktu tab) dan pengaturan pengatur waktu objektif.",
         "retribution": "Nilai tes Retribution tertinggi.",
-        "cache": "Agar berfungsi secara offline, situs ini juga menyimpan salinan halaman, gambar, dan data yang dilihat di cache browser Anda (pekerja layanan): paling banyak 250 halaman dan 800 gambar, hanya di perangkat Anda. Halaman-halaman yang ditautkan ke koneksi (akun, login, dasbor dan administrasi bot, dan halaman apa pun yang ditampilkan untuk pengunjung yang login) tidak pernah disimpan di sana, dan pemutusan koneksi akan menghapus halaman-halaman yang dapat disimpan oleh versi situs sebelumnya."
+        "cache": "Agar berfungsi secara offline, situs ini juga menyimpan salinan halaman, gambar, dan data yang dilihat di cache browser Anda (pekerja layanan): paling banyak 250 halaman dan 800 gambar, hanya di perangkat Anda. Halaman-halaman yang ditautkan ke koneksi (akun, login, dasbor dan administrasi bot, dan halaman apa pun yang ditampilkan untuk pengunjung yang login) tidak pernah disimpan di sana, dan pemutusan koneksi akan menghapus halaman-halaman yang dapat disimpan oleh versi situs sebelumnya.",
+        "progress": "Status sinkronisasi kemajuan Anda dengan akun Anda (sidik jari akun, bukan ID Anda), dan memori undangan untuk terhubung: ditutup (selama 60 hari) atau diikuti."
       },
       "audience": {
         "title": "Pengukuran penonton",
@@ -5759,7 +5878,8 @@
         "logs": "Log teknis: kesalahan server dan kesalahan yang ditemukan oleh browser (pesan, halaman, versi situs, jenis browser, tanpa alamat IP atau akun) disimpan selama 30 hari untuk diagnosis. Peristiwa keamanan dan moderasi (permintaan ditolak, tindakan moderator dan administrator) disimpan selama 6 bulan. Mereka kemudian dihapus secara otomatis.",
         "backups": "Cadangan: salinan harian database; hanya tiga data terbaru yang disimpan, sehingga data yang dihapus akan hilang dari cadangan dalam tiga hari.",
         "rateLimits": "Batasan Nilai: Alamat IP Anda, hanya di memori, tidak pernah ditulis ke disk.",
-        "profileCard": "Kartu profil Discord: sampai kamu melepas tautannya, dan paling lama 30 hari setelah pembaruan terakhirmu."
+        "profileCard": "Kartu profil Discord: sampai kamu melepas tautannya, dan paling lama 30 hari setelah pembaruan terakhirmu.",
+        "progress": "Kemajuan yang disinkronkan dan profil publik: hingga Anda menghapusnya dari halaman \"Kemajuan Saya\", atau berdasarkan permintaan."
       },
       "rights": {
         "title": "Hak Anda",
@@ -5767,7 +5887,7 @@
         "browser": "Apa yang ada di browser Anda (favorit, koleksi, preferensi, pilihan cookie) ada di tangan Anda: menghapus data situs akan menghapusnya.",
         "contact": "Selebihnya (komunitas, koleksi tersinkronisasi, notifikasi, bot), tulis ke [{contact}](mailto:{contact}), sebutkan akun yang bersangkutan (nama panggilan game atau nama Discord) sehingga dapat ditemukan. Anda akan menerima tanggapan dalam waktu satu bulan.",
         "cnil": "Jika Anda menganggap, setelah menghubungi penerbit, bahwa hak Anda tidak dihormati, Anda dapat mengirimkan keluhan ke CNIL ([cnil.fr](https://www.cnil.fr/fr/plaintes)) atau ke otoritas perlindungan data di negara Anda.",
-        "updated": "Terakhir diperbarui: 19 November 2026."
+        "updated": "Terakhir diperbarui: 24 November 2026."
       }
     },
     "methodology": {
@@ -5845,6 +5965,14 @@
           ]
         }
       ]
+    },
+    "progress": {
+      "title": "Kemajuan yang disinkronkan dan profil publik",
+      "intro": "Favorit Anda, kuis dan statistik dan coretan hari MLBBdle, catatan latihan, dan pengingat bulan langsung di browser Anda. Jika Anda terhubung (akun game atau Discord), server situs juga menyimpan salinan di databasenya:",
+      "data": "jejak akun yang sama dengan komunitas (tidak pernah ID permainan atau ID Perselisihan Anda), daftar hero favorit Anda, counter dan rekor hari permainan Anda, catatan pelatihan Anda, bulan-bulan di mana Anda meminta pengingat, dan tanggal pendaftaran terakhir;",
+      "public": "jika Anda mengaktifkan profil publik Anda (dinonaktifkan secara default): pengidentifikasi tautan yang diambil secara acak, elemen yang Anda pilih untuk ditampilkan di sana, nama panggilan game Anda atau nama Discord Anda dan, jika Anda mencentangnya, alamat foto profil Anda (yang Discord berisi pengidentifikasi Discord Anda). Profil tersebut tidak direferensikan oleh mesin pencari; mematikannya akan menghapus nama dan foto.",
+      "usage": "Salinan ini hanya digunakan untuk mengetahui kemajuan Anda di perangkat lain dan, jika Anda mengaktifkannya, untuk menampilkan profil publik Anda. Pengingat bulan yang dikirim melalui notifikasi tetap tertaut ke browser yang memintanya.",
+      "deletion": "Dari halaman “Kemajuan Saya”, Anda dapat menghapus salinan ini dan profil publik Anda kapan saja; browser Anda menyimpan salinannya sendiri dan berhenti mengirimkannya."
     }
   },
   "compareUI": {
@@ -6025,7 +6153,7 @@
     "points": "{n} poin"
   },
   "favourites": {
-    "intro": "Disimpan ke browser ini, di perangkat ini, bukan akun Anda: keduanya tidak disinkronkan antar perangkat.",
+    "intro": "Disimpan di browser ini. Terhubung, mereka juga disimpan di akun Anda dan mengikuti Anda di perangkat Anda yang lain.",
     "nonePre": "Belum ada favorit. Di lembar hero,",
     "noLink": "tambahkan satu",
     "nonePost": ": Aku akan menyimpannya di sini untukmu.",
@@ -7082,5 +7210,23 @@
     "tiers": "{n} hero berganti tier",
     "eventsAnnounced": "{month} diumumkan",
     "eventsOpened": "Event {month} sudah dimulai"
+  },
+  "accountSync": {
+    "reminderElsewhere": "Pengingat terjadwal di perangkat Anda yang lain.",
+    "prompt": {
+      "label": "Pertahankan kemajuan Anda",
+      "text": "Masuk untuk menemukan rangkaian hari, favorit, dan pengingat Anda di semua perangkat Anda. Tidak ada yang hilang: browser ini juga mempertahankan miliknya sendiri.",
+      "action": "Masuk",
+      "close": "Nanti",
+      "mlbbdle": {
+        "title": "Simpan rentetan harian Anda di semua perangkat"
+      },
+      "quiz": {
+        "title": "Simpan rentetan harian Anda di semua perangkat"
+      },
+      "favourite": {
+        "title": "Temukan favorit Anda di semua perangkat Anda"
+      }
+    }
   }
 }
