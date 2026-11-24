@@ -7,6 +7,8 @@ export interface EntrySearch {
   /** Address without locale; the link adds the page's one. */
   href: string;
   image?: string | null;
+  /** Other names it answers to: nicknames, shorthands (`lib/search-aliases.ts`). */
+  keywords?: string[];
 }
 
 /**
@@ -14,4 +16,4 @@ export interface EntrySearch {
  * appears in the detail of their skins and skills, which it must not
  * come after.
  */
-export const ORDER_TYPES: EntrySearch["type"][] = ["hero", "item", "emblem", "spell", "skill", "skin", "patch", "page"];
+export const ORDER_TYPES: EntrySearch["type"][] = ["hero", "item", "spell", "emblem", "skill", "skin", "patch", "page"];

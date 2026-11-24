@@ -6355,7 +6355,10 @@
       "emblem": "Emblemas",
       "spell": "Hechizos de combate"
     },
-    "dexEmpty": "Mmm, no encuentro nada. Prueba con otro nombre o con menos letras."
+    "dexEmpty": "Mmm, no encuentro nada. Prueba con otro nombre o con menos letras.",
+    "dexClosest": "No es ese nombre, pero estos se acercan. ¿Fue uno de ellos?",
+    "closest": "Tal vez estabas buscando",
+    "clear": "Borrar búsqueda"
   },
   "heroData": {
     "resource": {

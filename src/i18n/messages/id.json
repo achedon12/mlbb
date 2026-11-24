@@ -6355,7 +6355,10 @@
       "emblem": "emblem",
       "spell": "Battle Spell"
     },
-    "dexEmpty": "Hmm, aku tidak menemukan apa pun. Coba nama lain, atau lebih sedikit huruf."
+    "dexEmpty": "Hmm, aku tidak menemukan apa pun. Coba nama lain, atau lebih sedikit huruf.",
+    "dexClosest": "Bukan nama itu, tapi ini hampir saja. Apakah itu salah satunya?",
+    "closest": "Mungkin Anda sedang mencari",
+    "clear": "Hapus pencarian"
   },
   "heroData": {
     "resource": {
