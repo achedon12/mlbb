@@ -1,6 +1,6 @@
 "use client";
 
-import { Award, CalendarCheck, Crosshair, Flame, Lock, Puzzle, Star, Swords, Target, Trophy, type LucideIcon } from "lucide-react";
+import { Award, CalendarCheck, Crosshair, Flame, Globe, Lock, Puzzle, Star, Swords, Target, Trophy, type LucideIcon } from "lucide-react";
 import Link from "@/components/link";
 import { useT } from "@/i18n/provider";
 import { BADGES, type Badge, type Progress } from "@/lib/account-sync";
@@ -113,7 +113,12 @@ export function FavouriteList({ favourites }: { favourites: readonly string[] })
   );
 }
 
-export function ProgressSection({ id, title, icon: Icon = Award, children }: { id: string; title: string; icon?: LucideIcon; children: React.ReactNode }) {
+/** Section icons by name: a server page cannot hand a component to this client one. */
+const SECTION_ICONS = { award: Award, trophy: Trophy, puzzle: Puzzle, star: Star, globe: Globe } satisfies Record<string, LucideIcon>;
+export type SectionIcon = keyof typeof SECTION_ICONS;
+
+export function ProgressSection({ id, title, icon = "award", children }: { id: string; title: string; icon?: SectionIcon; children: React.ReactNode }) {
+  const Icon = SECTION_ICONS[icon];
   return (
     <section aria-labelledby={id} className="space-y-3">
       <h2 id={id} className="flex items-center gap-2 font-heading text-xl font-bold uppercase text-chalk-100">
