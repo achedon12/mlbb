@@ -1,9 +1,11 @@
 "use client";
 
+import { ViewTransition } from "react";
 import Image from "next/image";
 import Link from "@/components/link";
 import { useT } from "@/i18n/provider";
 import type { Lane, Tier, Role } from "@/lib/types";
+import { heroMorph } from "@/lib/hero-morph";
 import { cn } from "@/lib/utils";
 import { FavouriteIndicator } from "./favourite-indicator";
 import { BadgeTier } from "./ui";
@@ -43,14 +45,19 @@ export function HeroCard({ hero, priority = false, className }: { hero: HeroPrev
     <Link href={`/heroes/${hero.slug}`} className={cn("hero-tile eclat-under offscreen group [contain-intrinsic-size:auto_16rem]", className)}>
       <span className="hero-tile-art">
         {hero.portrait ? (
-          <Image
-            src={hero.portrait}
-            alt=""
-            fill
-            priority={priority}
-            sizes="(min-width: 1280px) 11rem, (min-width: 640px) 22vw, 46vw"
-            className="object-cover object-top"
-          />
+          // The portrait flies to its place on the hero page (`heroMorph`).
+          <ViewTransition name={heroMorph(hero.slug)} share="hero-morph" default="none">
+            <span className="absolute inset-0">
+              <Image
+                src={hero.portrait}
+                alt=""
+                fill
+                priority={priority}
+                sizes="(min-width: 1280px) 11rem, (min-width: 640px) 22vw, 46vw"
+                className="object-cover object-top"
+              />
+            </span>
+          </ViewTransition>
         ) : (
           <span aria-hidden className="display-caps grid size-full place-items-center text-4xl text-chalk-600">
             {hero.name.slice(0, 2)}

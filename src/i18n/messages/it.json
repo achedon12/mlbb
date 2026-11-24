@@ -6483,6 +6483,8 @@
     "hero1": "Il rango dei cambiamenti si trova nella parte superiore del foglio: seguono tassi, contatori e build.",
     "hero2": "La scheda Contatori mostra i suoi duelli peggiori e migliori.",
     "hero3": "Aggiungilo come preferito per ricevere una notifica di ogni patch.",
+    "heroTop": "{name} è nel tier {tier} in questo momento: è il momento di approfittarne in classificata!",
+    "heroLow": "{name} è nel tier C in questo momento… Dai un'occhiata ai suoi counter prima di iniziare una partita.",
     "tierList1": "Il livello combina la percentuale di vincita e un quarto della percentuale di ban.",
     "tierList2": "Filtra per grado: il meta di Epic non è quello di Mythic Glory.",
     "tierList3": "Un eroe giocato troppo poco non viene classificato, la misurazione sarebbe instabile.",

@@ -24,6 +24,17 @@ exception.
 | Chalk: secondary text | `chalk-400` | `#9AA6C2` |
 | Tiers S+ / S / A / B / C | `tier-splus` … `tier-c` | `#FF7A3D` `#F5C451` `#3D8BFF` `#9AA6C2` `#3A4566` |
 
+**The hero accent** is the one other exception, on a hero's page only:
+`--hero-accent`, the dominant hue of the hero's official artwork, measured by
+`scripts/hero-colors.mjs` into `src/data/hero-colors.json` (run it after a
+sync that brings new artwork) and made readable by `src/lib/hero-accent.ts`
+(saturation held in a band, lightness raised to 4.5:1 on every night ground,
+checked in `tests/unit/hero-accent.test.ts`; the gold without a measure). It
+tints the poster's light, the epithet, the lane chips' edge, the gauges and
+the focus rings (`.hero-accent` in `globals.css`), nothing else. The colour
+is looked up by the path of the artwork the page shows, so a withheld
+artwork never lends its colour.
+
 Legacy aliases, so older pages keep working: `emerald-*` is the ally blue
 (it always meant "good"), `blurple-*` (Discord) is the ally blue too. New
 code uses `azure` and never `emerald` or `blurple`.
@@ -120,7 +131,16 @@ spinner, a grey rounded skeleton or a bare red line.
   (the name is painted from the first frame).
 - Hover: cards and tiles rise 2 px, a tile's image zooms 3 % in its frame,
   the éclat slides under the element; buttons press in.
-- Nothing moves on scroll. Everything stops under `prefers-reduced-motion`.
+- Nothing moves on scroll, but for the hero page's poster: its layers (art,
+  the hero's light, the name) drift at their own depth with the scroll and,
+  on a fine pointer, the cursor (`PosterParallax`, `hero-cinematic.tsx`),
+  a few pixels, transforms only. Its chips, figures, facts and gauges come in
+  one after the other (`Cascade`): on load when already on screen, when they
+  reach the screen otherwise.
+- A hero's portrait flies from its tile in the lists to its place on the
+  hero page (React's `ViewTransition`, name `heroMorph(slug)`, class
+  `hero-morph`); a browser without the View Transitions API just navigates.
+- Everything stops under `prefers-reduced-motion`, view transitions included.
 
 ## Composition
 

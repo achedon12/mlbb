@@ -1016,3 +1016,69 @@ body {
 }
 }
 /* ══ end of the brand micro-states ═══════════════════════════════════════════ */
+
+/* ══ Hero page: accent and cinematic poster ══════════════════════════════════
+ * (src/components/hero-cinematic.tsx, src/lib/hero-accent.ts)
+ *
+ * `--hero-accent` is the hero's own colour, taken from its official artwork
+ * and held to text contrast on night (hero-accent.ts); it falls back to the
+ * gold. It tints the poster's light, the epithet, the lane chips' edge, the
+ * gauges and the focus rings of the hero page, nothing else.
+ *
+ * The poster is built in layers that drift at their own depth with the
+ * pointer and the scroll (`--px`, `--py`, `--scroll`, written by
+ * PosterParallax): the artwork slowly, the light faster, the name barely.
+ * Transforms only. Under prefers-reduced-motion the variables are never
+ * written and every layer stays put.
+ */
+.hero-accent { --hero-accent: var(--color-gold-400); }
+.hero-accent :focus-visible { outline-color: var(--hero-accent); }
+.hero-accent-text { color: var(--hero-accent); }
+
+.cine-poster { --px: 0; --py: 0; --scroll: 0; }
+.cine-art {
+  transform: translate3d(calc(var(--px) * -14px), calc(var(--scroll) * 16% + var(--py) * -8px), 0) scale(1.08);
+  transform-origin: 50% 30%;
+}
+/* The hero's light: two washes of its colour, low left behind the name and high right in the art's sky. */
+.cine-light {
+  background:
+    radial-gradient(55% 65% at 15% 92%, color-mix(in srgb, var(--hero-accent) 34%, transparent), transparent 72%),
+    radial-gradient(38% 45% at 82% 18%, color-mix(in srgb, var(--hero-accent) 16%, transparent), transparent 70%);
+  mix-blend-mode: screen;
+  transform: translate3d(calc(var(--px) * 26px), calc(var(--scroll) * -28px + var(--py) * 14px), 0);
+}
+.cine-vignette { background: radial-gradient(125% 95% at 58% 32%, transparent 48%, rgb(6 8 15 / 0.8) 100%); }
+/* The éclat along the art's foot, in the hero's colour. */
+.cine-edge {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--hero-accent) 22%, color-mix(in srgb, var(--hero-accent) 40%, #fff) 34%, transparent 70%);
+}
+.cine-name { transform: translate3d(calc(var(--px) * 5px), calc(var(--scroll) * -22px), 0); }
+/* A printed offset in the hero's colour under the giant name: a cut, not a halo. */
+.cine-name h1 { text-shadow: 0.045em 0.045em 0 color-mix(in srgb, var(--hero-accent) 55%, transparent); }
+.cine-chip { box-shadow: inset 0 -2px 0 var(--hero-accent); }
+.gauge-accent { background: var(--hero-accent); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .cine-art, .cine-light, .cine-name { will-change: transform; }
+}
+
+/* Revealed one after the other (Cascade): each child's rank in `--i`, a gauge's notches in `--n`. */
+@keyframes cascade-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes notch-in { from { opacity: 0.15; transform: scaleY(0.3); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: no-preference) {
+  .cascade > * { animation: cascade-in 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) calc(0.25s + var(--i, 0) * 60ms) both; }
+  .cascade .gauge-lit { animation: notch-in 0.3s ease-out calc(0.45s + var(--i, 0) * 60ms + var(--n, 0) * 35ms) both; }
+  .cascade.is-armed > * { animation: none; opacity: 0; }
+  .cascade.is-armed .gauge-lit { animation: none; opacity: 0.15; }
+  .cascade.is-in > * { animation-delay: calc(var(--i, 0) * 60ms); }
+  .cascade.is-in .gauge-lit { animation-delay: calc(0.2s + var(--i, 0) * 60ms + var(--n, 0) * 35ms); }
+}
+
+/* The portrait flies from the hero list to the hero page (React's ViewTransition, share="hero-morph"). */
+::view-transition-group(.hero-morph) { animation-duration: 420ms; animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1); }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}
+/* ══ end of the hero page ════════════════════════════════════════════════════ */

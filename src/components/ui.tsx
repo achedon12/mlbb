@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { Breadcrumb, type Crumb } from "@/components/breadcrumb";
 import { Foldable } from "@/components/foldable";
 import Link from "@/components/link";
@@ -204,11 +205,14 @@ export function Gauge({
   value,
   max = 10,
   text,
+  accent = false,
 }: {
   value: number;
   max?: number;
   /** Displayed value, already formatted for the locale (an average with decimals). */
   text?: string;
+  /** Lit notches in the hero's colour (`--hero-accent`, hero page), which a cascade lights one by one. */
+  accent?: boolean;
 }) {
   const part = Math.max(0, Math.min(1, value / max));
   // Ten slanted notches, like the game's own rating bars.
@@ -220,7 +224,15 @@ export function Gauge({
         {Array.from({ length: 10 }, (_, i) => (
           <span
             key={i}
-            className={cn("h-2 flex-1 -skew-x-[25deg]", i < lit ? (part >= 0.8 ? "bg-gold-400" : "bg-chalk-300") : "bg-night-700")}
+            style={accent && i < lit ? ({ "--n": i } as CSSProperties) : undefined}
+            className={cn(
+              "h-2 flex-1 -skew-x-[25deg]",
+              i < lit
+                ? accent
+                  ? "gauge-lit gauge-accent"
+                  : part >= 0.8 ? "bg-gold-400" : "bg-chalk-300"
+                : "bg-night-700",
+            )}
           />
         ))}
       </span>

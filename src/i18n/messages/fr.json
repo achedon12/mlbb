@@ -6483,6 +6483,8 @@
     "hero1": "Change de rang en haut de la fiche : les taux, contres et builds suivent.",
     "hero2": "L'onglet Contres montre ses pires et ses meilleurs duels.",
     "hero3": "Ajoute-le en favori pour être prévenu à chaque patch.",
+    "heroTop": "{name} est en palier {tier} en ce moment : c'est le moment d'en profiter en classé !",
+    "heroLow": "{name} est en palier C en ce moment… Jette un œil à ses contres avant de lancer une partie.",
     "tierList1": "Le palier combine le taux de victoire et le quart du taux de ban.",
     "tierList2": "Filtre par rang : la méta d'Épique n'est pas celle de Gloire mythique.",
     "tierList3": "Un héros trop peu joué n'est pas classé, la mesure serait instable.",

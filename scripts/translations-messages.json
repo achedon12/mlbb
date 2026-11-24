@@ -42330,5 +42330,21 @@
   "ru|L'onglet Contres montre ses pires et ses meilleurs duels.": "Во вкладке Counters показаны его худшие и лучшие дуэли.",
   "ru|Le serveur Advance montre ce qui arrive bientôt.": "Сервер Advance показывает, что будет в ближайшее время.",
   "ru|Les drafts des matchs sont repliées, ouvre-les.": "Шашки матча сложены, откройте их.",
-  "ru|héros le prennent": "герои возьми это"
+  "ru|héros le prennent": "герои возьми это",
+  "en|{name} est en palier {tier} en ce moment : c'est le moment d'en profiter en classé !": "{name} is in level {tier} at the moment: it's time to take advantage of it in ranked!",
+  "en|{name} est en palier C en ce moment… Jette un œil à ses contres avant de lancer une partie.": "{name} is in tier C right now... Take a look at his counters before starting a game.",
+  "it|{name} est en palier {tier} en ce moment : c'est le moment d'en profiter en classé !": "{name} è al livello {tier} al momento: è ora di approfittarne in classifica!",
+  "it|{name} est en palier C en ce moment… Jette un œil à ses contres avant de lancer une partie.": "{name} è al livello C in questo momento... Dai un'occhiata ai suoi segnalini prima di iniziare una partita.",
+  "es|{name} est en palier {tier} en ce moment : c'est le moment d'en profiter en classé !": "{name} está en el nivel {tier} en este momento: ¡es hora de aprovecharlo en las clasificatorias!",
+  "es|{name} est en palier C en ce moment… Jette un œil à ses contres avant de lancer une partie.": "{name} está en el nivel C en este momento... Echa un vistazo a sus contadores antes de comenzar un juego.",
+  "id|{name} est en palier {tier} en ce moment : c'est le moment d'en profiter en classé !": "{name} berada di level {tier} saat ini: saatnya memanfaatkannya di peringkat!",
+  "id|{name} est en palier C en ce moment… Jette un œil à ses contres avant de lancer une partie.": "{name} berada di tingkat C sekarang... Lihatlah counternya sebelum memulai permainan.",
+  "fil|{name} est en palier {tier} en ce moment : c'est le moment d'en profiter en classé !": "Ang {name} ay nasa level {tier} sa ngayon: oras na para samantalahin ito sa ranggo!",
+  "fil|{name} est en palier C en ce moment… Jette un œil à ses contres avant de lancer une partie.": "Si {name} ay nasa tier C ngayon... Tingnan ang kanyang mga counter bago magsimula ng laro.",
+  "th|{name} est en palier {tier} en ce moment : c'est le moment d'en profiter en classé !": "{name} อยู่ในระดับ {tier} ในขณะนี้: ถึงเวลาใช้ประโยชน์จากมันในการจัดอันดับ!",
+  "th|{name} est en palier C en ce moment… Jette un œil à ses contres avant de lancer une partie.": "{name} ตอนนี้อยู่ในระดับ C... ดูเคาน์เตอร์ของเขาก่อนเริ่มเกม",
+  "pt|{name} est en palier {tier} en ce moment : c'est le moment d'en profiter en classé !": "{name} está no nível {tier} no momento: é hora de tirar vantagem disso na classificação!",
+  "pt|{name} est en palier C en ce moment… Jette un œil à ses contres avant de lancer une partie.": "{name} está no nível C agora... Dê uma olhada em seus contadores antes de iniciar o jogo.",
+  "ru|{name} est en palier {tier} en ce moment : c'est le moment d'en profiter en classé !": "{name} на данный момент находится на уровне {tier}: пришло время воспользоваться этим в рейтинге!",
+  "ru|{name} est en palier C en ce moment… Jette un œil à ses contres avant de lancer une partie.": "{name} сейчас находится на уровне C... Прежде чем начинать игру, посмотрите на его фишки."
 }

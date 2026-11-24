@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, ViewTransition } from "react";
 import Image from "next/image";
 import { useT } from "@/i18n/provider";
 import { rarity, presentRarities } from "@/lib/rarities";
@@ -96,14 +96,19 @@ export function ShowcaseArt({
 export function ShowcasePortrait({
   name,
   portraitDefault,
+  morph,
 }: {
   name: string;
   portraitDefault: string | null;
+  /** View transition name shared with the hero's tile in the lists. */
+  morph?: string;
 }) {
   const { active } = useSkin();
   const source = active.portrait ?? portraitDefault;
 
   return (
+    // Where the portrait of the hero list's tile lands (`heroMorph`).
+    <ViewTransition name={morph} share="hero-morph" default="none">
     <span className="bevel-sm relative h-40 w-28 shrink-0 overflow-hidden bg-night-800 xl:h-32 xl:w-24">
       {source ? (
         <Image
@@ -120,6 +125,7 @@ export function ShowcasePortrait({
         </span>
       )}
     </span>
+    </ViewTransition>
   );
 }
 

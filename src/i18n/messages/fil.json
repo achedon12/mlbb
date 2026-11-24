@@ -6483,6 +6483,8 @@
     "hero1": "Mga pagbabago sa ranggo sa itaas ng sheet: sumusunod ang mga rate, counter at build.",
     "hero2": "Ipinapakita ng tab na Counter ang kanyang pinakamasama at pinakamahusay na mga tunggalian.",
     "hero3": "Idagdag ito bilang paborito para maabisuhan ng bawat patch.",
+    "heroTop": "Nasa tier {tier} si {name} ngayon: magandang pagkakataon para gamitin sa ranked!",
+    "heroLow": "Nasa tier C si {name} ngayon… Silipin muna ang mga counter bago magsimula ng laro.",
     "tierList1": "Pinagsasama ng tier ang win rate at isang quarter ng ban rate.",
     "tierList2": "Salain ayon sa ranggo: ang meta ng Epic ay hindi ng Mythic Glory.",
     "tierList3": "Ang isang hero na masyadong maliit ang nilalaro ay hindi niraranggo, ang pagsukat ay magiging hindi matatag.",
