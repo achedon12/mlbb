@@ -64,6 +64,11 @@ function set(next: Partial<SyncState>) {
 }
 
 export const syncState = () => state;
+
+/** The session already says nobody is signed in: no request to make, prompts may show. */
+export function markSignedOut() {
+  if (state.status === "checking") set({ status: "signedOut" });
+}
 const SERVER_STATE: SyncState = { status: "checking", syncedAt: null };
 export const serverSyncState = () => SERVER_STATE;
 export function subscribeSync(listener: () => void): () => void {
