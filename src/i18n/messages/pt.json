@@ -714,8 +714,22 @@
       "perks": {
         "profile": "Seu perfil, classificações e heróis mais jogados",
         "community": "O fórum e a busca por companheiros de equipe",
-        "collection": "Sua coleção de aparências em todos os seus dispositivos"
-      }
+        "collection": "Sua coleção de aparências em todos os seus dispositivos",
+        "sync": "Suas séries diárias, favoritos e lembretes em todos os seus dispositivos"
+      },
+      "pitch": {
+        "title": "Por que fazer login?",
+        "fromPrompt": "Seu progresso irá segui-lo em todos os lugares",
+        "sync": "Seus favoritos, sua série de dias no quiz e MLBBdle e seus lembretes, no telefone ou no computador.",
+        "streaks": "Uma sequência de dias não se perde mais trocando de dispositivo ou esvaziando o navegador.",
+        "badges": "Um perfil com seus registros e crachás, para compartilhar se desejar.",
+        "local": "O que você já jogou neste navegador entra na sua conta quando você faz login. Sem uma conta, tudo continua funcionando como antes."
+      },
+      "or": "Ou, com um clique",
+      "discord": "Entrar com o Discord",
+      "discordText": "Para manter seu progresso e participar da comunidade. O Discord transmite apenas seu nome e avatar, nunca seu e-mail.",
+      "discordSignedIn": "Você está conectado ao Discord ({name}).",
+      "discordProgress": "Ver meu progresso"
     },
     "watch": {
       "title": "Radar",
@@ -765,7 +779,9 @@
       "profileLink": "Ver meu perfil de jogador",
       "profileLinkText": "Resumo da temporada, heróis comparados à média do seu elo, últimas partidas e dicas.",
       "topHeroes": "Seus heróis",
-      "topHeroesLead": "Aqueles que você mais joga, com base nos jogos que o serviço mantém."
+      "topHeroesLead": "Aqueles que você mais joga, com base nos jogos que o serviço mantém.",
+      "progressLink": "Meu progresso",
+      "progressLinkText": "Sequências diárias, registros de questionários e MLBBdle, emblemas e perfil público, sincronizados em seus dispositivos."
     },
     "apiDoc": {
       "title": "API pública",
@@ -5253,6 +5269,108 @@
       "method": "Como é medido",
       "methodText": "Para cada herói modificado: a média de sua taxa de vitória, todas as classificações combinadas, durante os {days} dias antes do lançamento do patch e durante os {days} dias seguintes, excluindo o mesmo dia. Demora pelo menos quatro dias medidos de cada lado. Um desvio inferior a {threshold} ponto é considerado ruído. Uma taxa que muda não diz por quê: o meta, outros heróis e jogadores também mudam.",
       "notes": "Quer os detalhes de cada mudança?"
+    },
+    "progress": {
+      "metaTitle": "Meu progresso",
+      "metaDescription": "Sua série de dias, seus testes e registros da MLBBdle, seus distintivos e seus heróis favoritos.",
+      "title": "Meu progresso",
+      "titleNamed": "Progressão de {name}",
+      "lead": "Suas sequências de dias, seus recordes e seus crachás, a partir do que você joga no site.",
+      "quiz": "Quiz do dia",
+      "mlbbdle": "MLBBdle",
+      "playQuiz": "Jogue o teste de hoje →",
+      "playMlbbdle": "Jogue MLBBdle →",
+      "badgesTitle": "Emblemas",
+      "favourites": "Pool de heróis",
+      "streak": "Sequência atual",
+      "bestStreak": "Melhor sequência",
+      "quizDays": "Dias jogados",
+      "quizBest": "Melhor pontuação",
+      "solved": "Quebra-cabeças resolvidos",
+      "fewest": "Menos tentativas",
+      "noBadge": "Nenhum emblema ainda: o primeiro está chegando em breve.",
+      "noFavourite": "Ainda não há favorito: adicione um de um arquivo hero.",
+      "earned": "pegou",
+      "locked": "ainda não obtido",
+      "badges": {
+        "streak7": {
+          "name": "Uma semana",
+          "text": "7 dias consecutivos no quiz ou MLBBdle."
+        },
+        "streak30": {
+          "name": "Um mês",
+          "text": "30 dias consecutivos no quiz ou MLBBdle."
+        },
+        "mlbbdle10": {
+          "name": "Detetive",
+          "text": "10 quebra-cabeças MLBBdle resolvidos."
+        },
+        "mlbbdle50": {
+          "name": "Cão de caça",
+          "text": "50 quebra-cabeças MLBBdle resolvidos."
+        },
+        "firstTry": {
+          "name": "Na primeira tentativa",
+          "text": "Um herói da MLBBdle encontrado em uma tentativa."
+        },
+        "quiz10": {
+          "name": "Costumava ser",
+          "text": "10 questionários diários concluídos."
+        },
+        "allGames": {
+          "name": "Valete para toda obra",
+          "text": "O quiz, o clássico MLBBdle e a habilidade MLBBdle foram jogados pelo menos uma vez."
+        },
+        "favourites5": {
+          "name": "Coletor",
+          "text": "5 heróis favoritos."
+        }
+      },
+      "browserOnly": "Seu progresso é salvo neste navegador, neste dispositivo.",
+      "signedOutTitle": "Salvo apenas neste navegador",
+      "signedOutText": "Faça login com sua conta de jogo ou Discord para manter suas sequências diárias, favoritos e lembretes em todos os seus dispositivos. O que já está aqui entra na sua conta.",
+      "paused": "A sincronização foi interrompida: a cópia da sua conta foi excluída. Este navegador mantém seu progresso.",
+      "resume": "Retomar sincronização",
+      "sync": {
+        "checking": "Lendo sua conta…",
+        "saving": "Registrando em sua conta…",
+        "saved": "Sincronizado com sua conta: você pode encontrar tudo em seus outros dispositivos.",
+        "retrying": "Sua conta não está respondendo: o progresso permanece aqui e será enviado o mais rápido possível."
+      },
+      "retry": "Tente novamente",
+      "public": {
+        "title": "Perfil público",
+        "text": "Desativado por padrão. Quando ativado, um link que só você conhece mostra seu nome e apenas o que você confere abaixo. Não é referenciado pelos motores de busca.",
+        "toggle": "Tornar meu perfil público",
+        "fields": "O que o perfil mostra",
+        "field": {
+          "avatar": "Minha foto de perfil",
+          "favourites": "Meus heróis favoritos",
+          "quiz": "Minha série de dias e registros de questionários",
+          "mlbbdle": "Minhas séries e registros do dia MLBBdle",
+          "badges": "Meus emblemas"
+        },
+        "copy": "Copiar o link",
+        "copied": "Link copiado",
+        "open": "Ver meu perfil",
+        "privacy": "Nunca o ID do jogo, servidor, classificação ou país. Desative-o a qualquer momento: o link não mostra mais nada.",
+        "error": "Configuração não salva. Tente novamente em alguns instantes."
+      },
+      "delete": {
+        "title": "Exclua a cópia da minha conta",
+        "text": "Exclui seu progresso e seu perfil público do servidor. Seus navegadores mantêm os deles e param de enviá-los até que você retome a sincronização.",
+        "action": "Excluir cópia da conta…",
+        "confirm": "Sim, excluir",
+        "cancel": "Cancelar",
+        "done": "Cópia excluída. Seu progresso permanece neste navegador.",
+        "error": "A exclusão não é possível no momento. Tente novamente mais tarde."
+      },
+      "publicTitle": "Perfil de {name}",
+      "publicDescription": "Sequências, recordes e emblemas do dia de um jogador no MLBBDex.",
+      "publicLead": "Daystreaks, recordes e emblemas nos jogos de hoje da MLBBDex.",
+      "publicKicker": "Perfil de jogador",
+      "publicCta": "Você também pode acompanhar sua série de dias e seus emblemas:",
+      "publicCtaLink": "meu progresso"
     }
   },
   "modeSheet": {
@@ -5705,15 +5823,16 @@
           "content": "Contente"
         },
         "consent": "Sua escolha sobre cookies de medição de audiência e sua data (6 meses).",
-        "favourites": "Seus heróis favoritos. Enviado ao servidor somente se você ativar notificações de patch.",
+        "favourites": "Seus heróis favoritos. Enviado para o servidor se você ativar notificações de patch e mantido em sua conta se estiver conectado.",
         "push": "Notificações de patch ativas neste navegador.",
         "collection": "Sua coleção de skins e o status de sincronização com sua conta (uma impressão digital da conta, nunca seu ID do jogo).",
         "popup": "Memória de convite do Discord: fechado (por 30 dias) ou seguido, e número de páginas visualizadas na aba (tempo da aba).",
-        "games": "Jogos, séries e estatísticas da MLBBdle e do quiz.",
+        "games": "Jogos, séries e estatísticas da MLBBdle e do quiz. Estatísticas e séries diárias também são mantidas em sua conta se você estiver logado.",
         "tierList": "Rascunhos do criador da tier list.",
         "timer": "Jogo atual (tempo da guia) e configurações do temporizador objetivo.",
         "retribution": "Melhores pontuações do Teste de Retribution.",
-        "cache": "Para funcionar offline, o site também mantém uma cópia das páginas, imagens e dados visualizados no cache do seu navegador (service worker): 250 páginas e 800 imagens no máximo, apenas no seu dispositivo. As páginas vinculadas a uma conexão (conta, login, administração de dashboard e bot, e qualquer página exibida para um visitante logado) nunca são mantidas ali, e a desconexão apaga aquelas que uma versão anterior do site poderia ter mantido."
+        "cache": "Para funcionar offline, o site também mantém uma cópia das páginas, imagens e dados visualizados no cache do seu navegador (service worker): 250 páginas e 800 imagens no máximo, apenas no seu dispositivo. As páginas vinculadas a uma conexão (conta, login, administração de dashboard e bot, e qualquer página exibida para um visitante logado) nunca são mantidas ali, e a desconexão apaga aquelas que uma versão anterior do site poderia ter mantido.",
+        "progress": "Status de sincronização do seu progresso com sua conta (uma impressão digital da conta, nunca seu ID) e memória do convite para conexão: fechado (por 60 dias) ou seguido."
       },
       "audience": {
         "title": "Medição de audiência",
@@ -5759,7 +5878,8 @@
         "logs": "Registros técnicos: erros do servidor e encontrados pelo navegador (mensagem, página, versão do site, tipo de navegador, sem endereço IP ou conta) são mantidos por 30 dias para diagnóstico. Os eventos de segurança e moderação (pedidos recusados, ações de moderadores e administradores) são mantidos por 6 meses. Eles são então excluídos automaticamente.",
         "backups": "Backups: uma cópia diária do banco de dados; apenas os três mais recentes são mantidos, de modo que os dados excluídos desaparecem dos backups em três dias.",
         "rateLimits": "Limites de Taxa: Seu endereço IP, somente na memória, nunca gravado em disco.",
-        "profileCard": "Cartão de perfil do Discord: até você desvinculá-lo, e no máximo 30 dias após sua última atualização."
+        "profileCard": "Cartão de perfil do Discord: até você desvinculá-lo, e no máximo 30 dias após sua última atualização.",
+        "progress": "Progresso sincronizado e perfil público: até que você os exclua da página \"Meu Progresso\" ou mediante solicitação."
       },
       "rights": {
         "title": "Seus direitos",
@@ -5767,7 +5887,7 @@
         "browser": "O que está no seu navegador (favoritos, coleção, preferências, opções de cookies) está em suas mãos: limpar os dados do site os exclui.",
         "contact": "Para o resto (comunidade, coleção sincronizada, notificações, bot), escreva para [{contact}](mailto:{contact}), especificando a conta em questão (apelido do jogo ou nome do Discord) para que possa ser encontrada. Você receberá uma resposta dentro de um mês.",
         "cnil": "Se considerar, após contactar o editor, que os seus direitos não são respeitados, pode enviar uma reclamação à CNIL ([cnil.fr](https://www.cnil.fr/fr/plaintes)) ou à autoridade de proteção de dados do seu país.",
-        "updated": "Última atualização: 19 de novembro de 2026."
+        "updated": "Última atualização: 24 de novembro de 2026."
       }
     },
     "methodology": {
@@ -5845,6 +5965,14 @@
           ]
         }
       ]
+    },
+    "progress": {
+      "title": "Progresso sincronizado e perfil público",
+      "intro": "Seus favoritos, estatísticas e sequências de questionários e dias da MLBBdle, registros de treinos e lembretes mensais ficam no seu navegador. Caso você esteja conectado (conta do jogo ou Discord), o servidor do site também mantém uma cópia em seu banco de dados:",
+      "data": "a mesma pegada da conta da comunidade (nunca seu ID de jogo ou ID do Discord), a lista de seus heróis favoritos, seus counters e sequências de dias de jogo, seus registros de treinamento, os meses para os quais você solicitou um lembrete e a data do último registro;",
+      "public": "se você ativar seu perfil público (desativado por padrão): um identificador de link sorteado aleatoriamente, os elementos que você escolheu para mostrar lá, seu apelido de jogo ou seu nome no Discord e, se você marcá-lo, o endereço da sua foto de perfil (o Discord contém seu identificador Discord). O perfil não é referenciado pelos motores de busca; desligá-lo apaga o nome e a foto.",
+      "usage": "Esta cópia é usada apenas para saber seu progresso em outros dispositivos e, se você ativá-la, para exibir seu perfil público. Os lembretes mensais enviados por notificação permanecem vinculados ao navegador que os solicitou.",
+      "deletion": "Na página “Meu Progresso”, você pode excluir esta cópia e seu perfil público a qualquer momento; seus navegadores mantêm sua própria cópia e param de enviá-la."
     }
   },
   "compareUI": {
@@ -6025,7 +6153,7 @@
     "points": "{n} pontos"
   },
   "favourites": {
-    "intro": "Salvos neste dispositivo, neste navegador, independentemente da sua conta. Eles não são sincronizados entre dispositivos.",
+    "intro": "Salvo neste navegador. Conectados, eles também são mantidos na sua conta e seguem você em seus outros dispositivos.",
     "nonePre": "Ainda não há favorito. Em uma ficha de herói,",
     "noLink": "adicione um",
     "nonePost": ": Vou guardar aqui para você.",
@@ -6355,7 +6483,10 @@
       "emblem": "Emblemas",
       "spell": "Feitiços de Batalha"
     },
-    "dexEmpty": "Hum, não consigo encontrar nada. Tente outro nome ou menos letras."
+    "dexEmpty": "Hum, não consigo encontrar nada. Tente outro nome ou menos letras.",
+    "dexClosest": "Não é esse nome, mas estes chegam perto. Foi um deles?",
+    "closest": "Talvez você estivesse procurando",
+    "clear": "Limpar pesquisa"
   },
   "heroData": {
     "resource": {
@@ -7082,5 +7213,23 @@
     "tiers": "{n} heróis mudaram de tier",
     "eventsAnnounced": "{month} anunciado",
     "eventsOpened": "Os eventos de {month} começaram"
+  },
+  "accountSync": {
+    "reminderElsewhere": "Lembrete programado em outro dos seus dispositivos.",
+    "prompt": {
+      "label": "Mantenha seu progresso",
+      "text": "Faça login para encontrar suas séries diárias, favoritos e lembretes em todos os seus dispositivos. Nada está perdido: este navegador também mantém o seu.",
+      "action": "Entrar",
+      "close": "Mais tarde",
+      "mlbbdle": {
+        "title": "Mantenha sua sequência diária em todos os seus dispositivos"
+      },
+      "quiz": {
+        "title": "Mantenha sua sequência diária em todos os seus dispositivos"
+      },
+      "favourite": {
+        "title": "Encontre seus favoritos em todos os seus dispositivos"
+      }
+    }
   }
 }

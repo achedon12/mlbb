@@ -47,7 +47,7 @@ export function SheetPoster({
     <section aria-labelledby="sheet-title" className="relative isolate overflow-hidden">
       {art && (
         <div aria-hidden className="absolute inset-0 -z-10 lg:left-[28%]">
-          <Image src={art} alt="" fill priority sizes="(min-width: 1024px) 72vw, 100vw" className="affiche-art object-cover object-[60%_22%] opacity-70" />
+          <Image src={art} alt="" fill priority fetchPriority="high" sizes="(min-width: 1024px) 72vw, 100vw" className="affiche-art object-cover object-[60%_22%] opacity-70" />
           <div className="absolute inset-0 bg-linear-to-t from-night-950 via-night-950/70 to-night-950/20" />
           <div className="absolute inset-y-0 left-0 w-full bg-linear-to-r from-night-950 via-night-950/80 to-transparent lg:w-3/5" />
         </div>

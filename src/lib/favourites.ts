@@ -3,10 +3,10 @@ import { trackEvent } from "@/lib/analytics";
 /**
  * Favourites.
  *
- * They live in the browser, no longer in a database: the site no longer has
- * accounts of its own, identity is the game's. A favourite is therefore a
- * local convenience — the list of heroes kept close at hand — not data to
- * sync across devices.
+ * They live in the browser: the list works signed out, on any page. Signed
+ * in, the account sync (`account-sync-client.ts`) also keeps it on the
+ * account, listening to the "mlbb:favoris" event, and writes back here what
+ * another device added or removed (`writeFavourites`).
  */
 const KEY = "mlbb_favoris";
 
@@ -21,6 +21,16 @@ export function readFavourites(): string[] {
 
 export function isFavourite(slug: string): boolean {
   return readFavourites().includes(slug);
+}
+
+/** Replaces the whole list (the account sync), telling the page's components. */
+export function writeFavourites(list: string[]) {
+  try {
+    localStorage.setItem(KEY, JSON.stringify(list));
+    window.dispatchEvent(new CustomEvent("mlbb:favoris"));
+  } catch {
+    /* storage unavailable: the page keeps what it showed */
+  }
 }
 
 /** Adds or removes a hero, and returns the new state. */

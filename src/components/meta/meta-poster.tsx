@@ -72,13 +72,14 @@ export function MetaPoster({
             alt=""
             fill
             priority
+            fetchPriority="high"
             sizes="(min-width: 1024px) 70vw, 100vw"
             className="affiche-art object-cover object-[60%_24%]"
           />
         ) : (
           portrait && (
             <span className="absolute inset-y-0 right-[8%] aspect-[240/390]">
-              <Image src={portrait} alt="" fill priority sizes="(min-width: 640px) 22rem, 60vw" className="affiche-art object-cover" />
+              <Image src={portrait} alt="" fill priority fetchPriority="high" sizes="(min-width: 640px) 22rem, 60vw" className="affiche-art object-cover" />
             </span>
           )
         )}

@@ -9,6 +9,7 @@ import { duos } from "@/lib/duos";
 import { regionsLore } from "@/lib/lore";
 import { emblemsSheets, spellSheets } from "@/lib/usage-sheets";
 import type { EntrySearch } from "@/lib/search";
+import { heroAliases, ITEM_ALIASES, SPELL_ALIASES } from "@/lib/search-aliases";
 import { NEWS, BASE } from "@/lib/sections";
 
 /**
@@ -30,6 +31,11 @@ export async function GET(_request: Request, { params }: { params: Promise<{ loc
   const t = createT(locale);
   const images = (visuals as unknown as { items: Record<string, string> }).items;
   const skillsLocale = skills(locale);
+  // A hero's other names, on the hero page and its sub-pages ("dyr counter").
+  const aka = (slug: string) => {
+    const keywords = heroAliases(slug, locale);
+    return keywords.length ? { keywords } : {};
+  };
 
   const entries: EntrySearch[] = [
     ...allHeroes.map((h) => ({
@@ -38,6 +44,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ loc
       detail: [h.title, h.roles.map((r) => t(`roles.${r}`)).join(" / ")].filter(Boolean).join(" · "),
       href: `/heroes/${h.slug}`,
       image: h.images.icon ?? h.images.portrait,
+      ...aka(h.slug),
     })),
     // One "counters" entry per measured hero: the "{hero} counter" query is the most searched.
     ...allHeroes
@@ -47,6 +54,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ loc
         title: `${h.name} · ${t("pages.heroDetail.tab.counters")}`,
         href: `/heroes/${h.slug}/counters`,
         image: h.images.icon ?? h.images.portrait,
+        ...aka(h.slug),
       })),
     ...allHeroes
       .filter((h) => duos[h.slug])
@@ -55,6 +63,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ loc
         title: `${h.name} · ${t("pages.heroDetail.duosShort")}`,
         href: `/heroes/${h.slug}/duos`,
         image: h.images.icon ?? h.images.portrait,
+        ...aka(h.slug),
       })),
     // Lore regions: each region's page gathers its heroes and their stories.
     ...regionsLore.map((r) => ({ type: "page" as const, title: r.name, detail: t("nav.lore.label"), href: `/lore/${r.key}` })),
@@ -64,6 +73,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ loc
       detail: t(`categories.${o.category}`),
       href: `/items/${o.slug}`,
       image: images[o.slug] ?? null,
+      ...(ITEM_ALIASES[o.slug] ? { keywords: ITEM_ALIASES[o.slug] } : {}),
     })),
     ...emblemsSheets.map((f) => {
       const key = `emblemData.${f.emblem.key}.name`;
@@ -75,7 +85,13 @@ export async function GET(_request: Request, { params }: { params: Promise<{ loc
         image: (visuals as unknown as { emblems: Record<string, string> }).emblems[f.emblem.key] ?? null,
       };
     }),
-    ...spellSheets.map((s) => ({ type: "spell" as const, title: s.name, href: `/spells/${s.slug}`, image: s.image })),
+    ...spellSheets.map((s) => ({
+      type: "spell" as const,
+      title: s.name,
+      href: `/spells/${s.slug}`,
+      image: s.image,
+      ...(SPELL_ALIASES[s.slug] ? { keywords: SPELL_ALIASES[s.slug] } : {}),
+    })),
     // Skins and skills lead to the hero page tab, opened by the anchor.
     // No image: 1,600 visual paths made the index eight times larger. The
     // search lends them their hero's icon, already in the index.

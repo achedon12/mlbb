@@ -431,6 +431,38 @@ model SkinCollection {
   updatedAt DateTime @default(now())
 }
 
+// ── Player progress, kept on the account (src/lib/account-sync-server.ts) ──
+
+/// What a signed-in player's browsers sync: favourite heroes, the daily quiz
+/// and MLBBdle stats and streaks, the practice records and the months they
+/// asked to be reminded of. The browser keeps its own copy and works without
+/// it. `accountId` is the community's hash (game account, or the Discord
+/// account when not linked), never an in-game or Discord id. `data` is checked
+/// by a schema and capped before it is written (`syncInput`). `updatedAt` is
+/// the version the next write must be based on.
+model PlayerSync {
+  accountId String   @id @db.VarChar(24)
+  data      Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
+/// The player's public progress page: opt-in, off by default. `slug` is
+/// random, never derived from an id, and kept when the page is turned off so
+/// the same link comes back. `fields` lists what the owner chose to show
+/// (`PUBLIC_FIELDS`). `displayName` and `avatar` are the name and picture of
+/// the login the player already shows on the site, copied when the page is
+/// turned on and cleared when it is turned off.
+model PlayerProfile {
+  accountId   String   @id @db.VarChar(24)
+  slug        String   @unique @db.VarChar(16)
+  public      Boolean  @default(false)
+  fields      String[] @default([]) @db.VarChar(16)
+  displayName String?  @db.VarChar(40)
+  avatar      String?  @db.VarChar(200)
+  updatedAt   DateTime @default(now())
+}
+
 // ── Discord profile card, for the bot's /profile (src/lib/discord-profile) ──
 
 /// A Discord account linked to a game account, so the bot's /profile posts

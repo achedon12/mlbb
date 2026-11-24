@@ -4,7 +4,7 @@ import { celestialLevel } from "@/lib/account-level";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { redirect } from "next/navigation";
-import { ChevronRight, CircleAlert, LogOut, Trophy } from "lucide-react";
+import { ChevronRight, CircleAlert, Flame, LogOut, Trophy } from "lucide-react";
 import { RankBadge } from "@/components/rank-badge";
 import { AccountFavourites } from "@/components/account-favourites";
 import { DiscordCardSection } from "@/components/discord-card-section";
@@ -224,9 +224,24 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
           </section>
         )}
 
-        {/* ── Favorites (local) ──────────────────────────────────────────── */}
+        {/* ── Favorites (in the browser, kept on the account) ───────────── */}
         <section aria-labelledby="account-favourites">
-          <SectionTitle id="account-favourites">{t("pages.account.favourites")}</SectionTitle>
+          <SectionTitle id="account-favourites" action={{ href: "/account/progress", label: t("pages.account.progressLink") }}>
+            {t("pages.account.favourites")}
+          </SectionTitle>
+          <Link
+            href="/account/progress"
+            className="card-link group mb-6 flex items-center gap-4 bg-night-800 p-5 shadow-[inset_3px_0_0_var(--color-gold-400)]"
+          >
+            <Flame size={26} className="shrink-0 text-gold-400" aria-hidden />
+            <span className="min-w-0 flex-1">
+              <span className="block font-heading text-xl font-bold uppercase text-chalk-100 transition-colors group-hover:text-gold-300">
+                {t("pages.account.progressLink")}
+              </span>
+              <span className="mt-0.5 block text-sm text-chalk-400">{t("pages.account.progressLinkText")}</span>
+            </span>
+            <ChevronRight size={20} className="shrink-0 text-gold-400 transition-transform group-hover:translate-x-0.5" aria-hidden />
+          </Link>
           <AccountFavourites lastPatch={summaryLastPatch()} />
         </section>
       </div>

@@ -6,7 +6,8 @@ import { LOCALE_INTL } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
 import { trackEvent } from "@/lib/analytics";
 import { browserSupport, cancelPushReminder, publicKey, remindByPush } from "@/lib/push-client";
-import { monthStart, readReminders, writeReminder, type ReminderMemory } from "@/lib/reminders";
+import { SYNCED_EVENT } from "@/lib/progress-signal";
+import { isReminded, monthStart, readReminders, writeReminder, type ReminderMemory } from "@/lib/reminders";
 import { cn } from "@/lib/utils";
 
 /**
@@ -17,7 +18,8 @@ import { cn } from "@/lib/utils";
  * the path that works on every phone, without permission or install. The
  * button then turns into a "you'll be reminded" state, with the other way
  * offered as a quiet second option. Without JavaScript, the link still
- * downloads the calendar file.
+ * downloads the calendar file. Signed in, a reminder set on another device
+ * shows here too (`synced`), with both ways offered for this one.
  */
 
 type Push = "unknown" | "unavailable" | "ask" | "granted";
@@ -57,6 +59,9 @@ export function RemindButton({ month, label, className }: { month: string; label
         );
       }
     }, 0);
+    // The account sync may bring a reminder set on another device after mounting.
+    const reread = () => live && setMemory(readReminders()[month] ?? {});
+    window.addEventListener(SYNCED_EVENT, reread);
     if (browserSupport() === "ok") {
       publicKey()
         .then((key) => {
@@ -70,6 +75,7 @@ export function RemindButton({ month, label, className }: { month: string; label
     return () => {
       live = false;
       clearTimeout(timer);
+      window.removeEventListener(SYNCED_EVENT, reread);
     };
   }, [month, start, locale]);
 
@@ -117,7 +123,8 @@ export function RemindButton({ month, label, className }: { month: string; label
     trackEvent("Reminder", "Calendar", month);
   };
 
-  const reminded = memory.calendar || memory.push;
+  const reminded = isReminded(memory);
+  const here = memory.calendar || memory.push;
 
   if (!reminded) {
     // A browser that already allows notifications gets the push reminder in one tap.
@@ -152,10 +159,12 @@ export function RemindButton({ month, label, className }: { month: string; label
         {t("reminder.set", { month: label })}
       </p>
       <p className="mt-1 text-xs text-chalk-400">
-        {t(memory.push && memory.calendar ? "reminder.setBoth" : memory.push ? "reminder.setPush" : "reminder.setCalendar", { when: when ?? "" })}
+        {here
+          ? t(memory.push && memory.calendar ? "reminder.setBoth" : memory.push ? "reminder.setPush" : "reminder.setCalendar", { when: when ?? "" })
+          : t("accountSync.reminderElsewhere")}
       </p>
       <p className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs">
-        {!memory.push && push === "ask" && (
+        {!memory.push && (push === "ask" || (!here && push === "granted")) && (
           <button type="button" onClick={viaPush} disabled={busy} aria-busy={busy} className={cn(quiet, "inline-flex items-center gap-1")}>
             <Bell size={12} aria-hidden />
             {t("reminder.alsoPush")}

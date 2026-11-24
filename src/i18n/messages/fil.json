@@ -714,8 +714,22 @@
       "perks": {
         "profile": "Ang iyong profile, mga ranggo at pinaka-naglarong hero",
         "community": "Ang forum at ang paghahanap ng mga kakampi",
-        "collection": "Ang iyong koleksyon ng mga pagpapakita sa lahat ng iyong device"
-      }
+        "collection": "Ang iyong koleksyon ng mga pagpapakita sa lahat ng iyong device",
+        "sync": "Ang iyong serye sa araw, paborito at paalala sa lahat ng iyong device"
+      },
+      "pitch": {
+        "title": "Bakit mag log in?",
+        "fromPrompt": "Ang iyong pag-unlad ay susundan ka sa lahat ng dako",
+        "sync": "Ang iyong mga paborito, ang iyong mga serye ng mga araw sa pagsusulit at MLBBdle at ang iyong mga paalala, sa iyong telepono o sa iyong computer.",
+        "streaks": "Ang isang sunod-sunod na araw ay hindi na nawawala sa pamamagitan ng pagpapalit ng mga device o pag-alis ng laman sa browser.",
+        "badges": "Isang profile na may iyong mga tala at badge, upang ibahagi kung gusto mo.",
+        "local": "Ang nalaro mo na sa browser na ito ay sumasali sa iyong account kapag nag-log in ka. Kung walang account, ang lahat ay patuloy na gumagana tulad ng dati."
+      },
+      "or": "O, sa isang click",
+      "discord": "Mag-sign in gamit ang Discord",
+      "discordText": "Upang mapanatili ang iyong pag-unlad at makilahok sa komunidad. Ang Discord ay nagpapadala lamang ng iyong pangalan at avatar, hindi ang iyong email.",
+      "discordSignedIn": "Nakakonekta ka sa Discord ({name}).",
+      "discordProgress": "Tingnan ang aking pag-unlad"
     },
     "watch": {
       "title": "Roundup",
@@ -765,7 +779,9 @@
       "profileLink": "Tingnan ang aking player profile",
       "profileLinkText": "Buod ng season, mga hero kumpara sa average ng rank mo, mga huling match at tips.",
       "topHeroes": "Mga hero mo",
-      "topHeroesLead": "Ang mga pinakamadalas mong nilalaro, batay sa mga larong pinapanatili ng serbisyo."
+      "topHeroesLead": "Ang mga pinakamadalas mong nilalaro, batay sa mga larong pinapanatili ng serbisyo.",
+      "progressLink": "Ang aking pag-unlad",
+      "progressLinkText": "Ang mga day streak, pagsusulit at tala ng MLBBdle, badge at pampublikong profile, na naka-sync sa iyong mga device."
     },
     "apiDoc": {
       "title": "Pampublikong API",
@@ -5253,6 +5269,108 @@
       "method": "Paano ito sinusukat",
       "methodText": "Para sa bawat binagong hero: ang average ng kanyang win rate, pinagsama ang lahat ng ranggo, sa loob ng {days} araw bago ilabas ang patch at sa {days} araw pagkatapos, hindi kasama ang parehong araw. Ito ay tumatagal ng hindi bababa sa apat na araw na sinusukat sa bawat panig. Ang paglihis na mas mababa sa {threshold} punto ay itinuturing na ingay. Ang rate na nagbabago ay hindi nagsasabi kung bakit: nagbabago rin ang meta, iba pang mga hero at mga manlalaro.",
       "notes": "Gusto mo ng mga detalye ng bawat pagbabago?"
+    },
+    "progress": {
+      "metaTitle": "Ang aking pag-unlad",
+      "metaDescription": "Ang iyong serye ng mga araw, ang iyong pagsusulit at mga tala ng MLBBdle, ang iyong mga badge at ang iyong mga paboritong hero.",
+      "title": "Ang aking pag-unlad",
+      "titleNamed": "Pag-unlad ng {name}",
+      "lead": "Ang iyong mga sunod-sunod na araw, ang iyong mga tala at ang iyong mga badge, mula sa kung ano ang iyong nilalaro sa site.",
+      "quiz": "Daily quiz",
+      "mlbbdle": "MLBBdle",
+      "playQuiz": "Maglaro ng pagsusulit ngayong araw →",
+      "playMlbbdle": "Maglaro ng MLBBdle →",
+      "badgesTitle": "Mga badge",
+      "favourites": "Hero pool",
+      "streak": "Kasalukuyang streak",
+      "bestStreak": "Pinakamahabang streak",
+      "quizDays": "Naglaro ang mga araw",
+      "quizBest": "Pinakamahusay na marka",
+      "solved": "Nalutas ang mga puzzle",
+      "fewest": "Pinakakaunting hula",
+      "noBadge": "Wala pang badge: mabilis na darating ang una.",
+      "noFavourite": "Wala pang paborito: magdagdag ng isa mula sa isang hero file.",
+      "earned": "nakuha",
+      "locked": "hindi pa nakukuha",
+      "badges": {
+        "streak7": {
+          "name": "Isang linggo",
+          "text": "7 sunod-sunod na araw sa pagsusulit o MLBBdle."
+        },
+        "streak30": {
+          "name": "Isang buwan",
+          "text": "30 araw na magkakasunod sa pagsusulit o MLBBdle."
+        },
+        "mlbbdle10": {
+          "name": "Detective",
+          "text": "10 MLBBdle puzzle ang nalutas."
+        },
+        "mlbbdle50": {
+          "name": "Bloodhound",
+          "text": "50 MLBBdle puzzle ang nalutas."
+        },
+        "firstTry": {
+          "name": "Sa unang pagsubok",
+          "text": "Isang MLBBdle hero ang natagpuan sa isang pagsubok."
+        },
+        "quiz10": {
+          "name": "Sanay na",
+          "text": "10 araw-araw na pagsusulit ang natapos."
+        },
+        "allGames": {
+          "name": "Jack ng lahat ng trades",
+          "text": "Ang pagsusulit, MLBBdle classic at MLBBdle na skill ay naglaro ng kahit isang beses."
+        },
+        "favourites5": {
+          "name": "Kolektor",
+          "text": "5 paboritong hero."
+        }
+      },
+      "browserOnly": "Ang iyong pag-unlad ay naka-save sa browser na ito, sa device na ito.",
+      "signedOutTitle": "Naka-save sa browser na ito lamang",
+      "signedOutText": "Mag-log in gamit ang iyong gaming account o Discord upang mapanatili ang iyong mga streak sa araw, paborito, at paalala sa lahat ng iyong device. Ang naririto na ay sumasali sa iyong account.",
+      "paused": "Huminto ang pag-synchronize: ang kopya ng iyong account ay tinanggal na. Pinapanatili ng browser na ito ang pag-unlad nito.",
+      "resume": "Ipagpatuloy ang pag-sync",
+      "sync": {
+        "checking": "Binabasa ang iyong account…",
+        "saving": "Nagrerehistro sa iyong account…",
+        "saved": "Naka-synchronize sa iyong account: mahahanap mo ang lahat sa iba mo pang device.",
+        "retrying": "Ang iyong account ay hindi tumutugon: ang pag-unlad ay nananatili dito at ipapadala sa lalong madaling panahon."
+      },
+      "retry": "Subukan ulit",
+      "public": {
+        "title": "Pampublikong profile",
+        "text": "Hindi pinagana bilang default. Kapag pinagana, ang isang link na ikaw lang ang nakakaalam ay nagpapakita ng iyong pangalan at kung ano lamang ang iyong tinitingnan sa ibaba. Hindi ito isinangguni ng mga search engine.",
+        "toggle": "Gawing pampubliko ang aking profile",
+        "fields": "Ano ang ipinapakita ng profile",
+        "field": {
+          "avatar": "Profile picture ko",
+          "favourites": "Mga paborito kong hero",
+          "quiz": "Ang aking serye ng mga araw at mga tala ng pagsusulit",
+          "mlbbdle": "Aking MLBBdle day series at records",
+          "badges": "Aking mga badge"
+        },
+        "copy": "Kopyahin ang link",
+        "copied": "Nakopya ang link",
+        "open": "Tingnan ang aking profile",
+        "privacy": "Huwag kailanman ang iyong ID ng laro, server, ranggo o bansa. Huwag paganahin ito anumang oras: wala nang ipinapakita ang link.",
+        "error": "Hindi na-save ang setting. Subukan muli sa isang sandali."
+      },
+      "delete": {
+        "title": "Tanggalin ang kopya sa aking account",
+        "text": "Tinatanggal ang iyong pag-unlad at ang iyong pampublikong profile mula sa server. Ang iyong mga browser ay nagpapanatili sa kanila at huminto sa pagpapadala nito hanggang sa ipagpatuloy mo ang pag-synchronize.",
+        "action": "Tanggalin ang kopya ng account...",
+        "confirm": "Oo, tanggalin",
+        "cancel": "Kanselahin",
+        "done": "Tinanggal ang kopya. Ang iyong pag-unlad ay nananatili sa browser na ito.",
+        "error": "Hindi posible ang pagtanggal sa ngayon. Subukan ulit mamaya."
+      },
+      "publicTitle": "Profile ng {name}",
+      "publicDescription": "Mga streak, record at badge ng araw ng manlalaro sa MLBBEx.",
+      "publicLead": "Daystreaks, Records, at Badges sa MLBBEx Today's Games.",
+      "publicKicker": "Player profile",
+      "publicCta": "Maaari mo ring subaybayan ang iyong serye ng mga araw at ang iyong mga badge:",
+      "publicCtaLink": "ang aking pag-unlad"
     }
   },
   "modeSheet": {
@@ -5705,15 +5823,16 @@
           "content": "Nilalaman"
         },
         "consent": "Ang iyong pinili sa cookies ng pagsukat ng audience, at ang petsa nito (6 na buwan).",
-        "favourites": "Ang iyong mga paboritong hero. Ipinadala lamang sa server kung pinagana mo ang mga notification sa patch.",
+        "favourites": "Ang iyong mga paboritong hero. Ipinadala sa server kung pinagana mo ang mga notification sa patch, at pinananatili sa iyong account kung naka-log in ka.",
         "push": "Aktibo ang mga notification ng patch sa browser na ito.",
         "collection": "Ang iyong koleksyon ng skin, at ang katayuan ng pag-sync nito sa iyong account (isang fingerprint ng account, hindi ang iyong ID ng laro).",
         "popup": "Discord memory ng imbitasyon: sarado (sa loob ng 30 araw) o sinundan, at bilang ng mga pahinang tiningnan sa tab (oras ng tab).",
-        "games": "Mga laro, serye at istatistika mula sa MLBBdle at ang pagsusulit.",
+        "games": "Mga laro, serye at istatistika mula sa MLBBdle at ang pagsusulit. Ang mga istatistika at serye ng araw ay pinananatili rin sa iyong account kung naka-log in ka.",
         "tierList": "Mga draft mula sa tagalikha ng tier list.",
         "timer": "Kasalukuyang laro (oras ng tab) at mga setting ng layunin ng timer.",
         "retribution": "Pinakamataas na mga marka ng pagsusulit sa Retribution.",
-        "cache": "Upang gumana nang offline, ang site ay nagpapanatili din ng isang kopya ng mga pahina, mga larawan at data na tiningnan sa cache ng iyong browser (service worker): 250 mga pahina at 800 mga larawan sa karamihan, sa iyong device lamang. Ang mga pahinang naka-link sa isang koneksyon (account, login, dashboard at pangangasiwa ng bot, at anumang pahinang ipinapakita para sa isang naka-log in na bisita) ay hindi kailanman itatago doon, at ang pagdiskonekta ay binubura ang mga maaaring itago ng nakaraang bersyon ng site."
+        "cache": "Upang gumana nang offline, ang site ay nagpapanatili din ng isang kopya ng mga pahina, mga larawan at data na tiningnan sa cache ng iyong browser (service worker): 250 mga pahina at 800 mga larawan sa karamihan, sa iyong device lamang. Ang mga pahinang naka-link sa isang koneksyon (account, login, dashboard at pangangasiwa ng bot, at anumang pahinang ipinapakita para sa isang naka-log in na bisita) ay hindi kailanman itatago doon, at ang pagdiskonekta ay binubura ang mga maaaring itago ng nakaraang bersyon ng site.",
+        "progress": "Katayuan ng pag-synchronize ng iyong pag-unlad sa iyong account (isang fingerprint ng account, hindi kailanman ang iyong ID), at memorya ng imbitasyong kumonekta: sarado (sa loob ng 60 araw) o sinundan."
       },
       "audience": {
         "title": "Pagsukat ng madla",
@@ -5759,7 +5878,8 @@
         "logs": "Mga teknikal na log: ang mga error sa server at ang mga nakatagpo ng browser (mensahe, pahina, bersyon ng site, uri ng browser, nang walang IP address o account) ay pinananatili sa loob ng 30 araw para sa diagnosis. Ang mga kaganapan sa seguridad at pag-moderate (mga kahilingan ay tinanggihan, mga aksyon ng mga moderator at administrator) ay pinananatili sa loob ng 6 na buwan. Pagkatapos ay awtomatikong tatanggalin ang mga ito.",
         "backups": "Mga backup: araw-araw na kopya ng database; ang tatlong pinakabago lamang ang pinananatili, upang ang mga tinanggal na data ay mawala sa mga backup sa loob ng tatlong araw.",
         "rateLimits": "Mga Limitasyon sa Rate: Ang iyong IP address, sa memorya lamang, ay hindi kailanman nakasulat sa disk.",
-        "profileCard": "Discord profile card: hanggang i-unlink mo ito, at hanggang 30 araw lang pagkatapos ng huli mong update."
+        "profileCard": "Discord profile card: hanggang i-unlink mo ito, at hanggang 30 araw lang pagkatapos ng huli mong update.",
+        "progress": "Naka-synchronize na pag-unlad at pampublikong profile: hanggang sa tanggalin mo ang mga ito mula sa pahina ng \"Aking Pag-unlad\", o kapag hiniling."
       },
       "rights": {
         "title": "Ang iyong mga karapatan",
@@ -5767,7 +5887,7 @@
         "browser": "Ang nabubuhay sa iyong browser (mga paborito, koleksyon, mga kagustuhan, mga pagpipilian sa cookies) ay nasa iyong mga kamay: ang pag-clear sa data ng site ay nagtatanggal nito.",
         "contact": "Para sa iba pa (komunidad, naka-synchronize na koleksyon, mga notification, bot), sumulat sa [{contact}](mailto:{contact}), na tinukoy ang account na may kinalaman (palayaw ng laro o pangalan ng Discord) upang mahanap ito. Makakatanggap ka ng tugon sa loob ng isang buwan.",
         "cnil": "Kung isinasaalang-alang mo, pagkatapos makipag-ugnayan sa publisher, na hindi iginagalang ang iyong mga karapatan, maaari kang magpadala ng reklamo sa CNIL ([cnil.fr](https://www.cnil.fr/fr/plaintes)) o sa awtoridad sa proteksyon ng data sa iyong bansa.",
-        "updated": "Huling na-update: Nobyembre 19, 2026."
+        "updated": "Huling na-update: Nobyembre 24, 2026."
       }
     },
     "methodology": {
@@ -5845,6 +5965,14 @@
           ]
         }
       ]
+    },
+    "progress": {
+      "title": "Naka-synchronize na pag-unlad at pampublikong profile",
+      "intro": "Live sa iyong browser ang iyong mga paborito, pagsusulit at MLBBdle day stats at streaks, mga tala ng pagsasanay, at buwanang paalala. Kung nakakonekta ka (game account o Discord), ang server ng site ay nagpapanatili din ng isang kopya sa database nito:",
+      "data": "ang parehong footprint ng account gaya ng komunidad (hindi kailanman ang iyong ID ng laro o ang iyong Discord ID), ang listahan ng iyong mga paboritong hero, ang iyong mga counter at streak sa araw ng laro, ang iyong mga rekord ng pagsasanay, ang mga buwan kung kailan ka humiling ng paalala, at ang petsa ng huling pagpaparehistro;",
+      "public": "kung i-activate mo ang iyong pampublikong profile (naka-disable bilang default): isang random na iginuhit na link identifier, ang mga elementong pinili mong ipakita doon, ang iyong palayaw sa laro o ang iyong Discord name at, kung susuriin mo ito, ang address ng iyong larawan sa profile (ang Discord ay naglalaman ng iyong Discord identifier). Ang profile ay hindi isinangguni ng mga search engine; ang pag-off nito ay mabubura ang pangalan at larawan.",
+      "usage": "Ang kopyang ito ay ginagamit lamang upang mahanap ang iyong pag-unlad sa iyong iba pang mga device at, kung i-activate mo ito, upang ipakita ang iyong pampublikong profile. Ang mga paalala sa buwan na ipinadala sa pamamagitan ng notification ay nananatiling naka-link sa browser na humiling sa kanila.",
+      "deletion": "Mula sa pahina ng \"Aking Pag-unlad\", maaari mong tanggalin ang kopyang ito at ang iyong pampublikong profile anumang oras; ang iyong mga browser ay nagtatago ng kanilang sariling kopya at huminto sa pagpapadala nito."
     }
   },
   "compareUI": {
@@ -6025,7 +6153,7 @@
     "points": "{n} points"
   },
   "favourites": {
-    "intro": "Naka-save sa device na ito, sa browser na ito — hiwalay sa account mo. Hindi sila nagsi-sync sa ibang device.",
+    "intro": "Naka-save sa browser na ito. Nakakonekta, pinananatili rin ang mga ito sa iyong account at sinusundan ka sa iba mo pang mga device.",
     "nonePre": "Wala pang paborito. Sa isang hero sheet,",
     "noLink": "magdagdag ng isa",
     "nonePost": ": Itatago ko ito para sa iyo.",
@@ -6355,7 +6483,10 @@
       "emblem": "Mga emblem",
       "spell": "Mga Battle Spell"
     },
-    "dexEmpty": "Hmm, wala akong mahanap. Subukan ang ibang pangalan, o mas kaunting mga titik."
+    "dexEmpty": "Hmm, wala akong mahanap. Subukan ang ibang pangalan, o mas kaunting mga titik.",
+    "dexClosest": "Hindi iyon ang pangalan, ngunit ang mga ito ay malapit na. Isa ba ito sa kanila?",
+    "closest": "Baka hinahanap mo",
+    "clear": "I-clear ang paghahanap"
   },
   "heroData": {
     "resource": {
@@ -7082,5 +7213,23 @@
     "tiers": "{n} hero ang nagbago ng tier",
     "eventsAnnounced": "{month} inihayag",
     "eventsOpened": "Nagsimula na ang mga event ng {month}"
+  },
+  "accountSync": {
+    "reminderElsewhere": "Naka-iskedyul na paalala sa isa pang device mo.",
+    "prompt": {
+      "label": "Panatilihin ang iyong pag-unlad",
+      "text": "Mag-log in upang mahanap ang iyong serye ng araw, paborito at paalala sa lahat ng iyong device. Walang mawawala: pinapanatili din ng browser na ito ang sarili nitong.",
+      "action": "Mag-log in",
+      "close": "Mamaya",
+      "mlbbdle": {
+        "title": "Panatilihin ang iyong pang-araw-araw na streak sa lahat ng iyong device"
+      },
+      "quiz": {
+        "title": "Panatilihin ang iyong pang-araw-araw na streak sa lahat ng iyong device"
+      },
+      "favourite": {
+        "title": "Hanapin ang iyong mga paborito sa lahat ng iyong device"
+      }
+    }
   }
 }

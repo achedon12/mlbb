@@ -22,7 +22,7 @@ describe("robots.txt", () => {
   );
 
   it("keeps the same private routes for every other crawler", () => {
-    expect([groupOf("*")!.disallow].flat()).toEqual(["/api/", "/*/account", "/*/login"]);
+    expect([groupOf("*")!.disallow].flat()).toEqual(["/api/", "/*/account", "/*/login", "/*/u/"]);
   });
 });
 

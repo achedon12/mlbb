@@ -1,10 +1,13 @@
 import type { Locale } from "@/i18n/config";
 import type { MlbbdlePuzzle } from "./mlbbdle";
+import { signalProgress } from "./progress-signal";
 import { STATS_EMPTY, type StatsQuiz } from "./quiz";
 
 /**
  * MLBBdle memory in the browser: stats per mode, today's guesses, the
- * practice record and the last puzzle received. Nothing leaves the device.
+ * practice record and the last puzzle received. Signed out, nothing leaves
+ * the device; signed in, the stats and the practice record are also kept on
+ * the account (`account-sync-client.ts`), which `signalProgress` tells.
  *
  * Storage may be missing (private browsing, quota): every access fails
  * silently and the game then lasts for the visit.
@@ -42,6 +45,7 @@ export function readStats(mode: DailyMode): StatsQuiz {
 
 export function writeStats(mode: DailyMode, stats: StatsQuiz) {
   write(KEYS.stats(mode), stats);
+  signalProgress();
 }
 
 export type DailyGuesses = Record<DailyMode, string[]>;
@@ -75,6 +79,7 @@ export function readPractice(): PracticeRecord {
 
 export function writePractice(r: PracticeRecord) {
   write(KEYS.practice, r);
+  signalProgress();
 }
 
 /** Today's puzzle: read back from the device if already received today, asked from the server otherwise. */

@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 
 /** Private or per-visitor routes: never worth a crawl. */
-const PRIVATE = ["/api/", "/*/account", "/*/login"];
+const PRIVATE = ["/api/", "/*/account", "/*/login", "/*/u/"];
 
 /**
  * Search and answer-engine crawlers, named so that they are explicitly
