@@ -6355,7 +6355,10 @@
       "emblem": "Emblemas",
       "spell": "Feitiços de Batalha"
     },
-    "dexEmpty": "Hum, não consigo encontrar nada. Tente outro nome ou menos letras."
+    "dexEmpty": "Hum, não consigo encontrar nada. Tente outro nome ou menos letras.",
+    "dexClosest": "Não é esse nome, mas estes chegam perto. Foi um deles?",
+    "closest": "Talvez você estivesse procurando",
+    "clear": "Limpar pesquisa"
   },
   "heroData": {
     "resource": {

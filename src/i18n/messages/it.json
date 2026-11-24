@@ -6355,7 +6355,10 @@
       "emblem": "Emblemi",
       "spell": "Battle Spell"
     },
-    "dexEmpty": "Uhm, non riesco a trovare nulla. Prova un altro nome o meno lettere."
+    "dexEmpty": "Uhm, non riesco a trovare nulla. Prova un altro nome o meno lettere.",
+    "dexClosest": "Non quel nome, ma questi si avvicinano. Era uno di loro?",
+    "closest": "Forse stavi cercando",
+    "clear": "Cancella ricerca"
   },
   "heroData": {
     "resource": {

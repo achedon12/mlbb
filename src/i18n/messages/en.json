@@ -6355,7 +6355,10 @@
       "emblem": "Emblems",
       "spell": "Battle spells"
     },
-    "dexEmpty": "Hmm, nothing here. Try another name, or fewer letters."
+    "dexEmpty": "Hmm, nothing here. Try another name, or fewer letters.",
+    "dexClosest": "Not that name, but one of these is close. Was it one of them?",
+    "closest": "Did you mean",
+    "clear": "Clear the search"
   },
   "heroData": {
     "resource": {

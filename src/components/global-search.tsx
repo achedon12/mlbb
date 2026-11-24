@@ -3,21 +3,22 @@
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Search } from "lucide-react";
+import { Search, X } from "lucide-react";
 import Link from "@/components/link";
 import { Dex } from "@/components/mascot";
 import type { Locale } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
 import { prefix } from "@/i18n/links";
-import { trackSiteSearch } from "@/lib/analytics";
-import { ORDER_TYPES, type EntrySearch } from "@/lib/search";
-import { keySearch, cn } from "@/lib/utils";
+import { trackEvent, trackSiteSearch } from "@/lib/analytics";
+import type { EntrySearch } from "@/lib/search";
+import { closest, prepare, searchIndex } from "@/lib/search-score";
+import { cn } from "@/lib/utils";
 
 /**
  * Global search: heroes, items, skills, skins, patch notes and sections, from
  * any page. Ctrl+K (Cmd+K on Mac) opens and closes it. The index is one static
- * file per language, requested on first open only: it weighs nothing until
- * you search.
+ * file per language, requested when the search button is aimed at or the
+ * dialog first opens: it weighs nothing until you search.
  */
 const INDEX = new Map<Locale, Promise<EntrySearch[]>>();
 
@@ -35,7 +36,7 @@ function load(locale: Locale): Promise<EntrySearch[]> {
 /** Window event that opens the dialog, for triggers outside the header. */
 export const OPEN_SEARCH_EVENT = "mlbbdex:open-search";
 
-/** Results shown per group. */
+/** Pages shown before anything is typed. */
 const BY_GROUP = 6;
 
 export function GlobalSearch() {
@@ -83,33 +84,27 @@ export function GlobalSearch() {
     };
   }, [open, entries, locale]);
 
-  // Without a query, the sections; otherwise the matches, those starting with
-  // the term first.
+  // Search keys computed once per index, not on every keystroke.
+  const prepared = useMemo(() => (entries ?? []).map(prepare), [entries]);
+  // Without a query, the sections; otherwise the matches from the first
+  // letter on, forgiving typos (`lib/search-score.ts`).
   const groups = useMemo(() => {
     if (!entries) return [];
-    const term = keySearch(search.trim());
-    const found = entries.flatMap((e) => {
-      if (!term) return e.type === "page" ? [{ e, score: 0 }] : [];
-      const title = keySearch(e.title);
-      const score = title.startsWith(term)
-        ? 0
-        : title.includes(term)
-          ? 1
-          : e.detail && keySearch(e.detail).includes(term)
-            ? 2
-            : -1;
-      return score < 0 ? [] : [{ e, score }];
-    });
-    return ORDER_TYPES.map((type) => ({
-      type,
-      entries: found
-        .filter((x) => x.e.type === type)
-        .sort((a, b) => a.score - b.score || a.e.title.localeCompare(b.e.title))
-        .slice(0, BY_GROUP)
-        .map((x) => x.e),
-    })).filter((g) => g.entries.length > 0);
-  }, [entries, search]);
+    if (!search.trim()) {
+      const pages = entries.filter((e) => e.type === "page").sort((a, b) => a.title.localeCompare(b.title));
+      return [{ type: "page" as const, entries: pages.slice(0, BY_GROUP) }];
+    }
+    return searchIndex(search, prepared);
+  }, [entries, prepared, search]);
   const flat = useMemo(() => groups.flatMap((g) => g.entries), [groups]);
+  // Nothing found: the nearest names, offered instead of a dead end. The
+  // arrows and Enter then go through them.
+  const nearest = useMemo(
+    () => (flat.length === 0 && search.trim() ? closest(search, prepared) : []),
+    [flat, prepared, search],
+  );
+  const options = flat.length > 0 ? flat : nearest;
+  const field = useRef<HTMLInputElement>(null);
   // Skins and skills come without an image: they take their hero's icon,
   // whose entry holds the hero page address without an anchor.
   const icons = useMemo(
@@ -127,7 +122,15 @@ export function GlobalSearch() {
    * filed under the type of the result chosen, or under no category when the
    * visitor gave up — a term with no result shows what the index lacks.
    */
-  const record = (chosen?: EntrySearch) => trackSiteSearch(search, chosen?.type ?? false, flat.length);
+  const record = (chosen?: EntrySearch) => {
+    trackSiteSearch(search, chosen?.type ?? false, flat.length);
+    // Which result was picked, and at which rank (1 is the top): tells
+    // whether the ranking puts first what visitors want.
+    if (chosen && search.trim()) {
+      const rank = flat.indexOf(chosen);
+      trackEvent("Search", "Pick", chosen.href, rank < 0 ? 0 : rank + 1);
+    }
+  };
   useEffect(() => {
     abandon.current = () => {
       if (open) trackSiteSearch(search, false, flat.length);
@@ -158,26 +161,51 @@ export function GlobalSearch() {
     return true;
   };
 
+  const go = (target: EntrySearch) => {
+    close(target);
+    if (!anchorLocale(target.href)) router.push(prefix(target.href, locale));
+  };
+
   const keyboard = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "ArrowDown") {
       e.preventDefault();
-      setActive((a) => Math.min(a + 1, flat.length - 1));
+      setActive((a) => Math.min(a + 1, options.length - 1));
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
       setActive((a) => Math.max(a - 1, 0));
-    } else if (e.key === "Enter" && flat[active]) {
+    } else if (e.key === "Enter" && options[active]) {
       e.preventDefault();
-      const target = flat[active];
-      close(target);
-      if (!anchorLocale(target.href)) router.push(prefix(target.href, locale));
+      go(options[active]);
     }
   };
+
+  const pick = (e: EntrySearch, click: React.MouseEvent) => {
+    if (anchorLocale(e.href)) click.preventDefault();
+    close(e);
+  };
+  const option = (e: EntrySearch, i: number) => (
+    <SearchOption
+      key={`${e.type}-${e.href}-${e.title}`}
+      entry={e}
+      id={`${id}-${i}`}
+      index={i}
+      active={i === active}
+      image={imageOf(e)}
+      onPick={pick}
+      onHover={setActive}
+    />
+  );
 
   return (
     <>
       <button
         type="button"
         onClick={() => setOpen(true)}
+        // The index starts loading as soon as the button is aimed at, so the
+        // first letter typed already has its suggestions.
+        onPointerEnter={() => void load(locale)}
+        onFocus={() => void load(locale)}
+        onTouchStart={() => void load(locale)}
         aria-label={t("search.open")}
         aria-keyshortcuts="Control+K Meta+K"
         className="bevel-sm flex h-9 min-w-9 items-center justify-center gap-2 bg-night-800 px-2 text-sm text-chalk-300 transition-colors hover:bg-night-700 hover:text-gold-300 active:translate-y-px sm:px-2.5"
@@ -202,11 +230,20 @@ export function GlobalSearch() {
             <div className="flex items-center gap-3 border-b border-night-800 px-4">
               <Search size={18} aria-hidden className="shrink-0 text-chalk-500" />
               <input
+                ref={field}
                 autoFocus
+                type="text"
+                inputMode="search"
+                enterKeyHint="search"
+                autoComplete="off"
+                autoCorrect="off"
+                autoCapitalize="none"
+                spellCheck={false}
                 role="combobox"
                 aria-expanded
+                aria-autocomplete="list"
                 aria-controls={`${id}-list`}
-                aria-activedescendant={flat[active] ? `${id}-${active}` : undefined}
+                aria-activedescendant={options[active] ? `${id}-${active}` : undefined}
                 aria-label={t("search.placeholder")}
                 value={search}
                 onChange={(e) => {
@@ -215,71 +252,114 @@ export function GlobalSearch() {
                 }}
                 onKeyDown={keyboard}
                 placeholder={t("search.placeholder")}
-                className="min-w-0 flex-1 bg-transparent py-3.5 text-chalk-100 outline-none placeholder:text-chalk-500"
+                className="min-w-0 flex-1 bg-transparent py-3.5 text-base text-chalk-100 outline-none placeholder:text-chalk-500 sm:text-sm"
               />
+              {search && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSearch("");
+                    setActive(0);
+                    field.current?.focus();
+                  }}
+                  aria-label={t("search.clear")}
+                  className="-mr-2 grid size-11 shrink-0 place-items-center text-chalk-500 transition-colors hover:text-gold-300"
+                >
+                  <X size={18} aria-hidden />
+                </button>
+              )}
               <kbd className="bevel-sm hidden bg-night-800 px-1.5 text-[0.7rem] text-chalk-500 sm:inline">Esc</kbd>
             </div>
 
-            <div ref={list} id={`${id}-list`} role="listbox" className="overflow-y-auto p-2">
+            <div ref={list} id={`${id}-list`} role="listbox" className="overflow-y-auto overscroll-contain p-2">
               {!entries ? (
                 <p className="px-3 py-6 text-center text-sm text-chalk-500">{t("search.loading")}</p>
               ) : flat.length === 0 ? (
-                <div className="flex items-end justify-center gap-3 px-3 py-6">
-                  <Dex pose="triste" height={110} still />
-                  <div className="dex-bubble max-w-xs text-left text-sm">
-                    <p className="font-heading text-base font-bold uppercase text-chalk-100">{t("search.none")}</p>
-                    <p className="mt-1 text-chalk-400">{t("search.dexEmpty")}</p>
+                <>
+                  <div className="flex items-end justify-center gap-3 px-3 py-6">
+                    <Dex pose="triste" height={110} still />
+                    <div className="dex-bubble max-w-xs text-left text-sm">
+                      <p className="font-heading text-base font-bold uppercase text-chalk-100">{t("search.none")}</p>
+                      <p className="mt-1 text-chalk-400">{t(nearest.length > 0 ? "search.dexClosest" : "search.dexEmpty")}</p>
+                    </div>
                   </div>
-                </div>
+                  {nearest.length > 0 && (
+                    <div className="mb-2">
+                      <p className="px-3 pb-1 pt-2 text-xs font-bold uppercase tracking-[0.18em] text-chalk-500">
+                        {t("search.closest")}
+                      </p>
+                      {nearest.map((e, i) => option(e, i))}
+                    </div>
+                  )}
+                </>
               ) : (
                 groups.map((g) => (
                   <div key={g.type} className="mb-2">
                     <p className="px-3 pb-1 pt-2 text-xs font-bold uppercase tracking-[0.18em] text-chalk-500">
                       {t(`search.groups.${g.type}`)}
                     </p>
-                    {g.entries.map((e) => {
-                      const i = flat.indexOf(e);
-                      const image = imageOf(e);
-                      return (
-                        <Link
-                          key={`${e.type}-${e.href}-${e.title}`}
-                          id={`${id}-${i}`}
-                          data-index={i}
-                          role="option"
-                          aria-selected={i === active}
-                          href={e.href}
-                          onClick={(click) => {
-                            if (anchorLocale(e.href)) click.preventDefault();
-                            close(e);
-                          }}
-                          onMouseEnter={() => setActive(i)}
-                          className={cn(
-                            "bevel-sm flex items-center gap-3 px-3 py-2",
-                            i === active ? "bg-night-800 text-gold-400" : "text-chalk-200",
-                          )}
-                        >
-                          <span className="relative grid size-8 shrink-0 place-items-center overflow-hidden rounded bg-night-800 text-xs font-bold text-chalk-500">
-                            {image ? (
-                              <Image src={image} alt="" width={32} height={32} className="size-full object-cover" />
-                            ) : (
-                              e.title.charAt(0)
-                            )}
-                          </span>
-                          <span className="min-w-0 flex-1">
-                            <span className="block truncate text-sm font-medium">{e.title}</span>
-                            {e.detail && <span className="block truncate text-xs text-chalk-500">{e.detail}</span>}
-                          </span>
-                        </Link>
-                      );
-                    })}
+                    {g.entries.map((e) => option(e, flat.indexOf(e)))}
                   </div>
                 ))
               )}
             </div>
-            <p className="border-t border-night-800 px-4 py-2 text-xs text-chalk-500">{t("search.help")}</p>
+            <p className="hidden border-t border-night-800 px-4 py-2 text-xs text-chalk-500 sm:block">{t("search.help")}</p>
           </div>
         </div>
       )}
     </>
+  );
+}
+
+/** One result row: a portrait (the hero's for skins and skills), the name, its detail. */
+function SearchOption({
+  entry: e,
+  id,
+  index,
+  active,
+  image,
+  onPick,
+  onHover,
+}: {
+  entry: EntrySearch;
+  id: string;
+  index: number;
+  active: boolean;
+  image: string | null;
+  onPick: (e: EntrySearch, click: React.MouseEvent) => void;
+  onHover: (index: number) => void;
+}) {
+  const hero = e.type === "hero";
+  return (
+    <Link
+      id={id}
+      data-index={index}
+      role="option"
+      aria-selected={active}
+      href={e.href}
+      onClick={(click) => onPick(e, click)}
+      onMouseEnter={() => onHover(index)}
+      className={cn(
+        "bevel-sm flex min-h-11 items-center gap-3 px-3 py-1.5",
+        active ? "bg-night-800 text-gold-400" : "text-chalk-200",
+      )}
+    >
+      <span
+        className={cn(
+          "relative grid shrink-0 place-items-center overflow-hidden rounded bg-night-800 text-xs font-bold text-chalk-500",
+          hero ? "size-10" : "size-8",
+        )}
+      >
+        {image ? (
+          <Image src={image} alt="" width={hero ? 40 : 32} height={hero ? 40 : 32} className="size-full object-cover" />
+        ) : (
+          e.title.charAt(0)
+        )}
+      </span>
+      <span className="min-w-0 flex-1">
+        <span className="block truncate text-sm font-medium">{e.title}</span>
+        {e.detail && <span className="block truncate text-xs text-chalk-500">{e.detail}</span>}
+      </span>
+    </Link>
   );
 }
