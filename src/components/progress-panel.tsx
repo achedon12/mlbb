@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState, useSyncExternalStore } from "react";
-import { Cloud, CloudOff, HardDrive, LogIn, RefreshCw, Trash2 } from "lucide-react";
+import { Check, Cloud, CloudOff, Copy, ExternalLink, HardDrive, LogIn, RefreshCw, Trash2 } from "lucide-react";
 import Link from "@/components/link";
-import { Badges, FavouriteList, MlbbdleFigures, ProgressSection, QuizFigures } from "@/components/progress-view";
+import { Badges, MlbbdleFigures, ProgressCard, QuizFigures } from "@/components/progress-view";
 import { useLocale, useT } from "@/i18n/provider";
 import { trackEvent } from "@/lib/analytics";
 import { emptyData, progressOf, PUBLIC_FIELDS, type PublicField, type SyncData } from "@/lib/account-sync";
@@ -21,14 +21,15 @@ import { dayUtc } from "@/lib/quiz";
 import { cn } from "@/lib/utils";
 
 /**
- * The player's own progress page: figures and badges read from this
- * browser's copy (which the sync keeps in step with the account), the sync
- * state, the public page settings and the account copy's deletion. Signed
- * out, the same figures, with what signing in adds.
+ * The player's own progress, on the account page: figures and badges read
+ * from this browser's copy (which the sync keeps in step with the account),
+ * the sync state, the public page settings and the account copy's deletion.
+ * Each piece is its own component, so the page places them in its sections;
+ * every prop is plain data.
  */
-export function ProgressPanel({ signedIn, available }: { signedIn: boolean; available: boolean }) {
-  const t = useT();
-  const sync = useSyncExternalStore(subscribeSync, syncState, serverSyncState);
+
+/** This browser's progress, read after hydration and again whenever it changes. */
+function useLocalProgress() {
   const [data, setData] = useState<SyncData | null>(null);
   const [today, setToday] = useState<string | null>(null);
 
@@ -49,42 +50,38 @@ export function ProgressPanel({ signedIn, available }: { signedIn: boolean; avai
     };
   }, []);
 
-  const progress = progressOf(data ?? emptyData(), today ?? "1970-01-01");
+  return progressOf(data ?? emptyData(), today ?? "1970-01-01");
+}
 
+/** Quiz, MLBBdle and badges: the progress section of the account page. */
+export function ProgressOverview() {
+  const t = useT();
+  const progress = useLocalProgress();
   return (
-    <div className="space-y-12">
-      <SyncBanner signedIn={signedIn} available={available} status={sync.status} />
-
-      <ProgressSection id="progress-quiz" title={t("pages.progress.quiz")} icon="trophy">
-        <QuizFigures quiz={progress.quiz} />
-        <p className="text-xs text-chalk-500">
-          <Link href="/quiz" className="font-semibold text-gold-400 hover:underline">{t("pages.progress.playQuiz")}</Link>
-        </p>
-      </ProgressSection>
-
-      <ProgressSection id="progress-mlbbdle" title={t("pages.progress.mlbbdle")} icon="puzzle">
-        <MlbbdleFigures mlbbdle={progress.mlbbdle} />
-        <p className="text-xs text-chalk-500">
-          <Link href="/mlbbdle" className="font-semibold text-gold-400 hover:underline">{t("pages.progress.playMlbbdle")}</Link>
-        </p>
-      </ProgressSection>
-
-      <ProgressSection id="progress-badges" title={t("pages.progress.badgesTitle")}>
+    <div className="space-y-3 sm:space-y-4">
+      <div className="grid gap-3 sm:gap-4 lg:grid-cols-2">
+        <ProgressCard id="progress-quiz" title={t("pages.progress.quiz")} icon="trophy" action={{ href: "/quiz", label: t("pages.account.hub.play"), name: `${t("pages.account.hub.play")} ${t("pages.progress.quiz")}` }}>
+          <QuizFigures quiz={progress.quiz} />
+        </ProgressCard>
+        <ProgressCard id="progress-mlbbdle" title={t("pages.progress.mlbbdle")} icon="puzzle" action={{ href: "/mlbbdle", label: t("pages.account.hub.play"), name: `${t("pages.account.hub.play")} ${t("pages.progress.mlbbdle")}` }}>
+          <MlbbdleFigures mlbbdle={progress.mlbbdle} />
+        </ProgressCard>
+      </div>
+      <ProgressCard id="progress-badges" title={t("pages.progress.badgesTitle")}>
         <Badges earned={progress.badges} />
-      </ProgressSection>
-
-      <ProgressSection id="progress-favourites" title={t("pages.progress.favourites")} icon="star">
-        <FavouriteList favourites={data?.favourites ?? []} />
-      </ProgressSection>
-
-      {signedIn && available && <PublicSettings />}
-      {signedIn && available && sync.status !== "paused" && <DeleteCopy />}
+      </ProgressCard>
     </div>
   );
 }
 
-function SyncBanner({ signedIn, available, status }: { signedIn: boolean; available: boolean; status: string }) {
+/**
+ * Where the progress is kept: this browser only, the account (with the
+ * sync's live state), or paused. `signedIn`: a login the sync can use.
+ */
+export function SyncStatus({ signedIn, available }: { signedIn: boolean; available: boolean }) {
   const t = useT();
+  const sync = useSyncExternalStore(subscribeSync, syncState, serverSyncState);
+  const status = sync.status;
   if (!available) {
     return (
       <p className="bevel flex items-start gap-3 bg-night-900 p-4 text-sm text-chalk-300">
@@ -122,11 +119,14 @@ function SyncBanner({ signedIn, available, status }: { signedIn: boolean; availa
   }
   const key = status === "retrying" ? "retrying" : status === "saving" ? "saving" : status === "saved" ? "saved" : "checking";
   return (
-    <p role="status" className="bevel flex items-center gap-3 bg-night-900 p-4 text-sm text-chalk-300">
-      <Cloud size={18} aria-hidden className={cn("shrink-0", status === "saved" ? "text-azure-400" : "text-chalk-400")} />
+    <p role="status" className="bevel flex items-center gap-3 bg-night-900/80 px-4 py-3 text-sm text-chalk-300">
+      <span aria-hidden className={cn("relative grid size-8 shrink-0 place-items-center", status === "saved" ? "text-azure-400" : "text-chalk-400")}>
+        <Cloud size={18} />
+        {status === "saved" && <Check size={10} strokeWidth={3} className="absolute bottom-1.5 right-1" />}
+      </span>
       <span className="min-w-0 flex-1">{t(`pages.progress.sync.${key}`)}</span>
       {status === "retrying" && (
-        <button type="button" onClick={() => void syncNow()} className="text-xs font-semibold text-gold-400 hover:underline">
+        <button type="button" onClick={() => void syncNow()} className="min-h-10 text-xs font-semibold text-gold-400 hover:underline">
           {t("pages.progress.retry")}
         </button>
       )}
@@ -136,7 +136,8 @@ function SyncBanner({ signedIn, available, status }: { signedIn: boolean; availa
 
 type Settings = { public: boolean; fields: string[]; slug: string | null };
 
-function PublicSettings() {
+/** The public profile's switch, its parts and its link to copy. */
+export function PublicSettings() {
   const t = useT();
   const locale = useLocale();
   const [settings, setSettings] = useState<Settings | null>(null);
@@ -176,77 +177,95 @@ function PublicSettings() {
     }
   };
 
-  if (!settings) {
-    return error ? <p className="text-sm text-chalk-400">{t("pages.progress.public.error")}</p> : null;
-  }
-
-  const url = settings.slug ? `${window.location.origin}/${locale}/u/${settings.slug}` : null;
-  const toggleField = (f: PublicField) => {
-    const fields = settings.fields.includes(f) ? settings.fields.filter((x) => x !== f) : [...settings.fields, f];
-    void save({ public: settings.public, fields });
-  };
+  const body = (() => {
+    if (!settings) {
+      return error ? <p className="text-sm text-chalk-400">{t("pages.progress.public.error")}</p> : <div className="skeleton h-12 max-w-md" />;
+    }
+    const url = settings.slug ? `${window.location.origin}/${locale}/u/${settings.slug}` : null;
+    const toggleField = (f: PublicField) => {
+      const fields = settings.fields.includes(f) ? settings.fields.filter((x) => x !== f) : [...settings.fields, f];
+      void save({ public: settings.public, fields });
+    };
+    return (
+      <>
+        <label className="bevel flex min-h-12 cursor-pointer items-center gap-3 bg-night-950/70 px-4 py-3 text-sm font-semibold text-chalk-100">
+          <input
+            type="checkbox"
+            role="switch"
+            checked={settings.public}
+            disabled={busy}
+            onChange={(e) => void save({ public: e.target.checked, fields: settings.fields.length ? settings.fields : ["quiz", "mlbbdle", "badges"] })}
+            className="size-5 accent-gold-500"
+          />
+          <span className="min-w-0 flex-1">{t("pages.progress.public.toggle")}</span>
+          <span className={cn("bevel-sm px-2 py-0.5 text-[0.7rem] uppercase tracking-wide", settings.public ? "bg-gold-400 text-night-950" : "bg-night-800 text-chalk-400")}>
+            {settings.public ? t("pages.account.hub.on") : t("pages.account.hub.off")}
+          </span>
+        </label>
+        {settings.public && (
+          <>
+            <fieldset className="grid gap-1 sm:grid-cols-2">
+              <legend className="mb-2 text-xs font-semibold uppercase tracking-wide text-chalk-400">{t("pages.progress.public.fields")}</legend>
+              {PUBLIC_FIELDS.map((f) => (
+                <label key={f} className="flex min-h-10 cursor-pointer items-center gap-3 text-sm text-chalk-200">
+                  <input type="checkbox" checked={settings.fields.includes(f)} disabled={busy} onChange={() => toggleField(f)} className="size-4 accent-gold-500" />
+                  {t(`pages.progress.public.field.${f}`)}
+                </label>
+              ))}
+            </fieldset>
+            {url && (
+              <div className="bevel bg-night-950 p-3">
+                <code className="block truncate text-xs text-chalk-300">{url}</code>
+                <div className="mt-3 flex flex-wrap items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      navigator.clipboard?.writeText(url).then(
+                        () => setCopied(true),
+                        () => setCopied(false),
+                      );
+                    }}
+                    className="btn btn-primary btn-sm"
+                  >
+                    {copied ? <Check size={14} aria-hidden /> : <Copy size={14} aria-hidden />}
+                    {copied ? t("pages.progress.public.copied") : t("pages.progress.public.copy")}
+                  </button>
+                  <a href={url} className="btn btn-secondary btn-sm">
+                    <ExternalLink size={14} aria-hidden />
+                    {t("pages.progress.public.open")}
+                  </a>
+                </div>
+              </div>
+            )}
+          </>
+        )}
+      </>
+    );
+  })();
 
   return (
-    <ProgressSection id="progress-public" title={t("pages.progress.public.title")} icon="globe">
-      <p className="max-w-2xl text-sm text-chalk-400">{t("pages.progress.public.text")}</p>
-      <label className="flex items-center gap-3 text-sm font-semibold text-chalk-100">
-        <input
-          type="checkbox"
-          role="switch"
-          checked={settings.public}
-          disabled={busy}
-          onChange={(e) => void save({ public: e.target.checked, fields: settings.fields.length ? settings.fields : ["quiz", "mlbbdle", "badges"] })}
-          className="size-5 accent-gold-500"
-        />
-        {t("pages.progress.public.toggle")}
-      </label>
-      {settings.public && (
-        <>
-          <fieldset className="space-y-2">
-            <legend className="text-xs font-semibold uppercase tracking-wide text-chalk-400">{t("pages.progress.public.fields")}</legend>
-            {PUBLIC_FIELDS.map((f) => (
-              <label key={f} className="flex items-center gap-3 text-sm text-chalk-200">
-                <input type="checkbox" checked={settings.fields.includes(f)} disabled={busy} onChange={() => toggleField(f)} className="size-4 accent-gold-500" />
-                {t(`pages.progress.public.field.${f}`)}
-              </label>
-            ))}
-          </fieldset>
-          {url && (
-            <div className="flex flex-wrap items-center gap-2">
-              <code className="bevel-sm max-w-full truncate bg-night-950 px-3 py-2 text-xs text-chalk-300">{url}</code>
-              <button
-                type="button"
-                onClick={() => {
-                  navigator.clipboard?.writeText(url).then(
-                    () => setCopied(true),
-                    () => setCopied(false),
-                  );
-                }}
-                className="btn btn-secondary btn-sm"
-              >
-                {copied ? t("pages.progress.public.copied") : t("pages.progress.public.copy")}
-              </button>
-              <a href={url} className="text-xs font-semibold text-gold-400 hover:underline">
-                {t("pages.progress.public.open")}
-              </a>
-            </div>
-          )}
-        </>
-      )}
-      <p className="text-xs text-chalk-500">{t("pages.progress.public.privacy")}</p>
-      {error && <p role="alert" className="text-sm text-blood-500">{t("pages.progress.public.error")}</p>}
-    </ProgressSection>
+    <ProgressCard id="progress-public" title={t("pages.progress.public.title")} icon="globe">
+      <div className="space-y-4">
+        <p className="max-w-2xl text-sm text-chalk-400">{t("pages.progress.public.text")}</p>
+        {body}
+        <p className="text-xs text-chalk-500">{t("pages.progress.public.privacy")}</p>
+        {error && settings && <p role="alert" className="text-sm text-blood-500">{t("pages.progress.public.error")}</p>}
+      </div>
+    </ProgressCard>
   );
 }
 
-function DeleteCopy() {
+/** Erasing the account's copy of the progress (hidden while the sync is paused: there is none). */
+export function DeleteCopy() {
   const t = useT();
+  const sync = useSyncExternalStore(subscribeSync, syncState, serverSyncState);
   const [confirming, setConfirming] = useState(false);
   const [state, setState] = useState<"idle" | "busy" | "done" | "error">("idle");
+  if (sync.status === "paused" && state !== "done") return null;
   if (state === "done") return <p role="status" className="text-sm text-chalk-400">{t("pages.progress.delete.done")}</p>;
   return (
     <section aria-labelledby="progress-delete" className="border-t border-night-800 pt-6">
-      <h2 id="progress-delete" className="text-sm font-semibold text-chalk-200">{t("pages.progress.delete.title")}</h2>
+      <h3 id="progress-delete" className="text-sm font-semibold text-chalk-200">{t("pages.progress.delete.title")}</h3>
       <p className="mt-1 max-w-2xl text-xs text-chalk-500">{t("pages.progress.delete.text")}</p>
       {confirming ? (
         <div className="mt-3 flex flex-wrap gap-2">
@@ -267,7 +286,7 @@ function DeleteCopy() {
           </button>
         </div>
       ) : (
-        <button type="button" onClick={() => setConfirming(true)} className="mt-3 text-xs font-semibold text-chalk-400 underline underline-offset-4 hover:text-blood-500">
+        <button type="button" onClick={() => setConfirming(true)} className="mt-3 min-h-10 text-xs font-semibold text-chalk-400 underline underline-offset-4 hover:text-blood-500">
           {t("pages.progress.delete.action")}
         </button>
       )}

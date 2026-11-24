@@ -10,8 +10,10 @@ import { readSession, type Session } from "@/lib/session-client";
  * Account access in the header.
  *
  * The space is reserved from the first render so that no layout shift
- * happens once the session is known. Signed in with Discord only, the name
- * leads to the progress page (the account page needs the game account).
+ * happens once the session is known. Signed in either way — game account,
+ * even while its profile is unavailable, or Discord — the button leads to
+ * the account page, named after the nickname, else the Discord name, else
+ * "My account".
  */
 export function AccountButton() {
   const t = useT();
@@ -31,12 +33,12 @@ export function AccountButton() {
 
   return session.connected || session.discord ? (
     <Link
-      href={session.connected ? "/account" : "/account/progress"}
+      href="/account"
       className="btn btn-secondary btn-sm h-9 min-w-9 max-w-36 truncate px-2 normal-case sm:px-4"
     >
       <UserRound size={18} aria-hidden className="sm:hidden" />
       <span className="max-sm:sr-only">
-        {session.pseudo ?? session.discord}
+        {session.pseudo || session.discord || t("account.myAccount")}
       </span>
     </Link>
   ) : (

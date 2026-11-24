@@ -729,7 +729,7 @@
       "discord": "Masuk dengan Discord",
       "discordText": "Untuk menjaga kemajuan Anda dan berpartisipasi dalam komunitas. Discord hanya mengirimkan nama dan avatar Anda, bukan email Anda.",
       "discordSignedIn": "Anda terhubung dengan Discord ({name}).",
-      "discordProgress": "Lihat kemajuan saya"
+      "discordProgress": "Buka akun saya"
     },
     "watch": {
       "title": "Rangkuman",
@@ -761,8 +761,6 @@
     "account": {
       "metaTitle": "Akun saya",
       "metaDescription": "Profil dan statistik permainan.",
-      "unavailable": "Profil untuk sementara tidak tersedia",
-      "unavailableText": "Anda berhasil terhubung, tetapi layanan Moonton yang menyediakan profil tidak merespons saat ini. Coba lagi dalam beberapa menit.",
       "signOut": "Keluar",
       "currentRank": "Peringkat saat ini",
       "bestRank": "Peringkat terbaik",
@@ -780,8 +778,47 @@
       "profileLinkText": "Tinjauan musim, hero dibandingkan dengan rata-rata peringkat Anda, permainan terakhir, dan saran.",
       "topHeroes": "Pahlawanmu",
       "topHeroesLead": "Yang paling sering Anda mainkan, berdasarkan game yang disimpan oleh layanan.",
-      "progressLink": "Kemajuan saya",
-      "progressLinkText": "Catatan harian, kuis dan catatan MLBBdle, lencana dan profil publik, disinkronkan di seluruh perangkat Anda."
+      "hub": {
+        "kicker": "Akun saya",
+        "discordKicker": "Masuk dengan Discord",
+        "nav": {
+          "overview": "Season",
+          "friends": "Teman",
+          "progress": "Kemajuan",
+          "favourites": "Favorit",
+          "discord": "Kartu Discord",
+          "settings": "Pengaturan"
+        },
+        "overviewTitle": "Musim saya",
+        "overviewLead": "Hero dan tokoh keseluruhan yang paling sering Anda mainkan.",
+        "friendsLead": "Daftar teman dalam game Anda.",
+        "friendsEmpty": "Belum ada teman di akun game ini.",
+        "friendsUnavailable": "Daftar teman Anda tidak dapat dijangkau saat ini: daftar itu akan kembali dengan sendirinya.",
+        "friendsSearch": "Temukan teman",
+        "friendsNone": "Tidak ada teman yang cocok dengan “{q}”.",
+        "friendsAll": "Tampilkan semua ({n})",
+        "friendsFewer": "Tampilkan lebih sedikit",
+        "progressTitle": "Kemajuan saya",
+        "progressLead": "Seri, rekor, dan lencana dari kuis hari ini dan MLBBdle, disinkronkan dengan akun Anda.",
+        "play": "Mainkan →",
+        "favouritesLead": "Hero yang harus Anda ikuti, dilaporkan ketika ada patch yang mempengaruhi mereka.",
+        "settingsTitle": "Pengaturan",
+        "settingsLead": "Profil publik Anda, salinan kemajuan akun Anda, dan keluar.",
+        "on": "Aktif",
+        "off": "Nonaktif",
+        "signOutDiscord": "Keluar dari Discord",
+        "link": {
+          "title": "Tautkan akun game Anda untuk melihat peringkat Anda, teman, dan hero yang paling sering dimainkan",
+          "text": "Masuk dengan ID Mobile Legends Anda: Moonton mengirimkan kode ke kotak masuk dalam game Anda. Kemajuan Anda tetap sama dengan login mana pun.",
+          "cta": "Hubungkan akun permainan saya",
+          "linked": "Akun Discord Anda tertaut ke akun game {name}: kemajuan Anda dibagikan padanya."
+        },
+        "unavailable": {
+          "title": "Data game untuk sementara tidak tersedia",
+          "text": "Pelayanan Moonton saat ini sedang jenuh. Teman, peringkat, dan statistik Anda akan kembali secara otomatis: tidak perlu login lagi.",
+          "lastKnown": "Sementara itu, inilah profil terakhir Anda yang diketahui."
+        }
+      }
     },
     "apiDoc": {
       "title": "API Publik",
@@ -5271,15 +5308,9 @@
       "notes": "Ingin detail setiap perubahan?"
     },
     "progress": {
-      "metaTitle": "Kemajuan saya",
-      "metaDescription": "Rangkaian hari Anda, kuis dan catatan MLBBdle Anda, lencana Anda, dan hero favorit Anda.",
       "title": "Kemajuan saya",
-      "titleNamed": "Perkembangan {name}",
-      "lead": "Catatan harian Anda, catatan Anda, dan lencana Anda, dari apa yang Anda mainkan di situs.",
       "quiz": "Kuis hari ini",
       "mlbbdle": "MLBBdle",
-      "playQuiz": "Mainkan kuis hari ini →",
-      "playMlbbdle": "Mainkan MLBBdle →",
       "badgesTitle": "Lencana",
       "favourites": "Hero andalan",
       "streak": "Seri saat ini",
@@ -5370,7 +5401,9 @@
       "publicLead": "Rekor Harian, Rekor, dan Lencana di Pertandingan MLBBdex Hari Ini.",
       "publicKicker": "Profil Pemain",
       "publicCta": "Anda juga dapat mengikuti rangkaian hari dan lencana Anda:",
-      "publicCtaLink": "kemajuan saya"
+      "publicCtaLink": "Akun saya",
+      "publicBadges": "Lencana: {n}",
+      "publicBestStreak": "Seri terbaik: {n}"
     }
   },
   "modeSheet": {
@@ -5879,7 +5912,7 @@
         "backups": "Cadangan: salinan harian database; hanya tiga data terbaru yang disimpan, sehingga data yang dihapus akan hilang dari cadangan dalam tiga hari.",
         "rateLimits": "Batasan Nilai: Alamat IP Anda, hanya di memori, tidak pernah ditulis ke disk.",
         "profileCard": "Kartu profil Discord: sampai kamu melepas tautannya, dan paling lama 30 hari setelah pembaruan terakhirmu.",
-        "progress": "Kemajuan yang disinkronkan dan profil publik: hingga Anda menghapusnya dari halaman \"Kemajuan Saya\", atau berdasarkan permintaan."
+        "progress": "Kemajuan yang disinkronkan dan profil publik: hingga Anda menghapusnya dari halaman \"Akun Saya\", atau berdasarkan permintaan."
       },
       "rights": {
         "title": "Hak Anda",
@@ -5972,7 +6005,7 @@
       "data": "jejak akun yang sama dengan komunitas (tidak pernah ID permainan atau ID Perselisihan Anda), daftar hero favorit Anda, counter dan rekor hari permainan Anda, catatan pelatihan Anda, bulan-bulan di mana Anda meminta pengingat, dan tanggal pendaftaran terakhir;",
       "public": "jika Anda mengaktifkan profil publik Anda (dinonaktifkan secara default): pengidentifikasi tautan yang diambil secara acak, elemen yang Anda pilih untuk ditampilkan di sana, nama panggilan game Anda atau nama Discord Anda dan, jika Anda mencentangnya, alamat foto profil Anda (yang Discord berisi pengidentifikasi Discord Anda). Profil tersebut tidak direferensikan oleh mesin pencari; mematikannya akan menghapus nama dan foto.",
       "usage": "Salinan ini hanya digunakan untuk mengetahui kemajuan Anda di perangkat lain dan, jika Anda mengaktifkannya, untuk menampilkan profil publik Anda. Pengingat bulan yang dikirim melalui notifikasi tetap tertaut ke browser yang memintanya.",
-      "deletion": "Dari halaman “Kemajuan Saya”, Anda dapat menghapus salinan ini dan profil publik Anda kapan saja; browser Anda menyimpan salinannya sendiri dan berhenti mengirimkannya."
+      "deletion": "Dari halaman “Akun Saya”, Anda dapat menghapus salinan ini dan profil publik Anda kapan saja; browser Anda menyimpan salinannya sendiri dan berhenti mengirimkannya."
     }
   },
   "compareUI": {

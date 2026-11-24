@@ -1,31 +1,37 @@
-import { Breadcrumb } from "@/components/breadcrumb";
 import { metaLocales } from "@/i18n/seo";
 import { celestialLevel } from "@/lib/account-level";
 import type { Metadata } from "next";
-import Image from "next/image";
 import { redirect } from "next/navigation";
-import { ChevronRight, CircleAlert, Flame, LogOut, Trophy } from "lucide-react";
+import { ChevronRight, Gamepad2, LogIn, LogOut, Trophy } from "lucide-react";
 import { RankBadge } from "@/components/rank-badge";
 import { AccountFavourites } from "@/components/account-favourites";
+import { AccountFriends } from "@/components/account-friends";
+import { AccountHubNav } from "@/components/account-hub-nav";
+import { AccountPoster } from "@/components/account-poster";
 import { DiscordCardSection } from "@/components/discord-card-section";
 import Link from "@/components/link";
 import { StateProfile } from "@/components/player-profile";
-import { Card, Score, SectionTitle } from "@/components/ui";
+import { DeleteCopy, ProgressOverview, PublicSettings, SyncStatus } from "@/components/progress-panel";
+import { Score, SectionTitle } from "@/components/ui";
 import { DexNote, heroArt } from "@/components/stage";
 import { PlayerTopHeroes } from "@/components/player-top-heroes";
 import { Suspense } from "react";
 import type { Locale } from "@/i18n/config";
-import { createT, messagesPage } from "@/i18n/translations";
+import { createT, messagesPage, type T } from "@/i18n/translations";
 import { ExtendMessages } from "@/i18n/provider";
 import { disconnect } from "@/lib/actions";
 import { SignOutForm } from "@/components/sign-out-form";
 import { formatCount, formatPercent } from "@/lib/player-format";
 import type { StatsPlayer } from "@/lib/player-api";
-import { friends, seasonHeroes, statistics } from "@/lib/mlbb-auth";
+import { friends, identity, seasonHeroes, statistics, type Profile } from "@/lib/mlbb-auth";
 import { countryName, readableRank } from "@/lib/ranks";
 import { sessionPlayer } from "@/lib/session";
 import { summaryLastPatch } from "@/lib/patch-tracking";
-import { requestTime } from "@/lib/community/server";
+import { currentDiscordLogin, currentOwner, requestTime } from "@/lib/community/server";
+import { discordAccountId } from "@/lib/community/identity";
+import type { Owner } from "@/lib/account-owner";
+import { databaseConfigured } from "@/lib/db";
+import { cn } from "@/lib/utils";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -36,11 +42,24 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
 /** Personal page: never cached. */
 export const dynamic = "force-dynamic";
 
+/** Sections sit under the sticky header and the chip row. */
+const SECTION = "scroll-mt-36";
+
+/**
+ * The account hub: one page for everything signed in.
+ *
+ * - a game session: the profile (ranks, level, season heroes, figures,
+ *   friends), then the progress, favourites, Discord card and settings;
+ *   while the login service is busy, the same page with the last known
+ *   profile (or none) and a note that the live data will come back;
+ * - a Discord login alone: the progress, favourites and settings, with an
+ *   invitation to add the game account;
+ * - nobody: the sign-in page. An expired game session asks for a new code.
+ */
 export default async function AccountPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
   const t = createT(locale);
   const session = await sessionPlayer();
-  if (session.state === "missing") redirect(`/${locale}/login`);
 
   if (session.state === "expired") {
     // Token revoked before it expires: a new code is needed.
@@ -51,201 +70,272 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
     );
   }
 
-  if (session.state === "unavailable") {
-    // Valid token but profile unavailable: the Moonton source is down.
-    return (
-      <div className="mx-auto max-w-2xl px-4 py-20">
-        <Card className="border-gold-500/30">
-          <h1 className="flex items-center gap-2 font-heading text-xl font-bold text-gold-400">
-            <CircleAlert size={20} aria-hidden />
-            {t("pages.account.unavailable")}
-          </h1>
-          <p className="mt-3 leading-relaxed text-chalk-300">{t("pages.account.unavailableText")}</p>
-          <SignOutForm action={disconnect} className="mt-5">
-            <button type="submit" className="text-sm text-chalk-500 underline underline-offset-4 hover:text-blood-500">
-              {t("pages.account.signOut")}
-            </button>
-          </SignOutForm>
-        </Card>
-      </div>
-    );
-  }
-
-  const { token, profile } = session;
-
-  // Two sources in parallel: stats (often down) and friends
-  // (on the auth subsystem, which stays online).
-  const [stats, friendList, now] = await Promise.all([
-    statistics(token),
-    friends(token),
-    requestTime(),
+  const available = databaseConfigured();
+  const [owner, discord] = await Promise.all([
+    currentOwner().catch((): Owner => ({ status: "unavailable" })),
+    currentDiscordLogin().catch(() => null),
   ]);
+  if (session.state === "missing" && !discord) redirect(`/${locale}/login`);
 
-  const rank = readableRank(profile.rankCurrent);
-  const rankMax = readableRank(profile.rankMax);
+  const messages = messagesPage(locale, ["pages.progress", "pages.account"]);
+  // A login the progress sync can use: the owner, or a game session waiting for its profile.
+  const syncs = owner.status === "ok" || session.state !== "missing";
+  const ownerOk = owner.status === "ok";
 
-  const level = celestialLevel(profile.level);
-  const art = heroArt("alucard");
+  const progress = (
+    <section id="progress" aria-labelledby="account-progress" className={SECTION}>
+      <SectionTitle id="account-progress" lead={t("pages.account.hub.progressLead")}>
+        {t("pages.account.hub.progressTitle")}
+      </SectionTitle>
+      <div className="space-y-4">
+        <SyncStatus signedIn={syncs} available={available} />
+        <ProgressOverview />
+      </div>
+    </section>
+  );
 
-  return (
-    <>
-      {/* ── Profile header, on a stage: avatar, name, the two rank crests big ── */}
-      <div className="relative isolate overflow-hidden">
-        {art && (
-          <div aria-hidden className="absolute inset-y-0 right-0 -z-10 w-full lg:w-[62%]">
-            <Image src={art} alt="" fill priority sizes="(min-width: 1024px) 62vw, 100vw" className="affiche-art object-cover object-[60%_20%] opacity-70 lg:opacity-100" />
-            <div className="absolute inset-0 bg-linear-to-t from-night-950 via-night-950/60 to-night-950/30" />
-            <div className="absolute inset-y-0 left-0 w-full bg-linear-to-r from-night-950 via-night-950/80 to-transparent lg:w-3/4" />
-          </div>
-        )}
-        <div className="page-wrap pb-8 pt-3 sm:pb-12 sm:pt-5">
-          <Breadcrumb crumbs={[{ name: t("pages.account.metaTitle") }]} className="mb-6 [&_ol]:px-2 [&_ol]:py-1 [&_ol]:text-xs" />
-          <div className="flex flex-wrap items-end gap-5 sm:gap-7">
-            <span className="bevel-lg relative size-24 shrink-0 overflow-hidden bg-night-800 sm:size-32">
-              {profile.avatar ? (
-                <Image src={profile.avatar} alt="" fill sizes="128px" className="object-cover" />
-              ) : (
-                <span className="display-caps grid size-full place-items-center text-4xl text-chalk-500">
-                  {profile.name.slice(0, 2).toUpperCase()}
-                </span>
-              )}
-            </span>
-            <div className="min-w-0 flex-1">
-              <h1 className="affiche-name display-caps break-words text-[clamp(2.8rem,1.8rem+4vw,5.5rem)] text-chalk-100">{profile.name}</h1>
-              <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
-              <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-chalk-300">
-                <span>
-                  {level === null ? t("pages.account.levelX", { n: profile.level }) : t("pages.account.levelCelestial", { n: level })}
-                </span>
-                <span aria-hidden>·</span>
-                <span>{countryName(profile.country, locale)}</span>
-                <span aria-hidden>·</span>
-                <span className="tabular-nums">ID {profile.roleId} ({profile.zoneId})</span>
-              </div>
-            </div>
+  const favourites = (
+    <section id="favourites" aria-labelledby="account-favourites" className={SECTION}>
+      <SectionTitle id="account-favourites" lead={t("pages.account.hub.favouritesLead")}>
+        {t("pages.account.favourites")}
+      </SectionTitle>
+      <AccountFavourites lastPatch={summaryLastPatch()} />
+    </section>
+  );
+
+  const settings = (
+    <section id="settings" aria-labelledby="account-settings" className={SECTION}>
+      <SectionTitle id="account-settings" lead={t("pages.account.hub.settingsLead")}>
+        {t("pages.account.hub.settingsTitle")}
+      </SectionTitle>
+      <div className="space-y-6">
+        {ownerOk && available && <PublicSettings />}
+        {ownerOk && available && <DeleteCopy />}
+        <div className="flex flex-wrap gap-2 border-t border-night-800 pt-6">
+          {session.state !== "missing" && (
             <SignOutForm action={disconnect}>
               <button type="submit" className="btn btn-secondary btn-sm">
                 <LogOut size={15} aria-hidden />
-                {t("pages.account.signedOut")}
+                {t("pages.account.signOut")}
               </button>
             </SignOutForm>
-          </div>
-
-          {/* ── Ranks and figures ─────────────────────────────────────── */}
-          <dl className="stage-enter mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1.2fr)_minmax(0,1fr)_minmax(0,1fr)]">
-            <div className="bevel-lg bg-night-900/90 p-5">
-              <dt className="font-heading text-sm font-bold uppercase text-gold-400">{t("pages.account.currentRank")}</dt>
-              <dd className="mt-3">
-                <RankBadge rank={rank} size="xl" />
-              </dd>
-            </div>
-            <div className="bevel-lg bg-night-900/90 p-5">
-              <dt className="font-heading text-sm font-bold uppercase text-chalk-400">{t("pages.account.bestRank")}</dt>
-              <dd className="mt-3">
-                <RankBadge rank={rankMax} size="xl" />
-              </dd>
-            </div>
-            <Figure
-              label={level === null ? t("pages.account.level") : t("pages.account.levelCelestialLabel")}
-              value={level ?? profile.level}
-            />
-            <Figure label={t("pages.account.friends")} value={friendList.status === "ok" ? friendList.data.length : "—"} outline />
-          </dl>
+          )}
+          {discord && <DiscordSignOut label={t("pages.account.hub.signOutDiscord")} locale={locale} />}
         </div>
-        <div aria-hidden className="eclat-rule" />
       </div>
+    </section>
+  );
+
+  // ── Discord login alone ─────────────────────────────────────────────
+  if (session.state === "missing") {
+    const login = owner.status === "ok" ? owner.discord : null;
+    const linked = owner.status === "ok" && discord !== null && owner.id !== discordAccountId(discord.id);
+    const name = owner.status === "ok" ? owner.name : (discord?.name ?? t("pages.account.metaTitle"));
+    return (
+      <ExtendMessages messages={messages}>
+        <AccountPoster
+          name={name}
+          kicker={t("pages.account.hub.discordKicker")}
+          avatar={login?.avatar ?? null}
+          plainAvatar
+          art={heroArt("layla")}
+          artPosition="55% 20%"
+          crumbs={[{ name: t("pages.account.metaTitle") }]}
+        >
+          <LinkGameCard t={t} linkedName={linked ? name : null} />
+        </AccountPoster>
+        <AccountHubNav
+          sections={[
+            { id: "progress", label: t("pages.account.hub.nav.progress") },
+            { id: "favourites", label: t("pages.account.hub.nav.favourites") },
+            { id: "settings", label: t("pages.account.hub.nav.settings") },
+          ]}
+        />
+        <div className="page-wrap space-y-14 py-10 sm:space-y-20 sm:py-14">
+          {progress}
+          {favourites}
+          {settings}
+        </div>
+      </ExtendMessages>
+    );
+  }
+
+  // ── Game session (profile live, or the service busy) ────────────────
+  const { token } = session;
+  const live = session.state === "ok";
+  const profile: Profile | null = live ? session.profile : session.lastKnown;
+  const ids = profile ?? identity(token);
+
+  // Two sources in parallel: stats (often down) and friends
+  // (on the auth subsystem, which stays online).
+  const [stats, friendList, now] = await Promise.all([statistics(token), friends(token), requestTime()]);
+
+  const level = profile ? celestialLevel(profile.level) : null;
+  const friendCount = friendList.status === "ok" ? friendList.data.length : null;
+  const name = profile?.name || (discord?.name ?? t("pages.account.metaTitle"));
+
+  const nav = [
+    { id: "overview", label: t("pages.account.hub.nav.overview") },
+    { id: "friends", label: t("pages.account.hub.nav.friends") },
+    { id: "progress", label: t("pages.account.hub.nav.progress") },
+    { id: "favourites", label: t("pages.account.hub.nav.favourites") },
+    ...(ids.roleId ? [{ id: "discord-card", label: t("pages.account.hub.nav.discord") }] : []),
+    { id: "settings", label: t("pages.account.hub.nav.settings") },
+  ];
+
+  return (
+    <ExtendMessages messages={messages}>
+      {/* ── Profile poster: avatar, name, the two rank crests big ── */}
+      <AccountPoster
+        name={name}
+        kicker={t("pages.account.hub.kicker")}
+        avatar={profile?.avatar ?? null}
+        art={heroArt("alucard")}
+        crumbs={[{ name: t("pages.account.metaTitle") }]}
+        meta={[
+          profile && (level === null ? t("pages.account.levelX", { n: profile.level }) : t("pages.account.levelCelestial", { n: level })),
+          profile?.country ? countryName(profile.country, locale) : null,
+          ids.roleId ? <span className="tabular-nums">ID {ids.roleId} ({ids.zoneId})</span> : null,
+        ]}
+        actions={
+          <SignOutForm action={disconnect}>
+            <button type="submit" className="btn btn-secondary btn-sm">
+              <LogOut size={15} aria-hidden />
+              {t("pages.account.signedOut")}
+            </button>
+          </SignOutForm>
+        }
+      >
+        {!live && (
+          <DexNote pose="dodo" height={96} role="status" title={t("pages.account.hub.unavailable.title")} className="mb-6">
+            {t("pages.account.hub.unavailable.text")}
+            {profile && <> {t("pages.account.hub.unavailable.lastKnown")}</>}
+          </DexNote>
+        )}
+        {profile && (
+          <dl className="grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1.25fr)_minmax(0,1fr)_minmax(0,1fr)]">
+            <RankTile label={t("pages.account.currentRank")} rank={profile.rankCurrent} gold />
+            <RankTile label={t("pages.account.bestRank")} rank={profile.rankMax} />
+            <Figure label={level === null ? t("pages.account.level") : t("pages.account.levelCelestialLabel")} value={level ?? profile.level} />
+            <Figure label={t("pages.account.friends")} value={friendCount ?? "—"} outline href="#friends" />
+          </dl>
+        )}
+      </AccountPoster>
+
+      <AccountHubNav sections={nav} />
 
       <div className="page-wrap space-y-14 py-10 sm:space-y-20 sm:py-14">
-        {/* ── The player's heroes, as artwork (deferred: one more call to the service) ── */}
-        {stats.status === "ok" && stats.data.seasons[0] !== undefined && (
-          <section aria-labelledby="top-heroes">
-            <SectionTitle id="top-heroes" lead={t("pages.account.topHeroesLead")} action={{ href: "/account/profile", label: t("pages.account.profileLink") }}>
-              {t("pages.account.topHeroes")}
-            </SectionTitle>
-            <Suspense fallback={<div className="bevel-lg min-h-[17rem] bg-night-900" />}>
-              <TopHeroes token={token} season={stats.data.seasons[0]} locale={locale} />
-            </Suspense>
-          </section>
-        )}
-
-        {/* ── Statistics ─────────────────────────────────────────────── */}
-        <section aria-labelledby="account-stats">
-          <SectionTitle id="account-stats">{t("pages.account.statistics")}</SectionTitle>
-
-          {stats.status === "ok" ? (
-            <SummaryStatistics stats={stats.data} locale={locale} />
-          ) : (
-            <DexNote pose="triste" height={110}>
-              {t("pages.account.detailUnavailable")}
-            </DexNote>
-          )}
-
-          {/* The detailed profile has its own states: the link stays even when stats are down. */}
-          <Link
-            href="/account/profile"
-            className="card-link group mt-6 flex items-center gap-4 bg-night-800 p-5 shadow-[inset_3px_0_0_var(--color-gold-400)]"
-          >
-            <Trophy size={26} className="shrink-0 text-gold-400" aria-hidden />
-            <span className="min-w-0 flex-1">
-              <span className="block font-heading text-xl font-bold uppercase text-chalk-100 transition-colors group-hover:text-gold-300">
-                {t("pages.account.profileLink")}
+        {/* ── Season: the player's heroes, as artwork, then the figures ── */}
+        <section id="overview" aria-labelledby="account-overview" className={SECTION}>
+          <SectionTitle id="account-overview" lead={t("pages.account.hub.overviewLead")} action={{ href: "/account/profile", label: t("pages.account.profileLink") }}>
+            {t("pages.account.hub.overviewTitle")}
+          </SectionTitle>
+          <div className="space-y-8">
+            {stats.status === "ok" && stats.data.seasons[0] !== undefined && (
+              <div>
+                <h3 className="mb-4 font-heading text-xl font-bold uppercase text-chalk-100">{t("pages.account.topHeroes")}</h3>
+                {/* Deferred: one more call to the service. */}
+                <Suspense fallback={<div className="bevel-lg skeleton min-h-[17rem]" />}>
+                  <TopHeroes token={token} season={stats.data.seasons[0]} locale={locale} />
+                </Suspense>
+              </div>
+            )}
+            <div>
+              <h3 className="mb-4 font-heading text-xl font-bold uppercase text-chalk-100">{t("pages.account.statistics")}</h3>
+              {stats.status === "ok" ? (
+                <SummaryStatistics stats={stats.data} locale={locale} />
+              ) : (
+                <DexNote pose="triste" height={110}>
+                  {t("pages.account.detailUnavailable")}
+                </DexNote>
+              )}
+            </div>
+            {/* The detailed profile has its own states: the link stays even when stats are down. */}
+            <Link
+              href="/account/profile"
+              className="card-link group flex items-center gap-4 bg-night-800 p-5 shadow-[inset_3px_0_0_var(--color-gold-400)]"
+            >
+              <Trophy size={26} className="shrink-0 text-gold-400" aria-hidden />
+              <span className="min-w-0 flex-1">
+                <span className="block font-heading text-xl font-bold uppercase text-chalk-100 transition-colors group-hover:text-gold-300">
+                  {t("pages.account.profileLink")}
+                </span>
+                <span className="mt-0.5 block text-sm text-chalk-400">{t("pages.account.profileLinkText")}</span>
               </span>
-              <span className="mt-0.5 block text-sm text-chalk-400">{t("pages.account.profileLinkText")}</span>
-            </span>
-            <ChevronRight size={20} className="shrink-0 text-gold-400 transition-transform group-hover:translate-x-0.5" aria-hidden />
-          </Link>
+              <ChevronRight size={20} className="shrink-0 text-gold-400 transition-transform group-hover:translate-x-0.5" aria-hidden />
+            </Link>
+          </div>
         </section>
-
-        {/* ── Discord profile card (the bot's /profile) ────────────────── */}
-        <ExtendMessages messages={messagesPage(locale, ["pages.discordCard"])}>
-          <DiscordCardSection locale={locale} roleId={profile.roleId} zoneId={profile.zoneId} now={now} />
-        </ExtendMessages>
 
         {/* ── Friends ────────────────────────────────────────────────────── */}
-        {friendList.status === "ok" && friendList.data.length > 0 && (
-          <section aria-labelledby="account-friends">
-            <SectionTitle id="account-friends">{t("pages.account.friends")}</SectionTitle>
-            <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
-              {friendList.data.map((friend, i) => (
-                <li key={`${friend.name}-${i}`} className="bevel flex items-center gap-3 bg-night-900 p-2.5 transition-[translate] duration-200 hover:-translate-y-0.5">
-                  <span className="bevel-sm relative size-11 shrink-0 overflow-hidden bg-night-800">
-                    {friend.avatar ? (
-                      <Image src={friend.avatar} alt="" fill sizes="44px" className="object-cover" />
-                    ) : (
-                      <span className="display-caps grid size-full place-items-center text-lg text-chalk-500">
-                        {friend.name.slice(0, 1).toUpperCase()}
-                      </span>
-                    )}
-                  </span>
-                  <span className="min-w-0 truncate font-heading font-semibold text-chalk-100">{friend.name}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
-
-        {/* ── Favorites (in the browser, kept on the account) ───────────── */}
-        <section aria-labelledby="account-favourites">
-          <SectionTitle id="account-favourites" action={{ href: "/account/progress", label: t("pages.account.progressLink") }}>
-            {t("pages.account.favourites")}
+        <section id="friends" aria-labelledby="account-friends" className={SECTION}>
+          <SectionTitle id="account-friends" lead={t("pages.account.hub.friendsLead")}>
+            {t("pages.account.friends")}
+            {friendCount !== null && friendCount > 0 && <span className="ml-3 align-middle text-[0.55em] text-gold-400 tabular-nums">{friendCount}</span>}
           </SectionTitle>
-          <Link
-            href="/account/progress"
-            className="card-link group mb-6 flex items-center gap-4 bg-night-800 p-5 shadow-[inset_3px_0_0_var(--color-gold-400)]"
-          >
-            <Flame size={26} className="shrink-0 text-gold-400" aria-hidden />
-            <span className="min-w-0 flex-1">
-              <span className="block font-heading text-xl font-bold uppercase text-chalk-100 transition-colors group-hover:text-gold-300">
-                {t("pages.account.progressLink")}
-              </span>
-              <span className="mt-0.5 block text-sm text-chalk-400">{t("pages.account.progressLinkText")}</span>
-            </span>
-            <ChevronRight size={20} className="shrink-0 text-gold-400 transition-transform group-hover:translate-x-0.5" aria-hidden />
-          </Link>
-          <AccountFavourites lastPatch={summaryLastPatch()} />
+          {friendList.status === "ok" ? (
+            friendList.data.length > 0 ? (
+              <AccountFriends friends={friendList.data} />
+            ) : (
+              <p className="text-sm text-chalk-400">{t("pages.account.hub.friendsEmpty")}</p>
+            )
+          ) : (
+            <DexNote pose="reflexion" height={96}>{t("pages.account.hub.friendsUnavailable")}</DexNote>
+          )}
         </section>
+
+        {progress}
+        {favourites}
+
+        {/* ── Discord profile card (the bot's /profile) ────────────────── */}
+        {ids.roleId ? (
+          <div className="[&>section]:scroll-mt-36">
+            <ExtendMessages messages={messagesPage(locale, ["pages.discordCard"])}>
+              <DiscordCardSection locale={locale} roleId={ids.roleId} zoneId={ids.zoneId} now={now} />
+            </ExtendMessages>
+          </div>
+        ) : null}
+
+        {settings}
       </div>
-    </>
+    </ExtendMessages>
+  );
+}
+
+/** The Discord login's sign-out: a plain form to the logout route, back to the sign-in page. */
+function DiscordSignOut({ label, locale }: { label: string; locale: Locale }) {
+  return (
+    <form method="post" action="/api/discord/logout">
+      <input type="hidden" name="locale" value={locale} />
+      <input type="hidden" name="back" value="/login" />
+      <button type="submit" className="btn btn-secondary btn-sm">
+        <LogOut size={15} aria-hidden />
+        {label}
+      </button>
+    </form>
+  );
+}
+
+/** Signed in with Discord only: the invitation to add the game account, the rank and friends it brings. */
+function LinkGameCard({ t, linkedName }: { t: T; linkedName: string | null }) {
+  return (
+    <div className="bevel-lg relative max-w-3xl overflow-hidden bg-linear-to-br from-gold-500/20 via-night-900 to-night-900 p-5 shadow-[inset_0_0_0_1px_rgb(245_196_81/0.45)] sm:p-7">
+      <div aria-hidden className="absolute -right-10 -top-10 size-40 rounded-full bg-gold-400/10 blur-2xl" />
+      <div className="relative flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+        <span aria-hidden className="bevel grid size-14 shrink-0 place-items-center bg-gold-400 text-night-950 shadow-[0_0_24px_rgb(245_196_81/0.4)]">
+          <Gamepad2 size={28} />
+        </span>
+        <div className="min-w-0 flex-1">
+          <h2 className="font-heading text-xl font-bold uppercase leading-tight text-chalk-100 sm:text-2xl">{t("pages.account.hub.link.title")}</h2>
+          <p className="mt-1.5 text-sm leading-relaxed text-chalk-300">{t("pages.account.hub.link.text")}</p>
+          {linkedName && <p className="mt-2 text-xs text-chalk-400">{t("pages.account.hub.link.linked", { name: linkedName })}</p>}
+        </div>
+        <Link href="/login" className="btn btn-primary w-full justify-center sm:w-auto">
+          <LogIn size={16} aria-hidden />
+          {t("pages.account.hub.link.cta")}
+        </Link>
+      </div>
+    </div>
   );
 }
 
@@ -259,12 +349,37 @@ async function TopHeroes({ token, season, locale }: { token: string; season: num
   return <PlayerTopHeroes heroes={list.data.heroes} t={t} locale={locale} />;
 }
 
-function Figure({ label, value, outline = false }: { label: string; value: number | string; outline?: boolean }) {
+/** A rank crest tile: the smaller badge on a phone, the large crest from `lg`. */
+function RankTile({ label, rank, gold = false }: { label: string; rank: number; gold?: boolean }) {
+  const readable = readableRank(rank);
   return (
-    <div className="bevel-lg bg-night-900/90 p-5">
-      <dt className="font-heading text-sm font-bold uppercase text-chalk-400">{label}</dt>
+    <div className={cn("bevel-lg bg-night-900/90 p-4 backdrop-blur-sm sm:p-5", gold && "shadow-[inset_0_3px_0_var(--color-gold-500)]")}>
+      <dt className={cn("font-heading text-xs font-bold uppercase sm:text-sm", gold ? "text-gold-400" : "text-chalk-400")}>{label}</dt>
+      <dd className="mt-3">
+        <span className="lg:hidden">
+          <RankBadge rank={readable} size="lg" />
+        </span>
+        <span className="max-lg:hidden">
+          <RankBadge rank={readable} size="xl" />
+        </span>
+      </dd>
+    </div>
+  );
+}
+
+function Figure({ label, value, outline = false, href }: { label: string; value: number | string; outline?: boolean; href?: string }) {
+  const score = <Score value={value} outline={outline} className="text-[2.8rem] sm:text-[3.5rem]" />;
+  return (
+    <div className="bevel-lg bg-night-900/90 p-4 backdrop-blur-sm sm:p-5">
+      <dt className="font-heading text-xs font-bold uppercase text-chalk-400 sm:text-sm">{label}</dt>
       <dd className="mt-2">
-        <Score value={value} outline={outline} className="text-[3.5rem]" />
+        {href ? (
+          <a href={href} className="transition-colors hover:text-gold-300">
+            {score}
+          </a>
+        ) : (
+          score
+        )}
       </dd>
     </div>
   );
@@ -281,16 +396,11 @@ function SummaryStatistics({ stats, locale }: { stats: StatsPlayer; locale: Loca
   }
 
   return (
-    <dl className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+    <dl className="grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-4">
       <Figure label={t("pages.accountProfile.games")} value={formatCount(stats.matches, locale)} />
-      <Figure
-        label={t("pages.heroDetail.stat.winRate")}
-        value={formatPercent((stats.wins / stats.matches) * 100, locale)}
-      />
+      <Figure label={t("pages.heroDetail.stat.winRate")} value={formatPercent((stats.wins / stats.matches) * 100, locale)} />
       {stats.mvp !== null && <Figure label={t("pages.accountProfile.mvp")} value={formatCount(stats.mvp, locale)} />}
-      {stats.bestStreak !== null && (
-        <Figure label={t("pages.accountProfile.bestStreak")} value={formatCount(stats.bestStreak, locale)} />
-      )}
+      {stats.bestStreak !== null && <Figure label={t("pages.accountProfile.bestStreak")} value={formatCount(stats.bestStreak, locale)} />}
     </dl>
   );
 }

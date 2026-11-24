@@ -729,7 +729,7 @@
       "discord": "Accedi con Discord",
       "discordText": "Per mantenere i tuoi progressi e partecipare alla comunità. Discord trasmette solo il tuo nome e avatar, mai la tua email.",
       "discordSignedIn": "Sei connesso a Discord ({name}).",
-      "discordProgress": "Guarda i miei progressi"
+      "discordProgress": "Apri il mio conto"
     },
     "watch": {
       "title": "Rassegna",
@@ -761,8 +761,6 @@
     "account": {
       "metaTitle": "Il mio account",
       "metaDescription": "Profilo di gioco e statistiche.",
-      "unavailable": "Profilo momentaneamente non disponibile",
-      "unavailableText": "Hai effettuato l'accesso, ma il servizio Moonton che fornisce i profili non risponde al momento. Riprova tra qualche minuto.",
       "signOut": "Esci",
       "currentRank": "Rango attuale",
       "bestRank": "Rango massimo",
@@ -780,8 +778,47 @@
       "profileLinkText": "Bilancio della stagione, eroi confrontati con la media del tuo rango, ultime partite e consigli.",
       "topHeroes": "I tuoi eroi",
       "topHeroesLead": "Quelli a cui giochi di più, in base ai giochi conservati dal servizio.",
-      "progressLink": "I miei progressi",
-      "progressLinkText": "Serie giornaliere, quiz e record MLBBdle, badge e profilo pubblico, sincronizzati su tutti i tuoi dispositivi."
+      "hub": {
+        "kicker": "Il mio account",
+        "discordKicker": "Connesso con Discord",
+        "nav": {
+          "overview": "Stagione",
+          "friends": "Amici",
+          "progress": "Progressi",
+          "favourites": "Preferiti",
+          "discord": "Scheda Discord",
+          "settings": "Impostazioni"
+        },
+        "overviewTitle": "La mia stagione",
+        "overviewLead": "I tuoi eroi e i tuoi dati complessivi più giocati.",
+        "friendsLead": "La tua lista di amici nel gioco.",
+        "friendsEmpty": "Nessun amico ancora su questo account di gioco.",
+        "friendsUnavailable": "La tua lista amici al momento non è raggiungibile: tornerà da sola.",
+        "friendsSearch": "Trova un amico",
+        "friendsNone": "Nessun amico corrisponde a \"{q}\".",
+        "friendsAll": "Mostra tutto ({n})",
+        "friendsFewer": "Mostra meno",
+        "progressTitle": "I miei progressi",
+        "progressLead": "Serie, record e badge del quiz di oggi e di MLBBdle, sincronizzati con il tuo account.",
+        "play": "Gioca →",
+        "favouritesLead": "I tuoi eroi da seguire, segnalati quando una patch li riguarda.",
+        "settingsTitle": "Impostazioni",
+        "settingsLead": "Il tuo profilo pubblico, una copia dei progressi del tuo account e il logout.",
+        "on": "Attivo",
+        "off": "Disattivato",
+        "signOutDiscord": "Esci da Discord",
+        "link": {
+          "title": "Collega il tuo account di gioco per vedere il tuo grado, i tuoi amici e gli eroi più giocati",
+          "text": "Accedi con il tuo ID Mobile Legends: Moonton invia un codice alla tua casella di posta nel gioco. I tuoi progressi rimangono gli stessi con entrambi gli accessi.",
+          "cta": "Collega il mio account di gioco",
+          "linked": "Il tuo account Discord è collegato all'account di gioco {name}: i tuoi progressi sono condivisi con esso."
+        },
+        "unavailable": {
+          "title": "Dati di gioco temporaneamente non disponibili",
+          "text": "Il servizio di Moonton è saturo al momento. I tuoi amici, il tuo grado e le tue statistiche verranno restituiti automaticamente: non è necessario effettuare nuovamente l'accesso.",
+          "lastKnown": "Nel frattempo, ecco il tuo ultimo profilo conosciuto."
+        }
+      }
     },
     "apiDoc": {
       "title": "API pubblica",
@@ -5271,15 +5308,9 @@
       "notes": "Vuoi i dettagli di ogni modifica?"
     },
     "progress": {
-      "metaTitle": "I miei progressi",
-      "metaDescription": "La tua serie di giorni, i tuoi quiz e i record MLBBdle, i tuoi badge e i tuoi eroi preferiti.",
       "title": "I miei progressi",
-      "titleNamed": "Progressione di {name}",
-      "lead": "Le tue serie di giornate, i tuoi record e i tuoi badge, da ciò che giochi sul sito.",
       "quiz": "Quiz del giorno",
       "mlbbdle": "MLBBdle",
-      "playQuiz": "Gioca al quiz di oggi →",
-      "playMlbbdle": "Gioca a MLBBdle →",
       "badgesTitle": "Distintivi",
       "favourites": "Eroi preferiti",
       "streak": "Striscia attuale",
@@ -5370,7 +5401,9 @@
       "publicLead": "Daystreaks, record e badge sui giochi di oggi di MLBBDex.",
       "publicKicker": "Profilo giocatore",
       "publicCta": "Anche tu puoi seguire la tua serie di giornate e i tuoi badge:",
-      "publicCtaLink": "i miei progressi"
+      "publicCtaLink": "Il mio account",
+      "publicBadges": "Distintivi: {n}",
+      "publicBestStreak": "Miglior serie: {n}"
     }
   },
   "modeSheet": {
@@ -5879,7 +5912,7 @@
         "backups": "Backup: una copia giornaliera del database; vengono conservati solo i tre più recenti, in modo che i dati cancellati scompaiano dai backup entro tre giorni.",
         "rateLimits": "Limiti di velocità: il tuo indirizzo IP, solo in memoria, mai scritto su disco.",
         "profileCard": "Scheda profilo Discord: finché non la scolleghi, e al massimo 30 giorni dopo il tuo ultimo aggiornamento.",
-        "progress": "Avanzamento sincronizzato e profilo pubblico: finché non li elimini dalla pagina \"I miei progressi\" o su richiesta."
+        "progress": "Avanzamento sincronizzato e profilo pubblico: fino alla loro eliminazione dalla pagina \"Il mio account\", o su richiesta."
       },
       "rights": {
         "title": "I tuoi diritti",
@@ -5972,7 +6005,7 @@
       "data": "lo stesso profilo dell'account della community (mai il tuo ID di gioco o il tuo ID Discord), l'elenco dei tuoi eroi preferiti, i contatori e le serie di vittorie giornaliere di gioco, i tuoi record di allenamento, i mesi per i quali hai richiesto un promemoria e la data dell'ultima registrazione;",
       "public": "se attivi il tuo profilo pubblico (disabilitato per impostazione predefinita): un identificatore di collegamento estratto casualmente, gli elementi che hai scelto di mostrare lì, il tuo nickname di gioco o il tuo nome Discord e, se lo controlli, l'indirizzo della tua foto del profilo (quella di Discord contiene il tuo identificatore Discord). Il profilo non viene referenziato dai motori di ricerca; disattivandolo si cancellano il nome e la foto.",
       "usage": "Questa copia viene utilizzata solo per trovare i tuoi progressi sugli altri tuoi dispositivi e, se la attivi, per visualizzare il tuo profilo pubblico. I promemoria mensili inviati tramite notifica rimangono collegati al browser che li ha richiesti.",
-      "deletion": "Dalla pagina “I miei progressi”, puoi eliminare questa copia e il tuo profilo pubblico in qualsiasi momento; i tuoi browser mantengono la propria copia e smettono di inviarla."
+      "deletion": "Dalla pagina “Il mio account”, puoi eliminare questa copia e il tuo profilo pubblico in qualsiasi momento; i tuoi browser mantengono la propria copia e smettono di inviarla."
     }
   },
   "compareUI": {

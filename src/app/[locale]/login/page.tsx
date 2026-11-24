@@ -121,7 +121,7 @@ export default async function LoginPage({
           {discord && (
             <p className="bevel mt-6 max-w-lg bg-night-900 p-4 text-sm text-chalk-300">
               {t("pages.login.discordSignedIn", { name: discord.name })}{" "}
-              <Link href="/account/progress" className="font-semibold text-gold-400 hover:underline">
+              <Link href="/account" className="font-semibold text-gold-400 hover:underline">
                 {t("pages.login.discordProgress")}
               </Link>
             </p>

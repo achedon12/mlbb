@@ -58,6 +58,15 @@ test.describe("sign-in", () => {
     await expect(playerId(page)).toBeVisible();
     await page.goto("/fr/account/profile");
     await expect(page).toHaveURL(/\/fr\/login$/);
+    // The former progress page now points at the account page, which asks to sign in.
+    await page.goto("/fr/account/progress");
+    await expect(page).toHaveURL(/\/fr\/login$/);
+  });
+
+  test("the former progress page is a permanent redirect to the account page", async ({ request }) => {
+    const response = await request.get("/fr/account/progress", { maxRedirects: 0 });
+    expect(response.status()).toBe(308);
+    expect(response.headers().location).toMatch(/\/fr\/account#progress$/);
   });
 
   test("the header offers to sign in", async ({ page }) => {
