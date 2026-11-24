@@ -9,6 +9,7 @@ import { Analytics } from "@/components/analytics";
 import { Footer } from "@/components/footer";
 import { ErrorReporter } from "@/components/error-reporter";
 import { ConsentBanner } from "@/components/consent-banner";
+import { VisitClock } from "@/components/visit-clock";
 import { LocaleProvider } from "@/i18n/provider";
 import { LOCALES, DEFAULT_LOCALE, LOCALE_HTML, isLocale } from "@/i18n/config";
 import { createT, messagesClient } from "@/i18n/translations";
@@ -188,6 +189,7 @@ export default async function LocaleLayout({
           <Analytics />
           <ErrorReporter />
           <Offline />
+          <VisitClock />
           <DiscordPopup />
         </LocaleProvider>
       </body>

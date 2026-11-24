@@ -31,10 +31,13 @@ export async function register() {
   }
   if (!process.env.VAPID_PUBLIC_KEY || !process.env.VAPID_PRIVATE_KEY) return;
 
-  const [{ notifyOnStartup }, { recentPatches }] = await Promise.all([
+  const [{ notifyOnStartup }, { recentPatches }, { startReminderClock }] = await Promise.all([
     import("@/lib/push-server"),
     import("@/lib/patch-tracking"),
+    import("@/lib/reminder-server"),
   ]);
   // Without waiting: the server answers during the send, which never throws.
   void notifyOnStartup(recentPatches[0]);
+  // Month reminders (src/lib/reminder-server.ts): sent once their month opens.
+  startReminderClock();
 }

@@ -6443,7 +6443,12 @@
     "bodyOne": "See the details on the hero page, in the Stats tab.",
     "row": "{name}: {type}",
     "other": "and {n} more",
-    "others": "and {n} more"
+    "others": "and {n} more",
+    "reminder": {
+      "title": "{month} is live: new StarLight and events",
+      "bodySkin": "The StarLight skin {skin} ({hero}) is out. See the month's skins and events.",
+      "body": "The StarLight skin and the month's events are out. See what's new."
+    }
   },
   "teamUI": {
     "yourTeam": "Your team",
@@ -7018,5 +7023,54 @@
         "dex": "Everything is live: go see what's new."
       }
     }
+  },
+  "reminder": {
+    "button": "Remind me",
+    "hint": "Adds it to your calendar, with an alert on {when}.",
+    "set": "You'll be reminded: {month}",
+    "setCalendar": "In your calendar, with an alert on {when}.",
+    "setPush": "A notification on this device on {when}.",
+    "setBoth": "In your calendar and as a notification on {when}.",
+    "alsoPush": "Also notify me here",
+    "alsoCalendar": "Add to calendar",
+    "cancelPush": "Cancel the notification",
+    "pushRefused": "Notifications are blocked in this browser: the calendar reminder still works.",
+    "pushError": "The notification could not be set. Try again later.",
+    "kicker": "Coming up",
+    "bandTitle": "{month}: new StarLight and events",
+    "bandSkin": "StarLight skin: {skin} ({hero}). From the 1st at 00:00 server time.",
+    "bandGeneric": "The StarLight skin and the month's events start on the 1st at 00:00 server time.",
+    "bandLabel": "Reminder for {month}"
+  },
+  "dailyDle": {
+    "label": "Today's MLBBdle",
+    "title": "Today's hero is waiting",
+    "allDone": "Both of today's puzzles solved",
+    "oneLeft": "One puzzle left today",
+    "keepStreak": "Keep your streak going",
+    "mode": {
+      "classic": "Classic",
+      "skill": "Skill"
+    },
+    "status": {
+      "solved": "solved",
+      "started": "in progress",
+      "open": "to play"
+    },
+    "streak1": "1-day streak",
+    "streak": "{n}-day streak",
+    "next": "Next puzzle in",
+    "play": "Play",
+    "continue": "Continue"
+  },
+  "comeback": {
+    "title": "Since your last visit, {date}",
+    "patch": "Patch {version} is out",
+    "skin1": "New skin: {name} ({hero})",
+    "skins": "{n} new skins, including {name}",
+    "tiers1": "1 hero changed tier",
+    "tiers": "{n} heroes changed tier",
+    "eventsAnnounced": "{month} announced",
+    "eventsOpened": "{month} events have started"
   }
 }

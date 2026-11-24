@@ -8,6 +8,9 @@ import { HomeMeta } from "@/components/home/home-meta";
 import { HomePatch } from "@/components/home/home-patch";
 import { HomeTools } from "@/components/home/home-tools";
 import { HomeWhy } from "@/components/home/home-why";
+import { SinceLastVisit } from "@/components/home/since-last-visit";
+import { DailyDle } from "@/components/daily-dle";
+import { sinceDigest } from "@/lib/since-visit-server";
 import { SectionTitle } from "@/components/ui";
 import { allHeroes } from "@/lib/data";
 import { site } from "@/lib/site";
@@ -85,6 +88,12 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
       />
 
       <HomeHero locale={locale} />
+
+      {/* For a returning visitor: what changed since, then today's MLBBdle. */}
+      <SinceLastVisit digest={sinceDigest()} />
+      <div className="page-wrap pt-6">
+        <DailyDle place="home" />
+      </div>
 
       {/*
         The blocks one under the other, each the width of the page and each

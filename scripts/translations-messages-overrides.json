@@ -7315,6 +7315,174 @@
     "shareCard.quiz.dexLow": {
       "fr": "Coriace, celui-là. Un ami fera-t-il mieux ?",
       "text": "A tough one today. Think a friend can do better?"
+    },
+    "reminder.button": {
+      "fr": "Me le rappeler",
+      "text": "Remind me"
+    },
+    "reminder.hint": {
+      "fr": "Ajout à votre agenda, avec une alerte le {when}.",
+      "text": "Adds it to your calendar, with an alert on {when}."
+    },
+    "reminder.set": {
+      "fr": "Rappel prévu : {month}",
+      "text": "You'll be reminded: {month}"
+    },
+    "reminder.setCalendar": {
+      "fr": "Dans votre agenda, avec une alerte le {when}.",
+      "text": "In your calendar, with an alert on {when}."
+    },
+    "reminder.setPush": {
+      "fr": "Une notification sur cet appareil le {when}.",
+      "text": "A notification on this device on {when}."
+    },
+    "reminder.setBoth": {
+      "fr": "Dans votre agenda et en notification le {when}.",
+      "text": "In your calendar and as a notification on {when}."
+    },
+    "reminder.alsoPush": {
+      "fr": "Me notifier aussi ici",
+      "text": "Also notify me here"
+    },
+    "reminder.alsoCalendar": {
+      "fr": "Ajouter à l'agenda",
+      "text": "Add to calendar"
+    },
+    "reminder.cancelPush": {
+      "fr": "Annuler la notification",
+      "text": "Cancel the notification"
+    },
+    "reminder.pushRefused": {
+      "fr": "Les notifications sont bloquées dans ce navigateur : le rappel d'agenda fonctionne toujours.",
+      "text": "Notifications are blocked in this browser: the calendar reminder still works."
+    },
+    "reminder.pushError": {
+      "fr": "Impossible de programmer la notification. Réessayez plus tard.",
+      "text": "The notification could not be set. Try again later."
+    },
+    "reminder.kicker": {
+      "fr": "À venir",
+      "text": "Coming up"
+    },
+    "reminder.bandTitle": {
+      "fr": "{month} : nouveau StarLight et événements",
+      "text": "{month}: new StarLight and events"
+    },
+    "reminder.bandSkin": {
+      "fr": "Apparence StarLight : {skin} ({hero}). Dès le 1er à 00:00, heure du serveur.",
+      "text": "StarLight skin: {skin} ({hero}). From the 1st at 00:00 server time."
+    },
+    "reminder.bandGeneric": {
+      "fr": "L'apparence StarLight et les événements du mois commencent le 1er à 00:00, heure du serveur.",
+      "text": "The StarLight skin and the month's events start on the 1st at 00:00 server time."
+    },
+    "reminder.bandLabel": {
+      "fr": "Rappel pour {month}",
+      "text": "Reminder for {month}"
+    },
+    "dailyDle.label": {
+      "fr": "MLBBdle du jour",
+      "text": "Today's MLBBdle"
+    },
+    "dailyDle.title": {
+      "fr": "Le héros du jour vous attend",
+      "text": "Today's hero is waiting"
+    },
+    "dailyDle.allDone": {
+      "fr": "Les deux énigmes du jour sont résolues",
+      "text": "Both of today's puzzles solved"
+    },
+    "dailyDle.oneLeft": {
+      "fr": "Encore une énigme aujourd'hui",
+      "text": "One puzzle left today"
+    },
+    "dailyDle.keepStreak": {
+      "fr": "Gardez votre série",
+      "text": "Keep your streak going"
+    },
+    "dailyDle.mode.classic": {
+      "fr": "Classique",
+      "text": "Classic"
+    },
+    "dailyDle.mode.skill": {
+      "fr": "Compétence",
+      "text": "Skill"
+    },
+    "dailyDle.status.solved": {
+      "fr": "résolu",
+      "text": "solved"
+    },
+    "dailyDle.status.started": {
+      "fr": "en cours",
+      "text": "in progress"
+    },
+    "dailyDle.status.open": {
+      "fr": "à jouer",
+      "text": "to play"
+    },
+    "dailyDle.streak1": {
+      "fr": "Série de 1 jour",
+      "text": "1-day streak"
+    },
+    "dailyDle.streak": {
+      "fr": "Série de {n} jours",
+      "text": "{n}-day streak"
+    },
+    "dailyDle.next": {
+      "fr": "Prochaine énigme dans",
+      "text": "Next puzzle in"
+    },
+    "dailyDle.play": {
+      "fr": "Jouer",
+      "text": "Play"
+    },
+    "dailyDle.continue": {
+      "fr": "Continuer",
+      "text": "Continue"
+    },
+    "comeback.title": {
+      "fr": "Depuis votre dernière visite, le {date}",
+      "text": "Since your last visit, {date}"
+    },
+    "comeback.patch": {
+      "fr": "Patch {version} sorti",
+      "text": "Patch {version} is out"
+    },
+    "comeback.skin1": {
+      "fr": "Nouvelle apparence : {name} ({hero})",
+      "text": "New skin: {name} ({hero})"
+    },
+    "comeback.skins": {
+      "fr": "{n} nouvelles apparences, dont {name}",
+      "text": "{n} new skins, including {name}"
+    },
+    "comeback.tiers1": {
+      "fr": "1 héros a changé de tier",
+      "text": "1 hero changed tier"
+    },
+    "comeback.tiers": {
+      "fr": "{n} héros ont changé de tier",
+      "text": "{n} heroes changed tier"
+    },
+    "comeback.eventsAnnounced": {
+      "fr": "{month} annoncé",
+      "text": "{month} announced"
+    },
+    "comeback.eventsOpened": {
+      "fr": "Les événements de {month} ont commencé",
+      "text": "{month} events have started"
+    },
+    "pushNotif.reminder.title": {
+      "fr": "{month} commence : nouveau StarLight et événements",
+      "text": "{month} is live: new StarLight and events"
+    },
+    "pushNotif.reminder.bodySkin": {
+      "fr": "L'apparence StarLight {skin} ({hero}) est sortie. Voir les apparences et événements du mois.",
+      "text": "The StarLight skin {skin} ({hero}) is out. See the month's skins and events."
+    },
+    "pushNotif.reminder.body": {
+      "fr": "L'apparence StarLight et les événements du mois sont là. Voir les nouveautés.",
+      "text": "The StarLight skin and the month's events are out. See what's new."
     }
   },
   "es": {
@@ -12153,6 +12321,74 @@
     "shareCard.quiz.dexLow": {
       "fr": "Coriace, celui-là. Un ami fera-t-il mieux ?",
       "text": "Hoy tocó uno difícil. ¿Un amigo lo hará mejor?"
+    },
+    "reminder.set": {
+      "fr": "Rappel prévu : {month}",
+      "text": "Te lo recordaremos: {month}"
+    },
+    "reminder.hint": {
+      "fr": "Ajout à votre agenda, avec une alerte le {when}.",
+      "text": "Se añade a tu calendario, con una alerta el {when}."
+    },
+    "reminder.bandSkin": {
+      "fr": "Apparence StarLight : {skin} ({hero}). Dès le 1er à 00:00, heure du serveur.",
+      "text": "Skin StarLight: {skin} ({hero}). Desde el día 1 a las 00:00, hora del servidor."
+    },
+    "comeback.skins": {
+      "fr": "{n} nouvelles apparences, dont {name}",
+      "text": "{n} skins nuevas, incluida {name}"
+    },
+    "comeback.skin1": {
+      "fr": "Nouvelle apparence : {name} ({hero})",
+      "text": "Skin nueva: {name} ({hero})"
+    },
+    "comeback.tiers": {
+      "fr": "{n} héros ont changé de tier",
+      "text": "{n} héroes cambiaron de tier"
+    },
+    "comeback.tiers1": {
+      "fr": "1 héros a changé de tier",
+      "text": "1 héroe cambió de tier"
+    },
+    "comeback.eventsOpened": {
+      "fr": "Les événements de {month} ont commencé",
+      "text": "Los eventos de {month} ya empezaron"
+    },
+    "pushNotif.reminder.bodySkin": {
+      "fr": "L'apparence StarLight {skin} ({hero}) est sortie. Voir les apparences et événements du mois.",
+      "text": "Ya salió la skin StarLight {skin} ({hero}). Mira las skins y eventos del mes."
+    },
+    "pushNotif.reminder.body": {
+      "fr": "L'apparence StarLight et les événements du mois sont là. Voir les nouveautés.",
+      "text": "Ya llegaron la skin StarLight y los eventos del mes. Mira las novedades."
+    },
+    "dailyDle.title": {
+      "fr": "Le héros du jour vous attend",
+      "text": "El héroe del día te espera"
+    },
+    "dailyDle.oneLeft": {
+      "fr": "Encore une énigme aujourd'hui",
+      "text": "Te queda un enigma hoy"
+    },
+    "dailyDle.allDone": {
+      "fr": "Les deux énigmes du jour sont résolues",
+      "text": "Resolviste los dos enigmas de hoy"
+    },
+    "dailyDle.streak": {
+      "fr": "Série de {n} jours",
+      "text": "Racha de {n} días"
+    },
+    "dailyDle.streak1": {
+      "fr": "Série de 1 jour",
+      "text": "Racha de 1 día"
+    },
+    "dailyDle.next": {
+      "fr": "Prochaine énigme dans",
+      "text": "Siguiente enigma en"
+    },
+    "dailyDle.status.started": {
+      "fr": "en cours",
+      "text": "en curso"
     }
   },
   "id": {
@@ -19135,6 +19371,74 @@
     "shareCard.quiz.dexLow": {
       "fr": "Coriace, celui-là. Un ami fera-t-il mieux ?",
       "text": "Yang ini sulit. Temanmu bisa lebih baik?"
+    },
+    "reminder.set": {
+      "fr": "Rappel prévu : {month}",
+      "text": "Kamu akan diingatkan: {month}"
+    },
+    "reminder.hint": {
+      "fr": "Ajout à votre agenda, avec une alerte le {when}.",
+      "text": "Masuk ke kalender kamu, dengan pengingat pada {when}."
+    },
+    "reminder.bandSkin": {
+      "fr": "Apparence StarLight : {skin} ({hero}). Dès le 1er à 00:00, heure du serveur.",
+      "text": "Skin StarLight: {skin} ({hero}). Mulai tanggal 1 pukul 00:00 waktu server."
+    },
+    "comeback.skins": {
+      "fr": "{n} nouvelles apparences, dont {name}",
+      "text": "{n} skin baru, termasuk {name}"
+    },
+    "comeback.skin1": {
+      "fr": "Nouvelle apparence : {name} ({hero})",
+      "text": "Skin baru: {name} ({hero})"
+    },
+    "comeback.tiers": {
+      "fr": "{n} héros ont changé de tier",
+      "text": "{n} hero berganti tier"
+    },
+    "comeback.tiers1": {
+      "fr": "1 héros a changé de tier",
+      "text": "1 hero berganti tier"
+    },
+    "comeback.eventsOpened": {
+      "fr": "Les événements de {month} ont commencé",
+      "text": "Event {month} sudah dimulai"
+    },
+    "pushNotif.reminder.bodySkin": {
+      "fr": "L'apparence StarLight {skin} ({hero}) est sortie. Voir les apparences et événements du mois.",
+      "text": "Skin StarLight {skin} ({hero}) sudah rilis. Lihat skin dan event bulan ini."
+    },
+    "pushNotif.reminder.body": {
+      "fr": "L'apparence StarLight et les événements du mois sont là. Voir les nouveautés.",
+      "text": "Skin StarLight dan event bulan ini sudah hadir. Lihat yang baru."
+    },
+    "dailyDle.title": {
+      "fr": "Le héros du jour vous attend",
+      "text": "Hero hari ini sudah menunggu"
+    },
+    "dailyDle.oneLeft": {
+      "fr": "Encore une énigme aujourd'hui",
+      "text": "Tinggal satu teka-teki hari ini"
+    },
+    "dailyDle.allDone": {
+      "fr": "Les deux énigmes du jour sont résolues",
+      "text": "Dua teka-teki hari ini sudah terpecahkan"
+    },
+    "dailyDle.streak": {
+      "fr": "Série de {n} jours",
+      "text": "Streak {n} hari"
+    },
+    "dailyDle.streak1": {
+      "fr": "Série de 1 jour",
+      "text": "Streak 1 hari"
+    },
+    "dailyDle.next": {
+      "fr": "Prochaine énigme dans",
+      "text": "Teka-teki berikutnya dalam"
+    },
+    "dailyDle.status.started": {
+      "fr": "en cours",
+      "text": "sedang dimainkan"
     }
   },
   "it": {
@@ -23981,6 +24285,74 @@
     "shareCard.quiz.dexLow": {
       "fr": "Coriace, celui-là. Un ami fera-t-il mieux ?",
       "text": "Oggi era tosta. Un amico farà meglio?"
+    },
+    "reminder.set": {
+      "fr": "Rappel prévu : {month}",
+      "text": "Te lo ricorderemo: {month}"
+    },
+    "reminder.hint": {
+      "fr": "Ajout à votre agenda, avec une alerte le {when}.",
+      "text": "Si aggiunge al tuo calendario, con un avviso il {when}."
+    },
+    "reminder.bandSkin": {
+      "fr": "Apparence StarLight : {skin} ({hero}). Dès le 1er à 00:00, heure du serveur.",
+      "text": "Skin StarLight: {skin} ({hero}). Dal 1° alle 00:00, ora del server."
+    },
+    "comeback.skins": {
+      "fr": "{n} nouvelles apparences, dont {name}",
+      "text": "{n} nuove skin, tra cui {name}"
+    },
+    "comeback.skin1": {
+      "fr": "Nouvelle apparence : {name} ({hero})",
+      "text": "Nuova skin: {name} ({hero})"
+    },
+    "comeback.tiers": {
+      "fr": "{n} héros ont changé de tier",
+      "text": "{n} eroi hanno cambiato tier"
+    },
+    "comeback.tiers1": {
+      "fr": "1 héros a changé de tier",
+      "text": "1 eroe ha cambiato tier"
+    },
+    "comeback.eventsOpened": {
+      "fr": "Les événements de {month} ont commencé",
+      "text": "Gli eventi di {month} sono iniziati"
+    },
+    "pushNotif.reminder.bodySkin": {
+      "fr": "L'apparence StarLight {skin} ({hero}) est sortie. Voir les apparences et événements du mois.",
+      "text": "È uscita la skin StarLight {skin} ({hero}). Scopri le skin e gli eventi del mese."
+    },
+    "pushNotif.reminder.body": {
+      "fr": "L'apparence StarLight et les événements du mois sont là. Voir les nouveautés.",
+      "text": "Sono arrivati la skin StarLight e gli eventi del mese. Scopri le novità."
+    },
+    "dailyDle.title": {
+      "fr": "Le héros du jour vous attend",
+      "text": "L'eroe del giorno ti aspetta"
+    },
+    "dailyDle.oneLeft": {
+      "fr": "Encore une énigme aujourd'hui",
+      "text": "Ti resta un enigma oggi"
+    },
+    "dailyDle.allDone": {
+      "fr": "Les deux énigmes du jour sont résolues",
+      "text": "Hai risolto i due enigmi di oggi"
+    },
+    "dailyDle.streak": {
+      "fr": "Série de {n} jours",
+      "text": "Serie di {n} giorni"
+    },
+    "dailyDle.streak1": {
+      "fr": "Série de 1 jour",
+      "text": "Serie di 1 giorno"
+    },
+    "dailyDle.next": {
+      "fr": "Prochaine énigme dans",
+      "text": "Prossimo enigma tra"
+    },
+    "dailyDle.status.started": {
+      "fr": "en cours",
+      "text": "in corso"
     }
   },
   "fil": {
@@ -39259,6 +39631,74 @@
     "shareCard.quiz.dexLow": {
       "fr": "Coriace, celui-là. Un ami fera-t-il mieux ?",
       "text": "Mahirap ito ngayon. Kaya kaya ng kaibigan mo?"
+    },
+    "reminder.set": {
+      "fr": "Rappel prévu : {month}",
+      "text": "Ipapaalala namin: {month}"
+    },
+    "reminder.hint": {
+      "fr": "Ajout à votre agenda, avec une alerte le {when}.",
+      "text": "Idaragdag sa iyong kalendaryo, may alerto sa {when}."
+    },
+    "reminder.bandSkin": {
+      "fr": "Apparence StarLight : {skin} ({hero}). Dès le 1er à 00:00, heure du serveur.",
+      "text": "StarLight skin: {skin} ({hero}). Simula sa ika-1 nang 00:00, oras ng server."
+    },
+    "comeback.skins": {
+      "fr": "{n} nouvelles apparences, dont {name}",
+      "text": "{n} bagong skin, kasama ang {name}"
+    },
+    "comeback.skin1": {
+      "fr": "Nouvelle apparence : {name} ({hero})",
+      "text": "Bagong skin: {name} ({hero})"
+    },
+    "comeback.tiers": {
+      "fr": "{n} héros ont changé de tier",
+      "text": "{n} hero ang nagbago ng tier"
+    },
+    "comeback.tiers1": {
+      "fr": "1 héros a changé de tier",
+      "text": "1 hero ang nagbago ng tier"
+    },
+    "comeback.eventsOpened": {
+      "fr": "Les événements de {month} ont commencé",
+      "text": "Nagsimula na ang mga event ng {month}"
+    },
+    "pushNotif.reminder.bodySkin": {
+      "fr": "L'apparence StarLight {skin} ({hero}) est sortie. Voir les apparences et événements du mois.",
+      "text": "Labas na ang StarLight skin na {skin} ({hero}). Tingnan ang mga skin at event ngayong buwan."
+    },
+    "pushNotif.reminder.body": {
+      "fr": "L'apparence StarLight et les événements du mois sont là. Voir les nouveautés.",
+      "text": "Narito na ang StarLight skin at mga event ngayong buwan. Tingnan ang bago."
+    },
+    "dailyDle.title": {
+      "fr": "Le héros du jour vous attend",
+      "text": "Naghihintay ang hero ng araw"
+    },
+    "dailyDle.oneLeft": {
+      "fr": "Encore une énigme aujourd'hui",
+      "text": "Isang palaisipan na lang ngayon"
+    },
+    "dailyDle.allDone": {
+      "fr": "Les deux énigmes du jour sont résolues",
+      "text": "Nasagot na ang dalawang palaisipan ngayong araw"
+    },
+    "dailyDle.streak": {
+      "fr": "Série de {n} jours",
+      "text": "{n} araw na streak"
+    },
+    "dailyDle.streak1": {
+      "fr": "Série de 1 jour",
+      "text": "1 araw na streak"
+    },
+    "dailyDle.next": {
+      "fr": "Prochaine énigme dans",
+      "text": "Susunod na palaisipan sa loob ng"
+    },
+    "dailyDle.status.started": {
+      "fr": "en cours",
+      "text": "sinisimulan"
     }
   },
   "th": {
@@ -53417,6 +53857,74 @@
     "shareCard.quiz.dexLow": {
       "fr": "Coriace, celui-là. Un ami fera-t-il mieux ?",
       "text": "วันนี้ยากหน่อย เพื่อนจะทำได้ดีกว่าไหม?"
+    },
+    "reminder.set": {
+      "fr": "Rappel prévu : {month}",
+      "text": "เราจะเตือนคุณ: {month}"
+    },
+    "reminder.hint": {
+      "fr": "Ajout à votre agenda, avec une alerte le {when}.",
+      "text": "เพิ่มลงในปฏิทินของคุณ พร้อมการแจ้งเตือนเมื่อ {when}"
+    },
+    "reminder.bandSkin": {
+      "fr": "Apparence StarLight : {skin} ({hero}). Dès le 1er à 00:00, heure du serveur.",
+      "text": "สกิน StarLight: {skin} ({hero}) ตั้งแต่วันที่ 1 เวลา 00:00 น. ตามเวลาเซิร์ฟเวอร์"
+    },
+    "comeback.skins": {
+      "fr": "{n} nouvelles apparences, dont {name}",
+      "text": "สกินใหม่ {n} ชุด รวมถึง {name}"
+    },
+    "comeback.skin1": {
+      "fr": "Nouvelle apparence : {name} ({hero})",
+      "text": "สกินใหม่: {name} ({hero})"
+    },
+    "comeback.tiers": {
+      "fr": "{n} héros ont changé de tier",
+      "text": "ฮีโร่ {n} ตัวเปลี่ยนเทียร์"
+    },
+    "comeback.tiers1": {
+      "fr": "1 héros a changé de tier",
+      "text": "ฮีโร่ 1 ตัวเปลี่ยนเทียร์"
+    },
+    "comeback.eventsOpened": {
+      "fr": "Les événements de {month} ont commencé",
+      "text": "กิจกรรมของ {month} เริ่มแล้ว"
+    },
+    "pushNotif.reminder.bodySkin": {
+      "fr": "L'apparence StarLight {skin} ({hero}) est sortie. Voir les apparences et événements du mois.",
+      "text": "สกิน StarLight {skin} ({hero}) ออกแล้ว ดูสกินและกิจกรรมของเดือนนี้"
+    },
+    "pushNotif.reminder.body": {
+      "fr": "L'apparence StarLight et les événements du mois sont là. Voir les nouveautés.",
+      "text": "สกิน StarLight และกิจกรรมของเดือนมาแล้ว ดูสิ่งใหม่"
+    },
+    "dailyDle.title": {
+      "fr": "Le héros du jour vous attend",
+      "text": "ฮีโร่ประจำวันรอคุณอยู่"
+    },
+    "dailyDle.oneLeft": {
+      "fr": "Encore une énigme aujourd'hui",
+      "text": "เหลืออีกหนึ่งปริศนาวันนี้"
+    },
+    "dailyDle.allDone": {
+      "fr": "Les deux énigmes du jour sont résolues",
+      "text": "ไขปริศนาทั้งสองของวันนี้แล้ว"
+    },
+    "dailyDle.streak": {
+      "fr": "Série de {n} jours",
+      "text": "สตรีค {n} วัน"
+    },
+    "dailyDle.streak1": {
+      "fr": "Série de 1 jour",
+      "text": "สตรีค 1 วัน"
+    },
+    "dailyDle.next": {
+      "fr": "Prochaine énigme dans",
+      "text": "ปริศนาถัดไปใน"
+    },
+    "dailyDle.status.started": {
+      "fr": "en cours",
+      "text": "กำลังเล่น"
     }
   },
   "pt": {
@@ -65523,6 +66031,74 @@
     "shareCard.quiz.kicker": {
       "fr": "Quiz MLBBDex · n° {n}",
       "text": "Quiz MLBBDex · nº {n}"
+    },
+    "reminder.set": {
+      "fr": "Rappel prévu : {month}",
+      "text": "Vamos te lembrar: {month}"
+    },
+    "reminder.hint": {
+      "fr": "Ajout à votre agenda, avec une alerte le {when}.",
+      "text": "Entra no seu calendário, com um alerta em {when}."
+    },
+    "reminder.bandSkin": {
+      "fr": "Apparence StarLight : {skin} ({hero}). Dès le 1er à 00:00, heure du serveur.",
+      "text": "Skin StarLight: {skin} ({hero}). A partir do dia 1º às 00:00, horário do servidor."
+    },
+    "comeback.skins": {
+      "fr": "{n} nouvelles apparences, dont {name}",
+      "text": "{n} skins novas, incluindo {name}"
+    },
+    "comeback.skin1": {
+      "fr": "Nouvelle apparence : {name} ({hero})",
+      "text": "Skin nova: {name} ({hero})"
+    },
+    "comeback.tiers": {
+      "fr": "{n} héros ont changé de tier",
+      "text": "{n} heróis mudaram de tier"
+    },
+    "comeback.tiers1": {
+      "fr": "1 héros a changé de tier",
+      "text": "1 herói mudou de tier"
+    },
+    "comeback.eventsOpened": {
+      "fr": "Les événements de {month} ont commencé",
+      "text": "Os eventos de {month} começaram"
+    },
+    "pushNotif.reminder.bodySkin": {
+      "fr": "L'apparence StarLight {skin} ({hero}) est sortie. Voir les apparences et événements du mois.",
+      "text": "A skin StarLight {skin} ({hero}) chegou. Veja as skins e eventos do mês."
+    },
+    "pushNotif.reminder.body": {
+      "fr": "L'apparence StarLight et les événements du mois sont là. Voir les nouveautés.",
+      "text": "A skin StarLight e os eventos do mês chegaram. Veja as novidades."
+    },
+    "dailyDle.title": {
+      "fr": "Le héros du jour vous attend",
+      "text": "O herói do dia está esperando"
+    },
+    "dailyDle.oneLeft": {
+      "fr": "Encore une énigme aujourd'hui",
+      "text": "Falta um enigma hoje"
+    },
+    "dailyDle.allDone": {
+      "fr": "Les deux énigmes du jour sont résolues",
+      "text": "Os dois enigmas de hoje estão resolvidos"
+    },
+    "dailyDle.streak": {
+      "fr": "Série de {n} jours",
+      "text": "Sequência de {n} dias"
+    },
+    "dailyDle.streak1": {
+      "fr": "Série de 1 jour",
+      "text": "Sequência de 1 dia"
+    },
+    "dailyDle.next": {
+      "fr": "Prochaine énigme dans",
+      "text": "Próximo enigma em"
+    },
+    "dailyDle.status.started": {
+      "fr": "en cours",
+      "text": "em andamento"
     }
   },
   "ru": {
@@ -79117,6 +79693,74 @@
     "shareCard.quiz.dexLow": {
       "fr": "Coriace, celui-là. Un ami fera-t-il mieux ?",
       "text": "Сегодня было сложно. Друг справится лучше?"
+    },
+    "reminder.set": {
+      "fr": "Rappel prévu : {month}",
+      "text": "Напомним: {month}"
+    },
+    "reminder.hint": {
+      "fr": "Ajout à votre agenda, avec une alerte le {when}.",
+      "text": "Добавится в календарь с напоминанием: {when}."
+    },
+    "reminder.bandSkin": {
+      "fr": "Apparence StarLight : {skin} ({hero}). Dès le 1er à 00:00, heure du serveur.",
+      "text": "Скин StarLight: {skin} ({hero}). С 1-го числа в 00:00 по серверному времени."
+    },
+    "comeback.skins": {
+      "fr": "{n} nouvelles apparences, dont {name}",
+      "text": "Новых скинов: {n}, среди них {name}"
+    },
+    "comeback.skin1": {
+      "fr": "Nouvelle apparence : {name} ({hero})",
+      "text": "Новый скин: {name} ({hero})"
+    },
+    "comeback.tiers": {
+      "fr": "{n} héros ont changé de tier",
+      "text": "Героев, сменивших тир: {n}"
+    },
+    "comeback.tiers1": {
+      "fr": "1 héros a changé de tier",
+      "text": "1 герой сменил тир"
+    },
+    "comeback.eventsOpened": {
+      "fr": "Les événements de {month} ont commencé",
+      "text": "События месяца ({month}) начались"
+    },
+    "pushNotif.reminder.bodySkin": {
+      "fr": "L'apparence StarLight {skin} ({hero}) est sortie. Voir les apparences et événements du mois.",
+      "text": "Вышел скин StarLight {skin} ({hero}). Скины и события месяца уже на сайте."
+    },
+    "pushNotif.reminder.body": {
+      "fr": "L'apparence StarLight et les événements du mois sont là. Voir les nouveautés.",
+      "text": "Скин StarLight и события месяца уже вышли. Смотрите, что нового."
+    },
+    "dailyDle.title": {
+      "fr": "Le héros du jour vous attend",
+      "text": "Герой дня ждёт вас"
+    },
+    "dailyDle.oneLeft": {
+      "fr": "Encore une énigme aujourd'hui",
+      "text": "На сегодня осталась одна загадка"
+    },
+    "dailyDle.allDone": {
+      "fr": "Les deux énigmes du jour sont résolues",
+      "text": "Обе загадки дня решены"
+    },
+    "dailyDle.streak": {
+      "fr": "Série de {n} jours",
+      "text": "Серия: {n} дн."
+    },
+    "dailyDle.streak1": {
+      "fr": "Série de 1 jour",
+      "text": "Серия: 1 день"
+    },
+    "dailyDle.next": {
+      "fr": "Prochaine énigme dans",
+      "text": "Следующая загадка через"
+    },
+    "dailyDle.status.started": {
+      "fr": "en cours",
+      "text": "в процессе"
     }
   }
 }

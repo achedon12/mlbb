@@ -6,6 +6,7 @@ import { heroArt } from "@/components/hero-art";
 import { ENTRANCE, PosterHeader } from "@/components/poster-header";
 import { RarityGem, SkinArtTile, SkinTile } from "@/components/skins/skin-tile";
 import { SectionTitle } from "@/components/ui";
+import { UpcomingReminder } from "@/components/upcoming-reminder";
 import { ExtendMessages } from "@/i18n/provider";
 import { LOCALE_HTML, LOCALE_INTL, type Locale } from "@/i18n/config";
 import { metaPage, metaPaged } from "@/i18n/seo";
@@ -187,6 +188,7 @@ export function Skins({ locale, page = 1 }: { locale: Locale; page?: number }) {
               );
             })}
           </ul>
+          <UpcomingReminder locale={locale} className="mt-6" />
         </section>
 
         <section aria-labelledby="skins-gallery">

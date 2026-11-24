@@ -18,6 +18,12 @@ import type { Hero } from "@/lib/types";
 import { NotFoundPage } from "@/components/not-found-page";
 import { ProvisionalBadge } from "@/components/provisional-badge";
 import { collaborationOf } from "@/lib/collaborations";
+import { RemindButton } from "@/components/remind-button";
+import { reminderMonths } from "@/components/upcoming-reminder";
+import { OTHER_MODES } from "@/lib/events";
+import { monthByKey } from "@/lib/events-server";
+import { monthYear } from "@/lib/freshness";
+import { normalizeNameSkin } from "@/lib/utils";
 
 /**
  * A hero's skin gallery: each skin with its illustration, its
@@ -107,6 +113,15 @@ export default async function HeroSkinsPage({ params }: Params) {
   const byAvailability = new Map<string, number>();
   for (const s of g.skins) if (s.availability) byAvailability.set(s.availability, (byAvailability.get(s.availability) ?? 0) + 1);
 
+  // Skins of this hero the wiki lists announce for a month still to come: they get a "Remind me".
+  const upcoming = new Map<string, string>();
+  for (const month of reminderMonths()) {
+    const em = monthByKey(month);
+    if (!em) continue;
+    for (const s of [...em.starlight, ...em.collector, ...OTHER_MODES.flatMap((k) => em.others[k])]) {
+      if (s.hero === h.slug) upcoming.set(normalizeNameSkin(s.name), month);
+    }
+  }
   const neighbours = [...heroesWithSkins].sort((a, b) => a.name.localeCompare(b.name, "en"));
   const position = neighbours.findIndex((x) => x.slug === h.slug);
   const previous = neighbours[(position - 1 + neighbours.length) % neighbours.length];
@@ -238,6 +253,13 @@ export default async function HeroSkinsPage({ params }: Params) {
                       {t("pages.heroSkins.collaboration", { franchise: collaborationOf(s)! })}
                     </p>
                   )}
+                  {upcoming.get(normalizeNameSkin(s.name)) && (
+                    <RemindButton
+                      month={upcoming.get(normalizeNameSkin(s.name))!}
+                      label={`${s.name} · ${monthYear(locale, `${upcoming.get(normalizeNameSkin(s.name))}-01`)}`}
+                      className="mt-3"
+                    />
+                  )}
                 </SkinCard>
               </li>
             );
@@ -265,6 +287,13 @@ export default async function HeroSkinsPage({ params }: Params) {
                 <p className="mt-2 text-sm text-chalk-500">
                   {t(a.provisional ? "visualStatus.provisionalNote" : "pages.heroSkins.illustrationOnly")}
                 </p>
+                {upcoming.get(normalizeNameSkin(a.name)) && (
+                  <RemindButton
+                    month={upcoming.get(normalizeNameSkin(a.name))!}
+                    label={`${a.name} · ${monthYear(locale, `${upcoming.get(normalizeNameSkin(a.name))}-01`)}`}
+                    className="mt-3"
+                  />
+                )}
               </SkinCard>
             </li>
           ))}

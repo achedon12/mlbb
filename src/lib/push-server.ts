@@ -66,12 +66,14 @@ export function configPush(): PushConfig | null {
 const folder = () => (process.env.DATA_DIR ?? process.env.DONNEES_DIR)?.trim() || "donnees-serveur";
 const fileSubscribers = () => join(folder(), "push-abonnements.json");
 const fileState = () => join(folder(), "push-etat.json");
+/** A file of the push data folder, for the other push stores (reminders). */
+export const pushDataFile = (name: string) => join(folder(), name);
 
 // ── Files ──────────────────────────────────────────────────────────
 
 export class ErrorStorage extends Error {}
 
-async function readJson<T>(filePath: string): Promise<T | null> {
+export async function readJson<T>(filePath: string): Promise<T | null> {
   let raw: string;
   try {
     raw = await readFile(filePath, "utf8");
@@ -87,7 +89,7 @@ async function readJson<T>(filePath: string): Promise<T | null> {
   }
 }
 
-async function writeJson(filePath: string, data: unknown): Promise<void> {
+export async function writeJson(filePath: string, data: unknown): Promise<void> {
   await mkdir(folder(), { recursive: true });
   const temporary = `${filePath}.${process.pid}.${randomBytes(4).toString("hex")}.tmp`;
   try {
@@ -101,7 +103,7 @@ async function writeJson(filePath: string, data: unknown): Promise<void> {
 
 /** Queue: one read-modify-write at a time. */
 let queue: Promise<unknown> = Promise.resolve();
-function serially<T>(task: () => Promise<T>): Promise<T> {
+export function serially<T>(task: () => Promise<T>): Promise<T> {
   const run = queue.then(task, task);
   queue = run.catch(() => {});
   return run;
@@ -222,7 +224,7 @@ export const addressOf = (request: Request) => clientAddress(request.headers) ??
 /** Send error: `statusCode` is the push service's. */
 export type Sender = (subscription: StoredSubscription, load: string, topic: string) => Promise<void>;
 
-function senderWebPush(config: PushConfig): Sender {
+export function senderWebPush(config: PushConfig): Sender {
   return async (subscription, load, topic) => {
     await webpush.sendNotification(
       { endpoint: subscription.endpoint, keys: subscription.cles },
