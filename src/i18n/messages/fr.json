@@ -605,6 +605,44 @@
       "poster": {
         "kicker": "N°1 de ce classement",
         "label": "{name}, n°1 de ce classement : palier {tier}, {win} de victoires, {ban} de bans"
+      },
+      "peek": {
+        "open": "Aperçu : {name}",
+        "close": "Fermer l'aperçu",
+        "counters": "Contré par",
+        "items": "Build principal",
+        "full": "Guide complet"
+      },
+      "answer": {
+        "questionAll": "Quels sont les meilleurs héros de MLBB en ce moment ?",
+        "questionRank": "Quels sont les meilleurs héros en {rank} en ce moment ?",
+        "questionLane": "Quels sont les meilleurs héros en {lane} en ce moment ?",
+        "questionRole": "Quels sont les meilleurs {plural} en ce moment ?",
+        "answerAll": "Meilleurs héros de MLBB en ce moment : {top}.",
+        "answerRank": "Meilleurs héros en {rank} en ce moment : {top}.",
+        "answerLane": "Meilleurs héros en {lane} en ce moment : {top}.",
+        "answerRole": "Meilleurs {plural} en ce moment : {top}.",
+        "detail": "{first} est n°1 (palier {tier}) avec {winRate} de victoires et {banRate} de bans, sur {n} héros classés au patch {v}, mesure du {date}."
+      },
+      "patch": {
+        "title": "Ce qui a changé ce patch",
+        "lead": "Les plus fortes variations du taux de victoire sur sept jours parmi ces héros, et ceux que le patch a retouchés.",
+        "rises": "En hausse",
+        "drops": "En baisse",
+        "adjusted": "Retouchés au patch {v} ({n})"
+      },
+      "next": {
+        "titleLane": "Vous jouez {lane} ? À voir aussi",
+        "titleRole": "Vous jouez {role} ? À voir aussi",
+        "titleAll": "Pour aller plus loin",
+        "counters": "Contrer les meilleurs picks",
+        "countersLead": "Les héros contre lesquels le haut du classement perd le plus.",
+        "builds": "Leurs builds",
+        "buildsLead": "Les trois objets clés les plus joués par le haut du classement.",
+        "tools": "Passer à la pratique",
+        "draft": "Pickez et bannissez ces héros dans une draft classée.",
+        "lists": "Les autres tier lists",
+        "top": "N°1 : {name}"
       }
     },
     "patchNotes": {

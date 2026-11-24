@@ -605,6 +605,44 @@
       "poster": {
         "kicker": "No 1 di peringkat ini",
         "label": "{name}, n°1 dalam peringkat ini: level {tier}, {win} kemenangan, {ban} ban"
+      },
+      "peek": {
+        "open": "Pratinjau: {name}",
+        "close": "Tutup pratinjau",
+        "counters": "Dilawan oleh",
+        "items": "Build utama",
+        "full": "Panduan lengkap"
+      },
+      "answer": {
+        "questionAll": "Siapa saja hero terbaik di MLBB saat ini?",
+        "questionRank": "Siapakah hero terbaik di {rank} saat ini?",
+        "questionLane": "Siapakah hero terbaik di {lane} saat ini?",
+        "questionRole": "Siapa {plural} terbaik saat ini?",
+        "answerAll": "Hero terbaik di MLBB saat ini: {top}.",
+        "answerRank": "Hero terbaik di {rank} saat ini: {top}.",
+        "answerLane": "Hero terbaik di {lane} saat ini: {top}.",
+        "answerRole": "{plural} terbaik saat ini: {top}.",
+        "detail": "{first} peringkat 1 (tier {tier}) dengan win rate {winRate} dan ban rate {banRate}, dari {n} hero yang diperingkat di patch {v}, diukur {date}."
+      },
+      "patch": {
+        "title": "Apa yang berubah di patch ini",
+        "lead": "Perubahan win rate terbesar dalam tujuh hari di antara hero ini, dan hero yang disesuaikan oleh patch.",
+        "rises": "Naik",
+        "drops": "Turun",
+        "adjusted": "Disesuaikan di patch {v} ({n})"
+      },
+      "next": {
+        "titleLane": "Apakah Anda bermain {lane}? Lihat juga",
+        "titleRole": "Apakah Anda bermain {role}? Lihat juga",
+        "titleAll": "Baca juga",
+        "counters": "Melawan pilihan terbaik",
+        "countersLead": "Hero yang paling sering mengalahkan hero teratas peringkat.",
+        "builds": "Build mereka",
+        "buildsLead": "Tiga item kunci yang paling sering dipakai hero teratas peringkat.",
+        "tools": "Mulai berlatih",
+        "draft": "Pilih dan ban hero-hero ini di draft peringkat.",
+        "lists": "Tier list lainnya",
+        "top": "No.1: {name}"
       }
     },
     "patchNotes": {

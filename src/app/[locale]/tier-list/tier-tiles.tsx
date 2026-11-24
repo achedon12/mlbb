@@ -1,10 +1,12 @@
 "use client";
 
+import { ChevronRight } from "lucide-react";
 import Link from "@/components/link";
 import { LightImage } from "@/components/light-image";
 import { usualPortrait } from "@/components/meta/portraits";
 import "@/components/meta/meta.css";
 import type { LabelsTier, RowTier } from "./tier-lines";
+import { PeekItem, type LabelsPeek, type PeekDict } from "./tier-peek";
 
 /**
  * The heroes of an open tier, as cards: the tall portrait first, the name in
@@ -14,15 +16,29 @@ import type { LabelsTier, RowTier } from "./tier-lines";
  * Client component for the same weight reason as `TierLines`: only the
  * values travel in the page data, and the markup carries named classes
  * (`meta.css`), not the same utilities thirty times.
+ *
+ * The whole card opens the hero page; the button in its corner opens the
+ * hero's preview (`PeekItem`), when the page sends one.
  */
-export function TierTiles({ rows, labels, start = 0 }: { rows: RowTier[]; labels: LabelsTier; start?: number }) {
+export function TierTiles({
+  rows,
+  labels,
+  start = 0,
+  dict,
+  peekLabels,
+}: {
+  rows: RowTier[];
+  labels: LabelsTier;
+  start?: number;
+  dict?: PeekDict;
+  peekLabels?: LabelsPeek;
+}) {
   return (
     <ul className="tt-grid">
       {rows.map((l, i) => {
         const portrait = l.portrait === undefined ? usualPortrait(l.slug) : l.portrait;
-        return (
-          <li key={l.slug}>
-            <Link href={`/heroes/${l.slug}`} className="tt-card">
+        const card = (
+            <Link href={`/heroes/${l.slug}`} className="tt-card" data-track="Hero opened" data-track-name={l.slug}>
               <span className="tt-art">
                 {portrait ? (
                   // 100 × 162 CSS pixels at most; the optimiser sends the 2x.
@@ -73,8 +89,24 @@ export function TierTiles({ rows, labels, start = 0 }: { rows: RowTier[]; labels
                   </div>
                 </dl>
               </span>
+              <ChevronRight aria-hidden className="tt-go" />
             </Link>
-          </li>
+        );
+        return l.peek && dict && peekLabels ? (
+          <PeekItem
+            key={l.slug}
+            slug={l.slug}
+            name={l.name}
+            rates={{ win: l.win, ban: l.ban, pick: l.pick }}
+            peek={l.peek}
+            dict={dict}
+            labels={peekLabels}
+            variant="tile"
+          >
+            {card}
+          </PeekItem>
+        ) : (
+          <li key={l.slug}>{card}</li>
         );
       })}
     </ul>

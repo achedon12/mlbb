@@ -605,6 +605,44 @@
       "poster": {
         "kicker": "Nº 1 neste ranking",
         "label": "{name}, n°1 neste ranking: nível {tier}, {win} de vitórias, {ban} de bans"
+      },
+      "peek": {
+        "open": "Prévia: {name}",
+        "close": "Fechar a prévia",
+        "counters": "Combatido por",
+        "items": "Build principal",
+        "full": "Guia completo"
+      },
+      "answer": {
+        "questionAll": "Quem são os melhores heróis da MLBB no momento?",
+        "questionRank": "Quem são os melhores heróis de {rank} no momento?",
+        "questionLane": "Quem são os melhores heróis de {lane} no momento?",
+        "questionRole": "Quais são os melhores {plural} no momento?",
+        "answerAll": "Melhores heróis da MLBB no momento: {top}.",
+        "answerRank": "Melhores heróis em {rank} agora: {top}.",
+        "answerLane": "Melhores heróis em {lane} agora: {top}.",
+        "answerRole": "Melhores {plural} agora: {top}.",
+        "detail": "{first} é o nº 1 (tier {tier}) com {winRate} de vitórias e {banRate} de bans, entre {n} heróis classificados no patch {v}, medição de {date}."
+      },
+      "patch": {
+        "title": "O que mudou neste patch",
+        "lead": "As maiores variações na taxa de vitória ao longo de sete dias entre esses heróis e aqueles que o patch afetou.",
+        "rises": "Em alta",
+        "drops": "Em queda",
+        "adjusted": "Ajustados no patch {v} ({n})"
+      },
+      "next": {
+        "titleLane": "Você joga de {lane}? Veja também",
+        "titleRole": "Você joga de {role}? Veja também",
+        "titleAll": "Para ir além",
+        "counters": "Counters dos melhores picks",
+        "countersLead": "Os heróis contra os quais o topo do ranking mais perde.",
+        "builds": "Suas builds",
+        "buildsLead": "Os três itens-chave mais usados pelo topo do ranking.",
+        "tools": "Coloque em prática",
+        "draft": "Escolha e bana esses heróis em um draft classificado.",
+        "lists": "Outras tier lists",
+        "top": "Nº 1: {name}"
       }
     },
     "patchNotes": {
