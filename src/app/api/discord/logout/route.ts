@@ -9,7 +9,7 @@ import { readCapped } from "@/lib/read-body";
 /**
  * Logout: a POST from the dashboard's form (same origin only), the session
  * cookie cleared, back to the bot page in the form's language (or, with a
- * `back` field, to that community page). The service worker sees this
+ * `back` field, to that community page, or `/login` from the account page). The service worker sees this
  * request go by and drops its cached copies of signed-in pages
  * (`forgetPrivate`, public/sw.js); the HTTP cache holds none, those pages
  * being `private, no-store`.
@@ -23,9 +23,10 @@ export async function POST(request: Request) {
   const raw = await readCapped(request, 1024);
   const form = new URLSearchParams(raw ?? "");
   const locale = form.get("locale") ?? "en";
-  // From the forum: back to the community page it was sent from (a fixed shape, see `COMMUNITY_RETURN`).
+  // From the forum: back to the community page it was sent from (a fixed shape, see `COMMUNITY_RETURN`);
+  // from the account page, to the sign-in page.
   const back = form.get("back");
-  const page = isCommunityReturn(back) ? back : "/bot";
+  const page = isCommunityReturn(back) ? back : back === "/login" ? "/login" : "/bot";
   const response = NextResponse.redirect(new URL(`/${isLocale(locale) ? locale : "en"}${page}`, siteOrigin(request)), 303);
   response.headers.set("Cache-Control", "private, no-store");
   response.cookies.set(SESSION_COOKIE, "", cookieOptions(0));

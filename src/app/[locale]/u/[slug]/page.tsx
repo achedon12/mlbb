@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 import Link from "@/components/link";
-import { Badges, FavouriteList, MlbbdleFigures, ProgressSection, QuizFigures } from "@/components/progress-view";
-import { heroArt, StageHeader } from "@/components/stage";
+import { AccountPoster } from "@/components/account-poster";
+import { Badges, FavouriteList, MlbbdleFigures, ProgressCard, QuizFigures } from "@/components/progress-view";
+import { heroArt } from "@/components/stage";
 import type { Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { createT, messagesPage } from "@/i18n/translations";
@@ -54,57 +55,59 @@ export default async function PublicProfilePage({ params }: Params) {
   const t = createT(locale);
   const view = publicView({ ...row, today: dayUtc(new Date(await requestTime())) });
 
+  const badgeCount = view.badges?.length ?? 0;
+  const bestStreak = Math.max(view.quiz?.bestStreak ?? 0, view.mlbbdle?.bestStreak ?? 0);
+
   return (
-    <>
-      <StageHeader
-        compact
-        title={view.name}
-        lead={t("pages.progress.publicLead")}
+    <ExtendMessages messages={messagesPage(locale, ["pages.progress"])}>
+      <AccountPoster
+        name={view.name}
+        kicker={t("pages.progress.publicKicker")}
+        avatar={view.avatar}
+        // A picture from the game's or Discord's CDN, by an address the server checked.
+        plainAvatar
         art={heroArt(view.favourites?.[0] ?? "layla")}
         artPosition="55% 20%"
-        kicker={
-          view.avatar ? (
-            <span className="inline-flex items-center gap-2">
-              {/* A picture from the game's or Discord's CDN, by an address the server checked. */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={view.avatar} alt="" width={40} height={40} className="bevel-sm size-10 object-cover" referrerPolicy="no-referrer" />
-              {t("pages.progress.publicKicker")}
-            </span>
-          ) : (
-            t("pages.progress.publicKicker")
-          )
-        }
-      />
-      <div className="page-wrap space-y-12 py-10 sm:py-14">
-        <ExtendMessages messages={messagesPage(locale, ["pages.progress"])}>
-          {view.quiz && (
-            <ProgressSection id="public-quiz" title={t("pages.progress.quiz")} icon="trophy">
-              <QuizFigures quiz={view.quiz} />
-            </ProgressSection>
-          )}
-          {view.mlbbdle && (
-            <ProgressSection id="public-mlbbdle" title={t("pages.progress.mlbbdle")} icon="puzzle">
-              <MlbbdleFigures mlbbdle={view.mlbbdle} />
-            </ProgressSection>
-          )}
-          {view.badges && (
-            <ProgressSection id="public-badges" title={t("pages.progress.badgesTitle")}>
-              <Badges earned={view.badges} showLocked={false} />
-            </ProgressSection>
-          )}
-          {view.favourites && (
-            <ProgressSection id="public-favourites" title={t("pages.progress.favourites")} icon="star">
-              <FavouriteList favourites={view.favourites} />
-            </ProgressSection>
-          )}
-        </ExtendMessages>
-        <p className="border-t border-night-800 pt-6 text-sm text-chalk-400">
-          {t("pages.progress.publicCta")}{" "}
-          <Link href="/account/progress" className="font-semibold text-gold-400 hover:underline">
+        crumbs={[{ name: view.name }]}
+        meta={[
+          view.badges ? t("pages.progress.publicBadges", { n: badgeCount }) : null,
+          view.quiz || view.mlbbdle ? t("pages.progress.publicBestStreak", { n: bestStreak }) : null,
+        ]}
+      >
+        <p className="max-w-2xl text-sm leading-relaxed text-chalk-300 sm:text-base">{t("pages.progress.publicLead")}</p>
+      </AccountPoster>
+      <div className="page-wrap space-y-4 py-10 sm:space-y-5 sm:py-14">
+        {(view.quiz || view.mlbbdle) && (
+          <div className="grid gap-4 sm:gap-5 lg:grid-cols-2">
+            {view.quiz && (
+              <ProgressCard id="public-quiz" title={t("pages.progress.quiz")} icon="trophy">
+                <QuizFigures quiz={view.quiz} />
+              </ProgressCard>
+            )}
+            {view.mlbbdle && (
+              <ProgressCard id="public-mlbbdle" title={t("pages.progress.mlbbdle")} icon="puzzle">
+                <MlbbdleFigures mlbbdle={view.mlbbdle} />
+              </ProgressCard>
+            )}
+          </div>
+        )}
+        {view.badges && (
+          <ProgressCard id="public-badges" title={t("pages.progress.badgesTitle")}>
+            <Badges earned={view.badges} showLocked={false} />
+          </ProgressCard>
+        )}
+        {view.favourites && (
+          <ProgressCard id="public-favourites" title={t("pages.progress.favourites")} icon="star">
+            <FavouriteList favourites={view.favourites} />
+          </ProgressCard>
+        )}
+        <div className="bevel-lg !mt-10 flex flex-col gap-4 bg-linear-to-br from-gold-500/15 via-night-900 to-night-900 p-5 shadow-[inset_0_0_0_1px_rgb(245_196_81/0.35)] sm:flex-row sm:items-center sm:p-6">
+          <p className="min-w-0 flex-1 font-heading text-lg font-bold uppercase leading-tight text-chalk-100">{t("pages.progress.publicCta")}</p>
+          <Link href="/account" className="btn btn-primary w-full justify-center sm:w-auto">
             {t("pages.progress.publicCtaLink")}
           </Link>
-        </p>
+        </div>
       </div>
-    </>
+    </ExtendMessages>
   );
 }

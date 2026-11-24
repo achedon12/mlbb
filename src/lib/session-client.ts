@@ -1,7 +1,11 @@
 "use client";
 
-/** What `/api/session` answers: the game account, or else the Discord login's name. */
-export type Session = { connected: boolean; pseudo?: string; discord?: string };
+/**
+ * What `/api/session` answers: the game account, or else the Discord
+ * login's name. `unavailable`: a game session whose profile the login service cannot give
+ * right now (the nickname, when sent, is the last one it gave).
+ */
+export type Session = { connected: boolean; unavailable?: true; pseudo?: string; discord?: string };
 
 let pending: Promise<Session> | null = null;
 

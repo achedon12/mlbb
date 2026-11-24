@@ -729,7 +729,7 @@
       "discord": "Sign in with Discord",
       "discordText": "To keep your progress and join the community. Discord only shares your name and avatar, never your email.",
       "discordSignedIn": "You're signed in with Discord ({name}).",
-      "discordProgress": "See my progress"
+      "discordProgress": "Open my account"
     },
     "watch": {
       "title": "Roundup",
@@ -761,8 +761,6 @@
     "account": {
       "metaTitle": "My account",
       "metaDescription": "Game profile and stats.",
-      "unavailable": "Profile temporarily unavailable",
-      "unavailableText": "You're logged in, but the Moonton service that provides profiles isn't responding right now. Try again in a few minutes.",
       "signOut": "Log out",
       "currentRank": "Current rank",
       "bestRank": "Highest rank",
@@ -780,8 +778,47 @@
       "profileLinkText": "Season summary, heroes compared with your rank's average, recent matches and tips.",
       "topHeroes": "Your heroes",
       "topHeroesLead": "The ones you play the most, based on the games the service has kept.",
-      "progressLink": "My progress",
-      "progressLinkText": "Streaks, quiz and MLBBdle records, badges and public profile, synced across your devices."
+      "hub": {
+        "kicker": "My account",
+        "discordKicker": "Signed in with Discord",
+        "nav": {
+          "overview": "Season",
+          "friends": "Friends",
+          "progress": "Progress",
+          "favourites": "Favourites",
+          "discord": "Discord card",
+          "settings": "Settings"
+        },
+        "overviewTitle": "My season",
+        "overviewLead": "Your most played heroes and your overall figures.",
+        "friendsLead": "Your friend list from the game.",
+        "friendsEmpty": "No friends on this game account yet.",
+        "friendsUnavailable": "Your friend list can't be reached right now: it will come back on its own.",
+        "friendsSearch": "Search for a friend",
+        "friendsNone": "No friend matches “{q}”.",
+        "friendsAll": "Show all ({n})",
+        "friendsFewer": "Show fewer",
+        "progressTitle": "My progress",
+        "progressLead": "Streaks, records and badges from the daily quiz and MLBBdle, synced with your account.",
+        "play": "Play →",
+        "favouritesLead": "Your heroes to follow, flagged when a patch touches them.",
+        "settingsTitle": "Settings",
+        "settingsLead": "Your public profile, your account's copy of your progress, and signing out.",
+        "on": "On",
+        "off": "Off",
+        "signOutDiscord": "Sign out of Discord",
+        "link": {
+          "title": "Link your game account to see your rank, friends and top heroes",
+          "text": "Sign in with your Mobile Legends ID: Moonton sends a code to your in-game inbox. Your progress stays the same, whichever login you use.",
+          "cta": "Connect my game account",
+          "linked": "Your Discord account is linked to the game account {name}: your progress is shared with it."
+        },
+        "unavailable": {
+          "title": "Game data is temporarily unavailable",
+          "text": "The Moonton service is busy right now. Your friends, rank and stats will come back automatically: no need to sign in again.",
+          "lastKnown": "Meanwhile, here is your last known profile."
+        }
+      }
     },
     "apiDoc": {
       "title": "Public API",
@@ -5271,15 +5308,9 @@
       "notes": "Want the detail of every change?"
     },
     "progress": {
-      "metaTitle": "My progress",
-      "metaDescription": "Your streaks, quiz and MLBBdle records, badges and favourite heroes.",
       "title": "My progress",
-      "titleNamed": "{name}'s progress",
-      "lead": "Your streaks, records and badges, from what you play on the site.",
       "quiz": "Daily quiz",
       "mlbbdle": "MLBBdle",
-      "playQuiz": "Play today's quiz →",
-      "playMlbbdle": "Play MLBBdle →",
       "badgesTitle": "Badges",
       "favourites": "Favourite heroes",
       "streak": "Current streak",
@@ -5370,7 +5401,9 @@
       "publicLead": "Streaks, records and badges in MLBBDex's daily games.",
       "publicKicker": "Player profile",
       "publicCta": "Track your own streaks and badges too:",
-      "publicCtaLink": "my progress"
+      "publicCtaLink": "My account",
+      "publicBadges": "Badges: {n}",
+      "publicBestStreak": "Best streak: {n}"
     }
   },
   "modeSheet": {
@@ -5879,7 +5912,7 @@
         "backups": "Backups: a daily copy of the database; only the three most recent are kept, so that deleted data disappears from the backups in three days.",
         "rateLimits": "Rate limits: your IP address, in memory only, never written to disk.",
         "profileCard": "Discord profile card: until you unlink it, and at most 30 days after your last update.",
-        "progress": "Synced progress and public profile: until you delete them from the “My progress” page, or on request."
+        "progress": "Synced progress and public profile: until you delete them from the “My account” page, or on request."
       },
       "rights": {
         "title": "Your rights",
@@ -5972,7 +6005,7 @@
       "data": "the same account fingerprint as the community (never your game ID or Discord ID), your list of favourite heroes, your game counters and streaks, your practice records, the months you asked to be reminded of, and the date of the last save;",
       "public": "if you turn on your public profile (off by default): a randomly drawn link identifier, the items you chose to show, your game nickname or Discord name and, if you tick it, the address of your profile picture (Discord's contains your Discord ID). The profile isn't listed by search engines; turning it off erases the name and picture.",
       "usage": "This copy is only used to find your progress on your other devices and, if you turn it on, to show your public profile. Month reminders sent by notification stay tied to the browser that asked for them.",
-      "deletion": "From the “My progress” page, you can delete this copy and your public profile at any time; your browsers keep their own copy and stop sending it."
+      "deletion": "From the “My account” page, you can delete this copy and your public profile at any time; your browsers keep their own copy and stop sending it."
     }
   },
   "compareUI": {
