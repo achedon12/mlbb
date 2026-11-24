@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useSyncExternalStore } from "react";
-import { Cloud, CloudOff, Globe, HardDrive, LogIn, Puzzle, RefreshCw, Star, Trash2, Trophy } from "lucide-react";
+import { Cloud, CloudOff, HardDrive, LogIn, RefreshCw, Trash2 } from "lucide-react";
 import Link from "@/components/link";
 import { Badges, FavouriteList, MlbbdleFigures, ProgressSection, QuizFigures } from "@/components/progress-view";
 import { useLocale, useT } from "@/i18n/provider";
@@ -55,14 +55,14 @@ export function ProgressPanel({ signedIn, available }: { signedIn: boolean; avai
     <div className="space-y-12">
       <SyncBanner signedIn={signedIn} available={available} status={sync.status} />
 
-      <ProgressSection id="progress-quiz" title={t("pages.progress.quiz")} icon={Trophy}>
+      <ProgressSection id="progress-quiz" title={t("pages.progress.quiz")} icon="trophy">
         <QuizFigures quiz={progress.quiz} />
         <p className="text-xs text-chalk-500">
           <Link href="/quiz" className="font-semibold text-gold-400 hover:underline">{t("pages.progress.playQuiz")}</Link>
         </p>
       </ProgressSection>
 
-      <ProgressSection id="progress-mlbbdle" title={t("pages.progress.mlbbdle")} icon={Puzzle}>
+      <ProgressSection id="progress-mlbbdle" title={t("pages.progress.mlbbdle")} icon="puzzle">
         <MlbbdleFigures mlbbdle={progress.mlbbdle} />
         <p className="text-xs text-chalk-500">
           <Link href="/mlbbdle" className="font-semibold text-gold-400 hover:underline">{t("pages.progress.playMlbbdle")}</Link>
@@ -73,7 +73,7 @@ export function ProgressPanel({ signedIn, available }: { signedIn: boolean; avai
         <Badges earned={progress.badges} />
       </ProgressSection>
 
-      <ProgressSection id="progress-favourites" title={t("pages.progress.favourites")} icon={Star}>
+      <ProgressSection id="progress-favourites" title={t("pages.progress.favourites")} icon="star">
         <FavouriteList favourites={data?.favourites ?? []} />
       </ProgressSection>
 
@@ -187,7 +187,7 @@ function PublicSettings() {
   };
 
   return (
-    <ProgressSection id="progress-public" title={t("pages.progress.public.title")} icon={Globe}>
+    <ProgressSection id="progress-public" title={t("pages.progress.public.title")} icon="globe">
       <p className="max-w-2xl text-sm text-chalk-400">{t("pages.progress.public.text")}</p>
       <label className="flex items-center gap-3 text-sm font-semibold text-chalk-100">
         <input

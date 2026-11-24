@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { cache } from "react";
-import { Puzzle, Star, Trophy } from "lucide-react";
 import Link from "@/components/link";
 import { Badges, FavouriteList, MlbbdleFigures, ProgressSection, QuizFigures } from "@/components/progress-view";
 import { heroArt, StageHeader } from "@/components/stage";
@@ -79,12 +78,12 @@ export default async function PublicProfilePage({ params }: Params) {
       <div className="page-wrap space-y-12 py-10 sm:py-14">
         <ExtendMessages messages={messagesPage(locale, ["pages.progress"])}>
           {view.quiz && (
-            <ProgressSection id="public-quiz" title={t("pages.progress.quiz")} icon={Trophy}>
+            <ProgressSection id="public-quiz" title={t("pages.progress.quiz")} icon="trophy">
               <QuizFigures quiz={view.quiz} />
             </ProgressSection>
           )}
           {view.mlbbdle && (
-            <ProgressSection id="public-mlbbdle" title={t("pages.progress.mlbbdle")} icon={Puzzle}>
+            <ProgressSection id="public-mlbbdle" title={t("pages.progress.mlbbdle")} icon="puzzle">
               <MlbbdleFigures mlbbdle={view.mlbbdle} />
             </ProgressSection>
           )}
@@ -94,7 +93,7 @@ export default async function PublicProfilePage({ params }: Params) {
             </ProgressSection>
           )}
           {view.favourites && (
-            <ProgressSection id="public-favourites" title={t("pages.progress.favourites")} icon={Star}>
+            <ProgressSection id="public-favourites" title={t("pages.progress.favourites")} icon="star">
               <FavouriteList favourites={view.favourites} />
             </ProgressSection>
           )}
