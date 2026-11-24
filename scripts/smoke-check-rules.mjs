@@ -140,6 +140,8 @@ export const PAGES = [
   { path: "/ranks", locales: EN_FR },
   { path: "/patch-notes", locales: [...EN_FR, ...LATEST], excludes: { th: ["2569", "2570"] } },
   { discover: "latest-patch", path: "/patch-notes/<latest version>", locales: EN_FR },
+  // A patch recap ("bilan"): listed once the rate history measures the patch.
+  { discover: "latest-recap", path: "/patch-notes/<latest version>/bilan", locales: EN_FR },
   { path: "/game-modes", locales: EN_FR },
   { path: "/news", locales: EN_FR },
   { path: "/guides", locales: ALL, browser: true },
@@ -630,6 +632,12 @@ export function resolvePages(paths, table = PAGES) {
         .filter(Boolean)
         .sort(compareVersions);
       if (versions.length) path = `/patch-notes/${versions.at(-1)}`;
+    } else if (page.discover === "latest-recap") {
+      const versions = [...english]
+        .map((p) => p.match(/^\/patch-notes\/(\d+(?:\.\d+)+[a-z]?)\/bilan$/)?.[1])
+        .filter(Boolean)
+        .sort(compareVersions);
+      if (versions.length) path = `/patch-notes/${versions.at(-1)}/bilan`;
     } else if (page.discover === "compare-pair") {
       path = [...english].find((p) => /^\/compare\/[a-z0-9-]+-vs-[a-z0-9-]+$/.test(p)) ?? null;
     } else if (page.discover in ESPORTS_DISCOVERY) {

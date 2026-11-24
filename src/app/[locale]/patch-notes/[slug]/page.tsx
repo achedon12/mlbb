@@ -11,7 +11,8 @@ import { Foldable } from "@/components/foldable";
 import { EditorialPoster, ENTRANCE } from "@/components/editorial-poster";
 import { PageLead } from "@/components/page-lead";
 import { BalanceFigures, balanceOf, patchArt } from "@/components/patch-visuals";
-import { Sparkles } from "lucide-react";
+import { Sparkles, TrendingUp } from "lucide-react";
+import Link from "@/components/link";
 import { NewHero } from "@/components/new-hero";
 import { HeroPatch } from "@/components/hero-patch";
 import { PatchToc } from "@/components/patch-toc";
@@ -171,6 +172,16 @@ export default async function PatchPage({ params }: Params) {
               ))}
           </ul>
           {patch.adjustments.length > 0 && <BalanceFigures balance={balanceOf(patch)} t={t} size="lg" className="mt-7" />}
+          {/* The measured story of the patch: winners, losers, surprises. */}
+          {patch.adjustments.length > 0 && patch.date && (
+            <p className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2">
+              <Link href={`/patch-notes/${slug}/bilan`} className="btn btn-secondary btn-sm">
+                <TrendingUp size={14} aria-hidden />
+                {t("pages.patchRecap.link")}
+              </Link>
+              <span className="text-sm text-chalk-400">{t("pages.patchRecap.linkLead")}</span>
+            </p>
+          )}
           {patch.newHeroes.length > 0 && (
             <ul className="mt-6 flex flex-wrap gap-2">
               {patch.newHeroes.map((h) => (

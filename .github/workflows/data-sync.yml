@@ -112,6 +112,13 @@ jobs:
         continue-on-error: true
         run: npm run sync -- --images
 
+      # Hero page accents, from the artwork just downloaded (src/data/hero-colors.json).
+      # Committed below with the rest of src/data.
+      - name: Hero accent colours
+        if: steps.complete.outcome == 'success'
+        continue-on-error: true
+        run: npm run sync:hero-colors
+
       # Monthly lists and test-server notes: a failure keeps the previous data.
       - name: Events calendar (StarLight, Collector)
         if: steps.complete.outcome == 'success'

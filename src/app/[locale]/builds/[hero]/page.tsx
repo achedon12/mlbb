@@ -78,7 +78,7 @@ export default async function HeroCommunityBuildsPage({ params }: Params) {
       <ExtendMessages messages={messagesPage(locale, ["pages.communityBuildsUI"])}>
         <div className="page-wrap space-y-8 py-10 sm:py-14">
           {stored === null ? (
-            <DexSays pose="surpris">
+            <DexSays pose="triste">
               <p role="alert">{t("pages.communityBuilds.unavailable")}</p>
             </DexSays>
           ) : mine.length === 0 ? (

@@ -105,7 +105,7 @@ export function ThreadList({
 }) {
   if (threads.length === 0) {
     return (
-      <DexNote pose="surpris" height={120} title={t("pages.community.emptyDex")}>
+      <DexNote pose="dodo" height={120} title={t("pages.community.emptyDex")}>
         {emptyText}
       </DexNote>
     );
@@ -187,7 +187,7 @@ export function DiscordAlternative({ t, text }: { t: T; text: string }) {
 /** Shown in place of the community when the database is not set up or does not answer. */
 export function Unavailable({ t }: { t: T }) {
   return (
-    <DexNote role="alert" pose="surpris" height={130} className="max-w-2xl">
+    <DexNote role="alert" pose="triste" height={130} className="max-w-2xl">
       {t("pages.community.unavailable")}
     </DexNote>
   );

@@ -51,7 +51,7 @@ export default async function WatchPage({ params }: { params: Promise<{ locale: 
         {news.length === 0 ? (
           // Nothing collected: Dex says so, and why, rather than a blank page.
           <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-end sm:gap-6">
-            <Dex pose="surpris" height={190} />
+            <Dex pose="dodo" height={190} />
             <div className="dex-bubble max-w-xl sm:mb-8">
               <p className="leading-relaxed text-chalk-200 sm:text-lg">{t("pages.watch.none")}</p>
               <p className="mt-4">

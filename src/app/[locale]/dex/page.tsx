@@ -14,7 +14,7 @@ type Params = { params: Promise<{ locale: Locale }> };
 /**
  * Dex's own page: who he is, where he comes from in the Land of Dawn, what he
  * does on the site and on Discord (where the bot, Dex MLBB, wears his face),
- * his six poses as a living gallery, and the way to the community server.
+ * his twelve poses as a living gallery, and the way to the community server.
  *
  * A page of its own rather than a section of `/about`: Dex is one character
  * across the site, the bot and the server, and that needs an address the bot
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   });
 }
 
-const POSES: DexPose[] = ["salut", "reflexion", "idee", "surpris", "victoire", "carte"];
+const POSES: DexPose[] = ["salut", "reflexion", "idee", "surpris", "victoire", "carte", "joie", "bravo", "saut", "pointe", "triste", "dodo"];
 const TRAITS = ["color", "tufts", "crystal", "cape"] as const;
 
 export default async function DexPage({ params }: Params) {
@@ -166,7 +166,7 @@ export default async function DexPage({ params }: Params) {
             </div>
           </div>
           <span className="hidden shrink-0 md:block">
-            <Dex pose="victoire" height={210} still />
+            <Dex pose="pointe" height={210} still />
           </span>
         </section>
       </div>

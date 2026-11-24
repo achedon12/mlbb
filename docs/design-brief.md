@@ -63,8 +63,14 @@ informations. Jamais de violet, jamais de dégradé arc-en-ciel.
 - **Survol :** les cartes de héros montent de 2 px et leur illustration zoome
   de 3 % dans son cadre, l'éclat passe sous l'élément survolé, et les boutons
   s'enfoncent au clic.
-- **Rien ne bouge au défilement.** Tout s'arrête si l'utilisateur demande moins
-  d'animations.
+- **Au défilement, une seule chose :** sur l'accueil, chaque bloc entre une fois,
+  la première fois qu'il approche (il monte, son titre arrive en biais, son
+  éclat passe). Rien d'autre ne bouge au défilement. Tout s'arrête si
+  l'utilisateur demande moins d'animations.
+- **La scène de l'accueil :** l'illustration du n°1 de la méta, une lueur or et
+  bleu qui dérive lentement, quelques braises qui montent, un léger relief qui
+  suit la souris, Dex qui présente le patch et des chiffres qui défilent jusqu'à
+  leur valeur. C'est le seul endroit du site où lueur et braises sont permises.
 
 ## Composition
 

@@ -181,7 +181,7 @@ export function NicknameGenerator() {
       </Card>
 
       {name === "" ? (
-        <DexNotice pose="idee">{t("pages.nicknameUI.empty")}</DexNotice>
+        <DexNotice pose="pointe">{t("pages.nicknameUI.empty")}</DexNotice>
       ) : (
         <>
           <Card className="border-gold-500/30">

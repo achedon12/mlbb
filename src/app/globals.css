@@ -886,6 +886,15 @@ body {
 .dex-live:hover .dex-tilt { --dex-perk: 1.06; }
 .dex-live-btn { position: relative; display: block; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: pointer; transform-origin: 50% 100%; }
 .dex-live-btn:focus-visible { outline: 2px solid var(--color-gold-400); outline-offset: 4px; }
+.dex-faces { position: absolute; inset: 0; display: block; transform-origin: 50% 100%; }
+/* Asleep: he curls up, floats slower and little z rise from him. */
+.dex-asleep .dex-idle { animation-duration: 7s; }
+.dex-asleep .dex-rise { display: none; }
+.dex-zzz { position: absolute; z-index: 4; right: 4%; top: 6%; pointer-events: none; }
+.dex-zzz i { position: absolute; font: 700 1rem/1 var(--display-font, inherit); font-style: normal; color: var(--color-gold-400); opacity: 0; animation: dex-zzz 3s ease-out infinite; }
+.dex-zzz i:nth-child(2) { animation-delay: 1s; font-size: 0.8rem; }
+.dex-zzz i:nth-child(3) { animation-delay: 2s; font-size: 1.2rem; }
+@keyframes dex-zzz { 0% { opacity: 0; transform: translate(0, 0) scale(0.6) rotate(-10deg); } 20% { opacity: 0.95; } 100% { opacity: 0; transform: translate(18px, -46px) scale(1.2) rotate(12deg); } }
 .dex-face { position: absolute; inset: 0; display: block; transform-origin: 50% 100%; transition: opacity 0.18s; }
 .dex-idle .dex-face { animation: dex-breathe-in 3.4s ease-in-out infinite; }
 .dex-face-off { opacity: 0; }
@@ -933,7 +942,7 @@ body {
 .dex-burst i:nth-child(4) { --x: 50px; --y: -20px; } .dex-burst i:nth-child(5) { --x: -10px; --y: -75px; width: 13px; height: 13px; } .dex-burst i:nth-child(6) { --x: 18px; --y: -38px; width: 6px; height: 6px; }
 @keyframes dex-burst { 0% { opacity: 0; transform: translate(0, 0) scale(0.3); } 30% { opacity: 1; } 100% { opacity: 0; transform: translate(var(--x), var(--y)) scale(1.3); } }
 @media (prefers-reduced-motion: reduce) {
-  .dex-live .dex-float, .dex-seen .dex-float, .dex-shadow, .dex-face, .dex-live-btn, .dex-rise i, .dex-burst i { animation: none !important; }
+  .dex-live .dex-float, .dex-seen .dex-float, .dex-shadow, .dex-face, .dex-live-btn, .dex-rise i, .dex-burst i, .dex-zzz i { animation: none !important; }
   .dex-live:not(.dex-seen) .dex-float { opacity: 1; }
   .dex-rise i, .dex-burst i { opacity: 0; }
   .dex-tilt { transition: none; transform: none; }
@@ -1016,3 +1025,277 @@ body {
 }
 }
 /* ══ end of the brand micro-states ═══════════════════════════════════════════ */
+
+/* ══ Hero page: accent and cinematic poster ══════════════════════════════════
+ * (src/components/hero-cinematic.tsx, src/lib/hero-accent.ts)
+ *
+ * `--hero-accent` is the hero's own colour, taken from its official artwork
+ * and held to text contrast on night (hero-accent.ts); it falls back to the
+ * gold. It tints the poster's light, the epithet, the lane chips' edge, the
+ * gauges and the focus rings of the hero page, nothing else.
+ *
+ * The poster is built in layers that drift at their own depth with the
+ * pointer and the scroll (`--px`, `--py`, `--scroll`, written by
+ * PosterParallax): the artwork slowly, the light faster, the name barely.
+ * Transforms only. Under prefers-reduced-motion the variables are never
+ * written and every layer stays put.
+ */
+.hero-accent { --hero-accent: var(--color-gold-400); }
+.hero-accent :focus-visible { outline-color: var(--hero-accent); }
+.hero-accent-text { color: var(--hero-accent); }
+
+.cine-poster { --px: 0; --py: 0; --scroll: 0; }
+.cine-art {
+  transform: translate3d(calc(var(--px) * -14px), calc(var(--scroll) * 16% + var(--py) * -8px), 0) scale(1.08);
+  transform-origin: 50% 30%;
+}
+/* The hero's light: two washes of its colour, low left behind the name and high right in the art's sky. */
+.cine-light {
+  background:
+    radial-gradient(55% 65% at 15% 92%, color-mix(in srgb, var(--hero-accent) 34%, transparent), transparent 72%),
+    radial-gradient(38% 45% at 82% 18%, color-mix(in srgb, var(--hero-accent) 16%, transparent), transparent 70%);
+  mix-blend-mode: screen;
+  transform: translate3d(calc(var(--px) * 26px), calc(var(--scroll) * -28px + var(--py) * 14px), 0);
+}
+.cine-vignette { background: radial-gradient(125% 95% at 58% 32%, transparent 48%, rgb(6 8 15 / 0.8) 100%); }
+/* The éclat along the art's foot, in the hero's colour. */
+.cine-edge {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--hero-accent) 22%, color-mix(in srgb, var(--hero-accent) 40%, #fff) 34%, transparent 70%);
+}
+.cine-name { transform: translate3d(calc(var(--px) * 5px), calc(var(--scroll) * -22px), 0); }
+/* A printed offset in the hero's colour under the giant name: a cut, not a halo. */
+.cine-name h1 { text-shadow: 0.045em 0.045em 0 color-mix(in srgb, var(--hero-accent) 55%, transparent); }
+.cine-chip { box-shadow: inset 0 -2px 0 var(--hero-accent); }
+.gauge-accent { background: var(--hero-accent); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .cine-art, .cine-light, .cine-name { will-change: transform; }
+}
+
+/* Revealed one after the other (Cascade): each child's rank in `--i`, a gauge's notches in `--n`. */
+@keyframes cascade-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes notch-in { from { opacity: 0.15; transform: scaleY(0.3); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: no-preference) {
+  .cascade > * { animation: cascade-in 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) calc(0.25s + var(--i, 0) * 60ms) both; }
+  .cascade .gauge-lit { animation: notch-in 0.3s ease-out calc(0.45s + var(--i, 0) * 60ms + var(--n, 0) * 35ms) both; }
+  .cascade.is-armed > * { animation: none; opacity: 0; }
+  .cascade.is-armed .gauge-lit { animation: none; opacity: 0.15; }
+  .cascade.is-in > * { animation-delay: calc(var(--i, 0) * 60ms); }
+  .cascade.is-in .gauge-lit { animation-delay: calc(0.2s + var(--i, 0) * 60ms + var(--n, 0) * 35ms); }
+}
+
+/* The portrait flies from the hero list to the hero page (React's ViewTransition, share="hero-morph"). */
+::view-transition-group(.hero-morph) { animation-duration: 420ms; animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1); }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}
+/* ══ end of the hero page ════════════════════════════════════════════════════ */
+
+/* ══ Patch recap, "bilan" (src/app/[locale]/patch-notes/[slug]/bilan) ═════════
+ * A story page: each chapter rises into place as it scrolls into view, driven
+ * by the scroll itself (no script). Only where the browser has scroll-driven
+ * animations, and never under prefers-reduced-motion: the chapters are then
+ * simply there. Transforms and opacity only.
+ */
+@keyframes recap-chapter-in { from { opacity: 0.15; transform: translateY(2.5rem); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .recap-chapter { animation: recap-chapter-in linear both; animation-timeline: view(); animation-range: entry 0% cover 30%; }
+  }
+}
+/* ══ end of the patch recap ══════════════════════════════════════════════════ */
+
+/* ══ Brand stage: motion tokens, figures, the home poster's stage and the scroll reveal ══
+ * (docs/design-system.md, "Motion" and "Brand stage"). Kept in one section: the
+ * tokens first, then the figures' face, then the stage (glow, art, embers,
+ * Dex), then the reveal. Everything rests under prefers-reduced-motion.
+ */
+
+/* Easing curves, as Tailwind tokens (`ease-brand-out`…) and plain variables. */
+@theme {
+  /* Out: a quick start that settles; arrivals, reveals, the poster. */
+  --ease-brand-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  /* In-out: slow drifts that loop (the glow). */
+  --ease-brand-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  /* Spring: a small overshoot, for Dex and what pops (bubbles, flashes). */
+  --ease-brand-spring: cubic-bezier(0.3, 1.4, 0.5, 1);
+
+  /* Figures: Saira's true italic at the extra-condensed width, then the display face. */
+  --font-figure: var(--figure-font), var(--font-display);
+}
+
+:root {
+  /* Durations: fast for hovers and presses, base for small entries, slow for the one strong moment. */
+  --duration-fast: 150ms;
+  --duration-base: 320ms;
+  --duration-slow: 650ms;
+}
+
+@layer components {
+  /*
+   * The figures' face: the score and every key figure. Tabular, lining
+   * digits in Saira's own italic (not slanted by the browser), at the
+   * wordmark's extra-condensed width.
+   */
+  .score,
+  .figure {
+    font-family: var(--font-figure);
+    font-style: italic;
+    font-weight: 900;
+    font-stretch: 62.5%;
+    font-variation-settings: "wdth" 62.5;
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+  .figure {
+    line-height: 0.85;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* A counting figure (count-up.tsx): hidden until its script counts it; shown by the CSS alone if the script is late. */
+@keyframes count-up-fallback { to { opacity: 1; } }
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  .count-up:not([data-counted]) { opacity: 0; animation: count-up-fallback 0s 2.5s forwards; }
+  .count-up[data-armed]:not([data-counted]) { animation: none; }
+}
+
+/*
+ * The home poster's stage (home-stage.tsx). Each layer moves by `translate`
+ * (so it never fights a layer's own animation, which uses `transform`), by
+ * its depth times the pointer's place (`--stage-x`, `--stage-y`, −1 to 1).
+ */
+.brand-stage { --stage-x: 0; --stage-y: 0; }
+.brand-stage :is(.stage-art, .stage-glow, .stage-embers, .stage-dex, .affiche-name) {
+  transition: translate 0.7s var(--ease-brand-out);
+}
+.stage-art {
+  position: absolute;
+  inset: -1.25rem;
+  translate: calc(var(--stage-x) * -14px) calc(var(--stage-y) * -9px);
+}
+/* A soft light over the art, drifting opposite to it. */
+.stage-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(45% 40% at calc(70% + var(--stage-x) * 6%) calc(18% + var(--stage-y) * 6%), rgb(255 216 122 / 0.16), transparent 70%);
+  mix-blend-mode: screen;
+}
+.brand-stage .affiche-name { translate: calc(var(--stage-x) * 8px) calc(var(--stage-y) * 4px); }
+.brand-stage .stage-dex { translate: calc(var(--stage-x) * 10px) calc(var(--stage-y) * 6px); }
+
+/* The glow: gold and ally blue, behind the whole poster, drifting slowly. */
+.stage-glow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  translate: calc(var(--stage-x) * 12px) calc(var(--stage-y) * 10px);
+}
+.stage-glow::before {
+  content: "";
+  position: absolute;
+  inset: -25% -15%;
+  background:
+    radial-gradient(38% 42% at 70% 32%, rgb(245 196 81 / 0.14), transparent 70%),
+    radial-gradient(32% 38% at 18% 78%, rgb(61 139 255 / 0.11), transparent 70%),
+    radial-gradient(26% 30% at 42% 18%, rgb(200 144 30 / 0.08), transparent 70%);
+}
+@keyframes stage-glow {
+  0% { transform: translate3d(-3%, 1%, 0) scale(1); }
+  50% { transform: translate3d(3%, -2%, 0) scale(1.08); }
+  100% { transform: translate3d(-1%, 2%, 0) scale(1.02); }
+}
+
+/* Embers: small diamonds (the bevel's angle) rising from the foot of the art. */
+.stage-embers {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  translate: calc(var(--stage-x) * 22px) calc(var(--stage-y) * 12px);
+}
+.stage-embers i {
+  position: absolute;
+  bottom: -0.5rem;
+  width: var(--ember-size, 3px);
+  height: var(--ember-size, 3px);
+  background: var(--color-gold-300);
+  box-shadow: 0 0 6px 1px rgb(245 196 81 / 0.5);
+  opacity: 0;
+  transform: rotate(45deg);
+}
+.stage-embers i.is-azure {
+  background: var(--color-azure-300);
+  box-shadow: 0 0 6px 1px rgb(61 139 255 / 0.5);
+}
+@keyframes stage-ember {
+  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(45deg) scale(1); }
+  12% { opacity: 0.9; }
+  65% { opacity: 0.55; }
+  100% { opacity: 0; transform: translate3d(var(--ember-drift, 0), -24rem, 0) rotate(225deg) scale(0.4); }
+}
+
+/* The blade under the title sweeps in once, after the name. */
+@keyframes stage-blade { from { transform: scaleX(0); } to { transform: none; } }
+
+/* Dex on the stage: a narrow bubble, so the art keeps its sky. */
+.stage-dex .dex-bubble { max-width: 19rem; }
+@media (width < 64rem) {
+  .stage-dex .dex-bubble { max-width: 100%; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .stage-glow::before { animation: stage-glow 22s var(--ease-brand-in-out) infinite alternate; }
+  .stage-embers i { animation: stage-ember var(--ember-duration, 9s) linear var(--ember-delay, 0s) infinite; }
+  .stage-blade { transform-origin: left; animation: stage-blade var(--duration-slow) var(--ease-brand-out) 0.3s both; }
+}
+@media (prefers-reduced-motion: reduce) {
+  /* Still embers would be specks of dust: they leave. The glow stays, still. */
+  .stage-embers { display: none; }
+  .brand-stage { --stage-x: 0 !important; --stage-y: 0 !important; }
+}
+
+/*
+ * Scroll reveal (reveal.tsx): once the group is armed, each `[data-reveal]`
+ * block below the fold waits, then comes in the first time it nears the
+ * screen: it rises and fades in, its title arrives on the slant, its blade
+ * sweeps, its hero tiles follow one by one. A divider only sweeps its blade.
+ */
+.reveal-armed [data-reveal]:not(.eclat-rule) {
+  opacity: 0;
+  transform: translate3d(0, 1.75rem, 0);
+  transition: opacity var(--duration-slow) var(--ease-brand-out), transform var(--duration-slow) var(--ease-brand-out);
+}
+.reveal-armed [data-reveal][data-revealed]:not(.eclat-rule) { opacity: 1; transform: none; }
+.reveal-armed [data-reveal] .type-section {
+  transform: translateX(-0.3em) skewX(-9deg);
+  transition: transform 0.6s var(--ease-brand-out) 0.08s;
+}
+.reveal-armed [data-reveal] .eclat {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.55s var(--ease-brand-out) 0.22s;
+}
+.reveal-armed [data-reveal] .hero-tile {
+  opacity: 0;
+  transform: translate3d(0, 0.75rem, 0) scale(0.97);
+  transition:
+    opacity 0.5s var(--ease-brand-out) calc(0.2s + var(--reveal-i, 0) * 45ms),
+    transform 0.5s var(--ease-brand-out) calc(0.2s + var(--reveal-i, 0) * 45ms),
+    translate 0.2s ease-out;
+}
+.reveal-armed [data-reveal][data-revealed] :is(.type-section, .eclat, .hero-tile) { opacity: 1; transform: none; }
+.reveal-armed .eclat-rule[data-reveal]::before {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.8s var(--ease-brand-out);
+}
+.reveal-armed .eclat-rule[data-reveal][data-revealed]::before { transform: none; }
+@media print {
+  .reveal-armed [data-reveal], .reveal-armed [data-reveal] * { opacity: 1 !important; transform: none !important; }
+}
+/* ══ end of the brand stage ══════════════════════════════════════════════════ */

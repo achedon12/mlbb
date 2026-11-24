@@ -294,7 +294,7 @@ function Moves({
     <div className="min-w-0">
       <h2 className={cn("type-subtitle", rise ? "text-azure-400" : "text-blood-400")}>{title}</h2>
       {list.length === 0 ? (
-        <DexSays pose="surpris" height={84} className="mt-4">
+        <DexSays pose="dodo" height={84} className="mt-4">
           <p className="text-sm">{t("pages.statistics.noMovement")}</p>
         </DexSays>
       ) : (

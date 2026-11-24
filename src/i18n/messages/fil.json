@@ -290,7 +290,7 @@
     "brand": "Mobile Legends: Bang Bang™ Shanghai Moonton Technology Co., Ltd.",
     "version": "Bersyon {v}",
     "contribute": "Mag-ambag",
-    "intro": "Mga hero, build at counter ng Mobile Legends: Bang Bang ayon sa rank, tier list na kinukuwenta mula sa ranked win rate, mga item, emblem at patch notes, sa English, French, Italian, Spanish at Indonesian. Isang independiyenteng proyekto, bukas sa mga kontribusyon.",
+    "intro": "Mga hero, build at counter ng Mobile Legends: Bang Bang ayon sa rank, tier list na kinukuwenta mula sa ranked win rate, mga item, emblem at patch notes, sa siyam na wika. Isang independiyenteng proyekto, bukas sa mga kontribusyon.",
     "sources": "Mga text na kinuha mula sa Mobile Legends wiki (Fandom) at Liquipedia, sa ilalim ng lisensya ng CC BY-SA, na may attribution sa kanilang mga contributor. Mga larawan, pangalan ng mga hero, skin at bagay © Moonton, at para sa collaboration skin © kani-kanilang mga may hawak ng karapatan: hindi sila napapailalim sa lisensyang ito. Ang mga win rate, ban at pagpili, mga counter at karamihan sa mga nilalaro na build ay nagmumula sa mga istatistika ng paglalaro sa ranggo ng laro, sa pamamagitan ng arena.rone.dev community API.",
     "discord": "Sumali sa Discord",
     "columns": {
@@ -650,7 +650,7 @@
       "security": "Hindi kailanman nakikita ng site ang iyong password. Tumatanggap lang ito ng pansamantalang token, na nakaimbak sa isang secure na cookie, na tatanggalin mo kapag nag-log out ka.",
       "metaTitle": "Mag-log in",
       "metaDescription": "I-connect ang iyong Mobile Legends account gamit ang verification code, walang password na kailangan.",
-      "welcome": "Maligayang pagdating sa MLBDex!",
+      "welcome": "Maligayang pagdating sa MLBBDex!",
       "welcomeText": "Ang iyong account sa laro, nang walang password: ang iyong username, pagkatapos ay ang code na ipinapadala ng Moonton sa iyong in-game inbox.",
       "perks": {
         "profile": "Ang iyong profile, mga ranggo at pinaka-naglarong hero",
@@ -830,7 +830,7 @@
       "linkCopied": "Nakopya ang link.",
       "copyFailed": "Hindi ko makopya: kopyahin ang address ng pahina.",
       "intro": "Magdagdag ng kahit isang hero sa bawat side para ipakita ang matrix. Naka-save sa address ng page ang mga pinili mo at ang rank: i-share lang ito.",
-      "loading": "Nilo-load ang mga duel ng rank…",
+      "loading": "Inihahanda ang mga duel ng rank…",
       "error": "Hindi ako nakapag-load ng mga duel ng ganitong ranggo. Subukang muli, o baguhin ang ranggo.",
       "matrixTitle": "Duels · {rank}",
       "measured": "Mga nasukat na duel: {n} sa {total}.",
@@ -1816,7 +1816,7 @@
       "mode": "Mode",
       "dailyMode": "Daily challenge",
       "practiceMode": "Practice",
-      "loading": "Naglo-load…",
+      "loading": "Inihahanda ang laro…",
       "loadError": "Hindi ko ma-load ang quiz. Suriin ang iyong koneksyon: kapag binisita mo ang pahina, maaari din itong i-play offline.",
       "retry": "Subukan ulit",
       "puzzleNumber": "Challenge #{n} · {date}",
@@ -1888,7 +1888,7 @@
       "initial": "“{letter}”, {n} letra",
       "heroField": "I-type ang pangalan ng hero…",
       "itemField": "I-type ang pangalan ng item…",
-      "noResult": "Walang tugma.",
+      "noResult": "Walang hero sa pangalang iyan.",
       "browse": "Tingnan ang mga hero",
       "skip": "Laktawan",
       "yourTries": "Mga hula mo",
@@ -2119,8 +2119,8 @@
       "allHeroes": "Lahat",
       "all": "Lahat",
       "clear": "I-clear ang mga filter",
-      "loading": "Naglo-load ng mga skin…",
-      "error": "Hindi ma-load ang listahan ng skin. I-check ang connection mo at subukan ulit.",
+      "loading": "Binubuksan ang kalendaryo ng mga skin…",
+      "error": "Hindi nag-load ang kalendaryo. I-check ang connection mo, tapos subukan ulit.",
       "result": "1 skin ang tugma.",
       "results": "{n} skin ang tugma.",
       "nSkins": "{n} skin",
@@ -2141,7 +2141,7 @@
       "accountValueLink": "Tantiyahin ang halaga ng isang account"
     },
     "collectionUI": {
-      "loading": "Naglo-load ng mga hero at skin…",
+      "loading": "Inilalabas ang mga hero at ang kanilang mga skin…",
       "error": "Hindi ko ma-load ang listahan ng mga pagpapakita. Suriin ang iyong koneksyon, pagkatapos ay i-reload ang page.",
       "valueTitle": "Halaga ng collection mo sa shop",
       "heroes": "Mga hero",
@@ -2531,7 +2531,7 @@
         "practice": "Practice"
       },
       "solved": "nasagot",
-      "loading": "Naglo-load…",
+      "loading": "Inihahanda ang hamon ngayong araw…",
       "loadError": "Hindi ko ma-load ang hamon ngayon. Suriin ang iyong koneksyon, pagkatapos ay subukang muli.",
       "retry": "Subukan ulit",
       "unavailable": "Hindi available ang mode na ito ngayon. Subukan ang isa pa!",
@@ -3531,7 +3531,7 @@
       "resultFor": "{hero}, level {level}. I-tap ang isang stat para makita ang breakdown nito.",
       "pickHeroFirst": "Pumili ng hero para makita ang kinuwentang stats.",
       "measuredTitle": "Kumpara sa mga measured build",
-      "measuredLoading": "Nilo-load ang mga measured build…",
+      "measuredLoading": "Ikinukumpara sa mga measured build…",
       "measuredNeedItems": "Magdagdag ng mga item para ikumpara sa mga build na talagang nilalaro.",
       "measuredNone": "Sa rank na ito, walang measured build na may hindi bababa sa dalawang item na pareho sa build mo.",
       "measuredSame": "Parehong core sa isang measured build",
@@ -3593,7 +3593,7 @@
       "lead": "Mga build na binuo sa simulator at na-publish ng mga player, kasama ang kinuwentang stats. Iboto ang mga nakakakumbinsi sa iyo: umaakyat sa itaas ang mga pinakasinusuportahan.",
       "createCta": "Gumawa ng build",
       "unavailable": "Pansamantalang hindi available ang mga community build. Subukan ulit pagkalipas ng ilang minuto.",
-      "emptyStore": "Wala pang na-publish na build. Buuin ang sa iyo sa simulator at maging una.",
+      "emptyStore": "Wala pang na-publish na build. Buuin ang sa iyo sa simulator: bakante pa ang unang puwesto.",
       "weekTitle": "Pinakamaraming boto ngayong linggo",
       "weekEmpty": "Walang boto sa huling pitong araw.",
       "latestTitle": "Mga pinakabagong build",
@@ -4900,8 +4900,8 @@
       "discordTitle": "Sa Discord",
       "discordText": "Doon, ang Dex ay tinatawag na Dex MLBB: ito ang bot na tumutugon sa /hero, /build o /tierlist na may parehong mga numero ng site. Siya rin ang icon ng community server.",
       "botLink": "Tuklasin ang Dex MLBB bot",
-      "posesTitle": "Anim na pose niya",
-      "posesLead": "Isang pose para sa bawat sandali ng iyong pagbisita. Mag-hover sa ibabaw nila, mag-click sa kanila: buhay sila.",
+      "posesTitle": "Labindalawang pose niya",
+      "posesLead": "Isang pose para sa bawat sandali ng iyong pagbisita. Mag-click sa kanila, iwanan sila nang ilang sandali: sila ay buhay.",
       "poses": {
         "salut": {
           "name": "Hi",
@@ -4926,6 +4926,30 @@
         "carte": {
           "name": "Mapa",
           "text": "Sa mga gabay, sa mapa at para sa diskarte."
+        },
+        "joie": {
+          "name": "Saya",
+          "text": "Kapag may dumating na magandang balita: isang buff, isang hero na nasa mabuting kalagayan."
+        },
+        "bravo": {
+          "name": "Magaling",
+          "text": "Upang palakpakan ang isang nanalong laro o isang mahusay na pinag-isipang build."
+        },
+        "saut": {
+          "name": "Tumalon",
+          "text": "Kapag oras na ng party: bagong patch, bagong hero."
+        },
+        "pointe": {
+          "name": "Tingnan mo!",
+          "text": "Upang ipakita sa iyo kung ano ang hindi dapat palampasin."
+        },
+        "triste": {
+          "name": "Nabigo",
+          "text": "Pagkatapos ng isang nerf, isang pagkatalo o isang paghahanap na walang mga resulta."
+        },
+        "dodo": {
+          "name": "Idlip",
+          "text": "Kung hindi ka gumagalaw saglit, natutulog siya. Ilipat at nagising siya nang may panimula."
         }
       },
       "kitLink": "Nasa brand kit ang mga pose niyang PNG",
@@ -4971,7 +4995,7 @@
       "do1": "Panatilihin si Dex bilang siya: midnight blue, gold egrets, crystal blue at red.",
       "do2": "Ilagay ito sa isang madilim na background, na may hangin sa paligid nito.",
       "do3": "Isulat ang MLBBEx sa isang salita, at ang Dex MLBB para sa bot.",
-      "do4": "Linawin na ang MLBDex ay isang independiyenteng proyekto ng tagahanga.",
+      "do4": "Linawin na ang MLBBDex ay isang independiyenteng proyekto ng tagahanga.",
       "dont1": "I-recolor ito, i-distort ito o magdagdag ng mga accessory.",
       "dont2": "Gawin siyang magsalita sa ngalan ng Moonton o ibang site.",
       "dont3": "I-distort ang logo, baguhin ang mga kulay nito o ilagay ito sa isang background na lumulunod dito.",
@@ -4995,6 +5019,69 @@
         "logo": "I-download ang logo: pahalang (SVG)",
         "stacked": "I-download ang logo: stacked (SVG)"
       }
+    },
+    "patchRecap": {
+      "seoTitle": "Pagsusuri ng patch {v}: mga nanalo, natalo at mga sorpresa",
+      "description": "Anong patch {v} talaga ang nagbago: {n} hero na sinusukat sa loob ng {days} araw bago at pagkatapos ng release, pinakamalaking panalo, talo at sorpresa.",
+      "descriptionNone": "Pagsusuri ng patch ng Mobile Legends {v}: mga win rate bago at pagkatapos ng paglabas nito, sa sandaling pinapayagan ang mga pagbabasa.",
+      "share": "Ang mga resulta ng patch {v}: sino ang nanalo, sino ang natalo, at ang mga sorpresa.",
+      "crumb": "Record",
+      "kicker": "Pagsusuri ng patch",
+      "lead": "Ano talaga ang ginawa ng patch para manalo ng mga rate: ang average na {days} araw bago i-release kumpara sa {days} araw pagkatapos, hero ayon sa hero.",
+      "back": "Basahin ang mga tala sa patch",
+      "link": "Tingnan ang ulat ng patch",
+      "linkVersion": "Pagsusuri ng patch {v}",
+      "linkLead": "Mga nanalo, natalo at mga sorpresa: ang patch ay sinusukat sa mga win rate.",
+      "facts": {
+        "adjusted": "{n} hero ang binago",
+        "measured": "{n} hero ang nasukat",
+        "date": "Inilabas noong {date}"
+      },
+      "young": "Ang patch ay kamakailan pa rin: ang ilang mga hero ay may mas mababa sa {days} araw na sinusukat mula noong ilabas ito. Maaari pa ring magbago ang balanse.",
+      "sample": {
+        "noneSoon": "Wala pang pagsukat: hindi bababa sa apat na araw ng mga pagbabasa ang kinakailangan pagkatapos ilabas ang patch. Ang mga resulta ay magsusulat sa kanilang sarili sa loob ng ilang araw.",
+        "noneOld": "Walang sukat para sa patch na ito: hindi saklaw ng aming pang-araw-araw na pagbabasa ang {days} araw na nakapalibot dito. Ang patch notes ay mananatiling nababasa nang buo.",
+        "small": "Pinababang sample: {n} na hero lang ang may mga pagbabasa sa magkabilang panig ng patch. Basahin ang review na ito bilang isang trend, hindi isang hatol."
+      },
+      "chapter": "Kabanata {n}",
+      "winners": {
+        "title": "Ang mga big winners",
+        "lead": "Ang pinakamalaking pagtaas sa win rate, lampas sa pagsukat ng ingay.",
+        "empty": "Walang nasusukat na hero ang nakakuha ng {threshold} puntos o higit pa: wala talagang mas mahusay na lumabas sa patch na ito."
+      },
+      "losers": {
+        "title": "Ang malalaking talunan",
+        "lead": "Pinakamalaking pagbaba sa win rate, lampas sa pagsukat ng ingay.",
+        "empty": "Walang nasusukat na hero ang nawalan ng {threshold} puntos o higit pa: hindi pinarusahan ng patch ang sinuman."
+      },
+      "surprises": {
+        "title": "Ang mga sorpresa",
+        "lead": "Isang buff na nagpapatalo sa iyo, isang nerf na nagpapanalo sa iyo: kung saan hindi ginawa ng patch ang inanunsyo nito.",
+        "empty": "Walang sorpresa: ang bawat buff at nerf na sinusukat ay itinulak sa direksyon na inihayag, o walang binago.",
+        "flatTitle": "Walang gumagalaw",
+        "flatLead": "Binago, ngunit nanatili sa ingay ang kanilang win rate (mas mababa sa {threshold} point difference)."
+      },
+      "impact": "{before} → {after}",
+      "averages": "Sa karaniwan, ang mga nasusukat na buff ay nakakuha ng {buff} at nerf {nerf}, sa mga win rate na puntos.",
+      "averagesBuff": "Sa karaniwan, ang mga nasusukat na buff ay gumawa ng {buff}, sa mga puntos ng win rate.",
+      "averagesNerf": "Sa karaniwan, ang mga sinusukat na nerf ay nakakuha ng {nerf}, sa mga puntos ng win rate.",
+      "dex": {
+        "intro": "Binuod ko ang patch {v} para sa iyo sa tatlong kabanata. Nagsasalita ang mga figure, komento ko.",
+        "small": "Ilang hero ang nasusukat sa pagkakataong ito: kunin ang mga figure na ito gamit ang isang pakurot ng asin.",
+        "noneSoon": "Ang aking mga nabasa ay wala pang sapat na pananaw sa patch na ito. Bumalik sa loob ng ilang araw!",
+        "noneOld": "Ang patch na ito ay mas luma kaysa sa aking pang-araw-araw na pagbabasa: Hindi ko ito masusukat.",
+        "winners": "{hero} lilipad: {gap} {unit} sa isang linggo. Kung lalaruin mo ito, ngayon na ang oras.",
+        "winnersEmpty": "Wala talagang umaalis. Isang kalmadong patch para sa mga nanalo.",
+        "losers": "{hero} gumagalaw pabalik {gap} {unit}. Kung ito ang iyong kamay, tingnan ang kanyang kasalukuyang mga build.",
+        "losersEmpty": "Walang malinaw na pagkahulog: magandang balita para sa iyong mga kamay.",
+        "surpriseBuff": "Nakatanggap si {hero} ng buff... at bumaba ang rate nito. Ang isang patch ay hindi palaging ginagawa kung ano ang sinasabi nito!",
+        "surpriseNerf": "Ang {hero} ay na-nerf... at nadagdagan ng higit pa kaysa dati. Ang mga numero ay matigas ang ulo.",
+        "surprisesEmpty": "Walang sorpresa sa oras na ito: ginawa ng patch ang sinabi nito.",
+        "outro": "Ire-reshuffle ng susunod na patch ang mga card. Ipapaalam ko sa iyo!"
+      },
+      "method": "Paano ito sinusukat",
+      "methodText": "Para sa bawat binagong hero: ang average ng kanyang win rate, pinagsama ang lahat ng ranggo, sa loob ng {days} araw bago ilabas ang patch at sa {days} araw pagkatapos, hindi kasama ang parehong araw. Ito ay tumatagal ng hindi bababa sa apat na araw na sinusukat sa bawat panig. Ang paglihis na mas mababa sa {threshold} punto ay itinuturing na ingay. Ang rate na nagbabago ay hindi nagsasabi kung bakit: nagbabago rin ang meta, iba pang mga hero at mga manlalaro.",
+      "notes": "Gusto mo ng mga detalye ng bawat pagbabago?"
     }
   },
   "modeSheet": {
@@ -5171,11 +5258,23 @@
       "noFall": "Walang hero na malinaw na bumababa ngayong linggo.",
       "open": "Ipakita ang {n} hero na gumagalaw"
     },
-    "syncLead": "Huling sync noong {date}."
+    "syncLead": "Huling sync noong {date}.",
+    "figures": {
+      "title": "MLBBDex sa mga numero",
+      "heroes": "hero",
+      "changed": "binago sa patch",
+      "splus": "nasa S+ tier",
+      "items": "item"
+    },
+    "stage": {
+      "dexPatch": "Live na ang patch {version}: {n} hero ang binago. Nangunguna sa meta si {hero}.",
+      "dexPatchAlone": "Live na ang patch {version}: {n} hero ang binago.",
+      "dexCta": "Tingnan ang binago"
+    }
   },
   "featured": {
-    "heroOfTheDay": "Hero ng araw",
-    "seeSheet": "Tingnan ang profile"
+    "seeSheet": "Tingnan ang profile",
+    "topMeta": "#1 sa meta"
   },
   "access": {
     "account": "{n} hero"
@@ -6015,8 +6114,8 @@
     }
   },
   "error": {
-    "title": "May nagkaproblema",
-    "text": "Nagkaroon ng hindi inaasahang problema ang site. Subukan ulit mamaya.",
+    "title": "May sumabit",
+    "text": "Natisod ang site sa pahinang ito. Kadalasan, sapat na ang isa pang subok.",
     "retry": "Subukan ulit",
     "oops": "Oops",
     "pageText": "Nagkaproblema sa pag-load ng pahinang ito. Puwede mong subukan ulit, o bumalik sa home page.",
@@ -6072,8 +6171,8 @@
   "search": {
     "open": "Maghanap",
     "placeholder": "Isang hero, item, patch…",
-    "none": "Walang resulta.",
-    "loading": "Naglo-load…",
+    "none": "Walang ganyang pangalan.",
+    "loading": "Naghahanap…",
     "help": "↑ ↓ para mag-browse, Enter para buksan, Esc para isara",
     "groups": {
       "hero": "Mga hero",
@@ -6474,7 +6573,7 @@
     "default1": "Binubuksan ng Ctrl + K ang paghahanap: isang hero, isang item, isang hitsura, ang buong site.",
     "default2": "Ang mga numero ay naitala araw-araw sa mga ranggo na laro.",
     "default3": "Maaari mong baguhin ang wika sa kanang tuktok, nagsasalita ako ng siyam na wika.",
-    "home1": "Ang hero ng araw ay nagbabago araw-araw. Bumalik ka bukas!",
+    "home1": "Nasa poster ang number 1 ng tier list: nagbabago ito kapag gumalaw ang meta.",
     "home2": "Ang tier list ay muling kinakalkula sa bawat rate ng pagbabasa.",
     "home3": "Gustong maglaro? Ang MLBBdle at ang pagsusulit ay naghihintay sa iyo araw-araw.",
     "heroes1": "I-filter ayon sa tungkulin o lane upang mahanap ang iyong susunod na kamay.",
@@ -6483,6 +6582,8 @@
     "hero1": "Mga pagbabago sa ranggo sa itaas ng sheet: sumusunod ang mga rate, counter at build.",
     "hero2": "Ipinapakita ng tab na Counter ang kanyang pinakamasama at pinakamahusay na mga tunggalian.",
     "hero3": "Idagdag ito bilang paborito para maabisuhan ng bawat patch.",
+    "heroTop": "Nasa tier {tier} si {name} ngayon: magandang pagkakataon para gamitin sa ranked!",
+    "heroLow": "Nasa tier C si {name} ngayon… Silipin muna ang mga counter bago magsimula ng laro.",
     "tierList1": "Pinagsasama ng tier ang win rate at isang quarter ng ban rate.",
     "tierList2": "Salain ayon sa ranggo: ang meta ng Epic ay hindi ng Mythic Glory.",
     "tierList3": "Ang isang hero na masyadong maliit ang nilalaro ay hindi niraranggo, ang pagsukat ay magiging hindi matatag.",
@@ -6629,6 +6730,64 @@
     "languages": {
       "title": "{n} wika",
       "text": "Nakasulat sa French at awtomatikong isinalin sa {others} iba pang mga wika. Ano ang isinalin, at kung paano, ay nakadetalye sa pahina ng mga mapagkukunan."
+    }
+  },
+  "shareImage": {
+    "button": "Ibahagi sa larawan",
+    "preparing": "Inihahanda ang larawan…",
+    "shared": "Na-share ang image.",
+    "saved": "Na-save ang larawan.",
+    "savedCopied": "Na-save ang larawan, nakopya ang link.",
+    "error": "Hindi makagawa ng larawan. Subukan muli sa isang sandali.",
+    "landscape": "Format ng link (1200 × 630)",
+    "hint": "1080 × 1350 na larawan, handa na para sa isang kuwento o post."
+  },
+  "shareCard": {
+    "build": {
+      "kicker": "Build · {roles}",
+      "title": "Buuin {hero}",
+      "level": "Level {n}",
+      "dex": "Handa na ang build na ito: buksan ito sa simulator para makita ang mga istatistika nito."
+    },
+    "draft": {
+      "kicker": "Draft · {rank}",
+      "title": "Ang draft ko",
+      "blue": "Blue team",
+      "red": "Red team",
+      "estimate": "tinatayang pagkakataon",
+      "dexBlue": "Advantage sa blues sa papel. Laruin mo na lang!",
+      "dexRed": "Nagsisimula ang mga pula sa harap. Ang isang draft ay napanalunan din sa paglalaro.",
+      "dexEven": "Mahigpit na draft: ang lahat ay magpapasya sa bahagi.",
+      "dexNone": "I-replay ang draft na ito sa MLBBEx at ihambing ang iyong mga pagpipilian."
+    },
+    "tierList": {
+      "kicker": "Patch {v} · {month}",
+      "dex": "Ang mga antas ay muling kinakalkula sa bawat rate ng pagbabasa."
+    },
+    "mlbbdle": {
+      "kicker": "Laro ng araw · {mode}",
+      "title": "MLBBdle # {n}",
+      "found": {
+        "one": "Natagpuan sa unang pagsubok",
+        "other": "Natagpuan sa {n} mga pagsubok"
+      },
+      "more": "+{n} mga pagsubok na hindi ipinapakita",
+      "streak": "sunud-sunod na araw",
+      "guesses": {
+        "one": "sanaysay",
+        "other": "mga pagsubok"
+      },
+      "dexPerfect": "Sa unang pagsubok? Hindi ko nakita ang pagdating nito!",
+      "dexGood": "Magaling! Ang hero ng bukas ay naghihintay sa iyo.",
+      "dexLong": "Kailangan naming mahanap ang isang iyon. Magaling!"
+    },
+    "recap": {
+      "winners": "Mga nanalo",
+      "losers": "Mga talunan",
+      "none": "Hindi pa sapat ang mga pagbabasa para sukatin ang patch na ito.",
+      "small": "Nabawasang sample: {n} hero ang nasukat.",
+      "measured": "nasusukat na mga hero",
+      "dex": "Ito ang talagang binago ng patch, na may mga numero upang i-back up ito."
     }
   }
 }

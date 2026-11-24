@@ -26,7 +26,9 @@ import type { MeasuredRank } from "@/lib/measured-ranks";
 import { trackShare } from "@/lib/analytics";
 import { formatGap } from "@/lib/trends";
 import { cn } from "@/lib/utils";
-import type { Estimate } from "@/lib/win-estimate";
+import { percentages, type Estimate } from "@/lib/win-estimate";
+import { DRAFT_WIN } from "@/lib/share-card";
+import { ShareImageButton } from "@/components/share-image-button";
 
 /**
  * Summary of a finished draft: each team run through the team analyzer
@@ -117,7 +119,7 @@ export function DraftSummary({
 
   return (
     <section aria-labelledby="summary-title" className="space-y-8">
-      {/* The draft is done: Dex cheers it, once, and the title comes in. */}
+      {/* The draft is done: Dex jumps for it, once, and the title comes in. */}
       <div className="win-panel flex items-end justify-between gap-4">
         <div className="min-w-0">
           <h2 id="summary-title" className="win-punch type-section text-gold-400">
@@ -126,7 +128,7 @@ export function DraftSummary({
           <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
           <p className="mt-3 text-sm text-chalk-400">{t("pages.draftSimulatorUI.summary.intro", { rank: rankName })}</p>
         </div>
-        <GameDex mood="won" beat={0} height={120} />
+        <GameDex mood="won" pose="saut" beat={0} height={120} />
       </div>
 
       {/* -- Estimated win probability ------------------------------ */}
@@ -230,6 +232,20 @@ export function DraftSummary({
             {copied && <Flash tone={copied}>{t(copied === "ok" ? "teamUI.linkCopied" : "teamUI.copyFailed")}</Flash>}
           </span>
         </div>
+        {blue.length > 0 && red.length > 0 && (
+          <ShareImageButton
+            card={{
+              kind: "draft",
+              blue,
+              red,
+              win: measures ? Math.min(DRAFT_WIN.max, Math.max(DRAFT_WIN.min, percentages(estimate).blue)) : null,
+              rank,
+            }}
+            name="Draft"
+            url={address}
+            className="mt-4"
+          />
+        )}
         <div className="mt-4 flex flex-wrap gap-2">
           <button type="button" onClick={onReplay} className={button}>
             <RotateCcw size={15} aria-hidden />

@@ -40,7 +40,7 @@ export default function ErrorPage({
     <DexScreen
       figure={t("error.oops")}
       tone="enemy"
-      pose="reflexion"
+      pose="triste"
       title={t("error.title")}
       text={t("error.pageText")}
       line={t("error.dexLine")}

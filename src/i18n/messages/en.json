@@ -290,7 +290,7 @@
     "brand": "Mobile Legends: Bang Bang™ Shanghai Moonton Technology Co., Ltd.",
     "version": "Version {v}",
     "contribute": "Contribute",
-    "intro": "Mobile Legends: Bang Bang heroes, builds and counters by rank, a tier list calculated from ranked win rates, items, emblems and patch notes, in English, French, Italian, Spanish and Indonesian. An independent project, open to contributions.",
+    "intro": "Mobile Legends: Bang Bang heroes, builds and counters by rank, a tier list computed from ranked win rates, items, emblems and patch notes, in nine languages. An independent project, open to contributions.",
     "sources": "Texts from the Mobile Legends wiki (Fandom) and Liquipedia, under the CC BY-SA licence, with attribution to their contributors. Images and the names of heroes, skins and items are © Moonton, and for collaboration skins © their respective rights holders: they are not covered by that licence. Win, ban and pick rates, counters and most played builds come from the game's ranked match statistics, through the arena.rone.dev community API.",
     "discord": "Join the Discord",
     "columns": {
@@ -830,7 +830,7 @@
       "linkCopied": "Link copied.",
       "copyFailed": "I couldn't copy it: copy the page address instead.",
       "intro": "Add at least one hero on each side to show the matrix. The page address keeps your picks and the rank: just share it.",
-      "loading": "Loading the rank's duels…",
+      "loading": "Lining up the rank's duels…",
       "error": "I couldn't load this rank's duels. Try again, or switch ranks.",
       "matrixTitle": "Duels · {rank}",
       "measured": "Measured duels: {n} of {total}.",
@@ -1816,7 +1816,7 @@
       "mode": "Mode",
       "dailyMode": "Daily challenge",
       "practiceMode": "Practice",
-      "loading": "Loading…",
+      "loading": "Setting up the game…",
       "loadError": "I can't load the quiz. Check your connection: once you've visited the page, it plays offline too.",
       "retry": "Try again",
       "puzzleNumber": "Challenge #{n} · {date}",
@@ -1888,7 +1888,7 @@
       "initial": "“{letter}”, {n} letters",
       "heroField": "Type a hero name…",
       "itemField": "Type an item name…",
-      "noResult": "No match.",
+      "noResult": "No hero by that name.",
       "browse": "Browse heroes",
       "skip": "Skip",
       "yourTries": "Your guesses",
@@ -2119,8 +2119,8 @@
       "allHeroes": "All",
       "all": "All",
       "clear": "Clear filters",
-      "loading": "Loading skins…",
-      "error": "The skin list could not be loaded. Check your connection and try again.",
+      "loading": "Unfolding the skin calendar…",
+      "error": "The calendar didn't load. Check your connection, then try again.",
       "result": "1 skin matches.",
       "results": "{n} skins match.",
       "nSkins": "{n} skins",
@@ -2141,7 +2141,7 @@
       "accountValueLink": "Estimate an account's value"
     },
     "collectionUI": {
-      "loading": "Loading heroes and skins…",
+      "loading": "Getting the heroes and their skins out…",
       "error": "I can't load the skin list. Check your connection, then reload the page.",
       "valueTitle": "Shop value of your collection",
       "heroes": "Heroes",
@@ -2531,7 +2531,7 @@
         "practice": "Practice"
       },
       "solved": "solved",
-      "loading": "Loading…",
+      "loading": "Setting up today's challenge…",
       "loadError": "I can't load today's puzzle. Check your connection, then try again.",
       "retry": "Try again",
       "unavailable": "This mode isn't available today. Try the other one!",
@@ -3531,7 +3531,7 @@
       "resultFor": "{hero}, level {level}. Tap a stat to see its breakdown.",
       "pickHeroFirst": "Choose a hero to see the computed stats.",
       "measuredTitle": "Compared with measured builds",
-      "measuredLoading": "Loading measured builds…",
+      "measuredLoading": "Comparing with the measured builds…",
       "measuredNeedItems": "Add items to compare them with builds actually played.",
       "measuredNone": "At this rank, no measured build shares at least two items with yours.",
       "measuredSame": "Same core as a measured build",
@@ -3593,7 +3593,7 @@
       "lead": "Builds put together in the simulator and published by players, with their computed stats. Vote for the ones that convince you: the most supported rise to the top.",
       "createCta": "Create a build",
       "unavailable": "Community builds are temporarily unavailable. Try again in a few minutes.",
-      "emptyStore": "No build published yet. Put yours together in the simulator and be the first.",
+      "emptyStore": "No build published yet. Put yours together in the simulator: first place is free.",
       "weekTitle": "Most voted this week",
       "weekEmpty": "No votes in the last seven days.",
       "latestTitle": "Latest builds",
@@ -4900,8 +4900,8 @@
       "discordTitle": "On Discord",
       "discordText": "Over there, Dex goes by Dex MLBB: the bot that answers /hero, /build or /tierlist with the same figures as the site. He is also the icon of the community server.",
       "botLink": "Discover the Dex MLBB bot",
-      "posesTitle": "His six poses",
-      "posesLead": "A pose for every moment of your visit. Hover over them, click on them: they are alive.",
+      "posesTitle": "His twelve poses",
+      "posesLead": "A pose for every moment of your visit. Click them, or leave them alone for a while: they are alive.",
       "poses": {
         "salut": {
           "name": "Hello",
@@ -4926,6 +4926,30 @@
         "carte": {
           "name": "Map",
           "text": "In the guides, on the map and for strategy."
+        },
+        "joie": {
+          "name": "Joy",
+          "text": "When good news lands: a buff, a hero on form."
+        },
+        "bravo": {
+          "name": "Bravo",
+          "text": "To applaud a won game or a well-thought-out build."
+        },
+        "saut": {
+          "name": "Jump",
+          "text": "When it's party time: a new patch, a new hero."
+        },
+        "pointe": {
+          "name": "Look",
+          "text": "To show you what you shouldn't miss."
+        },
+        "triste": {
+          "name": "Let down",
+          "text": "After a nerf, a loss or a search with no result."
+        },
+        "dodo": {
+          "name": "Nap",
+          "text": "If you stop moving for a while, he falls asleep. Move and he wakes with a start."
         }
       },
       "kitLink": "His poses as PNG are in the brand kit",
@@ -4995,6 +5019,69 @@
         "logo": "Download logo: horizontal (SVG)",
         "stacked": "Download logo: stacked (SVG)"
       }
+    },
+    "patchRecap": {
+      "seoTitle": "Patch {v} recap: winners, losers and surprises",
+      "description": "What patch {v} really changed: {n} heroes measured over the {days} days before and after its release, the biggest winners, the losers and the surprises.",
+      "descriptionNone": "Mobile Legends patch {v} recap: win rates before and after its release, as soon as the measurements allow.",
+      "share": "Patch {v} recap: who won, who lost, and the surprises.",
+      "crumb": "Recap",
+      "kicker": "Patch recap",
+      "lead": "What the patch really did to win rates: the average of the {days} days before its release against the {days} days after, hero by hero.",
+      "back": "Read the patch notes",
+      "link": "See the patch recap",
+      "linkVersion": "Patch {v} recap",
+      "linkLead": "Winners, losers and surprises: the patch measured on win rates.",
+      "facts": {
+        "adjusted": "{n} heroes changed",
+        "measured": "{n} heroes measured",
+        "date": "Released on {date}"
+      },
+      "young": "The patch is still recent: some heroes have fewer than {days} days measured since its release. The recap may still move.",
+      "sample": {
+        "noneSoon": "No measurement yet: it takes at least four days of readings after the patch's release. The recap will write itself in a few days.",
+        "noneOld": "No measurement for this patch: our daily readings don't cover the {days} days around it. The patch notes can still be read in full.",
+        "small": "Small sample: only {n} heroes have readings on both sides of the patch. Read this recap as a trend, not a verdict."
+      },
+      "chapter": "Chapter {n}",
+      "winners": {
+        "title": "The big winners",
+        "lead": "The largest win rate rises, beyond measurement noise.",
+        "empty": "No measured hero gained {threshold} points or more: nobody really comes out of this patch stronger."
+      },
+      "losers": {
+        "title": "The big losers",
+        "lead": "The largest win rate drops, beyond measurement noise.",
+        "empty": "No measured hero lost {threshold} points or more: the patch punished nobody."
+      },
+      "surprises": {
+        "title": "The surprises",
+        "lead": "A buff that loses, a nerf that wins: where the patch didn't do what it announced.",
+        "empty": "No surprise: every measured buff and nerf pushed the announced way, or changed nothing.",
+        "flatTitle": "Nothing moved",
+        "flatLead": "Changed, but their win rate stayed within the noise (less than {threshold} points apart)."
+      },
+      "impact": "{before} → {after}",
+      "averages": "On average, measured buffs did {buff} and nerfs {nerf}, in win rate points.",
+      "averagesBuff": "On average, measured buffs did {buff}, in win rate points.",
+      "averagesNerf": "On average, measured nerfs did {nerf}, in win rate points.",
+      "dex": {
+        "intro": "I've summed up patch {v} for you in three chapters. The numbers talk, I comment.",
+        "small": "Few heroes measured this time: take these numbers with a grain of salt.",
+        "noneSoon": "My readings don't have enough hindsight on this patch yet. Come back in a few days!",
+        "noneOld": "This patch is older than my daily readings: I can't measure it.",
+        "winners": "{hero} takes off: {gap} {unit} in a week. If you play them, now's the time.",
+        "winnersEmpty": "Nobody really takes off. A quiet patch for winners.",
+        "losers": "{hero} drops {gap} {unit}. If that's your main, check their current builds.",
+        "losersEmpty": "No clear drop: good news for your mains.",
+        "surpriseBuff": "{hero} got a buff… and their win rate went down. A patch doesn't always do what it says!",
+        "surpriseNerf": "{hero} got nerfed… and wins more than before. Numbers are stubborn.",
+        "surprisesEmpty": "No surprise this time: the patch did what it announced.",
+        "outro": "The next patch will shuffle the cards again. I'll keep you posted!"
+      },
+      "method": "How it's measured",
+      "methodText": "For each changed hero: their average win rate, all ranks combined, over the {days} days before the patch's release and the {days} days after, the release day excluded. At least four measured days are needed on each side. A gap under {threshold} points counts as noise. A rate that moves doesn't say why: the meta, other heroes and players change too.",
+      "notes": "Want the detail of every change?"
     }
   },
   "modeSheet": {
@@ -5171,11 +5258,23 @@
       "noFall": "No hero is clearly falling this week.",
       "open": "Show the {n} heroes on the move"
     },
-    "syncLead": "Last synced on {date}."
+    "syncLead": "Last synced on {date}.",
+    "figures": {
+      "title": "MLBBDex in numbers",
+      "heroes": "heroes",
+      "changed": "changed this patch",
+      "splus": "in S+ tier",
+      "items": "items"
+    },
+    "stage": {
+      "dexPatch": "Patch {version} is live: {n} heroes changed. Top of the meta: {hero}.",
+      "dexPatchAlone": "Patch {version} is live: {n} heroes changed.",
+      "dexCta": "See what changed"
+    }
   },
   "featured": {
-    "heroOfTheDay": "Hero of the day",
-    "seeSheet": "View profile"
+    "seeSheet": "View profile",
+    "topMeta": "No. 1 in the meta"
   },
   "access": {
     "account": "{n} heroes"
@@ -6015,8 +6114,8 @@
     }
   },
   "error": {
-    "title": "Something went wrong",
-    "text": "The site ran into an unexpected problem. Try again in a moment.",
+    "title": "Something jammed",
+    "text": "The site tripped on this page. Another try usually does it.",
     "retry": "Try again",
     "oops": "Oops",
     "pageText": "This page failed to load. You can try again or go back to the home page.",
@@ -6072,8 +6171,8 @@
   "search": {
     "open": "Search",
     "placeholder": "A hero, an item, a patch…",
-    "none": "No results.",
-    "loading": "Loading…",
+    "none": "Nothing by that name.",
+    "loading": "Searching…",
     "help": "↑ ↓ to browse, Enter to open, Esc to close",
     "groups": {
       "hero": "Heroes",
@@ -6085,7 +6184,7 @@
       "emblem": "Emblems",
       "spell": "Battle spells"
     },
-    "dexEmpty": "Hmm, I can't find anything. Try a different name, or fewer letters."
+    "dexEmpty": "Hmm, nothing here. Try another name, or fewer letters."
   },
   "heroData": {
     "resource": {
@@ -6474,7 +6573,7 @@
     "default1": "Ctrl + K opens the search: a hero, an item, an appearance, the entire site.",
     "default2": "The figures are recorded every day on ranked games.",
     "default3": "You can change the language at the top right, I speak nine languages.",
-    "home1": "The hero of the day changes every day. Come back tomorrow!",
+    "home1": "On the poster: the tier list's number one. It changes when the meta moves.",
     "home2": "The tier list is recalculated at each rate reading.",
     "home3": "Want to play? MLBBdle and the quiz await you every day.",
     "heroes1": "Filter by role or lane to find your next hand.",
@@ -6483,6 +6582,8 @@
     "hero1": "Changes rank at the top of the sheet: rates, counters and builds follow.",
     "hero2": "The Counters tab shows his worst and best duels.",
     "hero3": "Add it as a favorite to be notified of each patch.",
+    "heroTop": "{name} is {tier} tier right now: a great time to take it into ranked!",
+    "heroLow": "{name} is C tier right now… Check the counters before you start a game.",
     "tierList1": "The tier combines the win rate and a quarter of the ban rate.",
     "tierList2": "Filter by rank: the meta of Epic is not that of Mythic Glory.",
     "tierList3": "A hero who is played too little is not ranked, the measurement would be unstable.",
@@ -6629,6 +6730,64 @@
     "languages": {
       "title": "{n} languages",
       "text": "Written in French and machine-translated into {others} other languages. What is translated, and how, is detailed on the sources page."
+    }
+  },
+  "shareImage": {
+    "button": "Share as image",
+    "preparing": "Preparing the image…",
+    "shared": "Image shared.",
+    "saved": "Image saved.",
+    "savedCopied": "Image saved, link copied.",
+    "error": "Couldn't create the image. Try again in a moment.",
+    "landscape": "Link format (1200 × 630)",
+    "hint": "1080 × 1350 image, ready for a story or a post."
+  },
+  "shareCard": {
+    "build": {
+      "kicker": "Build · {roles}",
+      "title": "{hero} build",
+      "level": "Level {n}",
+      "dex": "This build is ready: open it in the simulator to see its stats."
+    },
+    "draft": {
+      "kicker": "Draft · {rank}",
+      "title": "My draft",
+      "blue": "Blue team",
+      "red": "Red team",
+      "estimate": "estimated chances",
+      "dexBlue": "Blue has the edge on paper. Now go play it!",
+      "dexRed": "Red starts ahead. A draft is also won in game.",
+      "dexEven": "A tight draft: it will all come down to the game.",
+      "dexNone": "Replay this draft on MLBBDex and compare your picks."
+    },
+    "tierList": {
+      "kicker": "Patch {v} · {month}",
+      "dex": "Tiers are recalculated every time the rates are measured."
+    },
+    "mlbbdle": {
+      "kicker": "Daily game · {mode}",
+      "title": "MLBBdle #{n}",
+      "found": {
+        "one": "Found on the first try",
+        "other": "Found in {n} guesses"
+      },
+      "more": "+{n} guesses not shown",
+      "streak": "days in a row",
+      "guesses": {
+        "one": "guess",
+        "other": "guesses"
+      },
+      "dexPerfect": "First try? I didn't see that coming!",
+      "dexGood": "Well played! Tomorrow's hero is waiting for you.",
+      "dexLong": "That one was a tough find. Well done!"
+    },
+    "recap": {
+      "winners": "Winners",
+      "losers": "Losers",
+      "none": "Not enough measurements yet to assess this patch.",
+      "small": "Small sample: {n} heroes measured.",
+      "measured": "heroes measured",
+      "dex": "Here's what the patch really changed, numbers in hand."
     }
   }
 }

@@ -290,7 +290,7 @@
     "brand": "Mobile Legends: Bang Bang™ Shanghai Moonton Technology Co., Ltd.",
     "version": "Versi {v}",
     "contribute": "Berkontribusi",
-    "intro": "Hero, build, dan counter Mobile Legends: Bang Bang berdasarkan rank, tier list yang dihitung dari win rate ranked, item, emblem, dan patch notes, dalam bahasa Inggris, Prancis, Italia, Spanyol, dan Indonesia. Proyek independen yang terbuka untuk kontribusi.",
+    "intro": "Hero, build, dan counter Mobile Legends: Bang Bang berdasarkan rank, tier list yang dihitung dari win rate ranked, item, emblem, dan patch notes, dalam sembilan bahasa. Proyek independen yang terbuka untuk kontribusi.",
     "sources": "Teks diambil dari wiki Mobile Legends (Fandom) dan Liquipedia, di bawah lisensi CC BY-SA, dengan atribusi kepada kontributornya. Gambar, nama hero, skin dan item © Moonton, dan untuk skin kolaborasi © pemegang haknya masing-masing: semuanya tidak termasuk dalam lisensi ini. Win rate, ban dan pengambilan, counter, dan build yang paling banyak dimainkan berasal dari statistik permainan berperingkat, melalui API komunitas arena.rone.dev.",
     "discord": "Bergabunglah dengan Perselisihan",
     "columns": {
@@ -830,7 +830,7 @@
       "linkCopied": "Tautan disalin.",
       "copyFailed": "Saya tidak dapat menyalin: salin alamat halamannya.",
       "intro": "Tambahkan setidaknya satu hero ke setiap sisi untuk menampilkan matriks. Alamat halaman menyimpan pilihan dan peringkat Anda: bagikan saja.",
-      "loading": "Memuat duel peringkat...",
+      "loading": "Menyiapkan duel rank ini…",
       "error": "Saya tidak dapat memuat duel dengan peringkat ini. Coba lagi, atau ubah peringkat.",
       "matrixTitle": "Duel · {rank}",
       "measured": "Duel diukur: {n} dari {total}.",
@@ -1816,7 +1816,7 @@
       "mode": "Mode",
       "dailyMode": "Tantangan hari ini",
       "practiceMode": "Pelatihan",
-      "loading": "Memuat…",
+      "loading": "Menyiapkan permainan…",
       "loadError": "Saya tidak dapat memuat kuis. Periksa koneksi Anda: setelah Anda mengunjungi halaman tersebut, halaman tersebut juga dapat diputar secara offline.",
       "retry": "Coba lagi",
       "puzzleNumber": "Tantangan No. {n} · {date}",
@@ -1888,7 +1888,7 @@
       "initial": "“{letter}”, {n} huruf",
       "heroField": "Nama seorang hero...",
       "itemField": "Nama suatu item…",
-      "noResult": "Tidak ada hasil.",
+      "noResult": "Tidak ada hero dengan nama itu.",
       "browse": "Telusuri Hero",
       "skip": "Lulus",
       "yourTries": "Tes Anda",
@@ -2119,8 +2119,8 @@
       "allHeroes": "Semua",
       "all": "Semua",
       "clear": "Hapus filter",
-      "loading": "Memuat skin…",
-      "error": "Gagal memuat daftar skin. Periksa koneksi Anda dan coba lagi.",
+      "loading": "Membuka kalender skin…",
+      "error": "Kalender gagal dimuat. Periksa koneksi Anda, lalu coba lagi.",
       "result": "1 pertandingan skin.",
       "results": "{n} skin cocok.",
       "nSkins": "{n} skin",
@@ -2141,7 +2141,7 @@
       "accountValueLink": "Estimasi nilai akun"
     },
     "collectionUI": {
-      "loading": "Memuat hero dan skin…",
+      "loading": "Menyiapkan hero dan skin mereka…",
       "error": "Saya tidak dapat memuat daftar penampilan. Periksa koneksi Anda, lalu muat ulang halaman.",
       "valueTitle": "Nilai butik koleksi Anda",
       "heroes": "Hero",
@@ -2531,7 +2531,7 @@
         "practice": "Pelatihan"
       },
       "solved": "terselesaikan",
-      "loading": "Memuat…",
+      "loading": "Menyiapkan tantangan hari ini…",
       "loadError": "Saya tidak dapat memuat tantangan hari ini. Periksa koneksi Anda, lalu coba lagi.",
       "retry": "Coba lagi",
       "unavailable": "Mode ini tidak tersedia saat ini. Coba yang lain!",
@@ -3531,7 +3531,7 @@
       "resultFor": "{hero}, tingkat {level}. Ketuk statistik untuk melihat detailnya.",
       "pickHeroFirst": "Pilih hero untuk melihat statistiknya dihitung.",
       "measuredTitle": "Dibandingkan dengan build terukur",
-      "measuredLoading": "Memuat build terukur…",
+      "measuredLoading": "Membandingkan dengan build terukur…",
       "measuredNeedItems": "Tambahkan item untuk dibandingkan dengan build sebenarnya yang dimainkan.",
       "measuredNone": "Pada peringkat ini, tidak ada build terukur yang berbagi setidaknya dua item dengan milik Anda.",
       "measuredSame": "Inti yang sama dengan build terukur",
@@ -3593,7 +3593,7 @@
       "lead": "Build disusun dalam simulator dan diterbitkan oleh pemain, dengan statistik yang dihitung. Pilih mereka yang meyakinkan Anda: gerakan naik yang paling didukung.",
       "createCta": "Buatlah sebuah build",
       "unavailable": "Build komunitas untuk sementara tidak tersedia. Coba lagi dalam beberapa menit.",
-      "emptyStore": "Belum ada build yang dirilis. Hubungi milik Anda di simulator dan jadilah yang pertama.",
+      "emptyStore": "Belum ada build yang dipublikasikan. Susun milikmu di simulator: posisi pertama masih kosong.",
       "weekTitle": "Suara terbanyak minggu ini",
       "weekEmpty": "Tidak ada suara dalam tujuh hari terakhir.",
       "latestTitle": "Versi terbaru dirilis",
@@ -4900,8 +4900,8 @@
       "discordTitle": "Tentang Perselisihan",
       "discordText": "Di sana, Dex disebut Dex MLBB: bot yang merespons /hero, /build, atau /tierlist dengan nomor yang sama dengan situs. Dia juga merupakan ikon server komunitas.",
       "botLink": "Temukan bot Dex MLBB",
-      "posesTitle": "Enam posenya",
-      "posesLead": "Sebuah pose untuk setiap momen kunjungan Anda. Arahkan kursor ke atasnya, klik: mereka hidup.",
+      "posesTitle": "Dua belas posenya",
+      "posesLead": "Sebuah pose untuk setiap momen kunjungan Anda. Klik pada mereka, biarkan sejenak: mereka hidup.",
       "poses": {
         "salut": {
           "name": "Hai",
@@ -4926,6 +4926,30 @@
         "carte": {
           "name": "Peta",
           "text": "Dalam panduan, di peta, dan untuk strategi."
+        },
+        "joie": {
+          "name": "Sukacita",
+          "text": "Ketika kabar baik jatuh: buff, hero dalam kondisi baik."
+        },
+        "bravo": {
+          "name": "Bagus sekali",
+          "text": "Untuk memuji permainan yang dimenangkan atau pembangunan yang dipikirkan dengan matang."
+        },
+        "saut": {
+          "name": "Melompat",
+          "text": "Saat waktunya berpesta: patch baru, hero baru."
+        },
+        "pointe": {
+          "name": "Lihat",
+          "text": "Untuk menunjukkan kepada Anda apa yang tidak boleh dilewatkan."
+        },
+        "triste": {
+          "name": "Kecewa",
+          "text": "Setelah nerf, kekalahan atau pencarian tanpa hasil."
+        },
+        "dodo": {
+          "name": "Tidur sebentar",
+          "text": "Jika Anda tidak bergerak untuk beberapa saat, dia akan tertidur. Bergerak dan dia bangun dengan kaget."
         }
       },
       "kitLink": "Pose PNG-nya ada di kit merek",
@@ -4995,6 +5019,69 @@
         "logo": "Unduh logo: horisontal (SVG)",
         "stacked": "Unduh logo: bertumpuk (SVG)"
       }
+    },
+    "patchRecap": {
+      "seoTitle": "Ulasan patch {v}: pemenang, pecundang, dan kejutan",
+      "description": "Patch {v} apa yang benar-benar berubah: {n} hero diukur selama {days} hari sebelum dan sesudah rilis, pemenang, pecundang, dan kejutan terbesar.",
+      "descriptionNone": "Ulasan patch Mobile Legends {v}: win rate sebelum dan sesudah dirilis, segera setelah pembacaan memungkinkan.",
+      "share": "Hasil patch {v}: siapa yang menang, siapa yang kalah, dan kejutannya.",
+      "crumb": "Rekor",
+      "kicker": "Ulasan patch",
+      "lead": "Apa yang sebenarnya dilakukan patch untuk memenangkan tingkat: rata-rata {days} hari sebelum rilis versus {days} hari setelahnya, hero demi hero.",
+      "back": "Baca patch notes",
+      "link": "Lihat laporan patch",
+      "linkVersion": "Tinjauan patch {v}",
+      "linkLead": "Pemenang, pecundang, dan kejutan: patch diukur berdasarkan win rate.",
+      "facts": {
+        "adjusted": "{n} hero yang dimodifikasi",
+        "measured": "{n} hero diukur",
+        "date": "Dirilis pada {date}"
+      },
+      "young": "Patch ini masih baru: beberapa hero memiliki waktu kurang dari {days} hari sejak dirilis. Neraca masih bisa berubah.",
+      "sample": {
+        "noneSoon": "Belum ada pengukuran: setidaknya diperlukan empat hari pembacaan setelah patch dirilis. Hasilnya akan terlihat sendiri dalam beberapa hari.",
+        "noneOld": "Tidak ada pengukuran untuk patch ini: pembacaan harian kami tidak mencakup {days} hari di sekitarnya. Patch notes tetap dapat dibaca secara penuh.",
+        "small": "Sampel yang dikurangi: hanya hero {n} yang memiliki pembacaan di kedua sisi patch. Baca ulasan ini sebagai tren, bukan putusan."
+      },
+      "chapter": "Bab {n}",
+      "winners": {
+        "title": "Pemenang besar",
+        "lead": "Peningkatan terbesar dalam win rate, di luar kebisingan pengukuran.",
+        "empty": "Tidak ada hero terukur yang memperoleh {threshold} poin atau lebih: tidak ada yang benar-benar keluar dari patch ini dengan lebih baik."
+      },
+      "losers": {
+        "title": "Para pecundang besar",
+        "lead": "Penurunan terbesar dalam win rate, melebihi kebisingan pengukuran.",
+        "empty": "Tidak ada hero terukur yang kehilangan {threshold} poin atau lebih: patch tidak menghukum siapa pun."
+      },
+      "surprises": {
+        "title": "Kejutannya",
+        "lead": "Buff yang membuat Anda kalah, nerf yang membuat Anda menang: dimana patch tidak melakukan apa yang diumumkan.",
+        "empty": "Tidak mengherankan: setiap buff dan nerf yang diukur mendorong ke arah yang diumumkan, atau tidak mengubah apa pun.",
+        "flatTitle": "Tidak ada yang bergerak",
+        "flatLead": "Dimodifikasi, tetapi win rate mereka tetap tidak berubah (selisih kurang dari {threshold} poin)."
+      },
+      "impact": "{before} → {after}",
+      "averages": "Rata-rata, buff terukur mendapat skor {buff} dan nerf {nerf}, dalam poin win rate.",
+      "averagesBuff": "Rata-rata, buff terukur menghasilkan {buff}, dalam poin win rate.",
+      "averagesNerf": "Rata-rata, nerf terukur menghasilkan {nerf}, dalam poin win rate.",
+      "dex": {
+        "intro": "Saya merangkum patch {v} untuk Anda dalam tiga bab. Angka-angka itu berbicara, saya berkomentar.",
+        "small": "Beberapa hero mengukur kali ini: ambillah angka-angka ini dengan sedikit garam.",
+        "noneSoon": "Pembacaan saya belum memiliki cukup perspektif tentang patch ini. Kembalilah dalam beberapa hari!",
+        "noneOld": "Patch ini lebih tua dari pembacaan harian saya: Saya tidak dapat mengukurnya.",
+        "winners": "{hero} terbang menjauh: {gap} {unit} dalam seminggu. Jika Anda memainkannya, sekaranglah waktunya.",
+        "winnersEmpty": "Tidak ada yang benar-benar lepas landas. Masa tenang bagi para pemenang.",
+        "losers": "{hero} mundur {gap} {unit}. Jika ini adalah tangan Anda, lihatlah buildnya saat ini.",
+        "losersEmpty": "Tidak jelas kejatuhannya: kabar baik untuk tangan Anda.",
+        "surpriseBuff": "{hero} menerima buff… dan nilainya turun. Sebuah patch tidak selalu sesuai dengan apa yang dikatakannya!",
+        "surpriseNerf": "{hero} telah di-nerf... dan memperoleh keuntungan lebih dari sebelumnya. Jumlahnya keras kepala.",
+        "surprisesEmpty": "Tidak mengherankan kali ini: patch tersebut melakukan apa yang dikatakannya.",
+        "outro": "Patch berikutnya akan merombak kartu. Saya akan terus memberi tahu Anda!"
+      },
+      "method": "Bagaimana cara mengukurnya",
+      "methodText": "Untuk setiap hero yang dimodifikasi: rata-rata win ratenya, semua peringkat digabungkan, selama {days} hari sebelum rilis patch dan selama {days} hari setelahnya, tidak termasuk hari yang sama. Dibutuhkan setidaknya empat hari diukur di setiap sisi. Penyimpangan kurang dari {threshold} poin dianggap kebisingan. Nilai yang berubah tidak menjelaskan alasannya: meta, hero lain, dan pemain juga berubah.",
+      "notes": "Ingin detail setiap perubahan?"
     }
   },
   "modeSheet": {
@@ -5171,11 +5258,23 @@
       "noFall": "Tidak ada hero yang mengambil langkah mundur minggu ini.",
       "open": "Tampilkan {n} hero yang sedang bergerak"
     },
-    "syncLead": "Sinkronisasi terakhir pada {date}."
+    "syncLead": "Sinkronisasi terakhir pada {date}.",
+    "figures": {
+      "title": "MLBBDex dalam angka",
+      "heroes": "hero",
+      "changed": "diubah di patch ini",
+      "splus": "di tier S+",
+      "items": "item"
+    },
+    "stage": {
+      "dexPatch": "Patch {version} sudah live: {n} hero diubah. Puncak meta: {hero}.",
+      "dexPatchAlone": "Patch {version} sudah live: {n} hero diubah.",
+      "dexCta": "Lihat perubahannya"
+    }
   },
   "featured": {
-    "heroOfTheDay": "Hero hari ini",
-    "seeSheet": "Lihat filenya"
+    "seeSheet": "Lihat filenya",
+    "topMeta": "#1 di meta"
   },
   "access": {
     "account": "{n} hero"
@@ -6015,8 +6114,8 @@
     }
   },
   "error": {
-    "title": "Telah terjadi kesalahan",
-    "text": "Situs mengalami masalah yang tidak terduga. Coba lagi sebentar lagi.",
+    "title": "Ada yang macet",
+    "text": "Situs tersandung di halaman ini. Biasanya cukup dicoba sekali lagi.",
     "retry": "Coba lagi",
     "oops": "Ups",
     "pageText": "Halaman ini gagal dimuat. Anda dapat mencoba lagi atau kembali ke halaman beranda.",
@@ -6072,8 +6171,8 @@
   "search": {
     "open": "Cari",
     "placeholder": "Hero, item, patch…",
-    "none": "Tidak ada hasil.",
-    "loading": "Memuat…",
+    "none": "Tidak ada dengan nama itu.",
+    "loading": "Mencari…",
     "help": "↑ ↓ untuk menelusuri, Enter untuk membuka, Escape untuk menutup",
     "groups": {
       "hero": "Hero",
@@ -6085,7 +6184,7 @@
       "emblem": "emblem",
       "spell": "Battle Spell"
     },
-    "dexEmpty": "Hmm, saya tidak dapat menemukan apa pun. Coba nama lain, atau lebih sedikit huruf."
+    "dexEmpty": "Hmm, aku tidak menemukan apa pun. Coba nama lain, atau lebih sedikit huruf."
   },
   "heroData": {
     "resource": {
@@ -6474,7 +6573,7 @@
     "default1": "Ctrl + K membuka pencarian: hero, item, penampilan, keseluruhan situs.",
     "default2": "Angka tersebut dicatat setiap hari pada game berperingkat.",
     "default3": "Anda dapat mengubah bahasa di kanan atas, saya berbicara sembilan bahasa.",
-    "home1": "Hero hari ini berubah setiap hari. Kembalilah besok!",
+    "home1": "Di poster: hero nomor 1 tier list. Berubah setiap kali meta bergeser.",
     "home2": "Tier list dihitung ulang pada setiap pembacaan tarif.",
     "home3": "Ingin bermain? MLBBdle dan kuis menanti Anda setiap hari.",
     "heroes1": "Filter berdasarkan peran atau lane untuk menemukan peran Anda selanjutnya.",
@@ -6483,6 +6582,8 @@
     "hero1": "Perubahan peringkat di bagian atas lembar: tarif, counter, dan build mengikuti.",
     "hero2": "Tab Counters menunjukkan duel terburuk dan terbaiknya.",
     "hero3": "Tambahkan sebagai favorit untuk diberitahu tentang setiap patch.",
+    "heroTop": "{name} sedang di tier {tier}: saatnya memakainya di ranked!",
+    "heroLow": "{name} sedang di tier C… Lihat dulu counternya sebelum mulai bermain.",
     "tierList1": "Tingkat tersebut menggabungkan win rate dan seperempat ban rate.",
     "tierList2": "Filter berdasarkan peringkat: meta Epic bukanlah meta Mythic Glory.",
     "tierList3": "Hero yang dimainkan terlalu sedikit tidak di-ranking, maka pengukurannya akan tidak stabil.",
@@ -6629,6 +6730,64 @@
     "languages": {
       "title": "{n} bahasa",
       "text": "Ditulis dalam bahasa Prancis dan otomatis diterjemahkan ke {others} bahasa lain. Apa yang diterjemahkan, dan bagaimana caranya, dirinci di halaman sumber."
+    }
+  },
+  "shareImage": {
+    "button": "Bagikan dalam gambar",
+    "preparing": "Mempersiapkan gambar…",
+    "shared": "Gambar dibagikan.",
+    "saved": "Gambar disimpan.",
+    "savedCopied": "Gambar disimpan, tautan disalin.",
+    "error": "Tidak dapat membuat gambar. Coba lagi sebentar lagi.",
+    "landscape": "Format tautan (1200 × 630)",
+    "hint": "Gambar 1080 × 1350, siap untuk cerita atau postingan."
+  },
+  "shareCard": {
+    "build": {
+      "kicker": "Bangun · {roles}",
+      "title": "Bangun {hero}",
+      "level": "Level {n}",
+      "dex": "Build ini sudah siap: buka di simulator untuk melihat statistiknya."
+    },
+    "draft": {
+      "kicker": "Draft · {rank}",
+      "title": "Draft saya",
+      "blue": "Tim Biru",
+      "red": "Tim Merah",
+      "estimate": "perkiraan peluang",
+      "dexBlue": "Keuntungan dari musik blues di atas kertas. Mainkan saja!",
+      "dexRed": "Warna merah dimulai dari depan. Draft juga dimenangkan dalam permainan.",
+      "dexEven": "Draft yang ketat: semuanya akan diputuskan sebagian.",
+      "dexNone": "Putar ulang draft ini di MLBBDex dan bandingkan pilihan Anda."
+    },
+    "tierList": {
+      "kicker": "Patch {v} · {month}",
+      "dex": "Level dihitung ulang pada setiap pembacaan tarif."
+    },
+    "mlbbdle": {
+      "kicker": "Pertandingan hari ini · {mode}",
+      "title": "MLBBdle # {n}",
+      "found": {
+        "one": "Ditemukan pada percobaan pertama",
+        "other": "Ditemukan dalam uji coba {n}"
+      },
+      "more": "+{n} tes tidak ditampilkan",
+      "streak": "hari berturut-turut",
+      "guesses": {
+        "one": "karangan",
+        "other": "tes"
+      },
+      "dexPerfect": "Pada percobaan pertama? Saya tidak menyangka ini akan terjadi!",
+      "dexGood": "Bagus sekali! Hero masa depan sedang menunggumu.",
+      "dexLong": "Kami harus menemukan yang itu. Bagus sekali !"
+    },
+    "recap": {
+      "winners": "Pemenang",
+      "losers": "Pecundang",
+      "none": "Pembacaan belum cukup untuk mengukur patch ini.",
+      "small": "Sampel yang dikurangi: {n} hero diukur.",
+      "measured": "hero terukur",
+      "dex": "Inilah yang benar-benar diubah oleh patch tersebut, dengan angka-angka yang mendukungnya."
     }
   }
 }

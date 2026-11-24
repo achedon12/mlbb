@@ -4013,8 +4013,8 @@
       "text": "Released on {date}"
     },
     "pages.quizUI.noResult": {
-      "fr": "Aucun résultat.",
-      "text": "No match."
+      "fr": "Aucun héros sous ce nom.",
+      "text": "No hero by that name."
     },
     "pages.quizUI.record": {
       "fr": "Record",
@@ -6347,6 +6347,522 @@
     "footer.methodology": {
       "fr": "Méthode et sources",
       "text": "Methodology and sources"
+    },
+    "dex.heroTop": {
+      "fr": "{name} est en palier {tier} en ce moment : c'est le moment d'en profiter en classé !",
+      "text": "{name} is {tier} tier right now: a great time to take it into ranked!"
+    },
+    "dex.heroLow": {
+      "fr": "{name} est en palier C en ce moment… Jette un œil à ses contres avant de lancer une partie.",
+      "text": "{name} is C tier right now… Check the counters before you start a game."
+    },
+    "pages.dexPage.posesTitle": {
+      "fr": "Ses douze poses",
+      "text": "His twelve poses"
+    },
+    "pages.dexPage.posesLead": {
+      "fr": "Une pose pour chaque moment de ta visite. Clique dessus, laisse-les tranquilles un moment : elles sont vivantes.",
+      "text": "A pose for every moment of your visit. Click them, or leave them alone for a while: they are alive."
+    },
+    "pages.dexPage.poses.joie.name": {
+      "fr": "Joie",
+      "text": "Joy"
+    },
+    "pages.dexPage.poses.joie.text": {
+      "fr": "Quand une bonne nouvelle tombe : un buff, un héros en forme.",
+      "text": "When good news lands: a buff, a hero on form."
+    },
+    "pages.dexPage.poses.bravo.name": {
+      "fr": "Bravo",
+      "text": "Bravo"
+    },
+    "pages.dexPage.poses.bravo.text": {
+      "fr": "Pour applaudir une partie gagnée ou un build bien pensé.",
+      "text": "To applaud a won game or a well-thought-out build."
+    },
+    "pages.dexPage.poses.saut.name": {
+      "fr": "Saut",
+      "text": "Jump"
+    },
+    "pages.dexPage.poses.saut.text": {
+      "fr": "Quand c'est la fête : nouveau patch, nouveau héros.",
+      "text": "When it's party time: a new patch, a new hero."
+    },
+    "pages.dexPage.poses.pointe.name": {
+      "fr": "Regarde",
+      "text": "Look"
+    },
+    "pages.dexPage.poses.pointe.text": {
+      "fr": "Pour te montrer ce qu'il ne faut pas rater.",
+      "text": "To show you what you shouldn't miss."
+    },
+    "pages.dexPage.poses.triste.name": {
+      "fr": "Déçu",
+      "text": "Let down"
+    },
+    "pages.dexPage.poses.triste.text": {
+      "fr": "Après un nerf, une défaite ou une recherche sans résultat.",
+      "text": "After a nerf, a loss or a search with no result."
+    },
+    "pages.dexPage.poses.dodo.name": {
+      "fr": "Sieste",
+      "text": "Nap"
+    },
+    "pages.dexPage.poses.dodo.text": {
+      "fr": "Si tu ne bouges plus pendant un moment, il s'endort. Bouge et il se réveille en sursaut.",
+      "text": "If you stop moving for a while, he falls asleep. Move and he wakes with a start."
+    },
+    "shareImage.button": {
+      "fr": "Partager en image",
+      "text": "Share as image"
+    },
+    "shareImage.preparing": {
+      "fr": "Préparation de l'image…",
+      "text": "Preparing the image…"
+    },
+    "shareImage.shared": {
+      "fr": "Image partagée.",
+      "text": "Image shared."
+    },
+    "shareImage.saved": {
+      "fr": "Image enregistrée.",
+      "text": "Image saved."
+    },
+    "shareImage.savedCopied": {
+      "fr": "Image enregistrée, lien copié.",
+      "text": "Image saved, link copied."
+    },
+    "shareImage.error": {
+      "fr": "Impossible de créer l'image. Réessaie dans un instant.",
+      "text": "Couldn't create the image. Try again in a moment."
+    },
+    "shareImage.landscape": {
+      "fr": "Format lien (1200 × 630)",
+      "text": "Link format (1200 × 630)"
+    },
+    "shareImage.hint": {
+      "fr": "Image 1080 × 1350, prête pour une story ou un post.",
+      "text": "1080 × 1350 image, ready for a story or a post."
+    },
+    "shareCard.build.kicker": {
+      "fr": "Build · {roles}",
+      "text": "Build · {roles}"
+    },
+    "shareCard.build.title": {
+      "fr": "Build {hero}",
+      "text": "{hero} build"
+    },
+    "shareCard.build.level": {
+      "fr": "Niveau {n}",
+      "text": "Level {n}"
+    },
+    "shareCard.build.dex": {
+      "fr": "Ce build est prêt : ouvre-le dans le simulateur pour voir ses stats.",
+      "text": "This build is ready: open it in the simulator to see its stats."
+    },
+    "shareCard.draft.kicker": {
+      "fr": "Draft · {rank}",
+      "text": "Draft · {rank}"
+    },
+    "shareCard.draft.title": {
+      "fr": "Ma draft",
+      "text": "My draft"
+    },
+    "shareCard.draft.blue": {
+      "fr": "Équipe bleue",
+      "text": "Blue team"
+    },
+    "shareCard.draft.red": {
+      "fr": "Équipe rouge",
+      "text": "Red team"
+    },
+    "shareCard.draft.estimate": {
+      "fr": "chances estimées",
+      "text": "estimated chances"
+    },
+    "shareCard.draft.dexBlue": {
+      "fr": "Avantage aux bleus sur le papier. Reste à le jouer !",
+      "text": "Blue has the edge on paper. Now go play it!"
+    },
+    "shareCard.draft.dexRed": {
+      "fr": "Les rouges partent devant. Une draft se gagne aussi en jeu.",
+      "text": "Red starts ahead. A draft is also won in game."
+    },
+    "shareCard.draft.dexEven": {
+      "fr": "Draft serrée : tout se jouera en partie.",
+      "text": "A tight draft: it will all come down to the game."
+    },
+    "shareCard.draft.dexNone": {
+      "fr": "Rejoue cette draft sur MLBBDex et compare tes choix.",
+      "text": "Replay this draft on MLBBDex and compare your picks."
+    },
+    "shareCard.tierList.kicker": {
+      "fr": "Patch {v} · {month}",
+      "text": "Patch {v} · {month}"
+    },
+    "shareCard.tierList.dex": {
+      "fr": "Les paliers sont recalculés à chaque relevé des taux.",
+      "text": "Tiers are recalculated every time the rates are measured."
+    },
+    "shareCard.mlbbdle.kicker": {
+      "fr": "Jeu du jour · {mode}",
+      "text": "Daily game · {mode}"
+    },
+    "shareCard.mlbbdle.title": {
+      "fr": "MLBBdle n° {n}",
+      "text": "MLBBdle #{n}"
+    },
+    "shareCard.mlbbdle.found.one": {
+      "fr": "Trouvé du premier coup",
+      "text": "Found on the first try"
+    },
+    "shareCard.mlbbdle.found.other": {
+      "fr": "Trouvé en {n} essais",
+      "text": "Found in {n} guesses"
+    },
+    "shareCard.mlbbdle.more": {
+      "fr": "+{n} essais non affichés",
+      "text": "+{n} guesses not shown"
+    },
+    "shareCard.mlbbdle.streak": {
+      "fr": "jours de suite",
+      "text": "days in a row"
+    },
+    "shareCard.mlbbdle.guesses.one": {
+      "fr": "essai",
+      "text": "guess"
+    },
+    "shareCard.mlbbdle.guesses.other": {
+      "fr": "essais",
+      "text": "guesses"
+    },
+    "shareCard.mlbbdle.dexPerfect": {
+      "fr": "Du premier coup ? Je n'ai rien vu venir !",
+      "text": "First try? I didn't see that coming!"
+    },
+    "shareCard.mlbbdle.dexGood": {
+      "fr": "Bien joué ! Le héros de demain t'attend.",
+      "text": "Well played! Tomorrow's hero is waiting for you."
+    },
+    "shareCard.mlbbdle.dexLong": {
+      "fr": "Il fallait le trouver, celui-là. Bravo !",
+      "text": "That one was a tough find. Well done!"
+    },
+    "shareCard.recap.winners": {
+      "fr": "Gagnants",
+      "text": "Winners"
+    },
+    "shareCard.recap.losers": {
+      "fr": "Perdants",
+      "text": "Losers"
+    },
+    "shareCard.recap.none": {
+      "fr": "Pas encore assez de relevés pour mesurer ce patch.",
+      "text": "Not enough measurements yet to assess this patch."
+    },
+    "shareCard.recap.small": {
+      "fr": "Échantillon réduit : {n} héros mesurés.",
+      "text": "Small sample: {n} heroes measured."
+    },
+    "shareCard.recap.measured": {
+      "fr": "héros mesurés",
+      "text": "heroes measured"
+    },
+    "shareCard.recap.dex": {
+      "fr": "Voilà ce que le patch a vraiment changé, chiffres à l'appui.",
+      "text": "Here's what the patch really changed, numbers in hand."
+    },
+    "pages.patchRecap.seoTitle": {
+      "fr": "Bilan du patch {v} : gagnants, perdants et surprises",
+      "text": "Patch {v} recap: winners, losers and surprises"
+    },
+    "pages.patchRecap.description": {
+      "fr": "Ce que le patch {v} a vraiment changé : {n} héros mesurés sur les {days} jours avant et après sa sortie, les plus grands gagnants, les perdants et les surprises.",
+      "text": "What patch {v} really changed: {n} heroes measured over the {days} days before and after its release, the biggest winners, the losers and the surprises."
+    },
+    "pages.patchRecap.descriptionNone": {
+      "fr": "Bilan du patch {v} de Mobile Legends : les taux de victoire avant et après sa sortie, dès que les relevés le permettent.",
+      "text": "Mobile Legends patch {v} recap: win rates before and after its release, as soon as the measurements allow."
+    },
+    "pages.patchRecap.share": {
+      "fr": "Le bilan du patch {v} : qui a gagné, qui a perdu, et les surprises.",
+      "text": "Patch {v} recap: who won, who lost, and the surprises."
+    },
+    "pages.patchRecap.crumb": {
+      "fr": "Bilan",
+      "text": "Recap"
+    },
+    "pages.patchRecap.kicker": {
+      "fr": "Bilan du patch",
+      "text": "Patch recap"
+    },
+    "pages.patchRecap.lead": {
+      "fr": "Ce que le patch a vraiment fait aux taux de victoire : la moyenne des {days} jours avant sa sortie face aux {days} jours après, héros par héros.",
+      "text": "What the patch really did to win rates: the average of the {days} days before its release against the {days} days after, hero by hero."
+    },
+    "pages.patchRecap.back": {
+      "fr": "Lire les notes du patch",
+      "text": "Read the patch notes"
+    },
+    "pages.patchRecap.link": {
+      "fr": "Voir le bilan du patch",
+      "text": "See the patch recap"
+    },
+    "pages.patchRecap.linkVersion": {
+      "fr": "Bilan du patch {v}",
+      "text": "Patch {v} recap"
+    },
+    "pages.patchRecap.linkLead": {
+      "fr": "Gagnants, perdants et surprises : le patch mesuré sur les taux de victoire.",
+      "text": "Winners, losers and surprises: the patch measured on win rates."
+    },
+    "pages.patchRecap.facts.adjusted": {
+      "fr": "{n} héros modifiés",
+      "text": "{n} heroes changed"
+    },
+    "pages.patchRecap.facts.measured": {
+      "fr": "{n} héros mesurés",
+      "text": "{n} heroes measured"
+    },
+    "pages.patchRecap.facts.date": {
+      "fr": "Sorti le {date}",
+      "text": "Released on {date}"
+    },
+    "pages.patchRecap.young": {
+      "fr": "Le patch est encore récent : certains héros ont moins de {days} jours mesurés depuis sa sortie. Le bilan peut encore bouger.",
+      "text": "The patch is still recent: some heroes have fewer than {days} days measured since its release. The recap may still move."
+    },
+    "pages.patchRecap.sample.noneSoon": {
+      "fr": "Pas encore de mesure : il faut au moins quatre jours de relevés après la sortie du patch. Le bilan s'écrira tout seul dans quelques jours.",
+      "text": "No measurement yet: it takes at least four days of readings after the patch's release. The recap will write itself in a few days."
+    },
+    "pages.patchRecap.sample.noneOld": {
+      "fr": "Pas de mesure pour ce patch : nos relevés quotidiens ne couvrent pas les {days} jours qui l'entourent. Les notes du patch restent lisibles en entier.",
+      "text": "No measurement for this patch: our daily readings don't cover the {days} days around it. The patch notes can still be read in full."
+    },
+    "pages.patchRecap.sample.small": {
+      "fr": "Échantillon réduit : seuls {n} héros ont des relevés des deux côtés du patch. Lis ce bilan comme une tendance, pas comme un verdict.",
+      "text": "Small sample: only {n} heroes have readings on both sides of the patch. Read this recap as a trend, not a verdict."
+    },
+    "pages.patchRecap.chapter": {
+      "fr": "Chapitre {n}",
+      "text": "Chapter {n}"
+    },
+    "pages.patchRecap.winners.title": {
+      "fr": "Les grands gagnants",
+      "text": "The big winners"
+    },
+    "pages.patchRecap.winners.lead": {
+      "fr": "Les plus fortes hausses du taux de victoire, au-delà du bruit de mesure.",
+      "text": "The largest win rate rises, beyond measurement noise."
+    },
+    "pages.patchRecap.winners.empty": {
+      "fr": "Aucun héros mesuré n'a gagné {threshold} point ou plus : personne ne sort vraiment grandi de ce patch.",
+      "text": "No measured hero gained {threshold} points or more: nobody really comes out of this patch stronger."
+    },
+    "pages.patchRecap.losers.title": {
+      "fr": "Les grands perdants",
+      "text": "The big losers"
+    },
+    "pages.patchRecap.losers.lead": {
+      "fr": "Les plus fortes baisses du taux de victoire, au-delà du bruit de mesure.",
+      "text": "The largest win rate drops, beyond measurement noise."
+    },
+    "pages.patchRecap.losers.empty": {
+      "fr": "Aucun héros mesuré n'a perdu {threshold} point ou plus : le patch n'a puni personne.",
+      "text": "No measured hero lost {threshold} points or more: the patch punished nobody."
+    },
+    "pages.patchRecap.surprises.title": {
+      "fr": "Les surprises",
+      "text": "The surprises"
+    },
+    "pages.patchRecap.surprises.lead": {
+      "fr": "Un buff qui fait perdre, un nerf qui fait gagner : là où le patch n'a pas fait ce qu'il annonçait.",
+      "text": "A buff that loses, a nerf that wins: where the patch didn't do what it announced."
+    },
+    "pages.patchRecap.surprises.empty": {
+      "fr": "Pas de surprise : chaque buff et chaque nerf mesuré a poussé dans le sens annoncé, ou n'a rien changé.",
+      "text": "No surprise: every measured buff and nerf pushed the announced way, or changed nothing."
+    },
+    "pages.patchRecap.surprises.flatTitle": {
+      "fr": "Rien n'a bougé",
+      "text": "Nothing moved"
+    },
+    "pages.patchRecap.surprises.flatLead": {
+      "fr": "Modifiés, mais leur taux de victoire est resté dans le bruit (moins de {threshold} point d'écart).",
+      "text": "Changed, but their win rate stayed within the noise (less than {threshold} points apart)."
+    },
+    "pages.patchRecap.impact": {
+      "fr": "{before} → {after}",
+      "text": "{before} → {after}"
+    },
+    "pages.patchRecap.averages": {
+      "fr": "En moyenne, les buffs mesurés ont fait {buff} et les nerfs {nerf}, en points de taux de victoire.",
+      "text": "On average, measured buffs did {buff} and nerfs {nerf}, in win rate points."
+    },
+    "pages.patchRecap.averagesBuff": {
+      "fr": "En moyenne, les buffs mesurés ont fait {buff}, en points de taux de victoire.",
+      "text": "On average, measured buffs did {buff}, in win rate points."
+    },
+    "pages.patchRecap.averagesNerf": {
+      "fr": "En moyenne, les nerfs mesurés ont fait {nerf}, en points de taux de victoire.",
+      "text": "On average, measured nerfs did {nerf}, in win rate points."
+    },
+    "pages.patchRecap.dex.intro": {
+      "fr": "Je t'ai résumé le patch {v} en trois chapitres. Les chiffres parlent, moi je commente.",
+      "text": "I've summed up patch {v} for you in three chapters. The numbers talk, I comment."
+    },
+    "pages.patchRecap.dex.small": {
+      "fr": "Peu de héros mesurés cette fois : prends ces chiffres avec des pincettes.",
+      "text": "Few heroes measured this time: take these numbers with a grain of salt."
+    },
+    "pages.patchRecap.dex.noneSoon": {
+      "fr": "Mes relevés n'ont pas encore assez de recul sur ce patch. Repasse dans quelques jours !",
+      "text": "My readings don't have enough hindsight on this patch yet. Come back in a few days!"
+    },
+    "pages.patchRecap.dex.noneOld": {
+      "fr": "Ce patch est plus vieux que mes relevés quotidiens : je ne peux pas le mesurer.",
+      "text": "This patch is older than my daily readings: I can't measure it."
+    },
+    "pages.patchRecap.dex.winners": {
+      "fr": "{hero} s'envole : {gap} {unit} en une semaine. Si tu le joues, c'est le moment.",
+      "text": "{hero} takes off: {gap} {unit} in a week. If you play them, now's the time."
+    },
+    "pages.patchRecap.dex.winnersEmpty": {
+      "fr": "Personne ne décolle vraiment. Un patch calme pour les gagnants.",
+      "text": "Nobody really takes off. A quiet patch for winners."
+    },
+    "pages.patchRecap.dex.losers": {
+      "fr": "{hero} recule de {gap} {unit}. Si c'est ton main, jette un œil à ses builds du moment.",
+      "text": "{hero} drops {gap} {unit}. If that's your main, check their current builds."
+    },
+    "pages.patchRecap.dex.losersEmpty": {
+      "fr": "Aucune chute nette : bonne nouvelle pour tes mains.",
+      "text": "No clear drop: good news for your mains."
+    },
+    "pages.patchRecap.dex.surpriseBuff": {
+      "fr": "{hero} a reçu un buff… et son taux a baissé. Un patch ne fait pas toujours ce qu'il annonce !",
+      "text": "{hero} got a buff… and their win rate went down. A patch doesn't always do what it says!"
+    },
+    "pages.patchRecap.dex.surpriseNerf": {
+      "fr": "{hero} a été nerfé… et gagne plus qu'avant. Les chiffres sont têtus.",
+      "text": "{hero} got nerfed… and wins more than before. Numbers are stubborn."
+    },
+    "pages.patchRecap.dex.surprisesEmpty": {
+      "fr": "Pas de surprise cette fois : le patch a fait ce qu'il annonçait.",
+      "text": "No surprise this time: the patch did what it announced."
+    },
+    "pages.patchRecap.dex.outro": {
+      "fr": "Le prochain patch rebattra les cartes. Je te tiens au courant !",
+      "text": "The next patch will shuffle the cards again. I'll keep you posted!"
+    },
+    "pages.patchRecap.method": {
+      "fr": "Comment c'est mesuré",
+      "text": "How it's measured"
+    },
+    "pages.patchRecap.methodText": {
+      "fr": "Pour chaque héros modifié : la moyenne de son taux de victoire, tous rangs confondus, sur les {days} jours avant la sortie du patch et sur les {days} jours après, le jour même exclu. Il faut au moins quatre jours mesurés de chaque côté. Un écart de moins de {threshold} point est considéré comme du bruit. Un taux qui bouge ne dit pas pourquoi : la méta, les autres héros et les joueurs changent aussi.",
+      "text": "For each changed hero: their average win rate, all ranks combined, over the {days} days before the patch's release and the {days} days after, the release day excluded. At least four measured days are needed on each side. A gap under {threshold} points counts as noise. A rate that moves doesn't say why: the meta, other heroes and players change too."
+    },
+    "pages.patchRecap.notes": {
+      "fr": "Envie du détail de chaque changement ?",
+      "text": "Want the detail of every change?"
+    },
+    "error.text": {
+      "fr": "Le site a trébuché sur cette page. Un nouvel essai suffit souvent.",
+      "text": "The site tripped on this page. Another try usually does it."
+    },
+    "pages.skinsCalendarUI.error": {
+      "fr": "Le calendrier n'a pas pu charger. Vérifie ta connexion, puis réessaie.",
+      "text": "The calendar didn't load. Check your connection, then try again."
+    },
+    "home.figures.heroes": {
+      "fr": "héros",
+      "text": "heroes"
+    },
+    "home.figures.items": {
+      "fr": "objets",
+      "text": "items"
+    },
+    "footer.intro": {
+      "fr": "Héros, builds et contres par rang, tier list calculée sur les taux de victoire en classé, objets, emblèmes et patch notes de Mobile Legends: Bang Bang, en neuf langues. Projet indépendant, ouvert aux contributions.",
+      "text": "Mobile Legends: Bang Bang heroes, builds and counters by rank, a tier list computed from ranked win rates, items, emblems and patch notes, in nine languages. An independent project, open to contributions."
+    },
+    "home.figures.title": {
+      "fr": "MLBBDex en chiffres",
+      "text": "MLBBDex in numbers"
+    },
+    "home.stage.dexPatchAlone": {
+      "fr": "Patch {version} en ligne : {n} héros retouchés.",
+      "text": "Patch {version} is live: {n} heroes changed."
+    },
+    "home.stage.dexPatch": {
+      "fr": "Patch {version} en ligne : {n} héros retouchés. En tête de la méta, {hero}.",
+      "text": "Patch {version} is live: {n} heroes changed. Top of the meta: {hero}."
+    },
+    "pages.matchupsUI.loading": {
+      "fr": "Je prépare les duels du rang…",
+      "text": "Lining up the rank's duels…"
+    },
+    "pages.collectionUI.loading": {
+      "fr": "Je sors les héros et leurs apparences…",
+      "text": "Getting the heroes and their skins out…"
+    },
+    "dex.home1": {
+      "fr": "En tête d'affiche, le n°1 de la tier list : il change quand la méta bouge.",
+      "text": "On the poster: the tier list's number one. It changes when the meta moves."
+    },
+    "search.loading": {
+      "fr": "Je cherche…",
+      "text": "Searching…"
+    },
+    "pages.buildSimulatorUI.measuredLoading": {
+      "fr": "Je compare avec les builds mesurés…",
+      "text": "Comparing with the measured builds…"
+    },
+    "search.none": {
+      "fr": "Rien sous ce nom.",
+      "text": "Nothing by that name."
+    },
+    "pages.communityBuilds.emptyStore": {
+      "fr": "Aucun build publié pour l'instant. Montez le vôtre dans le simulateur : la première place est libre.",
+      "text": "No build published yet. Put yours together in the simulator: first place is free."
+    },
+    "search.dexEmpty": {
+      "fr": "Hmm, je ne trouve rien. Essaie un autre nom, ou moins de lettres.",
+      "text": "Hmm, nothing here. Try another name, or fewer letters."
+    },
+    "home.stage.dexCta": {
+      "fr": "Voir ce qui change",
+      "text": "See what changed"
+    },
+    "pages.mlbbdleUI.loading": {
+      "fr": "Je prépare le défi du jour…",
+      "text": "Setting up today's challenge…"
+    },
+    "home.figures.splus": {
+      "fr": "en palier S+",
+      "text": "in S+ tier"
+    },
+    "pages.skinsCalendarUI.loading": {
+      "fr": "Je déplie le calendrier des apparences…",
+      "text": "Unfolding the skin calendar…"
+    },
+    "pages.quizUI.loading": {
+      "fr": "Je prépare la partie…",
+      "text": "Setting up the game…"
+    },
+    "featured.topMeta": {
+      "fr": "N°1 de la méta",
+      "text": "No. 1 in the meta"
+    },
+    "error.title": {
+      "fr": "Ça a coincé",
+      "text": "Something jammed"
+    },
+    "home.figures.changed": {
+      "fr": "retouchés au patch",
+      "text": "changed this patch"
     }
   },
   "es": {
@@ -10913,6 +11429,90 @@
     "og.homeLine": {
       "fr": "Héros, builds, tier list, objets et patch notes, à jour à chaque patch.",
       "text": "Héroes, builds, tier list, objetos y notas del parche, al día en cada parche."
+    },
+    "dex.heroTop": {
+      "fr": "{name} est en palier {tier} en ce moment : c'est le moment d'en profiter en classé !",
+      "text": "{name} está en el nivel {tier} ahora mismo: ¡es el momento de aprovecharlo en clasificatoria!"
+    },
+    "dex.heroLow": {
+      "fr": "{name} est en palier C en ce moment… Jette un œil à ses contres avant de lancer une partie.",
+      "text": "{name} está en el nivel C ahora mismo… Echa un vistazo a sus counters antes de empezar una partida."
+    },
+    "pages.dexPage.poses.pointe.name": {
+      "fr": "Regarde",
+      "text": "¡Mira!"
+    },
+    "pages.buildSimulatorUI.measuredLoading": {
+      "fr": "Je compare avec les builds mesurés…",
+      "text": "Comparo con las builds medidas…"
+    },
+    "pages.skinsCalendarUI.error": {
+      "fr": "Le calendrier n'a pas pu charger. Vérifie ta connexion, puis réessaie.",
+      "text": "El calendario no se pudo cargar. Revisa tu conexión y vuelve a intentarlo."
+    },
+    "pages.communityBuilds.emptyStore": {
+      "fr": "Aucun build publié pour l'instant. Montez le vôtre dans le simulateur : la première place est libre.",
+      "text": "Aún no hay builds publicadas. Arma la tuya en el simulador: el primer puesto está libre."
+    },
+    "home.figures.heroes": {
+      "fr": "héros",
+      "text": "héroes"
+    },
+    "search.dexEmpty": {
+      "fr": "Hmm, je ne trouve rien. Essaie un autre nom, ou moins de lettres.",
+      "text": "Mmm, no encuentro nada. Prueba con otro nombre o con menos letras."
+    },
+    "home.stage.dexCta": {
+      "fr": "Voir ce qui change",
+      "text": "Ver qué cambia"
+    },
+    "pages.mlbbdleUI.loading": {
+      "fr": "Je prépare le défi du jour…",
+      "text": "Preparo el desafío del día…"
+    },
+    "home.stage.dexPatchAlone": {
+      "fr": "Patch {version} en ligne : {n} héros retouchés.",
+      "text": "Parche {version} en línea: {n} héroes retocados."
+    },
+    "home.figures.splus": {
+      "fr": "en palier S+",
+      "text": "en el tier S+"
+    },
+    "pages.skinsCalendarUI.loading": {
+      "fr": "Je déplie le calendrier des apparences…",
+      "text": "Despliego el calendario de aspectos…"
+    },
+    "pages.quizUI.loading": {
+      "fr": "Je prépare la partie…",
+      "text": "Preparo la partida…"
+    },
+    "home.stage.dexPatch": {
+      "fr": "Patch {version} en ligne : {n} héros retouchés. En tête de la méta, {hero}.",
+      "text": "Parche {version} en línea: {n} héroes retocados. En lo más alto del meta, {hero}."
+    },
+    "pages.matchupsUI.loading": {
+      "fr": "Je prépare les duels du rang…",
+      "text": "Preparo los duelos del rango…"
+    },
+    "pages.collectionUI.loading": {
+      "fr": "Je sors les héros et leurs apparences…",
+      "text": "Saco los héroes y sus aspectos…"
+    },
+    "error.title": {
+      "fr": "Ça a coincé",
+      "text": "Algo se atascó"
+    },
+    "dex.home1": {
+      "fr": "En tête d'affiche, le n°1 de la tier list : il change quand la méta bouge.",
+      "text": "En cartel, el n.º 1 de la tier list: cambia cuando se mueve el meta."
+    },
+    "search.loading": {
+      "fr": "Je cherche…",
+      "text": "Buscando…"
+    },
+    "home.figures.changed": {
+      "fr": "retouchés au patch",
+      "text": "retocados en el parche"
     }
   },
   "id": {
@@ -11229,8 +11829,8 @@
       "text": "Berkontribusi"
     },
     "footer.intro": {
-      "fr": "Héros, builds et contres par rang, tier list calculée sur les taux de victoire en classé, objets, emblèmes et patch notes de Mobile Legends: Bang Bang, en français, anglais, italien, espagnol et indonésien. Projet indépendant, ouvert aux contributions.",
-      "text": "Hero, build, dan counter Mobile Legends: Bang Bang berdasarkan rank, tier list yang dihitung dari win rate ranked, item, emblem, dan patch notes, dalam bahasa Inggris, Prancis, Italia, Spanyol, dan Indonesia. Proyek independen yang terbuka untuk kontribusi."
+      "fr": "Héros, builds et contres par rang, tier list calculée sur les taux de victoire en classé, objets, emblèmes et patch notes de Mobile Legends: Bang Bang, en neuf langues. Projet indépendant, ouvert aux contributions.",
+      "text": "Hero, build, dan counter Mobile Legends: Bang Bang berdasarkan rank, tier list yang dihitung dari win rate ranked, item, emblem, dan patch notes, dalam sembilan bahasa. Proyek independen yang terbuka untuk kontribusi."
     },
     "footer.legalNotice": {
       "fr": "Mentions légales",
@@ -17611,6 +18211,94 @@
     "og.banned": {
       "fr": "Le plus banni",
       "text": "Paling di-ban"
+    },
+    "dex.heroTop": {
+      "fr": "{name} est en palier {tier} en ce moment : c'est le moment d'en profiter en classé !",
+      "text": "{name} sedang di tier {tier}: saatnya memakainya di ranked!"
+    },
+    "dex.heroLow": {
+      "fr": "{name} est en palier C en ce moment… Jette un œil à ses contres avant de lancer une partie.",
+      "text": "{name} sedang di tier C… Lihat dulu counternya sebelum mulai bermain."
+    },
+    "error.text": {
+      "fr": "Le site a trébuché sur cette page. Un nouvel essai suffit souvent.",
+      "text": "Situs tersandung di halaman ini. Biasanya cukup dicoba sekali lagi."
+    },
+    "home.figures.heroes": {
+      "fr": "héros",
+      "text": "hero"
+    },
+    "home.figures.items": {
+      "fr": "objets",
+      "text": "item"
+    },
+    "home.stage.dexPatchAlone": {
+      "fr": "Patch {version} en ligne : {n} héros retouchés.",
+      "text": "Patch {version} sudah live: {n} hero diubah."
+    },
+    "home.stage.dexPatch": {
+      "fr": "Patch {version} en ligne : {n} héros retouchés. En tête de la méta, {hero}.",
+      "text": "Patch {version} sudah live: {n} hero diubah. Puncak meta: {hero}."
+    },
+    "pages.matchupsUI.loading": {
+      "fr": "Je prépare les duels du rang…",
+      "text": "Menyiapkan duel rank ini…"
+    },
+    "pages.collectionUI.loading": {
+      "fr": "Je sors les héros et leurs apparences…",
+      "text": "Menyiapkan hero dan skin mereka…"
+    },
+    "dex.home1": {
+      "fr": "En tête d'affiche, le n°1 de la tier list : il change quand la méta bouge.",
+      "text": "Di poster: hero nomor 1 tier list. Berubah setiap kali meta bergeser."
+    },
+    "search.loading": {
+      "fr": "Je cherche…",
+      "text": "Mencari…"
+    },
+    "pages.buildSimulatorUI.measuredLoading": {
+      "fr": "Je compare avec les builds mesurés…",
+      "text": "Membandingkan dengan build terukur…"
+    },
+    "search.none": {
+      "fr": "Rien sous ce nom.",
+      "text": "Tidak ada dengan nama itu."
+    },
+    "pages.communityBuilds.emptyStore": {
+      "fr": "Aucun build publié pour l'instant. Montez le vôtre dans le simulateur : la première place est libre.",
+      "text": "Belum ada build yang dipublikasikan. Susun milikmu di simulator: posisi pertama masih kosong."
+    },
+    "search.dexEmpty": {
+      "fr": "Hmm, je ne trouve rien. Essaie un autre nom, ou moins de lettres.",
+      "text": "Hmm, aku tidak menemukan apa pun. Coba nama lain, atau lebih sedikit huruf."
+    },
+    "home.stage.dexCta": {
+      "fr": "Voir ce qui change",
+      "text": "Lihat perubahannya"
+    },
+    "pages.mlbbdleUI.loading": {
+      "fr": "Je prépare le défi du jour…",
+      "text": "Menyiapkan tantangan hari ini…"
+    },
+    "home.figures.splus": {
+      "fr": "en palier S+",
+      "text": "di tier S+"
+    },
+    "pages.skinsCalendarUI.loading": {
+      "fr": "Je déplie le calendrier des apparences…",
+      "text": "Membuka kalender skin…"
+    },
+    "pages.quizUI.loading": {
+      "fr": "Je prépare la partie…",
+      "text": "Menyiapkan permainan…"
+    },
+    "error.title": {
+      "fr": "Ça a coincé",
+      "text": "Ada yang macet"
+    },
+    "home.figures.changed": {
+      "fr": "retouchés au patch",
+      "text": "diubah di patch ini"
     }
   },
   "it": {
@@ -22229,6 +22917,82 @@
     "og.homeLine": {
       "fr": "Héros, builds, tier list, objets et patch notes, à jour à chaque patch.",
       "text": "Eroi, build, tier list, oggetti e patch notes, aggiornati a ogni patch."
+    },
+    "dex.heroTop": {
+      "fr": "{name} est en palier {tier} en ce moment : c'est le moment d'en profiter en classé !",
+      "text": "{name} è nel tier {tier} in questo momento: è il momento di approfittarne in classificata!"
+    },
+    "dex.heroLow": {
+      "fr": "{name} est en palier C en ce moment… Jette un œil à ses contres avant de lancer une partie.",
+      "text": "{name} è nel tier C in questo momento… Dai un'occhiata ai suoi counter prima di iniziare una partita."
+    },
+    "pages.dexPage.poses.pointe.name": {
+      "fr": "Regarde",
+      "text": "Guarda!"
+    },
+    "pages.buildSimulatorUI.measuredLoading": {
+      "fr": "Je compare avec les builds mesurés…",
+      "text": "Confronto con le build misurate…"
+    },
+    "error.text": {
+      "fr": "Le site a trébuché sur cette page. Un nouvel essai suffit souvent.",
+      "text": "Il sito è inciampato su questa pagina. Spesso basta riprovare."
+    },
+    "pages.communityBuilds.emptyStore": {
+      "fr": "Aucun build publié pour l'instant. Montez le vôtre dans le simulateur : la première place est libre.",
+      "text": "Nessuna build pubblicata per ora. Monta la tua nel simulatore: il primo posto è libero."
+    },
+    "home.figures.heroes": {
+      "fr": "héros",
+      "text": "eroi"
+    },
+    "home.stage.dexCta": {
+      "fr": "Voir ce qui change",
+      "text": "Guarda cosa cambia"
+    },
+    "pages.mlbbdleUI.loading": {
+      "fr": "Je prépare le défi du jour…",
+      "text": "Preparo la sfida del giorno…"
+    },
+    "home.stage.dexPatchAlone": {
+      "fr": "Patch {version} en ligne : {n} héros retouchés.",
+      "text": "Patch {version} online: {n} eroi ritoccati."
+    },
+    "home.figures.splus": {
+      "fr": "en palier S+",
+      "text": "nel tier S+"
+    },
+    "pages.skinsCalendarUI.loading": {
+      "fr": "Je déplie le calendrier des apparences…",
+      "text": "Apro il calendario delle skin…"
+    },
+    "pages.quizUI.loading": {
+      "fr": "Je prépare la partie…",
+      "text": "Preparo la partita…"
+    },
+    "home.stage.dexPatch": {
+      "fr": "Patch {version} en ligne : {n} héros retouchés. En tête de la méta, {hero}.",
+      "text": "Patch {version} online: {n} eroi ritoccati. In cima al meta, {hero}."
+    },
+    "pages.matchupsUI.loading": {
+      "fr": "Je prépare les duels du rang…",
+      "text": "Preparo i duelli del grado…"
+    },
+    "pages.collectionUI.loading": {
+      "fr": "Je sors les héros et leurs apparences…",
+      "text": "Tiro fuori gli eroi e le loro skin…"
+    },
+    "error.title": {
+      "fr": "Ça a coincé",
+      "text": "Qualcosa si è inceppato"
+    },
+    "dex.home1": {
+      "fr": "En tête d'affiche, le n°1 de la tier list : il change quand la méta bouge.",
+      "text": "In copertina, il n. 1 della tier list: cambia quando si muove il meta."
+    },
+    "home.figures.changed": {
+      "fr": "retouchés au patch",
+      "text": "ritoccati nella patch"
     }
   },
   "fil": {
@@ -23121,12 +23885,12 @@
       "text": "Subukan ulit"
     },
     "error.text": {
-      "fr": "Le site a rencontré un problème inattendu. Réessayez dans un instant.",
-      "text": "Nagkaroon ng hindi inaasahang problema ang site. Subukan ulit mamaya."
+      "fr": "Le site a trébuché sur cette page. Un nouvel essai suffit souvent.",
+      "text": "Natisod ang site sa pahinang ito. Kadalasan, sapat na ang isa pang subok."
     },
     "error.title": {
-      "fr": "Une erreur est survenue",
-      "text": "May nagkaproblema"
+      "fr": "Ça a coincé",
+      "text": "May sumabit"
     },
     "favourites.alert.none": {
       "fr": "Aucun de vos favoris n'a été modifié par le patch {version}.",
@@ -23225,8 +23989,8 @@
       "text": "Mga tool"
     },
     "footer.intro": {
-      "fr": "Héros, builds et contres par rang, tier list calculée sur les taux de victoire en classé, objets, emblèmes et patch notes de Mobile Legends: Bang Bang, en français, anglais, italien, espagnol et indonésien. Projet indépendant, ouvert aux contributions.",
-      "text": "Mga hero, build at counter ng Mobile Legends: Bang Bang ayon sa rank, tier list na kinukuwenta mula sa ranked win rate, mga item, emblem at patch notes, sa English, French, Italian, Spanish at Indonesian. Isang independiyenteng proyekto, bukas sa mga kontribusyon."
+      "fr": "Héros, builds et contres par rang, tier list calculée sur les taux de victoire en classé, objets, emblèmes et patch notes de Mobile Legends: Bang Bang, en neuf langues. Projet indépendant, ouvert aux contributions.",
+      "text": "Mga hero, build at counter ng Mobile Legends: Bang Bang ayon sa rank, tier list na kinukuwenta mula sa ranked win rate, mga item, emblem at patch notes, sa siyam na wika. Isang independiyenteng proyekto, bukas sa mga kontribusyon."
     },
     "footer.legalNotice": {
       "fr": "Mentions légales",
@@ -26701,8 +27465,8 @@
       "text": "Mga core item ng measured build"
     },
     "pages.buildSimulatorUI.measuredLoading": {
-      "fr": "Chargement des builds mesurés…",
-      "text": "Nilo-load ang mga measured build…"
+      "fr": "Je compare avec les builds mesurés…",
+      "text": "Ikinukumpara sa mga measured build…"
     },
     "pages.buildSimulatorUI.measuredNeedItems": {
       "fr": "Ajoutez des objets pour les comparer aux builds réellement joués.",
@@ -27525,8 +28289,8 @@
       "text": "Mga detalye"
     },
     "pages.communityBuilds.emptyStore": {
-      "fr": "Aucun build publié pour l'instant. Composez le vôtre dans le simulateur et soyez le premier.",
-      "text": "Wala pang na-publish na build. Buuin ang sa iyo sa simulator at maging una."
+      "fr": "Aucun build publié pour l'instant. Montez le vôtre dans le simulateur : la première place est libre.",
+      "text": "Wala pang na-publish na build. Buuin ang sa iyo sa simulator: bakante pa ang unang puwesto."
     },
     "pages.communityBuilds.heroCreate": {
       "fr": "Composer un build pour {hero}",
@@ -31857,8 +32621,8 @@
       "text": "Mula sa pinaka-one-sided na duel hanggang sa pinakadikit"
     },
     "pages.matchupsUI.loading": {
-      "fr": "Chargement des duels du rang…",
-      "text": "Nilo-load ang mga duel ng rank…"
+      "fr": "Je prépare les duels du rang…",
+      "text": "Inihahanda ang mga duel ng rank…"
     },
     "pages.matchupsUI.measured": {
       "fr": "Duels mesurés : {n} sur {total}.",
@@ -33001,8 +33765,8 @@
       "text": "Susunod na tanong"
     },
     "pages.quizUI.noResult": {
-      "fr": "Aucun résultat.",
-      "text": "Walang tugma."
+      "fr": "Aucun héros sous ce nom.",
+      "text": "Walang hero sa pangalang iyan."
     },
     "pages.quizUI.offline": {
       "fr": "Défi préparé hors ligne",
@@ -34157,8 +34921,8 @@
       "text": "Iba pang taon"
     },
     "pages.skinsCalendarUI.error": {
-      "fr": "Impossible de charger la liste des apparences. Vérifiez votre connexion et réessayez.",
-      "text": "Hindi ma-load ang listahan ng skin. I-check ang connection mo at subukan ulit."
+      "fr": "Le calendrier n'a pas pu charger. Vérifie ta connexion, puis réessaie.",
+      "text": "Hindi nag-load ang kalendaryo. I-check ang connection mo, tapos subukan ulit."
     },
     "pages.skinsCalendarUI.more": {
       "fr": "Afficher {n} de plus",
@@ -37251,6 +38015,86 @@
     "prose.methodology.blocks.1.p": {
       "fr": "MLBBDex n'a accès à aucune donnée privée de Moonton. Tout ce qu'il affiche vient de sources publiques, relues par des scripts du dépôt, ou de ce que le site calcule et écrit lui-même.",
       "text": "Walang access ang MLBBDex sa anumang pribadong data ng Moonton. Lahat ng ipinapakita nito ay nagmumula sa mga pampublikong mapagkukunan, muling binasa ng mga script mula sa repositoryo, o mula sa kung ano ang kinakalkula at isinusulat mismo ng site."
+    },
+    "dex.heroTop": {
+      "fr": "{name} est en palier {tier} en ce moment : c'est le moment d'en profiter en classé !",
+      "text": "Nasa tier {tier} si {name} ngayon: magandang pagkakataon para gamitin sa ranked!"
+    },
+    "dex.heroLow": {
+      "fr": "{name} est en palier C en ce moment… Jette un œil à ses contres avant de lancer une partie.",
+      "text": "Nasa tier C si {name} ngayon… Silipin muna ang mga counter bago magsimula ng laro."
+    },
+    "pages.dexPage.poses.joie.name": {
+      "fr": "Joie",
+      "text": "Saya"
+    },
+    "pages.dexPage.poses.pointe.name": {
+      "fr": "Regarde",
+      "text": "Tingnan mo!"
+    },
+    "pages.dexPage.poses.dodo.name": {
+      "fr": "Sieste",
+      "text": "Idlip"
+    },
+    "home.figures.heroes": {
+      "fr": "héros",
+      "text": "hero"
+    },
+    "home.stage.dexPatchAlone": {
+      "fr": "Patch {version} en ligne : {n} héros retouchés.",
+      "text": "Live na ang patch {version}: {n} hero ang binago."
+    },
+    "home.stage.dexPatch": {
+      "fr": "Patch {version} en ligne : {n} héros retouchés. En tête de la méta, {hero}.",
+      "text": "Live na ang patch {version}: {n} hero ang binago. Nangunguna sa meta si {hero}."
+    },
+    "search.loading": {
+      "fr": "Je cherche…",
+      "text": "Naghahanap…"
+    },
+    "home.stage.dexCta": {
+      "fr": "Voir ce qui change",
+      "text": "Tingnan ang binago"
+    },
+    "home.figures.splus": {
+      "fr": "en palier S+",
+      "text": "nasa S+ tier"
+    },
+    "pages.skinsCalendarUI.loading": {
+      "fr": "Je déplie le calendrier des apparences…",
+      "text": "Binubuksan ang kalendaryo ng mga skin…"
+    },
+    "pages.quizUI.loading": {
+      "fr": "Je prépare la partie…",
+      "text": "Inihahanda ang laro…"
+    },
+    "home.figures.changed": {
+      "fr": "retouchés au patch",
+      "text": "binago sa patch"
+    },
+    "home.figures.items": {
+      "fr": "objets",
+      "text": "item"
+    },
+    "home.figures.title": {
+      "fr": "MLBBDex en chiffres",
+      "text": "MLBBDex sa mga numero"
+    },
+    "pages.collectionUI.loading": {
+      "fr": "Je sors les héros et leurs apparences…",
+      "text": "Inilalabas ang mga hero at ang kanilang mga skin…"
+    },
+    "dex.home1": {
+      "fr": "En tête d'affiche, le n°1 de la tier list : il change quand la méta bouge.",
+      "text": "Nasa poster ang number 1 ng tier list: nagbabago ito kapag gumalaw ang meta."
+    },
+    "search.none": {
+      "fr": "Rien sous ce nom.",
+      "text": "Walang ganyang pangalan."
+    },
+    "pages.mlbbdleUI.loading": {
+      "fr": "Je prépare le défi du jour…",
+      "text": "Inihahanda ang hamon ngayong araw…"
     }
   },
   "th": {
@@ -38131,8 +38975,8 @@
       "text": "กลับหน้าแรก"
     },
     "error.text": {
-      "fr": "Le site a rencontré un problème inattendu. Réessayez dans un instant.",
-      "text": "เว็บไซต์พบปัญหาที่ไม่คาดคิด โปรดลองอีกครั้งในอีกสักครู่"
+      "fr": "Le site a trébuché sur cette page. Un nouvel essai suffit souvent.",
+      "text": "เว็บไซต์สะดุดที่หน้านี้ ลองใหม่อีกครั้งมักจะได้ผล"
     },
     "favourites.alert.changed": {
       "fr": "Modifié",
@@ -38206,10 +39050,6 @@
       "fr": "Retirer {name}",
       "text": "นำ {name} ออก"
     },
-    "featured.heroOfTheDay": {
-      "fr": "Héros du jour",
-      "text": "ฮีโร่ประจำวัน"
-    },
     "featured.seeSheet": {
       "fr": "Voir sa fiche",
       "text": "ดูข้อมูลฮีโร่"
@@ -38227,8 +39067,8 @@
       "text": "เข้าร่วม Discord"
     },
     "footer.intro": {
-      "fr": "Héros, builds et contres par rang, tier list calculée sur les taux de victoire en classé, objets, emblèmes et patch notes de Mobile Legends: Bang Bang, en français, anglais, italien, espagnol et indonésien. Projet indépendant, ouvert aux contributions.",
-      "text": "ฮีโร่ บิลด์ และเคาน์เตอร์ของ Mobile Legends: Bang Bang ตามแรงก์ Tier List ที่คำนวณจาก Win Rate ในเกม Ranked ไอเทม Emblem และแพตช์โน้ต ในภาษาอังกฤษ ฝรั่งเศส อิตาลี สเปน และอินโดนีเซีย เป็นโปรเจกต์อิสระที่เปิดให้ทุกคนร่วมสร้าง"
+      "fr": "Héros, builds et contres par rang, tier list calculée sur les taux de victoire en classé, objets, emblèmes et patch notes de Mobile Legends: Bang Bang, en neuf langues. Projet indépendant, ouvert aux contributions.",
+      "text": "ฮีโร่ บิลด์ และเคาน์เตอร์ของ Mobile Legends: Bang Bang ตามแรงก์ Tier List ที่คำนวณจาก Win Rate ในเกม Ranked ไอเทม Emblem และแพตช์โน้ต ใน 9 ภาษา เป็นโปรเจกต์อิสระที่เปิดให้ทุกคนร่วมสร้าง"
     },
     "footer.privacy": {
       "fr": "Confidentialité",
@@ -41387,8 +42227,8 @@
       "text": "ไอเทมหลักจากสถิติจริง"
     },
     "pages.buildSimulatorUI.measuredLoading": {
-      "fr": "Chargement des builds mesurés…",
-      "text": "กำลังโหลดบิลด์จากสถิติจริง…"
+      "fr": "Je compare avec les builds mesurés…",
+      "text": "กำลังเทียบกับบิลด์จากสถิติจริง…"
     },
     "pages.buildSimulatorUI.measuredNeedItems": {
       "fr": "Ajoutez des objets pour les comparer aux builds réellement joués.",
@@ -41719,8 +42559,8 @@
       "text": "แสดงฮีโร่ {n} ตัว"
     },
     "pages.collectionUI.loading": {
-      "fr": "Chargement des héros et des apparences…",
-      "text": "กำลังโหลดฮีโร่และสกิน…"
+      "fr": "Je sors les héros et leurs apparences…",
+      "text": "กำลังเตรียมฮีโร่และสกิน…"
     },
     "pages.collectionUI.noDiamond": {
       "fr": "Hors du total en diamants (aucun prix en diamants) : apparences {skins}, héros {heroes}.",
@@ -42107,8 +42947,8 @@
       "text": "สร้างบิลด์"
     },
     "pages.communityBuilds.emptyStore": {
-      "fr": "Aucun build publié pour l'instant. Composez le vôtre dans le simulateur et soyez le premier.",
-      "text": "ยังไม่มีบิลด์ที่เผยแพร่ จัดบิลด์ของคุณในเครื่องจำลองแล้วเป็นคนแรก"
+      "fr": "Aucun build publié pour l'instant. Montez le vôtre dans le simulateur : la première place est libre.",
+      "text": "ยังไม่มีบิลด์ที่เผยแพร่ จัดบิลด์ของคุณในเครื่องจำลอง อันดับแรกยังว่างอยู่"
     },
     "pages.communityBuilds.heroCreate": {
       "fr": "Composer un build pour {hero}",
@@ -46251,8 +47091,8 @@
       "text": "จากการดวลที่ได้เปรียบชัดที่สุดไปจนถึงสูสีที่สุด"
     },
     "pages.matchupsUI.loading": {
-      "fr": "Chargement des duels du rang…",
-      "text": "กำลังโหลดการดวลของแรงก์นี้…"
+      "fr": "Je prépare les duels du rang…",
+      "text": "กำลังเตรียมการดวลของแรงก์นี้…"
     },
     "pages.matchupsUI.measured": {
       "fr": "Duels mesurés : {n} sur {total}.",
@@ -47307,8 +48147,8 @@
       "text": "โหลดควิซไม่สำเร็จ ตรวจสอบการเชื่อมต่อของคุณ: เมื่อเคยเข้าชมหน้านี้แล้ว ควิซจะเล่นแบบออฟไลน์ได้ด้วย"
     },
     "pages.quizUI.loading": {
-      "fr": "Chargement…",
-      "text": "กำลังโหลด…"
+      "fr": "Je prépare la partie…",
+      "text": "กำลังเตรียมเกม…"
     },
     "pages.quizUI.lockedClue": {
       "fr": "Indice {n} verrouillé",
@@ -47331,8 +48171,8 @@
       "text": "โจทย์ถัดไปในอีก {h} ชม. {m} นาที"
     },
     "pages.quizUI.noResult": {
-      "fr": "Aucun résultat.",
-      "text": "ไม่พบผลลัพธ์"
+      "fr": "Aucun héros sous ce nom.",
+      "text": "ไม่มีฮีโร่ชื่อนี้"
     },
     "pages.quizUI.offline": {
       "fr": "Défi préparé hors ligne",
@@ -48419,8 +49259,8 @@
       "text": "สกินที่วางจำหน่ายในปี {year}"
     },
     "pages.skinsCalendarUI.loading": {
-      "fr": "Chargement des apparences…",
-      "text": "กำลังโหลดสกิน…"
+      "fr": "Je déplie le calendrier des apparences…",
+      "text": "กำลังเปิดปฏิทินสกิน…"
     },
     "pages.skinsCalendarUI.more": {
       "fr": "Afficher {n} de plus",
@@ -49919,8 +50759,8 @@
       "text": "↑ ↓ เพื่อเลื่อน, Enter เพื่อเปิด, Esc เพื่อปิด"
     },
     "search.loading": {
-      "fr": "Chargement…",
-      "text": "กำลังโหลด…"
+      "fr": "Je cherche…",
+      "text": "กำลังค้นหา…"
     },
     "search.open": {
       "fr": "Rechercher",
@@ -51155,8 +51995,8 @@
       "text": "บทบาท"
     },
     "pages.mlbbdleUI.loading": {
-      "fr": "Chargement…",
-      "text": "กำลังโหลด..."
+      "fr": "Je prépare le défi du jour…",
+      "text": "กำลังเตรียมโจทย์ประจำวัน…"
     },
     "pages.mlbbdleUI.browse": {
       "fr": "Parcourir les héros",
@@ -51253,6 +52093,66 @@
     "og.banned": {
       "fr": "Le plus banni",
       "text": "ถูกแบนมากสุด"
+    },
+    "pages.dexPage.poses.joie.name": {
+      "fr": "Joie",
+      "text": "ดีใจ"
+    },
+    "pages.dexPage.poses.saut.name": {
+      "fr": "Saut",
+      "text": "กระโดด"
+    },
+    "pages.dexPage.poses.triste.name": {
+      "fr": "Déçu",
+      "text": "ผิดหวัง"
+    },
+    "home.figures.heroes": {
+      "fr": "héros",
+      "text": "ฮีโร่"
+    },
+    "home.stage.dexPatchAlone": {
+      "fr": "Patch {version} en ligne : {n} héros retouchés.",
+      "text": "แพตช์ {version} มาแล้ว: ปรับฮีโร่ {n} ตัว"
+    },
+    "home.stage.dexPatch": {
+      "fr": "Patch {version} en ligne : {n} héros retouchés. En tête de la méta, {hero}.",
+      "text": "แพตช์ {version} มาแล้ว: ปรับฮีโร่ {n} ตัว และ {hero} นำเมตาอยู่"
+    },
+    "home.stage.dexCta": {
+      "fr": "Voir ce qui change",
+      "text": "ดูสิ่งที่เปลี่ยน"
+    },
+    "home.figures.splus": {
+      "fr": "en palier S+",
+      "text": "อยู่ในระดับ S+"
+    },
+    "featured.topMeta": {
+      "fr": "N°1 de la méta",
+      "text": "อันดับ 1 ของเมตา"
+    },
+    "home.figures.changed": {
+      "fr": "retouchés au patch",
+      "text": "ถูกปรับในแพตช์นี้"
+    },
+    "home.figures.items": {
+      "fr": "objets",
+      "text": "ไอเทม"
+    },
+    "home.figures.title": {
+      "fr": "MLBBDex en chiffres",
+      "text": "MLBBDex ในตัวเลข"
+    },
+    "dex.home1": {
+      "fr": "En tête d'affiche, le n°1 de la tier list : il change quand la méta bouge.",
+      "text": "บนโปสเตอร์คืออันดับ 1 ของ Tier List และจะเปลี่ยนเมื่อเมตาเปลี่ยน"
+    },
+    "search.none": {
+      "fr": "Rien sous ce nom.",
+      "text": "ไม่พบชื่อนี้"
+    },
+    "error.title": {
+      "fr": "Ça a coincé",
+      "text": "มีบางอย่างติดขัด"
     }
   },
   "pt": {
@@ -52057,8 +52957,8 @@
       "text": "Entre no Discord"
     },
     "footer.intro": {
-      "fr": "Héros, builds et contres par rang, tier list calculée sur les taux de victoire en classé, objets, emblèmes et patch notes de Mobile Legends: Bang Bang, en français, anglais, italien, espagnol et indonésien. Projet indépendant, ouvert aux contributions.",
-      "text": "Heróis, builds e counters por elo, tier list calculada a partir das taxas de vitória das ranqueadas, itens, emblemas e patch notes do Mobile Legends: Bang Bang, em inglês, francês, italiano, espanhol e indonésio. Projeto independente, aberto a contribuições."
+      "fr": "Héros, builds et contres par rang, tier list calculée sur les taux de victoire en classé, objets, emblèmes et patch notes de Mobile Legends: Bang Bang, en neuf langues. Projet indépendant, ouvert aux contributions.",
+      "text": "Heróis, builds e counters por elo, tier list calculada a partir das taxas de vitória das ranqueadas, itens, emblemas e patch notes do Mobile Legends: Bang Bang, em nove idiomas. Projeto independente, aberto a contribuições."
     },
     "footer.privacy": {
       "fr": "Confidentialité",
@@ -55357,8 +56257,8 @@
       "text": "Montar uma build"
     },
     "pages.communityBuilds.emptyStore": {
-      "fr": "Aucun build publié pour l'instant. Composez le vôtre dans le simulateur et soyez le premier.",
-      "text": "Nenhuma build publicada ainda. Monte a sua no simulador e seja o primeiro."
+      "fr": "Aucun build publié pour l'instant. Montez le vôtre dans le simulateur : la première place est libre.",
+      "text": "Nenhuma build publicada ainda. Monte a sua no simulador: o primeiro lugar está livre."
     },
     "pages.communityBuilds.heroCreate": {
       "fr": "Composer un build pour {hero}",
@@ -58817,8 +59717,8 @@
       "text": "Duelo não medido"
     },
     "pages.matchupsUI.loading": {
-      "fr": "Chargement des duels du rang…",
-      "text": "Carregando os duelos do elo…"
+      "fr": "Je prépare les duels du rang…",
+      "text": "Preparando os duelos do elo…"
     },
     "pages.matchupsUI.rowsDesc": {
       "fr": "{n} sur {max}, en lignes.",
@@ -59657,8 +60557,8 @@
       "text": "Modo"
     },
     "pages.quizUI.noResult": {
-      "fr": "Aucun résultat.",
-      "text": "Nenhum resultado."
+      "fr": "Aucun héros sous ce nom.",
+      "text": "Nenhum herói com esse nome."
     },
     "pages.quizUI.practiceMode": {
       "fr": "Entraînement",
@@ -60589,8 +61489,8 @@
       "text": "Todas"
     },
     "pages.skinsCalendarUI.error": {
-      "fr": "Impossible de charger la liste des apparences. Vérifiez votre connexion et réessayez.",
-      "text": "Não foi possível carregar a lista de skins. Verifique sua conexão e tente novamente."
+      "fr": "Le calendrier n'a pas pu charger. Vérifie ta connexion, puis réessaie.",
+      "text": "O calendário não carregou. Verifique sua conexão e tente de novo."
     },
     "pages.skinsCalendarUI.more": {
       "fr": "Afficher {n} de plus",
@@ -63143,6 +64043,74 @@
     "og.banned": {
       "fr": "Le plus banni",
       "text": "Mais banido"
+    },
+    "dex.heroTop": {
+      "fr": "{name} est en palier {tier} en ce moment : c'est le moment d'en profiter en classé !",
+      "text": "{name} está no tier {tier} agora: é hora de aproveitar na ranqueada!"
+    },
+    "dex.heroLow": {
+      "fr": "{name} est en palier C en ce moment… Jette un œil à ses contres avant de lancer une partie.",
+      "text": "{name} está no tier C agora… Dê uma olhada nos counters antes de começar uma partida."
+    },
+    "pages.dexPage.poses.pointe.name": {
+      "fr": "Regarde",
+      "text": "Olha!"
+    },
+    "home.figures.heroes": {
+      "fr": "héros",
+      "text": "heróis"
+    },
+    "home.stage.dexPatchAlone": {
+      "fr": "Patch {version} en ligne : {n} héros retouchés.",
+      "text": "Patch {version} no ar: {n} heróis ajustados."
+    },
+    "home.stage.dexPatch": {
+      "fr": "Patch {version} en ligne : {n} héros retouchés. En tête de la méta, {hero}.",
+      "text": "Patch {version} no ar: {n} heróis ajustados. No topo da meta, {hero}."
+    },
+    "search.loading": {
+      "fr": "Je cherche…",
+      "text": "Procurando…"
+    },
+    "home.stage.dexCta": {
+      "fr": "Voir ce qui change",
+      "text": "Ver o que muda"
+    },
+    "home.figures.splus": {
+      "fr": "en palier S+",
+      "text": "no tier S+"
+    },
+    "pages.skinsCalendarUI.loading": {
+      "fr": "Je déplie le calendrier des apparences…",
+      "text": "Abrindo o calendário de skins…"
+    },
+    "pages.quizUI.loading": {
+      "fr": "Je prépare la partie…",
+      "text": "Preparando a partida…"
+    },
+    "home.figures.changed": {
+      "fr": "retouchés au patch",
+      "text": "ajustados no patch"
+    },
+    "pages.collectionUI.loading": {
+      "fr": "Je sors les héros et leurs apparences…",
+      "text": "Separando os heróis e as skins…"
+    },
+    "dex.home1": {
+      "fr": "En tête d'affiche, le n°1 de la tier list : il change quand la méta bouge.",
+      "text": "No cartaz, o nº 1 da tier list: ele muda quando a meta se mexe."
+    },
+    "pages.buildSimulatorUI.measuredLoading": {
+      "fr": "Je compare avec les builds mesurés…",
+      "text": "Comparando com as builds medidas…"
+    },
+    "pages.mlbbdleUI.loading": {
+      "fr": "Je prépare le défi du jour…",
+      "text": "Preparando o desafio do dia…"
+    },
+    "error.title": {
+      "fr": "Ça a coincé",
+      "text": "Algo travou"
     }
   },
   "ru": {
@@ -63935,8 +64903,8 @@
       "text": "Повторить"
     },
     "error.text": {
-      "fr": "Le site a rencontré un problème inattendu. Réessayez dans un instant.",
-      "text": "На сайте возникла непредвиденная проблема. Попробуйте ещё раз через минуту."
+      "fr": "Le site a trébuché sur cette page. Un nouvel essai suffit souvent.",
+      "text": "Сайт споткнулся на этой странице. Обычно хватает ещё одной попытки."
     },
     "favourites.account": {
       "fr": "{n} héros",
@@ -64055,8 +65023,8 @@
       "text": "Присоединиться к Discord"
     },
     "footer.intro": {
-      "fr": "Héros, builds et contres par rang, tier list calculée sur les taux de victoire en classé, objets, emblèmes et patch notes de Mobile Legends: Bang Bang, en français, anglais, italien, espagnol et indonésien. Projet indépendant, ouvert aux contributions.",
-      "text": "Герои, билды и контрпики Mobile Legends: Bang Bang по рангам, тир-лист на основе процента побед в рейтинговых матчах, предметы, эмблемы и патч-ноуты на английском, французском, итальянском, испанском и индонезийском. Независимый проект, открытый для участия."
+      "fr": "Héros, builds et contres par rang, tier list calculée sur les taux de victoire en classé, objets, emblèmes et patch notes de Mobile Legends: Bang Bang, en neuf langues. Projet indépendant, ouvert aux contributions.",
+      "text": "Герои, билды и контрпики Mobile Legends: Bang Bang по рангам, тир-лист на основе процента побед в рейтинговых матчах, предметы, эмблемы и патч-ноуты на девяти языках. Независимый проект, открытый для участия."
     },
     "footer.legalNotice": {
       "fr": "Mentions légales",
@@ -66999,8 +67967,8 @@
       "text": "Предметы измеренного ядра"
     },
     "pages.buildSimulatorUI.measuredLoading": {
-      "fr": "Chargement des builds mesurés…",
-      "text": "Загрузка измеренных билдов…"
+      "fr": "Je compare avec les builds mesurés…",
+      "text": "Сравниваю с измеренными билдами…"
     },
     "pages.buildSimulatorUI.measuredNeedItems": {
       "fr": "Ajoutez des objets pour les comparer aux builds réellement joués.",
@@ -67683,8 +68651,8 @@
       "text": "Собрать билд"
     },
     "pages.communityBuilds.emptyStore": {
-      "fr": "Aucun build publié pour l'instant. Composez le vôtre dans le simulateur et soyez le premier.",
-      "text": "Пока не опубликовано ни одного билда. Соберите свой в симуляторе и станьте первым."
+      "fr": "Aucun build publié pour l'instant. Montez le vôtre dans le simulateur : la première place est libre.",
+      "text": "Пока не опубликовано ни одного билда. Соберите свой в симуляторе: первое место свободно."
     },
     "pages.communityBuilds.heroCreate": {
       "fr": "Composer un build pour {hero}",
@@ -71495,8 +72463,8 @@
       "text": "От самой односторонней дуэли к самой равной"
     },
     "pages.matchupsUI.loading": {
-      "fr": "Chargement des duels du rang…",
-      "text": "Загрузка дуэлей ранга…"
+      "fr": "Je prépare les duels du rang…",
+      "text": "Готовлю дуэли ранга…"
     },
     "pages.matchupsUI.measured": {
       "fr": "Duels mesurés : {n} sur {total}.",
@@ -72519,8 +73487,8 @@
       "text": "Следующее задание через {h} ч {m} мин"
     },
     "pages.quizUI.noResult": {
-      "fr": "Aucun résultat.",
-      "text": "Ничего не найдено."
+      "fr": "Aucun héros sous ce nom.",
+      "text": "Нет героя с таким именем."
     },
     "pages.quizUI.offline": {
       "fr": "Défi préparé hors ligne",
@@ -75039,8 +76007,8 @@
       "text": "↑ ↓ — навигация, Enter — открыть, Esc — закрыть"
     },
     "search.none": {
-      "fr": "Aucun résultat.",
-      "text": "Ничего не найдено."
+      "fr": "Rien sous ce nom.",
+      "text": "Ничего под таким именем."
     },
     "search.open": {
       "fr": "Rechercher",
@@ -76485,6 +77453,82 @@
     "og.banned": {
       "fr": "Le plus banni",
       "text": "Чаще всех банят"
+    },
+    "dex.heroTop": {
+      "fr": "{name} est en palier {tier} en ce moment : c'est le moment d'en profiter en classé !",
+      "text": "{name} сейчас в тире {tier}: самое время взять его в рейтинг!"
+    },
+    "dex.heroLow": {
+      "fr": "{name} est en palier C en ce moment… Jette un œil à ses contres avant de lancer une partie.",
+      "text": "{name} сейчас в тире C… Посмотри контрпики, прежде чем начинать игру."
+    },
+    "pages.dexPage.poses.pointe.name": {
+      "fr": "Regarde",
+      "text": "Смотри!"
+    },
+    "pages.dexPage.poses.saut.name": {
+      "fr": "Saut",
+      "text": "Прыжок"
+    },
+    "pages.skinsCalendarUI.error": {
+      "fr": "Le calendrier n'a pas pu charger. Vérifie ta connexion, puis réessaie.",
+      "text": "Не удалось загрузить календарь. Проверьте подключение и попробуйте ещё раз."
+    },
+    "home.figures.heroes": {
+      "fr": "héros",
+      "text": "героев"
+    },
+    "home.stage.dexPatchAlone": {
+      "fr": "Patch {version} en ligne : {n} héros retouchés.",
+      "text": "Патч {version} вышел: изменено героев — {n}."
+    },
+    "home.stage.dexPatch": {
+      "fr": "Patch {version} en ligne : {n} héros retouchés. En tête de la méta, {hero}.",
+      "text": "Патч {version} вышел: изменено героев — {n}. Во главе меты — {hero}."
+    },
+    "search.loading": {
+      "fr": "Je cherche…",
+      "text": "Ищу…"
+    },
+    "home.stage.dexCta": {
+      "fr": "Voir ce qui change",
+      "text": "Что изменилось"
+    },
+    "home.figures.splus": {
+      "fr": "en palier S+",
+      "text": "в тире S+"
+    },
+    "pages.skinsCalendarUI.loading": {
+      "fr": "Je déplie le calendrier des apparences…",
+      "text": "Открываю календарь скинов…"
+    },
+    "pages.quizUI.loading": {
+      "fr": "Je prépare la partie…",
+      "text": "Готовлю игру…"
+    },
+    "home.figures.changed": {
+      "fr": "retouchés au patch",
+      "text": "изменено в патче"
+    },
+    "home.figures.items": {
+      "fr": "objets",
+      "text": "предметов"
+    },
+    "pages.collectionUI.loading": {
+      "fr": "Je sors les héros et leurs apparences…",
+      "text": "Достаю героев и их скины…"
+    },
+    "dex.home1": {
+      "fr": "En tête d'affiche, le n°1 de la tier list : il change quand la méta bouge.",
+      "text": "На афише — номер 1 тир-листа. Он меняется, когда меняется мета."
+    },
+    "pages.mlbbdleUI.loading": {
+      "fr": "Je prépare le défi du jour…",
+      "text": "Готовлю задание дня…"
+    },
+    "error.title": {
+      "fr": "Ça a coincé",
+      "text": "Что-то заело"
     }
   }
 }

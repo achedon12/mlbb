@@ -290,7 +290,7 @@
     "brand": "Mobile Legends: Bang Bang™ Shanghai Moonton Technology Co., Ltd.",
     "version": "Versione {v}",
     "contribute": "Contribuisci",
-    "intro": "Eroi, build e counter per rango, una tier list calcolata sui tassi di vittoria delle partite classificate, oggetti, emblemi e patch notes di Mobile Legends: Bang Bang, in italiano, inglese, francese, spagnolo e indonesiano. Progetto indipendente, aperto ai contributi.",
+    "intro": "Eroi, build e contatori per grado, elenco dei livelli calcolato sui tassi di vittoria classificati, oggetti, emblemi e note sulla patch di Mobile Legends: Bang Bang, in nove lingue. Progetto indipendente, aperto a contributi.",
     "sources": "Testi tratti dalla wiki di Mobile Legends (Fandom) e da Liquipedia, sotto licenza CC BY-SA, con attribuzione ai rispettivi contributori. Immagini, nomi di eroi, skin e oggetti © Moonton e skin in collaborazione © dei rispettivi titolari dei diritti: non rientrano in questa licenza. Le percentuali di vincita, esclusione e scelta, i contatori e le build più giocate provengono dalle statistiche di gioco classificate del gioco, tramite l'API della community arena.rone.dev.",
     "discord": "Unisciti alla Discordia",
     "columns": {
@@ -830,7 +830,7 @@
       "linkCopied": "Link copiato.",
       "copyFailed": "Non ho potuto copiare: copia l'indirizzo della pagina.",
       "intro": "Aggiungi almeno un eroe su ciascun lato per visualizzare la matrice. L'indirizzo della pagina mantiene le tue scelte e il ranking: basta condividerlo.",
-      "loading": "Caricamento duelli di grado...",
+      "loading": "Preparo i duelli del grado…",
       "error": "Non sono riuscito a caricare duelli di questo livello. Riprova o cambia la classifica.",
       "matrixTitle": "Duelli · {rank}",
       "measured": "Duelli misurati: {n} su {total}.",
@@ -1816,7 +1816,7 @@
       "mode": "Modalità",
       "dailyMode": "Sfida del giorno",
       "practiceMode": "Allenamento",
-      "loading": "Caricamento…",
+      "loading": "Preparo la partita…",
       "loadError": "Non riesco a caricare il quiz. Controlla la tua connessione: una volta visitata la pagina, è possibile giocare anche offline.",
       "retry": "Riprova",
       "puzzleNumber": "Sfida n. {n} · {date}",
@@ -1888,7 +1888,7 @@
       "initial": "«{letter}», {n} lettere",
       "heroField": "Nome di un eroe…",
       "itemField": "Nome di un oggetto…",
-      "noResult": "Nessun risultato.",
+      "noResult": "Nessun eroe con quel nome.",
       "browse": "Sfoglia gli eroi",
       "skip": "Passa",
       "yourTries": "I tuoi tentativi",
@@ -2119,8 +2119,8 @@
       "allHeroes": "Tutti",
       "all": "Tutte",
       "clear": "Azzera i filtri",
-      "loading": "Caricamento delle skin…",
-      "error": "Impossibile caricare l'elenco delle skin. Controlla la connessione e riprova.",
+      "loading": "Apro il calendario delle skin…",
+      "error": "Impossibile caricare il calendario. Controlla la connessione e riprova.",
       "result": "1 skin corrisponde.",
       "results": "{n} skin corrispondono.",
       "nSkins": "{n} skin",
@@ -2141,7 +2141,7 @@
       "accountValueLink": "Stima il valore di un account"
     },
     "collectionUI": {
-      "loading": "Caricamento di eroi e skin…",
+      "loading": "Tiro fuori gli eroi e le loro skin…",
       "error": "Non riesco a caricare l'elenco delle presenze. Controlla la tua connessione, quindi ricarica la pagina.",
       "valueTitle": "Valore in negozio della tua collezione",
       "heroes": "Eroi",
@@ -2531,7 +2531,7 @@
         "practice": "Allenamento"
       },
       "solved": "risolta",
-      "loading": "Caricamento…",
+      "loading": "Preparo la sfida del giorno…",
       "loadError": "Non riesco a caricare la sfida di oggi. Controlla la connessione e riprova.",
       "retry": "Riprova",
       "unavailable": "Questa modalità oggi non è disponibile. Prova l'altra!",
@@ -3531,7 +3531,7 @@
       "resultFor": "{hero}, livello {level}. Tocca una statistica per vederne il dettaglio.",
       "pickHeroFirst": "Scegli un eroe per vedere le statistiche calcolate.",
       "measuredTitle": "Confronto con le build misurate",
-      "measuredLoading": "Caricamento delle build misurate…",
+      "measuredLoading": "Confronto con le build misurate…",
       "measuredNeedItems": "Aggiungi oggetti per confrontarli con le build realmente giocate.",
       "measuredNone": "A questo rango nessuna build misurata condivide almeno due oggetti con la tua.",
       "measuredSame": "Stesso nucleo di una build misurata",
@@ -3593,7 +3593,7 @@
       "lead": "Build create nel simulatore e pubblicate dai giocatori, con le statistiche calcolate. Vota quelle che ti convincono: le più apprezzate salgono in cima.",
       "createCta": "Crea una build",
       "unavailable": "Le build della community non sono al momento disponibili. Riprova tra qualche minuto.",
-      "emptyStore": "Nessuna build pubblicata per ora. Crea la tua nel simulatore e sii il primo.",
+      "emptyStore": "Nessuna build pubblicata per ora. Monta la tua nel simulatore: il primo posto è libero.",
       "weekTitle": "Le più votate della settimana",
       "weekEmpty": "Nessun voto negli ultimi sette giorni.",
       "latestTitle": "Ultime build pubblicate",
@@ -4900,8 +4900,8 @@
       "discordTitle": "Sulla Discordia",
       "discordText": "Lì Dex si chiama Dex MLBB: è il bot che risponde a /hero, /build o /tierlist con gli stessi numeri del sito. È anche l'icona del server della comunità.",
       "botLink": "Scopri il bot Dex MLBB",
-      "posesTitle": "Le sue sei pose",
-      "posesLead": "Una posa per ogni momento della tua visita. Passa il mouse sopra di loro, cliccaci sopra: sono vivi.",
+      "posesTitle": "Le sue dodici pose",
+      "posesLead": "Una posa per ogni momento della tua visita. Cliccateci sopra, lasciateli stare per un attimo: sono vivi.",
       "poses": {
         "salut": {
           "name": "CIAO",
@@ -4926,6 +4926,30 @@
         "carte": {
           "name": "Mappa",
           "text": "Nelle guide, sulla mappa e per la strategia."
+        },
+        "joie": {
+          "name": "Gioia",
+          "text": "Quando arrivano buone notizie: un appassionato, un eroe in buona forma."
+        },
+        "bravo": {
+          "name": "Ben fatto",
+          "text": "Per applaudire una partita vinta o una costruzione ben pensata."
+        },
+        "saut": {
+          "name": "Salto",
+          "text": "Quando è tempo di festa: nuova patch, nuovo eroe."
+        },
+        "pointe": {
+          "name": "Guarda!",
+          "text": "Per mostrarti cosa non perdere."
+        },
+        "triste": {
+          "name": "Deluso",
+          "text": "Dopo un nerf, una sconfitta o una ricerca senza risultati."
+        },
+        "dodo": {
+          "name": "Pisolino",
+          "text": "Se non ti muovi per un po', si addormenta. Muoviti e lui si sveglia di soprassalto."
         }
       },
       "kitLink": "Le sue pose PNG sono nel kit del marchio",
@@ -4995,6 +5019,69 @@
         "logo": "Scarica logo: orizzontale (SVG)",
         "stacked": "Scarica logo: impilato (SVG)"
       }
+    },
+    "patchRecap": {
+      "seoTitle": "Recensione patch {v}: vincitori, vinti e sorprese",
+      "description": "Quale patch {v} è davvero cambiata: {n} eroi misurati nei {days} giorni prima e dopo il rilascio, i più grandi vincitori, perdenti e sorprese.",
+      "descriptionNone": "Recensione della patch Mobile Legends {v}: tassi di vittoria prima e dopo il suo rilascio, non appena le letture lo consentono.",
+      "share": "I risultati della patch {v}: chi ha vinto, chi ha perso e le sorprese.",
+      "crumb": "Bilancio",
+      "kicker": "Revisione della patch",
+      "lead": "Ciò che la patch ha realmente fatto per vincere: la media di {days} giorni prima del rilascio rispetto a {days} giorni dopo, eroe per eroe.",
+      "back": "Leggi le note sulla patch",
+      "link": "Vedi il rapporto sulla patch",
+      "linkVersion": "Revisione della patch {v}",
+      "linkLead": "Vincitori, vinti e sorprese: la patch si misura sui win rate.",
+      "facts": {
+        "adjusted": "{n} eroi modificati",
+        "measured": "{n} eroi misurati",
+        "date": "Rilasciato il {date}"
+      },
+      "young": "La patch è ancora recente: per alcuni eroi sono stati misurati meno di {days} giorni dal suo rilascio. Il bilancio può ancora cambiare.",
+      "sample": {
+        "noneSoon": "Ancora nessuna misurazione: sono necessari almeno quattro giorni di letture dopo il rilascio del cerotto. I risultati si scriveranno da soli tra pochi giorni.",
+        "noneOld": "Nessuna misurazione per questa patch: le nostre letture giornaliere non coprono i {days} giorni che la circondano. Le note sulla patch rimangono leggibili per intero.",
+        "small": "Campione ridotto: solo {n} eroi hanno letture su entrambi i lati della toppa. Leggi questa recensione come una tendenza, non un verdetto."
+      },
+      "chapter": "Capitolo {n}",
+      "winners": {
+        "title": "I grandi vincitori",
+        "lead": "I maggiori aumenti nel tasso di vincita, al di là del rumore di misurazione.",
+        "empty": "Nessun eroe misurato ha guadagnato {threshold} punti o più: nessuno esce davvero migliore da questa patch."
+      },
+      "losers": {
+        "title": "I grandi perdenti",
+        "lead": "I maggiori cali nel tasso di vincita, al di là del rumore di misurazione.",
+        "empty": "Nessun eroe misurato ha perso {threshold} punti o più: la patch non ha punito nessuno."
+      },
+      "surprises": {
+        "title": "Le sorprese",
+        "lead": "Un buff che ti fa perdere, un nerf che ti fa vincere: dove la patch non ha fatto quello che annunciava.",
+        "empty": "Nessuna sorpresa: ogni buff e nerf misurato si è spinto nella direzione annunciata o non ha cambiato nulla.",
+        "flatTitle": "Niente si è mosso",
+        "flatLead": "Modificato, ma il loro tasso di vittoria è rimasto nel rumore (meno di {threshold} punti di differenza)."
+      },
+      "impact": "{before} → {after}",
+      "averages": "In media, i buff misurati hanno ottenuto {buff} e i nerf {nerf}, in punti percentuale di vittoria.",
+      "averagesBuff": "In media, i buff misurati hanno fatto {buff}, in punti percentuale di vittoria.",
+      "averagesNerf": "In media, i nerf misurati hanno fatto {nerf}, in punti di percentuale di vincita.",
+      "dex": {
+        "intro": "Ho riassunto per te la patch {v} in tre capitoli. I numeri parlano, io commento.",
+        "small": "Pochi eroi hanno misurato questa volta: prendi queste cifre con un pizzico di sale.",
+        "noneSoon": "Le mie letture non hanno ancora una prospettiva sufficiente su questa patch. Torna tra qualche giorno!",
+        "noneOld": "Questa patch è più vecchia delle mie letture giornaliere: non posso misurarla.",
+        "winners": "{hero} vola via: {gap} {unit} in una settimana. Se ci giochi, ora è il momento.",
+        "winnersEmpty": "Nessuno decolla davvero. Una zona tranquilla per i vincitori.",
+        "losers": "{hero} torna indietro di {gap} {unit}. Se questa è la tua mano, dai un'occhiata alle sue build attuali.",
+        "losersEmpty": "Nessuna caduta netta: buone notizie per le vostre mani.",
+        "surpriseBuff": "{hero} ha ricevuto un potenziamento... e il suo tasso è diminuito. Una patch non sempre fa quello che dice!",
+        "surpriseNerf": "{hero} è stato nerfato... e guadagna più di prima. I numeri sono ostinati.",
+        "surprisesEmpty": "Nessuna sorpresa questa volta: la patch ha fatto quello che diceva.",
+        "outro": "La prossima patch rimescolerà le carte. Ti terrò informato!"
+      },
+      "method": "Come viene misurato",
+      "methodText": "Per ogni eroe modificato: la media del suo tasso di vittoria, sommando tutti i gradi, nei {days} giorni prima del rilascio della patch e nei {days} giorni successivi, escluso lo stesso giorno. Ci vogliono almeno quattro giorni misurati su ciascun lato. Una deviazione inferiore a {threshold} punto è considerata rumore. Un ritmo che cambia non dice perché: cambiano anche il meta, gli altri eroi e i giocatori.",
+      "notes": "Vuoi i dettagli di ogni modifica?"
     }
   },
   "modeSheet": {
@@ -5171,11 +5258,23 @@
       "noFall": "Nessun eroe è in netto calo questa settimana.",
       "open": "Mostra i {n} eroi in movimento"
     },
-    "syncLead": "Ultima sincronizzazione il {date}."
+    "syncLead": "Ultima sincronizzazione il {date}.",
+    "figures": {
+      "title": "MLBBDex in numeri",
+      "heroes": "eroi",
+      "changed": "ritoccati nella patch",
+      "splus": "nel tier S+",
+      "items": "oggetti"
+    },
+    "stage": {
+      "dexPatch": "Patch {version} online: {n} eroi ritoccati. In cima al meta, {hero}.",
+      "dexPatchAlone": "Patch {version} online: {n} eroi ritoccati.",
+      "dexCta": "Guarda cosa cambia"
+    }
   },
   "featured": {
-    "heroOfTheDay": "Eroe del giorno",
-    "seeSheet": "Vedi la scheda"
+    "seeSheet": "Vedi la scheda",
+    "topMeta": "Il numero 1 nel meta"
   },
   "access": {
     "account": "{n} eroi"
@@ -6015,8 +6114,8 @@
     }
   },
   "error": {
-    "title": "Si è verificato un errore",
-    "text": "Il sito ha riscontrato un problema imprevisto. Riprova tra un attimo.",
+    "title": "Qualcosa si è inceppato",
+    "text": "Il sito è inciampato su questa pagina. Spesso basta riprovare.",
     "retry": "Riprova",
     "oops": "Ops",
     "pageText": "Impossibile caricare questa pagina. Puoi riprovare o tornare alla home page.",
@@ -6072,8 +6171,8 @@
   "search": {
     "open": "Cerca",
     "placeholder": "Un eroe, un oggetto, una patch…",
-    "none": "Nessun risultato.",
-    "loading": "Caricamento…",
+    "none": "Niente sotto quel nome.",
+    "loading": "Sto cercando…",
     "help": "↑ ↓ per scorrere, Invio per aprire, Esc per chiudere",
     "groups": {
       "hero": "Eroi",
@@ -6085,7 +6184,7 @@
       "emblem": "Emblemi",
       "spell": "Battle Spell"
     },
-    "dexEmpty": "Uhm, non riesco a trovare nulla. Prova un nome diverso o meno lettere."
+    "dexEmpty": "Uhm, non riesco a trovare nulla. Prova un altro nome o meno lettere."
   },
   "heroData": {
     "resource": {
@@ -6474,7 +6573,7 @@
     "default1": "Ctrl + K apre la ricerca: un eroe, un oggetto, un aspetto, l'intero sito.",
     "default2": "Le cifre vengono registrate ogni giorno sulle partite classificate.",
     "default3": "Puoi cambiare la lingua in alto a destra, parlo nove lingue.",
-    "home1": "L'eroe del giorno cambia ogni giorno. Torna domani!",
+    "home1": "In copertina, il n. 1 della tier list: cambia quando si muove il meta.",
     "home2": "L'elenco dei livelli viene ricalcolato ad ogni lettura della tariffa.",
     "home3": "Vuoi giocare? MLBBdle e il quiz ti aspettano ogni giorno.",
     "heroes1": "Filtra per ruolo o corsia per trovare la tua prossima mano.",
@@ -6483,6 +6582,8 @@
     "hero1": "Il rango dei cambiamenti si trova nella parte superiore del foglio: seguono tassi, contatori e build.",
     "hero2": "La scheda Contatori mostra i suoi duelli peggiori e migliori.",
     "hero3": "Aggiungilo come preferito per ricevere una notifica di ogni patch.",
+    "heroTop": "{name} è nel tier {tier} in questo momento: è il momento di approfittarne in classificata!",
+    "heroLow": "{name} è nel tier C in questo momento… Dai un'occhiata ai suoi counter prima di iniziare una partita.",
     "tierList1": "Il livello combina la percentuale di vincita e un quarto della percentuale di ban.",
     "tierList2": "Filtra per grado: il meta di Epic non è quello di Mythic Glory.",
     "tierList3": "Un eroe giocato troppo poco non viene classificato, la misurazione sarebbe instabile.",
@@ -6629,6 +6730,64 @@
     "languages": {
       "title": "{n} lingue",
       "text": "Scritto in francese e tradotto automaticamente in {others} altre lingue. Cosa viene tradotto e come è dettagliato nella pagina delle fonti."
+    }
+  },
+  "shareImage": {
+    "button": "Condividi nell'immagine",
+    "preparing": "Preparazione dell'immagine...",
+    "shared": "Immagine condivisa.",
+    "saved": "Immagine salvata.",
+    "savedCopied": "Immagine salvata, collegamento copiato.",
+    "error": "Impossibile creare l'immagine. Riprova tra un attimo.",
+    "landscape": "Formato collegamento (1200 × 630)",
+    "hint": "Immagine 1080 × 1350, pronta per una storia o un post."
+  },
+  "shareCard": {
+    "build": {
+      "kicker": "Costruisci · {roles}",
+      "title": "Costruisci {hero}",
+      "level": "Livello {n}",
+      "dex": "Questa build è pronta: aprila nel simulatore per vedere le sue statistiche."
+    },
+    "draft": {
+      "kicker": "Bozza · {rank}",
+      "title": "La mia bozza",
+      "blue": "Squadra blu",
+      "red": "Squadra rossa",
+      "estimate": "probabilità stimate",
+      "dexBlue": "Vantaggio per gli azzurri sulla carta. Gioca e basta!",
+      "dexRed": "I rossi partono davanti. Anche un draft si vince giocando.",
+      "dexEven": "Bozza serrata: tutto si deciderà in parte.",
+      "dexNone": "Riproduci questa bozza su MLBBDex e confronta le tue scelte."
+    },
+    "tierList": {
+      "kicker": "Toppa {v} · {month}",
+      "dex": "I livelli vengono ricalcolati ad ogni lettura della tariffa."
+    },
+    "mlbbdle": {
+      "kicker": "Gioco del giorno · {mode}",
+      "title": "MLBBdle # {n}",
+      "found": {
+        "one": "Trovato al primo colpo",
+        "other": "Trovato in {n} prove"
+      },
+      "more": "+{n} test non visualizzati",
+      "streak": "giorni di fila",
+      "guesses": {
+        "one": "saggio",
+        "other": "test"
+      },
+      "dexPerfect": "Al primo tentativo? Non l'avevo previsto!",
+      "dexGood": "Ben fatto! L'eroe di domani ti sta aspettando.",
+      "dexLong": "Dovevamo trovarlo. Ben fatto !"
+    },
+    "recap": {
+      "winners": "Vincitori",
+      "losers": "Perdenti",
+      "none": "Non ci sono ancora abbastanza letture per misurare questa zona.",
+      "small": "Campione ridotto: {n} eroi misurati.",
+      "measured": "eroi misurati",
+      "dex": "Questo è ciò che la patch ha realmente cambiato, con i dati a sostegno."
     }
   }
 }

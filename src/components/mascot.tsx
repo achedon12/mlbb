@@ -12,13 +12,24 @@ import { DexLive } from "@/components/dex-live";
  * - `idee`: a suggestion, a recommended action, a tool;
  * - `surpris`: empty states, not found, errors;
  * - `victoire`: success, a solved game, a saved action;
- * - `carte`: guides, the map, strategy.
+ * - `carte`: guides, the map, strategy;
+ * - `joie`, `bravo`, `saut`: happy moments, a good result, a celebration;
+ * - `triste`: a loss, a hero at the bottom, nothing found;
+ * - `pointe`: "look here", a link or an action to take;
+ * - `dodo`: a quiet page, night, nothing new.
+ *
+ * `debout`, `parle`, `coucou`, `coucou2`, `cligne` and `leve` are the frames
+ * he moves through when he is alive (`dex-live.tsx`): standing, talking,
+ * waving, blinking, looking up.
  *
  * Decorative by default (`alt=""`): the text beside it carries the meaning.
- * It breathes gently and bounces on hover; nothing moves under
+ * He is alive (see `dex-live.tsx`); nothing moves under
  * `prefers-reduced-motion`.
  */
-export type DexPose = "salut" | "reflexion" | "idee" | "surpris" | "victoire" | "carte";
+export type DexPose =
+  | "salut" | "reflexion" | "idee" | "surpris" | "victoire" | "carte"
+  | "joie" | "dodo" | "triste" | "bravo" | "pointe" | "saut"
+  | "debout" | "parle" | "coucou" | "coucou2" | "cligne" | "leve";
 
 const SIZE: Record<DexPose, [number, number]> = {
   salut: [264, 302],
@@ -27,6 +38,18 @@ const SIZE: Record<DexPose, [number, number]> = {
   surpris: [234, 308],
   victoire: [276, 308],
   carte: [286, 292],
+  joie: [211, 303],
+  dodo: [293, 255],
+  triste: [220, 283],
+  bravo: [211, 309],
+  pointe: [281, 309],
+  saut: [316, 290],
+  debout: [213, 306],
+  parle: [201, 307],
+  coucou: [235, 307],
+  coucou2: [253, 307],
+  cligne: [200, 304],
+  leve: [196, 307],
 };
 
 export function Dex({ pose = "salut", height = 160, className, alt = "", priority = false, still = false }: {

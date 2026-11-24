@@ -229,13 +229,13 @@ test.describe("footer", () => {
 });
 
 test.describe("brand pages", () => {
-  test("the Dex page tells his story and shows his six poses", async ({ page }) => {
+  test("the Dex page tells his story and shows his twelve poses", async ({ page }) => {
     await page.goto("/fr/dex");
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(/dex/i);
     await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
     await expect(page.getByRole("heading", { level: 2, name: /d'où il vient/i })).toBeVisible();
     const poses = page.locator("#poses").getByRole("heading", { level: 3 });
-    await expect(poses).toHaveCount(6);
+    await expect(poses).toHaveCount(12);
     await expect(page.locator("#poses").getByRole("link", { name: /kit de marque/i })).toHaveAttribute("href", /\/fr\/brand$/);
   });
 
@@ -244,7 +244,7 @@ test.describe("brand pages", () => {
     await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
     await expect(page.getByRole("button", { name: "Copier #F5C451" })).toBeVisible();
     const downloads = page.getByRole("link", { name: /^t[ée]l[ée]charger dex/i });
-    await expect(downloads).toHaveCount(12);
+    await expect(downloads).toHaveCount(24);
     await expect(downloads.first()).toHaveAttribute("href", "/mascot/dex-salut.png");
     await expect(page.locator('main img[src="/brand/emblem.svg"]')).toHaveCount(1);
     await expect(page.getByRole("link", { name: /t[ée]l[ée]charger le logo/i })).toHaveCount(3);

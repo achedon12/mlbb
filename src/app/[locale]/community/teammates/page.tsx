@@ -301,7 +301,7 @@ export default async function TeammatesPage({ params, searchParams }: Params) {
                   </div>
                 </form>
                 {data[0].cards.length === 0 ? (
-                  <DexNote pose="surpris" height={120} title={t("pages.community.teammates.emptyTitle")}>
+                  <DexNote pose="pointe" height={120} title={t("pages.community.teammates.emptyTitle")}>
                     {t("pages.community.teammates.empty")}
                   </DexNote>
                 ) : (

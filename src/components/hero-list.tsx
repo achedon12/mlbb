@@ -152,7 +152,7 @@ export function HeroList({
                 ))}
               </div>
             ) : (
-              <DexSays pose="surpris" height={130} className="mt-10">
+              <DexSays pose="triste" height={130} className="mt-10">
                 <p>{t("pages.heroesList.none")}</p>
               </DexSays>
             )}

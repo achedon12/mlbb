@@ -211,7 +211,8 @@ export type OgKind =
  * Dex's pose for each kind of page, after the mascot's own rules
  * (`src/components/mascot.tsx`): the welcome for the home page and the
  * community, a thought over data, the idea for a tool, the map for guides,
- * the victory for rankings and tournaments, the surprise for news.
+ * the victory for rankings, applause for tournaments, joy for skins and
+ * events, the pointing finger for news, the jump for the games.
  */
 const POSES: Record<OgKind, DexPose> = {
   home: "salut",
@@ -220,13 +221,13 @@ const POSES: Record<OgKind, DexPose> = {
   statistics: "reflexion",
   sheet: "reflexion",
   guide: "carte",
-  article: "surpris",
+  article: "pointe",
   patch: "reflexion",
-  skins: "victoire",
-  events: "surpris",
-  esports: "victoire",
+  skins: "joie",
+  events: "joie",
+  esports: "bravo",
   tool: "idee",
-  game: "salut",
+  game: "saut",
   community: "salut",
 };
 

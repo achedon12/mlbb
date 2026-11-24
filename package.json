@@ -44,6 +44,7 @@
     "sync:events": "node scripts/events.mjs",
     "sync:advance-server": "node scripts/advance-server.mjs",
     "sync:esports": "node scripts/esports.mjs",
+    "sync:hero-colors": "node scripts/hero-colors.mjs",
     "translate": "node scripts/translate-messages.mjs && node scripts/translate-data.mjs && node scripts/translate-articles.mjs",
     "test": "vitest run",
     "test:watch": "vitest",

@@ -107,7 +107,7 @@ export default async function AdvanceServerPage({ params }: Params) {
 
         {!latest && (
           <div className="flex items-end gap-4">
-            <Dex pose="surpris" height={130} />
+            <Dex pose="dodo" height={130} />
             <p className="pb-4 text-chalk-300">{t("pages.advanceServer.empty")}</p>
           </div>
         )}

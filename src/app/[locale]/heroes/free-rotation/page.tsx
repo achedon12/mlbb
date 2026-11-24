@@ -140,7 +140,7 @@ export default async function FreeRotationPage({ params }: Params) {
           </section>
         ) : (
           <div role="status" className={cn("dex-says max-w-3xl", ENTRANCE)}>
-            <Dex pose="surpris" height={150} />
+            <Dex pose="triste" height={150} />
             <div className="dex-bubble">
               <p className="font-heading text-xl font-bold text-chalk-100">{t("pages.freeRotation.unavailableTitle")}</p>
               <p className="mt-2 text-sm leading-relaxed text-chalk-300">

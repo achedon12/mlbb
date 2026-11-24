@@ -43,7 +43,7 @@ export function SignInChoice({
   return (
     <div className="dex-host bevel-lg relative flex items-end gap-4 bg-night-800 p-4 shadow-[inset_0_3px_0_var(--color-gold-400)] sm:gap-6 sm:p-6">
       <span aria-hidden className="hidden shrink-0 self-end sm:block">
-        <Dex pose="salut" height={150} still />
+        <Dex pose="pointe" height={150} still />
       </span>
       <div className="min-w-0 flex-1 space-y-3">
       {failed && (

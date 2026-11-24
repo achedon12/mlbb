@@ -100,7 +100,7 @@ export function AccountFavourites({ lastPatch = null }: { lastPatch?: SummaryPat
   if (favourites.length === 0) {
     return (
       <div>
-        <DexNotice pose="idee" className="mt-6 max-w-2xl">
+        <DexNotice pose="pointe" className="mt-6 max-w-2xl">
           {t("favourites.nonePre")}
           <Link href="/heroes" className="text-gold-400 underline underline-offset-4">
             {t("favourites.noLink")}

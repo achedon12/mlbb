@@ -26,7 +26,7 @@ export default async function OfflinePage({ params }: { params: Promise<{ locale
   return (
     <DexScreen
       figure="Off"
-      pose="reflexion"
+      pose="dodo"
       title={t("pages.offline.title")}
       text={t("pages.offline.text")}
       line={t("pages.offline.dexLine")}

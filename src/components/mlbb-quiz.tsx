@@ -390,8 +390,8 @@ function Summary({
         >
           {t("pages.quizUI.summaryTitle", { points, max })}
         </h3>
-        {/* Half the points or more is a won challenge; below, Dex thinks it over. */}
-        <GameDex mood={points * 2 >= max ? "won" : "close"} beat={0} height={110} />
+        {/* Half the points or more is a won challenge (a perfect score makes Dex jump); below, he is let down. */}
+        <GameDex mood={points * 2 >= max ? "won" : "over"} pose={points === max ? "saut" : undefined} beat={0} height={110} />
       </div>
 
       <div className="mt-4 flex flex-col gap-5 sm:flex-row sm:items-start">

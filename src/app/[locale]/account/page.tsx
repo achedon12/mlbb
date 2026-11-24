@@ -175,7 +175,7 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
           {stats.status === "ok" ? (
             <SummaryStatistics stats={stats.data} locale={locale} />
           ) : (
-            <DexNote pose="surpris" height={110}>
+            <DexNote pose="triste" height={110}>
               {t("pages.account.detailUnavailable")}
             </DexNote>
           )}
