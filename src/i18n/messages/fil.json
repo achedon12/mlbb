@@ -729,7 +729,7 @@
       "discord": "Mag-sign in gamit ang Discord",
       "discordText": "Upang mapanatili ang iyong pag-unlad at makilahok sa komunidad. Ang Discord ay nagpapadala lamang ng iyong pangalan at avatar, hindi ang iyong email.",
       "discordSignedIn": "Nakakonekta ka sa Discord ({name}).",
-      "discordProgress": "Tingnan ang aking pag-unlad"
+      "discordProgress": "Buksan ang aking account"
     },
     "watch": {
       "title": "Roundup",
@@ -761,8 +761,6 @@
     "account": {
       "metaTitle": "Ang aking account",
       "metaDescription": "Game profile at stats.",
-      "unavailable": "Pansamantalang hindi available ang profile",
-      "unavailableText": "Naka-log in ka, pero hindi tumutugon ngayon ang serbisyo ng Moonton na nagbibigay ng mga profile. Subukan ulit pagkalipas ng ilang minuto.",
       "signOut": "Log out",
       "currentRank": "Kasalukuyang rank",
       "bestRank": "Pinakamataas na rank",
@@ -780,8 +778,47 @@
       "profileLinkText": "Buod ng season, mga hero kumpara sa average ng rank mo, mga huling match at tips.",
       "topHeroes": "Mga hero mo",
       "topHeroesLead": "Ang mga pinakamadalas mong nilalaro, batay sa mga larong pinapanatili ng serbisyo.",
-      "progressLink": "Ang aking pag-unlad",
-      "progressLinkText": "Ang mga day streak, pagsusulit at tala ng MLBBdle, badge at pampublikong profile, na naka-sync sa iyong mga device."
+      "hub": {
+        "kicker": "Ang aking account",
+        "discordKicker": "Nakakonekta sa Discord",
+        "nav": {
+          "overview": "Season",
+          "friends": "Mga kaibigan",
+          "progress": "Pag-unlad",
+          "favourites": "Mga paborito",
+          "discord": "Discord card",
+          "settings": "Mga setting"
+        },
+        "overviewTitle": "Ang season ko",
+        "overviewLead": "Ang iyong mga pinaka-naglarong hero at pangkalahatang mga pigura.",
+        "friendsLead": "Ang iyong listahan ng mga kaibigan sa laro.",
+        "friendsEmpty": "Wala pang kaibigan sa game account na ito.",
+        "friendsUnavailable": "Ang listahan ng iyong mga kaibigan ay hindi maabot sa ngayon: babalik ito sa sarili nitong.",
+        "friendsSearch": "Maghanap ng kaibigan",
+        "friendsNone": "Walang mga kaibigan na tumutugma sa \"{q}\".",
+        "friendsAll": "Ipakita lahat ({n})",
+        "friendsFewer": "Magpakita ng mas kaunti",
+        "progressTitle": "Ang aking pag-unlad",
+        "progressLead": "Serye, mga tala at mga badge mula sa pagsusulit ngayon at MLBBdle, na naka-synchronize sa iyong account.",
+        "play": "Maglaro →",
+        "favouritesLead": "Ang iyong mga hero na susundan, iniulat kapag naapektuhan sila ng isang patch.",
+        "settingsTitle": "Mga setting",
+        "settingsLead": "Ang iyong pampublikong profile, kopya ng pag-unlad ng iyong account, at pag-logout.",
+        "on": "Naka-on",
+        "off": "Naka-off",
+        "signOutDiscord": "Mag-log out sa Discord",
+        "link": {
+          "title": "I-link ang iyong account sa laro upang makita ang iyong ranggo, mga kaibigan, at mga pinaka-naglarong hero",
+          "text": "Mag-log in gamit ang iyong Mobile Legends ID: Nagpapadala si Moonton ng code sa iyong in-game inbox. Ang iyong pag-unlad ay nananatiling pareho sa alinman sa pag-login.",
+          "cta": "Ikonekta ang aking account sa laro",
+          "linked": "Ang iyong Discord account ay naka-link sa game account {name}: ang iyong pag-unlad ay ibinabahagi dito."
+        },
+        "unavailable": {
+          "title": "Pansamantalang hindi available ang data ng laro",
+          "text": "Ang serbisyo ni Moonton ay puspos sa ngayon. Awtomatikong babalik ang iyong mga kaibigan, ranggo at istatistika: hindi na kailangang mag-log in muli.",
+          "lastKnown": "Pansamantala, narito ang iyong huling kilalang profile."
+        }
+      }
     },
     "apiDoc": {
       "title": "Pampublikong API",
@@ -5271,15 +5308,9 @@
       "notes": "Gusto mo ng mga detalye ng bawat pagbabago?"
     },
     "progress": {
-      "metaTitle": "Ang aking pag-unlad",
-      "metaDescription": "Ang iyong serye ng mga araw, ang iyong pagsusulit at mga tala ng MLBBdle, ang iyong mga badge at ang iyong mga paboritong hero.",
       "title": "Ang aking pag-unlad",
-      "titleNamed": "Pag-unlad ng {name}",
-      "lead": "Ang iyong mga sunod-sunod na araw, ang iyong mga tala at ang iyong mga badge, mula sa kung ano ang iyong nilalaro sa site.",
       "quiz": "Daily quiz",
       "mlbbdle": "MLBBdle",
-      "playQuiz": "Maglaro ng pagsusulit ngayong araw →",
-      "playMlbbdle": "Maglaro ng MLBBdle →",
       "badgesTitle": "Mga badge",
       "favourites": "Hero pool",
       "streak": "Kasalukuyang streak",
@@ -5370,7 +5401,9 @@
       "publicLead": "Daystreaks, Records, at Badges sa MLBBEx Today's Games.",
       "publicKicker": "Player profile",
       "publicCta": "Maaari mo ring subaybayan ang iyong serye ng mga araw at ang iyong mga badge:",
-      "publicCtaLink": "ang aking pag-unlad"
+      "publicCtaLink": "Ang aking account",
+      "publicBadges": "Mga Badge: {n}",
+      "publicBestStreak": "Pinakamahusay na serye: {n}"
     }
   },
   "modeSheet": {
@@ -5879,7 +5912,7 @@
         "backups": "Mga backup: araw-araw na kopya ng database; ang tatlong pinakabago lamang ang pinananatili, upang ang mga tinanggal na data ay mawala sa mga backup sa loob ng tatlong araw.",
         "rateLimits": "Mga Limitasyon sa Rate: Ang iyong IP address, sa memorya lamang, ay hindi kailanman nakasulat sa disk.",
         "profileCard": "Discord profile card: hanggang i-unlink mo ito, at hanggang 30 araw lang pagkatapos ng huli mong update.",
-        "progress": "Naka-synchronize na pag-unlad at pampublikong profile: hanggang sa tanggalin mo ang mga ito mula sa pahina ng \"Aking Pag-unlad\", o kapag hiniling."
+        "progress": "Naka-synchronize na pag-unlad at pampublikong profile: hanggang sa tanggalin mo ang mga ito mula sa pahina ng \"Aking Account\", o kapag hiniling."
       },
       "rights": {
         "title": "Ang iyong mga karapatan",
@@ -5972,7 +6005,7 @@
       "data": "ang parehong footprint ng account gaya ng komunidad (hindi kailanman ang iyong ID ng laro o ang iyong Discord ID), ang listahan ng iyong mga paboritong hero, ang iyong mga counter at streak sa araw ng laro, ang iyong mga rekord ng pagsasanay, ang mga buwan kung kailan ka humiling ng paalala, at ang petsa ng huling pagpaparehistro;",
       "public": "kung i-activate mo ang iyong pampublikong profile (naka-disable bilang default): isang random na iginuhit na link identifier, ang mga elementong pinili mong ipakita doon, ang iyong palayaw sa laro o ang iyong Discord name at, kung susuriin mo ito, ang address ng iyong larawan sa profile (ang Discord ay naglalaman ng iyong Discord identifier). Ang profile ay hindi isinangguni ng mga search engine; ang pag-off nito ay mabubura ang pangalan at larawan.",
       "usage": "Ang kopyang ito ay ginagamit lamang upang mahanap ang iyong pag-unlad sa iyong iba pang mga device at, kung i-activate mo ito, upang ipakita ang iyong pampublikong profile. Ang mga paalala sa buwan na ipinadala sa pamamagitan ng notification ay nananatiling naka-link sa browser na humiling sa kanila.",
-      "deletion": "Mula sa pahina ng \"Aking Pag-unlad\", maaari mong tanggalin ang kopyang ito at ang iyong pampublikong profile anumang oras; ang iyong mga browser ay nagtatago ng kanilang sariling kopya at huminto sa pagpapadala nito."
+      "deletion": "Mula sa pahina ng \"Aking Account,\" maaari mong tanggalin ang kopyang ito at ang iyong pampublikong profile anumang oras; ang iyong mga browser ay nagtatago ng kanilang sariling kopya at huminto sa pagpapadala nito."
     }
   },
   "compareUI": {

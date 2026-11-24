@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import { cache } from "react";
-import { expiration, profile, type Profile } from "./mlbb-auth";
+import { expiration, lastKnownProfile, profile, type Profile } from "./mlbb-auth";
 
 /**
  * Game session.
@@ -65,7 +65,8 @@ export async function tokenCurrent(): Promise<string | null> {
 export type StateSession =
   | { state: "missing" }
   | { state: "expired" }
-  | { state: "unavailable"; token: string }
+  /** `lastKnown`: the profile the service gave this token in the past hours, if any. */
+  | { state: "unavailable"; token: string; lastKnown: Profile | null }
   | { state: "ok"; token: string; profile: Profile };
 
 /**
@@ -83,7 +84,7 @@ async function readSession(): Promise<StateSession> {
     return { state: "expired" };
   }
   // Source unavailable: the session is kept, but the profile is not available.
-  return result.status === "ok" ? { state: "ok", token, profile: result.data } : { state: "unavailable", token };
+  return result.status === "ok" ? { state: "ok", token, profile: result.data } : { state: "unavailable", token, lastKnown: lastKnownProfile(token) };
 }
 
 /** Session state, read once per page render. */
@@ -93,4 +94,16 @@ export const sessionPlayer = cache(readSession);
 export async function profileCurrent(): Promise<Profile | null> {
   const session = await readSession();
   return session.state === "ok" ? session.profile : null;
+}
+
+/**
+ * The profile a page may show for this session: one the login service gave
+ * for this very token — now, or (while it is busy) its last answer in the
+ * past hours. Never the token's own claims (`identity`), which nobody has
+ * checked: an edited token must not pick whose id or card a page shows.
+ */
+export function confirmedProfile(session: StateSession): Profile | null {
+  if (session.state === "ok") return session.profile;
+  if (session.state === "unavailable") return session.lastKnown;
+  return null;
 }

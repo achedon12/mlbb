@@ -7605,36 +7605,12 @@
       "text": "You're signed in with Discord ({name})."
     },
     "pages.login.discordProgress": {
-      "fr": "Voir ma progression",
-      "text": "See my progress"
-    },
-    "pages.account.progressLink": {
-      "fr": "Ma progression",
-      "text": "My progress"
-    },
-    "pages.account.progressLinkText": {
-      "fr": "Séries de jours, records du quiz et de MLBBdle, badges et profil public, synchronisés sur vos appareils.",
-      "text": "Streaks, quiz and MLBBdle records, badges and public profile, synced across your devices."
-    },
-    "pages.progress.metaTitle": {
-      "fr": "Ma progression",
-      "text": "My progress"
-    },
-    "pages.progress.metaDescription": {
-      "fr": "Vos séries de jours, vos records du quiz et de MLBBdle, vos badges et vos héros favoris.",
-      "text": "Your streaks, quiz and MLBBdle records, badges and favourite heroes."
+      "fr": "Ouvrir mon compte",
+      "text": "Open my account"
     },
     "pages.progress.title": {
       "fr": "Ma progression",
       "text": "My progress"
-    },
-    "pages.progress.titleNamed": {
-      "fr": "Progression de {name}",
-      "text": "{name}'s progress"
-    },
-    "pages.progress.lead": {
-      "fr": "Vos séries de jours, vos records et vos badges, à partir de ce que vous jouez sur le site.",
-      "text": "Your streaks, records and badges, from what you play on the site."
     },
     "pages.progress.quiz": {
       "fr": "Quiz du jour",
@@ -7643,14 +7619,6 @@
     "pages.progress.mlbbdle": {
       "fr": "MLBBdle",
       "text": "MLBBdle"
-    },
-    "pages.progress.playQuiz": {
-      "fr": "Jouer au quiz du jour →",
-      "text": "Play today's quiz →"
-    },
-    "pages.progress.playMlbbdle": {
-      "fr": "Jouer à MLBBdle →",
-      "text": "Play MLBBdle →"
     },
     "pages.progress.badgesTitle": {
       "fr": "Badges",
@@ -7909,8 +7877,8 @@
       "text": "Track your own streaks and badges too:"
     },
     "pages.progress.publicCtaLink": {
-      "fr": "ma progression",
-      "text": "my progress"
+      "fr": "Mon compte",
+      "text": "My account"
     },
     "prose.progress.title": {
       "fr": "Progression synchronisée et profil public",
@@ -7933,12 +7901,12 @@
       "text": "This copy is only used to find your progress on your other devices and, if you turn it on, to show your public profile. Month reminders sent by notification stay tied to the browser that asked for them."
     },
     "prose.progress.deletion": {
-      "fr": "Depuis la page « Ma progression », vous pouvez supprimer à tout moment cette copie et votre profil public ; vos navigateurs gardent leur propre copie et cessent de l'envoyer.",
-      "text": "From the “My progress” page, you can delete this copy and your public profile at any time; your browsers keep their own copy and stop sending it."
+      "fr": "Depuis la page « Mon compte », vous pouvez supprimer à tout moment cette copie et votre profil public ; vos navigateurs gardent leur propre copie et cessent de l'envoyer.",
+      "text": "From the “My account” page, you can delete this copy and your public profile at any time; your browsers keep their own copy and stop sending it."
     },
     "prose.gdpr.retention.progress": {
-      "fr": "Progression synchronisée et profil public : jusqu'à ce que vous les supprimiez depuis la page « Ma progression », ou sur demande.",
-      "text": "Synced progress and public profile: until you delete them from the “My progress” page, or on request."
+      "fr": "Progression synchronisée et profil public : jusqu'à ce que vous les supprimiez depuis la page « Mon compte », ou sur demande.",
+      "text": "Synced progress and public profile: until you delete them from the “My account” page, or on request."
     },
     "prose.gdpr.storage.progress": {
       "fr": "État de la synchronisation de votre progression avec votre compte (une empreinte de compte, jamais votre ID), et mémoire de l'invitation à vous connecter : fermée (pendant 60 jours) ou suivie.",
@@ -7947,6 +7915,146 @@
     "prose.gdpr.storage.favourites": {
       "fr": "Vos héros favoris. Envoyés au serveur si vous activez les notifications de patch, et gardés sur votre compte si vous êtes connecté.",
       "text": "Your favourite heroes. Sent to the server if you turn on patch notifications, and kept on your account if you're signed in."
+    },
+    "pages.account.hub.kicker": {
+      "fr": "Mon compte",
+      "text": "My account"
+    },
+    "pages.account.hub.discordKicker": {
+      "fr": "Connecté avec Discord",
+      "text": "Signed in with Discord"
+    },
+    "pages.account.hub.nav.overview": {
+      "fr": "Saison",
+      "text": "Season"
+    },
+    "pages.account.hub.nav.friends": {
+      "fr": "Amis",
+      "text": "Friends"
+    },
+    "pages.account.hub.nav.progress": {
+      "fr": "Progression",
+      "text": "Progress"
+    },
+    "pages.account.hub.nav.favourites": {
+      "fr": "Favoris",
+      "text": "Favourites"
+    },
+    "pages.account.hub.nav.discord": {
+      "fr": "Carte Discord",
+      "text": "Discord card"
+    },
+    "pages.account.hub.nav.settings": {
+      "fr": "Réglages",
+      "text": "Settings"
+    },
+    "pages.account.hub.overviewTitle": {
+      "fr": "Ma saison",
+      "text": "My season"
+    },
+    "pages.account.hub.overviewLead": {
+      "fr": "Vos héros les plus joués et vos chiffres d'ensemble.",
+      "text": "Your most played heroes and your overall figures."
+    },
+    "pages.account.hub.friendsLead": {
+      "fr": "Votre liste d'amis dans le jeu.",
+      "text": "Your friend list from the game."
+    },
+    "pages.account.hub.friendsEmpty": {
+      "fr": "Pas encore d'amis sur ce compte de jeu.",
+      "text": "No friends on this game account yet."
+    },
+    "pages.account.hub.friendsUnavailable": {
+      "fr": "Votre liste d'amis est injoignable pour le moment : elle reviendra d'elle-même.",
+      "text": "Your friend list can't be reached right now: it will come back on its own."
+    },
+    "pages.account.hub.friendsSearch": {
+      "fr": "Chercher un ami",
+      "text": "Search for a friend"
+    },
+    "pages.account.hub.friendsNone": {
+      "fr": "Aucun ami ne correspond à « {q} ».",
+      "text": "No friend matches “{q}”."
+    },
+    "pages.account.hub.friendsAll": {
+      "fr": "Tout afficher ({n})",
+      "text": "Show all ({n})"
+    },
+    "pages.account.hub.friendsFewer": {
+      "fr": "Afficher moins",
+      "text": "Show fewer"
+    },
+    "pages.account.hub.progressTitle": {
+      "fr": "Ma progression",
+      "text": "My progress"
+    },
+    "pages.account.hub.progressLead": {
+      "fr": "Séries, records et badges du quiz du jour et de MLBBdle, synchronisés avec votre compte.",
+      "text": "Streaks, records and badges from the daily quiz and MLBBdle, synced with your account."
+    },
+    "pages.account.hub.play": {
+      "fr": "Jouer →",
+      "text": "Play →"
+    },
+    "pages.account.hub.favouritesLead": {
+      "fr": "Vos héros à suivre, signalés quand un patch les touche.",
+      "text": "Your heroes to follow, flagged when a patch touches them."
+    },
+    "pages.account.hub.settingsTitle": {
+      "fr": "Réglages",
+      "text": "Settings"
+    },
+    "pages.account.hub.settingsLead": {
+      "fr": "Votre profil public, la copie de votre progression sur le compte, et la déconnexion.",
+      "text": "Your public profile, your account's copy of your progress, and signing out."
+    },
+    "pages.account.hub.on": {
+      "fr": "Activé",
+      "text": "On"
+    },
+    "pages.account.hub.off": {
+      "fr": "Désactivé",
+      "text": "Off"
+    },
+    "pages.account.hub.signOutDiscord": {
+      "fr": "Se déconnecter de Discord",
+      "text": "Sign out of Discord"
+    },
+    "pages.account.hub.link.title": {
+      "fr": "Liez votre compte de jeu pour voir votre rang, vos amis et vos héros les plus joués",
+      "text": "Link your game account to see your rank, friends and top heroes"
+    },
+    "pages.account.hub.link.text": {
+      "fr": "Connectez-vous avec votre ID Mobile Legends : Moonton envoie un code dans votre boîte de réception en jeu. Votre progression reste la même, avec l'une ou l'autre connexion.",
+      "text": "Sign in with your Mobile Legends ID: Moonton sends a code to your in-game inbox. Your progress stays the same, whichever login you use."
+    },
+    "pages.account.hub.link.cta": {
+      "fr": "Connecter mon compte de jeu",
+      "text": "Connect my game account"
+    },
+    "pages.account.hub.link.linked": {
+      "fr": "Votre compte Discord est lié au compte de jeu {name} : votre progression est partagée avec lui.",
+      "text": "Your Discord account is linked to the game account {name}: your progress is shared with it."
+    },
+    "pages.account.hub.unavailable.title": {
+      "fr": "Données de jeu momentanément indisponibles",
+      "text": "Game data is temporarily unavailable"
+    },
+    "pages.account.hub.unavailable.text": {
+      "fr": "Le service de Moonton est saturé en ce moment. Vos amis, votre rang et vos statistiques reviendront automatiquement : inutile de vous reconnecter.",
+      "text": "The Moonton service is busy right now. Your friends, rank and stats will come back automatically: no need to sign in again."
+    },
+    "pages.account.hub.unavailable.lastKnown": {
+      "fr": "En attendant, voici votre dernier profil connu.",
+      "text": "Meanwhile, here is your last known profile."
+    },
+    "pages.progress.publicBadges": {
+      "fr": "Badges : {n}",
+      "text": "Badges: {n}"
+    },
+    "pages.progress.publicBestStreak": {
+      "fr": "Meilleure série : {n}",
+      "text": "Best streak: {n}"
     }
   },
   "es": {
@@ -12853,6 +12961,22 @@
     "dailyDle.status.started": {
       "fr": "en cours",
       "text": "en curso"
+    },
+    "pages.account.hub.nav.discord": {
+      "fr": "Carte Discord",
+      "text": "Tarjeta Discord"
+    },
+    "pages.account.hub.discordKicker": {
+      "fr": "Connecté avec Discord",
+      "text": "Conectado con Discord"
+    },
+    "pages.account.hub.play": {
+      "fr": "Jouer →",
+      "text": "Jugar →"
+    },
+    "pages.account.hub.overviewTitle": {
+      "fr": "Ma saison",
+      "text": "Mi temporada"
     }
   },
   "id": {
@@ -19911,6 +20035,18 @@
     "accountSync.prompt.quiz.title": {
       "fr": "Gardez votre série de jours sur tous vos appareils",
       "text": "Simpan rentetan harian Anda di semua perangkat"
+    },
+    "pages.account.hub.nav.discord": {
+      "fr": "Carte Discord",
+      "text": "Kartu Discord"
+    },
+    "pages.account.hub.discordKicker": {
+      "fr": "Connecté avec Discord",
+      "text": "Masuk dengan Discord"
+    },
+    "pages.account.hub.nav.friends": {
+      "fr": "Amis",
+      "text": "Teman"
     }
   },
   "it": {
@@ -24825,6 +24961,14 @@
     "dailyDle.status.started": {
       "fr": "en cours",
       "text": "in corso"
+    },
+    "pages.account.hub.nav.discord": {
+      "fr": "Carte Discord",
+      "text": "Scheda Discord"
+    },
+    "pages.account.hub.discordKicker": {
+      "fr": "Connecté avec Discord",
+      "text": "Connesso con Discord"
     }
   },
   "fil": {
@@ -40171,6 +40315,10 @@
     "dailyDle.status.started": {
       "fr": "en cours",
       "text": "sinisimulan"
+    },
+    "pages.account.hub.nav.discord": {
+      "fr": "Carte Discord",
+      "text": "Discord card"
     }
   },
   "th": {
@@ -54405,6 +54553,14 @@
     "accountSync.prompt.quiz.title": {
       "fr": "Gardez votre série de jours sur tous vos appareils",
       "text": "เก็บสถิติเล่นต่อเนื่องของคุณไว้บนทุกอุปกรณ์"
+    },
+    "pages.account.hub.nav.discord": {
+      "fr": "Carte Discord",
+      "text": "การ์ด Discord"
+    },
+    "pages.account.hub.overviewTitle": {
+      "fr": "Ma saison",
+      "text": "ซีซันของฉัน"
     }
   },
   "pt": {
@@ -66579,6 +66735,10 @@
     "dailyDle.status.started": {
       "fr": "en cours",
       "text": "em andamento"
+    },
+    "pages.account.hub.nav.discord": {
+      "fr": "Carte Discord",
+      "text": "Cartão Discord"
     }
   },
   "ru": {
@@ -80249,6 +80409,14 @@
     "accountSync.prompt.quiz.title": {
       "fr": "Gardez votre série de jours sur tous vos appareils",
       "text": "Сохраните серию дней на всех своих устройствах"
+    },
+    "pages.account.hub.nav.discord": {
+      "fr": "Carte Discord",
+      "text": "Карточка Discord"
+    },
+    "pages.account.hub.discordKicker": {
+      "fr": "Connecté avec Discord",
+      "text": "Вход через Discord"
     }
   }
 }

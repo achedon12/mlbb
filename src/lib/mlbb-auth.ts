@@ -185,13 +185,16 @@ async function authenticated<T>(
 const MEMORY = new Map<string, { end: number; value: Promise<Result<unknown>> }>();
 const MEMORY_MAX = 500;
 
+/** Key of a token in server memory: its hash, never the token itself. */
+const tokenKey = (token: string) => createHash("sha256").update(token).digest("base64url");
+
 function remember<T>(
   token: string,
   path: string,
   seconds: number,
   call: () => Promise<Result<T>>,
 ): Promise<Result<T>> {
-  const key = `${createHash("sha256").update(token).digest("base64url")}${path}`;
+  const key = `${tokenKey(token)}${path}`;
   const now = Date.now();
   const known = MEMORY.get(key);
   if (known && known.end > now) return known.value as Promise<Result<T>>;
@@ -221,21 +224,56 @@ export function friendAvatar(path: string | undefined): string | null {
   return cdnImage(`https://akmpicture.youngjoygame.com/${clean.startsWith("dist/") ? clean : `dist/face/${clean}`}`);
 }
 
-/** Basic profile: what stays reachable even when stats are down. */
+/**
+ * The last profile the service gave for a token, kept a few hours in server
+ * memory (under the token's hash) so that a short outage of the service — a
+ * wave of 429s — still lets the header and the account page name the
+ * player, with a note that the live figures are away. Never written to disk,
+ * never shared between tokens.
+ */
+const LAST_PROFILE = new Map<string, { until: number; profile: Profile }>();
+const LAST_PROFILE_SECONDS = 6 * 3600;
+
+/**
+ * Basic profile: what stays reachable even when stats are down. Kept a
+ * minute: the header, the progress sync and the account page each ask for it
+ * on the same page view.
+ */
 export function profile(token: string): Promise<Result<Profile>> {
-  return authenticated("/info?lang=en", token, (data) => {
-    const d = data as Record<string, unknown>;
-    return {
-      roleId: Number(d.roleId),
-      zoneId: Number(d.zoneId),
-      name: String(d.name ?? ""),
-      level: Number(d.level ?? 0),
-      rankCurrent: Number(d.rank_level ?? 0),
-      rankMax: Number(d.history_rank_level ?? 0),
-      country: String(d.reg_country ?? ""),
-      avatar: cdnImage(d.avatar),
-    } satisfies Profile;
+  return remember(token, "/info", 60, () =>
+    authenticated("/info?lang=en", token, (data) => {
+      const d = data as Record<string, unknown>;
+      return {
+        roleId: Number(d.roleId),
+        zoneId: Number(d.zoneId),
+        name: String(d.name ?? ""),
+        level: Number(d.level ?? 0),
+        rankCurrent: Number(d.rank_level ?? 0),
+        rankMax: Number(d.history_rank_level ?? 0),
+        country: String(d.reg_country ?? ""),
+        avatar: cdnImage(d.avatar),
+      } satisfies Profile;
+    }),
+  ).then((result) => {
+    const key = tokenKey(token);
+    if (result.status === "ok") {
+      LAST_PROFILE.delete(key);
+      LAST_PROFILE.set(key, { until: Date.now() + LAST_PROFILE_SECONDS * 1000, profile: result.data });
+      for (const old of LAST_PROFILE.keys()) {
+        if (LAST_PROFILE.size <= MEMORY_MAX) break;
+        LAST_PROFILE.delete(old);
+      }
+    } else if (result.status === "expired") {
+      LAST_PROFILE.delete(key);
+    }
+    return result;
   });
+}
+
+/** The last profile the service gave for this token in the past hours, or null. */
+export function lastKnownProfile(token: string): Profile | null {
+  const known = LAST_PROFILE.get(tokenKey(token));
+  return known && known.until > Date.now() ? known.profile : null;
 }
 
 /** Overall statistics, over the seasons the service has kept. Often down. */
