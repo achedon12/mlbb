@@ -47,6 +47,13 @@ code uses `azure` and never `emerald` or `blurple`.
   wordmark.
 - **Headings and labels**: Barlow Condensed 600/700, upright (`font-heading`).
   Card titles, buttons, nav, table headers (in capitals), facts.
+- **Figures**: Saira, the wordmark's family, in its real italic (variable
+  cut, `wdth` narrowed to 62.5, the extra-condensed width), tabular and
+  lining digits (`--font-figure`). `.score` and `.figure` use it: win rates,
+  scores, key counts. Digits are Latin, so the figures keep this face on the
+  Russian and Thai pages too; letters in a figure fall back to the display
+  face of the page's script. Not preloaded: until it arrives the figures
+  show in Saira Extra Condensed, almost the same width.
 - **Text**: Inter (`font-body`), tabular figures in tables (`tabular-nums`).
 - Russian takes Fira Sans Extra Condensed, Thai Chakra Petch, for both
   roles (`:lang()` overrides in `globals.css`).
@@ -123,15 +130,30 @@ spinner, a grey rounded skeleton or a bare red line.
   (`victoire`), red edge and Dex surprised for a failure. The live role stays
   on the element around it.
 - Lines Dex says use `tu`, short, with the next step. No emojis.
+- **Microcopy**: a wait says what is being done, in the first person when
+  it is Dex's or the tool's voice ("Je prépare la partie…", "Je cherche…"),
+  never a bare "Chargement…". An empty state names what is missing and the
+  way out ("Aucun héros sous ce nom."). A failure says it plainly and offers
+  the retry ("Ça a coincé", "Un nouvel essai suffit souvent."). Sober,
+  gamer-friendly, no jokes that age, no exclamation marks in a row. A page
+  that already says `vous` keeps it.
 
 ## Motion
+
+Tokens (`globals.css`, "Brand stage"): easings `--ease-brand-out` (arrivals,
+reveals, the poster), `--ease-brand-in-out` (slow loops), `--ease-brand-spring`
+(Dex, bubbles, flashes), also as utilities (`ease-brand-out`…); durations
+`--duration-fast` 150 ms (hover, press), `--duration-base` 320 ms (small
+entries), `--duration-slow` 650 ms (the strong moment, a reveal). New motion
+takes these, never a curve of its own.
 
 - One strong moment per page: `affiche-art` (art slides slightly) and
   `affiche-name` (name comes in on the slant), under 700 ms, transforms only
   (the name is painted from the first frame).
 - Hover: cards and tiles rise 2 px, a tile's image zooms 3 % in its frame,
   the éclat slides under the element; buttons press in.
-- Nothing moves on scroll, but for the hero page's poster: its layers (art,
+- On scroll, only three things move: the home blocks come in (scroll reveal,
+  below), the patch recap's chapters (below) and the hero page's poster: its layers (art,
   the hero's light, the name) drift at their own depth with the scroll and,
   on a fine pointer, the cursor (`PosterParallax`, `hero-cinematic.tsx`),
   a few pixels, transforms only. Its chips, figures, facts and gauges come in
@@ -143,7 +165,48 @@ spinner, a grey rounded skeleton or a bare red line.
 - The chapters of a patch recap (`/patch-notes/<version>/bilan`, `.recap-chapter`),
   a story page, rise into place as they enter the view, by CSS scroll-driven
   animation only.
-- Everything stops under `prefers-reduced-motion`, view transitions included.
+- **Scroll reveal** (`RevealGroup`, `reveal.tsx`): the blocks marked
+  `data-reveal` come in once, the first time they near the screen — the block
+  rises and fades in, its section title arrives on the slant, its blade
+  sweeps, its hero tiles follow one by one (45 ms apart); a divider
+  (`eclat-rule`) only sweeps its blade. Progressive: the server sends
+  everything visible, the group arms only once its script runs, and what is
+  already on screen is never hidden. Used on the home page; a page that adopts
+  it wraps its blocks the same way.
+- **Counting figures** (`CountUp`, `count-up.tsx`): a key figure counts up
+  to its value (1.1 s, ease-out) the first time it shows. The server writes
+  the final value; the CSS hides it until the script counts and shows it on
+  its own after 2.5 s if the script is late.
+- Everything stops under `prefers-reduced-motion`: no reveal, no count, no
+  parallax, no embers, no view transition; an infinite animation is switched off explicitly
+  (`animation: none`), never left to the global 0.01 ms rule.
+
+## Brand stage (home poster)
+
+The home page opens on a stage, its "wow" moment; the hero pages have their
+own cinematic poster (above), no other page copies either.
+
+- **The art**: the official artwork of the meta's number one (the first
+  reliably measured hero of the tier list with an artwork the site may show:
+  `illustrations`, filtered by `listed.ts`), `next/image` with `priority`.
+  It changes when the meta does, not with the calendar.
+- **Parallax** (`HomeStage`): on a fine pointer that can hover, the layers
+  shift by their depth against the pointer (`--stage-x`, `--stage-y`):
+  the art −14 px, the glow 12 px, the embers 22 px, the name 8 px, Dex 10 px.
+  They move by `translate`, so they never fight a layer's own `transform`
+  animation. Still on a phone and without JavaScript.
+- **Glow**: three soft radial gradients (gold, ally blue, dark gold) behind
+  the poster, drifting over 22 s, plus a soft gold light over the art
+  (`screen`). No `filter: blur`, no other colour.
+- **Embers**: fourteen small diamonds (the bevel's angle) rising from the foot
+  of the art, gold, two in ally blue; CSS only, fixed positions so the server
+  and the browser draw the same. Removed under reduced motion.
+- **Dex** presents the live patch in his bubble (`DexSays`, pose `salut`),
+  with the link to the notes; in the poster's top corner from `lg`, under the
+  buttons on a phone.
+- **Figures**: the site's four key counts under the search (heroes, heroes
+  changed by the patch, S+ heroes, items) and the number one's win rate,
+  counting up.
 
 ## Composition
 
@@ -162,7 +225,9 @@ spinner, a grey rounded skeleton or a bare red line.
 - Captions under images.
 - Three equal columns of lists.
 - Frames around every section.
-- Gradient text, blurred halos, particles, glass (`backdrop-blur`), neon.
+- Gradient text, blurred halos, particles, glass (`backdrop-blur`), neon —
+  except the brand stage's glow and embers on the home poster, which stay
+  there, in the palette, and rest under reduced motion.
 - Emojis as illustration, rainbow cards (one colour per role or per item),
   rounded corners (`rounded-*`).
 - Artwork in small aligned thumbnails when it can be large.

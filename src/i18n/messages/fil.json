@@ -290,7 +290,7 @@
     "brand": "Mobile Legends: Bang Bang™ Shanghai Moonton Technology Co., Ltd.",
     "version": "Bersyon {v}",
     "contribute": "Mag-ambag",
-    "intro": "Mga hero, build at counter ng Mobile Legends: Bang Bang ayon sa rank, tier list na kinukuwenta mula sa ranked win rate, mga item, emblem at patch notes, sa English, French, Italian, Spanish at Indonesian. Isang independiyenteng proyekto, bukas sa mga kontribusyon.",
+    "intro": "Mga hero, build at counter ng Mobile Legends: Bang Bang ayon sa rank, tier list na kinukuwenta mula sa ranked win rate, mga item, emblem at patch notes, sa siyam na wika. Isang independiyenteng proyekto, bukas sa mga kontribusyon.",
     "sources": "Mga text na kinuha mula sa Mobile Legends wiki (Fandom) at Liquipedia, sa ilalim ng lisensya ng CC BY-SA, na may attribution sa kanilang mga contributor. Mga larawan, pangalan ng mga hero, skin at bagay © Moonton, at para sa collaboration skin © kani-kanilang mga may hawak ng karapatan: hindi sila napapailalim sa lisensyang ito. Ang mga win rate, ban at pagpili, mga counter at karamihan sa mga nilalaro na build ay nagmumula sa mga istatistika ng paglalaro sa ranggo ng laro, sa pamamagitan ng arena.rone.dev community API.",
     "discord": "Sumali sa Discord",
     "columns": {
@@ -650,7 +650,7 @@
       "security": "Hindi kailanman nakikita ng site ang iyong password. Tumatanggap lang ito ng pansamantalang token, na nakaimbak sa isang secure na cookie, na tatanggalin mo kapag nag-log out ka.",
       "metaTitle": "Mag-log in",
       "metaDescription": "I-connect ang iyong Mobile Legends account gamit ang verification code, walang password na kailangan.",
-      "welcome": "Maligayang pagdating sa MLBDex!",
+      "welcome": "Maligayang pagdating sa MLBBDex!",
       "welcomeText": "Ang iyong account sa laro, nang walang password: ang iyong username, pagkatapos ay ang code na ipinapadala ng Moonton sa iyong in-game inbox.",
       "perks": {
         "profile": "Ang iyong profile, mga ranggo at pinaka-naglarong hero",
@@ -830,7 +830,7 @@
       "linkCopied": "Nakopya ang link.",
       "copyFailed": "Hindi ko makopya: kopyahin ang address ng pahina.",
       "intro": "Magdagdag ng kahit isang hero sa bawat side para ipakita ang matrix. Naka-save sa address ng page ang mga pinili mo at ang rank: i-share lang ito.",
-      "loading": "Nilo-load ang mga duel ng rank…",
+      "loading": "Inihahanda ang mga duel ng rank…",
       "error": "Hindi ako nakapag-load ng mga duel ng ganitong ranggo. Subukang muli, o baguhin ang ranggo.",
       "matrixTitle": "Duels · {rank}",
       "measured": "Mga nasukat na duel: {n} sa {total}.",
@@ -1816,7 +1816,7 @@
       "mode": "Mode",
       "dailyMode": "Daily challenge",
       "practiceMode": "Practice",
-      "loading": "Naglo-load…",
+      "loading": "Inihahanda ang laro…",
       "loadError": "Hindi ko ma-load ang quiz. Suriin ang iyong koneksyon: kapag binisita mo ang pahina, maaari din itong i-play offline.",
       "retry": "Subukan ulit",
       "puzzleNumber": "Challenge #{n} · {date}",
@@ -1888,7 +1888,7 @@
       "initial": "“{letter}”, {n} letra",
       "heroField": "I-type ang pangalan ng hero…",
       "itemField": "I-type ang pangalan ng item…",
-      "noResult": "Walang tugma.",
+      "noResult": "Walang hero sa pangalang iyan.",
       "browse": "Tingnan ang mga hero",
       "skip": "Laktawan",
       "yourTries": "Mga hula mo",
@@ -2119,8 +2119,8 @@
       "allHeroes": "Lahat",
       "all": "Lahat",
       "clear": "I-clear ang mga filter",
-      "loading": "Naglo-load ng mga skin…",
-      "error": "Hindi ma-load ang listahan ng skin. I-check ang connection mo at subukan ulit.",
+      "loading": "Binubuksan ang kalendaryo ng mga skin…",
+      "error": "Hindi nag-load ang kalendaryo. I-check ang connection mo, tapos subukan ulit.",
       "result": "1 skin ang tugma.",
       "results": "{n} skin ang tugma.",
       "nSkins": "{n} skin",
@@ -2141,7 +2141,7 @@
       "accountValueLink": "Tantiyahin ang halaga ng isang account"
     },
     "collectionUI": {
-      "loading": "Naglo-load ng mga hero at skin…",
+      "loading": "Inilalabas ang mga hero at ang kanilang mga skin…",
       "error": "Hindi ko ma-load ang listahan ng mga pagpapakita. Suriin ang iyong koneksyon, pagkatapos ay i-reload ang page.",
       "valueTitle": "Halaga ng collection mo sa shop",
       "heroes": "Mga hero",
@@ -2531,7 +2531,7 @@
         "practice": "Practice"
       },
       "solved": "nasagot",
-      "loading": "Naglo-load…",
+      "loading": "Inihahanda ang hamon ngayong araw…",
       "loadError": "Hindi ko ma-load ang hamon ngayon. Suriin ang iyong koneksyon, pagkatapos ay subukang muli.",
       "retry": "Subukan ulit",
       "unavailable": "Hindi available ang mode na ito ngayon. Subukan ang isa pa!",
@@ -3531,7 +3531,7 @@
       "resultFor": "{hero}, level {level}. I-tap ang isang stat para makita ang breakdown nito.",
       "pickHeroFirst": "Pumili ng hero para makita ang kinuwentang stats.",
       "measuredTitle": "Kumpara sa mga measured build",
-      "measuredLoading": "Nilo-load ang mga measured build…",
+      "measuredLoading": "Ikinukumpara sa mga measured build…",
       "measuredNeedItems": "Magdagdag ng mga item para ikumpara sa mga build na talagang nilalaro.",
       "measuredNone": "Sa rank na ito, walang measured build na may hindi bababa sa dalawang item na pareho sa build mo.",
       "measuredSame": "Parehong core sa isang measured build",
@@ -3593,7 +3593,7 @@
       "lead": "Mga build na binuo sa simulator at na-publish ng mga player, kasama ang kinuwentang stats. Iboto ang mga nakakakumbinsi sa iyo: umaakyat sa itaas ang mga pinakasinusuportahan.",
       "createCta": "Gumawa ng build",
       "unavailable": "Pansamantalang hindi available ang mga community build. Subukan ulit pagkalipas ng ilang minuto.",
-      "emptyStore": "Wala pang na-publish na build. Buuin ang sa iyo sa simulator at maging una.",
+      "emptyStore": "Wala pang na-publish na build. Buuin ang sa iyo sa simulator: bakante pa ang unang puwesto.",
       "weekTitle": "Pinakamaraming boto ngayong linggo",
       "weekEmpty": "Walang boto sa huling pitong araw.",
       "latestTitle": "Mga pinakabagong build",
@@ -4995,7 +4995,7 @@
       "do1": "Panatilihin si Dex bilang siya: midnight blue, gold egrets, crystal blue at red.",
       "do2": "Ilagay ito sa isang madilim na background, na may hangin sa paligid nito.",
       "do3": "Isulat ang MLBBEx sa isang salita, at ang Dex MLBB para sa bot.",
-      "do4": "Linawin na ang MLBDex ay isang independiyenteng proyekto ng tagahanga.",
+      "do4": "Linawin na ang MLBBDex ay isang independiyenteng proyekto ng tagahanga.",
       "dont1": "I-recolor ito, i-distort ito o magdagdag ng mga accessory.",
       "dont2": "Gawin siyang magsalita sa ngalan ng Moonton o ibang site.",
       "dont3": "I-distort ang logo, baguhin ang mga kulay nito o ilagay ito sa isang background na lumulunod dito.",
@@ -5258,11 +5258,23 @@
       "noFall": "Walang hero na malinaw na bumababa ngayong linggo.",
       "open": "Ipakita ang {n} hero na gumagalaw"
     },
-    "syncLead": "Huling sync noong {date}."
+    "syncLead": "Huling sync noong {date}.",
+    "figures": {
+      "title": "MLBBDex sa mga numero",
+      "heroes": "hero",
+      "changed": "binago sa patch",
+      "splus": "nasa S+ tier",
+      "items": "item"
+    },
+    "stage": {
+      "dexPatch": "Live na ang patch {version}: {n} hero ang binago. Nangunguna sa meta si {hero}.",
+      "dexPatchAlone": "Live na ang patch {version}: {n} hero ang binago.",
+      "dexCta": "Tingnan ang binago"
+    }
   },
   "featured": {
-    "heroOfTheDay": "Hero ng araw",
-    "seeSheet": "Tingnan ang profile"
+    "seeSheet": "Tingnan ang profile",
+    "topMeta": "#1 sa meta"
   },
   "access": {
     "account": "{n} hero"
@@ -6102,8 +6114,8 @@
     }
   },
   "error": {
-    "title": "May nagkaproblema",
-    "text": "Nagkaroon ng hindi inaasahang problema ang site. Subukan ulit mamaya.",
+    "title": "May sumabit",
+    "text": "Natisod ang site sa pahinang ito. Kadalasan, sapat na ang isa pang subok.",
     "retry": "Subukan ulit",
     "oops": "Oops",
     "pageText": "Nagkaproblema sa pag-load ng pahinang ito. Puwede mong subukan ulit, o bumalik sa home page.",
@@ -6159,8 +6171,8 @@
   "search": {
     "open": "Maghanap",
     "placeholder": "Isang hero, item, patch…",
-    "none": "Walang resulta.",
-    "loading": "Naglo-load…",
+    "none": "Walang ganyang pangalan.",
+    "loading": "Naghahanap…",
     "help": "↑ ↓ para mag-browse, Enter para buksan, Esc para isara",
     "groups": {
       "hero": "Mga hero",
@@ -6561,7 +6573,7 @@
     "default1": "Binubuksan ng Ctrl + K ang paghahanap: isang hero, isang item, isang hitsura, ang buong site.",
     "default2": "Ang mga numero ay naitala araw-araw sa mga ranggo na laro.",
     "default3": "Maaari mong baguhin ang wika sa kanang tuktok, nagsasalita ako ng siyam na wika.",
-    "home1": "Ang hero ng araw ay nagbabago araw-araw. Bumalik ka bukas!",
+    "home1": "Nasa poster ang number 1 ng tier list: nagbabago ito kapag gumalaw ang meta.",
     "home2": "Ang tier list ay muling kinakalkula sa bawat rate ng pagbabasa.",
     "home3": "Gustong maglaro? Ang MLBBdle at ang pagsusulit ay naghihintay sa iyo araw-araw.",
     "heroes1": "I-filter ayon sa tungkulin o lane upang mahanap ang iyong susunod na kamay.",
