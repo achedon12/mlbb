@@ -19,7 +19,8 @@ import { PatchToc } from "@/components/patch-toc";
 import { heroesBySlug, illustrations, patchDetails, detailedPatches } from "@/lib/data";
 import { article, articleBody, articles } from "@/lib/content";
 import { countAdjustments, longDate, listNames, patchCurrent } from "@/lib/freshness";
-import { site } from "@/lib/site";
+import { absoluteUrl, site } from "@/lib/site";
+import { ogPath } from "@/lib/og/layout";
 import type { DetailedPatch, PatchSection } from "@/lib/types";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { postData, metaPage, notFoundMetadata } from "@/i18n/seo";
@@ -69,24 +70,25 @@ export function generateStaticParams() {
 const patchOf = (list: Record<string, DetailedPatch>, slug: string): DetailedPatch | undefined =>
   Object.hasOwn(list, slug) ? list[slug] : undefined;
 
+/** Description built from data: date, adjustments by direction and first heroes affected. */
+function descriptionPatch(locale: Locale, patch: DetailedPatch): string {
+  const t = createT(locale);
+  const names = [...new Set(patch.adjustments.map((a) => heroesBySlug.get(a.slug)?.name ?? a.name))].slice(0, 4);
+  const version = patch.date ? `${patch.version} (${longDate(locale, patch.date)})` : patch.version;
+  return names.length
+    ? t("pages.seo.patch.description", { version, ...countAdjustments(patch.adjustments), heroes: listNames(locale, names) })
+    : t("pages.patchNotes.officialDescription", { version: patch.version });
+}
+
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, slug } = await params;
   const patch = patchOf(patches, slug);
 
   if (patch) {
     const t = createT(locale);
-    // Description built from data: date, adjustments by direction and first heroes affected.
-    const names = [...new Set(patch.adjustments.map((a) => heroesBySlug.get(a.slug)?.name ?? a.name))].slice(0, 4);
-    const version = patch.date ? `${patch.version} (${longDate(locale, patch.date)})` : patch.version;
     return metaPage(locale, {
       title: titlePatch(locale, patch),
-      description: names.length
-        ? t("pages.seo.patch.description", {
-            version,
-            ...countAdjustments(patch.adjustments),
-            heroes: listNames(locale, names),
-          })
-        : t("pages.patchNotes.officialDescription", { version: patch.version }),
+      description: descriptionPatch(locale, patch),
       share: t("pages.patchNotes.officialShare", { version: patch.version }),
       path: `/patch-notes/${slug}`,
       card: true,
@@ -123,11 +125,16 @@ export default async function PatchPage({ params }: Params) {
       "@context": "https://schema.org",
       "@type": "Article",
       headline: titlePatch(locale, patch),
+      // The meta description: date, buffs and nerfs, first heroes affected.
+      description: descriptionPatch(locale, patch),
+      image: absoluteUrl(ogPath(locale, `/patch-notes/${slug}`)),
       ...(patch.date ? { datePublished: patch.date, dateModified: patch.date } : {}),
       inLanguage: translated ? LOCALE_HTML[locale] : "en",
       isBasedOn: patch.adjustmentsSource === "liquipedia" && patch.liquipedia ? [patch.link, patch.liquipedia] : patch.link,
+      author: { "@type": "Organization", name: site.name, url: site.url },
       publisher: { "@type": "Organization", name: site.name, url: site.url },
       mainEntityOfPage: `${site.url}/${locale}/patch-notes/${slug}`,
+      about: { "@type": "VideoGame", name: "Mobile Legends: Bang Bang", publisher: "Moonton" },
     };
 
     return (

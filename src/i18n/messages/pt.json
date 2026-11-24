@@ -462,6 +462,16 @@
         "buildWin": "{rate}% de vitórias",
         "counteredBy": "Counterado por",
         "jump": "Atalhos para seções"
+      },
+      "answer": {
+        "summary": "{name} ({kind}) está no nível {tier} com {winRate} vitórias, todas as classificações combinadas, no patch {v} (medida de {date}).",
+        "summaryNoRate": "{name} ({kind}) ainda não foi jogado o suficiente no jogo classificado para ser medido.",
+        "counters": "Os heróis que melhor contra-atacam {name}, todas as classificações combinadas: {counters}.",
+        "faqGood": "{name} é bom no patch atual?",
+        "faqCounters": "Counters de {name}",
+        "faqBuild": "Qual é a melhor build para {name}?",
+        "build": "A versão mais jogada é {name}, todas as classificações combinadas: {items}.",
+        "buildEmblem": "O mais jogado é baseado em {name}, todas as classificações combinadas: {items}, com o emblema {emblem}."
       }
     },
     "items": {

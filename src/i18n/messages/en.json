@@ -462,6 +462,16 @@
         "buildWin": "{rate}% win rate",
         "counteredBy": "Countered by",
         "jump": "Shortcuts to sections"
+      },
+      "answer": {
+        "summary": "{name} ({kind}) is {tier} tier with a {winRate} win rate across all ranks on patch {v}, measured {date}.",
+        "summaryNoRate": "{name} ({kind}) is not played enough in ranked games to be measured yet.",
+        "counters": "The heroes that counter {name} best, all ranks combined: {counters}.",
+        "faqGood": "Is {name} good in the current patch?",
+        "faqCounters": "Who counters {name}?",
+        "faqBuild": "What is the best build for {name}?",
+        "build": "The most played {name} build, all ranks combined: {items}.",
+        "buildEmblem": "The most played {name} build, all ranks combined: {items}, with the {emblem} emblem."
       }
     },
     "items": {

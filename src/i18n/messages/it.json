@@ -462,6 +462,16 @@
         "buildWin": "{rate}% di vittorie",
         "counteredBy": "Contrastato da",
         "jump": "Collegamenti alle sezioni"
+      },
+      "answer": {
+        "summary": "{name} ({kind}) è al livello {tier} con {winRate} vittorie, tutti i gradi combinati, alla patch {v} (misura di {date}).",
+        "summaryNoRate": "{name} ({kind}) non è ancora giocato abbastanza nelle partite classificate per essere misurato.",
+        "counters": "Gli eroi che contrastano meglio {name}, tutti i gradi combinati: {counters}.",
+        "faqGood": "{name} va bene con la patch attuale?",
+        "faqCounters": "Counter di {name}",
+        "faqBuild": "Qual è la build migliore per {name}?",
+        "build": "La build più giocata su {name}, tutti i gradi combinati: {items}.",
+        "buildEmblem": "La build più giocata su {name}, tutti i gradi combinati: {items}, con l'emblema {emblem}."
       }
     },
     "items": {

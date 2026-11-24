@@ -7128,6 +7128,38 @@
       "fr": "Mystique",
       "text": "Mystic"
     },
+    "pages.heroDetail.answer.summary": {
+      "fr": "{name} ({kind}) est au palier {tier} avec {winRate} de victoires, tous rangs confondus, au patch {v} (mesure du {date}).",
+      "text": "{name} ({kind}) is {tier} tier with a {winRate} win rate across all ranks on patch {v}, measured {date}."
+    },
+    "pages.heroDetail.answer.summaryNoRate": {
+      "fr": "{name} ({kind}) n'est pas encore assez joué en partie classée pour être mesuré.",
+      "text": "{name} ({kind}) is not played enough in ranked games to be measured yet."
+    },
+    "pages.heroDetail.answer.counters": {
+      "fr": "Les héros qui contrent le mieux {name}, tous rangs confondus : {counters}.",
+      "text": "The heroes that counter {name} best, all ranks combined: {counters}."
+    },
+    "pages.heroDetail.answer.faqGood": {
+      "fr": "{name} est-il bon au patch actuel ?",
+      "text": "Is {name} good in the current patch?"
+    },
+    "pages.heroDetail.answer.faqCounters": {
+      "fr": "Qui contre {name} ?",
+      "text": "Who counters {name}?"
+    },
+    "pages.heroDetail.answer.faqBuild": {
+      "fr": "Quel est le meilleur build pour {name} ?",
+      "text": "What is the best build for {name}?"
+    },
+    "pages.heroDetail.answer.build": {
+      "fr": "Le build le plus joué sur {name}, tous rangs confondus : {items}.",
+      "text": "The most played {name} build, all ranks combined: {items}."
+    },
+    "pages.heroDetail.answer.buildEmblem": {
+      "fr": "Le build le plus joué sur {name}, tous rangs confondus : {items}, avec l'emblème {emblem}.",
+      "text": "The most played {name} build, all ranks combined: {items}, with the {emblem} emblem."
+    },
     "pages.quizUI.share": {
       "fr": "Partager en texte",
       "text": "Share as text"

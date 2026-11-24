@@ -211,6 +211,8 @@ describe("endpoints", () => {
     expect(endpoint("/sitemap.xml").check(sitemapIndex(SITEMAP_CHILDREN))).toEqual([]);
     expect(endpoint("/sitemap.xml").check(urlset(["/en"]))).toEqual(["root element is not <sitemapindex>"]);
     expect(endpoint("/llms.txt").placeholders).toBe(false);
+    expect(endpoint("/llms-full.txt").placeholders).toBe(false);
+    expect(endpoint("/llms-full.txt").check("too short")).toEqual(["hero lines missing"]);
   });
 });
 

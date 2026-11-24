@@ -49,6 +49,7 @@ import { dexReaction } from "@/lib/dex-reaction";
 import { Cascade, PosterParallax } from "@/components/hero-cinematic";
 import { accentStyle, heroAccent } from "@/lib/hero-accent";
 import { heroMorph } from "@/lib/hero-morph";
+import { faqPageData, heroAnswer, heroFaq, heroKind, type HeroFacts } from "@/lib/structured-data";
 import {
   buildsPlayed,
   teammates,
@@ -397,6 +398,29 @@ export default async function HeroPage({ params }: Params) {
     />
   );
 
+  // The short answer under the poster, at every width: kind, tier and win
+  // rate on the current patch, then who counters the hero, all ranks. The
+  // same sentences answer the page's questions in its structured data.
+  const facts: HeroFacts = {
+    name: h.name,
+    kind: heroKind(h.roles.map((r) => t(`roles.${r}`)), h.lanes.map((l) => t(`lanes.${l}`))),
+    rate: rankedEntry ? { tier: rankedEntry.tier, winRate: percentage(locale, rankedEntry.winRate) } : null,
+    counters: countersShown.all?.weak.length
+      ? listNames(locale, countersShown.all.weak.filter((c) => heroesBySlug.has(c.slug)).slice(0, 3).map((c) => c.name))
+      : null,
+    build:
+      reference && reference.items.length > 0
+        ? {
+            items: listNames(locale, reference.items.map((o) => namesItems.get(visualItem(o).slug ?? "") ?? o)),
+            emblem: reference.emblem ? nameEmblem(reference.emblem) : null,
+          }
+        : null,
+    version: patchCurrent.version,
+    date: longDate(locale),
+  };
+  const answer = heroAnswer(t, facts);
+  const faqData = faqPageData(locale, { path: `/heroes/${slug}`, items: heroFaq(t, facts), changed: dateMeasure });
+
   // Dex reacts to the hero's standing: cheers at the top of the tier list, worries at its foot.
   const dexLine = rankedEntry ? dexReaction(t, h.name, rankedEntry.tier) : null;
 
@@ -431,6 +455,7 @@ export default async function HeroPage({ params }: Params) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
       />
+      {faqData && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqData) }} />}
 
       {/*
         A single skin state for the whole hero page: the header and the skins tab
@@ -560,6 +585,9 @@ export default async function HeroPage({ params }: Params) {
           )}
         </div>
       </PosterParallax>
+      <div className="page-wrap">
+        <p className="mt-6 max-w-3xl text-sm leading-relaxed text-chalk-300 sm:text-base">{answer.join(" ")}</p>
+      </div>
       <div className="page-wrap lg:hidden">{glance}</div>
 
       {/* ── Facts, rank and ratings ───────────────────────────────────────
