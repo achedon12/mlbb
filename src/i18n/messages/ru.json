@@ -28,7 +28,8 @@
       "sortBy": "Сортировать по {column}"
     },
     "joinDiscord": "Присоединиться к Discord",
-    "discordServer": "Discord-сервер сообщества MLBBDex"
+    "discordServer": "Discord-сервер сообщества MLBBDex",
+    "jumpToSection": "Перейти в раздел"
   },
   "nav": {
     "heroes": {
@@ -451,7 +452,17 @@
       },
       "pageCounters": "Полная страница минусов",
       "pageDuos": "Все измеренные дуэты",
-      "duosShort": "Дуэты"
+      "duosShort": "Дуэты",
+      "glance": {
+        "title": "Вкратце",
+        "win": "Победы",
+        "pick": "Пики",
+        "ban": "Баны",
+        "build": "Самая популярная сборка",
+        "buildWin": "{rate}% побед",
+        "counteredBy": "Его контрят",
+        "jump": "Ярлыки разделов"
+      }
     },
     "items": {
       "title": "Предметы",
@@ -2404,7 +2415,27 @@
       "overGuide": "Длиннее {max} символов, указанных в гайде: игра может его не принять.",
       "rating": "Некоторые символы могут отображаться в игре пустыми квадратами или не приниматься. Игра не сообщает, как считает длину: счётчик показывает оба распространённых способа.",
       "stylesTitle": "Все стили",
-      "copiedDiscord": "Покажите в Discord →"
+      "copiedDiscord": "Покажите в Discord →",
+      "previewTitle": "Предварительный просмотр в игре",
+      "plateBattle": "В матче над героем",
+      "plateProfile": "В профиле",
+      "share": "Поделиться",
+      "shareTitle": "Никнейм My Mobile Legends",
+      "shareText": "Никнейм My Mobile Legends: {nickname}",
+      "linkCopied": "Ссылка скопирована: заново открывает генератор по этому нику.",
+      "shareFailed": "Ссылкой поделиться не удалось: скопируйте адрес страницы вручную.",
+      "presetsTitle": "Готовые образы",
+      "presetsLead": "Стиль и украшение в паре — одним касанием.",
+      "preset": {
+        "legend": "Легенда",
+        "royal": "Королевский",
+        "sniper": "Снайпер",
+        "star": "Падающая звезда",
+        "samurai": "Самурай",
+        "neon": "Неон",
+        "warrior": "Воин",
+        "mystic": "Мистический"
+      }
     },
     "drawCalculator": {
       "title": "Калькулятор розыгрышей MLBB",

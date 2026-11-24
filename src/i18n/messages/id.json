@@ -28,7 +28,8 @@
       "sortBy": "Urutkan berdasarkan {column}"
     },
     "joinDiscord": "Bergabunglah dengan Perselisihan",
-    "discordServer": "Server Perselisihan Komunitas MLBBdex"
+    "discordServer": "Server Perselisihan Komunitas MLBBdex",
+    "jumpToSection": "Pergi ke suatu bagian"
   },
   "nav": {
     "heroes": {
@@ -451,7 +452,17 @@
       },
       "pageCounters": "Halaman kontra penuh",
       "pageDuos": "Semua duo yang diukur",
-      "duosShort": "Duo"
+      "duosShort": "Duo",
+      "glance": {
+        "title": "Singkatnya",
+        "win": "Win",
+        "pick": "Pick",
+        "ban": "Ban",
+        "build": "Build yang paling banyak dimainkan",
+        "buildWin": "Win rate {rate}%",
+        "counteredBy": "Di-counter oleh",
+        "jump": "Pintasan ke bagian"
+      }
     },
     "items": {
       "title": "Item",
@@ -2404,7 +2415,27 @@
       "overGuide": "Lebih panjang dari karakter {max} yang ditunjukkan dalam panduan: game dapat menolaknya.",
       "rating": "Beberapa simbol mungkin muncul sebagai kotak kosong dalam permainan, atau ditolak. Permainan tidak mempublikasikan caranya menghitung panjang: counter memberikan dua pengukuran umum.",
       "stylesTitle": "Semua gaya",
-      "copiedDiscord": "Pamerkan di Discord →"
+      "copiedDiscord": "Pamerkan di Discord →",
+      "previewTitle": "Pratinjau dalam game",
+      "plateBattle": "Dalam pertandingan, di atas hero",
+      "plateProfile": "Di profil",
+      "share": "Bagikan",
+      "shareTitle": "Nama panggilan Mobile Legends saya",
+      "shareText": "Nama panggilan Mobile Legends saya: {nickname}",
+      "linkCopied": "Tautan disalin: membuka kembali generator pada nama panggilan ini.",
+      "shareFailed": "Saya tidak dapat membagikan tautannya: salin alamat halaman dengan tangan.",
+      "presetsTitle": "Penampilan siap pakai",
+      "presetsLead": "Gaya dan dekorasi yang serasi, dalam satu ketukan.",
+      "preset": {
+        "legend": "Legend",
+        "royal": "Royal",
+        "sniper": "Sniper",
+        "star": "Bintang jatuh",
+        "samurai": "Samurai",
+        "neon": "Neon",
+        "warrior": "Warrior",
+        "mystic": "Mistik"
+      }
     },
     "drawCalculator": {
       "title": "Kalkulator Draw MLBB",

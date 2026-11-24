@@ -28,7 +28,8 @@
       "sortBy": "Ordenar por {column}"
     },
     "joinDiscord": "Entre no Discord",
-    "discordServer": "Servidor do Discord da comunidade MLBBDex"
+    "discordServer": "Servidor do Discord da comunidade MLBBDex",
+    "jumpToSection": "Vá para uma seção"
   },
   "nav": {
     "heroes": {
@@ -451,7 +452,17 @@
       },
       "pageCounters": "Página completa de contras",
       "pageDuos": "Todas as duplas medidas",
-      "duosShort": "Duplas"
+      "duosShort": "Duplas",
+      "glance": {
+        "title": "Em resumo",
+        "win": "Vitória",
+        "pick": "Pick",
+        "ban": "Ban",
+        "build": "Build mais jogada",
+        "buildWin": "{rate}% de vitórias",
+        "counteredBy": "Counterado por",
+        "jump": "Atalhos para seções"
+      }
     },
     "items": {
       "title": "Itens",
@@ -2404,7 +2415,27 @@
       "overGuide": "Mais longo do que os {max} caracteres indicados por um guia: o jogo pode recusá-lo.",
       "rating": "Alguns símbolos podem aparecer como quadrados vazios no jogo ou ser recusados. O jogo não publica como conta o tamanho: o contador mostra as duas medidas mais comuns.",
       "stylesTitle": "Todos os estilos",
-      "copiedDiscord": "Mostre no Discord →"
+      "copiedDiscord": "Mostre no Discord →",
+      "previewTitle": "Prévia no jogo",
+      "plateBattle": "Na partida, acima do herói",
+      "plateProfile": "No perfil",
+      "share": "Compartilhar",
+      "shareTitle": "Meu apelido do Mobile Legends",
+      "shareText": "Apelido do meu Mobile Legends: {nickname}",
+      "linkCopied": "Link copiado: reabre o gerador neste apelido.",
+      "shareFailed": "Não consegui compartilhar o link: copie o endereço da página manualmente.",
+      "presetsTitle": "Looks prontos",
+      "presetsLead": "Um estilo e uma decoração combinando, num toque.",
+      "preset": {
+        "legend": "Lenda",
+        "royal": "Real",
+        "sniper": "Atirador",
+        "star": "Estrela cadente",
+        "samurai": "Samurai",
+        "neon": "Néon",
+        "warrior": "Guerreiro",
+        "mystic": "Místico"
+      }
     },
     "drawCalculator": {
       "title": "Calculadora de sorteios de MLBB",

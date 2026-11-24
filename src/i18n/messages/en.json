@@ -28,7 +28,8 @@
       "sortBy": "Sort by {column}"
     },
     "joinDiscord": "Join the Discord",
-    "discordServer": "MLBBDex community Discord server"
+    "discordServer": "MLBBDex community Discord server",
+    "jumpToSection": "Go to a section"
   },
   "nav": {
     "heroes": {
@@ -451,7 +452,17 @@
       },
       "pageCounters": "Full counters page",
       "pageDuos": "All measured duos",
-      "duosShort": "Duos"
+      "duosShort": "Duos",
+      "glance": {
+        "title": "At a glance",
+        "win": "Win",
+        "pick": "Pick",
+        "ban": "Ban",
+        "build": "Most played build",
+        "buildWin": "{rate}% win rate",
+        "counteredBy": "Countered by",
+        "jump": "Shortcuts to sections"
+      }
     },
     "items": {
       "title": "Items",
@@ -2404,7 +2415,27 @@
       "overGuide": "Longer than the {max} characters reported by a guide: the game may reject it.",
       "rating": "Some symbols may show up as empty boxes in game, or be rejected. The game doesn't publish how it counts length: the counter gives both common measures.",
       "stylesTitle": "All styles",
-      "copiedDiscord": "Show it off on Discord →"
+      "copiedDiscord": "Show it off on Discord →",
+      "previewTitle": "In-game preview",
+      "plateBattle": "In a match, above the hero",
+      "plateProfile": "On profile",
+      "share": "Share",
+      "shareTitle": "My Mobile Legends nickname",
+      "shareText": "My Mobile Legends nickname: {nickname}",
+      "linkCopied": "Link copied: it reopens the generator on this nickname.",
+      "shareFailed": "I couldn't share the link: copy the page address by hand.",
+      "presetsTitle": "Ready-made looks",
+      "presetsLead": "A matching style and decoration, in one tap.",
+      "preset": {
+        "legend": "Legend",
+        "royal": "Royal",
+        "sniper": "Sniper",
+        "star": "Shooting star",
+        "samurai": "Samurai",
+        "neon": "Neon",
+        "warrior": "Warrior",
+        "mystic": "Mystic"
+      }
     },
     "drawCalculator": {
       "title": "MLBB Draw Calculator",

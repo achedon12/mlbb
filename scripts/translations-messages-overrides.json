@@ -6991,6 +6991,18 @@
     "pages.brandKit.kitDownload": {
       "fr": "Télécharger le visuel « {template} » au format {format}",
       "text": "Download the “{template}” visual in {format} format"
+    },
+    "pages.nicknameUI.plateBattle": {
+      "fr": "En match, au-dessus du héros",
+      "text": "In a match, above the hero"
+    },
+    "pages.nicknameUI.presetsLead": {
+      "fr": "Un style et une décoration assortis, en une touche.",
+      "text": "A matching style and decoration, in one tap."
+    },
+    "pages.nicknameUI.preset.mystic": {
+      "fr": "Mystique",
+      "text": "Mystic"
     }
   },
   "es": {
@@ -11641,6 +11653,26 @@
     "home.figures.changed": {
       "fr": "retouchés au patch",
       "text": "retocados en el parche"
+    },
+    "pages.heroDetail.glance.build": {
+      "fr": "Build le plus joué",
+      "text": "Build más jugado"
+    },
+    "pages.nicknameUI.presetsTitle": {
+      "fr": "Looks prêts à l'emploi",
+      "text": "Looks listos para usar"
+    },
+    "pages.nicknameUI.presetsLead": {
+      "fr": "Un style et une décoration assortis, en une touche.",
+      "text": "Un estilo y una decoración a juego, en un toque."
+    },
+    "pages.nicknameUI.plateBattle": {
+      "fr": "En match, au-dessus du héros",
+      "text": "En partida, sobre el héroe"
+    },
+    "pages.nicknameUI.previewTitle": {
+      "fr": "Aperçu en jeu",
+      "text": "Vista previa en el juego"
     }
   },
   "id": {
@@ -18427,6 +18459,26 @@
     "home.figures.changed": {
       "fr": "retouchés au patch",
       "text": "diubah di patch ini"
+    },
+    "pages.nicknameUI.share": {
+      "fr": "Partager",
+      "text": "Bagikan"
+    },
+    "pages.nicknameUI.preset.sniper": {
+      "fr": "Sniper",
+      "text": "Sniper"
+    },
+    "pages.nicknameUI.preset.royal": {
+      "fr": "Royal",
+      "text": "Royal"
+    },
+    "pages.heroDetail.glance.counteredBy": {
+      "fr": "Contré par",
+      "text": "Di-counter oleh"
+    },
+    "pages.nicknameUI.presetsLead": {
+      "fr": "Un style et une décoration assortis, en une touche.",
+      "text": "Gaya dan dekorasi yang serasi, dalam satu ketukan."
     }
   },
   "it": {
@@ -23121,6 +23173,10 @@
     "home.figures.changed": {
       "fr": "retouchés au patch",
       "text": "ritoccati nella patch"
+    },
+    "pages.nicknameUI.presetsLead": {
+      "fr": "Un style et une décoration assortis, en une touche.",
+      "text": "Uno stile e una decorazione abbinati, in un tocco."
     }
   },
   "fil": {
@@ -38227,6 +38283,10 @@
     "socialKit.announce.tournament.title": {
       "fr": "Tournoi communautaire",
       "text": "Tournament ng komunidad"
+    },
+    "pages.nicknameUI.presetsLead": {
+      "fr": "Un style et une décoration assortis, en une touche.",
+      "text": "Magkatugmang estilo at dekorasyon, sa isang tap."
     }
   },
   "th": {
@@ -52293,6 +52353,14 @@
     "socialKit.announce.update.title": {
       "fr": "Nouveautés sur le site",
       "text": "อัปเดตใหม่บนเว็บไซต์"
+    },
+    "pages.nicknameUI.presetsTitle": {
+      "fr": "Looks prêts à l'emploi",
+      "text": "ลุคสำเร็จรูป"
+    },
+    "pages.heroDetail.glance.counteredBy": {
+      "fr": "Contré par",
+      "text": "โดนเคาน์เตอร์โดย"
     }
   },
   "pt": {
@@ -64251,6 +64319,18 @@
     "error.title": {
       "fr": "Ça a coincé",
       "text": "Algo travou"
+    },
+    "pages.nicknameUI.presetsLead": {
+      "fr": "Un style et une décoration assortis, en une touche.",
+      "text": "Um estilo e uma decoração combinando, num toque."
+    },
+    "pages.nicknameUI.previewTitle": {
+      "fr": "Aperçu en jeu",
+      "text": "Prévia no jogo"
+    },
+    "pages.heroDetail.glance.counteredBy": {
+      "fr": "Contré par",
+      "text": "Counterado por"
     }
   },
   "ru": {
@@ -77669,6 +77749,14 @@
     "error.title": {
       "fr": "Ça a coincé",
       "text": "Что-то заело"
+    },
+    "pages.nicknameUI.presetsLead": {
+      "fr": "Un style et une décoration assortis, en une touche.",
+      "text": "Стиль и украшение в паре — одним касанием."
+    },
+    "pages.heroDetail.glance.counteredBy": {
+      "fr": "Contré par",
+      "text": "Его контрят"
     }
   }
 }

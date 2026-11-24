@@ -252,3 +252,63 @@ export function pickRandom(random: () => number = Math.random): { style: Style; 
   const decorated = DECORATIONS.slice(1);
   return { style: STYLES[index(STYLES.length)], decoration: decorated[index(decorated.length)] };
 }
+
+export const decorationByKey = (key: string): Decoration | undefined => DECORATIONS.find((d) => d.key === key);
+
+/**
+ * Ready-made looks: one style and one decoration that go well together,
+ * offered as big tiles so that a phone user gets a finished nickname in one
+ * tap. Each key names the look in `pages.nicknameUI.preset`.
+ */
+export interface Preset {
+  key: string;
+  style: Style;
+  decoration: Decoration;
+}
+
+const preset = (key: string, style: Style, decoration: string): Preset => ({
+  key,
+  style,
+  decoration: decorationByKey(decoration) ?? DECORATIONS[0],
+});
+
+export const PRESETS: readonly Preset[] = [
+  preset("legend", "boldScript", "javanese"),
+  preset("royal", "boldFraktur", "crown"),
+  preset("sniper", "monospace", "rifle"),
+  preset("star", "script", "waves"),
+  preset("samurai", "fullWidth", "blackBrackets"),
+  preset("neon", "doubleStruck", "sparkle"),
+  preset("warrior", "smallCaps", "cross"),
+  preset("mystic", "sansBoldItalic", "seal"),
+];
+
+/** Query parameters of a shared nickname link: the typed name, the style and the decoration. */
+const PARAM_NAME = "n";
+const PARAM_STYLE = "s";
+const PARAM_DECORATION = "d";
+
+/** Query string that reopens the generator on this nickname, with its leading `?`. */
+export function sharedQuery(name: string, style: Style, decoration: Decoration): string {
+  const params = new URLSearchParams({ [PARAM_NAME]: name, [PARAM_STYLE]: style });
+  if (decoration.key !== "none") params.set(PARAM_DECORATION, decoration.key);
+  return `?${params.toString()}`;
+}
+
+/**
+ * Reads a shared link back. Nothing in it is trusted: an unknown style or
+ * decoration comes back as `null`, and the name goes through `sanitize` like
+ * typed input. `null` when the link carries no name.
+ */
+export function parseShared(search: string): { name: string; style: Style | null; decoration: Decoration | null } | null {
+  const params = new URLSearchParams(search);
+  const name = sanitize(params.get(PARAM_NAME) ?? "");
+  if (!name) return null;
+  const style = params.get(PARAM_STYLE);
+  const decoration = params.get(PARAM_DECORATION);
+  return {
+    name,
+    style: STYLES.includes(style as Style) ? (style as Style) : null,
+    decoration: decoration ? (decorationByKey(decoration) ?? null) : null,
+  };
+}

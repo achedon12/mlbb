@@ -28,7 +28,8 @@
       "sortBy": "เรียงตาม {column}"
     },
     "joinDiscord": "เข้าร่วม Discord",
-    "discordServer": "เซิร์ฟเวอร์ Discord ชุมชน MLBBDex"
+    "discordServer": "เซิร์ฟเวอร์ Discord ชุมชน MLBBDex",
+    "jumpToSection": "ไปที่ส่วน"
   },
   "nav": {
     "heroes": {
@@ -451,7 +452,17 @@
       },
       "pageCounters": "หน้าเคาน์เตอร์ทั้งหมด",
       "pageDuos": "คู่หูทั้งหมดที่วัดได้",
-      "duosShort": "คู่หู"
+      "duosShort": "คู่หู",
+      "glance": {
+        "title": "สรุปโดยย่อ",
+        "win": "Win",
+        "pick": "Pick",
+        "ban": "Ban",
+        "build": "บิลด์ที่ใช้มากที่สุด",
+        "buildWin": "Win Rate {rate}%",
+        "counteredBy": "โดนเคาน์เตอร์โดย",
+        "jump": "ทางลัดไปยังส่วนต่างๆ"
+      }
     },
     "items": {
       "title": "ไอเทม",
@@ -2404,7 +2415,27 @@
       "overGuide": "ยาวเกิน {max} ตัวอักษรตามที่คู่มือระบุ: เกมอาจไม่ยอมรับ",
       "rating": "สัญลักษณ์บางตัวอาจแสดงเป็นกล่องว่างในเกมหรือถูกปฏิเสธ เกมไม่ได้เปิดเผยวิธีนับความยาว: ตัวนับจึงแสดงทั้งสองวิธีนับที่ใช้กันทั่วไป",
       "stylesTitle": "ทุกสไตล์",
-      "copiedDiscord": "อวดใน Discord →"
+      "copiedDiscord": "อวดใน Discord →",
+      "previewTitle": "ตัวอย่างในเกม",
+      "plateBattle": "ในการแข่งขันเหนือฮีโร่",
+      "plateProfile": "บนโปรไฟล์",
+      "share": "แชร์",
+      "shareTitle": "ชื่อเล่น My Mobile Legends",
+      "shareText": "ชื่อเล่น Mobile Legends ของฉัน: {nickname}",
+      "linkCopied": "คัดลอกลิงก์แล้ว: เปิดตัวสร้างชื่อเล่นนี้อีกครั้ง",
+      "shareFailed": "ฉันไม่สามารถแชร์ลิงก์ได้: คัดลอกที่อยู่เพจด้วยมือ",
+      "presetsTitle": "ลุคสำเร็จรูป",
+      "presetsLead": "สไตล์และการตกแต่งที่ลงตัวในสัมผัสเดียว",
+      "preset": {
+        "legend": "Legend",
+        "royal": "รอยัล",
+        "sniper": "สไนเปอร์",
+        "star": "ดาวตก",
+        "samurai": "ซามูไร",
+        "neon": "นีออน",
+        "warrior": "Warrior",
+        "mystic": "ลึกลับ"
+      }
     },
     "drawCalculator": {
       "title": "เครื่องคำนวณการสุ่ม MLBB",

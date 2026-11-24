@@ -28,7 +28,8 @@
       "sortBy": "Ordenar por {column}"
     },
     "joinDiscord": "Únete a la discordia",
-    "discordServer": "Servidor de discordia de la comunidad MLBBDex"
+    "discordServer": "Servidor de discordia de la comunidad MLBBDex",
+    "jumpToSection": "Ir a una sección"
   },
   "nav": {
     "heroes": {
@@ -451,7 +452,17 @@
       },
       "pageCounters": "Página completa de contras",
       "pageDuos": "Todos los dúos medidos",
-      "duosShort": "Dúos"
+      "duosShort": "Dúos",
+      "glance": {
+        "title": "En resumen",
+        "win": "Victoria",
+        "pick": "Selección",
+        "ban": "Ban",
+        "build": "Build más jugado",
+        "buildWin": "{rate} % de victorias",
+        "counteredBy": "Contrarrestado por",
+        "jump": "Accesos directos a secciones"
+      }
     },
     "items": {
       "title": "Objetos",
@@ -2404,7 +2415,27 @@
       "overGuide": "Más largo que los {max} caracteres que indica una guía: el juego podría rechazarlo.",
       "rating": "Algunos símbolos pueden verse como cuadros vacíos en el juego o ser rechazados. El juego no publica cómo cuenta la longitud: el contador da las dos medidas habituales.",
       "stylesTitle": "Todos los estilos",
-      "copiedDiscord": "Presúmelo en Discord →"
+      "copiedDiscord": "Presúmelo en Discord →",
+      "previewTitle": "Vista previa en el juego",
+      "plateBattle": "En partida, sobre el héroe",
+      "plateProfile": "En el perfil",
+      "share": "Compartir",
+      "shareTitle": "Mi apodo de Mobile Legends",
+      "shareText": "Mi apodo de Mobile Legends: {nickname}",
+      "linkCopied": "Enlace copiado: vuelve a abrir el generador sobre este apodo.",
+      "shareFailed": "No pude compartir el enlace: copie la dirección de la página a mano.",
+      "presetsTitle": "Looks listos para usar",
+      "presetsLead": "Un estilo y una decoración a juego, en un toque.",
+      "preset": {
+        "legend": "Leyenda",
+        "royal": "Real",
+        "sniper": "Francotirador",
+        "star": "Estrella fugaz",
+        "samurai": "Samurai",
+        "neon": "Neón",
+        "warrior": "Guerrero",
+        "mystic": "Místico"
+      }
     },
     "drawCalculator": {
       "title": "Calculadora de tiradas de MLBB",
