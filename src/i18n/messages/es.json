@@ -616,6 +616,44 @@
       "poster": {
         "kicker": "N°1 en este ranking",
         "label": "{name}, n°1 en este ranking: nivel {tier}, {win} de victorias, {ban} de baneos"
+      },
+      "peek": {
+        "open": "Vista previa: {name}",
+        "close": "Cerrar vista previa",
+        "counters": "Contrarrestado por",
+        "items": "Build principal",
+        "full": "Guía completa"
+      },
+      "answer": {
+        "questionAll": "¿Quiénes son los mejores héroes de la MLBB en este momento?",
+        "questionRank": "¿Quiénes son los mejores héroes de {rank} en este momento?",
+        "questionLane": "¿Quiénes son los mejores héroes de {lane} en este momento?",
+        "questionRole": "¿Cuáles son los mejores {plural} en este momento?",
+        "answerAll": "Los mejores héroes de MLBB en este momento: {top}.",
+        "answerRank": "Los mejores héroes en {rank} en este momento: {top}.",
+        "answerLane": "Los mejores héroes en {lane} en este momento: {top}.",
+        "answerRole": "Los mejores {plural} ahora mismo: {top}.",
+        "detail": "{first} es el n.º 1 (tier {tier}) con {winRate} de victorias y {banRate} de bans, entre {n} héroes clasificados en el parche {v}, medición del {date}."
+      },
+      "patch": {
+        "title": "Qué cambió en este parche",
+        "lead": "Las mayores variaciones de la tasa de victoria en siete días entre estos héroes, y los que el parche ajustó.",
+        "rises": "En alza",
+        "drops": "En baja",
+        "adjusted": "Ajustados en el parche {v} ({n})"
+      },
+      "next": {
+        "titleLane": "¿Juegas {lane}? Mira también",
+        "titleRole": "¿Juegas {role}? Mira también",
+        "titleAll": "Para ir más allá",
+        "counters": "Contrarresta a los mejores picks",
+        "countersLead": "Los héroes contra los que más pierde lo alto del ranking.",
+        "builds": "Sus builds",
+        "buildsLead": "Los tres objetos clave más usados por lo alto del ranking.",
+        "tools": "Ponlo en práctica",
+        "draft": "Elige y prohíbe a estos héroes en un draft clasificado.",
+        "lists": "Otras tier lists",
+        "top": "N° 1: {name}"
       }
     },
     "patchNotes": {

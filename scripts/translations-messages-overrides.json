@@ -6992,6 +6992,130 @@
       "fr": "Télécharger le visuel « {template} » au format {format}",
       "text": "Download the “{template}” visual in {format} format"
     },
+    "pages.tierList.peek.open": {
+      "fr": "Aperçu : {name}",
+      "text": "Preview: {name}"
+    },
+    "pages.tierList.peek.close": {
+      "fr": "Fermer l'aperçu",
+      "text": "Close the preview"
+    },
+    "pages.tierList.peek.counters": {
+      "fr": "Contré par",
+      "text": "Countered by"
+    },
+    "pages.tierList.peek.items": {
+      "fr": "Build principal",
+      "text": "Core build"
+    },
+    "pages.tierList.peek.full": {
+      "fr": "Guide complet",
+      "text": "Full guide"
+    },
+    "pages.tierList.answer.questionAll": {
+      "fr": "Quels sont les meilleurs héros de MLBB en ce moment ?",
+      "text": "Who are the best MLBB heroes right now?"
+    },
+    "pages.tierList.answer.questionRank": {
+      "fr": "Quels sont les meilleurs héros en {rank} en ce moment ?",
+      "text": "Who are the best heroes in {rank} right now?"
+    },
+    "pages.tierList.answer.questionLane": {
+      "fr": "Quels sont les meilleurs héros en {lane} en ce moment ?",
+      "text": "Who are the best {lane} heroes right now?"
+    },
+    "pages.tierList.answer.questionRole": {
+      "fr": "Quels sont les meilleurs {plural} en ce moment ?",
+      "text": "Who are the best {plural} right now?"
+    },
+    "pages.tierList.answer.answerAll": {
+      "fr": "Meilleurs héros de MLBB en ce moment : {top}.",
+      "text": "Best MLBB heroes right now: {top}."
+    },
+    "pages.tierList.answer.answerRank": {
+      "fr": "Meilleurs héros en {rank} en ce moment : {top}.",
+      "text": "Best heroes in {rank} right now: {top}."
+    },
+    "pages.tierList.answer.answerLane": {
+      "fr": "Meilleurs héros en {lane} en ce moment : {top}.",
+      "text": "Best {lane} heroes right now: {top}."
+    },
+    "pages.tierList.answer.answerRole": {
+      "fr": "Meilleurs {plural} en ce moment : {top}.",
+      "text": "Best {plural} right now: {top}."
+    },
+    "pages.tierList.answer.detail": {
+      "fr": "{first} est n°1 (palier {tier}) avec {winRate} de victoires et {banRate} de bans, sur {n} héros classés au patch {v}, mesure du {date}.",
+      "text": "{first} is No. 1 ({tier} tier) with a {winRate} win rate and a {banRate} ban rate, out of {n} heroes ranked on patch {v}, measured {date}."
+    },
+    "pages.tierList.patch.title": {
+      "fr": "Ce qui a changé ce patch",
+      "text": "What changed this patch"
+    },
+    "pages.tierList.patch.lead": {
+      "fr": "Les plus fortes variations du taux de victoire sur sept jours parmi ces héros, et ceux que le patch a retouchés.",
+      "text": "The biggest seven-day win rate moves among these heroes, and the ones the patch adjusted."
+    },
+    "pages.tierList.patch.rises": {
+      "fr": "En hausse",
+      "text": "Rising"
+    },
+    "pages.tierList.patch.drops": {
+      "fr": "En baisse",
+      "text": "Falling"
+    },
+    "pages.tierList.patch.adjusted": {
+      "fr": "Retouchés au patch {v} ({n})",
+      "text": "Adjusted in patch {v} ({n})"
+    },
+    "pages.tierList.next.titleLane": {
+      "fr": "Vous jouez {lane} ? À voir aussi",
+      "text": "You play {lane}? Also see"
+    },
+    "pages.tierList.next.titleRole": {
+      "fr": "Vous jouez {role} ? À voir aussi",
+      "text": "You play {role}? Also see"
+    },
+    "pages.tierList.next.titleAll": {
+      "fr": "Pour aller plus loin",
+      "text": "Keep exploring"
+    },
+    "pages.tierList.next.counters": {
+      "fr": "Contrer les meilleurs picks",
+      "text": "Counter the top picks"
+    },
+    "pages.tierList.next.countersLead": {
+      "fr": "Les héros contre lesquels le haut du classement perd le plus.",
+      "text": "The heroes the top of the ranking loses to the most."
+    },
+    "pages.tierList.next.builds": {
+      "fr": "Leurs builds",
+      "text": "Their builds"
+    },
+    "pages.tierList.next.buildsLead": {
+      "fr": "Les trois objets clés les plus joués par le haut du classement.",
+      "text": "The three key items the top of the ranking builds most."
+    },
+    "pages.tierList.next.tools": {
+      "fr": "Passer à la pratique",
+      "text": "Put it into practice"
+    },
+    "pages.tierList.next.draft": {
+      "fr": "Pickez et bannissez ces héros dans une draft classée.",
+      "text": "Pick and ban these heroes in a ranked draft."
+    },
+    "pages.tierList.next.lists": {
+      "fr": "Les autres tier lists",
+      "text": "Other tier lists"
+    },
+    "pages.tierList.next.top": {
+      "fr": "N°1 : {name}",
+      "text": "No. 1: {name}"
+    },
+    "pages.tierList.poster.label": {
+      "fr": "{name}, n°1 de ce classement : palier {tier}, {win} de victoires, {ban} de bans",
+      "text": "{name}, No. 1 in this ranking: {tier} tier, {win} win rate, {ban} ban rate"
+    },
     "pages.nicknameUI.plateBattle": {
       "fr": "En match, au-dessus du héros",
       "text": "In a match, above the hero"
@@ -11653,6 +11777,66 @@
     "home.figures.changed": {
       "fr": "retouchés au patch",
       "text": "retocados en el parche"
+    },
+    "pages.tierList.peek.items": {
+      "fr": "Build principal",
+      "text": "Build principal"
+    },
+    "pages.tierList.peek.full": {
+      "fr": "Guide complet",
+      "text": "Guía completa"
+    },
+    "pages.tierList.answer.answerRole": {
+      "fr": "Meilleurs {plural} en ce moment : {top}.",
+      "text": "Los mejores {plural} ahora mismo: {top}."
+    },
+    "pages.tierList.answer.detail": {
+      "fr": "{first} est n°1 (palier {tier}) avec {winRate} de victoires et {banRate} de bans, sur {n} héros classés au patch {v}, mesure du {date}.",
+      "text": "{first} es el n.º 1 (tier {tier}) con {winRate} de victorias y {banRate} de bans, entre {n} héroes clasificados en el parche {v}, medición del {date}."
+    },
+    "pages.tierList.patch.title": {
+      "fr": "Ce qui a changé ce patch",
+      "text": "Qué cambió en este parche"
+    },
+    "pages.tierList.patch.lead": {
+      "fr": "Les plus fortes variations du taux de victoire sur sept jours parmi ces héros, et ceux que le patch a retouchés.",
+      "text": "Las mayores variaciones de la tasa de victoria en siete días entre estos héroes, y los que el parche ajustó."
+    },
+    "pages.tierList.patch.adjusted": {
+      "fr": "Retouchés au patch {v} ({n})",
+      "text": "Ajustados en el parche {v} ({n})"
+    },
+    "pages.tierList.next.titleLane": {
+      "fr": "Vous jouez {lane} ? À voir aussi",
+      "text": "¿Juegas {lane}? Mira también"
+    },
+    "pages.tierList.next.titleRole": {
+      "fr": "Vous jouez {role} ? À voir aussi",
+      "text": "¿Juegas {role}? Mira también"
+    },
+    "pages.tierList.next.counters": {
+      "fr": "Contrer les meilleurs picks",
+      "text": "Contrarresta a los mejores picks"
+    },
+    "pages.tierList.next.countersLead": {
+      "fr": "Les héros contre lesquels le haut du classement perd le plus.",
+      "text": "Los héroes contra los que más pierde lo alto del ranking."
+    },
+    "pages.tierList.next.builds": {
+      "fr": "Leurs builds",
+      "text": "Sus builds"
+    },
+    "pages.tierList.next.buildsLead": {
+      "fr": "Les trois objets clés les plus joués par le haut du classement.",
+      "text": "Los tres objetos clave más usados por lo alto del ranking."
+    },
+    "pages.tierList.next.tools": {
+      "fr": "Passer à la pratique",
+      "text": "Ponlo en práctica"
+    },
+    "pages.tierList.next.lists": {
+      "fr": "Les autres tier lists",
+      "text": "Otras tier lists"
     },
     "pages.heroDetail.glance.build": {
       "fr": "Build le plus joué",
@@ -18460,6 +18644,42 @@
       "fr": "retouchés au patch",
       "text": "diubah di patch ini"
     },
+    "pages.tierList.answer.questionRole": {
+      "fr": "Quels sont les meilleurs {plural} en ce moment ?",
+      "text": "Siapa {plural} terbaik saat ini?"
+    },
+    "pages.tierList.answer.detail": {
+      "fr": "{first} est n°1 (palier {tier}) avec {winRate} de victoires et {banRate} de bans, sur {n} héros classés au patch {v}, mesure du {date}.",
+      "text": "{first} peringkat 1 (tier {tier}) dengan win rate {winRate} dan ban rate {banRate}, dari {n} hero yang diperingkat di patch {v}, diukur {date}."
+    },
+    "pages.tierList.patch.title": {
+      "fr": "Ce qui a changé ce patch",
+      "text": "Apa yang berubah di patch ini"
+    },
+    "pages.tierList.patch.lead": {
+      "fr": "Les plus fortes variations du taux de victoire sur sept jours parmi ces héros, et ceux que le patch a retouchés.",
+      "text": "Perubahan win rate terbesar dalam tujuh hari di antara hero ini, dan hero yang disesuaikan oleh patch."
+    },
+    "pages.tierList.patch.rises": {
+      "fr": "En hausse",
+      "text": "Naik"
+    },
+    "pages.tierList.patch.drops": {
+      "fr": "En baisse",
+      "text": "Turun"
+    },
+    "pages.tierList.patch.adjusted": {
+      "fr": "Retouchés au patch {v} ({n})",
+      "text": "Disesuaikan di patch {v} ({n})"
+    },
+    "pages.tierList.next.countersLead": {
+      "fr": "Les héros contre lesquels le haut du classement perd le plus.",
+      "text": "Hero yang paling sering mengalahkan hero teratas peringkat."
+    },
+    "pages.tierList.next.buildsLead": {
+      "fr": "Les trois objets clés les plus joués par le haut du classement.",
+      "text": "Tiga item kunci yang paling sering dipakai hero teratas peringkat."
+    },
     "pages.nicknameUI.share": {
       "fr": "Partager",
       "text": "Bagikan"
@@ -23173,6 +23393,62 @@
     "home.figures.changed": {
       "fr": "retouchés au patch",
       "text": "ritoccati nella patch"
+    },
+    "pages.tierList.peek.items": {
+      "fr": "Build principal",
+      "text": "Build principale"
+    },
+    "pages.tierList.answer.answerRole": {
+      "fr": "Meilleurs {plural} en ce moment : {top}.",
+      "text": "I migliori {plural} in questo momento: {top}."
+    },
+    "pages.tierList.answer.detail": {
+      "fr": "{first} est n°1 (palier {tier}) avec {winRate} de victoires et {banRate} de bans, sur {n} héros classés au patch {v}, mesure du {date}.",
+      "text": "{first} è il n. 1 (tier {tier}) con {winRate} di vittorie e {banRate} di ban, su {n} eroi classificati nella patch {v}, misurazione del {date}."
+    },
+    "pages.tierList.patch.title": {
+      "fr": "Ce qui a changé ce patch",
+      "text": "Cosa è cambiato in questa patch"
+    },
+    "pages.tierList.patch.lead": {
+      "fr": "Les plus fortes variations du taux de victoire sur sept jours parmi ces héros, et ceux que le patch a retouchés.",
+      "text": "Le maggiori variazioni della percentuale di vittorie in sette giorni tra questi eroi, e quelli ritoccati dalla patch."
+    },
+    "pages.tierList.patch.adjusted": {
+      "fr": "Retouchés au patch {v} ({n})",
+      "text": "Ritoccati nella patch {v} ({n})"
+    },
+    "pages.tierList.next.titleLane": {
+      "fr": "Vous jouez {lane} ? À voir aussi",
+      "text": "Giochi {lane}? Guarda anche"
+    },
+    "pages.tierList.next.titleRole": {
+      "fr": "Vous jouez {role} ? À voir aussi",
+      "text": "Giochi {role}? Guarda anche"
+    },
+    "pages.tierList.next.counters": {
+      "fr": "Contrer les meilleurs picks",
+      "text": "Contrasta i pick migliori"
+    },
+    "pages.tierList.next.countersLead": {
+      "fr": "Les héros contre lesquels le haut du classement perd le plus.",
+      "text": "Gli eroi contro cui la vetta della classifica perde di più."
+    },
+    "pages.tierList.next.buildsLead": {
+      "fr": "Les trois objets clés les plus joués par le haut du classement.",
+      "text": "I tre oggetti chiave più usati dalla vetta della classifica."
+    },
+    "pages.tierList.next.tools": {
+      "fr": "Passer à la pratique",
+      "text": "Mettilo in pratica"
+    },
+    "pages.tierList.next.draft": {
+      "fr": "Pickez et bannissez ces héros dans une draft classée.",
+      "text": "Scegli e banna questi eroi in un draft classificato."
+    },
+    "pages.tierList.next.lists": {
+      "fr": "Les autres tier lists",
+      "text": "Altre tier list"
     },
     "pages.nicknameUI.presetsLead": {
       "fr": "Un style et une décoration assortis, en une touche.",
@@ -38284,6 +38560,46 @@
       "fr": "Tournoi communautaire",
       "text": "Tournament ng komunidad"
     },
+    "pages.tierList.peek.counters": {
+      "fr": "Contré par",
+      "text": "Kinokontra ng"
+    },
+    "pages.tierList.answer.questionRole": {
+      "fr": "Quels sont les meilleurs {plural} en ce moment ?",
+      "text": "Sino ang pinakamahusay na {plural} ngayon?"
+    },
+    "pages.tierList.answer.detail": {
+      "fr": "{first} est n°1 (palier {tier}) avec {winRate} de victoires et {banRate} de bans, sur {n} héros classés au patch {v}, mesure du {date}.",
+      "text": "Ang {first} ang No. 1 (tier {tier}) na may {winRate} win rate at {banRate} ban rate, mula sa {n} hero na naka-rank sa patch {v}, sinukat noong {date}."
+    },
+    "pages.tierList.patch.adjusted": {
+      "fr": "Retouchés au patch {v} ({n})",
+      "text": "Inayos sa patch {v} ({n})"
+    },
+    "pages.tierList.patch.lead": {
+      "fr": "Les plus fortes variations du taux de victoire sur sept jours parmi ces héros, et ceux que le patch a retouchés.",
+      "text": "Ang pinakamalaking galaw ng win rate sa loob ng pitong araw sa mga hero na ito, at ang mga inayos ng patch."
+    },
+    "pages.tierList.next.counters": {
+      "fr": "Contrer les meilleurs picks",
+      "text": "Kontrahin ang mga top pick"
+    },
+    "pages.tierList.next.countersLead": {
+      "fr": "Les héros contre lesquels le haut du classement perd le plus.",
+      "text": "Ang mga hero na pinakamadalas tumalo sa mga nasa tuktok ng ranking."
+    },
+    "pages.tierList.next.buildsLead": {
+      "fr": "Les trois objets clés les plus joués par le haut du classement.",
+      "text": "Ang tatlong key item na pinakamadalas gamitin ng mga nasa tuktok ng ranking."
+    },
+    "pages.tierList.next.tools": {
+      "fr": "Passer à la pratique",
+      "text": "Isabuhay ito"
+    },
+    "pages.tierList.next.draft": {
+      "fr": "Pickez et bannissez ces héros dans une draft classée.",
+      "text": "I-pick at i-ban ang mga hero na ito sa isang ranked draft."
+    },
     "pages.nicknameUI.presetsLead": {
       "fr": "Un style et une décoration assortis, en une touche.",
       "text": "Magkatugmang estilo at dekorasyon, sa isang tap."
@@ -52354,6 +52670,50 @@
       "fr": "Nouveautés sur le site",
       "text": "อัปเดตใหม่บนเว็บไซต์"
     },
+    "pages.tierList.peek.counters": {
+      "fr": "Contré par",
+      "text": "แพ้ทางให้"
+    },
+    "pages.tierList.peek.items": {
+      "fr": "Build principal",
+      "text": "บิลด์หลัก"
+    },
+    "pages.tierList.answer.answerRole": {
+      "fr": "Meilleurs {plural} en ce moment : {top}.",
+      "text": "{plural} ที่ดีที่สุดตอนนี้: {top}"
+    },
+    "pages.tierList.answer.questionRole": {
+      "fr": "Quels sont les meilleurs {plural} en ce moment ?",
+      "text": "{plural} ตัวไหนดีที่สุดตอนนี้?"
+    },
+    "pages.tierList.answer.detail": {
+      "fr": "{first} est n°1 (palier {tier}) avec {winRate} de victoires et {banRate} de bans, sur {n} héros classés au patch {v}, mesure du {date}.",
+      "text": "{first} อันดับ 1 (tier {tier}) อัตราชนะ {winRate} อัตราแบน {banRate} จากฮีโร่ {n} ตัวที่จัดอันดับในแพตช์ {v} วัดเมื่อ {date}"
+    },
+    "pages.tierList.patch.adjusted": {
+      "fr": "Retouchés au patch {v} ({n})",
+      "text": "ปรับในแพตช์ {v} ({n})"
+    },
+    "pages.tierList.patch.lead": {
+      "fr": "Les plus fortes variations du taux de victoire sur sept jours parmi ces héros, et ceux que le patch a retouchés.",
+      "text": "การเปลี่ยนแปลงอัตราชนะมากที่สุดในเจ็ดวันของฮีโร่เหล่านี้ และฮีโร่ที่แพตช์ปรับ"
+    },
+    "pages.tierList.next.counters": {
+      "fr": "Contrer les meilleurs picks",
+      "text": "ทางแก้ของตัวเลือกยอดนิยม"
+    },
+    "pages.tierList.next.builds": {
+      "fr": "Leurs builds",
+      "text": "บิลด์ของพวกเขา"
+    },
+    "pages.tierList.next.buildsLead": {
+      "fr": "Les trois objets clés les plus joués par le haut du classement.",
+      "text": "ไอเทมหลักสามชิ้นที่ฮีโร่อันดับต้นใช้มากที่สุด"
+    },
+    "pages.tierList.next.tools": {
+      "fr": "Passer à la pratique",
+      "text": "ลองใช้งานจริง"
+    },
     "pages.nicknameUI.presetsTitle": {
       "fr": "Looks prêts à l'emploi",
       "text": "ลุคสำเร็จรูป"
@@ -64319,6 +64679,50 @@
     "error.title": {
       "fr": "Ça a coincé",
       "text": "Algo travou"
+    },
+    "pages.tierList.peek.close": {
+      "fr": "Fermer l'aperçu",
+      "text": "Fechar a prévia"
+    },
+    "pages.tierList.answer.answerRole": {
+      "fr": "Meilleurs {plural} en ce moment : {top}.",
+      "text": "Melhores {plural} agora: {top}."
+    },
+    "pages.tierList.answer.detail": {
+      "fr": "{first} est n°1 (palier {tier}) avec {winRate} de victoires et {banRate} de bans, sur {n} héros classés au patch {v}, mesure du {date}.",
+      "text": "{first} é o nº 1 (tier {tier}) com {winRate} de vitórias e {banRate} de bans, entre {n} heróis classificados no patch {v}, medição de {date}."
+    },
+    "pages.tierList.patch.title": {
+      "fr": "Ce qui a changé ce patch",
+      "text": "O que mudou neste patch"
+    },
+    "pages.tierList.patch.adjusted": {
+      "fr": "Retouchés au patch {v} ({n})",
+      "text": "Ajustados no patch {v} ({n})"
+    },
+    "pages.tierList.next.titleLane": {
+      "fr": "Vous jouez {lane} ? À voir aussi",
+      "text": "Você joga de {lane}? Veja também"
+    },
+    "pages.tierList.next.titleRole": {
+      "fr": "Vous jouez {role} ? À voir aussi",
+      "text": "Você joga de {role}? Veja também"
+    },
+    "pages.tierList.next.counters": {
+      "fr": "Contrer les meilleurs picks",
+      "text": "Counters dos melhores picks"
+    },
+    "pages.tierList.next.countersLead": {
+      "fr": "Les héros contre lesquels le haut du classement perd le plus.",
+      "text": "Os heróis contra os quais o topo do ranking mais perde."
+    },
+    "pages.tierList.next.buildsLead": {
+      "fr": "Les trois objets clés les plus joués par le haut du classement.",
+      "text": "Os três itens-chave mais usados pelo topo do ranking."
+    },
+    "pages.tierList.next.tools": {
+      "fr": "Passer à la pratique",
+      "text": "Coloque em prática"
     },
     "pages.nicknameUI.presetsLead": {
       "fr": "Un style et une décoration assortis, en une touche.",
@@ -77749,6 +78153,54 @@
     "error.title": {
       "fr": "Ça a coincé",
       "text": "Что-то заело"
+    },
+    "pages.tierList.peek.open": {
+      "fr": "Aperçu : {name}",
+      "text": "Обзор: {name}"
+    },
+    "pages.tierList.peek.close": {
+      "fr": "Fermer l'aperçu",
+      "text": "Закрыть обзор"
+    },
+    "pages.tierList.peek.counters": {
+      "fr": "Contré par",
+      "text": "Контрпики"
+    },
+    "pages.tierList.answer.answerRole": {
+      "fr": "Meilleurs {plural} en ce moment : {top}.",
+      "text": "Лучшие {plural} на данный момент: {top}."
+    },
+    "pages.tierList.answer.detail": {
+      "fr": "{first} est n°1 (palier {tier}) avec {winRate} de victoires et {banRate} de bans, sur {n} héros classés au patch {v}, mesure du {date}.",
+      "text": "{first} — № 1 (тир {tier}): {winRate} побед и {banRate} банов, среди {n} героев рейтинга в патче {v}, замер от {date}."
+    },
+    "pages.tierList.patch.adjusted": {
+      "fr": "Retouchés au patch {v} ({n})",
+      "text": "Изменены в патче {v} ({n})"
+    },
+    "pages.tierList.patch.lead": {
+      "fr": "Les plus fortes variations du taux de victoire sur sept jours parmi ces héros, et ceux que le patch a retouchés.",
+      "text": "Самые большие изменения винрейта за семь дней среди этих героев и те, кого затронул патч."
+    },
+    "pages.tierList.next.titleLane": {
+      "fr": "Vous jouez {lane} ? À voir aussi",
+      "text": "{lane}: смотрите также"
+    },
+    "pages.tierList.next.titleRole": {
+      "fr": "Vous jouez {role} ? À voir aussi",
+      "text": "{role}: смотрите также"
+    },
+    "pages.tierList.next.counters": {
+      "fr": "Contrer les meilleurs picks",
+      "text": "Контрпики лучших героев"
+    },
+    "pages.tierList.next.buildsLead": {
+      "fr": "Les trois objets clés les plus joués par le haut du classement.",
+      "text": "Три ключевых предмета, которые чаще всего собирают лидеры рейтинга."
+    },
+    "pages.tierList.next.tools": {
+      "fr": "Passer à la pratique",
+      "text": "Применить на практике"
     },
     "pages.nicknameUI.presetsLead": {
       "fr": "Un style et une décoration assortis, en une touche.",

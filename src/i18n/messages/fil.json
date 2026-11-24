@@ -616,6 +616,44 @@
       "poster": {
         "kicker": "No. 1 sa ranking na ito",
         "label": "{name}, n°1 sa ranking na ito: antas {tier}, {win} ng mga tagumpay, {ban} ng mga ban"
+      },
+      "peek": {
+        "open": "Preview: {name}",
+        "close": "Isara ang preview",
+        "counters": "Kinokontra ng",
+        "items": "Pangunahing build",
+        "full": "Kumpletong gabay"
+      },
+      "answer": {
+        "questionAll": "Sino ang pinakamahusay na hero sa MLBB ngayon?",
+        "questionRank": "Sino ang pinakamahusay na hero sa {rank} ngayon?",
+        "questionLane": "Sino ang pinakamahusay na hero sa {lane} ngayon?",
+        "questionRole": "Sino ang pinakamahusay na {plural} ngayon?",
+        "answerAll": "Pinakamahuhusay na hero sa MLBB ngayon: {top}.",
+        "answerRank": "Pinakamahuhusay na hero sa {rank} ngayon: {top}.",
+        "answerLane": "Pinakamahuhusay na hero sa {lane} ngayon: {top}.",
+        "answerRole": "Pinakamahusay na {plural} ngayon: {top}.",
+        "detail": "Ang {first} ang No. 1 (tier {tier}) na may {winRate} win rate at {banRate} ban rate, mula sa {n} hero na naka-rank sa patch {v}, sinukat noong {date}."
+      },
+      "patch": {
+        "title": "Ano ang nagbago sa patch na ito",
+        "lead": "Ang pinakamalaking galaw ng win rate sa loob ng pitong araw sa mga hero na ito, at ang mga inayos ng patch.",
+        "rises": "Tumataas",
+        "drops": "Bumababa",
+        "adjusted": "Inayos sa patch {v} ({n})"
+      },
+      "next": {
+        "titleLane": "Naglalaro ka ba ng {lane}? Tingnan din",
+        "titleRole": "Naglalaro ka ba ng {role}? Tingnan din",
+        "titleAll": "Para sa higit pa",
+        "counters": "Kontrahin ang mga top pick",
+        "countersLead": "Ang mga hero na pinakamadalas tumalo sa mga nasa tuktok ng ranking.",
+        "builds": "Ang kanilang mga build",
+        "buildsLead": "Ang tatlong key item na pinakamadalas gamitin ng mga nasa tuktok ng ranking.",
+        "tools": "Isabuhay ito",
+        "draft": "I-pick at i-ban ang mga hero na ito sa isang ranked draft.",
+        "lists": "Iba pang mga tier list",
+        "top": "No. 1: {name}"
       }
     },
     "patchNotes": {

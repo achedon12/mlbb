@@ -616,6 +616,44 @@
       "poster": {
         "kicker": "N. 1 in questa classifica",
         "label": "{name}, n°1 in questa classifica: livello {tier}, {win} di vittorie, {ban} di divieti"
+      },
+      "peek": {
+        "open": "Anteprima: {name}",
+        "close": "Chiudi l'anteprima",
+        "counters": "Contrastato da",
+        "items": "Build principale",
+        "full": "Guida completa"
+      },
+      "answer": {
+        "questionAll": "Chi sono i migliori eroi della MLBB in questo momento?",
+        "questionRank": "Chi sono i migliori eroi di {rank} in questo momento?",
+        "questionLane": "Chi sono i migliori eroi di {lane} in questo momento?",
+        "questionRole": "Quali sono i migliori {plural} in questo momento?",
+        "answerAll": "I migliori eroi della MLBB in questo momento: {top}.",
+        "answerRank": "I migliori eroi in {rank} in questo momento: {top}.",
+        "answerLane": "I migliori eroi in {lane} in questo momento: {top}.",
+        "answerRole": "I migliori {plural} in questo momento: {top}.",
+        "detail": "{first} è il n. 1 (tier {tier}) con {winRate} di vittorie e {banRate} di ban, su {n} eroi classificati nella patch {v}, misurazione del {date}."
+      },
+      "patch": {
+        "title": "Cosa è cambiato in questa patch",
+        "lead": "Le maggiori variazioni della percentuale di vittorie in sette giorni tra questi eroi, e quelli ritoccati dalla patch.",
+        "rises": "In crescita",
+        "drops": "In calo",
+        "adjusted": "Ritoccati nella patch {v} ({n})"
+      },
+      "next": {
+        "titleLane": "Giochi {lane}? Guarda anche",
+        "titleRole": "Giochi {role}? Guarda anche",
+        "titleAll": "Per saperne di più",
+        "counters": "Contrasta i pick migliori",
+        "countersLead": "Gli eroi contro cui la vetta della classifica perde di più.",
+        "builds": "Le loro build",
+        "buildsLead": "I tre oggetti chiave più usati dalla vetta della classifica.",
+        "tools": "Mettilo in pratica",
+        "draft": "Scegli e banna questi eroi in un draft classificato.",
+        "lists": "Altre tier list",
+        "top": "N. 1: {name}"
       }
     },
     "patchNotes": {
