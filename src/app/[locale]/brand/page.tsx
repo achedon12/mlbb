@@ -61,6 +61,12 @@ const POSES: { pose: DexPose; width: number; height: number }[] = [
   { pose: "surpris", width: 234, height: 308 },
   { pose: "victoire", width: 276, height: 308 },
   { pose: "carte", width: 286, height: 292 },
+  { pose: "joie", width: 211, height: 303 },
+  { pose: "bravo", width: 211, height: 309 },
+  { pose: "saut", width: 316, height: 290 },
+  { pose: "pointe", width: 281, height: 309 },
+  { pose: "triste", width: 220, height: 283 },
+  { pose: "dodo", width: 293, height: 255 },
 ];
 
 export default async function BrandPage({ params }: Params) {

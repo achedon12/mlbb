@@ -4900,8 +4900,8 @@
       "discordTitle": "Sulla Discordia",
       "discordText": "Lì Dex si chiama Dex MLBB: è il bot che risponde a /hero, /build o /tierlist con gli stessi numeri del sito. È anche l'icona del server della comunità.",
       "botLink": "Scopri il bot Dex MLBB",
-      "posesTitle": "Le sue sei pose",
-      "posesLead": "Una posa per ogni momento della tua visita. Passa il mouse sopra di loro, cliccaci sopra: sono vivi.",
+      "posesTitle": "Le sue dodici pose",
+      "posesLead": "Una posa per ogni momento della tua visita. Cliccateci sopra, lasciateli stare per un attimo: sono vivi.",
       "poses": {
         "salut": {
           "name": "CIAO",
@@ -4926,6 +4926,30 @@
         "carte": {
           "name": "Mappa",
           "text": "Nelle guide, sulla mappa e per la strategia."
+        },
+        "joie": {
+          "name": "Gioia",
+          "text": "Quando arrivano buone notizie: un appassionato, un eroe in buona forma."
+        },
+        "bravo": {
+          "name": "Ben fatto",
+          "text": "Per applaudire una partita vinta o una costruzione ben pensata."
+        },
+        "saut": {
+          "name": "Salto",
+          "text": "Quando è tempo di festa: nuova patch, nuovo eroe."
+        },
+        "pointe": {
+          "name": "Guarda!",
+          "text": "Per mostrarti cosa non perdere."
+        },
+        "triste": {
+          "name": "Deluso",
+          "text": "Dopo un nerf, una sconfitta o una ricerca senza risultati."
+        },
+        "dodo": {
+          "name": "Pisolino",
+          "text": "Se non ti muovi per un po', si addormenta. Muoviti e lui si sveglia di soprassalto."
         }
       },
       "kitLink": "Le sue pose PNG sono nel kit del marchio",

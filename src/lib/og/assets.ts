@@ -126,6 +126,18 @@ export const DEX_SIZE: Record<DexPose, [number, number]> = {
   surpris: [234, 308],
   victoire: [276, 308],
   carte: [286, 292],
+  joie: [211, 303],
+  dodo: [293, 255],
+  triste: [220, 283],
+  bravo: [211, 309],
+  pointe: [281, 309],
+  saut: [316, 290],
+  debout: [213, 306],
+  parle: [201, 307],
+  coucou: [235, 307],
+  coucou2: [253, 307],
+  cligne: [200, 304],
+  leve: [196, 307],
 };
 
 /** Width of Dex drawn at a given height. */
