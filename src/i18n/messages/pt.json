@@ -6443,7 +6443,12 @@
     "bodyOne": "Veja os detalhes na página do herói, na aba Estatísticas.",
     "row": "{name}: {type}",
     "other": "e mais {n}",
-    "others": "e mais {n}"
+    "others": "e mais {n}",
+    "reminder": {
+      "title": "{month} começa: novo StarLight e eventos",
+      "bodySkin": "A skin StarLight {skin} ({hero}) chegou. Veja as skins e eventos do mês.",
+      "body": "A skin StarLight e os eventos do mês chegaram. Veja as novidades."
+    }
   },
   "teamUI": {
     "yourTeam": "Seu time",
@@ -7018,5 +7023,54 @@
         "dex": "Está tudo online: veja o que mudou."
       }
     }
+  },
+  "reminder": {
+    "button": "Lembre-me",
+    "hint": "Entra no seu calendário, com um alerta em {when}.",
+    "set": "Vamos te lembrar: {month}",
+    "setCalendar": "Na sua agenda, com alerta em {when}.",
+    "setPush": "Uma notificação neste dispositivo em {when}.",
+    "setBoth": "No seu calendário e na notificação em {when}.",
+    "alsoPush": "Me avise também aqui",
+    "alsoCalendar": "Adicionar ao calendário",
+    "cancelPush": "Cancelar notificação",
+    "pushRefused": "As notificações estão bloqueadas neste navegador: o lembrete do calendário ainda funciona.",
+    "pushError": "Não foi possível agendar a notificação. Tente novamente mais tarde.",
+    "kicker": "Em breve",
+    "bandTitle": "{month}: novo StarLight e eventos",
+    "bandSkin": "Skin StarLight: {skin} ({hero}). A partir do dia 1º às 00:00, horário do servidor.",
+    "bandGeneric": "A skin StarLight e os eventos mensais começam no dia 1º às 00:00 horário do servidor.",
+    "bandLabel": "Lembrete para {month}"
+  },
+  "dailyDle": {
+    "label": "MLBBdle do dia",
+    "title": "O herói do dia está esperando",
+    "allDone": "Os dois enigmas de hoje estão resolvidos",
+    "oneLeft": "Falta um enigma hoje",
+    "keepStreak": "Mantenha sua sequência",
+    "mode": {
+      "classic": "Clássico",
+      "skill": "Habilidade"
+    },
+    "status": {
+      "solved": "resolvido",
+      "started": "em andamento",
+      "open": "a jogar"
+    },
+    "streak1": "Sequência de 1 dia",
+    "streak": "Sequência de {n} dias",
+    "next": "Próximo enigma em",
+    "play": "Jogar",
+    "continue": "Continuar"
+  },
+  "comeback": {
+    "title": "Desde sua última visita, {date}",
+    "patch": "Patch {version} lançado",
+    "skin1": "Skin nova: {name} ({hero})",
+    "skins": "{n} skins novas, incluindo {name}",
+    "tiers1": "1 herói mudou de tier",
+    "tiers": "{n} heróis mudaram de tier",
+    "eventsAnnounced": "{month} anunciado",
+    "eventsOpened": "Os eventos de {month} começaram"
   }
 }

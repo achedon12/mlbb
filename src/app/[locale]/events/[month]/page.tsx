@@ -8,6 +8,7 @@ import { MonthNav } from "@/components/events/month-nav";
 import { heroArt } from "@/components/hero-art";
 import { ENTRANCE, PosterHeader } from "@/components/poster-header";
 import { Score } from "@/components/ui";
+import { UpcomingReminder, reminderMonths } from "@/components/upcoming-reminder";
 import type { Locale } from "@/i18n/config";
 import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
@@ -127,9 +128,14 @@ export default async function EventMonthPage({ params }: Params) {
           </div>
         )}
 
+        {reminderMonths().includes(m.month) && <UpcomingReminder locale={locale} month={m.month} />}
+
         <div className={ENTRANCE}>
           <MonthContent month={m} t={t} locale={locale} variant="page" />
         </div>
+
+        {/* The month under way: the next one is what to wait for. */}
+        {status === "current" && <UpcomingReminder locale={locale} />}
 
         <MonthNav
           label={t("pages.events.month.navMonths")}

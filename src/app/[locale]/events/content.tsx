@@ -10,6 +10,7 @@ import { eventArt } from "@/components/events/event-feature";
 import { DexSays } from "@/components/mascot";
 import { ENTRANCE, PosterHeader } from "@/components/poster-header";
 import { SectionTitle } from "@/components/ui";
+import { UpcomingReminder } from "@/components/upcoming-reminder";
 import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { metaPage, metaPaged } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
@@ -235,6 +236,7 @@ export function Events({ locale, page = 1 }: { locale: Locale; page?: number }) 
             <ol className="space-y-14">
               {announced.map((m) => (
                 <li key={m.month} className="space-y-3">
+                  <UpcomingReminder locale={locale} month={m.month} className="mb-8" />
                   {monthBlock(m, "announced")}
                   <p className="max-w-3xl text-sm text-chalk-400">{t("pages.events.month.announced")}</p>
                   <SourceList sources={sourcesForMonth(m.month)} t={t} locale={locale} />
@@ -242,9 +244,12 @@ export function Events({ locale, page = 1 }: { locale: Locale; page?: number }) 
               ))}
             </ol>
           ) : (
-            <p className="max-w-2xl leading-relaxed text-chalk-300">
-              {t("pages.events.nextMonthUnknown", { month: monthText(locale, nextMonth) })}
-            </p>
+            <>
+              <p className="max-w-2xl leading-relaxed text-chalk-300">
+                {t("pages.events.nextMonthUnknown", { month: monthText(locale, nextMonth) })}
+              </p>
+              <UpcomingReminder locale={locale} month={nextMonth} className="mt-6" />
+            </>
           )}
         </section>
 

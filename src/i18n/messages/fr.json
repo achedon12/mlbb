@@ -6443,7 +6443,12 @@
     "bodyOne": "Le détail est sur sa fiche, dans l'onglet Stats.",
     "row": "{name} : {type}",
     "other": "et {n} autre",
-    "others": "et {n} autres"
+    "others": "et {n} autres",
+    "reminder": {
+      "title": "{month} commence : nouveau StarLight et événements",
+      "bodySkin": "L'apparence StarLight {skin} ({hero}) est sortie. Voir les apparences et événements du mois.",
+      "body": "L'apparence StarLight et les événements du mois sont là. Voir les nouveautés."
+    }
   },
   "teamUI": {
     "yourTeam": "Votre équipe",
@@ -7018,5 +7023,54 @@
         "dex": "Tout est en ligne : va voir ce qui a changé."
       }
     }
+  },
+  "reminder": {
+    "button": "Me le rappeler",
+    "hint": "Ajout à votre agenda, avec une alerte le {when}.",
+    "set": "Rappel prévu : {month}",
+    "setCalendar": "Dans votre agenda, avec une alerte le {when}.",
+    "setPush": "Une notification sur cet appareil le {when}.",
+    "setBoth": "Dans votre agenda et en notification le {when}.",
+    "alsoPush": "Me notifier aussi ici",
+    "alsoCalendar": "Ajouter à l'agenda",
+    "cancelPush": "Annuler la notification",
+    "pushRefused": "Les notifications sont bloquées dans ce navigateur : le rappel d'agenda fonctionne toujours.",
+    "pushError": "Impossible de programmer la notification. Réessayez plus tard.",
+    "kicker": "À venir",
+    "bandTitle": "{month} : nouveau StarLight et événements",
+    "bandSkin": "Apparence StarLight : {skin} ({hero}). Dès le 1er à 00:00, heure du serveur.",
+    "bandGeneric": "L'apparence StarLight et les événements du mois commencent le 1er à 00:00, heure du serveur.",
+    "bandLabel": "Rappel pour {month}"
+  },
+  "dailyDle": {
+    "label": "MLBBdle du jour",
+    "title": "Le héros du jour vous attend",
+    "allDone": "Les deux énigmes du jour sont résolues",
+    "oneLeft": "Encore une énigme aujourd'hui",
+    "keepStreak": "Gardez votre série",
+    "mode": {
+      "classic": "Classique",
+      "skill": "Compétence"
+    },
+    "status": {
+      "solved": "résolu",
+      "started": "en cours",
+      "open": "à jouer"
+    },
+    "streak1": "Série de 1 jour",
+    "streak": "Série de {n} jours",
+    "next": "Prochaine énigme dans",
+    "play": "Jouer",
+    "continue": "Continuer"
+  },
+  "comeback": {
+    "title": "Depuis votre dernière visite, le {date}",
+    "patch": "Patch {version} sorti",
+    "skin1": "Nouvelle apparence : {name} ({hero})",
+    "skins": "{n} nouvelles apparences, dont {name}",
+    "tiers1": "1 héros a changé de tier",
+    "tiers": "{n} héros ont changé de tier",
+    "eventsAnnounced": "{month} annoncé",
+    "eventsOpened": "Les événements de {month} ont commencé"
   }
 }

@@ -6443,7 +6443,12 @@
     "bodyOne": "Tingnan ang detalye sa page ng hero, sa Stats tab.",
     "row": "{name}: {type}",
     "other": "at {n} iba pa",
-    "others": "at {n} iba pa"
+    "others": "at {n} iba pa",
+    "reminder": {
+      "title": "Magsisimula ang {month}: bagong StarLight at mga kaganapan",
+      "bodySkin": "Labas na ang StarLight skin na {skin} ({hero}). Tingnan ang mga skin at event ngayong buwan.",
+      "body": "Narito na ang StarLight skin at mga event ngayong buwan. Tingnan ang bago."
+    }
   },
   "teamUI": {
     "yourTeam": "Team mo",
@@ -7018,5 +7023,54 @@
         "dex": "Lahat ay online: tingnan kung ano ang nagbago."
       }
     }
+  },
+  "reminder": {
+    "button": "Paalalahanan mo ako",
+    "hint": "Idaragdag sa iyong kalendaryo, may alerto sa {when}.",
+    "set": "Ipapaalala namin: {month}",
+    "setCalendar": "Sa iyong kalendaryo, na may alerto sa {when}.",
+    "setPush": "Isang notification sa device na ito sa {when}.",
+    "setBoth": "Sa iyong kalendaryo at sa notification sa {when}.",
+    "alsoPush": "Notify mo rin ako dito",
+    "alsoCalendar": "Idagdag sa kalendaryo",
+    "cancelPush": "Kanselahin ang abiso",
+    "pushRefused": "Naka-block ang mga notification sa browser na ito: gumagana pa rin ang paalala sa kalendaryo.",
+    "pushError": "Hindi makapag-iskedyul ng notification. Subukan ulit mamaya.",
+    "kicker": "Paparating",
+    "bandTitle": "{month}: bagong StarLight at mga kaganapan",
+    "bandSkin": "StarLight skin: {skin} ({hero}). Simula sa ika-1 nang 00:00, oras ng server.",
+    "bandGeneric": "Magsisimula ang StarLight skin at buwanang mga kaganapan sa ika-1 ng 00:00 oras ng server.",
+    "bandLabel": "Paalala para sa {month}"
+  },
+  "dailyDle": {
+    "label": "MLBBdle ng araw",
+    "title": "Naghihintay ang hero ng araw",
+    "allDone": "Nasagot na ang dalawang palaisipan ngayong araw",
+    "oneLeft": "Isang palaisipan na lang ngayon",
+    "keepStreak": "Panatilihin ang iyong guhit",
+    "mode": {
+      "classic": "Classic",
+      "skill": "Skill"
+    },
+    "status": {
+      "solved": "nasagot",
+      "started": "sinisimulan",
+      "open": "lalaruin"
+    },
+    "streak1": "1 araw na streak",
+    "streak": "{n} araw na streak",
+    "next": "Susunod na palaisipan sa loob ng",
+    "play": "Maglaro",
+    "continue": "Magpatuloy"
+  },
+  "comeback": {
+    "title": "Mula noong huli mong pagbisita, {date}",
+    "patch": "Inilabas ang patch {version}",
+    "skin1": "Bagong skin: {name} ({hero})",
+    "skins": "{n} bagong skin, kasama ang {name}",
+    "tiers1": "1 hero ang nagbago ng tier",
+    "tiers": "{n} hero ang nagbago ng tier",
+    "eventsAnnounced": "{month} inihayag",
+    "eventsOpened": "Nagsimula na ang mga event ng {month}"
   }
 }

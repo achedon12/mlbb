@@ -1,5 +1,6 @@
 import Link from "@/components/link";
 import { QuizMlbb } from "@/components/mlbb-quiz";
+import { DailyDle } from "@/components/daily-dle";
 import { ToolHeader } from "@/components/tool-header";
 import type { Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
@@ -43,6 +44,8 @@ export function QuizContent({ locale, duel }: { locale: Locale; duel?: DuelLink 
         <ExtendMessages messages={messagesPage(locale, ["pages.quizUI", "draftUI"])}>
           <QuizMlbb heroes={heroes} items={items} duel={duel} />
         </ExtendMessages>
+        {/* Another daily game, right where this one ends. */}
+        <DailyDle place="quiz" />
 
         <section>
           <h2 className={heading2}>{t("pages.quiz.rulesTitle")}</h2>

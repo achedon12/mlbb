@@ -32,6 +32,7 @@ import { Tabs } from "@/components/tabs";
 import { ScrollDepth } from "@/components/scroll-depth";
 import { HeroFeedLink } from "@/components/hero-feed-link";
 import { HeroGlance } from "@/components/hero-glance";
+import { DailyDle } from "@/components/daily-dle";
 
 import {
   ShowcaseArt,
@@ -929,6 +930,7 @@ export default async function HeroPage({ params }: Params) {
           ]}
         />
         <DiscordInvite t={t} context="hero" className="mt-10" />
+        <DailyDle place="hero" className="mt-6" />
         <PageSourcesBlock locale={locale} of={{ kind: "hero", name: h.name }} />
         <ReportError messages={messagesPage(locale, ["pages.reportError"])} path={`/heroes/${h.slug}`} className="mt-6" />
       </div>
