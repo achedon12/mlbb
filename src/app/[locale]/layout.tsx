@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Barlow_Condensed, Chakra_Petch, Fira_Sans_Extra_Condensed, Inter, Noto_Sans_Thai, Saira_Extra_Condensed } from "next/font/google";
+import { Barlow_Condensed, Chakra_Petch, Fira_Sans_Extra_Condensed, Inter, Noto_Sans_Thai, Saira, Saira_Extra_Condensed } from "next/font/google";
 import { Header } from "@/components/header";
 import { Offline } from "@/components/offline";
 import { DiscordPopup } from "@/components/discord-popup";
@@ -35,6 +35,23 @@ const display = Saira_Extra_Condensed({
   weight: ["800", "900"],
   variable: "--display-font",
   display: "swap",
+});
+
+// The figures (win rates, scores, counters): Saira's variable cut, the
+// wordmark's family, in its real italic and narrowed on its width axis to the
+// extra-condensed width (`.score`, `.figure`, globals.css). Its digits have
+// one width (tabular), so a counting figure never jitters, and they are the
+// same in every language: Cyrillic and Thai pages show their numbers in it
+// too. Not preloaded: until it arrives the figures use Saira Extra Condensed,
+// slanted by the browser, almost the same width.
+const figure = Saira({
+  subsets: ["latin"],
+  style: "italic",
+  weight: "variable",
+  axes: ["wdth"],
+  variable: "--figure-font",
+  display: "swap",
+  preload: false,
 });
 
 // Body text is not repainted when the font arrives: without it in
@@ -90,7 +107,7 @@ const notoSansThai = Noto_Sans_Thai({
   preload: false,
 });
 
-const FONTS = [heading, display, inter, headingCyrillic, displayCyrillic, headingThai, displayThai, notoSansThai]
+const FONTS = [heading, display, figure, inter, headingCyrillic, displayCyrillic, headingThai, displayThai, notoSansThai]
   .map((f) => f.variable)
   .join(" ");
 

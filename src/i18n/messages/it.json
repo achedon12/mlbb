@@ -290,7 +290,7 @@
     "brand": "Mobile Legends: Bang Bang™ Shanghai Moonton Technology Co., Ltd.",
     "version": "Versione {v}",
     "contribute": "Contribuisci",
-    "intro": "Eroi, build e counter per rango, una tier list calcolata sui tassi di vittoria delle partite classificate, oggetti, emblemi e patch notes di Mobile Legends: Bang Bang, in italiano, inglese, francese, spagnolo e indonesiano. Progetto indipendente, aperto ai contributi.",
+    "intro": "Eroi, build e contatori per grado, elenco dei livelli calcolato sui tassi di vittoria classificati, oggetti, emblemi e note sulla patch di Mobile Legends: Bang Bang, in nove lingue. Progetto indipendente, aperto a contributi.",
     "sources": "Testi tratti dalla wiki di Mobile Legends (Fandom) e da Liquipedia, sotto licenza CC BY-SA, con attribuzione ai rispettivi contributori. Immagini, nomi di eroi, skin e oggetti © Moonton e skin in collaborazione © dei rispettivi titolari dei diritti: non rientrano in questa licenza. Le percentuali di vincita, esclusione e scelta, i contatori e le build più giocate provengono dalle statistiche di gioco classificate del gioco, tramite l'API della community arena.rone.dev.",
     "discord": "Unisciti alla Discordia",
     "columns": {
@@ -830,7 +830,7 @@
       "linkCopied": "Link copiato.",
       "copyFailed": "Non ho potuto copiare: copia l'indirizzo della pagina.",
       "intro": "Aggiungi almeno un eroe su ciascun lato per visualizzare la matrice. L'indirizzo della pagina mantiene le tue scelte e il ranking: basta condividerlo.",
-      "loading": "Caricamento duelli di grado...",
+      "loading": "Preparo i duelli del grado…",
       "error": "Non sono riuscito a caricare duelli di questo livello. Riprova o cambia la classifica.",
       "matrixTitle": "Duelli · {rank}",
       "measured": "Duelli misurati: {n} su {total}.",
@@ -1816,7 +1816,7 @@
       "mode": "Modalità",
       "dailyMode": "Sfida del giorno",
       "practiceMode": "Allenamento",
-      "loading": "Caricamento…",
+      "loading": "Preparo la partita…",
       "loadError": "Non riesco a caricare il quiz. Controlla la tua connessione: una volta visitata la pagina, è possibile giocare anche offline.",
       "retry": "Riprova",
       "puzzleNumber": "Sfida n. {n} · {date}",
@@ -1888,7 +1888,7 @@
       "initial": "«{letter}», {n} lettere",
       "heroField": "Nome di un eroe…",
       "itemField": "Nome di un oggetto…",
-      "noResult": "Nessun risultato.",
+      "noResult": "Nessun eroe con quel nome.",
       "browse": "Sfoglia gli eroi",
       "skip": "Passa",
       "yourTries": "I tuoi tentativi",
@@ -2119,8 +2119,8 @@
       "allHeroes": "Tutti",
       "all": "Tutte",
       "clear": "Azzera i filtri",
-      "loading": "Caricamento delle skin…",
-      "error": "Impossibile caricare l'elenco delle skin. Controlla la connessione e riprova.",
+      "loading": "Apro il calendario delle skin…",
+      "error": "Impossibile caricare il calendario. Controlla la connessione e riprova.",
       "result": "1 skin corrisponde.",
       "results": "{n} skin corrispondono.",
       "nSkins": "{n} skin",
@@ -2141,7 +2141,7 @@
       "accountValueLink": "Stima il valore di un account"
     },
     "collectionUI": {
-      "loading": "Caricamento di eroi e skin…",
+      "loading": "Tiro fuori gli eroi e le loro skin…",
       "error": "Non riesco a caricare l'elenco delle presenze. Controlla la tua connessione, quindi ricarica la pagina.",
       "valueTitle": "Valore in negozio della tua collezione",
       "heroes": "Eroi",
@@ -2531,7 +2531,7 @@
         "practice": "Allenamento"
       },
       "solved": "risolta",
-      "loading": "Caricamento…",
+      "loading": "Preparo la sfida del giorno…",
       "loadError": "Non riesco a caricare la sfida di oggi. Controlla la connessione e riprova.",
       "retry": "Riprova",
       "unavailable": "Questa modalità oggi non è disponibile. Prova l'altra!",
@@ -3531,7 +3531,7 @@
       "resultFor": "{hero}, livello {level}. Tocca una statistica per vederne il dettaglio.",
       "pickHeroFirst": "Scegli un eroe per vedere le statistiche calcolate.",
       "measuredTitle": "Confronto con le build misurate",
-      "measuredLoading": "Caricamento delle build misurate…",
+      "measuredLoading": "Confronto con le build misurate…",
       "measuredNeedItems": "Aggiungi oggetti per confrontarli con le build realmente giocate.",
       "measuredNone": "A questo rango nessuna build misurata condivide almeno due oggetti con la tua.",
       "measuredSame": "Stesso nucleo di una build misurata",
@@ -3593,7 +3593,7 @@
       "lead": "Build create nel simulatore e pubblicate dai giocatori, con le statistiche calcolate. Vota quelle che ti convincono: le più apprezzate salgono in cima.",
       "createCta": "Crea una build",
       "unavailable": "Le build della community non sono al momento disponibili. Riprova tra qualche minuto.",
-      "emptyStore": "Nessuna build pubblicata per ora. Crea la tua nel simulatore e sii il primo.",
+      "emptyStore": "Nessuna build pubblicata per ora. Monta la tua nel simulatore: il primo posto è libero.",
       "weekTitle": "Le più votate della settimana",
       "weekEmpty": "Nessun voto negli ultimi sette giorni.",
       "latestTitle": "Ultime build pubblicate",
@@ -5258,11 +5258,23 @@
       "noFall": "Nessun eroe è in netto calo questa settimana.",
       "open": "Mostra i {n} eroi in movimento"
     },
-    "syncLead": "Ultima sincronizzazione il {date}."
+    "syncLead": "Ultima sincronizzazione il {date}.",
+    "figures": {
+      "title": "MLBBDex in numeri",
+      "heroes": "eroi",
+      "changed": "ritoccati nella patch",
+      "splus": "nel tier S+",
+      "items": "oggetti"
+    },
+    "stage": {
+      "dexPatch": "Patch {version} online: {n} eroi ritoccati. In cima al meta, {hero}.",
+      "dexPatchAlone": "Patch {version} online: {n} eroi ritoccati.",
+      "dexCta": "Guarda cosa cambia"
+    }
   },
   "featured": {
-    "heroOfTheDay": "Eroe del giorno",
-    "seeSheet": "Vedi la scheda"
+    "seeSheet": "Vedi la scheda",
+    "topMeta": "Il numero 1 nel meta"
   },
   "access": {
     "account": "{n} eroi"
@@ -6102,8 +6114,8 @@
     }
   },
   "error": {
-    "title": "Si è verificato un errore",
-    "text": "Il sito ha riscontrato un problema imprevisto. Riprova tra un attimo.",
+    "title": "Qualcosa si è inceppato",
+    "text": "Il sito è inciampato su questa pagina. Spesso basta riprovare.",
     "retry": "Riprova",
     "oops": "Ops",
     "pageText": "Impossibile caricare questa pagina. Puoi riprovare o tornare alla home page.",
@@ -6159,8 +6171,8 @@
   "search": {
     "open": "Cerca",
     "placeholder": "Un eroe, un oggetto, una patch…",
-    "none": "Nessun risultato.",
-    "loading": "Caricamento…",
+    "none": "Niente sotto quel nome.",
+    "loading": "Sto cercando…",
     "help": "↑ ↓ per scorrere, Invio per aprire, Esc per chiudere",
     "groups": {
       "hero": "Eroi",
@@ -6172,7 +6184,7 @@
       "emblem": "Emblemi",
       "spell": "Battle Spell"
     },
-    "dexEmpty": "Uhm, non riesco a trovare nulla. Prova un nome diverso o meno lettere."
+    "dexEmpty": "Uhm, non riesco a trovare nulla. Prova un altro nome o meno lettere."
   },
   "heroData": {
     "resource": {
@@ -6561,7 +6573,7 @@
     "default1": "Ctrl + K apre la ricerca: un eroe, un oggetto, un aspetto, l'intero sito.",
     "default2": "Le cifre vengono registrate ogni giorno sulle partite classificate.",
     "default3": "Puoi cambiare la lingua in alto a destra, parlo nove lingue.",
-    "home1": "L'eroe del giorno cambia ogni giorno. Torna domani!",
+    "home1": "In copertina, il n. 1 della tier list: cambia quando si muove il meta.",
     "home2": "L'elenco dei livelli viene ricalcolato ad ogni lettura della tariffa.",
     "home3": "Vuoi giocare? MLBBdle e il quiz ti aspettano ogni giorno.",
     "heroes1": "Filtra per ruolo o corsia per trovare la tua prossima mano.",

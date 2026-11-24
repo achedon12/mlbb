@@ -290,7 +290,7 @@
     "brand": "Mobile Legends: Bang Bang™ Shanghai Moonton Technology Co., Ltd.",
     "version": "Versi {v}",
     "contribute": "Berkontribusi",
-    "intro": "Hero, build, dan counter Mobile Legends: Bang Bang berdasarkan rank, tier list yang dihitung dari win rate ranked, item, emblem, dan patch notes, dalam bahasa Inggris, Prancis, Italia, Spanyol, dan Indonesia. Proyek independen yang terbuka untuk kontribusi.",
+    "intro": "Hero, build, dan counter Mobile Legends: Bang Bang berdasarkan rank, tier list yang dihitung dari win rate ranked, item, emblem, dan patch notes, dalam sembilan bahasa. Proyek independen yang terbuka untuk kontribusi.",
     "sources": "Teks diambil dari wiki Mobile Legends (Fandom) dan Liquipedia, di bawah lisensi CC BY-SA, dengan atribusi kepada kontributornya. Gambar, nama hero, skin dan item © Moonton, dan untuk skin kolaborasi © pemegang haknya masing-masing: semuanya tidak termasuk dalam lisensi ini. Win rate, ban dan pengambilan, counter, dan build yang paling banyak dimainkan berasal dari statistik permainan berperingkat, melalui API komunitas arena.rone.dev.",
     "discord": "Bergabunglah dengan Perselisihan",
     "columns": {
@@ -830,7 +830,7 @@
       "linkCopied": "Tautan disalin.",
       "copyFailed": "Saya tidak dapat menyalin: salin alamat halamannya.",
       "intro": "Tambahkan setidaknya satu hero ke setiap sisi untuk menampilkan matriks. Alamat halaman menyimpan pilihan dan peringkat Anda: bagikan saja.",
-      "loading": "Memuat duel peringkat...",
+      "loading": "Menyiapkan duel rank ini…",
       "error": "Saya tidak dapat memuat duel dengan peringkat ini. Coba lagi, atau ubah peringkat.",
       "matrixTitle": "Duel · {rank}",
       "measured": "Duel diukur: {n} dari {total}.",
@@ -1816,7 +1816,7 @@
       "mode": "Mode",
       "dailyMode": "Tantangan hari ini",
       "practiceMode": "Pelatihan",
-      "loading": "Memuat…",
+      "loading": "Menyiapkan permainan…",
       "loadError": "Saya tidak dapat memuat kuis. Periksa koneksi Anda: setelah Anda mengunjungi halaman tersebut, halaman tersebut juga dapat diputar secara offline.",
       "retry": "Coba lagi",
       "puzzleNumber": "Tantangan No. {n} · {date}",
@@ -1888,7 +1888,7 @@
       "initial": "“{letter}”, {n} huruf",
       "heroField": "Nama seorang hero...",
       "itemField": "Nama suatu item…",
-      "noResult": "Tidak ada hasil.",
+      "noResult": "Tidak ada hero dengan nama itu.",
       "browse": "Telusuri Hero",
       "skip": "Lulus",
       "yourTries": "Tes Anda",
@@ -2119,8 +2119,8 @@
       "allHeroes": "Semua",
       "all": "Semua",
       "clear": "Hapus filter",
-      "loading": "Memuat skin…",
-      "error": "Gagal memuat daftar skin. Periksa koneksi Anda dan coba lagi.",
+      "loading": "Membuka kalender skin…",
+      "error": "Kalender gagal dimuat. Periksa koneksi Anda, lalu coba lagi.",
       "result": "1 pertandingan skin.",
       "results": "{n} skin cocok.",
       "nSkins": "{n} skin",
@@ -2141,7 +2141,7 @@
       "accountValueLink": "Estimasi nilai akun"
     },
     "collectionUI": {
-      "loading": "Memuat hero dan skin…",
+      "loading": "Menyiapkan hero dan skin mereka…",
       "error": "Saya tidak dapat memuat daftar penampilan. Periksa koneksi Anda, lalu muat ulang halaman.",
       "valueTitle": "Nilai butik koleksi Anda",
       "heroes": "Hero",
@@ -2531,7 +2531,7 @@
         "practice": "Pelatihan"
       },
       "solved": "terselesaikan",
-      "loading": "Memuat…",
+      "loading": "Menyiapkan tantangan hari ini…",
       "loadError": "Saya tidak dapat memuat tantangan hari ini. Periksa koneksi Anda, lalu coba lagi.",
       "retry": "Coba lagi",
       "unavailable": "Mode ini tidak tersedia saat ini. Coba yang lain!",
@@ -3531,7 +3531,7 @@
       "resultFor": "{hero}, tingkat {level}. Ketuk statistik untuk melihat detailnya.",
       "pickHeroFirst": "Pilih hero untuk melihat statistiknya dihitung.",
       "measuredTitle": "Dibandingkan dengan build terukur",
-      "measuredLoading": "Memuat build terukur…",
+      "measuredLoading": "Membandingkan dengan build terukur…",
       "measuredNeedItems": "Tambahkan item untuk dibandingkan dengan build sebenarnya yang dimainkan.",
       "measuredNone": "Pada peringkat ini, tidak ada build terukur yang berbagi setidaknya dua item dengan milik Anda.",
       "measuredSame": "Inti yang sama dengan build terukur",
@@ -3593,7 +3593,7 @@
       "lead": "Build disusun dalam simulator dan diterbitkan oleh pemain, dengan statistik yang dihitung. Pilih mereka yang meyakinkan Anda: gerakan naik yang paling didukung.",
       "createCta": "Buatlah sebuah build",
       "unavailable": "Build komunitas untuk sementara tidak tersedia. Coba lagi dalam beberapa menit.",
-      "emptyStore": "Belum ada build yang dirilis. Hubungi milik Anda di simulator dan jadilah yang pertama.",
+      "emptyStore": "Belum ada build yang dipublikasikan. Susun milikmu di simulator: posisi pertama masih kosong.",
       "weekTitle": "Suara terbanyak minggu ini",
       "weekEmpty": "Tidak ada suara dalam tujuh hari terakhir.",
       "latestTitle": "Versi terbaru dirilis",
@@ -5258,11 +5258,23 @@
       "noFall": "Tidak ada hero yang mengambil langkah mundur minggu ini.",
       "open": "Tampilkan {n} hero yang sedang bergerak"
     },
-    "syncLead": "Sinkronisasi terakhir pada {date}."
+    "syncLead": "Sinkronisasi terakhir pada {date}.",
+    "figures": {
+      "title": "MLBBDex dalam angka",
+      "heroes": "hero",
+      "changed": "diubah di patch ini",
+      "splus": "di tier S+",
+      "items": "item"
+    },
+    "stage": {
+      "dexPatch": "Patch {version} sudah live: {n} hero diubah. Puncak meta: {hero}.",
+      "dexPatchAlone": "Patch {version} sudah live: {n} hero diubah.",
+      "dexCta": "Lihat perubahannya"
+    }
   },
   "featured": {
-    "heroOfTheDay": "Hero hari ini",
-    "seeSheet": "Lihat filenya"
+    "seeSheet": "Lihat filenya",
+    "topMeta": "#1 di meta"
   },
   "access": {
     "account": "{n} hero"
@@ -6102,8 +6114,8 @@
     }
   },
   "error": {
-    "title": "Telah terjadi kesalahan",
-    "text": "Situs mengalami masalah yang tidak terduga. Coba lagi sebentar lagi.",
+    "title": "Ada yang macet",
+    "text": "Situs tersandung di halaman ini. Biasanya cukup dicoba sekali lagi.",
     "retry": "Coba lagi",
     "oops": "Ups",
     "pageText": "Halaman ini gagal dimuat. Anda dapat mencoba lagi atau kembali ke halaman beranda.",
@@ -6159,8 +6171,8 @@
   "search": {
     "open": "Cari",
     "placeholder": "Hero, item, patch…",
-    "none": "Tidak ada hasil.",
-    "loading": "Memuat…",
+    "none": "Tidak ada dengan nama itu.",
+    "loading": "Mencari…",
     "help": "↑ ↓ untuk menelusuri, Enter untuk membuka, Escape untuk menutup",
     "groups": {
       "hero": "Hero",
@@ -6172,7 +6184,7 @@
       "emblem": "emblem",
       "spell": "Battle Spell"
     },
-    "dexEmpty": "Hmm, saya tidak dapat menemukan apa pun. Coba nama lain, atau lebih sedikit huruf."
+    "dexEmpty": "Hmm, aku tidak menemukan apa pun. Coba nama lain, atau lebih sedikit huruf."
   },
   "heroData": {
     "resource": {
@@ -6561,7 +6573,7 @@
     "default1": "Ctrl + K membuka pencarian: hero, item, penampilan, keseluruhan situs.",
     "default2": "Angka tersebut dicatat setiap hari pada game berperingkat.",
     "default3": "Anda dapat mengubah bahasa di kanan atas, saya berbicara sembilan bahasa.",
-    "home1": "Hero hari ini berubah setiap hari. Kembalilah besok!",
+    "home1": "Di poster: hero nomor 1 tier list. Berubah setiap kali meta bergeser.",
     "home2": "Tier list dihitung ulang pada setiap pembacaan tarif.",
     "home3": "Ingin bermain? MLBBdle dan kuis menanti Anda setiap hari.",
     "heroes1": "Filter berdasarkan peran atau lane untuk menemukan peran Anda selanjutnya.",

@@ -371,6 +371,8 @@ const RULES = {
     ["diskwento", "reset", { scope: "messages" }],
     ["mga bagay", "mga item", { scope: "messages" }],
     ["pagbabawal", "ban", { scope: "messages" }],
+    // The service drops a B from the site's name.
+    ["MLBDex", "MLBBDex", { caseSensitive: true }],
   ],
 
   // Thai players read the game's Thai words where the client has them (ป่า,

@@ -1105,3 +1105,197 @@ body {
   }
 }
 /* ══ end of the patch recap ══════════════════════════════════════════════════ */
+
+/* ══ Brand stage: motion tokens, figures, the home poster's stage and the scroll reveal ══
+ * (docs/design-system.md, "Motion" and "Brand stage"). Kept in one section: the
+ * tokens first, then the figures' face, then the stage (glow, art, embers,
+ * Dex), then the reveal. Everything rests under prefers-reduced-motion.
+ */
+
+/* Easing curves, as Tailwind tokens (`ease-brand-out`…) and plain variables. */
+@theme {
+  /* Out: a quick start that settles; arrivals, reveals, the poster. */
+  --ease-brand-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  /* In-out: slow drifts that loop (the glow). */
+  --ease-brand-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  /* Spring: a small overshoot, for Dex and what pops (bubbles, flashes). */
+  --ease-brand-spring: cubic-bezier(0.3, 1.4, 0.5, 1);
+
+  /* Figures: Saira's true italic at the extra-condensed width, then the display face. */
+  --font-figure: var(--figure-font), var(--font-display);
+}
+
+:root {
+  /* Durations: fast for hovers and presses, base for small entries, slow for the one strong moment. */
+  --duration-fast: 150ms;
+  --duration-base: 320ms;
+  --duration-slow: 650ms;
+}
+
+@layer components {
+  /*
+   * The figures' face: the score and every key figure. Tabular, lining
+   * digits in Saira's own italic (not slanted by the browser), at the
+   * wordmark's extra-condensed width.
+   */
+  .score,
+  .figure {
+    font-family: var(--font-figure);
+    font-style: italic;
+    font-weight: 900;
+    font-stretch: 62.5%;
+    font-variation-settings: "wdth" 62.5;
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+  .figure {
+    line-height: 0.85;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* A counting figure (count-up.tsx): hidden until its script counts it; shown by the CSS alone if the script is late. */
+@keyframes count-up-fallback { to { opacity: 1; } }
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  .count-up:not([data-counted]) { opacity: 0; animation: count-up-fallback 0s 2.5s forwards; }
+  .count-up[data-armed]:not([data-counted]) { animation: none; }
+}
+
+/*
+ * The home poster's stage (home-stage.tsx). Each layer moves by `translate`
+ * (so it never fights a layer's own animation, which uses `transform`), by
+ * its depth times the pointer's place (`--stage-x`, `--stage-y`, −1 to 1).
+ */
+.brand-stage { --stage-x: 0; --stage-y: 0; }
+.brand-stage :is(.stage-art, .stage-glow, .stage-embers, .stage-dex, .affiche-name) {
+  transition: translate 0.7s var(--ease-brand-out);
+}
+.stage-art {
+  position: absolute;
+  inset: -1.25rem;
+  translate: calc(var(--stage-x) * -14px) calc(var(--stage-y) * -9px);
+}
+/* A soft light over the art, drifting opposite to it. */
+.stage-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(45% 40% at calc(70% + var(--stage-x) * 6%) calc(18% + var(--stage-y) * 6%), rgb(255 216 122 / 0.16), transparent 70%);
+  mix-blend-mode: screen;
+}
+.brand-stage .affiche-name { translate: calc(var(--stage-x) * 8px) calc(var(--stage-y) * 4px); }
+.brand-stage .stage-dex { translate: calc(var(--stage-x) * 10px) calc(var(--stage-y) * 6px); }
+
+/* The glow: gold and ally blue, behind the whole poster, drifting slowly. */
+.stage-glow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  translate: calc(var(--stage-x) * 12px) calc(var(--stage-y) * 10px);
+}
+.stage-glow::before {
+  content: "";
+  position: absolute;
+  inset: -25% -15%;
+  background:
+    radial-gradient(38% 42% at 70% 32%, rgb(245 196 81 / 0.14), transparent 70%),
+    radial-gradient(32% 38% at 18% 78%, rgb(61 139 255 / 0.11), transparent 70%),
+    radial-gradient(26% 30% at 42% 18%, rgb(200 144 30 / 0.08), transparent 70%);
+}
+@keyframes stage-glow {
+  0% { transform: translate3d(-3%, 1%, 0) scale(1); }
+  50% { transform: translate3d(3%, -2%, 0) scale(1.08); }
+  100% { transform: translate3d(-1%, 2%, 0) scale(1.02); }
+}
+
+/* Embers: small diamonds (the bevel's angle) rising from the foot of the art. */
+.stage-embers {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  translate: calc(var(--stage-x) * 22px) calc(var(--stage-y) * 12px);
+}
+.stage-embers i {
+  position: absolute;
+  bottom: -0.5rem;
+  width: var(--ember-size, 3px);
+  height: var(--ember-size, 3px);
+  background: var(--color-gold-300);
+  box-shadow: 0 0 6px 1px rgb(245 196 81 / 0.5);
+  opacity: 0;
+  transform: rotate(45deg);
+}
+.stage-embers i.is-azure {
+  background: var(--color-azure-300);
+  box-shadow: 0 0 6px 1px rgb(61 139 255 / 0.5);
+}
+@keyframes stage-ember {
+  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(45deg) scale(1); }
+  12% { opacity: 0.9; }
+  65% { opacity: 0.55; }
+  100% { opacity: 0; transform: translate3d(var(--ember-drift, 0), -24rem, 0) rotate(225deg) scale(0.4); }
+}
+
+/* The blade under the title sweeps in once, after the name. */
+@keyframes stage-blade { from { transform: scaleX(0); } to { transform: none; } }
+
+/* Dex on the stage: a narrow bubble, so the art keeps its sky. */
+.stage-dex .dex-bubble { max-width: 19rem; }
+@media (width < 64rem) {
+  .stage-dex .dex-bubble { max-width: 100%; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .stage-glow::before { animation: stage-glow 22s var(--ease-brand-in-out) infinite alternate; }
+  .stage-embers i { animation: stage-ember var(--ember-duration, 9s) linear var(--ember-delay, 0s) infinite; }
+  .stage-blade { transform-origin: left; animation: stage-blade var(--duration-slow) var(--ease-brand-out) 0.3s both; }
+}
+@media (prefers-reduced-motion: reduce) {
+  /* Still embers would be specks of dust: they leave. The glow stays, still. */
+  .stage-embers { display: none; }
+  .brand-stage { --stage-x: 0 !important; --stage-y: 0 !important; }
+}
+
+/*
+ * Scroll reveal (reveal.tsx): once the group is armed, each `[data-reveal]`
+ * block below the fold waits, then comes in the first time it nears the
+ * screen: it rises and fades in, its title arrives on the slant, its blade
+ * sweeps, its hero tiles follow one by one. A divider only sweeps its blade.
+ */
+.reveal-armed [data-reveal]:not(.eclat-rule) {
+  opacity: 0;
+  transform: translate3d(0, 1.75rem, 0);
+  transition: opacity var(--duration-slow) var(--ease-brand-out), transform var(--duration-slow) var(--ease-brand-out);
+}
+.reveal-armed [data-reveal][data-revealed]:not(.eclat-rule) { opacity: 1; transform: none; }
+.reveal-armed [data-reveal] .type-section {
+  transform: translateX(-0.3em) skewX(-9deg);
+  transition: transform 0.6s var(--ease-brand-out) 0.08s;
+}
+.reveal-armed [data-reveal] .eclat {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.55s var(--ease-brand-out) 0.22s;
+}
+.reveal-armed [data-reveal] .hero-tile {
+  opacity: 0;
+  transform: translate3d(0, 0.75rem, 0) scale(0.97);
+  transition:
+    opacity 0.5s var(--ease-brand-out) calc(0.2s + var(--reveal-i, 0) * 45ms),
+    transform 0.5s var(--ease-brand-out) calc(0.2s + var(--reveal-i, 0) * 45ms),
+    translate 0.2s ease-out;
+}
+.reveal-armed [data-reveal][data-revealed] :is(.type-section, .eclat, .hero-tile) { opacity: 1; transform: none; }
+.reveal-armed .eclat-rule[data-reveal]::before {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.8s var(--ease-brand-out);
+}
+.reveal-armed .eclat-rule[data-reveal][data-revealed]::before { transform: none; }
+@media print {
+  .reveal-armed [data-reveal], .reveal-armed [data-reveal] * { opacity: 1 !important; transform: none !important; }
+}
+/* ══ end of the brand stage ══════════════════════════════════════════════════ */
