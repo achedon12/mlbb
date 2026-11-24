@@ -207,7 +207,7 @@ export function SkinsCalendar({ locale, page = 1 }: { locale: Locale; page?: num
           ) : ceMonth.length > 0 ? (
             grid(ceMonth)
           ) : (
-            <DexSays pose="surpris" height={110}>
+            <DexSays pose="dodo" height={110}>
               <p className="leading-relaxed text-chalk-200">
                 {t("pages.skinsCalendar.thisMonthEmpty", {
                   month: monthYear(locale, dateReference),

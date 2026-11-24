@@ -33,7 +33,7 @@ export default function GlobalNotFoundPage() {
       <body className="flex min-h-screen flex-col items-center justify-center bg-night-950 px-4 py-12 text-center text-chalk-100">
         {/* A plain image: this document has none of the site's layout around it. */}
         {/* eslint-disable-next-line @next/next/no-img-element -- see above */}
-        <img src="/mascot/dex-surpris.webp" alt="" width={190} height={250} className="dex-idle" />
+        <img src="/mascot/dex-pointe.webp" alt="" width={227} height={250} className="dex-idle" />
         <p aria-hidden className="score score-outline mt-2 text-[7rem]">404</p>
         <h1 className="display-caps mt-3 text-5xl">{TEXTS.en}</h1>
         <div aria-hidden className="eclat mt-4 h-[3px] w-24" />

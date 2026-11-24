@@ -310,7 +310,7 @@ export function ItemList({
             <ItemSheet key={item.slug} item={item} catalog={catalog} />
           ) : (
             <div className="bevel-lg flex flex-col items-center gap-4 bg-night-900 px-6 py-10 text-center">
-              <Dex pose="reflexion" height={150} />
+              <Dex pose="pointe" height={150} />
               <p className="max-w-xs text-sm leading-relaxed text-chalk-300">{t("pages.itemsList.choose")}</p>
             </div>
           )}

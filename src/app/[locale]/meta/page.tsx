@@ -362,7 +362,7 @@ export default async function MetaReportPage({ params }: Params) {
                 ) : null,
               )}
               {patchCurrent.newHeroes.length === 0 && ADJUSTMENT_DIRECTIONS.every((s) => patch[s].length === 0) && (
-                <DexSays pose="surpris" height={96}>
+                <DexSays pose="dodo" height={96}>
                   <p className="text-sm">{t("pages.meta.patch.none")}</p>
                 </DexSays>
               )}

@@ -225,7 +225,7 @@ export function GlobalSearch() {
                 <p className="px-3 py-6 text-center text-sm text-chalk-500">{t("search.loading")}</p>
               ) : flat.length === 0 ? (
                 <div className="flex items-end justify-center gap-3 px-3 py-6">
-                  <Dex pose="reflexion" height={110} still />
+                  <Dex pose="triste" height={110} still />
                   <div className="dex-bubble max-w-xs text-left text-sm">
                     <p className="font-heading text-base font-bold uppercase text-chalk-100">{t("search.none")}</p>
                     <p className="mt-1 text-chalk-400">{t("search.dexEmpty")}</p>

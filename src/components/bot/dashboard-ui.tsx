@@ -167,7 +167,7 @@ export function Toasts({ toasts, dismiss }: { toasts: Toast[]; dismiss: (id: num
             toast.kind === "error" && "brand-flash-error",
           )}
         >
-          <DexHead pose={toast.kind === "ok" ? "victoire" : "surpris"} size={32} />
+          <DexHead pose={toast.kind === "ok" ? "bravo" : "triste"} size={32} />
           <p className="min-w-0 flex-1 self-center break-words">{toast.text}</p>
           <button
             type="button"

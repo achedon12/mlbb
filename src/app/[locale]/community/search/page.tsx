@@ -76,7 +76,7 @@ export default async function CommunitySearchPage({ params, searchParams }: Para
             <Pager paging={view} href={href} t={t} />
           </>
         ) : (
-          <DexNote pose="idee" height={110}>{t("pages.community.searchHint")}</DexNote>
+          <DexNote pose="pointe" height={110}>{t("pages.community.searchHint")}</DexNote>
         )}
       </div>
     </>

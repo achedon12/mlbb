@@ -60,7 +60,7 @@ export default async function CommunityBuildPage({ params }: Params) {
   if (stored === undefined) {
     return (
       <div className="page-wrap py-16">
-        <DexSays pose="surpris">
+        <DexSays pose="triste">
           <p role="alert">{t("pages.communityBuilds.unavailable")}</p>
         </DexSays>
       </div>
