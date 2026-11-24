@@ -6355,6 +6355,62 @@
     "dex.heroLow": {
       "fr": "{name} est en palier C en ce moment… Jette un œil à ses contres avant de lancer une partie.",
       "text": "{name} is C tier right now… Check the counters before you start a game."
+    },
+    "pages.dexPage.posesTitle": {
+      "fr": "Ses douze poses",
+      "text": "His twelve poses"
+    },
+    "pages.dexPage.posesLead": {
+      "fr": "Une pose pour chaque moment de ta visite. Clique dessus, laisse-les tranquilles un moment : elles sont vivantes.",
+      "text": "A pose for every moment of your visit. Click them, or leave them alone for a while: they are alive."
+    },
+    "pages.dexPage.poses.joie.name": {
+      "fr": "Joie",
+      "text": "Joy"
+    },
+    "pages.dexPage.poses.joie.text": {
+      "fr": "Quand une bonne nouvelle tombe : un buff, un héros en forme.",
+      "text": "When good news lands: a buff, a hero on form."
+    },
+    "pages.dexPage.poses.bravo.name": {
+      "fr": "Bravo",
+      "text": "Bravo"
+    },
+    "pages.dexPage.poses.bravo.text": {
+      "fr": "Pour applaudir une partie gagnée ou un build bien pensé.",
+      "text": "To applaud a won game or a well-thought-out build."
+    },
+    "pages.dexPage.poses.saut.name": {
+      "fr": "Saut",
+      "text": "Jump"
+    },
+    "pages.dexPage.poses.saut.text": {
+      "fr": "Quand c'est la fête : nouveau patch, nouveau héros.",
+      "text": "When it's party time: a new patch, a new hero."
+    },
+    "pages.dexPage.poses.pointe.name": {
+      "fr": "Regarde",
+      "text": "Look"
+    },
+    "pages.dexPage.poses.pointe.text": {
+      "fr": "Pour te montrer ce qu'il ne faut pas rater.",
+      "text": "To show you what you shouldn't miss."
+    },
+    "pages.dexPage.poses.triste.name": {
+      "fr": "Déçu",
+      "text": "Let down"
+    },
+    "pages.dexPage.poses.triste.text": {
+      "fr": "Après un nerf, une défaite ou une recherche sans résultat.",
+      "text": "After a nerf, a loss or a search with no result."
+    },
+    "pages.dexPage.poses.dodo.name": {
+      "fr": "Sieste",
+      "text": "Nap"
+    },
+    "pages.dexPage.poses.dodo.text": {
+      "fr": "Si tu ne bouges plus pendant un moment, il s'endort. Bouge et il se réveille en sursaut.",
+      "text": "If you stop moving for a while, he falls asleep. Move and he wakes with a start."
     }
   },
   "es": {
@@ -10929,6 +10985,10 @@
     "dex.heroLow": {
       "fr": "{name} est en palier C en ce moment… Jette un œil à ses contres avant de lancer une partie.",
       "text": "{name} está en el nivel C ahora mismo… Echa un vistazo a sus counters antes de empezar una partida."
+    },
+    "pages.dexPage.poses.pointe.name": {
+      "fr": "Regarde",
+      "text": "¡Mira!"
     }
   },
   "id": {
@@ -22261,6 +22321,10 @@
     "dex.heroLow": {
       "fr": "{name} est en palier C en ce moment… Jette un œil à ses contres avant de lancer une partie.",
       "text": "{name} è nel tier C in questo momento… Dai un'occhiata ai suoi counter prima di iniziare una partita."
+    },
+    "pages.dexPage.poses.pointe.name": {
+      "fr": "Regarde",
+      "text": "Guarda!"
     }
   },
   "fil": {
@@ -37291,6 +37355,18 @@
     "dex.heroLow": {
       "fr": "{name} est en palier C en ce moment… Jette un œil à ses contres avant de lancer une partie.",
       "text": "Nasa tier C si {name} ngayon… Silipin muna ang mga counter bago magsimula ng laro."
+    },
+    "pages.dexPage.poses.joie.name": {
+      "fr": "Joie",
+      "text": "Saya"
+    },
+    "pages.dexPage.poses.pointe.name": {
+      "fr": "Regarde",
+      "text": "Tingnan mo!"
+    },
+    "pages.dexPage.poses.dodo.name": {
+      "fr": "Sieste",
+      "text": "Idlip"
     }
   },
   "th": {
@@ -51293,6 +51369,18 @@
     "og.banned": {
       "fr": "Le plus banni",
       "text": "ถูกแบนมากสุด"
+    },
+    "pages.dexPage.poses.joie.name": {
+      "fr": "Joie",
+      "text": "ดีใจ"
+    },
+    "pages.dexPage.poses.saut.name": {
+      "fr": "Saut",
+      "text": "กระโดด"
+    },
+    "pages.dexPage.poses.triste.name": {
+      "fr": "Déçu",
+      "text": "ผิดหวัง"
     }
   },
   "pt": {
@@ -63191,6 +63279,10 @@
     "dex.heroLow": {
       "fr": "{name} est en palier C en ce moment… Jette un œil à ses contres avant de lancer une partie.",
       "text": "{name} está no tier C agora… Dê uma olhada nos counters antes de começar uma partida."
+    },
+    "pages.dexPage.poses.pointe.name": {
+      "fr": "Regarde",
+      "text": "Olha!"
     }
   },
   "ru": {
@@ -76541,6 +76633,14 @@
     "dex.heroLow": {
       "fr": "{name} est en palier C en ce moment… Jette un œil à ses contres avant de lancer une partie.",
       "text": "{name} сейчас в тире C… Посмотри контрпики, прежде чем начинать игру."
+    },
+    "pages.dexPage.poses.pointe.name": {
+      "fr": "Regarde",
+      "text": "Смотри!"
+    },
+    "pages.dexPage.poses.saut.name": {
+      "fr": "Saut",
+      "text": "Прыжок"
     }
   }
 }

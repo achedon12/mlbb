@@ -4900,8 +4900,8 @@
       "discordTitle": "Sur Discord",
       "discordText": "Là-bas, Dex s'appelle Dex MLBB : c'est le bot qui répond à /hero, /build ou /tierlist avec les mêmes chiffres que le site. C'est aussi lui, l'icône du serveur de la communauté.",
       "botLink": "Découvrir le bot Dex MLBB",
-      "posesTitle": "Ses six poses",
-      "posesLead": "Une pose pour chaque moment de ta visite. Survole-les, clique dessus : elles sont vivantes.",
+      "posesTitle": "Ses douze poses",
+      "posesLead": "Une pose pour chaque moment de ta visite. Clique dessus, laisse-les tranquilles un moment : elles sont vivantes.",
       "poses": {
         "salut": {
           "name": "Salut",
@@ -4926,6 +4926,30 @@
         "carte": {
           "name": "Carte",
           "text": "Dans les guides, sur la carte et pour la stratégie."
+        },
+        "joie": {
+          "name": "Joie",
+          "text": "Quand une bonne nouvelle tombe : un buff, un héros en forme."
+        },
+        "bravo": {
+          "name": "Bravo",
+          "text": "Pour applaudir une partie gagnée ou un build bien pensé."
+        },
+        "saut": {
+          "name": "Saut",
+          "text": "Quand c'est la fête : nouveau patch, nouveau héros."
+        },
+        "pointe": {
+          "name": "Regarde",
+          "text": "Pour te montrer ce qu'il ne faut pas rater."
+        },
+        "triste": {
+          "name": "Déçu",
+          "text": "Après un nerf, une défaite ou une recherche sans résultat."
+        },
+        "dodo": {
+          "name": "Sieste",
+          "text": "Si tu ne bouges plus pendant un moment, il s'endort. Bouge et il se réveille en sursaut."
         }
       },
       "kitLink": "Ses poses en PNG sont dans le kit de marque",

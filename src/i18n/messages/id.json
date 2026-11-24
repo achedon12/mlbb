@@ -4900,8 +4900,8 @@
       "discordTitle": "Tentang Perselisihan",
       "discordText": "Di sana, Dex disebut Dex MLBB: bot yang merespons /hero, /build, atau /tierlist dengan nomor yang sama dengan situs. Dia juga merupakan ikon server komunitas.",
       "botLink": "Temukan bot Dex MLBB",
-      "posesTitle": "Enam posenya",
-      "posesLead": "Sebuah pose untuk setiap momen kunjungan Anda. Arahkan kursor ke atasnya, klik: mereka hidup.",
+      "posesTitle": "Dua belas posenya",
+      "posesLead": "Sebuah pose untuk setiap momen kunjungan Anda. Klik pada mereka, biarkan sejenak: mereka hidup.",
       "poses": {
         "salut": {
           "name": "Hai",
@@ -4926,6 +4926,30 @@
         "carte": {
           "name": "Peta",
           "text": "Dalam panduan, di peta, dan untuk strategi."
+        },
+        "joie": {
+          "name": "Sukacita",
+          "text": "Ketika kabar baik jatuh: buff, hero dalam kondisi baik."
+        },
+        "bravo": {
+          "name": "Bagus sekali",
+          "text": "Untuk memuji permainan yang dimenangkan atau pembangunan yang dipikirkan dengan matang."
+        },
+        "saut": {
+          "name": "Melompat",
+          "text": "Saat waktunya berpesta: patch baru, hero baru."
+        },
+        "pointe": {
+          "name": "Lihat",
+          "text": "Untuk menunjukkan kepada Anda apa yang tidak boleh dilewatkan."
+        },
+        "triste": {
+          "name": "Kecewa",
+          "text": "Setelah nerf, kekalahan atau pencarian tanpa hasil."
+        },
+        "dodo": {
+          "name": "Tidur sebentar",
+          "text": "Jika Anda tidak bergerak untuk beberapa saat, dia akan tertidur. Bergerak dan dia bangun dengan kaget."
         }
       },
       "kitLink": "Pose PNG-nya ada di kit merek",

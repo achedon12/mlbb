@@ -4900,8 +4900,8 @@
       "discordTitle": "On Discord",
       "discordText": "Over there, Dex goes by Dex MLBB: the bot that answers /hero, /build or /tierlist with the same figures as the site. He is also the icon of the community server.",
       "botLink": "Discover the Dex MLBB bot",
-      "posesTitle": "His six poses",
-      "posesLead": "A pose for every moment of your visit. Hover over them, click on them: they are alive.",
+      "posesTitle": "His twelve poses",
+      "posesLead": "A pose for every moment of your visit. Click them, or leave them alone for a while: they are alive.",
       "poses": {
         "salut": {
           "name": "Hello",
@@ -4926,6 +4926,30 @@
         "carte": {
           "name": "Map",
           "text": "In the guides, on the map and for strategy."
+        },
+        "joie": {
+          "name": "Joy",
+          "text": "When good news lands: a buff, a hero on form."
+        },
+        "bravo": {
+          "name": "Bravo",
+          "text": "To applaud a won game or a well-thought-out build."
+        },
+        "saut": {
+          "name": "Jump",
+          "text": "When it's party time: a new patch, a new hero."
+        },
+        "pointe": {
+          "name": "Look",
+          "text": "To show you what you shouldn't miss."
+        },
+        "triste": {
+          "name": "Let down",
+          "text": "After a nerf, a loss or a search with no result."
+        },
+        "dodo": {
+          "name": "Nap",
+          "text": "If you stop moving for a while, he falls asleep. Move and he wakes with a start."
         }
       },
       "kitLink": "His poses as PNG are in the brand kit",

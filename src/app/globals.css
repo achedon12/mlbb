@@ -886,6 +886,15 @@ body {
 .dex-live:hover .dex-tilt { --dex-perk: 1.06; }
 .dex-live-btn { position: relative; display: block; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: pointer; transform-origin: 50% 100%; }
 .dex-live-btn:focus-visible { outline: 2px solid var(--color-gold-400); outline-offset: 4px; }
+.dex-faces { position: absolute; inset: 0; display: block; transform-origin: 50% 100%; }
+/* Asleep: he curls up, floats slower and little z rise from him. */
+.dex-asleep .dex-idle { animation-duration: 7s; }
+.dex-asleep .dex-rise { display: none; }
+.dex-zzz { position: absolute; z-index: 4; right: 4%; top: 6%; pointer-events: none; }
+.dex-zzz i { position: absolute; font: 700 1rem/1 var(--display-font, inherit); font-style: normal; color: var(--color-gold-400); opacity: 0; animation: dex-zzz 3s ease-out infinite; }
+.dex-zzz i:nth-child(2) { animation-delay: 1s; font-size: 0.8rem; }
+.dex-zzz i:nth-child(3) { animation-delay: 2s; font-size: 1.2rem; }
+@keyframes dex-zzz { 0% { opacity: 0; transform: translate(0, 0) scale(0.6) rotate(-10deg); } 20% { opacity: 0.95; } 100% { opacity: 0; transform: translate(18px, -46px) scale(1.2) rotate(12deg); } }
 .dex-face { position: absolute; inset: 0; display: block; transform-origin: 50% 100%; transition: opacity 0.18s; }
 .dex-idle .dex-face { animation: dex-breathe-in 3.4s ease-in-out infinite; }
 .dex-face-off { opacity: 0; }
@@ -933,7 +942,7 @@ body {
 .dex-burst i:nth-child(4) { --x: 50px; --y: -20px; } .dex-burst i:nth-child(5) { --x: -10px; --y: -75px; width: 13px; height: 13px; } .dex-burst i:nth-child(6) { --x: 18px; --y: -38px; width: 6px; height: 6px; }
 @keyframes dex-burst { 0% { opacity: 0; transform: translate(0, 0) scale(0.3); } 30% { opacity: 1; } 100% { opacity: 0; transform: translate(var(--x), var(--y)) scale(1.3); } }
 @media (prefers-reduced-motion: reduce) {
-  .dex-live .dex-float, .dex-seen .dex-float, .dex-shadow, .dex-face, .dex-live-btn, .dex-rise i, .dex-burst i { animation: none !important; }
+  .dex-live .dex-float, .dex-seen .dex-float, .dex-shadow, .dex-face, .dex-live-btn, .dex-rise i, .dex-burst i, .dex-zzz i { animation: none !important; }
   .dex-live:not(.dex-seen) .dex-float { opacity: 1; }
   .dex-rise i, .dex-burst i { opacity: 0; }
   .dex-tilt { transition: none; transform: none; }

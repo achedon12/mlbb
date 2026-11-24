@@ -4900,8 +4900,8 @@
       "discordTitle": "Em Discord",
       "discordText": "Lá, o Dex se chama Dex MLBB: é o bot que responde ao /hero, /build ou /tierlist com os mesmos números do site. Ele também é o ícone do servidor da comunidade.",
       "botLink": "Descubra o bot Dex MLBB",
-      "posesTitle": "Suas seis poses",
-      "posesLead": "Uma pose para cada momento da sua visita. Passe o mouse sobre eles e clique neles: eles estão vivos.",
+      "posesTitle": "Suas doze poses",
+      "posesLead": "Uma pose para cada momento da sua visita. Clique neles, deixe-os sozinhos por um momento: eles estão vivos.",
       "poses": {
         "salut": {
           "name": "Oi",
@@ -4926,6 +4926,30 @@
         "carte": {
           "name": "Mapa",
           "text": "Nos guias, no mapa e na estratégia."
+        },
+        "joie": {
+          "name": "Alegria",
+          "text": "Quando chegam boas notícias: um buff, um herói em boa forma."
+        },
+        "bravo": {
+          "name": "Bom trabalho",
+          "text": "Para aplaudir um jogo ganho ou uma build bem pensada."
+        },
+        "saut": {
+          "name": "Salto",
+          "text": "Quando chega a hora da festa: novo patch, novo herói."
+        },
+        "pointe": {
+          "name": "Olha!",
+          "text": "Para mostrar o que você não pode perder."
+        },
+        "triste": {
+          "name": "Decepcionado",
+          "text": "Depois de um nerf, uma derrota ou uma busca sem resultados."
+        },
+        "dodo": {
+          "name": "Sesta",
+          "text": "Se você não se mexer por um tempo, ele adormece. Mova-se e ele acorda assustado."
         }
       },
       "kitLink": "Suas poses PNG estão no kit da marca",

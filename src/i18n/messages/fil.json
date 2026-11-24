@@ -4900,8 +4900,8 @@
       "discordTitle": "Sa Discord",
       "discordText": "Doon, ang Dex ay tinatawag na Dex MLBB: ito ang bot na tumutugon sa /hero, /build o /tierlist na may parehong mga numero ng site. Siya rin ang icon ng community server.",
       "botLink": "Tuklasin ang Dex MLBB bot",
-      "posesTitle": "Anim na pose niya",
-      "posesLead": "Isang pose para sa bawat sandali ng iyong pagbisita. Mag-hover sa ibabaw nila, mag-click sa kanila: buhay sila.",
+      "posesTitle": "Labindalawang pose niya",
+      "posesLead": "Isang pose para sa bawat sandali ng iyong pagbisita. Mag-click sa kanila, iwanan sila nang ilang sandali: sila ay buhay.",
       "poses": {
         "salut": {
           "name": "Hi",
@@ -4926,6 +4926,30 @@
         "carte": {
           "name": "Mapa",
           "text": "Sa mga gabay, sa mapa at para sa diskarte."
+        },
+        "joie": {
+          "name": "Saya",
+          "text": "Kapag may dumating na magandang balita: isang buff, isang hero na nasa mabuting kalagayan."
+        },
+        "bravo": {
+          "name": "Magaling",
+          "text": "Upang palakpakan ang isang nanalong laro o isang mahusay na pinag-isipang build."
+        },
+        "saut": {
+          "name": "Tumalon",
+          "text": "Kapag oras na ng party: bagong patch, bagong hero."
+        },
+        "pointe": {
+          "name": "Tingnan mo!",
+          "text": "Upang ipakita sa iyo kung ano ang hindi dapat palampasin."
+        },
+        "triste": {
+          "name": "Nabigo",
+          "text": "Pagkatapos ng isang nerf, isang pagkatalo o isang paghahanap na walang mga resulta."
+        },
+        "dodo": {
+          "name": "Idlip",
+          "text": "Kung hindi ka gumagalaw saglit, natutulog siya. Ilipat at nagising siya nang may panimula."
         }
       },
       "kitLink": "Nasa brand kit ang mga pose niyang PNG",
