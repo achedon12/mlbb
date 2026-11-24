@@ -14,11 +14,15 @@ import { isRemindable } from "@/lib/reminders";
  *
  * Same guards as the patch subscription route: capped body, JSON only (no
  * cross-site form), endpoint limited to known push services, twenty requests
- * per minute per address. Cancelling needs the subscription's `auth` secret.
+ * per minute per address. On top: five creations a minute per address, and
+ * the storage caps of `admitReminder` (per endpoint, per address, per month).
+ * Cancelling needs the subscription's `auth` secret.
  */
 export const dynamic = "force-dynamic";
 
 const allowed = limitByMinute(20);
+/** Creations on their own: a handful a minute is plenty for one person setting reminders. */
+const creations = limitByMinute(5);
 const WITHOUT_CACHE = { "Cache-Control": "no-store" };
 const refusal = (status: number, error: string) => NextResponse.json({ error }, { status, headers: WITHOUT_CACHE });
 
@@ -48,8 +52,12 @@ export async function POST(request: Request) {
   const { subscription, langue, mois } = read;
   if (typeof langue !== "string" || !isLocale(langue)) return refusal(400, "invalid request");
   if (!isRemindable(mois, Date.now())) return refusal(409, "month already open");
+  const address = addressOf(request);
+  if (!creations(address)) return refusal(429, "too many reminders from this address");
   try {
-    const issue = await saveReminder(subscription, langue, mois);
+    const issue = await saveReminder(subscription, langue, mois, address);
+    if (issue === "invalid") return refusal(400, "invalid request");
+    if (issue === "limited") return refusal(429, "too many reminders from this address");
     if (issue === "full") return refusal(503, "too many reminders");
     if (issue === "past") return refusal(409, "month already open");
     return NextResponse.json({ state: issue }, { status: issue === "created" ? 201 : 200, headers: WITHOUT_CACHE });

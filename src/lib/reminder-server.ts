@@ -2,7 +2,8 @@ import type { Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
 import { log, logError } from "@/lib/log";
 import { reminderText } from "@/lib/reminder-text";
-import type { PushMessage, StoredSubscription } from "@/lib/push";
+import { createHmac } from "node:crypto";
+import { subscriptionValid, type PushMessage, type StoredSubscription } from "@/lib/push";
 import {
   configPush,
   pushDataFile,
@@ -26,6 +27,10 @@ import { MAX_REMINDERS_BY_BROWSER, isRemindable, sortDue } from "@/lib/reminders
 
 /** Cap on stored reminders, so a script cannot fill the disk. */
 export const MAX_REMINDERS = 100_000;
+/** Cap per month: a flood aimed at one month leaves the others open. */
+export const MAX_REMINDERS_BY_MONTH = 25_000;
+/** Reminders one address may hold, across every endpoint it presents. */
+export const MAX_REMINDERS_BY_SOURCE = 24;
 /** How often the clock looks for due reminders. */
 const TICK_MS = 10 * 60_000;
 
@@ -33,6 +38,8 @@ export interface StoredReminder extends StoredSubscription {
   langue: Locale;
   /** "2026-12". */
   mois: string;
+  /** Keyed hash of the address that asked (`sourceOf`), for the per-address cap. */
+  source?: string;
   cree: string;
 }
 
@@ -53,20 +60,68 @@ function edit<R>(change: (list: StoredReminder[]) => { list: StoredReminder[] | 
 
 const sameBrowser = (r: StoredReminder, s: StoredSubscription) => r.endpoint === s.endpoint && sameSecret(r.cles.auth, s.cles.auth);
 
+/**
+ * Keyed hash of the caller's address: reminders count against the address
+ * that asked for them, without keeping the address itself (the key is the
+ * VAPID private key, so an IPv4 cannot be found back by trying them all).
+ */
+export function sourceOf(address: string): string {
+  const key = configPush()?.privateKey ?? "";
+  return createHmac("sha256", key || "reminders").update(address).digest("hex").slice(0, 16);
+}
+
+export type Admission = "created" | "exists" | "full" | "limited" | "past" | "invalid";
+
+/**
+ * Whether a new reminder may be stored, and the list to write. The rules a
+ * script inventing subscriptions runs into:
+ *
+ * - the subscription must pass the patch subscription checks (https, a known
+ *   push service, keys of the right shape);
+ * - one endpoint holds at most `MAX_REMINDERS_BY_BROWSER`, whatever `auth`
+ *   key it comes with;
+ * - one address holds at most `MAX_REMINDERS_BY_SOURCE`, across endpoints;
+ * - one month holds at most `MAX_REMINDERS_BY_MONTH`, so filling one month
+ *   leaves the others open;
+ * - reminders already past are purged before the caps are counted.
+ */
+export function admitReminder(
+  list: readonly StoredReminder[],
+  request: { subscription: unknown; locale: Locale; month: string; source: string },
+  now = Date.now(),
+): { result: Admission; list: StoredReminder[] | null } {
+  const subscription = subscriptionValid(request.subscription);
+  if (!subscription) return { result: "invalid", list: null };
+  if (!isRemindable(request.month, now)) return { result: "past", list: null };
+  const { stale } = sortDue(list, now);
+  const live = stale.length ? list.filter((r) => !stale.includes(r)) : [...list];
+  const purged = stale.length ? live : null;
+  const sameEndpoint = live.filter((r) => r.endpoint === subscription.endpoint);
+  if (sameEndpoint.some((r) => r.mois === request.month && sameBrowser(r, subscription))) return { result: "exists", list: purged };
+  if (sameEndpoint.length >= MAX_REMINDERS_BY_BROWSER) return { result: "full", list: purged };
+  if (live.filter((r) => r.source === request.source).length >= MAX_REMINDERS_BY_SOURCE) return { result: "limited", list: purged };
+  if (live.filter((r) => r.mois === request.month).length >= MAX_REMINDERS_BY_MONTH || live.length >= MAX_REMINDERS) {
+    return { result: "full", list: purged };
+  }
+  const entry: StoredReminder = {
+    ...subscription,
+    langue: request.locale,
+    mois: request.month,
+    source: request.source,
+    cree: new Date(now).toISOString(),
+  };
+  return { result: "created", list: [...live, entry] };
+}
+
 export function saveReminder(
-  subscription: StoredSubscription,
+  subscription: unknown,
   locale: Locale,
   month: string,
+  address: string,
   now = Date.now(),
-): Promise<"created" | "exists" | "full" | "past"> {
-  if (!isRemindable(month, now)) return Promise.resolve("past");
-  return edit((list) => {
-    const mine = list.filter((r) => sameBrowser(r, subscription));
-    if (mine.some((r) => r.mois === month)) return { list: null, result: "exists" as const };
-    if (mine.length >= MAX_REMINDERS_BY_BROWSER || list.length >= MAX_REMINDERS) return { list: null, result: "full" as const };
-    const entry: StoredReminder = { ...subscription, langue: locale, mois: month, cree: new Date(now).toISOString() };
-    return { list: [...list, entry], result: "created" as const };
-  });
+): Promise<Admission> {
+  const source = sourceOf(address);
+  return edit((list) => admitReminder(list, { subscription, locale, month, source }, now));
 }
 
 export function deleteReminder(subscription: StoredSubscription, month: string): Promise<void> {
