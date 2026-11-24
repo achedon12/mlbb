@@ -37,6 +37,7 @@ import {
 } from "@/lib/build-simulator";
 import { BUILD_STEPS, isFirstStep, isLastStep, stepBy, type BuildStep } from "@/lib/build-steps";
 import { trackShare } from "@/lib/analytics";
+import { ShareImageButton } from "@/components/share-image-button";
 import { MEASURED_RANKS, type MeasuredRank } from "@/lib/measured-ranks";
 import { cn } from "@/lib/utils";
 
@@ -568,6 +569,9 @@ export function BuildSimulator({
             <p aria-live="polite" className="sr-only">
               {copied ? t("pages.buildSimulatorUI.copied") : ""}
             </p>
+            {build.hero && build.items.length > 0 && (
+              <ShareImageButton card={{ kind: "build", build: { ...build, hero: build.hero } }} name="Build" url={shareUrl} className="mt-4" />
+            )}
           </section>
 
           {children?.(build)}

@@ -4,6 +4,7 @@ import { notFound, permanentRedirect } from "next/navigation";
 import { BuildStats } from "@/components/build-stats";
 import { DeleteBuildButton, VoteButton } from "@/components/community-build-actions";
 import Link from "@/components/link";
+import { ShareImageButton } from "@/components/share-image-button";
 import { DexSays } from "@/components/mascot";
 import { MetaPoster, artOf } from "@/components/meta/meta-poster";
 import { PosterHero } from "@/components/meta/poster-hero";
@@ -116,6 +117,9 @@ export default async function CommunityBuildPage({ params }: Params) {
               </Link>
               {build.own && <DeleteBuildButton id={build.id} hero={build.hero} />}
             </div>
+            {b.items.length > 0 && (
+              <ShareImageButton card={{ kind: "build", build: { ...b, hero: build.hero } }} name="Community build" />
+            )}
             {!isIndexable(build.votes) && (
               <p className="text-xs text-chalk-500">{t("pages.communityBuilds.indexNote", { n: INDEX_THRESHOLD })}</p>
             )}

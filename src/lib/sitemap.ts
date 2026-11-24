@@ -3,6 +3,7 @@ import watch from "@/data/game/watch.json";
 import accountValue from "@/data/editorial/account-value.json";
 import { freeRotationData } from "@/lib/free-rotation-server";
 import { counters, allHeroes, heroesBySlug, modesSlugs, itemsFor, patchDetails, sync } from "@/lib/data";
+import { recapVersions } from "@/lib/patch-recap-server";
 import { duos } from "@/lib/duos";
 import { pairsSitemap } from "@/lib/pairs";
 import { emblemsSheets, spellSheets } from "@/lib/usage-sheets";
@@ -265,6 +266,13 @@ export function sitemapEntries(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.6,
       lastModified: dateOf(p.date) ?? synced,
+    })),
+    // A patch's recap, only once the rate history measures it.
+    ...recapVersions().map((version) => ({
+      path: `/patch-notes/${version}/bilan`,
+      changeFrequency: "weekly" as const,
+      priority: 0.5,
+      lastModified: synced,
     })),
     ...([["news", news], ["patch-notes", analysesPatch]] as const).flatMap(([route, list]) =>
       list.map((a) => ({

@@ -40,6 +40,8 @@ import {
 import { shiftDay, dayUtc, currentStreak, STATS_EMPTY, type StatsQuiz } from "@/lib/quiz";
 import { loadPool } from "@/lib/quiz-storage";
 import { trackEvent, trackShare } from "@/lib/analytics";
+import { cellsFromEmoji } from "@/lib/share-card";
+import { ShareImageButton } from "@/components/share-image-button";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -380,6 +382,18 @@ function WinPanel({
                 </Flash>
               )}
             </p>
+            <ShareImageButton
+              card={{
+                kind: "mlbbdle",
+                mode,
+                number: puzzle.number,
+                guesses: guesses.length,
+                rows: mode === "classic" ? cellsFromEmoji(rows) : [],
+                streak,
+              }}
+              name="MLBBdle"
+              url={`${site.url}/${language}/mlbbdle`}
+            />
             <NextPuzzle day={puzzle.day} onNewDay={onNewDay} />
             <div className="flex flex-wrap gap-2">
               {otherMode && (

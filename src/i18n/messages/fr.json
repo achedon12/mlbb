@@ -5019,6 +5019,69 @@
         "logo": "Télécharger le logo : horizontal (SVG)",
         "stacked": "Télécharger le logo : empilé (SVG)"
       }
+    },
+    "patchRecap": {
+      "seoTitle": "Bilan du patch {v} : gagnants, perdants et surprises",
+      "description": "Ce que le patch {v} a vraiment changé : {n} héros mesurés sur les {days} jours avant et après sa sortie, les plus grands gagnants, les perdants et les surprises.",
+      "descriptionNone": "Bilan du patch {v} de Mobile Legends : les taux de victoire avant et après sa sortie, dès que les relevés le permettent.",
+      "share": "Le bilan du patch {v} : qui a gagné, qui a perdu, et les surprises.",
+      "crumb": "Bilan",
+      "kicker": "Bilan du patch",
+      "lead": "Ce que le patch a vraiment fait aux taux de victoire : la moyenne des {days} jours avant sa sortie face aux {days} jours après, héros par héros.",
+      "back": "Lire les notes du patch",
+      "link": "Voir le bilan du patch",
+      "linkVersion": "Bilan du patch {v}",
+      "linkLead": "Gagnants, perdants et surprises : le patch mesuré sur les taux de victoire.",
+      "facts": {
+        "adjusted": "{n} héros modifiés",
+        "measured": "{n} héros mesurés",
+        "date": "Sorti le {date}"
+      },
+      "young": "Le patch est encore récent : certains héros ont moins de {days} jours mesurés depuis sa sortie. Le bilan peut encore bouger.",
+      "sample": {
+        "noneSoon": "Pas encore de mesure : il faut au moins quatre jours de relevés après la sortie du patch. Le bilan s'écrira tout seul dans quelques jours.",
+        "noneOld": "Pas de mesure pour ce patch : nos relevés quotidiens ne couvrent pas les {days} jours qui l'entourent. Les notes du patch restent lisibles en entier.",
+        "small": "Échantillon réduit : seuls {n} héros ont des relevés des deux côtés du patch. Lis ce bilan comme une tendance, pas comme un verdict."
+      },
+      "chapter": "Chapitre {n}",
+      "winners": {
+        "title": "Les grands gagnants",
+        "lead": "Les plus fortes hausses du taux de victoire, au-delà du bruit de mesure.",
+        "empty": "Aucun héros mesuré n'a gagné {threshold} point ou plus : personne ne sort vraiment grandi de ce patch."
+      },
+      "losers": {
+        "title": "Les grands perdants",
+        "lead": "Les plus fortes baisses du taux de victoire, au-delà du bruit de mesure.",
+        "empty": "Aucun héros mesuré n'a perdu {threshold} point ou plus : le patch n'a puni personne."
+      },
+      "surprises": {
+        "title": "Les surprises",
+        "lead": "Un buff qui fait perdre, un nerf qui fait gagner : là où le patch n'a pas fait ce qu'il annonçait.",
+        "empty": "Pas de surprise : chaque buff et chaque nerf mesuré a poussé dans le sens annoncé, ou n'a rien changé.",
+        "flatTitle": "Rien n'a bougé",
+        "flatLead": "Modifiés, mais leur taux de victoire est resté dans le bruit (moins de {threshold} point d'écart)."
+      },
+      "impact": "{before} → {after}",
+      "averages": "En moyenne, les buffs mesurés ont fait {buff} et les nerfs {nerf}, en points de taux de victoire.",
+      "averagesBuff": "En moyenne, les buffs mesurés ont fait {buff}, en points de taux de victoire.",
+      "averagesNerf": "En moyenne, les nerfs mesurés ont fait {nerf}, en points de taux de victoire.",
+      "dex": {
+        "intro": "Je t'ai résumé le patch {v} en trois chapitres. Les chiffres parlent, moi je commente.",
+        "small": "Peu de héros mesurés cette fois : prends ces chiffres avec des pincettes.",
+        "noneSoon": "Mes relevés n'ont pas encore assez de recul sur ce patch. Repasse dans quelques jours !",
+        "noneOld": "Ce patch est plus vieux que mes relevés quotidiens : je ne peux pas le mesurer.",
+        "winners": "{hero} s'envole : {gap} {unit} en une semaine. Si tu le joues, c'est le moment.",
+        "winnersEmpty": "Personne ne décolle vraiment. Un patch calme pour les gagnants.",
+        "losers": "{hero} recule de {gap} {unit}. Si c'est ton main, jette un œil à ses builds du moment.",
+        "losersEmpty": "Aucune chute nette : bonne nouvelle pour tes mains.",
+        "surpriseBuff": "{hero} a reçu un buff… et son taux a baissé. Un patch ne fait pas toujours ce qu'il annonce !",
+        "surpriseNerf": "{hero} a été nerfé… et gagne plus qu'avant. Les chiffres sont têtus.",
+        "surprisesEmpty": "Pas de surprise cette fois : le patch a fait ce qu'il annonçait.",
+        "outro": "Le prochain patch rebattra les cartes. Je te tiens au courant !"
+      },
+      "method": "Comment c'est mesuré",
+      "methodText": "Pour chaque héros modifié : la moyenne de son taux de victoire, tous rangs confondus, sur les {days} jours avant la sortie du patch et sur les {days} jours après, le jour même exclu. Il faut au moins quatre jours mesurés de chaque côté. Un écart de moins de {threshold} point est considéré comme du bruit. Un taux qui bouge ne dit pas pourquoi : la méta, les autres héros et les joueurs changent aussi.",
+      "notes": "Envie du détail de chaque changement ?"
     }
   },
   "modeSheet": {
@@ -6655,6 +6718,64 @@
     "languages": {
       "title": "{n} langues",
       "text": "Écrit en français et traduit automatiquement dans {others} autres langues. Ce qui est traduit, et comment, est détaillé sur la page des sources."
+    }
+  },
+  "shareImage": {
+    "button": "Partager en image",
+    "preparing": "Préparation de l'image…",
+    "shared": "Image partagée.",
+    "saved": "Image enregistrée.",
+    "savedCopied": "Image enregistrée, lien copié.",
+    "error": "Impossible de créer l'image. Réessaie dans un instant.",
+    "landscape": "Format lien (1200 × 630)",
+    "hint": "Image 1080 × 1350, prête pour une story ou un post."
+  },
+  "shareCard": {
+    "build": {
+      "kicker": "Build · {roles}",
+      "title": "Build {hero}",
+      "level": "Niveau {n}",
+      "dex": "Ce build est prêt : ouvre-le dans le simulateur pour voir ses stats."
+    },
+    "draft": {
+      "kicker": "Draft · {rank}",
+      "title": "Ma draft",
+      "blue": "Équipe bleue",
+      "red": "Équipe rouge",
+      "estimate": "chances estimées",
+      "dexBlue": "Avantage aux bleus sur le papier. Reste à le jouer !",
+      "dexRed": "Les rouges partent devant. Une draft se gagne aussi en jeu.",
+      "dexEven": "Draft serrée : tout se jouera en partie.",
+      "dexNone": "Rejoue cette draft sur MLBBDex et compare tes choix."
+    },
+    "tierList": {
+      "kicker": "Patch {v} · {month}",
+      "dex": "Les paliers sont recalculés à chaque relevé des taux."
+    },
+    "mlbbdle": {
+      "kicker": "Jeu du jour · {mode}",
+      "title": "MLBBdle n° {n}",
+      "found": {
+        "one": "Trouvé du premier coup",
+        "other": "Trouvé en {n} essais"
+      },
+      "more": "+{n} essais non affichés",
+      "streak": "jours de suite",
+      "guesses": {
+        "one": "essai",
+        "other": "essais"
+      },
+      "dexPerfect": "Du premier coup ? Je n'ai rien vu venir !",
+      "dexGood": "Bien joué ! Le héros de demain t'attend.",
+      "dexLong": "Il fallait le trouver, celui-là. Bravo !"
+    },
+    "recap": {
+      "winners": "Gagnants",
+      "losers": "Perdants",
+      "none": "Pas encore assez de relevés pour mesurer ce patch.",
+      "small": "Échantillon réduit : {n} héros mesurés.",
+      "measured": "héros mesurés",
+      "dex": "Voilà ce que le patch a vraiment changé, chiffres à l'appui."
     }
   }
 }

@@ -41,7 +41,7 @@ export const TIER_COLOR: Record<Tier, string> = {
 };
 
 /** Slant of the display face (the site slants Saira with `font-style: italic`). */
-const SLANT = "skewX(-9deg)";
+export const SLANT = "skewX(-9deg)";
 
 /** Where the artwork's cut starts, from the left edge, at the top and at the foot. */
 const CUT_TOP = 560;
@@ -82,7 +82,7 @@ export interface OgFrameProps {
 }
 
 /** The "MLBBDEX" wordmark, in text: the logo files in `public/brand` are drawn apart. */
-function Wordmark({ size = 40 }: { size?: number }) {
+export function Wordmark({ size = 40 }: { size?: number }) {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
       <div
@@ -188,12 +188,17 @@ export function Portrait({
   src,
   name,
   figure,
+  figureColor = C.gold400,
+  figureSize = 34,
   width,
   height,
 }: {
   src: string | null;
   name: string;
   figure?: string;
+  /** Blue or red when the figure carries a direction. */
+  figureColor?: string;
+  figureSize?: number;
   width: number;
   height: number;
 }) {
@@ -232,7 +237,7 @@ export function Portrait({
         }}
       >
         {figure && (
-          <div style={{ display: "flex", fontFamily: FONT_DISPLAY, fontWeight: 900, fontSize: 34, lineHeight: 1, color: C.gold400, transform: SLANT }}>
+          <div style={{ display: "flex", fontFamily: FONT_DISPLAY, fontWeight: 900, fontSize: figureSize, lineHeight: 1, color: figureColor, transform: SLANT }}>
             {figure}
           </div>
         )}
@@ -257,7 +262,7 @@ export function Portrait({
 
 /** A row of bevelled portraits (tier list, patch, esports), read from the heroes' portraits. */
 export async function portraitRow(
-  heroes: { portrait: string | null; name: string; figure?: string }[],
+  heroes: { portrait: string | null; name: string; figure?: string; figureColor?: string }[],
   { width = 150, height = 244 }: { width?: number; height?: number } = {},
 ): Promise<ReactNode> {
   const pictures = await Promise.all(heroes.map((h) => ogPicture(h.portrait, width, height, { position: "top" })));
@@ -265,7 +270,7 @@ export async function portraitRow(
     <div style={{ display: "flex", gap: 14, alignItems: "flex-end" }}>
       {heroes.map((h, i) => (
         <div key={h.name} style={{ display: "flex", marginBottom: i % 2 === 1 ? 26 : 0 }}>
-          <Portrait src={pictures[i]} name={h.name} figure={h.figure} width={width} height={height} />
+          <Portrait src={pictures[i]} name={h.name} figure={h.figure} figureColor={h.figureColor} width={width} height={height} />
         </div>
       ))}
     </div>

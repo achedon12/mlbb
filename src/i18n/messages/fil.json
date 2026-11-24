@@ -5019,6 +5019,69 @@
         "logo": "I-download ang logo: pahalang (SVG)",
         "stacked": "I-download ang logo: stacked (SVG)"
       }
+    },
+    "patchRecap": {
+      "seoTitle": "Pagsusuri ng patch {v}: mga nanalo, natalo at mga sorpresa",
+      "description": "Anong patch {v} talaga ang nagbago: {n} hero na sinusukat sa loob ng {days} araw bago at pagkatapos ng release, pinakamalaking panalo, talo at sorpresa.",
+      "descriptionNone": "Pagsusuri ng patch ng Mobile Legends {v}: mga win rate bago at pagkatapos ng paglabas nito, sa sandaling pinapayagan ang mga pagbabasa.",
+      "share": "Ang mga resulta ng patch {v}: sino ang nanalo, sino ang natalo, at ang mga sorpresa.",
+      "crumb": "Record",
+      "kicker": "Pagsusuri ng patch",
+      "lead": "Ano talaga ang ginawa ng patch para manalo ng mga rate: ang average na {days} araw bago i-release kumpara sa {days} araw pagkatapos, hero ayon sa hero.",
+      "back": "Basahin ang mga tala sa patch",
+      "link": "Tingnan ang ulat ng patch",
+      "linkVersion": "Pagsusuri ng patch {v}",
+      "linkLead": "Mga nanalo, natalo at mga sorpresa: ang patch ay sinusukat sa mga win rate.",
+      "facts": {
+        "adjusted": "{n} hero ang binago",
+        "measured": "{n} hero ang nasukat",
+        "date": "Inilabas noong {date}"
+      },
+      "young": "Ang patch ay kamakailan pa rin: ang ilang mga hero ay may mas mababa sa {days} araw na sinusukat mula noong ilabas ito. Maaari pa ring magbago ang balanse.",
+      "sample": {
+        "noneSoon": "Wala pang pagsukat: hindi bababa sa apat na araw ng mga pagbabasa ang kinakailangan pagkatapos ilabas ang patch. Ang mga resulta ay magsusulat sa kanilang sarili sa loob ng ilang araw.",
+        "noneOld": "Walang sukat para sa patch na ito: hindi saklaw ng aming pang-araw-araw na pagbabasa ang {days} araw na nakapalibot dito. Ang patch notes ay mananatiling nababasa nang buo.",
+        "small": "Pinababang sample: {n} na hero lang ang may mga pagbabasa sa magkabilang panig ng patch. Basahin ang review na ito bilang isang trend, hindi isang hatol."
+      },
+      "chapter": "Kabanata {n}",
+      "winners": {
+        "title": "Ang mga big winners",
+        "lead": "Ang pinakamalaking pagtaas sa win rate, lampas sa pagsukat ng ingay.",
+        "empty": "Walang nasusukat na hero ang nakakuha ng {threshold} puntos o higit pa: wala talagang mas mahusay na lumabas sa patch na ito."
+      },
+      "losers": {
+        "title": "Ang malalaking talunan",
+        "lead": "Pinakamalaking pagbaba sa win rate, lampas sa pagsukat ng ingay.",
+        "empty": "Walang nasusukat na hero ang nawalan ng {threshold} puntos o higit pa: hindi pinarusahan ng patch ang sinuman."
+      },
+      "surprises": {
+        "title": "Ang mga sorpresa",
+        "lead": "Isang buff na nagpapatalo sa iyo, isang nerf na nagpapanalo sa iyo: kung saan hindi ginawa ng patch ang inanunsyo nito.",
+        "empty": "Walang sorpresa: ang bawat buff at nerf na sinusukat ay itinulak sa direksyon na inihayag, o walang binago.",
+        "flatTitle": "Walang gumagalaw",
+        "flatLead": "Binago, ngunit nanatili sa ingay ang kanilang win rate (mas mababa sa {threshold} point difference)."
+      },
+      "impact": "{before} → {after}",
+      "averages": "Sa karaniwan, ang mga nasusukat na buff ay nakakuha ng {buff} at nerf {nerf}, sa mga win rate na puntos.",
+      "averagesBuff": "Sa karaniwan, ang mga nasusukat na buff ay gumawa ng {buff}, sa mga puntos ng win rate.",
+      "averagesNerf": "Sa karaniwan, ang mga sinusukat na nerf ay nakakuha ng {nerf}, sa mga puntos ng win rate.",
+      "dex": {
+        "intro": "Binuod ko ang patch {v} para sa iyo sa tatlong kabanata. Nagsasalita ang mga figure, komento ko.",
+        "small": "Ilang hero ang nasusukat sa pagkakataong ito: kunin ang mga figure na ito gamit ang isang pakurot ng asin.",
+        "noneSoon": "Ang aking mga nabasa ay wala pang sapat na pananaw sa patch na ito. Bumalik sa loob ng ilang araw!",
+        "noneOld": "Ang patch na ito ay mas luma kaysa sa aking pang-araw-araw na pagbabasa: Hindi ko ito masusukat.",
+        "winners": "{hero} lilipad: {gap} {unit} sa isang linggo. Kung lalaruin mo ito, ngayon na ang oras.",
+        "winnersEmpty": "Wala talagang umaalis. Isang kalmadong patch para sa mga nanalo.",
+        "losers": "{hero} gumagalaw pabalik {gap} {unit}. Kung ito ang iyong kamay, tingnan ang kanyang kasalukuyang mga build.",
+        "losersEmpty": "Walang malinaw na pagkahulog: magandang balita para sa iyong mga kamay.",
+        "surpriseBuff": "Nakatanggap si {hero} ng buff... at bumaba ang rate nito. Ang isang patch ay hindi palaging ginagawa kung ano ang sinasabi nito!",
+        "surpriseNerf": "Ang {hero} ay na-nerf... at nadagdagan ng higit pa kaysa dati. Ang mga numero ay matigas ang ulo.",
+        "surprisesEmpty": "Walang sorpresa sa oras na ito: ginawa ng patch ang sinabi nito.",
+        "outro": "Ire-reshuffle ng susunod na patch ang mga card. Ipapaalam ko sa iyo!"
+      },
+      "method": "Paano ito sinusukat",
+      "methodText": "Para sa bawat binagong hero: ang average ng kanyang win rate, pinagsama ang lahat ng ranggo, sa loob ng {days} araw bago ilabas ang patch at sa {days} araw pagkatapos, hindi kasama ang parehong araw. Ito ay tumatagal ng hindi bababa sa apat na araw na sinusukat sa bawat panig. Ang paglihis na mas mababa sa {threshold} punto ay itinuturing na ingay. Ang rate na nagbabago ay hindi nagsasabi kung bakit: nagbabago rin ang meta, iba pang mga hero at mga manlalaro.",
+      "notes": "Gusto mo ng mga detalye ng bawat pagbabago?"
     }
   },
   "modeSheet": {
@@ -6655,6 +6718,64 @@
     "languages": {
       "title": "{n} wika",
       "text": "Nakasulat sa French at awtomatikong isinalin sa {others} iba pang mga wika. Ano ang isinalin, at kung paano, ay nakadetalye sa pahina ng mga mapagkukunan."
+    }
+  },
+  "shareImage": {
+    "button": "Ibahagi sa larawan",
+    "preparing": "Inihahanda ang larawan…",
+    "shared": "Na-share ang image.",
+    "saved": "Na-save ang larawan.",
+    "savedCopied": "Na-save ang larawan, nakopya ang link.",
+    "error": "Hindi makagawa ng larawan. Subukan muli sa isang sandali.",
+    "landscape": "Format ng link (1200 × 630)",
+    "hint": "1080 × 1350 na larawan, handa na para sa isang kuwento o post."
+  },
+  "shareCard": {
+    "build": {
+      "kicker": "Build · {roles}",
+      "title": "Buuin {hero}",
+      "level": "Level {n}",
+      "dex": "Handa na ang build na ito: buksan ito sa simulator para makita ang mga istatistika nito."
+    },
+    "draft": {
+      "kicker": "Draft · {rank}",
+      "title": "Ang draft ko",
+      "blue": "Blue team",
+      "red": "Red team",
+      "estimate": "tinatayang pagkakataon",
+      "dexBlue": "Advantage sa blues sa papel. Laruin mo na lang!",
+      "dexRed": "Nagsisimula ang mga pula sa harap. Ang isang draft ay napanalunan din sa paglalaro.",
+      "dexEven": "Mahigpit na draft: ang lahat ay magpapasya sa bahagi.",
+      "dexNone": "I-replay ang draft na ito sa MLBBEx at ihambing ang iyong mga pagpipilian."
+    },
+    "tierList": {
+      "kicker": "Patch {v} · {month}",
+      "dex": "Ang mga antas ay muling kinakalkula sa bawat rate ng pagbabasa."
+    },
+    "mlbbdle": {
+      "kicker": "Laro ng araw · {mode}",
+      "title": "MLBBdle # {n}",
+      "found": {
+        "one": "Natagpuan sa unang pagsubok",
+        "other": "Natagpuan sa {n} mga pagsubok"
+      },
+      "more": "+{n} mga pagsubok na hindi ipinapakita",
+      "streak": "sunud-sunod na araw",
+      "guesses": {
+        "one": "sanaysay",
+        "other": "mga pagsubok"
+      },
+      "dexPerfect": "Sa unang pagsubok? Hindi ko nakita ang pagdating nito!",
+      "dexGood": "Magaling! Ang hero ng bukas ay naghihintay sa iyo.",
+      "dexLong": "Kailangan naming mahanap ang isang iyon. Magaling!"
+    },
+    "recap": {
+      "winners": "Mga nanalo",
+      "losers": "Mga talunan",
+      "none": "Hindi pa sapat ang mga pagbabasa para sukatin ang patch na ito.",
+      "small": "Nabawasang sample: {n} hero ang nasukat.",
+      "measured": "nasusukat na mga hero",
+      "dex": "Ito ang talagang binago ng patch, na may mga numero upang i-back up ito."
     }
   }
 }
