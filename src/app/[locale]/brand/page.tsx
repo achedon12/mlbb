@@ -11,10 +11,16 @@ import { StageHeader } from "@/components/stage";
 import type { Locale } from "@/i18n/config";
 import { metaPage } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
+import { SocialKitCard, type KitPick } from "@/components/social-kit-card";
 import { communityInvite } from "@/lib/bot/public";
+import { ANNOUNCE_TITLES, KIT_FORMATS, type KitCard, type KitFormat } from "@/lib/social-kit";
+import { kitDefaults, kitHeroes, kitSkins } from "@/lib/social-kit-catalog";
 import { site } from "@/lib/site";
 
 type Params = { params: Promise<{ locale: Locale }> };
+
+/** Skins offered by the kit's picker: the newest ones. */
+const KIT_SKINS = 30;
 
 /**
  * The brand and press kit: the name, the palette with its codes (and a copy
@@ -24,6 +30,10 @@ type Params = { params: Promise<{ locale: Locale }> };
  * The logo (`public/brand/`, docs/logo-brief.md) is shown with its SVG
  * files to download: the emblem, the horizontal and the stacked logo. The
  * palette mirrors the tokens of `globals.css` (docs/design-system.md).
+ *
+ * The social kit: ready-made visuals of the current patch, its top 5, a
+ * hero, a skin and the community's announcements, square, portrait and
+ * story (`/api/kit/<template>`, `src/lib/social-kit.ts`).
  */
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
@@ -75,6 +85,43 @@ export default async function BrandPage({ params }: Params) {
   const invite = communityInvite();
   const h2 = "type-section text-chalk-100";
   const more = "text-sm font-semibold text-gold-400 transition-colors hover:text-gold-300";
+  const formats = Object.fromEntries(KIT_FORMATS.map((f) => [f, t(`pages.brandKit.kitFormats.${f}`)])) as Record<KitFormat, string>;
+  const hints = Object.fromEntries(KIT_FORMATS.map((f) => [f, t(`pages.brandKit.kitFormatHints.${f}`)])) as Record<KitFormat, string>;
+  const heroPick: KitPick = {
+    label: t("pages.brandKit.kitPick.hero"),
+    field: "hero",
+    options: kitHeroes.map((h) => ({ value: h.slug, label: h.name })).sort((a, b) => a.label.localeCompare(b.label, locale)),
+  };
+  const kit: { key: string; card: KitCard; pick?: KitPick }[] = [
+    ...(kitDefaults.version ? [{ key: "patch", card: { template: "patch", version: kitDefaults.version } as KitCard }] : []),
+    { key: "tierList", card: { template: "tier-list", rank: "all" } },
+    ...(kitDefaults.newHero ? [{ key: "heroNew", card: { template: "hero", hero: kitDefaults.newHero, mode: "new" } as KitCard, pick: heroPick }] : []),
+    ...(kitDefaults.spotlight
+      ? [{ key: "heroSpotlight", card: { template: "hero", hero: kitDefaults.spotlight, mode: "spotlight" } as KitCard, pick: heroPick }]
+      : []),
+    ...(kitDefaults.skin
+      ? [
+          {
+            key: "skin",
+            card: { template: "skin", skin: kitDefaults.skin } as KitCard,
+            pick: {
+              label: t("pages.brandKit.kitPick.skin"),
+              field: "skin",
+              options: kitSkins.slice(0, KIT_SKINS).map((e) => ({ value: e.skin.id, label: `${e.skin.name} (${e.hero.name})` })),
+            } satisfies KitPick,
+          },
+        ]
+      : []),
+    {
+      key: "announce",
+      card: { template: "announce", title: "discord" },
+      pick: {
+        label: t("pages.brandKit.kitPick.title"),
+        field: "title",
+        options: ANNOUNCE_TITLES.map((key) => ({ value: key, label: t(`socialKit.announce.${key}.title`) })),
+      },
+    },
+  ];
   const chip =
     "bevel-sm inline-flex min-h-9 items-center gap-1.5 bg-night-800 px-3 text-sm text-chalk-200 transition-[color,background-color,translate] hover:-translate-y-px hover:bg-night-700 hover:text-gold-300";
 
@@ -231,6 +278,52 @@ export default async function BrandPage({ params }: Params) {
               {t("pages.brandKit.dexPageLink")} →
             </Link>
           </p>
+        </section>
+
+        <section aria-labelledby="social-kit">
+          <h2 id="social-kit" className={h2}>
+            {t("pages.brandKit.kitTitle")}
+          </h2>
+          <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
+          <p className="mt-3 max-w-2xl text-chalk-300">{t("pages.brandKit.kitLead")}</p>
+          <ul className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+            {kit.map((k) => {
+              const name = t(`pages.brandKit.kitTemplates.${k.key}.name`);
+              const perFormat = (key: string) =>
+                Object.fromEntries(KIT_FORMATS.map((f) => [f, t(key, { template: name, format: formats[f] })])) as Record<KitFormat, string>;
+              return (
+                <SocialKitCard
+                  key={k.key}
+                  locale={locale}
+                  name={name}
+                  description={t(`pages.brandKit.kitTemplates.${k.key}.desc`)}
+                  card={k.card}
+                  pick={k.pick}
+                  formats={formats}
+                  hints={hints}
+                  downloadLabels={perFormat("pages.brandKit.kitDownload")}
+                  previewAlts={perFormat("pages.brandKit.kitPreviewAlt")}
+                />
+              );
+            })}
+          </ul>
+          <div className="mt-10 max-w-3xl">
+            <h3 className="display-caps text-2xl text-gold-400">{t("pages.brandKit.kitRulesTitle")}</h3>
+            <ul className="mt-3 space-y-2.5">
+              {[1, 2, 3, 4].map((n) => (
+                <li key={n} className="flex gap-2.5 leading-relaxed text-chalk-300">
+                  <Check size={18} aria-hidden className="mt-1 shrink-0 text-azure-400" />
+                  {t(`pages.brandKit.kitRule${n}`)}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4 text-sm text-chalk-400">
+              {t("pages.brandKit.kitEmojis")}{" "}
+              <a href="#dex-png" className={more}>
+                {t("pages.brandKit.kitEmojisLink")} ↑
+              </a>
+            </p>
+          </div>
         </section>
 
         <section aria-labelledby="press" className="bevel-lg bg-night-800 p-6 shadow-[inset_0_3px_0_var(--color-gold-400)] sm:p-10">

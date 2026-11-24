@@ -5006,6 +5006,58 @@
       "downloadSquare": "Square 512 px",
       "downloadLabel": "I-download ang Dex, magpose {pose}, sa PNG",
       "downloadSquareLabel": "I-download ang Dex, magpose {pose}, sa 512 px square PNG",
+      "kitTitle": "Social media kit",
+      "kitLead": "Mga visual na handang i-publish sa Discord, Instagram, TikTok o X, na kinuha mula sa data ng site at na-update sa bawat patch. Pumili ng modelo, format, at i-download.",
+      "kitFormats": {
+        "square": "Square",
+        "portrait": "Larawan",
+        "story": "Kwento"
+      },
+      "kitFormatHints": {
+        "square": "1080 × 1080 · Discord, Instagram feed",
+        "portrait": "1080 × 1350 · Instagram, X",
+        "story": "1080 × 1920 · mga kwento, Reels, TikTok"
+      },
+      "kitTemplates": {
+        "patch": {
+          "name": "Bagong patch",
+          "desc": "Ang bersyon ng pinakabagong patch at ang bilang ng mga pagpapabuti at pagpapahina."
+        },
+        "tierList": {
+          "name": "Tier list ng patch",
+          "desc": "Ang limang pinakamahusay na S+ at S na hero, kasama ang kanilang win rate."
+        },
+        "heroNew": {
+          "name": "Bagong hero",
+          "desc": "Ang pinakahuling hero na inilabas, ang kanyang opisyal na paglalarawan, ang kanyang mga tungkulin at ang kanyang mga paraan."
+        },
+        "heroSpotlight": {
+          "name": "Hero ng sandali",
+          "desc": "Ang numero uno sa listahan ng default na tier, o ang hero na iyong pinili."
+        },
+        "skin": {
+          "name": "Bagong skin",
+          "desc": "Isang kamakailang skin, sa opisyal na paglalarawan nito, kasama ang pambihira at petsa ng paglabas nito."
+        },
+        "announce": {
+          "name": "Discord Announcement",
+          "desc": "Para sa isang kaganapan, isang paligsahan o isang live: isang pamagat na iyong pinili, Dex na nagpapakita ng paraan."
+        }
+      },
+      "kitPick": {
+        "hero": "Mga hero",
+        "skin": "Skin",
+        "title": "Pamagat"
+      },
+      "kitPreviewAlt": "Preview ng visual na “{template}”, format {format}",
+      "kitDownload": "I-download ang visual na “{template}” sa {format} na format",
+      "kitRulesTitle": "Upang i-publish",
+      "kitRule1": "Palaging i-credit ang mlbbdex.com sa iyong post.",
+      "kitRule2": "Hindi binabago ang logo o tinatakpan ang visual: i-crop kung kinakailangan, nang walang itinatago.",
+      "kitRule3": "Sa kuwento, panatilihing libre ang itaas at ibaba para sa interface ng app: iniiwan na ng visual na walang laman ang mga ito.",
+      "kitRule4": "Ang mga ilustrasyon ng mga hero at skin ay kay Moonton: huwag isama ang mga ito sa labas ng mga visual na ito.",
+      "kitEmojis": "Para sa mga reaksyon at emoji ng iyong server, kunin ang Dex bilang 512 px square PNG.",
+      "kitEmojisLink": "Dex sa PNG",
       "pressTitle": "Pindutin at kontakin",
       "pressText": "Isang tanong, isang pakikipanayam, isang pakikipagsosyo? Sumulat sa amin sa Discord, o magbukas ng tiket sa repositoryo ng proyekto.",
       "repo": "Pagsusumite ng proyekto",
@@ -6788,6 +6840,60 @@
       "small": "Nabawasang sample: {n} hero ang nasukat.",
       "measured": "nasusukat na mga hero",
       "dex": "Ito ang talagang binago ng patch, na may mga numero upang i-back up ito."
+    }
+  },
+  "socialKit": {
+    "patch": {
+      "kicker": "Bagong patch",
+      "kickerDate": "Bagong patch · {date}",
+      "buffed": "Mga pinahusay na hero",
+      "soon": "Darating ang mga detalye ng mga pagbabago.",
+      "dex": "Bagong patch online! Lahat ng mga pagbabago, hero ng hero, sa site."
+    },
+    "tierList": {
+      "kicker": "Tier list · Patch {v}",
+      "title": "Ang nangungunang 5 ng patch",
+      "measured": "Naitala ang mga rate sa {month}",
+      "dex": "Ang pinakamalakas na hero sa kasalukuyan, niraranggo sa kanilang mga tunay na resulta."
+    },
+    "hero": {
+      "new": "Bagong hero",
+      "spotlight": "Hero ng sandali",
+      "dexNew": "{hero} ay paparating na! Ang kanyang mga build at counter ay naghihintay para sa iyo sa site.",
+      "dexSpotlight": "Pinag-uusapan ng lahat ang tungkol sa {hero}. Ang kanyang kumpletong profile ay nasa site."
+    },
+    "skin": {
+      "kicker": "Bagong skin · {hero}",
+      "released": "Inilabas noong {date}",
+      "dex": "Ang buong gallery ng {hero} ay nasa site."
+    },
+    "announce": {
+      "kicker": "Komunidad ng MLBBDex",
+      "discord": {
+        "title": "Sumali sa Discord",
+        "lead": "Mga draft, build at tulong sa isa't isa: naghihintay sa iyo ang komunidad.",
+        "dex": "Halika kamustahin, magse-save kami ng lugar para sa iyo!"
+      },
+      "event": {
+        "title": "Kaganapan sa komunidad",
+        "lead": "Isang pulong para sa buong komunidad.",
+        "dex": "Ang lahat ng mga detalye ay nasa Discord. Hihintayin kita dyan!"
+      },
+      "tournament": {
+        "title": "Tournament ng komunidad",
+        "lead": "Ipunin ang iyong koponan at ipagtanggol ang iyong mga kulay.",
+        "dex": "Mga pagpaparehistro at regulasyon sa Discord."
+      },
+      "live": {
+        "title": "Mabuhay",
+        "lead": "Naglalaro kami, pinag-aaralan namin, sinasagot namin ang iyong mga tanong.",
+        "dex": "Sumali sa vocal room, magsisimula na tayo sa lalong madaling panahon!"
+      },
+      "update": {
+        "title": "Bago sa site",
+        "lead": "Mga bagong tool at bagong page na matutuklasan.",
+        "dex": "Lahat ay online: tingnan kung ano ang nagbago."
+      }
     }
   }
 }

@@ -15,12 +15,13 @@ import { TITLE_LINE_HEIGHT, fitTitle, shorten } from "./layout";
  * card's own data in the middle, and at the foot Dex with one line in his
  * voice beside the address. Same palette, faces and signature as the
  * landscape frame (`frame.tsx`); satori only knows flex boxes.
+ *
+ * The social kit (`social-kit.tsx`) draws its square (1080 × 1080) and story
+ * (1080 × 1920) in the same frame: `size` sets the image, `safeTop` and
+ * `safeBottom` keep the words and Dex out of the bands a story app covers.
  */
 
-const { width: W } = SHARE_SIZES.portrait;
 const SIDE = 64;
-/** Height of the foot band: Dex, his line and the address. */
-const FOOT = 250;
 
 export interface PortraitProps {
   locale: Locale;
@@ -36,14 +37,30 @@ export interface PortraitProps {
   quote?: string | null;
   /** The card's data, between the title and the foot. */
   body: ReactNode;
+  /** Size of the image: the share images' portrait by default; the social kit's square and story too. */
+  size?: { width: number; height: number };
+  /** Bands kept clear of words at the top and the foot (a story's app interface); the art and the ground run under them. */
+  safeTop?: number;
+  safeBottom?: number;
+  /** Dex's height at the foot (220 by default); the foot band follows it. */
+  dexHeight?: number;
+  /** Largest size of the title. */
+  titleMax?: number;
 }
 
 async function portrait(p: PortraitProps): Promise<ReactNode> {
+  const W = p.size?.width ?? SHARE_SIZES.portrait.width;
+  const safeTop = p.safeTop ?? 0;
+  const safeBottom = p.safeBottom ?? 0;
   const artHeight = p.artHeight ?? 560;
-  const dexHeight = 220;
+  const dexHeight = p.dexHeight ?? 220;
+  /** Height of the foot band: Dex, his line and the address. */
+  const FOOT = dexHeight + 30 + safeBottom;
+  const quoteWidth = W - SIDE * 2 - dexWidth(p.dex, dexHeight) - 24;
+  const quoteHeight = dexHeight >= 200 ? 120 : 100;
   const [art, dex] = await Promise.all([ogPicture(p.art, W, artHeight), ogDex(p.dex, dexHeight)]);
   const lineHeight = p.locale === "th" ? 1.25 : TITLE_LINE_HEIGHT;
-  const title = fitTitle(p.title, { width: W - SIDE * 2 - 40, lines: 2, max: 132, min: 64, height: 260, lineHeight });
+  const title = fitTitle(p.title, { width: W - SIDE * 2 - 40, lines: 2, max: p.titleMax ?? 132, min: 64, height: 260, lineHeight });
   const cut = 140;
 
   return (
@@ -90,7 +107,7 @@ async function portrait(p: PortraitProps): Promise<ReactNode> {
             left: 0,
             top: 0,
             width: W,
-            height: 200,
+            height: 200 + safeTop,
             display: "flex",
             background: "linear-gradient(180deg, rgba(6,8,15,0.75) 0%, rgba(6,8,15,0) 100%)",
           }}
@@ -100,7 +117,7 @@ async function portrait(p: PortraitProps): Promise<ReactNode> {
       <Eclat width={W - cut - SIDE} height={8} style={{ position: "absolute", left: cut, top: artHeight - 4 }} />
 
       {/* Wordmark over the art. */}
-      <div style={{ position: "absolute", left: SIDE, top: 56, display: "flex" }}>
+      <div style={{ position: "absolute", left: SIDE, top: 56 + safeTop, display: "flex" }}>
         <Wordmark size={46} />
       </div>
 
@@ -190,8 +207,8 @@ async function portrait(p: PortraitProps): Promise<ReactNode> {
         style={{
           position: "absolute",
           left: SIDE,
-          bottom: 52,
-          width: W - SIDE * 2 - dexWidth(p.dex, dexHeight) - 24,
+          bottom: 52 + safeBottom,
+          width: quoteWidth,
           display: "flex",
           flexDirection: "column",
           gap: 22,
@@ -203,8 +220,8 @@ async function portrait(p: PortraitProps): Promise<ReactNode> {
               display: "flex",
               padding: "20px 26px",
               background: C.night800,
-              clipPath: bevel(W - SIDE * 2 - dexWidth(p.dex, dexHeight) - 24, 120, 18),
-              height: 120,
+              clipPath: bevel(quoteWidth, quoteHeight, 18),
+              height: quoteHeight,
               alignItems: "center",
               fontFamily: FONT_TEXT,
               fontWeight: 600,
@@ -226,7 +243,7 @@ async function portrait(p: PortraitProps): Promise<ReactNode> {
           alt=""
           width={dexWidth(p.dex, dexHeight)}
           height={dexHeight}
-          style={{ position: "absolute", right: SIDE - 20, bottom: 36, width: dexWidth(p.dex, dexHeight), height: dexHeight }}
+          style={{ position: "absolute", right: SIDE - 20, bottom: 36 + safeBottom, width: dexWidth(p.dex, dexHeight), height: dexHeight }}
         />
       )}
 
@@ -247,10 +264,10 @@ async function portrait(p: PortraitProps): Promise<ReactNode> {
   );
 }
 
-/** A portrait share image (1080 × 1350). */
+/** A portrait share image (1080 × 1350), or the size `size` gives. */
 export async function portraitImage(p: PortraitProps): Promise<ImageResponse> {
   const [node, fonts] = await Promise.all([portrait(p), ogFonts(p.locale)]);
-  return new ImageResponse(node as React.ReactElement, { ...SHARE_SIZES.portrait, fonts });
+  return new ImageResponse(node as React.ReactElement, { ...(p.size ?? SHARE_SIZES.portrait), fonts });
 }
 
 /** A square of an MLBBdle grid, coloured like the game's share text. */

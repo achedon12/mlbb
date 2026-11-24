@@ -6863,6 +6863,134 @@
     "home.figures.changed": {
       "fr": "retouchés au patch",
       "text": "changed this patch"
+    },
+    "socialKit.patch.buffed": {
+      "fr": "Héros améliorés",
+      "text": "Buffed heroes"
+    },
+    "socialKit.patch.soon": {
+      "fr": "Le détail des changements arrive.",
+      "text": "The full changes are on their way."
+    },
+    "socialKit.tierList.title": {
+      "fr": "Le top 5 du patch",
+      "text": "The patch's top 5"
+    },
+    "socialKit.tierList.measured": {
+      "fr": "Taux relevés en {month}",
+      "text": "Rates measured in {month}"
+    },
+    "socialKit.tierList.dex": {
+      "fr": "Les héros les plus forts du moment, classés sur leurs vrais résultats.",
+      "text": "The strongest heroes right now, ranked on their real results."
+    },
+    "socialKit.hero.dexNew": {
+      "fr": "{hero} débarque ! Ses builds et ses contres t'attendent sur le site.",
+      "text": "{hero} has arrived! Builds and counters are waiting for you on the site."
+    },
+    "socialKit.hero.dexSpotlight": {
+      "fr": "Tout le monde parle de {hero}. Sa fiche complète est sur le site.",
+      "text": "Everyone's talking about {hero}. The full profile is on the site."
+    },
+    "socialKit.skin.released": {
+      "fr": "Sorti en {date}",
+      "text": "Released {date}"
+    },
+    "socialKit.skin.dex": {
+      "fr": "La galerie complète de {hero} est sur le site.",
+      "text": "{hero}'s full gallery is on the site."
+    },
+    "socialKit.announce.kicker": {
+      "fr": "Communauté MLBBDex",
+      "text": "MLBBDex community"
+    },
+    "socialKit.announce.discord.lead": {
+      "fr": "Drafts, builds et entraide : la communauté t'attend.",
+      "text": "Drafts, builds and help: the community is waiting for you."
+    },
+    "socialKit.announce.discord.dex": {
+      "fr": "Viens dire bonjour, on garde une place pour toi !",
+      "text": "Come say hi, we've saved you a spot!"
+    },
+    "socialKit.announce.event.lead": {
+      "fr": "Un rendez-vous pour toute la communauté.",
+      "text": "A get-together for the whole community."
+    },
+    "socialKit.announce.tournament.lead": {
+      "fr": "Monte ton équipe et viens défendre tes couleurs.",
+      "text": "Build your team and come fight for your colors."
+    },
+    "socialKit.announce.tournament.dex": {
+      "fr": "Inscriptions et règlement sur le Discord.",
+      "text": "Sign-ups and rules on the Discord."
+    },
+    "socialKit.announce.live.dex": {
+      "fr": "Rejoins le salon vocal, on commence bientôt !",
+      "text": "Hop into the voice channel, we're starting soon!"
+    },
+    "socialKit.announce.update.dex": {
+      "fr": "Tout est en ligne : va voir ce qui a changé.",
+      "text": "Everything is live: go see what's new."
+    },
+    "pages.brandKit.kitLead": {
+      "fr": "Des visuels prêts à publier sur Discord, Instagram, TikTok ou X, tirés des données du site et à jour à chaque patch. Choisis un modèle, un format, et télécharge.",
+      "text": "Visuals ready to post on Discord, Instagram, TikTok or X, built from the site's data and updated every patch. Pick a template, a format, and download."
+    },
+    "pages.brandKit.kitTemplates.patch.desc": {
+      "fr": "La version du dernier patch et le compte des améliorations et des affaiblissements.",
+      "text": "The latest patch's version and its count of buffs and nerfs."
+    },
+    "pages.brandKit.kitTemplates.heroNew.desc": {
+      "fr": "Le dernier héros sorti, son illustration officielle, ses rôles et ses voies.",
+      "text": "The latest hero released, with their official artwork, roles and lanes."
+    },
+    "pages.brandKit.kitTemplates.heroSpotlight.desc": {
+      "fr": "Le numéro un de la tier list par défaut, ou le héros de ton choix.",
+      "text": "The tier list's number one by default, or any hero you choose."
+    },
+    "pages.brandKit.kitTemplates.skin.desc": {
+      "fr": "Un skin récent, sur son illustration officielle, avec sa rareté et sa date de sortie.",
+      "text": "A recent skin on its official artwork, with its rarity and release date."
+    },
+    "pages.brandKit.kitTemplates.announce.name": {
+      "fr": "Annonce Discord",
+      "text": "Discord announcement"
+    },
+    "pages.brandKit.kitTemplates.announce.desc": {
+      "fr": "Pour un événement, un tournoi ou un live : un titre au choix, Dex qui montre le chemin.",
+      "text": "For an event, a tournament or a live stream: pick a title, and Dex points the way."
+    },
+    "pages.brandKit.kitPick.hero": {
+      "fr": "Héros",
+      "text": "Hero"
+    },
+    "pages.brandKit.kitRulesTitle": {
+      "fr": "Pour publier",
+      "text": "Before you post"
+    },
+    "pages.brandKit.kitRule2": {
+      "fr": "Ne modifie pas le logo et ne couvre pas le visuel : recadre si besoin, sans rien masquer.",
+      "text": "Don't alter the logo or cover the visual: crop if needed, without hiding anything."
+    },
+    "pages.brandKit.kitRule3": {
+      "fr": "En story, garde le haut et le bas libres pour l'interface de l'appli : le visuel les laisse déjà vides.",
+      "text": "For stories, keep the top and bottom clear for the app's interface: the visual already leaves them empty."
+    },
+    "pages.brandKit.kitRule4": {
+      "fr": "Les illustrations des héros et des skins appartiennent à Moonton : ne les reprends pas hors de ces visuels.",
+      "text": "Hero and skin artworks belong to Moonton: don't reuse them outside these visuals."
+    },
+    "pages.brandKit.kitEmojisLink": {
+      "fr": "Dex en PNG",
+      "text": "Dex as PNG"
+    },
+    "pages.brandKit.kitPreviewAlt": {
+      "fr": "Aperçu du visuel « {template} », format {format}",
+      "text": "Preview of the “{template}” visual, {format} format"
+    },
+    "pages.brandKit.kitDownload": {
+      "fr": "Télécharger le visuel « {template} » au format {format}",
+      "text": "Download the “{template}” visual in {format} format"
     }
   },
   "es": {
@@ -38095,6 +38223,10 @@
     "pages.mlbbdleUI.loading": {
       "fr": "Je prépare le défi du jour…",
       "text": "Inihahanda ang hamon ngayong araw…"
+    },
+    "socialKit.announce.tournament.title": {
+      "fr": "Tournoi communautaire",
+      "text": "Tournament ng komunidad"
     }
   },
   "th": {
@@ -52153,6 +52285,14 @@
     "error.title": {
       "fr": "Ça a coincé",
       "text": "มีบางอย่างติดขัด"
+    },
+    "socialKit.announce.tournament.title": {
+      "fr": "Tournoi communautaire",
+      "text": "ทัวร์นาเมนต์ชุมชน"
+    },
+    "socialKit.announce.update.title": {
+      "fr": "Nouveautés sur le site",
+      "text": "อัปเดตใหม่บนเว็บไซต์"
     }
   },
   "pt": {

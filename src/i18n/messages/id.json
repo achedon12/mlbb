@@ -5006,6 +5006,58 @@
       "downloadSquare": "Persegi 512 piksel",
       "downloadLabel": "Unduh Dex, pose {pose}, dalam PNG",
       "downloadSquareLabel": "Unduh Dex, pose {pose}, dalam PNG persegi 512 px",
+      "kitTitle": "Perlengkapan media sosial",
+      "kitLead": "Visual siap dipublikasikan di Discord, Instagram, TikTok atau X, diambil dari data situs dan diperbarui pada setiap patch. Pilih model, format, dan unduh.",
+      "kitFormats": {
+        "square": "Persegi",
+        "portrait": "Potret",
+        "story": "Cerita"
+      },
+      "kitFormatHints": {
+        "square": "1080 × 1080 · Perselisihan, umpan Instagram",
+        "portrait": "1080 × 1350 · Instagram, X",
+        "story": "1080 × 1920 · cerita, Gulungan, TikTok"
+      },
+      "kitTemplates": {
+        "patch": {
+          "name": "Patch baru",
+          "desc": "Versi patch terbaru serta jumlah perbaikan dan kelemahannya."
+        },
+        "tierList": {
+          "name": "Tier list patch",
+          "desc": "Lima hero S+ dan S terbaik, dengan win rate-nya."
+        },
+        "heroNew": {
+          "name": "Hero baru",
+          "desc": "Hero terbaru yang dirilis, ilustrasi resminya, role dan caranya."
+        },
+        "heroSpotlight": {
+          "name": "Hero saat ini",
+          "desc": "Nomor satu di daftar tier default, atau hero pilihan Anda."
+        },
+        "skin": {
+          "name": "Skin baru",
+          "desc": "Skin terbaru, pada ilustrasi resminya, dengan kelangkaan dan tanggal rilisnya."
+        },
+        "announce": {
+          "name": "Pengumuman Perselisihan",
+          "desc": "Untuk acara, turnamen, atau siaran langsung: judul pilihan Anda, Dex yang menunjukkan jalannya."
+        }
+      },
+      "kitPick": {
+        "hero": "Hero",
+        "skin": "Skin",
+        "title": "Judul"
+      },
+      "kitPreviewAlt": "Pratinjau visual “{template}”, format {format}",
+      "kitDownload": "Unduh visual “{template}” dalam format {format}",
+      "kitRulesTitle": "Untuk mempublikasikan",
+      "kitRule1": "Selalu beri kredit mlbbdex.com di postingan Anda.",
+      "kitRule2": "Tidak mengubah logo atau menutupi visual: potong jika perlu, tanpa menyembunyikan apa pun.",
+      "kitRule3": "Dalam cerita, biarkan bagian atas dan bawah bebas untuk antarmuka aplikasi: visualnya sudah mengosongkannya.",
+      "kitRule4": "Ilustrasi hero dan skin milik Moonton: jangan sertakan di luar visual ini.",
+      "kitEmojis": "Untuk reaksi dan emoji server Anda, ambil Dex sebagai PNG persegi 512 px.",
+      "kitEmojisLink": "Dex ke PNG",
       "pressTitle": "Tekan dan hubungi",
       "pressText": "Sebuah pertanyaan, wawancara, kemitraan? Kirimkan surat kepada kami di Discord, atau buka tiket di repositori proyek.",
       "repo": "Pengajuan proyek",
@@ -6788,6 +6840,60 @@
       "small": "Sampel yang dikurangi: {n} hero diukur.",
       "measured": "hero terukur",
       "dex": "Inilah yang benar-benar diubah oleh patch tersebut, dengan angka-angka yang mendukungnya."
+    }
+  },
+  "socialKit": {
+    "patch": {
+      "kicker": "Patch baru",
+      "kickerDate": "Patch baru · {date}",
+      "buffed": "Hero yang ditingkatkan",
+      "soon": "Detail perubahan akan segera hadir.",
+      "dex": "Patch baru secara online! Semua perubahan, hero demi hero, ada di situs."
+    },
+    "tierList": {
+      "kicker": "Tier list · Patch {v}",
+      "title": "5 patch teratas",
+      "measured": "Tarif tercatat di {month}",
+      "dex": "Hero terkuat saat ini, diberi peringkat berdasarkan hasil sebenarnya."
+    },
+    "hero": {
+      "new": "Hero baru",
+      "spotlight": "Hero saat ini",
+      "dexNew": "{hero} akan datang! Build dan counternya menunggu Anda di situs.",
+      "dexSpotlight": "Semua orang berbicara tentang {hero}. Profil lengkapnya ada di situs."
+    },
+    "skin": {
+      "kicker": "Skin baru · {hero}",
+      "released": "Dirilis pada {date}",
+      "dex": "Galeri lengkap {hero} ada di situs."
+    },
+    "announce": {
+      "kicker": "Komunitas MLBBdex",
+      "discord": {
+        "title": "Bergabunglah dengan Perselisihan",
+        "lead": "Draft, bangun, dan gotong royong: komunitas menunggu Anda.",
+        "dex": "Ayo sapa, kami akan menyediakan tempat untukmu!"
+      },
+      "event": {
+        "title": "Acara komunitas",
+        "lead": "Pertemuan seluruh masyarakat.",
+        "dex": "Semua detailnya ada di Discord. Aku menunggumu di sana!"
+      },
+      "tournament": {
+        "title": "Turnamen komunitas",
+        "lead": "Kumpulkan tim Anda dan pertahankan warna Anda.",
+        "dex": "Pendaftaran dan peraturan tentang Discord."
+      },
+      "live": {
+        "title": "Hidup",
+        "lead": "Kami bermain, kami menganalisis, kami menjawab pertanyaan Anda.",
+        "dex": "Bergabunglah dengan ruang vokal, kami akan segera mulai!"
+      },
+      "update": {
+        "title": "Baru di situs",
+        "lead": "Alat baru dan halaman baru untuk ditemukan.",
+        "dex": "Semuanya online: lihat apa yang berubah."
+      }
     }
   }
 }
