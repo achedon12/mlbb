@@ -255,3 +255,14 @@ foot) and 1200 × 630 in the frame above. Served by `/api/share/<kind>`, whose
 query is checked against the site's catalog (`src/lib/share-card.ts`): no URL,
 picture or free text is ever read from it. A MLBBdle card never shows the
 day's hero.
+
+The social kit (brand page, "Kit réseaux sociaux") draws ready-made posts in
+the same portrait frame: a new patch (its buffs and nerfs, Dex `saut`), the
+patch's top 5 S+/S, a new hero or the hero of the moment, a new skin on its
+official artwork, and a community announcement (Dex `pointe`, a title out of
+a fixed list of messages, never a free text). Three formats: square
+1080 × 1080, portrait 1080 × 1350 and story 1080 × 1920, whose top 250 px
+and bottom 340 px (`STORY_SAFE`) hold no word, figure or Dex, only the
+artwork and the ground, since the apps lay their interface there. Served by
+`/api/kit/<template>`, checked like the share images (`src/lib/social-kit.ts`);
+heroes and skins only with an official artwork the site shows.

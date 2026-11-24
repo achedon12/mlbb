@@ -250,6 +250,18 @@ test.describe("brand pages", () => {
     await expect(page.getByRole("link", { name: /t[ée]l[ée]charger le logo/i })).toHaveCount(3);
   });
 
+  test("the social kit offers each template in three formats, from the catalogue only", async ({ page }) => {
+    await page.goto("/fr/brand");
+    const kit = page.locator("section").filter({ has: page.locator("#social-kit") });
+    await expect(kit.getByRole("heading", { level: 3 })).toHaveCount(7);
+    // Six templates (new patch, top 5, new hero, hero of the moment, skin, announcement), three formats each.
+    const downloads = kit.getByRole("link", { name: /^t[ée]l[ée]charger le visuel/i });
+    await expect(downloads).toHaveCount(18);
+    await expect(downloads.first()).toHaveAttribute("href", /^\/api\/kit\/patch\?lang=fr&format=square&v=/);
+    await kit.getByRole("combobox", { name: "Titre" }).selectOption("tournament");
+    await expect(kit.getByRole("link", { name: /annonce discord.*story/i })).toHaveAttribute("href", "/api/kit/announce?lang=fr&format=story&t=tournament");
+  });
+
   test("offers no cookie settings without audience measurement", async ({ page }) => {
     test.skip(!!process.env.NEXT_PUBLIC_MATOMO_URL, "Matomo is configured: consent.spec.ts covers the button");
     await page.goto("/fr");

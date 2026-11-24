@@ -5006,6 +5006,58 @@
       "downloadSquare": "Square 512 px",
       "downloadLabel": "Download Dex, pose {pose}, in PNG",
       "downloadSquareLabel": "Download Dex, pose {pose}, in 512 px square PNG",
+      "kitTitle": "Social media kit",
+      "kitLead": "Visuals ready to post on Discord, Instagram, TikTok or X, built from the site's data and updated every patch. Pick a template, a format, and download.",
+      "kitFormats": {
+        "square": "Square",
+        "portrait": "Portrait",
+        "story": "Story"
+      },
+      "kitFormatHints": {
+        "square": "1080 × 1080 · Discord, Instagram feed",
+        "portrait": "1080 × 1350 · Instagram, X",
+        "story": "1080 × 1920 · stories, Reels, TikTok"
+      },
+      "kitTemplates": {
+        "patch": {
+          "name": "New patch",
+          "desc": "The latest patch's version and its count of buffs and nerfs."
+        },
+        "tierList": {
+          "name": "Tier list of the patch",
+          "desc": "The five best S+ and S heroes, with their win rate."
+        },
+        "heroNew": {
+          "name": "New hero",
+          "desc": "The latest hero released, with their official artwork, roles and lanes."
+        },
+        "heroSpotlight": {
+          "name": "Hero of the moment",
+          "desc": "The tier list's number one by default, or any hero you choose."
+        },
+        "skin": {
+          "name": "New skin",
+          "desc": "A recent skin on its official artwork, with its rarity and release date."
+        },
+        "announce": {
+          "name": "Discord announcement",
+          "desc": "For an event, a tournament or a live stream: pick a title, and Dex points the way."
+        }
+      },
+      "kitPick": {
+        "hero": "Hero",
+        "skin": "Skin",
+        "title": "Title"
+      },
+      "kitPreviewAlt": "Preview of the “{template}” visual, {format} format",
+      "kitDownload": "Download the “{template}” visual in {format} format",
+      "kitRulesTitle": "Before you post",
+      "kitRule1": "Always credit mlbbdex.com in your post.",
+      "kitRule2": "Don't alter the logo or cover the visual: crop if needed, without hiding anything.",
+      "kitRule3": "For stories, keep the top and bottom clear for the app's interface: the visual already leaves them empty.",
+      "kitRule4": "Hero and skin artworks belong to Moonton: don't reuse them outside these visuals.",
+      "kitEmojis": "For your server's reactions and emojis, take Dex as a 512 px square PNG.",
+      "kitEmojisLink": "Dex as PNG",
       "pressTitle": "Press and contact",
       "pressText": "A question, an interview, a partnership? Write to us on the Discord, or open a ticket on the project repository.",
       "repo": "Submission of the project",
@@ -6788,6 +6840,60 @@
       "small": "Small sample: {n} heroes measured.",
       "measured": "heroes measured",
       "dex": "Here's what the patch really changed, numbers in hand."
+    }
+  },
+  "socialKit": {
+    "patch": {
+      "kicker": "New patch",
+      "kickerDate": "New patch · {date}",
+      "buffed": "Buffed heroes",
+      "soon": "The full changes are on their way.",
+      "dex": "New patch online! All the changes, hero by hero, on the site."
+    },
+    "tierList": {
+      "kicker": "Tier list · Patch {v}",
+      "title": "The patch's top 5",
+      "measured": "Rates measured in {month}",
+      "dex": "The strongest heroes right now, ranked on their real results."
+    },
+    "hero": {
+      "new": "New hero",
+      "spotlight": "Hero of the moment",
+      "dexNew": "{hero} has arrived! Builds and counters are waiting for you on the site.",
+      "dexSpotlight": "Everyone's talking about {hero}. The full profile is on the site."
+    },
+    "skin": {
+      "kicker": "New skin · {hero}",
+      "released": "Released {date}",
+      "dex": "{hero}'s full gallery is on the site."
+    },
+    "announce": {
+      "kicker": "MLBBDex community",
+      "discord": {
+        "title": "Join the Discord",
+        "lead": "Drafts, builds and help: the community is waiting for you.",
+        "dex": "Come say hi, we've saved you a spot!"
+      },
+      "event": {
+        "title": "Community event",
+        "lead": "A get-together for the whole community.",
+        "dex": "All the details are on the Discord. I'm waiting for you there!"
+      },
+      "tournament": {
+        "title": "Community tournament",
+        "lead": "Build your team and come fight for your colors.",
+        "dex": "Sign-ups and rules on the Discord."
+      },
+      "live": {
+        "title": "Live",
+        "lead": "We play, we analyze, we answer your questions.",
+        "dex": "Hop into the voice channel, we're starting soon!"
+      },
+      "update": {
+        "title": "New on the site",
+        "lead": "New tools and new pages to discover.",
+        "dex": "Everything is live: go see what's new."
+      }
     }
   }
 }

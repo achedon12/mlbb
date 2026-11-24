@@ -5006,6 +5006,58 @@
       "downloadSquare": "Quadrato 512 px",
       "downloadLabel": "Scarica Dex, posa {pose}, in PNG",
       "downloadSquareLabel": "Scarica Dex, posa {pose}, in formato PNG quadrato da 512 px",
+      "kitTitle": "Kit per i social media",
+      "kitLead": "Immagini pronte per essere pubblicate su Discord, Instagram, TikTok o X, prese dai dati del sito e aggiornate con ogni patch. Scegli un modello, un formato e scarica.",
+      "kitFormats": {
+        "square": "Piazza",
+        "portrait": "Ritratto",
+        "story": "Storia"
+      },
+      "kitFormatHints": {
+        "square": "1080 × 1080 · Discordia, feed Instagram",
+        "portrait": "1080 × 1350 · Instagram, X",
+        "story": "1080 × 1920 · storie, Reels, TikTok"
+      },
+      "kitTemplates": {
+        "patch": {
+          "name": "Nuova toppa",
+          "desc": "La versione dell'ultima patch e il conteggio dei miglioramenti e degli indebolimenti."
+        },
+        "tierList": {
+          "name": "Elenco dei livelli della patch",
+          "desc": "I cinque migliori eroi S+ e S, con la loro percentuale di vittorie."
+        },
+        "heroNew": {
+          "name": "Nuovo eroe",
+          "desc": "L'ultimo eroe uscito, la sua illustrazione ufficiale, i suoi ruoli e i suoi modi."
+        },
+        "heroSpotlight": {
+          "name": "Eroe del momento",
+          "desc": "Il numero uno nell'elenco dei livelli predefinito o l'eroe di tua scelta."
+        },
+        "skin": {
+          "name": "Nuova skin",
+          "desc": "Una skin recente, nella sua illustrazione ufficiale, con la sua rarità e data di uscita."
+        },
+        "announce": {
+          "name": "Annuncio della discordia",
+          "desc": "Per un evento, un torneo o un live: un titolo a tua scelta, Dex che indica la strada."
+        }
+      },
+      "kitPick": {
+        "hero": "Eroi",
+        "skin": "Skin",
+        "title": "Titolo"
+      },
+      "kitPreviewAlt": "Anteprima del visual “{template}”, formato {format}",
+      "kitDownload": "Scarica l'immagine \"{template}\" nel formato {format}",
+      "kitRulesTitle": "Pubblicare",
+      "kitRule1": "Cita sempre mlbbdex.com nel tuo post.",
+      "kitRule2": "Non modifica il logo né copre il visual: ritaglia se necessario, senza nascondere nulla.",
+      "kitRule3": "Nella storia, mantieni la parte superiore e inferiore libere per l'interfaccia dell'app: l'immagine li lascia già vuoti.",
+      "kitRule4": "Le illustrazioni degli eroi e delle skin appartengono a Moonton: non includerle al di fuori di queste immagini.",
+      "kitEmojis": "Per le reazioni e gli emoji del tuo server, prendi Dex come un PNG quadrato da 512 px.",
+      "kitEmojisLink": "Dex in PNG",
       "pressTitle": "Stampa e contatta",
       "pressText": "Una domanda, un'intervista, una partnership? Scrivici su Discord o apri un ticket sul repository del progetto.",
       "repo": "Presentazione del progetto",
@@ -6788,6 +6840,60 @@
       "small": "Campione ridotto: {n} eroi misurati.",
       "measured": "eroi misurati",
       "dex": "Questo è ciò che la patch ha realmente cambiato, con i dati a sostegno."
+    }
+  },
+  "socialKit": {
+    "patch": {
+      "kicker": "Nuova toppa",
+      "kickerDate": "Nuova patch · {date}",
+      "buffed": "Eroi migliorati",
+      "soon": "I dettagli delle modifiche stanno arrivando.",
+      "dex": "Nuova patch online! Tutti i cambiamenti, eroe per eroe, sul sito."
+    },
+    "tierList": {
+      "kicker": "Elenco livelli · Patch {v}",
+      "title": "I primi 5 della patch",
+      "measured": "Tariffe registrate in {month}",
+      "dex": "Gli eroi più forti del momento, classificati in base ai loro veri risultati."
+    },
+    "hero": {
+      "new": "Nuovo eroe",
+      "spotlight": "Eroe del momento",
+      "dexNew": "{hero} sta arrivando! Le sue build e i suoi contatori ti aspettano sul sito.",
+      "dexSpotlight": "Tutti parlano di {hero}. Il suo profilo completo è sul sito."
+    },
+    "skin": {
+      "kicker": "Nuova skin · {hero}",
+      "released": "Rilasciato nel {date}",
+      "dex": "La gallery completa di {hero} è sul sito."
+    },
+    "announce": {
+      "kicker": "Comunità MLBBDex",
+      "discord": {
+        "title": "Unisciti alla Discordia",
+        "lead": "Bozze, costruzioni e aiuto reciproco: la community ti aspetta.",
+        "dex": "Vieni a salutarci, ti riserveremo un posto!"
+      },
+      "event": {
+        "title": "Evento comunitario",
+        "lead": "Un incontro per tutta la comunità.",
+        "dex": "Tutti i dettagli sono su Discord. Ti aspetto lì!"
+      },
+      "tournament": {
+        "title": "Torneo comunitario",
+        "lead": "Raduna la tua squadra e vieni a difendere i tuoi colori.",
+        "dex": "Registrazioni e regolamenti sul Discord."
+      },
+      "live": {
+        "title": "Vivere",
+        "lead": "Giochiamo, analizziamo, rispondiamo alle tue domande.",
+        "dex": "Unisciti alla stanza vocale, inizieremo presto!"
+      },
+      "update": {
+        "title": "Novità sul sito",
+        "lead": "Nuovi strumenti e nuove pagine da scoprire.",
+        "dex": "È tutto online: andate a vedere cosa è cambiato."
+      }
     }
   }
 }
