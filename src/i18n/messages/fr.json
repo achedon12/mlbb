@@ -1284,6 +1284,10 @@
       "accountValue": {
         "title": "Estimation de la valeur d'un compte MLBB",
         "description": "Combien a coûté votre collection Mobile Legends ? Recopiez vos apparences par catégorie de la Vitrine ({skins} apparences au catalogue), vérifiez vos points de collection et obtenez un ordre de grandeur en diamants, USD, EUR, PHP, IDR et MYR, avec une méthode affichée."
+      },
+      "quizDuel": {
+        "title": "Ferez-vous mieux que {score} au quiz MLBB n° {n} ?",
+        "description": "Un ami a fait {score} au quiz quotidien MLBBDex. Mêmes questions : compétence, apparence, histoire, objet et duel de taux de victoire. À vous de jouer."
       }
     },
     "sources": {
@@ -1878,7 +1882,7 @@
       "seeSummary": "Voir le bilan",
       "nextRound": "Manche suivante",
       "summaryTitle": "Défi terminé : {points}/{max}",
-      "share": "Partager mon résultat",
+      "share": "Partager en texte",
       "copied": "Résultat copié : collez-le où vous voulez.",
       "shared": "Résultat partagé.",
       "copyError": "Je n'ai pas pu copier : sélectionne la grille à la main.",
@@ -1991,7 +1995,43 @@
         "good": "Bien vu ! Au suivant.",
         "won": "Bravo, bonne réponse !",
         "over": "Raté pour cette fois. La prochaine sera la bonne !"
-      }
+      },
+      "shareScore": "Partager mon score",
+      "sharePitch": "J'ai fait {score} au quiz MLBBDex n° {n}. Tu fais mieux ?",
+      "rankLabel": "Rang :",
+      "ranks": {
+        "warrior": "Guerrier",
+        "elite": "Élite",
+        "master": "Maître",
+        "grandmaster": "Grand maître",
+        "epic": "Épique",
+        "legend": "Légende",
+        "mythic": "Mythique",
+        "glory": "Gloire mythique"
+      },
+      "duel": {
+        "beat": "Battez le score de {name} : {score}",
+        "beatAnon": "Battez le score de votre ami : {score}",
+        "today": "Les mêmes questions que votre ami. C'est le défi du jour : il compte dans votre série.",
+        "past": "Un défi d'un autre jour : il ne compte pas dans votre série.",
+        "won": "Vous avez battu les {score} de {name} !",
+        "wonAnon": "Vous avez battu les {score} de votre ami !",
+        "tie": "Égalité avec {name} : {score} chacun.",
+        "tieAnon": "Égalité avec votre ami : {score} chacun.",
+        "lost": "{name} garde l'avantage avec {score}. Renvoyez-lui votre défi !",
+        "lostAnon": "Votre ami garde l'avantage avec {score}. Renvoyez-lui votre défi !"
+      },
+      "playToday": "Jouer le défi du jour",
+      "challengeFriend": "Défier un ami",
+      "challengeTitle": "Défi quiz MLBBDex",
+      "challengeCopied": "Lien du défi copié : envoyez-le à un ami.",
+      "challengeShared": "Défi envoyé.",
+      "nameLabel": "Votre nom sur le défi (facultatif)",
+      "namePlaceholder": "Pseudo",
+      "streakDays": "Série quotidienne : {n}",
+      "streakDone": "joué aujourd'hui, revenez demain",
+      "streakKeep": "jouez le défi du jour pour la garder",
+      "streakStart": "jouez chaque jour pour lancer une série"
     },
     "tierMaker": {
       "title": "Créateur de tier list MLBB",
@@ -6909,6 +6949,20 @@
       "small": "Échantillon réduit : {n} héros mesurés.",
       "measured": "héros mesurés",
       "dex": "Voilà ce que le patch a vraiment changé, chiffres à l'appui."
+    },
+    "quiz": {
+      "kicker": "Quiz MLBBDex · n° {n}",
+      "subtitle": "Défi du jour : {score}",
+      "points": "points",
+      "toBeat": "score à battre",
+      "duelKicker": "Quiz MLBBDex · défi n° {n}",
+      "duelTitle": "Tu bats {score} ?",
+      "duelSubtitle": "Mêmes cinq manches, mêmes questions. À toi de jouer.",
+      "dexDuel": "Compétence, apparence, histoire, objet et duel de taux. Montre ce que tu sais !",
+      "dexPerfect": "Un sans-faute ? Je n'en reviens pas !",
+      "dexGood": "Belle partie ! Qui fera mieux ?",
+      "dexMid": "Pas mal ! Demain, de nouvelles questions.",
+      "dexLow": "Coriace, celui-là. Un ami fera-t-il mieux ?"
     }
   },
   "socialKit": {

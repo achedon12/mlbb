@@ -98,6 +98,27 @@ describe("share image requests", () => {
     expect(parse("mlbbdle", "mode=skill&n=0&g=6")).toBeNull();
   });
 
+  it("reads a quiz result and its challenge, scores in range", () => {
+    expect(parse("quiz", "n=75&p=5&m=7&grid=mxuuu.xxmuu.mmmm.xxxxx.mxm&streak=3")?.card).toEqual({
+      kind: "quiz",
+      number: 75,
+      points: 5,
+      max: 7,
+      rows: [[..."mxuuu"], [..."xxmuu"], [..."mmmm"], [..."xxxxx"], [..."mxm"]],
+      streak: 3,
+      duel: false,
+    });
+    expect(parse("quiz", "n=75&p=5&m=7&vs=1")?.card).toMatchObject({ duel: true, rows: [], streak: 0 });
+    expect(parse("quiz", "n=75&p=8&m=7")).toBeNull();
+    expect(parse("quiz", "n=0&p=1&m=7")).toBeNull();
+    expect(parse("quiz", "n=75&p=1&m=31")).toBeNull();
+    expect(parse("quiz", "n=75&p=1&m=7&vs=yes")).toBeNull();
+    expect(parse("quiz", "n=75&p=1&m=7&grid=mpx")).toBeNull();
+    expect(parse("quiz", "n=75&p=1&m=7&grid=mmmmmmmmm")).toBeNull();
+    expect(parse("quiz", "n=75&p=1&m=7&grid=m.m.m.m.m.m.m.m.m")).toBeNull();
+    expect(parse("quiz", "n=75&p=1&m=7&name=Leo")).toBeNull();
+  });
+
   it("reads a recap of a known patch only", () => {
     expect(parse("recap", "v=2.2.16a")?.card).toEqual({ kind: "recap", version: "2.2.16a" });
     expect(parse("recap", "v=9.9.99")).toBeNull();
@@ -125,6 +146,13 @@ describe("canonical address", () => {
     expect(
       shareQuery({ locale: "en", format: "portrait", card: { kind: "mlbbdle", mode: "skill", number: 3, guesses: 2, rows: [], streak: 0 } }),
     ).toBe("lang=en&format=portrait&mode=skill&n=3&g=2");
+    const quiz: ShareRequest = {
+      locale: "id",
+      format: "landscape",
+      card: { kind: "quiz", number: 75, points: 5, max: 7, rows: [], streak: 0, duel: true },
+    };
+    expect(shareQuery(quiz)).toBe("lang=id&format=landscape&n=75&p=5&m=7&vs=1");
+    expect(parse("quiz", shareQuery(quiz))).toEqual(quiz);
   });
 });
 

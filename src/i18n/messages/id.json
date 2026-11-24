@@ -1284,6 +1284,10 @@
       "accountValue": {
         "title": "Estimasi nilai akun MLBB",
         "description": "Berapa Harga Koleksi Mobile Legends Kalian? Salin penampilan Anda berdasarkan kategori Showcase ({skins} tampilan katalog), periksa titik koleksi Anda dan dapatkan urutan besarnya dalam berlian, USD, EUR, PHP, IDR dan MYR, dengan metode yang ditampilkan."
+      },
+      "quizDuel": {
+        "title": "Bisakah kamu mengalahkan {score} di Kuis MLBB #{n}?",
+        "description": "Temanmu mendapat skor {score} di kuis harian MLBBDex. Pertanyaannya sama: skill, skin, lore, item, dan duel win rate. Giliranmu."
       }
     },
     "sources": {
@@ -1878,7 +1882,7 @@
       "seeSummary": "Lihat neraca",
       "nextRound": "Putaran selanjutnya",
       "summaryTitle": "Tantangan selesai: {points}/{max}",
-      "share": "Bagikan hasil saya",
+      "share": "Bagikan sebagai teks",
       "copied": "Hasil yang disalin: tempel di mana pun Anda mau.",
       "shared": "Hasil bersama.",
       "copyError": "Saya tidak dapat menyalin: pilih kisi dengan tangan.",
@@ -1991,7 +1995,43 @@
         "good": "Terlihat jelas! Berikutnya.",
         "won": "Bagus sekali, jawaban bagus!",
         "over": "Gagal kali ini. Yang berikutnya akan menjadi yang bagus!"
-      }
+      },
+      "shareScore": "Bagikan skorku",
+      "sharePitch": "Aku dapat {score} di Kuis MLBBDex #{n}. Bisa kalahkan aku?",
+      "rankLabel": "Rank:",
+      "ranks": {
+        "warrior": "Warrior",
+        "elite": "Elite",
+        "master": "Master",
+        "grandmaster": "Grandmaster",
+        "epic": "Epic",
+        "legend": "Legend",
+        "mythic": "Mythic",
+        "glory": "Mythical Glory"
+      },
+      "duel": {
+        "beat": "Kalahkan skor {name}: {score}",
+        "beatAnon": "Kalahkan skor temanmu: {score}",
+        "today": "Pertanyaannya sama dengan temanmu. Ini tantangan hari ini, jadi dihitung ke streak-mu.",
+        "past": "Tantangan dari hari lain: tidak dihitung ke streak-mu.",
+        "won": "Kamu mengalahkan skor {score} milik {name}!",
+        "wonAnon": "Kamu mengalahkan skor {score} temanmu!",
+        "tie": "Seri dengan {name}: masing-masing {score}.",
+        "tieAnon": "Seri dengan temanmu: masing-masing {score}.",
+        "lost": "{name} masih unggul dengan {score}. Kirim tantanganmu sendiri!",
+        "lostAnon": "Temanmu masih unggul dengan {score}. Kirim tantanganmu sendiri!"
+      },
+      "playToday": "Mainkan tantangan hari ini",
+      "challengeFriend": "Tantang seorang teman",
+      "challengeTitle": "Tantangan Kuis MLBBDex",
+      "challengeCopied": "Tautan tantangan disalin: kirimkan ke teman.",
+      "challengeShared": "Tantangan terkirim.",
+      "nameLabel": "Namamu di tantangan (opsional)",
+      "namePlaceholder": "Nickname",
+      "streakDays": "Streak harian: {n}",
+      "streakDone": "dimainkan hari ini, kembali lagi besok",
+      "streakKeep": "mainkan tantangan hari ini untuk mempertahankannya",
+      "streakStart": "main setiap hari untuk membangun streak"
     },
     "tierMaker": {
       "title": "Pembuat tier list MLBB",
@@ -6909,6 +6949,20 @@
       "small": "Sampel yang dikurangi: {n} hero diukur.",
       "measured": "hero terukur",
       "dex": "Inilah yang benar-benar diubah oleh patch tersebut, dengan angka-angka yang mendukungnya."
+    },
+    "quiz": {
+      "kicker": "Kuis MLBBDex · #{n}",
+      "subtitle": "Tantangan hari ini: {score}",
+      "points": "poin",
+      "toBeat": "skor untuk dikalahkan",
+      "duelKicker": "Kuis MLBBDex · tantangan #{n}",
+      "duelTitle": "Bisa kalahkan {score}?",
+      "duelSubtitle": "Lima ronde yang sama, pertanyaan yang sama. Giliranmu.",
+      "dexDuel": "Skill, skin, lore, item, dan duel win rate. Tunjukkan kemampuanmu!",
+      "dexPerfect": "Skor sempurna? Aku sampai speechless!",
+      "dexGood": "Mantap! Siapa yang bisa lebih baik?",
+      "dexMid": "Lumayan! Besok ada pertanyaan baru.",
+      "dexLow": "Yang ini sulit. Temanmu bisa lebih baik?"
     }
   },
   "socialKit": {

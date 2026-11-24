@@ -9,6 +9,7 @@ import { emblemImage, emblemName, itemImage, spellImage, spellName, talentImage 
 import { heroesBySlug } from "@/lib/data";
 import { monthYear, patchCurrent, percentage } from "@/lib/freshness";
 import { recapOf } from "@/lib/patch-recap-server";
+import { quizRank, RANK_POSE } from "@/lib/quiz";
 import type { RecapEntry } from "@/lib/patch-recap";
 import type { ShareRequest } from "@/lib/share-card";
 import { rankingOfRank } from "@/lib/tier-list";
@@ -249,6 +250,71 @@ async function mlbbdleImage(r: ShareRequest & { card: { kind: "mlbbdle" } }, t: 
   });
 }
 
+// ── Quiz ─────────────────────────────────────────────────────────────
+
+async function quizImage(r: ShareRequest & { card: { kind: "quiz" } }, t: T) {
+  const { number, points, max, rows, streak, duel } = r.card;
+  // The answers are never drawn: the quiz's own artwork, not a hero of the day.
+  const { art } = toolArt("/quiz");
+  const rank = quizRank(points, max);
+  const score = `${points}/${max}`;
+  const ratio = points / max;
+  const quote = duel
+    ? t("shareCard.quiz.dexDuel")
+    : points === max
+      ? t("shareCard.quiz.dexPerfect")
+      : ratio >= 0.6
+        ? t("shareCard.quiz.dexGood")
+        : ratio >= 0.3
+          ? t("shareCard.quiz.dexMid")
+          : t("shareCard.quiz.dexLow");
+  const common = duel
+    ? {
+        locale: r.locale,
+        kicker: t("shareCard.quiz.duelKicker", { n: number }),
+        title: t("shareCard.quiz.duelTitle", { score }),
+        subtitle: t("shareCard.quiz.duelSubtitle"),
+      }
+    : {
+        locale: r.locale,
+        kicker: t("shareCard.quiz.kicker", { n: number }),
+        title: t(`pages.quizUI.ranks.${rank}`),
+        subtitle: t("shareCard.quiz.subtitle", { score }),
+      };
+  const figures = (size: number) => (
+    <div style={{ display: "flex", gap: 34, alignItems: "flex-end" }}>
+      <Figure value={score} label={duel ? t("shareCard.quiz.toBeat") : t("shareCard.quiz.points")} size={size} />
+      {!duel && streak >= 2 ? <Figure value={String(streak)} label={t("shareCard.mlbbdle.streak")} color={C.azure} size={size} /> : null}
+    </div>
+  );
+  const grid = (cell: number, gap: number) => (rows.length ? <CellGrid rows={rows} cell={cell} gap={gap} /> : null);
+  const dex = duel ? "pointe" : RANK_POSE[rank];
+
+  if (r.format === "landscape") {
+    const aside = grid(40, 7);
+    return ogImage({
+      ...common,
+      ...(aside ? { titleWidth: 520, aside } : { art }),
+      dex,
+      dexHeight: 170,
+      data: figures(84),
+    });
+  }
+  return portraitImage({
+    ...common,
+    art,
+    artHeight: 420,
+    dex,
+    quote,
+    body: (
+      <div style={{ display: "flex", flexDirection: "column", gap: 36 }}>
+        {figures(120)}
+        {grid(62, 10)}
+      </div>
+    ),
+  });
+}
+
 // ── Patch recap ──────────────────────────────────────────────────────
 
 /** Share image of a patch recap: the winners in blue, the losers in red, their measured gaps. */
@@ -337,5 +403,7 @@ export function shareImage(r: ShareRequest): Promise<ImageResponse | null> {
       return mlbbdleImage(r as ShareRequest & { card: { kind: "mlbbdle" } }, t);
     case "recap":
       return recapImage(r.locale, r.card.version, r.format);
+    case "quiz":
+      return quizImage(r as ShareRequest & { card: { kind: "quiz" } }, t);
   }
 }

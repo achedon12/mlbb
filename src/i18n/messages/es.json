@@ -1284,6 +1284,10 @@
       "accountValue": {
         "title": "Estimador del valor de una cuenta de MLBB",
         "description": "¿Cuánto costó tu colección de Mobile Legends? Copie sus apariciones por categoría de Showcase ({skins} apariciones en catálogo), verifique sus puntos de colección y obtenga un orden de magnitud en diamantes, USD, EUR, PHP, IDR y MYR, con un método mostrado."
+      },
+      "quizDuel": {
+        "title": "¿Puedes superar {score} en el quiz MLBB n.º {n}?",
+        "description": "Un amigo sacó {score} en el quiz diario de MLBBDex. Las mismas preguntas: habilidad, aspecto, historia, objeto y duelo de tasa de victorias. Te toca."
       }
     },
     "sources": {
@@ -1878,7 +1882,7 @@
       "seeSummary": "Ver resultados",
       "nextRound": "Siguiente ronda",
       "summaryTitle": "Reto completado: {points}/{max}",
-      "share": "Compartir mi resultado",
+      "share": "Compartir como texto",
       "copied": "Resultado copiado: pégalo donde quieras.",
       "shared": "Resultado compartido.",
       "copyError": "No pude copiar: seleccione la cuadrícula a mano.",
@@ -1991,7 +1995,43 @@
         "good": "¡Bien visto! Próximo.",
         "won": "¡Bien hecho, buena respuesta!",
         "over": "Esta vez falló. ¡El próximo será el bueno!"
-      }
+      },
+      "shareScore": "Compartir mi puntuación",
+      "sharePitch": "Saqué {score} en el quiz MLBBDex n.º {n}. ¿Puedes superarme?",
+      "rankLabel": "Rango:",
+      "ranks": {
+        "warrior": "Guerrero",
+        "elite": "Élite",
+        "master": "Maestro",
+        "grandmaster": "Gran Maestro",
+        "epic": "Épico",
+        "legend": "Leyenda",
+        "mythic": "Mítico",
+        "glory": "Gloria Mítica"
+      },
+      "duel": {
+        "beat": "Supera la puntuación de {name}: {score}",
+        "beatAnon": "Supera la puntuación de tu amigo: {score}",
+        "today": "Las mismas preguntas que tu amigo. Es el desafío de hoy, así que cuenta para tu racha.",
+        "past": "Un desafío de otro día: no cuenta para tu racha.",
+        "won": "¡Superaste el {score} de {name}!",
+        "wonAnon": "¡Superaste el {score} de tu amigo!",
+        "tie": "Empate con {name}: {score} cada uno.",
+        "tieAnon": "Empate con tu amigo: {score} cada uno.",
+        "lost": "{name} sigue por delante con {score}. ¡Mándale tu propio desafío!",
+        "lostAnon": "Tu amigo sigue por delante con {score}. ¡Mándale tu propio desafío!"
+      },
+      "playToday": "Juega el desafío de hoy",
+      "challengeFriend": "Desafía a un amigo",
+      "challengeTitle": "Desafío del quiz MLBBDex",
+      "challengeCopied": "Enlace del desafío copiado: envíaselo a un amigo.",
+      "challengeShared": "Desafío enviado.",
+      "nameLabel": "Tu nombre en el desafío (opcional)",
+      "namePlaceholder": "Apodo",
+      "streakDays": "Racha diaria: {n}",
+      "streakDone": "jugado hoy, vuelve mañana",
+      "streakKeep": "juega el desafío de hoy para mantenerla",
+      "streakStart": "juega todos los días para empezar una racha"
     },
     "tierMaker": {
       "title": "Creador de tier list MLBB",
@@ -6909,6 +6949,20 @@
       "small": "Muestra reducida: {n} héroes medidos.",
       "measured": "héroes medidos",
       "dex": "Esto es lo que realmente ha cambiado el parche, con cifras que lo respaldan."
+    },
+    "quiz": {
+      "kicker": "Quiz MLBBDex · n.º {n}",
+      "subtitle": "Reto del día: {score}",
+      "points": "puntos",
+      "toBeat": "puntuación a superar",
+      "duelKicker": "Quiz MLBBDex · desafío n.º {n}",
+      "duelTitle": "¿Superas {score}?",
+      "duelSubtitle": "Las mismas cinco rondas, las mismas preguntas. Te toca.",
+      "dexDuel": "Habilidad, aspecto, historia, objeto y duelo de tasas. ¡Demuestra lo que sabes!",
+      "dexPerfect": "¿Puntuación perfecta? ¡Me dejas sin palabras!",
+      "dexGood": "¡Gran partida! ¿Quién lo supera?",
+      "dexMid": "¡Nada mal! Mañana, preguntas nuevas.",
+      "dexLow": "Hoy tocó uno difícil. ¿Un amigo lo hará mejor?"
     }
   },
   "socialKit": {

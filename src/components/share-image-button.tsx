@@ -23,7 +23,10 @@ export function ShareImageButton({
   card,
   name,
   url,
+  text,
+  label,
   variant = "secondary",
+  large = false,
   className,
 }: {
   card: ShareCard;
@@ -31,7 +34,13 @@ export function ShareImageButton({
   name: string;
   /** Link shared with the image; the current page by default. */
   url?: string;
+  /** Message sent with the image to the share sheet; the link alone by default. */
+  text?: string;
+  /** The button's label, "Share as image" by default. */
+  label?: string;
   variant?: "primary" | "secondary";
+  /** A bigger, full-width-on-phones button: the main action of a results screen. */
+  large?: boolean;
   className?: string;
 }) {
   const t = useT();
@@ -56,7 +65,7 @@ export function ShareImageButton({
     }
     if (navigator.canShare?.({ files: [file] })) {
       try {
-        await navigator.share({ files: [file], title: document.title, text: link });
+        await navigator.share({ files: [file], title: document.title, text: text ?? link });
         setStatus("shared");
         trackShare(`${name} image`, "native");
         return;
@@ -94,10 +103,14 @@ export function ShareImageButton({
           onClick={share}
           aria-busy={busy}
           aria-describedby={`share-hint-${card.kind}`}
-          className={cn("btn", variant === "primary" ? "btn-primary" : "btn-secondary")}
+          className={cn(
+            "btn",
+            variant === "primary" ? "btn-primary" : "btn-secondary",
+            large && "min-h-14 w-full px-7 text-lg sm:w-auto",
+          )}
         >
-          {busy ? <BrandSpinner /> : <Share2 size={16} aria-hidden />}
-          {busy ? t("shareImage.preparing") : t("shareImage.button")}
+          {busy ? <BrandSpinner /> : <Share2 size={large ? 20 : 16} aria-hidden />}
+          {busy ? t("shareImage.preparing") : (label ?? t("shareImage.button"))}
         </button>
         <a
           href={landscape}

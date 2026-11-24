@@ -22,6 +22,13 @@ import {
   currentStreak,
   STATS_EMPTY,
   textShare,
+  cellsOfRow,
+  cleanName,
+  dayOfNumber,
+  duelCode,
+  duelOutcome,
+  parseDuelCode,
+  quizRank,
   type Challenge,
   type QuizHero,
   type Round,
@@ -178,6 +185,45 @@ describe("answers, grid and statistics", () => {
     const text = textShare({ number: 3, points: 5, max: 7, series: 4, rows: ["✨ 🟩⬛⬛⬛⬛"], url: "https://x/fr/quiz" });
     expect(text).toBe("MLBBDex Quiz #3 · 5/7 🔥4\n✨ 🟩⬛⬛⬛⬛\nhttps://x/fr/quiz");
     expect(text).not.toMatch(/aamon|zilong/i);
+  });
+
+  it("turns a grid row into share image cells", () => {
+    expect(cellsOfRow(rowGrid(skill, ["zilong", "aamon"]))).toEqual(["x", "m", "u", "u", "u"]);
+    expect(cellsOfRow(rowGrid(duel, ["a", "c"]))).toEqual(["m", "x"]);
+  });
+
+  it("gives a rank from Warrior to Mythical Glory", () => {
+    expect(quizRank(0, 7)).toBe("warrior");
+    expect(quizRank(1, 7)).toBe("elite");
+    expect(quizRank(4, 7)).toBe("epic");
+    expect(quizRank(6, 7)).toBe("mythic");
+    expect(quizRank(7, 7)).toBe("glory");
+    expect(quizRank(0, 0)).toBe("warrior");
+  });
+
+  it("encodes a challenge link: the challenge number and the score to beat", () => {
+    const link = { number: 75, points: 5, max: 7 };
+    expect(duelCode(link)).toBe("75-5-7");
+    expect(parseDuelCode("75-5-7")).toEqual(link);
+    expect(parseDuelCode("75-8-7")).toBeNull();
+    expect(parseDuelCode("0-1-7")).toBeNull();
+    expect(parseDuelCode("075-5-7")).toBeNull();
+    expect(parseDuelCode("75-5")).toBeNull();
+    expect(parseDuelCode("75-5-7.json")).toBeNull();
+    // The number is the seed: it names the same day, hence the same questions.
+    expect(numberChallenge(dayOfNumber(75))).toBe(75);
+    expect(dayOfNumber(1)).toBe("2026-09-11");
+    expect(duelOutcome(6, 5)).toBe("won");
+    expect(duelOutcome(5, 5)).toBe("tie");
+    expect(duelOutcome(4, 5)).toBe("lost");
+  });
+
+  it("keeps a plain name for the challenge link", () => {
+    expect(cleanName("  Léo  ")).toBe("Léo");
+    expect(cleanName("<script>alert(1)</script>")).toBe("scriptalert1script");
+    expect(cleanName("a".repeat(40))).toHaveLength(20);
+    expect(cleanName(null)).toBe("");
+    expect(cleanName("Rayhan_ID")).toBe("Rayhan_ID");
   });
 
   it("counts the streak of played days without counting the same day twice", () => {

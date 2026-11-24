@@ -4,8 +4,9 @@ import { MEASURED_RANKS, type MeasuredRank } from "./measured-ranks";
 
 /**
  * Address of a share image ("Partager en image"): what a build, a draft, the
- * tier list, a MLBBdle result or a patch recap looks like as a branded PNG,
- * drawn by `/api/share/<kind>` (`src/app/api/share/[kind]/route.ts`).
+ * tier list, a MLBBdle result, a quiz result (or the challenge to beat it)
+ * or a patch recap looks like as a branded PNG, drawn by `/api/share/<kind>`
+ * (`src/app/api/share/[kind]/route.ts`).
  *
  * Everything the image shows comes from its query string, checked here
  * against the catalog the caller passes: hero, item and patch slugs must be
@@ -18,7 +19,7 @@ import { MEASURED_RANKS, type MeasuredRank } from "./measured-ranks";
  * Pure module: the browser builds the address with it, the server reads it.
  */
 
-export const SHARE_KINDS = ["build", "draft", "tier-list", "mlbbdle", "recap"] as const;
+export const SHARE_KINDS = ["build", "draft", "tier-list", "mlbbdle", "recap", "quiz"] as const;
 export type ShareKind = (typeof SHARE_KINDS)[number];
 export const isShareKind = (v: string): v is ShareKind => (SHARE_KINDS as readonly string[]).includes(v);
 
@@ -44,6 +45,12 @@ export type MlbbdleShareMode = (typeof MLBBDLE_MODES)[number];
 export type Cell = "m" | "p" | "x" | "u";
 const ROW = new RegExp(`^[mpxu]{${MLBBDLE_COLUMNS}}$`);
 
+/** Quiz: rounds a grid may hold, squares a round may hold, points a challenge may hold (`POINTS_LIMIT`). */
+export const QUIZ_ROUNDS = 8;
+export const QUIZ_CELLS = 8;
+export const QUIZ_POINTS = 30;
+const QUIZ_ROW = new RegExp(`^[mxu]{1,${QUIZ_CELLS}}$`);
+
 const MAX_QUERY = 600;
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const VERSION = /^\d{1,2}\.\d{1,2}\.\d{1,3}[a-z]?$/;
@@ -62,7 +69,12 @@ export type ShareCard =
   | { kind: "draft"; blue: string[]; red: string[]; win: number | null; rank: MeasuredRank }
   | { kind: "tier-list"; rank: MeasuredRank }
   | { kind: "mlbbdle"; mode: MlbbdleShareMode; number: number; guesses: number; rows: Cell[][]; streak: number }
-  | { kind: "recap"; version: string };
+  | { kind: "recap"; version: string }
+  /**
+   * A daily quiz result, or with `duel` the "challenge a friend" invitation
+   * to beat it. Rows: one per round, found / missed / not played.
+   */
+  | { kind: "quiz"; number: number; points: number; max: number; rows: ("m" | "x" | "u")[][]; streak: number; duel: boolean };
 
 export interface ShareRequest {
   locale: Locale;
@@ -93,6 +105,7 @@ const KEYS: Record<ShareKind, readonly string[]> = {
   "tier-list": ["rank"],
   mlbbdle: ["mode", "n", "g", "grid", "streak"],
   recap: ["v"],
+  quiz: ["n", "p", "m", "grid", "streak", "vs"],
 };
 
 function parseCard(kind: ShareKind, p: URLSearchParams, catalog: ShareCatalog): ShareCard | null {
@@ -139,6 +152,23 @@ function parseCard(kind: ShareKind, p: URLSearchParams, catalog: ShareCatalog): 
     case "recap": {
       const v = p.get("v");
       return v && VERSION.test(v) && catalog.versions.has(v) ? { kind, version: v } : null;
+    }
+    case "quiz": {
+      const number = int(p.get("n"), 1, 99_999);
+      const max = int(p.get("m"), 1, QUIZ_POINTS);
+      const points = int(p.get("p"), 0, QUIZ_POINTS);
+      const streak = p.get("streak") === null ? 0 : int(p.get("streak"), 0, 99_999);
+      if (number === null || max === null || points === null || points > max || streak === null) return null;
+      const vs = p.get("vs");
+      if (vs !== null && vs !== "1") return null;
+      const grid = p.get("grid");
+      let rows: ("m" | "x" | "u")[][] = [];
+      if (grid !== null) {
+        const list = grid.split(".");
+        if (list.length > QUIZ_ROUNDS || !list.every((r) => QUIZ_ROW.test(r))) return null;
+        rows = list.map((r) => [...r] as ("m" | "x" | "u")[]);
+      }
+      return { kind, number, points, max, rows, streak, duel: vs === "1" };
     }
   }
 }
@@ -189,6 +219,14 @@ export function shareQuery({ locale, format, card }: ShareRequest): string {
       break;
     case "recap":
       p.set("v", card.version);
+      break;
+    case "quiz":
+      p.set("n", String(card.number));
+      p.set("p", String(card.points));
+      p.set("m", String(card.max));
+      if (card.rows.length) p.set("grid", card.rows.map((r) => r.join("")).join("."));
+      if (card.streak > 0) p.set("streak", String(card.streak));
+      if (card.duel) p.set("vs", "1");
       break;
   }
   return p.toString();

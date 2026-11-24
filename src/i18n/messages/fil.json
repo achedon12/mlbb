@@ -1284,6 +1284,10 @@
       "accountValue": {
         "title": "MLBB account value estimator",
         "description": "Magkano ang halaga ng iyong koleksyon ng Mobile Legends? Kopyahin ang iyong mga pagpapakita ayon sa kategorya ng Showcase ({skins} mga pagpapakita ng catalog), tingnan ang iyong mga collection point at kumuha ng order ng magnitude sa mga diamante, USD, EUR, PHP, IDR at MYR, na may ipinapakitang paraan."
+      },
+      "quizDuel": {
+        "title": "Kaya mo bang talunin ang {score} sa MLBB Quiz #{n}?",
+        "description": "Nakakuha ng {score} ang kaibigan mo sa daily quiz ng MLBBDex. Parehong mga tanong: skill, skin, lore, item at win-rate duel. Ikaw na."
       }
     },
     "sources": {
@@ -1878,7 +1882,7 @@
       "seeSummary": "Tingnan ang resulta",
       "nextRound": "Susunod na round",
       "summaryTitle": "Tapos na ang challenge: {points}/{max}",
-      "share": "I-share ang resulta ko",
+      "share": "Ibahagi bilang text",
       "copied": "Nakopya ang resulta: i-paste kahit saan.",
       "shared": "Na-share ang resulta.",
       "copyError": "Hindi ko makopya: piliin ang grid sa pamamagitan ng kamay.",
@@ -1991,7 +1995,43 @@
         "good": "Kitang-kita! Susunod.",
         "won": "Magaling, magandang sagot!",
         "over": "Nabigo sa pagkakataong ito. Ang susunod ay ang magaling!"
-      }
+      },
+      "shareScore": "Ibahagi ang aking iskor",
+      "sharePitch": "Nakakuha ako ng {score} sa MLBBDex Quiz #{n}. Kaya mo bang talunin ako?",
+      "rankLabel": "Rank:",
+      "ranks": {
+        "warrior": "Warrior",
+        "elite": "Elite",
+        "master": "Master",
+        "grandmaster": "Grandmaster",
+        "epic": "Epic",
+        "legend": "Legend",
+        "mythic": "Mythic",
+        "glory": "Mythical Glory"
+      },
+      "duel": {
+        "beat": "Talunin ang score ni {name}: {score}",
+        "beatAnon": "Talunin ang marka ng iyong kaibigan: {score}",
+        "today": "Parehong mga tanong ng kaibigan mo. Ito ang challenge ngayon, kaya bilang ito sa streak mo.",
+        "past": "Challenge mula sa ibang araw: hindi ito bilang sa streak mo.",
+        "won": "Tinalo mo ang {score} ni {name}!",
+        "wonAnon": "Tinalo mo ang {score} ng kaibigan mo!",
+        "tie": "Tabla kayo ni {name}: tig-{score}.",
+        "tieAnon": "Tabla kayo ng kaibigan mo: tig-{score}.",
+        "lost": "Lamang pa rin si {name} sa {score}. Ipadala ang sarili mong challenge!",
+        "lostAnon": "Lamang pa rin ang kaibigan mo sa {score}. Ipadala ang sarili mong challenge!"
+      },
+      "playToday": "Maglaro ng hamon ngayon",
+      "challengeFriend": "Hamunin ang isang kaibigan",
+      "challengeTitle": "MLBBDex Quiz challenge",
+      "challengeCopied": "Nakopya ang link ng hamon: ipadala ito sa isang kaibigan.",
+      "challengeShared": "Ipinadala ang hamon.",
+      "nameLabel": "Ang iyong pangalan sa hamon (opsyonal)",
+      "namePlaceholder": "Nickname",
+      "streakDays": "Daily streak: {n}",
+      "streakDone": "nalaro na ngayon, balik bukas",
+      "streakKeep": "laruin ang challenge ngayon para mapanatili ito",
+      "streakStart": "maglaro araw-araw para magsimula ng streak"
     },
     "tierMaker": {
       "title": "MLBB tier list maker",
@@ -6909,6 +6949,20 @@
       "small": "Nabawasang sample: {n} hero ang nasukat.",
       "measured": "nasusukat na mga hero",
       "dex": "Ito ang talagang binago ng patch, na may mga numero upang i-back up ito."
+    },
+    "quiz": {
+      "kicker": "MLBBDex Quiz · #{n}",
+      "subtitle": "Hamon ng araw: {score}",
+      "points": "puntos",
+      "toBeat": "score na tatalunin",
+      "duelKicker": "MLBBDex Quiz · challenge #{n}",
+      "duelTitle": "Kaya mo bang talunin ang {score}?",
+      "duelSubtitle": "Parehong limang round, parehong mga tanong. Ikaw na.",
+      "dexDuel": "Skill, skin, lore, item at win-rate duel. Ipakita ang alam mo!",
+      "dexPerfect": "Perfect score? Hindi ako makapaniwala!",
+      "dexGood": "Mahusay na laro! Sino ang gagawa ng mas mahusay?",
+      "dexMid": "Hindi masama! Bukas, mga bagong tanong.",
+      "dexLow": "Mahirap ito ngayon. Kaya kaya ng kaibigan mo?"
     }
   },
   "socialKit": {
