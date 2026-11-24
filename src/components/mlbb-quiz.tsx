@@ -3,6 +3,7 @@
 import { DexNotice } from "@/components/dex-states";
 import { DexLoading } from "@/components/dex-loading";
 import { Flash } from "@/components/dex-states";
+import { useAccountPrompt } from "@/components/account-prompt";
 import { useDiscordMoment } from "@/components/discord-moment";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Flame, Link2, Palette, Scale, ScrollText, Shield, Sparkles, Swords, Trophy, Type, type LucideIcon } from "lucide-react";
@@ -62,6 +63,7 @@ import {
   type RecordPractice,
 } from "@/lib/quiz-storage";
 import { trackEvent, trackShare } from "@/lib/analytics";
+import { SYNCED_EVENT } from "@/lib/progress-signal";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -146,6 +148,7 @@ function roundOpen(challenge: Challenge, attempts: string[][]): number {
  */
 function ChallengeOfDay({ catalog, duel, onPractice }: { catalog: CatalogQuiz; duel?: DuelLink; onPractice: () => void }) {
   const discord = useDiscordMoment();
+  const prompt = useAccountPrompt();
   const t = useT();
   const locale = useLocale();
   const [today, setToday] = useState<string | null>(null);
@@ -177,6 +180,10 @@ function ChallengeOfDay({ catalog, duel, onPractice }: { catalog: CatalogQuiz; d
       trackEvent("Quiz", "Challenge open", target === now ? "today" : "past");
     }
     /* eslint-enable react-hooks/set-state-in-effect */
+    // Signed in, the account may bring days played on another device.
+    const reread = () => setStats(readStats());
+    window.addEventListener(SYNCED_EVENT, reread);
+    return () => window.removeEventListener(SYNCED_EVENT, reread);
   }, [duelNumber]);
 
   const daily = day !== null && day === today;
@@ -248,7 +255,8 @@ function ChallengeOfDay({ catalog, duel, onPractice }: { catalog: CatalogQuiz; d
         setStats(nextStats);
         writeStats(nextStats);
         trackEvent("Quiz", "Finish", "daily", points);
-        discord.offer("quiz", 2500);
+        // One card at a time: the account prompt only when the Discord one stays away.
+        if (!discord.offer("quiz", 2500)) prompt.offer("quiz", { streak: nextStats.serie }, 2500);
       }
       if (duelHere) trackEvent("Quiz", "Challenge result", duelOutcome(points, duelHere.points), points);
     }

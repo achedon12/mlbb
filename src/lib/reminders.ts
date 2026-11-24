@@ -1,3 +1,4 @@
+import { signalProgress } from "./progress-signal";
 import { SERVER_OFFSET_MIN } from "./server-time";
 
 /**
@@ -126,11 +127,19 @@ export function sortDue<R extends { mois: string }>(reminders: readonly R[], now
 
 // ── Browser memory ─────────────────────────────────────────────────
 
-/** How this browser was told to remind: a calendar file, a push notification, or both. */
+/**
+ * How this browser was told to remind: a calendar file, a push notification,
+ * or both. `synced`: the reminder was set on another device of the signed-in
+ * account (the account sync wrote it here); neither way is set on this one.
+ */
 export interface ReminderMemory {
   calendar?: boolean;
   push?: boolean;
+  synced?: boolean;
 }
+
+/** Whether a month's memory says a reminder exists, here or on another device. */
+export const isReminded = (m: ReminderMemory | undefined) => Boolean(m && (m.calendar || m.push || m.synced));
 
 const STORAGE = "mlbb_reminders";
 
@@ -152,13 +161,14 @@ export function readReminders(): Record<string, ReminderMemory> {
 export function writeReminder(month: string, memory: ReminderMemory | null, now = Date.now()) {
   try {
     const all = readReminders();
-    if (memory && (memory.calendar || memory.push)) all[month] = memory;
+    if (isReminded(memory ?? undefined)) all[month] = memory!;
     else delete all[month];
     for (const key of Object.keys(all)) {
       const start = monthStart(key);
       if (start === null || now - start > LATE_TOLERANCE_MS) delete all[key];
     }
     localStorage.setItem(STORAGE, JSON.stringify(all));
+    signalProgress();
   } catch {
     /* storage refused: the reminder still exists, only its badge is forgotten */
   }

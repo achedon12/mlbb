@@ -56,6 +56,7 @@ const NOT_IN_MENUS: Record<string, string> = {
   "/login": "the account button of the header",
   "/offline": "the service worker, when the network is down",
   "/account/profile": "the account page",
+  "/account/progress": "the account page, the sign-in page and the header for a Discord login",
   "/community/moderation": "moderators only, from the forum",
   "/community/search": "the forum's search field",
   "/bot": "the community panel, only when the bot is deployed",

@@ -10,14 +10,14 @@ import { addressOf, limitByMinute } from "@/lib/push-server";
 /**
  * Starts the Discord login: a fresh state and PKCE verifier, sealed in a
  * short cookie scoped to `/api/discord`, then off to Discord's consent page.
- * `?locale=` and `?next=dashboard|admin|moderation|community|account` only choose which of
+ * `?locale=` and `?next=dashboard|admin|moderation|community|account|progress` only choose which of
  * the site's own pages the callback returns to; with `community`, `?back=` a
  * community page (checked against `COMMUNITY_RETURN`, dropped otherwise).
  */
 export const dynamic = "force-dynamic";
 
 const allowed = limitByMinute(20);
-const NEXT = ["dashboard", "admin", "moderation", "community", "account"] as const;
+const NEXT = ["dashboard", "admin", "moderation", "community", "account", "progress"] as const;
 
 export async function GET(request: Request) {
   const config = botConfig();

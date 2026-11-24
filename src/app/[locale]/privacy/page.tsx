@@ -50,6 +50,7 @@ const STORAGE: { keys: string[]; key: string }[] = [
   { keys: ["mlbb_favoris"], key: "favourites" },
   { keys: ["mlbb_push"], key: "push" },
   { keys: ["mlbbdex:collection", "mlbbdex:collection-sync"], key: "collection" },
+  { keys: ["mlbbdex:account-sync", "mlbbdex:account-sync-off", "mlbbdex:account-prompt", "mlbbdex:account-prompt-session"], key: "progress" },
   { keys: ["mlbb_discord_popup", "mlbb_discord_popup_session"], key: "popup" },
   { keys: ["mlbbdle_*", "mlbb_quiz_*"], key: "games" },
   { keys: ["mlbb_tier_liste", "mlbb_tier_precedente"], key: "tierList" },
@@ -57,7 +58,7 @@ const STORAGE: { keys: string[]; key: string }[] = [
   { keys: ["mlbb_chatiment"], key: "retribution" },
 ];
 
-const RETENTION = ["audience", "sessions", "community", "builds", "collection", "dataReports", "push", "bot", "profileCard", "logs", "backups", "rateLimits"];
+const RETENTION = ["audience", "sessions", "community", "builds", "collection", "progress", "dataReports", "push", "bot", "profileCard", "logs", "backups", "rateLimits"];
 const RECIPIENTS = ["host", "matomo", "discord", "moonton", "push", "votes"];
 
 export default async function PrivacyPage({ params }: Params) {
@@ -87,6 +88,7 @@ export default async function PrivacyPage({ params }: Params) {
           { title: t("prose.push.title"), anchor: "notifications-push" },
           { title: t("prose.community.title"), anchor: "community" },
           { title: t("prose.collection.title"), anchor: "skin-collection" },
+          { title: t("prose.progress.title"), anchor: "progress-sync" },
           { title: t("prose.dataReports.title"), anchor: "error-reports" },
           ...(botPublished() ? [{ title: t("prose.bot.title"), anchor: "discord-bot" }] : []),
           { title: t("prose.gdpr.thirdParty.title"), anchor: "third-party" },
@@ -208,6 +210,15 @@ export default async function PrivacyPage({ params }: Params) {
         </ul>
         <p>{t("prose.collection.usage")}</p>
         <p>{t("prose.collection.deletion", { contact: legal.contact })}</p>
+        {/* Progress (favourites, games, reminders): in the browser, and on the account when signed in. */}
+        <h2 id="progress-sync">{t("prose.progress.title")}</h2>
+        <p>{t("prose.progress.intro")}</p>
+        <ul>
+          <li>{t("prose.progress.data")}</li>
+          <li>{t("prose.progress.public")}</li>
+        </ul>
+        <p>{t("prose.progress.usage")}</p>
+        <p>{t("prose.progress.deletion")}</p>
         {/* Error reports on the data pages: anonymous, kept in the database. */}
         <h2 id="error-reports">{t("prose.dataReports.title")}</h2>
         <p>{t("prose.dataReports.text")}</p>
