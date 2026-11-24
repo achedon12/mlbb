@@ -28,7 +28,8 @@
       "sortBy": "Ordina per {column}"
     },
     "joinDiscord": "Unisciti alla Discordia",
-    "discordServer": "Server Discord della comunità MLBBDex"
+    "discordServer": "Server Discord della comunità MLBBDex",
+    "jumpToSection": "Vai ad una sezione"
   },
   "nav": {
     "heroes": {
@@ -451,7 +452,17 @@
       },
       "pageCounters": "Pagina completa dei contro",
       "pageDuos": "Tutti i duo misurati",
-      "duosShort": "Duo"
+      "duosShort": "Duo",
+      "glance": {
+        "title": "In breve",
+        "win": "Vittoria",
+        "pick": "Scelta",
+        "ban": "Ban",
+        "build": "La build più giocata",
+        "buildWin": "{rate}% di vittorie",
+        "counteredBy": "Contrastato da",
+        "jump": "Collegamenti alle sezioni"
+      }
     },
     "items": {
       "title": "Oggetti",
@@ -2442,7 +2453,27 @@
       "overGuide": "Più lungo dei {max} caratteri indicati da una guida: il gioco potrebbe rifiutarlo.",
       "rating": "Alcuni simboli potrebbero apparire come quadratini vuoti nel gioco o essere rifiutati. Il gioco non indica come conta la lunghezza: il contatore mostra entrambe le misure più comuni.",
       "stylesTitle": "Tutti gli stili",
-      "copiedDiscord": "Mostralo su Discord →"
+      "copiedDiscord": "Mostralo su Discord →",
+      "previewTitle": "Anteprima nel gioco",
+      "plateBattle": "In partita, sopra l'eroe",
+      "plateProfile": "Sul profilo",
+      "share": "Condividi",
+      "shareTitle": "Il mio soprannome di Mobile Legends",
+      "shareText": "Soprannome di My Mobile Legends: {nickname}",
+      "linkCopied": "Link copiato: riapre il generatore su questo nickname.",
+      "shareFailed": "Non sono riuscito a condividere il link: copia a mano l'indirizzo della pagina.",
+      "presetsTitle": "Look già pronti",
+      "presetsLead": "Uno stile e una decorazione abbinati, in un tocco.",
+      "preset": {
+        "legend": "Legend",
+        "royal": "Reale",
+        "sniper": "Cecchino",
+        "star": "Stella cadente",
+        "samurai": "Samurai",
+        "neon": "Neon",
+        "warrior": "Warrior",
+        "mystic": "Mistico"
+      }
     },
     "drawCalculator": {
       "title": "Calcolatore di estrazioni MLBB",

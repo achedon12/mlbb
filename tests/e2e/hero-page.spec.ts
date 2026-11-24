@@ -310,6 +310,67 @@ test.describe("report an error", () => {
   });
 });
 
+test.describe("on a phone", () => {
+  test.use({ viewport: { width: 390, height: 844 } });
+
+  /** A section's own header, a button that folds it. */
+  const header = (page: Page, name: RegExp) =>
+    page.getByRole("heading", { level: 2, name }).first().getByRole("button");
+  const chips = (page: Page) => page.getByRole("navigation", { name: /aller [àa] une section/i });
+
+  test("the sections are stacked, the first ones open, the others folded", async ({ page }) => {
+    await page.goto("/fr/heroes/masha");
+    await expect(tabs(page)).toBeHidden();
+    await expect(header(page, /^analyse/i)).toHaveAttribute("aria-expanded", "true");
+    await expect(header(page, /^comp[ée]tences/i)).toHaveAttribute("aria-expanded", "true");
+    await expect(header(page, /^builds/i)).toHaveAttribute("aria-expanded", "false");
+    await expect(header(page, /^apparences/i)).toHaveAttribute("aria-expanded", "false");
+    // A folded section keeps its text in the page.
+    const builds = page.locator(`[id="${await header(page, /^builds/i).getAttribute("aria-controls")}"]`);
+    await expect(builds).toBeHidden();
+    await expect(builds).toContainText(/build/i);
+
+    await expect(async () => {
+      await header(page, /^builds/i).click();
+      await expect(header(page, /^builds/i)).toHaveAttribute("aria-expanded", "true", { timeout: 1_000 });
+    }).toPass();
+    await expect(builds.getByRole("heading", { name: /builds les plus jou[ée]s/i })).toBeVisible();
+    await header(page, /^builds/i).click();
+    await expect(header(page, /^builds/i)).toHaveAttribute("aria-expanded", "false");
+    const width = await page.evaluate(() => document.documentElement.scrollWidth);
+    expect(width).toBeLessThanOrEqual(390);
+  });
+
+  test("the chip row opens a folded section and marks it", async ({ page }) => {
+    await page.goto("/fr/heroes/masha");
+    const stats = chips(page).getByRole("button", { name: /^stats$/i });
+    await expect(async () => {
+      await stats.click();
+      await expect(header(page, /^stats$/i)).toHaveAttribute("aria-expanded", "true", { timeout: 1_000 });
+    }).toPass();
+    await expect(page).toHaveURL(/#stats$/);
+    await expect(stats).toHaveAttribute("aria-current", "true");
+    await expect(chips(page)).toBeInViewport();
+  });
+
+  test("an anchor unfolds its section on arrival", async ({ page }) => {
+    await page.goto("/fr/heroes/masha#counters");
+    await expect(header(page, /^contres/i)).toHaveAttribute("aria-expanded", "true");
+  });
+
+  test("the summary under the poster leads to the builds", async ({ page }) => {
+    await page.goto("/fr/heroes/masha");
+    const glance = page.getByRole("region", { name: /^en bref$/i });
+    await expect(glance).toBeVisible();
+    await expect(glance).toContainText(/victoire/i);
+    await expect(async () => {
+      await glance.getByRole("link", { name: /^builds/i }).last().click();
+      await expect(header(page, /^builds/i)).toHaveAttribute("aria-expanded", "true", { timeout: 1_000 });
+    }).toPass();
+    await expect(page).toHaveURL(/#builds$/);
+  });
+});
+
 test("the sources block names the wikis and the data dates", async ({ page }) => {
   await page.goto("/fr/heroes/masha");
   const sources = page.getByRole("complementary", { name: /^sources$/i });

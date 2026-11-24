@@ -28,7 +28,8 @@
       "sortBy": "I-sort ayon sa {column}"
     },
     "joinDiscord": "Sumali sa Discord",
-    "discordServer": "Discord server ng MLBBDex community"
+    "discordServer": "Discord server ng MLBBDex community",
+    "jumpToSection": "Pumunta sa isang seksyon"
   },
   "nav": {
     "heroes": {
@@ -451,7 +452,17 @@
       },
       "pageCounters": "Buong pahina ng kahinaan",
       "pageDuos": "Lahat ng nasukat na duo",
-      "duosShort": "Mga duo"
+      "duosShort": "Mga duo",
+      "glance": {
+        "title": "Buod",
+        "win": "Win",
+        "pick": "Pick",
+        "ban": "Ban",
+        "build": "Pinaka nilalaro na build",
+        "buildWin": "{rate}% win rate",
+        "counteredBy": "Sinalungat ng",
+        "jump": "Mga shortcut sa mga seksyon"
+      }
     },
     "items": {
       "title": "Mga item",
@@ -2442,7 +2453,27 @@
       "overGuide": "Mas mahaba sa {max} character na sinabi ng isang guide: maaaring tanggihan ito ng laro.",
       "rating": "Maaaring lumabas na blangkong kahon ang ilang simbolo sa laro, o tanggihan. Hindi inilalathala ng laro kung paano nito binibilang ang haba: ibinibigay ng counter ang dalawang karaniwang sukat.",
       "stylesTitle": "Lahat ng style",
-      "copiedDiscord": "Ipakita sa Discord →"
+      "copiedDiscord": "Ipakita sa Discord →",
+      "previewTitle": "In-game preview",
+      "plateBattle": "Sa laban, sa itaas ng hero",
+      "plateProfile": "Sa profile",
+      "share": "I-share",
+      "shareTitle": "Ang aking palayaw sa Mobile Legends",
+      "shareText": "Aking Mobile Legends palayaw: {nickname}",
+      "linkCopied": "Nakopya ang link: binubuksan muli nito ang generator sa palayaw na ito.",
+      "shareFailed": "Hindi ko maibahagi ang link: kopyahin ang address ng page gamit ang kamay.",
+      "presetsTitle": "Ready-made na hitsura",
+      "presetsLead": "Magkatugmang estilo at dekorasyon, sa isang tap.",
+      "preset": {
+        "legend": "Legend",
+        "royal": "Royal",
+        "sniper": "Sniper",
+        "star": "Shooting star",
+        "samurai": "Samurai",
+        "neon": "Neon",
+        "warrior": "Warrior",
+        "mystic": "Mystical"
+      }
     },
     "drawCalculator": {
       "title": "MLBB Draw Calculator",

@@ -7115,6 +7115,18 @@
     "pages.tierList.poster.label": {
       "fr": "{name}, n°1 de ce classement : palier {tier}, {win} de victoires, {ban} de bans",
       "text": "{name}, No. 1 in this ranking: {tier} tier, {win} win rate, {ban} ban rate"
+    },
+    "pages.nicknameUI.plateBattle": {
+      "fr": "En match, au-dessus du héros",
+      "text": "In a match, above the hero"
+    },
+    "pages.nicknameUI.presetsLead": {
+      "fr": "Un style et une décoration assortis, en une touche.",
+      "text": "A matching style and decoration, in one tap."
+    },
+    "pages.nicknameUI.preset.mystic": {
+      "fr": "Mystique",
+      "text": "Mystic"
     }
   },
   "es": {
@@ -11825,6 +11837,26 @@
     "pages.tierList.next.lists": {
       "fr": "Les autres tier lists",
       "text": "Otras tier lists"
+    },
+    "pages.heroDetail.glance.build": {
+      "fr": "Build le plus joué",
+      "text": "Build más jugado"
+    },
+    "pages.nicknameUI.presetsTitle": {
+      "fr": "Looks prêts à l'emploi",
+      "text": "Looks listos para usar"
+    },
+    "pages.nicknameUI.presetsLead": {
+      "fr": "Un style et une décoration assortis, en une touche.",
+      "text": "Un estilo y una decoración a juego, en un toque."
+    },
+    "pages.nicknameUI.plateBattle": {
+      "fr": "En match, au-dessus du héros",
+      "text": "En partida, sobre el héroe"
+    },
+    "pages.nicknameUI.previewTitle": {
+      "fr": "Aperçu en jeu",
+      "text": "Vista previa en el juego"
     }
   },
   "id": {
@@ -18647,6 +18679,26 @@
     "pages.tierList.next.buildsLead": {
       "fr": "Les trois objets clés les plus joués par le haut du classement.",
       "text": "Tiga item kunci yang paling sering dipakai hero teratas peringkat."
+    },
+    "pages.nicknameUI.share": {
+      "fr": "Partager",
+      "text": "Bagikan"
+    },
+    "pages.nicknameUI.preset.sniper": {
+      "fr": "Sniper",
+      "text": "Sniper"
+    },
+    "pages.nicknameUI.preset.royal": {
+      "fr": "Royal",
+      "text": "Royal"
+    },
+    "pages.heroDetail.glance.counteredBy": {
+      "fr": "Contré par",
+      "text": "Di-counter oleh"
+    },
+    "pages.nicknameUI.presetsLead": {
+      "fr": "Un style et une décoration assortis, en une touche.",
+      "text": "Gaya dan dekorasi yang serasi, dalam satu ketukan."
     }
   },
   "it": {
@@ -23397,6 +23449,10 @@
     "pages.tierList.next.lists": {
       "fr": "Les autres tier lists",
       "text": "Altre tier list"
+    },
+    "pages.nicknameUI.presetsLead": {
+      "fr": "Un style et une décoration assortis, en une touche.",
+      "text": "Uno stile e una decorazione abbinati, in un tocco."
     }
   },
   "fil": {
@@ -38543,6 +38599,10 @@
     "pages.tierList.next.draft": {
       "fr": "Pickez et bannissez ces héros dans une draft classée.",
       "text": "I-pick at i-ban ang mga hero na ito sa isang ranked draft."
+    },
+    "pages.nicknameUI.presetsLead": {
+      "fr": "Un style et une décoration assortis, en une touche.",
+      "text": "Magkatugmang estilo at dekorasyon, sa isang tap."
     }
   },
   "th": {
@@ -52653,6 +52713,14 @@
     "pages.tierList.next.tools": {
       "fr": "Passer à la pratique",
       "text": "ลองใช้งานจริง"
+    },
+    "pages.nicknameUI.presetsTitle": {
+      "fr": "Looks prêts à l'emploi",
+      "text": "ลุคสำเร็จรูป"
+    },
+    "pages.heroDetail.glance.counteredBy": {
+      "fr": "Contré par",
+      "text": "โดนเคาน์เตอร์โดย"
     }
   },
   "pt": {
@@ -64655,6 +64723,18 @@
     "pages.tierList.next.tools": {
       "fr": "Passer à la pratique",
       "text": "Coloque em prática"
+    },
+    "pages.nicknameUI.presetsLead": {
+      "fr": "Un style et une décoration assortis, en une touche.",
+      "text": "Um estilo e uma decoração combinando, num toque."
+    },
+    "pages.nicknameUI.previewTitle": {
+      "fr": "Aperçu en jeu",
+      "text": "Prévia no jogo"
+    },
+    "pages.heroDetail.glance.counteredBy": {
+      "fr": "Contré par",
+      "text": "Counterado por"
     }
   },
   "ru": {
@@ -78121,6 +78201,14 @@
     "pages.tierList.next.tools": {
       "fr": "Passer à la pratique",
       "text": "Применить на практике"
+    },
+    "pages.nicknameUI.presetsLead": {
+      "fr": "Un style et une décoration assortis, en une touche.",
+      "text": "Стиль и украшение в паре — одним касанием."
+    },
+    "pages.heroDetail.glance.counteredBy": {
+      "fr": "Contré par",
+      "text": "Его контрят"
     }
   }
 }

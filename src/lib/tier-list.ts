@@ -111,6 +111,7 @@ export const rankingFull = rankEntries(RATE);
 export interface StatsRank {
   winRate: number;
   banRate: number;
+  pickRate: number;
   tier: Tier;
 }
 
@@ -134,7 +135,7 @@ export function statsByRank(
   for (const [rank, entries] of RANKINGS_BY_RANK) {
     const e = entries.get(slug);
     if (e)
-      output[rank] = { winRate: e.winRate, banRate: e.banRate, tier: e.tier };
+      output[rank] = { winRate: e.winRate, banRate: e.banRate, pickRate: e.pickRate, tier: e.tier };
   }
   return output;
 }

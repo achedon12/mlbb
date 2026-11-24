@@ -31,6 +31,7 @@ import { durationOf, historyOf, trendsOf } from "@/lib/evolution";
 import { Tabs } from "@/components/tabs";
 import { ScrollDepth } from "@/components/scroll-depth";
 import { HeroFeedLink } from "@/components/hero-feed-link";
+import { HeroGlance } from "@/components/hero-glance";
 
 import {
   ShowcaseArt,
@@ -355,6 +356,46 @@ export default async function HeroPage({ params }: Params) {
       </section>
     ) : null;
 
+  // The hero at a glance, under the poster on a phone: rates, tier, the most
+  // played build and the two worst matchups, each leading to its section.
+  const glanceJumps = [
+    { id: "skills", label: t("pages.heroDetail.tab.skills") },
+    ...(hasCounters || hasTeammates || analysis ? [{ id: "counters", label: t("pages.heroDetail.tab.counters") }] : []),
+    ...(hasBuilds || analysis ? [{ id: "builds", label: t("pages.heroDetail.tab.builds") }] : []),
+    { id: "stats", label: t("pages.heroDetail.tab.stats") },
+  ];
+  const glance = (
+    <HeroGlance
+      slug={h.slug}
+      roles={h.roles.map((r) => t(`roles.${r}`))}
+      lanes={h.lanes.map((l) => t(`lanes.${l}`))}
+      stats={mapValues(statsRanks, (s) => ({
+        winRate: percent.format(s.winRate),
+        pickRate: percent.format(s.pickRate),
+        banRate: percent.format(s.banRate),
+        tier: s.tier,
+      }))}
+      build={
+        reference && reference.items.length > 0
+          ? {
+              items: reference.items.map((o) => ({
+                name: namesItems.get(visualItem(o).slug ?? "") ?? o,
+                image: visualItem(o).image,
+              })),
+              emblem: reference.emblem
+                ? { name: nameEmblem(reference.emblem), image: visualEmblem(reference.emblem).image }
+                : null,
+              winRate: reference.winRate !== null ? percent.format(reference.winRate) : null,
+            }
+          : null
+      }
+      countersByRank={mapValues(countersShown, (c) =>
+        c.weak.slice(0, 2).map((x) => ({ slug: x.slug, name: x.name, portrait: x.portrait })),
+      )}
+      jumps={glanceJumps}
+    />
+  );
+
   // Dex reacts to the hero's standing: cheers at the top of the tier list, worries at its foot.
   const dexLine = rankedEntry ? dexReaction(t, h.name, rankedEntry.tier) : null;
 
@@ -518,6 +559,7 @@ export default async function HeroPage({ params }: Params) {
           )}
         </div>
       </PosterParallax>
+      <div className="page-wrap lg:hidden">{glance}</div>
 
       {/* ── Facts, rank and ratings ───────────────────────────────────────
         The portrait follows the skin chosen in the gallery; the facts follow
@@ -590,6 +632,10 @@ export default async function HeroPage({ params }: Params) {
         <Tabs
           aliases={TAB_ALIASES}
           trackAs="Hero page"
+          // On a phone, stacked sections: the analysis and the skills open,
+          // the rest folded so that the end of the page stays within reach.
+          sectionsOnMobile
+          openOnMobile={["analysis", "skills"]}
           tabs={[
             {
               id: "analysis",
