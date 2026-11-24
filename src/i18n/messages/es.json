@@ -6483,6 +6483,8 @@
     "hero1": "Los cambios se clasifican en la parte superior de la hoja: le siguen tasas, contadores y compilaciones.",
     "hero2": "La pestaña Contadores muestra sus peores y mejores duelos.",
     "hero3": "Agréguelo como favorito para recibir notificaciones de cada parche.",
+    "heroTop": "{name} está en el nivel {tier} ahora mismo: ¡es el momento de aprovecharlo en clasificatoria!",
+    "heroLow": "{name} está en el nivel C ahora mismo… Echa un vistazo a sus counters antes de empezar una partida.",
     "tierList1": "El nivel combina la tasa de victorias y una cuarta parte de la tasa de prohibición.",
     "tierList2": "Filtrar por rango: el meta de Epic no es el de Mythic Glory.",
     "tierList3": "Un héroe que se juega muy poco no se clasifica, la medición sería inestable.",

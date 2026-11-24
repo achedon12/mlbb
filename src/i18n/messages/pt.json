@@ -6483,6 +6483,8 @@
     "hero1": "As alterações são classificadas no topo da planilha: seguem taxas, counters e builds.",
     "hero2": "A aba Counters mostra seus piores e melhores duelos.",
     "hero3": "Adicione-o como favorito para ser notificado sobre cada patch.",
+    "heroTop": "{name} está no tier {tier} agora: é hora de aproveitar na ranqueada!",
+    "heroLow": "{name} está no tier C agora… Dê uma olhada nos counters antes de começar uma partida.",
     "tierList1": "O nível combina a taxa de vitória e um quarto da taxa de ban.",
     "tierList2": "Filtre por classificação: o meta do Epic não é o do Mythic Glory.",
     "tierList3": "Um herói que é jogado muito pouco não é classificado, a medição seria instável.",

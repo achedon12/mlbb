@@ -6483,6 +6483,8 @@
     "hero1": "Perubahan peringkat di bagian atas lembar: tarif, counter, dan build mengikuti.",
     "hero2": "Tab Counters menunjukkan duel terburuk dan terbaiknya.",
     "hero3": "Tambahkan sebagai favorit untuk diberitahu tentang setiap patch.",
+    "heroTop": "{name} sedang di tier {tier}: saatnya memakainya di ranked!",
+    "heroLow": "{name} sedang di tier C… Lihat dulu counternya sebelum mulai bermain.",
     "tierList1": "Tingkat tersebut menggabungkan win rate dan seperempat ban rate.",
     "tierList2": "Filter berdasarkan peringkat: meta Epic bukanlah meta Mythic Glory.",
     "tierList3": "Hero yang dimainkan terlalu sedikit tidak di-ranking, maka pengukurannya akan tidak stabil.",

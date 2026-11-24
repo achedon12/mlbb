@@ -3,6 +3,7 @@ import { PageSourcesBlock } from "@/components/page-sources";
 import { newestFirst } from "@/lib/patch-version";
 import { DiscordInvite } from "@/components/discord-invite";
 import type { Metadata } from "next";
+import type { CSSProperties } from "react";
 import { ExtendMessages } from "@/i18n/provider";
 import { LOCALE_HTML } from "@/i18n/config";
 import { serializeJsonLd } from "@/lib/html";
@@ -41,6 +42,11 @@ import {
 import { BadgeTier, Card, Gauge, Score } from "@/components/ui";
 import { HeroPortrait } from "@/components/hero-portrait";
 import { RoleBadge } from "@/components/role-badge";
+import { DexSays } from "@/components/mascot";
+import { dexReaction } from "@/lib/dex-reaction";
+import { Cascade, PosterParallax } from "@/components/hero-cinematic";
+import { accentStyle, heroAccent } from "@/lib/hero-accent";
+import { heroMorph } from "@/lib/hero-morph";
 import {
   buildsPlayed,
   teammates,
@@ -191,6 +197,8 @@ export default async function HeroPage({ params }: Params) {
   // The original skin's illustration serves as background: it is the one that
   // shows the hero as met by default.
   const background = Object.values(illustrationsHero)[0] ?? null;
+  // The hero's colour, from the artwork shown as the poster (already filtered).
+  const accent = heroAccent(background);
   const story = stories(locale)[h.slug] ?? null;
   const hasStory =
     !!story && (story.lore.length > 0 || !!story.profile || story.trivia.length > 0);
@@ -347,6 +355,9 @@ export default async function HeroPage({ params }: Params) {
       </section>
     ) : null;
 
+  // Dex reacts to the hero's standing: cheers at the top of the tier list, worries at its foot.
+  const dexLine = rankedEntry ? dexReaction(t, h.name, rankedEntry.tier) : null;
+
   const history = historyOf(h.slug);
   const structuredData = {
     "@context": "https://schema.org",
@@ -385,31 +396,39 @@ export default async function HeroPage({ params }: Params) {
         as well as the large illustration.
       */}
       <ShowcaseProvider skins={skinsFull} portraitDefault={h.images.portrait}>
+      {/* The hero's colour for the whole page (`.hero-accent`, globals.css). */}
+      <div className="hero-accent" style={accentStyle(accent) as CSSProperties}>
       <RankProvider ranks={ranksAvailable}>
       {/* ── Poster ───────────────────────────────────────────────────────
         The official artwork across the page, the name in giant slanted
         capitals over its foot, the tier crest and the one big figure (the
         win rate at the chosen rank, the ban rate outlined beside it). The
         art's frame has its height before the image arrives: nothing moves.
+        Built in layers (art, the hero's light, vignette, name) that drift at
+        their own depth with the pointer and the scroll (PosterParallax).
       */}
-      <section aria-labelledby="hero-name" className="relative isolate overflow-hidden">
-        <div aria-hidden className="relative h-[21rem] sm:h-[28rem] lg:h-[34rem] xl:h-[38rem]">
-          {background ? (
-            <ShowcaseArt
-              fallback={background}
-              sizes="100vw"
-              // The banner is much wider than the illustration is tall:
-              // framing at the top would only show the sky. We aim at the
-              // upper third, where the character is.
-              className="affiche-art object-cover object-[50%_28%]"
-            />
-          ) : (
-            h.images.portrait && (
-              <span className="absolute inset-y-0 right-[6%] aspect-[240/390]">
-                <Image src={h.images.portrait} alt="" fill priority sizes="(min-width: 640px) 24rem, 60vw" className="affiche-art object-cover" />
-              </span>
-            )
-          )}
+      <PosterParallax aria-labelledby="hero-name" className="relative isolate overflow-hidden">
+        <div aria-hidden className="relative h-[22rem] overflow-hidden sm:h-[30rem] lg:h-[37rem] xl:h-[41rem]">
+          <div className="cine-art absolute inset-0">
+            {background ? (
+              <ShowcaseArt
+                fallback={background}
+                sizes="100vw"
+                // The banner is much wider than the illustration is tall:
+                // framing at the top would only show the sky. We aim at the
+                // upper third, where the character is.
+                className="affiche-art object-cover object-[50%_28%]"
+              />
+            ) : (
+              h.images.portrait && (
+                <span className="absolute inset-y-0 right-[6%] aspect-[240/390]">
+                  <Image src={h.images.portrait} alt="" fill priority sizes="(min-width: 640px) 24rem, 60vw" className="affiche-art object-cover" />
+                </span>
+              )
+            )}
+          </div>
+          <div className="cine-light absolute -inset-8" />
+          <div className="cine-vignette absolute inset-0" />
           {/*
             Night closing in from the foot, where the name sits, and from `lg`
             on the left: the contrast of the text no longer depends on the
@@ -418,6 +437,7 @@ export default async function HeroPage({ params }: Params) {
           <div className="absolute inset-x-0 bottom-0 h-4/5 bg-linear-to-t from-night-950 via-night-950/75 to-transparent" />
           <div className="absolute inset-y-0 left-0 hidden w-3/5 bg-linear-to-r from-night-950/85 to-transparent lg:block" />
           <div className="absolute inset-x-0 top-0 h-24 bg-linear-to-b from-night-950/70 to-transparent" />
+          <div className="cine-edge absolute inset-x-0 bottom-0" />
         </div>
 
         {/* The breadcrumb floats over the art. The role crumb leads to the role page; the hero crumb opens the others. */}
@@ -437,21 +457,30 @@ export default async function HeroPage({ params }: Params) {
         </div>
 
         <div className="page-wrap relative -mt-36 grid gap-x-12 gap-y-6 pb-8 sm:-mt-48 sm:pb-10 lg:-mt-64 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
-          <div className="min-w-0">
-            {h.title && <p className="font-heading text-lg font-bold uppercase text-gold-400 sm:text-xl">{h.title}</p>}
+          <div className="cine-name min-w-0">
+            {h.title && <p className="hero-accent-text font-heading text-lg font-bold uppercase sm:text-xl">{h.title}</p>}
             <h1 id="hero-name" className="affiche-name type-giant mt-1 break-words text-chalk-100">
               {h.name}
             </h1>
-            <div className="mt-5 flex flex-wrap gap-1.5">
-              {h.roles.map((r) => (
-                <RoleBadge key={r} role={r} />
-              ))}
-              {h.specialties.map((s) => (
-                <span key={s} className="bevel-sm bg-night-900/80 px-2 py-0.5 font-heading text-[0.8rem] font-bold uppercase leading-tight text-chalk-400">
-                  {heroLabel(t, "specialty", s)}
+            <Cascade className="mt-5 flex flex-wrap gap-1.5">
+              {[
+                ...h.roles.map((r) => <RoleBadge key={r} role={r} />),
+                ...h.lanes.map((l) => (
+                  <span key={l} className="cine-chip bevel-sm bg-night-800 px-2 py-0.5 font-heading text-[0.8rem] font-bold uppercase leading-tight text-chalk-100">
+                    {t(`lanes.${l}`)}
+                  </span>
+                )),
+                ...h.specialties.map((s) => (
+                  <span key={s} className="bevel-sm bg-night-900/80 px-2 py-0.5 font-heading text-[0.8rem] font-bold uppercase leading-tight text-chalk-400">
+                    {heroLabel(t, "specialty", s)}
+                  </span>
+                )),
+              ].map((chip, i) => (
+                <span key={chip.key} className="inline-flex" style={{ "--i": i } as CSSProperties}>
+                  {chip}
                 </span>
               ))}
-            </div>
+            </Cascade>
             <div className="mt-5 flex flex-wrap items-center gap-2">
               <FavouriteButton hero={h.slug} />
               <Link href={`/compare?a=${h.slug}`} className="btn btn-secondary btn-sm">
@@ -462,9 +491,11 @@ export default async function HeroPage({ params }: Params) {
           </div>
 
           {rankedEntry && (
-            <div className="flex flex-wrap items-end gap-x-4 gap-y-3 sm:gap-x-6">
-              <BadgeTier tier={rankedEntry.tier} size="lg" className="mb-2" />
-              <p className="min-w-0">
+            <Cascade className="flex flex-wrap items-end gap-x-4 gap-y-3 sm:gap-x-6">
+              <span className="mb-2 [--i:2]">
+                <BadgeTier tier={rankedEntry.tier} size="lg" />
+              </span>
+              <p className="min-w-0 [--i:3]">
                 <Score
                   value={<ValueByRank values={{ all: percent.format(rankedEntry.winRate), ...valuesByRank((s) => percent.format(s.winRate)) }} />}
                   unit="%"
@@ -474,7 +505,7 @@ export default async function HeroPage({ params }: Params) {
                   {t("pages.heroDetail.stat.winRate")} · <ValueByRank values={rankNames} />
                 </span>
               </p>
-              <p className="min-w-0 pb-7">
+              <p className="min-w-0 pb-7 [--i:4]">
                 <Score
                   outline
                   value={<ValueByRank values={{ all: percent.format(rankedEntry.banRate), ...valuesByRank((s) => percent.format(s.banRate)) }} />}
@@ -483,63 +514,73 @@ export default async function HeroPage({ params }: Params) {
                 />
                 <span className="mt-1.5 block text-sm text-chalk-400">{t("pages.heroDetail.stat.banRate")}</span>
               </p>
-            </div>
+            </Cascade>
           )}
         </div>
-      </section>
+      </PosterParallax>
 
       {/* ── Facts, rank and ratings ───────────────────────────────────────
         The portrait follows the skin chosen in the gallery; the facts follow
-        the rank picked here, as the counters and builds below do.
+        the rank picked here, as the counters and builds below do. Facts and
+        gauges come in one after the other when they reach the screen.
       */}
       <div className="page-wrap">
         <div aria-hidden className="eclat-rule" />
         <div className="grid grid-cols-[auto_minmax(0,1fr)] gap-x-6 gap-y-6 py-6 sm:gap-x-10 sm:py-8 xl:grid-cols-[auto_minmax(0,1fr)_19rem]">
-          <ShowcasePortrait name={h.name} portraitDefault={h.images.portrait} />
+          <ShowcasePortrait name={h.name} portraitDefault={h.images.portrait} morph={heroMorph(h.slug)} />
           <div className="order-3 col-span-2 min-w-0 sm:order-none sm:col-span-1">
-            <dl className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-8">
-              {[
-                [t("pages.heroDetail.stat.position"), h.lanes.map((l) => t(`lanes.${l}`)).join(", ")],
-                [t("pages.heroDetail.stat.tierList"), rankedEntry ? <ValueByRank values={valuesByRank((s) => t("pages.heroDetail.tier", { p: s.tier }))} /> : null],
-                [t("pages.heroDetail.stat.release"), releaseDate(h.release, locale, t)],
-                [t("pages.heroDetail.stat.resource"), heroLabel(t, "resource", h.resource)],
-                [t("pages.heroDetail.stat.damage"), heroLabel(t, "damage", h.damageType)],
-                [t("pages.heroDetail.stat.range"), heroLabel(t, "attack", h.attackType)],
-                [t("pages.heroDetail.stat.region"), heroLabel(t, "region", h.region)],
-                [t("pages.heroDetail.stat.skins"), h.skins.length || null],
-              ].map(([label, value]) =>
-                !value ? null : (
-                  <div key={String(label)} className="min-w-0">
+            <Cascade as="dl" className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-8">
+              {(
+                [
+                  [t("pages.heroDetail.stat.position"), h.lanes.map((l) => t(`lanes.${l}`)).join(", ")],
+                  [t("pages.heroDetail.stat.tierList"), rankedEntry ? <ValueByRank values={valuesByRank((s) => t("pages.heroDetail.tier", { p: s.tier }))} /> : null],
+                  [t("pages.heroDetail.stat.release"), releaseDate(h.release, locale, t)],
+                  [t("pages.heroDetail.stat.resource"), heroLabel(t, "resource", h.resource)],
+                  [t("pages.heroDetail.stat.damage"), heroLabel(t, "damage", h.damageType)],
+                  [t("pages.heroDetail.stat.range"), heroLabel(t, "attack", h.attackType)],
+                  [t("pages.heroDetail.stat.region"), heroLabel(t, "region", h.region)],
+                  [t("pages.heroDetail.stat.skins"), h.skins.length || null],
+                ] as const
+              )
+                .filter(([, value]) => !!value)
+                .map(([label, value], i) => (
+                  <div key={String(label)} className="min-w-0" style={{ "--i": i } as CSSProperties}>
                     <dt className="text-xs text-chalk-500">{label}</dt>
                     <dd className="mt-0.5 font-heading text-lg font-bold leading-tight text-chalk-100">{value}</dd>
                   </div>
-                ),
-              )}
-            </dl>
+                ))}
+            </Cascade>
             {/* Rank for the whole hero page: rates, counters and builds follow it. */}
             <RankPicker className="mt-6" />
             <FreshnessLine locale={locale} className="mt-4" />
           </div>
 
-          {/* In-game ratings, as notched gauges rather than bare figures. */}
-          <dl className="order-2 grid min-w-0 content-start gap-2.5 self-center sm:order-none sm:col-span-2 xl:col-span-1 xl:self-start">
-            {[
-              [t("pages.heroDetail.ratings.offense"), h.ratings.offense],
-              [t("pages.heroDetail.ratings.durability"), h.ratings.durability],
-              [t("pages.heroDetail.ratings.effects"), h.ratings.abilityEffects],
-              [t("pages.heroDetail.ratings.difficulty"), h.ratings.difficulty],
-            ].map(([label, value]) =>
-              value === null ? null : (
-                <div key={String(label)} className="flex items-center gap-3">
+          {/* In-game ratings, as notched gauges rather than bare figures, lit in the hero's colour. */}
+          <Cascade as="dl" className="order-2 grid min-w-0 content-start gap-2.5 self-center sm:order-none sm:col-span-2 xl:col-span-1 xl:self-start">
+            {(
+              [
+                [t("pages.heroDetail.ratings.offense"), h.ratings.offense],
+                [t("pages.heroDetail.ratings.durability"), h.ratings.durability],
+                [t("pages.heroDetail.ratings.effects"), h.ratings.abilityEffects],
+                [t("pages.heroDetail.ratings.difficulty"), h.ratings.difficulty],
+              ] as const
+            )
+              .filter(([, value]) => value !== null)
+              .map(([label, value], i) => (
+                <div key={String(label)} className="flex items-center gap-3" style={{ "--i": i } as CSSProperties}>
                   <dt className="w-24 shrink-0 font-heading text-sm font-bold uppercase text-chalk-400 sm:w-28">{label}</dt>
                   <dd className="flex-1">
-                    <Gauge value={Number(value)} />
+                    <Gauge value={Number(value)} accent />
                   </dd>
                 </div>
-              ),
-            )}
-          </dl>
+              ))}
+          </Cascade>
         </div>
+        {dexLine && (
+          <DexSays pose={dexLine.pose} height={84} className="mb-6">
+            {dexLine.text}
+          </DexSays>
+        )}
         <div aria-hidden className="eclat-rule" />
       </div>
 
@@ -846,6 +887,7 @@ export default async function HeroPage({ params }: Params) {
         <ReportError messages={messagesPage(locale, ["pages.reportError"])} path={`/heroes/${h.slug}`} className="mt-6" />
       </div>
       </RankProvider>
+      </div>
       </ShowcaseProvider>
     </ExtendMessages>
   );

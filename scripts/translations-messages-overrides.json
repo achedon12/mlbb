@@ -6347,6 +6347,14 @@
     "footer.methodology": {
       "fr": "Méthode et sources",
       "text": "Methodology and sources"
+    },
+    "dex.heroTop": {
+      "fr": "{name} est en palier {tier} en ce moment : c'est le moment d'en profiter en classé !",
+      "text": "{name} is {tier} tier right now: a great time to take it into ranked!"
+    },
+    "dex.heroLow": {
+      "fr": "{name} est en palier C en ce moment… Jette un œil à ses contres avant de lancer une partie.",
+      "text": "{name} is C tier right now… Check the counters before you start a game."
     }
   },
   "es": {
@@ -10913,6 +10921,14 @@
     "og.homeLine": {
       "fr": "Héros, builds, tier list, objets et patch notes, à jour à chaque patch.",
       "text": "Héroes, builds, tier list, objetos y notas del parche, al día en cada parche."
+    },
+    "dex.heroTop": {
+      "fr": "{name} est en palier {tier} en ce moment : c'est le moment d'en profiter en classé !",
+      "text": "{name} está en el nivel {tier} ahora mismo: ¡es el momento de aprovecharlo en clasificatoria!"
+    },
+    "dex.heroLow": {
+      "fr": "{name} est en palier C en ce moment… Jette un œil à ses contres avant de lancer une partie.",
+      "text": "{name} está en el nivel C ahora mismo… Echa un vistazo a sus counters antes de empezar una partida."
     }
   },
   "id": {
@@ -17611,6 +17627,14 @@
     "og.banned": {
       "fr": "Le plus banni",
       "text": "Paling di-ban"
+    },
+    "dex.heroTop": {
+      "fr": "{name} est en palier {tier} en ce moment : c'est le moment d'en profiter en classé !",
+      "text": "{name} sedang di tier {tier}: saatnya memakainya di ranked!"
+    },
+    "dex.heroLow": {
+      "fr": "{name} est en palier C en ce moment… Jette un œil à ses contres avant de lancer une partie.",
+      "text": "{name} sedang di tier C… Lihat dulu counternya sebelum mulai bermain."
     }
   },
   "it": {
@@ -22229,6 +22253,14 @@
     "og.homeLine": {
       "fr": "Héros, builds, tier list, objets et patch notes, à jour à chaque patch.",
       "text": "Eroi, build, tier list, oggetti e patch notes, aggiornati a ogni patch."
+    },
+    "dex.heroTop": {
+      "fr": "{name} est en palier {tier} en ce moment : c'est le moment d'en profiter en classé !",
+      "text": "{name} è nel tier {tier} in questo momento: è il momento di approfittarne in classificata!"
+    },
+    "dex.heroLow": {
+      "fr": "{name} est en palier C en ce moment… Jette un œil à ses contres avant de lancer une partie.",
+      "text": "{name} è nel tier C in questo momento… Dai un'occhiata ai suoi counter prima di iniziare una partita."
     }
   },
   "fil": {
@@ -37251,6 +37283,14 @@
     "prose.methodology.blocks.1.p": {
       "fr": "MLBBDex n'a accès à aucune donnée privée de Moonton. Tout ce qu'il affiche vient de sources publiques, relues par des scripts du dépôt, ou de ce que le site calcule et écrit lui-même.",
       "text": "Walang access ang MLBBDex sa anumang pribadong data ng Moonton. Lahat ng ipinapakita nito ay nagmumula sa mga pampublikong mapagkukunan, muling binasa ng mga script mula sa repositoryo, o mula sa kung ano ang kinakalkula at isinusulat mismo ng site."
+    },
+    "dex.heroTop": {
+      "fr": "{name} est en palier {tier} en ce moment : c'est le moment d'en profiter en classé !",
+      "text": "Nasa tier {tier} si {name} ngayon: magandang pagkakataon para gamitin sa ranked!"
+    },
+    "dex.heroLow": {
+      "fr": "{name} est en palier C en ce moment… Jette un œil à ses contres avant de lancer une partie.",
+      "text": "Nasa tier C si {name} ngayon… Silipin muna ang mga counter bago magsimula ng laro."
     }
   },
   "th": {
@@ -63143,6 +63183,14 @@
     "og.banned": {
       "fr": "Le plus banni",
       "text": "Mais banido"
+    },
+    "dex.heroTop": {
+      "fr": "{name} est en palier {tier} en ce moment : c'est le moment d'en profiter en classé !",
+      "text": "{name} está no tier {tier} agora: é hora de aproveitar na ranqueada!"
+    },
+    "dex.heroLow": {
+      "fr": "{name} est en palier C en ce moment… Jette un œil à ses contres avant de lancer une partie.",
+      "text": "{name} está no tier C agora… Dê uma olhada nos counters antes de começar uma partida."
     }
   },
   "ru": {
@@ -76485,6 +76533,14 @@
     "og.banned": {
       "fr": "Le plus banni",
       "text": "Чаще всех банят"
+    },
+    "dex.heroTop": {
+      "fr": "{name} est en palier {tier} en ce moment : c'est le moment d'en profiter en classé !",
+      "text": "{name} сейчас в тире {tier}: самое время взять его в рейтинг!"
+    },
+    "dex.heroLow": {
+      "fr": "{name} est en palier C en ce moment… Jette un œil à ses contres avant de lancer une partie.",
+      "text": "{name} сейчас в тире C… Посмотри контрпики, прежде чем начинать игру."
     }
   }
 }

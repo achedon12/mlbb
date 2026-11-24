@@ -6483,6 +6483,8 @@
     "hero1": "Changes rank at the top of the sheet: rates, counters and builds follow.",
     "hero2": "The Counters tab shows his worst and best duels.",
     "hero3": "Add it as a favorite to be notified of each patch.",
+    "heroTop": "{name} is {tier} tier right now: a great time to take it into ranked!",
+    "heroLow": "{name} is C tier right now… Check the counters before you start a game.",
     "tierList1": "The tier combines the win rate and a quarter of the ban rate.",
     "tierList2": "Filter by rank: the meta of Epic is not that of Mythic Glory.",
     "tierList3": "A hero who is played too little is not ranked, the measurement would be unstable.",
