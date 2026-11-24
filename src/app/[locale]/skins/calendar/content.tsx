@@ -9,6 +9,7 @@ import Link from "@/components/link";
 import { Pager } from "@/components/pager";
 import { Foldable } from "@/components/foldable";
 import { Score, SectionTitle } from "@/components/ui";
+import { UpcomingReminder } from "@/components/upcoming-reminder";
 import { heroArt, skinArt } from "@/components/hero-art";
 import { DexSays } from "@/components/mascot";
 import { ENTRANCE, PosterHeader } from "@/components/poster-header";
@@ -219,6 +220,7 @@ export function SkinsCalendar({ locale, page = 1 }: { locale: Locale; page?: num
               </p>
             </DexSays>
           )}
+          <UpcomingReminder locale={locale} className="mt-6" />
         </section>
 
         <section id="latest" className="scroll-mt-24">

@@ -6991,6 +6991,530 @@
     "pages.brandKit.kitDownload": {
       "fr": "Télécharger le visuel « {template} » au format {format}",
       "text": "Download the “{template}” visual in {format} format"
+    },
+    "pages.tierList.peek.open": {
+      "fr": "Aperçu : {name}",
+      "text": "Preview: {name}"
+    },
+    "pages.tierList.peek.close": {
+      "fr": "Fermer l'aperçu",
+      "text": "Close the preview"
+    },
+    "pages.tierList.peek.counters": {
+      "fr": "Contré par",
+      "text": "Countered by"
+    },
+    "pages.tierList.peek.items": {
+      "fr": "Build principal",
+      "text": "Core build"
+    },
+    "pages.tierList.peek.full": {
+      "fr": "Guide complet",
+      "text": "Full guide"
+    },
+    "pages.tierList.answer.questionAll": {
+      "fr": "Quels sont les meilleurs héros de MLBB en ce moment ?",
+      "text": "Who are the best MLBB heroes right now?"
+    },
+    "pages.tierList.answer.questionRank": {
+      "fr": "Quels sont les meilleurs héros en {rank} en ce moment ?",
+      "text": "Who are the best heroes in {rank} right now?"
+    },
+    "pages.tierList.answer.questionLane": {
+      "fr": "Quels sont les meilleurs héros en {lane} en ce moment ?",
+      "text": "Who are the best {lane} heroes right now?"
+    },
+    "pages.tierList.answer.questionRole": {
+      "fr": "Quels sont les meilleurs {plural} en ce moment ?",
+      "text": "Who are the best {plural} right now?"
+    },
+    "pages.tierList.answer.answerAll": {
+      "fr": "Meilleurs héros de MLBB en ce moment : {top}.",
+      "text": "Best MLBB heroes right now: {top}."
+    },
+    "pages.tierList.answer.answerRank": {
+      "fr": "Meilleurs héros en {rank} en ce moment : {top}.",
+      "text": "Best heroes in {rank} right now: {top}."
+    },
+    "pages.tierList.answer.answerLane": {
+      "fr": "Meilleurs héros en {lane} en ce moment : {top}.",
+      "text": "Best {lane} heroes right now: {top}."
+    },
+    "pages.tierList.answer.answerRole": {
+      "fr": "Meilleurs {plural} en ce moment : {top}.",
+      "text": "Best {plural} right now: {top}."
+    },
+    "pages.tierList.answer.detail": {
+      "fr": "{first} est n°1 (palier {tier}) avec {winRate} de victoires et {banRate} de bans, sur {n} héros classés au patch {v}, mesure du {date}.",
+      "text": "{first} is No. 1 ({tier} tier) with a {winRate} win rate and a {banRate} ban rate, out of {n} heroes ranked on patch {v}, measured {date}."
+    },
+    "pages.tierList.patch.title": {
+      "fr": "Ce qui a changé ce patch",
+      "text": "What changed this patch"
+    },
+    "pages.tierList.patch.lead": {
+      "fr": "Les plus fortes variations du taux de victoire sur sept jours parmi ces héros, et ceux que le patch a retouchés.",
+      "text": "The biggest seven-day win rate moves among these heroes, and the ones the patch adjusted."
+    },
+    "pages.tierList.patch.rises": {
+      "fr": "En hausse",
+      "text": "Rising"
+    },
+    "pages.tierList.patch.drops": {
+      "fr": "En baisse",
+      "text": "Falling"
+    },
+    "pages.tierList.patch.adjusted": {
+      "fr": "Retouchés au patch {v} ({n})",
+      "text": "Adjusted in patch {v} ({n})"
+    },
+    "pages.tierList.next.titleLane": {
+      "fr": "Vous jouez {lane} ? À voir aussi",
+      "text": "You play {lane}? Also see"
+    },
+    "pages.tierList.next.titleRole": {
+      "fr": "Vous jouez {role} ? À voir aussi",
+      "text": "You play {role}? Also see"
+    },
+    "pages.tierList.next.titleAll": {
+      "fr": "Pour aller plus loin",
+      "text": "Keep exploring"
+    },
+    "pages.tierList.next.counters": {
+      "fr": "Contrer les meilleurs picks",
+      "text": "Counter the top picks"
+    },
+    "pages.tierList.next.countersLead": {
+      "fr": "Les héros contre lesquels le haut du classement perd le plus.",
+      "text": "The heroes the top of the ranking loses to the most."
+    },
+    "pages.tierList.next.builds": {
+      "fr": "Leurs builds",
+      "text": "Their builds"
+    },
+    "pages.tierList.next.buildsLead": {
+      "fr": "Les trois objets clés les plus joués par le haut du classement.",
+      "text": "The three key items the top of the ranking builds most."
+    },
+    "pages.tierList.next.tools": {
+      "fr": "Passer à la pratique",
+      "text": "Put it into practice"
+    },
+    "pages.tierList.next.draft": {
+      "fr": "Pickez et bannissez ces héros dans une draft classée.",
+      "text": "Pick and ban these heroes in a ranked draft."
+    },
+    "pages.tierList.next.lists": {
+      "fr": "Les autres tier lists",
+      "text": "Other tier lists"
+    },
+    "pages.tierList.next.top": {
+      "fr": "N°1 : {name}",
+      "text": "No. 1: {name}"
+    },
+    "pages.tierList.poster.label": {
+      "fr": "{name}, n°1 de ce classement : palier {tier}, {win} de victoires, {ban} de bans",
+      "text": "{name}, No. 1 in this ranking: {tier} tier, {win} win rate, {ban} ban rate"
+    },
+    "pages.nicknameUI.plateBattle": {
+      "fr": "En match, au-dessus du héros",
+      "text": "In a match, above the hero"
+    },
+    "pages.nicknameUI.presetsLead": {
+      "fr": "Un style et une décoration assortis, en une touche.",
+      "text": "A matching style and decoration, in one tap."
+    },
+    "pages.nicknameUI.preset.mystic": {
+      "fr": "Mystique",
+      "text": "Mystic"
+    },
+    "pages.heroDetail.answer.summary": {
+      "fr": "{name} ({kind}) est au palier {tier} avec {winRate} de victoires, tous rangs confondus, au patch {v} (mesure du {date}).",
+      "text": "{name} ({kind}) is {tier} tier with a {winRate} win rate across all ranks on patch {v}, measured {date}."
+    },
+    "pages.heroDetail.answer.summaryNoRate": {
+      "fr": "{name} ({kind}) n'est pas encore assez joué en partie classée pour être mesuré.",
+      "text": "{name} ({kind}) is not played enough in ranked games to be measured yet."
+    },
+    "pages.heroDetail.answer.counters": {
+      "fr": "Les héros qui contrent le mieux {name}, tous rangs confondus : {counters}.",
+      "text": "The heroes that counter {name} best, all ranks combined: {counters}."
+    },
+    "pages.heroDetail.answer.faqGood": {
+      "fr": "{name} est-il bon au patch actuel ?",
+      "text": "Is {name} good in the current patch?"
+    },
+    "pages.heroDetail.answer.faqCounters": {
+      "fr": "Qui contre {name} ?",
+      "text": "Who counters {name}?"
+    },
+    "pages.heroDetail.answer.faqBuild": {
+      "fr": "Quel est le meilleur build pour {name} ?",
+      "text": "What is the best build for {name}?"
+    },
+    "pages.heroDetail.answer.build": {
+      "fr": "Le build le plus joué sur {name}, tous rangs confondus : {items}.",
+      "text": "The most played {name} build, all ranks combined: {items}."
+    },
+    "pages.heroDetail.answer.buildEmblem": {
+      "fr": "Le build le plus joué sur {name}, tous rangs confondus : {items}, avec l'emblème {emblem}.",
+      "text": "The most played {name} build, all ranks combined: {items}, with the {emblem} emblem."
+    },
+    "pages.quizUI.share": {
+      "fr": "Partager en texte",
+      "text": "Share as text"
+    },
+    "pages.quizUI.shareScore": {
+      "fr": "Partager mon score",
+      "text": "Share my score"
+    },
+    "pages.quizUI.sharePitch": {
+      "fr": "J'ai fait {score} au quiz MLBBDex n° {n}. Tu fais mieux ?",
+      "text": "I scored {score} on MLBBDex Quiz #{n}. Can you beat me?"
+    },
+    "pages.quizUI.rankLabel": {
+      "fr": "Rang :",
+      "text": "Rank:"
+    },
+    "pages.quizUI.ranks.warrior": {
+      "fr": "Guerrier",
+      "text": "Warrior"
+    },
+    "pages.quizUI.ranks.elite": {
+      "fr": "Élite",
+      "text": "Elite"
+    },
+    "pages.quizUI.ranks.master": {
+      "fr": "Maître",
+      "text": "Master"
+    },
+    "pages.quizUI.ranks.grandmaster": {
+      "fr": "Grand maître",
+      "text": "Grandmaster"
+    },
+    "pages.quizUI.ranks.epic": {
+      "fr": "Épique",
+      "text": "Epic"
+    },
+    "pages.quizUI.ranks.legend": {
+      "fr": "Légende",
+      "text": "Legend"
+    },
+    "pages.quizUI.ranks.mythic": {
+      "fr": "Mythique",
+      "text": "Mythic"
+    },
+    "pages.quizUI.ranks.glory": {
+      "fr": "Gloire mythique",
+      "text": "Mythical Glory"
+    },
+    "pages.quizUI.duel.beat": {
+      "fr": "Battez le score de {name} : {score}",
+      "text": "Beat {name}'s score: {score}"
+    },
+    "pages.quizUI.duel.beatAnon": {
+      "fr": "Battez le score de votre ami : {score}",
+      "text": "Beat your friend's score: {score}"
+    },
+    "pages.quizUI.duel.today": {
+      "fr": "Les mêmes questions que votre ami. C'est le défi du jour : il compte dans votre série.",
+      "text": "Same questions as your friend. It's today's challenge, so it counts towards your streak."
+    },
+    "pages.quizUI.duel.past": {
+      "fr": "Un défi d'un autre jour : il ne compte pas dans votre série.",
+      "text": "A challenge from another day: it doesn't count towards your streak."
+    },
+    "pages.quizUI.duel.won": {
+      "fr": "Vous avez battu les {score} de {name} !",
+      "text": "You beat {name}'s {score}!"
+    },
+    "pages.quizUI.duel.wonAnon": {
+      "fr": "Vous avez battu les {score} de votre ami !",
+      "text": "You beat your friend's {score}!"
+    },
+    "pages.quizUI.duel.tie": {
+      "fr": "Égalité avec {name} : {score} chacun.",
+      "text": "Tied with {name} at {score}."
+    },
+    "pages.quizUI.duel.tieAnon": {
+      "fr": "Égalité avec votre ami : {score} chacun.",
+      "text": "Tied with your friend at {score}."
+    },
+    "pages.quizUI.duel.lost": {
+      "fr": "{name} garde l'avantage avec {score}. Renvoyez-lui votre défi !",
+      "text": "{name} keeps the lead with {score}. Send them your own challenge!"
+    },
+    "pages.quizUI.duel.lostAnon": {
+      "fr": "Votre ami garde l'avantage avec {score}. Renvoyez-lui votre défi !",
+      "text": "Your friend keeps the lead with {score}. Send them your own challenge!"
+    },
+    "pages.quizUI.playToday": {
+      "fr": "Jouer le défi du jour",
+      "text": "Play today's challenge"
+    },
+    "pages.quizUI.challengeFriend": {
+      "fr": "Défier un ami",
+      "text": "Challenge a friend"
+    },
+    "pages.quizUI.challengeTitle": {
+      "fr": "Défi quiz MLBBDex",
+      "text": "MLBBDex Quiz challenge"
+    },
+    "pages.quizUI.challengeCopied": {
+      "fr": "Lien du défi copié : envoyez-le à un ami.",
+      "text": "Challenge link copied: send it to a friend."
+    },
+    "pages.quizUI.challengeShared": {
+      "fr": "Défi envoyé.",
+      "text": "Challenge sent."
+    },
+    "pages.quizUI.nameLabel": {
+      "fr": "Votre nom sur le défi (facultatif)",
+      "text": "Your name on the challenge (optional)"
+    },
+    "pages.quizUI.namePlaceholder": {
+      "fr": "Pseudo",
+      "text": "Nickname"
+    },
+    "pages.quizUI.streakDays": {
+      "fr": "Série quotidienne : {n}",
+      "text": "Daily streak: {n}"
+    },
+    "pages.quizUI.streakDone": {
+      "fr": "joué aujourd'hui, revenez demain",
+      "text": "played today, come back tomorrow"
+    },
+    "pages.quizUI.streakKeep": {
+      "fr": "jouez le défi du jour pour la garder",
+      "text": "play today's challenge to keep it"
+    },
+    "pages.quizUI.streakStart": {
+      "fr": "jouez chaque jour pour lancer une série",
+      "text": "play every day to build a streak"
+    },
+    "pages.seo.quizDuel.title": {
+      "fr": "Ferez-vous mieux que {score} au quiz MLBB n° {n} ?",
+      "text": "Can you beat {score} on MLBB Quiz #{n}?"
+    },
+    "pages.seo.quizDuel.description": {
+      "fr": "Un ami a fait {score} au quiz quotidien MLBBDex. Mêmes questions : compétence, apparence, histoire, objet et duel de taux de victoire. À vous de jouer.",
+      "text": "A friend scored {score} on the MLBBDex daily quiz. Same questions: skill, skin, lore, item and a win-rate duel. Your turn."
+    },
+    "shareCard.quiz.kicker": {
+      "fr": "Quiz MLBBDex · n° {n}",
+      "text": "MLBBDex Quiz · #{n}"
+    },
+    "shareCard.quiz.subtitle": {
+      "fr": "Défi du jour : {score}",
+      "text": "Daily challenge: {score}"
+    },
+    "shareCard.quiz.points": {
+      "fr": "points",
+      "text": "points"
+    },
+    "shareCard.quiz.toBeat": {
+      "fr": "score à battre",
+      "text": "score to beat"
+    },
+    "shareCard.quiz.duelKicker": {
+      "fr": "Quiz MLBBDex · défi n° {n}",
+      "text": "MLBBDex Quiz · challenge #{n}"
+    },
+    "shareCard.quiz.duelTitle": {
+      "fr": "Tu bats {score} ?",
+      "text": "Can you beat {score}?"
+    },
+    "shareCard.quiz.duelSubtitle": {
+      "fr": "Mêmes cinq manches, mêmes questions. À toi de jouer.",
+      "text": "Same five rounds, same questions. Your turn."
+    },
+    "shareCard.quiz.dexDuel": {
+      "fr": "Compétence, apparence, histoire, objet et duel de taux. Montre ce que tu sais !",
+      "text": "Skill, skin, lore, item and a win-rate duel. Show what you know!"
+    },
+    "shareCard.quiz.dexPerfect": {
+      "fr": "Un sans-faute ? Je n'en reviens pas !",
+      "text": "A perfect score? I'm speechless!"
+    },
+    "shareCard.quiz.dexGood": {
+      "fr": "Belle partie ! Qui fera mieux ?",
+      "text": "Strong run! Who can beat that?"
+    },
+    "shareCard.quiz.dexMid": {
+      "fr": "Pas mal ! Demain, de nouvelles questions.",
+      "text": "Not bad! New questions tomorrow."
+    },
+    "shareCard.quiz.dexLow": {
+      "fr": "Coriace, celui-là. Un ami fera-t-il mieux ?",
+      "text": "A tough one today. Think a friend can do better?"
+    },
+    "reminder.button": {
+      "fr": "Me le rappeler",
+      "text": "Remind me"
+    },
+    "reminder.hint": {
+      "fr": "Ajout à votre agenda, avec une alerte le {when}.",
+      "text": "Adds it to your calendar, with an alert on {when}."
+    },
+    "reminder.set": {
+      "fr": "Rappel prévu : {month}",
+      "text": "You'll be reminded: {month}"
+    },
+    "reminder.setCalendar": {
+      "fr": "Dans votre agenda, avec une alerte le {when}.",
+      "text": "In your calendar, with an alert on {when}."
+    },
+    "reminder.setPush": {
+      "fr": "Une notification sur cet appareil le {when}.",
+      "text": "A notification on this device on {when}."
+    },
+    "reminder.setBoth": {
+      "fr": "Dans votre agenda et en notification le {when}.",
+      "text": "In your calendar and as a notification on {when}."
+    },
+    "reminder.alsoPush": {
+      "fr": "Me notifier aussi ici",
+      "text": "Also notify me here"
+    },
+    "reminder.alsoCalendar": {
+      "fr": "Ajouter à l'agenda",
+      "text": "Add to calendar"
+    },
+    "reminder.cancelPush": {
+      "fr": "Annuler la notification",
+      "text": "Cancel the notification"
+    },
+    "reminder.pushRefused": {
+      "fr": "Les notifications sont bloquées dans ce navigateur : le rappel d'agenda fonctionne toujours.",
+      "text": "Notifications are blocked in this browser: the calendar reminder still works."
+    },
+    "reminder.pushError": {
+      "fr": "Impossible de programmer la notification. Réessayez plus tard.",
+      "text": "The notification could not be set. Try again later."
+    },
+    "reminder.kicker": {
+      "fr": "À venir",
+      "text": "Coming up"
+    },
+    "reminder.bandTitle": {
+      "fr": "{month} : nouveau StarLight et événements",
+      "text": "{month}: new StarLight and events"
+    },
+    "reminder.bandSkin": {
+      "fr": "Apparence StarLight : {skin} ({hero}). Dès le 1er à 00:00, heure du serveur.",
+      "text": "StarLight skin: {skin} ({hero}). From the 1st at 00:00 server time."
+    },
+    "reminder.bandGeneric": {
+      "fr": "L'apparence StarLight et les événements du mois commencent le 1er à 00:00, heure du serveur.",
+      "text": "The StarLight skin and the month's events start on the 1st at 00:00 server time."
+    },
+    "reminder.bandLabel": {
+      "fr": "Rappel pour {month}",
+      "text": "Reminder for {month}"
+    },
+    "dailyDle.label": {
+      "fr": "MLBBdle du jour",
+      "text": "Today's MLBBdle"
+    },
+    "dailyDle.title": {
+      "fr": "Le héros du jour vous attend",
+      "text": "Today's hero is waiting"
+    },
+    "dailyDle.allDone": {
+      "fr": "Les deux énigmes du jour sont résolues",
+      "text": "Both of today's puzzles solved"
+    },
+    "dailyDle.oneLeft": {
+      "fr": "Encore une énigme aujourd'hui",
+      "text": "One puzzle left today"
+    },
+    "dailyDle.keepStreak": {
+      "fr": "Gardez votre série",
+      "text": "Keep your streak going"
+    },
+    "dailyDle.mode.classic": {
+      "fr": "Classique",
+      "text": "Classic"
+    },
+    "dailyDle.mode.skill": {
+      "fr": "Compétence",
+      "text": "Skill"
+    },
+    "dailyDle.status.solved": {
+      "fr": "résolu",
+      "text": "solved"
+    },
+    "dailyDle.status.started": {
+      "fr": "en cours",
+      "text": "in progress"
+    },
+    "dailyDle.status.open": {
+      "fr": "à jouer",
+      "text": "to play"
+    },
+    "dailyDle.streak1": {
+      "fr": "Série de 1 jour",
+      "text": "1-day streak"
+    },
+    "dailyDle.streak": {
+      "fr": "Série de {n} jours",
+      "text": "{n}-day streak"
+    },
+    "dailyDle.next": {
+      "fr": "Prochaine énigme dans",
+      "text": "Next puzzle in"
+    },
+    "dailyDle.play": {
+      "fr": "Jouer",
+      "text": "Play"
+    },
+    "dailyDle.continue": {
+      "fr": "Continuer",
+      "text": "Continue"
+    },
+    "comeback.title": {
+      "fr": "Depuis votre dernière visite, le {date}",
+      "text": "Since your last visit, {date}"
+    },
+    "comeback.patch": {
+      "fr": "Patch {version} sorti",
+      "text": "Patch {version} is out"
+    },
+    "comeback.skin1": {
+      "fr": "Nouvelle apparence : {name} ({hero})",
+      "text": "New skin: {name} ({hero})"
+    },
+    "comeback.skins": {
+      "fr": "{n} nouvelles apparences, dont {name}",
+      "text": "{n} new skins, including {name}"
+    },
+    "comeback.tiers1": {
+      "fr": "1 héros a changé de tier",
+      "text": "1 hero changed tier"
+    },
+    "comeback.tiers": {
+      "fr": "{n} héros ont changé de tier",
+      "text": "{n} heroes changed tier"
+    },
+    "comeback.eventsAnnounced": {
+      "fr": "{month} annoncé",
+      "text": "{month} announced"
+    },
+    "comeback.eventsOpened": {
+      "fr": "Les événements de {month} ont commencé",
+      "text": "{month} events have started"
+    },
+    "pushNotif.reminder.title": {
+      "fr": "{month} commence : nouveau StarLight et événements",
+      "text": "{month} is live: new StarLight and events"
+    },
+    "pushNotif.reminder.bodySkin": {
+      "fr": "L'apparence StarLight {skin} ({hero}) est sortie. Voir les apparences et événements du mois.",
+      "text": "The StarLight skin {skin} ({hero}) is out. See the month's skins and events."
+    },
+    "pushNotif.reminder.body": {
+      "fr": "L'apparence StarLight et les événements du mois sont là. Voir les nouveautés.",
+      "text": "The StarLight skin and the month's events are out. See what's new."
     }
   },
   "es": {
@@ -11641,6 +12165,262 @@
     "home.figures.changed": {
       "fr": "retouchés au patch",
       "text": "retocados en el parche"
+    },
+    "pages.tierList.peek.items": {
+      "fr": "Build principal",
+      "text": "Build principal"
+    },
+    "pages.tierList.peek.full": {
+      "fr": "Guide complet",
+      "text": "Guía completa"
+    },
+    "pages.tierList.answer.answerRole": {
+      "fr": "Meilleurs {plural} en ce moment : {top}.",
+      "text": "Los mejores {plural} ahora mismo: {top}."
+    },
+    "pages.tierList.answer.detail": {
+      "fr": "{first} est n°1 (palier {tier}) avec {winRate} de victoires et {banRate} de bans, sur {n} héros classés au patch {v}, mesure du {date}.",
+      "text": "{first} es el n.º 1 (tier {tier}) con {winRate} de victorias y {banRate} de bans, entre {n} héroes clasificados en el parche {v}, medición del {date}."
+    },
+    "pages.tierList.patch.title": {
+      "fr": "Ce qui a changé ce patch",
+      "text": "Qué cambió en este parche"
+    },
+    "pages.tierList.patch.lead": {
+      "fr": "Les plus fortes variations du taux de victoire sur sept jours parmi ces héros, et ceux que le patch a retouchés.",
+      "text": "Las mayores variaciones de la tasa de victoria en siete días entre estos héroes, y los que el parche ajustó."
+    },
+    "pages.tierList.patch.adjusted": {
+      "fr": "Retouchés au patch {v} ({n})",
+      "text": "Ajustados en el parche {v} ({n})"
+    },
+    "pages.tierList.next.titleLane": {
+      "fr": "Vous jouez {lane} ? À voir aussi",
+      "text": "¿Juegas {lane}? Mira también"
+    },
+    "pages.tierList.next.titleRole": {
+      "fr": "Vous jouez {role} ? À voir aussi",
+      "text": "¿Juegas {role}? Mira también"
+    },
+    "pages.tierList.next.counters": {
+      "fr": "Contrer les meilleurs picks",
+      "text": "Contrarresta a los mejores picks"
+    },
+    "pages.tierList.next.countersLead": {
+      "fr": "Les héros contre lesquels le haut du classement perd le plus.",
+      "text": "Los héroes contra los que más pierde lo alto del ranking."
+    },
+    "pages.tierList.next.builds": {
+      "fr": "Leurs builds",
+      "text": "Sus builds"
+    },
+    "pages.tierList.next.buildsLead": {
+      "fr": "Les trois objets clés les plus joués par le haut du classement.",
+      "text": "Los tres objetos clave más usados por lo alto del ranking."
+    },
+    "pages.tierList.next.tools": {
+      "fr": "Passer à la pratique",
+      "text": "Ponlo en práctica"
+    },
+    "pages.tierList.next.lists": {
+      "fr": "Les autres tier lists",
+      "text": "Otras tier lists"
+    },
+    "pages.heroDetail.glance.build": {
+      "fr": "Build le plus joué",
+      "text": "Build más jugado"
+    },
+    "pages.nicknameUI.presetsTitle": {
+      "fr": "Looks prêts à l'emploi",
+      "text": "Looks listos para usar"
+    },
+    "pages.nicknameUI.presetsLead": {
+      "fr": "Un style et une décoration assortis, en une touche.",
+      "text": "Un estilo y una decoración a juego, en un toque."
+    },
+    "pages.nicknameUI.plateBattle": {
+      "fr": "En match, au-dessus du héros",
+      "text": "En partida, sobre el héroe"
+    },
+    "pages.nicknameUI.previewTitle": {
+      "fr": "Aperçu en jeu",
+      "text": "Vista previa en el juego"
+    },
+    "pages.seo.quizDuel.title": {
+      "fr": "Ferez-vous mieux que {score} au quiz MLBB n° {n} ?",
+      "text": "¿Puedes superar {score} en el quiz MLBB n.º {n}?"
+    },
+    "pages.seo.quizDuel.description": {
+      "fr": "Un ami a fait {score} au quiz quotidien MLBBDex. Mêmes questions : compétence, apparence, histoire, objet et duel de taux de victoire. À vous de jouer.",
+      "text": "Un amigo sacó {score} en el quiz diario de MLBBDex. Las mismas preguntas: habilidad, aspecto, historia, objeto y duelo de tasa de victorias. Te toca."
+    },
+    "pages.quizUI.shareScore": {
+      "fr": "Partager mon score",
+      "text": "Compartir mi puntuación"
+    },
+    "pages.quizUI.sharePitch": {
+      "fr": "J'ai fait {score} au quiz MLBBDex n° {n}. Tu fais mieux ?",
+      "text": "Saqué {score} en el quiz MLBBDex n.º {n}. ¿Puedes superarme?"
+    },
+    "pages.quizUI.ranks.grandmaster": {
+      "fr": "Grand maître",
+      "text": "Gran Maestro"
+    },
+    "pages.quizUI.duel.today": {
+      "fr": "Les mêmes questions que votre ami. C'est le défi du jour : il compte dans votre série.",
+      "text": "Las mismas preguntas que tu amigo. Es el desafío de hoy, así que cuenta para tu racha."
+    },
+    "pages.quizUI.duel.past": {
+      "fr": "Un défi d'un autre jour : il ne compte pas dans votre série.",
+      "text": "Un desafío de otro día: no cuenta para tu racha."
+    },
+    "pages.quizUI.duel.won": {
+      "fr": "Vous avez battu les {score} de {name} !",
+      "text": "¡Superaste el {score} de {name}!"
+    },
+    "pages.quizUI.duel.wonAnon": {
+      "fr": "Vous avez battu les {score} de votre ami !",
+      "text": "¡Superaste el {score} de tu amigo!"
+    },
+    "pages.quizUI.duel.tie": {
+      "fr": "Égalité avec {name} : {score} chacun.",
+      "text": "Empate con {name}: {score} cada uno."
+    },
+    "pages.quizUI.duel.tieAnon": {
+      "fr": "Égalité avec votre ami : {score} chacun.",
+      "text": "Empate con tu amigo: {score} cada uno."
+    },
+    "pages.quizUI.duel.lost": {
+      "fr": "{name} garde l'avantage avec {score}. Renvoyez-lui votre défi !",
+      "text": "{name} sigue por delante con {score}. ¡Mándale tu propio desafío!"
+    },
+    "pages.quizUI.duel.lostAnon": {
+      "fr": "Votre ami garde l'avantage avec {score}. Renvoyez-lui votre défi !",
+      "text": "Tu amigo sigue por delante con {score}. ¡Mándale tu propio desafío!"
+    },
+    "pages.quizUI.challengeTitle": {
+      "fr": "Défi quiz MLBBDex",
+      "text": "Desafío del quiz MLBBDex"
+    },
+    "pages.quizUI.namePlaceholder": {
+      "fr": "Pseudo",
+      "text": "Apodo"
+    },
+    "pages.quizUI.streakDays": {
+      "fr": "Série quotidienne : {n}",
+      "text": "Racha diaria: {n}"
+    },
+    "pages.quizUI.streakKeep": {
+      "fr": "jouez le défi du jour pour la garder",
+      "text": "juega el desafío de hoy para mantenerla"
+    },
+    "shareCard.quiz.kicker": {
+      "fr": "Quiz MLBBDex · n° {n}",
+      "text": "Quiz MLBBDex · n.º {n}"
+    },
+    "shareCard.quiz.toBeat": {
+      "fr": "score à battre",
+      "text": "puntuación a superar"
+    },
+    "shareCard.quiz.duelKicker": {
+      "fr": "Quiz MLBBDex · défi n° {n}",
+      "text": "Quiz MLBBDex · desafío n.º {n}"
+    },
+    "shareCard.quiz.duelTitle": {
+      "fr": "Tu bats {score} ?",
+      "text": "¿Superas {score}?"
+    },
+    "shareCard.quiz.duelSubtitle": {
+      "fr": "Mêmes cinq manches, mêmes questions. À toi de jouer.",
+      "text": "Las mismas cinco rondas, las mismas preguntas. Te toca."
+    },
+    "shareCard.quiz.dexDuel": {
+      "fr": "Compétence, apparence, histoire, objet et duel de taux. Montre ce que tu sais !",
+      "text": "Habilidad, aspecto, historia, objeto y duelo de tasas. ¡Demuestra lo que sabes!"
+    },
+    "shareCard.quiz.dexPerfect": {
+      "fr": "Un sans-faute ? Je n'en reviens pas !",
+      "text": "¿Puntuación perfecta? ¡Me dejas sin palabras!"
+    },
+    "shareCard.quiz.dexGood": {
+      "fr": "Belle partie ! Qui fera mieux ?",
+      "text": "¡Gran partida! ¿Quién lo supera?"
+    },
+    "shareCard.quiz.dexMid": {
+      "fr": "Pas mal ! Demain, de nouvelles questions.",
+      "text": "¡Nada mal! Mañana, preguntas nuevas."
+    },
+    "shareCard.quiz.dexLow": {
+      "fr": "Coriace, celui-là. Un ami fera-t-il mieux ?",
+      "text": "Hoy tocó uno difícil. ¿Un amigo lo hará mejor?"
+    },
+    "reminder.set": {
+      "fr": "Rappel prévu : {month}",
+      "text": "Te lo recordaremos: {month}"
+    },
+    "reminder.hint": {
+      "fr": "Ajout à votre agenda, avec une alerte le {when}.",
+      "text": "Se añade a tu calendario, con una alerta el {when}."
+    },
+    "reminder.bandSkin": {
+      "fr": "Apparence StarLight : {skin} ({hero}). Dès le 1er à 00:00, heure du serveur.",
+      "text": "Skin StarLight: {skin} ({hero}). Desde el día 1 a las 00:00, hora del servidor."
+    },
+    "comeback.skins": {
+      "fr": "{n} nouvelles apparences, dont {name}",
+      "text": "{n} skins nuevas, incluida {name}"
+    },
+    "comeback.skin1": {
+      "fr": "Nouvelle apparence : {name} ({hero})",
+      "text": "Skin nueva: {name} ({hero})"
+    },
+    "comeback.tiers": {
+      "fr": "{n} héros ont changé de tier",
+      "text": "{n} héroes cambiaron de tier"
+    },
+    "comeback.tiers1": {
+      "fr": "1 héros a changé de tier",
+      "text": "1 héroe cambió de tier"
+    },
+    "comeback.eventsOpened": {
+      "fr": "Les événements de {month} ont commencé",
+      "text": "Los eventos de {month} ya empezaron"
+    },
+    "pushNotif.reminder.bodySkin": {
+      "fr": "L'apparence StarLight {skin} ({hero}) est sortie. Voir les apparences et événements du mois.",
+      "text": "Ya salió la skin StarLight {skin} ({hero}). Mira las skins y eventos del mes."
+    },
+    "pushNotif.reminder.body": {
+      "fr": "L'apparence StarLight et les événements du mois sont là. Voir les nouveautés.",
+      "text": "Ya llegaron la skin StarLight y los eventos del mes. Mira las novedades."
+    },
+    "dailyDle.title": {
+      "fr": "Le héros du jour vous attend",
+      "text": "El héroe del día te espera"
+    },
+    "dailyDle.oneLeft": {
+      "fr": "Encore une énigme aujourd'hui",
+      "text": "Te queda un enigma hoy"
+    },
+    "dailyDle.allDone": {
+      "fr": "Les deux énigmes du jour sont résolues",
+      "text": "Resolviste los dos enigmas de hoy"
+    },
+    "dailyDle.streak": {
+      "fr": "Série de {n} jours",
+      "text": "Racha de {n} días"
+    },
+    "dailyDle.streak1": {
+      "fr": "Série de 1 jour",
+      "text": "Racha de 1 día"
+    },
+    "dailyDle.next": {
+      "fr": "Prochaine énigme dans",
+      "text": "Siguiente enigma en"
+    },
+    "dailyDle.status.started": {
+      "fr": "en cours",
+      "text": "en curso"
     }
   },
   "id": {
@@ -18427,6 +19207,270 @@
     "home.figures.changed": {
       "fr": "retouchés au patch",
       "text": "diubah di patch ini"
+    },
+    "pages.tierList.answer.questionRole": {
+      "fr": "Quels sont les meilleurs {plural} en ce moment ?",
+      "text": "Siapa {plural} terbaik saat ini?"
+    },
+    "pages.tierList.answer.detail": {
+      "fr": "{first} est n°1 (palier {tier}) avec {winRate} de victoires et {banRate} de bans, sur {n} héros classés au patch {v}, mesure du {date}.",
+      "text": "{first} peringkat 1 (tier {tier}) dengan win rate {winRate} dan ban rate {banRate}, dari {n} hero yang diperingkat di patch {v}, diukur {date}."
+    },
+    "pages.tierList.patch.title": {
+      "fr": "Ce qui a changé ce patch",
+      "text": "Apa yang berubah di patch ini"
+    },
+    "pages.tierList.patch.lead": {
+      "fr": "Les plus fortes variations du taux de victoire sur sept jours parmi ces héros, et ceux que le patch a retouchés.",
+      "text": "Perubahan win rate terbesar dalam tujuh hari di antara hero ini, dan hero yang disesuaikan oleh patch."
+    },
+    "pages.tierList.patch.rises": {
+      "fr": "En hausse",
+      "text": "Naik"
+    },
+    "pages.tierList.patch.drops": {
+      "fr": "En baisse",
+      "text": "Turun"
+    },
+    "pages.tierList.patch.adjusted": {
+      "fr": "Retouchés au patch {v} ({n})",
+      "text": "Disesuaikan di patch {v} ({n})"
+    },
+    "pages.tierList.next.countersLead": {
+      "fr": "Les héros contre lesquels le haut du classement perd le plus.",
+      "text": "Hero yang paling sering mengalahkan hero teratas peringkat."
+    },
+    "pages.tierList.next.buildsLead": {
+      "fr": "Les trois objets clés les plus joués par le haut du classement.",
+      "text": "Tiga item kunci yang paling sering dipakai hero teratas peringkat."
+    },
+    "pages.nicknameUI.share": {
+      "fr": "Partager",
+      "text": "Bagikan"
+    },
+    "pages.nicknameUI.preset.sniper": {
+      "fr": "Sniper",
+      "text": "Sniper"
+    },
+    "pages.nicknameUI.preset.royal": {
+      "fr": "Royal",
+      "text": "Royal"
+    },
+    "pages.heroDetail.glance.counteredBy": {
+      "fr": "Contré par",
+      "text": "Di-counter oleh"
+    },
+    "pages.nicknameUI.presetsLead": {
+      "fr": "Un style et une décoration assortis, en une touche.",
+      "text": "Gaya dan dekorasi yang serasi, dalam satu ketukan."
+    },
+    "pages.quizUI.ranks.warrior": {
+      "fr": "Guerrier",
+      "text": "Warrior"
+    },
+    "pages.quizUI.ranks.elite": {
+      "fr": "Élite",
+      "text": "Elite"
+    },
+    "pages.quizUI.ranks.master": {
+      "fr": "Maître",
+      "text": "Master"
+    },
+    "pages.quizUI.ranks.grandmaster": {
+      "fr": "Grand maître",
+      "text": "Grandmaster"
+    },
+    "pages.quizUI.ranks.epic": {
+      "fr": "Épique",
+      "text": "Epic"
+    },
+    "pages.quizUI.ranks.legend": {
+      "fr": "Légende",
+      "text": "Legend"
+    },
+    "pages.quizUI.ranks.mythic": {
+      "fr": "Mythique",
+      "text": "Mythic"
+    },
+    "pages.quizUI.ranks.glory": {
+      "fr": "Gloire mythique",
+      "text": "Mythical Glory"
+    },
+    "pages.seo.quizDuel.title": {
+      "fr": "Ferez-vous mieux que {score} au quiz MLBB n° {n} ?",
+      "text": "Bisakah kamu mengalahkan {score} di Kuis MLBB #{n}?"
+    },
+    "pages.seo.quizDuel.description": {
+      "fr": "Un ami a fait {score} au quiz quotidien MLBBDex. Mêmes questions : compétence, apparence, histoire, objet et duel de taux de victoire. À vous de jouer.",
+      "text": "Temanmu mendapat skor {score} di kuis harian MLBBDex. Pertanyaannya sama: skill, skin, lore, item, dan duel win rate. Giliranmu."
+    },
+    "pages.quizUI.shareScore": {
+      "fr": "Partager mon score",
+      "text": "Bagikan skorku"
+    },
+    "pages.quizUI.sharePitch": {
+      "fr": "J'ai fait {score} au quiz MLBBDex n° {n}. Tu fais mieux ?",
+      "text": "Aku dapat {score} di Kuis MLBBDex #{n}. Bisa kalahkan aku?"
+    },
+    "pages.quizUI.rankLabel": {
+      "fr": "Rang :",
+      "text": "Rank:"
+    },
+    "pages.quizUI.duel.today": {
+      "fr": "Les mêmes questions que votre ami. C'est le défi du jour : il compte dans votre série.",
+      "text": "Pertanyaannya sama dengan temanmu. Ini tantangan hari ini, jadi dihitung ke streak-mu."
+    },
+    "pages.quizUI.duel.past": {
+      "fr": "Un défi d'un autre jour : il ne compte pas dans votre série.",
+      "text": "Tantangan dari hari lain: tidak dihitung ke streak-mu."
+    },
+    "pages.quizUI.duel.won": {
+      "fr": "Vous avez battu les {score} de {name} !",
+      "text": "Kamu mengalahkan skor {score} milik {name}!"
+    },
+    "pages.quizUI.duel.wonAnon": {
+      "fr": "Vous avez battu les {score} de votre ami !",
+      "text": "Kamu mengalahkan skor {score} temanmu!"
+    },
+    "pages.quizUI.duel.tie": {
+      "fr": "Égalité avec {name} : {score} chacun.",
+      "text": "Seri dengan {name}: masing-masing {score}."
+    },
+    "pages.quizUI.duel.tieAnon": {
+      "fr": "Égalité avec votre ami : {score} chacun.",
+      "text": "Seri dengan temanmu: masing-masing {score}."
+    },
+    "pages.quizUI.duel.lost": {
+      "fr": "{name} garde l'avantage avec {score}. Renvoyez-lui votre défi !",
+      "text": "{name} masih unggul dengan {score}. Kirim tantanganmu sendiri!"
+    },
+    "pages.quizUI.duel.lostAnon": {
+      "fr": "Votre ami garde l'avantage avec {score}. Renvoyez-lui votre défi !",
+      "text": "Temanmu masih unggul dengan {score}. Kirim tantanganmu sendiri!"
+    },
+    "pages.quizUI.challengeTitle": {
+      "fr": "Défi quiz MLBBDex",
+      "text": "Tantangan Kuis MLBBDex"
+    },
+    "pages.quizUI.nameLabel": {
+      "fr": "Votre nom sur le défi (facultatif)",
+      "text": "Namamu di tantangan (opsional)"
+    },
+    "pages.quizUI.namePlaceholder": {
+      "fr": "Pseudo",
+      "text": "Nickname"
+    },
+    "pages.quizUI.streakDays": {
+      "fr": "Série quotidienne : {n}",
+      "text": "Streak harian: {n}"
+    },
+    "pages.quizUI.streakStart": {
+      "fr": "jouez chaque jour pour lancer une série",
+      "text": "main setiap hari untuk membangun streak"
+    },
+    "shareCard.quiz.kicker": {
+      "fr": "Quiz MLBBDex · n° {n}",
+      "text": "Kuis MLBBDex · #{n}"
+    },
+    "shareCard.quiz.duelKicker": {
+      "fr": "Quiz MLBBDex · défi n° {n}",
+      "text": "Kuis MLBBDex · tantangan #{n}"
+    },
+    "shareCard.quiz.duelTitle": {
+      "fr": "Tu bats {score} ?",
+      "text": "Bisa kalahkan {score}?"
+    },
+    "shareCard.quiz.duelSubtitle": {
+      "fr": "Mêmes cinq manches, mêmes questions. À toi de jouer.",
+      "text": "Lima ronde yang sama, pertanyaan yang sama. Giliranmu."
+    },
+    "shareCard.quiz.dexDuel": {
+      "fr": "Compétence, apparence, histoire, objet et duel de taux. Montre ce que tu sais !",
+      "text": "Skill, skin, lore, item, dan duel win rate. Tunjukkan kemampuanmu!"
+    },
+    "shareCard.quiz.dexPerfect": {
+      "fr": "Un sans-faute ? Je n'en reviens pas !",
+      "text": "Skor sempurna? Aku sampai speechless!"
+    },
+    "shareCard.quiz.dexGood": {
+      "fr": "Belle partie ! Qui fera mieux ?",
+      "text": "Mantap! Siapa yang bisa lebih baik?"
+    },
+    "shareCard.quiz.dexMid": {
+      "fr": "Pas mal ! Demain, de nouvelles questions.",
+      "text": "Lumayan! Besok ada pertanyaan baru."
+    },
+    "shareCard.quiz.dexLow": {
+      "fr": "Coriace, celui-là. Un ami fera-t-il mieux ?",
+      "text": "Yang ini sulit. Temanmu bisa lebih baik?"
+    },
+    "reminder.set": {
+      "fr": "Rappel prévu : {month}",
+      "text": "Kamu akan diingatkan: {month}"
+    },
+    "reminder.hint": {
+      "fr": "Ajout à votre agenda, avec une alerte le {when}.",
+      "text": "Masuk ke kalender kamu, dengan pengingat pada {when}."
+    },
+    "reminder.bandSkin": {
+      "fr": "Apparence StarLight : {skin} ({hero}). Dès le 1er à 00:00, heure du serveur.",
+      "text": "Skin StarLight: {skin} ({hero}). Mulai tanggal 1 pukul 00:00 waktu server."
+    },
+    "comeback.skins": {
+      "fr": "{n} nouvelles apparences, dont {name}",
+      "text": "{n} skin baru, termasuk {name}"
+    },
+    "comeback.skin1": {
+      "fr": "Nouvelle apparence : {name} ({hero})",
+      "text": "Skin baru: {name} ({hero})"
+    },
+    "comeback.tiers": {
+      "fr": "{n} héros ont changé de tier",
+      "text": "{n} hero berganti tier"
+    },
+    "comeback.tiers1": {
+      "fr": "1 héros a changé de tier",
+      "text": "1 hero berganti tier"
+    },
+    "comeback.eventsOpened": {
+      "fr": "Les événements de {month} ont commencé",
+      "text": "Event {month} sudah dimulai"
+    },
+    "pushNotif.reminder.bodySkin": {
+      "fr": "L'apparence StarLight {skin} ({hero}) est sortie. Voir les apparences et événements du mois.",
+      "text": "Skin StarLight {skin} ({hero}) sudah rilis. Lihat skin dan event bulan ini."
+    },
+    "pushNotif.reminder.body": {
+      "fr": "L'apparence StarLight et les événements du mois sont là. Voir les nouveautés.",
+      "text": "Skin StarLight dan event bulan ini sudah hadir. Lihat yang baru."
+    },
+    "dailyDle.title": {
+      "fr": "Le héros du jour vous attend",
+      "text": "Hero hari ini sudah menunggu"
+    },
+    "dailyDle.oneLeft": {
+      "fr": "Encore une énigme aujourd'hui",
+      "text": "Tinggal satu teka-teki hari ini"
+    },
+    "dailyDle.allDone": {
+      "fr": "Les deux énigmes du jour sont résolues",
+      "text": "Dua teka-teki hari ini sudah terpecahkan"
+    },
+    "dailyDle.streak": {
+      "fr": "Série de {n} jours",
+      "text": "Streak {n} hari"
+    },
+    "dailyDle.streak1": {
+      "fr": "Série de 1 jour",
+      "text": "Streak 1 hari"
+    },
+    "dailyDle.next": {
+      "fr": "Prochaine énigme dans",
+      "text": "Teka-teki berikutnya dalam"
+    },
+    "dailyDle.status.started": {
+      "fr": "en cours",
+      "text": "sedang dimainkan"
     }
   },
   "it": {
@@ -23121,6 +24165,226 @@
     "home.figures.changed": {
       "fr": "retouchés au patch",
       "text": "ritoccati nella patch"
+    },
+    "pages.tierList.peek.items": {
+      "fr": "Build principal",
+      "text": "Build principale"
+    },
+    "pages.tierList.answer.answerRole": {
+      "fr": "Meilleurs {plural} en ce moment : {top}.",
+      "text": "I migliori {plural} in questo momento: {top}."
+    },
+    "pages.tierList.answer.detail": {
+      "fr": "{first} est n°1 (palier {tier}) avec {winRate} de victoires et {banRate} de bans, sur {n} héros classés au patch {v}, mesure du {date}.",
+      "text": "{first} è il n. 1 (tier {tier}) con {winRate} di vittorie e {banRate} di ban, su {n} eroi classificati nella patch {v}, misurazione del {date}."
+    },
+    "pages.tierList.patch.title": {
+      "fr": "Ce qui a changé ce patch",
+      "text": "Cosa è cambiato in questa patch"
+    },
+    "pages.tierList.patch.lead": {
+      "fr": "Les plus fortes variations du taux de victoire sur sept jours parmi ces héros, et ceux que le patch a retouchés.",
+      "text": "Le maggiori variazioni della percentuale di vittorie in sette giorni tra questi eroi, e quelli ritoccati dalla patch."
+    },
+    "pages.tierList.patch.adjusted": {
+      "fr": "Retouchés au patch {v} ({n})",
+      "text": "Ritoccati nella patch {v} ({n})"
+    },
+    "pages.tierList.next.titleLane": {
+      "fr": "Vous jouez {lane} ? À voir aussi",
+      "text": "Giochi {lane}? Guarda anche"
+    },
+    "pages.tierList.next.titleRole": {
+      "fr": "Vous jouez {role} ? À voir aussi",
+      "text": "Giochi {role}? Guarda anche"
+    },
+    "pages.tierList.next.counters": {
+      "fr": "Contrer les meilleurs picks",
+      "text": "Contrasta i pick migliori"
+    },
+    "pages.tierList.next.countersLead": {
+      "fr": "Les héros contre lesquels le haut du classement perd le plus.",
+      "text": "Gli eroi contro cui la vetta della classifica perde di più."
+    },
+    "pages.tierList.next.buildsLead": {
+      "fr": "Les trois objets clés les plus joués par le haut du classement.",
+      "text": "I tre oggetti chiave più usati dalla vetta della classifica."
+    },
+    "pages.tierList.next.tools": {
+      "fr": "Passer à la pratique",
+      "text": "Mettilo in pratica"
+    },
+    "pages.tierList.next.draft": {
+      "fr": "Pickez et bannissez ces héros dans une draft classée.",
+      "text": "Scegli e banna questi eroi in un draft classificato."
+    },
+    "pages.tierList.next.lists": {
+      "fr": "Les autres tier lists",
+      "text": "Altre tier list"
+    },
+    "pages.nicknameUI.presetsLead": {
+      "fr": "Un style et une décoration assortis, en une touche.",
+      "text": "Uno stile e una decorazione abbinati, in un tocco."
+    },
+    "pages.seo.quizDuel.description": {
+      "fr": "Un ami a fait {score} au quiz quotidien MLBBDex. Mêmes questions : compétence, apparence, histoire, objet et duel de taux de victoire. À vous de jouer.",
+      "text": "Un amico ha fatto {score} nel quiz quotidiano di MLBBDex. Stesse domande: abilità, skin, storia, oggetto e duello di percentuali di vittoria. Tocca a te."
+    },
+    "pages.quizUI.sharePitch": {
+      "fr": "J'ai fait {score} au quiz MLBBDex n° {n}. Tu fais mieux ?",
+      "text": "Ho fatto {score} nel quiz MLBBDex n. {n}. Riesci a battermi?"
+    },
+    "pages.quizUI.duel.beat": {
+      "fr": "Battez le score de {name} : {score}",
+      "text": "Batti il punteggio di {name}: {score}"
+    },
+    "pages.quizUI.duel.beatAnon": {
+      "fr": "Battez le score de votre ami : {score}",
+      "text": "Batti il punteggio del tuo amico: {score}"
+    },
+    "pages.quizUI.duel.today": {
+      "fr": "Les mêmes questions que votre ami. C'est le défi du jour : il compte dans votre série.",
+      "text": "Le stesse domande del tuo amico. È la sfida di oggi, quindi conta per la tua serie."
+    },
+    "pages.quizUI.duel.past": {
+      "fr": "Un défi d'un autre jour : il ne compte pas dans votre série.",
+      "text": "Una sfida di un altro giorno: non conta per la tua serie."
+    },
+    "pages.quizUI.duel.won": {
+      "fr": "Vous avez battu les {score} de {name} !",
+      "text": "Hai battuto il {score} di {name}!"
+    },
+    "pages.quizUI.duel.tie": {
+      "fr": "Égalité avec {name} : {score} chacun.",
+      "text": "Pareggio con {name}: {score} a testa."
+    },
+    "pages.quizUI.duel.tieAnon": {
+      "fr": "Égalité avec votre ami : {score} chacun.",
+      "text": "Pareggio con il tuo amico: {score} a testa."
+    },
+    "pages.quizUI.duel.lost": {
+      "fr": "{name} garde l'avantage avec {score}. Renvoyez-lui votre défi !",
+      "text": "{name} resta in testa con {score}. Mandagli la tua sfida!"
+    },
+    "pages.quizUI.duel.lostAnon": {
+      "fr": "Votre ami garde l'avantage avec {score}. Renvoyez-lui votre défi !",
+      "text": "Il tuo amico resta in testa con {score}. Mandagli la tua sfida!"
+    },
+    "pages.quizUI.playToday": {
+      "fr": "Jouer le défi du jour",
+      "text": "Gioca la sfida di oggi"
+    },
+    "pages.quizUI.challengeTitle": {
+      "fr": "Défi quiz MLBBDex",
+      "text": "Sfida del quiz MLBBDex"
+    },
+    "pages.quizUI.namePlaceholder": {
+      "fr": "Pseudo",
+      "text": "Nickname"
+    },
+    "pages.quizUI.streakKeep": {
+      "fr": "jouez le défi du jour pour la garder",
+      "text": "gioca la sfida di oggi per mantenerla"
+    },
+    "pages.quizUI.streakStart": {
+      "fr": "jouez chaque jour pour lancer une série",
+      "text": "gioca ogni giorno per costruire una serie"
+    },
+    "shareCard.quiz.duelKicker": {
+      "fr": "Quiz MLBBDex · défi n° {n}",
+      "text": "Quiz MLBBDex · sfida n. {n}"
+    },
+    "shareCard.quiz.duelTitle": {
+      "fr": "Tu bats {score} ?",
+      "text": "Riesci a battere {score}?"
+    },
+    "shareCard.quiz.duelSubtitle": {
+      "fr": "Mêmes cinq manches, mêmes questions. À toi de jouer.",
+      "text": "Stessi cinque round, stesse domande. Tocca a te."
+    },
+    "shareCard.quiz.dexDuel": {
+      "fr": "Compétence, apparence, histoire, objet et duel de taux. Montre ce que tu sais !",
+      "text": "Abilità, skin, storia, oggetto e duello di percentuali. Fai vedere cosa sai!"
+    },
+    "shareCard.quiz.dexPerfect": {
+      "fr": "Un sans-faute ? Je n'en reviens pas !",
+      "text": "Punteggio pieno? Sono senza parole!"
+    },
+    "shareCard.quiz.dexMid": {
+      "fr": "Pas mal ! Demain, de nouvelles questions.",
+      "text": "Niente male! Domani nuove domande."
+    },
+    "shareCard.quiz.dexLow": {
+      "fr": "Coriace, celui-là. Un ami fera-t-il mieux ?",
+      "text": "Oggi era tosta. Un amico farà meglio?"
+    },
+    "reminder.set": {
+      "fr": "Rappel prévu : {month}",
+      "text": "Te lo ricorderemo: {month}"
+    },
+    "reminder.hint": {
+      "fr": "Ajout à votre agenda, avec une alerte le {when}.",
+      "text": "Si aggiunge al tuo calendario, con un avviso il {when}."
+    },
+    "reminder.bandSkin": {
+      "fr": "Apparence StarLight : {skin} ({hero}). Dès le 1er à 00:00, heure du serveur.",
+      "text": "Skin StarLight: {skin} ({hero}). Dal 1° alle 00:00, ora del server."
+    },
+    "comeback.skins": {
+      "fr": "{n} nouvelles apparences, dont {name}",
+      "text": "{n} nuove skin, tra cui {name}"
+    },
+    "comeback.skin1": {
+      "fr": "Nouvelle apparence : {name} ({hero})",
+      "text": "Nuova skin: {name} ({hero})"
+    },
+    "comeback.tiers": {
+      "fr": "{n} héros ont changé de tier",
+      "text": "{n} eroi hanno cambiato tier"
+    },
+    "comeback.tiers1": {
+      "fr": "1 héros a changé de tier",
+      "text": "1 eroe ha cambiato tier"
+    },
+    "comeback.eventsOpened": {
+      "fr": "Les événements de {month} ont commencé",
+      "text": "Gli eventi di {month} sono iniziati"
+    },
+    "pushNotif.reminder.bodySkin": {
+      "fr": "L'apparence StarLight {skin} ({hero}) est sortie. Voir les apparences et événements du mois.",
+      "text": "È uscita la skin StarLight {skin} ({hero}). Scopri le skin e gli eventi del mese."
+    },
+    "pushNotif.reminder.body": {
+      "fr": "L'apparence StarLight et les événements du mois sont là. Voir les nouveautés.",
+      "text": "Sono arrivati la skin StarLight e gli eventi del mese. Scopri le novità."
+    },
+    "dailyDle.title": {
+      "fr": "Le héros du jour vous attend",
+      "text": "L'eroe del giorno ti aspetta"
+    },
+    "dailyDle.oneLeft": {
+      "fr": "Encore une énigme aujourd'hui",
+      "text": "Ti resta un enigma oggi"
+    },
+    "dailyDle.allDone": {
+      "fr": "Les deux énigmes du jour sont résolues",
+      "text": "Hai risolto i due enigmi di oggi"
+    },
+    "dailyDle.streak": {
+      "fr": "Série de {n} jours",
+      "text": "Serie di {n} giorni"
+    },
+    "dailyDle.streak1": {
+      "fr": "Série de 1 jour",
+      "text": "Serie di 1 giorno"
+    },
+    "dailyDle.next": {
+      "fr": "Prochaine énigme dans",
+      "text": "Prossimo enigma tra"
+    },
+    "dailyDle.status.started": {
+      "fr": "en cours",
+      "text": "in corso"
     }
   },
   "fil": {
@@ -33965,8 +35229,8 @@
       "text": "Tingnan ang resulta"
     },
     "pages.quizUI.share": {
-      "fr": "Partager mon résultat",
-      "text": "I-share ang resulta ko"
+      "fr": "Partager en texte",
+      "text": "Ibahagi bilang text"
     },
     "pages.quizUI.shared": {
       "fr": "Résultat partagé.",
@@ -38227,6 +39491,246 @@
     "socialKit.announce.tournament.title": {
       "fr": "Tournoi communautaire",
       "text": "Tournament ng komunidad"
+    },
+    "pages.tierList.peek.counters": {
+      "fr": "Contré par",
+      "text": "Kinokontra ng"
+    },
+    "pages.tierList.answer.questionRole": {
+      "fr": "Quels sont les meilleurs {plural} en ce moment ?",
+      "text": "Sino ang pinakamahusay na {plural} ngayon?"
+    },
+    "pages.tierList.answer.detail": {
+      "fr": "{first} est n°1 (palier {tier}) avec {winRate} de victoires et {banRate} de bans, sur {n} héros classés au patch {v}, mesure du {date}.",
+      "text": "Ang {first} ang No. 1 (tier {tier}) na may {winRate} win rate at {banRate} ban rate, mula sa {n} hero na naka-rank sa patch {v}, sinukat noong {date}."
+    },
+    "pages.tierList.patch.adjusted": {
+      "fr": "Retouchés au patch {v} ({n})",
+      "text": "Inayos sa patch {v} ({n})"
+    },
+    "pages.tierList.patch.lead": {
+      "fr": "Les plus fortes variations du taux de victoire sur sept jours parmi ces héros, et ceux que le patch a retouchés.",
+      "text": "Ang pinakamalaking galaw ng win rate sa loob ng pitong araw sa mga hero na ito, at ang mga inayos ng patch."
+    },
+    "pages.tierList.next.counters": {
+      "fr": "Contrer les meilleurs picks",
+      "text": "Kontrahin ang mga top pick"
+    },
+    "pages.tierList.next.countersLead": {
+      "fr": "Les héros contre lesquels le haut du classement perd le plus.",
+      "text": "Ang mga hero na pinakamadalas tumalo sa mga nasa tuktok ng ranking."
+    },
+    "pages.tierList.next.buildsLead": {
+      "fr": "Les trois objets clés les plus joués par le haut du classement.",
+      "text": "Ang tatlong key item na pinakamadalas gamitin ng mga nasa tuktok ng ranking."
+    },
+    "pages.tierList.next.tools": {
+      "fr": "Passer à la pratique",
+      "text": "Isabuhay ito"
+    },
+    "pages.tierList.next.draft": {
+      "fr": "Pickez et bannissez ces héros dans une draft classée.",
+      "text": "I-pick at i-ban ang mga hero na ito sa isang ranked draft."
+    },
+    "pages.nicknameUI.presetsLead": {
+      "fr": "Un style et une décoration assortis, en une touche.",
+      "text": "Magkatugmang estilo at dekorasyon, sa isang tap."
+    },
+    "pages.quizUI.ranks.warrior": {
+      "fr": "Guerrier",
+      "text": "Warrior"
+    },
+    "pages.quizUI.ranks.elite": {
+      "fr": "Élite",
+      "text": "Elite"
+    },
+    "pages.quizUI.ranks.master": {
+      "fr": "Maître",
+      "text": "Master"
+    },
+    "pages.quizUI.ranks.grandmaster": {
+      "fr": "Grand maître",
+      "text": "Grandmaster"
+    },
+    "pages.quizUI.ranks.epic": {
+      "fr": "Épique",
+      "text": "Epic"
+    },
+    "pages.quizUI.ranks.legend": {
+      "fr": "Légende",
+      "text": "Legend"
+    },
+    "pages.quizUI.ranks.mythic": {
+      "fr": "Mythique",
+      "text": "Mythic"
+    },
+    "pages.quizUI.ranks.glory": {
+      "fr": "Gloire mythique",
+      "text": "Mythical Glory"
+    },
+    "pages.seo.quizDuel.title": {
+      "fr": "Ferez-vous mieux que {score} au quiz MLBB n° {n} ?",
+      "text": "Kaya mo bang talunin ang {score} sa MLBB Quiz #{n}?"
+    },
+    "pages.seo.quizDuel.description": {
+      "fr": "Un ami a fait {score} au quiz quotidien MLBBDex. Mêmes questions : compétence, apparence, histoire, objet et duel de taux de victoire. À vous de jouer.",
+      "text": "Nakakuha ng {score} ang kaibigan mo sa daily quiz ng MLBBDex. Parehong mga tanong: skill, skin, lore, item at win-rate duel. Ikaw na."
+    },
+    "pages.quizUI.sharePitch": {
+      "fr": "J'ai fait {score} au quiz MLBBDex n° {n}. Tu fais mieux ?",
+      "text": "Nakakuha ako ng {score} sa MLBBDex Quiz #{n}. Kaya mo bang talunin ako?"
+    },
+    "pages.quizUI.rankLabel": {
+      "fr": "Rang :",
+      "text": "Rank:"
+    },
+    "pages.quizUI.duel.beat": {
+      "fr": "Battez le score de {name} : {score}",
+      "text": "Talunin ang score ni {name}: {score}"
+    },
+    "pages.quizUI.duel.today": {
+      "fr": "Les mêmes questions que votre ami. C'est le défi du jour : il compte dans votre série.",
+      "text": "Parehong mga tanong ng kaibigan mo. Ito ang challenge ngayon, kaya bilang ito sa streak mo."
+    },
+    "pages.quizUI.duel.past": {
+      "fr": "Un défi d'un autre jour : il ne compte pas dans votre série.",
+      "text": "Challenge mula sa ibang araw: hindi ito bilang sa streak mo."
+    },
+    "pages.quizUI.duel.tie": {
+      "fr": "Égalité avec {name} : {score} chacun.",
+      "text": "Tabla kayo ni {name}: tig-{score}."
+    },
+    "pages.quizUI.duel.tieAnon": {
+      "fr": "Égalité avec votre ami : {score} chacun.",
+      "text": "Tabla kayo ng kaibigan mo: tig-{score}."
+    },
+    "pages.quizUI.duel.lost": {
+      "fr": "{name} garde l'avantage avec {score}. Renvoyez-lui votre défi !",
+      "text": "Lamang pa rin si {name} sa {score}. Ipadala ang sarili mong challenge!"
+    },
+    "pages.quizUI.duel.lostAnon": {
+      "fr": "Votre ami garde l'avantage avec {score}. Renvoyez-lui votre défi !",
+      "text": "Lamang pa rin ang kaibigan mo sa {score}. Ipadala ang sarili mong challenge!"
+    },
+    "pages.quizUI.challengeTitle": {
+      "fr": "Défi quiz MLBBDex",
+      "text": "MLBBDex Quiz challenge"
+    },
+    "pages.quizUI.namePlaceholder": {
+      "fr": "Pseudo",
+      "text": "Nickname"
+    },
+    "pages.quizUI.streakDays": {
+      "fr": "Série quotidienne : {n}",
+      "text": "Daily streak: {n}"
+    },
+    "pages.quizUI.streakDone": {
+      "fr": "joué aujourd'hui, revenez demain",
+      "text": "nalaro na ngayon, balik bukas"
+    },
+    "pages.quizUI.streakKeep": {
+      "fr": "jouez le défi du jour pour la garder",
+      "text": "laruin ang challenge ngayon para mapanatili ito"
+    },
+    "shareCard.quiz.kicker": {
+      "fr": "Quiz MLBBDex · n° {n}",
+      "text": "MLBBDex Quiz · #{n}"
+    },
+    "shareCard.quiz.toBeat": {
+      "fr": "score à battre",
+      "text": "score na tatalunin"
+    },
+    "shareCard.quiz.duelKicker": {
+      "fr": "Quiz MLBBDex · défi n° {n}",
+      "text": "MLBBDex Quiz · challenge #{n}"
+    },
+    "shareCard.quiz.duelTitle": {
+      "fr": "Tu bats {score} ?",
+      "text": "Kaya mo bang talunin ang {score}?"
+    },
+    "shareCard.quiz.duelSubtitle": {
+      "fr": "Mêmes cinq manches, mêmes questions. À toi de jouer.",
+      "text": "Parehong limang round, parehong mga tanong. Ikaw na."
+    },
+    "shareCard.quiz.dexDuel": {
+      "fr": "Compétence, apparence, histoire, objet et duel de taux. Montre ce que tu sais !",
+      "text": "Skill, skin, lore, item at win-rate duel. Ipakita ang alam mo!"
+    },
+    "shareCard.quiz.dexPerfect": {
+      "fr": "Un sans-faute ? Je n'en reviens pas !",
+      "text": "Perfect score? Hindi ako makapaniwala!"
+    },
+    "shareCard.quiz.dexLow": {
+      "fr": "Coriace, celui-là. Un ami fera-t-il mieux ?",
+      "text": "Mahirap ito ngayon. Kaya kaya ng kaibigan mo?"
+    },
+    "reminder.set": {
+      "fr": "Rappel prévu : {month}",
+      "text": "Ipapaalala namin: {month}"
+    },
+    "reminder.hint": {
+      "fr": "Ajout à votre agenda, avec une alerte le {when}.",
+      "text": "Idaragdag sa iyong kalendaryo, may alerto sa {when}."
+    },
+    "reminder.bandSkin": {
+      "fr": "Apparence StarLight : {skin} ({hero}). Dès le 1er à 00:00, heure du serveur.",
+      "text": "StarLight skin: {skin} ({hero}). Simula sa ika-1 nang 00:00, oras ng server."
+    },
+    "comeback.skins": {
+      "fr": "{n} nouvelles apparences, dont {name}",
+      "text": "{n} bagong skin, kasama ang {name}"
+    },
+    "comeback.skin1": {
+      "fr": "Nouvelle apparence : {name} ({hero})",
+      "text": "Bagong skin: {name} ({hero})"
+    },
+    "comeback.tiers": {
+      "fr": "{n} héros ont changé de tier",
+      "text": "{n} hero ang nagbago ng tier"
+    },
+    "comeback.tiers1": {
+      "fr": "1 héros a changé de tier",
+      "text": "1 hero ang nagbago ng tier"
+    },
+    "comeback.eventsOpened": {
+      "fr": "Les événements de {month} ont commencé",
+      "text": "Nagsimula na ang mga event ng {month}"
+    },
+    "pushNotif.reminder.bodySkin": {
+      "fr": "L'apparence StarLight {skin} ({hero}) est sortie. Voir les apparences et événements du mois.",
+      "text": "Labas na ang StarLight skin na {skin} ({hero}). Tingnan ang mga skin at event ngayong buwan."
+    },
+    "pushNotif.reminder.body": {
+      "fr": "L'apparence StarLight et les événements du mois sont là. Voir les nouveautés.",
+      "text": "Narito na ang StarLight skin at mga event ngayong buwan. Tingnan ang bago."
+    },
+    "dailyDle.title": {
+      "fr": "Le héros du jour vous attend",
+      "text": "Naghihintay ang hero ng araw"
+    },
+    "dailyDle.oneLeft": {
+      "fr": "Encore une énigme aujourd'hui",
+      "text": "Isang palaisipan na lang ngayon"
+    },
+    "dailyDle.allDone": {
+      "fr": "Les deux énigmes du jour sont résolues",
+      "text": "Nasagot na ang dalawang palaisipan ngayong araw"
+    },
+    "dailyDle.streak": {
+      "fr": "Série de {n} jours",
+      "text": "{n} araw na streak"
+    },
+    "dailyDle.streak1": {
+      "fr": "Série de 1 jour",
+      "text": "1 araw na streak"
+    },
+    "dailyDle.next": {
+      "fr": "Prochaine énigme dans",
+      "text": "Susunod na palaisipan sa loob ng"
+    },
+    "dailyDle.status.started": {
+      "fr": "en cours",
+      "text": "sinisimulan"
     }
   },
   "th": {
@@ -48375,8 +49879,8 @@
       "text": "ดูผลลัพธ์"
     },
     "pages.quizUI.share": {
-      "fr": "Partager mon résultat",
-      "text": "แชร์ผลลัพธ์ของฉัน"
+      "fr": "Partager en texte",
+      "text": "แชร์เป็นข้อความ"
     },
     "pages.quizUI.shared": {
       "fr": "Résultat partagé.",
@@ -52293,6 +53797,166 @@
     "socialKit.announce.update.title": {
       "fr": "Nouveautés sur le site",
       "text": "อัปเดตใหม่บนเว็บไซต์"
+    },
+    "pages.tierList.peek.counters": {
+      "fr": "Contré par",
+      "text": "แพ้ทางให้"
+    },
+    "pages.tierList.peek.items": {
+      "fr": "Build principal",
+      "text": "บิลด์หลัก"
+    },
+    "pages.tierList.answer.answerRole": {
+      "fr": "Meilleurs {plural} en ce moment : {top}.",
+      "text": "{plural} ที่ดีที่สุดตอนนี้: {top}"
+    },
+    "pages.tierList.answer.questionRole": {
+      "fr": "Quels sont les meilleurs {plural} en ce moment ?",
+      "text": "{plural} ตัวไหนดีที่สุดตอนนี้?"
+    },
+    "pages.tierList.answer.detail": {
+      "fr": "{first} est n°1 (palier {tier}) avec {winRate} de victoires et {banRate} de bans, sur {n} héros classés au patch {v}, mesure du {date}.",
+      "text": "{first} อันดับ 1 (tier {tier}) อัตราชนะ {winRate} อัตราแบน {banRate} จากฮีโร่ {n} ตัวที่จัดอันดับในแพตช์ {v} วัดเมื่อ {date}"
+    },
+    "pages.tierList.patch.adjusted": {
+      "fr": "Retouchés au patch {v} ({n})",
+      "text": "ปรับในแพตช์ {v} ({n})"
+    },
+    "pages.tierList.patch.lead": {
+      "fr": "Les plus fortes variations du taux de victoire sur sept jours parmi ces héros, et ceux que le patch a retouchés.",
+      "text": "การเปลี่ยนแปลงอัตราชนะมากที่สุดในเจ็ดวันของฮีโร่เหล่านี้ และฮีโร่ที่แพตช์ปรับ"
+    },
+    "pages.tierList.next.counters": {
+      "fr": "Contrer les meilleurs picks",
+      "text": "ทางแก้ของตัวเลือกยอดนิยม"
+    },
+    "pages.tierList.next.builds": {
+      "fr": "Leurs builds",
+      "text": "บิลด์ของพวกเขา"
+    },
+    "pages.tierList.next.buildsLead": {
+      "fr": "Les trois objets clés les plus joués par le haut du classement.",
+      "text": "ไอเทมหลักสามชิ้นที่ฮีโร่อันดับต้นใช้มากที่สุด"
+    },
+    "pages.tierList.next.tools": {
+      "fr": "Passer à la pratique",
+      "text": "ลองใช้งานจริง"
+    },
+    "pages.nicknameUI.presetsTitle": {
+      "fr": "Looks prêts à l'emploi",
+      "text": "ลุคสำเร็จรูป"
+    },
+    "pages.heroDetail.glance.counteredBy": {
+      "fr": "Contré par",
+      "text": "โดนเคาน์เตอร์โดย"
+    },
+    "pages.quizUI.sharePitch": {
+      "fr": "J'ai fait {score} au quiz MLBBDex n° {n}. Tu fais mieux ?",
+      "text": "ฉันได้ {score} ในควิซ MLBBDex #{n} คุณจะทำได้ดีกว่าไหม?"
+    },
+    "pages.quizUI.namePlaceholder": {
+      "fr": "Pseudo",
+      "text": "ชื่อเล่น"
+    },
+    "pages.quizUI.streakDays": {
+      "fr": "Série quotidienne : {n}",
+      "text": "สถิติต่อเนื่องรายวัน: {n}"
+    },
+    "pages.quizUI.ranks.grandmaster": {
+      "fr": "Grand maître",
+      "text": "Grandmaster"
+    },
+    "shareCard.quiz.kicker": {
+      "fr": "Quiz MLBBDex · n° {n}",
+      "text": "ควิซ MLBBDex · #{n}"
+    },
+    "shareCard.quiz.duelKicker": {
+      "fr": "Quiz MLBBDex · défi n° {n}",
+      "text": "ควิซ MLBBDex · ชาเลนจ์ #{n}"
+    },
+    "shareCard.quiz.duelTitle": {
+      "fr": "Tu bats {score} ?",
+      "text": "เอาชนะ {score} ได้ไหม?"
+    },
+    "shareCard.quiz.duelSubtitle": {
+      "fr": "Mêmes cinq manches, mêmes questions. À toi de jouer.",
+      "text": "ห้ารอบเดิม คำถามเดิม ถึงตาคุณแล้ว"
+    },
+    "shareCard.quiz.dexPerfect": {
+      "fr": "Un sans-faute ? Je n'en reviens pas !",
+      "text": "เต็มคะแนนเลยเหรอ? พูดไม่ออกเลย!"
+    },
+    "shareCard.quiz.dexLow": {
+      "fr": "Coriace, celui-là. Un ami fera-t-il mieux ?",
+      "text": "วันนี้ยากหน่อย เพื่อนจะทำได้ดีกว่าไหม?"
+    },
+    "reminder.set": {
+      "fr": "Rappel prévu : {month}",
+      "text": "เราจะเตือนคุณ: {month}"
+    },
+    "reminder.hint": {
+      "fr": "Ajout à votre agenda, avec une alerte le {when}.",
+      "text": "เพิ่มลงในปฏิทินของคุณ พร้อมการแจ้งเตือนเมื่อ {when}"
+    },
+    "reminder.bandSkin": {
+      "fr": "Apparence StarLight : {skin} ({hero}). Dès le 1er à 00:00, heure du serveur.",
+      "text": "สกิน StarLight: {skin} ({hero}) ตั้งแต่วันที่ 1 เวลา 00:00 น. ตามเวลาเซิร์ฟเวอร์"
+    },
+    "comeback.skins": {
+      "fr": "{n} nouvelles apparences, dont {name}",
+      "text": "สกินใหม่ {n} ชุด รวมถึง {name}"
+    },
+    "comeback.skin1": {
+      "fr": "Nouvelle apparence : {name} ({hero})",
+      "text": "สกินใหม่: {name} ({hero})"
+    },
+    "comeback.tiers": {
+      "fr": "{n} héros ont changé de tier",
+      "text": "ฮีโร่ {n} ตัวเปลี่ยนเทียร์"
+    },
+    "comeback.tiers1": {
+      "fr": "1 héros a changé de tier",
+      "text": "ฮีโร่ 1 ตัวเปลี่ยนเทียร์"
+    },
+    "comeback.eventsOpened": {
+      "fr": "Les événements de {month} ont commencé",
+      "text": "กิจกรรมของ {month} เริ่มแล้ว"
+    },
+    "pushNotif.reminder.bodySkin": {
+      "fr": "L'apparence StarLight {skin} ({hero}) est sortie. Voir les apparences et événements du mois.",
+      "text": "สกิน StarLight {skin} ({hero}) ออกแล้ว ดูสกินและกิจกรรมของเดือนนี้"
+    },
+    "pushNotif.reminder.body": {
+      "fr": "L'apparence StarLight et les événements du mois sont là. Voir les nouveautés.",
+      "text": "สกิน StarLight และกิจกรรมของเดือนมาแล้ว ดูสิ่งใหม่"
+    },
+    "dailyDle.title": {
+      "fr": "Le héros du jour vous attend",
+      "text": "ฮีโร่ประจำวันรอคุณอยู่"
+    },
+    "dailyDle.oneLeft": {
+      "fr": "Encore une énigme aujourd'hui",
+      "text": "เหลืออีกหนึ่งปริศนาวันนี้"
+    },
+    "dailyDle.allDone": {
+      "fr": "Les deux énigmes du jour sont résolues",
+      "text": "ไขปริศนาทั้งสองของวันนี้แล้ว"
+    },
+    "dailyDle.streak": {
+      "fr": "Série de {n} jours",
+      "text": "สตรีค {n} วัน"
+    },
+    "dailyDle.streak1": {
+      "fr": "Série de 1 jour",
+      "text": "สตรีค 1 วัน"
+    },
+    "dailyDle.next": {
+      "fr": "Prochaine énigme dans",
+      "text": "ปริศนาถัดไปใน"
+    },
+    "dailyDle.status.started": {
+      "fr": "en cours",
+      "text": "กำลังเล่น"
     }
   },
   "pt": {
@@ -64251,6 +65915,222 @@
     "error.title": {
       "fr": "Ça a coincé",
       "text": "Algo travou"
+    },
+    "pages.tierList.peek.close": {
+      "fr": "Fermer l'aperçu",
+      "text": "Fechar a prévia"
+    },
+    "pages.tierList.answer.answerRole": {
+      "fr": "Meilleurs {plural} en ce moment : {top}.",
+      "text": "Melhores {plural} agora: {top}."
+    },
+    "pages.tierList.answer.detail": {
+      "fr": "{first} est n°1 (palier {tier}) avec {winRate} de victoires et {banRate} de bans, sur {n} héros classés au patch {v}, mesure du {date}.",
+      "text": "{first} é o nº 1 (tier {tier}) com {winRate} de vitórias e {banRate} de bans, entre {n} heróis classificados no patch {v}, medição de {date}."
+    },
+    "pages.tierList.patch.title": {
+      "fr": "Ce qui a changé ce patch",
+      "text": "O que mudou neste patch"
+    },
+    "pages.tierList.patch.adjusted": {
+      "fr": "Retouchés au patch {v} ({n})",
+      "text": "Ajustados no patch {v} ({n})"
+    },
+    "pages.tierList.next.titleLane": {
+      "fr": "Vous jouez {lane} ? À voir aussi",
+      "text": "Você joga de {lane}? Veja também"
+    },
+    "pages.tierList.next.titleRole": {
+      "fr": "Vous jouez {role} ? À voir aussi",
+      "text": "Você joga de {role}? Veja também"
+    },
+    "pages.tierList.next.counters": {
+      "fr": "Contrer les meilleurs picks",
+      "text": "Counters dos melhores picks"
+    },
+    "pages.tierList.next.countersLead": {
+      "fr": "Les héros contre lesquels le haut du classement perd le plus.",
+      "text": "Os heróis contra os quais o topo do ranking mais perde."
+    },
+    "pages.tierList.next.buildsLead": {
+      "fr": "Les trois objets clés les plus joués par le haut du classement.",
+      "text": "Os três itens-chave mais usados pelo topo do ranking."
+    },
+    "pages.tierList.next.tools": {
+      "fr": "Passer à la pratique",
+      "text": "Coloque em prática"
+    },
+    "pages.nicknameUI.presetsLead": {
+      "fr": "Un style et une décoration assortis, en une touche.",
+      "text": "Um estilo e uma decoração combinando, num toque."
+    },
+    "pages.nicknameUI.previewTitle": {
+      "fr": "Aperçu en jeu",
+      "text": "Prévia no jogo"
+    },
+    "pages.heroDetail.glance.counteredBy": {
+      "fr": "Contré par",
+      "text": "Counterado por"
+    },
+    "pages.seo.quizDuel.title": {
+      "fr": "Ferez-vous mieux que {score} au quiz MLBB n° {n} ?",
+      "text": "Consegue bater {score} no quiz MLBB nº {n}?"
+    },
+    "pages.seo.quizDuel.description": {
+      "fr": "Un ami a fait {score} au quiz quotidien MLBBDex. Mêmes questions : compétence, apparence, histoire, objet et duel de taux de victoire. À vous de jouer.",
+      "text": "Um amigo fez {score} no quiz diário do MLBBDex. As mesmas perguntas: habilidade, visual, história, item e duelo de taxa de vitória. Sua vez."
+    },
+    "pages.quizUI.sharePitch": {
+      "fr": "J'ai fait {score} au quiz MLBBDex n° {n}. Tu fais mieux ?",
+      "text": "Fiz {score} no quiz MLBBDex nº {n}. Consegue me superar?"
+    },
+    "pages.quizUI.rankLabel": {
+      "fr": "Rang :",
+      "text": "Elo:"
+    },
+    "pages.quizUI.duel.today": {
+      "fr": "Les mêmes questions que votre ami. C'est le défi du jour : il compte dans votre série.",
+      "text": "As mesmas perguntas do seu amigo. É o desafio de hoje, então conta para a sua sequência."
+    },
+    "pages.quizUI.duel.past": {
+      "fr": "Un défi d'un autre jour : il ne compte pas dans votre série.",
+      "text": "Um desafio de outro dia: não conta para a sua sequência."
+    },
+    "pages.quizUI.duel.won": {
+      "fr": "Vous avez battu les {score} de {name} !",
+      "text": "Você superou os {score} de {name}!"
+    },
+    "pages.quizUI.duel.wonAnon": {
+      "fr": "Vous avez battu les {score} de votre ami !",
+      "text": "Você superou os {score} do seu amigo!"
+    },
+    "pages.quizUI.duel.lost": {
+      "fr": "{name} garde l'avantage avec {score}. Renvoyez-lui votre défi !",
+      "text": "{name} continua na frente com {score}. Mande o seu próprio desafio!"
+    },
+    "pages.quizUI.duel.lostAnon": {
+      "fr": "Votre ami garde l'avantage avec {score}. Renvoyez-lui votre défi !",
+      "text": "Seu amigo continua na frente com {score}. Mande o seu próprio desafio!"
+    },
+    "pages.quizUI.challengeTitle": {
+      "fr": "Défi quiz MLBBDex",
+      "text": "Desafio do quiz MLBBDex"
+    },
+    "pages.quizUI.namePlaceholder": {
+      "fr": "Pseudo",
+      "text": "Apelido"
+    },
+    "pages.quizUI.streakDays": {
+      "fr": "Série quotidienne : {n}",
+      "text": "Sequência diária: {n}"
+    },
+    "pages.quizUI.streakDone": {
+      "fr": "joué aujourd'hui, revenez demain",
+      "text": "jogado hoje, volte amanhã"
+    },
+    "pages.quizUI.streakKeep": {
+      "fr": "jouez le défi du jour pour la garder",
+      "text": "jogue o desafio de hoje para mantê-la"
+    },
+    "shareCard.quiz.duelKicker": {
+      "fr": "Quiz MLBBDex · défi n° {n}",
+      "text": "Quiz MLBBDex · desafio nº {n}"
+    },
+    "shareCard.quiz.duelTitle": {
+      "fr": "Tu bats {score} ?",
+      "text": "Consegue bater {score}?"
+    },
+    "shareCard.quiz.duelSubtitle": {
+      "fr": "Mêmes cinq manches, mêmes questions. À toi de jouer.",
+      "text": "As mesmas cinco rodadas, as mesmas perguntas. Sua vez."
+    },
+    "shareCard.quiz.dexDuel": {
+      "fr": "Compétence, apparence, histoire, objet et duel de taux. Montre ce que tu sais !",
+      "text": "Habilidade, visual, história, item e duelo de taxas. Mostre o que você sabe!"
+    },
+    "shareCard.quiz.dexPerfect": {
+      "fr": "Un sans-faute ? Je n'en reviens pas !",
+      "text": "Gabaritou? Fiquei sem palavras!"
+    },
+    "shareCard.quiz.dexMid": {
+      "fr": "Pas mal ! Demain, de nouvelles questions.",
+      "text": "Nada mal! Amanhã tem perguntas novas."
+    },
+    "shareCard.quiz.dexLow": {
+      "fr": "Coriace, celui-là. Un ami fera-t-il mieux ?",
+      "text": "Hoje foi difícil. Será que um amigo vai melhor?"
+    },
+    "shareCard.quiz.kicker": {
+      "fr": "Quiz MLBBDex · n° {n}",
+      "text": "Quiz MLBBDex · nº {n}"
+    },
+    "reminder.set": {
+      "fr": "Rappel prévu : {month}",
+      "text": "Vamos te lembrar: {month}"
+    },
+    "reminder.hint": {
+      "fr": "Ajout à votre agenda, avec une alerte le {when}.",
+      "text": "Entra no seu calendário, com um alerta em {when}."
+    },
+    "reminder.bandSkin": {
+      "fr": "Apparence StarLight : {skin} ({hero}). Dès le 1er à 00:00, heure du serveur.",
+      "text": "Skin StarLight: {skin} ({hero}). A partir do dia 1º às 00:00, horário do servidor."
+    },
+    "comeback.skins": {
+      "fr": "{n} nouvelles apparences, dont {name}",
+      "text": "{n} skins novas, incluindo {name}"
+    },
+    "comeback.skin1": {
+      "fr": "Nouvelle apparence : {name} ({hero})",
+      "text": "Skin nova: {name} ({hero})"
+    },
+    "comeback.tiers": {
+      "fr": "{n} héros ont changé de tier",
+      "text": "{n} heróis mudaram de tier"
+    },
+    "comeback.tiers1": {
+      "fr": "1 héros a changé de tier",
+      "text": "1 herói mudou de tier"
+    },
+    "comeback.eventsOpened": {
+      "fr": "Les événements de {month} ont commencé",
+      "text": "Os eventos de {month} começaram"
+    },
+    "pushNotif.reminder.bodySkin": {
+      "fr": "L'apparence StarLight {skin} ({hero}) est sortie. Voir les apparences et événements du mois.",
+      "text": "A skin StarLight {skin} ({hero}) chegou. Veja as skins e eventos do mês."
+    },
+    "pushNotif.reminder.body": {
+      "fr": "L'apparence StarLight et les événements du mois sont là. Voir les nouveautés.",
+      "text": "A skin StarLight e os eventos do mês chegaram. Veja as novidades."
+    },
+    "dailyDle.title": {
+      "fr": "Le héros du jour vous attend",
+      "text": "O herói do dia está esperando"
+    },
+    "dailyDle.oneLeft": {
+      "fr": "Encore une énigme aujourd'hui",
+      "text": "Falta um enigma hoje"
+    },
+    "dailyDle.allDone": {
+      "fr": "Les deux énigmes du jour sont résolues",
+      "text": "Os dois enigmas de hoje estão resolvidos"
+    },
+    "dailyDle.streak": {
+      "fr": "Série de {n} jours",
+      "text": "Sequência de {n} dias"
+    },
+    "dailyDle.streak1": {
+      "fr": "Série de 1 jour",
+      "text": "Sequência de 1 dia"
+    },
+    "dailyDle.next": {
+      "fr": "Prochaine énigme dans",
+      "text": "Próximo enigma em"
+    },
+    "dailyDle.status.started": {
+      "fr": "en cours",
+      "text": "em andamento"
     }
   },
   "ru": {
@@ -73703,8 +75583,8 @@
       "text": "Смотреть итоги"
     },
     "pages.quizUI.share": {
-      "fr": "Partager mon résultat",
-      "text": "Поделиться результатом"
+      "fr": "Partager en texte",
+      "text": "Поделиться текстом"
     },
     "pages.quizUI.shared": {
       "fr": "Résultat partagé.",
@@ -77669,6 +79549,250 @@
     "error.title": {
       "fr": "Ça a coincé",
       "text": "Что-то заело"
+    },
+    "pages.tierList.peek.open": {
+      "fr": "Aperçu : {name}",
+      "text": "Обзор: {name}"
+    },
+    "pages.tierList.peek.close": {
+      "fr": "Fermer l'aperçu",
+      "text": "Закрыть обзор"
+    },
+    "pages.tierList.peek.counters": {
+      "fr": "Contré par",
+      "text": "Контрпики"
+    },
+    "pages.tierList.answer.answerRole": {
+      "fr": "Meilleurs {plural} en ce moment : {top}.",
+      "text": "Лучшие {plural} на данный момент: {top}."
+    },
+    "pages.tierList.answer.detail": {
+      "fr": "{first} est n°1 (palier {tier}) avec {winRate} de victoires et {banRate} de bans, sur {n} héros classés au patch {v}, mesure du {date}.",
+      "text": "{first} — № 1 (тир {tier}): {winRate} побед и {banRate} банов, среди {n} героев рейтинга в патче {v}, замер от {date}."
+    },
+    "pages.tierList.patch.adjusted": {
+      "fr": "Retouchés au patch {v} ({n})",
+      "text": "Изменены в патче {v} ({n})"
+    },
+    "pages.tierList.patch.lead": {
+      "fr": "Les plus fortes variations du taux de victoire sur sept jours parmi ces héros, et ceux que le patch a retouchés.",
+      "text": "Самые большие изменения винрейта за семь дней среди этих героев и те, кого затронул патч."
+    },
+    "pages.tierList.next.titleLane": {
+      "fr": "Vous jouez {lane} ? À voir aussi",
+      "text": "{lane}: смотрите также"
+    },
+    "pages.tierList.next.titleRole": {
+      "fr": "Vous jouez {role} ? À voir aussi",
+      "text": "{role}: смотрите также"
+    },
+    "pages.tierList.next.counters": {
+      "fr": "Contrer les meilleurs picks",
+      "text": "Контрпики лучших героев"
+    },
+    "pages.tierList.next.buildsLead": {
+      "fr": "Les trois objets clés les plus joués par le haut du classement.",
+      "text": "Три ключевых предмета, которые чаще всего собирают лидеры рейтинга."
+    },
+    "pages.tierList.next.tools": {
+      "fr": "Passer à la pratique",
+      "text": "Применить на практике"
+    },
+    "pages.nicknameUI.presetsLead": {
+      "fr": "Un style et une décoration assortis, en une touche.",
+      "text": "Стиль и украшение в паре — одним касанием."
+    },
+    "pages.heroDetail.glance.counteredBy": {
+      "fr": "Contré par",
+      "text": "Его контрят"
+    },
+    "pages.seo.quizDuel.title": {
+      "fr": "Ferez-vous mieux que {score} au quiz MLBB n° {n} ?",
+      "text": "Сможете побить {score} в викторине MLBB №{n}?"
+    },
+    "pages.seo.quizDuel.description": {
+      "fr": "Un ami a fait {score} au quiz quotidien MLBBDex. Mêmes questions : compétence, apparence, histoire, objet et duel de taux de victoire. À vous de jouer.",
+      "text": "Друг набрал {score} в ежедневной викторине MLBBDex. Те же вопросы: навык, облик, история, предмет и дуэль процента побед. Ваш ход."
+    },
+    "pages.quizUI.shareScore": {
+      "fr": "Partager mon score",
+      "text": "Поделиться результатом"
+    },
+    "pages.quizUI.sharePitch": {
+      "fr": "J'ai fait {score} au quiz MLBBDex n° {n}. Tu fais mieux ?",
+      "text": "У меня {score} в викторине MLBBDex №{n}. Сможешь лучше?"
+    },
+    "pages.quizUI.rankLabel": {
+      "fr": "Rang :",
+      "text": "Ранг:"
+    },
+    "pages.quizUI.ranks.elite": {
+      "fr": "Élite",
+      "text": "Элита"
+    },
+    "pages.quizUI.duel.today": {
+      "fr": "Les mêmes questions que votre ami. C'est le défi du jour : il compte dans votre série.",
+      "text": "Те же вопросы, что у вашего друга. Это сегодняшнее испытание, оно идёт в вашу серию."
+    },
+    "pages.quizUI.duel.past": {
+      "fr": "Un défi d'un autre jour : il ne compte pas dans votre série.",
+      "text": "Испытание другого дня: в серию оно не идёт."
+    },
+    "pages.quizUI.duel.won": {
+      "fr": "Vous avez battu les {score} de {name} !",
+      "text": "Вы побили {score} игрока {name}!"
+    },
+    "pages.quizUI.duel.wonAnon": {
+      "fr": "Vous avez battu les {score} de votre ami !",
+      "text": "Вы побили {score} вашего друга!"
+    },
+    "pages.quizUI.duel.tie": {
+      "fr": "Égalité avec {name} : {score} chacun.",
+      "text": "Ничья с {name}: по {score}."
+    },
+    "pages.quizUI.duel.tieAnon": {
+      "fr": "Égalité avec votre ami : {score} chacun.",
+      "text": "Ничья с другом: по {score}."
+    },
+    "pages.quizUI.duel.lost": {
+      "fr": "{name} garde l'avantage avec {score}. Renvoyez-lui votre défi !",
+      "text": "{name} впереди с {score}. Отправьте ответный вызов!"
+    },
+    "pages.quizUI.duel.lostAnon": {
+      "fr": "Votre ami garde l'avantage avec {score}. Renvoyez-lui votre défi !",
+      "text": "Друг впереди с {score}. Отправьте ответный вызов!"
+    },
+    "pages.quizUI.playToday": {
+      "fr": "Jouer le défi du jour",
+      "text": "Пройти сегодняшнее испытание"
+    },
+    "pages.quizUI.challengeTitle": {
+      "fr": "Défi quiz MLBBDex",
+      "text": "Вызов в викторине MLBBDex"
+    },
+    "pages.quizUI.nameLabel": {
+      "fr": "Votre nom sur le défi (facultatif)",
+      "text": "Ваше имя в вызове (необязательно)"
+    },
+    "pages.quizUI.namePlaceholder": {
+      "fr": "Pseudo",
+      "text": "Ник"
+    },
+    "pages.quizUI.streakDone": {
+      "fr": "joué aujourd'hui, revenez demain",
+      "text": "сегодня сыграно, возвращайтесь завтра"
+    },
+    "pages.quizUI.streakKeep": {
+      "fr": "jouez le défi du jour pour la garder",
+      "text": "пройдите сегодняшнее испытание, чтобы её сохранить"
+    },
+    "shareCard.quiz.kicker": {
+      "fr": "Quiz MLBBDex · n° {n}",
+      "text": "Викторина MLBBDex · №{n}"
+    },
+    "shareCard.quiz.toBeat": {
+      "fr": "score à battre",
+      "text": "нужно побить"
+    },
+    "shareCard.quiz.duelKicker": {
+      "fr": "Quiz MLBBDex · défi n° {n}",
+      "text": "Викторина MLBBDex · вызов №{n}"
+    },
+    "shareCard.quiz.duelTitle": {
+      "fr": "Tu bats {score} ?",
+      "text": "Побьёшь {score}?"
+    },
+    "shareCard.quiz.duelSubtitle": {
+      "fr": "Mêmes cinq manches, mêmes questions. À toi de jouer.",
+      "text": "Те же пять раундов, те же вопросы. Твой ход."
+    },
+    "shareCard.quiz.dexDuel": {
+      "fr": "Compétence, apparence, histoire, objet et duel de taux. Montre ce que tu sais !",
+      "text": "Навык, облик, история, предмет и дуэль винрейта. Покажи, что знаешь!"
+    },
+    "shareCard.quiz.dexPerfect": {
+      "fr": "Un sans-faute ? Je n'en reviens pas !",
+      "text": "Без единой ошибки? Нет слов!"
+    },
+    "shareCard.quiz.dexGood": {
+      "fr": "Belle partie ! Qui fera mieux ?",
+      "text": "Сильная игра! Кто сделает лучше?"
+    },
+    "shareCard.quiz.dexMid": {
+      "fr": "Pas mal ! Demain, de nouvelles questions.",
+      "text": "Неплохо! Завтра новые вопросы."
+    },
+    "shareCard.quiz.dexLow": {
+      "fr": "Coriace, celui-là. Un ami fera-t-il mieux ?",
+      "text": "Сегодня было сложно. Друг справится лучше?"
+    },
+    "reminder.set": {
+      "fr": "Rappel prévu : {month}",
+      "text": "Напомним: {month}"
+    },
+    "reminder.hint": {
+      "fr": "Ajout à votre agenda, avec une alerte le {when}.",
+      "text": "Добавится в календарь с напоминанием: {when}."
+    },
+    "reminder.bandSkin": {
+      "fr": "Apparence StarLight : {skin} ({hero}). Dès le 1er à 00:00, heure du serveur.",
+      "text": "Скин StarLight: {skin} ({hero}). С 1-го числа в 00:00 по серверному времени."
+    },
+    "comeback.skins": {
+      "fr": "{n} nouvelles apparences, dont {name}",
+      "text": "Новых скинов: {n}, среди них {name}"
+    },
+    "comeback.skin1": {
+      "fr": "Nouvelle apparence : {name} ({hero})",
+      "text": "Новый скин: {name} ({hero})"
+    },
+    "comeback.tiers": {
+      "fr": "{n} héros ont changé de tier",
+      "text": "Героев, сменивших тир: {n}"
+    },
+    "comeback.tiers1": {
+      "fr": "1 héros a changé de tier",
+      "text": "1 герой сменил тир"
+    },
+    "comeback.eventsOpened": {
+      "fr": "Les événements de {month} ont commencé",
+      "text": "События месяца ({month}) начались"
+    },
+    "pushNotif.reminder.bodySkin": {
+      "fr": "L'apparence StarLight {skin} ({hero}) est sortie. Voir les apparences et événements du mois.",
+      "text": "Вышел скин StarLight {skin} ({hero}). Скины и события месяца уже на сайте."
+    },
+    "pushNotif.reminder.body": {
+      "fr": "L'apparence StarLight et les événements du mois sont là. Voir les nouveautés.",
+      "text": "Скин StarLight и события месяца уже вышли. Смотрите, что нового."
+    },
+    "dailyDle.title": {
+      "fr": "Le héros du jour vous attend",
+      "text": "Герой дня ждёт вас"
+    },
+    "dailyDle.oneLeft": {
+      "fr": "Encore une énigme aujourd'hui",
+      "text": "На сегодня осталась одна загадка"
+    },
+    "dailyDle.allDone": {
+      "fr": "Les deux énigmes du jour sont résolues",
+      "text": "Обе загадки дня решены"
+    },
+    "dailyDle.streak": {
+      "fr": "Série de {n} jours",
+      "text": "Серия: {n} дн."
+    },
+    "dailyDle.streak1": {
+      "fr": "Série de 1 jour",
+      "text": "Серия: 1 день"
+    },
+    "dailyDle.next": {
+      "fr": "Prochaine énigme dans",
+      "text": "Следующая загадка через"
+    },
+    "dailyDle.status.started": {
+      "fr": "en cours",
+      "text": "в процессе"
     }
   }
 }

@@ -15,6 +15,8 @@ const KEYS = {
   challenge: "mlbb_quiz_defi",
   pool: "mlbb_quiz_vivier",
   practice: "mlbb_quiz_entrainement",
+  duel: "mlbb_quiz_duel",
+  name: "mlbb_quiz_nom",
 } as const;
 
 function read<T>(key: string): T | null {
@@ -54,6 +56,29 @@ export function readMatch(day: string): string[][] | null {
 
 export function writeMatch(day: string, attempts: string[][]) {
   write(KEYS.match, { jour: day, essais: attempts });
+}
+
+/**
+ * Attempts at a past challenge opened from a friend's link: kept apart from
+ * today's game, and never counted in the stats or the streak.
+ */
+export function readDuelMatch(day: string): string[][] | null {
+  const p = read<{ jour: string; essais: string[][] }>(KEYS.duel);
+  return p?.jour === day && Array.isArray(p.essais) ? p.essais : null;
+}
+
+export function writeDuelMatch(day: string, attempts: string[][]) {
+  write(KEYS.duel, { jour: day, essais: attempts });
+}
+
+/** The name a player puts on their challenge links, if any. */
+export function readName(): string {
+  const n = read<string>(KEYS.name);
+  return typeof n === "string" ? n : "";
+}
+
+export function writeName(name: string) {
+  write(KEYS.name, name);
 }
 
 export interface RecordPractice {
@@ -104,15 +129,20 @@ export function loadPool(locale: Locale): Promise<PoolQuiz> {
 /**
  * Daily challenge. Already received today: read back from the device. Otherwise requested from
  * the server; offline, drawn from the saved pool, with the same computation as the
- * server (`local` flags it).
+ * server (`local` flags it). A past challenge (a friend's link) is not kept:
+ * it would push today's out of the offline copy.
  */
-export async function loadChallenge(locale: Locale, day: string): Promise<{ challenge: Challenge; local: boolean }> {
+export async function loadChallenge(
+  locale: Locale,
+  day: string,
+  { save = true }: { save?: boolean } = {},
+): Promise<{ challenge: Challenge; local: boolean }> {
   const keep = read<{ langue: Locale; defi: Challenge }>(KEYS.challenge);
   const current = keep?.defi?.manches?.every((m) => ORDER_CHALLENGE.includes(m.type)) ?? false;
   if (current && keep?.langue === locale && keep.defi?.jour === day) return { challenge: keep!.defi, local: false };
   try {
     const challenge = await json<Challenge>(`/quiz/day/${locale}-${day}.json`);
-    write(KEYS.challenge, { langue: locale, defi: challenge });
+    if (save) write(KEYS.challenge, { langue: locale, defi: challenge });
     return { challenge, local: false };
   } catch {
     const pool = await loadPool(locale);

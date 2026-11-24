@@ -5,10 +5,13 @@ import { DexLoading } from "@/components/dex-loading";
 import { Flash } from "@/components/dex-states";
 import { useDiscordMoment } from "@/components/discord-moment";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Palette, Scale, ScrollText, Share2, Shield, Sparkles, Trophy, type LucideIcon } from "lucide-react";
+import { Flame, Link2, Palette, Scale, ScrollText, Shield, Sparkles, Swords, Trophy, Type, type LucideIcon } from "lucide-react";
 import { FilterGroup, Chip } from "@/components/chip";
 import { GameDex } from "@/components/game-dex";
+import Link from "@/components/link";
+import { Dex } from "@/components/mascot";
 import { RoundQuiz, type CatalogQuiz } from "@/components/quiz-round";
+import { ShareImageButton } from "@/components/share-image-button";
 import { LOCALE_INTL } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
 import type { T } from "@/i18n/t";
@@ -27,7 +30,15 @@ import {
   currentStreak,
   STATS_EMPTY,
   textShare,
+  cellsOfRow,
+  cleanName,
+  dayOfNumber,
+  duelCode,
+  duelOutcome,
+  quizRank,
+  RANK_POSE,
   type Challenge,
+  type DuelLink,
   type QuizHero,
   type Round,
   type ItemRoster,
@@ -41,9 +52,13 @@ import {
   writePractice,
   writeMatch,
   writeStats,
+  writeDuelMatch,
+  writeName,
   readPractice,
   readMatch,
   readStats,
+  readDuelMatch,
+  readName,
   type RecordPractice,
 } from "@/lib/quiz-storage";
 import { trackEvent, trackShare } from "@/lib/analytics";
@@ -73,7 +88,7 @@ const buttonMain =
 const secondaryButton =
   "bevel-sm inline-flex items-center justify-center gap-2 border border-night-600 px-4 py-2 text-sm text-chalk-300 transition-colors hover:border-gold-500 hover:text-gold-400";
 
-export function QuizMlbb({ heroes, items }: { heroes: QuizHero[]; items: ItemRoster[] }) {
+export function QuizMlbb({ heroes, items, duel }: { heroes: QuizHero[]; items: ItemRoster[]; duel?: DuelLink }) {
   const t = useT();
   const [mode, setMode] = useState<"daily" | "practice">("daily");
   // Practice is only mounted when first opened: its pool is not downloaded
@@ -107,7 +122,7 @@ export function QuizMlbb({ heroes, items }: { heroes: QuizHero[]; items: ItemRos
         </Chip>
       </FilterGroup>
       <div hidden={mode !== "daily"}>
-        <ChallengeOfDay catalog={catalog} onPractice={() => chooseMode("practice")} />
+        <ChallengeOfDay catalog={catalog} duel={duel} onPractice={() => chooseMode("practice")} />
       </div>
       {practiceOpen && (
         <div hidden={mode !== "practice"}>
@@ -124,11 +139,19 @@ function roundOpen(challenge: Challenge, attempts: string[][]): number {
   return i < 0 ? challenge.manches.length : i;
 }
 
-function ChallengeOfDay({ catalog, onPractice }: { catalog: CatalogQuiz; onPractice: () => void }) {
+/**
+ * The daily challenge, or the one a friend's link names (`duel`): today's when
+ * the link is from today, then it counts as the daily game; an older one is
+ * played apart, outside the stats and the streak.
+ */
+function ChallengeOfDay({ catalog, duel, onPractice }: { catalog: CatalogQuiz; duel?: DuelLink; onPractice: () => void }) {
   const discord = useDiscordMoment();
   const t = useT();
   const locale = useLocale();
+  const [today, setToday] = useState<string | null>(null);
   const [day, setDay] = useState<string | null>(null);
+  /** The friend who sent the link, when they put their name on it. */
+  const [rival, setRival] = useState("");
   const [state, setState] = useState<{ challenge: Challenge; local: boolean } | "error" | null>(null);
   const [attempts, setAttempts] = useState<string[][]>([]);
   const [current, setCurrent] = useState(0);
@@ -140,30 +163,42 @@ function ChallengeOfDay({ catalog, onPractice }: { catalog: CatalogQuiz; onPract
 
   // The day is read after mount: the static page knows neither the time
   // nor the visitor's stored progress.
+  const duelNumber = duel?.number;
   useEffect(() => {
-    const today = dayUtc(new Date());
-    /* eslint-disable react-hooks/set-state-in-effect -- clock and storage read after mount */
-    setDay(today);
+    const now = dayUtc(new Date());
+    const target = duelNumber ? dayOfNumber(duelNumber) : now;
+    /* eslint-disable react-hooks/set-state-in-effect -- clock, address and storage read after mount */
+    setToday(now);
+    setDay(target);
     setStats(readStats());
-    setAttempts(readMatch(today) ?? []);
+    setAttempts((target === now ? readMatch(target) : readDuelMatch(target)) ?? []);
+    if (duelNumber) {
+      setRival(cleanName(new URLSearchParams(window.location.search).get("by")));
+      trackEvent("Quiz", "Challenge open", target === now ? "today" : "past");
+    }
     /* eslint-enable react-hooks/set-state-in-effect */
-  }, []);
+  }, [duelNumber]);
+
+  const daily = day !== null && day === today;
+  // The link's score stays on its own challenge: not on the next day's, once it is opened.
+  const duelHere = duel && day === dayOfNumber(duel.number) ? duel : undefined;
 
   useEffect(() => {
-    if (!day) return;
+    if (!day || !today) return;
     let active = true;
-    loadChallenge(locale, day).then(
+    const isDaily = day === today;
+    loadChallenge(locale, day, { save: isDaily }).then(
       (r) => {
         if (!active) return;
         setState(r);
-        setCurrent(roundOpen(r.challenge, readMatch(day) ?? []));
+        setCurrent(roundOpen(r.challenge, (isDaily ? readMatch(day) : readDuelMatch(day)) ?? []));
       },
       () => active && setState("error"),
     );
     return () => {
       active = false;
     };
-  }, [day, locale, tentative]);
+  }, [day, today, locale, tentative]);
 
   // Focus follows the next round: a screen reader announces it right away.
   useEffect(() => {
@@ -204,14 +239,18 @@ function ChallengeOfDay({ catalog, onPractice }: { catalog: CatalogQuiz; onPract
     if (roundFinished(m, currentGuesses)) return;
     const nextGuesses = state.challenge.manches.map((_, j) => (j === i ? [...currentGuesses, slug] : (attempts[j] ?? [])));
     setAttempts(nextGuesses);
-    writeMatch(day, nextGuesses);
+    if (daily) writeMatch(day, nextGuesses);
+    else writeDuelMatch(day, nextGuesses);
     if (state.challenge.manches.every((mm, j) => roundFinished(mm, nextGuesses[j]))) {
       const points = state.challenge.manches.reduce((n, mm, j) => n + pointsRound(mm, nextGuesses[j]), 0);
-      const nextStats = saveMatch(readStats(), day, points);
-      setStats(nextStats);
-      writeStats(nextStats);
-      trackEvent("Quiz", "Finish", "daily", points);
-      discord.offer("quiz", 2500);
+      if (daily) {
+        const nextStats = saveMatch(readStats(), day, points);
+        setStats(nextStats);
+        writeStats(nextStats);
+        trackEvent("Quiz", "Finish", "daily", points);
+        discord.offer("quiz", 2500);
+      }
+      if (duelHere) trackEvent("Quiz", "Challenge result", duelOutcome(points, duelHere.points), points);
     }
   }
 
@@ -221,11 +260,12 @@ function ChallengeOfDay({ catalog, onPractice }: { catalog: CatalogQuiz; onPract
   }
 
   function newDay() {
-    const today = dayUtc(new Date());
+    const now = dayUtc(new Date());
     setState(null);
-    setAttempts(readMatch(today) ?? []);
+    setAttempts(readMatch(now) ?? []);
     setCurrent(0);
-    setDay(today);
+    setToday(now);
+    setDay(now);
   }
 
   const round = challenge.manches[current];
@@ -239,6 +279,9 @@ function ChallengeOfDay({ catalog, onPractice }: { catalog: CatalogQuiz; onPract
         </p>
         {state.local && <p className="text-xs text-chalk-500">{t("pages.quizUI.offline")}</p>}
       </div>
+
+      {duelHere && !allFinished && <DuelBanner duel={duelHere} rival={rival} daily={daily} />}
+      {daily && today && !allFinished && <StreakBadge stats={stats} today={today} />}
 
       <nav aria-label={t("pages.quizUI.steps")}>
         <ol className="grid grid-cols-6 gap-1.5">
@@ -316,6 +359,9 @@ function ChallengeOfDay({ catalog, onPractice }: { catalog: CatalogQuiz; onPract
           attempts={attempts}
           stats={stats}
           day={day}
+          daily={daily}
+          duel={duelHere}
+          rival={rival}
           refTitle={titleSummary}
           onPractice={onPractice}
           onNewDay={newDay}
@@ -330,6 +376,9 @@ function Summary({
   attempts,
   stats,
   day,
+  daily,
+  duel,
+  rival,
   refTitle,
   onPractice,
   onNewDay,
@@ -338,6 +387,11 @@ function Summary({
   attempts: string[][];
   stats: StatsQuiz;
   day: string;
+  /** Today's challenge: it counts in the stats and the streak. */
+  daily: boolean;
+  /** The score to beat, when the challenge was opened from a friend's link. */
+  duel?: DuelLink;
+  rival: string;
   refTitle: React.Ref<HTMLHeadingElement>;
   onPractice: () => void;
   onNewDay: () => void;
@@ -345,15 +399,29 @@ function Summary({
   const t = useT();
   const locale = useLocale();
   const [status, setStatus] = useState<"copied" | "shared" | "error" | null>(null);
+  const [name, setName] = useState("");
   const points = challenge.manches.reduce((n, m, i) => n + pointsRound(m, attempts[i] ?? []), 0);
   const max = pointsMax(challenge.manches);
   const rows = challenge.manches.map((m, i) => rowGrid(m, attempts[i] ?? []));
-  const series = currentStreak(stats, day);
-  const text = textShare({ number: challenge.numero, points, max, series, rows, url: `${site.url}/${locale}/quiz` });
+  const series = daily ? currentStreak(stats, day) : 0;
+  const rank = quizRank(points, max);
+  const score = `${points}/${max}`;
+  // Every share is a challenge: the link replays these questions against this score.
+  const clean = cleanName(name);
+  const duelUrl = `${site.url}/${locale}/quiz/vs/${duelCode({ number: challenge.numero, points, max })}${clean ? `?by=${encodeURIComponent(clean)}` : ""}`;
+  const text = textShare({ number: challenge.numero, points, max, series, rows, url: duelUrl });
+  const pitch = t("pages.quizUI.sharePitch", { score, n: challenge.numero });
   const distribution = Array.from({ length: max + 1 }, (_, i) => stats.distribution[i] ?? 0);
   const higher = Math.max(1, ...distribution);
   const average = stats.joues ? distribution.reduce((s, n, i) => s + n * i, 0) / stats.joues : 0;
   const format = new Intl.NumberFormat(LOCALE_INTL[locale], { maximumFractionDigits: 1 });
+  const outcome = duel ? duelOutcome(points, duel.points) : null;
+  const target = duel ? `${duel.points}/${duel.max}` : "";
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- storage read after mount
+    setName(readName());
+  }, []);
 
   // Native sharing is for mobile; elsewhere it would open a system dialog
   // where the clipboard is enough.
@@ -383,18 +451,40 @@ function Summary({
       <div aria-hidden className="game-stage absolute inset-0 shadow-[inset_0_3px_0_var(--color-gold-400)]" />
       <div className="relative">
       <div className="flex items-start justify-between gap-4">
-        <h3
-          ref={refTitle}
-          tabIndex={-1}
-          className="win-punch display-caps text-[2.2rem] text-gold-400 outline-none sm:text-[3rem]"
-        >
-          {t("pages.quizUI.summaryTitle", { points, max })}
-        </h3>
-        {/* Half the points or more is a won challenge (a perfect score makes Dex jump); below, he is let down. */}
-        <GameDex mood={points * 2 >= max ? "won" : "over"} pose={points === max ? "saut" : undefined} beat={0} height={110} />
+        <div>
+          <h3
+            ref={refTitle}
+            tabIndex={-1}
+            className="win-punch display-caps text-[2.2rem] text-gold-400 outline-none sm:text-[3rem]"
+          >
+            {t("pages.quizUI.summaryTitle", { points, max })}
+          </h3>
+          <p className="mt-1 text-sm uppercase tracking-wide text-chalk-500">
+            {t("pages.quizUI.rankLabel")}{" "}
+            <strong className="font-heading text-xl font-bold normal-case tracking-normal text-chalk-100 sm:text-2xl">
+              {t(`pages.quizUI.ranks.${rank}`)}
+            </strong>
+          </p>
+        </div>
+        {/* Dex reacts to the rank: let down at the bottom, jumping at a perfect score. */}
+        <GameDex mood={points * 2 >= max ? "won" : "over"} pose={RANK_POSE[rank]} beat={0} height={110} />
       </div>
 
-      <div className="mt-4 flex flex-col gap-5 sm:flex-row sm:items-start">
+      {outcome && (
+        <p
+          className={cn(
+            "bevel-sm mt-4 border px-3 py-2 font-semibold",
+            outcome === "won" ? "border-emerald-500/50 text-emerald-300" : outcome === "tie" ? "border-gold-500/50 text-gold-300" : "border-blood-500/40 text-chalk-200",
+          )}
+        >
+          {rival
+            ? t(`pages.quizUI.duel.${outcome}`, { name: rival, score: target })
+            : t(`pages.quizUI.duel.${outcome}Anon`, { score: target })}
+        </p>
+      )}
+      {daily && <StreakBadge stats={stats} today={day} className="mt-4" />}
+
+      <div className="mt-5 flex flex-col gap-5 sm:flex-row sm:items-start">
         <div>
           <pre aria-hidden className="font-sans text-xl leading-snug tracking-wider sm:text-2xl">
             {rows.join("\n")}
@@ -405,60 +495,211 @@ function Summary({
             ))}
           </ul>
         </div>
-        <div className="flex-1 space-y-3">
-          <button type="button" onClick={share} className={cn(buttonMain, "w-full sm:w-auto")}>
-            <Share2 size={16} aria-hidden />
-            {t("pages.quizUI.share")}
-          </button>
-          <p aria-live="polite" className="min-h-5 text-sm">
-            {status && (
-              <Flash tone={status === "error" ? "error" : "ok"}>
-                {status === "copied" ? t("pages.quizUI.copied") : status === "shared" ? t("pages.quizUI.shared") : t("pages.quizUI.copyError")}
-              </Flash>
-            )}
-          </p>
-          <NextChallenge day={day} onNewDay={onNewDay} />
+        <div className="min-w-0 flex-1 space-y-4">
+          <ShareImageButton
+            card={{
+              kind: "quiz",
+              number: challenge.numero,
+              points,
+              max,
+              rows: rows.map(cellsOfRow),
+              streak: series,
+              duel: false,
+            }}
+            name="Quiz"
+            url={duelUrl}
+            text={`${pitch}\n${duelUrl}`}
+            label={t("pages.quizUI.shareScore")}
+            variant="primary"
+            large
+          />
+          <ChallengeFriend url={duelUrl} pitch={pitch} name={name} onName={setName} />
+          <div className="space-y-1">
+            <button type="button" onClick={share} className={secondaryButton}>
+              <Type size={15} aria-hidden />
+              {t("pages.quizUI.share")}
+            </button>
+            <p aria-live="polite" className="min-h-5 text-sm">
+              {status && (
+                <Flash tone={status === "error" ? "error" : "ok"}>
+                  {status === "copied" ? t("pages.quizUI.copied") : status === "shared" ? t("pages.quizUI.shared") : t("pages.quizUI.copyError")}
+                </Flash>
+              )}
+            </p>
+          </div>
+          {daily ? (
+            <NextChallenge day={day} onNewDay={onNewDay} />
+          ) : (
+            <Link href="/quiz" className={buttonMain}>
+              {t("pages.quizUI.playToday")} →
+            </Link>
+          )}
           <button type="button" onClick={onPractice} className={secondaryButton}>
             {t("pages.quizUI.practise")} →
           </button>
         </div>
       </div>
 
-      <h4 className="mt-8 text-xs uppercase tracking-wide text-chalk-500">{t("pages.quizUI.statsTitle")}</h4>
-      <dl className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-4">
-        {(
-          [
-            ["played", String(stats.joues)],
-            ["series", String(series)],
-            ["best", String(stats.meilleure)],
-            ["average", `${format.format(average)}/${max}`],
-          ] as const
-        ).map(([key, value]) => (
-          <div key={key} className="bevel-sm border border-night-700/70 bg-night-950/40 p-3 text-center">
-            <dt className="text-[0.7rem] uppercase tracking-wide text-chalk-500">{t(`pages.quizUI.stats.${key}`)}</dt>
-            <dd className="font-heading text-2xl font-bold tabular-nums text-chalk-100">{value}</dd>
-          </div>
-        ))}
-      </dl>
+      {daily && (
+        <>
+          <h4 className="mt-8 text-xs uppercase tracking-wide text-chalk-500">{t("pages.quizUI.statsTitle")}</h4>
+          <dl className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-4">
+            {(
+              [
+                ["played", String(stats.joues)],
+                ["series", String(series)],
+                ["best", String(stats.meilleure)],
+                ["average", `${format.format(average)}/${max}`],
+              ] as const
+            ).map(([key, value]) => (
+              <div key={key} className="bevel-sm border border-night-700/70 bg-night-950/40 p-3 text-center">
+                <dt className="text-[0.7rem] uppercase tracking-wide text-chalk-500">{t(`pages.quizUI.stats.${key}`)}</dt>
+                <dd className="font-heading text-2xl font-bold tabular-nums text-chalk-100">{value}</dd>
+              </div>
+            ))}
+          </dl>
 
-      <h4 className="mt-6 text-xs uppercase tracking-wide text-chalk-500">{t("pages.quizUI.distribution")}</h4>
-      <ol className="mt-2 space-y-1">
-        {distribution.map((n, score) => (
-          <li key={score} className="flex items-center gap-2 text-xs tabular-nums">
-            <span className="w-8 shrink-0 text-right text-chalk-400">{score}</span>
-            <span aria-hidden className="h-4 flex-1 bg-night-800">
-              <span
-                className={cn("block h-full", score === points ? "bg-gold-500" : "bg-night-600")}
-                style={{ width: `${Math.max(n ? 4 : 0, (n / higher) * 100)}%` }}
-              />
-            </span>
-            <span className="w-8 shrink-0 text-chalk-300">{n}</span>
-            <span className="sr-only">{t("pages.quizUI.distributionRow", { score, n })}</span>
-          </li>
-        ))}
-      </ol>
+          <h4 className="mt-6 text-xs uppercase tracking-wide text-chalk-500">{t("pages.quizUI.distribution")}</h4>
+          <ol className="mt-2 space-y-1">
+            {distribution.map((n, s) => (
+              <li key={s} className="flex items-center gap-2 text-xs tabular-nums">
+                <span className="w-8 shrink-0 text-right text-chalk-400">{s}</span>
+                <span aria-hidden className="h-4 flex-1 bg-night-800">
+                  <span
+                    className={cn("block h-full", s === points ? "bg-gold-500" : "bg-night-600")}
+                    style={{ width: `${Math.max(n ? 4 : 0, (n / higher) * 100)}%` }}
+                  />
+                </span>
+                <span className="w-8 shrink-0 text-chalk-300">{n}</span>
+                <span className="sr-only">{t("pages.quizUI.distributionRow", { score: s, n })}</span>
+              </li>
+            ))}
+          </ol>
+        </>
+      )}
       </div>
     </section>
+  );
+}
+
+/**
+ * "Challenge a friend": a link to these very questions with the score to
+ * beat, sent through the share sheet on a phone, copied elsewhere. The name
+ * is optional and stays on the device.
+ */
+function ChallengeFriend({ url, pitch, name, onName }: { url: string; pitch: string; name: string; onName: (n: string) => void }) {
+  const t = useT();
+  const [status, setStatus] = useState<"copied" | "shared" | "error" | null>(null);
+
+  async function send() {
+    const touch = window.matchMedia("(pointer: coarse)").matches;
+    if (touch && typeof navigator.share === "function") {
+      try {
+        await navigator.share({ title: t("pages.quizUI.challengeTitle"), text: pitch, url });
+        setStatus("shared");
+        trackShare("Quiz challenge", "native");
+        return;
+      } catch (e) {
+        if ((e as DOMException).name === "AbortError") return;
+      }
+    }
+    try {
+      await navigator.clipboard.writeText(url);
+      setStatus("copied");
+      trackShare("Quiz challenge", "clipboard");
+    } catch {
+      setStatus("error");
+    }
+  }
+
+  return (
+    <div className="bevel-sm space-y-2 border border-night-700/70 bg-night-950/40 p-3">
+      <label className="block text-xs uppercase tracking-wide text-chalk-500" htmlFor="quiz-duel-name">
+        {t("pages.quizUI.nameLabel")}
+      </label>
+      <div className="flex flex-col gap-2 sm:flex-row">
+        <input
+          id="quiz-duel-name"
+          type="text"
+          value={name}
+          maxLength={20}
+          autoComplete="nickname"
+          placeholder={t("pages.quizUI.namePlaceholder")}
+          onChange={(e) => onName(e.target.value)}
+          onBlur={() => writeName(cleanName(name))}
+          className="bevel-sm min-h-11 min-w-0 flex-1 border border-night-600 bg-night-900 px-3 text-base text-chalk-100 placeholder:text-chalk-500 focus:border-gold-500 focus:outline-none"
+        />
+        <button type="button" onClick={send} className={cn("btn btn-secondary min-h-12 w-full sm:w-auto")}>
+          <Swords size={18} aria-hidden />
+          {t("pages.quizUI.challengeFriend")}
+        </button>
+      </div>
+      <p aria-live="polite" className="min-h-5 text-sm">
+        {status && (
+          <Flash tone={status === "error" ? "error" : "ok"}>
+            {status === "copied" ? (
+              <>
+                <Link2 size={14} aria-hidden className="mr-1 inline" />
+                {t("pages.quizUI.challengeCopied")}
+              </>
+            ) : status === "shared" ? (
+              t("pages.quizUI.challengeShared")
+            ) : (
+              t("pages.quizUI.copyError")
+            )}
+          </Flash>
+        )}
+      </p>
+    </div>
+  );
+}
+
+/** The daily streak, kept on the device: what playing today does to it. */
+function StreakBadge({ stats, today, className }: { stats: StatsQuiz; today: string; className?: string }) {
+  const t = useT();
+  const streak = currentStreak(stats, today);
+  const playedToday = stats.dernier === today;
+  const hint = playedToday
+    ? t("pages.quizUI.streakDone")
+    : streak > 0
+      ? t("pages.quizUI.streakKeep")
+      : t("pages.quizUI.streakStart");
+  return (
+    <div className={cn("bevel-sm flex items-center gap-3 border border-night-700/70 bg-night-950/40 px-3 py-2", className)}>
+      <Flame size={22} aria-hidden className={streak > 0 ? "text-gold-400" : "text-chalk-500"} />
+      <p className="text-sm text-chalk-300">
+        <span className="font-semibold text-chalk-100">{t("pages.quizUI.streakDays", { n: streak })}</span>
+        <span className="mx-1.5 text-chalk-500" aria-hidden>·</span>
+        {hint}
+      </p>
+    </div>
+  );
+}
+
+/** Top of a challenge opened from a friend's link: the score to beat, Dex pointing at it. */
+function DuelBanner({ duel, rival, daily }: { duel: DuelLink; rival: string; daily: boolean }) {
+  const t = useT();
+  const score = `${duel.points}/${duel.max}`;
+  return (
+    <div className="bevel-sm flex items-center gap-3 border border-gold-500/50 bg-gold-500/10 p-3">
+      <Dex pose="pointe" height={72} still />
+      <div className="min-w-0">
+        <p className="font-heading text-lg font-bold text-gold-300">
+          {rival ? t("pages.quizUI.duel.beat", { name: rival, score }) : t("pages.quizUI.duel.beatAnon", { score })}
+        </p>
+        <p className="text-sm text-chalk-300">
+          {daily ? t("pages.quizUI.duel.today") : t("pages.quizUI.duel.past")}
+          {!daily && (
+            <>
+              {" "}
+              <Link href="/quiz" className="font-semibold text-gold-400 hover:text-gold-300">
+                {t("pages.quizUI.playToday")} →
+              </Link>
+            </>
+          )}
+        </p>
+      </div>
+    </div>
   );
 }
 

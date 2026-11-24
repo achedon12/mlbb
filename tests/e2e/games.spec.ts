@@ -225,7 +225,10 @@ test.describe("quiz", () => {
     const max = rounds.reduce((n, r) => n + (r.type === "duel" ? r.paires!.length : 1), 0);
     await expect(page.getByRole("heading", { name: `Défi terminé : ${points}/${max}` })).toBeVisible();
     await expect(steps.getByRole("button", { name: /bilan du d[ée]fi/i })).toHaveAttribute("aria-current", "step");
-    await page.getByRole("button", { name: /partager mon r[ée]sultat/i }).click();
+    // The result goes out as an image, as a challenge link, or as the text grid.
+    await expect(page.getByRole("button", { name: /^partager mon score$/i })).toBeVisible();
+    await expect(page.getByRole("button", { name: /d[ée]fier un ami/i })).toBeVisible();
+    await page.getByRole("button", { name: /partager en texte/i }).click();
     await expect(page.getByText(/r[ée]sultat copi[ée]/i)).toBeVisible();
     expect(await page.evaluate(() => navigator.clipboard.readText())).toContain(`${points}/${max}`);
     expect((await storage<{ joues: number }>(page, "mlbb_quiz_stats"))?.joues).toBe(1);

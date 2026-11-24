@@ -29,6 +29,7 @@ import {
 } from "@/lib/tier-list-filters";
 import { longDate, dateMeasure, listNames, monthYear, patchCurrent, percentage } from "@/lib/freshness";
 import { serializeJsonLd } from "@/lib/html";
+import { faqPageData } from "@/lib/structured-data";
 import { rankingOfRank, ORDER_TIERS, RANKS_CLASSES, type RankedEntry } from "@/lib/tier-list";
 import type { MeasuredRank } from "@/lib/measured-ranks";
 import { describeGap, isNotable, THRESHOLD_NOTABLE, variationWeek } from "@/lib/trends";
@@ -36,11 +37,23 @@ import type { Tier } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import { createT, type T } from "@/i18n/translations";
 import { heroListData, metaPage } from "@/i18n/seo";
-import { tierNotes as tierNotesOf } from "@/lib/data";
+import { buildsPlayed, counters, heroesBySlug, itemsFor, tierNotes as tierNotesOf } from "@/lib/data";
 import { imageLane, imageRank, imageRole } from "@/lib/emblems";
+import { visualItem } from "@/lib/build-visuals";
+import { ScrollDepth } from "@/components/scroll-depth";
+import {
+  ANSWER_COUNT,
+  coreItemsFor,
+  countersFor,
+  moversFor,
+  patchChangesFor,
+} from "@/lib/tier-list-extras";
 import { TierLines, type RowTier } from "./tier-lines";
 import { TierRows, type TierRow } from "./tier-rows";
 import { TierTiles } from "./tier-tiles";
+import type { LabelsPeek, PeekDict } from "./tier-peek";
+import { TierTrack } from "./tier-track";
+import { AlsoSee, PatchChanges, ShortAnswer, type ListNext, type PickNext } from "./tier-extras";
 
 /** Faces shown on the head of a folded tier. */
 const FACES = 10;
@@ -209,11 +222,28 @@ export function TierList({
     };
   };
 
+  // A hero's preview: who beats it, what it builds on the page's lane.
+  const lane = filter?.type === "lane" ? filter.value : null;
+  const known = (slug: string) => heroesBySlug.has(slug);
+  const countersOf = (slug: string) => countersFor(counters[slug], rank, known);
+  const imagesItems = new Map<string, string | null>();
+  const itemsOf = (e: RankedEntry) =>
+    coreItemsFor(buildsPlayed[e.hero.slug], e.hero.lanes, lane, rank).flatMap((name) => {
+      const v = visualItem(name);
+      if (!v.slug) return [];
+      imagesItems.set(v.slug, v.image);
+      return [{ slug: v.slug, image: v.image }];
+    });
+  const namesItems = new Map(itemsFor(locale).map((o) => [o.slug, o.name]));
+  const nameItem = (slug: string) => namesItems.get(slug) ?? slug;
+
   // One compact row per hero: empty fields are not sent.
   const row = (e: RankedEntry): RowTier => {
     const evolution = trend(e.hero.slug);
     const note = notes[e.hero.slug] ?? e.comment;
     const icon = e.hero.images.icon ?? e.hero.images.portrait;
+    const c = countersOf(e.hero.slug);
+    const i = itemsOf(e).map((o) => o.slug);
     return {
       slug: e.hero.slug,
       name: e.hero.name,
@@ -226,6 +256,7 @@ export function TierList({
       ...(evolution ? { trend: evolution } : {}),
       ...(e.lowSample ? { weak: true } : {}),
       ...(note ? { note } : {}),
+      ...(c.length > 0 || i.length > 0 ? { peek: { c, i } } : {}),
     };
   };
   const labels = {
@@ -233,6 +264,29 @@ export function TierList({
     ban: t("pages.tierList.ban"),
     pick: t("pages.tierList.pick"),
     tooFew: t("pages.tierList.tooFew"),
+  };
+  const peekLabels: LabelsPeek = {
+    open: t("pages.tierList.peek.open"),
+    close: t("pages.tierList.peek.close"),
+    counters: t("pages.tierList.peek.counters"),
+    items: t("pages.tierList.peek.items"),
+    full: t("pages.tierList.peek.full"),
+    win: labels.win,
+    ban: labels.ban,
+    pick: labels.pick,
+  };
+  // Names and pictures of the counters and items a tier's previews cite, once per tier.
+  const dictOf = (rows: RowTier[]): PeekDict => {
+    const dict: PeekDict = { heroes: {}, items: {} };
+    for (const r of rows) {
+      for (const s of r.peek?.c ?? []) {
+        const h = heroesBySlug.get(s);
+        const icon = h?.images.icon ?? h?.images.portrait ?? null;
+        dict.heroes[s] = { name: h?.name ?? s, ...(icon === usualIcon(s) ? {} : { icon }) };
+      }
+      for (const s of r.peek?.i ?? []) dict.items[s] = { name: nameItem(s), image: imagesItems.get(s) ?? null };
+    }
+    return dict;
   };
 
   // Heroes grouped by tier, once: the list is walked five times otherwise.
@@ -350,12 +404,67 @@ export function TierList({
     before += byTier.get(tier)?.length ?? 0;
   }
 
+  // The short answer: the question the page is searched for, answered in plain text.
+  const markers = filter ? markersFilter(t, filter) : { rank: nameRank };
+  const kind = filter ? (filter.type === "lane" ? "Lane" : "Role") : rank === "all" ? "All" : "Rank";
+  const answer = first && {
+    question: t(`pages.tierList.answer.question${kind}`, markers),
+    answer: t(`pages.tierList.answer.answer${kind}`, {
+      ...markers,
+      top: listNames(locale, ranking.slice(0, ANSWER_COUNT).map((e) => e.hero.name)),
+    }),
+    detail: t("pages.tierList.answer.detail", {
+      first: first.hero.name,
+      tier: first.tier,
+      winRate: rate(first.winRate),
+      banRate: rate(first.banRate),
+      n: ranking.length,
+      v: patchCurrent.version,
+      date: longDate(locale),
+    }),
+  };
+  // The same question and answer, word for word, for answer engines.
+  const faqData = answer
+    ? faqPageData(locale, {
+        path,
+        items: [{ question: answer.question, answer: `${answer.answer} ${answer.detail}` }],
+        changed: dateMeasure,
+      })
+    : null;
+
+  // What changed: the week's movers among these heroes, and the ones the live patch touched.
+  const slugs = ranking.map((e) => e.hero.slug);
+  const movers = moversFor(slugs, (slug) => trendsOf(slug)[rank]);
+  const changes = patchChangesFor(patchCurrent?.adjustments, slugs);
+
+  // Where to go next: the top picks' counters and builds, the tools, the other lists.
+  const picks: PickNext[] = ranking.slice(0, 3).map((e) => ({
+    slug: e.hero.slug,
+    counters: countersOf(e.hero.slug),
+    items: itemsOf(e).map((o) => ({ ...o, name: nameItem(o.slug) })),
+  }));
+  const leaderOf = (f: FilterTier) => filterRanking(rankingOfRank("all"), f)[0]?.hero.slug;
+  const listNext = (f: FilterTier): ListNext => {
+    const emblem = f.type === "lane" ? imageLane(f.value) : imageRole(f.value);
+    const top = leaderOf(f);
+    return { href: pathFilter(f), name: nameFilter(t, f), ...(emblem ? { emblem } : {}), ...(top ? { top } : {}) };
+  };
+  const listsOrder = filter?.type === "role" ? [...FILTERS_ROLE, ...FILTERS_LANE] : [...FILTERS_LANE, ...FILTERS_ROLE];
+  const lists = listsOrder.filter((f) => !sameFilter(f)).map(listNext);
+  const titleNext = filter
+    ? filter.type === "lane"
+      ? t("pages.tierList.next.titleLane", { lane: t(`lanes.${filter.value}`) })
+      : t("pages.tierList.next.titleRole", { role: t(`roles.${filter.value}`) })
+    : t("pages.tierList.next.titleAll");
+  const guide = filter?.type === "lane" ? guideOfLane(filter.value, locale) : undefined;
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
       />
+      {faqData && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqData) }} />}
       <MetaPoster
         title={title}
         lead={lead}
@@ -377,7 +486,10 @@ export function TierList({
         }
       />
 
+      <ScrollDepth category="Tier list" name={path} />
+      <TierTrack>
       <div className="page-wrap pb-12 pt-6">
+        {answer && <ShortAnswer {...answer} />}
         {/*
           The author's signed reading of the ranking, on the main tier list
           only and only while the patch it was written for is live: nothing
@@ -422,6 +534,15 @@ export function TierList({
           </p>
         )}
 
+        <PatchChanges
+          t={t}
+          locale={locale}
+          rises={movers.rises}
+          drops={movers.drops}
+          changes={changes}
+          version={patchCurrent?.version ?? null}
+        />
+
         <div className="space-y-12 sm:space-y-14">
           {ORDER_TIERS.map((tier) => {
             const entries = byTier.get(tier) ?? [];
@@ -463,12 +584,18 @@ export function TierList({
                 </div>
 
                 {unfolded ? (
-                  <TierTiles rows={rows} labels={labels} start={offsets.get(tier) ?? 0} />
+                  <TierTiles
+                    rows={rows}
+                    labels={labels}
+                    start={offsets.get(tier) ?? 0}
+                    dict={dictOf(rows)}
+                    peekLabels={peekLabels}
+                  />
                 ) : (
                   // The rows stay in the document, closed: a crawler and the
                   // page's search still read all of them.
                   <Foldable label={t("pages.tierList.openTier", { n: entries.length, p: tier })} className="mt-4">
-                    <TierLines rows={rows} labels={labels} />
+                    <TierLines rows={rows} labels={labels} dict={dictOf(rows)} peekLabels={peekLabels} />
                   </Foldable>
                 )}
               </section>
@@ -476,12 +603,21 @@ export function TierList({
           })}
         </div>
 
+        <AlsoSee
+          t={t}
+          title={titleNext}
+          picks={picks}
+          lists={lists}
+          guide={guide ? { href: `/guides/${guide.slug}`, title: t("pages.guides.readGuide", { title: guide.short }) } : undefined}
+        />
+
         <div aria-hidden className="eclat-rule mt-14" />
         <p className="mt-6 max-w-3xl text-sm leading-relaxed text-chalk-400">{t("pages.tierList.conclusion")}</p>
         <DiscordInvite t={t} context="tier" className="mt-8" />
         <PageSourcesBlock locale={locale} of={{ kind: "ranking" }} className="mt-10" />
         </TierRows>
       </div>
+      </TierTrack>
     </>
   );
 }

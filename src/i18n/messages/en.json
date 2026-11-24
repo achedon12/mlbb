@@ -28,7 +28,8 @@
       "sortBy": "Sort by {column}"
     },
     "joinDiscord": "Join the Discord",
-    "discordServer": "MLBBDex community Discord server"
+    "discordServer": "MLBBDex community Discord server",
+    "jumpToSection": "Go to a section"
   },
   "nav": {
     "heroes": {
@@ -451,7 +452,27 @@
       },
       "pageCounters": "Full counters page",
       "pageDuos": "All measured duos",
-      "duosShort": "Duos"
+      "duosShort": "Duos",
+      "glance": {
+        "title": "At a glance",
+        "win": "Win",
+        "pick": "Pick",
+        "ban": "Ban",
+        "build": "Most played build",
+        "buildWin": "{rate}% win rate",
+        "counteredBy": "Countered by",
+        "jump": "Shortcuts to sections"
+      },
+      "answer": {
+        "summary": "{name} ({kind}) is {tier} tier with a {winRate} win rate across all ranks on patch {v}, measured {date}.",
+        "summaryNoRate": "{name} ({kind}) is not played enough in ranked games to be measured yet.",
+        "counters": "The heroes that counter {name} best, all ranks combined: {counters}.",
+        "faqGood": "Is {name} good in the current patch?",
+        "faqCounters": "Who counters {name}?",
+        "faqBuild": "What is the best build for {name}?",
+        "build": "The most played {name} build, all ranks combined: {items}.",
+        "buildEmblem": "The most played {name} build, all ranks combined: {items}, with the {emblem} emblem."
+      }
     },
     "items": {
       "title": "Items",
@@ -604,7 +625,45 @@
       "openTier": "Show the {n} heroes in tier {p}",
       "poster": {
         "kicker": "No. 1 in this ranking",
-        "label": "{name}, n°1 in this ranking: level {tier}, {win} of victories, {ban} of bans"
+        "label": "{name}, No. 1 in this ranking: {tier} tier, {win} win rate, {ban} ban rate"
+      },
+      "peek": {
+        "open": "Preview: {name}",
+        "close": "Close the preview",
+        "counters": "Countered by",
+        "items": "Core build",
+        "full": "Full guide"
+      },
+      "answer": {
+        "questionAll": "Who are the best MLBB heroes right now?",
+        "questionRank": "Who are the best heroes in {rank} right now?",
+        "questionLane": "Who are the best {lane} heroes right now?",
+        "questionRole": "Who are the best {plural} right now?",
+        "answerAll": "Best MLBB heroes right now: {top}.",
+        "answerRank": "Best heroes in {rank} right now: {top}.",
+        "answerLane": "Best {lane} heroes right now: {top}.",
+        "answerRole": "Best {plural} right now: {top}.",
+        "detail": "{first} is No. 1 ({tier} tier) with a {winRate} win rate and a {banRate} ban rate, out of {n} heroes ranked on patch {v}, measured {date}."
+      },
+      "patch": {
+        "title": "What changed this patch",
+        "lead": "The biggest seven-day win rate moves among these heroes, and the ones the patch adjusted.",
+        "rises": "Rising",
+        "drops": "Falling",
+        "adjusted": "Adjusted in patch {v} ({n})"
+      },
+      "next": {
+        "titleLane": "You play {lane}? Also see",
+        "titleRole": "You play {role}? Also see",
+        "titleAll": "Keep exploring",
+        "counters": "Counter the top picks",
+        "countersLead": "The heroes the top of the ranking loses to the most.",
+        "builds": "Their builds",
+        "buildsLead": "The three key items the top of the ranking builds most.",
+        "tools": "Put it into practice",
+        "draft": "Pick and ban these heroes in a ranked draft.",
+        "lists": "Other tier lists",
+        "top": "No. 1: {name}"
       }
     },
     "patchNotes": {
@@ -1235,6 +1294,10 @@
       "accountValue": {
         "title": "MLBB account value estimator",
         "description": "How much did your Mobile Legends collection cost? Copy your appearances by Showcase category ({skins} catalog appearances), check your collection points and obtain an order of magnitude in diamonds, USD, EUR, PHP, IDR and MYR, with a displayed method."
+      },
+      "quizDuel": {
+        "title": "Can you beat {score} on MLBB Quiz #{n}?",
+        "description": "A friend scored {score} on the MLBBDex daily quiz. Same questions: skill, skin, lore, item and a win-rate duel. Your turn."
       }
     },
     "sources": {
@@ -1829,7 +1892,7 @@
       "seeSummary": "See results",
       "nextRound": "Next round",
       "summaryTitle": "Challenge complete: {points}/{max}",
-      "share": "Share my result",
+      "share": "Share as text",
       "copied": "Result copied: paste it anywhere.",
       "shared": "Result shared.",
       "copyError": "I couldn't copy it: select the grid by hand.",
@@ -1942,7 +2005,43 @@
         "good": "Well seen! Next.",
         "won": "Well done, good answer!",
         "over": "Failed this time. The next one will be the good one!"
-      }
+      },
+      "shareScore": "Share my score",
+      "sharePitch": "I scored {score} on MLBBDex Quiz #{n}. Can you beat me?",
+      "rankLabel": "Rank:",
+      "ranks": {
+        "warrior": "Warrior",
+        "elite": "Elite",
+        "master": "Master",
+        "grandmaster": "Grandmaster",
+        "epic": "Epic",
+        "legend": "Legend",
+        "mythic": "Mythic",
+        "glory": "Mythical Glory"
+      },
+      "duel": {
+        "beat": "Beat {name}'s score: {score}",
+        "beatAnon": "Beat your friend's score: {score}",
+        "today": "Same questions as your friend. It's today's challenge, so it counts towards your streak.",
+        "past": "A challenge from another day: it doesn't count towards your streak.",
+        "won": "You beat {name}'s {score}!",
+        "wonAnon": "You beat your friend's {score}!",
+        "tie": "Tied with {name} at {score}.",
+        "tieAnon": "Tied with your friend at {score}.",
+        "lost": "{name} keeps the lead with {score}. Send them your own challenge!",
+        "lostAnon": "Your friend keeps the lead with {score}. Send them your own challenge!"
+      },
+      "playToday": "Play today's challenge",
+      "challengeFriend": "Challenge a friend",
+      "challengeTitle": "MLBBDex Quiz challenge",
+      "challengeCopied": "Challenge link copied: send it to a friend.",
+      "challengeShared": "Challenge sent.",
+      "nameLabel": "Your name on the challenge (optional)",
+      "namePlaceholder": "Nickname",
+      "streakDays": "Daily streak: {n}",
+      "streakDone": "played today, come back tomorrow",
+      "streakKeep": "play today's challenge to keep it",
+      "streakStart": "play every day to build a streak"
     },
     "tierMaker": {
       "title": "MLBB tier list maker",
@@ -2404,7 +2503,27 @@
       "overGuide": "Longer than the {max} characters reported by a guide: the game may reject it.",
       "rating": "Some symbols may show up as empty boxes in game, or be rejected. The game doesn't publish how it counts length: the counter gives both common measures.",
       "stylesTitle": "All styles",
-      "copiedDiscord": "Show it off on Discord →"
+      "copiedDiscord": "Show it off on Discord →",
+      "previewTitle": "In-game preview",
+      "plateBattle": "In a match, above the hero",
+      "plateProfile": "On profile",
+      "share": "Share",
+      "shareTitle": "My Mobile Legends nickname",
+      "shareText": "My Mobile Legends nickname: {nickname}",
+      "linkCopied": "Link copied: it reopens the generator on this nickname.",
+      "shareFailed": "I couldn't share the link: copy the page address by hand.",
+      "presetsTitle": "Ready-made looks",
+      "presetsLead": "A matching style and decoration, in one tap.",
+      "preset": {
+        "legend": "Legend",
+        "royal": "Royal",
+        "sniper": "Sniper",
+        "star": "Shooting star",
+        "samurai": "Samurai",
+        "neon": "Neon",
+        "warrior": "Warrior",
+        "mystic": "Mystic"
+      }
     },
     "drawCalculator": {
       "title": "MLBB Draw Calculator",
@@ -6334,7 +6453,12 @@
     "bodyOne": "See the details on the hero page, in the Stats tab.",
     "row": "{name}: {type}",
     "other": "and {n} more",
-    "others": "and {n} more"
+    "others": "and {n} more",
+    "reminder": {
+      "title": "{month} is live: new StarLight and events",
+      "bodySkin": "The StarLight skin {skin} ({hero}) is out. See the month's skins and events.",
+      "body": "The StarLight skin and the month's events are out. See what's new."
+    }
   },
   "teamUI": {
     "yourTeam": "Your team",
@@ -6840,6 +6964,20 @@
       "small": "Small sample: {n} heroes measured.",
       "measured": "heroes measured",
       "dex": "Here's what the patch really changed, numbers in hand."
+    },
+    "quiz": {
+      "kicker": "MLBBDex Quiz · #{n}",
+      "subtitle": "Daily challenge: {score}",
+      "points": "points",
+      "toBeat": "score to beat",
+      "duelKicker": "MLBBDex Quiz · challenge #{n}",
+      "duelTitle": "Can you beat {score}?",
+      "duelSubtitle": "Same five rounds, same questions. Your turn.",
+      "dexDuel": "Skill, skin, lore, item and a win-rate duel. Show what you know!",
+      "dexPerfect": "A perfect score? I'm speechless!",
+      "dexGood": "Strong run! Who can beat that?",
+      "dexMid": "Not bad! New questions tomorrow.",
+      "dexLow": "A tough one today. Think a friend can do better?"
     }
   },
   "socialKit": {
@@ -6895,5 +7033,54 @@
         "dex": "Everything is live: go see what's new."
       }
     }
+  },
+  "reminder": {
+    "button": "Remind me",
+    "hint": "Adds it to your calendar, with an alert on {when}.",
+    "set": "You'll be reminded: {month}",
+    "setCalendar": "In your calendar, with an alert on {when}.",
+    "setPush": "A notification on this device on {when}.",
+    "setBoth": "In your calendar and as a notification on {when}.",
+    "alsoPush": "Also notify me here",
+    "alsoCalendar": "Add to calendar",
+    "cancelPush": "Cancel the notification",
+    "pushRefused": "Notifications are blocked in this browser: the calendar reminder still works.",
+    "pushError": "The notification could not be set. Try again later.",
+    "kicker": "Coming up",
+    "bandTitle": "{month}: new StarLight and events",
+    "bandSkin": "StarLight skin: {skin} ({hero}). From the 1st at 00:00 server time.",
+    "bandGeneric": "The StarLight skin and the month's events start on the 1st at 00:00 server time.",
+    "bandLabel": "Reminder for {month}"
+  },
+  "dailyDle": {
+    "label": "Today's MLBBdle",
+    "title": "Today's hero is waiting",
+    "allDone": "Both of today's puzzles solved",
+    "oneLeft": "One puzzle left today",
+    "keepStreak": "Keep your streak going",
+    "mode": {
+      "classic": "Classic",
+      "skill": "Skill"
+    },
+    "status": {
+      "solved": "solved",
+      "started": "in progress",
+      "open": "to play"
+    },
+    "streak1": "1-day streak",
+    "streak": "{n}-day streak",
+    "next": "Next puzzle in",
+    "play": "Play",
+    "continue": "Continue"
+  },
+  "comeback": {
+    "title": "Since your last visit, {date}",
+    "patch": "Patch {version} is out",
+    "skin1": "New skin: {name} ({hero})",
+    "skins": "{n} new skins, including {name}",
+    "tiers1": "1 hero changed tier",
+    "tiers": "{n} heroes changed tier",
+    "eventsAnnounced": "{month} announced",
+    "eventsOpened": "{month} events have started"
   }
 }

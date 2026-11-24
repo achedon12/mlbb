@@ -342,6 +342,31 @@ test.describe("nickname generator", () => {
     await expect(page.getByRole("status").filter({ hasText: /copi[ée]/i })).toContainText(bold);
     expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(bold);
   });
+
+  test("a preset styles the preview, and its share link reopens it", async ({ page }) => {
+    // No share sheet: the link goes to the clipboard.
+    await page.addInitScript(() => Object.defineProperty(Navigator.prototype, "share", { value: undefined, configurable: true }));
+    await page.goto("/fr/tools/nickname");
+    const field = page.getByLabel(/votre pseudo/i);
+    // Bold fraktur L, e, o between two crowns.
+    const royal = `♛${String.fromCodePoint(0x1d56c + 11, 0x1d586 + 4, 0x1d586 + 14)}♛`;
+    const preset = page.getByRole("button", { name: /royal$/i });
+    await expect(async () => {
+      await field.fill("Leo");
+      await preset.click();
+      await expect(preset).toHaveAttribute("aria-pressed", "true", { timeout: 1_000 });
+    }).toPass();
+    await expect(page.getByRole("figure").first()).toContainText(royal);
+
+    await page.getByRole("button", { name: /^partager$/i }).click();
+    await expect(page.getByRole("status").filter({ hasText: /lien copi[ée]/i })).toBeVisible();
+    const link = await page.evaluate(() => navigator.clipboard.readText());
+    expect(link).toMatch(/\/fr\/tools\/nickname\?n=Leo&s=boldFraktur&d=crown$/);
+
+    await page.goto(link);
+    await expect(page.getByLabel(/votre pseudo/i)).toHaveValue("Leo");
+    await expect(page.getByRole("button", { name: /royal$/i })).toHaveAttribute("aria-pressed", "true");
+  });
 });
 
 test.describe("retribution trainer", () => {

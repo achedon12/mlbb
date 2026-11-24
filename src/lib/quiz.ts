@@ -1,3 +1,4 @@
+import type { DexPose } from "@/components/mascot";
 import type { Lane, Role } from "./types";
 import { keySearch } from "./utils";
 
@@ -508,4 +509,85 @@ export function saveMatch(stats: StatsQuiz, day: string, points: number): StatsQ
 /** Streak to display: broken if neither today nor yesterday was played. */
 export function currentStreak(stats: StatsQuiz, today: string): number {
   return stats.dernier === today || stats.dernier === shiftDay(today, -1) ? stats.serie : 0;
+}
+
+// ─────────────────────────────────────────────────────────────
+// Rank, challenge links
+// ─────────────────────────────────────────────────────────────
+
+/** Rank title of a score, from Warrior (nothing found) to Mythical Glory (everything). */
+export const QUIZ_RANKS = ["warrior", "elite", "master", "grandmaster", "epic", "legend", "mythic", "glory"] as const;
+export type QuizRank = (typeof QUIZ_RANKS)[number];
+
+export function quizRank(points: number, max: number): QuizRank {
+  if (max <= 0) return "warrior";
+  const ratio = Math.min(1, Math.max(0, points / max));
+  return QUIZ_RANKS[Math.round(ratio * (QUIZ_RANKS.length - 1))];
+}
+
+/** How Dex takes a score: let down at the bottom, jumping for joy at the top. */
+export const RANK_POSE: Record<QuizRank, DexPose> = {
+  warrior: "triste",
+  elite: "surpris",
+  master: "reflexion",
+  grandmaster: "joie",
+  epic: "joie",
+  legend: "bravo",
+  mythic: "victoire",
+  glory: "saut",
+};
+
+/** Day of a challenge number, the reverse of `numberChallenge`. */
+export function dayOfNumber(n: number): string {
+  return shiftDay(EPOCH, n - 1);
+}
+
+/** What a "challenge a friend" link carries: the challenge (its number is its seed) and the score to beat. */
+export interface DuelLink {
+  number: number;
+  points: number;
+  max: number;
+}
+
+/** Highest number of points a challenge can hold: well above the seven of today's format. */
+export const POINTS_LIMIT = 30;
+
+/** The path segment of a challenge link: `75-5-7`. */
+export const duelCode = (d: DuelLink) => `${d.number}-${d.points}-${d.max}`;
+
+export function parseDuelCode(code: string): DuelLink | null {
+  const m = /^(\d{1,5})-(\d{1,2})-(\d{1,2})$/.exec(code);
+  if (!m) return null;
+  const [number, points, max] = [Number(m[1]), Number(m[2]), Number(m[3])];
+  if (number < 1 || max < 1 || max > POINTS_LIMIT || points > max) return null;
+  // One spelling per link: no leading zeros.
+  if (duelCode({ number, points, max }) !== code) return null;
+  return { number, points, max };
+}
+
+/** Comparison with the score to beat. */
+export function duelOutcome(points: number, target: number): "won" | "tie" | "lost" {
+  return points > target ? "won" : points === target ? "tie" : "lost";
+}
+
+/**
+ * The name a player puts on a challenge link: letters, digits, spaces and a
+ * few signs, twenty characters at most. Only ever shown as text on the page,
+ * never drawn on an image.
+ */
+export function cleanName(raw: string | null | undefined): string {
+  if (!raw) return "";
+  return raw
+    .normalize("NFC")
+    .replace(/[^\p{L}\p{N}\p{M} _.-]/gu, "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, 20)
+    .trim();
+}
+
+/** A grid row (`rowGrid`) as share image cells: found, missed, not played. */
+export function cellsOfRow(row: string): ("m" | "x" | "u")[] {
+  const cell: Record<string, "m" | "x" | "u"> = { "🟩": "m", "🟥": "x", "⬛": "u" };
+  return [...row].flatMap((ch) => (cell[ch] ? [cell[ch]] : []));
 }

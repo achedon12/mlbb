@@ -31,6 +31,8 @@ import { durationOf, historyOf, trendsOf } from "@/lib/evolution";
 import { Tabs } from "@/components/tabs";
 import { ScrollDepth } from "@/components/scroll-depth";
 import { HeroFeedLink } from "@/components/hero-feed-link";
+import { HeroGlance } from "@/components/hero-glance";
+import { DailyDle } from "@/components/daily-dle";
 
 import {
   ShowcaseArt,
@@ -47,6 +49,7 @@ import { dexReaction } from "@/lib/dex-reaction";
 import { Cascade, PosterParallax } from "@/components/hero-cinematic";
 import { accentStyle, heroAccent } from "@/lib/hero-accent";
 import { heroMorph } from "@/lib/hero-morph";
+import { faqPageData, heroAnswer, heroFaq, heroKind, type HeroFacts } from "@/lib/structured-data";
 import {
   buildsPlayed,
   teammates,
@@ -355,6 +358,69 @@ export default async function HeroPage({ params }: Params) {
       </section>
     ) : null;
 
+  // The hero at a glance, under the poster on a phone: rates, tier, the most
+  // played build and the two worst matchups, each leading to its section.
+  const glanceJumps = [
+    { id: "skills", label: t("pages.heroDetail.tab.skills") },
+    ...(hasCounters || hasTeammates || analysis ? [{ id: "counters", label: t("pages.heroDetail.tab.counters") }] : []),
+    ...(hasBuilds || analysis ? [{ id: "builds", label: t("pages.heroDetail.tab.builds") }] : []),
+    { id: "stats", label: t("pages.heroDetail.tab.stats") },
+  ];
+  const glance = (
+    <HeroGlance
+      slug={h.slug}
+      roles={h.roles.map((r) => t(`roles.${r}`))}
+      lanes={h.lanes.map((l) => t(`lanes.${l}`))}
+      stats={mapValues(statsRanks, (s) => ({
+        winRate: percent.format(s.winRate),
+        pickRate: percent.format(s.pickRate),
+        banRate: percent.format(s.banRate),
+        tier: s.tier,
+      }))}
+      build={
+        reference && reference.items.length > 0
+          ? {
+              items: reference.items.map((o) => ({
+                name: namesItems.get(visualItem(o).slug ?? "") ?? o,
+                image: visualItem(o).image,
+              })),
+              emblem: reference.emblem
+                ? { name: nameEmblem(reference.emblem), image: visualEmblem(reference.emblem).image }
+                : null,
+              winRate: reference.winRate !== null ? percent.format(reference.winRate) : null,
+            }
+          : null
+      }
+      countersByRank={mapValues(countersShown, (c) =>
+        c.weak.slice(0, 2).map((x) => ({ slug: x.slug, name: x.name, portrait: x.portrait })),
+      )}
+      jumps={glanceJumps}
+    />
+  );
+
+  // The short answer under the poster, at every width: kind, tier and win
+  // rate on the current patch, then who counters the hero, all ranks. The
+  // same sentences answer the page's questions in its structured data.
+  const facts: HeroFacts = {
+    name: h.name,
+    kind: heroKind(h.roles.map((r) => t(`roles.${r}`)), h.lanes.map((l) => t(`lanes.${l}`))),
+    rate: rankedEntry ? { tier: rankedEntry.tier, winRate: percentage(locale, rankedEntry.winRate) } : null,
+    counters: countersShown.all?.weak.length
+      ? listNames(locale, countersShown.all.weak.filter((c) => heroesBySlug.has(c.slug)).slice(0, 3).map((c) => c.name))
+      : null,
+    build:
+      reference && reference.items.length > 0
+        ? {
+            items: listNames(locale, reference.items.map((o) => namesItems.get(visualItem(o).slug ?? "") ?? o)),
+            emblem: reference.emblem ? nameEmblem(reference.emblem) : null,
+          }
+        : null,
+    version: patchCurrent.version,
+    date: longDate(locale),
+  };
+  const answer = heroAnswer(t, facts);
+  const faqData = faqPageData(locale, { path: `/heroes/${slug}`, items: heroFaq(t, facts), changed: dateMeasure });
+
   // Dex reacts to the hero's standing: cheers at the top of the tier list, worries at its foot.
   const dexLine = rankedEntry ? dexReaction(t, h.name, rankedEntry.tier) : null;
 
@@ -389,6 +455,7 @@ export default async function HeroPage({ params }: Params) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
       />
+      {faqData && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqData) }} />}
 
       {/*
         A single skin state for the whole hero page: the header and the skins tab
@@ -518,6 +585,10 @@ export default async function HeroPage({ params }: Params) {
           )}
         </div>
       </PosterParallax>
+      <div className="page-wrap">
+        <p className="mt-6 max-w-3xl text-sm leading-relaxed text-chalk-300 sm:text-base">{answer.join(" ")}</p>
+      </div>
+      <div className="page-wrap lg:hidden">{glance}</div>
 
       {/* ── Facts, rank and ratings ───────────────────────────────────────
         The portrait follows the skin chosen in the gallery; the facts follow
@@ -590,6 +661,10 @@ export default async function HeroPage({ params }: Params) {
         <Tabs
           aliases={TAB_ALIASES}
           trackAs="Hero page"
+          // On a phone, stacked sections: the analysis and the skills open,
+          // the rest folded so that the end of the page stays within reach.
+          sectionsOnMobile
+          openOnMobile={["analysis", "skills"]}
           tabs={[
             {
               id: "analysis",
@@ -883,6 +958,7 @@ export default async function HeroPage({ params }: Params) {
           ]}
         />
         <DiscordInvite t={t} context="hero" className="mt-10" />
+        <DailyDle place="hero" className="mt-6" />
         <PageSourcesBlock locale={locale} of={{ kind: "hero", name: h.name }} />
         <ReportError messages={messagesPage(locale, ["pages.reportError"])} path={`/heroes/${h.slug}`} className="mt-6" />
       </div>

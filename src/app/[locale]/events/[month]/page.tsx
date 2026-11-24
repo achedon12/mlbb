@@ -8,6 +8,7 @@ import { MonthNav } from "@/components/events/month-nav";
 import { heroArt } from "@/components/hero-art";
 import { ENTRANCE, PosterHeader } from "@/components/poster-header";
 import { Score } from "@/components/ui";
+import { UpcomingReminder, reminderMonths } from "@/components/upcoming-reminder";
 import type { Locale } from "@/i18n/config";
 import { metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
@@ -18,6 +19,7 @@ import { sync } from "@/lib/data";
 import { OTHER_MODES, monthStatus, neighbours } from "@/lib/events";
 import { monthByKey, monthKeys, referenceDate, sourcesForMonth } from "@/lib/events-server";
 import { serializeJsonLd } from "@/lib/html";
+import { eventMonthData } from "@/lib/structured-data";
 import { NotFoundPage } from "@/components/not-found-page";
 
 type Params = { params: Promise<{ locale: Locale; month: string }> };
@@ -88,9 +90,19 @@ export default async function EventMonthPage({ params }: Params) {
     })),
   });
 
+  // The month itself as an in-game event, its StarLight pass and releases.
+  const eventData = eventMonthData(locale, {
+    name: title,
+    description: summary.join(" "),
+    path: `/events/${m.month}`,
+    month: m.month,
+    image: art,
+  });
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(eventData) }} />
       <PosterHeader
         title={title}
         lead={summary.join(" ")}
@@ -127,9 +139,14 @@ export default async function EventMonthPage({ params }: Params) {
           </div>
         )}
 
+        {reminderMonths().includes(m.month) && <UpcomingReminder locale={locale} month={m.month} />}
+
         <div className={ENTRANCE}>
           <MonthContent month={m} t={t} locale={locale} variant="page" />
         </div>
+
+        {/* The month under way: the next one is what to wait for. */}
+        {status === "current" && <UpcomingReminder locale={locale} />}
 
         <MonthNav
           label={t("pages.events.month.navMonths")}

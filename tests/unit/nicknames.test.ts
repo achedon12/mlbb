@@ -2,11 +2,14 @@ import { describe, expect, it } from "vitest";
 import {
   DECORATIONS,
   INPUT_MAX,
+  PRESETS,
   STYLES,
   decorate,
   measure,
+  parseShared,
   pickRandom,
   sanitize,
+  sharedQuery,
   stylize,
 } from "@/lib/nicknames";
 
@@ -127,5 +130,39 @@ describe("pickRandom", () => {
     const last = pickRandom(() => 0.999999999);
     expect(last.style).toBe(STYLES.at(-1));
     expect(last.decoration).toBe(DECORATIONS.at(-1));
+  });
+});
+
+describe("presets", () => {
+  it("pair a known style with a real decoration, each under its own key", () => {
+    expect(new Set(PRESETS.map((p) => p.key)).size).toBe(PRESETS.length);
+    for (const p of PRESETS) {
+      expect(STYLES).toContain(p.style);
+      expect(p.decoration.key).not.toBe("none");
+      expect(DECORATIONS).toContain(p.decoration);
+    }
+  });
+});
+
+describe("shared links", () => {
+  const stars = DECORATIONS.find((d) => d.key === "stars")!;
+
+  it("round-trip the name, the style and the decoration", () => {
+    const query = sharedQuery("Ombre Noire", "fraktur", stars);
+    expect(query.startsWith("?")).toBe(true);
+    expect(parseShared(query)).toEqual({ name: "Ombre Noire", style: "fraktur", decoration: stars });
+  });
+
+  it("leave out the decoration when there is none", () => {
+    const query = sharedQuery("Leo", "bold", DECORATIONS[0]);
+    expect(query).not.toContain("d=");
+    expect(parseShared(query)).toEqual({ name: "Leo", style: "bold", decoration: null });
+  });
+
+  it("trust nothing: unknown style and decoration dropped, name sanitized", () => {
+    expect(parseShared("?n=%E2%80%8BLeo%E2%80%8B&s=comic&d=skull")).toEqual({ name: "Leo", style: null, decoration: null });
+    expect(parseShared("?s=bold")).toBeNull();
+    expect(parseShared("?n=%E2%80%8B")).toBeNull();
+    expect(parseShared("")).toBeNull();
   });
 });

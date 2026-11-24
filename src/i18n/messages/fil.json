@@ -28,7 +28,8 @@
       "sortBy": "I-sort ayon sa {column}"
     },
     "joinDiscord": "Sumali sa Discord",
-    "discordServer": "Discord server ng MLBBDex community"
+    "discordServer": "Discord server ng MLBBDex community",
+    "jumpToSection": "Pumunta sa isang seksyon"
   },
   "nav": {
     "heroes": {
@@ -451,7 +452,27 @@
       },
       "pageCounters": "Buong pahina ng kahinaan",
       "pageDuos": "Lahat ng nasukat na duo",
-      "duosShort": "Mga duo"
+      "duosShort": "Mga duo",
+      "glance": {
+        "title": "Buod",
+        "win": "Win",
+        "pick": "Pick",
+        "ban": "Ban",
+        "build": "Pinaka nilalaro na build",
+        "buildWin": "{rate}% win rate",
+        "counteredBy": "Sinalungat ng",
+        "jump": "Mga shortcut sa mga seksyon"
+      },
+      "answer": {
+        "summary": "Ang {name} ({kind}) ay nasa level {tier} na may {winRate} na panalo, pinagsama ang lahat ng ranggo, sa patch {v} (sukat ng {date}).",
+        "summaryNoRate": "Hindi pa sapat ang paglalaro ng {name} ({kind}) sa ranggo na paglalaro upang masukat.",
+        "counters": "Ang mga hero na pinakamahusay na naka-counter ng {name}, pinagsama-sama ang lahat ng ranggo: {counters}.",
+        "faqGood": "Mahusay ba ang {name} sa kasalukuyang patch?",
+        "faqCounters": "Mga counter kay {name}",
+        "faqBuild": "Ano ang pinakamagandang build para sa {name}?",
+        "build": "Ang pinakamaraming nilalaro na build sa {name}, pinagsama ang lahat ng ranggo: {items}.",
+        "buildEmblem": "Ang pinakamaraming nilalaro na build sa {name}, pinagsama ang lahat ng ranggo: {items}, na may emblem na {emblem}."
+      }
     },
     "items": {
       "title": "Mga item",
@@ -605,6 +626,44 @@
       "poster": {
         "kicker": "No. 1 sa ranking na ito",
         "label": "{name}, n°1 sa ranking na ito: antas {tier}, {win} ng mga tagumpay, {ban} ng mga ban"
+      },
+      "peek": {
+        "open": "Preview: {name}",
+        "close": "Isara ang preview",
+        "counters": "Kinokontra ng",
+        "items": "Pangunahing build",
+        "full": "Kumpletong gabay"
+      },
+      "answer": {
+        "questionAll": "Sino ang pinakamahusay na hero sa MLBB ngayon?",
+        "questionRank": "Sino ang pinakamahusay na hero sa {rank} ngayon?",
+        "questionLane": "Sino ang pinakamahusay na hero sa {lane} ngayon?",
+        "questionRole": "Sino ang pinakamahusay na {plural} ngayon?",
+        "answerAll": "Pinakamahuhusay na hero sa MLBB ngayon: {top}.",
+        "answerRank": "Pinakamahuhusay na hero sa {rank} ngayon: {top}.",
+        "answerLane": "Pinakamahuhusay na hero sa {lane} ngayon: {top}.",
+        "answerRole": "Pinakamahusay na {plural} ngayon: {top}.",
+        "detail": "Ang {first} ang No. 1 (tier {tier}) na may {winRate} win rate at {banRate} ban rate, mula sa {n} hero na naka-rank sa patch {v}, sinukat noong {date}."
+      },
+      "patch": {
+        "title": "Ano ang nagbago sa patch na ito",
+        "lead": "Ang pinakamalaking galaw ng win rate sa loob ng pitong araw sa mga hero na ito, at ang mga inayos ng patch.",
+        "rises": "Tumataas",
+        "drops": "Bumababa",
+        "adjusted": "Inayos sa patch {v} ({n})"
+      },
+      "next": {
+        "titleLane": "Naglalaro ka ba ng {lane}? Tingnan din",
+        "titleRole": "Naglalaro ka ba ng {role}? Tingnan din",
+        "titleAll": "Para sa higit pa",
+        "counters": "Kontrahin ang mga top pick",
+        "countersLead": "Ang mga hero na pinakamadalas tumalo sa mga nasa tuktok ng ranking.",
+        "builds": "Ang kanilang mga build",
+        "buildsLead": "Ang tatlong key item na pinakamadalas gamitin ng mga nasa tuktok ng ranking.",
+        "tools": "Isabuhay ito",
+        "draft": "I-pick at i-ban ang mga hero na ito sa isang ranked draft.",
+        "lists": "Iba pang mga tier list",
+        "top": "No. 1: {name}"
       }
     },
     "patchNotes": {
@@ -1235,6 +1294,10 @@
       "accountValue": {
         "title": "MLBB account value estimator",
         "description": "Magkano ang halaga ng iyong koleksyon ng Mobile Legends? Kopyahin ang iyong mga pagpapakita ayon sa kategorya ng Showcase ({skins} mga pagpapakita ng catalog), tingnan ang iyong mga collection point at kumuha ng order ng magnitude sa mga diamante, USD, EUR, PHP, IDR at MYR, na may ipinapakitang paraan."
+      },
+      "quizDuel": {
+        "title": "Kaya mo bang talunin ang {score} sa MLBB Quiz #{n}?",
+        "description": "Nakakuha ng {score} ang kaibigan mo sa daily quiz ng MLBBDex. Parehong mga tanong: skill, skin, lore, item at win-rate duel. Ikaw na."
       }
     },
     "sources": {
@@ -1829,7 +1892,7 @@
       "seeSummary": "Tingnan ang resulta",
       "nextRound": "Susunod na round",
       "summaryTitle": "Tapos na ang challenge: {points}/{max}",
-      "share": "I-share ang resulta ko",
+      "share": "Ibahagi bilang text",
       "copied": "Nakopya ang resulta: i-paste kahit saan.",
       "shared": "Na-share ang resulta.",
       "copyError": "Hindi ko makopya: piliin ang grid sa pamamagitan ng kamay.",
@@ -1942,7 +2005,43 @@
         "good": "Kitang-kita! Susunod.",
         "won": "Magaling, magandang sagot!",
         "over": "Nabigo sa pagkakataong ito. Ang susunod ay ang magaling!"
-      }
+      },
+      "shareScore": "Ibahagi ang aking iskor",
+      "sharePitch": "Nakakuha ako ng {score} sa MLBBDex Quiz #{n}. Kaya mo bang talunin ako?",
+      "rankLabel": "Rank:",
+      "ranks": {
+        "warrior": "Warrior",
+        "elite": "Elite",
+        "master": "Master",
+        "grandmaster": "Grandmaster",
+        "epic": "Epic",
+        "legend": "Legend",
+        "mythic": "Mythic",
+        "glory": "Mythical Glory"
+      },
+      "duel": {
+        "beat": "Talunin ang score ni {name}: {score}",
+        "beatAnon": "Talunin ang marka ng iyong kaibigan: {score}",
+        "today": "Parehong mga tanong ng kaibigan mo. Ito ang challenge ngayon, kaya bilang ito sa streak mo.",
+        "past": "Challenge mula sa ibang araw: hindi ito bilang sa streak mo.",
+        "won": "Tinalo mo ang {score} ni {name}!",
+        "wonAnon": "Tinalo mo ang {score} ng kaibigan mo!",
+        "tie": "Tabla kayo ni {name}: tig-{score}.",
+        "tieAnon": "Tabla kayo ng kaibigan mo: tig-{score}.",
+        "lost": "Lamang pa rin si {name} sa {score}. Ipadala ang sarili mong challenge!",
+        "lostAnon": "Lamang pa rin ang kaibigan mo sa {score}. Ipadala ang sarili mong challenge!"
+      },
+      "playToday": "Maglaro ng hamon ngayon",
+      "challengeFriend": "Hamunin ang isang kaibigan",
+      "challengeTitle": "MLBBDex Quiz challenge",
+      "challengeCopied": "Nakopya ang link ng hamon: ipadala ito sa isang kaibigan.",
+      "challengeShared": "Ipinadala ang hamon.",
+      "nameLabel": "Ang iyong pangalan sa hamon (opsyonal)",
+      "namePlaceholder": "Nickname",
+      "streakDays": "Daily streak: {n}",
+      "streakDone": "nalaro na ngayon, balik bukas",
+      "streakKeep": "laruin ang challenge ngayon para mapanatili ito",
+      "streakStart": "maglaro araw-araw para magsimula ng streak"
     },
     "tierMaker": {
       "title": "MLBB tier list maker",
@@ -2404,7 +2503,27 @@
       "overGuide": "Mas mahaba sa {max} character na sinabi ng isang guide: maaaring tanggihan ito ng laro.",
       "rating": "Maaaring lumabas na blangkong kahon ang ilang simbolo sa laro, o tanggihan. Hindi inilalathala ng laro kung paano nito binibilang ang haba: ibinibigay ng counter ang dalawang karaniwang sukat.",
       "stylesTitle": "Lahat ng style",
-      "copiedDiscord": "Ipakita sa Discord →"
+      "copiedDiscord": "Ipakita sa Discord →",
+      "previewTitle": "In-game preview",
+      "plateBattle": "Sa laban, sa itaas ng hero",
+      "plateProfile": "Sa profile",
+      "share": "I-share",
+      "shareTitle": "Ang aking palayaw sa Mobile Legends",
+      "shareText": "Aking Mobile Legends palayaw: {nickname}",
+      "linkCopied": "Nakopya ang link: binubuksan muli nito ang generator sa palayaw na ito.",
+      "shareFailed": "Hindi ko maibahagi ang link: kopyahin ang address ng page gamit ang kamay.",
+      "presetsTitle": "Ready-made na hitsura",
+      "presetsLead": "Magkatugmang estilo at dekorasyon, sa isang tap.",
+      "preset": {
+        "legend": "Legend",
+        "royal": "Royal",
+        "sniper": "Sniper",
+        "star": "Shooting star",
+        "samurai": "Samurai",
+        "neon": "Neon",
+        "warrior": "Warrior",
+        "mystic": "Mystical"
+      }
     },
     "drawCalculator": {
       "title": "MLBB Draw Calculator",
@@ -6334,7 +6453,12 @@
     "bodyOne": "Tingnan ang detalye sa page ng hero, sa Stats tab.",
     "row": "{name}: {type}",
     "other": "at {n} iba pa",
-    "others": "at {n} iba pa"
+    "others": "at {n} iba pa",
+    "reminder": {
+      "title": "Magsisimula ang {month}: bagong StarLight at mga kaganapan",
+      "bodySkin": "Labas na ang StarLight skin na {skin} ({hero}). Tingnan ang mga skin at event ngayong buwan.",
+      "body": "Narito na ang StarLight skin at mga event ngayong buwan. Tingnan ang bago."
+    }
   },
   "teamUI": {
     "yourTeam": "Team mo",
@@ -6840,6 +6964,20 @@
       "small": "Nabawasang sample: {n} hero ang nasukat.",
       "measured": "nasusukat na mga hero",
       "dex": "Ito ang talagang binago ng patch, na may mga numero upang i-back up ito."
+    },
+    "quiz": {
+      "kicker": "MLBBDex Quiz · #{n}",
+      "subtitle": "Hamon ng araw: {score}",
+      "points": "puntos",
+      "toBeat": "score na tatalunin",
+      "duelKicker": "MLBBDex Quiz · challenge #{n}",
+      "duelTitle": "Kaya mo bang talunin ang {score}?",
+      "duelSubtitle": "Parehong limang round, parehong mga tanong. Ikaw na.",
+      "dexDuel": "Skill, skin, lore, item at win-rate duel. Ipakita ang alam mo!",
+      "dexPerfect": "Perfect score? Hindi ako makapaniwala!",
+      "dexGood": "Mahusay na laro! Sino ang gagawa ng mas mahusay?",
+      "dexMid": "Hindi masama! Bukas, mga bagong tanong.",
+      "dexLow": "Mahirap ito ngayon. Kaya kaya ng kaibigan mo?"
     }
   },
   "socialKit": {
@@ -6895,5 +7033,54 @@
         "dex": "Lahat ay online: tingnan kung ano ang nagbago."
       }
     }
+  },
+  "reminder": {
+    "button": "Paalalahanan mo ako",
+    "hint": "Idaragdag sa iyong kalendaryo, may alerto sa {when}.",
+    "set": "Ipapaalala namin: {month}",
+    "setCalendar": "Sa iyong kalendaryo, na may alerto sa {when}.",
+    "setPush": "Isang notification sa device na ito sa {when}.",
+    "setBoth": "Sa iyong kalendaryo at sa notification sa {when}.",
+    "alsoPush": "Notify mo rin ako dito",
+    "alsoCalendar": "Idagdag sa kalendaryo",
+    "cancelPush": "Kanselahin ang abiso",
+    "pushRefused": "Naka-block ang mga notification sa browser na ito: gumagana pa rin ang paalala sa kalendaryo.",
+    "pushError": "Hindi makapag-iskedyul ng notification. Subukan ulit mamaya.",
+    "kicker": "Paparating",
+    "bandTitle": "{month}: bagong StarLight at mga kaganapan",
+    "bandSkin": "StarLight skin: {skin} ({hero}). Simula sa ika-1 nang 00:00, oras ng server.",
+    "bandGeneric": "Magsisimula ang StarLight skin at buwanang mga kaganapan sa ika-1 ng 00:00 oras ng server.",
+    "bandLabel": "Paalala para sa {month}"
+  },
+  "dailyDle": {
+    "label": "MLBBdle ng araw",
+    "title": "Naghihintay ang hero ng araw",
+    "allDone": "Nasagot na ang dalawang palaisipan ngayong araw",
+    "oneLeft": "Isang palaisipan na lang ngayon",
+    "keepStreak": "Panatilihin ang iyong guhit",
+    "mode": {
+      "classic": "Classic",
+      "skill": "Skill"
+    },
+    "status": {
+      "solved": "nasagot",
+      "started": "sinisimulan",
+      "open": "lalaruin"
+    },
+    "streak1": "1 araw na streak",
+    "streak": "{n} araw na streak",
+    "next": "Susunod na palaisipan sa loob ng",
+    "play": "Maglaro",
+    "continue": "Magpatuloy"
+  },
+  "comeback": {
+    "title": "Mula noong huli mong pagbisita, {date}",
+    "patch": "Inilabas ang patch {version}",
+    "skin1": "Bagong skin: {name} ({hero})",
+    "skins": "{n} bagong skin, kasama ang {name}",
+    "tiers1": "1 hero ang nagbago ng tier",
+    "tiers": "{n} hero ang nagbago ng tier",
+    "eventsAnnounced": "{month} inihayag",
+    "eventsOpened": "Nagsimula na ang mga event ng {month}"
   }
 }

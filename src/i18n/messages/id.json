@@ -28,7 +28,8 @@
       "sortBy": "Urutkan berdasarkan {column}"
     },
     "joinDiscord": "Bergabunglah dengan Perselisihan",
-    "discordServer": "Server Perselisihan Komunitas MLBBdex"
+    "discordServer": "Server Perselisihan Komunitas MLBBdex",
+    "jumpToSection": "Pergi ke suatu bagian"
   },
   "nav": {
     "heroes": {
@@ -451,7 +452,27 @@
       },
       "pageCounters": "Halaman kontra penuh",
       "pageDuos": "Semua duo yang diukur",
-      "duosShort": "Duo"
+      "duosShort": "Duo",
+      "glance": {
+        "title": "Singkatnya",
+        "win": "Win",
+        "pick": "Pick",
+        "ban": "Ban",
+        "build": "Build yang paling banyak dimainkan",
+        "buildWin": "Win rate {rate}%",
+        "counteredBy": "Di-counter oleh",
+        "jump": "Pintasan ke bagian"
+      },
+      "answer": {
+        "summary": "{name} ({kind}) berada di level {tier} dengan {winRate} kemenangan, semua peringkat digabungkan, di patch {v} (ukuran {date}).",
+        "summaryNoRate": "{name} ({kind}) belum cukup dimainkan dalam permainan peringkat untuk diukur.",
+        "counters": "Hero yang paling baik melawan {name}, semua peringkat digabungkan: {counters}.",
+        "faqGood": "Apakah {name} bagus pada patch saat ini?",
+        "faqCounters": "Counter {name}",
+        "faqBuild": "Apa build terbaik untuk {name}?",
+        "build": "Build yang paling banyak dimainkan di {name}, semua peringkat digabungkan: {items}.",
+        "buildEmblem": "Build yang paling banyak dimainkan di {name}, semua peringkat digabungkan: {items}, dengan emblem {emblem}."
+      }
     },
     "items": {
       "title": "Item",
@@ -605,6 +626,44 @@
       "poster": {
         "kicker": "No 1 di peringkat ini",
         "label": "{name}, n°1 dalam peringkat ini: level {tier}, {win} kemenangan, {ban} ban"
+      },
+      "peek": {
+        "open": "Pratinjau: {name}",
+        "close": "Tutup pratinjau",
+        "counters": "Dilawan oleh",
+        "items": "Build utama",
+        "full": "Panduan lengkap"
+      },
+      "answer": {
+        "questionAll": "Siapa saja hero terbaik di MLBB saat ini?",
+        "questionRank": "Siapakah hero terbaik di {rank} saat ini?",
+        "questionLane": "Siapakah hero terbaik di {lane} saat ini?",
+        "questionRole": "Siapa {plural} terbaik saat ini?",
+        "answerAll": "Hero terbaik di MLBB saat ini: {top}.",
+        "answerRank": "Hero terbaik di {rank} saat ini: {top}.",
+        "answerLane": "Hero terbaik di {lane} saat ini: {top}.",
+        "answerRole": "{plural} terbaik saat ini: {top}.",
+        "detail": "{first} peringkat 1 (tier {tier}) dengan win rate {winRate} dan ban rate {banRate}, dari {n} hero yang diperingkat di patch {v}, diukur {date}."
+      },
+      "patch": {
+        "title": "Apa yang berubah di patch ini",
+        "lead": "Perubahan win rate terbesar dalam tujuh hari di antara hero ini, dan hero yang disesuaikan oleh patch.",
+        "rises": "Naik",
+        "drops": "Turun",
+        "adjusted": "Disesuaikan di patch {v} ({n})"
+      },
+      "next": {
+        "titleLane": "Apakah Anda bermain {lane}? Lihat juga",
+        "titleRole": "Apakah Anda bermain {role}? Lihat juga",
+        "titleAll": "Baca juga",
+        "counters": "Melawan pilihan terbaik",
+        "countersLead": "Hero yang paling sering mengalahkan hero teratas peringkat.",
+        "builds": "Build mereka",
+        "buildsLead": "Tiga item kunci yang paling sering dipakai hero teratas peringkat.",
+        "tools": "Mulai berlatih",
+        "draft": "Pilih dan ban hero-hero ini di draft peringkat.",
+        "lists": "Tier list lainnya",
+        "top": "No.1: {name}"
       }
     },
     "patchNotes": {
@@ -1235,6 +1294,10 @@
       "accountValue": {
         "title": "Estimasi nilai akun MLBB",
         "description": "Berapa Harga Koleksi Mobile Legends Kalian? Salin penampilan Anda berdasarkan kategori Showcase ({skins} tampilan katalog), periksa titik koleksi Anda dan dapatkan urutan besarnya dalam berlian, USD, EUR, PHP, IDR dan MYR, dengan metode yang ditampilkan."
+      },
+      "quizDuel": {
+        "title": "Bisakah kamu mengalahkan {score} di Kuis MLBB #{n}?",
+        "description": "Temanmu mendapat skor {score} di kuis harian MLBBDex. Pertanyaannya sama: skill, skin, lore, item, dan duel win rate. Giliranmu."
       }
     },
     "sources": {
@@ -1829,7 +1892,7 @@
       "seeSummary": "Lihat neraca",
       "nextRound": "Putaran selanjutnya",
       "summaryTitle": "Tantangan selesai: {points}/{max}",
-      "share": "Bagikan hasil saya",
+      "share": "Bagikan sebagai teks",
       "copied": "Hasil yang disalin: tempel di mana pun Anda mau.",
       "shared": "Hasil bersama.",
       "copyError": "Saya tidak dapat menyalin: pilih kisi dengan tangan.",
@@ -1942,7 +2005,43 @@
         "good": "Terlihat jelas! Berikutnya.",
         "won": "Bagus sekali, jawaban bagus!",
         "over": "Gagal kali ini. Yang berikutnya akan menjadi yang bagus!"
-      }
+      },
+      "shareScore": "Bagikan skorku",
+      "sharePitch": "Aku dapat {score} di Kuis MLBBDex #{n}. Bisa kalahkan aku?",
+      "rankLabel": "Rank:",
+      "ranks": {
+        "warrior": "Warrior",
+        "elite": "Elite",
+        "master": "Master",
+        "grandmaster": "Grandmaster",
+        "epic": "Epic",
+        "legend": "Legend",
+        "mythic": "Mythic",
+        "glory": "Mythical Glory"
+      },
+      "duel": {
+        "beat": "Kalahkan skor {name}: {score}",
+        "beatAnon": "Kalahkan skor temanmu: {score}",
+        "today": "Pertanyaannya sama dengan temanmu. Ini tantangan hari ini, jadi dihitung ke streak-mu.",
+        "past": "Tantangan dari hari lain: tidak dihitung ke streak-mu.",
+        "won": "Kamu mengalahkan skor {score} milik {name}!",
+        "wonAnon": "Kamu mengalahkan skor {score} temanmu!",
+        "tie": "Seri dengan {name}: masing-masing {score}.",
+        "tieAnon": "Seri dengan temanmu: masing-masing {score}.",
+        "lost": "{name} masih unggul dengan {score}. Kirim tantanganmu sendiri!",
+        "lostAnon": "Temanmu masih unggul dengan {score}. Kirim tantanganmu sendiri!"
+      },
+      "playToday": "Mainkan tantangan hari ini",
+      "challengeFriend": "Tantang seorang teman",
+      "challengeTitle": "Tantangan Kuis MLBBDex",
+      "challengeCopied": "Tautan tantangan disalin: kirimkan ke teman.",
+      "challengeShared": "Tantangan terkirim.",
+      "nameLabel": "Namamu di tantangan (opsional)",
+      "namePlaceholder": "Nickname",
+      "streakDays": "Streak harian: {n}",
+      "streakDone": "dimainkan hari ini, kembali lagi besok",
+      "streakKeep": "mainkan tantangan hari ini untuk mempertahankannya",
+      "streakStart": "main setiap hari untuk membangun streak"
     },
     "tierMaker": {
       "title": "Pembuat tier list MLBB",
@@ -2404,7 +2503,27 @@
       "overGuide": "Lebih panjang dari karakter {max} yang ditunjukkan dalam panduan: game dapat menolaknya.",
       "rating": "Beberapa simbol mungkin muncul sebagai kotak kosong dalam permainan, atau ditolak. Permainan tidak mempublikasikan caranya menghitung panjang: counter memberikan dua pengukuran umum.",
       "stylesTitle": "Semua gaya",
-      "copiedDiscord": "Pamerkan di Discord →"
+      "copiedDiscord": "Pamerkan di Discord →",
+      "previewTitle": "Pratinjau dalam game",
+      "plateBattle": "Dalam pertandingan, di atas hero",
+      "plateProfile": "Di profil",
+      "share": "Bagikan",
+      "shareTitle": "Nama panggilan Mobile Legends saya",
+      "shareText": "Nama panggilan Mobile Legends saya: {nickname}",
+      "linkCopied": "Tautan disalin: membuka kembali generator pada nama panggilan ini.",
+      "shareFailed": "Saya tidak dapat membagikan tautannya: salin alamat halaman dengan tangan.",
+      "presetsTitle": "Penampilan siap pakai",
+      "presetsLead": "Gaya dan dekorasi yang serasi, dalam satu ketukan.",
+      "preset": {
+        "legend": "Legend",
+        "royal": "Royal",
+        "sniper": "Sniper",
+        "star": "Bintang jatuh",
+        "samurai": "Samurai",
+        "neon": "Neon",
+        "warrior": "Warrior",
+        "mystic": "Mistik"
+      }
     },
     "drawCalculator": {
       "title": "Kalkulator Draw MLBB",
@@ -6334,7 +6453,12 @@
     "bodyOne": "Detailnya ada di filenya, di tab Statistik.",
     "row": "{name}: {type}",
     "other": "dan {n} lainnya",
-    "others": "dan {n} lainnya"
+    "others": "dan {n} lainnya",
+    "reminder": {
+      "title": "{month} dimulai: StarLight dan acara baru",
+      "bodySkin": "Skin StarLight {skin} ({hero}) sudah rilis. Lihat skin dan event bulan ini.",
+      "body": "Skin StarLight dan event bulan ini sudah hadir. Lihat yang baru."
+    }
   },
   "teamUI": {
     "yourTeam": "tim Anda",
@@ -6840,6 +6964,20 @@
       "small": "Sampel yang dikurangi: {n} hero diukur.",
       "measured": "hero terukur",
       "dex": "Inilah yang benar-benar diubah oleh patch tersebut, dengan angka-angka yang mendukungnya."
+    },
+    "quiz": {
+      "kicker": "Kuis MLBBDex · #{n}",
+      "subtitle": "Tantangan hari ini: {score}",
+      "points": "poin",
+      "toBeat": "skor untuk dikalahkan",
+      "duelKicker": "Kuis MLBBDex · tantangan #{n}",
+      "duelTitle": "Bisa kalahkan {score}?",
+      "duelSubtitle": "Lima ronde yang sama, pertanyaan yang sama. Giliranmu.",
+      "dexDuel": "Skill, skin, lore, item, dan duel win rate. Tunjukkan kemampuanmu!",
+      "dexPerfect": "Skor sempurna? Aku sampai speechless!",
+      "dexGood": "Mantap! Siapa yang bisa lebih baik?",
+      "dexMid": "Lumayan! Besok ada pertanyaan baru.",
+      "dexLow": "Yang ini sulit. Temanmu bisa lebih baik?"
     }
   },
   "socialKit": {
@@ -6895,5 +7033,54 @@
         "dex": "Semuanya online: lihat apa yang berubah."
       }
     }
+  },
+  "reminder": {
+    "button": "Ingatkan saya",
+    "hint": "Masuk ke kalender kamu, dengan pengingat pada {when}.",
+    "set": "Kamu akan diingatkan: {month}",
+    "setCalendar": "Di kalender Anda, dengan peringatan di {when}.",
+    "setPush": "Notifikasi di perangkat ini pada {when}.",
+    "setBoth": "Di kalender Anda dan di notifikasi di {when}.",
+    "alsoPush": "Juga beri tahu saya di sini",
+    "alsoCalendar": "Tambahkan ke kalender",
+    "cancelPush": "Batalkan pemberitahuan",
+    "pushRefused": "Notifikasi diblokir di browser ini: pengingat kalender masih berfungsi.",
+    "pushError": "Tidak dapat menjadwalkan pemberitahuan. Coba lagi nanti.",
+    "kicker": "Segera hadir",
+    "bandTitle": "{month}: StarLight dan acara baru",
+    "bandSkin": "Skin StarLight: {skin} ({hero}). Mulai tanggal 1 pukul 00:00 waktu server.",
+    "bandGeneric": "Skin StarLight dan acara bulanan dimulai pada tanggal 1 pukul 00:00 waktu server.",
+    "bandLabel": "Pengingat untuk {month}"
+  },
+  "dailyDle": {
+    "label": "MLBBdle hari ini",
+    "title": "Hero hari ini sudah menunggu",
+    "allDone": "Dua teka-teki hari ini sudah terpecahkan",
+    "oneLeft": "Tinggal satu teka-teki hari ini",
+    "keepStreak": "Pertahankan pukulanmu",
+    "mode": {
+      "classic": "Klasik",
+      "skill": "Skill"
+    },
+    "status": {
+      "solved": "terselesaikan",
+      "started": "sedang dimainkan",
+      "open": "untuk bermain"
+    },
+    "streak1": "Streak 1 hari",
+    "streak": "Streak {n} hari",
+    "next": "Teka-teki berikutnya dalam",
+    "play": "Main",
+    "continue": "Melanjutkan"
+  },
+  "comeback": {
+    "title": "Sejak kunjungan terakhir Anda, {date}",
+    "patch": "Patch {version} dirilis",
+    "skin1": "Skin baru: {name} ({hero})",
+    "skins": "{n} skin baru, termasuk {name}",
+    "tiers1": "1 hero berganti tier",
+    "tiers": "{n} hero berganti tier",
+    "eventsAnnounced": "{month} diumumkan",
+    "eventsOpened": "Event {month} sudah dimulai"
   }
 }

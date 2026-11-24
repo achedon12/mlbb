@@ -87,12 +87,17 @@ test.describe("on mobile", () => {
 
   test("a skill opens in a drawer", async ({ page }) => {
     await page.goto("/fr/heroes/belerick");
-    await page.getByRole("tab", { name: /comp[ée]tences/i }).click();
-    const tiles = page.getByRole("tabpanel").getByRole("button", { expanded: false });
-    await tiles.first().click();
+    // On a phone the sections are stacked, the skills open on arrival.
+    const header = page.getByRole("heading", { level: 2, name: /^comp[ée]tences/i }).first().getByRole("button");
+    await expect(header).toHaveAttribute("aria-expanded", "true");
+    const panel = page.locator(`[id="${await header.getAttribute("aria-controls")}"]`);
+    const tiles = panel.getByRole("button", { expanded: false });
 
     const drawer = page.getByRole("dialog");
-    await expect(drawer).toBeVisible();
+    await expect(async () => {
+      await tiles.first().click();
+      await expect(drawer).toBeVisible({ timeout: 1_000 });
+    }).toPass();
     await expect(drawer.getByRole("heading", { level: 3 })).toBeVisible();
 
     await page.keyboard.press("Escape");

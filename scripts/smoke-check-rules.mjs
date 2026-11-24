@@ -446,6 +446,13 @@ export const ENDPOINTS = [
     placeholders: false,
     check: (text) => (countWords(text) >= 50 ? [] : ["almost empty"]),
   },
+  {
+    // One line per hero: well over a thousand words when the data is there.
+    path: "/llms-full.txt",
+    type: "text",
+    placeholders: false,
+    check: (text) => (countWords(text) >= 1000 ? [] : ["hero lines missing"]),
+  },
 ];
 
 /**

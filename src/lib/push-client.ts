@@ -120,8 +120,11 @@ function call(method: "POST" | "PATCH" | "DELETE", body: object): Promise<Respon
   });
 }
 
-/** Requests permission, subscribes the browser and hands the subscription to the server. */
-export async function enable(locale: Locale, favourites: readonly string[]): Promise<NotificationState> {
+/**
+ * Requests permission and returns this browser's push subscription, created
+ * if needed; a state instead when it cannot be had.
+ */
+async function browserSubscription(): Promise<PushSubscription | Exclude<NotificationState, "active">> {
   const vapidKey = await publicKey();
   if (!vapidKey) return "unavailable";
   const permission = await Notification.requestPermission();
@@ -137,7 +140,13 @@ export async function enable(locale: Locale, favourites: readonly string[]): Pro
     await subscription.unsubscribe();
     subscription = null;
   }
-  subscription ??= await reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: bytes });
+  return subscription ?? (await reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: bytes }));
+}
+
+/** Requests permission, subscribes the browser and hands the subscription to the server. */
+export async function enable(locale: Locale, favourites: readonly string[]): Promise<NotificationState> {
+  const subscription = await browserSubscription();
+  if (typeof subscription === "string") return subscription;
 
   const response = await call("POST", { abonnement: subscription.toJSON(), langue: locale, favoris: favourites });
   if (!response.ok) {
@@ -189,4 +198,32 @@ async function syncNow(locale: Locale, favourites: readonly string[]) {
   // Subscription deleted server-side in the meantime: recreate it.
   if (response.status === 404) response = await call("POST", body);
   if (response.ok) lastSync = syncKey(locale, favourites);
+}
+
+// ── Month reminders ────────────────────────────────────────────────
+
+function callReminder(method: "POST" | "DELETE", body: object): Promise<Response> {
+  return fetch("/api/push/reminder", {
+    method,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+}
+
+/**
+ * Asks for a notification when `month` opens. Does not subscribe to patch
+ * news: the reminder lives on its own, server side, and is sent once.
+ */
+export async function remindByPush(locale: Locale, month: string): Promise<NotificationState> {
+  const subscription = await browserSubscription();
+  if (typeof subscription === "string") return subscription;
+  const response = await callReminder("POST", { abonnement: subscription.toJSON(), langue: locale, mois: month });
+  if (!response.ok) throw new Error(`reminder rejected (${response.status})`);
+  return "active";
+}
+
+/** Cancels the push reminder of `month`, when this browser still has its subscription. */
+export async function cancelPushReminder(month: string): Promise<void> {
+  const subscription = await currentSubscription();
+  if (subscription) await callReminder("DELETE", { abonnement: subscription.toJSON(), mois: month });
 }
