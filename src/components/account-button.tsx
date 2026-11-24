@@ -4,8 +4,7 @@ import { useEffect, useState } from "react";
 import { LogIn, UserRound } from "lucide-react";
 import Link from "@/components/link";
 import { useT } from "@/i18n/provider";
-
-type Session = { connected: boolean; pseudo?: string; discord?: string };
+import { readSession, type Session } from "@/lib/session-client";
 
 /**
  * Account access in the header.
@@ -20,10 +19,7 @@ export function AccountButton() {
 
   useEffect(() => {
     let cancelled = false;
-    fetch("/api/session")
-      .then((r) => r.json())
-      .then((d: Session) => !cancelled && setSession(d))
-      .catch(() => !cancelled && setSession({ connected: false }));
+    void readSession().then((d) => !cancelled && setSession(d));
     return () => {
       cancelled = true;
     };
@@ -39,7 +35,9 @@ export function AccountButton() {
       className="btn btn-secondary btn-sm h-9 min-w-9 max-w-36 truncate px-2 normal-case sm:px-4"
     >
       <UserRound size={18} aria-hidden className="sm:hidden" />
-      <span className="max-sm:sr-only">{session.pseudo ?? session.discord}</span>
+      <span className="max-sm:sr-only">
+        {session.pseudo ?? session.discord}
+      </span>
     </Link>
   ) : (
     <Link

@@ -19,7 +19,7 @@ import { addressOf, limitByMinute } from "@/lib/push-server";
  */
 export const dynamic = "force-dynamic";
 
-const reads = limitByMinute(60);
+const reads = limitByMinute(120);
 
 export async function GET(request: Request) {
   if (!databaseConfigured()) return answer({ available: false });
