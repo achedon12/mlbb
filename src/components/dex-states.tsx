@@ -37,15 +37,15 @@ export function Skeleton({ className }: { className?: string }) {
 
 /**
  * A confirmation (link copied, saved, voted…) or a small failure, as a
- * bevelled flash: gold edge and Dex cheering for a success, red edge and
- * Dex surprised for a failure. It carries no live role: the element that
+ * bevelled flash: gold edge and Dex applauding a success, red edge and
+ * Dex let down by a failure. It carries no live role: the element that
  * holds it does (`role="status"` or `aria-live`), so the announcement does
  * not change.
  */
 export function Flash({ tone = "ok", children, className }: { tone?: "ok" | "error"; children: ReactNode; className?: string }) {
   return (
     <span className={cn("brand-flash", tone === "error" && "brand-flash-error", className)}>
-      <DexHead pose={tone === "ok" ? "victoire" : "surpris"} />
+      <DexHead pose={tone === "ok" ? "bravo" : "triste"} />
       <span className="min-w-0">{children}</span>
     </span>
   );

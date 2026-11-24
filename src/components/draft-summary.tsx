@@ -117,7 +117,7 @@ export function DraftSummary({
 
   return (
     <section aria-labelledby="summary-title" className="space-y-8">
-      {/* The draft is done: Dex cheers it, once, and the title comes in. */}
+      {/* The draft is done: Dex jumps for it, once, and the title comes in. */}
       <div className="win-panel flex items-end justify-between gap-4">
         <div className="min-w-0">
           <h2 id="summary-title" className="win-punch type-section text-gold-400">
@@ -126,7 +126,7 @@ export function DraftSummary({
           <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
           <p className="mt-3 text-sm text-chalk-400">{t("pages.draftSimulatorUI.summary.intro", { rank: rankName })}</p>
         </div>
-        <GameDex mood="won" beat={0} height={120} />
+        <GameDex mood="won" pose="saut" beat={0} height={120} />
       </div>
 
       {/* -- Estimated win probability ------------------------------ */}

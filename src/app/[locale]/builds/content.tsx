@@ -122,7 +122,7 @@ export async function CommunityBuilds({ locale, page = 1 }: { locale: Locale; pa
       <ExtendMessages messages={messagesPage(locale, ["pages.communityBuildsUI"])}>
         <div className="page-wrap space-y-16 py-10 sm:py-14">
           {stored === null ? (
-            <DexSays pose="surpris">
+            <DexSays pose="triste">
               <p role="alert">{t("pages.communityBuilds.unavailable")}</p>
             </DexSays>
           ) : stored.length === 0 ? (
@@ -137,7 +137,7 @@ export async function CommunityBuilds({ locale, page = 1 }: { locale: Locale; pa
                 {week.length ? (
                   cards(week)
                 ) : (
-                  <DexSays pose="surpris" height={96}>
+                  <DexSays pose="dodo" height={96}>
                     <p>{t("pages.communityBuilds.weekEmpty")}</p>
                   </DexSays>
                 )}

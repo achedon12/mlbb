@@ -166,7 +166,7 @@ export default async function DexPage({ params }: Params) {
             </div>
           </div>
           <span className="hidden shrink-0 md:block">
-            <Dex pose="victoire" height={210} still />
+            <Dex pose="pointe" height={210} still />
           </span>
         </section>
       </div>

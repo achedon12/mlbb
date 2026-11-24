@@ -43,8 +43,8 @@ export function StoryList({ groups, total }: { groups: GroupStories[]; total: nu
     <div>
       <SearchField value={search} onChange={setSearch} label={t("pages.loreUI.search")} className="max-w-md" />
       <div className="mt-3 flex items-end gap-3">
-        {/* Nothing found: Dex looks up, surprised, beside the message. */}
-        {term && found === 0 && <Dex pose="surpris" height={96} />}
+        {/* Nothing found: Dex is let down, beside the message. */}
+        {term && found === 0 && <Dex pose="triste" height={96} />}
         <p aria-live="polite" className={found === 0 && term ? "dex-bubble text-sm" : "text-sm text-chalk-500"}>
           {!term
             ? t("pages.loreUI.total", { n: total })

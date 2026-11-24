@@ -180,7 +180,7 @@ export default async function EsportsPage({ params }: Params) {
           </SectionTitle>
           {meta.games === 0 ? (
             <div className="flex items-end gap-4">
-              <Dex pose="surpris" height={120} />
+              <Dex pose="dodo" height={120} />
               <p className="pb-4 text-chalk-300">{t("pages.esports.meta.none")}</p>
             </div>
           ) : (

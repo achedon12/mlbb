@@ -76,7 +76,7 @@ export function ListArticles({
   if (articles.length === 0) {
     return (
       <div className="flex items-end gap-4">
-        <Dex pose="surpris" height={120} />
+        <Dex pose="dodo" height={120} />
         <p className="pb-4 text-chalk-300">{t("articleUI.none")}</p>
       </div>
     );

@@ -71,7 +71,7 @@ export function StateProfile({ type, t }: { type: "expired" | "unavailable" | "e
   return (
     <Card className="dex-host flex flex-wrap items-end gap-5 bg-night-800 p-6 sm:flex-nowrap sm:p-8">
       <span aria-hidden className="shrink-0">
-        <Dex pose={type === "expired" ? "reflexion" : "surpris"} height={150} still />
+        <Dex pose={({ expired: "reflexion", unavailable: "triste", empty: "pointe" } as const)[type]} height={150} still />
       </span>
       <div className="min-w-0">
       <h1 className="display-caps flex items-center gap-2 text-[clamp(2rem,1.5rem+2vw,3rem)] text-gold-400">
