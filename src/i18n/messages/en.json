@@ -604,7 +604,45 @@
       "openTier": "Show the {n} heroes in tier {p}",
       "poster": {
         "kicker": "No. 1 in this ranking",
-        "label": "{name}, n°1 in this ranking: level {tier}, {win} of victories, {ban} of bans"
+        "label": "{name}, No. 1 in this ranking: {tier} tier, {win} win rate, {ban} ban rate"
+      },
+      "peek": {
+        "open": "Preview: {name}",
+        "close": "Close the preview",
+        "counters": "Countered by",
+        "items": "Core build",
+        "full": "Full guide"
+      },
+      "answer": {
+        "questionAll": "Who are the best MLBB heroes right now?",
+        "questionRank": "Who are the best heroes in {rank} right now?",
+        "questionLane": "Who are the best {lane} heroes right now?",
+        "questionRole": "Who are the best {plural} right now?",
+        "answerAll": "Best MLBB heroes right now: {top}.",
+        "answerRank": "Best heroes in {rank} right now: {top}.",
+        "answerLane": "Best {lane} heroes right now: {top}.",
+        "answerRole": "Best {plural} right now: {top}.",
+        "detail": "{first} is No. 1 ({tier} tier) with a {winRate} win rate and a {banRate} ban rate, out of {n} heroes ranked on patch {v}, measured {date}."
+      },
+      "patch": {
+        "title": "What changed this patch",
+        "lead": "The biggest seven-day win rate moves among these heroes, and the ones the patch adjusted.",
+        "rises": "Rising",
+        "drops": "Falling",
+        "adjusted": "Adjusted in patch {v} ({n})"
+      },
+      "next": {
+        "titleLane": "You play {lane}? Also see",
+        "titleRole": "You play {role}? Also see",
+        "titleAll": "Keep exploring",
+        "counters": "Counter the top picks",
+        "countersLead": "The heroes the top of the ranking loses to the most.",
+        "builds": "Their builds",
+        "buildsLead": "The three key items the top of the ranking builds most.",
+        "tools": "Put it into practice",
+        "draft": "Pick and ban these heroes in a ranked draft.",
+        "lists": "Other tier lists",
+        "top": "No. 1: {name}"
       }
     },
     "patchNotes": {

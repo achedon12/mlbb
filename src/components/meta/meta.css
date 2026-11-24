@@ -191,6 +191,140 @@
     color: var(--color-chalk-400);
   }
 
+  /* The chevron says the whole card is a link to the hero page. */
+  .tt-go {
+    position: absolute;
+    right: 0.55rem;
+    bottom: 0.6rem;
+    width: 1.1rem;
+    height: 1.1rem;
+    color: var(--color-chalk-600);
+    transition: color 0.15s, translate 0.15s;
+  }
+  .tt-card:hover .tt-go { color: var(--color-gold-300); translate: 2px 0; }
+  .tt-card .tt-body { padding-right: 1.75rem; }
+
+  /* ── A hero's preview (`tier-peek.tsx`) ───────────────────────────────── */
+  .tl-peek-item { position: relative; }
+  .tier-rows > li.tl-peek-item { display: flex; gap: 0.375rem; }
+  .tier-rows > li.tl-peek-item > .tier-row { flex: 1; min-width: 0; }
+  .tl-peek-item .tt-name { padding-right: 2.4rem; }
+  .tier-row-go {
+    flex-shrink: 0;
+    width: 1rem;
+    height: 1rem;
+    color: var(--color-chalk-600);
+  }
+  .tier-row:hover .tier-row-go { color: var(--color-gold-300); }
+
+  .tl-peek-button {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 2.75rem;
+    min-height: 2.75rem;
+    color: var(--color-chalk-300);
+    background: rgb(11 16 32 / 0.75);
+    border: 1px solid var(--color-night-600);
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .tl-peek-button:hover,
+  .tl-peek-button:has(+ .tl-peek:popover-open) {
+    color: var(--color-gold-300);
+    border-color: var(--color-gold-500);
+  }
+  .tl-peek-button.is-tile {
+    position: absolute;
+    top: 0.45rem;
+    right: 0.45rem;
+    z-index: 1;
+    width: 2.5rem;
+    min-height: 2.5rem;
+  }
+
+  /* A bottom sheet on a phone; anchored to its hero from `sm` up. */
+  .tl-peek {
+    position: fixed;
+    inset: auto 0.75rem 0.75rem;
+    width: auto;
+    max-width: 30rem;
+    max-height: 80dvh;
+    margin: 0 auto;
+    overflow: auto;
+    padding: 1rem;
+    color: var(--color-chalk-200);
+    background: var(--color-night-900);
+    border: 1px solid var(--color-night-600);
+    box-shadow: 0 1rem 2.5rem rgb(0 0 0 / 0.55), inset 0 3px 0 var(--color-gold-400);
+  }
+  .tl-peek::backdrop { background: rgb(6 8 15 / 0.55); }
+  @media (width >= 40rem) {
+    .tl-peek {
+      inset: auto;
+      top: var(--peek-top, 30%);
+      left: var(--peek-left, 30%);
+      width: 20rem;
+      max-width: none;
+      margin: 0;
+    }
+    .tl-peek[data-above] { translate: 0 -100%; }
+    .tl-peek::backdrop { background: transparent; }
+  }
+  .tl-peek-close {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    color: var(--color-chalk-400);
+    background: var(--color-night-800);
+  }
+  .tl-peek-close:hover { color: var(--color-chalk-100); }
+  .tl-peek-rates {
+    display: flex;
+    gap: 1.25rem;
+    margin-top: 0.5rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .tl-peek-rates dt,
+  .tl-peek-label {
+    font-size: 0.7rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-chalk-500);
+  }
+  .tl-peek-rates dd {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--color-chalk-200);
+  }
+  .tl-peek-chip {
+    display: inline-flex;
+    max-width: 9rem;
+    align-items: center;
+    gap: 0.4rem;
+    padding-right: 0.6rem;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--color-chalk-200);
+    background: var(--color-night-800);
+    transition: color 0.15s;
+  }
+  .tl-peek-chip:hover,
+  .tl-peek-item-link:hover { color: var(--color-gold-300); }
+  .tl-peek-item-link {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.25rem;
+    background: var(--color-night-800);
+  }
+
   /* ── A tier's head: the crest, the title, the faces of a folded tier ─── */
   .tier-faces {
     display: flex;

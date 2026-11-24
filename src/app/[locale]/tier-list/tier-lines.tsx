@@ -1,10 +1,12 @@
 "use client";
 
+import { ChevronRight } from "lucide-react";
 import Link from "@/components/link";
 import { LightImage } from "@/components/light-image";
 import { usualIcon } from "@/lib/tier-list-filters";
 import { cn } from "@/lib/utils";
 import "@/components/meta/meta.css";
+import { PeekItem, type LabelsPeek, type PeekData, type PeekDict } from "./tier-peek";
 
 /**
  * Rows of one tier list tier.
@@ -33,6 +35,8 @@ export interface RowTier {
   /** Played too little for its rates to be stable. */
   weak?: boolean;
   note?: string;
+  /** Counters and core items, for the hero's preview. */
+  peek?: PeekData;
 }
 
 export interface LabelsTier {
@@ -42,14 +46,23 @@ export interface LabelsTier {
   tooFew: string;
 }
 
-export function TierLines({ rows, labels }: { rows: RowTier[]; labels: LabelsTier }) {
+export function TierLines({
+  rows,
+  labels,
+  dict,
+  peekLabels,
+}: {
+  rows: RowTier[];
+  labels: LabelsTier;
+  dict?: PeekDict;
+  peekLabels?: LabelsPeek;
+}) {
   return (
     <ul className="tier-rows meta-lines mt-4 space-y-1.5">
       {rows.map((l) => {
         const icon = l.icon === undefined ? usualIcon(l.slug) : l.icon;
-        return (
-          <li key={l.slug}>
-            <Link href={`/heroes/${l.slug}`} className="tier-row">
+        const line = (
+            <Link href={`/heroes/${l.slug}`} className="tier-row" data-track="Hero opened" data-track-name={l.slug}>
               {icon ? (
                 // A stored icon is 128x128 and weighs 4 to 10 KB; at 40 pixels
                 // the optimiser sends 2 KB of AVIF. `LightImage` keeps the row
@@ -80,8 +93,24 @@ export function TierLines({ rows, labels }: { rows: RowTier[]; labels: LabelsTie
               </dl>
 
               {l.note && <p className="tier-row-note">{l.note}</p>}
+              <ChevronRight aria-hidden className="tier-row-go" />
             </Link>
-          </li>
+        );
+        return l.peek && dict && peekLabels ? (
+          <PeekItem
+            key={l.slug}
+            slug={l.slug}
+            name={l.name}
+            rates={{ win: l.win, ban: l.ban, pick: l.pick }}
+            peek={l.peek}
+            dict={dict}
+            labels={peekLabels}
+            variant="line"
+          >
+            {line}
+          </PeekItem>
+        ) : (
+          <li key={l.slug}>{line}</li>
         );
       })}
     </ul>
