@@ -7,6 +7,7 @@ import { HeroPortrait } from "@/components/hero-portrait";
 import { ActionLink, BadgeTier, SectionTitle } from "@/components/ui";
 import { HeroTile } from "@/components/hero-tile";
 import { DexSays } from "@/components/mascot";
+import { DexNotice } from "@/components/dex-states";
 import { MetaPoster, artOf } from "@/components/meta/meta-poster";
 import { PosterHero } from "@/components/meta/poster-hero";
 import { allHeroes, heroesBySlug } from "@/lib/data";
@@ -544,7 +545,7 @@ function Moves({
         {title}
       </h4>
       {moves.length === 0 ? (
-        <p className="text-sm text-chalk-500">{empty}</p>
+        <DexNotice pose="surpris">{empty}</DexNotice>
       ) : (
         <ol className="space-y-1.5">
           {moves.map(({ slug, variation: v }) => (

@@ -7,7 +7,7 @@ import { createT } from "@/i18n/translations";
 import type { Article } from "@/lib/types";
 import { NEWS } from "@/lib/sections";
 import { cn, formatShortDate } from "@/lib/utils";
-import { Dex } from "@/components/mascot";
+import { DexSays } from "@/components/mascot";
 import { HeroTile } from "@/components/hero-tile";
 import { EditorialPoster, ENTRANCE, firstWithArt } from "@/components/editorial-poster";
 import { AsideBlock, ReadingLayout } from "@/components/reading-layout";
@@ -75,10 +75,9 @@ export function ListArticles({
   const t = createT(locale);
   if (articles.length === 0) {
     return (
-      <div className="flex items-end gap-4">
-        <Dex pose="dodo" height={120} />
-        <p className="pb-4 text-chalk-300">{t("articleUI.none")}</p>
-      </div>
+      <DexSays pose="dodo" height={120}>
+        <p className="text-chalk-200">{t("articleUI.none")}</p>
+      </DexSays>
     );
   }
 

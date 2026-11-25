@@ -2460,7 +2460,6 @@
       },
       "noStarlight": "Walang StarLight skin na nakalista sa wiki para sa buwang ito.",
       "noCollector": "Ayon sa wiki, walang Collector skin ang inilabas noong buwang iyon.",
-      "rarityUnknown": "Hindi pa nakalista ang rarity",
       "skinOf": "{skin} ({hero})",
       "summary": {
         "starlight": "StarLight skin ng buwan: {list}.",

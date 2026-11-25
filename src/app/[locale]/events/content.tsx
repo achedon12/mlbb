@@ -3,6 +3,7 @@ import Image from "next/image";
 import { WikiCredit } from "@/components/wiki-credit";
 import { MonthContent, SourceList, heroName, monthLabel, monthText } from "@/components/event-month";
 import { FreshnessLine } from "@/components/freshness";
+import { DexNotice } from "@/components/dex-states";
 import Link from "@/components/link";
 import { Foldable } from "@/components/foldable";
 import { Pager } from "@/components/pager";
@@ -180,7 +181,7 @@ export function Events({ locale, page = 1 }: { locale: Locale; page?: number }) 
             {thisMonth ? (
               <MonthContent month={thisMonth} t={t} locale={locale} variant="timeline" />
             ) : (
-              <p className="max-w-2xl leading-relaxed text-chalk-300">
+              <DexNotice pose="reflexion" className="max-w-2xl">
                 {t("pages.events.thisMonthEmpty", {
                   month: monthText(locale, currentMonth),
                   latest: latest ? monthText(locale, latest.month) : "—",
@@ -190,7 +191,7 @@ export function Events({ locale, page = 1 }: { locale: Locale; page?: number }) 
                     {t("pages.events.seeMonth", { month: monthText(locale, latest.month) })} →
                   </Link>
                 )}
-              </p>
+              </DexNotice>
             )}
             <DexSays pose="reflexion" height={110} className="mt-10 max-w-3xl xl:mt-0">
             <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.events.everyMonthTitle")}</h3>
