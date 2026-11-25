@@ -17,6 +17,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: t("pages.seo.winRate.title"),
     description: t("pages.seo.winRate.description"),
     path: "/tools/win-rate",
+    card: true,
     keywords: ["win rate", "winrate", "calculator", "Mobile Legends", "MLBB"],
   });
 }

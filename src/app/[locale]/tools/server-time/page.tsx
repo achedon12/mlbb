@@ -71,6 +71,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: t("pages.seo.serverTime.title"),
     description: t("pages.seo.serverTime.description", { utc: serverTimeIn(locale, TIME_RESET, "UTC") }),
     path: PATH,
+    card: true,
     keywords: ["server time", "daily reset", "weekly reset", "reset time", "Starlight", "Mobile Legends", "MLBB"],
   });
 }

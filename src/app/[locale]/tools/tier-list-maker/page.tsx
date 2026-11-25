@@ -21,6 +21,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: t("pages.seo.tierMaker.title"),
     description: t("pages.seo.tierMaker.description"),
     path: "/tools/tier-list-maker",
+    card: true,
     keywords: ["tier list maker", "tier list", "create", "share", "Mobile Legends", "MLBB"],
   });
 }

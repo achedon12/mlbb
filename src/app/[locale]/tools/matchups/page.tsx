@@ -26,6 +26,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: t("pages.seo.matchups.title"),
     description: t("pages.seo.matchups.description", { n: allHeroes.length }),
     path: PATH,
+    card: true,
     keywords: ["matchup chart", "matchup matrix", "counter", "win rate", "Mobile Legends", "MLBB"],
   });
 }

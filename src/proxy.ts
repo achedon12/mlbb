@@ -3,6 +3,7 @@ import type { NextFetchEvent, NextRequest } from "next/server";
 import { DEFAULT_LOCALE, isLocale, localeFromHeader, type Locale } from "@/i18n/config";
 import { trackApiCall } from "@/lib/api-tracking";
 import { clientAddress } from "@/lib/client-address";
+import { signInRedirect } from "@/lib/sign-in-gate";
 
 /**
  * Two roles:
@@ -11,7 +12,9 @@ import { clientAddress } from "@/lib/client-address";
  *    address without a prefix is redirected to the visitor's language, chosen
  *    from their cookie, otherwise from the `Accept-Language` header, otherwise the
  *    default language. Internal links therefore do not need to carry the language:
- *    the redirect restores it, and the cookie keeps it.
+ *    the redirect restores it, and the cookie keeps it. An account page
+ *    reached with no login cookie at all goes straight to the sign-in
+ *    (`lib/sign-in-gate.ts`).
  *
  * 2. **API rate limiting** — a fixed window per IP address smooths out
  *    abuse, without external state.
@@ -93,7 +96,16 @@ export function proxy(request: NextRequest, event: NextFetchEvent) {
   // Path already prefixed with a language: let it through, cookie up to date.
   const first = pathname.split("/")[1];
   if (isLocale(first)) {
-    const response = NextResponse.next();
+    // An account page reached with no login at all: straight to the sign-in.
+    const signIn = signInRedirect(pathname, (name) => request.cookies.has(name));
+    let response = NextResponse.next();
+    if (signIn) {
+      const url = request.nextUrl.clone();
+      const [path, search] = signIn.split("?");
+      url.pathname = path;
+      url.search = search ? `?${search}` : "";
+      response = NextResponse.redirect(url, 307);
+    }
     if (request.cookies.get("langue")?.value !== first) {
       response.cookies.set("langue", first, { path: "/", maxAge: 31_536_000, sameSite: "lax" });
     }

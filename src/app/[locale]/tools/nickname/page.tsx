@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: t("pages.seo.nickname.title"),
     description: t("pages.seo.nickname.description", { n: STYLES.length }),
     path: PATH,
+    card: true,
     keywords: [
       "mlbb stylish name",
       "ML stylish name",

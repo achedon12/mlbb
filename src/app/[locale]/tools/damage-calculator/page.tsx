@@ -26,6 +26,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: t("pages.seo.damageCalculator.title"),
     description: t("pages.seo.damageCalculator.description"),
     path: PATH,
+    card: true,
     keywords: ["damage calculator", "penetration", "defense", "effective HP", "Mobile Legends", "MLBB"],
   });
 }

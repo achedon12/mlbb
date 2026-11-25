@@ -3,7 +3,30 @@ import { metaPage, withCard } from "@/i18n/seo";
 import { allHeroes, illustrations } from "@/lib/data";
 import { monthKeys } from "@/lib/events-server";
 import { asJpeg } from "@/lib/og/assets";
-import { buildsCard, calendarCard, eventMonthCard, heroesByBuilds, skinPoster, tierListCard } from "@/lib/og/cards";
+import {
+  buildsCard,
+  calendarCard,
+  communityCategoryCard,
+  compareCard,
+  eventMonthCard,
+  gameModesCard,
+  heroBuildsCard,
+  heroesByBuilds,
+  heroesCard,
+  loreCard,
+  proPlayerCard,
+  proTeamCard,
+  ranksCard,
+  skinPoster,
+  tierListCard,
+  toolCard,
+  watchCard,
+} from "@/lib/og/cards";
+import { simCatalog } from "@/lib/build-catalog";
+import { modesSlugs } from "@/lib/data";
+import { hasPlayerPage, hasTeamPage, proPlayers, proTeams } from "@/lib/esports-players";
+import { regionsLore } from "@/lib/lore";
+import { segmentPair } from "@/lib/pairs";
 import { calendarYears } from "@/lib/skin-catalog-server";
 import { sitemapEntries } from "@/lib/sitemap";
 
@@ -15,6 +38,12 @@ const [withArt, artName] = (() => {
   }
   throw new Error("no artwork in the data");
 })();
+
+/** Real pages of each kind, read from the data. */
+const PAIR = segmentPair(allHeroes[0].slug, allHeroes[1].slug);
+const PLAYER = proPlayers.find((p) => hasPlayerPage(p.slug))!.slug;
+const TEAM = proTeams.find((p) => hasTeamPage(p.slug))!.slug;
+const BUILD_HERO = allHeroes.find((h) => simCatalog.heroes.has(h.slug))!.slug;
 
 describe("share card helpers", () => {
   it("takes the first skin with an artwork as the poster, in the list's order", () => {
@@ -62,7 +91,7 @@ describe("community builds hub in the sitemap", () => {
  * The cards themselves, rendered as the routes serve them: a 1200 × 630
  * JPEG light enough for messaging apps (under 150 KB).
  */
-describe("share images of the tier list variants, events, calendar and builds", () => {
+describe("share images of the tier list variants, events, calendar, builds, hubs, tools and profiles", () => {
   const MAX_BYTES = 150 * 1024;
   const jpeg = async (image: Response | null) => {
     expect(image).not.toBeNull();
@@ -77,6 +106,24 @@ describe("share images of the tier list variants, events, calendar and builds", 
     ["skins calendar", () => calendarCard("th", null)],
     ["skins calendar, year", () => calendarCard("fr", calendarYears()[0])],
     ["community builds", () => buildsCard("fr")],
+    ["heroes hub", () => heroesCard("fr")],
+    ["heroes by role", () => heroesCard("th", "Tank")],
+    ["head to head", () => compareCard("fr", PAIR)],
+    ["tools hub", () => toolCard("en", "/tools", "tools")],
+    ["team analyzer", () => toolCard("fr", "/tools/team", "team")],
+    ["build simulator", () => toolCard("ru", "/tools/build", "buildSimulator")],
+    ["damage calculator", () => toolCard("es", "/tools/damage-calculator", "damageCalculator")],
+    ["server time", () => toolCard("fr", "/tools/server-time", "serverTime")],
+    ["lore hub", () => loreCard("fr")],
+    ["lore region", () => loreCard("pt", regionsLore[0].key)],
+    ["game modes", () => gameModesCard("fr")],
+    ["game mode", () => gameModesCard("id", modesSlugs[0])],
+    ["ranks", () => ranksCard("fr")],
+    ["news roundup", () => watchCard("en")],
+    ["pro player", () => proPlayerCard("fr", PLAYER)],
+    ["pro team", () => proTeamCard("fil", TEAM)],
+    ["forum category", () => communityCategoryCard("fr", "ranked-help")],
+    ["a hero's builds", () => heroBuildsCard("fr", BUILD_HERO)],
   ];
 
   for (const [name, render] of cases) {
@@ -93,5 +140,18 @@ describe("share images of the tier list variants, events, calendar and builds", 
   it("answers null for a month or a year without a page", async () => {
     expect(await eventMonthCard("fr", "1999-01")).toBeNull();
     expect(calendarCard("fr", 1999)).toBeNull();
+  });
+
+  it("answers null for the pages that do not exist", async () => {
+    const [a, b] = PAIR.split("-vs-");
+    // The reverse order of a pair falls on the 404, as its page does.
+    expect(await compareCard("fr", `${b}-vs-${a}`)).toBeNull();
+    expect(await compareCard("fr", "not-a-hero-vs-zzz")).toBeNull();
+    expect(loreCard("fr", "not-a-region")).toBeNull();
+    expect(await gameModesCard("fr", "not-a-mode")).toBeNull();
+    expect(await proPlayerCard("fr", "not-a-player")).toBeNull();
+    expect(await proTeamCard("fr", "not-a-team")).toBeNull();
+    expect(communityCategoryCard("fr", "not-a-category")).toBeNull();
+    expect(await heroBuildsCard("fr", "not-a-hero")).toBeNull();
   });
 });

@@ -50,6 +50,7 @@ export async function generateMetadata({ params, searchParams }: Params): Promis
       name,
     }),
     path: `/community/${category}`,
+    card: true,
   });
   const variant = readSort(query.sort) !== "latest" || readPageNumber(query.page) > 1;
   return variant ? { ...meta, robots: { index: false, follow: true } } : meta;
