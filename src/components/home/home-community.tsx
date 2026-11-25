@@ -1,4 +1,4 @@
-import { Bot, HandHeart, Library, Rss } from "lucide-react";
+import { ArrowRight, Bot, HandHeart, Library, Rss } from "lucide-react";
 import Link from "@/components/link";
 import { cn } from "@/lib/utils";
 import { DiscordMark } from "@/components/bot/discord-mark";
@@ -36,7 +36,7 @@ export function HomeCommunity({ locale, className }: { locale: Locale; className
             <li key={a.slug}>
               <Link
                 href={`/${a.category === "Patch" ? "patch-notes" : "news"}/${a.slug}`}
-                className="card-link group block p-4 sm:p-5"
+                className="card-link eclat-under group block p-4 sm:p-5"
               >
                 <span className="flex flex-wrap items-center gap-3 text-xs">
                   <span className="font-heading text-sm font-bold uppercase text-gold-400">{t(`articleCategory.${a.category}`)}</span>
@@ -54,7 +54,7 @@ export function HomeCommunity({ locale, className }: { locale: Locale; className
         </ul>
         <p className="mt-4 flex items-center gap-2 text-sm text-chalk-500">
           <Rss size={15} aria-hidden className="text-gold-400" />
-          <Link href="/feed.xml" className="hover:text-gold-400">
+          <Link href="/feed.xml" className="inline-flex min-h-11 items-center hover:text-gold-400">
             {t("home.followRss")}
           </Link>
         </p>
@@ -62,19 +62,29 @@ export function HomeCommunity({ locale, className }: { locale: Locale; className
 
       <div>
         <SectionTitle>{t("home.community.title")}</SectionTitle>
+        {/* The server first and largest: where the players meet. */}
         {invite && (
           <DiscordJoinLink
             href={invite}
             placement="Inline"
             context="default"
-            className="card-link group mb-3 flex items-center gap-4 bg-night-800 p-4 shadow-[inset_0_3px_0_var(--color-azure-500)]"
+            className="bevel-lg group relative mb-3 block overflow-hidden bg-night-800 p-5 shadow-[inset_0_3px_0_var(--color-azure-500)] transition-colors hover:bg-night-700 sm:p-6"
           >
-            <span className="bevel-sm grid size-12 shrink-0 place-items-center bg-azure-500 text-night-950">
-              <DiscordMark size={26} />
+            <span aria-hidden className="pointer-events-none absolute -right-6 -top-6 text-azure-500/15">
+              <DiscordMark size={160} />
             </span>
-            <span className="min-w-0">
-              <span className="block font-heading text-xl font-bold uppercase leading-tight text-chalk-100">{t("discordPopup.title")}</span>
-              <span className="block text-sm text-chalk-300">{t("discordCta.default.text")}</span>
+            <span className="relative flex items-center gap-4">
+              <span className="bevel-sm grid size-14 shrink-0 place-items-center bg-azure-500 text-night-950">
+                <DiscordMark size={30} />
+              </span>
+              <span className="display-caps min-w-0 pr-[0.12em] text-[clamp(1.75rem,1.4rem+1.2vw,2.4rem)] text-chalk-100">
+                {t("discordPopup.title")}
+              </span>
+            </span>
+            <span className="relative mt-3 block max-w-md text-sm text-chalk-200 sm:text-base">{t("discordCta.default.text")}</span>
+            <span className="btn relative mt-4 bg-azure-500 text-night-950 group-hover:bg-azure-300">
+              {t("discordPopup.join")}
+              <ArrowRight size={16} aria-hidden />
             </span>
           </DiscordJoinLink>
         )}
@@ -83,7 +93,7 @@ export function HomeCommunity({ locale, className }: { locale: Locale; className
             <li key={href}>
               <Link
                 href={href}
-                className="card-link group flex items-start gap-3 p-3"
+                className="card-link group flex min-h-11 items-start gap-3 p-3"
               >
                 <Icon size={18} aria-hidden className="mt-0.5 shrink-0 text-gold-400" />
                 <span className="min-w-0">

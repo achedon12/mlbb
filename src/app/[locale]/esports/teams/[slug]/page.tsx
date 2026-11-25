@@ -148,7 +148,7 @@ export default async function TeamPage({ params }: Params) {
                   className={cn("bevel relative bg-night-900 px-4 pb-4 pt-3 transition-[translate] duration-200 hover:-translate-y-0.5", r.status && "opacity-75")}
                 >
                   <p className="font-heading text-sm font-bold uppercase text-gold-400">{roleText(t, r.role)}</p>
-                  <PlayerLink slug={r.player.slug} className="display-caps mt-1 block truncate text-3xl text-chalk-100 sm:text-4xl" />
+                  <PlayerLink slug={r.player.slug} className="display-caps mt-1 block truncate pr-[0.15em] text-3xl text-chalk-100 sm:text-4xl" />
                   <p className="text-xs text-chalk-500">
                     {r.status ? `${t(`pages.esports.pro.status.${r.status}`)} · ` : ""}
                     {t("pages.esports.pro.team.gamesPlayed", { n: r.games })}

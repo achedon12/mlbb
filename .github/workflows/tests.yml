@@ -87,6 +87,17 @@ jobs:
           kill "$server" 2> /dev/null || true
           exit "$status"
 
+      # Full-page screenshots of the main pages (tests/e2e/visual.spec.ts),
+      # kept to look at a layout change without running the site.
+      - name: Keep the screenshots
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: visual-screenshots
+          path: test-results/visual/
+          retention-days: 7
+          if-no-files-found: ignore
+
       - name: Report on failure
         if: failure()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2

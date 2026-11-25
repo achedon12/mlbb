@@ -2,6 +2,7 @@ import { serializeJsonLd } from "@/lib/html";
 import { RoleAccess } from "@/components/role-access";
 import { RevealGroup } from "@/components/reveal";
 import { HomeCommunity } from "@/components/home/home-community";
+import { HomeDaily } from "@/components/home/home-daily";
 import { HomeHero } from "@/components/home/home-hero";
 import { HomeLive } from "@/components/home/home-live";
 import { HomeMeta } from "@/components/home/home-meta";
@@ -9,20 +10,47 @@ import { HomePatch } from "@/components/home/home-patch";
 import { HomeTools } from "@/components/home/home-tools";
 import { HomeWhy } from "@/components/home/home-why";
 import { SinceLastVisit } from "@/components/home/since-last-visit";
-import { DailyDle } from "@/components/daily-dle";
 import { sinceDigest } from "@/lib/since-visit-server";
 import { SectionTitle } from "@/components/ui";
 import { allHeroes } from "@/lib/data";
 import { site } from "@/lib/site";
+import { cn } from "@/lib/utils";
 import type { Role } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import { LOCALE_HTML, isLocale } from "@/i18n/config";
 import { notFound } from "next/navigation";
 import { createT } from "@/i18n/translations";
 
-/** The éclat between two blocks of the page: no frame around them, one blade between, sweeping in as it shows. */
-function Divider() {
-  return <div aria-hidden data-reveal className="eclat-rule my-14 sm:my-20" />;
+/**
+ * One band of the page: the full width of the screen, its block inside the
+ * page container. `tone` alternates the night: the base, a lighter band, or
+ * the base brightening towards its foot, so the long page reads as a
+ * sequence of distinct blocks rather than one black wall. The éclat's
+ * hairline opens every band but the first.
+ */
+function Band({
+  tone = "base",
+  rule = true,
+  children,
+}: {
+  tone?: "base" | "raised" | "fade";
+  rule?: boolean;
+  children: React.ReactNode;
+}) {
+  return (
+    <div
+      className={cn(
+        "relative",
+        tone === "raised" && "bg-night-900",
+        tone === "fade" && "bg-linear-to-b from-night-950 to-night-900",
+      )}
+    >
+      {rule && <div aria-hidden className="eclat-rule" />}
+      <div data-reveal className="page-wrap py-14 sm:py-20">
+        {children}
+      </div>
+    </div>
+  );
 }
 
 /** Home page structured data, in the page's language. */
@@ -56,14 +84,15 @@ const dataHome = (locale: Locale) => ({
 /**
  * Home page, in the order a player's questions come: what is this and where
  * is my hero (hero, search, the day's state of the game), who is strong
- * right now (meta), what this site does that no other source does (each
- * point with the page that shows it), what the patch changed, what is
- * happening in the game (skins of the month, esports), which tool to open, which role to browse,
- * then the articles and the community. Every block is a server component
+ * right now (meta), today's games, what the patch changed, what is
+ * happening in the game (skins of the month, esports), which tool to open,
+ * which role to browse, why this site (four proofs), then the articles and
+ * the community. Every block is a server component
  * computed from the synced data; the browser code is the poster's stage
  * (parallax, counting figures, Dex), the server clock, the button opening
- * the global search and the scroll reveal (`RevealGroup`: each block comes
- * in once, the first time it nears the screen).
+ * the global search, the daily games' state and the scroll reveal
+ * (`RevealGroup`: each block comes in once, the first time it nears the
+ * screen).
  */
 export default async function Home({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
@@ -89,48 +118,44 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
 
       <HomeHero locale={locale} />
 
-      {/* For a returning visitor: what changed since, then today's MLBBdle. */}
+      {/* For a returning visitor: what changed since. */}
       <SinceLastVisit digest={sinceDigest()} />
-      <div className="page-wrap pt-6">
-        <DailyDle place="home" />
-      </div>
 
       {/*
-        The blocks one under the other, each the width of the page and each
-        led by one thing (the S+ portraits, the patch's buffs, the month's
-        skin), the éclat between them — no frame around each. Only the tools
-        and the roles share a row on a wide screen, at two weights.
+        One idea per band, the bands alternating between the base night and
+        a lighter one. Only the tools and the roles share a band, side by
+        side on a wide screen, at two weights.
       */}
-      <RevealGroup className="page-wrap py-12 sm:py-16">
-        <div data-reveal>
+      <RevealGroup>
+        <Band rule={false}>
           <HomeMeta locale={locale} />
-        </div>
-        <Divider />
-        <div data-reveal>
-          <HomeWhy locale={locale} />
-        </div>
-        <Divider />
-        <div data-reveal>
+        </Band>
+        <Band tone="raised">
+          <HomeDaily locale={locale} />
+        </Band>
+        <Band>
           <HomePatch locale={locale} />
-        </div>
-        <Divider />
-        <div data-reveal className="grid gap-x-14 gap-y-14 xl:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
-          <HomeTools locale={locale} className="min-w-0" />
-          <section aria-labelledby="home-roles" className="min-w-0">
-            <SectionTitle id="home-roles" lead={t("home.startLead")}>
-              {t("home.startTitle")}
-            </SectionTitle>
-            <RoleAccess count={byRole} locale={locale} />
-          </section>
-        </div>
-        <Divider />
-        <div data-reveal>
+        </Band>
+        <Band tone="fade">
           <HomeLive locale={locale} />
-        </div>
-        <Divider />
-        <div data-reveal>
+        </Band>
+        <Band>
+          <div className="grid gap-x-14 gap-y-14 xl:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
+            <HomeTools locale={locale} className="min-w-0" />
+            <section aria-labelledby="home-roles" className="min-w-0">
+              <SectionTitle id="home-roles" lead={t("home.startLead")}>
+                {t("home.startTitle")}
+              </SectionTitle>
+              <RoleAccess count={byRole} locale={locale} />
+            </section>
+          </div>
+        </Band>
+        <Band tone="raised">
+          <HomeWhy locale={locale} />
+        </Band>
+        <Band>
           <HomeCommunity locale={locale} />
-        </div>
+        </Band>
       </RevealGroup>
     </>
   );
