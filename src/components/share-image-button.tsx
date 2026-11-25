@@ -5,6 +5,7 @@ import { ImageDown, Share2 } from "lucide-react";
 import { BrandSpinner, Flash } from "@/components/dex-states";
 import { useLocale, useT } from "@/i18n/provider";
 import { trackShare } from "@/lib/analytics";
+import { SupportCard } from "./support-links";
 import { sharePath, type ShareCard } from "@/lib/share-card";
 import { cn } from "@/lib/utils";
 
@@ -132,6 +133,8 @@ export function ShareImageButton({
           <Flash tone="error">{t("shareImage.error")}</Flash>
         ) : null}
       </p>
+      {/* A result just shared: the moment to say thanks (one card per page at most). */}
+      {(status === "shared" || status === "saved" || status === "savedCopied") && <SupportCard placement="Share" compact />}
     </div>
   );
 }

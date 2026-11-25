@@ -30,6 +30,7 @@ import { cn } from "@/lib/utils";
 import { HeroChanges, changedHeroCount } from "./hero-changes";
 import { NotFoundPage } from "@/components/not-found-page";
 import { ReportError } from "@/components/report-error";
+import { SupportCard } from "@/components/support-links";
 
 type Params = { params: Promise<{ locale: Locale; slug: string }> };
 
@@ -324,6 +325,7 @@ export default async function PatchPage({ params }: Params) {
                 <PatchCredit t={t} patch={patch} translated={translated} className="" />
               </PageSourcesBlock>
               <ReportError messages={messagesPage(locale, ["pages.reportError"])} path={`/patch-notes/${slug}`} className="mt-6" />
+              <SupportCard placement="PatchNotes" className="mt-8" />
             </article>
           </div>
         </div>
@@ -353,6 +355,7 @@ export default async function PatchPage({ params }: Params) {
       <div className="page-wrap pb-12">
         <DiscordInvite t={t} context="patch" />
         <ReportError messages={messagesPage(locale, ["pages.reportError"])} path={`/patch-notes/${slug}`} className="mt-6" />
+        <SupportCard placement="PatchNotes" className="mt-8" />
       </div>
     </>
   );
