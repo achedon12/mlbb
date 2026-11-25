@@ -26,6 +26,27 @@ test("the home page button opens the global search", async ({ page }) => {
   }).toPass();
 });
 
+test("the home page shows the patch's top five and today's games", async ({ page }) => {
+  await page.goto("/fr");
+  const meta = page.locator("section", { has: page.locator("#home-meta") });
+  await expect(meta.getByRole("heading", { level: 3, name: /top 5 du patch/i })).toBeVisible();
+  await expect(meta.getByRole("list").first().getByRole("link")).toHaveCount(5);
+  const daily = page.locator("section", { has: page.locator("#home-daily") });
+  await expect(daily.getByRole("link", { name: /mlbbdle/i })).toHaveAttribute("href", /\/fr\/mlbbdle$/);
+  await expect(daily.getByRole("link", { name: /quiz/i })).toHaveAttribute("href", /\/fr\/quiz$/);
+});
+
+test("the home page fits a phone screen without sideways scrolling", async ({ page }) => {
+  await page.setViewportSize({ width: 360, height: 740 });
+  await page.goto("/fr");
+  // The search shows on the first screen.
+  const search = page.getByRole("searchbox", { name: /rechercher un h[ée]ros/i });
+  const box = await search.boundingBox();
+  expect(box!.y + box!.height).toBeLessThanOrEqual(740);
+  const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+  expect(overflow).toBeLessThanOrEqual(0);
+});
+
 test("the catalog filters by search", async ({ page }) => {
   await page.goto("/fr/heroes");
   await page.getByPlaceholder(/rechercher un h[ée]ros/i).fill("khufra");

@@ -5511,7 +5511,7 @@
   },
   "home": {
     "title": "Mobile Legends: tier list, build e counter della patch {version}",
-    "lead": "Tutti i {heroes} eroi, le loro build e i loro counter misurati nelle partite classificate, una tier list ricalcolata a ogni sincronizzazione e strumenti per preparare ogni draft.",
+    "tagline": "Meta, build e counter dei {heroes} eroi, misurati ogni giorno nelle partite classificate.",
     "search": {
       "label": "Cerca un eroe",
       "placeholder": "Ling, Khufra, Layla…",
@@ -5537,7 +5537,9 @@
       "lead": "{n} eroi classificati sui tassi di vittoria e di ban del {date}, tutti i rank insieme.",
       "splitLabel": "Ripartizione dei {n} eroi classificati per tier: apri la tier list",
       "tierCount": "tier {tier}: {n} eroi",
-      "topTier": "Tier S+: {n} eroi",
+      "top5": "Top 5 della patch",
+      "topLabel": "N. {rank}, tier {tier}: {win} di vittorie, {ban} di ban",
+      "tiers": "Tutti i tier",
       "win": "Miglior tasso di vittoria",
       "ban": "I più bannati",
       "pick": "I più giocati",
@@ -5586,8 +5588,7 @@
     "toolsLead": "Preparare un draft, provare una build, allenarsi.",
     "daily": {
       "title": "I giochi del giorno",
-      "lead": "Una nuova partita ogni giorno, la stessa per tutti i giocatori.",
-      "play": "Gioca"
+      "lead": "Una nuova partita ogni giorno, la stessa per tutti i giocatori."
     },
     "startTitle": "Da dove iniziare",
     "startLead": "Scegli il tuo ruolo per vedere gli eroi che lo interpretano.",
@@ -5618,11 +5619,6 @@
       "changed": "ritoccati nella patch",
       "splus": "nel tier S+",
       "items": "oggetti"
-    },
-    "stage": {
-      "dexPatch": "Patch {version} online: {n} eroi ritoccati. In cima al meta, {hero}.",
-      "dexPatchAlone": "Patch {version} online: {n} eroi ritoccati.",
-      "dexCta": "Guarda cosa cambia"
     }
   },
   "featured": {
@@ -7067,50 +7063,18 @@
   "why": {
     "title": "Perché MLBBDex",
     "lead": "Ciò che il sito misura, conserva e calcola da solo, con la pagina dove verificarlo.",
-    "figure": "giorni di tariffe mantenute dal sito, dal {date}",
+    "figure": "giorni di statistiche conservate dal sito, dal {date}",
     "daily": {
-      "title": "Tariffe registrate ogni giorno",
-      "text": "Vittoria, ban e selezione di {n} eroi nelle partite classificate, tutti i gradi combinati e grado per grado. Ultima lettura il {date}.",
       "link": "Statistiche"
     },
     "history": {
-      "title": "Una storia che la fonte non conserva",
-      "text": "L'API delle statistiche serve solo gli ultimi trenta giorni. Il sito conserva ogni dichiarazione da {date}: giorno per giorno per {daily} giorni, quindi in media a settimana.",
       "link": "Storia di {hero}"
     },
-    "tierList": {
-      "title": "Un elenco di livelli calcolato, regola visualizzata",
-      "text": "Punteggio = {formula}. Vengono pubblicate le soglie per i livelli e lo stesso calcolo viene ripetuto per ogni grado, ogni corsia e ogni ruolo.",
-      "link": "La regola e la classificazione"
-    },
-    "patch": {
-      "title": "L'effetto misurato di ogni patch",
-      "text": "Per ogni eroe modificato, la differenza tra il tasso medio di vittoria {days} giorni prima e {days} giorni dopo la patch. Patch {version}: {n} eroi misurati su {changed} modificati.",
-      "textPending": "Per ogni eroe modificato, la differenza tra il tasso medio di vittoria {days} giorni prima e {days} giorni dopo la patch. Patch {version}: non sono stati ancora misurati abbastanza giorni dal suo rilascio.",
-      "link": "Note sulla patch {version}"
-    },
-    "draft": {
-      "title": "Un assistente alla leva",
-      "text": "Offre scelte basate su contromosse, sinergie, compagni di squadra che vincono di più insieme nelle partite classificate e sulla percentuale di vittorie di ciascun eroe.",
-      "link": "Preparare una bozza"
-    },
-    "games": {
-      "title": "Giochi da zero",
-      "text": "Un eroe segreto e una sfida al giorno dal {date}, costruiti in base alle abilità, agli aspetti, alle storie, agli oggetti e alle tariffe del sito. Lo stesso per tutti i giocatori."
-    },
-    "builds": {
-      "title": "Il giocatore costruisce",
-      "text": "Pubblicato dai giocatori collegati al sito e classificato in base ai loro voti.",
-      "link": "La comunità si costruisce"
-    },
-    "bot": {
-      "title": "Un bot Discord",
-      "text": "Dex MLBB risponde su Discord (/hero, /build, /tierlist, /counter...) con i dati dell'API pubblica del sito.",
-      "link": "Il bot"
-    },
-    "languages": {
-      "title": "{n} lingue",
-      "text": "Scritto in francese e tradotto automaticamente in {others} altre lingue. Cosa viene tradotto e come è dettagliato nella pagina delle fonti."
+    "proof": {
+      "measured": "eroi misurati ogni giorno nelle partite classificate",
+      "languages": "lingue: scritto in francese, tradotto nelle altre {others}",
+      "free": "Gratis",
+      "freeText": "Senza pubblicità né abbonamento, finanziato dal suo autore."
     }
   },
   "shareImage": {

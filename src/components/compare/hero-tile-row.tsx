@@ -77,7 +77,7 @@ export function DuelTile({ href, a, b, label }: { href: string; a: string; b: st
             <span className="absolute inset-x-0 bottom-0 h-3/4 bg-linear-to-t from-night-950 via-night-950/70 to-transparent" />
             <span
               className={cn(
-                "display-caps absolute bottom-2.5 block max-w-[85%] truncate text-base text-chalk-100 transition-colors group-hover:text-gold-300 sm:text-2xl",
+                "display-caps absolute bottom-2.5 block max-w-[85%] truncate pr-[0.15em] text-base text-chalk-100 transition-colors group-hover:text-gold-300 sm:text-2xl",
                 i === 0 ? "left-2 sm:left-3" : "right-2 text-right sm:right-3",
               )}
             >

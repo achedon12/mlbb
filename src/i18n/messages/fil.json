@@ -5511,7 +5511,7 @@
   },
   "home": {
     "title": "Mobile Legends: tier list, build at counter para sa patch {version}",
-    "lead": "Lahat ng {heroes} hero, ang kanilang mga build at counter na sinukat sa mga ranked game, isang tier list na kinukuwenta ulit sa bawat sync at mga tool para maghanda sa bawat draft.",
+    "tagline": "Meta, build at counter ng {heroes} hero, sinusukat araw-araw sa ranked na laro.",
     "search": {
       "label": "Maghanap ng hero",
       "placeholder": "Ling, Khufra, Layla…",
@@ -5537,7 +5537,9 @@
       "lead": "{n} hero na niraranggo ayon sa win at ban rate noong {date}, lahat ng rank pinagsama.",
       "splitLabel": "Paano nahahati sa mga tier ang {n} na-rank na hero: buksan ang tier list",
       "tierCount": "tier {tier}: {n} hero",
-      "topTier": "Tier S+: {n} hero",
+      "top5": "Top 5 ng patch",
+      "topLabel": "No. {rank}, tier {tier}: {win} win rate, {ban} ban rate",
+      "tiers": "Lahat ng tier",
       "win": "Pinakamataas na win rate",
       "ban": "Pinaka-banned",
       "pick": "Pinakanilalaro",
@@ -5586,8 +5588,7 @@
     "toolsLead": "Maghanda ng draft, mag-test ng build, mag-practice.",
     "daily": {
       "title": "Mga daily game",
-      "lead": "Bagong round araw-araw, pareho para sa bawat player.",
-      "play": "Maglaro"
+      "lead": "Bagong round araw-araw, pareho para sa bawat player."
     },
     "startTitle": "Saan magsisimula",
     "startLead": "Piliin ang iyong tungkulin para makita ang mga bayaning gumaganap nito.",
@@ -5618,11 +5619,6 @@
       "changed": "binago sa patch",
       "splus": "nasa S+ tier",
       "items": "item"
-    },
-    "stage": {
-      "dexPatch": "Live na ang patch {version}: {n} hero ang binago. Nangunguna sa meta si {hero}.",
-      "dexPatchAlone": "Live na ang patch {version}: {n} hero ang binago.",
-      "dexCta": "Tingnan ang binago"
     }
   },
   "featured": {
@@ -7067,50 +7063,18 @@
   "why": {
     "title": "Bakit MLBBDex",
     "lead": "Ano ang sinusukat, pinapanatili at kinakalkula ng site mismo, kasama ang pahina kung saan ito susuriin.",
-    "figure": "araw ng mga rate na pinapanatili ng site, mula noong {date}",
+    "figure": "araw ng stats na itinatago ng site, mula noong {date}",
     "daily": {
-      "title": "Mga rate na naitala araw-araw",
-      "text": "Tagumpay, ban at pagpili ng {n} hero sa ranggo na paglalaro, lahat ng ranggo ay pinagsama at ranggo ayon sa ranggo. Huling pagbabasa sa {date}.",
       "link": "Mga istatistika"
     },
     "history": {
-      "title": "Isang kasaysayan na hindi itinatago ng pinagmulan",
-      "text": "Nagsisilbi lang ang statistics API sa huling tatlumpung araw. Pinapanatili ng site ang bawat pahayag mula sa {date}: araw-araw sa {daily} araw, pagkatapos ay sa average bawat linggo.",
       "link": "Kasaysayan ng {hero}"
     },
-    "tierList": {
-      "title": "Isang kalkuladong tier list, ipinapakita ang panuntunan",
-      "text": "Iskor = {formula}. Ang mga threshold para sa mga tier ay na-publish at ang parehong pagkalkula ay inuulit para sa bawat ranggo, bawat lane at bawat tungkulin.",
-      "link": "Ang tuntunin at pag-uuri"
-    },
-    "patch": {
-      "title": "Ang nasusukat na epekto ng bawat patch",
-      "text": "Para sa bawat binagong hero, ang pagkakaiba sa pagitan ng kanilang average na win rate {days} araw bago at {days} araw pagkatapos ng patch. Patch {version}: {n} hero na sinusukat sa {changed} binago.",
-      "textPending": "Para sa bawat binagong hero, ang pagkakaiba sa pagitan ng kanilang average na win rate {days} araw bago at {days} araw pagkatapos ng patch. Patch {version}: hindi pa sapat ang mga araw na nasusukat mula noong inilabas ito.",
-      "link": "Mga patch na tala {version}"
-    },
-    "draft": {
-      "title": "Isang draft assistant",
-      "text": "Nag-aalok ito ng mga pagpili batay sa mga counter, synergies, mga kakampi na pinakamaraming panalo nang magkasama sa ranggo na laro at ang win rate ng bawat hero.",
-      "link": "Maghanda ng draft"
-    },
-    "games": {
-      "title": "Mga laro mula sa simula",
-      "text": "Isang lihim na hero at isang hamon bawat araw mula noong {date}, na binuo mula sa mga skill, hitsura, kwento, item at rate ng site. Ang parehong para sa lahat ng mga manlalaro."
-    },
-    "builds": {
-      "title": "Player build",
-      "text": "Nai-publish ng mga manlalaro na konektado sa site at niraranggo ayon sa kanilang mga boto.",
-      "link": "Mga pagbuo ng komunidad"
-    },
-    "bot": {
-      "title": "Isang Discord bot",
-      "text": "Tumutugon ang Dex MLBB sa Discord (/hero, /build, /tierlist, /counter...) gamit ang data mula sa pampublikong API ng site.",
-      "link": "Ang bot"
-    },
-    "languages": {
-      "title": "{n} wika",
-      "text": "Nakasulat sa French at awtomatikong isinalin sa {others} iba pang mga wika. Ano ang isinalin, at kung paano, ay nakadetalye sa pahina ng mga mapagkukunan."
+    "proof": {
+      "measured": "hero na sinusukat araw-araw sa ranked na laro",
+      "languages": "wika: isinulat sa French, isinalin sa {others} iba pa",
+      "free": "Libre",
+      "freeText": "Walang ads o subscription, pinopondohan ng gumawa nito."
     }
   },
   "shareImage": {

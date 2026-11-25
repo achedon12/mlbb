@@ -5511,7 +5511,7 @@
   },
   "home": {
     "title": "Mobile Legends : tier list, builds et contres du patch {version}",
-    "lead": "Les {heroes} héros, leurs builds et leurs contres mesurés en partie classée, une tier list recalculée à chaque synchronisation et des outils pour préparer chaque draft.",
+    "tagline": "Méta, builds et contres des {heroes} héros, mesurés chaque jour en partie classée.",
     "search": {
       "label": "Rechercher un héros",
       "placeholder": "Ling, Khufra, Layla…",
@@ -5537,7 +5537,9 @@
       "lead": "{n} héros classés sur les taux de victoire et de ban du {date}, tous rangs confondus.",
       "splitLabel": "Répartition des {n} héros classés par palier : ouvrir la tier list",
       "tierCount": "palier {tier} : {n} héros",
-      "topTier": "Palier S+ : {n} héros",
+      "top5": "Top 5 du patch",
+      "topLabel": "N°{rank}, palier {tier} : {win} de victoires, {ban} de bans",
+      "tiers": "Tous les paliers",
       "win": "Meilleur taux de victoire",
       "ban": "Les plus bannis",
       "pick": "Les plus joués",
@@ -5586,8 +5588,7 @@
     "toolsLead": "Préparer une draft, tester un build, s'entraîner.",
     "daily": {
       "title": "Les jeux du jour",
-      "lead": "Une nouvelle partie chaque jour, la même pour tous les joueurs.",
-      "play": "Jouer"
+      "lead": "Une nouvelle partie chaque jour, la même pour tous les joueurs."
     },
     "startTitle": "Par où commencer",
     "startLead": "Choisissez votre rôle pour voir les héros qui le jouent.",
@@ -5618,11 +5619,6 @@
       "changed": "retouchés au patch",
       "splus": "en palier S+",
       "items": "objets"
-    },
-    "stage": {
-      "dexPatch": "Patch {version} en ligne : {n} héros retouchés. En tête de la méta, {hero}.",
-      "dexPatchAlone": "Patch {version} en ligne : {n} héros retouchés.",
-      "dexCta": "Voir ce qui change"
     }
   },
   "featured": {
@@ -7069,48 +7065,16 @@
     "lead": "Ce que le site mesure, garde et calcule lui-même, avec la page où le vérifier.",
     "figure": "jours de taux gardés par le site, depuis le {date}",
     "daily": {
-      "title": "Des taux relevés chaque jour",
-      "text": "Victoire, ban et sélection de {n} héros en partie classée, tous rangs confondus et rang par rang. Dernier relevé le {date}.",
       "link": "Les statistiques"
     },
     "history": {
-      "title": "Un historique que la source ne garde pas",
-      "text": "L'API de statistiques ne sert que les trente derniers jours. Le site garde chaque relevé depuis le {date} : jour par jour sur {daily} jours, puis en moyenne par semaine.",
       "link": "L'historique de {hero}"
     },
-    "tierList": {
-      "title": "Une tier list calculée, règle affichée",
-      "text": "Score = {formula}. Les seuils des paliers sont publiés et le même calcul est refait pour chaque rang, chaque lane et chaque rôle.",
-      "link": "La règle et le classement"
-    },
-    "patch": {
-      "title": "L'effet mesuré de chaque patch",
-      "text": "Pour chaque héros modifié, l'écart entre son taux de victoire moyen des {days} jours avant et des {days} jours après le patch. Patch {version} : {n} héros mesurés sur {changed} modifiés.",
-      "textPending": "Pour chaque héros modifié, l'écart entre son taux de victoire moyen des {days} jours avant et des {days} jours après le patch. Patch {version} : pas encore assez de jours mesurés depuis sa sortie.",
-      "link": "Les notes du patch {version}"
-    },
-    "draft": {
-      "title": "Un assistant de draft",
-      "text": "Il propose des picks à partir des contres, des synergies, des coéquipiers qui gagnent le plus ensemble en partie classée et du taux de victoire de chaque héros.",
-      "link": "Préparer une draft"
-    },
-    "games": {
-      "title": "Des jeux tirés de la base",
-      "text": "Un héros secret et un défi par jour depuis le {date}, construits à partir des compétences, apparences, histoires, objets et taux du site. Les mêmes pour tous les joueurs."
-    },
-    "builds": {
-      "title": "Les builds des joueurs",
-      "text": "Publiés par des joueurs connectés au site et classés par leurs votes.",
-      "link": "Les builds de la communauté"
-    },
-    "bot": {
-      "title": "Un bot Discord",
-      "text": "Dex MLBB répond sur Discord (/hero, /build, /tierlist, /counter…) avec les données de l'API publique du site.",
-      "link": "Le bot"
-    },
-    "languages": {
-      "title": "{n} langues",
-      "text": "Écrit en français et traduit automatiquement dans {others} autres langues. Ce qui est traduit, et comment, est détaillé sur la page des sources."
+    "proof": {
+      "measured": "héros mesurés chaque jour en partie classée",
+      "languages": "langues : écrit en français, traduit dans les {others} autres",
+      "free": "Gratuit",
+      "freeText": "Sans publicité ni abonnement, financé par son auteur."
     }
   },
   "shareImage": {
