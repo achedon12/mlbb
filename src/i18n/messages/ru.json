@@ -7012,6 +7012,7 @@
     "builtBy": "В сборках: {heroes}",
     "minutes": "Чтение: {n} мин",
     "skinsCount": "скинов",
+    "buildsCount": "сборок от игроков",
     "latestSkin": "Новинка: {skin} ({hero})",
     "starlight": "StarLight месяца: {skin} ({hero})",
     "games": "игр разобрано",

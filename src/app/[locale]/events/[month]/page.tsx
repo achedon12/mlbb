@@ -55,6 +55,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       summary: monthSummary(t, locale, m).join(" "),
     }),
     path: `/events/${m.month}`,
+    card: true,
     keywords: [`MLBB Starlight ${english}`, `MLBB events ${english}`, `Mobile Legends skins ${english}`, "MLBB Collector skin"],
   });
 }

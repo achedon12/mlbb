@@ -7012,6 +7012,7 @@
     "builtBy": "Nas builds de {heroes}",
     "minutes": "{n} min de leitura",
     "skinsCount": "skins",
+    "buildsCount": "builds compartilhadas",
     "latestSkin": "Último lançamento: {skin} ({hero})",
     "starlight": "StarLight do mês: {skin} ({hero})",
     "games": "partidas analisadas",

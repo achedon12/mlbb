@@ -277,6 +277,22 @@ export function metaPage(
 }
 
 /**
+ * The same metadata, its Open Graph and Twitter images pointed at the
+ * page's own branded card (`ogPath`), as `metaPage` does with `card: true`:
+ * for a page whose metadata comes from a builder shared with pages that
+ * have no card of their own (the tier list's lanes and roles).
+ */
+export function withCard(meta: Metadata, locale: Locale, path: string): Metadata {
+  const url = ogPath(locale, path);
+  const alt = typeof meta.openGraph?.title === "string" ? meta.openGraph.title : site.name;
+  return {
+    ...meta,
+    openGraph: { ...meta.openGraph, images: [{ url, alt, width: 1200, height: 630 }] },
+    twitter: { ...meta.twitter, images: [{ url, alt }] },
+  };
+}
+
+/**
  * Metadata of a page of a paginated list, past the first one.
  *
  * The first page keeps the bare address and the canonical it always had.

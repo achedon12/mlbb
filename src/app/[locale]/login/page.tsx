@@ -74,8 +74,9 @@ export default async function LoginPage({
             </div>
           )}
           <div className="stage-dex dex-host flex items-end gap-3 sm:gap-5">
-            {/* Dex below sm would push the form off the first screen. */}
-            <span aria-hidden className="hidden shrink-0 sm:block">
+            {/* Dex below sm would push the form off the first screen. Not aria-hidden:
+                he holds his "talk to Dex" button, which must stay reachable. */}
+            <span className="hidden shrink-0 sm:block">
               <Dex pose="salut" height={210} priority />
             </span>
             <div className="dex-bubble mb-4 min-w-0 flex-1">

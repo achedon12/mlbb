@@ -1,12 +1,14 @@
 import { notFound } from "next/navigation";
 import { isLocale } from "@/i18n/config";
+import { asJpeg } from "@/lib/og/assets";
 import { statisticsCard } from "@/lib/og/cards";
 import { RANKS_CLASSES } from "@/lib/tier-list";
 import type { MeasuredRank } from "@/lib/measured-ranks";
 import { site } from "@/lib/site";
 
 export const size = { width: 1200, height: 630 };
-export const contentType = "image/png";
+// Re-encoded from the engine's PNG: a fraction of its weight (`asJpeg`).
+export const contentType = "image/jpeg";
 // The page's metadata gives the translated text (`metaPage`, `card: true`).
 export const alt = site.title;
 
@@ -25,5 +27,5 @@ export default async function Image({ params }: { params: Promise<{ locale: stri
   if (!isLocale(locale)) notFound();
   const known = RANKS_CLASSES.find((r): r is MeasuredRank => r === rank && r !== "all");
   if (!known) notFound();
-  return statisticsCard(locale, known);
+  return asJpeg(await statisticsCard(locale, known));
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ExtendMessages } from "@/i18n/provider";
 import { ItemList } from "@/components/item-list";
 import { PageHeader } from "@/components/ui";
+import { freshnessFacts } from "@/components/freshness";
 import visuals from "@/data/game/visuals.json";
 import { buildsPlayed, categoriesItems, heroesBySlug, countItems, currentItemsFor } from "@/lib/data";
 import { visualItem } from "@/lib/build-visuals";
@@ -83,7 +84,7 @@ export async function Items({ locale, page = 1 }: { locale: Locale; page?: numbe
 
   return (
     <ExtendMessages messages={messagesPage(locale, ["pages.itemsList"])}>
-      <PageHeader title={t("pages.items.title")} lead={t("pages.items.lead", { n: countItems })} />
+      <PageHeader title={t("pages.items.title")} lead={t("pages.items.lead", { n: countItems })} meta={freshnessFacts(locale)} />
       <div className="page-wrap pb-12 pt-4">
         <ItemList
           items={previews}

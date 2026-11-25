@@ -7012,6 +7012,7 @@
     "builtBy": "Di build {heroes}",
     "minutes": "{n} menit membaca",
     "skinsCount": "skin",
+    "buildsCount": "build dibagikan",
     "latestSkin": "Rilisan terbaru: {skin} ({hero})",
     "starlight": "StarLight bulan ini: {skin} ({hero})",
     "games": "pertandingan dianalisis",
