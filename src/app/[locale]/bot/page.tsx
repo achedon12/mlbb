@@ -192,7 +192,7 @@ export default async function BotPage({ params }: Params) {
                   sizes="(min-width: 768px) 460px, calc(100vw - 2rem)"
                   // The first one is the page's largest image, in view on a desktop.
                   priority={i === 0}
-                  className="bevel-lg h-auto w-full shadow-[0_24px_60px_-30px_rgb(0_0_0/0.9)] transition-[translate] duration-300 hover:-translate-y-0.5"
+                  className="bevel-lg h-auto w-full shadow-[0_24px_60px_-30px_rgb(0_0_0/calc(0.9*var(--shadow-strength)))] transition-[translate] duration-300 hover:-translate-y-0.5"
                 />
               </article>
             ))}

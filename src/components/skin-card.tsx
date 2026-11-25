@@ -12,6 +12,7 @@ import {
 import { formatRelease } from "@/lib/skins";
 import { RarityBlade, RarityGem } from "@/components/skins/skin-tile";
 import { ProvisionalBadge } from "@/components/provisional-badge";
+import { inkStyle } from "@/lib/theme";
 
 /**
  * Skin thumbnail: the shop portrait with its rarity gem and blade, and on
@@ -86,7 +87,7 @@ export function MissingSkinArt({ fallback, color, sizes = "8rem" }: { fallback?:
 export function SkinCard({ name, href, hero: heroes, heroHref, image, color, rarity, details, provisional, fallback }: PropsCardSkin) {
   return (
     <article className="group relative h-full transition-[translate] duration-200 hover:-translate-y-0.5">
-      <div className="bevel-sm relative aspect-[240/390] overflow-hidden bg-night-800">
+      <div className="scheme-dark bevel-sm relative aspect-[240/390] overflow-hidden bg-night-800">
         <Link href={href} className="absolute inset-0 z-10" aria-label={name} />
         {image ? (
           <Image
@@ -114,7 +115,7 @@ export function SkinCard({ name, href, hero: heroes, heroHref, image, color, rar
             {heroes}
           </Link>
           <p className="truncate text-[0.65rem] leading-snug">
-            {rarity && <span style={{ color }}>{rarity}</span>}
+            {rarity && <span className="ink" style={inkStyle(color)}>{rarity}</span>}
             {details.map((d, i) => (
               <span key={d} className="text-chalk-400">
                 {(rarity || i > 0) && " · "}

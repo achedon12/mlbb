@@ -228,6 +228,34 @@ test.describe("footer", () => {
   });
 });
 
+test.describe("theme", () => {
+  test("follows the system, both bar colours declared", async ({ page }) => {
+    await page.emulateMedia({ colorScheme: "light" });
+    await page.goto("/fr");
+    await expect(page.locator("html")).not.toHaveAttribute("data-theme", /.+/);
+    await expect(page.getByRole("radio", { name: "Auto" })).toBeChecked();
+    await expect(page.locator('meta[name="theme-color"][media*="light"]')).toHaveAttribute("content", "#f4f1ea");
+    await expect(page.locator('meta[name="theme-color"][media*="dark"]')).toHaveAttribute("content", "#06080f");
+    // The ground of the light theme, from CSS alone.
+    expect(await page.evaluate(() => getComputedStyle(document.body).backgroundColor)).toBe("rgb(244, 241, 234)");
+  });
+
+  test("a forced theme is kept and applied before the first paint", async ({ page }) => {
+    await page.emulateMedia({ colorScheme: "light" });
+    await page.goto("/fr");
+    await page.getByRole("contentinfo").getByText("Sombre", { exact: true }).click();
+    await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+    await page.reload();
+    await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+    await expect(page.getByRole("radio", { name: "Sombre" })).toBeChecked();
+    await expect(page.locator('meta[name="theme-color"]').first()).toHaveAttribute("content", "#06080f");
+    expect(await page.evaluate(() => getComputedStyle(document.body).backgroundColor)).toBe("rgb(6, 8, 15)");
+    // Back to the system's.
+    await page.getByRole("contentinfo").getByText("Auto", { exact: true }).click();
+    await expect(page.locator("html")).not.toHaveAttribute("data-theme", /.+/);
+  });
+});
+
 test.describe("brand pages", () => {
   test("the Dex page tells his story and shows his twelve poses", async ({ page }) => {
     await page.goto("/fr/dex");
@@ -332,15 +360,18 @@ test.describe("machine-readable outputs", () => {
 });
 
 test.describe("what the site does itself, and where it comes from", () => {
-  test("the home page lists it, each point with the page that shows it", async ({ page }) => {
+  test("the home page proves it in a few figures, each with the page that shows it", async ({ page }) => {
     await page.goto("/fr");
     await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
     const why = page.locator("[data-home-why]");
     await expect(why.getByRole("heading", { level: 2, name: /pourquoi mlbbdex/i })).toBeVisible();
+    // Three or four proofs, not a wall of text.
+    const proofs = await why.getByRole("listitem").count();
+    expect(proofs).toBeGreaterThanOrEqual(3);
+    expect(proofs).toBeLessThanOrEqual(4);
     await expect(why.getByRole("link", { name: /^les statistiques/i })).toHaveAttribute("href", /\/fr\/statistics$/);
-    await expect(why.getByRole("link", { name: /la r[èe]gle et le classement/i })).toHaveAttribute("href", /\/fr\/tier-list$/);
-    await expect(why.getByRole("link", { name: /pr[ée]parer une draft/i })).toHaveAttribute("href", /\/fr\/draft$/);
     await expect(why.getByRole("link", { name: /^l'historique de /i })).toHaveAttribute("href", /\/fr\/heroes\/[a-z-]+#stats$/);
+    await expect(why).toContainText(/gratuit/i);
     await expect(why.getByRole("link", { name: /m[ée]thode et sources/i }).first()).toHaveAttribute("href", /\/fr\/methodology$/);
     // Live figures, never a placeholder.
     await expect(why).not.toContainText("{");
@@ -373,7 +404,7 @@ test.describe("the author's signed texts", () => {
   // must match the folder, never show a placeholder.
   test("appear on the tier list, a patch note and the about page only when written", async ({ page }) => {
     await page.goto("/fr");
-    const notes = await page.locator("[data-home-why]").getByRole("link", { name: /^les notes du patch/i }).getAttribute("href");
+    const notes = await page.locator("[data-home-patch]").getByRole("link", { name: /^lire les notes/i }).getAttribute("href");
     const version = notes?.split("/").pop() ?? "";
     expect(version).toMatch(/^\d+(\.\d+)+$/);
 

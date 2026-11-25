@@ -44,7 +44,7 @@ export function SheetPoster({
   children?: React.ReactNode;
 }) {
   return (
-    <section aria-labelledby="sheet-title" className="relative isolate overflow-hidden">
+    <section aria-labelledby="sheet-title" className={cn("relative isolate overflow-hidden", art && "scheme-dark bg-night-950")}>
       {art && (
         <div aria-hidden className="absolute inset-0 -z-10 lg:left-[28%]">
           <Image src={art} alt="" fill priority fetchPriority="high" sizes="(min-width: 1024px) 72vw, 100vw" className="affiche-art object-cover object-[60%_22%] opacity-70" />

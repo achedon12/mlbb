@@ -98,7 +98,7 @@ export function TournamentCard({
   return (
     <Link
       href={`/esports/${turn.slug}`}
-      className={cn("group card-link relative flex h-full min-h-72 flex-col justify-end overflow-hidden p-5 sm:p-6", status === "live" && "eclat-under is-active")}
+      className={cn("group card-link relative flex h-full min-h-72 flex-col justify-end overflow-hidden p-5 sm:p-6", art && "scheme-dark", status === "live" && "eclat-under is-active")}
     >
       {art && (
         <span aria-hidden className="absolute inset-0">

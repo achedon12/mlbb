@@ -41,7 +41,7 @@ export function AccountPoster({
 }) {
   const facts = meta?.filter(Boolean) ?? [];
   return (
-    <div className="relative isolate overflow-hidden">
+    <div className={art ? "scheme-dark relative isolate overflow-hidden bg-night-950" : "relative isolate overflow-hidden"}>
       <div aria-hidden className="stage-glow" />
       {art && (
         <div aria-hidden className="absolute inset-y-0 right-0 -z-10 w-full lg:w-[62%]">

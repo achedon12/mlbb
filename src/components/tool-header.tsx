@@ -43,7 +43,7 @@ export function ToolHeader({
   const { art, dex: pose } = toolArt(path);
   const facts = meta?.filter(Boolean) ?? [];
   return (
-    <div className="tool-affiche relative isolate overflow-hidden">
+    <div className={cn("tool-affiche relative isolate overflow-hidden", art && "scheme-dark bg-night-950")}>
       {art && (
         <div aria-hidden className="absolute inset-0 -z-10 sm:left-auto sm:w-[68%]">
           <Image

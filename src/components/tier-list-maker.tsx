@@ -520,7 +520,7 @@ export function TierListMaker({
                   type="button"
                   onClick={(e) => set(selection, r.id, null, e.detail === 0)}
                   aria-label={t("pages.tierMakerUI.placeHere", { name: name(selection), row: nameRow(r) })}
-                  className="grid w-16 shrink-0 place-items-center break-all p-1 text-center font-heading text-lg font-bold ring-inset hover:ring-2 hover:ring-white/70 sm:w-24"
+                  className="grid w-16 shrink-0 place-items-center break-all p-1 text-center font-heading text-lg font-bold ring-inset hover:ring-2 hover:ring-chalk-100/70 sm:w-24"
                   style={{ background: r.color, color: colorText(r.color) }}
                 >
                   {nameRow(r)}
@@ -687,7 +687,7 @@ export function TierListMaker({
                   aria-label={t("pages.tierMakerUI.placeHere", { name: chosen.name, row: nameRow(r) })}
                   className={cn(
                     "bevel-sm h-9 min-w-9 max-w-24 truncate px-2 text-sm font-bold",
-                    rowChosen?.id === r.id && "ring-2 ring-white",
+                    rowChosen?.id === r.id && "ring-2 ring-chalk-100",
                   )}
                   style={{ background: r.color, color: colorText(r.color) }}
                 >
@@ -784,7 +784,7 @@ function PanelRow({
               onClick={() => onEdit({ color: c })}
               aria-pressed={row.color === c}
               aria-label={t("pages.tierMakerUI.colourName", { colour: c })}
-              className={cn("bevel-sm size-8", row.color === c && "ring-2 ring-white")}
+              className={cn("bevel-sm size-8", row.color === c && "ring-2 ring-chalk-100")}
               style={{ background: c }}
             />
           ))}

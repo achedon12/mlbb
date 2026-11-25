@@ -47,7 +47,7 @@ export function VersusPoster({
   return (
     <div
       className={cn(
-        "relative isolate h-[19rem] overflow-hidden bg-night-950 [--s:1.75rem] sm:h-[25rem] sm:[--s:3.5rem] lg:h-[31rem]",
+        "scheme-dark relative isolate h-[19rem] overflow-hidden bg-night-950 [--s:1.75rem] sm:h-[25rem] sm:[--s:3.5rem] lg:h-[31rem]",
         className,
       )}
     >
@@ -155,7 +155,7 @@ export function VersusPoster({
           <div className="eclat absolute left-1/2 top-1/2 h-[3px] w-28 -translate-x-1/2 -translate-y-1/2 -rotate-[64deg] sm:w-48" />
           <span
             className={cn(
-              "display-caps relative block text-gold-400 drop-shadow-[0_4px_14px_rgb(0_0_0/0.85)]",
+              "display-caps relative block text-gold-400 drop-shadow-[0_4px_14px_rgb(0_0_0/calc(0.85*var(--shadow-strength)))]",
               three ? "text-[clamp(1.75rem,1rem+2.5vw,3.5rem)]" : "text-[clamp(2.5rem,1.4rem+3.6vw,5.5rem)]",
             )}
           >

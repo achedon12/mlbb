@@ -67,7 +67,13 @@ export function PosterHeader({
   const facts = meta?.filter(Boolean) ?? [];
 
   return (
-    <section className="relative isolate overflow-hidden">
+    <section
+      className={cn(
+        "relative isolate overflow-hidden",
+        // Light text over the artwork: the poster keeps the night in both themes.
+        (single || (panels && panels.length > 0)) && "scheme-dark bg-night-950",
+      )}
+    >
       {(single || (panels && panels.length > 0)) && (
         <div
           aria-hidden
@@ -213,7 +219,7 @@ export function ArtTile({
       href={href}
       className={cn("eclat-under group relative block transition-[translate] duration-200 hover:-translate-y-0.5", className)}
     >
-      <span className={cn("bevel relative block overflow-hidden bg-night-800", aspect)}>
+      <span className={cn("scheme-dark bevel relative block overflow-hidden bg-night-800", aspect)}>
         {art ? (
           <Image
             src={art}

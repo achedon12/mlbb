@@ -577,7 +577,7 @@ function ChampionBlock({
   const art = firstWithArt(heroes)?.art ?? null;
   const side = final ? (final.teams[0] === champion ? 0 : 1) : 0;
   return (
-    <section aria-labelledby="tournament-champion" className="bevel-lg relative isolate overflow-hidden bg-night-900">
+    <section aria-labelledby="tournament-champion" className={`bevel-lg relative isolate overflow-hidden bg-night-900${art ? " scheme-dark" : ""}`}>
       {art && (
         <span aria-hidden className="absolute inset-y-0 right-0 -z-10 w-full sm:w-3/5">
           <Image src={art} alt="" fill sizes="(min-width: 640px) 60vw, 100vw" className="object-cover object-[50%_25%] opacity-70" />

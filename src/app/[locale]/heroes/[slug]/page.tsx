@@ -494,7 +494,7 @@ export default async function HeroPage({ params }: Params) {
         Built in layers (art, the hero's light, vignette, name) that drift at
         their own depth with the pointer and the scroll (PosterParallax).
       */}
-      <PosterParallax aria-labelledby="hero-name" className="relative isolate overflow-hidden">
+      <PosterParallax aria-labelledby="hero-name" className="scheme-dark relative isolate overflow-hidden bg-night-950">
         <div aria-hidden className="relative h-[22rem] overflow-hidden sm:h-[30rem] lg:h-[37rem] xl:h-[41rem]">
           <div className="cine-art absolute inset-0">
             {background ? (

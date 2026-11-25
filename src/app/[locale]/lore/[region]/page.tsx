@@ -205,7 +205,7 @@ export default async function LoreRegionPage({ params }: Params) {
               return (
                 <li key={x.slug} id={x.slug} className="scroll-mt-24">
                   <article className="group bevel flex h-full flex-col bg-night-900 transition-[translate] duration-200 hover:-translate-y-0.5">
-                    <div className="relative aspect-[16/8] overflow-hidden bg-night-800">
+                    <div className="scheme-dark relative aspect-[16/8] overflow-hidden bg-night-800">
                       {still && (
                         <Image
                           src={still}
@@ -305,7 +305,7 @@ export default async function LoreRegionPage({ params }: Params) {
                 return (
                   <li key={x.key}>
                     <Link href={`/lore/${x.key}`} className="eclat-under group relative block transition-[translate] duration-200 hover:-translate-y-0.5">
-                      <span className="bevel-sm relative block aspect-[16/7] overflow-hidden bg-night-800">
+                      <span className="scheme-dark bevel-sm relative block aspect-[16/7] overflow-hidden bg-night-800">
                         {face && (
                           <Image
                             src={face.art}

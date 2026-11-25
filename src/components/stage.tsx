@@ -70,7 +70,7 @@ export function StageHeader({
 }) {
   const facts = meta?.filter(Boolean) ?? [];
   return (
-    <div className="relative isolate overflow-hidden">
+    <div className={cn("relative isolate overflow-hidden", art && "scheme-dark bg-night-950")}>
       {art && (
         <div
           aria-hidden

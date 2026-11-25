@@ -24,6 +24,7 @@ import { OTHER_MODES } from "@/lib/events";
 import { monthByKey } from "@/lib/events-server";
 import { monthYear } from "@/lib/freshness";
 import { normalizeNameSkin } from "@/lib/utils";
+import { inkStyle } from "@/lib/theme";
 
 /**
  * A hero's skin gallery: each skin with its illustration, its
@@ -227,8 +228,8 @@ export default async function HeroSkinsPage({ params }: Params) {
                   altPortrait={altPortrait(s.name)}
                 >
                   <p
-                    className={`font-heading text-sm font-bold uppercase ${origin ? "text-chalk-500" : ""}`}
-                    style={origin ? undefined : { color: r.color }}
+                    className={`font-heading text-sm font-bold uppercase ${origin ? "text-chalk-500" : "ink"}`}
+                    style={origin ? undefined : inkStyle(r.color)}
                   >
                     {tr("skinRarity", r.key)}
                   </p>
@@ -347,7 +348,7 @@ function SkinCard({
 }) {
   return (
     <article className="group flex h-full flex-col">
-      <div className="bevel relative aspect-video overflow-hidden bg-night-800 transition-[translate] duration-200 group-hover:-translate-y-0.5">
+      <div className="scheme-dark bevel relative aspect-video overflow-hidden bg-night-800 transition-[translate] duration-200 group-hover:-translate-y-0.5">
         {illustration ? (
           <Image
             src={illustration}
@@ -371,7 +372,7 @@ function SkinCard({
         )}
         <span aria-hidden className="absolute inset-x-0 bottom-0 h-2/3 bg-linear-to-t from-night-950 via-night-950/70 to-transparent" />
         {illustration && portrait && (
-          <span className="bevel-sm absolute right-3 top-3 overflow-hidden bg-night-900 shadow-[0_4px_14px_rgb(0_0_0/0.5)]">
+          <span className="bevel-sm absolute right-3 top-3 overflow-hidden bg-night-900 shadow-[0_4px_14px_rgb(0_0_0/calc(0.5*var(--shadow-strength)))]">
             <Image src={portrait} alt={altPortrait} width={56} height={91} className="block h-[5.7rem] w-14 object-cover" />
             <RarityBlade color={color} />
           </span>

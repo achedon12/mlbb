@@ -14,7 +14,7 @@ export function RarityGem({ color, className }: { color: string; className?: str
   return (
     <span
       aria-hidden
-      className={cn("crest crest-sm h-[1.15rem] w-4 pb-0 shadow-[0_2px_6px_rgb(0_0_0/0.5)]", className)}
+      className={cn("crest crest-sm h-[1.15rem] w-4 pb-0 shadow-[0_2px_6px_rgb(0_0_0/calc(0.5*var(--shadow-strength)))]", className)}
       style={{ "--crest": color } as React.CSSProperties}
     />
   );
@@ -65,7 +65,7 @@ export function SkinTile({
       prefetch={prefetch}
       className={cn("group relative block transition-[translate] duration-200 hover:-translate-y-0.5", className)}
     >
-      <span className="bevel-sm relative block aspect-[240/390] overflow-hidden bg-night-800">
+      <span className="scheme-dark bevel-sm relative block aspect-[240/390] overflow-hidden bg-night-800">
         {src ? (
           <LightImage
             src={src}
@@ -131,7 +131,7 @@ export function SkinArtTile({
 }) {
   const classes = cn("eclat-under group relative block transition-[translate] duration-200 hover:-translate-y-0.5", className);
   const body = (
-    <span className={cn("bevel relative block size-full overflow-hidden bg-night-800", aspect)}>
+    <span className={cn("scheme-dark bevel relative block size-full overflow-hidden bg-night-800", aspect)}>
       {art && (
         <Image
           src={art}

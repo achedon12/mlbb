@@ -303,7 +303,13 @@
       "news": "Notícias e esports",
       "site": "O site"
     },
-    "methodology": "Método e fontes"
+    "methodology": "Método e fontes",
+    "theme": {
+      "label": "Tema",
+      "auto": "Auto",
+      "light": "Claro",
+      "dark": "Escuro"
+    }
   },
   "language": {
     "choose": "Idioma",
@@ -5505,7 +5511,7 @@
   },
   "home": {
     "title": "Mobile Legends: tier list, builds e counters do patch {version}",
-    "lead": "Todos os {heroes} heróis, suas builds e counters medidos em partidas ranqueadas, uma tier list recalculada a cada sincronização e ferramentas para preparar cada draft.",
+    "tagline": "Meta, builds e counters dos {heroes} heróis, medidos todos os dias em partidas ranqueadas.",
     "search": {
       "label": "Buscar um herói",
       "placeholder": "Ling, Khufra, Layla…",
@@ -5531,7 +5537,9 @@
       "lead": "{n} heróis ranqueados pelas taxas de vitória e de ban de {date}, todos os elos somados.",
       "splitLabel": "Como os {n} heróis ranqueados se distribuem pelos tiers: abrir a tier list",
       "tierCount": "tier {tier}: {n} heróis",
-      "topTier": "Tier S+: {n} heróis",
+      "top5": "Top 5 do patch",
+      "topLabel": "N.º {rank}, tier {tier}: {win} de taxa de vitória, {ban} de banimentos",
+      "tiers": "Todos os tiers",
       "win": "Maior taxa de vitória",
       "ban": "Mais banido",
       "pick": "Mais jogado",
@@ -5580,8 +5588,7 @@
     "toolsLead": "Prepare um draft, teste uma build, treine.",
     "daily": {
       "title": "Jogos diários",
-      "lead": "Uma nova rodada todo dia, a mesma para todos os jogadores.",
-      "play": "Jogar"
+      "lead": "Uma nova rodada todo dia, a mesma para todos os jogadores."
     },
     "startTitle": "Por onde começar",
     "startLead": "Escolha o seu papel para ver os heróis que o interpretam.",
@@ -5612,11 +5619,6 @@
       "changed": "ajustados no patch",
       "splus": "no tier S+",
       "items": "itens"
-    },
-    "stage": {
-      "dexPatch": "Patch {version} no ar: {n} heróis ajustados. No topo da meta, {hero}.",
-      "dexPatchAlone": "Patch {version} no ar: {n} heróis ajustados.",
-      "dexCta": "Ver o que muda"
     }
   },
   "featured": {
@@ -7061,50 +7063,18 @@
   "why": {
     "title": "Por que MLBBDex",
     "lead": "O que o próprio site mede, guarda e calcula, com a página onde verificar.",
-    "figure": "dias de tarifas mantidas pelo site, desde {date}",
+    "figure": "dias de estatísticas guardadas pelo site, desde {date}",
     "daily": {
-      "title": "Taxas registradas todos os dias",
-      "text": "Vitória, ban e seleção de {n} heróis no jogo classificado, todas as classificações combinadas e classificação por classificação. Última leitura em {date}.",
       "link": "Estatísticas"
     },
     "history": {
-      "title": "Uma história que a fonte não guarda",
-      "text": "A API de estatísticas exibe apenas os últimos trinta dias. O site mantém cada extrato de {date}: dia a dia durante {daily} dias e, em média, por semana.",
       "link": "História de {hero}"
     },
-    "tierList": {
-      "title": "Uma tier list calculada, regra exibida",
-      "text": "Pontuação = {formula}. Os limites dos níveis são publicados e o mesmo cálculo é repetido para cada classificação, cada faixa e cada função.",
-      "link": "A regra e classificação"
-    },
-    "patch": {
-      "title": "O efeito medido de cada patch",
-      "text": "Para cada herói modificado, a diferença entre sua taxa média de vitória {days} dias antes e {days} dias depois do patch. Patch {version}: {n} heróis medidos em {changed} modificados.",
-      "textPending": "Para cada herói modificado, a diferença entre sua taxa média de vitória {days} dias antes e {days} dias depois do patch. Patch {version}: ainda não foram medidos dias suficientes desde seu lançamento.",
-      "link": "Patch notes {version}"
-    },
-    "draft": {
-      "title": "Um assistente de draft",
-      "text": "Oferece escolhas baseadas em counters, sinergias, companheiros de equipe que ganham mais juntos em jogos classificados e a taxa de vitória de cada herói.",
-      "link": "Prepare um draft"
-    },
-    "games": {
-      "title": "Jogos desde o início",
-      "text": "Um herói secreto e um desafio por dia desde {date}, construído a partir das habilidades, aparências, histórias, itens e taxas do site. O mesmo para todos os jogadores."
-    },
-    "builds": {
-      "title": "Builds de jogadores",
-      "text": "Publicado por jogadores conectados ao site e classificados por seus votos.",
-      "link": "Builds comunitárias"
-    },
-    "bot": {
-      "title": "Um bot Discord",
-      "text": "Dex MLBB responde no Discord (/hero, /build, /tierlist, /counter…) com dados da API pública do site.",
-      "link": "O bot"
-    },
-    "languages": {
-      "title": "{n} idiomas",
-      "text": "Escrito em francês e traduzido automaticamente para {others} outros idiomas. O que é traduzido e como é detalhado na página de fontes."
+    "proof": {
+      "measured": "heróis medidos todos os dias em partidas ranqueadas",
+      "languages": "idiomas: escrito em francês, traduzido para os outros {others}",
+      "free": "Grátis",
+      "freeText": "Sem anúncios nem assinatura, financiado pelo seu autor."
     }
   },
   "shareImage": {

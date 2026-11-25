@@ -136,7 +136,7 @@ export default async function RolePage({ params }: Params) {
               width={160}
               height={160}
               priority
-              className="hidden size-36 object-contain drop-shadow-[0_8px_24px_rgb(0_0_0/0.6)] lg:block xl:size-40"
+              className="hidden size-36 object-contain drop-shadow-[0_8px_24px_rgb(0_0_0/calc(0.6*var(--shadow-strength)))] lg:block xl:size-40"
             />
           )
         }

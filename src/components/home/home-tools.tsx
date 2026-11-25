@@ -1,4 +1,4 @@
-import { ArrowRight, CalendarCheck } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "@/components/link";
 import { SectionTitle } from "@/components/ui";
 import type { Locale } from "@/i18n/config";
@@ -7,15 +7,14 @@ import { BASE, type Entry } from "@/lib/sections";
 
 /** The tools a draft is prepared with: given room to say what they do. */
 const MAIN = ["/draft", "/tools/matchups", "/tools/build", "/tools/damage-calculator"];
-/** Daily games: a reason to come back every day, grouped apart. */
-const DAILY = ["/mlbbdle", "/quiz"];
-/** Pages of the tools family that have their own block on the home page. */
-const ELSEWHERE = ["/builds", "/bot"];
+/** Pages of the tools family that have their own block on the home page (the daily games, the builds, the bot). */
+const ELSEWHERE = ["/mlbbdle", "/quiz", "/builds", "/bot"];
 
 /**
  * Tools, taken from the menu: a tool added to the sections appears here with
  * no other change. The four draft tools get a card with their description,
- * the two daily games their own panel, every other tool a compact link.
+ * every other tool a compact link; the two daily games have their own block
+ * (`HomeDaily`).
  */
 const TOOLS = BASE.filter(
   (e) => (e.href.startsWith("/tools/") || ["/draft", "/compare", "/quiz", "/mlbbdle"].includes(e.href)) && !ELSEWHERE.includes(e.href),
@@ -25,8 +24,7 @@ export function HomeTools({ locale, className }: { locale: Locale; className?: s
   const t = createT(locale);
   const pick = (hrefs: string[]) => hrefs.flatMap((h) => TOOLS.filter((e) => e.href === h));
   const main = pick(MAIN);
-  const daily = pick(DAILY);
-  const rest = TOOLS.filter((e) => !MAIN.includes(e.href) && !DAILY.includes(e.href));
+  const rest = TOOLS.filter((e) => !MAIN.includes(e.href));
 
   return (
     <section aria-labelledby="home-tools" className={className}>
@@ -35,50 +33,19 @@ export function HomeTools({ locale, className }: { locale: Locale; className?: s
           {t("home.toolsTitle")}
         </SectionTitle>
 
-        <div className="grid gap-3 lg:grid-cols-[2fr_1fr] lg:gap-4">
-          <ul className="grid grid-cols-2 gap-2 sm:gap-3">
-            {main.map((e) => (
-              <li key={e.href}>
-                <ToolCard entry={e} label={t(`nav.${e.key}.label`)} desc={t(`nav.${e.key}.desc`)} />
-              </li>
-            ))}
-          </ul>
-
-          {daily.length > 0 && (
-            <div className="bevel bg-night-800 p-4 shadow-[inset_0_3px_0_var(--color-gold-400)]">
-              <h3 className="flex items-center gap-2 type-subtitle text-chalk-100">
-                <CalendarCheck size={18} aria-hidden className="text-gold-400" />
-                {t("home.daily.title")}
-              </h3>
-              <p className="mt-1 text-sm text-chalk-400">{t("home.daily.lead")}</p>
-              <ul className="mt-3 space-y-2">
-                {daily.map(({ href, key, icon: Icon }) => (
-                  <li key={href}>
-                    <Link
-                      href={href}
-                      className="bevel-sm group flex items-center gap-3 bg-night-950/70 p-3 transition-colors hover:bg-night-950"
-                    >
-                      <Icon size={20} aria-hidden className="shrink-0 text-gold-400" />
-                      <span className="min-w-0 flex-1">
-                        <span className="block font-heading text-lg font-bold uppercase leading-tight text-chalk-100 transition-colors group-hover:text-gold-400">
-                          {t(`nav.${key}.label`)}
-                        </span>
-                        <span className="block text-xs text-chalk-500">{t(`nav.${key}.desc`)}</span>
-                      </span>
-                      <span className="shrink-0 font-heading font-bold uppercase text-gold-400">{t("home.daily.play")}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
+        <ul className="grid grid-cols-2 gap-2 sm:gap-3">
+          {main.map((e) => (
+            <li key={e.href}>
+              <ToolCard entry={e} label={t(`nav.${e.key}.label`)} desc={t(`nav.${e.key}.desc`)} />
+            </li>
+          ))}
+        </ul>
 
         {rest.length > 0 && (
           <ul className="mt-5 grid grid-cols-2 gap-x-4 gap-y-1 sm:grid-cols-3 lg:grid-cols-4">
             {rest.map(({ href, key, icon: Icon }) => (
               <li key={href}>
-                <Link href={href} className="group flex items-center gap-2 py-1.5 text-sm text-chalk-300">
+                <Link href={href} className="group flex min-h-11 items-center gap-2 py-1.5 text-sm text-chalk-300">
                   <Icon size={15} aria-hidden className="shrink-0 text-gold-400/80" />
                   <span className="truncate underline-offset-4 transition-colors group-hover:text-gold-400 group-hover:underline">
                     {t(`nav.${key}.label`)}

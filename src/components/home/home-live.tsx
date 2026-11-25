@@ -12,11 +12,12 @@ import { heroesBySlug, illustrations } from "@/lib/data";
 import { proMeta, sortedTournaments, tournamentStatus, type ProHero } from "@/lib/esports";
 import type { EventSkin } from "@/lib/events";
 import { eventMonths, referenceDate } from "@/lib/events-server";
+import { cn } from "@/lib/utils";
 
 /** Tournaments listed: the live or next ones first, then the latest results. */
 const TOURNAMENTS = 3;
-/** Skins of the month shown besides the StarLight one. */
-const OTHER_SKINS = 4;
+/** Skins of the month shown beside the StarLight one: three share its height at most. */
+const OTHER_SKINS = 3;
 
 /**
  * Wide artwork when the gallery has it, the shop portrait otherwise; the
@@ -81,67 +82,74 @@ function MonthBlock({ locale, t }: { locale: Locale; t: T }) {
         </ActionLink>
       </div>
 
+      {/*
+        One composition with no hole: the lead skin as the large card and,
+        from `sm`, the other releases stacked beside it, sharing its height
+        between them (one fills it all, three share it). On a phone they
+        follow it as wide bands.
+      */}
       {lead && (
-        <Link
-          href={skinHref(lead)}
-          className="bevel-lg group relative mt-4 block aspect-video overflow-hidden bg-night-900"
-        >
-          {art && (
-            <Image
-              src={art.src}
-              alt={t("home.live.skinAlt", { skin: lead.name, hero: heroName(lead.hero) })}
-              fill
-              sizes="(min-width: 1024px) 34rem, 100vw"
-              className={
-                art.wide
-                  ? "object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
-                  : "object-contain object-right transition-transform duration-500 group-hover:scale-[1.03]"
-              }
-            />
-          )}
-          <span className="absolute inset-0 bg-linear-to-t from-night-950 via-night-950/30 to-transparent" />
-          <span className="absolute inset-x-0 bottom-0 p-4 sm:p-6">
-            <span className="block font-heading text-base font-bold uppercase text-gold-400">
-              {month.starlight[0] === lead ? t("home.live.starlight") : t("home.live.collector")}
+        <div className={cn("mt-4 grid gap-3", others.length > 0 && "sm:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]")}>
+          <Link
+            href={skinHref(lead)}
+            className="scheme-dark bevel-lg group relative block aspect-video overflow-hidden bg-night-900 sm:aspect-auto sm:h-full sm:min-h-[20rem]"
+          >
+            {art && (
+              <Image
+                src={art.src}
+                alt={t("home.live.skinAlt", { skin: lead.name, hero: heroName(lead.hero) })}
+                fill
+                sizes={others.length > 0 ? "(min-width: 1024px) 30rem, (min-width: 640px) 62vw, 100vw" : "(min-width: 1024px) 45rem, 100vw"}
+                className={
+                  art.wide
+                    ? "object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                    : "object-contain object-right transition-transform duration-500 group-hover:scale-[1.03]"
+                }
+              />
+            )}
+            <span className="absolute inset-0 bg-linear-to-t from-night-950 via-night-950/30 to-transparent" />
+            <span className="absolute inset-x-0 bottom-0 p-4 sm:p-6">
+              <span className="block font-heading text-base font-bold uppercase text-gold-400">
+                {month.starlight[0] === lead ? t("home.live.starlight") : t("home.live.collector")}
+              </span>
+              <span className="display-caps mt-1 block pr-[0.12em] text-[clamp(2rem,1.2rem+2.6vw,3.25rem)] text-chalk-100 transition-colors group-hover:text-gold-300">
+                {lead.name}
+              </span>
+              <span className="mt-1 block text-sm text-chalk-300">{heroName(lead.hero)}</span>
             </span>
-            <span className="display-caps mt-1 block text-[clamp(2rem,1.2rem+2.6vw,3.25rem)] text-chalk-100 transition-colors group-hover:text-gold-300">
-              {lead.name}
-            </span>
-            <span className="mt-1 block text-sm text-chalk-300">{heroName(lead.hero)}</span>
-          </span>
-        </Link>
-      )}
+          </Link>
 
-      {others.length > 0 && (
-        <ul className="mt-3 grid grid-cols-4 gap-2">
-          {others.map((s) => {
-            const portrait = s.image && !s.image.includes("/illustrations/") ? s.image : skinArt(s)?.src ?? null;
-            return (
-              <li key={`${s.hero}-${s.name}`}>
-                <Link href={skinHref(s)} className="hero-tile group">
-                  <span className="bevel relative block aspect-[240/390] overflow-hidden bg-night-900">
-                    {portrait && (
-                      <Image
-                        src={portrait}
-                        alt=""
-                        fill
-                        sizes="(min-width: 1024px) 8rem, 22vw"
-                        className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                      />
-                    )}
-                    {/* The names sit on the portrait, not under it. */}
-                    <span className="absolute inset-x-0 bottom-0 bg-linear-to-t from-night-950 via-night-950/80 to-transparent p-1.5 pt-8 sm:p-2 sm:pt-10">
-                      <span className="block truncate font-heading text-sm font-bold uppercase leading-tight text-chalk-100 transition-colors group-hover:text-gold-300">
-                        {s.name}
+          {others.length > 0 && (
+            <ul className="flex flex-col gap-3">
+              {others.map((s) => {
+                const src = skinArt(s)?.src ?? null;
+                return (
+                  <li key={`${s.hero}-${s.name}`} className="flex min-h-24 flex-1 flex-col">
+                    <Link href={skinHref(s)} className="scheme-dark bevel group relative block flex-1 overflow-hidden bg-night-900">
+                      {src && (
+                        <Image
+                          src={src}
+                          alt=""
+                          fill
+                          sizes="(min-width: 1024px) 15rem, (min-width: 640px) 31vw, 100vw"
+                          className="object-cover object-[50%_25%] transition-transform duration-500 group-hover:scale-[1.03]"
+                        />
+                      )}
+                      {/* The names sit on the art, over the night closing in from the foot. */}
+                      <span className="absolute inset-0 bg-linear-to-t from-night-950 via-night-950/50 to-transparent" />
+                      <span className="absolute inset-x-0 bottom-0 p-3">
+                        <span className="block truncate font-heading text-lg font-bold uppercase leading-tight text-chalk-100 transition-colors group-hover:text-gold-300">
+                          {s.name}
+                        </span>
+                        <span className="block truncate text-xs text-chalk-300">{heroName(s.hero)}</span>
                       </span>
-                      <span className="block truncate text-xs text-chalk-400">{heroName(s.hero)}</span>
-                    </span>
-                  </span>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </div>
       )}
 
       {next && (

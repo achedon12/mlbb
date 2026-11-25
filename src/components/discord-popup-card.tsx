@@ -39,7 +39,7 @@ export function DiscordPopupCard({
       onKeyDown={(e) => {
         if (e.key === "Escape") onDismiss();
       }}
-      className="discord-popup bevel-sm fixed inset-x-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-40 flex items-center gap-2.5 bg-night-800 py-2.5 pl-3 pr-2 shadow-[inset_0_2px_0_var(--color-gold-400),0_12px_32px_rgb(0_0_0/0.5)] md:left-auto md:w-80 md:grid md:grid-cols-[2.25rem_1fr_2rem] md:items-start md:gap-x-3 md:gap-y-2.5 md:p-3"
+      className="discord-popup bevel-sm fixed inset-x-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-40 flex items-center gap-2.5 bg-night-800 py-2.5 pl-3 pr-2 shadow-[inset_0_2px_0_var(--color-gold-400),0_12px_32px_rgb(0_0_0/calc(0.5*var(--shadow-strength)))] md:left-auto md:w-80 md:grid md:grid-cols-[2.25rem_1fr_2rem] md:items-start md:gap-x-3 md:gap-y-2.5 md:p-3"
     >
       <span
         aria-hidden

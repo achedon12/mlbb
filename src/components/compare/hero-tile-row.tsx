@@ -54,7 +54,7 @@ export function DuelTile({ href, a, b, label }: { href: string; a: string; b: st
       aria-label={label}
       className="eclat-under group relative block transition-[translate] duration-200 hover:-translate-y-0.5"
     >
-      <span aria-hidden className="bevel relative flex aspect-[4/3] overflow-hidden sm:aspect-[16/8] bg-night-950">
+      <span aria-hidden className="scheme-dark bevel relative flex aspect-[4/3] overflow-hidden sm:aspect-[16/8] bg-night-950">
         {sides.map((s, i) => (
           <span
             key={s.slug}
@@ -77,7 +77,7 @@ export function DuelTile({ href, a, b, label }: { href: string; a: string; b: st
             <span className="absolute inset-x-0 bottom-0 h-3/4 bg-linear-to-t from-night-950 via-night-950/70 to-transparent" />
             <span
               className={cn(
-                "display-caps absolute bottom-2.5 block max-w-[85%] truncate text-base text-chalk-100 transition-colors group-hover:text-gold-300 sm:text-2xl",
+                "display-caps absolute bottom-2.5 block max-w-[85%] truncate pr-[0.15em] text-base text-chalk-100 transition-colors group-hover:text-gold-300 sm:text-2xl",
                 i === 0 ? "left-2 sm:left-3" : "right-2 text-right sm:right-3",
               )}
             >
@@ -85,7 +85,7 @@ export function DuelTile({ href, a, b, label }: { href: string; a: string; b: st
             </span>
           </span>
         ))}
-        <span className="display-caps absolute left-1/2 top-[40%] -translate-x-1/2 -translate-y-1/2 text-xl text-gold-400 sm:text-2xl drop-shadow-[0_3px_8px_rgb(0_0_0/0.9)]">
+        <span className="display-caps absolute left-1/2 top-[40%] -translate-x-1/2 -translate-y-1/2 text-xl text-gold-400 sm:text-2xl drop-shadow-[0_3px_8px_rgb(0_0_0/calc(0.9*var(--shadow-strength)))]">
           VS
         </span>
       </span>
