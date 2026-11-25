@@ -139,7 +139,7 @@ export function SkinGallery({
                   return (
                     <section key={g.slug} aria-labelledby={`skins-${g.slug}`} className={n === 0 ? ENTRANCE : undefined}>
                       {/* The hero's banner: their artwork, the name over it, the way to the full gallery. */}
-                      <div className="bevel relative isolate flex min-h-[7.5rem] items-end overflow-hidden bg-night-900 sm:min-h-[10rem]">
+                      <div className="scheme-dark bevel relative isolate flex min-h-[7.5rem] items-end overflow-hidden bg-night-900 sm:min-h-[10rem]">
                         {art && (
                           <Image
                             src={art}

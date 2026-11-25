@@ -54,7 +54,7 @@ export function DuelTile({ href, a, b, label }: { href: string; a: string; b: st
       aria-label={label}
       className="eclat-under group relative block transition-[translate] duration-200 hover:-translate-y-0.5"
     >
-      <span aria-hidden className="bevel relative flex aspect-[4/3] overflow-hidden sm:aspect-[16/8] bg-night-950">
+      <span aria-hidden className="scheme-dark bevel relative flex aspect-[4/3] overflow-hidden sm:aspect-[16/8] bg-night-950">
         {sides.map((s, i) => (
           <span
             key={s.slug}
@@ -85,7 +85,7 @@ export function DuelTile({ href, a, b, label }: { href: string; a: string; b: st
             </span>
           </span>
         ))}
-        <span className="display-caps absolute left-1/2 top-[40%] -translate-x-1/2 -translate-y-1/2 text-xl text-gold-400 sm:text-2xl drop-shadow-[0_3px_8px_rgb(0_0_0/0.9)]">
+        <span className="display-caps absolute left-1/2 top-[40%] -translate-x-1/2 -translate-y-1/2 text-xl text-gold-400 sm:text-2xl drop-shadow-[0_3px_8px_rgb(0_0_0/calc(0.9*var(--shadow-strength)))]">
           VS
         </span>
       </span>

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useT } from "@/i18n/provider";
 import { rarity, presentRarities } from "@/lib/rarities";
 import { CURRENCIES, type SkinFull } from "@/lib/skins";
+import { inkStyle } from "@/lib/theme";
 
 /**
  * Skin showcase.
@@ -156,7 +157,7 @@ export function SkinShowcase({ skins }: { skins: SkinFull[] }) {
         info sits on top. Choosing a skin changes that background — the whole
         showcase on one surface, with no detached image.
       */}
-      <div className="bevel relative mt-5 overflow-hidden border border-night-700/70">
+      <div className="scheme-dark bevel relative mt-5 overflow-hidden border border-night-700/70">
         {active.illustration ? (
           <Image
             key={active.id}
@@ -197,8 +198,8 @@ export function SkinShowcase({ skins }: { skins: SkinFull[] }) {
             </h3>
             {active.rarity && (
               <p
-                className="mt-1.5 text-sm font-semibold uppercase tracking-wide"
-                style={{ color: rarity(active.rarity).color }}
+                className="ink mt-1.5 text-sm font-semibold uppercase tracking-wide"
+                style={inkStyle(rarity(active.rarity).color)}
               >
                 {tr("skinRarity", rarity(active.rarity).key)}
               </p>

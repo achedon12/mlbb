@@ -32,6 +32,7 @@ import type { Role } from "@/lib/types";
 import { trackShare } from "@/lib/analytics";
 import { pageHref, paging, pathWithoutPage, slicePage, SIZE_CARDS } from "@/lib/pager";
 import { keySearch, cn } from "@/lib/utils";
+import { inkStyle } from "@/lib/theme";
 
 type View = "all" | "owned" | "missing";
 const VIEWS: View[] = ["all", "owned", "missing"];
@@ -562,7 +563,7 @@ export function CollectionCalculator({ page: pageServer = 1 }: { page?: number }
                               </span>
                               <span className="block bg-night-900 px-1.5 py-1 text-[0.65rem] leading-tight">
                                 <span className="block truncate text-chalk-100">{s.name}</span>
-                                <span className="block truncate" style={{ color: r.color }}>
+                                <span className="ink block truncate" style={inkStyle(r.color)}>
                                   {labelRarity(t, s.rarity)}
                                 </span>
                                 <span className="block truncate text-chalk-500">
@@ -619,7 +620,7 @@ export function CollectionCalculator({ page: pageServer = 1 }: { page?: number }
                 <tbody className="divide-y divide-night-800">
                   {summary.byRarity.map((r) => (
                     <tr key={r.rank}>
-                      <th scope="row" className="py-2 text-left font-normal" style={{ color: rarityOfRank(r.rank).color }}>
+                      <th scope="row" className="ink py-2 text-left font-normal" style={inkStyle(rarityOfRank(r.rank).color)}>
                         {labelRarity(t, r.rank)}
                       </th>
                       <td className="py-2 text-right tabular-nums text-chalk-200">

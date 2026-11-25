@@ -34,7 +34,7 @@ export function EditorialPoster({
   className?: string;
 }) {
   return (
-    <section className={cn("relative isolate overflow-hidden", className)}>
+    <section className={cn("relative isolate overflow-hidden", art && "scheme-dark bg-night-950", className)}>
       {art && (
         <div aria-hidden className="absolute inset-x-0 top-0 -z-10 h-[24rem] sm:h-[30rem] lg:inset-y-0 lg:left-[26%] lg:h-auto">
           <Image

@@ -18,7 +18,7 @@ import { cn } from "@/lib/utils";
 
 /** A select or text field: 16 px text (no zoom on phones), 44 px tall. */
 export const FIELD =
-  "bevel-sm min-h-11 w-full border border-night-600 bg-night-850 px-3 py-2 text-base text-chalk-100 transition-colors hover:border-night-600 focus-visible:border-gold-400 disabled:cursor-not-allowed disabled:opacity-60 [color-scheme:dark]";
+  "bevel-sm min-h-11 w-full border border-night-600 bg-night-850 px-3 py-2 text-base text-chalk-100 transition-colors hover:border-night-600 focus-visible:border-gold-400 disabled:cursor-not-allowed disabled:opacity-60";
 export const LABEL = "block text-sm font-semibold text-chalk-200";
 export const HELP = "text-sm leading-relaxed text-chalk-400";
 export const BUTTON =
@@ -163,7 +163,7 @@ export function Toasts({ toasts, dismiss }: { toasts: Toast[]; dismiss: (id: num
         <div
           key={toast.id}
           className={cn(
-            "brand-flash pointer-events-auto w-full max-w-sm items-start gap-3 p-2.5 pr-3 drop-shadow-[0_8px_18px_rgb(0_0_0/0.55)]",
+            "brand-flash pointer-events-auto w-full max-w-sm items-start gap-3 p-2.5 pr-3 drop-shadow-[0_8px_18px_rgb(0_0_0/calc(0.55*var(--shadow-strength)))]",
             toast.kind === "error" && "brand-flash-error",
           )}
         >

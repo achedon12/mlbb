@@ -18,6 +18,7 @@ import { metaLocales, OG_LOCALE, shareImage } from "@/i18n/seo";
 import { site } from "@/lib/site";
 import { allHeroes } from "@/lib/data";
 import { PRERENDERED_LOCALES } from "@/lib/prerender";
+import { THEME_SCRIPT } from "@/lib/theme";
 
 /**
  * Self-hosted fonts: `next/font` downloads them at build time and serves them
@@ -186,8 +187,12 @@ export default async function LocaleLayout({
   const t = createT(locale);
 
   return (
-    <html lang={LOCALE_HTML[locale] ?? LOCALE_HTML[DEFAULT_LOCALE]} className={FONTS}>
+    // `data-theme` is written by THEME_SCRIPT before React hydrates: the
+    // attribute the server did not render is expected.
+    <html lang={LOCALE_HTML[locale] ?? LOCALE_HTML[DEFAULT_LOCALE]} className={FONTS} suppressHydrationWarning>
       <body className="flex min-h-screen flex-col">
+        {/* First in the body, before anything is painted: a theme forced in the footer, without a flash. */}
+        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
         <LocaleProvider locale={locale} messages={messagesClient(locale)}>
           <a
             href="#content"

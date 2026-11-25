@@ -380,7 +380,7 @@ export function NicknameGenerator() {
         {toast && (
           <p
             data-bottom-ui
-            className={cn("max-w-full font-medium drop-shadow-[0_8px_18px_rgb(0_0_0/0.55)]", toast.invite && "pointer-events-auto")}
+            className={cn("max-w-full font-medium drop-shadow-[0_8px_18px_rgb(0_0_0/calc(0.55*var(--shadow-strength)))]", toast.invite && "pointer-events-auto")}
           >
             <Flash tone={toast.failed ? "error" : "ok"} className="py-1.5 pr-4">
               <span className="break-all">{toast.text}</span>
@@ -391,7 +391,7 @@ export function NicknameGenerator() {
                     href={toast.invite}
                     placement="Toast"
                     context="nickname"
-                    className="whitespace-nowrap font-semibold text-blurple-400 underline underline-offset-4 hover:text-white"
+                    className="whitespace-nowrap font-semibold text-blurple-400 underline underline-offset-4 hover:text-azure-300"
                   >
                     {t("pages.nicknameUI.copiedDiscord")}
                   </DiscordJoinLink>

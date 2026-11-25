@@ -87,7 +87,7 @@ export default async function GameModesPage({ params }: { params: Promise<{ loca
                         fill
                         priority={lead}
                         sizes={lead ? "(min-width: 640px) 45vw, 60vw" : "(min-width: 1024px) 25vw, 55vw"}
-                        className="object-contain object-right-bottom drop-shadow-[0_18px_30px_rgb(0_0_0/0.6)]"
+                        className="object-contain object-right-bottom drop-shadow-[0_18px_30px_rgb(0_0_0/calc(0.6*var(--shadow-strength)))]"
                       />
                     </span>
                   )}

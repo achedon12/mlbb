@@ -70,7 +70,7 @@ export default async function GuidePage({ params }: Params) {
         foot where the title sits. The frame has its height before the image
         arrives: nothing moves.
       */}
-      <section aria-labelledby="guide-title" className="relative isolate overflow-hidden">
+      <section aria-labelledby="guide-title" className="scheme-dark relative isolate overflow-hidden bg-night-950">
         <div aria-hidden className="relative h-[19rem] sm:h-[26rem] lg:h-[32rem]">
           {art && (
             <Image src={art} alt="" fill priority fetchPriority="high" sizes="100vw" className="affiche-art object-cover object-[60%_24%]" />

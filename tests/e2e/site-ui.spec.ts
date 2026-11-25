@@ -228,6 +228,34 @@ test.describe("footer", () => {
   });
 });
 
+test.describe("theme", () => {
+  test("follows the system, both bar colours declared", async ({ page }) => {
+    await page.emulateMedia({ colorScheme: "light" });
+    await page.goto("/fr");
+    await expect(page.locator("html")).not.toHaveAttribute("data-theme", /.+/);
+    await expect(page.getByRole("radio", { name: "Auto" })).toBeChecked();
+    await expect(page.locator('meta[name="theme-color"][media*="light"]')).toHaveAttribute("content", "#f4f1ea");
+    await expect(page.locator('meta[name="theme-color"][media*="dark"]')).toHaveAttribute("content", "#06080f");
+    // The ground of the light theme, from CSS alone.
+    expect(await page.evaluate(() => getComputedStyle(document.body).backgroundColor)).toBe("rgb(244, 241, 234)");
+  });
+
+  test("a forced theme is kept and applied before the first paint", async ({ page }) => {
+    await page.emulateMedia({ colorScheme: "light" });
+    await page.goto("/fr");
+    await page.getByRole("contentinfo").getByText("Sombre", { exact: true }).click();
+    await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+    await page.reload();
+    await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+    await expect(page.getByRole("radio", { name: "Sombre" })).toBeChecked();
+    await expect(page.locator('meta[name="theme-color"]').first()).toHaveAttribute("content", "#06080f");
+    expect(await page.evaluate(() => getComputedStyle(document.body).backgroundColor)).toBe("rgb(6, 8, 15)");
+    // Back to the system's.
+    await page.getByRole("contentinfo").getByText("Auto", { exact: true }).click();
+    await expect(page.locator("html")).not.toHaveAttribute("data-theme", /.+/);
+  });
+});
+
 test.describe("brand pages", () => {
   test("the Dex page tells his story and shows his twelve poses", async ({ page }) => {
     await page.goto("/fr/dex");

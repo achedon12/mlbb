@@ -5,6 +5,7 @@ import { ProvisionalBadge } from "@/components/provisional-badge";
 import { MissingSkinArt, type PropsCardSkin } from "@/components/skin-card";
 import { heroesBySlug } from "@/lib/data";
 import type { EventSkin } from "@/lib/events";
+import { inkStyle } from "@/lib/theme";
 
 /** The skin's full artwork, when the catalogue holds one under its name: never a provisional one. */
 export const eventArt = (s: EventSkin) => skinArt(s.hero, s.name);
@@ -55,7 +56,7 @@ export function FeatureSkin({
     >
       <span className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
         {card.rarity && (
-          <span className="bevel-sm bg-night-950/85 px-1.5 py-0.5 font-semibold" style={{ color: card.color }}>
+          <span className="ink bevel-sm bg-night-950/85 px-1.5 py-0.5 font-semibold" style={inkStyle(card.color)}>
             {card.rarity}
           </span>
         )}

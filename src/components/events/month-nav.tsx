@@ -30,7 +30,7 @@ export function MonthNav({
       rel={dir}
       className="eclat-under group relative block min-w-0 transition-[translate] duration-200 hover:-translate-y-0.5"
     >
-      <span className="bevel relative flex h-24 items-center overflow-hidden bg-night-800 px-4 sm:h-28 sm:px-6">
+      <span className="scheme-dark bevel relative flex h-24 items-center overflow-hidden bg-night-800 px-4 sm:h-28 sm:px-6">
         {n.art && (
           <Image
             src={n.art}

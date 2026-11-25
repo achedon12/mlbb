@@ -48,7 +48,7 @@ export default async function SpellsPage({ params }: { params: Promise<{ locale:
               <li key={s.slug} className={cn(i === 0 && "col-span-2 row-span-2 sm:col-span-1 sm:row-span-1")}>
                 <Link
                   href={`/spells/${s.slug}`}
-                  className={cn("bevel-lg group relative isolate flex aspect-[4/5] h-full flex-col overflow-hidden bg-night-900 p-4 sm:p-5", motion.lift, i === 0 && "max-sm:aspect-[5/4]")}
+                  className={cn("bevel-lg group relative isolate flex aspect-[4/5] h-full flex-col overflow-hidden bg-night-900 p-4 sm:p-5", art && "scheme-dark", motion.lift, i === 0 && "max-sm:aspect-[5/4]")}
                 >
                   {/* The hero who takes the spell the most, in the background. */}
                   {art && (
@@ -61,7 +61,7 @@ export default async function SpellsPage({ params }: { params: Promise<{ locale:
                   <span className="flex items-start justify-between gap-2">
                     <span className={cn("relative size-16 sm:size-20", motion.zoom)}>
                       {s.image ? (
-                        <Image src={s.image} alt="" width={80} height={80} className="size-full object-contain drop-shadow-[0_8px_14px_rgb(0_0_0/0.6)]" />
+                        <Image src={s.image} alt="" width={80} height={80} className="size-full object-contain drop-shadow-[0_8px_14px_rgb(0_0_0/calc(0.6*var(--shadow-strength)))]" />
                       ) : (
                         <span className="display-caps grid size-full place-items-center bg-night-800 text-2xl text-chalk-500">{name.charAt(0)}</span>
                       )}
