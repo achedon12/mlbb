@@ -5621,7 +5621,8 @@
   },
   "featured": {
     "seeSheet": "Открыть профиль",
-    "topMeta": "№1 в мета"
+    "topMeta": "№1 в мета",
+    "topMetaHint": "рейтинг по победам и банам"
   },
   "access": {
     "account": "Героев: {n}"

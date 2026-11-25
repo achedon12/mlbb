@@ -231,6 +231,8 @@ export function HomeHero({ locale }: { locale: Locale }) {
               <Link href={`/heroes/${featured.hero.slug}`} className="group block w-fit max-w-full">
                 <span className="block font-heading text-base font-bold uppercase text-gold-400">
                   {t("featured.topMeta")}
+                  {/* What "n°1" means: the tier list's score counts bans as well as wins. */}
+                  <span className="font-sans text-sm font-normal normal-case text-chalk-400"> · {t("featured.topMetaHint")}</span>
                 </span>
                 <span className="affiche-name type-giant mt-1 block break-words text-chalk-100 transition-colors group-hover:text-gold-300">
                   {featured.hero.name}
@@ -240,7 +242,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
                 )}
               </Link>
               {ranked && (
-                <div className="mt-4 flex items-end gap-4 sm:mt-6 sm:gap-5">
+                <div className="mt-4 flex flex-wrap items-end gap-x-4 gap-y-3 sm:mt-6 sm:gap-x-5">
                   <BadgeTier tier={ranked.tier} size="lg" />
                   <p className="min-w-0">
                     <span aria-hidden>
@@ -254,8 +256,24 @@ export function HomeHero({ locale }: { locale: Locale }) {
                       </span>
                     </span>
                     <span className="sr-only">
-                      {t("home.winRate", { value: percentage(locale, ranked.winRate) })}, {featured.hero.roles.map((r) => t(`roles.${r}`)).join(", ")}
+                      {t("home.winRate", { value: percentage(locale, ranked.winRate) })},{" "}
+                      {t("pages.heroDetail.stat.banRate")} {percentage(locale, ranked.banRate)},{" "}
+                      {featured.hero.roles.map((r) => t(`roles.${r}`)).join(", ")}
                     </span>
+                  </p>
+                  {/*
+                    The ban rate beside the win rate, outlined as on the tier
+                    list poster: a leader is often ranked first for being
+                    feared, with a win rate close to 50 %.
+                  */}
+                  <p aria-hidden className="min-w-0 pb-6">
+                    <Score
+                      outline
+                      value={<CountUp value={ranked.banRate} decimals={1} locale={lang} />}
+                      unit="%"
+                      className="text-[clamp(2.25rem,1.5rem+2.4vw,3.5rem)]"
+                    />
+                    <span className="mt-1.5 block text-sm text-chalk-400">{t("pages.heroDetail.stat.banRate")}</span>
                   </p>
                   <Link
                     href={`/heroes/${featured.hero.slug}`}

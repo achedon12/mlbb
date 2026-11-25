@@ -5621,7 +5621,8 @@
   },
   "featured": {
     "seeSheet": "View profile",
-    "topMeta": "No. 1 in the meta"
+    "topMeta": "No. 1 in the meta",
+    "topMetaHint": "ranked on wins + bans"
   },
   "access": {
     "account": "{n} heroes"

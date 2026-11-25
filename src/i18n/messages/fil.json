@@ -5621,7 +5621,8 @@
   },
   "featured": {
     "seeSheet": "Tingnan ang profile",
-    "topMeta": "#1 sa meta"
+    "topMeta": "#1 sa meta",
+    "topMetaHint": "ranggo ayon sa panalo + ban"
   },
   "access": {
     "account": "{n} hero"

@@ -5621,7 +5621,8 @@
   },
   "featured": {
     "seeSheet": "Ver su ficha",
-    "topMeta": "#1 en el meta"
+    "topMeta": "#1 en el meta",
+    "topMetaHint": "clasificación por victorias + bans"
   },
   "access": {
     "account": "{n} héroes"

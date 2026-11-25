@@ -5621,7 +5621,8 @@
   },
   "featured": {
     "seeSheet": "Lihat filenya",
-    "topMeta": "#1 di meta"
+    "topMeta": "#1 di meta",
+    "topMetaHint": "peringkat menang + ban"
   },
   "access": {
     "account": "{n} hero"
