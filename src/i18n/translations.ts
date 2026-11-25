@@ -33,7 +33,7 @@ export type { Tree, T };
  * argument (`tr("skinRarity", …)`), must stay out of this list.
  */
 const SERVER_ONLY = [
-  "modeSheet", "story", "home", "featured", "access", "prose", "newHero", "articleUI", "articleCategory",
+  "modeSheet", "story", "home", "access", "prose", "newHero", "articleUI", "articleCategory",
   "heroData", "pushNotif", "why", "editorial", "shareCard",
 ];
 

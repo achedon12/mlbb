@@ -1392,10 +1392,10 @@ body {
 }
 /* ══ end of the patch recap ══════════════════════════════════════════════════ */
 
-/* ══ Brand stage: motion tokens, figures, the home poster's stage and the scroll reveal ══
+/* ══ Brand stage: motion tokens, figures and the posters' stage ══
  * (docs/design-system.md, "Motion" and "Brand stage"). Kept in one section: the
- * tokens first, then the figures' face, then the stage (glow, art, embers,
- * Dex), then the reveal. Everything rests under prefers-reduced-motion.
+ * tokens first, then the figures' face, then the stage (glow, Dex).
+ * Everything rests under prefers-reduced-motion.
  */
 
 /* Easing curves, as Tailwind tokens (`ease-brand-out`…) and plain variables. */
@@ -1439,39 +1439,6 @@ body {
   }
 }
 
-/* A counting figure (count-up.tsx): hidden until its script counts it; shown by the CSS alone if the script is late. */
-@keyframes count-up-fallback { to { opacity: 1; } }
-@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
-  .count-up:not([data-counted]) { opacity: 0; animation: count-up-fallback 0s 2.5s forwards; }
-  .count-up[data-armed]:not([data-counted]) { animation: none; }
-}
-
-/*
- * The home poster's stage (home-stage.tsx). Each layer moves by `translate`
- * (so it never fights a layer's own animation, which uses `transform`), by
- * its depth times the pointer's place (`--stage-x`, `--stage-y`, −1 to 1).
- */
-.brand-stage { --stage-x: 0; --stage-y: 0; }
-.brand-stage :is(.stage-art, .stage-glow, .stage-embers, .stage-dex, .affiche-name) {
-  transition: translate 0.7s var(--ease-brand-out);
-}
-.stage-art {
-  position: absolute;
-  inset: -1.25rem;
-  translate: calc(var(--stage-x) * -14px) calc(var(--stage-y) * -9px);
-}
-/* A soft light over the art, drifting opposite to it. */
-.stage-art::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(45% 40% at calc(70% + var(--stage-x) * 6%) calc(18% + var(--stage-y) * 6%), rgb(255 216 122 / 0.16), transparent 70%);
-  mix-blend-mode: screen;
-}
-.brand-stage .affiche-name { translate: calc(var(--stage-x) * 8px) calc(var(--stage-y) * 4px); }
-.brand-stage .stage-dex { translate: calc(var(--stage-x) * 10px) calc(var(--stage-y) * 6px); }
-
 /* The glow: gold and ally blue, behind the whole poster, drifting slowly. */
 .stage-glow {
   position: absolute;
@@ -1479,7 +1446,6 @@ body {
   z-index: -1;
   overflow: hidden;
   pointer-events: none;
-  translate: calc(var(--stage-x) * 12px) calc(var(--stage-y) * 10px);
 }
 .stage-glow::before {
   content: "";
@@ -1496,35 +1462,6 @@ body {
   100% { transform: translate3d(-1%, 2%, 0) scale(1.02); }
 }
 
-/* Embers: small diamonds (the bevel's angle) rising from the foot of the art. */
-.stage-embers {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  translate: calc(var(--stage-x) * 22px) calc(var(--stage-y) * 12px);
-}
-.stage-embers i {
-  position: absolute;
-  bottom: -0.5rem;
-  width: var(--ember-size, 3px);
-  height: var(--ember-size, 3px);
-  background: var(--color-gold-300);
-  box-shadow: 0 0 6px 1px rgb(245 196 81 / 0.5);
-  opacity: 0;
-  transform: rotate(45deg);
-}
-.stage-embers i.is-azure {
-  background: var(--color-azure-300);
-  box-shadow: 0 0 6px 1px rgb(61 139 255 / 0.5);
-}
-@keyframes stage-ember {
-  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(45deg) scale(1); }
-  12% { opacity: 0.9; }
-  65% { opacity: 0.55; }
-  100% { opacity: 0; transform: translate3d(var(--ember-drift, 0), -24rem, 0) rotate(225deg) scale(0.4); }
-}
-
 /* The blade under the title sweeps in once, after the name. */
 @keyframes stage-blade { from { transform: scaleX(0); } to { transform: none; } }
 
@@ -1536,52 +1473,6 @@ body {
 
 @media (prefers-reduced-motion: no-preference) {
   .stage-glow::before { animation: stage-glow 22s var(--ease-brand-in-out) infinite alternate; }
-  .stage-embers i { animation: stage-ember var(--ember-duration, 9s) linear var(--ember-delay, 0s) infinite; }
   .stage-blade { transform-origin: left; animation: stage-blade var(--duration-slow) var(--ease-brand-out) 0.3s both; }
-}
-@media (prefers-reduced-motion: reduce) {
-  /* Still embers would be specks of dust: they leave. The glow stays, still. */
-  .stage-embers { display: none; }
-  .brand-stage { --stage-x: 0 !important; --stage-y: 0 !important; }
-}
-
-/*
- * Scroll reveal (reveal.tsx): once the group is armed, each `[data-reveal]`
- * block below the fold waits, then comes in the first time it nears the
- * screen: it rises and fades in, its title arrives on the slant, its blade
- * sweeps, its hero tiles follow one by one. A divider only sweeps its blade.
- */
-.reveal-armed [data-reveal]:not(.eclat-rule) {
-  opacity: 0;
-  transform: translate3d(0, 1.75rem, 0);
-  transition: opacity var(--duration-slow) var(--ease-brand-out), transform var(--duration-slow) var(--ease-brand-out);
-}
-.reveal-armed [data-reveal][data-revealed]:not(.eclat-rule) { opacity: 1; transform: none; }
-.reveal-armed [data-reveal] .type-section {
-  transform: translateX(-0.3em) skewX(-9deg);
-  transition: transform 0.6s var(--ease-brand-out) 0.08s;
-}
-.reveal-armed [data-reveal] .eclat {
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.55s var(--ease-brand-out) 0.22s;
-}
-.reveal-armed [data-reveal] .hero-tile {
-  opacity: 0;
-  transform: translate3d(0, 0.75rem, 0) scale(0.97);
-  transition:
-    opacity 0.5s var(--ease-brand-out) calc(0.2s + var(--reveal-i, 0) * 45ms),
-    transform 0.5s var(--ease-brand-out) calc(0.2s + var(--reveal-i, 0) * 45ms),
-    translate 0.2s ease-out;
-}
-.reveal-armed [data-reveal][data-revealed] :is(.type-section, .eclat, .hero-tile) { opacity: 1; transform: none; }
-.reveal-armed .eclat-rule[data-reveal]::before {
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.8s var(--ease-brand-out);
-}
-.reveal-armed .eclat-rule[data-reveal][data-revealed]::before { transform: none; }
-@media print {
-  .reveal-armed [data-reveal], .reveal-armed [data-reveal] * { opacity: 1 !important; transform: none !important; }
 }
 /* ══ end of the brand stage ══════════════════════════════════════════════════ */

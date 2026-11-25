@@ -308,7 +308,8 @@
       "label": "Tema",
       "auto": "Auto",
       "light": "Claro",
-      "dark": "Oscuro"
+      "dark": "Oscuro",
+      "cycle": "Tema: {current}. Cambiar a {next}"
     }
   },
   "language": {
@@ -5511,7 +5512,6 @@
   },
   "home": {
     "title": "Mobile Legends: tier list, builds y counters del parche {version}",
-    "tagline": "Meta, builds y counters de los {heroes} héroes, medidos cada día en partidas clasificatorias.",
     "search": {
       "label": "Buscar un héroe",
       "placeholder": "Ling, Khufra, Layla…",
@@ -5525,7 +5525,6 @@
       "title": "Ahora mismo en el juego",
       "patch": "Parche actual",
       "patchSince": "Parche actual desde el {date}",
-      "rates": "Tasas medidas el",
       "esportsLive": "Torneo en curso",
       "esportsNext": "Próximo torneo, el {date}",
       "starlight": "StarLight de {month}",
@@ -5539,7 +5538,6 @@
       "tierCount": "tier {tier}: {n} héroes",
       "top5": "Top 5 del parche",
       "topLabel": "N.º {rank}, tier {tier}: {win} de victorias, {ban} de baneos",
-      "tiers": "Todos los tiers",
       "win": "Mejor tasa de victoria",
       "ban": "Los más baneados",
       "pick": "Los más jugados",
@@ -5555,10 +5553,10 @@
         "banRate": "Tasa de baneo",
         "pickRate": "Tasa de selección"
       },
-      "moversAll": "Todos los movimientos de la semana"
+      "moversAll": "Todos los movimientos de la semana",
+      "rules": "domina el parche {version}"
     },
     "patch": {
-      "title": "Lo que cambió el parche {version}",
       "lead": "{n} héroes modificados el {date}, con la variación medida desde entonces en su tasa de victoria.",
       "leadUndated": "{n} héroes modificados, ordenados según el sentido del cambio.",
       "newHero": "Nuevo héroe: {name}",
@@ -5566,43 +5564,38 @@
       "impact": "tasa de victoria {gap} puntos tras el parche",
       "impactNote": "Diferencia en puntos entre la tasa de victoria media de los {n} días anteriores al parche y la de los {n} días posteriores, todos los rangos juntos. En gris, una diferencia demasiado pequeña para contar.",
       "metaReport": "Informe del meta del parche",
-      "testing": "En prueba en el Servidor Advance: {version}"
+      "testing": "En prueba en el Servidor Advance: {version}",
+      "word": "Parche"
     },
     "live": {
       "title": "Este mes en el juego",
-      "lead": "Los aspectos del mes, los anunciados y los torneos en curso.",
       "skinsOf": "Aspectos de {month}",
       "allEvents": "Todos los eventos",
-      "starlight": "Aspecto StarLight",
       "collector": "Aspecto Collector",
       "skinAlt": "{skin}, aspecto de {hero}",
       "announced": "Anunciado para {month}",
-      "announcedCount": "{n} aspectos anunciados",
       "esports": "Esports",
       "allEsports": "Todos los torneos",
       "proPicked": "Los más elegidos en pro",
       "proBanned": "Los más baneados en pro",
       "proNote": "Sobre las últimas {games} partidas profesionales registradas."
     },
-    "toolsTitle": "Herramientas",
+    "toolsTitle": "Prepara tu partida",
     "toolsLead": "Preparar un draft, probar una build, entrenar.",
     "daily": {
       "title": "Los juegos del día",
       "lead": "Una partida nueva cada día, la misma para todos los jugadores."
     },
     "startTitle": "Por dónde empezar",
-    "startLead": "Elige tu papel para ver a los héroes que lo interpretan.",
     "latestArticles": "Últimos artículos",
     "allNews": "Todas las noticias",
     "followRss": "Seguir las publicaciones por RSS",
     "community": {
-      "title": "La comunidad",
       "buildsText": "Las builds publicadas por los jugadores, ordenadas por sus votos.",
       "contributeText": "Escribir el análisis de un héroe, corregir un dato, proponer una idea."
     },
     "fullTierList": "Tier list completa",
     "readNotes": "Leer las notas",
-    "winPercent": "% de victorias",
     "trends": {
       "title": "Tendencias de la semana",
       "lead": "Variación de la tasa de victoria en siete días, todos los rangos. Las diferencias de menos de {threshold} puntos, demasiado cercanas al redondeo, no se tienen en cuenta.",
@@ -5613,18 +5606,8 @@
       "open": "Mostrar los {n} héroes que más se mueven"
     },
     "syncLead": "Última sincronización el {date}.",
-    "figures": {
-      "title": "MLBBDex en números",
-      "heroes": "héroes",
-      "changed": "retocados en el parche",
-      "splus": "en el tier S+",
-      "items": "objetos"
-    }
-  },
-  "featured": {
-    "seeSheet": "Ver su ficha",
-    "topMeta": "#1 en el meta",
-    "topMetaHint": "clasificación por victorias + bans"
+    "fact": "Parche {version} · {n} héroes medidos el {date}",
+    "artCaption": "Ilustración: {skin}"
   },
   "access": {
     "account": "{n} héroes"
@@ -7062,20 +7045,15 @@
   },
   "why": {
     "title": "¿Por qué MLBBDex?",
-    "lead": "Lo que el sitio mide, guarda y calcula por sí mismo, con la página donde consultarlo.",
-    "figure": "días de estadísticas guardadas por el sitio, desde el {date}",
     "daily": {
       "link": "Estadística"
     },
     "history": {
       "link": "Historia de {hero}"
     },
-    "proof": {
-      "measured": "héroes medidos cada día en partidas clasificatorias",
-      "languages": "idiomas: escrito en francés, traducido a los otros {others}",
-      "free": "Gratis",
-      "freeText": "Sin publicidad ni suscripción, financiado por su autor."
-    }
+    "manifesto": "{days} días de tasas guardadas, {heroes} héroes medidos cada día, {languages} idiomas, gratis y sin publicidad.",
+    "manifestoShort": "{heroes} héroes medidos cada día, {languages} idiomas, gratis y sin publicidad.",
+    "since": "Tasas guardadas desde el {date}."
   },
   "shareImage": {
     "button": "Compartir en imagen",

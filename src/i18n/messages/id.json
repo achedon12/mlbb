@@ -308,7 +308,8 @@
       "label": "Tema",
       "auto": "Otomatis",
       "light": "Terang",
-      "dark": "Gelap"
+      "dark": "Gelap",
+      "cycle": "Tema: {current}. Ganti ke {next}"
     }
   },
   "language": {
@@ -5511,7 +5512,6 @@
   },
   "home": {
     "title": "Mobile Legends: tier list, build, dan counter patch {version}",
-    "tagline": "Meta, build, dan counter untuk {heroes} hero, diukur setiap hari di pertandingan ranked.",
     "search": {
       "label": "Cari hero",
       "placeholder": "Ling, Khufra, Layla…",
@@ -5525,7 +5525,6 @@
       "title": "Saat ini di dalam game",
       "patch": "Patch aktif",
       "patchSince": "Patch aktif sejak {date}",
-      "rates": "Rate diukur pada",
       "esportsLive": "Turnamen berlangsung",
       "esportsNext": "Turnamen berikutnya, {date}",
       "starlight": "StarLight {month}",
@@ -5539,7 +5538,6 @@
       "tierCount": "tier {tier}: {n} hero",
       "top5": "Top 5 patch",
       "topLabel": "No. {rank}, tier {tier}: win rate {win}, ban rate {ban}",
-      "tiers": "Semua tier",
       "win": "Win rate tertinggi",
       "ban": "Paling sering di-ban",
       "pick": "Paling sering dimainkan",
@@ -5555,10 +5553,10 @@
         "banRate": "Ban rate",
         "pickRate": "Pick rate"
       },
-      "moversAll": "Semua perubahan minggu ini"
+      "moversAll": "Semua perubahan minggu ini",
+      "rules": "menguasai patch {version}"
     },
     "patch": {
-      "title": "Yang diubah patch {version}",
       "lead": "{n} hero diubah pada {date}, dengan selisih win rate yang terukur sejak itu.",
       "leadUndated": "{n} hero diubah, diurutkan menurut arah perubahannya.",
       "newHero": "Hero baru: {name}",
@@ -5566,43 +5564,38 @@
       "impact": "win rate {gap} poin setelah patch",
       "impactNote": "Selisih poin antara win rate rata-rata {n} hari sebelum patch dan {n} hari sesudahnya, semua rank digabung. Abu-abu: selisih terlalu kecil untuk dihitung.",
       "metaReport": "Laporan meta patch",
-      "testing": "Sedang diuji di Advance Server: {version}"
+      "testing": "Sedang diuji di Advance Server: {version}",
+      "word": "Patch"
     },
     "live": {
       "title": "Bulan ini di dalam game",
-      "lead": "Skin bulan ini, skin yang sudah diumumkan, dan turnamen yang sedang berlangsung.",
       "skinsOf": "Skin {month}",
       "allEvents": "Semua event",
-      "starlight": "Skin StarLight",
       "collector": "Skin Collector",
       "skinAlt": "{skin}, skin {hero}",
       "announced": "Diumumkan untuk {month}",
-      "announcedCount": "{n} skin diumumkan",
       "esports": "Esports",
       "allEsports": "Semua turnamen",
       "proPicked": "Paling sering di-pick pro",
       "proBanned": "Paling sering di-ban pro",
       "proNote": "Dari {games} pertandingan pro terakhir yang tercatat."
     },
-    "toolsTitle": "Peralatan",
+    "toolsTitle": "Bersiap untuk pertandingan",
     "toolsLead": "Siapkan draft, uji build, berlatih.",
     "daily": {
       "title": "Game harian",
       "lead": "Ronde baru setiap hari, sama untuk semua pemain."
     },
     "startTitle": "Mulai dari mana",
-    "startLead": "Pilih peran Anda untuk melihat hero yang memainkannya.",
     "latestArticles": "Artikel terbaru",
     "allNews": "Semua berita",
     "followRss": "Ikuti publikasi di RSS",
     "community": {
-      "title": "Komunitas",
       "buildsText": "Build yang dibagikan pemain, diurutkan menurut vote.",
       "contributeText": "Tulis analisis hero, perbaiki data, usulkan ide."
     },
     "fullTierList": "Tier list lengkap",
     "readNotes": "Baca catatannya",
-    "winPercent": "% win rate",
     "trends": {
       "title": "Tren minggu ini",
       "lead": "Evolusi win rate selama tujuh hari, semua peringkat digabungkan. Penyimpangan kurang dari {threshold} poin, terlalu dekat dengan pembulatan, tidak dipertahankan.",
@@ -5613,18 +5606,8 @@
       "open": "Tampilkan {n} hero yang sedang bergerak"
     },
     "syncLead": "Sinkronisasi terakhir pada {date}.",
-    "figures": {
-      "title": "MLBBDex dalam angka",
-      "heroes": "hero",
-      "changed": "diubah di patch ini",
-      "splus": "di tier S+",
-      "items": "item"
-    }
-  },
-  "featured": {
-    "seeSheet": "Lihat filenya",
-    "topMeta": "#1 di meta",
-    "topMetaHint": "peringkat menang + ban"
+    "fact": "Patch {version} · {n} hero diukur pada {date}",
+    "artCaption": "Ilustrasi: {skin}"
   },
   "access": {
     "account": "{n} hero"
@@ -7062,20 +7045,15 @@
   },
   "why": {
     "title": "Mengapa MLBBdex",
-    "lead": "Apa yang diukur, disimpan, dan dihitung oleh situs itu sendiri, dengan halaman tempat memeriksanya.",
-    "figure": "hari statistik yang disimpan situs, sejak {date}",
     "daily": {
       "link": "Statistik"
     },
     "history": {
       "link": "Sejarah {hero}"
     },
-    "proof": {
-      "measured": "hero diukur setiap hari di pertandingan ranked",
-      "languages": "bahasa: ditulis dalam bahasa Prancis, diterjemahkan ke {others} bahasa lainnya",
-      "free": "Gratis",
-      "freeText": "Tanpa iklan dan langganan, didanai oleh pembuatnya."
-    }
+    "manifesto": "{days} hari data rate tersimpan, {heroes} hero diukur setiap hari, {languages} bahasa, gratis dan tanpa iklan.",
+    "manifestoShort": "{heroes} hero diukur setiap hari, {languages} bahasa, gratis dan tanpa iklan.",
+    "since": "Data rate tersimpan sejak {date}."
   },
   "shareImage": {
     "button": "Bagikan dalam gambar",

@@ -194,48 +194,41 @@ takes these, never a curve of its own.
 - The chapters of a patch recap (`/patch-notes/<version>/bilan`, `.recap-chapter`),
   a story page, rise into place as they enter the view, by CSS scroll-driven
   animation only.
-- **Scroll reveal** (`RevealGroup`, `reveal.tsx`): the blocks marked
-  `data-reveal` come in once, the first time they near the screen — the block
-  rises and fades in, its section title arrives on the slant, its blade
-  sweeps, its hero tiles follow one by one (45 ms apart); a divider
-  (`eclat-rule`) only sweeps its blade. Progressive: the server sends
-  everything visible, the group arms only once its script runs, and what is
-  already on screen is never hidden. Used on the home page; a page that adopts
-  it wraps its blocks the same way.
-- **Counting figures** (`CountUp`, `count-up.tsx`): a key figure counts up
-  to its value (1.1 s, ease-out) the first time it shows. The server writes
-  the final value; the CSS hides it until the script counts and shows it on
-  its own after 2.5 s if the script is late.
-- Everything stops under `prefers-reduced-motion`: no reveal, no count, no
-  parallax, no embers, no view transition; an infinite animation is switched off explicitly
+- Everything stops under `prefers-reduced-motion`: no parallax, no view
+  transition; an infinite animation is switched off explicitly
   (`animation: none`), never left to the global 0.01 ms rule.
 
-## Brand stage (home poster)
+## Home page (editorial)
 
-The home page opens on a stage, its "wow" moment; the hero pages have their
-own cinematic poster (above), no other page copies either.
+The home page reads like a game's own site or an esports magazine: the
+artwork and the type carry it, not boxes. One idea per screen, each with
+its own ground (the base night, the lighter `night-900` band, or a
+full-bleed artwork) and about a quarter of a screen of air around it.
 
-- **The art**: the official artwork of the meta's number one (the first
+- **The poster**: the official artwork of the meta's number one (the first
   reliably measured hero of the tier list with an artwork the site may show:
-  `illustrations`, filtered by `listed.ts`), `next/image` with `priority`.
-  It changes when the meta does, not with the calendar.
-- **Parallax** (`HomeStage`): on a fine pointer that can hover, the layers
-  shift by their depth against the pointer (`--stage-x`, `--stage-y`):
-  the art −14 px, the glow 12 px, the embers 22 px, the name 8 px, Dex 10 px.
-  They move by `translate`, so they never fight a layer's own `transform`
-  animation. Still on a phone and without JavaScript.
-- **Glow**: three soft radial gradients (gold, ally blue, dark gold) behind
-  the poster, drifting over 22 s, plus a soft gold light over the art
-  (`screen`). No `filter: blur`, no other colour.
-- **Embers**: fourteen small diamonds (the bevel's angle) rising from the foot
-  of the art, gold, two in ally blue; CSS only, fixed positions so the server
-  and the browser draw the same. Removed under reduced motion.
-- **Dex** presents the live patch in his bubble (`DexSays`, pose `salut`),
-  with the link to the notes; in the poster's top corner from `lg`, under the
-  buttons on a phone.
-- **Figures**: the site's four key counts under the search (heroes, heroes
-  changed by the patch, S+ heroes, items) and the number one's win rate,
-  counting up.
+  `illustrations`, filtered by `listed.ts`) fills the first screen edge to
+  edge, `next/image` with `priority`. Over it the H1 set large and tight, one
+  line of fact, the search and two ways in. It changes when the meta does.
+- **Nothing moves by itself**: no scroll reveal, no counting figures, no
+  parallax, no embers, no idle Dex. Only answers to the pointer: a linked
+  block lifts 2 px, an image zooms 1.02–1.03 in its frame, a button presses.
+- **At most two boxes deep and one card style**: the search field and the
+  buttons are the only bevelled surfaces. A list of heroes is a list (faces,
+  names, figures on the page, hairlines between rows); a figure is a number
+  on the page, never a tile; tools are names and one line, never a pictogram
+  in a coloured square.
+- **Compositions change from one section to the next**: a giant name and
+  its figure (meta), a giant version beside rows of faces (patch), a scene
+  with Dex (daily games), a full-bleed skin poster (the month), a typographic
+  menu (tools), one sentence set very large (why), an editorial list
+  (articles). The section title template (eyebrow, italic title, gold blade,
+  lead, link at the right) is not repeated there.
+- **Faces** (`home/face.tsx`): the game's round hero icon, with no frame,
+  for the lists of the home page only.
+- **A narrow skin portrait** (the shop's 240 × 390 image) holds a full-width
+  poster over a blurred, darkened copy of itself; a wide artwork fills it
+  directly.
 
 ## Composition
 
@@ -244,21 +237,21 @@ own cinematic poster (above), no other page copies either.
   and space.
 - Lists of heroes are rows of `HeroTile`, not grey tables. Tables stay for
   real data, airy, with condensed capital headers.
-- Never three equal list columns side by side: give lists different weights
-  (portrait row + short ranked lines, a wide column and a narrow one).
+- Never three equal list columns side by side, except the home page's three
+  short rankings (win, ban, pick), typographic columns split by hairlines.
 
 ## Ban list
 
 - Small spaced capital labels everywhere — one per screen at most, and only
   if it informs.
 - Captions under images.
-- Three equal columns of lists.
 - Frames around every section.
-- Gradient text, blurred halos, particles, glass (`backdrop-blur`), neon —
-  except the brand stage's glow and embers on the home poster, which stay
-  there, in the palette, and rest under reduced motion.
+- Gradient text, blurred halos, particles, glass (`backdrop-blur`), neon.
+  The poster glow of the account page stays, in the palette, and rests
+  under reduced motion.
 - Emojis as illustration, rainbow cards (one colour per role or per item),
-  rounded corners (`rounded-*`).
+  rounded corners (`rounded-*`) — the round hero faces of the home page
+  aside: the game draws them round.
 - Artwork in small aligned thumbnails when it can be large.
 - Violet, rainbow gradients, any colour outside the palette.
 

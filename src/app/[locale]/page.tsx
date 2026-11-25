@@ -1,7 +1,6 @@
 import { serializeJsonLd } from "@/lib/html";
 import { RoleAccess } from "@/components/role-access";
-import { RevealGroup } from "@/components/reveal";
-import { HomeCommunity } from "@/components/home/home-community";
+import { HomeArticles, HomeDiscord } from "@/components/home/home-community";
 import { HomeDaily } from "@/components/home/home-daily";
 import { HomeHero } from "@/components/home/home-hero";
 import { HomeLive } from "@/components/home/home-live";
@@ -11,7 +10,6 @@ import { HomeTools } from "@/components/home/home-tools";
 import { HomeWhy } from "@/components/home/home-why";
 import { SinceLastVisit } from "@/components/home/since-last-visit";
 import { sinceDigest } from "@/lib/since-visit-server";
-import { SectionTitle } from "@/components/ui";
 import { allHeroes } from "@/lib/data";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -23,32 +21,14 @@ import { createT } from "@/i18n/translations";
 
 /**
  * One band of the page: the full width of the screen, its block inside the
- * page container. `tone` alternates the night: the base, a lighter band, or
- * the base brightening towards its foot, so the long page reads as a
- * sequence of distinct blocks rather than one black wall. The éclat's
- * hairline opens every band but the first.
+ * page container, with a quarter of a screen of air around it. `raised` is
+ * the lighter night, so the long page reads as a sequence of grounds — the
+ * base, a lighter band, a full-bleed artwork — rather than one black wall.
  */
-function Band({
-  tone = "base",
-  rule = true,
-  children,
-}: {
-  tone?: "base" | "raised" | "fade";
-  rule?: boolean;
-  children: React.ReactNode;
-}) {
+function Band({ raised = false, children }: { raised?: boolean; children: React.ReactNode }) {
   return (
-    <div
-      className={cn(
-        "relative",
-        tone === "raised" && "bg-night-900",
-        tone === "fade" && "bg-linear-to-b from-night-950 to-night-900",
-      )}
-    >
-      {rule && <div aria-hidden className="eclat-rule" />}
-      <div data-reveal className="page-wrap py-14 sm:py-20">
-        {children}
-      </div>
+    <div className={cn(raised && "bg-night-900")}>
+      <div className="page-wrap py-20 sm:py-28 lg:py-36">{children}</div>
     </div>
   );
 }
@@ -82,17 +62,17 @@ const dataHome = (locale: Locale) => ({
 });
 
 /**
- * Home page, in the order a player's questions come: what is this and where
- * is my hero (hero, search, the day's state of the game), who is strong
- * right now (meta), today's games, what the patch changed, what is
- * happening in the game (skins of the month, esports), which tool to open,
- * which role to browse, why this site (four proofs), then the articles and
- * the community. Every block is a server component
- * computed from the synced data; the browser code is the poster's stage
- * (parallax, counting figures, Dex), the server clock, the button opening
- * the global search, the daily games' state and the scroll reveal
- * (`RevealGroup`: each block comes in once, the first time it nears the
- * screen).
+ * Home page, one idea per screen, in the order a player's questions come:
+ * what is this and where is my hero (the poster, the search, the day's
+ * facts), who rules the patch (meta), what the patch changed, today's
+ * games, what is happening in the game (the month's skin, esports), which
+ * tool and which role to open, why this site (one sentence), then the
+ * articles and the Discord server.
+ *
+ * Every block is a server component computed from the synced data; the
+ * browser code is the server clock, the button opening the global search,
+ * the daily games' state and the "since your last visit" strip. Nothing
+ * comes in on scroll: every block is there from the first paint.
  */
 export default async function Home({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
@@ -121,42 +101,42 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
       {/* For a returning visitor: what changed since. */}
       <SinceLastVisit digest={sinceDigest()} />
 
-      {/*
-        One idea per band, the bands alternating between the base night and
-        a lighter one. Only the tools and the roles share a band, side by
-        side on a wide screen, at two weights.
-      */}
-      <RevealGroup>
-        <Band rule={false}>
-          <HomeMeta locale={locale} />
-        </Band>
-        <Band tone="raised">
-          <HomeDaily locale={locale} />
-        </Band>
+      <Band>
+        <HomeMeta locale={locale} />
+      </Band>
+      <div className="border-t border-night-800">
         <Band>
           <HomePatch locale={locale} />
         </Band>
-        <Band tone="fade">
-          <HomeLive locale={locale} />
-        </Band>
-        <Band>
-          <div className="grid gap-x-14 gap-y-14 xl:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
-            <HomeTools locale={locale} className="min-w-0" />
-            <section aria-labelledby="home-roles" className="min-w-0">
-              <SectionTitle id="home-roles" lead={t("home.startLead")}>
+      </div>
+      <Band raised>
+        <HomeDaily locale={locale} />
+      </Band>
+      <HomeLive locale={locale} />
+      <div className="border-t border-night-800">
+      <Band>
+        <HomeTools
+          locale={locale}
+          roles={
+            <section aria-labelledby="home-roles" className="mt-20 border-t border-night-800 pt-10">
+              <h3 id="home-roles" className="font-heading text-xl font-bold uppercase text-chalk-300">
                 {t("home.startTitle")}
-              </SectionTitle>
-              <RoleAccess count={byRole} locale={locale} />
+              </h3>
+              <div className="mt-8">
+                <RoleAccess count={byRole} locale={locale} />
+              </div>
             </section>
-          </div>
-        </Band>
-        <Band tone="raised">
-          <HomeWhy locale={locale} />
-        </Band>
-        <Band>
-          <HomeCommunity locale={locale} />
-        </Band>
-      </RevealGroup>
+          }
+        />
+      </Band>
+      </div>
+      <Band raised>
+        <HomeWhy locale={locale} />
+      </Band>
+      <Band>
+        <HomeArticles locale={locale} />
+      </Band>
+      <HomeDiscord locale={locale} />
     </>
   );
 }

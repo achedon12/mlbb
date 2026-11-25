@@ -1,112 +1,140 @@
-import { ArrowRight, Bot, HandHeart, Library, Rss } from "lucide-react";
+import { ArrowRight, Rss } from "lucide-react";
 import Link from "@/components/link";
 import { cn } from "@/lib/utils";
 import { DiscordMark } from "@/components/bot/discord-mark";
 import { DiscordJoinLink } from "@/components/discord-join-link";
-import { SectionTitle } from "@/components/ui";
 import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
 import { botPublished, communityInvite } from "@/lib/bot/public";
 import { allArticles } from "@/lib/content";
 import { formatShortDate } from "@/lib/utils";
 
+const articleHref = (a: { category: string; slug: string }) => `/${a.category === "Patch" ? "patch-notes" : "news"}/${a.slug}`;
+
 /**
- * Latest articles, then where players meet: the Discord server when its
- * invite is set, the bot when it is deployed, the community builds and the
- * contribution guide. Each block only appears when its page exists.
+ * The latest articles as an editorial list: the newest one large at the
+ * left, the next two beside it, each its category, date, title and summary
+ * on the page, split by hairlines. Then the other doors of the community
+ * (the players' builds, the bot when it is deployed, the contribution
+ * guide) as a line of links.
  */
-export function HomeCommunity({ locale, className }: { locale: Locale; className?: string }) {
+export function HomeArticles({ locale, className }: { locale: Locale; className?: string }) {
   const t = createT(locale);
   const articles = allArticles(locale).slice(0, 3);
-  const invite = communityInvite();
   const bot = botPublished();
-
   const doors = [
-    { href: "/builds", icon: Library, title: t("nav.communityBuilds.label"), text: t("home.community.buildsText") },
-    ...(bot ? [{ href: "/bot", icon: Bot, title: t("nav.bot.label"), text: t("nav.bot.desc") }] : []),
-    { href: "/contribute", icon: HandHeart, title: t("footer.contribute"), text: t("home.community.contributeText") },
+    { href: "/builds", title: t("nav.communityBuilds.label"), text: t("home.community.buildsText") },
+    ...(bot ? [{ href: "/bot", title: t("nav.bot.label"), text: t("nav.bot.desc") }] : []),
+    { href: "/contribute", title: t("footer.contribute"), text: t("home.community.contributeText") },
   ];
+  const lang = LOCALE_INTL[locale];
+  const [first, ...rest] = articles;
 
   return (
-    <section className={cn("grid gap-8 lg:grid-cols-[3fr_2fr] lg:gap-10", className)}>
-      <div>
-        <SectionTitle action={{ href: "/news", label: t("home.allNews") }}>{t("home.latestArticles")}</SectionTitle>
-        <ul className="space-y-2">
-          {articles.map((a) => (
-            <li key={a.slug}>
-              <Link
-                href={`/${a.category === "Patch" ? "patch-notes" : "news"}/${a.slug}`}
-                className="card-link eclat-under group block p-4 sm:p-5"
-              >
-                <span className="flex flex-wrap items-center gap-3 text-xs">
-                  <span className="font-heading text-sm font-bold uppercase text-gold-400">{t(`articleCategory.${a.category}`)}</span>
-                  <time dateTime={a.date} className="text-chalk-500">
-                    {formatShortDate(a.date, LOCALE_INTL[locale])}
-                  </time>
-                </span>
-                <span className="mt-1.5 line-clamp-2 block font-heading text-lg font-bold leading-tight text-chalk-100 transition-colors group-hover:text-gold-400 sm:text-xl">
-                  {a.title}
-                </span>
-                <span className="mt-1 line-clamp-2 block text-sm leading-snug text-chalk-500">{a.summary}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <p className="mt-4 flex items-center gap-2 text-sm text-chalk-500">
-          <Rss size={15} aria-hidden className="text-gold-400" />
-          <Link href="/feed.xml" className="inline-flex min-h-11 items-center hover:text-gold-400">
+    <section aria-labelledby="home-articles" className={className}>
+      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+        <h2 id="home-articles" className="display-caps text-[clamp(2.6rem,1.6rem+3vw,4.5rem)] leading-[0.88] text-chalk-100">
+          {t("home.latestArticles")}
+        </h2>
+        <p className="flex flex-wrap gap-x-6">
+          <Link href="/news" className="inline-flex min-h-11 items-center font-semibold text-gold-400 underline decoration-1 underline-offset-4 hover:text-gold-300">
+            {t("home.allNews")}
+          </Link>
+          <Link href="/feed.xml" className="inline-flex min-h-11 items-center gap-1.5 text-sm text-chalk-400 hover:text-gold-300">
+            <Rss size={14} aria-hidden />
             {t("home.followRss")}
           </Link>
         </p>
       </div>
 
-      <div>
-        <SectionTitle>{t("home.community.title")}</SectionTitle>
-        {/* The server first and largest: where the players meet. */}
-        {invite && (
-          <DiscordJoinLink
-            href={invite}
-            placement="Inline"
-            context="default"
-            className="bevel-lg group relative mb-3 block overflow-hidden bg-night-800 p-5 shadow-[inset_0_3px_0_var(--color-azure-500)] transition-colors hover:bg-night-700 sm:p-6"
-          >
-            <span aria-hidden className="pointer-events-none absolute -right-6 -top-6 text-azure-500/15">
-              <DiscordMark size={160} />
-            </span>
-            <span className="relative flex items-center gap-4">
-              <span className="bevel-sm grid size-14 shrink-0 place-items-center bg-azure-500 text-night-950">
-                <DiscordMark size={30} />
-              </span>
-              <span className="display-caps min-w-0 pr-[0.12em] text-[clamp(1.75rem,1.4rem+1.2vw,2.4rem)] text-chalk-100">
-                {t("discordPopup.title")}
-              </span>
-            </span>
-            <span className="relative mt-3 block max-w-md text-sm text-chalk-200 sm:text-base">{t("discordCta.default.text")}</span>
-            <span className="btn relative mt-4 bg-azure-500 text-night-950 group-hover:bg-azure-300">
-              {t("discordPopup.join")}
-              <ArrowRight size={16} aria-hidden />
-            </span>
-          </DiscordJoinLink>
+      {first && (
+        <div className="mt-8 grid gap-x-16 border-t border-night-800 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
+          <Article article={first} lang={lang} t={t} large />
+          <ul className="lg:border-l lg:border-night-800 lg:pl-16">
+            {rest.map((a, i) => (
+              <li key={a.slug} className={cn("border-night-800", i > 0 && "border-t", "max-lg:border-t")}>
+                <Article article={a} lang={lang} t={t} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <ul className="mt-14 grid gap-x-10 gap-y-6 border-t border-night-800 pt-6 sm:grid-cols-3">
+        {doors.map((d) => (
+          <li key={d.href}>
+            <Link href={d.href} className="group block">
+              <span className="block font-heading text-xl font-bold uppercase text-chalk-100 transition-colors group-hover:text-gold-300">{d.title}</span>
+              <span className="mt-1 block text-sm text-chalk-400">{d.text}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+function Article({
+  article: a,
+  lang,
+  t,
+  large = false,
+}: {
+  article: ReturnType<typeof allArticles>[number];
+  lang: string;
+  t: ReturnType<typeof createT>;
+  large?: boolean;
+}) {
+  return (
+    <Link href={articleHref(a)} className={cn("group block", large ? "py-8" : "py-6")}>
+      <span className="flex flex-wrap items-baseline gap-3 text-sm">
+        <span className="font-semibold text-gold-400">{t(`articleCategory.${a.category}`)}</span>
+        <time dateTime={a.date} className="text-chalk-500">
+          {formatShortDate(a.date, lang)}
+        </time>
+      </span>
+      <span
+        className={cn(
+          "mt-2 block font-heading font-bold leading-[1.05] text-chalk-100 transition-colors group-hover:text-gold-300",
+          large ? "text-[clamp(1.9rem,1.3rem+2vw,3.25rem)]" : "line-clamp-2 text-2xl",
         )}
-        <ul className="space-y-2">
-          {doors.map(({ href, icon: Icon, title, text }) => (
-            <li key={href}>
-              <Link
-                href={href}
-                className="card-link group flex min-h-11 items-start gap-3 p-3"
-              >
-                <Icon size={18} aria-hidden className="mt-0.5 shrink-0 text-gold-400" />
-                <span className="min-w-0">
-                  <span className="block font-heading text-lg font-bold uppercase leading-tight text-chalk-100 transition-colors group-hover:text-gold-400">
-                    {title}
-                  </span>
-                  <span className="block text-sm text-chalk-500">{text}</span>
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+      >
+        {a.title}
+      </span>
+      <span className={cn("mt-3 block text-chalk-400", large ? "max-w-2xl text-lg leading-relaxed" : "line-clamp-2 text-sm leading-snug")}>
+        {a.summary}
+      </span>
+    </Link>
+  );
+}
+
+/**
+ * The Discord server, as one band across the whole screen: the real logo
+ * set large, the invitation and its button. Only when the invite is set.
+ */
+export function HomeDiscord({ locale }: { locale: Locale }) {
+  const invite = communityInvite();
+  if (!invite) return null;
+  const t = createT(locale);
+  return (
+    <section aria-labelledby="home-discord" className="relative overflow-hidden border-y border-night-800 bg-night-900">
+      <DiscordJoinLink href={invite} placement="Inline" context="default" className="group block">
+        <span className="page-wrap flex flex-col gap-8 py-14 sm:flex-row sm:items-center sm:gap-12 sm:py-16">
+          <span aria-hidden className="shrink-0 text-azure-500 transition-transform duration-200 group-hover:-translate-y-0.5">
+            <DiscordMark size={96} />
+          </span>
+          <span className="min-w-0 flex-1">
+            <span id="home-discord" role="heading" aria-level={2} className="display-caps block pr-[0.1em] text-[clamp(2.4rem,1.6rem+2.6vw,4rem)] leading-[0.9] text-chalk-100">
+              {t("discordPopup.title")}
+            </span>
+            <span className="mt-3 block max-w-xl text-chalk-200 sm:text-lg">{t("discordCta.default.text")}</span>
+          </span>
+          <span className="btn scheme-dark shrink-0 self-start bg-azure-500 px-7 text-night-950 group-hover:bg-azure-300 sm:self-center">
+            {t("discordPopup.join")}
+            <ArrowRight size={16} aria-hidden />
+          </span>
+        </span>
+      </DiscordJoinLink>
     </section>
   );
 }

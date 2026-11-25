@@ -254,6 +254,26 @@ test.describe("theme", () => {
     await page.getByRole("contentinfo").getByText("Auto", { exact: true }).click();
     await expect(page.locator("html")).not.toHaveAttribute("data-theme", /.+/);
   });
+
+  test("the header button turns Auto, Light, Dark, and the footer agrees", async ({ page }) => {
+    await page.emulateMedia({ colorScheme: "dark" });
+    await page.goto("/fr");
+    const button = (state: string) =>
+      page.getByRole("banner").getByRole("button", { name: new RegExp(`^thème : ${state}\\.`, "i") }).filter({ visible: true });
+    // Only answers once the page is hydrated.
+    await expect(async () => {
+      await button("auto").click({ timeout: 1_000 });
+      await expect(page.locator("html")).toHaveAttribute("data-theme", "light", { timeout: 1_000 });
+    }).toPass();
+    await expect(page.getByRole("radio", { name: "Clair" })).toBeChecked();
+    await button("clair").click();
+    await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+    await page.reload();
+    await expect(button("sombre")).toBeVisible();
+    await button("sombre").click();
+    await expect(page.locator("html")).not.toHaveAttribute("data-theme", /.+/);
+    await expect(page.getByRole("radio", { name: "Auto" })).toBeChecked();
+  });
 });
 
 test.describe("brand pages", () => {
