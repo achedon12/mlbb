@@ -98,7 +98,7 @@ on top of `main` (see below).
   the only one allowed to bypass the protections.
 
 Deployment goes over SSH: the server pulls `main`, then runs
-`docker compose up -d --build`. It stays inactive until these repository
+`sh scripts/deploy.sh` (the release starts next to the running one, see the README's Deployment section). It stays inactive until these repository
 settings are filled in (*Settings → Secrets and variables → Actions*):
 
 | Name | Type | Content |

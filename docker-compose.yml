@@ -1,6 +1,77 @@
+# The site's settings, shared by its two slots (see `mlbb` and `mlbb-b`).
+x-site: &site
+  env_file:
+    - .env
+  # The same .env also holds the bot's own secrets, read by the `bot`
+  # service below through interpolation. `environment` wins over
+  # `env_file`: the site, the process facing the internet, gets them empty,
+  # so a leak of its environment never hands over the bot token.
+  environment:
+    DISCORD_TOKEN: ""
+    TOPGG_TOKEN: ""
+    DBL_TOKEN: ""
+    DBOTSGG_TOKEN: ""
+    POSTGRES_PASSWORD: ""
+  restart: unless-stopped
+  # The site talks to the database and the bot on the internal network; the
+  # default network carries its published port and its outgoing calls.
+  networks:
+    default:
+    # "mlbb" on both slots: the bot reaches whichever one is running.
+    internal:
+      aliases: [mlbb]
+  # Only with the bot profile: without it, the site starts alone, as before.
+  depends_on:
+    postgres:
+      condition: service_healthy
+      required: false
+  read_only: true
+  # Hard ceiling above the 1 GB heap (see NODE_OPTIONS in the Dockerfile) plus
+  # Node's off-heap memory: a regression shows up as a restart instead of
+  # eating the host's memory.
+  mem_limit: 1536m
+  volumes:
+    - ./logs:/app/logs
+    # Patch notification subscriptions and last announced patch: a named
+    # volume, kept from one `up -d --build` to the next (not by `down -v`).
+    - donnees:/app/donnees-serveur
+    # Daily database dumps, the three newest (docs/discord-bot.md). A host
+    # folder, to copy them off the server; it must belong to the image's
+    # user: mkdir -p backups && chown 1001:1001 backups
+    - ./backups:/app/backups
+    # Next's cache: the pages rendered on demand (cache-handler.mjs), one
+    # folder per build, and the optimised images. On disk rather than in a
+    # tmpfs, which would count against mem_limit; nothing in it needs to
+    # outlive a deployment (the handler deletes the previous builds' pages).
+    - cache:/app/.next/cache
+  tmpfs:
+    - /tmp
+  security_opt:
+    - no-new-privileges:true
+  cap_drop:
+    - ALL
+  healthcheck:
+    test: ["CMD", "wget", "-qO-", "http://127.0.0.1:3001/api/health"]
+    interval: 30s
+    timeout: 3s
+    retries: 3
+    start_period: 10s
+  logging:
+    driver: json-file
+    options:
+      max-size: "10m"
+      max-file: "3"
+
 services:
 
+  # The site runs in one of two slots: `mlbb` (port 3003) and `mlbb-b` (port
+  # 3004), the same image. scripts/deploy.sh starts the new release in the
+  # free slot, waits until it answers, then stops the other; nginx sends the
+  # traffic to whichever slot answers (primary 3003, backup 3004), so a
+  # deployment never takes the site down. Use the script, not a bare
+  # `docker compose up -d`, to deploy or to apply a .env change.
   mlbb:
+    <<: *site
     build:
       context: .
       dockerfile: Dockerfile
@@ -11,68 +82,19 @@ services:
         NEXT_PUBLIC_DISCORD_CLIENT_ID: ${NEXT_PUBLIC_DISCORD_CLIENT_ID:-}
         NEXT_PUBLIC_DISCORD_INVITE_URL: ${NEXT_PUBLIC_DISCORD_INVITE_URL:-https://discord.gg/mw5RzvkkU3}
     image: mlbb:latest
-    env_file:
-      - .env
-    # The same .env also holds the bot's own secrets, read by the `bot`
-    # service below through interpolation. `environment` wins over
-    # `env_file`: the site, the process facing the internet, gets them empty,
-    # so a leak of its environment never hands over the bot token.
-    environment:
-      DISCORD_TOKEN: ""
-      TOPGG_TOKEN: ""
-      DBL_TOKEN: ""
-      DBOTSGG_TOKEN: ""
-      POSTGRES_PASSWORD: ""
     container_name: mlbb
-    restart: unless-stopped
     ports:
       - "127.0.0.1:${PORT:-3003}:3001"
-    # The site talks to the database and the bot on the internal network; the
-    # default network carries its published port and its outgoing calls.
-    networks:
-      - default
-      - internal
-    # Only with the bot profile: without it, the site starts alone, as before.
-    depends_on:
-      postgres:
-        condition: service_healthy
-        required: false
-    read_only: true
-    # Hard ceiling above the 1 GB heap (see NODE_OPTIONS in the Dockerfile) plus
-    # Node's off-heap memory: a regression shows up as a restart instead of
-    # eating the host's memory.
-    mem_limit: 1536m
-    volumes:
-      - ./logs:/app/logs
-      # Patch notification subscriptions and last announced patch: a named
-      # volume, kept from one `up -d --build` to the next (not by `down -v`).
-      - donnees:/app/donnees-serveur
-      # Daily database dumps, the three newest (docs/discord-bot.md). A host
-      # folder, to copy them off the server; it must belong to the image's
-      # user: mkdir -p backups && chown 1001:1001 backups
-      - ./backups:/app/backups
-      # Next's cache: the pages rendered on demand (cache-handler.mjs), one
-      # folder per build, and the optimised images. On disk rather than in a
-      # tmpfs, which would count against mem_limit; nothing in it needs to
-      # outlive a deployment (the handler deletes the previous builds' pages).
-      - cache:/app/.next/cache
-    tmpfs:
-      - /tmp
-    security_opt:
-      - no-new-privileges:true
-    cap_drop:
-      - ALL
-    healthcheck:
-      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:3001/api/health"]
-      interval: 30s
-      timeout: 3s
-      retries: 3
-      start_period: 10s
-    logging:
-      driver: json-file
-      options:
-        max-size: "10m"
-        max-file: "3"
+
+  mlbb-b:
+    <<: *site
+    image: mlbb:latest
+    container_name: mlbb-b
+    # Started only by scripts/deploy.sh (a service named on the command line
+    # starts whatever its profile), never by a bare `docker compose up -d`.
+    profiles: ["standby"]
+    ports:
+      - "127.0.0.1:${PORT_B:-3004}:3001"
 
   # Discord bot data (docs/discord-bot.md). Started with the `bot` profile
   # only (COMPOSE_PROFILES=bot in .env). No published port: only the site
