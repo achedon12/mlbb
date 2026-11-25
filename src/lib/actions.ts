@@ -92,9 +92,10 @@ export async function checkCode(_previous: State, data: FormData): Promise<State
     roleId: data.get("roleId"),
     zoneId: data.get("zoneId"),
   });
-  const code = Number(String(data.get("code") ?? "").replace(/\D/g, ""));
+  // Kept as typed: "0123" is a valid code, a number would make it 123.
+  const code = String(data.get("code") ?? "").replace(/\s/g, "");
 
-  if (!analysis.success || !/^\d{4}$/.test(String(code))) {
+  if (!analysis.success || !/^\d{4}$/.test(code)) {
     return {
       error: "loginForm.errors.code",
       codeSent: true,

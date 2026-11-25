@@ -85,20 +85,29 @@ describe("arena.rone.dev behind the breaker", () => {
     expect(await sendCode(1, 2)).toEqual({ ok: false, reason: "loginForm.errors.unavailable" });
     resetBreakers();
     vi.stubGlobal("fetch", vi.fn(async () => answer(502)));
-    expect(await connect(1, 2, 1234)).toEqual({ ok: false, reason: "loginForm.errors.unavailable" });
+    expect(await connect(1, 2, "1234")).toEqual({ ok: false, reason: "loginForm.errors.unavailable" });
   });
 
   it("still tells an unknown account and a wrong code apart from an outage", async () => {
     vi.stubGlobal("fetch", vi.fn(async () => answer(400, { code: 1 })));
     expect(await sendCode(1, 2)).toEqual({ ok: false, reason: "loginForm.errors.unknown" });
-    expect(await connect(1, 2, 1234)).toEqual({ ok: false, reason: "loginForm.errors.wrongCode" });
+    expect(await connect(1, 2, "1234")).toEqual({ ok: false, reason: "loginForm.errors.wrongCode" });
+  });
+
+  it("sends the code with its leading zero", async () => {
+    const ok = vi.fn<(url: string, init?: RequestInit) => Promise<Response>>(async () => answer(200, { code: 0, data: { jwt: "a.b.c" } }));
+    vi.stubGlobal("fetch", ok);
+    expect(await connect(1, 2, "0123")).toEqual({ ok: true, token: "a.b.c" });
+    expect(JSON.parse(String(ok.mock.calls[0]![1]!.body))).toEqual({ role_id: 1, zone_id: 2, vc: "0123" });
+    expect(await connect(1, 2, "123")).toEqual({ ok: false, reason: "loginForm.errors.code" });
+    expect(ok).toHaveBeenCalledTimes(1);
   });
 
   it("stops calling the service while paused", async () => {
     const busy = vi.fn(async () => answer(503, {}, { "retry-after": "30" }));
     vi.stubGlobal("fetch", busy);
     expect((await sendCode(1, 2)).reason).toBe("loginForm.errors.unavailable");
-    expect((await connect(1, 2, 1234)).ok).toBe(false);
+    expect((await connect(1, 2, "1234")).ok).toBe(false);
     expect((await profile("breaker-token")).status).toBe("unavailable");
     expect(busy).toHaveBeenCalledTimes(1);
   });

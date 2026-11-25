@@ -130,12 +130,16 @@ export async function sendCode(
 /**
  * Exchanges the code for an access token.
  * The token is a JWT signed by the service, valid for several days.
+ *
+ * The code goes as the four digits the player typed, a string: as a number,
+ * a code starting with 0 ("0123") would lose its first digit.
  */
 export async function connect(
   roleId: number,
   zoneId: number,
-  code: number,
+  code: string,
 ): Promise<{ ok: true; token: string } | { ok: false; reason: string }> {
+  if (!/^\d{4}$/.test(code)) return { ok: false, reason: "loginForm.errors.code" };
   try {
     const response = await apiCall("/auth/login", {
       method: "POST",
