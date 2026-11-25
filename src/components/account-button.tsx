@@ -29,25 +29,27 @@ export function AccountButton() {
   }, []);
 
   // On mobile, a plain icon: the label does not fit next to the menu
-  // below 375 px wide. Screen readers still read it.
-  if (!session) return <span aria-hidden className="h-9 w-9 sm:w-24" />;
+  // below 375 px wide. Screen readers still read it. From `sm` on, one fixed
+  // width for the placeholder and both states, the name truncated inside:
+  // the header never moves once the session is known.
+  if (!session) return <span aria-hidden className="block size-11 shrink-0 sm:h-9 sm:w-32" />;
 
   return session.connected || session.discord ? (
     <Link
       href="/account"
-      className="btn btn-secondary btn-sm h-9 min-w-9 max-w-36 truncate px-2 normal-case sm:px-4"
+      className="btn btn-secondary btn-sm size-11 shrink-0 px-2 normal-case sm:h-9 sm:w-32 sm:px-3"
     >
       <UserRound size={18} aria-hidden className="sm:hidden" />
-      <span className="max-sm:sr-only">
+      <span className="min-w-0 truncate max-sm:sr-only">
         {session.pseudo || session.discord || t("account.myAccount")}
       </span>
     </Link>
   ) : (
     <LoginLink
-      className="btn btn-primary btn-sm h-9 min-w-9 px-2 sm:px-4"
+      className="btn btn-primary btn-sm size-11 shrink-0 px-2 sm:h-9 sm:w-32 sm:px-3"
     >
       <LogIn size={18} aria-hidden className="sm:hidden" />
-      <span className="max-sm:sr-only">{t("account.signIn")}</span>
+      <span className="min-w-0 truncate max-sm:sr-only">{t("account.signIn")}</span>
     </LoginLink>
   );
 }

@@ -36,7 +36,7 @@ export function LoginPanel({ t, locale, next, failed }: { t: T; locale: Locale; 
         {t("pages.botDashboard.login")}
       </a>
       </div>
-      <span aria-hidden className="hidden shrink-0 sm:block">
+      <span className="hidden shrink-0 sm:block">
         <Dex pose="salut" height={170} still />
       </span>
     </div>

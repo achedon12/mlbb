@@ -14,6 +14,7 @@
     "homeDescription": "Knowledge base ng Mobile Legends: Bang Bang: lahat ng {heroes} hero, ang kanilang mga counter at build ayon sa rank, ang tier list, mga item, emblem at patch notes.",
     "siblings": "Iba pang mga pahina sa parehong antas ng {name}",
     "filter": "I-filter…",
+    "clearFilters": "I-clear ang mga filter",
     "contents": "Nilalaman",
     "readMore": "Matuto pa",
     "method": "Paraan at mga source",
@@ -482,6 +483,7 @@
     },
     "itemsList": {
       "search": "Maghanap ng item, stat o passive",
+      "none": "Walang item na tugma sa mga filter na ito.",
       "account": "{n} item",
       "countOf": "sa {total}",
       "price": "Presyo:",
@@ -6215,7 +6217,7 @@
       "iosInstall": "Sa iPhone at iPad, i-install muna ang site: Share, tapos “Add to Home Screen”. Pagkatapos ay buksan ito mula sa icon nito para i-on ang mga notification.",
       "error": "Hindi ito gumana. Subukan muli sa isang sandali.",
       "life": "Para dito, itinatago ng server ang notification address ng browser na ito at ang listahan ng mga paborito mo hanggang i-off mo ito.",
-      "privacyLink": "Matuto pa"
+      "privacyLink": "Basahin ang patakaran sa privacy"
     }
   },
   "skinAvailability": {
@@ -6894,7 +6896,7 @@
   "consent": {
     "title": "Cookies sa pagsukat ng audience",
     "text": "Kung papayag ka, gagamit ang MLBBDex ng cookies para malaman kung ilang bisita ang bumabalik. Ang pagsukat ay ginagawa ng Matomo, na naka-install sa sariling server ng site: walang ads, walang pagsubaybay ng third party, walang ibinebentang data. Kung tatanggi ka, magpapatuloy ito nang anonymous, nang walang cookies.",
-    "more": "Matuto pa",
+    "more": "Basahin ang patakaran sa privacy",
     "accept": "Tanggapin",
     "refuse": "Tanggihan",
     "keep": "Panatilihin ang aking kasalukuyang pagpipilian",

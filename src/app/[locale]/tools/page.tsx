@@ -150,7 +150,9 @@ function ArcadeCard({
         </span>
       )}
       {size === "game" && (
-        <span aria-hidden className="absolute bottom-2 right-2 sm:bottom-3 sm:right-4">
+        // Inside the card's link: `inert`, so Dex's own button is neither
+        // focusable nor a button nested in a link.
+        <span aria-hidden inert className="absolute bottom-2 right-2 sm:bottom-3 sm:right-4">
           <Dex pose={dex} height={120} still />
         </span>
       )}

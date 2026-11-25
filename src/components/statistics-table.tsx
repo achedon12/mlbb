@@ -8,7 +8,7 @@ import { Pager } from "@/components/pager";
 import { SearchField } from "@/components/search-field";
 import { LightImage } from "@/components/light-image";
 import { ChoiceUnique, LinkChip } from "@/components/chip";
-import { ChipActive, FilterBar } from "@/components/filter-bar";
+import { ChipActive, FilterBar, ResetFilters } from "@/components/filter-bar";
 import { BadgeTier } from "@/components/ui";
 import "@/components/meta/meta.css";
 import { useLocale, useT } from "@/i18n/provider";
@@ -108,6 +108,10 @@ export function StatisticsTable({
     setState((e) => ({ ...e, ...partial }));
     setPage(1);
   };
+  // Search, role and lane held in the page's state; the rank is an address of
+  // its own (its chip links back to every rank), the sort only orders.
+  const filtered = !!state.search.trim() || state.role !== null || state.lane !== null;
+  const reset = () => maj({ search: "", role: null, lane: null });
   const sort = (c: string) => {
     setState((e) => ({
       ...e,
@@ -168,7 +172,8 @@ export function StatisticsTable({
                 onSort={sort}
                 empty={
                   <DexNotice role="status" title={t("dexStates.noneTitle")} className="mx-auto max-w-lg text-left">
-                    {t("pages.heroesList.none")}
+                    <p>{t("pages.heroesList.none")}</p>
+                    {filtered && <ResetFilters onClick={reset} />}
                   </DexNotice>
                 }
                 t={t}
@@ -213,6 +218,7 @@ export function StatisticsTable({
             )}
           </>
         }
+        clear={filtered ? { label: t("common.clearFilters"), onClick: reset } : undefined}
         count={
           <span aria-live="polite">
             {t("pages.heroesList.account", { n: shown.length })}

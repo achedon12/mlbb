@@ -200,7 +200,9 @@ export function SiteNav({
       {/* `data-bottom-ui`: while the sheet is open, the Discord invitation steps aside. */}
       <span data-bottom-ui hidden={!sheet} />
 
-      <div className="ml-auto flex items-center gap-1 sm:gap-2">
+      {/* Below `sm`, 44 px targets with a 2 px gap: the row stays as wide as it
+          was with 36 px ones and still fits beside the logo at 360 px. */}
+      <div className="ml-auto flex items-center gap-0.5 sm:gap-2">
         {actions}
         <button
           type="button"

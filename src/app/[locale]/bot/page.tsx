@@ -285,7 +285,7 @@ export default async function BotPage({ params }: Params) {
             <p className="mt-3 mb-6 max-w-2xl text-chalk-300">{t("pages.bot.ctaText")}</p>
             {ctas}
           </div>
-          <span aria-hidden className="hidden shrink-0 md:block">
+          <span className="hidden shrink-0 md:block">
             <Dex pose="victoire" height={210} still />
           </span>
         </section>
