@@ -45,7 +45,14 @@ describe("compose", () => {
   // token for the bot service's interpolation: the site, the process that
   // faces the internet, must get those values blanked.
   it("hands the site no bot-only secret", () => {
-    const site = service("mlbb");
+    // The two site slots share one anchor: the check reads it, and makes sure
+    // both slots are built on it.
+    const lines = readFileSync("docker-compose.yml", "utf8").split("\n");
+    const start = lines.indexOf("x-site: &site");
+    expect(start, "x-site anchor").toBeGreaterThanOrEqual(0);
+    const end = lines.findIndex((l, i) => i > start && /^\S/.test(l));
+    const site = lines.slice(start, end === -1 ? undefined : end).join("\n");
+    for (const slot of ["mlbb", "mlbb-b"]) expect(service(slot), slot).toMatch(/^\s+<<: \*site$/m);
     expect(site).toMatch(/env_file:/);
     for (const name of ["DISCORD_TOKEN", "TOPGG_TOKEN", "DBL_TOKEN", "DBOTSGG_TOKEN", "POSTGRES_PASSWORD"]) {
       expect(site, name).toMatch(new RegExp(`^\\s+${name}: ""$`, "m"));
