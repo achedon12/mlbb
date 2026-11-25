@@ -38,11 +38,18 @@ for (const { name: size, width, height } of WIDTHS) {
       // The elements wider than the screen, to find what scrolls sideways.
       const wide = await page.evaluate(() => {
         const vw = document.documentElement.clientWidth;
-        return [...document.querySelectorAll("body *")]
-          .filter((el) => el.getBoundingClientRect().right > vw + 1 && getComputedStyle(el).position !== "fixed")
-          .filter((el) => !el.closest("[data-overflow-ok], .overflow-x-auto, .snap-x"))
-          .slice(0, 15)
-          .map((el) => `${el.tagName.toLowerCase()}.${String(el.className).slice(0, 90)} right=${Math.round(el.getBoundingClientRect().right)}`);
+        const label = (el: Element) => `${el.tagName.toLowerCase()}.${String(el.getAttribute("class") ?? "").slice(0, 70)}`;
+        const rows = [...document.querySelectorAll("body *")]
+          .map((el) => ({ el, right: Math.round(el.getBoundingClientRect().right) }))
+          .filter(({ right }) => right > vw + 1)
+          .sort((x, y) => y.right - x.right)
+          .slice(0, 12)
+          .map(({ el, right }) => {
+            const chain: string[] = [];
+            for (let p = el.parentElement, i = 0; p && i < 4; p = p.parentElement, i++) chain.push(label(p));
+            return `${right} ${label(el)}\n    < ${chain.join("\n    < ")}`;
+          });
+        return [`scrollWidth=${document.documentElement.scrollWidth} clientWidth=${vw}`, ...rows];
       });
       const { writeFileSync, mkdirSync } = await import("node:fs");
       mkdirSync("test-results/visual", { recursive: true });
