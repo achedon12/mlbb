@@ -19,6 +19,8 @@ for (const { name: size, width, height } of WIDTHS) {
   for (const { name, path } of PAGES) {
     test(`screenshot of ${name} at ${width}px`, async ({ page }) => {
       await page.setViewportSize({ width, height });
+      // Without motion: the scroll reveal would leave unseen sections blank.
+      await page.emulateMedia({ reducedMotion: "reduce" });
       await page.goto(path);
       // Dismiss the consent banner so it does not hide the bottom of the view.
       const refuse = page.getByRole("button", { name: /refuser|decline|reject/i }).first();
@@ -33,6 +35,18 @@ for (const { name: size, width, height } of WIDTHS) {
       });
       await page.waitForTimeout(1500);
       await page.screenshot({ path: `test-results/visual/${name}-${size}.png`, fullPage: true });
+      // The elements wider than the screen, to find what scrolls sideways.
+      const wide = await page.evaluate(() => {
+        const vw = document.documentElement.clientWidth;
+        return [...document.querySelectorAll("body *")]
+          .filter((el) => el.getBoundingClientRect().right > vw + 1 && getComputedStyle(el).position !== "fixed")
+          .filter((el) => !el.closest("[data-overflow-ok], .overflow-x-auto, .snap-x"))
+          .slice(0, 15)
+          .map((el) => `${el.tagName.toLowerCase()}.${String(el.className).slice(0, 90)} right=${Math.round(el.getBoundingClientRect().right)}`);
+      });
+      const { writeFileSync, mkdirSync } = await import("node:fs");
+      mkdirSync("test-results/visual", { recursive: true });
+      writeFileSync(`test-results/visual/${name}-${size}-overflow.txt`, wide.join("\n"));
     });
   }
 }
