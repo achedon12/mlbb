@@ -94,7 +94,7 @@ describe("arena.rone.dev behind the breaker", () => {
     expect(await connect(1, 2, "1234")).toEqual({ ok: false, reason: "loginForm.errors.wrongCode" });
   });
 
-  it("sends the code with its leading zero", async () => {
+  it("accepts a code with a leading zero and sends it as a number", async () => {
     const ok = vi.fn<(url: string, init?: RequestInit) => Promise<Response>>(async () => answer(200, { code: 0, data: { jwt: "a.b.c" } }));
     vi.stubGlobal("fetch", ok);
     expect(await connect(1, 2, "0123")).toEqual({ ok: true, token: "a.b.c" });
