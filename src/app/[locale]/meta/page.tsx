@@ -27,7 +27,7 @@ import {
 } from "@/lib/meta-report";
 import { site } from "@/lib/site";
 import { describeGap, formatGap, movesWeek, moversWeek, THRESHOLD_NOTABLE, type Motion } from "@/lib/trends";
-import { rankingFull, ruleTierList, type RankedEntry } from "@/lib/tier-list";
+import { leaderOf, rankingFull, ruleTierList, type RankedEntry } from "@/lib/tier-list";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { createT, type T } from "@/i18n/translations";
 import { metaPage } from "@/i18n/seo";
@@ -79,7 +79,7 @@ const version = () => patchCurrent?.version ?? "—";
 const titleSeo = (t: T, locale: Locale) => t("pages.seo.meta.title", { date: longDate(locale), v: version() });
 
 function descriptionReport(t: T, locale: Locale): string {
-  const first = rankingFull[0];
+  const first = leaderOf(rankingFull);
   const banned = READING.banned[0];
   if (!first || !banned) {
     return t("pages.meta.lead", { date: longDate(locale), n: rankingFull.length, v: version() });
@@ -119,7 +119,7 @@ export default async function MetaReportPage({ params }: Params) {
   const threshold = new Intl.NumberFormat(locale, { minimumFractionDigits: 1 }).format(THRESHOLD_NOTABLE);
   const one = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   const name = (slug: string) => heroesBySlug.get(slug)?.name ?? slug;
-  const first = rankingFull[0];
+  const first = leaderOf(rankingFull);
   const rise = week.rises[0];
   const drop = week.drops[0];
   const changes = tiers.climbs.length + tiers.drops.length;

@@ -76,6 +76,16 @@ test("the analysis tab shows the written analysis, strengths and weaknesses", as
   await expect(panel.getByRole("heading", { name: /faiblesses/i })).toBeVisible();
 });
 
+test("without a written analysis, the tab opens on the measured essentials", async ({ page }) => {
+  await page.goto("/fr/heroes/masha");
+  const panel = openPanel(page);
+  await expect(panel.getByRole("heading", { name: /^l'essentiel$/i })).toBeVisible();
+  await expect(panel).toContainText(/contré par/i);
+  await expect(panel).not.toContainText(/pas encore d'analyse écrite/i);
+  // The missing analysis is a footnote with its way to help, not the title.
+  await expect(panel.getByRole("link", { name: /contribuer/i })).toHaveAttribute("href", /\/contribute$/);
+});
+
 test("the story tab shows the hand-written French text", async ({ page }) => {
   await page.goto("/fr/heroes/masha#story");
   const panel = openPanel(page);

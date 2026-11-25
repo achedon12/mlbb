@@ -29,7 +29,7 @@ import {
 import { longDate, dateMeasure, listNames, monthYear, patchCurrent, percentage } from "@/lib/freshness";
 import { serializeJsonLd } from "@/lib/html";
 import { faqPageData } from "@/lib/structured-data";
-import { rankingOfRank, ORDER_TIERS, RANKS_CLASSES, type RankedEntry } from "@/lib/tier-list";
+import { leaderOf, leadersOf, rankingOfRank, ORDER_TIERS, RANKS_CLASSES, type RankedEntry } from "@/lib/tier-list";
 import type { MeasuredRank } from "@/lib/measured-ranks";
 import { describeGap, isNotable, THRESHOLD_NOTABLE, variationWeek } from "@/lib/trends";
 import type { Tier } from "@/lib/types";
@@ -148,7 +148,7 @@ function descriptionTierList(locale: Locale, rank: MeasuredRank, filter: FilterT
   const t = createT(locale);
   const ranking = rankingOf(rank, filter);
   const nameRank = t(`measuredRanks.${rank}`);
-  const first = ranking[0];
+  const first = leaderOf(ranking);
   if (!first) {
     if (filter) return leadFilter(t, filter, 0);
     return rank === "all"
@@ -156,7 +156,7 @@ function descriptionTierList(locale: Locale, rank: MeasuredRank, filter: FilterT
       : t("pages.tierList.metaDescriptionRank", { rank: nameRank });
   }
   const values = {
-    top: listNames(locale, ranking.slice(0, 3).map((e) => e.hero.name)),
+    top: listNames(locale, leadersOf(ranking, 3).map((e) => e.hero.name)),
     first: first.hero.name,
     winRate: percentage(locale, first.winRate),
     n: ranking.length,
@@ -357,8 +357,9 @@ export function TierList({
     },
   ];
 
-  const first = ranking[0];
-  const podium = ranking.slice(1, 3);
+  // The poster crowns the first reliably measured heroes: a striking win rate
+  // over a handful of games keeps its card, not the front page.
+  const [first, ...podium] = leadersOf(ranking, 3);
   const portraitOf = (e: RankedEntry) => e.hero.images.portrait ?? e.hero.images.icon;
   const feature = first && (
     <PosterHero
@@ -411,7 +412,7 @@ export function TierList({
     question: t(`pages.tierList.answer.question${kind}`, markers),
     answer: t(`pages.tierList.answer.answer${kind}`, {
       ...markers,
-      top: listNames(locale, ranking.slice(0, ANSWER_COUNT).map((e) => e.hero.name)),
+      top: listNames(locale, leadersOf(ranking, ANSWER_COUNT).map((e) => e.hero.name)),
     }),
     detail: t("pages.tierList.answer.detail", {
       first: first.hero.name,
@@ -438,15 +439,14 @@ export function TierList({
   const changes = patchChangesFor(patchCurrent?.adjustments, slugs);
 
   // Where to go next: the top picks' counters and builds, the tools, the other lists.
-  const picks: PickNext[] = ranking.slice(0, 3).map((e) => ({
+  const picks: PickNext[] = leadersOf(ranking, 3).map((e) => ({
     slug: e.hero.slug,
     counters: countersOf(e.hero.slug),
     items: itemsOf(e).map((o) => ({ ...o, name: nameItem(o.slug) })),
   }));
-  const leaderOf = (f: FilterTier) => filterRanking(rankingOfRank("all"), f)[0]?.hero.slug;
   const listNext = (f: FilterTier): ListNext => {
     const emblem = f.type === "lane" ? imageLane(f.value) : imageRole(f.value);
-    const top = leaderOf(f);
+    const top = leaderOf(filterRanking(rankingOfRank("all"), f))?.hero.slug;
     return { href: pathFilter(f), name: nameFilter(t, f), ...(emblem ? { emblem } : {}), ...(top ? { top } : {}) };
   };
   const listsOrder = filter?.type === "role" ? [...FILTERS_ROLE, ...FILTERS_LANE] : [...FILTERS_LANE, ...FILTERS_ROLE];

@@ -374,8 +374,8 @@
       },
       "strengths": "Fortalezas",
       "weaknesses": "Debilidades",
-      "analysisPending": "Aún no hay análisis escrito",
-      "analysisText": "Nadie ha escrito todavía un análisis de {name}: cómo jugar, artículos para comprar, enfrentamientos favorables. Mientras tanto, las otras pestañas muestran las cifras medidas en el juego clasificado.",
+      "overviewTitle": "Lo esencial",
+      "overviewNote": "Nadie ha escrito todavía un análisis de {name}: este resumen sale de las mediciones en partidas clasificatorias.",
       "analysisTranslated": "Análisis escrito en francés y traducido automáticamente.",
       "contribute": "Contribuir a este análisis →",
       "overview": {
@@ -465,6 +465,7 @@
         "pick": "Selección",
         "ban": "Ban",
         "build": "Build más jugado",
+        "emblem": "Emblema",
         "buildWin": "{rate} % de victorias",
         "counteredBy": "Contrarrestado por",
         "jump": "Accesos directos a secciones"
@@ -5619,7 +5620,8 @@
   },
   "featured": {
     "seeSheet": "Ver su ficha",
-    "topMeta": "#1 en el meta"
+    "topMeta": "#1 en el meta",
+    "topMetaHint": "clasificación por victorias + bans"
   },
   "access": {
     "account": "{n} héroes"
@@ -5977,7 +5979,7 @@
           "ul": [
             "Niveles de la lista de niveles: puntuación = tasa de victorias + {weightBan} × tasa de prohibición. S+ desde {tierSPlus} puntos, S desde {tierS}, A desde {tierA}, B desde {tierB}, C abajo. La tasa de selección no entra en la puntuación.",
             "El mismo cálculo se repite para cada segmento de rango (épico, leyenda, mítico, honor mítico, gloria mítica), para cada carril y para cada rol.",
-            "Fiabilidad: un héroe elegido en menos del {reliability}% de las partidas permanece clasificado, pero está marcado con un asterisco porque sus índices son demasiado inestables.",
+            "Fiabilidad: un porcentaje de victorias medido sobre pocas partidas se acerca al 50 % en proporción a su muestra (la diferencia con el 50 % conserva la parte selección / (selección + {reliability})). Un héroe elegido en menos del {reliability}% de las partidas, o al que esta corrección le quita más de {gapFragile} puntos, sigue clasificado con sus propias cifras, pero se marca con un asterisco y se coloca detrás de los héroes medidos de forma fiable de su nivel. Dentro de un nivel, el orden sigue la puntuación corregida, y el n.º 1 y el podio solo son para héroes medidos de forma fiable.",
             "Tendencias: la evolución del índice de victorias durante siete días solo se muestra a partir de una diferencia de {notable} puntos; abajo, se fusiona con el redondeo.",
             "Efecto de un parche: para cada héroe modificado, la tasa de victoria promedio de los {daysImpact} días posteriores al parche, en comparación con la de los {daysImpact} días anteriores, excluyendo el día en sí. Se necesitan al menos {minImpact} días medidos en cada lado; una diferencia de menos de {thresholdImpact} puntos se muestra en gris, como no significativa.",
             "Historial: la API solo se utiliza durante los últimos treinta días. El sitio mantiene cada lectura desde {historyStart}, día a día durante los últimos {dailyDays} días, y luego en promedio por semana. Las semanas pasadas no se utilizan para medir el efecto de un parche.",
