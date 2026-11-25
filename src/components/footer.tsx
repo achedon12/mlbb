@@ -10,6 +10,7 @@ import { FOOTER, type Chip } from "@/lib/sections";
 import { site } from "@/lib/site";
 import { DiscordMark } from "./bot/discord-mark";
 import { DiscordJoinLink } from "./discord-join-link";
+import { SupportFooterLink } from "./support-links";
 import { BrandMark } from "./brand-mark";
 import { ConsentSettingsButton } from "./consent-banner";
 import { Dex } from "./mascot";
@@ -87,6 +88,7 @@ export function Footer({ locale, year }: { locale: Locale; year: number }) {
                 {t("footer.discord")}
               </DiscordJoinLink>
             )}
+            <SupportFooterLink className="flex min-h-9 items-center gap-1.5 text-sm text-chalk-400 transition-colors hover:text-gold-300" />
           </div>
         </div>
       </div>

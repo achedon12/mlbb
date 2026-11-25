@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import Link from "@/components/link";
 import { useT } from "@/i18n/provider";
 import type { Column, Entry, Section } from "@/lib/sections";
+import { SupportNavEntry } from "./support-links";
 
 /**
  * Content of a header section: its columns of pages, the rows of short links
@@ -29,6 +30,12 @@ export function NavPanel({ section, current }: { section: Section; current: stri
         {section.columns.map((c) => (
           <NavColumn key={c.key} column={c} current={current} />
         ))}
+        {/* An external link, shown only once the server says a platform is set. */}
+        {section.key === "community" && (
+          <div className="min-w-0 self-end">
+            <SupportNavEntry />
+          </div>
+        )}
       </div>
       <HubLink href={section.hub} label={hub} current={current} className="mt-5 xl:hidden" />
     </div>

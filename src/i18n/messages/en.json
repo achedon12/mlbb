@@ -7292,5 +7292,15 @@
         "title": "Find your favourites on all your devices"
       }
     }
+  },
+  "support": {
+    "footer": "Support MLBBDex",
+    "menuDesc": "A donation keeps the site free",
+    "title": "Support the project",
+    "body": "MLBBDex is made by one person, in their spare time. A donation helps pay for the server, the domain name and the hours spent keeping the data up to date.",
+    "free": "The site stays free and ad-free, whether you give or not.",
+    "cardTitle": "Dex runs thanks to you ☕",
+    "cardBody": "MLBBDex is free and ad-free. A small donation helps pay for the server and the domain.",
+    "later": "Maybe later"
   }
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { WikiCredit } from "@/components/wiki-credit";
+import { SupportCard } from "@/components/support-links";
 import { MonthContent, SourceList, heroName, monthLabel, monthSummary, monthText } from "@/components/event-month";
 import { FreshnessLine } from "@/components/freshness";
 import Link from "@/components/link";
@@ -247,6 +248,7 @@ export default async function EventMonthPage({ params }: Params) {
           )}
           <WikiCredit t={t} href={sync.source} messageKey="pages.events.source" />
         </section>
+        <SupportCard placement="Events" />
       </div>
     </>
   );

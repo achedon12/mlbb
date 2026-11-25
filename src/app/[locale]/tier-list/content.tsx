@@ -54,6 +54,7 @@ import { TierTiles } from "./tier-tiles";
 import type { LabelsPeek, PeekDict } from "./tier-peek";
 import { TierTrack } from "./tier-track";
 import { AlsoSee, PatchChanges, ShortAnswer, type ListNext, type PickNext } from "./tier-extras";
+import { SupportCard } from "@/components/support-links";
 
 /** Faces shown on the head of a folded tier. */
 const FACES = 5;
@@ -620,6 +621,7 @@ export function TierList({
         <p className="mt-6 max-w-3xl text-sm leading-relaxed text-chalk-400">{t("pages.tierList.conclusion")}</p>
         <DiscordInvite t={t} context="tier" className="mt-8" />
         <PageSourcesBlock locale={locale} of={{ kind: "ranking" }} className="mt-10" />
+        <SupportCard placement="TierList" className="mt-8" />
         </TierRows>
       </div>
       </TierTrack>
