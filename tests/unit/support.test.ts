@@ -19,6 +19,7 @@ describe("supportUrl", () => {
     expect(supportUrl("https://ko-fi.com/achedon12", "kofi")).toBe("https://ko-fi.com/achedon12");
     expect(supportUrl("  https://paypal.me/someone  ", "paypal")).toBe("https://paypal.me/someone");
     expect(supportUrl("https://www.paypal.com/paypalme/someone", "paypal")).toBe("https://www.paypal.com/paypalme/someone");
+    expect(supportUrl("https://www.paypal.me/achedon12", "paypal")).toBe("https://www.paypal.me/achedon12");
   });
 
   it("refuses empty, malformed or non-string values", () => {

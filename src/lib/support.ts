@@ -29,7 +29,7 @@ export const SUPPORT_PLATFORM_NAMES: Record<SupportPlatform, string> = { kofi: "
 
 const HOSTS: Record<SupportPlatform, readonly string[]> = {
   kofi: ["ko-fi.com"],
-  paypal: ["paypal.me", "www.paypal.com"],
+  paypal: ["paypal.me", "www.paypal.me", "www.paypal.com"],
 };
 
 const ENV: Record<SupportPlatform, string> = { kofi: "SUPPORT_KOFI_URL", paypal: "SUPPORT_PAYPAL_URL" };
