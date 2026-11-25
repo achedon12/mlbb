@@ -45,7 +45,9 @@ export function GameDex({ mood, pose, beat, height = 104, className }: {
 }) {
   const shown = pose ?? POSE[mood];
   return (
-    <span aria-hidden className={cn("game-dex relative inline-block shrink-0", className)}>
+    // `inert` with `aria-hidden`: the Dex drawn here (and the hidden poses
+    // kept ready) carry a button, which must not be focusable while hidden.
+    <span aria-hidden inert className={cn("game-dex relative inline-block shrink-0", className)}>
       <span key={`${mood}-${beat}`} className={cn("block origin-bottom", MOTION[mood])}>
         <Dex pose={shown} height={height} still={mood !== "start"} />
       </span>

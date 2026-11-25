@@ -4,7 +4,7 @@ import { Flash } from "@/components/dex-states";
 import { useId, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowBigUp, Flag, Pencil, Trash2 } from "lucide-react";
-import Link from "@/components/link";
+import { LoginLink } from "@/components/login-link";
 import { useLocale, useT } from "@/i18n/provider";
 import { trackEvent } from "@/lib/analytics";
 import { REPORT_NOTE_MAX, REPORT_REASONS, type TargetKind } from "@/lib/community/constants";
@@ -209,8 +209,8 @@ export function EditToggle({ onClick, expanded, controls }: { onClick: () => voi
 export function SignInLink() {
   const t = useT();
   return (
-    <Link href="/login" className="text-gold-400 underline underline-offset-4 hover:text-gold-500">
+    <LoginLink className="text-gold-400 underline underline-offset-4 hover:text-gold-500">
       {t("pages.communityUI.signIn")}
-    </Link>
+    </LoginLink>
   );
 }

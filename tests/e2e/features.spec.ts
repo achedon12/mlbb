@@ -298,10 +298,10 @@ test.describe("hero analysis", () => {
   });
 });
 
-test("a hero page's share image is a PNG", async ({ request }) => {
+test("a hero page's share image is a JPEG", async ({ request }) => {
   const response = await request.get("/fr/heroes/khufra/opengraph-image");
   expect(response.status()).toBe(200);
-  expect(response.headers()["content-type"]).toContain("image/png");
+  expect(response.headers()["content-type"]).toContain("image/jpeg");
 });
 
 test("the branded share images answer in PNG, and an unknown page in 404", async ({ request }) => {

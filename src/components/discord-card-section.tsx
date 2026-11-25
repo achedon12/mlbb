@@ -49,7 +49,7 @@ export async function DiscordCardSection({ locale, roleId, zoneId, now }: { loca
           <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-chalk-300 sm:text-base">{t("pages.discordCard.intro")}</p>
         </div>
-        <span aria-hidden className="hidden shrink-0 md:block">
+        <span className="hidden shrink-0 md:block">
           <Dex pose="idee" height={150} still />
         </span>
       </div>

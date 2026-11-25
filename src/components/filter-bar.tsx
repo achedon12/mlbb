@@ -179,3 +179,16 @@ export function ChipActive({
     </button>
   );
 }
+
+/**
+ * "Clear filters", for an empty result: the way out offered where the
+ * visitor is looking, rather than only in the bar above.
+ */
+export function ResetFilters({ onClick, label, className }: { onClick: () => void; label?: string; className?: string }) {
+  const t = useT();
+  return (
+    <button type="button" onClick={onClick} className={cn(classesChip(true, true), "mt-3", className)}>
+      {label ?? t("common.clearFilters")}
+    </button>
+  );
+}

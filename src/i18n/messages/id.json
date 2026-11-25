@@ -14,6 +14,7 @@
     "homeDescription": "Basis pengetahuan Mobile Legends: Bang Bang: {heroes} hero, counter dan build mereka berdasarkan peringkat, tier list, item, emblem, dan patch notes.",
     "siblings": "Halaman lain pada level yang sama dengan {name}",
     "filter": "Filter…",
+    "clearFilters": "Hapus filter",
     "contents": "Daftar isi",
     "readMore": "Pelajari lebih lanjut",
     "method": "Metode dan sumber",
@@ -377,6 +378,11 @@
       "analysisText": "Belum ada yang menulis analisis tentang {name}: cara bermain, item yang harus dibeli, pertarungan yang menguntungkan. Sementara itu, tab lainnya memberikan angka yang diukur dalam permainan peringkat.",
       "analysisTranslated": "Analisis ditulis dalam bahasa Prancis dan diterjemahkan secara otomatis.",
       "contribute": "Berkontribusi pada analisis ini →",
+      "overview": {
+        "matchups": "{name} paling kesulitan melawan {weak} dan paling unggul melawan {strong}.",
+        "matchupsWeak": "{name} paling kesulitan melawan {weak}.",
+        "teammates": "Rekan setim terbaik: {teammates}."
+      },
       "countersIntro": "Dihitung dari win rate permainan: penyebaran poin menunjukkan seberapa besar win rate {name} bervariasi terhadap setiap lawan.",
       "countersRef": "Win rate dasar: {rate}%.",
       "matchups": "Analisis matchup",
@@ -482,6 +488,7 @@
     },
     "itemsList": {
       "search": "Cari item, stat, pasif",
+      "none": "Tidak ada item yang cocok dengan filter ini.",
       "account": "{n} item",
       "countOf": "pada {total}",
       "price": "Harga:",
@@ -569,7 +576,7 @@
       "all": "Semua berita"
     },
     "tierList": {
-      "title": "Tier list",
+      "title": "Tier list MLBB",
       "lead": "Peringkat ini bukan merupakan opini: peringkat ini dihitung dari win rate dan ban yang dilaporkan oleh game, dan dihitung ulang pada setiap sinkronisasi.",
       "metaDescription": "Daftar Tier Mobile Legends: Bang Bang dihitung dari win rate dan ban yang dilaporkan oleh game tersebut. Dihitung ulang pada setiap sinkronisasi, tanpa pendapat.",
       "ogDescription": "Peringkat dihitung dari win rate dan ban permainan.",
@@ -668,6 +675,7 @@
     },
     "patchNotes": {
       "title": "Patch notes",
+      "heading": "Patch notes MLBB",
       "lead": "Konten pembaruan terkini disertakan di sini, bagian demi bagian. Patch lama tetap terdaftar, dengan tautan ke halaman aslinya.",
       "metaDescription": "Patch {n} Mobile Legends: Bang Bang, dengan detail pembaruan terkini, dapat dilihat di situs.",
       "ogDescription": "{n} patch permainan, dengan detail yang terbaru.",
@@ -678,6 +686,7 @@
       "older": "Patch lama tidak disertakan secara penuh: kontennya akan mewakili beberapa megabyte untuk versi yang tidak lagi dimainkan oleh siapa pun.",
       "officialDescription": "Pembaruan Mobile Legends: Bang Bang {version} catatan resmi: hero baru, penyesuaian, dan perubahan item.",
       "officialShare": "Patch notes {version}.",
+      "analysisLink": "Baca analisis kami untuk patch {v}",
       "official": "Catatan resmi",
       "nSections": "{n} bagian",
       "all": "Semua patch notes",
@@ -1174,13 +1183,14 @@
     },
     "seo": {
       "hero": {
-        "title": "Build, Emblem & Counter {name} (Tier {tier}, Patch {v})",
-        "titleNoTier": "Build, Emblem & Counter {name} (Patch {v})",
-        "counters": "Counter terbaik dari {name} hingga {rank}: {counters}.",
-        "countersAll": "Counter terbaik {name}, semua peringkat digabungkan: {counters}.",
+        "title": "Build, Emblem & Counter {name} MLBB (Tier {tier}, Patch {v})",
+        "titleNoTier": "Build, Emblem & Counter {name} MLBB (Patch {v})",
+        "titleShort": "Build, Emblem & Counter {name} (Patch {v})",
+        "counters": "Counter terbaik untuk {name} di rank {rank}: {counters}.",
+        "countersAll": "Counter terbaik untuk {name} di semua rank: {counters}.",
         "build": "Build yang paling banyak dimainkan: {items}.",
         "buildEmblem": "Build yang paling banyak dimainkan: {items}, emblem {emblem}.",
-        "rate": "{winRate} kemenangan, level {tier}."
+        "rate": "Win rate {winRate}, tier {tier}."
       },
       "tierList": {
         "title": "Tier List MLBB {month}: Peringkat Hero (Patch {v})",
@@ -1262,7 +1272,7 @@
       },
       "quiz": {
         "title": "Kuis MLBB: Tebak Hero Setiap Hari",
-        "description": "Tantangan Mobile Legends: Bang Bang baru setiap hari: tebak hero berdasarkan skill, detail penampilan, atau cuplikan ceritanya, temukan item berdasarkan statistiknya, dan pilih win rate terbaik. Petunjuk untuk setiap kesalahan, seri, dan kisi bebas spoiler untuk dibagikan. Gratis, tanpa registrasi."
+        "description": "Kuis harian Mobile Legends: tebak hero dari skill, skin, atau ceritanya, temukan item-nya, dan pilih win rate tertinggi. Gratis, bagikan skormu."
       },
       "tierMaker": {
         "title": "Tier List Maker MLBB: Buat & Bagikan Tier List Anda",
@@ -2469,7 +2479,13 @@
         "announced": "Bulan yang diumumkan: Skin ini muncul pada daftar di wiki komunitas sebelum dirilis dalam game. Tanggal dan harga masih harus dikonfirmasi.",
         "navMonths": "Sebelumnya dan bulan depan",
         "allMonths": "Setiap bulan",
-        "yearLink": "Semua skin dirilis pada {year}"
+        "yearLink": "Semua skin dirilis pada {year}",
+        "next": {
+          "title": "Jelajahi lebih lanjut",
+          "heroes": "Hero unggulan bulan ini",
+          "heroLink": "Build {name}",
+          "related": "Halaman terkait"
+        }
       },
       "entry": {
         "starlight": "Skin StarLight: {skin} ({hero})",
@@ -2881,6 +2897,14 @@
         "announcedNew": "Hero baru dihadirkan dalam versi {v}: {name}.",
         "announcedRevamp": "Pengerjaan ulang {name} ditampilkan dalam versi {v}.",
         "readVersion": "Semua catatan versi {v}"
+      },
+      "archived": {
+        "title": "Arsip catatan Advance Server",
+        "lead": "Advance Server adalah server uji coba Mobile Legends. Wiki komunitas berhenti mendokumentasikannya setelah versi {v}: halaman ini menyimpan catatan yang terbit sampai saat itu sebagai arsip. Untuk yang berlaku di game sekarang, lihat patch notes terbaru.",
+        "latest": "Versi terakhir yang diarsipkan",
+        "current": "Patch notes terbaru ({v})",
+        "seoTitle": "Arsip Advance Server MLBB: catatan uji coba sampai {v}",
+        "seoDescription": "Arsip catatan Advance Server, server uji coba Mobile Legends, sampai versi {version}. Wiki tidak lagi mendokumentasikan server ini."
       }
     },
     "esports": {
@@ -6147,7 +6171,9 @@
       "code": "Panjang kode harus empat digit.",
       "unknown": "Tidak ada akun yang cocok dengan nama pengguna dan server ini.",
       "unavailable": "Layanan ini untuk sementara tidak tersedia.",
-      "wrongCode": "Kode salah atau kedaluwarsa."
+      "wrongCode": "Kode salah atau kedaluwarsa.",
+      "tooMany": "Terlalu banyak percobaan. Tunggu beberapa menit, lalu coba lagi.",
+      "tooManyAttempts": "Terlalu banyak kode salah. Minta kode baru untuk mencoba lagi."
     },
     "steps": "Langkah-langkah koneksi",
     "step1": "tanda pengenal Anda",
@@ -6213,7 +6239,7 @@
       "iosInstall": "Di iPhone dan iPad, instal situsnya terlebih dahulu: Bagikan, lalu “Di layar beranda”. Kemudian buka dari ikonnya untuk mengaktifkan notifikasi.",
       "error": "Itu tidak berhasil. Coba lagi sebentar lagi.",
       "life": "Untuk melakukan ini, server menyimpan alamat notifikasi browser ini dan daftar favorit Anda hingga Anda menonaktifkan notifikasi.",
-      "privacyLink": "Pelajari lebih lanjut"
+      "privacyLink": "Baca kebijakan privasi"
     }
   },
   "skinAvailability": {
@@ -6892,7 +6918,7 @@
   "consent": {
     "title": "Cookie pengukuran audiens",
     "text": "Dengan persetujuan Anda, MLBBDex memasang cookie untuk mengetahui berapa banyak pengunjung yang kembali. Pengukuran dilakukan dengan Matomo, yang terpasang di server situs ini sendiri: tanpa iklan, tanpa pelacakan pihak ketiga, tidak ada data yang dijual. Jika Anda menolak, pengukuran tetap berjalan secara anonim, tanpa cookie.",
-    "more": "Pelajari lebih lanjut",
+    "more": "Baca kebijakan privasi",
     "accept": "Terima",
     "refuse": "Tolak",
     "keep": "Pertahankan pilihan saya saat ini",

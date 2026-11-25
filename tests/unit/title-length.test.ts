@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { TITLE_MAX } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
 import { frenchOf } from "@/lib/counters";
+import { titleHero } from "@/lib/hero-title";
 import { allHeroes, counters, heroesBySlug } from "@/lib/data";
 import { ROLES } from "@/lib/draft";
 import { monthYear, patchCurrent } from "@/lib/freshness";
@@ -30,8 +31,7 @@ function titles(): { page: string; title: string }[] {
   for (const h of allHeroes) {
     // Same switches as the hero and counters pages: a long name takes the
     // shorter title, which must fit in turn.
-    const withTier = t("pages.seo.hero.title", { name: h.name, tier: "S", v });
-    add(`hero ${h.slug}`, withTier.length <= TITLE_MAX ? withTier : t("pages.seo.hero.titleNoTier", { name: h.name, v }));
+    add(`hero ${h.slug}`, titleHero(t, h.name, "S", v));
     const full = t("pages.heroCounters.metaTitle", { ...names(h.name), v });
     add(
       `counters ${h.slug}`,
@@ -86,6 +86,7 @@ function titles(): { page: string; title: string }[] {
   add("events month", t("pages.events.month.title", { month }));
   add("advance server", t("pages.advanceServer.seo.titleHub", { v }));
   add("advance server version", t("pages.advanceServer.seo.title", { v }));
+  add("advance server archive", t("pages.advanceServer.archived.seoTitle", { v }));
   return out;
 }
 

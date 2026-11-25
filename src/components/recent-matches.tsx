@@ -4,6 +4,7 @@ import { useState, useSyncExternalStore, useTransition } from "react";
 import { ChevronDown } from "lucide-react";
 import { BrandSpinner, Flash } from "@/components/dex-states";
 import Link from "@/components/link";
+import { LoginLink } from "@/components/login-link";
 import { HeroPortrait } from "@/components/hero-portrait";
 import { useLocale, useT } from "@/i18n/provider";
 import { nextMatches, type RunMatches } from "@/lib/profile-actions";
@@ -74,9 +75,9 @@ export function RecentMatches({
             {error === "expired" ? (
               <>
                 {t("pages.accountProfile.expiredText")}{" "}
-                <Link href="/login" className="font-semibold text-gold-400 underline underline-offset-4">
+                <LoginLink className="font-semibold text-gold-400 underline underline-offset-4">
                   {t("pages.accountProfile.signInAgain")}
-                </Link>
+                </LoginLink>
               </>
             ) : (
               t("pages.accountProfile.loadError")

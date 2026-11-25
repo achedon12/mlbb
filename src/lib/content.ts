@@ -69,6 +69,20 @@ export function article(section: Section, slug: string, locale: Locale = DEFAULT
   return articles(section, locale).find((a) => a.slug === slug);
 }
 
+/**
+ * The written analysis of a patch, when there is one: an article whose slug
+ * names the version ("patch-2-1-88", "analyse-patch-2-2-23"), looked for
+ * among the patch analyses first, then the news. Its address goes with it.
+ */
+export function patchAnalysis(version: string, locale: Locale = DEFAULT_LOCALE): { article: Article; href: string } | null {
+  const named = `patch-${version.replaceAll(".", "-")}`;
+  for (const section of ["patch-notes", "news"] as const) {
+    const found = articles(section, locale).find((a) => a.slug === named || a.slug.endsWith(`-${named}`));
+    if (found) return { article: found, href: `/${section}/${found.slug}` };
+  }
+  return null;
+}
+
 /** Renders an article's Markdown to HTML. */
 export function toHtml(markdown: string): string {
   return marked.parse(markdown, { async: false });

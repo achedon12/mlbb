@@ -15,7 +15,8 @@ import { createT } from "@/i18n/translations";
 import { linkSkin } from "@/lib/skin-catalog";
 import { LOCALE_INTL } from "@/i18n/config";
 import { calendarYears, dataListSkins } from "@/lib/skin-catalog-server";
-import { sync } from "@/lib/data";
+import { heroesBySlug, sync } from "@/lib/data";
+import { HeroTile } from "@/components/hero-tile";
 import { OTHER_MODES, monthStatus, neighbours } from "@/lib/events";
 import { monthByKey, monthKeys, referenceDate, sourcesForMonth } from "@/lib/events-server";
 import { serializeJsonLd } from "@/lib/html";
@@ -79,6 +80,11 @@ export default async function EventMonthPage({ params }: Params) {
   const headline = [...m.starlight, ...m.collector, ...skins];
   const art = headline.map(eventArt).find(Boolean) ?? (headline[0] ? heroArt(headline[0].hero) : null);
   const numbers = new Intl.NumberFormat(LOCALE_INTL[locale]);
+  // The way on from the month, shown under its title and again at its end:
+  // the pages of the heroes it features, then the calendars and the tier list.
+  const featured = [...new Set(headline.map((s) => s.hero))].filter((slug) => heroesBySlug.has(slug)).slice(0, 4);
+  const calendarHref = calendarYears().includes(Number(year)) ? `/skins/calendar/${year}` : "/skins/calendar";
+  const chip = "bevel-sm bg-night-800/90 px-2.5 py-1 text-chalk-200 transition-colors hover:bg-night-700 hover:text-gold-300";
 
   const structuredData = dataListSkins(locale, {
     name: title,
@@ -129,6 +135,29 @@ export default async function EventMonthPage({ params }: Params) {
         }
       >
         <FreshnessLine locale={locale} className="mt-4" />
+        <nav aria-label={t("pages.events.month.next.related")} className="mt-5">
+          <ul className="flex flex-wrap gap-2 text-sm">
+            {featured.slice(0, 3).map((slug) => (
+              <li key={slug}>
+                <Link href={`/heroes/${slug}`} className={chip}>
+                  {t("pages.events.month.next.heroLink", { name: heroesBySlug.get(slug)!.name })}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link href={calendarHref} className={chip}>
+                {t("nav.skinsCalendar.label")}
+              </Link>
+            </li>
+            {next && (
+              <li>
+                <Link href={`/events/${next}`} className={chip}>
+                  {monthLabel(locale, next)} →
+                </Link>
+              </li>
+            )}
+          </ul>
+        </nav>
       </PosterHeader>
 
       <div className="page-wrap space-y-14 py-12">
@@ -154,6 +183,46 @@ export default async function EventMonthPage({ params }: Params) {
           previous={previous ? { href: `/events/${previous}`, name: monthLabel(locale, previous), art: monthArt(previous) } : null}
           next={next ? { href: `/events/${next}`, name: monthLabel(locale, next), art: monthArt(next) } : null}
         />
+
+        <section aria-labelledby="month-next">
+          <h2 id="month-next" className="type-section text-chalk-100">
+            {t("pages.events.month.next.title")}
+          </h2>
+          <div aria-hidden className="eclat mt-3 h-[3px] w-24" />
+          {featured.length > 0 && (
+            <>
+              <h3 className="mt-6 type-subtitle text-chalk-200">{t("pages.events.month.next.heroes")}</h3>
+              <ul className="mt-3 grid max-w-3xl grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-3">
+                {featured.map((slug) => {
+                  const h = heroesBySlug.get(slug)!;
+                  return (
+                    <li key={slug}>
+                      <HeroTile
+                        href={`/heroes/${slug}`}
+                        name={h.name}
+                        portrait={h.images.portrait}
+                        sizes="(min-width: 640px) 11rem, 30vw"
+                      />
+                    </li>
+                  );
+                })}
+              </ul>
+            </>
+          )}
+          <ul className="mt-6 flex flex-wrap gap-2">
+            {[
+              { href: "/events", label: t("pages.events.month.allMonths"), name: "events" },
+              { href: calendarHref, label: t("nav.skinsCalendar.label"), name: "calendar" },
+              { href: "/tier-list", label: t("nav.tierList.label"), name: "tier-list" },
+            ].map((l) => (
+              <li key={l.name}>
+                <Link href={l.href} className="btn btn-secondary btn-sm">
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
 
         <section className="space-y-3">
           <SourceList sources={sourcesForMonth(m.month)} t={t} locale={locale} />

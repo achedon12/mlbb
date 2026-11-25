@@ -24,6 +24,7 @@ import { hasPlayerStats, hasTeamPage, playedSlugs, proTeams } from "@/lib/esport
 import { botPublished } from "@/lib/bot/public";
 import { CATEGORIES } from "@/lib/community/constants";
 import { advanceSyncedAt, advanceVersion, advanceVersionNumbers, advanceVersions } from "@/lib/advance-server";
+import { advanceDocumented } from "@/lib/advance-fresh";
 
 /**
  * Multilingual sitemap, split by page type.
@@ -149,19 +150,25 @@ export function sitemapEntries(): MetadataRoute.Sitemap {
         priority: 0.4,
         lastModified: dateOf(esportsUpdatedAt),
       })),
-    // Advance Server notes, dated by the version they describe.
-    {
-      path: "/patch-notes/advance-server",
-      changeFrequency: "weekly",
-      priority: 0.5,
-      lastModified: dateOf(advanceVersions("en")[0]?.date ?? advanceSyncedAt),
-    },
-    ...advanceVersionNumbers.map((version) => ({
-      path: `/patch-notes/advance-server/${version}`,
-      changeFrequency: "yearly" as const,
-      priority: 0.3,
-      lastModified: dateOf(advanceVersion("en", version)?.date),
-    })),
+    // Advance Server notes, dated by the version they describe. Left out
+    // while no source documents the test server: the pages stay up as a
+    // noindex archive (`advanceDocumented`).
+    ...(advanceDocumented()
+      ? [
+          {
+            path: "/patch-notes/advance-server",
+            changeFrequency: "weekly" as const,
+            priority: 0.5,
+            lastModified: dateOf(advanceVersions("en")[0]?.date ?? advanceSyncedAt),
+          },
+          ...advanceVersionNumbers.map((version) => ({
+            path: `/patch-notes/advance-server/${version}`,
+            changeFrequency: "yearly" as const,
+            priority: 0.3,
+            lastModified: dateOf(advanceVersion("en", version)?.date),
+          })),
+        ]
+      : []),
     { path: "/tools/collection", changeFrequency: "monthly", priority: 0.5, lastModified: synced },
     // Tier costs come from the synced shop prices; the rest of the
     // assumptions is dated by its own editorial check.

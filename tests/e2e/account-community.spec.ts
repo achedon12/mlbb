@@ -71,7 +71,7 @@ test.describe("sign-in", () => {
 
   test("the header offers to sign in", async ({ page }) => {
     await page.goto("/fr/heroes");
-    await expect(page.getByRole("banner").getByRole("link", { name: /^connexion$/i })).toHaveAttribute("href", /\/fr\/login$/);
+    await expect(page.getByRole("banner").getByRole("link", { name: /^connexion$/i })).toHaveAttribute("href", /\/fr\/login(\?next=%2Ffr%2Fheroes)?$/);
   });
 });
 

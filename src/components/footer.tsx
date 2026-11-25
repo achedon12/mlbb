@@ -19,10 +19,11 @@ function Column({ title, links, t }: { title: string; links: readonly Chip[]; t:
   return (
     <nav aria-label={title}>
       <p className="font-heading text-lg font-bold uppercase text-chalk-100">{title}</p>
-      <ul className="mt-2.5 space-y-1.5">
+      {/* Each link a 40 px row: a finger lands on one, not between two. */}
+      <ul className="mt-1.5">
         {links.map((link) => (
           <li key={link.href}>
-            <Link href={link.href} className="text-sm text-chalk-400 transition-colors hover:text-gold-300">
+            <Link href={link.href} className="inline-flex min-h-10 items-center text-sm text-chalk-400 transition-colors hover:text-gold-300">
               {t(link.label)}
             </Link>
           </li>
@@ -126,16 +127,16 @@ export function Footer({ locale, year }: { locale: Locale; year: number }) {
       </div>
 
       <div className="border-t border-night-800">
-        <p className="page-wrap py-3 text-xs text-chalk-600">{t("footer.sources")}</p>
+        <p className="page-wrap py-3 text-xs text-chalk-500">{t("footer.sources")}</p>
       </div>
 
       <div className="border-t border-night-800">
         <div className="page-wrap flex flex-col gap-2 py-4 text-xs leading-relaxed text-chalk-500 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {site.name} — {t("footer.rights", { author: site.author })}
-            <span className="text-chalk-600"> · {t("footer.version", { v: process.env.VERSION_SITE ?? "" })}</span>
+            <span> · {t("footer.version", { v: process.env.VERSION_SITE ?? "" })}</span>
           </p>
-          <p className="flex flex-wrap items-center gap-x-3 text-chalk-600">
+          <p className="flex flex-wrap items-center gap-x-3">
             <ConsentSettingsButton className="text-chalk-500 underline-offset-2 transition-colors hover:text-chalk-100 hover:underline" />
             <span>{t("footer.brand")}</span>
           </p>

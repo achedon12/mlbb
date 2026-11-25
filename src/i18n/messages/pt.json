@@ -14,6 +14,7 @@
     "homeDescription": "Base de conhecimento do Mobile Legends: Bang Bang: todos os {heroes} heróis, seus counters e builds por elo, a tier list, itens, emblemas e patch notes.",
     "siblings": "Outras páginas no mesmo nível que {name}",
     "filter": "Filtrar…",
+    "clearFilters": "Limpar filtros",
     "contents": "Sumário",
     "readMore": "Saiba mais",
     "method": "Método e fontes",
@@ -377,6 +378,11 @@
       "analysisText": "Ninguém ainda escreveu uma análise de {name}: como jogar, itens para comprar, combinações favoráveis. Enquanto isso, as outras guias fornecem os números medidos no jogo classificado.",
       "analysisTranslated": "Análise escrita em francês e traduzida automaticamente.",
       "contribute": "Contribua para esta análise →",
+      "overview": {
+        "matchups": "{name} sofre mais contra {weak} e se dá melhor contra {strong}.",
+        "matchupsWeak": "{name} sofre mais contra {weak}.",
+        "teammates": "Melhores parceiros: {teammates}."
+      },
       "countersIntro": "Com base nas taxas de vitória do jogo: a diferença em pontos mostra quanto a taxa de vitória de {name} varia contra cada oponente.",
       "countersRef": "Taxa de vitória de referência: {rate}%.",
       "matchups": "Análise dos confrontos",
@@ -482,6 +488,7 @@
     },
     "itemsList": {
       "search": "Buscar item, atributo ou passiva",
+      "none": "Nenhum item corresponde a esses filtros.",
       "account": "{n} itens",
       "countOf": "de {total}",
       "price": "Preço:",
@@ -569,7 +576,7 @@
       "all": "Todas as notícias"
     },
     "tierList": {
-      "title": "Tier list",
+      "title": "Tier list de MLBB",
       "lead": "Este ranking não é opinião: ele é calculado a partir das taxas de vitória e de ban informadas pelo jogo e se refaz a cada sincronização.",
       "metaDescription": "Tier list de Mobile Legends: Bang Bang calculada a partir das taxas de vitória e de ban informadas pelo jogo. Recalculada a cada sincronização, sem opinião.",
       "ogDescription": "Ranking calculado a partir das taxas de vitória e de ban do jogo.",
@@ -668,6 +675,7 @@
     },
     "patchNotes": {
       "title": "Patch notes",
+      "heading": "Patch notes de MLBB",
       "lead": "O conteúdo das atualizações recentes é reproduzido aqui, seção por seção. Os patches mais antigos continuam listados, com um link para a página original.",
       "metaDescription": "Os {n} patches de Mobile Legends: Bang Bang. Os detalhes das atualizações recentes podem ser lidos aqui mesmo, sem sair do site.",
       "ogDescription": "Os {n} patches do jogo, com detalhes dos mais recentes.",
@@ -678,6 +686,7 @@
       "older": "Os patches mais antigos não são reproduzidos na íntegra — o conteúdo ocuparia vários megabytes para versões que ninguém mais joga.",
       "officialDescription": "Notas oficiais da atualização {version} de Mobile Legends: Bang Bang: novos heróis, ajustes e mudanças de itens.",
       "officialShare": "Notas da atualização {version}.",
+      "analysisLink": "Leia nossa análise do patch {v}",
       "official": "Notas oficiais",
       "nSections": "{n} seções",
       "all": "Todas as patch notes",
@@ -1174,10 +1183,11 @@
     },
     "seo": {
       "hero": {
-        "title": "{name}: build, emblema, counters (tier {tier}, patch {v})",
-        "titleNoTier": "{name}: build, emblema, counters (patch {v})",
-        "counters": "Melhores counters de {name} a {rank}: {counters}.",
-        "countersAll": "Melhores counters de {name}, todas as classificações combinadas: {counters}.",
+        "title": "{name} MLBB: build, emblema, counters (tier {tier}, patch {v})",
+        "titleNoTier": "{name} MLBB: build, emblema, counters (patch {v})",
+        "titleShort": "{name}: build, emblema, counters (patch {v})",
+        "counters": "Melhores counters contra {name} no elo {rank}: {counters}.",
+        "countersAll": "Melhores counters contra {name}, em todos os elos: {counters}.",
         "build": "Build mais usada: {items}.",
         "buildEmblem": "Build mais usada: {items}, emblema {emblem}.",
         "rate": "{winRate} de vitórias, tier {tier}."
@@ -1262,7 +1272,7 @@
       },
       "quiz": {
         "title": "Quiz de MLBB: adivinhe o herói do dia",
-        "description": "Um novo desafio Mobile Legends: Bang Bang todos os dias: adivinhe o herói com base em uma habilidade, um detalhe de aparência ou um trecho de sua história, encontre o item com base em suas estatísticas e escolha a melhor taxa de vitória. Lanes de cada erro, série e grade sem spoilers para compartilhar. Gratuito, sem registro."
+        "description": "Quiz diário de Mobile Legends: adivinhe o herói por uma habilidade, uma skin ou sua história, encontre o item e escolha o maior win rate. Grátis."
       },
       "tierMaker": {
         "title": "Criador de tier list de MLBB: crie e compartilhe a sua",
@@ -2469,7 +2479,13 @@
         "announced": "Mês anunciado: estas skins aparecem em uma lista da wiki da comunidade antes do lançamento no jogo. Datas e preços ainda precisam ser confirmados.",
         "navMonths": "Mês anterior e seguinte",
         "allMonths": "Todos os meses",
-        "yearLink": "Todas as skins lançadas em {year}"
+        "yearLink": "Todas as skins lançadas em {year}",
+        "next": {
+          "title": "Continue explorando",
+          "heroes": "Heróis em destaque neste mês",
+          "heroLink": "Build de {name}",
+          "related": "Páginas relacionadas"
+        }
       },
       "entry": {
         "starlight": "Skin StarLight: {skin} ({hero})",
@@ -2881,6 +2897,14 @@
         "announcedNew": "Novo herói apresentado na versão {v}: {name}.",
         "announcedRevamp": "Uma reformulação de {name} é apresentada na versão {v}.",
         "readVersion": "Todas as notas da versão {v}"
+      },
+      "archived": {
+        "title": "Arquivo das notas do Advance Server",
+        "lead": "O Advance Server é o servidor de testes de Mobile Legends. A wiki da comunidade parou de documentá-lo depois da versão {v}: estas páginas guardam, como arquivo, as notas publicadas até então. Para o que está no jogo hoje, veja as notas do patch atual.",
+        "latest": "Última versão arquivada",
+        "current": "Notas do patch atual ({v})",
+        "seoTitle": "Arquivo do Advance Server de MLBB: notas até {v}",
+        "seoDescription": "Arquivo das notas do Advance Server, o servidor de testes de Mobile Legends, até a versão {version}. A wiki não documenta mais este servidor."
       }
     },
     "esports": {
@@ -6147,7 +6171,9 @@
       "code": "O código deve ter quatro dígitos.",
       "unknown": "Nenhuma conta corresponde a este ID e servidor.",
       "unavailable": "O serviço está temporariamente indisponível.",
-      "wrongCode": "Código incorreto ou expirado."
+      "wrongCode": "Código incorreto ou expirado.",
+      "tooMany": "Tentativas demais. Espere alguns minutos e tente de novo.",
+      "tooManyAttempts": "Códigos errados demais. Peça um novo código para tentar de novo."
     },
     "steps": "Etapas de conexão",
     "step1": "Sua identificação",
@@ -6213,7 +6239,7 @@
       "iosInstall": "No iPhone e no iPad, instale primeiro o site: Compartilhar e depois “Adicionar à Tela de Início”. Em seguida, abra-o pelo ícone para ativar as notificações.",
       "error": "Não funcionou. Tente novamente em alguns instantes.",
       "life": "Para isso, o servidor guarda o endereço de notificação deste navegador e a lista dos seus favoritos até você desativar.",
-      "privacyLink": "Saber mais"
+      "privacyLink": "Ler a política de privacidade"
     }
   },
   "skinAvailability": {
@@ -6892,7 +6918,7 @@
   "consent": {
     "title": "Cookies de medição de audiência",
     "text": "Com o seu consentimento, o MLBBDex usa cookies para saber quantos visitantes voltam. A medição é feita pelo Matomo, instalado no próprio servidor do site: sem publicidade, sem rastreamento por terceiros, nenhum dado vendido. Se você recusar, ela continua de forma anônima, sem cookies.",
-    "more": "Saber mais",
+    "more": "Ler a política de privacidade",
     "accept": "Aceitar",
     "refuse": "Recusar",
     "keep": "Manter minha escolha atual",

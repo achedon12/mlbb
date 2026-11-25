@@ -14,6 +14,7 @@
     "homeDescription": "Knowledge base ng Mobile Legends: Bang Bang: lahat ng {heroes} hero, ang kanilang mga counter at build ayon sa rank, ang tier list, mga item, emblem at patch notes.",
     "siblings": "Iba pang mga pahina sa parehong antas ng {name}",
     "filter": "I-filter…",
+    "clearFilters": "I-clear ang mga filter",
     "contents": "Nilalaman",
     "readMore": "Matuto pa",
     "method": "Paraan at mga source",
@@ -377,6 +378,11 @@
       "analysisText": "Wala pang nakasulat ng pagsusuri ng {name}: kung paano laruin, mga item na bibilhin, mga paborableng matchup. Pansamantala, ang iba pang mga tab ay nagbibigay ng mga numerong nasusukat sa ranggo na paglalaro.",
       "analysisTranslated": "Isinulat ang analysis sa French at isinalin nang awtomatiko.",
       "contribute": "Mag-ambag sa analysis na ito →",
+      "overview": {
+        "matchups": "Pinakanahihirapan si {name} laban kina {weak} at pinakamalakas laban kina {strong}.",
+        "matchupsWeak": "Pinakanahihirapan si {name} laban kina {weak}.",
+        "teammates": "Pinakamahusay na kakampi: {teammates}."
+      },
       "countersIntro": "Batay sa in-game win rate: ipinapakita ng pagitan sa points kung gaano gumagalaw ang win rate ni {name} laban sa bawat kalaban.",
       "countersRef": "Baseline na win rate: {rate}%.",
       "matchups": "Matchup breakdown",
@@ -482,6 +488,7 @@
     },
     "itemsList": {
       "search": "Maghanap ng item, stat o passive",
+      "none": "Walang item na tugma sa mga filter na ito.",
       "account": "{n} item",
       "countOf": "sa {total}",
       "price": "Presyo:",
@@ -569,7 +576,7 @@
       "all": "Lahat ng balita"
     },
     "tierList": {
-      "title": "Tier list",
+      "title": "MLBB tier list",
       "lead": "Hindi opinyon ang ranking na ito: kinukuwenta ito mula sa win at ban rate na iniulat ng laro, at kusang nire-rebuild sa bawat sync.",
       "metaDescription": "Tier list ng Mobile Legends: Bang Bang na kinukuwenta mula sa win at ban rate na iniulat ng laro. Kinukuwenta ulit sa bawat sync, walang opinyon.",
       "ogDescription": "Ranking na kinuwenta mula sa win at ban rate ng laro.",
@@ -668,6 +675,7 @@
     },
     "patchNotes": {
       "title": "Patch notes",
+      "heading": "MLBB patch notes",
       "lead": "Kinopya rito ang laman ng mga kamakailang update, section by section. Nakalista pa rin ang mga mas lumang patch, may link sa orihinal nilang page.",
       "metaDescription": "Ang {n} patch ng Mobile Legends: Bang Bang. Mababasa mismo rito ang detalye ng mga kamakailang update, nang hindi umaalis sa site.",
       "ogDescription": "Ang {n} patch ng laro, kasama ang detalye ng mga pinakabago.",
@@ -678,6 +686,7 @@
       "older": "Hindi buong kinopya ang mga mas lumang patch — ilang megabyte ang aabutin ng laman nila para sa mga bersyong wala nang naglalaro.",
       "officialDescription": "Official notes ng update {version} ng Mobile Legends: Bang Bang: mga bagong hero, adjustment at pagbabago sa item.",
       "officialShare": "Notes ng update {version}.",
+      "analysisLink": "Basahin ang aming analysis ng patch {v}",
       "official": "Official notes",
       "nSections": "{n} section",
       "all": "Lahat ng patch notes",
@@ -1174,10 +1183,11 @@
     },
     "seo": {
       "hero": {
-        "title": "{name} Build, Emblem at Counter ({tier} Tier, Patch {v})",
-        "titleNoTier": "{name} Build, Emblem at Counter (Patch {v})",
-        "counters": "Pinakamahusay na mga counter mula {name} hanggang {rank}: {counters}.",
-        "countersAll": "Pinakamahusay na mga counter ng {name}, pinagsama ang lahat ng ranggo: {counters}.",
+        "title": "{name} MLBB Build, Emblem at Counter ({tier} Tier, Patch {v})",
+        "titleNoTier": "{name} MLBB Build, Emblem at Counter (Patch {v})",
+        "titleShort": "{name} Build, Emblem at Counter (Patch {v})",
+        "counters": "Pinakamahusay na counter laban kay {name} sa {rank}: {counters}.",
+        "countersAll": "Pinakamahusay na counter laban kay {name} sa lahat ng rank: {counters}.",
         "build": "Pinakamadalas gamiting build: {items}.",
         "buildEmblem": "Pinakamadalas gamiting build: {items}, {emblem} emblem.",
         "rate": "{winRate} win rate, {tier} tier."
@@ -1262,7 +1272,7 @@
       },
       "quiz": {
         "title": "MLBB Quiz: Daily Hero Guessing Game",
-        "description": "Isang bagong Mobile Legends: Bang Bang challenge araw-araw: hulaan ang hero batay sa isang skill, isang detalye ng hitsura o isang extract mula sa kanyang kuwento, hanapin ang item batay sa kanyang mga istatistika at piliin ang pinakamahusay na win rate. Mga pahiwatig sa bawat error, serye at spoiler-free grid na ibabahagi. Libre, walang pagpaparehistro."
+        "description": "Araw-araw na Mobile Legends quiz: hulaan ang hero mula sa skill, skin o kuwento niya, hanapin ang item at piliin ang mas mataas na win rate. Libre."
       },
       "tierMaker": {
         "title": "MLBB Tier List Maker: Gumawa at Mag-share ng Tier List Mo",
@@ -2469,7 +2479,13 @@
         "announced": "Inanunsyong buwan: nasa isang listahan ng community wiki ang mga skin na ito bago pa ang release nila sa laro. Kukumpirmahin pa ang mga petsa at presyo.",
         "navMonths": "Nakaraan at susunod na buwan",
         "allMonths": "Lahat ng buwan",
-        "yearLink": "Bawat skin na inilabas noong {year}"
+        "yearLink": "Bawat skin na inilabas noong {year}",
+        "next": {
+          "title": "Mag-explore pa",
+          "heroes": "Mga hero na tampok ngayong buwan",
+          "heroLink": "Build ni {name}",
+          "related": "Mga kaugnay na page"
+        }
       },
       "entry": {
         "starlight": "StarLight skin: {skin} ({hero})",
@@ -2881,6 +2897,14 @@
         "announcedNew": "Bagong hero na ipinakita sa bersyon {v}: {name}.",
         "announcedRevamp": "Ipinakita ang revamp ni {name} sa version {v}.",
         "readVersion": "Lahat ng notes ng version {v}"
+      },
+      "archived": {
+        "title": "Archive ng mga tala ng Advance Server",
+        "lead": "Ang Advance Server ang test server ng Mobile Legends. Tumigil na ang community wiki sa pagdodokumento nito pagkatapos ng version {v}: iniingatan ng mga page na ito, bilang archive, ang mga talang nailathala hanggang noon. Para sa kung ano ang nasa laro ngayon, tingnan ang kasalukuyang patch notes.",
+        "latest": "Huling na-archive na version",
+        "current": "Kasalukuyang patch notes ({v})",
+        "seoTitle": "MLBB Advance Server archive: mga test note hanggang {v}",
+        "seoDescription": "Archive ng mga tala ng Advance Server, ang test server ng Mobile Legends, hanggang version {version}. Hindi na ito dinodokumento ng wiki."
       }
     },
     "esports": {
@@ -6147,7 +6171,9 @@
       "code": "Apat na digit ang code.",
       "unknown": "Walang account na tugma sa ID at server na ito.",
       "unavailable": "Pansamantalang hindi available ang serbisyo.",
-      "wrongCode": "Mali o expired na ang code."
+      "wrongCode": "Mali o expired na ang code.",
+      "tooMany": "Masyadong maraming pagsubok. Maghintay ng ilang minuto, saka subukan ulit.",
+      "tooManyAttempts": "Masyadong maraming maling code. Humingi ng bagong code para subukan ulit."
     },
     "steps": "Mga hakbang sa koneksyon",
     "step1": "Iyong ID",
@@ -6213,7 +6239,7 @@
       "iosInstall": "Sa iPhone at iPad, i-install muna ang site: Share, tapos “Add to Home Screen”. Pagkatapos ay buksan ito mula sa icon nito para i-on ang mga notification.",
       "error": "Hindi ito gumana. Subukan muli sa isang sandali.",
       "life": "Para dito, itinatago ng server ang notification address ng browser na ito at ang listahan ng mga paborito mo hanggang i-off mo ito.",
-      "privacyLink": "Matuto pa"
+      "privacyLink": "Basahin ang patakaran sa privacy"
     }
   },
   "skinAvailability": {
@@ -6892,7 +6918,7 @@
   "consent": {
     "title": "Cookies sa pagsukat ng audience",
     "text": "Kung papayag ka, gagamit ang MLBBDex ng cookies para malaman kung ilang bisita ang bumabalik. Ang pagsukat ay ginagawa ng Matomo, na naka-install sa sariling server ng site: walang ads, walang pagsubaybay ng third party, walang ibinebentang data. Kung tatanggi ka, magpapatuloy ito nang anonymous, nang walang cookies.",
-    "more": "Matuto pa",
+    "more": "Basahin ang patakaran sa privacy",
     "accept": "Tanggapin",
     "refuse": "Tanggihan",
     "keep": "Panatilihin ang aking kasalukuyang pagpipilian",
