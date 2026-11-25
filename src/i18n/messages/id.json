@@ -374,8 +374,8 @@
       },
       "strengths": "Kekuatan",
       "weaknesses": "Kelemahan",
-      "analysisPending": "Belum ada analisis tertulis",
-      "analysisText": "Belum ada yang menulis analisis tentang {name}: cara bermain, item yang harus dibeli, pertarungan yang menguntungkan. Sementara itu, tab lainnya memberikan angka yang diukur dalam permainan peringkat.",
+      "overviewTitle": "Intinya",
+      "overviewNote": "Belum ada yang menulis analisis {name}: ringkasan ini berasal dari pengukuran di pertandingan ranked.",
       "analysisTranslated": "Analisis ditulis dalam bahasa Prancis dan diterjemahkan secara otomatis.",
       "contribute": "Berkontribusi pada analisis ini →",
       "overview": {
@@ -465,6 +465,7 @@
         "pick": "Pick",
         "ban": "Ban",
         "build": "Build yang paling banyak dimainkan",
+        "emblem": "Emblem",
         "buildWin": "Win rate {rate}%",
         "counteredBy": "Di-counter oleh",
         "jump": "Pintasan ke bagian"
@@ -2459,7 +2460,6 @@
       },
       "noStarlight": "Wiki tidak mencantumkan skin StarLight apa pun untuk bulan ini.",
       "noCollector": "Menurut wiki, tidak ada skin Collector yang dirilis pada bulan itu.",
-      "rarityUnknown": "Kelangkaan tidak ditunjukkan",
       "skinOf": "{skin} ({hero})",
       "summary": {
         "starlight": "Skin StarLight Bulan Ini: {list}.",
@@ -5620,7 +5620,8 @@
   },
   "featured": {
     "seeSheet": "Lihat filenya",
-    "topMeta": "#1 di meta"
+    "topMeta": "#1 di meta",
+    "topMetaHint": "peringkat menang + ban"
   },
   "access": {
     "account": "{n} hero"
@@ -5978,7 +5979,7 @@
           "ul": [
             "Level tier list: skor = win rate + {weightBan} × ban rate. S+ dari {tierSPlus} poin, S dari {tierS}, A dari {tierA}, B dari {tierB}, C di bawah. Tingkat seleksi tidak masuk ke dalam skor.",
             "Perhitungan yang sama diulangi untuk setiap irisan peringkat (Epic, Legend, Mythical, Mythical Honor, Mythical Glory), untuk setiap lane, dan untuk setiap peran.",
-            "Keandalan: hero yang dipilih dalam waktu kurang dari {reliability}% permainan tetap diberi peringkat, tetapi ia ditandai dengan tanda bintang, karena tingkatnya terlalu tidak stabil.",
+            "Keandalan: win rate yang diukur dari sedikit permainan ditarik ke arah 50% sesuai ukuran sampelnya (selisih dari 50% tinggal sebesar pick / (pick + {reliability})). Hero yang dipilih di kurang dari {reliability}% permainan, atau kehilangan lebih dari {gapFragile} poin karena koreksi ini, tetap diberi peringkat dengan angkanya sendiri, tetapi diberi tanda bintang dan ditempatkan setelah hero yang terukur dengan andal di tier yang sama. Di dalam satu tier, urutan mengikuti skor terkoreksi, dan posisi No. 1 serta podium hanya untuk hero yang terukur dengan andal.",
             "Tren: evolusi win rate selama tujuh hari hanya ditampilkan dari selisih {notable} poin; di bawahnya menyatu dengan pembulatan.",
             "Efek patch: untuk setiap hero yang dimodifikasi, win rate rata-rata {daysImpact} hari setelah patch, dibandingkan dengan {daysImpact} hari sebelumnya, tidak termasuk hari itu sendiri. Dibutuhkan setidaknya {minImpact} hari diukur pada setiap sisi; perbedaan kurang dari {thresholdImpact} poin ditampilkan dalam warna abu-abu, karena tidak signifikan.",
             "Riwayat: API hanya digunakan selama tiga puluh hari terakhir. Situs ini menyimpan setiap bacaan sejak {historyStart}, hari demi hari selama {dailyDays} hari terakhir, lalu rata-rata per minggu. Minggu-minggu lama tidak digunakan untuk mengukur efek patch.",

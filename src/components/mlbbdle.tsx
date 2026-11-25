@@ -1,7 +1,7 @@
 "use client";
 
 import { DexNotice } from "@/components/dex-states";
-import { DexLoading } from "@/components/dex-loading";
+import { GameSkeleton } from "@/components/game-skeleton";
 import { Flash } from "@/components/dex-states";
 import Image from "next/image";
 import { useAccountPrompt } from "@/components/account-prompt";
@@ -183,10 +183,8 @@ export function Mlbbdle({ heroes, labels }: { heroes: MlbbdleHero[]; labels: Rec
 
       {mode !== "practice" &&
         (puzzle === null || !day ? (
-          // About the height of the guess form once drawn: no jump below it.
-          <div className="grid min-h-[17rem] place-items-center sm:min-h-[12rem]">
-            <DexLoading dex={false} label={t("pages.mlbbdleUI.loading")} />
-          </div>
+          // The guess board drawn in skeletons, at its height once loaded: no jump below it.
+          <GameSkeleton label={t("pages.mlbbdleUI.loading")} clues={1} className="min-h-[17rem] sm:min-h-[12rem]" />
         ) : puzzle === "error" ? (
           <DexNotice role="alert" tone="error" title={t("dexStates.errorTitle")}>
             <p>{t("pages.mlbbdleUI.loadError")}</p>
@@ -682,9 +680,7 @@ function Practice({ catalog }: { catalog: MlbbdleCatalog }) {
           </button>
         </DexNotice>
       ) : !current || !target ? (
-        <div className="grid place-items-center py-10">
-          <DexLoading dex={false} label={t("pages.mlbbdleUI.loading")} />
-        </div>
+        <GameSkeleton label={t("pages.mlbbdleUI.loading")} clues={1} />
       ) : (
         <>
           {current.mode === "classic" ? (

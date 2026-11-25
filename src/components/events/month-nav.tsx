@@ -28,7 +28,7 @@ export function MonthNav({
     <Link
       href={n.href}
       rel={dir}
-      className="eclat-under group relative block min-w-0 flex-1 transition-[translate] duration-200 hover:-translate-y-0.5"
+      className="eclat-under group relative block min-w-0 transition-[translate] duration-200 hover:-translate-y-0.5"
     >
       <span className="bevel relative flex h-24 items-center overflow-hidden bg-night-800 px-4 sm:h-28 sm:px-6">
         {n.art && (
@@ -36,7 +36,7 @@ export function MonthNav({
             src={n.art}
             alt=""
             fill
-            sizes="(min-width: 640px) 40vw, 45vw"
+            sizes={previous && next ? "(min-width: 640px) 46vw, 48vw" : "96vw"}
             className="object-cover object-[50%_25%] opacity-60 transition-[transform,opacity] duration-500 ease-out group-hover:scale-[1.05] group-hover:opacity-90"
           />
         )}
@@ -60,16 +60,16 @@ export function MonthNav({
   );
 
   return (
-    <nav aria-label={label} className="space-y-3">
-      <div className="flex gap-2.5 sm:gap-4">
-        {previous ? side(previous, "prev") : <span className="flex-1" />}
-        {next ? side(next, "next") : <span className="flex-1" />}
-      </div>
-      <p className="text-center">
-        <Link
-          href="/events"
-          className="font-heading text-base font-bold uppercase text-gold-400 transition-colors hover:text-gold-300"
-        >
+    <nav aria-label={label} className="space-y-4">
+      {/* The row is always full: two halves, or a single month across it. */}
+      {(previous || next) && (
+        <div className={cn("grid gap-2.5 sm:gap-4", previous && next && "grid-cols-2")}>
+          {previous && side(previous, "prev")}
+          {next && side(next, "next")}
+        </div>
+      )}
+      <p className="flex justify-center">
+        <Link href="/events" className="btn btn-secondary btn-sm">
           {all}
         </Link>
       </p>

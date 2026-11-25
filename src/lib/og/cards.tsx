@@ -11,7 +11,7 @@ import { countAdjustments, longDate, monthYear, patchCurrent, percentage } from 
 import { guide, readingMinutes } from "@/lib/guides";
 import { lastSkins, gallerySkinCount } from "@/lib/hero-skins";
 import type { MeasuredRank } from "@/lib/measured-ranks";
-import { rankingOfRank, rateBySlug } from "@/lib/tier-list";
+import { leaderOf, rankingOfRank, rateBySlug } from "@/lib/tier-list";
 import { filterRanking, type FilterTier } from "@/lib/tier-list-filters";
 import { groupByDate, readRelease } from "@/lib/skin-catalog";
 import { calendarYears, releasedSkins } from "@/lib/skin-catalog-server";
@@ -341,7 +341,7 @@ export function guideCard(locale: Locale, slug: string) {
   if (!g) return null;
   const t = createT(locale);
   // A lane's guide stands on the artwork of that lane's strongest hero right now.
-  const lead = g.lane ? filterRanking(rankingOfRank("all"), { type: "lane", value: g.lane })[0]?.hero.slug : null;
+  const lead = g.lane ? leaderOf(filterRanking(rankingOfRank("all"), { type: "lane", value: g.lane }))?.hero.slug : null;
   return card({
     locale,
     kicker: `${t("nav.guides.label")} · ${t("og.minutes", { n: readingMinutes(g.content) })}`,

@@ -374,8 +374,8 @@
       },
       "strengths": "Punti di forza",
       "weaknesses": "Punti deboli",
-      "analysisPending": "Nessuna analisi scritta ancora",
-      "analysisText": "Nessuno ha ancora scritto un'analisi di {name}: come giocare, oggetti da acquistare, abbinamenti favorevoli. Nel frattempo, le altre schede riportano i dati misurati nel gioco classificato.",
+      "overviewTitle": "L'essenziale",
+      "overviewNote": "Nessuno ha ancora scritto un'analisi di {name}: questo riepilogo viene dalle misurazioni delle partite classificate.",
       "analysisTranslated": "Analisi scritta in francese e tradotta automaticamente.",
       "contribute": "Contribuisci a questa analisi →",
       "overview": {
@@ -465,6 +465,7 @@
         "pick": "Scelta",
         "ban": "Ban",
         "build": "La build più giocata",
+        "emblem": "Emblema",
         "buildWin": "{rate}% di vittorie",
         "counteredBy": "Contrastato da",
         "jump": "Collegamenti alle sezioni"
@@ -2459,7 +2460,6 @@
       },
       "noStarlight": "La wiki non elenca alcuna skin StarLight per questo mese.",
       "noCollector": "Secondo la wiki, quel mese non è uscita alcuna skin Collector.",
-      "rarityUnknown": "Rarità non ancora indicata",
       "skinOf": "{skin} ({hero})",
       "summary": {
         "starlight": "Skin StarLight del mese: {list}.",
@@ -5620,7 +5620,8 @@
   },
   "featured": {
     "seeSheet": "Vedi la scheda",
-    "topMeta": "Il numero 1 nel meta"
+    "topMeta": "Il numero 1 nel meta",
+    "topMetaHint": "classifica vittorie + ban"
   },
   "access": {
     "account": "{n} eroi"
@@ -5978,7 +5979,7 @@
           "ul": [
             "Livelli dell'elenco dei livelli: punteggio = tasso di vincita + {weightBan} × tasso di ban. S+ da {tierSPlus} punti, S da {tierS}, A da {tierA}, B da {tierB}, C sotto. Il tasso di selezione non entra nel punteggio.",
             "Lo stesso calcolo viene ripetuto per ogni fetta di rango (Epico, Leggenda, Mitico, Onore Mitico, Gloria Mitica), per ogni corsia e per ogni ruolo.",
-            "Affidabilità: un eroe scelto in meno del {reliability}% delle partite rimane classificato, ma è contrassegnato da un asterisco, poiché i suoi tassi sono troppo instabili.",
+            "Affidabilità: un tasso di vittoria misurato su poche partite viene riportato verso il 50% in proporzione al suo campione (lo scarto dal 50% conserva la quota scelta / (scelta + {reliability})). Un eroe scelto in meno del {reliability}% delle partite, o a cui questa correzione toglie più di {gapFragile} punti, resta in classifica con i propri numeri, ma è contrassegnato da un asterisco e messo dopo gli eroi misurati in modo affidabile del suo livello. All'interno di un livello l'ordine segue il punteggio corretto, e il n. 1 e il podio vanno solo a eroi misurati in modo affidabile.",
             "Tendenze: l'evoluzione del tasso di vittoria su sette giorni viene visualizzata solo a partire da {notable} punti di differenza; sotto, si fonde con l'arrotondamento.",
             "Effetto di una patch: per ogni eroe modificato, il tasso di vittoria medio dei {daysImpact} giorni successivi alla patch, rispetto a quello dei {daysImpact} giorni precedenti, escluso il giorno stesso. Occorrono almeno {minImpact} giorni misurati su ciascun lato; una differenza inferiore a {thresholdImpact} punti viene visualizzata in grigio, in quanto non significativa.",
             "Cronologia: l'API viene utilizzata solo negli ultimi trenta giorni. Il sito conserva ogni lettura dal {historyStart}, giorno per giorno negli ultimi {dailyDays} giorni, quindi in media a settimana. Le vecchie settimane non vengono utilizzate per misurare l'effetto di un cerotto.",

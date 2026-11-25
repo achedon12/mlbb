@@ -19,7 +19,9 @@ import type { Hero, Tier } from "./types";
  *   rate is misleadingly low because they are rarely available.
  *
  * The pick rate does not enter the score: it measures popularity,
- * not power. It is only used to flag unreliable measurements.
+ * not power. It is only used to judge how far a win rate can be trusted:
+ * flagging the fragile measurements, and ordering heroes inside a tier
+ * (see `winRateAdjusted`).
  */
 export interface RankedEntry {
   hero: Hero;
@@ -28,6 +30,11 @@ export interface RankedEntry {
   banRate: number;
   pickRate: number;
   score: number;
+  /**
+   * Same score with the win rate pulled toward 50 % by the sample size:
+   * orders heroes inside a tier, never displayed.
+   */
+  scoreAdjusted: number;
   /** True when the hero is played too little for its rates to be stable. */
   lowSample: boolean;
   /** Hand-written comment, when there is one. */
@@ -58,6 +65,33 @@ export const measure = RANKING.measuredAt;
 export const THRESHOLD_RELIABILITY = 0.3;
 
 /**
+ * A win rate drawn from few games overstates its gap to 50 %. The pick
+ * rate weighs it as a sample size: the gap keeps the share
+ * `pick / (pick + THRESHOLD_RELIABILITY)`, so a hero at the reliability
+ * threshold keeps half of it, a hero picked in 2 % of drafts nearly all.
+ * The ban rate is measured over every game and is not corrected.
+ */
+export function winRateAdjusted(winRate: number, pickRate: number): number {
+  const p = Math.max(pickRate, 0);
+  return 50 + (winRate - 50) * (p / (p + THRESHOLD_RELIABILITY));
+}
+
+/**
+ * Win rate points the sample correction may remove before the measure is
+ * called fragile: above it, the hero's standing rests on too few games
+ * even when it clears the pick threshold (a 58 % win rate at 0.5 % pick).
+ */
+export const GAP_FRAGILE = 2;
+
+/** Too few games for the rates to support a conclusion. */
+export function isFragile(t: Pick<Rate, "winRate" | "pickRate">): boolean {
+  return (
+    t.pickRate < THRESHOLD_RELIABILITY ||
+    Math.abs(t.winRate - winRateAdjusted(t.winRate, t.pickRate)) >= GAP_FRAGILE
+  );
+}
+
+/**
  * A ban costs the enemy team a pick: a hero banned one game in two
  * weighs as much as a hero winning a few more points. A quarter is the
  * ratio that best reproduces the priorities observed in ranked queue.
@@ -67,6 +101,8 @@ export const WEIGHT_BAN = 0.25;
 function score(t: Pick<Rate, "winRate" | "banRate">): number {
   return t.winRate + t.banRate * WEIGHT_BAN;
 }
+
+export const ORDER_TIERS: Tier[] = ["S+", "S", "A", "B", "C"];
 
 /** Tier bounds, in score points. */
 export const TIERS: [Tier, number][] = [
@@ -84,12 +120,29 @@ function tier(value: number): Tier {
 /** The tier list rule, for rates from another date (tier changes in the meta report). */
 export const ruleTierList = { score, tier };
 
+/**
+ * Order of a ranking: by tier, the tier itself following the raw score
+ * (the bounds of the methodology page); inside a tier, the reliably
+ * measured heroes first, each group by its sample-adjusted score. A hero
+ * with a striking win rate over a handful of games keeps its tier and its
+ * numbers, but no longer heads the list.
+ */
+function compareEntries(a: RankedEntry, b: RankedEntry): number {
+  return (
+    ORDER_TIERS.indexOf(a.tier) - ORDER_TIERS.indexOf(b.tier) ||
+    Number(a.lowSample) - Number(b.lowSample) ||
+    b.scoreAdjusted - a.scoreAdjusted ||
+    b.score - a.score
+  );
+}
+
 function rankEntries(rate: Record<string, Rate>): RankedEntry[] {
   return allHeroes
     .filter((h) => rate[h.slug])
     .map((h) => {
       const t = rate[h.slug];
       const value = score(t);
+      const adjusted = score({ winRate: winRateAdjusted(t.winRate, t.pickRate), banRate: t.banRate });
 
       return {
         hero: h,
@@ -98,11 +151,27 @@ function rankEntries(rate: Record<string, Rate>): RankedEntry[] {
         banRate: t.banRate,
         pickRate: t.pickRate,
         score: Math.round(value * 100) / 100,
-        lowSample: t.pickRate < THRESHOLD_RELIABILITY,
+        scoreAdjusted: Math.round(adjusted * 100) / 100,
+        lowSample: isFragile(t),
         comment: notesTierList[h.slug] ?? null,
       };
     })
-    .sort((a, b) => b.score - a.score);
+    .sort(compareEntries);
+}
+
+/**
+ * The hero a page puts forward as "n°1": the first reliably measured one.
+ * The ranking already lists them first in each tier; this also covers a
+ * tier made only of fragile measures.
+ */
+export function leaderOf<E extends Pick<RankedEntry, "lowSample">>(entries: readonly E[]): E | undefined {
+  return entries.find((e) => !e.lowSample) ?? entries[0];
+}
+
+/** The first `n` reliably measured heroes, completed by the others if too few. */
+export function leadersOf<E extends Pick<RankedEntry, "lowSample">>(entries: readonly E[], n: number): E[] {
+  const reliable = entries.filter((e) => !e.lowSample);
+  return [...reliable, ...entries.filter((e) => e.lowSample)].slice(0, n);
 }
 
 export const rankingFull = rankEntries(RATE);
@@ -152,8 +221,6 @@ export const rateBySlug = new Map(
     },
   ]),
 );
-
-export const ORDER_TIERS: Tier[] = ["S+", "S", "A", "B", "C"];
 
 /** Ranks that have their own ranking, all ranks first. */
 export const RANKS_CLASSES = MEASURED_RANKS.filter((r) => RANKINGS_BY_RANK.has(r));

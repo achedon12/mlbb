@@ -1,8 +1,9 @@
 import Image from "next/image";
-import { skinArt } from "@/components/hero-art";
+import { heroArt, skinArt } from "@/components/hero-art";
 import { ArtTile } from "@/components/poster-header";
 import { ProvisionalBadge } from "@/components/provisional-badge";
-import type { PropsCardSkin } from "@/components/skin-card";
+import { MissingSkinArt, type PropsCardSkin } from "@/components/skin-card";
+import { heroesBySlug } from "@/lib/data";
 import type { EventSkin } from "@/lib/events";
 
 /** The skin's full artwork, when the catalogue holds one under its name: never a provisional one. */
@@ -26,6 +27,7 @@ export function FeatureSkin({
   aspect?: string;
 }) {
   const art = eventArt(skin);
+  const backdrop = art ? null : (heroArt(skin.hero) ?? card.fallback ?? heroesBySlug.get(skin.hero)?.images.portrait ?? null);
   return (
     <ArtTile
       href={card.href}
@@ -38,18 +40,25 @@ export function FeatureSkin({
       className="h-full"
       figure={card.provisional ? <ProvisionalBadge {...card.provisional} /> : undefined}
       fallback={
-        // A provisional visual is not blown up into a poster tile.
-        card.image && !skin.provisional ? (
-          <span className="absolute inset-y-0 right-0 aspect-[240/390]">
-            <Image src={card.image} alt="" fill sizes="12rem" className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" />
-          </span>
-        ) : null
+        <>
+          {/* Behind it all, the hero's own artwork, blurred and dimmed: the
+              frame is never an empty panel that reads as a broken image. */}
+          <MissingSkinArt fallback={backdrop} color={card.color} sizes={sizes} />
+          {/* A provisional visual is not blown up into a poster tile. */}
+          {card.image && !skin.provisional && (
+            <span className="absolute inset-y-0 right-0 aspect-[240/390]">
+              <Image src={card.image} alt="" fill sizes="12rem" className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" />
+            </span>
+          )}
+        </>
       }
     >
       <span className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
-        <span className="bevel-sm bg-night-950/85 px-1.5 py-0.5 font-semibold" style={{ color: card.color }}>
-          {card.rarity}
-        </span>
+        {card.rarity && (
+          <span className="bevel-sm bg-night-950/85 px-1.5 py-0.5 font-semibold" style={{ color: card.color }}>
+            {card.rarity}
+          </span>
+        )}
         {card.details.slice(0, 2).map((d) => (
           <span key={d} className="text-chalk-300">
             {d}
