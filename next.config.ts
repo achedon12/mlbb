@@ -1,6 +1,7 @@
 import { resolve } from "node:path";
 import type { NextConfig } from "next";
 import { version } from "./package.json";
+import { LOCALES } from "./src/i18n/config";
 import advance from "./src/data/game/advance-server.json";
 
 /** Date of the latest documented Advance Server version (see src/lib/advance-fresh.ts). */
@@ -154,6 +155,14 @@ const nextConfig: NextConfig = {
       // addresses are public — the image sitemap handed them to Google Images,
       // and service workers keep them — so they redirect for good.
       { source: "/visuels/:path(.*)\\.png", destination: "/visuels/:path.webp", permanent: true },
+      // The former progress page is now a section of the account page. A
+      // config redirect keeps it a real 308: the page route would stream
+      // behind the account loading state and lose the status.
+      {
+        source: `/:locale(${LOCALES.join("|")})/account/progress`,
+        destination: "/:locale/account#progress",
+        permanent: true,
+      },
       // Three September articles withdrawn after review (errors, no sources):
       // their addresses lead to the news list.
       {
