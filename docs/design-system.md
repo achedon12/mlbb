@@ -198,34 +198,30 @@ takes these, never a curve of its own.
   transition; an infinite animation is switched off explicitly
   (`animation: none`), never left to the global 0.01 ms rule.
 
-## Home page (editorial)
+## Home page (season poster)
 
-The home page reads like a game's own site or an esports magazine: the
-artwork and the type carry it, not boxes. One idea per screen, each with
-its own ground (the base night, the lighter `night-900` band, or a
-full-bleed artwork) and about a quarter of a screen of air around it.
+The home page reads like a game's official season page: very few sections,
+each about one screen, each built around one big image or one bold colour,
+one message and one call to action. The details (rankings, lists, tools,
+esports results) live on their own pages.
 
 - **The poster**: the official artwork of the meta's number one (the first
   reliably measured hero of the tier list with an artwork the site may show:
-  `illustrations`, filtered by `listed.ts`) fills the first screen edge to
-  edge, `next/image` with `priority`. Over it the H1 set large and tight, one
-  line of fact, the search and two ways in. It changes when the meta does.
-- **Nothing moves by itself**: no scroll reveal, no counting figures, no
-  parallax, no embers, no idle Dex. Only answers to the pointer: a linked
-  block lifts 2 px, an image zooms 1.02–1.03 in its frame, a button presses.
-- **At most two boxes deep and one card style**: the search field and the
-  buttons are the only bevelled surfaces. A list of heroes is a list (faces,
-  names, figures on the page, hairlines between rows); a figure is a number
-  on the page, never a tile; tools are names and one line, never a pictogram
-  in a coloured square.
-- **Compositions change from one section to the next**: a giant name and
-  its figure (meta), a giant version beside rows of faces (patch), a scene
-  with Dex (daily games), a full-bleed skin poster (the month), a typographic
-  menu (tools), one sentence set very large (why), an editorial list
-  (articles). The section title template (eyebrow, italic title, gold blade,
-  lead, link at the right) is not repeated there.
-- **Faces** (`home/face.tsx`): the game's round hero icon, with no frame,
-  for the lists of the home page only.
+  `illustrations`, filtered by `listed.ts`) fills the whole first screen,
+  edge to edge at every width, `next/image` with `priority`. The night closes
+  in only where the words sit. Over it the H1 set huge (its "Mobile Legends:"
+  opening as a smaller line), one line of fact, the search and two ways in;
+  under it, one thin line of the day's facts. The art settles once on
+  arrival and a dozen sparks glint in place (`.home-art`, `.home-sparks`),
+  both off under reduced motion. Nothing moves on scroll.
+- **Grounds alternate**: the lighter night (the meta: the top five as large
+  art, the number one twice as wide), always-dark art at the left (the
+  patch), a gold band with dark ink (the daily games, Dex large), a
+  full-bleed skin poster (the month), art tiles on the base night (where to
+  go next), an azure band with dark ink (why the site, Discord, the support
+  card). The colour bands and the art sections are `scheme-dark`: the same
+  in both themes.
+- **Little text**: at most about forty words per section, big type.
 - **A narrow skin portrait** (the shop's 240 × 390 image) holds a full-width
   poster over a blurred, darkened copy of itself; a wide artwork fills it
   directly.
@@ -237,8 +233,8 @@ full-bleed artwork) and about a quarter of a screen of air around it.
   and space.
 - Lists of heroes are rows of `HeroTile`, not grey tables. Tables stay for
   real data, airy, with condensed capital headers.
-- Never three equal list columns side by side, except the home page's three
-  short rankings (win, ban, pick), typographic columns split by hairlines.
+- Never three equal list columns side by side: give lists different weights
+  (portrait row + short ranked lines, a wide column and a narrow one).
 
 ## Ban list
 
@@ -246,12 +242,11 @@ full-bleed artwork) and about a quarter of a screen of air around it.
   if it informs.
 - Captions under images.
 - Frames around every section.
-- Gradient text, blurred halos, particles, glass (`backdrop-blur`), neon.
-  The poster glow of the account page stays, in the palette, and rests
-  under reduced motion.
+- Gradient text, blurred halos, particles, glass (`backdrop-blur`), neon —
+  except the account page's glow and the home poster's sparks, which stay
+  there, in the palette, and rest under reduced motion.
 - Emojis as illustration, rainbow cards (one colour per role or per item),
-  rounded corners (`rounded-*`) — the round hero faces of the home page
-  aside: the game draws them round.
+  rounded corners (`rounded-*`)
 - Artwork in small aligned thumbnails when it can be large.
 - Violet, rainbow gradients, any colour outside the palette.
 

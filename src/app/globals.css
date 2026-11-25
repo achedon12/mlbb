@@ -1476,3 +1476,38 @@ body {
   .stage-blade { transform-origin: left; animation: stage-blade var(--duration-slow) var(--ease-brand-out) 0.3s both; }
 }
 /* ══ end of the brand stage ══════════════════════════════════════════════════ */
+
+/* ══ Home poster ═════════════════════════════════════════════════════════════
+ * The home page's first screen (home-hero.tsx): the artwork settles once on
+ * arrival (a slow, slight zoom out, transform only), and a dozen sparks glint
+ * in place over it. Nothing moves on scroll; all of it rests under
+ * prefers-reduced-motion, where the sparks leave.
+ */
+@keyframes home-art {
+  from { transform: scale(1.07); }
+  to { transform: none; }
+}
+@keyframes home-spark {
+  0%, 100% { opacity: 0; transform: scale(0.4) rotate(45deg); }
+  50% { opacity: 0.9; transform: scale(1) rotate(45deg); }
+}
+.home-sparks {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.home-sparks i {
+  position: absolute;
+  background: var(--color-gold-300);
+  box-shadow: 0 0 8px 2px rgb(255 216 122 / 0.45);
+  opacity: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .home-art { animation: home-art 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  .home-sparks i { animation: home-spark 6s ease-in-out infinite; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-sparks { display: none; }
+}
+/* ══ end of the home poster ═════════════════════════════════════════════════ */

@@ -5533,68 +5533,37 @@
     },
     "meta": {
       "title": "El meta del parche {version}",
-      "lead": "{n} héroes clasificados según las tasas de victoria y de baneo del {date}, todos los rangos juntos.",
-      "splitLabel": "Reparto de los {n} héroes clasificados por tier: abrir la tier list",
-      "tierCount": "tier {tier}: {n} héroes",
       "top5": "Top 5 del parche",
       "topLabel": "N.º {rank}, tier {tier}: {win} de victorias, {ban} de baneos",
       "win": "Mejor tasa de victoria",
-      "ban": "Los más baneados",
-      "pick": "Los más jugados",
-      "week": "En siete días",
-      "weekEmpty": "Ningún héroe se ha movido claramente esta semana.",
       "moverRate": {
         "winRate": "Victoria",
-        "banRate": "Ban",
-        "pickRate": "Pick"
+        "banRate": "Ban"
       },
-      "moverRateFull": {
-        "winRate": "Tasa de victoria",
-        "banRate": "Tasa de baneo",
-        "pickRate": "Tasa de selección"
-      },
-      "moversAll": "Todos los movimientos de la semana",
       "rules": "domina el parche {version}"
     },
     "patch": {
       "lead": "{n} héroes modificados el {date}, con la variación medida desde entonces en su tasa de victoria.",
       "leadUndated": "{n} héroes modificados, ordenados según el sentido del cambio.",
       "newHero": "Nuevo héroe: {name}",
-      "more": "Y {n} más en las notas",
-      "impact": "tasa de victoria {gap} puntos tras el parche",
-      "impactNote": "Diferencia en puntos entre la tasa de victoria media de los {n} días anteriores al parche y la de los {n} días posteriores, todos los rangos juntos. En gris, una diferencia demasiado pequeña para contar.",
       "metaReport": "Informe del meta del parche",
-      "testing": "En prueba en el Servidor Advance: {version}",
-      "word": "Parche"
+      "word": "Parche",
+      "headline": "{n} héroes ajustados el {date}",
+      "mover": "Mayor cambio desde el parche: {hero}"
     },
     "live": {
-      "title": "Este mes en el juego",
-      "skinsOf": "Aspectos de {month}",
       "allEvents": "Todos los eventos",
       "collector": "Aspecto Collector",
       "skinAlt": "{skin}, aspecto de {hero}",
-      "announced": "Anunciado para {month}",
-      "esports": "Esports",
-      "allEsports": "Todos los torneos",
-      "proPicked": "Los más elegidos en pro",
-      "proBanned": "Los más baneados en pro",
-      "proNote": "Sobre las últimas {games} partidas profesionales registradas."
+      "skinOfHero": "Aspecto de {hero}",
+      "seeSkin": "Ver el aspecto"
     },
-    "toolsTitle": "Prepara tu partida",
-    "toolsLead": "Preparar un draft, probar una build, entrenar.",
     "daily": {
       "title": "Los juegos del día",
-      "lead": "Una partida nueva cada día, la misma para todos los jugadores."
+      "lead": "Una partida nueva cada día, la misma para todos los jugadores.",
+      "playDle": "Jugar a MLBBdle",
+      "playQuiz": "Empezar el quiz del día"
     },
-    "startTitle": "Por dónde empezar",
-    "latestArticles": "Últimos artículos",
-    "allNews": "Todas las noticias",
-    "followRss": "Seguir las publicaciones por RSS",
-    "community": {
-      "buildsText": "Las builds publicadas por los jugadores, ordenadas por sus votos.",
-      "contributeText": "Escribir el análisis de un héroe, corregir un dato, proponer una idea."
-    },
-    "fullTierList": "Tier list completa",
     "readNotes": "Leer las notas",
     "trends": {
       "title": "Tendencias de la semana",
@@ -5602,15 +5571,13 @@
       "rise": "En alza",
       "fall": "En baja",
       "noRise": "Ningún héroe sube claramente esta semana.",
-      "noFall": "Ningún héroe baja claramente esta semana.",
-      "open": "Mostrar los {n} héroes que más se mueven"
+      "noFall": "Ningún héroe baja claramente esta semana."
     },
-    "syncLead": "Última sincronización el {date}.",
     "fact": "Parche {version} · {n} héroes medidos el {date}",
-    "artCaption": "Ilustración: {skin}"
-  },
-  "access": {
-    "account": "{n} héroes"
+    "artCaption": "Ilustración: {skin}",
+    "jump": {
+      "title": "Explorar MLBBDex"
+    }
   },
   "categories": {
     "Attack": "Ataque",
@@ -7052,8 +7019,7 @@
       "link": "Historia de {hero}"
     },
     "manifesto": "{days} días de tasas guardadas, {heroes} héroes medidos cada día, {languages} idiomas, gratis y sin publicidad.",
-    "manifestoShort": "{heroes} héroes medidos cada día, {languages} idiomas, gratis y sin publicidad.",
-    "since": "Tasas guardadas desde el {date}."
+    "manifestoShort": "{heroes} héroes medidos cada día, {languages} idiomas, gratis y sin publicidad."
   },
   "shareImage": {
     "button": "Compartir en imagen",

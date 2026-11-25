@@ -59,7 +59,7 @@ export function useSupportLinks(): SupportLink[] {
 export type SupportPlacement =
   | "Footer" | "Menu" | "About"
   | "Quiz" | "MLBBdle" | "Nickname" | "Share"
-  | "Hero" | "TierList" | "Events" | "SkinsCalendar" | "PatchNotes";
+  | "Hero" | "TierList" | "Events" | "SkinsCalendar" | "PatchNotes" | "Home";
 
 function SupportAnchor({
   link,

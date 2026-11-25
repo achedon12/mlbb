@@ -1,37 +1,17 @@
 import { serializeJsonLd } from "@/lib/html";
-import { RoleAccess } from "@/components/role-access";
-import { HomeArticles, HomeDiscord } from "@/components/home/home-community";
+import { HomeCommunity } from "@/components/home/home-community";
 import { HomeDaily } from "@/components/home/home-daily";
 import { HomeHero } from "@/components/home/home-hero";
+import { HomeJump } from "@/components/home/home-jump";
 import { HomeLive } from "@/components/home/home-live";
 import { HomeMeta } from "@/components/home/home-meta";
 import { HomePatch } from "@/components/home/home-patch";
-import { HomeTools } from "@/components/home/home-tools";
-import { HomeWhy } from "@/components/home/home-why";
 import { SinceLastVisit } from "@/components/home/since-last-visit";
 import { sinceDigest } from "@/lib/since-visit-server";
-import { allHeroes } from "@/lib/data";
 import { site } from "@/lib/site";
-import { cn } from "@/lib/utils";
-import type { Role } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import { LOCALE_HTML, isLocale } from "@/i18n/config";
 import { notFound } from "next/navigation";
-import { createT } from "@/i18n/translations";
-
-/**
- * One band of the page: the full width of the screen, its block inside the
- * page container, with a quarter of a screen of air around it. `raised` is
- * the lighter night, so the long page reads as a sequence of grounds — the
- * base, a lighter band, a full-bleed artwork — rather than one black wall.
- */
-function Band({ raised = false, children }: { raised?: boolean; children: React.ReactNode }) {
-  return (
-    <div className={cn(raised && "bg-night-900")}>
-      <div className="page-wrap py-20 sm:py-28 lg:py-36">{children}</div>
-    </div>
-  );
-}
 
 /** Home page structured data, in the page's language. */
 const dataHome = (locale: Locale) => ({
@@ -61,18 +41,23 @@ const dataHome = (locale: Locale) => ({
   ],
 });
 
+/** A band's inner block: the page container, with a quarter of a screen of air. */
+const INNER = "page-wrap py-20 sm:py-28 lg:py-32";
+
 /**
- * Home page, one idea per screen, in the order a player's questions come:
- * what is this and where is my hero (the poster, the search, the day's
- * facts), who rules the patch (meta), what the patch changed, today's
- * games, what is happening in the game (the month's skin, esports), which
- * tool and which role to open, why this site (one sentence), then the
- * articles and the Discord server.
+ * Home page, a game's season page: a poster, then six screens, each built
+ * around one big image or one bold colour, one message and one call to
+ * action, their grounds alternating so the page never reads as one black
+ * wall — the meta (the lighter night, the top five as large art), the patch
+ * (art at the left, always dark), the daily games (a gold band), the month's
+ * skin (full-bleed art), where to go next (art tiles on the base night),
+ * and why the site and its Discord server (an azure band). The details live
+ * on the dedicated pages.
  *
  * Every block is a server component computed from the synced data; the
  * browser code is the server clock, the button opening the global search,
- * the daily games' state and the "since your last visit" strip. Nothing
- * comes in on scroll: every block is there from the first paint.
+ * the daily games' countdown, the "since your last visit" strip and the
+ * support card. Nothing comes in on scroll.
  */
 export default async function Home({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
@@ -80,14 +65,6 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
   // renders together with the layout, and its numbers formatted in
   // that invalid language made it fail with a 500 before the 404.
   if (!isLocale(locale)) notFound();
-  const t = createT(locale);
-
-  const byRole = Object.fromEntries(
-    (["Tank", "Fighter", "Assassin", "Mage", "Marksman", "Support"] as Role[]).map((r) => [
-      r,
-      allHeroes.filter((h) => h.roles.includes(r)).length,
-    ]),
-  ) as Record<Role, number>;
 
   return (
     <>
@@ -101,42 +78,26 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
       {/* For a returning visitor: what changed since. */}
       <SinceLastVisit digest={sinceDigest()} />
 
-      <Band>
-        <HomeMeta locale={locale} />
-      </Band>
-      <div className="border-t border-night-800">
-        <Band>
-          <HomePatch locale={locale} />
-        </Band>
+      <div className="bg-night-900">
+        <div className={INNER}>
+          <HomeMeta locale={locale} />
+        </div>
       </div>
-      <Band raised>
-        <HomeDaily locale={locale} />
-      </Band>
+      <HomePatch locale={locale} />
+      <div className="scheme-dark bg-gold-400">
+        <div className="page-wrap py-16 sm:py-20 lg:py-24">
+          <HomeDaily locale={locale} />
+        </div>
+      </div>
       <HomeLive locale={locale} />
-      <div className="border-t border-night-800">
-      <Band>
-        <HomeTools
-          locale={locale}
-          roles={
-            <section aria-labelledby="home-roles" className="mt-20 border-t border-night-800 pt-10">
-              <h3 id="home-roles" className="font-heading text-xl font-bold uppercase text-chalk-300">
-                {t("home.startTitle")}
-              </h3>
-              <div className="mt-8">
-                <RoleAccess count={byRole} locale={locale} />
-              </div>
-            </section>
-          }
-        />
-      </Band>
+      <div className={INNER}>
+        <HomeJump locale={locale} />
       </div>
-      <Band raised>
-        <HomeWhy locale={locale} />
-      </Band>
-      <Band>
-        <HomeArticles locale={locale} />
-      </Band>
-      <HomeDiscord locale={locale} />
+      <div className="scheme-dark bg-azure-500">
+        <div className={INNER}>
+          <HomeCommunity locale={locale} />
+        </div>
+      </div>
     </>
   );
 }

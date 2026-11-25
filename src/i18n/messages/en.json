@@ -5533,68 +5533,37 @@
     },
     "meta": {
       "title": "The meta of patch {version}",
-      "lead": "{n} heroes ranked on the win and ban rates of {date}, all ranks combined.",
-      "splitLabel": "How the {n} ranked heroes split across tiers: open the tier list",
-      "tierCount": "tier {tier}: {n} heroes",
       "top5": "Patch top 5",
       "topLabel": "No. {rank}, tier {tier}: {win} win rate, {ban} ban rate",
       "win": "Highest win rate",
-      "ban": "Most banned",
-      "pick": "Most played",
-      "week": "Over seven days",
-      "weekEmpty": "No hero moved clearly this week.",
       "moverRate": {
         "winRate": "Win",
-        "banRate": "Ban",
-        "pickRate": "Pick"
+        "banRate": "Ban"
       },
-      "moverRateFull": {
-        "winRate": "Win rate",
-        "banRate": "Ban rate",
-        "pickRate": "Pick rate"
-      },
-      "moversAll": "All of the week's moves",
       "rules": "rules patch {version}"
     },
     "patch": {
       "lead": "{n} heroes changed on {date}, with the measured shift in their win rate since.",
       "leadUndated": "{n} heroes changed, sorted by the direction of the change.",
       "newHero": "New hero: {name}",
-      "more": "And {n} more in the notes",
-      "impact": "win rate {gap} points after the patch",
-      "impactNote": "Gap in points between the average win rate over the {n} days before the patch and over the {n} days after it, all ranks combined. In grey, a gap too small to count.",
       "metaReport": "Patch meta report",
-      "testing": "In testing on the Advance Server: {version}",
-      "word": "Patch"
+      "word": "Patch",
+      "headline": "{n} heroes changed on {date}",
+      "mover": "Biggest move since the patch: {hero}"
     },
     "live": {
-      "title": "This month in the game",
-      "skinsOf": "{month} skins",
       "allEvents": "All events",
       "collector": "Collector skin",
       "skinAlt": "{skin}, a {hero} skin",
-      "announced": "Announced for {month}",
-      "esports": "Esports",
-      "allEsports": "All tournaments",
-      "proPicked": "Most picked in pro play",
-      "proBanned": "Most banned in pro play",
-      "proNote": "Over the last {games} recorded pro games."
+      "skinOfHero": "Skin for {hero}",
+      "seeSkin": "See the skin"
     },
-    "toolsTitle": "Get ready for your match",
-    "toolsLead": "Prepare a draft, test a build, practise.",
     "daily": {
       "title": "Daily games",
-      "lead": "A new round every day, the same for every player."
+      "lead": "A new round every day, the same for every player.",
+      "playDle": "Play MLBBdle",
+      "playQuiz": "Start today's quiz"
     },
-    "startTitle": "Where to start",
-    "latestArticles": "Latest articles",
-    "allNews": "All news",
-    "followRss": "Follow new posts via RSS",
-    "community": {
-      "buildsText": "Builds shared by players, ranked by their votes.",
-      "contributeText": "Write a hero analysis, fix a data point, suggest an idea."
-    },
-    "fullTierList": "Full tier list",
     "readNotes": "Read the notes",
     "trends": {
       "title": "This week's trends",
@@ -5602,15 +5571,13 @@
       "rise": "Rising",
       "fall": "Falling",
       "noRise": "No hero is clearly rising this week.",
-      "noFall": "No hero is clearly falling this week.",
-      "open": "Show the {n} heroes on the move"
+      "noFall": "No hero is clearly falling this week."
     },
-    "syncLead": "Last synced on {date}.",
     "fact": "Patch {version} · {n} heroes measured on {date}",
-    "artCaption": "Artwork: {skin}"
-  },
-  "access": {
-    "account": "{n} heroes"
+    "artCaption": "Artwork: {skin}",
+    "jump": {
+      "title": "Explore MLBBDex"
+    }
   },
   "categories": {
     "Attack": "Attack",
@@ -7052,8 +7019,7 @@
       "link": "{hero}'s history"
     },
     "manifesto": "{days} days of rates kept, {heroes} heroes measured every day, {languages} languages, free and ad-free.",
-    "manifestoShort": "{heroes} heroes measured every day, {languages} languages, free and ad-free.",
-    "since": "Rates kept since {date}."
+    "manifestoShort": "{heroes} heroes measured every day, {languages} languages, free and ad-free."
   },
   "shareImage": {
     "button": "Share as image",

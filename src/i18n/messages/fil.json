@@ -5533,68 +5533,37 @@
     },
     "meta": {
       "title": "Ang meta ng patch {version}",
-      "lead": "{n} hero na niraranggo ayon sa win at ban rate noong {date}, lahat ng rank pinagsama.",
-      "splitLabel": "Paano nahahati sa mga tier ang {n} na-rank na hero: buksan ang tier list",
-      "tierCount": "tier {tier}: {n} hero",
       "top5": "Top 5 ng patch",
       "topLabel": "No. {rank}, tier {tier}: {win} win rate, {ban} ban rate",
       "win": "Pinakamataas na win rate",
-      "ban": "Pinaka-banned",
-      "pick": "Pinakanilalaro",
-      "week": "Sa loob ng pitong araw",
-      "weekEmpty": "Walang hero na malinaw na gumalaw ngayong linggo.",
       "moverRate": {
         "winRate": "Win",
-        "banRate": "Ban",
-        "pickRate": "Pick"
+        "banRate": "Ban"
       },
-      "moverRateFull": {
-        "winRate": "Win rate",
-        "banRate": "Ban rate",
-        "pickRate": "Pick rate"
-      },
-      "moversAll": "Lahat ng galaw ngayong linggo",
       "rules": "ang nangunguna sa patch {version}"
     },
     "patch": {
       "lead": "{n} hero ang binago noong {date}, kasama ang nasukat na pagbabago sa kanilang win rate mula noon.",
       "leadUndated": "{n} hero ang binago, nakaayos ayon sa direksyon ng pagbabago.",
       "newHero": "Bagong hero: {name}",
-      "more": "At {n} pa sa patch notes",
-      "impact": "win rate {gap} points pagkatapos ng patch",
-      "impactNote": "Pagitan sa points ng average na win rate sa {n} araw bago ang patch at sa {n} araw pagkatapos nito, lahat ng rank pinagsama. Kapag kulay abo, masyadong maliit ang pagitan para bilangin.",
       "metaReport": "Patch meta report",
-      "testing": "Tine-test sa Advance Server: {version}",
-      "word": "Patch"
+      "word": "Patch",
+      "headline": "{n} hero ang binago noong {date}",
+      "mover": "Pinakamalaking galaw mula sa patch: {hero}"
     },
     "live": {
-      "title": "Ngayong buwan sa laro",
-      "skinsOf": "Mga skin ng {month}",
       "allEvents": "Lahat ng event",
       "collector": "Collector skin",
       "skinAlt": "{skin}, isang skin ni {hero}",
-      "announced": "Inanunsyo para sa {month}",
-      "esports": "Esports",
-      "allEsports": "Lahat ng tournament",
-      "proPicked": "Pinaka-pinick sa pro play",
-      "proBanned": "Pinaka-banned sa pro play",
-      "proNote": "Sa huling {games} naitalang pro game."
+      "skinOfHero": "Skin ni {hero}",
+      "seeSkin": "Tingnan ang skin"
     },
-    "toolsTitle": "Maghanda para sa laban",
-    "toolsLead": "Maghanda ng draft, mag-test ng build, mag-practice.",
     "daily": {
       "title": "Mga daily game",
-      "lead": "Bagong round araw-araw, pareho para sa bawat player."
+      "lead": "Bagong round araw-araw, pareho para sa bawat player.",
+      "playDle": "Laruin ang MLBBdle",
+      "playQuiz": "Simulan ang quiz ngayon"
     },
-    "startTitle": "Saan magsisimula",
-    "latestArticles": "Pinakabagong artikulo",
-    "allNews": "Lahat ng balita",
-    "followRss": "Sundan ang mga bagong post sa RSS",
-    "community": {
-      "buildsText": "Mga build na ibinahagi ng mga player, niraranggo ayon sa kanilang boto.",
-      "contributeText": "Sumulat ng hero analysis, itama ang isang data, magmungkahi ng ideya."
-    },
-    "fullTierList": "Buong tier list",
     "readNotes": "Basahin ang patch notes",
     "trends": {
       "title": "Mga trend ngayong linggo",
@@ -5602,15 +5571,13 @@
       "rise": "Tumataas",
       "fall": "Bumababa",
       "noRise": "Walang hero na malinaw na umaangat ngayong linggo.",
-      "noFall": "Walang hero na malinaw na bumababa ngayong linggo.",
-      "open": "Ipakita ang {n} hero na gumagalaw"
+      "noFall": "Walang hero na malinaw na bumababa ngayong linggo."
     },
-    "syncLead": "Huling sync noong {date}.",
     "fact": "Patch {version} · {n} hero na nasukat noong {date}",
-    "artCaption": "Larawan: {skin}"
-  },
-  "access": {
-    "account": "{n} hero"
+    "artCaption": "Larawan: {skin}",
+    "jump": {
+      "title": "Galugarin ang MLBBDex"
+    }
   },
   "categories": {
     "Attack": "Attack",
@@ -7052,8 +7019,7 @@
       "link": "Kasaysayan ng {hero}"
     },
     "manifesto": "{days} araw ng mga rate na itinago, {heroes} hero na sinusukat araw-araw, {languages} wika, libre at walang ads.",
-    "manifestoShort": "{heroes} hero na sinusukat araw-araw, {languages} wika, libre at walang ads.",
-    "since": "Mga rate na itinago mula {date}."
+    "manifestoShort": "{heroes} hero na sinusukat araw-araw, {languages} wika, libre at walang ads."
   },
   "shareImage": {
     "button": "Ibahagi sa larawan",

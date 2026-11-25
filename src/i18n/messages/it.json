@@ -5533,68 +5533,37 @@
     },
     "meta": {
       "title": "Il meta della patch {version}",
-      "lead": "{n} eroi classificati sui tassi di vittoria e di ban del {date}, tutti i rank insieme.",
-      "splitLabel": "Ripartizione dei {n} eroi classificati per tier: apri la tier list",
-      "tierCount": "tier {tier}: {n} eroi",
       "top5": "Top 5 della patch",
       "topLabel": "N. {rank}, tier {tier}: {win} di vittorie, {ban} di ban",
       "win": "Miglior tasso di vittoria",
-      "ban": "I più bannati",
-      "pick": "I più giocati",
-      "week": "Negli ultimi sette giorni",
-      "weekEmpty": "Nessun eroe si è mosso in modo netto questa settimana.",
       "moverRate": {
         "winRate": "Vittoria",
-        "banRate": "Ban",
-        "pickRate": "Pick"
+        "banRate": "Ban"
       },
-      "moverRateFull": {
-        "winRate": "Tasso di vittoria",
-        "banRate": "Tasso di ban",
-        "pickRate": "Tasso di pick"
-      },
-      "moversAll": "Tutti i movimenti della settimana",
       "rules": "domina la patch {version}"
     },
     "patch": {
       "lead": "{n} eroi modificati il {date}, con lo scarto misurato da allora sul loro tasso di vittoria.",
       "leadUndated": "{n} eroi modificati, ordinati per direzione della modifica.",
       "newHero": "Nuovo eroe: {name}",
-      "more": "E altri {n} nelle note",
-      "impact": "tasso di vittoria {gap} punti dopo la patch",
-      "impactNote": "Scarto in punti tra il tasso di vittoria medio dei {n} giorni prima della patch e quello dei {n} giorni dopo, tutti i rank insieme. In grigio, uno scarto troppo piccolo per contare.",
       "metaReport": "Report meta della patch",
-      "testing": "In test sull'Advance Server: {version}",
-      "word": "Patch"
+      "word": "Patch",
+      "headline": "{n} eroi modificati il {date}",
+      "mover": "Variazione più grande dalla patch: {hero}"
     },
     "live": {
-      "title": "Questo mese nel gioco",
-      "skinsOf": "Skin di {month}",
       "allEvents": "Tutti gli eventi",
       "collector": "Skin Collector",
       "skinAlt": "{skin}, skin di {hero}",
-      "announced": "Annunciata per {month}",
-      "esports": "Esport",
-      "allEsports": "Tutti i tornei",
-      "proPicked": "I più scelti dai pro",
-      "proBanned": "I più bannati dai pro",
-      "proNote": "Sulle ultime {games} partite professionistiche registrate."
+      "skinOfHero": "Skin di {hero}",
+      "seeSkin": "Vedi la skin"
     },
-    "toolsTitle": "Prepara la tua partita",
-    "toolsLead": "Preparare un draft, provare una build, allenarsi.",
     "daily": {
       "title": "I giochi del giorno",
-      "lead": "Una nuova partita ogni giorno, la stessa per tutti i giocatori."
+      "lead": "Una nuova partita ogni giorno, la stessa per tutti i giocatori.",
+      "playDle": "Gioca a MLBBdle",
+      "playQuiz": "Inizia il quiz del giorno"
     },
-    "startTitle": "Da dove iniziare",
-    "latestArticles": "Ultimi articoli",
-    "allNews": "Tutte le notizie",
-    "followRss": "Segui le pubblicazioni via RSS",
-    "community": {
-      "buildsText": "Le build pubblicate dai giocatori, ordinate per voti.",
-      "contributeText": "Scrivere l'analisi di un eroe, correggere un dato, proporre un'idea."
-    },
-    "fullTierList": "Tier list completa",
     "readNotes": "Leggi le note",
     "trends": {
       "title": "Tendenze della settimana",
@@ -5602,15 +5571,13 @@
       "rise": "In crescita",
       "fall": "In calo",
       "noRise": "Nessun eroe è in netta crescita questa settimana.",
-      "noFall": "Nessun eroe è in netto calo questa settimana.",
-      "open": "Mostra i {n} eroi in movimento"
+      "noFall": "Nessun eroe è in netto calo questa settimana."
     },
-    "syncLead": "Ultima sincronizzazione il {date}.",
     "fact": "Patch {version} · {n} eroi misurati il {date}",
-    "artCaption": "Illustrazione: {skin}"
-  },
-  "access": {
-    "account": "{n} eroi"
+    "artCaption": "Illustrazione: {skin}",
+    "jump": {
+      "title": "Esplora MLBBDex"
+    }
   },
   "categories": {
     "Attack": "Attacco",
@@ -7052,8 +7019,7 @@
       "link": "Storia di {hero}"
     },
     "manifesto": "{days} giorni di tassi conservati, {heroes} eroi misurati ogni giorno, {languages} lingue, gratis e senza pubblicità.",
-    "manifestoShort": "{heroes} eroi misurati ogni giorno, {languages} lingue, gratis e senza pubblicità.",
-    "since": "Tassi conservati dal {date}."
+    "manifestoShort": "{heroes} eroi misurati ogni giorno, {languages} lingue, gratis e senza pubblicità."
   },
   "shareImage": {
     "button": "Condividi nell'immagine",

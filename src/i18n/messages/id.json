@@ -5533,68 +5533,37 @@
     },
     "meta": {
       "title": "Meta patch {version}",
-      "lead": "{n} hero diperingkat berdasarkan win rate dan ban rate per {date}, semua rank digabung.",
-      "splitLabel": "Sebaran {n} hero yang diperingkat per tier: buka tier list",
-      "tierCount": "tier {tier}: {n} hero",
       "top5": "Top 5 patch",
       "topLabel": "No. {rank}, tier {tier}: win rate {win}, ban rate {ban}",
       "win": "Win rate tertinggi",
-      "ban": "Paling sering di-ban",
-      "pick": "Paling sering dimainkan",
-      "week": "Dalam tujuh hari",
-      "weekEmpty": "Tidak ada hero yang bergerak jelas minggu ini.",
       "moverRate": {
         "winRate": "Win",
-        "banRate": "Ban",
-        "pickRate": "Pick"
+        "banRate": "Ban"
       },
-      "moverRateFull": {
-        "winRate": "Win rate",
-        "banRate": "Ban rate",
-        "pickRate": "Pick rate"
-      },
-      "moversAll": "Semua perubahan minggu ini",
       "rules": "menguasai patch {version}"
     },
     "patch": {
       "lead": "{n} hero diubah pada {date}, dengan selisih win rate yang terukur sejak itu.",
       "leadUndated": "{n} hero diubah, diurutkan menurut arah perubahannya.",
       "newHero": "Hero baru: {name}",
-      "more": "Dan {n} lagi di catatan patch",
-      "impact": "win rate {gap} poin setelah patch",
-      "impactNote": "Selisih poin antara win rate rata-rata {n} hari sebelum patch dan {n} hari sesudahnya, semua rank digabung. Abu-abu: selisih terlalu kecil untuk dihitung.",
       "metaReport": "Laporan meta patch",
-      "testing": "Sedang diuji di Advance Server: {version}",
-      "word": "Patch"
+      "word": "Patch",
+      "headline": "{n} hero diubah pada {date}",
+      "mover": "Perubahan terbesar sejak patch: {hero}"
     },
     "live": {
-      "title": "Bulan ini di dalam game",
-      "skinsOf": "Skin {month}",
       "allEvents": "Semua event",
       "collector": "Skin Collector",
       "skinAlt": "{skin}, skin {hero}",
-      "announced": "Diumumkan untuk {month}",
-      "esports": "Esports",
-      "allEsports": "Semua turnamen",
-      "proPicked": "Paling sering di-pick pro",
-      "proBanned": "Paling sering di-ban pro",
-      "proNote": "Dari {games} pertandingan pro terakhir yang tercatat."
+      "skinOfHero": "Skin {hero}",
+      "seeSkin": "Lihat skin"
     },
-    "toolsTitle": "Bersiap untuk pertandingan",
-    "toolsLead": "Siapkan draft, uji build, berlatih.",
     "daily": {
       "title": "Game harian",
-      "lead": "Ronde baru setiap hari, sama untuk semua pemain."
+      "lead": "Ronde baru setiap hari, sama untuk semua pemain.",
+      "playDle": "Main MLBBdle",
+      "playQuiz": "Mulai kuis hari ini"
     },
-    "startTitle": "Mulai dari mana",
-    "latestArticles": "Artikel terbaru",
-    "allNews": "Semua berita",
-    "followRss": "Ikuti publikasi di RSS",
-    "community": {
-      "buildsText": "Build yang dibagikan pemain, diurutkan menurut vote.",
-      "contributeText": "Tulis analisis hero, perbaiki data, usulkan ide."
-    },
-    "fullTierList": "Tier list lengkap",
     "readNotes": "Baca catatannya",
     "trends": {
       "title": "Tren minggu ini",
@@ -5602,15 +5571,13 @@
       "rise": "Kenaikan",
       "fall": "Menurun",
       "noRise": "Tidak ada hero yang mengalami kemajuan signifikan minggu ini.",
-      "noFall": "Tidak ada hero yang mengambil langkah mundur minggu ini.",
-      "open": "Tampilkan {n} hero yang sedang bergerak"
+      "noFall": "Tidak ada hero yang mengambil langkah mundur minggu ini."
     },
-    "syncLead": "Sinkronisasi terakhir pada {date}.",
     "fact": "Patch {version} · {n} hero diukur pada {date}",
-    "artCaption": "Ilustrasi: {skin}"
-  },
-  "access": {
-    "account": "{n} hero"
+    "artCaption": "Ilustrasi: {skin}",
+    "jump": {
+      "title": "Jelajahi MLBBDex"
+    }
   },
   "categories": {
     "Attack": "Attack",
@@ -7052,8 +7019,7 @@
       "link": "Sejarah {hero}"
     },
     "manifesto": "{days} hari data rate tersimpan, {heroes} hero diukur setiap hari, {languages} bahasa, gratis dan tanpa iklan.",
-    "manifestoShort": "{heroes} hero diukur setiap hari, {languages} bahasa, gratis dan tanpa iklan.",
-    "since": "Data rate tersimpan sejak {date}."
+    "manifestoShort": "{heroes} hero diukur setiap hari, {languages} bahasa, gratis dan tanpa iklan."
   },
   "shareImage": {
     "button": "Bagikan dalam gambar",

@@ -122,16 +122,26 @@ export function DailyDle({ place, className }: { place: string; className?: stri
   );
 }
 
+
 /**
- * Today's two games for the home page, as two lines of call to action with
- * no card around them: MLBBdle with each mode solved or not and the streak,
- * the quiz with its daily challenge, each a name, one line and its button;
- * then the time left before both renew (midnight UTC, the same day for
- * MLBBdle and the quiz) in large figures. Read from what MLBBdle already
- * keeps in the browser; before mounting, each line reads as a plain
- * invitation to play.
+ * Today's two games for the home page's gold band: the time left before
+ * both renew (midnight UTC, the same day for MLBBdle and the quiz) in large
+ * figures, one line on today's MLBBdle (each mode solved or not, the
+ * streak), and the two buttons. Read from what MLBBdle already keeps in the
+ * browser; before mounting it reads as a plain invitation to play. The
+ * labels come from the server component, which owns the home catalogue.
  */
-export function DailyGames({ place, className }: { place: string; className?: string }) {
+export function DailyGames({
+  place,
+  className,
+  playDle,
+  playQuiz,
+}: {
+  place: string;
+  className?: string;
+  playDle: string;
+  playQuiz: string;
+}) {
   const t = useT();
   const [today, setToday] = useState<Today | null>(null);
 
@@ -146,72 +156,54 @@ export function DailyGames({ place, className }: { place: string; className?: st
   }, []);
 
   const done = today ? MODES.filter((m) => today.status[m] === "solved").length : 0;
-  const all = done === MODES.length;
-  const started = !!today && MODES.some((m) => today.status[m] === "started");
-  const row = "group grid gap-x-8 gap-y-3 py-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center";
-  const title = "display-caps block pr-[0.12em] text-[clamp(2.4rem,1.8rem+2vw,3.5rem)] leading-none text-chalk-100 transition-colors group-hover:text-gold-300";
 
   return (
     <div className={className}>
-      <ul className="divide-y divide-night-700 border-y border-night-700">
-        <li>
-          <Link
-            href="/mlbbdle"
-            onClick={() => trackEvent("Return", "Daily open", place, today?.streak ?? 0)}
-            className={row}
-          >
-            <span className="min-w-0">
-              <span className={title}>{t("nav.mlbbdle.label")}</span>
-              <span className="mt-2 block text-chalk-300">{t("nav.mlbbdle.desc")}</span>
-              {today && (
-                <span className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-chalk-400">
-                  {MODES.map((m) => (
-                    <span key={m} className="inline-flex items-center gap-1.5">
-                      {today.status[m] === "solved" ? (
-                        <Check size={14} aria-hidden className="text-gold-400" />
-                      ) : (
-                        <span aria-hidden className="inline-block size-2.5 rounded-full border border-chalk-500" />
-                      )}
-                      {t(`dailyDle.mode.${m}`)} · {t(`dailyDle.status.${today.status[m]}`)}
-                    </span>
-                  ))}
-                  {today.streak > 0 && (
-                    <span className="inline-flex items-center gap-1.5 text-chalk-100">
-                      <Flame size={14} aria-hidden className="text-gold-400" />
-                      {t(today.streak === 1 ? "dailyDle.streak1" : "dailyDle.streak", { n: today.streak })}
-                    </span>
-                  )}
-                </span>
-              )}
-            </span>
-            {all ? (
-              <span className="inline-flex min-h-11 items-center gap-1.5 font-semibold text-gold-400">
-                <Check size={16} aria-hidden />
-                {t("dailyDle.allDone")}
-              </span>
-            ) : (
-              <span className="btn btn-primary w-full px-8 sm:w-auto">
-                {t(done > 0 || started ? "dailyDle.continue" : "dailyDle.play")}
-              </span>
-            )}
-          </Link>
-        </li>
-        <li>
-          <Link href="/quiz" className={row}>
-            <span className="min-w-0">
-              <span className={title}>{t("nav.quiz.label")}</span>
-              <span className="mt-2 block text-chalk-300">{t("nav.quiz.desc")}</span>
-            </span>
-            <span className="btn btn-primary w-full px-8 sm:w-auto">{t("dailyDle.play")}</span>
-          </Link>
-        </li>
-      </ul>
       {/* Changes every second: kept out of any announced region. */}
-      <p className="mt-8 flex flex-wrap items-baseline gap-x-4 gap-y-1">
-        <span className="text-chalk-400">{t("dailyDle.next")}</span>
-        <span className="figure inline-block text-[clamp(2.5rem,1.8rem+2.4vw,4rem)] leading-none tabular-nums text-chalk-100">
+      <p className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+        <span className="font-semibold text-night-950/80">{t("dailyDle.next")}</span>
+        <span className="figure inline-block text-[clamp(3.5rem,2.2rem+4vw,6.5rem)] leading-none tabular-nums text-night-950">
           {today ? clock(today.left) : "--:--:--"}
         </span>
+      </p>
+      {today && (
+        <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm font-medium text-night-950/80">
+          {done === MODES.length ? (
+            <span className="inline-flex items-center gap-1.5">
+              <Check size={14} aria-hidden />
+              {t("dailyDle.allDone")}
+            </span>
+          ) : (
+            MODES.map((m) => (
+              <span key={m} className="inline-flex items-center gap-1.5">
+                {today.status[m] === "solved" ? (
+                  <Check size={14} aria-hidden />
+                ) : (
+                  <span aria-hidden className="inline-block size-2.5 rounded-full border border-night-950/70" />
+                )}
+                {t(`dailyDle.mode.${m}`)} · {t(`dailyDle.status.${today.status[m]}`)}
+              </span>
+            ))
+          )}
+          {today.streak > 0 && (
+            <span className="inline-flex items-center gap-1.5 text-night-950">
+              <Flame size={14} aria-hidden />
+              {t(today.streak === 1 ? "dailyDle.streak1" : "dailyDle.streak", { n: today.streak })}
+            </span>
+          )}
+        </p>
+      )}
+      <p className="mt-8 flex flex-wrap gap-3">
+        <Link
+          href="/mlbbdle"
+          onClick={() => trackEvent("Return", "Daily open", place, today?.streak ?? 0)}
+          className="btn bg-night-950 px-7 text-gold-300 hover:bg-night-800"
+        >
+          {playDle}
+        </Link>
+        <Link href="/quiz" className="btn px-7 text-night-950 shadow-[inset_0_0_0_2px_var(--color-night-950)] hover:bg-night-950/10">
+          {playQuiz}
+        </Link>
       </p>
     </div>
   );
