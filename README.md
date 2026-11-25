@@ -1,4 +1,66 @@
-# MLBB
+<p align="center"><img src="public/brand/emblem.svg" width="112" alt="MLBBDex emblem"></p>
+
+<h1 align="center">MLBBDex</h1>
+
+<p align="center"><b>All of Mobile Legends, measured every day.</b></p>
+
+<p align="center">
+  <a href="https://mlbbdex.com">Website</a> ·
+  <a href="https://mlbbdex.com/en/tier-list">Tier list</a> ·
+  <a href="docs/wiki/API.md">Public API</a> ·
+  <a href="https://discord.gg/mw5RzvkkU3">Discord</a> ·
+  <a href="https://ko-fi.com/achedon12">Support the project</a>
+</p>
+
+<p align="center">
+  <a href="https://mlbbdex.com"><img alt="Website" src="https://img.shields.io/website?url=https%3A%2F%2Fmlbbdex.com&label=mlbbdex.com&color=f5b82e&logo=googlechrome&logoColor=white"></a>
+  <a href="https://discord.gg/mw5RzvkkU3"><img alt="Discord" src="https://img.shields.io/badge/Discord-join-5865F2?logo=discord&logoColor=white"></a>
+  <img alt="Languages" src="https://img.shields.io/badge/languages-9-f5b82e">
+  <a href="https://ko-fi.com/achedon12"><img alt="Ko-fi" src="https://img.shields.io/badge/Ko--fi-support-ff5e5b?logo=kofi&logoColor=white"></a>
+  <a href="https://www.paypal.me/achedon12"><img alt="PayPal" src="https://img.shields.io/badge/PayPal-donate-00457C?logo=paypal&logoColor=white"></a>
+</p>
+
+<p align="center"><img src=".github/readme/poster.jpg" alt="MLBBDex key art: Dex surrounded by Fanny, Ling, Layla, Hirara, Obsidia and Sun" width="100%"></p>
+
+MLBBDex is a free, ad-free knowledge base for **Mobile Legends: Bang Bang**, in nine languages: English, French, Italian, Spanish, Indonesian, Filipino, Thai, Brazilian Portuguese and Russian.
+
+Every hero has its builds, emblems and counters measured in ranked games, by rank. The tier list is recomputed at every sync from real win and ban rates, and says when a measure is too thin to trust. Around that: 1,142 skins with a release calendar, monthly events, patch notes with written analyses, a daily quiz, MLBBdle, draft and team tools, a Discord bot and a public JSON API.
+
+The rule fits in one sentence: **nothing is published unless it has been verified**. A hero without a write-up is shown as such, rather than filled with approximate values.
+
+<p align="center">
+  <img src=".github/readme/shots/home.webp" alt="Home page: the hero of the meta, patch and search" width="49%">
+  <img src=".github/readme/shots/tierlist.webp" alt="Tier list: heroes ranked by win and ban rates" width="49%"><br>
+  <img src=".github/readme/shots/hero.webp" alt="Hero page: tier, win rate, build, emblem and counters at a glance" width="49%">
+  <img src=".github/readme/shots/events.webp" alt="Monthly events and StarLight skin" width="49%"><br>
+  <img src=".github/readme/shots/skins.webp" alt="Skin gallery and release calendar" width="49%">
+  <img src=".github/readme/shots/quiz.webp" alt="Daily quiz with Dex" width="49%">
+</p>
+
+## What is inside
+
+| | |
+| --- | --- |
+| 133 heroes | Skills with cooldowns and costs, analysis, strengths and weaknesses, counters both ways, builds and counters by rank, best duos |
+| Tier lists | Overall, by rank, lane and role, recomputed at every sync; small samples are flagged and never crowned |
+| Statistics | Win, pick and ban rates by rank, trends over seven days, win rates by game length |
+| Items, emblems, spells | Stats, passives, and above all when each one is worth taking |
+| 1,142 skins | Rarity, availability, price and artwork, a gallery per hero and a release calendar |
+| Events | StarLight, Collector, event, shop and pass skins month by month, with calendar reminders |
+| Patch notes | Synced patch list, written analyses and a measured recap once the numbers are in |
+| Daily games | A five-round quiz and MLBBdle, the same for everyone, with streaks and shareable results |
+| Tools | Draft helper, hero comparison, team analyser, tier list maker, win-rate calculator, nickname generator, server time |
+| Account | Sign-in with the game's own verification code: rank, level, friends, favourites, a public profile if you want one |
+| Discord bot | Patch alerts, hero cards and player profiles in your server |
+| Public API | Read-only JSON routes, no key needed: see [API](docs/wiki/API.md) |
+| 9 languages, installable | Every page translated; installs as an app and works offline |
+
+## Support the project
+
+MLBBDex has no ads and no paywall. The server, the domain and the time spent on it are paid for by the people who use it. If the site helps you climb, you can buy Dex a coffee on [Ko-fi](https://ko-fi.com/achedon12) or [PayPal](https://www.paypal.me/achedon12). Thank you!
+
+<details>
+<summary>Build status</summary>
 
 <p>
   <a href="https://github.com/achedon12/mlbb/actions/workflows/quality.yml"><img alt="Quality" src="https://img.shields.io/github/actions/workflow/status/achedon12/mlbb/quality.yml?branch=main&label=quality&logo=github"></a>
@@ -20,17 +82,7 @@
   <img alt="Code size" src="https://img.shields.io/github/languages/code-size/achedon12/mlbb?logo=github">
   <img alt="Language" src="https://img.shields.io/github/languages/top/achedon12/mlbb?logo=typescript">
 </p>
-
-A knowledge base for **Mobile Legends: Bang Bang**, in English, French, Italian,
-Spanish, Indonesian, Filipino, Thai, Brazilian Portuguese and Russian: the full roster, verified hero pages, tier lists, statistics,
-items, emblems, battle spells, skins, lore, guides, patch notes and a set of
-tools.
-
-The approach fits in one sentence: **nothing is published unless it has been
-verified**. A hero without a write-up is shown as such, rather than filled with
-approximate values.
-
-Live: <https://mlbbdex.com>
+</details>
 
 ---
 
@@ -58,6 +110,7 @@ npm run dev                    # http://localhost:3001
 | `npm run watch` | Takes the snapshot of the news feeds shown on the Watch page |
 | `npm run test` | Unit and functional tests (Vitest) |
 | `npm run test:e2e` | Browser tests (Playwright) |
+| `npm run readme:poster` | Regenerates the README key art and the social preview in `.github/readme/` |
 
 Visuals and data are already in the repository: `sync`, `translate` and
 `watch` only refresh them, and only ever run locally or in CI, never while the
