@@ -468,4 +468,71 @@ export const tanks: HeroAnalysis[] = [
       },
     ],
   },
+  {
+    slug: "alice",
+    summary:
+      "Mage tank qui s'installe au milieu des ennemis : tant que ses compétences touchent, elle brûle tout autour d'elle et se soigne.",
+    analysis:
+      "Alice joue au contact malgré ses dégâts magiques. Deux compétences qui touchent coup sur coup activent son passif, une aura qui blesse les ennemis proches à intervalles réguliers, la soigne et l'accélère, et que chaque compétence qui touche un héros prolonge. Sa compétence 1 lance une décharge de sang qu'elle peut rejoindre en se téléportant ; sa compétence 2, à recharge courte, blesse et ralentit fortement autour d'elle, et brûle davantage quand l'aura est active. L'ultime la rend insensible aux contrôles et réduit les dégâts subis pendant sa charge, puis elle retombe sur la zone en immobilisant les ennemis.\n\n" +
+      "Ses chiffres mesurés sont dans la moyenne, avec un taux de victoire qui progresse un peu dans les parties longues et un bannissement plus fréquent en Mythique qu'en Gloire mythique. En jungle, le build le plus joué l'est nettement plus que tous les autres. Les mesures la placent en difficulté face à Angela, Floryn, Karrie, Estes et Valir, et à l'aise face à Chip, Gloo, Tigreal, Barats et Atlas.",
+    skills: [
+      {
+        type: "Passive",
+        name: "Crimson Blood Banquet",
+        description:
+          "Chaque compétence qui touche lui donne une charge ; à deux charges, une aura blesse les ennemis proches à intervalles réguliers, la soigne et accélère son déplacement. Toucher un héros avec une compétence prolonge l'aura.",
+      },
+      {
+        type: "Skill 1",
+        name: "Crimson Gleam",
+        description:
+          "Lance une décharge de sang vers l'avant ; relancée avant qu'elle se dissipe, Alice se téléporte à son point d'arrivée. C'est son engagement, et la seule compétence encore utilisable pendant la charge de l'ultime.",
+      },
+      {
+        type: "Skill 2",
+        name: "Doom Waltz",
+        description:
+          "Une danse qui blesse les ennemis autour d'elle et les ralentit fortement. Aura active, elle brûle en plus les cibles et la soigne d'autant : à relancer dès qu'elle est disponible, sa recharge est courte.",
+      },
+      {
+        type: "Ultimate",
+        name: "Throne of Ruin",
+        description:
+          "Pendant une courte charge, Alice est insensible aux contrôles et subit moins de dégâts, mais se déplace plus lentement ; elle retombe ensuite sur la zone en blessant et en immobilisant tous les ennemis présents.",
+      },
+    ],
+    strengths: [
+      "Soin continu tant que ses compétences touchent",
+      "Insensible aux contrôles pendant la charge de l'ultime",
+      "Une compétence 2 à recharge courte qui ralentit fortement",
+      "À l'aise face à Chip, Gloo et Tigreal selon les mesures",
+    ],
+    weaknesses: [
+      "Une aura qui s'éteint si ses compétences ratent",
+      "Taux de victoire mesuré plus bas dans les parties courtes",
+      "En difficulté face à Angela, Floryn et Karrie selon les mesures",
+    ],
+    strongAgainst: ["chip", "gloo", "tigreal", "barats", "atlas"],
+    weakAgainst: ["angela", "floryn", "karrie", "estes", "valir"],
+    builds: [
+      {
+        name: "Jungle",
+        context:
+          "Le build le plus joué en jungle, nettement devant les autres : Brute Force Breastplate et Oracle apportent PV, armure et réduction de recharge, et Oracle renforce les soins reçus, dont ceux de son aura ; Concentrated Energy ajoute puissance magique, PV et vol de vie hybride.",
+        items: ["Brute Force Breastplate", "Oracle", "Concentrated Energy"],
+        emblem: "Emblème de tank",
+        talent: "Impure Rage",
+        spell: "Retribution",
+      },
+      {
+        name: "EXP lane",
+        context:
+          "Les trois mêmes objets en EXP lane, avec le sort Revitalize à la place de Retribution : c'est la version la plus jouée à cette position.",
+        items: ["Brute Force Breastplate", "Oracle", "Concentrated Energy"],
+        emblem: "Emblème de tank",
+        talent: "Impure Rage",
+        spell: "Revitalize",
+      },
+    ],
+  },
 ];

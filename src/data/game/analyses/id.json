@@ -140,6 +140,90 @@
       }
     ]
   },
+  "aamon": {
+    "summary": "Assassin ajaib yang disamarkan dengan setiap skill yang mengenainya; Hasil akhirnya akan lebih baik jika targetnya terluka.",
+    "analysis": "Aamon mengganti kamuflase dan serangan yang diperkuat. Setiap skill yang mengenai musuh akan menyamarkannya: ia tidak lagi dapat ditargetkan, memulihkan HP, dan menambah kecepatan; setelah keluar dari kondisi ini, serangan dasarnya selama beberapa detik berikutnya diperkuat, menimbulkan damage sihir, dan mengurangi cooldownnya. Serangannya yang kuat memerlukan pecahan. Skill pamungkasnya meluncurkan semuanya ke sasaran: semakin banyak pecahan yang dimilikinya dan di tanah, semakin lama salvonya, dan damagenya meningkat seiring dengan hilangnya HP target.\n\nAngka terukurnya sedikit di bawah rata-rata di semua peringkat, tanpa perbedaan besar bergantung pada durasi permainan; Namun, tingkat seleksinya meningkat selama tiga puluh hari terakhir. Pengukuran tersebut menempatkannya dalam kesulitan melawan Gloo, Lolita, Silvanna, Hayabusa dan Masha, dan nyaman melawan Cici, Marcel, Claude dan Bruno.",
+    "skills": [
+      "Setiap skill yang menyentuhnya menyamarkannya: tidak mungkin ditargetkan, ia memulihkan HP dan memperoleh kecepatan yang berkurang dengan cepat. Saat keluar dari kamuflase, serangan dasarnya diperkuat selama beberapa detik, menimbulkan damage sihir, dan mengurangi cooldownnya.",
+      "Sebagai pasif, serangan yang diperkuat dan kamuflase mengisi armornya; dengan lima serangan, serangan berikutnya meluncurkan pecahan pecahan yang kemudian tetap berada di tanah di sekitar sasaran. Saat aktif, melemparkan ledakan ke musuh terdekat.",
+      "Menembakkan ledakan ke depan yang memperlambat serangan musuh, lalu kembali ke musuh dan menyamarkannya; dia segera kembali jika dia menyentuh apa pun selain minion. Skill untuk melewati musuh dalam kamuflase.",
+      "Lemparkan semua pecahanmu ke arah musuh dan perlambat mereka; jumlahnya bergantung pada muatannya dan pecahan di tanah. Damage meningkat seiring hilangnya HP target, hingga maksimum di bawah tiga puluh persen HPnya."
+    ],
+    "strengths": [
+      "Tidak mungkin untuk ditargetkan dalam kamuflase, dan dirawat selama ini",
+      "Ultimate yang memberikan damage pada target yang terluka",
+      "Cooldown dikurangi dengan serangan yang diberdayakan"
+    ],
+    "weaknesses": [
+      "Win rate diukur sedikit di bawah rata-rata di semua peringkat",
+      "Kamuflase yang bergantung pada skill yang mempengaruhi",
+      "Dalam kesulitan melawan Gloo, Lolita dan Silvanna sesuai takarannya"
+    ],
+    "builds": [
+      {
+        "name": "Hutan Ajaib",
+        "context": "Build yang paling sering dimainkan di hutan: Genius Wand mengurangi pertahanan sihir hero yang terkena dan menambah penetrasi, Holy Crystal memaksimalkan kekuatan sihir dan Divine Glaive penetrasi sihir, untuk serangan yang diperkuat dan ultimat yang selesai."
+      },
+      {
+        "name": "Eksekusi",
+        "context": "Sky Piercer sebagai objek pertama, yang mengeksekusi hero yang telah terjatuh sangat rendah dan ambang batasnya meningkat seiring dengan eliminasi: build kedua yang paling sering dimainkan, dengan win rate mendekati angka tersebut."
+      }
+    ]
+  },
+  "nolan": {
+    "summary": "Assassin hutan yang memotong celah dengan setiap skill: dua celah yang saling bersentuhan akan menarik musuh, meledak, dan memulihkan HP.",
+    "analysis": "Nolan mempermainkan kekurangannya. Setiap skill menyisakan satu, yang memperlambat musuh; Ketika dua celah bersentuhan, mereka menarik musuh ke tengahnya lalu meledak, dan setiap serangan hero atau monster memulihkan energi dan HP. Dua skill pertamanya memiliki cooldown yang sangat singkat, satu mengenai area di depannya, yang lain membuatnya menyerang, dan keduanya saling bertautan untuk membuat kesalahan saling bersilangan. Tebasan pamungkas pada suatu area sebanyak tiga kali, meninggalkan tiga celah di sana dan memicunya saat dia mundur. Setelah beberapa detik tanpa menimbulkan atau menerima damage, serangan dasar berikutnya menyebabkan dia melompat ke target, membuka celah.\n\nHal ini diperebutkan dengan sengit: pick rate kelima dari semua hero, dan larangan yang hampir dua kali lipat selama tiga puluh hari terakhir dan naik seiring dengan peringkatnya. Win rate terukurnya tetap berada di kisaran rata-rata, lebih tinggi dalam permainan yang berlangsung kurang dari dua belas menit, kemudian lebih rendah setelah menit keempat belas. Pengukuran tersebut jelas menempatkannya dalam kesulitan melawan Saber dan Natalia, lalu melawan Jawhead dan Hayabusa.",
+    "skills": [
+      "Skillnya meninggalkan keretakan yang memperlambatnya. Dua patahan yang saling bersentuhan menarik musuh ke tengahnya lalu meledak; setiap hero atau monster yang terkena akan memulihkan energi dan HP. Setelah beberapa detik keluar dari pertarungan, serangan dasar berikutnya menyebabkan dia menyerang target.",
+      "Iris area persegi panjang di depannya dan tinggalkan celah pada serangan musuh pertama. Cooldown yang sangat singkat.",
+      "Menyerang dalam satu arah, memberikan damage pada musuh di lanenya dan meninggalkan celah: pergerakannya, dan cara melintasi dua celah.",
+      "Tebas suatu area tiga kali, memperlambat target yang terkena dan meninggalkan tiga celah, yang terpicu dengan sendirinya saat dia mundur."
+    ],
+    "strengths": [
+      "Cooldown yang sangat singkat pada dua skill pertamanya",
+      "Ledakan celah yang memulihkan HP",
+      "Ultimate yang mengenainya kemudian menjatuhkannya kembali",
+      "Win rate tinggi diukur dalam permainan pendek"
+    ],
+    "weaknesses": [
+      "Win rate diukur di bawah rata-rata setelah menit keempat belas",
+      "Mengurangi damage ketika target yang sama mengalami beberapa ledakan",
+      "Jelas kesulitan melawan Saber dan Natalia menurut pengukuran"
+    ],
+    "builds": [
+      {
+        "name": "Hutan",
+        "context": "Build yang paling banyak dimainkan di hutan: Hunter Strike menghadirkan serangan, pengurangan cooldown, penetrasi, dan akselerasi setelah beberapa pukulan pada target yang sama, Blade of the Heptaseas memperkuat serangan pertama setelah beberapa detik keluar dari pertempuran, seperti lompatan dalam pasifnya, dan Malefic Roar menambahkan penetrasi fisik. Lethal Ignition dipilih sesering Impure Rage."
+      }
+    ]
+  },
+  "saber": {
+    "summary": "Assassin Target Tunggal: Ultimate-nya mengangkat hero musuh dan mengenai mereka tiga kali, dengan Resilience tidak ada bedanya.",
+    "analysis": "Saber dibuat untuk menjatuhkan hero tertentu. Damagenya mengurangi armor fisik target, menumpuk. Skill 1 miliknya memutar lima pedang di sekelilingnya; selama durasinya, setiap serangan pedang mengenai targetnya dan mengurangi dua kali cooldownnya. Skill 2 miliknya membuatnya melakukan dash lalu memperkuat serangan dasar berikutnya, yang meluncurkannya ke target dan memperlambatnya secara signifikan. Ultimatenya membuatnya menyerang hero musuh, melemparkannya ke udara selama kurang lebih satu detik tanpa mengurangi efek Resilience, dan mengenainya sebanyak tiga kali.\n\nAngka terukurnya sangat berubah seiring dengan peringkat: win rate di bawah rata-rata di Epic, di atas rata-rata di Mythic Glory, dan larangan tertinggi di Legend dan Mythic. Ini sangat kuat dalam permainan pendek, di atas lima puluh lima persen sebelum menit keempat belas. Saat menjelajah, build yang paling sering dimainkan memiliki win rate yang diukur di bawah rata-rata; mitra terukur terbaiknya adalah Diggie dan Marcel. Pengukuran tersebut menempatkannya dalam kesulitan melawan Balmond, Leomord, Baxia, Miya dan Sun.",
+    "skills": [
+      "Setiap kali menimbulkan damage, itu mengurangi armor fisik target, menumpuk hingga lima kali.",
+      "Lima pedang mengelilinginya dan memberikan damage pada musuh di dekatnya. Selama durasinya, setiap serangan pedang akan mengenai target dan mengurangi cooldown skill 1 dan 2 miliknya.",
+      "Terburu-buru ke satu arah; Serangan dasar berikutnya kemudian melemparkannya ke sasaran, memberikan damage dan memperlambat mereka secara signifikan. Berfungsi untuk mengejar ketinggalan dan terlibat.",
+      "Mengisi daya hero musuh, menjatuhkannya ke udara selama lebih dari satu detik, tanpa mengurangi efek Ketahanan, dan memukulnya tiga kali, pukulan terakhir lebih keras."
+    ],
+    "strengths": [
+      "Satu target pamungkas yang ketahanannya tidak berkurang",
+      "Pengurangan armor kumulatif sesuai target",
+      "Win rate tinggi diukur dalam permainan pendek",
+      "Cooldown dikurangi dengan pedangnya"
+    ],
+    "weaknesses": [
+      "Roam yang Paling Banyak Dimainkan Dibangun Di Bawah Rata-Rata berdasarkan Metrik",
+      "Sangat dilarang di Legend dan Mythic",
+      "Kesulitan melawan Balmond, Leomord dan Baxia menurut pengukuran"
+    ],
+    "builds": [
+      {
+        "name": "Hutan",
+        "context": "Build yang paling sering dimainkan, di hutan: Hunter Strike memberikan serangan, pengurangan cooldown dan penetrasi fisik, War Axe serangan kumulatif dalam pertempuran, HP dan life steal, Endless Battle damage mentah pada serangan yang mengikuti setiap skill."
+      }
+    ]
+  },
   "chou": {
     "summary": "Fighter isolasi: dia mengambil target dari kelompok lawan dan membunuhnya sebelum timnya bereaksi.",
     "analysis": "Chou merupakan hero roam dengan mastery cap tertinggi. Idenya sederhana – serangan pamungkas akan mengusir target dan mengejarnya – tetapi pelaksanaannya bergantung pada pembatalan animasi yang tidak dapat dijelaskan dalam game ini. Referensi rantai kombo skill 1, pembatalan lompatan, ulti, lalu skill 2 untuk menahan target saat mendarat.\n\nKetertarikannya pada tim yang terorganisir berasal dari sana: dia memilih siapa yang akan mati. Sebaliknya, melawan pemain yang mempertahankan Purify miliknya, nilai ultimatnya akan kehilangan setengah nilainya, dan Chou menjadi fighter biasa-biasa saja lagi.",
@@ -313,6 +397,273 @@
       {
         "name": "Damage demi skill",
         "context": "Starlium Scythe bukannya Queen's Wings, untuk damage tambahan pada serangan yang mengikuti setiap skill: lebih sedikit dimainkan, dengan win rate terukur yang sebanding."
+      }
+    ]
+  },
+  "masha": {
+    "summary": "Fighter dengan tiga batang HP: setiap batang yang rusak membebaskannya dari kontrol, dan serangan dasarnya menjadi serangan cakar dengan efek area yang menyembuhkannya.",
+    "analysis": "Masha memainkan ketiga bar HP miliknya. Masing-masing mendapatkan kembali setengah dari HP yang disediakan oleh itemnya, dan setiap batang yang jatuh menghilangkan efek kontrolnya, memblokir serangan, dan mengatur ulang cooldown Claw Strike. Skill yang mengenai hero akan membuka luka di salah satu sisi target; mematahkan luka ini dengan serangan dasar menyebabkan Masha menjadi liar, dengan ketahanan, kecepatan serangan, dan kecepatan gerakan, dan mengubah tiga serangan berikutnya menjadi tebasan cakar kipas yang menghasilkan damage berdasarkan HP dan menyembuhkannya. Ultimatenya membuat dia menyerang hero lawan, membuat mereka stun dan mendorong mundur musuh di sekitar mereka.\n\nAngka terukurnya adalah yang tertinggi dalam game: win rate tertinggi untuk semua hero di semua peringkat, di atas lima puluh enam persen terlepas dari durasi permainan, dan larangan yang meningkat seiring dengan peringkat, yang jarang terjadi di Epic, dalam dua dari tiga game di Mythic Glory. Patch 2.2.23 memindahkan slow dari skill 1 ke skill 2 dan mengurangi damage serta penyembuhan dari serangan cakarnya; win ratenya sedikit menurun selama tiga puluh hari terakhir. Pengukuran tersebut menempatkannya dalam kesulitan melawan Freya, Estes, Bruno, Melissa dan Floryn.",
+    "skills": [
+      "Tiga batang HP, yang masing-masing menghabiskan setengah HP itemnya. Bilah yang rusak menghilangkan efek kontrolnya dan memblokir serangan. Skillnya membuka luka pada hero yang terkena: menghancurkannya dengan serangan dasar akan memicu keadaan liar dan serangan cakar di area tersebut untuk menyembuhkannya.",
+      "Gelombang energi ke depan yang memberikan damage pada musuh di lanenya dan mengenai minion lebih keras: alat untuk membersihkan gelombang, dan membuka luka dari jarak jauh.",
+      "Lompatan ke arah target yang memperlambat serangan hero. Cooldownnya diatur ulang setiap kali bar HP turun, yang langsung memberinya cara untuk mengejar atau melarikan diri.",
+      "Mengisi daya hero lawan, membuat mereka pingsan, dan memukul mundur musuh di sekitar. Damagenya meningkat dengan tambahan HP: ini adalah pembukaan pertarungan tim pada target yang rapuh."
+    ],
+    "strengths": [
+      "Win rate pertama yang diukur dari semua hero",
+      "Tiga batang HP, masing-masing membebaskannya dari kontrol",
+      "Cakar menyerang di area yang menyembuhkannya",
+      "Performa terukur yang stabil terlepas dari durasi permainan"
+    ],
+    "weaknesses": [
+      "Dilarang dalam dua dari tiga pertandingan di Mythic Glory",
+      "Serangan cakar dan penyembuhan dikurangi pada patch 2.2.23",
+      "Dalam kesulitan melawan Freya, Estes dan Bruno sesuai ukuran"
+    ],
+    "builds": [
+      {
+        "name": "EXP Lane",
+        "context": "Tiga build yang paling sering dimainkan di EXP Lane memiliki objek yang sama: Thunder Belt dan Guardian Helmet memberikan HP yang dibutuhkan oleh tiga batangnya dan bergantung pada ultimatnya, Corrosion Scythe kecepatan serangan untuk mematahkan luka dan serangan cakar berantai. Mereka dikaitkan dengan emblem tank, bakat War Cry dan, paling sering, spell Petrify."
+      }
+    ]
+  },
+  "argus": {
+    "summary": "Fighter kritis yang ultimatnya membuatnya tidak bisa dibunuh selama beberapa detik, lalu menyembuhkannya dari semua damage yang ditimbulkan pada hero.",
+    "analysis": "Argus mengandalkan serangan kritis: pasifnya langsung memberinya peluang kritis, dan setiap kritis menjadi tebasan iblis yang mengabaikan sebagian armor dan menyembuhkannya. Skill 1 miliknya meluncurkan tangan yang memberikan efek stun pada musuh pertama yang terkena serangan dan mendekatkan mereka satu sama lain, lalu meluncurkannya secara terburu-buru diikuti dengan pukulan besar; skill 2 miliknya dihitung sebagai serangan dasar, memberikan efek stun kepada hero yang terkena serangan dan memberinya kecepatan serangan. Ultimate-nya menghilangkan efek kontrolnya dan membuatnya abadi selama beberapa detik, lalu memulihkan HP setara dengan damage yang diberikan kepada hero selama itu. Selama tersedia, itu akan terpicu sendiri untuk melawan serangan fatal.\n\nDia adalah salah satu hero paling efektif berdasarkan metrik dan salah satu yang paling sedikit dilarang: win rate tertinggi ketiga dari semua hero, di atas lima puluh lima persen pada setiap peringkat, untuk larangan sekitar satu permainan dalam seratus. Penampilannya meningkat seiring dengan durasi permainan, tepat di atas rata-rata sebelum menit kedua belas dan melampaui enam puluh persen dari menit keenam belas. Pengukuran tersebut menempatkannya dalam kesulitan melawan Barats, Terizla, Uranus, Ruby dan Fredrinn.",
+    "skills": [
+      "Ini dimulai dengan peluang kritis. Kritikalnya menjadi tebasan iblis, yang mengabaikan beberapa pelindung fisik target dan menyembuhkannya, sekaligus memicu efek yang terkait dengan kritikal tersebut.",
+      "Tangan iblis yang membuat musuh pertama terkena stun, memperlambat mereka dan mendekatkan mereka satu sama lain; tanpa target, Argus ditarik ke akhir perjalanannya. Diluncurkan kembali, itu menjadi terburu-buru diikuti dengan pukulan besar.",
+      "Setelah serangan singkat, ayunan pedang dihitung sebagai serangan dasar. Pada seorang hero, ia memberikan stun sebentar dan memberikan kecepatan serangan; damagenya mendapat manfaat dari keberuntungan dan damage kritis, dan kecepatan serangan memperpendek muatannya.",
+      "Menghapus efek kontrolnya, membuatnya abadi selama beberapa detik dan memberikan damage pada musuh di dekatnya, terlebih lagi saat HPnya rendah. Pada akhirnya, dia akan memulihkan HP yang setara dengan damage yang diberikan kepada para hero. Tersedia, itu terpicu sendiri terhadap serangan fatal, tanpa damage."
+    ],
+    "strengths": [
+      "Win rate ketiga yang diukur dari semua hero",
+      "Ultimate yang membuatnya abadi kemudian memulihkan HP miliknya",
+      "Performa diukur di atas enam puluh persen dalam permainan panjang",
+      "Jarang dilarang"
+    ],
+    "weaknesses": [
+      "Performa diukur mendekati rata-rata dalam game pendek",
+      "Setelah skill ultimatnya digunakan, tidak ada yang bisa menyelamatkannya dari serangan fatal",
+      "Dalam kesulitan melawan Barats, Terizla dan Uranus menurut pengukuran"
+    ],
+    "builds": [
+      {
+        "name": "Kritis",
+        "context": "Build yang paling banyak dimainkan di EXP Lane: kecepatan serangan dan peluang kritis, yang diubah oleh tebasan iblisnya; sejak patch 2.2.16, kritikalnya masih memicu efek Berserker's Fury dan Windtalker. Haas' Claws menambahkan gaya hidup. Hal ini terkait dengan emblem marksman, bakat War Cry, dan spell Petrify."
+      }
+    ]
+  },
+  "lukas": {
+    "summary": "Fighter yang berubah menjadi binatang suci setelah ukuran resolusinya penuh; skill 1 miliknya berubah tergantung serangan yang dilakukan sebelumnya.",
+    "analysis": "Lukas memenuhi tekadnya seiring berjalannya waktu dan, lebih cepat, dengan menyakiti para hero. Penuh, itu memungkinkan dia untuk berubah menjadi binatang suci dengan kemampuan pamungkasnya: semua atributnya meningkat, skillnya mendapatkan efek baru, dan peluncuran ulang menembakkan gelombang kejut; formulir itu berlaku selama ada keputusan. Dalam kedua bentuk tersebut, semuanya berjalan melalui urutan: skill 2nya membuatnya melompat dan memperkuat serangan berikutnya, yang menempatkannya di belakang target dan mempercepatnya; setiap serangan dasar mengisi skill 1-nya, yang memberikan stun sebentar dan, dengan dua serangan, membuatnya kebal terhadap pemeriksaan saat dia berputar.\n\nAngka terukurnya mendekati rata-rata, dengan profil yang jelas bergantung pada durasi: sangat rendah dalam permainan yang berlangsung kurang dari dua belas menit, di atas rata-rata dari permainan keempat belas. Ban ratenya, yang meningkat seiring dengan peringkatnya, telah turun secara signifikan selama tiga puluh hari terakhir. Patch 2.2.23 memberinya lebih banyak HP dasar dan armor serta mengalihkan damage skill 1 ke basisnya daripada serangan fisik, untuk membuat build pertahanan lebih efektif. Pengukuran tersebut membuatnya kesulitan melawan Phoveus, Balmond, Baxia, Valentina, dan Minsitthar.",
+    "skills": [
+      "Dapatkan Resolve seiring waktu dan dengan memberikan damage pada hero. Penuh, itu membuka transformasi menjadi binatang suci, yang mengkonsumsi resolusi sampai habis.",
+      "Serangan dasarnya memberinya hingga dua tumpukan stamina, yang akan dikonsumsi oleh skill tersebut untuk sebuah pukulan yang menyembuhkannya jika mengenai hero atau minion. Dengan muatannya, ia akan memberikan stun sebentar dan menarik target sambil berputar; dengan dua, ia menambahkan dua pukulan dan membuatnya tidak responsif terhadap pemeriksaan saat berputar.",
+      "Lompatan yang memperkuat serangan dasar berikutnya: menempatkannya di belakang musuh, lalu memberinya kecepatan gerakan dan kecepatan serangan, dan memperluas jangkauan serangan berikutnya, yang memicu sambaran petir.",
+      "Mengubahnya menjadi binatang suci, kebal terhadap kontrol sejenak: peningkatan kecepatan, peningkatan atribut, dan efek baru untuk skillnya. Diluncurkan kembali, ia menembakkan gelombang kejut yang meledak pada serangan hero pertama."
+    ],
+    "strengths": [
+      "Bentuk binatang suci yang meningkatkan semua atributnya",
+      "Tidak responsif terhadap kontrol saat berputar pada dua beban",
+      "Menyembuhkan setiap serangan skill 1",
+      "Win rate diukur di atas rata-rata dalam permainan panjang"
+    ],
+    "weaknesses": [
+      "Sangat lemah dalam permainan pendek menurut pengukuran",
+      "Sebuah transformasi yang menunggu resolusinya menjadi penuh",
+      "Kesulitan melawan Phoveus, Balmond dan Baxia menurut pengukuran"
+    ],
+    "builds": [
+      {
+        "name": "Hutan",
+        "context": "Build yang paling banyak dimainkan di hutan, sejauh ini: Hunter Strike memberikan serangan, pengurangan cooldown dan penetrasi fisik, War Axe serangan kumulatif dalam pertempuran, HP dan life steal, Queen's Wings bertahan hidup ketika HP-nya turun."
+      },
+      {
+        "name": "EXP Lane",
+        "context": "Tiga objek yang sama di EXP Lane, dengan spell Vengeance: ini adalah versi yang paling sering dimainkan di posisi ini. Varian Fighter Emblem yang jarang dimainkan memiliki win rate terukur yang lebih tinggi."
+      }
+    ]
+  },
+  "freya": {
+    "summary": "Fighter serangan dasar, yang mengisi bola dengan memukul dan menggunakannya untuk kecepatan serangan, HP, dan lari tanpa mengisi ulang basis.",
+    "analysis": "Freya berputar di sekitar sumber daya: setiap serangan dasar memberinya bola suci, dan setiap bola yang digunakan membuat serangan berikutnya lebih cepat dan menyembuhkannya. Keahlian 2-nya tidak memiliki cooldown dasar tetapi membutuhkan dua bola: itu adalah serangan yang menyakitkan dan memperlambat, untuk bergantian dengan serangan dasar untuk menjaga cadangan tetap penuh. Skill 1 yang dimilikinya membuatnya melompati suatu area sehingga memberinya perisai dan melemparkan musuh ke udara. Ultimate-nya adalah penyelaman tanpa kontrol yang memperlambat serangan musuh, lalu memasuki status Valkyrie: serangan dasarnya kemudian menimbulkan damage area.\n\nAngka yang diukur bergantung pada peringkat dan durasi: di bawah rata-rata win rate dalam Epic di Mythic Honor, di atas rata-rata di Mythic Glory, dan secara signifikan lebih baik dalam permainan yang berlangsung kurang dari dua belas menit dibandingkan setelah yang keempat belas. Patch 2.2.23 memulihkan HP untuk setiap orb yang dikeluarkan dan meningkatkan cooldown skill ultimatnya. Ban ratenya meningkat hampir dua kali lipat selama tiga puluh hari terakhir. Tindakan tersebut membuatnya kesulitan melawan Minsitthar, Phoveus, Baxia, Edith, dan Franco.",
+    "skills": [
+      "Setiap serangan dasar memberinya Holy Orb, hingga enam. Menghabiskan sebuah bola membuat serangan dasar berikutnya menjadi lebih cepat dan menyembuhkannya; di luar pertempuran, bola-bola itu secara bertahap disusun kembali.",
+      "Melompati suatu area dan menyentuh tanah dengan perisainya: dia memperoleh perisai, memberikan damage pada musuh, dan melemparkan mereka sebentar ke udara. Inisiasi dan kontrol utamanya.",
+      "Terburu-buru diikuti oleh dentuman yang melambat sebentar. Tidak ada cooldown basis, tetapi dua bola per lemparan, dan pengurangan damage terhadap monster.",
+      "Menyelam ke suatu area sambil kebal terhadap kontrol, memberikan damage dan memperlambat serangan musuh, lalu memasuki kondisi Valkyrie: meningkatkan kecepatan dan serangan dasar damage area selama beberapa detik."
+    ],
+    "strengths": [
+      "Skill 2 tanpa cooldown basis",
+      "Perisai dan lemparkan pada skill 1",
+      "Serangan damage AoE dasar di bawah ultimat",
+      "Win rate tinggi diukur dalam permainan pendek"
+    ],
+    "weaknesses": [
+      "Win rate diukur di bawah rata-rata dari Epic hingga Mythic Honor",
+      "Penurunan performa pada game panjang",
+      "Kesulitan melawan Minsitthar, Phoveus dan Baxia menurut pengukuran"
+    ],
+    "builds": [
+      {
+        "name": "EXP Lane",
+        "context": "Build yang paling sering dimainkan di EXP Lane: Golden Staff memberikan kecepatan serangan dan serangan serta mempercepat satu serangan dasar menjadi tiga, War Axe menggabungkan serangan dalam pertempuran dengan lifesteal, Rose Gold Meteor menambahkan lifesteal dan perisai ketika HP-nya turun sedikit. Endless Battle sebagai pengganti Rose Gold Meteor hampir juga dimainkan."
+      },
+      {
+        "name": "Hutan",
+        "context": "Di hutan, Corrosion Scythe didahulukan untuk kecepatan serangan dan memperlambat serangan dasar, dengan Endless Battle, yang memperkuat serangan mengikuti setiap skill: versi yang paling sering dimainkan di posisi ini, dengan emblem marksman."
+      }
+    ]
+  },
+  "aulus": {
+    "summary": "Fighter sederhana untuk dipelajari: setiap skill yang mengenainya memperkuat serangan dasarnya, dan serangan pamungkasnya berulang kali di sekelilingnya.",
+    "analysis": "Aulus bertarung dalam gelombang serangan kapak. Setiap skill yang menghasilkan damage memberinya beberapa detik peningkatan serangan dasar: serangan itu mengenai garis, menyembuhkannya, memperlambatnya sedikit, dan sedikit memperluas jangkauannya. Skill 1 miliknya menghilangkan slow dan mempercepatnya; jika tidak dikontrol dalam dua detik, ia menjadi tidak responsif terhadap kontrol. Skill 2 miliknya menyerang dalam bentuk kipas dan memberikan stun sebentar, lalu melompat kembali. Serangan pamungkasnya empat kali di sekelilingnya, lalu serangan terakhir yang besar, mengurangi damage yang diterimanya.\n\nAngka terukurnya berada di atas rata-rata, terutama dalam permainan pendek: win ratenya tertinggi sebelum menit kedua belas dan turun kembali ke rata-rata setelah menit kedua puluh. Ban ratenya, yang meningkat seiring dengan peringkatnya, telah menurun tajam selama tiga puluh hari terakhir. Patch 2.2.16a melemahkan serangan yang diberdayakannya dan memperpanjang cooldown skill 1-nya, sekaligus meningkatkan damage dasar dari skill ultimatnya. Pengukuran tersebut menempatkannya dalam kesulitan melawan Alice, Floryn, Estes, Yve dan Zhuxin.",
+    "skills": [
+      "Setiap skill yang menghasilkan damage memberinya beberapa detik peningkatan serangan dasar: ayunan kapak garis yang menyembuhkannya, memperlambatnya sedikit, dan memberinya sedikit jangkauan serangan dan kecepatan. Bahkan lebih kuat melawan monster.",
+      "Menghapus perlambatannya dan mempercepatnya selama beberapa detik. Jika dia tidak menjalani kontrol besar dalam dua detik, dia menjadi marah dan menjadi tidak peka terhadap kontrol: cukup untuk melewati garis musuh.",
+      "Ayunan kapak berbentuk kipas yang membuat musuh terkena stun sebentar. Dibangkitkan kembali, dia melompat ke depan dan menghantam tanah di sekelilingnya.",
+      "Pukul musuh di sekitarnya sebanyak empat kali, lalu lepaskan pukulan yang lebih besar setelah serangan singkat. Selama durasi tersebut, dia menerima lebih sedikit damage dan memperoleh sedikit kecepatan pada setiap pukulan."
+    ],
+    "strengths": [
+      "Win rate diukur di atas rata-rata, terutama di awal permainan",
+      "Kebal terhadap pengecekan berkat skill 1, jika tidak dikontrol tepat waktu",
+      "Serangan yang diberdayakan yang menyembuhkannya",
+      "Perlengkapan sederhana, tanpa sumber daya untuk dikelola"
+    ],
+    "weaknesses": [
+      "Performa terukur yang turun menuju rata-rata dalam game panjang",
+      "Cek yang diderita dalam dua detik pertama menghilangkan ketidakpekaan dirinya",
+      "Dalam kesulitan melawan Alice, Floryn dan Estes sesuai dengan ukuran"
+    ],
+    "builds": [
+      {
+        "name": "Hutan",
+        "context": "Build yang paling sering dimainkan di hutan: War Axe menghadirkan serangan kumulatif, HP dan lifesteal, Brute Force Breastplate HP, armor dan pengurangan cooldown, Malefic Roar penetrasi fisik. Trio yang sama dengan emblem Assassin dimainkan setengahnya, dengan win rate terukur yang lebih tinggi."
+      },
+      {
+        "name": "EXP Lane",
+        "context": "Item yang sama di EXP Lane, dengan emblem assassin dan spell Vengeance: versi yang paling sering dimainkan di posisi ini."
+      }
+    ]
+  },
+  "alucard": {
+    "summary": "Fighter hutan yang menerkam targetnya setelah setiap skill, dan yang ultimatnya memberinya gaya hidup permanen dan membagi cooldownnya.",
+    "analysis": "Alucard mengganti skill dan serangan dasar: setelah setiap skill, serangan berikutnya membuatnya melompat ke sasaran. Skill 1 miliknya membuatnya melompati suatu area, memperlambat musuh, skill 2 miliknya mengenai semua yang ada disekitarnya. Ultimate-nya secara permanen memberinya gaya hidup hybrid; diluncurkan, ia memperlambat musuh di area tersebut dan mengurangi resistensi mereka, memperkuat resistensinya sendiri untuk setiap serangan hero, dan mengurangi separuh cooldown skill lainnya selama beberapa detik, sebelum peluncuran ulang yang mengirimkan gelombang kejut ke depan.\n\nDia adalah salah satu hero yang paling jarang dilarang, dengan angka yang sedikit di bawah rata-rata di semua peringkat. Ini lemah dalam permainan pendek dan hanya melebihi rata-rata dari menit keempat belas, tanpa banyak perbedaan setelahnya. Pengukuran tersebut menempatkannya dalam kesulitan melawan Fredrinn, Phoveus, Khufra, Barats dan Thamuz, dan nyaman melawan Natalia, Sun, Mathilda dan Saber.",
+    "skills": [
+      "Setelah setiap skill dikeluarkan, serangan dasar berikutnya menyebabkan dia menerkam target dengan damage tambahan. Itu juga memukul monster lebih keras.",
+      "Melompat ke suatu area, memberikan damage dan memperlambat musuh yang terkena: inisiasinya, diikuti dengan serangan dasar untuk memanfaatkan pasif.",
+      "Tembakan berputar yang memberikan damage ke semua musuh di sekitarnya, dengan cooldown singkat.",
+      "Memberikannya hybrid lifesteal secara permanen. Cast, memperlambat musuh di suatu area dan mengurangi resistensi mereka, meningkatkan resistensi mereka untuk setiap serangan hero dan mengurangi separuh cooldown skill mereka yang lain selama beberapa detik; dihidupkan kembali, mengirimkan gelombang kejut ke depan."
+    ],
+    "strengths": [
+      "Lifesteal hybrid permanen berkat ultinya",
+      "Cooldown dikurangi setengahnya saat menggunakan ultimate",
+      "Win rate diukur di atas rata-rata dalam permainan panjang",
+      "Melompat ke targetnya setelah setiap skill"
+    ],
+    "weaknesses": [
+      "Lemah dalam permainan pendek menurut pengukuran",
+      "Tidak ada kendali selain perlambatan",
+      "Kesulitan melawan Fredrinn, Phoveus dan Khufra menurut pengukuran"
+    ],
+    "builds": [
+      {
+        "name": "Hutan",
+        "context": "Build yang paling sering dimainkan di hutan: War Axe mengumpulkan serangan dalam pertempuran, Endless Battle memperkuat serangan dasar yang mengikuti setiap skill, yang sesuai dengan ritme pasifnya, dan Blade of Despair memberikan serangan fisik terbesar, diperkuat terhadap target dengan HP yang kurang dari setengahnya."
+      }
+    ]
+  },
+  "aldous": {
+    "summary": "Fighter yang mengumpulkan muatan permanen dengan menghabisi unit, dan yang ultimanya mengungkap semua hero musuh sebelum meluncurkannya ke salah satu dari mereka.",
+    "analysis": "Aldous dibangun seiring berjalannya waktu. Skill 1 miliknya memperkuat serangan dasar berikutnya, dan setiap unit atau hero yang terkena serangan ini memberinya muatan permanen yang meningkatkan damagenya, hingga seribu; dia juga memperoleh beberapa keuntungan ketika sekutunya menghabisi unit di dekatnya. Skill 2 miliknya akan menempatkannya dalam posisi bertahan, dengan pengurangan damage yang diterima, kemudian memberikan damage disekitarnya dan memberikan efek stun kepada mereka, semakin lama postur tersebut bertahan. Ultimatenya memberinya penglihatan ke semua hero musuh selama beberapa detik, lalu membuatnya bergegas menuju salah satu dari mereka untuk mendorongnya kembali, mengganggu kemungkinan kembali ke markas.\n\nTidak ada hero yang memiliki jarak yang mencolok tergantung pada lamanya permainan: sangat rendah dalam permainan yang berlangsung kurang dari dua belas menit, win rate terukurnya mendekati enam puluh persen dari yang kedelapan belas. Semua peringkat digabungkan, berada di atas rata-rata dan naik selama tiga puluh hari, hampir tidak ada larangan. Patch 2.2.23 memperpendek cooldown skill 2 miliknya dan meningkatkan pengurangan damage di late game. Tindakan tersebut menempatkannya dalam kesulitan melawan Esmeralda, Karina, Cyclops, Estes dan Popol dan Kupa.",
+    "skills": [
+      "Setiap beberapa detik, serangan dasar berikutnya memberinya perisai dan dorongan singkat.",
+      "Memperkuat serangan dasar berikutnya, yang akan memukul minion dan monster lebih keras. Menghabisi sebuah unit atau memukul hero dengan unit tersebut akan memberikan muatan permanen yang meningkatkan damagenya: inti dari peningkatan kekuatannya.",
+      "Jurus bertahan yang mengurangi damage yang diterima hingga dua detik, lalu memberikan damage ke musuh di sekitar dan membuat mereka stun, semakin lama jurus tersebut ditahan.",
+      "Memberikan vision kepada semua hero musuh selama beberapa detik. Diluncurkan kembali, dia bergegas menuju salah satu dari mereka, melukainya sesuai dengan HP-nya dan mendorongnya kembali; kesibukan mengganggu kembalinya ke markas."
+    ],
+    "strengths": [
+      "Biaya permanen yang meningkatkan damagenya sepanjang permainan",
+      "Win rate diukur mendekati enam puluh persen dalam permainan panjang",
+      "Ultimate yang mengungkap semua hero musuh dan menghentikan kembalinya ke markas",
+      "Jarang dilarang"
+    ],
+    "weaknesses": [
+      "Sangat lemah dalam permainan pendek menurut pengukuran",
+      "Tergantung pada akumulasi biaya sebelum pertarungan",
+      "Kesulitan melawan Esmeralda, Karina dan Cyclops menurut pengukuran"
+    ],
+    "builds": [
+      {
+        "name": "EXP Lane",
+        "context": "Build yang paling banyak dimainkan di EXP Lane, sejauh ini: Blade of the Heptaseas memperkuat serangan pertama setelah beberapa detik keluar dari pertempuran, Endless Battle serangan yang mengikuti setiap skill, dan Malefic Roar menambah penetrasi fisik. Hal ini terkait dengan emblem assassin, talenta Wilderness Blessing dan Quantum Charge, dan spell Flicker."
+      },
+      {
+        "name": "Versi defensif",
+        "context": "Versi defensif, lebih jarang dimainkan, dengan win rate terukur lebih tinggi: Thunder Belt dan Dominance Ice memberikan HP dan resistensi, dan Dominance Ice juga mengurangi penyembuhan dan perisai musuh di sekitar."
+      }
+    ]
+  },
+  "badang": {
+    "summary": "Fighter rintangan: dia membuat tembok di belakang targetnya dan melemparkannya ke sana untuk membuatnya pingsan, dan dapat dimainkan baik saat roaming maupun di EXP Lane.",
+    "analysis": "Badang bermain dengan rintangan. Setelah empat serangan dasar, serangan berikutnya akan mendorong ke belakang, dan nafas dari skillnya akan langsung mendorong kembali: musuh yang terlempar ke rintangan akan terkena stun. Skill 2 miliknya membuatnya melakukan rush sembari mendapatkan shield; jika mengenai seorang hero, ia berhenti dan menciptakan penghalang tepat di belakang mereka. Skill 1-nya, dalam dua serangan, mengeluarkan nafas yang menyakitkan, memperlambat dan mendorong ke belakang, cukup untuk menjepit target ke dinding ini. Rantai pamungkasnya memberikan serangkaian pukulan ke satu arah sehingga tahan terhadap kontrol.\n\nJumlahnya yang diukur adalah rata-rata di semua peringkat, dengan sedikit keunggulan dalam permainan pendek, dan dia cukup sering dipilih. Dimainkan di roam dan juga di EXP Lane, yang terutama membutuhkan objek pertahanan: HP, armor, dan resistensi daripada damage. Pengukuran tersebut menempatkannya dalam kesulitan melawan Karina, Lolita, Esmeralda, Khufra dan Phoveus, dan nyaman melawan Fanny, Sun dan Zilong.",
+    "skills": [
+      "Setelah empat serangan dasar, serangan berikutnya memberikan damage lebih besar dan memukul mundur; musuh yang terlempar ke rintangan akan terkena stun. Nafas dari skillnya memicu efek ini secara langsung, dan efek stun dari ultinya akan lebih lama.",
+      "Ledakan tinju yang memberikan damage, memperlambat, dan memukul mundur musuh, serta meledak pada rintangan. Dua charge, untuk terus menjepit target pada rintangan skill 2.",
+      "Terburu-buru ke satu arah untuk mendapatkan perisai. Jika dia mengenai seorang hero, dia berhenti, mendorongnya ke belakang sedikit dan menciptakan penghalang di belakangnya selama beberapa detik; dimulai ulang, itu menghilangkan hambatan.",
+      "Serangkaian pukulan dalam satu arah, tahan terhadap kontrol selama durasi tersebut. Nafasnya meledak melawan rintangan: dilemparkan ke arah musuh yang menempel di dinding, ia menghantam mereka berulang kali."
+    ],
+    "strengths": [
+      "Stun berulang kali terhadap rintangannya sendiri",
+      "Perisai pada Skill 2",
+      "Tidak terpengaruh oleh kontrol selama ultimat",
+      "Dapat dimainkan saat roam maupun di EXP Lane"
+    ],
+    "weaknesses": [
+      "Win rate diukur secara rata-rata, tanpa titik kuat yang ditandai",
+      "Kontrol yang memerlukan rintangan yang ditempatkan dengan baik",
+      "Dalam kesulitan melawan Karina, Lolita dan Esmeralda sesuai dengan ukuran"
+    ],
+    "builds": [
+      {
+        "name": "Roam",
+        "context": "Build yang paling sering dimainkan saat roam: Thunder Belt untuk HP, resistensi dan perlambatan serangannya, Dominance Ice untuk resistensi dan pengurangan penyembuhan musuh di sekitar, Chastise Pauldron untuk mengurangi kecepatan serangan orang yang menabraknya. Antique Cuirass sebagai pengganti Chastise Pauldron hampir juga dimainkan."
+      },
+      {
+        "name": "EXP Lane",
+        "context": "Objek yang sama di EXP Lane: ini juga merupakan versi yang paling banyak dimainkan di posisi ini."
+      }
+    ]
+  },
+  "alpha": {
+    "summary": "Fighter dengan tingkat kesulitan resmi terendah, yang bertarung dengan drone: setiap skill melibatkan Beta, yang tembakannya menimbulkan damage nyata.",
+    "analysis": "Alpha bertarung berpasangan dengan Beta. Setiap skill yang diluncurkan melibatkan drone, yang menimbulkan damage nyata; Musuh yang terkena dua kali oleh Beta akan terkunci, dan setiap serangan dari Alpha padanya kemudian memicu laser yang sangat memperlambatnya. Skill 1 miliknya mengirimkan gelombang yang melambat, skill 2 miliknya menyerang kipas setelah beberapa saat dan menyembuhkannya pada serangan musuh pertama. Ultimatenya mengirimkan Beta untuk memberikan efek stun pada suatu area, lalu Alpha melompat ke sana, melemparkan musuh yang dilewatinya ke udara untuk membawa mereka ke titik tumbukan.\n\nJumlah yang diukurnya sedikit di bawah rata-rata, tanpa perbedaan mencolok tergantung pada lamanya permainan. Ini sebagian besar dimainkan di peringkat rendah: pick ratenya turun dengan setiap peringkat dari Epic ke Mythic Glory, dan sangat jarang dilarang. Patch 2.2.16 memperkuat penyembuhan skill 2 miliknya. Tindakan tersebut membuatnya kesulitan melawan Benedetta, X.Borg, Valir, Lylia, dan Wan Wan.",
+    "skills": [
+      "Setiap skill menyebabkan Beta menyerang. Musuh yang terkena drone dua kali akan terkunci: setiap kali Alpha memberikan damage, Beta akan menembakkan laser yang menghasilkan true damage dan memperlambatnya secara signifikan dalam sekejap.",
+      "Gelombang energi yang memberikan damage dan memperlambat musuh di lanenya, diikuti dengan ledakan Beta di lane yang sama.",
+      "Setelah beberapa saat, terdengar suara kipas; serangan musuh pertama menyembuhkannya, serangan berikutnya semakin berkurang. Beta kemudian memberondong area tersebut.",
+      "Beta menyelam ke dalam area yang dipilih dan melumpuhkan musuh yang terkena; Alpha melompat mengejarnya, melemparkan orang-orang yang dia lewati ke udara, membawa mereka ke titik tumbukan dan memperlambat mereka saat dia jatuh."
+    ],
+    "strengths": [
+      "Damage mentah beta per skill",
+      "Ultimate yang memberikan efek stun dan mengelompokkan musuh",
+      "Sembuhkan pada skill 2",
+      "Kesulitan resmi di level terendah"
+    ],
+    "weaknesses": [
+      "Win rate diukur sedikit di bawah rata-rata",
+      "Sedikit yang bermain di peringkat tinggi",
+      "Dalam kesulitan melawan Benedetta, X.Borg dan Valir menurut pengukuran"
+    ],
+    "builds": [
+      {
+        "name": "Hutan",
+        "context": "Build yang paling banyak dimainkan di hutan: War Axe mengakumulasi serangan dalam pertarungan dengan HP dan life steal, Sky Piercer memberikan serangan, kecepatan, dan eksekusi pada hero yang terjatuh sangat rendah, Queen's Wings bertahan hidup saat HPnya turun."
+      },
+      {
+        "name": "EXP Lane",
+        "context": "Tiga objek yang sama di EXP Lane, dengan spell Vengeance: ini adalah versi yang paling sering dimainkan di posisi ini."
       }
     ]
   },
@@ -544,6 +895,33 @@
       }
     ]
   },
+  "valir": {
+    "summary": "Kontrol mage yang berulang kali memukul mundur dan membuat stun, dan yang bola apinya terisi ulang setiap kali hero menyerang.",
+    "analysis": "Valir menyatukan kontrol lebih dari dia meledakkan targetnya. Setiap skill yang mengenainya menimbulkan luka bakar pada target; pada tiga luka bakar, apinya meledak dan membuatnya pingsan, paling banyak setiap tujuh detik pada target yang sama. Skill 1 miliknya bertahan selama dua charge dan memulihkan satu charge segera setelah mengenai hero, yang memungkinkan dia untuk menyusunnya kembali hampir tanpa jeda selama dia membidik dengan benar; skill 2 nya mengusir musuh sampai habis pancaran apinya. Ultimatenya membebaskannya dari efek negatif, mempercepatnya, dan memperkuat kedua skillnya selama beberapa detik: peningkatan jangkauan bola api, dinding api yang memperlambat skill 2.\n\nAngka yang diukurnya konsisten: win rate di atas rata-rata di setiap peringkat, larangan rendah. Ini paling efektif dalam permainan pendek, dan keuntungannya berkurang seiring dengan semakin panjangnya permainan. Di Mid Lane, build yang sama jelas mendominasi yang lain. Pengukuran tersebut menempatkannya dalam kesulitan melawan Rafaela, Helcurt, Kaja, Mathilda dan Natalia, dan nyaman melawan Fredrinn, Alice, Balmond dan Leomord.",
+    "skills": [
+      "Setiap skill yang mengenainya akan menimbulkan luka bakar yang memberikan damage berdasarkan HP target. Pada tiga kali luka bakar, apinya meledak dan membuat stun, paling banyak setiap tujuh detik sekali pada target yang sama.",
+      "Bola api yang meledak pada target pertama dan memperlambatnya, lalu api di tanah meledak secara bergantian. Dua tuduhan; menyentuh hero atau monster legendaris akan langsung membuatnya, menyentuh minion akan mempercepat yang berikutnya.",
+      "Semburan api yang mengusir musuh hingga akhir perjalanannya: alat untuk mengusir penyerang. Di bawah ultinya akan meninggalkan dinding api yang sakit dan melambat.",
+      "Menghapus semua efek negatifnya, mempercepatnya sebentar, dan memperkuat kedua skillnya selama beberapa detik. Untuk tetap membebaskan diri dari pengaruh negatif sekaligus menyerang."
+    ],
+    "strengths": [
+      "Pemeriksaan berulang: knockback, slow, dan stun",
+      "Bola api ditembakkan hampir tanpa jeda saat mengenainya",
+      "Ultimate yang membebaskannya dari efek negatifnya",
+      "Win rate diukur di atas rata-rata di setiap peringkat"
+    ],
+    "weaknesses": [
+      "Keunggulan terukur yang berkurang dalam permainan panjang",
+      "Pingsan terbatas pada target yang sama",
+      "Kesulitan melawan Rafaela, Helcurt dan Kaja menurut ukuran"
+    ],
+    "builds": [
+      {
+        "name": "Mid Lane",
+        "context": "Build yang paling sering dimainkan di Mid Lane, sejauh ini: Glowing Wand membakar target dan mengurangi penyembuhan dan perisainya, Ice Queen Wand menambahkan efek slow ke setiap skill yang mengenai dan lifesteal dari spell, dan Wishing Lantern menghukum target dengan HP yang banyak. Hal ini terkait dengan emblem umum dan bakat Festival of Blood dan Impure Rage."
+      }
+    ]
+  },
   "granger": {
     "summary": "Magazine Shooter: Damagenya berasal dari skillnya, bukan kecepatan serangannya.",
     "analysis": "Granger tidak dibuat seperti marksman klasik. Keahlian 1-nya menembakkan enam peluru, yang terakhir selalu kritis, dan pasifnya mengubah pengurangan cooldown menjadi serangan fisik, yang membuat kecepatan serangan hampir tidak berguna baginya: Anda membeli damage serangan dan penetrasi.\n\nHal ini memberikannya puncak kekuasaan yang sangat awal, dapat dieksploitasi di hutan sejak objek pertama. Kerapuhannya tetap seperti seorang marksman, diperburuk oleh kurangnya kontrol, terlepas dari perlambatan singkat dari ultimatnya: posisinya buruk, dia hanya memiliki skill 2 dan lemparan ultimatnya untuk berharap bisa melarikan diri.",
@@ -714,6 +1092,91 @@
       }
     ]
   },
+  "obsidia": {
+    "summary": "Marksman yang mengumpulkan pecahan tulang pada setiap tembakan, dan yang ultimanya menempelkannya pada targetnya, mencegah pelarian melalui skill gerakan.",
+    "analysis": "Obsidia mengisi pasifnya dengan memukul: setiap serangan atau skill pada musuh mengisi energi yang membentuk pecahan tulang, hingga dua puluh lima, dan setiap serangan dasarnya mengirimkan semua pecahan mengenai target. Skill 1 miliknya, sebuah jarum yang dilempar dari jarak jauh, menghasilkan energi tiga kali lebih banyak daripada serangan dan memicu pecahan pada serangan hero pertama; skill 2-nya memberinya dorongan singkat. Ultimatenya akan memberikan efek stun kepada hero pertama yang terkena serangan, menariknya ke arahnya dan menghubungkan mereka selama tiga detik: target tidak dapat lagi menggunakan skill gerakan, Obsidia mendapatkan perisai dan pecahan sementara, dan dapat menyerang sambil bergerak.\n\nDia adalah salah satu hero wanita yang paling diperebutkan saat ini: ban rate ketiga dan pick rate keempat dari semua hero, dengan larangan yang melebihi setengah permainan dari Mythic Honor dan terus meningkat selama tiga puluh hari terakhir. Win rate terukurnya berada di atas rata-rata, lebih tinggi dalam permainan di bawah enam belas menit dibandingkan di atas delapan belas menit. Pengukuran tersebut menempatkannya dalam kesulitan melawan Baxia, Diggie, Estes, Miya dan Bruno.",
+    "skills": [
+      "Memukul musuh memberi mereka energi, lebih banyak pada hero dan tiga kali lebih banyak dengan skill; monster tidak memberikan apa pun. Energinya membentuk pecahan tulang, dan setiap serangan dasar mengirimkan semua pecahan tersebut mengenai target.",
+      "Sebuah jarum yang dilempar dari jarak jauh yang memberikan damage pada musuh yang terkena dan memicu pecahan pada hero pertama yang dijangkau: untuk sering dilempar ke lane untuk mengisi pasif.",
+      "Menyelam ke dalam bayangan dan memperoleh kecepatan gerakan yang sangat tinggi dalam sekejap: alat pemosisian ulang miliknya. Diperkuat saat ultimat, bertahan lebih lama dan kembali lebih cepat.",
+      "Memberikan efek stun singkat pada hero pertama yang terkena serangan dan menarik dirinya ke arah mereka untuk menempel pada mereka. Selama tiga detik, target tidak bisa lagi menggunakan skill gerakan dan melatihnya dengan bergerak; Obsidia memperoleh perisai dan pecahan sementara, melewati rintangan dan serangan sambil bergerak."
+    ],
+    "strengths": [
+      "Ultimate yang mencegah target melarikan diri dengan skill pergerakan",
+      "Pecahan yang memperkuat setiap serangan dasar",
+      "Win rate diukur di atas rata-rata, terutama sebelum menit keenam belas",
+      "Melindungi dan memindahkan serangan saat pamungkas"
+    ],
+    "weaknesses": [
+      "Dilarang di lebih dari separuh game yang dimulai dengan Mythic Honor",
+      "Performa diukur menurun dalam permainan panjang",
+      "Dalam kesulitan melawan Baxia, Diggie dan Estes sesuai ukuran"
+    ],
+    "builds": [
+      {
+        "name": "Ulasan Gold Lane",
+        "context": "Build yang paling banyak dimainkan di lane Gold: Windtalker dan Haas' Claws memberikan kecepatan serangan dan peluang kritis untuk melipatgandakan serangan dasar yang mengirimkan pecahan, Haas' Claws lifesteal, dan Sky Piercer mengeksekusi hero yang terjatuh sangat rendah. Hal ini terkait dengan emblem fighter dan bakat Weakness Finder."
+      },
+      {
+        "name": "Serangan berat",
+        "context": "Corrosion Scythe dan Demon Hunter Sword sebagai pengganti Windtalker dan Haas' Claws: Serangan dasar yang memperlambat, menimbulkan damage berdasarkan HP target saat ini, dan menyembuhkannya. Lebih sedikit dimainkan, dengan win rate terukur yang sedikit lebih tinggi."
+      }
+    ]
+  },
+  "bruno": {
+    "summary": "Marksman kritis yang bermain dengan bola: skillnya memberinya peluang kritis, dan ultimatnya memantul dari musuh ke musuh.",
+    "analysis": "Bruno memperoleh peluang kritis setiap kali suatu skill menimbulkan damage, ditumpuk; sebagai imbalannya, dia memiliki lebih banyak serangan fisik tetapi mendapat manfaat lebih sedikit dari kecepatan serangan. Skill 1 miliknya memperkuat serangan berikutnya dengan tembakan balon yang melambat, lalu bola jatuh ke tanah: memulihkannya memberikan serangan baru dan mengurangi cooldown skill 2 miliknya. Ini adalah slide yang membuat musuh di lanenya terkena stun sebentar dan mengembalikan balon kepadanya. Ultimatenya mengenai seorang hero, menjatuhkan mereka kembali ke akhir jangkauannya, memberikan efek stun dan memperlambat mereka secara signifikan, kemudian memantul ke musuh lain, menargetkan hero terlebih dahulu.\n\nAngka terukurnya solid dan konsisten: win rate di atas rata-rata di setiap peringkat dan berapa pun durasi permainannya, lebih baik di Mythic Glory, karena hampir tidak ada larangan. Rekan terukur terbaiknya adalah Harith. Pengukuran tersebut menempatkannya dalam kesulitan melawan Lolita, tentu saja, kemudian melawan Lesley, Aamon, Karina dan Saber.",
+    "skills": [
+      "Setiap skill yang memberikan damage akan memberinya sedikit critical opportunity yang bisa di stack. Dia memiliki serangan fisik yang lebih besar dari biasanya, namun hanya mendapat keuntungan dari sebagian bonus kecepatan serangan.",
+      "Serangan dasar berikutnya menembakkan bola yang memberikan damage dan memperlambat target, lalu jatuh ke tanah. Mengangkatnya atau sekutu memungkinkan serangan baru dan mengurangi cooldown slide.",
+      "Perosotan yang membuat musuh di lanenya terkena stun sebentar dan memberinya balon saat tiba: alat untuk melarikan diri dan menyelesaikannya.",
+      "Memukul hero musuh, menjatuhkannya kembali ke akhir jangkauannya, memingsankan dan memperlambatnya dengan hebat, lalu memantul di antara musuh beberapa kali, membidik hero terlebih dahulu."
+    ],
+    "strengths": [
+      "Win rate diukur di atas rata-rata di setiap peringkat",
+      "Perosotan yang membuat stun dan berfungsi sebagai pelarian",
+      "Ultimate yang mendorong ke belakang, membuat stun lalu memantul",
+      "Jarang dilarang"
+    ],
+    "weaknesses": [
+      "Hanya mendapat keuntungan dari sebagian bonus kecepatan serangan",
+      "Tergantung pada balon untuk dikumpulkan ke rantai",
+      "Berjuang melawan Lolita, Lesley dan Aamon sesuai ukuran"
+    ],
+    "builds": [
+      {
+        "name": "Ulasan Gold Lane",
+        "context": "Build yang paling sering dimainkan di lane Gold: Haas' Claws dan Berserker's Fury fokus pada kritikal, yang mana bahan bakar pasifnya, Haas' Claws menambahkan lifesteal dan Malefic Gun penetrasi dan jangkauan fisik. Tiga versi yang paling banyak dimainkan berbagi item ini; yang memiliki emblem fighter dengan Flicker menampilkan win rate terukur terbaik."
+      }
+    ]
+  },
+  "layla": {
+    "summary": "Marksman jarak jauh yang damagenya meningkat seiring dengan jarak, banyak dimainkan di barisan depan dan semakin berkurang seiring naiknya Anda.",
+    "analysis": "Layla menembak dari jauh dan tertarik untuk tetap berada di sana: pasifnya meningkatkan damagenya seiring jarak, hingga maksimum pada jarak jauh. Skill 1 miliknya meluncurkan bom yang jika mengenainya akan memperluas jangkauan serangan dasar dan skill 2 miliknya selama beberapa detik dan mempercepatnya. Skill 2 miliknya menandai target; lalu mengenai target yang ditandai akan menimbulkan damage di sekitarnya dan menyebabkan efek stun dalam waktu singkat. Ultimatenya secara permanen memperluas jangkauan serangan dan skill 2-nya, dan diluncurkan dengan tembakan kuat dalam garis lurus.\n\nPick rate terukurnya tinggi di peringkat Epic dan Legend dan turun di setiap peringkat hingga Mythic Glory, di mana win ratenya juga paling rendah. Ini sangat lemah dalam permainan yang berdurasi kurang dari dua belas menit, kemudian di atas rata-rata antara menit keempat belas dan kedua puluh. Dia tidak melompat atau berteleportasi. Pengukuran tersebut membuatnya kesulitan melawan Atlas, Johnson, Sun, Khufra dan Hylos.",
+    "skills": [
+      "Damagenya meningkat seiring jarak dari target, mencapai maksimum pada jarak jauh. Efeknya tidak berlaku pada turret.",
+      "Sebuah bom yang memberikan damage pada musuh pertama yang terkena dan dapat menyerang secara kritis. Jika dia mengenai, serangan dasar dan skill 2-nya akan berlanjut selama beberapa detik, dan dia memperoleh peningkatan yang bertahan dua kali lebih lama pada seorang hero.",
+      "Sebuah bola yang memberikan damage pada target dan tetangganya serta menandai mereka selama beberapa detik. Kemudian mengenai target yang ditandai akan menimbulkan damage di sekitarnya dan menyebabkan efek stun dalam waktu yang sangat singkat.",
+      "Memperluas jangkauan serangan dasar dan skill 2 miliknya secara permanen, serta sedikit penglihatannya. Diluncurkan, tembakan kuat dalam garis lurus yang memberikan damage pada semua musuh yang dilintasi."
+    ],
+    "strengths": [
+      "Jarak jauh, diperluas lebih lanjut dengan skill 1 dan ulti",
+      "Peningkatan damage jarak jauh",
+      "Win rate diukur di atas rata-rata antara menit keempat belas dan kedua puluh"
+    ],
+    "weaknesses": [
+      "Jangan melompat atau berteleportasi untuk melarikan diri",
+      "Sangat lemah dalam permainan pendek menurut pengukuran",
+      "Win rate terukur terendah di Mythic Glory",
+      "Dalam kesulitan melawan Atlas, Johnson dan Sun sesuai ukuran"
+    ],
+    "builds": [
+      {
+        "name": "Ulasan Gold Lane",
+        "context": "Build yang paling banyak dimainkan di lane Gold, sejauh ini: Windtalker memberikan kecepatan serangan, kecepatan kritis dan gerakan, Berserker's Fury damage kritis, Haas' Claws lifesteal dan kecepatan serangan pada kritis. Hal ini terkait dengan Emblem Assassin, Talent Quantum Charge, dan Spell Flicker."
+      }
+    ]
+  },
   "estes": {
     "summary": "Penyembuhan paling kasar dalam game: ultimatnya meregenerasi seluruh tim selama beberapa detik.",
     "analysis": "Estes tidak melakukan apa pun selain menyembuhkan, tetapi dia melakukannya dengan volume yang tidak dapat dicapai oleh dukungan lain. Dalam pertarungan berkepanjangan untuk mencapai suatu tujuan, skill ultimatnya dapat meniadakan damage berkelanjutan senilai seluruh komposisi.\n\nIni juga menjadikannya hero yang paling bergantung pada konteks di seluruh permainan. Melawan tim yang membeli pengurangan penyembuhan, atau memiliki inisiasi yang mampu mengeluarkannya terlebih dahulu, dia menjadi hampir tidak berguna. Itu hanya memberikan perlambatan area, sedikit damage dan tidak ada mobilitas: jika tidak menyembuhkan, itu tidak ada.",
@@ -870,6 +1333,37 @@
       {
         "name": "Berkeliaran dalam kontak",
         "context": "Build yang paling banyak dimainkan, sejauh ini: Cursed Helmet membakar musuh di sekitarnya dan dengan demikian mempertahankan pertahanan dari pasifnya, Dominance Ice mengurangi penyembuhan mereka, Antique Cuirass melemahkan damage fisik mereka yang menyentuhnya dengan skill."
+      }
+    ]
+  },
+  "marcel": {
+    "summary": "Kendalikan support yang skill ultimanya membekukan segalanya di area luas, kecuali dia dan sekutu yang dia lindungi.",
+    "analysis": "Marcel bermain dengan Clemar, jiwa fotografernya. Pasifnya secara otomatis memotret hero musuh di dekatnya, membekukannya sejenak, menimbulkan damage nyata pada mereka dan memberikan perisai dengan nilai yang sama kepada Marcel dan sekutu di dekatnya; serangan dasarnya meningkat seiring dengan resistensinya, dan tambahan HP-nya menjadi resistensi hybrid. Skill 2 miliknya akan mempercepat dirinya, terlebih ketika dia berlari ke arah hero musuh, kemudian membuatnya melompat meninggalkan area dari skill 1 miliknya, yang akan sangat memperlambat hero tersebut dan kemudian mengenai mereka setelah beberapa saat. Ultimatenya membekukan semua unit di area yang luas selama dua detik, termasuk proyektil, dan hanya menyisakan Marcel dan sekutu yang membawa perisainya bebas.\n\nMetriknya termasuk yang terkuat dalam game: win rate kedua dari semua hero, dan larangan yang meningkat seiring peringkat, jarang terjadi di Epic, di lebih dari dua dari tiga game di Mythic Glory. Dia sangat tangguh di awal: win ratenya paling tinggi di game terpendek dan kemudian menurun di setiap periode durasi. Patch 2.2.16 menambah cooldown skill 1 dan 2 serta ultinya. Tindakan tersebut membuatnya kesulitan melawan Floryn, Angela, Lesley, Esmeralda, dan Cyclops; rekan terukur terbaiknya adalah Kalea.",
+    "skills": [
+      "Clemar secara otomatis memotret hero musuh yang dekat dengan Marcel: target dibekukan sesaat dan menerima damage parah, dan Marcel, seperti sekutu dekat, menerima perisai dengan nilai yang sama, satu kali per target secara berkala. Serangan dasarnya meningkat seiring dengan resistensinya.",
+      "Area di sekitar Marcel yang memberikan efek slow sangat besar pada hero musuh, lalu mengenai mereka setelah jeda singkat. Damagenya meningkat seiring dengan ketahanan fisik dan magisnya.",
+      "Mempercepatnya selama beberapa detik, lebih banyak lagi ke arah hero musuh. Diluncurkan kembali, dia melompat meninggalkan double, sedangkan area skill 1 tetap di tempatnya: cukup untuk masuk, menempatkan area dan keluar.",
+      "Setelah jeda singkat, membekukan selama dua detik semua unit di area yang luas, yang hanya terkena efek Marcel; proyektilnya juga membeku di sana. Menyetel ulang pasifnya untuk setiap hero musuh yang diambil, dan sekutu yang membawa perisainya tetap bebas."
+    ],
+    "strengths": [
+      "Win rate kedua yang diukur dari semua hero",
+      "Ultimate yang membekukan seluruh area, termasuk proyektil",
+      "Perisai otomatis untuk dia dan sekutunya",
+      "Sangat kuat dalam permainan pendek menurut ukuran"
+    ],
+    "weaknesses": [
+      "Dilarang di lebih dari dua dari tiga pertandingan di Mythic Glory",
+      "Hasil diukur menurun seiring dengan memanjangnya permainan",
+      "Berjuang melawan Floryn, Angela dan Lesley sesuai ukuran"
+    ],
+    "builds": [
+      {
+        "name": "Roam",
+        "context": "Build yang paling sering dimainkan saat roam: Thunder Belt dan Dominance Ice memberikan resistensi yang menguntungkan serangan dan skill 1-nya, Dominance Ice juga mengurangi penyembuhan dan perisai musuh di sekitar, dan Flask of the Oasis meningkatkan penyembuhan yang diberikan dan melindungi sekutu dalam bahaya."
+      },
+      {
+        "name": "Berkeliaran Flicker",
+        "context": "Objek yang sama dengan Quantum Charge dan Flicker: hampir sama dimainkan, untuk win rate diukur lebih rendah dari versi Revitalize."
       }
     ]
   },
@@ -1073,6 +1567,37 @@
       {
         "name": "Perawatan diterima",
         "context": "Oracle alih-alih Radiant Armor memperkuat penyembuhan dan perisai yang diterimanya, termasuk miliknya: lebih sedikit dimainkan, dengan win rate diukur lebih tinggi."
+      }
+    ]
+  },
+  "alice": {
+    "summary": "Tank mage yang menetap di antara musuh: selama skillnya mengenai, dia membakar semua yang ada di sekitarnya dan menyembuhkan dirinya sendiri.",
+    "analysis": "Alice memainkan kontak meskipun damage sihirnya. Dua skill yang menyerang secara berurutan akan mengaktifkan pasifnya, sebuah aura yang memberikan damage pada musuh di sekitar secara berkala, menyembuhkan dan mempercepatnya, dan setiap skill yang mengenai hero akan diperpanjang. Keahlian 1 miliknya meluncurkan semburan darah yang bisa dia ikuti dengan berteleportasi; skill 2-nya, dengan cooldown yang singkat, akan terasa sakit dan sangat melambat di sekitarnya, dan lebih terbakar saat auranya aktif. Ultimatenya membuatnya kebal terhadap kontrol dan mengurangi damage yang diterima selama charge, lalu jatuh kembali ke area tersebut dan melumpuhkan musuh.\n\nAngka terukurnya rata-rata, dengan win rate yang sedikit meningkat dalam permainan panjang dan larangan yang lebih sering di Mythic daripada di Mythic Glory. Di hutan, build yang paling banyak dimainkan jelas lebih banyak dimainkan dibandingkan yang lainnya. Pengukuran tersebut menempatkannya dalam kesulitan melawan Angela, Floryn, Karrie, Estes dan Valir, dan nyaman melawan Chip, Gloo, Tigreal, Barats dan Atlas.",
+    "skills": [
+      "Setiap skill yang mengenainya memberinya muatan; dengan dua kali serangan, aura memberikan damage pada musuh di sekitar secara berkala, menyembuhkannya, dan mempercepat pergerakannya. Memukul hero dengan skill akan memperluas auranya.",
+      "Meluncurkan semburan darah ke depan; dihidupkan kembali sebelum menghilang, Alice berteleportasi ke titik kedatangannya. Ini adalah inisiasinya, dan satu-satunya skill yang masih dapat digunakan selama serangan ultimat.",
+      "Sebuah tarian yang memberikan damage kepada musuh disekitarnya dan memperlambat mereka secara signifikan. Aura aktif, ia juga membakar target dan menyembuhkannya: untuk diluncurkan kembali segera setelah tersedia, cooldownnya singkat.",
+      "Selama serangan singkat, Alice kebal terhadap kontrol dan menerima lebih sedikit damage, tetapi bergerak lebih lambat; ia kemudian jatuh kembali ke area tersebut, melukai dan melumpuhkan semua musuh yang ada."
+    ],
+    "strengths": [
+      "Penyembuhan terus menerus selama skillnya berpengaruh",
+      "Tidak terpengaruh oleh pemeriksaan saat ultimat sedang diisi",
+      "Cooldown skill 2 singkat yang memberikan efek slow secara signifikan",
+      "Nyaman melawan Chip, Gloo dan Tigreal menurut ukuran"
+    ],
+    "weaknesses": [
+      "Aura yang keluar jika skillnya gagal",
+      "Win rate diukur lebih rendah dalam permainan pendek",
+      "Berjuang melawan Angela, Floryn dan Karrie sesuai ukuran"
+    ],
+    "builds": [
+      {
+        "name": "Hutan",
+        "context": "Build yang paling banyak dimainkan di hutan, jelas lebih unggul dari yang lain: Brute Force Breastplate dan Oracle memberikan HP, armor, dan pengurangan cooldown, dan Oracle memperkuat penyembuhan yang diterima, termasuk auranya; Concentrated Energy menambahkan kekuatan sihir, HP dan lifesteal hybrid."
+      },
+      {
+        "name": "EXP Lane",
+        "context": "Tiga objek yang sama di EXP Lane, dengan spell Revitalize bukannya Retribution: ini adalah versi yang paling sering dimainkan di posisi ini."
       }
     ]
   }

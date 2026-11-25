@@ -386,4 +386,187 @@ export const marksmen: HeroAnalysis[] = [
       },
     ],
   },
+  {
+    slug: "obsidia",
+    summary:
+      "Tireuse qui accumule des éclats d'os à chaque coup, et dont l'ultime l'attache à sa cible en lui interdisant toute fuite par une compétence de déplacement.",
+    analysis:
+      "Obsidia charge son passif en touchant : chaque attaque ou compétence sur un ennemi remplit une énergie qui forme des éclats d'os, jusqu'à vingt-cinq, et chacune de ses attaques de base envoie tous les éclats frapper la cible. Sa compétence 1, une aiguille lancée à distance, rapporte trois fois plus d'énergie qu'une attaque et déclenche les éclats sur le premier héros touché ; sa compétence 2 lui donne une brève accélération. L'ultime étourdit brièvement le premier héros touché, la tire jusqu'à lui et les relie pendant trois secondes : la cible ne peut plus utiliser de compétence de déplacement, Obsidia gagne un bouclier et des éclats temporaires, et peut attaquer en se déplaçant.\n\n" +
+      "C'est l'une des héroïnes les plus disputées du moment : troisième taux de bannissement et quatrième taux de sélection de tous les héros, avec un bannissement qui dépasse la moitié des parties à partir de l'Honneur mythique et qui a encore monté sur les trente derniers jours. Son taux de victoire mesuré est au-dessus de la moyenne, plus haut dans les parties de moins de seize minutes qu'au-delà de la dix-huitième. Les mesures la placent en difficulté face à Baxia, Diggie, Estes, Miya et Bruno.",
+    skills: [
+      {
+        type: "Passive",
+        name: "Return to Bone",
+        description:
+          "Toucher un ennemi lui donne de l'énergie, davantage sur un héros et trois fois plus avec une compétence ; les monstres n'en donnent pas. L'énergie forme des éclats d'os, et chaque attaque de base envoie tous les éclats frapper la cible.",
+      },
+      {
+        type: "Skill 1",
+        name: "Abyssal Bone Needle",
+        description:
+          "Une aiguille lancée à distance qui blesse les ennemis touchés et déclenche les éclats sur le premier héros atteint : à lancer souvent en lane pour charger le passif.",
+      },
+      {
+        type: "Skill 2",
+        name: "Phantom Shadowmeld",
+        description:
+          "Plonge dans l'ombre et gagne une très forte vitesse de déplacement pendant un instant : son outil de repositionnement. Renforcée pendant l'ultime, elle dure plus longtemps et revient beaucoup plus vite.",
+      },
+      {
+        type: "Ultimate",
+        name: "Hunt of Bone",
+        description:
+          "Étourdit brièvement le premier héros touché et se tire jusqu'à lui pour s'y attacher. Pendant trois secondes, la cible ne peut plus utiliser de compétence de déplacement et l'entraîne en bougeant ; Obsidia gagne un bouclier et des éclats temporaires, traverse les obstacles et attaque en se déplaçant.",
+      },
+    ],
+    strengths: [
+      "Un ultime qui empêche la cible de fuir par une compétence de déplacement",
+      "Des éclats qui renforcent chaque attaque de base",
+      "Taux de victoire mesuré au-dessus de la moyenne, surtout avant la seizième minute",
+      "Bouclier et attaque en mouvement pendant l'ultime",
+    ],
+    weaknesses: [
+      "Bannie dans plus de la moitié des parties à partir de l'Honneur mythique",
+      "Rendement mesuré en baisse dans les parties longues",
+      "En difficulté face à Baxia, Diggie et Estes selon les mesures",
+    ],
+    strongAgainst: ["helcurt", "benedetta", "aldous", "natalia", "yin"],
+    weakAgainst: ["baxia", "diggie", "estes", "miya", "bruno"],
+    builds: [
+      {
+        name: "Gold lane critique",
+        context:
+          "Le build le plus joué en Gold lane : Windtalker et Haas' Claws apportent vitesse d'attaque et chance de critique pour multiplier les attaques de base qui envoient les éclats, Haas' Claws le vol de vie, et Sky Piercer exécute un héros tombé très bas. Il est associé à l'emblème de combattant et au talent Weakness Finder.",
+        items: ["Windtalker", "Haas' Claws", "Sky Piercer"],
+        emblem: "Emblème de combattant",
+        talent: "Weakness Finder",
+        spell: "Flicker",
+      },
+      {
+        name: "Attaques lourdes",
+        context:
+          "Corrosion Scythe et Demon Hunter Sword à la place de Windtalker et Haas' Claws : des attaques de base qui ralentissent, infligent des dégâts selon les PV actuels de la cible et la soignent. Moins joué, avec un taux de victoire mesuré un peu plus élevé.",
+        items: ["Corrosion Scythe", "Sky Piercer", "Demon Hunter Sword"],
+        emblem: "Emblème de combattant",
+        talent: "Weakness Finder",
+        spell: "Flicker",
+      },
+    ],
+  },
+  {
+    slug: "bruno",
+    summary:
+      "Tireur de critique qui joue avec un ballon : ses compétences lui donnent de la chance de critique, et son ultime rebondit d'ennemi en ennemi.",
+    analysis:
+      "Bruno gagne de la chance de critique chaque fois qu'une compétence inflige des dégâts, en se cumulant ; en contrepartie, il a plus d'attaque physique mais profite moins de la vitesse d'attaque. Sa compétence 1 renforce sa prochaine attaque d'un tir de ballon qui ralentit, puis le ballon retombe au sol : le récupérer donne une nouvelle attaque et réduit la recharge de sa compétence 2. Celle-ci est une glissade qui étourdit brièvement les ennemis sur son passage et lui rend un ballon. L'ultime frappe un héros, le repousse au bout de sa portée, l'étourdit et le ralentit fortement, puis rebondit sur d'autres ennemis en visant d'abord les héros.\n\n" +
+      "Ses chiffres mesurés sont solides et réguliers : taux de victoire au-dessus de la moyenne à chaque rang et quelle que soit la durée de partie, meilleur en Gloire mythique, pour un bannissement presque nul. Son meilleur partenaire mesuré est Harith. Les mesures le placent en difficulté face à Lolita, nettement, puis à Lesley, Aamon, Karina et Saber.",
+    skills: [
+      {
+        type: "Passive",
+        name: "Mecha Legs",
+        description:
+          "Chaque compétence qui inflige des dégâts lui donne un peu de chance de critique, cumulable. Il a plus d'attaque physique que la normale, mais ne profite que d'une partie des bonus de vitesse d'attaque.",
+      },
+      {
+        type: "Skill 1",
+        name: "Volley Shot",
+        description:
+          "Sa prochaine attaque de base tire un ballon qui blesse et ralentit la cible, puis retombe au sol. Le ramasser, lui ou un allié, permet une nouvelle attaque et réduit la recharge de la glissade.",
+      },
+      {
+        type: "Skill 2",
+        name: "Slide",
+        description:
+          "Une glissade qui étourdit brièvement les ennemis sur son passage et lui donne un ballon à l'arrivée : son outil de fuite comme d'achèvement.",
+      },
+      {
+        type: "Ultimate",
+        name: "Worldie",
+        description:
+          "Frappe un héros ennemi, le repousse au bout de sa portée, l'étourdit et le ralentit fortement, puis rebondit plusieurs fois entre les ennemis en visant d'abord les héros.",
+      },
+    ],
+    strengths: [
+      "Taux de victoire mesuré au-dessus de la moyenne à chaque rang",
+      "Une glissade qui étourdit et sert de fuite",
+      "Un ultime qui repousse, étourdit puis rebondit",
+      "Rarement banni",
+    ],
+    weaknesses: [
+      "Ne profite que d'une partie des bonus de vitesse d'attaque",
+      "Dépend de ballons à ramasser pour enchaîner",
+      "En difficulté face à Lolita, Lesley et Aamon selon les mesures",
+    ],
+    strongAgainst: ["wanwan", "ling", "fanny", "benedetta", "joy"],
+    weakAgainst: ["lolita", "lesley", "aamon", "karina", "saber"],
+    builds: [
+      {
+        name: "Gold lane critique",
+        context:
+          "Le build le plus joué en Gold lane : Haas' Claws et Berserker's Fury misent sur le critique, que son passif alimente, Haas' Claws ajoute le vol de vie et Malefic Gun la pénétration physique et de la portée. Les trois versions les plus jouées partagent ces objets ; celle à l'emblème de combattant avec Flicker affiche le meilleur taux de victoire mesuré.",
+        items: ["Haas' Claws", "Berserker's Fury", "Malefic Gun"],
+        emblem: "Emblème de tireur",
+        talent: "Quantum Charge",
+        spell: "Aegis",
+      },
+    ],
+  },
+  {
+    slug: "layla",
+    summary:
+      "Tireuse de portée dont les dégâts augmentent avec la distance, très jouée aux premiers rangs et de moins en moins à mesure qu'on monte.",
+    analysis:
+      "Layla tire de loin et a intérêt à y rester : son passif augmente ses dégâts avec la distance, jusqu'à un maximum à longue portée. Sa compétence 1 lance une bombe qui, si elle touche, allonge pour quelques secondes la portée de ses attaques de base et de sa compétence 2 et l'accélère. Sa compétence 2 marque la cible ; toucher ensuite une cible marquée inflige des dégâts autour d'elle et l'étourdit très brièvement. L'ultime allonge en permanence la portée de ses attaques et de sa compétence 2, et se lance en un tir puissant en ligne droite.\n\n" +
+      "Son taux de sélection mesuré est élevé aux rangs Épique et Légende et baisse à chaque rang jusqu'à la Gloire mythique, où son taux de victoire est aussi le plus bas. Elle est très faible dans les parties de moins de douze minutes, puis au-dessus de la moyenne entre la quatorzième et la vingtième. Elle n'a ni bond ni téléportation. Les mesures la placent en difficulté face à Atlas, Johnson, Sun, Khufra et Hylos.",
+    skills: [
+      {
+        type: "Passive",
+        name: "Malefic Gun",
+        description:
+          "Ses dégâts augmentent avec la distance qui la sépare de la cible, jusqu'à un maximum à longue portée. L'effet ne s'applique pas aux tourelles.",
+      },
+      {
+        type: "Skill 1",
+        name: "Malefic Bomb",
+        description:
+          "Une bombe qui blesse le premier ennemi touché et peut faire un coup critique. Si elle touche, ses attaques de base et sa compétence 2 portent plus loin quelques secondes, et elle gagne une accélération qui dure deux fois plus longtemps sur un héros.",
+      },
+      {
+        type: "Skill 2",
+        name: "Void Projectile",
+        description:
+          "Un orbe qui blesse la cible et ses voisins et la marque quelques secondes. Toucher ensuite une cible marquée inflige des dégâts autour d'elle et l'étourdit très brièvement.",
+      },
+      {
+        type: "Ultimate",
+        name: "Destruction Rush",
+        description:
+          "En permanence, allonge la portée de ses attaques de base et de sa compétence 2, et un peu sa vision. Lancé, un tir puissant en ligne droite qui blesse tous les ennemis traversés.",
+      },
+    ],
+    strengths: [
+      "Portée longue, encore allongée par la compétence 1 et l'ultime",
+      "Dégâts accrus à distance",
+      "Taux de victoire mesuré au-dessus de la moyenne entre la quatorzième et la vingtième minute",
+    ],
+    weaknesses: [
+      "Ni bond ni téléportation pour se dégager",
+      "Très faible dans les parties courtes selon les mesures",
+      "Taux de victoire mesuré le plus bas en Gloire mythique",
+      "En difficulté face à Atlas, Johnson et Sun selon les mesures",
+    ],
+    strongAgainst: ["diggie", "rafaela", "phoveus", "edith", "bruno"],
+    weakAgainst: ["atlas", "johnson", "sun", "khufra", "hylos"],
+    builds: [
+      {
+        name: "Gold lane critique",
+        context:
+          "Le build le plus joué en Gold lane, de loin : Windtalker apporte vitesse d'attaque, critique et vitesse de déplacement, Berserker's Fury les dégâts critiques, Haas' Claws le vol de vie et de la vitesse d'attaque sur critique. Il est associé à l'emblème d'assassin, au talent Quantum Charge et au sort Flicker.",
+        items: ["Windtalker", "Berserker's Fury", "Haas' Claws"],
+        emblem: "Emblème d'assassin",
+        talent: "Quantum Charge",
+        spell: "Flicker",
+      },
+    ],
+  },
 ];

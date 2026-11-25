@@ -140,6 +140,90 @@
       }
     ]
   },
+  "aamon": {
+    "summary": "Magic assassin camouflaged by every skill that hits; his ultimate finishes all the better if the target is injured.",
+    "analysis": "Aamon alternates camouflage and reinforced attacks. Each skill that hits an enemy camouflages it: it can no longer be targeted, recovers HP and gains speed; upon exiting this state, his basic attacks for the next few seconds are strengthened, deal magic damage and reduce his cooldowns. His empowered attacks charge shards. The ultimate launches them all at a target: the more shards it has in reserve and on the ground, the longer the salvo is, and its damage increases as the target loses its HP.\n\nHis measured numbers are slightly below average at all ranks, with no big difference depending on game length; However, its selection rate has increased over the last thirty days. The measurements place him in difficulty against Gloo, Lolita, Silvanna, Hayabusa and Masha, and at ease against Cici, Marcel, Claude and Bruno.",
+    "skills": [
+      "Each skill that touches him camouflages him: impossible to target, he recovers HP and gains speed which decreases quickly. When coming out of camouflage, his basic attacks are strengthened for a few seconds, inflict magic damage and reduce his cooldowns.",
+      "As a passive, his reinforced attacks and camouflage charge his armor; at five charges, its next attack launches a volley of shards which then remain on the ground around the target. While active, throws a burst at a nearby enemy.",
+      "Fires a burst forward that slows enemies hit, then returns to them and camouflages them; he returns immediately if he touches anything other than a minion. The skill to bypass the enemy under camouflage.",
+      "Throw all your shards at an enemy and slow them down; their number depends on its charges and the fragments on the ground. Damage increases with the target's HP lost, to a maximum below thirty percent of its HP."
+    ],
+    "strengths": [
+      "Impossible to target under camouflage, and cared for during this time",
+      "An ultimate that gains damage on an injured target",
+      "Recharges reduced by its empowered attacks"
+    ],
+    "weaknesses": [
+      "Win rate measured slightly below average at all ranks",
+      "A camouflage that depends on skills that affect",
+      "In difficulty against Gloo, Lolita and Silvanna according to the measures"
+    ],
+    "builds": [
+      {
+        "name": "Magic Jungle",
+        "context": "The most played build in jungle: Genius Wand reduces the magic defense of heroes hit and adds penetration, Holy Crystal maximizes magic power and Divine Glaive magic penetration, for reinforced attacks and an ultimate that finishes."
+      },
+      {
+        "name": "Execution",
+        "context": "Sky Piercer as the first object, which executes a hero who has fallen very low and whose threshold rises with eliminations: the second most played build, with a victory rate measured close."
+      }
+    ]
+  },
+  "nolan": {
+    "summary": "Jungle assassin who cuts rifts with each skill: two rifts that touch attract enemies, explode and restore HP.",
+    "analysis": "Nolan plays on his flaws. Each skill leaves one, which slows down enemies; When two rifts touch, they pull enemies towards their center then explode, and each hero or monster hit restores energy and HP. His first two skills have very short recharges, one hits an area in front of him, the other makes him charge, and they chain together to make the faults cross. The ultimate slash an area three times, leaves three rifts there and triggers them as he retreats. After a few seconds without inflicting or receiving damage, his next basic attack causes him to leap onto the target, opening a rift.\n\nIt is hotly contested: fifth selection rate of all heroes, and a ban which has almost doubled over the last thirty days and climbs with the rank. His measured victory rate remains around average, above in games lasting less than twelve minutes then below after the fourteenth minute. The measurements place him clearly in difficulty against Saber and Natalia, then against Jawhead and Hayabusa.",
+    "skills": [
+      "His skills leave rifts that slow him down. Two touching faults attract enemies towards their center then explode; each hero or monster hit restores energy and HP. After a few seconds out of combat, his next basic attack causes him to lunge at the target.",
+      "Slice a rectangular area in front of him and leave a rift on the first enemy hit. Very short recharge.",
+      "Charges in one direction, damaging enemies on its way and leaves a rift: its movement, and the way to cross two rifts.",
+      "Slash an area three times, slowing the hit target and leaving three rifts, which trigger on their own while he backs away."
+    ],
+    "strengths": [
+      "Very short recharges on his first two skills",
+      "Rift explosions that restore HP",
+      "An ultimate that hits then knocks him back",
+      "High win rate measured in short games"
+    ],
+    "weaknesses": [
+      "Win rate measured below average beyond the fourteenth minute",
+      "Reduced damage when the same target suffers multiple explosions",
+      "Clearly in difficulty against Saber and Natalia according to the measurements"
+    ],
+    "builds": [
+      {
+        "name": "Jungle",
+        "context": "The most played build in the jungle: Hunter Strike brings attack, recharge reduction, penetration and acceleration after several hits on the same target, Blade of the Heptaseas strengthens the first attack after a few seconds out of combat, like the jump in its passive, and Malefic Roar adds physical penetration. Lethal Ignition is chosen as often as Impure Rage."
+      }
+    ]
+  },
+  "saber": {
+    "summary": "Single Target Assassin: Her ultimate lifts an enemy hero and hits them three times, with Resilience making no difference.",
+    "analysis": "Saber is built to take down a specific hero. Its damage reduces the target's physical armor, stacking. His skill 1 spins five swords around him; during their duration, each sword strike hits its target and reduces its two recharges. His skill 2 makes him dash then strengthens his next basic attack, which launches him at the target and greatly slows it down. The ultimate makes him charge an enemy hero, throws him into the air for a little over a second without Resilience reducing the effect, and hits him three times.\n\nIts measured numbers change markedly with rank: below average win rate in Epic, above average in Mythic Glory, and highest bans in Legend and Mythic. It is especially strong in short games, above fifty-five percent before the fourteenth minute. In roam, its most played builds have a victory rate measured below average; his best measured partners are Diggie and Marcel. The measurements place him in difficulty against Balmond, Leomord, Baxia, Miya and Sun.",
+    "skills": [
+      "Each time it deals damage, it reduces the target's physical armor, stacking up to five times.",
+      "Five swords circle around him and damage nearby enemies. During their duration, each sword strike hits the target and reduces the cooldowns of its skills 1 and 2.",
+      "Rush in one direction; his next basic attack then throws it at the target, damaging them and slowing them greatly. Serves as much to catch up as to engage.",
+      "Charges an enemy hero, knocks them into the air for a little over a second, without Resilience reducing the effect, and hits them three times, the last hit harder."
+    ],
+    "strengths": [
+      "A single target ultimate that resilience doesn't shorten",
+      "Cumulative armor reduction on target",
+      "High win rate measured in short games",
+      "Recharges reduced by his swords"
+    ],
+    "weaknesses": [
+      "Most Played Roam Builds Below Average by Metrics",
+      "Very banned in Legend and Mythic",
+      "In difficulty against Balmond, Leomord and Baxia according to measurements"
+    ],
+    "builds": [
+      {
+        "name": "Jungle",
+        "context": "The most played build, in jungle: Hunter Strike brings attack, recharge reduction and physical penetration, War Axe cumulative attack in combat, HP and life steal, Endless Battle raw damage on the attack that follows each skill."
+      }
+    ]
+  },
   "chou": {
     "summary": "Isolation fighter: he extracts a target from the opposing group and kills it before his team reacts.",
     "analysis": "Chou is the roam hero with the highest mastery cap. The idea is simple – the ultimate repels a target and pursues it – but its execution relies on animation cancellations that the game nowhere explains. The reference combo chains skill 1, canceled jump, ultimate, then skill 2 to hold the target upon landing.\n\nHis interest in an organized team comes from there: he chooses who dies. Against a player who keeps his Purify, on the other hand, the ultimate loses half of its value, and Chou becomes an average fighter again.",
@@ -313,6 +397,273 @@
       {
         "name": "Damage after skill",
         "context": "Starlium Scythe instead of Queen's Wings, for additional damage on the attack that follows each skill: less played, with a comparable measured win rate."
+      }
+    ]
+  },
+  "masha": {
+    "summary": "Fighter with three HP bars: each broken bar frees her from controls, and her basic attacks become area-of-effect claw strikes that heal her.",
+    "analysis": "Masha plays on her three HP bars. Each one regains half of the HP provided by its items, and each bar that falls removes its control effects, blocks an attack and resets the recharge of Claw Strike. Skills that hit a hero open a wound on one side of the target; breaking this wound with a basic attack causes Masha to go wild, with resilience, attack speed, and movement speed, and changes her next three attacks to fan claw slashes that deal damage based on HP and heal her. The ultimate makes her charge an opposing hero, stunning them and pushing back enemies around them.\n\nIts measured numbers are the highest in the game: leading win rate for all heroes at all ranks, above fifty-six percent regardless of game length, and a ban that climbs with rank, rare in Epic, in two out of three games in Mythic Glory. Patch 2.2.23 moved the slow from skill 1 to skill 2 and reduced the damage and healing of his claw strikes; his victory rate has fallen slightly over the last thirty days. The measurements place her in difficulty against Freya, Estes, Bruno, Melissa and Floryn.",
+    "skills": [
+      "Three HP bars, each of which takes up half of the HP of its items. A broken bar removes its control effects and blocks an attack. His skills open wounds on the heroes affected: breaking one with a basic attack triggers the wild state and claw strikes in the area which heal it.",
+      "A forward energy wave that damages enemies in its path and hits minions harder: the tool to clear a wave, and to open a wound from a distance.",
+      "A leap towards the target that slows down heroes hit. His recharge is reset every time a HP bar falls, which immediately gives him a way to pursue or escape.",
+      "Charges an opposing hero, stunning them and knocking back nearby enemies. Its damage increases with additional HP: it is the opening of team fights on a fragile target."
+    ],
+    "strengths": [
+      "First measured win rate of all heroes",
+      "Three HP bars, each freeing her from controls",
+      "Claw strikes in the area which heal it",
+      "Stable measured performance regardless of game duration"
+    ],
+    "weaknesses": [
+      "Banned in two out of three games in Mythic Glory",
+      "Claw hits and healing reduced by patch 2.2.23",
+      "In difficulty against Freya, Estes and Bruno according to the measures"
+    ],
+    "builds": [
+      {
+        "name": "EXP lane",
+        "context": "The three most played builds in EXP lane share these objects: Thunder Belt and Guardian Helmet provide the HP that its three bars take and on which its ultimate depends, Corrosion Scythe the attack speed to break wounds and chain claw strikes. They are associated with the tank emblem, the War Cry talent and, most often, the Petrify spell."
+      }
+    ]
+  },
+  "argus": {
+    "summary": "Critical fighter whose ultimate makes him unkillable for a few seconds, then heals him of all damage inflicted on heroes.",
+    "analysis": "Argus relies on the critical hit: his passive immediately gives him a critical chance, and each critical becomes a demonic slash that ignores part of the armor and heals him. His skill 1 launches a hand that stuns the first enemy hit and brings them closer to each other, then launches into a rush followed by a large blow; his skill 2 counts as a basic attack, briefly stunning the hit hero and giving him attack speed. The ultimate removes his control effects and makes him immortal for a few seconds, then restores HP equal to the damage inflicted on heroes during this time. As long as it is available, it triggers alone against a fatal blow.\n\nHe is one of the most effective heroes by metrics and one of the least banned: third highest win rate of all heroes, above fifty-five percent at each rank, for a ban of about one game in a hundred. His performance climbs with the duration of the game, just above average before the twelfth minute and beyond sixty percent from the sixteenth. The measurements place him in difficulty against Barats, Terizla, Uranus, Ruby and Fredrinn.",
+    "skills": [
+      "It starts with a critical chance. His criticals become demonic slashes, which ignore some of the target's physical armor and heal him, while triggering the effects linked to the critical.",
+      "A demonic hand that stuns the first enemy hit, slows them down and brings them closer to each other; without a target, Argus is pulled to the end of his course. Relaunched, it becomes a rush followed by a broad blow.",
+      "After a short charge, a sword swing counts as a basic attack. On a hero, it briefly stuns and grants attack speed; its damage benefits from luck and critical damage, and attack speed shortens the charge.",
+      "Removes his control effects, makes him immortal for a few seconds and damages nearby enemies, more so when his HP is low. At the end, he recovers HP equal to the damage inflicted on the heroes. Available, it triggers alone against a fatal blow, without the damage."
+    ],
+    "strengths": [
+      "Third measured win rate of all heroes",
+      "An ultimate that makes him immortal then restores his HP",
+      "Performance measured above sixty percent in long games",
+      "Rarely banned"
+    ],
+    "weaknesses": [
+      "Performance measured close to average in short games",
+      "Once the ultimate is used, nothing saves him from a fatal blow",
+      "In difficulty against Barats, Terizla and Uranus according to measurements"
+    ],
+    "builds": [
+      {
+        "name": "Critical",
+        "context": "The most played build in EXP lane: attack speed and critical chance, which its demonic slashes convert; since patch 2.2.16, his criticals still trigger the effects of Berserker's Fury and Windtalker. Haas' Claws adds lifesteal. It is associated with the marksman emblem, the War Cry talent and the spell Petrify."
+      }
+    ]
+  },
+  "lukas": {
+    "summary": "Fighter who transforms into a sacred beast once his resolution gauge is full; his skill 1 changes depending on the attacks made before.",
+    "analysis": "Lukas fulfills his resolve over time and, more quickly, by hurting heroes. Full, it allows him to transform into a sacred beast with his ultimate: all his attributes increase, his skills gain new effects, and a relaunch fires a shock wave; the form lasts as long as there is resolution. In both forms, everything goes through the sequence: his skill 2 makes him jump and reinforces his next attack, which places him behind the target and accelerates it; each basic attack charges his skill 1, which briefly stuns and, at two charges, makes him immune to checks while he is spinning.\n\nIts measured figures are close to average, with a clear profile depending on duration: very low in games lasting less than twelve minutes, above average from the fourteenth. Its ban rate, which increases with rank, has fallen significantly over the last thirty days. Patch 2.2.23 gave him more base HP and armor and shifted his skill 1 damage to his base rather than physical attack, to make defensive builds more viable. The measurements place him in difficulty against Phoveus, Balmond, Baxia, Valentina and Minsitthar.",
+    "skills": [
+      "Gain Resolve over time and by damaging heroes. Full, it unlocks the transformation into a sacred beast, which consumes the resolution until it is exhausted.",
+      "His basic attacks give him up to two stacks of stamina, which the skill consumes for a hit that heals him if it hits a hero or minion. With a charge, it briefly stuns and attracts the target while spinning; with two, it adds two hits and makes it unresponsive to checks while rotating.",
+      "A leap that strengthens his next basic attack: it places him behind the enemy, then gives him movement speed and attack speed, and extends the range of the next attack, which triggers a lightning bolt.",
+      "Transforms him into a sacred beast, impervious to controls for a moment: increased speed, increased attributes and new effects for his skills. Relaunched, it fires a shockwave which explodes on the first hero hit."
+    ],
+    "strengths": [
+      "A sacred beast form that increases all of its attributes",
+      "Unresponsive to controls while rotating at two loads",
+      "Heal on each hit of skill 1",
+      "Win rate measured above average in long games"
+    ],
+    "weaknesses": [
+      "Very weak in short games according to measurements",
+      "A transformation that waits for its resolution to be full",
+      "In difficulty against Phoveus, Balmond and Baxia according to measurements"
+    ],
+    "builds": [
+      {
+        "name": "Jungle",
+        "context": "The most played build in the jungle, by far: Hunter Strike provides attack, recharge reduction and physical penetration, War Axe cumulative attack in combat, HP and life steal, Queen's Wings survival when its HP drops."
+      },
+      {
+        "name": "EXP lane",
+        "context": "The same three objects in EXP lane, with the spell Vengeance: this is the most played version in this position. The less played Fighter Emblem variant has a higher measured win rate."
+      }
+    ]
+  },
+  "freya": {
+    "summary": "Basic attack fighter, who charges orbs by hitting and spends them on attack speed, HP and dashes without base recharge.",
+    "analysis": "Freya revolves around a resource: each basic attack gives her a holy orb, and each orb spent makes her next attack much faster and heals her. His skill 2 has no basic recharge but costs two orbs: it is a rush that hurts and slows down, to alternate with basic attacks to keep the reserve full. Her skill 1 makes her jump over an area giving her a shield and throwing enemies into the air. The ultimate is a control-insensitive dive that slows enemies hit, then enters her Valkyrie state: her basic attacks then deal area damage.\n\nIts measured numbers depend on rank and duration: below average victory rate in Epic at Mythic Honor, above average in Mythic Glory, and significantly better in games lasting less than twelve minutes than beyond the fourteenth. Patch 2.2.23 restored HP for each orb spent and increased the recharge of his ultimate. Its ban rate has almost doubled over the last thirty days. The measures place her in difficulty against Minsitthar, Phoveus, Baxia, Edith and Franco.",
+    "skills": [
+      "Each basic attack grants him a Holy Orb, up to six. Spending an orb makes her next basic attack much faster and heals her; outside of combat, the orbs are gradually reconstituted.",
+      "Leaps over an area and hits the ground with her shield: she gains a shield, damages enemies and briefly throws them into the air. Its initiation and main control.",
+      "A rush followed by a thump that slows briefly. No base recharge, but two orbs per throw, and reduced damage against monsters.",
+      "Dive into an area while being immune to controls, damaging and slowing enemies hit, then enters Valkyrie state: increased speed and area damage basic attacks for several seconds."
+    ],
+    "strengths": [
+      "A skill 2 without base recharge",
+      "Shield and throw on skill 1",
+      "Basic AoE damage attacks under ultimate",
+      "High win rate measured in short games"
+    ],
+    "weaknesses": [
+      "Win rate measured below average from Epic to Mythic Honor",
+      "Decreased performance in long games",
+      "In difficulty against Minsitthar, Phoveus and Baxia according to measurements"
+    ],
+    "builds": [
+      {
+        "name": "EXP lane",
+        "context": "The most played build in EXP lane: Golden Staff brings attack and attack speed and further accelerates one basic attack in three, War Axe combines attack in combat with lifesteal, Rose Gold Meteor adds lifesteal and a shield when its HP drops low. Endless Battle in place of Rose Gold Meteor is almost also played."
+      },
+      {
+        "name": "Jungle",
+        "context": "In jungle, Corrosion Scythe comes first for attack speed and slowing down basic attacks, with Endless Battle, which strengthens the attack following each skill: the most played version in this position, with the marksman emblem."
+      }
+    ]
+  },
+  "aulus": {
+    "summary": "Simple fighter to learn: each skill that hits strengthens his basic attacks, and his ultimate strikes repeatedly around him.",
+    "analysis": "Aulus fights in waves of ax strikes. Each skill that deals damage gives him a few seconds of boosted basic attacks: they hit in a line, heal him, slow him down slightly, and extend his range a bit. His skill 1 removes his slows and speeds him up; if not controlled within two seconds, it becomes unresponsive to controls. His skill 2 strikes in a fan and stuns briefly, then springs back into a leap. The ultimate hits four times around him then a large final hit, reducing the damage he takes.\n\nHis measured numbers are above average, especially in short games: his win rate is highest before the twelfth minute and drops back to average after the twentieth. Its ban rate, which increases with rank, has fallen sharply over the last thirty days. Patch 2.2.16a weakened his empowered attacks and lengthened the cooldown of his skill 1, while increasing the base damage of his ultimate. The measurements place him in difficulty against Alice, Floryn, Estes, Yve and Zhuxin.",
+    "skills": [
+      "Each skill that deals damage gives him a few seconds of boosted basic attacks: a line ax swing that heals him, slows him slightly, and gives him a bit of attack range and speed. Even stronger against monsters.",
+      "Removes its slowdowns and speeds it up for a few seconds. If he does not undergo a major control within two seconds, he goes into a rage and becomes insensitive to controls: enough to cross an enemy line.",
+      "A fan-shaped ax swing that briefly stuns enemies. Revived, he leaps forward and hits the ground around him.",
+      "Hit enemies around him four times, then unleash a larger blow after a short charge. Over the duration, he takes less damage and gains a little speed with each hit."
+    ],
+    "strengths": [
+      "Win rate measured above average, especially early in the game",
+      "Immune to checks thanks to skill 1, if not controlled in time",
+      "Empowered attacks that heal him",
+      "Simple kit, with no resources to manage"
+    ],
+    "weaknesses": [
+      "Measured performance which drops towards the average in long games",
+      "A check suffered in the first two seconds deprives him of his insensitivity",
+      "In difficulty against Alice, Floryn and Estes according to the measures"
+    ],
+    "builds": [
+      {
+        "name": "Jungle",
+        "context": "The most played build in the jungle: War Axe brings cumulative attack, HP and lifesteal, Brute Force Breastplate HP, armor and recharge reduction, Malefic Roar physical penetration. The same trio with the assassin emblem is played half as much, with a higher measured win rate."
+      },
+      {
+        "name": "EXP lane",
+        "context": "The same items in EXP lane, with the assassin emblem and the spell Vengeance: the most played version in this position."
+      }
+    ]
+  },
+  "alucard": {
+    "summary": "Jungle fighter who pounces on his target after each skill, and whose ultimate grants him permanent lifesteal and splits his recharges.",
+    "analysis": "Alucard alternates skills and basic attacks: after each skill, his next attack makes him jump on the target. His skill 1 makes him jump over an area, slowing down enemies, his skill 2 hits everything around him. His ultimate permanently gives him hybrid lifesteal; launched, it slows down enemies in the area and reduces their resistances, strengthens its own for each hero hit and halves the recharge of its other skills for a few seconds, before a relaunch which sends a shock wave forward.\n\nHe is one of the least banned heroes, with numbers measuring slightly below average at all ranks. It is weak in short games and only exceeds the average from the fourteenth minute, without much difference thereafter. The measurements place him in difficulty against Fredrinn, Phoveus, Khufra, Barats and Thamuz, and comfortable against Natalia, Sun, Mathilda and Saber.",
+    "skills": [
+      "After each skill cast, his next basic attack causes him to pounce on the target with additional damage. It also hits monsters harder.",
+      "Jumps on an area, damages and slows down enemies hit: its initiation, followed by a basic attack to take advantage of the passive.",
+      "A spinning shot that damages all enemies around it, with a short cooldown.",
+      "Permanently gives him hybrid lifesteal. Cast, slows down enemies in an area and reduces their resistances, increases their resistance for each hero hit and halves the recharge of their other skills for a few seconds; revived, sends a shockwave forward."
+    ],
+    "strengths": [
+      "Permanent hybrid lifesteal thanks to the ultimate",
+      "Cooldowns halved under ultimate",
+      "Win rate measured above average in long games",
+      "Leaps at his target after each skill"
+    ],
+    "weaknesses": [
+      "Weak in short games according to measurements",
+      "No control beyond slowdowns",
+      "In difficulty against Fredrinn, Phoveus and Khufra according to measurements"
+    ],
+    "builds": [
+      {
+        "name": "Jungle",
+        "context": "The most played build in jungle: War Axe accumulates attack in combat, Endless Battle reinforces the basic attack that follows each skill, which matches the rhythm of its passive, and Blade of Despair brings the biggest physical attack, reinforced against a target under half its HP."
+      }
+    ]
+  },
+  "aldous": {
+    "summary": "Fighter who accumulates permanent charges by finishing off units, and whose ultimate reveals all enemy heroes before launching it on one of them.",
+    "analysis": "Aldous is built over time. His skill 1 strengthens his next basic attack, and each completed unit or hero hit with this attack gives him permanent charges that increase his damage, up to a thousand; he also gains some when his allies finish off units near him. His skill 2 puts him in a defensive posture, with a reduction in damage taken, then deals damage around him and stuns them, the longer the posture lasted. The ultimate gives him the vision of all the enemy heroes for a few seconds, then makes him rush towards one of them to push him back, interrupting a possible return to base.\n\nNo hero has such a marked gap depending on the length of the game: very low in games lasting less than twelve minutes, his measured victory rate approaches sixty percent from the eighteenth. All ranks combined, it is above average and up over thirty days, for almost zero bans. Patch 2.2.23 shortened the cooldown of his skill 2 and increased his damage reduction in the late game. The measures place him in difficulty against Esmeralda, Karina, Cyclops, Estes and Popol and Kupa.",
+    "skills": [
+      "Every few seconds, his next basic attack gives him a shield and a short boost.",
+      "Strengthens his next basic attack, which hits minions and monsters much harder. Finishing off a unit or hitting a hero with it gives permanent charges which increase its damage: the heart of its rise in power.",
+      "A defensive stance that reduces damage taken for up to two seconds, then damages nearby enemies and stuns them, the longer the stance was held.",
+      "Gives vision to all enemy heroes for a few seconds. Relaunched, he rushes towards one of them, wounds him according to his HP and pushes him back; the rush interrupts a return to base."
+    ],
+    "strengths": [
+      "Permanent charges that increase its damage throughout the game",
+      "Win rate measured close to sixty percent in long games",
+      "An ultimate that reveals all enemy heroes and interrupts a return to base",
+      "Rarely banned"
+    ],
+    "weaknesses": [
+      "Very weak in short games according to measurements",
+      "Depends on charges accumulated before fights",
+      "In difficulty against Esmeralda, Karina and Cyclops according to measurements"
+    ],
+    "builds": [
+      {
+        "name": "EXP lane",
+        "context": "The most played build in EXP lane, by far: Blade of the Heptaseas strengthens the first attack after a few seconds out of combat, Endless Battle the attack that follows each skill, and Malefic Roar adds physical penetration. It is associated with the assassin emblem, the talents Wilderness Blessing and Quantum Charge, and the spell Flicker."
+      },
+      {
+        "name": "Defensive version",
+        "context": "A defensive version, much less played, with a higher measured victory rate: Thunder Belt and Dominance Ice provide HP and resistances, and Dominance Ice also reduces the healing and shields of nearby enemies."
+      }
+    ]
+  },
+  "badang": {
+    "summary": "Obstacle fighter: he creates a wall behind his target and throws him there to stun him, and can be played both in roam and in EXP lane.",
+    "analysis": "Badang plays with obstacles. After four basic attacks, the next one pushes back, and the breaths from his skills push back directly: an enemy thrown against an obstacle is stunned. His skill 2 makes him rush while gaining a shield; if it hits a hero, it stops and creates an obstacle right behind them. Its skill 1, on two charges, sends a breath that hurts, slows down and pushes back, enough to pin the target against this wall. The ultimate chains a flurry of punches in one direction making it impervious to controls.\n\nHis measured numbers are average at all ranks, with a slight edge in short games, and he gets picked quite often. Played in roam as well as in EXP lane, it mainly takes defense objects: HP, armor and resistances rather than damage. The measurements place him in difficulty against Karina, Lolita, Esmeralda, Khufra and Phoveus, and at ease against Fanny, Sun and Zilong.",
+    "skills": [
+      "After four basic attacks, the next one damages more and knocks back; an enemy thrown against an obstacle is stunned. The breaths from his skills trigger this effect directly, and that of the ultimate stuns for longer.",
+      "A fist blast that damages, slows and knocks back enemies, and explodes against an obstacle. Two charges, to keep to pin the target against the obstacle of skill 2.",
+      "Rush in one direction gaining a shield. If he hits a hero, he stops, pushes him back slightly and creates an obstacle behind him for a few seconds; restarted, it removes the obstacle.",
+      "A flurry of punches in one direction, impervious to controls for the duration. The breaths explode against obstacles: thrown at enemies stuck against a wall, it hits them there repeatedly."
+    ],
+    "strengths": [
+      "Repeated stuns against one's own obstacles",
+      "Shield on Skill 2",
+      "Unaffected by controls during the ultimate",
+      "Playable in roam as well as in EXP lane"
+    ],
+    "weaknesses": [
+      "Victory rate measured in the average, without marked strong point",
+      "Controls that require a well-placed obstacle",
+      "In difficulty against Karina, Lolita and Esmeralda according to the measures"
+    ],
+    "builds": [
+      {
+        "name": "Roam",
+        "context": "The most played build in roam: Thunder Belt for HP, resistances and slowing of its attacks, Dominance Ice for resistances and reduction of healing of nearby enemies, Chastise Pauldron to reduce the attack speed of those who hit it. Antique Cuirass in place of Chastise Pauldron is almost also played."
+      },
+      {
+        "name": "EXP lane",
+        "context": "The same objects in EXP lane: this is also the most played version in this position."
+      }
+    ]
+  },
+  "alpha": {
+    "summary": "Fighter at the lowest official difficulty, who fights with a drone: each skill involves Beta, whose shots inflict real damage.",
+    "analysis": "Alpha fights in pairs with Beta. Each skill launched involves the drone, which inflicts real damage; An enemy hit twice by Beta is locked, and each hit from Alpha on him then triggers a laser which greatly slows him down. His skill 1 sends a wave that slows down, his skill 2 strikes in a fan after a short delay and heals him on the first enemy hit. The ultimate sends Beta to stun an area, then Alpha jumps there, throwing enemies in its path into the air to carry them to the point of impact.\n\nHis measured numbers are a little below average, with no notable difference depending on the length of the game. It is mostly played at low ranks: its pick rate drops with each rank from Epic to Mythic Glory, and it is very rarely banned. Patch 2.2.16 strengthened the healing of his skill 2. The measures place him in difficulty against Benedetta, X.Borg, Valir, Lylia and Wanwan.",
+    "skills": [
+      "Each skill causes Beta to attack. An enemy hit twice by the drone is locked: each time Alpha damages it, Beta fires a laser that deals true damage and greatly slows it for an instant.",
+      "A wave of energy that damages and slows enemies in its path, followed by a burst of Beta on the same path.",
+      "After a short delay, a fan blow; the first enemy hit heals him, the following ones less and less. Beta then strafes the area.",
+      "Beta dives into the chosen area and stuns enemies hit; Alpha jumps after him, throwing those he passes into the air, carries them to the point of impact and slows them down as he falls."
+    ],
+    "strengths": [
+      "Beta raw damage per skill",
+      "An ultimate that stuns and groups enemies",
+      "Heal on skill 2",
+      "Official difficulty at the lowest level"
+    ],
+    "weaknesses": [
+      "Win rate measured a little below average",
+      "Little played in high ranks",
+      "In difficulty against Benedetta, X.Borg and Valir according to measurements"
+    ],
+    "builds": [
+      {
+        "name": "Jungle",
+        "context": "The most played build in the jungle: War Axe accumulates attack in combat with PV and life steal, Sky Piercer provides attack, speed and execution of heroes who have fallen very low, Queen's Wings survival when their PV drops."
+      },
+      {
+        "name": "EXP lane",
+        "context": "The same three objects in EXP lane, with the spell Vengeance: this is the most played version in this position."
       }
     ]
   },
@@ -544,6 +895,33 @@
       }
     ]
   },
+  "valir": {
+    "summary": "Control mage that repeatedly knocks back and stuns, and whose fireballs recharge with each hero hit.",
+    "analysis": "Valir strings together controls more than he explodes his targets. Each skill that hits places a burn on the target; at three burns, the fire explodes and stuns him, at most once every seven seconds on the same target. His skill 1 lasts for two charges and recovers one as soon as it hits a hero, which allows him to recast it almost without pause as long as he aims correctly; his skill 2 repels enemies until the end of his jet of flames. The ultimate frees him from his negative effects, accelerates him and strengthens his two skills for a few seconds: increased range for the fireball, wall of flames which slows down for skill 2.\n\nIts measured figures are consistent: above average win rate at each rank, low bans. It is most effective in short games, and its advantage reduces as the game lengthens. In Mid lane, the same build clearly dominates the others. The measurements place him in difficulty against Rafaela, Helcurt, Kaja, Mathilda and Natalia, and at ease against Fredrinn, Alice, Balmond and Leomord.",
+    "skills": [
+      "Each skill that hits causes a burn that deals damage based on the target's HP. At three burns, the fire explodes and stuns, at most once every seven seconds on the same target.",
+      "A fireball that explodes on the first target and slows it down, then the flames on the ground explode in turn. Two charges; touching a legendary hero or monster makes one immediately, touching a minion speeds up the next one.",
+      "A jet of flame that repels enemies until the end of its course: the tool to ward off an attacker. Under the ultimate, it leaves a wall of flames that hurts and slows.",
+      "Removes all its negative effects, briefly speeds it up and strengthens both of its skills for a few seconds. To keep to free yourself from a negative effect as well as to attack."
+    ],
+    "strengths": [
+      "Repeated checks: knockback, slows and stuns",
+      "Fireballs fired almost without pause when they hit",
+      "An ultimate that frees him from his negative effects",
+      "Win rate measured above average at each rank"
+    ],
+    "weaknesses": [
+      "A measured advantage which is reduced in long games",
+      "A limited stun on the same target",
+      "In difficulty against Rafaela, Helcurt and Kaja according to measurements"
+    ],
+    "builds": [
+      {
+        "name": "Mid Lane",
+        "context": "The most played build in Mid lane, by far: Glowing Wand burns targets and reduces their healing and shields, Ice Queen Wand adds a slow to each skill that hits and lifesteal from spells, and Wishing Lantern punishes targets with a lot of HP. It is associated with the common emblem and the talents Festival of Blood and Impure Rage."
+      }
+    ]
+  },
   "granger": {
     "summary": "Magazine Shooter: His damage comes from his skills, not his attack speed.",
     "analysis": "Granger is not built like a classic shooter. His skill 1 fires six bullets, the last of which is always critical, and his passive converts the recharge reduction into a physical attack, which makes attack speed almost useless on him: you buy attack damage and penetration.\n\nThis gives it a very early peak of power, exploitable in the jungle from the first object. His fragility remains that of a shooter, aggravated by the lack of control, apart from the brief slowdown of his ultimate: poorly positioned, he only has his skill 2 and the rolls of his ultimate to hope to escape.",
@@ -714,6 +1092,91 @@
       }
     ]
   },
+  "obsidia": {
+    "summary": "Shooter who accumulates bone shards with each shot, and whose ultimate attaches her to her target, preventing any escape through a movement skill.",
+    "analysis": "Obsidia charges her passive by hitting: each attack or skill on an enemy fills energy that forms bone shards, up to twenty-five, and each of her basic attacks sends all the shards hitting the target. His skill 1, a needle thrown from a distance, brings three times more energy than an attack and triggers the shards on the first hero hit; his skill 2 gives him a brief boost. The ultimate briefly stuns the first hero hit, pulls her to him and links them for three seconds: the target can no longer use movement skills, Obsidia gains a shield and temporary shards, and can attack while moving.\n\nShe is one of the most contested heroines of the moment: third ban rate and fourth selection rate of all heroes, with a ban that exceeds half of the games from Mythic Honor and which has increased further over the last thirty days. His measured win rate is above average, higher in games under sixteen minutes than beyond eighteen. The measurements place her in difficulty against Baxia, Diggie, Estes, Miya and Bruno.",
+    "skills": [
+      "Hitting an enemy gives them energy, more on a hero and three times more with a skill; monsters don't give any. The energy forms bone shards, and each basic attack sends all of the shards striking the target.",
+      "A needle thrown from a distance which damages enemies hit and triggers shards on the first hero reached: to be thrown often in lane to charge the passive.",
+      "Dive into the shadows and gain very high movement speed for an instant: his repositioning tool. Strengthened during the ultimate, it lasts longer and returns much faster.",
+      "Briefly stuns the first hero hit and pulls itself over to them to attach to them. For three seconds, the target can no longer use a movement skill and trains it by moving; Obsidia gains a shield and temporary shards, passes through obstacles and attacks while moving."
+    ],
+    "strengths": [
+      "An ultimate that prevents the target from fleeing with a movement skill",
+      "Shards that strengthen each basic attack",
+      "Win rate measured above average, especially before the sixteenth minute",
+      "Shield and move attack during ultimate"
+    ],
+    "weaknesses": [
+      "Banned in over half of games starting with Mythic Honor",
+      "Performance measured decreasing in long games",
+      "In difficulty against Baxia, Diggie and Estes according to measurements"
+    ],
+    "builds": [
+      {
+        "name": "Gold lane review",
+        "context": "The most played build in Gold lane: Windtalker and Haas' Claws provide attack speed and critical chance to multiply basic attacks that send shards, Haas' Claws lifesteal, and Sky Piercer executes a hero who has fallen very low. It is associated with the fighter emblem and the talent Weakness Finder."
+      },
+      {
+        "name": "Heavy attacks",
+        "context": "Corrosion Scythe and Demon Hunter Sword instead of Windtalker and Haas' Claws: Basic attacks that slow, deal damage based on the target's current HP, and heal them. Less played, with a slightly higher measured win rate."
+      }
+    ]
+  },
+  "bruno": {
+    "summary": "Critical shooter who plays with a ball: his skills give him critical chance, and his ultimate bounces from enemy to enemy.",
+    "analysis": "Bruno gains critical chance each time a skill deals damage, stacking; in return, he has more physical attack but benefits less from attack speed. His skill 1 reinforces his next attack with a balloon shot which slows down, then the ball falls to the ground: recovering it gives a new attack and reduces the recharge of his skill 2. This is a slide which briefly stuns enemies in its path and returns a balloon to him. The ultimate hits a hero, knocks them back to the end of its range, stuns and slows them greatly, then bounces to other enemies, targeting the heroes first.\n\nIts measured figures are solid and consistent: victory rate above average at each rank and whatever the duration of the game, better in Mythic Glory, for almost zero bans. His best measured partner is Harith. The measurements place him in difficulty against Lolita, clearly, then against Lesley, Aamon, Karina and Saber.",
+    "skills": [
+      "Each skill that inflicts damage gives him a little critical chance, which can be stacked. He has more physical attack than normal, but only benefits from a portion of the attack speed bonuses.",
+      "Its next basic attack fires a ball that damages and slows the target, then falls to the ground. Picking him up or an ally allows a new attack and reduces the recharge of the slide.",
+      "A slide that briefly stuns enemies in its path and gives it a balloon on arrival: its escape and completion tool.",
+      "Hits an enemy hero, knocking him back to the end of his range, stunning and slowing him greatly, then bounces between enemies several times, aiming at the heroes first."
+    ],
+    "strengths": [
+      "Win rate measured above average at each rank",
+      "A slide that stuns and serves as an escape",
+      "An ultimate that pushes back, stuns then rebounds",
+      "Rarely banned"
+    ],
+    "weaknesses": [
+      "Only benefits from a portion of the attack speed bonuses",
+      "Depends on balloons to collect to chain",
+      "Struggling against Lolita, Lesley and Aamon according to measurements"
+    ],
+    "builds": [
+      {
+        "name": "Gold lane review",
+        "context": "The most played build in Gold lane: Haas' Claws and Berserker's Fury focus on the critical, which its passive fuels, Haas' Claws adds lifesteal and Malefic Gun physical penetration and range. The three most played versions share these items; the one with the fighter emblem with Flicker displays the best measured win rate."
+      }
+    ]
+  },
+  "layla": {
+    "summary": "Range shooter whose damage increases with distance, widely played at the front ranks and less and less as you go up.",
+    "analysis": "Layla shoots from afar and has an interest in staying there: her passive increases her damage with distance, up to a maximum at long range. His skill 1 launches a bomb which, if it hits, extends the range of his basic attacks and his skill 2 for a few seconds and accelerates it. His skill 2 marks the target; then hitting a marked target deals damage around it and stuns it very briefly. The ultimate permanently extends the range of its attacks and its skill 2, and launches with a powerful shot in a straight line.\n\nIts measured pick rate is high at Epic and Legend ranks and drops with each rank up to Mythic Glory, where its win rate is also lowest. It is very weak in games of less than twelve minutes, then above average between the fourteenth and the twentieth. She doesn't jump or teleport. The measurements put her in difficulty against Atlas, Johnson, Sun, Khufra and Hylos.",
+    "skills": [
+      "Its damage increases with distance from the target, reaching a maximum at long range. The effect does not apply to turrets.",
+      "A bomb that damages the first enemy hit and can critically hit. If she hits, her basic attacks and skill 2 carry further for a few seconds, and she gains a boost that lasts twice as long on a hero.",
+      "An orb that damages the target and its neighbors and marks them for a few seconds. Then hitting a marked target deals damage around it and stuns it very briefly.",
+      "Permanently extends the range of his basic attacks and his skill 2, and his vision a little. Launched, a powerful shot in a straight line that damages all enemies crossed."
+    ],
+    "strengths": [
+      "Long range, further extended by skill 1 and ultimate",
+      "Increased ranged damage",
+      "Win rate measured above average between the fourteenth and twentieth minutes"
+    ],
+    "weaknesses": [
+      "Neither jump nor teleport to escape",
+      "Very weak in short games according to measurements",
+      "Lowest measured win rate in Mythic Glory",
+      "In difficulty against Atlas, Johnson and Sun according to measures"
+    ],
+    "builds": [
+      {
+        "name": "Gold lane review",
+        "context": "The most played build in Gold lane, by far: Windtalker provides attack speed, critical and movement speed, Berserker's Fury critical damage, Haas' Claws lifesteal and attack speed on critical. It is associated with the Assassin Emblem, Talent Quantum Charge, and Spell Flicker."
+      }
+    ]
+  },
   "estes": {
     "summary": "The crudest heal in the game: its ultimate regenerates the entire team for several seconds.",
     "analysis": "Estes does nothing but heal, but he does it at a volume that no other support reaches. In a prolonged fight around an objective, his ultimate can negate an entire composition's worth of sustained damage.\n\nThis also makes him the most context-dependent hero in the entire game. Against a team that buys healing reduction, or has an initiation capable of removing him first, he becomes almost useless. It only provides area slowdown, little damage and no mobility: if it doesn't heal, it doesn't exist.",
@@ -870,6 +1333,37 @@
       {
         "name": "Roam on contact",
         "context": "The most played build, by far: Cursed Helmet burns enemies around her and thus maintains the flight of defenses from her passive, Dominance Ice reduces their healing, Antique Cuirass weakens the physical damage of those who touch her with skills."
+      }
+    ]
+  },
+  "marcel": {
+    "summary": "Control support whose ultimate freezes everything in a large area, except him and the allies he has protected.",
+    "analysis": "Marcel plays with Clemar, his photographer soul. Its passive automatically photographs nearby enemy heroes, freezes them for a moment, inflicts real damage on them and gives a shield of the same value to Marcel and a nearby ally; his basic attacks increase with his resistances, and his additional HP becomes hybrid resistance. His skill 2 accelerates him, more when he runs towards an enemy hero, then makes him jump leaving behind the area of ​​his skill 1, which greatly slows down the heroes then hits them after a short delay. The ultimate freezes all units in a large area for two seconds, including projectiles, and leaves only Marcel and the allies carrying his shield free.\n\nIts metrics are among the strongest in the game: second win rate of all heroes, and a ban that climbs with rank, rare in Epic, in more than two games out of three in Mythic Glory. He is especially formidable early on: his victory rate is highest in the shortest games and then drops with each duration period. Patch 2.2.16 extended the cooldowns of his skills 1 and 2 and his ultimate. The measures place him in difficulty against Floryn, Angela, Lesley, Esmeralda and Cyclops; his best measured partner is Kalea.",
+    "skills": [
+      "Clemar automatically photographs enemy heroes close to Marcel: the target is frozen for an instant and suffers raw damage, and Marcel, like a close ally, receives a shield of the same value, once per target at regular intervals. His basic attacks increase with his resistances.",
+      "An area around Marcel that greatly slows enemy heroes, then hits them after a short delay. Its damage increases with its physical and magical resistance.",
+      "Accelerates it for a few seconds, much more towards an enemy hero. Relaunched, he jumps leaving a double, while the area of ​​skill 1 remains in its place: enough to enter, place the area and exit.",
+      "After a short delay, freezes for two seconds all units in a large area, which only suffer the effects of Marcel; the projectiles freeze there too. Resets his passive for each enemy hero taken, and allies carrying his shield remain free."
+    ],
+    "strengths": [
+      "Second measured win rate of all heroes",
+      "An ultimate that freezes an entire area, including projectiles",
+      "An automatic shield for him and an ally",
+      "Very strong in short games according to measurements"
+    ],
+    "weaknesses": [
+      "Banned in more than two out of three games in Mythic Glory",
+      "Yield measured decreasing as the game lengthens",
+      "Struggling against Floryn, Angela and Lesley according to measurements"
+    ],
+    "builds": [
+      {
+        "name": "Roam",
+        "context": "The most played build in roam: Thunder Belt and Dominance Ice provide the resistances that benefit his attacks and his skill 1, Dominance Ice also reduces the healing and shields of nearby enemies, and Flask of the Oasis increases the healing given and protects an ally in danger."
+      },
+      {
+        "name": "Roam Flicker",
+        "context": "The same objects with Quantum Charge and Flicker: almost as played, for a victory rate measured lower than the Revitalize version."
       }
     ]
   },
@@ -1073,6 +1567,37 @@
       {
         "name": "Care received",
         "context": "Oracle instead of Radiant Armor reinforces the healing and shields he receives, including his own: less played, with a victory rate measured higher."
+      }
+    ]
+  },
+  "alice": {
+    "summary": "Tank mage who settles among enemies: as long as her skills hit, she burns everything around her and heals herself.",
+    "analysis": "Alice plays contact despite her magic damage. Two skills that hit in quick succession activate its passive, an aura that damages nearby enemies at regular intervals, heals and accelerates it, and which each skill that hits a hero prolongs. Her skill 1 launches a blast of blood that she can join by teleporting; her skill 2, with short recharge, hurts and slows heavily around her, and burns more when the aura is active. The ultimate makes it immune to controls and reduces the damage taken during its charge, then it falls back to the area, immobilizing enemies.\n\nIts measured figures are average, with a victory rate that improves a little in long games and a more frequent ban in Mythic than in Mythic Glory. In jungle, the most played build is clearly more played than all the others. The measurements place her in difficulty against Angela, Floryn, Karrie, Estes and Valir, and comfortable against Chip, Gloo, Tigreal, Barats and Atlas.",
+    "skills": [
+      "Each skill that hits gives him a charge; at two charges, an aura damages nearby enemies at regular intervals, heals it and speeds up its movement. Hitting a hero with a skill extends the aura.",
+      "Launches a blast of blood forward; revived before it dissipates, Alice teleports to her point of arrival. This is his initiation, and the only skill still usable during the ultimate's charge.",
+      "A dance that damages enemies around her and slows them down significantly. Active aura, it also burns the targets and heals them accordingly: to be relaunched as soon as it is available, its recharge is short.",
+      "During a short charge, Alice is immune to controls and takes less damage, but moves more slowly; it then falls back on the area, injuring and immobilizing all enemies present."
+    ],
+    "strengths": [
+      "Continuous healing as long as his skills affect",
+      "Unaffected by checks while the ultimate is charging",
+      "A short cooldown skill 2 that slows down significantly",
+      "Comfortable against Chip, Gloo and Tigreal according to measurements"
+    ],
+    "weaknesses": [
+      "An aura that goes out if his skills fail",
+      "Win rate measured lower in short games",
+      "Struggling against Angela, Floryn and Karrie according to measurements"
+    ],
+    "builds": [
+      {
+        "name": "Jungle",
+        "context": "The most played build in the jungle, clearly ahead of the others: Brute Force Breastplate and Oracle provide HP, armor and recharge reduction, and Oracle reinforces the healing received, including that of its aura; Concentrated Energy adds magic power, HP and hybrid lifesteal."
+      },
+      {
+        "name": "EXP lane",
+        "context": "The same three objects in EXP lane, with the spell Revitalize instead of Retribution: this is the most played version in this position."
       }
     ]
   }
