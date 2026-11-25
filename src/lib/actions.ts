@@ -13,9 +13,9 @@ import {
   allowAccountCode,
   allowCodeCheck,
   allowCodeRequest,
-  attemptsLeft,
   clearAccount,
-  recordWrongCode,
+  refundAttempt,
+  reserveAttempt,
 } from "./login-limits";
 import { safeNext } from "./login-next";
 import { connect as connectGame, identity, sendCode } from "./mlbb-auth";
@@ -74,7 +74,8 @@ export async function requestCode(_previous: State, data: FormData): Promise<Sta
 
   const { roleId, zoneId } = analysis.data;
   // The address first: a refused request must not use up the account's codes.
-  if (!allowCodeRequest(await callerAddress()) || !allowAccountCode(roleId, zoneId)) {
+  const address = await callerAddress();
+  if (!allowCodeRequest(address) || !allowAccountCode(roleId, zoneId, address)) {
     return { error: "loginForm.errors.tooMany", roleId: rawRole, zoneId: rawZone };
   }
   const result = await sendCode(roleId, zoneId);
@@ -105,13 +106,15 @@ export async function checkCode(_previous: State, data: FormData): Promise<State
   const { roleId, zoneId } = analysis.data;
   const back = { codeSent: true, roleId: String(roleId), zoneId: String(zoneId) };
   if (!allowCodeCheck(await callerAddress())) return { error: "loginForm.errors.tooMany", ...back };
-  // Five wrong codes: this one is burnt, the player asks for a new one.
-  if (!attemptsLeft(roleId, zoneId)) return { error: "loginForm.errors.tooManyAttempts", ...back };
+  // The attempt is taken before the service is asked, so parallel checks
+  // cannot all pass. Five used: this code is burnt, the player asks for a new one.
+  if (!reserveAttempt(roleId, zoneId)) return { error: "loginForm.errors.tooManyAttempts", ...back };
 
   const result = await connectGame(roleId, zoneId, code);
 
   if (!result.ok) {
-    if (result.reason === "loginForm.errors.wrongCode") recordWrongCode(roleId, zoneId);
+    // The service was down: the code was not judged, the attempt is given back.
+    if (result.reason === "loginForm.errors.unavailable") refundAttempt(roleId, zoneId);
     return {
       error: result.reason,
       codeSent: true,
