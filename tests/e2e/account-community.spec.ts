@@ -54,13 +54,24 @@ test.describe("sign-in", () => {
 
   test("the account pages lead a visitor to the sign-in", async ({ page }) => {
     await page.goto("/fr/account");
-    await expect(page).toHaveURL(/\/fr\/login$/);
+    await expect(page).toHaveURL(/\/fr\/login\?next=%2Ffr%2Faccount$/);
     await expect(playerId(page)).toBeVisible();
     await page.goto("/fr/account/profile");
-    await expect(page).toHaveURL(/\/fr\/login$/);
+    await expect(page).toHaveURL(/\/fr\/login\?next=%2Ffr%2Faccount%2Fprofile$/);
     // The former progress page now points at the account page, which asks to sign in (the section anchor follows).
     await page.goto("/fr/account/progress");
-    await expect(page).toHaveURL(/\/fr\/login(#progress)?$/);
+    await expect(page).toHaveURL(/\/fr\/login(\?next=%2Ffr%2Faccount)?(#progress)?$/);
+  });
+
+  test("the account pages answer a visitor with a real redirect, before any loading state", async ({ request }) => {
+    for (const [path, next] of [
+      ["/fr/account", "%2Ffr%2Faccount"],
+      ["/fr/account/profile", "%2Ffr%2Faccount%2Fprofile"],
+    ]) {
+      const response = await request.get(path, { maxRedirects: 0 });
+      expect(response.status(), path).toBe(307);
+      expect(response.headers().location, path).toMatch(new RegExp(`/fr/login\\?next=${next}$`));
+    }
   });
 
   test("the former progress page is a permanent redirect to the account page", async ({ request }) => {

@@ -27,6 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
     description: descriptionComparator(locale),
     share: t("pages.compare.ogDescription"),
     path: "/compare",
+    card: true,
   });
 }
 

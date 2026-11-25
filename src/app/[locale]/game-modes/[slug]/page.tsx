@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: t("pages.modes.titleMode", { name: mode.name }),
     description: t(`modeSheet.${slug}.text`),
     path: `/game-modes/${slug}`,
+    card: true,
     type: "article",
   });
 }

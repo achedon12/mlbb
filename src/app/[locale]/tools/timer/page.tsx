@@ -29,6 +29,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: t("pages.seo.timer.title"),
     description: t("pages.seo.timer.description", SEO_VALUES),
     path: PATH,
+    card: true,
     keywords: ["MLBB timer", "Lord spawn time", "Turtle spawn time", "buff respawn", "jungle timer", "Mobile Legends", "MLBB"],
   });
 }

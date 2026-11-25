@@ -626,6 +626,7 @@
       },
       "titleLane": "Tier list de {lane}: los mejores héroes",
       "titleRole": "Tier list {role}: los mejores {plural}",
+      "headingPatch": "{title} — parche {v}",
       "leadLane": "Los {n} héroes que se juegan en {lane}, clasificados con la misma regla que la tier list general: tasas de victoria y de baneo, todos los rangos juntos.",
       "leadRole": "Los {n} {plural} del juego, rol principal o secundario, clasificados con la misma regla que la tier list general: tasas de victoria y de baneo, todos los rangos juntos.",
       "filterNote": "Clasificación con todos los rangos. Las listas por rango, en cambio, reúnen todas las líneas y todos los roles.",
@@ -7021,7 +7022,13 @@
     "champion": "Ganador: {team}",
     "tool": "herramienta gratuita",
     "game": "juego del dia",
-    "toolsKicker": "Herramientas gratuitas"
+    "toolsKicker": "Herramientas gratuitas",
+    "heroesCount": "héroes",
+    "regions": "regiones",
+    "sources": "fuentes",
+    "modesCount": "{n} modos de juego",
+    "ranksCount": "{n} rangos",
+    "duelEdge": "puntos de tasa de victoria para {hero} en el duelo"
   },
   "visualStatus": {
     "provisional": "Provisional",

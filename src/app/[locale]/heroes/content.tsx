@@ -49,6 +49,7 @@ export function metaHeroes(locale: Locale, page = 1): Metadata {
       description: descriptionCatalog(locale),
       share: t("pages.heroes.ogDescription", { heroes: allHeroes.length, skins: countSkins }),
       path: PATH_HEROES,
+      card: true,
     }),
     locale,
     PATH_HEROES,

@@ -77,6 +77,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: t("pages.seo.heroesRole.title", { ...markers(t, role, roleHeroes(role).length), v: patchCurrent.version }),
     description: description(locale, role),
     path: pathRole(role),
+    card: true,
   });
 }
 

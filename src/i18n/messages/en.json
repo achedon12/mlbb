@@ -626,6 +626,7 @@
       },
       "titleLane": "{lane} tier list: the best heroes",
       "titleRole": "{role} tier list: the best {plural}",
+      "headingPatch": "{title} — patch {v}",
       "leadLane": "The {n} heroes who play {lane}, ranked by the same rule as the main tier list: win and ban rates, all ranks combined.",
       "leadRole": "All {n} {plural} in the game, main or secondary role, ranked by the same rule as the main tier list: win and ban rates, all ranks combined.",
       "filterNote": "Ranking across all ranks. The by-rank lists, for their part, cover every lane and every role.",
@@ -7021,7 +7022,13 @@
     "champion": "Winner: {team}",
     "tool": "Free tool",
     "game": "Game of the day",
-    "toolsKicker": "Free tools"
+    "toolsKicker": "Free tools",
+    "heroesCount": "heroes",
+    "regions": "regions",
+    "sources": "sources",
+    "modesCount": "{n} game modes",
+    "ranksCount": "{n} ranks",
+    "duelEdge": "win-rate points for {hero} in the matchup"
   },
   "visualStatus": {
     "provisional": "Provisional",

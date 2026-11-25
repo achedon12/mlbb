@@ -626,6 +626,7 @@
       },
       "titleLane": "Tier list {lane}: hero terbaik",
       "titleRole": "Tier list {role}: {plural} terbaik",
+      "headingPatch": "{title} — patch {v}",
       "leadLane": "Hero {n} yang dimainkan di {lane}, diklasifikasikan menurut aturan yang sama dengan tier list umum: win rate dan ban, semua peringkat digabungkan.",
       "leadRole": "{n} {plural} permainan, peran utama atau sekunder, diklasifikasikan menurut aturan yang sama dengan tier list umum: win rate dan ban, semua peringkat digabungkan.",
       "filterNote": "Memberi peringkat pada semua peringkat digabungkan. Daftar berdasarkan peringkat menyatukan semua lane dan semua peran.",
@@ -7021,7 +7022,13 @@
     "champion": "Pemenang: {team}",
     "tool": "Alat gratis",
     "game": "Permainan hari ini",
-    "toolsKicker": "Alat gratis"
+    "toolsKicker": "Alat gratis",
+    "heroesCount": "hero",
+    "regions": "wilayah",
+    "sources": "sumber",
+    "modesCount": "{n} mode permainan",
+    "ranksCount": "{n} rank",
+    "duelEdge": "poin win rate untuk {hero} dalam duel"
   },
   "visualStatus": {
     "provisional": "Sementara",

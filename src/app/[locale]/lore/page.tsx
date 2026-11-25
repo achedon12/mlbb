@@ -44,6 +44,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: t("pages.seo.lore.title"),
     description: description(locale),
     path: "/lore",
+    card: true,
     keywords: ["MLBB lore", "Mobile Legends lore", "Land of Dawn", "Moniyan Empire", "hero story"],
   });
 }

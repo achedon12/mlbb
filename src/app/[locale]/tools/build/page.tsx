@@ -25,6 +25,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: t("pages.seo.buildSimulator.title"),
     description: t("pages.seo.buildSimulator.description"),
     path: PATH,
+    card: true,
     keywords: ["build", "simulator", "calculator", "items", "emblems", "stats", "Mobile Legends", "MLBB"],
   });
 }

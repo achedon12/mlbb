@@ -18,6 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
     description: t("pages.watch.metaDescription"),
     share: t("pages.watch.ogDescription"),
     path: "/watch",
+    card: true,
   });
 }
 
