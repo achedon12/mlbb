@@ -374,8 +374,8 @@
       },
       "strengths": "Mga lakas",
       "weaknesses": "Mga kahinaan",
-      "analysisPending": "Wala pang nakasulat na pagsusuri",
-      "analysisText": "Wala pang nakasulat ng pagsusuri ng {name}: kung paano laruin, mga item na bibilhin, mga paborableng matchup. Pansamantala, ang iba pang mga tab ay nagbibigay ng mga numerong nasusukat sa ranggo na paglalaro.",
+      "overviewTitle": "Ang mahalaga",
+      "overviewNote": "Wala pang sumusulat ng pagsusuri tungkol kay {name}: galing ang buod na ito sa mga sukat sa ranked na laro.",
       "analysisTranslated": "Isinulat ang analysis sa French at isinalin nang awtomatiko.",
       "contribute": "Mag-ambag sa analysis na ito →",
       "overview": {
@@ -465,6 +465,7 @@
         "pick": "Pick",
         "ban": "Ban",
         "build": "Pinaka nilalaro na build",
+        "emblem": "Emblem",
         "buildWin": "{rate}% win rate",
         "counteredBy": "Sinalungat ng",
         "jump": "Mga shortcut sa mga seksyon"
@@ -5978,7 +5979,7 @@
           "ul": [
             "Mga antas ng tier list: score = win rate + {weightBan} × ban rate. S+ mula sa {tierSPlus} puntos, S mula sa {tierS}, A mula sa {tierA}, B mula sa {tierB}, C sa ibaba. Ang pick rate ay hindi pumapasok sa marka.",
             "Ang parehong pagkalkula ay inuulit para sa bawat rank slice (Epic, Legend, Mythical, Mythical Honor, Mythical Glory), para sa bawat lane at para sa bawat role.",
-            "Pagiging maaasahan: ang isang hero na pinili sa mas mababa sa {reliability}% ng mga laro ay nananatiling niraranggo, ngunit siya ay minarkahan ng asterisk, ang kanyang mga rate ay masyadong hindi matatag.",
+            "Pagiging maaasahan: ang win rate na nasukat sa kaunting laro ay inilalapit sa 50% ayon sa laki ng sample nito (ang agwat sa 50% ay nananatili sa bahaging pick / (pick + {reliability})). Ang hero na pinili sa mas mababa sa {reliability}% ng mga laro, o nababawasan ng higit sa {gapFragile} puntos dahil sa pagwawastong ito, ay nananatiling niraranggo kasama ang sarili niyang mga numero, pero may asterisk at inilalagay pagkatapos ng mga hero na maaasahan ang sukat sa parehong tier. Sa loob ng isang tier, sinusunod ang naitamang score, at ang No. 1 at ang podium ay para lamang sa mga hero na maaasahan ang sukat.",
             "Mga Trend: ang ebolusyon ng win rate sa loob ng pitong araw ay ipinapakita lamang mula sa {notable} point difference; sa ibaba, sumasama ito sa pag-ikot.",
             "Epekto ng isang patch: para sa bawat binagong hero, ang average na win rate ng {daysImpact} araw pagkatapos ng patch, kumpara sa {daysImpact} araw bago ito, hindi kasama ang araw mismo. Ito ay tumatagal ng hindi bababa sa {minImpact} araw na sinusukat sa bawat panig; isang pagkakaiba na mas mababa sa {thresholdImpact} punto ay ipinapakita sa kulay abo, bilang hindi makabuluhan.",
             "History: Ginagamit lang ang API sa huling tatlumpung araw. Pinapanatili ng site ang bawat pagbabasa mula noong {historyStart}, araw-araw sa nakalipas na {dailyDays} araw, pagkatapos ay sa average bawat linggo. Ang mga lumang linggo ay hindi ginagamit upang sukatin ang epekto ng isang patch.",

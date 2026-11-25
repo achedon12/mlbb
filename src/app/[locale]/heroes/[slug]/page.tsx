@@ -9,7 +9,7 @@ import { LOCALE_HTML } from "@/i18n/config";
 import { serializeJsonLd } from "@/lib/html";
 import Image from "next/image";
 import Link from "@/components/link";
-import { ShieldAlert, Swords, TriangleAlert } from "lucide-react";
+import { Sparkles, Swords, TriangleAlert } from "lucide-react";
 import { FavouriteButton } from "@/components/favourite-button";
 import { HeroSkills } from "@/components/hero-skills";
 import { HeroCombos } from "@/components/hero-combos";
@@ -350,8 +350,9 @@ export default async function HeroPage({ params }: Params) {
       </section>
     ) : null;
 
-  // The hero at a glance, under the poster on a phone: rates, tier, the most
-  // played build and the two worst matchups, each leading to its section.
+  // The hero at a glance, under the poster: the most played build, its emblem
+  // and the three worst matchups, each leading to its section (plus rates and
+  // tier on a phone, where the poster is shorter).
   const glanceJumps = [
     { id: "skills", label: t("pages.heroDetail.tab.skills") },
     ...(hasCounters || hasTeammates || analysis ? [{ id: "counters", label: t("pages.heroDetail.tab.counters") }] : []),
@@ -384,7 +385,7 @@ export default async function HeroPage({ params }: Params) {
           : null
       }
       countersByRank={mapValues(countersShown, (c) =>
-        c.weak.slice(0, 2).map((x) => ({ slug: x.slug, name: x.name, portrait: x.portrait })),
+        c.weak.slice(0, 3).map((x) => ({ slug: x.slug, name: x.name, portrait: x.portrait })),
       )}
       jumps={glanceJumps}
     />
@@ -606,7 +607,7 @@ export default async function HeroPage({ params }: Params) {
       <div className="page-wrap">
         <p className="mt-6 max-w-3xl text-sm leading-relaxed text-chalk-300 sm:text-base">{answer.join(" ")}</p>
       </div>
-      <div className="page-wrap lg:hidden">{glance}</div>
+      <div className="page-wrap">{glance}</div>
 
       {/* ── Facts, rank and ratings ───────────────────────────────────────
         The portrait follows the skin chosen in the gallery; the facts follow
@@ -734,31 +735,111 @@ export default async function HeroPage({ params }: Params) {
                   {summary}
                 </div>
               ) : (
-                <div className="space-y-12">
                 <Card className="shadow-[inset_0_3px_0_var(--color-gold-400)]">
-                  <p className="flex items-center gap-2 type-subtitle uppercase text-gold-400">
-                    <ShieldAlert size={20} aria-hidden />
-                    {t("pages.heroDetail.analysisPending")}
+                  <h2 className="flex items-center gap-2 type-subtitle uppercase text-gold-400">
+                    <Sparkles size={20} aria-hidden />
+                    {t("pages.heroDetail.overviewTitle")}
+                  </h2>
+                  {/*
+                    What the measurements say, in sentences on the left; the
+                    same facts as figures and faces on the right, from `lg`
+                    beside the text rather than under it.
+                  */}
+                  <div className="mt-4 grid gap-6 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:gap-10">
+                    {overview.length > 0 && (
+                      <div className="space-y-3 text-[1.05rem] leading-relaxed text-chalk-200">
+                        {overview.map((line) => (
+                          <p key={line}>{line}</p>
+                        ))}
+                      </div>
+                    )}
+                    <dl className="grid content-start gap-5 lg:border-l lg:border-night-800 lg:pl-8">
+                      {rankedEntry && (
+                        <div className="flex items-center gap-4">
+                          <BadgeTier tier={rankedEntry.tier} size="sm" />
+                          <div className="min-w-0">
+                            <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.heroDetail.stat.winRate")}</dt>
+                            <dd className="font-heading text-2xl font-bold tabular-nums leading-tight text-gold-400">
+                              {percent.format(rankedEntry.winRate)}
+                              <span className="text-sm">%</span>
+                              {rankedEntry.lowSample && (
+                                <span className="ml-1 text-base text-gold-400" title={t("pages.tierList.tooFew")}>
+                                  *<span className="sr-only">{t("pages.tierList.tooFew")}</span>
+                                </span>
+                              )}
+                            </dd>
+                          </div>
+                        </div>
+                      )}
+                      {reference && reference.items.length > 0 && (
+                        <div>
+                          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.heroDetail.glance.build")}</dt>
+                          <dd className="mt-1.5">
+                            <a href="#builds" className="group block">
+                              <span className="flex items-center gap-1.5">
+                                {reference.items.slice(0, 6).map((o, i) => {
+                                  const item = visualItem(o);
+                                  const name = namesItems.get(item.slug ?? "") ?? o;
+                                  return (
+                                    <span key={`${o}-${i}`} title={name} className="bevel-sm aspect-square min-w-0 max-w-11 flex-1 bg-night-800">
+                                      {item.image ? (
+                                        <Image src={item.image} alt={name} width={44} height={44} className="size-full object-contain" />
+                                      ) : (
+                                        <span className="grid size-full place-items-center text-xs text-chalk-500">{i + 1}</span>
+                                      )}
+                                    </span>
+                                  );
+                                })}
+                              </span>
+                              {reference.emblem && (
+                                <span className="mt-2 flex items-center gap-2 text-sm text-chalk-400">
+                                  {visualEmblem(reference.emblem).image && (
+                                    <Image
+                                      src={visualEmblem(reference.emblem).image!}
+                                      alt=""
+                                      width={24}
+                                      height={24}
+                                      className="size-6 object-contain"
+                                    />
+                                  )}
+                                  {t("pages.heroDetail.glance.emblem")} ·{" "}
+                                  <span className="font-semibold text-chalk-200 group-hover:text-gold-400">{nameEmblem(reference.emblem)}</span>
+                                </span>
+                              )}
+                            </a>
+                          </dd>
+                        </div>
+                      )}
+                      {countersAll && countersAll.weak.length > 0 && (
+                        <div>
+                          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.heroDetail.glance.counteredBy")}</dt>
+                          <dd className="mt-1.5">
+                            <ul className="space-y-1.5">
+                              {countersAll.weak.slice(0, 3).map((c) => (
+                                <li key={c.slug}>
+                                  <Link href={`/heroes/${c.slug}`} className="group flex items-center gap-2 text-sm">
+                                    <HeroPortrait source={c.portrait} name={c.name} size="small" decorative />
+                                    <span className="min-w-0 flex-1 truncate text-chalk-200 group-hover:text-gold-400">{c.name}</span>
+                                    <span className="shrink-0 font-heading font-bold tabular-nums text-blood-400">
+                                      {formatGap(c.advantage, locale)} {t("counters.pts")}
+                                    </span>
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </dd>
+                        </div>
+                      )}
+                    </dl>
+                  </div>
+                  {/* Nobody has written about this hero yet: said once, small, with the way to do it. */}
+                  <p className="mt-6 border-t border-night-800 pt-4 text-sm leading-relaxed text-chalk-500">
+                    {t("pages.heroDetail.overviewNote", { name: h.name })}{" "}
+                    <Link href="/contribute" className="font-semibold text-gold-400 hover:text-gold-300">
+                      {t("pages.heroDetail.contribute")}
+                    </Link>
                   </p>
-                  {overview.length > 0 && (
-                    <div className="mt-3 max-w-2xl space-y-2 leading-relaxed text-chalk-200">
-                      {overview.map((line) => (
-                        <p key={line}>{line}</p>
-                      ))}
-                    </div>
-                  )}
-                  <p className="mt-3 max-w-2xl text-sm leading-relaxed text-chalk-400">
-                    {t("pages.heroDetail.analysisText", { name: h.name })}
-                  </p>
-                  <Link
-                    href="/contribute"
-                    className="btn btn-secondary btn-sm mt-5"
-                  >
-                    {t("pages.heroDetail.contribute")}
-                  </Link>
                 </Card>
-                {summary}
-                </div>
               ),
             },
             {

@@ -374,8 +374,8 @@
       },
       "strengths": "Strengths",
       "weaknesses": "Weaknesses",
-      "analysisPending": "No written analysis yet",
-      "analysisText": "No one has yet written an analysis of {name}: how to play, items to buy, favorable matchups. In the meantime, the other tabs give the figures measured in ranked play.",
+      "overviewTitle": "The essentials",
+      "overviewNote": "No one has written an analysis of {name} yet: this summary comes from ranked-game measurements.",
       "analysisTranslated": "Analysis written in French and machine-translated.",
       "contribute": "Contribute to this analysis →",
       "overview": {
@@ -465,6 +465,7 @@
         "pick": "Pick",
         "ban": "Ban",
         "build": "Most played build",
+        "emblem": "Emblem",
         "buildWin": "{rate}% win rate",
         "counteredBy": "Countered by",
         "jump": "Shortcuts to sections"
@@ -5978,7 +5979,7 @@
           "ul": [
             "Tier list tiers: score = win rate + {weightBan} × ban rate. S+ from {tierSPlus} points, S from {tierS}, A from {tierA}, B from {tierB}, C below. The pick rate is not part of the score.",
             "The same computation is run again for each rank bracket (Epic, Legend, Mythic, Mythical Honor, Mythical Glory), for each lane and for each role.",
-            "Reliability: a hero picked in fewer than {reliability}% of games stays ranked but is marked with an asterisk, as its rates are too unstable.",
+            "Reliability: a win rate measured over few games is pulled toward 50% in proportion to its sample (the gap to 50% keeps the share pick / (pick + {reliability})). A hero picked in fewer than {reliability}% of games, or losing more than {gapFragile} points to this correction, stays ranked with its own figures, but is marked with an asterisk and placed after the reliably measured heroes of its tier. Within a tier, heroes follow the corrected score, and the No. 1 and podium spots only go to reliably measured heroes.",
             "Trends: the seven-day change in win rate is only shown from a {notable}-point gap; below that, it is lost in rounding.",
             "Effect of a patch: for each changed hero, the average win rate over the {daysImpact} days after the patch, compared with the {daysImpact} days before it, leaving out the day itself. At least {minImpact} measured days are needed on each side; a gap under {thresholdImpact} points is shown in grey, as not significant.",
             "History: the API only serves the last thirty days. The site keeps every reading since {historyStart}, day by day over the last {dailyDays} days, then as weekly averages. The older weeks are never used to measure a patch's effect.",
