@@ -3,6 +3,7 @@ import { z } from "zod";
 import { LOCALES } from "@/i18n/config";
 import type { BotConfig } from "./config";
 import { seal, unseal } from "./seal";
+import { DISCORD_COOKIE } from "@/lib/sign-in-gate";
 
 /**
  * Dashboard session: who logged in with Discord, in a sealed cookie
@@ -13,7 +14,7 @@ import { seal, unseal } from "./seal";
  * cookie, ten minutes long, scoped to the callback route.
  */
 
-export const SESSION_COOKIE = "mlbbdex_discord";
+export const SESSION_COOKIE = DISCORD_COOKIE;
 export const OAUTH_COOKIE = "mlbbdex_discord_oauth";
 export const SESSION_TTL_S = 7 * 24 * 3600;
 export const OAUTH_TTL_S = 10 * 60;

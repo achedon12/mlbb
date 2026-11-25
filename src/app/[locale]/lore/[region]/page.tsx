@@ -62,6 +62,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       names: listNames(locale, figures(r, locale)),
     }),
     path: `/lore/${r.key}`,
+    card: true,
     keywords: [`${r.name} MLBB`, "MLBB lore", "Mobile Legends lore", ...r.heroes.slice(0, 5).map((h) => `${h.name} lore`)],
   });
 }

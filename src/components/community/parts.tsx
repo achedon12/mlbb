@@ -4,7 +4,7 @@ import { HeroPortrait } from "@/components/hero-portrait";
 import { DexNote } from "@/components/stage";
 import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import type { T } from "@/i18n/t";
-import { threadPath, type Category } from "@/lib/community/constants";
+import { threadPath } from "@/lib/community/constants";
 import type { ThreadSummary } from "@/lib/community/store";
 import { allHeroes, heroesBySlug } from "@/lib/data";
 import { plural } from "@/lib/player-format";
@@ -17,19 +17,8 @@ import { cn } from "@/lib/utils";
  * these render as HTML only.
  */
 
-/**
- * The artwork of each forum category: a hero whose official art says what
- * the category is about (the tank who welcomes, the duelist of builds, the
- * climber of ranked…), and where in the frame the face sits.
- */
-export const CATEGORY_ART: Record<Category, { hero: string; position: string }> = {
-  general: { hero: "tigreal", position: "50% 22%" },
-  "heroes-builds": { hero: "alucard", position: "50% 20%" },
-  "ranked-help": { hero: "lancelot", position: "55% 20%" },
-  esports: { hero: "ling", position: "50% 18%" },
-  guides: { hero: "kagura", position: "50% 20%" },
-  "site-feedback": { hero: "harith", position: "50% 25%" },
-};
+// Kept with the categories, so the share images can read it too.
+export { CATEGORY_ART } from "@/lib/community/constants";
 
 /** "3 hours ago", in the page's language, from the request time. */
 export function ago(locale: Locale, date: Date, now: number): string {

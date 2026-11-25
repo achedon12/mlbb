@@ -59,6 +59,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       heroes,
     }),
     path: `/esports/players/${slug}`,
+    card: true,
   });
 }
 

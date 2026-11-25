@@ -96,6 +96,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: patchCurrent ? t("pages.versus.metaTitle", { ...names, v: patchCurrent.version }) : t("pages.versus.metaTitleNoPatch", names),
     description: `${sentence} ${t("pages.duos.updatedOn", { date: longDate(locale) })}`,
     path: pathPair(p.a.slug, p.b.slug),
+    card: true,
     type: "article",
   });
   // A pair with no measured duel at any rank is not in the sitemap and has

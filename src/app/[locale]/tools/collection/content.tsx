@@ -32,6 +32,7 @@ export function metaCollection(locale: Locale, page = 1): Metadata {
       title: t("pages.seo.collection.title"),
       description: description(locale),
       path: PATH,
+      card: true,
       keywords: ["MLBB collection value", "skin value", "diamonds", "Mobile Legends skins", "calculator"],
     }),
     locale,

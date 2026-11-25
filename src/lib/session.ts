@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
 import { cache } from "react";
 import { expiration, lastKnownProfile, profile, type Profile } from "./mlbb-auth";
+import { GAME_COOKIE } from "./sign-in-gate";
 
 /**
  * Game session.
@@ -10,7 +11,7 @@ import { expiration, lastKnownProfile, profile, type Profile } from "./mlbb-auth
  * keep on its side — no database, no sessions table. Logging
  * out means deleting the cookie; expiry is what the token says.
  */
-const COOKIE = "mlbb_jeu";
+const COOKIE = GAME_COOKIE;
 
 export async function openSession(token: string): Promise<void> {
   const exp = expiration(token);

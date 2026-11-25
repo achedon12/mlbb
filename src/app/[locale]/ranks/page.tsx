@@ -81,6 +81,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: t("pages.seo.ranks.title"),
     description: description(locale),
     path: PATH,
+    card: true,
     keywords: ["rank system", "ranks", "Mythical Immortal", "Mythical Glory", "stars", "season rewards", "MLBB"],
   });
 }

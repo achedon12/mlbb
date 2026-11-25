@@ -11,6 +11,20 @@ export const CATEGORIES = ["general", "heroes-builds", "ranked-help", "esports",
 export type Category = (typeof CATEGORIES)[number];
 export const isCategory = (value: string): value is Category => (CATEGORIES as readonly string[]).includes(value);
 
+/**
+ * The artwork of each forum category: a hero whose official art says what
+ * the category is about (the tank who welcomes, the duelist of builds, the
+ * climber of ranked…), and where in the frame the face sits.
+ */
+export const CATEGORY_ART: Record<Category, { hero: string; position: string }> = {
+  general: { hero: "tigreal", position: "50% 22%" },
+  "heroes-builds": { hero: "alucard", position: "50% 20%" },
+  "ranked-help": { hero: "lancelot", position: "55% 20%" },
+  esports: { hero: "ling", position: "50% 18%" },
+  guides: { hero: "kagura", position: "50% 20%" },
+  "site-feedback": { hero: "harith", position: "50% 25%" },
+};
+
 // -- Sizes and limits ------------------------------------------------------
 
 export const TITLE_MIN = 5;
