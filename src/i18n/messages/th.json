@@ -2459,7 +2459,6 @@
       },
       "noStarlight": "วิกิไม่ได้ระบุสกิน StarLight สำหรับเดือนนี้",
       "noCollector": "ตามข้อมูลวิกิ ไม่มีสกิน Collector วางจำหน่ายในเดือนนั้น",
-      "rarityUnknown": "ยังไม่ระบุความหายาก",
       "skinOf": "{skin} ({hero})",
       "summary": {
         "starlight": "สกิน StarLight ประจำเดือน: {list}",
