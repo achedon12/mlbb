@@ -6147,7 +6147,9 @@
       "code": "Le code doit comporter quatre chiffres.",
       "unknown": "Aucun compte ne correspond à cet identifiant et ce serveur.",
       "unavailable": "Le service est momentanément indisponible.",
-      "wrongCode": "Code incorrect ou expiré."
+      "wrongCode": "Code incorrect ou expiré.",
+      "tooMany": "Trop de tentatives. Patientez quelques minutes, puis réessayez.",
+      "tooManyAttempts": "Trop de codes erronés. Demandez un nouveau code pour réessayer."
     },
     "steps": "Étapes de connexion",
     "step1": "Votre identifiant",

@@ -1,12 +1,23 @@
 "use server";
 
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { z } from "zod";
+import { clientAddress } from "./client-address";
 import { accountId } from "./community-builds-server";
 import { databaseConfigured } from "./db";
 import { setCardToken } from "./discord-profile/store";
 import { sealGameToken } from "./discord-profile/token";
 import { logError } from "./log";
+import {
+  allowAccountCode,
+  allowCodeCheck,
+  allowCodeRequest,
+  attemptsLeft,
+  clearAccount,
+  recordWrongCode,
+} from "./login-limits";
+import { safeNext } from "./login-next";
 import { connect as connectGame, identity, sendCode } from "./mlbb-auth";
 import { closeSession, openSession } from "./session";
 
@@ -24,6 +35,11 @@ export interface State {
   codeSent?: boolean;
   roleId?: string;
   zoneId?: string;
+}
+
+/** The window key of the rate limits: the trusted address, or one shared window without it. */
+async function callerAddress(): Promise<string> {
+  return clientAddress(await headers()) ?? "unknown";
 }
 
 const credentials = z.object({
@@ -57,6 +73,10 @@ export async function requestCode(_previous: State, data: FormData): Promise<Sta
   }
 
   const { roleId, zoneId } = analysis.data;
+  // The address first: a refused request must not use up the account's codes.
+  if (!allowCodeRequest(await callerAddress()) || !allowAccountCode(roleId, zoneId)) {
+    return { error: "loginForm.errors.tooMany", roleId: rawRole, zoneId: rawZone };
+  }
   const result = await sendCode(roleId, zoneId);
 
   if (!result.ok) {
@@ -83,9 +103,15 @@ export async function checkCode(_previous: State, data: FormData): Promise<State
   }
 
   const { roleId, zoneId } = analysis.data;
+  const back = { codeSent: true, roleId: String(roleId), zoneId: String(zoneId) };
+  if (!allowCodeCheck(await callerAddress())) return { error: "loginForm.errors.tooMany", ...back };
+  // Five wrong codes: this one is burnt, the player asks for a new one.
+  if (!attemptsLeft(roleId, zoneId)) return { error: "loginForm.errors.tooManyAttempts", ...back };
+
   const result = await connectGame(roleId, zoneId, code);
 
   if (!result.ok) {
+    if (result.reason === "loginForm.errors.wrongCode") recordWrongCode(roleId, zoneId);
     return {
       error: result.reason,
       codeSent: true,
@@ -94,9 +120,11 @@ export async function checkCode(_previous: State, data: FormData): Promise<State
     };
   }
 
+  clearAccount(roleId, zoneId);
   await openSession(result.token);
   await renewCardToken(result.token);
-  redirect("/account");
+  // Back to the page that sent the visitor here, when it is one of the site's.
+  redirect(safeNext(data.get("next")) ?? "/account");
 }
 
 /**

@@ -6147,7 +6147,9 @@
       "code": "The code must be four digits.",
       "unknown": "No account matches this ID and server.",
       "unavailable": "The service is temporarily unavailable.",
-      "wrongCode": "Incorrect or expired code."
+      "wrongCode": "Incorrect or expired code.",
+      "tooMany": "Too many attempts. Wait a few minutes, then try again.",
+      "tooManyAttempts": "Too many wrong codes. Request a new code to try again."
     },
     "steps": "Connection steps",
     "step1": "Your ID",

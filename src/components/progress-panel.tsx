@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { Check, Cloud, CloudOff, Copy, ExternalLink, HardDrive, LogIn, RefreshCw, Trash2 } from "lucide-react";
-import Link from "@/components/link";
+import { LoginLink } from "@/components/login-link";
 import { Badges, MlbbdleFigures, ProgressCard, QuizFigures } from "@/components/progress-view";
 import { useLocale, useT } from "@/i18n/provider";
 import { trackEvent } from "@/lib/analytics";
@@ -98,10 +98,10 @@ export function SyncStatus({ signedIn, available }: { signedIn: boolean; availab
           <p className="font-heading text-lg font-bold uppercase text-chalk-100">{t("pages.progress.signedOutTitle")}</p>
           <p className="mt-1 text-sm text-chalk-400">{t("pages.progress.signedOutText")}</p>
         </div>
-        <Link href="/login" className="btn btn-primary btn-sm">
+        <LoginLink className="btn btn-primary btn-sm">
           <LogIn size={15} aria-hidden />
           {t("account.signIn")}
-        </Link>
+        </LoginLink>
       </div>
     );
   }

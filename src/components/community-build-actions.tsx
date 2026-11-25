@@ -5,6 +5,7 @@ import { useEffect, useId, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Send, ThumbsUp, Trash2 } from "lucide-react";
 import Link from "@/components/link";
+import { LoginLink } from "@/components/login-link";
 import { useLocale, useT } from "@/i18n/provider";
 import { prefix } from "@/i18n/links";
 import { trackEvent } from "@/lib/analytics";
@@ -43,9 +44,9 @@ export function VoteButton({
         <ThumbsUp size={16} aria-hidden className="text-chalk-500" />
         <span className="tabular-nums">{t("pages.communityBuildsUI.votes", { n: state.votes })}</span>
         {!own && (
-          <Link href="/login" className="text-gold-400 underline underline-offset-4 hover:text-gold-500">
+          <LoginLink className="text-gold-400 underline underline-offset-4 hover:text-gold-500">
             {t("pages.communityBuildsUI.signInToVote")}
-          </Link>
+          </LoginLink>
         )}
       </span>
     );
@@ -223,9 +224,9 @@ export function PublishBuild({ build }: { build: BuildCode }) {
       ) : !session.connected ? (
         <p className="text-sm text-chalk-300">
           {t("pages.communityBuildsUI.signInToPublish")}{" "}
-          <Link href="/login" className="text-gold-400 underline underline-offset-4 hover:text-gold-500">
+          <LoginLink className="text-gold-400 underline underline-offset-4 hover:text-gold-500">
             {t("pages.communityBuildsUI.signIn")}
-          </Link>
+          </LoginLink>
         </p>
       ) : (
         <form onSubmit={submit} className="space-y-3">

@@ -6147,7 +6147,9 @@
       "code": "El código debe tener cuatro dígitos.",
       "unknown": "Ninguna cuenta coincide con este ID y servidor.",
       "unavailable": "El servicio no está disponible en este momento.",
-      "wrongCode": "Código incorrecto o caducado."
+      "wrongCode": "Código incorrecto o caducado.",
+      "tooMany": "Demasiados intentos. Espera unos minutos y vuelve a intentarlo.",
+      "tooManyAttempts": "Demasiados códigos incorrectos. Solicita un código nuevo para volver a intentarlo."
     },
     "steps": "Pasos de conexión",
     "step1": "Tu identificación",

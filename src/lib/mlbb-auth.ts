@@ -26,6 +26,7 @@ import {
   type StatsPlayer,
 } from "@/lib/player-api";
 import { logError } from "@/lib/log";
+import { createBreaker, isOutage } from "@/lib/circuit-breaker";
 
 const BASE = "https://arena.rone.dev/api/user";
 
@@ -61,17 +62,40 @@ export interface Profile {
   avatar: string | null;
 }
 
-async function apiCall(path: string, options: RequestInit = {}) {
-  return fetch(`${BASE}${path}`, {
+/** Past this, a read gives up: a page must not hang on a slow service. */
+const READ_TIMEOUT_MS = 7000;
+
+/**
+ * One breaker per host: arena.rone.dev (login, profile, matches) and
+ * Moonton's own account service (friends) fail independently.
+ */
+const arena = createBreaker();
+const moonton = createBreaker();
+
+/** Closes both breakers. For tests. */
+export function resetBreakers(): void {
+  arena.reset();
+  moonton.reset();
+}
+
+/**
+ * A call to arena.rone.dev, or null without touching the network while the
+ * breaker is open after a 429 or a 5xx.
+ */
+async function apiCall(path: string, options: RequestInit = {}): Promise<Response | null> {
+  if (arena.paused()) return null;
+  const response = await fetch(`${BASE}${path}`, {
     ...options,
     headers: {
       "Content-Type": "application/json",
       "User-Agent": UA,
       ...options.headers,
     },
-    signal: AbortSignal.timeout(15000),
+    signal: AbortSignal.timeout(READ_TIMEOUT_MS),
     cache: "no-store",
   });
+  arena.record(response.status, response.headers.get("retry-after"));
+  return response;
 }
 
 /**
@@ -88,6 +112,8 @@ export async function sendCode(
       method: "POST",
       body: JSON.stringify({ role_id: roleId, zone_id: zoneId }),
     });
+    // Overloaded or down: not a verdict on the account.
+    if (!response || isOutage(response.status)) return { ok: false, reason: "loginForm.errors.unavailable" };
 
     const data = (await response.json()) as { code?: number; message?: string };
     if (response.ok && data.code === 0) return { ok: true };
@@ -115,6 +141,8 @@ export async function connect(
       method: "POST",
       body: JSON.stringify({ role_id: roleId, zone_id: zoneId, vc: code }),
     });
+    // Overloaded or down: not a verdict on the code.
+    if (!response || isOutage(response.status)) return { ok: false, reason: "loginForm.errors.unavailable" };
 
     const data = (await response.json()) as {
       code?: number;
@@ -151,6 +179,7 @@ async function authenticated<T>(
 ): Promise<Result<T>> {
   try {
     const response = await apiCall(path, { headers: { Authorization: `Bearer ${token}` } });
+    if (!response) return { status: "unavailable" };
 
     if (response.status === 401) return { status: "expired" };
     if (!response.ok) return { status: "unavailable" };
@@ -179,11 +208,14 @@ async function authenticated<T>(
  * paginating must not request everything again: each successful response is
  * kept a few minutes in server memory, under a key derived from the token —
  * never the token itself. Nothing is written to disk or shared between
- * players, and a failure is never kept. Two simultaneous calls to the same
- * path share the same request.
+ * players. An outage ("unavailable") is kept only half a minute, so a page
+ * reload during a wave of 429s does not send the same calls again; an
+ * expired session is never kept. Two simultaneous calls to the same path
+ * share the same request.
  */
 const MEMORY = new Map<string, { end: number; value: Promise<Result<unknown>> }>();
 const MEMORY_MAX = 500;
+const UNAVAILABLE_SECONDS = 30;
 
 /** Key of a token in server memory: its hash, never the token itself. */
 const tokenKey = (token: string) => createHash("sha256").update(token).digest("base64url");
@@ -203,7 +235,10 @@ function remember<T>(
   MEMORY.delete(key);
   MEMORY.set(key, { end: now + seconds * 1000, value });
   void value.then((r) => {
-    if (r.status !== "ok" && MEMORY.get(key)?.value === value) MEMORY.delete(key);
+    const entry = MEMORY.get(key);
+    if (r.status === "ok" || entry?.value !== value) return;
+    if (r.status === "expired") MEMORY.delete(key);
+    else entry.end = Math.min(entry.end, Date.now() + UNAVAILABLE_SECONDS * 1000);
   });
   // Beyond the cap, the oldest entries are evicted first.
   for (const old of MEMORY.keys()) {
@@ -451,6 +486,7 @@ export async function detailsMatches(
  */
 export async function friends(token: string): Promise<Result<Friend[]>> {
   const { roleId, zoneId } = identity(token);
+  if (moonton.paused()) return { status: "unavailable" };
   try {
     const response = await fetch(`${MOONTON}/getFriendList`, {
       method: "POST",
@@ -468,9 +504,10 @@ export async function friends(token: string): Promise<Result<Friend[]>> {
         roleId: String(roleId),
         zoneId: String(zoneId),
       }).toString(),
-      signal: AbortSignal.timeout(15000),
+      signal: AbortSignal.timeout(READ_TIMEOUT_MS),
       cache: "no-store",
     });
+    moonton.record(response.status, response.headers.get("retry-after"));
 
     if (response.status === 401) return { status: "expired" };
     if (!response.ok) return { status: "unavailable" };
