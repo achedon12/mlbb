@@ -11,10 +11,12 @@ import { ShareImageButton } from "@/components/share-image-button";
 import { artOf } from "@/components/tool-art";
 import { SectionTitle } from "@/components/ui";
 import { LOCALE_INTL, type Locale } from "@/i18n/config";
-import { metaPage, notFoundMetadata } from "@/i18n/seo";
+import { guideData, metaPage, notFoundMetadata } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
 import { heroesBySlug, patchDetails } from "@/lib/data";
-import { longDate } from "@/lib/freshness";
+import { dateMeasure, longDate } from "@/lib/freshness";
+import { serializeJsonLd } from "@/lib/html";
+import { site } from "@/lib/site";
 import { hasRecap, type RecapEntry } from "@/lib/patch-recap";
 import { recapOf, recapVersions } from "@/lib/patch-recap-server";
 import { newestFirst } from "@/lib/patch-version";
@@ -152,6 +154,22 @@ export default async function PatchRecapPage({ params }: Params) {
           ? t("pages.patchRecap.averagesNerf", { nerf: formatGap(recap.meanNerf, intl) })
           : null;
 
+  // A measured recap is an article: dated by its patch, modified with the
+  // latest measurement it reads. Without a measure the page is not indexed.
+  const structuredData = hasRecap(recap)
+    ? guideData(
+        {
+          title: t("pages.patchRecap.seoTitle", { v }),
+          summary: t("pages.patchRecap.description", { v, n: recap.measured, days: DAYS_IMPACT }),
+          date: patch.date ?? dateMeasure,
+          updated: dateMeasure,
+          author: site.author,
+          keywords: [],
+        },
+        { path: `/patch-notes/${slug}/bilan`, locale, section: t("nav.patchNotes.label") },
+      )
+    : null;
+
   const facts = [
     t("pages.patchRecap.facts.adjusted", { n: recap.adjusted }),
     t("pages.patchRecap.facts.measured", { n: recap.measured }),
@@ -160,6 +178,9 @@ export default async function PatchRecapPage({ params }: Params) {
 
   return (
     <>
+      {structuredData && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
+      )}
       <EditorialPoster
         art={art}
         crumbs={[

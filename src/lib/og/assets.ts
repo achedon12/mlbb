@@ -147,3 +147,18 @@ export const dexWidth = (pose: DexPose, height: number) => Math.round((DEX_SIZE[
 export function ogDex(pose: DexPose, height: number): Promise<string | null> {
   return ogPicture(`/mascot/dex-${pose}.webp`, dexWidth(pose, height), height, { fit: "contain" });
 }
+
+/**
+ * A rendered card re-encoded as JPEG. The image engine only writes PNG, and
+ * a card over a full artwork weighs about a megabyte that way; as a JPEG it
+ * stays well under 300 KB, which messaging apps and social networks fetch
+ * faster. The route declares `contentType = "image/jpeg"` to match.
+ */
+export async function asJpeg(image: Response, quality = 82): Promise<Response> {
+  const png = Buffer.from(await image.arrayBuffer());
+  const jpeg = await sharp(png).flatten({ background: "#06080F" }).jpeg({ quality, mozjpeg: true }).toBuffer();
+  const headers = new Headers(image.headers);
+  headers.set("Content-Type", "image/jpeg");
+  headers.delete("Content-Length");
+  return new Response(new Uint8Array(jpeg), { status: image.status, headers });
+}

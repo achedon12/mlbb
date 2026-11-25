@@ -377,6 +377,11 @@
       "analysisText": "Nessuno ha ancora scritto un'analisi di {name}: come giocare, oggetti da acquistare, abbinamenti favorevoli. Nel frattempo, le altre schede riportano i dati misurati nel gioco classificato.",
       "analysisTranslated": "Analisi scritta in francese e tradotta automaticamente.",
       "contribute": "Contribuisci a questa analisi →",
+      "overview": {
+        "matchups": "{name} soffre soprattutto contro {weak} e se la cava meglio contro {strong}.",
+        "matchupsWeak": "{name} soffre soprattutto contro {weak}.",
+        "teammates": "Migliori compagni di squadra: {teammates}."
+      },
       "countersIntro": "Calcolato in base alle percentuali di vincita del gioco: la distribuzione dei punti indica quanto varia la percentuale di vincita di {name} contro ciascun avversario.",
       "countersRef": "Percentuale di vittoria di riferimento: {rate}%.",
       "matchups": "Analisi dei matchup",
@@ -569,7 +574,7 @@
       "all": "Tutte le notizie"
     },
     "tierList": {
-      "title": "Tier list",
+      "title": "Tier list di MLBB",
       "lead": "Questa classifica non è un'opinione: viene calcolata in base ai tassi di vincita e ban riportati dal gioco, e viene ricalcolata ad ogni sincronizzazione.",
       "metaDescription": "Tier list di Mobile Legends: Bang Bang calcolata dalle percentuali di vittoria e di ban fornite dal gioco. Ricalcolata a ogni sincronizzazione, senza opinioni.",
       "ogDescription": "Classifica calcolata dalle percentuali di vittoria e di ban del gioco.",
@@ -668,6 +673,7 @@
     },
     "patchNotes": {
       "title": "Patch notes",
+      "heading": "Patch notes di MLBB",
       "lead": "Il contenuto degli aggiornamenti recenti è riportato qui, sezione per sezione. Le patch più vecchie restano elencate, con un link alla loro pagina originale.",
       "metaDescription": "Le patch {n} di Mobile Legends: Bang Bang, con i dettagli degli aggiornamenti recenti, possono essere visualizzate sul sito.",
       "ogDescription": "Le {n} patch del gioco, con i dettagli delle più recenti.",
@@ -678,6 +684,7 @@
       "older": "Le patch più vecchie non sono incluse per intero: il loro contenuto rappresenterebbe diversi megabyte per le versioni che nessuno gioca più.",
       "officialDescription": "Note ufficiali dell'aggiornamento {version} di Mobile Legends: Bang Bang: nuovi eroi, bilanciamenti e modifiche agli oggetti.",
       "officialShare": "Note dell'aggiornamento {version}.",
+      "analysisLink": "Leggi la nostra analisi della patch {v}",
       "official": "Note ufficiali",
       "nSections": "{n} sezioni",
       "all": "Tutte le patch notes",
@@ -1174,10 +1181,11 @@
     },
     "seo": {
       "hero": {
-        "title": "{name}: build, emblema, counter (tier {tier}, patch {v})",
-        "titleNoTier": "{name}: build, emblema, counter (patch {v})",
-        "counters": "Migliori contatori da {name} a {rank}: {counters}.",
-        "countersAll": "Migliori counter di {name}, tutti i gradi combinati: {counters}.",
+        "title": "{name} MLBB: build, emblema, counter (tier {tier}, patch {v})",
+        "titleNoTier": "{name} MLBB: build, emblema, counter (patch {v})",
+        "titleShort": "{name}: build, emblema, counter (patch {v})",
+        "counters": "Migliori counter contro {name} in {rank}: {counters}.",
+        "countersAll": "Migliori counter contro {name}, in tutti i rank: {counters}.",
         "build": "Build più giocata: {items}.",
         "buildEmblem": "Build più giocata: {items}, emblema {emblem}.",
         "rate": "Tasso di vittoria {winRate}, tier {tier}."
@@ -1262,7 +1270,7 @@
       },
       "quiz": {
         "title": "Quiz MLBB: indovina l'eroe del giorno",
-        "description": "Ogni giorno una nuova sfida Mobile Legends: Bang Bang: indovina l'eroe in base a un'abilità, un dettaglio dell'aspetto o un estratto della sua storia, trova l'oggetto in base alle sue statistiche e scegli la migliore percentuale di vincita. Indizi per ogni errore, serie e griglia senza spoiler da condividere. Gratuito, senza registrazione."
+        "description": "Quiz quotidiano di Mobile Legends: indovina l'eroe da un'abilità, una skin o la sua storia, trova l'oggetto e scegli il win rate più alto. Gratis."
       },
       "tierMaker": {
         "title": "Creatore di tier list MLBB: crea e condividi la tua",
@@ -2469,7 +2477,13 @@
         "announced": "Mese annunciato: queste skin compaiono in una lista della wiki della community prima dell'uscita nel gioco. Date e prezzi sono ancora da confermare.",
         "navMonths": "Mese precedente e successivo",
         "allMonths": "Tutti i mesi",
-        "yearLink": "Tutte le skin uscite nel {year}"
+        "yearLink": "Tutte le skin uscite nel {year}",
+        "next": {
+          "title": "Continua a esplorare",
+          "heroes": "Gli eroi in primo piano questo mese",
+          "heroLink": "Build di {name}",
+          "related": "Pagine correlate"
+        }
       },
       "entry": {
         "starlight": "Skin StarLight: {skin} ({hero})",
@@ -2881,6 +2895,14 @@
         "announcedNew": "Nuovo eroe presentato nella versione {v}: {name}.",
         "announcedRevamp": "Un rework di {name} è presentato nella versione {v}.",
         "readVersion": "Tutte le note della versione {v}"
+      },
+      "archived": {
+        "title": "Archivio delle note dell'Advance Server",
+        "lead": "L'Advance Server è il server di prova di Mobile Legends. La wiki della community ha smesso di documentarlo dopo la versione {v}: queste pagine conservano, come archivio, le note pubblicate fino ad allora. Per ciò che è in gioco oggi, consulta le note della patch attuale.",
+        "latest": "Ultima versione archiviata",
+        "current": "Note della patch attuale ({v})",
+        "seoTitle": "Archivio Advance Server MLBB: note di prova fino a {v}",
+        "seoDescription": "Archivio delle note dell'Advance Server, il server di prova di Mobile Legends, fino alla versione {version}. La wiki non documenta più questo server."
       }
     },
     "esports": {

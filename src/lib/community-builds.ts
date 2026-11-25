@@ -196,6 +196,15 @@ export function sortBuilds(list: readonly StoredBuild[], order: SortOrder, now: 
 
 export const isIndexable = (votes: number) => votes >= INDEX_THRESHOLD;
 
+/**
+ * Heroes with at least one build the hub needs before search engines may
+ * index it: with one or two, it is a near-empty page.
+ */
+export const HUB_INDEX_HEROES = 5;
+
+export const isHubIndexable = (builds: { build: { hero: string } }[]) =>
+  new Set(builds.map((b) => b.build.hero)).size >= HUB_INDEX_HEROES;
+
 // -- Requests --------------------------------------------------------------
 
 /**

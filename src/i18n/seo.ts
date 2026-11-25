@@ -61,11 +61,12 @@ export function postData(a: Article, path: string, locale: Locale) {
 /**
  * Structured data of a guide: an `Article` rather than a `BlogPosting`, since
  * a guide is kept up to date instead of being dated news. `dateModified` is
- * its last revision, `timeRequired` the reading time shown on the page.
+ * its last revision, `timeRequired` the reading time shown on the page, left
+ * out for a page that shows none (a patch recap).
  */
 export function guideData(
   g: { title: string; summary: string; date: string; updated: string; author: string; keywords: string[] },
-  o: { path: string; locale: Locale; minutes: number; section: string },
+  o: { path: string; locale: Locale; minutes?: number; section: string },
 ) {
   return {
     "@context": "https://schema.org",
@@ -76,7 +77,7 @@ export function guideData(
     dateModified: g.updated,
     inLanguage: LOCALE_HTML[o.locale],
     articleSection: o.section,
-    timeRequired: `PT${o.minutes}M`,
+    ...(o.minutes ? { timeRequired: `PT${o.minutes}M` } : {}),
     ...(g.keywords.length ? { keywords: g.keywords.join(", ") } : {}),
     author: { "@type": "Person", name: g.author, url: `https://github.com/${g.author}` },
     publisher: { "@type": "Organization", name: site.name, url: site.url },
