@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { OpenAnchor } from "@/components/open-anchor";
 import { propsCardSkin } from "@/components/skin-card";
 import { WikiCredit } from "@/components/wiki-credit";
+import { SupportCard } from "@/components/support-links";
 import { SkinExplorer } from "@/components/skin-explorer";
 import { SkinGrid } from "@/components/skin-grid";
 import { FreshnessLine } from "@/components/freshness";
@@ -76,6 +77,7 @@ export function metaCalendar(locale: Locale, page = 1): Metadata {
       title: t("pages.seo.skinsCalendar.title"),
       description: description(locale),
       path: PATH,
+      card: true,
       keywords: ["MLBB skins", "skin release date", "Mobile Legends skins", "Collector", "StarLight", "Epic", "Legend"],
     }),
     locale,
@@ -371,6 +373,7 @@ export function SkinsCalendar({ locale, page = 1 }: { locale: Locale; page?: num
           <WikiCredit t={t} href={sync.source} messageKey="pages.skinsCalendar.source" className="mt-4" />
           </Foldable>
         </section>
+        <SupportCard placement="SkinsCalendar" className="mt-10" />
       </div>
     </>
   );

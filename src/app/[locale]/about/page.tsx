@@ -3,6 +3,7 @@ import Link from "@/components/link";
 import { AuthorProfile } from "@/components/author-profile";
 import { heroArt, StageHeader } from "@/components/stage";
 import { Prose } from "@/components/prose";
+import { SupportBlock } from "@/components/support-links";
 import { ActionLink } from "@/components/ui";
 import type { Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
@@ -48,6 +49,7 @@ export default async function AboutPage({ params }: Params) {
       </StageHeader>
       <AuthorProfile locale={locale} />
       <Prose locale={locale} messageKey="about" variables={{ repository: site.repository }} />
+      <SupportBlock />
     </>
   );
 }

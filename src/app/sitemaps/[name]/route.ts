@@ -1,4 +1,4 @@
-import { renderUrlset, SITEMAPS, sitemapGroups, type SitemapName } from "@/lib/sitemap";
+import { liveSignals, renderUrlset, SITEMAPS, sitemapGroups, type SitemapName } from "@/lib/sitemap";
 
 /**
  * Child sitemaps listed by the index (`/sitemap.xml`): `/sitemaps/compare.xml`,
@@ -7,6 +7,10 @@ import { renderUrlset, SITEMAPS, sitemapGroups, type SitemapName } from "@/lib/s
  */
 export const dynamic = "force-static";
 export const dynamicParams = false;
+// Regenerated hourly: a page that leaves `noindex` with live data (the
+// builds hub, `liveSignals`) joins the sitemap without waiting for a deploy.
+// The build sees no builds store: the hub stays out until a regeneration finds it indexable.
+export const revalidate = 3600;
 
 const FILE = /^(.+)\.xml$/;
 
@@ -16,7 +20,7 @@ export function generateStaticParams(): { name: string }[] {
 
 export async function GET(_request: Request, { params }: { params: Promise<{ name: string }> }): Promise<Response> {
   const { name } = await params;
-  const entries = sitemapGroups().get(name.match(FILE)?.[1] as SitemapName);
+  const entries = sitemapGroups(await liveSignals()).get(name.match(FILE)?.[1] as SitemapName);
   if (!entries) return new Response("Not Found", { status: 404 });
   return new Response(renderUrlset(entries), {
     headers: { "Content-Type": "application/xml", "Cache-Control": "public, max-age=0, must-revalidate" },

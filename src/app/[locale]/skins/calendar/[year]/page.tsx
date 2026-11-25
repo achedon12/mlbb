@@ -82,6 +82,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: t("pages.seo.calendarYear.title", { year: a.year }),
     description: description(locale, a),
     path: `/skins/calendar/${a.year}`,
+    card: true,
     keywords: [`MLBB skins ${a.year}`, `Mobile Legends skins ${a.year}`, "skin release date"],
   });
 }

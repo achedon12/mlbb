@@ -7012,6 +7012,7 @@
     "builtBy": "Sa mga build ni {heroes}",
     "minutes": "{n} min basahin",
     "skinsCount": "skin",
+    "buildsCount": "naibahaging build",
     "latestSkin": "Pinakabagong labas: {skin} ({hero})",
     "starlight": "StarLight ng buwan: {skin} ({hero})",
     "games": "larong nasuri",
@@ -7291,5 +7292,15 @@
         "title": "Hanapin ang iyong mga paborito sa lahat ng iyong device"
       }
     }
+  },
+  "support": {
+    "footer": "Suportahan ang MLBBDex",
+    "menuDesc": "Donasyon para manatiling libre ang site",
+    "title": "Suportahan ang proyekto",
+    "body": "Isang tao lang ang gumagawa ng MLBBDex, sa kanyang libreng oras. Nakakatulong ang donasyon sa pagbayad ng server, ng domain at ng mga oras na ginugugol para panatilihing updated ang data.",
+    "free": "Mananatiling libre at walang ads ang site, mag-donate ka man o hindi.",
+    "cardTitle": "Tumatakbo si Dex dahil sa inyo ☕",
+    "cardBody": "Libre at walang ads ang MLBBDex. Nakakatulong ang maliit na donasyon sa pagbayad ng server at domain.",
+    "later": "Mamaya na"
   }
 }

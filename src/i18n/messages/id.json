@@ -7012,6 +7012,7 @@
     "builtBy": "Di build {heroes}",
     "minutes": "{n} menit membaca",
     "skinsCount": "skin",
+    "buildsCount": "build dibagikan",
     "latestSkin": "Rilisan terbaru: {skin} ({hero})",
     "starlight": "StarLight bulan ini: {skin} ({hero})",
     "games": "pertandingan dianalisis",
@@ -7291,5 +7292,15 @@
         "title": "Temukan favorit Anda di semua perangkat Anda"
       }
     }
+  },
+  "support": {
+    "footer": "Dukung MLBBDex",
+    "menuDesc": "Donasi agar situs tetap gratis",
+    "title": "Dukung proyek ini",
+    "body": "MLBBDex dibuat oleh satu orang, di waktu luangnya. Donasi membantu membayar server, nama domain, dan waktu yang dihabiskan untuk menjaga data tetap terbaru.",
+    "free": "Situs ini tetap gratis dan tanpa iklan, baik kamu berdonasi atau tidak.",
+    "cardTitle": "Dex bisa jalan berkat kalian ☕",
+    "cardBody": "MLBBDex gratis dan tanpa iklan. Donasi kecil membantu membayar server dan domain.",
+    "later": "Nanti saja"
   }
 }

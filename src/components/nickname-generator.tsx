@@ -26,6 +26,7 @@ import {
 import { trackEvent, trackShare } from "@/lib/analytics";
 import { useDiscordMoment } from "@/components/discord-moment";
 import { DiscordJoinLink } from "@/components/discord-join-link";
+import { SupportCard } from "@/components/support-links";
 import { communityInvite } from "@/lib/bot/public";
 import { cn } from "@/lib/utils";
 
@@ -95,6 +96,7 @@ export function NicknameGenerator() {
   const [decoration, setDecoration] = useState<Decoration>(DECORATIONS[0]);
   const [toast, setToast] = useState<Toast | null>(null);
   const [copied, setCopied] = useState<Style | null>(null);
+  const [copiedOnce, setCopiedOnce] = useState(false);
   // The Discord invitation after a copy, once the confirmation is gone.
   const discord = useDiscordMoment();
   const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
@@ -139,6 +141,7 @@ export function NicknameGenerator() {
     const invite = ok ? communityInvite() : null;
     const duration = invite ? TOAST_LINK_MS : TOAST_MS;
     setCopied(ok ? s : null);
+    if (ok) setCopiedOnce(true);
     if (ok) discord.offer("nickname", duration + 200);
     flash(
       ok
@@ -363,6 +366,8 @@ export function NicknameGenerator() {
               })}
             </ul>
           </section>
+          {/* After a copy: the tool did its job, a quiet thanks under it. */}
+          {copiedOnce && <SupportCard placement="Nickname" />}
         </>
       )}
 

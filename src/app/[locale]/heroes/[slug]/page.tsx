@@ -86,6 +86,7 @@ import type { BucketDuration } from "@/lib/evolution";
 import type { Hero } from "@/lib/types";
 import { NotFoundPage } from "@/components/not-found-page";
 import { ReportError } from "@/components/report-error";
+import { SupportCard } from "@/components/support-links";
 
 /** Tab anchors before they were named in English: shared links still open their tab. */
 const TAB_ALIASES = { analyse: "analysis", histoire: "story", competences: "skills", contres: "counters" };
@@ -1067,6 +1068,7 @@ export default async function HeroPage({ params }: Params) {
         <DailyDle place="hero" className="mt-6" />
         <PageSourcesBlock locale={locale} of={{ kind: "hero", name: h.name }} />
         <ReportError messages={messagesPage(locale, ["pages.reportError"])} path={`/heroes/${h.slug}`} className="mt-6" />
+        <SupportCard placement="Hero" className="mt-8" />
       </div>
       </RankProvider>
       </div>

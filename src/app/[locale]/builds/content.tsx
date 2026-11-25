@@ -4,6 +4,7 @@ import { Pager } from "@/components/pager";
 import Link from "@/components/link";
 import { SectionTitle } from "@/components/ui";
 import { HeroTile } from "@/components/hero-tile";
+import { freshnessFacts } from "@/components/freshness";
 import { Dex, DexSays } from "@/components/mascot";
 import { MetaPoster, artOf } from "@/components/meta/meta-poster";
 import { PosterHero } from "@/components/meta/poster-hero";
@@ -39,6 +40,7 @@ export async function metaBuilds(locale: Locale, page = 1): Promise<Metadata> {
       title: t("pages.seo.communityBuilds.title"),
       description: t("pages.seo.communityBuilds.description"),
       path: PATH,
+      card: true,
       keywords: ["builds", "community", "votes", "Mobile Legends", "MLBB"],
     }),
     locale,
@@ -63,6 +65,8 @@ export async function CommunityBuilds({ locale, page = 1 }: { locale: Locale; pa
         .slice(0, WEEK_COUNT)
     : [];
   const latest = stored ? sortBuilds(stored, "recent", now).slice(0, LATEST_COUNT) : [];
+  // "Updated on" the day of the latest build; the measurement's day while there is none.
+  const updated = latest[0]?.createdAt;
   const counts = new Map<string, number>();
   for (const b of stored ?? []) counts.set(b.build.hero, (counts.get(b.build.hero) ?? 0) + 1);
   const heroes = [...counts]
@@ -106,6 +110,7 @@ export async function CommunityBuilds({ locale, page = 1 }: { locale: Locale; pa
         lead={t("pages.communityBuilds.lead")}
         art={topHero ? artOf(topHero.slug) : null}
         portrait={topHero?.images.portrait ?? null}
+        facts={freshnessFacts(locale, undefined, updated)}
         compact
         actions={create}
         feature={

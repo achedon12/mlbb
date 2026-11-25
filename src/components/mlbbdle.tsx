@@ -44,6 +44,8 @@ import { trackEvent, trackShare } from "@/lib/analytics";
 import { SYNCED_EVENT } from "@/lib/progress-signal";
 import { cellsFromEmoji } from "@/lib/share-card";
 import { ShareImageButton } from "@/components/share-image-button";
+import { SupportCard } from "@/components/support-links";
+import { recordSupportWin } from "@/lib/support-prompt";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -140,6 +142,7 @@ export function Mlbbdle({ heroes, labels }: { heroes: MlbbdleHero[]; labels: Rec
       writeStats(m, updated);
       setStats((s) => ({ ...s, [m]: updated }));
       trackEvent("MLBBdle", "Solve", m, next[m].length);
+      recordSupportWin();
       // After the win banner had its moment; one card at a time.
       if (!discord.offer("mlbbdle", 2500)) {
         const other = readStats(m === "classic" ? "skill" : "classic");
@@ -473,6 +476,8 @@ function WinPanel({
             );
           })}
         </ol>
+
+        <SupportCard placement="MLBBdle" className="mt-8" />
       </div>
     </section>
   );

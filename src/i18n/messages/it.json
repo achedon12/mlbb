@@ -7012,6 +7012,7 @@
     "builtBy": "Nelle build di {heroes}",
     "minutes": "{n} min di lettura",
     "skinsCount": "skin",
+    "buildsCount": "build condivise",
     "latestSkin": "Ultima uscita: {skin} ({hero})",
     "starlight": "StarLight del mese: {skin} ({hero})",
     "games": "partite analizzate",
@@ -7291,5 +7292,15 @@
         "title": "Trova i tuoi preferiti su tutti i tuoi dispositivi"
       }
     }
+  },
+  "support": {
+    "footer": "Sostieni MLBBDex",
+    "menuDesc": "Una donazione per tenere il sito gratuito",
+    "title": "Sostieni il progetto",
+    "body": "MLBBDex è fatto da una sola persona, nel tempo libero. Una donazione aiuta a pagare il server, il dominio e le ore spese a tenere aggiornati i dati.",
+    "free": "Il sito resta gratuito e senza pubblicità, che tu doni o no.",
+    "cardTitle": "Dex va avanti grazie a voi ☕",
+    "cardBody": "MLBBDex è gratuito e senza pubblicità. Una piccola donazione aiuta a pagare il server e il dominio.",
+    "later": "Più tardi"
   }
 }
