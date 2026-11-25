@@ -56,7 +56,24 @@ for (const { name: size, width, height } of WIDTHS) {
             for (let p = el.parentElement, i = 0; p && i < 4; p = p.parentElement, i++) chain.push(label(p));
             return `${right} ${label(el)}\n    < ${chain.join("\n    < ")}`;
           });
-        return [`scrollWidth=${document.documentElement.scrollWidth} clientWidth=${vw}`, ...rows];
+        // Which block widens the page: hide each one in turn and measure.
+        const culprits: string[] = [];
+        const probe = (root: Element, depth: number) => {
+          for (const child of [...root.children]) {
+            const el = child as HTMLElement;
+            const before = el.style.display;
+            el.style.display = "none";
+            const fixed = document.documentElement.scrollWidth <= vw + 1;
+            el.style.display = before;
+            if (fixed) {
+              culprits.push(`${"  ".repeat(depth)}${label(el)}`);
+              if (depth < 6) probe(el, depth + 1);
+              return;
+            }
+          }
+        };
+        if (document.documentElement.scrollWidth > vw + 1) probe(document.body, 0);
+        return [`scrollWidth=${document.documentElement.scrollWidth} clientWidth=${vw}`, "culprit path:", ...culprits, "widest:", ...rows];
       });
       const { writeFileSync, mkdirSync } = await import("node:fs");
       mkdirSync("test-results/visual", { recursive: true });
