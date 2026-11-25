@@ -404,7 +404,7 @@
     "summary": "Lutadora com três barras de HP: cada barra quebrada a liberta dos controles, e seus ataques básicos tornam-se golpes de garras com área de efeito que a curam.",
     "analysis": "Masha toca em suas três barras de HP. Cada um recupera metade do HP fornecido por seus itens, e cada barra que cai remove seus efeitos de controle, bloqueia um ataque e zera a recarga do Claw Strike. Habilidades que atingem um herói abrem um ferimento em um lado do alvo; quebrar esse ferimento com um ataque básico faz com que Masha enlouqueça, com resiliência, velocidade de ataque e velocidade de movimento, e muda seus próximos três ataques para cortes de garras em leque que causam dano com base no HP e a curam. O máximo faz com que ela ataque um herói adversário, atordoando-o e repelindo os inimigos ao seu redor.\n\nSeus números medidos são os mais altos do jogo: taxa de vitória líder para todos os heróis em todas as categorias, acima de cinquenta e seis por cento, independentemente da duração do jogo, e um ban que aumenta com a classificação, raro em Epic, em dois dos três jogos em Mythic Glory. O patch 2.2.23 mudou a lentidão da habilidade 1 para a habilidade 2 e reduziu o dano e a cura de seus golpes de garra; sua taxa de vitória caiu ligeiramente nos últimos trinta dias. As medidas a colocam em dificuldade contra Freya, Estes, Bruno, Melissa e Floryn.",
     "skills": [
-      "Três barras de HP, cada uma ocupando metade do HP de seus itens. Uma barra quebrada remove seus efeitos de controle e bloqueia um ataque. Suas habilidades abrem feridas nos heróis afetados: quebrar um deles com um ataque básico desencadeia o estado selvagem e ataques de garras na área que o curam.",
+      "Três barras de HP, cada uma ocupando metade do HP de seus itens. Uma barra quebrada remove seus efeitos de controle e bloqueia um ataque. Suas habilidades abrem feridas nos heróis afetados: quebrar um deles com um ataque básico desencadeia o estado selvagem e ataques de garras na área que a curam.",
       "Uma onda de energia avançada que causa danos aos inimigos em seu caminho e atinge os minions com mais força: a ferramenta para eliminar uma onda e abrir um ferimento à distância.",
       "Um salto em direção ao alvo que retarda os heróis atingidos. Sua recarga é reiniciada toda vez que uma barra de HP cai, o que imediatamente lhe dá uma maneira de perseguir ou escapar.",
       "Ataca um herói adversário, atordoando-o e repelindo os inimigos próximos. Seu dano aumenta com HP adicional: é a abertura de lutas em equipe em um alvo frágil."
@@ -416,7 +416,7 @@
       "Desempenho medido estável independentemente da duração do jogo"
     ],
     "weaknesses": [
-      "Banido em dois dos três jogos em Mythic Glory",
+      "Banida em dois dos três jogos em Mythic Glory",
       "Acertos de garras e cura reduzidos no patch 2.2.23",
       "Em dificuldade contra Freya, Estes e Bruno de acordo com as medidas"
     ],
@@ -470,7 +470,7 @@
       "Taxa de vitória medida acima da média em jogos longos"
     ],
     "weaknesses": [
-      "Muito fraco em jogos curtos de acordo com as medidas",
+      "Muito fraca em jogos curtos de acordo com as medidas",
       "Uma transformação que espera sua resolução para ser plena",
       "Em dificuldade contra Phoveus, Balmond e Baxia de acordo com as medidas"
     ],
@@ -486,10 +486,10 @@
     ]
   },
   "freya": {
-    "summary": "Lutador de ataque básico, que carrega orbes ao acertar e os gasta em velocidade de ataque, HP e investidas sem recarga básica.",
+    "summary": "Lutadora de ataque básico, que carrega orbes ao acertar e os gasta em velocidade de ataque, HP e investidas sem recarga básica.",
     "analysis": "Freya gira em torno de um recurso: cada ataque básico dá a ela um orbe sagrado, e cada orbe gasto torna seu próximo ataque muito mais rápido e a cura. Sua habilidade 2 não tem recarga básica mas custa dois orbes: é um rush que dói e desacelera, para alternar com ataques básicos para manter a reserva cheia. Sua habilidade 1 a faz pular sobre uma área, dando-lhe um escudo e jogando os inimigos para o alto. O máximo é um mergulho insensível ao controle que retarda os inimigos atingidos e depois entra em seu estado de Valquíria: seus ataques básicos causam dano de área.\n\nSeus números medidos dependem da classificação e da duração: taxa de vitória abaixo da média em Epic em Mythic Honor, acima da média em Mythic Glory e significativamente melhor em jogos com duração inferior a doze minutos do que além do décimo quarto. O patch 2.2.23 restaurou HP para cada orbe gasto e aumentou a recarga de seu ultimate. Sua taxa de ban quase dobrou nos últimos trinta dias. As medidas colocam-na em dificuldades contra Minsitthar, Phoveus, Baxia, Edith e Franco.",
     "skills": [
-      "Cada ataque básico concede a ele um Orbe Sagrado, até seis. Gastar um orbe torna seu próximo ataque básico muito mais rápido e a cura; fora do combate, os orbes são gradualmente reconstituídos.",
+      "Cada ataque básico concede a ela um Orbe Sagrado, até seis. Gastar um orbe torna seu próximo ataque básico muito mais rápido e a cura; fora do combate, os orbes são gradualmente reconstituídos.",
       "Salta sobre uma área e atinge o solo com seu escudo: ela ganha um escudo, causa dano aos inimigos e os lança brevemente para o alto. Sua iniciação e controle principal.",
       "Uma corrida seguida por um baque que desacelera brevemente. Sem recarga básica, mas dois orbes por lançamento e dano reduzido contra monstros.",
       "Mergulha em uma área enquanto é imune a controles, causando dano e lentidão aos inimigos atingidos e, em seguida, entra no estado de Valquíria: aumenta a velocidade e o dano de área em ataques básicos por vários segundos."
@@ -579,7 +579,7 @@
     "analysis": "Aldous é construído ao longo do tempo. Sua habilidade 1 fortalece seu próximo ataque básico, e cada unidade completada ou herói atingido por este ataque dá a ele cargas permanentes que aumentam seu dano, até mil; ele também ganha alguns quando seus aliados acabam com unidades próximas a ele. Sua habilidade 2 o coloca em uma postura defensiva, com redução do dano recebido, depois causa dano ao seu redor e os atordoa, quanto mais tempo durar a postura. O ultimate lhe dá a visão de todos os heróis inimigos por alguns segundos, depois o faz correr em direção a um deles para empurrá-lo para trás, interrompendo um possível retorno à base.\n\nNenhum herói tem uma diferença tão acentuada dependendo da duração do jogo: muito baixa em jogos que duram menos de doze minutos, sua taxa de vitória medida se aproxima dos sessenta por cento a partir do décimo oitavo. Todas as classificações combinadas estão acima da média e subindo mais de trinta dias, com quase zero bans. O patch 2.2.23 encurtou o recarga de sua habilidade 2 e aumentou sua redução de dano no final do jogo. As medidas o colocam em dificuldades contra Esmeralda, Karina, Ciclope, Estes e Popol e Kupa.",
     "skills": [
       "A cada poucos segundos, seu próximo ataque básico lhe dá um escudo e um pequeno impulso.",
-      "Fortalece seu próximo ataque básico, que atinge minions e monstros com muito mais força. Acabar com uma unidade ou acertar um herói com ela dá cargas permanentes que aumentam seu dano: o cerne de seu aumento de poder.",
+      "Fortalece seu próximo ataque básico, que atinge minions e monstros com muito mais força. Acabar com uma unidade ou acertar um herói com ele dá cargas permanentes que aumentam seu dano: o cerne de seu aumento de poder.",
       "Uma postura defensiva que reduz o dano recebido por até dois segundos, depois causa dano aos inimigos próximos e os atordoa, quanto mais tempo a postura for mantida.",
       "Dá visão a todos os heróis inimigos por alguns segundos. Relançado, ele corre em direção a um deles, fere-o de acordo com seu HP e o empurra para trás; a pressa interrompe o retorno à base."
     ],
@@ -590,7 +590,7 @@
       "Raramente banido"
     ],
     "weaknesses": [
-      "Muito fraco em jogos curtos de acordo com as medidas",
+      "Muito fraca em jogos curtos de acordo com as medidas",
       "Depende das cargas acumuladas antes das lutas",
       "Em dificuldade contra Esmeralda, Karina e Ciclope conforme medidas"
     ],
@@ -1076,7 +1076,7 @@
       "Uma habilidade 2 que repele um atacante enquanto o faz recuar"
     ],
     "weaknesses": [
-      "Muito fraco em jogos curtos de acordo com as medidas",
+      "Muito fraca em jogos curtos de acordo com as medidas",
       "Sua passiva é desativada assim que ela sofre dano",
       "As balas finais podem ser bloqueadas por outro herói",
       "Em dificuldade contra Sun, Gloo e Estes"
@@ -1094,12 +1094,12 @@
   },
   "obsidia": {
     "summary": "Atiradora que acumula fragmentos de ossos a cada tiro, e cuja ultimate a prende ao alvo, impedindo qualquer fuga através de uma habilidade de movimento.",
-    "analysis": "Obsidia carrega sua passiva ao acertar: cada ataque ou habilidade em um inimigo preenche energia que forma fragmentos de ossos, até vinte e cinco, e cada um de seus ataques básicos envia todos os fragmentos atingindo o alvo. Sua habilidade 1, uma agulha lançada à distância, traz três vezes mais energia que um ataque e aciona os fragmentos no primeiro herói atingido; sua habilidade 2 lhe dá um breve impulso. A última atordoa brevemente o primeiro herói atingido, puxa-o para ele e os liga por três segundos: o alvo não pode mais usar habilidades de movimento, Obsidia ganha um escudo e fragmentos temporários, e pode atacar enquanto se move.\n\nEla é uma das heroínas mais contestadas do momento: terceira taxa de ban e quarta taxa de pick de todos os heróis, com um ban que ultrapassa a metade dos jogos de Mythic Honor e que aumentou ainda mais nos últimos trinta dias. Sua taxa de vitória medida está acima da média, maior em jogos com menos de dezesseis minutos do que com mais de dezoito. As medidas a colocam em dificuldade contra Baxia, Diggie, Estes, Miya e Bruno.",
+    "analysis": "Obsidia carrega sua passiva ao acertar: cada ataque ou habilidade em um inimigo preenche energia que forma fragmentos de ossos, até vinte e cinco, e cada um de seus ataques básicos envia todos os fragmentos atingindo o alvo. Sua habilidade 1, uma agulha lançada à distância, traz três vezes mais energia que um ataque e aciona os fragmentos no primeiro herói atingido; sua habilidade 2 lhe dá um breve impulso. A última atordoa brevemente o primeiro herói atingido, puxa-se até ele e os liga por três segundos: o alvo não pode mais usar habilidades de movimento, Obsidia ganha um escudo e fragmentos temporários, e pode atacar enquanto se move.\n\nEla é uma das heroínas mais contestadas do momento: terceira taxa de ban e quarta taxa de pick de todos os heróis, com um ban que ultrapassa a metade dos jogos de Mythic Honor e que aumentou ainda mais nos últimos trinta dias. Sua taxa de vitória medida está acima da média, maior em jogos com menos de dezesseis minutos do que com mais de dezoito. As medidas a colocam em dificuldade contra Baxia, Diggie, Estes, Miya e Bruno.",
     "skills": [
       "Acertar um inimigo dá-lhes energia, mais para um herói e três vezes mais para uma habilidade; monstros não dão nada. A energia forma fragmentos de ossos e cada ataque básico envia todos os fragmentos para atingir o alvo.",
       "Uma agulha lançada à distância que causa dano aos inimigos atingidos e aciona fragmentos no primeiro herói alcançado: para ser lançada frequentemente na rota para carregar o passivo.",
       "Mergulhe nas sombras e ganhe velocidade de movimento altíssima por um instante: sua ferramenta de reposicionamento. Fortalecido durante a finalização, dura mais e retorna muito mais rápido.",
-      "Atordoa brevemente o primeiro herói atingido e se aproxima dele para se agarrar a ele. Por três segundos, o alvo não pode mais usar uma habilidade de movimento e treiná-la movendo-se; Obsidia ganha escudo e fragmentos temporários, passa por obstáculos e ataca enquanto se move."
+      "Atordoa brevemente o primeiro herói atingido e se aproxima dele para se agarrar a ele. Por três segundos, o alvo não pode mais usar uma habilidade de movimento e a arrasta ao se mover; Obsidia ganha escudo e fragmentos temporários, passa por obstáculos e ataca enquanto se move."
     ],
     "strengths": [
       "Um ultimate que impede o alvo de fugir com uma habilidade de movimento",
@@ -1108,7 +1108,7 @@
       "Proteger e mover o ataque durante o Ultimate"
     ],
     "weaknesses": [
-      "Banido em mais da metade dos jogos começando com Mythic Honor",
+      "Banida em mais da metade dos jogos começando com Mythic Honor",
       "Desempenho medido diminuindo em jogos longos",
       "Em dificuldade contra Baxia, Diggie e Estes de acordo com as medidas"
     ],
@@ -1151,8 +1151,8 @@
     ]
   },
   "layla": {
-    "summary": "Atirador de alcance cujo dano aumenta com a distância, amplamente jogado nas primeiras fileiras e cada vez menos à medida que você sobe.",
-    "analysis": "Layla atira de longe e tem interesse em permanecer ali: sua passiva aumenta seu dano com a distância, até o máximo a longa distância. Sua habilidade 1 lança uma bomba que, caso acerte, amplia o alcance de seus ataques básicos e de sua habilidade 2 por alguns segundos e a acelera. Sua habilidade 2 marca o alvo; em seguida, atingir um alvo marcado causa dano ao seu redor e o atordoa brevemente. O ultimate amplia permanentemente o alcance de seus ataques e sua habilidade 2, e lança com um tiro poderoso em linha reta.\n\nSua taxa de pick medida é alta nas classificações Épica e Lendária e cai a cada classificação até Glória Mítica, onde sua taxa de vitória também é mais baixa. É muito fraco em jogos de menos de doze minutos, depois acima da média entre o décimo quarto e o vigésimo. Ela não pula nem se teletransporta. As medidas a colocaram em dificuldades contra Atlas, Johnson, Sun, Khufra e Hylos.",
+    "summary": "Atiradora de alcance cujo dano aumenta com a distância, amplamente jogado nas primeiras fileiras e cada vez menos à medida que você sobe.",
+    "analysis": "Layla atira de longe e tem interesse em permanecer ali: sua passiva aumenta seu dano com a distância, até o máximo a longa distância. Sua habilidade 1 lança uma bomba que, caso acerte, amplia o alcance de seus ataques básicos e de sua habilidade 2 por alguns segundos e a acelera. Sua habilidade 2 marca o alvo; em seguida, atingir um alvo marcado causa dano ao seu redor e o atordoa brevemente. O ultimate amplia permanentemente o alcance de seus ataques e sua habilidade 2, e lança com um tiro poderoso em linha reta.\n\nSua taxa de pick medida é alta nas classificações Épica e Lendária e cai a cada classificação até Glória Mítica, onde sua taxa de vitória também é mais baixa. É muito fraca em jogos de menos de doze minutos, depois acima da média entre o décimo quarto e o vigésimo. Ela não pula nem se teletransporta. As medidas a colocaram em dificuldades contra Atlas, Johnson, Sun, Khufra e Hylos.",
     "skills": [
       "Seu dano aumenta com a distância do alvo, atingindo o máximo a longa distância. O efeito não se aplica a torres.",
       "Uma bomba que causa dano ao primeiro inimigo atingido e pode causar dano crítico. Se ela acertar, seus ataques básicos e habilidade 2 continuam por alguns segundos, e ela ganha um impulso que dura o dobro do tempo em um herói.",
@@ -1166,7 +1166,7 @@
     ],
     "weaknesses": [
       "Não pule nem se teletransporte para escapar",
-      "Muito fraco em jogos curtos de acordo com as medidas",
+      "Muito fraca em jogos curtos de acordo com as medidas",
       "Menor taxa de vitória medida em Mythic Glory",
       "Em dificuldade contra Atlas, Johnson e Sun de acordo com medidas"
     ],
@@ -1572,16 +1572,16 @@
   },
   "alice": {
     "summary": "Maga tanque que se instala entre os inimigos: enquanto suas habilidades atingem, ela queima tudo ao seu redor e se cura.",
-    "analysis": "Alice joga contato apesar de seu dano mágico. Duas habilidades que atingem em rápida sucessão ativam sua passiva, uma aura que causa danos aos inimigos próximos em intervalos regulares, cura e acelera, e que cada habilidade que atinge um herói prolonga. Sua habilidade 1 lança uma explosão de sangue à qual ela pode se juntar teletransportando-se; sua habilidade 2, com recarga curta, dói e desacelera fortemente ao seu redor, e queima mais quando a aura está ativa. A ultimate o torna imune aos controles e reduz o dano sofrido durante seu ataque, depois ele cai de volta na área, imobilizando os inimigos.\n\nSeus números medidos são médios, com uma taxa de vitória que melhora um pouco em jogos longos e um ban mais frequente em Mythic do que em Mythic Glory. Na jungle, a build mais jogada é claramente mais jogada que todas as outras. As medidas a colocam em dificuldade contra Angela, Floryn, Karrie, Estes e Valir, e confortável contra Chip, Gloo, Tigreal, Barats e Atlas.",
+    "analysis": "Alice joga contato apesar de seu dano mágico. Duas habilidades que atingem em rápida sucessão ativam sua passiva, uma aura que causa danos aos inimigos próximos em intervalos regulares, cura e acelera, e que cada habilidade que atinge um herói prolonga. Sua habilidade 1 lança uma explosão de sangue à qual ela pode se juntar teletransportando-se; sua habilidade 2, com recarga curta, dói e desacelera fortemente ao seu redor, e queima mais quando a aura está ativa. A ultimate a torna imune aos controles e reduz o dano sofrido durante seu ataque, depois ela cai de volta na área, imobilizando os inimigos.\n\nSeus números medidos são médios, com uma taxa de vitória que melhora um pouco em jogos longos e um ban mais frequente em Mythic do que em Mythic Glory. Na jungle, a build mais jogada é claramente mais jogada que todas as outras. As medidas a colocam em dificuldade contra Angela, Floryn, Karrie, Estes e Valir, e confortável contra Chip, Gloo, Tigreal, Barats e Atlas.",
     "skills": [
-      "Cada habilidade acertada lhe dá uma carga; com duas cargas, uma aura causa danos aos inimigos próximos em intervalos regulares, cura-os e acelera seu movimento. Acertar um herói com uma habilidade aumenta a aura.",
+      "Cada habilidade acertada lhe dá uma carga; com duas cargas, uma aura causa danos aos inimigos próximos em intervalos regulares, cura-a e acelera seu movimento. Acertar um herói com uma habilidade aumenta a aura.",
       "Lança uma rajada de sangue para frente; revivida antes de se dissipar, Alice se teletransporta para seu ponto de chegada. Esta é a sua iniciação e a única habilidade ainda utilizável durante o ataque do Ultimate.",
-      "Uma dança que causa danos aos inimigos ao seu redor e os retarda significativamente. Aura ativa, também queima os alvos e os cura adequadamente: para ser reiniciado assim que estiver disponível, sua recarga é curta.",
-      "Durante uma carga curta, Alice fica imune aos controles e sofre menos danos, mas se move mais lentamente; em seguida, ele cai na área, ferindo e imobilizando todos os inimigos presentes."
+      "Uma dança que causa danos aos inimigos ao seu redor e os retarda significativamente. Aura ativa, também queima os alvos e a cura na mesma medida: para ser reiniciado assim que estiver disponível, sua recarga é curta.",
+      "Durante uma carga curta, Alice fica imune aos controles e sofre menos danos, mas se move mais lentamente; em seguida, ela cai na área, ferindo e imobilizando todos os inimigos presentes."
     ],
     "strengths": [
       "Cura contínua enquanto suas habilidades afetarem",
-      "Não é afetado por verificações enquanto a ultimate está carregando",
+      "Não é afetada por controles enquanto a ultimate está carregando",
       "Uma habilidade de resfriamento curto 2 que desacelera significativamente",
       "Confortável contra Chip, Gloo e Tigreal conforme medidas"
     ],

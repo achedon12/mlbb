@@ -404,7 +404,7 @@
     "summary": "Luchadora con tres barras de HP: cada barra rota la libera de los controles y sus ataques básicos se convierten en golpes de garra con área de efecto que la curan.",
     "analysis": "Masha juega con sus tres barras de HP. Cada uno recupera la mitad de los HP que le proporcionan sus objetos, y cada barra que cae elimina sus efectos de control, bloquea un ataque y reinicia la recarga de Claw Strike. Las habilidades que golpean a un héroe abren una herida en un lado del objetivo; romper esta herida con un ataque básico hace que Masha se vuelva loca, con resistencia, velocidad de ataque y velocidad de movimiento, y cambia sus siguientes tres ataques a cortes de garras en forma de abanico que causan daño según HP y la curan. Lo último la hace cargar contra un héroe contrario, aturdiéndolo y haciendo retroceder a los enemigos a su alrededor.\n\nSus números medidos son los más altos del juego: tasa de victorias líder para todos los héroes en todos los rangos, por encima del cincuenta y seis por ciento independientemente de la duración del juego, y una prohibición que aumenta con el rango, algo poco común en Epic, en dos de cada tres juegos en Mythic Glory. El parche 2.2.23 movió la ralentización de la habilidad 1 a la habilidad 2 y redujo el daño y la curación de sus golpes de garra; su índice de victorias ha disminuido ligeramente en los últimos treinta días. Las medidas la ponen en dificultades frente a Freya, Estes, Bruno, Melissa y Floryn.",
     "skills": [
-      "Tres barras de HP, cada una de las cuales ocupa la mitad de los HP de sus elementos. Una barra rota elimina sus efectos de control y bloquea un ataque. Sus habilidades abren heridas en los héroes afectados: romper uno con un ataque básico desencadena el estado salvaje y golpes de garra en el área que lo curan.",
+      "Tres barras de HP, cada una de las cuales ocupa la mitad de los HP de sus elementos. Una barra rota elimina sus efectos de control y bloquea un ataque. Sus habilidades abren heridas en los héroes afectados: romper uno con un ataque básico desencadena el estado salvaje y golpes de garra en el área que la curan.",
       "Una ola de energía que daña a los enemigos a su paso y golpea más fuerte a los súbditos: la herramienta para despejar una ola y abrir una herida a distancia.",
       "Un salto hacia el objetivo que ralentiza a los héroes impactados. Su recarga se reinicia cada vez que cae una barra de HP, lo que inmediatamente le da una forma de perseguir o escapar.",
       "Carga contra un héroe contrario, lo aturde y derriba a los enemigos cercanos. Su daño aumenta con HP adicional: es la apertura de peleas en equipo sobre un objetivo frágil."
@@ -412,11 +412,11 @@
     "strengths": [
       "Primera tasa de victorias medida de todos los héroes",
       "Tres barras de HP, cada una de las cuales la libera de los controles.",
-      "Golpes de garra en el área que lo curan.",
+      "Golpes de garra en el área que la curan.",
       "Rendimiento medido estable independientemente de la duración del juego"
     ],
     "weaknesses": [
-      "Baneado en dos de tres juegos en Mythic Glory",
+      "Baneada en dos de tres juegos en Mythic Glory",
       "Golpes de garra y curación reducidos por el parche 2.2.23",
       "En dificultad contra Freya, Estes y Bruno según las medidas."
     ],
@@ -486,7 +486,7 @@
     ]
   },
   "freya": {
-    "summary": "Luchador de ataque básico, que carga orbes golpeando y los gasta en velocidad de ataque, HP y carreras sin recarga base.",
+    "summary": "Luchadora de ataque básico, que carga orbes golpeando y los gasta en velocidad de ataque, HP y carreras sin recarga base.",
     "analysis": "Freya gira en torno a un recurso: cada ataque básico le da un orbe sagrado, y cada orbe gastado hace que su próximo ataque sea mucho más rápido y la cura. Su habilidad 2 no tiene recarga básica pero cuesta dos orbes: es un subidón que duele y ralentiza, para alternar con ataques básicos para mantener la reserva llena. Su habilidad 1 la hace saltar sobre un área dándole un escudo y lanzando enemigos al aire. Lo último es una inmersión insensible al control que ralentiza a los enemigos golpeados y luego entra en su estado de Valquiria: sus ataques básicos luego causan daño de área.\n\nSus números medidos dependen del rango y la duración: tasa de victoria por debajo del promedio en Epic en Mythic Honor, por encima del promedio en Mythic Glory y significativamente mejor en juegos que duran menos de doce minutos que más allá del decimocuarto. El parche 2.2.23 restauró HP por cada orbe gastado y aumentó la recarga de su habilidad definitiva. Su tasa de prohibición casi se ha duplicado en los últimos treinta días. Las medidas la ponen en dificultades frente a Minsitthar, Phoveus, Baxia, Edith y Franco.",
     "skills": [
       "Cada ataque básico le otorga un Orbe Sagrado, hasta seis. Gastar un orbe hace que su próximo ataque básico sea mucho más rápido y la cura; Fuera del combate, los orbes se reconstituyen gradualmente.",
@@ -579,7 +579,7 @@
     "analysis": "Aldous se construye con el tiempo. Su habilidad 1 fortalece su siguiente ataque básico, y cada unidad o héroe completado golpeado con este ataque le otorga cargas permanentes que aumentan su daño, hasta mil; también gana algo cuando sus aliados acaban con las unidades cercanas a él. Su habilidad 2 lo pone en una postura defensiva, con una reducción en el daño recibido, luego causa daño a su alrededor y los aturde, cuanto más dura la postura. El último le da la visión de todos los héroes enemigos durante unos segundos, luego lo hace correr hacia uno de ellos para empujarlo hacia atrás, interrumpiendo un posible regreso a la base.\n\nNingún héroe tiene una brecha tan marcada en función de la duración del juego: muy baja en juegos que duran menos de doce minutos, su tasa de victoria medida se acerca al sesenta por ciento a partir del decimoctavo. En todos los rangos combinados, está por encima del promedio y ha aumentado en treinta días, con casi cero prohibiciones. El parche 2.2.23 acortó el tiempo de reutilización de su habilidad 2 y aumentó su reducción de daño al final del juego. Las medidas lo ponen en dificultades frente a Esmeralda, Karina, Cíclope, Estes y Popol y Kupa.",
     "skills": [
       "Cada pocos segundos, su siguiente ataque básico le otorga un escudo y un breve impulso.",
-      "Fortalece su próximo ataque básico, que golpea a los súbditos y monstruos mucho más fuerte. Acabar con una unidad o golpear a un héroe con ella genera cargas permanentes que aumentan su daño: el corazón de su aumento de poder.",
+      "Fortalece su próximo ataque básico, que golpea a los súbditos y monstruos mucho más fuerte. Acabar con una unidad o golpear a un héroe con él genera cargas permanentes que aumentan su daño: el corazón de su aumento de poder.",
       "Una postura defensiva que reduce el daño recibido durante hasta dos segundos, luego daña a los enemigos cercanos y los aturde, cuanto más tiempo se mantiene la postura.",
       "Da visión a todos los héroes enemigos durante unos segundos. Relanzado, corre hacia uno de ellos, lo hiere según su HP y lo empuja hacia atrás; la prisa interrumpe el regreso a la base."
     ],
@@ -1099,7 +1099,7 @@
       "Golpear a un enemigo les da energía, más con un héroe y tres veces más con una habilidad; los monstruos no dan nada. La energía forma fragmentos de hueso y cada ataque básico envía todos los fragmentos al objetivo.",
       "Una aguja lanzada desde lejos que daña a los enemigos golpeados y dispara fragmentos en el primer héroe alcanzado: se lanza con frecuencia en el carril para cargar la pasiva.",
       "Sumérgete en las sombras y gana una velocidad de movimiento muy alta por un instante: su herramienta de reposicionamiento. Reforzado durante el último, dura más y regresa mucho más rápido.",
-      "Aturde brevemente al primer héroe golpeado y se acerca a él para adherirse a él. Durante tres segundos, el objetivo ya no puede usar una habilidad de movimiento y la entrena moviéndose; Obsidia gana un escudo y fragmentos temporales, atraviesa obstáculos y ataca mientras se mueve."
+      "Aturde brevemente al primer héroe golpeado y se acerca a él para adherirse a él. Durante tres segundos, el objetivo ya no puede usar una habilidad de movimiento y la arrastra al moverse; Obsidia gana un escudo y fragmentos temporales, atraviesa obstáculos y ataca mientras se mueve."
     ],
     "strengths": [
       "Una habilidad definitiva que evita que el objetivo huya con una habilidad de movimiento.",
@@ -1108,7 +1108,7 @@
       "Ataque con escudo y movimiento durante el máximo"
     ],
     "weaknesses": [
-      "Prohibido en más de la mitad de los juegos que comienzan con Mythic Honor",
+      "Prohibida en más de la mitad de los juegos que comienzan con Mythic Honor",
       "El rendimiento medido disminuye en los juegos largos",
       "En dificultad contra Baxia, Diggie y Estes según mediciones."
     ],
@@ -1151,7 +1151,7 @@
     ]
   },
   "layla": {
-    "summary": "Tirador a distancia cuyo daño aumenta con la distancia, muy jugado en las primeras filas y cada vez menos a medida que asciendes.",
+    "summary": "Tiradora a distancia cuyo daño aumenta con la distancia, muy jugado en las primeras filas y cada vez menos a medida que asciendes.",
     "analysis": "Layla dispara desde lejos y tiene interés en quedarse allí: su pasiva aumenta su daño con la distancia, hasta un máximo a larga distancia. Su habilidad 1 lanza una bomba que, si impacta, amplía el alcance de sus ataques básicos y su habilidad 2 durante unos segundos y la acelera. Su habilidad 2 marca el objetivo; luego, golpear a un objetivo marcado causa daño a su alrededor y lo aturde muy brevemente. El último amplía permanentemente el alcance de sus ataques y su habilidad 2, y se lanza con un potente disparo en línea recta.\n\nSu tasa de elección medida es alta en los rangos Épico y Leyenda y cae con cada rango hasta Mythic Glory, donde su tasa de victorias también es más baja. Es muy débil en partidos de menos de doce minutos, luego por encima de la media entre el decimocuarto y el vigésimo. Ella no salta ni se teletransporta. Las mediciones la ponen en dificultades ante Atlas, Johnson, Sun, Khufra e Hylos.",
     "skills": [
       "Su daño aumenta con la distancia del objetivo, alcanzando un máximo a larga distancia. El efecto no se aplica a las torretas.",
@@ -1572,18 +1572,18 @@
   },
   "alice": {
     "summary": "Maga tanque que se instala entre enemigos: mientras sus habilidades aciertan, quema todo lo que la rodea y se cura a sí misma.",
-    "analysis": "Alice juega al contacto a pesar de su daño mágico. Dos habilidades que golpean en rápida sucesión activan su pasiva, un aura que daña a los enemigos cercanos a intervalos regulares, los cura y los acelera, y que cada habilidad que golpea a un héroe prolonga. Su habilidad 1 lanza una ráfaga de sangre a la que puede unirse teletransportándose; su habilidad 2, con recarga corta, duele y se ralentiza mucho a su alrededor, y arde más cuando el aura está activa. Lo último lo hace inmune a los controles y reduce el daño recibido durante su carga, luego vuelve a caer al área, inmovilizando a los enemigos.\n\nSus cifras medidas son medias, con un porcentaje de victorias que mejora un poco en partidas largas y un baneo más frecuente en Mythic que en Mythic Glory. En la jungla, la configuración más jugada es claramente más jugada que todas las demás. Las mediciones la sitúan en dificultades ante Angela, Floryn, Karrie, Estes y Valir, y cómoda ante Chip, Gloo, Tigreal, Barats y Atlas.",
+    "analysis": "Alice juega al contacto a pesar de su daño mágico. Dos habilidades que golpean en rápida sucesión activan su pasiva, un aura que daña a los enemigos cercanos a intervalos regulares, la cura y la acelera, y que cada habilidad que golpea a un héroe prolonga. Su habilidad 1 lanza una ráfaga de sangre a la que puede unirse teletransportándose; su habilidad 2, con recarga corta, duele y se ralentiza mucho a su alrededor, y arde más cuando el aura está activa. La definitiva la hace inmune a los controles y reduce el daño recibido durante su carga, luego vuelve a caer al área, inmovilizando a los enemigos.\n\nSus cifras medidas son medias, con un porcentaje de victorias que mejora un poco en partidas largas y un baneo más frecuente en Mythic que en Mythic Glory. En la jungla, la configuración más jugada es claramente más jugada que todas las demás. Las mediciones la sitúan en dificultades ante Angela, Floryn, Karrie, Estes y Valir, y cómoda ante Chip, Gloo, Tigreal, Barats y Atlas.",
     "skills": [
-      "Cada habilidad que golpea le da una carga; con dos cargas, un aura daña a los enemigos cercanos a intervalos regulares, los cura y acelera su movimiento. Golpear a un héroe con una habilidad extiende el aura.",
+      "Cada habilidad que golpea le da una carga; con dos cargas, un aura daña a los enemigos cercanos a intervalos regulares, la cura y acelera su movimiento. Golpear a un héroe con una habilidad extiende el aura.",
       "Lanza una ráfaga de sangre hacia adelante; revivida antes de que se disipe, Alice se teletransporta a su punto de llegada. Esta es su iniciación y la única habilidad que aún se puede utilizar durante la carga del máximo.",
-      "Un baile que daña a los enemigos a su alrededor y los ralentiza significativamente. Aura activa, también quema a los objetivos y los cura en consecuencia: se relanzará tan pronto como esté disponible, su recarga es corta.",
+      "Un baile que daña a los enemigos a su alrededor y los ralentiza significativamente. Aura activa, también quema a los objetivos y la cura otro tanto: se relanzará tan pronto como esté disponible, su recarga es corta.",
       "Durante una carga corta, Alice es inmune a los controles y sufre menos daño, pero se mueve más lentamente; luego vuelve a caer sobre el área, hiriendo e inmovilizando a todos los enemigos presentes."
     ],
     "strengths": [
       "Curación continua mientras sus habilidades afecten.",
-      "No se ve afectado por los controles mientras se carga la habilidad definitiva.",
+      "No se ve afectada por los controles mientras se carga la habilidad definitiva.",
       "Una habilidad de enfriamiento corto 2 que se ralentiza significativamente",
-      "Cómodo contra Chip, Gloo y Tigreal según medidas"
+      "Cómoda contra Chip, Gloo y Tigreal según medidas"
     ],
     "weaknesses": [
       "Un aura que se apaga si sus habilidades fallan.",
