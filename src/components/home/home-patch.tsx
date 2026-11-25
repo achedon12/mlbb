@@ -1,187 +1,91 @@
-import { LiquipediaPatchNote } from "@/components/patch-credit";
-import { FlaskConical, Minus, Sparkles, TrendingDown, TrendingUp } from "lucide-react";
+import Image from "next/image";
 import Link from "@/components/link";
-import { HeroPortrait } from "@/components/hero-portrait";
-import { HeroTile } from "@/components/hero-tile";
-import { splitRow } from "@/components/home/patch-row";
-import { SCROLL_ROW } from "@/components/home/scroll-row";
-import { SectionTitle } from "@/components/ui";
 import type { Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
-import { advanceDocumented } from "@/lib/advance-fresh";
-import { advanceVersions, isUnderTest } from "@/lib/advance-server";
-import { detailedPatches, heroesBySlug } from "@/lib/data";
+import { detailedPatches, heroesBySlug, illustrations } from "@/lib/data";
 import { historyOf } from "@/lib/evolution";
 import { longDate, patchCurrent } from "@/lib/freshness";
-import { ADJUSTMENT_DIRECTIONS, groupAdjustments, type AdjustmentDirection } from "@/lib/meta-report";
-import { DAYS_IMPACT, formatGap, impactsOfPatch, THRESHOLD_IMPACT } from "@/lib/trends";
+import { groupAdjustments } from "@/lib/meta-report";
+import { formatGap, impactsOfPatch, THRESHOLD_IMPACT } from "@/lib/trends";
 import { cn } from "@/lib/utils";
 
-/** Plain adjustments shown as names; the rest in the notes. */
-const ADJUSTED = 8;
-
-const STYLE: Record<AdjustmentDirection, { color: string; icon: typeof TrendingUp }> = {
-  buff: { color: "text-azure-400", icon: TrendingUp },
-  nerf: { color: "text-blood-400", icon: TrendingDown },
-  adjust: { color: "text-chalk-300", icon: Minus },
-};
+const firstArt = (slug: string) => Object.values(illustrations[slug] ?? {})[0] ?? null;
 
 /**
- * What the live patch changed, hero by hero, with what it did to them: each
- * hero carries the gap between its average win rate the week before and the
- * week after the patch, when the history covers both. The patch notes say
- * what was announced; this says what came of it.
- *
- * Buffs and nerfs share one row from `lg`, each group as wide as its share
- * of the portraits, so the row is always full whatever the counts — never a
- * line of six over a line of three. The gap over each portrait is in the
- * colour of its direction (ally blue up, enemy red down). Below `lg` each
- * group is a line that scrolls sideways. The plain adjustments, which
- * neither help nor hurt, follow as a line of names.
+ * The live patch in one screen: one hero's artwork across most of the
+ * screen and, beside it, the version set very large, one sentence and the
+ * notes. The hero is the patch's new one when it brings one, the hero whose
+ * win rate moved most since the patch otherwise (the gap between the week
+ * before and the week after, when the history covers both), so the art
+ * says what the patch did. The full list of changes lives in the notes.
  */
 export function HomePatch({ locale, className }: { locale: Locale; className?: string }) {
   const t = createT(locale);
   const patch = detailedPatches(locale)[patchCurrent.version] ?? patchCurrent;
   const groups = groupAdjustments(patch.adjustments);
+  const changed = groups.buff.length + groups.nerf.length + groups.adjust.length;
   const impacts = impactsOfPatch(patch, historyOf);
-  const changed = ADJUSTMENT_DIRECTIONS.reduce((n, d) => n + groups[d].length, 0);
-  const testing = advanceVersions(locale).find((v) => isUnderTest(v.version, patch.version));
-  const hasImpacts = Object.keys(impacts).length > 0;
-  const [buffs, nerfs] = splitRow(groups.buff.length, groups.nerf.length);
-  const row = (
-    [
-      ["buff", buffs],
-      ["nerf", nerfs],
-    ] as const
-  ).filter(([, n]) => n > 0);
   const notes = `/patch-notes/${patch.version}`;
 
-  const heading = (direction: AdjustmentDirection, shown: number) => {
-    const { color, icon: Icon } = STYLE[direction];
-    const total = groups[direction].length;
-    return (
-      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-        <h3 className={cn("flex items-center gap-2 type-subtitle", color)}>
-          <Icon size={18} aria-hidden />
-          {t(`patchHeroes.plural.${direction}`)}
-          <span className="font-heading text-base font-bold text-chalk-500">{total}</span>
-        </h3>
-        {total > shown && (
-          <Link href={notes} className="font-heading text-sm font-bold uppercase text-gold-400 hover:text-gold-300">
-            {t("home.patch.more", { n: total - shown })}
-          </Link>
-        )}
-      </div>
-    );
-  };
+  // The biggest measured move, among the heroes with an artwork.
+  const mover = Object.entries(impacts)
+    .filter(([slug, i]) => firstArt(slug) && Math.abs(i.gap) >= THRESHOLD_IMPACT - 1e-9)
+    .sort((a, b) => Math.abs(b[1].gap) - Math.abs(a[1].gap) || a[0].localeCompare(b[0]))[0];
+  const newHero = patch.newHeroes.find((n) => firstArt(n.slug));
+  const fallback = [...groups.buff, ...groups.nerf].find((a) => firstArt(a.slug));
+  const featured = newHero?.slug ?? mover?.[0] ?? fallback?.slug ?? null;
+  const art = featured ? firstArt(featured) : null;
+  const moverHero = mover ? heroesBySlug.get(mover[0]) : null;
 
   return (
-    <section aria-labelledby="home-patch" data-home-patch className={className}>
-      <SectionTitle
-        id="home-patch"
-        lead={
-          patch.date
-            ? t("home.patch.lead", { n: changed, date: longDate(locale, patch.date) })
-            : t("home.patch.leadUndated", { n: changed })
-        }
-        action={{ href: notes, label: t("home.readNotes") }}
-      >
-        {t("home.patch.title", { version: patch.version })}
-      </SectionTitle>
-
-      {patch.newHeroes.length > 0 && (
-        <ul className="mb-6 flex flex-wrap gap-2">
-          {patch.newHeroes.map((n) => {
-            const h = heroesBySlug.get(n.slug);
-            return (
-              <li key={n.slug}>
-                <Link href={h ? `/heroes/${n.slug}` : notes} className="btn btn-primary btn-sm min-h-11 pl-1">
-                  <HeroPortrait source={h?.images.icon ?? null} name={n.name} size="small" decorative />
-                  <Sparkles size={14} aria-hidden />
-                  {t("home.patch.newHero", { name: n.name })}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      )}
-
-      {row.length > 0 && (
-        <div className="space-y-8 lg:flex lg:gap-8 lg:space-y-0">
-          {row.map(([direction, shown]) => (
-            <div key={direction} className="min-w-0 lg:basis-0" style={{ flexGrow: shown }}>
-              {heading(direction, shown)}
-              <ul
-                className={cn(SCROLL_ROW, "mt-3 gap-2 sm:gap-3 lg:grid lg:grid-cols-[repeat(var(--tiles),minmax(0,1fr))]")}
-                style={{ "--tiles": shown } as React.CSSProperties}
-              >
-                {groups[direction].slice(0, shown).map((a) => {
-                  const h = heroesBySlug.get(a.slug);
-                  const impact = impacts[a.slug];
-                  const net = impact && Math.abs(impact.gap) >= THRESHOLD_IMPACT - 1e-9;
-                  return (
-                    <li key={a.slug} className="w-[7.25rem] shrink-0 snap-start sm:w-32 lg:w-auto lg:min-w-0">
-                      <HeroTile
-                        href={h ? `/heroes/${a.slug}` : notes}
-                        name={h?.name ?? a.name}
-                        portrait={h?.images.portrait ?? h?.images.icon ?? null}
-                        figure={impact ? `${formatGap(impact.gap, locale)}` : undefined}
-                        label={impact ? t("home.patch.impact", { gap: formatGap(impact.gap, locale) }) : undefined}
-                        tone={!impact || !net ? "muted" : impact.gap > 0 ? "ally" : "enemy"}
-                        sizes="(min-width: 1024px) 9vw, (min-width: 640px) 8rem, 7.25rem"
-                      />
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          ))}
+    <section aria-labelledby="home-patch" data-home-patch className={cn("scheme-dark relative isolate overflow-hidden bg-night-950", className)}>
+      {art && featured && (
+        <div
+          aria-hidden
+          className="scheme-dark group relative block aspect-[16/10] overflow-hidden lg:absolute lg:inset-y-0 lg:left-0 lg:aspect-auto lg:w-[62%]"
+        >
+          <Image
+            src={art}
+            alt=""
+            fill
+            sizes="(min-width: 1024px) 62vw, 100vw"
+            className="object-cover object-[50%_25%]"
+          />
+          <span className="absolute inset-x-0 bottom-0 h-1/3 bg-linear-to-t from-night-950 to-transparent lg:inset-y-0 lg:left-auto lg:right-0 lg:h-auto lg:w-1/2 lg:bg-linear-to-l" />
         </div>
       )}
 
-      {groups.adjust.length > 0 && (
-        <div className="mt-8">
-          {heading("adjust", Math.min(groups.adjust.length, ADJUSTED))}
-          <ul className="mt-3 flex flex-wrap items-center gap-2">
-            {groups.adjust.slice(0, ADJUSTED).map((a) => {
-              const h = heroesBySlug.get(a.slug);
-              return (
-                <li key={a.slug}>
-                  <Link
-                    href={h ? `/heroes/${a.slug}` : notes}
-                    className="bevel-sm group flex min-h-11 items-center gap-2 bg-night-900 py-1 pl-1 pr-3 transition-colors hover:bg-night-800"
-                  >
-                    <HeroPortrait source={h?.images.icon ?? h?.images.portrait ?? null} name={h?.name ?? a.name} size="small" decorative />
-                    <span className="font-heading font-bold uppercase text-chalk-200 transition-colors group-hover:text-gold-400">
-                      {h?.name ?? a.name}
-                    </span>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      )}
-
-      <div className="mt-8 flex flex-col gap-3 text-xs leading-relaxed text-chalk-500 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
-        <div className="max-w-2xl space-y-1">
-          {hasImpacts && <p>{t("home.patch.impactNote", { n: DAYS_IMPACT })}</p>}
-          <LiquipediaPatchNote t={t} patches={[patch]} />
-        </div>
-        <p className="flex shrink-0 flex-wrap gap-x-4 gap-y-1 text-sm">
-          <Link href="/meta" className="font-heading text-base font-bold uppercase text-gold-400 hover:text-gold-300">
-            {t("home.patch.metaReport")}
-          </Link>
-          {(testing || advanceDocumented()) && (
-            <Link
-              href={testing ? `/patch-notes/advance-server/${testing.version}` : "/patch-notes/advance-server"}
-              className="inline-flex items-center gap-1.5 font-heading text-base font-bold uppercase text-gold-400 hover:text-gold-300"
-            >
-              <FlaskConical size={14} aria-hidden />
-              {testing ? t("home.patch.testing", { version: testing.version }) : t("nav.advanceServer.label")}
-            </Link>
+      <div className="page-wrap relative flex py-14 sm:py-20 lg:min-h-[clamp(36rem,88svh,52rem)] lg:items-center lg:justify-end lg:py-24">
+        <div className="lg:w-[34%] lg:pl-4">
+          <h2 id="home-patch" className="text-chalk-100">
+            <span className="block font-heading text-2xl font-bold uppercase text-gold-400">{t("home.patch.word")}</span>
+            <span className="display-caps mt-1 block pr-[0.1em] text-[clamp(5rem,2rem+9vw,10.5rem)] leading-[0.8]">{patch.version}</span>
+          </h2>
+          <p className="mt-6 max-w-sm text-lg leading-snug text-chalk-200 sm:text-xl">
+            {patch.date
+              ? t("home.patch.headline", { n: changed, date: longDate(locale, patch.date) })
+              : t("home.patch.leadUndated", { n: changed })}
+          </p>
+          {newHero && (
+            <p className="mt-3 font-heading text-xl font-bold uppercase text-chalk-100">{t("home.patch.newHero", { name: newHero.name })}</p>
           )}
-        </p>
+          {mover && moverHero && (
+            <p className="mt-3 text-chalk-300">
+              {t("home.patch.mover", { hero: moverHero.name })}{" "}
+              <span className={cn("font-semibold tabular-nums", mover[1].gap > 0 ? "text-azure-400" : "text-blood-400")}>
+                {formatGap(mover[1].gap, locale)} {t("counters.pts")}
+              </span>
+            </p>
+          )}
+          <p className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <Link href={notes} className="btn btn-primary px-7">
+              {t("home.readNotes")}
+            </Link>
+            <Link href="/meta" className="inline-flex min-h-11 items-center font-semibold text-chalk-100 underline decoration-1 underline-offset-4 hover:text-gold-300">
+              {t("home.patch.metaReport")}
+            </Link>
+          </p>
+        </div>
       </div>
     </section>
   );

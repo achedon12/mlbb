@@ -308,7 +308,8 @@
       "label": "Tema",
       "auto": "Auto",
       "light": "Maliwanag",
-      "dark": "Madilim"
+      "dark": "Madilim",
+      "cycle": "Tema: {current}. Lumipat sa {next}"
     }
   },
   "language": {
@@ -5511,7 +5512,6 @@
   },
   "home": {
     "title": "Mobile Legends: tier list, build at counter para sa patch {version}",
-    "tagline": "Meta, build at counter ng {heroes} hero, sinusukat araw-araw sa ranked na laro.",
     "search": {
       "label": "Maghanap ng hero",
       "placeholder": "Ling, Khufra, Layla…",
@@ -5525,7 +5525,6 @@
       "title": "Ngayon sa laro",
       "patch": "Live patch",
       "patchSince": "Live patch mula {date}",
-      "rates": "Sinukat ang mga rate sa",
       "esportsLive": "Kasalukuyang tournament",
       "esportsNext": "Susunod na tournament, {date}",
       "starlight": "StarLight ng {month}",
@@ -5534,100 +5533,51 @@
     },
     "meta": {
       "title": "Ang meta ng patch {version}",
-      "lead": "{n} hero na niraranggo ayon sa win at ban rate noong {date}, lahat ng rank pinagsama.",
-      "splitLabel": "Paano nahahati sa mga tier ang {n} na-rank na hero: buksan ang tier list",
-      "tierCount": "tier {tier}: {n} hero",
       "top5": "Top 5 ng patch",
       "topLabel": "No. {rank}, tier {tier}: {win} win rate, {ban} ban rate",
-      "tiers": "Lahat ng tier",
       "win": "Pinakamataas na win rate",
-      "ban": "Pinaka-banned",
-      "pick": "Pinakanilalaro",
-      "week": "Sa loob ng pitong araw",
-      "weekEmpty": "Walang hero na malinaw na gumalaw ngayong linggo.",
       "moverRate": {
         "winRate": "Win",
-        "banRate": "Ban",
-        "pickRate": "Pick"
+        "banRate": "Ban"
       },
-      "moverRateFull": {
-        "winRate": "Win rate",
-        "banRate": "Ban rate",
-        "pickRate": "Pick rate"
-      },
-      "moversAll": "Lahat ng galaw ngayong linggo"
+      "rules": "ang nangunguna sa patch {version}"
     },
     "patch": {
-      "title": "Ano ang binago ng patch {version}",
       "lead": "{n} hero ang binago noong {date}, kasama ang nasukat na pagbabago sa kanilang win rate mula noon.",
       "leadUndated": "{n} hero ang binago, nakaayos ayon sa direksyon ng pagbabago.",
       "newHero": "Bagong hero: {name}",
-      "more": "At {n} pa sa patch notes",
-      "impact": "win rate {gap} points pagkatapos ng patch",
-      "impactNote": "Pagitan sa points ng average na win rate sa {n} araw bago ang patch at sa {n} araw pagkatapos nito, lahat ng rank pinagsama. Kapag kulay abo, masyadong maliit ang pagitan para bilangin.",
       "metaReport": "Patch meta report",
-      "testing": "Tine-test sa Advance Server: {version}"
+      "word": "Patch",
+      "headline": "{n} hero ang binago noong {date}",
+      "mover": "Pinakamalaking galaw mula sa patch: {hero}"
     },
     "live": {
-      "title": "Ngayong buwan sa laro",
-      "lead": "Mga skin ngayong buwan, ang mga inanunsyo, at ang mga kasalukuyang tournament.",
-      "skinsOf": "Mga skin ng {month}",
       "allEvents": "Lahat ng event",
-      "starlight": "StarLight skin",
       "collector": "Collector skin",
       "skinAlt": "{skin}, isang skin ni {hero}",
-      "announced": "Inanunsyo para sa {month}",
-      "announcedCount": "{n} skin ang inanunsyo",
-      "esports": "Esports",
-      "allEsports": "Lahat ng tournament",
-      "proPicked": "Pinaka-pinick sa pro play",
-      "proBanned": "Pinaka-banned sa pro play",
-      "proNote": "Sa huling {games} naitalang pro game."
+      "skinOfHero": "Skin ni {hero}",
+      "seeSkin": "Tingnan ang skin"
     },
-    "toolsTitle": "Mga tool",
-    "toolsLead": "Maghanda ng draft, mag-test ng build, mag-practice.",
     "daily": {
       "title": "Mga daily game",
-      "lead": "Bagong round araw-araw, pareho para sa bawat player."
+      "lead": "Bagong round araw-araw, pareho para sa bawat player.",
+      "playDle": "Laruin ang MLBBdle",
+      "playQuiz": "Simulan ang quiz ngayon"
     },
-    "startTitle": "Saan magsisimula",
-    "startLead": "Piliin ang iyong tungkulin para makita ang mga bayaning gumaganap nito.",
-    "latestArticles": "Pinakabagong artikulo",
-    "allNews": "Lahat ng balita",
-    "followRss": "Sundan ang mga bagong post sa RSS",
-    "community": {
-      "title": "Community",
-      "buildsText": "Mga build na ibinahagi ng mga player, niraranggo ayon sa kanilang boto.",
-      "contributeText": "Sumulat ng hero analysis, itama ang isang data, magmungkahi ng ideya."
-    },
-    "fullTierList": "Buong tier list",
     "readNotes": "Basahin ang patch notes",
-    "winPercent": "% win rate",
     "trends": {
       "title": "Mga trend ngayong linggo",
       "lead": "Pagbabago ng win rate sa loob ng pitong araw, lahat ng rank pinagsama. Ang pagbabagong mas mababa sa {threshold} points ay masyadong malapit sa rounding para bilangin.",
       "rise": "Tumataas",
       "fall": "Bumababa",
       "noRise": "Walang hero na malinaw na umaangat ngayong linggo.",
-      "noFall": "Walang hero na malinaw na bumababa ngayong linggo.",
-      "open": "Ipakita ang {n} hero na gumagalaw"
+      "noFall": "Walang hero na malinaw na bumababa ngayong linggo."
     },
-    "syncLead": "Huling sync noong {date}.",
-    "figures": {
-      "title": "MLBBDex sa mga numero",
-      "heroes": "hero",
-      "changed": "binago sa patch",
-      "splus": "nasa S+ tier",
-      "items": "item"
+    "fact": "Patch {version} · {n} hero na nasukat noong {date}",
+    "artCaption": "Larawan: {skin}",
+    "jump": {
+      "title": "Galugarin ang MLBBDex"
     }
-  },
-  "featured": {
-    "seeSheet": "Tingnan ang profile",
-    "topMeta": "#1 sa meta",
-    "topMetaHint": "ranggo ayon sa panalo + ban"
-  },
-  "access": {
-    "account": "{n} hero"
   },
   "categories": {
     "Attack": "Attack",
@@ -7062,20 +7012,14 @@
   },
   "why": {
     "title": "Bakit MLBBDex",
-    "lead": "Ano ang sinusukat, pinapanatili at kinakalkula ng site mismo, kasama ang pahina kung saan ito susuriin.",
-    "figure": "araw ng stats na itinatago ng site, mula noong {date}",
     "daily": {
       "link": "Mga istatistika"
     },
     "history": {
       "link": "Kasaysayan ng {hero}"
     },
-    "proof": {
-      "measured": "hero na sinusukat araw-araw sa ranked na laro",
-      "languages": "wika: isinulat sa French, isinalin sa {others} iba pa",
-      "free": "Libre",
-      "freeText": "Walang ads o subscription, pinopondohan ng gumawa nito."
-    }
+    "manifesto": "{days} araw ng mga rate na itinago, {heroes} hero na sinusukat araw-araw, {languages} wika, libre at walang ads.",
+    "manifestoShort": "{heroes} hero na sinusukat araw-araw, {languages} wika, libre at walang ads."
   },
   "shareImage": {
     "button": "Ibahagi sa larawan",

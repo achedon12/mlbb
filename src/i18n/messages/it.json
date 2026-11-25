@@ -308,7 +308,8 @@
       "label": "Tema",
       "auto": "Auto",
       "light": "Chiaro",
-      "dark": "Scuro"
+      "dark": "Scuro",
+      "cycle": "Tema: {current}. Passa a {next}"
     }
   },
   "language": {
@@ -5511,7 +5512,6 @@
   },
   "home": {
     "title": "Mobile Legends: tier list, build e counter della patch {version}",
-    "tagline": "Meta, build e counter dei {heroes} eroi, misurati ogni giorno nelle partite classificate.",
     "search": {
       "label": "Cerca un eroe",
       "placeholder": "Ling, Khufra, Layla…",
@@ -5525,7 +5525,6 @@
       "title": "In questo momento nel gioco",
       "patch": "Patch attuale",
       "patchSince": "Patch attuale dal {date}",
-      "rates": "Tassi misurati il",
       "esportsLive": "Torneo in corso",
       "esportsNext": "Prossimo torneo, il {date}",
       "starlight": "StarLight di {month}",
@@ -5534,100 +5533,51 @@
     },
     "meta": {
       "title": "Il meta della patch {version}",
-      "lead": "{n} eroi classificati sui tassi di vittoria e di ban del {date}, tutti i rank insieme.",
-      "splitLabel": "Ripartizione dei {n} eroi classificati per tier: apri la tier list",
-      "tierCount": "tier {tier}: {n} eroi",
       "top5": "Top 5 della patch",
       "topLabel": "N. {rank}, tier {tier}: {win} di vittorie, {ban} di ban",
-      "tiers": "Tutti i tier",
       "win": "Miglior tasso di vittoria",
-      "ban": "I più bannati",
-      "pick": "I più giocati",
-      "week": "Negli ultimi sette giorni",
-      "weekEmpty": "Nessun eroe si è mosso in modo netto questa settimana.",
       "moverRate": {
         "winRate": "Vittoria",
-        "banRate": "Ban",
-        "pickRate": "Pick"
+        "banRate": "Ban"
       },
-      "moverRateFull": {
-        "winRate": "Tasso di vittoria",
-        "banRate": "Tasso di ban",
-        "pickRate": "Tasso di pick"
-      },
-      "moversAll": "Tutti i movimenti della settimana"
+      "rules": "domina la patch {version}"
     },
     "patch": {
-      "title": "Cosa ha cambiato la patch {version}",
       "lead": "{n} eroi modificati il {date}, con lo scarto misurato da allora sul loro tasso di vittoria.",
       "leadUndated": "{n} eroi modificati, ordinati per direzione della modifica.",
       "newHero": "Nuovo eroe: {name}",
-      "more": "E altri {n} nelle note",
-      "impact": "tasso di vittoria {gap} punti dopo la patch",
-      "impactNote": "Scarto in punti tra il tasso di vittoria medio dei {n} giorni prima della patch e quello dei {n} giorni dopo, tutti i rank insieme. In grigio, uno scarto troppo piccolo per contare.",
       "metaReport": "Report meta della patch",
-      "testing": "In test sull'Advance Server: {version}"
+      "word": "Patch",
+      "headline": "{n} eroi modificati il {date}",
+      "mover": "Variazione più grande dalla patch: {hero}"
     },
     "live": {
-      "title": "Questo mese nel gioco",
-      "lead": "Le skin del mese, quelle annunciate e i tornei in corso.",
-      "skinsOf": "Skin di {month}",
       "allEvents": "Tutti gli eventi",
-      "starlight": "Skin StarLight",
       "collector": "Skin Collector",
       "skinAlt": "{skin}, skin di {hero}",
-      "announced": "Annunciata per {month}",
-      "announcedCount": "{n} skin annunciate",
-      "esports": "Esport",
-      "allEsports": "Tutti i tornei",
-      "proPicked": "I più scelti dai pro",
-      "proBanned": "I più bannati dai pro",
-      "proNote": "Sulle ultime {games} partite professionistiche registrate."
+      "skinOfHero": "Skin di {hero}",
+      "seeSkin": "Vedi la skin"
     },
-    "toolsTitle": "Strumenti",
-    "toolsLead": "Preparare un draft, provare una build, allenarsi.",
     "daily": {
       "title": "I giochi del giorno",
-      "lead": "Una nuova partita ogni giorno, la stessa per tutti i giocatori."
+      "lead": "Una nuova partita ogni giorno, la stessa per tutti i giocatori.",
+      "playDle": "Gioca a MLBBdle",
+      "playQuiz": "Inizia il quiz del giorno"
     },
-    "startTitle": "Da dove iniziare",
-    "startLead": "Scegli il tuo ruolo per vedere gli eroi che lo interpretano.",
-    "latestArticles": "Ultimi articoli",
-    "allNews": "Tutte le notizie",
-    "followRss": "Segui le pubblicazioni via RSS",
-    "community": {
-      "title": "La community",
-      "buildsText": "Le build pubblicate dai giocatori, ordinate per voti.",
-      "contributeText": "Scrivere l'analisi di un eroe, correggere un dato, proporre un'idea."
-    },
-    "fullTierList": "Tier list completa",
     "readNotes": "Leggi le note",
-    "winPercent": "% di vittorie",
     "trends": {
       "title": "Tendenze della settimana",
       "lead": "Variazione del tasso di vittoria su sette giorni, tutti i ranghi. Gli scarti inferiori a {threshold} punti, troppo vicini all'arrotondamento, non sono considerati.",
       "rise": "In crescita",
       "fall": "In calo",
       "noRise": "Nessun eroe è in netta crescita questa settimana.",
-      "noFall": "Nessun eroe è in netto calo questa settimana.",
-      "open": "Mostra i {n} eroi in movimento"
+      "noFall": "Nessun eroe è in netto calo questa settimana."
     },
-    "syncLead": "Ultima sincronizzazione il {date}.",
-    "figures": {
-      "title": "MLBBDex in numeri",
-      "heroes": "eroi",
-      "changed": "ritoccati nella patch",
-      "splus": "nel tier S+",
-      "items": "oggetti"
+    "fact": "Patch {version} · {n} eroi misurati il {date}",
+    "artCaption": "Illustrazione: {skin}",
+    "jump": {
+      "title": "Esplora MLBBDex"
     }
-  },
-  "featured": {
-    "seeSheet": "Vedi la scheda",
-    "topMeta": "Il numero 1 nel meta",
-    "topMetaHint": "classifica vittorie + ban"
-  },
-  "access": {
-    "account": "{n} eroi"
   },
   "categories": {
     "Attack": "Attacco",
@@ -7062,20 +7012,14 @@
   },
   "why": {
     "title": "Perché MLBBDex",
-    "lead": "Ciò che il sito misura, conserva e calcola da solo, con la pagina dove verificarlo.",
-    "figure": "giorni di statistiche conservate dal sito, dal {date}",
     "daily": {
       "link": "Statistiche"
     },
     "history": {
       "link": "Storia di {hero}"
     },
-    "proof": {
-      "measured": "eroi misurati ogni giorno nelle partite classificate",
-      "languages": "lingue: scritto in francese, tradotto nelle altre {others}",
-      "free": "Gratis",
-      "freeText": "Senza pubblicità né abbonamento, finanziato dal suo autore."
-    }
+    "manifesto": "{days} giorni di tassi conservati, {heroes} eroi misurati ogni giorno, {languages} lingue, gratis e senza pubblicità.",
+    "manifestoShort": "{heroes} eroi misurati ogni giorno, {languages} lingue, gratis e senza pubblicità."
   },
   "shareImage": {
     "button": "Condividi nell'immagine",
