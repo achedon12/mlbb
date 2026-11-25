@@ -121,7 +121,7 @@ function TopCard({ entry: e, rank, locale, t }: { entry: RankedEntry; rank: numb
   const portrait = e.hero.images.portrait ?? e.hero.images.icon;
   return (
     <Link href={`/heroes/${e.hero.slug}`} className="hero-tile group">
-      <span className="bevel relative block aspect-[3/4] overflow-hidden bg-night-800">
+      <span className="scheme-dark bevel relative block aspect-[3/4] overflow-hidden bg-night-800">
         {portrait ? (
           <Image
             src={portrait}

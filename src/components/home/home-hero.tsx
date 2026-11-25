@@ -155,7 +155,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
   const railCell = "flex h-full min-h-11 items-start gap-3 border-l border-night-700 py-4 pl-4 pr-3";
 
   return (
-    <section aria-labelledby="home-title" className="relative isolate overflow-hidden">
+    <section aria-labelledby="home-title" className={cn("relative isolate overflow-hidden", featured && "scheme-dark bg-night-950")}>
       <HomeStage className="relative">
         {/* The brand's glow, drifting slowly behind the whole poster. */}
         <div aria-hidden className="stage-glow" />
@@ -205,7 +205,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
               role="search"
               action={prefix("/heroes", locale)}
               method="get"
-              className="bevel mt-6 flex h-14 max-w-xl items-stretch bg-night-800 shadow-[inset_0_0_0_1px_var(--color-night-600)] transition-shadow focus-within:shadow-[inset_0_0_0_2px_var(--color-gold-400)] sm:mt-8 sm:h-16"
+              className="bevel mt-6 flex h-14 max-w-xl items-stretch bg-night-800 shadow-[inset_0_0_0_1px_var(--color-night-600)] transition-shadow focus-within:shadow-[inset_0_0_0_2px_var(--border-color-gold-400)] sm:mt-8 sm:h-16"
             >
               <label htmlFor="home-search" className="sr-only">
                 {t("home.search.label")}
