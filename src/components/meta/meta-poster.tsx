@@ -57,7 +57,7 @@ export function MetaPoster({
   // No picture at all: no empty frame on a phone, the title comes up under the breadcrumb.
   const bare = !art && !portrait;
   return (
-    <section className="relative isolate overflow-hidden">
+    <section className={cn("relative isolate overflow-hidden", !bare && "scheme-dark bg-night-950")}>
       <div
         aria-hidden
         className={cn(

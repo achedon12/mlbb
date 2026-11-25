@@ -29,6 +29,7 @@ import { site } from "@/lib/site";
 import { rankingOfRank, RANKS_CLASSES } from "@/lib/tier-list";
 import { cn } from "@/lib/utils";
 import motion from "@/components/catalogue-motion.module.css";
+import { inkStyle } from "@/lib/theme";
 
 /**
  * Rank system: the ladder from Warrior to Mythical Immortal, its divisions,
@@ -96,7 +97,7 @@ function Emblem({ tier, size = 56 }: { tier: TierScale; size?: number }) {
         alt=""
         width={size}
         height={size}
-        className="shrink-0 object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]"
+        className="shrink-0 object-contain drop-shadow-[0_2px_6px_rgb(0_0_0/calc(0.5*var(--shadow-strength)))]"
       />
     );
   }
@@ -243,7 +244,7 @@ export default async function RanksPage({ params }: Params) {
                     <span className={cn("grid place-items-center", motion.zoom)}>
                       <Emblem tier={p} size={Math.round(64 + i * 5)} />
                     </span>
-                    <h3 className="display-caps mt-3 break-words text-[1.35rem] leading-[0.95] sm:text-[1.5rem]" style={{ color }}>
+                    <h3 className="ink display-caps mt-3 break-words text-[1.35rem] leading-[0.95] sm:text-[1.5rem]" style={inkStyle(color)}>
                       {nameTier(t, p.key)}
                     </h3>
                     <span className="sr-only">{t("pages.ranks.position", { n: i + 1, total: SCALE.length })}</span>
@@ -312,7 +313,7 @@ export default async function RanksPage({ params }: Params) {
                     return (
                       <span className="flex items-center gap-2">
                         <Emblem tier={p} size={28} />
-                        <span className="font-semibold" style={{ color: tierAppearance(p).color }}>
+                        <span className="ink font-semibold" style={inkStyle(tierAppearance(p).color)}>
                           {f === "mythic" ? t("pages.ranks.mythicFamily") : nameTier(t, p.key)}
                         </span>
                       </span>
@@ -375,7 +376,7 @@ export default async function RanksPage({ params }: Params) {
                   <span className={motion.zoom}>
                     <Emblem tier={p} size={88} />
                   </span>
-                  <h3 className="display-caps mt-2 text-2xl" style={{ color: tierAppearance(p).color }}>
+                  <h3 className="ink display-caps mt-2 text-2xl" style={inkStyle(tierAppearance(p).color)}>
                     {nameTier(t, p.key)}
                   </h3>
                   <p className="text-sm tabular-nums text-chalk-300">
@@ -444,7 +445,7 @@ export default async function RanksPage({ params }: Params) {
                     return (
                       <span className="flex items-center gap-2">
                         <Emblem tier={p} size={28} />
-                        <span className="font-semibold" style={{ color: tierAppearance(p).color }}>
+                        <span className="ink font-semibold" style={inkStyle(tierAppearance(p).color)}>
                           {r.family === "mythic" ? t("pages.ranks.mythicFamily") : nameTier(t, p.key)}
                         </span>
                       </span>

@@ -252,8 +252,9 @@ container. The script starts the new release in the free slot, waits until it
 answers on `/api/health`, then stops the other one; if the release never
 answers, the running slot keeps serving. The reverse proxy lists both slots,
 the first as primary and the second as backup (nginx: `server
-127.0.0.1:3003 max_fails=1 fail_timeout=2s; server 127.0.0.1:3004 backup;`), so
-a deployment never takes the site down. Avoid a bare `docker compose up -d` on
+127.0.0.1:3003 max_fails=0; server 127.0.0.1:3004 backup max_fails=0;`): neither
+is ever marked down, and nginx retries the other slot when one answers with an
+error, so a deployment never takes the site down. Avoid a bare `docker compose up -d` on
 the server: it recreates the primary slot in place. The final image
 contains no sources and no build toolchain: only the Next server in
 `standalone` mode, its static assets and `public/`. The container runs without

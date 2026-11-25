@@ -35,6 +35,35 @@ the focus rings (`.hero-accent` in `globals.css`), nothing else. The colour
 is looked up by the path of the artwork the page shows, so a withheld
 artwork never lends its colour.
 
+### Light theme ("paper")
+
+The same tokens, remapped in `globals.css`: the site follows the system
+(`prefers-color-scheme`), or the theme forced in the footer (Auto / Light /
+Dark, `src/lib/theme.ts`, written as `data-theme` on `<html>` before the
+first paint). Components never test the theme; they use the tokens.
+
+| Token | Light value |
+| --- | --- |
+| `night-950` / `900` / `850` / `800` | `#F4F1EA` / `#FBF9F4` / `#F8F5EF` / `#ECE7DC` |
+| `night-700` / `600` (lines) | `#DDD6C8` / `#C4BCAB` |
+| `chalk-100` … `600` | `#1D2433` `#2C3445` `#3D4657` `#4F586A` `#5B6476` `#646B7A` |
+| gold, blue, red **as text** | `#8A5A00`, `#1F5FBF`, `#B42323` |
+| `tier-c` | `#CFC8BA` |
+
+- **Fills keep the bright gold, blue and red** (`bg-gold-400`), with dark ink
+  on them: `text-night-950` / `900` never turns light. Text, borders, rings
+  and outlines read their own variables (`--text-color-gold-400`,
+  `--border-color-*`, `--outline-color-*`, which Tailwind looks up before
+  `--color-*`) and deepen on paper.
+- **Light text over artwork stays dark**: `scheme-dark` on the poster or the
+  tile gives the night palette back inside it (also `.hero-tile-art`,
+  `.art-tile`, `.arcade-card`, `.draft-slot`). A page poster with art is a
+  night band in both themes.
+- A colour from the data used as text (rarity, rank) goes through `ink` +
+  `inkStyle(color)`: as is on the night, mixed towards the ink on paper.
+- Black shadows are multiplied by `--shadow-strength` (1, 0.35 on paper).
+- Share images (`src/lib/og`) stay dark.
+
 Legacy aliases, so older pages keep working: `emerald-*` is the ally blue
 (it always meant "good"), `blurple-*` (Discord) is the ally blue too. New
 code uses `azure` and never `emerald` or `blurple`.

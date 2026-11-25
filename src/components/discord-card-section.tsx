@@ -63,7 +63,7 @@ export async function DiscordCardSection({ locale, roleId, zoneId, now }: { loca
             width={CARD_WIDTH}
             height={CARD_HEIGHT}
             loading="lazy"
-            className="bevel-lg h-auto w-full max-w-3xl bg-night-900 shadow-[0_24px_60px_-30px_rgb(0_0_0/0.9)]"
+            className="bevel-lg h-auto w-full max-w-3xl bg-night-900 shadow-[0_24px_60px_-30px_rgb(0_0_0/calc(0.9*var(--shadow-strength)))]"
           />
           <p className="text-sm text-chalk-300">{t("pages.discordCard.linked")}</p>
           <p className="text-xs text-chalk-500">

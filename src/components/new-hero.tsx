@@ -28,7 +28,7 @@ export function NewHero({ hero: heroes, locale }: { hero: EnrichedNewHero; local
       {/* Banner: artwork in the background, identity on top. */}
       <div
         id={heroes.anchor ?? undefined}
-        className="bevel-lg group relative flex min-h-[20rem] scroll-mt-24 items-end overflow-hidden bg-night-900 sm:min-h-[26rem]"
+        className="scheme-dark bevel-lg group relative flex min-h-[20rem] scroll-mt-24 items-end overflow-hidden bg-night-900 sm:min-h-[26rem]"
       >
         {heroes.illustration && (
           <Image

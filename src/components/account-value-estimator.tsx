@@ -74,7 +74,7 @@ function NumberField({
       <label htmlFor={id} className="flex flex-wrap items-baseline gap-x-2 text-sm font-semibold text-chalk-200">
         {label}
         {mark && (
-          <span className={cn("text-xs font-medium", mark === "check" ? "text-rose-400" : "text-gold-400")}>
+          <span className={cn("text-xs font-medium", mark === "check" ? "text-blood-400" : "text-gold-400")}>
             {t(`pages.accountValueUI.scan.${mark}`)}
           </span>
         )}

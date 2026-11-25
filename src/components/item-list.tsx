@@ -282,7 +282,7 @@ export function ItemList({
                   >
                     <span className={cn("relative size-14 shrink-0 sm:size-[4.5rem]", motion.zoom)}>
                       {o.image ? (
-                        <Image src={o.image} alt="" width={72} height={72} className="size-full object-contain drop-shadow-[0_6px_10px_rgb(0_0_0/0.5)]" />
+                        <Image src={o.image} alt="" width={72} height={72} className="size-full object-contain drop-shadow-[0_6px_10px_rgb(0_0_0/calc(0.5*var(--shadow-strength)))]" />
                       ) : (
                         <span className="grid size-full place-items-center bg-night-800 text-[0.6rem] text-chalk-500">
                           —

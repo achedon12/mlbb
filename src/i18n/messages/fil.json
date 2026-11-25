@@ -303,7 +303,13 @@
       "news": "Balita at esports",
       "site": "Ang site"
     },
-    "methodology": "Paraan at mga source"
+    "methodology": "Paraan at mga source",
+    "theme": {
+      "label": "Tema",
+      "auto": "Auto",
+      "light": "Maliwanag",
+      "dark": "Madilim"
+    }
   },
   "language": {
     "choose": "Wika",

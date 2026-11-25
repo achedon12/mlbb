@@ -92,7 +92,7 @@ function MonthBlock({ locale, t }: { locale: Locale; t: T }) {
         <div className={cn("mt-4 grid gap-3", others.length > 0 && "sm:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]")}>
           <Link
             href={skinHref(lead)}
-            className="bevel-lg group relative block aspect-video overflow-hidden bg-night-900 sm:aspect-auto sm:h-full sm:min-h-[20rem]"
+            className="scheme-dark bevel-lg group relative block aspect-video overflow-hidden bg-night-900 sm:aspect-auto sm:h-full sm:min-h-[20rem]"
           >
             {art && (
               <Image
@@ -125,7 +125,7 @@ function MonthBlock({ locale, t }: { locale: Locale; t: T }) {
                 const src = skinArt(s)?.src ?? null;
                 return (
                   <li key={`${s.hero}-${s.name}`} className="flex min-h-24 flex-1 flex-col">
-                    <Link href={skinHref(s)} className="bevel group relative block flex-1 overflow-hidden bg-night-900">
+                    <Link href={skinHref(s)} className="scheme-dark bevel group relative block flex-1 overflow-hidden bg-night-900">
                       {src && (
                         <Image
                           src={src}

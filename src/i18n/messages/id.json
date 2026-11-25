@@ -303,7 +303,13 @@
       "news": "Berita & esports",
       "site": "Situs"
     },
-    "methodology": "Metode dan sumber"
+    "methodology": "Metode dan sumber",
+    "theme": {
+      "label": "Tema",
+      "auto": "Otomatis",
+      "light": "Terang",
+      "dark": "Gelap"
+    }
   },
   "language": {
     "choose": "Bahasa",

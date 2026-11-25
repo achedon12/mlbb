@@ -303,7 +303,13 @@
       "news": "Actus et esport",
       "site": "Le site"
     },
-    "methodology": "Méthode et sources"
+    "methodology": "Méthode et sources",
+    "theme": {
+      "label": "Thème",
+      "auto": "Auto",
+      "light": "Clair",
+      "dark": "Sombre"
+    }
   },
   "language": {
     "choose": "Langue",

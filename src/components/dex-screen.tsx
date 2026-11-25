@@ -43,7 +43,7 @@ export function DexScreen({
             aria-hidden
             className={cn(
               "score score-outline affiche-name block text-[clamp(6rem,3rem+14vw,13rem)] leading-[0.78]",
-              tone === "enemy" && "[-webkit-text-stroke-color:var(--color-blood-400)]",
+              tone === "enemy" && "[-webkit-text-stroke-color:var(--text-color-blood-400)]",
             )}
           >
             {figure}

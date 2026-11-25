@@ -92,7 +92,7 @@ export function GuideCard({
     >
       <span
         className={cn(
-          "relative block shrink-0 overflow-hidden bg-night-800",
+          "scheme-dark relative block shrink-0 overflow-hidden bg-night-800",
           large ? "aspect-[16/10] lg:aspect-auto lg:min-h-[22rem] lg:flex-1" : compact ? "aspect-[16/7]" : "aspect-[16/9]",
           motion.art,
         )}
@@ -275,7 +275,7 @@ function LaneHeroes({ lane, locale }: { lane: Lane; locale: Locale }) {
       <div className="mt-4 space-y-2">
           <Link
             href={`/heroes/${first.hero.slug}`}
-            className={cn("bevel-lg group relative isolate flex min-h-56 items-end overflow-hidden bg-night-800 p-5 sm:min-h-64 sm:p-6", motion.art)}
+            className={cn("scheme-dark bevel-lg group relative isolate flex min-h-56 items-end overflow-hidden bg-night-800 p-5 sm:min-h-64 sm:p-6", motion.art)}
           >
             {art && (
               <Image src={art} alt="" fill sizes="(min-width: 1024px) 70ch, 100vw" className="-z-10 object-cover object-[60%_25%]" />

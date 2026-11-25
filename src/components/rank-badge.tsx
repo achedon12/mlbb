@@ -5,6 +5,7 @@ import { Star } from "lucide-react";
 import type { ReadableRank } from "@/lib/ranks";
 import { useT } from "@/i18n/provider";
 import { cn } from "@/lib/utils";
+import { inkStyle } from "@/lib/theme";
 
 /**
  * Rank badge: official emblem, name, division and star count.
@@ -34,15 +35,16 @@ export function RankBadge({
         alt={t(`rankNames.${rank.key}`)}
         width={dim}
         height={dim}
-        className="shrink-0 object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]"
+        className="shrink-0 object-contain drop-shadow-[0_2px_6px_rgb(0_0_0/calc(0.5*var(--shadow-strength)))]"
       />
       <div className="min-w-0">
         <p
           className={cn(
+            "ink",
             size === "xl" ? "display-caps text-[2.4rem] leading-[0.9]" : "font-heading font-bold leading-tight",
             size === "lg" ? "text-xl" : size === "xl" ? "" : "text-base",
           )}
-          style={{ color: rank.color }}
+          style={inkStyle(rank.color)}
         >
           {t(`rankNames.${rank.key}`)}
           {rank.division && ` ${rank.division}`}

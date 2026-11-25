@@ -50,7 +50,7 @@ export function GlyphPanel({
             width={size}
             height={size}
             priority={priority}
-            className={cn("relative object-contain drop-shadow-[0_10px_18px_rgb(0_0_0/0.55)]", motion.glyphImage)}
+            className={cn("relative object-contain drop-shadow-[0_10px_18px_rgb(0_0_0/calc(0.55*var(--shadow-strength)))]", motion.glyphImage)}
             style={{ width: size, height: size }}
           />
         )

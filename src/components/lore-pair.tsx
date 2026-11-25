@@ -42,7 +42,7 @@ export function LorePairCard({
       href={`/heroes/${h.slug}#story`}
       className="group relative block w-24 shrink-0 sm:w-28"
     >
-      <span className="bevel relative block aspect-[240/390] overflow-hidden bg-night-800">
+      <span className="scheme-dark bevel relative block aspect-[240/390] overflow-hidden bg-night-800">
         {(h.images.portrait ?? h.images.icon) && (
           // The second hero turns to face the first.
           <span className={cn("absolute inset-0", facing === "left" && "-scale-x-100")}>

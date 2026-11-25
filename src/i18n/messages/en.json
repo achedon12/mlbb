@@ -303,7 +303,13 @@
       "news": "News & esports",
       "site": "The site"
     },
-    "methodology": "Methodology and sources"
+    "methodology": "Methodology and sources",
+    "theme": {
+      "label": "Theme",
+      "auto": "Auto",
+      "light": "Light",
+      "dark": "Dark"
+    }
   },
   "language": {
     "choose": "Language",

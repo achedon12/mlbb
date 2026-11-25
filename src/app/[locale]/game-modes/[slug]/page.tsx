@@ -106,7 +106,7 @@ export default async function GameModePage({ params }: Params) {
               fill
               priority
               sizes="(min-width: 640px) 46vw, 85vw"
-              className="affiche-art object-contain object-right-bottom drop-shadow-[0_24px_40px_rgb(0_0_0/0.6)]"
+              className="affiche-art object-contain object-right-bottom drop-shadow-[0_24px_40px_rgb(0_0_0/calc(0.6*var(--shadow-strength)))]"
             />
           </span>
         )}

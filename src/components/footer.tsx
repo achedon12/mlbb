@@ -14,6 +14,7 @@ import { SupportFooterLink } from "./support-links";
 import { BrandMark } from "./brand-mark";
 import { ConsentSettingsButton } from "./consent-banner";
 import { Dex } from "./mascot";
+import { ThemePicker } from "./theme-picker";
 
 /** Footer link column: one per header section, plus the site's own pages. */
 function Column({ title, links, t }: { title: string; links: readonly Chip[]; t: T }) {
@@ -138,10 +139,11 @@ export function Footer({ locale, year }: { locale: Locale; year: number }) {
             © {year} {site.name} — {t("footer.rights", { author: site.author })}
             <span> · {t("footer.version", { v: process.env.VERSION_SITE ?? "" })}</span>
           </p>
-          <p className="flex flex-wrap items-center gap-x-3">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+            <ThemePicker />
             <ConsentSettingsButton className="text-chalk-500 underline-offset-2 transition-colors hover:text-chalk-100 hover:underline" />
             <span>{t("footer.brand")}</span>
-          </p>
+          </div>
         </div>
       </div>
     </footer>

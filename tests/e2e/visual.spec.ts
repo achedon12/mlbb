@@ -81,3 +81,37 @@ for (const { name: size, width, height } of WIDTHS) {
     });
   }
 }
+
+/**
+ * Both themes (light "paper" and dark): the home at the narrowest and the
+ * widest width, a hero page and the tier list on a desktop. Named
+ * `…-light` / `…-dark`, beside the shots above in the same artifact.
+ */
+const THEMED = [
+  { name: "home", path: "/fr", widths: [360, 1440] },
+  { name: "hero-layla", path: "/fr/heroes/layla", widths: [1440] },
+  { name: "tier-list", path: "/fr/tier-list", widths: [1440] },
+];
+
+for (const scheme of ["light", "dark"] as const) {
+  for (const { name, path, widths } of THEMED) {
+    for (const width of widths) {
+      test(`screenshot of ${name} at ${width}px, ${scheme} theme`, async ({ page }) => {
+        await page.setViewportSize({ width, height: width < 640 ? 800 : 900 });
+        await page.emulateMedia({ colorScheme: scheme, reducedMotion: "reduce" });
+        await page.goto(path);
+        const refuse = page.getByRole("button", { name: /refuser|decline|reject/i }).first();
+        if (await refuse.isVisible().catch(() => false)) await refuse.click();
+        await page.evaluate(async () => {
+          for (let y = 0; y < document.body.scrollHeight; y += 600) {
+            window.scrollTo(0, y);
+            await new Promise((r) => setTimeout(r, 120));
+          }
+          window.scrollTo(0, 0);
+        });
+        await page.waitForTimeout(1500);
+        await page.screenshot({ path: `test-results/visual/${name}-${width}-${scheme}.png`, fullPage: true });
+      });
+    }
+  }
+}

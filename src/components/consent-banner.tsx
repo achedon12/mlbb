@@ -68,7 +68,7 @@ export function ConsentBanner() {
           onKeyDown={(e) => {
             if (e.key === "Escape" && open) closeConsent();
           }}
-          className="fixed inset-x-0 bottom-0 z-50 bg-night-900 pb-[env(safe-area-inset-bottom)] shadow-[0_-12px_32px_rgb(0_0_0/0.5)]"
+          className="fixed inset-x-0 bottom-0 z-50 bg-night-900 pb-[env(safe-area-inset-bottom)] shadow-[0_-12px_32px_rgb(0_0_0/calc(0.5*var(--shadow-strength)))]"
         >
           <div aria-hidden className="eclat-rule" />
           <div className="page-wrap flex flex-col gap-3 py-3 sm:py-4 md:flex-row md:items-center md:gap-6">
