@@ -19,7 +19,7 @@ for (const { name: size, width, height } of WIDTHS) {
   for (const { name, path } of PAGES) {
     test(`screenshot of ${name} at ${width}px`, async ({ page }) => {
       await page.setViewportSize({ width, height });
-      // Without motion: the scroll reveal would leave unseen sections blank.
+      // Without motion: nothing still arriving when the shot is taken.
       await page.emulateMedia({ reducedMotion: "reduce" });
       await page.goto(path);
       // Dismiss the consent banner so it does not hide the bottom of the view.

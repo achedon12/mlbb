@@ -43,14 +43,14 @@ export function SinceLastVisit({ digest }: { digest: SinceDigest }) {
     new Intl.DateTimeFormat(LOCALE_INTL[locale], { month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(`${m}-01T00:00:00Z`));
   const open = (kind: string) => () => trackEvent("Return", "Since open", kind);
   const chip =
-    "bevel-sm inline-flex min-h-11 items-center gap-2 border border-night-700 bg-night-900/70 px-3 py-2 text-sm text-chalk-200 transition-colors hover:border-gold-500/60 hover:text-gold-300";
+    "inline-flex min-h-11 items-center gap-2 text-sm text-chalk-200 underline decoration-night-600 decoration-1 underline-offset-4 transition-colors hover:text-gold-300 hover:decoration-current";
 
   return (
     <section aria-labelledby="since-visit" className="page-wrap pt-6">
       <h2 id="since-visit" className="font-heading text-xs font-bold uppercase tracking-wide text-gold-400">
         {t("comeback.title", { date: since })}
       </h2>
-      <ul className="mt-2 flex flex-wrap gap-2">
+      <ul className="mt-1 flex flex-wrap gap-x-6">
         {items.patch && (
           <li>
             <Link href={`/patch-notes/${items.patch.version}`} onClick={open("patch")} className={chip}>

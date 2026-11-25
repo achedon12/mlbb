@@ -194,48 +194,37 @@ takes these, never a curve of its own.
 - The chapters of a patch recap (`/patch-notes/<version>/bilan`, `.recap-chapter`),
   a story page, rise into place as they enter the view, by CSS scroll-driven
   animation only.
-- **Scroll reveal** (`RevealGroup`, `reveal.tsx`): the blocks marked
-  `data-reveal` come in once, the first time they near the screen — the block
-  rises and fades in, its section title arrives on the slant, its blade
-  sweeps, its hero tiles follow one by one (45 ms apart); a divider
-  (`eclat-rule`) only sweeps its blade. Progressive: the server sends
-  everything visible, the group arms only once its script runs, and what is
-  already on screen is never hidden. Used on the home page; a page that adopts
-  it wraps its blocks the same way.
-- **Counting figures** (`CountUp`, `count-up.tsx`): a key figure counts up
-  to its value (1.1 s, ease-out) the first time it shows. The server writes
-  the final value; the CSS hides it until the script counts and shows it on
-  its own after 2.5 s if the script is late.
-- Everything stops under `prefers-reduced-motion`: no reveal, no count, no
-  parallax, no embers, no view transition; an infinite animation is switched off explicitly
+- Everything stops under `prefers-reduced-motion`: no parallax, no view
+  transition; an infinite animation is switched off explicitly
   (`animation: none`), never left to the global 0.01 ms rule.
 
-## Brand stage (home poster)
+## Home page (season poster)
 
-The home page opens on a stage, its "wow" moment; the hero pages have their
-own cinematic poster (above), no other page copies either.
+The home page reads like a game's official season page: very few sections,
+each about one screen, each built around one big image or one bold colour,
+one message and one call to action. The details (rankings, lists, tools,
+esports results) live on their own pages.
 
-- **The art**: the official artwork of the meta's number one (the first
+- **The poster**: the official artwork of the meta's number one (the first
   reliably measured hero of the tier list with an artwork the site may show:
-  `illustrations`, filtered by `listed.ts`), `next/image` with `priority`.
-  It changes when the meta does, not with the calendar.
-- **Parallax** (`HomeStage`): on a fine pointer that can hover, the layers
-  shift by their depth against the pointer (`--stage-x`, `--stage-y`):
-  the art −14 px, the glow 12 px, the embers 22 px, the name 8 px, Dex 10 px.
-  They move by `translate`, so they never fight a layer's own `transform`
-  animation. Still on a phone and without JavaScript.
-- **Glow**: three soft radial gradients (gold, ally blue, dark gold) behind
-  the poster, drifting over 22 s, plus a soft gold light over the art
-  (`screen`). No `filter: blur`, no other colour.
-- **Embers**: fourteen small diamonds (the bevel's angle) rising from the foot
-  of the art, gold, two in ally blue; CSS only, fixed positions so the server
-  and the browser draw the same. Removed under reduced motion.
-- **Dex** presents the live patch in his bubble (`DexSays`, pose `salut`),
-  with the link to the notes; in the poster's top corner from `lg`, under the
-  buttons on a phone.
-- **Figures**: the site's four key counts under the search (heroes, heroes
-  changed by the patch, S+ heroes, items) and the number one's win rate,
-  counting up.
+  `illustrations`, filtered by `listed.ts`) fills the whole first screen,
+  edge to edge at every width, `next/image` with `priority`. The night closes
+  in only where the words sit. Over it the H1 set huge (its "Mobile Legends:"
+  opening as a smaller line), one line of fact, the search and two ways in;
+  under it, one thin line of the day's facts. The art settles once on
+  arrival and a dozen sparks glint in place (`.home-art`, `.home-sparks`),
+  both off under reduced motion. Nothing moves on scroll.
+- **Grounds alternate**: the lighter night (the meta: the top five as large
+  art, the number one twice as wide), always-dark art at the left (the
+  patch), a gold band with dark ink (the daily games, Dex large), a
+  full-bleed skin poster (the month), art tiles on the base night (where to
+  go next), an azure band with dark ink (why the site, Discord, the support
+  card). The colour bands and the art sections are `scheme-dark`: the same
+  in both themes.
+- **Little text**: at most about forty words per section, big type.
+- **A narrow skin portrait** (the shop's 240 × 390 image) holds a full-width
+  poster over a blurred, darkened copy of itself; a wide artwork fills it
+  directly.
 
 ## Composition
 
@@ -252,13 +241,12 @@ own cinematic poster (above), no other page copies either.
 - Small spaced capital labels everywhere — one per screen at most, and only
   if it informs.
 - Captions under images.
-- Three equal columns of lists.
 - Frames around every section.
 - Gradient text, blurred halos, particles, glass (`backdrop-blur`), neon —
-  except the brand stage's glow and embers on the home poster, which stay
+  except the account page's glow and the home poster's sparks, which stay
   there, in the palette, and rest under reduced motion.
 - Emojis as illustration, rainbow cards (one colour per role or per item),
-  rounded corners (`rounded-*`).
+  rounded corners (`rounded-*`)
 - Artwork in small aligned thumbnails when it can be large.
 - Violet, rainbow gradients, any colour outside the palette.
 

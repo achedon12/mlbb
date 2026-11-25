@@ -10,10 +10,12 @@ import { BrandMark } from "./brand-mark";
 import { GlobalSearch } from "./global-search";
 import { LocalePicker } from "./locale-picker";
 import { SiteNav } from "./site-nav";
+import { ThemeButton } from "./theme-button";
 
 /**
- * Site header: the logo, six sections, then search, Discord, language and
- * account.
+ * Site header: the logo, six sections, then search, Discord, theme,
+ * language and account. Below `sm` the bar has no room left beside the
+ * logo: the theme button moves into the menu sheet, as a full row.
  *
  * No server-side session read: the sign-in state is loaded by
  * `AccountButton` after render, which keeps every content page generated
@@ -37,16 +39,19 @@ export function Header({ locale }: { locale: Locale }) {
           openLabel={t("nav.open")}
           closeLabel={t("nav.close")}
           sheetFooter={
-            discord && (
-              <DiscordJoinLink
-                href={discord}
-                placement="Menu"
-                className="btn btn-primary w-full"
-              >
-                <DiscordMark size={18} />
-                {t("common.joinDiscord")}
-              </DiscordJoinLink>
-            )
+            <>
+              <ThemeButton variant="row" className="mb-4" />
+              {discord && (
+                <DiscordJoinLink
+                  href={discord}
+                  placement="Menu"
+                  className="btn btn-primary w-full"
+                >
+                  <DiscordMark size={18} />
+                  {t("common.joinDiscord")}
+                </DiscordJoinLink>
+              )}
+            </>
           }
           actions={
             <>
@@ -63,6 +68,7 @@ export function Header({ locale }: { locale: Locale }) {
                   <DiscordMark size={18} />
                 </DiscordJoinLink>
               )}
+              <ThemeButton className="max-sm:hidden" />
               <LocalePicker locale={locale} />
               <AccountButton />
             </>

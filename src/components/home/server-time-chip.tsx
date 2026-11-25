@@ -5,7 +5,7 @@ import { nextResetDaily, SERVER_TIMEZONE } from "@/lib/server-time";
 
 /**
  * Server time and the wait before the daily reset, ticking every half
- * minute. The page is prerendered, so the server cannot know the time the
+ * minute, as a run of text in the home page's line of facts. The page is prerendered, so the server cannot know the time the
  * visitor reads it: until the first tick, dashes hold the place of the
  * digits, at the same width, so nothing shifts when they arrive.
  *
@@ -41,13 +41,11 @@ export function ServerTimeChip({
   }
 
   return (
-    <span className="flex flex-col">
-      <span className="text-xs text-chalk-500">{timeLabel}</span>
-      <span className="mt-1 flex flex-wrap items-baseline gap-x-2 text-chalk-100 tabular-nums transition-colors group-hover:text-gold-400">
-        <span className="display-caps text-[1.6rem] leading-none">{time}</span>
-        <span className="text-xs font-medium text-chalk-400">
-          {resetLabel} {wait}
-        </span>
+    <span className="inline-flex flex-wrap items-baseline gap-x-2 tabular-nums">
+      <span>{timeLabel}</span>
+      <span className="font-heading text-base font-bold text-chalk-100 transition-colors group-hover:text-gold-300">{time}</span>
+      <span>
+        {resetLabel} {wait}
       </span>
     </span>
   );
