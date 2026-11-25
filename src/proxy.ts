@@ -44,7 +44,11 @@ function countApiCall(request: NextRequest, event: NextFetchEvent, status?: numb
 const isBotInternal = (path: string) => path.startsWith("/api/bot/") && !path.startsWith("/api/bot/votes/");
 
 function rateLimitApi(request: NextRequest, event: NextFetchEvent) {
-  if (request.nextUrl.pathname === "/api/health" || isBotInternal(request.nextUrl.pathname)) return NextResponse.next();
+  // `/api/support` only reads two environment variables and is fetched once
+  // per page load by every visitor: counting it would spend their API budget
+  // on the donation links and fill the API statistics with page views.
+  const path = request.nextUrl.pathname;
+  if (path === "/api/health" || path === "/api/support" || isBotInternal(path)) return NextResponse.next();
   // The address nginx saw: a caller rotating a forged left-most entry
   // would otherwise get a fresh window on every request. Requests without
   // a trustworthy address share one window, which errs on the strict side.
