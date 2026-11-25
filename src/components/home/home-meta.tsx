@@ -1,8 +1,9 @@
+import Image from "next/image";
 import { TrendingDown, TrendingUp } from "lucide-react";
 import Link from "@/components/link";
 import { HeroPortrait } from "@/components/hero-portrait";
-import { HeroTile } from "@/components/hero-tile";
-import { ActionLink, COLOR_TIER, SectionTitle } from "@/components/ui";
+import { SCROLL_ROW } from "@/components/home/scroll-row";
+import { ActionLink, BadgeTier, COLOR_TIER, SectionTitle } from "@/components/ui";
 import type { Locale } from "@/i18n/config";
 import { createT, type T } from "@/i18n/translations";
 import { allHeroes, heroesBySlug } from "@/lib/data";
@@ -13,22 +14,21 @@ import { measure, ORDER_TIERS, rankingFull, type RankedEntry } from "@/lib/tier-
 import { describeGap, formatGap, moversWeek, type MoversMeasure } from "@/lib/trends";
 import { cn } from "@/lib/utils";
 
-/** Rows per list: five names read at a glance, the full table is one click away. */
+/** Heroes in the patch's top: five read at a glance, the full ranking is one click away. */
+const TOP = 5;
+/** Rows per short list; three on a phone, where the lists stack. */
 const ROWS = 5;
 const PHONE_ROWS = 3;
-/** S+ heroes drawn as portraits; the rest of the tier is in the tier list. */
-const TOP_TILES = 12;
 
 /**
- * The meta in one screen: how the ranked heroes split across tiers, who
- * sits at the top, and the three lists a player asks for first — highest
- * win rate, most banned, most played — plus the week's biggest moves on
- * each of those three rates.
+ * The meta in one block, led by one thing: the patch's top five, as five
+ * large hero cards (rank, tier, win and ban rates), in the tier list's
+ * order. Under them the three lists a player asks for next — highest win
+ * rate, most banned, most played — side by side as short ranked lines, then
+ * the tiers as one compact bar opening the tier list, and the week's
+ * biggest moves on each rate as one strip. On a phone the five cards and
+ * the week's moves scroll sideways.
  *
- * One thing leads: the S+ heroes, as a row of portraits with their win rate
- * in gold. The other lists follow at two weights, never as equal columns —
- * the best win rates as portraits too, the bans and picks as short ranked
- * lines beside them, the week's moves as one strip underneath.
  * Everything comes from the synced rates; nothing here is an opinion.
  */
 export function HomeMeta({ locale, className }: { locale: Locale; className?: string }) {
@@ -36,19 +36,18 @@ export function HomeMeta({ locale, className }: { locale: Locale; className?: st
   const counts = ORDER_TIERS.map((tier) => ({ tier, n: rankingFull.filter((e) => e.tier === tier).length })).filter(
     (c) => c.n > 0,
   );
-  const top = rankingFull.filter((e) => e.tier === "S+");
+  const top = rankingFull.slice(0, TOP);
   const reliable = rankingFull.filter((e) => !e.lowSample);
-  // One rise and one drop per rate: six rows, the size of the other lists.
+  // One rise and one drop per rate: six moves.
   const movers = moversWeek(
     allHeroes.map((h) => ({ slug: h.slug, series: trendsOf(h.slug).all })),
     1,
   );
-  const win = firstNBy(reliable, (e) => e.winRate, ROWS);
   const lists: { title: string; entries: RankedEntry[]; value: (e: RankedEntry) => number }[] = [
+    { title: t("home.meta.win"), entries: firstNBy(reliable, (e) => e.winRate, ROWS), value: (e) => e.winRate },
     { title: t("home.meta.ban"), entries: firstNBy(rankingFull, (e) => e.banRate, ROWS), value: (e) => e.banRate },
     { title: t("home.meta.pick"), entries: firstNBy(rankingFull, (e) => e.pickRate, ROWS), value: (e) => e.pickRate },
   ];
-  const portrait = (e: RankedEntry) => e.hero.images.portrait ?? e.hero.images.icon;
 
   return (
     <section aria-labelledby="home-meta" className={className}>
@@ -60,76 +59,112 @@ export function HomeMeta({ locale, className }: { locale: Locale; className?: st
         {t("home.meta.title", { version: patchCurrent.version })}
       </SectionTitle>
 
+      {top.length > 0 && (
+        <>
+          <h3 className="type-subtitle text-chalk-100">{t("home.meta.top5")}</h3>
+          <ol className={cn(SCROLL_ROW, "mt-4 lg:grid lg:grid-cols-5 lg:gap-4")}>
+            {top.map((e, i) => (
+              <li key={e.hero.slug} className="w-[44vw] max-w-[13rem] shrink-0 snap-start sm:w-[30vw] lg:w-auto lg:max-w-none">
+                <TopCard entry={e} rank={i + 1} locale={locale} t={t} />
+              </li>
+            ))}
+          </ol>
+        </>
+      )}
+
       {/* Proportional bar: the width of a tier is its share of the ranked heroes. */}
-      <Link href="/tier-list" className="group block" aria-label={t("home.meta.splitLabel", { n: rankingFull.length })}>
-        <ul aria-hidden className="bevel flex h-11 gap-[3px] overflow-hidden sm:h-12">
-          {counts.map((c) => (
-            <li
-              key={c.tier}
-              style={{ flexGrow: c.n }}
-              className={cn(
-                "flex min-w-0 basis-0 items-baseline justify-center gap-1.5 pt-2.5 transition-[filter] group-hover:brightness-110 sm:pt-3",
-                COLOR_TIER[c.tier],
-              )}
-            >
-              <span className="display-caps text-xl leading-none sm:text-2xl">{c.tier}</span>
-              <span className="hidden font-heading text-sm font-bold opacity-75 sm:inline">{c.n}</span>
-            </li>
-          ))}
-        </ul>
-      </Link>
+      <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 sm:mt-10">
+        <span className="font-heading text-base font-bold uppercase text-chalk-300">{t("home.meta.tiers")}</span>
+        <Link
+          href="/tier-list"
+          className="group block min-w-[14rem] flex-1"
+          aria-label={t("home.meta.splitLabel", { n: rankingFull.length })}
+        >
+          <ul aria-hidden className="bevel-sm flex h-9 gap-[3px] overflow-hidden">
+            {counts.map((c) => (
+              <li
+                key={c.tier}
+                style={{ flexGrow: c.n }}
+                className={cn(
+                  "flex min-w-0 basis-0 items-center justify-center gap-1.5 transition-[filter] group-hover:brightness-110",
+                  COLOR_TIER[c.tier],
+                )}
+              >
+                <span className="display-caps pr-[0.1em] text-lg leading-none">{c.tier}</span>
+                <span className="hidden font-heading text-sm font-bold opacity-75 sm:inline">{c.n}</span>
+              </li>
+            ))}
+          </ul>
+        </Link>
+      </div>
       <p className="sr-only">
         {counts.map((c) => t("home.meta.tierCount", { tier: c.tier, n: c.n })).join(", ")}
       </p>
 
-      {top.length > 0 && (
-        <div className="mt-8 sm:mt-10">
-          <h3 className="type-subtitle text-chalk-100">{t("home.meta.topTier", { n: top.length })}</h3>
-          <ul className="mt-4 grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-3 lg:grid-cols-6 2xl:grid-cols-12">
-            {top.slice(0, TOP_TILES).map((e, i) => (
-              <li key={e.hero.slug} className={cn(i >= 6 && "max-sm:hidden", i >= 8 && "sm:max-lg:hidden")}>
-                <HeroTile
-                  href={`/heroes/${e.hero.slug}`}
-                  name={e.hero.name}
-                  portrait={portrait(e)}
-                  figure={percentage(locale, e.winRate)}
-                  label={t("home.winRate", { value: percentage(locale, e.winRate) })}
-                  sizes="(min-width: 1536px) 8rem, (min-width: 1024px) 15vw, (min-width: 640px) 23vw, 31vw"
-                />
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      <div className="mt-10 grid gap-x-10 gap-y-8 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
-        <div>
-          <h3 className="type-subtitle text-chalk-100">{t("home.meta.win")}</h3>
-          <ol className="mt-4 grid grid-cols-3 gap-2 sm:grid-cols-5 sm:gap-3">
-            {win.map((e, i) => (
-              <li key={e.hero.slug} className={cn(i >= PHONE_ROWS && "max-sm:hidden")}>
-                <HeroTile
-                  href={`/heroes/${e.hero.slug}`}
-                  name={e.hero.name}
-                  portrait={portrait(e)}
-                  rank={i + 1}
-                  figure={percentage(locale, e.winRate)}
-                  label={t("home.winRate", { value: percentage(locale, e.winRate) })}
-                  sizes="(min-width: 1024px) 11vw, (min-width: 640px) 18vw, 31vw"
-                />
-              </li>
-            ))}
-          </ol>
-        </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-          {lists.map((l) => (
-            <RateList key={l.title} title={l.title} entries={l.entries} value={l.value} locale={locale} />
-          ))}
-        </div>
+      <div className="mt-10 grid gap-x-8 gap-y-8 md:grid-cols-3">
+        {lists.map((l) => (
+          <RateList key={l.title} title={l.title} entries={l.entries} value={l.value} locale={locale} />
+        ))}
       </div>
 
       <WeekList movers={movers} locale={locale} t={t} />
     </section>
+  );
+}
+
+/**
+ * One of the top five: the tall portrait, its rank outlined in the corner
+ * and its tier crest, the name, then the win rate in gold and the ban rate
+ * beside it — the two rates the tier list's score is made of.
+ */
+function TopCard({ entry: e, rank, locale, t }: { entry: RankedEntry; rank: number; locale: Locale; t: T }) {
+  const portrait = e.hero.images.portrait ?? e.hero.images.icon;
+  return (
+    <Link href={`/heroes/${e.hero.slug}`} className="hero-tile group">
+      <span className="bevel relative block aspect-[3/4] overflow-hidden bg-night-800">
+        {portrait ? (
+          <Image
+            src={portrait}
+            alt=""
+            fill
+            sizes="(min-width: 1600px) 18rem, (min-width: 1024px) 18vw, (min-width: 640px) 30vw, 44vw"
+            className="object-cover object-top"
+          />
+        ) : (
+          <span aria-hidden className="display-caps grid size-full place-items-center text-4xl text-chalk-600">
+            {e.hero.name.slice(0, 2)}
+          </span>
+        )}
+        <span aria-hidden className="absolute inset-x-0 bottom-0 h-2/3 bg-linear-to-t from-night-950 via-night-950/80 to-transparent" />
+        <span aria-hidden className="score score-outline absolute left-2.5 top-2 text-5xl sm:text-6xl">
+          {rank}
+        </span>
+        <BadgeTier tier={e.tier} size="sm" className="absolute right-2.5 top-2.5" />
+        <span className="absolute inset-x-0 bottom-0 p-3">
+          <span className="display-caps block truncate pr-[0.15em] text-xl text-chalk-100 transition-colors group-hover:text-gold-300 sm:text-2xl">
+            {e.hero.name}
+          </span>
+          <span aria-hidden className="mt-2 grid grid-cols-2 gap-2">
+            <span className="min-w-0">
+              <span className="score block text-[1.4rem] sm:text-[1.6rem] xl:text-[2rem]">{percentage(locale, e.winRate)}</span>
+              <span className="mt-1 block truncate text-xs text-chalk-400">{t("home.meta.moverRate.winRate")}</span>
+            </span>
+            <span className="min-w-0">
+              <span className="score block text-[1.4rem] text-chalk-200 sm:text-[1.6rem] xl:text-[2rem]">{percentage(locale, e.banRate)}</span>
+              <span className="mt-1 block truncate text-xs text-chalk-400">{t("home.meta.moverRate.banRate")}</span>
+            </span>
+          </span>
+        </span>
+      </span>
+      <span className="sr-only">
+        {t("home.meta.topLabel", {
+          rank,
+          tier: e.tier,
+          win: percentage(locale, e.winRate),
+          ban: percentage(locale, e.banRate),
+        })}
+      </span>
+    </Link>
   );
 }
 
@@ -146,12 +181,12 @@ function RateList({
 }) {
   return (
     <div className="min-w-0">
-      <h3 className="type-subtitle text-chalk-100">{title}</h3>
-      <ol className="mt-3 divide-y divide-night-800">
+      <h3 className="type-subtitle border-b border-night-700 pb-2 text-chalk-100">{title}</h3>
+      <ol className="divide-y divide-night-800">
         {entries.map((e, i) => (
           // Three rows on a phone: lists of five stacked ran two screens.
-          <li key={e.hero.slug} className={cn(i >= PHONE_ROWS && "max-sm:hidden")}>
-            <Link href={`/heroes/${e.hero.slug}`} className="group flex items-center gap-3 py-2">
+          <li key={e.hero.slug} className={cn(i >= PHONE_ROWS && "max-md:hidden")}>
+            <Link href={`/heroes/${e.hero.slug}`} className="group flex min-h-11 items-center gap-3 py-2">
               <span aria-hidden className="score score-outline w-5 shrink-0 text-right text-xl">
                 {i + 1}
               </span>
@@ -159,7 +194,7 @@ function RateList({
               <span className="min-w-0 flex-1 truncate font-heading text-lg font-bold uppercase leading-none text-chalk-100 transition-colors group-hover:text-gold-400">
                 {e.hero.name}
               </span>
-              <span className="score shrink-0 text-2xl">{percentage(locale, value(e))}</span>
+              <span className="score shrink-0 pr-[0.1em] text-2xl">{percentage(locale, value(e))}</span>
             </Link>
           </li>
         ))}
@@ -190,14 +225,14 @@ function WeekList({ movers, locale, t }: { movers: MoversMeasure[]; locale: Loca
       {rows.length === 0 ? (
         <p className="mt-2 text-sm text-chalk-500">{t("home.meta.weekEmpty")}</p>
       ) : (
-        <ul className="mt-3 grid gap-2 sm:grid-cols-3 xl:grid-cols-6">
+        <ul className={cn(SCROLL_ROW, "mt-3 gap-2 lg:grid lg:grid-cols-3 xl:grid-cols-6")}>
           {rows.map(({ slug, measure, variation: v, rise }) => {
             const h = heroesBySlug.get(slug);
             if (!h) return null;
             const Icon = rise ? TrendingUp : TrendingDown;
             return (
-              <li key={`${measure}-${slug}`} className="min-w-0">
-                <Link href={`/heroes/${slug}`} className="card-link group flex items-center gap-2.5 p-2">
+              <li key={`${measure}-${slug}`} className="w-[13rem] shrink-0 snap-start lg:w-auto lg:min-w-0">
+                <Link href={`/heroes/${slug}`} className="card-link group flex min-h-11 items-center gap-2.5 p-2">
                   <HeroPortrait source={h.images.icon ?? h.images.portrait} name={h.name} size="icon" decorative />
                   <span className="min-w-0 flex-1 leading-tight">
                     <span className="block truncate font-heading font-bold uppercase text-chalk-100 transition-colors group-hover:text-gold-400">

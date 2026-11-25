@@ -409,7 +409,7 @@ export default async function MetaReportPage({ params }: Params) {
                             decorative
                           />
                           <span className="min-w-0 flex-1">
-                            <span className="block truncate display-caps text-base text-chalk-100 transition-colors group-hover:text-gold-300">
+                            <span className="block truncate pr-[0.15em] display-caps text-base text-chalk-100 transition-colors group-hover:text-gold-300">
                               {e.hero.name}
                             </span>
                             <span className="block text-xs leading-tight text-chalk-500">
@@ -451,7 +451,7 @@ function HeroRow({ slug, detail, children }: { slug: string; detail?: string; ch
     >
       <HeroPortrait source={h.images.icon ?? h.images.portrait} name={h.name} size="icon" decorative />
       <span className="min-w-0 flex-1">
-        <span className="block truncate display-caps text-lg text-chalk-100 transition-colors group-hover:text-gold-300">
+        <span className="block truncate pr-[0.15em] display-caps text-lg text-chalk-100 transition-colors group-hover:text-gold-300">
           {h.name}
         </span>
         {detail && <span className="mt-0.5 block text-xs text-chalk-500">{detail}</span>}

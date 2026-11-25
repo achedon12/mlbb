@@ -122,7 +122,7 @@ export default async function TeammatesPage({ params, searchParams }: Params) {
         )}
         <header className="flex items-start justify-between gap-3">
           <div className="min-w-0">
-            <h3 className="display-caps truncate text-[1.9rem] text-chalk-100">{c.authorName}</h3>
+            <h3 className="display-caps truncate pr-[0.15em] text-[1.9rem] text-chalk-100">{c.authorName}</h3>
             <p className="mt-1 text-sm text-chalk-300">
               {t(`pages.communityUI.regions.${c.region}`)} · <span className="font-heading font-bold uppercase text-gold-400">{t(`rankNames.${c.rank}`)}</span>
             </p>

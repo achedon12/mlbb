@@ -5505,7 +5505,7 @@
   },
   "home": {
     "title": "Mobile Legends: tier list, builds and counters for patch {version}",
-    "lead": "All {heroes} heroes, their builds and counters measured in ranked games, a tier list recomputed at every sync and tools to prepare every draft.",
+    "tagline": "Meta, builds and counters for all {heroes} heroes, measured every day in ranked games.",
     "search": {
       "label": "Search for a hero",
       "placeholder": "Ling, Khufra, Layla…",
@@ -5531,7 +5531,9 @@
       "lead": "{n} heroes ranked on the win and ban rates of {date}, all ranks combined.",
       "splitLabel": "How the {n} ranked heroes split across tiers: open the tier list",
       "tierCount": "tier {tier}: {n} heroes",
-      "topTier": "Tier S+: {n} heroes",
+      "top5": "Patch top 5",
+      "topLabel": "No. {rank}, tier {tier}: {win} win rate, {ban} ban rate",
+      "tiers": "All tiers",
       "win": "Highest win rate",
       "ban": "Most banned",
       "pick": "Most played",
@@ -5580,8 +5582,7 @@
     "toolsLead": "Prepare a draft, test a build, practise.",
     "daily": {
       "title": "Daily games",
-      "lead": "A new round every day, the same for every player.",
-      "play": "Play"
+      "lead": "A new round every day, the same for every player."
     },
     "startTitle": "Where to start",
     "startLead": "Choose your role to see the heroes who play it.",
@@ -5612,11 +5613,6 @@
       "changed": "changed this patch",
       "splus": "in S+ tier",
       "items": "items"
-    },
-    "stage": {
-      "dexPatch": "Patch {version} is live: {n} heroes changed. Top of the meta: {hero}.",
-      "dexPatchAlone": "Patch {version} is live: {n} heroes changed.",
-      "dexCta": "See what changed"
     }
   },
   "featured": {
@@ -7063,48 +7059,16 @@
     "lead": "What the site measures, keeps and computes itself, with the page where you can check it.",
     "figure": "days of rates kept by the site, since {date}",
     "daily": {
-      "title": "Rates recorded every day",
-      "text": "Win, ban and pick rates of {n} heroes in ranked games, across all ranks and rank by rank. Last recorded on {date}.",
       "link": "Statistics"
     },
     "history": {
-      "title": "A history the source does not keep",
-      "text": "The statistics API only serves the last thirty days. The site keeps every reading since {date}: day by day over {daily} days, then as weekly averages.",
       "link": "{hero}'s history"
     },
-    "tierList": {
-      "title": "A computed tier list, rule shown",
-      "text": "Score = {formula}. The tier thresholds are published, and the same computation is run again for each rank, lane and role.",
-      "link": "The rule and the ranking"
-    },
-    "patch": {
-      "title": "The measured effect of each patch",
-      "text": "For each changed hero, the gap between its average win rate over the {days} days before and the {days} days after the patch. Patch {version}: {n} heroes measured out of {changed} changed.",
-      "textPending": "For each changed hero, the gap between its average win rate over the {days} days before and the {days} days after the patch. Patch {version}: not enough days measured since its release yet.",
-      "link": "Patch {version} notes"
-    },
-    "draft": {
-      "title": "A draft assistant",
-      "text": "It suggests picks from counters, synergies, the teammates who win most together in ranked games, and each hero's win rate.",
-      "link": "Prepare a draft"
-    },
-    "games": {
-      "title": "Games built from the database",
-      "text": "A secret hero and a challenge every day since {date}, built from the site's skills, skins, stories, items and rates. The same for every player."
-    },
-    "builds": {
-      "title": "Players' builds",
-      "text": "Published by players signed in to the site and ranked by their votes.",
-      "link": "Community builds"
-    },
-    "bot": {
-      "title": "A Discord bot",
-      "text": "Dex MLBB answers on Discord (/hero, /build, /tierlist, /counter…) with the data of the site's public API.",
-      "link": "The bot"
-    },
-    "languages": {
-      "title": "{n} languages",
-      "text": "Written in French and machine-translated into {others} other languages. What is translated, and how, is detailed on the sources page."
+    "proof": {
+      "measured": "heroes measured every day in ranked games",
+      "languages": "languages: written in French, translated into the other {others}",
+      "free": "Free",
+      "freeText": "No ads, no subscription, funded by its author."
     }
   },
   "shareImage": {

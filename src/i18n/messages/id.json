@@ -5505,7 +5505,7 @@
   },
   "home": {
     "title": "Mobile Legends: tier list, build, dan counter patch {version}",
-    "lead": "Semua {heroes} hero, build dan counter mereka yang diukur dari pertandingan ranked, tier list yang dihitung ulang setiap sinkronisasi, dan alat untuk menyiapkan setiap draft.",
+    "tagline": "Meta, build, dan counter untuk {heroes} hero, diukur setiap hari di pertandingan ranked.",
     "search": {
       "label": "Cari hero",
       "placeholder": "Ling, Khufra, Layla…",
@@ -5531,7 +5531,9 @@
       "lead": "{n} hero diperingkat berdasarkan win rate dan ban rate per {date}, semua rank digabung.",
       "splitLabel": "Sebaran {n} hero yang diperingkat per tier: buka tier list",
       "tierCount": "tier {tier}: {n} hero",
-      "topTier": "Tier S+: {n} hero",
+      "top5": "Top 5 patch",
+      "topLabel": "No. {rank}, tier {tier}: win rate {win}, ban rate {ban}",
+      "tiers": "Semua tier",
       "win": "Win rate tertinggi",
       "ban": "Paling sering di-ban",
       "pick": "Paling sering dimainkan",
@@ -5580,8 +5582,7 @@
     "toolsLead": "Siapkan draft, uji build, berlatih.",
     "daily": {
       "title": "Game harian",
-      "lead": "Ronde baru setiap hari, sama untuk semua pemain.",
-      "play": "Main"
+      "lead": "Ronde baru setiap hari, sama untuk semua pemain."
     },
     "startTitle": "Mulai dari mana",
     "startLead": "Pilih peran Anda untuk melihat hero yang memainkannya.",
@@ -5612,11 +5613,6 @@
       "changed": "diubah di patch ini",
       "splus": "di tier S+",
       "items": "item"
-    },
-    "stage": {
-      "dexPatch": "Patch {version} sudah live: {n} hero diubah. Puncak meta: {hero}.",
-      "dexPatchAlone": "Patch {version} sudah live: {n} hero diubah.",
-      "dexCta": "Lihat perubahannya"
     }
   },
   "featured": {
@@ -7061,50 +7057,18 @@
   "why": {
     "title": "Mengapa MLBBdex",
     "lead": "Apa yang diukur, disimpan, dan dihitung oleh situs itu sendiri, dengan halaman tempat memeriksanya.",
-    "figure": "hari tarif yang disimpan oleh situs, sejak {date}",
+    "figure": "hari statistik yang disimpan situs, sejak {date}",
     "daily": {
-      "title": "Tarif dicatat setiap hari",
-      "text": "Kemenangan, ban, dan pemilihan hero {n} dalam permainan peringkat, semua peringkat digabungkan dan peringkat demi peringkat. Bacaan terakhir di {date}.",
       "link": "Statistik"
     },
     "history": {
-      "title": "Sebuah sejarah yang tidak disimpan oleh sumbernya",
-      "text": "API statistik hanya melayani tiga puluh hari terakhir. Situs ini menyimpan setiap pernyataan dari {date}: hari demi hari selama {daily} hari, lalu rata-rata per minggu.",
       "link": "Sejarah {hero}"
     },
-    "tierList": {
-      "title": "Tier list terhitung, aturan ditampilkan",
-      "text": "Skor = {formula}. Ambang batas tingkatan dipublikasikan dan perhitungan yang sama diulangi untuk setiap peringkat, setiap lane, dan setiap peran.",
-      "link": "Aturan dan klasifikasi"
-    },
-    "patch": {
-      "title": "Efek terukur dari setiap patch",
-      "text": "Untuk setiap hero yang dimodifikasi, selisih rata-rata win ratenya {days} hari sebelum dan {days} hari setelah patch. Patch {version}: {n} hero diukur pada {changed} dimodifikasi.",
-      "textPending": "Untuk setiap hero yang dimodifikasi, selisih rata-rata win ratenya {days} hari sebelum dan {days} hari setelah patch. Patch {version}: belum cukup hari diukur sejak dirilis.",
-      "link": "Patch notes {version}"
-    },
-    "draft": {
-      "title": "Seorang asisten wajib militer",
-      "text": "Ini menawarkan pilihan berdasarkan counter, sinergi, rekan satu tim yang menang paling banyak dalam permainan peringkat dan win rate setiap hero.",
-      "link": "Siapkan draft"
-    },
-    "games": {
-      "title": "Permainan dari awal",
-      "text": "Satu hero rahasia dan satu tantangan per hari sejak {date}, dibangun dari skill, penampilan, cerita, item, dan tarif situs. Hal yang sama untuk semua pemain."
-    },
-    "builds": {
-      "title": "Pemain membangun",
-      "text": "Diterbitkan oleh pemain yang terhubung ke situs dan diberi peringkat berdasarkan suara mereka.",
-      "link": "Membangun komunitas"
-    },
-    "bot": {
-      "title": "Bot perselisihan",
-      "text": "Dex MLBB merespons Discord (/hero, /build, /tierlist, /counter…) dengan data dari API publik situs.",
-      "link": "Botnya"
-    },
-    "languages": {
-      "title": "{n} bahasa",
-      "text": "Ditulis dalam bahasa Prancis dan otomatis diterjemahkan ke {others} bahasa lain. Apa yang diterjemahkan, dan bagaimana caranya, dirinci di halaman sumber."
+    "proof": {
+      "measured": "hero diukur setiap hari di pertandingan ranked",
+      "languages": "bahasa: ditulis dalam bahasa Prancis, diterjemahkan ke {others} bahasa lainnya",
+      "free": "Gratis",
+      "freeText": "Tanpa iklan dan langganan, didanai oleh pembuatnya."
     }
   },
   "shareImage": {

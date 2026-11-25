@@ -66,7 +66,7 @@ export function HeroTile({
               {figure}
             </span>
           )}
-          <span className="display-caps mt-1 block truncate text-[0.95rem] font-extrabold text-chalk-100 transition-colors group-hover:text-gold-300 sm:text-lg">
+          <span className="display-caps mt-1 block truncate pr-[0.15em] text-[0.95rem] font-extrabold text-chalk-100 transition-colors group-hover:text-gold-300 sm:text-lg">
             {name}
           </span>
         </span>
