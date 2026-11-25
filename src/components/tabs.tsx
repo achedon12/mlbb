@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useEffect, useId, useRef, useState } from "react";
+import { Suspense, useEffect, useId, useRef, useState, useSyncExternalStore } from "react";
 import { ChevronDown } from "lucide-react";
 import { classesChip } from "@/components/chip";
 import { useT } from "@/i18n/provider";
@@ -64,6 +64,11 @@ export interface Tab {
 const MOBILE_QUERY = "(max-width: 767.98px)";
 const isMobile = () => typeof window !== "undefined" && window.matchMedia(MOBILE_QUERY).matches;
 const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const onMobileChange = (refresh: () => void) => {
+  const query = window.matchMedia(MOBILE_QUERY);
+  query.addEventListener("change", refresh);
+  return () => query.removeEventListener("change", refresh);
+};
 /** Sticky site header (4rem) plus the chip row: a section scrolled to lands under both. */
 const STICKY_OFFSET = 132;
 
@@ -93,6 +98,10 @@ export function Tabs({
   // Until when the scroll follows a jump rather than the reader: the section
   // jumped to stays lit even if the page cannot scroll it all the way up.
   const spyPausedUntil = useRef(0);
+  // Below `md` with stacked sections, a panel is a region named by its
+  // folding header: the tab naming it is hidden there. The server render
+  // and the first browser render keep the tab roles.
+  const stacked = useSyncExternalStore(onMobileChange, () => sectionsOnMobile && isMobile(), () => false);
 
   // A tab without content has no reason to appear: a hero with no skin and
   // no analysis must not show empty sections.
@@ -330,7 +339,7 @@ export function Tabs({
               aria-labelledby={`${base}-${o.id}`}
               hidden={o.id !== active}
               tabIndex={0}
-              className="pt-8 outline-none"
+              className="pt-8"
             >
               {content}
             </div>
@@ -351,6 +360,7 @@ export function Tabs({
             <h2 className="md:hidden">
               <button
                 type="button"
+                id={`${base}-${o.id}-header`}
                 aria-expanded={open}
                 aria-controls={panelId}
                 onClick={() => toggle(o.id)}
@@ -368,11 +378,11 @@ export function Tabs({
               </button>
             </h2>
             <div
-              role="tabpanel"
+              role={stacked ? "region" : "tabpanel"}
               id={panelId}
-              aria-labelledby={`${base}-${o.id}`}
-              tabIndex={0}
-              className={cn("outline-none md:pt-8", open ? "max-md:pb-8 max-md:pt-2" : "max-md:hidden")}
+              aria-labelledby={stacked ? `${base}-${o.id}-header` : `${base}-${o.id}`}
+              tabIndex={stacked ? undefined : 0}
+              className={cn("md:pt-8", open ? "max-md:pb-8 max-md:pt-2" : "max-md:hidden")}
             >
               {content}
             </div>

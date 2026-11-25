@@ -49,6 +49,8 @@ export function GlobalSearch() {
   const [active, setActive] = useState(0);
   const [entries, setEntries] = useState<EntrySearch[] | null>(null);
   const list = useRef<HTMLDivElement>(null);
+  const dialog = useRef<HTMLDivElement>(null);
+  const trigger = useRef<HTMLButtonElement>(null);
   // The search under way, for the keyboard shortcuts that close the dialog.
   const abandon = useRef<() => void>(() => {});
 
@@ -83,6 +85,36 @@ export function GlobalSearch() {
       cancelled = true;
     };
   }, [open, entries, locale]);
+
+  // The open dialog is modal: the page behind stays still, Tab cycles inside
+  // the dialog, and closing gives focus back to where it was (the search
+  // button when the dialog was opened from the keyboard shortcut elsewhere).
+  useEffect(() => {
+    if (!open) return;
+    const before = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const button = trigger.current;
+    const html = document.documentElement;
+    const overflow = html.style.overflow;
+    html.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Tab" || !dialog.current) return;
+      const stops = [
+        ...dialog.current.querySelectorAll<HTMLElement>("a[href], button:not([disabled]), input, select, textarea"),
+      ].filter((el) => el.offsetParent !== null);
+      if (stops.length === 0) return;
+      const at = stops.indexOf(document.activeElement as HTMLElement);
+      const next = e.shiftKey ? (at <= 0 ? stops.length - 1 : at - 1) : at === stops.length - 1 ? 0 : at + 1;
+      e.preventDefault();
+      stops[next]?.focus();
+    };
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      html.style.overflow = overflow;
+      const back = before && before.isConnected && before !== document.body ? before : button;
+      back?.focus();
+    };
+  }, [open]);
 
   // Search keys computed once per index, not on every keystroke.
   const prepared = useMemo(() => (entries ?? []).map(prepare), [entries]);
@@ -199,6 +231,7 @@ export function GlobalSearch() {
   return (
     <>
       <button
+        ref={trigger}
         type="button"
         onClick={() => setOpen(true)}
         // The index starts loading as soon as the button is aimed at, so the
@@ -208,7 +241,7 @@ export function GlobalSearch() {
         onTouchStart={() => void load(locale)}
         aria-label={t("search.open")}
         aria-keyshortcuts="Control+K Meta+K"
-        className="bevel-sm flex h-9 min-w-9 items-center justify-center gap-2 bg-night-800 px-2 text-sm text-chalk-300 transition-colors hover:bg-night-700 hover:text-gold-300 active:translate-y-px sm:px-2.5"
+        className="bevel-sm flex h-9 min-w-9 shrink-0 max-sm:h-11 max-sm:min-w-11 items-center justify-center gap-2 bg-night-800 px-2 text-sm text-chalk-300 transition-colors hover:bg-night-700 hover:text-gold-300 active:translate-y-px sm:px-2.5"
       >
         <Search size={16} aria-hidden />
         <span className="hidden 2xl:inline">{t("search.open")}</span>
@@ -221,10 +254,11 @@ export function GlobalSearch() {
           onClick={() => close()}
         >
           <div
+            ref={dialog}
             role="dialog"
             aria-modal="true"
             aria-label={t("search.open")}
-            className="bevel flex max-h-[75vh] w-full max-w-xl flex-col border border-night-700 bg-night-900 shadow-2xl shadow-black/50"
+            className="bevel flex max-h-[75dvh] w-full max-w-xl flex-col border border-night-700 bg-night-900 shadow-2xl shadow-black/50"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center gap-3 border-b border-night-800 px-4">

@@ -14,6 +14,7 @@
     "homeDescription": "Base de conocimiento de Mobile Legends: Bang Bang: los {heroes} héroes, sus counters y builds por rango, la tier list, los objetos, emblemas y notas del parche.",
     "siblings": "Otras páginas al mismo nivel que {name}",
     "filter": "Filtrar…",
+    "clearFilters": "Borrar filtros",
     "contents": "Índice",
     "readMore": "Más información",
     "method": "Método y fuentes",
@@ -482,6 +483,7 @@
     },
     "itemsList": {
       "search": "Buscar un objeto, una estadística, una pasiva",
+      "none": "Ningún objeto coincide con estos filtros.",
       "account": "{n} objetos",
       "countOf": "de {total}",
       "price": "Precio:",
@@ -6213,7 +6215,7 @@
       "iosInstall": "En iPhone y iPad, instala primero el sitio: Compartir y luego «Añadir a pantalla de inicio». Después ábrelo desde su icono para activar las notificaciones.",
       "error": "No funcionó. Inténtalo de nuevo en un momento.",
       "life": "Para ello, el servidor mantiene la dirección de notificación de este navegador y la lista de tus favoritos hasta que desactives las notificaciones.",
-      "privacyLink": "Más información"
+      "privacyLink": "Leer la política de privacidad"
     }
   },
   "skinAvailability": {
@@ -6892,7 +6894,7 @@
   "consent": {
     "title": "Cookies de medición de audiencia",
     "text": "Con tu consentimiento, MLBBDex usa cookies para saber cuántos visitantes vuelven. La medición se hace con Matomo, instalado en el propio servidor del sitio: sin publicidad, sin rastreo de terceros, sin venta de datos. Si las rechazas, sigue de forma anónima, sin cookies.",
-    "more": "Más información",
+    "more": "Leer la política de privacidad",
     "accept": "Aceptar",
     "refuse": "Rechazar",
     "keep": "Mantener mi elección actual",

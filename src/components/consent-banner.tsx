@@ -72,7 +72,8 @@ export function ConsentBanner() {
         >
           <div aria-hidden className="eclat-rule" />
           <div className="page-wrap flex flex-col gap-3 py-3 sm:py-4 md:flex-row md:items-center md:gap-6">
-            <span aria-hidden className="-my-2 hidden shrink-0 self-end md:block">
+            {/* Not aria-hidden: Dex holds his "talk to Dex" button, which must stay reachable. */}
+            <span className="-my-2 hidden shrink-0 self-end md:block">
               <Dex pose="idee" height={84} still />
             </span>
             <div className="min-w-0 flex-1">

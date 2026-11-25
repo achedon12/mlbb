@@ -9,7 +9,7 @@ import { DexSays } from "@/components/mascot";
 import { ENTRANCE } from "@/components/poster-header";
 import { SkinTile } from "@/components/skins/skin-tile";
 import { ChoiceUnique } from "@/components/chip";
-import { ChipActive, FilterBar } from "@/components/filter-bar";
+import { ChipActive, FilterBar, ResetFilters } from "@/components/filter-bar";
 import { useLocale, useT } from "@/i18n/provider";
 import { RARITY_ORIGIN, RARITIES } from "@/lib/rarities";
 import { uniqueAnchors, filterGroups, imageOfThumb, type GroupSkins } from "@/lib/skins";
@@ -114,6 +114,12 @@ export function SkinGallery({
     ...(role ? [["role", role] as [string, string]] : []),
   ]);
   const count = new Intl.NumberFormat(locale);
+  const filtered = !!search.trim() || role !== null;
+  const reset = () => {
+    setSearch("");
+    setRole(null);
+    setPage(1);
+  };
   const plural = new Intl.PluralRules(locale);
 
   return (
@@ -124,6 +130,7 @@ export function SkinGallery({
             {results.length === 0 ? (
               <DexSays pose="surpris" height={110} className="mt-10">
                 <p className="text-chalk-200">{t("pages.heroesList.none")}</p>
+                {filtered && <ResetFilters onClick={reset} />}
               </DexSays>
             ) : (
               <div className="space-y-12 sm:space-y-16">
@@ -209,6 +216,7 @@ export function SkinGallery({
             />
           )
         }
+        clear={filtered ? { label: t("common.clearFilters"), onClick: reset } : undefined}
         count={
           <span aria-live="polite">
             {t("pages.skinsGallery.account", { h: results.length, n: count.format(total) })}

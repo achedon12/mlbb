@@ -10,7 +10,7 @@ import { useT } from "@/i18n/provider";
 import { SearchField } from "@/components/search-field";
 import { useSearchReport } from "@/components/use-search-report";
 import { FilterGroup, Chip } from "@/components/chip";
-import { ChipActive, FilterBar } from "@/components/filter-bar";
+import { ChipActive, FilterBar, ResetFilters } from "@/components/filter-bar";
 import { imageLane, imageRole } from "@/lib/emblems";
 import { pageHref, paging, pathWithoutPage, slicePage, SIZE_CARDS } from "@/lib/pager";
 import { cn, keySearch } from "@/lib/utils";
@@ -128,6 +128,14 @@ export function HeroList({
     set(v);
     setPage(1);
   };
+  // Search, role and lane narrow the list; the sort only orders it.
+  const filtered = !!search.trim() || role !== null || lane !== null;
+  const reset = () => {
+    setSearch("");
+    setRole(null);
+    setLane(null);
+    setPage(1);
+  };
   const request = new URLSearchParams([
     ...(search.trim() ? [["q", search.trim()] as [string, string]] : []),
     ...(role ? [["role", role] as [string, string]] : []),
@@ -154,6 +162,7 @@ export function HeroList({
             ) : (
               <DexSays pose="triste" height={130} className="mt-10">
                 <p>{t("pages.heroesList.none")}</p>
+                {filtered && <ResetFilters onClick={reset} />}
               </DexSays>
             )}
             <Pager paging={view} href={(n) => pageHref("/heroes", request, n)} onNavigate={setPage} t={t} />
@@ -177,6 +186,7 @@ export function HeroList({
             )}
           </>
         }
+        clear={filtered ? { label: t("common.clearFilters"), onClick: reset } : undefined}
         count={
           <span aria-live="polite">
             {t("pages.heroesList.account", { n: results.length })}

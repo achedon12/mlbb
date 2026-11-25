@@ -7,7 +7,6 @@ import { freshnessFacts } from "@/components/freshness";
 import { PageSourcesBlock } from "@/components/page-sources";
 import { GuideLink } from "@/components/guide";
 import { guideOfLane } from "@/lib/guides";
-import { Foldable } from "@/components/foldable";
 import { ActionLink, BadgeTier } from "@/components/ui";
 import { HeroTile } from "@/components/hero-tile";
 import { ShareImageButton } from "@/components/share-image-button";
@@ -48,7 +47,8 @@ import {
   moversFor,
   patchChangesFor,
 } from "@/lib/tier-list-extras";
-import { TierLines, type RowTier } from "./tier-lines";
+import type { RowTier } from "./tier-lines";
+import { TierFold } from "./tier-fold";
 import { TierRows, type TierRow } from "./tier-rows";
 import { TierTiles } from "./tier-tiles";
 import type { LabelsPeek, PeekDict } from "./tier-peek";
@@ -56,7 +56,7 @@ import { TierTrack } from "./tier-track";
 import { AlsoSee, PatchChanges, ShortAnswer, type ListNext, type PickNext } from "./tier-extras";
 
 /** Faces shown on the head of a folded tier. */
-const FACES = 10;
+const FACES = 5;
 /** A tier as an id fragment: "S+" is not a valid one. */
 const tierId = (tier: Tier) => tier.replace("+", "-plus").toLowerCase();
 
@@ -592,11 +592,16 @@ export function TierList({
                     peekLabels={peekLabels}
                   />
                 ) : (
-                  // The rows stay in the document, closed: a crawler and the
-                  // page's search still read all of them.
-                  <Foldable label={t("pages.tierList.openTier", { n: entries.length, p: tier })} className="mt-4">
-                    <TierLines rows={rows} labels={labels} dict={dictOf(rows)} peekLabels={peekLabels} />
-                  </Foldable>
+                  // Closed, the tier holds only its heroes' names and links
+                  // (a crawler and the page's search still read them); the
+                  // full rows, their pictures and previews, mount on opening.
+                  <TierFold
+                    label={t("pages.tierList.openTier", { n: entries.length, p: tier })}
+                    rows={rows}
+                    labels={labels}
+                    dict={dictOf(rows)}
+                    peekLabels={peekLabels}
+                  />
                 )}
               </section>
             );
