@@ -42,6 +42,13 @@ for (const { name: size, width, height } of WIDTHS) {
         const rows = [...document.querySelectorAll("body *")]
           .map((el) => ({ el, right: Math.round(el.getBoundingClientRect().right) }))
           .filter(({ right }) => right > vw + 1)
+          // Inside a scrolling or clipping box, a wide child does not widen the page.
+          .filter(({ el }) => {
+            for (let p = el.parentElement; p && p !== document.body; p = p.parentElement) {
+              if (["auto", "scroll", "hidden", "clip"].includes(getComputedStyle(p).overflowX)) return false;
+            }
+            return true;
+          })
           .sort((x, y) => y.right - x.right)
           .slice(0, 12)
           .map(({ el, right }) => {
