@@ -16,9 +16,9 @@ import Link from "@/components/link";
 import { HeroPortrait } from "@/components/hero-portrait";
 import { HeroTile } from "@/components/hero-tile";
 import { GlyphPanel } from "@/components/glyph-panel";
-import { Dex } from "@/components/mascot";
+import { Dex, DexSays } from "@/components/mascot";
 import motion from "@/components/catalogue-motion.module.css";
-import { ChipActive, FilterBar } from "@/components/filter-bar";
+import { ChipActive, FilterBar, ResetFilters } from "@/components/filter-bar";
 import { Drawer } from "@/components/drawer";
 import { Pager } from "@/components/pager";
 import { pageHref, paging, pathWithoutPage, slicePage, SIZE_CARDS } from "@/lib/pager";
@@ -169,6 +169,13 @@ export function ItemList({
 
   const item = items.find((o) => o.slug === active) ?? null;
 
+  const filtered = !!search.trim() || category !== null;
+  const reset = () => {
+    setSearch("");
+    setCategory(null);
+    setPage(1);
+  };
+
   // Recipes name their components: we find them by name, and read
   // recipes backwards to know what each item is used to craft.
   const catalog = useMemo<Catalog>(
@@ -212,6 +219,7 @@ export function ItemList({
             />
           )
         }
+        clear={filtered ? { label: t("common.clearFilters"), onClick: reset } : undefined}
         count={
           <span aria-live="polite">
             {t("pages.itemsList.account", { n: results.length })}
@@ -302,6 +310,12 @@ export function ItemList({
               );
             })}
           </ul>
+          {slice.length === 0 && (
+            <DexSays pose="triste" height={130} className="mt-10">
+              <p>{t("pages.itemsList.none")}</p>
+              {filtered && <ResetFilters onClick={reset} />}
+            </DexSays>
+          )}
           <Pager paging={view} href={(n) => pageHref("/items", null, n)} onNavigate={setPage} t={t} />
         </div>
 

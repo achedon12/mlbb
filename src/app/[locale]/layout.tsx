@@ -22,12 +22,22 @@ import { PRERENDERED_LOCALES } from "@/lib/prerender";
 /**
  * Self-hosted fonts: `next/font` downloads them at build time and serves them
  * from the site — no third-party request on load.
+ *
+ * Preloads are kept for the faces of the first screen: Inter (body text,
+ * `display: optional`, which only shows if it arrives in time) and Saira
+ * Extra Condensed (the wordmark, the hero names, the page titles). Five
+ * preloads, about 100 KB, competed with the page itself on a phone. Barlow
+ * Condensed is no longer preloaded: `next/font` preloads a whole family or
+ * none of it — splitting its weights would make two families and break the
+ * weight matching — and its fallback is metric-adjusted, so the labels and
+ * buttons it draws swap in place, without moving.
  */
 const heading = Barlow_Condensed({
   subsets: ["latin"],
   weight: ["600", "700"],
   variable: "--heading-font",
   display: "swap",
+  preload: false,
 });
 // The display type (hero names, page and section titles, score figures):
 // Saira Extra Condensed, the face of the wordmark. It has no italic of its

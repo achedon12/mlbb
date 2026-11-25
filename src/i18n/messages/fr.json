@@ -14,6 +14,7 @@
     "homeDescription": "Base de connaissances Mobile Legends: Bang Bang : les {heroes} héros, leurs contres et builds par rang, la tier list, les objets, emblèmes et patch notes.",
     "siblings": "Autres pages au même niveau que {name}",
     "filter": "Filtrer…",
+    "clearFilters": "Effacer les filtres",
     "contents": "Sommaire",
     "readMore": "En savoir plus",
     "method": "Méthode et sources",
@@ -487,6 +488,7 @@
     },
     "itemsList": {
       "search": "Rechercher un objet, une statistique, un passif",
+      "none": "Aucun objet ne correspond à ces filtres.",
       "account": "{n} objets",
       "countOf": "sur {total}",
       "price": "Prix :",
@@ -6169,7 +6171,9 @@
       "code": "Le code doit comporter quatre chiffres.",
       "unknown": "Aucun compte ne correspond à cet identifiant et ce serveur.",
       "unavailable": "Le service est momentanément indisponible.",
-      "wrongCode": "Code incorrect ou expiré."
+      "wrongCode": "Code incorrect ou expiré.",
+      "tooMany": "Trop de tentatives. Patientez quelques minutes, puis réessayez.",
+      "tooManyAttempts": "Trop de codes erronés. Demandez un nouveau code pour réessayer."
     },
     "steps": "Étapes de connexion",
     "step1": "Votre identifiant",
@@ -6235,7 +6239,7 @@
       "iosInstall": "Sur iPhone et iPad, installez d'abord le site : Partager, puis « Sur l'écran d'accueil ». Ouvrez-le ensuite depuis son icône pour activer les notifications.",
       "error": "Ça n'a pas marché. Réessaie dans un instant.",
       "life": "Pour cela, le serveur conserve l'adresse de notification de ce navigateur et la liste de vos favoris, jusqu'à ce que vous désactiviez les notifications.",
-      "privacyLink": "En savoir plus"
+      "privacyLink": "Lire la politique de confidentialité"
     }
   },
   "skinAvailability": {
@@ -6914,7 +6918,7 @@
   "consent": {
     "title": "Cookies de mesure d'audience",
     "text": "Avec votre accord, MLBBDex dépose des cookies pour savoir combien de visiteurs reviennent. La mesure est faite par Matomo, installé sur le serveur du site : pas de publicité, pas de pistage par des tiers, aucune donnée vendue. Si vous refusez, elle continue sans cookie, de façon anonyme.",
-    "more": "En savoir plus",
+    "more": "Lire la politique de confidentialité",
     "accept": "Accepter",
     "refuse": "Refuser",
     "keep": "Garder mon choix actuel",

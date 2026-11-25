@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { CloudUpload, X } from "lucide-react";
-import Link from "@/components/link";
+import { LoginLink } from "@/components/login-link";
 import { useT } from "@/i18n/provider";
 import { trackEvent } from "@/lib/analytics";
 import {
@@ -52,8 +52,8 @@ export function AccountPromptCard({ moment, onClose }: { moment: PromptMoment; o
         <p className="font-heading text-sm font-bold leading-tight text-chalk-100 sm:text-base">{t(`accountSync.prompt.${moment}.title`)}</p>
         <p className="mt-0.5 line-clamp-2 text-xs leading-snug text-chalk-400">{t("accountSync.prompt.text")}</p>
       </div>
-      <Link
-        href="/login?from=prompt"
+      <LoginLink
+        query={{ from: "prompt" }}
         onClick={() => {
           trackEvent("Account", "Sign in from prompt", moment);
           rememberFollowed();
@@ -61,7 +61,7 @@ export function AccountPromptCard({ moment, onClose }: { moment: PromptMoment; o
         className="bevel-sm shrink-0 bg-gold-500 px-3 py-1.5 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400"
       >
         {t("accountSync.prompt.action")}
-      </Link>
+      </LoginLink>
       <button
         type="button"
         onClick={dismiss}

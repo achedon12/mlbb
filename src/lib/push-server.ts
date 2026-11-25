@@ -196,15 +196,28 @@ export const idSubscriber = (endpoint: string) => createHash("sha256").update(en
 
 // ── Rate limiting ──────────────────────────────────────────────────
 
-/** Fixed window per address, as for the client log. */
-export function limitByMinute(maximum: number): (address: string) => boolean {
+/**
+ * Fixed window per address, as for the client log. Past 5,000 tracked
+ * addresses, the finished windows are dropped first, then the oldest:
+ * flooding the map with fresh addresses must not reset the live windows.
+ */
+export function limitByMinute(maximum: number, max = 5_000): (address: string) => boolean {
   const tracked = new Map<string, { start: number; count: number }>();
   return (address) => {
     const now = Date.now();
     const tracking = tracked.get(address);
     if (!tracking || now - tracking.start > 60_000) {
-      if (tracked.size > 5_000) tracked.clear();
+      tracked.delete(address);
       tracked.set(address, { start: now, count: 1 });
+      if (tracked.size > max) {
+        for (const [key, window] of tracked) {
+          if (now - window.start > 60_000) tracked.delete(key);
+        }
+        for (const old of tracked.keys()) {
+          if (tracked.size <= max) break;
+          tracked.delete(old);
+        }
+      }
       return true;
     }
     tracking.count += 1;

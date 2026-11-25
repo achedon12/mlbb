@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import { Cloud, CloudOff, Download, HardDrive, Upload, X } from "lucide-react";
 import { BrandSpinner } from "@/components/dex-states";
-import Link from "@/components/link";
+import { LoginLink } from "@/components/login-link";
 import { classesChip } from "@/components/chip";
 import { useT } from "@/i18n/provider";
 import type { StoredOwnership } from "@/lib/collection";
@@ -43,9 +43,9 @@ export function SyncLine({ status, notice, onDismiss }: { status: SyncStatus; no
           {status === "signedOut" && (
             <>
               {" "}
-              <Link href="/login" className="font-semibold text-gold-400 hover:text-gold-500">
+              <LoginLink className="font-semibold text-gold-400 hover:text-gold-500">
                 {t("pages.collectionUI.syncSignIn")}
-              </Link>
+              </LoginLink>
             </>
           )}
         </span>

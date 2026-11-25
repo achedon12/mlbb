@@ -19,6 +19,7 @@ export function Foldable({
   open = false,
   id,
   className,
+  onToggle,
   children,
 }: {
   /** Summary line, always visible ("Method and sources"). */
@@ -27,12 +28,15 @@ export function Foldable({
   open?: boolean;
   id?: string;
   className?: string;
+  /** Opened or closed, for a client caller that mounts its content on the first opening. */
+  onToggle?: (open: boolean) => void;
   children: React.ReactNode;
 }) {
   return (
     <details
       id={id}
       open={open}
+      onToggle={onToggle && ((e) => onToggle(e.currentTarget.open))}
       className={cn("foldable bevel group border border-night-700/70 bg-night-900/60", className)}
     >
       <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-3 font-heading text-sm font-bold text-gold-400 outline-none transition-colors hover:text-gold-500 focus-visible:ring-2 focus-visible:ring-gold-400 sm:text-base [&::-webkit-details-marker]:hidden">

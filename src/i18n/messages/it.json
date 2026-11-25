@@ -14,6 +14,7 @@
     "homeDescription": "Base di conoscenza di Mobile Legends: Bang Bang: i {heroes} eroi, i loro counter e le build per rango, la tier list, gli oggetti, gli emblemi e le patch notes.",
     "siblings": "Altre pagine allo stesso livello di {name}",
     "filter": "Filtra…",
+    "clearFilters": "Azzera i filtri",
     "contents": "Sommario",
     "readMore": "Scopri di più",
     "method": "Metodo e fonti",
@@ -487,6 +488,7 @@
     },
     "itemsList": {
       "search": "Cerca un oggetto, una statistica, una passiva",
+      "none": "Nessun oggetto corrisponde a questi filtri.",
       "account": "{n} oggetti",
       "countOf": "su {total}",
       "price": "Prezzo:",
@@ -6169,7 +6171,9 @@
       "code": "Il codice deve essere lungo quattro cifre.",
       "unknown": "Nessun account corrisponde a questo ID e server.",
       "unavailable": "Il servizio è momentaneamente non disponibile.",
-      "wrongCode": "Codice errato o scaduto."
+      "wrongCode": "Codice errato o scaduto.",
+      "tooMany": "Troppi tentativi. Aspetta qualche minuto, poi riprova.",
+      "tooManyAttempts": "Troppi codici errati. Richiedi un nuovo codice per riprovare."
     },
     "steps": "Passaggi di connessione",
     "step1": "Il tuo documento d'identità",
@@ -6235,7 +6239,7 @@
       "iosInstall": "Su iPhone e iPad, installa prima il sito: Condividi, poi «Aggiungi alla schermata Home». Poi aprilo dalla sua icona per attivare le notifiche.",
       "error": "Non ha funzionato. Riprova tra un attimo.",
       "life": "Per fare ciò, il server conserva l'indirizzo di notifica di questo browser e l'elenco dei tuoi preferiti finché non disattivi le notifiche.",
-      "privacyLink": "Scopri di più"
+      "privacyLink": "Leggi l'informativa sulla privacy"
     }
   },
   "skinAvailability": {
@@ -6914,7 +6918,7 @@
   "consent": {
     "title": "Cookie di misurazione del pubblico",
     "text": "Con il tuo consenso, MLBBDex usa dei cookie per sapere quanti visitatori tornano. La misurazione è fatta con Matomo, installato sul server del sito: niente pubblicità, nessun tracciamento da parte di terzi, nessun dato venduto. Se rifiuti, continua in forma anonima, senza cookie.",
-    "more": "Scopri di più",
+    "more": "Leggi l'informativa sulla privacy",
     "accept": "Accetta",
     "refuse": "Rifiuta",
     "keep": "Mantieni la mia scelta attuale",

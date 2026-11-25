@@ -2,11 +2,15 @@ import { LightImage } from "@/components/light-image";
 import Link from "@/components/link";
 import { cn } from "@/lib/utils";
 
-/** Chip styling, reused by links that play the same role. */
+/**
+ * Chip styling, reused by links that play the same role. A finger-sized
+ * target: 40 px high (36 px for the dense ones) with a pointer, 44 px on a
+ * phone, the label centred whatever the height.
+ */
 export function classesChip(active: boolean, dense = false) {
   return cn(
-    "bevel-sm font-medium transition-[background-color,color,transform] active:translate-y-px",
-    dense ? "px-2.5 py-1 text-xs" : "px-3 py-1.5 text-sm",
+    "bevel-sm inline-flex items-center justify-center font-medium transition-[background-color,color,transform] active:translate-y-px max-sm:min-h-11",
+    dense ? "min-h-9 px-2.5 py-1 text-xs" : "min-h-10 px-3 py-1.5 text-sm",
     active
       ? "bg-gold-400 text-night-950"
       : "bg-night-800 text-chalk-300 hover:bg-night-700 hover:text-gold-300",

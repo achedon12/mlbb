@@ -14,6 +14,7 @@
     "homeDescription": "Basis pengetahuan Mobile Legends: Bang Bang: {heroes} hero, counter dan build mereka berdasarkan peringkat, tier list, item, emblem, dan patch notes.",
     "siblings": "Halaman lain pada level yang sama dengan {name}",
     "filter": "Filter…",
+    "clearFilters": "Hapus filter",
     "contents": "Daftar isi",
     "readMore": "Pelajari lebih lanjut",
     "method": "Metode dan sumber",
@@ -487,6 +488,7 @@
     },
     "itemsList": {
       "search": "Cari item, stat, pasif",
+      "none": "Tidak ada item yang cocok dengan filter ini.",
       "account": "{n} item",
       "countOf": "pada {total}",
       "price": "Harga:",
@@ -6169,7 +6171,9 @@
       "code": "Panjang kode harus empat digit.",
       "unknown": "Tidak ada akun yang cocok dengan nama pengguna dan server ini.",
       "unavailable": "Layanan ini untuk sementara tidak tersedia.",
-      "wrongCode": "Kode salah atau kedaluwarsa."
+      "wrongCode": "Kode salah atau kedaluwarsa.",
+      "tooMany": "Terlalu banyak percobaan. Tunggu beberapa menit, lalu coba lagi.",
+      "tooManyAttempts": "Terlalu banyak kode salah. Minta kode baru untuk mencoba lagi."
     },
     "steps": "Langkah-langkah koneksi",
     "step1": "tanda pengenal Anda",
@@ -6235,7 +6239,7 @@
       "iosInstall": "Di iPhone dan iPad, instal situsnya terlebih dahulu: Bagikan, lalu “Di layar beranda”. Kemudian buka dari ikonnya untuk mengaktifkan notifikasi.",
       "error": "Itu tidak berhasil. Coba lagi sebentar lagi.",
       "life": "Untuk melakukan ini, server menyimpan alamat notifikasi browser ini dan daftar favorit Anda hingga Anda menonaktifkan notifikasi.",
-      "privacyLink": "Pelajari lebih lanjut"
+      "privacyLink": "Baca kebijakan privasi"
     }
   },
   "skinAvailability": {
@@ -6914,7 +6918,7 @@
   "consent": {
     "title": "Cookie pengukuran audiens",
     "text": "Dengan persetujuan Anda, MLBBDex memasang cookie untuk mengetahui berapa banyak pengunjung yang kembali. Pengukuran dilakukan dengan Matomo, yang terpasang di server situs ini sendiri: tanpa iklan, tanpa pelacakan pihak ketiga, tidak ada data yang dijual. Jika Anda menolak, pengukuran tetap berjalan secara anonim, tanpa cookie.",
-    "more": "Pelajari lebih lanjut",
+    "more": "Baca kebijakan privasi",
     "accept": "Terima",
     "refuse": "Tolak",
     "keep": "Pertahankan pilihan saya saat ini",

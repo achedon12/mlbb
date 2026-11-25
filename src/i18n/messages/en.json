@@ -14,6 +14,7 @@
     "homeDescription": "Mobile Legends: Bang Bang knowledge base: all {heroes} heroes, their counters and builds by rank, the tier list, items, emblems and patch notes.",
     "siblings": "Other pages at the same level as {name}",
     "filter": "Filter…",
+    "clearFilters": "Clear filters",
     "contents": "Contents",
     "readMore": "Learn more",
     "method": "Method and sources",
@@ -487,6 +488,7 @@
     },
     "itemsList": {
       "search": "Search for an item, stat or passive",
+      "none": "No item matches these filters.",
       "account": "{n} items",
       "countOf": "of {total}",
       "price": "Price:",
@@ -6169,7 +6171,9 @@
       "code": "The code must be four digits.",
       "unknown": "No account matches this ID and server.",
       "unavailable": "The service is temporarily unavailable.",
-      "wrongCode": "Incorrect or expired code."
+      "wrongCode": "Incorrect or expired code.",
+      "tooMany": "Too many attempts. Wait a few minutes, then try again.",
+      "tooManyAttempts": "Too many wrong codes. Request a new code to try again."
     },
     "steps": "Connection steps",
     "step1": "Your ID",
@@ -6235,7 +6239,7 @@
       "iosInstall": "On iPhone and iPad, install the site first: Share, then “Add to Home Screen”. Then open it from its icon to turn on notifications.",
       "error": "That didn't work. Try again in a moment.",
       "life": "To do this, the server keeps this browser's notification address and your list of favorites until you turn it off.",
-      "privacyLink": "Learn more"
+      "privacyLink": "Read our privacy policy"
     }
   },
   "skinAvailability": {
@@ -6914,7 +6918,7 @@
   "consent": {
     "title": "Audience measurement cookies",
     "text": "With your consent, MLBBDex sets cookies to see how many visitors come back. Measurement is done with Matomo, installed on the site's own server: no ads, no third-party tracking, no data sold. If you refuse, it carries on anonymously, without cookies.",
-    "more": "Learn more",
+    "more": "Read our privacy policy",
     "accept": "Accept",
     "refuse": "Reject",
     "keep": "Keep my current choice",
