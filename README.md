@@ -242,11 +242,19 @@ sync, branches, CI and deployment, API, translations.
 ## Deployment
 
 ```bash
-docker compose up -d --build
+sh scripts/deploy.sh             # build, then start the release next to the running one
+sh scripts/deploy.sh --no-build  # apply a .env change, same way
 ```
 
-The service listens on `127.0.0.1:3003` by default (the `PORT` variable; 3001
-inside the container) and belongs behind a reverse proxy. The final image
+The site runs in one of two slots, `mlbb` on `127.0.0.1:3003` (the `PORT`
+variable) and `mlbb-b` on `127.0.0.1:3004` (`PORT_B`), 3001 inside the
+container. The script starts the new release in the free slot, waits until it
+answers on `/api/health`, then stops the other one; if the release never
+answers, the running slot keeps serving. The reverse proxy lists both slots,
+the first as primary and the second as backup (nginx: `server
+127.0.0.1:3003 max_fails=1 fail_timeout=2s; server 127.0.0.1:3004 backup;`), so
+a deployment never takes the site down. Avoid a bare `docker compose up -d` on
+the server: it recreates the primary slot in place. The final image
 contains no sources and no build toolchain: only the Next server in
 `standalone` mode, its static assets and `public/`. The container runs without
 privileges, with a read-only filesystem and all capabilities dropped. Three
@@ -272,7 +280,7 @@ enable it:
 2. in the server's `.env`: `VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`,
    `VAPID_SUBJECT` (`mailto:…` or `https://…`), and if needed
    `PUSH_ADMIN_TOKEN` (see `.env.example`);
-3. `docker compose up -d`: the keys are read at startup, no rebuild needed.
+3. `sh scripts/deploy.sh --no-build`: the keys are read at startup, no rebuild needed.
 
 Without these keys, the feature is hidden. Subscriptions (notification service
 address, encryption keys, language, favorite slugs) are stored in
