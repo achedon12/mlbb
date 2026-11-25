@@ -53,7 +53,8 @@
     "watch": "node scripts/watch.mjs",
     "translate:messages": "node scripts/translate-messages.mjs",
     "translate:data": "node scripts/translate-data.mjs",
-    "translate:articles": "node scripts/translate-articles.mjs"
+    "translate:articles": "node scripts/translate-articles.mjs",
+    "readme:poster": "node scripts/readme-poster.mjs"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.10.1",
